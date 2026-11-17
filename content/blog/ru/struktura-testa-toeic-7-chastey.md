@@ -9,7 +9,7 @@ tags: [toeic, test-format, listening, reading]
 keyword: "структура теста toeic"
 cover: toeic
 coverAlt: "Раздел TOEIC в Lexkite: семь пробных тестов с автоматической проверкой, практика по частям и словарь TOEIC"
-publishAt:
+publishAt: 2027-01-16T19:00:00+03:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

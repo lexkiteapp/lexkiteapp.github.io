@@ -10,7 +10,7 @@ keyword: "percaya diri berbicara bahasa inggris"
 cover: practice-speak
 coverAlt: "Latihan pelafalan Lexkite yang menilai frasa cut down on, dengan tombol mikrofon untuk berbicara"
 coverArt: {mood: cheer, icon: chat}
-publishAt:
+publishAt: 2027-01-01T08:12:00+07:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

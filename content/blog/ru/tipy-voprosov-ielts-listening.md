@@ -9,7 +9,7 @@ tags: [ielts, listening, question-types, strategy]
 keyword: "типы вопросов ielts listening"
 cover: listening
 coverAlt: "Список тренировок по аудированию в Lexkite: записи, сгруппированные по уровням"
-publishAt:
+publishAt: 2027-01-17T09:36:00+03:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

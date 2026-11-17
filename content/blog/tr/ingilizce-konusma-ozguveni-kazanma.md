@@ -9,7 +9,7 @@ tags: [speaking, confidence, everyday-english, phrases]
 keyword: "ingilizce konuşma özgüveni"
 cover: practice-speak
 coverAlt: "Lexkite telaffuz pratiği: cut down on ifadesi puanlanıyor ve mikrofon düğmesi görünüyor"
-publishAt:
+publishAt: 2027-01-19T08:56:00+03:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

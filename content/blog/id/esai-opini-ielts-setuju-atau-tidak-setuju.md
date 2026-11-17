@@ -12,7 +12,7 @@ coverAlt: "Ruang Writing Lexkite dengan soal esai per topik, petunjuk ide, dan k
 factChecked: 2026-11-16
 author: Lexkite
 status: ready
-publishAt:
+publishAt: 2027-01-08T19:25:00+07:00
 qualityScore: 91
 coverArt: {mood: think, icon: pen}
 shots: [

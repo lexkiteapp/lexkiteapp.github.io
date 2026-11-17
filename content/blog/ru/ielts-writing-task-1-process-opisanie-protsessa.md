@@ -9,7 +9,7 @@ tags: [ielts, writing, task-1, process-diagram, passive-voice]
 keyword: "ielts writing task 1 процесс"
 cover: write
 coverAlt: "Раздел Writing в Lexkite с заданиями и планом отчёта"
-publishAt:
+publishAt: 2027-01-09T09:58:00+03:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

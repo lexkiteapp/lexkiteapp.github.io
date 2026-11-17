@@ -12,7 +12,7 @@ coverAlt: "Halaman latihan Lexkite dengan permainan dan latihan, termasuk tes da
 factChecked: 2026-11-16
 author: Lexkite
 status: ready
-publishAt:
+publishAt: 2027-01-09T12:23:00+07:00
 qualityScore: 90
 coverArt: {mood: happy, icon: book}
 shots: [

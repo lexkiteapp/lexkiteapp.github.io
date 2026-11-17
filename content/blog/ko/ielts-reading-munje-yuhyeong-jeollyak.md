@@ -9,7 +9,7 @@ tags: [ielts, reading, question-types, strategy]
 keyword: "아이엘츠 리딩 문제 유형"
 cover: reading
 coverAlt: "Lexkite 리딩 목록: A2부터 C1까지 난이도별 지문"
-publishAt:
+publishAt: 2027-01-08T19:15:00+09:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

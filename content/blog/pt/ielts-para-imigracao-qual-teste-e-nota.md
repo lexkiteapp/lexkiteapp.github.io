@@ -9,7 +9,7 @@ tags: [ielts, immigration, ielts-general, canada, australia]
 keyword: "ielts para imigração"
 cover: goal
 coverAlt: "Tela de meta do Lexkite para escolher exame, nota-alvo, data da prova e horas semanais de estudo"
-publishAt:
+publishAt: 2027-01-22T12:39:00-03:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

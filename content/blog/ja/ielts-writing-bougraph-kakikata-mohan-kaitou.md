@@ -9,7 +9,7 @@ tags: [ielts, writing, task-1, bar-chart, academic]
 keyword: "ielts ライティング 棒グラフ 書き方"
 cover: write
 coverAlt: "LexkiteのWriting練習画面。お題と、レポートを書く前に構成を考えるための枠が表示されている"
-publishAt:
+publishAt: 2027-01-23T21:27:00+09:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

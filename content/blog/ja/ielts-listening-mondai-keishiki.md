@@ -9,7 +9,7 @@ tags: [ielts, listening, question-types, strategy]
 keyword: "ielts リスニング 問題形式"
 cover: listening
 coverAlt: "Lexkiteのリスニング練習画面。レベル別に録音が並んでいる"
-publishAt:
+publishAt: 2027-01-17T19:39:00+09:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

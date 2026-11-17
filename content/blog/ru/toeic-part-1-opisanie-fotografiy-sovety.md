@@ -9,7 +9,7 @@ tags: [toeic, listening, part-1, photographs]
 keyword: "toeic part 1"
 cover: toeic
 coverAlt: "Центр TOEIC в Lexkite с пробными тестами и тренировкой по частям"
-publishAt:
+publishAt: 2027-01-19T19:41:00+03:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

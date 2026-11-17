@@ -9,7 +9,7 @@ tags: [ielts, writing, task-2, opinion-essay]
 keyword: "ielts opinion essay nasıl yazılır"
 cover: write
 coverAlt: "Lexkite Writing odası: konulara göre gruplanmış essay soruları, fikir önerileri ve essay iskeleti"
-publishAt:
+publishAt: 2027-01-10T07:22:00+03:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

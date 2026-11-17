@@ -9,7 +9,7 @@ tags: [cambridge, b2-first, fce, exam-format]
 keyword: "ケンブリッジ英検 b2 first 試験内容"
 cover: practice
 coverAlt: "Lexkiteの練習ページ。ゲームやテスト、ライティングルームなどの練習メニューが並んでいる"
-publishAt:
+publishAt: 2027-01-09T08:05:00+09:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

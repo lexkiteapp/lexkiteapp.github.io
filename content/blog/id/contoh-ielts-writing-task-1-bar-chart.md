@@ -9,7 +9,7 @@ tags: [ielts, writing, task-1, bar-chart, academic]
 keyword: "ielts writing task 1 bar chart"
 cover: write
 coverAlt: "Ruang Writing Lexkite dengan soal latihan dan kerangka untuk merencanakan laporan"
-publishAt:
+publishAt: 2027-01-02T19:04:00+07:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

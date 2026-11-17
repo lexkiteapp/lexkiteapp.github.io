@@ -9,7 +9,7 @@ tags: [toeic, listening, part-3, part-4]
 keyword: "toeic listening part 3 dan 4"
 cover: toeic
 coverAlt: "Pusat TOEIC Lexkite dengan tes simulasi dan latihan per bagian"
-publishAt:
+publishAt: 2027-01-18T21:03:00+07:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

@@ -12,7 +12,7 @@ coverAlt: "Daftar latihan listening Lexkite dengan rekaman yang dikelompokkan me
 factChecked: 2026-11-16
 author: Lexkite
 status: ready
-publishAt:
+publishAt: 2027-01-15T20:16:00+07:00
 qualityScore: 92
 coverArt: {mood: think, icon: ear}
 shots: [
