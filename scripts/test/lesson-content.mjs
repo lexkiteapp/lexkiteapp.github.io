@@ -66,9 +66,9 @@ for (const [i, c] of all.entries()) {
 // 5) Câu song ngữ riêng (card.sentences[].vi): đề dịch KHÔNG được lấy x.vi cho người học không dùng tiếng Việt
 { const c0 = { word: 'meet', pos: 'verb', vi: 'gặp', def: 'to see someone', sentences: [{ en: 'Nice to meet you today.', vi: 'Rất vui được gặp bạn hôm nay.' }] };
   const trItems = (opts) => E.build([{ card: c0, why: 'new' }], Object.assign({ seed: 3, pool: [c0], off: { listen: false }, perWord: 8, match: false }, opts)).filter(i => i.type === 'tr');
-  ok(trItems({ gloss: () => '' }).length === 0, 'không có bản dịch tiếng mẹ đẻ → không sinh dạng dịch (không rơi về tiếng Việt)', 'pair/none');
-  ok(trItems({ gloss: () => 'Mucho gusto en conocerte hoy.' }).every(i => i.prompt === 'Mucho gusto en conocerte hoy.'), 'dạng dịch dùng bản dịch của ngôn ngữ người học', 'pair/es');
-  ok(trItems({ gloss: () => '', viOk: true }).every(i => /bạn/.test(i.prompt)), 'người học tiếng Việt vẫn dùng x.vi', 'pair/vi'); }
+  ok(trItems({ gloss: () => '', vi: false }).length === 0, 'không có bản dịch tiếng mẹ đẻ → không sinh dạng dịch (không rơi về tiếng Việt)', 'pair/none');
+  ok(trItems({ gloss: () => 'Mucho gusto en conocerte hoy.', vi: false }).every(i => i.prompt === 'Mucho gusto en conocerte hoy.'), 'dạng dịch dùng bản dịch của ngôn ngữ người học', 'pair/es');
+  ok(trItems({ gloss: () => '', vi: true }).every(i => /bạn/.test(i.prompt)), 'người học tiếng Việt vẫn dùng x.vi', 'pair/vi'); }
 console.log(`lesson-content: ${all.length} từ, ${n} bài dựng, ${total} phép kiểm, ${fails} lỗi`);
 for (const [m, l] of Object.entries(bad)) console.error(`✗ ${m}: ${l.length} – ${l.slice(0, 5).join(' | ')}`);
 process.exit(fails ? 1 : 0);
