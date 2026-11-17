@@ -79,6 +79,27 @@ ok(!prCapable('name: a\non:\n  push:\n    branches: [main]\n  schedule:\n    - c
 ok(!prCapable('name: a\non:\n  schedule:\n    - cron: \'0 0 * * *\'\n  workflow_dispatch:\njobs:\n  x:\n    if: github.event_name == \'pull_request\'\n'), 'chữ pull_request ngoài khối on: không tính');
 ok(!prCapable('name: a\non:\n  workflow_run:\n    workflows: [b]\njobs: {}\n'), 'workflow_run → không');
 
+// 16/11: job bị huỷ của lượt cũ (concurrency nhường lượt) khi lượt MỚI đang chạy → CHỜ, không đỏ (#1427, #1475: Stitch diff)
+{
+  const stitchNew = wr('Stitch diff', 'in_progress', null, 9, { id: 900 });
+  const a = evaluate({ checkRuns: [cr('npm test', 'completed', 'success'), cr('diff', 'completed', 'cancelled', 5)], workflowRuns: [stitchNew] });
+  ok(a.state === 'pending' && a.failed.length === 0 && /diff \(huỷ – chờ lượt mới\)/.test(a.description), 'job bị huỷ + lượt workflow mới đang chạy → CHỜ lượt mới: ' + a.description);
+  const b = evaluate({ checkRuns: [cr('npm test', 'completed', 'success'), cr('diff', 'completed', 'cancelled', 5)], workflowRuns: [wr('Stitch diff', 'completed', 'success', 9, { id: 900 })] });
+  ok(b.state === 'failure' && b.failed.some(x => x.startsWith('diff')), 'huỷ mà KHÔNG còn lượt nào chạy (lượt mới đã xong) → vẫn đỏ, không giấu');
+  const c = evaluate({ checkRuns: [cr('npm test', 'completed', 'success')], workflowRuns: [wr('Stitch diff', 'completed', 'cancelled', 9, { id: 900, run_attempt: MAX_AUTO_RERUN })] });
+  ok(c.state === 'pending' && c.cancelled.length === 1, 'workflow huỷ ở lần chạy lại thứ ' + MAX_AUTO_RERUN + ' vẫn được chạy lại (cap nâng 2→4)');
+}
+// 16/11: wip-guard startup_failure (GitHub brownout pull_request_target) là lỗi hạ tầng, không chặn PR xanh
+{
+  const wr2 = (name, conclusion, id = 1) => ({ name, path: `.github/workflows/${name}.yml`, workflow_id: id, status: 'completed', conclusion, run_number: 1, id, run_attempt: 1 });
+  const base = [cr('npm test', 'completed', 'success')];
+  const g = evaluate({ checkRuns: base, workflowRuns: [wr2('wip-guard', 'startup_failure', 7), wr2('npm test', 'success', 8)] });
+  ok(g.state === 'success' && g.infra.join() === 'wip-guard' && /bỏ qua wip-guard/.test(g.description) && g.description.length <= 140, 'wip-guard startup_failure → xanh, ghi chú hạ tầng: ' + g.description);
+  ok(evaluate({ checkRuns: base, workflowRuns: [wr2('wip-guard', 'failure', 7)] }).state === 'failure', 'wip-guard FAILURE thật vẫn đỏ');
+  ok(evaluate({ checkRuns: base, workflowRuns: [wr2('npm test', 'startup_failure', 8)] }).state === 'failure', 'workflow KHÁC startup_failure vẫn đỏ (không bỏ qua bừa)');
+  ok(evaluate({ workflowRuns: [wr2('wip-guard', 'startup_failure', 7)] }).state === 'pending', 'chỉ có wip-guard hỏng, chưa có check thật nào → vẫn CHỜ, không xanh');
+}
+
 // ---------- 3) workflow: bộ canh lịch, không quay lại ~20 runner/commit (3/11) ----------
 {
   const y = fs.readFileSync(new URL('../../.github/workflows/required-gate.yml', import.meta.url), 'utf8');
@@ -266,6 +287,13 @@ ok(!prCapable('name: a\non:\n  workflow_run:\n    workflows: [b]\njobs: {}\n'), 
     const huge = mk(1200);   // quá 10 trang → vẫn cắt cụt → dấu hiệu chờ (không đo được, không mở cổng oan)
     ok((await api('t', 'o/r', fake({ mainFiles: huge, prFiles: [{ filename: 'a.md', status: 'modified' }] })).drift('sha')).join() === '.github/workflows/(>300 tệp đổi)', 'main đổi > 1000 tệp (cắt cụt) → vẫn chờ');
     ok((await api('t', 'o/r', fake({ mainFiles: [learn], prFiles: mk(1200), src: srcs })).drift('sha')).join() === 'scripts/test/learn-flow.mjs', 'PR > 1000 tệp (không biết đủ) → tính hết như cách cũ'); }
+  // 16/11: suite.txt (danh sách test) đổi → chỉ bắt PR đụng đúng test có trong danh sách
+  { const suite = 'node scripts/test/learn-flow.mjs\nnode scripts/test/required-gate.mjs\n', src = { 'scripts/test/suite.txt': suite };
+    const f = [F('scripts/test/suite.txt')];
+    ok(gateDrift(f, ['web/js/app.js', 'scripts/test/not-in-suite.mjs'], src).length === 0, 'suite.txt đổi, PR không đụng test nào trong danh sách → KHÔNG bắt gộp lại');
+    ok(gateDrift(f, ['scripts/test/learn-flow.mjs'], src).length === 1, 'PR đụng một test có trong danh sách → bắt');
+    ok(gateDrift(f, ['scripts/test/suite.txt'], src).length === 1, 'PR tự sửa suite.txt → bắt');
+    ok(gateDrift(f, ['web/js/app.js'], {}).length === 1, 'không tải được nguồn suite.txt → giữ cách cũ (bắt)'); }
   const green = { state: 'success', description: 'Xanh: 5 check đều đạt', failed: [], pending: [], total: 5, cancelled: [] };
   const w = applyDrift(green, ['scripts/i18n-qa.mjs', 'scripts/lib/i18n-rules.mjs', '.github/workflows/a.yml']);
   ok(w.state === 'pending' && /gộp lại main/.test(w.description) && w.description.length <= 140 && /\+1/.test(w.description), 'xanh + cổng đổi → CHỜ, mô tả ≤140 ký tự: ' + w.description);
@@ -276,6 +304,17 @@ ok(!prCapable('name: a\non:\n  workflow_run:\n    workflows: [b]\njobs: {}\n'), 
   await run(['--sha', 'abc'], {}, { ...base, drift: async () => { throw new Error('502'); } }, () => {});
   await run(['--sha', 'abc'], {}, { ...base, drift: async () => [] }, () => {});
   ok(posted.join() === 'pending,success,success', 'cổng đổi → pending; lỗi API đo → xanh (không chặn oan); không đổi → xanh: ' + posted.join());
+  // 16/11 gate-retest: drift toàn test trong suite → chạy thật trên đầu PR thay vì bắt gộp main
+  { const out = [], mk = r => ({ ...base, post: async (sha, x) => out.push(x), drift: async () => ['scripts/test/story-stage.mjs'], retest: async () => r });
+    await run(['--sha', 'abc'], {}, mk({ clear: true }), () => {});
+    await run(['--sha', 'abc'], {}, mk({ wait: true, note: 'Chạy lại 1 test cổng đổi trên head PR (gate-retest, main@abcd1234)' }), () => {});
+    await run(['--sha', 'abc'], {}, mk({}), () => {});
+    await run(['--sha', 'abc'], {}, { ...mk({}), retest: async () => { throw new Error('502'); } }, () => {});
+    ok(out[0].state === 'success', 'gate-retest ĐẠT cho main hiện tại → drift giải, KHÔNG bắt gộp main');
+    ok(out[1].state === 'pending' && /gate-retest/.test(out[1].description) && !/gộp lại main/.test(out[1].description), 'đang chạy lại → CHỜ với lý do gate-retest (không bảo gộp main): ' + out[1].description);
+    ok(out[2].state === 'pending' && /gộp lại main/.test(out[2].description), 'bất định / đỏ / lỗi thời ({}) → cách cũ: đòi gộp main');
+    ok(out[3].state === 'pending' && /gộp lại main/.test(out[3].description), 'retest ném lỗi → cách cũ (không mở cổng, không đỏ oan)'); }
+
 }
 
 // ---------- 1e) bộ canh KHÔNG chết khi API lỗi 1 lần (15/11: #1355/#1376 kẹt pending, phải dispatch tay) ----------

@@ -152,6 +152,10 @@ Part 2 需要连续几分钟的高度专注，除了解题技巧，也要有稳�
 
 ![Lexkite IPA 发音库：单元音、双元音与辅音，含示例词和逐音练习](media:pron "挑出在相似音陷阱里容易混淆的音，逐个练习")
 
+想了解 Part 2 在整张试卷里的位置和评分方式，可以看[托业考试题型与结构](/zh/blog/tuo-ye-kao-shi-ti-xing-jie-gou-7-part/)。
+
+刚开始练听力时，可以先从最短的一部分入手，见[托业 Part 1 照片题技巧](/zh/blog/tuo-ye-part-1-zhao-pian-ti-ji-qiao-xian-jing/)。
+
 ## 关于托业听力Part 2的常见疑问（FAQ）
 
 ### 题干完全没有听清时应该怎么蒙题？

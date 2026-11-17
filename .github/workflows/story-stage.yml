@@ -37,7 +37,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
-      - name: Dựng lại bản sinh (extension/app không commit trong PR – #1383; test so web ↔ bản sao add-on)
+      - name: Dựng lại bản sinh (extension/app, gói dịch) – PR không commit chúng (#1383)
         run: node scripts/ci/regen-generated.mjs
       - name: Tĩnh
         run: node scripts/test/story-stage.mjs --out out/story-stage

@@ -103,6 +103,8 @@ Dinleme egzersizlerini seviyenize uygun materyallerle sürdürmek gelişiminizi 
 
 {{youtube: | Ingilizce listening gelistirme yollari 5 adimli yontem}}
 
+Sınava hazırlanıyorsanız dinleme becerinizi soru tiplerine göre çalıştırmak için [IELTS listening soru tipleri](/tr/blog/ielts-listening-soru-tipleri-cozum-yontemleri/) rehberini de okuyun.
+
 ## Sıkça Sorulan Sorular (FAQ)
 
 ### Düzenli çalışmayla listening becerisi ne kadar sürede gelişir?

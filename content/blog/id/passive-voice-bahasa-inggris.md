@@ -196,3 +196,5 @@ Tidak. Tulis *by* hanya jika pelakunya informasi baru atau penting: *This song w
 ### Apakah passive voice keluar di TOEFL atau IELTS?
 
 Tidak sebagai soal teori, tetapi memakainya dengan tepat menambah nilai tata bahasa di Writing dan Speaking. Di IELTS Academic Writing Task 1, menjelaskan proses (*The leaves are picked and then dried*) hampir pasti membutuhkan pasif.
+
+Kalau kamu ingin melihat passive voice dipakai di tugas nyata, baca [cara menulis laporan proses IELTS Writing Task 1](/id/blog/ielts-writing-task-1-process-diagram/), tempat setiap tahap dijelaskan dengan pasif.

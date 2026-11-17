@@ -42,6 +42,7 @@ quiz: [
     explain: "The audio is played once, so keep moving: write your answer and look ahead to the next gap."
   }
 ]
+publishAt: 2027-03-06T21:01:00+05:30
 ---
 Almost every IELTS candidate meets a form, table or note to complete in the Listening test. In **IELTS Listening form completion**, you fill in missing details such as a name, a date, a phone number or an address while you listen to a short conversation or monologue. It looks easy, and in Section 1 it often is, but small mistakes with spelling, numbers and word limits cost marks. This guide shows you how to predict, listen, write and check, with the traps examiners and the recording use.
 

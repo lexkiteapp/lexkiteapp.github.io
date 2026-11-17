@@ -188,6 +188,12 @@ Benar 5–6: kamu siap untuk Part 5 level 800+. Benar 3–4: fokus pada tipe soa
 
 {{youtube: | Ide video: 10 soal TOEIC Part 5 dalam 4 menit — cara menebak jenis soal dari pilihan jawaban}}
 
+Untuk melatih telinga di sisi Listening, mulai dari enam soal foto di [tips TOEIC Part 1 photographs](/id/blog/tips-toeic-part-1-photographs/).
+
+Gambaran lengkap seluruh tes ada di [format tes TOEIC](/id/blog/format-tes-toeic-listening-reading/).
+
+Setelah Part 2, lanjutkan ke bagian yang jumlah soalnya paling besar lewat [strategi TOEIC Listening Part 3 dan 4](/id/blog/strategi-toeic-listening-part-3-dan-4/).
+
 ## Pertanyaan yang sering diajukan
 
 ### Berapa lama sebaiknya mengerjakan Part 5?
