@@ -46,6 +46,8 @@ for (const f of files) {
     if (j['@type'] === 'BreadcrumbList') for (const it of j.itemListElement || []) if (it.item === O + '/' || it.item === O) B(`${rel}: BreadcrumbList "${it.name}" trỏ / (302) – dùng /${lang || '<lang>'}/`); }
   // 7) độ dày + FAQPage khớp chữ hiển thị (trang từ index được)
   if (!noindex && /^\/[a-z]{2}\/words\/(?!index\.html)[^/]+\.html$/.test(rel)) {
+    { const am = h.match(/<p class="ans" data-ans>([\s\S]*?)<\/p>/); // câu trả lời ngắn: có, ≤ 50 chữ, speakable trỏ đúng .ans
+      if (!am) B(`${rel}: thiếu câu trả lời ngắn (.ans)`); else { const n = am[1].replace(/<[^>]+>/g, ' ').split(/\s+/).filter(Boolean).length; if (n > 50) B(`${rel}: câu trả lời ngắn ${n} chữ > 50`); if (!h.includes('"SpeakableSpecification"')) B(`${rel}: thiếu speakable cho .ans`); } }
     const d = measure(h); if (!deep(d)) B(`${rel}: dưới ngưỡng độ dày (${d.blocks} khối/${d.words} chữ < ${DEPTH_MIN.blocks}/${DEPTH_MIN.words}) mà vẫn index`);
     const un = s => String(s).replace(/&quot;/g, '"').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&');
     const shown = new Map([...h.matchAll(/<details><summary>([^<]*)<\/summary><p>([^<]*)<\/p><\/details>/g)].map(m => [un(m[1]), un(m[2])]));
