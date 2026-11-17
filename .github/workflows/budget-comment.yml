@@ -1,0 +1,32 @@
+# budget-comment (17/11): PR đụng web/ → nếu ngân sách dùng ≥ 95 % trần thì comment 1 bảng cảnh báo sớm (scripts/ci/budget-comment.mjs). Không đỏ PR; chỉ PR cùng repo.
+# An toàn: mã chạy lấy từ main (checkout main), đo ngân sách bằng size-budget của main trên cây web/ của PR (chỉ đọc), token chỉ ở bước comment.
+name: budget-comment
+on:
+  pull_request:
+    paths: ['web/**', 'extension/**', 'scripts/test/budget.json']
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+concurrency:
+  group: budget-comment-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+jobs:
+  comment:
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: '${{ github.event.pull_request.head.sha }}', persist-credentials: false }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci --no-audit --no-fund
+      - name: Đo + comment (mã comment lấy từ main)
+        env: { GH_TOKEN: '${{ github.token }}', GITHUB_REPOSITORY: '${{ github.repository }}' }
+        run: |
+          git fetch --no-tags --depth=1 origin main
+          git show FETCH_HEAD:scripts/ci/budget-comment.mjs > "$RUNNER_TEMP/budget-comment.mjs" 2>/dev/null || { echo "chưa có budget-comment trên main – bỏ qua"; exit 0; }
+          git show FETCH_HEAD:scripts/lib/headroom.mjs > "$RUNNER_TEMP/headroom.mjs"
+          sed -i "s#'../lib/headroom.mjs'#'./headroom.mjs'#" "$RUNNER_TEMP/budget-comment.mjs"
+          node "$RUNNER_TEMP/budget-comment.mjs" ${{ github.event.pull_request.number }}

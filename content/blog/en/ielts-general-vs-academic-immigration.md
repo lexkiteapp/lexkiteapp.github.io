@@ -154,3 +154,5 @@ It varies by country and programme. Canada's Express Entry names General Trainin
 No. Both can reach band 9. The difference is the type of text and the Task 1 genre.
 
 Lexkite is an independent practice tool and is not affiliated with IELTS or any immigration authority.
+
+For country-specific scores, see the [IELTS score for Australia PR](/en/blog/ielts-score-australia-pr/) and the [IELTS score for New Zealand residence](/en/blog/ielts-new-zealand-skilled-migrant/).
