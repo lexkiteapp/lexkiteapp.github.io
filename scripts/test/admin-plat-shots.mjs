@@ -169,5 +169,6 @@ for (const [width, scheme, lang] of [...CONFIGS, ...DESK]) {
 await browser.close();
 fs.writeFileSync(path.join(OUT, TAG + '.json'), JSON.stringify({ fails }, null, 1));
 if (TAG !== 'after') { console.log(`admin-plat-shots (${TAG}): đã chụp ${CONFIGS.length + DESK.length} cấu hình`, fails.length ? JSON.stringify(fails) : ''); process.exit(0); }
+for (const f of fails.slice(0, 8)) console.log(`::error title=admin-plat-shots::${String(f).replace(/[\r\n%]/g, ' ').slice(0, 280)}`); // chú thích lỗi: đọc được qua API annotations
 if (fails.length) { console.log('✗ admin-plat-shots:\n  ' + fails.join('\n  ')); process.exit(1); }
 console.log(`✓ admin-plat-shots: #analytics × ${CONFIGS.length} cấu hình (360/390, sáng/tối) + web 1280 – biểu đồ 14 ngày 2 trục, – không tràn/thu nhỏ, đầu trang ≥ 44 px không đè, thẻ Nền tảng + thanh mọi thẻ cùng thang, tên nước đủ, chú giải 1 dải, axe 0 lỗi`);
