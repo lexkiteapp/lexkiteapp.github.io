@@ -48,3 +48,9 @@ assert.match(render([], { total: 5 }), /không mục đỏ/);
 const d1 = addYield(null, { n: 3.4, t: 'T' }, 'w'); assert.deepEqual(d1.runs, [{ t: 'T', n: 3 }]);
 let d = null; for (let i = 0; i < 130; i++) d = addYield(d, { n: i }, 'w'); assert.equal(d.runs.length, 120); assert.equal(addYield(null, { n: -5 }, 'w').runs[0].n, 0);
 console.log('health-board OK');
+// pace (kho từ → 20k)
+const { pace } = await import('../lexicon/expand/pace.mjs'), t0 = Date.parse('2026-11-17T00:00:00Z');
+assert.deepEqual(pace([{ day: '20261116', n: 70 }, { day: '20261001', n: 100 }], 10000, { now: t0 }), { live: 10170, need: 9830, perDay7: 10, etaDays: 983, etaDate: '2029-07-27', requiredPerDay: 328 });
+assert.equal(pace([], 19990, { now: t0 }).etaDays, null);
+assert.equal(pace([], 20001, { now: t0 }).etaDays, 0);
+console.log('pace OK');
