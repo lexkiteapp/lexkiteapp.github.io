@@ -15,6 +15,16 @@ assert.equal(P.tier({ ...pc, user: 'off' }), 'off', 'người dùng tắt');
 assert.equal(P.tier({ ...pc, probe: { v: P.VER, at: Date.now(), off: true } }), 'off', 'đã đo chậm → nhớ, không thử lại');
 assert.equal(P.tier({ ...pc, probe: { v: P.VER, at: Date.now() - 31 * 864e5, off: true } }), 'wasm', 'sau 30 ngày đo lại');
 assert.equal(P.tier({ ...pc, probe: { v: 'old', at: Date.now(), off: true } }), 'wasm', 'đổi phiên bản mô hình → đo lại');
+{ // LX-1004: probe timeout = máy quá chậm → ghi off, P.tier tắt tới hết PROBE_DAYS; lỗi khác không đánh dấu
+  const now = Date.now(), r = P.probeFail(new Error('timeout'), now);
+  assert.deepEqual(JSON.parse(JSON.stringify(r)), { v: P.VER, at: now, off: true, rtf: null, why: 'timeout' }, 'timeout → hồ sơ off');
+  assert.equal(P.tier({ ...pc, probe: r }), 'off', 'timeout → tắt Kokoro, không nạp lại mỗi phiên');
+  assert.equal(P.tier({ ...pc, probe: { ...r, at: now - 29 * 864e5 } }), 'off', 'vẫn tắt trong 29 ngày');
+  assert.equal(P.tier({ ...pc, probe: { ...r, at: now - 31 * 864e5 } }), 'wasm', 'hết 30 ngày đo lại');
+  assert.equal(P.probeFail(new Error('crash'), now), null, 'lỗi khác → không đánh dấu máy yếu');
+  assert.equal(P.probeRecord(500, 1000, now).off, false, 'RTF 0.5 → ổn');
+  assert.equal(P.probeRecord(700, 1000, now).off, true, 'RTF 0.7 > RTF_MAX → off');
+}
 assert.deepEqual([P.remote({}, 0), P.remote(null, 99), P.remote({ kl_pct: '' }, 50)], [true, true, true], 'không có cấu hình → BẬT (chủ 5/11: một giọng Kokoro, không để chữ động ra giọng máy)');
 assert.equal(P.remote({ kl: '0', kl_pct: 100 }, 0), false, 'kl=0 tắt khẩn thắng canary');
 assert.equal(P.remote({ kl: '1' }, 99), true, 'kl=1 bật hết');

@@ -112,6 +112,12 @@ In conclusion, I firmly support the inclusion of compulsory community service in
 
 {{youtube: | فكرة فيديو: كيف تخطط لمقال آيلتس Task 2 في 5 دقائق وتكتب 250 كلمة دون ارتباك}}
 
+وإذا كان سؤالك من نوع agree/disagree فتعمّق في [مقال الرأي في IELTS](/ar/blog/maqal-al-ray-ielts-agree-or-disagree/) ومقاله النموذجي مع الشرح.
+
+ولمعرفة كيف يتحول أداؤك في Task 2 إلى باند، اقرأ شرح [كيف تحسب درجة الآيلتس](/ar/blog/kayfa-tuhsab-daraja-al-ielts-band-score/)، وراجع [أخطاء الكتابة في الآيلتس](/ar/blog/akhta-al-kitaba-fi-al-ielts-writing/) قبل أن تسلّم مقالك التالي.
+
+ولا تنسَ مهمة Task 1، فهي ثلث درجة الكتابة، وتجد طريقتها مع نموذج في [وصف الرسم البياني بالأعمدة](/ar/blog/wasf-al-rasm-al-bayani-bi-al-aamida-ielts/).
+
 ## الأسئلة الشائعة حول كتابة ielts writing task 2
 
 ### كم عدد الكلمات المثالي لمقال Task 2 وهل تُحسب الكلمات الزائدة؟

@@ -36,6 +36,8 @@ jobs:
     timeout-minutes: 12
     steps:
       - uses: actions/checkout@v4
+      - uses: ./.github/actions/gen-if-needed   # luật 18
+        with: { ext: true }
       - uses: ./.github/actions/setup-ffmpeg
       - uses: actions/setup-node@v4
         with: { node-version: 22 }

@@ -197,6 +197,8 @@ Khi ôn [thư viện từ vựng](/#/library) theo cấp độ, thử che nghĩa
 
 {{cta: /#/library | Mở thư viện từ vựng theo cấp độ}}
 
+Kiến thức này dùng trực tiếp ở phần word formation của kỳ thi chứng chỉ; xem [cấu trúc đề thi Cambridge B2 First](/vi/blog/cau-truc-de-thi-cambridge-b2-first/).
+
 ## Câu hỏi thường gặp
 
 ### Có nên học thuộc danh sách tiền tố, hậu tố không?

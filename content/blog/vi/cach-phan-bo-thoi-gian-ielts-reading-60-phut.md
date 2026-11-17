@@ -176,6 +176,8 @@ Kỹ năng quản lý thời gian không thể tự nhiên xuất hiện trong n
 
 Khi **cách phân bổ thời gian IELTS Reading** đã thành thói quen, 60 phút không còn là cuộc chạy đua mà là một kế hoạch bạn đã tập nhiều lần: biết mỗi bài được bao lâu, câu nào làm trước và lúc nào thì bỏ qua.
 
+Bạn cũng có thể xem cách làm từng dạng trong bài [các dạng câu hỏi IELTS Reading](/vi/blog/cac-dang-cau-hoi-ielts-reading/).
+
 ## Câu hỏi thường gặp về phân bổ thời gian IELTS Reading
 
 ### Có nên đọc hết bài trước khi xem câu hỏi không?

@@ -56,7 +56,7 @@ const INIT = ({ seed, theme }) => {
 };
 
 async function context(w, theme, { seed = {}, ux1 = 0 } = {}) {
-  const ctx = await browser.newContext({ ...vp(w), colorScheme: theme, locale: 'en-US', reducedMotion: 'no-preference', serviceWorkers: 'block' });
+  const ctx = await browser.newContext({ bypassCSP: true, ...vp(w), colorScheme: theme, locale: 'en-US', reducedMotion: 'no-preference', serviceWorkers: 'block' });
   await noProd(ctx, { off: !LOCAL }); // dist cục bộ (ci-filler/PR): 0 lượt prod · --base live sau Pages deploy = probe prod có chủ ý (≤ 1 lượt/deploy)
   const s = { 'sbx.settings': settings(theme), 'sbx.cards': JSON.stringify(CARDS), ...seed }; if (ux1) s['lk.ux1'] = '1';
   await ctx.addInitScript(INIT, { seed: s, theme });
