@@ -725,6 +725,7 @@
 "khả năng nhớ trung bình":"rata-rata ingatan",
 "so với cả tuần trước":"vs. sepanjang minggu lalu",
 "từ đang nhớ":"kata dalam ingatan",
+"{a}/{b} bài":"{a}/{b} pelajaran",
 "{a}/{b} đúng":"{a}/{b} benar",
 "{done}/{n} từ":"{done}/{n} kata",
 "{due} thẻ đến hạn · {total} lượt ôn đã làm":"{due} kartu jatuh tempo · {total} peninjauan selesai",

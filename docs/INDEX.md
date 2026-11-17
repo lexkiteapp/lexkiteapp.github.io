@@ -173,4 +173,5 @@
 
 ## Phần còn lại của mục lục
 - [INDEX-ARCHIVE.md](INDEX-ARCHIVE.md) — Con trỏ tài liệu đã chuyển, thư mục con (agents/audits/legal/research/specs…), kho docs/archive/ (tách nguyên văn từ INDEX.md khi INDEX chạm 45 KB); đọc khi: tìm dòng mục lục của doc trong thư mục con hoặc archive, hoặc thêm doc mới ở đó
+- [NEW-UI-QA.md](NEW-UI-QA.md) — Soát hình các màn mới trên CI (15 ngôn ngữ × 4 khung × sáng/tối, đầu dò tràn/che/44 px/tương phản/nhân vật, contact sheet); đọc khi: sửa màn bài học, chuỗi, giáo viên, video
 - [research/latent-bugs-1611.md](research/latent-bugs-1611.md) — Soát lỗi tiềm ẩn trên main 16/11 (6 vùng, kiểm lại độc lập, nhóm theo chủ vùng, 2 P0 + 6 P1); đọc khi: nhận việc sửa lỗi trong vùng của mình

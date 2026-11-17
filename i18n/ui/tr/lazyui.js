@@ -725,6 +725,7 @@
 "khả năng nhớ trung bình":"ortalama hatırlama",
 "so với cả tuần trước":"vs. geçen haftanın tamamı",
 "từ đang nhớ":"akıldaki kelime",
+"{a}/{b} bài":"{a}/{b} ders",
 "{a}/{b} đúng":"{a}/{b} doğru",
 "{done}/{n} từ":"{done}/{n} kelime",
 "{due} thẻ đến hạn · {total} lượt ôn đã làm":"{due} kart tekrar bekliyor · {total} tekrar tamamlandı",

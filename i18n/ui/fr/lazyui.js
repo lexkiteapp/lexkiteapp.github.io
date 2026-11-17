@@ -725,6 +725,7 @@
 "khả năng nhớ trung bình":"rappel moyen",
 "so với cả tuần trước":"contre toute la semaine dernière",
 "từ đang nhớ":"mots en mémoire",
+"{a}/{b} bài":"{a}/{b} leçons",
 "{a}/{b} đúng":"{a}/{b} correctes",
 "{done}/{n} từ":"{done}/{n} mots",
 "{due} thẻ đến hạn · {total} lượt ôn đã làm":"{due} cartes dues · {total} avis effectués",

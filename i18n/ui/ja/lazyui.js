@@ -725,6 +725,7 @@
 "khả năng nhớ trung bình":"平均想起率",
 "so với cả tuần trước":"先週全体との比較",
 "từ đang nhớ":"記憶中の単語",
+"{a}/{b} bài":"{a}/{b} レッスン",
 "{a}/{b} đúng":"{a}/{b}問正解",
 "{done}/{n} từ":"{done}/{n} 語",
 "{due} thẻ đến hạn · {total} lượt ôn đã làm":"{due} 枚のカードの期限 · {total} 枚のレビューが完了",

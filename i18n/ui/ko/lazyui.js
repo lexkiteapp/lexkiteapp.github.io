@@ -725,6 +725,7 @@
 "khả năng nhớ trung bình":"평균 기억률",
 "so với cả tuần trước":"vs. 지난주 내내",
 "từ đang nhớ":"기억 중인 단어",
+"{a}/{b} bài":"{a}/{b} 레슨",
 "{a}/{b} đúng":"{a}/{b} 정답",
 "{done}/{n} từ":"{done}/{n} 단어",
 "{due} thẻ đến hạn · {total} lượt ôn đã làm":"{due} 카드 마감 기한 · {total} 리뷰 완료",
