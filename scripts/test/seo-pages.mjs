@@ -80,6 +80,8 @@ for (const [u, p] of pages) {
   if (p.alts.length) {
     if (!p.alts.some(([, h]) => h === u)) B(`${p.f}: hreflang không chứa chính nó`);
     if (!p.alts.some(([l]) => l === 'x-default')) B(`${p.f}: hreflang thiếu x-default`);
+    { const xd = (p.alts.find(([l]) => l === 'x-default') || [])[1], XD = ['en', 'es', 'pt', 'fr', 'de', 'id', 'ru', 'tr', 'ja', 'ko', 'zh', 'th', 'ar', 'hi', 'vi'], first = XD.map(x => p.alts.find(([l]) => l === x)).find(Boolean);
+      if (xd && first && xd !== first[1]) B(`${p.f}: x-default ${xd} phải là bản ${first[0]} (en nếu có, không thì ngôn ngữ phổ biến nhất trong cụm)`); }
     for (const [l, h] of p.alts) { if (l === 'x-default' || h === u) continue; const q = pages.get(h); if (!q) { B(`${p.f}: hreflang ${l} → ${h} không có trang`); continue; } if (q.noindex) B(`${p.f}: hreflang ${l} → trang noindex ${q.f}`); else if (!q.alts.some(([, x]) => x === u)) B(`${p.f}: hreflang ${l} → ${q.f} không trỏ ngược lại`); }
   }
   const root = /^\/([a-z]{2}\/)?(index\.html)?$/.test(p.f);
