@@ -163,6 +163,8 @@ Na prova oral, o falso cognato *actually* é um dos que mais aparecem; veja como
 
 {{youtube: | Os falsos cognatos mais perigosos em inglês e como evitar gafes}}
 
+Outro par que confunde brasileiros é affect e effect, tratado em [a diferença entre affect e effect](/pt/blog/diferenca-entre-affect-e-effect/).
+
 ## Perguntas frequentes
 
 ### Por que 'prejudice' não significa prejuízo?
