@@ -102,6 +102,8 @@ qualityScore: 95
 
 {{youtube: | Kayfiat tahsin maharat al istima fi al lughah al injiliziyah}}
 
+وإذا كنت تستعد لاختبار فاقرأ [أنواع أسئلة IELTS Listening](/ar/blog/anwa-asilat-ielts-listening/) لتعرف طريقة كل نوع.
+
 ## الأسئلة الشائعة (FAQ)
 
 ### هل مشاهدة الأفلام بترجمة عربية تساعد على تحسين الاستماع؟

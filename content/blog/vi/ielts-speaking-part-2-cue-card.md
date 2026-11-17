@@ -112,6 +112,8 @@ Ngay sau thẻ đề là phần thảo luận mở rộng; cách trả lời có
 
 {{youtube: | Gợi ý video: Ghi chú 1 phút cho một thẻ đề Part 2 và nói trọn 2 phút theo khung 4 bước}}
 
+Để thấy bản yếu và bản mạnh của cùng một câu trả lời, xem [bài mẫu IELTS Speaking band 7](/vi/blog/ielts-speaking-band-7-bai-mau/).
+
 ## Câu hỏi thường gặp
 
 ### Nếu không có trải nghiệm thật phù hợp với đề thì sao?

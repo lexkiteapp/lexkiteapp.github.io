@@ -35,6 +35,8 @@ jobs:
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
+      - uses: ./.github/actions/gen-if-needed   # luật 18
+        with: { ext: true }
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - name: Lõi – khớp môi ±33 ms, giới hạn khớp, chống giật, biến đổi cứng

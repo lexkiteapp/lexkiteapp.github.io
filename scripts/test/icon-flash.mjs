@@ -4,6 +4,7 @@
 // đang hiện mà RỘNG hơn 1,8× cỡ chữ (icon đã nạp = ô vuông ~1em; chữ thường "arrow_forward" = nhiều em) → ghi thời điểm đầu/cuối + số khung + chữ.
 // Dùng: node scripts/test/icon-flash.mjs <base> [--strict] [route…]   (không --strict: chỉ đo/in; có: khung lộ chữ sau lần nạp icon đầu hoặc > MAX_MS → thoát 1)
 import { chromium } from 'playwright';
+import { rateFor } from './lib/perf-calibrate.mjs';
 const A = process.argv.slice(2), STRICT = A.includes('--strict'), rest = A.filter(a => !a.startsWith('--'));
 const base = rest[0] || 'http://localhost:8080', ROUTES = rest.length > 1 ? rest.slice(1) : ['welcome', 'home', 'review', 'vocab', 'study', 'me'];
 const MAX_MS = +(process.env.MAX_MS || 0);   // thời gian lộ chữ cho phép / route (ms); mặc định 0 = không khung nào
@@ -12,7 +13,7 @@ for (const lang of ['en', 'vi']) for (const route of ROUTES) {
   const ctx = await b.newContext({ viewport: { width: 412, height: 823 }, deviceScaleFactor: 1.75, isMobile: true, hasTouch: true });
   const pg = await ctx.newPage(), cdp = await ctx.newCDPSession(pg);
   await cdp.send('Network.enable'); await cdp.send('Network.emulateNetworkConditions', { offline: false, latency: 150, downloadThroughput: 1.6 * 1024 * 1024 / 8, uploadThroughput: 750 * 1024 / 8 });
-  await cdp.send('Emulation.setCPUThrottlingRate', { rate: 4 });
+  await cdp.send('Emulation.setCPUThrottlingRate', { rate: (await rateFor(b, 4)).rate });
   await pg.addInitScript(() => {
     try { localStorage.setItem('lk.onb', '1'); } catch (e) { /* */ }
     const W = window; W.__ic = { frames: 0, bad: [], first: 0, loaded: 0 };

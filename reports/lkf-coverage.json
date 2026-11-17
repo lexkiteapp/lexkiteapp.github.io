@@ -66,8 +66,8 @@
    "pct": 100
   },
   "speaking": {
-   "items": 42,
-   "tagged": 42,
+   "items": 70,
+   "tagged": 70,
    "pct": 100
   },
   "ideas": {
@@ -102,8 +102,8 @@
   }
  },
  "total": {
-  "items": 11629,
-  "tagged": 11629,
+  "items": 11657,
+  "tagged": 11657,
   "pct": 100
  },
  "errors": 0

@@ -193,7 +193,15 @@ quiz: [
 
 {{youtube: | Complete Guide to IELTS Academic Writing Task 1 Line Graphs and Bar Charts}}
 
+ومن الأخطاء التي تكلف الدرجات في Task 1 إضافة أسباب لا تعطيها البيانات، وتجد قائمة الأخطاء كاملة في [أخطاء الكتابة في الآيلتس](/ar/blog/akhta-al-kitaba-fi-al-ielts-writing/).
+
 ---
+
+وإذا ظهر لك في الاختبار مخطط يشرح مراحل عملية بدل الأرقام، فاقرأ [وصف العملية في IELTS Writing Task 1](/ar/blog/wasf-al-amaliyya-ielts-writing-task-1-process/) لتعرف كيف تصف المراحل بالمبني للمجهول وأدوات التسلسل.
+
+ولمزيد من المفردات الأكاديمية الشائعة في Task 1 وTask 2 تصفح [قائمة الكلمات الأكاديمية AWL](/ar/blog/qaimat-al-kalimat-al-akadimiyya-awl/).
+
+وإذا كان رسمك الحالي أعمدة وليس خطوطًا فقد خصصنا له [دليل وصف الرسم البياني بالأعمدة في IELTS](/ar/blog/wasf-al-rasm-al-bayani-bi-al-aamida-ielts/) مع تقرير نموذجي كامل.
 
 ## الأسئلة الشائعة (FAQ)
 

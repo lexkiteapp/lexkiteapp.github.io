@@ -122,6 +122,8 @@ Kỹ thuật giúp bạn tiết kiệm thời gian, nhưng **vốn từ** mới 
 
 Khi đã nắm kỹ thuật đọc lướt, hãy xem thêm [cách phân bổ thời gian IELTS Reading 60 phút](/vi/blog/cach-phan-bo-thoi-gian-ielts-reading-60-phut/) để chia thời gian cho từng passage.
 
+Sau khi quen kỹ thuật này, hãy áp dụng cho từng nhóm câu trong bài [các dạng câu hỏi IELTS Reading](/vi/blog/cac-dang-cau-hoi-ielts-reading/).
+
 ## Câu hỏi thường gặp
 
 ### Skimming có làm mình bỏ sót thông tin quan trọng không?

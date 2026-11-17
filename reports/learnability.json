@@ -1,5 +1,5 @@
 {
- "total": 91.5,
+ "total": 91.8,
  "areas": {
   "grammar": {
    "name": "Ngữ pháp",
@@ -60,19 +60,19 @@
   },
   "skills": {
    "name": "Kỹ năng",
-   "units": 343,
-   "score": 95,
+   "units": 441,
+   "score": 96.2,
    "crit": {
-    "a": 81.1,
+    "a": 86.3,
     "b": null,
-    "c": 97.5,
-    "d": 99.5,
-    "e": 99.3,
-    "f": 86.8,
-    "g": 99.5,
+    "c": 98.8,
+    "d": 99.6,
+    "e": 99.4,
+    "f": 95.9,
+    "g": 99.4,
     "h": null,
     "i": 100,
-    "j": 84.3,
+    "j": 86.8,
     "k": null,
     "l": 100
    }
@@ -2916,7 +2916,7 @@
    "id": "ngsl10",
    "title": "ngsl10",
    "level": "B2",
-   "score": 61.1,
+   "score": 61.2,
    "crit": {
     "a": null,
     "b": null,
@@ -2992,7 +2992,7 @@
    "id": "technology",
    "title": "technology",
    "level": "C1",
-   "score": 68.2,
+   "score": 68.3,
    "crit": {
     "a": null,
     "b": null,
@@ -3295,7 +3295,7 @@
    "id": "science",
    "title": "science",
    "level": "C1",
-   "score": 65.8,
+   "score": 65.9,
    "crit": {
     "a": null,
     "b": null,
@@ -3321,14 +3321,14 @@
    "id": "government",
    "title": "government",
    "level": "C1",
-   "score": 69.8,
+   "score": 69.9,
    "crit": {
     "a": null,
     "b": null,
     "c": null,
     "d": 1,
     "e": 0.49,
-    "f": 0.7,
+    "f": 0.71,
     "g": null,
     "h": null,
     "i": 1,
@@ -3395,7 +3395,7 @@
    "id": "wildlife",
    "title": "wildlife",
    "level": "B2",
-   "score": 70.6,
+   "score": 70.8,
    "crit": {
     "a": null,
     "b": null,
@@ -3411,7 +3411,6 @@
     "l": null
    },
    "fix": [
-    "mã hoá kép 70% (ảnh/audio từ/audio câu)",
     "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 0%",
     "ví dụ: thiếu collocation/đồng nghĩa"
    ]
@@ -3836,7 +3835,7 @@
    "id": "ex-toeic-r",
    "title": "ex-toeic-r",
    "level": "B2",
-   "score": 89.9,
+   "score": 90,
    "crit": {
     "a": null,
     "b": null,
@@ -4471,7 +4470,7 @@
    "id": "toeic4",
    "title": "toeic4",
    "level": "B2",
-   "score": 74.9,
+   "score": 75,
    "crit": {
     "a": null,
     "b": null,
@@ -5317,7 +5316,7 @@
    "id": "xw-objects",
    "title": "xw-objects",
    "level": "B2",
-   "score": 69.2,
+   "score": 69.3,
    "crit": {
     "a": null,
     "b": null,
@@ -6392,6 +6391,892 @@
     "e": null,
     "f": 1,
     "g": 0.95,
+    "h": null,
+    "i": 1,
+    "j": null,
+    "k": null,
+    "l": 1
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "listen:t11p1",
+   "title": "Registering a child for swimming lessons",
+   "level": "B1",
+   "score": 100,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": null,
+    "k": null,
+    "l": 1
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "listen:t11p2",
+   "title": "A welcome talk at a science museum",
+   "level": "B1+",
+   "score": 100,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": null,
+    "k": null,
+    "l": 1
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "listen:t11p3",
+   "title": "A history dissertation proposal",
+   "level": "B2",
+   "score": 95.5,
+   "crit": {
+    "a": 0.8,
+    "b": null,
+    "c": 1,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": null,
+    "k": null,
+    "l": 1
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "listen:t11p4",
+   "title": "Fishing quotas and the tragedy of the commons",
+   "level": "B2",
+   "score": 100,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": null,
+    "k": null,
+    "l": 1
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "listen:t12p1",
+   "title": "Reporting a home internet fault",
+   "level": "B1",
+   "score": 99,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 0.95,
+    "h": null,
+    "i": 1,
+    "j": null,
+    "k": null,
+    "l": 1
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "listen:t12p2",
+   "title": "A guided walk in a nature reserve",
+   "level": "B1+",
+   "score": 99,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 0.95,
+    "h": null,
+    "i": 1,
+    "j": null,
+    "k": null,
+    "l": 1
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "listen:t12p3",
+   "title": "Planning a geology field trip",
+   "level": "B2",
+   "score": 95.5,
+   "crit": {
+    "a": 0.8,
+    "b": null,
+    "c": 1,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": null,
+    "k": null,
+    "l": 1
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "listen:t12p4",
+   "title": "How octopuses learn",
+   "level": "B2",
+   "score": 97.1,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 0.85,
+    "h": null,
+    "i": 1,
+    "j": null,
+    "k": null,
+    "l": 1
+   },
+   "fix": [
+    "phản hồi: câu thiếu giải thích cụ thể"
+   ]
+  },
+  {
+   "area": "skills",
+   "id": "listen:t13p1",
+   "title": "Joining a language exchange club",
+   "level": "B1",
+   "score": 98.1,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 0.9,
+    "h": null,
+    "i": 1,
+    "j": null,
+    "k": null,
+    "l": 1
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "listen:t13p2",
+   "title": "Open day at a community garden",
+   "level": "B1+",
+   "score": 96.1,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 0.8,
+    "h": null,
+    "i": 1,
+    "j": null,
+    "k": null,
+    "l": 1
+   },
+   "fix": [
+    "phản hồi: câu thiếu giải thích cụ thể"
+   ]
+  },
+  {
+   "area": "skills",
+   "id": "listen:t13p3",
+   "title": "Planning a film studies presentation",
+   "level": "B2",
+   "score": 94.3,
+   "crit": {
+    "a": 0.8,
+    "b": null,
+    "c": 1,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 0.94,
+    "h": null,
+    "i": 1,
+    "j": null,
+    "k": null,
+    "l": 1
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "listen:t13p4",
+   "title": "Turning seawater into drinking water",
+   "level": "B2",
+   "score": 97.1,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 0.85,
+    "h": null,
+    "i": 1,
+    "j": null,
+    "k": null,
+    "l": 1
+   },
+   "fix": [
+    "phản hồi: câu thiếu giải thích cụ thể"
+   ]
+  },
+  {
+   "area": "skills",
+   "id": "listen:t14p1",
+   "title": "Registering for temporary work",
+   "level": "B1",
+   "score": 100,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": null,
+    "k": null,
+    "l": 1
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "listen:t14p2",
+   "title": "A new community bus service",
+   "level": "B1+",
+   "score": 100,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": null,
+    "k": null,
+    "l": 1
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "listen:t14p3",
+   "title": "Designing a plant-growth experiment",
+   "level": "B2",
+   "score": 95.5,
+   "crit": {
+    "a": 0.8,
+    "b": null,
+    "c": 1,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": null,
+    "k": null,
+    "l": 1
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "listen:t14p4",
+   "title": "A short history of bridge engineering",
+   "level": "B2–C1",
+   "score": 100,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": null,
+    "k": null,
+    "l": 1
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "listen:t15p1",
+   "title": "Getting a car insurance quote",
+   "level": "B1",
+   "score": 100,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": null,
+    "k": null,
+    "l": 1
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "listen:t15p2",
+   "title": "A wetland visitor centre",
+   "level": "B1+",
+   "score": 100,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": null,
+    "k": null,
+    "l": 1
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "listen:t15p3",
+   "title": "Designing a survey on daily travel",
+   "level": "B2",
+   "score": 95.5,
+   "crit": {
+    "a": 0.8,
+    "b": null,
+    "c": 1,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": null,
+    "k": null,
+    "l": 1
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "listen:t15p4",
+   "title": "Seed banks and crop diversity",
+   "level": "B2–C1",
+   "score": 100,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": null,
+    "k": null,
+    "l": 1
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "listen:t16p1",
+   "title": "Booking a stall at a craft fair",
+   "level": "B1",
+   "score": 100,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": null,
+    "k": null,
+    "l": 1
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "listen:t16p2",
+   "title": "A welcome to the farmers market",
+   "level": "B1+",
+   "score": 100,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": null,
+    "k": null,
+    "l": 1
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "listen:t16p3",
+   "title": "A business case study on a bakery chain",
+   "level": "B2",
+   "score": 95.5,
+   "crit": {
+    "a": 0.8,
+    "b": null,
+    "c": 1,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": null,
+    "k": null,
+    "l": 1
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "listen:t16p4",
+   "title": "Earthquake early warning systems",
+   "level": "B2",
+   "score": 100,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": null,
+    "k": null,
+    "l": 1
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "listen:t17p1",
+   "title": "Registering for an evening cooking class",
+   "level": "B1",
+   "score": 100,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": null,
+    "k": null,
+    "l": 1
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "listen:t17p2",
+   "title": "Changes to household recycling collections",
+   "level": "B1+",
+   "score": 100,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": null,
+    "k": null,
+    "l": 1
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "listen:t17p3",
+   "title": "Presenting a study of hospital signs",
+   "level": "B2",
+   "score": 95.5,
+   "crit": {
+    "a": 0.8,
+    "b": null,
+    "c": 1,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": null,
+    "k": null,
+    "l": 1
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "listen:t17p4",
+   "title": "The economics of ancient trade routes",
+   "level": "C1",
+   "score": 100,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": null,
+    "k": null,
+    "l": 1
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "listen:t18p1",
+   "title": "Volunteering at an animal rescue centre",
+   "level": "B1",
+   "score": 100,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": null,
+    "k": null,
+    "l": 1
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "listen:t18p2",
+   "title": "Introducing a maritime museum",
+   "level": "B1+",
+   "score": 100,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": null,
+    "k": null,
+    "l": 1
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "listen:t18p3",
+   "title": "Planning a survey on student drinking habits",
+   "level": "B2",
+   "score": 95.5,
+   "crit": {
+    "a": 0.8,
+    "b": null,
+    "c": 1,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": null,
+    "k": null,
+    "l": 1
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "listen:t18p4",
+   "title": "Storing renewable energy",
+   "level": "B2–C1",
+   "score": 100,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": null,
+    "k": null,
+    "l": 1
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "listen:t19p1",
+   "title": "Booking a holiday cottage",
+   "level": "B1",
+   "score": 100,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": null,
+    "k": null,
+    "l": 1
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "listen:t19p2",
+   "title": "A school open day for parents",
+   "level": "B1+",
+   "score": 100,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": null,
+    "k": null,
+    "l": 1
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "listen:t19p3",
+   "title": "Designing a library extension",
+   "level": "B2",
+   "score": 95.5,
+   "crit": {
+    "a": 0.8,
+    "b": null,
+    "c": 1,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": null,
+    "k": null,
+    "l": 1
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "listen:t19p4",
+   "title": "Whale migration",
+   "level": "B2+",
+   "score": 100,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": null,
+    "k": null,
+    "l": 1
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "listen:t20p1",
+   "title": "Booking a wedding photographer",
+   "level": "B1",
+   "score": 100,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": null,
+    "k": null,
+    "l": 1
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "listen:t20p2",
+   "title": "Home safety and preventing burglary",
+   "level": "B1+",
+   "score": 100,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": null,
+    "k": null,
+    "l": 1
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "listen:t20p3",
+   "title": "Planning an essay on the unreliable narrator",
+   "level": "B2",
+   "score": 94.3,
+   "crit": {
+    "a": 0.8,
+    "b": null,
+    "c": 1,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 0.94,
+    "h": null,
+    "i": 1,
+    "j": null,
+    "k": null,
+    "l": 1
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "listen:t20p4",
+   "title": "How dictionaries record language change",
+   "level": "C1",
+   "score": 100,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 1,
     "h": null,
     "i": 1,
     "j": null,
@@ -8304,14 +9189,14 @@
    "id": "read:c2-linguistic-relativity",
    "title": "Does Language Shape Thought?",
    "level": "C2",
-   "score": 72.2,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
     "c": null,
     "d": 1,
     "e": null,
-    "f": 0,
+    "f": 1,
     "g": 1,
     "h": null,
     "i": 1,
@@ -8321,7 +9206,6 @@
    },
    "fix": [
     "truy hồi: 5 câu hỏi (cần ≥ 8)",
-    "audio 0%",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -8330,14 +9214,14 @@
    "id": "read:c2-tragedy-commons",
    "title": "The Commons Revisited",
    "level": "C2",
-   "score": 72.2,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
     "c": null,
     "d": 1,
     "e": null,
-    "f": 0,
+    "f": 1,
     "g": 1,
     "h": null,
     "i": 1,
@@ -8347,7 +9231,6 @@
    },
    "fix": [
     "truy hồi: 5 câu hỏi (cần ≥ 8)",
-    "audio 0%",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -8356,14 +9239,14 @@
    "id": "read:c2-neuroplasticity",
    "title": "The Brain That Rewires Itself",
    "level": "C2",
-   "score": 72.2,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
     "c": null,
     "d": 1,
     "e": null,
-    "f": 0,
+    "f": 1,
     "g": 1,
     "h": null,
     "i": 1,
@@ -8373,7 +9256,6 @@
    },
    "fix": [
     "truy hồi: 5 câu hỏi (cần ≥ 8)",
-    "audio 0%",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -8382,14 +9264,14 @@
    "id": "read:c2-translation-untranslatable",
    "title": "The Myth of the Untranslatable Word",
    "level": "C2",
-   "score": 72.2,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
     "c": null,
     "d": 1,
     "e": null,
-    "f": 0,
+    "f": 1,
     "g": 1,
     "h": null,
     "i": 1,
@@ -8399,7 +9281,6 @@
    },
    "fix": [
     "truy hồi: 5 câu hỏi (cần ≥ 8)",
-    "audio 0%",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -8408,14 +9289,14 @@
    "id": "read:c2-medieval-plague",
    "title": "After the Black Death",
    "level": "C2",
-   "score": 72.2,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
     "c": null,
     "d": 1,
     "e": null,
-    "f": 0,
+    "f": 1,
     "g": 1,
     "h": null,
     "i": 1,
@@ -8425,7 +9306,6 @@
    },
    "fix": [
     "truy hồi: 5 câu hỏi (cần ≥ 8)",
-    "audio 0%",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -8434,14 +9314,14 @@
    "id": "read:c2-modern-architecture",
    "title": "Form, Function and the Fate of Concrete",
    "level": "C2",
-   "score": 72.2,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
     "c": null,
     "d": 1,
     "e": null,
-    "f": 0,
+    "f": 1,
     "g": 1,
     "h": null,
     "i": 1,
@@ -8451,7 +9331,6 @@
    },
    "fix": [
     "truy hồi: 5 câu hỏi (cần ≥ 8)",
-    "audio 0%",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -8460,14 +9339,14 @@
    "id": "read:c2-moral-luck",
    "title": "Moral Luck",
    "level": "C2",
-   "score": 72.2,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
     "c": null,
     "d": 1,
     "e": null,
-    "f": 0,
+    "f": 1,
     "g": 1,
     "h": null,
     "i": 1,
@@ -8477,7 +9356,6 @@
    },
    "fix": [
     "truy hồi: 5 câu hỏi (cần ≥ 8)",
-    "audio 0%",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -8486,14 +9364,14 @@
    "id": "read:c2-antibiotic-resistance",
    "title": "The Slow Failure of Antibiotics",
    "level": "C2",
-   "score": 72.2,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
     "c": null,
     "d": 1,
     "e": null,
-    "f": 0,
+    "f": 1,
     "g": 1,
     "h": null,
     "i": 1,
@@ -8503,7 +9381,6 @@
    },
    "fix": [
     "truy hồi: 5 câu hỏi (cần ≥ 8)",
-    "audio 0%",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -8512,14 +9389,14 @@
    "id": "read:c2-novel-form",
    "title": "Why We Still Read Novels",
    "level": "C2",
-   "score": 72.2,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
     "c": null,
     "d": 1,
     "e": null,
-    "f": 0,
+    "f": 1,
     "g": 1,
     "h": null,
     "i": 1,
@@ -8529,7 +9406,6 @@
    },
    "fix": [
     "truy hồi: 5 câu hỏi (cần ≥ 8)",
-    "audio 0%",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -8538,14 +9414,14 @@
    "id": "read:c2-gig-economy",
    "title": "Flexibility at a Price",
    "level": "C2",
-   "score": 72.2,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
     "c": null,
     "d": 1,
     "e": null,
-    "f": 0,
+    "f": 1,
     "g": 1,
     "h": null,
     "i": 1,
@@ -8555,7 +9431,6 @@
    },
    "fix": [
     "truy hồi: 5 câu hỏi (cần ≥ 8)",
-    "audio 0%",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -8564,14 +9439,14 @@
    "id": "read:c2-dead-languages",
    "title": "The Last Speakers",
    "level": "C2",
-   "score": 72.2,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
     "c": null,
     "d": 1,
     "e": null,
-    "f": 0,
+    "f": 1,
     "g": 1,
     "h": null,
     "i": 1,
@@ -8581,7 +9456,6 @@
    },
    "fix": [
     "truy hồi: 5 câu hỏi (cần ≥ 8)",
-    "audio 0%",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -8590,14 +9464,14 @@
    "id": "read:c2-music-cognition",
    "title": "Why Music Moves Us",
    "level": "C2",
-   "score": 72.2,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
     "c": null,
     "d": 1,
     "e": null,
-    "f": 0,
+    "f": 1,
     "g": 1,
     "h": null,
     "i": 1,
@@ -8607,7 +9481,6 @@
    },
    "fix": [
     "truy hồi: 5 câu hỏi (cần ≥ 8)",
-    "audio 0%",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -8616,14 +9489,14 @@
    "id": "read:c2-urban-heat",
    "title": "Cities Under Heat",
    "level": "C2",
-   "score": 72.2,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
     "c": null,
     "d": 1,
     "e": null,
-    "f": 0,
+    "f": 1,
     "g": 1,
     "h": null,
     "i": 1,
@@ -8633,7 +9506,6 @@
    },
    "fix": [
     "truy hồi: 5 câu hỏi (cần ≥ 8)",
-    "audio 0%",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -8642,14 +9514,14 @@
    "id": "read:c2-scientific-method",
    "title": "Falsification and Its Discontents",
    "level": "C2",
-   "score": 72.2,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
     "c": null,
     "d": 1,
     "e": null,
-    "f": 0,
+    "f": 1,
     "g": 1,
     "h": null,
     "i": 1,
@@ -8659,7 +9531,6 @@
    },
    "fix": [
     "truy hồi: 5 câu hỏi (cần ≥ 8)",
-    "audio 0%",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -8668,14 +9539,14 @@
    "id": "read:c2-attention-economy",
    "title": "The Price of Attention",
    "level": "C2",
-   "score": 72.2,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
     "c": null,
     "d": 1,
     "e": null,
-    "f": 0,
+    "f": 1,
     "g": 1,
     "h": null,
     "i": 1,
@@ -8685,7 +9556,6 @@
    },
    "fix": [
     "truy hồi: 5 câu hỏi (cần ≥ 8)",
-    "audio 0%",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -8694,14 +9564,14 @@
    "id": "read:c2-memory-reliability",
    "title": "The Unreliable Witness",
    "level": "C2",
-   "score": 72.2,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
     "c": null,
     "d": 1,
     "e": null,
-    "f": 0,
+    "f": 1,
     "g": 1,
     "h": null,
     "i": 1,
@@ -8711,7 +9581,6 @@
    },
    "fix": [
     "truy hồi: 5 câu hỏi (cần ≥ 8)",
-    "audio 0%",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -8720,14 +9589,14 @@
    "id": "read:c2-economic-growth",
    "title": "Is Growth Everything?",
    "level": "C2",
-   "score": 72.2,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
     "c": null,
     "d": 1,
     "e": null,
-    "f": 0,
+    "f": 1,
     "g": 1,
     "h": null,
     "i": 1,
@@ -8737,7 +9606,6 @@
    },
    "fix": [
     "truy hồi: 5 câu hỏi (cần ≥ 8)",
-    "audio 0%",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -8746,14 +9614,14 @@
    "id": "read:a2-lost-phone",
    "title": "A Lost Phone",
    "level": "A2",
-   "score": 72.2,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
     "c": null,
     "d": 1,
     "e": null,
-    "f": 0,
+    "f": 1,
     "g": 1,
     "h": null,
     "i": 1,
@@ -8763,7 +9631,6 @@
    },
    "fix": [
     "truy hồi: 5 câu hỏi (cần ≥ 8)",
-    "audio 0%",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -8772,14 +9639,14 @@
    "id": "read:a2-new-neighbours",
    "title": "Meeting the New Neighbours",
    "level": "A2",
-   "score": 72.2,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
     "c": null,
     "d": 1,
     "e": null,
-    "f": 0,
+    "f": 1,
     "g": 1,
     "h": null,
     "i": 1,
@@ -8789,7 +9656,6 @@
    },
    "fix": [
     "truy hồi: 5 câu hỏi (cần ≥ 8)",
-    "audio 0%",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -8798,14 +9664,14 @@
    "id": "read:a2-weekend-market",
    "title": "A Saturday at the Market",
    "level": "A2",
-   "score": 72.2,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
     "c": null,
     "d": 1,
     "e": null,
-    "f": 0,
+    "f": 1,
     "g": 1,
     "h": null,
     "i": 1,
@@ -8815,7 +9681,6 @@
    },
    "fix": [
     "truy hồi: 5 câu hỏi (cần ≥ 8)",
-    "audio 0%",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -8824,14 +9689,14 @@
    "id": "read:c1-remote-work",
    "title": "The Office Reconsidered",
    "level": "C1",
-   "score": 72.2,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
     "c": null,
     "d": 1,
     "e": null,
-    "f": 0,
+    "f": 1,
     "g": 1,
     "h": null,
     "i": 1,
@@ -8841,7 +9706,6 @@
    },
    "fix": [
     "truy hồi: 5 câu hỏi (cần ≥ 8)",
-    "audio 0%",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -8850,14 +9714,14 @@
    "id": "read:c1-microplastics",
    "title": "The Particles We Cannot See",
    "level": "C1",
-   "score": 72.2,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
     "c": null,
     "d": 1,
     "e": null,
-    "f": 0,
+    "f": 1,
     "g": 1,
     "h": null,
     "i": 1,
@@ -8867,7 +9731,6 @@
    },
    "fix": [
     "truy hồi: 5 câu hỏi (cần ≥ 8)",
-    "audio 0%",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -8942,14 +9805,14 @@
    "id": "speak:culture",
    "title": "Âm nhạc",
    "level": null,
-   "score": 100,
+   "score": 99.1,
    "crit": {
     "a": 1,
     "b": null,
     "c": 1,
     "d": null,
     "e": 1,
-    "f": 1,
+    "f": 0.94,
     "g": null,
     "h": null,
     "i": null,
@@ -8957,7 +9820,9 @@
     "k": null,
     "l": null
    },
-   "fix": []
+   "fix": [
+    "audio mẫu 94%"
+   ]
   },
   {
    "area": "skills",
@@ -8986,14 +9851,14 @@
    "id": "speak:food",
    "title": "Ẩm thực & Nấu ăn",
    "level": null,
-   "score": 100,
+   "score": 99.3,
    "crit": {
     "a": 1,
     "b": null,
     "c": 1,
     "d": null,
     "e": 1,
-    "f": 1,
+    "f": 0.96,
     "g": null,
     "h": null,
     "i": null,
@@ -9001,7 +9866,9 @@
     "k": null,
     "l": null
    },
-   "fix": []
+   "fix": [
+    "audio mẫu 96%"
+   ]
   },
   {
    "area": "skills",
@@ -9030,14 +9897,14 @@
    "id": "speak:environment",
    "title": "Thời tiết & Các mùa",
    "level": null,
-   "score": 100,
+   "score": 97.8,
    "crit": {
     "a": 1,
     "b": null,
     "c": 1,
     "d": null,
     "e": 1,
-    "f": 1,
+    "f": 0.87,
     "g": null,
     "h": null,
     "i": null,
@@ -9045,7 +9912,9 @@
     "k": null,
     "l": null
    },
-   "fix": []
+   "fix": [
+    "audio mẫu 87%"
+   ]
   },
   {
    "area": "skills",
@@ -9574,6 +10443,862 @@
     "l": null
    },
    "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "speak:society",
+   "title": "Gia đình",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": null,
+    "e": 1,
+    "f": 1,
+    "g": null,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "speak:society",
+   "title": "Tuổi thơ",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": null,
+    "e": 1,
+    "f": 1,
+    "g": null,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "speak:education",
+   "title": "Trường học thời nhỏ",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": null,
+    "e": 1,
+    "f": 1,
+    "g": null,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "speak:language",
+   "title": "Học ngoại ngữ",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": null,
+    "e": 1,
+    "f": 1,
+    "g": null,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "speak:culture",
+   "title": "Du lịch",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": null,
+    "e": 1,
+    "f": 1,
+    "g": null,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "speak:society",
+   "title": "Kỳ nghỉ",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": null,
+    "e": 1,
+    "f": 1,
+    "g": null,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "speak:technology",
+   "title": "Điện thoại di động",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": null,
+    "e": 1,
+    "f": 1,
+    "g": null,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "speak:technology",
+   "title": "Mạng xã hội",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": null,
+    "e": 1,
+    "f": 1,
+    "g": null,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "speak:language",
+   "title": "Tin nhắn & Email",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": null,
+    "e": 1,
+    "f": 1,
+    "g": null,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "speak:culture",
+   "title": "Xem phim & Truyền hình",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": null,
+    "e": 1,
+    "f": 1,
+    "g": null,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "speak:technology",
+   "title": "Trò chơi điện tử",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": null,
+    "e": 1,
+    "f": 1,
+    "g": null,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "speak:consumerism",
+   "title": "Thời trang & Quần áo",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": null,
+    "e": 1,
+    "f": 1,
+    "g": null,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "speak:wildlife",
+   "title": "Thú cưng & Động vật",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": null,
+    "e": 1,
+    "f": 1,
+    "g": null,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "speak:environment",
+   "title": "Công viên & Thiên nhiên",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": null,
+    "e": 1,
+    "f": 1,
+    "g": null,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "speak:environment",
+   "title": "Vườn & Cây cối",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": null,
+    "e": 1,
+    "f": 1,
+    "g": null,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "speak:health",
+   "title": "Ăn uống lành mạnh",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": null,
+    "e": 1,
+    "f": 1,
+    "g": null,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "speak:health",
+   "title": "Căng thẳng & Thư giãn",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": null,
+    "e": 1,
+    "f": 1,
+    "g": null,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "speak:society",
+   "title": "Tiền bạc & Tiết kiệm",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": null,
+    "e": 1,
+    "f": 1,
+    "g": null,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "speak:consumerism",
+   "title": "Quảng cáo",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": null,
+    "e": 1,
+    "f": 1,
+    "g": null,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "speak:society",
+   "title": "Tin tức & Truyền thông",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": null,
+    "e": 1,
+    "f": 1,
+    "g": null,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "speak:urban",
+   "title": "Thành phố và nông thôn",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": null,
+    "e": 1,
+    "f": 1,
+    "g": null,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "speak:architecture",
+   "title": "Nhà cửa & Nội thất",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": null,
+    "e": 1,
+    "f": 1,
+    "g": null,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "speak:society",
+   "title": "Việc nhà",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": null,
+    "e": 1,
+    "f": 1,
+    "g": null,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "speak:society",
+   "title": "Ước mơ & Mục tiêu tương lai",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": null,
+    "e": 1,
+    "f": 1,
+    "g": null,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "speak:society",
+   "title": "Thành công & Động lực",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": null,
+    "e": 1,
+    "f": 1,
+    "g": null,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "speak:work",
+   "title": "Làm việc nhóm",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": null,
+    "e": 1,
+    "f": 1,
+    "g": null,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "speak:education",
+   "title": "Du học & Sống ở nước ngoài",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": null,
+    "e": 1,
+    "f": 1,
+    "g": null,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "speak:technology",
+   "title": "Máy tính & Internet hằng ngày",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": null,
+    "e": 1,
+    "f": 1,
+    "g": null,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "speak:cooking",
+   "title": "Nấu ăn tại nhà",
+   "level": null,
+   "score": 83.3,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": null,
+    "e": 1,
+    "f": 0,
+    "g": null,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": [
+    "audio mẫu 0%"
+   ]
+  },
+  {
+   "area": "skills",
+   "id": "speak:live-music",
+   "title": "Âm nhạc trực tiếp",
+   "level": null,
+   "score": 84.1,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": null,
+    "e": 1,
+    "f": 0.04,
+    "g": null,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": [
+    "audio mẫu 4%"
+   ]
+  },
+  {
+   "area": "skills",
+   "id": "speak:green-spaces",
+   "title": "Công viên & không gian xanh",
+   "level": null,
+   "score": 83.7,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": null,
+    "e": 1,
+    "f": 0.02,
+    "g": null,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": [
+    "audio mẫu 2%"
+   ]
+  },
+  {
+   "area": "skills",
+   "id": "speak:museums",
+   "title": "Bảo tàng",
+   "level": null,
+   "score": 83.3,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": null,
+    "e": 1,
+    "f": 0,
+    "g": null,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": [
+    "audio mẫu 0%"
+   ]
+  },
+  {
+   "area": "skills",
+   "id": "speak:crafts",
+   "title": "Nghề thủ công",
+   "level": null,
+   "score": 83.7,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": null,
+    "e": 1,
+    "f": 0.02,
+    "g": null,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": [
+    "audio mẫu 2%"
+   ]
+  },
+  {
+   "area": "skills",
+   "id": "speak:libraries",
+   "title": "Thư viện",
+   "level": null,
+   "score": 84.1,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": null,
+    "e": 1,
+    "f": 0.05,
+    "g": null,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": [
+    "audio mẫu 5%"
+   ]
+  },
+  {
+   "area": "skills",
+   "id": "speak:weather-seasons",
+   "title": "Thời tiết & mùa",
+   "level": null,
+   "score": 83.3,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": null,
+    "e": 1,
+    "f": 0,
+    "g": null,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": [
+    "audio mẫu 0%"
+   ]
+  },
+  {
+   "area": "skills",
+   "id": "speak:letters-messages",
+   "title": "Thư từ & tin nhắn",
+   "level": null,
+   "score": 83.3,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": null,
+    "e": 1,
+    "f": 0,
+    "g": null,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": [
+    "audio mẫu 0%"
+   ]
+  },
+  {
+   "area": "skills",
+   "id": "speak:adventure-sports",
+   "title": "Thể thao mạo hiểm",
+   "level": null,
+   "score": 83.3,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": null,
+    "e": 1,
+    "f": 0,
+    "g": null,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": [
+    "audio mẫu 0%"
+   ]
+  },
+  {
+   "area": "skills",
+   "id": "speak:second-hand",
+   "title": "Mua sắm đồ cũ",
+   "level": null,
+   "score": 83.7,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": 1,
+    "d": null,
+    "e": 1,
+    "f": 0.02,
+    "g": null,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": [
+    "audio mẫu 2%"
+   ]
   },
   {
    "area": "skills",
@@ -12184,6 +13909,446 @@
    "fix": [
     "ví dụ: 5 cụm có chú nghĩa (cần ≥ 6)"
    ]
+  },
+  {
+   "area": "skills",
+   "id": "write:t2-p101",
+   "title": "t2-p101",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": null,
+    "b": null,
+    "c": null,
+    "d": null,
+    "e": 1,
+    "f": null,
+    "g": 1,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "write:t2-p102",
+   "title": "t2-p102",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": null,
+    "b": null,
+    "c": null,
+    "d": null,
+    "e": 1,
+    "f": null,
+    "g": 1,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "write:t2-p103",
+   "title": "t2-p103",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": null,
+    "b": null,
+    "c": null,
+    "d": null,
+    "e": 1,
+    "f": null,
+    "g": 1,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "write:t2-p104",
+   "title": "t2-p104",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": null,
+    "b": null,
+    "c": null,
+    "d": null,
+    "e": 1,
+    "f": null,
+    "g": 1,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "write:t2-p105",
+   "title": "t2-p105",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": null,
+    "b": null,
+    "c": null,
+    "d": null,
+    "e": 1,
+    "f": null,
+    "g": 1,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "write:t2-p106",
+   "title": "t2-p106",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": null,
+    "b": null,
+    "c": null,
+    "d": null,
+    "e": 1,
+    "f": null,
+    "g": 1,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "write:t2-p107",
+   "title": "t2-p107",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": null,
+    "b": null,
+    "c": null,
+    "d": null,
+    "e": 1,
+    "f": null,
+    "g": 1,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "write:t2-p108",
+   "title": "t2-p108",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": null,
+    "b": null,
+    "c": null,
+    "d": null,
+    "e": 1,
+    "f": null,
+    "g": 1,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "write:t2-p109",
+   "title": "t2-p109",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": null,
+    "b": null,
+    "c": null,
+    "d": null,
+    "e": 1,
+    "f": null,
+    "g": 1,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "write:t2-p110",
+   "title": "t2-p110",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": null,
+    "b": null,
+    "c": null,
+    "d": null,
+    "e": 1,
+    "f": null,
+    "g": 1,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "write:t2-p111",
+   "title": "t2-p111",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": null,
+    "b": null,
+    "c": null,
+    "d": null,
+    "e": 1,
+    "f": null,
+    "g": 1,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "write:t2-p112",
+   "title": "t2-p112",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": null,
+    "b": null,
+    "c": null,
+    "d": null,
+    "e": 1,
+    "f": null,
+    "g": 1,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "write:t2-p113",
+   "title": "t2-p113",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": null,
+    "b": null,
+    "c": null,
+    "d": null,
+    "e": 1,
+    "f": null,
+    "g": 1,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "write:t2-p114",
+   "title": "t2-p114",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": null,
+    "b": null,
+    "c": null,
+    "d": null,
+    "e": 1,
+    "f": null,
+    "g": 1,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "write:t2-p115",
+   "title": "t2-p115",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": null,
+    "b": null,
+    "c": null,
+    "d": null,
+    "e": 1,
+    "f": null,
+    "g": 1,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "write:t2-p116",
+   "title": "t2-p116",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": null,
+    "b": null,
+    "c": null,
+    "d": null,
+    "e": 1,
+    "f": null,
+    "g": 1,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "write:t2-p117",
+   "title": "t2-p117",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": null,
+    "b": null,
+    "c": null,
+    "d": null,
+    "e": 1,
+    "f": null,
+    "g": 1,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "write:t2-p118",
+   "title": "t2-p118",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": null,
+    "b": null,
+    "c": null,
+    "d": null,
+    "e": 1,
+    "f": null,
+    "g": 1,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "write:t2-p119",
+   "title": "t2-p119",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": null,
+    "b": null,
+    "c": null,
+    "d": null,
+    "e": 1,
+    "f": null,
+    "g": 1,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
+  },
+  {
+   "area": "skills",
+   "id": "write:t2-p120",
+   "title": "t2-p120",
+   "level": null,
+   "score": 100,
+   "crit": {
+    "a": null,
+    "b": null,
+    "c": null,
+    "d": null,
+    "e": 1,
+    "f": null,
+    "g": 1,
+    "h": null,
+    "i": null,
+    "j": 1,
+    "k": null,
+    "l": null
+   },
+   "fix": []
   },
   {
    "area": "skills",
