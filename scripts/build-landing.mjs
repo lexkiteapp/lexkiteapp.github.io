@@ -140,8 +140,13 @@ const PSEUDO_DYN = /:(?:hover|focus(?:-visible|-within)?|active|visited|link|any
 // Luật chỉ có tác dụng khi người dùng tương tác (rê/chạm/focus) không ảnh hưởng lần vẽ đầu → để ở CSS đầy đủ (nạp ngay sau), không nhân đôi trong CSS tới hạn
 const INTERACT = /:(?:hover|active|focus|focus-visible|focus-within|visited)(?![\w-])/;
 const LAYOUT = /^(display|grid(-[\w-]+)?|gap|row-gap|column-gap|flex(-[\w-]+)?|order|(min-|max-)?(width|height)|aspect-ratio|margin(-[\w-]+)?|padding(-[\w-]+)?|(align|justify|place)-[\w-]+|font-size|line-height|letter-spacing|white-space|box-sizing|border(-(top|right|bottom|left))?-width)$/;
+// Ký tự hiển thị của trang (bỏ script/style/thẻ/menu ẩn) và kiểm một @font-face có ký tự nào của trang trong unicode-range không (không có range = dùng cho mọi ký tự)
+export const pageText = html => html.replace(/<(script|style)[\s\S]*?<\/\1>/g, ' ').replace(/<(ul|div)\b[^>]*\shidden[\s>][^>]*>[\s\S]*?<\/\1>/g, ' ') /* menu ngôn ngữ ẩn: nhãn "Tiếng Việt" chỉ cần phông khi mở menu → tải lười từ CSS ngoài */.replace(/<[^>]+>/g, ' ').replace(/&(?:#(\d+)|#x([0-9a-f]+));/gi, (_, d, x) => String.fromCodePoint(d ? +d : parseInt(x, 16)));
+export const faceUnused = (face, text) => { const m = /unicode-range:([^;}]+)/.exec(face); if (!m || !/Plus Jakarta Sans"/.test(face) || /Fallback/.test(face)) return false;
+  const R = m[1].split(',').map(x => x.trim().replace(/^U\+/i, '').split('-').map(h => parseInt(h, 16)));
+  for (const ch of text) { const c = ch.codePointAt(0); if (R.some(([a, b]) => c >= a && c <= (b ?? a))) return false; } return true; };
 export function criticalCss(css, html) {
-  const VI_PAGE = /<html lang="vi"/.test(html);
+  const TEXT = pageText(html);
   const doc = new JSDOM(html.replace(/<script[^>]*>[\s\S]*?<\/script>/g, '')).window.document;
   doc.documentElement.classList.add(...HEAD_CLS);
   // vùng đầu trang = tới hết section thứ 2 (hero + dải tin cậy hiện trọn ở 1280×900 của mẫu v3) – CSS tới muộn cho phần đã hiện = CLS (CI 3/11: 0,12–0,18)
@@ -156,7 +161,7 @@ export function criticalCss(css, html) {
     memo.set(sel, r); return r; };
   const pick = c => blocks(c).map(b => { const j = b.indexOf('{'), sel = b.slice(0, j).trim();
     if (/^@(media|supports|layer|container)/.test(sel)) { const inner = pick(b.slice(j + 1, -1)); return inner ? sel + '{' + inner + '}' : ''; }
-    if (sel.startsWith('@font-face') && !VI_PAGE && /unicode-range:U\+0(?:100|102)-/.test(b)) return ''; // latin-ext + vietnamese chỉ tải khi gặp ký tự đó → để ở CSS ngoài (nạp ngay sau), bớt ~470 B gz nội tuyến cho 14 trang không phải vi
+    if (sel.startsWith('@font-face') && faceUnused(b, TEXT)) return ''; // mặt phông (latin-ext, vietnamese…) mà trang không có ký tự nào thuộc unicode-range → để ở CSS ngoài (nạp ngay sau, chỉ tải khi gặp ký tự), bớt byte nội tuyến
     if (sel.startsWith('@')) return /^@(-\w+-)?keyframes/.test(sel) ? '\u0001' + b : b;
     const ss = splitSel(sel).filter(x => !INTERACT.test(x)), k = ss.filter(x => hit(x) === true), l = ss.filter(x => hit(x) === 'lay');
     const lb = l.length ? b.slice(j + 1, -1).split(';').filter(d => LAYOUT.test(d.split(':')[0].trim())).join(';') : '';
