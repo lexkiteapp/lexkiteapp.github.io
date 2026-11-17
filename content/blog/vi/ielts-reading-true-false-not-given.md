@@ -152,6 +152,8 @@ Nếu bạn hay nhầm chiều ý của câu, dạng ghép tiêu đề cũng có
 
 Nên dành bao nhiêu phút cho mỗi passage, bạn có thể xem trong bài [phân bổ thời gian IELTS Reading 60 phút](/vi/blog/cach-phan-bo-thoi-gian-ielts-reading-60-phut/).
 
+Dạng này chỉ là một trong nhiều dạng của bài thi, xem tổng quan trong bài [các dạng câu hỏi IELTS Reading](/vi/blog/cac-dang-cau-hoi-ielts-reading/).
+
 ## Câu hỏi thường gặp
 
 ### Làm sao phân biệt False và Not Given nhanh nhất?

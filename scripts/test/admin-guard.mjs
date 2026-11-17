@@ -183,6 +183,7 @@ for (const [width, scheme, lang, only] of CONFIGS) {
 await browser.close();
 fs.writeFileSync(path.join(OUT, TAG + '.json'), JSON.stringify({ found, errs }, null, 1));
 for (const [k, v] of Object.entries(found)) { console.log(`\n✗ ${k}: ${v.length}`); for (const x of v.slice(0, 60)) console.log('  ' + x); }
+for (const [k, v] of Object.entries(found)) for (const x of v.slice(0, 6)) console.log(`::error title=admin-guard::${k}: ${String(x).replace(/[\r\n%]/g, ' ').slice(0, 280)}`); // chú thích lỗi: đọc được qua API annotations khi không có log
 console.log(`\nlỗi JS (chỉ báo): ${errs.length}`, JSON.stringify(errs.slice(0, 8)));
 if (TAG === 'before') process.exit(0);
 if (Object.keys(found).length) process.exit(1);

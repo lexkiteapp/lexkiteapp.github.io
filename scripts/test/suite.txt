@@ -453,7 +453,9 @@ node scripts/test/body-limit.mjs
 node scripts/test/ai-task.mjs
 node scripts/test/video-junk.mjs
 node scripts/test/dict-add.mjs
+node scripts/test/css-notes.mjs
 node scripts/test/ci-portable.mjs
+node scripts/test/sr-only.mjs
 node scripts/test/sw-reminder-day.mjs
 node scripts/test/core-day.mjs
 node scripts/test/sr-only.mjs
