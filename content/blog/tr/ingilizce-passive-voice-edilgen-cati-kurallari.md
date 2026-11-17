@@ -175,6 +175,8 @@ Görüldüğü üzere, Passive Voice kullanımı kurumsal iletişimi çok daha g
 
 ---
 
+Edilgenin sınavdaki en yoğun kullanım alanlarından biri süreç anlatımıdır; bir üretim aşamasını edilgenle nasıl yazacağınızı [IELTS process diagram modelinde](/tr/blog/ielts-process-diagram-nasil-yazilir/) örnekle görebilirsiniz.
+
 ## Sıkça Sorulan Sorular (FAQ)
 
 ### 1. "By + fail" ifadesi ne zaman cümleden atılmalıdır?
