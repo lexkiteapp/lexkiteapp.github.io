@@ -91,6 +91,8 @@ Pembelajar dari Indonesia kerap terbentur pada pola fonetik khas:
 
 {{youtube: | Cara meningkatkan listening bahasa inggris dengan metode 5 tahap}}
 
+Kalau targetmu IELTS, kenali juga [jenis soal IELTS Listening](/id/blog/jenis-soal-ielts-listening/) dan jebakan masing-masing.
+
 ## Pertanyaan yang Sering Diajukan (FAQ)
 
 ### Berapa lama latihan rutin yang diperlukan sampai hasilnya terasa?

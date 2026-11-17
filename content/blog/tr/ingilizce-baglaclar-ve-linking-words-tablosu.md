@@ -170,6 +170,8 @@ Bu zenginleştirilmiş bağlaç çeşitliliği, değerlendiricinin metninizdeki 
 
 ---
 
+Bağlaçları duruşunuzu savunan bir kompozisyonda uygulamak için [IELTS opinion essay nasıl yazılır](/tr/blog/ielts-opinion-essay-nasil-yazilir/) rehberindeki örnek essay'e bakabilirsiniz.
+
 ## Sıkça Sorulan Sorular (FAQ)
 
 ### 1. Bir essayde çok fazla bağlaç kullanmak (Overuse) puanı düşürür mü?

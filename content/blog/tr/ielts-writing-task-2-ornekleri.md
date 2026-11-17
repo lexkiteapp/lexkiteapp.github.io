@@ -138,6 +138,14 @@ C) Kelimelerin sözlük anlamlarını kontrol etmek
 
 IELTS ile TOEFL yazma bölümlerini kıyaslıyorsanız [yeni TOEFL formatı 2026](/tr/blog/yeni-toefl-format-2026-hazirlik-rehberi/) rehberine de bakabilirsiniz.
 
+Fikir sorularında duruşunuzu nasıl netleştireceğinizi ve üç cevap biçimini ayrıca [IELTS opinion essay nasıl yazılır](/tr/blog/ielts-opinion-essay-nasil-yazilir/) rehberinde bulabilirsiniz.
+
+Task 2'de en çok puan kaybettiren alışkanlıkları ve düzeltmelerini [IELTS Writing hataları ve çözümleri](/tr/blog/ielts-writing-hatalari-ve-cozumleri/) rehberinde bulabilirsiniz; puanın nasıl hesaplandığı için [IELTS puanı nasıl hesaplanır](/tr/blog/ielts-puani-nasil-hesaplanir-band-skorlari/) yazısına bakın.
+
+Sınav tarihini vize başvurunuza göre planlıyorsanız [IELTS UKVI nedir](/tr/blog/ielts-ukvi-nedir-kimlere-gerekir/) yazısı, hangi sürümü ve hangi merkezi seçeceğiniz konusunda sizi uyarır.
+
+Task 1 tarafında çubuk grafik raporu yazmayı çalışmak için [IELTS Writing Task 1 bar chart](/tr/blog/ielts-writing-task-1-bar-chart-ornek-rapor/) yazısı, sınav tarihine göre bir plan kurmak için ise [4, 8 ve 12 haftalık IELTS hazırlık programı](/tr/blog/ielts-hazirlik-programi-4-8-12-haftalik/) işinize yarar.
+
 ## Sıkça Sorulan Sorular (SSS)
 
 ### IELTS Writing Task 2'de 250 kelimenin altında kalırsam ne olur?

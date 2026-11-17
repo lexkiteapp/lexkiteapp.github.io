@@ -151,6 +151,8 @@ Zihninizdeki dili değiştirmek yalnızca masa başında ders çalışarak başa
 
 {{youtube: | How to Think in English and Stop Translating in Your Head}}
 
+Türkçeden gelen kalıpların İngilizcede karşılığı olmadığı durumları ve hazır cümleleri [İngilizce konuşma özgüveni](/tr/blog/ingilizce-konusma-ozguveni-kazanma/) yazısında bulabilirsiniz.
+
 ## Sıkça Sorulan Sorular (FAQ)
 
 ### Q1. Zihnimde İngilizce düşünmeye başlamak ne kadar sürer?

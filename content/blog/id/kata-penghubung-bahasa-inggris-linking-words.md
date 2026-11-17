@@ -142,6 +142,8 @@ Perhatikan perbandingan berikut untuk melihat bagaimana kata penghubung menyulap
 | **Contoh** | *To illustrate, For instance* | *For example, Such as* | *Like* |
 | **Kesimpulan** | *In conclusion, To summarize* | *In brief, Overall* | *All in all, In short* |
 
+Contoh pemakaian penghubung dalam esai setuju atau tidak setuju ada di [esai opini IELTS](/id/blog/esai-opini-ielts-setuju-atau-tidak-setuju/).
+
 ## Tips menghindari over-linking dalam penulisan esai
 
 Salah satu jebakan yang sering menimpa peserta ujian adalah penggunaan kata penghubung yang terlalu padat atau berlebihan (*over-linking*):
