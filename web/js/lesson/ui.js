@@ -8,8 +8,8 @@
   const ls = { get: k => { try { return localStorage.getItem(k); } catch (e) { return null; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* riêng tư */ } } };
   const offNow = () => { try { const o = JSON.parse(ls.get(OFF_KEY) || '{}'), now = Date.now(); return { listen: (o.listen || 0) > now, speak: (o.speak || 0) > now }; } catch (e) { return {}; } };
   const setOff = k => { let o = {}; try { o = JSON.parse(ls.get(OFF_KEY) || '{}'); } catch (e) { /* hỏng → mới */ } o[k] = Date.now() + HOUR; ls.set(OFF_KEY, JSON.stringify(o)); };
-  const learnVi = () => (window.I18N && I18N.learnLang ? I18N.learnLang() : 'vi') === 'vi';
-  const meanOf = c => (c ? (App.meanOf ? App.meanOf(c) : '') || c.vi || c.def || '' : ''); // thẻ null (bài ghép cặp, card: null) → '' như App.meanOf
+  const learnVi = () => (typeof nativeLang === 'function' ? nativeLang() === 'vi' : true); // ngôn ngữ nghĩa của người học (meanLang/giao diện), KHÔNG phải Target.cur()
+  const meanOf = c => (c ? (App.meanOf ? App.meanOf(c) : '') || (typeof I18N !== 'undefined' && I18N.meanLang && I18N.meanLang() !== 'vi' ? '' : c.vi) || c.def || '' : ''); // thẻ null (bài ghép cặp, card: null) → '' như App.meanOf
 
   // Bộ khởi đầu (người mới, chưa có thẻ) và bộ demo cho anh duyệt: từ có ảnh đúng từ#loại + gold bank. Nghĩa vi; ngôn ngữ khác → App.meanOf / gói nghĩa.
   const now0 = Date.now();
@@ -118,7 +118,7 @@
     const picks = story ? [] : E.pickWords(cards, { n: 4, starter: ux ? Ux1.words(wn, plan.length, node.kind).map(w => Object.assign({}, w, { ctx: '', src: '', srs: SRS(now0, 0) })).concat(STARTER()) : STARTER(), fixed: !!(ux && window.PathTrail && PathTrail.wordsOf(wn, Ux1.unitAt, node.kind)), mode: node.kind }); // ux1: từ chủ đề vừa sức (i+1) // 4 từ ≈ 9 bài ≈ 2–3 phút
     let pool0 = [];
     if (!story) { const pk = App.loadPack ? App.loadPack().catch(() => {}) : null; await Promise.all([pk, sentLoad(picks.map(p => p.card.word)), App.vimgReady && App.vimgReady(picks.map(p => p.card.word))]); } // nghĩa từ + bản dịch câu tiếng mẹ đẻ trước khi dựng đề
-    const items = story ? E.storyItems(story, meanLang(), n + 1) : E.build(picks, { seed: demo ? 7 + n : Date.now(), pool: (pool0 = cards.concat(STARTER())), hasImg: (w, p) => !!imgUrl(w, p), off: offNow(), only: E.KIND[node.kind], calm: ux, gloss: sentGloss, mean: nativeMean });
+    const items = story ? E.storyItems(story, meanLang(), n + 1) : E.build(picks, { seed: demo ? 7 + n : Date.now(), pool: (pool0 = cards.concat(STARTER())), hasImg: (w, p) => !!imgUrl(w, p), off: offNow(), only: E.KIND[node.kind], calm: ux, gloss: sentGloss, mean: nativeMean, vi: nativeLang() === 'vi' });
     if (!story && lvOn()) items.unshift({ id: 0, type: 'video', free: true, word: '#video', card: null, retry: 0, words: picks.map(p => p.word) }); // 🎞️ demo video nhúng (cờ lv_embed)
     const prev = ls.get('lk.lsn.who'), V2 = !story && v2On(), DUO = !!story && duoOn(), who = V2 ? 'ama' : prev === 'ama' ? 'carlos' : 'ama'; if (!V2) ls.set('lk.lsn.who', who); // xen kẽ Ama / Carlos mỗi bài
     L = { v2: V2, duo: DUO, demo, items, sess: new E.Session(items, { ease: ux }), picks, pool: pool0, who: story ? 'ama' : who, t0: Date.now(), spoken: 0, kind: node.kind, story, SK, xs: !!XS || redo >= 0, s0: App.streak ? App.streak() : 0 };
@@ -177,8 +177,10 @@
     view.querySelectorAll('.lsn-skip2').forEach(x => x.remove());
     const sk = q.querySelector('.lsn-skipb'), list = [LISTENS(it) && ['lsnNoL', t('Không nghe được lúc này'), 'hearing_disabled'], SPEAKS(it) && ['lsnNoS', t('Không nói được lúc này'), 'mic_off']].filter(Boolean);
     const set = (b, [id, lb, ic]) => { b.id = id; b.setAttribute('aria-label', lb); b.title = lb; b.querySelector('.material-symbols-outlined').textContent = ic; };
-    sk.hidden = !list.length; if (list[0]) set(sk, list[0]);
-    if (list[1]) { const c = sk.cloneNode(true); c.classList.add('lsn-skip2'); set(c, list[1]); sk.after(c); }
+    // "Tôi không biết" có ở MỌI dạng bài (không bao giờ nhốt người học): tính là sai + hiện đáp án + gặp lại (báo lỗi #13)
+    list.push(['lsnIdk', t('Tôi không biết'), 'help']);
+    sk.hidden = false; set(sk, list[0]);
+    list.slice(1).reverse().forEach(x => { const c = sk.cloneNode(true); c.classList.add('lsn-skip2'); set(c, x); sk.after(c); });
     const chk = $('#lsnCheck'); chk.hidden = SPEAKS(it); chk.disabled = true;
     $('#lsnRep').onclick = () => { const cid = 'lesson:' + it.type + ':' + String(it.word || (it.card && it.card.word) || '').slice(0, 40); if (window.LexReportLoad) LexReportLoad().then(R => R.open({ cat: 'content', cid })).catch(() => {}); else window.open('#/report/new', '_blank'); };
   }
@@ -372,6 +374,7 @@
     const on = (id, fn) => { const b = $('#' + id); if (b) b.onclick = fn; };
     on('lsnPlay', () => say(audioText, false, it.who)); on('lsnSlow', () => say(audioText, true, it.who));
     on('lsnNoL', () => { setOff('listen'); L.sess.replace(x => E.adapt(x, offNow())); next(); });
+    on('lsnIdk', () => submit(null, undefined, true));
     on('lsnNoS', () => { setOff('speak'); L.sess.replace(x => E.adapt(x, offNow())); next(); });
     if (L.enterH) { document.removeEventListener('keydown', L.enterH); L.enterH = null; }
     if (chk) { L.enterH = e => { if (e.key === 'Enter' && !e.isComposing && !(e.target.closest && e.target.closest('button,a,input,textarea,select,[role="button"]')) && chk.isConnected && !chk.disabled && !L.checked) { e.preventDefault(); chk.click(); } }; document.addEventListener('keydown', L.enterH); }
@@ -423,9 +426,9 @@
     });
   }
 
-  function submit(ans, heard) {
+  function submit(ans, heard, idk) {
     if (!L || L.checked) return; L.checked = true; L.ans = ans; // câu trả lời người học → "Vì sao?" so với đáp án
-    const it = L.sess.cur, ok = E.check(it, ans), r = L.sess.answer(ok);
+    const it = L.sess.cur, ok = idk ? false : E.check(it, ans), r = L.sess.answer(ok);
     document.querySelectorAll('#lsnBody button, #lsnIn').forEach(x => { x.disabled = true; }); // đã chấm: khóa đáp án (luật QA)
     bar();
     react(ok, r.combo);

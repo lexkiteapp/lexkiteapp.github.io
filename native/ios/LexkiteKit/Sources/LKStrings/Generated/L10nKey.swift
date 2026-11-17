@@ -206,6 +206,7 @@ public enum L10nKey: String, CaseIterable, Sendable {
     case lessonDialog = "lesson.dialog"
     case lessonNoListen = "lesson.noListen"
     case lessonNoSpeak = "lesson.noSpeak"
+    case lessonIdk = "lesson.idk"
     case lessonCheckAnswer = "lesson.checkAnswer"
     case lessonVideo = "lesson.video"
     case lessonListening = "lesson.listening"
