@@ -13,6 +13,7 @@ import { fileURLToPath } from 'node:url';
 import { isZombie } from './zombie.mjs';
 import { retry5xx } from '../lib/retry5xx.mjs';
 import { workflowMatches, readsAny } from './gate-relevance.mjs';
+import { retestPlan, verdict as retestVerdict, tagOf, CONTEXT as RETEST_CONTEXT, WORKFLOW as RETEST_WORKFLOW } from './gate-retest.mjs';
 
 export const CONTEXT = 'required-gate';            // tên commit status (thứ ruleset sẽ yêu cầu)
 export const SELF_JOB = 'required-gate-eval';      // tên job của chính workflow này – không tự chờ mình (bộ canh chạy trên main nên không bám head PR)
@@ -56,7 +57,7 @@ export function evaluate({ checkRuns = [], statuses = [], workflowRuns = [] } = 
   // commit status: mới nhất theo context, bỏ chính mình
   const st = new Map();
   for (const s of statuses) {
-    if (s.context === CONTEXT) continue;
+    if (s.context === CONTEXT || s.context === RETEST_CONTEXT) continue;   // gate-retest (kết quả chạy lại test cổng) do phần drift xử lý, không phải check của PR
     const prev = st.get(s.context);
     if (!prev || String(s.updated_at || s.created_at || '') > String(prev.updated_at || prev.created_at || '') || (!s.updated_at && (s.id || 0) > (prev.id || 0))) st.set(s.context, s);
   }
@@ -238,6 +239,25 @@ export function api(token, repo, fetchImpl = globalThis.fetch) {
       await Promise.all(cand.map(async f => { try { const r = await call(`/contents/${f.filename.split('/').map(encodeURIComponent).join('/')}?ref=main`); if (r && r.encoding === 'base64' && typeof r.content === 'string') srcs[f.filename] = Buffer.from(r.content, 'base64').toString('utf8'); } catch {} }));
       return gateDrift(all, prFiles, srcs);
     },
+    // gate-retest (docs/CI-RUNNERS.md): drift toàn là test trong suite → chạy THẬT các test đó (bản main) trên đầu PR bằng workflow nhẹ thay vì bắt gộp main (~100 job). Trả { clear } | { wait, note } | {} (= cách cũ).
+    // Mọi bất định (không phải PR cùng repo, lỗi API, dispatch lỗi, kết quả đỏ/lỗi thời) → {} = đòi gộp main như cũ; không bao giờ mở cổng khi chưa có kết quả ĐẠT cho đúng sha main hiện tại.
+    retest: async (sha, drift) => {
+      const suite = await call('/contents/scripts/test/suite.txt?ref=main'); if (!suite || suite.encoding !== 'base64') return {};
+      const plan = retestPlan(drift, Buffer.from(suite.content, 'base64').toString('utf8')); if (!plan.ok) return {};
+      const prs = await call(`/commits/${sha}/pulls`); if (!(prs || []).some(p => p.head && p.head.sha === sha && p.head.repo && p.head.repo.full_name === repo)) return {};   // chỉ PR cùng repo
+      const main = (await call('/branches/main')).commit.sha, st = ((await call(`/commits/${sha}/status?per_page=100`)).statuses || []).find(x => x.context === RETEST_CONTEXT), v = retestVerdict(st, main);
+      if (v === 'clear') return { clear: true };
+      const note = `Chạy lại ${plan.cmds.length} test cổng đổi trên head PR (gate-retest, main@${tagOf(main)}) thay cho gộp main`;
+      if (v === 'wait') return { wait: true, note };
+      if (v === 'inconclusive') return {};
+      const runs = ((await call(`/actions/workflows/${RETEST_WORKFLOW}/runs?per_page=30`)).workflow_runs || []).filter(r => String(r.display_title || '').includes(sha) && String(r.display_title).includes(main));
+      const live = runs.some(r => r.status !== 'completed' || Date.now() - new Date(r.created_at) < 20 * 60e3);
+      if (!live) {
+        await call(`/actions/workflows/${RETEST_WORKFLOW}/dispatches`, { method: 'POST', body: JSON.stringify({ ref: 'main', inputs: { sha, main, cmds: plan.cmds.join('\n') } }) });
+        await call(`/statuses/${sha}`, { method: 'POST', body: JSON.stringify({ state: 'pending', context: RETEST_CONTEXT, description: `main@${tagOf(main)}: đang chạy lại ${plan.cmds.length} test cổng` }) });
+      }
+      return { wait: true, note };
+    },
     pr: n => call(`/pulls/${n}`),
     openPrs: () => pages('/pulls?state=open&sort=updated&direction=desc', null, 2),
     // tự nối (3/11): cron GitHub có lúc bỏ lượt hàng giờ (02/11: ci-triage + free-tier-guard 13 giờ) → bộ canh tự xếp lượt kế tiếp
@@ -271,7 +291,18 @@ export async function run(argv, env = process.env, A = null, log = console.log, 
   const dry = argv.includes('--dry'), url = env.RUN_URL || '';
   A = A || api(env.GITHUB_TOKEN, env.GITHUB_REPOSITORY);
   const reran = new Set();
-  const withDrift = async (res, sha) => { if (res.state !== 'success' || !A.drift) return res; try { return applyDrift(res, await A.drift(sha)); } catch (e) { log('::warning::đo tệp cổng lỗi (mở cổng): ' + e.message); return res; } };
+  const withDrift = async (res, sha) => {
+    if (res.state !== 'success' || !A.drift) return res;
+    try {
+      let d = await A.drift(sha);
+      if (d.length && A.retest) {
+        let r = {}; try { r = await A.retest(sha, d) || {}; } catch (e) { log('::warning::gate-retest lỗi (dùng cách cũ: đòi gộp main): ' + e.message); }
+        if (r.clear) d = [];
+        else if (r.wait) return { ...res, state: 'pending', description: String(r.note).slice(0, 140), drift: d };
+      }
+      return applyDrift(res, d);
+    } catch (e) { log('::warning::đo tệp cổng lỗi (mở cổng): ' + e.message); return res; }
+  };
   const one = async sha => {
     const res = await withDrift(evaluate(await A.gather(sha)), sha);
     log(`${sha.slice(0, 8)} → ${res.state}: ${res.description}`);
