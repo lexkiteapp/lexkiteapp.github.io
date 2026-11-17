@@ -40,7 +40,7 @@ export async function run(items, { AI, log = console.log, gen = true, save = () 
     let c = await AI.judge({ mode: 'lxaudit', pilot: 'judge', _slot: 'C', items: jitems }, { chain: ['groq', 'gem'], slot: 'C', exclude: [b.fam, ...(gf ? [gf] : [])], excludeModels: [b.model] });
     // Gemini 503 suốt lượt (17/11) + Groq chỉ có 2 họ → không còn họ thứ 3: lùi về mô hình KHÁC (cùng họ gpt-oss 20b vs 120b, lời nhắn người soát thứ hai) và đánh dấu c3fam=false trong kết quả
     let c3 = !!c;
-    if (!c) c = await AI.judge({ mode: 'lxaudit', pilot: 'judge', _slot: 'C', items: jitems }, { chain: ['groq'], slot: 'C', exclude: [b.fam], excludeModels: [b.model, ...(gm ? [gm] : [])] });
+    if (!c) c = await AI.judge({ mode: 'lxaudit', pilot: 'judge', _slot: 'C', items: jitems }, { chain: ['groq'], slot: 'C', exclude: gf ? [gf] : [b.fam] });
     if (!c) { log(`⏸ không chấm được lô ${ch[0].k}`); continue; }
     fams.add('C:' + c.model);
     for (const e of ok) { const v = (c.out || {})[e.k], back = ((b.out || {})[e.k] || {}).en; res[e.k] = { k: e.k, w: e.w, pos: e.pos, gloss: e.gloss, vi: e.vi, ex: e.ex, back, verdict: v || null, accepted: accept(v, back), c3fam: c3 }; }
