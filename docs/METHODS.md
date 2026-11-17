@@ -58,6 +58,7 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 - Khung app (SHELL ∪ file nạp ngay của /app/) ≤ 374 KB gz chuẩn (`scripts/lib/gz-canon.mjs`; không nâng) → tính năng mới lười; khóa: `shell-lazy.mjs`. Trần chỉ đi xuống: thêm byte phải gọt bằng nhau; ý dài → CSS-NOTES.md. Từng module: `node scripts/test/shell-size.mjs`; khóa i18n chỉ trang lười → `--move` sang `en/lazyui.js`. `web/js` ≤ `totalJs` trong `scripts/test/budget.json` (trừ `admin-*.js`, nguồn dựng en.js – `scripts/lib/js-budget.mjs`).
 - `web/js/i18n/<lang>.js` ≤ 160 KB gz/ngôn ngữ; không thêm file vào `allowBig`.
 - `scripts/test/size-budget.mjs`; ngưỡng `visual-qa.budget.json` chỉ được GIẢM.
+- **Khoảng trống byte người học (17/11)**: tối đa = SLACK 200 KB (size-budget đỏ nếu trần cao hơn thực tế ≥ 200 KB; ≈ 1,9 % của ~10,3 MB) – KHÔNG nới SLACK, KHÔNG nâng trần. Còn < 50 KB trống → cảnh báo vàng (`scripts/lib/headroom.mjs`, #1542) và PR kế tiếp phải giảm byte thật (dời dữ liệu tải lười sang `web/cpack/`, bỏ trùng lặp) trước khi thêm JS. Mục tiêu "≥ 3 % trống" không áp cho web/js (mâu thuẫn ratchet); 183 KB là đủ cho PR thường. Ví dụ dời: #1543 (TOEIC + 5 tệp ngữ pháp ≈ 0,5 MB).
 
 ## 4. Việc nặng = CI, Mac chỉ sửa code
 - render / rembg / Remotion / Depth / TTS hàng loạt chạy trên GitHub Actions (`cine-render.yml`, `library-build.yml`, `library-ingest.yml`, `video*.yml`, `blog-images.yml`, `visual-qa.yml`).
