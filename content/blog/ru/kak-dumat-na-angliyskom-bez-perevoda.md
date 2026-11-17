@@ -148,6 +148,8 @@ quiz: [
 
 {{youtube: | How to Think in English and Stop Translating in Your Head}}
 
+Если мешает страх сказать неправильно, прочитайте [как преодолеть языковой барьер в английском](/ru/blog/kak-preodolet-yazykovoy-barer-v-angliyskom/): там 12 ситуаций с готовыми фразами.
+
 ## Часто Задаваемые Вопросы (FAQ)
 
 ### Q1. Сколько времени занимает переход на мышление на английском?
