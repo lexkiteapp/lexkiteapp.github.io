@@ -93,6 +93,8 @@ Contoh materi yang cocok untuk spaced repetition: daftar collocation di artikel 
 
 {{cta: /#/review | Mulai review kosakata dengan spaced repetition}}
 
+Untuk cara mengulang yang melatih ingatan, baca [active recall adalah cara menghafal kosakata](/id/blog/active-recall-adalah-cara-menghafal-kosakata/).
+
 ## Pertanyaan yang sering diajukan
 
 ### Berapa lama waktu yang dibutuhkan sampai kosakata benar-benar permanen di otak?

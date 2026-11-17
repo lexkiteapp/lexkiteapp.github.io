@@ -133,7 +133,7 @@ async function browserScan(part, base) {
   const results = [];
   const VPS = [{ name: 'mobile', viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true }, { name: 'desktop', viewport: { width: 1280, height: 860 } }];
   for (const vp of VPS) {
-    const ctx = await browser.newContext({ ...vp, deviceScaleFactor: 1, locale: 'vi' });
+    const ctx = await browser.newContext({ bypassCSP: true, ...vp, deviceScaleFactor: 1, locale: 'vi' });
     const page = await ctx.newPage();
     // Chẩn đoán "không mở được" (networkidle quá giờ): request còn treo + đếm theo host trong lượt mở trang → biết trang chờ cái gì
     const pending = new Set(); let hosts = {};

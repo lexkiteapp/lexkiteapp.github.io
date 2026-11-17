@@ -157,6 +157,8 @@ Sürekli "percent (%)" kelimesini tekrarlamak yerine oransal çeşitlilik sağla
 
 Bu zengin kelime çeşitliliği, değerlendiricinin Lexical Resource kriterinde size doğrudan Band 8 vermesini sağlayan en önemli etkendir.
 
+Çubuk grafik sorularında nasıl bir rapor yazacağını görmek için [IELTS Writing Task 1 bar chart örnek raporu](/tr/blog/ielts-writing-task-1-bar-chart-ornek-rapor/) yazısına da bakabilirsiniz.
+
 ## Sık Yapılan Zaman Kipi (Tense) Hataları ve Çözümleri
 
 Task 1 raporlarında öğrencilerin sıklıkla düştüğü zaman uyumsuzluğu tuzakları:
@@ -169,6 +171,10 @@ Task 1 raporlarında öğrencilerin sıklıkla düştüğü zaman uyumsuzluğu t
 {{youtube: | IELTS Writing Task 1 Grafik Raporu Yazma Taktikleri}}
 
 ---
+
+Rapor yazarken sık yapılan genel hataları [IELTS Writing hataları ve çözümleri](/tr/blog/ielts-writing-hatalari-ve-cozumleri/) yazısında da toplu görebilirsiniz.
+
+Task 1'de grafik yerine bir üretim ya da doğa döngüsü çıkarsa yaklaşım değişir; bunun için [IELTS process diagram nasıl yazılır](/tr/blog/ielts-process-diagram-nasil-yazilir/) rehberindeki aşama sayma ve sıralama kalıplarına göz atın.
 
 ## Sıkça Sorulan Sorular (FAQ)
 

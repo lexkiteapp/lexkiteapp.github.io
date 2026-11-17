@@ -136,3 +136,5 @@ Phrasal verbs को स्थायी रूप से अपनी सक्�
 {{youtube: | अंग्रेजी Phrasal Verbs को लॉजिक के साथ याद रखने का सबसे आसान तरीका}}
 
 {{cta: /#/practice/learn | लेक्सकाइट पर Smart Learn के साथ Phrasal Verbs का अभ्यास करें}}
+
+Phrasal verbs जल्दी भूल जाते हों तो खुद को परखने की विधि [Active Recall क्या है](/hi/blog/active-recall-kya-hai-english-vocabulary/) में देखिए।

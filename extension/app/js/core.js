@@ -20,7 +20,7 @@
     rq.onupgradeneeded = () => rq.result.createObjectStore('kv');
     rq.onsuccess = () => migrateOldDb(rq.result).then(() => res(rq.result), () => res(rq.result)); rq.onerror = () => rej(rq.error); rq.onblocked = () => rej(new Error('blocked'));
   }));
-  // Chuyển dữ liệu từ CSDL tên cũ "vocaband" (1 lần): chỉ chép khóa còn thiếu, chép xong mới xóa CSDL cũ → không mất tiến độ học
+  // Chuyển 1 lần từ CSDL cũ "vocaband": chỉ chép khóa còn thiếu, xong mới xóa
   async function migrateOldDb(db) {
     try { if (localStorage.getItem('lk.idbMoved')) return; } catch (e) { return; }
     if (indexedDB.databases) { const list = await indexedDB.databases().catch(() => null); if (list && !list.some(d => d.name === 'vocaband')) { try { localStorage.setItem('lk.idbMoved', '1'); } catch (e) { /* bỏ qua */ } return; } }
@@ -108,7 +108,8 @@
   const todayKey = (d = new Date()) =>
     `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
   const startOfToday = () => { const d = new Date(); d.setHours(0, 0, 0, 0); return d.getTime(); };
-  const endOfToday = () => startOfToday() + DAY - 1;
+  const daysTo = ds => { const m = /^(\d+)-(\d+)-(\d+)/.exec(ds); return m ? Math.round((new Date(+m[1], +m[2] - 1, +m[3]).getTime() - startOfToday()) / DAY) : NaN; };
+  const endOfToday = () => { const d = new Date(); d.setHours(24, 0, 0, 0); return d.getTime() - 1; };
 
   // ---------- SRS: FSRS-5 (Free Spaced Repetition Scheduler – thuật toán Anki dùng từ 2023) + bước học ----------
   // grade: 0 = Quên, 1 = Khó, 2 = Nhớ, 3 = Dễ  (FSRS: Again/Hard/Good/Easy = 1..4)
@@ -263,7 +264,7 @@
   const Cards = {
     async all() { return normalize(await Store.get('cards', {})); },
     async save(map) { return serial(() => Store.set('cards', normalize(map))); },
-    // Đọc–sửa–ghi trong cùng khóa với add/ôn tập: gộp đồng bộ không đè câu trả lời ghi giữa lúc chờ mạng (docs/specs/account-flow.md)
+    // Đọc–sửa–ghi cùng khóa với add/ôn tập: gộp đồng bộ không đè câu trả lời ghi lúc chờ mạng
     async mutate(fn) { return serial(async () => Store.set('cards', normalize(fn(normalize(await Store.get('cards', {})))))); },
 
     make(entry, extra = {}) {
@@ -382,10 +383,10 @@
       const newCount = Math.min(newAvail, Math.max(0, (settings || DEFAULT_SETTINGS).dailyNew - introduced));
       return { due, newCount, total: due + newCount };
     },
-    // Thẻ mới đã xem mà chưa chấm (thoát giữa phiên): lần sau xuống cuối hàng, gặp từ chưa xem trước. Lưu theo máy, tối đa 400 từ.
+    // Thẻ mới đã xem chưa chấm (thoát giữa phiên): lần sau xuống cuối hàng; lưu theo máy, ≤ 400 từ
     seenNew() { try { return JSON.parse(localStorage.getItem('lk.newSeen') || '{}') || {}; } catch (e) { return {}; } },
     markSeen(word) { try { const m = Cards.seenNew(); m[String(word).toLowerCase()] = Date.now(); const k = Object.keys(m); if (k.length > 400) k.sort((a, b) => m[a] - m[b]).slice(0, k.length - 400).forEach(x => delete m[x]); localStorage.setItem('lk.newSeen', JSON.stringify(m)); } catch (e) { /* bỏ qua */ } },
-    // Thẻ mới vào phiên ôn hôm nay (chưa xem trước, rồi cũ nhất trước, tối đa newCount) – dùng chung cho phiên ôn (study.js) và số liệu màn Ôn (ux1.js)
+    // Thẻ mới vào phiên ôn hôm nay (chưa xem trước, rồi cũ nhất trước, ≤ newCount); dùng chung study.js + ux1.js
     newToday(map, settings, stats) {
       const n = Cards.dueCount(map, settings, stats).newCount, seen = Cards.seenNew(), at = c => seen[String(c.word).toLowerCase()] || 0;
       return Object.values(map).filter(c => c.srs.reps === 0 && !c.srs.last).sort((a, b) => at(a) - at(b) || a.added - b.added).slice(0, n);
@@ -441,10 +442,10 @@
       while (s.days[todayKey(d)]) { n++; d.setDate(d.getDate() - 1); }
       return n;
     },
-    // Đóng băng chuỗi – NGUỒN DUY NHẤT là dữ liệu game (app.js applyFreeze/offerRescue): game.freezes = lượt còn (tối đa 2, +1 mỗi 7 ngày chuỗi),
-    // game.frozen = { 'YYYY-MM-DD': 1 } ngày được giữ chuỗi, game.freezeSaved = ngày tự dùng lượt gần nhất (giao diện streak-ui.js hiện màn "đã cứu chuỗi").
+    // Đóng băng chuỗi: NGUỒN DUY NHẤT = game (app.js applyFreeze/offerRescue): freezes = lượt còn (≤ 2, +1/7 ngày chuỗi),
+    // frozen = { 'YYYY-MM-DD': 1 } ngày được giữ chuỗi, freezeSaved = ngày tự dùng gần nhất (streak-ui.js).
     freezeInfo(g) { g = g || {}; return { left: +g.freezes || 0, max: 2, used: Object.keys(g.frozen || {}).sort().slice(-7), lastSave: g.freezeSaved || '' }; },
   };
 
-  g.Core = { keyOf, tlKey, cardKey, Golden, Store, SRS, Cards, Stats, DEFAULT_SETTINGS, todayKey, startOfToday, endOfToday, DAY, ensurePersist };
+  g.Core = { keyOf, tlKey, cardKey, Golden, Store, SRS, Cards, Stats, DEFAULT_SETTINGS, todayKey, startOfToday, endOfToday, daysTo, DAY, ensurePersist };
 })(typeof self !== 'undefined' ? self : this);

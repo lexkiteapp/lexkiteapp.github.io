@@ -42,6 +42,7 @@ quiz: [
     explain: "Rephrasing keeps you speaking. Silence and restarts waste your limited time."
   }
 ]
+publishAt: 2027-03-04T07:06:00+05:30
 ---
 Many people prepare for the CELPIP speaking test by memorising full answers. That usually backfires: the tasks change, and a speech that does not match the question sounds strange. A better plan is to learn a set of flexible **CELPIP speaking phrases**, short everyday chunks you can slot into any answer. This guide shows the phrases for each task type, how to link ideas smoothly, and how to keep going when you lose a word.
 

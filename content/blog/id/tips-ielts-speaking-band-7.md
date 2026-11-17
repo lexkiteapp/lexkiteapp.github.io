@@ -134,6 +134,10 @@ Uji kesiapanmu menghadapi IELTS Speaking dengan tiga latihan singkat berikut.
 
 {{cta: /#/speaking | Latih IELTS Speaking dengan contoh jawaban band 7.5–8 di Lexkite}}
 
+Untuk membagi waktu latihan Speaking dengan skill lain dalam beberapa minggu, lihat [jadwal belajar IELTS 4, 8, dan 12 minggu](/id/blog/jadwal-belajar-ielts-4-8-12-minggu/).
+
+Untuk memahami bagaimana skor akhirmu terbentuk, baca juga [cara menghitung skor IELTS dan band score](/id/blog/cara-menghitung-skor-ielts-band-score/).
+
 ## Pertanyaan yang sering diajukan (FAQ)
 
 ### Apakah aksen lokal Indonesia akan mengurangi nilai IELTS Speaking?
@@ -146,3 +150,5 @@ Jika kamu menyadari kesalahan tata bahasa sederhana tepat setelah mengucapkannya
 Tentu saja diperbolehkan. Kamu bisa berkata sopan: *"Could you please repeat the question?"* atau di Part 3: *"Could you rephrase that question, please?"*. Meminta pengulangan satu atau dua kali tidak akan memotong skormu, asalkan kamu tidak memintanya di setiap pertanyaan.
 
 {{youtube: | Ide video: simulasi IELTS Speaking Part 1 2 3 lengkap dengan pembahasan band 7}}
+
+Kalau Speaking direkam untuk keperluan visa, baca [panduan IELTS UKVI](/id/blog/ielts-ukvi-adalah-perbedaan-dan-cara-daftar/) agar tidak salah mendaftar.

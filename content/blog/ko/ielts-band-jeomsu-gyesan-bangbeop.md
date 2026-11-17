@@ -9,7 +9,7 @@ tags: [ielts, band-score, scoring, strategy]
 keyword: "ielts 밴드 점수"
 cover: mock
 coverAlt: "Lexkite IELTS 모의고사 설정 화면: 듣기·읽기·쓰기·말하기 네 영역과 이전 응시 기록"
-publishAt:
+publishAt: 2026-12-31T08:36:00+09:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

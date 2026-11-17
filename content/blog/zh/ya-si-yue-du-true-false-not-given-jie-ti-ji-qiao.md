@@ -97,6 +97,8 @@ qualityScore: 94
 
 每篇文章该花多少时间，可以参考[雅思阅读时间分配全攻略](/zh/blog/ya-si-yue-du-shi-jian-fen-pei-ji-qiao/)。
 
+判断题只是阅读十几种题型之一，其他题型的做法见[雅思阅读题型全解析](/zh/blog/ya-si-yue-du-ti-xing-jie-ti-fang-fa/)。
+
 ## 常见问题解答（FAQ）
 
 ### True/False/Not Given 和 Yes/No/Not Given 有何区别？
