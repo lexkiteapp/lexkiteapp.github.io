@@ -182,6 +182,23 @@ ok(scan(root).every(f => !fs.readFileSync(f, 'utf8').includes(keyFrag) && !fs.re
 const src = fs.readFileSync('scripts/seo/gsc.mjs', 'utf8');
 ok(!/writeFileSync\([^)]*(sa|raw|private_key)/.test(src) && !/console\.(log|error)\([^)]*(raw|private_key|sa\b)/.test(src), 'mã nguồn không ghi/in biến khoá');
 
+// --- khách thật từ tìm kiếm (D1 land:* → /api/seo-visits → báo cáo tuần) ---
+{
+  const { searchDaily } = await import('../../functions/api/_cpm.js');
+  const rows = [{ day: '2026-11-10', kind: 'land:google.com:US:words:th', n: 3 }, { day: '2026-11-10', kind: 'land:google.com:VN:blog:vi', n: 2 }, { day: '2026-11-10', kind: 'land:bing.com:TH:words:th', n: 1 },
+    { day: '2026-11-10', kind: 'land:facebook.com:US:blog:en', n: 9 }, { day: '2026-11-11', kind: 'land:google.com:DE:words:de', n: 4 }, { day: '2026-11-11', kind: 'cta:x', n: 5 }];
+  const d = searchDaily(rows);
+  eq(d, [{ day: '2026-11-10', search: 6, google: 5, high: 3, vn: 2, other: 1 }, { day: '2026-11-11', search: 4, google: 4, high: 4, vn: 0, other: 0 }], 'searchDaily: chỉ công cụ tìm kiếm, nhóm theo nước, bỏ mạng xã hội');
+  const vs = G.visitsSummary({ from: '2026-10-15', to: '2026-11-11', days: d });
+  ok(vs && vs.perDay7.search === 1.4 && vs.perDay28.search === 0.4 && vs.last7.length === 2, 'visitsSummary: TB 7/28 ngày');
+  ok(G.visitsSummary({ from: 'a', to: 'b', days: [] }) === null, 'không có dữ liệu → null');
+  const md = G.markdown({ date: '2026-11-12', site: G.SITE, range: { startDate: 'a', endDate: 'b' }, prevRange: { startDate: 'c', endDate: 'd' }, totals: { current: { clicks: 0, impressions: 0, ctr: 0, position: 0 }, previous: { clicks: 0, impressions: 0, ctr: 0, position: 0 } }, gaps: [], striking: [], cannibal: [], declines: [], dictQueue: [], priority: [], visits: vs });
+  ok(/Khách thật từ tìm kiếm/.test(md) && /TB 7 ngày \| 1.4/.test(md), 'markdown có mục khách từ tìm kiếm + số nền');
+  const src = fs.readFileSync(new URL('../../functions/api/seo-visits.js', import.meta.url), 'utf8');
+  ok(/X-Studio-Secret/.test(src) && /secretOk/.test(src), 'endpoint seo-visits cần bí mật');
+}
+
 fs.rmSync(root, { recursive: true, force: true }); fs.rmSync(root2, { recursive: true, force: true });
 if (fails) { console.error(`✗ gsc: ${fails} kiểm tra hỏng`); process.exit(1); }
 console.log('✓ gsc: chuẩn hoá/khớp đa ngôn ngữ, (a)(b)(c)(d), ưu tiên, JWT, phân trang API giả, thiếu secret → exit 0, không lộ khoá');
+

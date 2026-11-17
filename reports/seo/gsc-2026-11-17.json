@@ -7653,5 +7653,7 @@
   "decPrevMin": 30,
   "decAbsMin": 15
  },
- "noBaseline": false
+ "noBaseline": false,
+ "visits": null,
+ "visitsError": "HTTP 404"
 }
