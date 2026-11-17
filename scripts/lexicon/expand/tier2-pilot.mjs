@@ -24,11 +24,11 @@ export const accept = (v, back) => !!(v && v.vi_ok === true && v.back_ok === tru
 export async function run(items, { AI, log = console.log, gen = true, save = () => {} } = {}) {
   const res = {}, fams = new Set();
   for (const ch of chunks(items, 8)) {
-    let out = null, gf = null;
+    let out = null, gf = null, gm = null;
     if (gen) {
       const g = await AI.gen({ mode: 'lxgen', pilot: 'gen', items: ch.map(e => ({ k: e.k, w: e.w, pos: e.pos, sense: e.gloss })) }, { chain: ['groq', 'gem'] });
       if (!g) { log(`⏸ không soạn được lô ${ch[0].k}`); continue; }
-      fams.add('A:' + g.model); out = g.out || {}; gf = g.fam;
+      fams.add('A:' + g.model); out = g.out || {}; gf = g.fam; gm = g.model;
       for (const e of ch) if (out[e.k]) { e.vi = out[e.k].vi; e.ex = out[e.k].ex; }
     }
     const ok = ch.filter(e => e.vi && Array.isArray(e.ex) && e.ex.length >= 2);
@@ -36,10 +36,14 @@ export async function run(items, { AI, log = console.log, gen = true, save = () 
     const b = await AI.judge({ mode: 'lxaudit', pilot: 'back', items: ok.map(e => ({ k: e.k, pos: e.pos, vi: e.vi })) }, { chain: ['groq', 'gem'], exclude: gf ? [gf] : [] });
     if (!b) { log(`⏸ không dịch ngược được lô ${ch[0].k}`); continue; }
     fams.add('B:' + b.model);
-    const c = await AI.judge({ mode: 'lxaudit', pilot: 'judge', _slot: 'C', items: ok.map(e => ({ k: e.k, w: e.w, pos: e.pos, gloss: e.gloss, vi: e.vi, back: ((b.out || {})[e.k] || {}).en || '', ex: e.ex })) }, { chain: ['groq', 'gem'], slot: 'C', exclude: [b.fam, ...(gf ? [gf] : [])], excludeModels: [b.model] });
+    const jitems = ok.map(e => ({ k: e.k, w: e.w, pos: e.pos, gloss: e.gloss, vi: e.vi, back: ((b.out || {})[e.k] || {}).en || '', ex: e.ex }));
+    let c = await AI.judge({ mode: 'lxaudit', pilot: 'judge', _slot: 'C', items: jitems }, { chain: ['groq', 'gem'], slot: 'C', exclude: [b.fam, ...(gf ? [gf] : [])], excludeModels: [b.model] });
+    // Gemini 503 suốt lượt (17/11) + Groq chỉ có 2 họ → không còn họ thứ 3: lùi về mô hình KHÁC (cùng họ gpt-oss 20b vs 120b, lời nhắn người soát thứ hai) và đánh dấu c3fam=false trong kết quả
+    let c3 = !!c;
+    if (!c) c = await AI.judge({ mode: 'lxaudit', pilot: 'judge', _slot: 'C', items: jitems }, { chain: ['groq'], slot: 'C', exclude: [b.fam], excludeModels: [b.model, ...(gm ? [gm] : [])] });
     if (!c) { log(`⏸ không chấm được lô ${ch[0].k}`); continue; }
     fams.add('C:' + c.model);
-    for (const e of ok) { const v = (c.out || {})[e.k], back = ((b.out || {})[e.k] || {}).en; res[e.k] = { k: e.k, w: e.w, pos: e.pos, gloss: e.gloss, vi: e.vi, ex: e.ex, back, verdict: v || null, accepted: accept(v, back) }; }
+    for (const e of ok) { const v = (c.out || {})[e.k], back = ((b.out || {})[e.k] || {}).en; res[e.k] = { k: e.k, w: e.w, pos: e.pos, gloss: e.gloss, vi: e.vi, ex: e.ex, back, verdict: v || null, accepted: accept(v, back), c3fam: c3 }; }
     save({ res, models: [...fams] });   // ghi từng lô: bị huỷ/timeout vẫn còn kết quả một phần (lượt 44082417026 mất hết vì chỉ ghi ở cuối)
   }
   return { res, models: [...fams] };
