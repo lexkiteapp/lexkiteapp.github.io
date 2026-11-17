@@ -147,7 +147,6 @@ object LessonEngine {
         val seed: Long? = null, val pool: List<JsonObject> = emptyList(), val off: Off = Off(), val only: List<String>? = null, val calm: Boolean = false,
         val perWord: Int = 2, val match: Boolean = true,
         val hasImg: ((String, String) -> Boolean)? = null, val gloss: ((JsonObject, String) -> String)? = null, val mean: ((JsonObject) -> String)? = null,
-        val viOk: Boolean = false, // câu dịch x.vi chỉ dùng khi người học dùng tiếng Việt (khớp web engine.js)
     )
 
     private val RARE = mapOf("pic" to 0.0, "tr" to 0.1, "build" to 0.2, "type" to 0.25, "gap" to 0.3, "say" to 0.4)
@@ -161,8 +160,7 @@ object LessonEngine {
             val c = p.card; val s = sentenceOf(c); val types = ArrayList<String>()
             val pair = c.arr("sentences").mapNotNull { x ->
                 val e = x.obj(); val en = e?.s("en").orEmpty(); val n = toks(en).size
-                val tr = if (e != null && e.truthy("en")) ((if (o.viOk) e.s("vi") else "").ifEmpty { o.gloss?.invoke(c, en).orEmpty() }) else ""
-                if (e != null && tr.isNotEmpty() && findWord(en, c.s("word")) != null && n in 3..10) Sent(en, false, tr, findWord(en, c.s("word"))!!) else null
+                if (e != null && e.truthy("en") && e.truthy("vi") && findWord(en, c.s("word")) != null && n in 3..10) Sent(en, false, e.s("vi"), findWord(en, c.s("word"))!!) else null
             }.firstOrNull()
             var st = s
             if (st != null && st.tr.isNullOrEmpty() && o.gloss != null) st = st.copy(tr = o.gloss.invoke(c, st.text))

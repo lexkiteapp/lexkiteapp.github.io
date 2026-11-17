@@ -37,7 +37,7 @@ class ParityM2Test {
 
     private fun lesson(seed: Long = 7, off: Off = Off(), only: List<String>? = null, offState: () -> Off = { off }): LessonController {
         val picks = LessonEngine.pickWords(cards, 6, now, null, starter)
-        val items = LessonEngine.build(picks, LessonEngine.BuildOpts(seed, cards + starter, off, only, mean = { c -> (c["vi"] as? JsonPrimitive)?.content.orEmpty() }, viOk = true), now)
+        val items = LessonEngine.build(picks, LessonEngine.BuildOpts(seed, cards + starter, off, only, mean = { c -> (c["vi"] as? JsonPrimitive)?.content.orEmpty() }), now)
         return LessonController(items, picks, cards, seed = 1, now = { now }, offState = offState)
     }
     private fun LessonController.item() = sess.cur!!

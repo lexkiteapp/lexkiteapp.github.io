@@ -111,7 +111,7 @@ class LessonVectorsTest {
         val glossFn: (JsonObject, String) -> String = { _, en -> gloss[en]?.s().orEmpty() }
         val meanFn: (JsonObject) -> String = { c -> if (b.s("mean") == "vi") (c["vi"] as? JsonPrimitive)?.content.orEmpty() else "" }
         return LessonEngine.build(picks, BuildOpts(b.getValue("seed").jsonPrimitive.long, cards + starter, off, b["only"]?.jsonArray?.map { it.s() }, b.b("calm"), b["perWord"]?.jsonPrimitive?.long?.toInt() ?: 0,
-            b["match"]?.jsonPrimitive?.booleanOrNull ?: true, hasImg, if (b.b("gloss")) glossFn else null, meanFn, viOk = b.s("mean") == "vi"))
+            b["match"]?.jsonPrimitive?.booleanOrNull ?: true, hasImg, if (b.b("gloss")) glossFn else null, meanFn))
     }
     private val builds: Map<String, List<LItem>> by lazy { v.a("build").associate { it.jsonObject.s("id") to buildOf(it.jsonObject) } }
 

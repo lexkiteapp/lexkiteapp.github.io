@@ -56,7 +56,7 @@ class LessonSnapshotTest {
     private val imgFn: (String, String) -> Boolean = { w, _ -> w in imgWords }
     private fun lesson(seed: Long, img: Boolean = false): LessonController {
         val picks = LessonEngine.pickWords(cards, 6, now, null, starter)
-        val items = LessonEngine.build(picks, LessonEngine.BuildOpts(seed, cards + starter, Off(), null, hasImg = imgFn.takeIf { img }, mean = { c -> (c["vi"] as? JsonPrimitive)?.content.orEmpty() }, viOk = true, gloss = { _, en -> (v.getValue("inputs").jsonObject.getValue("gloss").jsonObject[en] as? JsonPrimitive)?.content.orEmpty() }), now)
+        val items = LessonEngine.build(picks, LessonEngine.BuildOpts(seed, cards + starter, Off(), null, hasImg = imgFn.takeIf { img }, mean = { c -> (c["vi"] as? JsonPrimitive)?.content.orEmpty() }, gloss = { _, en -> (v.getValue("inputs").jsonObject.getValue("gloss").jsonObject[en] as? JsonPrimitive)?.content.orEmpty() }), now)
         return LessonController(items, picks, cards, seed = 1, now = { now })
     }
     /** First lesson (by seed) whose current exercise has [type], played on with right answers until it comes up (the engine puts the rarest kind of the first word first, so

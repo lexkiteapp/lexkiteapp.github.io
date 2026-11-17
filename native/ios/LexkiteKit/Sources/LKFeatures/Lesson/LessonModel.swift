@@ -109,7 +109,6 @@ public final class LessonModel {
             var o = LessonEngine.BuildOptions(seed: seed ?? now, pool: src.cards + src.starter, off: off(), only: LessonEngine.kind[kind] ?? nil, calm: true)
             if pictures.enabled { let snap = pictures; o.hasImg = { w, p in snap.usable(w, p, dark: dark) != nil } }
             o.mean = { [uiLang] c in uiLang == "vi" ? c.vi : "" }   // learner-language meaning: only Vietnamese cards carry one (web nativeMean)
-            o.viOk = uiLang == "vi"   // x.vi only for Vietnamese learners (web viOk)
             items = LessonEngine.build(picks, o)
         }
         begin(items, kind: kind)

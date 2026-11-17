@@ -83,7 +83,7 @@ class LessonViewModel(private val env: LessonEnv, private val req: LessonRequest
             runCatching { env.prepareImages(picks.map { (it.card["word"] as? JsonPrimitive)?.content.orEmpty() }) }
             val seedN = now
             items = LessonEngine.build(picks, LessonEngine.BuildOpts(seedN, cards + starter, off, LessonEngine.KIND[req.kind], calm = true,
-                hasImg = { w, p -> env.imageUrl(w, p) != null }, gloss = gloss, viOk = env.uiLang == "vi", mean = { c -> if (env.uiLang == "vi") (c["vi"] as? JsonPrimitive)?.content.orEmpty() else "" }), now)
+                hasImg = { w, p -> env.imageUrl(w, p) != null }, gloss = gloss, mean = { c -> if (env.uiLang == "vi") (c["vi"] as? JsonPrimitive)?.content.orEmpty() else "" }), now)
         }
         ctrlWho = if (req.story != null || req.kind == "story" || req.kind == "radio") "ama" else if ((now / 1000) % 2 == 0L) "ama" else "carlos"
         ctrl = LessonController(items, picks, cards, ease = true, seed = seed, now = { env.now() }, offState = { Off(offListen, offSpeak) })
