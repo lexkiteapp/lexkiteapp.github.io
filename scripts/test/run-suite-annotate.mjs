@@ -1,6 +1,6 @@
 // Kiểm chú thích lỗi của run-suite: test đỏ phải in `::error file=…::<lệnh>: <lý do>` và ghi job summary, không chỉ "exit 1".
 import fs from 'node:fs'; import os from 'node:os'; import path from 'node:path'; import { spawnSync } from 'node:child_process'; import { fileURLToPath } from 'node:url';
-import { reasonOf, scriptOf, esc, annotate } from './run-suite.mjs';
+import { reasonOf, scriptOf, esc, annotate, needsJsdom, jsdomError } from './run-suite.mjs';
 let bad = 0; const ok = (c, m) => { console.log(`${c ? '✓' : '✗'} ${m}`); if (!c) bad++; };
 ok(scriptOf('node scripts/test/foo.mjs --x') === 'scripts/test/foo.mjs', 'scriptOf lấy file test');
 ok(scriptOf('! grep -q a b') === 'package.json', 'scriptOf lệnh không có file → package.json');
@@ -17,4 +17,6 @@ ok(fs.existsSync(sum) && fs.readFileSync(sum, 'utf8').includes('thiếu khoá vi
 // Chạy thật: run-suite với lệnh đỏ phải ra ::error có lý do (dùng suite tạm qua node -e nạp hàm, không đụng suite.txt)
 const r = spawnSync('node', ['-e', "import('./scripts/test/run-suite.mjs').then(m=>{m.annotate('node scripts/test/bar.mjs','boom\\nAssertionError: nope',2)})"], { encoding: 'utf8', cwd: path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..') });
 ok(/::error file=scripts\/test\/bar\.mjs.*AssertionError: nope/.test(r.stderr), 'chú thích ra stderr thật');
+ok(needsJsdom(['node scripts/test/x.mjs'], () => "import { JSDOM } from 'jsdom'") && !needsJsdom(['node scripts/test/x.mjs'], () => 'console.log(1)') && !needsJsdom(['! grep a b'], () => 'jsdom'), 'needsJsdom: chỉ khi nguồn test nhắc jsdom');
+ok((await jsdomError(() => Promise.reject(new Error("Cannot find module 'x'\nstack")))) === "Cannot find module 'x'" && (await jsdomError(() => Promise.resolve({}))) === '', 'jsdomError: hỏng → thông điệp, nạp được → rỗng');
 if (bad) { console.error(`✗ ${bad} lỗi`); process.exit(1); }

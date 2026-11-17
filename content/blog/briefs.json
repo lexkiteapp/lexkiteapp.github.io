@@ -20921,6 +20921,60 @@
    "role": "spoke",
    "translationKey": "ielts-clb-score-canada",
    "pillar": "ielts-for-immigration-guide"
+  },
+  {
+   "lang": "en",
+   "slug": "ielts-score-australia-pr",
+   "keyword": "ielts score for australia pr",
+   "topic": "IELTS score for Australian skilled migration: Competent, Proficient and Superior English, with the points each level adds",
+   "category": "ky-nang",
+   "tags": [
+    "ielts",
+    "australia",
+    "skilled-migration",
+    "points"
+   ],
+   "shots": [
+    "goal",
+    "placement"
+   ],
+   "routes": [
+    "/#/goal",
+    "/#/placement"
+   ],
+   "angle": "Spoke của ielts-for-immigration-guide (AU): ba mức Competent 6/Proficient 7/Superior 8 mỗi kỹ năng và điểm 0/10/20 từ immi.homeaffairs.gov.au; 3 năm hiệu lực; kiểm thi tại trung tâm, không thi tại nhà. Kiểm số điểm/điều kiện TẠI NGUỒN CHÍNH THỨC lúc viết, ghi ngày kiểm; không hứa visa, không tư vấn pháp lý, không dự đoán band chính thức.",
+   "intent": "informational",
+   "cluster": "ielts-immigration",
+   "role": "spoke",
+   "translationKey": "ielts-score-australia-pr",
+   "pillar": "ielts-for-immigration-guide"
+  },
+  {
+   "lang": "en",
+   "slug": "ielts-new-zealand-skilled-migrant",
+   "keyword": "ielts score for new zealand residence",
+   "topic": "IELTS for New Zealand residence: the 6.5 overall rule, partner score, validity and exemptions",
+   "category": "ky-nang",
+   "tags": [
+    "ielts",
+    "new-zealand",
+    "skilled-migrant",
+    "residence"
+   ],
+   "shots": [
+    "goal",
+    "placement"
+   ],
+   "routes": [
+    "/#/goal",
+    "/#/placement"
+   ],
+   "angle": "Spoke của ielts-for-immigration-guide (NZ): Skilled Migrant Category cần IELTS tổng 6.5 (người nộp chính), 5.0 cho đối tác; không có điểm tối thiểu từng kỹ năng với IELTS; hiệu lực 2 năm; miễn trừ theo bằng cấp/quốc tịch, từ immigration.govt.nz. Kiểm số điểm/điều kiện TẠI NGUỒN CHÍNH THỨC lúc viết, ghi ngày kiểm; không hứa visa, không tư vấn pháp lý, không dự đoán band chính thức.",
+   "intent": "informational",
+   "cluster": "ielts-immigration",
+   "role": "spoke",
+   "translationKey": "ielts-new-zealand-skilled-migrant",
+   "pillar": "ielts-for-immigration-guide"
   }
  ]
 }
