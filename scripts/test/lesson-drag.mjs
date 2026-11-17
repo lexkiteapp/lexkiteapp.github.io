@@ -106,7 +106,7 @@ ans.style.direction = '';
 const SRC = f => fs.readFileSync(f, 'utf8');
 ok(['web/js/lesson/ui.js', 'web/js/grammar.js', 'web/js/toefl.js'].every(f => /WordArrange\.bind\(/.test(SRC(f))), 'bài học, ngữ pháp, TOEFL đều dùng WordArrange.bind');
 ok(!/ChoiceKit\.tiles|TileDrag|lesson\/drag\.js/.test(SRC('web/js/app.js') + SRC('web/js/lesson/ui.js')) && !fs.existsSync('web/js/lesson/drag.js'), 'không còn bản kéo-thả riêng');
-const app = SRC('web/js/app.js');
+const app = SRC('web/js/bundles.js'); // gói tải lười đăng ký ở bundles.js
 ok(['lesson', 'grammar', 'toefl'].every(k => new RegExp(`\\b${k}: \\[[^\\]]*'js/word-arrange\\.js'`).test(app)), 'gói lesson/grammar/toefl nạp word-arrange.js');
 
 // D. ResizeObserver: đo lại bề rộng KHÔNG đổi minHeight ngay trong callback (gây "ResizeObserver loop completed with undelivered notifications", qa-bot journey@1440d) mà ở khung kế
