@@ -3,7 +3,7 @@
  * create({ mode: 'turn'|'barge', long, minWords }) → { push(p, tMs) → 'start'|'end'|null, hint(interimText), state() }
  * turn: nói ≥ 3 khung > 0,5 → 'start'; im (< 0,35) kéo dài hangover → 'end'. hangover thích nghi theo chữ tạm (interim):
  *   câu dở ("and", "because", "the", "um"…) → 1000 ms · đã đủ minWords và câu trọn → 350 ms · mặc định 550 ms · Part 2 (long) 1200 ms.
- * barge (giáo viên đang nói): chặt hơn – 1 khung > 0,8 bắt đầu cụm, 3 khung liền (các khung sau ≥ 0,5, < 0,5 thì về 0) → 'start' (≈ 96 ms), không có 'end'. */
+ * barge (giáo viên đang nói): chặt hơn – bộ đếm rò (khung ≥ 0,5 +1, < 0,5 −1), đủ 3 và có ≥ 1 khung > 0,8 → 'start' (≈ 96 ms với giọng rõ), không có 'end'. */
 (function (g) {
   const POS = 0.5, NEG = 0.35, BARGE = 0.8, MIN_FR = 3;
   const HOLD = { base: 550, quick: 350, open: 1000, long: 1200 };
@@ -21,16 +21,17 @@
   }
 
   function create(o = {}) {
-    let on = false, run = 0, lastVoice = -1, t0 = -1, hint = '', fired = false;
+    let on = false, run = 0, hi = false, lastVoice = -1, t0 = -1, hint = '', fired = false;
     const barge = o.mode === 'barge';
     return {
       push(p, t) {
         if (fired && barge) return null;
         if (!on) {
-          // nói chen (16/11, vết khung CI): Silero tụt xuống 0,59–0,79 giữa chừng dù giọng vẫn còn (97→79→79→85→100) → luật cũ "3 khung LIỀN > 0,8" bị đặt về 0 và chỉ hush ở 220–290 ms (≫ 200 ms).
-          // Nay giống 'turn': khung > 0,8 BẮT ĐẦU cụm (tiếng vọng nhỏ 0,6 không bao giờ bắt đầu), các khung sau chỉ cần ≥ 0,5 để cụm không đứt; < 0,5 là về 0.
-          run = barge ? (p > BARGE ? run + 1 : (run > 0 && p >= POS ? run + 1 : 0)) : (p > POS ? run + 1 : 0);
-          if (run >= MIN_FR) { on = true; t0 = t; lastVoice = t; run = 0; if (barge) fired = true; return 'start'; }
+          // nói chen (16/11, vết khung CI trên runner EPYC): Silero dao động 0,35–0,8 giữa chừng dù giọng vẫn còn (92→54→49→55→100; 38→75→70→85→88→98) → "3 khung LIỀN > 0,8" (và cả hysteresis ≥ 0,5 bị cắt bởi 1 khung 0,49)
+          // hush trễ 220–295 ms. Nay bộ đếm RÒ: khung ≥ 0,5 → +1, khung < 0,5 → −1 (không về 0 ngay); đủ 3 VÀ có ≥ 1 khung > 0,8 từ lúc bộ đếm rời 0 → 'start'. Tiếng vọng/nền ≈ 0,6 không bao giờ kích (không có khung > 0,8); xung lẻ xen khung thấp (1,0,1,0) không lên được 3.
+          if (barge) { if (p >= POS) { run++; if (p > BARGE) hi = true; } else { run = Math.max(0, run - 1); if (!run) hi = false; } }
+          else run = p > POS ? run + 1 : 0;
+          if (run >= MIN_FR && (!barge || hi)) { on = true; t0 = t; lastVoice = t; run = 0; if (barge) fired = true; return 'start'; }
           return null;
         }
         if (barge) return null;
