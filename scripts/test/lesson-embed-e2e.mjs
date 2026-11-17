@@ -30,7 +30,7 @@ function media(r) {
 async function run(width, scheme, lang) {
   const mobile = width < 768, tag = `${width}-${scheme}-${lang}`, want = width >= 900 ? 'wide' : 'sq45';
   const vp = mobile ? { viewport: { width, height: 844 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true } : { viewport: { width, height: width > 1600 ? 1080 : 860 } };
-  const ctx = await browser.newContext({ ...vp, colorScheme: scheme, serviceWorkers: 'block', reducedMotion: 'reduce', locale: lang });
+  const ctx = await browser.newContext({ bypassCSP: true, ...vp, colorScheme: scheme, serviceWorkers: 'block', reducedMotion: 'reduce', locale: lang });
   await serve(ctx, ROOT);
   await ctx.route('https://lexkite.com/data/videos.json', r => r.fulfill({ status: 200, contentType: 'application/json', body: fs.readFileSync(path.join(ROOT, 'data/videos.json')) }));
   await ctx.route('https://media.lexkite.com/**', media);

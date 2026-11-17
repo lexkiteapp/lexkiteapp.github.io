@@ -116,6 +116,12 @@ qualityScore: 93
 3. **مارس التكرار المتباعد:** تدرب بانتظام عبر قسم [Smart Learn](/#/practice/learn) في تطبيق ليكسكايت؛ حيث تطبق المنظومة خوارزميات [al tikrar al mutabaad fsrs hifz al kalimat](/ar/blog/al-tikrar-al-mutabaad-fsrs-hifz-al-kalimat/) لتذكيرك بالكلمات في اللحظة المثالية لتثبيت حفظها.
 4. **طبق التراكيب في المقالات:** تدرب على استخدام المتلازمات بالتوازي مع دراسة [al jumal al muaqqadah complex sentences ielts writing](/ar/blog/al-jumal-al-muaqqadah-complex-sentences-ielts-writing/) و [adawat al rabt fi al injliziyyah linking words](/ar/blog/adawat-al-rabt-fi-al-injliziyyah-linking-words/). كما يمكنك مراجعة شروحات النحو الإضافية في قسم [/ngu-phap/](/ngu-phap/) المتاح في منصتنا. وإذا كنت تخطط لاجتماعات وظيفية، طالع أيضاً دليل [ibarat injliziyyah li ijtimaat al amal](/ar/blog/ibarat-injliziyyah-li-ijtimaat-al-amal/).
 
+ولتحفظ المتلازمات في جمل من إنتاجك استعمل المستوى الرابع من [الاسترجاع النشط للمفردات](/ar/blog/al-istirjaa-al-nashit-lil-mufradat-al-injliziyyah/).
+
+وإذا أردت أن تتعلم المتلازمات داخل عوائل الكلمات الأكاديمية، فانظر [قائمة الكلمات الأكاديمية AWL](/ar/blog/qaimat-al-kalimat-al-akadimiyya-awl/) التي تجمع 570 عائلة مرتبة بالشيوع.
+
+ومثال على متلازمة تضيع فيها حروف الجر العبارة have an effect on، وتجدها مع أخطائها في [الفرق بين affect و effect](/ar/blog/al-farq-bayna-affect-wa-effect/).
+
 ## أسئلة شائعة حول المتلازمات اللفظية (FAQ)
 
 ### كم متلازمة لفظية يجب أن أدرجها في مقال Writing Task 2؟

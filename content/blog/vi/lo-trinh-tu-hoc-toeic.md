@@ -112,6 +112,10 @@ Cần danh sách từ chia nhóm cho chặng 1? Hãy mở [bộ từ TOEIC chia 
 
 {{youtube: | Gợi ý video: cách người đi làm sắp xếp 60 phút học TOEIC mỗi ngày trong ba chặng}}
 
+Để luyện riêng hai phần nghe dài, xem bài [TOEIC Part 3 và Part 4](/vi/blog/toeic-part-3-part-4-meo-lam-bai/).
+
+Phần mô tả tranh ở đầu bài nghe có hướng dẫn riêng trong [TOEIC Part 1: mẹo mô tả tranh](/vi/blog/toeic-part-1-mo-ta-tranh/).
+
 ## Câu hỏi thường gặp
 
 ### Tự học TOEIC từ 450 lên 750 mất bao lâu?

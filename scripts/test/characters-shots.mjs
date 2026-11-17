@@ -18,7 +18,7 @@ const ROUTES = [['home', ''], ['train', 'train'], ['lesson', 'lesson/go'], ['sto
   ['call-ama', 'call/coffee', '#callGo'], ['call-carlos', 'call/apartment', '#callGo']]; // [tên, hash, nút bấm tuỳ chọn: vào cuộc gọi thật – giáo viên động]
 const browser = await chromium.launch(), rows = [], errs = [];
 for (const [w, scheme] of [[390, 'light'], [390, 'dark'], [1366, 'dark']]) {
-  const ctx = await browser.newContext({ viewport: { width: w, height: w < 768 ? 844 : 900 }, deviceScaleFactor: w < 768 ? 2 : 1, colorScheme: scheme, serviceWorkers: 'block' });
+  const ctx = await browser.newContext({ bypassCSP: true, viewport: { width: w, height: w < 768 ? 844 : 900 }, deviceScaleFactor: w < 768 ? 2 : 1, colorScheme: scheme, serviceWorkers: 'block' });
   await ctx.addInitScript(() => { try { localStorage.setItem('lk.ux1', '1'); localStorage.setItem('lk.ret', '1'); localStorage.setItem('lk.lesson_mix', '1'); } catch (e) { /* */ } });
   if (!LIVE) await serve(ctx, ROOT);
   const base = LIVE ? `${LIVE.replace(/\/$/, '')}/app/?ux1=1&ret=1&hl=en` : 'https://lk.test/app/?sandbox=1&ux1=1&ret=1&hl=en';

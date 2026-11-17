@@ -70,7 +70,7 @@ const INIT = ({ ask, webdriverOff, seed }) => {
 // ---------- khung 1 lượt chạy ----------
 async function journey(id, name, lang, dev, fn, opts = {}) {
   const st = { config: opts.config || {} }, api = mockApi(st), tag = `j${id}-${lang}-${dev}`;
-  const ctx = await browser.newContext({ ...VP[dev], locale: LOCALE[lang], reducedMotion: 'reduce', serviceWorkers: 'allow' });
+  const ctx = await browser.newContext({ bypassCSP: true, ...VP[dev], locale: LOCALE[lang], reducedMotion: 'reduce', serviceWorkers: 'allow' });
   await ctx.addInitScript(INIT, { ask: !!opts.ask, webdriverOff: !!opts.webdriverOff, seed: opts.seed || {} });
   if (opts.firebase) await ctx.addInitScript(FIREBASE_STUB);
   await ctx.addInitScript(CHECKS);
@@ -354,7 +354,7 @@ async function j3sync(h) {
   const docs = (st.sync && st.sync.docs) || {};
   h.ok(Object.values(docs).some(d => d.x === 1), 'gói thẻ có câu ngữ cảnh gắn cờ x:1 (máy chủ làm sạch ctx)');
   // máy B: hồ sơ trống, cùng tài khoản
-  const ctxB = await browser.newContext({ ...VP[h.dev], locale: LOCALE[h.lang] });
+  const ctxB = await browser.newContext({ bypassCSP: true, ...VP[h.dev], locale: LOCALE[h.lang] });
   await ctxB.addInitScript(INIT, { seed: { 'ielts.settings': JSON.stringify({ onboarded: true }) } }); await ctxB.addInitScript(FIREBASE_STUB);
   const api = mockApi(st);
   await ctxB.route('**/*', r => { const u = new URL(r.request().url()); if (u.pathname.startsWith('/api/')) return r.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(api(u, r.request().postData())) }); return u.origin === O ? r.continue() : r.fulfill({ status: 200, body: '' }); });
