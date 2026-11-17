@@ -9,7 +9,7 @@ tags: [toeic, listening, part-1, photographs]
 keyword: "toeic part 1"
 cover: toeic
 coverAlt: "Lexkite TOEIC merkezi: Listening ve Reading bölümleri için deneme sınavları ve parçaya göre pratik"
-publishAt:
+publishAt: 2027-01-20T12:59:00+03:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

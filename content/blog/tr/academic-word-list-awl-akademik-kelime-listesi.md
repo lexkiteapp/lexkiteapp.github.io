@@ -9,7 +9,7 @@ tags: [awl, ielts, academic-vocabulary, toefl]
 keyword: "academic word list awl"
 cover: library
 coverAlt: "Lexkite Kelime kütüphanesinde tüm kelimeler, NGSL çekirdek kelimeler, IELTS konuları, Writing, Speaking ve TOEIC sekmeleri"
-publishAt:
+publishAt: 2026-12-28T09:35:00+03:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

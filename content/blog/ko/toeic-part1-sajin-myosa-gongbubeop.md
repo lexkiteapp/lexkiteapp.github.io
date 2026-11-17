@@ -10,7 +10,7 @@ keyword: "토익 파트1 사진 묘사"
 cover: toeic
 coverAlt: "Lexkite 토익 허브: 모의고사와 파트별 연습"
 coverArt: {mood: happy, icon: ear}
-publishAt:
+publishAt: 2027-01-14T20:12:00+09:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

@@ -10,7 +10,7 @@ keyword: "accent tonique en anglais"
 cover: pron
 coverAlt: "Bibliothèque de prononciation API Lexkite avec voyelles, diphtongues et consonnes à s'entraîner"
 coverArt: {mood: think, icon: mic}
-publishAt:
+publishAt: 2026-12-26T08:33:00+01:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

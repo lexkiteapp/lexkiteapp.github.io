@@ -9,7 +9,7 @@ tags: [word-stress, pronunciation, ipa, speaking]
 keyword: "acento de palabra en inglés"
 cover: pron
 coverAlt: "Biblioteca de pronunciación IPA de Lexkite con vocales, diptongos y consonantes para practicar"
-publishAt:
+publishAt: 2026-12-28T07:21:00-06:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

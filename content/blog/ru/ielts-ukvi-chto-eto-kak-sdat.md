@@ -9,7 +9,7 @@ tags: [ielts, ukvi, uk-visa, immigration]
 keyword: "ielts ukvi что это"
 cover: goal
 coverAlt: "Экран цели в Lexkite: выбор экзамена, целевого балла, даты и недельных часов учёбы"
-publishAt:
+publishAt: 2027-01-08T07:02:00+03:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

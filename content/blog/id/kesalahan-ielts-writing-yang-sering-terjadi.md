@@ -9,7 +9,7 @@ tags: [ielts, writing, mistakes, grammar, task-2]
 keyword: "kesalahan ielts writing"
 cover: write
 coverAlt: "Ruang Writing Lexkite dengan topik esai, petunjuk ide, dan kerangka esai"
-publishAt:
+publishAt: 2027-01-16T09:06:00+07:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

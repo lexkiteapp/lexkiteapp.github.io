@@ -9,7 +9,7 @@ tags: [ielts, writing, task-2, opinion-essay]
 keyword: "ielts opinion essay"
 cover: write
 coverAlt: "Раздел Writing в Lexkite: вопросы для эссе по темам, подсказки идей и каркас эссе"
-publishAt:
+publishAt: 2027-01-07T12:07:00+03:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

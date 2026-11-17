@@ -10,7 +10,7 @@ keyword: "как преодолеть языковой барьер в англ�
 cover: practice-speak
 coverAlt: "Тренировка произношения в Lexkite: оценка фразы cut down on и кнопка микрофона"
 coverArt: {mood: cheer, icon: chat}
-publishAt:
+publishAt: 2027-01-11T12:45:00+03:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

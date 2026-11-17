@@ -9,7 +9,7 @@ tags: [ielts, study-plan, schedule, mock-test]
 keyword: "plan ielts de 4, 8 y 12 semanas"
 cover: path
 coverAlt: "Pantalla de ruta de aprendizaje de Lexkite con lecciones ordenadas como un recorrido paso a paso"
-publishAt:
+publishAt: 2027-01-18T19:30:00-06:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

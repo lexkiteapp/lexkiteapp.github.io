@@ -9,7 +9,7 @@ tags: [toeic, listening, part-1, photographs]
 keyword: "toeic partie 1 photographies"
 cover: toeic
 coverAlt: "Espace d'entraînement TOEIC de Lexkite avec tests blancs et exercices par partie"
-publishAt:
+publishAt: 2027-01-14T12:35:00+01:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

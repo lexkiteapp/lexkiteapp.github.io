@@ -14,7 +14,7 @@ factChecked: 2026-11-16
 qualityScore: 91
 author: Lexkite
 status: ready
-publishAt:
+publishAt: 2026-12-27T09:31:00+09:00
 shots: [
   {id: s1, route: '#/dict/affect', crop: main},
   {id: s2, route: '#/usage/make', crop: main}

@@ -17,7 +17,7 @@ shots: [
 diagrams: [
   {id: d1, type: compare, title: "Diga isto no lugar", cols: ["Seco", "Natural"], rows: [["I want a latte.", "Can I get a latte, please?"], ["No, I don't need help.", "I'm just looking, thanks."], ["Can we be friends?", "We should grab a coffee sometime."], ["You are wrong.", "That's a fair point. However..."]]}
 ]
-publishAt:
+publishAt: 2027-01-16T20:37:00-03:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

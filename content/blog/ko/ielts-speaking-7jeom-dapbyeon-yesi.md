@@ -9,7 +9,7 @@ tags: [ielts, speaking, band-7, sample-answers]
 keyword: "아이엘츠 스피킹 7점"
 cover: speaking
 coverAlt: "Lexkite 스피킹 연습 화면에서 IELTS 파트 1, 2, 3을 고르는 모습"
-publishAt:
+publishAt: 2027-01-09T08:39:00+09:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

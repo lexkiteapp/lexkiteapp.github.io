@@ -9,7 +9,7 @@ tags: [ielts, writing, task-1, process-diagram, passive-voice]
 keyword: "ielts writing task 1 processus"
 cover: write
 coverAlt: "Salle d'écriture Lexkite avec sujets et cadre de planification d'un compte rendu"
-publishAt:
+publishAt: 2027-01-08T12:25:00+01:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

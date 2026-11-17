@@ -9,7 +9,7 @@ tags: [ielts, immigration, ielts-general, canada, australia]
 keyword: "ielts для иммиграции"
 cover: goal
 coverAlt: "Экран целей Lexkite: выбор экзамена, целевого балла, даты теста и часов занятий в неделю"
-publishAt:
+publishAt: 2027-01-06T19:52:00+03:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

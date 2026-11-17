@@ -9,7 +9,7 @@ tags: [ielts, writing, mistakes, grammar, task-2]
 keyword: "erros comuns no ielts writing"
 cover: write
 coverAlt: "Sala de Writing do Lexkite com temas de redação, dicas de ideias e um modelo de estrutura de texto"
-publishAt:
+publishAt: 2027-01-19T20:15:00-03:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

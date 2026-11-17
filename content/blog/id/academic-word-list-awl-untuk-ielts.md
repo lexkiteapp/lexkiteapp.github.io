@@ -9,7 +9,7 @@ tags: [awl, ielts, academic-vocabulary, toefl]
 keyword: "academic word list"
 cover: library
 coverAlt: "Pustaka kosakata Lexkite dengan tab semua kata, NGSL, topik IELTS, Writing, Speaking, dan TOEIC"
-publishAt:
+publishAt: 2026-12-29T07:56:00+07:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

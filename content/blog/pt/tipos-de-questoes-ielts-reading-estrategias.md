@@ -9,7 +9,7 @@ tags: [ielts, reading, question-types, strategy]
 keyword: "tipos de questões do ielts reading"
 cover: reading
 coverAlt: "Lista de Reading do Lexkite com textos classificados do A2 ao C1"
-publishAt:
+publishAt: 2027-01-29T09:43:00-03:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

@@ -10,7 +10,7 @@ keyword: "perbedaan affect dan effect"
 cover: dict
 coverAlt: "Entri kamus Lexkite untuk kata resilient dengan pelafalan, contoh kalimat, kolokasi, dan sinonim"
 coverArt: {mood: think, icon: book}
-publishAt:
+publishAt: 2027-01-17T09:34:00+07:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready
