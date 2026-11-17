@@ -21,25 +21,26 @@ const JUDGE_SYS = 'You are an independent senior reviewer of dictionary entries 
 const prompt = req => ({ sys: req.pilot === 'gen' ? GEN_SYS : req.pilot === 'back' ? BACK_SYS : JUDGE_SYS, user: JSON.stringify(req.items), temp: req.pilot === 'gen' ? 0.4 : 0.1 });
 /** Nhận hay không (thuần, có test): v = phiếu C, back = bản dịch ngược B. */
 export const accept = (v, back) => !!(v && v.vi_ok === true && v.back_ok === true && Number(v.ex_ok) >= 2 && back && String(back).trim());
-export async function run(items, { AI, log = console.log, gen = true } = {}) {
+export async function run(items, { AI, log = console.log, gen = true, save = () => {} } = {}) {
   const res = {}, fams = new Set();
   for (const ch of chunks(items, 8)) {
     let out = null, gf = null;
     if (gen) {
-      const g = await AI.gen({ mode: 'lxgen', pilot: 'gen', items: ch.map(e => ({ k: e.k, w: e.w, pos: e.pos, sense: e.gloss })) });
+      const g = await AI.gen({ mode: 'lxgen', pilot: 'gen', items: ch.map(e => ({ k: e.k, w: e.w, pos: e.pos, sense: e.gloss })) }, { chain: ['groq', 'gem'] });
       if (!g) { log(`⏸ không soạn được lô ${ch[0].k}`); continue; }
       fams.add('A:' + g.model); out = g.out || {}; gf = g.fam;
       for (const e of ch) if (out[e.k]) { e.vi = out[e.k].vi; e.ex = out[e.k].ex; }
     }
     const ok = ch.filter(e => e.vi && Array.isArray(e.ex) && e.ex.length >= 2);
     if (!ok.length) continue;
-    const b = await AI.judge({ mode: 'lxaudit', pilot: 'back', items: ok.map(e => ({ k: e.k, pos: e.pos, vi: e.vi })) }, { chain: ['groq', 'gem', 'cf2'], exclude: gf ? [gf] : [] });
+    const b = await AI.judge({ mode: 'lxaudit', pilot: 'back', items: ok.map(e => ({ k: e.k, pos: e.pos, vi: e.vi })) }, { chain: ['groq', 'gem'], exclude: gf ? [gf] : [] });
     if (!b) { log(`⏸ không dịch ngược được lô ${ch[0].k}`); continue; }
     fams.add('B:' + b.model);
-    const c = await AI.judge({ mode: 'lxaudit', pilot: 'judge', _slot: 'C', items: ok.map(e => ({ k: e.k, w: e.w, pos: e.pos, gloss: e.gloss, vi: e.vi, back: ((b.out || {})[e.k] || {}).en || '', ex: e.ex })) }, { chain: ['gem', 'groq', 'cf2'], slot: 'C', exclude: [b.fam, ...(gf ? [gf] : [])], excludeModels: [b.model] });
+    const c = await AI.judge({ mode: 'lxaudit', pilot: 'judge', _slot: 'C', items: ok.map(e => ({ k: e.k, w: e.w, pos: e.pos, gloss: e.gloss, vi: e.vi, back: ((b.out || {})[e.k] || {}).en || '', ex: e.ex })) }, { chain: ['groq', 'gem'], slot: 'C', exclude: [b.fam, ...(gf ? [gf] : [])], excludeModels: [b.model] });
     if (!c) { log(`⏸ không chấm được lô ${ch[0].k}`); continue; }
     fams.add('C:' + c.model);
     for (const e of ok) { const v = (c.out || {})[e.k], back = ((b.out || {})[e.k] || {}).en; res[e.k] = { k: e.k, w: e.w, pos: e.pos, gloss: e.gloss, vi: e.vi, ex: e.ex, back, verdict: v || null, accepted: accept(v, back) }; }
+    save({ res, models: [...fams] });   // ghi từng lô: bị huỷ/timeout vẫn còn kết quả một phần (lượt 44082417026 mất hết vì chỉ ghi ở cuối)
   }
   return { res, models: [...fams] };
 }
@@ -48,8 +49,8 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
   const out = arg('--out', 'out/tier2'); fs.mkdirSync(out, { recursive: true });
   const n = +arg('--n', 1e9), load = f => JSON.parse(fs.readFileSync(f, 'utf8')).items.slice(0, n);
   await AI.health({ probeGem: true });
-  const t2 = await run(load(arg('--items')), { AI });
-  let ctl = null; if (arg('--control')) ctl = await run(load(arg('--control')), { AI, gen: false });
+  const t2 = await run(load(arg('--items')), { AI, save: r => fs.writeFileSync(path.join(out, 'tier2.json'), JSON.stringify(r, null, 1)) });
+  let ctl = null; if (arg('--control')) ctl = await run(load(arg('--control')), { AI, gen: false, save: r => fs.writeFileSync(path.join(out, 'control.json'), JSON.stringify(r, null, 1)) });
   const sum = r => { const v = Object.values(r.res); return { judged: v.length, accepted: v.filter(x => x.accepted).length, rate: v.length ? +(v.filter(x => x.accepted).length / v.length).toFixed(3) : 0, models: r.models }; };
   fs.writeFileSync(path.join(out, 'tier2.json'), JSON.stringify(t2, null, 1)); if (ctl) fs.writeFileSync(path.join(out, 'control.json'), JSON.stringify(ctl, null, 1));
   const s = { tier2: sum(t2), ...(ctl ? { control: sum(ctl) } : {}), stats: AI.stats().by };
