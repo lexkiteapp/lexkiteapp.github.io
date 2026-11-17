@@ -458,3 +458,4 @@ node scripts/test/ci-portable.mjs
 node scripts/test/sr-only.mjs
 node scripts/test/sw-reminder-day.mjs
 node scripts/test/core-day.mjs
+node scripts/test/red-report.mjs
