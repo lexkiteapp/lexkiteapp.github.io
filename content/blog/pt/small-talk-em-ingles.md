@@ -130,6 +130,8 @@ Fique atento também à pronúncia clara dos fonemas com nosso guia de [sons dif
 
 {{youtube: | Como dominar o small talk em inglês e quebrar o gelo}}
 
+Para ampliar o seu kit de frases em outras 12 situações do dia a dia, leia [como falar inglês com confiança](/pt/blog/como-falar-ingles-com-confianca-situacoes-do-dia-a-dia/).
+
 ## Perguntas frequentes
 
 ### O que responder quando um americano pergunta 'What's up?' ou 'How's it going?'

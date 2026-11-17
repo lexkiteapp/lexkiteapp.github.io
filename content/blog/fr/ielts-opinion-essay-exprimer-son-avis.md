@@ -9,7 +9,7 @@ tags: [ielts, writing, task-2, opinion-essay]
 keyword: "ielts opinion essay"
 cover: write
 coverAlt: "Atelier d'écriture Lexkite avec sujets de rédaction classés par thème, pistes d'idées et plan d'essai"
-publishAt:
+publishAt: 2027-01-06T09:30:00+01:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

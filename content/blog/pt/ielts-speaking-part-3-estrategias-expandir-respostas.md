@@ -146,6 +146,8 @@ Para aperfeiçoar seu ritmo e expressividade melódica, explore nossas lições 
 
 ---
 
+Em [IELTS Speaking band 7: respostas modelo](/pt/blog/ielts-speaking-band-7-respostas-modelo-partes-1-2-3/), você encontra exemplos completos de respostas curtas e desenvolvidas nas três partes da prova.
+
 ## Perguntas frequentes sobre o IELTS Speaking Part 3
 
 ### 1. Qual deve ser a duração média de cada intervenção no Part 3?

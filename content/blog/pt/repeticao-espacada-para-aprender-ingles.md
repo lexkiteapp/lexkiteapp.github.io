@@ -121,6 +121,8 @@ Para quem está se preparando para provas acadêmicas internacionais ou entrevis
 
 {{youtube: | Como funciona a repetição espaçada e o algoritmo FSRS}}
 
+A repetição espaçada diz quando revisar; para saber como revisar, veja o guia de [active recall](/pt/blog/active-recall-para-aprender-vocabulario-em-ingles/) com quatro níveis de recordação.
+
 ## Perguntas frequentes
 
 ### Quantos flashcards novos devo adicionar por dia para não me sobrecarregar?

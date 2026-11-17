@@ -10,7 +10,7 @@ keyword: "ielts 라이팅 task 1 프로세스"
 cover: write
 coverAlt: "Lexkite 라이팅 연습실: 과제 문장과 보고서 구성 틀"
 coverArt: {mood: think, icon: blocks}
-publishAt:
+publishAt: 2027-01-13T08:56:00+09:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

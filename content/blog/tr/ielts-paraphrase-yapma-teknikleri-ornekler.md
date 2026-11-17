@@ -176,6 +176,8 @@ Sınav salonunda 2 dakikada hatasız paraphrase üretmek için şu adımları iz
 
 {{cta: /#/write | Lexkite Yazma Laboratuvarı'na katılın ve IELTS Task 2 giriş cümlelerinizi anında geliştirin}}
 
+Paraphrase becerisini bir grafik raporunun ilk cümlesinde uygulamak istersen [IELTS Writing Task 1 bar chart rehberi](/tr/blog/ielts-writing-task-1-bar-chart-ornek-rapor/) iyi bir alıştırma alanıdır.
+
 ## Sıkça Sorulan Sorular (FAQ)
 
 ### Soru kökündeki tüm kelimeleri değiştirmek zorunda mıyım?

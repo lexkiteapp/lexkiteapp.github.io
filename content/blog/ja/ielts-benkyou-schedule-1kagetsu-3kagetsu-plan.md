@@ -9,7 +9,7 @@ tags: [ielts, study-plan, schedule, mock-test]
 keyword: "ielts 勉強スケジュール"
 cover: path
 coverAlt: "Lexkiteの学習パス（path）画面。IELTSのバンド別の段階が並び、各段階が単語、練習、リスニング、テストで構成されている"
-publishAt:
+publishAt: 2027-01-16T21:23:00+09:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

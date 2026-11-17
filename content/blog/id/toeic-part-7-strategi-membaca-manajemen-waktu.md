@@ -131,6 +131,10 @@ Bangun ketahanan membaca Anda dengan jadwal latihan harian ini:
 
 ---
 
+Kalau kamu ingin memulai dari bagian Listening yang paling pendek, baca [tips TOEIC Part 1 photographs](/id/blog/tips-toeic-part-1-photographs/).
+
+Pembagian waktu untuk seluruh bagian Reading ada di [format tes TOEIC](/id/blog/format-tes-toeic-listening-reading/).
+
 ## Raih Skor Maksimal Ujian TOEIC Bersama Lexkite
 
 Mendapatkan skor di atas 850 atau 900 membutuhkan kecepatan membaca tinggi dan perbendaharaan kata yang matang:

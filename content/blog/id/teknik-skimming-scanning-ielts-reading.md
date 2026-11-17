@@ -162,6 +162,8 @@ Mengembangkan refleks membaca cepat tidak bisa dicapai hanya dalam satu malam se
 4. **Analisis Kesalahan (Error Log)**: Jangan hanya mencocokkan kunci jawaban lalu melanjutkan ke tes berikutnya. Catatlah penyebab Anda salah: apakah karena terjebak parafrasa, melewatkan kata pembatas (*qualifiers* seperti *mostly*, *rarely*, *all*), atau kehabisan waktu.
 5. **Membangun Bank Kolokasi Akademik**: Catat kombinasi kata yang lazim muncul dalam artikel akademik agar saat scanning, mata Anda langsung mengenali kelompok kata (*chunks*) alih-alih kata per kata.
 
+Kalau ingin mengenal semua format soal sebelum berlatih, lihat [tipe soal IELTS Reading dan strategi tiap tugas](/id/blog/tipe-soal-ielts-reading-strategi/).
+
 ## Pertanyaan yang Sering Diajukan (FAQ)
 
 ### Q1. Apakah saya harus membaca teks terlebih dahulu atau membaca soal terlebih dahulu?

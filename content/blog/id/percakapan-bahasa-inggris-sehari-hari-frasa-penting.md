@@ -149,6 +149,8 @@ Saat bertelepon, kejelasan frasa menjadi tumpuan utama karena ketiadaan bahasa t
 - **How was your weekend? Did you do anything fun?** (Bagaimana akhir pekanmu kemarin? Ada acara seru?)
 - **I'm grabbing a coffee downstairs. Anyone want anything?** (Saya mau beli kopi ke lantai bawah. Ada yang mau titip sesuatu?)
 
+Kalau kamu sering membeku justru saat harus bicara, coba [cara percaya diri berbicara bahasa Inggris di 10 situasi nyata](/id/blog/cara-percaya-diri-berbicara-bahasa-inggris/).
+
 ## 3 langkah efektif melatih kelancaran berbicara
 
 Agar frasa percakapan ini otomatis terlontar tanpa ragu saat Anda berhadapan dengan penutur asli:

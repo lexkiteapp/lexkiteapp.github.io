@@ -9,7 +9,7 @@ tags: [toeic, listening, part-3, part-4]
 keyword: "toeic part3 part4 コツ"
 cover: toeic
 coverAlt: "LexkiteのTOEIC対策画面。模試とパート別練習が並んでいる"
-publishAt:
+publishAt: 2027-01-27T20:23:00+09:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

@@ -161,6 +161,8 @@ Observe a articulação natural dessas combinações lexicais em uma resposta di
 
 {{cta: /#/library | Visite a Biblioteca de Vocabulário do Lexkite e domine expressões acadêmicas para o IELTS}}
 
+Para ampliar o repertório acadêmico além do tema, estude a [Academic Word List (AWL)](/pt/blog/academic-word-list-awl-guia-ielts-toefl/) por sublistas.
+
 ## Perguntas frequentes (FAQ)
 
 ### Posso usar expressões como 'green' ou 'eco-friendly' na redação?

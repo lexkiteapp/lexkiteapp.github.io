@@ -97,6 +97,10 @@ qualityScore: 94
 
 {{cta: /#/reading | 开始雅思阅读真题限时训练}}
 
+想按题型逐一练习，可以接着读[雅思阅读题型全解析](/zh/blog/ya-si-yue-du-ti-xing-jie-ti-fang-fa/)，里面有每类题的步骤和两周练习计划。
+
+如果你的雅思成绩要用于英国签证，别忘了先确认是否需要 UKVI 版本，详见 [雅思UKVI和普通雅思的区别](/zh/blog/ya-si-ukvi-he-pu-tong-ya-si-de-qu-bie/)。
+
 ## 常见问题解答
 
 ### 遇到不认识的专业学术生词，要不要停下来查词典？
