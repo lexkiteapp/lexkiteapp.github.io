@@ -152,6 +152,8 @@ Câu hỏi giới từ thời gian và nơi chốn có bảng tổng hợp riên
 
 {{youtube: | Gợi ý video: giải nhanh 10 câu Part 5 tự soạn, mỗi câu dưới 20 giây, kèm lý do chọn đáp án}}
 
+Phần mô tả tranh ở đầu bài nghe có hướng dẫn riêng trong [TOEIC Part 1: mẹo mô tả tranh](/vi/blog/toeic-part-1-mo-ta-tranh/).
+
 ## Câu hỏi thường gặp
 
 ### TOEIC Part 5 có bao nhiêu câu?
