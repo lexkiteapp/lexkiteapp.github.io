@@ -182,6 +182,8 @@ quiz: [
 
 ---
 
+被动语态在雅思小作文的流程图里用得最多，想看实际写法，可以参考 [雅思小作文流程图 process 写法](/zh/blog/ya-si-xiao-zuo-wen-liu-cheng-tu-process-fan-wen/) 中的范文与句型对照。
+
 ## 常见问题 (FAQ)
 
 ### 1. 什么时候必须省略 "by + 执行者"？
