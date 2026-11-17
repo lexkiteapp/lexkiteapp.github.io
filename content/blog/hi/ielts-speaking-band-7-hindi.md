@@ -106,6 +106,12 @@ Band 7 के लिए सबसे निर्णायक हिस्सा
 
 - [कनेक्टेड स्पीच और स्वाभाविक उच्चारण नियम](/hi/blog/connected-speech-rules-in-english-hindi/)
 
+UK वीज़ा वाले रूट में Speaking अक्सर रिकॉर्ड होती है और चारों कौशलों में स्तर चाहिए हो सकता है; इस बारे में [IELTS UKVI क्या है](/hi/blog/ielts-ukvi-kya-hai/) में विस्तार से बताया गया है।
+
+Speaking का बैंड ओवरऑल में किस तरह जुड़ता और राउंड होता है, इसका सरल हिसाब [IELTS band score कैसे निकालें](/hi/blog/ielts-band-score-kaise-nikale/) में मिल जाएगा।
+
+Speaking के अभ्यास को हफ्ते के शेड्यूल में बैठाने के लिए [IELTS Study Plan in Hindi](/hi/blog/ielts-study-plan-4-8-12-hafte-hindi/) देखिए।
+
 ## अक्सर पूछे जाने वाले प्रश्न (FAQ)
 
 ### क्या मुझे बैंड 7 पाने के लिए ब्रिटिश या अमेरिकी एक्सेंट अपनाना पड़ेगा?
