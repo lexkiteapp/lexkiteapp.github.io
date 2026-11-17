@@ -87,6 +87,10 @@ Kurduğunuz bu özgün cümleleri akıllı telefonunuzun ses kaydedicisine kayde
 
 {{cta: /#/library | Kelime kütüphanesini keşfet}}
 
+Kelimeleri çevirmeden önce kendiniz hatırlamaya çalışmanın yöntemini [active recall nedir](/tr/blog/active-recall-nedir-kelime-ezberleme-yontemi/) yazısında ayrıntılı bulabilirsiniz.
+
+Kelimeleri çiftler halinde ve bağlam içinde öğrenmenin güzel bir örneği için [affect effect farkı](/tr/blog/affect-effect-farki/) yazısına göz atın.
+
 ## Sıkça sorulan sorular
 
 ### Günde kaç yeni kelime çalışmak idealdir?

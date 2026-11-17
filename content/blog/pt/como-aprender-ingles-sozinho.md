@@ -199,6 +199,8 @@ Para medir seu progresso estudando sozinho, use como referência os [níveis de 
 6. ***Where do you live?*** Pergunta com *Wh-* e verbo comum precisa do auxiliar *do* antes do sujeito.
 7. ***ship*** /ʃɪp/. *Sheep* é /ʃiːp/, com vogal longa.
 
+Um hábito que rende muito no estudo solo é se testar em vez de reler; veja como no guia de [active recall](/pt/blog/active-recall-para-aprender-vocabulario-em-ingles/).
+
 ## Perguntas frequentes
 
 ### Quanto tempo leva para aprender inglês sozinho?

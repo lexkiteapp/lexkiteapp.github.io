@@ -158,6 +158,10 @@ quiz: [
 
 {{youtube: | 雅思阅读略读与寻读高分定位法则与做题实战}}
 
+略读和寻读在各类题型里怎么用，可以对照[雅思阅读题型全解析](/zh/blog/ya-si-yue-du-ti-xing-jie-ti-fang-fa/)。
+
+培训类（G 类）阅读会出现通知和广告，扫读细节同样重要，移民考生的选考说明见[移民雅思考什么](/zh/blog/ya-si-yi-min-kao-shi-xuan-ze-ya-si-g-lei-a-lei-yao-qiu/)。
+
 ## 常见问题
 
 ### 考试时是否需要先通读整篇文章再看题？

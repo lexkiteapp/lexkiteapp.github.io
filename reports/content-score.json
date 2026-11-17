@@ -1,5 +1,5 @@
 {
- "total": 76.5,
+ "total": 78.2,
  "areas": {
   "vocab": {
    "name": "Kho từ",
@@ -45,7 +45,7 @@
     },
     {
      "k": "ảnh theo nghĩa",
-     "have": 8014,
+     "have": 8026,
      "std": 20000,
      "w": 15,
      "future": false
@@ -191,14 +191,14 @@
   },
   "skills": {
    "name": "4 kỹ năng",
-   "score": 78.3,
-   "coverage": 78.3,
+   "score": 87.7,
+   "coverage": 87.7,
    "pass": 100,
    "errors": 0,
    "parts": [
     {
      "k": "Nghe: bộ bài",
-     "have": 40,
+     "have": 80,
      "std": 80,
      "w": 15,
      "future": false
@@ -254,21 +254,21 @@
     },
     {
      "k": "Nói: chủ đề",
-     "have": 60,
+     "have": 70,
      "std": 60,
      "w": 10,
      "future": false
     },
     {
      "k": "Nói: câu trả lời mẫu",
-     "have": 594,
+     "have": 680,
      "std": 600,
      "w": 10,
      "future": false
     },
     {
      "k": "Viết: bài mẫu",
-     "have": 246,
+     "have": 286,
      "std": 400,
      "w": 18,
      "future": false
@@ -284,35 +284,35 @@
   },
   "exam": {
    "name": "Đề thi",
-   "score": 57.1,
-   "coverage": 57.1,
+   "score": 61.6,
+   "coverage": 61.6,
    "pass": 100,
    "errors": 0,
    "parts": [
     {
      "k": "IELTS Listening",
-     "have": 400,
+     "have": 800,
      "std": 800,
      "w": 5,
      "future": false
     },
     {
      "k": "IELTS Reading AC",
-     "have": 400,
+     "have": 480,
      "std": 800,
      "w": 5,
      "future": false
     },
     {
      "k": "IELTS Reading GT",
-     "have": 200,
+     "have": 280,
      "std": 400,
      "w": 5,
      "future": false
     },
     {
      "k": "IELTS Writing Task 2",
-     "have": 80,
+     "have": 100,
      "std": 200,
      "w": 5,
      "future": false
@@ -433,8 +433,8 @@
     },
     {
      "k": "nội dung có lo hợp lệ",
-     "have": 11453,
-     "std": 11453,
+     "have": 11547,
+     "std": 11547,
      "w": 35,
      "future": false
     },
@@ -500,7 +500,7 @@
     },
     {
      "k": "nhãn ngắn dịch tay",
-     "have": 12.4,
+     "have": 12.3,
      "std": 13,
      "w": 10,
      "future": false

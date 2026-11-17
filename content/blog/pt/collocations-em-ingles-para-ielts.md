@@ -116,6 +116,10 @@ Para transformar colocações passivas em expressões espontâneas na hora da pr
 3. **Pratique com Repetição Espaçada:** Utilize o [Smart Learn](/#/practice/learn) no Lexkite. A inteligência do algoritmo agenda os testes de memorização nos momentos exatos em que a curva do esquecimento começa a atuar.
 4. **Aplique na Prática de Redação:** Incorpore essas expressões estruturadas em seus ensaios seguindo as [dicas ielts writing task 2](/pt/blog/dicas-ielts-writing-task-2/) e refine seu domínio de reescrita com [como parafrasear no ielts tecnicas](/pt/blog/como-parafrasear-no-ielts-tecnicas/). Explore também nosso repositório de recursos gramaticais em [/ngu-phap/](/ngu-phap/). Se estiver se preparando para imigração ou trabalho, confira o guia sobre [como se preparar para o ielts general training](/pt/blog/como-se-preparar-para-o-ielts-general-training/).
 
+Cada família da [Academic Word List (AWL)](/pt/blog/academic-word-list-awl-guia-ielts-toefl/) fica mais útil quando você aprende também as suas colocações.
+
+Collocations também pesam no Cambridge: veja como no guia do [formato do Cambridge B2 First](/pt/blog/cambridge-b2-first-formato-da-prova-partes-e-dicas/).
+
 ## Perguntas Frequentes (FAQ)
 
 ### Quantas collocations preciso colocar em uma redação Task 2?

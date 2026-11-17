@@ -9,7 +9,7 @@ Tiêu chí & nguồn nghiên cứu: `docs/specs/learnability.md` · kế hoạch
 | Ngữ pháp | 102 | **96.9** | 99.5 | 96.1 | 99.8 | 96.2 | 100 | 99.5 | 91.3 | 100 | 97.1 | 100 | 100 | 75.8 |
 | Bài lộ trình | 5 | **100** | 100 | – | 100 | 100 | – | 100 | 100 | – | 100 | 100 | – | 100 |
 | Bộ từ | 117 | **74.2** | – | – | – | 96.6 | 56.3 | 80.5 | – | – | 99.3 | – | 5 | – |
-| Kỹ năng | 315 | **96.5** | 86.4 | – | 98.2 | 99.4 | 99.4 | 100 | 99.4 | – | 100 | 86.7 | – | 100 |
+| Kỹ năng | 385 | **96.5** | 88.6 | – | 98.8 | 99.5 | 99.5 | 95.5 | 99.3 | – | 100 | 88 | – | 100 |
 
 a = Truy hồi chủ động · b = Lặp lại giãn cách · c = Tải nhận thức · d = i+1 (từ không vượt cấp) · e = Ví dụ + cặp ✗/✓ · f = Mã hoá kép (audio + hình) · g = Phản hồi "vì sao" · h = Xen kẽ luật cũ · i = Ngữ cảnh (câu gốc) · j = Đầu ra nói/viết · k = Mẹo nhớ · l = Thời lượng vừa vòng 30′
 
@@ -26,8 +26,8 @@ a = Truy hồi chủ động · b = Lặp lại giãn cách · c = Tải nhận 
 | 7 | Bộ từ | ngsl2 | A2 | 61 | mẹo nhớ cho từ dễ nhầm (gold "why"): 27% · ví dụ: thiếu collocation/đồng nghĩa |
 | 8 | Bộ từ | ngsl7 | B1 | 61 | mẹo nhớ cho từ dễ nhầm (gold "why"): 3% · ví dụ: thiếu collocation/đồng nghĩa |
 | 9 | Bộ từ | ngsl8 | B1 | 61.1 | mẹo nhớ cho từ dễ nhầm (gold "why"): 6% · ví dụ: thiếu collocation/đồng nghĩa |
-| 10 | Bộ từ | ngsl10 | B2 | 61.1 | mẹo nhớ cho từ dễ nhầm (gold "why"): 4% · ví dụ: thiếu collocation/đồng nghĩa |
-| 11 | Bộ từ | ngsl4 | A2 | 61.2 | mẹo nhớ cho từ dễ nhầm (gold "why"): 16% · ví dụ: thiếu collocation/đồng nghĩa |
+| 10 | Bộ từ | ngsl4 | A2 | 61.2 | mẹo nhớ cho từ dễ nhầm (gold "why"): 16% · ví dụ: thiếu collocation/đồng nghĩa |
+| 11 | Bộ từ | ngsl10 | B2 | 61.2 | mẹo nhớ cho từ dễ nhầm (gold "why"): 4% · ví dụ: thiếu collocation/đồng nghĩa |
 | 12 | Bộ từ | bsl3 | B2 | 61.2 | mẹo nhớ cho từ dễ nhầm (gold "why"): 0% · ví dụ: thiếu collocation/đồng nghĩa |
 | 13 | Bộ từ | ngsl6 | B1 | 61.3 | mẹo nhớ cho từ dễ nhầm (gold "why"): 7% · ví dụ: thiếu collocation/đồng nghĩa |
 | 14 | Bộ từ | ngsl9 | B2 | 61.3 | mẹo nhớ cho từ dễ nhầm (gold "why"): 3% · ví dụ: thiếu collocation/đồng nghĩa |
@@ -46,21 +46,21 @@ a = Truy hồi chủ động · b = Lặp lại giãn cách · c = Tải nhận 
 | 27 | Bộ từ | xw-everyday | B2 | 64.8 | mã hoá kép 63% (ảnh/audio từ/audio câu) · mẹo nhớ cho từ dễ nhầm (gold "why"): 0% · ví dụ: thiếu collocation/đồng nghĩa |
 | 28 | Bộ từ | xw-actions | B2 | 64.8 | mã hoá kép 63% (ảnh/audio từ/audio câu) · mẹo nhớ cho từ dễ nhầm (gold "why"): 0% · ví dụ: thiếu collocation/đồng nghĩa |
 | 29 | Bộ từ | bộ lẻ (< 10 từ) | C1 | 65.4 | mã hoá kép 62% (ảnh/audio từ/audio câu) · mẹo nhớ cho từ dễ nhầm (gold "why"): 20% · ví dụ: thiếu collocation/đồng nghĩa |
-| 30 | Bộ từ | science | C1 | 65.8 | mã hoá kép 68% (ảnh/audio từ/audio câu) · mẹo nhớ cho từ dễ nhầm (gold "why"): 0% · ví dụ: thiếu collocation/đồng nghĩa |
+| 30 | Bộ từ | science | C1 | 65.9 | mã hoá kép 68% (ảnh/audio từ/audio câu) · mẹo nhớ cho từ dễ nhầm (gold "why"): 0% · ví dụ: thiếu collocation/đồng nghĩa |
 
 ## Lỗi theo tiêu chí (số đơn vị < 60 điểm ở tiêu chí đó)
 
 | Tiêu chí | Ngữ pháp | Bài lộ trình | Bộ từ | Kỹ năng |
 |---|---|---|---|---|
-| a Truy hồi chủ động | 0/102 | 0/5 | – | 0/173 |
+| a Truy hồi chủ động | 0/102 | 0/5 | – | 0/223 |
 | b Lặp lại giãn cách | 3/102 | – | – | – |
-| c Tải nhận thức | 0/102 | 0/5 | – | 0/100 |
-| d i+1 (từ không vượt cấp) | 3/102 | 0/5 | 0/117 | 0/113 |
-| e Ví dụ + cặp ✗/✓ | 0/102 | – | 70/117 | 0/202 |
-| f Mã hoá kép (audio + hình) | 1/102 | 0/5 | 10/117 | 0/173 |
-| g Phản hồi "vì sao" | 0/102 | 0/5 | – | 0/255 |
+| c Tải nhận thức | 0/102 | 0/5 | – | 0/150 |
+| d i+1 (từ không vượt cấp) | 3/102 | 0/5 | 0/117 | 0/153 |
+| e Ví dụ + cặp ✗/✓ | 0/102 | – | 70/117 | 0/232 |
+| f Mã hoá kép (audio + hình) | 1/102 | 0/5 | 10/117 | 10/223 |
+| g Phản hồi "vì sao" | 0/102 | 0/5 | – | 0/315 |
 | h Xen kẽ luật cũ | 0/102 | – | – | – |
-| i Ngữ cảnh (câu gốc) | 2/102 | 0/5 | 0/117 | 0/113 |
-| j Đầu ra nói/viết | 0/102 | 0/5 | – | 73/275 |
+| i Ngữ cảnh (câu gốc) | 2/102 | 0/5 | 0/117 | 0/153 |
+| j Đầu ra nói/viết | 0/102 | 0/5 | – | 73/305 |
 | k Mẹo nhớ | 0/102 | – | 106/106 | – |
-| l Thời lượng vừa vòng 30′ | 17/102 | 0/5 | – | 0/113 |
+| l Thời lượng vừa vòng 30′ | 17/102 | 0/5 | – | 0/153 |

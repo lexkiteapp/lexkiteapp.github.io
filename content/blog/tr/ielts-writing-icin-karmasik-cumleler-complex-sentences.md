@@ -174,6 +174,10 @@ Gramer kalıplarınızı ve resmi diyalog örneklerini [İngilizce örnek metin 
 
 {{cta: /#/write | Lexkite yazma odasında karmaşık cümle alıştırmalarınızı yapın}}
 
+Karmaşık cümle kurarken düşülen tuzakları [IELTS Writing hataları ve çözümleri](/tr/blog/ielts-writing-hatalari-ve-cozumleri/) rehberiyle birlikte okumanız iyi olur.
+
+Karmaşık cümleleri bir süreç betimlemesinde ve akademik kelimelerle birlikte denemek isterseniz [process diagram rehberine](/tr/blog/ielts-process-diagram-nasil-yazilir/) ve [Academic Word List çalışma planına](/tr/blog/academic-word-list-awl-akademik-kelime-listesi/) bakın.
+
 ## Sıkça Sorulan Sorular (FAQ)
 
 ### Bir IELTS Writing kompozisyonundaki bütün cümleler karmaşık mı olmalıdır?
