@@ -87,6 +87,7 @@ final class SpeakPronVectorTests: XCTestCase {
                 for (a, b) in zip(got, want) { r.near(a, b, "mouth[\(i)].\(name)") }
             }
             r.eq("\(m.lipsKey) · \(m.jawKey)", o.s("caption"), "mouth[\(i)].caption")
+            if let tl = m.toLipsKey, let tj = m.toJawKey { r.eq("\(tl) · \(tj)", o.s("captionTo"), "mouth[\(i)].captionTo") } else { r.check(o.s("captionTo").isEmpty, "mouth[\(i)] captionTo without end point") }
         }
         r.check(PronLessonRules.mouth(["tongue": "front"]) == nil, "no lips ⇒ no diagram")
         finish(r, "pron.mouth")
