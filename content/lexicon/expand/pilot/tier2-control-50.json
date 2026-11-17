@@ -1,0 +1,555 @@
+{
+"_doc": "Nhóm đối chứng: 50 mục ngẫu nhiên đã xuất qua đường người viết hiện tại (nghĩa vi Wiktionary/Wikidata + câu người viết)",
+"items": [
+{
+"k": "finicky#adj",
+"w": "finicky",
+"pos": "adj",
+"gloss": "very careful about details and hard to please",
+"vi": "khó tính",
+"ex": [
+"Some people are very finicky.",
+"I know that Tom is finicky."
+]
+},
+{
+"k": "eloquence#n",
+"w": "eloquence",
+"pos": "n",
+"gloss": "the ability to speak or write persuasively",
+"vi": "tài hùng biện",
+"ex": [
+"He never distinguished himself by his eloquence.",
+"She never distinguished herself by her eloquence."
+]
+},
+{
+"k": "genesis#n",
+"w": "genesis",
+"pos": "n",
+"gloss": "the origin or start of something",
+"vi": "nguồn gốc",
+"ex": [
+"The idea for the show had an unusual genesis.",
+"The book represents the genesis of financial analysis and corporate finance."
+]
+},
+{
+"k": "seniority#n",
+"w": "seniority",
+"pos": "n",
+"gloss": "the state of having a higher rank or position because of longer service",
+"vi": "thâm niên",
+"ex": [
+"After I accumulated five years of seniority, I was promoted.",
+"It's an old-fashioned company, with parking spaces and other perks doled out on the basis of seniority."
+]
+},
+{
+"k": "thievery#n",
+"w": "thievery",
+"pos": "n",
+"gloss": "the act of stealing something from someone",
+"vi": "trộm cắp",
+"ex": [
+"Nairobi has a reputation for thievery.",
+"This instance of thievery will not be overlooked."
+]
+},
+{
+"k": "ecclesiastic#n",
+"w": "ecclesiastic",
+"pos": "n",
+"gloss": "a member of the clergy or a religious leader",
+"vi": "giáo sĩ",
+"ex": [
+"All other ecclesiastics were to contribute the twentieth part.",
+"Besides Latin, Irish ecclesiastics developed a written form of Old Irish."
+]
+},
+{
+"k": "sturgeon#n",
+"w": "sturgeon",
+"pos": "n",
+"gloss": "large, ancient fish prized for its meat and eggs, found in northern temperate waters",
+"vi": "cá tầm",
+"ex": [
+"Most of the bone found was from the lake sturgeon.",
+"Sturgeons can live for over a hundred years and reach gigantic size."
+]
+},
+{
+"k": "tattoo#n",
+"w": "tattoo",
+"pos": "n",
+"gloss": "an image made on skin using ink and a needle",
+"vi": "hình xăm",
+"ex": [
+"Would you like to see my tattoo?",
+"When did you get your first tattoo?"
+]
+},
+{
+"k": "salvation#n",
+"w": "salvation",
+"pos": "n",
+"gloss": "the act of being saved from sin or evil",
+"vi": "sự cứu rỗi",
+"ex": [
+"Outside the Church there is no salvation.",
+"There is no source of salvation but him."
+]
+},
+{
+"k": "wave#v",
+"w": "wave",
+"pos": "v",
+"gloss": "to move the hand back and forth to greet or say goodbye",
+"vi": "vẫy",
+"ex": [
+"I waved back at him.",
+"I waved goodbye from across the room."
+]
+},
+{
+"k": "rectangular#adj",
+"w": "rectangular",
+"pos": "adj",
+"gloss": "Having the shape of a rectangle, with four right angles.",
+"vi": "hình chữ nhật",
+"ex": [
+"A football pitch is rectangular.",
+"A soccer field is rectangular in shape."
+]
+},
+{
+"k": "autobiography#n",
+"w": "autobiography",
+"pos": "n",
+"gloss": "a self‑written biography telling the story of one's own life",
+"vi": "tự truyện",
+"ex": [
+"I want to write my autobiography.",
+"Tom started to write an autobiography."
+]
+},
+{
+"k": "astute#adj",
+"w": "astute",
+"pos": "adj",
+"gloss": "having quick and sharp ability to understand things clearly",
+"vi": "sắc sảo",
+"ex": [
+"Tom was an astute businessman who made a lot of money.",
+"An astute tenant always reads the small print in a lease."
+]
+},
+{
+"k": "exterior#n",
+"w": "exterior",
+"pos": "n",
+"gloss": "the outside part or surface of something",
+"vi": "mặt ngoài",
+"ex": [
+"Others oil only the exterior.",
+"There were some changes made to the exterior."
+]
+},
+{
+"k": "betterment#n",
+"w": "betterment",
+"pos": "n",
+"gloss": "the act of improving something; progress",
+"vi": "sự cải thiện",
+"ex": [
+"Johnson promoted the arts in terms of social betterment, not artistic creativity.",
+"Communities often adopt things that are for the betterment of the entire community."
+]
+},
+{
+"k": "suffix#n",
+"w": "suffix",
+"pos": "n",
+"gloss": "a word part added to the end to change meaning",
+"vi": "hậu tố",
+"ex": [
+"I found a Turkish word formed by only three suffixes.",
+"There are many situations in which this suffix might be used."
+]
+},
+{
+"k": "renegotiate#v",
+"w": "renegotiate",
+"pos": "v",
+"gloss": "To negotiate new terms to replace old ones.",
+"vi": "thương lượng lại",
+"ex": [
+"Algeria could renegotiate gas prices with Spain.",
+"The agreement was subsequently renegotiated, but details were not disclosed."
+]
+},
+{
+"k": "thug#n",
+"w": "thug",
+"pos": "n",
+"gloss": "a violent person who commits crimes",
+"vi": "côn đồ",
+"ex": [
+"Tom called me a thug.",
+"Everyone knows you're racist thugs."
+]
+},
+{
+"k": "dice#n",
+"w": "dice",
+"pos": "n",
+"gloss": "a small cube with spots on its faces used for random numbers",
+"vi": "xúc xắc",
+"ex": [
+"It's your turn to throw the dice.",
+"Like many board games, the games use dice."
+]
+},
+{
+"k": "luxurious#adj",
+"w": "luxurious",
+"pos": "adj",
+"gloss": "very fine in quality and comfortable",
+"vi": "sang trọng",
+"ex": [
+"The new theatre looks very luxurious.",
+"Tom lives in a luxurious home."
+]
+},
+{
+"k": "straw#n",
+"w": "straw",
+"pos": "n",
+"gloss": "dry cut stalks of grain used for animals, making baskets, or hats",
+"vi": "rơm",
+"ex": [
+"You need a lot of straw to stuff an elephant.",
+"They filled them with straw to make them round and hard."
+]
+},
+{
+"k": "rubbish#n",
+"w": "rubbish",
+"pos": "n",
+"gloss": "things that are no longer wanted or needed and are thrown away",
+"vi": "rác",
+"ex": [
+"It's time to take the rubbish out.",
+"The rubbish has to go out today."
+]
+},
+{
+"k": "sharpshooter#n",
+"w": "sharpshooter",
+"pos": "n",
+"gloss": "a person who is very skilled at shooting accurately with a gun",
+"vi": "xạ thủ",
+"ex": [
+"Police forces typically deploy such sharpshooters in hostage scenarios.",
+"Sniper positions were also prepared at high points in the trench works for sharpshooters."
+]
+},
+{
+"k": "counterpoint#n",
+"w": "counterpoint",
+"pos": "n",
+"gloss": "A melody added to another that keeps its own identity.",
+"vi": "đối âm",
+"ex": [
+"The first species is note-against-note counterpoint.",
+"This music makes heavy use of counterpoint."
+]
+},
+{
+"k": "innumerable#adj",
+"w": "innumerable",
+"pos": "adj",
+"gloss": "too many to be counted",
+"vi": "vô số",
+"ex": [
+"Muscle tissue consists of innumerable cells.",
+"I've tried innumerable times to contact Tom."
+]
+},
+{
+"k": "adornment#n",
+"w": "adornment",
+"pos": "n",
+"gloss": "a decoration added to make something less plain",
+"vi": "đồ trang trí",
+"ex": [
+"The only grave goods were personal adornments.",
+"One important factor is male adornments, or ornaments."
+]
+},
+{
+"k": "commando#n",
+"w": "commando",
+"pos": "n",
+"gloss": "a soldier trained for quick destructive raids against enemy areas",
+"vi": "đặc công",
+"ex": [
+"In the movie the bridge is destroyed by commandos.",
+"The vast majority of the commandos were left behind on the island."
+]
+},
+{
+"k": "slang#n",
+"w": "slang",
+"pos": "n",
+"gloss": "informal language that is not used in formal situations",
+"vi": "tiếng lóng",
+"ex": [
+"What's your favorite slang expression?",
+"I'm not familiar with that slang."
+]
+},
+{
+"k": "liberation#n",
+"w": "liberation",
+"pos": "n",
+"gloss": "the act of freeing someone or something from control or limits",
+"vi": "giải phóng",
+"ex": [
+"The divorce felt like a liberation.",
+"At least tell us who we can thank for our liberation!"
+]
+},
+{
+"k": "colonialism#n",
+"w": "colonialism",
+"pos": "n",
+"gloss": "the seizure of an area to extract resources or exploit local labor for a distant country",
+"vi": "chủ nghĩa thực dân",
+"ex": [
+"This has existed in Algeria since colonialism.",
+"Many have long suffered oppression and hardship under colonialism."
+]
+},
+{
+"k": "squander#v",
+"w": "squander",
+"pos": "v",
+"gloss": "to waste money or resources thoughtlessly",
+"vi": "phung phí",
+"ex": [
+"He squandered all his money.",
+"Tom quickly squandered his inheritance."
+]
+},
+{
+"k": "nostalgia#n",
+"w": "nostalgia",
+"pos": "n",
+"gloss": "a bittersweet longing for things that happened in the past",
+"vi": "hoài niệm",
+"ex": [
+"I'm feeling a weird sense of nostalgia.",
+"Don't let yourself get carried away by nostalgia."
+]
+},
+{
+"k": "transmitter#n",
+"w": "transmitter",
+"pos": "n",
+"gloss": "a piece of equipment used to broadcast radio or television signals",
+"vi": "máy phát",
+"ex": [
+"There were three transmitters in operation at that time.",
+"Very little work has been necessary on the transmitters."
+]
+},
+{
+"k": "kangaroo#n",
+"w": "kangaroo",
+"pos": "n",
+"gloss": "a large hopping marsupial from Australia and New Guinea",
+"vi": "kangaroo; chuột túi",
+"ex": [
+"Did you see any kangaroos there?",
+"Have you ever seen a kangaroo?"
+]
+},
+{
+"k": "ecologist#n",
+"w": "ecologist",
+"pos": "n",
+"gloss": "a scientist who studies how organisms interact with their environment",
+"vi": "nhà sinh thái học",
+"ex": [
+"Ecologists define two characteristics of every biological species.",
+"Ecologists have used several slightly different definitions of alpha diversity."
+]
+},
+{
+"k": "pastor#n",
+"w": "pastor",
+"pos": "n",
+"gloss": "a religious leader who leads worship for a community",
+"vi": "mục sư",
+"ex": [
+"You're still a pastor, aren't you?",
+"The pastor is in the church."
+]
+},
+{
+"k": "microcomputer#n",
+"w": "microcomputer",
+"pos": "n",
+"gloss": "a small computer designed for one person to use at a time",
+"vi": "máy vi tính; máy tính cá nhân",
+"ex": [
+"As the microcomputer industry grew, so did the language.",
+"The engineer designed a custom microcomputer to control the laboratory equipment."
+]
+},
+{
+"k": "scrupulously#adv",
+"w": "scrupulously",
+"pos": "adv",
+"gloss": "in a very careful way",
+"vi": "tỉ mỉ",
+"ex": [
+"All rooms were kept scrupulously clean.",
+"Scrupulously fair, with each clue presented openly and discussed."
+]
+},
+{
+"k": "herd#n",
+"w": "herd",
+"pos": "n",
+"gloss": "a group of domestic animals kept together by people",
+"vi": "đàn",
+"ex": [
+"Carlos took great pride in the health of his herd.",
+"Men tend to the herd while the women look after the home."
+]
+},
+{
+"k": "level#adj",
+"w": "level",
+"pos": "adj",
+"gloss": "having a flat surface with no part higher than another",
+"vi": "phẳng",
+"ex": [
+"This section of the road is level.",
+"The house is on the most level part of the ground."
+]
+},
+{
+"k": "ninth#adj",
+"w": "ninth",
+"pos": "adj",
+"gloss": "coming after the eighth and before the tenth in order",
+"vi": "thứ chín",
+"ex": [
+"You're on the ninth floor.",
+"You're the ninth person to ask."
+]
+},
+{
+"k": "inexact#adj",
+"w": "inexact",
+"pos": "adj",
+"gloss": "not exact; not completely accurate",
+"vi": "không chính xác",
+"ex": [
+"Note that Bell is often inexact.",
+"Creative writing is a massive and inexact field."
+]
+},
+{
+"k": "frog#n",
+"w": "frog",
+"pos": "n",
+"gloss": "a small tailless animal with long legs used for jumping that lives near water",
+"vi": "ếch",
+"ex": [
+"What do you know about frogs?",
+"It's good to care about frogs."
+]
+},
+{
+"k": "harm#v",
+"w": "harm",
+"pos": "v",
+"gloss": "to hurt, injure, or damage someone or something",
+"vi": "làm hại",
+"ex": [
+"I could never harm you.",
+"I don't want to harm you."
+]
+},
+{
+"k": "flatfish#n",
+"w": "flatfish",
+"pos": "n",
+"gloss": "a fish with a flattened body that swims on one side, both eyes up",
+"vi": "cá bơn",
+"ex": [
+"Hybrids are well known in flatfishes.",
+"Flatfishes have been cited as dramatic examples of evolutionary adaptation."
+]
+},
+{
+"k": "kidnapper#n",
+"w": "kidnapper",
+"pos": "n",
+"gloss": "a person who unlawfully takes someone away",
+"vi": "kẻ bắt cóc",
+"ex": [
+"What did your kidnapper look like?",
+"The kidnappers have not been found."
+]
+},
+{
+"k": "aftermath#n",
+"w": "aftermath",
+"pos": "n",
+"gloss": "the results or consequences that follow a disastrous event",
+"vi": "hậu quả",
+"ex": [
+"The aftermath caused another wave of strict media controls.",
+"The aftermath of the war was felt for a long time."
+]
+},
+{
+"k": "pal#n",
+"w": "pal",
+"pos": "n",
+"gloss": "a close friend",
+"vi": "bạn",
+"ex": [
+"From now on we're pals.",
+"He's my old drinking pal."
+]
+},
+{
+"k": "nationality#n",
+"w": "nationality",
+"pos": "n",
+"gloss": "legal membership of a nation, by birth, naturalisation or other means",
+"vi": "quốc tịch",
+"ex": [
+"What is your parents' nationality?",
+"Can you tell me your nationality?"
+]
+},
+{
+"k": "immunology#n",
+"w": "immunology",
+"pos": "n",
+"gloss": "The branch of medicine that studies the body's immune system.",
+"vi": "miễn dịch học",
+"ex": [
+"Collins is a professor of immunology.",
+"Immunology is the study of the immune system."
+]
+}
+]
+}

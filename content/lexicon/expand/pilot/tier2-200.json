@@ -1,0 +1,1606 @@
+{
+"_doc": "200 ứng viên mẫu cho pilot tầng 2 (17/11): ngẫu nhiên có phân tầng từ loại, Zipf 2,0–4,5, lọc từ pick_words (top 320k + LX_CMU_FREE); ≈ 98 % bị chặn ở cổng nguồn vi/câu người viết (lọc trước AI: 2.379 quét → 22 qua)",
+"seed": 1711,
+"items": [
+{
+"k": "smallmouth#n",
+"w": "smallmouth",
+"pos": "n",
+"z": 2.2,
+"cefr": "C2",
+"gloss": "a variety of black bass; the angle of the jaw falls below the eye"
+},
+{
+"k": "sensationalist#n",
+"w": "sensationalist",
+"pos": "n",
+"z": 2.46,
+"cefr": "C2",
+"gloss": "someone who uses exaggerated or lurid material in order to gain public attention"
+},
+{
+"k": "towner#n",
+"w": "towner",
+"pos": "n",
+"z": 2.27,
+"cefr": "C2",
+"gloss": "a resident of a town or city"
+},
+{
+"k": "duodenal#adj",
+"w": "duodenal",
+"pos": "adj",
+"z": 2.14,
+"cefr": "C2",
+"gloss": "in or relating to the duodenum"
+},
+{
+"k": "montane#adj",
+"w": "montane",
+"pos": "adj",
+"z": 2.3,
+"cefr": "C2",
+"gloss": "of or inhabiting mountainous regions"
+},
+{
+"k": "surrealist#n",
+"w": "surrealist",
+"pos": "n",
+"z": 2.75,
+"cefr": "C2",
+"gloss": "an artist who is a member of the movement called surrealism"
+},
+{
+"k": "pedicle#n",
+"w": "pedicle",
+"pos": "n",
+"z": 2.06,
+"cefr": "C2",
+"gloss": "a small stalk bearing a single flower of an inflorescence; an ultimate division of a common peduncle"
+},
+{
+"k": "hullo#n",
+"w": "hullo",
+"pos": "n",
+"z": 2.05,
+"cefr": "C2",
+"gloss": "an expression of greeting"
+},
+{
+"k": "jobcentre#n",
+"w": "jobcentre",
+"pos": "n",
+"z": 2.12,
+"cefr": "C2",
+"gloss": "a government office in a town where information about available jobs is displayed and where unemployment benefits are administered"
+},
+{
+"k": "chickadee#n",
+"w": "chickadee",
+"pos": "n",
+"z": 2.22,
+"cefr": "C2",
+"gloss": "any of various small grey-and-black songbirds of North America"
+},
+{
+"k": "veld#n",
+"w": "veld",
+"pos": "n",
+"z": 2.28,
+"cefr": "C2",
+"gloss": "elevated open grassland in southern Africa"
+},
+{
+"k": "bratwurst#n",
+"w": "bratwurst",
+"pos": "n",
+"z": 2.3,
+"cefr": "C2",
+"gloss": "a small pork sausage"
+},
+{
+"k": "reshoot#v",
+"w": "reshoot",
+"pos": "v",
+"z": 2.09,
+"cefr": "C2",
+"gloss": "shoot again"
+},
+{
+"k": "integrative#adj",
+"w": "integrative",
+"pos": "adj",
+"z": 2.95,
+"cefr": "C2",
+"gloss": "combining and coordinating diverse elements into a whole"
+},
+{
+"k": "scandalously#adv",
+"w": "scandalously",
+"pos": "adv",
+"z": 2.08,
+"cefr": "C2",
+"gloss": "in a scandalous manner"
+},
+{
+"k": "categorize#v",
+"w": "categorize",
+"pos": "v",
+"z": 2.92,
+"cefr": "C2",
+"gloss": "place into or assign to a category"
+},
+{
+"k": "prosciutto#n",
+"w": "prosciutto",
+"pos": "n",
+"z": 2.53,
+"cefr": "C2",
+"gloss": "Italian salt-cured ham usually sliced paper thin"
+},
+{
+"k": "flatiron#n",
+"w": "flatiron",
+"pos": "n",
+"z": 2.37,
+"cefr": "C2",
+"gloss": "an iron that was heated by placing it on a stove"
+},
+{
+"k": "sumptuously#adv",
+"w": "sumptuously",
+"pos": "adv",
+"z": 2.04,
+"cefr": "C2",
+"gloss": "in a sumptuous and opulent manner"
+},
+{
+"k": "reclassification#n",
+"w": "reclassification",
+"pos": "n",
+"z": 2.46,
+"cefr": "C2",
+"gloss": "classifying something again (usually in a new category)"
+},
+{
+"k": "follicular#adj",
+"w": "follicular",
+"pos": "adj",
+"z": 2.51,
+"cefr": "C2",
+"gloss": "of or relating to or constituting a follicle"
+},
+{
+"k": "boater#n",
+"w": "boater",
+"pos": "n",
+"z": 2.09,
+"cefr": "C2",
+"gloss": "a stiff hat made of straw with a flat crown"
+},
+{
+"k": "eukaryotic#adj",
+"w": "eukaryotic",
+"pos": "adj",
+"z": 2.74,
+"cefr": "C2",
+"gloss": "having cells with `good' or membrane-bound nuclei"
+},
+{
+"k": "collation#n",
+"w": "collation",
+"pos": "n",
+"z": 2.61,
+"cefr": "C2",
+"gloss": "assembling in proper numerical or logical sequence"
+},
+{
+"k": "interconnectedness#n",
+"w": "interconnectedness",
+"pos": "n",
+"z": 2.31,
+"cefr": "C2",
+"gloss": "a state of being connected reciprocally"
+},
+{
+"k": "runt#n",
+"w": "runt",
+"pos": "n",
+"z": 2.47,
+"cefr": "C2",
+"gloss": "disparaging terms for small people"
+},
+{
+"k": "grammarian#n",
+"w": "grammarian",
+"pos": "n",
+"z": 2.11,
+"cefr": "C2",
+"gloss": "a linguist who specializes in the study of grammar and syntax"
+},
+{
+"k": "cerebrospinal#adj",
+"w": "cerebrospinal",
+"pos": "adj",
+"z": 2.52,
+"cefr": "C2",
+"gloss": "of or relating to the brain and spinal cord"
+},
+{
+"k": "kitschy#adj",
+"w": "kitschy",
+"pos": "adj",
+"z": 2.21,
+"cefr": "C2",
+"gloss": "effusively or insincerely emotional"
+},
+{
+"k": "watchtower#n",
+"w": "watchtower",
+"pos": "n",
+"z": 2.85,
+"cefr": "C2",
+"gloss": "an observation tower for a lookout to watch over prisoners or watch for fires or enemies"
+},
+{
+"k": "expository#adj",
+"w": "expository",
+"pos": "adj",
+"z": 2.5,
+"cefr": "C2",
+"gloss": "serving to expound or set forth"
+},
+{
+"k": "improver#n",
+"w": "improver",
+"pos": "n",
+"z": 2.07,
+"cefr": "C2",
+"gloss": "someone devoted to the promotion of human welfare and to social reforms"
+},
+{
+"k": "sciatic#adj",
+"w": "sciatic",
+"pos": "adj",
+"z": 2.44,
+"cefr": "C2",
+"gloss": "relating to or caused by or afflicted with sciatica"
+},
+{
+"k": "universalist#adj",
+"w": "universalist",
+"pos": "adj",
+"z": 2.63,
+"cefr": "C2",
+"gloss": "of or relating to or tending toward universalism"
+},
+{
+"k": "strabismus#n",
+"w": "strabismus",
+"pos": "n",
+"z": 2.11,
+"cefr": "C2",
+"gloss": "abnormal alignment of one or both eyes"
+},
+{
+"k": "liger#n",
+"w": "liger",
+"pos": "n",
+"z": 2.23,
+"cefr": "C2",
+"gloss": "offspring of a male lion and a female tiger"
+},
+{
+"k": "flathead#n",
+"w": "flathead",
+"pos": "n",
+"z": 2.69,
+"cefr": "C2",
+"gloss": "food fish of the Indonesian region of the Pacific; resembles gurnards"
+},
+{
+"k": "finial#n",
+"w": "finial",
+"pos": "n",
+"z": 2.12,
+"cefr": "C2",
+"gloss": "an ornament at the top of a spire or gable; usually a foliated fleur-de-lis"
+},
+{
+"k": "brut#adj",
+"w": "brut",
+"pos": "adj",
+"z": 2.58,
+"cefr": "C2",
+"gloss": "(of champagne) extremely dry"
+},
+{
+"k": "acrylamide#n",
+"w": "acrylamide",
+"pos": "n",
+"z": 2.01,
+"cefr": "C2",
+"gloss": "a white crystalline amide of propenoic acid can damage the nervous system and is carcinogenic in laboratory animals"
+},
+{
+"k": "doubleheader#n",
+"w": "doubleheader",
+"pos": "n",
+"z": 2.57,
+"cefr": "C2",
+"gloss": "two games instead of one (especially in baseball when the same two teams play two games on the same day)"
+},
+{
+"k": "bloodlust#n",
+"w": "bloodlust",
+"pos": "n",
+"z": 2.44,
+"cefr": "C2",
+"gloss": "a desire for bloodshed"
+},
+{
+"k": "fathead#n",
+"w": "fathead",
+"pos": "n",
+"z": 2.28,
+"cefr": "C2",
+"gloss": "a man who is a stupid incompetent fool"
+},
+{
+"k": "misrule#n",
+"w": "misrule",
+"pos": "n",
+"z": 2.17,
+"cefr": "C2",
+"gloss": "government that is inefficient or dishonest"
+},
+{
+"k": "frittata#n",
+"w": "frittata",
+"pos": "n",
+"z": 2.22,
+"cefr": "C2",
+"gloss": "Italian omelet with diced vegetables and meats; cooked until bottom is set then inverted into another pan to cook the top"
+},
+{
+"k": "underestimation#n",
+"w": "underestimation",
+"pos": "n",
+"z": 2.2,
+"cefr": "C2",
+"gloss": "an estimation that is too low; an estimate that is less than the true or actual value"
+},
+{
+"k": "laddie#n",
+"w": "laddie",
+"pos": "n",
+"z": 2.34,
+"cefr": "C2",
+"gloss": "a male child (a familiar term of address to a boy)"
+},
+{
+"k": "letterman#n",
+"w": "letterman",
+"pos": "n",
+"z": 3.16,
+"cefr": "C2",
+"gloss": "an athlete who has earned a letter in a school sport"
+},
+{
+"k": "bagger#n",
+"w": "bagger",
+"pos": "n",
+"z": 2.47,
+"cefr": "C2",
+"gloss": "a machine for putting objects or substances into bags"
+},
+{
+"k": "squinty#adj",
+"w": "squinty",
+"pos": "adj",
+"z": 2.08,
+"cefr": "C2",
+"gloss": "characterized by squinting"
+},
+{
+"k": "chicory#n",
+"w": "chicory",
+"pos": "n",
+"z": 2.39,
+"cefr": "C2",
+"gloss": "the dried root of the chicory plant: used as a coffee substitute"
+},
+{
+"k": "theatrically#adv",
+"w": "theatrically",
+"pos": "adv",
+"z": 2.43,
+"cefr": "C2",
+"gloss": "in a stagy and theatrical manner"
+},
+{
+"k": "easternmost#adj",
+"w": "easternmost",
+"pos": "adj",
+"z": 2.36,
+"cefr": "C2",
+"gloss": "farthest to the east"
+},
+{
+"k": "taka#n",
+"w": "taka",
+"pos": "n",
+"z": 2.84,
+"cefr": "C2",
+"gloss": "the basic unit of money in Bangladesh; equal to 100 paisa"
+},
+{
+"k": "mariposa#n",
+"w": "mariposa",
+"pos": "n",
+"z": 2.5,
+"cefr": "C2",
+"gloss": "any of several plants of the genus Calochortus having tulip-shaped flowers with 3 sepals and 3 petals; southwestern United States and Mexico"
+},
+{
+"k": "obstructionism#n",
+"w": "obstructionism",
+"pos": "n",
+"z": 2.1,
+"cefr": "C2",
+"gloss": "deliberate interference"
+},
+{
+"k": "bestiary#n",
+"w": "bestiary",
+"pos": "n",
+"z": 2.27,
+"cefr": "C2",
+"gloss": "a medieval book (usually illustrated) with allegorical and amusing descriptions of real and fabled animals"
+},
+{
+"k": "serfdom#n",
+"w": "serfdom",
+"pos": "n",
+"z": 2.49,
+"cefr": "C2",
+"gloss": "the state of a serf"
+},
+{
+"k": "auk#n",
+"w": "auk",
+"pos": "n",
+"z": 2.27,
+"cefr": "C2",
+"gloss": "black-and-white short-necked web-footed diving bird of northern seas"
+},
+{
+"k": "maillot#n",
+"w": "maillot",
+"pos": "n",
+"z": 2.07,
+"cefr": "C2",
+"gloss": "a woman's one-piece bathing suit"
+},
+{
+"k": "maneuverable#adj",
+"w": "maneuverable",
+"pos": "adj",
+"z": 2.36,
+"cefr": "C2",
+"gloss": "capable of maneuvering or changing position"
+},
+{
+"k": "inelegant#adj",
+"w": "inelegant",
+"pos": "adj",
+"z": 2.12,
+"cefr": "C2",
+"gloss": "lacking in refinement or grace or good taste"
+},
+{
+"k": "taupe#n",
+"w": "taupe",
+"pos": "n",
+"z": 2.54,
+"cefr": "C2",
+"gloss": "a greyish brown"
+},
+{
+"k": "choline#n",
+"w": "choline",
+"pos": "n",
+"z": 2.46,
+"cefr": "C2",
+"gloss": "a B-complex vitamin that is a constituent of lecithin; essential in the metabolism of fat"
+},
+{
+"k": "harmonically#adv",
+"w": "harmonically",
+"pos": "adv",
+"z": 2.11,
+"cefr": "C2",
+"gloss": "with respect to harmony"
+},
+{
+"k": "catabolism#n",
+"w": "catabolism",
+"pos": "n",
+"z": 2.05,
+"cefr": "C2",
+"gloss": "breakdown in living organisms of more complex substances into simpler ones together with release of energy"
+},
+{
+"k": "succor#n",
+"w": "succor",
+"pos": "n",
+"z": 2.15,
+"cefr": "C2",
+"gloss": "assistance in time of difficulty"
+},
+{
+"k": "synchrotron#n",
+"w": "synchrotron",
+"pos": "n",
+"z": 2.65,
+"cefr": "C2",
+"gloss": "cyclotron in which the electric field is maintained at a constant frequency"
+},
+{
+"k": "readability#n",
+"w": "readability",
+"pos": "n",
+"z": 2.75,
+"cefr": "C2",
+"gloss": "the quality of written language that makes it easy to read and understand"
+},
+{
+"k": "kerchief#n",
+"w": "kerchief",
+"pos": "n",
+"z": 2.12,
+"cefr": "C2",
+"gloss": "a square scarf that is folded into a triangle and worn over the head or about the neck"
+},
+{
+"k": "basilisk#n",
+"w": "basilisk",
+"pos": "n",
+"z": 2.42,
+"cefr": "C2",
+"gloss": "(classical mythology) a serpent (or lizard or dragon) able to kill with its breath or glance"
+},
+{
+"k": "signalman#n",
+"w": "signalman",
+"pos": "n",
+"z": 2.03,
+"cefr": "C2",
+"gloss": "a railroad employee in charge of signals and point in a railroad yard"
+},
+{
+"k": "nonpayment#n",
+"w": "nonpayment",
+"pos": "n",
+"z": 2.13,
+"cefr": "C2",
+"gloss": "loss resulting from failure of a debt to be paid"
+},
+{
+"k": "schnitzel#n",
+"w": "schnitzel",
+"pos": "n",
+"z": 2.39,
+"cefr": "C2",
+"gloss": "deep-fried breaded veal cutlets"
+},
+{
+"k": "multiethnic#adj",
+"w": "multiethnic",
+"pos": "adj",
+"z": 2.28,
+"cefr": "C2",
+"gloss": "involving several ethnic groups"
+},
+{
+"k": "periodontitis#n",
+"w": "periodontitis",
+"pos": "n",
+"z": 2.21,
+"cefr": "C2",
+"gloss": "a disease that attacks the gum and bone and around the teeth"
+},
+{
+"k": "clampdown#n",
+"w": "clampdown",
+"pos": "n",
+"z": 2.19,
+"cefr": "C2",
+"gloss": "sudden restriction on an activity"
+},
+{
+"k": "schmaltz#n",
+"w": "schmaltz",
+"pos": "n",
+"z": 2.2,
+"cefr": "C2",
+"gloss": "(Yiddish) excessive sentimentality in art or music"
+},
+{
+"k": "roundtable#n",
+"w": "roundtable",
+"pos": "n",
+"z": 3.11,
+"cefr": "C2",
+"gloss": "a meeting of peers for discussion and exchange of views"
+},
+{
+"k": "ambit#n",
+"w": "ambit",
+"pos": "n",
+"z": 2.45,
+"cefr": "C2",
+"gloss": "an area in which something acts or operates or has power or control:"
+},
+{
+"k": "duplicity#n",
+"w": "duplicity",
+"pos": "n",
+"z": 2.51,
+"cefr": "C2",
+"gloss": "acting in bad faith; deception by pretending to entertain one set of intentions while acting under the influence of another"
+},
+{
+"k": "blackfish#n",
+"w": "blackfish",
+"pos": "n",
+"z": 2.59,
+"cefr": "C2",
+"gloss": "female salmon that has recently spawned"
+},
+{
+"k": "forecourt#n",
+"w": "forecourt",
+"pos": "n",
+"z": 2.51,
+"cefr": "C2",
+"gloss": "the outer or front court of a building or of a group of buildings"
+},
+{
+"k": "macaroon#n",
+"w": "macaroon",
+"pos": "n",
+"z": 2.05,
+"cefr": "C2",
+"gloss": "chewy cookie usually containing almond paste"
+},
+{
+"k": "nimbly#adv",
+"w": "nimbly",
+"pos": "adv",
+"z": 2.22,
+"cefr": "C2",
+"gloss": "in a nimble or agile manner; with quickness and lightness and ease; - Charles Dickens"
+},
+{
+"k": "griddle#n",
+"w": "griddle",
+"pos": "n",
+"z": 2.52,
+"cefr": "C2",
+"gloss": "cooking utensil consisting of a flat heated surface (as on top of a stove) on which food is cooked"
+},
+{
+"k": "amoxicillin#n",
+"w": "amoxicillin",
+"pos": "n",
+"z": 2.26,
+"cefr": "C2",
+"gloss": "an antibiotic; a semisynthetic oral penicillin (trade names Amoxil and Larotid and Polymox and Trimox and Augmentin) used to treat bacterial infections"
+},
+{
+"k": "smithy#n",
+"w": "smithy",
+"pos": "n",
+"z": 2.55,
+"cefr": "C2",
+"gloss": "a workplace where metal is worked by heating and hammering"
+},
+{
+"k": "wakefulness#n",
+"w": "wakefulness",
+"pos": "n",
+"z": 2.36,
+"cefr": "C2",
+"gloss": "a periodic state during which you are conscious and aware of the world"
+},
+{
+"k": "brunet#n",
+"w": "brunet",
+"pos": "n",
+"z": 2.35,
+"cefr": "C2",
+"gloss": "a person with dark (brown) hair"
+},
+{
+"k": "bloodletting#n",
+"w": "bloodletting",
+"pos": "n",
+"z": 2.4,
+"cefr": "C2",
+"gloss": "formerly used as a treatment to reduce excess blood (one of the four humors of medieval medicine)"
+},
+{
+"k": "crinkle#v",
+"w": "crinkle",
+"pos": "v",
+"z": 2.32,
+"cefr": "C2",
+"gloss": "make wrinkles or creases on a smooth surface; make a pressed, folded or wrinkled line in"
+},
+{
+"k": "calico#adj",
+"w": "calico",
+"pos": "adj",
+"z": 2.88,
+"cefr": "C2",
+"gloss": "made of calico or resembling calico in being patterned"
+},
+{
+"k": "seemly#adj",
+"w": "seemly",
+"pos": "adj",
+"z": 2.04,
+"cefr": "C2",
+"gloss": "according with custom or propriety"
+},
+{
+"k": "sinless#adj",
+"w": "sinless",
+"pos": "adj",
+"z": 2.26,
+"cefr": "C2",
+"gloss": "free from sin"
+},
+{
+"k": "noncompliance#n",
+"w": "noncompliance",
+"pos": "n",
+"z": 2.45,
+"cefr": "C2",
+"gloss": "the failure to obey"
+},
+{
+"k": "hydrostatic#adj",
+"w": "hydrostatic",
+"pos": "adj",
+"z": 2.53,
+"cefr": "C2",
+"gloss": "relating to fluids at rest or to the pressures they exert or transmit"
+},
+{
+"k": "ampicillin#n",
+"w": "ampicillin",
+"pos": "n",
+"z": 2.25,
+"cefr": "C2",
+"gloss": "semisynthetic penicillin (trade names Principen and Polycillin and SK-Ampicillin)"
+},
+{
+"k": "vestry#n",
+"w": "vestry",
+"pos": "n",
+"z": 2.73,
+"cefr": "C2",
+"gloss": "in the Protestant Episcopal Church: a committee elected by the congregation to work with the churchwardens in managing the temporal affairs of the church"
+},
+{
+"k": "handheld#adj",
+"w": "handheld",
+"pos": "adj",
+"z": 3.36,
+"cefr": "C1",
+"gloss": "small and light enough to be operated while you hold it in your hands"
+},
+{
+"k": "celeriac#n",
+"w": "celeriac",
+"pos": "n",
+"z": 2.05,
+"cefr": "C2",
+"gloss": "grown for its thickened edible aromatic root"
+},
+{
+"k": "discolouration#n",
+"w": "discolouration",
+"pos": "n",
+"z": 2.06,
+"cefr": "C2",
+"gloss": "a soiled or discolored appearance"
+},
+{
+"k": "chlorella#n",
+"w": "chlorella",
+"pos": "n",
+"z": 2.01,
+"cefr": "C2",
+"gloss": "any alga of the genus Chlorella"
+},
+{
+"k": "astrophysical#adj",
+"w": "astrophysical",
+"pos": "adj",
+"z": 2.6,
+"cefr": "C2",
+"gloss": "of or concerned with astrophysics"
+},
+{
+"k": "mineshaft#n",
+"w": "mineshaft",
+"pos": "n",
+"z": 2.04,
+"cefr": "C2",
+"gloss": "excavation consisting of a vertical or sloping passageway for finding or mining ore or for ventilating a mine"
+},
+{
+"k": "evolutionarily#adv",
+"w": "evolutionarily",
+"pos": "adv",
+"z": 2.39,
+"cefr": "C2",
+"gloss": "in an evolutionary way; from an evolutionary point of view"
+},
+{
+"k": "beatification#n",
+"w": "beatification",
+"pos": "n",
+"z": 2.21,
+"cefr": "C2",
+"gloss": "the action of rendering supremely blessed and extremely happy"
+},
+{
+"k": "iterative#n",
+"w": "iterative",
+"pos": "n",
+"z": 2.86,
+"cefr": "C2",
+"gloss": "the aspect of the verb that expresses the repetition of an action"
+},
+{
+"k": "unbelief#n",
+"w": "unbelief",
+"pos": "n",
+"z": 2.53,
+"cefr": "C2",
+"gloss": "a rejection of belief"
+},
+{
+"k": "colourless#adj",
+"w": "colourless",
+"pos": "adj",
+"z": 2.51,
+"cefr": "C2",
+"gloss": "lacking in variety and interest"
+},
+{
+"k": "skirmish#n",
+"w": "skirmish",
+"pos": "n",
+"z": 3.06,
+"cefr": "C2",
+"gloss": "a minor short-term fight"
+},
+{
+"k": "mauve#adj",
+"w": "mauve",
+"pos": "adj",
+"z": 2.71,
+"cefr": "C2",
+"gloss": "of a pale to moderate greyish violet color"
+},
+{
+"k": "mantua#n",
+"w": "mantua",
+"pos": "n",
+"z": 2.55,
+"cefr": "C2",
+"gloss": "loose gown of the 17th and 18th centuries"
+},
+{
+"k": "octavo#n",
+"w": "octavo",
+"pos": "n",
+"z": 2.31,
+"cefr": "C2",
+"gloss": "the size of a book whose pages are made by folding a sheet of paper three times to form eight leaves"
+},
+{
+"k": "officious#adj",
+"w": "officious",
+"pos": "adj",
+"z": 2.08,
+"cefr": "C2",
+"gloss": "intrusive in a meddling or offensive manner"
+},
+{
+"k": "fibroid#n",
+"w": "fibroid",
+"pos": "n",
+"z": 2.07,
+"cefr": "C2",
+"gloss": "benign tumor containing fibrous tissue (especially in the uterus)"
+},
+{
+"k": "unlabeled#adj",
+"w": "unlabeled",
+"pos": "adj",
+"z": 2.21,
+"cefr": "C2",
+"gloss": "lacking a label or tag"
+},
+{
+"k": "sleepily#adv",
+"w": "sleepily",
+"pos": "adv",
+"z": 2.01,
+"cefr": "C2",
+"gloss": "in a sleepy manner"
+},
+{
+"k": "noblesse#n",
+"w": "noblesse",
+"pos": "n",
+"z": 2.3,
+"cefr": "C2",
+"gloss": "members of the nobility (especially of the French nobility)"
+},
+{
+"k": "titi#n",
+"w": "titi",
+"pos": "n",
+"z": 2.38,
+"cefr": "C2",
+"gloss": "tree of low-lying coastal areas of southeastern United States having glossy leaves and racemes of fragrant white flowers"
+},
+{
+"k": "ridgeline#n",
+"w": "ridgeline",
+"pos": "n",
+"z": 2.33,
+"cefr": "C2",
+"gloss": "a long narrow range of hills"
+},
+{
+"k": "wainwright#n",
+"w": "wainwright",
+"pos": "n",
+"z": 3.04,
+"cefr": "C2",
+"gloss": "a wagon maker"
+},
+{
+"k": "multiphase#adj",
+"w": "multiphase",
+"pos": "adj",
+"z": 2.1,
+"cefr": "C2",
+"gloss": "of an electrical system that uses or generates two or more alternating voltages of the same frequency but differing in phase angle"
+},
+{
+"k": "gasworks#n",
+"w": "gasworks",
+"pos": "n",
+"z": 2.15,
+"cefr": "C2",
+"gloss": "the workplace where coal gas is manufactured"
+},
+{
+"k": "dongle#n",
+"w": "dongle",
+"pos": "n",
+"z": 2.62,
+"cefr": "C2",
+"gloss": "(computer science) an electronic device that must be attached to a computer in order for it to use protected software"
+},
+{
+"k": "garnishment#n",
+"w": "garnishment",
+"pos": "n",
+"z": 2.21,
+"cefr": "C2",
+"gloss": "a court order to an employer to withhold all or part of an employee's wages and to send the money to the court or to the person who won a lawsuit against the employee"
+},
+{
+"k": "anisotropic#adj",
+"w": "anisotropic",
+"pos": "adj",
+"z": 2.48,
+"cefr": "C2",
+"gloss": "not invariant with respect to direction"
+},
+{
+"k": "cartographic#adj",
+"w": "cartographic",
+"pos": "adj",
+"z": 2.46,
+"cefr": "C2",
+"gloss": "of or relating to the making of maps or charts"
+},
+{
+"k": "escherichia#n",
+"w": "escherichia",
+"pos": "n",
+"z": 2.63,
+"cefr": "C2",
+"gloss": "a genus of enteric bacteria"
+},
+{
+"k": "sublimation#n",
+"w": "sublimation",
+"pos": "n",
+"z": 2.51,
+"cefr": "C2",
+"gloss": "(chemistry) a change directly from the solid to the gaseous state without becoming liquid"
+},
+{
+"k": "looseness#n",
+"w": "looseness",
+"pos": "n",
+"z": 2.15,
+"cefr": "C2",
+"gloss": "freedom from restraint"
+},
+{
+"k": "silage#n",
+"w": "silage",
+"pos": "n",
+"z": 2.33,
+"cefr": "C2",
+"gloss": "fodder harvested while green and kept succulent by partial fermentation as in a silo"
+},
+{
+"k": "dorsum#n",
+"w": "dorsum",
+"pos": "n",
+"z": 2.47,
+"cefr": "C2",
+"gloss": "the back of the body of a vertebrate or any analogous surface (as the upper or outer surface of an organ or appendage or part)"
+},
+{
+"k": "ameer#n",
+"w": "ameer",
+"pos": "n",
+"z": 2.48,
+"cefr": "C2",
+"gloss": "an independent ruler or chieftain (especially in Africa or Arabia)"
+},
+{
+"k": "banksia#n",
+"w": "banksia",
+"pos": "n",
+"z": 2.01,
+"cefr": "C2",
+"gloss": "any shrub or tree of the genus Banksia having alternate leathery leaves apetalous yellow flowers often in showy heads and conelike fruit with winged seeds"
+},
+{
+"k": "temporality#n",
+"w": "temporality",
+"pos": "n",
+"z": 2.02,
+"cefr": "C2",
+"gloss": "the worldly possessions of a church"
+},
+{
+"k": "warty#adj",
+"w": "warty",
+"pos": "adj",
+"z": 2.08,
+"cefr": "C2",
+"gloss": "(of skin) covered with warts or projections that resemble warts"
+},
+{
+"k": "pectoralis#n",
+"w": "pectoralis",
+"pos": "n",
+"z": 2.05,
+"cefr": "C2",
+"gloss": "either of two large muscles of the chest"
+},
+{
+"k": "ablative#adj",
+"w": "ablative",
+"pos": "adj",
+"z": 2.31,
+"cefr": "C2",
+"gloss": "relating to the ablative case"
+},
+{
+"k": "lifesaving#n",
+"w": "lifesaving",
+"pos": "n",
+"z": 2.89,
+"cefr": "C2",
+"gloss": "saving the lives of drowning persons"
+},
+{
+"k": "valuer#n",
+"w": "valuer",
+"pos": "n",
+"z": 2.13,
+"cefr": "C2",
+"gloss": "someone who assesses the monetary worth of possessions"
+},
+{
+"k": "threepenny#adj",
+"w": "threepenny",
+"pos": "adj",
+"z": 2.03,
+"cefr": "C2",
+"gloss": "used of nail size; 1 1/8 in long"
+},
+{
+"k": "flavorful#adj",
+"w": "flavorful",
+"pos": "adj",
+"z": 2.67,
+"cefr": "C2",
+"gloss": "full of flavor"
+},
+{
+"k": "scrawny#adj",
+"w": "scrawny",
+"pos": "adj",
+"z": 2.71,
+"cefr": "C2",
+"gloss": "being very thin"
+},
+{
+"k": "hazy#adj",
+"w": "hazy",
+"pos": "adj",
+"z": 3.14,
+"cefr": "C2",
+"gloss": "filled or abounding with fog or mist"
+},
+{
+"k": "weepy#adj",
+"w": "weepy",
+"pos": "adj",
+"z": 2.34,
+"cefr": "C2",
+"gloss": "liable to weep easily"
+},
+{
+"k": "furred#adj",
+"w": "furred",
+"pos": "adj",
+"z": 2.25,
+"cefr": "C2",
+"gloss": "covered with a dense coat of fine silky hairs"
+},
+{
+"k": "opposable#adj",
+"w": "opposable",
+"pos": "adj",
+"z": 2.15,
+"cefr": "C2",
+"gloss": "capable of being placed opposite to something"
+},
+{
+"k": "whirr#v",
+"w": "whirr",
+"pos": "v",
+"z": 2.01,
+"cefr": "C2",
+"gloss": "make a soft swishing sound"
+},
+{
+"k": "ceremonially#adv",
+"w": "ceremonially",
+"pos": "adv",
+"z": 2.11,
+"cefr": "C2",
+"gloss": "in a ceremonious manner"
+},
+{
+"k": "tog#v",
+"w": "tog",
+"pos": "v",
+"z": 2.41,
+"cefr": "C2",
+"gloss": "provide with clothes or put clothes on"
+},
+{
+"k": "untangle#v",
+"w": "untangle",
+"pos": "v",
+"z": 2.54,
+"cefr": "C2",
+"gloss": "release from entanglement of difficulty"
+},
+{
+"k": "rigorously#adv",
+"w": "rigorously",
+"pos": "adv",
+"z": 3.0,
+"cefr": "C2",
+"gloss": "in a rigorous manner"
+},
+{
+"k": "unplayable#adj",
+"w": "unplayable",
+"pos": "adj",
+"z": 2.58,
+"cefr": "C2",
+"gloss": "not capable of or suitable for being played or played on"
+},
+{
+"k": "twang#v",
+"w": "twang",
+"pos": "v",
+"z": 2.56,
+"cefr": "C2",
+"gloss": "cause to sound with a twang"
+},
+{
+"k": "oligarchic#adj",
+"w": "oligarchic",
+"pos": "adj",
+"z": 2.18,
+"cefr": "C2",
+"gloss": "of or relating to or supporting or characteristic of an oligarchy"
+},
+{
+"k": "unleaded#adj",
+"w": "unleaded",
+"pos": "adj",
+"z": 2.52,
+"cefr": "C2",
+"gloss": "not treated with lead"
+},
+{
+"k": "hereof#adv",
+"w": "hereof",
+"pos": "adv",
+"z": 2.59,
+"cefr": "C2",
+"gloss": "of or concerning this"
+},
+{
+"k": "modestly#adv",
+"w": "modestly",
+"pos": "adv",
+"z": 3.06,
+"cefr": "C2",
+"gloss": "with modesty; in a modest manner"
+},
+{
+"k": "allergenic#adj",
+"w": "allergenic",
+"pos": "adj",
+"z": 2.09,
+"cefr": "C2",
+"gloss": "relating to or having the effect of an allergen"
+},
+{
+"k": "unreservedly#adv",
+"w": "unreservedly",
+"pos": "adv",
+"z": 2.48,
+"cefr": "C2",
+"gloss": "without reservation"
+},
+{
+"k": "whish#v",
+"w": "whish",
+"pos": "v",
+"z": 2.02,
+"cefr": "C2",
+"gloss": "make a sibilant sound"
+},
+{
+"k": "gawk#v",
+"w": "gawk",
+"pos": "v",
+"z": 2.4,
+"cefr": "C2",
+"gloss": "look with amazement; look stupidly"
+},
+{
+"k": "preheat#v",
+"w": "preheat",
+"pos": "v",
+"z": 2.9,
+"cefr": "C2",
+"gloss": "heat beforehand"
+},
+{
+"k": "sneakily#adv",
+"w": "sneakily",
+"pos": "adv",
+"z": 2.28,
+"cefr": "C2",
+"gloss": "in a surreptitious manner"
+},
+{
+"k": "environ#v",
+"w": "environ",
+"pos": "v",
+"z": 2.17,
+"cefr": "C2",
+"gloss": "extend on all sides of simultaneously; encircle"
+},
+{
+"k": "incompletely#adv",
+"w": "incompletely",
+"pos": "adv",
+"z": 2.27,
+"cefr": "C2",
+"gloss": "not to a full degree or extent"
+},
+{
+"k": "faecal#adj",
+"w": "faecal",
+"pos": "adj",
+"z": 2.36,
+"cefr": "C2",
+"gloss": "of or relating to feces"
+},
+{
+"k": "unequalled#adj",
+"w": "unequalled",
+"pos": "adj",
+"z": 2.22,
+"cefr": "C2",
+"gloss": "radically distinctive and without equal"
+},
+{
+"k": "shapely#adj",
+"w": "shapely",
+"pos": "adj",
+"z": 2.56,
+"cefr": "C2",
+"gloss": "having a well-proportioned and pleasing shape"
+},
+{
+"k": "fittingly#adv",
+"w": "fittingly",
+"pos": "adv",
+"z": 2.61,
+"cefr": "C2",
+"gloss": "in an appropriate manner"
+},
+{
+"k": "instil#v",
+"w": "instil",
+"pos": "v",
+"z": 2.38,
+"cefr": "C2",
+"gloss": "enter drop by drop"
+},
+{
+"k": "dun#v",
+"w": "dun",
+"pos": "v",
+"z": 3.33,
+"cefr": "C1",
+"gloss": "persistently ask for overdue payment"
+},
+{
+"k": "mosh#v",
+"w": "mosh",
+"pos": "v",
+"z": 2.66,
+"cefr": "C2",
+"gloss": "dance the slam dance"
+},
+{
+"k": "caucus#v",
+"w": "caucus",
+"pos": "v",
+"z": 3.58,
+"cefr": "C1",
+"gloss": "meet to select a candidate or promote a policy"
+},
+{
+"k": "weatherproof#v",
+"w": "weatherproof",
+"pos": "v",
+"z": 2.24,
+"cefr": "C2",
+"gloss": "make resistant to bad weather"
+},
+{
+"k": "flub#v",
+"w": "flub",
+"pos": "v",
+"z": 2.17,
+"cefr": "C2",
+"gloss": "make a mess of, destroy or ruin"
+},
+{
+"k": "ovulate#v",
+"w": "ovulate",
+"pos": "v",
+"z": 2.16,
+"cefr": "C2",
+"gloss": "produce and discharge eggs"
+},
+{
+"k": "tutor#v",
+"w": "tutor",
+"pos": "v",
+"z": 3.67,
+"cefr": "C1",
+"gloss": "be a tutor to someone; give individual instruction"
+},
+{
+"k": "criminalise#v",
+"w": "criminalise",
+"pos": "v",
+"z": 2.01,
+"cefr": "C2",
+"gloss": "declare illegal; outlaw"
+},
+{
+"k": "tame#v",
+"w": "tame",
+"pos": "v",
+"z": 3.56,
+"cefr": "C1",
+"gloss": "correct by punishment or discipline"
+},
+{
+"k": "destruct#v",
+"w": "destruct",
+"pos": "v",
+"z": 2.9,
+"cefr": "C2",
+"gloss": "destroy (one's own missile or rocket)"
+},
+{
+"k": "tunnel#v",
+"w": "tunnel",
+"pos": "v",
+"z": 4.24,
+"cefr": "B1",
+"gloss": "force a way through"
+},
+{
+"k": "triangulate#v",
+"w": "triangulate",
+"pos": "v",
+"z": 2.17,
+"cefr": "C2",
+"gloss": "divide into triangles or give a triangular form to"
+},
+{
+"k": "slake#v",
+"w": "slake",
+"pos": "v",
+"z": 2.01,
+"cefr": "C2",
+"gloss": "make less active or intense"
+},
+{
+"k": "exorcise#v",
+"w": "exorcise",
+"pos": "v",
+"z": 2.41,
+"cefr": "C2",
+"gloss": "expel through adjuration or prayers"
+},
+{
+"k": "spacewalk#v",
+"w": "spacewalk",
+"pos": "v",
+"z": 2.43,
+"cefr": "C2",
+"gloss": "move in space outside a space craft"
+},
+{
+"k": "jive#v",
+"w": "jive",
+"pos": "v",
+"z": 3.08,
+"cefr": "C2",
+"gloss": "dance to jive music; dance the jive"
+},
+{
+"k": "blackguard#v",
+"w": "blackguard",
+"pos": "v",
+"z": 2.03,
+"cefr": "C2",
+"gloss": "subject to laughter or ridicule"
+},
+{
+"k": "restate#v",
+"w": "restate",
+"pos": "v",
+"z": 2.47,
+"cefr": "C2",
+"gloss": "to say, state, or perform again"
+},
+{
+"k": "disabuse#v",
+"w": "disabuse",
+"pos": "v",
+"z": 2.01,
+"cefr": "C2",
+"gloss": "free somebody (from an erroneous belief)"
+},
+{
+"k": "shush#v",
+"w": "shush",
+"pos": "v",
+"z": 2.75,
+"cefr": "C2",
+"gloss": "silence (someone) by uttering `shush!'"
+},
+{
+"k": "commentate#v",
+"w": "commentate",
+"pos": "v",
+"z": 2.23,
+"cefr": "C2",
+"gloss": "make a commentary on"
+},
+{
+"k": "dismount#v",
+"w": "dismount",
+"pos": "v",
+"z": 2.61,
+"cefr": "C2",
+"gloss": "alight from (a horse)"
+},
+{
+"k": "sashay#v",
+"w": "sashay",
+"pos": "v",
+"z": 2.07,
+"cefr": "C2",
+"gloss": "move sideways"
+},
+{
+"k": "lave#v",
+"w": "lave",
+"pos": "v",
+"z": 2.23,
+"cefr": "C2",
+"gloss": "wash or flow against"
+},
+{
+"k": "overstock#v",
+"w": "overstock",
+"pos": "v",
+"z": 2.17,
+"cefr": "C2",
+"gloss": "stock excessively"
+},
+{
+"k": "tsk#v",
+"w": "tsk",
+"pos": "v",
+"z": 3.01,
+"cefr": "C2",
+"gloss": "utter `tsk,' `tut,' or `tut-tut,' as in disapproval"
+},
+{
+"k": "rede#v",
+"w": "rede",
+"pos": "v",
+"z": 2.32,
+"cefr": "C2",
+"gloss": "give an interpretation or explanation to"
+},
+{
+"k": "splat#v",
+"w": "splat",
+"pos": "v",
+"z": 2.7,
+"cefr": "C2",
+"gloss": "give off the sound of a bullet flattening on impact"
+}
+]
+}

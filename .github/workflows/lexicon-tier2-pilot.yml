@@ -1,0 +1,27 @@
+# Pilot NGOÀI LUỒNG tầng 2 cho nghĩa vi + câu ví dụ (17/11, docs/LEXICON.md §Tầng 2): chỉ chạy tay, KHÔNG ghi repo/kho live, kết quả = artifact tier2-pilot.
+# 2 họ AI free khác nhau soạn + dịch ngược, họ thứ 3 chấm; nhóm đối chứng = mục đường người viết hiện tại. Cổng trên main không đổi.
+name: Lexicon tầng 2 pilot
+on:
+  workflow_dispatch:
+    inputs:
+      n: { description: 'Số mục tầng 2 (mặc định 200)', default: '200' }
+permissions:
+  contents: read
+concurrency: { group: lexicon-tier2-pilot, cancel-in-progress: false }
+jobs:
+  pilot:
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Pilot tầng 2 + đối chứng
+        env:
+          GEMINI_POOL: ${{ secrets.GEMINI_POOL }}
+          GROQ_POOL: ${{ secrets.GROQ_POOL }}
+          VIMG_POOL_SKIP: '0'
+        run: node scripts/lexicon/expand/tier2-pilot.mjs --items content/lexicon/expand/pilot/tier2-200.json --control content/lexicon/expand/pilot/tier2-control-50.json --n "${{ github.event.inputs.n || '200' }}" --out out/tier2 | tee -a "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: tier2-pilot, path: out/tier2/, retention-days: 14 }

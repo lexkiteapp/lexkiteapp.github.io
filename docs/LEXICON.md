@@ -111,3 +111,7 @@ Cấp độ do người soạn; `content/wordlists/cefr-oxford.json` chỉ có c
 
 ## Bảng động từ bất quy tắc (#/irregular)
 Dạng V1/V2/V3 chỉ ở IRR của `web/js/verbs-core.js`; nội dung `content/verbs/`; cách thêm và đối chiếu nguồn: đầu `scripts/verbs/build-irregular.mjs` (rồi chạy `scripts/native/gen.mjs`).
+
+## Tầng 2 (pilot ngoài luồng, 17/11)
+- Câu hỏi: khi nguồn vi/câu NGƯỜI VIẾT thiếu (≈ 98 % ứng viên mới), có thể dùng AI 2 họ + dịch ngược + giám khảo họ thứ 3 mà không kém đường người viết? **Cổng trên main KHÔNG đổi, không ghi kho live.**
+- `lexicon-tier2-pilot.yml` (chạy tay, artifact `tier2-pilot`) + `scripts/lexicon/expand/tier2-pilot.mjs`: mẫu cố định `pilot/tier2-200.json` (200 mục) và đối chứng `pilot/tier2-control-50.json` (50 mục đường người viết). Sau đó soát tay 50 mục ngẫu nhiên đối chiếu từ điển chuẩn; bật chỉ khi tầng 2 sai ≤ 1/50 và không kém đối chứng (điều phối + chủ quyết).
