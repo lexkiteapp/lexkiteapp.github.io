@@ -196,7 +196,7 @@ ${sectionNav('vi', '/ngu-phap/')}
 ${filterBox('vi')}
 ${catNav(order.map(k => [k, unitOf(k).name, units[k].length, '', unitArt(k)]), G.length, 'vi', L.sectionsL, esc)}
 ${order.map(k => { const u = unitOf(k); return group2(k, u.name, `${units[k].length} ${L.lessons}`, units[k].map(gCard), '', unitArt(k)).replace('</h2>', `</h2>${u.desc ? `<p>${esc(u.desc)}</p>` : ''}`); }).join('\n')}</div>`));
-  addSm([`${SITE}ngu-phap/`, ...G.map(l => `${SITE}ngu-phap/${l.id}`)], 'web/js/grammar');
+  addSm([`${SITE}ngu-phap/`, ...G.map(l => `${SITE}ngu-phap/${l.id}`)], 'web/js/grammar', 'web/cpack/grammar');
   console.log(`✓ SEO: ${G.length} trang ngữ pháp + mục lục`);
 }
 
