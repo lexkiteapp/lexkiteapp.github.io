@@ -60,7 +60,7 @@
    "exclusive": false
   },
   "grabcast_social": {
-   "label": "GrabCast social API (đăng FB/IG qua autopilot – Neon free của GrabCast: ≤ 60 lượt/ngày, dừng khi 401/403/409/422/429/503)",
+   "label": "GrabCast social API (đăng FB/IG qua autopilot – API chính thức: ≤ 480 lượt/ngày, dừng khi 401/403/409/422/429/503)",
    "exclusive": false
   }
  },
@@ -551,6 +551,20 @@
    "est": {
     "d1_main_reads": 20000
    },
+   "lease": false
+  },
+  {
+   "id": "health-board",
+   "workflow": "health-board.yml",
+   "cron": [
+    "23 1 * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 5,
+   "est": {},
    "lease": false
   },
   {
