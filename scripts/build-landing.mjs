@@ -8,6 +8,7 @@
 //   2) gợi ý ngôn ngữ (cuối <body>): trình duyệt/ app dùng ngôn ngữ khác trang đang xem → dải nhỏ, đóng được (chỉ người thật, sau khi vẽ).
 // Nội dung: content/landing/<lang>.json (en là gốc – khóa thiếu lấy từ en; vi viết riêng). Nhãn nhỏ dùng lại bản dịch app (web/js/i18n/<lang>.js).
 // Dùng: node scripts/build-landing.mjs [--check]   (--check: không ghi, báo lỗi nếu file trong web/ chưa dựng lại – chạy trong npm test)
+import { slimCss } from './lib/landing-slim.mjs';
 import fs from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
@@ -169,12 +170,7 @@ export function criticalCss(css, html) {
     return (k.length ? k.join(',') + b.slice(j) : '') + (lb ? l.join(',') + '{' + lb + '}' : ''); }).join('');
   const out = pick(css);
   const anim = new Set([...out.matchAll(/animation(?:-name)?:([^;}]+)/g)].flatMap(x => x[1].split(/[\s,]+/)));
-  // Bớt byte nội tuyến không đổi hiển thị: (1) biến --tw-* khai báo ở khối preflight mà CSS nội tuyến không dùng (CSS ngoài có bản đủ, nạp ngay sau); (2) tiền tố -webkit-font-feature-settings (mọi trình duyệt hỗ trợ bản không tiền tố đứng ngay sau)
-  const slim = o => o.replace(/\*,:after,:before\{[^}]*\}/, blk => blk.replace(/(--tw-[a-z0-9-]+):[^;}]*;?/g, (d, v) => new RegExp('var\\(' + v + '[,)]').test(o) ? d : '').replace(/;\}$/, '}')).replace(/-webkit-font-feature-settings:"liga";/g, '');
-  // (3) --tw-{bg,text,border,ring}-opacity:1 mà mọi chỗ dùng đều là var(--tw-…-opacity,1) (dự phòng = 1) và không ở đâu đặt giá trị khác → khai báo thừa, bỏ (tính toán ra cùng giá trị)
-  const noOp = o => ['bg', 'text', 'border', 'ring'].reduce((c, k) => { const v = '--tw-' + k + '-opacity', all = [...c.matchAll(new RegExp(v + ':([^;}]*)', 'g'))].map(m => m[1]), uses = [...c.matchAll(new RegExp('var\\(' + v + '([^)]*)\\)', 'g'))].map(m => m[1]);
-    return all.length && all.every(x => x === '1') && uses.every(x => x === ',1') ? c.replace(new RegExp(v + ':1;', 'g'), '').replace(new RegExp(';?' + v + ':1\\}', 'g'), '}').split('/var(' + v + ',1)').join('') : c; }, o); // rgb(R G B/var(--tw-…-opacity,1)) ≡ rgb(R G B) khi biến không đặt ở đâu khác
-  return noOp(slim(out)).replace(/\u0001(@(?:-\w+-)?keyframes\s+([\w-]+)\s*\{(?:[^{}]|\{[^{}]*\})*\})/g, (_, b, name) => anim.has(name) ? b : '');
+  return slimCss(out).replace(/\u0001(@(?:-\w+-)?keyframes\s+([\w-]+)\s*\{(?:[^{}]|\{[^{}]*\})*\})/g, (_, b, name) => anim.has(name) ? b : '');
 }
 const BUILT = new Map();
 function build(lang) {
