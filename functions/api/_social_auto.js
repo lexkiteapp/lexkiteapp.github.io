@@ -26,7 +26,7 @@ import { metaChannels, tokenOf, refreshIg, igNeedsRefresh, markToken, setToken, 
 // ---------------- Hàm thuần (test: scripts/test/social-auto.mjs) ----------------
 export const AUTO_PLATS = ['facebook_page', 'instagram', 'tiktok', 'youtube', 'threads'];
 /** on = kill switch (TẮT → không gọi GrabCast gì cả) · auto_approve mặc định TẮT · TikTok BẬT (Direct Post duyệt 03/11/2026) · YouTube qua GrabCast tự bật khi workspace có kênh YouTube ok (yt_gc_auto; GrabCast qua audit YouTube 10/11/2026), plats.youtube = đường API trực tiếp. plan_daily BẬT: lịch tự xếp mỗi ngày (chỉ D1, không đăng gì khi chưa duyệt). */
-export const AUTO_DEFAULT = { on: true, auto_approve: false, auto_queue: false, manual_first: 1, plats: { facebook_page: true, instagram: true, tiktok: true, youtube: false, threads: false }, max_per_run: 3, lookahead_h: 30, lead_min: 20, sync_h: 3, daily_calls: 60, plan_daily: true, provider: 'auto', meta_daily: 80, meta_map: {}, yt_gc_auto: true, fc: FC_DEFAULT };
+export const AUTO_DEFAULT = { on: true, auto_approve: false, auto_queue: false, manual_first: 1, plats: { facebook_page: true, instagram: true, tiktok: true, youtube: false, threads: false }, max_per_run: 8, lookahead_h: 30, lead_min: 20, sync_h: 3, daily_calls: 480, plan_daily: true, provider: 'auto', meta_daily: 80, meta_map: {}, yt_gc_auto: true, fc: FC_DEFAULT };
 export const PROVIDERS = ['auto', 'grabcast', 'meta'];
 /** Chủ 10/11 + 16/11/2026: "tự duyệt tự đăng luôn … lên lịch sẵn" – fanpage 4–5 ngày không có video vì autopub chỉ bật YouTube: FB/IG/TikTok tạo bài nháp ở GrabCast rồi chờ duyệt mãi (log 16/11: tạo 3 · lên lịch 0 · chờ duyệt 3).
  *  Áp MỘT lần lên cấu hình đang lưu (policy khác POLICY): bỏ duyệt tay bài đầu, tự vào hàng, tự duyệt, autopub BẬT cho FB + IG + TikTok + YouTube (cổng QC/policy ở autoQueue/approve giữ nguyên). Sau đó cấu hình mang policy → anh đổi gì ở Quản trị thì giữ nguyên. Công tắc khẩn `on` không đụng. */
@@ -38,8 +38,8 @@ export function cleanAuto(a) {
   a = a && typeof a === 'object' ? a : {}; const d = AUTO_DEFAULT, pl = a.plats && typeof a.plats === 'object' ? a.plats : {};
   return { on: a.on == null ? d.on : !!a.on, auto_approve: !!a.auto_approve, auto_queue: !!a.auto_queue, manual_first: clamp(a.manual_first, 0, 50, d.manual_first), policy: a.policy === POLICY ? POLICY : undefined, autopub: Object.fromEntries(AUTO_PLATS.map(p => [p, !!a.autopub && a.autopub[p] === true])),
     plats: Object.fromEntries(AUTO_PLATS.map(p => [p, pl[p] == null ? d.plats[p] : !!pl[p]])),
-    max_per_run: clamp(a.max_per_run, 1, 5, d.max_per_run), lookahead_h: clamp(a.lookahead_h, 2, 72, d.lookahead_h), lead_min: clamp(a.lead_min, 10, 180, d.lead_min),
-    sync_h: clamp(a.sync_h, 3, 24, d.sync_h), daily_calls: clamp(a.daily_calls, 10, 120, d.daily_calls), plan_daily: a.plan_daily == null ? d.plan_daily : !!a.plan_daily,
+    max_per_run: clamp(a.max_per_run, 1, 8, d.max_per_run), lookahead_h: clamp(a.lookahead_h, 2, 72, d.lookahead_h), lead_min: clamp(a.lead_min, 10, 180, d.lead_min),
+    sync_h: clamp(a.sync_h, 3, 24, d.sync_h), daily_calls: clamp(a.daily_calls, 10, 600, d.daily_calls), plan_daily: a.plan_daily == null ? d.plan_daily : !!a.plan_daily,
     yt_gc_auto: a.yt_gc_auto == null ? d.yt_gc_auto : !!a.yt_gc_auto, fc: cleanFc(a.fc), // bình luận đầu mang link (§6c): bật, ≤ per_ch_day/kênh/ngày, ≤ max_tries lần thử
     provider: PROVIDERS.includes(a.provider) ? a.provider : d.provider, meta_daily: clamp(a.meta_daily, 20, 200, d.meta_daily),
     meta_map: Object.fromEntries(['facebook_page', 'instagram'].filter(p => a.meta_map && /^gc-[a-z_]+-[A-Za-z0-9_-]{1,40}$/.test(String(a.meta_map[p] || ''))).map(p => [p, String(a.meta_map[p])])) };

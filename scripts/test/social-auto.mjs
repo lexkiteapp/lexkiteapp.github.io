@@ -28,7 +28,7 @@ const H = 36e5, now = Date.now();
   const d = A.cleanAuto({});
   ok(d.on === true && d.auto_approve === false && d.plan_daily === true && d.plats.facebook_page && d.plats.instagram && d.plats.tiktok && !d.plats.youtube && !d.plats.threads, 'mặc định: chạy, TỰ DUYỆT TẮT, chỉ FB + IG (TikTok/YouTube chờ duyệt app)');
   const c = A.cleanAuto({ manual_first: 0, max_per_run: 99, daily_calls: 9999, lookahead_h: 1, lead_min: 1, sync_h: 1, plats: { tiktok: 1 } });
-  ok(c.manual_first === 0 && A.cleanAuto({ manual_first: -3 }).manual_first === 0 && A.cleanAuto({ manual_first: 99 }).manual_first === 50 && c.max_per_run === 5 && c.daily_calls === 120 && c.lookahead_h === 2 && c.lead_min === 10 && c.sync_h === 3 && c.plats.tiktok && c.plats.facebook_page, 'kẹp: duyệt tay 0–50 bài (chủ 10/11 tự duyệt → 0 hợp lệ), ≤ 5 bài/lượt, ≤ 120 lượt GrabCast/ngày, đồng bộ ≥ 3 giờ');
+  ok(c.manual_first === 0 && A.cleanAuto({ manual_first: -3 }).manual_first === 0 && A.cleanAuto({ manual_first: 99 }).manual_first === 50 && c.max_per_run === 8 && c.daily_calls === 600 && c.lookahead_h === 2 && c.lead_min === 10 && c.sync_h === 3 && c.plats.tiktok && c.plats.facebook_page, 'kẹp: duyệt tay 0–50 bài (chủ 10/11 tự duyệt → 0 hợp lệ), ≤ 5 bài/lượt, ≤ 120 lượt GrabCast/ngày, đồng bộ ≥ 3 giờ');
   ok(A.breakerMs(401) === 12 * H && A.breakerMs(403) === 12 * H && A.breakerMs(409) && A.breakerMs(422) && A.breakerMs(429) && A.breakerMs(503) && A.breakerMs(500) && !A.breakerMs(400) && !A.breakerMs(404) && !A.breakerMs(200), 'cầu dao: 401/403/409/422/429/503/5xx dừng; 400/404 chỉ lỗi 1 bài');
   { const on = A.cleanAuto({ auto_approve: true, auto_queue: true, manual_first: 1 }), m = { facebook_page: 9, tiktok: 9 }; // live có thể đang bật auto_approve + auto_queue: thiếu cờ đúng nền tảng thì vẫn chờ người
     ok(Object.values(d.autopub).every(v => v === false) && Object.values(on.autopub).every(v => v === false), 'autopub mặc định tắt mọi nền tảng, kể cả khi auto_approve bật');
@@ -48,7 +48,7 @@ const H = 36e5, now = Date.now();
   ok(A.pickDue(rows, { ...d, plats: { ...d.plats, tiktok: false } }, now).map(r => r.platform + '@' + Math.round((r.slot_ms - now) / H)).join() === 'instagram@2,facebook_page@3', 'đến hạn: trong [now + 20 phút, now + 30 giờ], nền tảng bật, có tài khoản, sớm nhất trước');
   ok(await A.idemKey(CA, 'gc-facebook_page-2', 'c') === await A.idemKey(CA, 'gc-facebook_page-2', 'c') && await A.idemKey(CA, 'gc-facebook_page-2', 'c') !== await A.idemKey(CA, 'gc-instagram-3', 'c') && /^[A-Za-z0-9_-]{8,80}$/.test(await A.idemKey(CA, 'x', 's')), 'Idempotency-Key ổn định theo clip + kênh + bước, hợp lệ cho GrabCast');
   ok(/^b_[A-Za-z0-9_-]{6,60}$/.test(await A.boardId(CA, 'gc-facebook_page-2')), 'id mục duyệt đúng dạng soc_board');
-  ok(A.budgetLeft({ calls: { day: A.dayOf(now), n: 50 } }, d, now) === 10 && A.budgetLeft({ calls: { day: '2000-01-01', n: 50 } }, d, now) === 60, 'ngân sách theo ngày UTC, qua ngày đặt lại');
+  ok(A.budgetLeft({ calls: { day: A.dayOf(now), n: 50 } }, d, now) === 430 && A.budgetLeft({ calls: { day: '2000-01-01', n: 50 } }, d, now) === 480, 'ngân sách theo ngày UTC, qua ngày đặt lại');
 }
 
 // ---------- 2) Đầu-cuối: 1 lượt autopilot ----------
@@ -89,6 +89,7 @@ due(CA, 'gc-facebook_page-2', 3); due(CA, 'gc-instagram-3', 5); due(CC, 'gc-face
 sql.prepare("INSERT INTO soc_meta (k, v, at) VALUES (?, ?, ?)").run('media:' + CA, JSON.stringify({ id: 'm_cached' }), now); // clip A đã có media (cache) – clip B phải tải lên
 const st = () => JSON.parse(sql.prepare("SELECT v FROM soc_meta WHERE k = 'auto_state'").get().v);
 const ds = (clip, ch) => sql.prepare('SELECT * FROM dist_social WHERE clip = ? AND channel_id = ?').get(clip, ch);
+sql.prepare("INSERT INTO soc_meta (k, v, at) VALUES ('auto', ?, ?) ON CONFLICT(k) DO UPDATE SET v = excluded.v").run(JSON.stringify({ max_per_run: 3 }), now); // bộ test dựa trên 3 bài/lượt (mặc định thật nay là 8)
 calls = [];
 let r = await A.runAuto(ENV, { now });
 const gcCalls = calls.filter(c => c.p !== 'PUT');
