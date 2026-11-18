@@ -12,7 +12,7 @@ coverAlt: "مكتبة المفردات في Lexkite مع تبويبات لكل �
 status: ready
 factChecked: 2026-11-16
 author: Lexkite
-publishAt:
+publishAt: 2027-01-17T12:51:00+03:00
 qualityScore: 92
 coverArt: {mood: think, icon: book}
 shots: [

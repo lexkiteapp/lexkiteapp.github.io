@@ -63,6 +63,8 @@ jobs:
       - uses: ./.github/actions/no-prod
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
+      - uses: ./.github/actions/playwright-cache
+        with: { browsers: '--with-deps chrome' }
       - name: 🎬 Video bài học E2E (sandbox + vtest, Chrome có H.264; vi/ar/ja × điện thoại/máy tính)
         if: ${{ github.event_name != 'pull_request' }}   # PR: video-web.yml/video-e2e.yml lo phần video
         run: |
@@ -73,6 +75,8 @@ jobs:
       - if: ${{ always() && github.event_name != 'pull_request' }}
         uses: actions/upload-artifact@v4
         with: { name: video-web-e2e, path: out/video-web, retention-days: 7 }
+      - uses: ./.github/actions/playwright-cache
+        with: { browsers: '--with-deps chromium' }
       - name: Soát
         if: ${{ !cancelled() && github.event.inputs.video_only != '1' }}
         env: { VQA_QUICK: "${{ github.event.inputs.quick || '0' }}" }
@@ -102,6 +106,8 @@ jobs:
           SEO_DIST=out/after node scripts/build-seo-pages.mjs | tail -1
           git worktree add -q "$RUNNER_TEMP/base" origin/main
           (cd "$RUNNER_TEMP/base" && SEO_DIST="$GITHUB_WORKSPACE/out/before" node scripts/build-seo-pages.mjs | tail -1)
+      - uses: ./.github/actions/playwright-cache
+        with: { browsers: '--with-deps chromium' }
       - name: Chụp
         timeout-minutes: 14
         env: { PAGES: "${{ github.event.inputs.seo_words }}" }

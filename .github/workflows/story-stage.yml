@@ -45,6 +45,8 @@ jobs:
         run: node scripts/ci/regen-generated.mjs
       - name: Tĩnh
         run: node scripts/test/story-stage.mjs --out out/story-stage
+      - uses: ./.github/actions/playwright-cache
+        with: { browsers: '--with-deps chromium webkit' }
       - name: Playwright
         timeout-minutes: 15
         run: |

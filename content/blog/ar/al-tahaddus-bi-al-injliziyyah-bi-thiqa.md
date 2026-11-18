@@ -12,7 +12,7 @@ coverAlt: "تدريب النطق في Lexkite يقيّم عبارة cut down on 
 factChecked: 2026-11-16
 author: Lexkite
 status: ready
-publishAt:
+publishAt: 2027-01-05T08:54:00+03:00
 qualityScore: 90
 coverArt: {mood: cheer, icon: chat}
 shots: [

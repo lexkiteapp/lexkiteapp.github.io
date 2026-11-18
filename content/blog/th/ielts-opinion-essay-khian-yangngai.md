@@ -9,7 +9,7 @@ tags: [ielts, writing, task-2, opinion-essay]
 keyword: "ielts opinion essay เขียนยังไง"
 cover: write
 coverAlt: "ห้อง Writing ของ Lexkite ที่รวมโจทย์เรียงความตามหัวข้อ ตัวช่วยคิดไอเดีย และโครงเรียงความ"
-publishAt:
+publishAt: 2027-01-08T12:13:00+07:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

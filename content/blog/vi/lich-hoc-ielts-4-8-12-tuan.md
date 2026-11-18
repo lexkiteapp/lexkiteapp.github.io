@@ -9,7 +9,7 @@ tags: [ielts, study-plan, schedule, mock-test]
 keyword: "lịch học ielts"
 cover: path
 coverAlt: "Màn hình lộ trình học của Lexkite với các bài học xếp thành một con đường từng bước"
-publishAt:
+publishAt: 2027-02-14T12:39:00+07:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

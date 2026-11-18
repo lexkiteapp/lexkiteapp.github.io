@@ -42,6 +42,8 @@ jobs:
         with: { node-version: 22 }
       - name: Tự kiểm (ảnh giả)
         run: node scripts/test/native-visual.mjs --self-test
+      - uses: ./.github/actions/playwright-cache
+        with: { browsers: '--with-deps chromium' }
       - name: Vẽ web Stitch (Hôm nay sáng/tối, 390 px) làm cột so sánh
         continue-on-error: true     # chỉ là ảnh tham chiếu; không làm đỏ cổng
         timeout-minutes: 14

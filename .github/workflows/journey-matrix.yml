@@ -61,6 +61,8 @@ jobs:
         run: |
           npm ci --no-audit --no-fund
           bash scripts/build-web.sh >/dev/null
+      - uses: ./.github/actions/playwright-cache
+        with: { browsers: '--with-deps chromium' }
       - name: Cài Playwright
         timeout-minutes: 15
         run: |

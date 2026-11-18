@@ -37,7 +37,7 @@ quiz: [
     explain: "Task 2 มีน้ำหนักราวสองเท่าของ Task 1 การเตรียมเรียงความจึงคุ้มค่าที่สุดในส่วน Writing"
   }
 ]
-publishAt:
+publishAt: 2027-01-20T19:45:00+07:00
 qualityScore: 92
 factChecked: 2026-11-16
 author: Lexkite
