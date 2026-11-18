@@ -1,0 +1,11 @@
+{
+ "_doc": "Chủ mỗi mảng cho bảng health-board: duyệt từ trên xuống, khớp regex tên file workflow (không .yml) đầu tiên. Hạn theo mức: critical 1 ngày · high 3 ngày · warn 7 ngày (SLA, tính từ lần hiện trên bảng).",
+ "rules": [
+  { "match": "^(video|social|cine|teach|puppet|news|footage|shorts|store-video|youtube|clips|drive-shorts)", "owner": "video-daily-fix" },
+  { "match": "^(seo|dict-pages|authority|blog|funnel)", "owner": "seo-unblock / dict-pages-win" },
+  { "match": "^(lexicon|vocab-img|target-content|content-factory|word-|explain|i18n|pron|tts|say-native)", "owner": "health-guard (kho từ/ảnh/nội dung)" },
+  { "match": "^(asc|store|ios|android|native|apple|cws)", "owner": "điều phối (Apple LLC + cửa hàng)" },
+  { "match": "^(quality-sweep|world-scorecard|visual|ux|lighthouse|perf|post-deploy)", "owner": "health-guard / ui" }
+ ],
+ "default": "điều phối"
+}
