@@ -106,7 +106,7 @@
     el.style.top = Math.max(M, top) + 'px';
   };
   App.placeNear = place;
-  // MỘT đường dịch câu (js/tr-fast.js, tải lười); quá 2,5 s → { text:'', late }: nghĩa từng từ + Thử lại
+  // MỘT đường dịch câu (cpack/tr-fast.js, tải lười); quá 2,5 s → { text:'', late }: nghĩa từng từ + Thử lại
   const sleep = ms => new Promise(r => setTimeout(r, ms));
   const timed = (p, ms) => Promise.race([Promise.resolve(p), sleep(ms).then(() => { throw new Error('timeout'); })]);
   let trP = null, trCtrl = new AbortController();
@@ -117,7 +117,7 @@
     sc.onload = () => res(!!ok()); sc.onerror = () => { delete JS[src]; res(false); };
     document.head.appendChild(sc);
   })));
-  const trLib = () => loadJs('js/tr-fast.js', () => window.TrFast && TrFast.get).then(v => (v ? TrFast : null));
+  const trLib = () => loadJs('cpack/tr-fast.js', () => window.TrFast && TrFast.get).then(v => (v ? TrFast : null));
   const newSeq = () => { trCtrl.abort(); trCtrl = new AbortController(); return ++popSeq; }; // vùng chọn/bảng mới → hủy yêu cầu cũ
   async function trFast(text, L = I18N.learnLang(), o = {}) {
     const F = await timed(trLib(), 1500).catch(() => null);

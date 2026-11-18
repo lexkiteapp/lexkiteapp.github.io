@@ -1,6 +1,6 @@
 // Test (jsdom) bảng "🌐 Dịch" khi bôi đen câu trong web app / add-on (web/js/phrases.js) – lỗi chủ báo 28/10:
 //  (1) bảng kẹt mãi "⏳ Đang dịch “…”…" khi đường dịch treo (Translator trên máy / mạng) → khung tạm + nghĩa từng từ hiện NGAY, hết ngân sách
-//      (một lượt, các nguồn song song – web/js/tr-fast.js) thì nghĩa từng từ + nút Thử lại; bản đến muộn tự thay; Thử lại thành công → hiện bản dịch;
+//      (một lượt, các nguồn song song – web/cpack/tr-fast.js) thì nghĩa từng từ + nút Thử lại; bản đến muộn tự thay; Thử lại thành công → hiện bản dịch;
 //  (2) 01/11: bảng che mất ĐỊNH NGHĨA phía trên câu ví dụ → bảng nằm DƯỚI câu khi đủ chỗ, thiếu → lật lên trên, hai phía chật → thu chiều cao; khổ 390 không tràn;
 //  (3) đóng (✕ / Esc / bấm ra ngoài) hoặc chọn câu khác giữa chừng → hủy yêu cầu, kết quả cũ không bật lại / không ghi vào bảng mới.
 // KHÔNG mạng, KHÔNG tài khoản thật. Chạy: node scripts/test/sel-translate.mjs
@@ -25,7 +25,7 @@ w.CSS = { escape: s => s };
 w.fetch = async () => ({ ok: false, status: 404, json: async () => ({}), text: async () => '' });
 for (const f of scripts) { try { w.eval(fs.readFileSync(path.join(WEB, f), 'utf8')); } catch (e) { errors.push(f + ': ' + e.message); } }
 require('./lazyfix.js')(w, fs, path, WEB, errors);
-w.eval(fs.readFileSync(path.join(WEB, 'js/tr-fast.js'), 'utf8')); // tải lười trong app thật (phrases.js chèn thẻ script)
+w.eval(fs.readFileSync(path.join(WEB, 'cpack/tr-fast.js'), 'utf8')); // tải lười trong app thật (phrases.js chèn thẻ script)
 const tick = (ms = 40) => new Promise(r => setTimeout(r, ms));
 const $ = (s, r = w.document) => r.querySelector(s);
 const until = async (f, ms = 3000) => { const t0 = Date.now(); while (!f() && Date.now() - t0 < ms) await tick(20); return f(); };

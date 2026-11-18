@@ -1,4 +1,4 @@
-// Test đơn vị đường dịch câu (không mạng thật): web/js/dictionary.js raceTr qua translateVi/translateTo + web/js/tr-fast.js (kho dịch sẵn, IDB, ngân sách).
+// Test đơn vị đường dịch câu (không mạng thật): web/js/dictionary.js raceTr qua translateVi/translateTo + web/cpack/tr-fast.js (kho dịch sẵn, IDB, ngân sách).
 // Lỗi chủ báo 01/11: bôi đen câu → "Dịch" treo hàng chục giây (các nguồn chạy NỐI TIẾP 4 s + 8 s + 4 s + 8 s, ×3 lượt). Giờ: song song, ngân sách, hủy được.
 //   node scripts/test/tr-race.mjs
 import fs from 'node:fs';
@@ -29,7 +29,7 @@ function env({ gtx = 50, mm = 50, gtxText = 'GTX', mmText = 'MM', device = null,
   const indexedDB = { open: () => { const r = {}; setTimeout(() => { r.result = { createObjectStore() {}, transaction: () => ({ objectStore: () => ({ get: k => req(() => store.get(k)), put: (v, k) => req(() => store.set(k, v)), count: () => req(() => store.size), delete: k => store.delete(k), openCursor: () => req(() => null) }) }) }; r.onupgradeneeded && r.onupgradeneeded(); r.onsuccess && r.onsuccess(); }, 1); return r; } };
   const ctx = { fetch, AbortController, setTimeout, clearTimeout, console, Translator, indexedDB, document: { createElement: () => ({}), head: { appendChild: s => setTimeout(() => s.onload && s.onload(), 0) } }, location: { hostname: 'localhost' }, Promise, Map, Set, Date, Math, JSON, encodeURIComponent, String, Object, parseInt };
   ctx.self = ctx; vm.createContext(ctx);
-  vm.runInContext(src('dictionary.js'), ctx); vm.runInContext(src('tr-fast.js'), ctx);
+  vm.runInContext(src('dictionary.js'), ctx); vm.runInContext(fs.readFileSync('web/cpack/tr-fast.js', 'utf8'), ctx);
   return { ctx, D: ctx.Dict, F: ctx.TrFast, log, aborted, store };
 }
 const time = async p => { const t0 = Date.now(); const v = await p; return [v, Date.now() - t0]; };
@@ -98,6 +98,6 @@ const S = 'Hard work does not always guarantee promotion.';
   { const E = env(); const r = await E.F.get('Hello there.', 'en'); const r2 = await E.F.get('', 'vi'); ok(r.src === 'none' && r2.src === 'none', 'en/rỗng → không gọi gì'); }
 }
 // 17) Một nguồn duy nhất cho khóa kho: bộ sinh CI dùng đúng norm/hash của tr-fast.js
-{ const gen = fs.readFileSync('scripts/gen-tr-packs.mjs', 'utf8'); ok(/web\/js\/tr-fast\.js/.test(gen) && /g\.TrFast/.test(gen), 'gen-tr-packs dùng norm/hash từ tr-fast.js (không chép lại)'); }
+{ const gen = fs.readFileSync('scripts/gen-tr-packs.mjs', 'utf8'); ok(/web\/cpack\/tr-fast\.js/.test(gen) && /g\.TrFast/.test(gen), 'gen-tr-packs dùng norm/hash từ tr-fast.js (không chép lại)'); }
 console.log(fails ? `✗ tr-race: ${fails}/${n} lỗi` : `✓ tr-race: ${n} kiểm tra đạt`);
 process.exit(fails ? 1 : 0);

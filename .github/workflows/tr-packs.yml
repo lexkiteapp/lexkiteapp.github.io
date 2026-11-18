@@ -1,6 +1,6 @@
 # ci-policy: queue – chung hàng đợi google-translate với word-packs/sent-packs: huỷ giữa chừng làm lượt dịch dở, không gọi Google Translate song song
 name: Kho dịch sẵn câu ví dụ + định nghĩa (14 ngôn ngữ)
-# Sinh web/packs/tr/<lang>/<mảnh>.json (scripts/gen-tr-packs.mjs) – bảng bôi đen "Dịch" hiện tức thì cho câu có sẵn, không gọi mạng (web/js/tr-fast.js).
+# Sinh web/packs/tr/<lang>/<mảnh>.json (scripts/gen-tr-packs.mjs) – bảng bôi đen "Dịch" hiện tức thì cho câu có sẵn, không gọi mạng (web/cpack/tr-fast.js).
 # Chạy lại = chỉ dịch câu mới/đổi. main: đẩy main sau mỗi ngôn ngữ (push-main.sh). Dispatch trên nhánh khác: commit cục bộ, KHÔNG đẩy vào nhánh (đầu PR là commit bot thì CI/required-gate treo) → artifact bot-output-tr-packs + comment PR; lấy về: bash scripts/ci/bot-output.sh tr-packs <nhánh>. Cổng chất lượng (độ phủ ≥ 97 %, chữ viết): scripts/test/tr-packs.mjs chạy trong npm test.
 on:
   schedule:
@@ -10,7 +10,7 @@ on:
       langs: { description: 'mã ngôn ngữ cách nhau dấu cách (trống = tất cả)', required: false, default: '' }
   push:
     branches: [main]
-    paths: [scripts/gen-tr-packs.mjs, web/js/tr-fast.js, .github/workflows/tr-packs.yml]
+    paths: [scripts/gen-tr-packs.mjs, web/cpack/tr-fast.js, .github/workflows/tr-packs.yml]
 permissions:
   contents: read
   pull-requests: write   # comment kết quả lên PR của nhánh (dispatch trên nhánh)

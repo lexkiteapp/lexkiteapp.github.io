@@ -1,5 +1,5 @@
-// Kho DỊCH SẴN câu có trong dữ liệu (câu ví dụ `ex` + định nghĩa `def` của mọi từ) → bảng bôi đen "Dịch" hiện tức thì, không gọi mạng (web/js/tr-fast.js).
-// Ra: web/packs/tr/<lang>/<0…15>.json = { "<băm 8 hex>": "bản dịch" } – khóa = TrFast.hash(TrFast.norm(câu EN)) (một nguồn: web/js/tr-fast.js).
+// Kho DỊCH SẴN câu có trong dữ liệu (câu ví dụ `ex` + định nghĩa `def` của mọi từ) → bảng bôi đen "Dịch" hiện tức thì, không gọi mạng (web/cpack/tr-fast.js).
+// Ra: web/packs/tr/<lang>/<0…15>.json = { "<băm 8 hex>": "bản dịch" } – khóa = TrFast.hash(TrFast.norm(câu EN)) (một nguồn: web/cpack/tr-fast.js).
 // Nguồn bản dịch: câu ví dụ lấy lại từ web/packs/sent (cùng câu EN → không dịch lại); còn lại Google gtx theo lô (như gen-sent-packs, chạy trên CI).
 // Chạy lại = chỉ dịch câu mới/đổi; câu đã bỏ khỏi dữ liệu bị xóa. Đụng băm (2 câu khác nhau cùng khóa) → thóat lỗi.
 //   node scripts/gen-tr-packs.mjs <lang|all> [--max N] [--offline]   (--offline: chỉ dựng từ kho sent + kho cũ, không gọi mạng)
@@ -8,7 +8,7 @@ import { fileURLToPath } from 'url';
 import { sentences, tr } from './gen-sent-packs.mjs';
 const R = new URL('../', import.meta.url);
 export const LANGS = ['vi'].concat(fs.readFileSync(new URL('scripts/i18n-langs.txt', R), 'utf8').split('\n').map(s => s.trim()).filter(s => s && !s.startsWith('#')));
-const g = {}; new Function('self', fs.readFileSync(new URL('web/js/tr-fast.js', R), 'utf8'))(g);
+const g = {}; new Function('self', fs.readFileSync(new URL('web/cpack/tr-fast.js', R), 'utf8'))(g);
 export const { norm, hash, shardOf } = g.TrFast;
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
