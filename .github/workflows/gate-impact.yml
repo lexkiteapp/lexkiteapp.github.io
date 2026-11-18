@@ -1,3 +1,4 @@
+# ci-policy: queue – nhóm toàn cục: 1 lượt chạy + 1 lượt chờ (lượt chờ mới thay cũ); huỷ lượt đang chạy phí runner đã dùng, comment tư vấn vẫn cần
 # gate-impact (17/11, điều phối): PR đổi tệp CỔNG → chạy cổng MỚI trên head các PR đang mở, comment danh sách PR sẽ đỏ (xem scripts/ci/gate-impact.mjs, docs/CI-RUNNERS.md § gate-impact).
 # Chỉ chạy khi PR đụng tệp cổng (path filter); song song ≤ 4, mỗi PR 1 job nhẹ; concurrency huỷ lượt cũ của cùng PR. Bước chạy test của PR khác KHÔNG có token; token chỉ ở job report (mã từ main).
 name: gate-impact
@@ -12,9 +13,11 @@ on:
       - '.github/workflows/**'
 permissions:
   contents: read
+# 18/11: 146/347 job đang xếp hàng của cả repo là gate-impact (21 PR cổng × ≤20 job mỗi PR) → mọi PR khác chờ runner. Nhóm TOÀN CỤC: tối đa 1 lượt chạy + 1 lượt chờ (lượt chờ mới nhất thay lượt chờ cũ,
+# GitHub tự huỷ); lượt đang chạy không bị huỷ (đã tốn runner, vẫn comment). Chỉ là comment tư vấn, không phải cổng → PR bị thay lượt chờ sẽ được đo ở lần push kế.
 concurrency:
-  group: gate-impact-${{ github.event.pull_request.number }}
-  cancel-in-progress: true
+  group: gate-impact
+  cancel-in-progress: false
 jobs:
   select:
     if: github.event.pull_request.head.repo.full_name == github.repository
@@ -40,7 +43,7 @@ jobs:
     timeout-minutes: 20
     strategy:
       fail-fast: false
-      max-parallel: 4
+      max-parallel: 3
       matrix: ${{ fromJSON(needs.select.outputs.matrix) }}
     name: check #${{ matrix.pr }}
     steps:
