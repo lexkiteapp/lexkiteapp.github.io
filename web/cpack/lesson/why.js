@@ -161,5 +161,12 @@
     box.innerHTML = h || `<p class="small">${t('Chưa có giải thích riêng cho từ này.')}</p>`;
   }
 
-  g.LessonWhy = { show, diff, rules, explain, html, notSame, pickEx, RULE_EX, TOINF };
+  // ⚡ "Tăng điểm": lỗi hay gặp → cách nói tốt hơn (gold bank); từ chưa có cặp sai/đúng → ẩn
+  function boost(it, X) {
+    const { L, E, t, ST, say } = X, box = document.getElementById('lsnBoost'); if (!box || !L || L.cardIt !== it) return;
+    const x = ((g.LESSON_GOLD || {})[E.norm(it.card.word)] || []).find(y => y.w && y.r); if (!x) return;
+    box.innerHTML = ST.lsnBoost({ title: t('Tăng điểm'), bad: t('Hay sai'), good: t('Nói hay hơn'), w: x.w, r: x.r });
+    box.hidden = false; box.querySelector('.lsn-say').onclick = e => say(e.currentTarget.dataset.say);
+  }
+  g.LessonWhy = { show, boost, diff, rules, explain, html, notSame, pickEx, RULE_EX, TOINF };
 })(typeof self !== 'undefined' ? self : globalThis);

@@ -568,13 +568,9 @@
     const nx = $('#lsnNext'); if (nx && document.activeElement === document.body) nx.focus({ preventScroll: true });
   }
 
-  // ⚡ "Tăng điểm": lỗi hay gặp → cách nói tốt hơn (gold bank, 0 AI), chạm cụm để nghe. Từ chưa có cặp sai/đúng → ẩn
   async function booster(it) {
-    await goldLoad();
-    const box = $('#lsnBoost'); if (!box || !L || L.cardIt !== it) return;
-    const x = ((window.LESSON_GOLD || {})[E.norm(it.card.word)] || []).find(g => g.w && g.r); if (!x) return;
-    box.innerHTML = ST.lsnBoost({ title: t('Tăng điểm'), bad: t('Hay sai'), good: t('Nói hay hơn'), w: x.w, r: x.r });
-    box.hidden = false; box.querySelector('.lsn-say').onclick = e => say(e.currentTarget.dataset.say, false, L.who);
+    await goldLoad(); await cardReady();
+    if (window.LessonWhy) LessonWhy.boost(it, { L, E, t, ST, say: x => say(x, false, L.who) });
   }
 
   // "Giải thích" từ dữ liệu sẵn có, 0 lượt AI: gold bank (vì sao + sai → đúng + mẹo) → định nghĩa + ví dụ + câu của chính người học
