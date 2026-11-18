@@ -45,6 +45,8 @@ jobs:
         with: { node-version: 22 }
       - name: Chọn giọng máy dự phòng + gói offline
         run: node scripts/test/audio-voice.mjs && node scripts/audio/offline-pack.mjs --check
+      - uses: ./.github/actions/playwright-cache
+        with: { browsers: '--with-deps chromium webkit' }
       - name: Cài Playwright
         timeout-minutes: 14
         run: |
