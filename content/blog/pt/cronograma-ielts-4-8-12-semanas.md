@@ -9,7 +9,7 @@ tags: [ielts, study-plan, schedule, mock-test]
 keyword: "cronograma ielts"
 cover: path
 coverAlt: "Tela de trilha de aprendizado do Lexkite com lições organizadas como um caminho passo a passo"
-publishAt:
+publishAt: 2027-01-17T19:59:00-03:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

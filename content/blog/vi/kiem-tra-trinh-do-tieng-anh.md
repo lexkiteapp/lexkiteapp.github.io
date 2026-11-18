@@ -95,6 +95,10 @@ Các bước gợi ý:
 
 {{youtube: | Gợi ý video: hướng dẫn tự đánh giá bốn kỹ năng theo CEFR bằng bảng "tôi có thể…"}}
 
+Khi đã biết trình độ, bạn có thể chọn kỳ thi như [IELTS UKVI cho hồ sơ visa Anh](/vi/blog/ielts-ukvi-la-gi/) hoặc [Cambridge B2 First](/vi/blog/cau-truc-de-thi-cambridge-b2-first/).
+
+Nếu bạn nhắm tới kỳ thi IELTS, [cách tính điểm IELTS](/vi/blog/cach-tinh-diem-ielts-band-score/) cho biết điểm xuất phát của mình nằm ở đâu.
+
 ## Câu hỏi thường gặp
 
 ### Bài kiểm tra trình độ online có chính xác không?

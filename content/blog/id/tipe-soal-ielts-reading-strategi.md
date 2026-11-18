@@ -9,7 +9,7 @@ tags: [ielts, reading, question-types, strategy]
 keyword: "tipe soal ielts reading"
 cover: reading
 coverAlt: "Daftar Reading Lexkite dengan bacaan bertingkat dari A2 sampai C1"
-publishAt:
+publishAt: 2027-01-19T21:02:00+07:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

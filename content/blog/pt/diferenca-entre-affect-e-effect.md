@@ -10,7 +10,7 @@ keyword: "diferença entre affect e effect"
 cover: dict
 coverAlt: "Verbete do dicionário do Lexkite para a palavra resilient, com pronúncia, frase de exemplo, colocações e sinônimos"
 coverArt: {mood: think, icon: book}
-publishAt:
+publishAt: 2027-01-18T07:57:00-03:00
 factChecked: 2026-11-16
 qualityScore: 92
 author: Lexkite

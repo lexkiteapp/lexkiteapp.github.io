@@ -9,7 +9,7 @@ tags: [ielts, writing, task-1, process-diagram, passive-voice]
 keyword: "ielts process diagram nasıl yazılır"
 cover: write
 coverAlt: "Lexkite IELTS Writing odası: konuya göre komutlar, fikir önerileri, önerilen kelimeler ve yazı çerçevesi"
-publishAt:
+publishAt: 2027-01-11T12:59:00+03:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

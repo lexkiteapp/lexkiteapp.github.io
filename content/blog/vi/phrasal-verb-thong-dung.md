@@ -147,6 +147,8 @@ Phrasal verb dùng nhiều nhất ở Speaking; xem thêm cách nói tự nhiên
 
 ![Thư viện phát âm IPA của Lexkite chia nguyên âm đơn, nguyên âm đôi và phụ âm, kèm từ ví dụ](media:pron "Chọn âm IPA khó trong phrasal verb để luyện riêng từng âm")
 
+Phrasal verb xuất hiện nhiều ở phần cloze của kỳ thi chứng chỉ; xem [cấu trúc đề thi Cambridge B2 First](/vi/blog/cau-truc-de-thi-cambridge-b2-first/).
+
 ## Câu hỏi thường gặp
 
 ### Có bao nhiêu phrasal verb cần học cho IELTS?

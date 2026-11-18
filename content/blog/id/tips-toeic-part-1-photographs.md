@@ -9,7 +9,7 @@ tags: [toeic, listening, part-1, photographs]
 keyword: "tips toeic part 1"
 cover: toeic
 coverAlt: "Pusat latihan TOEIC Lexkite dengan tes tiruan dan latihan per bagian"
-publishAt:
+publishAt: 2027-01-20T08:27:00+07:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

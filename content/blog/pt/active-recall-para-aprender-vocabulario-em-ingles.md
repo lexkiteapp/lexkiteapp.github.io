@@ -9,7 +9,7 @@ tags: [active-recall, vocabulary, memory, flashcards]
 keyword: "active recall"
 cover: practice-test
 coverAlt: "Teste de múltipla escolha do Lexkite perguntando o significado correto de run out of"
-publishAt:
+publishAt: 2027-01-08T09:01:00-03:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

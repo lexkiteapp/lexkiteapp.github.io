@@ -9,7 +9,7 @@ tags: [ielts, writing, task-2, opinion-essay]
 keyword: "ielts agree disagree 에세이"
 cover: write
 coverAlt: "Lexkite 라이팅 룸: 주제별 에세이 문제, 아이디어 힌트, 글쓰기 틀"
-publishAt:
+publishAt: 2026-12-30T09:13:00+09:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

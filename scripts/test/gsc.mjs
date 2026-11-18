@@ -54,7 +54,7 @@ const fx = {
     R(['câu bị động', U('vi', 'cau-bi-dong-nang-cao'), 'vnm'], 90, 0, 18),
     R(['lexkite', 'https://lexkite.com/', 'vnm'], 900, 300, 1),               // thương hiệu → bỏ
     R(['resilient là gì', 'https://lexkite.com/vi/words/resilient', 'vnm'], 80, 0, 15), // hàng đợi từ điển
-    R(['make vs do', U('en', 'make-vs-do'), 'ind'], 40, 0, 50),              // dưới ngưỡng 50 → bỏ
+    R(['make vs do', U('en', 'make-vs-do'), 'ind'], 12, 0, 50),              // dưới ngưỡng sàn 20 → bỏ
   ],
   pageCur: [R([U('vi', 'fsrs-la-gi')], 520, 40, 4), R([U('vi', 'cau-bi-dong')], 600, 3, 12), R([U('en', 'make-vs-do')], 40, 0, 50)],
   pagePrev: [R([U('vi', 'fsrs-la-gi')], 560, 41, 4), R([U('en', 'make-vs-do')], 400, 12, 9), R([U('vi', 'cau-bi-dong')], 90, 1, 20)],
@@ -75,7 +75,20 @@ const sd = rep.striking.find(s => s.slug === 'cau-bi-dong');
 ok(sd && sd.queries[0].query === 'câu bị động' && sd.queries[0].position === 12, '(b) bắt trang hạng 12 CTR 0,5 %');
 ok(sd && sd.hints.some(h => /KHÔNG đổi slug/.test(h)), '(b) nhắc không đổi slug');
 ok(sd && sd.suggestedTitle === null, '(b) tiêu đề đã chứa truy vấn → không đề xuất đổi');
-ok(!rep.striking.some(s => s.slug === 'cau-bi-dong-nang-cao'), '(b) dưới 100 hiển thị → bỏ');
+ok(!G.analyze({ qpc: [R(['x y', U('vi', 'cau-bi-dong'), 'vnm'], 12, 0, 14)] }, G.loadContent(root)).striking.length, '(b) dưới sàn 20 hiển thị → bỏ');
+
+// --- site nhỏ, đuôi dài (số liệu thật 16/11: 10.860 hiển thị, mỗi cặp truy vấn×trang 1–5 hiển thị): trước đây ra 0 mục ---
+const tail = [];
+for (let i = 0; i < 40; i++) tail.push(R([`từ khoá đuôi ${i} ielts`, 'https://lexkite.com/th/words/criteria', 'tha'], 3, 0, 9 + (i % 3)));   // 120 hiển thị, hạng ~10, 0 bấm
+for (let i = 0; i < 30; i++) tail.push(R([`ielts writing task ${i}`, 'https://lexkite.com/en/speaking/', 'usa'], 2, 0, 60));
+const small = G.analyze({ qpc: tail, qp: [], pageCur: tail.map(r => ({ keys: [r.keys[1]], clicks: r.clicks, impressions: r.impressions, position: r.position })), pagePrev: [R(['https://lexkite.com/en/speaking/'], 2, 0, 5)] }, G.loadContent(root));
+const tp = small.striking.find(x => x.page.endsWith('/th/words/criteria'));
+ok(tp && tp.impressions === 120 && tp.lang === 'th', '(b) gộp đuôi dài theo trang: 40 truy vấn × 3 hiển thị → 1 trang 120 hiển thị');
+ok(small.priority.length > 0 && small.priority[0].type === 'refresh-title', 'ưu tiên ≠ 0 trên dữ liệu đuôi dài');
+ok(small.noBaseline === true, 'kỳ trước không có dữ liệu → noBaseline (d = 0 là đúng, có ghi chú)');
+ok(G.clusterKey('detect meaning') === G.clusterKey('define detect') && G.clusterKey('detect meaning') === 'detect', 'cụm bỏ từ "meaning/define"');
+const gm = G.analyze({ qpc: [R(['detect meaning', 'https://lexkite.com/en/words/detect', 'usa'], 12, 0, 20), R(['define detect', 'https://lexkite.com/en/words/detect', 'gbr'], 12, 0, 22)] }, G.loadContent(root));
+ok(gm.dictQueue.some(d => d.term === 'detect' && d.impressions === 24), 'biến thể tra nghĩa gộp vào một từ trong hàng đợi từ điển');
 const sdHint = G.analyze({ qpc: [R(['passive voice exercises', U('vi', 'cau-bi-dong'), 'vnm'], 400, 1, 14)] }, G.loadContent(root)).striking[0];
 ok(sdHint && /^Passive voice exercises: /.test(sdHint.suggestedTitle) && [...sdHint.suggestedTitle].length <= 61, `(b) gợi ý tiêu đề mới chứa truy vấn, ≤ 60 ký tự: ${sdHint && sdHint.suggestedTitle}`);
 ok(sdHint && sdHint.suggestedDescription && sdHint.suggestedDescription.length <= 161, '(b) gợi ý mô tả ≤ 160 ký tự');
@@ -169,6 +182,23 @@ ok(scan(root).every(f => !fs.readFileSync(f, 'utf8').includes(keyFrag) && !fs.re
 const src = fs.readFileSync('scripts/seo/gsc.mjs', 'utf8');
 ok(!/writeFileSync\([^)]*(sa|raw|private_key)/.test(src) && !/console\.(log|error)\([^)]*(raw|private_key|sa\b)/.test(src), 'mã nguồn không ghi/in biến khoá');
 
+// --- khách thật từ tìm kiếm (D1 land:* → /api/seo-visits → báo cáo tuần) ---
+{
+  const { searchDaily } = await import('../../functions/api/_cpm.js');
+  const rows = [{ day: '2026-11-10', kind: 'land:google.com:US:words:th', n: 3 }, { day: '2026-11-10', kind: 'land:google.com:VN:blog:vi', n: 2 }, { day: '2026-11-10', kind: 'land:bing.com:TH:words:th', n: 1 },
+    { day: '2026-11-10', kind: 'land:facebook.com:US:blog:en', n: 9 }, { day: '2026-11-11', kind: 'land:google.com:DE:words:de', n: 4 }, { day: '2026-11-11', kind: 'cta:x', n: 5 }];
+  const d = searchDaily(rows);
+  eq(d, [{ day: '2026-11-10', search: 6, google: 5, high: 3, vn: 2, other: 1 }, { day: '2026-11-11', search: 4, google: 4, high: 4, vn: 0, other: 0 }], 'searchDaily: chỉ công cụ tìm kiếm, nhóm theo nước, bỏ mạng xã hội');
+  const vs = G.visitsSummary({ from: '2026-10-15', to: '2026-11-11', days: d });
+  ok(vs && vs.perDay7.search === 1.4 && vs.perDay28.search === 0.4 && vs.last7.length === 2, 'visitsSummary: TB 7/28 ngày');
+  ok(G.visitsSummary({ from: 'a', to: 'b', days: [] }) === null, 'không có dữ liệu → null');
+  const md = G.markdown({ date: '2026-11-12', site: G.SITE, range: { startDate: 'a', endDate: 'b' }, prevRange: { startDate: 'c', endDate: 'd' }, totals: { current: { clicks: 0, impressions: 0, ctr: 0, position: 0 }, previous: { clicks: 0, impressions: 0, ctr: 0, position: 0 } }, gaps: [], striking: [], cannibal: [], declines: [], dictQueue: [], priority: [], visits: vs });
+  ok(/Khách thật từ tìm kiếm/.test(md) && /TB 7 ngày \| 1.4/.test(md), 'markdown có mục khách từ tìm kiếm + số nền');
+  const src = fs.readFileSync(new URL('../../functions/api/seo-visits.js', import.meta.url), 'utf8');
+  ok(/X-Studio-Secret/.test(src) && /secretOk/.test(src), 'endpoint seo-visits cần bí mật');
+}
+
 fs.rmSync(root, { recursive: true, force: true }); fs.rmSync(root2, { recursive: true, force: true });
 if (fails) { console.error(`✗ gsc: ${fails} kiểm tra hỏng`); process.exit(1); }
 console.log('✓ gsc: chuẩn hoá/khớp đa ngôn ngữ, (a)(b)(c)(d), ưu tiên, JWT, phân trang API giả, thiếu secret → exit 0, không lộ khoá');
+

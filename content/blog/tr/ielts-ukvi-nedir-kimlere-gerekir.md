@@ -9,7 +9,7 @@ tags: [ielts, ukvi, uk-visa, immigration]
 keyword: "ielts ukvi nedir"
 cover: speaking
 coverAlt: "Lexkite Speaking odasında Part 1, 2 ve 3 konuları ve örnek sorular"
-publishAt:
+publishAt: 2027-01-15T20:41:00+03:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

@@ -9,7 +9,7 @@ tags: [word-stress, pronunciation, ipa, speaking]
 keyword: "sílaba tônica em inglês"
 cover: pron
 coverAlt: "Biblioteca de pronúncia IPA do Lexkite com vogais, ditongos e consoantes para praticar"
-publishAt:
+publishAt: 2027-01-27T08:31:00-03:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

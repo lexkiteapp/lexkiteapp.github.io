@@ -119,6 +119,8 @@ Bạn có thể áp dụng các bước trên ngay trong ứng dụng, không c�
 
 {{youtube: | Gợi ý video: phân tích một đoạn Task 2 từ band 6 lên band 7 chỉ bằng cách sửa từ vựng}}
 
+Để thấy những lỗi từ vựng thật sự lấy điểm của bạn, đọc [lỗi sai IELTS Writing thường gặp](/vi/blog/loi-sai-ielts-writing-thuong-gap/), nơi mỗi lỗi có câu sai và câu sửa.
+
 ## Câu hỏi thường gặp
 
 ### Lexical Resource chiếm bao nhiêu phần trăm điểm IELTS Writing?

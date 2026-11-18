@@ -96,6 +96,10 @@ Lexkite là app học miễn phí, có khu luyện riêng cho cả ba kỳ thi, 
 
 {{youtube: | Gợi ý video: so sánh nhanh một câu hỏi mẫu tự soạn theo phong cách IELTS, TOEIC và TOEFL để thấy khác biệt}}
 
+Nếu mục đích của bạn là visa Anh, hãy đọc [IELTS UKVI là gì](/vi/blog/ielts-ukvi-la-gi/); còn nếu bạn nhắm chứng chỉ Cambridge, xem [cấu trúc đề thi Cambridge B2 First](/vi/blog/cau-truc-de-thi-cambridge-b2-first/).
+
+Nếu chọn IELTS, bạn sẽ gặp thang band từ 0 đến 9; bài về [cách tính điểm IELTS](/vi/blog/cach-tinh-diem-ielts-band-score/) giải thích thang này. Nếu mục tiêu của bạn là định cư, đọc [IELTS định cư: chọn bài thi nào, cần band bao nhiêu](/vi/blog/ielts-dinh-cu-chon-bai-thi-va-band/) trước khi đăng ký thi.
+
 ## Câu hỏi thường gặp
 
 ### Có bảng quy đổi chính xác giữa điểm IELTS, TOEIC và TOEFL không?

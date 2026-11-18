@@ -241,6 +241,7 @@ node scripts/test/client-security.mjs
 node scripts/test/headers.mjs
 node scripts/test/static-routes.mjs
 node scripts/test/words-r2-fn.mjs
+node scripts/test/cf-words-cache.mjs
 node scripts/test/layout-guards.mjs
 node scripts/test/home-logic.mjs
 node scripts/test/vocab-hub.mjs
@@ -255,6 +256,7 @@ node scripts/test/late-insert.mjs
 node scripts/build-landing.mjs --check
 node scripts/test/landing-routing.mjs
 node scripts/test/landing-v3.mjs
+node scripts/test/landing-fonts.mjs
 node scripts/test/sw-cache-fixed.mjs
 node scripts/test/sw-storage.mjs
 node scripts/test/get-app.mjs
@@ -376,6 +378,8 @@ node scripts/test/scan-roots.mjs
 node scripts/test/token-drift.mjs --self
 node scripts/test/token-drift.mjs
 node scripts/test/st-web-i18n.mjs
+node scripts/test/store-submit.mjs
+node scripts/store/release-notes.mjs --check
 node scripts/test/settings-subpages.mjs
 node scripts/test/required-gate-stale.mjs
 node scripts/test/origin-fetch.mjs
@@ -394,6 +398,7 @@ node scripts/test/perf-median.mjs
 node scripts/test/perf-calibrate.mjs
 node scripts/test/perf-flake.mjs
 node scripts/test/gate-relevance.mjs
+node scripts/test/gate-retest.mjs
 node scripts/test/native-qa-scope.mjs
 node scripts/test/pr-unconflict.mjs
 node scripts/test/regen-conflicts.mjs
@@ -450,4 +455,17 @@ node scripts/test/body-limit.mjs
 node scripts/test/ai-task.mjs
 node scripts/test/video-junk.mjs
 node scripts/test/dict-add.mjs
+node scripts/test/css-notes.mjs
 node scripts/test/ci-portable.mjs
+node scripts/test/sr-only.mjs
+node scripts/test/sw-reminder-day.mjs
+node scripts/test/core-day.mjs
+node scripts/test/live-csp-safe.mjs
+node scripts/test/home-words.mjs
+node scripts/test/red-report.mjs
+node scripts/test/run-suite-annotate.mjs
+node scripts/test/prwatch.mjs
+node scripts/test/flake-tracker.mjs
+node scripts/test/lesson-lang.mjs
+node scripts/test/gate-impact.mjs
+node scripts/test/budget-comment.mjs

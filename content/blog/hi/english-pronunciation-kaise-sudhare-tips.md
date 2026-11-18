@@ -171,6 +171,8 @@ quiz: [
 
 {{youtube: | English pronunciation कैसे सुधारें: घर बैठे उच्चारण ठीक करने के 4 तरीके}}
 
+स्ट्रेस पर विस्तृत नियम और उदाहरण [English Word Stress Rules in Hindi](/hi/blog/word-stress-rules-in-hindi-english/) में हैं।
+
 ## सामान्य प्रश्न (FAQ)
 
 ### क्या मुझे उच्चारण सुधारने के लिए ब्रिटिश या अमेरिकी एक्सेंट चुनना होगा?

@@ -86,6 +86,12 @@ qualityScore: 94
 
 {{cta: /#/review | เริ่มต้นทบทวนคำศัพท์ด้วย Spaced Repetition}}
 
+ถ้าต้องการรายการคำศัพท์วิชาการที่คุ้มที่สุดสำหรับการสอบ ลองเรียนทีละ Sublist ตาม [Academic Word List (AWL) คืออะไร: 570 กลุ่มคำสำหรับ IELTS](/th/blog/academic-word-list-khue-arai-570-kham/)
+
+ลองฝึกการดึงคำจากความจำตามสี่ระดับใน[Active Recall ท่องศัพท์](/th/blog/active-recall-thong-sap-phasa-angkrit/)
+
+คู่คำที่ฟังเหมือนกันอย่าง affect กับ effect ควรจำเป็นก้อน ดูตัวอย่างใน[Affect Effect ต่างกันอย่างไร](/th/blog/affect-effect-tang-kan-yang-rai/)
+
 ## คำถามที่พบบ่อย
 
 ### ควรท่องศัพท์วันละกี่คำจึงจะได้ผลดีที่สุด?

@@ -724,6 +724,7 @@
 "khả năng nhớ trung bình":"lembrança média",
 "so với cả tuần trước":"vs. toda a semana passada",
 "từ đang nhớ":"palavras na memória",
+"{a}/{b} bài":"{a}/{b} lições",
 "{a}/{b} đúng":"{a}/{b} corretas",
 "{done}/{n} từ":"{done}/{n} palavras",
 "{due} thẻ đến hạn · {total} lượt ôn đã làm":"{due} cartões pendentes · {total} revisões feitas",

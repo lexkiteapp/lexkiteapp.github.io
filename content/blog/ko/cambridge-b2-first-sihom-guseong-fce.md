@@ -9,7 +9,7 @@ tags: [cambridge, b2-first, fce, exam-format]
 keyword: "b2 first 시험 구성"
 cover: practice
 coverAlt: "Lexkite 연습 페이지: 테스트, 라이팅 룸 등 게임과 연습 문제"
-publishAt:
+publishAt: 2026-12-29T20:19:00+09:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

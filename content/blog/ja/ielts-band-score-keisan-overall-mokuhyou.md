@@ -9,7 +9,7 @@ tags: [ielts, band-score, scoring, strategy]
 keyword: "ielts バンドスコア 計算"
 cover: mock
 coverAlt: "LexkiteのIELTS模試の画面。リスニング・リーディング・ライティング・スピーキングの4技能と過去の受験履歴"
-publishAt:
+publishAt: 2027-01-15T21:28:00+09:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

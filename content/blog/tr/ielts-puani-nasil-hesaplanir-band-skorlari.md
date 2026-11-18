@@ -9,7 +9,7 @@ tags: [ielts, band-score, scoring, strategy]
 keyword: "ielts puanı nasıl hesaplanır"
 cover: mock
 coverAlt: "Lexkite IELTS deneme sınavı ekranı: dört beceri ve önceki denemelerin geçmişi"
-publishAt:
+publishAt: 2027-01-12T08:54:00+03:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready
