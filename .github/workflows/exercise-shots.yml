@@ -43,6 +43,8 @@ jobs:
       - uses: ./.github/actions/no-prod
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
+      - uses: ./.github/actions/playwright-cache
+        with: { browsers: '--with-deps chromium' }
       - name: Chụp + chấm
         timeout-minutes: 15
         env: { BASE: "${{ github.event.pull_request.base.sha }}" }
