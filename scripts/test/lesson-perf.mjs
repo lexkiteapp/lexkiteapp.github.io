@@ -11,7 +11,7 @@ import { noProd } from './lib/no-prod.mjs';
 import { rateFor } from './lib/perf-calibrate.mjs';
 
 const arg = (k, d) => { const i = process.argv.indexOf('--' + k); return i > 0 ? process.argv[i + 1] : d; };
-const NOMINAL = +arg('rate', '4'), OUT = path.resolve(arg('out', 'lp-out')), CHECK = process.argv.includes('--check'), LESSONS = +arg('lessons', '1'), WIDTH = +arg('width', '390'), FLOW = arg('flow', 'lesson'), TAG = `${FLOW}-${WIDTH}-${arg('rate', '4')}x`;
+const NOMINAL = +arg('rate', '4'), OUT = path.resolve(arg('out', 'lp-out')), CHECK = process.argv.includes('--check'), LESSONS = +arg('lessons', '1'), WIDTH = +arg('width', '390'), FLOW = arg('flow', 'lesson'), TAG = `${FLOW}-${WIDTH}-${arg('rate', '4')}x${arg('tag', '')}`, ROOT = arg('root', 'dist');
 const BUDGET = JSON.parse(fs.readFileSync(new URL('./lesson-perf.budget.json', import.meta.url), 'utf8'));
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 fs.mkdirSync(OUT, { recursive: true });
@@ -26,7 +26,7 @@ const INJECT = () => {
   obs('event', e => P.ev.push({ n: e.name, d: Math.round(e.duration), i: Math.round(e.processingStart - e.startTime), p: Math.round(e.processingEnd - e.processingStart), v: Math.round(e.startTime + e.duration - e.processingEnd), t: String(e.target && (e.target.id ? '#' + e.target.id : e.target.className) || '').slice(0, 40) }), { durationThreshold: 16 });
   obs('longtask', e => P.long.push({ s: Math.round(e.startTime), d: Math.round(e.duration) }));
   obs('long-animation-frame', e => P.loaf.push({ s: Math.round(e.startTime), d: Math.round(e.duration), b: Math.round(e.blockingDuration || 0), fl: Math.round(e.styleAndLayoutStart ? e.startTime + e.duration - e.styleAndLayoutStart : 0),
-    sc: (e.scripts || []).map(x => ({ u: String(x.sourceURL || '').replace(/^https?:\/\/[^/]+\//, '').slice(0, 60), f: String(x.sourceFunctionName || x.invoker || '').slice(0, 50), d: Math.round(x.duration), fl: Math.round(x.forcedStyleAndLayoutDuration || 0) })) }));
+    sc: (e.scripts || []).map(x => ({ c: x.sourceCharPosition, u: String(x.sourceURL || '').replace(/^https?:\/\/[^/]+\//, '').slice(0, 80), f: String(x.sourceFunctionName || x.invoker || '').slice(0, 50), d: Math.round(x.duration), fl: Math.round(x.forcedStyleAndLayoutDuration || 0) })) }));
   let last = 0; const tick = t => { if (P.on) { if (last) P.frames.push([Math.round(t), +(t - last).toFixed(1)]); last = t; } else last = 0; requestAnimationFrame(tick); }; requestAnimationFrame(tick);
   const click = HTMLElement.prototype.click;
   HTMLElement.prototype.click = function () {
@@ -60,7 +60,7 @@ const PLAY = async ({ wrongEvery = 2, maxSteps = 60 } = {}) => {
   return { ...seen, end: !!q('.lsn-end') };
 };
 
-const srv = await serve(arg('root', 'dist'), 0), O = srv.origin.replace(/\/$/, ''), HOST = new URL(O).host;
+const srv = await serve(ROOT, 0), O = srv.origin.replace(/\/$/, ''), HOST = new URL(O).host;
 const browser = await chromium.launch({ args: ['--autoplay-policy=no-user-gesture-required'] });
 const { rate, factor, scaled, bench } = await rateFor(browser, NOMINAL);
 const DAY = 864e5, NOW = Date.now();
@@ -84,7 +84,7 @@ for (let L = 0; L < LESSONS; L++) {
   await cdp.send('Network.emulateNetworkConditions', { offline: false, latency: 150, downloadThroughput: 1.6e6 / 8 * 0.9, uploadThroughput: 750e3 / 8 * 0.9 });
   await cdp.send('Performance.enable'); const m0 = Object.fromEntries((await cdp.send('Performance.getMetrics')).metrics.map(x => [x.name, x.value]));
   const events = []; cdp.on('Tracing.dataCollected', e => events.push(...e.value));
-  await cdp.send('Tracing.start', { categories: 'devtools.timeline,disabled-by-default-devtools.timeline,v8,blink', transferMode: 'ReportEvents' });
+  await cdp.send('Tracing.start', { categories: 'devtools.timeline,disabled-by-default-devtools.timeline,disabled-by-default-devtools.timeline.invalidationTracking,v8,blink', transferMode: 'ReportEvents' });
   await page.evaluate(() => { const P = window.__lp; P.long = []; P.loaf = []; P.frames = []; P.taps = []; P.trans = []; P.ev = []; P.on = true; P.t0 = performance.now(); P.ev = []; });
   const r0 = reqs.length, tStart = Date.now();
   const TAP = async sel => { const l = page.locator(sel).first(); if (!(await l.count()) || !(await l.isVisible().catch(() => false))) return false; await l.tap({ timeout: 4000 }).catch(() => l.click({ timeout: 2000 }).catch(() => {})); return true; };
@@ -123,8 +123,12 @@ for (let L = 0; L < LESSONS; L++) {
   // trace: cộng thời gian theo loại sự kiện (chỉ sự kiện hoàn chỉnh 'X') trong cửa sổ bài học
   const sum = re => Math.round(events.filter(e => e.ph === 'X' && re.test(e.name)).reduce((a, e) => a + (e.dur || 0), 0) / 1000);
   const trace = { gc: sum(/^(MinorGC|MajorGC|V8\.GC|BlinkGC)/), decode: sum(/^(Decode Image|ImageDecodeTask|Decode LazyPixelRef|ImageUploadTask)/), layout: sum(/^Layout$/), style: sum(/^UpdateLayoutTree$/), paint: sum(/^(Paint|PrePaint|Layerize)$/), raster: sum(/^(RasterTask|GPUTask)/), parse: sum(/^(ParseHTML|v8\.compile|V8\.CompileCode)/), evalScript: sum(/^EvaluateScript$/), fn: sum(/^FunctionCall$/), timers: sum(/^TimerFire$/), raf: sum(/^FireAnimationFrame$/), events: events.length };
+  const inval = new Map(); for (const e of events) if (e.name === 'StyleRecalcInvalidationTracking' && e.args && e.args.data) { const d = e.args.data, k = `${d.reason}|${d.nodeName || ''}|${String(d.extraData || '').slice(0, 40)}`; inval.set(k, (inval.get(k) || 0) + 1); }
+  const topInval = [...inval].sort((a, b) => b[1] - a[1]).slice(0, 10).map(([k, n]) => ({ k, n }));
+  const styleEls = events.filter(e => e.name === 'UpdateLayoutTree' && e.args && e.args.elementCount != null).reduce((a, e) => a + e.args.elementCount, 0);
   const forced = events.filter(e => e.ph === 'X' && e.name === 'Layout' && e.args && e.args.beginData && e.args.beginData.stackTrace).length;
-  const byScript = new Map(); for (const f of P.loaf) for (const s of f.sc) { const k = `${s.u} ${s.f}`.trim() || '(anon)'; const o = byScript.get(k) || { ms: 0, forced: 0, n: 0 }; o.ms += s.d; o.forced += s.fl; o.n++; byScript.set(k, o); }
+  const lineOf = (u, c) => { try { if (!u || !(c >= 0)) return ''; const t = fs.readFileSync(path.join(ROOT, u), 'utf8'), ln = t.slice(0, c).split('\n').length, line = t.split('\n')[ln - 1] || ''; return `:${ln} «${line.slice(Math.max(0, c - t.lastIndexOf('\n', c - 1) - 1 - 20), Math.max(0, c - t.lastIndexOf('\n', c - 1) - 1 + 60)).trim()}»`; } catch { return ''; } };
+  const byScript = new Map(); for (const f of P.loaf) for (const s of f.sc) { const k = `${s.u}${lineOf(s.u, s.c)} ${s.f}`.trim() || '(anon)'; const o = byScript.get(k) || { ms: 0, forced: 0, n: 0 }; o.ms += s.d; o.forced += s.fl; o.n++; byScript.set(k, o); }
   const topScripts = [...byScript].sort((a, b) => b[1].ms - a[1].ms).slice(0, 8).map(([k, v]) => ({ k, ...v }));
   const worstTaps = [...P.taps].sort((a, b) => b.ms - a.ms).slice(0, 6);
   const lazy = reqs.slice(r0).filter(x => /\.(js|css)$/.test(x.p)).length;
@@ -134,7 +138,7 @@ for (let L = 0; L < LESSONS; L++) {
     loaf: { n: P.loaf.length, max: Math.max(0, ...P.loaf.map(l => l.d)), blocking: P.loaf.reduce((a, l) => a + l.b, 0), forcedLayoutMs: P.loaf.reduce((a, l) => a + l.sc.reduce((x, s) => x + s.fl, 0), 0) },
     frames: { n: dts.length, fps: fps(dts), p95dt: pct(dts, 95), over50: dts.filter(d => d > 50).length, trN: trFrames.length, trFps: fps(trFrames), trP95dt: pct(trFrames, 95) },
     cpuMs: { task: Math.round((m1.TaskDuration - m0.TaskDuration) * 1000), script: Math.round((m1.ScriptDuration - m0.ScriptDuration) * 1000), layout: Math.round((m1.LayoutDuration - m0.LayoutDuration) * 1000), style: Math.round((m1.RecalcStyleDuration - m0.RecalcStyleDuration) * 1000), layoutCount: m1.LayoutCount - m0.LayoutCount, styleCount: m1.RecalcStyleCount - m0.RecalcStyleCount },
-    trace, forcedReflowEvents: forced, topScripts, lazyFetches: lazy, heapMB: +((m1.JSHeapUsedSize || 0) / 1e6).toFixed(1), domNodes: m1.Nodes,
+    trace, topInval, styleEls, forcedReflowEvents: forced, topScripts, lazyFetches: lazy, heapMB: +((m1.JSHeapUsedSize || 0) / 1e6).toFixed(1), domNodes: m1.Nodes,
   });
   if (L === 0) await page.screenshot({ path: `${OUT}/end.png` }).catch(() => {});
 }
@@ -151,6 +155,7 @@ const l = res.lessons[0], md = [
   `| CPU luồng chính: task / script / layout / style | ${l.cpuMs.task} / ${l.cpuMs.script} / ${l.cpuMs.layout} (${l.cpuMs.layoutCount}×) / ${l.cpuMs.style} (${l.cpuMs.styleCount}×) ms | |`,
   `| Trace: GC / giải mã ảnh / layout / style / paint / raster | ${l.trace.gc} / ${l.trace.decode} / ${l.trace.layout} / ${l.trace.style} / ${l.trace.paint} / ${l.trace.raster} ms | |`,
   `| Layout ép từ script / tải lười JS+CSS giữa bài / heap / DOM | ${l.forcedReflowEvents} / ${l.lazyFetches} / ${l.heapMB} MB / ${l.domNodes} | |`, '',
+  `Phần tử bị tính lại style: ${l.styleEls} (trong ${l.cpuMs.styleCount} lượt)`, '**Nguyên nhân làm mất hiệu lực style (reason|node|extra):**', ...l.topInval.map(x => `- ${x.n}× ${x.k}`), '',
   '**Script chiếm nhiều thời gian nhất (LoAF):**', ...l.topScripts.map(s => `- ${s.ms} ms (ép layout ${s.forced} ms, ${s.n}×) ${s.k}`), '',
   '**Sự kiện chậm nhất (Event Timing: tổng / trễ vào / xử lý / vẽ):**', ...l.ev.worst.map(e => `- ${e.d} ms (${e.i}/${e.p}/${e.v}) ${e.n} ${e.t}`), '',
   '**Lần chạm chậm nhất:**', ...l.worstTaps.map(t => `- ${t.ms} ms ${t.l}`), errs.length ? '\nLỗi trang: ' + errs.slice(0, 3).join(' | ') : ''].join('\n');
