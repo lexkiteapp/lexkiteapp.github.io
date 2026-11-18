@@ -21,8 +21,9 @@ function setup({ wide = false, list = [mk(1001), mk(1002), mk(1003), mk(1004, { 
   w.fetch = async (u, init) => {
     const b = JSON.parse(init.body); calls.push({ b, keepalive: !!init.keepalive });
     let j = {};
-    if (b.op === 'list') j = { rows: st.rows.map(r => ({ ...r })), total: st.rows.length, counts: { new: 2, ack: 1, prog: 1, fixed: 5, wontfix: 1, dup: 1, ideas: 1 }, sevs: { P0: 1, P1: 2 }, areas: { vocab: 2 }, spam: 3, admins: ['admin@example.com'] };
+    if (b.op === 'list') j = { rows: st.rows.map(r => ({ ...r })), total: st.rows.length, counts: { new: 2, ack: 1, prog: 1, fixed: 5, wontfix: 1, dup: 1, ideas: 1 }, sevs: { P0: 1, P1: 2 }, areas: { vocab: 2 }, countries: { DE: 2, VN: 1, '-': 1 }, spam: 3, admins: ['admin@example.com'] };
     else if (b.op === 'get') j = { ...(st.rows.find(r => r.tid === b.id) || mk(b.id.slice(3))), ctx: {}, errs: [], events: [], dups: [], tpl: { thanks: 'ZH-thanks', prog: 'ZH-prog', fixed: 'ZH-fixed', more: 'ZH-more' }, tpl_vi: { thanks: 'VI-thanks', prog: 'VI-prog', fixed: 'VI-fixed', more: 'VI-more' } };
+    else if (b.op === 'xlate') j = st.xl ? st.xl(b) : { ok: true, lang: 'zh', text: 'ZH:' + b.text };
     else if (b.op === 'cfg') j = { notify: 'instant', eta: { serious: 24, normal: 72, content: 168 } };
     else if (b.op === 'act') {
       if (st.fail) return { ok: false, status: 503, json: async () => ({ error: 'server' }) };
@@ -156,6 +157,34 @@ function setup({ wide = false, list = [mk(1001), mk(1002), mk(1003), mk(1004, { 
   w.localStorage.setItem('lk.rpn', JSON.stringify([{ n: 'rp:TTTTTTTTTT:upd:40', k: 'upd', id: 'LX-1001', t: T, at: 40 }])); d.dispatchEvent(new w.Event('lk:rpn')); await tick(5);
   ok(!badge.hidden && badge.textContent === '1', 'có cập nhật mới (sự kiện lk:rpn): badge tăng ngay');
   dom.window.close(); }
+
+
+// ---------- Quốc gia + ngôn ngữ người báo + xem trước bản dịch ----------
+{ const t = setup({ wide: true, list: [mk(1001, { country: 'DE', ulang: 'de', rl: 'de' }), mk(1002), mk(1003, { country: 'VN' })] }); await tick(20);
+  const rows = [...t.main.querySelectorAll('.rp-row')];
+  ok(/🇩🇪 Germany/.test(rows[0].textContent) && /🇻🇳 Vietnam/.test(rows[2].textContent), 'dòng danh sách: cờ + tên nước');
+  ok(/ · –/.test(rows[1].querySelector('.rp-meta').textContent), 'phiếu cũ không có nước → "–"');
+  const opts = [...t.$('#rpCty').options].map(o => o.value); ok(opts.join() === ',DE,VN,-', 'bộ lọc quốc gia: mọi nước / DE / VN / chưa rõ, kèm số đếm');
+  t.$('#rpCty').value = 'DE'; t.$('#rpCty').dispatchEvent(new t.w.Event('change')); await tick(10);
+  ok(t.calls.filter(c => c.b.op === 'list').pop().b.country === 'DE' && t.$('#rpFN').textContent === '1', 'chọn nước → gửi country, nút Bộ lọc đếm');
+  t.$('#rpFClr').click(); await tick(10); ok(t.calls.filter(c => c.b.op === 'list').pop().b.country === '', 'Xóa bộ lọc → bỏ lọc nước');
+  // chi tiết: nước + bản dịch tiếng Việt của nội dung + xem trước dịch trả lời
+  t.st.rows[0] = mk(1001, { country: 'DE', ulang: 'de', rl: 'de', ai: { msg_vi: 'Phát âm sai', summary_vi: 'x', severity: 'P2' } });
+  t.main.querySelector('.rp-open').click(); await tick(30);
+  const pane = t.$('#rpPane');
+  ok(/Germany/.test(pane.querySelector('.rp-kv').textContent) && pane.querySelector('.msg').nextElementSibling.textContent.includes('Phát âm sai') && /German/.test(pane.querySelector('.msg').nextElementSibling.textContent), 'chi tiết: quốc gia + bản dịch tiếng Việt của nội dung bên cạnh bản gốc');
+  ok(pane.querySelector('#rpXlB') && pane.querySelector('#rpXlBox').hidden, 'có nút "Dịch xem trước", khung bản dịch ẩn khi chưa gõ');
+  const ta = pane.querySelector('#rpReply'); ta.value = 'Em đã sửa rồi'; ta.dispatchEvent(new t.w.Event('input')); pane.querySelector('#rpXlB').click(); await tick(30);
+  ok(!pane.querySelector('#rpXlBox').hidden && pane.querySelector('#rpXl').value === 'ZH:Em đã sửa rồi' && t.calls.some(c => c.b.op === 'xlate' && c.b.text === 'Em đã sửa rồi'), 'xem trước: gọi xlate, hiện bản dịch');
+  pane.querySelector('#rpXl').value = 'Tự sửa tay'; pane.querySelector('#rpXl').dispatchEvent(new t.w.Event('input'));
+  pane.querySelector('#rpReplyB').click(); await tick(UNDO + 60);
+  const sent = t.acts().pop().b; ok(sent.reply === 'Em đã sửa rồi' && sent.reply_t === 'Tự sửa tay', 'gửi: chữ gốc + bản dịch anh đã sửa tay (reply_t)');
+  // dịch lỗi: hiện cảnh báo, vẫn gửi được (server dùng mẫu)
+  t.st.xl = () => ({ ok: false, lang: 'de', error: 'translate' }); t.main.querySelectorAll('.rp-open')[0].click(); await tick(30);
+  const p2 = t.$('#rpPane'), ta2 = p2.querySelector('#rpReply'); ta2.value = 'Cần thêm thông tin nhé'; ta2.dispatchEvent(new t.w.Event('input')); p2.querySelector('#rpXlB').click(); await tick(30);
+  ok(!p2.querySelector('#rpXlE').hidden && /template/.test(p2.querySelector('#rpXlE').textContent), 'dịch lỗi: cảnh báo sẽ dùng mẫu đúng ngôn ngữ, ô để tự gõ');
+  p2.querySelector('#rpReplyB').click(); await tick(UNDO + 60); const s2 = t.acts().pop().b; ok(s2.reply === 'Cần thêm thông tin nhé' && s2.reply_t === undefined, 'dịch lỗi + không gõ tay → gửi chữ gốc, server dùng mẫu');
+  t.dom.window.close(); }
 
 if (fails) { console.log(`✗ admin-reports-ui: ${fails}/${n} lỗi`); process.exit(1); }
 console.log(`✓ admin-reports-ui: ${n} kiểm tra – bố cục gọn đủ tính năng, phím tắt, đã sửa + Hoàn tác, hàng loạt, mẫu trả lời, chuông thông báo`);
