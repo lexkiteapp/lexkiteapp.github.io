@@ -42,6 +42,8 @@ jobs:
       - run: npm ci --no-audit --no-fund --ignore-scripts
       - name: Dựng dist (mọi trang tĩnh)
         run: bash scripts/build-web.sh
+      - uses: ./.github/actions/playwright-cache
+        with: { browsers: 'chromium' }
       - timeout-minutes: 14
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2

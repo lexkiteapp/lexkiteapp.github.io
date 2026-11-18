@@ -49,6 +49,8 @@ jobs:
         run: |
           node scripts/test/samples-seo-parity.mjs --snapshot ../base/dist base.json
           node scripts/test/samples-seo-parity.mjs --compare base.json dist
+      - uses: ./.github/actions/playwright-cache
+        with: { browsers: '--with-deps chromium' }
       - name: Soi hình + ảnh trước/sau
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2 axe-core@4.10.2 >/dev/null
