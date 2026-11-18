@@ -28,6 +28,7 @@ jobs:
           path: src
           github-token: ${{ github.token }}
           run-id: ${{ env.SRC_RUN }}
+      - uses: ./.github/actions/setup-ffmpeg
       - run: pip install -q pillow
       - name: Export 3 ratios
         run: |
