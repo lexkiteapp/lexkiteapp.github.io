@@ -1417,7 +1417,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
     const u = window.Sync && Sync.user; if (!u) return false;
     let ok = null; try { ok = sessionStorage.getItem('lk.adm.' + u.uid); } catch (e) { /* bỏ qua */ }
     if (ok == null) { try { const r = await fetch((/^https?:/.test(location.protocol) ? '' : 'https://lexkite.com') + '/api/admin', { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + await u.getIdToken() }, body: '{"op":"ping"}' }); ok = r.ok ? '1' : '0'; try { sessionStorage.setItem('lk.adm.' + u.uid, ok); } catch (e) { /* bỏ qua */ } } catch (e) { return false; } }
-    try { if (ok === '1') localStorage.setItem('lk.vimg.adm', '1'); else localStorage.removeItem('lk.vimg.adm'); } catch (e) { /* bỏ qua */ }   // quản trị luôn thấy ảnh (bật dần vocab_img_pct)
+    try { ['lk.vimg.adm', 'lk.adm'].forEach(k => ok === '1' ? localStorage.setItem(k, '1') : localStorage.removeItem(k)); } catch (e) { /* bỏ qua */ }
     return ok === '1';
   };
   // ================= CHÀO MỪNG & THIẾT LẬP BAN ĐẦU =================
@@ -1587,6 +1587,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
     if (window.visualViewport) { const vv = window.visualViewport, root = document.documentElement, kb = () => { const h = Math.max(0, Math.round(innerHeight - vv.height - vv.offsetTop)); root.style.setProperty('--kb', (h > 80 ? h : 0) + 'px'); }; vv.addEventListener('resize', kb); vv.addEventListener('scroll', kb); }
     netState(); setTimeout(showInstallBtn, 1500);
     document.addEventListener('visibilitychange', async () => { if (!document.hidden) { state.cards = await Cards.mine(); state.stats = await Stats.get(); state.game = await Game.get(); updateChrome(); } });
+    setTimeout(() => idle(() => App.isAdmin().catch(() => {})), 3000);
     window.addEventListener('lk:tl', async () => { state.cards = await Cards.mine(); updateChrome(); }); // đổi ngôn ngữ đích (Cài đặt) → Sổ từ/Ôn theo ngôn ngữ mới
   })();
   // Các module khác (study.js, reading.js) đăng ký route rồi mới vẽ trang đầu tiên
