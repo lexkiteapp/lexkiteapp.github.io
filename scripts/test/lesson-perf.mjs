@@ -171,6 +171,8 @@ if (process.env.GITHUB_STEP_SUMMARY) fs.appendFileSync(process.env.GITHUB_STEP_S
 await browser.close(); srv.close && srv.close();
 const bad = [];
 if (!l.play.end) bad.push('bài học không tới màn kết thúc');
+const hasRoot = l.topInval.filter(x => /^Affected by :has\(\)\|(HTML|BODY)\b/.test(x.k)).reduce((n, x) => n + x.n, 0); // đếm lượt (không phụ thuộc tốc độ runner)
+if (hasRoot > BUDGET.hasRootInval) bad.push(`:has() gốc html/body làm mất hiệu lực style ${hasRoot} lượt > ${BUDGET.hasRootInval}`);
 if (l.ev.inp > BUDGET.tapP95) bad.push(`INP ${l.ev.inp} ms > ${BUDGET.tapP95}`);
 if (l.tap.p95 > BUDGET.tapP95) bad.push(`chạm→vẽ p95 ${l.tap.p95} ms > ${BUDGET.tapP95}`);
 if (l.long.inTransMax > BUDGET.transLongMax) bad.push(`long task lúc chuyển câu ${l.long.inTransMax} ms > ${BUDGET.transLongMax}`);
