@@ -216,9 +216,9 @@ export async function mirrorFailed(db, st, since, now, retry) {
   for (const r of await all(db, "SELECT clip, accounts, plats, links, post_id FROM soc_board WHERE state = 'failed' AND by_who = ? AND updated > ? LIMIT 50", AUTO_WHO, retry ? Math.min(since, now - 864e5) : since)) {
     let a = [], p = [], ls = []; try { a = JSON.parse(r.accounts || '[]'); p = JSON.parse(r.plats || '[]'); ls = JSON.parse(r.links || '[]'); } catch (e) { continue; }
     if (a.length !== 1 || !r.clip) continue;
-    const ch = `gc-${platOf({ platform: p[0] || '' })}-${a[0]}`, code = String((ls.find(x => x && x.e) || {}).e || 'failed').slice(0, 60);
+    const ch = `gc-${platOf({ platform: p[0] || '' })}-${a[0]}`, code = String((ls.find(x => x && x.e) || {}).e || 'failed').slice(0, 60); const msg = String((ls.find(x => x && x.e) || {}).m || '').slice(0, 160); // TikTok: mã media_rejected nhưng nội dung "internal error, retry in a few minutes" → phân loại theo cả mã lẫn nội dung
     const rt = rts[r.post_id] || { n: 0, at: 0 };
-    if (r.post_id && isTransientErr(code) && rt.n < RETRY_MAX) { // lỗi tạm thời: chưa đánh dấu failed, chưa báo người
+    if (r.post_id && (isTransientErr(code) || (isTransientErr(msg) && !/spam|policy|copyright|privat/i.test(code))) && rt.n < RETRY_MAX) { // lỗi tạm thời: chưa đánh dấu failed, chưa báo người
       if (retry && tried < 4 && now - rt.at >= RETRY_BACKOFF_MIN[rt.n] * 60e3) { tried++; rts[r.post_id] = { n: rt.n + 1, at: now, code }; try { await retry(r.post_id, rt.n + 1); } catch (e) { if (e && e.status) break; } }
       continue;
     }

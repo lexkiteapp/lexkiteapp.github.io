@@ -346,10 +346,10 @@ ok(S.key && S.webhook && S.cfg.daily_calls === 10 && S.budget_left === 2 && S.up
   ok(Object.values(GC.posts)[0].targets && ds(CA, 'gc-tiktok-4').state === 'failed', 'giữ nguyên trạng thái lỗi');
 
   // Lỗi TẠM THỜI của nền tảng (TikTok "lỗi nội bộ"): tự thử lại ≤ 3 lần với backoff, cùng post_id (không đăng trùng), chỉ cảnh báo khi vẫn hỏng
-  ok(A.isTransientErr('internal_error') && A.isTransientErr('http_503') && A.isTransientErr('TikTok gặp lỗi nội bộ') && !A.isTransientErr('spam_risk') && !A.isTransientErr('validation_failed') && !A.isTransientErr('') && !A.isTransientErr('privacy_private'), 'phân loại lỗi tạm thời / lỗi thật');
+  ok(A.isTransientErr('internal_error') && A.isTransientErr('http_503') && A.isTransientErr('TikTok gặp lỗi nội bộ') && !A.isTransientErr('spam_risk') && !A.isTransientErr('validation_failed') && !A.isTransientErr('') && !A.isTransientErr('privacy_private') && !A.isTransientErr('media_rejected') && !A.isTransientErr('Video format is invalid'), 'phân loại lỗi tạm thời / lỗi thật');
   reset({ sync_h: 3 }); dueAt(CA, 'gc-tiktok-4', 3); GC.retries = 0;
   await A.runAuto(ENV, { now });
-  const pid2 = Object.keys(GC.posts)[0]; GC.posts[pid2].status = 'failed'; GC.posts[pid2].targets = [{ account_id: 4, platform: 'tiktok', state: 'failed', last_error_code: 'internal_error' }];
+  const pid2 = Object.keys(GC.posts)[0]; GC.posts[pid2].status = 'failed'; GC.posts[pid2].targets = [{ account_id: 4, platform: 'tiktok', state: 'failed', last_error_code: 'media_rejected', last_error: 'TikTok could not publish this post (internal). TikTok had an internal error. Retry in a few minutes.' }]; // mã thật của GrabCast 18/11: media_rejected + nội dung lỗi nội bộ
   const nP2 = Object.keys(GC.posts).length;
   x = await A.runAuto(ENV, { now: now + 4 * H });
   ok(GC.retries === 1 && ds(CA, 'gc-tiktok-4').state !== 'failed' && !x.alerts.some(a => /^post-failed:/.test(a.k)), 'lỗi nội bộ lần 1: tự thử lại, chưa báo người, chưa đánh dấu failed');
