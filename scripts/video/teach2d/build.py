@@ -687,7 +687,7 @@ def T_roots():
     one Kit card per word (word big with the PREFIX in ink and the ROOT in gold, IPA pill, formula prefix- + root = meaning, short gloss + the bank example, emoji) -> quiz -> CTA."""
     D = EP['data']; ws = D['words']; n = len(ws); series_chip(); t_ring_out = start('k') - 0.2
     hk = EP['hook']['text']; i = hk.find('root'); title([[hk[:i], 'ink'], ['root', 'accent'], [hk[i + 4:], 'ink']], 96, RY0, None, t_ring_out, hook=True)
-    cx, cy, R = (RX0 + RX1) / 2, RY0 + 504, 225; d = 2 * R
+    cx, cy, R = (RX0 + RX1) / 2, RY0 + 504, 225
     top('img', [cx - R, cy - R, cx + R, cy + R], None, out=t_ring_out, src='ring.png', radius=0)
     rs = 120; rw = tw(D['root'].upper(), rs); top('text', [cx - rw / 2, cy - rs * 0.6, cx + rw / 2, cy + rs * 0.6], at('r', 0), out=t_ring_out, runs=[[D['root'].upper(), 'accent']], size=rs, ipa=False)
     CUES.append(dict(node=NODES[-1]['id'], t=at('r', 0), tag=D['root'].upper()))
