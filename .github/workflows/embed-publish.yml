@@ -28,9 +28,10 @@ jobs:
       - run: node scripts/video/embed-publish.mjs publish
         env: { GITHUB_TOKEN: '${{ github.token }}' }
       - run: node scripts/video/embed-publish.mjs verify
-      - name: videos.json + coverage.json -> main
+      - name: Ghi videos.json và coverage.json vào main
         if: github.ref == 'refs/heads/main'
-        run: bash scripts/ci/commit-regen.sh "embed-publish: video nhúng bài học ${{ github.run_id }} [CF-Pages-Skip]" "node scripts/video/embed-publish.mjs manifest" web/data/videos.json content/video/web/coverage.json
-      - name: Xem trước (nhánh khác main: không ghi main)
+        run: |
+          bash scripts/ci/commit-regen.sh "embed-publish - video nhúng bài học ${{ github.run_id }} [CF-Pages-Skip]" "node scripts/video/embed-publish.mjs manifest" web/data/videos.json content/video/web/coverage.json
+      - name: Xem trước (nhánh khác main, không ghi main)
         if: github.ref != 'refs/heads/main'
         run: node scripts/video/embed-publish.mjs manifest && git diff --stat
