@@ -23,7 +23,7 @@ for (const p of Object.keys(M.PLATFORMS)) {
   const deep = 'https://lexkite.com/video/cafe-look-for/?utm_source=' + p, L = p === 'youtube' ? lines.slice(1) : lines; // §6c: YouTube link ở dòng ĐẦU mô tả
   if (p === 'youtube') ok(lines[0].startsWith('Full lesson + quiz: ' + deep), 'youtube: lesson deep link on the FIRST line of the description');
   ok(/\?|!|mistake/i.test(L[0]) && /look for/i.test(L[1]), `${p}: hook line, then value line`);
-  if (M.BIO_ONLY.includes(p)) ok(L[2] === M.BIO_CTA && !s.description.includes('https://'), `${p}: no unclickable link in caption – "link in bio" CTA instead`);
+  if (M.BIO_ONLY.includes(p)) ok(M.BIO_CTAS.includes(L[2]) && !s.description.includes('https://'), `${p}: no unclickable link in caption – "link in bio" CTA instead`);
   else if (p !== 'youtube') ok(L[2].includes(deep), `${p}: lesson deep link after hook + value`);
   ok(s.hashtags.length >= 3 && s.hashtags.length <= 5 && s.hashtags.every(h => /^#[a-z0-9]+$/i.test(h)), `${p}: 3–5 clean hashtags`);
   ok(s.tags.length >= 5 && new Set(s.variants).size === 3 && s.variants.every(v => v.length <= 60 && v.toLowerCase().startsWith('look for')), `${p}: tags + 3 distinct A/B variants, all keyword-first`);
@@ -156,6 +156,19 @@ ok(retired.length === 2 && reported.join() === 'gone-clip' && idx.items.map(x =>
 // owner 15/11: YouTube chỉ private + publishAt – hàng yt_queue 'social' (sổ cái, không upload) không được sinh ra với privacy unlisted/public
 { const src = (await import('node:fs')).readFileSync(new URL('../../functions/api/_social_auto.js', import.meta.url), 'utf8');
   ok(!/INSERT INTO yt_queue[^`]*'social', '(unlisted|public)'/.test(src) && /INSERT INTO yt_queue[^`]*'social', 'private'/.test(src), "yt_queue 'social' rows are private (owner rule: YouTube = private + publishAt)"); }
+
+// Caption không cắt giữa chữ + biến thể chống spam (18/11: "Discuss? ng \"discuss about\"")
+{
+  const hl = M.socialMeta({ id: 'x1', point: 'discuss', headline: 'Stop saying "discuss about"' }, 'tiktok').description.split('\n')[0];
+  ok(hl === 'Discuss? Stop saying "discuss about"', 'tiêu đề không bắt đầu bằng từ khóa: giữ nguyên, không cắt giữa chữ: ' + hl);
+  ok(M.socialMeta({ id: 'x2', point: 'say no politely', headline: 'Say no politely? to an invitation' }, 'tiktok').description.startsWith('Say no politely? to an invitation'), 'tiêu đề kết thúc "?" giữ nguyên');
+  const ids = Array.from({ length: 24 }, (_, i) => 'clip-' + i), D = ids.map(id => M.socialMeta({ id, point: 'p' + id, topic: 'work', skill: 'vocab' }, 'tiktok').description);
+  ok(new Set(D.map(d => d.split('\n')[2])).size >= 3 && new Set(D.map(d => d.split('\n').slice(-2)[0])).size >= 3, 'CTA và câu kết có ≥ 3 biến thể giữa các clip');
+  const T = ids.map(id => M.socialMeta({ id, point: 'p', topic: 'work', skill: 'vocab' }, 'tiktok').hashtags);
+  ok(T.every(h => h.length >= 3 && h.length <= 5 && new Set(h).size === h.length) && T.some(h => h.includes('#englishvocabulary')) && new Set(T.map(h => h.join(' '))).size >= 3, 'hashtag 3–5, có tag ngách, không giống hệt nhau');
+  ok(M.socialMeta({ id: 'x3', point: 'ielts task', exam: 'IELTS' }, 'tiktok').hashtags.includes('#ieltsspeaking'), 'tag ngách IELTS');
+  ok(JSON.stringify(M.socialMeta({ id: 'x1', point: 'discuss' }, 'tiktok')) === JSON.stringify(M.socialMeta({ id: 'x1', point: 'discuss' }, 'tiktok')), 'cùng clip → cùng caption (ổn định)');
+}
 
 console.log(`dist-roles: ${n - fails}/${n} ok`);
 if (fails) process.exit(1);
