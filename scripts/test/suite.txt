@@ -105,6 +105,7 @@ node scripts/test/ext-orphan.mjs
 node scripts/test/social-proxy.mjs
 node scripts/test/social-ui.mjs
 node scripts/test/social-mgr.mjs
+node scripts/test/ad-export.mjs
 node scripts/test/social-auto.mjs
 node scripts/test/social-coverage.mjs
 node scripts/test/yt-fill.mjs
