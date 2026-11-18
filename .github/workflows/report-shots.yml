@@ -27,6 +27,8 @@ jobs:
         with: { sparse-checkout: "web/js\nscripts\nstore/chrome/screenshots", sparse-checkout-cone-mode: false }
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
+      - uses: ./.github/actions/playwright-cache
+        with: { browsers: '--with-deps chromium' }
       - run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2 tesseract.js@5.1.1
           bash scripts/ci/pw-install.sh --with-deps chromium
