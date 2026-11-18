@@ -561,8 +561,8 @@
     await cardReady();
     const C = window.LearnCard, host = $('#lsnCard'); if (!C || !host || !L || L.cardIt !== it) return;
     if (L.lcS !== L) { L.lcS = L; C.newLesson(); }
-    const en = sentOf(it), tr = it.type === 'q' ? '' : it.tr || (it.type === 'build' || it.type === 'tr' ? it.prompt : '') || (it.card ? sentGloss(it.card, en) : '');
-    await C.mount(host, { en, tr, ok, demo: L.demo, ...C.ctx(it, en, L, E, state, meanLang(), meanOf), speak: x => say(x, false, L.who), hold: r => { if (L) L.rec = r; } });
+    const en = sentOf(it);
+    await C.mount(host, { en, ok, demo: L.demo, ...C.ctx(it, en, L, E, state, meanLang(), meanOf, sentGloss), speak: x => say(x, false, L.who), hold: r => { if (L) L.rec = r; } });
     if (!L || L.cardIt !== it) return;
     C.adopt(view, host, ok, () => explain(it));
     const nx = $('#lsnNext'); if (nx && document.activeElement === document.body) nx.focus({ preventScroll: true });

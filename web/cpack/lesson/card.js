@@ -134,10 +134,10 @@
     return spec;
   }
   // Ngữ cảnh truyện cho thẻ: nghĩa theo từ + tối đa 1 từ khó mới (từ khóa truyện chưa có trong thẻ người học).
-  function ctx(it, en, L, E, state, ml, meanOf) {
+  function ctx(it, en, L, E, state, ml, meanOf, sg) {
     const sp = () => ((L && L.story && L.story.checks) || []).filter(x => x.type === 'match').flatMap(x => x.pairs).map(p => ({ w: p.en, m: p.m[ml] || '' }));
     const T = E.toks(en).map(x => x.toLowerCase()), x = it.card ? null : sp().find(p => p.m && !/\s/.test(p.w) && T.includes(p.w.toLowerCase()) && !(state.cards || {})[p.w.toLowerCase()]);
-    return { hard: x || null, gloss: w => { const k = E.norm(w), c = (L.pool || []).concat((L.picks || []).map(p => p.card)).find(y => y && E.norm(y.word) === k); if (c) return meanOf(c); const q = sp().find(y => E.norm(y.w) === k); return (q && q.m) || ''; } };
+    return { tr: it.type === 'q' ? '' : it.tr || (it.type === 'build' || it.type === 'tr' ? it.prompt : '') || (it.card ? sg(it.card, en) : ''), hard: x || null, gloss: w => { const k = E.norm(w), c = (L.pool || []).concat((L.picks || []).map(p => p.card)).find(y => y && E.norm(y.word) === k); if (c) return meanOf(c); const q = sp().find(y => E.norm(y.w) === k); return (q && q.m) || ''; } };
   }
   // Sau khi vẽ thẻ: bỏ thẻ câu cũ, đưa "Vì sao?" (mục 336) vào hàng hành động của thẻ; sai mà chưa mở giải thích → mở sẵn.
   function adopt(view, host, ok, why) {
