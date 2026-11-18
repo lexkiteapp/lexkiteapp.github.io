@@ -181,7 +181,7 @@ publishAt: 2026-12-04T19:17:00+03:00
 - **أدوات الربط المنطقي**: اربط أفكارك بسلاسة مع [أدوات الربط في اللغة الإنجليزية Linking Words](/ar/blog/adawat-al-rabt-fi-al-injliziyyah-linking-words/)
 - **قواعد المبني للمجهول**: اتقن الصياغة مع [المبني للمجهول في الإنجليزية Passive Voice](/ar/blog/al-mabni-lil-majhul-fi-al-injliziyyah-passive-voice/)
 - **استراتيجيات القراءة السريعة**: تعرّف على صيد المرادفات في [استراتيجيات القراءة السريعة للآيلتس Skimming and Scanning](/ar/blog/ielts-reading-skimming-scanning-istratijiyat/)
-- **نماذج سياقية حية**: استكشف نماذج المحادثات والتراكيب الطبيعية في [مكتبة الجمل النموذجية](/samples/)
+- **نماذج سياقية حية**: استكشف نماذج المحادثات والتراكيب الطبيعية في [مكتبة الجمل النموذجية](/en/samples/)
 
 {{youtube: | إعادة الصياغة في الآيلتس 5 تقنيات لتحقيق Band 8}}
 

@@ -12,7 +12,7 @@ coverAlt: "مدخل قاموس Lexkite لكلمة مثل affect مع النطق 
 factChecked: 2026-11-16
 author: Lexkite
 status: ready
-publishAt:
+publishAt: 2026-12-26T08:16:00+03:00
 qualityScore: 91
 coverArt: {mood: think, icon: book}
 shots: [
