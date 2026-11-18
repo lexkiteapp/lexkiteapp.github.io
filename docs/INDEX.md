@@ -167,6 +167,7 @@
 - [TTS-AB.md](TTS-AB.md) — Phép thử A/B giọng Kokoro ↔ ElevenLabs: bộ câu, chấm CI, nghe mù, trần credit, giấy phép; đọc khi: chọn engine giọng đọc, xem sổ chi ElevenLabs
 - [specs/audio-quality.md](specs/audio-quality.md) — Chất lượng giọng đọc/phát âm/nghe: điểm hiện tại theo mảng (~64/100), 5 nâng cấp $0 lên 100, có nên dùng ElevenLabs (giá, điều khoản); đọc khi: sửa giọng đọc, chấm phát âm, nghe hoặc cân nhắc TTS trả phí
 - [specs/ci-fast-lane.md](specs/ci-fast-lane.md) — CI làn nhanh + nặng một lần: PR chỉ chạy làn nhanh (≤10 phút), việc nặng chạy một lần trong merge queue, không bỏ check nào; đọc khi: sửa merge-queue.yml, required-gate, heavy-gate, thêm workflow nặng
+- [specs/media-one-source.md](specs/media-one-source.md) — Một kịch bản → 4 đầu ra (video nhúng, dọc, podcast MP3+RSS, truyện đọc): ánh xạ, QC, chỗ đặt trong app, thước đo; đọc khi thêm đầu ra media từ kịch bản
 - [WORD-AUDIO.md](WORD-AUDIO.md) — Giọng đọc từ đơn (audio/w) bản s3: vấn đề, thí nghiệm word-audio-lab, cách làm hiện tại, giấy phép, kết quả; đọc khi: sửa âm thanh từ
 - [YOUTUBE-SETUP.md](YOUTUBE-SETUP.md) — Tải short đã duyệt lên YouTube ($0): hiện đăng tay qua Studio, thiết lập một lần, dùng hằng ngày, kiểm định API compliance, bảo mật, nhiều kênh; đọc khi: đăng video lên YouTube
 - [YOUTUBE-AUDIT.md](YOUTUBE-AUDIT.md) — Hồ sơ soạn sẵn xin YouTube API audit + quota (câu trả lời form, phạm vi, lưu lượng, kịch bản video demo, việc sau khi duyệt); đọc khi: nộp form audit YouTube
