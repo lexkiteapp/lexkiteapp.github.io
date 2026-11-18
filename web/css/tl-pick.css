@@ -1,7 +1,7 @@
 /* Chọn ngôn ngữ đang học (js/tl-pick.js) – bảng dưới + nút cờ + thẻ Khóa học khác. Chỉ biến token, không hex. Chạm ≥ 44 px. */
 .tlp-btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--sp-1);min-height:var(--tap,44px);min-width:44px;padding:0;border:1px solid var(--line-2);border-radius:var(--r-pill,999px);background:var(--surface);color:var(--text);font-size:var(--fs-md);line-height:1;cursor:pointer}
 .tlp-btn:hover{background:var(--surface-2)}.tlp-chev{display:none}
-.tlp-mini{min-height:32px;min-width:32px;padding:0;position:relative}.tlp-mini::after{content:"";position:absolute;inset:calc(var(--sp-1)*-1) -2px}
+.tlp-mini{min-height:var(--tap,44px);min-width:var(--tap,44px);padding:0;position:relative}.tlp-mini::after{content:"";position:absolute;inset:calc(var(--sp-1)*-1) -2px}
 #modal .tlp-sheet{padding:var(--sp-2) var(--sp-4) var(--sp-4)}.tlp-grab{width:40px;height:4px;border-radius:99px;background:var(--line-2);margin:var(--sp-1) auto var(--sp-2)}
 .tlp-head{display:flex;align-items:center;justify-content:space-between;gap:var(--sp-2)}.tlp-head h2{margin:0;font-size:var(--fs-lg);color:var(--heading)}
 .tlp-x{width:44px;height:44px;border:0;border-radius:50%;background:transparent;color:var(--text);display:grid;place-items:center;cursor:pointer}.tlp-x:hover{background:var(--surface-2)}
@@ -21,3 +21,4 @@ button.tlp-row{cursor:pointer}button.tlp-row:active{transform:translateY(1px);bo
 @media (prefers-reduced-motion:reduce){button.tlp-row{transition:none}}
 a.tl-chip[href]{display:inline-flex;align-items:center;gap:var(--sp-2);min-height:44px;padding-inline:var(--sp-3);cursor:pointer}a.tl-chip[href]::after{content:"▾";font-size:var(--fs-xs);opacity:.8}
 @media (max-width:720px){#tlBtn{display:none}}
+.top-stats:has(#tlBtn){gap:4px}
