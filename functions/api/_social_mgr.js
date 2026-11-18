@@ -235,7 +235,7 @@ export async function boardSync(db, posts) {
     else if (r.hash && await contentHash(p) !== r.hash) { note = 'changed-in-grabcast'; if (ns === 'approved') ns = 'review'; }
     else if (!r.hash && /schedul/.test(s)) note = 'scheduled-outside';
     else if (note === 'changed-in-grabcast' || note === 'scheduled-outside') note = null;
-    const links = JSON.stringify(ts.map(t => ({ a: String(t.account_id), p: t.platform || '', s: t.state || '', u: /^https:\/\//.test(String(t.permalink || '')) ? t.permalink : '', e: t.last_error_code || '' })));
+    const links = JSON.stringify(ts.map(t => ({ a: String(t.account_id), p: t.platform || '', s: t.state || '', u: /^https:\/\//.test(String(t.permalink || '')) ? t.permalink : '', e: t.last_error_code || '', m: String(t.last_error || '').slice(0, 160) })));
     const at = Date.parse(p.scheduled_at || '') || r.want_at;
     await run(db, `UPDATE soc_board SET state = ?, note = ?, links = ?, want_at = ?, caption = ?, title = COALESCE(?, title), accounts = ?, plats = ?, hash = CASE WHEN ? = 'review' THEN NULL ELSE hash END, updated = CASE WHEN state != ? OR COALESCE(note,'') != COALESCE(?, '') THEN ? ELSE updated END WHERE id = ?`,
       ns, note, links, at, str(p.caption, 2200), p.title || null, JSON.stringify(ts.map(t => String(t.account_id))), JSON.stringify([...new Set(ts.map(t => t.platform).filter(Boolean))]), ns, ns, note, Date.now(), r.id);
