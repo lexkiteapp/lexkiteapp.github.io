@@ -9,7 +9,7 @@ tags: [ielts, listening, question-types, strategy]
 keyword: "tipos de preguntas ielts listening"
 cover: listening
 coverAlt: "Lista de práctica de listening de Lexkite con grabaciones agrupadas por nivel"
-publishAt:
+publishAt: 2027-01-20T21:23:00-06:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

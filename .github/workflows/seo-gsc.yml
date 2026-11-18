@@ -28,7 +28,7 @@ jobs:
         run: node scripts/test/gsc.mjs
       - name: Kéo GSC + phân tích
         id: gsc
-        env: { GSC_SA_JSON: '${{ secrets.GSC_SA_JSON }}' }
+        env: { GSC_SA_JSON: '${{ secrets.GSC_SA_JSON }}', STUDIO_CALLBACK_SECRET: '${{ secrets.STUDIO_CALLBACK_SECRET }}', LEXKITE_CI_HEADER: '${{ secrets.LEXKITE_CI_HEADER }}' }   # 2 khoá sau: số khách từ tìm kiếm (/api/seo-visits); thiếu → bỏ phần đó
         run: node scripts/seo/gsc.mjs
       - name: Commit báo cáo [CF-Pages-Skip]
         if: steps.gsc.outputs.report != ''

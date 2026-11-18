@@ -9,7 +9,7 @@ tags: [toeic, test-format, listening, reading]
 keyword: "토익 시험 구성"
 cover: toeic
 coverAlt: "Lexkite의 토익 Listening + Reading 연습 화면: 자동 채점 모의고사 7회, 파트별 연습, 토익 단어"
-publishAt:
+publishAt: 2027-01-15T09:39:00+09:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

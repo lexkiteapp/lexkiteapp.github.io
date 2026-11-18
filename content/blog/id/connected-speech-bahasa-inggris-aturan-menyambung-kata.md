@@ -112,6 +112,8 @@ Anda dapat melatih penyambungan kata secara interaktif di [/#/speaking](/#/speak
 2. **Teknik Shadowing:** Dengarkan penutur asli mengucapkan satu klausa, lalu tirukan secara langsung dengan jeda kurang dari setengah detik, mengikuti naik-turun intonasi dan sambungan katanya.
 3. **Membaca Bersambung (Chunk Reading):** Beri tanda garis lengkung pada buku cerita atau artikel di antara konsonan akhir dan vokal awal (*read‿a‿book*). Baca teks tersebut dengan niat membunyikannya seolah-olah hanya ada satu kata panjang.
 
+Efeknya pada ujian dibahas di [jenis soal IELTS Listening](/id/blog/jenis-soal-ielts-listening/).
+
 ## Pertanyaan yang Sering Diajukan (FAQ)
 
 ### Haruskah saya memaksakan diri memakai connected speech saat berbicara?

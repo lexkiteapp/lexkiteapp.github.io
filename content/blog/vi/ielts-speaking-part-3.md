@@ -186,6 +186,8 @@ Nếu bạn muốn thêm câu trả lời mẫu có phân tích, xem thư viện
 
 {{youtube: | Gợi ý video: cùng một câu hỏi Part 3 trả lời hai lần, band 6 và band 7, phân tích khác biệt}}
 
+Để thấy bản yếu và bản mạnh của cùng một câu trả lời, xem [bài mẫu IELTS Speaking band 7](/vi/blog/ielts-speaking-band-7-bai-mau/).
+
 ## Câu hỏi thường gặp
 
 ### IELTS Speaking Part 3 nên trả lời dài bao nhiêu?

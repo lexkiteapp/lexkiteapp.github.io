@@ -42,6 +42,8 @@ jobs:
         continue-on-error: true
         env: { LEXKITE_CI_HEADER: '${{ secrets.LEXKITE_CI_HEADER }}', GITHUB_TOKEN: '${{ github.token }}' }
         run: node scripts/test/live-check.mjs
+      - uses: ./.github/actions/playwright-cache
+        with: { browsers: '--with-deps chromium' }
       - name: Đầu-cuối như người dùng thật (Chromium, 15 ngôn ngữ, mobile/desktop, sandbox)
         id: e2e
         continue-on-error: true
@@ -49,6 +51,8 @@ jobs:
           npm i --no-save --no-audit --no-fund playwright@1.48.2
           bash scripts/ci/pw-install.sh --with-deps chromium
           node scripts/test/e2e.mjs
+      - uses: ./.github/actions/playwright-cache
+        with: { browsers: '--with-deps chromium' }
       - name: Chấm đọc to TOEIC Speaking (micro giả + SpeechRecognition giả)
         id: toeicread
         continue-on-error: true

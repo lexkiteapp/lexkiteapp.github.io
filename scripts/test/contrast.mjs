@@ -39,7 +39,7 @@ const toggles = page => page.evaluate(() => {
 });
 const browser = await chromium.launch();
 for (const scheme of ['light', 'dark']) for (const lang of ['vi', 'en']) {
-  const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true, deviceScaleFactor: 1, colorScheme: scheme, locale: lang });
+  const ctx = await browser.newContext({ bypassCSP: true, viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true, deviceScaleFactor: 1, colorScheme: scheme, locale: lang });
   const page = await ctx.newPage();
   const url = r => `${BASE}?sandbox=1&hl=${lang}#/${r}`;
   await page.goto(url('welcome/setup'), { waitUntil: 'networkidle' }).catch(() => {});

@@ -165,6 +165,8 @@ vi. The health benefits of coffee
 
 ข้อ Matching Headings มักกินเวลามากกว่าที่คิด จึงควรดู[การจัดสรรเวลา IELTS Reading 60 นาที](/th/blog/kan-chatsan-wela-ielts-reading-klayut-60-nathi/)ด้วย
 
+ดูภาพรวมของคำถามแบบอื่นได้ที่[ประเภทคำถาม IELTS Reading และวิธีทำแต่ละแบบ](/th/blog/prapheet-khamtham-ielts-reading-withi-tham/)
+
 ## คำถามที่พบบ่อย
 
 ### ควรอ่านหัวข้อก่อนหรืออ่านย่อหน้าก่อน?

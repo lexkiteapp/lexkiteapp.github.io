@@ -35,7 +35,7 @@ for (const [bn, bt] of Object.entries({ chromium, webkit, firefox })) {
   let browser; try { browser = await bt.launch(); } catch (e) { fails.push(`${bn}: không khởi động được (${e.message.split('\n')[0]})`); continue; }
   for (const [vn, vp] of Object.entries(VIEWS)) {
     if (bn === 'firefox' && vn === 'mobile') continue; // Firefox không hỗ trợ isMobile
-    const ctx = await browser.newContext({ ...vp, locale: 'vi' }); const page = await ctx.newPage();
+    const ctx = await browser.newContext({ bypassCSP: true, ...vp, locale: 'vi' }); const page = await ctx.newPage();
     const tag = `${bn}/${vn}`;
     page.on('pageerror', e => { const m = String(e.message); if (/access control checks/.test(m) && !/lexkite\.com/.test(m)) return; fails.push(`${tag}: lỗi JS ${m.slice(0, 140)}`); }); // WebKit báo CORS của dịch vụ ngoài (app đã bắt lỗi) như lỗi trang
     await page.goto(BASE + '?sandbox=1&hl=vi#/welcome/setup', { waitUntil: 'networkidle' }).catch(() => {});

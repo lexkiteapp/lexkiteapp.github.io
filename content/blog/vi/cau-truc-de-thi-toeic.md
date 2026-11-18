@@ -132,6 +132,10 @@ Muốn học từ theo nhóm, bạn có thể xem [từ vựng TOEIC theo chủ 
 
 {{youtube: | Gợi ý video: đi nhanh qua 7 Part của đề TOEIC với một câu ví dụ tự soạn cho mỗi Part}}
 
+Hai phần nghe dài nhất được phân tích riêng trong bài [TOEIC Part 3 và Part 4](/vi/blog/toeic-part-3-part-4-meo-lam-bai/).
+
+Phần mô tả tranh ở đầu bài nghe có hướng dẫn riêng trong [TOEIC Part 1: mẹo mô tả tranh](/vi/blog/toeic-part-1-mo-ta-tranh/).
+
 ## Câu hỏi thường gặp
 
 ### Đề thi TOEIC có bao nhiêu câu và thi trong bao lâu?

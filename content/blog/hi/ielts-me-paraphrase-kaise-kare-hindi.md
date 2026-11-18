@@ -187,6 +187,12 @@ Task 2 के परिचयात्मक वाक्यों का अभ
 
 {{cta: /#/write | Lexkite राइटिंग स्टूडियो से जुड़ें और IELTS Task 2 के परिचय को तुरंत सुधारने का अभ्यास करें}}
 
+Paraphrase में एक शैक्षणिक शब्द की जगह दूसरा रखना आसान तब होता है जब आपने [Academic Word List क्या है](/hi/blog/academic-word-list-kya-hai/) वाली families रूपों के साथ सीखी हों।
+
+भूमिका में सवाल को दोबारा लिखने का पूरा उदाहरण [IELTS opinion essay कैसे लिखें](/hi/blog/ielts-opinion-essay-kaise-likhe/) में है।
+
+Task 1 के परिचय में paraphrase का अभ्यास करना हो तो [IELTS bar chart कैसे लिखें](/hi/blog/ielts-bar-chart-kaise-likhe-hindi/) में एक पूरा उदाहरण है।
+
 ## अक्सर पूछे जाने वाले प्रश्न (FAQ)
 
 ### क्या मुझे प्रश्न के हर एक शब्द को बदलना होगा?

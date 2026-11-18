@@ -163,6 +163,10 @@ IELTS Speaking ใช้เวลา 11–14 นาที แบ่งเป็�
 
 {{youtube: | ไอเดียวิดีโอ: สูตร P-R-E-C ตอบ IELTS Speaking Part 3 พร้อมตัวอย่างสามคำถาม}}
 
+ถ้าอยากรู้ว่าเกณฑ์ Speaking ถูกรวมเป็นคะแนน Overall อย่างไร ดู[วิธีคิดคะแนน IELTS](/th/blog/withi-khit-khanaen-ielts-band-score/)
+
+ผู้สอบที่ต้องใช้คะแนนยื่นวีซ่าควรตรวจข้อกำหนดแต่ละทักษะใน[IELTS ยื่นวีซ่า](/th/blog/ielts-yuen-visa-yai-pratet-lueak-khosop/) ก่อนวางเป้าคะแนน Speaking
+
 ## คำถามที่พบบ่อย (FAQ)
 
 ### คำตอบ Part 3 ควรยาวแค่ไหน

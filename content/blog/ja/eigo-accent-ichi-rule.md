@@ -9,7 +9,7 @@ tags: [word-stress, pronunciation, ipa, speaking]
 keyword: "英語 アクセント 位置 ルール"
 cover: pron
 coverAlt: "Lexkiteの発音記号ライブラリ。母音・二重母音・子音を選んで練習できる画面"
-publishAt:
+publishAt: 2027-01-10T08:05:00+09:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

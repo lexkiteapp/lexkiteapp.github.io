@@ -207,7 +207,7 @@ self.addEventListener('push', e => {
   e.waitUntil((async () => {
     const fx = await repFixed().catch(() => null);
     if (fx) { await self.registration.showNotification(fx.title, { body: fx.body, icon: '/icons/icon-192.png', badge: '/icons/icon-192.png', tag: 'rep', data: { url: fx.url, tpl: 'rfix' } }); await ev([['shown', 'rfix', 1]]); return; }
-    const m = (await META()) || {}, it = pickToday(m), today = new Date().toISOString().slice(0, 10);
+    const m = (await META()) || {}, it = pickToday(m), today = localDay(); // ngày ĐỊA PHƯƠNG (như kế hoạch/`lastDay` của app) – trước đây dùng ngày UTC nên lệch ngày ở mọi múi giờ ≠ UTC
     await self.registration.showNotification(it.title, { body: it.body, icon: '/icons/icon-192.png', badge: '/icons/icon-192.png', tag: 'daily', data: { url: it.url || '/app/#/review', tpl: it.tpl || 'gen1' } });
     if (m.v) { m.notified = today; await putMeta(m); }
     await ev([['shown', it.tpl || 'gen1', 1]]);
@@ -220,9 +220,10 @@ self.addEventListener('periodicsync', e => {
   if (e.tag !== 'vb-daily' || LEGACY) return;
   e.waitUntil((async () => {
     const m = await META(); if (!m) return;
-    const now = new Date(), today = now.toISOString().slice(0, 10);
+    const now = new Date(), today = localDay();
     const [hh, mm] = String(m.time || '20:00').split(':').map(Number);
-    if (!m.on || m.last === today || m.notified === today || now.getHours() * 60 + now.getMinutes() < hh * 60 + (mm || 0)) return;
+    const studied = m.lastDay !== undefined ? m.lastDay === today : m.last === today; // lastDay = ngày địa phương đã học (meta v2); meta cũ chỉ có `last`
+    if (!m.on || studied || m.notified === today || now.getHours() * 60 + now.getMinutes() < hh * 60 + (mm || 0)) return;
     const wins = await self.clients.matchAll({ type: 'window' }); if (wins.some(c => c.visibilityState === 'visible')) return;
     const it = m.v ? pickToday(m) : { title: m.title, body: m.body, url: '/app/#/review' };
     await self.registration.showNotification(it.title, { body: it.body, icon: '/icons/icon-192.png', badge: '/icons/icon-192.png', tag: 'daily', data: { url: it.url, tpl: it.tpl } });

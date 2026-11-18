@@ -127,6 +127,8 @@ Você ouve uma frase e a repete exatamente. A tarefa premia a precisão, e é aq
 
 Aqui são perguntas em formato de entrevista, sobre experiências e opiniões. Uma estrutura simples evita o branco: comece pela resposta, justifique em uma frase e feche com um caso concreto. Exemplo: *I prefer taking notes by hand because it helps me remember. For example, last term I rewrote my lecture notes every Friday.* Treine falando sozinho com um cronômetro e grave as respostas, ouvindo se você enrolou antes de chegar à resposta.
 
+Boa parte do vocabulário dos textos acadêmicos vem da [Academic Word List (AWL)](/pt/blog/academic-word-list-awl-guia-ielts-toefl/).
+
 ## Seguindo o plano na prática
 
 Uma semana pode ter três blocos de 30 a 40 minutos, cada um com duas tarefas: um com Complete the Words e Build a Sentence, outro com Listen and Repeat e Take an Interview, outro com o e-mail e a Academic Discussion. Reserve o fim de semana para uma sessão mais longa.

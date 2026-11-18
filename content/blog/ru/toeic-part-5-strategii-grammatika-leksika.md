@@ -230,6 +230,12 @@ TOEIC Part 5 открывает секцию Reading: 30 предложений 
 
 ---
 
+Как часть 5 вписывается в раздел Reading и сколько на неё отводится времени, показано в статье [структура теста TOEIC](/ru/blog/struktura-testa-toeic-7-chastey/).
+
+Для раздела Listening пригодится разбор [TOEIC Part 3 и 4](/ru/blog/toeic-part-3-i-4-strategii-audirovanie/).
+
+Пассивные формы встречаются и в Listening: в [TOEIC Part 1](/ru/blog/toeic-part-1-opisanie-fotografiy-sovety/) различие *is being set* и *has been set* решает ответ.
+
 ## Часто задаваемые вопросы о TOEIC Part 5
 
 ### Обязательно ли читать все предложение целиком?

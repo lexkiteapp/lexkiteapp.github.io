@@ -101,6 +101,8 @@ Bu analitik düşünme biçimini kalıcı bir reflekse dönüştürmek için:
 
 Her pasaja kaç dakika ayıracağınızı [IELTS Reading 60 dakika zaman yönetimi stratejisinde](/tr/blog/ielts-reading-zaman-yonetimi-60-dakika-stratejisi/) bulabilirsiniz.
 
+Bu görevin diğer Reading görevleriyle birlikte nasıl çalışıldığını [IELTS Reading soru tipleri](/tr/blog/ielts-reading-soru-tipleri-ve-cozum-yontemleri/) yazısında bulabilirsiniz.
+
 ## Sıkça Sorulan Sorular (FAQ)
 
 ### True/False/Not Given ile Yes/No/Not Given arasındaki fark nedir?

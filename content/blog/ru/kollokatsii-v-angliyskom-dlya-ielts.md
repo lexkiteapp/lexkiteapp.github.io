@@ -127,6 +127,12 @@ qualityScore: 93
 3. **Тренируйтесь с интервальным повторением:** Используйте режим [Smart Learn](/#/practice/learn) в Lexkite. Система интервального повторения выводит карточки на экран как раз тогда, когда связь начинает ослабевать.
 4. **Практикуйтесь в эссе и перефразировании:** Сочетайте коллокации со стратегиями из руководства [kak perefrazirovat v ielts paraphrase](/ru/blog/kak-perefrazirovat-v-ielts-paraphrase/) и техниками [ielts reading skimming scanning tehniki](/ru/blog/ielts-reading-skimming-scanning-tehniki/). Освежить грамматические тонкости можно в нашем специальном разделе [/ngu-phap/](/ngu-phap/). Если вы готовитесь к деловому общению, изучите также материал [frazy dlya delovyh vstrech na angliyskom](/ru/blog/frazy-dlya-delovyh-vstrech-na-angliyskom/).
 
+Коллокации лучше учить вместе с академическими словами; список см. в статье [Academic Word List: 570 академических слов](/ru/blog/academic-word-list-awl-spisok-slov-ielts/).
+
+Как использовать устойчивые сочетания в аргументации, видно в образце из статьи [IELTS opinion essay](/ru/blog/ielts-opinion-essay-kak-pisat/).
+
+Хороший пример сочетаний с предлогами: *have an effect on* и *affect*, подробнее в статье [affect или effect](/ru/blog/affect-ili-effect-raznitsa-pravilo/).
+
 ## Часто задаваемые вопросы (FAQ)
 
 ### Сколько коллокаций должно быть в академическом эссе Task 2?

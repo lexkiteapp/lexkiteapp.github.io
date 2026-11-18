@@ -9,7 +9,7 @@ tags: [toeic, test-format, listening, reading]
 keyword: "formato del examen toeic"
 cover: toeic
 coverAlt: "Práctica de TOEIC Listening y Reading de Lexkite con simulacros de siete partes, práctica por parte y vocabulario TOEIC"
-publishAt:
+publishAt: 2027-01-11T07:34:00-06:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

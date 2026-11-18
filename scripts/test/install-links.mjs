@@ -5,7 +5,7 @@ import { execFileSync } from 'node:child_process';
 import { JSDOM } from 'jsdom';
 import { readLinks, targets, getPage, extConfig } from '../build-install-links.mjs';
 import { INSTALL, liveChannels, trackUrl, shortUrl, installLines, withInstall, ctaLabel } from '../../functions/api/_install_links.js';
-import { socialMeta, BIO_ONLY, BIO_CTA } from '../../functions/api/_role_meta.js';
+import { socialMeta, BIO_ONLY, BIO_CTAS } from '../../functions/api/_role_meta.js';
 import { bodyFor } from '../../functions/api/_social_mgr.js';
 import { packTexts } from '../video/yt-pack.mjs';
 import { buildAss } from '../video/lib.mjs';
@@ -125,7 +125,7 @@ ok(trackUrl('play', { source: 'tiktok', medium: 'video', campaign: 'x y' }) === 
 ok(trackUrl('ios', { source: 'youtube', campaign: 'a'.repeat(60) }).split('ct=')[1].length === 40, 'App Store: ct ≤ 40 ký tự');
 ok(shortUrl('tiktok', 'clip-a1') === 'https://lexkite.com/get?src=tiktok&c=clip-a1', 'link ngắn có nguồn');
 for (const p of ['tiktok', 'instagram', 'threads']) { const d = socialMeta(clip, p).description;
-  if (BIO_ONLY.includes(p)) ok(d.includes(BIO_CTA) && !d.includes('play.google.com'), `socialMeta ${p}: caption không bấm được → "link in bio" (docs/DISTRIBUTION.md §6c), không dán link cửa hàng`); // link bio /api/go/<nền tảng>/bio → landing có khu Cài
+  if (BIO_ONLY.includes(p)) ok(BIO_CTAS.some(x => d.includes(x)) && !d.includes('play.google.com'), `socialMeta ${p}: caption không bấm được → "link in bio" (docs/DISTRIBUTION.md §6c), không dán link cửa hàng`); // link bio /api/go/<nền tảng>/bio → landing có khu Cài
   else { ok(d.includes(`/get?src=${p}&c=clip-a1`) && !d.includes('play.google.com'), `socialMeta ${p}: link ngắn đo theo nền tảng`); ok(d.length <= 500, 'threads ≤ 500'); } }
 for (const p of ['youtube', 'facebook_page']) { const d = socialMeta(clip, p).description; ok(liveChannels().every(c => d.includes(c.url)) && d.includes(`utm_source%3D${p}`) && d.includes(`ct=${p}_clip-a1`), `socialMeta ${p}: đủ cửa hàng + nguồn đo`); }
 ok(!socialMeta(clip, 'youtube').description.includes('microsoftedge'), 'mô tả không có kênh chưa có listing');

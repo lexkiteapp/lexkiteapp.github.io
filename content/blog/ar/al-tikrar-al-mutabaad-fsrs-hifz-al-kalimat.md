@@ -144,6 +144,8 @@ quiz: [
 
 {{youtube: | Spaced Repetition and FSRS Algorithm Guide for Vocabulary}}
 
+والتباعد يحدد متى تراجع، أما كيف تراجع فيشرحه [الاسترجاع النشط للمفردات](/ar/blog/al-istirjaa-al-nashit-lil-mufradat-al-injliziyyah/).
+
 ## الأسئلة الشائعة (FAQ)
 
 ### Q1. ماذا أفعل إذا تراكمت لدي مئات البطاقات المستحقة بعد انقطاع لأسبوعين؟
