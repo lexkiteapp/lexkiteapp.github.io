@@ -9,7 +9,7 @@
   const SPKN = { interview: 'Interview', 'long-turn': 'Long turn', collaborative: 'Collaborative task', discussion: 'Discussion' };
   const WR = new Set(['email', 'story', 'article', 'essay', 'report', 'review', 'letter', 'proposal']); // phần viết sản sinh
   const PAPERS = { rw: ['📖', 'Reading & Writing'], listening: ['🎧', 'Listening'], speaking: ['🗣️', 'Speaking'] };
-  const PN = nm => ({ 'Reading & Writing': `${t('Đọc hiểu')} & ${t('Viết')}`, Listening: t('Nghe hiểu'), Speaking: t('Nói') })[nm] || nm; // nhãn phần thi theo ngôn ngữ giao diện (khoá đã có bản dịch 13 ngôn ngữ)
+  const PN = nm => ({ 'Reading & Writing': `${t('Đọc hiểu')} & ${t('Viết')}`, Listening: t('Nghe hiểu'), Speaking: t('Nói') })[nm] || nm; // nhãn phần thi theo ngôn ngữ giao diện (khóa đã có bản dịch 13 ngôn ngữ)
   const tests = () => self.CAMBRIDGE || [];
   const rub = l => (self.CAMBRIDGE_RUBRIC || {})[l] || { writing: [], speaking: [], linkers: [] };
   const best = () => ((state.game || {}).camBest = (state.game || {}).camBest || {});

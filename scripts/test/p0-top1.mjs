@@ -17,7 +17,7 @@ for (const l of LANGS) {
 }
 
 // 2) vùng chạm
-const tac = rd('web/css/tactile.css'), lz = rd('web/css/lazy-ui.css');
+const tac = rd('web/css/tactile.css'), lz = rd('web/css/lazy-ui.css'), sty = rd('web/css/style.css');
 for (const re of [/#view>a\.small::after\{[^}]*top:-13px/, /#view select,#view details>summary\{min-height:44px/, /#view \.btn\.sm,#view button\.chip,#view a\.chip\{min-height:44px/]) if (!re.test(tac)) fail('tactile.css thiếu quy tắc vùng chạm ' + re);
 if (!/\.qe-n::after \{ content: ""; position: absolute; inset: -6px; \}/.test(lz)) fail('lazy-ui.css: .qe-n mất vùng chạm mở rộng 44 px');
 
@@ -25,6 +25,6 @@ if (!/\.qe-n::after \{ content: ""; position: absolute; inset: -6px; \}/.test(lz
 const li = rd('web/js/listening.js');
 if (!/<label class="tiny muted" for="dMode">/.test(li)) fail('listening.js: ô chọn chế độ #dMode cần <label for="dMode"> nhìn thấy');
 if (!/class="dict-h"[^>]*placeholder="…" aria-label=/.test(li)) fail('listening.js: ô điền .dict-h cần placeholder + aria-label');
-if (!/\.q-card \.row\.center #dPlay \{ flex: 1 1 100%/.test(lz)) fail('lazy-ui.css: hàng nút chép chính tả mất quy tắc không-rớt-dòng ở ≤ 480 px');
+if (!/\.q-card \.row\.center #dPlay \{ flex: 1 1 100%/.test(lz) || !/#dPrev, \.q-card \.row\.center #dNext \{ flex: 1 1 0/.test(sty)) fail('lazy-ui.css/style.css: hàng nút chép chính tả mất quy tắc không-rớt-dòng ở ≤ 480 px');
 if (bad) process.exit(1);
 console.log(`✓ p0-top1: nhãn phần thi dịch ${LANGS.length} ngôn ngữ, vùng chạm 44 px, chép chính tả có nhãn`);

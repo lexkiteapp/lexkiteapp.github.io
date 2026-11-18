@@ -303,6 +303,5 @@ html.native .v2 .w-head { padding-top: env(safe-area-inset-top, 0px); height: au
 .qe-n::after { content: ""; position: absolute; inset: -6px; } /* vùng chạm 44 px (cổng tap-targets) */
 #mkMap .qe-fl { position: relative; }
 #mkMap .qe-fl::after { content: "🚩"; font-size: .6em; position: absolute; inset-block-start: -2px; inset-inline-end: -2px; }
-
-/* P0 kiểm toán 18/11: hàng nút chép chính tả ở 390 px – Nghe chiếm cả dòng, ba nút còn lại chia đều dòng sau (không còn nút rớt dòng lẻ) */
-@media (max-width: 480px) { .q-card .row.center:has(#dPlay) { gap: .5rem; } .q-card .row.center #dPlay { flex: 1 1 100%; } .q-card .row.center #dPrev, .q-card .row.center #dNext { flex: 1 1 0; min-width: 0; } }
+/* P0 kiểm toán 18/11: nút Nghe (chép chính tả) chiếm cả dòng ở ≤ 480 px → ba nút còn lại không rớt dòng lẻ (style.css) */
+@media (max-width: 480px) { .q-card .row.center #dPlay { flex: 1 1 100%; } }
