@@ -1,6 +1,7 @@
 // gate-retest (scripts/ci/gate-retest.mjs + required-gate › api().retest): chạy lại test cổng đổi trên đầu PR thay vì bắt gộp main. Hàm thuần + api với fetch giả.
 import { retestPlan, verdict, tagOf, overlayFiles, MAX_CMDS } from '../ci/gate-retest.mjs';
 import { api } from '../ci/required-gate.mjs';
+import fs from 'node:fs';
 let bad = 0; const ok = (c, m) => { if (!c) { bad++; console.error('✗ ' + m); } else console.log('✓ ' + m); };
 const SUITE = 'node scripts/test/learn-flow.mjs\nnode scripts/test/story-stage.mjs\nnode scripts/test/perf-flake.mjs --x\nnode scripts/i18n-qa.mjs --strict\n';
 // retestPlan
@@ -43,4 +44,6 @@ ok(overlayFiles(['scripts/test/a.mjs', 'scripts/lib/x.mjs', 'web/js/app.js', 'do
   ok(Object.keys(await R({ pulls: same, status: { context: 'gate-retest', state: 'failure', description: `main@${tagOf(MAINSHA)}: 1/1 đỏ` } })).length === 0, 'api.retest: kết quả ĐỎ → {} (đòi gộp main như cũ, không tin)');
   ok(Object.keys(await R({ pulls: same, suite: 'node scripts/test/other.mjs\n' })).length === 0, 'api.retest: test không có trong suite → {}');
   let threw = false; try { await R({ pulls: same, fail: '/dispatches' }); } catch (e) { threw = true; } ok(threw, 'api.retest: dispatch lỗi → ném lỗi (required-gate bắt và dùng cách cũ)'); }
+{ const y = fs.readFileSync(new URL('../../.github/workflows/gate-retest.yml', import.meta.url), 'utf8');
+  ok(!/git fetch[^\n]*--depth/.test(y.replace(/#[^\n]*/g, '')), 'workflow: fetch main KHÔNG --depth (cắt nông làm git merge-base lỗi → 3/3 đỏ 17/11)'); }
 if (bad) { console.error(`✗ gate-retest: ${bad} lỗi`); process.exit(1); } console.log('✓ gate-retest: đạt');

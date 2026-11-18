@@ -23,6 +23,8 @@ jobs:
         run: |
           npm ci --no-audit --no-fund && bash scripts/build-web.sh >/dev/null
           (cd dist && python3 -m http.server 8080 >/dev/null 2>&1 &) ; sleep 1
+      - uses: ./.github/actions/playwright-cache
+        with: { browsers: '--with-deps chromium' }
       - name: Playwright matrix
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2 axe-core@4.10.2

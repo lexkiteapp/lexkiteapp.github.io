@@ -12,7 +12,7 @@ coverAlt: "شاشة الهدف في Lexkite لاختيار الامتحان وا
 status: ready
 factChecked: 2026-11-16
 author: Lexkite
-publishAt:
+publishAt: 2027-01-12T19:35:00+03:00
 qualityScore: 90
 coverArt: {mood: think, icon: target}
 shots: [

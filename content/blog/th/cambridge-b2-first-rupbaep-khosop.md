@@ -55,7 +55,7 @@ quiz: [
 factChecked: 2026-11-16
 author: Lexkite
 status: ready
-publishAt:
+publishAt: 2027-01-06T19:41:00+07:00
 qualityScore: 91
 ---
 **Cambridge B2 First รูปแบบข้อสอบ** มี 4 ชุด ได้แก่ Reading and Use of English, Writing, Listening และ Speaking โดย Cambridge คิดคะแนนจากทักษะ 5 ส่วนที่มีน้ำหนักเท่ากัน (Reading, Use of English, Writing, Listening และ Speaking) ดังนั้นชุดแรกที่รวม Reading กับ Use of English ไว้ด้วยกันจึงมีน้ำหนักประมาณ 40 เปอร์เซ็นต์ของคะแนนรวม ถ้าคุณเคยได้ยินคนไทยเรียกข้อสอบนี้ว่า FCE ก็คือข้อสอบเดียวกัน ชื่อเดิมคือ First Certificate in English บทความนี้อธิบายทีละชุดและทีละพาร์ต พร้อมตัวอย่างข้อสอบที่เราเขียนขึ้นใหม่

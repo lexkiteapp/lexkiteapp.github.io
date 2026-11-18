@@ -12,7 +12,7 @@ coverAlt: "Lexkite की लक्ष्य स्क्रीन: परीक
 factChecked: 2026-11-16
 author: Lexkite
 status: ready
-publishAt:
+publishAt: 2027-01-18T08:41:00+05:30
 qualityScore: 91
 coverArt: {mood: think, icon: target}
 shots: [

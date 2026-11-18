@@ -12,7 +12,7 @@ coverAlt: "تدريب المحادثة في Lexkite مع أجزاء IELTS الأ
 status: ready
 factChecked: 2026-11-16
 author: Lexkite
-publishAt:
+publishAt: 2027-01-10T19:56:00+03:00
 qualityScore: 91
 coverArt: {mood: happy, icon: mic}
 shots: [
