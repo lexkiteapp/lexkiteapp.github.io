@@ -17,9 +17,15 @@ const langIdx = urls.filter(u => !bad.includes(u)).map(u => (new URL(u).pathname
 const urlList = [...new Set([...urls.filter(u => !bad.includes(u)), ...langIdx, `${site}/vi/blog/`])];
 const payload = { host, key, keyLocation: `${site}/${key}.txt`, urlList };
 if (dry) { console.log(JSON.stringify(payload, null, 1)); process.exit(0); }
+// IndexNow nhận tối đa 10000 URL/yêu cầu → chia lô 9000 (trước đây 10000 URL + trang danh sách blog bị HTTP 400).
+const CHUNK = 9000;
 try {
-  const r = await fetch('https://api.indexnow.org/indexnow', { method: 'POST', headers: { 'content-type': 'application/json; charset=utf-8' }, body: JSON.stringify(payload), signal: AbortSignal.timeout(30e3) });
-  if (r.status === 200 || r.status === 202) { console.log(`✓ indexnow: đã gửi ${urlList.length} URL (HTTP ${r.status})`); process.exit(0); }
-  const why = { 400: 'yêu cầu sai định dạng', 403: 'khóa không hợp lệ / chưa đọc được file khóa trên site', 422: 'URL không thuộc host hoặc khóa không khớp', 429: 'gửi quá nhiều (bị giới hạn)' }[r.status] || 'lỗi không rõ';
-  console.error(`✗ indexnow: HTTP ${r.status} – ${why}. ${(await r.text()).slice(0, 300)}`); process.exit(1);
+  for (let i = 0; i < urlList.length; i += CHUNK) {
+    const part = urlList.slice(i, i + CHUNK);
+    const r = await fetch('https://api.indexnow.org/indexnow', { method: 'POST', headers: { 'content-type': 'application/json; charset=utf-8' }, body: JSON.stringify({ ...payload, urlList: part }), signal: AbortSignal.timeout(30e3) });
+    if (r.status === 200 || r.status === 202) { console.log(`✓ indexnow: đã gửi ${part.length} URL (HTTP ${r.status}) [${Math.min(i + CHUNK, urlList.length)}/${urlList.length}]`); continue; }
+    const why = { 400: 'yêu cầu sai định dạng', 403: 'khóa không hợp lệ / chưa đọc được file khóa trên site', 422: 'URL không thuộc host hoặc khóa không khớp', 429: 'gửi quá nhiều (bị giới hạn)' }[r.status] || 'lỗi không rõ';
+    console.error(`✗ indexnow: HTTP ${r.status} – ${why}. ${(await r.text()).slice(0, 300)}`); process.exit(1);
+  }
+  process.exit(0);
 } catch (e) { console.error(`✗ indexnow: không gọi được API – ${e.message}`); process.exit(1); }
