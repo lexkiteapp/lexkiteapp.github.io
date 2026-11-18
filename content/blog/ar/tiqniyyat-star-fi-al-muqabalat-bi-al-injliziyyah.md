@@ -105,7 +105,7 @@ qualityScore: 95
 | **pioneer** | يبتكر ويطبق حلولاً جديدة أولاً | *"I pioneered the adoption of automated hardware-in-the-loop stress-testing testbenches."* |
 | **quantify** | يدعم النتائج ببيانات إحصائية | *"I quantified risk exposures and presented a probabilistic cost-benefit model to leadership."* |
 
-ولتطوير حصيلتك اللغوية باستمرار، ننصح بزيارة [مكتبة مفردات Lexkite](/ar/tu-vung/).
+ولتطوير حصيلتك اللغوية باستمرار، ننصح بزيارة [مكتبة مفردات Lexkite](/en/vocabulary/).
 
 ---
 

@@ -12,7 +12,7 @@ coverAlt: "ห้อง Writing ของ Lexkite สำหรับ IELTS Task 
 factChecked: 2026-11-16
 author: Lexkite
 status: ready
-publishAt:
+publishAt: 2027-01-13T12:16:00+07:00
 qualityScore: 91
 coverArt: {mood: sad, icon: pen}
 shots: [

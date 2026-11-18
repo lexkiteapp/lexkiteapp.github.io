@@ -9,7 +9,7 @@ tags: [ielts, writing, task-2, opinion-essay]
 keyword: "مقال الرأي في ielts"
 cover: write
 coverAlt: "غرفة الكتابة في Lexkite مع أسئلة مقالات مصنفة بحسب الموضوع وأفكار مقترحة وإطار جاهز للمقال"
-publishAt:
+publishAt: 2027-01-15T09:56:00+03:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

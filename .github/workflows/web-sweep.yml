@@ -60,6 +60,8 @@ jobs:
       - name: Internal links (incl. JS-generated)
         if: ${{ !cancelled() }}
         run: node scripts/test/links-js.mjs dist
+      - uses: ./.github/actions/playwright-cache
+        with: { browsers: '--with-deps chromium' }
       - name: Latent UI sweep (every page type)
         if: ${{ !cancelled() }}
         run: |

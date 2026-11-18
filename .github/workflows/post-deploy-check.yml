@@ -30,6 +30,8 @@ jobs:
         with: { ref: "${{ github.event.workflow_run.head_sha || github.sha }}" }
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
+      - uses: ./.github/actions/playwright-cache
+        with: { browsers: '--with-deps chromium webkit' }
       - name: Playwright
         timeout-minutes: 14
         run: |

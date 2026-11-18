@@ -49,6 +49,8 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: 22, cache: npm }
+      - uses: ./.github/actions/playwright-cache
+        with: { browsers: 'chromium' }
       - if: matrix.group.parts != 'static'
         timeout-minutes: 14
         run: |
