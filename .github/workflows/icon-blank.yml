@@ -48,6 +48,8 @@ jobs:
           npm ci --no-audit --no-fund >/dev/null
           npm i --no-save --no-audit --no-fund playwright@1.48.2 >/dev/null
           if [ -z "$BASE" ]; then bash scripts/build-web.sh >/dev/null; (node scripts/test/serve-web.mjs dist 8080 >/dev/null 2>&1 &) ; sleep 2; echo "BASE=http://localhost:8080" >> "$GITHUB_ENV"; fi
+      - uses: ./.github/actions/playwright-cache
+        with: { browsers: '--with-deps chromium webkit' }
       - name: Cài WebKit + Chromium
         timeout-minutes: 10
         run: bash scripts/ci/pw-install.sh --with-deps chromium webkit
