@@ -18,12 +18,12 @@ for (const f of files) {
 }
 for (const [k, v] of seen) ok(v.length < 2, `chuỗi dài lặp ${v.length} lần (${[...new Set(v)].join(', ')}): "${k.slice(0, 50)}…" → thêm vào _i.js, dùng g.RTI[n]`);
 rti.forEach((s, i) => ok(used.has(i), `RTI[${i}] không đề nào dùng (thừa)`));
-const app = fs.readFileSync('web/js/app.js', 'utf8');
-ok(app.indexOf("'js/readtest/_i.js'") > 0 && app.indexOf("'js/readtest/_i.js'") < app.indexOf("'js/readtest/test1.js'"), 'app.js nạp _i.js trước test1.js');
+const app = fs.readFileSync('web/js/bundles.js', 'utf8');
+ok(app.indexOf("'js/readtest/_i.js'") > 0 && app.indexOf("'js/readtest/_i.js'") < app.indexOf("'js/readtest/test1.js'"), 'bundles.js nạp _i.js trước test1.js');
 for (const f of ['scripts/test/explain-check.mjs', 'scripts/gen-explain.mjs', 'scripts/gen-paraphrase.mjs']) ok(/readdirSync\([^;]*\)\.sort\(\)/.test(fs.readFileSync(f, 'utf8')), `${f}: đọc readtest theo thứ tự sort`);
-// gt3.js (GT3–GT5) đã dời sang web/cpack: phải còn trong gói 'mock' của app.js (tải lười thật) và vẫn định nghĩa đủ 3 đề GT
+// gt3.js (GT3–GT5) đã dời sang web/cpack: phải còn trong gói 'mock' của bundles.js (tải lười thật) và vẫn định nghĩa đủ 3 đề GT
 ok(fs.existsSync(D2 + '/gt3.js') && !fs.existsSync(D + '/gt3.js'), 'gt3.js nằm ở web/cpack/readtest, không còn ở web/js');
-ok(app.includes("'cpack/readtest/gt3.js'") && !app.includes("'js/readtest/gt3.js'"), "gói mock của app.js nạp 'cpack/readtest/gt3.js'");
+ok(app.includes("'cpack/readtest/gt3.js'") && !app.includes("'js/readtest/gt3.js'"), "gói mock của bundles.js nạp 'cpack/readtest/gt3.js'");
 { const cg = { self: null }; cg.self = cg; vm.createContext(cg); vm.runInContext(fs.readFileSync(path.join(D, '_i.js'), 'utf8'), cg); vm.runInContext(fs.readFileSync(D2 + '/gt3.js', 'utf8'), cg); const ids = (cg.READTESTS || []).map(t => t.id); ok(['gt3', 'gt4', 'gt5'].every(i => ids.includes(i)), `gt3.js định nghĩa đề gt3/gt4/gt5 (có: ${ids.join(',')})`); }
 // Họ đề khác (chỉ gom chuỗi mà gom thật sự tiết kiệm byte, tức đủ lặp để bù mục trong bảng): bảng chuỗi dài dùng chung g.<tên> định nghĩa ở đầu tệp đầu tiên (đã sort), các tệp sau tham chiếu – cùng luật chống trùng.
 for (const { sub, re, name, first } of [{ sub: 'toeic', re: /^listening\d+\.js$/, name: 'TQL', first: 'listening1.js' }, { sub: 'toeic', re: /^reading\d+\.js$/, name: 'TQR', first: 'reading1.js' }, { sub: 'listen', re: /^test\d+\.js$/, name: 'LTI', first: 'test1.js' }]) {

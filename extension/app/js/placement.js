@@ -1,4 +1,4 @@
-/* 🧭 Kiểm tra đầu vào (#/placement) – tải lười (app.js BUNDLES.placement, cùng gói 'words' + 'grammar').
+/* 🧭 Kiểm tra đầu vào (#/placement) – tải lười (bundles.js BUNDLES.placement, cùng gói 'words' + 'grammar').
    • Thích ứng: 20 câu xen kẽ Từ vựng / Ngữ pháp; độ khó câu kế tiếp theo năng lực ước tính của TỪNG kỹ năng (A2 → C1).
    • Ước tính trung thực: mô hình IRT 3 tham số rút gọn (độ khó = cấp CEFR, đoán mò c = 1/số phương án) + tiên nghiệm yếu,
      tính trung bình hậu nghiệm (EAP) và độ lệch → hiện KHOẢNG band (≈ 68 %), không giả vờ chính xác tới 0,5 band từ 20 câu.
