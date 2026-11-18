@@ -50,14 +50,14 @@ def fit(w, h):   # per-ratio video chain on [0:v] -> [v]
 
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument('--in', dest='src', required=True); ap.add_argument('--out', required=True); ap.add_argument('--id', required=True)
-    ap.add_argument('--hook-ms', type=int, default=0); ap.add_argument('--text', default=''); o = ap.parse_args()
+    ap.add_argument('--hook-ms', type=int, default=0); ap.add_argument('--text', default=''); ap.add_argument('--keep-s', type=float, default=0); o = ap.parse_args()
     os.makedirs(o.out, exist_ok=True); src = probe(o.src); rep = dict(id=o.id, link=UTM, src=src, files={}, checks={})
     if src['w'] != 1080 or src['h'] != 1920: sys.exit(f'ad_export: expected 1080x1920, got {src["w"]}x{src["h"]}')
     for name, (w, h) in RATIOS.items():
         cp = f'{o.out}/card_{name}.png'; card(cp, w, h); out = f'{o.out}/{o.id}_{name}.mp4'
         fc = fit(w, h) + f';[1:v]fps={src["fps"]:.3f},setsar=1,format=yuv420p[c];[v]format=yuv420p[m];[m][c]concat=n=2:v=1:a=0[vv]'
         af = '[0:a]aresample=48000[a0];anullsrc=r=48000:cl=stereo,atrim=0:%.2f[a1];[a0][a1]concat=n=2:v=0:a=1[aa]' % CARD_S if src['audio'] else ''
-        cmd = ['ffmpeg', '-y', '-v', 'error', '-i', o.src, '-loop', '1', '-t', str(CARD_S), '-i', cp, '-filter_complex', fc + (';' + af if af else ''), '-map', '[vv]'] + (['-map', '[aa]', '-c:a', 'aac', '-b:a', '160k'] if af else []) + ['-c:v', 'libx264', '-crf', '18', '-preset', 'medium', '-pix_fmt', 'yuv420p', '-movflags', '+faststart', out]
+        cmd = ['ffmpeg', '-y', '-v', 'error'] + (['-t', str(o.keep_s)] if o.keep_s else []) + ['-i', o.src, '-loop', '1', '-t', str(CARD_S), '-i', cp, '-filter_complex', fc + (';' + af if af else ''), '-map', '[vv]'] + (['-map', '[aa]', '-c:a', 'aac', '-b:a', '160k'] if af else []) + ['-c:v', 'libx264', '-crf', '18', '-preset', 'medium', '-pix_fmt', 'yuv420p', '-movflags', '+faststart', out]
         subprocess.run(cmd, check=True); p = probe(out)
         rep['files'][name] = dict(file=os.path.basename(out), w=p['w'], h=p['h'], dur=round(p['dur'], 2), mb=round(os.path.getsize(out) / 1e6, 1)); os.remove(cp)
     d = rep['files']['9x16']['dur']; txt = o.text.lower()
