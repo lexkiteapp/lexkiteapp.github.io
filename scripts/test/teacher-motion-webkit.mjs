@@ -26,7 +26,7 @@ await page.evaluate(async () => { App.state.settings.exam = 'ielts'; App.state.s
 await page.goto(url('#/learn'), { waitUntil: 'load' }); await page.waitForTimeout(800);
 await page.evaluate(() => { document.documentElement.setAttribute('data-theme', 'dark'); const s = document.querySelector('.tslot'); s && s.scrollIntoView({ block: 'center' }); });
 // từ #717 clip chỉ phát khi chỗ giáo viên CÓ LỜI (data-talk; im lặng → ảnh tĩnh) → đặt lại như lúc giáo viên đang nói (cách của teacher-quality.mjs)
-await page.evaluate(() => document.querySelectorAll('.tslot').forEach(s => { s.dataset.clip = Chars.clip(s.dataset.teacher, s.dataset.pose); s.dataset.talk = Chars.clip(s.dataset.teacher, 'talk'); window.TeacherLive && TeacherLive(s); })).catch(e => errs.push('đặt lời ' + e.message));
+await page.evaluate(() => document.querySelectorAll('.tslot').forEach(s => { s.dataset.clip = Chars.clip(s.dataset.teacher, s.dataset.pose); s.dataset.talk = s.dataset.clip; /* talk = chính clip của tư thế → phát đúng clip cần đo (không phải clip 'talk') */ window.TeacherLive && TeacherLive(s); })).catch(e => errs.push('đặt lời ' + e.message));
 const live = await page.waitForFunction(() => document.querySelector('.tslot.live canvas.tslot-img'), null, { timeout: 15000 }).then(() => true, () => false);
 if (!live) {
   errs.push('clip giáo viên không chạy trên WebKit (không có .tslot.live canvas) – không đo được');
