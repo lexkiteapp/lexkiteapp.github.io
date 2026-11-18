@@ -1,6 +1,6 @@
 # ⚡ Đo trọn 1 bài học trên máy yếu giả lập (CPU 4×/6× đã hiệu chuẩn, 4G chậm, 390 px): chạm→khung vẽ, long task lúc chuyển câu, FPS, GC, giải mã ảnh, layout ép – scripts/test/lesson-perf.mjs
 # Chạy tay hoặc đẩy nhánh lesson-perf-*; kết quả ở tóm tắt job + artifact lesson-perf-<N>x. Hermetic: dist cục bộ, 0 lượt chạm prod.
-# ci-policy: matrix – 4× và 6× phải tách runner (đo FPS/độ trễ chung một máy làm số đo nhiễu)
+# ci-policy: matrix – mỗi luồng × cỡ × hệ số phải tách runner (đo FPS/độ trễ chung một máy làm số đo nhiễu)
 name: Lesson perf
 on:
   push:
@@ -18,7 +18,14 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        rate: [4, 6]
+        include:
+          - { flow: lesson, width: 390, rate: 4 }
+          - { flow: lesson, width: 390, rate: 6 }
+          - { flow: lesson, width: 360, rate: 4 }
+          - { flow: review, width: 360, rate: 4 }
+          - { flow: review, width: 390, rate: 4 }
+          - { flow: practice, width: 360, rate: 4 }
+          - { flow: practice, width: 390, rate: 4 }
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -27,6 +34,8 @@ jobs:
         run: |
           npm ci --no-audit --no-fund
           bash scripts/build-web.sh >/dev/null
+      - uses: ./.github/actions/playwright-cache
+        with: { browsers: chromium }
       - name: Cài Playwright
         timeout-minutes: 14
         run: |
@@ -34,8 +43,8 @@ jobs:
           bash scripts/ci/pw-install.sh --with-deps chromium
       - name: Chặn lexkite.com (0 lượt chạm prod)
         run: echo "127.0.0.1 lexkite.com www.lexkite.com audio.lexkite.com media.lexkite.com" | sudo tee -a /etc/hosts >/dev/null
-      - name: Đo bài học ${{ matrix.rate }}×
-        run: node scripts/test/lesson-perf.mjs --root dist --rate ${{ matrix.rate }} --out lp-out
+      - name: Đo ${{ matrix.flow }} ${{ matrix.width }}px ${{ matrix.rate }}×
+        run: node scripts/test/lesson-perf.mjs --root dist --rate ${{ matrix.rate }} --width ${{ matrix.width }} --flow ${{ matrix.flow }} --out lp-out
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
-        with: { name: 'lesson-perf-${{ matrix.rate }}x', path: lp-out, retention-days: 14 }
+        with: { name: 'lesson-perf-${{ matrix.flow }}-${{ matrix.width }}-${{ matrix.rate }}x', path: lp-out, retention-days: 14 }

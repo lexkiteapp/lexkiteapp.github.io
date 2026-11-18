@@ -2,7 +2,7 @@
 // (điện thoại 390 px, CPU 4×/6× đã hiệu chuẩn theo runner, mạng 4G chậm) và ghi hồ sơ hiệu năng: độ trễ chạm→khung vẽ (xấp xỉ INP) từng lần bấm,
 // long task / LoAF (kèm script gây ra + thời gian ép layout), khung rớt lúc CHUYỂN CÂU, FPS, GC, giải mã ảnh, layout/style, số lần tải lười giữa bài.
 // Xếp nguyên nhân theo ms mất → lesson-perf.md + lesson-perf.json. CHỈ chạy trên CI (lesson-perf.yml). Hermetic: dist cục bộ, /api/* offline, media→GitHub qua noProd.
-// Dùng: node scripts/test/lesson-perf.mjs --root dist --rate 4 [--out lp-out] [--check] [--lessons 1]
+// Dùng: node scripts/test/lesson-perf.mjs --root dist --rate 4 [--out lp-out] [--check] [--lessons 1] [--width 390] [--flow lesson|review|practice]
 import { chromium, devices } from 'playwright';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -11,7 +11,7 @@ import { noProd } from './lib/no-prod.mjs';
 import { rateFor } from './lib/perf-calibrate.mjs';
 
 const arg = (k, d) => { const i = process.argv.indexOf('--' + k); return i > 0 ? process.argv[i + 1] : d; };
-const NOMINAL = +arg('rate', '4'), OUT = path.resolve(arg('out', 'lp-out')), CHECK = process.argv.includes('--check'), LESSONS = +arg('lessons', '1');
+const NOMINAL = +arg('rate', '4'), OUT = path.resolve(arg('out', 'lp-out')), CHECK = process.argv.includes('--check'), LESSONS = +arg('lessons', '1'), WIDTH = +arg('width', '390'), FLOW = arg('flow', 'lesson'), TAG = `${FLOW}-${WIDTH}-${arg('rate', '4')}x`;
 const BUDGET = JSON.parse(fs.readFileSync(new URL('./lesson-perf.budget.json', import.meta.url), 'utf8'));
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 fs.mkdirSync(OUT, { recursive: true });
@@ -21,8 +21,9 @@ export const pct = (a, p) => { if (!a.length) return 0; const s = [...a].sort((x
 
 // Chạy trước mọi script của trang: long task + LoAF, nhịp khung, độ trễ chạm→khung vẽ, mốc chuyển câu.
 const INJECT = () => {
-  const P = window.__lp = { long: [], loaf: [], frames: [], taps: [], trans: [], on: false, t0: 0 };
-  const obs = (type, fn) => { try { new PerformanceObserver(l => { if (P.on) for (const e of l.getEntries()) fn(e); }).observe({ type, buffered: false }); } catch { /* trình duyệt không có */ } };
+  const P = window.__lp = { long: [], loaf: [], frames: [], taps: [], trans: [], ev: [], on: false, t0: 0 };
+  const obs = (type, fn, o = {}) => { try { new PerformanceObserver(l => { if (P.on) for (const e of l.getEntries()) fn(e); }).observe({ type, buffered: false, ...o }); } catch { /* trình duyệt không có */ } };
+  obs('event', e => P.ev.push({ n: e.name, d: Math.round(e.duration), i: Math.round(e.processingStart - e.startTime), p: Math.round(e.processingEnd - e.processingStart), v: Math.round(e.startTime + e.duration - e.processingEnd), t: String(e.target && (e.target.id ? '#' + e.target.id : e.target.className) || '').slice(0, 40) }), { durationThreshold: 16 });
   obs('longtask', e => P.long.push({ s: Math.round(e.startTime), d: Math.round(e.duration) }));
   obs('long-animation-frame', e => P.loaf.push({ s: Math.round(e.startTime), d: Math.round(e.duration), b: Math.round(e.blockingDuration || 0), fl: Math.round(e.styleAndLayoutStart ? e.startTime + e.duration - e.styleAndLayoutStart : 0),
     sc: (e.scripts || []).map(x => ({ u: String(x.sourceURL || '').replace(/^https?:\/\/[^/]+\//, '').slice(0, 60), f: String(x.sourceFunctionName || x.invoker || '').slice(0, 50), d: Math.round(x.duration), fl: Math.round(x.forcedStyleAndLayoutDuration || 0) })) }));
@@ -64,7 +65,7 @@ const browser = await chromium.launch({ args: ['--autoplay-policy=no-user-gestur
 const { rate, factor, scaled, bench } = await rateFor(browser, NOMINAL);
 const DAY = 864e5, NOW = Date.now();
 const CARDS = Object.fromEntries(['sustainable', 'negotiate', 'budget', 'deadline', 'resilience', 'strategy'].map((w, i) => [w, { word: w, vi: w, pos: 'noun', ex: '', contexts: [], added: NOW - 9 * DAY, mod: NOW - 2 * DAY, srs: { ef: 2.5, interval: 3, reps: 3, lapses: 0, due: NOW - 5 * DAY + i * 36e5, last: NOW - 4 * DAY, step: 0 } }]));
-const ctx = await browser.newContext({ bypassCSP: true, ...devices['Pixel 7'], viewport: { width: 390, height: 844 }, locale: 'en-US', reducedMotion: 'no-preference' });
+const ctx = await browser.newContext({ bypassCSP: true, ...devices['Pixel 7'], viewport: { width: WIDTH, height: 844 }, locale: 'en-US', reducedMotion: 'no-preference' });
 await noProd(ctx, { off: false });
 await ctx.addInitScript(({ s }) => { try { for (const [k, v] of Object.entries(s)) if (localStorage.getItem(k) == null) localStorage.setItem(k, v); } catch { /* */ } }, { s: { 'sbx.settings': JSON.stringify({ onboarded: true, theme: 'light' }), 'sbx.cards': JSON.stringify(CARDS), 'lk.ux1': '1' } });
 await ctx.addInitScript(INJECT);
@@ -84,13 +85,32 @@ for (let L = 0; L < LESSONS; L++) {
   await cdp.send('Performance.enable'); const m0 = Object.fromEntries((await cdp.send('Performance.getMetrics')).metrics.map(x => [x.name, x.value]));
   const events = []; cdp.on('Tracing.dataCollected', e => events.push(...e.value));
   await cdp.send('Tracing.start', { categories: 'devtools.timeline,disabled-by-default-devtools.timeline,v8,blink', transferMode: 'ReportEvents' });
-  await page.evaluate(() => { const P = window.__lp; P.long = []; P.loaf = []; P.frames = []; P.taps = []; P.trans = []; P.on = true; P.t0 = performance.now(); });
+  await page.evaluate(() => { const P = window.__lp; P.long = []; P.loaf = []; P.frames = []; P.taps = []; P.trans = []; P.ev = []; P.on = true; P.t0 = performance.now(); P.ev = []; });
   const r0 = reqs.length, tStart = Date.now();
-  // Hôm nay → bài: bấm CTA thật nếu có, không thì vào thẳng /lesson/go
-  const cta = page.locator('#view a[href^="#/day"], #view a[href*="lesson"], #view .btn.primary').first();
-  if (await cta.isVisible().catch(() => false)) { await cta.click({ timeout: 5000 }).catch(() => {}); await sleep(1000); }
-  await page.evaluate(() => { location.hash = '#/lesson/go'; }); await sleep(1200);
-  const play = await page.evaluate(PLAY, {}).catch(e => ({ error: String(e.message).slice(0, 160) }));
+  const TAP = async sel => { const l = page.locator(sel).first(); if (!(await l.count()) || !(await l.isVisible().catch(() => false))) return false; await l.tap({ timeout: 4000 }).catch(() => l.click({ timeout: 2000 }).catch(() => {})); return true; };
+  let play;
+  if (FLOW === 'lesson') {
+    // Hôm nay → bài: bấm CTA thật nếu có, không thì vào thẳng /lesson/go
+    const cta = page.locator('#view a[href^="#/day"], #view a[href*="lesson"], #view .btn.primary').first();
+    if (await cta.isVisible().catch(() => false)) { await cta.click({ timeout: 5000 }).catch(() => {}); await sleep(1000); }
+    await page.evaluate(() => { location.hash = '#/lesson/go'; }); await sleep(1200);
+    play = await page.evaluate(PLAY, {}).catch(e => ({ error: String(e.message).slice(0, 160) }));
+  } else if (FLOW === 'review') { // ôn thẻ bằng chạm THẬT (INP thật từ Event Timing)
+    await page.evaluate(() => { location.hash = '#/review'; }); await sleep(1500);
+    let n = 0; for (; n < 16; n++) { if (await page.locator('#view .rev-done').count()) break; if (await page.locator('#typeIn').count()) { await page.fill('#typeIn', n % 2 ? 'zzz' : ''); await page.press('#typeIn', 'Enter'); } else if (await TAP('#view [data-opt="0"]')) { /* trắc nghiệm */ } else await TAP('#view #flipBtn, #view .flash, #view .btn.primary'); await sleep(500); if (await TAP('#view [data-grade="2"]')) await sleep(600); }
+    await sleep(1200); play = { steps: n, right: 0, wrong: 0, end: !!(await page.locator('#view .rev-done').count()) || n >= 6, kinds: {} };
+  } else { // luyện: practice/test chủ đề
+    await page.evaluate(() => { location.hash = '#/practice/test?src=topic:education'; }); await sleep(1500);
+    let n = 0, done = false; for (; n < 40; n++) {
+      if (await page.locator('#view .score-ring').count()) { done = true; break; }
+      if (await TAP('#nextQ')) { await sleep(400); continue; }
+      const inp = page.locator('#view input[type=text], #view input:not([type])').first();
+      if (await inp.isVisible().catch(() => false)) { await inp.fill('zzqx'); await inp.press('Enter'); await sleep(900); continue; }
+      if (await TAP('#view .option')) { await sleep(900); continue; }
+      if (!(await TAP('#view .btn.primary'))) break; await sleep(500);
+    }
+    await sleep(1500); play = { steps: n, right: 0, wrong: 0, end: done, kinds: {} };
+  }
   const wall = Date.now() - tStart, P = await page.evaluate(() => { const x = window.__lp; x.on = false; return x; });
   await cdp.send('Tracing.end'); await new Promise(r => cdp.once('Tracing.tracingComplete', r));
   const m1 = Object.fromEntries((await cdp.send('Performance.getMetrics')).metrics.map(x => [x.name, x.value]));
@@ -109,7 +129,7 @@ for (let L = 0; L < LESSONS; L++) {
   const worstTaps = [...P.taps].sort((a, b) => b.ms - a.ms).slice(0, 6);
   const lazy = reqs.slice(r0).filter(x => /\.(js|css)$/.test(x.p)).length;
   res.lessons.push({
-    play, wallMs: wall, tap: { n: taps.length, p50: pct(taps, 50), p95: pct(taps, 95), max: Math.max(0, ...taps) }, worstTaps,
+    play, ev: { n: P.ev.length, inp: Math.max(0, ...P.ev.map(e => e.d)), p95: pct(P.ev.map(e => e.d), 95), worst: [...P.ev].sort((a, b) => b.d - a.d).slice(0, 6) }, ev: { n: P.ev.length, inp: Math.max(0, ...P.ev.map(e => e.d)), p95: pct(P.ev.map(e => e.d), 95), worst: [...P.ev].sort((a, b) => b.d - a.d).slice(0, 6) }, wallMs: wall, tap: { n: taps.length, p50: pct(taps, 50), p95: pct(taps, 95), max: Math.max(0, ...taps) }, worstTaps,
     long: { n: P.long.length, max: Math.max(0, ...P.long.map(l => l.d)), sum: P.long.reduce((a, l) => a + l.d, 0), inTransMax: Math.max(0, ...longT.map(l => l.d)), inTransN: longT.length },
     loaf: { n: P.loaf.length, max: Math.max(0, ...P.loaf.map(l => l.d)), blocking: P.loaf.reduce((a, l) => a + l.b, 0), forcedLayoutMs: P.loaf.reduce((a, l) => a + l.sc.reduce((x, s) => x + s.fl, 0), 0) },
     frames: { n: dts.length, fps: fps(dts), p95dt: pct(dts, 95), over50: dts.filter(d => d > 50).length, trN: trFrames.length, trFps: fps(trFrames), trP95dt: pct(trFrames, 95) },
@@ -118,10 +138,11 @@ for (let L = 0; L < LESSONS; L++) {
   });
   if (L === 0) await page.screenshot({ path: `${OUT}/end.png` }).catch(() => {});
 }
-fs.writeFileSync(`${OUT}/lesson-perf-${NOMINAL}x.json`, JSON.stringify({ ...res, errs }, null, 1));
+fs.writeFileSync(`${OUT}/lesson-perf-${TAG}.json`, JSON.stringify({ ...res, errs }, null, 1));
 const l = res.lessons[0], md = [
-  `## ⚡ lesson-perf ${NOMINAL}× (CPU ${rate}× sau hiệu chuẩn, hệ số runner ${res.factor}) – bài ${l.play.steps || '?'} bước (${JSON.stringify(l.play.kinds || {})}), đúng ${l.play.right}/sai ${l.play.wrong}, kết thúc: ${l.play.end ? '✅' : '❌ ' + (l.play.error || '')}`, '',
+  `## ⚡ lesson-perf ${FLOW} ${WIDTH}px ${NOMINAL}× (CPU ${rate}× sau hiệu chuẩn, hệ số runner ${res.factor}) – bài ${l.play.steps || '?'} bước (${JSON.stringify(l.play.kinds || {})}), đúng ${l.play.right}/sai ${l.play.wrong}, kết thúc: ${l.play.end ? '✅' : '❌ ' + (l.play.error || '')}`, '',
   '| Chỉ số | Giá trị | Ngưỡng |', '|---|---|---|',
+  `| INP thật (Event Timing ≥16 ms): lớn nhất / p95 / số | ${l.ev.inp} / ${l.ev.p95} / ${l.ev.n} | ≤ ${BUDGET.tapP95} |`,
   `| Chạm→khung vẽ p50 / p95 / max | ${l.tap.p50} / ${l.tap.p95} / ${l.tap.max} ms (${l.tap.n} lần) | p95 ≤ ${BUDGET.tapP95} |`,
   `| Long task lúc chuyển câu: lớn nhất / số | ${l.long.inTransMax} ms / ${l.long.inTransN} | ≤ ${BUDGET.transLongMax} ms |`,
   `| Long task cả bài: số / lớn nhất / tổng | ${l.long.n} / ${l.long.max} / ${l.long.sum} ms | |`,
@@ -131,12 +152,14 @@ const l = res.lessons[0], md = [
   `| Trace: GC / giải mã ảnh / layout / style / paint / raster | ${l.trace.gc} / ${l.trace.decode} / ${l.trace.layout} / ${l.trace.style} / ${l.trace.paint} / ${l.trace.raster} ms | |`,
   `| Layout ép từ script / tải lười JS+CSS giữa bài / heap / DOM | ${l.forcedReflowEvents} / ${l.lazyFetches} / ${l.heapMB} MB / ${l.domNodes} | |`, '',
   '**Script chiếm nhiều thời gian nhất (LoAF):**', ...l.topScripts.map(s => `- ${s.ms} ms (ép layout ${s.forced} ms, ${s.n}×) ${s.k}`), '',
+  '**Sự kiện chậm nhất (Event Timing: tổng / trễ vào / xử lý / vẽ):**', ...l.ev.worst.map(e => `- ${e.d} ms (${e.i}/${e.p}/${e.v}) ${e.n} ${e.t}`), '',
   '**Lần chạm chậm nhất:**', ...l.worstTaps.map(t => `- ${t.ms} ms ${t.l}`), errs.length ? '\nLỗi trang: ' + errs.slice(0, 3).join(' | ') : ''].join('\n');
-fs.writeFileSync(`${OUT}/lesson-perf-${NOMINAL}x.md`, md); console.log(md);
+fs.writeFileSync(`${OUT}/lesson-perf-${TAG}.md`, md); console.log(md);
 if (process.env.GITHUB_STEP_SUMMARY) fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, md + '\n');
 await browser.close(); srv.close && srv.close();
 const bad = [];
 if (!l.play.end) bad.push('bài học không tới màn kết thúc');
+if (l.ev.inp > BUDGET.tapP95) bad.push(`INP ${l.ev.inp} ms > ${BUDGET.tapP95}`);
 if (l.tap.p95 > BUDGET.tapP95) bad.push(`chạm→vẽ p95 ${l.tap.p95} ms > ${BUDGET.tapP95}`);
 if (l.long.inTransMax > BUDGET.transLongMax) bad.push(`long task lúc chuyển câu ${l.long.inTransMax} ms > ${BUDGET.transLongMax}`);
 if (l.frames.trN >= 5 && l.frames.trFps < BUDGET.transFps) bad.push(`FPS lúc chuyển câu ${l.frames.trFps} < ${BUDGET.transFps}`);
