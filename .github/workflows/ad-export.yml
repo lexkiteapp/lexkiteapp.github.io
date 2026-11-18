@@ -10,7 +10,12 @@ on:
       keep_s: { description: 'giữ N giây đầu của clip (cắt thẻ cuối cũ, thay bằng thẻ CTA của quảng cáo); 0 = giữ hết', default: '0' }
       hook_ms: { description: 'thời điểm chữ hook xuất hiện (ms, ≤ 1500)', default: '0' }
 permissions: { contents: read, actions: read }
-concurrency: { group: 'ad-export-${{ github.event.inputs.ep || 't2_react_lookintoit' }}', cancel-in-progress: true }
+concurrency: { group: 'ad-export-${{ github.ref }}', cancel-in-progress: true }
+env:
+  EP: ${{ inputs.ep || 't2_react_lookintoit' }}
+  SRC_RUN: ${{ inputs.run || '44262329940' }}
+  HOOK: ${{ inputs.hook_ms || '1000' }}
+  KEEP: ${{ inputs.keep_s || '21' }}
 jobs:
   export:
     runs-on: ubuntu-latest
@@ -18,13 +23,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4
-        with: { name: 'tv-${{ inputs.ep || 't2_react_lookintoit' }}-short-${{ inputs.run || '44262329940' }}', path: src, github-token: '${{ github.token }}', run-id: '${{ inputs.run || '44262329940' }}' }
+        with:
+          name: tv-${{ env.EP }}-short-${{ env.SRC_RUN }}
+          path: src
+          github-token: ${{ github.token }}
+          run-id: ${{ env.SRC_RUN }}
       - run: pip install -q pillow
       - name: Export 3 ratios
-        env: { EP: '${{ inputs.ep || 't2_react_lookintoit' }}', HOOK: '${{ inputs.hook_ms || '1000' }}', KEEP: '${{ inputs.keep_s || '21' }}' }
         run: |
           f=$(ls src/phone/"$EP".mp4 src/"$EP"-short.mp4 2>/dev/null | head -1); [ -n "$f" ] || { echo "::error::no short mp4 in artifact"; ls -R src | head -20; exit 1; }
           txt=$(python3 -c "import json,sys;e=json.load(open('content/video/teach2d/eps/$EP.json'));print(' '.join(l['text'] for l in e['lines']))")
           python3 scripts/video/teach2d/ad_export.py --in "$f" --out out --id "$EP" --hook-ms "$HOOK" --keep-s "$KEEP" --text "$txt"
       - uses: actions/upload-artifact@v4
-        with: { name: 'ad-${{ inputs.ep || 't2_react_lookintoit' }}-${{ github.run_id }}', path: out/, retention-days: 30 }
+        with: { name: 'ad-${{ env.EP }}-${{ github.run_id }}', path: out/, retention-days: 30 }
