@@ -284,6 +284,16 @@ export function cpmReport(data) {
     countries: [...rows].sort((a, b) => b.clicks - a.clicks || b.impressions - a.impressions).slice(0, 30).map(r => ({ country: r.keys[r.keys.length - 1], tier: tierOf(r.keys[r.keys.length - 1]), clicks: r.clicks, impressions: r.impressions, position: r1(r.position) })) };
 }
 
+// ---------- khách thật từ tìm kiếm vào trang tĩnh (D1 ext_events land:*, /api/seo-visits) ----------
+/** v = { from, to, days:[{day,search,google,high,vn,other}] } → số nền: trung bình/ngày 7 ngày gần nhất & 28 ngày theo nhóm CPM + bảng 7 ngày. null khi không có dữ liệu. */
+export function visitsSummary(v) {
+  const days = (v && v.days) || []; if (!days.length) return null;
+  const span = Math.max(1, Math.round((Date.parse(`${v.to}T00:00:00Z`) - Date.parse(`${v.from}T00:00:00Z`)) / 864e5) + 1);
+  const agg = (rows, n) => { const t = { search: 0, google: 0, high: 0, vn: 0, other: 0 }; for (const r of rows) for (const k in t) t[k] += r[k] || 0; return Object.fromEntries(Object.entries(t).map(([k, x]) => [k, r1(x / n)])); };
+  const cut = ymd(addDays(new Date(`${v.to}T00:00:00Z`), -6));
+  return { from: v.from, to: v.to, perDay28: agg(days, span), perDay7: agg(days.filter(d => d.day >= cut), 7), last7: days.filter(d => d.day >= cut) };
+}
+
 // ---------- báo cáo ----------
 const pct = x => `${(x * 100).toFixed(1)} %`, short = u => String(u).replace(ORIGIN, '');
 const esc = s => String(s ?? '').replace(/\|/g, '\\|').replace(/\n/g, ' ');
@@ -303,6 +313,11 @@ export function markdown(rep) {
     for (const c of countries) L.push(`| ${c.country.toUpperCase()} | ${TN[c.tier]} | ${c.clicks} | ${c.impressions} | ${c.position} |`);
     L.push('');
   }
+  if (rep.visits) {
+    const v = rep.visits, row = (n, x) => `| ${n} | ${x.search} | ${x.google} | ${x.high} | ${x.vn} | ${x.other} |`;
+    L.push(`## Khách thật từ tìm kiếm vào trang tĩnh (số nền, /ngày) – ${v.from} → ${v.to}`, '', 'Nguồn: D1 `land:*` (hit.js; bỏ bot, bản preview, giới hạn 30 lượt/giờ/IP). Nhóm theo nước của khách (`functions/api/_cpm.js`). So với Hiển thị/Bấm của GSC ở trên: GSC đếm cả bấm từ kết quả lặp, số này đếm phiên mới/nguồn/30 phút.', '',
+      '| | Tìm kiếm | trong đó Google | CPM cao | VN | Nước khác |', '|---|--:|--:|--:|--:|--:|', row('TB 7 ngày', v.perDay7), row('TB 28 ngày', v.perDay28), ...v.last7.map(d => row(d.day, d)), '');
+  } else if (rep.visitsError) L.push('> Số khách từ tìm kiếm trang tĩnh: chưa lấy được (' + rep.visitsError + ').', '');
   L.push(`## (a) Truy vấn chưa có bài khớp (${rep.gaps.length})`, '', '| # | Ngôn ngữ | Truy vấn | Hiển thị | Hạng | Loại | Việc |', '|---|---|---|---|---|---|---|');
   rep.gaps.slice(0, 10).forEach((g, i) => L.push(`| ${i + 1} | ${g.lang} | ${esc(g.query)} | ${g.impressions} | ${g.position} | ${g.kind} | ${esc(g.reason)} |`));
   L.push('', `## (b) Hạng 8–30, CTR thấp (${rep.striking.length})`, '', '| # | Trang | Truy vấn chính | Hiển thị | Hạng | CTR / kỳ vọng | Tiêu đề gợi ý |', '|---|---|---|---|---|---|---|');
@@ -417,7 +432,15 @@ async function main(argv) {
   }
   if (!(data.qpc || []).length) throw new Error(`0 dòng query×page×country cho ${SITE} – kiểm service account đã được thêm vào GSC (quyền Restricted) và thuộc tính đúng`);
   const { range, prevRange } = ranges(date);
-  const rep = { date, site: SITE, range, prevRange, rows: { qpc: data.qpc.length, qp: (data.qp || []).length, pageCur: (data.pageCur || []).length, pagePrev: (data.pagePrev || []).length }, thresholds: T, ...analyze(data, loadContent(root)) };
+  let visits = null, visitsError = '';
+  if (data.visits) visits = visitsSummary(data.visits);
+  else if (!fx && process.env.STUDIO_CALLBACK_SECRET) {
+    try {
+      const r = await fetch(process.env.SEO_VISITS_API || 'https://lexkite.com/api/seo-visits?days=28', { headers: { 'X-Studio-Secret': process.env.STUDIO_CALLBACK_SECRET, 'User-Agent': 'lexkite-ci', ...(process.env.LEXKITE_CI_HEADER ? { 'X-Lexkite-CI': process.env.LEXKITE_CI_HEADER } : {}) } });
+      if (!r.ok) throw new Error(`HTTP ${r.status}`); visits = visitsSummary(await r.json());
+    } catch (e) { visitsError = e.message; console.warn(`⚠ seo-visits: ${e.message}`); }
+  }
+  const rep = { date, site: SITE, range, prevRange, rows: { qpc: data.qpc.length, qp: (data.qp || []).length, pageCur: (data.pageCur || []).length, pagePrev: (data.pagePrev || []).length }, thresholds: T, ...analyze(data, loadContent(root)), visits, visitsError };
   const { jf, mf } = write(root, date, rep);
   console.log(`✓ GSC ${range.startDate}→${range.endDate}: ${rep.rows.qpc} dòng · (a) ${rep.gaps.length} · (b) ${rep.striking.length} · (c) ${rep.cannibal.length} · (d) ${rep.declines.length} · ưu tiên ${rep.priority.length} → ${jf}`);
   if (process.env.GITHUB_OUTPUT) fs.appendFileSync(process.env.GITHUB_OUTPUT, `report=${mf}\n`);

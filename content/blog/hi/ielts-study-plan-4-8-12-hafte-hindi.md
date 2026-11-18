@@ -12,7 +12,7 @@ coverAlt: "Lexkite का लर्निंग पाथ: पाठ एक-ए�
 factChecked: 2026-11-16
 author: Lexkite
 status: ready
-publishAt:
+publishAt: 2027-01-15T07:55:00+05:30
 qualityScore: 91
 coverArt: {mood: win, icon: target}
 shots: [

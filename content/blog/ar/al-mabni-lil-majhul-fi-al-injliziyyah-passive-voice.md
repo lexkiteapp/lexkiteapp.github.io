@@ -161,7 +161,7 @@ quiz: [
 - *Next, the mixture is heated in a specialized furnace until it melts completely.*
 - *Finally, the finished products are inspected for quality before they are packaged and dispatched.*
 
-تطبيق هذه التراكيب بوعي ودقة يرفع تقييمك النحوي بشكل حاسم. يمكنك استكشاف مزيد من التمارين في [دليل قواعد اللغة الإنجليزية](/ngu-phap/).
+تطبيق هذه التراكيب بوعي ودقة يرفع تقييمك النحوي بشكل حاسم. يمكنك استكشاف مزيد من التمارين في [دليل قواعد اللغة الإنجليزية](/en/grammar/).
 
 ويمكنك اختبار استيعابك للمفردات المرتبطة عبر [نظام الاختبارات السريعة](/app/#/practice/test).
 

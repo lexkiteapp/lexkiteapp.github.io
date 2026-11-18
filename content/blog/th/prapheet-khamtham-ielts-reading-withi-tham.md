@@ -12,7 +12,7 @@ coverAlt: "คลังบทอ่าน IELTS ใน Lexkite แบ่งร�
 factChecked: 2026-11-16
 author: Lexkite
 status: ready
-publishAt:
+publishAt: 2027-01-16T09:06:00+07:00
 qualityScore: 90
 coverArt: {mood: think, icon: book}
 shots: [

@@ -18,7 +18,7 @@ import { claims } from './sync.js';
 import { guardBg } from './_d1guard.js';
 import { adminGate, adminAudit } from './admin.js';
 import { gate, DEFAULTS } from './_quota.js';
-import { triage, errSig, createIssue, scrub, SEVS } from './_triage.js';
+import { triage, errSig, createIssue, scrub, SEVS, translate, LANG_NAME } from './_triage.js';
 import { moderate, mask, defang } from './_abuse.js';
 import { readText, bodyFail } from './_body.js';
 import { humanGate } from './_human.js';
@@ -62,7 +62,7 @@ export async function setup(db) {
     // Cổng QA nội dung (docs/CONTENT-QA.md §7): 1 phiếu "nội dung sai"/thiết bị/mục; đủ HIDE_N thiết bị → mục vào config 'content_hidden' (1 dòng, client đọc 1 lần/phiên)
     db.prepare('CREATE TABLE IF NOT EXISTS content_flags (cid TEXT NOT NULL, who TEXT NOT NULL, at INTEGER NOT NULL, PRIMARY KEY (cid, who)) WITHOUT ROWID'),
   ]);
-  for (const c of ['sev TEXT', 'sig TEXT', 'ai TEXT', 'issue TEXT', 'feat TEXT', 'fix_ver TEXT', 'eta_x TEXT', 'pid TEXT', 'shot_b INTEGER', 'seen_at INTEGER']) await db.prepare('ALTER TABLE reports ADD COLUMN ' + c).run().catch(() => {}); // bảng tạo trước bản AI
+  for (const c of ['sev TEXT', 'sig TEXT', 'ai TEXT', 'issue TEXT', 'feat TEXT', 'fix_ver TEXT', 'eta_x TEXT', 'pid TEXT', 'shot_b INTEGER', 'seen_at INTEGER', 'country TEXT', 'ulang TEXT']) await db.prepare('ALTER TABLE reports ADD COLUMN ' + c).run().catch(() => {}); // bảng tạo trước bản AI
   await db.prepare('CREATE INDEX IF NOT EXISTS reports_sig ON reports (sig, at)').run().catch(() => {});
   ready = true;
 }
@@ -236,11 +236,14 @@ export const REPLY_TPL = {
   fixed: { vi: 'Vấn đề này đã được sửa. Cảm ơn bạn đã báo! Hãy tải lại app để dùng bản mới.', status: 'fixed' },
   more: { vi: 'Đội ngũ cần thêm chút thông tin: bạn đang làm gì khi lỗi xảy ra, và lỗi có lặp lại không? Hãy gửi một báo lỗi mới kèm ảnh chụp nếu được.', status: 'ack' },
 };
+// Ngôn ngữ trả lời cho người báo: ngôn ngữ thật của nội dung họ viết (ulang, AI phát hiện) nếu biết, không thì ngôn ngữ giao diện lúc gửi
+export const replyLang = r => { const u = String((r && r.ulang) || '').toLowerCase(); return LANG_NAME[u] ? u : String((r && r.lang) || 'en').toLowerCase().slice(0, 2); };
+const tplKeyFor = st => (st === 'fixed' ? 'fixed' : st === 'prog' ? 'prog' : 'thanks');
 export const tplText = (lang, k) => mailT(lang)(REPLY_TPL[k].vi);
 const ST_KEY = { new: 'Mới', ack: 'Đã tiếp nhận', prog: 'Đang xử lý', fixed: 'Đã sửa', wontfix: 'Không sửa', dup: 'Trùng lặp' };
 // Thư cho người báo khi đổi trạng thái / có phản hồi (chỉ khi họ đã đồng ý nhận thư)
 export function userMail(row) {
-  const t = mailT(row.lang), link = `${SITE}/app/#/report/${row.tok}`, head = t('Báo lỗi {id}: {s}', { id: tid(row.id), s: t(ST_KEY[row.status] || row.status) });
+  const t = mailT(replyLang(row)), link = `${SITE}/app/#/report/${row.tok}`, head = t('Báo lỗi {id}: {s}', { id: tid(row.id), s: t(ST_KEY[row.status] || row.status) });
   const L = [head];
   if (row.status === 'fixed') L.push('', t('Cảm ơn bạn đã giúp Lexkite tốt hơn!'), ...(row.fix_ver ? [t('Đã sửa trong phiên bản {v}', { v: row.fix_ver })] : []));
   if (row.reply) L.push('', t('Phản hồi từ Lexkite'), row.reply);
@@ -251,12 +254,12 @@ export function userMail(row) {
 
 // Thư cảm ơn ngay khi tạo phiếu (chỉ khi người báo để email + đồng ý): mã LX, mốc dự kiến (đã có mức AI nếu kịp), liên kết riêng #/report/<mã>
 export function thanksMail(row, eta) {
-  const t = mailT(row.lang), head = t('Báo lỗi {id}: {s}', { id: tid(row.id), s: t('Đã nhận') });
+  const t = mailT(replyLang(row)), head = t('Báo lỗi {id}: {s}', { id: tid(row.id), s: t('Đã nhận') });
   const L = [head, '', t('Cảm ơn bạn đã giúp Lexkite tốt hơn!'), ...(eta ? [etaText(eta, t)] : []), '', t('Lưu đường dẫn riêng này để theo dõi trạng thái:'), `${SITE}/app/#/report/${row.tok}`, '', '— Lexkite · ' + t('Bạn nhận thư này vì đã chọn nhận cập nhật khi gửi báo lỗi.')];
   return { to: row.email, subject: '[Lexkite] ' + head, text: L.join('\n') };
 }
 async function thank(env, db, q, id) {
-  const r = await db.prepare('SELECT id, tok, cat, sev, eta_x, lang, email, notify, spam, sandbox FROM reports WHERE id = ?').bind(id).first();
+  const r = await db.prepare('SELECT id, tok, cat, sev, eta_x, lang, ulang, email, notify, spam, sandbox FROM reports WHERE id = ?').bind(id).first();
   if (!r || !r.notify || r.spam || r.sandbox || !EMAIL.test(r.email || '')) return false;
   if (q.near('mail')) { await ev(db, id, 'system', 'mail-skipped', 'quota').run(); return false; }
   const ok = await mail(env, 'user', thanksMail(r, etaPub(r, await etaCfg(db))));
@@ -281,7 +284,7 @@ async function after(env, db, q, r) {
     return;
   }
   const eh = (await smartEta(db, r.cat, tri.severity, await etaCfg(db), r.id)).x || null; // mốc chính xác sau AI (trang trạng thái + thư cảm ơn)
-  const w = [db.prepare(`UPDATE reports SET sev = ?, sig = ?, ai = ?, eta_x = ?${root ? ", dup_of = ?, status = 'dup'" : ''} WHERE id = ?`).bind(...[tri.severity, sig, JSON.stringify(tri), eh, ...(root ? [root.id] : []), r.id]), ev(db, r.id, 'ai', 'triage', `${tri.severity} · ${tri.by}${root ? ' · dup ' + tid(root.id) : ''}`)];
+  const w = [db.prepare(`UPDATE reports SET sev = ?, sig = ?, ai = ?, eta_x = ?, ulang = COALESCE(NULLIF(?, ''), ulang)${root ? ", dup_of = ?, status = 'dup'" : ''} WHERE id = ?`).bind(...[tri.severity, sig, JSON.stringify(tri), eh, tri.ulang || '', ...(root ? [root.id] : []), r.id]), ev(db, r.id, 'ai', 'triage', `${tri.severity} · ${tri.by}${root ? ' · dup ' + tid(root.id) : ''}`)];
   if (root) w.push(db.prepare('UPDATE reports SET upd = upd WHERE id = ?').bind(root.id), ev(db, root.id, 'ai', 'merged', tid(r.id) + ' (auto)'));
   if (tri.by === 'ai') w.push(q.use('ai', q.cost || 60));
   await db.batch(w);
@@ -339,9 +342,11 @@ async function create(request, env, b, bg) {
   let spam = mod.hide || spamScore(msg, email) >= 2 ? 1 : 0;
   if (!spam && (await db.prepare('SELECT id FROM reports WHERE who = ? AND msg = ? AND at > ? LIMIT 1').bind(who, msg, now - DAY).first())) spam = 1; // gửi lặp y hệt
   const area = areaOf(ctx.route, ctx.plat, ctx.dom), tok = token();
+  const cc = String((request.cf && request.cf.country) || '').toUpperCase(), country = /^[A-Z]{2}$/.test(cc) && cc !== 'XX' ? cc : ''; // chỉ mã nước 2 ký tự (không IP) – quản trị thấy người báo từ đâu
+  const ulang = String(ctx.lang || '').toLowerCase().slice(0, 2); // tạm = ngôn ngữ giao diện; AI phân loại ghi đè bằng ngôn ngữ thật của nội dung
   const pid = /^[a-f0-9]{32}$/.test(String(b.pid || '')) ? String(b.pid) : ''; // id thiết bị nhắc học (nếu đã bật) → báo đẩy khi Đã sửa
-  const row = await db.prepare('INSERT INTO reports (tok, at, upd, status, cat, area, msg, email, notify, uid, who, lang, plat, ver, route, ctx, errs, has_shot, spam, sandbox, pid) VALUES (?, ?, ?, \'new\', ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING id')
-    .bind(tok, now, now, cat, area, msg, email, notify ? 1 : 0, (who0 && who0.sub) || '', who, ctx.lang, ctx.plat, ctx.ver, ctx.route, JSON.stringify(ctx), JSON.stringify(errs), shot ? 1 : 0, spam, ctx.sandbox ? 1 : 0, pid).first();
+  const row = await db.prepare('INSERT INTO reports (tok, at, upd, status, cat, area, msg, email, notify, uid, who, lang, plat, ver, route, ctx, errs, has_shot, spam, sandbox, pid, country, ulang) VALUES (?, ?, ?, \'new\', ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING id')
+    .bind(tok, now, now, cat, area, msg, email, notify ? 1 : 0, (who0 && who0.sub) || '', who, ctx.lang, ctx.plat, ctx.ver, ctx.route, JSON.stringify(ctx), JSON.stringify(errs), shot ? 1 : 0, spam, ctx.sandbox ? 1 : 0, pid, country, ulang).first();
   const id = row.id, w = [ev(db, id, 'reporter', 'create', spam ? 'spam' + (mod.why.length ? ' · ' + mod.why.join(', ') : '') : '')];
   if (shot) { // R2 nhị phân (không base64 trong D1); R2 lỗi/chưa gắn → D1 như cũ
     let nb = 0; if (env.REPORT_SHOTS) nb = await shotPut(env, id, shot).catch(() => 0);
@@ -361,7 +366,7 @@ async function create(request, env, b, bg) {
 }
 
 // ---------- Quản trị ----------
-const LIST_COLS = 'id, at, upd, status, cat, area, substr(msg, 1, 240) AS msg, email, notify, lang, plat, ver, route, has_shot, spam, sandbox, asg, dup_of, (uid != \'\') AS signed, sev, feat, issue, seen_at, ' + PEOPLE + ' AS people, json_extract(ai, \'$.summary_vi\') AS ai_sum';
+const LIST_COLS = 'id, at, upd, status, cat, area, substr(msg, 1, 240) AS msg, email, notify, lang, country, ulang, plat, ver, route, has_shot, spam, sandbox, asg, dup_of, (uid != \'\') AS signed, sev, feat, issue, seen_at, ' + PEOPLE + ' AS people, json_extract(ai, \'$.summary_vi\') AS ai_sum';
 function where(b) {
   const w = [], a = [];
   // 'open' = lỗi đang mở (không gồm đề xuất) · 'ideas' = mục Đề xuất (chờ duyệt/để sau)
@@ -370,6 +375,7 @@ function where(b) {
   if (SEVS.includes(b.sev)) { a.push(b.sev); w.push('sev = ?' + a.length); }
   if (CATS.includes(b.cat)) { a.push(b.cat); w.push('cat = ?' + a.length); }
   if (AREAS.includes(b.area)) { a.push(b.area); w.push('area = ?' + a.length); }
+  if (/^[A-Za-z]{2}$/.test(b.country || '')) { a.push(String(b.country).toUpperCase()); w.push('country = ?' + a.length); } else if (b.country === '-') w.push("COALESCE(country, '') = ''");
   if (PLATS.includes(b.plat)) { a.push(b.plat); w.push('plat = ?' + a.length); }
   w.push(b.spam ? 'spam = 1' : 'spam = 0');
   if (!b.sandbox) w.push('sandbox = 0');
@@ -380,7 +386,7 @@ function where(b) {
 const csvCell = v => { const s = String(v == null ? '' : v); const x = /^[=+\-@\t\r]/.test(s) ? "'" + s : s; return /[",\n\r]/.test(x) ? '"' + x.replace(/"/g, '""') + '"' : x; }; // chống CSV injection
 
 async function notifyReporter(env, db, id) {
-  const r = await db.prepare('SELECT id, tok, status, reply, dup_of, fix_ver, email, notify, lang, spam, sandbox FROM reports WHERE id = ?').bind(id).first();
+  const r = await db.prepare('SELECT id, tok, status, reply, dup_of, fix_ver, email, notify, lang, ulang, spam, sandbox FROM reports WHERE id = ?').bind(id).first();
   if (!r || !r.notify || r.spam || r.sandbox || !EMAIL.test(r.email || '')) return false; // báo lỗi thử/spam không bao giờ gửi thư thật
   const ok = await mail(env, 'user', userMail(r));
   await ev(db, id, 'system', ok ? 'mailed' : 'mail-failed', ok ? '' : String(MAIL_ST)).run();
@@ -409,8 +415,9 @@ const OPS = {
     counts.ideas = (await db.prepare("SELECT COUNT(*) AS n FROM reports WHERE spam = 0 AND sandbox = 0 AND cat = 'idea' AND dup_of IS NULL AND status NOT IN ('wontfix', 'fixed') AND COALESCE(feat, '') NOT IN ('rejected')").first() || {}).n || 0;
     const sevs = Object.fromEntries(((await db.prepare("SELECT sev, COUNT(*) AS n FROM reports WHERE spam = 0 AND sandbox = 0 AND cat != 'idea' AND status IN ('new', 'ack', 'prog') GROUP BY sev").all()).results || []).map(r => [r.sev || '-', r.n]));
     const areas = Object.fromEntries(((await db.prepare("SELECT area, COUNT(*) AS n FROM reports WHERE spam = 0 AND sandbox = 0 AND status IN ('new', 'ack', 'prog') GROUP BY area").all()).results || []).map(r => [r.area, r.n]));
+    const countries = Object.fromEntries(((await db.prepare("SELECT COALESCE(NULLIF(country, ''), '-') AS c, COUNT(*) AS n FROM reports WHERE spam = 0 AND sandbox = 0 AND status IN ('new', 'ack', 'prog') GROUP BY c ORDER BY n DESC LIMIT 40").all()).results || []).map(r => [r.c, r.n]));
     const spam = (await db.prepare('SELECT COUNT(*) AS n FROM reports WHERE spam = 1').first() || {}).n || 0;
-    return { rows: rows.map(r => ({ ...r, tid: tid(r.id), dup: r.dup_of ? tid(r.dup_of) : '' })), total, counts, sevs, areas, spam, gh: !!env.GH_ISSUES_TOKEN, admins: String(env.ADMIN_EMAILS || '').toLowerCase().split(/[,\s]+/).filter(Boolean) };
+    return { rows: rows.map(r => ({ ...r, tid: tid(r.id), dup: r.dup_of ? tid(r.dup_of) : '' })), total, counts, sevs, areas, countries, spam, gh: !!env.GH_ISSUES_TOKEN, admins: String(env.ADMIN_EMAILS || '').toLowerCase().split(/[,\s]+/).filter(Boolean) };
   },
   async get(env, db, b) {
     const id = rid(b.id); const r = await db.prepare('SELECT * FROM reports WHERE id = ?').bind(id).first(); if (!r) throw new Error('not-found');
@@ -418,23 +425,40 @@ const OPS = {
     const events = (await db.prepare('SELECT at, by, act, note FROM report_events WHERE rid = ? ORDER BY id DESC LIMIT 50').bind(id).all()).results || [];
     const dups = ((await db.prepare('SELECT id FROM reports WHERE dup_of = ?').bind(id).all()).results || []).map(x => tid(x.id));
     let ctx = {}, errs = [], ai = null; try { ctx = JSON.parse(r.ctx || '{}'); errs = JSON.parse(r.errs || '[]'); ai = r.ai ? JSON.parse(r.ai) : null; } catch (e) { /* bỏ qua */ }
-    return { ...rest, tid: tid(id), signed: !!uid, ctx, errs, ai, events, dups, people: 1 + dups.length, dup: r.dup_of ? tid(r.dup_of) : '', gh: !!env.GH_ISSUES_TOKEN, tpl: Object.fromEntries(Object.keys(REPLY_TPL).map(k => [k, tplText(r.lang, k)])), tpl_vi: Object.fromEntries(Object.entries(REPLY_TPL).map(([k, v]) => [k, v.vi])) };
+    return { ...rest, tid: tid(id), signed: !!uid, ctx, errs, ai, events, dups, people: 1 + dups.length, dup: r.dup_of ? tid(r.dup_of) : '', gh: !!env.GH_ISSUES_TOKEN, rl: replyLang(r), tpl: Object.fromEntries(Object.keys(REPLY_TPL).map(k => [k, tplText(replyLang(r), k)])), tpl_vi: Object.fromEntries(Object.entries(REPLY_TPL).map(([k, v]) => [k, v.vi])) };
   },
   // Ảnh trong R2 → URL ký 5 phút (không qua JSON); chưa có khóa ký hoặc ảnh còn ở D1 → data URL
   async shot(env, db, b) { const id = rid(b.id), r = await db.prepare('SELECT has_shot, shot_b FROM reports WHERE id = ?').bind(id).first(); if (!r || !r.has_shot) return { data: '' };
     const url = r.shot_b && env.REPORT_SHOTS ? await shotUrl(env, id) : ''; return url ? { url } : { data: await shotData(env, db, id) }; },
-  async set(env, db, b, who) { return apply(env, db, rid(b.id), b, who.email); },
+  async set(env, db, b, who) { const { reply, ...rest } = b; return apply(env, db, rid(b.id), reply != null ? { ...rest, reply_raw: reply } : rest, who.email); },
+  // Xem trước bản dịch trả lời (chưa gửi gì): chữ quản trị → ngôn ngữ người báo
+  async xlate(env, db, b) {
+    const id = rid(b.id), r = await db.prepare('SELECT id, lang, ulang FROM reports WHERE id = ?').bind(id).first(); if (!r) throw new Error('not-found');
+    const L = replyLang(r), text = str(b.text, 2000); if (!text) throw new Error('text');
+    if (L === 'vi') return { ok: true, lang: L, text };
+    try { return { ok: true, lang: L, text: await translate(env, text, L) }; } catch (e) { return { ok: false, lang: L, error: 'translate' }; }
+  },
 };
 async function apply(env, db, id0, b, by) {
   {
-    const id = id0, r = await db.prepare('SELECT id, status, reply, asg FROM reports WHERE id = ?').bind(id).first(); if (!r) throw new Error('not-found');
+    const id = id0, r = await db.prepare('SELECT id, status, reply, asg, lang, ulang FROM reports WHERE id = ?').bind(id).first(); if (!r) throw new Error('not-found');
     const now = Date.now(), sets = [], a = [], evs = []; let tell = false;
     if (b.status != null && b.status !== r.status) {
       if (!STATUSES.includes(b.status)) throw new Error('status');
       sets.push('status = ?', 'fixed_at = ?'); a.push(b.status, b.status === 'fixed' ? now : null); evs.push(['status', r.status + ' → ' + b.status]); tell = true;
       if (b.status !== 'dup') { sets.push('dup_of = NULL'); }
     }
-    if (b.reply != null && str(b.reply, 2000) !== (r.reply || '')) { sets.push('reply = ?'); a.push(str(b.reply, 2000)); evs.push(['reply', str(b.reply, 500)]); tell = true; }
+    // Chữ trả lời: b.reply = đã đúng ngôn ngữ (mẫu); b.reply_raw = chữ quản trị gõ (tiếng Việt hay bất kỳ) → dịch sang ngôn ngữ người báo trước khi lưu/gửi.
+    // Anh đã xem trước/sửa tay bản dịch (b.reply_t) → dùng đúng bản đó. Dịch lỗi → mẫu REPLY_TPL đúng ngôn ngữ (không bao giờ gửi tiếng Việt cho người không-vi) + cảnh báo quản trị
+    let pubReply = b.reply != null ? str(b.reply, 2000) : null, srcReply = '', warn = '';
+    if (b.reply_raw != null) {
+      const raw = str(b.reply_raw, 2000), L = replyLang(r), sfx = String(b.reply_sfx || '').slice(0, 60); srcReply = raw;
+      if (!raw) pubReply = '';
+      else if (L === 'vi') pubReply = raw + sfx;
+      else if (str(b.reply_t, 2000)) pubReply = str(b.reply_t, 2000) + sfx;
+      else { try { pubReply = (await translate(env, raw, L)) + sfx; } catch (e) { pubReply = tplText(L, tplKeyFor(b.status || r.status)); warn = 'translate-failed'; } }
+    }
+    if (pubReply != null && pubReply !== (r.reply || '')) { sets.push('reply = ?'); a.push(pubReply); evs.push(['reply', pubReply.slice(0, 500)]); if (srcReply && srcReply !== pubReply) evs.push(['reply-src', srcReply.slice(0, 500)]); if (warn) evs.push([warn, replyLang(r)]); tell = true; }
     if (b.note != null) { sets.push('note = ?'); a.push(str(b.note, 2000)); evs.push(['note', '']); }
     if (b.asg != null) { const e = str(b.asg, 120).toLowerCase(); const adm = String(env.ADMIN_EMAILS || '').toLowerCase().split(/[,\s]+/); if (e && !adm.includes(e)) throw new Error('asg'); sets.push('asg = ?'); a.push(e); evs.push(['assign', e || '—']); }
     if (!sets.length) return { ok: true, changed: false };
@@ -443,15 +467,15 @@ async function apply(env, db, id0, b, by) {
     await db.batch([db.prepare(`UPDATE reports SET ${sets.join(', ')} WHERE id = ?`).bind(...a, id), ...evs.map(([act, note]) => ev(db, id, by, act, note))]);
     const mailed = tell && b.mail !== false ? await notifyReporter(env, db, id) : false;
     const pushed = b.status === 'fixed' && r.status !== 'fixed' ? await pushFixed(env, db, id) : false;
-    return { ok: true, changed: true, mailed, pushed };
+    return { ok: true, changed: true, mailed, pushed, ...(warn ? { warn } : {}) };
   }
 }
 // Đã sửa cho cả nhóm: phiếu gốc + các phiếu trùng còn mở, mỗi người báo nhận đúng ngôn ngữ của mình (replyOf(lang))
 async function fixGroup(env, db, id, replyOf, by) {
-  const rs = ((await db.prepare("SELECT id, lang, status FROM reports WHERE id = ? OR dup_of = ?").bind(id, id).all()).results || []).filter(x => x.id === id || x.status !== 'fixed');
-  let mailed = 0, pushed = 0, changed = false;
-  for (const x of rs) { const o = await apply(env, db, x.id, { status: 'fixed', reply: replyOf(x.lang) }, by); if (o.mailed) mailed++; if (o.pushed) pushed++; if (x.id === id) changed = !!o.changed; }
-  return { changed, mailed, pushed, dups: rs.filter(x => x.id !== id).length };
+  const rs = ((await db.prepare("SELECT id, lang, ulang, status FROM reports WHERE id = ? OR dup_of = ?").bind(id, id).all()).results || []).filter(x => x.id === id || x.status !== 'fixed');
+  let mailed = 0, pushed = 0, changed = false, warns = 0;
+  for (const x of rs) { const o = await apply(env, db, x.id, { status: 'fixed', ...replyOf(x) }, by); if (o.warn) warns++; if (o.mailed) mailed++; if (o.pushed) pushed++; if (x.id === id) changed = !!o.changed; }
+  return { changed, mailed, pushed, warns, dups: rs.filter(x => x.id !== id).length };
 }
 // Trần mỗi lệnh act: mỗi phiếu tốn vài lệnh D1 + thư, Pages giới hạn số subrequest → máy khách chia lô
 export const ACT_MAX = 10;
@@ -462,12 +486,12 @@ Object.assign(OPS, {
     if (!ids.length || ids.length > ACT_MAX) throw new Error('ids');
     if (b.status != null && (!STATUSES.includes(b.status) || b.status === 'dup')) throw new Error('status'); // Trùng lặp cần phiếu gốc → op merge
     if (b.tpl != null && !Object.hasOwn(REPLY_TPL, b.tpl)) throw new Error('tpl');
-    const replyOf = lang => (b.reply != null ? str(b.reply, 2000) : b.tpl != null ? tplText(lang, b.tpl) : undefined), rows = [];
+    const replyOf = x => (b.reply != null ? { reply_raw: str(b.reply, 2000), ...(ids.length === 1 && x.id === ids[0] && b.reply_t ? { reply_t: b.reply_t } : {}) } : b.tpl != null ? { reply: tplText(replyLang(x), b.tpl) } : {}), rows = [];
     for (const id of ids) {
-      const r = await db.prepare('SELECT id, lang FROM reports WHERE id = ?').bind(id).first();
+      const r = await db.prepare('SELECT id, lang, ulang FROM reports WHERE id = ?').bind(id).first();
       if (!r) { rows.push({ id: tid(id), skip: 'not-found' }); continue; }
-      const o = b.status === 'fixed' ? await fixGroup(env, db, id, replyOf, who.email) : await apply(env, db, id, { status: b.status, reply: replyOf(r.lang) }, who.email);
-      rows.push({ id: tid(id), changed: !!o.changed, mailed: +o.mailed || 0, pushed: +o.pushed || 0, dups: o.dups || 0 });
+      const o = b.status === 'fixed' ? await fixGroup(env, db, id, replyOf, who.email) : await apply(env, db, id, { status: b.status, ...replyOf(r) }, who.email);
+      rows.push({ id: tid(id), changed: !!o.changed, mailed: +o.mailed || 0, pushed: +o.pushed || 0, dups: o.dups || 0, warns: +o.warns || (o.warn ? 1 : 0) });
     }
     return { ok: true, rows };
   },
@@ -483,10 +507,10 @@ Object.assign(OPS, {
   async spam(env, db, b, who) { const id = rid(b.id); await db.batch([db.prepare('UPDATE reports SET spam = ? WHERE id = ?').bind(b.spam ? 1 : 0, id), ev(db, id, who.email, b.spam ? 'spam' : 'not-spam')]); return { ok: true }; },
   async export(env, db, b) {
     const { sql, a } = where(b);
-    const rows = (await db.prepare(`SELECT id, at, upd, status, cat, area, plat, ver, lang, route, msg, email, asg, dup_of, fixed_at, reply FROM reports${sql} ORDER BY at DESC LIMIT 5000`).bind(...a).all()).results || [];
-    const H = ['ticket', 'created', 'updated', 'status', 'category', 'area', 'platform', 'version', 'ui_lang', 'route', 'description', 'email', 'assignee', 'duplicate_of', 'fixed', 'reply'];
+    const rows = (await db.prepare(`SELECT id, at, upd, status, cat, area, plat, ver, lang, country, ulang, route, msg, email, asg, dup_of, fixed_at, reply FROM reports${sql} ORDER BY at DESC LIMIT 5000`).bind(...a).all()).results || [];
+    const H = ['ticket', 'created', 'updated', 'status', 'category', 'area', 'platform', 'version', 'ui_lang', 'country', 'reporter_lang', 'route', 'description', 'email', 'assignee', 'duplicate_of', 'fixed', 'reply'];
     const iso = t => t ? new Date(t).toISOString() : '';
-    const csv = [H.join(','), ...rows.map(r => [tid(r.id), iso(r.at), iso(r.upd), r.status, r.cat, r.area, r.plat, r.ver, r.lang, r.route, r.msg, r.email, r.asg, r.dup_of ? tid(r.dup_of) : '', iso(r.fixed_at), r.reply].map(csvCell).join(','))].join('\r\n');
+    const csv = [H.join(','), ...rows.map(r => [tid(r.id), iso(r.at), iso(r.upd), r.status, r.cat, r.area, r.plat, r.ver, r.lang, r.country, r.ulang, r.route, r.msg, r.email, r.asg, r.dup_of ? tid(r.dup_of) : '', iso(r.fixed_at), r.reply].map(csvCell).join(','))].join('\r\n');
     return { csv, n: rows.length };
   },
   async stats(env, db) {
@@ -500,7 +524,8 @@ Object.assign(OPS, {
     const m = median(fx);
     const sh = (await db.prepare('SELECT COALESCE(SUM(shot_b), 0) AS b, COUNT(shot_b) AS n FROM reports WHERE has_shot = 1 AND shot_b > 0').first()) || {}, d1n = ((await db.prepare('SELECT COUNT(*) AS n FROM report_shots').first()) || {}).n || 0;
     const shots = { r2: !!env.REPORT_SHOTS, bytes: sh.b || 0, n: sh.n || 0, d1: d1n, freeB: R2_FREE, pct: Math.round((sh.b || 0) / R2_FREE * 1e4) / 100 }; // R2 Free 10 GB/tài khoản (chung các bucket)
-    return { shots, byStatus, byArea, days7, medianFixH: m == null ? null : Math.round(m / 36e5 * 10) / 10, fixedN: fx.length, open: (byStatus.new || 0) + (byStatus.ack || 0) + (byStatus.prog || 0) };
+    const byCountry = ((await db.prepare(`SELECT country AS c, COUNT(*) AS n FROM reports WHERE ${base} AND at > ? AND COALESCE(country, '') != '' GROUP BY c ORDER BY n DESC LIMIT 10`).bind(now - 30 * DAY).all()).results || []);
+    return { shots, byCountry, byStatus, byArea, days7, medianFixH: m == null ? null : Math.round(m / 36e5 * 10) / 10, fixedN: fx.length, open: (byStatus.new || 0) + (byStatus.ack || 0) + (byStatus.prog || 0) };
   },
   async cfg(env, db, b, who) {
     if (b.eta && typeof b.eta === 'object') { const e = {}; for (const k of ['serious', 'normal', 'content']) { const v = Math.round(+b.eta[k]); if (!(v >= 1 && v <= 2160)) throw new Error('eta'); e[k] = v; } await db.prepare("INSERT OR REPLACE INTO config (k, v, at, by) VALUES ('report_eta', ?, ?, ?)").bind(JSON.stringify(e), Date.now(), who.email).run(); }
@@ -515,7 +540,7 @@ Object.assign(OPS, {
     const sim = (await db.prepare(`SELECT COUNT(*) AS n FROM reports WHERE id != ?1 AND spam = 0 AND at > ?2 AND (area = ?3 OR (?4 != '' AND sig = ?4))`).bind(id, Date.now() - 7 * DAY, r.area, r.sig || '').first() || {}).n || 0;
     const tri = await triage(env, { msg: r.msg, cat: r.cat, area: r.area, route: r.route, plat: r.plat, ver: r.ver, lang: r.lang, errs, shot, similar: sim, cands: [] });
     const eh = (await smartEta(db, r.cat, tri.severity, await etaCfg(db), id)).x || null;
-    await db.batch([db.prepare('UPDATE reports SET sev = ?, ai = ?, eta_x = ? WHERE id = ?').bind(tri.severity, JSON.stringify(tri), eh, id), ev(db, id, who.email, 'triage', tri.severity + ' · ' + tri.by)]);
+    await db.batch([db.prepare('UPDATE reports SET sev = ?, ai = ?, eta_x = ?, ulang = COALESCE(NULLIF(?, \'\'), ulang) WHERE id = ?').bind(tri.severity, JSON.stringify(tri), eh, tri.ulang || '', id), ev(db, id, who.email, 'triage', tri.severity + ' · ' + tri.by)]);
     return { ok: true, ai: tri };
   },
   // "Giao Claude Code": tạo GitHub Issue (đề xuất phải được Duyệt trước)
@@ -527,7 +552,7 @@ Object.assign(OPS, {
     const d = { approve: 'approved', reject: 'rejected', later: 'later' }[b.decision]; if (!d) throw new Error('decision');
     await db.batch([db.prepare('UPDATE reports SET feat = ? WHERE id = ?').bind(d, id), ev(db, id, who.email, 'idea', d)]);
     const st = d === 'approved' ? 'ack' : d === 'rejected' ? 'wontfix' : null;
-    const out = st ? await apply(env, db, id, { status: st, reply: b.reply }, who.email) : { ok: true };
+    const out = st ? await apply(env, db, id, { status: st, reply_raw: b.reply }, who.email) : { ok: true };
     if (d === 'approved') out.issue = await toClaude(env, db, id, who.email);
     return { ok: true, feat: d, ...out };
   },
@@ -586,12 +611,12 @@ Object.assign(OPS, {
     const id = rid(b.id), commit = /^[0-9a-f]{7,40}$/i.test(b.commit || '') ? String(b.commit).slice(0, 12) : '', note = str(b.note, 1500);
     const r = await db.prepare('SELECT id, cat, status FROM reports WHERE id = ?').bind(id).first(); if (!r) throw new Error('not-found');
     if (r.status === 'fixed') return { ok: true, id: tid(id), skipped: 'already-fixed', dups: 0, mailed: 0 };
-    const replyOf = lang => (note ? note + (commit ? ` (commit ${commit})` : '') : tplText(lang, 'fixed')); // không ghi chú → mẫu đúng ngôn ngữ từng người báo (commit vẫn ở fix_ver + lịch sử)
+    const replyOf = x => (note ? { reply_raw: note, reply_sfx: commit ? ` (commit ${commit})` : '' } : { reply: tplText(replyLang(x), 'fixed') }); // không ghi chú → mẫu đúng ngôn ngữ từng người báo (commit vẫn ở fix_ver + lịch sử)
     const fv = str(b.ver, 40) || commit;
     if (fv) await db.prepare('UPDATE reports SET fix_ver = ? WHERE id = ? OR dup_of = ?').bind(fv, id, id).run(); // trước khi gửi thư → thư ghi đúng phiên bản
     const out = await fixGroup(env, db, id, replyOf, who.email);
     await ev(db, id, who.email, 'resolve', commit).run();
-    return { ok: true, id: tid(id), dups: out.dups, mailed: out.mailed };
+    return { ok: true, id: tid(id), dups: out.dups, mailed: out.mailed, ...(out.warns ? { warns: out.warns } : {}) };
   },
 });
 export const ADMIN_OPS = Object.keys(OPS);

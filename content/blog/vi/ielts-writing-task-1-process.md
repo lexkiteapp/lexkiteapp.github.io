@@ -9,7 +9,7 @@ tags: [ielts, writing, task-1, process-diagram, passive-voice]
 keyword: "ielts writing task 1 process"
 cover: write
 coverAlt: "Phòng Writing của Lexkite với đề bài và khung lập dàn ý cho một bài báo cáo"
-publishAt:
+publishAt: 2027-02-13T12:08:00+07:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

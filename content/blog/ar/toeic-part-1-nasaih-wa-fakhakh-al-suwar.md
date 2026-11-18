@@ -12,7 +12,7 @@ coverAlt: "مركز TOEIC في Lexkite مع اختبارات تجريبية وت
 factChecked: 2026-11-16
 author: Lexkite
 status: ready
-publishAt:
+publishAt: 2027-01-18T19:03:00+03:00
 qualityScore: 91
 coverArt: {mood: happy, icon: ear}
 shots: [

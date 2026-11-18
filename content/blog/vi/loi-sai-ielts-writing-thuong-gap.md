@@ -9,7 +9,7 @@ tags: [ielts, writing, mistakes, grammar, task-2]
 keyword: "lỗi sai ielts writing"
 cover: write
 coverAlt: "Phòng Writing của Lexkite với đề luận, gợi ý ý tưởng và khung bài"
-publishAt:
+publishAt: 2027-02-15T19:22:00+07:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready
