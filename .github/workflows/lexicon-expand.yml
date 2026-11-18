@@ -169,9 +169,11 @@ jobs:
         run: |
           cat reports/lexicon-expand.json 2>/dev/null >> "$GITHUB_STEP_SUMMARY" || true
           node scripts/ai-capacity.mjs || true   # thẻ Sức chứa AI (Quản trị › Khóa API)
-          node scripts/lexicon/expand/requeue.mjs --gaps || true   # mục trượt vì lỗ IPA nguồn → retry, không để kẹt hàng duyệt (npm test chặn)
+          node scripts/lexicon/expand/requeue.mjs --gaps || true
+          # 17/11 health-board: khai SẢN LƯỢNG lượt này (mục đạt cổng) → reports/yield/lexicon-expand.s<shard>.json; đi cùng commit dữ liệu bên dưới (docs/HEALTH-BOARD.md)
+          node scripts/ci/record-yield.mjs "lexicon-expand.s${{ matrix.shard }}" "$(node -p "(require('./reports/lexicon-expand.json').pass)||0" 2>/dev/null || echo 0)" --unit "mục đạt" || true   # mục trượt vì lỗ IPA nguồn → retry, không để kẹt hàng duyệt (npm test chặn)
           # 31/10 (run 41178484346 mất 161 mục đạt vì rebase xung đột): chép bản lượt ra ngoài → origin/main mới → gộp 3 chiều JSON (save-merge.mjs) → push; không bao giờ mất lô
-          CH=$(git ls-files -m -o -d --exclude-standard -- content/lexicon/expand content/qa/review-queue.json content/qa/batches web/data/ai-capacity.json | sort -u)
+          CH=$(git ls-files -m -o -d --exclude-standard -- content/lexicon/expand reports/yield content/qa/review-queue.json content/qa/batches web/data/ai-capacity.json | sort -u)
           test -n "$CH" || { echo 'không có thay đổi'; exit 0; }
           BASE=$(git rev-parse HEAD); O="$RUNNER_TEMP/ours"
           for f in $CH; do mkdir -p "$O/$(dirname "$f")"; [ -f "$f" ] && cp "$f" "$O/$f"; done

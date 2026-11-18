@@ -9,7 +9,7 @@ tags: [toeic, test-format, listening, reading]
 keyword: "toeic exam pattern in hindi"
 cover: toeic
 coverAlt: "Lexkite का TOEIC क्षेत्र: सात मॉक टेस्ट, पार्ट के अनुसार अभ्यास और TOEIC शब्दावली"
-publishAt:
+publishAt: 2027-01-19T08:33:00+05:30
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

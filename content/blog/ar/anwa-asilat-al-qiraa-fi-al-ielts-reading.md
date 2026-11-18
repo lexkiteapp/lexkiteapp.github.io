@@ -11,7 +11,7 @@ cover: reading
 coverAlt: "قائمة القراءة في Lexkite مع نصوص مصنفة من المستوى A2 إلى C1"
 factChecked: 2026-11-16
 author: Lexkite
-publishAt:
+publishAt: 2027-01-06T19:46:00+03:00
 qualityScore: 91
 status: ready
 coverArt: {mood: think, icon: book}

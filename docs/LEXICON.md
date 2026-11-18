@@ -119,3 +119,6 @@ Dạng V1/V2/V3 chỉ ở IRR của `web/js/verbs-core.js`; nội dung `content/
 - **Phiếu GPL (Hồ Ngọc Đức, `infra/resources.json` › `ovdp-anhviet`, điều phối + ranh giới chủ 11/11):** tải vào `$RUNNER_TEMP`, `gpl_probe.py` → `gpl.json` tạm, xoá cuối bước; không commit/artifact/kho/app. `viAgreeSources({ g })` chỉ thêm nhãn `gpl` vào phương án ĐÃ có (không tạo mới, một mình không đủ, chữ lưu luôn của Wiktionary/AI); mọi cổng sau giữ nguyên; test ở `scripts/test/lexicon-expand.mjs`; tắt `LX_GPL=0`. Đo (run 44115474061, cận trên): q2 1.006 → 892 đủ 2 nguồn; retry 1.569 → +297.
 - **Nguồn câu xoay:** `LX_ENWIKI_EXTRA` (mặc định 1) phần dump enwiki ngoài 3 phần đầu, theo ngày trong năm (73 phần).
 - **Mốc quý: ~12–13k word#pos đạt chuẩn** (17/11: 10.288; +450–900 một lần từ q2, +300–400 từ retry). **20k vẫn là đích**, cần nguồn vi/câu mới cho từ hiếm. Nhịp: `node scripts/lexicon/expand/pace.mjs`; sàn health-board ≥ 40 mục đạt/48 h (`infra/yield-floors.json`).
+
+## Mục tiêu & tốc độ kho từ (17/11, health-board)
+- Mốc: **20.000 word#pos** đạt cổng. Đo: `node scripts/lexicon/expand/pace.mjs` (kho + mục đã xuất, tốc độ 7 ngày, ngày dự kiến đủ, tốc độ CẦN/ngày). 17/11: 10.288 (thiếu 9.712), 73/ngày (kéo bởi vài lượt tốt 10–13/11; 14–17/11 ≈ 0) → ~133 ngày; muốn đủ trong 30 ngày cần ~324/ngày.

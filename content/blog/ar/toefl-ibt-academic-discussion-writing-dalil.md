@@ -166,7 +166,7 @@ quiz: [
 
 لمعرفة المزيد حول الفروق الجوهرية بين الاختبارات، راجع [دليل أقسام اختبار التوفل toefl ibt](/ar/blog/toefl-ibt-dalil-ar/) وقارنه مع [كتابة ielts writing task 2](/ar/blog/ielts-writing-task-2-ar/)، وقم بمطالعة استراتيجيات القراءة في [استراتيجيات قراءة آيلتس skimming و scanning](/ar/blog/ielts-reading-skimming-scanning-istratijiyat/) وتدريبات المحادثة في [قوالب إجابة آيلتس التحدث الجزء 2](/ar/blog/ielts-speaking-part-2-namudhaj-template/).
 
-وللاطلاع على نماذج مقالات إضافية، تفضل بزيارة صفحة [نماذج ومقالات الكتابة الأكاديمية](/samples/).
+وللاطلاع على نماذج مقالات إضافية، تفضل بزيارة صفحة [نماذج ومقالات الكتابة الأكاديمية](/en/samples/).
 
 {{cta: /samples/ | التدرب على نماذج كتابة التوفل الأكاديمية}}
 
