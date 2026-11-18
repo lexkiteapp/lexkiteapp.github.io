@@ -9,7 +9,7 @@ tags: [ielts, reading, question-types, strategy]
 keyword: "ielts reading soru tipleri"
 cover: reading
 coverAlt: "Lexkite Reading listesi: A2'den C1'e dereceli metinler"
-publishAt:
+publishAt: 2027-01-13T20:58:00+03:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

@@ -60,7 +60,7 @@ export const REG = {
    "exclusive": false
   },
   "grabcast_social": {
-   "label": "GrabCast social API (đăng FB/IG qua autopilot – Neon free của GrabCast: ≤ 60 lượt/ngày, dừng khi 401/403/409/422/429/503)",
+   "label": "GrabCast social API (đăng FB/IG qua autopilot – API chính thức: ≤ 480 lượt/ngày, dừng khi 401/403/409/422/429/503)",
    "exclusive": false
   }
  },
@@ -1471,6 +1471,20 @@ export const REG = {
     "d1_main_reads": 200,
     "d1_main_writes": 150
    },
+   "lease": false
+  },
+  {
+   "id": "store-rollout",
+   "workflow": "store-rollout.yml",
+   "cron": [
+    "23 3 * * *"
+   ],
+   "priority": "publishing",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 2,
+   "est": {},
    "lease": false
   }
  ]

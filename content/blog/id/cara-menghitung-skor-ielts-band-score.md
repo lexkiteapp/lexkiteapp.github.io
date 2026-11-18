@@ -9,7 +9,7 @@ tags: [ielts, band-score, scoring, strategy]
 keyword: "cara menghitung skor ielts"
 cover: mock
 coverAlt: "Layar tes simulasi IELTS Lexkite dengan empat skill Listening, Reading, Writing, dan Speaking serta riwayat percobaan sebelumnya"
-publishAt:
+publishAt: 2026-12-31T19:49:00+07:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

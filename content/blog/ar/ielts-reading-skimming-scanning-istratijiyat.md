@@ -147,11 +147,13 @@ quiz: [
 
 لتطوير باقي المهارات الأكاديمية المتكاملة، يمكنك مطالعة دليل [كتابة ielts writing task 2](/ar/blog/ielts-writing-task-2-ar/)، والاستفادة من [نصائح لاختبار ielts listening](/ar/blog/nasaih-ielts-listening/).
 
-وللاطلاع على تحليلات إضافية، تفضل بزيارة صفحة [نماذج ومقالات القراءة](/samples/).
+وللاطلاع على تحليلات إضافية، تفضل بزيارة صفحة [نماذج ومقالات القراءة](/en/samples/).
 
 {{cta: /samples/ | البدء في تدريب القراءة واستراتيجيات الآيلتس}}
 
 {{youtube: | IELTS Reading Skimming and Scanning Masterclass}}
+
+وبعد المسح السريع تأتي طريقة كل مهمة، وهي مشروحة في [أنواع أسئلة القراءة في الآيلتس](/ar/blog/anwa-asilat-al-qiraa-fi-al-ielts-reading/).
 
 ## الأسئلة الشائعة (FAQ)
 

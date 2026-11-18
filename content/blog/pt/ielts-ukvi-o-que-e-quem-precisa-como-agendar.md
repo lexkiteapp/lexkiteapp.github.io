@@ -14,7 +14,7 @@ factChecked: 2026-11-16
 qualityScore: 91
 author: Lexkite
 status: ready
-publishAt:
+publishAt: 2027-01-24T09:45:00-03:00
 shots: [
   {id: s1, route: '#/goal', crop: main},
   {id: s2, route: '#/speaking', crop: main}

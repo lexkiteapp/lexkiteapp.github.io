@@ -140,7 +140,7 @@ All things considered, I believe commuting will become less about the vehicle an
    - *"If we consider this from an urban planning angle, it seems to me that..."*
 3. **ترديد كلمات الفاحص بحذافيرها:** غيّر دائماً الأفعال والصفات الرئيسية إلى مرادفات مكافئة لإبراز مرونتك اللغوية.
 
-ولصقل إيقاعك الكلامي، تفضل بالاطلاع على دليلنا الشامل حول [نبرات الجمل والتشديد في الإنجليزية](/ar/blog/nabarat-al-jumal-wa-al-tashdid-fi-al-injliziyyah/) وتدريبات [تقنية التظليل Shadowing](/ar/blog/taqniyyat-al-shadowing-al-injliziyyah/). كما نوصيك بزيارة [بنك المفردات الإنجليزية الأكاديمية](/ar/tu-vung/) في Lexkite.
+ولصقل إيقاعك الكلامي، تفضل بالاطلاع على دليلنا الشامل حول [نبرات الجمل والتشديد في الإنجليزية](/ar/blog/nabarat-al-jumal-wa-al-tashdid-fi-al-injliziyyah/) وتدريبات [تقنية التظليل Shadowing](/ar/blog/taqniyyat-al-shadowing-al-injliziyyah/). كما نوصيك بزيارة [بنك المفردات الإنجليزية الأكاديمية](/en/vocabulary/) في Lexkite.
 
 {{youtube: | استراتيجيات توسيع الإجابات والتفكير النقدي في اختبار IELTS Speaking Part 3}}
 

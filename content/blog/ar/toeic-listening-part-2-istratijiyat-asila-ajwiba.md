@@ -199,6 +199,12 @@ quiz: [
 
 ---
 
+وللاطلاع على بقية الأجزاء وتوزيع الأسئلة والوقت اقرأ [هيكل اختبار TOEIC](/ar/blog/haykal-ikhtibar-toeic-al-ajza-al-sabaa/).
+
+وبعد Part 2 تنتقل إلى الكتلة الأكبر في الاستماع، وتجد استراتيجيتها في [TOEIC Part 3 وPart 4](/ar/blog/toeic-part-3-wa-part-4-istratijiyat-al-muhadathat/).
+
+وقبل الجزء الثاني تأتي أسئلة الصور الست، وقد خصصنا لها [toeic part 1: نصائح وفخاخ أسئلة وصف الصور](/ar/blog/toeic-part-1-nasaih-wa-fakhakh-al-suwar/).
+
 ## الأسئلة الشائعة حول TOEIC Listening Part 2
 
 ### كم إجابة صحيحة أحتاج في قسم الاستماع للوصول إلى درجتي المستهدفة؟

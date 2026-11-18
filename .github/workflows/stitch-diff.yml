@@ -58,6 +58,8 @@ jobs:
           npm i --no-save --no-audit --no-fund tailwindcss@3.4.17 playwright@1.48.2 pngjs@7.0.0 axe-core@4.10.2 jsdom@25.0.1
           node scripts/stitch-v2-convert.mjs --check
           node scripts/build-stitch-css.mjs --check
+      - uses: ./.github/actions/playwright-cache
+        with: { browsers: '--with-deps chromium' }
       - name: Vẽ HTML Stitch v2 tĩnh (tắt hoạt ảnh) → tờ duyệt tối/sáng
         if: always()
         run: |

@@ -104,6 +104,12 @@ qualityScore: 94
 
 {{youtube: | ya si zi xue bei kao gui hua cong ling dao 6 5}}
 
+定目标分之前，别忘了先弄清[雅思总分怎么算](/zh/blog/ya-si-zong-fen-zen-me-suan/)：四项小分取平均并按0.5分进位，这样你才知道哪一项最值得多花时间。
+
+如果你备考雅思是为了申请英国签证，还需要确认考试版本，可以先读 [雅思UKVI和普通雅思的区别](/zh/blog/ya-si-ukvi-he-pu-tong-ya-si-de-qu-bie/)，再决定怎么报名。
+
+如果你的考试日期已经确定，想把路线压进固定周数，可以对照[雅思备考时间表：4周、8周、12周计划](/zh/blog/ya-si-bei-kao-shi-jian-biao-4-zhou-8-zhou-12-zhou/)。
+
 ## 常见问题解答（FAQ）
 
 ### 从零基础或B1水平自学到6.5分大概需要几个月？

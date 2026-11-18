@@ -11,6 +11,7 @@ import path from 'node:path';
 import http from 'node:http';
 import zlib from 'node:zlib';
 import { READ_PRON_SRC } from './pron-read.mjs';
+import { rateFor } from './lib/perf-calibrate.mjs';
 let pw; try { pw = await import('playwright'); } catch (e) { console.log('dict-perf: playwright chưa cài – bỏ qua'); process.exit(0); }
 const arg = k => { const i = process.argv.indexOf(k); return i > 0 ? process.argv[i + 1] : null; };
 const ROOT = path.resolve(arg('--root') || '.'), WEB = path.join(ROOT, 'web'), LABEL = arg('--label') || 'run', STRICT = process.argv.includes('--strict');
@@ -46,7 +47,7 @@ async function newPage(ctx) {
   const cdp = await ctx.newCDPSession(page);
   await cdp.send('Network.enable'); await cdp.send('Performance.enable');
   await cdp.send('Network.emulateNetworkConditions', { offline: false, latency: 150, downloadThroughput: 1.6e6 / 8, uploadThroughput: 0.75e6 / 8 });
-  await cdp.send('Emulation.setCPUThrottlingRate', { rate: 4 });
+  await cdp.send('Emulation.setCPUThrottlingRate', { rate: (await rateFor(browser, 4)).rate });
   const net = { bytes: 0, same: 0, data: 0, last: Date.now(), reqs: [] };
   cdp.on('Network.responseReceived', e => { net.reqs.push({ id: e.requestId, url: e.response.url }); });
   cdp.on('Network.loadingFinished', e => { net.bytes += e.encodedDataLength; const r = net.reqs.find(x => x.id === e.requestId); net.last = Date.now(); if (r && r.url.startsWith(ORIGIN)) { net.same += e.encodedDataLength; if (/\/data\/lex|\/js\/notes\/|\/packs\//.test(r.url)) net.data += e.encodedDataLength; } });

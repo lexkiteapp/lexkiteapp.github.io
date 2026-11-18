@@ -9,7 +9,7 @@ tags: [ielts, speaking, band-7, sample-answers]
 keyword: "ielts speaking band 7 örnek cevaplar"
 cover: speaking
 coverAlt: "Lexkite Speaking odasında Part 1, 2 ve 3 konuları ve örnek sorular"
-publishAt:
+publishAt: 2027-01-14T08:38:00+03:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

@@ -183,6 +183,8 @@ Sau đó, ôn chương mạo từ trong [Ngữ pháp IELTS](/#/grammar) và làm
 
 Lỗi mạo từ chỉ là một trong nhiều lỗi do chuyển di từ tiếng Việt; bài [lỗi sai tiếng Anh người Việt hay mắc](/vi/blog/loi-sai-tieng-anh-nguoi-viet-hay-mac/) tổng hợp những lỗi còn lại.
 
+Mạo từ cũng là một trong những lỗi lặp nhiều nhất trong bài thi viết; xem [lỗi sai IELTS Writing thường gặp](/vi/blog/loi-sai-ielts-writing-thuong-gap/) để biết cách soát mạo từ trong 5 phút.
+
 ## Câu hỏi thường gặp
 
 ### Vì sao "a university" mà không phải "an university"?

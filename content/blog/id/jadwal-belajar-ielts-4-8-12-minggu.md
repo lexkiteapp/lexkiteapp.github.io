@@ -9,7 +9,7 @@ tags: [ielts, study-plan, schedule, mock-test]
 keyword: "jadwal belajar ielts"
 cover: path
 coverAlt: "Layar jalur belajar Lexkite dengan pelajaran tersusun sebagai rute langkah demi langkah"
-publishAt:
+publishAt: 2027-01-14T08:10:00+07:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

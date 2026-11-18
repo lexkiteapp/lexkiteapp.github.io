@@ -160,6 +160,12 @@ quiz: [
 
 ---
 
+小作文里常见的“加入原因”“时态混用”等失分点，在[雅思写作常见错误](/zh/blog/ya-si-xie-zuo-chang-jian-cuo-wu/)里有对照的错误与改法。
+
+想专门练流程图的同学，可以接着读 [雅思小作文流程图 process 写法：被动语态与顺序词范文](/zh/blog/ya-si-xiao-zuo-wen-liu-cheng-tu-process-fan-wen/)，里面有一篇完整的原创范文和常见错误清单。
+
+如果你遇到的是柱状图而不是折线图，可以继续看[雅思小作文柱状图怎么写](/zh/blog/ya-si-xiao-zuo-wen-bar-chart-zhu-zhuang-tu/)，里面有四步写法和一篇原创范文。
+
 ## 常见问题 (FAQ)
 
 ### 1. 篇幅不足 150 词会有什么后果？

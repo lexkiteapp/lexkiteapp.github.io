@@ -10,7 +10,7 @@ keyword: "affect или effect"
 cover: dict
 coverAlt: "Словарная статья Lexkite с произношением, примером, сочетаниями и синонимами"
 coverArt: {mood: think, icon: book}
-publishAt:
+publishAt: 2027-01-03T07:23:00+03:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready
