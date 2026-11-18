@@ -59,6 +59,7 @@ Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --
 | 01:05 | `funnel-digest` | `5 1 * * *` | reports | gh_minutes | 1 | — | — |
 | 01:15 | `youtube-upload` | `15 1,8,14,20 * * *` | publishing | youtube_api, drive_pool, d1_internal | 20 | d1_internal_reads≈200, d1_main_reads≈100, drive_calls≈60 | ✓ |
 | 01:20 | `store-reviews` | `20 1 * * 1` | reports | gh_minutes | 1 | — | — |
+| 01:23 | `health-board` | `23 1 * * *` | reports | gh_minutes | 5 | — | — |
 | 01:25 | `capacity-watch` | `25 1 * * *` | reports | d1_main, gh_minutes | 2 | d1_main_reads≈40 | — |
 | 01:30 | `pr-check` | `30 1 * * *` | publishing | gh_minutes | 10 | — | — |
 | 01:30 | `screens` | `30 1 * * *` | render | gh_minutes | 25 | — | — |
@@ -177,6 +178,7 @@ Sau mốc reset 00:00 UTC (hạn mức D1 miễn phí làm mới), thứ tự: v
 | `scripts/native/gen-learn.mjs` –  | bỏ qua: chạy JS web thật (soát lỗi, ngữ pháp, phương pháp, giao tiếp tự tin) để sinh vector/gói; nếu nạp kho từ thì chỉ để dựng DOM giả, không ghi/xuất kho | — |
 | `scripts/native/gen-sync.mjs` –  | bỏ qua: chỉ tra các từ mà vector sync/migration dùng (map lib) để native dựng lại thẻ L:1; không ghi/xuất kho | — |
 | `scripts/lexicon/expand/left.mjs` – số việc còn cho ci-filler (20k − mục sống + retry), không ghi gì | `doneWords` | ci-filler.yml (probe infra/ci-backlog.json) |
+| `scripts/lexicon/expand/pace.mjs` –  | bỏ qua: chỉ ĐẾM từ#loại (dist/lexicon.json + lô đã xuất) để tính tốc độ/ETA tới 20k cho health-board; không ghi/xuất kho | — |
 | `scripts/video/teach2d/native-qa.mjs` –  | bỏ qua: đọc nghĩa/ví dụ từ web/packs để dịch ngược kiểm clip L1; không ghi kho, không cần mục mở rộng | — |
 | `scripts/content-qa/lesson-sample.mjs` – lấy mẫu phân tầng nội dung người học để chấm mù (docs/research/lesson-qa-1511.md); chỉ đọc, không ghi kho | bỏ qua: chỉ lấy mẫu từ kho viết tay để đo lỗi; mục mở rộng 20k có cổng QA riêng khi nhập | — |
 | **CÒN THIẾU** srs-topics | bộ chủ đề SRS/Từ vựng trong app (IELTS_DATA.TOPICS) chưa có bộ xw-*: từ mở rộng tra được (mảnh) nhưng chưa vào danh sách bộ học – cần bộ tải lười JSON từ mảnh (không thêm vào web/js, ngân sách 19 MB) | — |
