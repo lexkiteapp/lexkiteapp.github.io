@@ -344,19 +344,23 @@ ok(S.key && S.webhook && S.cfg.daily_calls === 10 && S.budget_left === 2 && S.up
   ok(Object.keys(GC.posts).length === nPosts && !calls.some(c => /retry/.test(c.p)), 'không tự đăng lại');
   ok(Object.values(GC.posts)[0].targets && ds(CA, 'gc-tiktok-4').state === 'failed', 'giữ nguyên trạng thái lỗi');
 
-  // Trần cứng 1 bài/kênh/ngày (chủ 18/11: IG 4–5 bài/24h): dời bài 'planned' dư sang ngày trống của chính kênh, không xóa, bài đã gửi/đăng giữ nguyên
+  // Trần theo LOẠI KÊNH (chủ 18/11: IG 4–5 bài/24h): kênh chính 2–3 bài/ngày giãn ≥ 4h, kênh bản ngữ 1 bài/ngày; bài planned vượt trần dời sang ngày trống của chính kênh, không xóa, bài đã gửi/đăng giữ nguyên
   {
-    sql.exec("DELETE FROM dist_social; DELETE FROM dist_ext;");
-    sql.prepare("INSERT INTO dist_ext (channel_id, platform, account_id, title, status, updated) VALUES (?, 'instagram', '9', 'Lexkite.com', 'ok', 1)").run('gc-instagram-9');
-    const base = Date.UTC(new Date(now).getUTCFullYear(), new Date(now).getUTCMonth(), new Date(now).getUTCDate() + 3, 16, 0), ins = (clip, st, ms) => sql.prepare("INSERT INTO dist_social (clip, channel_id, platform, slot_ms, source, rule, state, updated) VALUES (?, 'gc-instagram-9', 'instagram', ?, 'auto', 0, ?, 1)").run(clip, ms, st);
-    ins('k-pushed', 'pushed', base); ins('k1', 'planned', base + H); ins('k2', 'planned', base + 2 * H); ins('k3', 'planned', base + 3 * H);
-    const lday = ms => new Intl.DateTimeFormat('en-CA', { timeZone: 'America/New_York' }).format(ms);
-    const moved = await A.rebalanceDays(DB, now);
-    const rows = sql.prepare('SELECT clip, slot_ms, state FROM dist_social ORDER BY slot_ms').all(), days = rows.map(r => lday(r.slot_ms));
-    ok(moved === 3 && new Set(days).size === 4 && rows.length === 4 && rows.find(r => r.clip === 'k-pushed').slot_ms === base, 'trần 1 bài/kênh/ngày: bài đã gửi giữ nguyên, 3 bài planned dư dời sang 3 ngày trống khác nhau, không xóa clip');
-    ok(rows.filter(r => r.state === 'planned').every(r => (r.slot_ms - base) % (24 * H) === (r.slot_ms - base) % (24 * H) && (r.slot_ms - base) / H >= 24) && await A.rebalanceDays(DB, now) === 0, 'dời giữ giờ trong ngày (+24h·k), chạy lại không dời nữa (idempotent)');
     const D = await import(new URL('../../functions/api/_distribution.js', import.meta.url));
-    ok(D.SOCIAL_DAY_MAX === 1 && D.normCfg({ daily_cap: 2 }).daily_cap === 1 && D.DEFAULT_CFG.daily_cap === 1 && Object.values(MGR.DEFAULT_RULES.perDay).every(v => v === 1), 'trần mặc định 1 bài/kênh/ngày ở planner (normCfg kẹp cả cấu hình cũ 2 → 1)');
+    ok(D.dayCapOf('en', 9) === 3 && D.dayCapOf('', 1) === 2 && D.dayCapOf('en', 2) === 2 && D.dayCapOf('es', 3) === 1 && D.dayCapOf('vi', 1) === 1 && D.gapOf('en', 60) === 240 && D.gapOf('es', 60) === 60 && D.capCfg({ lang: 'th', daily_cap: 3, min_gap_min: 240 }).daily_cap === 1 && D.capCfg({ lang: 'en', daily_cap: 1, min_gap_min: 30 }).min_gap_min === 240 && D.SOCIAL_DAY_MAX === 3, 'trần theo loại kênh (một nguồn dayCapOf/gapOf): chính 2–3 + giãn ≥ 4h · bản ngữ 1');
+    ok(D.normCfg({ daily_cap: 9 }).daily_cap === 3 && Object.values(MGR.DEFAULT_RULES.perDay).every(v => v === 2) && MGR.DEFAULT_RULES.minGapH === 4 && MGR.cfgFor({ id: 'a', p: 'instagram', name: 'Lexkite - Aprende Inglés' }, MGR.cleanRules({})).daily_cap === 1 && MGR.cfgFor({ id: 'b', p: 'instagram', name: 'Lexkite.com' }, MGR.cleanRules({})).daily_cap === 2, 'planner: kênh chính 2/ngày, kênh bản ngữ 1/ngày');
+    sql.exec("DELETE FROM dist_social; DELETE FROM dist_ext;");
+    const ex = sql.prepare("INSERT INTO dist_ext (channel_id, platform, account_id, title, status, updated) VALUES (?, 'instagram', ?, ?, 'ok', 1)"); ex.run('gc-instagram-9', '9', 'Lexkite.com'); ex.run('gc-instagram-8', '8', 'Lexkite - Aprende Inglés');
+    const base = Date.UTC(new Date(now).getUTCFullYear(), new Date(now).getUTCMonth(), new Date(now).getUTCDate() + 3, 16, 0), ins = (clip, ch, st, ms) => sql.prepare("INSERT INTO dist_social (clip, channel_id, platform, slot_ms, source, rule, state, updated) VALUES (?, ?, 'instagram', ?, 'auto', 0, ?, 1)").run(clip, ch, ms, st);
+    ins('k-pushed', 'gc-instagram-9', 'pushed', base); ins('k1', 'gc-instagram-9', 'planned', base + 5 * H); ins('k2', 'gc-instagram-9', 'planned', base + 6 * H); ins('k3', 'gc-instagram-9', 'planned', base + 7 * H);
+    ins('n1', 'gc-instagram-8', 'planned', base + H); ins('n2', 'gc-instagram-8', 'planned', base + 6 * H);
+    const lday = (ms, tz) => new Intl.DateTimeFormat('en-CA', { timeZone: tz }).format(ms), NY = 'America/New_York', MX = 'America/Mexico_City';
+    const moved = await A.rebalanceDays(DB, now), get = ch => sql.prepare('SELECT clip, slot_ms, state FROM dist_social WHERE channel_id = ? ORDER BY slot_ms').all(ch);
+    const m = get('gc-instagram-9'), nv = get('gc-instagram-8'), cnt = (rows, tz) => Object.values(rows.reduce((a, r) => { const k = lday(r.slot_ms, tz); a[k] = (a[k] || 0) + 1; return a; }, {}));
+    ok(moved === 3 && m.length === 4 && nv.length === 2 && Math.max(...cnt(m, NY)) === 2 && Math.max(...cnt(nv, MX)) === 1, 'kênh chính ≤ 2 bài/ngày, kênh bản ngữ ≤ 1 bài/ngày sau khi dời (không xóa clip)');
+    ok(m.find(r => r.clip === 'k-pushed').slot_ms === base && m.find(r => r.clip === 'k1').slot_ms === base + 5 * H && nv.find(r => r.clip === 'n1').slot_ms === base + H, 'bài đã gửi và bài trong trần giữ nguyên');
+    ok(m.every((r, i) => i === 0 || r.slot_ms - m[i - 1].slot_ms >= 4 * H) && m.filter(r => r.slot_ms > base + 20 * H).every(r => (r.slot_ms - base) % (24 * H) >= 5 * H - 1), 'bài dời giữ giờ trong ngày và cách bài khác ≥ 4h (kênh chính)');
+    ok(await A.rebalanceDays(DB, now) === 0, 'chạy lại không dời nữa (idempotent)');
   }
   // Xếp lịch tự động: slot lỡ quá 12 giờ được xếp lại, clip đã lên YouTube vẫn lên social
   reset({ plan_daily: true });

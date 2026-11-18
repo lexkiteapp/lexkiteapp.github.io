@@ -10,8 +10,8 @@
 import { setupMgr, boardSync, contentHash, pushClip, bodyFor, PLAT, platOf, healthOf, validateCompose, boardStateOf } from './_social_mgr.js';
 import { setupDist, DIST, clipOf, socialSetup, socialChannels } from './distribution.js';
 import { previewClip, pickPreviewClip, PREVIEW_CLIP_RE } from './_social_preview.js';
-import { foreignAccount, pausedAccount, extAccount, localDate, LANG_TZ, langOfChannel, SOCIAL_DAY_MAX } from './_distribution.js';
-import { setup as ytSetup } from './youtube.js';
+import { foreignAccount, pausedAccount, extAccount, localDate, LANG_TZ, langOfChannel, dayCapOf, gapOf } from './_distribution.js';
+import { setup as ytSetup, chanCfg } from './youtube.js';
 import { field } from './_clip_logic.js';
 import { gcClient, gcConfigured } from './_grabcast.js';
 import { manifest, signed } from './admin-shorts.js';
@@ -67,23 +67,26 @@ export function pickDue(rows, cfg, now) {
   const lo = now + cfg.lead_min * 60e3, hi = now + cfg.lookahead_h * 36e5;
   return (rows || []).filter(r => cfg.plats[r.platform] && r.account_id && r.slot_ms >= lo && r.slot_ms <= hi).sort((a, b) => a.slot_ms - b.slot_ms);
 }
-/** Trần cứng SOCIAL_DAY_MAX (=1) bài/kênh/ngày theo múi giờ kênh (chủ 18/11: IG lên 4–5 bài/24h). Bài ĐÃ đăng/gửi GrabCast giữ nguyên;
- *  bài còn 'planned' dư trong cùng ngày → dời sang ngày trống gần nhất của CHÍNH kênh đó (giữ giờ trong ngày, không xóa clip). Trả số bài đã dời. Chỉ D1, 0 lượt GrabCast. */
-export async function rebalanceDays(db, now, cap = SOCIAL_DAY_MAX, horizonDays = 120) {
+/** Trần bài/kênh/ngày THEO LOẠI KÊNH (chủ 18/11): kênh chính (tiếng Anh) 2–3, giãn ≥ 4 giờ; kênh bản ngữ 1 – đọc từ cấu hình kênh (dayCapOf/gapOf, một nguồn), múi giờ kênh.
+ *  Bài ĐÃ đăng/gửi GrabCast giữ nguyên; bài 'planned' vượt trần → dời sang ngày trống gần nhất của CHÍNH kênh đó (giữ giờ trong ngày, cách bài khác ≥ gap, không xóa clip).
+ *  Trả số bài đã dời. Chỉ D1, 0 lượt GrabCast. capOver: chỉ test. */
+export async function rebalanceDays(db, now, capOver = 0, horizonDays = 120) {
   const rows = await all(db, 'SELECT s.clip, s.channel_id, s.slot_ms, s.state, e.title FROM dist_social s LEFT JOIN dist_ext e ON e.channel_id = s.channel_id WHERE s.slot_ms > ? AND s.slot_ms IS NOT NULL ORDER BY s.slot_ms', now - 36e5 * 36);
   const by = new Map(); for (const r of rows) (by.get(r.channel_id) || by.set(r.channel_id, []).get(r.channel_id)).push(r);
   let moved = 0;
   for (const [ch, list] of by) {
-    const tz = LANG_TZ[langOfChannel(list[0].title || '')] || 'America/New_York', day = r => localDate(r.slot_ms, tz), cnt = {};
-    const fixed = r => r.state !== 'planned'; // đã gửi/đăng/lỗi: không đụng
-    for (const r of list) cnt[day(r)] = (cnt[day(r)] || 0) + (fixed(r) ? 1 : 0);
+    const x = (await chanCfg(db, ch).catch(() => ({ cfg: {} }))).cfg, auto = langOfChannel(list[0].title || ''), lang = (x.lang || auto || '').toLowerCase();
+    const cap = capOver || dayCapOf(lang, x.daily_cap), gap = capOver ? 0 : gapOf(lang, x.min_gap_min) * 6e4, tz = (x.tz && x.tz !== 'America/New_York' ? x.tz : LANG_TZ[lang || 'en']) || 'America/New_York';
+    const day = ms => localDate(ms, tz), cnt = {}, times = list.filter(r => r.state !== 'planned').map(r => r.slot_ms), fixed = r => r.state !== 'planned'; // đã gửi/đăng/lỗi: không đụng
+    for (const r of list) if (fixed(r)) cnt[day(r.slot_ms)] = (cnt[day(r.slot_ms)] || 0) + 1;
     for (const r of list) {
       if (fixed(r) || r.slot_ms < now) continue;
-      const d = day(r); if ((cnt[d] || 0) < cap) { cnt[d] = (cnt[d] || 0) + 1; continue; }
-      let ms = r.slot_ms, k = 0; do { ms += 864e5; k++; } while (k <= horizonDays && (cnt[localDate(ms, tz)] || 0) >= cap);
+      const d = day(r.slot_ms), clash = ms => times.some(t => Math.abs(t - ms) < gap);
+      if ((cnt[d] || 0) < cap && !clash(r.slot_ms)) { cnt[d] = (cnt[d] || 0) + 1; times.push(r.slot_ms); continue; }
+      let ms = r.slot_ms, k = 0; do { ms += 864e5; k++; } while (k <= horizonDays && ((cnt[day(ms)] || 0) >= cap || clash(ms)));
       if (k > horizonDays) continue;
       await run(db, "UPDATE dist_social SET slot_ms = ?, updated = ? WHERE clip = ? AND channel_id = ? AND state = 'planned'", ms, now, r.clip, r.channel_id);
-      cnt[localDate(ms, tz)] = (cnt[localDate(ms, tz)] || 0) + 1; moved++;
+      times.push(ms); cnt[day(ms)] = (cnt[day(ms)] || 0) + 1; moved++;
     }
   }
   return moved;
@@ -293,7 +296,7 @@ export const metaLeft = (st, cfg, now) => Math.max(0, cfg.meta_daily - (((st.met
 export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = fetch, origin = 'https://lexkite.com/api/social-auto', force_sync = false, sleep = ms => new Promise(r => setTimeout(r, ms)) } = {}) {
   const db = env.DB; await setupMgr(db); await setupDist(db); await setupLock(db, env);
   const cfg = await loadAuto(db), st = await getMeta(db, 'auto_state', {});
-  const dayCap = Math.max(1, +env.SOCIAL_DAY_CAP || SOCIAL_DAY_MAX); // chỉ test đặt biến này; production luôn 1 bài/kênh/ngày
+  const dayCap = +env.SOCIAL_DAY_CAP || 0; // chỉ test đặt biến này; production: trần theo loại kênh (cấu hình kênh)
   const rec = { at: now, src, due: 0, created: 0, scheduled: 0, review: 0, skipped: [], calls: 0, stop: null, synced: null, provider: null, meta: { calls: 0, posted: 0, scheduled: 0, containers: 0, stop: null }, alerts: [], fc: { attached: 0, posted: 0, skipped: [] } };
   const save = async () => {
     const today = dayOf(now), calls = st.calls && st.calls.day === today ? +st.calls.n || 0 : 0;

@@ -3,8 +3,14 @@
  * ±20 min jitter, no repeated title / cover, no same template back-to-back · zoned time helpers (DST-safe). */
 const MIN = 60e3, DAY = 864e5;
 /** Chủ 10/11/2026 "đăng dần hiệu quả": kênh social tối đa 2 bài/ngày (embed = kho bài học, không đăng công khai → giữ trần 50). */
-export const SOCIAL_DAY_MAX = 1; // chủ 18/11: đúng 1 video/kênh/ngày
-export const DEFAULT_CFG = { role: 'social', types: [], topics: [], skills: [], cefr: [], regions: [], lang: '', daily_cap: 1, min_gap_min: 240, windows: [{ from: '09:00', to: '21:00' }], tz: 'America/New_York', active: 1 };
+export const SOCIAL_DAY_MAX = 3; // trần tuyệt đối (kênh CHÍNH); kênh bản ngữ luôn 1 – xem dayCapOf
+/** Chủ 18/11: kênh CHÍNH (tiếng Anh: Lexkite English FB/IG/TikTok/YouTube) 2–3 bài/ngày, giãn ≥ 4 giờ; kênh bản ngữ 1 bài/ngày. MỘT nguồn cho planner, bước gửi và dời bài. */
+export const MAIN_DAY = { min: 2, max: 3, gap_min: 240 }, NATIVE_DAY = 1;
+export const isMainLang = lang => !lang || lang === 'en';
+export const dayCapOf = (lang, cap) => isMainLang(lang) ? Math.min(MAIN_DAY.max, Math.max(MAIN_DAY.min, Math.floor(+cap) || 0)) : NATIVE_DAY;
+export const capCfg = c => c.role === 'embed' ? c : { ...c, daily_cap: dayCapOf(c.lang, c.daily_cap), min_gap_min: gapOf(c.lang, c.min_gap_min) };
+export const gapOf = (lang, gap) => isMainLang(lang) ? Math.max(MAIN_DAY.gap_min, Math.floor(+gap) || 0) : Math.max(0, Math.floor(+gap) || 0);
+export const DEFAULT_CFG = { role: 'social', types: [], topics: [], skills: [], cefr: [], regions: [], lang: '', daily_cap: 2, min_gap_min: 240, windows: [{ from: '09:00', to: '21:00' }], tz: 'America/New_York', active: 1 };
 const list = v => (Array.isArray(v) ? v : typeof v === 'string' ? v.split(/[,\s]+/) : []).map(x => String(x).trim()).filter(Boolean);
 const hm = t => { const m = /^(\d{2}):(\d{2})$/.exec(String(t)); return m && +m[1] < 24 && +m[2] < 60 ? +m[1] * 60 + +m[2] : null; };
 export const validTz = tz => { try { new Intl.DateTimeFormat('en-US', { timeZone: tz }); return typeof tz === 'string' && tz.length < 60; } catch (e) { return false; } };

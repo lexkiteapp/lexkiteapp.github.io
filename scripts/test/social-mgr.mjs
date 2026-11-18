@@ -77,10 +77,10 @@ const now = Date.UTC(2026, 9, 22, 12); // 22/10/2026 12:00 UTC
   ok(rt.slots.map(s => s.clip).join() === 'c-short' && rt.skipped.some(s => s.clip === 'c-long' && s.why === 'not-routed'), 'định tuyến bằng bộ máy Kênh & phân phối (_distribution.allowed): kênh chỉ nhận short');
   { const R0 = M.cleanRules({}), g = (a) => M.cfgFor(a, R0);
     ok(R0.hours.join() === '12,19,20' && M.cleanRules({ hours: [8, 12, 19] }).hours.join() === '12,19,20', 'giờ đăng mặc định: 12h phụ + 19–21h tối (bản cũ 8/12/19 tự chuyển)');
-    ok(g({ id: 'x', p: 'tiktok', name: 'Lexkite TikTok' }).tz === 'America/New_York' && g({ id: 'x', p: 'tiktok' }).windows.map(w => w.from).join() === '19:00,20:00' && g({ id: 'x', p: 'tiktok' }).daily_cap === 1, 'TikTok: New York, đúng 1 bài/ngày trong khung tối 19–21h');
+    ok(g({ id: 'x', p: 'tiktok', name: 'Lexkite TikTok' }).tz === 'America/New_York' && g({ id: 'x', p: 'tiktok', name: 'lexkitecom' }).windows.map(w => w.from).join() === '12:00,19:00,20:00' && g({ id: 'x', p: 'tiktok', name: 'lexkitecom' }).daily_cap === 2 && g({ id: 'x', p: 'tiktok', name: 'lexkitecom' }).min_gap_min === 240, 'TikTok (kênh chính): New York, 2 bài/ngày giãn ≥ 4h: 12h + khung tối 19–21h');
     const yt = g({ id: 'y', p: 'youtube', name: 'Lexkite – İngilizce Öğren' }); ok(yt.tz === 'Europe/Istanbul' && yt.windows.map(w => w.from).join() === '19:00,20:00', 'kênh bản ngữ: múi giờ theo ngôn ngữ, 1 bài/ngày chỉ khung tối 19–21h'); }
   ok(M.cfgFor({ id: '3', p: 'instagram' }, M.cleanRules(rules)).tz === 'Asia/Ho_Chi_Minh' && M.cfgFor({ id: '3', p: 'instagram' }, M.cleanRules(rules)).daily_cap === 1, 'cfg kênh social cùng dạng normCfg (múi giờ, trần/ngày)');
-  ok(M.cleanRules({ perDay: { facebook_page: 99 }, tz: 'Mars/Base', hours: [25, 7, 7] }).perDay.facebook_page === 1 && M.cleanRules({ tz: 'Mars/Base' }).tz === 'America/New_York' && M.cleanRules({ hours: [25, 7, 7] }).hours.join() === '7', 'luật bị kẹp: trần ≤ 2 bài/ngày/kênh (chủ 10/11 đăng dần) và ≤ trần nền tảng, múi giờ hợp lệ, giờ 0–23 duy nhất');
+  ok(M.cleanRules({ perDay: { facebook_page: 99 }, tz: 'Mars/Base', hours: [25, 7, 7] }).perDay.facebook_page === 3 && M.cleanRules({ tz: 'Mars/Base' }).tz === 'America/New_York' && M.cleanRules({ hours: [25, 7, 7] }).hours.join() === '7', 'luật bị kẹp: trần ≤ 2 bài/ngày/kênh (chủ 10/11 đăng dần) và ≤ trần nền tảng, múi giờ hợp lệ, giờ 0–23 duy nhất');
 }
 // ---------- 5) Số liệu & trọng số ----------
 {
@@ -162,7 +162,7 @@ r = await call(ADM, { method: 'GET', path: 'lk/health' }); ok(r.s === 200 && r.j
 ok((await call(ADM, { method: 'POST', path: 'lk/sets/save', body: { name: 'All FB', ids: ['2', '../x', '3'] } })).s === 200 && JSON.stringify((await call(ADM, { method: 'GET', path: 'lk/sets' })).j.sets) === JSON.stringify([{ name: 'All FB', ids: ['2', '3'] }]), 'bộ kênh: lưu + lọc id xấu');
 ok((await call(ADM, { method: 'POST', path: 'lk/lib/save', body: { kind: 'tpl', items: [{ name: 'A', body: 'B', evil: 1 }] } })).s === 200 && JSON.stringify((await call(ADM, { method: 'GET', path: 'lk/lib' })).j.tpl) === '[{"name":"A","body":"B"}]', 'mẫu caption lưu D1 (chỉ trường đã biết)');
 ok((await call(ADM, { method: 'POST', path: 'lk/lib/save', body: { kind: 'x', items: [] } })).s === 400, 'kho mẫu: loại lạ → 400');
-ok((await call(ADM, { method: 'POST', path: 'lk/rules/save', body: { rules: { perDay: { instagram: 500 } } } })).j.rules.perDay.instagram === 1, 'luật: kẹp ≤ 2 bài/ngày/kênh (chủ 10/11) và ≤ trần nền tảng');
+ok((await call(ADM, { method: 'POST', path: 'lk/rules/save', body: { rules: { perDay: { instagram: 500 } } } })).j.rules.perDay.instagram === 3, 'luật: kẹp ≤ 2 bài/ngày/kênh (chủ 10/11) và ≤ trần nền tảng');
 r = await call(ADM, { method: 'POST', path: 'lk/metrics/import', body: { rows: [{ post_id: 'p_1', platform: 'instagram', views: 1000, saves: 40, shares: 10 }, { post_id: 'bad id!', views: 5 }] } });
 ok(r.s === 200 && r.j.imported === 1 && r.j.weights.by.template.tpl1, 'nhập số liệu → gắn template/hook từ mục duyệt, tính trọng số');
 r = await call(ADM, { method: 'POST', path: 'lk/metrics/sync', body: {} });
