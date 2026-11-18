@@ -81,7 +81,6 @@
 "Bạn chưa trả lời hết. Vẫn chấm điểm?":"Sie haben nicht jede Frage beantwortet. Trotzdem prüfen?",
 "Bạn có thể nói:":"Du könntest sagen:",
 "Bạn lần trước: {n}":"Sie beim letzten Mal: {n}",
-"Bạn muốn học ngôn ngữ nào?":"Welche Sprache möchten Sie lernen?",
 "Bạn muốn học với cường độ nào?":"Wie intensiv möchten Sie lernen?",
 "Bạn nói":"Du hast gesagt",
 "Bạn vừa tra vài từ. Với add-on Lexkite, bạn tra được ngay trên mọi trang web mình đọc – miễn phí.":"Du hast schon ein paar Wörter nachgeschlagen. Mit der kostenlosen Lexkite-Erweiterung geht das direkt auf jeder Website, die du liest.",

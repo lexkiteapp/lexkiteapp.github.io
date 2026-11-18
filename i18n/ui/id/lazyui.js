@@ -81,7 +81,6 @@
 "Bạn chưa trả lời hết. Vẫn chấm điểm?":"Anda belum menjawab setiap pertanyaan. Tetap periksa?",
 "Bạn có thể nói:":"Kamu bisa bilang:",
 "Bạn lần trước: {n}":"Kamu terakhir kali: {n}",
-"Bạn muốn học ngôn ngữ nào?":"Bahasa apa yang ingin kamu pelajari?",
 "Bạn muốn học với cường độ nào?":"Seberapa intens Anda ingin belajar?",
 "Bạn nói":"Anda mengucapkan",
 "Bạn vừa tra vài từ. Với add-on Lexkite, bạn tra được ngay trên mọi trang web mình đọc – miễn phí.":"Kamu sudah mencari beberapa kata. Dengan ekstensi Lexkite yang gratis, kamu bisa mencari arti kata langsung di situs mana pun yang kamu baca.",

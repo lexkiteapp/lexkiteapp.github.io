@@ -81,7 +81,6 @@
 "Bạn chưa trả lời hết. Vẫn chấm điểm?":"すべての質問に答えたわけではありません。とにかくチェックしてください？",
 "Bạn có thể nói:":"こう言えます：",
 "Bạn lần trước: {n}":"前回の自分：{n}",
-"Bạn muốn học ngôn ngữ nào?":"どの言語を学びたいですか？",
 "Bạn muốn học với cường độ nào?":"どれくらい熱心に勉強したいですか？",
 "Bạn nói":"あなたの発音",
 "Bạn vừa tra vài từ. Với add-on Lexkite, bạn tra được ngay trên mọi trang web mình đọc – miễn phí.":"いくつか単語を調べましたね。無料の Lexkite 拡張機能なら、読んでいるどのサイトでもその場で単語を調べられます。",

@@ -1,4 +1,4 @@
-// 🚩 Chọn ngôn ngữ đang học (web/js/tl-pick.js): chạy MÃ THẬT target.js + tl-pick.js trong jsdom.
+// 🚩 Chọn ngôn ngữ đang học (web/cpack/tl-app/tl-pick.js): chạy MÃ THẬT target.js + tl-pick.js trong jsdom.
 // Kiểm: danh sách = Target.avail() + "Sắp ra mắt" cho fr khi cờ tắt · chọn es → Target.set + về Target.homeOf · "Báo tôi khi có" lưu lựa chọn, không mở hộp mới ·
 // a11y (radiogroup, aria-checked, nút ≥ nhãn, Esc/đóng) · cờ khẩn es_kill ẩn es · thông báo nhẹ đúng 1 lần khi fr bật · onboarding có bước 'lang' khi ≥ 2 ngôn ngữ.
 // Chạy: node scripts/test/tl-picker.mjs
@@ -14,7 +14,7 @@ function mk(cfg = {}, lsInit = {}) {
     modal(html, o) { const m = w.document.getElementById('modal'); w.document.getElementById('modalBox').innerHTML = html; m.dataset.v = (o && o.v) || ''; m.hidden = false; return w.document.getElementById('modalBox'); },
     closeModal() { w.document.getElementById('modal').hidden = true; } };
   w.Core = { Cards: { all: async () => ({ a: { word: 'a', tl: 'es', srs: { interval: 30 } }, b: { word: 'b', tl: 'es', srs: { interval: 1 } }, c: { word: 'c', srs: { interval: 2 } } }) } };
-  w.eval(rd('web/js/target.js')); w.eval(rd('web/js/tl-pick.js')); return { w, toasts, d: w.document };
+  w.eval(rd('web/js/target.js')); w.eval(rd('web/cpack/tl-app/tl-pick.js')); return { w, toasts, d: w.document };
 }
 const tick = () => new Promise(r => setTimeout(r, 20));
 // 1) es bật 100 %, fr tắt → en · es chọn được, fr "Sắp ra mắt"
@@ -55,6 +55,6 @@ const tick = () => new Promise(r => setTimeout(r, 20));
 // 6) onboarding: bước 'lang' chỉ khi ≥ 2 ngôn ngữ; Target.set chỉ khi bấm Tiếp tục (đã onboard xong không bị hỏi: bước chỉ chạy trong luồng thiết lập)
 { const o = rd('web/js/onboard.js'); ok(/Target\.avail\(\)\.length > 1 \? \['lang', \.\.\.BASE\] : BASE/.test(o), 'onboard: bước lang khi avail ≥ 2'); ok(/pick\.tl \|\| Target\.cur\(\)/.test(o), 'onboard: mặc định = ngôn ngữ hiện tại (en)'); }
 // 7) nối dây: bundle + css + hook
-{ const a = rd('web/js/app.js'); ok(/tlpick: \['js\/tl-pick\.js'\]/.test(a) && /tlpick: \['css\/tl-pick\.css'\]/.test(a) && /App\.need\('tlpick'\)/.test(a), 'app.js: gói + css + boot'); ok(/TLPick\.head\(root\)/.test(rd('web/js/ux1.js')) && /TLPick\.card\(root\)/.test(rd('web/js/ux1-me.js')), 'ux1 + tab Tôi gắn cờ/thẻ');
+{ const a = rd('web/js/app.js'); ok(/tlpick: \['cpack\/tl-app\/tl-pick\.js'\]/.test(a) && /tlpick: \['css\/tl-pick\.css'\]/.test(a) && /App\.need\('tlpick'\)/.test(a), 'app.js: gói + css + boot'); ok(/TLPick\.head\(root\)/.test(rd('web/js/ux1.js')) && /TLPick\.card\(root\)/.test(rd('web/js/ux1-me.js')), 'ux1 + tab Tôi gắn cờ/thẻ');
   ok(!/#[0-9a-fA-F]{3,8}\b/.test(rd('web/css/tl-pick.css')), 'css không hex'); }
 console.log(fails ? `✗ tl-picker: ${fails}/${n} lỗi` : `✓ tl-picker: ${n}/${n} đạt`); process.exit(fails ? 1 : 0);

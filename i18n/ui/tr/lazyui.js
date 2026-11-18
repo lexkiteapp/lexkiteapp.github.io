@@ -81,7 +81,6 @@
 "Bạn chưa trả lời hết. Vẫn chấm điểm?":"Her soruya cevap vermedin. Yine de kontrol et?",
 "Bạn có thể nói:":"Şöyle diyebilirsin:",
 "Bạn lần trước: {n}":"Geçen seferki sen: {n}",
-"Bạn muốn học ngôn ngữ nào?":"Hangi dili öğrenmek istiyorsun?",
 "Bạn muốn học với cường độ nào?":"Ne kadar yoğun bir şekilde çalışmak istiyorsunuz?",
 "Bạn nói":"Söylediğiniz",
 "Bạn vừa tra vài từ. Với add-on Lexkite, bạn tra được ngay trên mọi trang web mình đọc – miễn phí.":"Birkaç kelimeye baktınız. Ücretsiz Lexkite eklentisiyle okuduğunuz her sitede kelimelere anında bakabilirsiniz.",

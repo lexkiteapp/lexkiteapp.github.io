@@ -81,7 +81,6 @@
 "Bạn chưa trả lời hết. Vẫn chấm điểm?":"您还没有回答每个问题。还是检查一下？",
 "Bạn có thể nói:":"你可以说：",
 "Bạn lần trước: {n}":"上次的你：{n}",
-"Bạn muốn học ngôn ngữ nào?":"你想学哪种语言？",
 "Bạn muốn học với cường độ nào?":"你想学习的强度有多大？",
 "Bạn nói":"你说的是",
 "Bạn vừa tra vài từ. Với add-on Lexkite, bạn tra được ngay trên mọi trang web mình đọc – miễn phí.":"你已经查了好几个词。安装免费的 Lexkite 扩展，就能在你阅读的任何网页上直接查词。",

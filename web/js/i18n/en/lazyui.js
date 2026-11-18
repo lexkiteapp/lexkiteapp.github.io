@@ -914,7 +914,6 @@ Khóa khung app cần ngay → để ở nhóm gốc hoặc en/xcore.js; scripts
   // ← en/core.js
   '{a}/{b} bài': '{a}/{b} lessons',
   // ← en/tlpick (chọn ngôn ngữ đang học)
-  'Bạn muốn học ngôn ngữ nào?': 'Which language do you want to learn?',
   'Sắp ra mắt': 'Coming soon',
   'Báo tôi khi có': 'Notify me',
   'Sẽ báo bạn khi có': 'We’ll let you know',

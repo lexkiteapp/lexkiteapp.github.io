@@ -81,7 +81,6 @@
 "Bạn chưa trả lời hết. Vẫn chấm điểm?":"모든 질문에 답변하지 않으셨습니다. 어쨌든 확인하시겠습니까?",
 "Bạn có thể nói:":"이렇게 말할 수 있어요:",
 "Bạn lần trước: {n}":"지난번의 나: {n}",
-"Bạn muốn học ngôn ngữ nào?":"어떤 언어를 배우고 싶나요?",
 "Bạn muốn học với cường độ nào?":"당신은 얼마나 열심히 공부하고 싶나요?",
 "Bạn nói":"내 발음",
 "Bạn vừa tra vài từ. Với add-on Lexkite, bạn tra được ngay trên mọi trang web mình đọc – miễn phí.":"단어를 몇 개 찾아보셨네요. 무료 Lexkite 확장 프로그램이 있으면 읽고 있는 어떤 웹사이트에서든 바로 단어를 찾을 수 있어요.",
