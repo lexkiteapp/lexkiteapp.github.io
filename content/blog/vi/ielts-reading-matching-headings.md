@@ -151,6 +151,8 @@ Từ vựng theo chủ đề thường gặp trong bài đọc có sẵn ở m�
 
 Dạng Matching Headings dễ ngốn thời gian, vì vậy hãy đọc thêm [chiến lược phân bổ thời gian IELTS Reading](/vi/blog/cach-phan-bo-thoi-gian-ielts-reading-60-phut/).
 
+Để thấy Matching Headings đứng ở đâu so với các dạng khác, đọc bài [các dạng câu hỏi IELTS Reading](/vi/blog/cac-dang-cau-hoi-ielts-reading/).
+
 ## Câu hỏi thường gặp
 
 ### Có nên đọc cả bài trước rồi mới làm matching headings không?

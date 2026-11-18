@@ -1,0 +1,20 @@
+// Test prwatch: quyết định merge/chờ/đỏ (thuần, không mạng). Lỗi gốc 17/11: đọc required-gate như check-run → luôn "none".
+import { decide, gateOf, parseArgs } from '../ci/prwatch.mjs';
+let bad = 0; const ok = (c, m) => { console.log(`${c ? '✓' : '✗'} ${m}`); if (!c) bad++; };
+const pr = (o = {}) => ({ merged: false, state: 'open', head: { sha: 'abcdef1234567' }, mergeable_state: 'clean', ...o });
+const g = (state, description = '') => ({ state, description });
+ok(gateOf({ statuses: [{ context: 'x', state: 'failure' }, { context: 'required-gate', state: 'success' }] }).state === 'success', 'gateOf đọc commit status required-gate');
+ok(gateOf({ check_runs: [{ name: 'required-gate' }] }) === null, 'required-gate dạng check-run KHÔNG được coi là gate');
+ok(decide(pr(), g('success')).act === 'merge', 'gate xanh + clean → merge');
+ok(decide(pr({ mergeable_state: 'dirty' }), g('success')).act === 'red', 'gate xanh nhưng xung đột → đỏ, không merge');
+ok(decide(pr({ mergeable_state: 'blocked' }), g('success')).act === 'wait', 'gate xanh nhưng blocked → chờ');
+ok(decide(pr(), g('failure', 'npm test')).act === 'red', 'gate failure → đỏ kèm lý do');
+ok(/npm test/.test(decide(pr(), g('failure', 'npm test')).why), 'lý do đỏ có mô tả gate');
+ok(decide(pr(), g('pending')).act === 'wait' && decide(pr(), null).act === 'wait', 'pending / chưa có status → chờ');
+ok(decide(pr(), g('success'), 'ffffff0').act === 'wait', 'head chưa khớp sha chờ → chờ, không xét commit cũ');
+ok(decide(pr(), g('success'), 'abcdef1').act === 'merge', 'head khớp tiền tố sha → xét');
+ok(decide(pr({ merged: true }), null).act === 'done' && decide(pr({ state: 'closed' }), null).act === 'done', 'đã merge/đóng → done');
+const a = parseArgs(['12@abcdef1', '13', '--every', '60', '--keep-on-red']);
+ok(a.prs.length === 2 && a.prs[0].want === 'abcdef1' && a.prs[1].want === '' && a.every === 60 && a.keepOnRed, 'parseArgs PR@sha + cờ');
+let thrown = false; try { parseArgs([]); } catch { thrown = true; } ok(thrown, 'không có PR → lỗi cú pháp');
+if (bad) process.exit(1);
