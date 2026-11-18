@@ -70,7 +70,7 @@ quiz: [
 - *If you study consistently, you will succeed.* (مع فاصلة)
 - *You will succeed if you study consistently.* (بدون فاصلة)
 
-للاطلاع على الأساس المتين لقواعد الأزمنة، يمكنك مراجعة مرجعنا المفصل حول [قواعد اللغة الإنجليزية الأساسية](/ar/blog/kawaid-al-lugha-al-injliziya/) ومتابعة شروحات [دليل قواعد اللغة الإنجليزية](/ngu-phap/)، وكذلك فهم الفارق بين الأزمنة عبر [الفرق بين present perfect و past simple](/ar/blog/present-perfect-wa-past-simple/).
+للاطلاع على الأساس المتين لقواعد الأزمنة، يمكنك مراجعة مرجعنا المفصل حول [قواعد اللغة الإنجليزية الأساسية](/ar/blog/kawaid-al-lugha-al-injliziya/) ومتابعة شروحات [دليل قواعد اللغة الإنجليزية](/en/grammar/)، وكذلك فهم الفارق بين الأزمنة عبر [الفرق بين present perfect و past simple](/ar/blog/present-perfect-wa-past-simple/).
 
 ---
 

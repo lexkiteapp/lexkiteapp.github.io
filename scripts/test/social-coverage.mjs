@@ -3,7 +3,7 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { gapsOf, coverage } from '../../functions/api/_social_cover.js';
-import { report } from '../social/coverage.mjs';
+import { report, near, NEAR_DAYS } from '../social/coverage.mjs';
 import { langOfChannel, LANG_TZ, SOCIAL_LANGS, validTz } from '../../functions/api/_distribution.js';
 
 const D = 864e5, NOW = Date.UTC(2026, 10, 16, 5, 0, 0); // 16/11/2026 05:00 UTC
@@ -51,4 +51,9 @@ ok(/WEEKLY|getUTCDay/.test(fs.readFileSync('scripts/social/coverage.mjs', 'utf8'
 ok(/cron: '41 3 \* \* \*'/.test(wf) && /scripts\/social\/coverage\.mjs/.test(wf) && /issues: write/.test(wf), 'workflow chạy hằng ngày và được mở issue');
 ok(/b\.op === 'coverage'/.test(api) && /cliVerify/.test(api), 'op coverage đi sau chữ ký HMAC');
 ok(jobs.some(j => j.id === 'social-coverage' && j.workflow === 'social-coverage.yml'), 'đã đăng ký infra/jobs.json');
+// máy gác ĐỎ khi có ngày trống trong NEAR_DAYS ngày tới (luật 1 video/kênh/ngày, 17/11)
+{ const at = Date.UTC(2026, 10, 17), d = k => new Date(at + k * 864e5).toISOString().slice(0, 10);
+  const j = { at, days: 30, rows: [{ title: 'A', platform: 'youtube', missing: [d(2)] }, { title: 'B', platform: 'facebook_page', missing: [d(NEAR_DAYS + 3)] }, { title: 'C', platform: 'tiktok', missing: [] }] };
+  const nr = near(j); ok(NEAR_DAYS === 7 && nr.length === 1 && nr[0].title === 'A', 'trống ≤ 7 ngày → đỏ; trống xa hơn chỉ cảnh báo; đủ lịch → xanh'); }
+ok(/near\(j\)/.test(fs.readFileSync('scripts/social/coverage.mjs', 'utf8')) && /coverage-near/.test(fs.readFileSync('scripts/social/coverage.mjs', 'utf8')), 'coverage.mjs thoát 1 + mở issue khi gần trống');
 console.log(`✓ social-coverage: ${n} kiểm`);
