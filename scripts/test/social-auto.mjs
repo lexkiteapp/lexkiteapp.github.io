@@ -74,7 +74,7 @@ globalThis.fetch = async (url, init = {}) => {
   return J({});
 };
 if (typeof FixedLengthStream === 'undefined') globalThis.FixedLengthStream = class { constructor() { const t = new TransformStream(); this.readable = t.readable; this.writable = t.writable; } };
-const ENV = { DB, GRABCAST_API_KEY: KEY, SHORTS_READ_TOKEN: 'ro', LEXKITE_DRIVE_CLI_KEY: CLI, GRABCAST_WEBHOOK_SECRET: 'whsec_0123456789abcdefghijklmn' };
+const ENV = { DB, SOCIAL_DAY_CAP: '9', GRABCAST_API_KEY: KEY, SHORTS_READ_TOKEN: 'ro', LEXKITE_DRIVE_CLI_KEY: CLI, GRABCAST_WEBHOOK_SECRET: 'whsec_0123456789abcdefghijklmn' };
 await MGR.setupMgr(DB);
 // Kịch bản gốc cố định cài đặt (TikTok tắt, không tự xếp lịch, đồng bộ 6 giờ) để không phụ thuộc mặc định – mặc định mới được kiểm ở mục 1 và mục 3.
 sql.prepare("INSERT INTO soc_meta (k, v, at) VALUES ('auto', ?, ?)").run(JSON.stringify({ policy: A.POLICY, auto_approve: true, auto_queue: true, manual_first: 0, autopub: { youtube: true }, plats: { tiktok: false }, plan_daily: false, sync_h: 6 }), now); // kịch bản gốc = cấu hình ownerPolicy 10/11 (chỉ YouTube tự đăng, FB/IG chờ duyệt); từ 16/11 ownerPolicy bật cả FB/IG/TikTok nên phải lưu rõ
@@ -344,6 +344,20 @@ ok(S.key && S.webhook && S.cfg.daily_calls === 10 && S.budget_left === 2 && S.up
   ok(Object.keys(GC.posts).length === nPosts && !calls.some(c => /retry/.test(c.p)), 'không tự đăng lại');
   ok(Object.values(GC.posts)[0].targets && ds(CA, 'gc-tiktok-4').state === 'failed', 'giữ nguyên trạng thái lỗi');
 
+  // Trần cứng 1 bài/kênh/ngày (chủ 18/11: IG 4–5 bài/24h): dời bài 'planned' dư sang ngày trống của chính kênh, không xóa, bài đã gửi/đăng giữ nguyên
+  {
+    sql.exec("DELETE FROM dist_social; DELETE FROM dist_ext;");
+    sql.prepare("INSERT INTO dist_ext (channel_id, platform, account_id, title, status, updated) VALUES (?, 'instagram', '9', 'Lexkite.com', 'ok', 1)").run('gc-instagram-9');
+    const base = Date.UTC(new Date(now).getUTCFullYear(), new Date(now).getUTCMonth(), new Date(now).getUTCDate() + 3, 16, 0), ins = (clip, st, ms) => sql.prepare("INSERT INTO dist_social (clip, channel_id, platform, slot_ms, source, rule, state, updated) VALUES (?, 'gc-instagram-9', 'instagram', ?, 'auto', 0, ?, 1)").run(clip, ms, st);
+    ins('k-pushed', 'pushed', base); ins('k1', 'planned', base + H); ins('k2', 'planned', base + 2 * H); ins('k3', 'planned', base + 3 * H);
+    const lday = ms => new Intl.DateTimeFormat('en-CA', { timeZone: 'America/New_York' }).format(ms);
+    const moved = await A.rebalanceDays(DB, now);
+    const rows = sql.prepare('SELECT clip, slot_ms, state FROM dist_social ORDER BY slot_ms').all(), days = rows.map(r => lday(r.slot_ms));
+    ok(moved === 3 && new Set(days).size === 4 && rows.length === 4 && rows.find(r => r.clip === 'k-pushed').slot_ms === base, 'trần 1 bài/kênh/ngày: bài đã gửi giữ nguyên, 3 bài planned dư dời sang 3 ngày trống khác nhau, không xóa clip');
+    ok(rows.filter(r => r.state === 'planned').every(r => (r.slot_ms - base) % (24 * H) === (r.slot_ms - base) % (24 * H) && (r.slot_ms - base) / H >= 24) && await A.rebalanceDays(DB, now) === 0, 'dời giữ giờ trong ngày (+24h·k), chạy lại không dời nữa (idempotent)');
+    const D = await import(new URL('../../functions/api/_distribution.js', import.meta.url));
+    ok(D.SOCIAL_DAY_MAX === 1 && D.normCfg({ daily_cap: 2 }).daily_cap === 1 && D.DEFAULT_CFG.daily_cap === 1 && Object.values(MGR.DEFAULT_RULES.perDay).every(v => v === 1), 'trần mặc định 1 bài/kênh/ngày ở planner (normCfg kẹp cả cấu hình cũ 2 → 1)');
+  }
   // Xếp lịch tự động: slot lỡ quá 12 giờ được xếp lại, clip đã lên YouTube vẫn lên social
   reset({ plan_daily: true });
   sql.exec("DELETE FROM yt_queue; DELETE FROM dist_ext; INSERT INTO dist_ext (channel_id, platform, account_id, title, status, updated) VALUES ('gc-tiktok-4', 'tiktok', '4', 'TT', 'ok', 1)"); sql.prepare("INSERT INTO yt_queue (clip, status) VALUES (?, 'done')").run(CA);
