@@ -4,7 +4,7 @@
  *     late:1 + t0 = phiên gửi bù sau khi /api chết (web/js/app.js lk.hitq) → ghi vào ngày gốc t0 (lateAt), đếm ext_events 'hit:late'
  *     cur = trang đang xem (→ last_path, last = lúc nhận → "đang online"); pv = { route: số lượt xem mới từ lần gửi trước } (≤ 20 trang) → pageviews_day
  *   { t:'l', ref, p, lang }                                           → khách từ NGOÀI vào trang tĩnh (js/site-ui.js SRC_JS, ≤ 1 lần/nguồn/30 phút/máy): chỉ đếm, ext_events 'land:<nguồn>:<nước>:<loại trang>:<ngôn ngữ trang>'. Tắt: biến Pages HIT_LAND=0
- *   { t:'vo', c:{f,k,s,s_off,s_wait,s_load,s_fail,s_lang,s_pref}, p:'web'|'app'|'ext' } → nguồn giọng THỰC phát (web/js/audio.js flushVo): f file Kokoro dựng sẵn ·
+ *   { t:'vo', c:{f,k,s,s_off,s_wait,s_load,s_fail,s_lang,s_pref,s_part,s_off_{user,probe,ios,mem,cores,remote,state}}, p:'web'|'app'|'ext' } → nguồn giọng THỰC phát (web/js/audio.js flushVo): f file Kokoro dựng sẵn ·
  *     k Kokoro trên máy · s giọng máy (+ lý do) → ext_events 'vo:<k>' + 'vo:<f|k|s>:<p>' (chỉ số đếm; tỷ lệ giọng máy = s/(f+k+s), docs/specs/kokoro-on-device.md §Số đo)
  *   { t:'e', msg, src, line, path, ver }                              → gộp lỗi giống nhau thành 1 dòng + đếm
  *   { t:'x', vid, day, ev:{lookup,save,popup,newtab}, prev:{day, ev}, ver, lang } → add-on Chrome: 1 lượt/ngày/máy → ext_daily (lấy MAX, gửi lại không cộng trùng)
@@ -41,7 +41,7 @@ const CTA_PAGES = ['vocab', 'samples', 'speaking', 'grammar', 'letters', 'blog',
 const SMART_CTA_EV = ['cta_addon_view', 'cta_addon_click', 'cta_pwa_view', 'cta_pwa_click', 'cta_topic_click', 'go_view', 'go_start', 'go_done', 'go_cta']; // CTA trang tĩnh/từ vựng (scripts/lib/site-layout.mjs)
 
 // Nguồn giọng (t:'vo'): khóa cố định, số đếm chặn trần → ≤ 12 dòng ext_events/beacon, không phình bảng
-export const VO_KEYS = ['f', 'k', 's', 's_off', 's_wait', 's_load', 's_fail', 's_lang', 's_pref'], VO_PLAT = ['web', 'app', 'ext'];
+export const VO_KEYS = ['f', 'k', 's', 's_off', 's_wait', 's_load', 's_fail', 's_lang', 's_pref', 's_part', 's_off_user', 's_off_probe', 's_off_ios', 's_off_mem', 's_off_cores', 's_off_remote', 's_off_state'], VO_PLAT = ['web', 'app', 'ext'];
 export function voRows(b) {
   const c = b && b.c && typeof b.c === 'object' ? b.c : null; if (!c) return [];
   const n = k => Math.min(Math.max(Math.floor(+c[k] || 0), 0), 500), p = VO_PLAT.includes(b.p) ? b.p : 'web', rows = [];
