@@ -187,6 +187,7 @@ const setLock = (db, clip, ch, f) => { const k = Object.keys(f); return run(db, 
 /** Trạng thái cho thẻ Quản trị. */
 export async function autoStatus(env, now = Date.now()) {
   const db = env.DB; await setupMgr(db); await setupDist(db); await setupLock(db, env);
+  T0 = Date.now();
   const cfg = await loadAuto(db), st = await getMeta(db, 'auto_state', {});
   const up = await all(db, 'SELECT s.clip, s.channel_id, s.platform, s.slot_ms, s.state, s.post_id, s.err, e.title AS channel FROM dist_social s LEFT JOIN dist_ext e ON e.channel_id = s.channel_id WHERE s.slot_ms BETWEEN ? AND ? ORDER BY s.slot_ms LIMIT 40', now - 6 * 36e5, now + 72 * 36e5);
   const ids = await Promise.all(up.map(r => boardId(r.clip, r.channel_id)));
@@ -208,6 +209,8 @@ export async function autoStatus(env, now = Date.now()) {
 
 /** Lỗi TẠM THỜI của nền tảng (lỗi nội bộ / 5xx / quá thời gian / tạm không khả dụng) → tự thử lại. Lỗi nội dung, quyền, riêng tư, spam_risk, trùng… KHÔNG bao giờ tự thử lại (TikTok phạt spam_risk). */
 export const isTransientErr = code => { const c = String(code || ''); return !/spam|valid|privat|permission|scope|auth|token|forbidden|duplicate|policy|copyright|unsupported|too_?long|invalid|not_?found|quota|limit/i.test(c) && /internal|server_?error|(?:^|\D)5\d\d(?:\D|$)|timeout|timed.?out|temporar|unavailable|upstream|bad_?gateway|n[ộo]i b[ộo]/i.test(c); };
+export const TIME_BUDGET_MS = 60e3; // Cloudflare cắt ở ~100 s (524) → dừng nhận bài mới sớm, phần còn lại để lượt sau
+let T0 = Date.now(); const outOfTime = () => Date.now() - T0 > TIME_BUDGET_MS;
 export const RETRY_MAX = 3, RETRY_BACKOFF_MIN = [30, 120, 360]; // tối đa 3 lần/bài, cách nhau 30 phút → 2 giờ → 6 giờ (cron 2 giờ/lượt nên thực tế ≥ 1 lượt giữa các lần)
 /** Bài autopilot GrabCast báo lỗi khi đăng → lỗi tạm thời: tự thử lại (retry ≤ RETRY_MAX, backoff, cùng post_id nên không đăng trùng); còn lại / hết lượt thử → dist_social 'failed' + cảnh báo. */
 export async function mirrorFailed(db, st, since, now, retry) {
@@ -436,7 +439,7 @@ export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = f
     }
     const clips = due.length ? await clipsFor(env, due.slice(0, cfg.max_per_run * 2).map(r => r.clip)) : new Map();
     for (const r of due) {
-      if (done >= cfg.max_per_run) break;
+      if (done >= cfg.max_per_run || outOfTime()) break;
       if (((st.fails || {})[r.clip + '|' + r.channel_id] || {}).n >= MAX_TRIES) { rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'gave-up' }); continue; } // lỗi lặp lại → chờ người xem (không đốt lượt GrabCast)
       const lk = await lockOf(db, r.clip, r.channel_id); if (lk && lk.provider === 'meta') { rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'meta' }); continue; } // Meta đã nhận bài này
       const bid = await boardId(r.clip, r.channel_id), ex = await one(db, 'SELECT id, post_id, state, fc FROM soc_board WHERE id = ?', bid);
@@ -547,7 +550,7 @@ export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = f
     const clips = mine.length ? await clipsFor(env, mine.slice(0, 20).map(r => r.clip)) : new Map();
     let acts = 0;
     for (const r of mine) {
-      if (acts >= cfg.max_per_run) break;
+      if (acts >= cfg.max_per_run || outOfTime()) break;
       if (dead.has(r.channel_id) || (br[r.channel_id] && br[r.channel_id].until > now)) { rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'meta-channel-paused' }); continue; }
       const fk = 'm|' + r.clip + '|' + r.channel_id; if (((st.fails || {})[fk] || {}).n >= MAX_TRIES) { rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'meta-gave-up' }); continue; }
       const mfail = async (why, code) => { const f = (st.fails = st.fails || {})[fk] || { n: 0 }; st.fails[fk] = { n: f.n + 1, at: now, why: why + ':' + code }; await setLock(db, r.clip, r.channel_id, { err: (why + ':' + code).slice(0, 120) }); await DIST.social_ack(db, { clip: r.clip, channel_id: r.channel_id, state: 'failed', err: ('meta-' + why + ':' + code).slice(0, 120) }); rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'meta-' + why }); };
