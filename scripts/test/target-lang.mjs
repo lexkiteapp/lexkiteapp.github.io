@@ -58,6 +58,17 @@ const load = (sb, f) => vm.runInContext(rd(f), sb, { filename: f });
   ls.set('lk.es', '1'); ok(!T.enabled('es'), 'es_kill=1 thắng cả lk.es=1');
   ls.delete('lk.es'); cfg({ es_course: true, es_kill: 'true' }); ok(!T.enabled('es'), 'es_kill thắng cờ es_course=true');
   cfg({ es_course: '0', es_course_pct: '100' }); ok(!T.enabled('es'), 'es_course=0 rõ ràng thắng pct');
+  // quản trị (App.isAdmin ghi lk.adm=1): mọi ngôn ngữ beta bật như lk.<tl>=1 dù ngoài nhóm %/cờ 0; kill vẫn thắng; người thường không có lk.adm → không đổi
+  cfg({ es_course_pct: '10' }); ls.set('lk.esb', '50'); ok(!T.enabled('es') && !T.enabled('fr') && !T.enabled('pt'), 'ngoài nhóm 10 %, không phải quản trị → tắt');
+  ls.set('lk.adm', '1'); ok(T.enabled('es') && T.enabled('fr') && T.enabled('pt') && T.avail().join() === 'en,pt,es,fr', 'lk.adm=1 → es, fr, pt đều bật');
+  cfg({ es_course: '0' }); ok(T.enabled('es'), 'quản trị thấy es kể cả cờ es_course=0');
+  cfg({ es_kill: '1' }); ok(!T.enabled('es') && T.enabled('fr'), 'es_kill=1 vẫn tắt es cho quản trị (công tắc khẩn)');
+  ls.delete('lk.adm'); ok(!T.enabled('fr'), 'bỏ lk.adm → fr tắt lại');
+  ok(/lk\.adm/.test(rd('web/js/app.js')) && /App\.tlPick/.test(rd('web/js/hubs.js')) && /App\.tlPick = /.test(rd('web/js/settings.js')), 'App.isAdmin ghi lk.adm + chip kỳ thi có bộ chọn ngôn ngữ đích');
+  // nút cờ đầu thanh trên (#tlBtn): có trong HTML, bấm mở App.tlMenu; chọn khóa → Target.set + về trang chủ khóa (es ↔ en)
+  ok(/id="tlBtn"/.test(rd('web/app/index.html')) && /#tlBtn/.test(rd('web/js/hubs.js')) && /App\.tlMenu = /.test(rd('web/js/settings.js')), 'nút chọn khóa học ở đầu thanh trên + menu tải lười');
+  ok(/Target\.set\(b\.dataset\.tl\)[^}]*location\.hash = Target\.homeOf\(b\.dataset\.tl\) \|\| '#\/home'/.test(rd('web/js/settings.js')), 'chọn khóa học → vào trang chủ khóa đó');
+  ls.set('lk.cfg', '{}'); ls.set('lk.es', '1'); ls.delete('lk.tl'); ok(T.set('es') === 'es' && T.homeOf('es') === '#/practice/esd', 'đổi en→es từ thanh trên'); ok(T.set('en') === 'en' && T.homeOf('en') === '', 'đổi es→en từ thanh trên'); ls.delete('lk.es');
   ls.delete('lk.esb'); cfg({ es_course_pct: '50' }); T.enabled('es'); ok(/^\d{1,2}$/.test(ls.get('lk.esb')), 'nhóm lk.esb được tạo 1 lần (0–99)');
   ls.set('lk.tb', '1'); ls.set('lk.esb', '50'); cfg({ es_course_pct: '10' }); ok(!T.enabled('es'), 'lk.tb (cổng bot teacher-bubble) không ảnh hưởng nhóm lk.esb');
   ls.set('lk.esb', ''); cfg({ es_course_pct: '1' }); ok(!T.enabled('es') || /^\d{1,2}$/.test(ls.get('lk.esb')), 'lk.esb rỗng/hỏng → chọn lại nhóm hợp lệ');
