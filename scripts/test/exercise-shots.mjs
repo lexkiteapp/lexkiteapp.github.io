@@ -18,7 +18,7 @@ const step = () => { const L = App._lsn, it = L && L.sess && L.sess.cur; if (!it
 const measure = () => { const r = e => e.getBoundingClientRect(), inter = (a, b) => a.left < b.right && b.left < a.right && a.top < b.bottom && b.top < a.bottom, out = [];
   const tch = document.querySelector('.lsn-tchw'), vis = e => e && e.offsetParent !== null && r(e).height > 0;
   if (document.documentElement.scrollWidth > innerWidth + 1) out.push('tràn ngang');
-  if (vis(tch)) for (const c of document.querySelectorAll('.lsn-qcard, #lsnBody, .lsn-qfoot')) if (vis(c) && inter(r(tch), r(c))) out.push('thẻ chồng giáo viên: ' + c.className.split(' ').pop());
+  if (vis(tch)) for (const c of document.querySelectorAll('.lsn-qcard, #lsnBody, .lsn-qfoot')) if (vis(c) && inter(r(tch), r(c))) { /* chuẩn sân khấu main (#1012): thẻ đề ĐÈ hông giáo viên (≥28 px, story-stage) nhưng không che đầu/ngực: tối đa 40 % chiều cao người */ const hq = c.matches('.lsn-qcard, .v2s-lesson-question'), dep = Math.min(r(tch).bottom, r(c).bottom) - Math.max(r(tch).top, r(c).top); if (!hq || dep > r(tch).height * 0.4) out.push('thẻ chồng giáo viên: ' + c.className.split(' ').pop()); }
   const x0 = document.querySelector('.lsn-x'), x = vis(x0) ? x0 : null, /* ExitGuard (thanh FOCUS) ẩn nút ✕ của màn và dựng nút thoát chung: không còn ✕ của màn để so cột */ bar = document.querySelector('.lsn-bar'), body = document.querySelector('#lsnBody');
   if (x && body && vis(body) && Math.abs(r(x).left - r(body).left) > 1) out.push(`đầu trang lệch cột: X ${Math.round(r(x).left)} ≠ thân ${Math.round(r(body).left)}`);
   if (bar && body && vis(body) && r(bar).right > r(body).right + 1) out.push('thanh tiến độ rộng hơn cột');
