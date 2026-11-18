@@ -77,8 +77,8 @@ const s = O.slim({ id: 'q', sp: { w: 1, items: [1] }, wr: { w: 1, items: [1], te
 ok(!s.sp.items && !s.wr.items && s.wr.text.length === 1500, 'slim: bỏ items, cắt bài viết');
 
 // 8. Nối vào app: gói lười, route, lối thoát, không t() lúc nạp module
-const app = R('web/js/app.js'), ui = R('web/cpack/outcomes-app/outcomes.js');
-ok(/\boutcome: \['js\/i18n\/en\/outcomes\.js'[^\]]*'cpack\/outcomes-app\/outcomes\.js'\]/.test(app) && /\boutcome: 'outcome'[,}]/.test(app), 'BUNDLES + ROUTE_BUNDLE');
+const app = R('web/js/app.js'), bnd = R('web/js/bundles.js'), ui = R('web/cpack/outcomes-app/outcomes.js');
+ok(/\boutcome: \['js\/i18n\/en\/outcomes\.js'[^\]]*'cpack\/outcomes-app\/outcomes\.js'\]/.test(bnd) && /\boutcome: 'outcome'[,}]/.test(app), 'BUNDLES + ROUTE_BUNDLE');
 ok(/WITH_ARG = \[[^\]]*'outcome'/.test(R('web/js/exit-guard.js')), 'ExitGuard WITH_ARG');
 ok(/routes\.outcome = /.test(ui) && !/^\s{0,4}const [A-Z_]+ = t\(/m.test(ui), 'route + không t() lúc nạp');
 ok(/LAZY="[^"]*\boutcomes\b/.test(R('scripts/build-i18n.sh')), 'nhóm i18n lười outcomes');

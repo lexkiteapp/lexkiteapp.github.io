@@ -64,7 +64,7 @@ let n = 0; const ok = m => { n++; console.log('  ✓ ' + m); };
 // 5) Khung app: ai-local.js không nằm trong SHELL; tính năng gọi qua App.need('ailocal'); đường máy chủ vẫn còn
 { const sw = fs.readFileSync('web/sw.js', 'utf8'), app = fs.readFileSync('web/js/app.js', 'utf8'), ai = fs.readFileSync('web/js/ai.js', 'utf8');
   assert(!/const SHELL = \[[^\]]*ai-local/.test(sw), 'ai-local.js không được vào khung app');
-  assert(/ailocal: \['js\/ai-local\.js'\]/.test(app));
+  assert(/ailocal: \['js\/ai-local\.js'\]/.test(fs.readFileSync('web/js/bundles.js', 'utf8')));
   assert(/localAI\(kind, body, text\)\) \|\| await call\(body\)/.test(ai), 'chấm bài: trên máy trước, máy chủ sau');
   assert(/return call\(prompt\);/.test(ai) && /callProxy/.test(ai), 'askLocal phải rơi về máy chủ');
   assert(fs.existsSync('extension/app/js/ai-local.js'), 'add-on phải có bản sao (ext-sync)');

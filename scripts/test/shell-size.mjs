@@ -6,6 +6,7 @@
 import fs from 'fs';
 import path from 'path';
 import { gzSize, firstLoadFiles } from '../lib/gz-canon.mjs';
+import { bundleFiles } from '../lib/bundles.mjs';
 import vm from 'vm';
 import { execFileSync } from 'child_process';
 import { pathToFileURL } from 'url';
@@ -34,8 +35,7 @@ const entries = src => {
 
 // Khóa chỉ module tải lười dùng: có trong file của BUNDLES (app.js), không có trong file nào khác (khung, trang HTML, add-on ngoài app/), khóa chỉ xuất hiện 1 lần trong mọi nhóm
 export function lazyOnlyKeys() {
-  const app = fs.readFileSync('web/js/app.js', 'utf8'), bt = app.slice(app.indexOf('BUNDLES = {'), app.indexOf('const ROUTE_BUNDLE'));
-  const lazy = new Set([...bt.matchAll(/'(js\/[^']+\.js)'/g)].map(m => 'web/' + m[1]));
+  const lazy = new Set([...bundleFiles().filter(f => /^js\/.+\.js$/.test(f)), 'js/bundles.js'].map(f => 'web/' + f));
   const walk = (d, o = []) => { for (const e of fs.readdirSync(d, { withFileTypes: true })) { const p = path.join(d, e.name); if (e.isDirectory()) { if (!/node_modules|i18n$/.test(p)) walk(p, o); } else if (/\.(js|mjs|html|json)$/.test(p)) o.push(p); } return o; };
   const web = walk('web').filter(f => !f.startsWith('web/js/i18n/')), tag = new Set();
   for (const f of web.filter(f => f.endsWith('.html'))) for (const m of fs.readFileSync(f, 'utf8').matchAll(/src="\/?(js\/[^"?]+)/g)) tag.add('web/' + m[1]);
