@@ -1,0 +1,22 @@
+# HOTFIX trần Workers: Cache Rule biên cho trang từ 13 ngôn ngữ (scripts/cf-words-cache.mjs) – trúng cache = 0 lượt Workers.
+# Chạy khi script đổi trên main hoặc bằng tay; idempotent. Token CLOUDFLARE_API_TOKEN cần Zone › Cache Rules › Edit (thiếu → đỏ, ghi rõ trong summary).
+name: words-edge-cache
+on:
+  push:
+    branches: [main]
+    paths: ['scripts/cf-words-cache.mjs', '.github/workflows/words-edge-cache.yml']
+  workflow_dispatch:
+concurrency: { group: words-edge-cache, cancel-in-progress: false }
+permissions: { contents: read }
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      CLOUDFLARE_API_TOKEN: '${{ secrets.CLOUDFLARE_API_TOKEN }}'
+    steps:
+      - uses: actions/checkout@v4
+        with: { sparse-checkout: "scripts\nfunctions\nweb/_routes.json", sparse-checkout-cone-mode: false }
+      - uses: actions/setup-node@v4
+        with: { node-version: '24' }
+      - run: node scripts/cf-words-cache.mjs apply

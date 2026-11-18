@@ -112,6 +112,8 @@ Vào [Thi thử IELTS](/#/mock), chọn Listening, và làm liền một mạch 
 
 {{youtube: | Gợi ý video: Phân tích các bẫy đổi ý thường gặp trong IELTS Listening phần 1 và cách ghi chú nhanh}}
 
+Sau khi nắm các mẹo chung, hãy đọc [các dạng câu hỏi IELTS Listening](/vi/blog/cac-dang-cau-hoi-ielts-listening/) để có cách làm riêng cho từng dạng.
+
 ## Câu hỏi thường gặp
 
 ### IELTS Listening có được nghe lại không?

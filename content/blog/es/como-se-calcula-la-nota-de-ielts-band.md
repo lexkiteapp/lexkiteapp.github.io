@@ -9,7 +9,7 @@ tags: [ielts, band-score, scoring, strategy]
 keyword: "cómo se calcula la nota de ielts"
 cover: mock
 coverAlt: "Pantalla del simulacro IELTS de Lexkite con las cuatro destrezas Listening, Reading, Writing y Speaking y el historial de intentos"
-publishAt:
+publishAt: 2026-12-31T19:15:00-06:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

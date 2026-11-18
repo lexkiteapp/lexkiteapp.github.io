@@ -108,7 +108,11 @@ for (const [width, scheme, lang] of [...CONFIGS, ...DESK]) {
         // phần tử sâu nhất thò quá mép phải màn thật → trình duyệt điện thoại thu nhỏ cả trang (owner thấy chữ bé, thẻ bị ép)
         const out = [...document.querySelectorAll('body *')].filter(e => { const r = e.getBoundingClientRect(); return r.width > 0 && r.right > lw + 1 && ![...e.children].some(k => k.getBoundingClientRect().right > lw + 1); });
         const id = e => { const r = e.getBoundingClientRect(), cs = getComputedStyle(e); return e.tagName.toLowerCase() + (e.id ? '#' + e.id : '') + '.' + [...e.classList].slice(0, 2).join('.') + ` [${Math.round(r.left)}..${Math.round(r.right)} ${cs.position}${cs.transform !== 'none' ? ' tf' : ''}] "${(e.textContent || '').trim().slice(0, 16)}"`; };
-        o.push(`trang bị thu nhỏ: bố cục ${lw}px, nội dung ${document.scrollingElement.scrollWidth}px, innerWidth ${innerWidth} – thò ra: ${out.slice(0, 6).map(id).join(', ')}`);
+        // Bộ dò cũ bỏ sót: (a) chữ nowrap thò khỏi hộp của chính nó (hộp vẫn trong màn), (b) phần tử rộng 0 nằm ngoài mép → quét thêm vùng chữ thật + hộp rộng 0 + pseudo-element
+        const txt = [], zero = [], pse = [], walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+        for (let n; (n = walker.nextNode());) { if (!n.textContent.trim()) continue; const rg = document.createRange(); rg.selectNodeContents(n); const q = rg.getBoundingClientRect(); if (q.width && q.right > lw + 1) txt.push(`${id(n.parentElement)} chữ→${Math.round(q.right)}`); }
+        for (const e of document.querySelectorAll('body *')) { const q = e.getBoundingClientRect(); if (!q.width && q.right > lw + 1) zero.push(id(e)); for (const ps of ['::before', '::after']) { const c = getComputedStyle(e, ps); if (c.content !== 'none' && c.display !== 'none' && (c.position === 'absolute' || c.position === 'fixed')) { const r0 = e.getBoundingClientRect(), w = parseFloat(c.width) || 0, l = parseFloat(c.left) || 0; if (r0.left + l + w > lw + 1) pse.push(id(e) + ps); } } }
+        o.push(`trang bị thu nhỏ: bố cục ${lw}px, nội dung ${document.scrollingElement.scrollWidth}px, innerWidth ${innerWidth} – thò ra: ${out.slice(0, 6).map(id).join(', ')} | chữ: ${txt.slice(0, 5).join(', ')} | rộng 0: ${zero.slice(0, 4).join(', ')} | pseudo: ${pse.slice(0, 4).join(', ')}`);
       }
       const ell = [...c.querySelectorAll('tbody th, tfoot th')].filter(th => th.scrollWidth > th.clientWidth + 1).map(th => th.textContent.trim());
       if (ell.length) o.push(`nhãn bị cắt (…): ${ell.join(', ')}`);
@@ -169,5 +173,6 @@ for (const [width, scheme, lang] of [...CONFIGS, ...DESK]) {
 await browser.close();
 fs.writeFileSync(path.join(OUT, TAG + '.json'), JSON.stringify({ fails }, null, 1));
 if (TAG !== 'after') { console.log(`admin-plat-shots (${TAG}): đã chụp ${CONFIGS.length + DESK.length} cấu hình`, fails.length ? JSON.stringify(fails) : ''); process.exit(0); }
+for (const f of fails.slice(0, 8)) console.log(`::error title=admin-plat-shots::${String(f).replace(/[\r\n%]/g, ' ').slice(0, 480)}`); // đọc được qua API annotations
 if (fails.length) { console.log('✗ admin-plat-shots:\n  ' + fails.join('\n  ')); process.exit(1); }
 console.log(`✓ admin-plat-shots: #analytics × ${CONFIGS.length} cấu hình (360/390, sáng/tối) + web 1280 – biểu đồ 14 ngày 2 trục, – không tràn/thu nhỏ, đầu trang ≥ 44 px không đè, thẻ Nền tảng + thanh mọi thẻ cùng thang, tên nước đủ, chú giải 1 dải, axe 0 lỗi`);

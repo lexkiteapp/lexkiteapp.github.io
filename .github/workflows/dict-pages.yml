@@ -41,6 +41,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with: { fetch-depth: 50 }
+      - uses: ./.github/actions/gen-if-needed   # bản sinh khớp nguồn PR khi không npm ci (luật 18)
       - uses: actions/setup-node@v4
         with: { node-version: 22, cache: npm }
       - name: Dựng dữ liệu + tầng tĩnh (mặc định noindex)

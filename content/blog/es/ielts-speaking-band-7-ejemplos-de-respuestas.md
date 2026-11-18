@@ -9,7 +9,7 @@ tags: [ielts, speaking, band-7, sample-answers]
 keyword: "ielts speaking band 7 ejemplos"
 cover: speaking
 coverAlt: "Práctica de Speaking en Lexkite con las partes 1, 2 y 3 de IELTS para elegir"
-publishAt:
+publishAt: 2027-01-13T09:26:00-06:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

@@ -169,6 +169,8 @@ Writing में भी paragraph का एक साफ़ मुख्य �
 
 {{youtube: | वीडियो आइडिया: पाँच paragraph वाला matching headings प्रश्न लाइव हल करना, हर स्टेप पर सोचते हुए}}
 
+Matching Headings के साथ बाकी टास्क की तुलना देखनी हो तो [IELTS Reading Question Types in Hindi](/hi/blog/ielts-reading-question-types-in-hindi/) पढ़िए।
+
 ## अक्सर पूछे जाने वाले प्रश्न
 
 ### Matching headings पहले करें या बाद में?

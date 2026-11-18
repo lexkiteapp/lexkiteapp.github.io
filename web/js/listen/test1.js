@@ -9,6 +9,9 @@ g.LTI = [
 'Complete the notes below. Write ONE WORD AND/OR A NUMBER for each answer.',
 'Now look at questions 15 to 20.',
 'Now look at questions 16 to 20.',
+'Complete the table below. Write ONE WORD AND/OR A NUMBER for each answer.',
+'Complete the summary below. Write ONE WORD ONLY for each answer.',
+'Before you hear the rest of the conversation, you have some time to look at questions 27 to 30.',
 ];
 const L = g.LISTENING = g.LISTENING || [];
 

@@ -174,6 +174,10 @@ quiz: [
 
 {{youtube: | IELTS Speaking Part 2 Master Template and Band 8 Sample}}
 
+ولمقارنة إجابة الجزء الثاني بنسخة ضعيفة وأخرى أقوى مع تحليل المعايير الأربعة، اقرأ [إجابات IELTS Speaking باند 7](/ar/blog/ielts-speaking-band-7-ijabat-namudhajiyyah/).
+
+وإن كان هدفك من IELTS هو الهجرة فمعرفة النسخة والدرجة المطلوبتين تسبق التدريب، وهذا ما يشرحه [ielts للهجرة](/ar/blog/ielts-lil-hijra-ay-ikhtibar-wa-kam-darajah/).
+
 ## الأسئلة الشائعة (FAQ)
 
 ### Q1. ماذا يحدث إذا تحدثت لأقل من دقيقتين؟

@@ -9,7 +9,7 @@ tags: [awl, ielts, academic-vocabulary, toefl]
 keyword: "lista de palabras académicas"
 cover: library
 coverAlt: "Biblioteca de vocabulario de Lexkite con pestañas para todas las palabras, NGSL, temas de IELTS, Writing, Speaking y TOEIC"
-publishAt:
+publishAt: 2027-01-17T12:39:00-06:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

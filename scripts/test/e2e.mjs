@@ -21,7 +21,7 @@ const gtxOk = await fetch(new URL('/api/dictlookup?src=gtx&sl=vi&tl=en&dt=t&q=xi
 const t0 = Date.now(); let pages = 0, clicks = 0;
 for (const lang of LANGS) for (const [vn, vp] of Object.entries(VIEWS)) {
   if (vn === 'desktop' && !['vi', 'en', 'ar', 'ja'].includes(lang)) continue; // máy tính: 4 ngôn ngữ đại diện (LTR/RTL/CJK) – đủ bắt lỗi bố cục
-  const ctx = await browser.newContext({ ...vp, locale: lang });
+  const ctx = await browser.newContext({ bypassCSP: true, ...vp, locale: lang });
   const page = await ctx.newPage(); let route = 'boot';
   page.on('pageerror', e => add('js', lang, vn, route, e.message + ' @ ' + String(e.stack || '').split('\n').slice(1, 3).join(' ').trim().slice(0, 160)));
   page.on('console', m => { if (m.type() === 'error' && !BENIGN.test(m.text()) && !/Failed to load resource/.test(m.text())) add('console', lang, vn, route, m.text()); });

@@ -146,6 +146,8 @@ Doğal konuşma ritmini kavramak için [İngilizce cümle vurgusu ve ritim rehbe
 
 ---
 
+Cevap genişletme tekniklerini bütün bölümlerde bir arada görmek isterseniz [IELTS Speaking band 7 örnek cevaplar](/tr/blog/ielts-speaking-band-7-ornek-cevaplar/) rehberi Part 1, 2 ve 3'ü yan yana inceliyor.
+
 ## IELTS Speaking Part 3 Hakkında Sıkça Sorulan Sorular
 
 ### 1. Part 3 aşamasında bir soruya ne kadar süreyle cevap verilmelidir?

@@ -157,6 +157,8 @@ quiz: [
 
 ---
 
+Passive Voice ใช้มากที่สุดในโจทย์แผนภาพกระบวนการของ IELTS ดูวิธีนำไปเขียนรายงานได้ใน [IELTS Writing Task 1 Process: เทคนิคและรายงานตัวอย่าง](/th/blog/ielts-writing-task-1-process-diagram/)
+
 ## คำถามที่พบบ่อย (FAQ)
 
 ### 1. เมื่อไหร่ที่ไม่จำเป็นต้องใส่ "by + ผู้กระทำ"?

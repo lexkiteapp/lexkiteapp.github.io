@@ -110,6 +110,16 @@ const sec = (id, d, h, inner) => `<section aria-labelledby="h-${id}"${d ? ` data
 const hiW = (s, k) => esc(s).replace(new RegExp(`\\b(${k.replace(/[^a-z' -]/g, '')}[a-z]*)`, 'i'), '<b>$1</b>');
 const posIn = {}; for (const l of LANGS) posIn[l] = new Map(setOf[l].map((e, i) => [e, i]));
 const built = {}; // l → Map(mục → { body, faq, m }) – dựng một lần, build-seo-pages và build-blog dùng chung
+// Câu trả lời ngắn (~40 chữ) ngay dưới tiêu đề – nhắm đoạn trích nổi bật + speakable (docs/SEO-DICT-PAGES.md §Chiến lược). Không phải <section data-d> → không tính vào độ dày.
+// Chỉ dùng dữ liệu đã hiện trên trang: nghĩa theo ngôn ngữ trang + định nghĩa tiếng Anh dễ hiểu (en: chỉ định nghĩa) + IPA Anh.
+const clipWords = (s, n) => { const a = String(s).split(/\s+/); return a.length <= n ? a.join(' ') : a.slice(0, n).join(' ').replace(/[,;:–-]$/, '') + '…'; };
+const answerBox = (l, t, W, pos, m, e) => {
+  const first = l === 'en' ? clipWords(e.def, 28) : m && String(m).split(/\s+/).length <= 14 ? m : clipWords(m || e.def, 14);
+  const more = l !== 'en' && m && e.def ? ` <span lang="en" dir="ltr">${esc(clipWords(e.def, 22))}</span>` : '';
+  const ipa = e.ipa ? ` <span class="ipa" dir="ltr">${esc(e.ipa)}</span>` : '';
+  const lead = l === 'en' ? `<b lang="en" dir="ltr">${esc(W)}</b>${pos ? ` (${esc(pos)})` : ''}: <span lang="en" dir="ltr">${esc(first)}</span>` : `<b lang="en" dir="ltr">${esc(W)}</b>${pos ? ` (${esc(pos)})` : ''}: ${esc(first)}`;
+  return first ? `<p class="ans" data-ans>${lead}${more}${ipa}</p>` : '';
+};
 export function bodyOf(l, e) {
   const c = (built[l] ||= new Map()); if (c.has(e)) return c.get(e);
   const t = S[l], list = setOf[l], P = POS[l], i = posIn[l].get(e);
@@ -147,6 +157,7 @@ export function bodyOf(l, e) {
     const tools = ts ? [ts.levels && ts.levels[lvU] && [toolPath(l, 'test', lvU), fill(ts.level.h1, { lv: lvU, name: ts.levels[lvU].name })], [toolPath(l, 'test'), ts.nav.levelTest], [toolPath(l, 'toeic'), ts.nav.toeic]].filter(Boolean) : [];
     const body = `<article class="page wd">
 <header class="hero"><h1>${en(W)}</h1>${vimgOf(e, `${w} – ${m}`, t.ph)}<div class="sub">${pos ? `<span class="chip">${esc(pos)}</span>` : ''}${e.level ? `<span class="chip">${esc(t.level)} ${esc(e.level)}</span>` : ''}${tp && l === 'vi' ? `<span class="chip">${esc(tp.name || tp.id)}</span>` : ''}</div></header>
+${answerBox(l, t, W, pos, m, e)}
 ${sec('m', 'mean', senses.length > 1 ? t.means : t.mean, meanHtml)}
 ${sec('p', 'pron', t.pron, `<p class="pr"><span>${esc(t.uk)} <span class="ipa" dir="ltr">${esc(e.ipa || '')}</span></span>${ipaUS ? `<span>${esc(t.us)} <span class="ipa" dir="ltr">${esc(ipaUS)}</span></span>` : ''}${au ? `<button type="button" class="au" data-a="${esc(au)}" aria-label="${esc(t.pron)}: ${esc(w)}"></button>` : ''}</p>`)}
 ${sec('e', 'ex', exs.length > 1 ? t.exs : t.ex, exs.map(s => `<blockquote lang="en" dir="ltr">${hiW(s, k)}</blockquote>`).join(''))}
