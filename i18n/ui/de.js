@@ -763,6 +763,7 @@
 "Ngôi":"Betreff",
 "Ngôn ngữ & Giao tiếp":"Sprache & Kommunikation",
 "Ngôn ngữ giao diện":"Sprache der Oberfläche",
+"Ngôn ngữ đang học":"Lernsprache",
 "Người dùng":"Benutzer",
 "Người dùng, hộp thư, phân tích, chất lượng, Gemini API":"Benutzer, Posteingang, Analysen, Qualität, Gemini API",
 "Người mới":"Neuling",

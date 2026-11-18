@@ -763,6 +763,7 @@
 "Ngôi":"الموضوع",
 "Ngôn ngữ & Giao tiếp":"اللغة والتواصل",
 "Ngôn ngữ giao diện":"لغة الواجهة",
+"Ngôn ngữ đang học":"اللغة التي تتعلمها",
 "Người dùng":"المستخدمين",
 "Người dùng, hộp thư, phân tích, chất lượng, Gemini API":"المستخدمون، البريد الوارد، التحليلات، الجودة، Gemini API",
 "Người mới":"مبتدئ",

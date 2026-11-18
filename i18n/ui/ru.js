@@ -763,6 +763,7 @@
 "Ngôi":"Тема",
 "Ngôn ngữ & Giao tiếp":"Язык и общение",
 "Ngôn ngữ giao diện":"Язык интерфейса",
+"Ngôn ngữ đang học":"Изучаемый язык",
 "Người dùng":"Пользователи",
 "Người dùng, hộp thư, phân tích, chất lượng, Gemini API":"Пользователи, входящие, аналитика, качество, Gemini API",
 "Người mới":"Новичок",

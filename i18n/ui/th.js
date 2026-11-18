@@ -763,6 +763,7 @@
 "Ngôi":"เรื่อง",
 "Ngôn ngữ & Giao tiếp":"ภาษาและการสื่อสาร",
 "Ngôn ngữ giao diện":"ภาษาของแอป",
+"Ngôn ngữ đang học":"ภาษาที่กำลังเรียน",
 "Người dùng":"ผู้ใช้",
 "Người dùng, hộp thư, phân tích, chất lượng, Gemini API":"ผู้ใช้ กล่องจดหมาย การวิเคราะห์ คุณภาพ Gemini API",
 "Người mới":"มือใหม่",

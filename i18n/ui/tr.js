@@ -763,6 +763,7 @@
 "Ngôi":"Konu",
 "Ngôn ngữ & Giao tiếp":"Dil ve iletişim",
 "Ngôn ngữ giao diện":"Arayüz dili",
+"Ngôn ngữ đang học":"Öğrenilen dil",
 "Người dùng":"Kullanıcılar",
 "Người dùng, hộp thư, phân tích, chất lượng, Gemini API":"Kullanıcılar, gelen kutusu, analiz, kalite, Gemini API",
 "Người mới":"Yeni başlayan",

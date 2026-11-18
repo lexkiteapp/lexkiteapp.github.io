@@ -763,6 +763,7 @@
 "Ngôi":"Assunto",
 "Ngôn ngữ & Giao tiếp":"Língua e comunicação",
 "Ngôn ngữ giao diện":"Idioma da interface",
+"Ngôn ngữ đang học":"Idioma que você aprende",
 "Người dùng":"Usuários",
 "Người dùng, hộp thư, phân tích, chất lượng, Gemini API":"Usuários, caixa de entrada, análises, qualidade, Gemini API",
 "Người mới":"Iniciante",
