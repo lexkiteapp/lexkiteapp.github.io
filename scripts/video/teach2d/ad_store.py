@@ -8,8 +8,9 @@ UTM = 'https://lexkite.com/?utm_source=facebook&utm_medium=paid&utm_campaign=ad1
 
 
 def main(ep_id, art, bank, ad, delta, repo, run, sha=''):
-    ep = json.load(open(f'{store.EPS}/{ep_id}.json')); txt = json.dumps(ep, ensure_ascii=False)
-    for old in {ep['cta']['link'], (ep.get('publish') or {}).get('link')} - {None}: txt = txt.replace(old, UTM)
+    ep = json.load(open(f'{store.EPS}/{ep_id}.json')); fb = ep['publish']['platforms']['facebook']   # only the Facebook post text carries the ad UTM; cta.link stays the app deep link (publish gate: deeplink-route)
+    for old in {ep['cta']['link'], ep['publish'].get('link')} - {None}: fb['text'] = fb['text'].replace(old, UTM)
+    txt = json.dumps(ep, ensure_ascii=False)
     tmp = tempfile.mkdtemp(); open(f'{tmp}/{ep_id}.json', 'w').write(txt); store.EPS = tmp
     shutil.copy2(ad, f'{bank}/{ep_id}-short.mp4')
     D = {ep_id: json.load(open(delta))[ep_id]}; r = D[ep_id]; r['sha']['short'] = hashlib.sha256(open(ad, 'rb').read()).hexdigest()[:16]; json.dump(D, open(delta, 'w'))
