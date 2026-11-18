@@ -1205,6 +1205,7 @@
   "skill.listen.luyenTap": "Practicar",
   "skill.listen.nghe1Lan": "Escuchar una vez",
   "skill.listen.chepChinhTa": "Dictado",
+  "skill.listen.dienTuConThieu": "Completa la palabra que falta",
   "skill.listen.meoLamBaiListening": "Consejos de Listening",
   "skill.listen.docTruocCauHoi": "<b>Lee las preguntas primero</b> mientras esperas: subraya las palabras clave y predice qué tipo de respuesta se necesita (número, nombre, sustantivo…).",
   "skill.listen.canThanBayDoi": "<b>Cuidado con las correcciones</b>: los oradores suelen dar una respuesta y luego la cambian (“sorry, I mean…”). La información final es la respuesta.",

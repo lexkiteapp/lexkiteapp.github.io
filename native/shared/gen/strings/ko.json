@@ -1205,6 +1205,7 @@
   "skill.listen.luyenTap": "연습",
   "skill.listen.nghe1Lan": "한 번만 듣기",
   "skill.listen.chepChinhTa": "받아쓰기",
+  "skill.listen.dienTuConThieu": "빈칸 채우기",
   "skill.listen.meoLamBaiListening": "듣기 요령",
   "skill.listen.docTruocCauHoi": "<b>먼저 질문을 읽으세요</b> 기다리는 동안 키워드에 밑줄을 긋고 필요한 답변 유형(번호, 이름, 명사…)을 예측하세요.",
   "skill.listen.canThanBayDoi": "<b>수정에 주의하세요</b>: 화자는 종종 하나의 답변을 제시한 다음 이를 변경합니다(“sorry, I mean…”). 최종정보가 답변입니다.",

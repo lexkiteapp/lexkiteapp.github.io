@@ -1207,6 +1207,7 @@ public enum L10nKey: String, CaseIterable, Sendable {
     case skillListenLuyenTap = "skill.listen.luyenTap"
     case skillListenNghe1Lan = "skill.listen.nghe1Lan"
     case skillListenChepChinhTa = "skill.listen.chepChinhTa"
+    case skillListenDienTuConThieu = "skill.listen.dienTuConThieu"
     case skillListenMeoLamBaiListening = "skill.listen.meoLamBaiListening"
     case skillListenDocTruocCauHoi = "skill.listen.docTruocCauHoi"
     case skillListenCanThanBayDoi = "skill.listen.canThanBayDoi"
