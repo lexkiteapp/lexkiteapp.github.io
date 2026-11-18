@@ -9,7 +9,7 @@ tags: [word-stress, pronunciation, ipa, speaking]
 keyword: "word stress ภาษาอังกฤษ"
 cover: pron
 coverAlt: "คลังสัทอักษร IPA ของ Lexkite ที่มีสระ สระประสม และพยัญชนะให้ฝึก"
-publishAt:
+publishAt: 2027-01-21T12:04:00+07:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready
