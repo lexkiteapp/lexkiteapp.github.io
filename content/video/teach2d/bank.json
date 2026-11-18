@@ -4800,6 +4800,36 @@
    "state": "banked",
    "tries": 0
   },
+  "t2a_review_apologize": {
+   "run": "44226442820",
+   "at": "2026-11-18T05:30Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "c71a521437b603d5",
+    "wide": "9e751147c6696017"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2a_review_appreciate": {
+   "run": "44226442820",
+   "at": "2026-11-18T05:30Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "a49cac8230a375b8",
+    "wide": "cb6fb13701ec7815"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
   "t2a_stress_artistic": {
    "run": "42534524390",
    "at": "2026-11-08T23:51Z",
@@ -4920,6 +4950,24 @@
    "state": "banked",
    "tries": 0
   },
+  "t2a_stress_referee": {
+   "run": "44226442820",
+   "at": "2026-11-18T05:30Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "7096756ee619f995",
+    "wide": "5d10c52470808a2f"
+   },
+   "why": [],
+   "state": "banked",
+   "publish_block": [
+    "topic"
+   ],
+   "tries": 0
+  },
   "t2a_usuk_apartment": {
    "run": "42534524390",
    "at": "2026-11-08T23:51Z",
@@ -5005,6 +5053,24 @@
    },
    "why": [],
    "state": "banked",
+   "tries": 0
+  },
+  "t2a_usuk_soccer": {
+   "run": "44226442820",
+   "at": "2026-11-18T05:30Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "f47665f045ce4ddd",
+    "wide": "f80250094dff03b4"
+   },
+   "why": [],
+   "state": "banked",
+   "publish_block": [
+    "topic"
+   ],
    "tries": 0
   },
   "t2a_usuk_vacation": {

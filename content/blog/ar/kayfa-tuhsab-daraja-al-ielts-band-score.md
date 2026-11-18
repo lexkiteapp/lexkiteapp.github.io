@@ -11,7 +11,7 @@ cover: mock
 coverAlt: "شاشة إعداد اختبار IELTS التجريبي في Lexkite مع المهارات الأربع الاستماع والقراءة والكتابة والمحادثة وسجل المحاولات السابقة"
 factChecked: 2026-11-16
 author: Lexkite
-publishAt:
+publishAt: 2027-01-14T08:48:00+03:00
 qualityScore: 92
 status: ready
 coverArt: {mood: think, icon: target}

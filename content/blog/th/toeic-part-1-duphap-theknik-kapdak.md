@@ -9,7 +9,7 @@ tags: [toeic, listening, part-1, photographs]
 keyword: "toeic part 1"
 cover: toeic
 coverAlt: "หน้าฝึกสอบ TOEIC ใน Lexkite มีข้อสอบจำลองและการฝึกแยกตามพาร์ต"
-publishAt:
+publishAt: 2027-01-19T21:56:00+07:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready
