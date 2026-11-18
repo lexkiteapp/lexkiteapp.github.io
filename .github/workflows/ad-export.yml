@@ -2,7 +2,10 @@
 # Chạy tay: lấy artifact tv-<ep>-short-<run> của teach-video → ad_export.py → artifact ad-<ep>-<run> (30 ngày). Chủ lấy 3 file ở đó.
 name: ad-export
 on:
-  pull_request: { paths: ['.github/workflows/ad-export.yml', 'scripts/video/teach2d/ad_export.py'] }   # PR tự xuất quảng cáo ad1 (mặc định bên dưới) để lấy artifact mà không cần merge workflow
+  pull_request:
+    paths:
+      - '.github/workflows/ad-export.yml'
+      - 'scripts/video/teach2d/ad_export.py'
   workflow_dispatch:
     inputs:
       run: { description: 'id lượt teach-video có artifact tv-<ep>-short-<run>', required: true }

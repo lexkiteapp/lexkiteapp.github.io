@@ -1,10 +1,13 @@
 # ci-policy: no-gen – đưa clip quảng cáo ad1 (đã xuất bởi ad-export) vào lexkite-shorts qua ĐÚNG autopub_gate + store.py như mọi clip Teach2D. Không đăng, không gọi GrabCast/Meta/Drive; autopilot 2 giờ/lượt đăng như bài thường.
 name: ad-store
 on:
-  pull_request: { paths: ['.github/workflows/ad-store.yml', 'scripts/video/teach2d/ad_store.py'] }
+  pull_request:
+    paths:
+      - '.github/workflows/ad-store.yml'
+      - 'scripts/video/teach2d/ad_store.py'
   workflow_dispatch:
 permissions: { contents: read, actions: read }
-concurrency: { group: ad-store, cancel-in-progress: false }
+concurrency: { group: ad-store, cancel-in-progress: true }
 env:
   EP: t2_react_lookintoit
   SRC_RUN: '44262329940'
