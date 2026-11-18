@@ -12,7 +12,7 @@ coverAlt: "หน้าฝึกสอบ TOEIC Listening และ Reading ใ�
 factChecked: 2026-11-16
 author: Lexkite
 status: ready
-publishAt:
+publishAt: 2027-01-18T07:29:00+07:00
 qualityScore: 91
 coverArt: {mood: think, icon: ear}
 shots: [
