@@ -93,7 +93,7 @@ async function main() {
     const out = execFileSync('node', ['scripts/test/size-budget.mjs', '--headroom'], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).split('\n').find(l => l.startsWith('HEADROOM:'));
     const low = out ? JSON.parse(out.slice(9)) : [];
     const kb = n => (n / 1024).toFixed(1) + ' KB';
-    console.log('budget:', low.length, await syncIssue({ label: 'budget-low', needed: low.length > 0, title: `Ngân sách sắp hết: ${low.map(h => h.name).join(', ')}`, body: `Dư < 5 KB hoặc < 2 % (vàng, chưa đỏ):\n\n${low.map(h => `- **${h.name}**: ${kb(h.used)} / ${kb(h.cap)} – còn ${kb(h.free)}`).join('\n')}\n\nKhông nâng ngân sách: rà dữ liệu trùng/thừa, chuyển sang tải lười. PR thêm byte nên chờ tới khi có chỗ (hai PR xanh riêng cộng lại có thể vượt – 05/11 374/374 KB).` }));
+    console.log('budget:', low.length, await syncIssue({ label: 'budget-low', needed: low.length > 0, title: `Ngân sách sắp hết: ${low.map(h => h.name).join(', ')}`, body: `Dùng ≥ 95 % trần: dư < 5 KB hoặc < 5 % (vàng, chưa đỏ; mục tiêu main chừa ≥ 3 %):\n\n${low.map(h => `- **${h.name}**: ${kb(h.used)} / ${kb(h.cap)} – còn ${kb(h.free)}`).join('\n')}\n\nKhông nâng ngân sách: rà dữ liệu trùng/thừa, chuyển sang tải lười. PR thêm byte nên chờ tới khi có chỗ (hai PR xanh riêng cộng lại có thể vượt – 05/11 374/374 KB).` }));
   } else if (cmd === 'wip') {
     const n = +arg('pr'), pr = await api(`/pulls/${n}`), labels = pr.labels.map(l => l.name);
     const open = (await api('/pulls?state=open&per_page=100')).filter(p => p.number !== n).length;
