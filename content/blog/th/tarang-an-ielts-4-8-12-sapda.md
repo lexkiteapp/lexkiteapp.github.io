@@ -9,7 +9,7 @@ tags: [ielts, study-plan, schedule, mock-test]
 keyword: "ตารางอ่าน ielts"
 cover: path
 coverAlt: "หน้าเส้นทางการเรียน Lexkite แสดงบทเรียนที่เรียงเป็นเส้นทางทีละขั้น"
-publishAt:
+publishAt: 2027-01-17T09:54:00+07:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

@@ -9,7 +9,7 @@ tags: [toeic, test-format, listening, reading]
 keyword: "โครงสร้างข้อสอบ toeic"
 cover: toeic
 coverAlt: "พื้นที่ฝึก TOEIC ของ Lexkite ที่มีข้อสอบจำลอง ฝึกแยกตามพาร์ต และคำศัพท์ TOEIC"
-publishAt:
+publishAt: 2027-01-14T07:05:00+07:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

@@ -9,7 +9,7 @@ tags: [ielts, writing, mistakes, grammar, task-2]
 keyword: "ielts writing में आम गलतियाँ"
 cover: write
 coverAlt: "Lexkite का Writing रूम: निबंध के प्रश्न, आइडिया के संकेत और निबंध का ढाँचा"
-publishAt:
+publishAt: 2027-01-17T19:08:00+05:30
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

@@ -26,6 +26,8 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
+      - uses: ./.github/actions/playwright-cache
+        with: { browsers: '--with-deps chrome' }
       - name: Chụp + đầu dò
         timeout-minutes: 40
         env:

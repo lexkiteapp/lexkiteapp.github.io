@@ -10,7 +10,7 @@ keyword: "ielts ukvi là gì"
 cover: goal
 coverAlt: "Màn hình mục tiêu của Lexkite để chọn kỳ thi, điểm mục tiêu, ngày thi và số giờ học mỗi tuần"
 coverArt: {mood: think, icon: target}
-publishAt:
+publishAt: 2027-02-11T20:44:00+07:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready
