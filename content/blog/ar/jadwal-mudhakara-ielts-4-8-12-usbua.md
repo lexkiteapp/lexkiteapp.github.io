@@ -12,7 +12,7 @@ coverAlt: "شاشة مسار التعلم في Lexkite مع دروس مرتبة 
 factChecked: 2026-11-16
 author: Lexkite
 status: ready
-publishAt:
+publishAt: 2027-01-13T07:52:00+03:00
 qualityScore: 91
 coverArt: {mood: win, icon: target}
 shots: [

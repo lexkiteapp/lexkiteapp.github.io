@@ -12,7 +12,7 @@ coverAlt: "Lexkite goal planner where you choose an IELTS exam, a target band, a
 factChecked: 2026-11-17
 author: Lexkite
 status: ready
-publishAt:
+publishAt: 2027-03-19T21:56:00+05:30
 qualityScore: 90
 coverArt: {mood: think, icon: target, chip: NZ}
 shots: [

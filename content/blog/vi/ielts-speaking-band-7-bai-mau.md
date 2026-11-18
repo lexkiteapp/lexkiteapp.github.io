@@ -9,7 +9,7 @@ tags: [ielts, speaking, band-7, sample-answers]
 keyword: "ielts speaking band 7"
 cover: speaking
 coverAlt: "Màn hình luyện Speaking của Lexkite với IELTS Part 1, 2 và 3 để chọn"
-publishAt:
+publishAt: 2027-02-09T12:45:00+07:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready
