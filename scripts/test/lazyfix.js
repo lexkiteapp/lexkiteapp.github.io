@@ -1,8 +1,6 @@
 // Nạp các bundle lười như trình duyệt sẽ làm (đọc thẳng BUNDLES trong app.js), rồi thay App.need bằng hàm rỗng
 module.exports = (w, fs, path, WEB, errors) => {
-  const src = fs.readFileSync(path.join(WEB, 'js/app.js'), 'utf8');
-  const a = src.indexOf("const G = 'js/grammar/', BUNDLES = {"), b = src.indexOf('\n  };', a);
-  const BUNDLES = new Function(src.slice(a, b + 4) + '; return BUNDLES;')();
+  const _w = {}; new Function('window', fs.readFileSync(path.join(WEB, 'js/bundles.js'), 'utf8'))(_w); const BUNDLES = _w.LK_BUNDLES; // web/js/bundles.js
   const files = [...new Set(Object.values(BUNDLES).flat())];
   const lang = (w.I18N && w.I18N.lang && w.I18N.lang()) || 'en';
   for (const f of files) {

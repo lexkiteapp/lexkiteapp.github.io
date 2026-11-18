@@ -3,6 +3,7 @@
 import fs from 'node:fs'; import vm from 'node:vm';
 import { build, shipped, strip, SRC, SRC_VI, OUT, EN } from '../framework/build-functions.mjs';
 import { firstLoadFiles } from '../lib/gz-canon.mjs';
+import { readBundles } from '../lib/bundles.mjs';
 let bad = 0; const ok = (c, m) => { if (!c) { bad++; console.error('✗ phrasebook: ' + m); } else console.log('✓ phrasebook: ' + m); };
 const rd = f => fs.readFileSync(f, 'utf8');
 // 1) quy tắc giao (thuần)
@@ -30,8 +31,7 @@ const pbjs = rd('web/cpack/framework/phrase-book.js'); ok(/to\(\) === 'vi' \? v 
 // 3) không thêm gì vào khung nạp ngay; chỉ gói lười 'pbook'; route phrases vẫn lười
 const first = firstLoadFiles();
 ok(!first.some(u => /phrase-book|cpack\/framework/.test(u)), 'phrase-book.js + cpack/framework KHÔNG nằm trong file nạp ngay');
-const app = rd('web/js/app.js'), a = app.indexOf("const G = 'js/grammar/', BUNDLES = {"), e = app.indexOf('\n  };', a);
-const BUNDLES = new Function(app.slice(a, e + 4) + '; return BUNDLES;')();
+const app = rd('web/js/app.js'), BUNDLES = readBundles();
 ok(BUNDLES.pbook && BUNDLES.pbook.includes('cpack/framework/functions.js') && BUNDLES.pbook.includes('cpack/framework/phrase-book.js'), "gói lười 'pbook' = dữ liệu + mã vẽ");
 const r0 = app.indexOf('const ROUTE_BUNDLE = {'), RB = new Function(app.slice(r0, app.indexOf('};', r0) + 2) + '; return ROUTE_BUNDLE;')();
 ok([].concat(RB.phrases).join() === 'writing' && !Object.values(RB).flat().includes('pbook'), "route #/phrases vẫn chỉ nạp 'writing'; 'pbook' chỉ nạp khi mở mục (App.need)");
