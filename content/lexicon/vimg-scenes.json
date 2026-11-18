@@ -9328,16 +9328,15 @@
   },
   "boarding pass#n": {
    "ex": "Please have your boarding pass and passport ready at the gate.",
-   "ps": "a woman holds two small cards while standing near an open gate",
-   "sc": "a woman holds two small cards while standing near an open gate",
-   "check": "Is the woman holding a boarding pass and a passport at the gate?",
-   "cap": "a traveler ready with travel documents at the departure gate",
+   "ps": "a man holds a rectangular boarding pass with a black barcode, standing near an airline gate",
+   "sc": "a man holds a rectangular boarding pass with a black barcode, standing near an airline gate",
+   "check": "Is there a rectangular travel card with a barcode being held by a person?",
+   "cap": "a person holding a travel card with a barcode at a gate",
+   "key": "a rectangular boarding pass with a black barcode; the man holding it",
    "who": 1,
-   "draw": 4,
-   "v": "e4",
-   "by": "@cf/openai/gpt-oss-120b",
-   "e4bad": 7,
-   "badAt": "2026-11-15T07:13:30.918Z"
+   "draw": 5,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b"
   },
   "boardroom#n": {
    "ex": "The directors are meeting in the boardroom to discuss the budget.",
@@ -10824,8 +10823,8 @@
    "draw": 5,
    "v": "e4",
    "by": "@cf/openai/gpt-oss-120b",
-   "e4bad": 7,
-   "badAt": "2026-11-15T07:50:21.303Z"
+   "e4bad": 8,
+   "badAt": "2026-11-18T04:39:16.079Z"
   },
   "bush#n": {
    "ex": "How do you like my rose bushes?",
@@ -26497,8 +26496,8 @@
    "draw": 4,
    "v": "e4",
    "by": "@cf/openai/gpt-oss-120b",
-   "e4bad": 7,
-   "badAt": "2026-11-15T07:13:30.918Z"
+   "e4bad": 8,
+   "badAt": "2026-11-18T03:39:18.282Z"
   },
   "distance#n": {
    "skip": "sentence refers to specific places; cannot depict without text or symbols",
@@ -26617,8 +26616,8 @@
    "draw": 4,
    "v": "e4",
    "by": "@cf/openai/gpt-oss-120b",
-   "e4bad": 7,
-   "badAt": "2026-11-15T07:07:07.635Z"
+   "e4bad": 8,
+   "badAt": "2026-11-18T03:39:18.282Z"
   },
   "distractor#n": {
    "ex": "Read carefully because one option is a distractor.",
@@ -29560,8 +29559,8 @@
    "badAt": "2026-11-15T08:05:21.640Z"
   },
   "email#v": {
-   "e4bad": 6,
-   "badAt": "2026-11-15T08:05:21.640Z"
+   "e4bad": 7,
+   "badAt": "2026-11-18T03:33:55.919Z"
   },
   "embankment#n": {
    "ex": "The station and line are on an embankment.",
@@ -40952,8 +40951,8 @@
    "cap": "businesspeople examining a newspaper with a merger illustration",
    "who": 1,
    "by": "openai/gpt-oss-120b",
-   "e4bad": 7,
-   "badAt": "2026-11-15T23:50:07.121Z"
+   "e4bad": 8,
+   "badAt": "2026-11-18T03:46:51.866Z"
   },
   "headquarter#n": {
    "ex": "Our company headquarters are located in Tokyo, near the central station.",
@@ -47205,17 +47204,17 @@
   },
   "interferometer#n": {
    "ex": "No fewer than seven interferometers have been located here.",
-   "ps": "a box with two extending arms and a thin light beam connecting them",
-   "sc": "a box with two extending arms and a thin light beam connecting them",
-   "check": "Is there an instrument with two arms and a light beam used to measure interference?",
-   "cap": "an instrument with two arms and a light beam for measuring",
-   "key": "box with two arms; thin light beam connecting them",
+   "ps": "a tabletop interferometer shows a laser beam split into two mirrored arms ending at a detector",
+   "sc": "a tabletop interferometer shows a laser beam split into two mirrored arms ending at a detector",
+   "check": "Is there an instrument that splits a light beam into two paths to measure interference?",
+   "cap": "a lab device with a laser and two mirrored paths",
+   "key": "laser beam split into two arms; mirrored arms ending at a detector",
    "who": 0,
    "draw": 4,
    "v": "e6",
    "by": "openai/gpt-oss-120b",
    "tries": 3,
-   "refix": 1
+   "refix": 2
   },
   "interim#adj": {
    "ex": "An interim manager will lead the team until June.",
@@ -50880,17 +50879,17 @@
   },
   "lexicographer#n": {
    "ex": "Tom is a renowned lexicographer.",
-   "ps": "a man holds a tall stack of blank sheets while examining them with a magnifying glass",
-   "sc": "a man holds a tall stack of blank sheets while examining them with a magnifying glass",
-   "check": "Is the person collecting words into a reference collection?",
-   "cap": "an adult reviewing many blank pages with a magnifying glass",
-   "key": "a man holding a stack of blank sheets; a magnifying glass in his hand",
+   "ps": "a man stands beside a large open chest, placing colorful cubes into it",
+   "sc": "a man stands beside a large open chest, placing colorful cubes into it",
+   "check": "Is the person gathering many small objects into a big container as if creating a reference collection?",
+   "cap": "a man adding colorful cubes to a big open chest",
+   "key": "a large open chest filled with many small cubes; the man holding cubes and placing them into the chest",
    "who": 1,
    "draw": 4,
    "v": "e6",
    "by": "openai/gpt-oss-120b",
    "tries": 3,
-   "refix": 1
+   "refix": 2
   },
   "liability#n": {
    "ex": "The company accepts no liability for lost items.",
@@ -54951,8 +54950,8 @@
    "refix": 2
   },
   "microcomputer#n": {
-   "e4bad": 2,
-   "badAt": "2026-11-17T02:13:38.260Z"
+   "e4bad": 3,
+   "badAt": "2026-11-18T03:33:55.920Z"
   },
   "microeconomics#n": {
    "ex": "Microeconomics applies to small elements of an economy.",
@@ -55718,8 +55717,8 @@
    "by": "openai/gpt-oss-120b"
   },
   "missal#n": {
-   "e4bad": 1,
-   "badAt": "2026-11-16T00:29:10.211Z"
+   "e4bad": 2,
+   "badAt": "2026-11-18T03:46:51.866Z"
   },
   "missile#n": {
    "skip": "weapon content not allowed",
@@ -64214,8 +64213,8 @@
    "by": "openai/gpt-oss-120b"
   },
   "peripheral#n": {
-   "e4bad": 6,
-   "badAt": "2026-11-15T08:05:21.641Z"
+   "e4bad": 7,
+   "badAt": "2026-11-18T03:39:18.282Z"
   },
   "perishable goods#n": {
    "ex": "Perishable goods receive priority handling at the airport.",
@@ -68150,17 +68149,17 @@
   },
   "primary#n": {
    "ex": "The next step was the primaries.",
-   "ps": "two adults raising one hand each, standing in front of a plain white podium",
-   "sc": "two adults raising one hand each, standing in front of a plain white podium",
-   "check": "Is there a group of people raising their hands as if voting?",
-   "cap": "two adults raise their hands while standing near a simple podium",
-   "key": "two adults raising one hand each; a plain white podium",
+   "ps": "two adults stand side by side, each raising both hands upward with determined faces",
+   "sc": "two adults stand side by side, each raising both hands upward with determined faces",
+   "check": "Is there a group of people raising their hands to vote?",
+   "cap": "two people raising both hands high with serious expressions",
+   "key": "two adults raising both hands upward; their determined faces",
    "who": 2,
    "draw": 4,
    "v": "e6",
    "by": "openai/gpt-oss-120b",
    "tries": 3,
-   "refix": 1
+   "refix": 2
   },
   "primate#n": {
    "ex": "Chimpanzees are among the most intelligent primates on the planet.",
@@ -71821,8 +71820,8 @@
    "draw": 4,
    "v": "e4",
    "by": "@cf/openai/gpt-oss-120b",
-   "e4bad": 7,
-   "badAt": "2026-11-15T08:05:21.641Z"
+   "e4bad": 8,
+   "badAt": "2026-11-18T04:39:16.080Z"
   },
   "readjustment#n": {
    "ex": "A difficult period of economic readjustment started.",
@@ -77988,17 +77987,17 @@
   },
   "scam#n": {
    "ex": "I know about the scam.",
-   "ps": "a man in a suit hides a small bag behind his back as a woman watches puzzled",
-   "sc": "a man in a suit hides a small bag behind his back as a woman watches puzzled",
-   "check": "Is a person secretly hiding something while another person looks suspicious?",
-   "cap": "a suited man secretly hiding a bag while a woman looks puzzled",
-   "key": "a small bag hidden behind the man's back; the woman's puzzled expression",
+   "ps": "a smiling man offers a bright gift box to a woman while his other hand pulls her wallet from her bag",
+   "sc": "a smiling man offers a bright gift box to a woman while his other hand pulls her wallet from her bag",
+   "check": "Is someone being tricked into giving a wallet by another person offering a gift?",
+   "cap": "a person offers a gift while secretly taking a wallet",
+   "key": "a bright gift box offered by one person; the other person's hand pulling a wallet from the victim",
    "who": 2,
    "draw": 4,
    "v": "e6",
    "by": "openai/gpt-oss-120b",
    "tries": 3,
-   "refix": 1
+   "refix": 2
   },
   "scan#v": {
    "ex": "Scan the text quickly to find the dates.",
@@ -89881,12 +89880,17 @@
   },
   "tow#v": {
    "ex": "Illegally parked cars will be towed at the owner's expense.",
-   "sc": "person A drives a tow truck with a large boom, the hook attached to a parked car’s bumper as the vehicle is lifted off the curb, street pavement visible",
-   "cap": "a truck raising a parked car from the street",
+   "ps": "a man in a uniform on an orange tow truck holds a big metal hook attached to a red car",
+   "sc": "a man in a uniform on an orange tow truck holds a big metal hook attached to a red car",
+   "check": "Is a vehicle being pulled by another vehicle?",
+   "cap": "a man on a truck pulling a stranded car",
+   "key": "a big metal hook attached to a red car; a man on an orange tow truck",
    "who": 1,
+   "draw": 5,
+   "v": "e6",
    "by": "openai/gpt-oss-120b",
-   "e4bad": 7,
-   "badAt": "2026-11-15T08:05:21.640Z"
+   "tries": 3,
+   "refix": 2
   },
   "town#n": {
    "ex": "I grew up in a small town by the sea.",
