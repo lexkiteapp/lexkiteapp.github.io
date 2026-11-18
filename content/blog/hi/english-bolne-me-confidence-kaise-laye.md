@@ -12,7 +12,7 @@ coverAlt: "Lexkite का उच्चारण अभ्यास: cut down on 
 factChecked: 2026-11-16
 author: Lexkite
 status: ready
-publishAt:
+publishAt: 2027-01-08T08:30:00+05:30
 qualityScore: 92
 coverArt: {mood: cheer, icon: chat}
 shots: [

@@ -9,7 +9,7 @@ tags: [ielts, listening, question-types, strategy]
 keyword: "ielts listening รูปแบบข้อสอบ"
 cover: listening
 coverAlt: "หน้าฝึกฟังของ Lexkite ที่รวมไฟล์เสียงแยกตามระดับให้เลือก"
-publishAt:
+publishAt: 2027-01-07T08:05:00+07:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

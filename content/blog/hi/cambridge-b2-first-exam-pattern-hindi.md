@@ -9,7 +9,7 @@ tags: [cambridge, b2-first, fce, exam-format]
 keyword: "cambridge b2 first exam pattern"
 cover: practice
 coverAlt: "Lexkite अभ्यास पेज: खेल और अभ्यास, जिनमें टेस्ट और राइटिंग कक्ष शामिल हैं"
-publishAt:
+publishAt: 2027-01-07T12:54:00+05:30
 factChecked: 2026-11-16
 author: Lexkite
 status: ready
