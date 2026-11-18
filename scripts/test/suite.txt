@@ -241,6 +241,7 @@ node scripts/test/client-security.mjs
 node scripts/test/headers.mjs
 node scripts/test/static-routes.mjs
 node scripts/test/words-r2-fn.mjs
+node scripts/test/cf-words-cache.mjs
 node scripts/test/layout-guards.mjs
 node scripts/test/home-logic.mjs
 node scripts/test/vocab-hub.mjs
@@ -459,6 +460,7 @@ node scripts/test/ci-portable.mjs
 node scripts/test/sr-only.mjs
 node scripts/test/sw-reminder-day.mjs
 node scripts/test/core-day.mjs
+node scripts/test/live-csp-safe.mjs
 node scripts/test/home-words.mjs
 node scripts/test/red-report.mjs
 node scripts/test/run-suite-annotate.mjs
