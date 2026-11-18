@@ -55,4 +55,4 @@ jobs:
         run: node scripts/test/lesson-perf.mjs --root ${{ matrix.dev && 'dist-dev' || 'dist' }} --tag '${{ matrix.dev && '-dev' || '' }}' --rate ${{ matrix.rate }} --width ${{ matrix.width }} --flow ${{ matrix.flow }} --out lp-out
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
-        with: { name: 'lesson-perf-${{ matrix.flow }}-${{ matrix.width }}-${{ matrix.rate }}x${{ matrix.dev && '-dev' || '' }}', path: lp-out, retention-days: 14 }
+        with: { name: "lesson-perf-${{ matrix.flow }}-${{ matrix.width }}-${{ matrix.rate }}x${{ matrix.dev && '-dev' || '' }}", path: lp-out, retention-days: 14 }
