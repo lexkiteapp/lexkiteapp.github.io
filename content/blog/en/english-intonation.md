@@ -42,6 +42,7 @@ quiz: [
     explain: "Wh- questions normally fall at the end when you simply want information."
   }
 ]
+publishAt: 2027-03-05T12:48:00+05:30
 ---
 Words are only half of spoken English. The other half is the **music** of the sentence: where the voice goes up, where it falls and which word gets the big move. This is **English intonation**, and it carries meaning that grammar does not. Say *"You are coming?"* with a rising voice and you are asking; say it with a falling voice and you are surprised or annoyed. For many learners, fixing intonation does more for how clear and friendly they sound than perfecting individual sounds.
 

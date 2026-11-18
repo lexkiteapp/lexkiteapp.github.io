@@ -147,6 +147,8 @@ qualityScore: 94
 
 หากเจออักษรย่อในอีเมลแล้วไม่แน่ใจความหมาย ลองเปิดดู[คำย่อภาษาอังกฤษที่ใช้ในที่ทำงาน](/th/blog/kham-yo-phasa-angkrit-thamma-ngan-email-acronyms/)
 
+ทักษะการเขียนอีเมลเป็นทางการช่วยได้กับโจทย์จดหมายของ IELTS General Training ซึ่งเกี่ยวกับการย้ายถิ่น อ่านต่อที่[IELTS ยื่นวีซ่า](/th/blog/ielts-yuen-visa-yai-pratet-lueak-khosop/)
+
 ## คำถามที่พบบ่อย (FAQ)
 
 ### ควรใช้อิโมจิ (Emoji) ในอีเมลธุรกิจหรือไม่?

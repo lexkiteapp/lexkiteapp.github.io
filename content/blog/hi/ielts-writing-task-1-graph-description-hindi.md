@@ -144,6 +144,12 @@ qualityScore: 94
 
 ---
 
+अगर आपके Task 1 में आँकड़ों की जगह किसी प्रक्रिया का चित्र आए, तो [IELTS process diagram कैसे लिखें](/hi/blog/ielts-process-diagram-kaise-likhe/) वाला लेख चरण गिनने वाला ओवरव्यू और एक मौलिक नमूना रिपोर्ट देता है।
+
+रिपोर्ट में राय जोड़ने और tense बदलने जैसी आम चूकें [IELTS Writing में आम गलतियाँ](/hi/blog/ielts-writing-common-mistakes-in-hindi/) में उदाहरण सहित मिलेंगी।
+
+बार चार्ट पर केंद्रित एक पूरी मॉडल रिपोर्ट देखनी हो तो [IELTS bar chart कैसे लिखें](/hi/blog/ielts-bar-chart-kaise-likhe-hindi/) पढ़िए।
+
 ## अक्सर पूछे जाने वाले प्रश्न (FAQ)
 
 ### क्या Task 1 में अंतिम निष्कर्ष लिखना अनिवार्य है?

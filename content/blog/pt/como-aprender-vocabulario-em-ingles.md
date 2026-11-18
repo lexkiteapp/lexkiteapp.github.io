@@ -75,6 +75,12 @@ Grave também a si mesmo pronunciando essas frases no gravador do celular. Escut
 
 {{cta: /#/library | Explorar biblioteca de vocabulário}}
 
+Para vocabulário de nível acadêmico, estude a [Academic Word List (AWL)](/pt/blog/academic-word-list-awl-guia-ielts-toefl/) por sublistas.
+
+Para tornar cada revisão mais eficaz, responda antes de olhar o cartão: o guia de [active recall](/pt/blog/active-recall-para-aprender-vocabulario-em-ingles/) mostra como.
+
+Para ver como guardar um par confuso junto com seus vizinhos mais comuns, veja [a diferença entre affect e effect](/pt/blog/diferenca-entre-affect-e-effect/).
+
 ## Perguntas frequentes
 
 ### Quantas palavras novas devo aprender por dia?

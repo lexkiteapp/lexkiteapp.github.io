@@ -89,6 +89,8 @@ Para transformar essa técnica analítica em um hábito natural no dia do teste:
 
 Para decidir quanto tempo dedicar a cada texto, veja também a [estratégia de 60 minutos para o IELTS Reading](/pt/blog/gestao-do-tempo-no-ielts-reading-estrategia-60-minutos/).
 
+Para ver onde essa tarefa se encaixa entre as demais, consulte os [tipos de questões do IELTS Reading](/pt/blog/tipos-de-questoes-ielts-reading-estrategias/).
+
 ## Perguntas Frequentes (FAQ)
 
 ### Qual é a diferença entre True/False/Not Given e Yes/No/Not Given?

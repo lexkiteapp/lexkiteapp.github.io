@@ -9,7 +9,7 @@ tags: [ielts, writing, task-2, opinion-essay]
 keyword: "ensayo de opinión ielts"
 cover: write
 coverAlt: "Sala de Writing de Lexkite con preguntas de ensayo agrupadas por tema, ideas de apoyo y un esquema de ensayo"
-publishAt:
+publishAt: 2027-01-07T12:33:00-06:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

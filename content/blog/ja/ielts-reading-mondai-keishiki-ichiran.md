@@ -9,7 +9,7 @@ tags: [ielts, reading, question-types, strategy]
 keyword: "ielts リーディング 問題形式"
 cover: reading
 coverAlt: "LexkiteのReading一覧。A2からC1までレベル分けされた英文"
-publishAt:
+publishAt: 2027-01-20T20:58:00+09:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

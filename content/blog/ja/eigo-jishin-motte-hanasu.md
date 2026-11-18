@@ -17,7 +17,7 @@ shots: [
 diagrams: [
   {id: d1, type: compare, title: '日本語の直訳と、自然な言い方', cols: ['直訳っぽい言い方', '自然な言い方'], rows: [['I want a coffee.', 'Could I have a coffee, please?'], ['I am fine, thank you, and you?', 'Pretty good. How about you?'], ['It is difficult.（理由なし）', 'It is a bit tricky because of the timing.'], ['You are wrong.', 'I see your point, but I have a slightly different view.']]}
 ]
-publishAt:
+publishAt: 2027-01-11T08:28:00+09:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

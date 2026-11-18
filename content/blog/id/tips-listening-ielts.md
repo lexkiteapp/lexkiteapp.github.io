@@ -132,6 +132,10 @@ Setelah beberapa minggu berlatih per Part, uji daya tahanmu dengan satu tes utuh
 
 **Jawaban:** (1) *Thursday*, karena Tuesday sudah dibatalkan. (2) E, bukan I. (3) Tidak, itu tiga kata; tulis *large garden* jika maknanya tetap utuh. (4) Bisa terbaca sebagai dua koma lima; tulis *2500* atau *2,500*. (5) Langsung pindah ke soal 23, lalu tebak soal 22 di akhir.
 
+Kalau kamu butuh gambaran pembagian jam belajar Listening dalam rencana 4, 8, atau 12 minggu, baca [jadwal belajar IELTS](/id/blog/jadwal-belajar-ielts-4-8-12-minggu/); untuk pembahasan versi tes yang dibutuhkan visa, lihat [IELTS untuk imigrasi](/id/blog/ielts-untuk-imigrasi-panduan/).
+
+Setelah tahu tipsnya, pelajari strategi per tipe di [jenis soal IELTS Listening](/id/blog/jenis-soal-ielts-listening/).
+
 ## Pertanyaan yang sering diajukan
 
 ### Apakah audio IELTS Listening diputar dua kali?
@@ -149,3 +153,5 @@ Ujian bisa memakai berbagai aksen, termasuk Inggris, Australia, dan Amerika. Car
 ### Bagaimana agar tetap fokus di Part 3 dan Part 4?
 
 Pakai waktu membaca soal untuk menangkap topik dan nama penutur, lalu tandai kata kunci setiap soal. Saat mendengar, ikuti frasa peralihan yang dipakai penutur. Ketika berlatih, tambah durasi secara bertahap: mulai dari satu Part, lalu dua Part sekaligus, terakhir satu tes penuh.
+
+Untuk visa Inggris, cek juga [apa itu IELTS UKVI dan bedanya dengan IELTS biasa](/id/blog/ielts-ukvi-adalah-perbedaan-dan-cara-daftar/).

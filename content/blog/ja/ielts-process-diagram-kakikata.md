@@ -9,7 +9,7 @@ tags: [ielts, writing, task-1, process-diagram, passive-voice]
 keyword: "ielts プロセス図 書き方"
 cover: write
 coverAlt: "Lexkiteのライティング画面。レポートの構成を考えるためのプロンプトと計画枠が並んでいる"
-publishAt:
+publishAt: 2027-01-19T09:32:00+09:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

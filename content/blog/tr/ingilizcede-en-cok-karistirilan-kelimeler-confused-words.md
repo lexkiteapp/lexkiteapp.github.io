@@ -54,6 +54,8 @@ Bu kelime çiftlerinde hata yapılmasının arkasında 3 temel dilbilimsel neden
 
 Bu kelimeleri kalıcı öğrenmek için [Lexkite tek dilli sözlük](/#/dict/resilient) modülünü kullanabilir ve [İngilizce gramer alıştırma odası](/#/grammar) ile pekiştirebilirsiniz. Ayrıca [İngilizce kelime ezberleme teknikleri](/tr/blog/ingilizce-kelime-ezberleme/) ve [IELTS eşdizimler rehberi](/tr/blog/ielts-icin-ingilizce-collocations-rehberi/) yazılarımızı inceleyebilirsiniz. Tüm kelime listelerine [kelime kütüphanesi](/en/vocabulary/) sayfamızdan ulaşabilirsiniz.
 
+Fiil-isim çifti olarak karışan affect ve effect için ayrıntılı kuralları [affect effect farkı](/tr/blog/affect-effect-farki/) yazısında bulabilirsin.
+
 ## 1. Fiil ve İsim Çiftleri: En Sık Yapılan Hatalar
 
 ### A. Affect vs. Effect

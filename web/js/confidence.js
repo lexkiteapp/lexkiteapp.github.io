@@ -272,11 +272,13 @@
     bindSay(view);
     let on = false, t0 = 0, tick = null, sess = null, ac = null, samples = [];
     const stopAll = () => { on = false; clearInterval(tick); if (ac) { try { ac.close(); } catch (e) { /* */ } ac = null; } };
-    App.onCleanup(() => { stopAll(); if (sess) sess.cancel(); sess = null; });
+    let gone = false;
+    App.onCleanup(() => { gone = true; stopAll(); if (sess) sess.cancel(); sess = null; });
     const start = async () => {
       UI.stopSpeak();
       samples = [];
       sess = await UI.speechSession({ lang: accent(), slot: 'conf', onText: x => { const l = $('#cfLive'); if (l) l.textContent = x.slice(-140); }, onError: c => toast(c === 'not-allowed' ? '⚠️ ' + t('Cần cho phép dùng micro (biểu tượng 🎙️ trên thanh địa chỉ)') : UI.recErrorText(c)) });
+      if (gone) { if (sess) sess.cancel(); sess = null; return; } // rời trang lúc hộp xin quyền micro còn mở → không để mic sáng mãi
       if (!sess) return;
       if (sess.stream) try { // đo ngập ngừng trên máy: năng lượng âm thanh mỗi 100 ms
         ac = new (window.AudioContext || window.webkitAudioContext)(); const an = ac.createAnalyser(); an.fftSize = 1024; ac.createMediaStreamSource(sess.stream).connect(an);

@@ -9,7 +9,7 @@ tags: [ielts, writing, mistakes, grammar, task-2]
 keyword: "ielts ライティング ミス"
 cover: write
 coverAlt: "Lexkiteのライティングルーム。エッセイのお題、アイデアのヒント、エッセイの型"
-publishAt:
+publishAt: 2027-01-24T19:52:00+09:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

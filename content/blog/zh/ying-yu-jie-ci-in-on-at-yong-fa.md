@@ -173,6 +173,8 @@ quiz: [
 3. **题目三：** *He was sitting _____ the back of the taxi, reading an article _____ his tablet.*  
    * **解析：** 出租车属于封闭小型车辆，在车厢后座用 **in**；而电子平板电脑屏幕属于平面显示媒介，用 **on**。完整句子为：*in the back of the taxi ... on his tablet.*
 
+介词和名词搭配也会影响词义选择，例如 effect on，见[affect和effect的区别](/zh/blog/affect-he-effect-de-qu-bie-yong-fa-li-wai-li-ju/)。
+
 ## 常见问题
 
 ### 表示周末应该说 *at the weekend* 还是 *on the weekend*？
