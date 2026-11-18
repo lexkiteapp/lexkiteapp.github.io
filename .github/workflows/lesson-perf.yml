@@ -19,6 +19,7 @@ jobs:
       fail-fast: false
       matrix:
         include:
+          - { flow: lesson, width: 390, rate: 4, dev: 1, variant: base }
           - { flow: lesson, width: 390, rate: 4, dev: 1, variant: nohas }
           - { flow: lesson, width: 390, rate: 4, dev: 1, variant: noanim }
           - { flow: lesson, width: 390, rate: 4, dev: 1, variant: nohas+noanim }
