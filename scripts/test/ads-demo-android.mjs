@@ -93,13 +93,24 @@ const adev = async () => { const v = await ev('return (window.__adev || []).slic
 const waitEv = async (re, ms) => { for (let t = 0; t < ms; t += 1000) { const l = await adev(); const e = l.find(x => re.test(x.n)); if (e) return e; await sleep(1000); } return null; };
 
 // ---- 3. có thưởng ----
-await ev(`window.__rw = 'pending'; AdsRun.rewarded('ai').then(v => { __rw = v; }, e => { __rw = 'err:' + e; }); return 1`);
-const loaded = await waitEv(/^onRewardedVideoAd(Loaded|FailedToLoad)$/, 45000);
-if (!loaded || loaded.n !== 'onRewardedVideoAdLoaded') fail('Có thưởng: không loaded (' + JSON.stringify(loaded) + ')'); else ok('Có thưởng: onRewardedVideoAdLoaded');
-await sleep(4000); shot('rewarded-showing');
-info.focusRew = focus();
-const reward = loaded && loaded.n === 'onRewardedVideoAdLoaded' ? await waitEv(/^onRewardedVideoAdReward$/, 75000) : null;
-if (!reward) fail('Có thưởng: không có onRewardedVideoAdReward sau 75 s'); else ok('Có thưởng: onRewardedVideoAdReward ' + reward.e);
+// 18/11: quảng cáo thử của Google đi qua mạng ngoài → lượt nạp/thưởng thỉnh thoảng rỗng (null) trên runner → đỏ oan nhiều PR. Vẫn bắt buộc loaded + reward,
+// nhưng thử tối đa 3 lượt có lùi nhịp (10 s, 25 s) và xoá sự kiện cũ giữa các lượt; chỉ đỏ khi CẢ 3 lượt đều không có thưởng.
+const closeAd = async () => { for (let r = 0; r < 4 && !inApp(); r++) { adb('shell', 'input', 'keyevent', '4'); await sleep(2500); } };
+let loaded = null, reward = null; const tries = [];
+for (let a = 0; a < 3 && !reward; a++) {
+  if (a) { await closeAd(); await sleep(a === 1 ? 10000 : 25000); await ev(`window.__adev = []; return 1`); }
+  await ev(`window.__rw = 'pending'; AdsRun.rewarded('ai').then(v => { __rw = v; }, e => { __rw = 'err:' + e; }); return 1`);
+  loaded = await waitEv(/^onRewardedVideoAd(Loaded|FailedToLoad)$/, 45000);
+  if (loaded && loaded.n === 'onRewardedVideoAdLoaded') {
+    await sleep(4000); shot('rewarded-showing'); info.focusRew = focus();
+    reward = await waitEv(/^onRewardedVideoAdReward$/, 75000);
+  }
+  tries.push(a + 1 + ': ' + (loaded ? loaded.n : 'không sự kiện') + (reward ? ' + thưởng' : ''));
+  if (!reward) console.log('… có thưởng lượt ' + (a + 1) + '/3 chưa đạt (' + tries[a] + ') – thử lại');
+}
+info.rewardedTries = tries;
+if (!loaded || loaded.n !== 'onRewardedVideoAdLoaded') fail('Có thưởng: không loaded (' + JSON.stringify(loaded) + ') sau ' + tries.length + ' lượt'); else ok('Có thưởng: onRewardedVideoAdLoaded');
+if (!reward) fail('Có thưởng: không có onRewardedVideoAdReward sau ' + tries.length + ' lượt (' + tries.join(' · ') + ')'); else ok('Có thưởng: onRewardedVideoAdReward ' + reward.e);
 shot('rewarded-done');
 for (let r = 0; r < 4 && !inApp(); r++) { adb('shell', 'input', 'keyevent', '4'); await sleep(2500); } // đóng quảng cáo
 let rw = 'pending'; for (let k = 0; k < 20 && rw === 'pending'; k++) { await sleep(1000); rw = await ev('return window.__rw'); }
@@ -108,7 +119,12 @@ if (reward && rw !== true) fail('AdsRun.rewarded trả ' + JSON.stringify(rw) + 
 
 // ---- 4. toàn màn hình (đúng luật: vừa xong 1 phiên, về tab chính, đủ ngày/phiên; bỏ "yên 30 phút sau có thưởng" trong phiên test) ----
 await ev(`const s = AdsRun._st(); Object.assign(s, { firstAt: Date.now() - 3 * 864e5, pending: 1, sessions: 5, lastAt: 0, rewAt: 0, lastPct: 90 }); location.hash = '#/home'; await new Promise(r => setTimeout(r, 800)); window.__it = 'pending'; AdsRun.inter().then(() => { __it = 'done'; }, e => { __it = 'err:' + e; }); return 1`);
-const iLoaded = await waitEv(/^interstitialAd(Loaded|FailedToLoad)$/, 45000);
+let iLoaded = await waitEv(/^interstitialAd(Loaded|FailedToLoad)$/, 45000);
+for (let a = 1; a < 3 && (!iLoaded || iLoaded.n !== 'interstitialAdLoaded'); a++) {   // 18/11: như có thưởng – 3 lượt, lùi nhịp 10 s / 25 s
+  console.log('… toàn màn hình lượt ' + a + '/3 chưa nạp (' + JSON.stringify(iLoaded) + ') – thử lại'); await sleep(a === 1 ? 10000 : 25000);
+  await ev(`window.__adev = []; window.__it = 'pending'; AdsRun.inter().then(() => { __it = 'done'; }, e => { __it = 'err:' + e; }); return 1`);
+  iLoaded = await waitEv(/^interstitialAd(Loaded|FailedToLoad)$/, 45000);
+}
 if (!iLoaded || iLoaded.n !== 'interstitialAdLoaded') fail('Toàn màn hình: không loaded (' + JSON.stringify(iLoaded) + ')'); else ok('Toàn màn hình: interstitialAdLoaded');
 const iShow = iLoaded && iLoaded.n === 'interstitialAdLoaded' ? await waitEv(/^interstitialAdShowed$/, 20000) : null;
 if (iLoaded && !iShow) fail('Toàn màn hình: không interstitialAdShowed'); else if (iShow) ok('Toàn màn hình: interstitialAdShowed');
