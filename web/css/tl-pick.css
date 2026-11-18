@@ -21,4 +21,4 @@ button.tlp-row{cursor:pointer}button.tlp-row:active{transform:translateY(1px);bo
 @media (prefers-reduced-motion:reduce){button.tlp-row{transition:none}}
 a.tl-chip[href]{display:inline-flex;align-items:center;gap:var(--sp-2);min-height:44px;padding-inline:var(--sp-3);cursor:pointer}a.tl-chip[href]::after{content:"▾";font-size:var(--fs-xs);opacity:.8}
 @media (max-width:720px){#tlBtn{display:none}}
-.top-stats:has(#tlBtn){gap:4px}
+.top-stats:has(#tlBtn){gap:var(--sp-1)}
