@@ -751,6 +751,7 @@
 "Nghĩa tiếng Việt":"释义",
 "Nghĩa tiếng Việt của cả cụm":"整个短语的翻译",
 "Nghĩa trong ngữ cảnh:":"语境含义：",
+"Nghĩa từng từ (tạm):":"逐词释义（草稿）：",
 "Ngoại tuyến – sẽ tự đồng bộ khi có mạng":"离线 – 恢复联网后将自动同步",
 "Nguồn từ":"词语来源",
 "Nguồn “{name}” đang trống.":"源“{name}”为空。",

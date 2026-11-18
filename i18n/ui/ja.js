@@ -751,6 +751,7 @@
 "Nghĩa tiếng Việt":"意味",
 "Nghĩa tiếng Việt của cả cụm":"フレーズ全体の翻訳",
 "Nghĩa trong ngữ cảnh:":"文脈での意味：",
+"Nghĩa từng từ (tạm):":"単語ごとの意味（仮）：",
 "Ngoại tuyến – sẽ tự đồng bộ khi có mạng":"オフライン – オンラインに戻ると自動で同期します",
 "Nguồn từ":"単語の出典",
 "Nguồn “{name}” đang trống.":"ソース「{name}」は空です。",

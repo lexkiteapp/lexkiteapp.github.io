@@ -751,6 +751,7 @@
 "Nghĩa tiếng Việt":"Arti",
 "Nghĩa tiếng Việt của cả cụm":"Terjemahan seluruh frasa",
 "Nghĩa trong ngữ cảnh:":"Arti dalam konteks:",
+"Nghĩa từng từ (tạm):":"Kata per kata (perkiraan):",
 "Ngoại tuyến – sẽ tự đồng bộ khi có mạng":"Offline – akan disinkronkan otomatis saat kembali online",
 "Nguồn từ":"Sumber kata",
 "Nguồn “{name}” đang trống.":"Sumber “{name}” kosong.",

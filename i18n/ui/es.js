@@ -751,6 +751,7 @@
 "Nghĩa tiếng Việt":"Significado",
 "Nghĩa tiếng Việt của cả cụm":"Traducción de toda la frase.",
 "Nghĩa trong ngữ cảnh:":"Significado en contexto:",
+"Nghĩa từng từ (tạm):":"Palabra por palabra (aprox.):",
 "Ngoại tuyến – sẽ tự đồng bộ khi có mạng":"Sin conexión: se sincronizará automáticamente al volver a estar en línea",
 "Nguồn từ":"Origen de la palabra",
 "Nguồn “{name}” đang trống.":"La fuente “{name}” está vacía.",

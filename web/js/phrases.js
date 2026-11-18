@@ -52,7 +52,7 @@
         <label class="field"><span>${t('Câu ví dụ / ngữ cảnh')}</span><textarea class="input" id="pEx">${esc(sentence)}</textarea></label>
       </div>
       <div class="row between" style="margin-top:1rem"><button class="btn" data-close>${t('Hủy')}</button><button class="btn primary" id="pSave">${t('Lưu vào Sổ cụm từ')}</button></div>`);
-    const tr = async () => { const ph = $('#pPh').value.trim(); if (!ph) return; $('#pVi').placeholder = `${UI.icon('hourglass')} ${t('Đang dịch…')}`; const L = I18N.learnLang(); const v = L === 'vi' ? await Dict.translateVi(ph) : await Dict.translateTo(ph, L); if (!$('#pVi').value) $('#pVi').value = v; $('#pVi').placeholder = t('Nghĩa tiếng Việt của cả cụm'); };
+    const tr = async () => { const ph = $('#pPh').value.trim(); if (!ph) return; $('#pVi').placeholder = t('Đang dịch…'); const v = await translateSafe(ph); if (!$('#pVi')) return; if (!$('#pVi').value) $('#pVi').value = v; $('#pVi').placeholder = v ? t('Nghĩa tiếng Việt của cả cụm') : t('Không dịch được – thử lại sau'); };
     $('#pTr').onclick = tr;
     if (!vi) tr();
     $('#pSave').onclick = async () => {
@@ -76,50 +76,63 @@
   pop.className = 'sel-pop card'; pop.hidden = true;
   document.body.appendChild(pop);
   let selInfo = null, popSeq = 0;
+  // Khung tạm (trình đọc màn hình: Đang dịch…)
+  const skel = () => `<span role="status" aria-label="${esc(t('Đang dịch…'))}" style="display:block"><span class="skel skel-l" style="display:block;height:.85rem;margin:.2rem 0 .4rem"></span><span class="skel skel-l" style="display:block;height:.85rem;width:62%"></span></span>`;
   // Khung nghĩa khi bấm vào cụm từ/từ nối trong bài mẫu: nghĩa + nghe + lưu (điền sẵn) – không mở form trống
   function phrasePop(el, info) {
     bar.hidden = true; pop.hidden = false;
     pop.innerHTML = `<div class="row between nowrap" style="gap:.6rem"><b>${esc(info.phrase)}</b><button class="icon-btn sm" data-x aria-label="${t('Đóng')}">✕</button></div>
-      <div class="vi" style="margin:.35rem 0 .6rem">${info.vi ? esc(info.vi) : `<span class="muted small">${UI.icon('hourglass')} ${t('Đang dịch…')}</span>`}</div>
+      <div class="vi" style="margin:.35rem 0 .6rem" aria-live="polite">${info.vi ? esc(info.vi) : skel()}</div>
       <div class="row" style="gap:.4rem"><button class="btn sm" data-sp>🔊 ${t('Nghe')}</button><button class="btn sm primary" data-save>${App.inDeck && App.inDeck(info.phrase) ? t('✓ Đã lưu') : '＋ ' + t('Lưu vào Sổ cụm từ')}</button></div>`;
     place(pop, el.getBoundingClientRect());
-    $('[data-x]', pop).onclick = () => { pop.hidden = true; };
+    $('[data-x]', pop).onclick = () => closePop();
     $('[data-sp]', pop).onclick = () => UI.speak(info.phrase, state.settings.accent);
     $('[data-save]', pop).onclick = () => { pop.hidden = true; savePhraseDialog(info); };
-    if (!info.vi) translateSafe(info.phrase).then(v => { info.vi = v || ''; const d = $('.vi', pop); if (d && !pop.hidden) d.textContent = info.vi || t('Không dịch được – thử lại sau'); });
+    if (!info.vi) { const seq = newSeq(), sg = trCtrl.signal; translateSafe(info.phrase, undefined, { signal: sg }).then(v => { if (seq !== popSeq) return; info.vi = v || ''; const d = $('.vi', pop); if (d && !pop.hidden) d.textContent = info.vi || t('Không dịch được – thử lại sau'); place(pop, el.getBoundingClientRect()); }); }
   }
   App.phrasePop = phrasePop; // dùng chung: chip cụm từ trên thẻ từ (app.js) – tra nghĩa tại chỗ, không rời phiên học
   const NO_LOOKUP = 'input, textarea, select, .cbt, .mk-read, .mk-write, .mk-qs, .sel-pop, .sel-bar, .pop';
-  // Đặt bảng cạnh vùng chọn mà KHÔNG che chữ đang đọc: người đọc đi từ trên xuống → ưu tiên phía TRÊN (dòng đã đọc), thiếu chỗ → phía dưới;
-  // cả hai thiếu → bên rộng hơn và thu chiều cao (cuộn trong bảng) để không bao giờ đè lên chính câu đang chọn.
-  // Màn cảm ứng: thanh nút nhỏ nằm DƯỚI (menu chọn chữ của hệ điều hành đã chiếm phía trên).
+  // Bảng đặt dưới vùng chọn (thiếu chỗ → lật lên), không tràn ngang ở 390 px
   const place = (el, r, gap = 8) => {
-    const M = 8, vw = innerWidth, vh = innerHeight, under = el === bar && !!(window.matchMedia && window.matchMedia('(pointer: coarse)').matches);
-    el.style.maxHeight = '';
+    const M = 8, vw = document.documentElement.clientWidth || innerWidth, vh = innerHeight;
+    el.style.maxHeight = ''; el.style.maxWidth = `calc(100vw - ${2 * M}px)`;
     el.style.left = Math.max(M, Math.min(vw - el.offsetWidth - M, r.left + r.width / 2 - el.offsetWidth / 2)) + 'px';
     const h = el.offsetHeight, above = r.top - gap - M, below = vh - r.bottom - gap - M;
     let top;
-    if (!under && h <= above) top = r.top - gap - h;
-    else if (h <= below) top = r.bottom + gap;
-    else if (under && h <= above) top = r.top - gap - h;
+    if (h <= below) top = r.bottom + gap;
+    else if (h <= above) top = r.top - gap - h;
     else if (above > below) { el.style.maxHeight = Math.max(80, above) + 'px'; top = r.top - gap - Math.min(h, Math.max(80, above)); }
     else { el.style.maxHeight = Math.max(80, below) + 'px'; top = r.bottom + gap; }
     el.style.top = Math.max(M, top) + 'px';
   };
   App.placeNear = place;
-  // Dịch có hạn giờ + thử lại giãn cách: KHÔNG BAO GIỜ để bảng kẹt "Đang dịch…" (Google/MyMemory/Translator trên máy có thể treo hoặc lỗi)
+  // MỘT đường dịch câu (cpack/tr-fast.js, tải lười); quá 2,5 s → { text:'', late }: nghĩa từng từ + Thử lại
   const sleep = ms => new Promise(r => setTimeout(r, ms));
   const timed = (p, ms) => Promise.race([Promise.resolve(p), sleep(ms).then(() => { throw new Error('timeout'); })]);
-  async function translateSafe(text, L = I18N.learnLang()) {
-    const ms = App.trTimeoutMs || 12000, tries = 3;
-    for (let i = 0; i < tries; i++) {
-      if (i) await sleep((App.trBackoffMs || 700) * 2 ** (i - 1)); // 0,7 s → 1,4 s
-      try { const v = await timed(L === 'vi' ? Dict.translateVi(text) : Dict.translateTo(text, L), ms); if (v && String(v).trim()) return String(v).trim(); } catch (e) { /* hết giờ / lỗi mạng → thử lại */ }
-    }
-    return '';
+  let trP = null, trCtrl = new AbortController();
+  // Nạp lười 1 script (1 lần/tệp, lỗi → thử lại sau); không dùng App.need('struct') (nằm trong chú thích app.js)
+  const JS = {};
+  const loadJs = (src, ok) => (ok() ? Promise.resolve(true) : JS[src] || (JS[src] = new Promise(res => {
+    const sc = document.createElement('script'); sc.src = src; sc.async = true;
+    sc.onload = () => res(!!ok()); sc.onerror = () => { delete JS[src]; res(false); };
+    document.head.appendChild(sc);
+  })));
+  const trLib = () => loadJs('cpack/tr-fast.js', () => window.TrFast && TrFast.get).then(v => (v ? TrFast : null));
+  const newSeq = () => { trCtrl.abort(); trCtrl = new AbortController(); return ++popSeq; }; // vùng chọn/bảng mới → hủy yêu cầu cũ
+  async function trFast(text, L = I18N.learnLang(), o = {}) {
+    const F = await timed(trLib(), 1500).catch(() => null);
+    if (F) return F.get(text, L, { budget: App.trBudgetMs || 2500, ...o });
+    const v = await timed(Dict.translateTo(text, L, 'en', o), App.trBudgetMs || 2500).catch(() => ''); // tr-fast.js không nạp được (mất mạng lần đầu)
+    return { text: String(v || '').trim(), src: v ? 'net' : 'timeout' };
+  }
+  // chờ cả bản đến muộn (≤ ~12 s), rồi ''
+  async function translateSafe(text, L = I18N.learnLang(), o = {}) {
+    const r = await trFast(text, L, o);
+    return r.text || (r.late ? await timed(r.late, 10000).catch(() => '') : '') || '';
   }
   App.translateSafe = translateSafe;
-  // Dự phòng khi cả câu không dịch được: nghĩa từng từ có sẵn trên máy (thư viện từ), không cần mạng
+  App.trFast = trFast;
+  // Dự phòng: nghĩa từng từ trên máy
   const STOPW = new Set('the a an and or but of to in on at for with by from as is are was were be been it its this that i me my you your he she his her we our they them not no do does did have has had can will would so hi'.split(' '));
   function wordGloss(text) {
     const lem = w0 => (App.lemma && App.lemma(w0)) || w0, IX = (window.IELTS_DATA && IELTS_DATA.INDEX) || {};
@@ -128,11 +141,13 @@
     for (const w0 of ws) { const loc = IX[lem(w0)] || IX[w0]; const vi = loc && (App.meanOf ? App.meanOf(loc) : loc.vi); if (vi) out.push({ w: loc.word || w0, vi }); if (out.length >= 8) break; }
     return out;
   }
-  // Khối kết quả dịch: bản dịch · hoặc nghĩa từng từ + Thử lại · hoặc lỗi rõ ràng + Thử lại
-  const trHtml = (vi, text) => {
+  // Khối kết quả dịch
+  const glossHtml = g0 => g0.map(x => `<div class="small"><b lang="en">${esc(x.w)}</b> – ${esc(x.vi)}</div>`).join('');
+  const trHtml = (vi, text, busy) => {
     if (vi) return `<div data-tr style="margin:.4rem 0;line-height:1.6">${esc(vi)}</div>`;
     const g0 = wordGloss(text);
-    return `<div data-tr data-fail role="alert" style="margin:.4rem 0;line-height:1.6">${g0.length ? `<div class="small muted">${t('Chưa dịch được cả câu – nghĩa từng từ:')}</div>${g0.map(x => `<div class="small"><b lang="en">${esc(x.w)}</b> – ${esc(x.vi)}</div>`).join('')}` : esc(t('Không dịch được – thử lại sau.'))}
+    if (busy) return `<div data-tr data-busy aria-busy="true" style="margin:.4rem 0;line-height:1.6">${skel()}${g0.length ? `<div class="small muted" style="margin-top:.35rem">${t('Nghĩa từng từ (tạm):')}</div>${glossHtml(g0)}` : ''}</div>`;
+    return `<div data-tr data-fail role="alert" style="margin:.4rem 0;line-height:1.6">${g0.length ? `<div class="small muted">${t('Chưa dịch được cả câu – nghĩa từng từ:')}</div>${glossHtml(g0)}` : esc(t('Không dịch được – thử lại sau.'))}
       <button type="button" class="btn sm" data-retry style="margin-top:.35rem">↻ ${t('Thử lại')}</button></div>`;
   };
   const readSel = () => {
@@ -159,14 +174,17 @@
     if (!info) { bar.hidden = true; return; }
     selInfo = info;
     const n = info.text.split(/\s+/).length;
+    if (n > 4) trLib().then(F => F && F.warm(info.text, I18N.learnLang())); // nạp sẵn kho dịch + IDB trước khi bấm Dịch
     bar.innerHTML = `${n <= 4 ? `<button data-act="look">${UI.icon('search')} ${t('Tra nghĩa')}</button>` : `<button data-act="tr">${UI.icon('globe')} ${t('Dịch')}</button>`}${n >= 2 && n <= 14 ? `<button data-act="save">${UI.icon('puzzle')} ${t('Lưu cụm')}</button>` : ''}${n <= 4 ? `<button data-act="say" title="${t('Nghe')}">🔊</button>` : ''}`;
     bar.hidden = false; place(bar, info.rect);
   }, 10);
   document.addEventListener('mouseup', e => { if (!bar.contains(e.target) && !pop.contains(e.target)) onSelect(); });
   document.addEventListener('touchend', e => { if (!bar.contains(e.target) && !pop.contains(e.target)) setTimeout(onSelect, 250); });
-  document.addEventListener('mousedown', e => { if (!bar.contains(e.target)) bar.hidden = true; if (!pop.contains(e.target) && !bar.contains(e.target)) pop.hidden = true; });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') { bar.hidden = true; pop.hidden = true; } });
-  window.addEventListener('hashchange', () => { bar.hidden = true; pop.hidden = true; });
+  const closePop = () => { if (!pop.hidden) { pop.hidden = true; newSeq(); } }; // đóng bảng = hủy yêu cầu dịch đang chạy
+  document.addEventListener('mousedown', e => { if (!bar.contains(e.target)) bar.hidden = true; if (!pop.contains(e.target) && !bar.contains(e.target)) closePop(); });
+  document.addEventListener('touchstart', e => { if (!pop.hidden && !pop.contains(e.target) && !bar.contains(e.target)) closePop(); }, { passive: true }); // chạm ra ngoài (màn cảm ứng) cũng đóng
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') { bar.hidden = true; closePop(); } });
+  window.addEventListener('hashchange', () => { bar.hidden = true; closePop(); });
   bar.addEventListener('mousedown', e => e.preventDefault()); // giữ nguyên vùng chọn khi bấm nút
   bar.onclick = async e => {
     const act = e.target.closest('[data-act]'); if (!act || !selInfo) return;
@@ -174,70 +192,53 @@
     if (k === 'say') return UI.speak(info.text, state.settings.accent);
     bar.hidden = true;
     if (k === 'save') { getSelection().removeAllRanges(); return savePhraseDialog({ phrase: info.text, sentence: info.sentence, title: t('Lưu từ Lexkite') }); }
-    pop.hidden = false; pop.innerHTML = `<div class="muted small">${UI.icon('hourglass')} ${k === 'look' ? t('Đang tra “{text}”…', { text: esc(info.text.slice(0, 60)) }) : t('Đang dịch “{text}”…', { text: esc(info.text.slice(0, 60)) })}</div>`; place(pop, info.rect);
-    const seq = ++popSeq, stale = () => seq !== popSeq || pop.hidden;
+    const seq = newSeq(), sig = trCtrl.signal, stale = () => seq !== popSeq || pop.hidden;
+    const head = (title, ic) => `<div class="row between nowrap"><b class="small">${UI.icon(ic)} ${esc(title)}</b><button class="icon-btn sm" data-x aria-label="${t('Đóng')}">✕</button></div>`;
+    pop.hidden = false;
+    pop.innerHTML = k === 'look' ? `${head(info.text, 'search')}<div style="margin:.4rem 0">${skel()}</div>` : `${head(t('Bản dịch'), 'globe')}${trHtml('', info.text, true)}`;
+    place(pop, info.rect);
+    $('[data-x]', pop).onclick = closePop;
     if (k === 'tr') {
       const L = I18N.learnLang();
-      const vi = await translateSafe(info.text, L);
+      // structures.js tải lười
+      const stP = loadJs('js/structures.js', () => window.VBStruct);
+      const r0 = await trFast(info.text, L, { signal: sig });
       if (stale()) return;
-      if (!window.VBStruct) await timed(App.need('struct'), 5000).catch(() => {});
-      if (stale()) return;
-      let structs = []; try { structs = window.VBStruct ? VBStruct.analyze(info.text, 4) : []; } catch (e) { /* bỏ qua */ }
-      pop.innerHTML = `<div class="row between nowrap"><b class="small">${UI.icon('globe')} ${t('Bản dịch')}</b><button class="icon-btn sm" data-x>✕</button></div>${trHtml(vi, info.text)}
-        ${structs.length ? `<div class="st-box"><b class="small">${UI.icon('puzzle')} ${t('Cấu trúc trong đoạn')}</b>${structs.map(x => `<div class="st-row"><b>${esc(t(x.name))}</b> <i class="muted">“${esc(x.match)}”</i><div class="small muted">${esc(t(x.vi))}</div><a class="small" href="#/grammar/${esc(x.lesson)}">${UI.icon('ruler')} ${t('Học bài này →')}</a></div>`).join('')}</div>` : ''}
+      const vi = r0.text;
+      const stHtml = () => { let structs = []; try { structs = window.VBStruct ? VBStruct.analyze(info.text, 4) : []; } catch (e) { /* bỏ qua */ }
+        return structs.length ? `<div class="st-box"><b class="small">${UI.icon('puzzle')} ${t('Cấu trúc trong đoạn')}</b>${structs.map(x => `<div class="st-row"><b>${esc(t(x.name))}</b> <i class="muted">“${esc(x.match)}”</i><div class="small muted">${esc(t(x.vi))}</div><a class="small" href="#/grammar/${esc(x.lesson)}">${UI.icon('ruler')} ${t('Học bài này →')}</a></div>`).join('')}</div>` : ''; };
+      pop.innerHTML = `${head(t('Bản dịch'), 'globe')}${trHtml(vi, info.text)}
+        <div data-st>${stHtml()}</div>
         <div data-aiout></div>
         <div class="row" style="margin-top:.5rem"><button class="btn sm" data-sp>🔊 ${t('Nghe')}</button><button class="btn sm" data-sps>🐢</button><button class="btn sm primary" data-deep>🤖 ${t('Giải thích sâu')}</button></div>`;
-      const rt = $('[data-retry]', pop); if (rt) rt.onclick = async ev => { // thử lại chỉ phần bản dịch, giữ nguyên phần còn lại của bảng
-        ev.stopPropagation(); rt.disabled = true; rt.textContent = '⏳ ' + t('Đang dịch…');
-        const v2 = await translateSafe(info.text, L); if (stale()) return;
-        const box0 = $('[data-tr]', pop); if (box0) box0.outerHTML = trHtml(v2, info.text);
-        const r2 = $('[data-retry]', pop); if (r2) r2.onclick = rt.onclick;
-        place(pop, info.rect);
+      // bản đến muộn thay nghĩa từng từ
+      const paintTr = (v, busy) => { const box0 = $('[data-tr]', pop); if (!box0) return; box0.outerHTML = trHtml(v, info.text, busy); const r2 = $('[data-retry]', pop); if (r2) r2.onclick = retry; place(pop, info.rect); };
+      const lateFill = r => r.late && r.late.then(v => { if (v && !stale()) paintTr(v); });
+      const retry = async ev => {
+        ev.stopPropagation(); paintTr('', true);
+        const r2 = await trFast(info.text, L, { signal: sig }); if (stale()) return;
+        paintTr(r2.text); lateFill(r2);
       };
+      const rt = $('[data-retry]', pop); if (rt) rt.onclick = retry;
+      lateFill(r0);
+      if (!window.VBStruct) stP.then(() => { const box = $('[data-st]', pop); if (box && !stale() && window.VBStruct) { box.innerHTML = stHtml(); place(pop, info.rect); } });
       $('[data-sp]', pop).onclick = () => UI.tts(info.text, state.settings.accent);
       $('[data-sps]', pop).onclick = () => UI.tts(info.text, state.settings.accent, 0.65);
-      $('[data-deep]', pop).onclick = async ev => {
-        const out = $('[data-aiout]', pop), btn = ev.currentTarget; btn.disabled = true;
-        // 1) Phân tích từ vựng tức thì, miễn phí (từ điển sẵn có) – luôn có kết quả, không phụ thuộc AI
-        const STOP = new Set('the a an and or but of to in on at for with by from as is are was were be been being it its this that these those which who whom whose what when where why how than then there their they them we our you your he she his her i me my not no do does did have has had can could will would should may might must shall also very more most such into over under about after before between through during without within upon'.split(' '));
-        const ws = [...new Set((info.text.match(/[A-Za-z][A-Za-z'-]{3,}/g) || []).map(x => x.toLowerCase()).filter(x => !STOP.has(x)))].slice(0, 8);
-        out.innerHTML = `<div class="small muted">${UI.icon('hourglass')} ${t('Đang phân tích từ vựng…')}</div>`;
-        // Nhanh & tiết kiệm: từ có trong thư viện → lấy ngay trên máy; từ còn lại → 1 lượt dịch gộp duy nhất (không gọi từng từ)
-        const lem = w0 => (App.lemma && App.lemma(w0)) || w0;
-        const local = ws.map(w0 => IELTS_DATA.INDEX[lem(w0)] || IELTS_DATA.INDEX[w0] || null);
-        const miss = ws.filter((w0, i) => !local[i]);
-        const tr = miss.length ? (await (L === 'vi' ? Dict.translateVi(miss.map(lem).join('\n')) : Dict.translateTo(miss.map(lem).join('\n'), L)).catch(() => '')).split('\n') : [];
-        const looks = ws.map((w0, i) => { const loc = local[i]; if (loc) return { w: loc.word, vi: App.meanOf ? App.meanOf(loc) : loc.vi, ipa: loc.ipa || '', pos: loc.pos || '' }; const k = miss.indexOf(w0), vi = (tr[k] || '').trim(); return vi && vi.toLowerCase() !== lem(w0) ? { w: lem(w0), vi: L === 'vi' ? Dict.fixVi(vi) : vi, ipa: '', pos: '' } : null; });
-        const vocab = looks.filter(Boolean);
-        out.innerHTML = `${vocab.length ? `<div class="st-box"><b class="small">${UI.icon('library')} ${t('Từ vựng quan trọng')}</b>${vocab.map(v => `<div class="st-row"><b>${esc(v.w)}</b> <span class="muted small">${esc(v.ipa)} ${esc(v.pos)}</span><div class="small">${esc(v.vi)}</div></div>`).join('')}</div>` : ''}<div data-ai2></div>`;
-        place(pop, info.rect);
-        // 2) Giải thích sâu bằng AI miễn phí (không đòi khóa); mất mạng → báo rõ + đề nghị tải AI của Chrome
-        const box = $('[data-ai2]', out);
-        const run = async () => {
-          box.innerHTML = `<div class="small muted">${UI.icon('hourglass')} ${t('AI đang phân tích…')}</div>`;
-          try { box.innerHTML = AI.renderExplain(await AI.explain(info.text, info.sentence)); } catch (e) { box.innerHTML = `<div class="small">⚠️ ${esc(AI.errText(e))}</div>`; }
-          place(pop, info.rect);
-        };
-        if (!window.AI) { btn.disabled = false; return; }
-        const key = await AI.getKey(), st = key ? 'key' : await AI.nanoStatus();
-        if (key || st === 'available' || navigator.onLine !== false) await run();
-        else box.innerHTML = `<div class="tip small" style="margin-top:.5rem">${t('AI không dùng được khi ngoại tuyến – kết nối mạng rồi thử lại.')}
-          ${st === 'downloadable' || st === 'downloading' ? `<div class="row" style="gap:.4rem;margin-top:.4rem"><button class="btn sm" data-dl>⬇️ ${t('Tải AI của Chrome (~2GB, 1 lần)')}</button></div>` : ''}</div>`;
-        const dl = $('[data-dl]', box); if (dl) dl.onclick = () => { dl.disabled = true; AI.onNanoProgress && AI.onNanoProgress(p => { dl.textContent = `⬇️ ${Math.round(p * 100)}%`; }); run(); };
-        btn.disabled = false;
-      };
+      $('[data-deep]', pop).onclick = async ev => { const btn = ev.currentTarget; btn.disabled = true; const ok = await loadJs('js/phrases-deep.js', () => window.PhDeep); btn.disabled = false; if (ok) PhDeep(btn, { pop, info, L, place }); };
     } else {
       const w = info.text.toLowerCase();
-      const d = (await timed(Dict.quick(w), 8000).catch(() => null)) || (await timed(Dict.lookup(w, { examples: false, image: false }), 15000).catch(() => null));
+      // quick (máy) ∥ lookup (mạng); không thấy → TrFast
+      const L = I18N.learnLang(), full = timed(Dict.lookup(w, { examples: false, image: false }), 6000).catch(() => null);
+      const q = await timed(Dict.quick(w), 2500).catch(() => null);
+      const d = q && q.found ? q : (await full) || q;
       if (stale()) return;
-      const L = I18N.learnLang();
       if (!d || !d.found) {
-        const vi = (d && (App.meanOf ? App.meanOf(d) : d.vi)) || (await translateSafe(info.text, L));
+        const vi = (d && (App.meanOf ? App.meanOf(d) : d.vi)) || (await translateSafe(info.text, L, { signal: sig }));
         if (stale()) return;
-        pop.innerHTML = `<div class="row between nowrap"><b>${esc(info.text)}</b><button class="icon-btn sm" data-x>✕</button></div><div class="vi" style="margin:.3rem 0">${esc(vi || t('Không tìm thấy'))}</div>${info.text.includes(' ') ? `<button class="btn sm primary" data-ph>${UI.icon('puzzle')} ${t('Lưu cụm')}</button>` : ''}`;
+        pop.innerHTML = `<div class="row between nowrap"><b>${esc(info.text)}</b><button class="icon-btn sm" data-x aria-label="${t('Đóng')}">✕</button></div><div class="vi" style="margin:.3rem 0">${esc(vi || t('Không tìm thấy'))}</div>${info.text.includes(' ') ? `<button class="btn sm primary" data-ph>${UI.icon('puzzle')} ${t('Lưu cụm')}</button>` : ''}`;
       } else {
         const mText = App.meanOf ? App.meanOf(d) : d.vi;
-        pop.innerHTML = `<div class="row between nowrap"><div><b style="font-size:1.2rem">${esc(d.word)}</b> ${UI.posChip ? UI.posChip(d.pos) : ''}</div><button class="icon-btn sm" data-x>✕</button></div>
+        pop.innerHTML = `<div class="row between nowrap"><div><b style="font-size:1.2rem">${esc(d.word)}</b> ${UI.posChip ? UI.posChip(d.pos) : ''}</div><button class="icon-btn sm" data-x aria-label="${t('Đóng')}">✕</button></div>
           <div class="row" style="gap:.3rem">${UI.ipaHtml(d)}<button class="icon-btn sm" data-sp>🔊</button></div>
           ${mText ? `<div class="vi" style="font-size:1.05rem;margin:.2rem 0">${esc(mText)}</div>` : ''}
           ${d.def && d.def !== mText ? `<div class="small muted">${esc(d.def)}</div>` : ''}
@@ -255,7 +256,7 @@
       const ph = $('[data-ph]', pop); if (ph) ph.onclick = () => { pop.hidden = true; savePhraseDialog({ phrase: info.text, sentence: info.sentence, title: t('Lưu từ Lexkite') }); };
     }
     place(pop, info.rect);
-    $('[data-x]', pop).onclick = () => { pop.hidden = true; };
+    $('[data-x]', pop).onclick = closePop;
   };
 
   // ---------- Sổ cụm từ & cấu trúc ----------

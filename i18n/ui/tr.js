@@ -751,6 +751,7 @@
 "Nghĩa tiếng Việt":"Anlam",
 "Nghĩa tiếng Việt của cả cụm":"Tüm ifadenin çevirisi",
 "Nghĩa trong ngữ cảnh:":"Bağlamdaki anlamı:",
+"Nghĩa từng từ (tạm):":"Kelime kelime (taslak):",
 "Ngoại tuyến – sẽ tự đồng bộ khi có mạng":"Çevrimdışı – tekrar çevrimiçi olduğunuzda otomatik senkronize edilecek",
 "Nguồn từ":"Kelimenin kaynağı",
 "Nguồn “{name}” đang trống.":"The source “{name}” is empty.",
