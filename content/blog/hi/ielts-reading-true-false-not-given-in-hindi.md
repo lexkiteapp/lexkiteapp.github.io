@@ -97,6 +97,8 @@ False और Not Given के बीच के अंतर को स्पष�
 2. **गलतियों की समीक्षा:** गलत हुए प्रश्नों को अपने [Mistake Log](/#/mistakes) में देखें और समझें कि गलती शब्दावली की वजह से हुई या तार्किक समझ के कारण।
 3. **संबद्ध कौशल का विकास:** इस अभ्यास को हमारे [ielts collocations in hindi guide](/hi/blog/ielts-collocations-in-hindi-guide/) और [complex sentences for ielts writing task 2 hindi](/hi/blog/complex-sentences-for-ielts-writing-task-2-hindi/) के साथ जोड़ें। अनुवाद से बचने के लिए [english me kaise soche without translation](/hi/blog/english-me-kaise-soche-without-translation/) के नियमों का पालन करें और बुनियादी व्याकरण के लिए हमारे [/ngu-phap/](/ngu-phap/) संकलन का उपयोग करें। सुनने के कौशल को मजबूत करने के लिए [dictation listening practice technique hindi](/hi/blog/dictation-listening-practice-technique-hindi/) का सहारा लें।
 
+बाकी प्रश्न-प्रकारों के तरीके [IELTS Reading Question Types in Hindi](/hi/blog/ielts-reading-question-types-in-hindi/) में चार परिवारों में बाँटकर समझाए गए हैं।
+
 ## अक्सर पूछे जाने वाले प्रश्न (FAQ)
 
 ### True/False/Not Given और Yes/No/Not Given में क्या अंतर है?
