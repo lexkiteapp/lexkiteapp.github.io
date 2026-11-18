@@ -159,6 +159,8 @@ Günde yalnızca beş dakikanızı ayırarak bu ritmi dilinize yerleştirebilirs
 
 ---
 
+Cümle vurgusundan önce kelime düzeyindeki vurgu kurallarını [İngilizce kelime vurgusu kuralları](/tr/blog/ingilizce-kelime-vurgusu-kurallari/) rehberinde bulabilirsiniz.
+
 ## Lexkite ile İngilizce Konuşma Becerinizi Zirveye Taşıyın
 
 Teorik fonetik kurallarını refleks haline dönüştürmek akıllı teknolojik destekle çok daha zahmetsizdir:

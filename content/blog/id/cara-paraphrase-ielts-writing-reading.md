@@ -187,6 +187,10 @@ Untuk memparafrasekan topik esai dalam kurun waktu 2 menit di ruang ujian:
 
 {{cta: /#/write | Mulai latihan paraphrase topik IELTS Task 2 di Studio Menulis Lexkite sekarang juga}}
 
+Contoh parafrase pada kalimat pembuka laporan grafik bisa kamu lihat di [IELTS Writing Task 1 bar chart](/id/blog/contoh-ielts-writing-task-1-bar-chart/).
+
+Setelah menguasai parafrase, terapkan pada pendahuluan di [esai opini IELTS](/id/blog/esai-opini-ielts-setuju-atau-tidak-setuju/).
+
 ## Tanya Jawab Populer (FAQ)
 
 ### Apakah semua kata dalam soal wajib diganti?

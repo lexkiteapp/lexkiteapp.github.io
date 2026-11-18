@@ -1,0 +1,382 @@
+[
+ {
+  "tag": "m390-light",
+  "ttFirstScreen": 1229,
+  "1-first-open": {
+   "ok": true,
+   "ms": 820,
+   "taps": 0,
+   "note": "",
+   "hash": "#/welcome",
+   "cls": 0.020153514237591135,
+   "lcp": 968,
+   "tbt": 91,
+   "inp": 0
+  },
+  "2-onboarding": {
+   "ok": true,
+   "ms": 3216,
+   "taps": 8,
+   "note": "",
+   "hash": "#/day",
+   "cls": 0.020153514237591135,
+   "lcp": 968,
+   "tbt": 106,
+   "inp": 24
+  },
+  "ttValue": 5405,
+  "tapsToValue": 8,
+  "3-today": {
+   "ok": true,
+   "ms": 8,
+   "taps": 0,
+   "note": "",
+   "hash": "#/home",
+   "cls": 0.020153514237591135,
+   "lcp": 968,
+   "tbt": 106,
+   "inp": 24
+  },
+  "4-lesson": {
+   "ok": false,
+   "ms": 1511,
+   "taps": 0,
+   "note": "",
+   "hash": "#/day",
+   "cls": 0.020153514237591135,
+   "lcp": 968,
+   "tbt": 106,
+   "inp": 24
+  },
+  "5-review-srs": {
+   "ok": true,
+   "ms": 1545,
+   "taps": 1,
+   "note": "",
+   "hash": "#/review",
+   "cls": 0.02065592047745835,
+   "lcp": 968,
+   "tbt": 372,
+   "inp": 32
+  },
+  "6-pron": {
+   "ok": true,
+   "ms": 1508,
+   "taps": 0,
+   "note": "",
+   "hash": "#/pron",
+   "cls": 0.08700663137793228,
+   "lcp": 968,
+   "tbt": 407,
+   "inp": 32
+  },
+  "7-result-streak": {
+   "ok": true,
+   "ms": 1209,
+   "taps": 0,
+   "note": "",
+   "hash": "#/me",
+   "cls": 0.08700663137793228,
+   "lcp": 968,
+   "tbt": 407,
+   "inp": 32
+  },
+  "8-reminders": {
+   "ok": true,
+   "ms": 1224,
+   "taps": 0,
+   "note": "",
+   "hash": "#/settings",
+   "cls": 0.08700663137793228,
+   "lcp": 968,
+   "tbt": 407,
+   "inp": 32
+  },
+  "errs": []
+ },
+ {
+  "tag": "m390-dark",
+  "ttFirstScreen": 464,
+  "1-first-open": {
+   "ok": true,
+   "ms": 19,
+   "taps": 0,
+   "note": "",
+   "hash": "#/welcome",
+   "cls": 0.020153514237591135,
+   "lcp": 444,
+   "tbt": 0,
+   "inp": 0
+  },
+  "2-onboarding": {
+   "ok": true,
+   "ms": 3177,
+   "taps": 8,
+   "note": "",
+   "hash": "#/day",
+   "cls": 0.020153514237591135,
+   "lcp": 444,
+   "tbt": 0,
+   "inp": 24
+  },
+  "ttValue": 4593,
+  "tapsToValue": 8,
+  "3-today": {
+   "ok": true,
+   "ms": 6,
+   "taps": 0,
+   "note": "",
+   "hash": "#/home",
+   "cls": 0.020153514237591135,
+   "lcp": 444,
+   "tbt": 0,
+   "inp": 24
+  },
+  "4-lesson": {
+   "ok": false,
+   "ms": 1511,
+   "taps": 0,
+   "note": "",
+   "hash": "#/day",
+   "cls": 0.020153514237591135,
+   "lcp": 444,
+   "tbt": 0,
+   "inp": 24
+  },
+  "5-review-srs": {
+   "ok": true,
+   "ms": 1539,
+   "taps": 1,
+   "note": "",
+   "hash": "#/review",
+   "cls": 0.020153514237591135,
+   "lcp": 444,
+   "tbt": 0,
+   "inp": 24
+  },
+  "6-pron": {
+   "ok": true,
+   "ms": 1509,
+   "taps": 0,
+   "note": "",
+   "hash": "#/pron",
+   "cls": 0.020153514237591135,
+   "lcp": 444,
+   "tbt": 37,
+   "inp": 24
+  },
+  "7-result-streak": {
+   "ok": true,
+   "ms": 1208,
+   "taps": 0,
+   "note": "",
+   "hash": "#/me",
+   "cls": 0.020153514237591135,
+   "lcp": 444,
+   "tbt": 37,
+   "inp": 24
+  },
+  "8-reminders": {
+   "ok": true,
+   "ms": 1209,
+   "taps": 0,
+   "note": "",
+   "hash": "#/settings",
+   "cls": 0.020153514237591135,
+   "lcp": 444,
+   "tbt": 37,
+   "inp": 24
+  },
+  "errs": []
+ },
+ {
+  "tag": "d1280-light",
+  "ttFirstScreen": 349,
+  "1-first-open": {
+   "ok": true,
+   "ms": 18,
+   "taps": 0,
+   "note": "",
+   "hash": "#/welcome",
+   "cls": 0.000138427734375,
+   "lcp": 332,
+   "tbt": 0,
+   "inp": 0
+  },
+  "2-onboarding": {
+   "ok": true,
+   "ms": 3206,
+   "taps": 8,
+   "note": "",
+   "hash": "#/day",
+   "cls": 0.000138427734375,
+   "lcp": 332,
+   "tbt": 8,
+   "inp": 40
+  },
+  "ttValue": 4567,
+  "tapsToValue": 8,
+  "3-today": {
+   "ok": true,
+   "ms": 9,
+   "taps": 0,
+   "note": "",
+   "hash": "#/home",
+   "cls": 0.000138427734375,
+   "lcp": 332,
+   "tbt": 8,
+   "inp": 40
+  },
+  "4-lesson": {
+   "ok": false,
+   "ms": 1511,
+   "taps": 0,
+   "note": "",
+   "hash": "#/day",
+   "cls": 0.000138427734375,
+   "lcp": 332,
+   "tbt": 8,
+   "inp": 40
+  },
+  "5-review-srs": {
+   "ok": true,
+   "ms": 1542,
+   "taps": 1,
+   "note": "",
+   "hash": "#/review",
+   "cls": 0.19399963989257812,
+   "lcp": 332,
+   "tbt": 8,
+   "inp": 40
+  },
+  "6-pron": {
+   "ok": true,
+   "ms": 1507,
+   "taps": 0,
+   "note": "",
+   "hash": "#/pron",
+   "cls": 0.19606519117355345,
+   "lcp": 332,
+   "tbt": 97,
+   "inp": 40
+  },
+  "7-result-streak": {
+   "ok": true,
+   "ms": 1208,
+   "taps": 0,
+   "note": "",
+   "hash": "#/me",
+   "cls": 0.19606519117355345,
+   "lcp": 332,
+   "tbt": 97,
+   "inp": 40
+  },
+  "8-reminders": {
+   "ok": true,
+   "ms": 1208,
+   "taps": 0,
+   "note": "",
+   "hash": "#/settings",
+   "cls": 0.19606519117355345,
+   "lcp": 332,
+   "tbt": 97,
+   "inp": 40
+  },
+  "errs": []
+ },
+ {
+  "tag": "d1280-dark",
+  "ttFirstScreen": 335,
+  "1-first-open": {
+   "ok": true,
+   "ms": 51,
+   "taps": 0,
+   "note": "",
+   "hash": "#/welcome",
+   "cls": 0.000138427734375,
+   "lcp": 360,
+   "tbt": 0,
+   "inp": 0
+  },
+  "2-onboarding": {
+   "ok": true,
+   "ms": 3206,
+   "taps": 8,
+   "note": "",
+   "hash": "#/day",
+   "cls": 0.000138427734375,
+   "lcp": 360,
+   "tbt": 8,
+   "inp": 40
+  },
+  "ttValue": 4576,
+  "tapsToValue": 8,
+  "3-today": {
+   "ok": true,
+   "ms": 7,
+   "taps": 0,
+   "note": "",
+   "hash": "#/home",
+   "cls": 0.000138427734375,
+   "lcp": 360,
+   "tbt": 8,
+   "inp": 40
+  },
+  "4-lesson": {
+   "ok": false,
+   "ms": 1510,
+   "taps": 0,
+   "note": "",
+   "hash": "#/day",
+   "cls": 0.000138427734375,
+   "lcp": 360,
+   "tbt": 8,
+   "inp": 40
+  },
+  "5-review-srs": {
+   "ok": true,
+   "ms": 1539,
+   "taps": 1,
+   "note": "",
+   "hash": "#/review",
+   "cls": 0.19399963989257812,
+   "lcp": 360,
+   "tbt": 8,
+   "inp": 40
+  },
+  "6-pron": {
+   "ok": true,
+   "ms": 1509,
+   "taps": 0,
+   "note": "",
+   "hash": "#/pron",
+   "cls": 0.3899118839621543,
+   "lcp": 360,
+   "tbt": 98,
+   "inp": 40
+  },
+  "7-result-streak": {
+   "ok": true,
+   "ms": 1209,
+   "taps": 0,
+   "note": "",
+   "hash": "#/me",
+   "cls": 0.3899118839621543,
+   "lcp": 360,
+   "tbt": 98,
+   "inp": 40
+  },
+  "8-reminders": {
+   "ok": true,
+   "ms": 1208,
+   "taps": 0,
+   "note": "",
+   "hash": "#/settings",
+   "cls": 0.3899118839621543,
+   "lcp": 360,
+   "tbt": 98,
+   "inp": 40
+  },
+  "errs": []
+ }
+]

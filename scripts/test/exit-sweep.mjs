@@ -27,7 +27,7 @@ const fail = (where, msg) => { fails.push(`${where}: ${msg}`); console.log('✗'
 
 
 const ctxOf = async (theme, flag = true) => {
-  const ctx = await browser.newContext({ ...devices['Pixel 7'], viewport: { width: 390, height: 844 }, screen: { width: 390, height: 844 }, colorScheme: theme, locale: 'en-US', serviceWorkers: 'block' });
+  const ctx = await browser.newContext({ bypassCSP: true, ...devices['Pixel 7'], viewport: { width: 390, height: 844 }, screen: { width: 390, height: 844 }, colorScheme: theme, locale: 'en-US', serviceWorkers: 'block' });
   await noProd(ctx); // CI: media/audio → GitHub, /api → offline (0 lượt prod)
   await ctx.addInitScript(th => { try { localStorage.setItem('sbx.settings', JSON.stringify({ onboarded: true, theme: th.th })); localStorage.setItem('lk.exitbar', th.flag ? '1' : '0'); } catch { /* */ } }, { th: theme, flag });
   return ctx;
@@ -133,7 +133,7 @@ for (const theme of THEMES) {
 // ---------- 4) 768 / 1440 (chuột, pointer: fine – nút .icon-btn 36 px): hộp thật ≥ 44×44 + nới không đổi pixel nào ----------
 const notes = [];
 for (const W of [768, 1440]) {
-  const ctx = await browser.newContext({ viewport: { width: W, height: 900 }, colorScheme: THEMES[0], locale: 'en-US', serviceWorkers: 'block' });
+  const ctx = await browser.newContext({ bypassCSP: true, viewport: { width: W, height: 900 }, colorScheme: THEMES[0], locale: 'en-US', serviceWorkers: 'block' });
   await noProd(ctx); // CI: media/audio → GitHub, /api → offline (0 lượt prod)
   await ctx.addInitScript(th => { try { localStorage.setItem('sbx.settings', JSON.stringify({ onboarded: true, theme: th })); localStorage.setItem('lk.exitbar', '1'); } catch { /* */ } }, THEMES[0]);
   for (const [r, hash] of samples) {

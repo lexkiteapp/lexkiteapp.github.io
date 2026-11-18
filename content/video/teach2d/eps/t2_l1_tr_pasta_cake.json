@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_tr_pasta_cake",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "A birthday cake, not pasta!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I bought a pasta for her birthday.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I bought a cake for her birthday.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Pasta is not a cake. Say cake.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Cake! Here is a birthday cake.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I bought a pasta for her birthday.",
+  "right": "I bought a cake for her birthday.",
+  "strike": "pasta",
+  "why": "Pasta is not a cake. Say cake.",
+  "memory": "I bought a cake for her birthday.",
+  "quiz": {
+   "stem": "Happy birthday! Here is a ___.",
+   "options": [
+    "pasta",
+    "cake"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Pasta” değil, “cake”!",
+   "tip": "Türkçedeki “pasta” İngilizcede “cake” demektir; İngilizcedeki “pasta” makarnadır: “I bought a cake for her birthday.”",
+   "caption": "“I bought a pasta for her birthday” mi diyorsun? 😅 Türkçede “pasta” dediğimize İngilizcede “cake” denir; “pasta” makarnadır. Doğrusu “I bought a cake for her birthday.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+   "comment": "Cevap: “cake”. Doğum günü “pasta”sı için “cake” de. Şimdi kendi cümleni yaz ve sesli söyle: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “cake”, not “pasta”!",
+   "tip": "For a sweet birthday food, say “cake”; pasta is food like spaghetti: “I bought a cake for her birthday.”",
+   "caption": "Do you say “I bought a pasta for her birthday”? 😅 In English a birthday sweet is a cake, because pasta is food like spaghetti. The right sentence is “I bought a cake for her birthday.” Listen to Ama and repeat! Open the Lexkite app and practice more."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Pasta” değil, “cake”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "tr",
+ "est": {
+  "words": 52,
+  "seconds": 31.0,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "“Pasta” değil, “cake”!",
+  "keyword": "I bought a cake for her birthday.",
+  "value": "Türkçedeki “pasta” İngilizcede “cake” demektir; İngilizcedeki “pasta” makarnadır: “I bought a cake for her birthday.”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 46,
+  "platforms": {
+   "youtube": {
+    "title": "“Pasta” değil, “cake”!",
+    "description": "Türkçedeki “pasta” İngilizcede “cake” demektir; İngilizcedeki “pasta” makarnadır: “I bought a cake for her birthday.”\n\n“I bought a pasta for her birthday” mi diyorsun? 😅 Türkçede “pasta” dediğimize İngilizcede “cake” denir; “pasta” makarnadır. Doğrusu “I bought a cake for her birthday.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "I bought a cake for her birthday.",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“I bought a pasta for her birthday” mi diyorsun? 😅 Türkçede “pasta” dediğimize İngilizcede “cake” denir; “pasta” makarnadır. Doğrusu “I bought a cake for her birthday.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Pasta” değil, “cake”!\n\nTürkçedeki “pasta” İngilizcede “cake” demektir; İngilizcedeki “pasta” makarnadır: “I bought a cake for her birthday.”\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Pasta” değil, “cake”! Türkçedeki “pasta” İngilizcede “cake” demektir; İngilizcedeki “pasta” makarnadır:… #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “cake”. Doğum günü “pasta”sı için “cake” de. Şimdi kendi cümleni yaz ve sesli söyle: {link}",
+  "lang": "tr"
+ }
+}

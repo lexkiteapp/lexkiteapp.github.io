@@ -9,7 +9,7 @@ tags: [ielts, writing, task-1, bar-chart, academic]
 keyword: "ielts writing task 1 balkendiagramm"
 cover: write
 coverAlt: "Schreibraum von Lexkite mit Aufgaben und einem Planungsraster für einen Bericht"
-publishAt:
+publishAt: 2027-01-14T08:29:00+01:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

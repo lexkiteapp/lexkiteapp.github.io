@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ru_backshift",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Is tired or was tired?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: She said that she is tired.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: She said that she was tired.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "After said, use was.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Was! He said that he was happy.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "She said that she is tired.",
+  "right": "She said that she was tired.",
+  "strike": "is",
+  "why": "After said, use was.",
+  "memory": "Said: was.",
+  "quiz": {
+   "stem": "He said that he ___ happy.",
+   "options": [
+    "is",
+    "was"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "После said — is или was?",
+   "tip": "После said ставь “was”: “She said that she was tired.”",
+   "caption": "Ты тоже говоришь “She said that she is tired”? 😅 По-русски время в такой фразе не меняется, а в английском после said нужно “was.” Правильно: “She said that she was tired.” Послушай Аму и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “was.” После said нужно was. Скажи вслух: “She said that she was tired.” Бесплатный тест для практики здесь: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#английский",
+    "#изучениеанглийского",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "After said, is or was?",
+   "tip": "After said, use “was”: “She said that she was tired.”",
+   "caption": "Do you also say “She said that she is tired”? 😅 In Russian the time stays as in the speaker's own words, but in English you need “was” after said. Correct: “She said that she was tired.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "После said — is или was?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ru",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "После said — is или was?",
+  "keyword": "She said that she was tired.",
+  "value": "После said ставь “was”: “She said that she was tired.”",
+  "hashtags": [
+   "#английскийязык",
+   "#английский",
+   "#изучениеанглийского",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "После said — is или was?",
+    "description": "После said ставь “was”: “She said that she was tired.”\n\nТы тоже говоришь “She said that she is tired”? 😅 По-русски время в такой фразе не меняется, а в английском после said нужно “was.” Правильно: “She said that she was tired.” Послушай Аму и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #английский #изучениеанглийского #lexkite",
+    "tags": [
+     "She said that she was tired.",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Ты тоже говоришь “She said that she is tired”? 😅 По-русски время в такой фразе не меняется, а в английском после said нужно “was.” Правильно: “She said that she was tired.” Послушай Аму и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "После said — is или was?\n\nПосле said ставь “was”: “She said that she was tired.”\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#английский",
+     "#изучениеанглийского",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "После said — is или was? После said ставь “was”: “She said that she was tired.” #английскийязык #английский #изучениеанглийского"
+   }
+  },
+  "first_comment": "Ответ: “was.” После said нужно was. Скажи вслух: “She said that she was tired.” Бесплатный тест для практики здесь: {link}",
+  "lang": "ru"
+ }
+}

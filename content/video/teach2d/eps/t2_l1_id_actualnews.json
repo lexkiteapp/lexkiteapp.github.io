@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_id_actualnews",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Latest news, not actual!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I watch the actual news every day.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I watch the latest news every day.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Actual means real.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Latest! Tell me the latest news about the game.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I watch the actual news every day.",
+  "right": "I watch the latest news every day.",
+  "strike": "actual",
+  "why": "Actual means real.",
+  "memory": "Aktual = latest.",
+  "quiz": {
+   "stem": "Tell me the ___ news about the game.",
+   "options": [
+    "actual",
+    "latest"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Aktual” bukan “actual”",
+   "tip": "Kata “aktual” berarti terbaru, tapi actual dalam bahasa Inggris berarti nyata. Untuk berita terbaru, pakai latest.",
+   "caption": "Pernah bilang begini? “I watch the actual news every day.” 😅 Untuk berita terbaru, pakai latest: “I watch the latest news every day.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.",
+   "comment": "Jawaban: “latest”. Tulis satu kalimat tentang berita terbaru hari ini dengan latest. Latihan gratis lainnya di sini: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#temanpalsu",
+    "#bahasainggris",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Aktual” is not “actual”",
+   "tip": "The word “aktual” means newest, but actual in English means real. For recent news, use latest.",
+   "caption": "Ever say this? “I watch the actual news every day.” 😅 For recent news, use latest: “I watch the latest news every day.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Aktual” bukan “actual”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "id",
+ "est": {
+  "words": 50,
+  "seconds": 30.0,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "“Aktual” bukan “actual”",
+  "keyword": "I watch the latest news every day.",
+  "value": "Kata “aktual” berarti terbaru, tapi actual dalam bahasa Inggris berarti nyata. Untuk berita terbaru, pakai latest.",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#temanpalsu",
+   "#bahasainggris",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 44,
+  "platforms": {
+   "youtube": {
+    "title": "“Aktual” bukan “actual”",
+    "description": "Kata “aktual” berarti terbaru, tapi actual dalam bahasa Inggris berarti nyata. Untuk berita terbaru, pakai latest.\n\nPernah bilang begini? “I watch the actual news every day.” 😅 Untuk berita terbaru, pakai latest: “I watch the latest news every day.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#belajarbahasainggris #temanpalsu #bahasainggris #lexkite",
+    "tags": [
+     "I watch the latest news every day.",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Pernah bilang begini? “I watch the actual news every day.” 😅 Untuk berita terbaru, pakai latest: “I watch the latest news every day.” Dengarkan Kak Ama, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Aktual” bukan “actual”\n\nKata “aktual” berarti terbaru, tapi actual dalam bahasa Inggris berarti nyata. Untuk berita terbaru, pakai latest.\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#temanpalsu",
+     "#bahasainggris",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Aktual” bukan “actual” Kata “aktual” berarti terbaru, tapi actual dalam bahasa Inggris berarti nyat… #belajarbahasainggris #temanpalsu #bahasainggris"
+   }
+  },
+  "first_comment": "Jawaban: “latest”. Tulis satu kalimat tentang berita terbaru hari ini dengan latest. Latihan gratis lainnya di sini: {link}",
+  "lang": "id"
+ }
+}

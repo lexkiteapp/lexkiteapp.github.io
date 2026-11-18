@@ -67,8 +67,8 @@
   },
   "native": {
    "hook": "¿Dices “is raining”? Falta algo",
-   "tip": "En español “llueve” no necesita sujeto, pero en inglés sí: “It is raining”.",
-   "caption": "¿“Llueve” sin sujeto? 🌧️ En inglés hace falta “it”: no digas “Is raining today.”, sino “It is raining today.”. ¡Escucha a Carlos y repite! Practica más en la app Lexkite.",
+   "tip": "En español “llueve” no necesita sujeto, pero en inglés sí: “It is raining.”",
+   "caption": "¿“Llueve” sin sujeto? 🌧️ En inglés hace falta “it”: no digas “Is raining today.”, sino “It is raining today.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.",
    "comment": "Respuesta: “It”. En inglés toda frase necesita sujeto. Practica más con un quiz gratis aquí: {link}",
    "hashtags": [
     "#aprenderingles",
@@ -78,9 +78,9 @@
    ]
   },
   "en": {
-   "hook": "Do you say “is raining”? Something is missing",
-   "tip": "In Spanish “llueve” needs no subject, but in English it does: “It is raining”.",
-   "caption": "“Llueve” with no subject? English needs “it”: do not say “Is raining today.”, say “It is raining today.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+   "hook": "“Is raining”? Missing a word",
+   "tip": "The phrase “llueve” needs no subject, but in English it does: “It is raining.”",
+   "caption": "“Llueve” with no subject? English needs “it”: do not say “Is raining today.”, say “It is raining today.” Listen to Carlos and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -105,7 +105,7 @@
  "publish": {
   "title": "¿Dices “is raining”? Falta algo",
   "keyword": "It is raining today.",
-  "value": "En español “llueve” no necesita sujeto, pero en inglés sí: “It is raining”.",
+  "value": "En español “llueve” no necesita sujeto, pero en inglés sí: “It is raining.”",
   "hashtags": [
    "#aprenderingles",
    "#inglesfacil",
@@ -117,7 +117,7 @@
   "platforms": {
    "youtube": {
     "title": "¿Dices “is raining”? Falta algo",
-    "description": "¿“Llueve” sin sujeto? 🌧️ En inglés hace falta “it”: no digas “Is raining today.”, sino “It is raining today.”. ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #gramatica #lexkite",
+    "description": "En español “llueve” no necesita sujeto, pero en inglés sí: “It is raining.”\n\n¿“Llueve” sin sujeto? 🌧️ En inglés hace falta “it”: no digas “Is raining today.”, sino “It is raining today.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #gramatica #lexkite",
     "tags": [
      "It is raining today.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "¿“Llueve” sin sujeto? 🌧️ En inglés hace falta “it”: no digas “Is raining today.”, sino “It is raining today.”. ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "¿“Llueve” sin sujeto? 🌧️ En inglés hace falta “it”: no digas “Is raining today.”, sino “It is raining today.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "¿“Llueve” sin sujeto? 🌧️ En inglés hace falta “it”: no digas “Is raining today.”, sino “It is raining today.”. ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nlexkite.com",
+    "caption": "¿Dices “is raining”? Falta algo\n\nEn español “llueve” no necesita sujeto, pero en inglés sí: “It is raining.”\n\nlexkite.com",
     "hashtags": [
      "#aprenderingles",
      "#inglesfacil",
@@ -137,7 +137,7 @@
     ]
    },
    "tiktok": {
-    "caption": "¿Dices “is raining”? Falta algo #aprenderingles #inglesfacil #gramatica"
+    "caption": "¿Dices “is raining”? Falta algo En español “llueve” no necesita sujeto, pero en inglés sí: “It is raining.” #aprenderingles #inglesfacil #gramatica"
    }
   },
   "first_comment": "Respuesta: “It”. En inglés toda frase necesita sujeto. Practica más con un quiz gratis aquí: {link}",

@@ -9,7 +9,7 @@ tags: [ielts, band-score, scoring, strategy]
 keyword: "ielts band scores"
 cover: mock
 coverAlt: "Lexkite IELTS mock test setup screen with the four skills Listening, Reading, Writing and Speaking and a history of earlier attempts"
-publishAt:
+publishAt: 2027-02-06T12:55:00+05:30
 factChecked: 2026-11-15
 author: Lexkite
 status: ready
@@ -141,3 +141,5 @@ It varies by person. Many learners find Writing slow to improve because accuracy
 ### Can I retake only one skill?
 
 A One Skill Retake option has been introduced for some computer-delivered tests, but availability and rules differ by country and test centre and can change, so check the official IELTS site or ask your test centre before booking.
+
+To see how these bands are used for migration, read [IELTS score for Australia PR](/en/blog/ielts-score-australia-pr/) and [IELTS score for New Zealand residence](/en/blog/ielts-new-zealand-skilled-migrant/).

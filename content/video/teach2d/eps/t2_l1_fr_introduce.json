@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_fr_introduce",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Present is a false friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Let me present my friend Ali.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Let me introduce my friend Ali.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Present means give or show. Introduce is for people.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Introduce! Let me introduce my friend.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Let me present my friend Ali.",
+  "right": "Let me introduce my friend Ali.",
+  "strike": "present",
+  "why": "Present means give or show. Introduce is for people.",
+  "memory": "People: introduce.",
+  "quiz": {
+   "stem": "I want you to meet my friend. Let me ___ my friend.",
+   "options": [
+    "present",
+    "introduce"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "« Présenter » : “introduce”",
+   "tip": "En anglais, “present” veut dire « offrir » ou « exposer ». Pour « présenter » une personne, dites “introduce”.",
+   "caption": "Vous dites “Let me present my friend Ali.” ? “Present” veut dire « offrir » ou « exposer ». Pour présenter une personne, employez “introduce”. Dites plutôt “Let me introduce my friend Ali.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.",
+   "comment": "Réponse : “Let me introduce my friend Ali.” — “Present” veut dire « offrir » ou « exposer ». Pour présenter une personne, employez “introduce”. À vous : dites la phrase à voix haute, puis écrivez une phrase de votre cru. Quiz gratuit : {link}",
+   "hashtags": [
+    "#apprendrelanglais",
+    "#anglaisfacile",
+    "#coursdanglais",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “introduce” for people!",
+   "tip": "In English, “present” means to give or to show. To introduce a person, say “introduce”.",
+   "caption": "Do you say this? “Let me present my friend Ali.” In English, “present” means to give or to show. To introduce a person, say “introduce”. Say “Let me introduce my friend Ali.” Listen to Carlos and repeat with him! More exercises in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "« Présenter » : “introduce”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "fr",
+ "est": {
+  "words": 52,
+  "seconds": 31.0,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "« Présenter » : “introduce”",
+  "keyword": "Let me introduce my friend Ali.",
+  "value": "En anglais, “present” veut dire « offrir » ou « exposer ». Pour « présenter » une personne, dites “introduce”.",
+  "hashtags": [
+   "#apprendrelanglais",
+   "#anglaisfacile",
+   "#coursdanglais",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 46,
+  "platforms": {
+   "youtube": {
+    "title": "« Présenter » : “introduce”",
+    "description": "En anglais, “present” veut dire « offrir » ou « exposer ». Pour « présenter » une personne, dites “introduce”.\n\nVous dites “Let me present my friend Ali.” ? “Present” veut dire « offrir » ou « exposer ». Pour présenter une personne, employez “introduce”. Dites plutôt “Let me introduce my friend Ali.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "tags": [
+     "Let me introduce my friend Ali.",
+     "learn english",
+     "fr"
+    ]
+   },
+   "facebook": {
+    "text": "Vous dites “Let me present my friend Ali.” ? “Present” veut dire « offrir » ou « exposer ». Pour présenter une personne, employez “introduce”. Dites plutôt “Let me introduce my friend Ali.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "« Présenter » : “introduce”\n\nEn anglais, “present” veut dire « offrir » ou « exposer ». Pour « présenter » une personne, dites “introduce”.\n\nlexkite.com",
+    "hashtags": [
+     "#apprendrelanglais",
+     "#anglaisfacile",
+     "#coursdanglais",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "« Présenter » : “introduce” En anglais, “present” veut dire « offrir » ou « exposer ». Pour « présen… #apprendrelanglais #anglaisfacile #coursdanglais"
+   }
+  },
+  "first_comment": "Réponse : “Let me introduce my friend Ali.” — “Present” veut dire « offrir » ou « exposer ». Pour présenter une personne, employez “introduce”. À vous : dites la phrase à voix haute, puis écrivez une phrase de votre cru. Quiz gratuit : {link}",
+  "lang": "fr"
+ }
+}

@@ -99,6 +99,12 @@ const labelled = (b, w) => (b.getAttribute('aria-label') || b.textContent || '')
     ok(C.rpLevel('A1').L === 0 && C.rpLevel('A2').L === 1 && C.rpLevel('B1').L === 2 && C.rpLevel(undefined).L === 0, 'roleplay A1/A2/B1 giữ mức cũ'); }
   ok(w.Confidence.scoreOf({ wpm: 110, pausesPerMin: 1, secs: 120, phrases: 2 }, 5) > w.Confidence.scoreOf({ wpm: 40, pausesPerMin: 8, secs: 30, phrases: 0 }, 2), 'điểm tự tin: nói trôi + dùng cụm + tự tin cao → điểm cao hơn');
   await go('#/confidence/daily'); ok(!!$('#cfRec') && /2:00/.test($('#cfClock').textContent), 'thử thách 2 phút: đồng hồ + nút ghi');
+  { // rời trang lúc hộp xin quyền micro còn mở → phiên đến muộn bị huỷ, mic không sáng mãi
+    const orig = w.UI.speechSession; let release, cancelled = 0;
+    w.UI.speechSession = () => new Promise(r => { release = () => r({ stream: null, stop: async () => ({ text: '', audio: '' }), cancel: () => { cancelled++; } }); });
+    click($('#cfRec')); await tick(30); await go('#/confidence'); release(); await tick(60);
+    w.UI.speechSession = orig; ok(cancelled === 1, 'rời trang lúc hộp xin quyền mic mở → phiên bị huỷ (mic không sáng mãi)');
+  }
   // cuối roleplay thường → lối vào bài tương ứng
   await go('#/roleplay/cafe'); click($('#rpGo')); await tick(200); $('#rpIn').value = 'Hi! Can I get a latte, please?'; click($('#rpSend')); await tick(200); click($('#rpEnd')); await tick(800);
   ok(!!$('#view a[href="#/confidence/cafe"]'), 'lối vào: cuối roleplay → bài Ở quán cà phê');

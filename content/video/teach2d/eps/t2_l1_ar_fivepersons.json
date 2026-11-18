@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ar_fivepersons",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Five persons? Say people!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Five persons came to the party.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Five people came to the party.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "In everyday English, we say people.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "People! There are four people in my family.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Five persons came to the party.",
+  "right": "Five people came to the party.",
+  "strike": "persons",
+  "why": "In everyday English, we say people.",
+  "memory": "Five people.",
+  "quiz": {
+   "stem": "There are four ___ in my family.",
+   "options": [
+    "persons",
+    "people"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "هل تقول “five persons”؟",
+   "tip": "نقول «خمسة أشخاص»، لكن persons رسمية جدًا، فنقول people: “Five people came to the party.” وليس “Five persons came to the party.”",
+   "caption": "هل تقول أحيانًا هذه الجملة؟ “Five persons came to the party.” 😅 نقول «خمسة أشخاص»، وكلمة persons رسمية جدًا، أما في الكلام اليومي فنقول five people، فالجملة الصحيحة “Five people came to the party.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+   "comment": "الإجابة: “people” — نقول «خمسة أشخاص»، وكلمة persons رسمية جدًا، أما في الكلام اليومي فنقول five people. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “five persons”?",
+   "tip": "In Arabic we say «خمسة أشخاص», but persons is very formal, and in everyday English we say five people: “Five people came to the party.” not “Five persons came to the party.”",
+   "caption": "Do you sometimes say this? “Five persons came to the party.” 😅 In Arabic we say «خمسة أشخاص», but persons is very formal, and in everyday English we say five people, so the right sentence is “Five people came to the party.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "هل تقول “five persons”؟"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ar",
+ "est": {
+  "words": 50,
+  "seconds": 30.0,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "هل تقول “five persons”؟",
+  "keyword": "Five people came to the party.",
+  "value": "نقول «خمسة أشخاص»، لكن persons رسمية جدًا، فنقول people: “Five people came to the party.” وليس “Five persons came to the party.”",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 44,
+  "platforms": {
+   "youtube": {
+    "title": "هل تقول “five persons”؟",
+    "description": "نقول «خمسة أشخاص»، لكن persons رسمية جدًا، فنقول people: “Five people came to the party.” وليس “Five persons came to the party.”\n\nهل تقول أحيانًا هذه الجملة؟ “Five persons came to the party.” 😅 نقول «خمسة أشخاص»، وكلمة persons رسمية جدًا، أما في الكلام اليومي فنقول five people، فالجملة الصحيحة “Five people came to the party.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "Five people came to the party.",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "هل تقول أحيانًا هذه الجملة؟ “Five persons came to the party.” 😅 نقول «خمسة أشخاص»، وكلمة persons رسمية جدًا، أما في الكلام اليومي فنقول five people، فالجملة الصحيحة “Five people came to the party.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "هل تقول “five persons”؟\n\nنقول «خمسة أشخاص»، لكن persons رسمية جدًا، فنقول people: “Five people came to the party.” وليس “Five persons came to the party.”\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "هل تقول “five persons”؟ نقول «خمسة أشخاص»، لكن persons رسمية جدًا، فنقول people: “Five people cam… #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “people” — نقول «خمسة أشخاص»، وكلمة persons رسمية جدًا، أما في الكلام اليومي فنقول five people. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+  "lang": "ar"
+ }
+}

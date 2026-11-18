@@ -1,0 +1,78 @@
+# ci-policy: heavy-gate – việc nặng trên PR chờ npm test xanh (job `gate`, luật 11)
+# 📞⚡ Call thời gian thực (cờ lk.call_rt, docs/specs/call-realtime.md): đo trên Chromium thật ở CPU chậm 4× –
+# tiếng tắt → giáo viên có tiếng (p50/p95, cờ bật/tắt), nói chen → giáo viên im (≤ 200 ms), fps ≥ 50, không lỗi JS. Silero VAD thật (jsdelivr).
+# Artifact call-rt: report.md, metrics.json, call-rt.gif (375 px), ảnh. Kịch bản: scripts/test/call-rt-e2e.mjs
+name: call-rt
+on:
+  pull_request:
+    paths: ['web/js/call.js', 'web/js/call/**', 'web/js/lesson/teacher.js', 'scripts/test/call-rt*.mjs', '.github/workflows/call-rt.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: write   # fast-lane: huỷ lượt nặng khi npm test cùng sha đã đỏ (docs/CI-RUNNERS.md › Máy gác)
+  checks: read
+concurrency:
+  group: call-rt-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    permissions: { contents: read, checks: read }
+    outputs: { go: '${{ steps.g.outputs.go }}' }
+    steps:
+      - id: g
+        env: { GH_TOKEN: '${{ github.token }}', EV: '${{ github.event_name }}', SHA: '${{ github.event.pull_request.head.sha }}', REPO: '${{ github.repository }}', READY: '${{ contains(github.event.pull_request.labels.*.name, ''ready'') }}' }
+        run: |
+          go=true
+          if [ "$EV" = pull_request ] && [ "$READY" != true ]; then
+            n=$(gh api "repos/$REPO/commits/$SHA/check-runs?check_name=npm%20test&per_page=20" --jq '[.check_runs[] | select(.conclusion == "success")] | length' 2>/dev/null) || n=1
+            [ "${n:-1}" -ge 1 ] || go=false
+          fi
+          echo "go=$go" >> "$GITHUB_OUTPUT"; echo "npm test xanh cùng sha → go=$go"
+  rt:
+    needs: gate
+    if: needs.gate.outputs.go == 'true'
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - if: github.event_name == 'pull_request'
+        uses: ./.github/actions/fast-lane   # làn nhanh: npm test đỏ → huỷ lượt nặng
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: ./.github/actions/setup-ffmpeg
+      - name: Playwright + espeak-ng
+        timeout-minutes: 15
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2
+          bash scripts/ci/pw-install.sh --with-deps chromium
+          bash scripts/ci/apt-install.sh espeak-ng
+      - name: Logic (node)
+        run: node scripts/test/call-rt.mjs
+      - name: Mẫu giọng người học (espeak-ng, 16 kHz mono, lặng 0,3 s trước / 0,2 s sau)
+        run: |
+          mkdir -p fx; i=0; echo '{' > fx/text.json
+          while IFS= read -r line; do i=$((i+1))
+            espeak-ng -v en-us -s 150 -w fx/raw.wav "$line"
+            ffmpeg -y -loglevel error -f lavfi -t 0.3 -i anullsrc=r=16000:cl=mono -i fx/raw.wav -f lavfi -t 0.2 -i anullsrc=r=16000:cl=mono -filter_complex "[1:a]aresample=16000,aformat=channel_layouts=mono[v];[0:a][v][2:a]concat=n=3:v=0:a=1" -ar 16000 -ac 1 fx/a$i.wav
+            [ $i -gt 1 ] && echo ',' >> fx/text.json; printf '"a%s.wav": "%s"' "$i" "$line" >> fx/text.json
+          done <<'TXT'
+          I would like a large latte, please.
+          Yes, I usually go there on weekends.
+          I went hiking with my friends.
+          Sounds great, thank you so much.
+          Maybe around seven o'clock.
+          I think that is a really good idea.
+          TXT
+          echo '}' >> fx/text.json; rm fx/raw.wav; cat fx/text.json
+      - name: Đo (CPU 4×)
+        run: node scripts/test/call-rt-e2e.mjs --fx fx --out qa-rt
+      - name: GIF + tóm tắt
+        if: always()
+        run: |
+          for f in qa-rt/video-on/*.webm; do [ -f "$f" ] && ffmpeg -y -loglevel error -t 40 -i "$f" -vf "fps=10,scale=300:-2:flags=lanczos,split[a][b];[a]palettegen=max_colors=96[p];[b][p]paletteuse" qa-rt/call-rt.gif && break; done
+          cat qa-rt/report.md >> $GITHUB_STEP_SUMMARY || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: call-rt, path: qa-rt, retention-days: 14 }

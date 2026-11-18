@@ -151,6 +151,8 @@ Dalam perjalanan melatih otak berbahasa Inggris langsung, ada beberapa jebakan k
 2. **Kecemasan Berlebih Terhadap Kesempurnaan Tata Bahasa (Grammar Anxiety)**: Takut membuat kesalahan kecil seperti lupa akhiran *-s* atau salah memilih preposisi sering kali memicu rem mental yang memaksa Anda berpikir dalam bahasa Indonesia terlebih dahulu. Terimalah bahwa kesalahan kecil adalah bagian alami dari proses akuisisi bahasa; utamakan kelancaran alur pemikiran di atas kesempurnaan kaku.
 3. **Membaca Teks Tanpa Irama (Robotic Reading)**: Ketika membaca artikel, biasakan memecah kalimat menjadi kelompok-kelompok makna (*thought groups*). Membaca secara berirama membantu otak mengasosiasikan frasa utuh dengan gambaran visual di kepala tanpa memecahnya menjadi potongan kata individual.
 
+Kalau kamu sering membeku justru saat harus bicara, coba [cara percaya diri berbicara bahasa Inggris di 10 situasi nyata](/id/blog/cara-percaya-diri-berbicara-bahasa-inggris/).
+
 ## Pertanyaan yang Sering Diajukan (FAQ)
 
 ### Q1. Bagaimana jika saat latihan self-talk saya tidak tahu kata bahasa Inggris dari suatu benda?

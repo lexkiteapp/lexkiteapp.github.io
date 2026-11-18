@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_vi_born_year",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Do you add the word year?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I was born in year 1995.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I was born in 1995.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say the number only.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "2001! She was born in 2001.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I was born in year 1995.",
+  "right": "I was born in 1995.",
+  "strike": "year",
+  "why": "Say the number only.",
+  "memory": "Born in 1995.",
+  "quiz": {
+   "stem": "She was born in ___.",
+   "options": [
+    "2001",
+    "year 2001"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "Năm sinh: có cần chữ “year”?",
+   "tip": "Tiếng Việt nói “năm 1995”, nhưng tiếng Anh chỉ cần số: “in 1995.”",
+   "caption": "Bạn có hay nói “I was born in year 1995.” không? 😅 Chỉ cần nói số năm, không thêm “year”: “I was born in 1995.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
+   "comment": "Đáp án: “2001.” Hãy nói to câu “I was born in” cùng năm sinh của bạn. Luyện thêm miễn phí tại đây: {link}",
+   "hashtags": [
+    "#hoctienganh",
+    "#nguphaptienganh",
+    "#tienganhgiaotiep",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Need the word “year”?",
+   "tip": "Say only the number: “in 1995.”",
+   "caption": "Do you often say this? “I was born in year 1995.” Say only the number, without “year”: “I was born in 1995.” Listen to Ama read it, then repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Năm sinh: có cần chữ “year”?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "vi",
+ "est": {
+  "words": 47,
+  "seconds": 28.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Năm sinh: có cần chữ “year”?",
+  "keyword": "I was born in 1995.",
+  "value": "Tiếng Việt nói “năm 1995”, nhưng tiếng Anh chỉ cần số: “in 1995.”",
+  "hashtags": [
+   "#hoctienganh",
+   "#nguphaptienganh",
+   "#tienganhgiaotiep",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "Năm sinh: có cần chữ “year”?",
+    "description": "Tiếng Việt nói “năm 1995”, nhưng tiếng Anh chỉ cần số: “in 1995.”\n\nBạn có hay nói “I was born in year 1995.” không? 😅 Chỉ cần nói số năm, không thêm “year”: “I was born in 1995.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#hoctienganh #nguphaptienganh #tienganhgiaotiep #lexkite",
+    "tags": [
+     "I was born in 1995.",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "Bạn có hay nói “I was born in year 1995.” không? 😅 Chỉ cần nói số năm, không thêm “year”: “I was born in 1995.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Năm sinh: có cần chữ “year”?\n\nTiếng Việt nói “năm 1995”, nhưng tiếng Anh chỉ cần số: “in 1995.”\n\nlexkite.com",
+    "hashtags": [
+     "#hoctienganh",
+     "#nguphaptienganh",
+     "#tienganhgiaotiep",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Năm sinh: có cần chữ “year”? Tiếng Việt nói “năm 1995”, nhưng tiếng Anh chỉ cần số: “in 1995.” #hoctienganh #nguphaptienganh #tienganhgiaotiep"
+   }
+  },
+  "first_comment": "Đáp án: “2001.” Hãy nói to câu “I was born in” cùng năm sinh của bạn. Luyện thêm miễn phí tại đây: {link}",
+  "lang": "vi"
+ }
+}

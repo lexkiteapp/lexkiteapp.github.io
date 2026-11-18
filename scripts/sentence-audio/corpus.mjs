@@ -31,12 +31,15 @@ export function collect() {
   }
   // Cuộc gọi Ama/Carlos (#/call, docs/CALL.md): mỗi câu giáo viên nói (câu hỏi, câu đáp nhánh, câu kết) 1 file theo giọng người gọi → sprite khớp môi đúng độ dài file
   {
-    for (const f of ['web/js/call/calls.js', 'web/js/call/calls-exam.js', 'web/js/call/calls-lot1.js', 'web/js/call/calls-lot2.js']) vm.runInContext(fs.readFileSync(f, 'utf8'), c);
+    for (const f of ['web/js/call/calls.js', 'web/js/call/calls-exam.js', 'web/js/call/calls-lot1.js', 'web/js/call/calls-lot2.js', 'web/cpack/call/calls-lot3.js', 'web/cpack/call/calls-lot4.js']) vm.runInContext(fs.readFileSync(f, 'utf8'), c);
     const V = { ama: 'af_heart', carlos: 'am_michael' };
     for (const k of c.CALLS || []) {
       const v = V[k.who] || V.ama, nodes = k.nodes ? Object.values(k.nodes) : (k.turns || []);
       for (const x of [...nodes.flatMap(n => [n.m, n.re, ...(n.br || []).map(b => b[1])]), k.end, "Let's keep our chat friendly and on topic!"]) if (x) { const key = c.KVoice.lineKey(v, x); jobs.set(key, { voice: v, text: String(x).trim() }); tag('calls', key); }
     }
+    // Call RT (docs/specs/call-realtime.md): câu đệm/backchannel theo đúng giọng từng giáo viên
+    vm.runInContext(fs.readFileSync('web/js/call/fillers.js', 'utf8'), c);
+    for (const [who, f] of Object.entries(c.CALL_FILLERS || {})) for (const x of [...f.ack, ...f.think]) jobs.set(c.KVoice.lineKey(V[who], x), { voice: V[who], text: x });
   }
   // Câu đọc đơn (UI.tts): giọng chung theo accent – câu hỏi giám khảo Speaking (Anh & Mỹ), TOEFL Listen & Repeat / Interview
   const GEN = { 'en-GB': 'bf_emma', 'en-US': 'af_heart' };

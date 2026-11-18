@@ -42,6 +42,7 @@ quiz: [
     explain: "Because the level depends on each skill, your weakest result decides the outcome, so compare by that."
   }
 ]
+publishAt: 2027-02-26T08:19:00+05:30
 ---
 Australia accepts both Pearson Test of English (PTE) Academic and IELTS for many visa applications, so **PTE vs IELTS for Australia** is a choice between two formats, not between a good test and a bad one. The better choice is the one in which your weakest skill scores highest. This guide explains how the Department of Home Affairs describes English levels, what changed on 7 August 2025, how the two tests differ in format and scoring, and how to decide with your own evidence.
 
@@ -156,3 +157,5 @@ Pearson's article says that if you took the test before 7 August 2025, the previ
 Do not assume so. Home Affairs did not accept fully online tests on the pages we reviewed for IELTS, and the rules can change, so confirm that your chosen format is accepted for your visa.
 
 Lexkite is an independent practice tool; it is not connected with Pearson, IELTS or the Australian Government.
+
+For the IELTS bands behind each Australian English level, read [IELTS score for Australia PR](/en/blog/ielts-score-australia-pr/).

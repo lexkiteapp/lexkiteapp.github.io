@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ko_takeshower",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Take a shower!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I did a shower this morning.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I took a shower this morning.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "A shower goes with take.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Take! I take a shower every day.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I did a shower this morning.",
+  "right": "I took a shower this morning.",
+  "strike": "did",
+  "why": "A shower goes with take.",
+  "memory": "Take a shower.",
+  "quiz": {
+   "stem": "I ___ a shower every day.",
+   "options": [
+    "do",
+    "take"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "샤워는 do 아니고 take!",
+   "tip": "한국어 “샤워하다”는 ‘하다’를 쓰기 때문에 do로 옮기기 쉬워요. 샤워는 take a shower라고 해요. 이렇게 말해요 👉 “I took a shower this morning.”",
+   "caption": "“I did a shower this morning.”처럼 말하고 있나요? 😅 한국어 “샤워하다”는 ‘하다’를 쓰기 때문에 do로 옮기기 쉬워요. 샤워는 take a shower라고 해요. 맞는 문장 ✅ “I took a shower this morning.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+   "comment": "정답: “take”! 이 표현을 넣어 소리 내어 한 문장 말해 보세요. 무료 퀴즈로 더 연습해요: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Take a shower, not do!",
+   "tip": "A shower goes with take. Say “I took a shower this morning.”",
+   "caption": "Do you say it like this? 😅 “I did a shower this morning.” A shower goes with take. Right: “I took a shower this morning.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "샤워는 do 아니고 take!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ko",
+ "est": {
+  "words": 47,
+  "seconds": 28.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "샤워는 do 아니고 take!",
+  "keyword": "I took a shower this morning.",
+  "value": "한국어 “샤워하다”는 ‘하다’를 쓰기 때문에 do로 옮기기 쉬워요. 샤워는 take a shower라고 해요. 이렇게 말해요 👉 “I took a shower this morning.”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "샤워는 do 아니고 take!",
+    "description": "한국어 “샤워하다”는 ‘하다’를 쓰기 때문에 do로 옮기기 쉬워요. 샤워는 take a shower라고 해요. 이렇게 말해요 👉 “I took a shower this morning.”\n\n“I did a shower this morning.”처럼 말하고 있나요? 😅 한국어 “샤워하다”는 ‘하다’를 쓰기 때문에 do로 옮기기 쉬워요. 샤워는 take a shower라고 해요. 맞는 문장 ✅ “I took a shower this morning.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "I took a shower this morning.",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“I did a shower this morning.”처럼 말하고 있나요? 😅 한국어 “샤워하다”는 ‘하다’를 쓰기 때문에 do로 옮기기 쉬워요. 샤워는 take a shower라고 해요. 맞는 문장 ✅ “I took a shower this morning.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "샤워는 do 아니고 take!\n\n한국어 “샤워하다”는 ‘하다’를 쓰기 때문에 do로 옮기기 쉬워요. 샤워는 take a shower라고 해요. 이렇게 말해요 👉 “I took a shower this morning.”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "샤워는 do 아니고 take! 한국어 “샤워하다”는 ‘하다’를 쓰기 때문에 do로 옮기기 쉬워요. 샤워는 take a shower라고 해요. 이렇게 말해요 👉 “I took a shower this morning.” #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답: “take”! 이 표현을 넣어 소리 내어 한 문장 말해 보세요. 무료 퀴즈로 더 연습해요: {link}",
+  "lang": "ko"
+ }
+}

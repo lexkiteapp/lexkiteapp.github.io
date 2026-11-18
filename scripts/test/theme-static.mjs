@@ -29,7 +29,7 @@ const bad = [], lum = c => { const m = (c.match(/[\d.]+/g) || []).map(Number); c
 if (SHOTS) fs.mkdirSync(SHOTS, { recursive: true });
 let checks = 0;
 for (const [mode, scheme, stored] of MODES) {
-  const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 1, colorScheme: scheme, reducedMotion: 'reduce' });
+  const ctx = await browser.newContext({ bypassCSP: true, viewport: { width: 390, height: 844 }, deviceScaleFactor: 1, colorScheme: scheme, reducedMotion: 'reduce' });
   await serve(ctx);
   await ctx.addInitScript(([s]) => { try { if (!sessionStorage.getItem('__seed')) { sessionStorage.setItem('__seed', '1'); if (s) localStorage.setItem('lk.theme', s); else localStorage.removeItem('lk.theme'); } } catch (e) { /* */ } // chỉ gieo lần đầu mỗi tab → tải lại giữ lựa chọn người dùng
     new MutationObserver((_, o) => { if (document.body) { window.__bg0 = getComputedStyle(document.body).backgroundColor; window.__th0 = document.documentElement.getAttribute('data-theme'); o.disconnect(); } }).observe(document, { childList: true, subtree: true }); }, [stored]);
@@ -63,13 +63,13 @@ for (const [mode, scheme, stored] of MODES) {
   await ctx.close();
 }
 // Tràn ngang đầu trang ở 360 px (điện thoại nhỏ): logo + nút + giao diện + ngôn ngữ phải vừa
-{ const ctx = await browser.newContext({ viewport: { width: 360, height: 740 }, colorScheme: 'light' }); await serve(ctx);
+{ const ctx = await browser.newContext({ bypassCSP: true, viewport: { width: 360, height: 740 }, colorScheme: 'light' }); await serve(ctx);
   for (const [p, name] of PAGES) { const page = await ctx.newPage(); await page.goto(BASE + p, { waitUntil: 'load' }).catch(() => {});
     const ov = await page.evaluate(OVER), vis = await page.evaluate(() => { const b = document.querySelector('[data-tsw]'); if (!b) return true; const q = b.getBoundingClientRect(); return q.width > 0 && q.right <= innerWidth + .5 && q.left >= -.5; });
     if (ov) bad.push(`${name} @360: ${ov}`); if (!vis) bad.push(`${name} @360: nút giao diện ra ngoài màn hình`); await page.close(); }
   await ctx.close(); }
 // Đồng bộ app ↔ web (cùng origin lexkite.com): app lưu ielts.settings.theme + vb.uiLang → trang tĩnh tối + link về bản vi; bấm nút web → ielts.settings đổi theo
-{ const ctx = await browser.newContext({ viewport: { width: 1280, height: 900 }, colorScheme: 'light' }); await serve(ctx);
+{ const ctx = await browser.newContext({ bypassCSP: true, viewport: { width: 1280, height: 900 }, colorScheme: 'light' }); await serve(ctx);
   await ctx.addInitScript(() => { try { if (!sessionStorage.getItem('__seed')) { sessionStorage.setItem('__seed', '1'); localStorage.setItem('ielts.settings', JSON.stringify({ theme: 'dark', goal: 20 })); localStorage.setItem('ielts.settingsAt', String(Date.now())); localStorage.setItem('vb.uiLang', 'vi'); } } catch (e) { /* */ } });
   for (const [p, name] of PAGES.filter(([, n]) => /^(landing-en|legal-en|404|blog-en|blog-post-en|tools-en|seo-en)$/.test(n))) {
     const page = await ctx.newPage(); await page.goto(BASE + p, { waitUntil: 'load' }); await page.waitForFunction(() => window.LkUi, null, { timeout: 5000 }).catch(() => {});
@@ -90,7 +90,7 @@ for (const [mode, scheme, stored] of MODES) {
   checks++; await ctx.close(); }
 // Chân trang (tiêu đề nhóm trên máy tính là chữ, không bấm được → không đo): 390 px gập hết (accordion), ô chạm ≥ 48 px; 1280 px 3 nhóm mở + link pháp lý hàng đáy ≥ 44 px; menu ngôn ngữ bàn phím. Ảnh footer-{sáng,tối}-{1280,390}.png
 for (const [W, H] of [[1280, 900], [390, 844]]) for (const scheme of ['light', 'dark']) {
-  const ctx = await browser.newContext({ viewport: { width: W, height: H }, colorScheme: scheme, reducedMotion: 'reduce' }); await serve(ctx);
+  const ctx = await browser.newContext({ bypassCSP: true, viewport: { width: W, height: H }, colorScheme: scheme, reducedMotion: 'reduce' }); await serve(ctx);
   for (const [p, name] of PAGES.filter(([, n]) => /^(landing-en|legal-en|blog-en|404)$/.test(n))) {
     const page = await ctx.newPage(); await page.goto(BASE + p, { waitUntil: 'load' }); await page.waitForFunction(() => window.LkUi, null, { timeout: 5000 }).catch(() => {});
     if (name === 'landing-en') { // landing v3: chân trang Stitch (chrome.js) – viên giao diện themePill + menu ngôn ngữ thứ hai (nút "Interface", lsw), không có nhóm .fg/.flang
@@ -129,7 +129,7 @@ for (const [W, H] of [[1280, 900], [390, 844]]) for (const scheme of ['light', '
 // lexkite.test link Blog thành URL tuyệt đối https://lexkite.com/… bị serve() chặn → trang lỗi (pathname '/', lang rỗng) – lỗi của test, không phải của site. Mọi request vẫn do serve() trả từ dist (0 mạng ngoài), SW chặn.
 if (SHOTS && has('app/index.html')) {
   const APPB = 'https://lexkite.com';
-  const ctx = await browser.newContext({ viewport: { width: 1280, height: 800 }, colorScheme: 'light', reducedMotion: 'reduce', serviceWorkers: 'block' }); await serve(ctx, APPB);
+  const ctx = await browser.newContext({ bypassCSP: true, viewport: { width: 1280, height: 800 }, colorScheme: 'light', reducedMotion: 'reduce', serviceWorkers: 'block' }); await serve(ctx, APPB);
   await ctx.addInitScript(() => { try { if (!sessionStorage.getItem('__seed')) { sessionStorage.setItem('__seed', '1'); localStorage.setItem('ielts.settings', JSON.stringify({ theme: 'dark' })); localStorage.setItem('ielts.settingsAt', String(Date.now())); localStorage.setItem('vb.uiLang', 'vi'); } } catch (e) { /* */ } });
   const page = await ctx.newPage(); let n = 0; const shot = async () => page.screenshot({ path: path.join(SHOTS, `app-blog-${String(++n).padStart(2, '0')}.png`) });
   await page.goto(APPB + '/app/', { waitUntil: 'load' }); await page.waitForTimeout(2500); await shot();
@@ -150,7 +150,7 @@ if (SHOTS && has('app/index.html')) {
 // đồng bộ trực tiếp 2 chiều giữa tab app ↔ tab landing (sự kiện storage); tải lại app sau khi đổi ở landing → app theo, không nháy.
 if (has('app/index.html')) {
   const APPB = 'https://lexkite.com', TC = THEME_COLOR;
-  const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, colorScheme: 'light', reducedMotion: 'reduce', serviceWorkers: 'block' }); await serve(ctx, APPB);
+  const ctx = await browser.newContext({ bypassCSP: true, viewport: { width: 390, height: 844 }, colorScheme: 'light', reducedMotion: 'reduce', serviceWorkers: 'block' }); await serve(ctx, APPB);
   await ctx.addInitScript(() => new MutationObserver((_, o) => { if (document.body) { window.__th0 = document.documentElement.getAttribute('data-theme'); window.__bg0 = getComputedStyle(document.body).backgroundColor; o.disconnect(); } }).observe(document, { childList: true, subtree: true }));
   const st = pg => pg.evaluate(() => ({ th: document.documentElement.getAttribute('data-theme'), th0: window.__th0, bg0: window.__bg0, tc: [...document.querySelectorAll('meta[name=theme-color]')].map(m => m.content) }));
   const app = await ctx.newPage(); const errs = []; app.on('pageerror', e => errs.push(e.message));
@@ -181,11 +181,11 @@ if (has('app/index.html')) {
   checks += 3; await ctx.close();
 }
 // Chân trang: tên ngôn ngữ không đè nhau, menu không tràn màn, chân trang máy tính gọn (chủ 04/11)
-for (const W of [375, 800, 1000, 1440]) { const ctx = await browser.newContext({ viewport: { width: W, height: 800 }, colorScheme: 'dark' }); await serve(ctx);
+for (const W of [375, 800, 1000, 1440]) { const ctx = await browser.newContext({ bypassCSP: true, viewport: { width: W, height: 800 }, colorScheme: 'dark' }); await serve(ctx);
   const page = await ctx.newPage(); await page.goto(BASE + '/vi/blog/', { waitUntil: 'load' }).catch(() => {});
   const r = await page.evaluate(() => { const d = document.querySelector('.flang'); if (!d) return null; d.open = true; const n = d.querySelector('.flangs'), b = n.getBoundingClientRect(), as = [...n.querySelectorAll('a')], R = a => { const x = document.createRange(); x.selectNodeContents(a); return x.getBoundingClientRect(); }; let ov = 0; as.forEach((a, i) => as.slice(i + 1).forEach(c => { const q = R(a), w = R(c); if (q.left < w.right - 1 && w.left < q.right - 1 && q.top < w.bottom - 1 && w.top < q.bottom - 1) ov++; })); d.open = false; return { ov, l: b.left, r: b.right, foot: document.querySelector('footer.site-foot').getBoundingClientRect().height }; });
   if (!r) bad.push(`chân trang ${W}px: thiếu menu ngôn ngữ`); else { if (r.ov) bad.push(`chân trang ${W}px: ${r.ov} cặp tên ngôn ngữ đè nhau`); if (r.l < 0 || r.r > W) bad.push(`chân trang ${W}px: menu ngôn ngữ tràn màn (${Math.round(r.l)}–${Math.round(r.r)})`); if (W === 1440 && r.foot > 420) bad.push(`chân trang 1440px cao ${Math.round(r.foot)}px (> 420)`); }
   checks += 3; await ctx.close(); }
 await browser.close();
-if (bad.length) { console.log(`✗ theme-static: ${bad.length} lỗi (${PAGES.length} trang × ${MODES.length} chế độ)\n  - ` + bad.slice(0, 60).join('\n  - ')); process.exit(1); }
+if (bad.length) { for (const b of bad.slice(0, 10)) console.log(`::error title=theme-static::${b.replace(/[\r\n%]/g, ' ').slice(0, 300)}`); /* chú thích lỗi: đọc được qua API check-run annotations khi không có log */ console.log(`✗ theme-static: ${bad.length} lỗi (${PAGES.length} trang × ${MODES.length} chế độ)\n  - ` + bad.slice(0, 60).join('\n  - ')); process.exit(1); }
 console.log(`✓ theme-static: ${PAGES.length} trang × ${MODES.length} chế độ (${checks} lượt) – đúng data-theme, không nháy, tương phản AA 0 lỗi, nút vòng/lưu/44 px, không tràn @360${SHOTS ? ` · ảnh: ${SHOTS}/` : ''}`);

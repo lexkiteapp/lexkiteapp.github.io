@@ -42,6 +42,7 @@ quiz: [
     explain: "When the official page names a version, follow it. A different version may not count, so check before relying on it."
   }
 ]
+publishAt: 2027-02-07T19:57:00+05:30
 ---
 Many people prepare for months before they notice that the test they practised is not the one their application needs. The question of **IELTS General vs Academic for immigration** has a short practical answer: use the version that your programme names, and prepare for the tasks that are specific to it. This guide explains exactly what is different between the two, why the difference matters for your preparation, and how to avoid the common mistakes.
 
@@ -153,3 +154,5 @@ It varies by country and programme. Canada's Express Entry names General Trainin
 No. Both can reach band 9. The difference is the type of text and the Task 1 genre.
 
 Lexkite is an independent practice tool and is not affiliated with IELTS or any immigration authority.
+
+For country-specific scores, see the [IELTS score for Australia PR](/en/blog/ielts-score-australia-pr/) and the [IELTS score for New Zealand residence](/en/blog/ielts-new-zealand-skilled-migrant/).

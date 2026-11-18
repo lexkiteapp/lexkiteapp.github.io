@@ -214,6 +214,8 @@ Benar 7 atau 8? Kamu sudah menguasai collocation dasar. Kalau salah di nomor 1 a
 
 {{youtube: | Ide video: do a mistake atau make a mistake? 10 collocation make dan do dalam 3 menit}}
 
+Untuk satu pasangan yang sangat sering tertukar, baca [perbedaan affect dan effect](/id/blog/perbedaan-affect-dan-effect/).
+
 ## Pertanyaan yang sering diajukan
 
 ### Apakah ada aturan pasti untuk make dan do?

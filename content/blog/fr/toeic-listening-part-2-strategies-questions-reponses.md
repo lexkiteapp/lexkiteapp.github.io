@@ -144,6 +144,8 @@ Pour affiner l'oreille sur les sons qui vous échappent, la [bibliothèque de pr
 
 ![Bibliothèque de prononciation IPA de Lexkite : voyelles simples, diphtongues et consonnes avec mots d'exemple et exercice par son](media:pron "Travaillez des sons précis, comme ceux qu'on confond dans les pièges sonores")
 
+Avant la partie 2, la partie 1 entraîne les mêmes réflexes d'écoute : voyez [TOEIC partie 1 photographies](/fr/blog/toeic-partie-1-photographies-astuces/).
+
 ## Foire aux questions sur le TOEIC Listening Part 2
 
 ### Que faire si je n'ai absolument pas compris la question énoncée ?
@@ -165,3 +167,5 @@ Pour transformer ces stratégies TOEIC Listening Part 2 en réflexes, refaites c
 {{youtube: | Stratégies TOEIC Listening Part 2 : déjouer les pièges et maîtriser les réponses indirectes}}
 
 {{cta: /#/toeic | Ouvrir l'entraînement TOEIC : Part 2 en écoute unique, dictée et tests blancs}}
+
+Pour la suite logique de cette partie, passez au [TOEIC Part 3 et 4](/fr/blog/toeic-part-3-et-4-methode-conversations-exposes/), où l’on applique la même prédiction à des conversations et à des exposés.

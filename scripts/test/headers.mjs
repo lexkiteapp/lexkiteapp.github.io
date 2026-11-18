@@ -25,11 +25,13 @@ const need = {
   'cross-origin-opener-policy': v => /same-origin-allow-popups/.test(v), // cần cho cửa sổ đăng nhập Google (Firebase signInWithPopup)
 };
 for (const [h, ok] of Object.entries(need)) { const v = get(h); if (!v) errs.push(`/* thiếu ${h}`); else if (!ok(v)) errs.push(`/* ${h} sai giá trị: ${v}`); }
-const csp = get('content-security-policy') || get('content-security-policy-report-only');
-if (!csp) errs.push('/* thiếu CSP (Content-Security-Policy hoặc -Report-Only)');
+const csp = get('content-security-policy');
+if (!csp) errs.push('/* thiếu Content-Security-Policy (đã chặn thật, không để Report-Only)');
 else for (const d of ["object-src 'none'", "base-uri 'self'", 'frame-ancestors']) if (!csp.includes(d)) errs.push(`CSP thiếu ${d}`);
 // Trong cùng 1 khối không lặp header (Pages nối bằng dấu phẩy → giá trị hỏng)
 for (const [p, hs] of rules) { const seen = new Set(); for (const [k] of hs) { if (k === '!') continue; if (seen.has(k)) errs.push(`${p}: header ${k} lặp`); seen.add(k); } }
+// CSP chặn thật ở /*: khối nào tự đặt CSP riêng (/admin*, /embed/*, /human*) phải gỡ bản chung trước (! Content-Security-Policy), không thì trình duyệt áp CẢ HAI (giao nhau) và làm hỏng trang
+for (const [p, hs] of rules) if (p !== '/*' && hs.some(([k]) => k === 'content-security-policy') && !hs.some(([k, v]) => k === '!' && v === 'content-security-policy')) errs.push(`${p}: tự đặt CSP nhưng chưa gỡ bản chung (! Content-Security-Policy)`);
 // /admin*: header chặt hơn phải gỡ bản chung trước (! Header) để không ra 2 giá trị
 const adm = rules.get('/admin*') || [];
 for (const k of ['referrer-policy', 'permissions-policy', 'x-frame-options']) if (adm.some(([n]) => n === k) && !adm.some(([n, v]) => n === '!' && v === k)) errs.push(`/admin* đặt ${k} nhưng chưa gỡ bản chung (! ${k})`);

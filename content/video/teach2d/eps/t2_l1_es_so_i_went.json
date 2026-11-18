@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_es_so_i_went",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say I after so!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I was tired, so went to bed.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I was tired, so I went to bed.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Each part needs a subject, like I.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "I ate! I was hungry, so I ate lunch.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I was tired, so went to bed.",
+  "right": "I was tired, so I went to bed.",
+  "strike": "so went",
+  "why": "Each part needs a subject, like I.",
+  "memory": "So I went.",
+  "quiz": {
+   "stem": "I was hungry, so ___ lunch.",
+   "options": [
+    "ate",
+    "I ate"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "¿Olvidas el “I” tras “so”?",
+   "tip": "En español “estaba cansado, así que me fui” no necesita “yo”, pero en inglés siempre va “I.”",
+   "caption": "Muchos dicen “I was tired, so went to bed.” 🙈 En español no hace falta decir “yo”, pero en inglés cada frase necesita su sujeto: “I was tired, so I went to bed.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.",
+   "comment": "Respuesta: “I ate”. En inglés cada frase necesita un sujeto: “I”, “he”, “she”. Escribe una frase tuya con “so I”. Practica más con un quiz gratis aquí: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#gramatica",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you forget “I” after “so”?",
+   "tip": "In Spanish you can drop “yo”, but in English every sentence needs a subject like “I.”",
+   "caption": "Many learners say “I was tired, so went to bed.” In Spanish you can drop “yo”, but English needs a subject in every sentence: “I was tired, so I went to bed.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "¿Olvidas el “I” tras “so”?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "es",
+ "est": {
+  "words": 55,
+  "seconds": 32.5,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "¿Olvidas el “I” tras “so”?",
+  "keyword": "I was tired, so I went to bed.",
+  "value": "En español “estaba cansado, así que me fui” no necesita “yo”, pero en inglés siempre va “I.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#gramatica",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 49,
+  "platforms": {
+   "youtube": {
+    "title": "¿Olvidas el “I” tras “so”?",
+    "description": "En español “estaba cansado, así que me fui” no necesita “yo”, pero en inglés siempre va “I.”\n\nMuchos dicen “I was tired, so went to bed.” 🙈 En español no hace falta decir “yo”, pero en inglés cada frase necesita su sujeto: “I was tired, so I went to bed.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #gramatica #lexkite",
+    "tags": [
+     "I was tired, so I went to bed.",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "Muchos dicen “I was tired, so went to bed.” 🙈 En español no hace falta decir “yo”, pero en inglés cada frase necesita su sujeto: “I was tired, so I went to bed.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "¿Olvidas el “I” tras “so”?\n\nEn español “estaba cansado, así que me fui” no necesita “yo”, pero en inglés siempre va “I.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#gramatica",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "¿Olvidas el “I” tras “so”? En español “estaba cansado, así que me fui” no necesita “yo”, pero en inglés siemp… #aprenderingles #inglesfacil #gramatica"
+   }
+  },
+  "first_comment": "Respuesta: “I ate”. En inglés cada frase necesita un sujeto: “I”, “he”, “she”. Escribe una frase tuya con “so I”. Practica más con un quiz gratis aquí: {link}",
+  "lang": "es"
+ }
+}

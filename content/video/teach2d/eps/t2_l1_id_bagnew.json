@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_id_bagnew",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "New first, then bag!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I bought a bag new.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I bought a new bag.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "New goes before bag.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Red car! She has a red car.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I bought a bag new.",
+  "right": "I bought a new bag.",
+  "strike": "bag new",
+  "why": "New goes before bag.",
+  "memory": "New bag.",
+  "quiz": {
+   "stem": "She has a ___.",
+   "options": [
+    "car red",
+    "red car"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Tas baru” jadi “bag new”?",
+   "tip": "Dalam bahasa Indonesia kata sifat ada setelah benda: “tas baru”. Bahasa Inggris sebaliknya: new bag.",
+   "caption": "Pernah bilang begini? “I bought a bag new.” 😅 Dalam bahasa Inggris, kata sifat ada di depan: “I bought a new bag.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
+   "comment": "Jawaban: “red car”. Tulis satu kalimat tentang barang barumu, misalnya: “I have a new phone.” Latihan gratis lainnya di sini: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#kosakata",
+    "#bahasainggris",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Bag new”? Flip it!",
+   "tip": "In Indonesian the describing word comes after the thing: “tas baru”. English is the opposite: new bag.",
+   "caption": "Ever say this? “I bought a bag new.” 😅 In English, the describing word goes first: “I bought a new bag.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Tas baru” jadi “bag new”?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "id",
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "“Tas baru” jadi “bag new”?",
+  "keyword": "I bought a new bag.",
+  "value": "Dalam bahasa Indonesia kata sifat ada setelah benda: “tas baru”. Bahasa Inggris sebaliknya: new bag.",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#kosakata",
+   "#bahasainggris",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "“Tas baru” jadi “bag new”?",
+    "description": "Dalam bahasa Indonesia kata sifat ada setelah benda: “tas baru”. Bahasa Inggris sebaliknya: new bag.\n\nPernah bilang begini? “I bought a bag new.” 😅 Dalam bahasa Inggris, kata sifat ada di depan: “I bought a new bag.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#belajarbahasainggris #kosakata #bahasainggris #lexkite",
+    "tags": [
+     "I bought a new bag.",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Pernah bilang begini? “I bought a bag new.” 😅 Dalam bahasa Inggris, kata sifat ada di depan: “I bought a new bag.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Tas baru” jadi “bag new”?\n\nDalam bahasa Indonesia kata sifat ada setelah benda: “tas baru”. Bahasa Inggris sebaliknya: new bag.\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#kosakata",
+     "#bahasainggris",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Tas baru” jadi “bag new”? Dalam bahasa Indonesia kata sifat ada setelah benda: “tas baru”. Bahasa Ing… #belajarbahasainggris #kosakata #bahasainggris"
+   }
+  },
+  "first_comment": "Jawaban: “red car”. Tulis satu kalimat tentang barang barumu, misalnya: “I have a new phone.” Latihan gratis lainnya di sini: {link}",
+  "lang": "id"
+ }
+}

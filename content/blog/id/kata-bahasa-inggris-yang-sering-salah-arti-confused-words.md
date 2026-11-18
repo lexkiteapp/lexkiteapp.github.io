@@ -154,6 +154,10 @@ Ini adalah pasangan kata yang paling sering menimbulkan keraguan bahkan bagi pen
 
 Untuk meningkatkan pemahaman Anda dalam menyusun kalimat esai tingkat lanjut, simak artikel kami tentang [pola kalimat kompleks untuk IELTS Writing](/id/blog/kalimat-kompleks-ielts-writing-task-2/) serta teknik [penggunaan kolokasi alami bahasa Inggris](/id/blog/collocation-bahasa-inggris-untuk-ielts/).
 
+Latihan menjawab dari ingatan dijelaskan di [active recall](/id/blog/active-recall-adalah-cara-menghafal-kosakata/).
+
+Untuk satu pasangan yang sangat sering tertukar, baca [perbedaan affect dan effect](/id/blog/perbedaan-affect-dan-effect/).
+
 ## Latihan Mandiri: Uji Ketelitian Kosakata Anda
 
 Pilihlah kata yang tepat untuk melengkapi kalimat berikut:

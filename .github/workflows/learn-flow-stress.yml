@@ -1,0 +1,31 @@
+# Soi chập chờn của scripts/test/learn-flow.mjs (chạy khi PR đụng test/study.js, hoặc chạy tay): 10 máy × 5 lượt = 50 lần, chịu tải song song.
+# Đỏ ở bất kỳ lượt nào = còn race → xem mục "learn-flow" trong docs/CI-RUNNERS.md. Lần soi đầu (16/11) chạy trên bản sửa đồng hồ liên tục.
+# ci-policy: matrix – 10 máy song song là cốt lõi: soi race cần nhiều máy thật chạy cùng lúc (50 lần ≈ 4 phút thay vì 35 phút nối tiếp)
+name: learn-flow-stress
+on:
+  pull_request:
+    paths: ['scripts/test/learn-flow.mjs', '.github/workflows/learn-flow-stress.yml']   # 16/11: bỏ web/js/study.js (PR giao diện đụng liên tục → 10 job mỗi lần, hàng chờ CI 185 job); đổi study.js thì chạy tay (workflow_dispatch)
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: learn-flow-stress-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  stress:
+    name: learn-flow ×5 (máy ${{ matrix.m }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        m: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci --no-audit --no-fund
+      - name: learn-flow ×5, kèm nền CPU để giống máy CI bận
+        run: |
+          (while :; do :; done) & (while :; do :; done) &
+          for i in 1 2 3 4 5; do node scripts/test/learn-flow.mjs | tail -1 || exit 1; done

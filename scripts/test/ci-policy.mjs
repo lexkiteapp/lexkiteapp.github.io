@@ -38,6 +38,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
+import { classify, needed, prPaths, relevantFiles } from '../ci/pr-scope.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const WF = path.join(ROOT, '.github/workflows');
@@ -128,6 +129,7 @@ export function violations(file, src) {
   const out = [], t = triggers(src);
   for (const j of jobs(src)) if (usesPlaywright(j.text) && badRunner(j.text)) out.push(`${file}: luật 14 – job "${j.id}" dùng Playwright/Chromium mà runs-on không phải vars.PW_RUNNER (mặc định ubuntu-24.04; ubuntu-latest = 26.04, Playwright chưa hỗ trợ, 13/11)`);
   for (const j of jobs(src)) if (!/^    uses:/m.test(j.text) && !/^    timeout-minutes:/m.test(j.text)) out.push(`${file}: job "${j.id}" thiếu timeout-minutes`);
+  const cg = (src.match(/^concurrency:.*$/m) || [''])[0]; if (/\binputs\.(templates|lessons|eps|ids|list)\b/.test(cg) && !reason(src, 'group-inputs')) out.push(`${file}: concurrency.group nhúng cả danh sách input (templates/lessons/eps/ids) – danh sách dài làm lượt dispatch lỗi 0 job (video-motion 15/11); dùng github.run_id hoặc ghi "# ci-policy: group-inputs – <lý do>"`);
   // 15/11 (luật chủ 13/11: video ≤ 3 máy khi còn việc khác): ma trận của workflow video/dựng phim PHẢI có max-parallel – 10 job video-motion từng chiếm 10/40 máy, 260 job PR xếp hàng
   if (/^(video|cine|teach)-/.test(file)) for (const j of jobs(src)) if (/^\s+strategy:/m.test(j.text) && /\bmatrix:/.test(j.text) && !/max-parallel:/.test(j.text) && !reason(j.text, 'no-max-parallel')) out.push(`${file}: job "${j.id}" có matrix mà thiếu strategy.max-parallel (video chiếm hết máy; hoặc dòng "# ci-policy: no-max-parallel – <lý do>")`);
   const hasConc = /^concurrency:/m.test(src) || jobs(src).some(j => /^    concurrency:/m.test(j.text));
@@ -199,6 +201,8 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
   ok(violations('x.yml', base.replace('    timeout-minutes: 5\n', '')).some(v => /timeout-minutes/.test(v)), 'job thiếu timeout → lỗi');
   ok(violations('x.yml', base.replace('    timeout-minutes: 5\n', '').replace('    runs-on: ubuntu-latest\n', '    uses: ./.github/workflows/y.yml\n')).length === 0, 'job uses: (workflow tái dùng) không cần timeout');
   ok(violations('x.yml', base.replace('concurrency: { group: x }\n', '')).some(v => /thiếu concurrency/.test(v)), 'push thiếu concurrency → lỗi');
+  ok(violations('x.yml', base.replace('group: x', "group: 'v-${{ github.event.inputs.templates }}'")).some(v => /danh sách input/.test(v)), 'concurrency group nhúng danh sách input → lỗi');
+  ok(!violations('x.yml', '# ci-policy: group-inputs – danh sách ngắn có lý do\n' + base.replace('group: x', "group: 'v-${{ github.event.inputs.templates }}'")).some(v => /danh sách input/.test(v)), 'group-inputs có lý do → qua');
   ok(violations('x.yml', base.replace('concurrency: { group: x }\n', '').replace('steps: []', 'concurrency: { group: y }\n    steps: []')).length === 0, 'concurrency mức job cũng được');
   ok(violations('x.yml', base.replace("    paths: ['a/**']\n", '')).some(v => /không có paths/.test(v)), 'push main không paths → lỗi');
   ok(violations('x.yml', '# ci-policy: all-paths – check bắt buộc của ruleset\n' + base.replace("    paths: ['a/**']\n", '')).length === 0, 'all-paths có lý do → đạt');
@@ -309,6 +313,32 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
     ok(/MAX_UPDATES = 6\b/.test(ap) && /isPriority\(pr, now\)/.test(ap) && /isRecent\(pr, now\)/.test(ap), 'luật 15: autopilot giữ trần 6 PR + chỉ đụng PR ưu tiên (isPriority/isRecent)');
     // luật 15b: hàng chờ > 30 → ngừng đẩy nhánh; mỗi PR tối đa 1 lần đẩy / 3 giờ (cả gỡ xung đột lẫn gộp main)
     ok(/QUEUE_MAX = 30\b/.test(ap) && /UPDATE_GAP_H = 3\b/.test(ap) && /budget\(m\.busy, m\.queued\)/.test(ap) && (ap.match(/!updatedRecently\(/g) || []).length >= 2, 'luật 15b: autopilot dừng khi hàng chờ > 30 và mỗi PR ≤ 1 lần đẩy/3 giờ (QUEUE_MAX, UPDATE_GAP_H, updatedRecently)'); }
+  { // luật 16 (15/11 – hàng chờ 200–330: PR chỉ đổi nội dung/chữ dịch vẫn chạy ~19–32 job UI nặng): job nặng bỏ qua theo PHẠM VI PR ở mức JOB
+    //  (scripts/ci/pr-scope.mjs trong job gate; KHÔNG dùng `paths:` mức workflow; skipped = đạt với required-gate). Mặc định coi là giao diện → chỉ bớt khi MỌI file đều là nội dung/chữ dịch/backend.
+    const SCOPED = { 'stitch-diff': 'ui', 'frame-consistency': 'ui', 'journey-matrix': 'ui', 'qa-bot': 'ui', 'scroll-perf': 'ui', 'ux-cards': 'ui', 'teacher-native': 'ui', 'visual-qa': 'ui,text', 'mobile-qa': 'ui,text', 'journey-e2e': 'ui,text' };
+    for (const [w, need] of Object.entries(SCOPED)) {
+      const src = (srcs.find(([f]) => f === w + '.yml') || [])[1] || '', g = jobs(src).find(j => j.id === 'gate');
+      ok(!!g, `luật 16: ${w}.yml thiếu job gate`); if (!g) continue;
+      ok(g.text.includes(`node scripts/ci/pr-scope.mjs --repo "$REPO" --pr "$PR" --workflow .github/workflows/${w}.yml --need ${need}\n`) && g.text.includes(`scripts/ci/pr-scope.mjs .github/workflows/${w}.yml; do gh api`) && !/actions\/checkout@/.test(g.text), `luật 16: ${w}.yml gate phải chạy pr-scope.mjs --workflow … --need ${need}, lấy file qua API (không checkout: no-prod-hosts/luật 14)`);
+      ok(/outputs:\s*\{\s*go:[^\n]*steps\.g\.outputs\.go == ''true''[^\n]*steps\.s\.outputs\.ok != ''false''/.test(g.text), `luật 16: ${w}.yml output go phải gộp steps.s.outputs.ok != 'false' (lỗi API → mở cổng, không mất kiểm)`);
+      ok(/id: s\n\s+if: github\.event_name == 'pull_request'\n\s+continue-on-error: true/.test(g.text), `luật 16: ${w}.yml bước scope chỉ chạy trên PR và continue-on-error (không làm đỏ gate)`);
+      ok(/pull-requests: read/.test(g.text), `luật 16: ${w}.yml gate cần pull-requests: read để đọc danh sách file PR`);
+    }
+    for (const [f, src] of srcs) if (/pr-scope\.mjs/.test(src) && !SCOPED[f.replace(/\.yml$/, '')]) ok(false, `luật 16: ${f} dùng pr-scope.mjs nhưng chưa khai báo trong SCOPED (ci-policy.mjs) – thêm để có gác`);
+    const sc = f => classify(f.split(',')), nd = (f, n) => needed(f.split(','), n);
+    ok(!sc('web/cpack/a/b.json,content/blog/en/x.md,docs/A.md,web/de/index.html').ui, 'luật 16: cpack/blog/docs/trang SEO = không phải UI');
+    ok(!sc('web/js/i18n/de/a.js,extension/app/js/i18n/de/a.js,i18n/ui/de/a.js').ui && sc('web/js/i18n/de/a.js').text, 'luật 16: chữ dịch = text, không phải ui');
+    ok(sc('web/css/a.css').ui && sc('web/js/app.js').ui && sc('extension/app/js/x.js').ui && sc('brand/stitch/v2/a.html').ui && sc('web/index.html').ui && sc('web/sw.js').ui, 'luật 16: css/js/app/add-on/Stitch/index/sw = UI');
+    ok(sc('web/cpack/a.json,web/css/a.css').ui, 'luật 16: PR lẫn nội dung + UI → vẫn UI (chạy đủ)');
+    ok(sc('scripts/test/stitch-diff.mjs').ui && sc('.github/workflows/x.yml').ui && sc('package.json').ui && sc('some/unknown/file.bin').ui, 'luật 16: script test / workflow / file lạ = UI (mặc định an toàn)');
+    ok(!nd('functions/api/a.js,web/js/admin-x.js', 'ui,text') && nd('functions/api/a.js,web/js/i18n/de/a.js', 'ui,text') && !nd('web/js/i18n/de/a.js', 'ui'), 'luật 16: backend bỏ qua cả ui,text; chữ dịch chạy ui,text nhưng bỏ qua ui');
+    { const pp = prPaths("on:\n  pull_request:\n    paths: ['web/**', '!web/**/*.md', 'a/b.js']\n  push:\n    paths: ['x']\n") || [];
+      ok(pp.join('|') === 'web/**|!web/**/*.md|a/b.js', 'luật 16: prPaths đọc paths của pull_request (không lẫn push)');
+      ok(relevantFiles(['web/a.js', 'web/a.md', 'z/y', 'a/b.js'], pp).join() === 'web/a.js,a/b.js', 'luật 16: relevantFiles = file khớp paths, trừ phủ định');
+      ok(relevantFiles(['q'], null).join() === 'q' && relevantFiles(['.github/workflows/w.yml'], ['web/**'], '.github/workflows/w.yml').length === 1, 'luật 16: không paths → mọi file; file workflow tự nó luôn tính');
+      const own = f => needed(relevantFiles(f.split(','), pp), 'ui');
+      ok(!own('web/cpack/x.json,scripts/test/other.mjs') && own('web/css/a.css,web/cpack/x.json'), 'luật 16: chỉ file KÍCH workflow mới tính (file lạc đề như scripts/test/other.mjs không kéo workflow chạy)'); }
+    ok(nd('', 'ui') && needed([], 'ui'), 'luật 16: không đọc được danh sách file → chạy (mở cổng)'); }
   { // luật 16 (15/11): ảnh QC Stitch → R2 + MỘT bình luận PR (scripts/ci/stitch-shots.mjs) – giám khảo UI đọc link, không tải artifact; không nới luật CI
     const sd = (srcs.find(([f]) => f === 'stitch-diff.yml') || [])[1] || '', st = (sd.match(/- name: Ảnh QC → R2 \+ bình luận PR\n[\s\S]*$/) || [''])[0];
     ok(/stitch-shots\.mjs/.test(st) && /timeout-minutes:/.test(st) && /continue-on-error: true/.test(st), 'luật 16: stitch-diff.yml có bước stitch-shots (timeout + continue-on-error)');
@@ -326,6 +356,15 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
     const calls = [], mk = existing => async (m, p, b) => { calls.push(m); return m === 'GET' ? existing : { id: 7 }; };
     await M.upsertComment(mk([{ id: 5, body: 'x' }, { id: 9, body: M.MARKER + ' cũ' }]), 'o/r', 1, 'b'); ok(calls.join() === 'GET,PATCH', 'luật 16: có bình luận cũ → PATCH (không đăng mới)');
     calls.length = 0; await M.upsertComment(mk([{ id: 5, body: 'x' }]), 'o/r', 1, 'b'); ok(calls.join() === 'GET,POST', 'luật 16: chưa có → đăng đúng một bình luận'); }
+  { // luật 18 (15/11): bản sinh (gói dịch, pn-*, extension/app) không commit trong PR → job PR đọc/serve web/ phải có bước sinh TRƯỚC (npm ci|i, build-web, gen-if-needed), không thì chạy trên bản sinh cũ của main (xanh/đỏ giả, vd. teacher-bubble --static đứng trước npm i)
+    const G = await import('../lib/generated.mjs');
+    const J = t => 'on:\n  pull_request:\njobs:\n  a:\n    steps:\n      - uses: actions/checkout@v4\n' + t;
+    ok(G.genViolations(J('      - run: node scripts/test/x.mjs --static\n      - run: npm i --no-save p')).join() === 'a' && G.genViolations(J('      - run: npm ci\n      - run: node scripts/test/x.mjs')).length === 0
+      && G.genViolations(J('      - uses: ./.github/actions/gen-if-needed\n      - run: python3 -m http.server')).length === 0 && G.genViolations(J('      - run: npm ci --ignore-scripts\n      - run: playwright test')).join() === 'a'
+      && G.genViolations('# ci-policy: no-gen – x\n' + J('      - run: node scripts/test/x.mjs')).length === 0 && G.genViolations('on:\n  push:\njobs:\n  a:\n    steps:\n      - run: node scripts/test/x.mjs\n').length === 0, 'luật 18: genViolations bắt job đọc trước khi sinh');
+    ok(G.needsRegen(['i18n/ui/vi/a.json']) && !G.needsRegen(['web/js/i18n/de.js', 'README.md']) && G.needsRegen(['web/app/x.js'], true) && !G.needsRegen(['web/app/x.js']) && !G.needsRegen(['extension/app/a.js'], true), 'luật 18: needsRegen chỉ theo NGUỒN bản sinh');
+    for (const [f, src] of srcs) for (const j of G.genViolations(src)) ok(false, `${f} job ${j}: đọc/serve web/ trước khi có bản sinh khớp nguồn PR (bản sinh không commit trong PR) → thêm "- uses: ./.github/actions/gen-if-needed" ngay sau checkout, hoặc "# ci-policy: no-gen – <lý do>" nếu không đọc bản sinh (luật 18)`);
+    ok(/--needed/.test(fs.readFileSync(path.join(ROOT, '.github/actions/gen-if-needed/action.yml'), 'utf8')), 'luật 18: action gen-if-needed gọi regen-generated --needed'); }
   { // luật 17 (15/11): workflow bot commit [skip ci] vào main (không qua CI) phải qua máy gác test theo tệp đổi (scripts/ci/bot-test-gate.mjs) – 9c4e52d158 làm lex.mjs đỏ, mọi PR kẹt shard 4
     const { ungated } = await import('../ci/bot-test-gate.mjs');
     for (const [f, s] of srcs) for (const why of ungated(s)) ok(false, `luật 17: ${f}: ${why}`); }
