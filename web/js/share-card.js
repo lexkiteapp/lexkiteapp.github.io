@@ -2,7 +2,7 @@
  * Chỉ dùng số liệu THẬT của người học (chuỗi ngày, thẻ ôn hôm nay, XP 7 ngày, % nhớ của phiên vừa xong, mục tiêu thi).
  * Bảo vệ cái tôi: ô có giá trị 0 bị ẩn, % nhớ chỉ hiện khi ≥ 80%; chưa có gì để khoe → lời động viên, không có thẻ.
  * Kit lấy từ web/js/kit.js (nguồn duy nhất), QR từ js/lib/qr.js. Chia sẻ qua LKFile (js/lib/save-file.js): navigator.share({files}) / bảng chia sẻ app gốc → không hỗ trợ thì tải ảnh + chép link.
- * Nạp lười qua App.need('share') (BUNDLES trong app.js); CSS & bản tiếng Anh (js/i18n/en/share.js) cũng nạp khi mở. */
+ * Nạp lười qua App.need('share') (BUNDLES trong bundles.js); CSS & bản tiếng Anh (js/i18n/en/share.js) cũng nạp khi mở. */
 (function (g) {
   'use strict';
   const d = document, URL_ = 'https://lexkite.com';
