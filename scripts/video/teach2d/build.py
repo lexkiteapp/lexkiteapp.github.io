@@ -688,7 +688,7 @@ def T_roots():
     D = EP['data']; ws = D['words']; n = len(ws); series_chip(); t_ring_out = start('k') - 0.2
     hk = EP['hook']['text']; i = hk.find('root'); title([[hk[:i], 'ink'], ['root', 'accent'], [hk[i + 4:], 'ink']], 96, RY0, None, t_ring_out, hook=True)
     cx, cy, R = (RX0 + RX1) / 2, RY0 + 504, 225
-    top('img', [cx - R, cy - R, cx + R, cy + R], None, out=t_ring_out, src='ring.png', radius=0)
+    top('backdrop', [cx - R, cy - R, cx + R, cy + R], None, out=t_ring_out, src='ring.png', radius=0)   # decoration under the root + chips: not a leaf, so the layout gate does not read it as an overlap
     rs = 120; rw = tw(D['root'].upper(), rs); top('text', [cx - rw / 2, cy - rs * 0.6, cx + rw / 2, cy + rs * 0.6], at('r', 0), out=t_ring_out, runs=[[D['root'].upper(), 'accent']], size=rs, ipa=False)
     CUES.append(dict(node=NODES[-1]['id'], t=at('r', 0), tag=D['root'].upper()))
     ang = {2: [-90, 90], 3: [-90, 30, 150], 4: [-135, -45, 45, 135]}[n]; ch = S['chip'] + 28
