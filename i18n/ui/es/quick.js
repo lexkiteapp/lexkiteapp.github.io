@@ -5,7 +5,7 @@
 "Bạn có niềm say mê tự nhiên với tri thức, văn hóa và sự phong phú của ngôn ngữ. Càng hiểu sâu ngữ cảnh, bạn càng nhớ lâu và hứng thú học tập.":"Te encantan el conocimiento, la cultura y la riqueza del idioma. Cuanto más contexto tienes, mejor recuerdas y más disfrutas aprendiendo.",
 "Bạn học bằng trực giác, không sợ sai và thích tương tác thực tế. Bạn tiến bộ nhanh nhất khi biến tiếng Anh thành trò chơi và giao tiếp tự nhiên mỗi ngày.":"Aprendes por intuición, no temes equivocarte y te encanta la interacción real. Avanzas más rápido cuando el inglés se convierte en un juego diario y en conversación natural.",
 "Bạn thực tế, học có trọng tâm và ưu tiên những gì dùng được ngay. Bạn không thích lý thuyết rườm rà mà nhắm thẳng vào kết quả công việc và kỳ thi.":"Eres práctico y centrado, y priorizas lo que puedes usar enseguida. Te saltas la teoría larga y vas directo a los resultados en el trabajo y en los exámenes.",
-"Bật phụ đề tiếng Anh để đọc kịp mọi từ và ngữ pháp 📝":"Activo los subtítulos en inglés para seguir cada palabra y estructura 📝",
+"Bật phụ đề tiếng Anh để đọc kịp mọi từ và ngữ pháp 📝":"Activa los subtítulos en inglés para seguir cada palabra y estructura 📝",
 "Bật song ngữ hoặc phụ đề mẹ đẻ để nắm trọn 100% cốt truyện 🍿":"Uso subtítulos en mi idioma para seguir toda la trama 🍿",
 "Bắt đầu lộ trình ngay":"Empezar mi ruta",
 "Chia sẻ phong cách":"Compartir mi estilo",

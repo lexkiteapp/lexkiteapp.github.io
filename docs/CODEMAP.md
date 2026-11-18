@@ -14,7 +14,7 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - `.github/workflows/` (235 file): CI/CD + việc nền theo lịch (xem mục Workflows)
 - `infra/` (15 file): Sổ hạ tầng JSON: resources, jobs (nguồn của docs/JOBS.md), media-repos, schema.lock
 - `brand/` (1913 file): tokens.json (màu), logo, stitch/ (ref + DTCG), library/ (kho cảnh/clip video)
-- `content/` (5774 file): Nội dung nguồn: blog, authority, dict, confidence, explain, brand (dữ liệu lớn – bỏ khỏi map)
+- `content/` (5799 file): Nội dung nguồn: blog, authority, dict, confidence, explain, brand (dữ liệu lớn – bỏ khỏi map)
 - `mobile/` (216 file): Capacitor iOS/Android (ios/ android/ bỏ khỏi map)
 - `store/` (47 file): Hồ sơ listing Chrome/Edge/Apple/Play
 - `docs/` (253 file): Luật + tài liệu chủ đề (docs/README.md → INDEX.md); lịch sử ở docs/archive
@@ -36,7 +36,7 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - **CI / việc nền**: infra/jobs.json → docs/JOBS.md (node scripts/jobs/gen.mjs); lease scripts/jobs/lease.mjs; chuỗi test = scripts/test/suite.txt (npm test → run-suite.mjs); scripts/prepush.sh; docs/CI-RUNNERS.md
 
 ## God nodes (15 module được import/nạp nhiều nhất; không tính test)
-1. `web/js/app.js` ←104 · App,LK_GETAPP_T,accountMenu,retArm…
+1. `web/js/app.js` ←105 · App,LK_GETAPP_T,accountMenu,retArm…
 2. `web/js/st/common.js` ←54 · ST
 3. `functions/api/_body.js` ←39 · BodyError,readBytes,readText,readJSON…
 4. `functions/api/sync.js` ←39 · SHRINK_MIN,cors,json,claims…
