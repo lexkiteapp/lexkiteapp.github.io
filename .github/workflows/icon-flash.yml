@@ -50,6 +50,8 @@ jobs:
           npm ci --no-audit --no-fund >/dev/null && bash scripts/build-web.sh >/dev/null
           npm i --no-save --no-audit --no-fund playwright@1.48.2 >/dev/null
           (node scripts/test/serve-web.mjs dist 8080 >/dev/null 2>&1 &) ; sleep 2
+      - uses: ./.github/actions/playwright-cache
+        with: { browsers: 'chromium' }
       - name: Cài Chromium
         timeout-minutes: 8
         run: bash scripts/ci/pw-install.sh chromium

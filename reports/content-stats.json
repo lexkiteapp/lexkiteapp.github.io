@@ -1,19 +1,19 @@
 {
  "IELTS Listening": {
-  "Part 1": 100,
-  "Part 2": 100,
-  "Part 3": 100,
-  "Part 4": 100
+  "Part 1": 200,
+  "Part 2": 200,
+  "Part 3": 200,
+  "Part 4": 200
  },
  "IELTS Reading GT": {
-  "Passage 1": 70,
-  "Passage 2": 65,
-  "Passage 3": 65
+  "Passage 1": 96,
+  "Passage 2": 91,
+  "Passage 3": 93
  },
  "IELTS Reading AC": {
-  "Passage 1": 130,
-  "Passage 2": 130,
-  "Passage 3": 140
+  "Passage 1": 156,
+  "Passage 2": 156,
+  "Passage 3": 168
  },
  "TOEIC Reading": {
   "Part 5": 300,
@@ -42,10 +42,10 @@
   "academic": 200
  },
  "TOEFL Listening": {
-  "response": 81,
-  "conversation": 122,
-  "announcement": 91,
-  "talk": 147
+  "response": 80,
+  "conversation": 132,
+  "announcement": 99,
+  "talk": 159
  },
  "TOEFL Writing": {
   "sentence": 100,

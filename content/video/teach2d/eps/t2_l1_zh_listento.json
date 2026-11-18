@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_zh_listento",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Listen to music!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I like to listen music.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I like to listen to music.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Listen needs to before the thing.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Listen to! We listen to the radio.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I like to listen music.",
+  "right": "I like to listen to music.",
+  "strike": "listen music",
+  "why": "Listen needs to before the thing.",
+  "memory": "Listen to music.",
+  "quiz": {
+   "stem": "We ___ the radio.",
+   "options": [
+    "listen",
+    "listen to"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“听音乐”要说 listen to！",
+   "tip": "listen 后面接听的内容时，要加 to：listen to music。",
+   "caption": "你是不是也会说 “I like to listen music.”😅 中文“听音乐”直接接宾语，英语 listen 后面要加 to：“I like to listen to music.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。",
+   "comment": "答案：“I like to listen to music.”免费测验在这里：{link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Listen “to” music!",
+   "tip": "Before the thing you hear, listen needs to.",
+   "caption": "Do you say “I like to listen music.” 😅 Before the thing you hear, listen needs to: “I like to listen to music.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“听音乐”要说 listen to！"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "zh",
+ "est": {
+  "words": 47,
+  "seconds": 28.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "“听音乐”要说 listen to！",
+  "keyword": "I like to listen to music.",
+  "value": "listen 后面接听的内容时，要加 to：listen to music。",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "“听音乐”要说 listen to！",
+    "description": "listen 后面接听的内容时，要加 to：listen to music。\n\n你是不是也会说 “I like to listen music.”😅 中文“听音乐”直接接宾语，英语 listen 后面要加 to：“I like to listen to music.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "I like to listen to music.",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "你是不是也会说 “I like to listen music.”😅 中文“听音乐”直接接宾语，英语 listen 后面要加 to：“I like to listen to music.”跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“听音乐”要说 listen to！\n\nlisten 后面接听的内容时，要加 to：listen to music。\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“听音乐”要说 listen to！ listen 后面接听的内容时，要加 to：listen to music。 #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案：“I like to listen to music.”免费测验在这里：{link}",
+  "lang": "zh"
+ }
+}

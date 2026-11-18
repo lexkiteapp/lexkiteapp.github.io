@@ -115,6 +115,8 @@ quiz: [
 * **角色 B：** *„On the flip side, prolonged isolation might erode corporate cohesion and stunt spontaneous creativity.“*
 这种高强度的抽象思维训练，能直接打通你在雅思口语 Part 3 与学术写作中的深度论证管道。
 
+整块记忆现成句型，是摆脱翻译习惯的捷径，场景清单见[自信开口说英语：12个日常场景](/zh/blog/zi-xin-kai-kou-shuo-ying-yu-12-ge-ri-chang-chang-jing/)。
+
 ## 常见的三大认知误区与纠偏建议
 
 在探索如何用英语思维思考的道路上，许多同学容易走向极端，陷入以下三个常见误区：

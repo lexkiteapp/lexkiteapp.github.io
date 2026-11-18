@@ -173,6 +173,16 @@ export function violations(file, src) {
   // 10) (06/11 – stitch-web đỏ vì `timeout 600 npx playwright install --with-deps` treo apt hết 600 s, #780): cài Playwright qua scripts/ci/pw-install.sh
   //     (mỗi lượt ≤ 4 phút, thử lại 3 lượt, giết apt treo) – một lượt treo không còn làm đỏ job. Trừ mobile-qa.yml (nội dung bị mqa-parity khoá) và vòng thử lại tự viết.
   if (!/(^|\/)mobile-qa\.yml$/.test(file)) String(src).split('\n').forEach((l, n) => { if (!/^\s*#/.test(l) && /npx\s+(?:--yes\s+)?playwright(?:@[\w.]+)?\s+install\b/.test(l) && !/\bif timeout \d+ npx/.test(l)) out.push(`${file}:${n + 1}: cài Playwright trần – dùng \`bash scripts/ci/pw-install.sh [--with-deps] <trình duyệt>\` (trần + thử lại, luật 10)`); });
+  // pw-cache (17/11 – `playwright install --with-deps webkit` treo mirror apt + `npm i playwright` hết 12 phút làm đỏ ≥6 PR): mỗi lần gọi pw-install.sh phải có
+  //     MỘT bước `uses: ./.github/actions/playwright-cache` (cache trình duyệt + .deb apt + npm) đứng trước – cài trình duyệt chỉ đi qua action chung.
+  { const code = String(src).replace(/^\s*#.*$/gm, ''), calls = (code.match(/scripts\/ci\/pw-install\.sh/g) || []).length, uses = (code.match(/uses:\s*\.\/\.github\/actions\/playwright-cache\b/g) || []).length;
+    if (calls > uses) out.push(`${file}: ${calls} lần gọi pw-install.sh nhưng chỉ ${uses} bước \`uses: ./.github/actions/playwright-cache\` – thêm bước cache TRƯỚC mỗi lần cài (luật pw-cache)`); }
+  // action cục bộ (`uses: ./.github/actions/…`) cần mã trên đĩa: (17/11 – report-shots `bench` đỏ "Can't find action.yml" vì checkout thưa không có .github/actions) →
+  //     trong MỖI job, trước bước dùng action cục bộ phải có actions/checkout, và nếu checkout thưa thì danh sách phải gồm `.github/actions` (hoặc `.github`).
+  for (const j of jobs(src)) { const t = j.text, u = t.search(/^\s*-?\s*uses:\s*\.\/\.github\/actions\//m); if (u < 0) continue;
+    const before = t.slice(0, u), cks = [...before.matchAll(/uses:\s*actions\/checkout@[^\n]*\n?([^\n]*)/g)];
+    if (!cks.length) out.push(`${file}: job "${j.id}" dùng action cục bộ trước khi có actions/checkout (không tìm thấy action.yml trên runner)`);
+    else { const last = cks[cks.length - 1][0]; if (/sparse-checkout/.test(last) && !/\.github(\/actions)?(\\n|["'\s\n,}]|$)/.test(last)) out.push(`${file}: job "${j.id}" checkout thưa thiếu .github/actions nhưng dùng action cục bộ`); } }
   for (const st of installSteps(src)) if (!st.bounded) out.push(`${file}:${st.start + 1}: bước cài Playwright/apt không giới hạn thời gian – bước chỉ cài: thêm timeout-minutes; bước còn việc khác: bọc lệnh cài bằng \`timeout 600 …\` (luật 9)`);
   String(src).split('\n').forEach((l, n) => { if (!/^\s*#/.test(l) && SIGN_AUTO.test(l)) out.push(`${file}:${n + 1}: ký iOS Automatic/-allowProvisioningUpdates trên CI – mỗi máy CI tạo 1 chứng chỉ mới → đầy hạn mức; ký Manual qua scripts/native/ios-sign.sh (luật 13)`); });
   return out;
@@ -266,6 +276,14 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
     ok(v10('      - timeout-minutes: 12\n        run: timeout 600 npx playwright install --with-deps chromium\n') === 1, 'luật 10: cài Playwright trần (kể cả bọc timeout) → lỗi');
     ok(v10('      - timeout-minutes: 14\n        run: bash scripts/ci/pw-install.sh --with-deps chromium\n') === 0, 'luật 10: qua pw-install.sh → đạt');
     ok(v10('      - run: |\n          for i in 1 2 3; do\n            if timeout 240 npx playwright install chromium; then break; fi\n          done\n') === 0, 'luật 10: vòng thử lại tự viết → đạt');
+    const v17 = st => violations('i.yml', job(st)).filter(x => /luật pw-cache/.test(x)).length;
+    ok(v17('      - run: bash scripts/ci/pw-install.sh --with-deps webkit\n') === 1, 'luật pw-cache: pw-install.sh không kèm action playwright-cache → lỗi');
+    ok(v17("      - uses: ./.github/actions/playwright-cache\n        with: { browsers: webkit }\n      - run: bash scripts/ci/pw-install.sh --with-deps webkit\n") === 0, 'luật pw-cache: có action playwright-cache trước → đạt');
+    ok(v17('      - run: |\n          # bash scripts/ci/pw-install.sh chromium\n          node a.mjs\n') === 0, 'luật pw-cache: dòng chú thích không tính');
+    const vl = st => violations('i.yml', job(st)).filter(x => /action cục bộ/.test(x)).length;
+    ok(vl('      - uses: ./.github/actions/apt\n        with: { packages: x }\n') === 1, 'action cục bộ: dùng trước khi checkout → lỗi');
+    ok(vl('      - uses: actions/checkout@v4\n        with: { sparse-checkout: scripts }\n      - uses: ./.github/actions/apt\n') === 1, 'action cục bộ: checkout thưa thiếu .github/actions → lỗi');
+    ok(vl('      - uses: actions/checkout@v4\n        with: { sparse-checkout: "scripts\\n.github/actions" }\n      - uses: ./.github/actions/apt\n') === 0 && vl('      - uses: actions/checkout@v4\n      - uses: ./.github/actions/apt\n') === 0, 'action cục bộ: checkout đủ → đạt');
     ok(!violations('mobile-qa.yml', job('      - timeout-minutes: 12\n        run: npx playwright install chromium\n')).some(x => /luật 10/.test(x)), 'luật 10: mobile-qa.yml được miễn');
   }
   { const hv = "# ci-policy: heavy-gate – x\n" + base.replace("  push:\n    branches: [main]\n    paths: ['a/**']", "  pull_request:\n    paths: ['a/**']\n  push:\n    branches: [main]\n    paths: ['a/**']").replace('concurrency: { group: x }', 'concurrency: { group: x, cancel-in-progress: true }');
@@ -363,6 +381,15 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
     const calls = [], mk = existing => async (m, p, b) => { calls.push(m); return m === 'GET' ? existing : { id: 7 }; };
     await M.upsertComment(mk([{ id: 5, body: 'x' }, { id: 9, body: M.MARKER + ' cũ' }]), 'o/r', 1, 'b'); ok(calls.join() === 'GET,PATCH', 'luật 16: có bình luận cũ → PATCH (không đăng mới)');
     calls.length = 0; await M.upsertComment(mk([{ id: 5, body: 'x' }]), 'o/r', 1, 'b'); ok(calls.join() === 'GET,POST', 'luật 16: chưa có → đăng đúng một bình luận'); }
+  { // luật 18 (15/11): bản sinh (gói dịch, pn-*, extension/app) không commit trong PR → job PR đọc/serve web/ phải có bước sinh TRƯỚC (npm ci|i, build-web, gen-if-needed), không thì chạy trên bản sinh cũ của main (xanh/đỏ giả, vd. teacher-bubble --static đứng trước npm i)
+    const G = await import('../lib/generated.mjs');
+    const J = t => 'on:\n  pull_request:\njobs:\n  a:\n    steps:\n      - uses: actions/checkout@v4\n' + t;
+    ok(G.genViolations(J('      - run: node scripts/test/x.mjs --static\n      - run: npm i --no-save p')).join() === 'a' && G.genViolations(J('      - run: npm ci\n      - run: node scripts/test/x.mjs')).length === 0
+      && G.genViolations(J('      - uses: ./.github/actions/gen-if-needed\n      - run: python3 -m http.server')).length === 0 && G.genViolations(J('      - run: npm ci --ignore-scripts\n      - run: playwright test')).join() === 'a'
+      && G.genViolations('# ci-policy: no-gen – x\n' + J('      - run: node scripts/test/x.mjs')).length === 0 && G.genViolations('on:\n  push:\njobs:\n  a:\n    steps:\n      - run: node scripts/test/x.mjs\n').length === 0, 'luật 18: genViolations bắt job đọc trước khi sinh');
+    ok(G.needsRegen(['i18n/ui/vi/a.json']) && !G.needsRegen(['web/js/i18n/de.js', 'README.md']) && G.needsRegen(['web/app/x.js'], true) && !G.needsRegen(['web/app/x.js']) && !G.needsRegen(['extension/app/a.js'], true), 'luật 18: needsRegen chỉ theo NGUỒN bản sinh');
+    for (const [f, src] of srcs) for (const j of G.genViolations(src)) ok(false, `${f} job ${j}: đọc/serve web/ trước khi có bản sinh khớp nguồn PR (bản sinh không commit trong PR) → thêm "- uses: ./.github/actions/gen-if-needed" ngay sau checkout, hoặc "# ci-policy: no-gen – <lý do>" nếu không đọc bản sinh (luật 18)`);
+    ok(/--needed/.test(fs.readFileSync(path.join(ROOT, '.github/actions/gen-if-needed/action.yml'), 'utf8')), 'luật 18: action gen-if-needed gọi regen-generated --needed'); }
   { // luật 17 (15/11): workflow bot commit [skip ci] vào main (không qua CI) phải qua máy gác test theo tệp đổi (scripts/ci/bot-test-gate.mjs) – 9c4e52d158 làm lex.mjs đỏ, mọi PR kẹt shard 4
     const { ungated } = await import('../ci/bot-test-gate.mjs');
     for (const [f, s] of srcs) for (const why of ungated(s)) ok(false, `luật 17: ${f}: ${why}`); }

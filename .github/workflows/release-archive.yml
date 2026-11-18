@@ -6,7 +6,7 @@ name: release-archive
 on:
   workflow_dispatch:
   workflow_run:
-    workflows: ['Build Android app', 'iOS → TestFlight', 'Đăng add-on Chrome Web Store']
+    workflows: ['Build Android app', 'iOS → TestFlight', 'Đăng add-on Chrome Web Store', 'Store submit']
     types: [completed]
   schedule:
     - cron: '30 11 * * 6'

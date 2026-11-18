@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_pt_laptop",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "A notebook is made of paper!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I bought a notebook to work from home.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I bought a laptop to work from home.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "A notebook is for writing on paper.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "The second! I send emails on my laptop.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I bought a notebook to work from home.",
+  "right": "I bought a laptop to work from home.",
+  "strike": "notebook",
+  "why": "A notebook is for writing on paper.",
+  "memory": "A laptop is a computer.",
+  "quiz": {
+   "stem": "I send emails on my ___.",
+   "options": [
+    "notebook",
+    "laptop"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Notebook” não é computador!",
+   "tip": "Em português “notebook” é o computador portátil; em inglês, o computador é “laptop”. “Notebook” é um caderno.",
+   "caption": "Você também diz isso? “I bought a notebook to work from home.” 😅 O certo é “I bought a laptop to work from home.” Em português “notebook” é o computador portátil; em inglês, o computador é “laptop”. “Notebook” é um caderno. Ouça o Carlos e repita! Treine mais no app Lexkite.",
+   "comment": "Resposta: “laptop”. Agora diga em voz alta “I bought a laptop to work from home.” e treine mais com um quiz grátis aqui: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#inglesonline",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Notebook” is not a computer!",
+   "tip": "In Portuguese “notebook” is the portable computer; in English, the computer is a “laptop”. A “notebook” is for writing.",
+   "caption": "Do you say this too? “I bought a notebook to work from home.” 😅 The right way is “I bought a laptop to work from home.” In Portuguese “notebook” is the portable computer; in English, the computer is a “laptop”. A “notebook” is for writing. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Notebook” não é computador!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "pt",
+ "est": {
+  "words": 57,
+  "seconds": 33.5,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "“Notebook” não é computador!",
+  "keyword": "I bought a laptop to work from home.",
+  "value": "Em português “notebook” é o computador portátil; em inglês, o computador é “laptop”. “Notebook” é um caderno.",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 51,
+  "platforms": {
+   "youtube": {
+    "title": "“Notebook” não é computador!",
+    "description": "Em português “notebook” é o computador portátil; em inglês, o computador é “laptop”. “Notebook” é um caderno.\n\nVocê também diz isso? “I bought a notebook to work from home.” 😅 O certo é “I bought a laptop to work from home.” Em português “notebook” é o computador portátil; em inglês, o computador é “laptop”. “Notebook” é um caderno. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "tags": [
+     "I bought a laptop to work from home.",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "Você também diz isso? “I bought a notebook to work from home.” 😅 O certo é “I bought a laptop to work from home.” Em português “notebook” é o computador portátil; em inglês, o computador é “laptop”. “Notebook” é um caderno. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Notebook” não é computador!\n\nEm português “notebook” é o computador portátil; em inglês, o computador é “laptop”. “Notebook” é um caderno.\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#inglesonline",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Notebook” não é computador! Em português “notebook” é o computador portátil; em inglês, o computador é “l… #aprenderingles #inglesfacil #inglesonline"
+   }
+  },
+  "first_comment": "Resposta: “laptop”. Agora diga em voz alta “I bought a laptop to work from home.” e treine mais com um quiz grátis aqui: {link}",
+  "lang": "pt"
+ }
+}

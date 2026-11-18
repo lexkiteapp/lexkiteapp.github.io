@@ -885,13 +885,14 @@
     },
     {
       "key": "apple",
+      "install": "infra/install-links.json",
       "name": "Apple Developer",
       "kind": "store",
       "purpose": "Phát hành app iOS (TestFlight qua ios-testflight.yml; niêm yết + ảnh qua App Store Connect API: scripts/asc-upload.mjs)",
       "console": "https://appstoreconnect.apple.com/apps/6824714708",
       "free": "99 USD/năm",
       "upgrade": "—",
-      "status": "Đang dùng – app com.lexkite.app trên TestFlight, bản 1.0 chuẩn bị nộp duyệt",
+      "status": "Đang dùng – app com.lexkite.app đã phát hành trên App Store (bản 1.0); link cài: infra/install-links.json",
       "match": [
         "api.appstoreconnect.apple.com",
         "apps.apple.com"
@@ -899,6 +900,7 @@
     },
     {
       "key": "play",
+      "install": "infra/install-links.json",
       "name": "Google Play Console",
       "kind": "store",
       "purpose": "Phát hành app Android",
@@ -912,6 +914,7 @@
     },
     {
       "key": "cws",
+      "install": "infra/install-links.json",
       "name": "Chrome Web Store",
       "kind": "store",
       "purpose": "Phát hành add-on (hồ sơ: store/chrome, quy tắc docs/CWS-RULES.md)",
@@ -1384,6 +1387,44 @@
       "cap": {
         "day": 1200,
         "unit": "lượt sinh/sửa (3 tài khoản × ~400)"
+      }
+    },
+    {
+      "key": "dns-security",
+      "name": "DNS & header bảo mật lexkite.com (DNSSEC, CAA, DMARC, SPF, HSTS, security.txt)",
+      "kind": "security",
+      "purpose": "Cấu hình bảo mật vùng DNS + header (audit 2/11/2026, docs/AUDIT-2026-10.md §DNS). Nguồn gửi thư duy nhất từ @lexkite.com = Cloudflare Email Workers (lexkite-mail send_email, DKIM cf2024-1 + SPF include:_spf.mx.cloudflare.net); thêm Resend/Brevo thì PHẢI thêm DKIM của họ trước khi đặt secret. Kiểm: node scripts/verify-dns.mjs (DoH, CI hằng tuần content-protect.yml); test offline scripts/test/dns-security.mjs.",
+      "console": "https://dash.cloudflare.com/e34e14b7ab35eaf2b3d9d84fcce011f7/lexkite.com/dns/records",
+      "free": "Miễn phí",
+      "upgrade": "—",
+      "status": "Đang dùng",
+      "match": [],
+      "expect": {
+        "zone": "lexkite.com",
+        "registrar": "Dynadot (DS do owner dán ở Dynadot)",
+        "dnssec": {
+          "ds": "2371 13 2 3F3EA27F18E43096B3AC4EE2754A73CC9C8D7759BEB4F68EAFDE00187626CAC4"
+        },
+        "caa_note": "comodoca.com do Cloudflare tự chèn (Universal SSL/Sectigo cũ) – không có trong danh sách bản ghi của zone",
+        "caa_issue": [
+          "comodoca.com",
+          "letsencrypt.org",
+          "pki.goog",
+          "ssl.com",
+          "sectigo.com",
+          "digicert.com"
+        ],
+        "caa_iodef": "mailto:support@lexkite.com",
+        "dmarc": "v=DMARC1; p=quarantine; sp=quarantine; adkim=r; aspf=r; pct=100; rua=mailto:support@lexkite.com; fo=1",
+        "spf": "v=spf1 include:_spf.mx.cloudflare.net ~all",
+        "hsts_min_age": 31536000,
+        "https_hosts": [
+          "lexkite.com",
+          "www.lexkite.com",
+          "audio.lexkite.com",
+          "media.lexkite.com"
+        ],
+        "security_txt": "https://lexkite.com/.well-known/security.txt"
       }
     }
   ],

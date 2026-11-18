@@ -193,6 +193,8 @@ Aturan ini baru berguna bila terbawa ke percakapan. Tiga cara melatihnya:
 2. **Sambungan antarkata.** Bila kata berikutnya diawali vokal, bunyi akhir -ed berpindah ke suku kata berikutnya: *worked in* terdengar seperti *work-tin*, *lived in* seperti *live-din*. Panduan [connected speech](/id/blog/connected-speech-bahasa-inggris-aturan-menyambung-kata/) menjelaskan pola ini lebih jauh.
 3. **Rekam dan dengarkan.** Bacakan lima kalimat dengan kata kerja seperti *managed*, *launched*, *reviewed*, *started*, dan *finished*, lalu periksa apakah ada suku kata tambahan yang tidak seharusnya.
 
+Setelah bunyi akhir, pelajari juga [word stress bahasa Inggris](/id/blog/word-stress-bahasa-inggris-aturan-tekanan-kata/).
+
 ## Latihan di Lexkite
 
 Buka [pustaka pelafalan Lexkite](/app/#/pron) untuk mendengar contoh bunyi dan berlatih per bunyi. Pelajaran tata bahasanya, [cara membaca -ed dan -s](/app/#/grammar/ed-s-endings), cocok dibaca sebelum Anda mulai merekam. Untuk melatih frasa lengkap dengan mikrofon, gunakan [menu Permainan & latihan](/app/#/practice).

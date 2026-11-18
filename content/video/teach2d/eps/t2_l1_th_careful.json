@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_th_careful",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say carefully, not careful!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: He drives careful.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: He drives carefully.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say carefully to tell how he drives.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Carefully! Please walk carefully.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "He drives careful.",
+  "right": "He drives carefully.",
+  "strike": "careful",
+  "why": "Say carefully to tell how he drives.",
+  "memory": "Careful, carefully.",
+  "quiz": {
+   "stem": "Please walk ___.",
+   "options": [
+    "careful",
+    "carefully"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "บอกวิธีทำ ต้องเติม ly!",
+   "tip": "ไทยพูด “ขับรถระวัง” ได้เลย แต่อังกฤษต้องเติม ly: “drives carefully”",
+   "caption": "คุณเคยพูดว่า “He drives careful.” ไหม? 😅 ภาษาไทยพูดว่า “ขับรถระวัง ๆ” ได้โดยไม่ต้องเปลี่ยนคำ แต่ภาษาอังกฤษต้องเติม ly: “He drives carefully.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+   "comment": "เฉลย: “carefully” จำไว้ให้ดีนะ! ลองพูดประโยคนี้ออกเสียงดัง ๆ หนึ่งครั้ง แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Add “ly” to say how!",
+   "tip": "Thai does not change the word, but English adds ly: “drives carefully”",
+   "caption": "Do you say “He drives careful”? 😅 Thai does not change the word, but English adds ly to say how. Say “He drives carefully”! Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "บอกวิธีทำ ต้องเติม ly!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "th",
+ "est": {
+  "words": 41,
+  "seconds": 25.6,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "บอกวิธีทำ ต้องเติม ly!",
+  "keyword": "He drives carefully.",
+  "value": "ไทยพูด “ขับรถระวัง” ได้เลย แต่อังกฤษต้องเติม ly: “drives carefully”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "บอกวิธีทำ ต้องเติม ly!",
+    "description": "ไทยพูด “ขับรถระวัง” ได้เลย แต่อังกฤษต้องเติม ly: “drives carefully”\n\nคุณเคยพูดว่า “He drives careful.” ไหม? 😅 ภาษาไทยพูดว่า “ขับรถระวัง ๆ” ได้โดยไม่ต้องเปลี่ยนคำ แต่ภาษาอังกฤษต้องเติม ly: “He drives carefully.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "He drives carefully.",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "คุณเคยพูดว่า “He drives careful.” ไหม? 😅 ภาษาไทยพูดว่า “ขับรถระวัง ๆ” ได้โดยไม่ต้องเปลี่ยนคำ แต่ภาษาอังกฤษต้องเติม ly: “He drives carefully.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "บอกวิธีทำ ต้องเติม ly!\n\nไทยพูด “ขับรถระวัง” ได้เลย แต่อังกฤษต้องเติม ly: “drives carefully”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "บอกวิธีทำ ต้องเติม ly! ไทยพูด “ขับรถระวัง” ได้เลย แต่อังกฤษต้องเติม ly: “drives carefully” #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "เฉลย: “carefully” จำไว้ให้ดีนะ! ลองพูดประโยคนี้ออกเสียงดัง ๆ หนึ่งครั้ง แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+  "lang": "th"
+ }
+}

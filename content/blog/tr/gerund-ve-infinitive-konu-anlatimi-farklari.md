@@ -127,6 +127,8 @@ Tüm bu kalıpları uygulamamızın [/#/grammar](/#/grammar) bölümünde intera
 
 {{youtube: | Gerund ve infinitive konu anlatimi farklari}}
 
+Gerund ve infinitive tercihleri B2 First'ün cümle dönüşümü ve boşluk doldurma bölümlerinde de karşınıza çıkar; sınavın bölümlerini [B2 First sınav formatı](/tr/blog/b2-first-fce-sinav-formati-bolumler/) yazısında bulabilirsiniz.
+
 ## Sıkça Sorulan Sorular (FAQ)
 
 ### Like, love, hate fiillerinden sonra hangisi gelmeli?

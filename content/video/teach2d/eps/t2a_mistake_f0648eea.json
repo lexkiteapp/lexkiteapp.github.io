@@ -1,0 +1,129 @@
+{
+ "id": "t2a_mistake_f0648eea",
+ "template": "mistake",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Stop saying in charge for!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: She is in charge for the project.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: She is in charge of the project.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use in charge of, not in charge for.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Of! She is in charge of the project.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "She is in charge for the project.",
+  "right": "She is in charge of the project.",
+  "strike": "in charge for",
+  "why": "Use in charge of, not in charge for.",
+  "memory": "In charge of",
+  "quiz": {
+   "stem": "She is in charge ___ the project.",
+   "options": [
+    "of",
+    "for"
+   ],
+   "answer": 0
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Stop saying “in charge for”"
+ },
+ "src": {
+  "gold": "sb_f0648eea",
+  "pid": "w:charge#n"
+ },
+ "est": {
+  "words": 55,
+  "seconds": 32.5,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "Stop saying \"in charge for\"? Say this instead",
+  "keyword": "in charge for",
+  "value": "Say \"She is in charge of the project\", not \"She is in charge for the project\". Use in charge of, not in charge for.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#englishgrammar",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 49,
+  "platforms": {
+   "youtube": {
+    "title": "Stop saying \"in charge for\"? Say this instead",
+    "description": "Say \"She is in charge of the project\", not \"She is in charge for the project\". Use in charge of, not in charge for.\n\nCheck your grammar, free: https://lexkite.com/app/#/fix\n\nSeries: Stop Saying This · Teacher: Ama\n\n#learnenglish #englishtips #englishgrammar #englishteacher",
+    "tags": [
+     "in charge for",
+     "Stop Saying This",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Stop saying \"in charge for\"? Say this instead\n\nSay \"She is in charge of the project\", not \"She is in charge for the project\". Use in charge of, not in charge for.\n\nCheck your grammar, free: https://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Stop saying \"in charge for\"? Say this instead\n\nSay \"She is in charge of the project\", not \"She is in charge for the project\". Use in charge of, not in charge for.\n\nCheck your grammar: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#englishgrammar",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Stop saying \"in charge for\"? Say this instead #learnenglish #englishtips #englishgrammar"
+   }
+  },
+  "first_comment": "Answer: Of! She is in charge of the project. Say \"She is in charge of the project\", not \"She is in charge for the project\". Use in charge of, not in charge for. Try the full lesson and quiz here: {link}"
+ }
+}

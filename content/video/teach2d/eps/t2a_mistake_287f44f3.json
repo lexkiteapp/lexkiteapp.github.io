@@ -1,0 +1,129 @@
+{
+ "id": "t2a_mistake_287f44f3",
+ "template": "mistake",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Tired of, not tired for",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I am tired for waiting.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I am tired of waiting.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Tired of means bored or annoyed. Use of before the cause.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Of! He is tired of the noise.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I am tired for waiting.",
+  "right": "I am tired of waiting.",
+  "strike": "tired for",
+  "why": "Tired of means bored or annoyed. Use of before the cause.",
+  "memory": "Tired OF rain",
+  "quiz": {
+   "stem": "He is tired ___ the noise.",
+   "options": [
+    "of",
+    "for"
+   ],
+   "answer": 0
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Tired of, not tired for"
+ },
+ "src": {
+  "gold": "sb_287f44f3",
+  "pid": "w:tired#adj"
+ },
+ "est": {
+  "words": 53,
+  "seconds": 31.5,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "Say \"I am tired of waiting\", not \"I am tired for waiting\"",
+  "keyword": "tired for",
+  "value": "Say \"I am tired of waiting\", not \"I am tired for waiting\". Tired of means bored or annoyed. Use of before the cause.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#englishgrammar",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 47,
+  "platforms": {
+   "youtube": {
+    "title": "Say \"I am tired of waiting\", not \"I am tired for waiting\"",
+    "description": "Say \"I am tired of waiting\", not \"I am tired for waiting\". Tired of means bored or annoyed. Use of before the cause.\n\nCheck your grammar, free: https://lexkite.com/app/#/fix\n\nSeries: Stop Saying This · Teacher: Ama\n\n#learnenglish #englishtips #englishgrammar #englishteacher",
+    "tags": [
+     "tired for",
+     "Stop Saying This",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Say \"I am tired of waiting\", not \"I am tired for waiting\"\n\nSay \"I am tired of waiting\", not \"I am tired for waiting\". Tired of means bored or annoyed. Use of before the cause.\n\nCheck your grammar, free: https://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Say \"I am tired of waiting\", not \"I am tired for waiting\"\n\nSay \"I am tired of waiting\", not \"I am tired for waiting\". Tired of means bored or annoyed. Use of before the cause.\n\nCheck your grammar: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#englishgrammar",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Say \"I am tired of waiting\", not \"I am tired for waiting\" #learnenglish #englishtips #englishgrammar"
+   }
+  },
+  "first_comment": "Did you get it? Of! He is tired of the noise. Say \"I am tired of waiting\", not \"I am tired for waiting\". Tired of means bored or annoyed. Use of before the cause. More practice like this (free): {link}"
+ }
+}

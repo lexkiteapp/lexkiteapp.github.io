@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ja_questionfor",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Question to or for?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I have a question to you.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I have a question for you.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use for before the person.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "For! I have a question for you.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I have a question to you.",
+  "right": "I have a question for you.",
+  "strike": "to",
+  "why": "Use for before the person.",
+  "memory": "I have a question for you.",
+  "quiz": {
+   "stem": "I have a question ___ you.",
+   "options": [
+    "to",
+    "for"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "「あなたに質問」は question to？",
+   "tip": "質問を向ける相手には for を使い、a question for you と言います。",
+   "caption": "“I have a question to you.”と言っていませんか？😅 「あなたに」の「に」につられて to にしがちです。“I have a question for you.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+   "comment": "答え：“for”。“I have a question for you.” を声に出して言ってみよう。無料クイズで練習：{link}",
+   "hashtags": [
+    "#英語学習",
+    "#英会話",
+    "#英語勉強",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “question to you”?",
+   "tip": "Say a question for you.",
+   "caption": "Do you say this? “I have a question to you.” 😅 The Japanese に makes people choose to. The natural way is “I have a question for you.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "「あなたに質問」は question to？"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ja",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "「あなたに質問」は question to？",
+  "keyword": "I have a question for you.",
+  "value": "質問を向ける相手には for を使い、a question for you と言います。",
+  "hashtags": [
+   "#英語学習",
+   "#英会話",
+   "#英語勉強",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "「あなたに質問」は question to？",
+    "description": "質問を向ける相手には for を使い、a question for you と言います。\n\n“I have a question to you.”と言っていませんか？😅 「あなたに」の「に」につられて to にしがちです。“I have a question for you.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix\n\n#英語学習 #英会話 #英語勉強 #lexkite",
+    "tags": [
+     "I have a question for you.",
+     "learn english",
+     "ja"
+    ]
+   },
+   "facebook": {
+    "text": "“I have a question to you.”と言っていませんか？😅 「あなたに」の「に」につられて to にしがちです。“I have a question for you.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "「あなたに質問」は question to？\n\n質問を向ける相手には for を使い、a question for you と言います。\n\nlexkite.com",
+    "hashtags": [
+     "#英語学習",
+     "#英会話",
+     "#英語勉強",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "「あなたに質問」は question to？ 質問を向ける相手には for を使い、a question for you と言います。 #英語学習 #英会話 #英語勉強"
+   }
+  },
+  "first_comment": "答え：“for”。“I have a question for you.” を声に出して言ってみよう。無料クイズで練習：{link}",
+  "lang": "ja"
+ }
+}

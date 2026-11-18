@@ -152,4 +152,6 @@ Distribuir adecuadamente el tiempo de examen evita que la presión cronometrada 
 
 Complementa tu preparación revisando nuestras recomendaciones sobre [consejos para IELTS Writing Task 2](/es/blog/consejos-ielts-writing-task-2/) y fortalece tu sintaxis con el artículo sobre [oraciones complejas en IELTS Writing Task 2](/es/blog/oraciones-complejas-ielts-writing-task-2/). Aprende también a enlazar tus ideas con [conectores en inglés (linking words)](/es/blog/conectores-en-ingles-linking-words-guia/) y domina las fórmulas de la [voz pasiva en inglés](/es/blog/voz-pasiva-en-ingles-passive-voice-reglas/), enriqueciendo tu léxico con las listas en [/tu-vung/](/en/vocabulary/).
 
+Si tu enunciado es un gráfico de barras en lugar de líneas, consulta el [modelo de informe para un gráfico de barras](/es/blog/ielts-writing-task-1-grafico-de-barras-ejemplo/).
+
 Con una estructura metódica y el dominio de estas herramientas de descripción gráfica, completarás el Task 1 con solvencia y máxima precisión analítica.

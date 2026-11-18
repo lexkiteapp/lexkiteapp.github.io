@@ -6,6 +6,8 @@
  * KHÔNG cho (api_key_not_allowed, đo 22/10): connect/*, insights, comments, inbox, approvals, best-times, queue/slots, hashtag-groups,
  * caption-templates, accounts/{id}/check → kết nối kênh mở GrabCast (popup), số liệu lấy từ nguồn khác (web, nhập tay, YouTube khi có). */
 import { manifest, signed } from './admin-shorts.js';
+import { withInstall } from './_install_links.js';
+import { BIO_ONLY } from './_role_meta.js';
 import { field } from './_clip_logic.js';
 import { runModel } from './ai.js';
 import { normCfg, allowed, schedule, SOCIAL_DAY_MAX } from './_distribution.js';
@@ -182,9 +184,12 @@ async function approvedClips(env) {
   return m.items.filter(it => it && CLIP.test(String(it.id)) && q.has(it.id) && !(rv.get(it.id) || {}).deleted && !['rejected', 'paused'].includes((rv.get(it.id) || {}).state) && !it.rejected)
     .map(it => ({ id: it.id, title: it.title || it.lesson || it.id, description: it.description || '', hashtags: Array.isArray(it.hashtags) ? it.hashtags.slice(0, 10) : [], template: it.template || '', hook: field(it, 'hook'), cefr: field(it, 'diff') || it.cefr || '', duration: +it.duration || 0, created: it.created || '', video: it.video, cover: it.cover, _it: it }));
 }
+// Caption gốc (hashtag cuối, trần 2200). Kênh BIO_ONLY (IG/TikTok) giữ nguyên "link in bio", không dán link; kênh khác kèm link cài đo theo nền tảng (infra/install-links.json, docs/VIDEO.md), threads trần 500.
+const capBase = clip => str([clip.description || clip.title, (clip.hashtags || []).map(h => '#' + String(h).replace(/^#/, '')).join(' ')].filter(Boolean).join('\n\n'), 2200);
+const capOf = (clip, p) => BIO_ONLY.includes(p) ? capBase(clip) : withInstall(capBase(clip), p, clip.id, p === 'threads' ? 500 : 2200);
 export const bodyFor = (clip, mediaId, accs, per = {}, tz = 'America/New_York') => ({
-  title: str(clip.title, 100), caption: str([clip.description || clip.title, (clip.hashtags || []).map(h => '#' + String(h).replace(/^#/, '')).join(' ')].filter(Boolean).join('\n\n'), 2200), media_ids: [mediaId], timezone: tz,
-  targets: accs.map(a => ({ account_id: a.id, kind: a.kind || (PLAT[a.p] || {}).kind || 'video', options: a.p === 'tiktok' ? { privacy_level: 'PUBLIC_TO_EVERYONE', allow_comment: true, allow_duet: false, allow_stitch: false, commercial_content: false, is_aigc: true } : a.p === 'youtube' ? { privacy_status: 'public', made_for_kids: false, contains_synthetic_media: true, category_id: '27' } : {}, ...(per[a.p] || {}) })),
+  title: str(clip.title, 100), caption: capBase(clip), media_ids: [mediaId], timezone: tz,
+  targets: accs.map(a => ({ account_id: a.id, kind: a.kind || (PLAT[a.p] || {}).kind || 'video', options: a.p === 'tiktok' ? { privacy_level: 'PUBLIC_TO_EVERYONE', allow_comment: true, allow_duet: false, allow_stitch: false, commercial_content: false, is_aigc: true } : a.p === 'youtube' ? { privacy_status: 'public', made_for_kids: false, contains_synthetic_media: true, category_id: '27' } : {}, caption_override: capOf(clip, a.p), ...(per[a.p] || {}) })),
 });
 export async function pushClip(env, clip, gc, origin) {
   const cached = await getMeta(env.DB, 'media:' + clip.id, null);
@@ -230,7 +235,7 @@ export async function boardSync(db, posts) {
     else if (r.hash && await contentHash(p) !== r.hash) { note = 'changed-in-grabcast'; if (ns === 'approved') ns = 'review'; }
     else if (!r.hash && /schedul/.test(s)) note = 'scheduled-outside';
     else if (note === 'changed-in-grabcast' || note === 'scheduled-outside') note = null;
-    const links = JSON.stringify(ts.map(t => ({ a: String(t.account_id), p: t.platform || '', s: t.state || '', u: /^https:\/\//.test(String(t.permalink || '')) ? t.permalink : '', e: t.last_error_code || '' })));
+    const links = JSON.stringify(ts.map(t => ({ a: String(t.account_id), p: t.platform || '', s: t.state || '', u: /^https:\/\//.test(String(t.permalink || '')) ? t.permalink : '', e: t.last_error_code || '', m: String(t.last_error || '').slice(0, 160) })));
     const at = Date.parse(p.scheduled_at || '') || r.want_at;
     await run(db, `UPDATE soc_board SET state = ?, note = ?, links = ?, want_at = ?, caption = ?, title = COALESCE(?, title), accounts = ?, plats = ?, hash = CASE WHEN ? = 'review' THEN NULL ELSE hash END, updated = CASE WHEN state != ? OR COALESCE(note,'') != COALESCE(?, '') THEN ? ELSE updated END WHERE id = ?`,
       ns, note, links, at, str(p.caption, 2200), p.title || null, JSON.stringify(ts.map(t => String(t.account_id))), JSON.stringify([...new Set(ts.map(t => t.platform).filter(Boolean))]), ns, ns, note, Date.now(), r.id);

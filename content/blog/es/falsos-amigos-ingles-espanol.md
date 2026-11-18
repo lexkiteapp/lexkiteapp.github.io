@@ -168,6 +168,12 @@ Elige la palabra correcta (respuestas debajo):
 
 ¿Fallaste alguna? Añade esa pareja a tus tarjetas de repaso hoy mismo, con una frase propia.
 
+Estos falsos amigos cuestan puntos en exámenes como el [Cambridge B2 First](/es/blog/cambridge-b2-first-formato-del-examen/).
+
+Una manera eficaz de fijar los falsos amigos es producirlos de memoria, como se explica en el [recuerdo activo para vocabulario](/es/blog/recuerdo-activo-vocabulario-ingles/).
+
+Otra confusión muy frecuente en la escritura académica es [la diferencia entre affect y effect](/es/blog/diferencia-entre-affect-y-effect-en-ingles/), y en los ensayos de examen conviene repasar los [errores comunes en IELTS Writing](/es/blog/errores-comunes-en-ielts-writing/).
+
 ## Preguntas frecuentes
 
 ### ¿Cuál es la diferencia entre un falso amigo y un cognado?

@@ -159,6 +159,8 @@ quiz: [
 
 {{cta: /hi/blog/english-me-kaise-soche-without-translation/ | सीधे अंग्रेजी में सोचना सीखें}}
 
+बोलते समय झिझक कम करने के लिए [इंग्लिश बोलने में कॉन्फिडेंस कैसे लाएं](/hi/blog/english-bolne-me-confidence-kaise-laye/) भी पढ़िए।
+
 ## अक्सर पूछे जाने वाले प्रश्न (FAQ)
 
 ### क्या विदेश यात्रा में टूटी-फूटी अंग्रेजी (Broken English) से काम चल सकता है?

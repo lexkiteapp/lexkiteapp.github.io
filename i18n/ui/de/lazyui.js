@@ -724,6 +724,7 @@
 "khả năng nhớ trung bình":"durchschnittliches Erinnern",
 "so với cả tuần trước":"im Vergleich zur gesamten letzten Woche",
 "từ đang nhớ":"Wörter im Gedächtnis",
+"{a}/{b} bài":"{a}/{b} Lektionen",
 "{a}/{b} đúng":"{a}/{b} richtig",
 "{done}/{n} từ":"{done}/{n} Wörter",
 "{due} thẻ đến hạn · {total} lượt ôn đã làm":"{due} Karten fällig · {total} Bewertungen abgeschlossen",

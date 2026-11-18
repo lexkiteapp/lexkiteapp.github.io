@@ -138,6 +138,14 @@ B) 9:15
 C) 9:30  
 *Doğru Cevap:* C (Konuşmacı "but" bağlacı ile fikir değiştirmiş ve asıl saati 9:30 olarak düzeltmiştir).
 
+Her soru tipinin kendi tuzağını ayrı ayrı görmek için [IELTS listening soru tipleri](/tr/blog/ielts-listening-soru-tipleri-cozum-yontemleri/) rehberine de göz atın.
+
+Dört becerinin genel puana nasıl dönüştüğünü [IELTS puanı nasıl hesaplanır](/tr/blog/ielts-puani-nasil-hesaplanir-band-skorlari/) yazısında inceleyebilirsiniz.
+
+Sınavı vize başvurusu için alacaksanız hangi sürümü seçmeniz gerektiğini [IELTS UKVI nedir](/tr/blog/ielts-ukvi-nedir-kimlere-gerekir/) rehberinde, rezervasyon adımlarıyla birlikte bulabilirsiniz.
+
+Listening çalışmasını haftalık bir düzene oturtmak için [4, 8 ve 12 haftalık IELTS hazırlık programı](/tr/blog/ielts-hazirlik-programi-4-8-12-haftalik/) yazısındaki ritmi kullanabilirsiniz. Hangi IELTS sürümünün göçmenlik başvurunda geçerli olduğunu da [göçmenlik için IELTS rehberinden](/tr/blog/gocmenlik-icin-ielts-general-academic-ukvi/) öğrenebilirsiniz.
+
 ## Sıkça Sorulan Sorular (SSS)
 
 ### IELTS Listening sınavında Amerikan mı yoksa İngiliz aksanı mı kullanılır?

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_de_there_are",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say there are!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: It gives many shops here.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: There are many shops here.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say there are.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "There are! There are many shops here.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "It gives many shops here.",
+  "right": "There are many shops here.",
+  "strike": "It gives",
+  "why": "Say there are.",
+  "memory": "There are.",
+  "quiz": {
+   "stem": "___ many shops here.",
+   "options": [
+    "There are",
+    "It gives"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "„Es gibt“ ≠ „it gives“!",
+   "tip": "Im Deutschen heißt „es gibt“ wörtlich „it gives“. Im Englischen sagen Sie „there is“ oder „there are“.",
+   "caption": "Wie sagen Sie „es gibt“? 🛍️ Falsch: “It gives many shops here.” Richtig: “There are many shops here.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+   "comment": "Lösung: “There are”. Richtig heißt es: “There are many shops here.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Not it gives, but there are!",
+   "tip": "“Es gibt” literally means “it gives”. In English you say “there is” or “there are”.",
+   "caption": "Not it gives, but there are! Wrong: “It gives many shops here.” Right: “There are many shops here.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "„Es gibt“ ≠ „it gives“!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "de",
+ "est": {
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "„Es gibt“ ≠ „it gives“!",
+  "keyword": "There are many shops here.",
+  "value": "Im Deutschen heißt „es gibt“ wörtlich „it gives“. Im Englischen sagen Sie „there is“ oder „there are“.",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "„Es gibt“ ≠ „it gives“!",
+    "description": "Im Deutschen heißt „es gibt“ wörtlich „it gives“. Im Englischen sagen Sie „there is“ oder „there are“.\n\nWie sagen Sie „es gibt“? 🛍️ Falsch: “It gives many shops here.” Richtig: “There are many shops here.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "There are many shops here.",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Wie sagen Sie „es gibt“? 🛍️ Falsch: “It gives many shops here.” Richtig: “There are many shops here.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "„Es gibt“ ≠ „it gives“!\n\nIm Deutschen heißt „es gibt“ wörtlich „it gives“. Im Englischen sagen Sie „there is“ oder „there are“.\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "„Es gibt“ ≠ „it gives“! Im Deutschen heißt „es gibt“ wörtlich „it gives“. Im Englischen sagen Sie „the… #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Lösung: “There are”. Richtig heißt es: “There are many shops here.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
+  "lang": "de"
+ }
+}

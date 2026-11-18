@@ -60,7 +60,7 @@ export const REG = {
    "exclusive": false
   },
   "grabcast_social": {
-   "label": "GrabCast social API (đăng FB/IG qua autopilot – Neon free của GrabCast: ≤ 60 lượt/ngày, dừng khi 401/403/409/422/429/503)",
+   "label": "GrabCast social API (đăng FB/IG qua autopilot – API chính thức: ≤ 480 lượt/ngày, dừng khi 401/403/409/422/429/503)",
    "exclusive": false
   }
  },
@@ -1428,6 +1428,34 @@ export const REG = {
    "_note": "05/11 PR #719: đo hàng chờ CI mức job mỗi ngày (chờ p50/p90, phút, lượt trùng) so với mốc → issue ci-queue; chỉ đọc API"
   },
   {
+   "id": "perf-flake-report",
+   "workflow": "perf-flake-report.yml",
+   "cron": [
+    "17 2 * * 1"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 1,
+   "lease": false,
+   "_note": "16/11: tỉ lệ chập chờn hiệu năng hằng tuần (call-rt, story-stage, scroll-perf, mobile-qa, ux-cards); chỉ đọc API"
+  },
+  {
+   "id": "native-qa-nightly",
+   "workflow": "native-qa-nightly.yml",
+   "cron": [
+    "40 3 * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 8,
+   "lease": false,
+   "_note": "16/11: native-qa --online đủ mọi hàng L1 mỗi đêm (PR chỉ dịch ngược hàng đổi); gtx miễn phí, chỉ đọc"
+  },
+  {
    "id": "social-metrics",
    "workflow": "social-metrics.yml",
    "cron": [
@@ -1443,6 +1471,20 @@ export const REG = {
     "d1_main_reads": 200,
     "d1_main_writes": 150
    },
+   "lease": false
+  },
+  {
+   "id": "store-rollout",
+   "workflow": "store-rollout.yml",
+   "cron": [
+    "23 3 * * *"
+   ],
+   "priority": "publishing",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 2,
+   "est": {},
    "lease": false
   }
  ]

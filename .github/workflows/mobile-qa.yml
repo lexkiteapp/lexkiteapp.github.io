@@ -85,6 +85,8 @@ jobs:
           # cùng bản dựng out/site + máy chủ của bước trên; Phòng viết, tra từ (#q, #gq + gợi ý), ô điền chữ… – scripts/test/mobile-qa-keyboard.mjs
           curl -fsS -o /dev/null http://localhost:8080/app/ || { (node scripts/test/serve-web.mjs out/site 8080 >/dev/null 2>&1 &) ; sleep 1; }
           node scripts/test/mobile-qa-keyboard.mjs http://localhost:8080 out/mobile-qa
+      - uses: ./.github/actions/playwright-cache
+        with: { browsers: '--with-deps webkit' }
       - name: Chạm tab Tôi (Cá nhân) 375×812 sáng/tối + IndexedDB treo
         if: ${{ !cancelled() }}
         run: |

@@ -228,6 +228,12 @@ qualityScore: 90
 
 ---
 
+ولتضع الجزء 5 في سياق الاختبار كله اقرأ [هيكل اختبار TOEIC](/ar/blog/haykal-ikhtibar-toeic-al-ajza-al-sabaa/) بأجزائه السبعة وتوزيع الوقت.
+
+وللجزء الأكبر في الاستماع راجع [TOEIC Part 3 وPart 4](/ar/blog/toeic-part-3-wa-part-4-istratijiyat-al-muhadathat/).
+
+ولبداية قسم الاستماع، ست صور وأربع عبارات لكل صورة، راجع [toeic part 1 وفخاخ وصف الصور](/ar/blog/toeic-part-1-nasaih-wa-fakhakh-al-suwar/).
+
 ## الأسئلة الشائعة حول TOEIC Part 5
 
 ### هل يجب عليّ قراءة الجملة بالكامل قبل الإجابة؟

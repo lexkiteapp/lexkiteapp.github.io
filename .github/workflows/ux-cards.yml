@@ -64,6 +64,8 @@ jobs:
       - uses: ./.github/actions/no-prod
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
+      - uses: ./.github/actions/playwright-cache
+        with: { browsers: '--with-deps chromium' }
       - name: Chụp
         env: { BEFORE: "${{ github.event.inputs.before }}", EV: "${{ github.event_name }}" }
         run: |
@@ -104,6 +106,8 @@ jobs:
       - uses: ./.github/actions/no-prod
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
+      - uses: ./.github/actions/playwright-cache
+        with: { browsers: '--with-deps chromium' }
       - name: Cài
         timeout-minutes: 14
         run: |

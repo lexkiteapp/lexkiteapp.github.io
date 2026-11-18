@@ -35,8 +35,9 @@ assert.ok(/budget-watch:/.test(pr) && /guards\.mjs budget/.test(pr), 'prod-relea
 // 2) cảnh báo sớm ngân sách
 const K = 1024;
 assert.equal(lowHeadroom([{ name: 'a', used: 374 * K - 1000, cap: 374 * K }]).length, 1, 'dư < 5 KB → vàng');
-assert.equal(lowHeadroom([{ name: 'a', used: 98 * K, cap: 103 * K }]).length, 0, 'dư đúng 5 KB và ≥ 2 % → im');
-assert.equal(lowHeadroom([{ name: 'a', used: 11.69e6, cap: 11.78e6 }]).length, 1, 'dư 0,8 % (< 2 %) → vàng');
+assert.equal(lowHeadroom([{ name: 'a', used: 98 * K, cap: 103 * K }]).length, 1, 'dư 4,9 % (< 5 %) → vàng');
+assert.equal(lowHeadroom([{ name: 'a', used: 95 * K, cap: 103 * K }]).length, 0, 'dư 7,8 % và ≥ 5 KB → im');
+assert.equal(lowHeadroom([{ name: 'a', used: 11.69e6, cap: 11.78e6 }]).length, 1, 'dư 0,8 % (< 5 %) → vàng');
 assert.equal(lowHeadroom([{ name: 'a', used: 300 * K, cap: 374 * K }]).length, 0, 'còn rộng → im');
 assert.equal(lowHeadroom([{ name: 'a', used: 375 * K, cap: 374 * K }]).length, 0, 'đã vượt = đỏ (size-budget lo), không phải vàng');
 assert.ok(/lowHeadroom/.test(fs.readFileSync('scripts/test/size-budget.mjs', 'utf8')), 'size-budget dùng lowHeadroom');

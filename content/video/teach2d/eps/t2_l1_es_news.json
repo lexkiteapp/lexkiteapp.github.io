@@ -66,9 +66,9 @@
    "answer": 1
   },
   "native": {
-   "hook": "¿Dices “the news are”? No",
-   "tip": "“News” parece plural por la “s”, pero es singular: “the news is”.",
-   "caption": "¿Las noticias “son”? En inglés es singular 📰 No digas “The news are bad.”, sino “The news is bad.”. ¡Escucha a Carlos y repite! Practica más en la app Lexkite.",
+   "hook": "¿Dices “the news are”? ¡No!",
+   "tip": "“News” parece plural por la “s”, pero es singular: “the news is.”",
+   "caption": "En español “las noticias” es plural, pero en inglés “news” es singular 📰 No digas “The news are bad.”, sino “The news is bad.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.",
    "comment": "Respuesta: “is”. “News” es singular aunque termine en “s”. Practica más con un quiz gratis aquí: {link}",
    "hashtags": [
     "#aprenderingles",
@@ -78,9 +78,9 @@
    ]
   },
   "en": {
-   "hook": "Do you say “the news are”? No",
-   "tip": "“News” looks plural because of the “s”, but it is singular: “the news is”.",
-   "caption": "Are the news “son”? In English it is singular. Do not say “The news are bad.”, say “The news is bad.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+   "hook": "Do you say “the news are”? No!",
+   "tip": "“News” looks plural because of the “s”, but it is singular: “the news is.”",
+   "caption": "“Las noticias” is plural, but in English “news” is singular. Do not say “The news are bad.”, say “The news is bad.” Listen to Carlos and repeat! Practice more in the Lexkite app."
   }
  },
  "cta": {
@@ -91,7 +91,7 @@
  },
  "hook": {
   "line": "h",
-  "text": "¿Dices “the news are”? No"
+  "text": "¿Dices “the news are”? ¡No!"
  },
  "src": {
   "l1": true
@@ -103,9 +103,9 @@
   "wpm": 97
  },
  "publish": {
-  "title": "¿Dices “the news are”? No",
+  "title": "¿Dices “the news are”? ¡No!",
   "keyword": "The news is bad.",
-  "value": "“News” parece plural por la “s”, pero es singular: “the news is”.",
+  "value": "“News” parece plural por la “s”, pero es singular: “the news is.”",
   "hashtags": [
    "#aprenderingles",
    "#inglesfacil",
@@ -116,8 +116,8 @@
   "script_words": 38,
   "platforms": {
    "youtube": {
-    "title": "¿Dices “the news are”? No",
-    "description": "¿Las noticias “son”? En inglés es singular 📰 No digas “The news are bad.”, sino “The news is bad.”. ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #gramatica #lexkite",
+    "title": "¿Dices “the news are”? ¡No!",
+    "description": "“News” parece plural por la “s”, pero es singular: “the news is.”\n\nEn español “las noticias” es plural, pero en inglés “news” es singular 📰 No digas “The news are bad.”, sino “The news is bad.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #gramatica #lexkite",
     "tags": [
      "The news is bad.",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "¿Las noticias “son”? En inglés es singular 📰 No digas “The news are bad.”, sino “The news is bad.”. ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+    "text": "En español “las noticias” es plural, pero en inglés “news” es singular 📰 No digas “The news are bad.”, sino “The news is bad.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
    },
    "instagram": {
-    "caption": "¿Las noticias “son”? En inglés es singular 📰 No digas “The news are bad.”, sino “The news is bad.”. ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nlexkite.com",
+    "caption": "¿Dices “the news are”? ¡No!\n\n“News” parece plural por la “s”, pero es singular: “the news is.”\n\nlexkite.com",
     "hashtags": [
      "#aprenderingles",
      "#inglesfacil",
@@ -137,7 +137,7 @@
     ]
    },
    "tiktok": {
-    "caption": "¿Dices “the news are”? No #aprenderingles #inglesfacil #gramatica"
+    "caption": "¿Dices “the news are”? ¡No! “News” parece plural por la “s”, pero es singular: “the news is.” #aprenderingles #inglesfacil #gramatica"
    }
   },
   "first_comment": "Respuesta: “is”. “News” es singular aunque termine en “s”. Practica más con un quiz gratis aquí: {link}",

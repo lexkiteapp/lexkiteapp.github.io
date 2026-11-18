@@ -146,6 +146,8 @@ All in all, I think this trend reflects a healthy hunger for meaning, provided t
 
 ---
 
+Part 3 的回答如何从短句拉到有层次的长答案，[雅思口语7分答案范例](/zh/blog/ya-si-kou-yu-7-fen-da-an-fan-li/) 里有逐句对照的示范。
+
 ## 关于雅思口语Part 3的常见问答
 
 ### 1. Part 3每个问题回答多长时间最为合适？

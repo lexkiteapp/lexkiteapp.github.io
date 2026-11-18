@@ -46,6 +46,8 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - uses: ./.github/actions/setup-ffmpeg
+      - uses: ./.github/actions/playwright-cache
+        with: { browsers: '--with-deps chromium' }
       - name: Chụp + so hash
         env: { LIVE: "${{ github.event.inputs.live || 'https://lexkite.com' }}" }
         run: |
