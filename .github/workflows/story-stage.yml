@@ -37,8 +37,12 @@ jobs:
     timeout-minutes: 18
     steps:
       - uses: actions/checkout@v4
+      - uses: ./.github/actions/gen-if-needed   # luật 18
+        with: { ext: true }
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
+      - name: Dựng lại bản sinh (extension/app, gói dịch) – PR không commit chúng (#1383)
+        run: node scripts/ci/regen-generated.mjs
       - name: Tĩnh
         run: node scripts/test/story-stage.mjs --out out/story-stage
       - name: Playwright

@@ -128,6 +128,8 @@ Proses menyimpan kosakata ke dalam memori permanen melalui algoritma FSRS melewa
 4. **Tahap Penggunaan Produktif Terkendali (Controlled Production)**: Anda mulai mampu menggunakan kata tersebut saat menulis esai atau menyusun kalimat presentasi dengan sedikit jeda perencanaan.
 5. **Tahap Refleks Otomatis (Automatic Fluency)**: Kata tersebut meluncur alami dari bibir Anda saat percakapan spontan tanpa berpikir sadar, menandakan bahwa kata itu telah berpindah seutuhnya ke dalam memori implisit (*procedural memory*).
 
+Jadwal saja belum cukup; padukan dengan [active recall](/id/blog/active-recall-adalah-cara-menghafal-kosakata/).
+
 ## Pertanyaan yang Sering Diajukan (FAQ)
 
 ### Q1. Apa yang harus dilakukan jika ada puluhan kartu review menumpuk karena libur belajar beberapa hari?

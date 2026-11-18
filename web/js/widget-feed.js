@@ -62,7 +62,7 @@
     const owned = new Set(cards.map(c => String(c.word).toLowerCase()));
     const pool = (o.pool || []).filter(w => w && w.word && !owned.has(String(w.word).toLowerCase()) && !/\s{2,}/.test(w.word));
     const at = w => CEFR.indexOf(String(w.level || '').toUpperCase().slice(0, 2));
-    const seed = Math.floor(now / DAY);
+    const dd = new Date(now), seed = Math.floor(Date.UTC(dd.getFullYear(), dd.getMonth(), dd.getDate()) / DAY); // ngày LỊCH địa phương: từ mới trên widget đổi lúc nửa đêm của người học, không phải nửa đêm UTC (07:00 ở VN)
     const tiers = [w => at(w) === lv || at(w) === lv + 1, w => at(w) === lv - 1 || at(w) === lv + 2, () => true];
     for (const f of tiers) if (add(shuffle(pool.filter(f), seed))) break;
     return out;

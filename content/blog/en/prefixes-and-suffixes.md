@@ -42,6 +42,7 @@ quiz: [
     explain: "The prefix un- gives the opposite, and -ness forms the noun. The final y changes to i: happy → happiness."
   }
 ]
+publishAt: 2027-03-11T19:40:00+05:30
 ---
 Once you know a few common **prefixes and suffixes**, one new word becomes five. If you know *happy*, you can quickly understand *unhappy*, *happiness* and *happily*. Native speakers do this without thinking, and learners who study word parts usually grow their vocabulary faster than those who memorise isolated words. This guide gives you the most useful prefixes and suffixes in English, the spelling rules that trip people up, and a method to practise them for exams such as IELTS, TOEFL and TOEIC.
 

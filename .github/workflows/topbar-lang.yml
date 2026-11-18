@@ -38,6 +38,7 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
+      - uses: ./.github/actions/gen-if-needed   # bản sinh khớp nguồn PR khi không npm ci (luật 18)
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - name: Cài trình duyệt

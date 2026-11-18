@@ -9,7 +9,7 @@ tags: [ielts, immigration, ielts-general, canada, australia]
 keyword: "ielts para inmigrar"
 cover: goal
 coverAlt: "Pantalla de objetivo de Lexkite para elegir examen, nota meta, fecha de examen y horas semanales"
-publishAt:
+publishAt: 2027-01-12T21:19:00-06:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

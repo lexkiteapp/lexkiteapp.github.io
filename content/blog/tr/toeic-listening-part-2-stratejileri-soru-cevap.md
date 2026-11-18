@@ -94,6 +94,8 @@ Part 2 sorularının önemli bir kısmında doğru cevabın anahtarı, konuşmac
 
 Ofis kelimelerini ne kadar çabuk tanırsanız soruyu o kadar çabuk anlarsınız. Kelime setlerini [Lexkite TOEIC kelime kütüphanesinde](/#/library?g=toeic) çalışın, ayrıca [İngilizce kelime listesine](/en/vocabulary/) (sayfa İngilizce) göz atın.
 
+Listening bölümünün ilk altı sorusu olan fotoğraf sorularını [TOEIC Part 1 taktikleri](/tr/blog/toeic-part-1-fotograf-tanimlama-taktikleri/) yazısında bulabilirsiniz.
+
 ## Strateji 2: Üç klasik akustik tuzağı etkisiz hale getirin
 
 Part 2'deki yanlış seçenekler çoğu zaman şu üç tuzaktan birine dayanır:
@@ -151,6 +153,10 @@ Sınavın diğer bölümlerine dair kapsamlı hazırlık için [TOEIC Part 5 str
 Kulağınızdan kaçan sesler için [Lexkite IPA telaffuz kütüphanesi](/#/pron) her ünlü ve ünsüzü örnek kelimelerle sunar.
 
 ![Lexkite IPA telaffuz kütüphanesi: tek ünlüler, çift ünlüler ve ünsüzler, örnek kelimeler ve ses bazlı pratik](media:pron "Ses tuzaklarında karışan sesleri tek tek çalışın")
+
+Part 2'nin sınavdaki yerini ve diğer altı bölümü görmek için [TOEIC sınav formatı](/tr/blog/toeic-sinav-formati-bolumler-sure-puanlama/) rehberine bakabilirsiniz.
+
+Part 2'den sonra konuşma ve anons bölümlerine geçmek için [TOEIC Part 3 ve Part 4 stratejileri](/tr/blog/toeic-part-3-ve-part-4-stratejileri/) yazısına bakabilirsiniz.
 
 ## TOEIC Listening Part 2 hakkında sık sorulan sorular
 

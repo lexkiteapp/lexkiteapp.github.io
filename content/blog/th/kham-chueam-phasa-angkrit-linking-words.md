@@ -150,6 +150,12 @@ quiz: [
 
 ---
 
+คำเชื่อมลำดับอย่าง first, next, after that และ finally ถูกใช้หนักในโจทย์กระบวนการ ลองดูตัวอย่างการสลับคำเหล่านี้ใน [IELTS Writing Task 1 Process: เทคนิคและรายงานตัวอย่าง](/th/blog/ielts-writing-task-1-process-diagram/)
+
+ดูการใช้คำเชื่อมในเรียงความจริงได้ที่ [IELTS Opinion Essay เขียนยังไง](/th/blog/ielts-opinion-essay-khian-yangngai/)
+
+เมื่อเขียนเหตุและผลด้วยคำเชื่อม อย่าลืมเลือก affect กับ effect ให้ถูก ดู[Affect Effect ต่างกันอย่างไร](/th/blog/affect-effect-tang-kan-yang-rai/)
+
 ## คำถามที่พบบ่อย (FAQ)
 
 ### 1. การใส่คำเชื่อมมากเกินไปในเรียงความ (Overuse of Linking Words) มีผลเสียหรือไม่?

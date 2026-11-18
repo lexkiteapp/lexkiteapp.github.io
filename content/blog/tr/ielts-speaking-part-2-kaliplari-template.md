@@ -161,6 +161,10 @@ Ayrıca okuyun: [İngilizce Bağlaçlar: Essay Yazımı İçin Linking Words Reh
 
 {{youtube: | IELTS Speaking Part 2 Template & Strategy}}
 
+Part 2 hikâyenizin band 6 ile band 7 arasındaki farkını görmek için [band 7 örnek cevaplar](/tr/blog/ielts-speaking-band-7-ornek-cevaplar/) yazısındaki analizli cue card cevabına da bakabilirsiniz.
+
+Göçmenlik başvurusu için IELTS giriyorsanız hangi sürümü ve kaç puan istendiğini [göçmenlik için IELTS rehberinden](/tr/blog/gocmenlik-icin-ielts-general-academic-ukvi/) kontrol edin.
+
 ## Sıkça Sorulan Sorular (FAQ)
 
 ### Q1. 2 dakikadan önce konuşmam biterse puanım düşer mi?

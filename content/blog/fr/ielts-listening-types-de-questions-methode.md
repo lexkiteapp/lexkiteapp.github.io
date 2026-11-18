@@ -9,7 +9,7 @@ tags: [ielts, listening, question-types, strategy]
 keyword: "ielts listening types de questions"
 cover: listening
 coverAlt: "Liste d'exercices d'écoute Lexkite avec des enregistrements classés par niveau"
-publishAt:
+publishAt: 2027-01-03T19:14:00+01:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

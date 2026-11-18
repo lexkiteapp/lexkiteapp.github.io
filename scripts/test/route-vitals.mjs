@@ -5,6 +5,7 @@
 // Dùng: node scripts/test/route-vitals.mjs [base] [out.json]   – số ghi vào docs (mục "Tải trang – 6 route").
 import { chromium } from 'playwright';
 import fs from 'node:fs';
+import { rateFor } from './lib/perf-calibrate.mjs';
 const base = (process.argv[2] || 'https://lexkite.com').replace(/\/$/, ''), out = process.argv[3] || 'out/route-vitals.json';
 const ONLY = process.env.ONLY ? process.env.ONLY.split(',') : null;
 const ROUTES = [
@@ -19,7 +20,7 @@ const ROUTES = [
 const RUNS = +process.env.RUNS || 3;
 const WARM = process.env.WARM === '1'; // 1 = khách quay lại còn cache (mở 1 lượt trước khi đo); mặc định xoá HTTP cache + SW (lần tải lạnh)
 const b = await chromium.launch();
-const mkCtx = () => b.newContext({ viewport: { width: 412, height: 823 }, deviceScaleFactor: 1.75, isMobile: true, hasTouch: true, locale: 'vi-VN' });
+const mkCtx = () => b.newContext({ bypassCSP: true, viewport: { width: 412, height: 823 }, deviceScaleFactor: 1.75, isMobile: true, hasTouch: true, locale: 'vi-VN' });
 const UX1 = process.env.UX1 === '1'; // bản dựng cục bộ không có /api/config → bật giao diện 5 tab (ux1) như lexkite.com
 const init = UX1 => {
   try { localStorage.setItem('lk.noTrack', '1'); if (UX1) localStorage.setItem('lk.ux1', '1'); } catch (e) { /* trang không có localStorage */ }
@@ -36,7 +37,7 @@ async function measure(ctx, path) {
   const pg = await ctx.newPage(), cdp = await ctx.newCDPSession(pg), req = new Map();
   await cdp.send('Network.enable');
   await cdp.send('Network.emulateNetworkConditions', { offline: false, latency: 150, downloadThroughput: 1.6 * 1024 * 1024 / 8, uploadThroughput: 750 * 1024 / 8 });
-  await cdp.send('Emulation.setCPUThrottlingRate', { rate: 4 });
+  await cdp.send('Emulation.setCPUThrottlingRate', { rate: (await rateFor(b, 4)).rate });
   let frozen = false;
   cdp.on('Network.responseReceived', e => { if (!frozen) req.set(e.requestId, { url: e.response.url, type: e.type, cache: e.response.fromDiskCache || e.response.fromServiceWorker }); });
   cdp.on('Network.loadingFinished', e => { const r = req.get(e.requestId); if (r && !frozen) r.bytes = e.encodedDataLength; });

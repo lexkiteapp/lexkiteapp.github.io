@@ -153,6 +153,8 @@ quiz: [
 
 {{youtube: | IELTS Reading Skimming and Scanning Masterclass}}
 
+وبعد المسح السريع تأتي طريقة كل مهمة، وهي مشروحة في [أنواع أسئلة القراءة في الآيلتس](/ar/blog/anwa-asilat-al-qiraa-fi-al-ielts-reading/).
+
 ## الأسئلة الشائعة (FAQ)
 
 ### Q1. هل يجب أن أقرأ المقال بأكمله قبل البدء بحل الأسئلة؟

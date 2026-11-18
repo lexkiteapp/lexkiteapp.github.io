@@ -228,6 +228,10 @@ TOEIC परीक्षा में सबसे आम जाल यह ह�
 
 ---
 
+पूरे टेस्ट का ढाँचा और बाकी पार्ट का समय-बँटवारा [TOEIC Exam Pattern in Hindi](/hi/blog/toeic-exam-pattern-in-hindi/) में है।
+
+Reading से आगे Listening की बात करें तो [TOEIC Part 3 और 4 की तैयारी](/hi/blog/toeic-part-3-and-4-ki-taiyari-kaise-kare/) बातचीत और भाषण वाले प्रश्न सिखाती है।
+
 ## अक्सर पूछे जाने वाले प्रश्न (FAQ)
 
 ### क्या हर प्रश्न के लिए पूरा वाक्य पढ़ना जरूरी है?
