@@ -116,6 +116,11 @@
   Cache-Control: no-cache
   Access-Control-Allow-Origin: *
 
+# Gói đọc nâng cao C1–C2 (tách khỏi skills-pack.json để lõi giữ trần 700 KB): như skills-pack
+/data/skills-pack-adv.json
+  Cache-Control: no-cache
+  Access-Control-Allow-Origin: *
+
 # Gói nội dung P07 (nói & phát âm) cho app native (scripts/native/gen-speak.mjs): như skills-pack
 /data/speak-pack.json
   Cache-Control: no-cache

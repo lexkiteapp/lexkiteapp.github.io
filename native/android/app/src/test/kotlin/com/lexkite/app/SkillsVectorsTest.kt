@@ -80,7 +80,10 @@ import org.junit.Test
 class SkillsVectorsTest {
     private val v = Json.parseToJsonElement(javaClass.classLoader!!.getResource("skills.json")!!.readText()).jsonObject
     /** The downloaded pack (web/data/skills-pack.json): parsing it installs the band table, Kokoro pools and stopwords the assertions below check against the vectors. */
-    private val pack = SkillsContent.parse(Json.parseToJsonElement(javaClass.classLoader!!.getResource("skills-pack.json")!!.readText()).jsonObject)
+    private val core = SkillsContent.parse(Json.parseToJsonElement(javaClass.classLoader!!.getResource("skills-pack.json")!!.readText()).jsonObject)
+    /** The advanced pack (web/data/skills-pack-adv.json: the C1–C2 readings); core + adv = the complete content the app shows once the background download lands. */
+    private val adv = SkillsContent.parseAdv(Json.parseToJsonElement(javaClass.classLoader!!.getResource("skills-pack-adv.json")!!.readText()).jsonObject)
+    private val pack = core.withReadings(adv)
     private val now = v.getValue("now").jsonPrimitive.long
     private val tx = Tx.RAW
 
@@ -131,6 +134,7 @@ class SkillsVectorsTest {
     private fun packCounts() {
         val k = v.o("counts")
         assertEquals(k.n("tests").toInt(), pack.tests.size); assertEquals(k.n("listening").toInt(), pack.listening.size); assertEquals(k.n("readings").toInt(), pack.readings.size)
+        assertEquals(core.readings.size + adv.size, pack.readings.size); assertTrue(adv.isNotEmpty() && adv.all { it.level == "C1" || it.level == "C2" } && core.readings.none { it.level == "C1" || it.level == "C2" })
         assertTrue(pack.tests.size >= 10 && pack.listening.size >= 40 && pack.readings.size >= 57)
     }
     private fun cut(p: Part, n: Int) = Part(JsonObject(p.j + ("script" to JsonArray(p.j.a("script").take(n)))))
