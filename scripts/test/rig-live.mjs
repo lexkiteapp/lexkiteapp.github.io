@@ -29,7 +29,11 @@ async function open(browser, vp, scheme, reduce) {
   page.on('console', m => { if (m.type() === 'error' && (!m.location().url || same(m.location().url)) && !IGNORE.test(m.text() + m.location().url)) errs.push('console: ' + m.text().slice(0, 200)); });
   return { ctx, page, errs };
 }
-const rigReady = (page, ms = 40000) => page.waitForFunction(() => (window.__lkRigs || []).some(r => r.stats.ready && !r.stats.failed && r.stats.frames > 20) && !!document.querySelector('.tch-rig canvas.tch-face.trig-cv'), null, { timeout: ms });
+// 17/11: KHÔNG dùng page.waitForFunction – WebKit đánh giá hàm bằng eval, CSP live (không 'unsafe-eval') chặn → post-deploy-check đỏ 3/3 ở mọi lượt webkit. Hỏi lại bằng page.evaluate (callFunctionOn, không eval).
+const rigReady = async (page, ms = 40000) => {
+  const t0 = Date.now(), ready = () => page.evaluate(() => (window.__lkRigs || []).some(r => r.stats.ready && !r.stats.failed && r.stats.frames > 20) && !!document.querySelector('.tch-rig canvas.tch-face.trig-cv'));
+  while (!(await ready().catch(() => false))) { if (Date.now() - t0 > ms) throw new Error(`rigReady: rig chưa sẵn sàng sau ${ms} ms`); await page.waitForTimeout(250); }
+};
 
 // khung rig/giây trong `ms` (rig vẽ vòng rAF riêng: stats.frames tăng mỗi khung)
 const fpsOnce = (page, ms = 2000) => page.evaluate(async ms => { const r = window.__lkRigs.find(x => x.stats.ready), f0 = r.stats.frames, t0 = performance.now(); await new Promise(ok => setTimeout(ok, ms)); return (r.stats.frames - f0) / ((performance.now() - t0) / 1000); }, ms);
