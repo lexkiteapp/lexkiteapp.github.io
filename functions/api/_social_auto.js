@@ -1,4 +1,5 @@
 /* Autopilot social (chạy nền, máy owner tắt vẫn chạy) – docs/DISTRIBUTION.md §6.
+ * Lỗi tạm thời của nền tảng (lỗi nội bộ/5xx/timeout): tự thử lại ≤ 3 lần (backoff 30 phút → 2 giờ → 6 giờ, cùng post_id), chỉ cảnh báo khi vẫn hỏng; spam_risk/validation không bao giờ tự thử lại.
  * Mỗi lượt (cron CI .github/workflows/social-auto.yml → POST /api/social-auto, ký HMAC; hoặc nút "Chạy ngay" trong Quản trị):
  *   1. (≥ sync_h giờ một lần) GET accounts + GET posts → ext_sync + boardSync (trạng thái Scheduled/Published/Failed) → dist_social 'published'.
  *   2. social_due (dist_social theo slot_ms, cửa sổ [now + lead, now + lookahead]) ≤ max_per_run bài, chỉ nền tảng đang bật (mặc định FB + IG).
@@ -205,16 +206,25 @@ export async function autoStatus(env, now = Date.now()) {
     upcoming: up.map((r, i) => { const b = bs.get(ids[i]) || {}, l = ls.get(r.clip + '|' + r.channel_id) || {}; return { ...r, board_id: ids[i], board: b.state || null, note: b.note || null, provider: l.provider || null, permalink: l.permalink || null, lock: l.state || null }; }), now };
 }
 
-/** Bài autopilot GrabCast báo lỗi khi đăng → dist_social 'failed' + cảnh báo. KHÔNG tự thử lại: TikTok phạt spam_risk nếu đăng lại liên tiếp, người xem rồi bấm Thử lại. */
-async function mirrorFailed(db, st, since, now) {
-  let n = 0;
-  for (const r of await all(db, "SELECT clip, accounts, plats, links, post_id FROM soc_board WHERE state = 'failed' AND by_who = ? AND updated > ? LIMIT 50", AUTO_WHO, since)) {
+/** Lỗi TẠM THỜI của nền tảng (lỗi nội bộ / 5xx / quá thời gian / tạm không khả dụng) → tự thử lại. Lỗi nội dung, quyền, riêng tư, spam_risk, trùng… KHÔNG bao giờ tự thử lại (TikTok phạt spam_risk). */
+export const isTransientErr = code => { const c = String(code || ''); return !/spam|valid|privat|permission|scope|auth|token|forbidden|duplicate|policy|copyright|unsupported|too_?long|invalid|not_?found|quota|limit/i.test(c) && /internal|server_?error|(?:^|\D)5\d\d(?:\D|$)|timeout|timed.?out|temporar|unavailable|upstream|bad_?gateway|n[ộo]i b[ộo]/i.test(c); };
+export const RETRY_MAX = 3, RETRY_BACKOFF_MIN = [30, 120, 360]; // tối đa 3 lần/bài, cách nhau 30 phút → 2 giờ → 6 giờ (cron 2 giờ/lượt nên thực tế ≥ 1 lượt giữa các lần)
+/** Bài autopilot GrabCast báo lỗi khi đăng → lỗi tạm thời: tự thử lại (retry ≤ RETRY_MAX, backoff, cùng post_id nên không đăng trùng); còn lại / hết lượt thử → dist_social 'failed' + cảnh báo. */
+export async function mirrorFailed(db, st, since, now, retry) {
+  let n = 0, tried = 0; const rts = st.retry = st.retry || {};
+  for (const [k, v] of Object.entries(rts)) if (!v || now - v.at > 7 * 864e5) delete rts[k];
+  for (const r of await all(db, "SELECT clip, accounts, plats, links, post_id FROM soc_board WHERE state = 'failed' AND by_who = ? AND updated > ? LIMIT 50", AUTO_WHO, retry ? Math.min(since, now - 864e5) : since)) {
     let a = [], p = [], ls = []; try { a = JSON.parse(r.accounts || '[]'); p = JSON.parse(r.plats || '[]'); ls = JSON.parse(r.links || '[]'); } catch (e) { continue; }
     if (a.length !== 1 || !r.clip) continue;
     const ch = `gc-${platOf({ platform: p[0] || '' })}-${a[0]}`, code = String((ls.find(x => x && x.e) || {}).e || 'failed').slice(0, 60);
+    const rt = rts[r.post_id] || { n: 0, at: 0 };
+    if (r.post_id && isTransientErr(code) && rt.n < RETRY_MAX) { // lỗi tạm thời: chưa đánh dấu failed, chưa báo người
+      if (retry && tried < 4 && now - rt.at >= RETRY_BACKOFF_MIN[rt.n] * 60e3) { tried++; rts[r.post_id] = { n: rt.n + 1, at: now, code }; try { await retry(r.post_id, rt.n + 1); } catch (e) { if (e && e.status) break; } }
+      continue;
+    }
     const res = await run(db, "UPDATE dist_social SET state = 'failed', err = ?, updated = ? WHERE clip = ? AND channel_id = ? AND state = 'pushed'", code, Date.now(), r.clip, ch);
     const hint = code === 'validation_failed' && /tiktok/.test(ch) ? ' Thường do tài khoản TikTok đang Riêng tư: chuyển sang Công khai trong app TikTok.' : '';
-    if (res && res.meta && res.meta.changes) { n++; pushAlert(st, `post-failed:${r.clip}|${ch}`, `Lexkite autopilot: bài ${r.clip} đăng lỗi ở ${ch} (${code}).${hint} Không tự thử lại – xem ở Quản trị › Hàng đợi rồi bấm Thử lại.`, now); }
+    if (res && res.meta && res.meta.changes) { n++; pushAlert(st, `post-failed:${r.clip}|${ch}`, `Lexkite autopilot: bài ${r.clip} đăng lỗi ở ${ch} (${code}).${hint} ${rt.n ? `Đã tự thử lại ${rt.n} lần vẫn lỗi. ` : ''}Không tự thử lại thêm – xem ở Quản trị › Hàng đợi rồi bấm Thử lại.`, now); }
   }
   for (const r of await all(db, "SELECT clip, accounts, plats FROM soc_board WHERE note = 'needs-check' AND by_who = ? AND updated > ? LIMIT 20", AUTO_WHO, since)) { // có thể đã lên kênh: báo người, tuyệt đối không đăng lại
     let a = [], p = []; try { a = JSON.parse(r.accounts || '[]'); p = JSON.parse(r.plats || '[]'); } catch (e) { continue; }
@@ -400,7 +410,7 @@ export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = f
       const pr = await call('GET', 'posts', null, { limit: 100 });
       if (pr.status < 400) await boardSync(db, (pr.data && pr.data.posts) || []);
       const pub = await mirrorPublished(db, (+(st.last_sync && st.last_sync.at) || 0) - 36e5);
-      const syncSince = (+(st.last_sync && st.last_sync.at) || 0) - 36e5; await mirrorFailed(db, st, syncSince, now);
+      const syncSince = (+(st.last_sync && st.last_sync.at) || 0) - 36e5; await mirrorFailed(db, st, syncSince, now, async (pid, i) => { try { await call('POST', `posts/${pid}/retry`, {}, null, await idemKey(pid, 'retry', 'r' + i)); } catch (e) { if (e && (e.status === 409 || e.status === 422)) return; throw e; } });
       st.last_sync = { at: now, posts: ((pr.data && pr.data.posts) || []).length, published: pub, channels: accs.length }; rec.synced = st.last_sync;
       if (accs.length > hadCh) { const q = await autoQueue(env, db, cfg, now).catch(() => 0); rec.auto_queued = (rec.auto_queued || 0) + q; if (cfg.plan_daily) await planNow(); } // vừa nối kênh mới → duyệt clip đạt QC + xếp lịch ngay, không đợi hôm sau
     }

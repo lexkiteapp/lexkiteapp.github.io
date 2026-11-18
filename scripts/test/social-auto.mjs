@@ -69,6 +69,7 @@ globalThis.fetch = async (url, init = {}) => {
   if (/^media\/[^/]+$/.test(p) && init.method === 'GET') return J({ media: { id: p.slice(6), status: GC.mediaStatus || 'ready' } });
   if (/^media\/[^/]+\/complete$/.test(p)) return J({ media: { id: 'm_up' } });
   let m = /^posts\/([^/]+)$/.exec(p); if (m) return GC.posts[m[1]] ? J({ post: GC.posts[m[1]] }) : J({ error: { code: 'not_found' } }, 404);
+  m = /^posts\/([^/]+)\/retry$/.exec(p); if (m && GC.posts[m[1]]) { GC.retries = (GC.retries || 0) + 1; return J({ post: GC.posts[m[1]] }); }
   if (p === 'validate') return J(GC.validate || { ok: true, targets: [] });
   m = /^posts\/([^/]+)\/schedule$/.exec(p); if (m) { if (GC.schedule422) return J({ error: 'validation_failed', problems: GC.schedule422 }, 422); if (GC.scheduleTimeout) { GC.posts[m[1]].status = 'scheduled'; throw new Error('timeout'); } if (!JSON.parse(init.body).consent) return J({ error: 'consent_required' }, 422); if (GC.posts[m[1]].status !== 'draft') return J({ error: 'not_draft' }, 409); Object.assign(GC.posts[m[1]], { status: 'scheduled', scheduled_at: JSON.parse(init.body).scheduled_at }); return J({ post: GC.posts[m[1]] }); }
   return J({});
@@ -77,7 +78,7 @@ if (typeof FixedLengthStream === 'undefined') globalThis.FixedLengthStream = cla
 const ENV = { DB, GRABCAST_API_KEY: KEY, SHORTS_READ_TOKEN: 'ro', LEXKITE_DRIVE_CLI_KEY: CLI, GRABCAST_WEBHOOK_SECRET: 'whsec_0123456789abcdefghijklmn' };
 await MGR.setupMgr(DB);
 // Kịch bản gốc cố định cài đặt (TikTok tắt, không tự xếp lịch, đồng bộ 6 giờ) để không phụ thuộc mặc định – mặc định mới được kiểm ở mục 1 và mục 3.
-sql.prepare("INSERT INTO soc_meta (k, v, at) VALUES ('auto', ?, ?)").run(JSON.stringify({ policy: A.POLICY, auto_approve: true, auto_queue: true, manual_first: 0, autopub: { youtube: true }, plats: { tiktok: false }, plan_daily: false, sync_h: 6 }), now); // kịch bản gốc = cấu hình ownerPolicy 10/11 (chỉ YouTube tự đăng, FB/IG chờ duyệt); từ 16/11 ownerPolicy bật cả FB/IG/TikTok nên phải lưu rõ
+sql.prepare("INSERT INTO soc_meta (k, v, at) VALUES ('auto', ?, ?)").run(JSON.stringify({ policy: A.POLICY, auto_approve: true, auto_queue: true, manual_first: 0, autopub: { youtube: true }, plats: { tiktok: false }, plan_daily: false, sync_h: 6, max_per_run: 3 }), now); // kịch bản gốc (3 bài/lượt: mặc định thật nay 8) = cấu hình ownerPolicy 10/11 (chỉ YouTube tự đăng, FB/IG chờ duyệt); từ 16/11 ownerPolicy bật cả FB/IG/TikTok nên phải lưu rõ
 sql.exec('CREATE TABLE yt_queue (clip TEXT PRIMARY KEY, lesson TEXT, status TEXT, privacy TEXT, publish_at TEXT, approved_by TEXT, approved_at INTEGER, video_id TEXT, upload_url TEXT, session_at INTEGER, attempts INTEGER DEFAULT 0, err TEXT, updated INTEGER, thumb INTEGER, title TEXT, channel_id TEXT); CREATE TABLE clip_review (clip TEXT PRIMARY KEY, state TEXT, deleted INTEGER, web INTEGER)');
 for (const c of [CA, CB]) sql.prepare("INSERT INTO yt_queue (clip, status) VALUES (?, 'manual')").run(c); // CC chưa duyệt
 await A.runAuto({ ...ENV, GRABCAST_API_KEY: '' }, { now }); // tạo bảng (setupDist) – không có khóa → không gọi gì
@@ -89,7 +90,6 @@ due(CA, 'gc-facebook_page-2', 3); due(CA, 'gc-instagram-3', 5); due(CC, 'gc-face
 sql.prepare("INSERT INTO soc_meta (k, v, at) VALUES (?, ?, ?)").run('media:' + CA, JSON.stringify({ id: 'm_cached' }), now); // clip A đã có media (cache) – clip B phải tải lên
 const st = () => JSON.parse(sql.prepare("SELECT v FROM soc_meta WHERE k = 'auto_state'").get().v);
 const ds = (clip, ch) => sql.prepare('SELECT * FROM dist_social WHERE clip = ? AND channel_id = ?').get(clip, ch);
-sql.prepare("INSERT INTO soc_meta (k, v, at) VALUES ('auto', ?, ?) ON CONFLICT(k) DO UPDATE SET v = excluded.v").run(JSON.stringify({ max_per_run: 3 }), now); // bộ test dựa trên 3 bài/lượt (mặc định thật nay là 8)
 calls = [];
 let r = await A.runAuto(ENV, { now });
 const gcCalls = calls.filter(c => c.p !== 'PUT');
@@ -344,6 +344,20 @@ ok(S.key && S.webhook && S.cfg.daily_calls === 10 && S.budget_left === 2 && S.up
   const nPosts = Object.keys(GC.posts).length; x = await A.runAuto(ENV, { now: now + 5 * H });
   ok(Object.keys(GC.posts).length === nPosts && !calls.some(c => /retry/.test(c.p)), 'không tự đăng lại');
   ok(Object.values(GC.posts)[0].targets && ds(CA, 'gc-tiktok-4').state === 'failed', 'giữ nguyên trạng thái lỗi');
+
+  // Lỗi TẠM THỜI của nền tảng (TikTok "lỗi nội bộ"): tự thử lại ≤ 3 lần với backoff, cùng post_id (không đăng trùng), chỉ cảnh báo khi vẫn hỏng
+  ok(A.isTransientErr('internal_error') && A.isTransientErr('http_503') && A.isTransientErr('TikTok gặp lỗi nội bộ') && !A.isTransientErr('spam_risk') && !A.isTransientErr('validation_failed') && !A.isTransientErr('') && !A.isTransientErr('privacy_private'), 'phân loại lỗi tạm thời / lỗi thật');
+  reset({ sync_h: 3 }); dueAt(CA, 'gc-tiktok-4', 3); GC.retries = 0;
+  await A.runAuto(ENV, { now });
+  const pid2 = Object.keys(GC.posts)[0]; GC.posts[pid2].status = 'failed'; GC.posts[pid2].targets = [{ account_id: 4, platform: 'tiktok', state: 'failed', last_error_code: 'internal_error' }];
+  const nP2 = Object.keys(GC.posts).length;
+  x = await A.runAuto(ENV, { now: now + 4 * H });
+  ok(GC.retries === 1 && ds(CA, 'gc-tiktok-4').state !== 'failed' && !x.alerts.some(a => /^post-failed:/.test(a.k)), 'lỗi nội bộ lần 1: tự thử lại, chưa báo người, chưa đánh dấu failed');
+  x = await A.runAuto(ENV, { now: now + 4.5 * H }); ok(GC.retries === 1, 'backoff: chưa đủ 2 giờ → không thử lại sớm');
+  x = await A.runAuto(ENV, { now: now + 8 * H }); ok(GC.retries === 2, 'lần 2 sau backoff');
+  x = await A.runAuto(ENV, { now: now + 16 * H }); ok(GC.retries === 3 && !x.alerts.some(a => /^post-failed:/.test(a.k)), 'lần 3, vẫn chưa báo');
+  x = await A.runAuto(ENV, { now: now + 24 * H });
+  ok(GC.retries === 3 && Object.keys(GC.posts).length === nP2 && ds(CA, 'gc-tiktok-4').state === 'failed' && x.alerts.some(a => /^post-failed:/.test(a.k) && /3 lần/.test(a.text)), 'hết 3 lần mới failed + cảnh báo; không quá 3 lần, không tạo bài trùng');
 
   // Xếp lịch tự động: slot lỡ quá 12 giờ được xếp lại, clip đã lên YouTube vẫn lên social
   reset({ plan_daily: true });
