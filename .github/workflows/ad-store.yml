@@ -1,0 +1,43 @@
+# ci-policy: no-gen – đưa clip quảng cáo ad1 (đã xuất bởi ad-export) vào lexkite-shorts qua ĐÚNG autopub_gate + store.py như mọi clip Teach2D. Không đăng, không gọi GrabCast/Meta/Drive; autopilot 2 giờ/lượt đăng như bài thường.
+name: ad-store
+on:
+  pull_request: { paths: ['.github/workflows/ad-store.yml', 'scripts/video/teach2d/ad_store.py'] }
+  workflow_dispatch:
+permissions: { contents: read, actions: read }
+concurrency: { group: ad-store, cancel-in-progress: false }
+env:
+  EP: t2_react_lookintoit
+  SRC_RUN: '44262329940'
+  AD_RUN: '44313744244'
+jobs:
+  store:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: actions/download-artifact@v4
+        with: { name: 'tv-bank-${{ env.SRC_RUN }}', path: bank, github-token: '${{ github.token }}', run-id: '${{ env.SRC_RUN }}' }
+      - uses: actions/download-artifact@v4
+        with: { name: 'tv-review-${{ env.SRC_RUN }}', path: review, github-token: '${{ github.token }}', run-id: '${{ env.SRC_RUN }}' }
+      - uses: actions/download-artifact@v4
+        with: { name: 'tv-${{ env.EP }}-short-${{ env.SRC_RUN }}', path: 'art/tv-${{ env.EP }}-short-${{ env.SRC_RUN }}', github-token: '${{ github.token }}', run-id: '${{ env.SRC_RUN }}' }
+      - uses: actions/download-artifact@v4
+        with: { name: 'tv-${{ env.EP }}-wide-${{ env.SRC_RUN }}', path: 'art/tv-${{ env.EP }}-wide-${{ env.SRC_RUN }}', github-token: '${{ github.token }}', run-id: '${{ env.SRC_RUN }}' }
+      - uses: actions/download-artifact@v4
+        with: { name: 'ad-${{ env.EP }}-${{ env.AD_RUN }}', path: ad, github-token: '${{ github.token }}', run-id: '${{ env.AD_RUN }}' }
+      - name: autopub_gate -> lexkite-shorts
+        env: { KEY: '${{ secrets.SHORTS_DEPLOY_KEY }}' }
+        run: |
+          [ -n "$KEY" ] || { echo "::error::SHORTS_DEPLOY_KEY missing"; exit 1; }
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh; printf '%s\n' "$KEY" > ~/.ssh/shorts && chmod 600 ~/.ssh/shorts
+          ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
+          export GIT_SSH_COMMAND="ssh -i ~/.ssh/shorts -o IdentitiesOnly=yes"
+          git clone -q --depth 1 --filter=blob:none --sparse git@github.com:lexkiteapp/lexkite-shorts.git /tmp/shorts
+          python3 scripts/video/teach2d/ad_store.py "$EP" art bank "ad/${EP}_9x16.mp4" review/bank-delta.json /tmp/shorts "${{ github.run_number }}" "${{ github.sha }}"
+          bash scripts/cine/archive_new.sh /tmp/shorts
+          cd /tmp/shorts; git add --sparse -A shorts .gitignore; git -c user.name="Lexkite CI" -c user.email="lexkiteapp@users.noreply.github.com" commit -qm "ad1 ${EP} [CF-Pages-Skip]" || exit 0
+          pushed=; for k in 1 2 3 4; do git push -q origin HEAD:main && { pushed=1; break; }; { git fetch -q origin main && git rebase -q origin/main || git rebase --abort 2>/dev/null; }; done
+          rm -f ~/.ssh/shorts
+          [ -n "$pushed" ] || { echo "::error::could not push lexkite-shorts"; exit 1; }
