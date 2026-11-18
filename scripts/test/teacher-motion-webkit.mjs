@@ -55,7 +55,8 @@ else {
   };
   const first = await page.evaluate(() => document.querySelector('.tslot.live').dataset.pose);
   judge(first, await measure(first));
-  const shot = async name => { const b = await page.evaluate(() => { const r = (document.querySelector('.tslot.live[data-shot]') || document.querySelector('.tslot.live')).getBoundingClientRect(); return { x: Math.max(0, r.left - 40), y: Math.max(0, r.top - 30), w: Math.min(innerWidth, r.right + 40) - Math.max(0, r.left - 40), h: r.height + 50 }; });
+  const shot = async name => { const b = await page.evaluate(() => { const l = document.querySelector('.tslot.live[data-shot]') || document.querySelector('.tslot.live'); if (!l) return { gone: [...document.querySelectorAll('.tslot')].map(t => ({ pose: t.dataset.pose, live: t.classList.contains('live'), slow: t.lkSlow || 0, ms: +(t.lkMs || 0).toFixed(1), avg: +((t.lkSum || 0) / Math.max(1, t.lkFrames || 0)).toFixed(1), frames: t.lkFrames || 0 })) }; const r = l.getBoundingClientRect(); return { x: Math.max(0, r.left - 40), y: Math.max(0, r.top - 30), w: Math.min(innerWidth, r.right + 40) - Math.max(0, r.left - 40), h: r.height + 50 }; });
+    if (b.gone) { if (!errs.some(e => e.startsWith('clip dừng'))) { errs.push('clip dừng giữa chừng (mất .live) ' + JSON.stringify(b.gone)); md.push('', '### chẩn đoán dừng', JSON.stringify(b.gone)); } return; }
     await page.screenshot({ path: path.join(OUT, name), clip: { x: b.x, y: b.y, width: b.w, height: b.h } }); };
   for (let i = 0; i < 4; i++) { await shot(`teacher-motion-${i}.png`); await page.waitForTimeout(450); }
   // clip point ở lộ trình Home (đúng chỗ chủ báo): đo + chụp đúng đoạn tay hạ nhanh 3,95–4,20 s (khung 95–100, nguồn méo nặng nhất)
