@@ -163,7 +163,7 @@ Commercial Payment Schedule:
 | **turnkey** | صفة | تسليم مفتاح، جاهز للتشغيل | *"We provide a turnkey inspection solution covering robotic hardware, software, and training."* |
 | **recoup** | فعل | يسترد، يعوض التكاليف | *"Clients typically recoup the full investment outlay within eight operating months."* |
 
-ولتوسيع حصيلتك من المفردات المتخصصة في التجارة والصناعة، ندعوك للاستفادة من [مكتبة مفردات Lexkite](/ar/tu-vung/) التي تتيح تصنيف الكلمات وفق المستويات الدولية CEFR.
+ولتوسيع حصيلتك من المفردات المتخصصة في التجارة والصناعة، ندعوك للاستفادة من [مكتبة مفردات Lexkite](/en/vocabulary/) التي تتيح تصنيف الكلمات وفق المستويات الدولية CEFR.
 
 ---
 

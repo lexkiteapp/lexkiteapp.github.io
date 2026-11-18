@@ -12,7 +12,7 @@ coverAlt: "غرفة الكتابة في Lexkite مع موضوعات وإطار �
 status: ready
 factChecked: 2026-11-16
 author: Lexkite
-publishAt:
+publishAt: 2027-01-20T21:38:00+03:00
 qualityScore: 91
 coverArt: {mood: think, icon: blocks}
 shots: [

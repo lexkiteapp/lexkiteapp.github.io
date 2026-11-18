@@ -9,7 +9,7 @@ tags: [word-stress, pronunciation, ipa, speaking]
 keyword: "نبر الكلمات في الإنجليزية"
 cover: pron
 coverAlt: "مكتبة الرموز الصوتية IPA في Lexkite مع حروف العلة والصوتيات المركبة والحروف الساكنة للتدرب عليها"
-publishAt:
+publishAt: 2027-01-16T08:15:00+03:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

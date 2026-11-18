@@ -9,7 +9,7 @@ tags: [ielts, writing, task-1, process-diagram, passive-voice]
 keyword: "ielts process diagram कैसे लिखें"
 cover: write
 coverAlt: "Lexkite राइटिंग कक्ष: प्रश्न और रिपोर्ट की योजना बनाने का ढाँचा"
-publishAt:
+publishAt: 2027-01-13T21:17:00+05:30
 factChecked: 2026-11-16
 author: Lexkite
 status: ready
