@@ -494,8 +494,9 @@ jobs:
           ACC=$(node -p "require('./m/fill-report.json').accepted" 2>/dev/null || echo 0)
           cp m/fill-report.json "$RUNNER_TEMP/fill-report.json" 2>/dev/null || true
           # img.json/scenes/queue là chỉ mục dùng chung → sinh lại trên main mới nhất (scene-publish --index bỏ qua ảnh đã có) – scripts/ci/commit-regen.sh
-          REGEN="node scripts/vocab-img/scene-publish.mjs --dir m --index --variants $LX_IN1 >/dev/null && { node scripts/build-lexicon.mjs --write >/dev/null || [ -s dist/lexicon.json ]; } && { cp \"$RUNNER_TEMP/fill-report.json\" m/fill-report.json 2>/dev/null || true; }"
-          bash scripts/ci/commit-regen.sh "Ảnh cảnh theo nghĩa: lượt fill ${{ github.run_id }} ($ACC ảnh)" "$REGEN" content/lexicon/img.json content/lexicon/vimg-scenes.json content/lexicon/vimg-scene-queue.json web/js/lexicon-img.json extension/app/js/lexicon-img.json web/js/vimg extension/app/js/vimg
+          # 17/11 health-board: khai SẢN LƯỢNG (ảnh đạt) trong lệnh sinh → mỗi lần thử rebase ghi lại 1 bản trên main mới (docs/HEALTH-BOARD.md)
+          REGEN="node scripts/ci/record-yield.mjs vocab-img-scene $ACC --unit 'ảnh đạt' >/dev/null && node scripts/vocab-img/scene-publish.mjs --dir m --index --variants $LX_IN1 >/dev/null && { node scripts/build-lexicon.mjs --write >/dev/null || [ -s dist/lexicon.json ]; } && { cp \"$RUNNER_TEMP/fill-report.json\" m/fill-report.json 2>/dev/null || true; }"
+          bash scripts/ci/commit-regen.sh "Ảnh cảnh theo nghĩa: lượt fill ${{ github.run_id }} ($ACC ảnh)" "$REGEN" reports/yield/vocab-img-scene.json content/lexicon/img.json content/lexicon/vimg-scenes.json content/lexicon/vimg-scene-queue.json web/js/lexicon-img.json extension/app/js/lexicon-img.json web/js/vimg extension/app/js/vimg
       - name: Kho ảnh gốc cho video (GitHub Release 'vimg-masters' – miễn phí, không vào Pages/kho media)
         env: { GH_TOKEN: '${{ github.token }}' }
         run: |
