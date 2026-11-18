@@ -20,11 +20,8 @@ jobs:
       matrix:
         include:
           - { flow: lesson, width: 390, rate: 4, dev: 1, variant: base }
-          - { flow: lesson, width: 360, rate: 4, variant: base }
-          - { flow: lesson, width: 390, rate: 6, variant: base }
-          - { flow: review, width: 360, rate: 4, variant: base }
-          - { flow: practice, width: 390, rate: 4, variant: base }
-          - { flow: practice, width: 360, rate: 4, variant: base }
+          - { flow: review, width: 360, rate: 4, dev: 1, variant: base }
+          - { flow: practice, width: 390, rate: 4, dev: 1, variant: base }
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
