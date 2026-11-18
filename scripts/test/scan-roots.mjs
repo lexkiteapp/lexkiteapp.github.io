@@ -12,11 +12,11 @@ for (const f of cp) ok(SCAN_ROOTS.some(r => f.startsWith(r + '/')), `${f} nằm 
 const SCANNERS = { 'scripts/i18n-missing.mjs': "walk('web/js')", 'scripts/vi-lint.mjs': 'walk(ROOT,', 'scripts/test/comment-code.mjs': "walk('web/js')", 'scripts/audio/tts-sites.mjs': "walk('web/js')", 'scripts/test/frame-consistency.mjs': "walk('web/js')", 'scripts/content-qa/gate.mjs': "readdirSync(P('web/js')" };
 for (const [f, old] of Object.entries(SCANNERS)) { const s = fs.readFileSync(f, 'utf8'); ok(/\bSCAN_ROOTS\b/.test(s) && /scan-roots\.mjs/.test(s), `${f}: chưa đọc gốc quét từ scripts/lib/scan-roots.mjs`); ok(!s.includes(old), `${f}: còn gốc quét cứng ${old}`); }
 // Đề nghe IELTS: web/js/listen + web/cpack/listen
-const L = dataFiles('listen', /^test\d+\.js$/), app = fs.readFileSync('web/js/app.js', 'utf8');
+const L = dataFiles('listen', /^test\d+\.js$/), app = fs.readFileSync('web/js/bundles.js', 'utf8');
 ok(L.length >= 10 && L.some(f => f.startsWith('web/cpack/')), `dataFiles('listen') gom cả web/cpack (${L.length} đề)`);
 ok(L.map(f => +f.match(/test(\d+)/)[1]).every((n, i, a) => !i || n > a[i - 1]) && /test1\.js$/.test(L[0]), 'dataFiles sắp theo số (test1 trước, định nghĩa g.LTI)');
-const line = (app.match(/\n\s*listening: (\[.*\]),/) || [])[1]; let bundle = []; try { bundle = new Function(`return ${line}`)(); } catch (e) { ok(false, 'không đọc được gói listening trong web/js/app.js'); }
-for (const f of L) { const rel = f.replace(/^web\//, ''); ok(bundle.includes(rel), `${rel} chưa có trong gói listening của web/js/app.js`); }
+const line = (app.match(/\n\s*listening: (\[.*\]),/) || [])[1]; let bundle = []; try { bundle = new Function(`return ${line}`)(); } catch (e) { ok(false, 'không đọc được gói listening trong web/js/bundles.js'); }
+for (const f of L) { const rel = f.replace(/^web\//, ''); ok(bundle.includes(rel), `${rel} chưa có trong gói listening của web/js/bundles.js`); }
 // nguồn dữ liệu đọc đề nghe không còn readdir cứng web/js/listen
 for (const f of ['scripts/sentence-audio/corpus.mjs', 'scripts/world-scorecard.mjs', 'scripts/test/next-step.mjs', 'scripts/test/readtest-dedupe.mjs']) ok(!/readdirSync\('web\/js\/listen'\)|n\('web\/js\/listen'|map\(k => `listen\/test/.test(fs.readFileSync(f, 'utf8')), `${f}: còn đọc cứng web/js/listen (dùng dataFiles)`);
 if (bad) { console.error(`✗ scan-roots: ${bad} lỗi`); process.exit(1); }
