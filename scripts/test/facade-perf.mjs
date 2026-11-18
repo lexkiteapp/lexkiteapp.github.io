@@ -12,7 +12,7 @@ const item = { id: 'e2e-look-for', title: 'Look for vs look at', youtube_id: 'M7
 const lesson = withVideo => `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>body{font:16px system-ui;margin:16px}h1{font-size:2rem}</style></head>
 <body><h1>Look for – lesson</h1><p>${'Practice the phrase in context. '.repeat(40)}</p>${withVideo ? '<div class="lv-slot" hidden data-lv=\'{"mode":"lesson"}\'></div><script src="/js/lib/video-rank.js"></script><script src="/js/lesson-video.js"></script>' : ''}</body></html>`;
 async function open({ tz = 'America/New_York', locale = 'en-US', yt = 'fake', withVideo = true } = {}) {
-  const ctx = await browser.newContext({ timezoneId: tz, locale, viewport: { width: 390, height: 844 } }), page = await ctx.newPage(), reqs = [];
+  const ctx = await browser.newContext({ bypassCSP: true, timezoneId: tz, locale, viewport: { width: 390, height: 844 } }), page = await ctx.newPage(), reqs = [];
   page.on('request', r => { if (/youtube|ytimg|googlevideo/.test(r.url())) reqs.push(r.url()); });
   await page.route('https://lexkite.com/**', r => { const u = new URL(r.request().url()); if (u.pathname === '/data/videos.json') return r.fulfill({ contentType: 'application/json', body: JSON.stringify({ items: [item] }) }); return r.fulfill({ status: 204, body: '' }); });
   await page.route('https://media.lexkite.com/**', r => (r.request().url().endsWith('.webp') ? r.fulfill({ contentType: 'image/webp', body: POSTER }) : r.fulfill({ status: 200, contentType: 'video/mp4', body: '' })));

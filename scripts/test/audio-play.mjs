@@ -47,7 +47,7 @@ for (const name of which) {
   const type = { chromium, webkit }[name]; if (!type) continue;
   console.log(`— ${name}`);
   const browser = await type.launch(name === 'chromium' ? { args: ['--autoplay-policy=no-user-gesture-required'] } : {});
-  const page = await browser.newPage();
+  const page = await browser.newPage({ bypassCSP: true });
   const logs = []; page.on('console', m => logs.push(m.text())); page.on('pageerror', e => logs.push('PAGEERROR ' + e.message));
   const hits = [];
   await page.route('**/*', async route => {
