@@ -11,7 +11,7 @@ cover: write
 coverAlt: "غرفة الكتابة في Lexkite مع مواضيع المقالات وتلميحات الأفكار وهيكل المقال"
 factChecked: 2026-11-16
 author: Lexkite
-publishAt:
+publishAt: 2026-12-25T09:58:00+03:00
 qualityScore: 91
 status: ready
 coverArt: {mood: sad, icon: pen}

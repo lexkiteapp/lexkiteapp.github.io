@@ -9,7 +9,7 @@ tags: [toeic, listening, part-3, part-4]
 keyword: "toeic part 3 và part 4"
 cover: toeic
 coverAlt: "Trung tâm TOEIC của Lexkite với đề thi thử và luyện theo từng part"
-publishAt:
+publishAt: 2027-02-18T08:11:00+07:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready
