@@ -6,6 +6,9 @@
  * Mọi lệnh qua /api/report (cổng adminGate, ghi admin_log). Mọi dữ liệu người dùng hiển thị qua esc(). Chữ tiếng Anh ở bảng EN. */
 (function () {
   const EN = {
+    'Quốc gia': 'Country', 'Mọi quốc gia': 'All countries', 'Chưa rõ quốc gia': 'Unknown country', 'Ngôn ngữ nội dung': 'Writing language', 'Bản dịch tiếng Việt': 'Vietnamese translation', 'Người báo viết bằng {l} (giao diện {u})': 'Reporter wrote in {l} (UI {u})', 'Theo quốc gia (30 ngày)': 'By country (30 days)',
+    'Dịch xem trước': 'Preview translation', 'Bản dịch gửi cho người báo ({l}) – sửa tay được': 'Translation sent to the reporter ({l}) – editable', 'Đang dịch…': 'Translating…', 'Dịch lỗi – nếu gửi ngay, hệ thống dùng mẫu sẵn có đúng ngôn ngữ. Anh có thể tự gõ bản dịch ở đây.': 'Translation failed – if you send now, the built-in template in their language is used instead. You can type the translation here.',
+    'Dịch lỗi {n} phiếu: đã gửi mẫu có sẵn đúng ngôn ngữ thay vì bản dịch': 'Translation failed for {n} ticket(s): sent the built-in template in their language instead',
     'Cài đặt & bí mật': 'Setup & secrets', 'Ảnh chụp trên R2': 'Screenshots on R2', '{p}% của 10 GB miễn phí · {n} ảnh': '{p}% of the 10 GB free tier · {n} images', '{n} ảnh còn ở D1': '{n} still in D1',
     'Pages: binding R2 REPORT_SHOTS → bucket lexkite-report-shots (wrangler.toml)': 'Pages: R2 binding REPORT_SHOTS → bucket lexkite-report-shots (wrangler.toml)', 'Pages: secret REPORT_SHOT_KEY (hoặc LEXKITE_REPORT_CLI_KEY) để ký URL xem ảnh': 'Pages: REPORT_SHOT_KEY (or LEXKITE_REPORT_CLI_KEY) secret to sign image URLs', 'Đủ': 'Ready', 'Thiếu': 'Missing', 'AI phân loại': 'AI triage', 'GitHub Issue cho Claude Code': 'GitHub issues for Claude Code', 'Tự động theo PR (LX-xxxx)': 'Auto status from PRs (LX-xxxx)',
     'Thư cho người báo': 'Reporter emails', 'Báo đẩy "đã sửa"': '"Fixed" push notifications', 'Chưa gửi thư nào – chưa biết': 'No email sent yet – unknown', 'Gửi thư đang lỗi – xem lịch sử phiếu': 'Emails are failing – check ticket history',
@@ -72,7 +75,7 @@
 .rp-bar{position:relative;display:flex;flex-wrap:wrap;gap:.45rem;align-items:center}.rp-tabs{display:flex;flex-wrap:wrap;gap:.15rem;align-items:center;min-width:0;padding:.2rem;border:1px solid var(--line);border-radius:12px;background:var(--surface-2)}
 .rp-chip{display:inline-flex;gap:.35rem;align-items:center;border:1px solid transparent;background:transparent;color:var(--text);border-radius:9px;padding:.3rem .6rem;font:inherit;font-size:.82rem;font-weight:600;cursor:pointer;min-height:34px}.rp-chip:hover{background:var(--surface-2)}
 .rp-chip b{font-size:.74rem;font-weight:700;color:var(--muted);font-variant-numeric:tabular-nums}.rp-chip.on,.rp-chip[aria-pressed=true]{border-color:var(--line);background:var(--surface);font-weight:700;box-shadow:0 1px 0 var(--line)}.rp-chip.on b{color:var(--text)}.rp-chip-u b{color:var(--again)}
-.rp-sts .rp-chip,.rp-tpls .rp-chip{border-color:var(--line);background:var(--surface)}.rp-tpls{display:flex;flex-wrap:wrap;gap:.3rem;margin-bottom:.45rem}
+.rp-sts .rp-chip,.rp-tpls .rp-chip{border-color:var(--line);background:var(--surface)}.rp-trn{margin-top:.45rem;padding:.5rem .65rem;border-radius:10px;border:1px dashed var(--line);background:var(--surface)}.rp-trn textarea{margin-top:.3rem}.rp-tpls{display:flex;flex-wrap:wrap;gap:.3rem;margin-bottom:.45rem}
 .rp-more-st{font:inherit;font-size:.82rem;font-weight:600;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--text);padding:.28rem .5rem;min-height:34px;max-width:9.5rem}.rp-more-st.on{border-color:var(--primary);background:var(--primary-soft)}
 .rp-search{flex:1 1 200px;min-width:0;display:flex;align-items:center;gap:.4rem;border:1px solid var(--line);border-radius:10px;background:var(--surface);padding:0 .6rem;color:var(--muted)}.rp-search:focus-within{border-color:var(--primary)}.rp-search svg{flex:none}.rp-search input{flex:1;min-width:0;border:0;background:none;color:var(--text);font:inherit;font-size:.86rem;padding:.42rem 0;outline:0}
 .rp-tool{display:inline-flex;align-items:center;gap:.35rem;min-height:34px}.rp-tool b{font-size:.72rem;background:var(--primary);color:var(--primary-ink,#fff);border-radius:999px;padding:0 .4rem}.rp-ic{justify-content:center;min-width:34px;padding-inline:.45rem}
@@ -125,10 +128,14 @@
   // ---------- Hộp báo lỗi ----------
   function render(main, L, o) {
     style(); lang = o.lang || lang; const esc = o.esc, num = o.num || (n => n), when = o.when || (x => new Date(x).toLocaleString());
-    const F = { status: 'open', area: '', cat: '', plat: '', sev: '', q: '', sort: 'sev', spam: 0, sandbox: 0, offset: 0 };
+    const F = { status: 'open', country: '', area: '', cat: '', plat: '', sev: '', q: '', sort: 'sev', spam: 0, sandbox: 0, offset: 0 };
     let data = null, sel = new Set(), rows = [], cur = -1, curId = '', loadN = 0, holdPane = false;
     const drafts = new Map();
     const ago = x => { const m = Math.max(0, Math.round((Date.now() - x) / 6e4)); return m < 60 ? m + 'm' : m < 1440 ? Math.round(m / 60) + 'h' : Math.round(m / 1440) + 'd'; };
+    const flag = c => (/^[A-Z]{2}$/.test(c || '') ? String.fromCodePoint(...[...c].map(ch => 0x1F1A5 + ch.charCodeAt(0))) : '');
+    const cname = c => { try { return new Intl.DisplayNames([lang() === 'en' ? 'en' : 'vi'], { type: 'region' }).of(c) || c; } catch (e) { return c; } };
+    const cty = c => (/^[A-Z]{2}$/.test(c || '') ? flag(c) + ' ' + cname(c) : '–');
+    const lname = c => { try { return new Intl.DisplayNames([lang() === 'en' ? 'en' : 'vi'], { type: 'language' }).of(c) || c; } catch (e) { return c; } };
     const wideQ = window.matchMedia ? matchMedia('(min-width:1180px)') : null, wide = () => !!(wideQ && wideQ.matches);
     main.innerHTML = `<div class="rp-wrap"><div class="rp-bar">
         <div class="rp-tabs" id="rpChips" role="group" aria-label="${T('Trạng thái')}"></div>
@@ -136,7 +143,8 @@
         <button type="button" class="btn ghost sm rp-tool" id="rpFB" aria-expanded="false" aria-controls="rpFP">${ICON.filter}<span>${T('Bộ lọc')}</span><b id="rpFN" hidden></b></button>
         <button type="button" class="btn ghost sm rp-tool rp-ic" id="rpHelp" aria-label="${T('Phím tắt')}" title="${T('Phím tắt')}">?</button>
         <button type="button" class="btn ghost sm rp-tool rp-ic" id="rpMB" aria-label="${T('Tùy chọn khác')}" title="${T('Tùy chọn khác')}" aria-expanded="false" aria-controls="rpMP">${ICON.more}</button>
-        <div class="rp-pop" id="rpFP" hidden><label>${T('Khu vực')} <select id="rpArea"></select></label>
+        <div class="rp-pop" id="rpFP" hidden><label>${T('Quốc gia')} <select id="rpCty"></select></label>
+          <label>${T('Khu vực')} <select id="rpArea"></select></label>
           <label>${T('Loại')} <select id="rpCat"><option value="">${T('Mọi loại')}</option>${Object.entries(CATS).map(([k, [, l]]) => `<option value="${k}">${T(l)}</option>`).join('')}</select></label>
           <label>${T('Nền tảng')} <select id="rpPlat"><option value="">${T('Mọi nền tảng')}</option>${Object.entries(PLATS).map(([k, l]) => `<option value="${k}">${l}</option>`).join('')}</select></label>
           <label>${T('Mức')} <select id="rpSev"><option value="">${T('Mọi mức')}</option>${['P0', 'P1', 'P2', 'P3'].map(v => `<option>${v}</option>`).join('')}</select></label>
@@ -153,7 +161,7 @@
     const closePops = () => pops.forEach(([b, p]) => { $(p).hidden = true; $(b).setAttribute('aria-expanded', 'false'); });
     pops.forEach(([b, p]) => { $(b).onclick = e => { e.stopPropagation(); const was = $(p).hidden; closePops(); $(p).hidden = !was; $(b).setAttribute('aria-expanded', String(was)); }; $(p).onclick = e => e.stopPropagation(); });
     const offPop = () => { if (!root.isConnected) { document.removeEventListener('click', offPop); return; } closePops(); }; document.addEventListener('click', offPop);
-    const filterN = () => [F.area, F.cat, F.plat, F.sev, F.sandbox].filter(Boolean).length;
+    const filterN = () => [F.country, F.area, F.cat, F.plat, F.sev, F.sandbox].filter(Boolean).length;
     const TABS = [['open', 'Mở'], ['new', 'Mới'], ['prog', 'Đang xử lý'], ['fixed', 'Đã sửa'], ['ideas', 'Đề xuất']], MORE = [['ack', 'Đã tiếp nhận'], ['wontfix', 'Không sửa'], ['dup', 'Trùng lặp'], ['spam', 'Spam']];
     const tabKey = () => (F.spam ? 'spam' : F.status);
     const setTab = k => { if (k === 'spam') { F.spam = 1; F.status = ''; } else if (k.startsWith('sev:')) { F.spam = 0; F.status = 'open'; F.sev = k.slice(4); $('#rpSev').value = F.sev; } else { F.spam = 0; F.status = k; if (F.sev && k !== 'open') { F.sev = ''; $('#rpSev').value = ''; } } load(); };
@@ -166,6 +174,8 @@
       $('#rpMoreSt').onchange = e => { if (e.target.value) setTab(e.target.value); };
       const a = data.areas || {}, sc = F.area;
       $('#rpArea').innerHTML = `<option value="">${T('Mọi khu vực')}</option>` + Object.entries(AREAS).map(([k, l]) => `<option value="${k}"${k === sc ? ' selected' : ''}>${esc(T(l))}${a[k] ? ' · ' + T('{n} đang mở', { n: a[k] }) : ''}</option>`).join('');
+      const cs = data.countries || {}, cl = Object.keys(cs).filter(k => k !== '-'); if (F.country && F.country !== '-' && !cl.includes(F.country)) cl.push(F.country);
+      $('#rpCty').innerHTML = `<option value="">${T('Mọi quốc gia')}</option>` + cl.map(k => `<option value="${esc(k)}"${k === F.country ? ' selected' : ''}>${esc(cty(k))}${cs[k] ? ' · ' + num(cs[k]) : ''}</option>`).join('') + (cs['-'] ? `<option value="-"${F.country === '-' ? ' selected' : ''}>${esc(T('Chưa rõ quốc gia'))} · ${num(cs['-'])}</option>` : '');
       const fn = filterN(); $('#rpFN').hidden = !fn; $('#rpFN').textContent = fn || '';
       const badge = document.getElementById('repN'); if (badge) badge.textContent = c.new || '';
     };
@@ -174,7 +184,7 @@
     const acts = r => r.cat === 'idea' ? '' : `<div class="rp-acts">${r.status === 'fixed' ? '' : `<button type="button" class="rp-act good" data-do="fix" title="${T('Đã sửa')} (f)" aria-label="${T('Đánh dấu đã sửa {id}', { id: esc(r.tid) })}">${ICON.check}<span>${T('Đã sửa')}</span></button>`}<button type="button" class="rp-act" data-do="thanks" title="${T('Cảm ơn')} (t)" aria-label="${T('Cảm ơn {id}', { id: esc(r.tid) })}">${ICON.chat}<span>${T('Cảm ơn')}</span></button>${r.status === 'prog' ? '' : `<button type="button" class="rp-act" data-do="prog" title="${T('Đang xử lý')} (3)" aria-label="${T('Chuyển {id} sang Đang xử lý', { id: esc(r.tid) })}">${ICON.clock}<span>${T('Đang xử lý')}</span></button>`}</div>`;
     const rowHtml = (r, i) => `<div class="rp-row${i === cur ? ' cur' : ''}${sel.has(r.tid) ? ' sel' : ''}" data-i="${i}" data-rid="${esc(r.tid)}"><label class="rp-ck"><input type="checkbox" class="c" data-sel="${esc(r.tid)}" aria-label="${esc(r.tid)}" ${sel.has(r.tid) ? 'checked' : ''}></label>
         <button type="button" class="rp-open" data-id="${esc(r.tid)}"><span class="m"><span class="t">${sevChip(r.sev)}<span class="rp-tid">${esc(r.tid)}</span><span class="p" title="${esc(r.ai_sum || r.msg)}">${esc(r.ai_sum || r.msg)}</span></span>
-          <span class="small rp-meta">${esc(T((CATS[r.cat] || ['', r.cat || ''])[1]))}${r.area ? ' · ' + esc(T(AREAS[r.area] || r.area)) : ''} · ${esc(PLATS[r.plat] || r.plat || '')} ${esc(r.ver || '')} · ${esc(r.lang || '')}${r.people > 1 ? ' · ' + esc(T('{n} người gặp', { n: r.people })) : ''}${r.feat ? ' · ' + esc(T(r.feat === 'approved' ? 'đã duyệt' : r.feat === 'later' ? 'để sau' : r.feat)) : ''}${r.issue ? ' · Claude Code' : ''}${r.dup ? ' · ' + esc(T('Trùng với {id}', { id: r.dup })) : ''}${r.has_shot ? ' · ' + esc(T('có ảnh')) : ''}${r.notify ? ' · ' + esc(T('nhận thư')) : ''}${r.asg ? ' · ' + esc(r.asg.split('@')[0]) : ''}${seenTag(r)}</span></span>
+          <span class="small rp-meta">${esc(T((CATS[r.cat] || ['', r.cat || ''])[1]))}${r.area ? ' · ' + esc(T(AREAS[r.area] || r.area)) : ''} · ${esc(PLATS[r.plat] || r.plat || '')} ${esc(r.ver || '')} · ${esc(r.lang || '')} · ${esc(cty(r.country))}${r.people > 1 ? ' · ' + esc(T('{n} người gặp', { n: r.people })) : ''}${r.feat ? ' · ' + esc(T(r.feat === 'approved' ? 'đã duyệt' : r.feat === 'later' ? 'để sau' : r.feat)) : ''}${r.issue ? ' · Claude Code' : ''}${r.dup ? ' · ' + esc(T('Trùng với {id}', { id: r.dup })) : ''}${r.has_shot ? ' · ' + esc(T('có ảnh')) : ''}${r.notify ? ' · ' + esc(T('nhận thư')) : ''}${r.asg ? ' · ' + esc(r.asg.split('@')[0]) : ''}${seenTag(r)}</span></span>
           <span class="r">${stPill(r.status)}<span class="small muted">${ago(r.at)}</span></span></button>${acts(r)}</div>`;
     // ---------- Thao tác: dòng đang chọn hoặc các dòng đã tick; chờ Hoàn tác rồi mới gửi ----------
     const matchesTab = st => (F.spam ? true : F.status === 'open' ? ['new', 'ack', 'prog'].includes(st) : F.status === 'ideas' || !F.status ? true : F.status === st);
@@ -192,7 +202,8 @@
         if (err) { restore(); msgToast(T('Lỗi: {e}', { e: err.message }), () => enqueue(ids, body)); return; }
         ids.forEach(x => drafts.delete(x));
         const m = res.reduce((n, x) => n + (x.mailed || 0), 0), fx = res.reduce((n, x) => n + (x.dups || 0), 0);
-        if (body.status === 'fixed' || body.reply != null || body.tpl) msgToast(T('Đã báo người dùng trong app') + (m ? ' · ' + T('{n} thư', { n: m }) : '') + (fx ? ' · ' + T('kèm {n} phiếu trùng', { n: fx }) : ''));
+        const wn = res.reduce((n, x) => n + (x.warns || 0), 0);
+        if (body.status === 'fixed' || body.reply != null || body.tpl) msgToast((wn ? T('Dịch lỗi {n} phiếu: đã gửi mẫu có sẵn đúng ngôn ngữ thay vì bản dịch', { n: wn }) + ' · ' : '') + T('Đã báo người dùng trong app') + (m ? ' · ' + T('{n} thư', { n: m }) : '') + (fx ? ' · ' + T('kèm {n} phiếu trùng', { n: fx }) : ''));
         if (!pending.length) load(true, true);
         if (dr && curId && ids.includes(curId)) drawer(curId);
       } };
@@ -246,10 +257,10 @@
         paint(); if (holdPane) holdPane = false; else if (curId && curId !== prev) focusPane(); else if (!curId && dr && wide()) closeDr();
       } catch (e) { if (root.isConnected) $('#rpList').innerHTML = `<p class="small bad-t">${esc(T('Lỗi: {e}', { e: e.message }))}</p>`; }
     }
-    function clearFilters() { Object.assign(F, { area: '', cat: '', plat: '', sev: '', sandbox: 0, q: '' }); ['#rpArea', '#rpCat', '#rpPlat', '#rpSev', '#rpQ'].forEach(s => { $(s).value = ''; }); $('#rpSb').checked = false; load(); }
+    function clearFilters() { Object.assign(F, { country: '', area: '', cat: '', plat: '', sev: '', sandbox: 0, q: '' }); ['#rpCty', '#rpArea', '#rpCat', '#rpPlat', '#rpSev', '#rpQ'].forEach(s => { $(s).value = ''; }); $('#rpSb').checked = false; load(); }
     $('#rpFClr').onclick = clearFilters;
     let tq; $('#rpQ').oninput = () => { clearTimeout(tq); tq = setTimeout(() => { F.q = $('#rpQ').value.trim(); load(); }, 300); };
-    $('#rpArea').onchange = e => { F.area = e.target.value; load(); }; $('#rpCat').onchange = e => { F.cat = e.target.value; load(); }; $('#rpPlat').onchange = e => { F.plat = e.target.value; load(); };
+    $('#rpCty').onchange = e => { F.country = e.target.value; load(); }; $('#rpArea').onchange = e => { F.area = e.target.value; load(); }; $('#rpCat').onchange = e => { F.cat = e.target.value; load(); }; $('#rpPlat').onchange = e => { F.plat = e.target.value; load(); };
     $('#rpSort').onchange = e => { F.sort = e.target.value; load(); }; $('#rpSb').onchange = e => { F.sandbox = e.target.checked ? 1 : 0; load(); }; $('#rpRe').onclick = () => { closePops(); load(); };
     $('#rpCsv').onclick = async () => { try { const j = await api('export', { ...F, status: F.spam ? '' : F.status }); const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob(['﻿' + j.csv], { type: 'text/csv;charset=utf-8' })); a.download = `lexkite-reports-${new Date().toISOString().slice(0, 10)}.csv`; document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 5000); } catch (e) { alert(T('Lỗi: {e}', { e: e.message })); } };
     api('cfg').then(c => { if (!root.isConnected) return; $('#rpMode').value = c.notify; if (c.eta) { $('#rpE1').value = c.eta.serious; $('#rpE2').value = c.eta.normal; $('#rpE3').value = c.eta.content; } }).catch(() => {});
@@ -313,7 +324,7 @@
       const page = c.route ? `<a href="/app/#/${esc(c.route)}" target="_blank" rel="noopener">#/${esc(c.route)}</a>` : '';
       const draft = drafts.get(r.tid), isIdea = r.cat === 'idea';
       box.innerHTML = `<div class="rp-head"><h3><span class="rp-tid">${esc(r.tid)}</span> ${sevChip(r.sev)} <span class="rp-st ${esc(r.status)}">${esc(stName(r.status))}</span></h3><button class="btn ghost sm rp-x" id="rpX" aria-label="${T('Đóng')}">${ICON.x}</button></div>
-        <div><h4>${esc(T((CATS[r.cat] || ['', r.cat])[1]))} · ${esc(T(AREAS[r.area] || r.area || ''))} · ${esc(when(r.at))}</h4><div class="msg">${esc(r.msg)}</div>
+        <div><h4>${esc(T((CATS[r.cat] || ['', r.cat])[1]))} · ${esc(T(AREAS[r.area] || r.area || ''))} · ${esc(when(r.at))}</h4><div class="msg">${esc(r.msg)}</div>${r.ai && r.ai.msg_vi ? `<div class="small rp-trn"><b>${T('Bản dịch tiếng Việt')}</b> · ${esc(T('Người báo viết bằng {l} (giao diện {u})', { l: lname(r.ulang || ''), u: r.lang || '' }))}<br>${esc(r.ai.msg_vi)}</div>` : ''}
           ${r.dup ? `<p class="small">${esc(T('Trùng với {id}', { id: r.dup }))}</p>` : ''}${r.dups && r.dups.length ? `<p class="small">${esc(T('Các mục trùng: {ids}', { ids: r.dups.join(', ') }))}</p>` : ''}</div>
         <div class="rp-ai"><h4 style="margin:0">${r.ai && r.ai.by === 'rules' ? T('Phân loại theo luật (AI không sẵn sàng)') : T('Phân loại AI')} ${r.people > 1 ? `· ${esc(T('{n} người gặp', { n: r.people }))}` : ''}</h4>
           ${r.ai ? `<p><b>${esc(r.ai.summary_vi || '')}</b></p><p class="small">${sevChip(r.ai.severity)} ${esc(r.ai.area || '')} · ${esc(r.ai.type || '')} · ${esc(T('Độ tin cậy {p}%', { p: Math.round((r.ai.confidence || 0) * 100) }))}${r.ai.needs_human ? ' · ' + esc(T('Cần người duyệt')) : ''}</p>
@@ -324,11 +335,12 @@
         <div class="rp-compose"><label for="rpReply"><h4>${T('Phản hồi cho người báo (họ thấy trong trang trạng thái)')}</h4></label>
           ${isIdea ? '' : `<div class="rp-tpls" role="group" aria-label="${T('Mẫu trả lời')}">${TPLS.map(([k, l]) => `<button type="button" class="rp-chip" data-tpl="${k}">${esc(T(l))}</button>`).join('')}</div>`}
           <textarea id="rpReply" maxlength="2000">${esc(draft != null ? draft : r.reply || '')}</textarea>
-          <p class="small muted" id="rpTo">${esc(T('Gửi bằng ngôn ngữ của người báo: {l}', { l: r.lang || 'en' }))} · ${esc(T('báo trong app'))}${r.notify ? ' · ' + esc(T('thư')) : ''}${r.seen_at && r.seen_at >= r.upd ? ' · ' + esc(T('người dùng đã xem')) : ''}</p>
+          <p class="small muted" id="rpTo">${esc(T('Gửi bằng ngôn ngữ của người báo: {l}', { l: r.rl || r.lang || 'en' }))} · ${esc(T('báo trong app'))}${r.notify ? ' · ' + esc(T('thư')) : ''}${r.seen_at && r.seen_at >= r.upd ? ' · ' + esc(T('người dùng đã xem')) : ''}</p>
           <p class="small muted" id="rpViHint" hidden></p>
-          <div class="rp-tools">${isIdea || r.status === 'fixed' ? '' : `<button class="btn primary sm" id="rpFix">${T('Đánh dấu đã sửa và báo')}</button>`}<button class="btn ghost sm" id="rpReplyB">${T('Gửi trả lời')}</button></div></div>
+          <div class="rp-trn" id="rpXlBox" hidden><label for="rpXl" class="small"><b id="rpXlL"></b></label><textarea id="rpXl" maxlength="2000"></textarea><p class="small bad-t" id="rpXlE" hidden></p></div>
+          <div class="rp-tools">${isIdea || r.status === 'fixed' ? '' : `<button class="btn primary sm" id="rpFix">${T('Đánh dấu đã sửa và báo')}</button>`}<button class="btn ghost sm" id="rpReplyB">${T('Gửi trả lời')}</button>${(r.rl || r.lang || 'en') === 'vi' ? '' : `<button class="btn ghost sm" id="rpXlB" type="button">${T('Dịch xem trước')}</button>`}</div></div>
         <div><h4>${T('Trạng thái')}</h4><div class="rp-sts">${STS.map(([k, l]) => `<button type="button" class="rp-chip" data-set="${k}" aria-pressed="${r.status === k}">${esc(T(l))}</button>`).join('')}</div></div>
-        <div><h4>${T('Ngữ cảnh')}</h4><dl class="rp-kv">${kv('Trang', page)}${kv('Mã nội dung', esc(c.cid))}${kv('Tên miền (add-on)', esc(c.dom))}${kv('Nền tảng', esc(PLATS[r.plat] || r.plat))}${kv('Phiên bản', esc(r.ver))}${kv('Ngôn ngữ', esc(r.lang))}${kv('Khung nhìn', esc(c.vw ? c.vw + (c.dpr ? ' @' + c.dpr + 'x' : '') : ''))}${kv('Múi giờ', esc(c.tz))}${kv('Trình duyệt', esc(c.ua))}${kv('Đăng nhập', T(r.signed ? 'có' : 'không'))}${r.sandbox ? kv('Thử nghiệm (sandbox)', T('có')) : ''}${kv('Email người báo', r.email ? `<a href="mailto:${esc(r.email)}">${esc(r.email)}</a> ${T(r.notify ? '(đồng ý nhận cập nhật)' : '(không nhận thư)')}` : '')}</dl></div>
+        <div><h4>${T('Ngữ cảnh')}</h4><dl class="rp-kv">${kv('Trang', page)}${kv('Mã nội dung', esc(c.cid))}${kv('Tên miền (add-on)', esc(c.dom))}${kv('Nền tảng', esc(PLATS[r.plat] || r.plat))}${kv('Phiên bản', esc(r.ver))}${kv('Quốc gia', esc(cty(r.country)))}${kv('Ngôn ngữ', esc(r.lang))}${kv('Ngôn ngữ nội dung', r.ulang && r.ulang !== r.lang ? esc(lname(r.ulang) + ' (' + r.ulang + ')') : '')}${kv('Khung nhìn', esc(c.vw ? c.vw + (c.dpr ? ' @' + c.dpr + 'x' : '') : ''))}${kv('Múi giờ', esc(c.tz))}${kv('Trình duyệt', esc(c.ua))}${kv('Đăng nhập', T(r.signed ? 'có' : 'không'))}${r.sandbox ? kv('Thử nghiệm (sandbox)', T('có')) : ''}${kv('Email người báo', r.email ? `<a href="mailto:${esc(r.email)}">${esc(r.email)}</a> ${T(r.notify ? '(đồng ý nhận cập nhật)' : '(không nhận thư)')}` : '')}</dl></div>
         <div><h4>${T('Lỗi console ({n})', { n: (r.errs || []).length })}</h4>${(r.errs || []).length ? `<pre class="rp-errs">${esc(r.errs.join('\n'))}</pre>` : `<p class="small muted">${T('Không có lỗi console.')}</p>`}</div>
         ${r.has_shot ? `<div class="rp-shot"><h4>${T('Ảnh chụp màn hình')}</h4><button class="btn ghost sm" id="rpShot">${T('Xem ảnh')}</button></div>` : ''}
         <div><label for="rpNote"><h4>${T('Ghi chú nội bộ (chỉ quản trị thấy)')}</h4></label><textarea id="rpNote" maxlength="2000">${esc(r.note || '')}</textarea><button class="btn ghost sm" id="rpNoteB" style="margin-top:.4rem">${T('Lưu ghi chú')}</button></div>
@@ -346,11 +358,24 @@
       box.querySelectorAll('[data-set]').forEach(b => b.onclick = () => { if (b.dataset.set === 'dup') return run('set', { status: 'dup' }); enqueue([r.tid], { status: b.dataset.set }); });
       // Mẫu: điền chữ đúng ngôn ngữ người báo vào ô (sửa được trước khi gửi); người soạn đọc được bản tiếng Việt ngay dưới. Gửi kèm trạng thái đi cùng mẫu.
       let picked = '', pickedText = '';
-      const ta = q('#rpReply'); ta.oninput = () => { drafts.set(r.tid, ta.value); };
+      // Người báo không dùng tiếng Việt: chữ anh gõ được dịch (xem trước ở đây, sửa tay được) trước khi lưu/gửi; bản gốc giữ trong lịch sử
+      const rl = r.rl || r.lang || 'en', ta = q('#rpReply'), xbox = q('#rpXlBox'), xl = q('#rpXl'), xerr = q('#rpXlE'); let trSrc = '', trTimer = 0, trN = 0;
+      const custom = () => { const v = ta.value.trim(); return rl !== 'vi' && v && !(picked && v === pickedText.trim()) && v !== (r.reply || '').trim() ? v : ''; };
+      async function preview() {
+        const v = custom(), n = ++trN; if (!v) { xbox.hidden = true; trSrc = ''; return; }
+        xbox.hidden = false; q('#rpXlL').textContent = T('Bản dịch gửi cho người báo ({l}) – sửa tay được', { l: lname(rl) }); xerr.hidden = true; xl.value = ''; xl.placeholder = T('Đang dịch…');
+        try { const j = await api('xlate', { id: r.tid, text: v }); if (n !== trN || dr !== box) return; if (j.ok) { xl.value = j.text; trSrc = v; } else { trSrc = v; xerr.hidden = false; xerr.textContent = T('Dịch lỗi – nếu gửi ngay, hệ thống dùng mẫu sẵn có đúng ngôn ngữ. Anh có thể tự gõ bản dịch ở đây.'); } xl.placeholder = ''; }
+        catch (e) { if (n === trN && dr === box) { trSrc = v; xerr.hidden = false; xerr.textContent = T('Lỗi: {e}', { e: e.message }); xl.placeholder = ''; } }
+      }
+      ta.oninput = () => { drafts.set(r.tid, ta.value); clearTimeout(trTimer); trN++; trSrc = ''; if (!custom()) xbox.hidden = true; else trTimer = setTimeout(preview, 900); };
+      const xb = q('#rpXlB'); if (xb) xb.onclick = () => { clearTimeout(trTimer); preview(); };
+      xl.oninput = () => { trSrc = custom(); };
       box.querySelectorAll('[data-tpl]').forEach(b => b.onclick = () => { picked = b.dataset.tpl; pickedText = tpls[picked] || tplVi[picked] || ''; ta.value = pickedText; drafts.set(r.tid, ta.value); box.querySelectorAll('[data-tpl]').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
         const h = q('#rpViHint'); h.hidden = (r.lang || 'vi') === 'vi' || !tplVi[picked]; h.textContent = h.hidden ? '' : T('Nghĩa: {t}', { t: tplVi[picked] }); ta.focus(); });
       // Chưa sửa chữ mẫu → gửi theo khóa mẫu; đã sửa → gửi đúng chữ anh soạn
-      const payload = () => { const v = ta.value.trim(); return picked && v === pickedText.trim() ? { tpl: picked } : { reply: v }; };
+      const payload = () => { const v = ta.value.trim(); if (picked && v === pickedText.trim()) return { tpl: picked };
+        if (rl !== 'vi' && v === (r.reply || '').trim()) return { reply: v, reply_t: v }; // chữ đã ở ngôn ngữ người báo (đã gửi trước đó) → không dịch lại
+        const t = xl.value.trim(); return t && trSrc === v && !xbox.hidden ? { reply: v, reply_t: t } : { reply: v }; };
       q('#rpReplyB').onclick = () => { const p = payload(), st = picked ? TPL_ST[picked] : null; const body = { ...p, ...(st && !(st === 'ack' && r.status !== 'new') && st !== r.status ? { status: st } : {}) }; if (!p.tpl && !p.reply && r.reply == null) return; enqueue([r.tid], body); };
       const fx = q('#rpFix'); if (fx) fx.onclick = () => { const v = ta.value.trim(), keep = v && v !== (r.reply || '').trim(); enqueue([r.tid], { status: 'fixed', ...(keep ? payload() : { tpl: 'fixed' }) }); };
       q('#rpNoteB').onclick = () => run('set', { note: q('#rpNote').value.trim() }, false);
@@ -372,13 +397,15 @@
     el.className = 'card rp-card'; el.innerHTML = `<p class="muted small">${T('Đang tải…')}</p>`;
     let s; try { s = await api('stats'); } catch (e) { el.remove(); return; }
     const h = s.medianFixH, fix = h == null ? T('chưa có') : h < 48 ? T('{h} giờ', { h }) : T('{d} ngày', { d: Math.round(h / 24 * 10) / 10 });
-    const m7 = Math.max(1, ...s.days7.map(d => d.n)), mA = Math.max(1, ...s.byArea.map(a => a.n));
+    const m7 = Math.max(1, ...s.days7.map(d => d.n)), mA = Math.max(1, ...s.byArea.map(a => a.n)), mC = Math.max(1, ...(s.byCountry || []).map(a => a.n));
+    const cty = c => { if (!/^[A-Z]{2}$/.test(c || '')) return '–'; let n = c; try { n = new Intl.DisplayNames([lang() === 'en' ? 'en' : 'vi'], { type: 'region' }).of(c) || c; } catch (e) { /* giữ mã */ } return String.fromCodePoint(...[...c].map(ch => 0x1F1A5 + ch.charCodeAt(0))) + ' ' + n; };
     el.innerHTML = `<div class="rp-head"><h3>${T('🐞 Báo lỗi người dùng – chất lượng')}</h3><a href="#reports" class="small">${T('Mở hộp báo lỗi →')}</a></div>
       <div class="rp-kpis" style="margin-top:.6rem"><div class="card kpi"><div class="l">${T('Đang mở')}</div><div class="v">${num(s.open)}</div><div class="s">${STS.slice(0, 3).map(([k, l]) => `${esc(T(l))} ${num(s.byStatus[k] || 0)}`).join(' · ')}</div></div>
         <div class="card kpi"><div class="l">${T('Thời gian sửa (trung vị, 90 ngày)')}</div><div class="v">${esc(fix)}</div><div class="s">n = ${num(s.fixedN)}</div></div>
         ${s.shots ? `<div class="card kpi"><div class="l">${T('Ảnh chụp trên R2')}</div><div class="v">${esc(mb(s.shots.bytes))}</div><div class="s">${esc(T('{p}% của 10 GB miễn phí · {n} ảnh', { p: s.shots.pct, n: num(s.shots.n) }))}${s.shots.d1 ? ' · ' + esc(T('{n} ảnh còn ở D1', { n: num(s.shots.d1) })) : ''}</div></div>` : ''}
         <div class="card kpi"><div class="l">${T('Theo trạng thái')}</div><div class="s">${STS.map(([k, l]) => `<span class="rp-st ${k}">${esc(T(l))} ${num(s.byStatus[k] || 0)}</span>`).join(' ')}</div></div></div>
       <div class="rp-kpis" style="margin-top:.6rem"><div><h4 style="margin:.2rem 0 .4rem">${T('7 ngày qua')}</h4><div class="bars" role="img" aria-label="${esc(s.days7.map(d => d.day + ': ' + d.n).join(', '))}">${s.days7.map(d => `<div title="${esc(d.day)}: ${d.n} ${T('mới')} · ${d.fixed} ${T('đã sửa')}"><i style="height:${Math.max(3, d.n / m7 * 100)}%"></i><small>${esc(d.day.slice(8))}</small></div>`).join('')}</div></div>
+        <div><h4 style="margin:.2rem 0 .4rem">${T('Theo quốc gia (30 ngày)')}</h4>${(s.byCountry || []).length ? s.byCountry.slice(0, 8).map(a => `<div class="rp-hbar"><span>${esc(cty(a.c))}</span><span class="b"><i style="width:${a.n / mC * 100}%"></i></span><span>${num(a.n)}</span></div>`).join('') : `<p class="small muted">${T('chưa có')}</p>`}</div>
         <div><h4 style="margin:.2rem 0 .4rem">${T('Theo khu vực (30 ngày)')}</h4>${s.byArea.length ? s.byArea.slice(0, 8).map(a => `<div class="rp-hbar"><span>${esc(T(AREAS[a.area] || a.area))}</span><span class="b"><i style="width:${a.n / mA * 100}%"></i></span><span>${num(a.n)}</span></div>`).join('') : `<p class="small muted">${T('chưa có')}</p>`}</div></div>`;
     el.querySelector('a[href="#reports"]').onclick = e => { e.preventDefault(); const b = document.querySelector('#tabs [data-tab="reports"]'); if (b) b.click(); };
     api('cfg').then(c => { const x = document.createElement('div'), list = checks(c), miss = list.filter(i => !i.ok).length; x.className = 'rp-setup';
