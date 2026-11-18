@@ -279,7 +279,10 @@
         if (K) K.want('dynamic'); else if (g.App && App.need) App.need('klocal').then(() => g.KLocal && g.KLocal.want('dynamic')).catch(() => {});
       }
     }
-    if (LA()) LA().src('s', why); // đếm lý do giọng máy
+    if (LA()) { // đếm lý do giọng máy; 'off' kèm nhãn con (máy/cờ nào) + 'part' = một phần câu ĐÃ có file Kokoro (LX-1004: đo trước khi dựng file/phát từng phần)
+      const K = g.KLocal, part = !!(g.KVoice && g.LISTEN_AUDIO && /^en-/.test(accent) && splitSentences(text).some(p => g.LISTEN_AUDIO.has(g.KVoice.lineKey(kvoice, p))));
+      LA().src('s', why, why === 'off' && K && K.offWhy ? K.offWhy() : '', part);
+    }
     const NT = nativeTTS();
     if (NT) {
       const my = ++speakSeq, parts = splitSentences(text), r = rate || prefs().ttsRate || 0.92;

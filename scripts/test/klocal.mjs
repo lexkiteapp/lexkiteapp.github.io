@@ -10,6 +10,8 @@ assert.equal(P.tier({ ...pc, mem: undefined, cores: undefined }), 'wasm', 'khôn
 assert.equal(P.tier({ ...pc, mem: 2 }), 'off', 'RAM 2 GB → giọng máy');
 assert.equal(P.tier({ ...pc, cores: 2 }), 'off', '2 nhân → giọng máy');
 assert.equal(P.tier({ ...pc, ios: true }), 'off', 'iOS mặc định tắt (giới hạn bộ nhớ WebKit)');
+// LX-1004: nhãn con của 'off' để đo từng nhóm máy; offWhy rỗng ⇔ tier wasm
+assert.deepEqual([pc, { ...pc, user: 'off' }, { ...pc, ios: true }, { ...pc, mem: 2 }, { ...pc, cores: 2 }].map(e => P.offWhy(e)), ['', 'user', 'ios', 'mem', 'cores'], 'offWhy theo từng nhóm');
 assert.equal(P.tier({ ...pc, ios: true, iosFlag: true }), 'wasm', 'iOS bật bằng cờ kl_ios');
 assert.equal(P.tier({ ...pc, user: 'off' }), 'off', 'người dùng tắt');
 assert.equal(P.tier({ ...pc, probe: { v: P.VER, at: Date.now(), off: true } }), 'off', 'đã đo chậm → nhớ, không thử lại');
@@ -80,7 +82,7 @@ assert.ok(!/klocal/.test(idx), 'klocal.js không nằm trong khung app (shell)')
 // Chuỗi dự phòng trong UI.tts (thứ tự CỐ ĐỊNH): file dựng sẵn → Kokoro trên máy → giọng HĐH (app) → speechSynthesis; mỗi nhánh đếm nguồn giọng
 const ui = fs.readFileSync('web/js/ui.js', 'utf8'), body = ui.slice(ui.indexOf('function tts('), ui.indexOf('const stopSpeak'));
 const at = re => { const m = re.exec(body); assert.ok(m, 'UI.tts thiếu nhánh ' + re); return m.index; };
-const order = [/g\.LISTEN_AUDIO\.has\(/, /K\.ready\(\)/, /LA\(\)\.src\('s', why\)/, /nativeTTS\(\)/, /new SpeechSynthesisUtterance/].map(at);
+const order = [/g\.LISTEN_AUDIO\.has\(/, /K\.ready\(\)/, /LA\(\)\.src\('s', why, /, /nativeTTS\(\)/, /new SpeechSynthesisUtterance/].map(at);
 assert.deepEqual(order, [...order].sort((a, b) => a - b), 'thứ tự dự phòng: file → Kokoro máy → (đếm giọng máy) → HĐH → speechSynthesis');
 assert.ok(/LA\(\)\.src\('f'\)/.test(body), 'file dựng sẵn được đếm (src f)');
 assert.ok(/onStart: \(\) => \{ if \(i === 0\) \{[^}]*src\('k'\)/.test(fs.readFileSync('web/js/klocal.js', 'utf8')), 'Kokoro trên máy được đếm (src k) lúc ra tiếng');
