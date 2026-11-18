@@ -58445,6 +58445,32 @@
    "b": "42082474448",
    "repo": "m4"
   },
+  "dossier#n": {
+   "h": "23cf86a47c7da321",
+   "url": "https://media.lexkite.com/vimg/23cf86a47c7da321.webp",
+   "alt": "dossier",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.252,
+    "vision": "@cf/meta/llama-4-scout-17b-16e-instruct",
+    "conf": 90,
+    "tries": 1
+   },
+   "ph": "eec8602f83b0bb99",
+   "at": "2026-11-18",
+   "b": "44229253651",
+   "repo": "m4"
+  },
   "dot#n": {
    "h": "74de56da069cd0d0",
    "url": "https://media.lexkite.com/vimg/74de56da069cd0d0.webp",
@@ -89372,6 +89398,33 @@
    "b": "40277982540",
    "repo": "m4"
   },
+  "herring#n": {
+   "h": "f99539ce893d84ac",
+   "url": "https://media.lexkite.com/vimg/f99539ce893d84ac.webp",
+   "alt": "herring",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "bg": "alpha",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.283,
+    "vision": "@cf/meta/llama-4-scout-17b-16e-instruct",
+    "conf": 80,
+    "tries": 1
+   },
+   "ph": "fe859590c166b45b",
+   "at": "2026-11-18",
+   "b": "44229253651",
+   "repo": "m4"
+  },
   "hesitant#adj": {
    "h": "25d084caa7c53e81",
    "url": "https://media.lexkite.com/vimg/25d084caa7c53e81.webp",
@@ -109407,6 +109460,33 @@
    "b": "41884971574",
    "repo": "m4"
   },
+  "lexicographer#n": {
+   "h": "d38f4b962f6c8d70",
+   "url": "https://media.lexkite.com/vimg/d38f4b962f6c8d70.webp",
+   "alt": "lexicographer",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "bg": "alpha",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.34,
+    "vision": "@cf/meta/llama-4-scout-17b-16e-instruct",
+    "conf": 100,
+    "tries": 4
+   },
+   "ph": "bbc5c04e9c3ab632",
+   "at": "2026-11-18",
+   "b": "44229253651",
+   "repo": "m4"
+  },
   "liable#adj": {
    "h": "e48fe3f783dd0a54",
    "url": "https://media.lexkite.com/vimg/e48fe3f783dd0a54.webp",
@@ -112604,6 +112684,33 @@
    "ph": "eab5da4a94ea053c",
    "at": "2026-10-27",
    "b": "40472935704",
+   "repo": "m4"
+  },
+  "lymphocyte#n": {
+   "h": "ed15dfb8b61fea40",
+   "url": "https://media.lexkite.com/vimg/ed15dfb8b61fea40.webp",
+   "alt": "lymphocyte",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "bg": "alpha",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.227,
+    "vision": "@cf/meta/llama-4-scout-17b-16e-instruct",
+    "conf": 100,
+    "tries": 4
+   },
+   "ph": "b38c8c7233cdc936",
+   "at": "2026-11-18",
+   "b": "44229253651",
    "repo": "m4"
   },
   "ma'am#n": {
@@ -118744,6 +118851,32 @@
    "ph": "b3948e6b2c32ce8d",
    "at": "2026-11-10",
    "b": "42825472268",
+   "repo": "m4"
+  },
+  "militarize#v": {
+   "h": "d56d946127011e0a",
+   "url": "https://media.lexkite.com/vimg/d56d946127011e0a.webp",
+   "alt": "militarize",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.317,
+    "vision": "@cf/meta/llama-4-scout-17b-16e-instruct",
+    "conf": 80,
+    "tries": 5
+   },
+   "ph": "cbb43552aa59b98c",
+   "at": "2026-11-18",
+   "b": "44229253651",
    "repo": "m4"
   },
   "military#adj": {
@@ -159814,6 +159947,32 @@
    "ph": "e5c72676c61c9319",
    "at": "2026-11-05",
    "b": "42005512750",
+   "repo": "m4"
+  },
+  "repetitive#adj": {
+   "h": "fa79f856a3635e55",
+   "url": "https://media.lexkite.com/vimg/fa79f856a3635e55.webp",
+   "alt": "repetitive",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.366,
+    "vision": "@cf/meta/llama-4-scout-17b-16e-instruct",
+    "conf": 80,
+    "tries": 3
+   },
+   "ph": "be95d06263c987e2",
+   "at": "2026-11-18",
+   "b": "44229253651",
    "repo": "m4"
   },
   "replace#v": {

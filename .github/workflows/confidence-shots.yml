@@ -16,6 +16,8 @@ jobs:
         with: { fetch-depth: 0 }
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
+      - uses: ./.github/actions/playwright-cache
+        with: { browsers: '--with-deps chromium' }
       - name: Chụp
         env: { BEFORE: "${{ github.event.inputs.before }}" }
         run: |
