@@ -53,6 +53,8 @@ jobs:
           python scripts/teach/mouth_motion.py --check
       - name: Khớp miệng ±33 ms
         run: node scripts/test/lip-clock.mjs
+      - uses: ./.github/actions/playwright-cache
+        with: { browsers: '--with-deps chromium webkit' }
       - name: Viền đen · fps · dung lượng (Chromium + WebKit)
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2

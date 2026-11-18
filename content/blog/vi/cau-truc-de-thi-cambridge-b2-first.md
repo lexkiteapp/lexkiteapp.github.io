@@ -9,7 +9,7 @@ tags: [cambridge, b2-first, fce, exam-format]
 keyword: "cấu trúc đề thi cambridge b2 first"
 cover: practice
 coverAlt: "Trang luyện tập của Lexkite với trò chơi và bài tập, gồm bài thi thử và phòng viết"
-publishAt:
+publishAt: 2027-02-06T21:28:00+07:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

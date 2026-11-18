@@ -183,3 +183,5 @@ For this conversion, no. The chart works skill by skill. The overall band is a s
 No. Practice tools, including ours, can show progress and weak areas, but only the real test produces an official band. Use practice scores as a guide for what to study next, not as a promise.
 
 Preparing for Canada? Read our list of [CELPIP speaking phrases](/en/blog/celpip-speaking-everyday-phrases/) for each task.
+
+Planning for Australia or New Zealand instead? Compare with the [IELTS score for Australia PR](/en/blog/ielts-score-australia-pr/) and the [IELTS score for New Zealand residence](/en/blog/ielts-new-zealand-skilled-migrant/).

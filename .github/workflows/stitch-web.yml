@@ -47,6 +47,8 @@ jobs:
           node scripts/build-stitch-css.mjs --check
       - name: Build dist (như Cloudflare Pages)
         run: bash scripts/build-web.sh >/dev/null
+      - uses: ./.github/actions/playwright-cache
+        with: { browsers: '--with-deps chromium' }
       - name: So với mẫu Stitch + axe + chạm + CLS
         run: |
           bash scripts/ci/pw-install.sh --with-deps chromium
