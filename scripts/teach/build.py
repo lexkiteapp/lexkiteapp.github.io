@@ -20,6 +20,8 @@ G = sys.argv[1]; OUT = sys.argv[2] if len(sys.argv) > 2 else 'web/teach'
 REG = f'{OUT}/characters.json'
 R = json.load(open(REG)); F = R['frame']; W, H = F['w'], F['h']
 errs = []
+import cv2, PIL   # chẩn đoán phiên bản công cụ
+print('DIAG công cụ:', subprocess.run(['ffmpeg', '-version'], capture_output=True, text=True).stdout.splitlines()[0], '| opencv', cv2.__version__, '| numpy', np.__version__, '| Pillow', PIL.__version__, flush=True)
 TMP = tempfile.mkdtemp(prefix='teach-smear-')
 # mép cắt dưới (hông/vai) mờ dần → không lộ đường cắt ngang/khung khi đặt trên nền trang (chủ: tách nền sạch, hoà vào nền, không khung)
 fade = lambda f: f"geq=lum='if(gte(lum(X,Y),12),lum(X,Y),0)*min(1,(H-Y)/(H*{f}))'"
@@ -55,6 +57,8 @@ def vid_spill(o):   # cùng phép đo ánh xanh như edge_qc (video)
 def edge_qc(name, rgba, tol=2):   # tol: webp 2; video H.264 8 (nhiễu nén)   # 🚧 tách nền sạch: mép trên/trái/phải trong suốt (không còn nền), viền tóc không ánh xanh, thân đặc
     import numpy as np
     A = rgba[..., 3].astype(float); C = rgba[..., :3].astype(float)
+    if max(A[0].max(), A[:, 0].max(), A[:, -1].max()) > tol:   # chẩn đoán: cạnh nào, alpha bao nhiêu, ở đâu (so với run xanh 4/11: ubuntu-24.04 + ffmpeg apt)
+        print(f'  DIAG {name}: {A.shape[1]}x{A.shape[0]} trên max {A[0].max():.0f}@x{int(A[0].argmax())} · trái max {A[:, 0].max():.0f}@y{int(A[:, 0].argmax())} · phải max {A[:, -1].max():.0f}@y{int(A[:, -1].argmax())}', flush=True)
     if max(A[0].max(), A[:, 0].max(), A[:, -1].max()) > tol: errs.append(f'{name}: người/nền chạm mép trên/trái/phải (alpha > {tol}) – khung phải chứa trọn người, không che bằng làm mờ')
     e = (A > 16) & (A < 240); col = C[e]
     if e.sum():
