@@ -139,5 +139,11 @@
     const T = E.toks(en).map(x => x.toLowerCase()), x = it.card ? null : sp().find(p => p.m && !/\s/.test(p.w) && T.includes(p.w.toLowerCase()) && !(state.cards || {})[p.w.toLowerCase()]);
     return { hard: x || null, gloss: w => { const k = E.norm(w), c = (L.pool || []).concat((L.picks || []).map(p => p.card)).find(y => y && E.norm(y.word) === k); if (c) return meanOf(c); const q = sp().find(y => E.norm(y.w) === k); return (q && q.m) || ''; } };
   }
-  g.LearnCard = { ctx, match, fits, tokens, saveAllowed, altParts, altText, goodTr, norm, load, trOf, frames: () => FR, html, wire, on, mount, newLesson: () => { seen = 0; }, DAY_MAX, LESSON_MAX };
+  // Sau khi vẽ thẻ: bỏ thẻ câu cũ, đưa "Vì sao?" (mục 336) vào hàng hành động của thẻ; sai mà chưa mở giải thích → mở sẵn.
+  function adopt(view, host, ok, why) {
+    const $ = s => document.querySelector(s), wr = $('#lsnWhy'), acts = host.querySelector('.lkc-a'), row = wr && wr.closest('.lsn-whyrow');
+    view.querySelectorAll('.lsn-fq').forEach(x => x.remove());
+    if (wr && acts) { wr.className = 'lkc-b'; wr.querySelectorAll('*').forEach(x => { x.className = x.classList.contains('material-symbols-outlined') ? 'material-symbols-outlined' : ''; }); acts.insertBefore(wr, acts.children[1] || null); if (row) row.remove(); if (!ok && $('#lsnXp') && $('#lsnXp').hidden) why(); }
+  }
+  g.LearnCard = { adopt, ctx, match, fits, tokens, saveAllowed, altParts, altText, goodTr, norm, load, trOf, frames: () => FR, html, wire, on, mount, newLesson: () => { seen = 0; }, DAY_MAX, LESSON_MAX };
 })(typeof self !== 'undefined' ? self : globalThis);

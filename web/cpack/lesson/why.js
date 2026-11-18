@@ -136,5 +136,30 @@
     return h;
   }
 
-  g.LessonWhy = { diff, rules, explain, html, notSame, pickEx, RULE_EX, TOINF };
+  // "Giải thích" từ dữ liệu sẵn có (0 lượt AI): phần CÂU + gold bank + định nghĩa/ví dụ; X = { L, E, t, esc, meanOf } của ui.js
+  function show(box, it, X) {
+    const { L, E, t, esc, meanOf } = X, W = g.LessonWhy;
+    const c = it.card || {}, G = (c.word && (g.LESSON_GOLD || {})[E.norm(c.word)]) || [];
+    const own = c.ctx ? c.ctx : ((c.contexts || [])[0] || {}).text;
+    const byWord = w => (L.pool || []).find(x => x && E.norm(x.word) === E.norm(w));
+    const sents = (G[0] && G[0].ex || []).concat(c.ex ? [c.ex] : [], (c.sentences || []).map(x => x && x.en), own ? [own] : []);
+    const wr = W ? W.explain(it, L.ans, { gloss: w => { const x = byWord(w); return x ? meanOf(x) : ''; }, pos: w => (byWord(w) || {}).pos || '', examples: sents }) : null;
+    let h = wr ? W.html(wr, t, esc) : '';
+    if (h && c.word) h += `<p class="tiny muted"><b>${esc(t('Từ: {w}', { w: c.word }))}</b></p>`;
+    const st = E.stress(c.ipaUS || c.ipa), uu = E.usuk(c);
+    if (st) h += `<p class="small">${t('Trọng âm rơi vào âm tiết {n}/{m}', { n: st.syl, m: st.of })}</p>`;
+    if (uu) h += `<p class="small">${t('Anh – Mỹ đọc khác:')} UK <span class="ipa">${esc(uu.uk)}</span> · US <span class="ipa">${esc(uu.us)}</span></p>`;
+    G.forEach(x => {
+      h += `<p lang="en"><b>${esc(x.why)}</b></p>`;
+      if (x.w) h += `<p class="small">✗ <s lang="en">${esc(x.w)}</s><br>✓ <span lang="en">${esc(x.r)}</span></p>`;
+      if (x.mem) h += `<p class="small">🧠 ${t('Mẹo nhớ:')} <span lang="en">${esc(x.mem)}</span></p>`;
+    });
+    if (!G.length && c.def) h += `<p><span class="tiny muted">${t('Định nghĩa:')}</span> <span lang="en">${esc(c.def)}</span></p>`;
+    const ex = (G[0] && G[0].ex || []).concat(c.ex ? [c.ex] : []).filter((x, i, a) => x && a.indexOf(x) === i && (!W || (W.notSame(x, it.sent || it.answer) && !(wr && wr.ex.includes(x))))).slice(0, 2);
+    if (ex.length) h += `<p class="small lsn-why-ex"><span class="tiny muted">${t('Ví dụ:')}</span> ${ex.map(x => `<span lang="en">${esc(x)}</span>`).join(' · ')}</p>`;
+    if (own && (!W || W.notSame(own, it.sent || it.answer))) h += `<p class="small"><span class="tiny muted">🔎 ${t('Từ bạn đã tra')}:</span> <span lang="en">${esc(own)}</span></p>`;
+    box.innerHTML = h || `<p class="small">${t('Chưa có giải thích riêng cho từ này.')}</p>`;
+  }
+
+  g.LessonWhy = { show, diff, rules, explain, html, notSame, pickEx, RULE_EX, TOINF };
 })(typeof self !== 'undefined' ? self : globalThis);

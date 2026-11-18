@@ -564,9 +564,7 @@
     const en = sentOf(it), tr = it.type === 'q' ? '' : it.tr || (it.type === 'build' || it.type === 'tr' ? it.prompt : '') || (it.card ? sentGloss(it.card, en) : '');
     await C.mount(host, { en, tr, ok, demo: L.demo, ...C.ctx(it, en, L, E, state, meanLang(), meanOf), speak: x => say(x, false, L.who), hold: r => { if (L) L.rec = r; } });
     if (!L || L.cardIt !== it) return;
-    view.querySelectorAll('.lsn-fq').forEach(x => x.remove());
-    const wr = $('#lsnWhy'), acts = host.querySelector('.lkc-a'), row = wr && wr.closest('.lsn-whyrow'); // Vì sao? (mục 336) nằm chung hàng hành động, không thành hai chỗ
-    if (wr && acts) { wr.className = 'lkc-b'; wr.querySelectorAll('*').forEach(x => { x.className = x.classList.contains('material-symbols-outlined') ? 'material-symbols-outlined' : ''; }); /* bỏ màu của mẫu Stitch: chữ/biểu tượng kế thừa màu thẻ */ acts.insertBefore(wr, acts.children[1] || null); if (row) row.remove(); if (!ok && $('#lsnXp') && $('#lsnXp').hidden) explain(it); }
+    C.adopt(view, host, ok, () => explain(it));
     const nx = $('#lsnNext'); if (nx && document.activeElement === document.body) nx.focus({ preventScroll: true });
   }
 
@@ -585,27 +583,8 @@
     if (!box.hidden) { box.hidden = true; return; }
     box.hidden = false; box.textContent = '…';
     await goldLoad();
-    const c = it.card || {}, G = (c.word && (window.LESSON_GOLD || {})[E.norm(c.word)]) || [];
-    const own = c.ctx ? c.ctx : ((c.contexts || [])[0] || {}).text;
     await Promise.race([cardReady(), new Promise(r => setTimeout(r, 1200))]);
-    const W = window.LessonWhy, byWord = w => (L.pool || []).find(x => x && E.norm(x.word) === E.norm(w));
-    const sents = (G[0] && G[0].ex || []).concat(c.ex ? [c.ex] : [], (c.sentences || []).map(x => x && x.en), own ? [own] : []);
-    const wr = W ? W.explain(it, L.ans, { gloss: w => { const x = byWord(w); return x ? meanOf(x) : ''; }, pos: w => (byWord(w) || {}).pos || '', examples: sents }) : null;
-    let h = wr ? W.html(wr, t, esc) : '';
-    if (h && c.word) h += `<p class="tiny muted"><b>${esc(t('Từ: {w}', { w: c.word }))}</b></p>`;
-    const st = E.stress(c.ipaUS || c.ipa), uu = E.usuk(c);
-    if (st) h += `<p class="small">${t('Trọng âm rơi vào âm tiết {n}/{m}', { n: st.syl, m: st.of })}</p>`;
-    if (uu) h += `<p class="small">${t('Anh – Mỹ đọc khác:')} UK <span class="ipa">${esc(uu.uk)}</span> · US <span class="ipa">${esc(uu.us)}</span></p>`;
-    G.forEach(x => {
-      h += `<p lang="en"><b>${esc(x.why)}</b></p>`;
-      if (x.w) h += `<p class="small">✗ <s lang="en">${esc(x.w)}</s><br>✓ <span lang="en">${esc(x.r)}</span></p>`;
-      if (x.mem) h += `<p class="small">🧠 ${t('Mẹo nhớ:')} <span lang="en">${esc(x.mem)}</span></p>`;
-    });
-    if (!G.length && c.def) h += `<p><span class="tiny muted">${t('Định nghĩa:')}</span> <span lang="en">${esc(c.def)}</span></p>`;
-    const ex = (G[0] && G[0].ex || []).concat(c.ex ? [c.ex] : []).filter((x, i, a) => x && a.indexOf(x) === i && (!W || (W.notSame(x, it.sent || it.answer) && !(wr && wr.ex.includes(x))))).slice(0, 2);
-    if (ex.length) h += `<p class="small lsn-why-ex"><span class="tiny muted">${t('Ví dụ:')}</span> ${ex.map(x => `<span lang="en">${esc(x)}</span>`).join(' · ')}</p>`;
-    if (own && (!W || W.notSame(own, it.sent || it.answer))) h += `<p class="small"><span class="tiny muted">🔎 ${t('Từ bạn đã tra')}:</span> <span lang="en">${esc(own)}</span></p>`;
-    box.innerHTML = h || `<p class="small">${t('Chưa có giải thích riêng cho từ này.')}</p>`;
+    if (window.LessonWhy && LessonWhy.show) LessonWhy.show(box, it, { L, E, t, esc, meanOf }); else box.innerHTML = `<p class="small">${t('Chưa có giải thích riêng cho từ này.')}</p>`;
   }
 
   const weak0 = s => [...s.wrong.keys()].filter(k => k[0] !== '#');
