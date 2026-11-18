@@ -3,7 +3,7 @@
  * giáo viên của loạt (Ama nữ / Carlos nam) CHỈ qua Chars.still(<giáo viên>, <tư thế của thẻ>); giọng 🔊 = giọng của đúng giáo viên đó (Chars.voice).
  * 🔊 nghe · 🎧 nghe từ tốn · 🎤 nói thử (UI.recognize, chấm % giống) · chia sẻ ảnh 1:1 / 4:5 vẽ Canvas trên máy (LKFile) + link sâu.
  * Câu thô ('đừng nói', sắc thái rude) đã được che bằng • khi dựng dữ liệu – không bao giờ đọc to, không vào ảnh chia sẻ.
- * Nạp lười: App.need('say') (BUNDLES.say trong app.js); chuỗi giao diện = nhóm i18n lười 'say' (+ 'v2'). */
+ * Nạp lười: App.need('say') (BUNDLES.say trong bundles.js); chuỗi giao diện = nhóm i18n lười 'say' (+ 'v2'). */
 (function (g) {
   'use strict';
   const { routes } = App, { $, esc, toast, modal } = UI;

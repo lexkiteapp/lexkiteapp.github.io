@@ -77,7 +77,7 @@ const L = fs.readdirSync('web').filter(d => fs.existsSync(`web/${d}/index.html`)
 ok(L.length >= 15 && L.every(l => rd(`web/${l}/index.html`).includes(meta)), 'mọi trang landing 15 ngôn ngữ có Smart App Banner (' + L.length + ')');
 
 // Gói tải lười + nudge PWA cũ nhường chỗ khi có app cửa hàng
-const app = rd('web/js/app.js');
+const app = rd('web/js/app.js') + rd('web/js/bundles.js');
 ok(/install: \['js\/i18n\/en\/install\.js', 'js\/install-sheet\.js'\]/.test(app) && /App\.need\('install'\)/.test(app), 'app.js: gói install nạp lười sau khi vẽ');
 ok(/\/\^\(play\|ios\)\$\/\.test\(LKGetApp\.kind\(\)\)\) return;/.test(app), 'installNudge cũ nhường chỗ khi có Play/App Store');
 ok(/LAZY="[^"]*\binstall\b/.test(rd('scripts/build-i18n.sh')), 'build-i18n.sh: nhóm install là LAZY');
