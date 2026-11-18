@@ -561,6 +561,7 @@
   { "id": "phrase-book", "paths": ["web/cpack/framework", "content/framework/functions.json"], "owner": "claude", "gen": true, "checks": ["schema"], "delegate": ["test/phrasebook.mjs", "test/content-factory.mjs"], "doc": "docs/CONTENT-FACTORY.md" }
  ],
  "skip": {
+  "web/cpack/tl-app": "MÃ giao diện bảng chọn ngôn ngữ đang học (tl-pick.js) dời khỏi web/js để vào ngân sách người học – không phải nội dung học; chữ qua t() (gói i18n), thiết kế docs/specs/target-language.md",
   "web/cpack/irregular": "MÃ giao diện bảng động từ bất quy tắc (table.js, drill.js) dời khỏi web/js để vào ngân sách người học – không phải nội dung học; dữ liệu ở web/js/irv + content/verbs (nguồn irregular-verbs, kiểm bởi scripts/test/verbs.mjs); giao diện kiểm bởi scripts/test/irregular-ui.mjs",
   "web/cpack/qstats": "MÃ giao diện dải tỉ lệ đúng 8 tuần của #/qstats (week.js) dời khỏi web/js để vào ngân sách người học – không phải nội dung học; test scripts/test/qwk.mjs",
   "web/cpack/mail-app": "MÃ email nhắc học (mail.js) dời khỏi web/js để vào ngân sách người học – không phải nội dung học; test scripts/test/mail-digest.mjs",
