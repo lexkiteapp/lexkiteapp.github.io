@@ -27,8 +27,8 @@ Thước đo chung (đo bằng `ux-measure`, `/api/hit`, `ret:*` events): **TTFL
 | # | Mục (P) | Vấn đề · bằng chứng | Giải pháp | Đo | Lớn · thứ tự |
 |---|---|---|---|---|---|
 | U1 | **P0** Chạm ≥44 px | Audit tổng chạm 87,5; `a.small` 18 px, `qe-n` 32 px, `select` 28 px, `summary` 23 px | Một lớp CSS dùng chung (vùng chạm vô hình 44 px) + test quét | Audit chạm ≥95; qa-bot `tap`=0 | S · 1 |
-| U2 | **P0** Tràn/cắt `#/day/1`, ô không nhãn Dictation | bố cục 25 và 55 | Sửa icon cắt, aria-label + nhãn nhìn thấy, nút Next không rớt dòng | Audit bố cục ≥95 | S · 1 |
-| U3 | **P0** Đường vào bài kẹt? (Hôm nay→bài, practice/test) | ux-measure 4-lesson `ok:false`; mqa timeout | Tái hiện bằng click thật; nếu thật: sửa điều hướng + thêm vào journey-matrix | Chạm tới bài ≤2, 0 lỗi | S–M · 1 |
+| U2 | **P0** Ô không nhãn + nút rớt dòng ở Chép chính tả (`#/day/1` báo nhầm: cắt ảnh/khối trang trí đúng thiết kế) | bố cục `#/dictation` 55 | Nhãn nhìn thấy, placeholder + aria-label, hàng nút không rớt dòng | Audit bố cục ≥95 | S · 1 (đã sửa) |
+| U3 | P2 Sửa phép đo `ux-measure` 4-lesson (bấm CTA thật thay vì đặt hash) | Click thật: Hôm nay→Start→Ngày 1 = 2 chạm, không kẹt | Đổi kịch bản đo | Số đo đúng | S · 4 |
 | U4 | **P0** Lần đầu ≤3 chạm tới câu đầu | 8 chạm | Welcome→câu thử, hỏi mục tiêu muộn (beat-top-ux P0-1) | TTFL, chạm, hoàn thành bài 1 ≥ +10 % | M · 2 |
 | U5 | P1 Màn sau bài (ăn mừng+chuỗi+bước kế) | chưa đo, điểm đẹp 82 | Màn Lesson-complete theo Stitch, haptic/âm tắt được, tôn trọng reduced-motion | Xong bài, D1 +3 % | M · 3 |
 | U6 | P1 Nhất quán Stitch | 17/69 màn; AI-judge độ đẹp TB 72 | Phủ tiếp theo `stitch-v2-coverage-plan`; ưu tiên `/L/schools`, add-on tab mới, Call | Độ đẹp ≥85, stitch-diff xanh | L · 3 |
