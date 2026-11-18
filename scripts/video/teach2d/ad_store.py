@@ -12,7 +12,7 @@ def main(ep_id, art, bank, ad, delta, repo, run, sha=''):
     for old in {ep['cta']['link'], (ep.get('publish') or {}).get('link')} - {None}: txt = txt.replace(old, UTM)
     tmp = tempfile.mkdtemp(); open(f'{tmp}/{ep_id}.json', 'w').write(txt); store.EPS = tmp
     shutil.copy2(ad, f'{bank}/{ep_id}-short.mp4')
-    D = json.load(open(delta)); r = D[ep_id]; r['sha']['short'] = hashlib.sha256(open(ad, 'rb').read()).hexdigest()[:16]; json.dump(D, open(delta, 'w'))
+    D = {ep_id: json.load(open(delta))[ep_id]}; r = D[ep_id]; r['sha']['short'] = hashlib.sha256(open(ad, 'rb').read()).hexdigest()[:16]; json.dump(D, open(delta, 'w'))
     new = store.run_store(art, bank, delta, repo, int(run), sha)
     if not new: sys.exit('ad_store: not stored (blocked or duplicate): ' + json.dumps(json.load(open(delta))[ep_id].get('publish_block')))
 
