@@ -10,7 +10,7 @@ import { withInstall } from './_install_links.js';
 import { BIO_ONLY } from './_role_meta.js';
 import { field } from './_clip_logic.js';
 import { runModel } from './ai.js';
-import { normCfg, allowed, schedule, SOCIAL_DAY_MAX } from './_distribution.js';
+import { normCfg, allowed, schedule, SOCIAL_DAY_MAX, LANG_TZ, langOfChannel } from './_distribution.js';
 
 // ---------------- Hàm thuần (test: scripts/test/social-mgr.mjs) ----------------
 export const STATES = ['idea', 'draft', 'review', 'approved', 'scheduled', 'published', 'failed'];
@@ -73,14 +73,14 @@ export function validateCompose(d, plats) {
   return out.map(x => ({ lv: 'error', ...x }));
 }
 
-export const DEFAULT_RULES = { perDay: { facebook_page: 2, instagram: 2, tiktok: 2, youtube: 1, threads: 2 }, minGapH: 3, hours: [8, 12, 19], tz: 'America/New_York', tzBy: {}, dupDays: 30, days: 7, skipWeekend: false };
+export const DEFAULT_RULES = { perDay: { facebook_page: 2, instagram: 2, tiktok: 2, youtube: 1, threads: 2 }, minGapH: 3, hours: [12, 19, 20], tz: 'America/New_York', tzBy: {}, dupDays: 30, days: 7, skipWeekend: false };
 export function cleanRules(r) {
   r = r && typeof r === 'object' ? r : {}; const d = DEFAULT_RULES, perDay = {};
   for (const p of Object.keys(PLAT)) perDay[p] = Math.max(0, Math.min(PLAT[p].cap, SOCIAL_DAY_MAX, Math.round(+((r.perDay || {})[p] ?? d.perDay[p]) || 0)));
   const tzOk = z => { try { new Intl.DateTimeFormat('en', { timeZone: z }); return true; } catch (e) { return false; } };
   const tzBy = {}; for (const [k, v] of Object.entries(r.tzBy || {})) if (/^[A-Za-z0-9_-]{1,40}$/.test(k) && typeof v === 'string' && tzOk(v)) tzBy[k] = v;
   const hours = [...new Set((Array.isArray(r.hours) ? r.hours : d.hours).map(Math.round).filter(h => h >= 0 && h <= 23))].sort((a, b) => a - b).slice(0, 12);
-  return { perDay, minGapH: Math.max(1, Math.min(24, +r.minGapH || d.minGapH)), hours: hours.length ? hours : d.hours, tz: tzOk(r.tz) ? r.tz : d.tz, tzBy,
+  return { perDay, minGapH: Math.max(1, Math.min(24, +r.minGapH || d.minGapH)), hours: hours.length && !(hours.join() === '8,12,19') ? hours : d.hours, tz: tzOk(r.tz) ? r.tz : d.tz, tzBy,
     cfgBy: Object.fromEntries(Object.entries(r.cfgBy || {}).filter(([k, v]) => /^[A-Za-z0-9_-]{1,40}$/.test(k) && v && typeof v === 'object').slice(0, 200).map(([k, v]) => [k, normCfg(v)])),
     dupDays: Math.max(1, Math.min(365, Math.round(+r.dupDays || d.dupDays))), days: Math.max(1, Math.min(31, Math.round(+r.days || d.days))), skipWeekend: !!r.skipWeekend };
 }
@@ -92,7 +92,7 @@ export function atTz(y, m, d, h, tz) { const want = Date.UTC(y, m - 1, d, h); le
  *  trần 24 h của nền tảng (FB Reels 30, IG 100…) và chống trùng clip/kênh trong dupDays. Trả { slots:[{clip, account_id, at}], skipped:[{clip, account_id, why}] }. */
 export function cfgFor(a, R) {
   const id = String(a.id), over = (R.cfgBy || {})[id] || {};
-  return normCfg({ daily_cap: R.perDay[a.p] || 0, min_gap_min: R.minGapH * 60, tz: R.tzBy[id] || R.tz, windows: R.hours.map(h => ({ from: String(h).padStart(2, '0') + ':00', to: String(h).padStart(2, '0') + ':59' })), label: a.name || '', ...over });
+  return normCfg({ daily_cap: R.perDay[a.p] || 0, min_gap_min: R.minGapH * 60, tz: R.tzBy[id] || LANG_TZ[langOfChannel(a.name || '')] || R.tz, windows: (R.perDay[a.p] >= 2 ? R.hours : R.hours.filter(h => h >= 18).concat(R.hours.some(h => h >= 18) ? [] : R.hours)).map(h => ({ from: String(h).padStart(2, '0') + ':00', to: String(h).padStart(2, '0') + ':59' })), label: a.name || '', ...over });
 }
 export function planQueue({ clips = [], accounts = [], taken = [], history = [], rules, now = Date.now() }) {
   const R = cleanRules(rules), slots = [], skipped = [], used = new Map();
