@@ -208,7 +208,7 @@ ok(S.key && S.webhook && S.cfg.daily_calls === 10 && S.budget_left === 2 && S.up
   const flush = async (k = 15) => { for (let i = 0; i < k; i++) await new Promise(res => setTimeout(res, 0)); };
   const main = doc.getElementById('m'); w.AdminSocialMgr.paint('queue', main, ctx); await flush();
   const ap = main.querySelector('#smgAP');
-  ok(ap && /Autopilot/.test(ap.textContent) && /Cầu dao mở/.test(ap.textContent) && /41\/60/.test(ap.textContent) && ap.querySelector('#apOn').checked && !ap.querySelector('#apAA').checked, 'thẻ ở đầu tab Hàng đợi: trạng thái, cầu dao, ngân sách, công tắc (tự duyệt mặc định TẮT)');
+  ok(ap && /Autopilot/.test(ap.textContent) && /Cầu dao mở/.test(ap.textContent) && /41\/480/.test(ap.textContent) && ap.querySelector('#apOn').checked && !ap.querySelector('#apAA').checked, 'thẻ ở đầu tab Hàng đợi: trạng thái, cầu dao, ngân sách, công tắc (tự duyệt mặc định TẮT)');
   ok(/Đã duyệt tay 2\/1/.test(ap.textContent) && !ap.querySelector('[data-ap=tiktok]').checked && /Chờ duyệt/.test(ap.querySelector('tbody').textContent), 'đếm bài duyệt tay/nền tảng, TikTok tắt, bảng sắp đăng');
   ap.querySelector('#apRun').click(); await flush();
   ok(ran === 1 && /tạo 1/.test(main.querySelector('#apM').textContent), 'Chạy ngay → 1 lượt, báo kết quả');
