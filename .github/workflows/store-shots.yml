@@ -29,6 +29,8 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
+      - uses: ./.github/actions/playwright-cache
+        with: { browsers: '--with-deps chromium' }
       - name: Chụp add-on
         run: |
           bash scripts/ci/npm-retry.sh i --no-save --no-audit --no-fund playwright@1.50.1
@@ -51,6 +53,8 @@ jobs:
         with: { node-version: 22 }
       - name: Kiểm đổi icon sang PNG 32-bit RGBA (hồi quy 01/11)
         run: node scripts/test/png-rgba.mjs
+      - uses: ./.github/actions/playwright-cache
+        with: { browsers: '--with-deps chromium' }
       - name: Chụp app (Play + App Store)
         run: |
           bash scripts/ci/npm-retry.sh i --no-save --no-audit --no-fund playwright@1.50.1
@@ -74,6 +78,8 @@ jobs:
       - uses: actions/cache@v4
         with: { path: /tmp/kk/node_modules/@huggingface/transformers/.cache, key: video-models-kokoro82m-q8-cine-v1 }
       - uses: ./.github/actions/setup-ffmpeg
+      - uses: ./.github/actions/playwright-cache
+        with: { browsers: '--with-deps chromium' }
       - name: Quay app preview
         run: |
           bash scripts/ci/npm-retry.sh i --no-save --no-audit --no-fund playwright@1.50.1

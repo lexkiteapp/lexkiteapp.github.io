@@ -111,3 +111,8 @@ Cấp độ do người soạn; `content/wordlists/cefr-oxford.json` chỉ có c
 
 ## Bảng động từ bất quy tắc (#/irregular)
 Dạng V1/V2/V3 chỉ ở IRR của `web/js/verbs-core.js`; nội dung `content/verbs/`; cách thêm và đối chiếu nguồn: đầu `scripts/verbs/build-irregular.mjs` (rồi chạy `scripts/native/gen.mjs`).
+
+## Mục tiêu & tốc độ kho từ (17/11, health-board)
+- Mốc: **20.000 word#pos** đạt cổng. Đo: `node scripts/lexicon/expand/pace.mjs` (kho + mục đã xuất, tốc độ 7 ngày, ngày dự kiến đủ, tốc độ CẦN/ngày). 17/11: 10.288 (thiếu 9.712), 73/ngày (kéo bởi vài lượt tốt 10–13/11; 14–17/11 ≈ 0) → ~133 ngày; muốn đủ trong 30 ngày cần ~324/ngày.
+- Sàn health-board: `infra/yield-floors.json` (`lexicon-expand` ≥ 40 mục đạt/48 h) – dưới sàn = đỏ trên issue "Sức khoẻ hệ thống". Chỉ nâng sàn, không hạ.
+- **Gốc "idle" từ 13/11:** không phải lỗi cổng `laneEmpty` (cầu dao đúng) mà ứng viên mới cạn: pool 3.270 mục gần hết C2 (Zipf ≤ 3,25), 68 % thiếu nghĩa vi NGƯỜI VIẾT, 30 % thiếu 2 câu người viết → 10–42 mục/lượt qua lọc trước AI, 0 đạt. Cổng giữ nguyên; đòn bẩy = nguồn vi/câu người viết mới hoặc rescue hàng duyệt (`rescue=wd:N|rewrite:N`), đo `yieldRetry` rồi mới nâng.

@@ -1,3 +1,4 @@
+# ci-policy: no-gen – dựng video giáo viên, không đọc gói dịch/add-on (luật 18)
 # ci-policy: heavy-gate – render video trên PR chờ npm test xanh (job `gate`, luật 11)
 # teach-video: Teach2D templates (docs/VIDEO-TEACH2D.md) – ONE pilot per template, short 9:16 + lesson embed 16:9, review sheet. 0 credits.
 # QC BEFORE render (script review, data facts, voice clock, layout / contrast / IPA / mouth / hook on the real timeline) and AFTER render
@@ -142,6 +143,8 @@ jobs:
         with: { node-version: 20 }
       - uses: actions/cache@v4
         with: { path: ~/.cache/ms-playwright, key: playwright-1.48.2-chromium-v1 }
+      - uses: ./.github/actions/playwright-cache
+        with: { browsers: '--with-deps chromium' }
       - name: Playwright Chromium (TeacherRig host)
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2 >/dev/null
@@ -223,6 +226,8 @@ jobs:
         with: { pattern: 'tv-*-wide-${{ github.run_id }}', path: art, merge-multiple: false }
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
+      - uses: ./.github/actions/playwright-cache
+        with: { browsers: '--with-deps chrome)' }
       - run: npm i --no-save --no-audit --no-fund playwright@1.48.2 && (google-chrome --version || bash scripts/ci/pw-install.sh --with-deps chrome)
         timeout-minutes: 12
       - name: Screenshots

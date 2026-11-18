@@ -161,7 +161,7 @@ quiz: [
 - *Next, the mixture is heated in a specialized furnace until it melts completely.*
 - *Finally, the finished products are inspected for quality before they are packaged and dispatched.*
 
-تطبيق هذه التراكيب بوعي ودقة يرفع تقييمك النحوي بشكل حاسم. يمكنك استكشاف مزيد من التمارين في [دليل قواعد اللغة الإنجليزية](/ngu-phap/).
+تطبيق هذه التراكيب بوعي ودقة يرفع تقييمك النحوي بشكل حاسم. يمكنك استكشاف مزيد من التمارين في [دليل قواعد اللغة الإنجليزية](/en/grammar/).
 
 ويمكنك اختبار استيعابك للمفردات المرتبطة عبر [نظام الاختبارات السريعة](/app/#/practice/test).
 
@@ -196,6 +196,8 @@ quiz: [
 {{youtube: | Passive Voice in English Complete Rules and Exercises}}
 
 ---
+
+ولترى المبني للمجهول في أكثر مواضعه فائدة للاختبار، اقرأ [وصف العملية في IELTS Writing Task 1](/ar/blog/wasf-al-amaliyya-ielts-writing-task-1-process/) حيث تُوصف كل مرحلة بجملة مبنية للمجهول.
 
 ## الأسئلة الشائعة (FAQ)
 

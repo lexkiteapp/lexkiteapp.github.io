@@ -125,6 +125,90 @@
     "emploˈyee",
     "vietnaˈmese"
    ]
+  },
+  {
+   "page": "samples/index.html",
+   "reason": "Đợt 2 nội dung (#1368): thêm 20 đề IELTS Task 2 (80 → 100) và 14 đề Task 1 Academic (38 → 52); số đếm trong title/mô tả/mục lục tăng theo.",
+   "words": [
+    "80",
+    "527"
+   ],
+   "replace": [
+    [
+     "80 bài mẫu",
+     "100 bài mẫu"
+    ],
+    [
+     "numberOfItems\":80",
+     "numberOfItems\":100"
+    ]
+   ],
+   "itemList": true
+  },
+  {
+   "page": "en/samples/index.html",
+   "reason": "Đợt 2 nội dung (#1368): thêm 20 đề IELTS Task 2 (80 → 100) và 14 đề Task 1 Academic (38 → 52); số đếm trong title/mô tả/mục lục tăng theo.",
+   "words": [
+    "80",
+    "527",
+    "14"
+   ],
+   "replace": [
+    [
+     "80 band 8 IELTS",
+     "100 band 8 IELTS"
+    ],
+    [
+     "80 IELTS Writing",
+     "100 IELTS Writing"
+    ],
+    [
+     "numberOfItems\":80",
+     "numberOfItems\":100"
+    ]
+   ],
+   "itemList": true
+  },
+  {
+   "page": "en/ielts-writing/index.html",
+   "reason": "Đợt 2 nội dung (#1368): thêm 20 đề IELTS Task 2 (80 → 100) và 14 đề Task 1 Academic (38 → 52); số đếm trong title/mô tả/mục lục tăng theo.",
+   "words": [
+    "38",
+    "80"
+   ],
+   "replace": [
+    [
+     "38 Academic Task 1",
+     "52 Academic Task 1"
+    ],
+    [
+     "80 Task 2",
+     "100 Task 2"
+    ]
+   ]
+  },
+  {
+   "page": "en/ielts-writing/task-1/index.html",
+   "reason": "Đợt 2 nội dung (#1368): thêm 20 đề IELTS Task 2 (80 → 100) và 14 đề Task 1 Academic (38 → 52); số đếm trong title/mô tả/mục lục tăng theo.",
+   "words": [
+    "38",
+    "4"
+   ],
+   "replace": [
+    [
+     "38 IELTS",
+     "52 IELTS"
+    ],
+    [
+     "38 band 8",
+     "52 band 8"
+    ],
+    [
+     "numberOfItems\":38",
+     "numberOfItems\":52"
+    ]
+   ],
+   "itemList": true
   }
  ]
 }

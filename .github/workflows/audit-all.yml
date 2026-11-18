@@ -48,6 +48,8 @@ jobs:
       - uses: actions/download-artifact@v4
         with: { name: audit-dist }
       - run: tar -xzf dist.tgz
+      - uses: ./.github/actions/playwright-cache
+        with: { browsers: '--with-deps chromium' }
       - name: Cài công cụ
         timeout-minutes: 14
         run: |

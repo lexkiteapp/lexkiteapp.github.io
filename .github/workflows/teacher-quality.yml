@@ -40,6 +40,8 @@ jobs:
     timeout-minutes: 12
     steps:
       - uses: actions/checkout@v4
+      - uses: ./.github/actions/gen-if-needed   # luật 18
+        with: { ext: true }
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - uses: actions/setup-python@v5
@@ -51,6 +53,8 @@ jobs:
           python scripts/teach/mouth_motion.py --check
       - name: Khớp miệng ±33 ms
         run: node scripts/test/lip-clock.mjs
+      - uses: ./.github/actions/playwright-cache
+        with: { browsers: '--with-deps chromium webkit' }
       - name: Viền đen · fps · dung lượng (Chromium + WebKit)
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2

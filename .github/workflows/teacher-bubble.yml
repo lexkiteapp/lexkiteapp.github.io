@@ -36,6 +36,8 @@ jobs:
     timeout-minutes: 12
     steps:
       - uses: actions/checkout@v4
+      - uses: ./.github/actions/gen-if-needed   # luật 18
+        with: { ext: true }
       - uses: ./.github/actions/setup-ffmpeg
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
@@ -43,6 +45,8 @@ jobs:
         run: node scripts/ci/regen-generated.mjs
       - name: Tĩnh – cụm ký tự, tốc độ, không tự đọc, giọng nữ, bản sao add-on, 15 ngôn ngữ
         run: node scripts/test/teacher-bubble.mjs --static
+      - uses: ./.github/actions/playwright-cache
+        with: { browsers: '--with-deps chromium' }
       - name: Playwright
         timeout-minutes: 14
         run: |

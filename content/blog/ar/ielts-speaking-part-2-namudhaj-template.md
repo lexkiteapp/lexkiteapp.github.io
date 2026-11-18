@@ -166,13 +166,17 @@ quiz: [
 2. **حافظ على التواصل البصري ولغة الجسد**: انظر إلى الفاحص كشخص تستمتع بمشاركته قصة واقعية، وليس كقاضٍ يصدر أحكاماً.
 3. **لا تقلق بشأن دقة الحقائق**: لا يهتم الفاحص إن كانت القصة حقيقية بنسبة 100% أم مجرد خيال مبتكر؛ ما يهمه فقط هو جودة لغتك وتسلسل أفكارك.
 
-يمكنك دراسة المزيد من نماذج الإجابات وتدريبات الأقسام عبر صفحة [نماذج إجابات التحدث والـ Speaking](/speaking/). كما يمكنك مراجعة تقنيات قراءة المقالات الأكاديمية عبر [استراتيجيات قراءة آيلتس skimming و scanning](/ar/blog/ielts-reading-skimming-scanning-istratijiyat/) وبناء المقالات في [كتابة ielts writing task 2](/ar/blog/ielts-writing-task-2-ar/).
+يمكنك دراسة المزيد من نماذج الإجابات وتدريبات الأقسام عبر صفحة [نماذج إجابات التحدث والـ Speaking](/en/speaking/). كما يمكنك مراجعة تقنيات قراءة المقالات الأكاديمية عبر [استراتيجيات قراءة آيلتس skimming و scanning](/ar/blog/ielts-reading-skimming-scanning-istratijiyat/) وبناء المقالات في [كتابة ielts writing task 2](/ar/blog/ielts-writing-task-2-ar/).
 
 بعد بطاقة الجزء الثاني تأتي أسئلة النقاش مباشرة، وقد شرحناها في دليل [ielts speaking part 3 نصائح](/ar/blog/ielts-speaking-part-3-nasaih/).
 
 {{cta: /speaking/ | التدرب على نماذج إجابة التحدث آيلتس}}
 
 {{youtube: | IELTS Speaking Part 2 Master Template and Band 8 Sample}}
+
+ولمقارنة إجابة الجزء الثاني بنسخة ضعيفة وأخرى أقوى مع تحليل المعايير الأربعة، اقرأ [إجابات IELTS Speaking باند 7](/ar/blog/ielts-speaking-band-7-ijabat-namudhajiyyah/).
+
+وإن كان هدفك من IELTS هو الهجرة فمعرفة النسخة والدرجة المطلوبتين تسبق التدريب، وهذا ما يشرحه [ielts للهجرة](/ar/blog/ielts-lil-hijra-ay-ikhtibar-wa-kam-darajah/).
 
 ## الأسئلة الشائعة (FAQ)
 
