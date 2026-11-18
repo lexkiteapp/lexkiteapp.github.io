@@ -28,6 +28,8 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - uses: ./.github/actions/setup-ffmpeg
+      - uses: ./.github/actions/playwright-cache
+        with: { browsers: '--with-deps chromium' }
       - name: Dựng video ${{ matrix.lang }}
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.50.1

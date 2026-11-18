@@ -47,6 +47,8 @@ jobs:
         run: if [ -f .bot-output-deleted ]; then xargs -d '\n' rm -f -- < .bot-output-deleted; rm -f .bot-output-deleted; fi
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
+      - uses: ./.github/actions/playwright-cache
+        with: { browsers: '--with-deps chromium' }
       - name: Chụp
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2

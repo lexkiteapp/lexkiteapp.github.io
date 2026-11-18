@@ -66,6 +66,8 @@ jobs:
         continue-on-error: true   # kho cạn neuron → ghi thiếu, không chặn các ứng viên khác
         env: { CF_POOL: '${{ secrets.CF_POOL }}' }
         run: python3 scripts/tts-ab/free.py --engine melo
+      - uses: ./.github/actions/playwright-cache
+        with: { browsers: '--with-deps chromium' }
       - name: Ứng viên miễn phí – kokoro-js trong Chromium (Web Worker)
         if: env.PHASE == 'free'
         run: |
