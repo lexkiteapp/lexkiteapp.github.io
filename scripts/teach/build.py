@@ -132,6 +132,7 @@ for who, P in R['people'].items():
             fr = [np.frombuffer(raw, np.uint8, w * h * 4, i).reshape(h, w, 4) for i in range(0, len(raw), w * h * 4)]
             if len(fr) != N: errs.append(f'{who}/{pose}: nguồn nhoè {len(fr)} khung ≠ {N}')
             res, m = motion_smear.smear([motion_smear.clean_hands(motion_smear.despill(f), scale) for f in fr], scale)
+            res = [motion_smear.clean_hands(f, scale) for f in res]   # nhoè theo chuyển động trộn màu tay tối vào áo coral → vệt nâu tối cạnh tay (ama/explain 129 px): lấp lại SAU nhoè, trước nén
             subprocess.run(['ffmpeg', '-v', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'rgba', '-s', f'{w}x{h}', '-r', fps, '-i', '-', '-c:v', 'ffv1', out], input=b''.join(f.tobytes() for f in res), check=True)
             return m
         sm1 = f'{TMP}/{who}-{pose}.mkv'; sm_info = src_smear(SC, FA, 1, W, H, sm1)
