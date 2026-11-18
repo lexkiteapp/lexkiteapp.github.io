@@ -8,6 +8,7 @@
 //   2) gợi ý ngôn ngữ (cuối <body>): trình duyệt/ app dùng ngôn ngữ khác trang đang xem → dải nhỏ, đóng được (chỉ người thật, sau khi vẽ).
 // Nội dung: content/landing/<lang>.json (en là gốc – khóa thiếu lấy từ en; vi viết riêng). Nhãn nhỏ dùng lại bản dịch app (web/js/i18n/<lang>.js).
 // Dùng: node scripts/build-landing.mjs [--check]   (--check: không ghi, báo lỗi nếu file trong web/ chưa dựng lại – chạy trong npm test)
+import { slimCss } from './lib/landing-slim.mjs';
 import fs from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
@@ -161,6 +162,7 @@ export function criticalCss(css, html) {
     memo.set(sel, r); return r; };
   const pick = c => blocks(c).map(b => { const j = b.indexOf('{'), sel = b.slice(0, j).trim();
     if (/^@(media|supports|layer|container)/.test(sel)) { const inner = pick(b.slice(j + 1, -1)); return inner ? sel + '{' + inner + '}' : ''; }
+    if (sel.startsWith('@font-face') && /font-family:"Material Symbols (Outlined|Rounded)"/.test(b) && !html.includes('material-symbols-' + RegExp.$1.toLowerCase())) return ''; // biểu tượng dòng chữ: mặt phông không có lớp dùng trên trang → ở CSS ngoài
     if (sel.startsWith('@font-face') && faceUnused(b, TEXT)) return ''; // mặt phông (latin-ext, vietnamese…) mà trang không có ký tự nào thuộc unicode-range → để ở CSS ngoài (nạp ngay sau, chỉ tải khi gặp ký tự), bớt byte nội tuyến
     if (sel.startsWith('@')) return /^@(-\w+-)?keyframes/.test(sel) ? '\u0001' + b : b;
     const ss = splitSel(sel).filter(x => !INTERACT.test(x)), k = ss.filter(x => hit(x) === true), l = ss.filter(x => hit(x) === 'lay');
@@ -168,7 +170,7 @@ export function criticalCss(css, html) {
     return (k.length ? k.join(',') + b.slice(j) : '') + (lb ? l.join(',') + '{' + lb + '}' : ''); }).join('');
   const out = pick(css);
   const anim = new Set([...out.matchAll(/animation(?:-name)?:([^;}]+)/g)].flatMap(x => x[1].split(/[\s,]+/)));
-  return out.replace(/\u0001(@(?:-\w+-)?keyframes\s+([\w-]+)\s*\{(?:[^{}]|\{[^{}]*\})*\})/g, (_, b, name) => anim.has(name) ? b : '');
+  return slimCss(out).replace(/\u0001(@(?:-\w+-)?keyframes\s+([\w-]+)\s*\{(?:[^{}]|\{[^{}]*\})*\})/g, (_, b, name) => anim.has(name) ? b : '');
 }
 const BUILT = new Map();
 function build(lang) {

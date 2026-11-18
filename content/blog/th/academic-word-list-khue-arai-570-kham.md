@@ -56,7 +56,7 @@ quiz: [
 factChecked: 2026-11-16
 author: Lexkite
 status: ready
-publishAt:
+publishAt: 2026-12-29T19:09:00+07:00
 qualityScore: 92
 ---
 **Academic Word List คืออะไร** คำตอบคือ AWL รายการ 570 กลุ่มคำ (word families) ที่พบบ่อยในตำราและบทความวิชาการหลายสาขา จัดทำโดย Averil Coxhead ในปี 2000 และแบ่งเป็น 10 Sublist ตามความถี่ คำอย่าง *analyse*, *significant*, *factor*, *evidence* และ *approach* อยู่ในรายการนี้ สำหรับผู้สอบ IELTS Academic และ TOEFL นี่คือรายการคำศัพท์ที่คุ้มค่าที่สุดรายการหนึ่ง ถ้าคุณมีพื้นฐานภาษาอังกฤษในชีวิตประจำวันแล้ว และเรียนแต่ละคำเป็นชุดรูปที่ใช้ได้จริง ไม่ใช่ท่องคำแปลเดียว คำเหล่านี้ยังปรากฏในข้อสอบ TOEFL ฉบับใหม่ ดูได้ใน [TOEFL ใหม่ 2026](/th/blog/toefl-mai-2026-khu-mue-triam-tua/)

@@ -17,6 +17,8 @@ ok(fs.existsSync(sum) && fs.readFileSync(sum, 'utf8').includes('thiếu khoá vi
 // Chạy thật: run-suite với lệnh đỏ phải ra ::error có lý do (dùng suite tạm qua node -e nạp hàm, không đụng suite.txt)
 const r = spawnSync('node', ['-e', "import('./scripts/test/run-suite.mjs').then(m=>{m.annotate('node scripts/test/bar.mjs','boom\\nAssertionError: nope',2)})"], { encoding: 'utf8', cwd: path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..') });
 ok(/::error file=scripts\/test\/bar\.mjs.*AssertionError: nope/.test(r.stderr), 'chú thích ra stderr thật');
+ok(reasonOf('✗ trang ru: > 16 KB gzip\n✗ trang hi: thiếu mục\n✗ landing-v3: 2 lỗi', 1) === '✗ trang ru: > 16 KB gzip | ✗ trang hi: thiếu mục', 'reasonOf: chi tiết trước, bỏ dòng tổng');
+ok(reasonOf('ok\n✗ landing-v3: 1 lỗi', 1) === '✗ landing-v3: 1 lỗi', 'reasonOf: chỉ có dòng tổng → dùng nó');
 ok(needsJsdom(['node scripts/test/x.mjs'], () => "import { JSDOM } from 'jsdom'") && !needsJsdom(['node scripts/test/x.mjs'], () => 'console.log(1)') && !needsJsdom(['! grep a b'], () => 'jsdom'), 'needsJsdom: chỉ khi nguồn test nhắc jsdom');
 ok((await jsdomError(() => Promise.reject(new Error("Cannot find module 'x'\nstack")))) === "Cannot find module 'x'" && (await jsdomError(() => Promise.resolve({}))) === '', 'jsdomError: hỏng → thông điệp, nạp được → rỗng');
 if (bad) { console.error(`✗ ${bad} lỗi`); process.exit(1); }
