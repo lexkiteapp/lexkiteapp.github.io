@@ -19,16 +19,10 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - { flow: lesson, width: 390, rate: 4 }
-          - { flow: lesson, width: 390, rate: 6 }
-          - { flow: lesson, width: 360, rate: 4 }
-          - { flow: review, width: 360, rate: 4 }
-          - { flow: review, width: 390, rate: 4 }
-          - { flow: practice, width: 360, rate: 4 }
-          - { flow: practice, width: 390, rate: 4 }
-          - { flow: lesson, width: 390, rate: 4, dev: 1 }
-          - { flow: review, width: 360, rate: 4, dev: 1 }
-          - { flow: practice, width: 390, rate: 4, dev: 1 }
+          - { flow: lesson, width: 390, rate: 4, dev: 1, variant: nohas }
+          - { flow: lesson, width: 390, rate: 4, dev: 1, variant: noanim }
+          - { flow: lesson, width: 390, rate: 4, dev: 1, variant: nohas+noanim }
+          - { flow: review, width: 360, rate: 4, dev: 1, variant: nohas }
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -52,7 +46,7 @@ jobs:
       - name: Chặn lexkite.com (0 lượt chạm prod)
         run: echo "127.0.0.1 lexkite.com www.lexkite.com audio.lexkite.com media.lexkite.com" | sudo tee -a /etc/hosts >/dev/null
       - name: Đo ${{ matrix.flow }} ${{ matrix.width }}px ${{ matrix.rate }}×
-        run: node scripts/test/lesson-perf.mjs --root ${{ matrix.dev && 'dist-dev' || 'dist' }} --tag '${{ matrix.dev && '-dev' || '' }}' --rate ${{ matrix.rate }} --width ${{ matrix.width }} --flow ${{ matrix.flow }} --out lp-out
+        run: node scripts/test/lesson-perf.mjs --root ${{ matrix.dev && 'dist-dev' || 'dist' }} --tag '${{ matrix.dev && '-dev' || '' }}-${{ matrix.variant }}' --variant '${{ matrix.variant }}' --rate ${{ matrix.rate }} --width ${{ matrix.width }} --flow ${{ matrix.flow }} --out lp-out
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
-        with: { name: "lesson-perf-${{ matrix.flow }}-${{ matrix.width }}-${{ matrix.rate }}x${{ matrix.dev && '-dev' || '' }}", path: lp-out, retention-days: 14 }
+        with: { name: "lesson-perf-${{ matrix.flow }}-${{ matrix.width }}-${{ matrix.rate }}x${{ matrix.dev && '-dev' || '' }}-${{ matrix.variant }}", path: lp-out, retention-days: 14 }

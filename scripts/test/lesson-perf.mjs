@@ -11,7 +11,7 @@ import { noProd } from './lib/no-prod.mjs';
 import { rateFor } from './lib/perf-calibrate.mjs';
 
 const arg = (k, d) => { const i = process.argv.indexOf('--' + k); return i > 0 ? process.argv[i + 1] : d; };
-const NOMINAL = +arg('rate', '4'), OUT = path.resolve(arg('out', 'lp-out')), CHECK = process.argv.includes('--check'), LESSONS = +arg('lessons', '1'), WIDTH = +arg('width', '390'), FLOW = arg('flow', 'lesson'), TAG = `${FLOW}-${WIDTH}-${arg('rate', '4')}x${arg('tag', '')}`, ROOT = arg('root', 'dist');
+const NOMINAL = +arg('rate', '4'), OUT = path.resolve(arg('out', 'lp-out')), CHECK = process.argv.includes('--check'), LESSONS = +arg('lessons', '1'), WIDTH = +arg('width', '390'), FLOW = arg('flow', 'lesson'), TAG = `${FLOW}-${WIDTH}-${arg('rate', '4')}x${arg('tag', '')}`, ROOT = arg('root', 'dist'), VARIANT = arg('variant', ''); // thử nghiệm nguyên nhân: nohas (bỏ :has() gốc html/body/#view) · noanim (tắt animation/transition) · nohas+noanim
 const BUDGET = JSON.parse(fs.readFileSync(new URL('./lesson-perf.budget.json', import.meta.url), 'utf8'));
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 fs.mkdirSync(OUT, { recursive: true });
@@ -69,11 +69,14 @@ const ctx = await browser.newContext({ bypassCSP: true, ...devices['Pixel 7'], v
 await noProd(ctx, { off: false });
 await ctx.addInitScript(({ s }) => { try { for (const [k, v] of Object.entries(s)) if (localStorage.getItem(k) == null) localStorage.setItem(k, v); } catch { /* */ } }, { s: { 'sbx.settings': JSON.stringify({ onboarded: true, theme: 'light' }), 'sbx.cards': JSON.stringify(CARDS), 'lk.ux1': '1' } });
 await ctx.addInitScript(INJECT);
-await ctx.route('**/*', r => { const u = new URL(r.request().url()); if (u.origin !== O) { const t = r.request().resourceType(); return r.fulfill({ status: 200, contentType: t === 'script' ? 'text/javascript' : t === 'stylesheet' ? 'text/css' : 'text/plain', body: t === 'image' ? '' : '' }); } return r.fallback(); });
+await ctx.route('**/*', async r => { const u = new URL(r.request().url());
+  if (u.origin === O && VARIANT.includes('nohas') && /\.css$/.test(u.pathname)) { const resp = await r.fetch(); let b = await resp.text(); b = b.replace(/[^{}]*(?:html|body|#view|\.lsn-fx|:root \.lsn-fx)[^{},]*:has\([^{}]*\{[^{}]*\}/g, ''); return r.fulfill({ response: resp, body: b }); }
+  if (u.origin !== O) { const t = r.request().resourceType(); return r.fulfill({ status: 200, contentType: t === 'script' ? 'text/javascript' : t === 'stylesheet' ? 'text/css' : 'text/plain', body: t === 'image' ? '' : '' }); } return r.fallback(); });
 const page = await ctx.newPage(), cdp = await ctx.newCDPSession(page), errs = [];
 page.on('pageerror', e => errs.push(String(e.message).slice(0, 160)));
 const reqs = []; page.on('request', rq => { const u = new URL(rq.url()); if (u.host === HOST) reqs.push({ t: Date.now(), p: u.pathname }); });
 
+if (VARIANT.includes('noanim')) await page.addInitScript(() => document.addEventListener('DOMContentLoaded', () => { const st = document.createElement('style'); st.textContent = '*,*::before,*::after{animation:none!important;transition:none!important}'; document.head.appendChild(st); }));
 await page.goto(`${O}/app/?sandbox=1&hl=en#/home`, { waitUntil: 'load', timeout: 60000 });
 await page.waitForFunction(() => window.App && document.querySelector('#view') && document.querySelector('#view').children.length > 0, null, { timeout: 40000 }); await sleep(1500);
 
