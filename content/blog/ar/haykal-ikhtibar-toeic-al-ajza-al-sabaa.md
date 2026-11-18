@@ -9,7 +9,7 @@ tags: [toeic, test-format, listening, reading]
 keyword: "هيكل اختبار toeic"
 cover: toeic
 coverAlt: "تدريب TOEIC للاستماع والقراءة في Lexkite مع سبعة اختبارات تجريبية وتدريب بحسب الجزء ومفردات TOEIC"
-publishAt:
+publishAt: 2027-01-08T07:11:00+03:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

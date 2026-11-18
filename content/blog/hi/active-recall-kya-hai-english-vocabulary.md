@@ -9,7 +9,7 @@ tags: [active-recall, vocabulary, memory, flashcards]
 keyword: "active recall क्या है"
 cover: practice-test
 coverAlt: "Lexkite का बहुविकल्पीय टेस्ट जिसमें run out of का सही अर्थ चुनना है"
-publishAt:
+publishAt: 2026-12-27T12:12:00+05:30
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

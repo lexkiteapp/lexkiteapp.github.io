@@ -9,7 +9,7 @@ tags: [toeic, listening, part-1, photographs]
 keyword: "toeic part 1"
 cover: toeic
 coverAlt: "Trang TOEIC của Lexkite với đề thi thử và luyện theo từng Part cho hai phần Listening và Reading"
-publishAt:
+publishAt: 2027-02-17T08:14:00+07:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

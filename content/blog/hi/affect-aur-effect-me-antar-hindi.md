@@ -12,7 +12,7 @@ coverAlt: "Lexkite के शब्दकोश में \"resilient\" की �
 factChecked: 2026-11-16
 author: Lexkite
 status: ready
-publishAt:
+publishAt: 2026-12-28T19:08:00+05:30
 qualityScore: 93
 coverArt: {mood: think, icon: book}
 shots: [
