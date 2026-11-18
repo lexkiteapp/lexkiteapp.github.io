@@ -19,7 +19,10 @@ await ctx.route('**/*', r => { const u = new URL(r.request().url()); if (u.hostn
 const page = await ctx.newPage(), errs = [], md = ['# teacher-motion (WebKit, 390 tối, DPR 3)', ''];
 const diag = []; page.on('console', m => /error|warn/.test(m.type()) && diag.push('console.' + m.type() + ': ' + m.text().slice(0, 200))); page.on('pageerror', e => diag.push('pageerror: ' + String(e.message).slice(0, 200))); page.on('requestfailed', r => diag.push('requestfailed: ' + r.url().slice(-60) + ' ' + (r.failure() || {}).errorText));
 // đếm texImage2D trên canvas giáo viên (trước khi app chạy)
-await page.addInitScript(() => { try { localStorage.setItem('lk.ux1', '1'); } catch (e) {} window.__tex = 0; window.__vids = []; const ce = Document.prototype.createElement; Document.prototype.createElement = function (t, ...a) { const e = ce.call(this, t, ...a); if (String(t).toLowerCase() === 'video') window.__vids.push(e); return e; }; /* video của clip không gắn vào DOM */ const o = WebGLRenderingContext.prototype.texImage2D; WebGLRenderingContext.prototype.texImage2D = function (...a) { if (a[a.length - 1] instanceof HTMLVideoElement) window.__tex++; return o.apply(this, a); }; });
+await page.addInitScript(() => { try { localStorage.setItem('lk.ux1', '1'); } catch (e) {} window.__tex = 0; window.__vids = [];
+  /* Runner macOS là máy ảo KHÔNG GPU: tải 1 khung lên texture ~58 ms → chặn 'máy chậm' của teacher-live.js (đúng thiết kế) dừng clip trước khi đo được. Ở đây chỉ trung hòa chặn đó (performance.now của TRANG bỏ thời gian texImage2D/texSubImage2D); đồng hồ đo độ mượt của test (__now) vẫn là đồng hồ thật, ngưỡng không đổi. */
+  window.__now = performance.now.bind(performance); let skew = 0; performance.now = () => window.__now() - skew;
+  for (const f of ['texImage2D', 'texSubImage2D']) { const o = WebGLRenderingContext.prototype[f]; WebGLRenderingContext.prototype[f] = function (...a) { const t = window.__now(); try { return o.apply(this, a); } finally { skew += window.__now() - t; } }; } const ce = Document.prototype.createElement; Document.prototype.createElement = function (t, ...a) { const e = ce.call(this, t, ...a); if (String(t).toLowerCase() === 'video') window.__vids.push(e); return e; }; /* video của clip không gắn vào DOM */ const o = WebGLRenderingContext.prototype.texImage2D; WebGLRenderingContext.prototype.texImage2D = function (...a) { if (a[a.length - 1] instanceof HTMLVideoElement) window.__tex++; return o.apply(this, a); }; });
 const url = q => `https://lk.test/app/?sandbox=1&hl=en&ux1=1${q}`;
 await page.goto(url('#/home'), { waitUntil: 'load' }); await page.waitForTimeout(2000);
 await page.evaluate(async () => { App.state.settings.exam = 'ielts'; App.state.settings.examTarget = '6.5'; App.state.settings.theme = 'dark'; await App.saveSettings(); }).catch(e => errs.push('setup ' + e.message));
@@ -39,7 +42,7 @@ else {
   const measure = pose => page.evaluate(async pose => {
     const slot = document.querySelector(`.tslot[data-pose="${pose}"].live`), cv = slot.querySelector('canvas.tslot-img'), v = window.__vids.find(x => (x.currentSrc || x.src).includes(`/${pose}`)) || null;
     const r = cv.getBoundingClientRect(), t0 = window.__tex, vt0 = v ? v.currentTime : 0;
-    const gaps = []; let last = performance.now(); const end = last + 3000;
+    const gaps = []; let last = __now(); const end = last + 3000;
     await new Promise(res => { const tick = now => { gaps.push(now - last); last = now; now < end ? requestAnimationFrame(tick) : res(); }; requestAnimationFrame(tick); });
     const vt = v ? v.currentTime - vt0 : 0, fps = 24, frames = Math.round(Math.max(0, vt) * fps); // clip 24 fps: totalVideoFrames của WebKit đếm thiếu (ra 0–50 cho 3 s video không gắn DOM) nên không dùng
     gaps.sort((a, b) => a - b);
