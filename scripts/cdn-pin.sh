@@ -17,8 +17,8 @@ NODE_USE_ENV_PROXY=1 node - "$PAGES" "$ok" <<'JS'
 const fs = require('fs'), crypto = require('crypto');
 const [PAGES, ok] = process.argv.slice(2);
 const DATA = /^js\/(lib\/|readtest\/(test\d|explain|_i)|listen\/test|toeic\/(reading|listening)\d|grammar\/|toefl\/data|write\/|speak\/|pron\/(sounds|skills)|readings|lexis|models|ideas)/;
-const src = fs.readFileSync('web/js/app.js', 'utf8'), a = src.indexOf("const G = 'js/grammar/', BUNDLES = {"), b = src.indexOf('\n  };', a);
-const files = [...new Set(Object.values(new Function(src.slice(a, b + 4) + ';return BUNDLES')()).flat())].filter(f => DATA.test(f));
+const _w = {}; new Function('window', fs.readFileSync('web/js/bundles.js', 'utf8'))(_w); // đăng ký gói tải lười (web/js/bundles.js)
+const files = [...new Set(Object.values(_w.LK_BUNDLES).flat())].filter(f => DATA.test(f));
 let h = fs.readFileSync('dist/app/index.html', 'utf8').replace(/\n  <script type="application\/json" id="vb-cdn">[^<]*<\/script>/, '');
 if (!ok) { fs.writeFileSync('dist/app/index.html', h); console.log('⚠ GitHub Pages chưa deploy commit này – lần này dùng Firebase cho mọi file'); process.exit(0); }
 (async () => {

@@ -134,7 +134,7 @@ console.log('✓ routes.style: 6 câu, kết quả, lưu, liên kết gợi ý')
 
 // 5. app.js khai báo bundle/route + lối vào
 const appCode = fs.readFileSync('web/js/app.js', 'utf8');
-assert(appCode.includes("quick: ['js/i18n/en/quick.js', 'js/quick.js']"), 'bundle quick');
+assert(fs.readFileSync('web/js/bundles.js', 'utf8').includes("quick: ['js/i18n/en/quick.js', 'js/quick.js']"), 'bundle quick (bundles.js)');
 assert(appCode.includes("quick: ['words', 'quick']") && appCode.includes("style: 'quick'"), 'route quick/style');
 // #/style: lối vào ở Welcome (mẫu Stitch, web/js/st/v2/welcome.js, bind d.lkStyle) – vẫn phải có
 const welcomeCode = fs.readFileSync('web/js/st/v2/welcome.js', 'utf8');

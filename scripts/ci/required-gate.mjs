@@ -23,6 +23,7 @@ const BAD = new Set(['failure', 'timed_out', 'cancelled', 'startup_failure', 'st
 // 15/11: 'cancelled' KHÔNG phải lỗi thật – concurrency (cancel-in-progress) / runner mất huỷ lượt chạy mà không có lượt mới hơn cùng sha. Trước đây gate đỏ oan (#1340, #1324…).
 // Lượt workflow mới nhất của sha bị huỷ → CHỜ + bộ canh tự chạy lại (≤ MAX_AUTO_RERUN lần); quá số lần đó mới tính đỏ. Lỗi thật (failure/timed_out…) vẫn đỏ ngay.
 export const MAX_AUTO_RERUN = 4;   // 16/11: 2 → 4 (huỷ do concurrency nhường lượt nhiều lần liền); quá 4 lần vẫn huỷ = vòng lặp thật → đỏ
+export const ADVISORY_CANCEL = new Set(['gate-impact']);   // 19/11: workflow chỉ comment tư vấn, nhóm concurrency toàn cục (#1592) thay lượt chờ cũ bằng 'cancelled' → KHÔNG tính đỏ/không chạy lại
 export const INFRA_STARTUP = new Set(['wip-guard']);   // workflow chỉ gác/gắn nhãn (không chấm mã PR): startup_failure = lỗi hạ tầng GitHub, không phải lỗi PR
 
 /** Hàm thuần: { checkRuns, statuses, workflowRuns } (dạng REST API) → { state, description, failed, pending, total }. */
@@ -52,7 +53,8 @@ export function evaluate({ checkRuns = [], statuses = [], workflowRuns = [] } = 
   for (const r of wr.values()) {
     const isInfra = INFRA_STARTUP.has(r.name) && r.conclusion === 'startup_failure';
     if (isInfra) infra.push(r.name);
-    items.push({ name: 'workflow: ' + r.name, status: r.status, conclusion: isInfra ? 'neutral' : r.conclusion, runId: r.id, attempt: r.run_attempt });
+    const advCancel = ADVISORY_CANCEL.has(r.name) && r.conclusion === 'cancelled';
+    items.push({ name: 'workflow: ' + r.name, status: r.status, conclusion: (isInfra || advCancel) ? 'neutral' : r.conclusion, runId: r.id, attempt: r.run_attempt });
   }
   // commit status: mới nhất theo context, bỏ chính mình
   const st = new Map();
