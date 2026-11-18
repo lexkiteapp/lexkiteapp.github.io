@@ -105,7 +105,7 @@ Vòng "main đổi tệp cổng → mọi PR mở phải gộp lại" vẫn đ�
 
 ## gate-impact: PR đổi cổng biết trước PR nào sẽ đỏ + merge cổng theo đợt (17/11)
 - Vấn đề: main đổi tệp cổng (`scripts/test/*`, `lib/*rules*`, ci-policy, baseline, workflows) → ~30 PR cùng đỏ, mỗi PR gộp main + ~100 job. Nay PR cổng phải chạy cổng MỚI trên head mọi PR mở TRƯỚC khi merge.
-- `gate-impact.yml` (path filter đúng các tệp cổng, chỉ PR cùng repo; matrix song song ≤ 4, ≤ 20 PR, timeout 20 phút, concurrency theo PR): `select` chọn PR + lệnh test (`scripts/ci/gate-impact.mjs`, thuần, có test), `check` ghi đè tệp cổng của PR lên head từng PR rồi chạy lệnh (KHÔNG token), `report` (mã từ main) comment 1 bảng "PR sẽ đỏ" + warning. PR kia đổi cùng tệp thì giữ bản của họ.
+- `gate-impact.yml` (path filter đúng các tệp cổng, chỉ PR cùng repo; matrix song song ≤ 3, ≤ 20 PR, timeout 20 phút, concurrency TOÀN CỤC 1 chạy + 1 chờ – 18/11: 146/347 job xếp hàng là gate-impact): `select` chọn PR + lệnh test (`scripts/ci/gate-impact.mjs`, thuần, có test), `check` ghi đè tệp cổng của PR lên head từng PR rồi chạy lệnh (KHÔNG token), `report` (mã từ main) comment 1 bảng "PR sẽ đỏ" + warning. PR kia đổi cùng tệp thì giữ bản của họ.
 - **Quy ước đợt merge cổng**: PR có comment gate-impact đỏ chỉ merge khi (a) các PR đỏ đã sửa, hoặc (b) nằm cùng đợt; mỗi ngày MỘT đợt (02:00Z = 09:00 VN): gom các PR cổng đã sẵn sàng, merge liền nhau, rồi 30 PR gộp main một lần. PR cổng xanh hoàn toàn (không PR nào đỏ) merge bất cứ lúc nào. Điều phối quyết đợt.
 - Giới hạn: lệnh chọn theo tên tệp (test cổng → lệnh của nó, workflow → ci-policy, lib/baseline → test nhắc tên tệp); test đọc gián tiếp có thể bị sót → main vẫn là chốt cuối.
 
