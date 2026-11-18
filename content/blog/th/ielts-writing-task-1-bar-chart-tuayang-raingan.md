@@ -9,7 +9,7 @@ tags: [ielts, writing, task-1, bar-chart, academic]
 keyword: "ielts writing task 1 bar chart"
 cover: write
 coverAlt: "ห้อง Writing ของ Lexkite มีโจทย์และกรอบสำหรับวางแผนรายงานก่อนเริ่มเขียน"
-publishAt:
+publishAt: 2027-01-10T08:05:00+07:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

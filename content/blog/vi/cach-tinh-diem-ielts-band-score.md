@@ -9,7 +9,7 @@ tags: [ielts, band-score, scoring, strategy]
 keyword: "cách tính điểm ielts"
 cover: mock
 coverAlt: "Màn hình thi thử IELTS của Lexkite với bốn kỹ năng Listening, Reading, Writing, Speaking và lịch sử các lần làm trước"
-publishAt:
+publishAt: 2027-02-05T21:30:00+07:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

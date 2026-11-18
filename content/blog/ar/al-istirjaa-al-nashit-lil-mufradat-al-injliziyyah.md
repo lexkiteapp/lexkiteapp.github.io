@@ -11,7 +11,7 @@ cover: practice-test
 coverAlt: "اختبار اختيار من متعدد في Lexkite يسأل عن المعنى الصحيح لعبارة run out of"
 factChecked: 2026-11-16
 author: Lexkite
-publishAt:
+publishAt: 2027-01-04T07:37:00+03:00
 qualityScore: 91
 status: ready
 coverArt: {mood: think, icon: bulb}

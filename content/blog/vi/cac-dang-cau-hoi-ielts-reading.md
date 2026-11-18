@@ -9,7 +9,7 @@ tags: [ielts, reading, question-types, strategy]
 keyword: "các dạng câu hỏi ielts reading"
 cover: reading
 coverAlt: "Thư viện bài đọc của Lexkite với các bài chia cấp độ từ A2 đến C1"
-publishAt:
+publishAt: 2027-02-04T21:53:00+07:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

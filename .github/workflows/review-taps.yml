@@ -39,6 +39,8 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
+      - uses: ./.github/actions/playwright-cache
+        with: { browsers: '--with-deps chromium webkit' }
       - name: Cài Playwright (WebKit + Chromium)
         timeout-minutes: 14
         run: |
