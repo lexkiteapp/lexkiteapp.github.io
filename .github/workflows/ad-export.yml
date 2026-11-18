@@ -2,6 +2,7 @@
 # Chạy tay: lấy artifact tv-<ep>-short-<run> của teach-video → ad_export.py → artifact ad-<ep>-<run> (30 ngày). Chủ lấy 3 file ở đó.
 name: ad-export
 on:
+  pull_request: { paths: ['.github/workflows/ad-export.yml', 'scripts/video/teach2d/ad_export.py'] }   # PR tự xuất quảng cáo ad1 (mặc định bên dưới) để lấy artifact mà không cần merge workflow
   workflow_dispatch:
     inputs:
       run: { description: 'id lượt teach-video có artifact tv-<ep>-short-<run>', required: true }
@@ -9,7 +10,7 @@ on:
       keep_s: { description: 'giữ N giây đầu của clip (cắt thẻ cuối cũ, thay bằng thẻ CTA của quảng cáo); 0 = giữ hết', default: '0' }
       hook_ms: { description: 'thời điểm chữ hook xuất hiện (ms, ≤ 1500)', default: '0' }
 permissions: { contents: read, actions: read }
-concurrency: { group: 'ad-export-${{ github.event.inputs.ep }}', cancel-in-progress: true }
+concurrency: { group: 'ad-export-${{ github.event.inputs.ep || 't2_react_lookintoit' }}', cancel-in-progress: true }
 jobs:
   export:
     runs-on: ubuntu-latest
@@ -17,13 +18,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4
-        with: { name: 'tv-${{ inputs.ep }}-short-${{ inputs.run }}', path: src, github-token: '${{ github.token }}', run-id: '${{ inputs.run }}' }
+        with: { name: 'tv-${{ inputs.ep || 't2_react_lookintoit' }}-short-${{ inputs.run || '44262329940' }}', path: src, github-token: '${{ github.token }}', run-id: '${{ inputs.run || '44262329940' }}' }
       - run: pip install -q pillow
       - name: Export 3 ratios
-        env: { EP: '${{ inputs.ep }}', HOOK: '${{ inputs.hook_ms }}', KEEP: '${{ inputs.keep_s }}' }
+        env: { EP: '${{ inputs.ep || 't2_react_lookintoit' }}', HOOK: '${{ inputs.hook_ms || '1000' }}', KEEP: '${{ inputs.keep_s || '21' }}' }
         run: |
           f=$(ls src/phone/"$EP".mp4 src/"$EP"-short.mp4 2>/dev/null | head -1); [ -n "$f" ] || { echo "::error::no short mp4 in artifact"; ls -R src | head -20; exit 1; }
           txt=$(python3 -c "import json,sys;e=json.load(open('content/video/teach2d/eps/$EP.json'));print(' '.join(l['text'] for l in e['lines']))")
           python3 scripts/video/teach2d/ad_export.py --in "$f" --out out --id "$EP" --hook-ms "$HOOK" --keep-s "$KEEP" --text "$txt"
       - uses: actions/upload-artifact@v4
-        with: { name: 'ad-${{ inputs.ep }}-${{ github.run_id }}', path: out/, retention-days: 30 }
+        with: { name: 'ad-${{ inputs.ep || 't2_react_lookintoit' }}-${{ github.run_id }}', path: out/, retention-days: 30 }
