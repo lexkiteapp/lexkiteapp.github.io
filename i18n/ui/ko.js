@@ -762,6 +762,7 @@
 "Ngôi":"주제",
 "Ngôn ngữ & Giao tiếp":"언어와 소통",
 "Ngôn ngữ giao diện":"앱 언어",
+"Ngôn ngữ đang học":"학습 중인 언어",
 "Người dùng":"사용자",
 "Người dùng, hộp thư, phân tích, chất lượng, Gemini API":"사용자, 받은 편지함, 분석, 품질, Gemini API",
 "Người mới":"새내기",
