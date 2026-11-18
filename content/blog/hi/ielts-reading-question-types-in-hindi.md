@@ -9,7 +9,7 @@ tags: [ielts, reading, question-types, strategy]
 keyword: "ielts reading question types in hindi"
 cover: reading
 coverAlt: "Lexkite की Reading सूची: A2 से C1 तक स्तर के अनुसार पैसेज"
-publishAt:
+publishAt: 2027-01-14T12:46:00+05:30
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

@@ -19,6 +19,8 @@ const bad = [], B = (m) => bad.push(m);
 // 6) chuỗi
 for (const [n, T] of [['S', S], ['POS', POS]]) { const keys = Object.keys(T.en); for (const l of LANGS) { const miss = keys.filter(k => !(T[l] || {})[k]); if (miss.length) B(`seo-pages-i18n ${n}.${l} thiếu: ${miss.join(', ')}`); } }
 for (const l of LANGS) if (!YOU[l]) B(`seo-pages-i18n YOU.${l} thiếu`);
+for (const l of LANGS) { const t = S[l].wTitleM || ''; if (!t.includes('{w}') || !t.includes('{m}')) B(`seo-pages-i18n S.${l}.wTitleM thiếu hoặc không có {w}/{m} (tiêu đề có nghĩa phải đủ 15 ngôn ngữ)`); }
+const ansLangs = new Set();
 // quét HTML
 const files = []; let nFiles = 0;
 const walk = d => { for (const e of fs.readdirSync(d, { withFileTypes: true })) { const p = path.join(d, e.name); if (e.isDirectory()) walk(p); else { nFiles++; if (p.endsWith('.html')) files.push(p); } } };
@@ -47,7 +49,7 @@ for (const f of files) {
   // 7) độ dày + FAQPage khớp chữ hiển thị (trang từ index được)
   if (!noindex && /^\/[a-z]{2}\/words\/(?!index\.html)[^/]+\.html$/.test(rel)) {
     { const am = h.match(/<p class="ans" data-ans>([\s\S]*?)<\/p>/); // câu trả lời ngắn: có, ≤ 50 chữ, speakable trỏ đúng .ans
-      if (!am) B(`${rel}: thiếu câu trả lời ngắn (.ans)`); else { const n = am[1].replace(/<[^>]+>/g, ' ').split(/\s+/).filter(Boolean).length; if (n > 50) B(`${rel}: câu trả lời ngắn ${n} chữ > 50`); if (!h.includes('"SpeakableSpecification"')) B(`${rel}: thiếu speakable cho .ans`); } }
+      if (!am) B(`${rel}: thiếu câu trả lời ngắn (.ans)`); else { ansLangs.add(rel.slice(1, 3)); const n = am[1].replace(/<[^>]+>/g, ' ').split(/\s+/).filter(Boolean).length; if (n > 50) B(`${rel}: câu trả lời ngắn ${n} chữ > 50`); if (!h.includes('"SpeakableSpecification"')) B(`${rel}: thiếu speakable cho .ans`); } }
     for (const m of h.matchAll(/<section class="qz"[\s\S]*?<\/section>/g)) for (const li of m[0].split('<li><p><b>').slice(1)) { // mini-quiz: 4 lựa chọn A–D khác nhau, đáp án trỏ đúng 1 lựa chọn
       const o = [...li.matchAll(/<li>([A-D])\. (.*?)<\/li>/g)].map(x => x[2].replace(/<[^>]+>/g, '')), ans = li.match(/<details><summary>[^<]*<\/summary><p><b>([A-D])\.<\/b> (.*?)<\/p>/);
       if (o.length !== 4 || new Set(o).size !== 4) B(`${rel}: quiz cần 4 lựa chọn khác nhau`); else if (!ans || o['ABCD'.indexOf(ans[1])] !== ans[2].replace(/<[^>]+>/g, '')) B(`${rel}: đáp án quiz không khớp lựa chọn`); }
@@ -94,5 +96,6 @@ for (const [m, k] of [[titles, 'tiêu đề'], [descs, 'mô tả']]) for (const 
 // 5) sitemap ↔ noindex
 const locs = x => [...x.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1]);
 let nSm = 0; for (const s of locs(fs.readFileSync(path.join(D, 'sitemap.xml'), 'utf8'))) { const f = path.join(D, s.replace(O + '/', '')); if (!fs.existsSync(f)) continue; for (const u of locs(fs.readFileSync(f, 'utf8'))) { nSm++; const p = pages.get(u); if (p && p.noindex) B(`sitemap ${path.basename(f)}: ${u} là noindex`); } }
+if (fs.existsSync(W)) for (const l of LANGS) if (!ansLangs.has(l)) B(`ngôn ngữ ${l}: không có trang từ nào có câu trả lời ngắn (.ans) – nâng cấp phải đủ 15 ngôn ngữ`);
 if (bad.length) { console.log(`✗ seo-pages: ${bad.length} lỗi (${pages.size} trang, ${nFiles} file)`); bad.slice(0, +(process.env.N || 40)).forEach(x => console.log('  ' + x)); process.exit(1); }
 console.log(`✓ seo-pages: ${pages.size} trang HTML, ${nSm} URL sitemap, ${nFiles}/${MAX_FILES} file – canonical, tiêu đề/mô tả không trùng, hreflang hai chiều, không mồ côi`);

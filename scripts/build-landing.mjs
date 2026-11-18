@@ -8,6 +8,7 @@
 //   2) gợi ý ngôn ngữ (cuối <body>): trình duyệt/ app dùng ngôn ngữ khác trang đang xem → dải nhỏ, đóng được (chỉ người thật, sau khi vẽ).
 // Nội dung: content/landing/<lang>.json (en là gốc – khóa thiếu lấy từ en; vi viết riêng). Nhãn nhỏ dùng lại bản dịch app (web/js/i18n/<lang>.js).
 // Dùng: node scripts/build-landing.mjs [--check]   (--check: không ghi, báo lỗi nếu file trong web/ chưa dựng lại – chạy trong npm test)
+import { slimCss } from './lib/landing-slim.mjs';
 import fs from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
@@ -77,9 +78,9 @@ export const installSection = (c, D = INSTALL) => { const phone = esc(c.install.
 // Từ nổi bật → trang từ /<lang>/words/<từ> (liên kết sâu từ trang chủ, 13 ngôn ngữ; nguồn content/seo/home-words.json do scripts/seo/home-words.mjs chọn, test kiểm còn index được).
 const HW = fs.existsSync(new URL('content/seo/home-words.json', R)) ? JSON.parse(rd('content/seo/home-words.json')) : {};
 const HW_H = { es: 'Palabras en inglés más consultadas', pt: 'Palavras em inglês mais pesquisadas', fr: 'Mots anglais les plus recherchés', de: 'Meistgesuchte englische Wörter', id: 'Kata bahasa Inggris yang paling sering dicari', th: 'คำศัพท์ภาษาอังกฤษที่คนค้นหามากที่สุด', zh: '最常查询的英语单词', ja: 'よく調べられる英単語', ko: '많이 찾는 영어 단어', hi: 'सबसे ज़्यादा खोजे जाने वाले अंग्रेज़ी शब्द', ar: 'أكثر الكلمات الإنجليزية بحثًا', ru: 'Популярные английские слова', tr: 'En çok aranan İngilizce kelimeler' };
-const TW_CSS = '.tw{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;padding:0;margin:0 0 1rem}.tw a{display:inline-block;padding:.4rem .8rem;border:1px solid color-mix(in srgb,currentColor 25%,transparent);border-radius:999px;text-decoration:none;color:inherit}';
-export const wordsSection = lang => { const L = HW[lang]; if (!L || !L.length) return '';
-  return `<section id="top-words" class="w-full mb-20"><div class="mb-8"><h2 class="${RES_H}">${esc(HW_H[lang])}</h2></div><ul class="tw">${L.map(([sl, w, g]) => `<li><a href="/${lang}/words/${sl}"><span lang="en" dir="ltr">${esc(w)}</span>${g ? ` · ${esc(g)}` : ''}</a></li>`).join('')}</ul></section>`; };
+const TW_CSS = '.tw{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;padding:0;margin:0 0 1rem}.tw a{display:inline-flex;align-items:center;min-height:44px;padding:0 .9rem;border:1px solid color-mix(in srgb,currentColor 25%,transparent);border-radius:999px;text-decoration:none;color:inherit}';
+export const wordsSection = lang => { const L = (HW[lang] || []); if (!L.length) return '';
+  return `<section id="top-words" class="w-full mb-20"><div class="mb-8"><h2 class="${RES_H}">${esc(HW_H[lang])}</h2></div><ul class="tw">${L.map(([sl, w, g]) => `<li><a href="/${lang}/words/${sl}"><span lang="en"${lang === 'ar' ? ' dir="ltr"' : ''}>${esc(w)}</span>${g ? ` · ${esc(g)}` : ''}</a></li>`).join('')}</ul></section>`; };
 // ----- Script 2: gợi ý trang đúng ngôn ngữ (chỉ người dùng thật, đóng được, nhớ lựa chọn) -----
 const SUG = Object.fromEntries(LANGS.map(l => [l, copyOf(l).suggest]));
 // Gói chữ bỏ chính ngôn ngữ của trang (n===P không bao giờ hiện gợi ý) và URL suy từ mã (= landingHref) → nhẹ hơn, cùng hành vi
@@ -140,7 +141,13 @@ const PSEUDO_DYN = /:(?:hover|focus(?:-visible|-within)?|active|visited|link|any
 // Luật chỉ có tác dụng khi người dùng tương tác (rê/chạm/focus) không ảnh hưởng lần vẽ đầu → để ở CSS đầy đủ (nạp ngay sau), không nhân đôi trong CSS tới hạn
 const INTERACT = /:(?:hover|active|focus|focus-visible|focus-within|visited)(?![\w-])/;
 const LAYOUT = /^(display|grid(-[\w-]+)?|gap|row-gap|column-gap|flex(-[\w-]+)?|order|(min-|max-)?(width|height)|aspect-ratio|margin(-[\w-]+)?|padding(-[\w-]+)?|(align|justify|place)-[\w-]+|font-size|line-height|letter-spacing|white-space|box-sizing|border(-(top|right|bottom|left))?-width)$/;
+// Ký tự hiển thị của trang (bỏ script/style/thẻ/menu ẩn) và kiểm một @font-face có ký tự nào của trang trong unicode-range không (không có range = dùng cho mọi ký tự)
+export const pageText = html => html.replace(/<(script|style)[\s\S]*?<\/\1>/g, ' ').replace(/<(ul|div)\b[^>]*\shidden[\s>][^>]*>[\s\S]*?<\/\1>/g, ' ') /* menu ngôn ngữ ẩn: nhãn "Tiếng Việt" chỉ cần phông khi mở menu → tải lười từ CSS ngoài */.replace(/<[^>]+>/g, ' ').replace(/&(?:#(\d+)|#x([0-9a-f]+));/gi, (_, d, x) => String.fromCodePoint(d ? +d : parseInt(x, 16)));
+export const faceUnused = (face, text) => { const m = /unicode-range:([^;}]+)/.exec(face); if (!m || !/Plus Jakarta Sans"/.test(face) || /Fallback/.test(face)) return false;
+  const R = m[1].split(',').map(x => x.trim().replace(/^U\+/i, '').split('-').map(h => parseInt(h, 16)));
+  for (const ch of text) { const c = ch.codePointAt(0); if (R.some(([a, b]) => c >= a && c <= (b ?? a))) return false; } return true; };
 export function criticalCss(css, html) {
+  const TEXT = pageText(html);
   const doc = new JSDOM(html.replace(/<script[^>]*>[\s\S]*?<\/script>/g, '')).window.document;
   doc.documentElement.classList.add(...HEAD_CLS);
   // vùng đầu trang = tới hết section thứ 2 (hero + dải tin cậy hiện trọn ở 1280×900 của mẫu v3) – CSS tới muộn cho phần đã hiện = CLS (CI 3/11: 0,12–0,18)
@@ -155,13 +162,15 @@ export function criticalCss(css, html) {
     memo.set(sel, r); return r; };
   const pick = c => blocks(c).map(b => { const j = b.indexOf('{'), sel = b.slice(0, j).trim();
     if (/^@(media|supports|layer|container)/.test(sel)) { const inner = pick(b.slice(j + 1, -1)); return inner ? sel + '{' + inner + '}' : ''; }
+    if (sel.startsWith('@font-face') && /font-family:"Material Symbols (Outlined|Rounded)"/.test(b) && !html.includes('material-symbols-' + RegExp.$1.toLowerCase())) return ''; // biểu tượng dòng chữ: mặt phông không có lớp dùng trên trang → ở CSS ngoài
+    if (sel.startsWith('@font-face') && faceUnused(b, TEXT)) return ''; // mặt phông (latin-ext, vietnamese…) mà trang không có ký tự nào thuộc unicode-range → để ở CSS ngoài (nạp ngay sau, chỉ tải khi gặp ký tự), bớt byte nội tuyến
     if (sel.startsWith('@')) return /^@(-\w+-)?keyframes/.test(sel) ? '\u0001' + b : b;
     const ss = splitSel(sel).filter(x => !INTERACT.test(x)), k = ss.filter(x => hit(x) === true), l = ss.filter(x => hit(x) === 'lay');
     const lb = l.length ? b.slice(j + 1, -1).split(';').filter(d => LAYOUT.test(d.split(':')[0].trim())).join(';') : '';
     return (k.length ? k.join(',') + b.slice(j) : '') + (lb ? l.join(',') + '{' + lb + '}' : ''); }).join('');
   const out = pick(css);
   const anim = new Set([...out.matchAll(/animation(?:-name)?:([^;}]+)/g)].flatMap(x => x[1].split(/[\s,]+/)));
-  return out.replace(/\u0001(@(?:-\w+-)?keyframes\s+([\w-]+)\s*\{(?:[^{}]|\{[^{}]*\})*\})/g, (_, b, name) => anim.has(name) ? b : '');
+  return slimCss(out).replace(/\u0001(@(?:-\w+-)?keyframes\s+([\w-]+)\s*\{(?:[^{}]|\{[^{}]*\})*\})/g, (_, b, name) => anim.has(name) ? b : '');
 }
 const BUILT = new Map();
 function build(lang) {
