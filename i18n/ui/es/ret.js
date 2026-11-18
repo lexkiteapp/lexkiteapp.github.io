@@ -9,7 +9,7 @@
 "Bạn nhận 1 rương quà":"Ganaste un cofre de premios",
 "Bạn đã nghỉ {n} ngày – không sao cả! Mình ôn lại vài từ dễ trước nhé.":"Llevas {n} días sin venir, ¡no pasa nada! Empecemos con unas palabras fáciles.",
 "Bạn đã sưu tầm đủ mọi món!":"¡Ya tienes todos los objetos!",
-"Bắt đầu chuỗi hôm nay – một bài nhỏ là đủ.":"Comience su racha hoy: una breve lección es suficiente.",
+"Bắt đầu chuỗi hôm nay – một bài nhỏ là đủ.":"Comienza tu racha hoy: una breve lección es suficiente.",
 "Bộ sưu tập":"Colección",
 "Carlos: Thói quen tuyệt vời!":"Carlos: ¡Gran hábito!",
 "Chuỗi học":"Racha",
