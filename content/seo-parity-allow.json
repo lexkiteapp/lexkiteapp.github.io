@@ -19,7 +19,13 @@
    "page": "phat-am/index.html",
    "reason": "Thêm 6 bài phát âm nâng cao B2–C1 (CQ4): tiêu đề/mô tả/mục lục tăng 56 → 62 bài.",
    "words": [
-    "56"
+    "56",
+    "dứt",
+    "gọn",
+    "khoát",
+    "ma",
+    "suỵt",
+    "sát"
    ],
    "replace": [
     [
@@ -84,7 +90,18 @@
    "page": "en/pronunciation/index.html",
    "reason": "Thêm 6 bài phát âm nâng cao B2–C1 (CQ4): tiêu đề/mô tả/mục lục tăng 56 → 62 bài.",
    "words": [
-    "56"
+    "56",
+    "bee",
+    "blocking",
+    "closed",
+    "comes",
+    "compact",
+    "giving",
+    "like",
+    "make",
+    "nearly",
+    "opening",
+    "throat"
    ],
    "itemList": true
   },
