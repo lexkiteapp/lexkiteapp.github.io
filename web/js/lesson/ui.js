@@ -92,7 +92,7 @@
   const sentLoad = words => { const L = nativeLang(); if (!L) return Promise.resolve(); const base = /(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname) ? '' : 'https://lexkite.com';
     return Promise.all([...new Set(words.map(shardOf))].map(k => SENTP[L + k] || (SENTP[L + k] = fetch(`${base}/packs/sent/${L}/${k}.json`).then(r => (r.ok ? r.json() : {})).then(j => { SENT[L + k] = j; }).catch(() => { delete SENTP[L + k]; })))).then(() => {}); };
   const PBASE = () => (/(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname) || (/^(localhost|127\.)/.test(location.hostname) && location.port) ? '' : 'https://lexkite.com');
-  const goldLoad = () => App.need('lgold').catch(() => {}); // kho gold theo từ: bundle lười lgold (cpack/lesson/gold.js), chỉ nạp khi cần
+  const goldLoad = () => App.need('lgold').catch(() => {});
   const sentGloss = (c, en) => { const L = nativeLang(), w = c && String(c.word || '').toLowerCase().trim(), v = w && (SENT[L + shardOf(w)] || {})[w]; return v && E.norm(v[0]) === E.norm(en) ? v[1] : ''; };
 
   // 🎞️ Cờ lv_embed: bước đầu của bài từ vựng (học/nghe/nói/ôn, không truyện/radio) = video nhúng (4:5 / 16:9, docs/VIDEO-MOTION.md §Embedded). Thử: ?lvembed=1 (nhớ trên máy), ?lvembed=0 tắt; hoặc cấu hình xa lk.cfg.v.lv_embed.
@@ -123,7 +123,7 @@
     const items = story ? E.storyItems(story, meanLang(), n + 1) : E.build(picks, { seed: demo ? 7 + n : Date.now(), pool: (pool0 = cards.concat(STARTER())), hasImg: (w, p) => !!imgUrl(w, p), off: offNow(), only: E.KIND[node.kind], calm: ux, gloss: sentGloss, mean: nativeMean, vi: nativeLang() === 'vi' });
     if (!story && lvOn()) items.unshift({ id: 0, type: 'video', free: true, word: '#video', card: null, retry: 0, words: picks.map(p => p.word) }); // 🎞️ demo video nhúng (cờ lv_embed)
     const prev = ls.get('lk.lsn.who'), V2 = !story && v2On(), DUO = !!story && duoOn(), who = V2 ? 'ama' : prev === 'ama' ? 'carlos' : 'ama'; if (!V2) ls.set('lk.lsn.who', who); // xen kẽ Ama / Carlos mỗi bài
-    if (cardOn()) setTimeout(cardReady, 800); // nạp sẵn lúc rảnh để thẻ kết quả hiện ngay, không chặn câu đầu
+    if (cardOn()) setTimeout(cardReady, 800);
     L = { v2: V2, duo: DUO, demo, items, sess: new E.Session(items, { ease: ux }), picks, pool: pool0, who: story ? 'ama' : who, t0: Date.now(), spoken: 0, kind: node.kind, story, SK, xs: !!XS || redo >= 0, s0: App.streak ? App.streak() : 0 };
     if (window.TeacherMood) moodSub(); else if (App.loadScript) App.loadScript('js/teacher-mood.js').then(moodSub).catch(() => {});
     if (window.LKAudio && LKAudio.offline.on()) LKAudio.offline.lesson(story || items, (state.settings || {}).accent); // 📥 gói offline đang bật → cất audio bài đang học
@@ -202,7 +202,7 @@
   const TNAME = w => (w === 'carlos' ? 'Carlos' : 'Ama');
   const TITLE = it => ({
     gap: t('Chọn từ còn thiếu'),
-    build: it.prompt ? t('Xếp câu tiếng Anh') : t('Nghe rồi xếp thành câu'), // có bản dịch → xếp câu tiếng Anh theo nghĩa; không có → xếp câu vừa nghe
+    build: it.prompt ? t('Xếp câu tiếng Anh') : t('Nghe rồi xếp thành câu'),
     say: t('Nói câu này'),
     pic: it.choice ? t('Đây là gì?') : t('Nói tên hình'),
     tr: t('Dịch câu này'),
@@ -236,7 +236,7 @@
     if (!L || L.dead) return;
     if (L.duo && L.sess.cur) frame(L.sess.cur);
     view.querySelectorAll('.lsn-fq').forEach(x => x.remove()); // thẻ câu của tấm phản hồi chỉ sống tới câu kế
-    if (L.rec && L.rec.stop) { try { L.rec.stop(); } catch (e) { /* bỏ qua */ } } L.rec = null; // mic "Nói theo" của thẻ kết quả không chạy sang câu sau
+    if (L.rec && L.rec.stop) { try { L.rec.stop(); } catch (e) { /* bỏ qua */ } } L.rec = null;
     L.cardIt = null;
     bar();
     if (L.teacher && L.teacher.pose) L.teacher.pose(null); // ra khỏi tư thế phản hồi (cheer/concern) → lại nghe/nói sống
@@ -432,7 +432,7 @@
   }
 
   function submit(ans, heard, idk) {
-    if (!L || L.checked) return; L.checked = true; L.ans = ans; // câu trả lời người học → "Vì sao?" so với đáp án
+    if (!L || L.checked) return; L.checked = true; L.ans = ans;
     const it = L.sess.cur, ok = idk ? false : E.check(it, ans), r = L.sess.answer(ok);
     document.querySelectorAll('#lsnBody button, #lsnIn').forEach(x => { x.disabled = true; }); // đã chấm: khóa đáp án (luật QA)
     bar();
@@ -539,7 +539,7 @@
     view.querySelectorAll('.lsn-fq').forEach(x => x.remove()); const og0 = $('#lsnBody');
     if (o2.qcard && og0 && pick && !(en && cardOn() && window.LearnCard)) { og0.insertAdjacentHTML('beforebegin', `<div class="lsn-fq v2s-${K} mb-[1rem]">${o2.qcard}</div>`); const fp = $('#lsnFqPlay'); if (fp) fp.onclick = () => say(B ? it.sent : pick, false, it.who); if (cardOn()) { const hint = view.querySelector('.lsn-fq .border-t'); if (hint) hint.remove(); } } // bỏ dòng "Chạm loa…": loa đã nằm ngay trên thẻ
     const xp = foot.querySelector('.lsn-xpp'); if (xp && !d.xp) xp.hidden = true; const an = foot.querySelector('.lsn-ans'); if (an && !d.answer) an.hidden = true;
-    if (!c) foot.querySelectorAll(en ? '.lsn-dict' : '.lsn-dict,.lsn-whyrow').forEach(x => x.remove()); // không có 1 từ (ghép cặp) → không thẻ từ / Vì sao?; câu truyện vẫn có Vì sao? theo câu
+    if (!c) foot.querySelectorAll(en ? '.lsn-dict' : '.lsn-dict,.lsn-whyrow').forEach(x => x.remove());
     v2optMark(it, ok);
     if (c || en) $('#lsnWhy').onclick = () => explain(it);
     if (it.type === 'build' || it.type === 'tr') { const bk = $('#lsnBank'), an2 = $('#lsnAns'); if (bk) bk.style.display = 'none'; if (an2 && ok) an2.style.display = 'none'; } // đã chấm: thẻ kết quả thay cho hàng ô chữ (sai → giữ câu người học xếp để so)
@@ -551,26 +551,18 @@
     if (c) booster(it);
   }
 
-  // 🎓 Thẻ kết quả theo câu (cpack/lesson/card.js, gói lười lcard, docs/specs/learn-card.md). Tiếp tục không bao giờ chờ thẻ.
+  // Thẻ kết quả (cpack/lesson/card.js, docs/specs/learn-card.md)
   const sentOf = it => (it.type === 'gap' || it.type === 'build' || it.type === 'tr' ? it.sent || '' : it.type === 'q' ? it.prompt || '' : it.type === 'say' && /\s/.test(it.answer || '') ? it.answer : '');
   const cardOn = () => { try { return ls.get('lk.lcard') !== '0'; } catch (e) { return true; } };
   let CARDP = null;
   const cardReady = () => CARDP || (CARDP = App.need('lcard').then(() => (window.LearnCard ? LearnCard.load(nativeLang()) : null)).catch(() => { CARDP = null; }));
-  const storyPairs = () => ((L && L.story && L.story.checks) || []).filter(x => x.type === 'match').flatMap(x => x.pairs).map(p => ({ w: p.en, m: p.m[meanLang()] || '' }));
-  const cardGloss = w => { const k = E.norm(w), c = (L.pool || []).concat((L.picks || []).map(p => p.card)).find(x => x && E.norm(x.word) === k); if (c) return meanOf(c); const sp = storyPairs().find(x => E.norm(x.w) === k); return (sp && sp.m) || ''; };
-  // Tối đa 1 từ khó, chỉ khi mới: từ khóa truyện chưa có trong thẻ người học.
-  function cardHard(it, en) {
-    if (it.card) return null;
-    const T = E.toks(en).map(x => x.toLowerCase()), x = storyPairs().find(p => p.m && !/\s/.test(p.w) && T.includes(p.w.toLowerCase()) && !(state.cards || {})[p.w.toLowerCase()]);
-    return x ? x : null;
-  }
   async function mountCard(it, ok) {
     if (!cardOn()) return;
     await cardReady();
     const C = window.LearnCard, host = $('#lsnCard'); if (!C || !host || !L || L.cardIt !== it) return;
     if (L.lcS !== L) { L.lcS = L; C.newLesson(); }
     const en = sentOf(it), tr = it.type === 'q' ? '' : it.tr || (it.type === 'build' || it.type === 'tr' ? it.prompt : '') || (it.card ? sentGloss(it.card, en) : '');
-    await C.mount(host, { en, tr, ok, demo: L.demo, hard: cardHard(it, en), gloss: cardGloss, speak: x => say(x, false, L.who), hold: r => { if (L) L.rec = r; } });
+    await C.mount(host, { en, tr, ok, demo: L.demo, ...C.ctx(it, en, L, E, state, meanLang(), meanOf), speak: x => say(x, false, L.who), hold: r => { if (L) L.rec = r; } });
     if (!L || L.cardIt !== it) return;
     view.querySelectorAll('.lsn-fq').forEach(x => x.remove());
     const wr = $('#lsnWhy'), acts = host.querySelector('.lkc-a'), row = wr && wr.closest('.lsn-whyrow'); // Vì sao? (mục 336) nằm chung hàng hành động, không thành hai chỗ
@@ -592,11 +584,10 @@
     const box = $('#lsnXp'); if (!box) return;
     if (!box.hidden) { box.hidden = true; return; }
     box.hidden = false; box.textContent = '…';
-    await goldLoad(); // ngoại tuyến → phần từ điển bên dưới
+    await goldLoad();
     const c = it.card || {}, G = (c.word && (window.LESSON_GOLD || {})[E.norm(c.word)]) || [];
     const own = c.ctx ? c.ctx : ((c.contexts || [])[0] || {}).text;
-    // Phần CÂU trước (why.js, mọi dạng bài); phần TỪ giữ nguyên bên dưới
-    await Promise.race([cardReady(), new Promise(r => setTimeout(r, 1200))]); // why.js ở gói lcard; mạng chậm → vẫn hiện phần từ điển
+    await Promise.race([cardReady(), new Promise(r => setTimeout(r, 1200))]);
     const W = window.LessonWhy, byWord = w => (L.pool || []).find(x => x && E.norm(x.word) === E.norm(w));
     const sents = (G[0] && G[0].ex || []).concat(c.ex ? [c.ex] : [], (c.sentences || []).map(x => x && x.en), own ? [own] : []);
     const wr = W ? W.explain(it, L.ans, { gloss: w => { const x = byWord(w); return x ? meanOf(x) : ''; }, pos: w => (byWord(w) || {}).pos || '', examples: sents }) : null;
@@ -611,7 +602,7 @@
       if (x.mem) h += `<p class="small">🧠 ${t('Mẹo nhớ:')} <span lang="en">${esc(x.mem)}</span></p>`;
     });
     if (!G.length && c.def) h += `<p><span class="tiny muted">${t('Định nghĩa:')}</span> <span lang="en">${esc(c.def)}</span></p>`;
-    const ex = (G[0] && G[0].ex || []).concat(c.ex ? [c.ex] : []).filter((x, i, a) => x && a.indexOf(x) === i && (!W || (W.notSame(x, it.sent || it.answer) && !(wr && wr.ex.includes(x))))).slice(0, 2); // ví dụ không bao giờ lặp câu bài tập
+    const ex = (G[0] && G[0].ex || []).concat(c.ex ? [c.ex] : []).filter((x, i, a) => x && a.indexOf(x) === i && (!W || (W.notSame(x, it.sent || it.answer) && !(wr && wr.ex.includes(x))))).slice(0, 2);
     if (ex.length) h += `<p class="small lsn-why-ex"><span class="tiny muted">${t('Ví dụ:')}</span> ${ex.map(x => `<span lang="en">${esc(x)}</span>`).join(' · ')}</p>`;
     if (own && (!W || W.notSame(own, it.sent || it.answer))) h += `<p class="small"><span class="tiny muted">🔎 ${t('Từ bạn đã tra')}:</span> <span lang="en">${esc(own)}</span></p>`;
     box.innerHTML = h || `<p class="small">${t('Chưa có giải thích riêng cho từ này.')}</p>`;

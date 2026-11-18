@@ -133,5 +133,11 @@
     wire(el, spec, { t, speak: s.speak || (x => { if (g.UI && g.UI.speak) g.UI.speak(x, ((A && A.state && A.state.settings) || {}).accent); }), gloss: w => (s.gloss && s.gloss(w)) || gloss(w), why: s.why, save: () => f && save(f, en, tr, lg), unsave: () => f && unsave(f), rec: (x, cb) => rec(x, cb, s.hold) });
     return spec;
   }
-  g.LearnCard = { match, fits, tokens, saveAllowed, altParts, altText, goodTr, norm, load, trOf, frames: () => FR, html, wire, on, mount, newLesson: () => { seen = 0; }, DAY_MAX, LESSON_MAX };
+  // Ngữ cảnh truyện cho thẻ: nghĩa theo từ + tối đa 1 từ khó mới (từ khóa truyện chưa có trong thẻ người học).
+  function ctx(it, en, L, E, state, ml, meanOf) {
+    const sp = () => ((L && L.story && L.story.checks) || []).filter(x => x.type === 'match').flatMap(x => x.pairs).map(p => ({ w: p.en, m: p.m[ml] || '' }));
+    const T = E.toks(en).map(x => x.toLowerCase()), x = it.card ? null : sp().find(p => p.m && !/\s/.test(p.w) && T.includes(p.w.toLowerCase()) && !(state.cards || {})[p.w.toLowerCase()]);
+    return { hard: x || null, gloss: w => { const k = E.norm(w), c = (L.pool || []).concat((L.picks || []).map(p => p.card)).find(y => y && E.norm(y.word) === k); if (c) return meanOf(c); const q = sp().find(y => E.norm(y.w) === k); return (q && q.m) || ''; } };
+  }
+  g.LearnCard = { ctx, match, fits, tokens, saveAllowed, altParts, altText, goodTr, norm, load, trOf, frames: () => FR, html, wire, on, mount, newLesson: () => { seen = 0; }, DAY_MAX, LESSON_MAX };
 })(typeof self !== 'undefined' ? self : globalThis);
