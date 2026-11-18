@@ -26,3 +26,5 @@
 html.native .bottom-nav{height:calc(64px + env(safe-area-inset-bottom,0px));min-height:0}
 }
 .crumb a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px}
+/* kiểm toán 18/11: thanh tiến độ bài học co giãn bề rộng mỗi khung → khoanh vùng layout (contain) để không lan ra cả màn */
+.lsn-bar{contain:layout}

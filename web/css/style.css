@@ -294,7 +294,7 @@ details summary { cursor: pointer; }
 /* Thanh chấm điểm dính đáy màn hình, nằm SAU thẻ trong luồng → cuộn hết vẫn thấy trọn nội dung */
 .grade-bar { position: sticky; bottom: 0; z-index: 6; margin: 1rem -.75rem 0; padding: .65rem .75rem calc(.65rem + env(safe-area-inset-bottom)); background: linear-gradient(to top, var(--bg) 80%, transparent); }
 .grade-bar .grades { margin-top: 0; }
-html:has(.grade-bar) { scroll-padding-bottom: 6.5rem; }
+html[data-has-grade] { scroll-padding-bottom: 6.5rem; }
 /* Nút chấm FSRS: tông nhạt theo nghĩa (đỏ · cam · xanh lá · teal thương hiệu), độ nảy 3D đàn hồi */
 .grades .btn { --g: var(--muted); --gp: 62%; position: relative; min-height: 56px; flex-direction: column; gap: 0; padding: .55rem .35rem; line-height: 1.25; border: 1.5px solid color-mix(in srgb, var(--g) 40%, transparent); border-bottom-width: 3.5px; background: color-mix(in srgb, var(--g) 11%, var(--surface)); color: color-mix(in srgb, var(--g) var(--gp), var(--text)); box-shadow: 0 3px 0 color-mix(in srgb, var(--g) 32%, transparent); transition: transform .12s cubic-bezier(.2,.8,.4,1), background .15s, box-shadow .12s; touch-action: manipulation; }
 .grades .btn b { font-size: 1rem; font-weight: 700; }
@@ -801,7 +801,7 @@ kbd { font-family: ui-monospace, Menlo, monospace; font-size: .75em; padding: .0
 .learn-bar { position: sticky; bottom: 0; z-index: 5; display: grid; gap: .35rem; margin: 1rem -.75rem 0; padding: .75rem .75rem calc(.6rem + env(safe-area-inset-bottom)); background: linear-gradient(to top, var(--bg) 78%, transparent); }
 .learn-bar .linklike { padding: .55rem 1rem; min-height: 44px; }
 @media (max-width: 1023px) { body:not(.focus):not(.bare) .learn-bar { bottom: calc(60px + env(safe-area-inset-bottom)); } }
-html:has(.learn-bar) { scroll-padding-bottom: 140px; } .wi .wc-sec, .wi-sec { scroll-margin-bottom: 140px; }
+html[data-has-learn] { scroll-padding-bottom: 140px; } .wi .wc-sec, .wi-sec { scroll-margin-bottom: 140px; }
 /* Điện thoại: các nút trong thẻ chính chia đều 1 hàng, chữ không bị xuống dòng lệch */
 @media (max-width: 560px) {
   .hero-main .row > .btn.lg { flex: 1 1 0; min-width: 0; justify-content: center; padding-left: .6rem; padding-right: .6rem; font-size: .95rem; white-space: nowrap; }
@@ -1307,7 +1307,7 @@ button.avatar { border: 0; padding: 0; cursor: pointer; font: inherit; font-weig
   .crumb a { margin-block: -12px; min-width: var(--tap); } /* "Tôi"/"Me" ngắn: rộng đủ 44 px */ summary { align-content: center; } input[type=range] { min-height: var(--tap); }
 }
 /* Thanh kết quả (.sheet) cố định đáy: chừa chỗ… CSS-NOTES §30 */
-body:has(.sheet-up) .view { padding-bottom: calc(18rem + env(safe-area-inset-bottom)); }
+html[data-has-sheet] .view { padding-bottom: calc(18rem + env(safe-area-inset-bottom)); }
 /* Lời mời cài add-on trong trang Từ điển (web/js/ext-cta.js hiện/ẩn) */ /* giữ chỗ mục từ khi đang tra: thẻ add-on bên… CSS-NOTES §31 */
 .ext-card { display: flex; gap: 12px; align-items: center; justify-content: space-between; flex-wrap: wrap; margin-top: 1rem; padding: 12px 14px; border-radius: 14px; background: var(--accent-soft); border: 1px solid var(--line); }
 .ext-card > div { flex: 1 1 260px; min-width: 0; }
@@ -1452,7 +1452,7 @@ html.lk-fab{--fab-space:52px}
 body.bare .lk-rep,body.focus .lk-rep:not(.in-side),body.cbt-mode .lk-rep:not(.in-side),.lk-rep[hidden],.lk-rep.kb:not(.in-side){display:none}
 @media print{.lk-rep{display:none}
 }
-body:has(.learn-bar,.grade-bar,.sheet-up,.sel-bar,.install-nudge,#modal:not([hidden]),dialog[open],.acct-pop) .lk-rep:not(.in-side){display:none}
+html[data-has-learn] .lk-rep:not(.in-side),html[data-has-grade] .lk-rep:not(.in-side),html[data-has-sheet] .lk-rep:not(.in-side),html[data-has-overlay] .lk-rep:not(.in-side){display:none}
 .side-foot:not(.sf-ok)>a:not([data-blog]):not([data-l=about]){display:none}.side-foot:not(.sf-ok) .lk-rep.in-side{margin-top:44px}.side-foot:not(.sf-ok):not(:has(.lk-rep.in-side:not([hidden])))::after{content:'';display:block;min-height:44px}
 /* side-menu (05/11): chân thanh bên gọn = 1… CSS-NOTES §41 */
 @media (min-width:901px){.sidebar .side-foot:not(.sf-ok){display:none}.sp-row{position:relative;flex:none}.side-level{padding:var(--sp-2) calc(var(--sp-6) + var(--sp-5)) calc(var(--sp-2) + env(safe-area-inset-bottom,0px)) var(--sp-4)}[dir=rtl] .side-level{padding-left:calc(var(--sp-6) + var(--sp-5));padding-right:var(--sp-4)}.side-level .avatar{width:32px;height:32px;box-shadow:0 0 0 2px var(--surface),0 0 0 3.5px var(--primary)}.side-level .lv-row{gap:var(--sp-3)}.lv-top b{font-size:var(--fs-sm)}.side-level .lv-sub{font-size:var(--fs-xs)}.side-level .progress.thin{height:3px;margin-top:var(--sp-1)}
@@ -1485,3 +1485,5 @@ body:has(.learn-bar,.grade-bar,.sheet-up,.sel-bar,.install-nudge,#modal:not([hid
 @media (prefers-reduced-motion: reduce) { .st-ti { transition: none; } .v2 nav a[data-tab]:active .st-ti { transform: none; } }
 /* icon-flash: chữ ligature chưa có phông →… CSS-NOTES §44 */
 html.ic-wait-o .material-symbols-outlined,html.ic-wait-r .material-symbols-rounded{color:transparent!important;display:inline-block;max-width:1em;overflow:hidden;white-space:nowrap}
+
+/* kiểm toán 18/11 (lesson-perf): cờ data-has-* do ui.js đặt thay cho :has() gốc html/body – mỗi lần DOM đổi, :has() gốc buộc tính lại style cả cây (~25 % thời gian luồng chính của 1 bài học ở CPU 4×) */

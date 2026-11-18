@@ -105,6 +105,14 @@
   }
   // Toast có nút: con trỏ/focus đang ở trên → không tự ẩn giữa chừng (WCAG 2.2.1), rời ra → đếm lại từ đầu
   function watchToast() { const t = $('#toast'); if (!t) return; const hold = () => { if (t._msg && t._msg[2] && t._msg[2].action) clearTimeout(toast._t); }, go = () => { if (t._msg && t._msg[2] && t._msg[2].action) toastTimer(t, t._msg[1]); }; t.addEventListener('pointerenter', hold); t.addEventListener('focusin', hold); t.addEventListener('pointerleave', go); t.addEventListener('focusout', go); }
+  // Cờ trạng thái trên <html> thay cho `html/body:has(.x)` (kiểm toán 18/11): :has() gốc bị đánh giá lại ở MỖI lần DOM đổi (hơn 1700 lượt/bài). Một observer (callback = microtask, trước lượt vẽ → không trễ khung), chỉ ghi khi cờ đổi.
+  const FLAGS = { learn: '.learn-bar', grade: '.grade-bar', sheet: '.sheet-up', overlay: '.sel-bar,.install-nudge,#modal:not([hidden]),dialog[open],.acct-pop' };
+  function watchFlags() {
+    const R = document.documentElement;
+    const sync = () => { for (const k in FLAGS) { const on = !!document.querySelector(FLAGS[k]); if (R.hasAttribute('data-has-' + k) !== on) R.toggleAttribute('data-has-' + k, on); } };
+    try { new MutationObserver(sync).observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['hidden', 'open'] }); sync(); } catch (e) { /* bỏ qua */ }
+  }
+  (document.readyState === 'loading' ? document.addEventListener.bind(document, 'DOMContentLoaded') : f => f())(watchFlags);
   const onReady = f => (document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', f) : f());
   if (document.getElementById('modal')) watchModal(); else document.addEventListener('DOMContentLoaded', watchModal);
   onReady(watchToast);
