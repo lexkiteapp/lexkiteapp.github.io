@@ -173,6 +173,12 @@ export function violations(file, src) {
   //     MỘT bước `uses: ./.github/actions/playwright-cache` (cache trình duyệt + .deb apt + npm) đứng trước – cài trình duyệt chỉ đi qua action chung.
   { const code = String(src).replace(/^\s*#.*$/gm, ''), calls = (code.match(/scripts\/ci\/pw-install\.sh/g) || []).length, uses = (code.match(/uses:\s*\.\/\.github\/actions\/playwright-cache\b/g) || []).length;
     if (calls > uses) out.push(`${file}: ${calls} lần gọi pw-install.sh nhưng chỉ ${uses} bước \`uses: ./.github/actions/playwright-cache\` – thêm bước cache TRƯỚC mỗi lần cài (luật pw-cache)`); }
+  // action cục bộ (`uses: ./.github/actions/…`) cần mã trên đĩa: (17/11 – report-shots `bench` đỏ "Can't find action.yml" vì checkout thưa không có .github/actions) →
+  //     trong MỖI job, trước bước dùng action cục bộ phải có actions/checkout, và nếu checkout thưa thì danh sách phải gồm `.github/actions` (hoặc `.github`).
+  for (const j of jobs(src)) { const t = j.text, u = t.search(/^\s*-?\s*uses:\s*\.\/\.github\/actions\//m); if (u < 0) continue;
+    const before = t.slice(0, u), cks = [...before.matchAll(/uses:\s*actions\/checkout@[^\n]*\n?([^\n]*)/g)];
+    if (!cks.length) out.push(`${file}: job "${j.id}" dùng action cục bộ trước khi có actions/checkout (không tìm thấy action.yml trên runner)`);
+    else { const last = cks[cks.length - 1][0]; if (/sparse-checkout/.test(last) && !/\.github(\/actions)?(\\n|["'\s\n,}]|$)/.test(last)) out.push(`${file}: job "${j.id}" checkout thưa thiếu .github/actions nhưng dùng action cục bộ`); } }
   for (const st of installSteps(src)) if (!st.bounded) out.push(`${file}:${st.start + 1}: bước cài Playwright/apt không giới hạn thời gian – bước chỉ cài: thêm timeout-minutes; bước còn việc khác: bọc lệnh cài bằng \`timeout 600 …\` (luật 9)`);
   String(src).split('\n').forEach((l, n) => { if (!/^\s*#/.test(l) && SIGN_AUTO.test(l)) out.push(`${file}:${n + 1}: ký iOS Automatic/-allowProvisioningUpdates trên CI – mỗi máy CI tạo 1 chứng chỉ mới → đầy hạn mức; ký Manual qua scripts/native/ios-sign.sh (luật 13)`); });
   return out;
@@ -270,6 +276,10 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
     ok(v17('      - run: bash scripts/ci/pw-install.sh --with-deps webkit\n') === 1, 'luật pw-cache: pw-install.sh không kèm action playwright-cache → lỗi');
     ok(v17("      - uses: ./.github/actions/playwright-cache\n        with: { browsers: webkit }\n      - run: bash scripts/ci/pw-install.sh --with-deps webkit\n") === 0, 'luật pw-cache: có action playwright-cache trước → đạt');
     ok(v17('      - run: |\n          # bash scripts/ci/pw-install.sh chromium\n          node a.mjs\n') === 0, 'luật pw-cache: dòng chú thích không tính');
+    const vl = st => violations('i.yml', job(st)).filter(x => /action cục bộ/.test(x)).length;
+    ok(vl('      - uses: ./.github/actions/apt\n        with: { packages: x }\n') === 1, 'action cục bộ: dùng trước khi checkout → lỗi');
+    ok(vl('      - uses: actions/checkout@v4\n        with: { sparse-checkout: scripts }\n      - uses: ./.github/actions/apt\n') === 1, 'action cục bộ: checkout thưa thiếu .github/actions → lỗi');
+    ok(vl('      - uses: actions/checkout@v4\n        with: { sparse-checkout: "scripts\\n.github/actions" }\n      - uses: ./.github/actions/apt\n') === 0 && vl('      - uses: actions/checkout@v4\n      - uses: ./.github/actions/apt\n') === 0, 'action cục bộ: checkout đủ → đạt');
     ok(!violations('mobile-qa.yml', job('      - timeout-minutes: 12\n        run: npx playwright install chromium\n')).some(x => /luật 10/.test(x)), 'luật 10: mobile-qa.yml được miễn');
   }
   { const hv = "# ci-policy: heavy-gate – x\n" + base.replace("  push:\n    branches: [main]\n    paths: ['a/**']", "  pull_request:\n    paths: ['a/**']").replace('concurrency: { group: x }', 'concurrency: { group: x, cancel-in-progress: true }');

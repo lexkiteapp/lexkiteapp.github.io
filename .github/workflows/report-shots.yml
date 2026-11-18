@@ -24,7 +24,7 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
-        with: { sparse-checkout: "web/js\nscripts\nstore/chrome/screenshots", sparse-checkout-cone-mode: false }
+        with: { sparse-checkout: "web/js\nscripts\nstore/chrome/screenshots\n.github/actions", sparse-checkout-cone-mode: false }
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - uses: ./.github/actions/playwright-cache
