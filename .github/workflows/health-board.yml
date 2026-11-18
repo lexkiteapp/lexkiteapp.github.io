@@ -1,0 +1,24 @@
+# 🩺 Bảng sức khoẻ hệ thống (17/11: nhiều mảng hỏng âm thầm – SEO 0 việc, social "tạo 0", social-coverage đỏ 4/4): mỗi ngày liệt kê workflow
+# TẮT / ĐỎ / QUÁ HẠN cron / SẢN LƯỢNG 0 (reports/yield/<wf>.json + infra/yield-floors.json), ghi vào issue cố định "Sức khoẻ hệ thống".
+# Có mục đỏ → JOB ĐỎ (điều phối thấy ngay). Luật: docs/HEALTH-BOARD.md. Chỉ đọc API, không tốn hạn mức nền.
+name: Health board
+on:
+  schedule:
+    - cron: '23 1 * * *'   # 08:23 giờ Việt Nam
+  workflow_dispatch:
+permissions:
+  contents: read
+  issues: write
+  actions: read
+concurrency: { group: health-board, cancel-in-progress: true }
+jobs:
+  board:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Quét + cập nhật issue
+        env: { GITHUB_TOKEN: '${{ github.token }}' }
+        run: node scripts/ops/health-board.mjs --issue
