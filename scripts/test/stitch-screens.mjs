@@ -74,7 +74,7 @@ export const V2REF = {
   grammar: 'grammar',
   home: 'today',
   leagues: 'leagues',
-  lesson: 'ex-frame',
+  lesson: 'ex-pick',
   me: 'me',
   'onb-goal': 'onb-goal',
   'onb-level': 'onb-level',
