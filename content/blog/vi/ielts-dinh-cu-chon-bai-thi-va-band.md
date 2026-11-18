@@ -9,7 +9,7 @@ tags: [ielts, immigration, ielts-general, canada, australia]
 keyword: "ielts định cư"
 cover: goal
 coverAlt: "Màn hình mục tiêu của Lexkite để chọn kỳ thi, điểm mục tiêu, ngày thi và số giờ học mỗi tuần"
-publishAt:
+publishAt: 2027-02-07T07:34:00+07:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

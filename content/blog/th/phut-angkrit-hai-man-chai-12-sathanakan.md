@@ -17,7 +17,7 @@ coverArt: {mood: cheer, icon: chat}
 diagrams: [
   {id: d1, type: compare, title: 'พูดแบบนี้แทน', cols: ['ฟังแข็ง', 'ฟังเป็นธรรมชาติ'], rows: [['I want a latte.', 'Could I have a latte, please?'], ['No, I do not need help.', 'I am just browsing, thank you.'], ['Do you want to be my friend?', 'We should get lunch one day.'], ['You are wrong.', 'I see your point. Still, I am not sure about the schedule.']]}
 ]
-publishAt:
+publishAt: 2027-01-15T21:24:00+07:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

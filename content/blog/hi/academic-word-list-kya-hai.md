@@ -9,7 +9,7 @@ tags: [awl, ielts, academic-vocabulary, toefl]
 keyword: "academic word list क्या है"
 cover: library
 coverAlt: "Lexkite शब्दावली पुस्तकालय: सभी शब्द, NGSL, IELTS विषय, Writing, Speaking और TOEIC के टैब"
-publishAt:
+publishAt: 2026-12-26T07:19:00+05:30
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

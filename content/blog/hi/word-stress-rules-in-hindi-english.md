@@ -9,7 +9,7 @@ tags: [word-stress, pronunciation, ipa, speaking]
 keyword: "word stress rules in hindi"
 cover: pron
 coverAlt: "Lexkite की IPA उच्चारण लाइब्रेरी: अभ्यास के लिए स्वर, द्विस्वर और व्यंजन"
-publishAt:
+publishAt: 2027-01-22T08:25:00+05:30
 factChecked: 2026-11-16
 author: Lexkite
 status: ready
