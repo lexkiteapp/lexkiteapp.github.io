@@ -1,0 +1,28 @@
+# Cache cho bước cài Playwright (17/11: `playwright install --with-deps webkit` treo/lỗi mirror apt và `npm i playwright` hết 12 phút làm đỏ ≥6 PR).
+# ĐẶT TRƯỚC bước `bash scripts/ci/pw-install.sh …`: cache trình duyệt (~/.cache/ms-playwright), gói .deb apt của --with-deps và ~/.npm →
+# lượt sau không tải lại từ CDN/mirror. Cache chỉ được ghi khi job xanh. Luật ci-policy "pw-cache": mọi workflow gọi pw-install.sh phải dùng action này.
+name: playwright-cache
+description: Cache trình duyệt Playwright + .deb apt + npm trước pw-install.sh
+inputs:
+  browsers:
+    description: Tên trình duyệt (chỉ dùng cho khoá cache), ví dụ "chromium webkit"
+    default: chromium
+runs:
+  using: composite
+  steps:
+    - id: k
+      shell: bash
+      env: { B: '${{ inputs.browsers }}' }
+      run: |
+        echo "b=$(printf '%s\n' $B | grep -v '^--' | sort -u | tr '\n' '-')" >> "$GITHUB_OUTPUT"
+        echo "PW_APT_CACHE=$HOME/.cache/pw-apt-debs" >> "$GITHUB_ENV"
+    - uses: actions/cache@v4
+      with:
+        path: |
+          ~/.cache/ms-playwright
+          ~/.cache/pw-apt-debs
+          ~/.npm
+        key: pw-${{ runner.os }}-${{ steps.k.outputs.b }}${{ env.ImageVersion }}-${{ hashFiles('package-lock.json', 'package.json') }}
+        restore-keys: |
+          pw-${{ runner.os }}-${{ steps.k.outputs.b }}${{ env.ImageVersion }}-
+          pw-${{ runner.os }}-${{ steps.k.outputs.b }}

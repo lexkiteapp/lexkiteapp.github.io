@@ -10,7 +10,7 @@ keyword: "affect effect ต่างกัน"
 cover: dict
 coverAlt: "หน้าพจนานุกรมใน Lexkite แสดงคำศัพท์พร้อมการออกเสียง ประโยคตัวอย่าง และคำที่ใช้คู่กัน"
 coverArt: {mood: think, icon: book}
-publishAt:
+publishAt: 2027-01-04T20:07:00+07:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

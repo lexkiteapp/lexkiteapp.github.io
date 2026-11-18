@@ -9,7 +9,7 @@ tags: [ielts, writing, task-1, bar-chart, academic]
 keyword: "ielts writing task 1 bar chart"
 cover: write
 coverAlt: "Phòng Writing của Lexkite với đề bài và khung lập dàn ý cho bài báo cáo"
-publishAt:
+publishAt: 2027-02-12T12:31:00+07:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

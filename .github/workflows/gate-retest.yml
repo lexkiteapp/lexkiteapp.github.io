@@ -27,7 +27,7 @@ jobs:
       - run: npm ci --no-audit --no-fund
       - name: Mã chạy lại lấy từ main (không tin mã của PR)
         run: |
-          git fetch --no-tags --depth=1 origin main
+          git fetch --no-tags origin main   # KHÔNG --depth: lịch sử đã đủ (fetch-depth 0), --depth=1 cắt nông làm merge-base lỗi
           git show FETCH_HEAD:scripts/ci/gate-retest.mjs > "$RUNNER_TEMP/gate-retest.mjs"
       - name: Ghi đè test cổng từ main lên đầu PR rồi chạy (không token)
         env: { CMDS: '${{ inputs.cmds }}', MAIN: '${{ inputs.main }}' }
