@@ -14,9 +14,9 @@ def despill(f):
     o = f.copy(); o[..., 1] = np.minimum(f[..., 1], np.maximum(f[..., 0], f[..., 2])); return o
 
 
-def _hand_lines(f, scale, depth=18):
+def _hand_lines(f, scale, depth=18, solid_min=225):
     """→ (mask nét đen mảnh trên da tay, ảnh đã lấp); depth = độ lõm tối so với xung quanh (lấp ≥ 18, cổng đo ≥ 45: nhiễu nén không tính). Mép người (alpha chưa đặc) không tham gia: màu ở đó nhiễu, lấy vào sẽ làm đỏ đầu ngón."""
-    H, W = f.shape[:2]; solid = f[..., 3] > 225; rgb = f[..., :3] * solid[..., None]
+    H, W = f.shape[:2]; solid = f[..., 3] > solid_min; rgb = f[..., :3] * solid[..., None]
     k = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (int(9 * scale) | 1, int(9 * scale) | 1))
     closed = cv2.morphologyEx(rgb, cv2.MORPH_CLOSE, k)
     r, g, b = [closed[..., i].astype(np.int16) for i in range(3)]
@@ -27,11 +27,11 @@ def _hand_lines(f, scale, depth=18):
     return (closed.astype(np.int16).max(axis=2) - rgb.max(axis=2) > depth) & (dark_skin | tan_skin) & solid & ~head & ~near_white, closed
 
 
-def clean_hands(f, scale=1.0):
+def clean_hands(f, scale=1.0, depth=18, solid_min=225):
     """Nét đen mảnh trên da tay (vân tay, kẽ ngón do Kling vẽ): cỡ chỗ giáo viên 134 px thành chấm/viền đen răng cưa, cả lúc tay giữ yên (ảnh chủ 4/11) → lấp bằng màu da liền kề."""
-    lines, closed = _hand_lines(f, scale)
+    lines, closed = _hand_lines(f, scale, depth, solid_min)
     if not lines.any(): return f
-    m = cv2.GaussianBlur(cv2.dilate(lines.astype(np.uint8), np.ones((3, 3), np.uint8)).astype(np.float32), (0, 0), .8 * scale)[..., None] * (f[..., 3:] > 225)
+    m = cv2.GaussianBlur(cv2.dilate(lines.astype(np.uint8), np.ones((3, 3), np.uint8)).astype(np.float32), (0, 0), .8 * scale)[..., None] * (f[..., 3:] > solid_min)
     o = f.copy(); o[..., :3] = (f[..., :3] * (1 - m) + closed * m).round().astype(np.uint8); return o
 
 

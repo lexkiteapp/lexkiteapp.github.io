@@ -125,14 +125,14 @@ for who, P in R['people'].items():
         fps = probe(cf, 'r_frame_rate').split(',')[0]
         n = min(int(probe(f, 'nb_read_frames')) for f in (cf, cm)); a, z = c.get('from', 0), min(c.get('to', n - 1), n - 1) + 1; N = z - a
         # khung vung tay nhanh: nguồn méo (vệt đen, mép răng cưa, đốm phông xanh) → nhoè theo chuyển động trước khi nén, 1× và 2× đều qua đây (motion_smear.py)
-        def src_smear(sc, fa, scale, w, h, out):
+        def src_smear(sc, fa, scale, w, h, out, hd=(18, 225)):
             gs = (f"[1:v]trim=start_frame={a}:end_frame={z},setpts=N/({fps})/TB,format=gray,crop={crop},{sc},{fa}[a];"
                   f"[0:v]trim=start_frame={a}:end_frame={z},setpts=N/({fps})/TB,crop={crop},{sc},format=rgba[c];[c][a]alphamerge,format=rgba")
             raw = subprocess.run(['ffmpeg', '-v', 'error', '-i', cf, '-i', cm, '-filter_complex', gs, '-fps_mode', 'passthrough', '-f', 'rawvideo', '-pix_fmt', 'rgba', '-'], capture_output=True, check=True).stdout
             fr = [np.frombuffer(raw, np.uint8, w * h * 4, i).reshape(h, w, 4) for i in range(0, len(raw), w * h * 4)]
             if len(fr) != N: errs.append(f'{who}/{pose}: nguồn nhoè {len(fr)} khung ≠ {N}')
-            res, m = motion_smear.smear([motion_smear.clean_hands(motion_smear.despill(f), scale) for f in fr], scale)
-            res = [motion_smear.clean_hands(f, scale) for f in res]   # nhoè theo chuyển động trộn màu tay tối vào áo coral → vệt nâu tối cạnh tay (ama/explain 129 px): lấp lại SAU nhoè, trước nén
+            res, m = motion_smear.smear([motion_smear.clean_hands(motion_smear.despill(f), scale, *hd) for f in fr], scale)
+            res = [motion_smear.clean_hands(f, scale, *hd) for f in res]   # nhoè theo chuyển động trộn màu tay tối vào áo coral → vệt nâu tối cạnh tay (ama/explain 129 px): lấp lại SAU nhoè, trước nén
             subprocess.run(['ffmpeg', '-v', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'rgba', '-s', f'{w}x{h}', '-r', fps, '-i', '-', '-c:v', 'ffv1', out], input=b''.join(f.tobytes() for f in res), check=True)
             return m
         sm1 = f'{TMP}/{who}-{pose}.mkv'; sm_info = src_smear(SC, FA, 1, W, H, sm1)
@@ -145,12 +145,17 @@ for who, P in R['people'].items():
                 '-crf', str(q), '-tune', 'animation', '-x264-params', f'chroma-qp-offset={cq}', '-movflags', '+faststart', o)
             return os.path.getsize(o) <= 240 * 1024
         # vượt 240 KB → nén thêm từng nấc (≤ +4); nấc nào lộ viền xanh do nén (lem chroma) → dồn bit cho chroma (offset −2/−4) thay vì hạ ngưỡng
-        done = False
-        for q in range(F['crf'], F['crf'] + 5):
-            for cq in (0, -2, -4):
-                if not enc(q, cq): break
-                if vid_spill(o) <= 0.004: done = True; break
-            if done: break
+        def enc_best():
+            for q in range(F['crf'], F['crf'] + 5):
+                for cq in (0, -2, -4):
+                    if not enc(q, cq): break
+                    if vid_spill(o) <= 0.004: return q
+            return q
+        q = enc_best(); hand = (18, 225)
+        # nén (chroma 4:2:0, đệm alpha) đẩy màu → clip đã lấp vẫn lộ nét đen da tay khi giải mã: đo trên clip đã nén bằng đúng thước của cổng (motion_smear), vượt → dựng lại với lượt lấp sâu hơn/rộng hơn
+        sc1 = W / 554; hl = lambda: max(int(motion_smear._hand_lines(x, sc1, 45)[0].sum() / sc1 ** 2) for x in motion_smear.read_clip(o)[0][::4])
+        if hl() > motion_smear.MAX_LINES:
+            hand = (8, 150); src_smear(SC, FA, 1, W, H, sm1, hand); q = enc_best(); print(f'  {pose}: nét đen da tay sau nén > {motion_smear.MAX_LINES:.0f} px → lấp sâu hơn (độ lõm 8, alpha 150): {hl()} px')
         got = probe(o, 'width,height,nb_read_frames')
         if got != f'{W},{H * 2},{2 * N - 2}': errs.append(f'{o}: {got} (cần {W},{H * 2},{2 * N - 2})')
         if os.path.getsize(o) > 240 * 1024: errs.append(f'{o}: {os.path.getsize(o) // 1024} KB > 240 KB')
@@ -161,7 +166,7 @@ for who, P in R['people'].items():
         still(cf, cm, fr, SC2, FA2, f'{OUT}/{who}/still-{pose}.webp'); motion_smear.clean_webp(f'{OUT}/{who}/still-{pose}.webp', 2)
         if pose in R['hd']:   # clip HD 2× điểm ảnh, ≤ 900 KB: chỗ lớn sống (Call talk/listen) + tư thế clip của chỗ giáo viên cỡ l/xl trên màn retina (point/cheer/encourage – chỉ để không phóng to; viền đen tay méo là lỗi nguồn, xử lý ở motion_smear.py)
             oh = f'{OUT}/{who}/{pose}-hd.mp4'
-            sm2 = f'{TMP}/{who}-{pose}-hd.mkv'; src_smear(SC2, FA2, 2, W * 2, H * 2, sm2)
+            sm2 = f'{TMP}/{who}-{pose}-hd.mkv'; src_smear(SC2, FA2, 2, W * 2, H * 2, sm2, hand)
             run('ffmpeg', '-v', 'error', '-y', '-i', sm2, '-filter_complex', g,
                 '-an', '-r', fps, '-c:v', 'libx264', '-color_range', 'tv', '-colorspace', 'bt709', '-color_primaries', 'bt709', '-color_trc', 'bt709', '-profile:v', 'main', '-preset', 'veryslow', '-crf', str(F['crf']), '-tune', 'animation', '-movflags', '+faststart', oh)
             if probe(oh, 'width,height,nb_read_frames') != f'{W * 2},{H * 4},{2 * N - 2}': errs.append(f'{oh}: sai cỡ/khung')
