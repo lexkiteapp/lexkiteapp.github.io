@@ -17,6 +17,7 @@ await ctx.route('**/*', r => { const u = new URL(r.request().url()); if (u.hostn
     if (rg) { const a = rg[1] === '' ? Math.max(0, buf.length - +rg[2]) : +rg[1], b = rg[1] === '' || rg[2] === '' ? buf.length - 1 : Math.min(+rg[2], buf.length - 1); return r.fulfill({ status: 206, body: buf.subarray(a, b + 1), contentType: ct, headers: { 'accept-ranges': 'bytes', 'content-range': `bytes ${a}-${b}/${buf.length}` } }); }
     r.fulfill({ status: 200, body: buf, contentType: ct, headers: { 'accept-ranges': 'bytes' } }); });
 const page = await ctx.newPage(), errs = [], md = ['# teacher-motion (WebKit, 390 tối, DPR 3)', ''];
+const diag = []; page.on('console', m => /error|warn/.test(m.type()) && diag.push('console.' + m.type() + ': ' + m.text().slice(0, 200))); page.on('pageerror', e => diag.push('pageerror: ' + String(e.message).slice(0, 200))); page.on('requestfailed', r => diag.push('requestfailed: ' + r.url().slice(-60) + ' ' + (r.failure() || {}).errorText));
 // đếm texImage2D trên canvas giáo viên (trước khi app chạy)
 await page.addInitScript(() => { try { localStorage.setItem('lk.ux1', '1'); } catch (e) {} window.__tex = 0; window.__vids = []; const ce = Document.prototype.createElement; Document.prototype.createElement = function (t, ...a) { const e = ce.call(this, t, ...a); if (String(t).toLowerCase() === 'video') window.__vids.push(e); return e; }; /* video của clip không gắn vào DOM */ const o = WebGLRenderingContext.prototype.texImage2D; WebGLRenderingContext.prototype.texImage2D = function (...a) { if (a[a.length - 1] instanceof HTMLVideoElement) window.__tex++; return o.apply(this, a); }; });
 const url = q => `https://lk.test/app/?sandbox=1&hl=en&ux1=1${q}`;
@@ -25,7 +26,12 @@ await page.evaluate(async () => { App.state.settings.exam = 'ielts'; App.state.s
 await page.goto(url('#/learn'), { waitUntil: 'load' }); await page.waitForTimeout(800);
 await page.evaluate(() => { document.documentElement.setAttribute('data-theme', 'dark'); const s = document.querySelector('.tslot'); s && s.scrollIntoView({ block: 'center' }); });
 const live = await page.waitForFunction(() => document.querySelector('.tslot.live canvas.tslot-img'), null, { timeout: 15000 }).then(() => true, () => false);
-if (!live) errs.push('clip giáo viên không chạy trên WebKit (không có .tslot.live canvas) – không đo được');
+if (!live) {
+  errs.push('clip giáo viên không chạy trên WebKit (không có .tslot.live canvas) – không đo được');
+  // chẩn đoán: vì sao clip không chạy (lỗi trang, yêu cầu hỏng, trạng thái video)
+  const st = await page.evaluate(() => ({ slots: [...document.querySelectorAll('.tslot')].map(s => s.className + ' ' + s.dataset.pose), vids: (window.__vids || []).map(v => ({ src: (v.currentSrc || v.src).split('/').slice(-2).join('/'), rs: v.readyState, ns: v.networkState, err: v.error && v.error.code, t: v.currentTime, paused: v.paused })) })).catch(e => ({ evalErr: e.message }));
+  md.push('', '### chẩn đoán', '```', JSON.stringify(st), ...diag.slice(0, 25), '```');
+}
 else {
   // đo một chỗ giáo viên: pose = data-pose của slot (Home có wave đầu trang + point ở lộ trình)
   const measure = pose => page.evaluate(async pose => {
