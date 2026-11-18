@@ -9,7 +9,7 @@ tags: [ielts, listening, question-types, strategy]
 keyword: "أنواع أسئلة ielts listening"
 cover: listening
 coverAlt: "قائمة تدريب الاستماع في Lexkite مع تسجيلات مصنفة بحسب المستوى"
-publishAt:
+publishAt: 2027-01-07T19:15:00+03:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

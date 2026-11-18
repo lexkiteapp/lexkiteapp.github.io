@@ -12,7 +12,7 @@ coverAlt: "صفحة التدريب في Lexkite مع ألعاب وتمارين �
 status: ready
 factChecked: 2026-11-16
 author: Lexkite
-publishAt:
+publishAt: 2027-01-11T08:47:00+03:00
 qualityScore: 91
 coverArt: {mood: happy, icon: book}
 shots: [
