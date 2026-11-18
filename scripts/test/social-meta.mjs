@@ -79,7 +79,7 @@ globalThis.fetch = async (url, init = {}) => {
   return J({});
 };
 const ENCK = Buffer.alloc(32, 5).toString('base64');
-const ENV = { DB, GRABCAST_API_KEY: KEY, SHORTS_READ_TOKEN: 'ro', KEYS_ENC_KEY: ENCK, META_PAGE_TOKEN: TOK, META_PAGE_ID: '123456789' }; // FB qua secret khởi tạo, IG qua Quản trị (token kênh)
+const ENV = { DB, SOCIAL_DAY_CAP: '9', GRABCAST_API_KEY: KEY, SHORTS_READ_TOKEN: 'ro', KEYS_ENC_KEY: ENCK, META_PAGE_TOKEN: TOK, META_PAGE_ID: '123456789' }; // FB qua secret khởi tạo, IG qua Quản trị (token kênh)
 await MGR.setupMgr(DB);
 sql.exec('CREATE TABLE yt_queue (clip TEXT PRIMARY KEY, status TEXT, title TEXT, approved_at INTEGER); CREATE TABLE clip_review (clip TEXT PRIMARY KEY, state TEXT, deleted INTEGER, web INTEGER)');
 for (const c of [CA, CB, CC, CD, CE]) sql.prepare("INSERT INTO yt_queue (clip, status) VALUES (?, 'manual')").run(c);

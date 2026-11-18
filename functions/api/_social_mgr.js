@@ -10,7 +10,7 @@ import { withInstall } from './_install_links.js';
 import { BIO_ONLY } from './_role_meta.js';
 import { field } from './_clip_logic.js';
 import { runModel } from './ai.js';
-import { normCfg, allowed, schedule, SOCIAL_DAY_MAX, LANG_TZ, langOfChannel, dayCapOf, gapOf } from './_distribution.js';
+import { normCfg, allowed, schedule, SOCIAL_DAY_MAX, LANG_TZ, langOfChannel, isMainLang, MAIN_DAY, NATIVE_DAY, gapOf } from './_distribution.js';
 
 // ---------------- Hàm thuần (test: scripts/test/social-mgr.mjs) ----------------
 export const STATES = ['idea', 'draft', 'review', 'approved', 'scheduled', 'published', 'failed'];
@@ -91,7 +91,7 @@ export function atTz(y, m, d, h, tz) { const want = Date.UTC(y, m - 1, d, h); le
  *  mỗi tài khoản GrabCast = 1 "kênh" cfg cùng dạng (daily_cap, min_gap_min, tz, windows, types/topics/cefr…), id "gc:<id>"; thêm lớp riêng của social:
  *  trần 24 h của nền tảng (FB Reels 30, IG 100…) và chống trùng clip/kênh trong dupDays. Trả { slots:[{clip, account_id, at}], skipped:[{clip, account_id, why}] }. */
 export function cfgFor(a, R) {
-  const id = String(a.id), over = (R.cfgBy || {})[id] || {}, lang = langOfChannel(a.name || ''), cap = R.perDay[a.p] > 0 ? dayCapOf(lang, R.perDay[a.p]) : 0; // trần theo loại kênh: chính 2–3 · bản ngữ 1 (một nguồn: _distribution.dayCapOf)
+  const id = String(a.id), over = (R.cfgBy || {})[id] || {}, lang = langOfChannel(a.name || ''), cap = R.perDay[a.p] > 0 ? (isMainLang(lang) ? Math.min(MAIN_DAY.max, R.perDay[a.p]) : NATIVE_DAY) : 0; // trần theo loại kênh: chính 2–3 · bản ngữ 1 (một nguồn: _distribution.dayCapOf)
   const hrs = cap >= 2 ? R.hours : R.hours.filter(h => h >= 18).concat(R.hours.some(h => h >= 18) ? [] : R.hours);
   return normCfg({ daily_cap: cap, min_gap_min: gapOf(lang, R.minGapH * 60), tz: R.tzBy[id] || LANG_TZ[lang] || R.tz, windows: hrs.map(h => ({ from: String(h).padStart(2, '0') + ':00', to: String(h).padStart(2, '0') + ':59' })), label: a.name || '', ...over });
 }
