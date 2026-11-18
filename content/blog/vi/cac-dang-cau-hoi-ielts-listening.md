@@ -9,7 +9,7 @@ tags: [ielts, listening, question-types, strategy]
 keyword: "các dạng câu hỏi ielts listening"
 cover: listening
 coverAlt: "Danh sách bài nghe của Lexkite, xếp theo trình độ"
-publishAt:
+publishAt: 2027-02-03T20:56:00+07:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

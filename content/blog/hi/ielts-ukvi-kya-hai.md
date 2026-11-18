@@ -9,7 +9,7 @@ tags: [ielts, ukvi, uk-visa, immigration]
 keyword: "ielts ukvi क्या है"
 cover: goal
 coverAlt: "Lexkite लक्ष्य स्क्रीन: परीक्षा, लक्ष्य स्कोर, परीक्षा की तारीख़ और साप्ताहिक अध्ययन-घंटे चुनना"
-publishAt:
+publishAt: 2027-01-16T07:08:00+05:30
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

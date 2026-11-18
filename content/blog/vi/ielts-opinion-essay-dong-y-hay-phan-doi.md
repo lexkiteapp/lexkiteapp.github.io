@@ -9,7 +9,7 @@ tags: [ielts, writing, task-2, opinion-essay]
 keyword: "ielts opinion essay"
 cover: write
 coverAlt: "Phòng Writing của Lexkite với câu hỏi luận theo chủ đề, gợi ý ý tưởng và khung bài luận"
-publishAt:
+publishAt: 2027-02-08T19:42:00+07:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

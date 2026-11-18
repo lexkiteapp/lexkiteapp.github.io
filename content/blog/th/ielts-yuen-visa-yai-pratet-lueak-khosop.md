@@ -9,7 +9,7 @@ tags: [ielts, immigration, ielts-general, canada, australia]
 keyword: "ielts ยื่นวีซ่า"
 cover: goal
 coverAlt: "หน้าตั้งเป้าหมายใน Lexkite สำหรับเลือกข้อสอบ คะแนนเป้าหมาย วันสอบ และชั่วโมงเรียนต่อสัปดาห์"
-publishAt:
+publishAt: 2027-01-12T19:53:00+07:00
 factChecked: 2026-11-16
 author: Lexkite
 status: ready
