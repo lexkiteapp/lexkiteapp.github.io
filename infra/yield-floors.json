@@ -1,0 +1,4 @@
+{
+ "lexicon-expand": { "floor": 40, "windowH": 48, "unit": "word#pos nhận", "note": "mục tiêu 20k word#pos – docs/LEXICON.md" },
+ "vocab-img-scene": { "floor": 30, "windowH": 48, "unit": "ảnh đạt", "note": "mục tiêu 20k ảnh – docs/VOCAB-IMG-STYLE.md" }
+}

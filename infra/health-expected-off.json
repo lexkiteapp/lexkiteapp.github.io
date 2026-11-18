@@ -1,0 +1,4 @@
+{
+ "_doc": "Workflow CỐ Ý tắt: { owner, due (YYYY-MM-DD, quá hạn = đỏ), why }. Không có ở đây mà tắt = đỏ trên health-board.",
+ "video": { "owner": "chủ", "due": "2026-12-31", "why": "tắt tay – đọc docs/VIDEO.md + handoff video trước khi bật lại" }
+}
