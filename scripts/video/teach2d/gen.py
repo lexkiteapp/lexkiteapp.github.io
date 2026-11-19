@@ -371,6 +371,17 @@ def rules_bank():
     return _RJ
 
 
+_HOMO = None
+def homophone_words():   # bank words whose US IPA another bank word shares (know/no, write/right, knight/night)
+    global _HOMO
+    if _HOMO is None:
+        by = {}
+        for w, A in facts()['words'].items():
+            if A.get('ipa'): by.setdefault(A['ipa'], set()).add(w)
+        _HOMO = {w for g in by.values() if len(g) > 1 for w in g}
+    return _HOMO
+
+
 def rule(p):   # Spell->Sound: ONE rule, 2-3 real words. Hook -> the rule -> each word slow then normal (silent letter struck on its spoken word) -> repeat -> which letter is silent? -> CTA
     import rules as RU
     R = rules_bank()[p['rule']]; ws = []
@@ -381,7 +392,8 @@ def rule(p):   # Spell->Sound: ONE rule, 2-3 real words. Hook -> the rule -> eac
         ws.append(dict(w=w, ipa=ipa, silent=sp, letter=w[sp[0]:sp[1]], mean=gloss(dfn) or clue_of(dfn), em=(facts()['words'].get(w) or {}).get('em', '')))
     assert len({x['letter'] for x in ws}) == 1, ('one silent letter per lesson', [x['letter'] for x in ws])
     cap = lambda t: t[0].upper() + t[1:]; LT = ' '.join(ws[0]['letter'].upper()); qw = ws[-1]; lines = [L('h', f'The {LT} is silent!', 0.3), L('r', R['say'], 0.3)]
-    for i, x in enumerate(ws): lines += [L(f'w{i}', cap(x['w']) + '.', 0.25, speed=0.6), L(f'v{i}', cap(x['w']) + '.', 0.3)]   # slow, then normal
+    homo = homophone_words()
+    for i, x in enumerate(ws): lines += [L(f'w{i}', cap(x['w']) + '.', 0.25, speed=0.6), L(f'v{i}', f"{cap(x['w'])}. Say: {x['w']}." if x['w'] in homo else cap(x['w']) + '.', 0.3)]   # slow, then normal; a word with a commoner homophone (know/no, write/right) gets a carrier phrase: whisper writes the commoner spelling of a lone 0.6 s word (caption_sync)
     other = next(c for c in qw['w'] if c not in qw['letter'])   # a different letter of the asked word: the first one that is not the silent one
     opts = [qw['letter'].upper(), other.upper()]; ans = 0
     if int(hashlib.sha1(qw['w'].encode()).hexdigest(), 16) % 2: opts.reverse(); ans = 1

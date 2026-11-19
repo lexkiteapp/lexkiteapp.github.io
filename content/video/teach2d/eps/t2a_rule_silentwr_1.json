@@ -27,7 +27,7 @@
   },
   {
    "id": "v0",
-   "text": "Write.",
+   "text": "Write. Say: write.",
    "pause": 0.3
   },
   {
@@ -116,9 +116,9 @@
   "rule": "silent-wr"
  },
  "est": {
-  "words": 39,
-  "seconds": 26.7,
-  "wpm": 88
+  "words": 41,
+  "seconds": 27.6,
+  "wpm": 89
  },
  "publish": {
   "title": "The W is silent!",
@@ -131,7 +131,7 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/pron/write",
-  "script_words": 30,
+  "script_words": 32,
   "platforms": {
    "youtube": {
     "title": "The W is silent!",

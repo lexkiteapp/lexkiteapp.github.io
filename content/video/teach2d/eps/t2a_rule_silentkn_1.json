@@ -27,7 +27,7 @@
   },
   {
    "id": "v0",
-   "text": "Know.",
+   "text": "Know. Say: know.",
    "pause": 0.3
   },
   {
@@ -116,9 +116,9 @@
   "rule": "silent-kn"
  },
  "est": {
-  "words": 39,
-  "seconds": 26.7,
-  "wpm": 88
+  "words": 41,
+  "seconds": 27.6,
+  "wpm": 89
  },
  "publish": {
   "title": "The K is silent!",
@@ -131,7 +131,7 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/pron/know",
-  "script_words": 30,
+  "script_words": 32,
   "platforms": {
    "youtube": {
     "title": "The K is silent!",
