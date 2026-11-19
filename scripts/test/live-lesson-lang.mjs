@@ -6,14 +6,16 @@ let fails = 0; const ok = (c, m) => { if (!c) { fails++; console.error('✗', m)
 // chỉ ký tự RIÊNG của tiếng Việt (không có trong fr/es/pt: â ê ô à è é ò ù ú í ó á ñ ç… dùng chung nên không tính)
 const VI = /[ăđơưảẳẩẻểỉỏổởủửỷạặậẹệịọộợụựỵẵẫẽễĩõỗỡũữỹắằấầếềốồớờứừ]/i;
 const SEED = async () => { localStorage.setItem('lk.ux1', '1'); localStorage.setItem('lk.onb', '1'); App.state.settings.onboarded = true; App.state.settings.exam = 'ielts'; await App.saveSettings(); };
+// Bản live có CSP không 'unsafe-eval' → page.waitForFunction (đánh giá hàm bằng eval) ném EvalError; thăm dò bằng page.evaluate (CDP, không qua CSP).
+const until = async (page, fn, ms, must) => { const t = Date.now(); while (Date.now() - t < ms) { if (await page.evaluate(fn).catch(() => false)) return true; await page.waitForTimeout(300); } if (must) throw new Error('hết ' + ms + ' ms chờ ' + String(fn)); return false; };
 const browser = await chromium.launch();
 for (const lang of ['en', 'fr', 'zh', 'es']) {
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: 'block', locale: lang }), page = await ctx.newPage(), errs = [];
   page.on('pageerror', e => errs.push(e.message + ' @ ' + String(e.stack || '').split('\n').slice(1, 3).join(' ').trim()));
   const url = h => `${ORIGIN}/app/?sandbox=1&hl=${lang}#/${h}`;
-  await page.goto(url('home'), { waitUntil: 'load' }); await page.waitForFunction(() => window.App && App.state && App.saveSettings, null, { timeout: 45000 }); await page.evaluate(SEED);
+  await page.goto(url('home'), { waitUntil: 'load' }); await until(page, () => !!(window.App && App.state && App.saveSettings), 45000, true); await page.evaluate(SEED);
   await page.goto(url('lesson/go?demo=1'), { waitUntil: 'load' }); await page.reload({ waitUntil: 'load' });
-  await page.waitForFunction(() => window.App && App._lsn && App._lsn.sess && App._lsn.sess.cur, null, { timeout: 45000 }).catch(() => {});
+  await until(page, () => !!(window.App && App._lsn && App._lsn.sess && App._lsn.sess.cur), 45000, false);
   const seen = []; let shot = 0;
   for (let n = 0; n < 40; n++) {
     const r = await page.evaluate(async () => {

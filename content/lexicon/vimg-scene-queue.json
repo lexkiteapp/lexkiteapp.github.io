@@ -1105,12 +1105,6 @@
    "why": "meaning check: no (Is the person creating a brand‑new useful device?)",
    "b": "44000359339"
   },
-  "jawbone#n": {
-   "at": "2026-11-17",
-   "tries": 18,
-   "why": "vision: no (no chin area shown)",
-   "b": "44000359339"
-  },
   "jury#n": {
    "at": "2026-11-17",
    "tries": 42,
@@ -1309,12 +1303,6 @@
    "why": "vision: text",
    "b": "44000359339"
   },
-  "overdraft#n": {
-   "at": "2026-11-17",
-   "tries": 42,
-   "why": "vision description-sentence sim 0.1795",
-   "b": "44000359339"
-  },
   "panhandler#n": {
    "at": "2026-11-18",
    "tries": 36,
@@ -1452,12 +1440,6 @@
    "tries": 48,
    "why": "vision: no (silver color and starry background)",
    "b": "44229253651"
-  },
-  "product recall#n": {
-   "at": "2026-11-17",
-   "tries": 42,
-   "why": "vision description-sentence sim 0.2314",
-   "b": "44000359339"
   },
   "productivity#n": {
    "at": "2026-11-17",
