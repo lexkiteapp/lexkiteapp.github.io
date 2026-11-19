@@ -1,0 +1,173 @@
+{
+ "id": "t2a_roots_stat_1",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, two words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "The root is Stat! Station, stable.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Stat is Latin for stand.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Station: a place where you stand.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Stable: able to stand firm.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means able to stand firm?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Stable! It means able to stand firm.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "STAT",
+  "rid": "stat",
+  "say": "stand",
+  "src": "stare",
+  "src_lang": "Latin",
+  "src_mean": "to stand",
+  "words": [
+   {
+    "w": "station",
+    "ipa": "/ˈsteɪʃn/",
+    "mean": "a place where you stand",
+    "seg": "sta|-tion",
+    "parts": [
+     [
+      "sta",
+      "root"
+     ],
+     [
+      "tion",
+      "suf"
+     ]
+    ],
+    "pre": null,
+    "pm": null,
+    "pms": null,
+    "ex": "The station is a ten-minute walk from here.",
+    "em": "🚉"
+   },
+   {
+    "w": "stable",
+    "ipa": "/ˈsteɪbl/",
+    "mean": "able to stand firm",
+    "seg": "stab|-le",
+    "parts": [
+     [
+      "stab",
+      "root"
+     ],
+     [
+      "le",
+      "suf"
+     ]
+    ],
+    "pre": null,
+    "pm": null,
+    "pms": null,
+    "ex": "The patient's condition is now stable.",
+    "em": "⚖️"
+   }
+  ],
+  "quiz": {
+   "stem": "able to stand firm",
+   "options": [
+    "station",
+    "stable"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/station",
+  "link": "https://lexkite.com/app/#/dict/station",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, two words"
+ },
+ "src": {
+  "root": "stat"
+ },
+ "est": {
+  "words": 50,
+  "seconds": 29.4,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "Stat root: station and stable",
+  "keyword": "stat root",
+  "value": "Stat comes from Latin \"stare\" (to stand). Words: station and stable.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/station",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "Stat root: station and stable",
+    "description": "Stat comes from Latin \"stare\" (to stand). Words: station and stable.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/station\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "stat root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Stat root: station and stable\n\nStat comes from Latin \"stare\" (to stand). Words: station and stable.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/station"
+   },
+   "instagram": {
+    "caption": "Stat root: station and stable\n\nStat comes from Latin \"stare\" (to stand). Words: station and stable.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Stat root: station and stable #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: Stable! It means able to stand firm. Stat comes from Latin \"stare\" (to stand). Words: station and stable. Practice it with a free quiz: {link}"
+ }
+}

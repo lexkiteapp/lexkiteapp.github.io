@@ -704,6 +704,1388 @@
      "em": ""
     }
    ]
+  },
+  {
+   "id": "silent-igh",
+   "title": "-igh",
+   "kind": "silent",
+   "target": "/aɪ/",
+   "words": [
+    {
+     "word": "high",
+     "ipa": "/haɪ/",
+     "cefr": "A1",
+     "silent": [
+      2,
+      4
+     ],
+     "letter": "gh",
+     "def": "large in amount, level or value; far above the ground",
+     "ex": "The rent in this area is very high.",
+     "em": "🏔️"
+    },
+    {
+     "word": "thigh",
+     "ipa": "/θaɪ/",
+     "cefr": "B2",
+     "silent": [
+      3,
+      5
+     ],
+     "letter": "gh",
+     "def": "the upper part of a human leg between the hip and the knee",
+     "ex": "John gained fat on his thighs.",
+     "em": ""
+    }
+   ]
+  },
+  {
+   "id": "silent-eigh",
+   "title": "-eigh-",
+   "kind": "silent",
+   "target": "/eɪ/",
+   "words": [
+    {
+     "word": "height",
+     "ipa": "/haɪt/",
+     "cefr": "A2",
+     "silent": [
+      3,
+      5
+     ],
+     "letter": "gh",
+     "def": "distance of something from the bottom to the top",
+     "ex": "What is the height of the tower?",
+     "em": "📏"
+    },
+    {
+     "word": "neighbor",
+     "ipa": "/ˈneɪbər/",
+     "cefr": "A2",
+     "silent": [
+      3,
+      5
+     ],
+     "letter": "gh",
+     "def": "a person who lives near you",
+     "ex": "Our neighbor looks after our cat when we are away.",
+     "em": "🏘️"
+    },
+    {
+     "word": "weight",
+     "ipa": "/weɪt/",
+     "cefr": "A2",
+     "silent": [
+      3,
+      5
+     ],
+     "letter": "gh",
+     "def": "how heavy something is",
+     "ex": "He has lost a lot of weight since he started running.",
+     "em": "⚖️"
+    },
+    {
+     "word": "neighborhood",
+     "ipa": "/ˈneɪbərhʊd/",
+     "cefr": "B1",
+     "silent": [
+      3,
+      5
+     ],
+     "letter": "gh",
+     "def": "area of a town or city that people live in",
+     "ex": "We live in a quiet neighborhood.",
+     "em": "🏘️"
+    },
+    {
+     "word": "weigh",
+     "ipa": "/weɪ/",
+     "cefr": "B1",
+     "silent": [
+      3,
+      5
+     ],
+     "letter": "gh",
+     "def": "to have a particular weight; to measure how heavy something is",
+     "ex": "How much do you weigh?",
+     "em": "⚖️"
+    },
+    {
+     "word": "eighth",
+     "ipa": "/eɪtθ/",
+     "cefr": "B1",
+     "silent": [
+      2,
+      4
+     ],
+     "letter": "gh",
+     "def": "coming after the seventh and before the ninth in order",
+     "ex": "It's on the eighth floor.",
+     "em": ""
+    }
+   ]
+  },
+  {
+   "id": "silent-ough",
+   "title": "-ough",
+   "kind": "silent",
+   "target": "no GH sound",
+   "words": [
+    {
+     "word": "through",
+     "ipa": "/θruː/",
+     "cefr": "A1",
+     "silent": [
+      5,
+      7
+     ],
+     "letter": "gh",
+     "def": "from one end or side of something to the other end or side",
+     "ex": "The river flows through the centre of the city.",
+     "em": "➡️"
+    },
+    {
+     "word": "although",
+     "ipa": "/ɔːlˈðoʊ/",
+     "cefr": "A2",
+     "silent": [
+      6,
+      8
+     ],
+     "letter": "gh",
+     "def": "despite the fact that; however",
+     "ex": "Although it was raining, we went for a walk.",
+     "em": "↔️"
+    },
+    {
+     "word": "though",
+     "ipa": "/ðoʊ/",
+     "cefr": "B1",
+     "silent": [
+      4,
+      6
+     ],
+     "letter": "gh",
+     "def": "although, despite the fact that",
+     "ex": "Though it was late, the shop was still open.",
+     "em": "↔️"
+    },
+    {
+     "word": "thorough",
+     "ipa": "/ˈθɜːroʊ/",
+     "cefr": "B2",
+     "silent": [
+      6,
+      8
+     ],
+     "letter": "gh",
+     "def": "careful and complete",
+     "ex": "The auditor did a thorough review of the accounts.",
+     "em": "🔬"
+    }
+   ]
+  },
+  {
+   "id": "silent-wh",
+   "title": "wh-",
+   "kind": "silent",
+   "target": "/h/",
+   "words": [
+    {
+     "word": "who",
+     "ipa": "/huː/",
+     "cefr": "A1",
+     "silent": [
+      0,
+      1
+     ],
+     "letter": "w",
+     "def": "what or which person or people, to ask about, talking about",
+     "ex": "Who is the woman standing next to the door?",
+     "em": "❓"
+    },
+    {
+     "word": "whole",
+     "ipa": "/hoʊl/",
+     "cefr": "A2",
+     "silent": [
+      0,
+      1
+     ],
+     "letter": "w",
+     "def": "complete or full; all of",
+     "ex": "I spent the whole day cleaning the house.",
+     "em": "⭕"
+    },
+    {
+     "word": "whoever",
+     "ipa": "/huˈevər/",
+     "cefr": "B2",
+     "silent": [
+      0,
+      1
+     ],
+     "letter": "w",
+     "def": "any person who",
+     "ex": "Whoever finishes the report first can leave the office early today.",
+     "em": "🙋"
+    },
+    {
+     "word": "wholesale",
+     "ipa": "/ˈhoʊlseɪl/",
+     "cefr": "B2",
+     "silent": [
+      0,
+      1
+     ],
+     "letter": "w",
+     "def": "relating to selling goods in large amounts to retailers",
+     "ex": "Wholesale prices for rice rose sharply this month because of poor harvests.",
+     "em": "📦"
+    }
+   ]
+  },
+  {
+   "id": "silent-mn",
+   "title": "-mn",
+   "kind": "silent",
+   "target": "/m/",
+   "words": [
+    {
+     "word": "autumn",
+     "ipa": "/ˈɔːtəm/",
+     "cefr": "A1",
+     "silent": [
+      5,
+      6
+     ],
+     "letter": "n",
+     "def": "season when the weather is getting colder, between summer and winter",
+     "ex": "The leaves turn red in autumn.",
+     "em": "🍂"
+    },
+    {
+     "word": "column",
+     "ipa": "/ˈkɑːləm/",
+     "cefr": "A2",
+     "silent": [
+      5,
+      6
+     ],
+     "letter": "n",
+     "def": "a tall stone post; also a vertical row of numbers or words",
+     "ex": "The table has three columns of numbers.",
+     "em": "🏛️"
+    }
+   ]
+  },
+  {
+   "id": "silent-sc",
+   "title": "sc-",
+   "kind": "silent",
+   "target": "/s/",
+   "words": [
+    {
+     "word": "science",
+     "ipa": "/ˈsaɪəns/",
+     "cefr": "A1",
+     "silent": [
+      1,
+      2
+     ],
+     "letter": "c",
+     "def": "knowledge of the physical world based on facts",
+     "ex": "Science was my favourite subject at school.",
+     "em": "🔬"
+    },
+    {
+     "word": "scientist",
+     "ipa": "/ˈsaɪəntɪst/",
+     "cefr": "A1",
+     "silent": [
+      1,
+      2
+     ],
+     "letter": "c",
+     "def": "a person who is trained to gain knowledge by making predictions, testing them, and developing theories",
+     "ex": "The scientist explained her research in simple words.",
+     "em": "🧑‍🔬"
+    },
+    {
+     "word": "scene",
+     "ipa": "/siːn/",
+     "cefr": "A2",
+     "silent": [
+      1,
+      2
+     ],
+     "letter": "c",
+     "def": "a place where something happens; a part of a play or film",
+     "ex": "The first scene of the film takes place in a market.",
+     "em": "🎬"
+    },
+    {
+     "word": "fascinate",
+     "ipa": "/ˈfæsəneɪt/",
+     "cefr": "B1",
+     "silent": [
+      3,
+      4
+     ],
+     "letter": "c",
+     "def": "to attract or interest someone very much",
+     "ex": "Space has always fascinated me.",
+     "em": "🤩"
+    },
+    {
+     "word": "scenery",
+     "ipa": "/ˈsiːnəri/",
+     "cefr": "B1",
+     "silent": [
+      1,
+      2
+     ],
+     "letter": "c",
+     "def": "natural features of a place",
+     "ex": "The train trip to the conference offers beautiful mountain scenery.",
+     "em": "🏞️"
+    },
+    {
+     "word": "discipline",
+     "ipa": "/ˈdɪsəplən/",
+     "cefr": "B2",
+     "silent": [
+      3,
+      4
+     ],
+     "letter": "c",
+     "def": "the teaching of self-control through instruction and practice",
+     "ex": "Learning a language requires discipline.",
+     "em": "📏"
+    }
+   ]
+  },
+  {
+   "id": "silent-gu",
+   "title": "gu-",
+   "kind": "silent",
+   "target": "/ɡ/",
+   "words": [
+    {
+     "word": "build",
+     "ipa": "/bɪld/",
+     "cefr": "A1",
+     "silent": [
+      1,
+      2
+     ],
+     "letter": "u",
+     "def": "to make (e.g., a house, by putting materials together)",
+     "ex": "The city is building a new bridge across the river.",
+     "em": "🏗️"
+    },
+    {
+     "word": "guess",
+     "ipa": "/ɡes/",
+     "cefr": "A1",
+     "silent": [
+      1,
+      2
+     ],
+     "letter": "u",
+     "def": "to give an answer without knowing if it is correct",
+     "ex": "Can you guess how old my grandmother is?",
+     "em": "🤔"
+    },
+    {
+     "word": "guitar",
+     "ipa": "/ɡɪˈtɑːr/",
+     "cefr": "A1",
+     "silent": [
+      1,
+      2
+     ],
+     "letter": "u",
+     "def": "stringed musical instrument played with the fingers",
+     "ex": "He plays the guitar in a band.",
+     "em": "🎸"
+    },
+    {
+     "word": "colleague",
+     "ipa": "/ˈkɑːliːɡ/",
+     "cefr": "A2",
+     "silent": [
+      7,
+      8
+     ],
+     "letter": "u",
+     "def": "someone who works with you; coworker",
+     "ex": "I often have lunch with my colleagues.",
+     "em": "👥"
+    },
+    {
+     "word": "guest",
+     "ipa": "/ɡest/",
+     "cefr": "A2",
+     "silent": [
+      1,
+      2
+     ],
+     "letter": "u",
+     "def": "person invited to visit or stay in someone's home",
+     "ex": "We have guests coming for dinner tonight.",
+     "em": "🛎️"
+    },
+    {
+     "word": "guide",
+     "ipa": "/ɡaɪd/",
+     "cefr": "A2",
+     "silent": [
+      1,
+      2
+     ],
+     "letter": "u",
+     "def": "a person whose job is to show a place to visitors; a book that gives information",
+     "ex": "Our guide told us about the history of the temple.",
+     "em": "🧭"
+    }
+   ]
+  },
+  {
+   "id": "silent-hex",
+   "title": "exh-",
+   "kind": "silent",
+   "target": "/z/",
+   "words": [
+    {
+     "word": "exhibition",
+     "ipa": "/ˌeksəˈbɪʃn/",
+     "cefr": "B1",
+     "silent": [
+      2,
+      3
+     ],
+     "letter": "h",
+     "def": "an event at which an object or group of objects is shown to the public",
+     "ex": "There is a photography exhibition at the city museum.",
+     "em": "🖼️"
+    },
+    {
+     "word": "exhaust",
+     "ipa": "/ɪɡˈzɔːst/",
+     "cefr": "B2",
+     "silent": [
+      2,
+      3
+     ],
+     "letter": "h",
+     "def": "to use all of something such as energy, resources, or possibilities; to make someone very, very tired",
+     "ex": "The long walk exhausted the children.",
+     "em": "😩"
+    },
+    {
+     "word": "exhibit",
+     "ipa": "/ɪɡˈzɪbɪt/",
+     "cefr": "B2",
+     "silent": [
+      2,
+      3
+     ],
+     "letter": "h",
+     "def": "to display or make available for people to see",
+     "ex": "The gallery exhibits works by young artists.",
+     "em": "🖼️"
+    }
+   ]
+  },
+  {
+   "id": "silent-rh",
+   "title": "rh-",
+   "kind": "silent",
+   "target": "/r/",
+   "words": [
+    {
+     "word": "rhinoceros",
+     "ipa": "/raɪˈnɑːsərəs/",
+     "cefr": "B2",
+     "silent": [
+      1,
+      2
+     ],
+     "letter": "h",
+     "def": "a large herbivorous mammal with thick skin and one or two horns on its snout",
+     "ex": "The rhinoceros is very big.",
+     "em": ""
+    },
+    {
+     "word": "rhythm",
+     "ipa": "/ˈrɪðəm/",
+     "cefr": "B2",
+     "silent": [
+      1,
+      2
+     ],
+     "letter": "h",
+     "def": "a regular repeated pattern of sounds or movements",
+     "ex": "Children learn new words more easily when they are taught with rhythm and music.",
+     "em": ""
+    },
+    {
+     "word": "rhythmic",
+     "ipa": "/ˈrɪðmɪk/",
+     "cefr": "B2",
+     "silent": [
+      1,
+      2
+     ],
+     "letter": "h",
+     "def": "characterized by rhythm",
+     "ex": "As time passed, the recordings became more rhythmic.",
+     "em": ""
+    }
+   ]
+  },
+  {
+   "id": "silent-ould",
+   "title": "-ould",
+   "kind": "silent",
+   "target": "/ʊ/",
+   "words": [
+    {
+     "word": "could",
+     "ipa": "/kʊd/",
+     "cefr": "A1",
+     "silent": [
+      3,
+      4
+     ],
+     "letter": "l",
+     "def": "used as the past form of can, to show possibility",
+     "ex": "When I was five, I could already read simple books.",
+     "em": "💪"
+    },
+    {
+     "word": "should",
+     "ipa": "/ʃʊd/",
+     "cefr": "A1",
+     "silent": [
+      4,
+      5
+     ],
+     "letter": "l",
+     "def": "used to indicate what is proper or reasonable",
+     "ex": "You should see a doctor about that cough.",
+     "em": "☝️"
+    },
+    {
+     "word": "would",
+     "ipa": "/wʊd/",
+     "cefr": "A2",
+     "silent": [
+      3,
+      4
+     ],
+     "letter": "l",
+     "def": "modal verb used to indicate possibility, request, etc.",
+     "ex": "I would like to book a table for two, please.",
+     "em": "🔤"
+    }
+   ]
+  },
+  {
+   "id": "silent-chk",
+   "title": "ch = k",
+   "kind": "silent",
+   "target": "/k/",
+   "words": [
+    {
+     "word": "school",
+     "ipa": "/skuːl/",
+     "cefr": "A1",
+     "silent": [
+      2,
+      3
+     ],
+     "letter": "h",
+     "def": "building where you learn in classes with a teacher",
+     "ex": "My younger brother started school this year.",
+     "em": "🏫"
+    },
+    {
+     "word": "character",
+     "ipa": "/ˈkærəktər/",
+     "cefr": "A2",
+     "silent": [
+      1,
+      2
+     ],
+     "letter": "h",
+     "def": "a person in a book, film or play; the qualities that make a person different from others",
+     "ex": "The main character of the novel is a young teacher.",
+     "em": "🎭"
+    },
+    {
+     "word": "schedule",
+     "ipa": "/ˈskedʒuːl/",
+     "cefr": "A2",
+     "silent": [
+      2,
+      3
+     ],
+     "letter": "h",
+     "def": "a plan that lists what will happen and when",
+     "ex": "What is your schedule for tomorrow?",
+     "em": "🗓️"
+    },
+    {
+     "word": "chemistry",
+     "ipa": "/ˈkeməstri/",
+     "cefr": "A2",
+     "silent": [
+      1,
+      2
+     ],
+     "letter": "h",
+     "def": "the study of substances; good relationships",
+     "ex": "The new sales team has great chemistry and works well together.",
+     "em": "⚗️"
+    },
+    {
+     "word": "chemical",
+     "ipa": "/ˈkeməkl/",
+     "cefr": "B1",
+     "silent": [
+      1,
+      2
+     ],
+     "letter": "h",
+     "def": "a basic substance produced by mixing elements",
+     "ex": "Some chemicals can be dangerous if you breathe them in.",
+     "em": "🧪"
+    },
+    {
+     "word": "chemist",
+     "ipa": "/ˈkemɪst/",
+     "cefr": "B1",
+     "silent": [
+      1,
+      2
+     ],
+     "letter": "h",
+     "def": "a professional who studies or works in chemistry",
+     "ex": "I want to be a chemist.",
+     "em": ""
+    }
+   ]
+  },
+  {
+   "id": "silent-gue",
+   "title": "-gue",
+   "kind": "silent",
+   "target": "/ɡ/",
+   "words": [
+    {
+     "word": "colleague",
+     "ipa": "/ˈkɑːliːɡ/",
+     "cefr": "A2",
+     "silent": [
+      7,
+      9
+     ],
+     "letter": "ue",
+     "def": "someone who works with you; coworker",
+     "ex": "I often have lunch with my colleagues.",
+     "em": "👥"
+    },
+    {
+     "word": "tongue",
+     "ipa": "/tʌŋ/",
+     "cefr": "B1",
+     "silent": [
+      4,
+      6
+     ],
+     "letter": "ue",
+     "def": "part of the mouth that tastes food and is used for speaking",
+     "ex": "She burned her tongue on the hot soup.",
+     "em": "👅"
+    },
+    {
+     "word": "intrigue",
+     "ipa": "/ˈɪntriɡ/",
+     "cefr": "B1",
+     "silent": [
+      6,
+      8
+     ],
+     "letter": "ue",
+     "def": "to make someone very interested or curious",
+     "ex": "The unusual design of the new product intrigued many potential investors.",
+     "em": ""
+    },
+    {
+     "word": "plague",
+     "ipa": "/pleɪɡ/",
+     "cefr": "B1",
+     "silent": [
+      4,
+      6
+     ],
+     "letter": "ue",
+     "def": "a serious disease that spreads quickly; also something that causes continuous trouble",
+     "ex": "Delays have plagued the project from the start.",
+     "em": ""
+    },
+    {
+     "word": "league",
+     "ipa": "/liːɡ/",
+     "cefr": "B2",
+     "silent": [
+      4,
+      6
+     ],
+     "letter": "ue",
+     "def": "association of sports teams that organizes matches for its members",
+     "ex": "Our team finished second in the league.",
+     "em": "🏆"
+    },
+    {
+     "word": "fatigue",
+     "ipa": "/fəˈtiːɡ/",
+     "cefr": "B2",
+     "silent": [
+      5,
+      7
+     ],
+     "letter": "ue",
+     "def": "extreme tiredness",
+     "ex": "Long night shifts can cause fatigue among factory workers.",
+     "em": "😩"
+    }
+   ]
+  },
+  {
+   "id": "silent-que",
+   "title": "-que",
+   "kind": "silent",
+   "target": "/k/",
+   "words": [
+    {
+     "word": "mosque",
+     "ipa": "/mɑːsk/",
+     "cefr": "A2",
+     "silent": [
+      4,
+      6
+     ],
+     "letter": "ue",
+     "def": "a building where Muslims worship, often having a tall tower",
+     "ex": "Every mosque should be like that.",
+     "em": ""
+    },
+    {
+     "word": "technique",
+     "ipa": "/tekˈniːk/",
+     "cefr": "B1",
+     "silent": [
+      7,
+      9
+     ],
+     "letter": "ue",
+     "def": "way of doing by using special knowledge or skill",
+     "ex": "She learned a new technique for painting.",
+     "em": "🛠️"
+    },
+    {
+     "word": "antique",
+     "ipa": "/ænˈtiːk/",
+     "cefr": "B1",
+     "silent": [
+      5,
+      7
+     ],
+     "letter": "ue",
+     "def": "an old, valuable object",
+     "ex": "The hotel lobby is beautifully decorated with antiques from Europe.",
+     "em": "🏺"
+    },
+    {
+     "word": "cheque",
+     "ipa": "/tʃek/",
+     "cefr": "B1",
+     "silent": [
+      4,
+      6
+     ],
+     "letter": "ue",
+     "def": "a printed paper form used to pay money from a bank account",
+     "ex": "We no longer accept payment by cheque, only card or cash.",
+     "em": "🧾"
+    },
+    {
+     "word": "unique",
+     "ipa": "/juːˈniːk/",
+     "cefr": "B2",
+     "silent": [
+      4,
+      6
+     ],
+     "letter": "ue",
+     "def": "unlike other things; being the only one like it",
+     "ex": "Every person's fingerprints are unique.",
+     "em": "🦄"
+    }
+   ]
+  },
+  {
+   "id": "silent-e",
+   "title": "-e",
+   "kind": "silent",
+   "target": "no E sound",
+   "words": [
+    {
+     "word": "above",
+     "ipa": "/əˈbʌv/",
+     "cefr": "A1",
+     "silent": [
+      4,
+      5
+     ],
+     "letter": "e",
+     "def": "in a higher place than something else",
+     "ex": "The flat above ours is empty at the moment.",
+     "em": "⬆️"
+    },
+    {
+     "word": "advice",
+     "ipa": "/ædˈvaɪs/",
+     "cefr": "A1",
+     "silent": [
+      5,
+      6
+     ],
+     "letter": "e",
+     "def": "suggestion about what someone should do",
+     "ex": "My teacher gave me some good advice about the exam.",
+     "em": "💬"
+    },
+    {
+     "word": "anyone",
+     "ipa": "/ˈeniwʌn/",
+     "cefr": "A1",
+     "silent": [
+      5,
+      6
+     ],
+     "letter": "e",
+     "def": "any person",
+     "ex": "Does anyone have a pen I can borrow?",
+     "em": "👤"
+    },
+    {
+     "word": "arrive",
+     "ipa": "/əˈraɪv/",
+     "cefr": "A1",
+     "silent": [
+      5,
+      6
+     ],
+     "letter": "e",
+     "def": "to reach the place you are travelling to",
+     "ex": "What time does your flight arrive?",
+     "em": "🛬"
+    },
+    {
+     "word": "article",
+     "ipa": "/ˈɑːrtəkl/",
+     "cefr": "A1",
+     "silent": [
+      6,
+      7
+     ],
+     "letter": "e",
+     "def": "piece of writing about a particular subject",
+     "ex": "I read an interesting article about sleep.",
+     "em": "📰"
+    },
+    {
+     "word": "because",
+     "ipa": "/bɪˈkɔːz/",
+     "cefr": "A1",
+     "silent": [
+      6,
+      7
+     ],
+     "letter": "e",
+     "def": "for a reason",
+     "ex": "I stayed at home because I had a cold.",
+     "em": "💡"
+    }
+   ]
+  },
+  {
+   "id": "silent-isl",
+   "title": "isl-",
+   "kind": "silent",
+   "target": "/aɪl/",
+   "words": [
+    {
+     "word": "island",
+     "ipa": "/ˈaɪlənd/",
+     "cefr": "A1",
+     "silent": [
+      1,
+      2
+     ],
+     "letter": "s",
+     "def": "area of land that is surrounded by water",
+     "ex": "Phu Quoc is the largest island in Vietnam.",
+     "em": "🏝️"
+    },
+    {
+     "word": "aisle",
+     "ipa": "/aɪl/",
+     "cefr": "B1",
+     "silent": [
+      2,
+      3
+     ],
+     "letter": "s",
+     "def": "a passage between rows of seats or shelves",
+     "ex": "Paper towels and cleaning supplies are in aisle seven.",
+     "em": "🛒"
+    }
+   ]
+  },
+  {
+   "id": "silent-ver",
+   "title": "-ver- / -fer-",
+   "kind": "silent",
+   "target": "no E sound",
+   "words": [
+    {
+     "word": "everybody",
+     "ipa": "/ˈevribɑːdi/",
+     "cefr": "A1",
+     "silent": [
+      2,
+      3
+     ],
+     "letter": "e",
+     "def": "every person; everyone",
+     "ex": "Everybody was happy with the result.",
+     "em": "👥"
+    },
+    {
+     "word": "everyone",
+     "ipa": "/ˈevriwʌn/",
+     "cefr": "A1",
+     "silent": [
+      2,
+      3
+     ],
+     "letter": "e",
+     "def": "every person; everybody",
+     "ex": "Everyone in the class passed the exam.",
+     "em": "👥"
+    },
+    {
+     "word": "everything",
+     "ipa": "/ˈevriθɪŋ/",
+     "cefr": "A1",
+     "silent": [
+      2,
+      3
+     ],
+     "letter": "e",
+     "def": "all of the things mentioned",
+     "ex": "Thank you for everything you have done for me.",
+     "em": "💯"
+    },
+    {
+     "word": "differently",
+     "ipa": "/ˈdɪfrəntli/",
+     "cefr": "A2",
+     "silent": [
+      4,
+      5
+     ],
+     "letter": "e",
+     "def": "in a way that is not the same",
+     "ex": "Everyone learns in a different way, so teachers explain things differently.",
+     "em": "🔀"
+    },
+    {
+     "word": "everyday",
+     "ipa": "/ˈevrideɪ/",
+     "cefr": "A2",
+     "silent": [
+      2,
+      3
+     ],
+     "letter": "e",
+     "def": "used or seen daily; suitable for daily use; ordinary",
+     "ex": "Learn useful phrases for everyday situations.",
+     "em": "📅"
+    },
+    {
+     "word": "everywhere",
+     "ipa": "/ˈevriwer/",
+     "cefr": "A2",
+     "silent": [
+      2,
+      3
+     ],
+     "letter": "e",
+     "def": "every place",
+     "ex": "There were flowers everywhere in the park.",
+     "em": "🌍"
+    }
+   ]
+  },
+  {
+   "id": "silent-ally",
+   "title": "-ically",
+   "kind": "silent",
+   "target": "/kli/",
+   "words": [
+    {
+     "word": "specifically",
+     "ipa": "/spəˈsɪfɪkli/",
+     "cefr": "B1",
+     "silent": [
+      8,
+      9
+     ],
+     "letter": "a",
+     "def": "in a well-defined or clear manner; in particular",
+     "ex": "The course is designed specifically for beginners.",
+     "em": "🎯"
+    },
+    {
+     "word": "typically",
+     "ipa": "/ˈtɪpɪkli/",
+     "cefr": "B1",
+     "silent": [
+      5,
+      6
+     ],
+     "letter": "a",
+     "def": "in a normal or usual way",
+     "ex": "Students typically spend four years at university.",
+     "em": "📌"
+    },
+    {
+     "word": "automatically",
+     "ipa": "/ˌɔːtəˈmætɪkli/",
+     "cefr": "B2",
+     "silent": [
+      9,
+      10
+     ],
+     "letter": "a",
+     "def": "in a way not requiring control by a person",
+     "ex": "The lights turn on automatically at night.",
+     "em": "🤖"
+    },
+    {
+     "word": "basically",
+     "ipa": "/ˈbeɪsɪkli/",
+     "cefr": "B2",
+     "silent": [
+      5,
+      6
+     ],
+     "letter": "a",
+     "def": "in the most important ways even if not completely true",
+     "ex": "Basically, the plan is to finish by June.",
+     "em": "🔤"
+    },
+    {
+     "word": "dramatically",
+     "ipa": "/drəˈmætɪkli/",
+     "cefr": "B2",
+     "silent": [
+      8,
+      9
+     ],
+     "letter": "a",
+     "def": "in a sudden or extreme manner",
+     "ex": "Prices have risen dramatically.",
+     "em": "📈"
+    },
+    {
+     "word": "economically",
+     "ipa": "/ˌekəˈnɑːmɪkli/",
+     "cefr": "B2",
+     "silent": [
+      8,
+      9
+     ],
+     "letter": "a",
+     "def": "in a way related to the economy or saving money",
+     "ex": "The region has grown economically in recent years.",
+     "em": "💹"
+    }
+   ]
+  },
+  {
+   "id": "silent-ely",
+   "title": "-ely",
+   "kind": "silent",
+   "target": "/li/",
+   "words": [
+    {
+     "word": "lonely",
+     "ipa": "/ˈloʊnli/",
+     "cefr": "A1",
+     "silent": [
+      3,
+      4
+     ],
+     "letter": "e",
+     "def": "unhappy because you are alone or have no friends",
+     "ex": "It was a lonely time.",
+     "em": ""
+    },
+    {
+     "word": "completely",
+     "ipa": "/kəmˈpliːtli/",
+     "cefr": "A2",
+     "silent": [
+      7,
+      8
+     ],
+     "letter": "e",
+     "def": "in every way or as much as possible",
+     "ex": "I completely forgot about the meeting.",
+     "em": "💯"
+    },
+    {
+     "word": "definitely",
+     "ipa": "/ˈdefənətli/",
+     "cefr": "A2",
+     "silent": [
+      7,
+      8
+     ],
+     "letter": "e",
+     "def": "without question; beyond doubt",
+     "ex": "I will definitely come to your party.",
+     "em": "✅"
+    },
+    {
+     "word": "extremely",
+     "ipa": "/ɪkˈstriːmli/",
+     "cefr": "A2",
+     "silent": [
+      6,
+      7
+     ],
+     "letter": "e",
+     "def": "in a way that is much more than usual or expected",
+     "ex": "The test was extremely difficult.",
+     "em": "🔥"
+    },
+    {
+     "word": "fortunately",
+     "ipa": "/ˈfɔːrtʃənətli/",
+     "cefr": "A2",
+     "silent": [
+      8,
+      9
+     ],
+     "letter": "e",
+     "def": "luckily",
+     "ex": "Fortunately, nobody was hurt in the accident at the factory.",
+     "em": "🍀"
+    },
+    {
+     "word": "immediately",
+     "ipa": "/ɪˈmiːdiətli/",
+     "cefr": "A2",
+     "silent": [
+      8,
+      9
+     ],
+     "letter": "e",
+     "def": "without any delay; straight away; right (after or before)",
+     "ex": "Please call me immediately if there is a problem.",
+     "em": "⚡"
+    }
+   ]
+  },
+  {
+   "id": "silent-ement",
+   "title": "-ement",
+   "kind": "silent",
+   "target": "/mənt/",
+   "words": [
+    {
+     "word": "statement",
+     "ipa": "/ˈsteɪtmənt/",
+     "cefr": "A1",
+     "silent": [
+      4,
+      5
+     ],
+     "letter": "e",
+     "def": "something that you say or write officially",
+     "ex": "The company made a statement about the delay.",
+     "em": "📢"
+    },
+    {
+     "word": "advertisement",
+     "ipa": "/ˌædvərˈtaɪzmənt/",
+     "cefr": "A2",
+     "silent": [
+      8,
+      9
+     ],
+     "letter": "e",
+     "def": "a picture, short film, text, etc., that tells people about a product or service",
+     "ex": "I saw an advertisement for a new language school.",
+     "em": "📣"
+    },
+    {
+     "word": "arrangement",
+     "ipa": "/əˈreɪndʒmənt/",
+     "cefr": "A2",
+     "silent": [
+      6,
+      7
+     ],
+     "letter": "e",
+     "def": "plan or preparation to make something happen; an agreement",
+     "ex": "We made an arrangement to meet at the station.",
+     "em": "🗂️"
+    },
+    {
+     "word": "movement",
+     "ipa": "/ˈmuːvmənt/",
+     "cefr": "A2",
+     "silent": [
+      3,
+      4
+     ],
+     "letter": "e",
+     "def": "an act of moving; a group of people working together to achieve a shared aim",
+     "ex": "The movement of the boat made me feel sick.",
+     "em": "🏃"
+    },
+    {
+     "word": "achievement",
+     "ipa": "/əˈtʃiːvmənt/",
+     "cefr": "B1",
+     "silent": [
+      6,
+      7
+     ],
+     "letter": "e",
+     "def": "something good that you have successfully done",
+     "ex": "Passing the exam was a great achievement.",
+     "em": "🏆"
+    },
+    {
+     "word": "announcement",
+     "ipa": "/əˈnaʊnsmənt/",
+     "cefr": "B1",
+     "silent": [
+      7,
+      8
+     ],
+     "letter": "e",
+     "def": "act of informing people about something publicly",
+     "ex": "There was an announcement about the delay.",
+     "em": "📢"
+    }
+   ]
+  },
+  {
+   "id": "silent-ng",
+   "title": "-ng",
+   "kind": "silent",
+   "target": "/ŋ/",
+   "words": [
+    {
+     "word": "anything",
+     "ipa": "/ˈeniθɪŋ/",
+     "cefr": "A1",
+     "silent": [
+      7,
+      8
+     ],
+     "letter": "g",
+     "def": "thing of any kind; used to refer to a thing in questions",
+     "ex": "Is there anything I can do to help?",
+     "em": "📦"
+    },
+    {
+     "word": "bring",
+     "ipa": "/brɪŋ/",
+     "cefr": "A1",
+     "silent": [
+      4,
+      5
+     ],
+     "letter": "g",
+     "def": "to take or go with someone to a place",
+     "ex": "Please bring your passport to the interview.",
+     "em": "🎒"
+    },
+    {
+     "word": "during",
+     "ipa": "/ˈdʊrɪŋ/",
+     "cefr": "A1",
+     "silent": [
+      5,
+      6
+     ],
+     "letter": "g",
+     "def": "at some point in the course of an event or thing",
+     "ex": "Please don't use your phone during the lesson.",
+     "em": "⏳"
+    },
+    {
+     "word": "evening",
+     "ipa": "/ˈiːvnɪŋ/",
+     "cefr": "A1",
+     "silent": [
+      6,
+      7
+     ],
+     "letter": "g",
+     "def": "last part of the day and early part of the night",
+     "ex": "We usually watch TV in the evening.",
+     "em": "🌆"
+    },
+    {
+     "word": "everything",
+     "ipa": "/ˈevriθɪŋ/",
+     "cefr": "A1",
+     "silent": [
+      9,
+      10
+     ],
+     "letter": "g",
+     "def": "all of the things mentioned",
+     "ex": "Thank you for everything you have done for me.",
+     "em": "💯"
+    },
+    {
+     "word": "long",
+     "ipa": "/lɔːŋ/",
+     "cefr": "A1",
+     "silent": [
+      3,
+      4
+     ],
+     "letter": "g",
+     "def": "large distance from one end to the other",
+     "ex": "It was a long journey, so we stopped twice for food.",
+     "em": "📏"
+    }
+   ]
   }
  ]
 }

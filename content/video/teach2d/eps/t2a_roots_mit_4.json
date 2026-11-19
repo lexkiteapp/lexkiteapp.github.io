@@ -1,0 +1,177 @@
+{
+ "id": "t2a_roots_mit_4",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, two words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "The root is Mit! Dismiss, promise.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Mit is Latin for send.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Dismiss: apart plus send.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Promise: forward plus send.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means forward plus send?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Promise! Forward plus send.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "MIT",
+  "rid": "mit",
+  "say": "send",
+  "src": "mittere",
+  "src_lang": "Latin",
+  "src_mean": "to send",
+  "words": [
+   {
+    "w": "dismiss",
+    "ipa": "/dɪˈsmɪs/",
+    "mean": "send away",
+    "seg": "dis-|miss",
+    "parts": [
+     [
+      "dis",
+      "pre"
+     ],
+     [
+      "miss",
+      "root"
+     ]
+    ],
+    "pre": "dis",
+    "pm": "apart",
+    "pms": "apart",
+    "ex": "The teacher dismissed the class early.",
+    "em": "🙅"
+   },
+   {
+    "w": "promise",
+    "ipa": "/ˈprɑːməs/",
+    "mean": "send forward, to pledge",
+    "seg": "pro-|mis|-e",
+    "parts": [
+     [
+      "pro",
+      "pre"
+     ],
+     [
+      "mis",
+      "root"
+     ],
+     [
+      "e",
+      "suf"
+     ]
+    ],
+    "pre": "pro",
+    "pm": "forward",
+    "pms": "forward",
+    "ex": "I promise I'll call you tonight.",
+    "em": "🤞"
+   }
+  ],
+  "quiz": {
+   "stem": "forward plus send",
+   "options": [
+    "dismiss",
+    "promise"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/dismiss",
+  "link": "https://lexkite.com/app/#/dict/dismiss",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, two words"
+ },
+ "src": {
+  "root": "mit"
+ },
+ "est": {
+  "words": 43,
+  "seconds": 26.0,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Mit root: dismiss and promise",
+  "keyword": "mit root",
+  "value": "Mit comes from Latin \"mittere\" (to send). Words: dismiss and promise. dismiss = dis + miss; promise = pro + mis.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/dismiss",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "Mit root: dismiss and promise",
+    "description": "Mit comes from Latin \"mittere\" (to send). Words: dismiss and promise. dismiss = dis + miss; promise = pro + mis.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/dismiss\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "mit root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Mit root: dismiss and promise\n\nMit comes from Latin \"mittere\" (to send). Words: dismiss and promise. dismiss = dis + miss; promise = pro + mis.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/dismiss"
+   },
+   "instagram": {
+    "caption": "Mit root: dismiss and promise\n\nMit comes from Latin \"mittere\" (to send). Words: dismiss and promise. dismiss = dis + miss; promise = pro + mis.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Mit root: dismiss and promise #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: Promise! Forward plus send. Mit comes from Latin \"mittere\" (to send). Words: dismiss and promise. dismiss = dis + miss; promise = pro + mis. Practice it with a free quiz: {link}"
+ }
+}
