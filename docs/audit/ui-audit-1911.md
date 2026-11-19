@@ -1,5 +1,8 @@
 # Rà soát giao diện 19/11 (ngoài luồng bài học)
 
+> TL;DR: Rà 45 màn app (ngoài bài học) 375/1440 sáng/tối; không có lỗi mức cao, 1 lỗi trung bình đã sửa, vài lỗi thấp ghi nhận.
+> Đọc khi: cần biết tình trạng UI sau rà soát 19/11.
+
 Nguồn: workflow `ui-audit-shots` (PR #1626) – 45 màn + 3 trạng thái × 375/1440 × sáng/tối, en. Số đo: `metrics.json` của artifact.
 Lưu ý môi trường: CI chạy offline (`noProd`) nên gói nội dung dịch không tải được (grammar bài `ed-s-endings` hiện tiếng Việt), Turnstile báo "Invalid sitekey" ở Contact, tra từ không có thật hiện khung chờ – đây là hiện vật của CI, KHÔNG phải lỗi người dùng.
 

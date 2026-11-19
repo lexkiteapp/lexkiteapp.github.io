@@ -133,7 +133,7 @@ win.App.routes.streak(); await tick(10);
 const v = $('#view').innerHTML;
 ok(/🔥 7/.test(v) && /Mốc tiếp theo: 14 ngày/.test(v), 'trang chuỗi: số ngày + mốc tiếp');
 ok(/miễn phí/.test(v), 'trang chuỗi: nói rõ miễn phí');
-ok((v.match(/Mốc tiếp theo: 14 ngày/g) || []).length === 1, 'trang chuỗi: mốc tiếp chỉ hiện 1 lần (không lặp ở thẻ rương rỗng)');
+ok((v.match(/>Mốc tiếp theo: 14 ngày</g) || []).length === 1, 'trang chuỗi: mốc tiếp chỉ hiện 1 lần (không lặp ở thẻ rương rỗng)');
 ok(win.document.querySelectorAll('[data-ret-item]').length >= 15, 'bộ sưu tập');
 ok(win.document.querySelector('[data-ret-item="s:star"]').disabled, 'món chưa có bị khóa');
 
