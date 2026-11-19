@@ -423,6 +423,12 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
   const need1 = n => bundleP[n] || (inflight++, bundleP[n] = manifest().then(() => Promise.all(BUNDLES[n].map(loadScript).concat([].concat(BCSS[n] || [], n === 'ux1' ? UX1X() : [], LZCSS(n)).map(loadCss)))).catch(e => { delete bundleP[n]; throw e; }).finally(() => { inflight--; }));
   App.need = (...names) => Promise.all([...(window.I18N && I18N.lang() !== 'vi' ? ['i18nx', 'i18nl'].map(need1) : []), ...names.map(need1)]);
   App.loaded = n => !!bundleP[n];
+  // 17/11 (mục 4 ngân sách khung, chừa chỗ ≥ 3 %): ai.js KHÔNG còn trong khung. window.AI là shim: hàm bất đồng bộ tải gói 'ai' rồi gọi bản thật (ai.js tự ghi đè window.AI);
+  // hàm đồng bộ trả giá trị an toàn khi chưa tải (chỉ gọi sau một lần gọi AI nên bản thật đã có). `window.AI &&` ở mọi nơi vẫn đúng như trước. Test: scripts/test/ai-shim.mjs
+  { const real = m => (...a) => App.need('ai').then(() => { if (window.AI._shim) throw new Error('AI_LOAD'); return window.AI[m](...a); });
+    window.AI = { _shim: true, ask: real('ask'), askLocal: real('askLocal'), explain: real('explain'), localGrade: real('localGrade'), grade: real('grade'), getKey: real('getKey'), nanoStatus: real('nanoStatus'), keyDialog: real('keyDialog'),
+      settingsHtml: real('settingsHtml'), bindSettings: real('bindSettings'), onNanoProgress: f => { real('onNanoProgress')(f).catch(() => {}); },
+      attach: (el, f) => { real('attach')(el, f).catch(() => {}); }, errText: e => (e && e.message) || String(e), badge: () => '', renderExplain: () => '', localOn: () => false }; }
   App.reneed = n => { delete bundleP[n]; return App.need(n); }; // tải lại gói đã báo xong mà thiếu dữ liệu (loadScript nuốt lỗi mạng) → bấm thử lại được
   App.loadScript = src => Promise.all([loadScript(src), loadCss('css/lazy-ui.css')]).then(() => {}); // 1 tệp lười theo nhu cầu (vd. tình huống Play & Speak)
   App.anki = async (tab, opts) => { try { await App.need('anki'); if (!window.AnkiUI) throw new Error('anki'); await AnkiUI.open(tab, opts || {}); } catch (e) { toast(t('Không tải được – thử lại sau')); } };
