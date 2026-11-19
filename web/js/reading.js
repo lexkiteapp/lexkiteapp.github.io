@@ -7,7 +7,7 @@
   const R = () => window.READINGS || [];
   const LAYERS = ['mine', 'kw', 'link', 'awl']; // một từ chỉ mang MỘT kiểu tô: lớp đứng trước thắng
   // Từ quá phổ biến không bao giờ được tô (trừ từ khóa của bài)
-  const COMMON = new Set('a an the and or but if of to in on at by for with from as is are was were be been being it its this that these those there their they them he she his her we our you your i my me not no so do does did have has had can could will would should may might must also than then which who whom whose what when where why how all any some more most such very just only into about over under between through during before after up down out off again further once both each few other same own too get got make made take took go went come came see saw know knew think say said use used find give want need look many much one two new good great first last long little big small old high low like grow grew grown become became keep kept let put set show shown turn move live work way well even still back now people time year day thing part place case point group number'.split(' '));
+  const COMMON = new Set([...Lexis.STOP, ...'get got make made take took go went come came see saw know knew think say said use used find give want need look many much one two new good great first last long little big small old high low like grow grew grown become became keep kept let put set show shown turn move live work way well even still back now people time year day thing part place case point group number'.split(' ')]);
   const has = (el, l) => l === 'link' ? el.classList.contains('link') || el.classList.contains('col') : el.classList.contains(l) && (l === 'kw' || el.dataset.ph || !COMMON.has(el.dataset.w));
   window.ReadHL = { LAYERS, COMMON, has };
 

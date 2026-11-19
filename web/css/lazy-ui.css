@@ -292,13 +292,9 @@ html.native .v2 .w-head { padding-top: env(safe-area-inset-top, 0px); height: au
 .hl-one .tw[data-l="link"], .hl-sw.link { background: var(--accent-soft); }
 .hl-one .tw[data-l="mine"], .hl-sw.mine { background: var(--good-soft); }
 #paper .passage { max-width: 70ch; line-height: 1.9; }
-.passage.hl-awl .tw.awl { border-bottom: 2.5px solid #E5502F; }
-.passage.hl-link .tw.link { background: rgba(14,165,164,.16); color: #0f766e; font-weight: 700; border-radius: 4px; }
-.passage.hl-link .tw.col { background: rgba(14,165,164,.08); border-bottom: 2px dashed #0ea5a4; }
-.passage.hl-mine .tw.mine { background: rgba(22,163,74,.16); border-radius: 4px; }
-:root[data-theme="dark"] .passage.hl-link .tw.link { color: #5eead4; }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .passage.hl-link .tw.link { color: #5eead4; }
-}
+.passage.hl-awl .tw.awl { border-bottom: 2px solid var(--primary-text); }
+.passage.hl-link .tw.link, .passage.hl-link .tw.col { background: var(--accent-soft); }
+.passage.hl-mine .tw.mine { background: var(--good-soft); }
 .annot.hl-mode { cursor: text; outline: 2px dashed rgba(245, 158, 11, .5); outline-offset: 6px; }
 
 /* 🚩 Xem lại sau (qengine.js): cờ từng câu + thanh câu cần xem lại */
