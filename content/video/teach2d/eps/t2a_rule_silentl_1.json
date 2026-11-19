@@ -1,0 +1,163 @@
+{
+ "id": "t2a_rule_silentl_1",
+ "template": "rule",
+ "series": "Spell to Sound",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "pronunciation",
+ "lines": [
+  {
+   "id": "h",
+   "text": "The L is silent!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "In a l k and a l m, the L is silent.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Half.",
+   "pause": 0.25,
+   "speed": 0.6
+  },
+  {
+   "id": "v0",
+   "text": "Half.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Talk.",
+   "pause": 0.25,
+   "speed": 0.6
+  },
+  {
+   "id": "v1",
+   "text": "Talk.",
+   "pause": 0.3
+  },
+  {
+   "id": "p",
+   "text": "Repeat after me!",
+   "pause": 2.4
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which letter is silent in talk?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "L! The L is silent.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "rule": "silent-l",
+  "title": "-alk / -alm",
+  "target": "no L sound",
+  "letter": "l",
+  "say": "In a l k and a l m, the L is silent.",
+  "words": [
+   {
+    "w": "half",
+    "ipa": "/hæf/",
+    "silent": [
+     2,
+     3
+    ],
+    "letter": "l",
+    "mean": "The part you get when one is divided into two.",
+    "em": "🌗"
+   },
+   {
+    "w": "talk",
+    "ipa": "/tɔːk/",
+    "silent": [
+     2,
+     3
+    ],
+    "letter": "l",
+    "mean": "to say things or ideas to someone with words",
+    "em": "💬"
+   }
+  ],
+  "quiz": {
+   "stem": "Which letter is silent in talk?",
+   "options": [
+    "T",
+    "L"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "pronunciation",
+  "route": "#/pron/half",
+  "link": "https://lexkite.com/app/#/pron/half",
+  "say": "Practise this sound"
+ },
+ "hook": {
+  "line": "h",
+  "text": "The L is silent"
+ },
+ "src": {
+  "rule": "silent-l"
+ },
+ "est": {
+  "words": 42,
+  "seconds": 28.1,
+  "wpm": 90
+ },
+ "publish": {
+  "title": "The L is silent!",
+  "keyword": "Spell to Sound",
+  "value": "In a l k and a l m, the L is silent.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#pronunciation",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/pron/half",
+  "script_words": 33,
+  "platforms": {
+   "youtube": {
+    "title": "The L is silent!",
+    "description": "In a l k and a l m, the L is silent.\n\nPractise this sound, free: https://lexkite.com/app/#/pron/half\n\nSeries: Spell to Sound · Teacher: Carlos\n\n#learnenglish #englishtips #pronunciation #englishteacher",
+    "tags": [
+     "Spell to Sound",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "The L is silent!\n\nIn a l k and a l m, the L is silent.\n\nPractise this sound, free: https://lexkite.com/app/#/pron/half"
+   },
+   "instagram": {
+    "caption": "The L is silent!\n\nIn a l k and a l m, the L is silent.\n\nPractise this sound: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#pronunciation",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "The L is silent! #learnenglish #englishtips #pronunciation"
+   }
+  },
+  "first_comment": "Quiz answer: L! The L is silent. In a l k and a l m, the L is silent. Practice it with a free quiz: {link}"
+ }
+}

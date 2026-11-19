@@ -385,7 +385,8 @@ def homophone_words():   # bank words whose US IPA another bank word shares (kno
 def rule(p):   # Spell->Sound: ONE rule, 2-3 real words. Hook -> the rule -> each word slow then normal (silent letter struck on its spoken word) -> repeat -> which letter is silent? -> CTA
     import rules as RU
     R = rules_bank()[p['rule']]; ws = []
-    assert 2 <= len(p['words']) <= 3, ('rule: 2-3 words per lesson', p['words'])
+    assert 1 <= len(p['words']) <= 3, ('rule: 1-3 words per lesson', p['words'])
+    tight = bool(p.get('tight'))   # long words (-ally, -ement): shorter think/repeat pauses so the short still fits 28 s
     for w in p['words']:
         ipa, dfn, ex = bank(w); assert ipa and dfn, ('word not in the audited bank', w)
         sp = RU.check(R, w, ipa); assert sp, ('the IPA does not show the rule', w, ipa)   # never override an IPA: the row is dropped
@@ -397,7 +398,7 @@ def rule(p):   # Spell->Sound: ONE rule, 2-3 real words. Hook -> the rule -> eac
     other = next(c for c in qw['w'] if c not in qw['letter'])   # a different letter of the asked word: the first one that is not the silent one
     opts = [qw['letter'].upper(), other.upper()]; ans = 0
     if int(hashlib.sha1(qw['w'].encode()).hexdigest(), 16) % 2: opts.reverse(); ans = 1
-    lines += [L('p', 'Repeat after me!', 2.4), L('q', f"Quick quiz! Which letter is silent in {qw['w']}?", 3.0, quiz=True),
+    lines += [L('p', 'Repeat after me!', 1.6 if tight else 2.4), L('q', f"Quick quiz! Which letter is silent in {qw['w']}?", 2.4 if tight else 3.0, quiz=True),
               L('a', f'{LT}! The {LT} is silent.'), L('c', 'Save this. Free on lexkite.com.')]
     return dict(lines=lines, data=dict(rule=R['id'], title=R['title'], target=R['target'], letter=ws[0]['letter'], say=R['say'], words=ws,
                                        quiz=dict(stem=f"Which letter is silent in {qw['w']}?", options=opts, answer=ans)),
@@ -855,6 +856,12 @@ def rule_lessons(R, words):   # a rule's mined words (best first, family-unsafe 
     return [g for g in out if len(g) >= 2]
 
 
+RULE_BIAS, RULE_MAX = 0.9, 27.0   # real short length = short_secs + ~0.9 s (kn 25.81 / mb 25.92 / wr 25.66 s vs 24.9 predicted); QC ceiling 28 s keeps 1 s of room
+
+
+def rule_secs(ep): return short_secs(ep) + RULE_BIAS
+
+
 def plan_rules(n):   # first lessons of every rule first (variety), then the second lessons ... ; n = how many new rows
     import rules as RU
     F = facts(); A = load_auto(); R_ = json.load(open(REV_F)); rows = A['rows']; why = {}; have = {r['id'] for r in rows}; used_h = {r['hash'] for r in rows}
@@ -863,7 +870,9 @@ def plan_rules(n):   # first lessons of every rule first (variety), then the sec
         for gi, ws in enumerate(rule_lessons(rules_bank()[m['id']], [x['word'] for x in m['words']])): cand.append((gi, ri, m['id'], ws))
     cand.sort(key=lambda x: (x[0], x[1])); ok = []
     def skip(k, r): why.setdefault(k, []).append(r)
-    for gi, ri, rid_, ws in cand:
+    q = 0
+    while q < len(cand):
+        gi, ri, rid_, ws = cand[q]; q += 1
         if len(ok) >= n: break
         rid = f"t2a_rule_{re.sub('[^a-z0-9]', '', rid_)}_{gi + 1}"
         if rid in have: continue
@@ -872,13 +881,18 @@ def plan_rules(n):   # first lessons of every rule first (variety), then the sec
         if row['hash'] in used_h: skip('dup', rid); continue
         if data_gate(row, F): skip('data:' + ','.join(data_gate(row, F)), rid); continue
         ep = None
-        for z in (len(ws), 2):   # 3 words, else 2 words when the short would run over 26 s (the CI voice is slower than the model: keep 2 s of room)
-            row['in'] = dict(rule=rid_, words=ws[:z])
+        for z, tg in dict.fromkeys([(len(ws), 0), (2, 0), (len(ws), 1), (2, 1), (1, 1)]):   # 3 words, else 2, else tighter pauses, else a single word; fit = CALIBRATED length <= RULE_MAX (real renders ran +0.9 s over short_secs, bank 19/11)
+            if z > len(ws): continue
+            row['in'] = dict(rule=rid_, words=ws[:z], **({'tight': 1} if tg else {}))
             try: ep = make(row)
             except AssertionError as e: skip('shape:' + str(e.args[0]), rid); ep = None; break
-            if 18 <= short_secs(ep) <= 25: break
+            if 18 <= rule_secs(ep) <= RULE_MAX: break
             ep = None
-        if not ep: skip('duration', rid); continue
+        if not ep:
+            skip('duration', rid)
+            nxt = next((j for j in range(q, len(cand)) if cand[j][2] == rid_ and cand[j][0] == gi + 1), None)   # a rule whose first lesson is too long (long words) tries its next lesson right away
+            if nxt is not None and gi == 0: cand.insert(q, cand.pop(nxt))
+            continue
         row['heads'] = [f'rule:{rid_}:{w}' for w in row['in']['words']]; row['taught'] = row['in']['words'] + [rid_.split('-')[-1], 'gh']
         row['point'] = f"{rid_}:{'/'.join(row['in']['words'])}"; row['hash'] = chash('rule', row['point'])
         if not hook_gate(row, ep): skip('hook', rid); continue

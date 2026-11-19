@@ -44,4 +44,12 @@ for _t, _h in (('Know.', 'no'), ('Knight.', 'night'), ('Write.', 'right')): asse
 for _t, _h in (('Know.', 'now'), ('Know.', 'nope')): assert pace.heard(_t, _h) < 0.9, (_t, _h)
 print('rule layouts + homophone caption_sync – OK')
 
+# duration predictor calibration (bank 19/11): real short length of the first three rule clips vs short_secs + RULE_BIAS
+_a = sys.argv; sys.argv = ['gen.py']
+import gen  # noqa: E402
+sys.argv = _a
+for _id, _real in (('silentkn', 25.813), ('silentmb', 25.915), ('silentwr', 25.661)):
+    _ep = json.load(open(f'{ROOT}/content/video/teach2d/eps/t2a_rule_{_id}_1.json'))
+    if abs(gen.rule_secs(_ep) - _real) > 0.5: bad.append(f'rule_secs {_id}: {gen.rule_secs(_ep):.2f} vs real {_real}')
+    if gen.rule_secs(_ep) > gen.RULE_MAX: bad.append(f'{_id} over RULE_MAX')
 sys.exit(1 if bad else 0)
