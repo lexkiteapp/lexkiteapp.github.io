@@ -24,7 +24,8 @@ jobs:
           mkdir -p art
           for r in ${RUNS//,/ }; do gh run download "$r" -R "$GITHUB_REPOSITORY" -p 'tv-*-wide-*' -D art || echo "::warning::lượt $r không còn artifact"; done
           ls art | wc -l
-      - run: node scripts/video/embed-publish.mjs plan art ${{ inputs.max }}
+      - run: node scripts/video/embed-publish.mjs plan art $LX_MAX
+        env: { LX_MAX: '${{ inputs.max }}' }
       - run: node scripts/video/embed-publish.mjs publish
         env: { GITHUB_TOKEN: '${{ github.token }}' }
       - run: node scripts/video/embed-publish.mjs verify
