@@ -43,7 +43,7 @@ for (const f of files) fs.readFileSync(f, 'utf8').split('\n').forEach((l, i) => 
 });
 ok(!naked.length, 'workflow không tự gọi `apt-get install` (dùng ./.github/actions/apt hoặc scripts/ci/apt-install.sh)' + (naked.length ? ': ' + naked.join(', ') : ''));
 const act = fs.readFileSync('.github/actions/apt/action.yml', 'utf8');
-ok(/actions\/cache@/.test(act) && /ImageVersion/.test(act) && /sort -u/.test(act) && /apt-install\.sh/.test(act), 'action apt: cache theo ảnh runner + danh sách gói đã sắp xếp, gọi apt-install.sh');
+ok(/actions\/cache\/restore@/.test(act) && /ImageVersion/.test(act) && /sort -u/.test(act) && /apt-install\.sh/.test(act), 'action apt: cache theo ảnh runner + danh sách gói đã sắp xếp, gọi apt-install.sh');
 // fonts-install.sh (19/11): fonts-noto-* tải thẳng .deb có ghim SHA, nhiều mirror, mirror treo/SHA sai → mirror kế, hết mirror → trả gói cho apt
 {
   const FI = path.join(ROOT, 'scripts/ci/fonts-install.sh'), body = 'deb-gia', want = require_sha(body), TSV = path.join(T, 'fonts.tsv'), FC = path.join(T, 'fcache'), LOG = path.join(T, 'fcalls');
