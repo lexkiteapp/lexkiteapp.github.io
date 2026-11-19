@@ -8,6 +8,7 @@ import vm from 'vm';
 import { ROOT, rd, wr } from '../lib.mjs';
 import { VI, SCRIPT } from '../../content-qa/lib.mjs';
 import { pathToFileURL } from 'node:url';
+import { lexFiles } from '../../lib/lex-files.mjs';
 
 export const TAX = () => JSON.parse(rd('content/lexicon/topics.json'));
 const CEFR = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'], cr = l => { const i = CEFR.indexOf(String(l || '').toUpperCase().slice(0, 2)); return i < 0 ? 6 : i; };
@@ -25,7 +26,7 @@ export function assignTopics(e, tax = TAX()) {
 export function existingSets() {
   const box = { console: { log() {}, warn() {}, error() {} }, document: { addEventListener() {}, querySelector() { return null; } }, localStorage: { getItem() { return null; }, setItem() {} } };
   box.window = box.self = box.globalThis = box; vm.createContext(box);
-  const files = ['web/js/data.js', ...fs.readdirSync(new URL('web/js/lib/', ROOT)).filter(f => f.endsWith('.js')).sort().map(f => 'web/js/lib/' + f)];
+  const files = ['web/js/data.js', ...lexFiles()];
   for (const f of files) { try { vm.runInContext(rd(f), box, { filename: f }); } catch (e) { /* tệp không phải gói từ */ } }
   const T = (box.IELTS_DATA && box.IELTS_DATA.TOPICS) || [];
   return new Map(T.map(t => [t.id, (t.words || []).map(w => ({ word: String(w.word || '').toLowerCase(), pos: String(w.pos || ''), level: w.level || '' }))]));

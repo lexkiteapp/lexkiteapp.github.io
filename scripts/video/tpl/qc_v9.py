@@ -328,6 +328,9 @@ _ip = (_P or {}).get('ipa') or []; _ib = [x for x in _ip if not (x.get('ok') and
 R['ipa_token'] = dict(ok=_P is not None and not _ib, checked=len(_ip), bad=[{k: x.get(k) for k in ('token', 'ipa', 'want', 'src', 'cmu_ok', 'spoken', 'taught', 'pop')} for x in _ib][:8])
 from overlay_gates import overlay_gates   # graphic overlays (Stitch cards / Remotion motion layer): contrast, layout, IPA == token – no-op without timeline 'overlay'
 R.update(overlay_gates(T, [(f['t'], els(f)) for f in fr], SAFE, ROOT))
+from dead_band import check as _dead_band   # owner 19/11: no flat empty band >= 8 % of the frame height (a card stretched past its content, a bare panel under the plate)
+_dn = int(float(subprocess.run(['ffprobe', '-v', 'error', '-select_streams', 'v:0', '-count_frames', '-show_entries', 'stream=nb_read_frames', '-of', 'csv=p=0', vid], capture_output=True, text=True).stdout.strip() or 0))
+R['dead_band'] = _dead_band(frames_px(vid, list(range(0, _dn, max(1, _dn // 40)))))
 prb = json.loads(subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration,size:stream=codec_type,width,height,bit_rate,r_frame_rate', '-of', 'json', vid], capture_output=True, text=True).stdout)
 v = [s_ for s_ in prb['streams'] if s_['codec_type'] == 'video'][0]; dur = float(prb['format']['duration']); vb = int(v.get('bit_rate') or 0) / 1e6
 R['file'] = dict(ok=18 <= dur <= 45.5 and (v['width'], v['height']) == (1080, 1920) and 8.0 <= vb <= 9.5, duration=round(dur, 2), video_mbps=round(vb, 2), size_mb=round(int(prb['format']['size']) / 1e6, 1), fps=v['r_frame_rate'])

@@ -5,11 +5,12 @@
 // Khóa: i ipa Anh · u ipa Mỹ · l CEFR · x nhãn thi · s nghĩa [[loại từ, vi, en]] (≤ 3) · e ví dụ · c collocation · y đồng nghĩa · a trái nghĩa · f họ từ · k có mp3 giọng Anh
 import fs from 'fs';
 import { loadBrowserIndex } from './lexicon/shards.mjs';
+import { lexFiles } from './lib/lex-files.mjs';
 const R = new URL('../', import.meta.url), rd = p => fs.readFileSync(new URL(p, R), 'utf8');
 globalThis.t = s => s;
 const g = {};
 new Function('self', rd('web/js/data.js'))(g);
-for (const f of fs.readdirSync(new URL('web/js/lib/', R))) if (/\.js$/.test(f) && f !== 'qr.js') { try { new Function('self', 'window', rd('web/js/lib/' + f))(g, g); } catch (e) { /* bỏ qua */ } }
+for (const p of lexFiles(f => f !== 'qr.js')) { try { new Function('self', 'window', rd(p))(g, g); } catch (e) { /* bỏ qua */ } }
 const kv = {};
 new Function('self', 'window', rd('web/js/listen/kvoice.js'))(kv, kv);
 new Function('self', 'window', rd('web/js/listen/audio-index.js'))(kv, kv);
