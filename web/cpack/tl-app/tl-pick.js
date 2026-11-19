@@ -72,8 +72,8 @@
   function announce() { if (!show()) return; const a = list(AKEY), on = T().avail(); list(NKEY).filter(id => on.includes(id) && !a.includes(id)).slice(0, 1).forEach(id => { a.push(id); ls(AKEY, JSON.stringify(a)); if (g.UI && UI.toast) UI.toast(tr('Khóa mới đã có: {name}', { name: T().table(id).name })); }); }
   // Trang của ngôn ngữ đích (vd. #/practice/esd): nhãn Target.chip() = nút cờ mở bảng chọn (một chỗ đổi về English ngay tại trang; chưa tải xong thì liên kết Cài đặt như cũ)
   const onChip = e => { const a = e.target.closest && e.target.closest('a.tl-chip[href]'); if (a) { e.preventDefault(); open(); } };
-  // Explore (Khóa học / Kỹ năng): thẻ "Khóa học khác" ở cuối trang, chờ trang vẽ xong (tối đa 3 s)
-  const EXPLORE = /^(courses|course|skills)$/;
+  // Explore (Khóa học): thẻ "Khóa học khác" ở cuối trang, chờ trang vẽ xong (tối đa 3 s)
+  const EXPLORE = /^(courses|course)$/; // không gắn vào #/skills: thẻ chèn sau lần vẽ đầu làm trang cao thêm khi cuộn (measure webkit)
   function explore(name) { if (!EXPLORE.test(name || '')) return; const v = document.getElementById('view'); if (!v) return; const go = () => { if (v.querySelector('.tlp-card') || !v.firstElementChild) return !!v.querySelector('.tlp-card'); card(v); return true; };
     if (go()) return; const mo = new MutationObserver(() => { if (go()) mo.disconnect(); }); mo.observe(v, { childList: true }); setTimeout(() => mo.disconnect(), 3000); }
   // Khóa chưa có nội dung (ready:false; chỉ quản trị chọn được): màn "đang chuẩn bị" + đường về tiếng Anh – không bao giờ hiện nội dung tiếng Anh thay thế
