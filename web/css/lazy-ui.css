@@ -286,15 +286,15 @@ html.native .v2 .w-head { padding-top: env(safe-area-inset-top, 0px); height: au
 .hl-chip.on { color: var(--text); border-color: var(--text); background: var(--surface-3); }
 .hl-sw { font-style: normal; font-weight: 700; padding: 0 .35rem; border-radius: 4px; color: var(--text); }
 .hl-chip:not(.on) .hl-sw { opacity: .55; }
-.passage.hl-one .tw { padding: .35em 2px; margin: -.35em 0; }
-.hl-one .tw[data-l="kw"], .hl-sw.kw { text-decoration: underline dotted 2px var(--gold-text); text-underline-offset: .22em; }
-.hl-one .tw[data-l="awl"], .hl-sw.awl { text-decoration: underline solid 1.5px var(--primary-text); text-underline-offset: .22em; }
-.hl-one .tw[data-l="link"], .hl-sw.link { background: var(--accent-soft); }
-.hl-one .tw[data-l="mine"], .hl-sw.mine { background: var(--good-soft); }
+.passage[data-one] .tw { padding: .35em 2px; margin: -.35em 0; }
+[data-one] .tw[data-l="kw"], .hl-sw.kw { text-decoration: underline dotted 2px var(--gold-text); text-underline-offset: .22em; }
+[data-one] .tw[data-l="awl"], .hl-sw.awl { text-decoration: underline solid 1.5px var(--primary-text); text-underline-offset: .22em; }
+[data-one] .tw[data-l="link"], .hl-sw.link { background: var(--accent-soft); }
+[data-one] .tw[data-l="mine"], .hl-sw.mine { background: var(--good-soft); }
 #paper .passage { max-width: 70ch; line-height: 1.9; }
-.passage.hl-awl .tw.awl { border-bottom: 2px solid var(--primary-text); }
-.passage.hl-link .tw.link, .passage.hl-link .tw.col { background: var(--accent-soft); }
-.passage.hl-mine .tw.mine { background: var(--good-soft); }
+.passage:not([data-one]).hl-awl .tw.awl { border-bottom: 2px solid var(--primary-text); }
+.passage:not([data-one]).hl-link .tw.link, .passage:not([data-one]).hl-link .tw.col { background: var(--accent-soft); }
+.passage:not([data-one]).hl-mine .tw.mine { background: var(--good-soft); }
 .annot.hl-mode { cursor: text; outline: 2px dashed rgba(245, 158, 11, .5); outline-offset: 6px; }
 
 /* 🚩 Xem lại sau (qengine.js): cờ từng câu + thanh câu cần xem lại */

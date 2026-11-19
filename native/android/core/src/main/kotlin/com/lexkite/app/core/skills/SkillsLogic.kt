@@ -330,7 +330,7 @@ object Reader {
     }
 
     val HL = listOf("kw", "awl", "link", "mine")
-    const val HL_DEFAULT = "kw awl link mine"
+    const val HL_DEFAULT = "kw"
     fun highlights(setting: String?) = (setting ?: HL_DEFAULT).ifEmpty { HL_DEFAULT }.split(' ').filter { it.isNotEmpty() }
     /** Chip tapped: the new set, and the string saved as settings.hl (always in chip order: kw awl link mine). */
     fun toggle(on: Set<String>, k: String): Pair<Set<String>, String> { val n = if (k in on) on - k else on + k; return n to HL.filter { it in n }.joinToString(" ") }

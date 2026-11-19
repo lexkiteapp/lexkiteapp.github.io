@@ -153,7 +153,7 @@ const BASE = ['web/js/lexis.js', 'web/js/qengine.js', 'web/js/qtips.js', 'web/js
 /** page env on the cut-down data: LISTENING/READINGS = data.* (what the ports get) */
 async function page(o = {}) {
   const D = await content();
-  return mk({ ...o, files: BASE, sets: sb => { sb.LISTENING = clone(o.listening || D.listening); sb.READINGS = clone(o.readings || D.readings); if (o.sets) o.sets(sb); }, late: ['web/js/listening.js', 'web/js/reading.js'] });
+  return mk({ ...o, files: BASE, sets: sb => { sb.LISTENING = clone(o.listening || D.listening); sb.READINGS = clone(o.readings || D.readings); if (o.sets) o.sets(sb); }, late: ['web/js/listening.js', 'web/cpack/readings/hl.js', 'web/js/reading.js'] });
 }
 
 // ---------- HTML → data parsers (the web pages emit HTML; the vector keeps what it says) ----------
@@ -530,8 +530,8 @@ function wireReader(P, r, o = {}) {
   let cacheHtml = '', cache = null; const items = r.questions.map((q, i) => { const btns = (q.type === 'tfng' ? ['TRUE', 'FALSE', 'NOT GIVEN'] : q.options).map((x, k) => el(P, 'button', { dataset: { v: q.type === 'tfng' ? x : String(k) } })), ex = el(P, '[data-explain]', { hidden: true, innerHTML: '' }), it = el(P, '.q-item', { dataset: { q: String(i) } }); it._lists = { '.opts button': btns }; it._q = s => (s === '[data-explain]' ? ex : null); return { it, btns, ex }; });
   const parse = () => { const h = P.view.innerHTML; if (h === cacheHtml && cache) return cache; cacheHtml = h; const pass = (h.split('id="passage">')[1] || '').split('</div>')[0], sents = [], tws = [];
     for (const m of pass.matchAll(/<span class="sent">([\s\S]*?)<\/span>(?=<span class="sent">|<\/p>)/g)) { const toks = tokensOf(m[1]), sentEl = el(P, '.sent', { textContent: plainOf(toks) }); sents.push(sentEl);
-      for (const t of toks) if (Array.isArray(t)) { const tw = el(P, '.tw', { dataset: { w: t[1], ...(t[3] ? { ph: t[3] } : {}) }, classes: ['tw', ...t[2].split(' ').filter(Boolean)] }); tw.closest = s => (s === '.tw' ? tw : s === '.sent' ? sentEl : null); tws.push(tw); } }
-    const chips = [...h.matchAll(/<button class="hl-chip (\w+) ?(on)?" data-hl="(\w+)">/g)].map(m => el(P, '[data-hl]', { dataset: { hl: m[3] }, classes: m[2] ? ['on'] : [] }));
+      for (const t of toks) if (Array.isArray(t)) { const tw = el(P, '.tw', { dataset: { w: t[1], ...(t[3] ? { ph: t[3] } : {}) }, classes: ['tw', ...t[2].split(' ').filter(Boolean)], removeAttribute() {} }); tw.closest = s => (s === '.tw' ? tw : s === '.sent' ? sentEl : null); tws.push(tw); } }
+    const chips = [...h.matchAll(/<button class="hl-chip (\w+) ?(on)?" data-hl="(\w+)"[^>]*>/g)].map(m => el(P, '[data-hl]', { dataset: { hl: m[3] }, classes: m[2] ? ['on'] : [], setAttribute() {} }));
     return (cache = { sents, tws, chips, passageClasses: (/<div class="passage ([^"]*)" id="passage">/.exec(h) || [])[1] || '' }); };
   const D = P.E.dom, L = (sel, fn) => D.resolveList(sel, fn);
   L('#passage .tw.kw', () => parse().tws.filter(t => t._cls.has('kw'))); L('#passage .tw.awl', () => parse().tws.filter(t => t._cls.has('awl')));
@@ -545,7 +545,7 @@ function wireReader(P, r, o = {}) {
   return { items, parse };
 }
 const readInit = (P, r, W) => { const h = P.view.innerHTML, c = W.parse(); return { back: { href: /<a href="([^"]*)" class="small">/.exec(h)[1], label: strip(/<a href="#\/reading" class="small">([\s\S]*?)<\/a>/.exec(h)[1]) }, level: r.level, topic: r.topic, emoji: r.emoji, title: strip(/<h1[^>]*>([\s\S]*?)<\/h1>/.exec(h)[1]),
-  summaryKind: /<p class="muted"[^>]*><span lang="en">/.test(h) ? 'en' : /tr-wait/.test(h) ? 'translate' : 'text', highlightChips: [...h.matchAll(/<button class="hl-chip (\w+) ?(on)?" data-hl="\w+">/g)].map(m => ({ k: m[1], on: !!m[2] })), passageClasses: c.passageClasses.split(' ').filter(Boolean),
+  summaryKind: /<p class="muted"[^>]*><span lang="en">/.test(h) ? 'en' : /tr-wait/.test(h) ? 'translate' : 'text', highlightChips: [...h.matchAll(/<button class="hl-chip (\w+) ?(on)?" data-hl="\w+"[^>]*>/g)].map(m => ({ k: m[1], on: !!m[2] })), passageClasses: c.passageClasses.split(' ').filter(Boolean),
   counts: Object.fromEntries(['kw', 'awl', 'link', 'mine'].map(k => [k, P.$(`[data-count="${k}"]`).textContent])), paragraphs: (h.split('id="passage">')[1] || '').split('</div>')[0].split('</p>').filter(x => x.includes('<p>')).length, sentences: c.sents.length, words: c.tws.length, questions: r.questions.length, keywordChips: r.keywords.length }; };
 async function readerVectors() {
   const D = await content(), out = { render: [], popup: [], questions: [], actions: [] }; const R0 = D.readings;

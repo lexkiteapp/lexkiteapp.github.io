@@ -6,7 +6,7 @@ import LKStrings
 public enum ReadingRules {
     /// the keyword chip scrolls to its word, then opens the popup after this
     public static let keywordPopupDelayMs = 350
-    public static let defaultHighlights = "kw awl link mine"
+    public static let defaultHighlights = "kw"
     public static let highlightKeys = ["kw", "awl", "link", "mine"]
     /// minutes = max(2, round(words / 140))
     public static let wordsPerMinute = 140.0
