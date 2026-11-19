@@ -1,0 +1,30 @@
+# ci-policy: no-concurrency – chỉ chạy tay, mỗi lượt khác input; nhóm chung sẽ HUỶ lượt đang chờ = mất việc (docs/CI-RUNNERS.md)
+# 📖 Ảnh trước/sau màn đọc #/read/<id> (375 px + desktop, sáng/tối). Chỉ chạy tay; artifact 7 ngày.
+name: Read shots
+on:
+  workflow_dispatch:
+    inputs:
+      before: { description: 'Commit TRƯỚC', required: true }
+      id: { description: 'Mã bài đọc', required: false, default: 'ocean-microplastics' }
+permissions: { contents: read }
+jobs:
+  shots:
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: ./.github/actions/playwright-cache
+        with: { browsers: '--with-deps chromium' }
+      - name: Chụp
+        env: { BEFORE: "${{ github.event.inputs.before }}", RID: "${{ github.event.inputs.id }}" }
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2
+          bash scripts/ci/pw-install.sh --with-deps chromium
+          git worktree add -q /tmp/before "$BEFORE"
+          node scripts/test/read-shots.mjs web /tmp/before/web "$RID" out/read
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: { name: read-shots, path: out/read, retention-days: 7 }
