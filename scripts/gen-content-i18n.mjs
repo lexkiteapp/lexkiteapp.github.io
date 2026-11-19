@@ -9,6 +9,7 @@ const deadline = Date.now() + (+process.env.CONTENT_MIN || 10) * 60000;
 // không qua tiếng Việt; dịch lại khi en đổi (dấu hash trong content/i18n/from-en.json). Bản đã qua native-score --fix
 // (content/i18n/native-fixed.json, en chưa đổi) đứng trên hết.
 import { loadEnSrc, hash } from './i18n-native-score.mjs';
+import { restore } from './lib/quote-english.mjs'; // ví dụ Anh trong ngoặc phải giữ nguyên sau dịch máy (docs/research/lesson-qa-1511.md)
 const rdj = (f, d) => { try { return JSON.parse(fs.readFileSync(f, 'utf8')); } catch (e) { return d; } };
 const EN = loadEnSrc().m, FROM = rdj('content/i18n/from-en.json', {}), mark = FROM[lang] = FROM[lang] || {}, FIX = rdj('content/i18n/native-fixed.json', {})[lang] || {};
 const src = [...new Set([...JSON.parse(fs.readFileSync('content/i18n/strings.json', 'utf8')), ...Object.keys(EN)])];
@@ -41,7 +42,7 @@ for (let i = 0; i < needEn.length && Date.now() < deadline;) {
   if (!batch.length) batch.push(needEn[i++]);
   const tr = await translate(batch.map(s => EN[s]), 'en');
   if (!tr || tr.length !== batch.length) { bad += batch.length; await sleep(1500); continue; }
-  batch.forEach((s, k) => { const t = (tr[k] || '').trim(); if (t && sig(t) === sig(EN[s])) { out[s] = t; mark[s] = hash(EN[s]); done++; } else bad++; });
+  batch.forEach((s, k) => { const t = restore(EN[s], (tr[k] || '').trim()).text; if (t && sig(t) === sig(EN[s])) { out[s] = t; mark[s] = hash(EN[s]); done++; } else bad++; });
   await sleep(400);
 }
 for (const s of needEn) if (!out[s] && old[s]) out[s] = old[s]; // dịch từ en chưa xong → giữ bản cũ tới lượt sau (không để trống)
@@ -52,7 +53,7 @@ for (let i = 0; i < needVi.length && Date.now() < deadline;) {
   if (!batch.length) batch.push(needVi[i++]);
   const tr = await translate(batch);
   if (!tr || tr.length !== batch.length) { bad += batch.length; await sleep(1500); continue; }
-  batch.forEach((s, k) => { const t = (tr[k] || '').trim(); if (t && t !== s && sig(t) === sig(s)) { out[s] = t; done++; } else bad++; });
+  batch.forEach((s, k) => { const t = restore(s, (tr[k] || '').trim()).text; if (t && t !== s && sig(t) === sig(s)) { out[s] = t; done++; } else bad++; });
   await sleep(400);
 }
 fs.mkdirSync('web/i18n/content', { recursive: true });
