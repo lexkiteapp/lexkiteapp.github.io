@@ -63,3 +63,21 @@ export const judgePrompt = ({ s, L, level, transcript, beat, next, unclear, repl
 Conversation so far:\n${transcript}\n
 Required next point for the character: ${next ? `"${beat}" (in their own words)` : `close the conversation politely, like "${beat}"`}.${unclear ? '\nNote: the learner\'s last line is unclear or off-topic, so the ideal reply asks them to clarify instead.' : ''}
 Candidate reply: "${reply}"`;
+
+// ---- Chấm trung vị 3 lượt cho model SÁT ngưỡng (golden chập chờn 19/11: 1 ca JSON/ngôn ngữ hỏng trong 20 làm đỏ cả cổng; main 5 lượt gpt-oss-120b: bắt lỗi 93–94 %, band lệch 0,28–0,4) ----
+// KHÔNG hạ ngưỡng: vẫn so với GATE, chỉ đổi cách đo – model trượt sát ngưỡng được đo thêm 2 lượt (seed khác) và quyết theo TRUNG VỊ từng chỉ số.
+export const NEAR = { recall: 0.1, mae: 0.2, valid: 0.1, lang: 0.15, rpMean: 0.5, absurd: 1, clarify: 0.4, judged: 0.2 }; // khoảng cách tối đa tới ngưỡng để được đo lại (xa hơn = trượt thật, không đo lại)
+export const passMetrics = (SI, SR) => ({ recall: SI.recall, mae: SI.mae, valid: SI.valid, lang: SI.lang, rpMean: SR.mean, absurd: SR.absurd, rpValid: SR.valid, clarify: SR.clarify, judged: SR.n ? SR.judged / SR.n : 0 });
+export function nearMiss(SI, SR) {
+  const m = passMetrics(SI, SR), g = GATE;
+  return m.recall >= g.ielts.recall - NEAR.recall && m.mae <= g.ielts.mae + NEAR.mae && m.valid >= g.ielts.valid - NEAR.valid && m.lang >= g.ielts.lang - NEAR.lang
+    && m.rpMean >= g.rp.mean - NEAR.rpMean && m.absurd <= g.rp.absurd + NEAR.absurd && m.rpValid >= g.rp.valid - NEAR.valid && m.clarify >= g.rp.clarify - NEAR.clarify && m.judged >= 0.9 - NEAR.judged;
+}
+export const median = xs => { const a = [...xs].sort((x, y) => x - y), k = a.length >> 1; return a.length % 2 ? a[k] : (a[k - 1] + a[k]) / 2; };
+/** passes: [passMetrics…] (≥ 1 lượt) → { med: trung vị từng chỉ số, pass } với đúng ngưỡng GATE */
+export function medianVerdict(passes) {
+  const med = {}; for (const k of Object.keys(passes[0])) med[k] = Math.round(median(passes.map(p => p[k])) * 1000) / 1000;
+  const g = GATE, pass = med.recall >= g.ielts.recall && med.mae <= g.ielts.mae && med.valid >= g.ielts.valid && med.lang >= g.ielts.lang
+    && med.judged >= 0.9 && med.rpMean >= g.rp.mean && med.absurd <= g.rp.absurd && med.rpValid >= g.rp.valid && med.clarify >= g.rp.clarify;
+  return { med, pass };
+}
