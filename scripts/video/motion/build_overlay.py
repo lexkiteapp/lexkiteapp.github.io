@@ -75,6 +75,9 @@ def at(a):
     if a[0] == 'end': return TOTAL + float(a[1])
     if a[0] == 'beat': b = T['beats'][a[1]]; return b['s' if a[2] == 's' else 'e'] + (a[3] if len(a) > 3 else 0)
     w = word(a[0], a[1]); return w[a[2] if len(a) > 2 else 's'] + (a[3] if len(a) > 3 else 0)
+def _cw(node, cw):   # word-anchored cues are timing-checked; a time anchor ('t'/'end'/'beat') has no word to check
+    if cw: CUES.append(dict(node=node, **cw))
+
 def cue(a, k):   # entrance keyed to a spoken word: appears (HALF) exactly at the word start
     if EMBED and k == 'pop': k = 'fade'   # embed: calmer motion (no bounce)
     if a[0] in ('t', 'end', 'beat'): return dict(t=round(at(a), 4), k=k), None
@@ -189,11 +192,11 @@ def pills(y0, opts, cues, reveal, right, cid='opts'):
     assert need <= w, ('option column too narrow', round(need), w)
     rin, rcue = cue(reveal, 'pop')
     for i, (txt, c) in enumerate(zip(opts, cues)):
-        y = y0 + i * (h + g); ins, cw = cue(c, 'rise'); CUES.append(dict(node=f'{cid}.{i}', **cw))
+        y = y0 + i * (h + g); ins, cw = cue(c, 'rise'); _cw(f'{cid}.{i}', cw)
         st = [dict(t=round(rcue['at'] - 0.02, 4), s='right' if i == right else 'dim')]
         out.append(node(id=f'{cid}.{i}', type='pill', box=[X0, y, x1, y + h], idx='ABCD'[i], label=txt, size=S_BODY, **{'in': ins}, st=st, pal=PILL, card=cid))
     out.append(node(id=f'{cid}.chk', type='check', parent=f'{cid}.{right}', box=[X0 + 20, y0 + right * (h + g) + (h - 60) // 2, X0 + 20 + 60, y0 + right * (h + g) + (h - 60) // 2 + 60], **{'in': rin}))
-    CUES.append(dict(node=f'{cid}.chk', **rcue))
+    _cw(f'{cid}.chk', rcue)
     CARDS[cid] = dict(card=None, nodes=[n['id'] for n in out[:-1]], kind='lesson', group='pop', text=' / '.join(f'{"ABCD"[i]} {t}' for i, t in enumerate(opts)),
                       m=[['body', S_BODY * CAP_J]], px=S_BODY, extra={})
     return out, y0 + len(opts) * (h + g) - g
@@ -201,14 +204,14 @@ def pills(y0, opts, cues, reveal, right, cid='opts'):
 END_TOP_H = PAD + 132 + GAP + round(S_BODY * 1.18) + PAD + LEDGE_H
 def end_card_embed(c_line, top_h):
     """Embed end card: no QR, no follow CTA – it hands over to the next lesson step (the lesson UI owns the real button)."""
-    ins, cw = cue([c_line, 0], 'rise'); CUES.append(dict(node='endtop', **cw)); out = dict(t=round(TOTAL - 0.40 - C.OUT, 4))
+    ins, cw = cue([c_line, 0], 'rise'); _cw('endtop', cw); out = dict(t=round(TOTAL - 0.40 - C.OUT, 4))
     A = top_card('endtop', kind='lesson', group='pop'); A.chip('Up next', 'teal'); A.line([[SP['cta']['say'], INK]], S_BODY, 'body')
     ch = round(S_SUB * 1.2) + 44; A.custom(ch, [dict(type='cta', box=[A.pad, 0, A.pad + tw('Next step →', S_SUB) + 120, ch], lines=['Next step →'], size=S_SUB, lh=round(S_SUB * 1.2))], text='Next step →', m=['card', S_SUB * CAP_J], px=S_SUB)
     A.place(h=max(top_h, A.height()), ins=ins, out=out); CARDS['endtop']['px'] = S_BODY
 
 def end_card(c_line, top_h, col_y0):
     """End card (Stitch end frame): app icon + Lexkite + 100% FREE on top; QR + gradient CTA + lexkite.com in the column."""
-    cta = SP['cta']; ins, cw = cue([c_line, 0], 'rise'); CUES.append(dict(node='endtop', **cw)); out = dict(t=round(TOTAL - 0.40 - C.OUT, 4))
+    cta = SP['cta']; ins, cw = cue([c_line, 0], 'rise'); _cw('endtop', cw); out = dict(t=round(TOTAL - 0.40 - C.OUT, 4))
     A = top_card('endtop', kind='lesson', group='cta')
     A.custom(132, [dict(type='img', box=[PAD, 0, PAD + 132, 132], src='icon.png', radius=32),
                    dict(type='text', box=[PAD + 160, 4, PAD + 160 + tw('Lexkite', S_BODY), 84], runs=[['Lexkite', INK]], size=S_BODY),
@@ -276,21 +279,21 @@ def _measure_top(c): return _fill_top(Card('_m', X0, Y0, X1 - X0), c, True).heig
 def _top(c, top_h):
     cd = _fill_top(top_card(c['id'], c.get('kind', 'lesson'), 'hook' if c.get('hook') else 'pop', c.get('tone')), c)
     if c.get('hook'): ins = dict(t=0.0, k='rise'); cw = None   # hook: on screen from the first frame (fully visible <= 0.40 s)
-    else: ins, cw = cue(c['at'], 'rise'); CUES.append(dict(node=c['id'], **cw))
+    else: ins, cw = cue(c['at'], 'rise'); _cw(c['id'], cw)
     st = [dict(t=round(at(x['at']) - (0.0 if x['at'][0] in ('t', 'beat') else 0.02), 4), s=x['s']) for x in c.get('st', [])]
     extra = {}
     if c.get('ipa'): IPA.append(dict(pop=c['id'], **c['ipa']))
     cn = cd.place(h=top_h, ins=ins, st=st or None, extra=extra)
     for it in NODES:
         if it.get('parent') == c['id'] and it['type'] == 'slot' and c.get('reveal'):
-            rin, rcw = cue(c['reveal'], 'pop'); it['st'] = [dict(t=round(rcw['at'] - 0.02, 4), s='filled')]; CUES.append(dict(node=it['id'], **rcw))
+            rin, rcw = cue(c['reveal'], 'pop'); it['st'] = [dict(t=round(rcw['at'] - 0.02, 4), s='filled')]; _cw(it['id'], rcw)
     for x in c.get('strike', []):   # strike-through drawn over one run of a line, on the spoken word
         ln = [n for n in NODES if n.get('parent') == c['id'] and n['type'] == 'text'][x['line']]
         pre = ''.join(r[0] for r in ln['runs'][:x['run']]); sx = ln['box'][0] + tw(pre, ln['size']); sw = tw(ln['runs'][x['run']][0].rstrip(), ln['size'])
-        cy = (ln['box'][1] + ln['box'][3]) / 2 + 4; ins_, cw_ = cue(x['at'], 'draw'); CUES.append(dict(node=f"{c['id']}.strike", **cw_))
+        cy = (ln['box'][1] + ln['box'][3]) / 2 + 4; ins_, cw_ = cue(x['at'], 'draw'); _cw(f"{c['id']}.strike", cw_)
         node(id=f"{c['id']}.strike", type='strike', parent=c['id'], box=[sx - 8, cy - 9, sx + sw + 8, cy + 9], color=CORAL, **{'in': ins_})
     for x in ([] if EMBED else c.get('xp', [])):   # +XP is a social-short reward; the embedded lesson stays calm
-        ins_, cw_ = cue(x['at'], 'pop'); CUES.append(dict(node=f"{c['id']}.xp", **cw_)); wx = tw('+10 XP', S_CHIP) + 60
+        ins_, cw_ = cue(x['at'], 'pop'); _cw(f"{c['id']}.xp", cw_); wx = tw('+10 XP', S_CHIP) + 60
         node(id=f"{c['id']}.xp", type='xp', parent=c['id'], box=[cn['box'][2] - PAD - wx, cn['box'][1] + PAD - 4, cn['box'][2] - PAD, cn['box'][1] + PAD + 60], size=S_CHIP,
              val=dict(t=ins_['t'] + 0.05, d=0.45, a=0, b=x['n']), **{'in': ins_})
     return cn
@@ -308,7 +311,7 @@ def _bar(b, y0, x0=None):
     th = 30; lab = 50; iw = cd.inner()
     cd.custom(th + 18 + lab, [dict(id=f"{b['id']}.bar", type='bar', box=[cd.pad, 0, cd.pad + iw, th + 18 + lab], lo=lo, hi=hi, target=b['target'], track=th, size=S_CHIP, val=segs)],
               text=' '.join(str(x) for x in range(int(lo), int(hi) + 1)), m=['card', S_CHIP * CAP_J], px=S_CHIP)
-    ins, cw = cue(b['at'], 'rise'); CUES.append(dict(node=b['id'], **cw))
+    ins, cw = cue(b['at'], 'rise'); _cw(b['id'], cw)
     cn = cd.place(ins=ins); CARDS[b['id']]['text'] += ' / band ' + str(b['target'])
     return cn
 
@@ -333,13 +336,13 @@ def _col(c, y0):
             cd.custom(hp, it, text=r['tag'], m=['card', S_SUB * CAP_J], px=S_SUB, gap=GAP if not n0 else 34)
             for ln in r['lines']: cd.line(runs_of(ln), S_SUB, 'card')
             if r.get('at') and r['at'] != c['at']:   # a later tile appears on its own spoken word
-                ins_, cw_ = cue(r['at'], 'rise'); CUES.append(dict(node=f"{c['id']}.tile{n0}", **cw_))
+                ins_, cw_ = cue(r['at'], 'rise'); _cw(f"{c['id']}.tile{n0}", cw_)
                 for k_, x in enumerate(cd.rows[n0:]): x['in'] = ins_; x['id'] = x.get('id') or f"{c['id']}.tile{n0}" + ('' if not k_ else f'.{k_}')
             if r.get('ex'):
                 items = [x for x in cd.line(runs_of(r['ex']), S_SUB, 'card') if x['type'] == 'text']; ins_, cw_ = cue(r['ex_at'], 'rise')
                 for j_, x in enumerate(items): x['in'] = ins_; x['id'] = f"{c['id']}.ex{len(cd.rows)}" + (f'.{j_}' if j_ else '')
-                CUES.append(dict(node=items[0]['id'], **cw_))
-    ins, cw = cue(c['at'], 'rise'); CUES.append(dict(node=c['id'], **cw))
+                _cw(items[0]['id'], cw_)
+    ins, cw = cue(c['at'], 'rise'); _cw(c['id'], cw)
     if c.get('ipa'): IPA.append(dict(pop=c['id'], **c['ipa']))
     cn = cd.place(ins=ins)
     for n in NODES:
