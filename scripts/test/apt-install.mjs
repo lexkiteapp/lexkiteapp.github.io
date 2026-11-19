@@ -67,7 +67,7 @@ case "$u" in *treo*) exit 28;; *sai*) printf sai > "$o";; *) printf '${body}' > 
   ok(aptRun.status === 0 && aptRun.calls.length === 1 && / goi-a$/.test(aptRun.calls[0]) && !/fonts-noto-gia/.test(aptRun.calls[0]), 'apt-install.sh: fonts-noto-* qua .deb trực tiếp, apt chỉ còn gói khác');
   const tsv = fs.readFileSync('scripts/ci/fonts-debs.tsv', 'utf8').trim().split('\n').map(l => l.split('\t'));
   ok(['fonts-noto-core', 'fonts-noto-cjk', 'fonts-noto-color-emoji'].every(p => tsv.some(c => c[0] === p && /^[0-9a-f]{64}$/.test(c[2]))), 'bảng ghim có core/cjk/color-emoji với SHA-256');
-  ok(/fonts-debs\.tsv/.test(act) && /lk-fonts/.test(act), 'action apt: cache ~/.cache/lk-fonts theo băm bảng ghim');
+  ok(/fonts-debs\.tsv/.test(act) && /lk-fonts/.test(act) && /cache\/save@/.test(act), 'action apt: cache ~/.cache/lk-fonts theo băm bảng ghim');
 }
 function require_sha(s) { return spawnSync('bash', ['-c', `printf '%s' "$1" | (sha256sum 2>/dev/null || shasum -a 256) | cut -d' ' -f1`, '_', s], { encoding: 'utf8' }).stdout.trim(); }
 fs.rmSync(T, { recursive: true, force: true });
