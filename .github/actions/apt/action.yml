@@ -16,6 +16,31 @@ runs:
       run: echo "key=apt-${ImageOS:-x}-${ImageVersion:-x}-$(printf '%s\n' $P | sort -u | sha1sum | cut -c1-16)" >> "$GITHUB_OUTPUT"
     - uses: actions/cache@v4
       with: { path: ~/.cache/apt-debs, key: '${{ steps.k.outputs.key }}' }
+    # fonts-noto-*: .deb tải thẳng (scripts/ci/fonts-install.sh) lưu ~/.cache/lk-fonts. Khoá = băm bảng ghim SHA + tập gói font; restore-keys theo băm bảng ghim
+    # → workflow khác tập gói vẫn nhận .deb đã có (chỉ tải phần thiếu). Chung mọi workflow.
+    - id: fk
+      if: contains(inputs.packages, 'fonts-noto-')
+      shell: bash
+      env: { P: '${{ inputs.packages }}', H: "${{ hashFiles('scripts/ci/fonts-debs.tsv') }}" }
+      run: |
+        echo "pre=fonts-debs-$H-" >> "$GITHUB_OUTPUT"
+        echo "key=fonts-debs-$H-$(printf '%s\n' $P | grep '^fonts-noto-' | sort -u | sha1sum | cut -c1-12)" >> "$GITHUB_OUTPUT"
+    - id: fc
+      if: contains(inputs.packages, 'fonts-noto-')
+      uses: actions/cache/restore@v4
+      with: { path: ~/.cache/lk-fonts, key: '${{ steps.fk.outputs.key }}', restore-keys: '${{ steps.fk.outputs.pre }}' }
     - shell: bash
       env: { P: '${{ inputs.packages }}' }
       run: APT_CACHE_DIR="$HOME/.cache/apt-debs" bash "$GITHUB_WORKSPACE/scripts/ci/apt-install.sh" $P
+    # lưu NGAY sau khi cài (kể cả job sau đó đỏ – actions/cache thường chỉ lưu khi cả job xanh) → lượt sau không chạm mirror Ubuntu.
+    # Chỉ lưu khi đủ .deb của mọi gói font yêu cầu (khoá bất biến: không để khoá dính bản thiếu).
+    - id: fo
+      if: always() && contains(inputs.packages, 'fonts-noto-') && steps.fc.outputs.cache-hit != 'true'
+      shell: bash
+      env: { P: '${{ inputs.packages }}' }
+      run: |
+        ok=1; for p in $P; do case "$p" in fonts-noto-*) ls "$HOME/.cache/lk-fonts/${p}_"*.deb >/dev/null 2>&1 || ok=0;; esac; done
+        echo "full=$ok" >> "$GITHUB_OUTPUT"
+    - if: always() && steps.fo.outputs.full == '1'
+      uses: actions/cache/save@v4
+      with: { path: ~/.cache/lk-fonts, key: '${{ steps.fk.outputs.key }}' }

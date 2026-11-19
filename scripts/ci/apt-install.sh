@@ -13,6 +13,11 @@ set -u
 TO=${APT_INSTALL_TIMEOUT:-420}; TRIES=${APT_INSTALL_TRIES:-3}; CACHE=${APT_CACHE_DIR:-}; SUDO=${APT_SUDO-sudo}; APT=${APT_GET:-apt-get}
 need=(); for p in "$@"; do dpkg-query -W -f='${Status}' "$p" 2>/dev/null | grep -q "install ok installed" || need+=("$p"); done
 [ ${#need[@]} -gt 0 ] || { echo "✓ apt: đã có sẵn $*"; exit 0; }
+# 19/11: fonts-noto-* đi đường .deb trực tiếp (scripts/ci/fonts-install.sh: nhiều mirror, trần chậm, cache, ghim SHA) – apt treo 3 lượt/762 s trên teach-video; phần chưa xử lý được quay lại apt bên dưới
+if [ "${APT_FONTS_DIRECT:-1}" = 1 ] && printf '%s\n' "${need[@]}" | grep -q '^fonts-noto-'; then
+  left=$(bash "$(dirname "$0")/fonts-install.sh" "${need[@]}"); need=(); for p in $left; do need+=("$p"); done
+  [ ${#need[@]} -gt 0 ] || { echo "✓ apt: $* (fonts qua .deb trực tiếp)"; exit 0; }
+fi
 O=(-y -qq --no-install-recommends -o Acquire::Retries=3 -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20 -o Acquire::http::Pipeline-Depth=0 -o DPkg::Lock::Timeout=120 -o Dpkg::Use-Pty=0)
 [ -n "$CACHE" ] && { mkdir -p "$CACHE/partial"; O+=(-o "Dir::Cache::Archives=$CACHE"); }
 export DEBIAN_FRONTEND=noninteractive
