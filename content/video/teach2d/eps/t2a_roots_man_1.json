@@ -1,0 +1,173 @@
+{
+ "id": "t2a_roots_man_1",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, two words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "The root is Man! Manual, manage.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Man is Latin for hand.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Manual: made with the hands.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Manage: handle with your hands.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means handle with your hands?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Manage! It means handle with your hands.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "MAN",
+  "rid": "man",
+  "say": "hand",
+  "src": "manus",
+  "src_lang": "Latin",
+  "src_mean": "hand",
+  "words": [
+   {
+    "w": "manual",
+    "ipa": "/ˈmænjuəl/",
+    "mean": "made with the hands",
+    "seg": "manu|-al",
+    "parts": [
+     [
+      "manu",
+      "root"
+     ],
+     [
+      "al",
+      "suf"
+     ]
+    ],
+    "pre": null,
+    "pm": null,
+    "pms": null,
+    "ex": "The demand for manual labour has declined.",
+    "em": "✋"
+   },
+   {
+    "w": "manage",
+    "ipa": "/ˈmænədʒ/",
+    "mean": "handle with your hands",
+    "seg": "man|-age",
+    "parts": [
+     [
+      "man",
+      "root"
+     ],
+     [
+      "age",
+      "suf"
+     ]
+    ],
+    "pre": null,
+    "pm": null,
+    "pms": null,
+    "ex": "She manages a team of ten people.",
+    "em": "📋"
+   }
+  ],
+  "quiz": {
+   "stem": "handle with your hands",
+   "options": [
+    "manual",
+    "manage"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/manual",
+  "link": "https://lexkite.com/app/#/dict/manual",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, two words"
+ },
+ "src": {
+  "root": "man"
+ },
+ "est": {
+  "words": 49,
+  "seconds": 29.0,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "Man root: manual and manage",
+  "keyword": "man root",
+  "value": "Man comes from Latin \"manus\" (hand). Words: manual and manage.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/manual",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "Man root: manual and manage",
+    "description": "Man comes from Latin \"manus\" (hand). Words: manual and manage.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/manual\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "man root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Man root: manual and manage\n\nMan comes from Latin \"manus\" (hand). Words: manual and manage.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/manual"
+   },
+   "instagram": {
+    "caption": "Man root: manual and manage\n\nMan comes from Latin \"manus\" (hand). Words: manual and manage.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Man root: manual and manage #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? Manage! It means handle with your hands. Man comes from Latin \"manus\" (hand). Words: manual and manage. More practice like this (free): {link}"
+ }
+}

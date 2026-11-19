@@ -1,0 +1,177 @@
+{
+ "id": "t2a_roots_spect_3",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, two words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "The root is Spect! Spectator, perspective.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Spect is Latin for look.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Spectator: a person who looks on.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Perspective: through plus look.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means through plus look?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Perspective! Through plus look.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "SPECT",
+  "rid": "spect",
+  "say": "look",
+  "src": "specere",
+  "src_lang": "Latin",
+  "src_mean": "to look",
+  "words": [
+   {
+    "w": "spectator",
+    "ipa": "/ˈspekteɪtər/",
+    "mean": "a person who looks on",
+    "seg": "spect|-ator",
+    "parts": [
+     [
+      "spect",
+      "root"
+     ],
+     [
+      "ator",
+      "suf"
+     ]
+    ],
+    "pre": null,
+    "pm": null,
+    "pms": null,
+    "ex": "More than eighty thousand spectators attended the final at the national stadium.",
+    "em": "👀"
+   },
+   {
+    "w": "perspective",
+    "ipa": "/pərˈspektɪv/",
+    "mean": "a way of looking through",
+    "seg": "per-|spect|-ive",
+    "parts": [
+     [
+      "per",
+      "pre"
+     ],
+     [
+      "spect",
+      "root"
+     ],
+     [
+      "ive",
+      "suf"
+     ]
+    ],
+    "pre": "per",
+    "pm": "through",
+    "pms": "through",
+    "ex": "Travelling gives you a new perspective on life.",
+    "em": "👓"
+   }
+  ],
+  "quiz": {
+   "stem": "through plus look",
+   "options": [
+    "spectator",
+    "perspective"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/spectator",
+  "link": "https://lexkite.com/app/#/dict/spectator",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, two words"
+ },
+ "src": {
+  "root": "spect"
+ },
+ "est": {
+  "words": 45,
+  "seconds": 27.0,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "Spect root: spectator and perspective",
+  "keyword": "spect root",
+  "value": "Spect comes from Latin \"specere\" (to look). Words: spectator and perspective. perspective = per + spect.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/spectator",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "Spect root: spectator and perspective",
+    "description": "Spect comes from Latin \"specere\" (to look). Words: spectator and perspective. perspective = per + spect.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/spectator\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "spect root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Spect root: spectator and perspective\n\nSpect comes from Latin \"specere\" (to look). Words: spectator and perspective. perspective = per + spect.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/spectator"
+   },
+   "instagram": {
+    "caption": "Spect root: spectator and perspective\n\nSpect comes from Latin \"specere\" (to look). Words: spectator and perspective. perspective = per + spect.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Spect root: spectator and perspective #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: Perspective! Through plus look. Spect comes from Latin \"specere\" (to look). Words: spectator and perspective. perspective = per + spect. Try the full lesson and quiz here: {link}"
+ }
+}

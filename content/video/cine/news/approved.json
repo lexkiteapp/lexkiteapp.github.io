@@ -606,6 +606,13 @@
    "note": "no banked clip with QC>=90 yet (bank.json)"
   },
   {
+   "id": "roots",
+   "engine": "teach2d",
+   "status": "draft",
+   "spec": "content/video/teach2d/eps/*.json",
+   "note": "Word Roots (Gốc từ), 17/11: no banked clip with QC>=90 yet (bank.json) – the coordinator flips this to approved when the first short + wide pass every qc.py gate"
+  },
+  {
    "id": "rule",
    "engine": "teach2d",
    "status": "approved",

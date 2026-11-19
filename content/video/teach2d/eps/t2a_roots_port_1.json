@@ -1,0 +1,173 @@
+{
+ "id": "t2a_roots_port_1",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, two words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "The root is Port! Transport, import.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Port is Latin for carry.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Transport: across plus carry.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Import: into plus carry.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means into plus carry?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Import! Into plus carry.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "PORT",
+  "rid": "port",
+  "say": "carry",
+  "src": "portare",
+  "src_lang": "Latin",
+  "src_mean": "to carry",
+  "words": [
+   {
+    "w": "transport",
+    "ipa": "/ˈtrænspɔːrt/",
+    "mean": "carry across",
+    "seg": "trans-|port",
+    "parts": [
+     [
+      "trans",
+      "pre"
+     ],
+     [
+      "port",
+      "root"
+     ]
+    ],
+    "pre": "trans",
+    "pm": "across",
+    "pms": "across",
+    "ex": "The city is improving its public transport.",
+    "em": "🚚"
+   },
+   {
+    "w": "import",
+    "ipa": "/ɪmˈpɔːrt/",
+    "mean": "carry into a country",
+    "seg": "im-|port",
+    "parts": [
+     [
+      "im",
+      "pre"
+     ],
+     [
+      "port",
+      "root"
+     ]
+    ],
+    "pre": "im",
+    "pm": "into",
+    "pms": "into",
+    "ex": "The country imports most of its oil.",
+    "em": "🚢"
+   }
+  ],
+  "quiz": {
+   "stem": "into plus carry",
+   "options": [
+    "transport",
+    "import"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/transport",
+  "link": "https://lexkite.com/app/#/dict/transport",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, two words"
+ },
+ "src": {
+  "root": "port"
+ },
+ "est": {
+  "words": 43,
+  "seconds": 26.0,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Port root: transport and import",
+  "keyword": "port root",
+  "value": "Port comes from Latin \"portare\" (to carry). Words: transport and import. transport = trans + port; import = im + port.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/transport",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "Port root: transport and import",
+    "description": "Port comes from Latin \"portare\" (to carry). Words: transport and import. transport = trans + port; import = im + port.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/transport\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "port root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Port root: transport and import\n\nPort comes from Latin \"portare\" (to carry). Words: transport and import. transport = trans + port; import = im + port.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/transport"
+   },
+   "instagram": {
+    "caption": "Port root: transport and import\n\nPort comes from Latin \"portare\" (to carry). Words: transport and import. transport = trans + port; import = im + port.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Port root: transport and import #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: Import! Into plus carry. Port comes from Latin \"portare\" (to carry). Words: transport and import. transport = trans + port; import = im + port. Practice it with a free quiz: {link}"
+ }
+}

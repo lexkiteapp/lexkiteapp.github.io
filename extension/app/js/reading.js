@@ -35,7 +35,7 @@
     const kw = new Set(r.keywords.map(k => k.toLowerCase()));
     // Bọc từng từ thành phần tử chạm được + tô sáng AWL / từ nối / collocation / từ của tôi
     const paras = Lexis.markText(r.text, { keywords: kw, mine: w => App.inDeck(w) });
-    const hl = (state.settings.hl || 'kw awl link mine').split(' ');
+    const hl = (state.settings.hl == null ? 'kw' : state.settings.hl).split(' ');
 
     view.innerHTML = `
       <a href="#/reading" class="small">← ${t('Tất cả bài đọc')}</a>
@@ -47,9 +47,9 @@
           <p class="muted" style="margin-bottom:.8rem">${App.viHtml(r.summaryVi, r.summaryEn)}</p>
           <div class="hl-bar" id="hlBar">
             <span class="tiny muted" style="font-weight:700">${t('TÔ SÁNG:')}</span>
-            ${[['kw', '🔑 ' + t('Từ khóa')], ['awl', UI.icon('graduation-cap') + ' ' + t('Học thuật AWL')], ['link', '🧷 ' + t('Từ nối & cụm')], ['mine', UI.icon('notebook') + ' ' + t('Từ của tôi')]].map(([k, l]) => `<button class="hl-chip ${k} ${hl.includes(k) ? 'on' : ''}" data-hl="${k}">${l} <b data-count="${k}"></b></button>`).join('')}
+            ${[['kw', '🔑 ' + t('Từ khóa')], ['awl', UI.icon('graduation-cap') + ' ' + t('Học thuật AWL')], ['link', '🧷 ' + t('Từ nối & cụm')], ['mine', UI.icon('notebook') + ' ' + t('Từ của tôi')]].map(([k, l]) => `<button class="hl-chip ${k} ${hl.includes(k) ? 'on' : ''}" data-hl="${k}" aria-pressed="${hl.includes(k)}"><i class="hl-sw ${k}" aria-hidden="true">Aa</i>${l} <b data-count="${k}"></b></button>`).join('')}
           </div>
-          <div class="passage ${hl.map(x => 'hl-' + x).join(' ')}" id="passage">${paras}</div>
+          <div data-one class="passage ${hl.map(x => 'hl-' + x).join(' ')}" id="passage">${paras}</div>
           <div class="small muted">${UI.icon('lightbulb')} ${t('Chạm vào từ để tra · bấm đúp vào câu để nghe câu đó · gạch chấm = từ khóa IELTS · nền xanh = từ đã có trong sổ')}</div>
         </div>
         <div style="position:sticky;top:80px" class="stack">
@@ -68,13 +68,16 @@
       </div>`;
     if (innerWidth < 900) $('#readGrid').style.gridTemplateColumns = '1fr';
 
-    // Thanh tô sáng
-    const count = k => new Set($$(`#passage .tw.${k === 'link' ? 'link, #passage .tw.col' : k}`).map(x => x.dataset.ph || x.dataset.w)).size;
-    const paintCounts = () => ['kw', 'awl', 'link', 'mine'].forEach(k => { const el = $(`[data-count="${k}"]`); if (el) el.textContent = count(k); });
+    // Thanh tô sáng: đếm từ khác nhau được tô thật; lớp rỗng ẩn chip
+    const { LAYERS, paint, any } = ReadHL, tws = $$('.tw');
+    const paintCounts = () => paint(tws, $, $$);
+    LAYERS.forEach(k => { $(`[data-hl="${k}"]`).hidden = !any(tws, k); });
     paintCounts();
     $$('[data-hl]').forEach(b => b.onclick = () => {
       b.classList.toggle('on');
+      b.setAttribute('aria-pressed', b.classList.contains('on'));
       $('#passage').classList.toggle('hl-' + b.dataset.hl, b.classList.contains('on'));
+      paintCounts();
       state.settings.hl = $$('[data-hl].on').map(x => x.dataset.hl).join(' ');
       App.saveSettings();
     });
@@ -82,7 +85,7 @@
     // Popover tra từ
     let pop = null;
     const closePop = () => { if (pop) { pop.remove(); pop = null; } $$('.tw.active').forEach(x => x.classList.remove('active')); };
-    App.cleanup = () => { closePop(); UI.stopSpeak(); };
+    App.cleanup = () => { closePop(); UI.stopSpeak(); $$('.sent.reading').forEach(x => x.classList.remove('reading')); };
     async function openPop(el) {
       closePop();
       el.classList.add('active');
