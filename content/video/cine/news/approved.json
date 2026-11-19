@@ -608,9 +608,13 @@
   {
    "id": "rule",
    "engine": "teach2d",
-   "status": "draft",
+   "status": "approved",
    "spec": "content/video/teach2d/eps/*.json",
-   "note": "Spell to Sound (docs/specs/spell-sound.md), 19/11: no banked clip with QC>=90 yet (bank.json) – the coordinator flips this to approved when the first short + wide pass every qc.py gate incl. platform_zones"
+   "sample": "https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/44482970761 (wr short+wide) + 44469710275 (kn, mb)",
+   "qc": 100,
+   "approved": "2026-11-19",
+   "by": "coordinator (CI gates: 6 clips mb/kn/wr short+wide QC 100 incl. platform_zones + dead_band)",
+   "note": "Spell to Sound (docs/specs/spell-sound.md)"
   },
   {
    "id": "drill",
