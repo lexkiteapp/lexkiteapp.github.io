@@ -818,6 +818,11 @@ if __name__ == '__main__':
     A_ = sys.argv
     if '--plan' in A_: plan(int(A_[A_.index('--plan') + 1])); sys.exit(0)
     if '--hand' in A_: plan_hand(); sys.exit(0)
+    if '--rules' in A_:   # Spell->Sound word mining (rules.py): rules-words.json regenerates identically (--check) or is rewritten
+        import rules as RU; F_ = facts(); W_ = sorted(F_['words']); U_ = set(W_) - {w for w, u in zip(W_, unknown(W_)) if u}
+        txt = RU.dump(RU.build(F_['words'], U_))
+        if '--check' in A_: sys.exit(0 if open(RU.OUT_F).read() == txt else 'rules-words.json differs from gen.py --rules - regenerate and review')
+        open(RU.OUT_F, 'w').write(txt); print('rules-words', sum(len(r['words']) for r in json.loads(txt)['rules']), 'words'); sys.exit(0)
     if '--todo' in A_:
         T_ = todo()
         if '--count' in A_: print(f'cần render {len(T_)}'); sys.exit(0)
