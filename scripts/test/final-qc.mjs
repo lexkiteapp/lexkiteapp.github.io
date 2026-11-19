@@ -7,7 +7,8 @@
 // Dùng: node scripts/test/final-qc.mjs [web] [out/stitch-diff] [out/final-qc]   (ảnh mẫu: STITCH_V2_PNG=out/stitch-v2/png)
 import fs from 'node:fs'; import path from 'node:path'; import { execFileSync } from 'node:child_process';
 import { chromium } from 'playwright';
-import { SCREENS, DRIVE, DRIVEN, SEED, SEED_STREAK, FIX_CLOCK, SEED_LEAGUE, SEED_SCREEN, FINAL, serve } from './stitch-screens.mjs';
+import { SCREENS, DRIVE, DRIVEN, SEED, SEED_STREAK, FIX_CLOCK, SEED_LEAGUE, SEED_SCREEN, FINAL as FINAL_ALL, serve, inShard } from './stitch-screens.mjs';
+const FINAL = FINAL_ALL.filter(f => inShard(f.k));   // CI chia shard theo màn (SHARD=i/n, stitch-screens.mjs); không đặt SHARD = đủ 13 màn
 const [ROOT = 'web', SD = 'out/stitch-diff', OUT = 'out/final-qc'] = process.argv.slice(2); fs.mkdirSync(OUT, { recursive: true });
 const REF = process.env.STITCH_V2_PNG || 'out/stitch-v2/png', LIM = JSON.parse(fs.readFileSync('scripts/test/stitch-diff.json', 'utf8'));
 const S = fs.existsSync(path.join(SD, 'scores.json')) ? JSON.parse(fs.readFileSync(path.join(SD, 'scores.json'), 'utf8')) : null;
@@ -188,4 +189,4 @@ fs.writeFileSync(path.join(OUT, 'SUMMARY.md'), md + '\n'); fs.writeFileSync(path
 if (process.env.GITHUB_STEP_SUMMARY) fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, md + '\n');
 console.log(md.split('\n').slice(0, FINAL.length + 4).join('\n'));
 if (pass.length < FINAL.length) { console.error(`✗ final-qc: ${FINAL.length - pass.length} màn chưa đạt (xem SUMMARY.md)`); process.exit(1); }
-console.log('✓ final-qc: 13/13 màn đạt QC cuối 1-1');
+console.log(`✓ final-qc: ${FINAL.length}/${FINAL.length} màn đạt QC cuối 1-1 (tổng ${FINAL_ALL.length})`);
