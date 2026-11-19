@@ -29,7 +29,7 @@
 ## 4. Dung lượng & tốc độ (bắt buộc – `scripts/test/size-budget.mjs`)
 
 > **5/11 – thước web/js = byte người học thật tải:** nền + gói ngôn ngữ LỚN NHẤT (`learnerBytes`, `scripts/lib/js-budget.mjs`), vì mỗi người học chỉ tải `en` + 1 gói trong 13 – đếm cả 13 gói là đếm byte không ai tải cùng lúc (chủ duyệt "Đồng ý đổi"). Trần `totalJs` 17 170 000 → 12 860 000 giữ đúng khoảng trống ~121 KB (không nới). Chặn phụ để thước mới không che phình: `langPackMax` (mỗi gói) và `totalAll` (tổng cả kho). Test: `scripts/test/js-budget.mjs`.
-- Dữ liệu **tải lười theo trang** (`BUNDLES` trong `web/js/app.js`), không thêm vào khung app (`SHELL` trong `web/sw.js`).
+- Dữ liệu **tải lười theo trang** (`BUNDLES` trong `web/js/bundles.js` – KHÔNG thêm vào app.js: khung sát trần), không thêm vào khung app (`SHELL` trong `web/sw.js`).
 - Mỗi file dữ liệu ≤ **160 KB gzip**; lớn hơn thì tách lô (`data1.js`, `data2.js`…). Khung app ≤ 380 KB gzip, tổng `web/js` ≤ 15 MB.
 - Không nhúng ảnh/âm thanh vào JS/JSON: âm thanh qua pipeline `audio.yml` (CDN lexkiteapp.github.io), ảnh qua repo `lexkite-media` (AVIF/WebP nhiều cỡ).
 - Không lặp dữ liệu giữa các file; dùng khóa tham chiếu.

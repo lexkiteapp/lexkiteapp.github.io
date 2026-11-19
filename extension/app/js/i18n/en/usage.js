@@ -1,4 +1,4 @@
-/* English UI strings – web/js/usage.js (📘 Cách dùng từ). NHÓM TẢI LƯỜI: không gộp vào en.js (khung app); nạp cùng gói "usage" (BUNDLES trong app.js).
+/* English UI strings – web/js/usage.js (📘 Cách dùng từ). NHÓM TẢI LƯỜI: không gộp vào en.js (khung app); nạp cùng gói "usage" (BUNDLES trong bundles.js).
 * Bản dịch 13 ngôn ngữ: scripts/i18n-fixed.json (dịch tay). Kiểm tra: i18n-missing / i18n-qa đọc cả nhóm tải lười (LAZY trong build-i18n.sh). */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D.en = Object.assign(D.en || {}, {
 "động từ nguyên mẫu có to": "to-infinitive",

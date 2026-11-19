@@ -3,7 +3,7 @@
 // khung sinh (st/v2/grammar.js) dựng ra HTML đủ mọi lối đi cũ (hook data-grow cho e2e), chương rỗng/hết bài không vỡ.
 import fs from 'node:fs'; import vm from 'node:vm'; import assert from 'node:assert/strict';
 import { loadContent } from '../lib/content-load.mjs';
-const read = f => fs.readFileSync(f, 'utf8'), src = read('web/js/grammar.js'), app = read('web/js/app.js'), gen = read('web/js/st/v2/grammar.js');
+const read = f => fs.readFileSync(f, 'utf8'), src = read('web/js/grammar.js'), app = read('web/js/app.js') + read('web/js/bundles.js'), gen = read('web/js/st/v2/grammar.js');
 const dict = { 'Tất cả {n} bài': 'All {n} lessons' };
 const mk = ({ lang = 'vi', done = {}, tab = null, hist = 2 } = {}) => {
   const removed = [], log = { mount: [], hash: [], back: 0, store: {}, toast: [] }, routes = {}, view = { innerHTML: '' };
