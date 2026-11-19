@@ -59,7 +59,7 @@ jobs:
           fail=0
           for p in vi/kiem-tra-trinh-do-tieng-anh/ en/english-level-test/ en/english-level-test/b2/ ja/english-level-test/ ar/english-level-test/ en/toeic-part-5-practice/ vi/luyen-toeic-part-5/; do
             id=$(echo "$p" | tr '/' '_')
-            for i in 1 2 3; do npx -y lighthouse@12.2.1 "http://localhost:8080/$p" --form-factor=mobile --only-categories=performance,accessibility,best-practices,seo --chrome-flags="--headless=new --no-sandbox" --output=json --output-path="reports/tools/$id-$i.json" --quiet || true; done
+            for i in 1 2 3; do npx -y lighthouse@12.2.1 "http://localhost:8080/$p" --form-factor=mobile --only-categories=performance,accessibility,best-practices,seo --chrome-flags="--headless=new --no-sandbox --disable-dev-shm-usage --disable-gpu" --output=json --output-path="reports/tools/$id-$i.json" --quiet || { sleep 8; npx -y lighthouse@12.2.1 "http://localhost:8080/$p" --form-factor=mobile --only-categories=performance,accessibility,best-practices,seo --chrome-flags="--headless=new --no-sandbox --disable-dev-shm-usage --disable-gpu" --output=json --output-path="reports/tools/$id-$i.json" --quiet || true; }; done   # 18/11: Chrome đôi khi không mở được cổng gỡ lỗi (log #1543 build) → thử lại 1 lần, vẫn cần ≥1 lượt đo thật
             node -e "
               const fs=require('fs');const runs=[1,2,3].map(i=>'reports/tools/$id-'+i+'.json').filter(f=>fs.existsSync(f)).map(f=>require('./'+f));
               if(!runs.length){console.log('✗ lighthouse lỗi $p');process.exit(1)}

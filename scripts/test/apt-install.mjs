@@ -36,8 +36,10 @@ try {
 
 // máy gác: workflow không tự gọi apt-get/apt install (trần, thử lại, cache nằm ở MỘT chỗ)
 const WF = '.github/workflows', naked = [];
-for (const f of fs.readdirSync(WF).filter(f => /\.ya?ml$/.test(f))) fs.readFileSync(path.join(WF, f), 'utf8').split('\n').forEach((l, i) => {
-  if (!/^\s*#/.test(l) && /\bapt(-get)?\b[^\n#]*\sinstall\b/.test(l)) naked.push(`${f}:${i + 1}`);
+// 18/11: gác cả composite action (video9-setup từng gọi apt-get trần) – không chỉ workflow
+const AC = '.github/actions', files = [...fs.readdirSync(WF).filter(f => /\.ya?ml$/.test(f)).map(f => path.join(WF, f)), ...fs.readdirSync(AC).map(d => path.join(AC, d, 'action.yml')).filter(f => fs.existsSync(f))];
+for (const f of files) fs.readFileSync(f, 'utf8').split('\n').forEach((l, i) => {
+  if (!/^\s*#/.test(l) && /\bapt(-get)?\b[^\n#]*\sinstall\b/.test(l)) naked.push(`${path.basename(path.dirname(f)) === 'workflows' ? path.basename(f) : f}:${i + 1}`);
 });
 ok(!naked.length, 'workflow không tự gọi `apt-get install` (dùng ./.github/actions/apt hoặc scripts/ci/apt-install.sh)' + (naked.length ? ': ' + naked.join(', ') : ''));
 const act = fs.readFileSync('.github/actions/apt/action.yml', 'utf8');

@@ -44,7 +44,7 @@ ok(MC.check(gold, 'Passengers should board at the rear of the train today ok').c
 const vs = all.filter(x => x.source.kind === 'dialogue').map(x => [x, MC.voices(x.source)]);
 ok(vs.every(([x, v]) => { const who = [...new Set(x.source.lines.map(l => l.s))]; return who.every(s => /^b[fm]_/.test(v[s])) && new Set(who.map(s => v[s])).size === who.length; }), `voices: ${vs.length} hội thoại – mỗi người nói một giọng Anh-Anh riêng`);
 ok(MC.voices({ lines: [{ s: 'Ms Ito' }, { s: 'Mr Kovac' }, { s: 'Hana' }, { s: 'Omar' }] }).Hana.startsWith('bf_') && MC.voices({ lines: [{ s: 'Mr Kovac' }] })['Mr Kovac'].startsWith('bm_'), 'voices: Ms/tên -a → nữ, Mr → nam');
-const app = fs.readFileSync('web/js/app.js', 'utf8'), eg = fs.readFileSync('web/js/exit-guard.js', 'utf8'), corpus = fs.readFileSync('scripts/sentence-audio/corpus.mjs', 'utf8');
+const app = fs.readFileSync('web/js/app.js', 'utf8') + fs.readFileSync('web/js/bundles.js', 'utf8'), eg = fs.readFileSync('web/js/exit-guard.js', 'utf8'), corpus = fs.readFileSync('scripts/sentence-audio/corpus.mjs', 'utf8');
 ok(/mediate: \['js\/i18n\/en\/mediate\.js'[^\]]*'js\/mediate-core\.js'[^\]]*'cpack\/mediation\/index\.js'[^\]]*'js\/mediate\.js'\]/.test(app) && /mediate: 'mediate'/.test(app), 'app.js: gói lười mediate + route');
 ok(/WITH_ARG = \[[^\]]*'mediate'/.test(eg), 'ExitGuard: #/mediate/<bài> là màn FOCUS (X + thanh tiến độ)');
 ok(/mediation-source/.test(corpus) && JSON.parse(fs.readFileSync('web/audio/coverage.json', 'utf8')).groups['mediation-source'], 'corpus Kokoro nhóm mediation-source có sàn độ phủ');

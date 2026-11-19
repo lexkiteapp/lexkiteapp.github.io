@@ -10,6 +10,7 @@ node scripts/test/say-text.mjs
 node scripts/test/stitch-coverage.mjs
 node scripts/test/world-scorecard.mjs
 node scripts/test/bundle-names.mjs web
+node scripts/test/bundles-manifest.mjs
 node scripts/test/no-url-pathname.mjs
 node scripts/test/ext-sync.mjs
 node scripts/test/sync-drive.mjs
@@ -400,6 +401,7 @@ node scripts/test/perf-flake.mjs
 node scripts/test/gate-relevance.mjs
 node scripts/test/gate-retest.mjs
 node scripts/test/native-qa-scope.mjs
+node scripts/test/pr-scope-carry.mjs
 node scripts/test/pr-unconflict.mjs
 node scripts/test/regen-conflicts.mjs
 node scripts/test/gen-pr-clean.mjs
@@ -455,6 +457,7 @@ node scripts/test/body-limit.mjs
 node scripts/test/ai-task.mjs
 node scripts/test/video-junk.mjs
 node scripts/test/dict-add.mjs
+node scripts/test/quote-english.mjs
 node scripts/test/css-notes.mjs
 node scripts/test/ci-portable.mjs
 node scripts/test/sr-only.mjs

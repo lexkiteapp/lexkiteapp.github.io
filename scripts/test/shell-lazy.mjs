@@ -7,14 +7,14 @@
 // Dùng: node scripts/test/shell-lazy.mjs   (chạy trong npm test, ngay sau size-budget)
 import fs from 'fs';
 import zlib from 'zlib';
+import { readBundles } from '../lib/bundles.mjs';
 import { gzSize, firstLoadFiles, swShell, eagerFiles } from '../lib/gz-canon.mjs';
 
 let fail = 0; const ok = (c, m) => { if (c) console.log('✓ shell-lazy: ' + m); else { fail++; console.error('✗ shell-lazy: ' + m); } };
 const rd = f => fs.readFileSync(f, 'utf8');
 const first = firstLoadFiles(), firstSrc = first.filter(u => /\.js$/.test(u)).map(u => rd('web' + u)).join('\n');
 const app = rd('web/js/app.js');
-const a = app.indexOf("const G = 'js/grammar/', BUNDLES = {"), b = app.indexOf('\n  };', a);
-const BUNDLES = new Function(app.slice(a, b + 4) + '; return BUNDLES;')();
+const BUNDLES = readBundles();
 const r0 = app.indexOf('const ROUTE_BUNDLE = {'), r1 = app.indexOf('};', r0);
 const ROUTE_BUNDLE = new Function(app.slice(r0, r1 + 2) + '; return ROUTE_BUNDLE;')();
 

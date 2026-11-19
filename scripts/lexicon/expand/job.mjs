@@ -74,6 +74,8 @@ const VIW = {};
 // nghĩa vi NGƯỜI VIẾT thứ hai: Wiktionary tiếng Việt (viwikt.py, CC BY-SA 4.0) – phủ 94 % mục rớt vì thiếu vi Wiktionary tiếng Anh (31/10); chỉ là nguồn đối chiếu
 // + nhãn Wikidata theo WordNet (wikidata_vi.py, CC0): đối chiếu thêm cho mục không có nguồn thứ hai, cổng giữ nguyên
 const readWV = f => { try { return f && fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, 'utf8')) : {}; } catch { return {}; } };
+// 17/11 phiếu đối chiếu GPL (Hồ Ngọc Đức; tệp TẠM trong $RUNNER_TEMP, tải + tách ở workflow, KHÔNG commit/artifact): chỉ đưa vào viAgreeSources({ g }) – lib.mjs không bao giờ lưu chữ GPL
+const GP = readWV(arg('--gpl'));
 const WV = mergeViSources(readWV(arg('--viwk')), readWV(fileURLToPath(new URL('../../../content/lexicon/expand/wikidata-vi.json', import.meta.url))));
 // câu NGƯỜI VIẾT (examples.py: Tatoeba + Simple Wiki + Common Voice + Wikivoyage/Wikinews/Wikibooks) – chạy cả ở bước lọc trước AI, kết quả dùng lại
 const TAT = arg('--tatoeba', process.env.TATOEBA || ''), EXT = {};
@@ -246,7 +248,7 @@ stat.vi = { agree: 0, none: 0 }; stat.tr = { 'wiktionary+omw+ai': 0, 'omw+ai': 0
 const probe = {};
 for (const x of okDef) { const P = {}, X1 = X[x.k], om = (SY[x.k] || {}).omw || {};
   X1.exAll.slice(0, 8).forEach((c, i) => { P['ex' + i] = c.t; });
-  X1.viC = viAgreeSources({ wk: [...(X1.tr.vi || []), ...(VIW[x.k] || []).map(v => v.w)], wv: WV[x.k] || [], a: VA[x.k] || '', b: VB[x.k] || '', c: VC[x.k] || '' }).slice(0, 3); stat.vi[X1.viC.length ? 'agree' : 'none']++;
+  X1.viC = viAgreeSources({ wk: [...(X1.tr.vi || []), ...(VIW[x.k] || []).map(v => v.w)], wv: WV[x.k] || [], a: VA[x.k] || '', b: VB[x.k] || '', c: VC[x.k] || '', g: GP[x.k] || [] }).slice(0, 3); stat.vi[X1.viC.length ? 'agree' : 'none']++;
   X1.viC.forEach((c, i) => { P['vi' + i] = c.v; });
   // vi Wiktionary lẻ (để kiểm phương án sửa vi_fix của lxjudge – chỉ nhận vi_fix đã qua trắc nghiệm nghĩa)
   X1.viW = [...new Set((VIW[x.k] || []).map(v => viNorm(v.w)[0]).filter(v => v && !X1.viC.some(c => c.v === v)))].slice(0, 3); X1.viW.forEach((v, i) => { P['vw' + i] = v; });
