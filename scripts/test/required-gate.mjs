@@ -252,6 +252,11 @@ ok(!prCapable('name: a\non:\n  workflow_run:\n    workflows: [b]\njobs: {}\n'), 
   ok(gateDrift([F('scripts/i18n-qa.mjs')]).length === 1 && gateDrift([F('scripts/lib/i18n-rules.mjs')]).length === 1 && gateDrift([F('.github/workflows/npm-test.yml', 'added')]).length === 1, 'i18n-qa / bộ luật / workflow đổi → cổng đổi (mọi trạng thái)');
   ok(gateDrift([F('scripts/test/ci-policy.mjs')]).length === 1 && gateDrift([F('scripts/test/x.mjs', 'renamed')]).length === 1, 'test SỬA/ĐỔI TÊN (chưa biết nguồn/PR) → cổng đổi');
   ok(gateDrift([F('scripts/test/old.mjs', 'removed')]).length === 0, 'test bị XOÁ không làm PR đỏ → không bắt gộp lại');
+  { const suite = { 'scripts/test/suite.txt': 'node scripts/test/lex.mjs\nnode scripts/test/ads-demo.mjs\n' };
+    ok(gateDrift([F('scripts/test/ads-demo-android.mjs')], ['web/js/app.js'], suite).length === 0, 'test cấp trên cùng KHÔNG trong suite (chỉ workflow riêng chạy) → không bắt PR khác gộp lại (#1587)');
+    ok(gateDrift([F('scripts/test/ads-demo-android.mjs')], ['scripts/test/ads-demo-android.mjs'], suite).length === 1, '…nhưng PR sửa chính nó vẫn tính');
+    ok(gateDrift([F('scripts/test/lex.mjs')], ['web/js/app.js'], { ...suite, 'scripts/test/lex.mjs': "x('web/js/app.js')" }).length === 1, 'test CÓ trong suite và nhắc tệp PR → vẫn tính');
+    ok(gateDrift([F('scripts/test/lib/helper.mjs')], ['web/js/app.js'], suite).length === 1, 'tệp trong scripts/test/lib (được test khác nhập) → vẫn tính'); }
   ok(gateDrift([F('scripts/test/brand-new.mjs', 'added'), F('web/js/app.js'), F('docs/CODEMAP.md')]).length === 0, 'test MỚI thêm + mã/tài liệu thường → không đổi cổng');
   // 16/11: workflow main đổi chỉ tính khi PR cũng sửa đúng file đó; luật/policy vẫn mọi PR
   { const wf = [F('.github/workflows/audio.yml'), F('.github/workflows/call-rt.yml', 'added'), F('.github/workflows/x.yml')];

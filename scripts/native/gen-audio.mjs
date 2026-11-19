@@ -21,7 +21,7 @@ export function audioVectors() {
   if (!A.pickVoice || !A.genderOf) throw new Error('gen-audio: web/js/audio.js did not export its pure API in node');
   const ui = fs.readFileSync(R('web/js/ui.js'), 'utf8');
   const slice = (from, toIncl) => { const a = ui.indexOf(from), b = ui.indexOf(toIncl, a); if (a < 0 || b < 0) throw new Error('gen-audio: ui.js block not found: ' + from); return ui.slice(a, ui.indexOf('\n', b)); };
-  const cdnSrc = slice('let cdnFail = 0;', 'g.audioHas = ');
+  const cdnSrc = slice('let cdnFail = 0', 'g.audioHas = ');
   const mkCdn = (fails, s2) => { const g = { LISTEN_AUDIO_S2: new Set(s2 || []) }; vm.runInContext(`(function (g) { ${cdnSrc}\n })`, vm.createContext({}))(g); for (let i = 0; i < fails; i++) g.audioFail(); return g; };
   const WAV = (/const WAV = '([^']*)';/.exec(ui) || [])[1];
   if (!WAV) throw new Error('gen-audio: WAV suffix not found in web/js/ui.js');
