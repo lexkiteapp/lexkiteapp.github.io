@@ -433,8 +433,8 @@ const DKRE = /<span>[^<]*<\/span>|[^\s<]*<input[^>]*>[^\s<]*/g;
 function dictParse(h) {
   if (/Chính xác \d+%<\/h2>/.test(h)) return { done: true, pct: +/Chính xác (\d+)%<\/h2>/.exec(h)[1], count: +/(\d+) câu đã chép/.exec(h)[1], links: [...h.matchAll(/class="btn( primary)?" href="([^"]*)"/g)].map(m => m[2]) };
   const line = (/<div class="dict-line">([\s\S]*?)<\/div>\s*<div id="dFb"/.exec(h) || [])[1];
-  return { done: false, title: unesc(/Chép chính tả · (.*?) · [^<]*<\/span>/.exec(h)[1]), speaker: unesc(/Chép chính tả · .*? · ([^<]*)<\/span>/.exec(h)[1]), counter: [+/<span class="small muted">(\d+)\/(\d+)<\/span>/.exec(h)[1], +/<span class="small muted">\d+\/(\d+)<\/span>/.exec(h)[1]], progressPct: +/<i style="width:([\d.]+)%"/.exec(h)[1], mode: /<option value="(\w+)" selected>/.exec(h)[1], textarea: /id="dIn"/.test(h),
-    cells: line ? [...line.matchAll(DKRE)].map(m => { const s = m[0], i = /^([^<]*)<input class="dict-h" data-i="(\d+)" size="(\d+)"[^>]*>([^<]*)$/.exec(s); return i ? { pre: unesc(i[1]), hole: +i[2], size: +i[3], post: unesc(i[4]) } : unesc(strip(s)); }) : null };
+  return { done: false, title: unesc(/Chép chính tả · (.*?) · [^<]*<\/(?:span|label)>/.exec(h)[1]), speaker: unesc(/Chép chính tả · .*? · ([^<]*)<\/(?:span|label)>/.exec(h)[1]), counter: [+/<span class="small muted">(\d+)\/(\d+)<\/span>/.exec(h)[1], +/<span class="small muted">\d+\/(\d+)<\/span>/.exec(h)[1]], progressPct: +/<i style="width:([\d.]+)%"/.exec(h)[1], mode: /<option value="(\w+)" selected>/.exec(h)[1], textarea: /id="dIn"/.test(h),
+    cells: line ? [...line.matchAll(DKRE)].map(m => { const s = m[0], i = /^([^<]*)<input class="dict-h" data-i="(\d+)"[^>]* size="(\d+)"[^>]*>([^<]*)$/.exec(s); return i ? { pre: unesc(i[1]), hole: +i[2], size: +i[3], post: unesc(i[4]) } : unesc(strip(s)); }) : null };
 }
 const clean = w => w.toLowerCase().replace(/[^a-z0-9'%]/g, '');
 const dtoks = s => s.replace(/[’‘]/g, "'").split(/\s+/).filter(Boolean);

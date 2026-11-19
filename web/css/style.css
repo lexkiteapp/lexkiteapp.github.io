@@ -1476,3 +1476,5 @@ body:has(.learn-bar,.grade-bar,.sheet-up,.sel-bar,.install-nudge,#modal:not([hid
 @media (prefers-reduced-motion: reduce) { .st-ti { transition: none; } .v2 nav a[data-tab]:active .st-ti { transform: none; } }
 /* icon-flash: chữ ligature chưa có phông →… CSS-NOTES §44 */
 html.ic-wait-o .material-symbols-outlined,html.ic-wait-r .material-symbols-rounded{color:transparent!important;display:inline-block;max-width:1em;overflow:hidden;white-space:nowrap}
+/* P0 kiểm toán 18/11: hàng nút chép chính tả ở 390 px – Câu trước/Câu sau chia đều dòng sau (nút Nghe chiếm cả dòng ở lazy-ui.css) */
+@media (max-width: 480px) { .q-card .row.center #dPrev, .q-card .row.center #dNext { flex: 1 1 0; min-width: 0; } }
