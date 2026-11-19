@@ -23,7 +23,7 @@
     return null;
   }
 
-  // Câu luyện của một thẻ: câu người học gặp trên web (add-on) → câu song ngữ → ví dụ thư viện. Chỉ câu chứa từ, 3–14 từ.
+  // Câu luyện của một thẻ: câu người học gặp trên web (add-on)
   function sentenceOf(c, viOk) {
     const cands = [];
     if (c.ctx) cands.push({ text: c.ctx, own: true });
@@ -62,9 +62,9 @@
     return out;
   }
 
-  // Gợi ý tăng dần theo dạng (docs/LESSON-UX-V2.md §3) – không trừ XP: fifty = bỏ 1 phương án sai · first = hiện ô kế tiếp · letter = mở 1 chữ · bank = đổi sang ô chữ cái · slow = nghe chậm · pair = hiện 1 cặp
+  // Gợi ý tăng dần theo dạng (docs/LESSON-UX-V2.md §3)
   const HINTS = { gap: ['fifty'], mean: ['fifty'], q: ['fifty'], build: ['first'], tr: ['first'], type: ['letter', 'bank'], say: ['slow'], pic: ['slow'], match: ['pair'] };
-  // Ô chữ cái cho "gõ từ" khi người học chọn ngân hàng chữ: chữ của đáp án (giữ "-", "'") + 3 chữ nhiễu không có trong từ
+  // Ô chữ cái cho "gõ từ" khi người học chọn ngân hàng chữ
   function letterBank(word, r) {
     const ch = [...String(word)].filter(x => x !== ' '), ABC = 'abcdefghijklmnopqrstuvwxyz'.split('').filter(x => !ch.includes(x));
     return shuffle(ch.concat(shuffle(ABC, r).slice(0, 3)), r);
@@ -79,7 +79,7 @@
     const byWord = picks.map(p => {
       const c = p.card, pat = isPat(c) && c.ex, s = pat ? { text: c.ex, own: false, at: { toks: toks(c.ex) } } : sentenceOf(c, viOk), types = [];
       // câu song ngữ riêng cho dạng dịch (câu add-on thường không có bản dịch)
-      // dạng dịch cần bản dịch CÂU đúng ngôn ngữ người học: vi → x.vi; ngôn ngữ khác → gloss(thẻ, câu EN) (gói sent), không có → không sinh dạng 'tr'
+      // dạng dịch cần bản dịch CÂU đúng ngôn ngữ người học
       const trOf = x => (viOk ? x.vi : opts.gloss && opts.gloss(c, x.en)) || '';
       const pair = (c.sentences || []).map(x => { const tr = x && x.en && findWord(x.en, c.word) && toks(x.en).length >= 3 && toks(x.en).length <= 10 ? trOf(x) : ''; return tr ? { text: x.en, tr, own: false, at: findWord(x.en, c.word) } : null; }).find(Boolean);
       if (s && !s.tr && opts.gloss) s.tr = opts.gloss(c, s.text) || ''; // bản dịch câu (gói web/packs/sent) – câu add-on thường không có
@@ -93,7 +93,7 @@
       const only = opts.only && types.filter(x => opts.only.includes(x));
       return { p, c, s, pair, types: only && only.length ? only : types };
     });
-    // cân bằng cả bài: mỗi vòng, mỗi từ lấy dạng còn ít nhất trong bài (hòa → ngẫu nhiên), dạng hiếm (pic, tr) được ưu tiên khi hòa
+    // cân bằng cả bài: mỗi vòng, mỗi từ lấy dạng còn ít nhất trong bài
     const cnt = { gap: 0, build: 0, pic: 0, tr: 0, type: 0, say: 0 }, RARE = { pic: 0, tr: 0.1, build: 0.2, type: 0.25, gap: 0.3, say: 0.4 };
     byWord.forEach(w => { w.order = []; });
     for (let round = 0; round < per; round++) byWord.forEach(w => {

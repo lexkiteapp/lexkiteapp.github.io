@@ -11,7 +11,7 @@
   const learnVi = () => (typeof nativeLang === 'function' ? nativeLang() === 'vi' : true); // ngôn ngữ nghĩa của người học (meanLang/giao diện), KHÔNG phải Target.cur()
   const meanOf = c => (c ? (App.meanOf ? App.meanOf(c) : '') || (typeof I18N !== 'undefined' && I18N.meanLang && I18N.meanLang() !== 'vi' ? '' : c.vi) || c.def || '' : ''); // thẻ null (bài ghép cặp, card: null) → '' như App.meanOf
 
-  // Bộ khởi đầu (người mới, chưa có thẻ) và bộ demo cho anh duyệt: từ có ảnh đúng từ#loại + gold bank. Nghĩa vi; ngôn ngữ khác → App.meanOf / gói nghĩa.
+  // Bộ khởi đầu (người mới, chưa có thẻ) và bộ demo cho anh duyệt
   const now0 = Date.now();
   const SRS = (due, reps) => ({ ef: 2.5, interval: reps ? 3 : 0, reps: reps || 0, lapses: 0, due, last: reps ? due - 3 * 864e5 : null, step: 0, S: reps ? 3 : null, D: reps ? 5 : null });
   const DEMO = () => [
@@ -24,7 +24,7 @@
   ].map(c => (learnVi() ? c : Object.assign({}, c, { sentences: [] }))); // câu song ngữ mẫu chỉ có tiếng Việt → ngôn ngữ khác bỏ dạng dịch
   const STARTER = () => DEMO().map(c => Object.assign({}, c, { ctx: '', src: '', srs: SRS(now0, 0) }));
 
-  // Ảnh đúng từ#loại qua VImg (chỉ mục v3 theo mảnh, cùng cờ bật dần); chưa bật/chưa có ảnh → '' (bài không sinh dạng pic)
+  // Ảnh đúng từ#loại qua VImg (chỉ mục v3 theo mảnh, cùng cờ bật dần)
   const imgUrl = (w, p) => (window.VImg ? VImg.quizUrl(w, p) : '');
 
   function css() {
@@ -84,7 +84,7 @@
   const KNAME = k => ({ lesson: t('Bài học'), listen: t('Nghe'), speak: t('Nói'), review: t('Ôn lỗi'), story: t('Truyện'), radio: 'Radio' }[k]);
   const STORIES = kind => (window.LESSON_STORIES || []).filter(s => s.kind === kind);
   const meanLang = () => { try { return (I18N.meanLang && I18N.meanLang()) || I18N.lang() || 'en'; } catch (e) { return 'en'; } };
-  // 🌐 Ngôn ngữ mẹ đẻ của người học cho đề bài ('' = tiếng Anh → không có nghĩa tiếng mẹ đẻ, đề dựa vào âm thanh/định nghĩa)
+  // 🌐 Ngôn ngữ mẹ đẻ của người học cho đề bài
   const nativeLang = () => { try { return I18N.meanLang && I18N.meanLang() === 'vi' ? 'vi' : (I18N.lang() === 'en' ? '' : I18N.lang()); } catch (e) { return ''; } };
   const nativeMean = c => { const L = nativeLang(); if (!c || !L) return ''; if (L === 'vi') return c.vi || ''; return (App.nativeGloss && App.nativeGloss(c.word, c.pos)) || ''; };
   // Bản dịch câu ví dụ (web/packs/sent/<lang>/<mảnh>.json – scripts/gen-sent-packs.mjs), chỉ nạp mảnh của các từ trong bài; khớp đúng câu EN mới dùng
@@ -95,7 +95,7 @@
   const goldLoad = () => App.need('lgold').catch(() => {});
   const sentGloss = (c, en) => { const L = nativeLang(), w = c && String(c.word || '').toLowerCase().trim(), v = w && (SENT[L + shardOf(w)] || {})[w]; return v && E.norm(v[0]) === E.norm(en) ? v[1] : ''; };
 
-  // 🎞️ Cờ lv_embed: bước đầu của bài từ vựng (học/nghe/nói/ôn, không truyện/radio) = video nhúng (4:5 / 16:9, docs/VIDEO-MOTION.md §Embedded). Thử: ?lvembed=1 (nhớ trên máy), ?lvembed=0 tắt; hoặc cấu hình xa lk.cfg.v.lv_embed.
+  // 🎞️ Cờ lv_embed: bước đầu của bài từ vựng (học/nghe/nói/ôn, không truyện/radio) = video nhúng (4:5 / 16:9, docs/VIDEO-MOTION.md §Embedded)
   const lvOn = () => {
     try { const m = /[?&]lvembed=([01])\b/.exec(location.href); if (m) ls.set('lk.lv_embed', m[1]); const f = ls.get('lk.lv_embed'); if (f === '1' || f === '0') return f === '1'; const c = JSON.parse(ls.get('lk.cfg') || 'null'), v = c && c.v && c.v.lv_embed; return v === true || v === '1' || v === 'true'; } catch (e) { return false; }
   };
@@ -144,7 +144,7 @@
     next();
   };
 
-  // 🗺️ Bản đồ chặng: MỘT nút "tiếp theo" phát sáng + nút BẮT ĐẦU to; nút đã xong ✓, nút sau mờ. Không menu, không phải chọn.
+  // 🗺️ Bản đồ chặng: MỘT nút "tiếp theo" phát sáng + nút BẮT ĐẦU to
   function map(demo, plan, n) {
     const unit = Math.floor(n / plan.length) + 1, at = n % plan.length;
     const nodes = plan.map((p, i) => {
@@ -157,7 +157,7 @@
       <ol class="lsn-path">${nodes}</ol><p class="tiny muted center">${t('Miễn phí, không giới hạn')}</p></div>`;
   }
 
-  // 🧩 Stitch v2.1 lesson-question (cờ ux1): khung tự sinh, Ama (Chars+LessonTeacher, 2D) đứng sau thẻ đề bài đục; trang cũ (ST.lsnShell) giữ làm dự phòng + cho Truyện/Radio (2 giáo viên)
+  // 🧩 Stitch v2.1 lesson-question (cờ ux1): khung tự sinh, Ama (Chars+LessonTeacher, 2D) đứng sau thẻ đề bài đục
   const v2On = () => !!(window.ST2 && window.ST2['lesson-question'] && window.Chars && window.LessonTeacher && App.ux1On && App.ux1On());
   const GRID = 'grid grid-cols-2 gap-[1rem] mb-[1rem] lsn-opts', FLOW = 'flex flex-col gap-3 mb-[1rem]', LET = 'ABCDEFGH';
   const SLOW = 'absolute top-[1.2rem] right-[1.5rem] z-20 w-7 h-7 flex items-center justify-center rounded-[9999px] active:scale-95 transition-transform lt:bg-[#FFFFFF] lt:text-[#0D6964] dk:bg-[#142328] dk:text-[#2BA39A] motion-reduce:transition-none after:absolute after:-inset-2 after:content-[\'\']';
@@ -180,7 +180,7 @@
     view.querySelectorAll('.lsn-skip2').forEach(x => x.remove());
     const sk = q.querySelector('.lsn-skipb'), list = [LISTENS(it) && ['lsnNoL', t('Không nghe được lúc này'), 'hearing_disabled'], SPEAKS(it) && ['lsnNoS', t('Không nói được lúc này'), 'mic_off']].filter(Boolean);
     const set = (b, [id, lb, ic]) => { b.id = id; b.setAttribute('aria-label', lb); b.title = lb; b.querySelector('.material-symbols-outlined').textContent = ic; };
-    // "Tôi không biết" có ở MỌI dạng bài (không bao giờ nhốt người học): tính là sai + hiện đáp án + gặp lại (báo lỗi #13)
+    // "Tôi không biết" có ở MỌI dạng bài (không bao giờ nhốt người học)
     list.push(['lsnIdk', t('Tôi không biết'), 'help']);
     sk.hidden = false; set(sk, list[0]);
     list.slice(1).reverse().forEach(x => { const c = sk.cloneNode(true); c.classList.add('lsn-skip2'); set(c, x); sk.after(c); });
@@ -290,7 +290,7 @@
     if (LISTENS(it)) setTimeout(() => say(audioText, false, it.who), 250);
   }
 
-  // 🧩 Stitch v2.1 story-duo (cờ ux1): câu thoại = khung 'story-duo' (Ama trái + Carlos phải, cả hai Chars/LessonTeacher đứng SAU khung chat đục); bài kiểm giữa truyện = khung lesson-question (người nói của câu đó + thẻ đáp án + tấm phản hồi).
+  // 🧩 Stitch v2.1 story-duo (cờ ux1): câu thoại = khung 'story-duo' (Ama trái + Carlos phải, cả hai Chars/LessonTeacher đứng SAU khung chat đục)
   const duoOn = () => v2On() && !!ST2['story-duo'], RADIO = '🔊 · · ·';
   function frame(it) {
     const want = it.type === 'line' || (it.type === 'q' && L.duo) ? 'duo' : 'q-' + (it.who || 'ama'); if (L.frame === want) return;
@@ -362,7 +362,7 @@
     setTimeout(() => say(it.sent, false, it.who, undefined, cap), 200);
   }
 
-  // 🎞️ Bước xem video: gói lvideo + manifest chỉ tải khi bước này mở; video hết (end card "Next step →") → bấm chính nút Tiếp tục của bài
+  // 🎞️ Bước xem video: gói lvideo + manifest chỉ tải khi bước này mở
   function video(it) {
     $('#lsnBub').textContent = t('Xem video bài học');
     $('#lsnBody').innerHTML = '<div class="lsn-vid" id="lsnVid"></div>';
@@ -460,9 +460,9 @@
 
   // Dải chip đầu tấm phản hồi (Tactile): đúng/sai + XP câu này + chuỗi ngày (không có "tim/mạng" – luật chủ app)
   const chips = ok => ST.lsnChips({ ok, face: ST.tStill(L.who === 'carlos' ? 'carlos' : 'ama', L.pose || (ok ? 'cheer' : 'concern')), okText: t('Đúng rồi!') + (L.sess.log.slice(-1)[0] && L.sess.log.slice(-1)[0].retry ? '' : ' +2 XP'), badText: t('Chưa đúng'), streak: App.streak && App.streak() ? t('{n} ngày liên tiếp', { n: App.streak() }) : '' });
-  // 💬 Câu hỏi hiểu của truyện/radio (không có thẻ từ): "Vì sao?" = câu thoại làm bằng chứng (stories.json q.why) – phản hồi cụ thể, Hattie & Timperley 2007
+  // 💬 Câu hỏi hiểu của truyện/radio (không có thẻ từ)
   const storyWhy = it => (!it.card && it.why ? `<div class="${ST.XP} lsn-swhy"><p class="m-0 font-bold">${UI.icon('lightbulb')} ${esc(t('Vì sao?'))}</p><p class="m-0" lang="en">${esc(it.why)}</p></div>` : '');
-  // 🎨 Tấm phản hồi = mẫu Stitch "Instant Feedback & Band Booster": chip đúng/sai + chuỗi · thẻ giáo viên 2D · Tăng điểm · Vì sao? + Tiếp tục
+  // 🎨 Tấm phản hồi = mẫu Stitch "Instant Feedback & Band Booster"
   function feedback(it, ok, heard) {
     if (L.v2 && window.ST2 && ST2['feedback-correct'] && ST2['feedback-wrong']) return feedbackV2(it, ok);
     const foot = $('#lsnFoot'), lv = view.querySelector('#lsn');
@@ -482,8 +482,8 @@
     if (c) booster(it);
   }
 
-  // 🧩 Stitch v2.1 feedback-correct / feedback-wrong (khung tự sinh: brand/stitch/v2/bind/feedback-*.json): CHỈ tấm phản hồi, đặt TRONG luồng ngay chỗ chân Kiểm tra (không cố định → không che đáp án/ô nào).
-  // Giáo viên (Ama/Carlos) đổi sang ảnh tĩnh cheer (đúng) / concern (sai) NGAY chỗ cũ – vẫn đứng sau thẻ đề bài đục. Mục mẫu không vẽ (từ · phát âm · nghĩa · Vì sao? · Tăng điểm · Giải thích · chuỗi · combo) nằm trong `extra`.
+  // 🧩 Stitch v2.1 feedback-correct / feedback-wrong
+  // Giáo viên (Ama/Carlos) đổi sang ảnh tĩnh cheer (đúng) / concern (sai) NGAY chỗ cũ
   // Stitch feedback-correct/wrong: sau Kiểm tra, thẻ đáp án đúng = thẻ teal "đúng" (✓), đáp án người học chọn sai = thẻ đỏ (✕), còn lại mờ nhẹ (opacity 90 %)
   const OPT_OK = 'lt:!bg-[#E8F5F3] lt:!border-[#0D6964] lt:![box-shadow:0_4px_0_0_#0D6964] dk:!bg-[#163632] dk:!border-[#2BA39A] dk:![box-shadow:0_4px_0_0_#0f4f49]';
   const OPT_BAD = 'lt:!bg-[#FFEEE4] lt:!border-[#ba1a1a] lt:![box-shadow:0_4px_0_0_#ba1a1a] dk:!border-[#F2553B] dk:![box-shadow:0_4px_0_0_#9B1E0A]';
@@ -498,7 +498,7 @@
     });
     const gap = $('#lsnGap'); if (gap) gap.className = 'lsn-gap inline-block px-2.5 py-0.5 rounded-lg font-bold ' + (ok ? GAP_OK : GAP_BAD); // Stitch: từ điền vào câu = viên teal (đúng) / viên đỏ "lỗi" (sai)
   }
-  // Stitch feedback-wrong: thẻ đáp án chữ to + nhãn phụ (nghĩa của từ, ngôn ngữ người học) + tag "Đáp án của bạn" (✕) / "Lựa chọn đúng" (✓); thẻ khác giữ chỗ tag (h-4) cho lưới đều
+  // Stitch feedback-wrong: thẻ đáp án chữ to + nhãn phụ (nghĩa của từ, ngôn ngữ người học) + tag "Đáp án của bạn" (✕) / "Lựa chọn đúng" (✓)
   const GAP_OK = 'lt:bg-[#0D6964]/15 lt:text-[#0D6964] border lt:border-[#0D6964]/30 dk:bg-[#2BA39A]/20 dk:text-[#4FD1C5] dk:border-[#2BA39A]/40';
   const GAP_BAD = 'lt:bg-[#ffdad6] lt:text-[#ba1a1a] lt:shadow-[0_2px_0_0_#ba1a1a] dk:bg-[#3B1510] dk:text-[#F2553B] border border-transparent dk:border-[#F2553B]/50 dk:shadow-[0_2px_0_0_#9B1E0A]';
   const same = (a, b) => String(a || '').trim().toLowerCase() === String(b || '').trim().toLowerCase();
@@ -523,14 +523,14 @@
     if (L.teacher && L.teacher.pose) L.teacher.pose(L.pose || (ok ? 'cheer' : 'concern'));
     const PILL = 'inline-flex items-center gap-1 min-h-[28px] px-3 rounded-[9999px] border border-white/60 text-white text-[11px] leading-[14px] tracking-[0.04em] font-bold';
     const pills = (streak ? `<span class="${PILL}"><span class="material-symbols-outlined text-[14px]" aria-hidden="true">local_fire_department</span>${esc(t('{n} ngày liên tiếp', { n: streak }))}</span>` : '') + (combo >= 3 ? `<span class="${PILL}"><span class="material-symbols-outlined text-[14px]" aria-hidden="true">bolt</span>${esc(t('COMBO ×{n}', { n: combo }))}</span>` : '');
-    // Thẻ từ điển + nút Vì sao? = khuôn Stitch v2.1 "dict" (brand/stitch/v2/feedback-*-light.html); chỉ gắn dữ liệu thật: giáo viên · từ · IPA (2 giọng khác nhau → cả 2) · 2 loa đúng giọng · nghĩa
+    // Thẻ từ điển + nút Vì sao? = khuôn Stitch v2.1 "dict" (brand/stitch/v2/feedback-*-light.html)
     const ord = UI.accOrder ? UI.accOrder() : ['en-GB', 'en-US'], LB = { 'en-GB': 'UK', 'en-US': 'US' }, AR = { 'en-GB': 'Nghe giọng Anh–Anh', 'en-US': 'Nghe giọng Anh–Mỹ' };
     const ip = a => (c ? UI.ipaHtml(c, a, { noEx: true }) : ''), i1 = ip(ord[0]), i2 = ip(ord[1]);
     const dict = c ? { tlabel: esc(TNAME(L.who)) + ' · ' + esc(t('Giáo viên của bạn')), word: `<span lang="en">${esc(c.word)}</span>`, ipa: i1 && i2 && i1 !== i2 ? `${LB[ord[0]]} ${i1} · ${LB[ord[1]]} ${i2}` : i1 || i2, mean: esc(meanOf(c)),
       a1: LB[ord[0]], a2: LB[ord[1]], acc1: ord[0], acc2: ord[1], url1: UI.audioFor(c, ord[0]), url2: UI.audioFor(c, ord[1]), ar1: t(AR[ord[0]]), ar2: t(AR[ord[1]]), say: c.word } : { tlabel: '', word: '', ipa: '', mean: '', a1: '', a2: '', acc1: '', acc2: '', url1: '', url2: '', ar1: '', ar2: '', say: '' };
     const en = sentOf(it), box = c ? `<div class="${ST.BOOST}" id="lsnBoost" hidden></div><div class="${ST.XP}" id="lsnXp" hidden></div>` : en ? `<div class="${ST.XP}" id="lsnXp" hidden></div>` : '';
     const extra = pills + (en ? '<div id="lsnCard" class="lsn-fb"></div>' : '') + storyWhy(it);
-    // Thẻ câu của mẫu (Fill in the blank / Spot the error & fix, parts.qcard): câu có chỗ trống điền từ đã chọn (đúng = viên teal, sai = viên đỏ); dạng không có câu → chỉ viên từ
+    // Thẻ câu của mẫu (Fill in the blank / Spot the error & fix, parts.qcard)
     const pick = ok ? String(it.type === 'build' || it.type === 'tr' ? it.sent : it.answer) : String(L.pick == null ? '' : L.pick), B = it.type === 'gap' && it.blank, T = B ? it.blank.toks : [];
     const q = { qkind: cardOn() ? t('Đáp án') : TITLE(it), qpre: B ? T.slice(0, B.i).join(' ') : '', qpick: pick, qpost: B ? T.slice(B.i + B.n).join(' ') : '' };
     const d = Object.assign(ok ? { head: t('Tuyệt!'), xp: last.retry ? '' : '+2 XP' } : { head: it.type === 'match' ? t('Có cặp ghép nhầm') : t('Chưa đúng'), answer: it.type === 'match' ? '' : it.answer }, dict, q, { extra, boxes: box ? `<div class="lsn-fb flex flex-col gap-[0.5rem]">${box}</div>` : '' });
@@ -573,7 +573,7 @@
     if (window.LessonWhy) LessonWhy.boost(it, { L, E, t, ST, say: x => say(x, false, L.who) });
   }
 
-  // "Giải thích" từ dữ liệu sẵn có, 0 lượt AI: gold bank (vì sao + sai → đúng + mẹo) → định nghĩa + ví dụ + câu của chính người học
+  // "Giải thích" từ dữ liệu sẵn có, 0 lượt AI: gold bank
   async function explain(it) {
     const box = $('#lsnXp'); if (!box) return;
     if (!box.hidden) { box.hidden = true; return; }
@@ -584,8 +584,8 @@
   }
 
   const weak0 = s => [...s.wrong.keys()].filter(k => k[0] !== '#');
-  // 🧩 Stitch v2.1 lesson-complete (brand/stitch/v2/bind/lesson-complete.json): Ama (cheer, ảnh tĩnh) đứng SAU thẻ đục "sub" (thẻ kéo lên chồng đáy hình, che đường hông + vùng mờ)
-  // Số + đơn vị theo ngôn ngữ giao diện (Intl: "3 phút" · "3 minutes" · "3 минуты"; số nhiều đúng từng ngôn ngữ, không cần khóa dịch)
+  // 🧩 Stitch v2.1 lesson-complete (brand/stitch/v2/bind/lesson-complete.json)
+  // Số + đơn vị theo ngôn ngữ giao diện
   const unitFmt = (n, unit) => { try { return new Intl.NumberFormat((window.I18N && I18N.lang && I18N.lang()) || undefined, { style: 'unit', unit, unitDisplay: 'long' }).format(n); } catch (e) { return n + ' ' + unit; } };
   let kbd = false; addEventListener('keydown', () => { kbd = true; }, true); addEventListener('pointerdown', () => { kbd = false; }, true); // thiết bị nhập gần nhất: bàn phím mới hiện vòng focus
   function finishV2(s, xp, weak, cheer) {
