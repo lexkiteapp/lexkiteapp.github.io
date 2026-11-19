@@ -856,7 +856,8 @@ def rule_lessons(R, words):   # a rule's mined words (best first, family-unsafe 
     return [g for g in out if len(g) >= 2]
 
 
-RULE_BIAS, RULE_MAX = 0.9, 27.0   # real short length = short_secs + ~0.9 s (kn 25.81 / mb 25.92 / wr 25.66 s vs 24.9 predicted); QC ceiling 28 s keeps 1 s of room
+RULE_BIAS, RULE_MAX = 0.9, 27.0
+STOCK_MIN = 7 * 15   # kho tối thiểu = 7 ngày x 15 kênh x 1 video/ngày (owner 16/11); gen.py --todo --count cảnh báo khi thấp hơn   # real short length = short_secs + ~0.9 s (kn 25.81 / mb 25.92 / wr 25.66 s vs 24.9 predicted); QC ceiling 28 s keeps 1 s of room
 
 
 def rule_secs(ep): return short_secs(ep) + RULE_BIAS
@@ -953,7 +954,10 @@ if __name__ == '__main__':
         open(RU.OUT_F, 'w').write(txt); print('rules-words', sum(len(r['words']) for r in json.loads(txt)['rules']), 'words'); sys.exit(0)
     if '--todo' in A_:
         T_ = todo()
-        if '--count' in A_: print(f'cần render {len(T_)}'); sys.exit(0)
+        if '--count' in A_:
+            print(f'cần render {len(T_)}')
+            if len(T_) < STOCK_MIN: print(f'::warning::Teach2D còn {len(T_)} tập chưa render < {STOCK_MIN} (7 ngày x 15 kênh x 1 video/ngày): thêm hàng (gen.py --plan / --rule-eps / --hand) trước khi hết kho', file=sys.stderr)
+            sys.exit(0)
         print(json.dumps(T_[:int(A_[A_.index('--take') + 1])] if '--take' in A_ else T_)); sys.exit(0)
     if '--pick' in A_:   # teach-video preqc: explicit ids > next N todo (ci-filler 'shards') > PR smoke (pilots + first auto ep of each template) > pilots
         i = A_.index('--pick'); ids, n, ev = [x.strip() for x in A_[i + 1].split(',') if x.strip()], int(A_[i + 2] or 0), A_[i + 3]
