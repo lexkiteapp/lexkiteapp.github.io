@@ -16,12 +16,22 @@ from nltk.corpus import wordnet as wn
 
 ap = argparse.ArgumentParser()
 ap.add_argument('--existing', required=True); ap.add_argument('--cmu', required=True); ap.add_argument('--bad', required=True)
-ap.add_argument('--cefrj'); ap.add_argument('--octanove'); ap.add_argument('--target', type=int, default=20000); ap.add_argument('--sec-min', type=int, default=3); ap.add_argument('--want', nargs='*', default=[]); ap.add_argument('--sec-share', type=float, default=0.1); ap.add_argument('--top', type=int, default=int(os.environ.get('LX_TOP', 200000))); ap.add_argument('--out', default='content/lexicon/expand/candidates.json')
+ap.add_argument('--demand', nargs='*', default=[]); ap.add_argument('--cefrj'); ap.add_argument('--octanove'); ap.add_argument('--target', type=int, default=20000); ap.add_argument('--sec-min', type=int, default=int(os.environ.get('LX_SEC_MIN', 1))); ap.add_argument('--want', nargs='*', default=[]); ap.add_argument('--sec-share', type=float, default=0.1); ap.add_argument('--top', type=int, default=int(os.environ.get('LX_TOP', 320000))); ap.add_argument('--out', default='content/lexicon/expand/candidates.json')
 a = ap.parse_args()
 SEC_MIN, SEC_SHARE = a.sec_min, a.sec_share
 # mục retry (content/lexicon/expand/retry/words.json) luôn có ứng viên đúng từ#loại kể cả dưới ngưỡng từ loại phụ – không kẹt retry mãi
 FORCE = {k for f in a.want if os.path.exists(f) for k in json.load(open(f))['items']}
 FORCE_W = {k.split('#')[0] for k in FORCE}
+# 17/11 (ứng viên mới cạn: 3,3k mục gần hết C2 hiếm): (1) từ loại phụ nhận từ SemCor ≥ LX_SEC_MIN=1 (trước 3: +~600 từ#loại của từ ĐÃ phổ biến, share ≥ 10 % giữ nguyên);
+# (2) CẦU: từ người dùng thật tra (GSC dictQueue, reports/seo/gsc-*.json) xếp ĐẦU hàng ứng viên – chỉ đổi THỨ TỰ, mọi lọc/giám khảo/ngưỡng giữ nguyên.
+CMU_FREE = os.environ.get('LX_CMU_FREE', '1') == '1'; CMU_FREE_Z = float(os.environ.get('LX_CMU_FREE_Z', 1.5))
+DEMAND = {}
+for f in a.demand:
+    try:
+        for r in json.load(open(f)).get('dictQueue', []):
+            t = str(r.get('term', '')).strip().lower()
+            if t: DEMAND[t] = max(DEMAND.get(t, 0), int(r.get('impressions') or 0))
+    except (OSError, ValueError): pass
 EX = json.load(open(a.existing))
 # existing.json: {từ: CEFR} + {từ#loại: CEFR} (30/10 đa từ loại – kho đã có duck#n vẫn thiếu duck#v; khoá trùng = từ#loại)
 have = {k for k in EX if '#' not in k}; have_wp = {k for k in EX if '#' in k}
@@ -111,10 +121,11 @@ nfreq = 0  # từ CHỈ có tần suất (ngoài danh sách người học) – 
 # mục hiếm thiếu nguồn người viết bị job.mjs lọc trước AI (không tốn lượt). drop = số từ bị loại theo lý do (in ở dòng ✓ candidates).
 drop = Counter()
 for w in top_n_list('en', a.top):
-    if nfreq >= need * 3 and w not in OLPW and not lists.get(w) and w not in FORCE_W: continue  # ×3 (29/10): cổng chặt hơn → sản lượng pilot ~0,3–0,5; cần đủ ứng viên tới 20k
+    if nfreq >= need * 3 and w not in OLPW and not lists.get(w) and w not in FORCE_W and w not in DEMAND: continue  # ×3 (29/10): cổng chặt hơn → sản lượng pilot ~0,3–0,5; cần đủ ứng viên tới 20k
     if w in seen: continue
     if not re.fullmatch(r'[a-z]{3,}(-[a-z]+)?', w): drop['form'] += 1; continue
-    if w not in cmu and '-' not in w: drop['cmu'] += 1; continue
+    # 17/11 (cần ≥ 15k ứng viên): từ ngoài CMUdict nhưng có lemma WordNet (đã lọc ở dưới) vẫn là ứng viên khi LX_CMU_FREE=1 – IPA do cổng gateEntry/espeak quyết, thiếu IPA → hàng duyệt/retry như cũ
+    if w not in cmu and '-' not in w and not (CMU_FREE and zipf_frequency(w, 'en') >= CMU_FREE_Z): drop['cmu'] += 1; continue
     if w in bad or any(b in bad for b in w.split('-')): drop['bad'] += 1; continue
     syn = wn.synsets(w)
     lem = [l for s in syn for l in s.lemmas() if l.name() == w]  # lemma viết thường đúng chữ → không phải tên riêng
@@ -165,8 +176,8 @@ for w in top_n_list('en', a.top):
 # thứ tự sinh (26/10, chuẩn từ điển người học): TẦNG 0 = hồ sơ CEFR kiểu EVP (CEFR-J A1–B2 + Octanove C1/C2) hoặc danh sách NGSL/NAWL/BSL
 # của repo, xếp theo cấp A1 → C2 rồi tần suất; TẦNG 1 = chỉ tần suất (wordfreq), dải Zipf 0,5 giảm dần. Tầng 0 hết → kho đủ lõi người học rồi mới mở rộng theo tần suất.
 tier = lambda e: 0 if e['cefrSrc'] != 'freq' or e['lists'] else 1
-out.sort(key=lambda e: (tier(e), LV.index(e['cefr']) if tier(e) == 0 else 0, -round(e['z'] * 2) / 2, 0 if e['lists'] else 1, -e['z'], e['w']))
-for i, e in enumerate(out): e['rank'] = i + 1; e['band'] = int(e['z'] * 2) / 2; e['tier'] = tier(e)
+out.sort(key=lambda e: (0 if e['w'] in DEMAND else 1, -DEMAND.get(e['w'], 0), tier(e), LV.index(e['cefr']) if tier(e) == 0 else 0, -round(e['z'] * 2) / 2, 0 if e['lists'] else 1, -e['z'], e['w']))
+for i, e in enumerate(out): e['rank'] = i + 1; e['demand'] = DEMAND.get(e['w'], 0) or None; e['band'] = int(e['z'] * 2) / 2; e['tier'] = tier(e)
 json.dump({'_doc': 'Ứng viên mở rộng kho từ (scripts/lexicon/expand/pick_words.py) – thứ tự sinh. Nguồn & giấy phép: wordfreq 3.1 CC BY-SA 4.0 (SUBTLEX, Google Books Ngram…), WordNet 3.0 (Princeton), CMUdict BSD-2, LDNOOBW CC BY 4.0 (lọc), NGSL/NAWL/BSL CC BY-SA 4.0.',
            'cuts': [round(c, 2) for c in cuts], 'existing': len(have), 'target': a.target, 'n': len(out), 'items': out},
           open(a.out, 'w'), ensure_ascii=False, separators=(',', ':'))
