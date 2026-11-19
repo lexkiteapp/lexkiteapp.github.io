@@ -661,7 +661,7 @@ final class SkillsVectorTests: XCTestCase {
                 var on = i.s("start").split(separator: " ").map(String.init)
                 for (k, step) in o.list("steps").enumerated() {
                     on = ReaderPage.toggled(on, strs(i["toggles"])[k])
-                    r.eq(on.joined(separator: " "), step.s("settings"), "\(id) step \(k) settings"); r.eq(on.map { "hl-" + $0 }, strs(step["passage"]), "\(id) step \(k) classes")
+                    r.eq(on.joined(separator: " "), step.s("settings"), "\(id) step \(k) settings"); r.eq(on.map { "hl-" + $0 }.sorted(), strs(step["passage"]), "\(id) step \(k) classes") // the web vector lists the classes sorted
                 }
             case "save-all-keywords":
                 let page = ReaderPage(rd, lexis: lx, inDeck: { _ in false }), inDeck = Set(strs(i["alreadyInDeck"]))

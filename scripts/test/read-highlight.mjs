@@ -23,7 +23,7 @@ for (const r of g.READINGS) {
 ok(words > 1000, 'có dữ liệu để kiểm');
 for (const w of ['and', 'for', 'grow', 'the', 'of']) ok(COMMON.has(w), `COMMON thiếu "${w}"`);
 // CSS: mỗi lớp có kiểu tô + mẫu trong chip (chú giải), chỉ dùng token màu (không hex/rgb)
-const css = W('css/lazy-ui.css'), rules = css.split('\n').filter(l => /^\.hl-(sw|chip|bar)|^\.passage\[data-one\]|^\[data-one\]/.test(l)).join('\n');
+const css = W('css/lazy-ui.css'), rules = css.split('\n').filter(l => /^\.hl-(sw|chip|bar)/.test(l)).join('\n');
 for (const l of LAYERS) { ok(rules.includes(`.tw[data-l="${l}"]`), `thiếu kiểu tô cho lớp ${l}`); ok(rules.includes(`.hl-sw.${l}`), `chú giải thiếu mẫu lớp ${l}`); }
 ok(!/#[0-9a-f]{3,8}\b|rgba?\(/i.test(rules), 'tô sáng màn đọc phải chỉ dùng token màu');
 ok(/min-height:\s*44px/.test(rules), 'chip tô sáng ≥ 44 px');

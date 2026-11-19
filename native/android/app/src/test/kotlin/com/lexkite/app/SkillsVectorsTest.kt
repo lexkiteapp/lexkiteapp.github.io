@@ -539,7 +539,7 @@ class SkillsVectorsTest {
             when (id) {
                 "highlight-toggle" -> { var on = Reader.highlights(i.s("start")).toSet()
                     for ((k, w) in o.a("steps").map { it.jsonObject }.withIndex()) { val (n, saved) = Reader.toggle(on, i.a("toggles")[k].s()); on = n
-                        check("$id.$k", obj("toggled" to w["toggled"], "settings" to w["settings"], "passage" to w["passage"]), obj("toggled" to i.a("toggles")[k].s(), "settings" to saved, "passage" to Reader.HL.filter { it in n }.map { "hl-$it" })) }
+                        check("$id.$k", obj("toggled" to w["toggled"], "settings" to w["settings"], "passage" to w["passage"]), obj("toggled" to i.a("toggles")[k].s(), "settings" to saved, "passage" to Reader.HL.filter { it in n }.map { "hl-$it" }.sorted())) }
                     assertEquals("persisted settings", setOf("settings:hl"), v.o("persist").o("byAction").o("read").a(id).map { it.s() }.toSet()) }
                 "save-all-keywords" -> { val port = FakePort(null) { it in i.a("alreadyInDeck").map { x -> x.s() } }
                     val n = runBlocking { WordPopup.saveKeywords(port, r, ps) }

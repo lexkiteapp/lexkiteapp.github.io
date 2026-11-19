@@ -278,20 +278,24 @@ html.native .v2 .w-head { padding-top: env(safe-area-inset-top, 0px); height: au
 .next-why { flex-basis: 100%; margin: var(--sp-1) 0 0; font-size: var(--fs-sm); color: var(--muted); }
 .listen-back { display: inline-flex; align-items: center; gap: var(--sp-2); min-height: 44px; }
 .listen-head { margin: var(--sp-1) 0 var(--sp-4); }
-.hl-bar { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin-bottom: 1rem; padding: .5rem .6rem; border-radius: 14px; background: var(--surface-2); }
-.hl-chip { display: inline-flex; align-items: center; gap: .4rem; min-height: 44px; border: 1.5px solid var(--line); background: var(--surface); border-radius: 999px; padding: .3rem .85rem .3rem .45rem; font: inherit; font-weight: 700; font-size: .85rem; cursor: pointer; color: var(--muted); }
+.hl-bar { display: flex; flex-wrap: wrap; gap: var(--sp-2); align-items: center; margin-bottom: var(--sp-4); padding: var(--sp-2); border-radius: 14px; background: var(--surface-2); }
+.hl-chip { display: inline-flex; align-items: center; gap: var(--sp-2); min-height: 44px; border: 1.5px solid var(--line); background: var(--surface); border-radius: 999px; padding: var(--sp-1) var(--sp-3) var(--sp-1) var(--sp-2); font: inherit; font-weight: 700; font-size: var(--fs-sm); cursor: pointer; color: var(--muted); }
 .hl-chip[hidden] { display: none; }
 .hl-chip b { font-weight: 800; }
 .hl-chip b:empty { display: none; }
 .hl-chip.on { color: var(--text); border-color: var(--text); background: var(--surface-3); }
-.hl-sw { font-style: normal; font-weight: 700; padding: 0 .35rem; border-radius: 4px; color: var(--text); }
+.hl-sw { font-style: normal; font-weight: 700; padding: 0 var(--sp-1); border-radius: 4px; color: var(--text); }
 .hl-chip:not(.on) .hl-sw { opacity: .55; }
-.passage[data-one] .tw { padding: .35em 2px; margin: -.35em 0; }
-[data-one] .tw[data-l="kw"], .hl-sw.kw { text-decoration: underline dotted 2px var(--gold-text); text-underline-offset: .22em; }
-[data-one] .tw[data-l="awl"], .hl-sw.awl { text-decoration: underline solid 1.5px var(--primary-text); text-underline-offset: .22em; }
-[data-one] .tw[data-l="link"], .hl-sw.link { background: var(--accent-soft); }
-[data-one] .tw[data-l="mine"], .hl-sw.mine { background: var(--good-soft); }
-#paper .passage { max-width: 70ch; line-height: 1.9; }
+.hl-bar + .passage .tw { padding: var(--sp-2) 2px; margin: calc(-1 * var(--sp-2)) 0; }
+.hl-bar + .passage .tw[data-l="kw"] { text-decoration: underline dotted 2px var(--gold-text); text-underline-offset: .22em; }
+.hl-bar + .passage .tw[data-l="awl"] { text-decoration: underline solid 1.5px var(--primary-text); text-underline-offset: .22em; }
+.hl-bar + .passage .tw[data-l="link"] { background: var(--accent-soft); }
+.hl-bar + .passage .tw[data-l="mine"] { background: var(--good-soft); }
+.hl-sw.kw { text-decoration: underline dotted 2px var(--gold-text); text-underline-offset: .22em; }
+.hl-sw.awl { text-decoration: underline solid 1.5px var(--primary-text); text-underline-offset: .22em; }
+.hl-sw.link { background: var(--accent-soft); }
+.hl-sw.mine { background: var(--good-soft); }
+.hl-bar + .passage { max-width: 70ch; line-height: 1.9; }
 .passage:not([data-one]).hl-awl .tw.awl { border-bottom: 2px solid var(--primary-text); }
 .passage:not([data-one]).hl-link .tw.link, .passage:not([data-one]).hl-link .tw.col { background: var(--accent-soft); }
 .passage:not([data-one]).hl-mine .tw.mine { background: var(--good-soft); }
