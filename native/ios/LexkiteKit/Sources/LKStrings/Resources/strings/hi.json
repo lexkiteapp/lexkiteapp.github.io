@@ -256,6 +256,8 @@
   "lesson.story.lookup": "\"{w}\" को देख रहे हैं...",
   "lesson.story.notFound": "\"{w}\" के लिए कोई परिणाम नहीं।",
   "lesson.hint": "संकेत",
+  "lesson.q.buildListen": "सुनें, फिर वाक्य बनाएँ",
+  "lesson.card.word": "शब्द: {w}",
   "rev.noFlashcardsYet": "अभी कोई कार्ड नहीं",
   "rev.addWordsFromThe": "आरंभ करने के लिए लाइब्रेरी से शब्द जोड़ें या उन्हें शब्दकोश में देखें।",
   "rev.openLibrary": "संग्रह खोलें",

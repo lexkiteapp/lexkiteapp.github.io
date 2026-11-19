@@ -256,6 +256,8 @@
   "lesson.story.lookup": "Đang tra “{w}”…",
   "lesson.story.notFound": "Không tìm thấy “{w}”.",
   "lesson.hint": "Gợi ý",
+  "lesson.q.buildListen": "Nghe rồi xếp thành câu",
+  "lesson.card.word": "Từ: {w}",
   "rev.noFlashcardsYet": "Chưa có flashcard nào",
   "rev.addWordsFromThe": "Thêm từ từ thư viện hoặc tra từ điển để bắt đầu.",
   "rev.openLibrary": "Mở thư viện",

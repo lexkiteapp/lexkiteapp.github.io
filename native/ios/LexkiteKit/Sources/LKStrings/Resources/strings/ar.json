@@ -256,6 +256,8 @@
   "lesson.story.lookup": "البحث عن \"{w}\"...",
   "lesson.story.notFound": "لا توجد نتائج لـ \"{w}\".",
   "lesson.hint": "تلميح",
+  "lesson.q.buildListen": "استمع ثم رتّب الجملة",
+  "lesson.card.word": "الكلمة: {w}",
   "rev.noFlashcardsYet": "لا توجد بطاقات بعد",
   "rev.addWordsFromThe": "أضف كلمات من المكتبة أو ابحث عنها في القاموس للبدء.",
   "rev.openLibrary": "افتح المكتبة",
