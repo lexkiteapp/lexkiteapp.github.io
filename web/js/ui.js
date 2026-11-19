@@ -63,7 +63,7 @@
   }
   function toastShow(msg, ms, o) {
     const t = $('#toast'); if (!t) return;
-    if (t.classList.contains('show') || toast._sw) { // đổi chữ tại chỗ khi đang hiện = hộp đổi cỡ (CLS @#/dict) → mờ hết rồi mới đổi, dồn nhiều câu giữ câu cuối
+    if (t.classList.contains('show') || toast._sw || toast._fd) { // (17/11: + toast._fd = ĐANG MỜ DẦN ~200 ms sau toastHide/đóng hộp thoại – lớp .show đã gỡ nhưng toast còn thấy: đổi chữ lúc này vẫn là layout shift, #1504 toastCls 0,0212) đổi chữ tại chỗ khi đang hiện = hộp đổi cỡ (CLS @#/dict) → mờ hết rồi mới đổi, dồn nhiều câu giữ câu cuối
       toast._sa = t._msg = [msg, ms, o]; clearTimeout(toast._t);
       if (!toast._sw) { t.classList.remove('show', 'act'); toast._sw = setTimeout(() => { toast._sw = 0; const a = toast._sa; if (a && t._msg === a) { t._msg = null; toastShow(...a); } }, 230); }
       return;
@@ -77,9 +77,11 @@
     const v = document.getElementById('view'); if (v && g.MutationObserver && !toast._mo) { let q = 0; toast._mo = new MutationObserver(() => { if (q) return; q = 1; (g.requestAnimationFrame || setTimeout)(() => { q = 0; if (t._msg) toastLift(t); }); }); toast._mo.observe(v, { childList: true, subtree: true }); }
     toastTimer(t, ms);
   }
+  // sau khi gỡ .show toast còn mờ dần 0,2 s (style.css .toast transition) → cờ _fd 230 ms: toastShow chờ hết mờ rồi mới đổi chữ (như đường _sw)
+  const fading = () => { clearTimeout(toast._fd); toast._fd = setTimeout(() => { toast._fd = 0; }, 230); };
   const toastTimer = (t, ms) => { clearTimeout(toast._t); toast._t = setTimeout(() => toastHide(t), ms); };
   function toastHide(t) {
-    clearTimeout(toast._t); t.classList.remove('show', 'act'); t._msg = null; if (toast._mo) { toast._mo.disconnect(); toast._mo = null; }
+    clearTimeout(toast._t); t.classList.remove('show', 'act'); t._msg = null; fading(); if (toast._mo) { toast._mo.disconnect(); toast._mo = null; }
     if (toastQ.length && !modalOpen()) toastShow(...toastQ.shift());
   }
   /** UI.toast(msg, ms?, { action, onAction }?) – MỘT toast mỗi lúc, tự ẩn, không chặn thao tác (trừ nút hành động), aria-live polite.
@@ -99,7 +101,7 @@
     const m = document.getElementById('modal'); if (!m || !g.MutationObserver) return;
     new MutationObserver(() => {
       const t = $('#toast'); if (!t) return;
-      if (!m.hidden) { if (t._msg) { toastQ.unshift(t._msg); t._msg = null; clearTimeout(toast._t); t.classList.remove('show', 'act'); if (toast._mo) { toast._mo.disconnect(); toast._mo = null; } } }
+      if (!m.hidden) { if (t._msg) { toastQ.unshift(t._msg); t._msg = null; clearTimeout(toast._t); t.classList.remove('show', 'act'); fading(); if (toast._mo) { toast._mo.disconnect(); toast._mo = null; } } }
       else if (toastQ.length && !t._msg) setTimeout(() => { if (!modalOpen() && toastQ.length && !t._msg) toastShow(...toastQ.shift()); }, 250);
     }).observe(m, { attributes: true, attributeFilter: ['hidden'] });
   }
