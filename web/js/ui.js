@@ -204,13 +204,13 @@
   let hqEl = null;
   const stopHq = () => { if (hqEl) { hqEl.stop(); hqEl = null; } };
   // Gốc CDN âm thanh + chuỗi dự phòng: docs/specs/kokoro-on-device.md §Chuỗi phát
-  let cdnFail = 0;
+  let cdnFail = 0, cdnAt = 0; // tự hồi sau 60 s yên (không setTimeout: vector native)
   const AUDIO_BASES = g.AUDIO_BASES = ['https://audio.lexkite.com/audio/l/', 'https://lexkiteapp.github.io/lexkite-media-2/audio/l/', 'https://lexkiteapp.github.io/audio/l/'];
-  const baseAt = () => Math.min(AUDIO_BASES.length - 1, cdnFail >> 1);
+  const baseAt = () => Math.min(AUDIO_BASES.length - 1, (cdnFail && Date.now() - cdnAt > 60000 ? (cdnFail = 0) : cdnFail) >> 1);
   const lk = k => k + (g.LISTEN_AUDIO_S2 && g.LISTEN_AUDIO_S2.has(k) ? '-s2' : ''); // -s2: câu đã render lại qua cổng ASR (docs/WORD-AUDIO.md, khóa mới, không ghi đè bản cũ)
-  g.audioUrl = k => AUDIO_BASES[Math.min(AUDIO_BASES.length - 1, cdnFail >> 1)] + k + (g.LISTEN_AUDIO_S2 && g.LISTEN_AUDIO_S2.has(k) ? '-s2' : '') + '.mp3'; // dòng tự đủ (scripts/test/sentence-asr.mjs chạy riêng)
+  g.audioUrl = k => AUDIO_BASES[Math.min(AUDIO_BASES.length - 1, (cdnFail && Date.now() - cdnAt > 60000 ? (cdnFail = 0) : cdnFail) >> 1)] + k + (g.LISTEN_AUDIO_S2 && g.LISTEN_AUDIO_S2.has(k) ? '-s2' : '') + '.mp3'; // dòng tự đủ (scripts/test/sentence-asr.mjs chạy riêng)
   g.audioUrls = (k, kind = 'l') => AUDIO_BASES.slice(baseAt()).map(b => b.replace(/l\/$/, kind + '/') + (kind === 'l' ? lk(k) : k) + '.mp3'); // mọi gốc còn dùng được, theo thứ tự
-  g.audioFail = () => { cdnFail++; };
+  g.audioFail = () => { cdnFail++; cdnAt = Date.now(); };
   g.audioHas = k => !g.LISTEN_AUDIO || g.LISTEN_AUDIO.has(k); // chỉ phát câu đã có giọng đọc (tránh 404)
   // Làm sạch chuỗi trước khi đọc (mọi chỗ gọi tts/speak): bỏ emoji, phiên âm /…/, nhãn UK/US, từ loại, nhãn mục ("💬 Ví dụ") –
   // chuỗi lỡ cào từ giao diện ("📚 curriculum /kəˈrɪkjələm/ UK US n 💬 Ví dụ Many people…") chỉ còn câu tiếng Anh. Câu thường giữ nguyên.
