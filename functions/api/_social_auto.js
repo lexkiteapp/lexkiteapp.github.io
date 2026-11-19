@@ -165,14 +165,16 @@ export function pushAlert(st, k, text, now) {
 /** Sổ cái đăng (chủ 19/11: "3 video liên tiếp trong 3 giờ"): MỘT câu INSERT nguyên tử – chỉ ghi khi kênh KHÔNG có bài khác trong ±LEDGER_GAP_MS. Gọi TRƯỚC khi lên lịch/đăng;
  *  bài bù sau sự cố (slot đã qua, đều quy về "ngay bây giờ") nhờ đó cách nhau ≥ 4 giờ thay vì dồn một lúc. Cùng clip + kênh gọi lại = idempotent (true). Bị chặn → bài để lượt sau (cron 2 giờ). */
 export const LEDGER_GAP_MS = 4 * 36e5;
+/** Ngày theo giờ VN (UTC+7) – chủ 16/11: "1 video/kênh/ngày" (HARD). Chỉ HẠ được trần này, không nâng khi chưa có chủ OK. */
+export const ledgerDay = ms => new Date(ms + 7 * 36e5).toISOString().slice(0, 10);
 export async function claimLedger(db, channel_id, clip, at_ms, now = Date.now()) {
-  const g = LEDGER_GAP_MS;
-  await run(db, 'INSERT INTO soc_ledger (channel_id, clip, at_ms, created) SELECT ?, ?, ?, ? WHERE NOT EXISTS (SELECT 1 FROM soc_ledger WHERE channel_id = ? AND clip != ? AND at_ms > ? AND at_ms < ?) ON CONFLICT(channel_id, clip) DO NOTHING', channel_id, clip, at_ms, now, channel_id, clip, at_ms - g, at_ms + g);
+  const g = LEDGER_GAP_MS, day = ledgerDay(at_ms);
+  await run(db, 'INSERT INTO soc_ledger (channel_id, clip, at_ms, day, created) SELECT ?, ?, ?, ?, ? WHERE NOT EXISTS (SELECT 1 FROM soc_ledger WHERE channel_id = ? AND clip != ? AND ((at_ms > ? AND at_ms < ?) OR day = ?)) ON CONFLICT(channel_id, clip) DO NOTHING', channel_id, clip, at_ms, day, now, channel_id, clip, at_ms - g, at_ms + g, day);
   return !!(await one(db, 'SELECT 1 AS x FROM soc_ledger WHERE channel_id = ? AND clip = ?', channel_id, clip));
 }
 export const releaseLedger = (db, channel_id, clip) => run(db, 'DELETE FROM soc_ledger WHERE channel_id = ? AND clip = ?', channel_id, clip).catch(() => {});
 /** Máy gác (pure): rows [{channel_id, at_ms}] → kênh có 2 bài cách nhau < gapMs (và, nếu perDay, > perDay bài/ngày theo tz). Dùng cho health + test CI. */
-export function postingViolations(rows, { gapMs = LEDGER_GAP_MS, perDay = 0, dayOf = ms => new Date(ms + 7 * 36e5).toISOString().slice(0, 10) } = {}) {
+export function postingViolations(rows, { gapMs = LEDGER_GAP_MS, perDay = 0, dayOf = ledgerDay } = {}) {
   const by = {}; for (const r of rows || []) (by[r.channel_id] = by[r.channel_id] || []).push(+r.at_ms);
   const out = [];
   for (const [ch, a] of Object.entries(by)) {
@@ -186,8 +188,9 @@ export function postingViolations(rows, { gapMs = LEDGER_GAP_MS, perDay = 0, day
 export async function setupLock(db, env) {
   await once(db, 'soc-lock', 3, () => db.batch([
     db.prepare('CREATE TABLE IF NOT EXISTS soc_lock (clip TEXT NOT NULL, channel_id TEXT NOT NULL, platform TEXT, provider TEXT NOT NULL, state TEXT NOT NULL, slot_ms INTEGER, gc_post TEXT, gc_cancel TEXT, meta_id TEXT, container TEXT, permalink TEXT, err TEXT, created INTEGER, updated INTEGER, PRIMARY KEY (clip, channel_id))'),
-    db.prepare('CREATE TABLE IF NOT EXISTS soc_ledger (channel_id TEXT NOT NULL, clip TEXT NOT NULL, at_ms INTEGER NOT NULL, created INTEGER, PRIMARY KEY (channel_id, clip))'), // sổ cái đăng theo kênh: ghi NGUYÊN TỬ trước khi lên lịch/đăng
+    db.prepare('CREATE TABLE IF NOT EXISTS soc_ledger (channel_id TEXT NOT NULL, clip TEXT NOT NULL, at_ms INTEGER NOT NULL, day TEXT, created INTEGER, PRIMARY KEY (channel_id, clip))'), // sổ cái đăng theo kênh: ghi NGUYÊN TỬ trước khi lên lịch/đăng
     db.prepare('CREATE INDEX IF NOT EXISTS soc_ledger_at ON soc_ledger (channel_id, at_ms)'),
+    db.prepare('CREATE INDEX IF NOT EXISTS soc_ledger_day ON soc_ledger (channel_id, day)'),
     db.prepare('CREATE INDEX IF NOT EXISTS soc_lock_cancel ON soc_lock (gc_cancel)'), // hồi phục GrabCast: chỉ đọc các bài còn treo hủy
     db.prepare('CREATE TABLE IF NOT EXISTS soc_tokens (channel_id TEXT PRIMARY KEY, kind TEXT NOT NULL, target_id TEXT NOT NULL, name TEXT, enc TEXT NOT NULL, last4 TEXT, expires_at INTEGER, refreshed_at INTEGER, status TEXT, err TEXT, updated INTEGER)'), // token Meta theo kênh (mã hóa) – functions/api/_meta_tokens.js
   ]), { env });
@@ -278,13 +281,13 @@ export async function chainHealth(db, cfg, now) {
   return { channels: plats.length ? await has(`SELECT 1 AS x FROM dist_ext WHERE platform IN (${qs}) AND status = 'ok' LIMIT 1`, ...plats) : false,
     approved: await has("SELECT 1 AS x FROM yt_queue WHERE status IN ('manual', 'queued', 'uploading', 'done', 'failed', 'social') LIMIT 1"),
     planned: await has('SELECT 1 AS x FROM dist_social WHERE slot_ms > ? LIMIT 1', now),
-    bursts: postingViolations(await all(db, "SELECT channel_id, slot_ms AS at_ms FROM dist_social WHERE state IN ('pushed', 'published') AND slot_ms BETWEEN ? AND ? LIMIT 400", now - 48 * 36e5, now).catch(() => [])).length };
+    bursts: postingViolations(await all(db, "SELECT channel_id, slot_ms AS at_ms FROM dist_social WHERE state IN ('pushed', 'published') AND slot_ms BETWEEN ? AND ? LIMIT 400", now - 48 * 36e5, now).catch(() => []), { perDay: 1 }).length };
 }
 export function healthAlerts(h, st, now) {
   if (!h.channels) pushAlert(st, 'no-channels', 'Lexkite autopilot: workspace GrabCast chưa có kênh nào đang bật nên KHÔNG đăng được bài. Nối kênh Lexkite trên grabcast.click (khóa API không làm được bước này).', now);
   if (!h.approved) pushAlert(st, 'no-approved', 'Lexkite autopilot: hàng đợi không có clip đã duyệt nên KHÔNG có gì để lên lịch. Duyệt clip ở Quản trị › Video.', now);
   if (h.newest_days != null && h.newest_days > 7) pushAlert(st, 'no-new-clips', `Lexkite autopilot: ${h.newest_days} ngày chưa có clip mới trong kho – xem news-auto, video-auto và cine-render (lịch tự động có thể đang tắt).`, now);
-  if (h.bursts > 0) pushAlert(st, 'post-burst', `Lexkite autopilot: ${h.bursts} cặp bài cùng kênh cách nhau < 4 giờ trong 48 giờ qua – kiểm tra sổ cái soc_ledger và lịch (Quản trị › Hàng đợi).`, now);
+  if (h.bursts > 0) pushAlert(st, 'post-burst', `Lexkite autopilot: ${h.bursts} vi phạm (2 bài cùng kênh cách < 4 giờ hoặc > 1 bài/ngày) trong 48 giờ qua – kiểm tra sổ cái soc_ledger và lịch (Quản trị › Hàng đợi).`, now);
   if (h.manifest === 'bundle') pushAlert(st, 'manifest-stale', 'Lexkite autopilot: không đọc được manifest trên Kho Drive, đang dùng bản đóng gói cũ – xem drive-shorts và Quản trị › Kho Drive.', now);
   if (h.channels && h.approved && !h.planned) pushAlert(st, 'nothing-planned', 'Lexkite autopilot: có kênh và clip đã duyệt nhưng không có bài nào trong lịch sắp tới – xem luật định tuyến ở Quản trị › Kênh & phân phối.', now);
 }
