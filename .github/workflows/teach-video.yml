@@ -51,11 +51,12 @@ jobs:
           # 15/11: các kiểm dưới đây độc lập nhau → chạy song song (mỗi nhóm giữ nguyên lệnh), đợi hết rồi đỏ nếu BẤT KỲ nhóm nào đỏ (không bỏ kiểm nào)
           pids=(); names=()
           run() { n="$1"; shift; ( "$@" ) >"/tmp/pq-$n.log" 2>&1 & pids+=($!); names+=("$n"); }
-          run gen   bash -c 'python3 scripts/test/teach2d-gen.py && python3 scripts/test/teach2d-autopub.py && python3 scripts/test/teach2d-store.py'   # batch generator gates (data / level / hook / dup) + spelling syllables, regression cases
+          run gen   bash -c 'python3 scripts/test/teach2d-gen.py && python3 scripts/test/teach2d-autopub.py && python3 scripts/test/teach2d-store.py && python3 scripts/test/teach2d-rules.py && python3 scripts/test/dead-band.py'   # batch generator gates (data / level / hook / dup) + spelling syllables, regression cases
           run mix   bash -c 'python3 scripts/video/teach2d/mix.py --check && python3 scripts/test/teach2d-mix.py'   # 0-credit build bank: mix.json regenerates identically, 0 repeats in the window, diversity >= 70
           # 16/11: gtx (dịch ngược miễn phí) đổi bản dịch giữa các lần chạy → hàng sát ngưỡng lúc đạt lúc trượt, đỏ cả PR không đụng hàng đó (t2_l1_ja_hard). PR: dịch ngược online CHỈ hàng PR thêm/sửa (kiểm tĩnh vẫn mọi hàng); main/dispatch + lịch đêm (native-qa-nightly.yml) chạy đủ.
-          QA_SCOPE=""; if [ "$EV" = pull_request ] && git fetch -q --depth=1 origin "$BASE"; then QA_SCOPE="--online-changed=origin/$BASE"; fi
+          QA_SCOPE=""; B="${BASE:-main}"; if { [ "$EV" = pull_request ] || [ "$EV" = workflow_dispatch ]; } && git fetch -q --depth=1 origin "$B"; then QA_SCOPE="--online-changed=origin/$B"; fi   # 19/11: dispatch dịch ngược cả ~1750 hàng = 19,6 phút > trần 20 phút (run 44445334700 bị huỷ) → cũng chỉ hàng đổi so với main; cổng tĩnh vẫn chạy mọi hàng; cron/schedule vẫn dịch ngược hết
           run qa    node scripts/video/teach2d/native-qa.mjs --online $QA_SCOPE   # clip L1 (docs/VIDEO-TEACH2D.md): chữ bản địa theo i18n-qa + dịch ngược; đỏ = không render
+          run rl1   node scripts/video/teach2d/rule-l1-qa.mjs   # Spell→Sound hook + mẹo bản địa 14 ngôn ngữ × mọi luật (static; --online ở native-qa-nightly)
           run pub   python3 scripts/video/teach2d/publish.py --check   # publish block of every episode (title / platforms) valid – docs/specs/video-production-v2.md §2
           bad=0; for i in "${!pids[@]}"; do if wait "${pids[$i]}"; then echo "✓ ${names[$i]}"; else echo "::error::✗ ${names[$i]}"; bad=1; fi; echo "::group::log ${names[$i]}"; cat "/tmp/pq-${names[$i]}.log"; echo "::endgroup::"; done
           [ "$bad" = 0 ] || exit 1
@@ -105,7 +106,7 @@ jobs:
       - name: Voice (Kokoro teacher voice from the registry -> Rhubarb -> whisper word clock)
         run: |
           E=content/video/teach2d/eps/${{ matrix.ep }}.json
-          python3 -c "import json;e=json.load(open('$E'));json.dump(dict(voices={e['teacher']:e['voice']},speed=e['speed'],lines=[dict(id=l['id'],who=e['teacher'],text=l['text']) for l in e['lines']]),open('lines.json','w'),indent=1)"
+          python3 -c "import json;e=json.load(open('$E'));json.dump(dict(voices={e['teacher']:e['voice']},speed=e['speed'],lines=[dict(id=l['id'],who=e['teacher'],text=l['text'],**({'speed':l['speed']} if 'speed' in l else {})) for l in e['lines']]),open('lines.json','w'),indent=1)"
           python3 scripts/video/tpl/pilot5_voice.py lines.json vo   # lines faster than ~15 chars/s are re-synthesised slower (news_voice.py, floor 0.7)
           # learner pace (> 4.6 syllables/s) or a bad whisper clock -> voice that line again (max 2 rounds); qc.py gates the result
           for r in 1 2; do python3 scripts/video/teach2d/pace.py lines.json vo || break; NV_KEEP_SPEED=1 python3 scripts/video/tpl/pilot5_voice.py lines.json vo; done
@@ -158,7 +159,8 @@ jobs:
           for A in dark dusk light; do [ $A = $TH ] && continue   # the other looks, for the owner's colour pick (stills only)
             python3 scripts/video/teach2d/build.py --ep $E --vo vo --host host --format ${{ matrix.fmt }} --theme $A --public $O/pub_$A --out $O/props_$A.json; done
           LAY=$(python3 -c "import json;print((json.load(open('content/video/teach2d/mix.json'))['mix'].get(json.load(open('$E'))['id']) or {}).get('layout','corner'))")
-          if [ ${{ matrix.fmt }} = short ]; then for L in corner side bubble; do [ $L = $LAY ] && continue   # the other layouts (owner 29/10: show layout variety) – stills only
+          RULE=$(python3 -c "import json;print(json.load(open('$E'))['template']=='rule')")   # rule has ONE layout (corner): no layout variants to build or still
+          if [ ${{ matrix.fmt }} = short ] && [ $RULE = False ]; then for L in corner side bubble; do [ $L = $LAY ] && continue   # the other layouts (owner 29/10: show layout variety) – stills only
             python3 scripts/video/teach2d/build.py --ep $E --vo vo --host host --format short --layout $L --public $O/pub_lay_$L --out $O/props_lay_$L.json; done; fi
           # pass 2: the rig on this timeline (same voice clock in every look/layout) -> rig.webm + rig.frames.json, then into every pub dir
           node scripts/video/teach2d/rig_host.mjs $O/props.json.timeline.json vo host | tee -a $O/host.log
@@ -186,7 +188,7 @@ jobs:
             TS=$(python3 -c "import json;T=json.load(open('$R/props.json.timeline.json'));L=list(T['lines'].values());print(' '.join(str(round((L[i]['t0']+L[i]['t1'])/2,2)) for i in (3,len(L)-3)))")
             LAY=$(python3 -c "import json;T=json.load(open('$R/props.json.timeline.json'));print(T.get('layout') or 'corner')")   # the mix layout of the real render (mix.py) – stills for the OTHER two
             for t in $TS; do ffmpeg -nostdin -v error -y -ss $t -i "$R/${{ matrix.ep }}-short.mp4" -frames:v 1 "$R/lay_${LAY}_$t.png"
-              for L in corner side bubble; do [ $L = $LAY ] && continue; npx remotion still src/index.jsx teach-short "$R/lay_${L}_$t.png" --props="$R/props_lay_$L.json" --public-dir="$R/pub_lay_$L" --frame=$(python3 -c "print(int($t*30))") --log=error; done; done
+              for L in corner side bubble; do [ $L = $LAY ] && continue; [ -f "$R/props_lay_$L.json" ] || continue; npx remotion still src/index.jsx teach-short "$R/lay_${L}_$t.png" --props="$R/props_lay_$L.json" --public-dir="$R/pub_lay_$L" --frame=$(python3 -c "print(int($t*30))") --log=error; done; done
           fi
       - name: QC after render (file, loudness, teacher visible, frames) + contact sheet
         shell: bash

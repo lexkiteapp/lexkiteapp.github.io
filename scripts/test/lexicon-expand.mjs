@@ -426,9 +426,17 @@ ok(sourceGap(gateEntry(Object.assign(g2(), { ipa: '' }))) && !sourceGap(gateEntr
 { const py = fs.readFileSync(path.join(ROOT, 'scripts/lexicon/expand/pick_words.py'), 'utf8');
   ok(/have_wp/.test(py) && /f'\{w\}#\{pos\}' in have_wp/.test(py) && !/if w in have or w in seen/.test(py), 'pick_words: bỏ trùng theo từ#loại, không theo từ');
   ok(/SEC_MIN/.test(py) && /SEC_SHARE/.test(py) && /math\.log10\(cnt\[pos\] \/ tot\)/.test(py), 'pick_words: từ loại phụ có ngưỡng SemCor + CEFR theo tần suất của từ loại đó');
+  ok(/LX_SEC_MIN', 1\)/.test(py) && /--demand/.test(py) && /w not in DEMAND/.test(py) && /0 if e\['w'\] in DEMAND else 1/.test(py), 'pick_words: nguồn ứng viên mở rộng (17/11) – từ loại phụ SemCor ≥ 1 + cầu GSC dictQueue chỉ đổi THỨ TỰ, lọc/giám khảo giữ nguyên');
+  // 17/11 phiếu GPL: chữ GPL KHÔNG BAO GIỜ lọt vào output (viAgreeSources) – chỉ thêm nhãn 'gpl' vào phương án có sẵn
+  { const G = ['GPLKEY-xyz-zzz', 'đồ chơi'], r1 = viAgreeSources({ wk: ['con mèo'], g: ['con mèo', ...G] }), r2 = viAgreeSources({ g: G }), r3 = viAgreeSources({ wk: ['con chó'], g: G }), r4 = viAgreeSources({ wk: ['con mèo'], a: 'con mèo', g: ['con mèo'] });
+    ok(r1.length === 1 && r1[0].v === 'con mèo' && r1[0].src.join() === 'wk,gpl', 'GPL: wk + phiếu gpl = đủ 2 nguồn, chữ hiển thị là của Wiktionary');
+    ok(r2.length === 0 && r3.length === 0, 'GPL: một mình GPL không đủ, không tạo phương án mới');
+    ok(![r1, r2, r3, r4].some(r => JSON.stringify(r).includes('GPLKEY') || JSON.stringify(r).includes('đồ chơi')), 'GPL: không chuỗi nào của nguồn GPL lọt vào output');
+    const job = fs.readFileSync(path.join(ROOT, 'scripts/lexicon/expand/job.mjs'), 'utf8'); ok((job.match(/\bGP\[/g) || []).length === 1 && /g: GP\[x\.k\] \|\| \[\] \}\)/.test(job), 'GPL: job.mjs chỉ đưa GP vào viAgreeSources({ g }), không chỗ nào khác');
+    const wf = fs.readFileSync(path.join(ROOT, '.github/workflows/lexicon-expand.yml'), 'utf8'); ok(/rm -rf "\$RUNNER_TEMP\/gpl"/.test(wf) && !/gpl\.json[^\n]*(git add|upload-artifact)/.test(wf), 'GPL: tệp tạm xoá cuối bước tải, không git add/artifact'); }
   ok(/not in FORCE/.test(py) && /w not in FORCE_W/.test(py), 'pick_words: mẫu cố định/retry (--want) luôn có ứng viên đúng từ#loại – mẫu pilot không âm thầm co (31/10: 204/378)');
   // 08/11 (lượt 42417868955: «cần -2063» → 0 từ mới từ 06/11): mốc 20k đếm mục SỐNG, mục trượt hàng duyệt chỉ để bỏ trùng
-  ok(/top_n_list\('en', a\.top\)/.test(py) && /'--top', type=int, default=int\(os\.environ\.get\('LX_TOP', 200000\)\)/.test(py) && /drop\['cmu'\] \+= 1/.test(py) && /w not in cmu/.test(py), 'pick_words: --top 200k ứng viên, vẫn bắt buộc CMUdict + đếm lý do loại');
+  ok(/top_n_list\('en', a\.top\)/.test(py) && /'--top', type=int, default=int\(os\.environ\.get\('LX_TOP', 320000\)\)/.test(py) && /drop\['cmu'\] \+= 1/.test(py) && /w not in cmu/.test(py) && /LX_CMU_FREE/.test(py), 'pick_words: --top 200k ứng viên, vẫn bắt buộc CMUdict + đếm lý do loại');
   ok(/LIVE_N\['wp'\]/.test(py) && /need = a\.target - max\(LIVE_N/.test(py) && !/need = a\.target - max\(len\(have\)/.test(py), 'pick_words: mốc 20k = 20k − mục sống (existing.live.json), không trừ mục trượt');
   { const { execFileSync } = await import('node:child_process'), os = await import('node:os'), d = fs.mkdtempSync(path.join(os.tmpdir(), 'lxex-')), f = path.join(d, 'existing.json');
     execFileSync('node', [path.join(ROOT, 'scripts/lexicon/expand/existing.mjs'), f], { cwd: ROOT, stdio: 'pipe' });

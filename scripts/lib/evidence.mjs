@@ -19,7 +19,7 @@ const otsCover = (all, e, exists) => { for (const x of all) if (x.seq >= e.seq &
 export function evidenceReport(q, { file = REGISTRY, exists = p => fs.existsSync(p), canaryFile = 'content/protection/canaries.json' } = {}) {
   const all = readRegistry(file), v = verifyChain(all), lines = registryLines(file);
   const can = fs.existsSync(canaryFile) ? JSON.parse(fs.readFileSync(canaryFile, 'utf8')).canaries : [];
-  const c0 = can.find(x => x.id === q), cg = c0 ? git('log', '--reverse', '--format=%H %cI %s', '-S', c0.q || c0.token, '--', `web/js/${c0.module}`).split('\n')[0] : '';
+  const c0 = can.find(x => x.id === q), cg = c0 ? git('log', '--reverse', '--format=%H %cI %s', '-S', c0.q || c0.token, '--', `web/js/${c0.module}`, `web/cpack/${c0.module}`).split('\n')[0] : '';
   const t = targets(q, all, can, cg ? new Date(cg.split(' ')[1]).toISOString() : ''), L = [];
   L.push(`# Bằng chứng tác quyền Lexkite: ${q}`, `Sổ băm: ${file} – ${v.ok ? `chuỗi hợp lệ, ${v.count} mục, head ${v.head}` : `HỎNG ở mục ${v.at}`}`);
   if (t.canary) {

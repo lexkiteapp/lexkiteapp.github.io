@@ -215,7 +215,7 @@
         const box = $('[data-ai2]', out);
         const run = async () => {
           box.innerHTML = `<div class="small muted">${UI.icon('hourglass')} ${t('AI đang phân tích…')}</div>`;
-          try { box.innerHTML = AI.renderExplain(await AI.explain(info.text, info.sentence)); } catch (e) { box.innerHTML = `<div class="small">⚠️ ${esc(AI.errText(e))}</div>`; }
+          try { const ex = await AI.explain(info.text, info.sentence); box.innerHTML = AI.renderExplain(ex);   /* renderExplain tra cứu SAU await: shim AI đã được ai.js ghi đè */ } catch (e) { box.innerHTML = `<div class="small">⚠️ ${esc(AI.errText(e))}</div>`; }
           place(pop, info.rect);
         };
         if (!window.AI) { btn.disabled = false; return; }

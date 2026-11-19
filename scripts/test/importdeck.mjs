@@ -286,7 +286,7 @@ Skeptical readers doubted the claims, and a skeptical editor agreed. Xqzvtp is n
 
 // ---------- 10. Cờ, bó tải, add-on ----------
 {
-  const app = rd('js/app.js'), cfg = fs.readFileSync(new URL('../../functions/api/config.js', import.meta.url), 'utf8'), adm = fs.readFileSync(new URL('../../functions/api/admin.js', import.meta.url), 'utf8');
+  const app = rd('js/app.js') + rd('js/bundles.js'), cfg = fs.readFileSync(new URL('../../functions/api/config.js', import.meta.url), 'utf8'), adm = fs.readFileSync(new URL('../../functions/api/admin.js', import.meta.url), 'utf8');
   ok(/impdeck: \['cpack\/importdeck-app\/freq-rank\.js', 'cpack\/importdeck-app\/importdeck\.js'\]/.test(app), 'app.js: gói lười impdeck (khung app chỉ +1 dòng)');
   ok(/'importdeck'/.test(cfg) && /'importdeck'/.test(adm), 'importdeck có trong PUBLIC_KEYS + CONFIG_KEYS (mặc định tắt)');
   // Nhãn nguồn: thẻ nhập tài liệu (topic 'import', có deck) → 'doc' (Từ tài liệu), không lẫn 'Từ Anki'; thẻ Anki giữ 'anki'

@@ -9582,6 +9582,799 @@
     "strike": "ought go",
     "answer_say": "Ought to! You ought to see a doctor."
    }
+  },
+  {
+   "id": "t2a_rule_silentkn_1",
+   "template": "rule",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "silent-kn:know/knee",
+   "hash": "892ada8799d2",
+   "heads": [
+    "rule:silent-kn:know",
+    "rule:silent-kn:knee"
+   ],
+   "taught": [
+    "know",
+    "knee",
+    "kn",
+    "gh"
+   ],
+   "in": {
+    "rule": "silent-kn",
+    "words": [
+     "know",
+     "knee"
+    ]
+   }
+  },
+  {
+   "id": "t2a_rule_silentwr_1",
+   "template": "rule",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "silent-wr:write/wrong",
+   "hash": "dae1843a08bd",
+   "heads": [
+    "rule:silent-wr:write",
+    "rule:silent-wr:wrong"
+   ],
+   "taught": [
+    "write",
+    "wrong",
+    "wr",
+    "gh"
+   ],
+   "in": {
+    "rule": "silent-wr",
+    "words": [
+     "write",
+     "wrong"
+    ]
+   }
+  },
+  {
+   "id": "t2a_rule_silentmb_1",
+   "template": "rule",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "silent-mb:climb/comb",
+   "hash": "2eceec1b97f7",
+   "heads": [
+    "rule:silent-mb:climb",
+    "rule:silent-mb:comb"
+   ],
+   "taught": [
+    "climb",
+    "comb",
+    "mb",
+    "gh"
+   ],
+   "in": {
+    "rule": "silent-mb",
+    "words": [
+     "climb",
+     "comb"
+    ]
+   }
+  },
+  {
+   "id": "t2a_rule_silentgn_1",
+   "template": "rule",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "silent-gn:design/foreign",
+   "hash": "da18c1f23892",
+   "heads": [
+    "rule:silent-gn:design",
+    "rule:silent-gn:foreign"
+   ],
+   "taught": [
+    "design",
+    "foreign",
+    "gn",
+    "gh"
+   ],
+   "in": {
+    "rule": "silent-gn",
+    "words": [
+     "design",
+     "foreign"
+    ]
+   }
+  },
+  {
+   "id": "t2a_rule_silentps_1",
+   "template": "rule",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "silent-ps:psychological",
+   "hash": "65dbb05cbbb3",
+   "heads": [
+    "rule:silent-ps:psychological"
+   ],
+   "taught": [
+    "psychological",
+    "ps",
+    "gh"
+   ],
+   "in": {
+    "rule": "silent-ps",
+    "words": [
+     "psychological"
+    ],
+    "tight": 1
+   }
+  },
+  {
+   "id": "t2a_rule_silentght_1",
+   "template": "rule",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "silent-ght:flight/light",
+   "hash": "7ec22c0ad16c",
+   "heads": [
+    "rule:silent-ght:flight",
+    "rule:silent-ght:light"
+   ],
+   "taught": [
+    "flight",
+    "light",
+    "ght",
+    "gh"
+   ],
+   "in": {
+    "rule": "silent-ght",
+    "words": [
+     "flight",
+     "light"
+    ]
+   }
+  },
+  {
+   "id": "t2a_rule_silenth_1",
+   "template": "rule",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "silent-h:hour/honest",
+   "hash": "a9453143566b",
+   "heads": [
+    "rule:silent-h:hour",
+    "rule:silent-h:honest"
+   ],
+   "taught": [
+    "hour",
+    "honest",
+    "h",
+    "gh"
+   ],
+   "in": {
+    "rule": "silent-h",
+    "words": [
+     "hour",
+     "honest"
+    ]
+   }
+  },
+  {
+   "id": "t2a_rule_silentl_1",
+   "template": "rule",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "silent-l:half/talk",
+   "hash": "553822809a35",
+   "heads": [
+    "rule:silent-l:half",
+    "rule:silent-l:talk"
+   ],
+   "taught": [
+    "half",
+    "talk",
+    "l",
+    "gh"
+   ],
+   "in": {
+    "rule": "silent-l",
+    "words": [
+     "half",
+     "talk"
+    ]
+   }
+  },
+  {
+   "id": "t2a_rule_silentbt_1",
+   "template": "rule",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "silent-bt:doubt/debt",
+   "hash": "3fc3a644d1c1",
+   "heads": [
+    "rule:silent-bt:doubt",
+    "rule:silent-bt:debt"
+   ],
+   "taught": [
+    "doubt",
+    "debt",
+    "bt",
+    "gh"
+   ],
+   "in": {
+    "rule": "silent-bt",
+    "words": [
+     "doubt",
+     "debt"
+    ]
+   }
+  },
+  {
+   "id": "t2a_rule_silentt_1",
+   "template": "rule",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "silent-t:listen",
+   "hash": "39ac1520fc0f",
+   "heads": [
+    "rule:silent-t:listen"
+   ],
+   "taught": [
+    "listen",
+    "t",
+    "gh"
+   ],
+   "in": {
+    "rule": "silent-t",
+    "words": [
+     "listen"
+    ],
+    "tight": 1
+   }
+  },
+  {
+   "id": "t2a_rule_silentigh_1",
+   "template": "rule",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "silent-igh:high/thigh",
+   "hash": "5120f342ed55",
+   "heads": [
+    "rule:silent-igh:high",
+    "rule:silent-igh:thigh"
+   ],
+   "taught": [
+    "high",
+    "thigh",
+    "igh",
+    "gh"
+   ],
+   "in": {
+    "rule": "silent-igh",
+    "words": [
+     "high",
+     "thigh"
+    ],
+    "tight": 1
+   }
+  },
+  {
+   "id": "t2a_rule_silenteigh_1",
+   "template": "rule",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "silent-eigh:height/neighbor",
+   "hash": "753459876f97",
+   "heads": [
+    "rule:silent-eigh:height",
+    "rule:silent-eigh:neighbor"
+   ],
+   "taught": [
+    "height",
+    "neighbor",
+    "eigh",
+    "gh"
+   ],
+   "in": {
+    "rule": "silent-eigh",
+    "words": [
+     "height",
+     "neighbor"
+    ],
+    "tight": 1
+   }
+  },
+  {
+   "id": "t2a_rule_silentough_1",
+   "template": "rule",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "silent-ough:through",
+   "hash": "3cbdc59d104b",
+   "heads": [
+    "rule:silent-ough:through"
+   ],
+   "taught": [
+    "through",
+    "ough",
+    "gh"
+   ],
+   "in": {
+    "rule": "silent-ough",
+    "words": [
+     "through"
+    ],
+    "tight": 1
+   }
+  },
+  {
+   "id": "t2a_rule_silentwh_1",
+   "template": "rule",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "silent-wh:who/whole",
+   "hash": "9509d4da6978",
+   "heads": [
+    "rule:silent-wh:who",
+    "rule:silent-wh:whole"
+   ],
+   "taught": [
+    "who",
+    "whole",
+    "wh",
+    "gh"
+   ],
+   "in": {
+    "rule": "silent-wh",
+    "words": [
+     "who",
+     "whole"
+    ],
+    "tight": 1
+   }
+  },
+  {
+   "id": "t2a_rule_silentmn_1",
+   "template": "rule",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "silent-mn:autumn/column",
+   "hash": "ef9783ed1a50",
+   "heads": [
+    "rule:silent-mn:autumn",
+    "rule:silent-mn:column"
+   ],
+   "taught": [
+    "autumn",
+    "column",
+    "mn",
+    "gh"
+   ],
+   "in": {
+    "rule": "silent-mn",
+    "words": [
+     "autumn",
+     "column"
+    ],
+    "tight": 1
+   }
+  },
+  {
+   "id": "t2a_rule_silentsc_1",
+   "template": "rule",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "silent-sc:science/scientist",
+   "hash": "553cef0c5f53",
+   "heads": [
+    "rule:silent-sc:science",
+    "rule:silent-sc:scientist"
+   ],
+   "taught": [
+    "science",
+    "scientist",
+    "sc",
+    "gh"
+   ],
+   "in": {
+    "rule": "silent-sc",
+    "words": [
+     "science",
+     "scientist"
+    ]
+   }
+  },
+  {
+   "id": "t2a_rule_silentgu_1",
+   "template": "rule",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "silent-gu:build/guess",
+   "hash": "d21e2728e61d",
+   "heads": [
+    "rule:silent-gu:build",
+    "rule:silent-gu:guess"
+   ],
+   "taught": [
+    "build",
+    "guess",
+    "gu",
+    "gh"
+   ],
+   "in": {
+    "rule": "silent-gu",
+    "words": [
+     "build",
+     "guess"
+    ]
+   }
+  },
+  {
+   "id": "t2a_rule_silenthex_1",
+   "template": "rule",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "silent-hex:exhibition",
+   "hash": "806bb1fd27b1",
+   "heads": [
+    "rule:silent-hex:exhibition"
+   ],
+   "taught": [
+    "exhibition",
+    "hex",
+    "gh"
+   ],
+   "in": {
+    "rule": "silent-hex",
+    "words": [
+     "exhibition"
+    ],
+    "tight": 1
+   }
+  },
+  {
+   "id": "t2a_rule_silentrh_1",
+   "template": "rule",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "silent-rh:rhinoceros/rhythm",
+   "hash": "3332f1265c6c",
+   "heads": [
+    "rule:silent-rh:rhinoceros",
+    "rule:silent-rh:rhythm"
+   ],
+   "taught": [
+    "rhinoceros",
+    "rhythm",
+    "rh",
+    "gh"
+   ],
+   "in": {
+    "rule": "silent-rh",
+    "words": [
+     "rhinoceros",
+     "rhythm"
+    ]
+   }
+  },
+  {
+   "id": "t2a_rule_silentould_1",
+   "template": "rule",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "silent-ould:could/should",
+   "hash": "2230e920d66f",
+   "heads": [
+    "rule:silent-ould:could",
+    "rule:silent-ould:should"
+   ],
+   "taught": [
+    "could",
+    "should",
+    "ould",
+    "gh"
+   ],
+   "in": {
+    "rule": "silent-ould",
+    "words": [
+     "could",
+     "should"
+    ]
+   }
+  },
+  {
+   "id": "t2a_rule_silentchk_1",
+   "template": "rule",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "silent-chk:school/character",
+   "hash": "2ad1d28488cc",
+   "heads": [
+    "rule:silent-chk:school",
+    "rule:silent-chk:character"
+   ],
+   "taught": [
+    "school",
+    "character",
+    "chk",
+    "gh"
+   ],
+   "in": {
+    "rule": "silent-chk",
+    "words": [
+     "school",
+     "character"
+    ]
+   }
+  },
+  {
+   "id": "t2a_rule_silentgue_1",
+   "template": "rule",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "silent-gue:colleague/tongue",
+   "hash": "67890731e202",
+   "heads": [
+    "rule:silent-gue:colleague",
+    "rule:silent-gue:tongue"
+   ],
+   "taught": [
+    "colleague",
+    "tongue",
+    "gue",
+    "gh"
+   ],
+   "in": {
+    "rule": "silent-gue",
+    "words": [
+     "colleague",
+     "tongue"
+    ],
+    "tight": 1
+   }
+  },
+  {
+   "id": "t2a_rule_silentque_1",
+   "template": "rule",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "silent-que:mosque",
+   "hash": "69e9c9a70bd9",
+   "heads": [
+    "rule:silent-que:mosque"
+   ],
+   "taught": [
+    "mosque",
+    "que",
+    "gh"
+   ],
+   "in": {
+    "rule": "silent-que",
+    "words": [
+     "mosque"
+    ],
+    "tight": 1
+   }
+  },
+  {
+   "id": "t2a_rule_silente_1",
+   "template": "rule",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "silent-e:above/advice",
+   "hash": "cf603d6dd8ed",
+   "heads": [
+    "rule:silent-e:above",
+    "rule:silent-e:advice"
+   ],
+   "taught": [
+    "above",
+    "advice",
+    "e",
+    "gh"
+   ],
+   "in": {
+    "rule": "silent-e",
+    "words": [
+     "above",
+     "advice"
+    ]
+   }
+  },
+  {
+   "id": "t2a_rule_silentisl_1",
+   "template": "rule",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "silent-isl:island/aisle",
+   "hash": "f7855cf4bc74",
+   "heads": [
+    "rule:silent-isl:island",
+    "rule:silent-isl:aisle"
+   ],
+   "taught": [
+    "island",
+    "aisle",
+    "isl",
+    "gh"
+   ],
+   "in": {
+    "rule": "silent-isl",
+    "words": [
+     "island",
+     "aisle"
+    ]
+   }
+  },
+  {
+   "id": "t2a_rule_silentver_1",
+   "template": "rule",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "silent-ver:everybody",
+   "hash": "2c5f868c4a06",
+   "heads": [
+    "rule:silent-ver:everybody"
+   ],
+   "taught": [
+    "everybody",
+    "ver",
+    "gh"
+   ],
+   "in": {
+    "rule": "silent-ver",
+    "words": [
+     "everybody"
+    ],
+    "tight": 1
+   }
+  },
+  {
+   "id": "t2a_rule_silentely_1",
+   "template": "rule",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "silent-ely:lonely",
+   "hash": "87e617fc0817",
+   "heads": [
+    "rule:silent-ely:lonely"
+   ],
+   "taught": [
+    "lonely",
+    "ely",
+    "gh"
+   ],
+   "in": {
+    "rule": "silent-ely",
+    "words": [
+     "lonely"
+    ],
+    "tight": 1
+   }
+  },
+  {
+   "id": "t2a_rule_silentement_1",
+   "template": "rule",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "silent-ement:statement",
+   "hash": "31f0478858b4",
+   "heads": [
+    "rule:silent-ement:statement"
+   ],
+   "taught": [
+    "statement",
+    "ement",
+    "gh"
+   ],
+   "in": {
+    "rule": "silent-ement",
+    "words": [
+     "statement"
+    ],
+    "tight": 1
+   }
+  },
+  {
+   "id": "t2a_rule_silentng_1",
+   "template": "rule",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "silent-ng:anything/bring",
+   "hash": "7ce3a68a8ebc",
+   "heads": [
+    "rule:silent-ng:anything",
+    "rule:silent-ng:bring"
+   ],
+   "taught": [
+    "anything",
+    "bring",
+    "ng",
+    "gh"
+   ],
+   "in": {
+    "rule": "silent-ng",
+    "words": [
+     "anything",
+     "bring"
+    ]
+   }
+  },
+  {
+   "id": "t2a_rule_silentkn_2",
+   "template": "rule",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "silent-kn:knowledge/knit",
+   "hash": "4cbcaa54445f",
+   "heads": [
+    "rule:silent-kn:knowledge",
+    "rule:silent-kn:knit"
+   ],
+   "taught": [
+    "knowledge",
+    "knit",
+    "kn",
+    "gh"
+   ],
+   "in": {
+    "rule": "silent-kn",
+    "words": [
+     "knowledge",
+     "knit"
+    ]
+   }
+  },
+  {
+   "id": "t2a_rule_silentally_1",
+   "template": "rule",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "silent-ally:specifically",
+   "hash": "be2ad0327853",
+   "heads": [
+    "rule:silent-ally:specifically"
+   ],
+   "taught": [
+    "specifically",
+    "ally",
+    "gh"
+   ],
+   "in": {
+    "rule": "silent-ally",
+    "words": [
+     "specifically"
+    ],
+    "tight": 1
+   }
   }
  ]
 }
