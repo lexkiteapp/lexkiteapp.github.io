@@ -77,9 +77,9 @@
   function explore(name) { if (!EXPLORE.test(name || '')) return; const v = document.getElementById('view'); if (!v) return; const go = () => { if (v.querySelector('.tlp-card') || !v.firstElementChild) return !!v.querySelector('.tlp-card'); card(v); return true; };
     if (go()) return; const mo = new MutationObserver(() => { if (go()) mo.disconnect(); }); mo.observe(v, { childList: true }); setTimeout(() => mo.disconnect(), 3000); }
   // Khóa chưa có nội dung (ready:false; chỉ quản trị chọn được): màn "đang chuẩn bị" + đường về tiếng Anh – không bao giờ hiện nội dung tiếng Anh thay thế
-  function prep() { const id = (location.hash.match(/tlprep\/([a-z]{2})/) || [])[1], r = T().TABLE[id]; const v = document.getElementById('view'); if (!v) return;
-    if (!r || r.ready !== false) { location.replace('#/home'); return; }
-    v.innerHTML = `<section class="card tlp-prep" role="status"><span class="tlp-flag" aria-hidden="true">${r.em}</span><h1 translate="no" lang="${id}">${esc(r.name)}</h1><p class="tlp-pill">${esc(tr('Sắp ra mắt'))}</p><p class="muted">${esc(tr('Khóa học này đang được chuẩn bị, chưa có bài học.'))}</p><button type="button" class="btn primary" data-back>${esc(tr('Quay lại tiếng Anh'))}</button></section>`;
+  function prep() { const id = (location.hash.match(/tlprep\/([a-z]{2})/) || [])[1], r = T().TABLE[id] && T().TABLE[id].ready === false ? T().TABLE[id] : null; /* id lạ/đã sẵn sàng: vẫn màn này (không chuyển hướng muộn) + nút về tiếng Anh */ const v = document.getElementById('view'); if (!v) return;
+    const tok = g.App && App.routeToken ? App.routeToken() : 0; if (g.App && App.routeStale && App.routeStale(tok)) return;
+    v.innerHTML = `<section class="card tlp-prep" role="status"><span class="tlp-flag" aria-hidden="true">${r ? r.em : '🌐'}</span><h1 translate="no"${r ? ` lang="${id}"` : ''}>${esc(r ? r.name : '')}</h1><p class="tlp-pill">${esc(tr('Sắp ra mắt'))}</p><p class="muted">${esc(tr('Khóa học này đang được chuẩn bị, chưa có bài học.'))}</p><button type="button" class="btn primary" data-back>${esc(tr('Quay lại tiếng Anh'))}</button></section>`;
     v.querySelector('[data-back]').onclick = () => { T().set('en'); location.hash = '#/home'; paint(); }; }
   if (g.App && App.routes) App.routes.tlprep = prep;
   function boot() { top(); announce(); if (!boot.w) { boot.w = 1; addEventListener('lk:tl', paint); document.addEventListener('click', onChip);

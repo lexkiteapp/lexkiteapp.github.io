@@ -18,7 +18,6 @@
   function bucket() { const b = ls('lk.esb'); if (/^\d{1,2}$/.test(b || '')) return +b; if (mem === null) mem = Math.floor(Math.random() * 100); ls('lk.esb', String(mem)); return mem; }
   function on(tl) {
     const r = TABLE[tl]; if (!r || !r.flag) return false;
-    if (r.ready === false) return ls('lk.adm') === '1'; // chưa có khóa thật (chưa chạy): chỉ quản trị chọn được → màn "đang chuẩn bị", người học thường không bao giờ thấy nội dung tiếng Anh thay thế
     if (r.kill && yes(cfgv(r.kill))) return false;
     if (ls(r.ls) === '1' || ls('lk.adm') === '1') return true; // quản trị (App.isAdmin ghi lk.adm) luôn thấy mọi ngôn ngữ beta, như lk.<tl>=1
     const v = cfgv(r.flag); if (yes(v)) return true; if (no(v)) return false;
@@ -26,8 +25,9 @@
     return n > 0 && bucket() < Math.min(100, n);
   }
   const enabled = tl => (tl ? on(tl) : LANGS.some(on));
-  const avail = () => LANGS.filter(k => k === 'en' || on(k)); // ngôn ngữ chọn được lúc này
-  const cur = () => { const v = ls(KEY); return v && v !== 'en' && TABLE[v] && on(v) ? v : 'en'; };
+  const usable = k => on(k) && (TABLE[k].ready !== false || ls('lk.adm') === '1'); // ready:false (fr/pt chưa có khóa thật): cờ vẫn quyết enabled(), nhưng chỉ quản trị chọn được → màn "đang chuẩn bị", người thường không bao giờ ra nội dung tiếng Anh thay thế
+  const avail = () => LANGS.filter(k => k === 'en' || usable(k)); // ngôn ngữ chọn được lúc này
+  const cur = () => { const v = ls(KEY); return v && v !== 'en' && TABLE[v] && usable(v) ? v : 'en'; };
   function set(tl) {
     tl = TABLE[tl] ? tl : 'en';
     ls(KEY, tl === 'en' ? null : tl);
