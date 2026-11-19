@@ -1,0 +1,163 @@
+{
+ "id": "t2a_rule_silentisl_1",
+ "template": "rule",
+ "series": "Spell to Sound",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "pronunciation",
+ "lines": [
+  {
+   "id": "h",
+   "text": "The S is silent!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "In i s l, the S is silent.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Island.",
+   "pause": 0.25,
+   "speed": 0.6
+  },
+  {
+   "id": "v0",
+   "text": "Island.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Aisle.",
+   "pause": 0.25,
+   "speed": 0.6
+  },
+  {
+   "id": "v1",
+   "text": "Aisle.",
+   "pause": 0.3
+  },
+  {
+   "id": "p",
+   "text": "Repeat after me!",
+   "pause": 2.4
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which letter is silent in aisle?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "S! The S is silent.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "rule": "silent-isl",
+  "title": "isl-",
+  "target": "/aɪl/",
+  "letter": "s",
+  "say": "In i s l, the S is silent.",
+  "words": [
+   {
+    "w": "island",
+    "ipa": "/ˈaɪlənd/",
+    "silent": [
+     1,
+     2
+    ],
+    "letter": "s",
+    "mean": "Area of land that is surrounded by water.",
+    "em": "🏝️"
+   },
+   {
+    "w": "aisle",
+    "ipa": "/aɪl/",
+    "silent": [
+     2,
+     3
+    ],
+    "letter": "s",
+    "mean": "a passage between rows of seats or shelves",
+    "em": "🛒"
+   }
+  ],
+  "quiz": {
+   "stem": "Which letter is silent in aisle?",
+   "options": [
+    "S",
+    "A"
+   ],
+   "answer": 0
+  }
+ },
+ "cta": {
+  "area": "pronunciation",
+  "route": "#/pron/island",
+  "link": "https://lexkite.com/app/#/pron/island",
+  "say": "Practise this sound"
+ },
+ "hook": {
+  "line": "h",
+  "text": "The S is silent"
+ },
+ "src": {
+  "rule": "silent-isl"
+ },
+ "est": {
+  "words": 38,
+  "seconds": 26.2,
+  "wpm": 87
+ },
+ "publish": {
+  "title": "The S is silent!",
+  "keyword": "Spell to Sound",
+  "value": "In i s l, the S is silent.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#pronunciation",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/pron/island",
+  "script_words": 29,
+  "platforms": {
+   "youtube": {
+    "title": "The S is silent!",
+    "description": "In i s l, the S is silent.\n\nPractise this sound, free: https://lexkite.com/app/#/pron/island\n\nSeries: Spell to Sound · Teacher: Ama\n\n#learnenglish #englishtips #pronunciation #englishteacher",
+    "tags": [
+     "Spell to Sound",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "The S is silent!\n\nIn i s l, the S is silent.\n\nPractise this sound, free: https://lexkite.com/app/#/pron/island"
+   },
+   "instagram": {
+    "caption": "The S is silent!\n\nIn i s l, the S is silent.\n\nPractise this sound: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#pronunciation",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "The S is silent! #learnenglish #englishtips #pronunciation"
+   }
+  },
+  "first_comment": "Did you get it? S! The S is silent. In i s l, the S is silent. More practice like this (free): {link}"
+ }
+}
