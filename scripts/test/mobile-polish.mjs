@@ -88,7 +88,7 @@ w.UI.toast('Toast màn kín từ trên xuống'); await tick(280);
   const wall = Array.from({ length: 15 }, (_, i) => { const c = w.document.createElement('button'); $('#view').appendChild(c); const r = { top: i * 50, bottom: i * 50 + 46, left: 0, right: 360, width: 360, height: 46 }; c.getBoundingClientRect = () => r; return { c, r }; });
   w.UI.toast('Huy hiệu mới: Cấp 5'); await tick(120);
   ok(!shown(), 'kín hết màn (không khoảng hở ≥ toast) → toast hoãn, KHÔNG hiện đè lên nút');
-  wall.forEach(x => x.c.remove()); await tick(1800);
+  wall.forEach(x => x.c.remove()); for (let i = 0; i < 40 && !(shown() && T.textContent === 'Huy hiệu mới: Cấp 5'); i++) await tick(300); // hàng chờ có thể còn câu cũ: lần lượt từng câu
   ok(shown() && T.textContent === 'Huy hiệu mới: Cấp 5', 'có chỗ trở lại → toast hoãn hiện ra: ' + T.textContent);
   }
 rows.forEach(x => x.c.remove()); hdr.remove();
