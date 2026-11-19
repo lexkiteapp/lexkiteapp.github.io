@@ -168,7 +168,7 @@
       "t": "line",
       "runs": [
        [
-        "say your name, who you're meeting, and the time."
+        "say your name, who you're meeting"
        ]
       ]
      }

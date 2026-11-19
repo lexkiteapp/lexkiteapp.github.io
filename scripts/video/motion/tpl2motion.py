@@ -31,13 +31,13 @@ def steps_spec(tpl, slug, v):
         lines.append(BM.line(f's{i}', s['say']))
         if s['tag']: tiles.append(dict(t='tile', tag=s['tag'], tone=s['tone'], lines=[[[BM.short(s['sub'], 46) if s['sub'] else ' ', 'muted']]], ex=[[BM.short(s['card'], 46), s['tone']]], ex_at=[f's{i}', 0], at=[f's{i}', 0]))
     lines.append(BM.line('t', f'Tip: {tip}'))
-    top = [BM.hookcard(label), dict(id='sum', at=['t', 0], rows=[BM.chip('Tip', 'gold'), BM.ln(BM.short(tip, 52))])]
+    top = [BM.hookcard(label), dict(id='sum', at=['t', 0], rows=[BM.chip('Tip', 'gold'), BM.ln(BM.fit(tip))])]
     first = tiles[0]['at']; sp = BM.base(tpl, r, tpl, lines, dict(top=top, col=[dict(t='card', id='rules', at=first, rows=tiles[:3])]), hook, 'tip'); sp['id'] = 'mo_' + r['id']; sp['uses']['template'] = tpl; return sp
 def quiz(tpl, slug, v):
     r = row(tpl, slug, v); a, b = v['optionA'], v['optionB']; right = 0 if v['answer'].strip().lower().startswith("it's a") or v['answer'].strip().lower().startswith('a,') else 1
     o = f"A: {a.rstrip('.')}? Or B: {b.rstrip('.')}?"; ot = o.split(); ia, ib = ot.index('A:') + 1, ot.index('B:') + 1
     lines = [BM.line('h', 'Quick quiz!'), BM.line('q', v['question']), BM.line('o', o), dict(id='_count', beat='count', dur=3.0), BM.line('a', v['answer']), BM.line('w', f"Tip: {v['tip']}")]
-    top = [BM.hookcard('Quick quiz'), dict(id='q', at=['q', 0], rows=[BM.chip('A or B?', 'teal', ring='_count'), BM.ln(v['question'])], xp=[dict(at=['a', 0], n=10)]), dict(id='note', at=['w', 0], tone='coral', rows=[BM.chip('Tip', 'coral'), BM.ln(BM.short(v['tip'], 52))])]
+    top = [BM.hookcard('Quick quiz'), dict(id='q', at=['q', 0], rows=[BM.chip('A or B?', 'teal', ring='_count'), BM.ln(v['question'])], xp=[dict(at=['a', 0], n=10)]), dict(id='note', at=['w', 0], tone='coral', rows=[BM.chip('Tip', 'coral'), BM.ln(BM.fit(v['tip']))])]
     sp = BM.base(tpl, r, tpl, lines, dict(top=top, col=[dict(t='opts', id='opts', opts=[BM.short(a, 30), BM.short(b, 30)], cues=[['o', ia], ['o', ib]], reveal=['a', 0], right=right)]), 'Quick quiz!', 'drill'); sp['id'] = 'mo_' + r['id']; return sp
 def spot(tpl, slug, v):
     r = row(tpl, slug, v); runs, si = NM.wrong_runs(v['wrong'], v['right']); lines = [BM.line('h', 'Spot the mistake.'), BM.line('q', v['wrong']), dict(id='_count', beat='count', dur=3.0), BM.line('a', v['fix']), BM.line('b', f"Say: {v['right']}"), BM.line('w', f"Tip: {v['tip']}")]

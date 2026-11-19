@@ -168,7 +168,7 @@
       "t": "line",
       "runs": [
        [
-        "say I have a reservation under, then your name."
+        "say I have a reservation under"
        ]
       ]
      }

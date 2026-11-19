@@ -18,6 +18,19 @@ def sent(t): return t.strip()
 def line(i, t, gap=0.7): return dict(id=i, text=t, gap=gap)
 def hook_of(r): return re.sub(r'\s+', ' ', r['hook']).strip(" '\"")
 def short(t, n=44): return t if len(t) <= n else t[:n].rsplit(' ', 1)[0]
+DANGLE = {'a', 'an', 'the', 'to', 'of', 'in', 'at', 'on', 'for', 'with', 'under', 'by', 'and', 'or', 'but', 'i', "i'm", "i'd", 'is', 'are', 'it', 'that', 'your', 'my', 'before', 'from', 'as', 'so', 'if'}
+def fit(t, n=40):   # a summary card is 2 wrapped lines (~22 chars each at the body size): keep whole sentences (else whole clauses) that fit, never a cut-off one
+    t = t.strip()
+    if len(t) <= n: return t
+    for sep in (r'(?<=[.!?]) ', r'(?<=[.!?,;:]) '):
+        out = ''
+        for c in re.split(sep, t):
+            if len((out + ' ' + c).strip()) > n: break
+            out = (out + ' ' + c).strip()
+        if len(out) >= 10: return out.rstrip(',;:')
+    w = short(t, n).split(); 
+    while len(w) > 3 and w[-1].lower().strip(",.") in DANGLE: w.pop()   # no sentence ending on a function word
+    return ' '.join(w)
 def base(kind, r, tpl, lines, motion, hook_text, base_kind):
     k = NM.BASE[base_kind]; v = h(r['id'] + tpl, 12); teacher = ('ama', 'carlos')[v % 2]; src = NM.BASE['mistake' if teacher == 'ama' else 'drill']
     hl, pr = NM.hook_parts(hook_text)

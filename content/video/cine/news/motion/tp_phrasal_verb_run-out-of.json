@@ -163,7 +163,7 @@
       "t": "line",
       "runs": [
        [
-        "say run out of before the thing: we ran out of milk."
+        "say run out of before the thing"
        ]
       ]
      }
