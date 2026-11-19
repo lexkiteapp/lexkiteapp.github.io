@@ -1,0 +1,177 @@
+{
+ "id": "t2a_roots_cept_3",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, two words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "The root is Cept! Intercept, reception.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Cept is Latin for take.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Intercept: between plus take.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Reception: back plus take.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means back plus take?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Reception! Back plus take.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "CEPT",
+  "rid": "cept",
+  "say": "take",
+  "src": "capere",
+  "src_lang": "Latin",
+  "src_mean": "to take, to seize",
+  "words": [
+   {
+    "w": "intercept",
+    "ipa": "/ˌɪntərˈsept/",
+    "mean": "take between, to stop",
+    "seg": "inter-|cept",
+    "parts": [
+     [
+      "inter",
+      "pre"
+     ],
+     [
+      "cept",
+      "root"
+     ]
+    ],
+    "pre": "inter",
+    "pm": "between",
+    "pms": "between",
+    "ex": "Customs officers intercepted the shipment at the port.",
+    "em": ""
+   },
+   {
+    "w": "reception",
+    "ipa": "/rɪˈsepʃn/",
+    "mean": "the act of receiving",
+    "seg": "re-|cept|-ion",
+    "parts": [
+     [
+      "re",
+      "pre"
+     ],
+     [
+      "cept",
+      "root"
+     ],
+     [
+      "ion",
+      "suf"
+     ]
+    ],
+    "pre": "re",
+    "pm": "back or again",
+    "pms": "back",
+    "ex": "A drinks reception will be held after the opening ceremony.",
+    "em": "🥂"
+   }
+  ],
+  "quiz": {
+   "stem": "back plus take",
+   "options": [
+    "intercept",
+    "reception"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/intercept",
+  "link": "https://lexkite.com/app/#/dict/intercept",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, two words"
+ },
+ "src": {
+  "root": "cept"
+ },
+ "est": {
+  "words": 43,
+  "seconds": 26.0,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Cept root: intercept and reception",
+  "keyword": "cept root",
+  "value": "Cept comes from Latin \"capere\" (to take, to seize). Words: intercept and reception. intercept = inter + cept; reception = re + cept.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/intercept",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "Cept root: intercept and reception",
+    "description": "Cept comes from Latin \"capere\" (to take, to seize). Words: intercept and reception. intercept = inter + cept; reception = re + cept.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/intercept\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "cept root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Cept root: intercept and reception\n\nCept comes from Latin \"capere\" (to take, to seize). Words: intercept and reception. intercept = inter + cept; reception = re + cept.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/intercept"
+   },
+   "instagram": {
+    "caption": "Cept root: intercept and reception\n\nCept comes from Latin \"capere\" (to take, to seize). Words: intercept and reception. intercept = inter + cept; reception = re + cept.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Cept root: intercept and reception #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? Reception! Back plus take. Cept comes from Latin \"capere\" (to take, to seize). Words: intercept and reception. intercept = inter + cept; reception = re + cept. More practice like this (free): {link}"
+ }
+}

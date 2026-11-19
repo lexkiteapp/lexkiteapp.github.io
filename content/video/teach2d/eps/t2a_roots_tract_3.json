@@ -1,0 +1,177 @@
+{
+ "id": "t2a_roots_tract_3",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, two words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "The root is Tract! Abstract, attraction.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Tract is Latin for pull.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Abstract: away plus pull.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Attraction: toward plus pull.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means toward plus pull?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Attraction! Toward plus pull.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "TRACT",
+  "rid": "tract",
+  "say": "pull",
+  "src": "trahere",
+  "src_lang": "Latin",
+  "src_mean": "to pull, to drag",
+  "words": [
+   {
+    "w": "abstract",
+    "ipa": "/ˈæbstrækt/",
+    "mean": "pulled away from real things",
+    "seg": "abs-|tract",
+    "parts": [
+     [
+      "abs",
+      "pre"
+     ],
+     [
+      "tract",
+      "root"
+     ]
+    ],
+    "pre": "abs",
+    "pm": "away",
+    "pms": "away",
+    "ex": "Some students find abstract ideas hard to understand.",
+    "em": "🎨"
+   },
+   {
+    "w": "attraction",
+    "ipa": "/əˈtrækʃn/",
+    "mean": "a pulling toward",
+    "seg": "at-|tract|-ion",
+    "parts": [
+     [
+      "at",
+      "pre"
+     ],
+     [
+      "tract",
+      "root"
+     ],
+     [
+      "ion",
+      "suf"
+     ]
+    ],
+    "pre": "at",
+    "pm": "toward",
+    "pms": "toward",
+    "ex": "The old castle is the main tourist attraction.",
+    "em": "🎡"
+   }
+  ],
+  "quiz": {
+   "stem": "toward plus pull",
+   "options": [
+    "abstract",
+    "attraction"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/abstract",
+  "link": "https://lexkite.com/app/#/dict/abstract",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, two words"
+ },
+ "src": {
+  "root": "tract"
+ },
+ "est": {
+  "words": 43,
+  "seconds": 26.0,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Tract root: abstract and attraction",
+  "keyword": "tract root",
+  "value": "Tract comes from Latin \"trahere\" (to pull, to drag). Words: abstract and attraction. abstract = abs + tract; attraction = at + tract.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/abstract",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "Tract root: abstract and attraction",
+    "description": "Tract comes from Latin \"trahere\" (to pull, to drag). Words: abstract and attraction. abstract = abs + tract; attraction = at + tract.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/abstract\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "tract root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Tract root: abstract and attraction\n\nTract comes from Latin \"trahere\" (to pull, to drag). Words: abstract and attraction. abstract = abs + tract; attraction = at + tract.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/abstract"
+   },
+   "instagram": {
+    "caption": "Tract root: abstract and attraction\n\nTract comes from Latin \"trahere\" (to pull, to drag). Words: abstract and attraction. abstract = abs + tract; attraction = at + tract.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Tract root: abstract and attraction #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? Attraction! Toward plus pull. Tract comes from Latin \"trahere\" (to pull, to drag). Words: abstract and attraction. abstract = abs + tract; attraction = at + tract. More practice like this (free): {link}"
+ }
+}

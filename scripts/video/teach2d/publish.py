@@ -37,6 +37,11 @@ def facts(ep):
         N = ep['data']['native']; return _fit(N['hook'], N['hook'] + '!'), ep['data']['right'], N['tip']
     t, D, L = ep['template'], ep.get('data') or {}, {l['id']: l['text'] for l in ep['lines']}
     hook = ep['lines'][0]['text']
+    if t == 'roots':   # Word Roots: title names the root + its words; the value line gives the Latin/Greek source and every word with its pieces
+        ws = [x['w'] for x in D['words']]; R_ = D['root'].capitalize(); lst = ', '.join(ws[:-1]) + ' and ' + ws[-1]
+        pcs = '; '.join(f"{x['w']} = {' + '.join(t_ for t_, k in x['parts'] if k != 'suf')}" for x in D['words'] if x['pre'])
+        return (_fit(f'{R_} root: {lst}', f'{R_} root: {ws[0]} and {ws[1]}', f'One root, {len(ws)} words: {R_}'), f'{D["root"].lower()} root',
+                f'{R_} comes from {D["src_lang"]} "{D["src"]}" ({D["src_mean"]}). Words: {lst}.' + (f' {pcs}.' if pcs else ''))
     if t == 'review':
         w = D['word']; return _fit(f'What does {_q(w)} mean?', f'{w.capitalize()}: what does it mean?'), w, f'{w.capitalize()} means {D["mean"]}.'
     if t == 'usuk':

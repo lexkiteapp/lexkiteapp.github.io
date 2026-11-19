@@ -1,0 +1,173 @@
+{
+ "id": "t2a_roots_mov_1",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, two words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "The root is Mov! Remove, motion.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Mov is Latin for move.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Remove: back plus move.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Motion: the act of moving.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means back plus move?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Remove! Back plus move.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "MOV",
+  "rid": "mov",
+  "say": "move",
+  "src": "movere",
+  "src_lang": "Latin",
+  "src_mean": "to move",
+  "words": [
+   {
+    "w": "remove",
+    "ipa": "/rɪˈmuːv/",
+    "mean": "move away",
+    "seg": "re-|move",
+    "parts": [
+     [
+      "re",
+      "pre"
+     ],
+     [
+      "move",
+      "root"
+     ]
+    ],
+    "pre": "re",
+    "pm": "back or again",
+    "pms": "back",
+    "ex": "Please remove your shoes before entering.",
+    "em": "🗑️"
+   },
+   {
+    "w": "motion",
+    "ipa": "/ˈmoʊʃn/",
+    "mean": "the act of moving",
+    "seg": "mot|-ion",
+    "parts": [
+     [
+      "mot",
+      "root"
+     ],
+     [
+      "ion",
+      "suf"
+     ]
+    ],
+    "pre": null,
+    "pm": null,
+    "pms": null,
+    "ex": "The motion of the ship made me feel sick.",
+    "em": "🏃"
+   }
+  ],
+  "quiz": {
+   "stem": "back plus move",
+   "options": [
+    "motion",
+    "remove"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/remove",
+  "link": "https://lexkite.com/app/#/dict/remove",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, two words"
+ },
+ "src": {
+  "root": "mov"
+ },
+ "est": {
+  "words": 44,
+  "seconds": 26.5,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "Mov root: remove and motion",
+  "keyword": "mov root",
+  "value": "Mov comes from Latin \"movere\" (to move). Words: remove and motion. remove = re + move.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/remove",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "Mov root: remove and motion",
+    "description": "Mov comes from Latin \"movere\" (to move). Words: remove and motion. remove = re + move.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/remove\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "mov root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Mov root: remove and motion\n\nMov comes from Latin \"movere\" (to move). Words: remove and motion. remove = re + move.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/remove"
+   },
+   "instagram": {
+    "caption": "Mov root: remove and motion\n\nMov comes from Latin \"movere\" (to move). Words: remove and motion. remove = re + move.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Mov root: remove and motion #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: Remove! Back plus move. Mov comes from Latin \"movere\" (to move). Words: remove and motion. remove = re + move. Try the full lesson and quiz here: {link}"
+ }
+}
