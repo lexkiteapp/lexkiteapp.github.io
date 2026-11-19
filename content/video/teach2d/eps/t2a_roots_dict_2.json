@@ -4,19 +4,19 @@
  "series": "Word Roots",
  "part": 1,
  "theme": "dusk",
- "teacher": "carlos",
- "voice": "am_fenrir",
+ "teacher": "ama",
+ "voice": "af_bella",
  "speed": 0.8,
  "area": "dictionary",
  "lines": [
   {
    "id": "h",
-   "text": "One root, three words!",
+   "text": "One root, two words!",
    "pause": 0.3
   },
   {
    "id": "r",
-   "text": "Dict! Contradict, indicate, prediction.",
+   "text": "The root is Dict! Contradict, indicate.",
    "pause": 0.3
   },
   {
@@ -35,19 +35,14 @@
    "pause": 0.3
   },
   {
-   "id": "w2",
-   "text": "Prediction: before plus say.",
-   "pause": 0.3
-  },
-  {
    "id": "q",
-   "text": "Quick quiz! Which means before plus say?",
+   "text": "Quick quiz! Which means into plus say?",
    "pause": 2.6,
    "quiz": true
   },
   {
    "id": "a",
-   "text": "Prediction! Before plus say.",
+   "text": "Indicate! Into plus say.",
    "pause": 0.42
   },
   {
@@ -109,38 +104,13 @@
     "pms": "into",
     "ex": "The results indicate that the plan is working.",
     "em": "👉"
-   },
-   {
-    "w": "prediction",
-    "ipa": "/prɪˈdɪkʃn/",
-    "mean": "a saying before",
-    "seg": "pre-|dict|-ion",
-    "parts": [
-     [
-      "pre",
-      "pre"
-     ],
-     [
-      "dict",
-      "root"
-     ],
-     [
-      "ion",
-      "suf"
-     ]
-    ],
-    "pre": "pre",
-    "pm": "before",
-    "pms": "before",
-    "ex": "Our sales prediction for next year is optimistic.",
-    "em": "🔮"
    }
   ],
   "quiz": {
-   "stem": "before plus say",
+   "stem": "into plus say",
    "options": [
     "contradict",
-    "prediction"
+    "indicate"
    ],
    "answer": 1
   }
@@ -153,20 +123,20 @@
  },
  "hook": {
   "line": "h",
-  "text": "One root, three words"
+  "text": "One root, two words"
  },
  "src": {
   "root": "dict"
  },
  "est": {
-  "words": 45,
-  "seconds": 27.3,
+  "words": 43,
+  "seconds": 26.0,
   "wpm": 99
  },
  "publish": {
-  "title": "Dict root: contradict, indicate and prediction",
+  "title": "Dict root: contradict and indicate",
   "keyword": "dict root",
-  "value": "Dict comes from Latin \"dicere\" (to say). Words: contradict, indicate and prediction. contradict = contra + dict; indicate = in + dic; prediction = pre + dict.",
+  "value": "Dict comes from Latin \"dicere\" (to say). Words: contradict and indicate. contradict = contra + dict; indicate = in + dic.",
   "hashtags": [
    "#learnenglish",
    "#englishtips",
@@ -174,11 +144,11 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/dict/contradict",
-  "script_words": 37,
+  "script_words": 35,
   "platforms": {
    "youtube": {
-    "title": "Dict root: contradict, indicate and prediction",
-    "description": "Dict comes from Latin \"dicere\" (to say). Words: contradict, indicate and prediction. contradict = contra + dict; indicate = in + dic; prediction = pre + dict.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/contradict\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "title": "Dict root: contradict and indicate",
+    "description": "Dict comes from Latin \"dicere\" (to say). Words: contradict and indicate. contradict = contra + dict; indicate = in + dic.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/contradict\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
     "tags": [
      "dict root",
      "Word Roots",
@@ -187,10 +157,10 @@
     ]
    },
    "facebook": {
-    "text": "Dict root: contradict, indicate and prediction\n\nDict comes from Latin \"dicere\" (to say). Words: contradict, indicate and prediction. contradict = contra + dict; indicate = in + dic; prediction = pre + dict.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/contradict"
+    "text": "Dict root: contradict and indicate\n\nDict comes from Latin \"dicere\" (to say). Words: contradict and indicate. contradict = contra + dict; indicate = in + dic.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/contradict"
    },
    "instagram": {
-    "caption": "Dict root: contradict, indicate and prediction\n\nDict comes from Latin \"dicere\" (to say). Words: contradict, indicate and prediction. contradict = contra + dict; indicate = in + dic; prediction = pre + dict.\n\nSee the whole word family: link in bio.",
+    "caption": "Dict root: contradict and indicate\n\nDict comes from Latin \"dicere\" (to say). Words: contradict and indicate. contradict = contra + dict; indicate = in + dic.\n\nSee the whole word family: link in bio.",
     "hashtags": [
      "#learnenglish",
      "#englishtips",
@@ -199,9 +169,9 @@
     ]
    },
    "tiktok": {
-    "caption": "Dict root: contradict, indicate and prediction #learnenglish #englishtips #vocabulary"
+    "caption": "Dict root: contradict and indicate #learnenglish #englishtips #vocabulary"
    }
   },
-  "first_comment": "Did you get it? Prediction! Before plus say. Dict comes from Latin \"dicere\" (to say). Words: contradict, indicate and prediction. contradict = contra + dict; indicate = in + dic; prediction = pre + dict. More practice like this (free): {link}"
+  "first_comment": "Did you get it? Indicate! Into plus say. Dict comes from Latin \"dicere\" (to say). Words: contradict and indicate. contradict = contra + dict; indicate = in + dic. More practice like this (free): {link}"
  }
 }

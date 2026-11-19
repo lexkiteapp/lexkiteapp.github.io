@@ -11,12 +11,12 @@
  "lines": [
   {
    "id": "h",
-   "text": "One root, three words!",
+   "text": "One root, two words!",
    "pause": 0.3
   },
   {
    "id": "r",
-   "text": "Port! Transport, import, export.",
+   "text": "The root is Port! Transport, import.",
    "pause": 0.3
   },
   {
@@ -35,19 +35,14 @@
    "pause": 0.3
   },
   {
-   "id": "w2",
-   "text": "Export: out plus carry.",
-   "pause": 0.3
-  },
-  {
    "id": "q",
-   "text": "Quick quiz! Which means out plus carry?",
+   "text": "Quick quiz! Which means into plus carry?",
    "pause": 2.6,
    "quiz": true
   },
   {
    "id": "a",
-   "text": "Export! Out plus carry.",
+   "text": "Import! Into plus carry.",
    "pause": 0.42
   },
   {
@@ -105,34 +100,13 @@
     "pms": "into",
     "ex": "The country imports most of its oil.",
     "em": "🚢"
-   },
-   {
-    "w": "export",
-    "ipa": "/ɪkˈspɔːrt/",
-    "mean": "carry out of a country",
-    "seg": "ex-|port",
-    "parts": [
-     [
-      "ex",
-      "pre"
-     ],
-     [
-      "port",
-      "root"
-     ]
-    ],
-    "pre": "ex",
-    "pm": "out",
-    "pms": "out",
-    "ex": "Vietnam exports rice and coffee to many countries.",
-    "em": "🚢"
    }
   ],
   "quiz": {
-   "stem": "out plus carry",
+   "stem": "into plus carry",
    "options": [
     "transport",
-    "export"
+    "import"
    ],
    "answer": 1
   }
@@ -145,20 +119,20 @@
  },
  "hook": {
   "line": "h",
-  "text": "One root, three words"
+  "text": "One root, two words"
  },
  "src": {
   "root": "port"
  },
  "est": {
-  "words": 45,
-  "seconds": 27.3,
+  "words": 43,
+  "seconds": 26.0,
   "wpm": 99
  },
  "publish": {
-  "title": "Port root: transport, import and export",
+  "title": "Port root: transport and import",
   "keyword": "port root",
-  "value": "Port comes from Latin \"portare\" (to carry). Words: transport, import and export. transport = trans + port; import = im + port; export = ex + port.",
+  "value": "Port comes from Latin \"portare\" (to carry). Words: transport and import. transport = trans + port; import = im + port.",
   "hashtags": [
    "#learnenglish",
    "#englishtips",
@@ -166,11 +140,11 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/dict/transport",
-  "script_words": 37,
+  "script_words": 35,
   "platforms": {
    "youtube": {
-    "title": "Port root: transport, import and export",
-    "description": "Port comes from Latin \"portare\" (to carry). Words: transport, import and export. transport = trans + port; import = im + port; export = ex + port.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/transport\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "title": "Port root: transport and import",
+    "description": "Port comes from Latin \"portare\" (to carry). Words: transport and import. transport = trans + port; import = im + port.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/transport\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
     "tags": [
      "port root",
      "Word Roots",
@@ -179,10 +153,10 @@
     ]
    },
    "facebook": {
-    "text": "Port root: transport, import and export\n\nPort comes from Latin \"portare\" (to carry). Words: transport, import and export. transport = trans + port; import = im + port; export = ex + port.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/transport"
+    "text": "Port root: transport and import\n\nPort comes from Latin \"portare\" (to carry). Words: transport and import. transport = trans + port; import = im + port.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/transport"
    },
    "instagram": {
-    "caption": "Port root: transport, import and export\n\nPort comes from Latin \"portare\" (to carry). Words: transport, import and export. transport = trans + port; import = im + port; export = ex + port.\n\nSee the whole word family: link in bio.",
+    "caption": "Port root: transport and import\n\nPort comes from Latin \"portare\" (to carry). Words: transport and import. transport = trans + port; import = im + port.\n\nSee the whole word family: link in bio.",
     "hashtags": [
      "#learnenglish",
      "#englishtips",
@@ -191,9 +165,9 @@
     ]
    },
    "tiktok": {
-    "caption": "Port root: transport, import and export #learnenglish #englishtips #vocabulary"
+    "caption": "Port root: transport and import #learnenglish #englishtips #vocabulary"
    }
   },
-  "first_comment": "Quiz answer: Export! Out plus carry. Port comes from Latin \"portare\" (to carry). Words: transport, import and export. transport = trans + port; import = im + port; export = ex + port. Practice it with a free quiz: {link}"
+  "first_comment": "Quiz answer: Import! Into plus carry. Port comes from Latin \"portare\" (to carry). Words: transport and import. transport = trans + port; import = im + port. Practice it with a free quiz: {link}"
  }
 }

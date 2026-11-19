@@ -4,8 +4,8 @@
  "series": "Word Roots",
  "part": 1,
  "theme": "dusk",
- "teacher": "carlos",
- "voice": "am_fenrir",
+ "teacher": "ama",
+ "voice": "af_bella",
  "speed": 0.8,
  "area": "dictionary",
  "lines": [
@@ -16,7 +16,7 @@
   },
   {
    "id": "r",
-   "text": "Jus! Judge, justice.",
+   "text": "The root is Jus! Judge, justice.",
    "pause": 0.3
   },
   {
@@ -125,9 +125,9 @@
   "root": "jus"
  },
  "est": {
-  "words": 53,
-  "seconds": 30.9,
-  "wpm": 103
+  "words": 56,
+  "seconds": 32.4,
+  "wpm": 104
  },
  "publish": {
   "title": "Jus root: judge and justice",
@@ -140,11 +140,11 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/dict/judge",
-  "script_words": 43,
+  "script_words": 46,
   "platforms": {
    "youtube": {
     "title": "Jus root: judge and justice",
-    "description": "Jus comes from Latin \"jus\" (law, right). Words: judge and justice.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/judge\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "description": "Jus comes from Latin \"jus\" (law, right). Words: judge and justice.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/judge\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
     "tags": [
      "jus root",
      "Word Roots",

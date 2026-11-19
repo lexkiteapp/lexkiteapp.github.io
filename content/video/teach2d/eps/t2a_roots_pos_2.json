@@ -4,19 +4,19 @@
  "series": "Word Roots",
  "part": 1,
  "theme": "dusk",
- "teacher": "ama",
- "voice": "af_bella",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
  "speed": 0.8,
  "area": "dictionary",
  "lines": [
   {
    "id": "h",
-   "text": "One root, three words!",
+   "text": "One root, two words!",
    "pause": 0.3
   },
   {
    "id": "r",
-   "text": "Pos! Compose, expose, suppose.",
+   "text": "The root is Pos! Compose, expose.",
    "pause": 0.3
   },
   {
@@ -35,19 +35,14 @@
    "pause": 0.3
   },
   {
-   "id": "w2",
-   "text": "Suppose: under plus put.",
-   "pause": 0.3
-  },
-  {
    "id": "q",
-   "text": "Quick quiz! Which means under plus put?",
+   "text": "Quick quiz! Which means out plus put?",
    "pause": 2.6,
    "quiz": true
   },
   {
    "id": "a",
-   "text": "Suppose! Under plus put.",
+   "text": "Expose! Out plus put.",
    "pause": 0.42
   },
   {
@@ -113,38 +108,13 @@
     "pms": "out",
     "ex": "Don't expose the plants to strong sunlight.",
     "em": "🔦"
-   },
-   {
-    "w": "suppose",
-    "ipa": "/səˈpoʊz/",
-    "mean": "put under, so assume",
-    "seg": "sup-|pos|-e",
-    "parts": [
-     [
-      "sup",
-      "pre"
-     ],
-     [
-      "pos",
-      "root"
-     ],
-     [
-      "e",
-      "suf"
-     ]
-    ],
-    "pre": "sup",
-    "pm": "under",
-    "pms": "under",
-    "ex": "I suppose we should start packing for the trip.",
-    "em": "🤔"
    }
   ],
   "quiz": {
-   "stem": "under plus put",
+   "stem": "out plus put",
    "options": [
     "compose",
-    "suppose"
+    "expose"
    ],
    "answer": 1
   }
@@ -157,20 +127,20 @@
  },
  "hook": {
   "line": "h",
-  "text": "One root, three words"
+  "text": "One root, two words"
  },
  "src": {
   "root": "pos"
  },
  "est": {
-  "words": 45,
-  "seconds": 27.3,
+  "words": 43,
+  "seconds": 26.0,
   "wpm": 99
  },
  "publish": {
-  "title": "Pos root: compose, expose and suppose",
+  "title": "Pos root: compose and expose",
   "keyword": "pos root",
-  "value": "Pos comes from Latin \"ponere\" (to put, to place). Words: compose, expose and suppose. compose = com + pos; expose = ex + pos; suppose = sup + pos.",
+  "value": "Pos comes from Latin \"ponere\" (to put, to place). Words: compose and expose. compose = com + pos; expose = ex + pos.",
   "hashtags": [
    "#learnenglish",
    "#englishtips",
@@ -178,11 +148,11 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/dict/compose",
-  "script_words": 37,
+  "script_words": 35,
   "platforms": {
    "youtube": {
-    "title": "Pos root: compose, expose and suppose",
-    "description": "Pos comes from Latin \"ponere\" (to put, to place). Words: compose, expose and suppose. compose = com + pos; expose = ex + pos; suppose = sup + pos.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/compose\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "title": "Pos root: compose and expose",
+    "description": "Pos comes from Latin \"ponere\" (to put, to place). Words: compose and expose. compose = com + pos; expose = ex + pos.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/compose\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
     "tags": [
      "pos root",
      "Word Roots",
@@ -191,10 +161,10 @@
     ]
    },
    "facebook": {
-    "text": "Pos root: compose, expose and suppose\n\nPos comes from Latin \"ponere\" (to put, to place). Words: compose, expose and suppose. compose = com + pos; expose = ex + pos; suppose = sup + pos.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/compose"
+    "text": "Pos root: compose and expose\n\nPos comes from Latin \"ponere\" (to put, to place). Words: compose and expose. compose = com + pos; expose = ex + pos.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/compose"
    },
    "instagram": {
-    "caption": "Pos root: compose, expose and suppose\n\nPos comes from Latin \"ponere\" (to put, to place). Words: compose, expose and suppose. compose = com + pos; expose = ex + pos; suppose = sup + pos.\n\nSee the whole word family: link in bio.",
+    "caption": "Pos root: compose and expose\n\nPos comes from Latin \"ponere\" (to put, to place). Words: compose and expose. compose = com + pos; expose = ex + pos.\n\nSee the whole word family: link in bio.",
     "hashtags": [
      "#learnenglish",
      "#englishtips",
@@ -203,9 +173,9 @@
     ]
    },
    "tiktok": {
-    "caption": "Pos root: compose, expose and suppose #learnenglish #englishtips #vocabulary"
+    "caption": "Pos root: compose and expose #learnenglish #englishtips #vocabulary"
    }
   },
-  "first_comment": "Quiz answer: Suppose! Under plus put. Pos comes from Latin \"ponere\" (to put, to place). Words: compose, expose and suppose. compose = com + pos; expose = ex + pos; suppose = sup + pos. Practice it with a free quiz: {link}"
+  "first_comment": "Quiz answer: Expose! Out plus put. Pos comes from Latin \"ponere\" (to put, to place). Words: compose and expose. compose = com + pos; expose = ex + pos. Practice it with a free quiz: {link}"
  }
 }

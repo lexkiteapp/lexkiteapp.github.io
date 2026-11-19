@@ -16,7 +16,7 @@
   },
   {
    "id": "r",
-   "text": "Tain! Contain, obtain, retain.",
+   "text": "The root is Tain! Contain, obtain, retain.",
    "pause": 0.3
   },
   {
@@ -151,9 +151,9 @@
   "root": "tain"
  },
  "est": {
-  "words": 45,
-  "seconds": 27.3,
-  "wpm": 99
+  "words": 48,
+  "seconds": 28.8,
+  "wpm": 100
  },
  "publish": {
   "title": "Tain root: contain, obtain and retain",
@@ -166,7 +166,7 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/dict/contain",
-  "script_words": 37,
+  "script_words": 40,
   "platforms": {
    "youtube": {
     "title": "Tain root: contain, obtain and retain",

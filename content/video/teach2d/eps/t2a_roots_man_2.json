@@ -4,8 +4,8 @@
  "series": "Word Roots",
  "part": 1,
  "theme": "dusk",
- "teacher": "ama",
- "voice": "af_bella",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
  "speed": 0.8,
  "area": "dictionary",
  "lines": [
@@ -16,7 +16,7 @@
   },
   {
    "id": "r",
-   "text": "Man! Command, demand.",
+   "text": "The root is Man! Command, demand.",
    "pause": 0.3
   },
   {
@@ -125,9 +125,9 @@
   "root": "man"
  },
  "est": {
-  "words": 40,
-  "seconds": 24.5,
-  "wpm": 98
+  "words": 43,
+  "seconds": 26.0,
+  "wpm": 99
  },
  "publish": {
   "title": "Man root: command and demand",
@@ -140,11 +140,11 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/dict/command",
-  "script_words": 32,
+  "script_words": 35,
   "platforms": {
    "youtube": {
     "title": "Man root: command and demand",
-    "description": "Man comes from Latin \"manus\" (hand). Words: command and demand. command = com + mand; demand = de + mand.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/command\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "description": "Man comes from Latin \"manus\" (hand). Words: command and demand. command = com + mand; demand = de + mand.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/command\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
     "tags": [
      "man root",
      "Word Roots",

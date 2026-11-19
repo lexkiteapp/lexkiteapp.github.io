@@ -11,12 +11,12 @@
  "lines": [
   {
    "id": "h",
-   "text": "One root, three words!",
+   "text": "One root, two words!",
    "pause": 0.3
   },
   {
    "id": "r",
-   "text": "Spir! Expire, inspiration, respiratory.",
+   "text": "The root is Spir! Expire, inspiration.",
    "pause": 0.3
   },
   {
@@ -35,19 +35,14 @@
    "pause": 0.3
   },
   {
-   "id": "w2",
-   "text": "Respiratory: back plus breathe.",
-   "pause": 0.3
-  },
-  {
    "id": "q",
-   "text": "Quick quiz! Which means back plus breathe?",
+   "text": "Quick quiz! Which means into plus breathe?",
    "pause": 2.6,
    "quiz": true
   },
   {
    "id": "a",
-   "text": "Respiratory! Back plus breathe.",
+   "text": "Inspiration! Into plus breathe.",
    "pause": 0.42
   },
   {
@@ -109,38 +104,13 @@
     "pms": "into",
     "ex": "The designer found inspiration for the new collection in nature.",
     "em": "💡"
-   },
-   {
-    "w": "respiratory",
-    "ipa": "/ˈrespərətɔːri/",
-    "mean": "about breathing again and again",
-    "seg": "re-|spir|-atory",
-    "parts": [
-     [
-      "re",
-      "pre"
-     ],
-     [
-      "spir",
-      "root"
-     ],
-     [
-      "atory",
-      "suf"
-     ]
-    ],
-    "pre": "re",
-    "pm": "back or again",
-    "pms": "back",
-    "ex": "Smoke from the forest fires caused respiratory problems for many residents.",
-    "em": "🫁"
    }
   ],
   "quiz": {
-   "stem": "back plus breathe",
+   "stem": "into plus breathe",
    "options": [
     "expire",
-    "respiratory"
+    "inspiration"
    ],
    "answer": 1
   }
@@ -153,20 +123,20 @@
  },
  "hook": {
   "line": "h",
-  "text": "One root, three words"
+  "text": "One root, two words"
  },
  "src": {
   "root": "spir"
  },
  "est": {
-  "words": 45,
-  "seconds": 27.3,
+  "words": 43,
+  "seconds": 26.0,
   "wpm": 99
  },
  "publish": {
-  "title": "Spir root: expire, inspiration and respiratory",
+  "title": "Spir root: expire and inspiration",
   "keyword": "spir root",
-  "value": "Spir comes from Latin \"spirare\" (to breathe). Words: expire, inspiration and respiratory. expire = ex + pire; inspiration = in + spir; respiratory = re + spir.",
+  "value": "Spir comes from Latin \"spirare\" (to breathe). Words: expire and inspiration. expire = ex + pire; inspiration = in + spir.",
   "hashtags": [
    "#learnenglish",
    "#englishtips",
@@ -174,11 +144,11 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/dict/expire",
-  "script_words": 37,
+  "script_words": 35,
   "platforms": {
    "youtube": {
-    "title": "Spir root: expire, inspiration and respiratory",
-    "description": "Spir comes from Latin \"spirare\" (to breathe). Words: expire, inspiration and respiratory. expire = ex + pire; inspiration = in + spir; respiratory = re + spir.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/expire\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "title": "Spir root: expire and inspiration",
+    "description": "Spir comes from Latin \"spirare\" (to breathe). Words: expire and inspiration. expire = ex + pire; inspiration = in + spir.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/expire\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
     "tags": [
      "spir root",
      "Word Roots",
@@ -187,10 +157,10 @@
     ]
    },
    "facebook": {
-    "text": "Spir root: expire, inspiration and respiratory\n\nSpir comes from Latin \"spirare\" (to breathe). Words: expire, inspiration and respiratory. expire = ex + pire; inspiration = in + spir; respiratory = re + spir.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/expire"
+    "text": "Spir root: expire and inspiration\n\nSpir comes from Latin \"spirare\" (to breathe). Words: expire and inspiration. expire = ex + pire; inspiration = in + spir.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/expire"
    },
    "instagram": {
-    "caption": "Spir root: expire, inspiration and respiratory\n\nSpir comes from Latin \"spirare\" (to breathe). Words: expire, inspiration and respiratory. expire = ex + pire; inspiration = in + spir; respiratory = re + spir.\n\nSee the whole word family: link in bio.",
+    "caption": "Spir root: expire and inspiration\n\nSpir comes from Latin \"spirare\" (to breathe). Words: expire and inspiration. expire = ex + pire; inspiration = in + spir.\n\nSee the whole word family: link in bio.",
     "hashtags": [
      "#learnenglish",
      "#englishtips",
@@ -199,9 +169,9 @@
     ]
    },
    "tiktok": {
-    "caption": "Spir root: expire, inspiration and respiratory #learnenglish #englishtips #vocabulary"
+    "caption": "Spir root: expire and inspiration #learnenglish #englishtips #vocabulary"
    }
   },
-  "first_comment": "Quiz answer: Respiratory! Back plus breathe. Spir comes from Latin \"spirare\" (to breathe). Words: expire, inspiration and respiratory. expire = ex + pire; inspiration = in + spir; respiratory = re + spir. Practice it with a free quiz: {link}"
+  "first_comment": "Quiz answer: Inspiration! Into plus breathe. Spir comes from Latin \"spirare\" (to breathe). Words: expire and inspiration. expire = ex + pire; inspiration = in + spir. Practice it with a free quiz: {link}"
  }
 }

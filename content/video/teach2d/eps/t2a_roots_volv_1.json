@@ -4,19 +4,19 @@
  "series": "Word Roots",
  "part": 1,
  "theme": "dusk",
- "teacher": "carlos",
- "voice": "am_fenrir",
+ "teacher": "ama",
+ "voice": "af_bella",
  "speed": 0.8,
  "area": "dictionary",
  "lines": [
   {
    "id": "h",
-   "text": "One root, three words!",
+   "text": "One root, two words!",
    "pause": 0.3
   },
   {
    "id": "r",
-   "text": "Volv! Evolve, involve, revolution.",
+   "text": "The root is Volv! Evolve, involve.",
    "pause": 0.3
   },
   {
@@ -35,19 +35,14 @@
    "pause": 0.3
   },
   {
-   "id": "w2",
-   "text": "Revolution: back plus roll.",
-   "pause": 0.3
-  },
-  {
    "id": "q",
-   "text": "Quick quiz! Which means back plus roll?",
+   "text": "Quick quiz! Which means into plus roll?",
    "pause": 2.6,
    "quiz": true
   },
   {
    "id": "a",
-   "text": "Revolution! Back plus roll.",
+   "text": "Involve! Into plus roll.",
    "pause": 0.42
   },
   {
@@ -105,38 +100,13 @@
     "pms": "into",
     "ex": "The job involves a lot of travel.",
     "em": "🔗"
-   },
-   {
-    "w": "revolution",
-    "ipa": "/ˌrevəˈluːʃn/",
-    "mean": "a turning back around",
-    "seg": "re-|volut|-ion",
-    "parts": [
-     [
-      "re",
-      "pre"
-     ],
-     [
-      "volut",
-      "root"
-     ],
-     [
-      "ion",
-      "suf"
-     ]
-    ],
-    "pre": "re",
-    "pm": "back or again",
-    "pms": "back",
-    "ex": "The internet caused a revolution in communication.",
-    "em": "✊"
    }
   ],
   "quiz": {
-   "stem": "back plus roll",
+   "stem": "into plus roll",
    "options": [
     "evolve",
-    "revolution"
+    "involve"
    ],
    "answer": 1
   }
@@ -149,20 +119,20 @@
  },
  "hook": {
   "line": "h",
-  "text": "One root, three words"
+  "text": "One root, two words"
  },
  "src": {
   "root": "volv"
  },
  "est": {
-  "words": 45,
-  "seconds": 27.3,
+  "words": 43,
+  "seconds": 26.0,
   "wpm": 99
  },
  "publish": {
-  "title": "Volv root: evolve, involve and revolution",
+  "title": "Volv root: evolve and involve",
   "keyword": "volv root",
-  "value": "Volv comes from Latin \"volvere\" (to roll, to turn). Words: evolve, involve and revolution. evolve = e + volve; involve = in + volve; revolution = re + volut.",
+  "value": "Volv comes from Latin \"volvere\" (to roll, to turn). Words: evolve and involve. evolve = e + volve; involve = in + volve.",
   "hashtags": [
    "#learnenglish",
    "#englishtips",
@@ -170,11 +140,11 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/dict/evolve",
-  "script_words": 37,
+  "script_words": 35,
   "platforms": {
    "youtube": {
-    "title": "Volv root: evolve, involve and revolution",
-    "description": "Volv comes from Latin \"volvere\" (to roll, to turn). Words: evolve, involve and revolution. evolve = e + volve; involve = in + volve; revolution = re + volut.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/evolve\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "title": "Volv root: evolve and involve",
+    "description": "Volv comes from Latin \"volvere\" (to roll, to turn). Words: evolve and involve. evolve = e + volve; involve = in + volve.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/evolve\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
     "tags": [
      "volv root",
      "Word Roots",
@@ -183,10 +153,10 @@
     ]
    },
    "facebook": {
-    "text": "Volv root: evolve, involve and revolution\n\nVolv comes from Latin \"volvere\" (to roll, to turn). Words: evolve, involve and revolution. evolve = e + volve; involve = in + volve; revolution = re + volut.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/evolve"
+    "text": "Volv root: evolve and involve\n\nVolv comes from Latin \"volvere\" (to roll, to turn). Words: evolve and involve. evolve = e + volve; involve = in + volve.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/evolve"
    },
    "instagram": {
-    "caption": "Volv root: evolve, involve and revolution\n\nVolv comes from Latin \"volvere\" (to roll, to turn). Words: evolve, involve and revolution. evolve = e + volve; involve = in + volve; revolution = re + volut.\n\nSee the whole word family: link in bio.",
+    "caption": "Volv root: evolve and involve\n\nVolv comes from Latin \"volvere\" (to roll, to turn). Words: evolve and involve. evolve = e + volve; involve = in + volve.\n\nSee the whole word family: link in bio.",
     "hashtags": [
      "#learnenglish",
      "#englishtips",
@@ -195,9 +165,9 @@
     ]
    },
    "tiktok": {
-    "caption": "Volv root: evolve, involve and revolution #learnenglish #englishtips #vocabulary"
+    "caption": "Volv root: evolve and involve #learnenglish #englishtips #vocabulary"
    }
   },
-  "first_comment": "Answer: Revolution! Back plus roll. Volv comes from Latin \"volvere\" (to roll, to turn). Words: evolve, involve and revolution. evolve = e + volve; involve = in + volve; revolution = re + volut. Try the full lesson and quiz here: {link}"
+  "first_comment": "Answer: Involve! Into plus roll. Volv comes from Latin \"volvere\" (to roll, to turn). Words: evolve and involve. evolve = e + volve; involve = in + volve. Try the full lesson and quiz here: {link}"
  }
 }

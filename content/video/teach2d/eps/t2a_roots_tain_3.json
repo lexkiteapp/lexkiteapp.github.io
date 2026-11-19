@@ -16,7 +16,7 @@
   },
   {
    "id": "r",
-   "text": "Tain! Container, tenant.",
+   "text": "The root is Tain! Container, tenant.",
    "pause": 0.3
   },
   {
@@ -129,9 +129,9 @@
   "root": "tain"
  },
  "est": {
-  "words": 43,
-  "seconds": 26.0,
-  "wpm": 99
+  "words": 46,
+  "seconds": 27.5,
+  "wpm": 100
  },
  "publish": {
   "title": "Tain root: container and tenant",
@@ -144,7 +144,7 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/dict/container",
-  "script_words": 35,
+  "script_words": 38,
   "platforms": {
    "youtube": {
     "title": "Tain root: container and tenant",

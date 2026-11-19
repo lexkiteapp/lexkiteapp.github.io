@@ -4,8 +4,8 @@
  "series": "Word Roots",
  "part": 1,
  "theme": "dusk",
- "teacher": "carlos",
- "voice": "am_fenrir",
+ "teacher": "ama",
+ "voice": "af_bella",
  "speed": 0.8,
  "area": "dictionary",
  "lines": [
@@ -16,7 +16,7 @@
   },
   {
    "id": "r",
-   "text": "Cept! Intercept, reception.",
+   "text": "The root is Cept! Intercept, reception.",
    "pause": 0.3
   },
   {
@@ -129,9 +129,9 @@
   "root": "cept"
  },
  "est": {
-  "words": 40,
-  "seconds": 24.5,
-  "wpm": 98
+  "words": 43,
+  "seconds": 26.0,
+  "wpm": 99
  },
  "publish": {
   "title": "Cept root: intercept and reception",
@@ -144,11 +144,11 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/dict/intercept",
-  "script_words": 32,
+  "script_words": 35,
   "platforms": {
    "youtube": {
     "title": "Cept root: intercept and reception",
-    "description": "Cept comes from Latin \"capere\" (to take, to seize). Words: intercept and reception. intercept = inter + cept; reception = re + cept.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/intercept\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "description": "Cept comes from Latin \"capere\" (to take, to seize). Words: intercept and reception. intercept = inter + cept; reception = re + cept.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/intercept\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
     "tags": [
      "cept root",
      "Word Roots",

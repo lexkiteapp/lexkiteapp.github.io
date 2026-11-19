@@ -16,7 +16,7 @@
   },
   {
    "id": "r",
-   "text": "Dict! Predict, dictate.",
+   "text": "The root is Dict! Predict, dictate.",
    "pause": 0.3
   },
   {
@@ -125,9 +125,9 @@
   "root": "dict"
  },
  "est": {
-  "words": 44,
-  "seconds": 26.5,
-  "wpm": 100
+  "words": 47,
+  "seconds": 28.0,
+  "wpm": 101
  },
  "publish": {
   "title": "Dict root: predict and dictate",
@@ -140,7 +140,7 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/dict/predict",
-  "script_words": 36,
+  "script_words": 39,
   "platforms": {
    "youtube": {
     "title": "Dict root: predict and dictate",

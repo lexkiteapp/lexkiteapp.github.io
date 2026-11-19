@@ -4,19 +4,19 @@
  "series": "Word Roots",
  "part": 1,
  "theme": "dusk",
- "teacher": "carlos",
- "voice": "am_fenrir",
+ "teacher": "ama",
+ "voice": "af_bella",
  "speed": 0.8,
  "area": "dictionary",
  "lines": [
   {
    "id": "h",
-   "text": "One root, three words!",
+   "text": "One root, two words!",
    "pause": 0.3
   },
   {
    "id": "r",
-   "text": "Sign! Signal, signature, design.",
+   "text": "The root is Sign! Signal, signature.",
    "pause": 0.3
   },
   {
@@ -35,19 +35,14 @@
    "pause": 0.3
   },
   {
-   "id": "w2",
-   "text": "Design: down plus mark.",
-   "pause": 0.3
-  },
-  {
    "id": "q",
-   "text": "Quick quiz! Which means down plus mark?",
+   "text": "Quick quiz! Which means your own mark?",
    "pause": 2.6,
    "quiz": true
   },
   {
    "id": "a",
-   "text": "Design! Down plus mark.",
+   "text": "Signature! It means your own mark.",
    "pause": 0.42
   },
   {
@@ -105,34 +100,13 @@
     "pms": null,
     "ex": "We need your signature at the bottom of the form.",
     "em": "✍️"
-   },
-   {
-    "w": "design",
-    "ipa": "/dɪˈzaɪn/",
-    "mean": "mark out a plan",
-    "seg": "de-|sign",
-    "parts": [
-     [
-      "de",
-      "pre"
-     ],
-     [
-      "sign",
-      "root"
-     ]
-    ],
-    "pre": "de",
-    "pm": "down or away",
-    "pms": "down",
-    "ex": "I love the design of this new library.",
-    "em": "📐"
    }
   ],
   "quiz": {
-   "stem": "down plus mark",
+   "stem": "your own mark",
    "options": [
     "signal",
-    "design"
+    "signature"
    ],
    "answer": 1
   }
@@ -145,20 +119,20 @@
  },
  "hook": {
   "line": "h",
-  "text": "One root, three words"
+  "text": "One root, two words"
  },
  "src": {
   "root": "sign"
  },
  "est": {
   "words": 48,
-  "seconds": 28.8,
-  "wpm": 100
+  "seconds": 28.5,
+  "wpm": 101
  },
  "publish": {
-  "title": "Sign root: signal, signature and design",
+  "title": "Sign root: signal and signature",
   "keyword": "sign root",
-  "value": "Sign comes from Latin \"signum\" (mark, sign). Words: signal, signature and design. design = de + sign.",
+  "value": "Sign comes from Latin \"signum\" (mark, sign). Words: signal and signature.",
   "hashtags": [
    "#learnenglish",
    "#englishtips",
@@ -169,8 +143,8 @@
   "script_words": 40,
   "platforms": {
    "youtube": {
-    "title": "Sign root: signal, signature and design",
-    "description": "Sign comes from Latin \"signum\" (mark, sign). Words: signal, signature and design. design = de + sign.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/signal\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "title": "Sign root: signal and signature",
+    "description": "Sign comes from Latin \"signum\" (mark, sign). Words: signal and signature.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/signal\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
     "tags": [
      "sign root",
      "Word Roots",
@@ -179,10 +153,10 @@
     ]
    },
    "facebook": {
-    "text": "Sign root: signal, signature and design\n\nSign comes from Latin \"signum\" (mark, sign). Words: signal, signature and design. design = de + sign.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/signal"
+    "text": "Sign root: signal and signature\n\nSign comes from Latin \"signum\" (mark, sign). Words: signal and signature.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/signal"
    },
    "instagram": {
-    "caption": "Sign root: signal, signature and design\n\nSign comes from Latin \"signum\" (mark, sign). Words: signal, signature and design. design = de + sign.\n\nSee the whole word family: link in bio.",
+    "caption": "Sign root: signal and signature\n\nSign comes from Latin \"signum\" (mark, sign). Words: signal and signature.\n\nSee the whole word family: link in bio.",
     "hashtags": [
      "#learnenglish",
      "#englishtips",
@@ -191,9 +165,9 @@
     ]
    },
    "tiktok": {
-    "caption": "Sign root: signal, signature and design #learnenglish #englishtips #vocabulary"
+    "caption": "Sign root: signal and signature #learnenglish #englishtips #vocabulary"
    }
   },
-  "first_comment": "Did you get it? Design! Down plus mark. Sign comes from Latin \"signum\" (mark, sign). Words: signal, signature and design. design = de + sign. More practice like this (free): {link}"
+  "first_comment": "Did you get it? Signature! It means your own mark. Sign comes from Latin \"signum\" (mark, sign). Words: signal and signature. More practice like this (free): {link}"
  }
 }

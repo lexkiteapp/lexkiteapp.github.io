@@ -4,19 +4,19 @@
  "series": "Word Roots",
  "part": 1,
  "theme": "dusk",
- "teacher": "ama",
- "voice": "af_bella",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
  "speed": 0.8,
  "area": "dictionary",
  "lines": [
   {
    "id": "h",
-   "text": "One root, three words!",
+   "text": "One root, two words!",
    "pause": 0.3
   },
   {
    "id": "r",
-   "text": "Rupt! Interrupt, corrupt, erupt.",
+   "text": "The root is Rupt! Interrupt, corrupt.",
    "pause": 0.3
   },
   {
@@ -35,19 +35,14 @@
    "pause": 0.3
   },
   {
-   "id": "w2",
-   "text": "Erupt: out plus break.",
-   "pause": 0.3
-  },
-  {
    "id": "q",
-   "text": "Quick quiz! Which means out plus break?",
+   "text": "Quick quiz! Which means together plus break?",
    "pause": 2.6,
    "quiz": true
   },
   {
    "id": "a",
-   "text": "Erupt! Out plus break.",
+   "text": "Corrupt! Together plus break.",
    "pause": 0.42
   },
   {
@@ -105,34 +100,13 @@
     "pms": "together",
     "ex": "The corrupt official was removed from his job.",
     "em": ""
-   },
-   {
-    "w": "erupt",
-    "ipa": "/ɪˈrʌpt/",
-    "mean": "break out",
-    "seg": "e-|rupt",
-    "parts": [
-     [
-      "e",
-      "pre"
-     ],
-     [
-      "rupt",
-      "root"
-     ]
-    ],
-    "pre": "e",
-    "pm": "out",
-    "pms": "out",
-    "ex": "The volcano last erupted nearly two hundred years ago.",
-    "em": "💥"
    }
   ],
   "quiz": {
-   "stem": "out plus break",
+   "stem": "together plus break",
    "options": [
     "interrupt",
-    "erupt"
+    "corrupt"
    ],
    "answer": 1
   }
@@ -145,20 +119,20 @@
  },
  "hook": {
   "line": "h",
-  "text": "One root, three words"
+  "text": "One root, two words"
  },
  "src": {
   "root": "rupt"
  },
  "est": {
-  "words": 45,
-  "seconds": 27.3,
+  "words": 43,
+  "seconds": 26.0,
   "wpm": 99
  },
  "publish": {
-  "title": "Rupt root: interrupt, corrupt and erupt",
+  "title": "Rupt root: interrupt and corrupt",
   "keyword": "rupt root",
-  "value": "Rupt comes from Latin \"rumpere\" (to break). Words: interrupt, corrupt and erupt. interrupt = inter + rupt; corrupt = cor + rupt; erupt = e + rupt.",
+  "value": "Rupt comes from Latin \"rumpere\" (to break). Words: interrupt and corrupt. interrupt = inter + rupt; corrupt = cor + rupt.",
   "hashtags": [
    "#learnenglish",
    "#englishtips",
@@ -166,11 +140,11 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/dict/interrupt",
-  "script_words": 37,
+  "script_words": 35,
   "platforms": {
    "youtube": {
-    "title": "Rupt root: interrupt, corrupt and erupt",
-    "description": "Rupt comes from Latin \"rumpere\" (to break). Words: interrupt, corrupt and erupt. interrupt = inter + rupt; corrupt = cor + rupt; erupt = e + rupt.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/interrupt\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "title": "Rupt root: interrupt and corrupt",
+    "description": "Rupt comes from Latin \"rumpere\" (to break). Words: interrupt and corrupt. interrupt = inter + rupt; corrupt = cor + rupt.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/interrupt\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
     "tags": [
      "rupt root",
      "Word Roots",
@@ -179,10 +153,10 @@
     ]
    },
    "facebook": {
-    "text": "Rupt root: interrupt, corrupt and erupt\n\nRupt comes from Latin \"rumpere\" (to break). Words: interrupt, corrupt and erupt. interrupt = inter + rupt; corrupt = cor + rupt; erupt = e + rupt.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/interrupt"
+    "text": "Rupt root: interrupt and corrupt\n\nRupt comes from Latin \"rumpere\" (to break). Words: interrupt and corrupt. interrupt = inter + rupt; corrupt = cor + rupt.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/interrupt"
    },
    "instagram": {
-    "caption": "Rupt root: interrupt, corrupt and erupt\n\nRupt comes from Latin \"rumpere\" (to break). Words: interrupt, corrupt and erupt. interrupt = inter + rupt; corrupt = cor + rupt; erupt = e + rupt.\n\nSee the whole word family: link in bio.",
+    "caption": "Rupt root: interrupt and corrupt\n\nRupt comes from Latin \"rumpere\" (to break). Words: interrupt and corrupt. interrupt = inter + rupt; corrupt = cor + rupt.\n\nSee the whole word family: link in bio.",
     "hashtags": [
      "#learnenglish",
      "#englishtips",
@@ -191,9 +165,9 @@
     ]
    },
    "tiktok": {
-    "caption": "Rupt root: interrupt, corrupt and erupt #learnenglish #englishtips #vocabulary"
+    "caption": "Rupt root: interrupt and corrupt #learnenglish #englishtips #vocabulary"
    }
   },
-  "first_comment": "Quiz answer: Erupt! Out plus break. Rupt comes from Latin \"rumpere\" (to break). Words: interrupt, corrupt and erupt. interrupt = inter + rupt; corrupt = cor + rupt; erupt = e + rupt. Practice it with a free quiz: {link}"
+  "first_comment": "Quiz answer: Corrupt! Together plus break. Rupt comes from Latin \"rumpere\" (to break). Words: interrupt and corrupt. interrupt = inter + rupt; corrupt = cor + rupt. Practice it with a free quiz: {link}"
  }
 }

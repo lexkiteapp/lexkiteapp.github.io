@@ -16,7 +16,7 @@
   },
   {
    "id": "r",
-   "text": "Mit! Dismiss, promise.",
+   "text": "The root is Mit! Dismiss, promise.",
    "pause": 0.3
   },
   {
@@ -129,9 +129,9 @@
   "root": "mit"
  },
  "est": {
-  "words": 40,
-  "seconds": 24.5,
-  "wpm": 98
+  "words": 43,
+  "seconds": 26.0,
+  "wpm": 99
  },
  "publish": {
   "title": "Mit root: dismiss and promise",
@@ -144,7 +144,7 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/dict/dismiss",
-  "script_words": 32,
+  "script_words": 35,
   "platforms": {
    "youtube": {
     "title": "Mit root: dismiss and promise",

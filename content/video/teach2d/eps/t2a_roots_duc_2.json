@@ -4,8 +4,8 @@
  "series": "Word Roots",
  "part": 1,
  "theme": "dusk",
- "teacher": "ama",
- "voice": "af_bella",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
  "speed": 0.8,
  "area": "dictionary",
  "lines": [
@@ -16,7 +16,7 @@
   },
   {
    "id": "r",
-   "text": "Duc! Conduct, product, deduce.",
+   "text": "The root is Duc! Conduct, product, deduce.",
    "pause": 0.3
   },
   {
@@ -151,9 +151,9 @@
   "root": "duc"
  },
  "est": {
-  "words": 45,
-  "seconds": 27.3,
-  "wpm": 99
+  "words": 48,
+  "seconds": 28.8,
+  "wpm": 100
  },
  "publish": {
   "title": "Duc root: conduct, product and deduce",
@@ -166,11 +166,11 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/dict/conduct",
-  "script_words": 37,
+  "script_words": 40,
   "platforms": {
    "youtube": {
     "title": "Duc root: conduct, product and deduce",
-    "description": "Duc comes from Latin \"ducere\" (to lead). Words: conduct, product and deduce. conduct = con + duct; product = pro + duct; deduce = de + duce.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/conduct\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "description": "Duc comes from Latin \"ducere\" (to lead). Words: conduct, product and deduce. conduct = con + duct; product = pro + duct; deduce = de + duce.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/conduct\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
     "tags": [
      "duc root",
      "Word Roots",

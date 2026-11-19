@@ -4,8 +4,8 @@
  "series": "Word Roots",
  "part": 1,
  "theme": "dusk",
- "teacher": "ama",
- "voice": "af_bella",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
  "speed": 0.8,
  "area": "dictionary",
  "lines": [
@@ -16,7 +16,7 @@
   },
   {
    "id": "r",
-   "text": "Port! Support, report.",
+   "text": "The root is Port! Support, report.",
    "pause": 0.3
   },
   {
@@ -125,9 +125,9 @@
   "root": "port"
  },
  "est": {
-  "words": 40,
-  "seconds": 24.5,
-  "wpm": 98
+  "words": 43,
+  "seconds": 26.0,
+  "wpm": 99
  },
  "publish": {
   "title": "Port root: support and report",
@@ -140,11 +140,11 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/dict/support",
-  "script_words": 32,
+  "script_words": 35,
   "platforms": {
    "youtube": {
     "title": "Port root: support and report",
-    "description": "Port comes from Latin \"portare\" (to carry). Words: support and report. support = sup + port; report = re + port.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/support\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "description": "Port comes from Latin \"portare\" (to carry). Words: support and report. support = sup + port; report = re + port.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/support\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
     "tags": [
      "port root",
      "Word Roots",

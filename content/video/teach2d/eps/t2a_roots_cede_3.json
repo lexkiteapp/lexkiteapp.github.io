@@ -16,7 +16,7 @@
   },
   {
    "id": "r",
-   "text": "Cede! Access, success.",
+   "text": "The root is Cede! Access, success.",
    "pause": 0.3
   },
   {
@@ -125,9 +125,9 @@
   "root": "cede"
  },
  "est": {
-  "words": 43,
-  "seconds": 26.0,
-  "wpm": 99
+  "words": 46,
+  "seconds": 27.5,
+  "wpm": 100
  },
  "publish": {
   "title": "Cede root: access and success",
@@ -140,7 +140,7 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/dict/access",
-  "script_words": 34,
+  "script_words": 37,
   "platforms": {
    "youtube": {
     "title": "Cede root: access and success",

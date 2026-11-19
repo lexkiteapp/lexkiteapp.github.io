@@ -4,19 +4,19 @@
  "series": "Word Roots",
  "part": 1,
  "theme": "dusk",
- "teacher": "ama",
- "voice": "af_bella",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
  "speed": 0.8,
  "area": "dictionary",
  "lines": [
   {
    "id": "h",
-   "text": "One root, three words!",
+   "text": "One root, two words!",
    "pause": 0.3
   },
   {
    "id": "r",
-   "text": "Pos! Positive, propose, impose.",
+   "text": "The root is Pos! Positive, propose.",
    "pause": 0.3
   },
   {
@@ -35,19 +35,14 @@
    "pause": 0.3
   },
   {
-   "id": "w2",
-   "text": "Impose: into plus put.",
-   "pause": 0.3
-  },
-  {
    "id": "q",
-   "text": "Quick quiz! Which means into plus put?",
+   "text": "Quick quiz! Which means forward plus put?",
    "pause": 2.6,
    "quiz": true
   },
   {
    "id": "a",
-   "text": "Impose! Into plus put.",
+   "text": "Propose! Forward plus put.",
    "pause": 0.42
   },
   {
@@ -109,38 +104,13 @@
     "pms": "forward",
     "ex": "I propose that we meet again next week.",
     "em": "💡"
-   },
-   {
-    "w": "impose",
-    "ipa": "/ɪmˈpoʊz/",
-    "mean": "put on someone",
-    "seg": "im-|pos|-e",
-    "parts": [
-     [
-      "im",
-      "pre"
-     ],
-     [
-      "pos",
-      "root"
-     ],
-     [
-      "e",
-      "suf"
-     ]
-    ],
-    "pre": "im",
-    "pm": "into",
-    "pms": "into",
-    "ex": "The government imposed a new tax on sugary drinks.",
-    "em": "⛓️"
    }
   ],
   "quiz": {
-   "stem": "into plus put",
+   "stem": "forward plus put",
    "options": [
     "positive",
-    "impose"
+    "propose"
    ],
    "answer": 1
   }
@@ -153,20 +123,20 @@
  },
  "hook": {
   "line": "h",
-  "text": "One root, three words"
+  "text": "One root, two words"
  },
  "src": {
   "root": "pos"
  },
  "est": {
-  "words": 48,
-  "seconds": 28.8,
+  "words": 46,
+  "seconds": 27.5,
   "wpm": 100
  },
  "publish": {
-  "title": "Pos root: positive, propose and impose",
+  "title": "Pos root: positive and propose",
   "keyword": "pos root",
-  "value": "Pos comes from Latin \"ponere\" (to put, to place). Words: positive, propose and impose. propose = pro + pos; impose = im + pos.",
+  "value": "Pos comes from Latin \"ponere\" (to put, to place). Words: positive and propose. propose = pro + pos.",
   "hashtags": [
    "#learnenglish",
    "#englishtips",
@@ -174,11 +144,11 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/dict/positive",
-  "script_words": 40,
+  "script_words": 38,
   "platforms": {
    "youtube": {
-    "title": "Pos root: positive, propose and impose",
-    "description": "Pos comes from Latin \"ponere\" (to put, to place). Words: positive, propose and impose. propose = pro + pos; impose = im + pos.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/positive\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "title": "Pos root: positive and propose",
+    "description": "Pos comes from Latin \"ponere\" (to put, to place). Words: positive and propose. propose = pro + pos.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/positive\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
     "tags": [
      "pos root",
      "Word Roots",
@@ -187,10 +157,10 @@
     ]
    },
    "facebook": {
-    "text": "Pos root: positive, propose and impose\n\nPos comes from Latin \"ponere\" (to put, to place). Words: positive, propose and impose. propose = pro + pos; impose = im + pos.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/positive"
+    "text": "Pos root: positive and propose\n\nPos comes from Latin \"ponere\" (to put, to place). Words: positive and propose. propose = pro + pos.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/positive"
    },
    "instagram": {
-    "caption": "Pos root: positive, propose and impose\n\nPos comes from Latin \"ponere\" (to put, to place). Words: positive, propose and impose. propose = pro + pos; impose = im + pos.\n\nSee the whole word family: link in bio.",
+    "caption": "Pos root: positive and propose\n\nPos comes from Latin \"ponere\" (to put, to place). Words: positive and propose. propose = pro + pos.\n\nSee the whole word family: link in bio.",
     "hashtags": [
      "#learnenglish",
      "#englishtips",
@@ -199,9 +169,9 @@
     ]
    },
    "tiktok": {
-    "caption": "Pos root: positive, propose and impose #learnenglish #englishtips #vocabulary"
+    "caption": "Pos root: positive and propose #learnenglish #englishtips #vocabulary"
    }
   },
-  "first_comment": "Did you get it? Impose! Into plus put. Pos comes from Latin \"ponere\" (to put, to place). Words: positive, propose and impose. propose = pro + pos; impose = im + pos. More practice like this (free): {link}"
+  "first_comment": "Did you get it? Propose! Forward plus put. Pos comes from Latin \"ponere\" (to put, to place). Words: positive and propose. propose = pro + pos. More practice like this (free): {link}"
  }
 }

@@ -16,7 +16,7 @@
   },
   {
    "id": "r",
-   "text": "Tract! Attract, distract, extract.",
+   "text": "The root is Tract! Attract, distract, extract.",
    "pause": 0.3
   },
   {
@@ -151,9 +151,9 @@
   "root": "tract"
  },
  "est": {
-  "words": 45,
-  "seconds": 27.3,
-  "wpm": 99
+  "words": 48,
+  "seconds": 28.8,
+  "wpm": 100
  },
  "publish": {
   "title": "Tract root: attract, distract and extract",
@@ -166,7 +166,7 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/dict/attract",
-  "script_words": 37,
+  "script_words": 40,
   "platforms": {
    "youtube": {
     "title": "Tract root: attract, distract and extract",

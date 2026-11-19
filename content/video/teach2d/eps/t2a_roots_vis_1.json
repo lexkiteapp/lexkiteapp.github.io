@@ -16,7 +16,7 @@
   },
   {
    "id": "r",
-   "text": "Vis! Visible, vision.",
+   "text": "The root is Vis! Visible, vision.",
    "pause": 0.3
   },
   {
@@ -125,9 +125,9 @@
   "root": "vis"
  },
  "est": {
-  "words": 46,
-  "seconds": 27.5,
-  "wpm": 100
+  "words": 49,
+  "seconds": 29.0,
+  "wpm": 102
  },
  "publish": {
   "title": "Vis root: visible and vision",
@@ -140,7 +140,7 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/dict/visible",
-  "script_words": 37,
+  "script_words": 40,
   "platforms": {
    "youtube": {
     "title": "Vis root: visible and vision",

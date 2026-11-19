@@ -16,7 +16,7 @@
   },
   {
    "id": "r",
-   "text": "Spect! Spectator, perspective.",
+   "text": "The root is Spect! Spectator, perspective.",
    "pause": 0.3
   },
   {
@@ -129,9 +129,9 @@
   "root": "spect"
  },
  "est": {
-  "words": 42,
-  "seconds": 25.5,
-  "wpm": 99
+  "words": 45,
+  "seconds": 27.0,
+  "wpm": 100
  },
  "publish": {
   "title": "Spect root: spectator and perspective",
@@ -144,7 +144,7 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/dict/spectator",
-  "script_words": 34,
+  "script_words": 37,
   "platforms": {
    "youtube": {
     "title": "Spect root: spectator and perspective",

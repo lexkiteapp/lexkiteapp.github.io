@@ -693,8 +693,8 @@ def T_roots():
     hk = EP['hook']['text']; i = hk.find('root'); title([[hk[:i], 'ink'], ['root', 'accent'], [hk[i + 4:], 'ink']], 96, RY0, None, t_ring_out, hook=True)
     cx, cy, R = (RX0 + RX1) / 2, RY0 + 504, 225
     top('backdrop', [cx - R, cy - R, cx + R, cy + R], None, out=t_ring_out, src='ring.png', radius=0)   # decoration under the root + chips: not a leaf, so the layout gate does not read it as an overlap
-    rs = 120; rw = tw(D['root'].upper(), rs); top('text', [cx - rw / 2, cy - rs * 0.6, cx + rw / 2, cy + rs * 0.6], at('r', 0), out=t_ring_out, runs=[[D['root'].upper(), 'accent']], size=rs, ipa=False)
-    CUES.append(dict(node=NODES[-1]['id'], t=at('r', 0), tag=D['root'].upper()))
+    rs = 120; rw = tw(D['root'].upper(), rs); top('text', [cx - rw / 2, cy - rs * 0.6, cx + rw / 2, cy + rs * 0.6], at('r', D['root']), out=t_ring_out, runs=[[D['root'].upper(), 'accent']], size=rs, ipa=False)
+    CUES.append(dict(node=NODES[-1]['id'], t=at('r', D['root']), tag=D['root'].upper()))
     ang = {2: [-90, 90], 3: [-90, 30, 150], 4: [-135, -45, 45, 135]}[n]; ch = S['chip'] + 28
     for w, a in zip(ws, ang):
         txt = w['w'].upper(); cw = chip_w(txt, tw, S['chip']); px, py = cx + R * math.cos(math.radians(a)), cy + R * math.sin(math.radians(a))
@@ -706,7 +706,7 @@ def T_roots():
     for k, w in enumerate(ws):
         lid = f'w{k}'; t_out = start(f'w{k + 1}' if k + 1 < n else 'q') - 0.2; t0 = start(lid); c = Card(RY0, tone='card')
         b = chip(c, f'WORD {k + 1} OF {n}', t0); em = w.get('em')
-        if em: c.rows.append(dict(id=nid('t'), type='text', runs=[[em, 'ink']], size=64, ipa=False, box=[PAD + c.inner - 84, b['box'][1] - 8, PAD + c.inner, b['box'][1] + 70], **{'in': cue(t0)}))
+        if em: c.rows.append(dict(id=nid('t'), type='text', runs=[[em, 'ink']], size=64, ipa=False, box=[b['box'][2] + 16, b['box'][1] - 8, b['box'][2] + 100, b['box'][1] + 70], **{'in': cue(t0)}))
         sz = 104
         while tw(w['w'], sz) > c.inner and sz > 64: sz -= 4
         c.text([[txt, 'accent' if kd == 'root' else 'ink'] for txt, kd in w['parts']], sz, at(lid, 0), align='c', tag=w['w'])

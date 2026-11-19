@@ -4,8 +4,8 @@
  "series": "Word Roots",
  "part": 1,
  "theme": "dusk",
- "teacher": "carlos",
- "voice": "am_fenrir",
+ "teacher": "ama",
+ "voice": "af_bella",
  "speed": 0.8,
  "area": "dictionary",
  "lines": [
@@ -16,7 +16,7 @@
   },
   {
    "id": "r",
-   "text": "Tract! Contract, subtract.",
+   "text": "The root is Tract! Contract, subtract.",
    "pause": 0.3
   },
   {
@@ -125,9 +125,9 @@
   "root": "tract"
  },
  "est": {
-  "words": 40,
-  "seconds": 24.5,
-  "wpm": 98
+  "words": 43,
+  "seconds": 26.0,
+  "wpm": 99
  },
  "publish": {
   "title": "Tract root: contract and subtract",
@@ -140,11 +140,11 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/dict/contract",
-  "script_words": 32,
+  "script_words": 35,
   "platforms": {
    "youtube": {
     "title": "Tract root: contract and subtract",
-    "description": "Tract comes from Latin \"trahere\" (to pull, to drag). Words: contract and subtract. contract = con + tract; subtract = sub + tract.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/contract\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "description": "Tract comes from Latin \"trahere\" (to pull, to drag). Words: contract and subtract. contract = con + tract; subtract = sub + tract.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/contract\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
     "tags": [
      "tract root",
      "Word Roots",

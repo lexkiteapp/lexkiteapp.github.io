@@ -16,7 +16,7 @@
   },
   {
    "id": "r",
-   "text": "Tend! Intend, attend, extend.",
+   "text": "The root is Tend! Intend, attend, extend.",
    "pause": 0.3
   },
   {
@@ -151,9 +151,9 @@
   "root": "tend"
  },
  "est": {
-  "words": 45,
-  "seconds": 27.3,
-  "wpm": 99
+  "words": 48,
+  "seconds": 28.8,
+  "wpm": 100
  },
  "publish": {
   "title": "Tend root: intend, attend and extend",
@@ -166,7 +166,7 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/dict/intend",
-  "script_words": 37,
+  "script_words": 40,
   "platforms": {
    "youtube": {
     "title": "Tend root: intend, attend and extend",

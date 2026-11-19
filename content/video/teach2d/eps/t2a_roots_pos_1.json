@@ -11,12 +11,12 @@
  "lines": [
   {
    "id": "h",
-   "text": "One root, three words!",
+   "text": "One root, two words!",
    "pause": 0.3
   },
   {
    "id": "r",
-   "text": "Pos! Position, deposit, opposite.",
+   "text": "The root is Pos! Position, deposit.",
    "pause": 0.3
   },
   {
@@ -35,19 +35,14 @@
    "pause": 0.3
   },
   {
-   "id": "w2",
-   "text": "Opposite: against plus put.",
-   "pause": 0.3
-  },
-  {
    "id": "q",
-   "text": "Quick quiz! Which means against plus put?",
+   "text": "Quick quiz! Which means down plus put?",
    "pause": 2.6,
    "quiz": true
   },
   {
    "id": "a",
-   "text": "Opposite! Against plus put.",
+   "text": "Deposit! Down plus put.",
    "pause": 0.42
   },
   {
@@ -109,38 +104,13 @@
     "pms": "down",
     "ex": "You have to pay a deposit when you rent a flat.",
     "em": "🏦"
-   },
-   {
-    "w": "opposite",
-    "ipa": "/ˈɑːpəzət/",
-    "mean": "placed against, facing",
-    "seg": "op-|pos|-ite",
-    "parts": [
-     [
-      "op",
-      "pre"
-     ],
-     [
-      "pos",
-      "root"
-     ],
-     [
-      "ite",
-      "suf"
-     ]
-    ],
-    "pre": "op",
-    "pm": "against",
-    "pms": "against",
-    "ex": "The bank is opposite the post office.",
-    "em": "🔄"
    }
   ],
   "quiz": {
-   "stem": "against plus put",
+   "stem": "down plus put",
    "options": [
     "position",
-    "opposite"
+    "deposit"
    ],
    "answer": 1
   }
@@ -153,20 +123,20 @@
  },
  "hook": {
   "line": "h",
-  "text": "One root, three words"
+  "text": "One root, two words"
  },
  "src": {
   "root": "pos"
  },
  "est": {
-  "words": 47,
-  "seconds": 28.3,
+  "words": 45,
+  "seconds": 27.0,
   "wpm": 100
  },
  "publish": {
-  "title": "Pos root: position, deposit and opposite",
+  "title": "Pos root: position and deposit",
   "keyword": "pos root",
-  "value": "Pos comes from Latin \"ponere\" (to put, to place). Words: position, deposit and opposite. deposit = de + pos; opposite = op + pos.",
+  "value": "Pos comes from Latin \"ponere\" (to put, to place). Words: position and deposit. deposit = de + pos.",
   "hashtags": [
    "#learnenglish",
    "#englishtips",
@@ -174,11 +144,11 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/dict/position",
-  "script_words": 39,
+  "script_words": 37,
   "platforms": {
    "youtube": {
-    "title": "Pos root: position, deposit and opposite",
-    "description": "Pos comes from Latin \"ponere\" (to put, to place). Words: position, deposit and opposite. deposit = de + pos; opposite = op + pos.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/position\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "title": "Pos root: position and deposit",
+    "description": "Pos comes from Latin \"ponere\" (to put, to place). Words: position and deposit. deposit = de + pos.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/position\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
     "tags": [
      "pos root",
      "Word Roots",
@@ -187,10 +157,10 @@
     ]
    },
    "facebook": {
-    "text": "Pos root: position, deposit and opposite\n\nPos comes from Latin \"ponere\" (to put, to place). Words: position, deposit and opposite. deposit = de + pos; opposite = op + pos.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/position"
+    "text": "Pos root: position and deposit\n\nPos comes from Latin \"ponere\" (to put, to place). Words: position and deposit. deposit = de + pos.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/position"
    },
    "instagram": {
-    "caption": "Pos root: position, deposit and opposite\n\nPos comes from Latin \"ponere\" (to put, to place). Words: position, deposit and opposite. deposit = de + pos; opposite = op + pos.\n\nSee the whole word family: link in bio.",
+    "caption": "Pos root: position and deposit\n\nPos comes from Latin \"ponere\" (to put, to place). Words: position and deposit. deposit = de + pos.\n\nSee the whole word family: link in bio.",
     "hashtags": [
      "#learnenglish",
      "#englishtips",
@@ -199,9 +169,9 @@
     ]
    },
    "tiktok": {
-    "caption": "Pos root: position, deposit and opposite #learnenglish #englishtips #vocabulary"
+    "caption": "Pos root: position and deposit #learnenglish #englishtips #vocabulary"
    }
   },
-  "first_comment": "Answer: Opposite! Against plus put. Pos comes from Latin \"ponere\" (to put, to place). Words: position, deposit and opposite. deposit = de + pos; opposite = op + pos. Try the full lesson and quiz here: {link}"
+  "first_comment": "Answer: Deposit! Down plus put. Pos comes from Latin \"ponere\" (to put, to place). Words: position and deposit. deposit = de + pos. Try the full lesson and quiz here: {link}"
  }
 }

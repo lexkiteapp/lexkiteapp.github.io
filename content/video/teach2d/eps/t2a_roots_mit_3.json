@@ -16,7 +16,7 @@
   },
   {
    "id": "r",
-   "text": "Mit! Omit, mission.",
+   "text": "The root is Mit! Omit, mission.",
    "pause": 0.3
   },
   {
@@ -125,9 +125,9 @@
   "root": "mit"
  },
  "est": {
-  "words": 43,
-  "seconds": 26.0,
-  "wpm": 99
+  "words": 46,
+  "seconds": 27.5,
+  "wpm": 100
  },
  "publish": {
   "title": "Mit root: omit and mission",
@@ -140,7 +140,7 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/dict/omit",
-  "script_words": 35,
+  "script_words": 38,
   "platforms": {
    "youtube": {
     "title": "Mit root: omit and mission",

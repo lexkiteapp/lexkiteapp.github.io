@@ -362,6 +362,7 @@ def react(p):   # Say it like a native (content/say-native/series.json, docs/SAY
 
 # ---------------- roots: "Gốc từ" word-root family (content/video/teach2d/roots.json; IPA / definition / example from the audited bank) ----------------
 ROOTS_F = f'{ROOT}/content/video/teach2d/roots.json'
+ROOTS_BIAS, ROOTS_MAX = 0.9, 27.0   # real CI shorts run ~0.9 s over short_secs (rule clips 25.7-25.9 vs 24.9 predicted); QC ceiling is 28 s, so plan against 27 with the bias
 _RB = None
 
 
@@ -389,7 +390,7 @@ def roots(p):   # Gốc từ: one root, N real words. ring preview -> "did you k
         ws.append(dict(w=w, ipa=ipa, mean=x['mean'], seg=x['seg'], parts=sp['parts'], pre=sp['pre'], pm=pm, pms=pm.split(' or ')[0] if pm else None, ex=ex, em=(facts()['words'].get(w) or {}).get('em', '')))
     cap, rt = (lambda t: t[0].upper() + t[1:]), R['root'].capitalize(); lines = [
         L('h', f'One root, {["zero", "one", "two", "three", "four"][len(ws)]} words!', 0.3),
-        L('r', f"{rt}! " + ', '.join(w['w'].capitalize() if i == 0 else w['w'] for i, w in enumerate(ws)) + '.', 0.3),
+        L('r', f"The root is {rt}! " + ', '.join(w['w'].capitalize() if i == 0 else w['w'] for i, w in enumerate(ws)) + '.', 0.3),
         L('k', f"Did you know? {rt} is {R['lang']} for {R['say']}.", 0.3)]
     for i, w in enumerate(ws):
         lines.append(L(f'w{i}', f"{cap(w['w'])}: {w['pms']} plus {R['say']}." if w['pre'] else f"{cap(w['w'])}: {w['mean']}.", 0.3))
@@ -943,7 +944,7 @@ def plan_roots():
             row['in'] = dict(root=R['id'], words=ws[:z]) if z != len(ws) else dict(root=R['id'], words=ws)
             try: ep = make(row)
             except AssertionError as e: skip('shape:' + str(e.args[0][0]), rid); ep = None; break
-            if 18 <= short_secs(ep) <= 28: break
+            if 18 <= short_secs(ep) + ROOTS_BIAS <= ROOTS_MAX: break
             ep = None
         if not ep: skip('duration', rid); continue
         row['heads'] = [f"root:{R['id']}:{w}" for w in row['in']['words']]; row['taught'] = row['in']['words'] + [R['root'].lower(), R['lang'].lower()]

@@ -41,5 +41,5 @@ for r in A:
     assert set(r['in']['words']) <= ws, ('episode word not in the root bank', r['id'])
     ep = g.make(r); q = ep['data']['quiz']
     assert q['options'][q['answer']] in r['in']['words'] and 2 <= len(r['in']['words']) <= 3, r['id']
-    assert 18 <= g.short_secs(ep) <= 28 and len(g.words(ep['hook']['text'])) <= 6, r['id']
+    assert 18 <= g.short_secs(ep) and g.short_secs(ep) + g.ROOTS_BIAS <= g.ROOTS_MAX and len(g.words(ep['hook']['text'])) <= 6, r['id']
 print(f'roots OK: {len(RS)} roots, {sum(len(r["words"]) for r in RS)} words, {len(A)} planned episodes')

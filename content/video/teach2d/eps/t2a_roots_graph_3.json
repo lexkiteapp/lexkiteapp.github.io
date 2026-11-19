@@ -16,7 +16,7 @@
   },
   {
    "id": "r",
-   "text": "Graph! Telegraph, graph.",
+   "text": "The root is Graph! Telegraph, graph.",
    "pause": 0.3
   },
   {
@@ -121,9 +121,9 @@
   "root": "graph"
  },
  "est": {
-  "words": 49,
-  "seconds": 29.0,
-  "wpm": 102
+  "words": 52,
+  "seconds": 30.4,
+  "wpm": 103
  },
  "publish": {
   "title": "Graph root: telegraph and graph",
@@ -136,7 +136,7 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/dict/telegraph",
-  "script_words": 39,
+  "script_words": 42,
   "platforms": {
    "youtube": {
     "title": "Graph root: telegraph and graph",

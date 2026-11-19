@@ -4,8 +4,8 @@
  "series": "Word Roots",
  "part": 1,
  "theme": "dusk",
- "teacher": "carlos",
- "voice": "am_fenrir",
+ "teacher": "ama",
+ "voice": "af_bella",
  "speed": 0.8,
  "area": "dictionary",
  "lines": [
@@ -16,7 +16,7 @@
   },
   {
    "id": "r",
-   "text": "Press! Suppress, pressure.",
+   "text": "The root is Press! Suppress, pressure.",
    "pause": 0.3
   },
   {
@@ -125,9 +125,9 @@
   "root": "press"
  },
  "est": {
-  "words": 40,
-  "seconds": 24.5,
-  "wpm": 98
+  "words": 43,
+  "seconds": 26.0,
+  "wpm": 99
  },
  "publish": {
   "title": "Press root: suppress and pressure",
@@ -140,11 +140,11 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/dict/suppress",
-  "script_words": 32,
+  "script_words": 35,
   "platforms": {
    "youtube": {
     "title": "Press root: suppress and pressure",
-    "description": "Press comes from Latin \"premere\" (to press). Words: suppress and pressure. suppress = sup + press.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/suppress\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "description": "Press comes from Latin \"premere\" (to press). Words: suppress and pressure. suppress = sup + press.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/suppress\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
     "tags": [
      "press root",
      "Word Roots",

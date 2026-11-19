@@ -16,7 +16,7 @@
   },
   {
    "id": "r",
-   "text": "Form! Inform, perform, reform.",
+   "text": "The root is Form! Inform, perform, reform.",
    "pause": 0.3
   },
   {
@@ -151,9 +151,9 @@
   "root": "form"
  },
  "est": {
-  "words": 45,
-  "seconds": 27.3,
-  "wpm": 99
+  "words": 48,
+  "seconds": 28.8,
+  "wpm": 100
  },
  "publish": {
   "title": "Form root: inform, perform and reform",
@@ -166,7 +166,7 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/dict/inform",
-  "script_words": 37,
+  "script_words": 40,
   "platforms": {
    "youtube": {
     "title": "Form root: inform, perform and reform",

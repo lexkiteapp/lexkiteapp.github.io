@@ -16,7 +16,7 @@
   },
   {
    "id": "r",
-   "text": "Cur! Currency, incur.",
+   "text": "The root is Cur! Currency, incur.",
    "pause": 0.3
   },
   {
@@ -125,9 +125,9 @@
   "root": "cur"
  },
  "est": {
-  "words": 44,
-  "seconds": 26.5,
-  "wpm": 100
+  "words": 47,
+  "seconds": 28.0,
+  "wpm": 101
  },
  "publish": {
   "title": "Cur root: currency and incur",
@@ -140,7 +140,7 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/dict/currency",
-  "script_words": 36,
+  "script_words": 39,
   "platforms": {
    "youtube": {
     "title": "Cur root: currency and incur",

@@ -4,19 +4,19 @@
  "series": "Word Roots",
  "part": 1,
  "theme": "dusk",
- "teacher": "ama",
- "voice": "af_bella",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
  "speed": 0.8,
  "area": "dictionary",
  "lines": [
   {
    "id": "h",
-   "text": "One root, three words!",
+   "text": "One root, two words!",
    "pause": 0.3
   },
   {
    "id": "r",
-   "text": "Fer! Offer, suffer, differ.",
+   "text": "The root is Fer! Offer, suffer.",
    "pause": 0.3
   },
   {
@@ -35,19 +35,14 @@
    "pause": 0.3
   },
   {
-   "id": "w2",
-   "text": "Differ: apart plus carry.",
-   "pause": 0.3
-  },
-  {
    "id": "q",
-   "text": "Quick quiz! Which means apart plus carry?",
+   "text": "Quick quiz! Which means from under plus carry?",
    "pause": 2.6,
    "quiz": true
   },
   {
    "id": "a",
-   "text": "Differ! Apart plus carry.",
+   "text": "Suffer! From under plus carry.",
    "pause": 0.42
   },
   {
@@ -105,34 +100,13 @@
     "pms": "from under",
     "ex": "Many people suffer from back pain.",
     "em": "😖"
-   },
-   {
-    "w": "differ",
-    "ipa": "/ˈdɪfər/",
-    "mean": "carry apart, be unlike",
-    "seg": "dif-|fer",
-    "parts": [
-     [
-      "dif",
-      "pre"
-     ],
-     [
-      "fer",
-      "root"
-     ]
-    ],
-    "pre": "dif",
-    "pm": "apart",
-    "pms": "apart",
-    "ex": "Prices differ greatly from one shop to another.",
-    "em": "🔀"
    }
   ],
   "quiz": {
-   "stem": "apart plus carry",
+   "stem": "from under plus carry",
    "options": [
     "offer",
-    "differ"
+    "suffer"
    ],
    "answer": 1
   }
@@ -145,20 +119,20 @@
  },
  "hook": {
   "line": "h",
-  "text": "One root, three words"
+  "text": "One root, two words"
  },
  "src": {
   "root": "fer"
  },
  "est": {
   "words": 46,
-  "seconds": 27.8,
-  "wpm": 99
+  "seconds": 27.5,
+  "wpm": 100
  },
  "publish": {
-  "title": "Fer root: offer, suffer and differ",
+  "title": "Fer root: offer and suffer",
   "keyword": "fer root",
-  "value": "Fer comes from Latin \"ferre\" (to carry, to bring). Words: offer, suffer and differ. offer = of + fer; suffer = suf + fer; differ = dif + fer.",
+  "value": "Fer comes from Latin \"ferre\" (to carry, to bring). Words: offer and suffer. offer = of + fer; suffer = suf + fer.",
   "hashtags": [
    "#learnenglish",
    "#englishtips",
@@ -166,11 +140,11 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/dict/offer",
-  "script_words": 38,
+  "script_words": 37,
   "platforms": {
    "youtube": {
-    "title": "Fer root: offer, suffer and differ",
-    "description": "Fer comes from Latin \"ferre\" (to carry, to bring). Words: offer, suffer and differ. offer = of + fer; suffer = suf + fer; differ = dif + fer.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/offer\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "title": "Fer root: offer and suffer",
+    "description": "Fer comes from Latin \"ferre\" (to carry, to bring). Words: offer and suffer. offer = of + fer; suffer = suf + fer.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/offer\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
     "tags": [
      "fer root",
      "Word Roots",
@@ -179,10 +153,10 @@
     ]
    },
    "facebook": {
-    "text": "Fer root: offer, suffer and differ\n\nFer comes from Latin \"ferre\" (to carry, to bring). Words: offer, suffer and differ. offer = of + fer; suffer = suf + fer; differ = dif + fer.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/offer"
+    "text": "Fer root: offer and suffer\n\nFer comes from Latin \"ferre\" (to carry, to bring). Words: offer and suffer. offer = of + fer; suffer = suf + fer.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/offer"
    },
    "instagram": {
-    "caption": "Fer root: offer, suffer and differ\n\nFer comes from Latin \"ferre\" (to carry, to bring). Words: offer, suffer and differ. offer = of + fer; suffer = suf + fer; differ = dif + fer.\n\nSee the whole word family: link in bio.",
+    "caption": "Fer root: offer and suffer\n\nFer comes from Latin \"ferre\" (to carry, to bring). Words: offer and suffer. offer = of + fer; suffer = suf + fer.\n\nSee the whole word family: link in bio.",
     "hashtags": [
      "#learnenglish",
      "#englishtips",
@@ -191,9 +165,9 @@
     ]
    },
    "tiktok": {
-    "caption": "Fer root: offer, suffer and differ #learnenglish #englishtips #vocabulary"
+    "caption": "Fer root: offer and suffer #learnenglish #englishtips #vocabulary"
    }
   },
-  "first_comment": "Quiz answer: Differ! Apart plus carry. Fer comes from Latin \"ferre\" (to carry, to bring). Words: offer, suffer and differ. offer = of + fer; suffer = suf + fer; differ = dif + fer. Practice it with a free quiz: {link}"
+  "first_comment": "Quiz answer: Suffer! From under plus carry. Fer comes from Latin \"ferre\" (to carry, to bring). Words: offer and suffer. offer = of + fer; suffer = suf + fer. Practice it with a free quiz: {link}"
  }
 }

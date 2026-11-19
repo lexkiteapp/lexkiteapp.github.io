@@ -4,8 +4,8 @@
  "series": "Word Roots",
  "part": 1,
  "theme": "dusk",
- "teacher": "carlos",
- "voice": "am_fenrir",
+ "teacher": "ama",
+ "voice": "af_bella",
  "speed": 0.8,
  "area": "dictionary",
  "lines": [
@@ -16,7 +16,7 @@
   },
   {
    "id": "r",
-   "text": "Sign! Assign, significant.",
+   "text": "The root is Sign! Assign, significant.",
    "pause": 0.3
   },
   {
@@ -125,9 +125,9 @@
   "root": "sign"
  },
  "est": {
-  "words": 41,
-  "seconds": 25.0,
-  "wpm": 98
+  "words": 44,
+  "seconds": 26.5,
+  "wpm": 100
  },
  "publish": {
   "title": "Sign root: assign and significant",
@@ -140,11 +140,11 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/dict/assign",
-  "script_words": 33,
+  "script_words": 36,
   "platforms": {
    "youtube": {
     "title": "Sign root: assign and significant",
-    "description": "Sign comes from Latin \"signum\" (mark, sign). Words: assign and significant. assign = as + sign.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/assign\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "description": "Sign comes from Latin \"signum\" (mark, sign). Words: assign and significant. assign = as + sign.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/assign\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
     "tags": [
      "sign root",
      "Word Roots",

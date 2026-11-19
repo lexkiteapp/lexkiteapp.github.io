@@ -16,7 +16,7 @@
   },
   {
    "id": "r",
-   "text": "Scrib! Description, subscription.",
+   "text": "The root is Scrib! Description, subscription.",
    "pause": 0.3
   },
   {
@@ -133,9 +133,9 @@
   "root": "scrib"
  },
  "est": {
-  "words": 40,
-  "seconds": 24.5,
-  "wpm": 98
+  "words": 43,
+  "seconds": 26.0,
+  "wpm": 99
  },
  "publish": {
   "title": "Scrib root: description and subscription",
@@ -148,7 +148,7 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/dict/description",
-  "script_words": 32,
+  "script_words": 35,
   "platforms": {
    "youtube": {
     "title": "Scrib root: description and subscription",

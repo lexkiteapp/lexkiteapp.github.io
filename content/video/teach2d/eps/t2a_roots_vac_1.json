@@ -4,8 +4,8 @@
  "series": "Word Roots",
  "part": 1,
  "theme": "dusk",
- "teacher": "ama",
- "voice": "af_bella",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
  "speed": 0.8,
  "area": "dictionary",
  "lines": [
@@ -16,7 +16,7 @@
   },
   {
    "id": "r",
-   "text": "Vac! Vacation, vacuum.",
+   "text": "The root is Vac! Vacation, vacuum.",
    "pause": 0.3
   },
   {
@@ -125,9 +125,9 @@
   "root": "vac"
  },
  "est": {
-  "words": 44,
-  "seconds": 26.5,
-  "wpm": 100
+  "words": 47,
+  "seconds": 28.0,
+  "wpm": 101
  },
  "publish": {
   "title": "Vac root: vacation and vacuum",
@@ -140,11 +140,11 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/dict/vacation",
-  "script_words": 36,
+  "script_words": 39,
   "platforms": {
    "youtube": {
     "title": "Vac root: vacation and vacuum",
-    "description": "Vac comes from Latin \"vacare\" (to be empty). Words: vacation and vacuum.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/vacation\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "description": "Vac comes from Latin \"vacare\" (to be empty). Words: vacation and vacuum.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/vacation\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
     "tags": [
      "vac root",
      "Word Roots",

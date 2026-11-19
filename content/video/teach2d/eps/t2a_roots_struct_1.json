@@ -11,12 +11,12 @@
  "lines": [
   {
    "id": "h",
-   "text": "One root, three words!",
+   "text": "One root, two words!",
    "pause": 0.3
   },
   {
    "id": "r",
-   "text": "Struct! Construct, instruct, structure.",
+   "text": "The root is Struct! Construct, instruct.",
    "pause": 0.3
   },
   {
@@ -32,11 +32,6 @@
   {
    "id": "w1",
    "text": "Instruct: into plus build.",
-   "pause": 0.3
-  },
-  {
-   "id": "w2",
-   "text": "Structure: a thing that is put together.",
    "pause": 0.3
   },
   {
@@ -105,27 +100,6 @@
     "pms": "into",
     "ex": "Participants were instructed to keep a daily diary.",
     "em": "📋"
-   },
-   {
-    "w": "structure",
-    "ipa": "/ˈstrʌktʃər/",
-    "mean": "a thing that is put together",
-    "seg": "struct|-ure",
-    "parts": [
-     [
-      "struct",
-      "root"
-     ],
-     [
-      "ure",
-      "suf"
-     ]
-    ],
-    "pre": null,
-    "pm": null,
-    "pms": null,
-    "ex": "The essay has a clear structure.",
-    "em": "🏗️"
    }
   ],
   "quiz": {
@@ -145,20 +119,20 @@
  },
  "hook": {
   "line": "h",
-  "text": "One root, three words"
+  "text": "One root, two words"
  },
  "src": {
   "root": "struct"
  },
  "est": {
-  "words": 48,
-  "seconds": 28.8,
-  "wpm": 100
+  "words": 43,
+  "seconds": 26.0,
+  "wpm": 99
  },
  "publish": {
-  "title": "Struct root: construct, instruct and structure",
+  "title": "Struct root: construct and instruct",
   "keyword": "struct root",
-  "value": "Struct comes from Latin \"struere\" (to build). Words: construct, instruct and structure. construct = con + struct; instruct = in + struct.",
+  "value": "Struct comes from Latin \"struere\" (to build). Words: construct and instruct. construct = con + struct; instruct = in + struct.",
   "hashtags": [
    "#learnenglish",
    "#englishtips",
@@ -166,11 +140,11 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/dict/construct",
-  "script_words": 40,
+  "script_words": 35,
   "platforms": {
    "youtube": {
-    "title": "Struct root: construct, instruct and structure",
-    "description": "Struct comes from Latin \"struere\" (to build). Words: construct, instruct and structure. construct = con + struct; instruct = in + struct.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/construct\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "title": "Struct root: construct and instruct",
+    "description": "Struct comes from Latin \"struere\" (to build). Words: construct and instruct. construct = con + struct; instruct = in + struct.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/construct\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
     "tags": [
      "struct root",
      "Word Roots",
@@ -179,10 +153,10 @@
     ]
    },
    "facebook": {
-    "text": "Struct root: construct, instruct and structure\n\nStruct comes from Latin \"struere\" (to build). Words: construct, instruct and structure. construct = con + struct; instruct = in + struct.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/construct"
+    "text": "Struct root: construct and instruct\n\nStruct comes from Latin \"struere\" (to build). Words: construct and instruct. construct = con + struct; instruct = in + struct.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/construct"
    },
    "instagram": {
-    "caption": "Struct root: construct, instruct and structure\n\nStruct comes from Latin \"struere\" (to build). Words: construct, instruct and structure. construct = con + struct; instruct = in + struct.\n\nSee the whole word family: link in bio.",
+    "caption": "Struct root: construct and instruct\n\nStruct comes from Latin \"struere\" (to build). Words: construct and instruct. construct = con + struct; instruct = in + struct.\n\nSee the whole word family: link in bio.",
     "hashtags": [
      "#learnenglish",
      "#englishtips",
@@ -191,9 +165,9 @@
     ]
    },
    "tiktok": {
-    "caption": "Struct root: construct, instruct and structure #learnenglish #englishtips #vocabulary"
+    "caption": "Struct root: construct and instruct #learnenglish #englishtips #vocabulary"
    }
   },
-  "first_comment": "Answer: Instruct! Into plus build. Struct comes from Latin \"struere\" (to build). Words: construct, instruct and structure. construct = con + struct; instruct = in + struct. Try the full lesson and quiz here: {link}"
+  "first_comment": "Answer: Instruct! Into plus build. Struct comes from Latin \"struere\" (to build). Words: construct and instruct. construct = con + struct; instruct = in + struct. Try the full lesson and quiz here: {link}"
  }
 }

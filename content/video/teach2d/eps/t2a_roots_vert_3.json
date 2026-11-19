@@ -4,8 +4,8 @@
  "series": "Word Roots",
  "part": 1,
  "theme": "dusk",
- "teacher": "ama",
- "voice": "af_bella",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
  "speed": 0.8,
  "area": "dictionary",
  "lines": [
@@ -16,7 +16,7 @@
   },
   {
    "id": "r",
-   "text": "Vert! Advertise, introvert.",
+   "text": "The root is Vert! Advertise, introvert.",
    "pause": 0.3
   },
   {
@@ -129,9 +129,9 @@
   "root": "vert"
  },
  "est": {
-  "words": 40,
-  "seconds": 24.5,
-  "wpm": 98
+  "words": 43,
+  "seconds": 26.0,
+  "wpm": 99
  },
  "publish": {
   "title": "Vert root: advertise and introvert",
@@ -144,11 +144,11 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/dict/advertise",
-  "script_words": 32,
+  "script_words": 35,
   "platforms": {
    "youtube": {
     "title": "Vert root: advertise and introvert",
-    "description": "Vert comes from Latin \"vertere\" (to turn). Words: advertise and introvert. advertise = ad + vert; introvert = intro + vert.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/advertise\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "description": "Vert comes from Latin \"vertere\" (to turn). Words: advertise and introvert. advertise = ad + vert; introvert = intro + vert.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/advertise\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
     "tags": [
      "vert root",
      "Word Roots",

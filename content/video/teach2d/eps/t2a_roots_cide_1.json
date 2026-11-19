@@ -4,8 +4,8 @@
  "series": "Word Roots",
  "part": 1,
  "theme": "dusk",
- "teacher": "ama",
- "voice": "af_bella",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
  "speed": 0.8,
  "area": "dictionary",
  "lines": [
@@ -16,7 +16,7 @@
   },
   {
    "id": "r",
-   "text": "Cide! Decide, decision.",
+   "text": "The root is Cide! Decide, decision.",
    "pause": 0.3
   },
   {
@@ -129,9 +129,9 @@
   "root": "cide"
  },
  "est": {
-  "words": 50,
-  "seconds": 29.4,
-  "wpm": 102
+  "words": 53,
+  "seconds": 30.9,
+  "wpm": 103
  },
  "publish": {
   "title": "Cide root: decide and decision",
@@ -144,11 +144,11 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/dict/decide",
-  "script_words": 40,
+  "script_words": 43,
   "platforms": {
    "youtube": {
     "title": "Cide root: decide and decision",
-    "description": "Cide comes from Latin \"caedere\" (to cut, to kill). Words: decide and decision. decide = de + cide; decision = de + cis.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/decide\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "description": "Cide comes from Latin \"caedere\" (to cut, to kill). Words: decide and decision. decide = de + cide; decision = de + cis.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/decide\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
     "tags": [
      "cide root",
      "Word Roots",

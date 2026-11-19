@@ -4,19 +4,19 @@
  "series": "Word Roots",
  "part": 1,
  "theme": "dusk",
- "teacher": "ama",
- "voice": "af_bella",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
  "speed": 0.8,
  "area": "dictionary",
  "lines": [
   {
    "id": "h",
-   "text": "One root, three words!",
+   "text": "One root, two words!",
    "pause": 0.3
   },
   {
    "id": "r",
-   "text": "Form! Transform, uniform, conform.",
+   "text": "The root is Form! Transform, uniform.",
    "pause": 0.3
   },
   {
@@ -35,19 +35,14 @@
    "pause": 0.3
   },
   {
-   "id": "w2",
-   "text": "Conform: together plus shape.",
-   "pause": 0.3
-  },
-  {
    "id": "q",
-   "text": "Quick quiz! Which means together plus shape?",
+   "text": "Quick quiz! Which means one plus shape?",
    "pause": 2.6,
    "quiz": true
   },
   {
    "id": "a",
-   "text": "Conform! Together plus shape.",
+   "text": "Uniform! One plus shape.",
    "pause": 0.42
   },
   {
@@ -105,34 +100,13 @@
     "pms": "one",
     "ex": "Students must wear a uniform at this school.",
     "em": "👔"
-   },
-   {
-    "w": "conform",
-    "ipa": "/kənˈfɔːrm/",
-    "mean": "take the same shape",
-    "seg": "con-|form",
-    "parts": [
-     [
-      "con",
-      "pre"
-     ],
-     [
-      "form",
-      "root"
-     ]
-    ],
-    "pre": "con",
-    "pm": "together",
-    "pms": "together",
-    "ex": "All products must conform to safety standards.",
-    "em": "📏"
    }
   ],
   "quiz": {
-   "stem": "together plus shape",
+   "stem": "one plus shape",
    "options": [
     "transform",
-    "conform"
+    "uniform"
    ],
    "answer": 1
   }
@@ -145,20 +119,20 @@
  },
  "hook": {
   "line": "h",
-  "text": "One root, three words"
+  "text": "One root, two words"
  },
  "src": {
   "root": "form"
  },
  "est": {
-  "words": 45,
-  "seconds": 27.3,
+  "words": 43,
+  "seconds": 26.0,
   "wpm": 99
  },
  "publish": {
-  "title": "Form root: transform, uniform and conform",
+  "title": "Form root: transform and uniform",
   "keyword": "form root",
-  "value": "Form comes from Latin \"forma\" (shape, form). Words: transform, uniform and conform. transform = trans + form; uniform = uni + form; conform = con + form.",
+  "value": "Form comes from Latin \"forma\" (shape, form). Words: transform and uniform. transform = trans + form; uniform = uni + form.",
   "hashtags": [
    "#learnenglish",
    "#englishtips",
@@ -166,11 +140,11 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/dict/transform",
-  "script_words": 37,
+  "script_words": 35,
   "platforms": {
    "youtube": {
-    "title": "Form root: transform, uniform and conform",
-    "description": "Form comes from Latin \"forma\" (shape, form). Words: transform, uniform and conform. transform = trans + form; uniform = uni + form; conform = con + form.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/transform\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "title": "Form root: transform and uniform",
+    "description": "Form comes from Latin \"forma\" (shape, form). Words: transform and uniform. transform = trans + form; uniform = uni + form.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/transform\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
     "tags": [
      "form root",
      "Word Roots",
@@ -179,10 +153,10 @@
     ]
    },
    "facebook": {
-    "text": "Form root: transform, uniform and conform\n\nForm comes from Latin \"forma\" (shape, form). Words: transform, uniform and conform. transform = trans + form; uniform = uni + form; conform = con + form.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/transform"
+    "text": "Form root: transform and uniform\n\nForm comes from Latin \"forma\" (shape, form). Words: transform and uniform. transform = trans + form; uniform = uni + form.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/transform"
    },
    "instagram": {
-    "caption": "Form root: transform, uniform and conform\n\nForm comes from Latin \"forma\" (shape, form). Words: transform, uniform and conform. transform = trans + form; uniform = uni + form; conform = con + form.\n\nSee the whole word family: link in bio.",
+    "caption": "Form root: transform and uniform\n\nForm comes from Latin \"forma\" (shape, form). Words: transform and uniform. transform = trans + form; uniform = uni + form.\n\nSee the whole word family: link in bio.",
     "hashtags": [
      "#learnenglish",
      "#englishtips",
@@ -191,9 +165,9 @@
     ]
    },
    "tiktok": {
-    "caption": "Form root: transform, uniform and conform #learnenglish #englishtips #vocabulary"
+    "caption": "Form root: transform and uniform #learnenglish #englishtips #vocabulary"
    }
   },
-  "first_comment": "Answer: Conform! Together plus shape. Form comes from Latin \"forma\" (shape, form). Words: transform, uniform and conform. transform = trans + form; uniform = uni + form; conform = con + form. Try the full lesson and quiz here: {link}"
+  "first_comment": "Answer: Uniform! One plus shape. Form comes from Latin \"forma\" (shape, form). Words: transform and uniform. transform = trans + form; uniform = uni + form. Try the full lesson and quiz here: {link}"
  }
 }

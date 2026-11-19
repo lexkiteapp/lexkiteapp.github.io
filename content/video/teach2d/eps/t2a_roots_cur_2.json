@@ -11,12 +11,12 @@
  "lines": [
   {
    "id": "h",
-   "text": "One root, three words!",
+   "text": "One root, two words!",
    "pause": 0.3
   },
   {
    "id": "r",
-   "text": "Cur! Course, excursion, cursor.",
+   "text": "The root is Cur! Course, excursion.",
    "pause": 0.3
   },
   {
@@ -32,11 +32,6 @@
   {
    "id": "w1",
    "text": "Excursion: out plus run.",
-   "pause": 0.3
-  },
-  {
-   "id": "w2",
-   "text": "Cursor: a runner on the screen.",
    "pause": 0.3
   },
   {
@@ -109,27 +104,6 @@
     "pms": "out",
     "ex": "We went on a day excursion to Ha Long Bay.",
     "em": "🚤"
-   },
-   {
-    "w": "cursor",
-    "ipa": "/ˈkɜːrsər/",
-    "mean": "a runner on the screen",
-    "seg": "curs|-or",
-    "parts": [
-     [
-      "curs",
-      "root"
-     ],
-     [
-      "or",
-      "suf"
-     ]
-    ],
-    "pre": null,
-    "pm": null,
-    "pms": null,
-    "ex": "I don't see the cursor.",
-    "em": ""
    }
   ],
   "quiz": {
@@ -149,20 +123,20 @@
  },
  "hook": {
   "line": "h",
-  "text": "One root, three words"
+  "text": "One root, two words"
  },
  "src": {
   "root": "cur"
  },
  "est": {
-  "words": 48,
-  "seconds": 28.8,
+  "words": 44,
+  "seconds": 26.5,
   "wpm": 100
  },
  "publish": {
-  "title": "Cur root: course, excursion and cursor",
+  "title": "Cur root: course and excursion",
   "keyword": "cur root",
-  "value": "Cur comes from Latin \"currere\" (to run). Words: course, excursion and cursor. excursion = ex + curs.",
+  "value": "Cur comes from Latin \"currere\" (to run). Words: course and excursion. excursion = ex + curs.",
   "hashtags": [
    "#learnenglish",
    "#englishtips",
@@ -170,11 +144,11 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/dict/course",
-  "script_words": 40,
+  "script_words": 36,
   "platforms": {
    "youtube": {
-    "title": "Cur root: course, excursion and cursor",
-    "description": "Cur comes from Latin \"currere\" (to run). Words: course, excursion and cursor. excursion = ex + curs.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/course\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "title": "Cur root: course and excursion",
+    "description": "Cur comes from Latin \"currere\" (to run). Words: course and excursion. excursion = ex + curs.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/course\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
     "tags": [
      "cur root",
      "Word Roots",
@@ -183,10 +157,10 @@
     ]
    },
    "facebook": {
-    "text": "Cur root: course, excursion and cursor\n\nCur comes from Latin \"currere\" (to run). Words: course, excursion and cursor. excursion = ex + curs.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/course"
+    "text": "Cur root: course and excursion\n\nCur comes from Latin \"currere\" (to run). Words: course and excursion. excursion = ex + curs.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/course"
    },
    "instagram": {
-    "caption": "Cur root: course, excursion and cursor\n\nCur comes from Latin \"currere\" (to run). Words: course, excursion and cursor. excursion = ex + curs.\n\nSee the whole word family: link in bio.",
+    "caption": "Cur root: course and excursion\n\nCur comes from Latin \"currere\" (to run). Words: course and excursion. excursion = ex + curs.\n\nSee the whole word family: link in bio.",
     "hashtags": [
      "#learnenglish",
      "#englishtips",
@@ -195,9 +169,9 @@
     ]
    },
    "tiktok": {
-    "caption": "Cur root: course, excursion and cursor #learnenglish #englishtips #vocabulary"
+    "caption": "Cur root: course and excursion #learnenglish #englishtips #vocabulary"
    }
   },
-  "first_comment": "Did you get it? Excursion! Out plus run. Cur comes from Latin \"currere\" (to run). Words: course, excursion and cursor. excursion = ex + curs. More practice like this (free): {link}"
+  "first_comment": "Did you get it? Excursion! Out plus run. Cur comes from Latin \"currere\" (to run). Words: course and excursion. excursion = ex + curs. More practice like this (free): {link}"
  }
 }

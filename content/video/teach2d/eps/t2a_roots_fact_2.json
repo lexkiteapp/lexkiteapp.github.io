@@ -16,7 +16,7 @@
   },
   {
    "id": "r",
-   "text": "Fact! Affect, defect.",
+   "text": "The root is Fact! Affect, defect.",
    "pause": 0.3
   },
   {
@@ -125,9 +125,9 @@
   "root": "fact"
  },
  "est": {
-  "words": 50,
-  "seconds": 29.4,
-  "wpm": 102
+  "words": 53,
+  "seconds": 30.9,
+  "wpm": 103
  },
  "publish": {
   "title": "Fact root: affect and defect",
@@ -140,7 +140,7 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/dict/affect",
-  "script_words": 40,
+  "script_words": 43,
   "platforms": {
    "youtube": {
     "title": "Fact root: affect and defect",

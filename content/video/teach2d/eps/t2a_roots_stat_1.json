@@ -4,19 +4,19 @@
  "series": "Word Roots",
  "part": 1,
  "theme": "dusk",
- "teacher": "ama",
- "voice": "af_bella",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
  "speed": 0.8,
  "area": "dictionary",
  "lines": [
   {
    "id": "h",
-   "text": "One root, three words!",
+   "text": "One root, two words!",
    "pause": 0.3
   },
   {
    "id": "r",
-   "text": "Stat! Station, stable, status.",
+   "text": "The root is Stat! Station, stable.",
    "pause": 0.3
   },
   {
@@ -35,19 +35,14 @@
    "pause": 0.3
   },
   {
-   "id": "w2",
-   "text": "Status: how you stand.",
-   "pause": 0.3
-  },
-  {
    "id": "q",
-   "text": "Quick quiz! Which means how you stand?",
+   "text": "Quick quiz! Which means able to stand firm?",
    "pause": 2.6,
    "quiz": true
   },
   {
    "id": "a",
-   "text": "Status! It means how you stand.",
+   "text": "Stable! It means able to stand firm.",
    "pause": 0.42
   },
   {
@@ -105,34 +100,13 @@
     "pms": null,
     "ex": "The patient's condition is now stable.",
     "em": "⚖️"
-   },
-   {
-    "w": "status",
-    "ipa": "/ˈstætəs/",
-    "mean": "how you stand",
-    "seg": "stat|-us",
-    "parts": [
-     [
-      "stat",
-      "root"
-     ],
-     [
-      "us",
-      "suf"
-     ]
-    ],
-    "pre": null,
-    "pm": null,
-    "pms": null,
-    "ex": "You can check the status of your order online.",
-    "em": "🏅"
    }
   ],
   "quiz": {
-   "stem": "how you stand",
+   "stem": "able to stand firm",
    "options": [
     "station",
-    "status"
+    "stable"
    ],
    "answer": 1
   }
@@ -145,20 +119,20 @@
  },
  "hook": {
   "line": "h",
-  "text": "One root, three words"
+  "text": "One root, two words"
  },
  "src": {
   "root": "stat"
  },
  "est": {
   "words": 50,
-  "seconds": 29.7,
-  "wpm": 101
+  "seconds": 29.4,
+  "wpm": 102
  },
  "publish": {
-  "title": "Stat root: station, stable and status",
+  "title": "Stat root: station and stable",
   "keyword": "stat root",
-  "value": "Stat comes from Latin \"stare\" (to stand). Words: station, stable and status.",
+  "value": "Stat comes from Latin \"stare\" (to stand). Words: station and stable.",
   "hashtags": [
    "#learnenglish",
    "#englishtips",
@@ -166,11 +140,11 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/dict/station",
-  "script_words": 42,
+  "script_words": 41,
   "platforms": {
    "youtube": {
-    "title": "Stat root: station, stable and status",
-    "description": "Stat comes from Latin \"stare\" (to stand). Words: station, stable and status.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/station\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "title": "Stat root: station and stable",
+    "description": "Stat comes from Latin \"stare\" (to stand). Words: station and stable.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/station\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
     "tags": [
      "stat root",
      "Word Roots",
@@ -179,10 +153,10 @@
     ]
    },
    "facebook": {
-    "text": "Stat root: station, stable and status\n\nStat comes from Latin \"stare\" (to stand). Words: station, stable and status.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/station"
+    "text": "Stat root: station and stable\n\nStat comes from Latin \"stare\" (to stand). Words: station and stable.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/station"
    },
    "instagram": {
-    "caption": "Stat root: station, stable and status\n\nStat comes from Latin \"stare\" (to stand). Words: station, stable and status.\n\nSee the whole word family: link in bio.",
+    "caption": "Stat root: station and stable\n\nStat comes from Latin \"stare\" (to stand). Words: station and stable.\n\nSee the whole word family: link in bio.",
     "hashtags": [
      "#learnenglish",
      "#englishtips",
@@ -191,9 +165,9 @@
     ]
    },
    "tiktok": {
-    "caption": "Stat root: station, stable and status #learnenglish #englishtips #vocabulary"
+    "caption": "Stat root: station and stable #learnenglish #englishtips #vocabulary"
    }
   },
-  "first_comment": "Quiz answer: Status! It means how you stand. Stat comes from Latin \"stare\" (to stand). Words: station, stable and status. Practice it with a free quiz: {link}"
+  "first_comment": "Quiz answer: Stable! It means able to stand firm. Stat comes from Latin \"stare\" (to stand). Words: station and stable. Practice it with a free quiz: {link}"
  }
 }

@@ -4,8 +4,8 @@
  "series": "Word Roots",
  "part": 1,
  "theme": "dusk",
- "teacher": "carlos",
- "voice": "am_fenrir",
+ "teacher": "ama",
+ "voice": "af_bella",
  "speed": 0.8,
  "area": "dictionary",
  "lines": [
@@ -16,7 +16,7 @@
   },
   {
    "id": "r",
-   "text": "Gress! Graduate, grade, upgrade.",
+   "text": "The root is Gress! Graduate, grade, upgrade.",
    "pause": 0.3
   },
   {
@@ -147,9 +147,9 @@
   "root": "gress"
  },
  "est": {
-  "words": 49,
-  "seconds": 29.3,
-  "wpm": 100
+  "words": 52,
+  "seconds": 30.7,
+  "wpm": 102
  },
  "publish": {
   "title": "Gress root: graduate, grade and upgrade",
@@ -162,11 +162,11 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/dict/graduate",
-  "script_words": 41,
+  "script_words": 44,
   "platforms": {
    "youtube": {
     "title": "Gress root: graduate, grade and upgrade",
-    "description": "Gress comes from Latin \"gradi\" (to step, to walk). Words: graduate, grade and upgrade. upgrade = up + grade.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/graduate\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "description": "Gress comes from Latin \"gradi\" (to step, to walk). Words: graduate, grade and upgrade. upgrade = up + grade.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/graduate\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
     "tags": [
      "gress root",
      "Word Roots",

@@ -4,8 +4,8 @@
  "series": "Word Roots",
  "part": 1,
  "theme": "dusk",
- "teacher": "carlos",
- "voice": "am_fenrir",
+ "teacher": "ama",
+ "voice": "af_bella",
  "speed": 0.8,
  "area": "dictionary",
  "lines": [
@@ -16,7 +16,7 @@
   },
   {
    "id": "r",
-   "text": "Flect! Reflect, flexible, reflex.",
+   "text": "The root is Flect! Reflect, flexible, reflex.",
    "pause": 0.3
   },
   {
@@ -151,9 +151,9 @@
   "root": "flect"
  },
  "est": {
-  "words": 45,
-  "seconds": 27.3,
-  "wpm": 99
+  "words": 48,
+  "seconds": 28.8,
+  "wpm": 100
  },
  "publish": {
   "title": "Flect root: reflect, flexible and reflex",
@@ -166,11 +166,11 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/dict/reflect",
-  "script_words": 37,
+  "script_words": 40,
   "platforms": {
    "youtube": {
     "title": "Flect root: reflect, flexible and reflex",
-    "description": "Flect comes from Latin \"flectere\" (to bend). Words: reflect, flexible and reflex. reflect = re + flect; reflex = re + flex.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/reflect\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "description": "Flect comes from Latin \"flectere\" (to bend). Words: reflect, flexible and reflex. reflect = re + flect; reflex = re + flex.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/reflect\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
     "tags": [
      "flect root",
      "Word Roots",

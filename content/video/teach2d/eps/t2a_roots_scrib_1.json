@@ -16,7 +16,7 @@
   },
   {
    "id": "r",
-   "text": "Scrib! Describe, prescribe, subscribe.",
+   "text": "The root is Scrib! Describe, prescribe, subscribe.",
    "pause": 0.3
   },
   {
@@ -151,9 +151,9 @@
   "root": "scrib"
  },
  "est": {
-  "words": 45,
-  "seconds": 27.3,
-  "wpm": 99
+  "words": 48,
+  "seconds": 28.8,
+  "wpm": 100
  },
  "publish": {
   "title": "Scrib root: describe, prescribe and subscribe",
@@ -166,7 +166,7 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/dict/describe",
-  "script_words": 37,
+  "script_words": 40,
   "platforms": {
    "youtube": {
     "title": "Scrib root: describe, prescribe and subscribe",

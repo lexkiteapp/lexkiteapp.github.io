@@ -16,7 +16,7 @@
   },
   {
    "id": "r",
-   "text": "Duc! Induce, education.",
+   "text": "The root is Duc! Induce, education.",
    "pause": 0.3
   },
   {
@@ -129,9 +129,9 @@
   "root": "duc"
  },
  "est": {
-  "words": 40,
-  "seconds": 24.5,
-  "wpm": 98
+  "words": 43,
+  "seconds": 26.0,
+  "wpm": 99
  },
  "publish": {
   "title": "Duc root: induce and education",
@@ -144,7 +144,7 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/dict/induce",
-  "script_words": 32,
+  "script_words": 35,
   "platforms": {
    "youtube": {
     "title": "Duc root: induce and education",

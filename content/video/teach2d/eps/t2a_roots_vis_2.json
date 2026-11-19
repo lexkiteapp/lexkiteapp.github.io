@@ -4,8 +4,8 @@
  "series": "Word Roots",
  "part": 1,
  "theme": "dusk",
- "teacher": "ama",
- "voice": "af_bella",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
  "speed": 0.8,
  "area": "dictionary",
  "lines": [
@@ -16,7 +16,7 @@
   },
   {
    "id": "r",
-   "text": "Vis! Evidence, provide, revise.",
+   "text": "The root is Vis! Evidence, provide, revise.",
    "pause": 0.3
   },
   {
@@ -155,9 +155,9 @@
   "root": "vis"
  },
  "est": {
-  "words": 45,
-  "seconds": 27.3,
-  "wpm": 99
+  "words": 48,
+  "seconds": 28.8,
+  "wpm": 100
  },
  "publish": {
   "title": "Vis root: evidence, provide and revise",
@@ -170,11 +170,11 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/dict/evidence",
-  "script_words": 37,
+  "script_words": 40,
   "platforms": {
    "youtube": {
     "title": "Vis root: evidence, provide and revise",
-    "description": "Vis comes from Latin \"videre\" (to see). Words: evidence, provide and revise. evidence = e + vid; provide = pro + vide; revise = re + vise.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/evidence\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "description": "Vis comes from Latin \"videre\" (to see). Words: evidence, provide and revise. evidence = e + vid; provide = pro + vide; revise = re + vise.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/evidence\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
     "tags": [
      "vis root",
      "Word Roots",

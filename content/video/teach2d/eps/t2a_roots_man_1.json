@@ -4,19 +4,19 @@
  "series": "Word Roots",
  "part": 1,
  "theme": "dusk",
- "teacher": "ama",
- "voice": "af_bella",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
  "speed": 0.8,
  "area": "dictionary",
  "lines": [
   {
    "id": "h",
-   "text": "One root, three words!",
+   "text": "One root, two words!",
    "pause": 0.3
   },
   {
    "id": "r",
-   "text": "Man! Manual, manage, manner.",
+   "text": "The root is Man! Manual, manage.",
    "pause": 0.3
   },
   {
@@ -35,19 +35,14 @@
    "pause": 0.3
   },
   {
-   "id": "w2",
-   "text": "Manner: a way of handling things.",
-   "pause": 0.3
-  },
-  {
    "id": "q",
-   "text": "Quick quiz! Which means a way of handling things?",
+   "text": "Quick quiz! Which means handle with your hands?",
    "pause": 2.6,
    "quiz": true
   },
   {
    "id": "a",
-   "text": "Manner! It means a way of handling things.",
+   "text": "Manage! It means handle with your hands.",
    "pause": 0.42
   },
   {
@@ -105,34 +100,13 @@
     "pms": null,
     "ex": "She manages a team of ten people.",
     "em": "📋"
-   },
-   {
-    "w": "manner",
-    "ipa": "/ˈmænər/",
-    "mean": "a way of handling things",
-    "seg": "man|-ner",
-    "parts": [
-     [
-      "man",
-      "root"
-     ],
-     [
-      "ner",
-      "suf"
-     ]
-    ],
-    "pre": null,
-    "pm": null,
-    "pms": null,
-    "ex": "She spoke in a calm and friendly manner.",
-    "em": "🎩"
    }
   ],
   "quiz": {
-   "stem": "a way of handling things",
+   "stem": "handle with your hands",
    "options": [
     "manual",
-    "manner"
+    "manage"
    ],
    "answer": 1
   }
@@ -145,20 +119,20 @@
  },
  "hook": {
   "line": "h",
-  "text": "One root, three words"
+  "text": "One root, two words"
  },
  "src": {
   "root": "man"
  },
  "est": {
-  "words": 55,
-  "seconds": 32.2,
+  "words": 49,
+  "seconds": 29.0,
   "wpm": 102
  },
  "publish": {
-  "title": "Man root: manual, manage and manner",
+  "title": "Man root: manual and manage",
   "keyword": "man root",
-  "value": "Man comes from Latin \"manus\" (hand). Words: manual, manage and manner.",
+  "value": "Man comes from Latin \"manus\" (hand). Words: manual and manage.",
   "hashtags": [
    "#learnenglish",
    "#englishtips",
@@ -166,11 +140,11 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/dict/manual",
-  "script_words": 45,
+  "script_words": 40,
   "platforms": {
    "youtube": {
-    "title": "Man root: manual, manage and manner",
-    "description": "Man comes from Latin \"manus\" (hand). Words: manual, manage and manner.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/manual\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "title": "Man root: manual and manage",
+    "description": "Man comes from Latin \"manus\" (hand). Words: manual and manage.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/manual\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
     "tags": [
      "man root",
      "Word Roots",
@@ -179,10 +153,10 @@
     ]
    },
    "facebook": {
-    "text": "Man root: manual, manage and manner\n\nMan comes from Latin \"manus\" (hand). Words: manual, manage and manner.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/manual"
+    "text": "Man root: manual and manage\n\nMan comes from Latin \"manus\" (hand). Words: manual and manage.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/manual"
    },
    "instagram": {
-    "caption": "Man root: manual, manage and manner\n\nMan comes from Latin \"manus\" (hand). Words: manual, manage and manner.\n\nSee the whole word family: link in bio.",
+    "caption": "Man root: manual and manage\n\nMan comes from Latin \"manus\" (hand). Words: manual and manage.\n\nSee the whole word family: link in bio.",
     "hashtags": [
      "#learnenglish",
      "#englishtips",
@@ -191,9 +165,9 @@
     ]
    },
    "tiktok": {
-    "caption": "Man root: manual, manage and manner #learnenglish #englishtips #vocabulary"
+    "caption": "Man root: manual and manage #learnenglish #englishtips #vocabulary"
    }
   },
-  "first_comment": "Did you get it? Manner! It means a way of handling things. Man comes from Latin \"manus\" (hand). Words: manual, manage and manner. More practice like this (free): {link}"
+  "first_comment": "Did you get it? Manage! It means handle with your hands. Man comes from Latin \"manus\" (hand). Words: manual and manage. More practice like this (free): {link}"
  }
 }

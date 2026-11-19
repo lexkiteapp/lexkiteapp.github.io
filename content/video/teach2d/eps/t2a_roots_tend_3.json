@@ -16,7 +16,7 @@
   },
   {
    "id": "r",
-   "text": "Tend! Intense, extent.",
+   "text": "The root is Tend! Intense, extent.",
    "pause": 0.3
   },
   {
@@ -125,9 +125,9 @@
   "root": "tend"
  },
  "est": {
-  "words": 40,
-  "seconds": 24.5,
-  "wpm": 98
+  "words": 43,
+  "seconds": 26.0,
+  "wpm": 99
  },
  "publish": {
   "title": "Tend root: intense and extent",
@@ -140,7 +140,7 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/dict/intense",
-  "script_words": 32,
+  "script_words": 35,
   "platforms": {
    "youtube": {
     "title": "Tend root: intense and extent",

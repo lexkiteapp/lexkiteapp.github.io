@@ -9667,17 +9667,15 @@
    "teacher": "ama",
    "theme": "dusk",
    "area": "dictionary",
-   "point": "pos:position/deposit/opposite",
-   "hash": "90753f8a95c1",
+   "point": "pos:position/deposit",
+   "hash": "76c7565bfd39",
    "heads": [
     "root:pos:position",
-    "root:pos:deposit",
-    "root:pos:opposite"
+    "root:pos:deposit"
    ],
    "taught": [
     "position",
     "deposit",
-    "opposite",
     "pos",
     "latin"
    ],
@@ -9685,8 +9683,7 @@
     "root": "pos",
     "words": [
      "position",
-     "deposit",
-     "opposite"
+     "deposit"
     ]
    }
   },
@@ -9725,17 +9722,15 @@
    "teacher": "ama",
    "theme": "dusk",
    "area": "dictionary",
-   "point": "port:transport/import/export",
-   "hash": "fa2e6e1b0354",
+   "point": "port:transport/import",
+   "hash": "b6a7d3412c32",
    "heads": [
     "root:port:transport",
-    "root:port:import",
-    "root:port:export"
+    "root:port:import"
    ],
    "taught": [
     "transport",
     "import",
-    "export",
     "port",
     "latin"
    ],
@@ -9743,8 +9738,7 @@
     "root": "port",
     "words": [
      "transport",
-     "import",
-     "export"
+     "import"
     ]
    }
   },
@@ -9954,17 +9948,15 @@
    "teacher": "ama",
    "theme": "dusk",
    "area": "dictionary",
-   "point": "fer:transfer/refer/prefer",
-   "hash": "b9691fa438c9",
+   "point": "fer:transfer/refer",
+   "hash": "54488dd55d77",
    "heads": [
     "root:fer:transfer",
-    "root:fer:refer",
-    "root:fer:prefer"
+    "root:fer:refer"
    ],
    "taught": [
     "transfer",
     "refer",
-    "prefer",
     "fer",
     "latin"
    ],
@@ -9972,8 +9964,7 @@
     "root": "fer",
     "words": [
      "transfer",
-     "refer",
-     "prefer"
+     "refer"
     ]
    }
   },
@@ -9983,17 +9974,15 @@
    "teacher": "carlos",
    "theme": "dusk",
    "area": "dictionary",
-   "point": "vert:convert/reverse/divert",
-   "hash": "fe0c8a244e13",
+   "point": "vert:convert/reverse",
+   "hash": "0126c7483475",
    "heads": [
     "root:vert:convert",
-    "root:vert:reverse",
-    "root:vert:divert"
+    "root:vert:reverse"
    ],
    "taught": [
     "convert",
     "reverse",
-    "divert",
     "vert",
     "latin"
    ],
@@ -10001,8 +9990,7 @@
     "root": "vert",
     "words": [
      "convert",
-     "reverse",
-     "divert"
+     "reverse"
     ]
    }
   },
@@ -10041,17 +10029,15 @@
    "teacher": "carlos",
    "theme": "dusk",
    "area": "dictionary",
-   "point": "struct:construct/instruct/structure",
-   "hash": "5eb149286579",
+   "point": "struct:construct/instruct",
+   "hash": "f3843c53395f",
    "heads": [
     "root:struct:construct",
-    "root:struct:instruct",
-    "root:struct:structure"
+    "root:struct:instruct"
    ],
    "taught": [
     "construct",
     "instruct",
-    "structure",
     "struct",
     "latin"
    ],
@@ -10059,8 +10045,7 @@
     "root": "struct",
     "words": [
      "construct",
-     "instruct",
-     "structure"
+     "instruct"
     ]
    }
   },
@@ -10157,17 +10142,15 @@
    "teacher": "carlos",
    "theme": "dusk",
    "area": "dictionary",
-   "point": "gress:progress/aggressive/gradual",
-   "hash": "0ab614688f47",
+   "point": "gress:progress/aggressive",
+   "hash": "a5f532051348",
    "heads": [
     "root:gress:progress",
-    "root:gress:aggressive",
-    "root:gress:gradual"
+    "root:gress:aggressive"
    ],
    "taught": [
     "progress",
     "aggressive",
-    "gradual",
     "gress",
     "latin"
    ],
@@ -10175,60 +10158,7 @@
     "root": "gress",
     "words": [
      "progress",
-     "aggressive",
-     "gradual"
-    ]
-   }
-  },
-  {
-   "id": "t2a_roots_log_1",
-   "template": "roots",
-   "teacher": "ama",
-   "theme": "dusk",
-   "area": "dictionary",
-   "point": "log:biology/psychology",
-   "hash": "b45eff64a427",
-   "heads": [
-    "root:log:biology",
-    "root:log:psychology"
-   ],
-   "taught": [
-    "biology",
-    "psychology",
-    "log",
-    "greek"
-   ],
-   "in": {
-    "root": "log",
-    "words": [
-     "biology",
-     "psychology"
-    ]
-   }
-  },
-  {
-   "id": "t2a_roots_graph_1",
-   "template": "roots",
-   "teacher": "carlos",
-   "theme": "dusk",
-   "area": "dictionary",
-   "point": "graph:photograph/paragraph",
-   "hash": "43d3d0eaaf33",
-   "heads": [
-    "root:graph:photograph",
-    "root:graph:paragraph"
-   ],
-   "taught": [
-    "photograph",
-    "paragraph",
-    "graph",
-    "greek"
-   ],
-   "in": {
-    "root": "graph",
-    "words": [
-     "photograph",
-     "paragraph"
+     "aggressive"
     ]
    }
   },
@@ -10264,17 +10194,15 @@
    "teacher": "carlos",
    "theme": "dusk",
    "area": "dictionary",
-   "point": "aud:audience/audio/audible",
-   "hash": "3b699fed73f8",
+   "point": "aud:audience/audio",
+   "hash": "9c1b08f145b7",
    "heads": [
     "root:aud:audience",
-    "root:aud:audio",
-    "root:aud:audible"
+    "root:aud:audio"
    ],
    "taught": [
     "audience",
     "audio",
-    "audible",
     "aud",
     "latin"
    ],
@@ -10282,8 +10210,7 @@
     "root": "aud",
     "words": [
      "audience",
-     "audio",
-     "audible"
+     "audio"
     ]
    }
   },
@@ -10456,48 +10383,20 @@
    }
   },
   {
-   "id": "t2a_roots_lect_1",
+   "id": "t2a_roots_mov_1",
    "template": "roots",
    "teacher": "ama",
    "theme": "dusk",
    "area": "dictionary",
-   "point": "lect:collect/select",
-   "hash": "c408626073e5",
-   "heads": [
-    "root:lect:collect",
-    "root:lect:select"
-   ],
-   "taught": [
-    "collect",
-    "select",
-    "lect",
-    "latin"
-   ],
-   "in": {
-    "root": "lect",
-    "words": [
-     "collect",
-     "select"
-    ]
-   }
-  },
-  {
-   "id": "t2a_roots_mov_1",
-   "template": "roots",
-   "teacher": "carlos",
-   "theme": "dusk",
-   "area": "dictionary",
-   "point": "mov:remove/motion/emotion",
-   "hash": "497dff0df3a9",
+   "point": "mov:remove/motion",
+   "hash": "e1a39f983e1c",
    "heads": [
     "root:mov:remove",
-    "root:mov:motion",
-    "root:mov:emotion"
+    "root:mov:motion"
    ],
    "taught": [
     "remove",
     "motion",
-    "emotion",
     "mov",
     "latin"
    ],
@@ -10505,28 +10404,25 @@
     "root": "mov",
     "words": [
      "remove",
-     "motion",
-     "emotion"
+     "motion"
     ]
    }
   },
   {
    "id": "t2a_roots_man_1",
    "template": "roots",
-   "teacher": "ama",
+   "teacher": "carlos",
    "theme": "dusk",
    "area": "dictionary",
-   "point": "man:manual/manage/manner",
-   "hash": "6b6774624d5e",
+   "point": "man:manual/manage",
+   "hash": "42fff23e08bd",
    "heads": [
     "root:man:manual",
-    "root:man:manage",
-    "root:man:manner"
+    "root:man:manage"
    ],
    "taught": [
     "manual",
     "manage",
-    "manner",
     "man",
     "latin"
    ],
@@ -10534,28 +10430,25 @@
     "root": "man",
     "words": [
      "manual",
-     "manage",
-     "manner"
+     "manage"
     ]
    }
   },
   {
    "id": "t2a_roots_sign_1",
    "template": "roots",
-   "teacher": "carlos",
+   "teacher": "ama",
    "theme": "dusk",
    "area": "dictionary",
-   "point": "sign:signal/signature/design",
-   "hash": "465433a0532b",
+   "point": "sign:signal/signature",
+   "hash": "4134496188a6",
    "heads": [
     "root:sign:signal",
-    "root:sign:signature",
-    "root:sign:design"
+    "root:sign:signature"
    ],
    "taught": [
     "signal",
     "signature",
-    "design",
     "sign",
     "latin"
    ],
@@ -10563,28 +10456,25 @@
     "root": "sign",
     "words": [
      "signal",
-     "signature",
-     "design"
+     "signature"
     ]
    }
   },
   {
    "id": "t2a_roots_rupt_1",
    "template": "roots",
-   "teacher": "ama",
+   "teacher": "carlos",
    "theme": "dusk",
    "area": "dictionary",
-   "point": "rupt:interrupt/corrupt/erupt",
-   "hash": "6d4aaaa552db",
+   "point": "rupt:interrupt/corrupt",
+   "hash": "870cfebce815",
    "heads": [
     "root:rupt:interrupt",
-    "root:rupt:corrupt",
-    "root:rupt:erupt"
+    "root:rupt:corrupt"
    ],
    "taught": [
     "interrupt",
     "corrupt",
-    "erupt",
     "rupt",
     "latin"
    ],
@@ -10592,15 +10482,14 @@
     "root": "rupt",
     "words": [
      "interrupt",
-     "corrupt",
-     "erupt"
+     "corrupt"
     ]
    }
   },
   {
    "id": "t2a_roots_flect_1",
    "template": "roots",
-   "teacher": "carlos",
+   "teacher": "ama",
    "theme": "dusk",
    "area": "dictionary",
    "point": "flect:reflect/flexible/reflex",
@@ -10629,7 +10518,7 @@
   {
    "id": "t2a_roots_cide_1",
    "template": "roots",
-   "teacher": "ama",
+   "teacher": "carlos",
    "theme": "dusk",
    "area": "dictionary",
    "point": "cide:decide/decision",
@@ -10655,20 +10544,18 @@
   {
    "id": "t2a_roots_spir_1",
    "template": "roots",
-   "teacher": "carlos",
+   "teacher": "ama",
    "theme": "dusk",
    "area": "dictionary",
-   "point": "spir:inspire/spirit/conspire",
-   "hash": "d2ed3ee82e6b",
+   "point": "spir:inspire/spirit",
+   "hash": "ca2d307e3c66",
    "heads": [
     "root:spir:inspire",
-    "root:spir:spirit",
-    "root:spir:conspire"
+    "root:spir:spirit"
    ],
    "taught": [
     "inspire",
     "spirit",
-    "conspire",
     "spir",
     "latin"
    ],
@@ -10676,15 +10563,14 @@
     "root": "spir",
     "words": [
      "inspire",
-     "spirit",
-     "conspire"
+     "spirit"
     ]
    }
   },
   {
    "id": "t2a_roots_vac_1",
    "template": "roots",
-   "teacher": "ama",
+   "teacher": "carlos",
    "theme": "dusk",
    "area": "dictionary",
    "point": "vac:vacation/vacuum",
@@ -10710,7 +10596,7 @@
   {
    "id": "t2a_roots_jus_1",
    "template": "roots",
-   "teacher": "carlos",
+   "teacher": "ama",
    "theme": "dusk",
    "area": "dictionary",
    "point": "jus:judge/justice",
@@ -10736,20 +10622,18 @@
   {
    "id": "t2a_roots_stat_1",
    "template": "roots",
-   "teacher": "ama",
+   "teacher": "carlos",
    "theme": "dusk",
    "area": "dictionary",
-   "point": "stat:station/stable/status",
-   "hash": "4e1ee45a4c7c",
+   "point": "stat:station/stable",
+   "hash": "4fb648529a43",
    "heads": [
     "root:stat:station",
-    "root:stat:stable",
-    "root:stat:status"
+    "root:stat:stable"
    ],
    "taught": [
     "station",
     "stable",
-    "status",
     "stat",
     "latin"
    ],
@@ -10757,28 +10641,25 @@
     "root": "stat",
     "words": [
      "station",
-     "stable",
-     "status"
+     "stable"
     ]
    }
   },
   {
    "id": "t2a_roots_volv_1",
    "template": "roots",
-   "teacher": "carlos",
+   "teacher": "ama",
    "theme": "dusk",
    "area": "dictionary",
-   "point": "volv:evolve/involve/revolution",
-   "hash": "3cf2de921b4c",
+   "point": "volv:evolve/involve",
+   "hash": "bae2b535fe99",
    "heads": [
     "root:volv:evolve",
-    "root:volv:involve",
-    "root:volv:revolution"
+    "root:volv:involve"
    ],
    "taught": [
     "evolve",
     "involve",
-    "revolution",
     "volv",
     "latin"
    ],
@@ -10786,28 +10667,25 @@
     "root": "volv",
     "words": [
      "evolve",
-     "involve",
-     "revolution"
+     "involve"
     ]
    }
   },
   {
    "id": "t2a_roots_pos_2",
    "template": "roots",
-   "teacher": "ama",
+   "teacher": "carlos",
    "theme": "dusk",
    "area": "dictionary",
-   "point": "pos:compose/expose/suppose",
-   "hash": "9ffb81287042",
+   "point": "pos:compose/expose",
+   "hash": "383de1896efc",
    "heads": [
     "root:pos:compose",
-    "root:pos:expose",
-    "root:pos:suppose"
+    "root:pos:expose"
    ],
    "taught": [
     "compose",
     "expose",
-    "suppose",
     "pos",
     "latin"
    ],
@@ -10815,15 +10693,14 @@
     "root": "pos",
     "words": [
      "compose",
-     "expose",
-     "suppose"
+     "expose"
     ]
    }
   },
   {
    "id": "t2a_roots_cept_2",
    "template": "roots",
-   "teacher": "carlos",
+   "teacher": "ama",
    "theme": "dusk",
    "area": "dictionary",
    "point": "cept:receive/perceive/deceive",
@@ -10852,7 +10729,7 @@
   {
    "id": "t2a_roots_port_2",
    "template": "roots",
-   "teacher": "ama",
+   "teacher": "carlos",
    "theme": "dusk",
    "area": "dictionary",
    "point": "port:support/report",
@@ -10878,7 +10755,7 @@
   {
    "id": "t2a_roots_ject_2",
    "template": "roots",
-   "teacher": "carlos",
+   "teacher": "ama",
    "theme": "dusk",
    "area": "dictionary",
    "point": "ject:object/subject",
@@ -10904,7 +10781,7 @@
   {
    "id": "t2a_roots_mit_2",
    "template": "roots",
-   "teacher": "ama",
+   "teacher": "carlos",
    "theme": "dusk",
    "area": "dictionary",
    "point": "mit:commit/transmit/emit",
@@ -10933,20 +10810,18 @@
   {
    "id": "t2a_roots_dict_2",
    "template": "roots",
-   "teacher": "carlos",
+   "teacher": "ama",
    "theme": "dusk",
    "area": "dictionary",
-   "point": "dict:contradict/indicate/prediction",
-   "hash": "57fcff79aaf2",
+   "point": "dict:contradict/indicate",
+   "hash": "1d62d6e382d3",
    "heads": [
     "root:dict:contradict",
-    "root:dict:indicate",
-    "root:dict:prediction"
+    "root:dict:indicate"
    ],
    "taught": [
     "contradict",
     "indicate",
-    "prediction",
     "dict",
     "latin"
    ],
@@ -10954,15 +10829,14 @@
     "root": "dict",
     "words": [
      "contradict",
-     "indicate",
-     "prediction"
+     "indicate"
     ]
    }
   },
   {
    "id": "t2a_roots_duc_2",
    "template": "roots",
-   "teacher": "ama",
+   "teacher": "carlos",
    "theme": "dusk",
    "area": "dictionary",
    "point": "duc:conduct/product/deduce",
@@ -10991,20 +10865,18 @@
   {
    "id": "t2a_roots_spect_2",
    "template": "roots",
-   "teacher": "carlos",
+   "teacher": "ama",
    "theme": "dusk",
    "area": "dictionary",
-   "point": "spect:suspect/prospect/aspect",
-   "hash": "ab84ecda8bb0",
+   "point": "spect:suspect/prospect",
+   "hash": "aa5a103ced96",
    "heads": [
     "root:spect:suspect",
-    "root:spect:prospect",
-    "root:spect:aspect"
+    "root:spect:prospect"
    ],
    "taught": [
     "suspect",
     "prospect",
-    "aspect",
     "spect",
     "latin"
    ],
@@ -11012,15 +10884,14 @@
     "root": "spect",
     "words": [
      "suspect",
-     "prospect",
-     "aspect"
+     "prospect"
     ]
    }
   },
   {
    "id": "t2a_roots_scrib_2",
    "template": "roots",
-   "teacher": "ama",
+   "teacher": "carlos",
    "theme": "dusk",
    "area": "dictionary",
    "point": "scrib:script/transcript",
@@ -11046,7 +10917,7 @@
   {
    "id": "t2a_roots_tract_2",
    "template": "roots",
-   "teacher": "carlos",
+   "teacher": "ama",
    "theme": "dusk",
    "area": "dictionary",
    "point": "tract:contract/subtract",
@@ -11072,20 +10943,18 @@
   {
    "id": "t2a_roots_fer_2",
    "template": "roots",
-   "teacher": "ama",
+   "teacher": "carlos",
    "theme": "dusk",
    "area": "dictionary",
-   "point": "fer:offer/suffer/differ",
-   "hash": "c4c5d36aebbf",
+   "point": "fer:offer/suffer",
+   "hash": "18d945b9646b",
    "heads": [
     "root:fer:offer",
-    "root:fer:suffer",
-    "root:fer:differ"
+    "root:fer:suffer"
    ],
    "taught": [
     "offer",
     "suffer",
-    "differ",
     "fer",
     "latin"
    ],
@@ -11093,28 +10962,25 @@
     "root": "fer",
     "words": [
      "offer",
-     "suffer",
-     "differ"
+     "suffer"
     ]
    }
   },
   {
    "id": "t2a_roots_vert_2",
    "template": "roots",
-   "teacher": "carlos",
+   "teacher": "ama",
    "theme": "dusk",
    "area": "dictionary",
-   "point": "vert:invert/version/universe",
-   "hash": "2b7acc2fc51c",
+   "point": "vert:invert/version",
+   "hash": "5ff43bacc8f3",
    "heads": [
     "root:vert:invert",
-    "root:vert:version",
-    "root:vert:universe"
+    "root:vert:version"
    ],
    "taught": [
     "invert",
     "version",
-    "universe",
     "vert",
     "latin"
    ],
@@ -11122,28 +10988,25 @@
     "root": "vert",
     "words": [
      "invert",
-     "version",
-     "universe"
+     "version"
     ]
    }
   },
   {
    "id": "t2a_roots_pend_2",
    "template": "roots",
-   "teacher": "ama",
+   "teacher": "carlos",
    "theme": "dusk",
    "area": "dictionary",
-   "point": "pend:pension/append/pending",
-   "hash": "674a22f54ef4",
+   "point": "pend:pension/append",
+   "hash": "8578abcdb6bb",
    "heads": [
     "root:pend:pension",
-    "root:pend:append",
-    "root:pend:pending"
+    "root:pend:append"
    ],
    "taught": [
     "pension",
     "append",
-    "pending",
     "pend",
     "latin"
    ],
@@ -11151,15 +11014,14 @@
     "root": "pend",
     "words": [
      "pension",
-     "append",
-     "pending"
+     "append"
     ]
    }
   },
   {
    "id": "t2a_roots_struct_2",
    "template": "roots",
-   "teacher": "carlos",
+   "teacher": "ama",
    "theme": "dusk",
    "area": "dictionary",
    "point": "struct:destruction/construction",
@@ -11185,20 +11047,18 @@
   {
    "id": "t2a_roots_form_2",
    "template": "roots",
-   "teacher": "ama",
+   "teacher": "carlos",
    "theme": "dusk",
    "area": "dictionary",
-   "point": "form:transform/uniform/conform",
-   "hash": "a8c9ef2df5ca",
+   "point": "form:transform/uniform",
+   "hash": "4263b27adb2f",
    "heads": [
     "root:form:transform",
-    "root:form:uniform",
-    "root:form:conform"
+    "root:form:uniform"
    ],
    "taught": [
     "transform",
     "uniform",
-    "conform",
     "form",
     "latin"
    ],
@@ -11206,15 +11066,14 @@
     "root": "form",
     "words": [
      "transform",
-     "uniform",
-     "conform"
+     "uniform"
     ]
    }
   },
   {
    "id": "t2a_roots_press_2",
    "template": "roots",
-   "teacher": "carlos",
+   "teacher": "ama",
    "theme": "dusk",
    "area": "dictionary",
    "point": "press:suppress/pressure",
@@ -11240,20 +11099,18 @@
   {
    "id": "t2a_roots_cede_2",
    "template": "roots",
-   "teacher": "ama",
+   "teacher": "carlos",
    "theme": "dusk",
    "area": "dictionary",
-   "point": "cede:precede/concede/process",
-   "hash": "dedc9be44162",
+   "point": "cede:precede/concede",
+   "hash": "8974119ded84",
    "heads": [
     "root:cede:precede",
-    "root:cede:concede",
-    "root:cede:process"
+    "root:cede:concede"
    ],
    "taught": [
     "precede",
     "concede",
-    "process",
     "cede",
     "latin"
    ],
@@ -11261,15 +11118,14 @@
     "root": "cede",
     "words": [
      "precede",
-     "concede",
-     "process"
+     "concede"
     ]
    }
   },
   {
    "id": "t2a_roots_gress_2",
    "template": "roots",
-   "teacher": "carlos",
+   "teacher": "ama",
    "theme": "dusk",
    "area": "dictionary",
    "point": "gress:graduate/grade/upgrade",
@@ -11296,61 +11152,9 @@
    }
   },
   {
-   "id": "t2a_roots_log_2",
-   "template": "roots",
-   "teacher": "ama",
-   "theme": "dusk",
-   "area": "dictionary",
-   "point": "log:logic/technology",
-   "hash": "a8928c724dd8",
-   "heads": [
-    "root:log:logic",
-    "root:log:technology"
-   ],
-   "taught": [
-    "logic",
-    "technology",
-    "log",
-    "greek"
-   ],
-   "in": {
-    "root": "log",
-    "words": [
-     "logic",
-     "technology"
-    ]
-   }
-  },
-  {
-   "id": "t2a_roots_graph_2",
-   "template": "roots",
-   "teacher": "carlos",
-   "theme": "dusk",
-   "area": "dictionary",
-   "point": "graph:geography/biography",
-   "hash": "93427fd130f1",
-   "heads": [
-    "root:graph:geography",
-    "root:graph:biography"
-   ],
-   "taught": [
-    "geography",
-    "biography",
-    "graph",
-    "greek"
-   ],
-   "in": {
-    "root": "graph",
-    "words": [
-     "geography",
-     "biography"
-    ]
-   }
-  },
-  {
    "id": "t2a_roots_vis_2",
    "template": "roots",
-   "teacher": "ama",
+   "teacher": "carlos",
    "theme": "dusk",
    "area": "dictionary",
    "point": "vis:evidence/provide/revise",
@@ -11377,48 +11181,20 @@
    }
   },
   {
-   "id": "t2a_roots_aud_2",
-   "template": "roots",
-   "teacher": "carlos",
-   "theme": "dusk",
-   "area": "dictionary",
-   "point": "aud:auditorium/audit",
-   "hash": "9af1148c33af",
-   "heads": [
-    "root:aud:auditorium",
-    "root:aud:audit"
-   ],
-   "taught": [
-    "auditorium",
-    "audit",
-    "aud",
-    "latin"
-   ],
-   "in": {
-    "root": "aud",
-    "words": [
-     "auditorium",
-     "audit"
-    ]
-   }
-  },
-  {
    "id": "t2a_roots_vent_2",
    "template": "roots",
    "teacher": "ama",
    "theme": "dusk",
    "area": "dictionary",
-   "point": "vent:adventure/convention/venue",
-   "hash": "211c4677247b",
+   "point": "vent:adventure/convention",
+   "hash": "cb4ba5537148",
    "heads": [
     "root:vent:adventure",
-    "root:vent:convention",
-    "root:vent:venue"
+    "root:vent:convention"
    ],
    "taught": [
     "adventure",
     "convention",
-    "venue",
     "vent",
     "latin"
    ],
@@ -11426,8 +11202,7 @@
     "root": "vent",
     "words": [
      "adventure",
-     "convention",
-     "venue"
+     "convention"
     ]
    }
   },
@@ -11463,17 +11238,15 @@
    "teacher": "ama",
    "theme": "dusk",
    "area": "dictionary",
-   "point": "tend:pretend/tension/tendency",
-   "hash": "6dfd4d94c4ed",
+   "point": "tend:pretend/tension",
+   "hash": "7b727c86f6c7",
    "heads": [
     "root:tend:pretend",
-    "root:tend:tension",
-    "root:tend:tendency"
+    "root:tend:tension"
    ],
    "taught": [
     "pretend",
     "tension",
-    "tendency",
     "tend",
     "latin"
    ],
@@ -11481,8 +11254,7 @@
     "root": "tend",
     "words": [
      "pretend",
-     "tension",
-     "tendency"
+     "tension"
     ]
    }
   },
@@ -11518,17 +11290,15 @@
    "teacher": "ama",
    "theme": "dusk",
    "area": "dictionary",
-   "point": "cur:course/excursion/cursor",
-   "hash": "6ba4ba6822c0",
+   "point": "cur:course/excursion",
+   "hash": "9d2057551116",
    "heads": [
     "root:cur:course",
-    "root:cur:excursion",
-    "root:cur:cursor"
+    "root:cur:excursion"
    ],
    "taught": [
     "course",
     "excursion",
-    "cursor",
     "cur",
     "latin"
    ],
@@ -11536,8 +11306,7 @@
     "root": "cur",
     "words": [
      "course",
-     "excursion",
-     "cursor"
+     "excursion"
     ]
    }
   },
@@ -11568,48 +11337,20 @@
    }
   },
   {
-   "id": "t2a_roots_lect_2",
+   "id": "t2a_roots_mov_2",
    "template": "roots",
    "teacher": "ama",
    "theme": "dusk",
    "area": "dictionary",
-   "point": "lect:lecture/legend",
-   "hash": "481f3e3e8d13",
-   "heads": [
-    "root:lect:lecture",
-    "root:lect:legend"
-   ],
-   "taught": [
-    "lecture",
-    "legend",
-    "lect",
-    "latin"
-   ],
-   "in": {
-    "root": "lect",
-    "words": [
-     "lecture",
-     "legend"
-    ]
-   }
-  },
-  {
-   "id": "t2a_roots_mov_2",
-   "template": "roots",
-   "teacher": "carlos",
-   "theme": "dusk",
-   "area": "dictionary",
-   "point": "mov:promote/motive/motor",
-   "hash": "e74513fce226",
+   "point": "mov:promote/motive",
+   "hash": "8b56d0a57285",
    "heads": [
     "root:mov:promote",
-    "root:mov:motive",
-    "root:mov:motor"
+    "root:mov:motive"
    ],
    "taught": [
     "promote",
     "motive",
-    "motor",
     "mov",
     "latin"
    ],
@@ -11617,15 +11358,14 @@
     "root": "mov",
     "words": [
      "promote",
-     "motive",
-     "motor"
+     "motive"
     ]
    }
   },
   {
    "id": "t2a_roots_man_2",
    "template": "roots",
-   "teacher": "ama",
+   "teacher": "carlos",
    "theme": "dusk",
    "area": "dictionary",
    "point": "man:command/demand",
@@ -11651,7 +11391,7 @@
   {
    "id": "t2a_roots_sign_2",
    "template": "roots",
-   "teacher": "carlos",
+   "teacher": "ama",
    "theme": "dusk",
    "area": "dictionary",
    "point": "sign:assign/significant",
@@ -11677,20 +11417,18 @@
   {
    "id": "t2a_roots_rupt_2",
    "template": "roots",
-   "teacher": "ama",
+   "teacher": "carlos",
    "theme": "dusk",
    "area": "dictionary",
-   "point": "rupt:disrupt/eruption/interruption",
-   "hash": "5f9d4b663e13",
+   "point": "rupt:disrupt/eruption",
+   "hash": "6b27ff131749",
    "heads": [
     "root:rupt:disrupt",
-    "root:rupt:eruption",
-    "root:rupt:interruption"
+    "root:rupt:eruption"
    ],
    "taught": [
     "disrupt",
     "eruption",
-    "interruption",
     "rupt",
     "latin"
    ],
@@ -11698,28 +11436,25 @@
     "root": "rupt",
     "words": [
      "disrupt",
-     "eruption",
-     "interruption"
+     "eruption"
     ]
    }
   },
   {
    "id": "t2a_roots_flect_2",
    "template": "roots",
-   "teacher": "carlos",
+   "teacher": "ama",
    "theme": "dusk",
    "area": "dictionary",
-   "point": "flect:deflect/reflection/flexibility",
-   "hash": "38c0a3d9a162",
+   "point": "flect:deflect/reflection",
+   "hash": "496c454bacf2",
    "heads": [
     "root:flect:deflect",
-    "root:flect:reflection",
-    "root:flect:flexibility"
+    "root:flect:reflection"
    ],
    "taught": [
     "deflect",
     "reflection",
-    "flexibility",
     "flect",
     "latin"
    ],
@@ -11727,34 +11462,7 @@
     "root": "flect",
     "words": [
      "deflect",
-     "reflection",
-     "flexibility"
-    ]
-   }
-  },
-  {
-   "id": "t2a_roots_cide_2",
-   "template": "roots",
-   "teacher": "ama",
-   "theme": "dusk",
-   "area": "dictionary",
-   "point": "cide:concise/incision",
-   "hash": "d23d0d04b780",
-   "heads": [
-    "root:cide:concise",
-    "root:cide:incision"
-   ],
-   "taught": [
-    "concise",
-    "incision",
-    "cide",
-    "latin"
-   ],
-   "in": {
-    "root": "cide",
-    "words": [
-     "concise",
-     "incision"
+     "reflection"
     ]
    }
   },
@@ -11764,17 +11472,15 @@
    "teacher": "carlos",
    "theme": "dusk",
    "area": "dictionary",
-   "point": "spir:expire/inspiration/respiratory",
-   "hash": "1ea08b3cc33d",
+   "point": "spir:expire/inspiration",
+   "hash": "b59d935e3b39",
    "heads": [
     "root:spir:expire",
-    "root:spir:inspiration",
-    "root:spir:respiratory"
+    "root:spir:inspiration"
    ],
    "taught": [
     "expire",
     "inspiration",
-    "respiratory",
     "spir",
     "latin"
    ],
@@ -11782,8 +11488,7 @@
     "root": "spir",
     "words": [
      "expire",
-     "inspiration",
-     "respiratory"
+     "inspiration"
     ]
    }
   },
@@ -11793,17 +11498,15 @@
    "teacher": "ama",
    "theme": "dusk",
    "area": "dictionary",
-   "point": "vac:evacuate/vacancy/vacate",
-   "hash": "976a294b0015",
+   "point": "vac:evacuate/vacancy",
+   "hash": "c836ff641042",
    "heads": [
     "root:vac:evacuate",
-    "root:vac:vacancy",
-    "root:vac:vacate"
+    "root:vac:vacancy"
    ],
    "taught": [
     "evacuate",
     "vacancy",
-    "vacate",
     "vac",
     "latin"
    ],
@@ -11811,54 +11514,25 @@
     "root": "vac",
     "words": [
      "evacuate",
-     "vacancy",
-     "vacate"
-    ]
-   }
-  },
-  {
-   "id": "t2a_roots_jus_2",
-   "template": "roots",
-   "teacher": "carlos",
-   "theme": "dusk",
-   "area": "dictionary",
-   "point": "jus:injury/justify",
-   "hash": "e760cc3afd8d",
-   "heads": [
-    "root:jus:injury",
-    "root:jus:justify"
-   ],
-   "taught": [
-    "injury",
-    "justify",
-    "jus",
-    "latin"
-   ],
-   "in": {
-    "root": "jus",
-    "words": [
-     "injury",
-     "justify"
+     "vacancy"
     ]
    }
   },
   {
    "id": "t2a_roots_stat_2",
    "template": "roots",
-   "teacher": "ama",
+   "teacher": "carlos",
    "theme": "dusk",
    "area": "dictionary",
-   "point": "stat:institute/establish/distance",
-   "hash": "db0cb5ead8e5",
+   "point": "stat:institute/establish",
+   "hash": "63f33c819d21",
    "heads": [
     "root:stat:institute",
-    "root:stat:establish",
-    "root:stat:distance"
+    "root:stat:establish"
    ],
    "taught": [
     "institute",
     "establish",
-    "distance",
     "stat",
     "latin"
    ],
@@ -11866,15 +11540,14 @@
     "root": "stat",
     "words": [
      "institute",
-     "establish",
-     "distance"
+     "establish"
     ]
    }
   },
   {
    "id": "t2a_roots_volv_2",
    "template": "roots",
-   "teacher": "carlos",
+   "teacher": "ama",
    "theme": "dusk",
    "area": "dictionary",
    "point": "volv:evolution/volume",
@@ -11900,20 +11573,18 @@
   {
    "id": "t2a_roots_pos_3",
    "template": "roots",
-   "teacher": "ama",
+   "teacher": "carlos",
    "theme": "dusk",
    "area": "dictionary",
-   "point": "pos:positive/propose/impose",
-   "hash": "c3f6f496da06",
+   "point": "pos:positive/propose",
+   "hash": "8c22b7a9a5ef",
    "heads": [
     "root:pos:positive",
-    "root:pos:propose",
-    "root:pos:impose"
+    "root:pos:propose"
    ],
    "taught": [
     "positive",
     "propose",
-    "impose",
     "pos",
     "latin"
    ],
@@ -11921,15 +11592,14 @@
     "root": "pos",
     "words": [
      "positive",
-     "propose",
-     "impose"
+     "propose"
     ]
    }
   },
   {
    "id": "t2a_roots_cept_3",
    "template": "roots",
-   "teacher": "carlos",
+   "teacher": "ama",
    "theme": "dusk",
    "area": "dictionary",
    "point": "cept:intercept/reception",
@@ -11949,32 +11619,6 @@
     "words": [
      "intercept",
      "reception"
-    ]
-   }
-  },
-  {
-   "id": "t2a_roots_port_3",
-   "template": "roots",
-   "teacher": "ama",
-   "theme": "dusk",
-   "area": "dictionary",
-   "point": "port:portable/important",
-   "hash": "684bd5db853b",
-   "heads": [
-    "root:port:portable",
-    "root:port:important"
-   ],
-   "taught": [
-    "portable",
-    "important",
-    "port",
-    "latin"
-   ],
-   "in": {
-    "root": "port",
-    "words": [
-     "portable",
-     "important"
     ]
    }
   },
@@ -12135,35 +11779,9 @@
    }
   },
   {
-   "id": "t2a_roots_fer_3",
-   "template": "roots",
-   "teacher": "carlos",
-   "theme": "dusk",
-   "area": "dictionary",
-   "point": "fer:infer/conference",
-   "hash": "afd94f34789b",
-   "heads": [
-    "root:fer:infer",
-    "root:fer:conference"
-   ],
-   "taught": [
-    "infer",
-    "conference",
-    "fer",
-    "latin"
-   ],
-   "in": {
-    "root": "fer",
-    "words": [
-     "infer",
-     "conference"
-    ]
-   }
-  },
-  {
    "id": "t2a_roots_vert_3",
    "template": "roots",
-   "teacher": "ama",
+   "teacher": "carlos",
    "theme": "dusk",
    "area": "dictionary",
    "point": "vert:advertise/introvert",
@@ -12189,7 +11807,7 @@
   {
    "id": "t2a_roots_struct_3",
    "template": "roots",
-   "teacher": "carlos",
+   "teacher": "ama",
    "theme": "dusk",
    "area": "dictionary",
    "point": "struct:instruction/instrument",
@@ -12209,32 +11827,6 @@
     "words": [
      "instruction",
      "instrument"
-    ]
-   }
-  },
-  {
-   "id": "t2a_roots_form_3",
-   "template": "roots",
-   "teacher": "ama",
-   "theme": "dusk",
-   "area": "dictionary",
-   "point": "form:formula/information",
-   "hash": "4ce3c5f903cb",
-   "heads": [
-    "root:form:formula",
-    "root:form:information"
-   ],
-   "taught": [
-    "formula",
-    "information",
-    "form",
-    "latin"
-   ],
-   "in": {
-    "root": "form",
-    "words": [
-     "formula",
-     "information"
     ]
    }
   },
@@ -12473,87 +12065,9 @@
    }
   },
   {
-   "id": "t2a_roots_fact_3",
-   "template": "roots",
-   "teacher": "ama",
-   "theme": "dusk",
-   "area": "dictionary",
-   "point": "fact:infect/efficient",
-   "hash": "e560874a8a7c",
-   "heads": [
-    "root:fact:infect",
-    "root:fact:efficient"
-   ],
-   "taught": [
-    "infect",
-    "efficient",
-    "fact",
-    "latin"
-   ],
-   "in": {
-    "root": "fact",
-    "words": [
-     "infect",
-     "efficient"
-    ]
-   }
-  },
-  {
-   "id": "t2a_roots_mov_3",
-   "template": "roots",
-   "teacher": "carlos",
-   "theme": "dusk",
-   "area": "dictionary",
-   "point": "mov:mobile/motivate",
-   "hash": "fac3e0069dd4",
-   "heads": [
-    "root:mov:mobile",
-    "root:mov:motivate"
-   ],
-   "taught": [
-    "mobile",
-    "motivate",
-    "mov",
-    "latin"
-   ],
-   "in": {
-    "root": "mov",
-    "words": [
-     "mobile",
-     "motivate"
-    ]
-   }
-  },
-  {
-   "id": "t2a_roots_man_3",
-   "template": "roots",
-   "teacher": "ama",
-   "theme": "dusk",
-   "area": "dictionary",
-   "point": "man:mandate/manuscript",
-   "hash": "211abc6e038a",
-   "heads": [
-    "root:man:mandate",
-    "root:man:manuscript"
-   ],
-   "taught": [
-    "mandate",
-    "manuscript",
-    "man",
-    "latin"
-   ],
-   "in": {
-    "root": "man",
-    "words": [
-     "mandate",
-     "manuscript"
-    ]
-   }
-  },
-  {
    "id": "t2a_roots_sign_3",
    "template": "roots",
-   "teacher": "carlos",
+   "teacher": "ama",
    "theme": "dusk",
    "area": "dictionary",
    "point": "sign:designate/sign",
@@ -12573,32 +12087,6 @@
     "words": [
      "designate",
      "sign"
-    ]
-   }
-  },
-  {
-   "id": "t2a_roots_jus_3",
-   "template": "roots",
-   "teacher": "ama",
-   "theme": "dusk",
-   "area": "dictionary",
-   "point": "jus:adjust/judgment",
-   "hash": "354c99d6049d",
-   "heads": [
-    "root:jus:adjust",
-    "root:jus:judgment"
-   ],
-   "taught": [
-    "adjust",
-    "judgment",
-    "jus",
-    "latin"
-   ],
-   "in": {
-    "root": "jus",
-    "words": [
-     "adjust",
-     "judgment"
     ]
    }
   },

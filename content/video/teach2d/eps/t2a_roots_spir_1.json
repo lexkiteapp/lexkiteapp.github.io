@@ -4,19 +4,19 @@
  "series": "Word Roots",
  "part": 1,
  "theme": "dusk",
- "teacher": "carlos",
- "voice": "am_fenrir",
+ "teacher": "ama",
+ "voice": "af_bella",
  "speed": 0.8,
  "area": "dictionary",
  "lines": [
   {
    "id": "h",
-   "text": "One root, three words!",
+   "text": "One root, two words!",
    "pause": 0.3
   },
   {
    "id": "r",
-   "text": "Spir! Inspire, spirit, conspire.",
+   "text": "The root is Spir! Inspire, spirit.",
    "pause": 0.3
   },
   {
@@ -35,19 +35,14 @@
    "pause": 0.3
   },
   {
-   "id": "w2",
-   "text": "Conspire: together plus breathe.",
-   "pause": 0.3
-  },
-  {
    "id": "q",
-   "text": "Quick quiz! Which means together plus breathe?",
+   "text": "Quick quiz! Which means into plus breathe?",
    "pause": 2.6,
    "quiz": true
   },
   {
    "id": "a",
-   "text": "Conspire! Together plus breathe.",
+   "text": "Inspire! Into plus breathe.",
    "pause": 0.42
   },
   {
@@ -105,34 +100,13 @@
     "pms": null,
     "ex": "The team showed great spirit in the final match.",
     "em": "✨"
-   },
-   {
-    "w": "conspire",
-    "ipa": "/kənˈspaɪər/",
-    "mean": "breathe together, plot",
-    "seg": "con-|spire",
-    "parts": [
-     [
-      "con",
-      "pre"
-     ],
-     [
-      "spire",
-      "root"
-     ]
-    ],
-    "pre": "con",
-    "pm": "together",
-    "pms": "together",
-    "ex": "What are you two conspiring about?",
-    "em": ""
    }
   ],
   "quiz": {
-   "stem": "together plus breathe",
+   "stem": "into plus breathe",
    "options": [
-    "inspire",
-    "conspire"
+    "spirit",
+    "inspire"
    ],
    "answer": 1
   }
@@ -145,20 +119,20 @@
  },
  "hook": {
   "line": "h",
-  "text": "One root, three words"
+  "text": "One root, two words"
  },
  "src": {
   "root": "spir"
  },
  "est": {
-  "words": 46,
-  "seconds": 27.8,
-  "wpm": 99
+  "words": 44,
+  "seconds": 26.5,
+  "wpm": 100
  },
  "publish": {
-  "title": "Spir root: inspire, spirit and conspire",
+  "title": "Spir root: inspire and spirit",
   "keyword": "spir root",
-  "value": "Spir comes from Latin \"spirare\" (to breathe). Words: inspire, spirit and conspire. inspire = in + spire; conspire = con + spire.",
+  "value": "Spir comes from Latin \"spirare\" (to breathe). Words: inspire and spirit. inspire = in + spire.",
   "hashtags": [
    "#learnenglish",
    "#englishtips",
@@ -166,11 +140,11 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/dict/inspire",
-  "script_words": 38,
+  "script_words": 36,
   "platforms": {
    "youtube": {
-    "title": "Spir root: inspire, spirit and conspire",
-    "description": "Spir comes from Latin \"spirare\" (to breathe). Words: inspire, spirit and conspire. inspire = in + spire; conspire = con + spire.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/inspire\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "title": "Spir root: inspire and spirit",
+    "description": "Spir comes from Latin \"spirare\" (to breathe). Words: inspire and spirit. inspire = in + spire.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/inspire\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
     "tags": [
      "spir root",
      "Word Roots",
@@ -179,10 +153,10 @@
     ]
    },
    "facebook": {
-    "text": "Spir root: inspire, spirit and conspire\n\nSpir comes from Latin \"spirare\" (to breathe). Words: inspire, spirit and conspire. inspire = in + spire; conspire = con + spire.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/inspire"
+    "text": "Spir root: inspire and spirit\n\nSpir comes from Latin \"spirare\" (to breathe). Words: inspire and spirit. inspire = in + spire.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/inspire"
    },
    "instagram": {
-    "caption": "Spir root: inspire, spirit and conspire\n\nSpir comes from Latin \"spirare\" (to breathe). Words: inspire, spirit and conspire. inspire = in + spire; conspire = con + spire.\n\nSee the whole word family: link in bio.",
+    "caption": "Spir root: inspire and spirit\n\nSpir comes from Latin \"spirare\" (to breathe). Words: inspire and spirit. inspire = in + spire.\n\nSee the whole word family: link in bio.",
     "hashtags": [
      "#learnenglish",
      "#englishtips",
@@ -191,9 +165,9 @@
     ]
    },
    "tiktok": {
-    "caption": "Spir root: inspire, spirit and conspire #learnenglish #englishtips #vocabulary"
+    "caption": "Spir root: inspire and spirit #learnenglish #englishtips #vocabulary"
    }
   },
-  "first_comment": "Answer: Conspire! Together plus breathe. Spir comes from Latin \"spirare\" (to breathe). Words: inspire, spirit and conspire. inspire = in + spire; conspire = con + spire. Try the full lesson and quiz here: {link}"
+  "first_comment": "Answer: Inspire! Into plus breathe. Spir comes from Latin \"spirare\" (to breathe). Words: inspire and spirit. inspire = in + spire. Try the full lesson and quiz here: {link}"
  }
 }

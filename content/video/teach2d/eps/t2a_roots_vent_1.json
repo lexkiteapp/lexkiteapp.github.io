@@ -16,7 +16,7 @@
   },
   {
    "id": "r",
-   "text": "Vent! Event, prevent, invent.",
+   "text": "The root is Vent! Event, prevent, invent.",
    "pause": 0.3
   },
   {
@@ -151,9 +151,9 @@
   "root": "vent"
  },
  "est": {
-  "words": 45,
-  "seconds": 27.3,
-  "wpm": 99
+  "words": 48,
+  "seconds": 28.8,
+  "wpm": 100
  },
  "publish": {
   "title": "Vent root: event, prevent and invent",
@@ -166,7 +166,7 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/dict/event",
-  "script_words": 37,
+  "script_words": 40,
   "platforms": {
    "youtube": {
     "title": "Vent root: event, prevent and invent",

@@ -16,7 +16,7 @@
   },
   {
    "id": "r",
-   "text": "Fact! Effect, factory.",
+   "text": "The root is Fact! Effect, factory.",
    "pause": 0.3
   },
   {
@@ -125,9 +125,9 @@
   "root": "fact"
  },
  "est": {
-  "words": 51,
-  "seconds": 29.9,
-  "wpm": 102
+  "words": 54,
+  "seconds": 31.4,
+  "wpm": 103
  },
  "publish": {
   "title": "Fact root: effect and factory",
@@ -140,7 +140,7 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/dict/effect",
-  "script_words": 41,
+  "script_words": 44,
   "platforms": {
    "youtube": {
     "title": "Fact root: effect and factory",

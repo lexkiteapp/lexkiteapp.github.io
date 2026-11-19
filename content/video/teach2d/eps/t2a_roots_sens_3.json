@@ -16,7 +16,7 @@
   },
   {
    "id": "r",
-   "text": "Sens! Sensation, nonsense.",
+   "text": "The root is Sens! Sensation, nonsense.",
    "pause": 0.3
   },
   {
@@ -129,9 +129,9 @@
   "root": "sens"
  },
  "est": {
-  "words": 42,
-  "seconds": 25.5,
-  "wpm": 99
+  "words": 45,
+  "seconds": 27.0,
+  "wpm": 100
  },
  "publish": {
   "title": "Sens root: sensation and nonsense",
@@ -144,7 +144,7 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/dict/sensation",
-  "script_words": 34,
+  "script_words": 37,
   "platforms": {
    "youtube": {
     "title": "Sens root: sensation and nonsense",

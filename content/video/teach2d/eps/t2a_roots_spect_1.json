@@ -16,7 +16,7 @@
   },
   {
    "id": "r",
-   "text": "Spect! Inspect, respect, expect.",
+   "text": "The root is Spect! Inspect, respect, expect.",
    "pause": 0.3
   },
   {
@@ -151,9 +151,9 @@
   "root": "spect"
  },
  "est": {
-  "words": 45,
-  "seconds": 27.3,
-  "wpm": 99
+  "words": 48,
+  "seconds": 28.8,
+  "wpm": 100
  },
  "publish": {
   "title": "Spect root: inspect, respect and expect",
@@ -166,7 +166,7 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/dict/inspect",
-  "script_words": 37,
+  "script_words": 40,
   "platforms": {
    "youtube": {
     "title": "Spect root: inspect, respect and expect",

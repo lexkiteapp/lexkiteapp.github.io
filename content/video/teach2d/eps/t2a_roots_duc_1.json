@@ -16,7 +16,7 @@
   },
   {
    "id": "r",
-   "text": "Duc! Introduce, produce, reduce.",
+   "text": "The root is Duc! Introduce, produce, reduce.",
    "pause": 0.3
   },
   {
@@ -151,9 +151,9 @@
   "root": "duc"
  },
  "est": {
-  "words": 45,
-  "seconds": 27.3,
-  "wpm": 99
+  "words": 48,
+  "seconds": 28.8,
+  "wpm": 100
  },
  "publish": {
   "title": "Duc root: introduce, produce and reduce",
@@ -166,7 +166,7 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/dict/introduce",
-  "script_words": 37,
+  "script_words": 40,
   "platforms": {
    "youtube": {
     "title": "Duc root: introduce, produce and reduce",

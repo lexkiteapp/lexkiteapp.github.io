@@ -16,7 +16,7 @@
   },
   {
    "id": "r",
-   "text": "Mit! Permit, admit, submit.",
+   "text": "The root is Mit! Permit, admit, submit.",
    "pause": 0.3
   },
   {
@@ -151,9 +151,9 @@
   "root": "mit"
  },
  "est": {
-  "words": 45,
-  "seconds": 27.3,
-  "wpm": 99
+  "words": 48,
+  "seconds": 28.8,
+  "wpm": 100
  },
  "publish": {
   "title": "Mit root: permit, admit and submit",
@@ -166,7 +166,7 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/dict/permit",
-  "script_words": 37,
+  "script_words": 40,
   "platforms": {
    "youtube": {
     "title": "Mit root: permit, admit and submit",

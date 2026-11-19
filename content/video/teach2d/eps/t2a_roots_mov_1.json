@@ -4,19 +4,19 @@
  "series": "Word Roots",
  "part": 1,
  "theme": "dusk",
- "teacher": "carlos",
- "voice": "am_fenrir",
+ "teacher": "ama",
+ "voice": "af_bella",
  "speed": 0.8,
  "area": "dictionary",
  "lines": [
   {
    "id": "h",
-   "text": "One root, three words!",
+   "text": "One root, two words!",
    "pause": 0.3
   },
   {
    "id": "r",
-   "text": "Mov! Remove, motion, emotion.",
+   "text": "The root is Mov! Remove, motion.",
    "pause": 0.3
   },
   {
@@ -35,19 +35,14 @@
    "pause": 0.3
   },
   {
-   "id": "w2",
-   "text": "Emotion: out plus move.",
-   "pause": 0.3
-  },
-  {
    "id": "q",
-   "text": "Quick quiz! Which means out plus move?",
+   "text": "Quick quiz! Which means back plus move?",
    "pause": 2.6,
    "quiz": true
   },
   {
    "id": "a",
-   "text": "Emotion! Out plus move.",
+   "text": "Remove! Back plus move.",
    "pause": 0.42
   },
   {
@@ -105,38 +100,13 @@
     "pms": null,
     "ex": "The motion of the ship made me feel sick.",
     "em": "🏃"
-   },
-   {
-    "w": "emotion",
-    "ipa": "/ɪˈmoʊʃn/",
-    "mean": "a feeling that moves you",
-    "seg": "e-|mot|-ion",
-    "parts": [
-     [
-      "e",
-      "pre"
-     ],
-     [
-      "mot",
-      "root"
-     ],
-     [
-      "ion",
-      "suf"
-     ]
-    ],
-    "pre": "e",
-    "pm": "out",
-    "pms": "out",
-    "ex": "It's natural to show emotion at a wedding.",
-    "em": "😊"
    }
   ],
   "quiz": {
-   "stem": "out plus move",
+   "stem": "back plus move",
    "options": [
-    "remove",
-    "emotion"
+    "motion",
+    "remove"
    ],
    "answer": 1
   }
@@ -149,20 +119,20 @@
  },
  "hook": {
   "line": "h",
-  "text": "One root, three words"
+  "text": "One root, two words"
  },
  "src": {
   "root": "mov"
  },
  "est": {
-  "words": 46,
-  "seconds": 27.8,
-  "wpm": 99
+  "words": 44,
+  "seconds": 26.5,
+  "wpm": 100
  },
  "publish": {
-  "title": "Mov root: remove, motion and emotion",
+  "title": "Mov root: remove and motion",
   "keyword": "mov root",
-  "value": "Mov comes from Latin \"movere\" (to move). Words: remove, motion and emotion. remove = re + move; emotion = e + mot.",
+  "value": "Mov comes from Latin \"movere\" (to move). Words: remove and motion. remove = re + move.",
   "hashtags": [
    "#learnenglish",
    "#englishtips",
@@ -170,11 +140,11 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/dict/remove",
-  "script_words": 38,
+  "script_words": 36,
   "platforms": {
    "youtube": {
-    "title": "Mov root: remove, motion and emotion",
-    "description": "Mov comes from Latin \"movere\" (to move). Words: remove, motion and emotion. remove = re + move; emotion = e + mot.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/remove\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "title": "Mov root: remove and motion",
+    "description": "Mov comes from Latin \"movere\" (to move). Words: remove and motion. remove = re + move.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/remove\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
     "tags": [
      "mov root",
      "Word Roots",
@@ -183,10 +153,10 @@
     ]
    },
    "facebook": {
-    "text": "Mov root: remove, motion and emotion\n\nMov comes from Latin \"movere\" (to move). Words: remove, motion and emotion. remove = re + move; emotion = e + mot.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/remove"
+    "text": "Mov root: remove and motion\n\nMov comes from Latin \"movere\" (to move). Words: remove and motion. remove = re + move.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/remove"
    },
    "instagram": {
-    "caption": "Mov root: remove, motion and emotion\n\nMov comes from Latin \"movere\" (to move). Words: remove, motion and emotion. remove = re + move; emotion = e + mot.\n\nSee the whole word family: link in bio.",
+    "caption": "Mov root: remove and motion\n\nMov comes from Latin \"movere\" (to move). Words: remove and motion. remove = re + move.\n\nSee the whole word family: link in bio.",
     "hashtags": [
      "#learnenglish",
      "#englishtips",
@@ -195,9 +165,9 @@
     ]
    },
    "tiktok": {
-    "caption": "Mov root: remove, motion and emotion #learnenglish #englishtips #vocabulary"
+    "caption": "Mov root: remove and motion #learnenglish #englishtips #vocabulary"
    }
   },
-  "first_comment": "Answer: Emotion! Out plus move. Mov comes from Latin \"movere\" (to move). Words: remove, motion and emotion. remove = re + move; emotion = e + mot. Try the full lesson and quiz here: {link}"
+  "first_comment": "Answer: Remove! Back plus move. Mov comes from Latin \"movere\" (to move). Words: remove and motion. remove = re + move. Try the full lesson and quiz here: {link}"
  }
 }

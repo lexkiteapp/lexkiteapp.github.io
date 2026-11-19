@@ -4,8 +4,8 @@
  "series": "Word Roots",
  "part": 1,
  "theme": "dusk",
- "teacher": "carlos",
- "voice": "am_fenrir",
+ "teacher": "ama",
+ "voice": "af_bella",
  "speed": 0.8,
  "area": "dictionary",
  "lines": [
@@ -16,7 +16,7 @@
   },
   {
    "id": "r",
-   "text": "Volv! Evolution, volume.",
+   "text": "The root is Volv! Evolution, volume.",
    "pause": 0.3
   },
   {
@@ -129,9 +129,9 @@
   "root": "volv"
  },
  "est": {
-  "words": 42,
-  "seconds": 25.5,
-  "wpm": 99
+  "words": 45,
+  "seconds": 27.0,
+  "wpm": 100
  },
  "publish": {
   "title": "Volv root: evolution and volume",
@@ -144,11 +144,11 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/dict/evolution",
-  "script_words": 34,
+  "script_words": 37,
   "platforms": {
    "youtube": {
     "title": "Volv root: evolution and volume",
-    "description": "Volv comes from Latin \"volvere\" (to roll, to turn). Words: evolution and volume. evolution = e + volut.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/evolution\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "description": "Volv comes from Latin \"volvere\" (to roll, to turn). Words: evolution and volume. evolution = e + volut.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/evolution\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
     "tags": [
      "volv root",
      "Word Roots",

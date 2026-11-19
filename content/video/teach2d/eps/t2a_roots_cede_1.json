@@ -16,7 +16,7 @@
   },
   {
    "id": "r",
-   "text": "Cede! Proceed, succeed, exceed.",
+   "text": "The root is Cede! Proceed, succeed, exceed.",
    "pause": 0.3
   },
   {
@@ -151,9 +151,9 @@
   "root": "cede"
  },
  "est": {
-  "words": 46,
-  "seconds": 27.8,
-  "wpm": 99
+  "words": 49,
+  "seconds": 29.3,
+  "wpm": 100
  },
  "publish": {
   "title": "Cede root: proceed, succeed and exceed",
@@ -166,7 +166,7 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/dict/proceed",
-  "script_words": 38,
+  "script_words": 41,
   "platforms": {
    "youtube": {
     "title": "Cede root: proceed, succeed and exceed",

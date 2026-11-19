@@ -11,12 +11,12 @@
  "lines": [
   {
    "id": "h",
-   "text": "One root, three words!",
+   "text": "One root, two words!",
    "pause": 0.3
   },
   {
    "id": "r",
-   "text": "Vert! Convert, reverse, divert.",
+   "text": "The root is Vert! Convert, reverse.",
    "pause": 0.3
   },
   {
@@ -35,19 +35,14 @@
    "pause": 0.3
   },
   {
-   "id": "w2",
-   "text": "Divert: apart plus turn.",
-   "pause": 0.3
-  },
-  {
    "id": "q",
-   "text": "Quick quiz! Which means apart plus turn?",
+   "text": "Quick quiz! Which means back plus turn?",
    "pause": 2.6,
    "quiz": true
   },
   {
    "id": "a",
-   "text": "Divert! Apart plus turn.",
+   "text": "Reverse! Back plus turn.",
    "pause": 0.42
   },
   {
@@ -105,34 +100,13 @@
     "pms": "back",
     "ex": "The driver reversed the car into the parking space.",
     "em": "🔄"
-   },
-   {
-    "w": "divert",
-    "ipa": "/daɪˈvɜːrt/",
-    "mean": "turn aside",
-    "seg": "di-|vert",
-    "parts": [
-     [
-      "di",
-      "pre"
-     ],
-     [
-      "vert",
-      "root"
-     ]
-    ],
-    "pre": "di",
-    "pm": "apart",
-    "pms": "apart",
-    "ex": "The company diverted funds to its new product line.",
-    "em": ""
    }
   ],
   "quiz": {
-   "stem": "apart plus turn",
+   "stem": "back plus turn",
    "options": [
     "convert",
-    "divert"
+    "reverse"
    ],
    "answer": 1
   }
@@ -145,20 +119,20 @@
  },
  "hook": {
   "line": "h",
-  "text": "One root, three words"
+  "text": "One root, two words"
  },
  "src": {
   "root": "vert"
  },
  "est": {
-  "words": 45,
-  "seconds": 27.3,
+  "words": 43,
+  "seconds": 26.0,
   "wpm": 99
  },
  "publish": {
-  "title": "Vert root: convert, reverse and divert",
+  "title": "Vert root: convert and reverse",
   "keyword": "vert root",
-  "value": "Vert comes from Latin \"vertere\" (to turn). Words: convert, reverse and divert. convert = con + vert; reverse = re + verse; divert = di + vert.",
+  "value": "Vert comes from Latin \"vertere\" (to turn). Words: convert and reverse. convert = con + vert; reverse = re + verse.",
   "hashtags": [
    "#learnenglish",
    "#englishtips",
@@ -166,11 +140,11 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/dict/convert",
-  "script_words": 37,
+  "script_words": 35,
   "platforms": {
    "youtube": {
-    "title": "Vert root: convert, reverse and divert",
-    "description": "Vert comes from Latin \"vertere\" (to turn). Words: convert, reverse and divert. convert = con + vert; reverse = re + verse; divert = di + vert.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/convert\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "title": "Vert root: convert and reverse",
+    "description": "Vert comes from Latin \"vertere\" (to turn). Words: convert and reverse. convert = con + vert; reverse = re + verse.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/convert\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
     "tags": [
      "vert root",
      "Word Roots",
@@ -179,10 +153,10 @@
     ]
    },
    "facebook": {
-    "text": "Vert root: convert, reverse and divert\n\nVert comes from Latin \"vertere\" (to turn). Words: convert, reverse and divert. convert = con + vert; reverse = re + verse; divert = di + vert.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/convert"
+    "text": "Vert root: convert and reverse\n\nVert comes from Latin \"vertere\" (to turn). Words: convert and reverse. convert = con + vert; reverse = re + verse.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/convert"
    },
    "instagram": {
-    "caption": "Vert root: convert, reverse and divert\n\nVert comes from Latin \"vertere\" (to turn). Words: convert, reverse and divert. convert = con + vert; reverse = re + verse; divert = di + vert.\n\nSee the whole word family: link in bio.",
+    "caption": "Vert root: convert and reverse\n\nVert comes from Latin \"vertere\" (to turn). Words: convert and reverse. convert = con + vert; reverse = re + verse.\n\nSee the whole word family: link in bio.",
     "hashtags": [
      "#learnenglish",
      "#englishtips",
@@ -191,9 +165,9 @@
     ]
    },
    "tiktok": {
-    "caption": "Vert root: convert, reverse and divert #learnenglish #englishtips #vocabulary"
+    "caption": "Vert root: convert and reverse #learnenglish #englishtips #vocabulary"
    }
   },
-  "first_comment": "Answer: Divert! Apart plus turn. Vert comes from Latin \"vertere\" (to turn). Words: convert, reverse and divert. convert = con + vert; reverse = re + verse; divert = di + vert. Try the full lesson and quiz here: {link}"
+  "first_comment": "Answer: Reverse! Back plus turn. Vert comes from Latin \"vertere\" (to turn). Words: convert and reverse. convert = con + vert; reverse = re + verse. Try the full lesson and quiz here: {link}"
  }
 }

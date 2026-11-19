@@ -16,7 +16,7 @@
   },
   {
    "id": "r",
-   "text": "Pend! Depend, suspend, expense.",
+   "text": "The root is Pend! Depend, suspend, expense.",
    "pause": 0.3
   },
   {
@@ -151,9 +151,9 @@
   "root": "pend"
  },
  "est": {
-  "words": 47,
-  "seconds": 28.3,
-  "wpm": 100
+  "words": 50,
+  "seconds": 29.7,
+  "wpm": 101
  },
  "publish": {
   "title": "Pend root: depend, suspend and expense",
@@ -166,7 +166,7 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/dict/depend",
-  "script_words": 39,
+  "script_words": 42,
   "platforms": {
    "youtube": {
     "title": "Pend root: depend, suspend and expense",

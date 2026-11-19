@@ -16,7 +16,7 @@
   },
   {
    "id": "r",
-   "text": "Cur! Current, occur, recur.",
+   "text": "The root is Cur! Current, occur, recur.",
    "pause": 0.3
   },
   {
@@ -151,9 +151,9 @@
   "root": "cur"
  },
  "est": {
-  "words": 44,
-  "seconds": 26.8,
-  "wpm": 98
+  "words": 47,
+  "seconds": 28.3,
+  "wpm": 100
  },
  "publish": {
   "title": "Cur root: current, occur and recur",
@@ -166,7 +166,7 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/dict/current",
-  "script_words": 36,
+  "script_words": 39,
   "platforms": {
    "youtube": {
     "title": "Cur root: current, occur and recur",

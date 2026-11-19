@@ -4,8 +4,8 @@
  "series": "Word Roots",
  "part": 1,
  "theme": "dusk",
- "teacher": "carlos",
- "voice": "am_fenrir",
+ "teacher": "ama",
+ "voice": "af_bella",
  "speed": 0.8,
  "area": "dictionary",
  "lines": [
@@ -16,7 +16,7 @@
   },
   {
    "id": "r",
-   "text": "Cept! Receive, perceive, deceive.",
+   "text": "The root is Cept! Receive, perceive, deceive.",
    "pause": 0.3
   },
   {
@@ -151,9 +151,9 @@
   "root": "cept"
  },
  "est": {
-  "words": 45,
-  "seconds": 27.3,
-  "wpm": 99
+  "words": 48,
+  "seconds": 28.8,
+  "wpm": 100
  },
  "publish": {
   "title": "Cept root: receive, perceive and deceive",
@@ -166,11 +166,11 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/dict/receive",
-  "script_words": 37,
+  "script_words": 40,
   "platforms": {
    "youtube": {
     "title": "Cept root: receive, perceive and deceive",
-    "description": "Cept comes from Latin \"capere\" (to take, to seize). Words: receive, perceive and deceive. receive = re + ceive; perceive = per + ceive; deceive = de + ceive.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/receive\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "description": "Cept comes from Latin \"capere\" (to take, to seize). Words: receive, perceive and deceive. receive = re + ceive; perceive = per + ceive; deceive = de + ceive.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/receive\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
     "tags": [
      "cept root",
      "Word Roots",

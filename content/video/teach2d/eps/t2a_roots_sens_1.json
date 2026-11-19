@@ -16,7 +16,7 @@
   },
   {
    "id": "r",
-   "text": "Sens! Sense, sensitive.",
+   "text": "The root is Sens! Sense, sensitive.",
    "pause": 0.3
   },
   {
@@ -125,9 +125,9 @@
   "root": "sens"
  },
  "est": {
-  "words": 43,
-  "seconds": 26.0,
-  "wpm": 99
+  "words": 46,
+  "seconds": 27.5,
+  "wpm": 100
  },
  "publish": {
   "title": "Sens root: sense and sensitive",
@@ -140,7 +140,7 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/dict/sense",
-  "script_words": 35,
+  "script_words": 38,
   "platforms": {
    "youtube": {
     "title": "Sens root: sense and sensitive",
