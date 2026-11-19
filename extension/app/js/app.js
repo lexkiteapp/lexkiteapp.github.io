@@ -1,7 +1,7 @@
 /* Lexkite v2 – khung ứng dụng: router, trạng thái, trang chủ, thư viện, từ điển, sổ từ, tiến độ, cài đặt. */
 (function () {
   const { Store, SRS, Cards, Stats, Golden, DEFAULT_SETTINGS, todayKey, endOfToday, DAY } = Core;
-  // Icon-flash (P1): phông Material Symbols khai báo trong CSS tải lười của từng màn; mạng chậm thì font-display:block hết 3 s rồi lộ chữ "dark_mode". Ẩn ligature theo TỪNG họ phông tới khi FontFace 'loaded'.
+  // Icon-flash: mạng chậm thì font-display:block lộ chữ "dark_mode" → ẩn ligature tới khi FontFace 'loaded'.
   (function iconGuard() {
     const F = document.fonts, h = document.documentElement; if (!F || !F.addEventListener) return;
     const fam = { o: 'Material Symbols Outlined', r: 'Material Symbols Rounded' }; h.classList.add('ic-wait-o', 'ic-wait-r');
@@ -165,7 +165,7 @@
     toast({ auto: '🌓 ' + t('Giao diện theo hệ thống'), light: '☀️ ' + t('Giao diện sáng'), dark: '🌙 ' + t('Giao diện tối') }[state.settings.theme]);
   };
   // Nút sáng/tối ngay trong màn học (body.focus ẩn thanh trên; màn Stitch điện thoại cũng ẩn):
-  // Màn Stitch (học/phản hồi/gọi/truyện/xong) có sẵn nút #lkTheme trong header mẫu (44 px) → chỉ gắn hành vi + biểu tượng theo giao diện; nút nằm trong mẫu (không chèn bằng JS).
+  // Màn Stitch có sẵn nút #lkTheme trong header mẫu → chỉ gắn hành vi + biểu tượng.
   const isDark = () => { const r = document.documentElement; return r.getAttribute('data-theme') === 'dark' || (!r.hasAttribute('data-theme') && matchMedia('(prefers-color-scheme:dark)').matches); };
   const flipTheme = () => { state.settings.theme = isDark() ? 'light' : 'dark'; applyTheme(); saveSettings(); document.querySelectorAll('#lkTheme .material-symbols-outlined').forEach(i => { i.textContent = isDark() ? 'light_mode' : 'dark_mode'; }); };
   const focusTheme = () => {
@@ -277,6 +277,7 @@ App.pathnPack = { es: 'cpack/lesson/pn-es.js', pt: 'cpack/lesson/pn-pt.js', fr: 
 App.cpackI18n = { criteria: { es: 'cpack/i18n/criteria-es.js', pt: 'cpack/i18n/criteria-pt.js', fr: 'cpack/i18n/criteria-fr.js', de: 'cpack/i18n/criteria-de.js', id: 'cpack/i18n/criteria-id.js', th: 'cpack/i18n/criteria-th.js', zh: 'cpack/i18n/criteria-zh.js', ja: 'cpack/i18n/criteria-ja.js', ko: 'cpack/i18n/criteria-ko.js', hi: 'cpack/i18n/criteria-hi.js', ar: 'cpack/i18n/criteria-ar.js', ru: 'cpack/i18n/criteria-ru.js', tr: 'cpack/i18n/criteria-tr.js' }, confidence: { es: 'cpack/i18n/confidence-es.js', pt: 'cpack/i18n/confidence-pt.js', fr: 'cpack/i18n/confidence-fr.js', de: 'cpack/i18n/confidence-de.js', id: 'cpack/i18n/confidence-id.js', th: 'cpack/i18n/confidence-th.js', zh: 'cpack/i18n/confidence-zh.js', ja: 'cpack/i18n/confidence-ja.js', ko: 'cpack/i18n/confidence-ko.js', hi: 'cpack/i18n/confidence-hi.js', ar: 'cpack/i18n/confidence-ar.js', ru: 'cpack/i18n/confidence-ru.js', tr: 'cpack/i18n/confidence-tr.js' } }; // bản dịch nhóm criteria/confidence nằm ở web/cpack (scripts/lib/i18n-pack.mjs CPACK_I18N); build-cpack chỉ băm đường dẫn viết đủ chữ
 App.cpackI18n.rhythm = { es: 'cpack/i18n/rhythm-es.js', pt: 'cpack/i18n/rhythm-pt.js', fr: 'cpack/i18n/rhythm-fr.js', de: 'cpack/i18n/rhythm-de.js', id: 'cpack/i18n/rhythm-id.js', th: 'cpack/i18n/rhythm-th.js', zh: 'cpack/i18n/rhythm-zh.js', ja: 'cpack/i18n/rhythm-ja.js', ko: 'cpack/i18n/rhythm-ko.js', hi: 'cpack/i18n/rhythm-hi.js', ar: 'cpack/i18n/rhythm-ar.js', ru: 'cpack/i18n/rhythm-ru.js', tr: 'cpack/i18n/rhythm-tr.js' }; // game Nhịp điệu (cpack/i18n/rhythm-<lang>.js, tải theo route)
 App.cpackI18n.qtips = { es: 'cpack/i18n/qtips-es.js', pt: 'cpack/i18n/qtips-pt.js', fr: 'cpack/i18n/qtips-fr.js', de: 'cpack/i18n/qtips-de.js', id: 'cpack/i18n/qtips-id.js', th: 'cpack/i18n/qtips-th.js', zh: 'cpack/i18n/qtips-zh.js', ja: 'cpack/i18n/qtips-ja.js', ko: 'cpack/i18n/qtips-ko.js', hi: 'cpack/i18n/qtips-hi.js', ar: 'cpack/i18n/qtips-ar.js', ru: 'cpack/i18n/qtips-ru.js', tr: 'cpack/i18n/qtips-tr.js' }; // mẹo làm bài thi (cpack/i18n/qtips-<lang>.js, tải cùng gói màn thi/nghe/đọc; dời khỏi web/js để nhường chỗ ngân sách người học)
+App.cpackI18n.lcardui = { es: 'cpack/i18n/lcardui-es.js', pt: 'cpack/i18n/lcardui-pt.js', fr: 'cpack/i18n/lcardui-fr.js', de: 'cpack/i18n/lcardui-de.js', id: 'cpack/i18n/lcardui-id.js', th: 'cpack/i18n/lcardui-th.js', zh: 'cpack/i18n/lcardui-zh.js', ja: 'cpack/i18n/lcardui-ja.js', ko: 'cpack/i18n/lcardui-ko.js', hi: 'cpack/i18n/lcardui-hi.js', ar: 'cpack/i18n/lcardui-ar.js', ru: 'cpack/i18n/lcardui-ru.js', tr: 'cpack/i18n/lcardui-tr.js' }; // mẹo làm bài thi (cpack/i18n/lcardui-<lang>.js, tải cùng gói màn thi/nghe/đọc; dời khỏi web/js để nhường chỗ ngân sách người học)
 App.esGx = { en: 'cpack/es/gx-en.js', vi: 'cpack/es/gx-vi.js', es: 'cpack/es/gx-es.js', pt: 'cpack/es/gx-pt.js', fr: 'cpack/es/gx-fr.js', de: 'cpack/es/gx-de.js', id: 'cpack/es/gx-id.js', th: 'cpack/es/gx-th.js', zh: 'cpack/es/gx-zh.js', ja: 'cpack/es/gx-ja.js', ko: 'cpack/es/gx-ko.js', hi: 'cpack/es/gx-hi.js', ar: 'cpack/es/gx-ar.js', ru: 'cpack/es/gx-ru.js', tr: 'cpack/es/gx-tr.js' }; // giải thích ngữ pháp TBN theo ngôn ngữ người học, tải lười 1 gói (js/espr.js)
 App.esX = { lv: { A1: 'cpack/es/x-A1.js', A2: 'cpack/es/x-A2.js', B1: 'cpack/es/x-B1.js' }, ui: { en: 'cpack/es/x-ui-en.js', vi: 'cpack/es/x-ui-vi.js', es: 'cpack/es/x-ui-es.js', pt: 'cpack/es/x-ui-pt.js', fr: 'cpack/es/x-ui-fr.js', de: 'cpack/es/x-ui-de.js', id: 'cpack/es/x-ui-id.js', th: 'cpack/es/x-ui-th.js', zh: 'cpack/es/x-ui-zh.js', ja: 'cpack/es/x-ui-ja.js', ko: 'cpack/es/x-ui-ko.js', hi: 'cpack/es/x-ui-hi.js', ar: 'cpack/es/x-ui-ar.js', ru: 'cpack/es/x-ui-ru.js', tr: 'cpack/es/x-ui-tr.js' } }; // luyện định dạng DELE/SIELE W5 (cpack/es-app/exam-ui.js): đề theo cấp + nhãn theo ngôn ngữ người học, tải lười
 App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-es.js', pt: 'cpack/es/px-pt.js', fr: 'cpack/es/px-fr.js', de: 'cpack/es/px-de.js', id: 'cpack/es/px-id.js', th: 'cpack/es/px-th.js', zh: 'cpack/es/px-zh.js', ja: 'cpack/es/px-ja.js', ko: 'cpack/es/px-ko.js', hi: 'cpack/es/px-hi.js', ar: 'cpack/es/px-ar.js', ru: 'cpack/es/px-ru.js', tr: 'cpack/es/px-tr.js' }; // gói phát âm TBN W3 theo ngôn ngữ người học (js/espr-pron.js): nhãn giao diện + giải thích 8 chủ đề
@@ -390,6 +391,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
     goal: ['css/tactile-x.css', 'css/st-goal.css'],
     irregular: 'css/st-v2-irregular.css',
     irvdrill: 'css/st-v2-irregular-drill.css',
+    lcard: 'css/lcard.css',
     league: 'css/league.css',
     lesson: ['css/tactile-x.css', 'css/st-lesson.css', 'css/st-v2-lesson-question.css', 'css/st-v2-feedback-correct.css', 'css/st-v2-feedback-wrong.css', 'css/st-v2-lesson-complete.css', 'css/st-v2-story-duo.css'],
     listening: 'css/exam.css',
@@ -421,6 +423,12 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
   const need1 = n => bundleP[n] || (inflight++, bundleP[n] = manifest().then(() => Promise.all(BUNDLES[n].map(loadScript).concat([].concat(BCSS[n] || [], n === 'ux1' ? UX1X() : [], LZCSS(n)).map(loadCss)))).catch(e => { delete bundleP[n]; throw e; }).finally(() => { inflight--; }));
   App.need = (...names) => Promise.all([...(window.I18N && I18N.lang() !== 'vi' ? ['i18nx', 'i18nl'].map(need1) : []), ...names.map(need1)]);
   App.loaded = n => !!bundleP[n];
+  // 17/11 (mục 4 ngân sách khung, chừa chỗ ≥ 3 %): ai.js KHÔNG còn trong khung. window.AI là shim: hàm bất đồng bộ tải gói 'ai' rồi gọi bản thật (ai.js tự ghi đè window.AI);
+  // hàm đồng bộ trả giá trị an toàn khi chưa tải (chỉ gọi sau một lần gọi AI nên bản thật đã có). `window.AI &&` ở mọi nơi vẫn đúng như trước. Test: scripts/test/ai-shim.mjs
+  { const real = m => (...a) => App.need('ai').then(() => { if (window.AI._shim) throw new Error('AI_LOAD'); return window.AI[m](...a); });
+    window.AI = { _shim: true, ask: real('ask'), askLocal: real('askLocal'), explain: real('explain'), localGrade: real('localGrade'), grade: real('grade'), getKey: real('getKey'), nanoStatus: real('nanoStatus'), keyDialog: real('keyDialog'),
+      settingsHtml: real('settingsHtml'), bindSettings: real('bindSettings'), onNanoProgress: f => { real('onNanoProgress')(f).catch(() => {}); },
+      attach: (el, f) => { real('attach')(el, f).catch(() => {}); }, errText: e => (e && e.message) || String(e), badge: () => '', renderExplain: () => '', localOn: () => false }; }
   App.reneed = n => { delete bundleP[n]; return App.need(n); }; // tải lại gói đã báo xong mà thiếu dữ liệu (loadScript nuốt lỗi mạng) → bấm thử lại được
   App.loadScript = src => Promise.all([loadScript(src), loadCss('css/lazy-ui.css')]).then(() => {}); // 1 tệp lười theo nhu cầu (vd. tình huống Play & Speak)
   App.anki = async (tab, opts) => { try { await App.need('anki'); if (!window.AnkiUI) throw new Error('anki'); await AnkiUI.open(tab, opts || {}); } catch (e) { toast(t('Không tải được – thử lại sau')); } };
@@ -1446,7 +1454,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
   { let q = 0; const kick = () => { if (q) return; q = 1; requestAnimationFrame(() => { q = 0; edgeFade(); }); }; const v = document.getElementById('view'); if (v && window.MutationObserver) new MutationObserver(kick).observe(v, { childList: true, subtree: true }); addEventListener('resize', kick, { passive: true }); }
   // 🐕 Canh khởi động (thấy trên live 4/11: indexedDB.open treo → App.ready không xong, #view trắng vĩnh viễn): 8 s chưa vẽ → thẻ lỗi, Thử lại = tải lại trang. KHÔNG đọc dữ liệu giả (sẽ ghi đè dữ liệu thật).
   // Dữ liệu treo thì khung chào #lkHero cũng là trang chết (bấm không đi đâu) → thay luôn; dữ liệu đã về mà còn chờ bản dịch thì giữ khung chào.
-  const bootDog = setTimeout(() => { if (state.game && routeSeq) return; if (!view.children.length || (!state.game && view.querySelector('#lkHero'))) errState(true, true); }, 8000);
+  const bootDog = setTimeout(() => { if (state.game && routeSeq) return; if (!view.children.length || view.querySelector('[data-lkph]') || (!state.game && view.querySelector('#lkHero'))) errState(true, true); }, 8000); // khung chờ màn học (index.html data-lkph) = chưa vẽ
   App.ready = (async function init() {
     if (/[?&]demo=1/.test(location.search)) { await App.need('demo'); await App.seedDemo(); }
     if (Store.sandbox) setTimeout(() => toast('🧪 ' + t('Chế độ thử nghiệm – dữ liệu tách riêng, không đồng bộ')), 800);

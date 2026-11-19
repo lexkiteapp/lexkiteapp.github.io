@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+# Cài fonts-noto-* KHÔNG qua `apt-get install` (apt treo cả 3 lượt/762 s: job teach-video 135452033221, 135383745870 – 19/11): tải THẲNG đúng tệp .deb
+# (bản noble, ghim SHA-256 trong scripts/ci/fonts-debs.tsv – cùng bit với apt) từ nhiều mirror Ubuntu, mỗi mirror có trần chậm/treo (tốc độ < 200 KB/s
+# trong 15 s → bỏ, qua mirror kế), rồi `dpkg -i`. Tệp lưu ở FONTS_CACHE_DIR (composite .github/actions/apt gắn actions/cache theo băm của .tsv) → lượt sau không tải.
+# Gọi từ scripts/ci/apt-install.sh: in ra stdout CHỈ tên gói chưa xử lý được (không phải font hoặc mọi mirror lỗi) để apt làm đường dự phòng – không bỏ font nào.
+#   bash scripts/ci/fonts-install.sh fonts-noto-core fonts-noto-cjk imagemagick   → in "imagemagick"
+# Biến: FONTS_CACHE_DIR (~/.cache/lk-fonts) · FONTS_MIRRORS (danh sách URL gốc, cách dấu cách) · FONTS_MAX_TIME (240 s/tệp/mirror) · APT_SUDO (sudo) · FONTS_DPKG (dpkg) · FONTS_TSV.
+# Test: scripts/test/apt-install.mjs (curl/dpkg giả: cache, mirror treo → mirror kế, SHA sai → bỏ, hết mirror → trả gói cho apt).
+set -u
+DIR=$(cd "$(dirname "$0")" && pwd); TSV=${FONTS_TSV:-$DIR/fonts-debs.tsv}; CACHE=${FONTS_CACHE_DIR:-$HOME/.cache/lk-fonts}; SUDO=${APT_SUDO-sudo}; DPKG=${FONTS_DPKG:-dpkg}; MAXT=${FONTS_MAX_TIME:-240}
+MIRRORS=${FONTS_MIRRORS:-"http://archive.ubuntu.com/ubuntu http://mirrors.kernel.org/ubuntu http://mirror.math.princeton.edu/pub/ubuntu http://azure.archive.ubuntu.com/ubuntu"}
+mkdir -p "$CACHE"; rest=()
+if command -v sha256sum >/dev/null 2>&1; then sha() { sha256sum "$1" | cut -d' ' -f1; }; else sha() { shasum -a 256 "$1" | cut -d' ' -f1; }; fi
+# fonts-noto-core phụ thuộc fonts-noto-mono: `dpkg -i` riêng core → "dependency problems" (đỏ mọi job 19/11) → cài mono trước (nếu bảng ghim có dòng của nó)
+args=("$@"); case " $* " in *" fonts-noto-core "*) case " $* " in *" fonts-noto-mono "*) ;; *) awk -F'\t' '$1 == "fonts-noto-mono" {f=1} END {exit !f}' "$TSV" && args=(fonts-noto-mono "$@");; esac;; esac
+for p in "${args[@]}"; do
+  row=$(awk -F'\t' -v p="$p" '$1 == p' "$TSV"); [ -n "$row" ] || { rest+=("$p"); continue; }
+  rel=$(echo "$row" | cut -f2); want=$(echo "$row" | cut -f3); f="$CACHE/$(basename "$rel")"; got=""
+  [ -f "$f" ] && [ "$(sha "$f")" = "$want" ] && got=cache
+  if [ -z "$got" ]; then
+    for m in $MIRRORS; do
+      rm -f "$f.part"
+      if curl -fsSL --connect-timeout 15 --max-time "$MAXT" --speed-limit 200000 --speed-time 15 --retry 1 -o "$f.part" "$m/$rel" 2>/dev/null && [ "$(sha "$f.part")" = "$want" ]; then mv "$f.part" "$f"; got=$m; break; fi
+      echo "fonts: $p lỗi/chậm/SHA sai ở $m" >&2
+    done
+    rm -f "$f.part"
+  fi
+  if [ -n "$got" ] && $SUDO "$DPKG" -i "$f" >&2; then echo "✓ fonts: $p ($got)" >&2; else echo "::warning::fonts: không cài được $p bằng .deb trực tiếp → để apt thử" >&2; rest+=("$p"); fi
+done
+[ ${#rest[@]} -eq 0 ] || printf '%s\n' "${rest[@]}"
+exit 0
