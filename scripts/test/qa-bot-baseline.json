@@ -95,12 +95,6 @@
    "ux1-train@1440l",
    "ux1-train@1440d"
   ],
-  "tap|main#view>details.hub-more>summary": [
-   "tests@768l",
-   "tests@768d",
-   "tests@1440l",
-   "tests@1440d"
-  ],
   "tap|main#view>div.page-head>button.btn.sm": [
    "skills@768l",
    "tests@768l",
@@ -120,14 +114,6 @@
    "home@768d",
    "home@1440l",
    "home@1440d"
-  ],
-  "tap|select#rmSel": [
-   "review@768l",
-   "review-card@768l",
-   "review-type@768l",
-   "review@768d",
-   "review-card@768d",
-   "review-type@768d"
   ],
   "wrap|span.pron2>span.pron-acc>button.icon-btn.sm": [
    "review-card@390l",

@@ -1,0 +1,163 @@
+{
+ "id": "t2a_rule_silentwr_1",
+ "template": "rule",
+ "series": "Spell to Sound",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "pronunciation",
+ "lines": [
+  {
+   "id": "h",
+   "text": "The W is silent!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "In w r, the W is silent. Say R.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Write.",
+   "pause": 0.25,
+   "speed": 0.6
+  },
+  {
+   "id": "v0",
+   "text": "Write. Say: write.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Wrong.",
+   "pause": 0.25,
+   "speed": 0.6
+  },
+  {
+   "id": "v1",
+   "text": "Wrong.",
+   "pause": 0.3
+  },
+  {
+   "id": "p",
+   "text": "Repeat after me!",
+   "pause": 2.4
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which letter is silent in wrong?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "W! The W is silent.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "rule": "silent-wr",
+  "title": "wr-",
+  "target": "/r/",
+  "letter": "w",
+  "say": "In w r, the W is silent. Say R.",
+  "words": [
+   {
+    "w": "write",
+    "ipa": "/raɪt/",
+    "silent": [
+     0,
+     1
+    ],
+    "letter": "w",
+    "mean": "to make letters and words on paper or a screen",
+    "em": "✍️"
+   },
+   {
+    "w": "wrong",
+    "ipa": "/rɔːŋ/",
+    "silent": [
+     0,
+     1
+    ],
+    "letter": "w",
+    "mean": "Not right, incorrect.",
+    "em": "❌"
+   }
+  ],
+  "quiz": {
+   "stem": "Which letter is silent in wrong?",
+   "options": [
+    "W",
+    "R"
+   ],
+   "answer": 0
+  }
+ },
+ "cta": {
+  "area": "pronunciation",
+  "route": "#/pron/write",
+  "link": "https://lexkite.com/app/#/pron/write",
+  "say": "Practise this sound"
+ },
+ "hook": {
+  "line": "h",
+  "text": "The W is silent"
+ },
+ "src": {
+  "rule": "silent-wr"
+ },
+ "est": {
+  "words": 41,
+  "seconds": 27.6,
+  "wpm": 89
+ },
+ "publish": {
+  "title": "The W is silent!",
+  "keyword": "Spell to Sound",
+  "value": "In w r, the W is silent. Say R.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#pronunciation",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/pron/write",
+  "script_words": 32,
+  "platforms": {
+   "youtube": {
+    "title": "The W is silent!",
+    "description": "In w r, the W is silent. Say R.\n\nPractise this sound, free: https://lexkite.com/app/#/pron/write\n\nSeries: Spell to Sound · Teacher: Carlos\n\n#learnenglish #englishtips #pronunciation #englishteacher",
+    "tags": [
+     "Spell to Sound",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "The W is silent!\n\nIn w r, the W is silent. Say R.\n\nPractise this sound, free: https://lexkite.com/app/#/pron/write"
+   },
+   "instagram": {
+    "caption": "The W is silent!\n\nIn w r, the W is silent. Say R.\n\nPractise this sound: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#pronunciation",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "The W is silent! #learnenglish #englishtips #pronunciation"
+   }
+  },
+  "first_comment": "Answer: W! The W is silent. In w r, the W is silent. Say R. Try the full lesson and quiz here: {link}"
+ }
+}

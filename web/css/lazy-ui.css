@@ -299,9 +299,12 @@ html.native .v2 .w-head { padding-top: env(safe-area-inset-top, 0px); height: au
 .qe-flagged { box-shadow: inset 3px 0 0 var(--gold-text); }
 .qe-rv { position: sticky; top: 0; z-index: 5; display: flex; flex-wrap: wrap; gap: var(--sp-2) var(--sp-4); align-items: center; padding: var(--sp-2) var(--sp-3); margin-bottom: var(--sp-3); border: 1px solid var(--line); border-radius: var(--r-sm); background: var(--bg); font-size: var(--fs-sm); }
 .qe-n.fl { border-color: var(--gold-text); color: var(--gold-text); }
-.qe-n { min-height: 32px; min-width: 32px; }
+.qe-n { min-height: 32px; min-width: 32px; position: relative; }
+.qe-n::after { content: ""; position: absolute; inset: -6px; } /* vùng chạm 44 px (cổng tap-targets) */
 #mkMap .qe-fl { position: relative; }
 #mkMap .qe-fl::after { content: "🚩"; font-size: .6em; position: absolute; inset-block-start: -2px; inset-inline-end: -2px; }
+/* P0 kiểm toán 18/11: nút Nghe (chép chính tả) chiếm cả dòng ở ≤ 480 px → ba nút còn lại không rớt dòng lẻ (style.css) */
+@media (max-width: 480px) { .q-card .row.center #dPlay { flex: 1 1 100%; } }
 .ai-box { margin-top: 1rem; border: 1px solid color-mix(in srgb, var(--primary) 35%, var(--line)); background: linear-gradient(180deg, var(--primary-soft), var(--surface) 70%); }
 .ai-res { margin-top: .9rem; display: grid; gap: .8rem; }
 .ai-score { flex: none; width: 64px; height: 64px; border-radius: 18px; display: grid; place-items: center; font-size: 1.6rem; font-weight: 800; color: #fff; background: linear-gradient(135deg, var(--primary), #9333ea); }
