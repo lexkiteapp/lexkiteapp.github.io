@@ -4,7 +4,7 @@
 // Hermetic (phục vụ thẳng web/, ?sandbox=1, 0 lượt chạm prod). Dùng: node scripts/test/stitch-diff.mjs [web] [out=out/stitch-diff]
 // CI: .github/workflows/stitch-diff.yml (cần playwright + pngjs + imagemagick). docs/DESIGN-SYSTEM.md §0.
 import fs from 'node:fs'; import path from 'node:path'; import zlib from 'node:zlib'; import { execFileSync } from 'node:child_process';
-import { chromium } from 'playwright'; import { SCREENS, V2REF, DRIVE, DRIVEN, READY, SEED_STREAK, FIX_CLOCK, SEED_LEAGUE, SEED_SCREEN, MIME } from './stitch-screens.mjs'; import { PNG } from 'pngjs'; import { createRequire } from 'node:module';
+import { chromium } from 'playwright'; import { SCREENS, V2REF, DRIVE, DRIVEN, READY, SEED_STREAK, FIX_CLOCK, SEED_LEAGUE, SEED_SCREEN, MIME, shardScreens, inShard } from './stitch-screens.mjs'; import { PNG } from 'pngjs'; import { createRequire } from 'node:module';
 const AXE = createRequire(path.resolve('package.json')).resolve('axe-core/axe.min.js'), a11y = {}; // WCAG 2.2 AA (axe-core) trong vùng màn Stitch (.st)
 const [ROOT = 'web', OUT = 'out/stitch-diff'] = process.argv.slice(2); fs.mkdirSync(OUT, { recursive: true });
 const LIM = JSON.parse(fs.readFileSync('scripts/test/stitch-diff.json', 'utf8'));
@@ -104,7 +104,7 @@ for (const scheme of ['dark', 'light']) {
     for (const [w, ctxs] of [['collocation', 'a strong collocation'], ['coherence', 'clear coherence'], ['mitigate', 'mitigate risk'], ['phrasal verb', 'a phrasal verb']]) await Core.Cards.add({ word: w, vi: w, ipa: '', def: w }, { text: ctxs, source: 'https://example.com/a' }).catch(() => {}); App.state.cards = await Core.Cards.all(); // thẻ mẫu cho màn Ôn (có thẻ đến hạn)
     localStorage.setItem('lk.lsn.path', '3'); localStorage.setItem('lk.ux1.st', JSON.stringify({ 0: 3, 1: 3, 2: 2 }));
   }).catch(e => errs.push(`${scheme}: seed ${e.message}`));
-  for (const [k, h] of Object.entries(SCREENS)) {
+  for (const [k, h] of shardScreens()) {
     await page.goto(url(h), { waitUntil: 'load' }); await page.reload({ waitUntil: 'load' }); await page.waitForTimeout(1800); { await FIX_CLOCK(page); await page.evaluate(SEED_STREAK); await page.evaluate(() => App.route()); await page.waitForTimeout(600); } if (k === 'leagues') { await page.evaluate(SEED_LEAGUE); await page.evaluate(() => App.route()); await page.waitForTimeout(900); } await SEED_SCREEN(page, k);
     if (DRIVEN.test(k)) await page.evaluate(DRIVE, k).catch(e => errs.push('drive ' + e.message)); if (READY[k] && !(await page.waitForSelector(READY[k], { state: 'attached', timeout: 6000 }).catch(() => null))) errs.push(`${k}: chưa tới trạng thái (${READY[k]}) – ảnh chụp sai màn · có: ${await page.evaluate(sel => sel.split(' ').map((_, i, a) => a.slice(0, i + 1).join(' ')).map(x => { try { return x + '=' + document.querySelectorAll(x).length; } catch (e) { return x + '=?'; } }).join(' | ') + ' · hash ' + location.hash + ' · data-st ' + [...document.querySelectorAll('[data-st]')].map(e => e.dataset.st + (e.hasAttribute('data-cur') ? '*' : '')).join(','), READY[k]).catch(e => e.message)}`);
     await page.addStyleTag({ content: '#toast{display:none!important}' }).catch(() => {});
@@ -132,7 +132,7 @@ for (const scheme of ['dark', 'light']) for (const QW of [360, 412]) {
   await page.goto(url('home'), { waitUntil: 'load' }); await page.waitForTimeout(2000);
   await page.evaluate(async () => { localStorage.setItem('lk.ux1', '1'); localStorage.setItem('lk.speak', '1'); localStorage.setItem('lk.onb', '1'); App.state.settings.onboarded = true; App.state.settings.exam = 'ielts'; App.state.settings.examTarget = '7.5'; await App.saveSettings();
     await Core.Store.set('mocks', [{ at: Date.now() - 3 * 864e5, bands: { listening: 7.5, reading: 7.5, writing: 6.5, speaking: 6.5 }, overall: 7 }]); localStorage.setItem('lk.lsn.path', '3'); localStorage.setItem('lk.ux1.st', JSON.stringify({ 0: 3, 1: 3, 2: 2 })); }).catch(() => {});
-  for (const [k, h] of Object.entries(SCREENS)) {
+  for (const [k, h] of shardScreens()) {
     await page.goto(url(h), { waitUntil: 'load' }); await page.reload({ waitUntil: 'load' }); await page.waitForTimeout(1500); { await FIX_CLOCK(page); await page.evaluate(SEED_STREAK); await page.evaluate(() => App.route()); await page.waitForTimeout(600); } if (k === 'leagues') { await page.evaluate(SEED_LEAGUE); await page.evaluate(() => App.route()); await page.waitForTimeout(900); } await SEED_SCREEN(page, k);
     if (DRIVEN.test(k)) await page.evaluate(DRIVE, k).catch(() => {}); if (READY[k] && !(await page.waitForSelector(READY[k], { state: 'attached', timeout: 6000 }).catch(() => null))) errs.push(`${k}: chưa tới trạng thái (${READY[k]}) – ảnh chụp sai màn · có: ${await page.evaluate(sel => sel.split(' ').map((_, i, a) => a.slice(0, i + 1).join(' ')).map(x => { try { return x + '=' + document.querySelectorAll(x).length; } catch (e) { return x + '=?'; } }).join(' | ') + ' · hash ' + location.hash + ' · data-st ' + [...document.querySelectorAll('[data-st]')].map(e => e.dataset.st + (e.hasAttribute('data-cur') ? '*' : '')).join(','), READY[k]).catch(e => e.message)}`);
     await page.addStyleTag({ content: '#toast{display:none!important}' }).catch(() => {});
@@ -162,7 +162,7 @@ for (const scheme of ['dark', 'light']) for (const QW of [360, 412]) {
   await ctx.close();
 }
 // ---- gallery (mọi component/dạng bài · màn hoàn thành) sáng + tối: soi đủ dạng bài mà 4 màn chính không chụp tới ----
-for (const scheme of ['dark', 'light']) {
+for (const scheme of inShard(null) ? ['dark', 'light'] : []) {   // gallery không gắn màn → chỉ shard 0
   const ctx = await browser.newContext({ viewport: { width: W, height: 844 }, deviceScaleFactor: 1, colorScheme: scheme, serviceWorkers: 'block' });
   await ctx.route('**/*', r => { const u = new URL(r.request().url()); if (u.hostname !== 'lk.test') return r.abort(); let p = decodeURIComponent(u.pathname); const f = path.join(ROOT, p); if (!fs.existsSync(f) || fs.statSync(f).isDirectory()) return r.fulfill({ status: 404, body: '' }); r.fulfill({ status: 200, body: fs.readFileSync(f), contentType: MIME[path.extname(f)] || 'application/octet-stream' }); });
   const page = await ctx.newPage(); page.on('pageerror', e => errs.push(`gallery ${scheme}: ${e.message}`));
@@ -182,7 +182,7 @@ for (const scheme of ['dark', 'light']) {
   await page.evaluate(async () => { localStorage.setItem('lk.ux1', '1'); localStorage.setItem('lk.speak', '1'); localStorage.setItem('lk.onb', '1'); App.state.settings.onboarded = true; App.state.settings.exam = 'ielts'; App.state.settings.examTarget = '7.5'; await App.saveSettings();
     await Core.Store.set('mocks', [{ at: Date.now() - 3 * 864e5, bands: { listening: 7.5, reading: 7.5, writing: 6.5, speaking: 6.5 }, overall: 7 }]);
     localStorage.setItem('lk.lsn.path', '3'); localStorage.setItem('lk.ux1.st', JSON.stringify({ 0: 3, 1: 3, 2: 2 })); }).catch(() => {});
-  for (const [k, h] of Object.entries(SCREENS)) {
+  for (const [k, h] of shardScreens()) {
     await page.goto(url(h), { waitUntil: 'load' }); await page.reload({ waitUntil: 'load' }); await page.waitForTimeout(1800); { await FIX_CLOCK(page); await page.evaluate(SEED_STREAK); await page.evaluate(() => App.route()); await page.waitForTimeout(600); } if (k === 'leagues') { await page.evaluate(SEED_LEAGUE); await page.evaluate(() => App.route()); await page.waitForTimeout(900); } await SEED_SCREEN(page, k);
     if (DRIVEN.test(k)) await page.evaluate(DRIVE, k).catch(e => errs.push('drive ' + e.message)); if (READY[k] && !(await page.waitForSelector(READY[k], { state: 'attached', timeout: 6000 }).catch(() => null))) errs.push(`${k}: chưa tới trạng thái (${READY[k]}) – ảnh chụp sai màn · có: ${await page.evaluate(sel => sel.split(' ').map((_, i, a) => a.slice(0, i + 1).join(' ')).map(x => { try { return x + '=' + document.querySelectorAll(x).length; } catch (e) { return x + '=?'; } }).join(' | ') + ' · hash ' + location.hash + ' · data-st ' + [...document.querySelectorAll('[data-st]')].map(e => e.dataset.st + (e.hasAttribute('data-cur') ? '*' : '')).join(','), READY[k]).catch(e => e.message)}`);
     await page.addStyleTag({ content: '#toast{display:none!important}' }).catch(() => {});
@@ -195,14 +195,14 @@ for (const scheme of ['dark', 'light']) {
 await browser.close();
 
 // ---- tờ "Stitch | app" (sáng + tối) ----
-try { for (const k of Object.keys(SCREENS)) { const f = [refOf(k, 'dark'), path.join(OUT, `app-${k}-dark.png`), refOf(k, 'light'), path.join(OUT, `app-${k}-light.png`)];
+try { for (const k of shardScreens().map(x => x[0])) { const f = [refOf(k, 'dark'), path.join(OUT, `app-${k}-dark.png`), refOf(k, 'light'), path.join(OUT, `app-${k}-light.png`)];
   const lab = ['Stitch – tối', 'Lexkite – tối', 'Stitch – sáng', 'Lexkite – sáng'], args = []; f.forEach((x, i) => { if (fs.existsSync(x)) args.push('-label', lab[i], x.endsWith('.png') ? x + '[390x2600+0+0]' : x); else args.push('-label', lab[i] + ' (chưa có mẫu)', 'xc:#ccc'); });
   execFileSync('montage', [...args, '-tile', '4x1', '-geometry', '390x2600>+8+8', '-pointsize', '18', '-background', '#e9e9e9', '-quality', '80', path.join(OUT, `side-${k}.jpg`)]);
   const d = [refOf(k, 'dark'), path.join(OUT, `desk-${k}-dark.png`), path.join(OUT, `desk-${k}-light.png`)], dl = ['Stitch (điện thoại, tối)', 'Lexkite máy tính – tối', 'Lexkite máy tính – sáng'], da = [];
   d.forEach((x, i) => { if (fs.existsSync(x)) da.push('-label', dl[i], x); });
   if (da.length) execFileSync('montage', [...da, '-tile', `${da.length / 3}x1`, '-geometry', '+8+8', '-resize', 'x900', '-pointsize', '18', '-background', '#e9e9e9', '-quality', '80', path.join(OUT, `desk-${k}.jpg`)]); } } catch (e) { console.log('montage bỏ qua:', e.message); }
 // tờ khổ máy: 360 · 390 · 412 (tối rồi sáng) cho mỗi màn
-try { for (const k of Object.keys(SCREENS)) { const a = []; for (const sc of ['dark', 'light']) for (const [w, f] of [[360, `w360-${k}-${sc}.png`], [390, `app-${k}-${sc}.png`], [412, `w412-${k}-${sc}.png`]]) { const x = path.join(OUT, f); if (fs.existsSync(x)) a.push('-label', `${w} px – ${sc === 'dark' ? 'tối' : 'sáng'}`, x + `[${w}x1700+0+0]`); }
+try { for (const k of shardScreens().map(x => x[0])) { const a = []; for (const sc of ['dark', 'light']) for (const [w, f] of [[360, `w360-${k}-${sc}.png`], [390, `app-${k}-${sc}.png`], [412, `w412-${k}-${sc}.png`]]) { const x = path.join(OUT, f); if (fs.existsSync(x)) a.push('-label', `${w} px – ${sc === 'dark' ? 'tối' : 'sáng'}`, x + `[${w}x1700+0+0]`); }
   if (a.length) execFileSync('montage', [...a, '-tile', '6x1', '-geometry', 'x1300+6+6', '-pointsize', '18', '-background', '#e9e9e9', '-quality', '75', path.join(OUT, `w-${k}.jpg`)]); } } catch (e) { console.log('montage khổ bỏ qua:', e.message); }
 
 // ---- cổng ----
@@ -221,7 +221,7 @@ console.log(Object.entries(res).map(([k, v]) => `${k}: ssim ${v.ssim} · nhịp 
     ...Object.keys({ ...res, ...a11y }).sort().map(k => { const r = res[k] || {}, a = a11y[k] || {}, v = a.violations || []; return `| ${k} | ${r.ssim ?? '–'} | ${r.rows ?? '–'} | ${v.filter(x => x.impact === 'serious' || x.impact === 'critical').length}/${v.length}${v.length ? ' ' + v.map(x => x.id).join(',') : ''} |`; }),
     '', '| khổ | tràn | chữ cắt | chạm <44 | logo |', '|---|---|---|---|---|', ...Object.entries(qc).map(([k, v]) => `| ${k} | ${v.hscroll || (v.over || []).length ? '✗' : '✓'} | ${(v.clip || []).length || '✓'} | ${v.tapN ?? '–'}${v.tapN ? ' ' + v.tap.slice(0, 3).join(',') : ''} | ${v.logo ? v.logo.w + 'px' : '–'} |`), '', `### Tương phản (pixel thật) – ${Object.values(contrast).reduce((t, v) => t + v.n, 0)} chữ/icon · ${Object.keys(contrast).length} ảnh · trượt ${cmiss.length}`, ...(cmiss.length ? ['| ảnh | chữ | tỉ lệ | cần |', '|---|---|---|---|', ...cmiss.slice(0, 10).map(m => `| ${m.k} | ${m.t.replace(/\|/g, '/')} | ${m.cr} | ${m.need} |`)] : ['✓ mọi chữ ≥4.5, chữ lớn/icon ≥3']), '', ...css.map(x => '- ' + x), errs.length ? '- lỗi JS: ' + errs.slice(0, 5).join(' | ') : '- lỗi JS: 0', bad.length ? '- ✗ ' + bad.slice(0, 12).join('\n- ✗ ') : '- ✓ đạt ngưỡng'].join('\n');
   fs.writeFileSync(path.join(OUT, 'SUMMARY.md'), md + '\n'); if (process.env.GITHUB_STEP_SUMMARY) fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, md + '\n');
-  try { for (const k of Object.keys(SCREENS)) for (const f of [`side-${k}.jpg`, `desk-${k}.jpg`, `w-${k}.jpg`]) if (fs.existsSync(path.join(OUT, f))) execFileSync('convert', [path.join(OUT, f), '-resize', '900x900>', '-quality', '70', path.join(OUT, 'sm-' + f)]); } catch (e) { /* bỏ qua */ } }
+  try { for (const k of shardScreens().map(x => x[0])) for (const f of [`side-${k}.jpg`, `desk-${k}.jpg`, `w-${k}.jpg`]) if (fs.existsSync(path.join(OUT, f))) execFileSync('convert', [path.join(OUT, f), '-resize', '900x900>', '-quality', '70', path.join(OUT, 'sm-' + f)]); } catch (e) { /* bỏ qua */ } }
 if (errs.length) console.log('lỗi JS:', errs.slice(0, 10));
 if (bad.length || errs.length) { console.error('✗ stitch-diff:\n  - ' + bad.concat(errs).join('\n  - ')); process.exit(1); }
 console.log('✓ stitch-diff: bám mẫu Stitch đạt ngưỡng (scripts/test/stitch-diff.json, chỉ được nâng)');
