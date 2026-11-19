@@ -650,8 +650,6 @@
     const lang = document.documentElement.lang || 'en', W = E.weekDots(App.activeDays ? App.activeDays() : new Set(), new Date(), Core.todayKey), wk = { on: W.on, n: W.n, lt: W.days.map(x => { try { return new Intl.DateTimeFormat(lang, { weekday: 'narrow' }).format(x); } catch (e) { return ''; } }) }; // 7 chấm tuần này (thứ 2 → CN): sáng = ngày đã học (hôm nay tính luôn)
     const run = Math.max(streak, E.runOf(App.activeDays ? App.activeDays() : new Set(), new Date(), Core.todayKey)); // chuỗi LIỀN tới hôm nay – KHÁC số ngày học trong tuần (hai nhãn riêng, không mâu thuẫn)
     let minsS = String(mins); try { minsS = new Intl.NumberFormat(lang, { style: 'unit', unit: 'minute', unitDisplay: 'narrow' }).format(mins); } catch (e) { /* bỏ qua */ }
-    const CHIP = 'px-2 py-0.5 min-h-[44px] inline-flex items-center rounded-md border font-bold text-[12px] leading-4 lt:bg-[#FBF7F1] lt:border-[#EADEC8] lt:text-[#145652] lt:shadow-[0_1.5px_0_0_#D8CFBC] dk:bg-[#121D20] dk:border-[#2B373A] dk:text-[#6BD8CE] dk:shadow-[0_1.5px_0_0_#051013]';
-    const chipsH = w.map(p => `<button type="button" lang="en" data-say="${esc(p.card.word)}" class="${CHIP}" aria-label="${esc(t('Chạm để nghe') + ': ' + p.card.word)}">${esc(p.card.word)}</button>`).join('') + (w.length ? `<a class="lsn-rev no-underline ${CHIP} lt:!bg-transparent dk:!bg-transparent" href="#/review">${esc(t('Ôn lại'))}</a>` : '') + more;
     const d = {
       close: `#/lesson${q}`,
       mapL: t('Bản đồ bài học'),
@@ -670,7 +668,8 @@
       off2: Math.round(144.51 * (1 - (w.length ? got / w.length : 1)) * 100) / 100,
       sub: s.accuracy >= 80 ? t('Tuyệt vời!') : t('Làm tốt lắm, cứ tiếp tục nhé!'),
       learned: ' ',
-      chipsH,
+      more,
+      wl: w,
       rev: weak.length ? t('Sổ lỗi sai') : t('Bản đồ bài học'),
       revIcon: weak.length ? 'edit_note' : 'map',
       revHref: weak.length ? '#/mistakes' : `#/lesson${q}`,
