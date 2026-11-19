@@ -4,8 +4,10 @@ name: Read shots
 on:
   workflow_dispatch:
     inputs:
-      before: { description: 'Commit TRƯỚC', required: true }
+      before: { description: 'Commit TRƯỚC', required: false, default: 'c3292bb48b' }
       id: { description: 'Mã bài đọc', required: false, default: 'ocean-microplastics' }
+  push:
+    branches: ['read-shots*']
 permissions: { contents: read }
 jobs:
   shots:
@@ -19,7 +21,7 @@ jobs:
       - uses: ./.github/actions/playwright-cache
         with: { browsers: '--with-deps chromium' }
       - name: Chụp
-        env: { BEFORE: "${{ github.event.inputs.before }}", RID: "${{ github.event.inputs.id }}" }
+        env: { BEFORE: "${{ github.event.inputs.before || 'c3292bb48b' }}", RID: "${{ github.event.inputs.id || 'ocean-microplastics' }}" }
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
           bash scripts/ci/pw-install.sh --with-deps chromium
