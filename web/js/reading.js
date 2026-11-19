@@ -69,7 +69,7 @@
     if (innerWidth < 900) $('#readGrid').style.gridTemplateColumns = '1fr';
 
     // Thanh tô sáng: đếm từ khác nhau được tô thật; lớp rỗng ẩn chip
-    const { LAYERS, paint, any } = ReadHL, tws = $$('#passage .tw');
+    const { LAYERS, paint, any } = ReadHL, tws = $$('.tw');
     const paintCounts = () => paint(tws, $, $$);
     LAYERS.forEach(k => { $(`[data-hl="${k}"]`).hidden = !any(tws, k); });
     paintCounts();

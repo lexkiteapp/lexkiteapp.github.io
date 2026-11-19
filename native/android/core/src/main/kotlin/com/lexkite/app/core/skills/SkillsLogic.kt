@@ -335,6 +335,16 @@ object Reader {
     /** Chip tapped: the new set, and the string saved as settings.hl (always in chip order: kw awl link mine). */
     fun toggle(on: Set<String>, k: String): Pair<Set<String>, String> { val n = if (k in on) on - k else on + k; return n to HL.filter { it in n }.joinToString(" ") }
 
+    /** Highlight layers, strongest first: a word carries ONE style (the first layer that is on and applies). Words in `highlightCommon` (web cpack/readings/hl.js COMMON) are never painted, except keywords and phrase members. */
+    val LAYERS = listOf("mine", "kw", "link", "awl")
+    fun has(t: Lexis.Tok, l: String): Boolean { val c = t.cls.split(' '); return if (l == "link") "link" in c || "col" in c else l in c && (l == "kw" || t.ph != null || t.w !in SkillsConsts.highlightCommon) }
+    fun layerOf(t: Lexis.Tok, on: Set<String>): String? = LAYERS.firstOrNull { it in on && has(t, it) }
+    private fun toks(p: Passage) = p.paras.flatten().flatten().filterIsInstance<Lexis.Tok>()
+    /** Distinct words (by phrase) actually painted per layer while [on] is active (the chip counts). */
+    fun painted(p: Passage, on: Set<String>): Map<String, Int> = toks(p).mapNotNull { t -> layerOf(t, on)?.let { it to (t.ph ?: t.w) } }.groupBy({ it.first }, { it.second }).mapValues { it.value.toSet().size }
+    /** Chips with nothing to show (e.g. AWL 0) are hidden. */
+    fun available(p: Passage, l: String): Boolean = toks(p).any { has(it, l) }
+
     /** The passage as paragraphs -> sentences -> tokens, with the number of distinct words per highlight. */
     class Passage(val paras: List<List<List<Any>>>, val counts: Map<String, Int>) {
         val sentences get() = paras.sumOf { it.size }

@@ -547,17 +547,24 @@ function wireReader(P, r, o = {}) {
 const readInit = (P, r, W) => { const h = P.view.innerHTML, c = W.parse(); return { back: { href: /<a href="([^"]*)" class="small">/.exec(h)[1], label: strip(/<a href="#\/reading" class="small">([\s\S]*?)<\/a>/.exec(h)[1]) }, level: r.level, topic: r.topic, emoji: r.emoji, title: strip(/<h1[^>]*>([\s\S]*?)<\/h1>/.exec(h)[1]),
   summaryKind: /<p class="muted"[^>]*><span lang="en">/.test(h) ? 'en' : /tr-wait/.test(h) ? 'translate' : 'text', highlightChips: [...h.matchAll(/<button class="hl-chip (\w+) ?(on)?" data-hl="\w+"[^>]*>/g)].map(m => ({ k: m[1], on: !!m[2] })), passageClasses: c.passageClasses.split(' ').filter(Boolean),
   counts: Object.fromEntries(['kw', 'awl', 'link', 'mine'].map(k => [k, P.$(`[data-count="${k}"]`).textContent])), paragraphs: (h.split('id="passage">')[1] || '').split('</div>')[0].split('</p>').filter(x => x.includes('<p>')).length, sentences: c.sents.length, words: c.tws.length, questions: r.questions.length, keywordChips: r.keywords.length }; };
+const layersOut = (P, W) => { // web cpack/readings/hl.js chạy trên các token của bài (tất cả 4 lớp bật)
+  const H = P.sb.ReadHL, tws = W.parse().tws, seen = Object.fromEntries(H.LAYERS.map(k => [k, new Set()]));
+  tws.forEach(t => { const k = H.LAYERS.find(l => H.has(t, l)); if (k) seen[k].add(t.dataset.ph || t.dataset.w); });
+  const ord = ['kw', 'awl', 'link', 'mine'];
+  return { counts: Object.fromEntries(ord.map(k => [k, seen[k].size])), available: Object.fromEntries(ord.map(k => [k, H.any(tws, k)])) };
+};
 async function readerVectors() {
   const D = await content(), out = { render: [], popup: [], questions: [], actions: [] }; const R0 = D.readings;
   const base = async (o = {}) => { const P = await page({ cards: o.cards, settings: o.settings, learnLang: o.learnLang, game: o.game, dict: o.dict, confirm: o.confirm, voices: {} }); const r = R0.find(x => x.id === (o.id || R0[0].id)); const W = wireReader(P, r, o); await P.routes.read(r.id); return { P, r, W }; };
   // ---- render ----
   for (const [i, r] of R0.entries()) { const { P, W } = await base({ id: r.id, cards: i === 1 ? { [r.keywords[0].toLowerCase()]: { word: r.keywords[0] } } : undefined }); const init = readInit(P, r, W); const e = { id: `render-${r.id}`, why: i === 0 ? 'reader: passage = Lexis.markText(text, {keywords, mine: inDeck}) → paragraphs (split on blank lines) → sentences (split on . ! ? runs) → tokens (see shared.lexis); highlight chips default "kw awl link mine" (settings.hl) with distinct-word counts (link counts link + col classes, by phrase or word); keyword chips; a "Câu hỏi" card' : i === 1 ? 'a keyword already in the deck gets class mine ("Từ của tôi" count > 0)' : 'another passage', input: { reading: r.id, cards: i === 1 ? [r.keywords[0]] : [] }, out: init };
+    e.out.layers = layersOut(P, W); // tô sáng: mỗi từ MỘT lớp (mine > kw > link > awl), từ phổ biến không tô, lớp rỗng ẩn chip
     if (i === 0) e.out.passage = paras((P.view.innerHTML.split('id="passage">')[1] || '').split('</div>')[0]); out.render.push(e); note('read', 'render', P); }
   { const P = await page({}); await P.routes.read('zzz'); out.render.push({ id: 'unknown-id', why: 'unknown id → the list (routes.reading())', input: { id: 'zzz' }, out: { fallback: 'reading', cards: readingListOut(P.view.innerHTML).cards.length } }); }
   // ---- highlight chips ----
   { const { P, r, W } = await base({}); const chips = P.E.dom.$$('[data-hl]'); const seq = []; W.parse().passageClasses.split(' ').filter(Boolean).forEach(x => P.$('#passage')._cls.add(x));
     for (const k of ['awl', 'kw', 'mine', 'link']) { chips.find(c => c.dataset.hl === k).onclick(); seq.push({ toggled: k, settings: lastW(P, 'settings', 'hl'), passage: [...P.$('#passage')._cls].sort() }); }
-    out.actions.push({ id: 'highlight-toggle', why: 'each chip toggles class "on" and hl-<k> on the passage; settings.hl = the chips that are on, space-joined in DOM order (kw awl link mine) and saved (App.saveSettings)', input: { reading: r.id, start: 'kw awl link mine', toggles: ['awl', 'kw', 'mine', 'link'] }, out: { steps: seq } }); note('read', 'highlight-toggle', P); }
+    out.actions.push({ id: 'highlight-toggle', why: 'each chip toggles class "on" and hl-<k> on the passage; settings.hl = the chips that are on, space-joined in DOM order (kw awl link mine) and saved (App.saveSettings)', input: { reading: r.id, start: 'kw', toggles: ['awl', 'kw', 'mine', 'link'] }, out: { steps: seq } }); note('read', 'highlight-toggle', P); }
   { const { P, r } = await base({ settings: { hl: 'kw' } }); out.render.push({ id: 'settings-hl-kw', why: 'settings.hl = "kw" → only the keyword highlight is on', input: { settingsHl: 'kw' }, out: { passageClasses: readInit(P, r, { parse: () => ({ passageClasses: (/<div class="passage ([^"]*)" id="passage">/.exec(P.view.innerHTML) || [])[1] || '', sents: [], tws: [] }) }).passageClasses } }); }
   // ---- word popup ----
   const popFlow = async (id, why, o) => {
@@ -641,7 +648,9 @@ function packConsts() {
   const stop = /const STOPW = new Set\('([^']+)'\.split/.exec(rd('web/js/listening.js'));
   if (!narrator || !stop) throw new Error('skills-pack: NARRATOR / STOPW not found');
   const names = lit(rd('web/js/qtips.js'), /const NAME = (\{[\s\S]*?\n  \});/, 'qtips.js NAME');
-  return { band, kvoice: { narrator, pools }, stopwords: stop[1].split(' '), names };
+  const hl = rd('web/cpack/readings/hl.js'), lexStop = /const STOP = new Set\('([^']+)'/.exec(rd('web/js/lexis.js')), extra = /\.\.\.'([^']+)'\.split/.exec(hl);
+  if (!lexStop || !extra) throw new Error('skills-pack: Lexis STOP / hl.js COMMON not found');
+  return { band, kvoice: { narrator, pools }, stopwords: stop[1].split(' '), highlightCommon: [...new Set([...lexStop[1].split(' '), ...extra[1].split(' ')])], names };
 }
 /** Text of web/data/skills-pack.json: the COMPLETE content in the exact shape of skills.json `data` (listening 10 tests × 4 parts, MCQ options rotated; readings 57; lexis) + consts. v = content hash (cache key). */
 export async function skillsPack() {
