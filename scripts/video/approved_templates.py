@@ -8,6 +8,7 @@ status: approved (evidence: sample clip + qc + motion_qc + date + who) | draft (
   approved_templates.py status ID [ENGINE]"""
 import glob, json, os, sys
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')); BOOK = f'{ROOT}/content/video/cine/news/approved.json'
+MAX_CTA_SAY = 22   # longest hand-made Motion CTA that renders ('Take a free mock test' = 21)
 EVID = ('sample', 'qc', 'approved', 'by')
 def load(): return json.load(open(BOOK))
 def templates(): return load().get('templates', [])
@@ -38,7 +39,9 @@ def problems():
         if ('teach2d', tp) not in ids: out.append(f'teach2d template {tp} (in {os.path.basename(f)}) is not in the book'); break
     for f in glob.glob(f'{ROOT}/content/video/cine/news/motion/*.json'):
         if os.path.basename(f) == 'reviewed.json': continue
-        tp = json.load(open(f)).get('template')
+        sp = json.load(open(f)); tp = sp.get('template')
+        say = (sp.get('cta') or {}).get('say') or ''
+        if len(say) > MAX_CTA_SAY: out.append(f'{os.path.basename(f)}: cta.say "{say}" is {len(say)} chars > {MAX_CTA_SAY} (wraps taller than the 240 px pop band -> render_v9 "pop taller than the band"; 19/11: 64/64 generated renders failed on this)')
         if ('motion', tp) not in ids: out.append(f'motion template {tp} (in {os.path.basename(f)}) is not in the book'); break
     return out
 if __name__ == '__main__':
