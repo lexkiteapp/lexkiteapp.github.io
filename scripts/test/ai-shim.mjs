@@ -1,12 +1,12 @@
 // Test shim window.AI (ai.js tải lười, 17/11): ai.js không nằm trong khung app; mọi `AI.<hàm>` mà mã người học gọi phải có trên shim; hàm bất đồng bộ tải gói 'ai' rồi gọi bản thật; hàm đồng bộ an toàn khi chưa tải.
 import fs from 'node:fs'; import path from 'node:path'; import vm from 'node:vm';
-import { SCAN_ROOTS } from '../lib/scan-roots.mjs';
+import { SCAN_ROOTS } from '../lib/scan-roots.mjs'; import { readBundles } from '../lib/bundles.mjs';
 let bad = 0; const ok = (c, m) => { console.log(`${c ? '✓' : '✗'} ${m}`); if (!c) { bad++; process.exitCode = 1; } };
 const app = fs.readFileSync('web/js/app.js', 'utf8'), a = app.indexOf('  { const real = m => (...a) => App.need(\'ai\')'), b = app.indexOf('\n', app.indexOf('localOn: () => false }; }', a));
 ok(a > 0 && b > a, 'app.js có shim window.AI');
 const code = app.slice(a, b), keys = new Set([...code.matchAll(/\b(\w+): (?:real\(|f =>|\(el|e =>|\(\) =>)/g)].map(m => m[1]));
 ok(!/js\/ai\.js/.test(fs.readFileSync('web/app/index.html', 'utf8')) && !/\/js\/ai\.js/.test(fs.readFileSync('web/sw.js', 'utf8').match(/const SHELL = \[[\s\S]*?\];/)[0]), 'ai.js không còn trong index.html và SHELL (khung app)');
-ok(/ai: \['js\/ai\.js'\]/.test(app), "BUNDLES có gói 'ai'");
+ok(JSON.stringify(readBundles().ai) === '["js/ai.js"]', "BUNDLES (web/js/bundles.js) có gói 'ai'");
 // mọi AI.<hàm> được dùng ngoài ai.js phải có trên shim
 const used = new Map(), walk = d => { for (const e of fs.readdirSync(d, { withFileTypes: true })) { const p = path.join(d, e.name); if (e.isDirectory()) walk(p); else if (p.endsWith('.js') && p !== 'web/js/ai.js' && !/\/i18n\//.test(p)) for (const m of fs.readFileSync(p, 'utf8').matchAll(/(?<![\w.$])AI\.(\w+)/g)) used.set(m[1], p); } };
 for (const r of SCAN_ROOTS) walk(r);
