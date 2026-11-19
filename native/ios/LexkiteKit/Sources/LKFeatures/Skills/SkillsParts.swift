@@ -309,11 +309,12 @@ struct WordFlow: View {
             ForEach(Array(pieces.enumerated()), id: \.offset) { i, p in
                 switch p {
                 case .text(let s): Text(verbatim: s).studyText(LKType.bodyMd).englishText()
-                case .word(let shown, let w, let cls, _):
+                case .word(let shown, let w, let cls, let ph):
+                    let mk = mark(cls, w, ph)
                     Button { onWord(w) } label: {
                         Text(verbatim: shown).studyText(LKType.bodyMd).englishText()
                             .padding(.vertical, 2)
-                            .overlay(alignment: .bottom) { if mark(cls) != nil { Rectangle().fill(mark(cls)!.resolve(scheme)).frame(height: 2) } }
+                            .overlay(alignment: .bottom) { if let mk { Rectangle().fill(mk.resolve(scheme)).frame(height: 2) } }
                             .background(i == activeWord ? LKColor.secondaryFixed.resolve(scheme).opacity(0.4) : .clear)
                     }
                     .buttonStyle(.plain)
@@ -323,13 +324,16 @@ struct WordFlow: View {
         }
         .englishText()
     }
-    private func on(_ cls: String, _ k: String) -> Bool { highlights.isEmpty ? false : highlights.contains(k) && cls.split(separator: " ").contains { $0 == Substring(k) || ($0 == "col" && k == "link") } }
-    private func mark(_ cls: String) -> LKDynamicColor? {
-        if on(cls, "kw") { return LKColor.primary }
-        if on(cls, "link") { return LKColor.secondary }
-        if on(cls, "awl") { return LKColor.tertiary }
-        if on(cls, "mine") { return LKColor.success }
-        return nil
+    /// one style per word, same rule as the web (ReaderPage.layers: mine > kw > link > awl; common words never painted)
+    private func mark(_ cls: String, _ w: String, _ ph: String?) -> LKDynamicColor? {
+        let on = Set(highlights)
+        switch ReaderPage.layers.first(where: { on.contains($0) && ReaderPage.has(cls, w, ph, $0) }) {
+        case "kw": return LKColor.primary
+        case "link": return LKColor.secondary
+        case "awl": return LKColor.tertiary
+        case "mine": return LKColor.success
+        default: return nil
+        }
     }
 }
 

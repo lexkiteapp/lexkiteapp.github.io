@@ -156,6 +156,7 @@ function Body({ n, t, w, h, T }) {
       return <div style={{ position: 'absolute', left: 0, top: 0, height: h, width: w * p, background: '#F2553B', borderRadius: h / 2 }} />; }
     case 'dot': { const [cur, , m] = state(n, t), on = cur === 'hit' ? m : 0;
       return <div style={{ width: w, height: h, borderRadius: '50%', background: n.big ? mixc(T.dot_off, T.dot_on, on) : T.dot_off, boxShadow: n.big && on ? `0 0 ${16 * on}px ${T.dot_on}` : 'none' }} />; }
+    case 'backdrop':
     case 'img': return <Img src={staticFile(n.src)} style={{ width: w, height: h, borderRadius: n.radius, display: 'block' }} />;
     case 'cta':
       return <div style={{ width: w, height: h, boxSizing: 'border-box', borderRadius: 28, background: `linear-gradient(90deg,${T.cta_a},${T.cta_b})`, borderBottom: `6px solid ${T.cta_ledge}`,

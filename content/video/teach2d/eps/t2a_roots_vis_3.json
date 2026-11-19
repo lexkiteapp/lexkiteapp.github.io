@@ -1,0 +1,181 @@
+{
+ "id": "t2a_roots_vis_3",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, two words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "The root is Vis! Supervise, television.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Vis is Latin for see.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Supervise: above plus see.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Television: far plus see.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means far plus see?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Television! Far plus see.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "VIS",
+  "rid": "vis",
+  "say": "see",
+  "src": "videre",
+  "src_lang": "Latin",
+  "src_mean": "to see",
+  "words": [
+   {
+    "w": "supervise",
+    "ipa": "/ˈsuːpərvaɪz/",
+    "mean": "see from above",
+    "seg": "super-|vis|-e",
+    "parts": [
+     [
+      "super",
+      "pre"
+     ],
+     [
+      "vis",
+      "root"
+     ],
+     [
+      "e",
+      "suf"
+     ]
+    ],
+    "pre": "super",
+    "pm": "above",
+    "pms": "above",
+    "ex": "She supervises a team of twelve sales staff.",
+    "em": "👁️"
+   },
+   {
+    "w": "television",
+    "ipa": "/ˈteləvɪʒn/",
+    "mean": "seeing from far",
+    "seg": "tele-|vis|-ion",
+    "parts": [
+     [
+      "tele",
+      "pre"
+     ],
+     [
+      "vis",
+      "root"
+     ],
+     [
+      "ion",
+      "suf"
+     ]
+    ],
+    "pre": "tele",
+    "pm": "far",
+    "pms": "far",
+    "ex": "We don't watch much television at home.",
+    "em": "📺"
+   }
+  ],
+  "quiz": {
+   "stem": "far plus see",
+   "options": [
+    "supervise",
+    "television"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/supervise",
+  "link": "https://lexkite.com/app/#/dict/supervise",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, two words"
+ },
+ "src": {
+  "root": "vis"
+ },
+ "est": {
+  "words": 43,
+  "seconds": 26.0,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Vis root: supervise and television",
+  "keyword": "vis root",
+  "value": "Vis comes from Latin \"videre\" (to see). Words: supervise and television. supervise = super + vis; television = tele + vis.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/supervise",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "Vis root: supervise and television",
+    "description": "Vis comes from Latin \"videre\" (to see). Words: supervise and television. supervise = super + vis; television = tele + vis.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/supervise\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "vis root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Vis root: supervise and television\n\nVis comes from Latin \"videre\" (to see). Words: supervise and television. supervise = super + vis; television = tele + vis.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/supervise"
+   },
+   "instagram": {
+    "caption": "Vis root: supervise and television\n\nVis comes from Latin \"videre\" (to see). Words: supervise and television. supervise = super + vis; television = tele + vis.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Vis root: supervise and television #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? Television! Far plus see. Vis comes from Latin \"videre\" (to see). Words: supervise and television. supervise = super + vis; television = tele + vis. More practice like this (free): {link}"
+ }
+}

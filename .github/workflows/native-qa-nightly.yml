@@ -19,3 +19,4 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - run: node scripts/video/teach2d/native-qa.mjs --online
+      - run: node scripts/video/teach2d/rule-l1-qa.mjs --online
