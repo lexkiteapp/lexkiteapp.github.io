@@ -708,7 +708,8 @@ def T_rule():
         x0 = tn['box'][0] + tw(w['w'][:a_], sz); x1 = x0 + tw(w['w'][a_:b_], sz); ym = (tn['box'][1] + tn['box'][3]) / 2 + 4   # the silent letters get the red strike on the normal read
         NODES.append(dict(id=nid('s'), type='strike', parent=tn['parent'], _rel=tn['id'], box=[x0 - 6, ym - 5, x1 + 6, ym + 5], **{'in': cue(at(f'v{k}', 0), 'draw')}))
     c = Card(RY0, tone='card'); chip(c, 'REPEAT AFTER ME', start('p'))
-    for k, w in enumerate(ws): c.text([[w['w'][:w['silent'][0]], 'ink'], [w['w'][w['silent'][0]:w['silent'][1]], 'accent'], [w['w'][w['silent'][1]:], 'ink'], ['  ' + w['ipa'], 'muted']], S['body'], start('p'), align='c', gap=GAP - 8)
+    rg = max(GAP - 8, min(110, int((0.58 * (RY1 - RY0) - c.y - 2 * PAD) / max(1, n))))   # few words (2) -> roomier rows, so the card fills the region instead of leaving a flat empty band under it (dead_band gate)
+    for k, w in enumerate(ws): c.text([[w['w'][:w['silent'][0]], 'ink'], [w['w'][w['silent'][0]:w['silent'][1]], 'accent'], [w['w'][w['silent'][1]:], 'ink'], ['  ' + w['ipa'], 'muted']], S['body'], start('p'), align='c', gap=rg)
     c.place(start('p'), start('q') - 0.2, 'a')
     q = D['quiz']; quiz_card([[q['stem'], 'ink']], q['options'], q['answer'], start('q'), at('a', 0), start('c') - 0.2)
     end_card()
