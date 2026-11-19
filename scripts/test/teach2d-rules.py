@@ -7,7 +7,7 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 sys.path.insert(0, f'{ROOT}/scripts/video/teach2d'); import rules as RU  # noqa: E402
 R = json.load(open(RU.RULES_F))['rules']; D = json.load(open(RU.OUT_F))['rules']; BY = {r['id']: r for r in R}
 bad = []
-if len(R) < 10: bad.append(f'rules.json has {len(R)} rules (< 10)')
+if len(R) < 30: bad.append(f'rules.json has {len(R)} rules (< 30)')
 for r in R:
     for k in ('id', 'kind', 'title', 'pattern', 'target', 'wrong', 'say'):
         if not r.get(k): bad.append(f"{r.get('id')}: missing {k}")
