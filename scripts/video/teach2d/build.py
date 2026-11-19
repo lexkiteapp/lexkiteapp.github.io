@@ -763,7 +763,7 @@ def T_band():
         b = x['band']; t0 = ts[i]; t_o = (ts[i + 1] if i + 1 < len(st) else start('c')) - 0.2
         c = Card(ys + 100, tone='card' if b < 9 else 'bubble_good'); chip(c, f'BAND {b}' + (f" \u00b7 {x['crit'].upper()}" if b > 5 else ''), t0, **({'tone': 'good'} if b == 9 else {}))
         c.text(runs_hl(x['text'], x.get('mark'), 'onhl' if b == 9 else 'accent', 'ongood' if b == 9 else 'ink'), S['body'], t0)
-        if b > 5: c.text([['\u2b06 ', 'onhl' if b == 9 else 'accent'], [bands_why(x['why']), 'ongood' if b == 9 else 'ink']], S['sub'], at(f'w{b}', 0))
+        if b > 5: c.text([['\u2b06 ', 'ongood' if b == 9 else 'accent'], [bands_why(x['why']), 'ongood' if b == 9 else 'ink']], S['sub'], at(f'w{b}', 0))
         c.place(t0, t_o, 'a')
     end_card()
 
