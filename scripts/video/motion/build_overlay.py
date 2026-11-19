@@ -236,7 +236,7 @@ def build():
     tops, cols = [], []
     top_h = max([_measure_top(c) for c in M['top']] + [END_TOP_H]); col_y0 = Y0 + top_h + 32
     assert Y0 + top_h <= TOP_Y1, ('top card does not fit above the head', top_h, TOP_Y1 - Y0)
-    for c in M['top']: tops.append(_top(c, top_h))
+    for c in M['top']: tops.append(_top(c))
     for c in M.get('col', []): cols.append(_col(c, col_y0))
     if M.get('bar'):   # under the option stack; wide: beside the (640 px) pills
         if o.format == 'wide': _bar(M['bar'], col_y0, X0 + 640 + 28)
@@ -273,14 +273,14 @@ def _fill_top(cd, c, measure=False):
 
 def _measure_top(c): return _fill_top(Card('_m', X0, Y0, X1 - X0), c, True).height()
 
-def _top(c, top_h):
+def _top(c):
     cd = _fill_top(top_card(c['id'], c.get('kind', 'lesson'), 'hook' if c.get('hook') else 'pop', c.get('tone')), c)
     if c.get('hook'): ins = dict(t=0.0, k='rise'); cw = None   # hook: on screen from the first frame (fully visible <= 0.40 s)
     else: ins, cw = cue(c['at'], 'rise'); CUES.append(dict(node=c['id'], **cw))
     st = [dict(t=round(at(x['at']) - (0.0 if x['at'][0] in ('t', 'beat') else 0.02), 4), s=x['s']) for x in c.get('st', [])]
     extra = {}
     if c.get('ipa'): IPA.append(dict(pop=c['id'], **c['ipa']))
-    cn = cd.place(h=top_h, ins=ins, st=st or None, extra=extra)
+    cn = cd.place(ins=ins, st=st or None, extra=extra)   # the card's OWN height (owner 19/11: a card stretched to the tallest one shows a flat empty panel); the plate shows through below it
     for it in NODES:
         if it.get('parent') == c['id'] and it['type'] == 'slot' and c.get('reveal'):
             rin, rcw = cue(c['reveal'], 'pop'); it['st'] = [dict(t=round(rcw['at'] - 0.02, 4), s='filled')]; CUES.append(dict(node=it['id'], **rcw))

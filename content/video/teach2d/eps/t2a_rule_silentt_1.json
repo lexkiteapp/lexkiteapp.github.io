@@ -1,0 +1,141 @@
+{
+ "id": "t2a_rule_silentt_1",
+ "template": "rule",
+ "series": "Spell to Sound",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "pronunciation",
+ "lines": [
+  {
+   "id": "h",
+   "text": "The T is silent!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "In s t l e and s t e n, the T is silent.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Listen.",
+   "pause": 0.25,
+   "speed": 0.6
+  },
+  {
+   "id": "v0",
+   "text": "Listen.",
+   "pause": 0.3
+  },
+  {
+   "id": "p",
+   "text": "Repeat after me!",
+   "pause": 1.6
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which letter is silent in listen?",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "T! The T is silent.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "rule": "silent-t",
+  "title": "-stle / -sten",
+  "target": "no T sound",
+  "letter": "t",
+  "say": "In s t l e and s t e n, the T is silent.",
+  "words": [
+   {
+    "w": "listen",
+    "ipa": "/ˈlɪsn/",
+    "silent": [
+     3,
+     4
+    ],
+    "letter": "t",
+    "mean": "to use your ears to hear and understand things",
+    "em": "🎧"
+   }
+  ],
+  "quiz": {
+   "stem": "Which letter is silent in listen?",
+   "options": [
+    "T",
+    "L"
+   ],
+   "answer": 0
+  }
+ },
+ "cta": {
+  "area": "pronunciation",
+  "route": "#/pron/listen",
+  "link": "https://lexkite.com/app/#/pron/listen",
+  "say": "Practise this sound"
+ },
+ "hook": {
+  "line": "h",
+  "text": "The T is silent"
+ },
+ "src": {
+  "rule": "silent-t"
+ },
+ "est": {
+  "words": 42,
+  "seconds": 26.6,
+  "wpm": 95
+ },
+ "publish": {
+  "title": "The T is silent!",
+  "keyword": "Spell to Sound",
+  "value": "In s t l e and s t e n, the T is silent.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#pronunciation",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/pron/listen",
+  "script_words": 33,
+  "platforms": {
+   "youtube": {
+    "title": "The T is silent!",
+    "description": "In s t l e and s t e n, the T is silent.\n\nPractise this sound, free: https://lexkite.com/app/#/pron/listen\n\nSeries: Spell to Sound · Teacher: Carlos\n\n#learnenglish #englishtips #pronunciation #englishteacher",
+    "tags": [
+     "Spell to Sound",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "The T is silent!\n\nIn s t l e and s t e n, the T is silent.\n\nPractise this sound, free: https://lexkite.com/app/#/pron/listen"
+   },
+   "instagram": {
+    "caption": "The T is silent!\n\nIn s t l e and s t e n, the T is silent.\n\nPractise this sound: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#pronunciation",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "The T is silent! #learnenglish #englishtips #pronunciation"
+   }
+  },
+  "first_comment": "Answer: T! The T is silent. In s t l e and s t e n, the T is silent. Try the full lesson and quiz here: {link}"
+ }
+}

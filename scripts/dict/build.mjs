@@ -235,7 +235,7 @@ export function buildShell() {
 }
 
 export function build({ out = 'dist-dict', n = 200, pool = n, staticN = Infinity, index = '', write = true } = {}) {
-  const src = loadSources(), { list, top } = selectPool(src, n, pool), open = parseOpen(index), lastmod = gitDate('web/js/data.js', 'web/js/lib', 'web/js/usage', 'web/js/notes', 'scripts/dict', 'workers/dict');
+  const src = loadSources(), { list, top } = selectPool(src, n, pool), open = parseOpen(index), lastmod = gitDate('web/js/data.js', 'web/js/lib', 'web/cpack/lib', 'web/js/usage', 'web/js/notes', 'scripts/dict', 'workers/dict');
   const phrases = new Map(); for (const e of Object.values(src.INDEX)) if (e && /\s/.test(e.word)) for (const t of e.word.toLowerCase().split(/\s+/)) { const a = phrases.get(t) || phrases.set(t, []).get(t); if (a.length < 6) a.push(e); }
   const PIN = fs.existsSync('content/dict/open-pin.json') ? J('content/dict/open-pin.json') : {}, pin = (l, d) => ((PIN[l] || []).includes(d.slug) ? 1 : 0); // trang đã mở xếp trước → không rơi index khi điểm đổi
   const ctx = { list, phrases, lastmod, bySlug: new Set(list.map(e => slugOf(e.word))) };

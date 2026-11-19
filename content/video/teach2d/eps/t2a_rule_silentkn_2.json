@@ -1,0 +1,163 @@
+{
+ "id": "t2a_rule_silentkn_2",
+ "template": "rule",
+ "series": "Spell to Sound",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "pronunciation",
+ "lines": [
+  {
+   "id": "h",
+   "text": "The K is silent!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "In k n, the K is silent. Say N.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Knowledge.",
+   "pause": 0.25,
+   "speed": 0.6
+  },
+  {
+   "id": "v0",
+   "text": "Knowledge.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Knit.",
+   "pause": 0.25,
+   "speed": 0.6
+  },
+  {
+   "id": "v1",
+   "text": "Knit.",
+   "pause": 0.3
+  },
+  {
+   "id": "p",
+   "text": "Repeat after me!",
+   "pause": 2.4
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which letter is silent in knit?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "K! The K is silent.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "rule": "silent-kn",
+  "title": "kn-",
+  "target": "/n/",
+  "letter": "k",
+  "say": "In k n, the K is silent. Say N.",
+  "words": [
+   {
+    "w": "knowledge",
+    "ipa": "/ˈnɑːlədʒ/",
+    "silent": [
+     0,
+     1
+    ],
+    "letter": "k",
+    "mean": "Information, understanding, or skill.",
+    "em": "🧠"
+   },
+   {
+    "w": "knit",
+    "ipa": "/nɪt/",
+    "silent": [
+     0,
+     1
+    ],
+    "letter": "k",
+    "mean": "to make fabric by looping yarn",
+    "em": ""
+   }
+  ],
+  "quiz": {
+   "stem": "Which letter is silent in knit?",
+   "options": [
+    "K",
+    "N"
+   ],
+   "answer": 0
+  }
+ },
+ "cta": {
+  "area": "pronunciation",
+  "route": "#/pron/knowledge",
+  "link": "https://lexkite.com/app/#/pron/knowledge",
+  "say": "Practise this sound"
+ },
+ "hook": {
+  "line": "h",
+  "text": "The K is silent"
+ },
+ "src": {
+  "rule": "silent-kn"
+ },
+ "est": {
+  "words": 39,
+  "seconds": 26.7,
+  "wpm": 88
+ },
+ "publish": {
+  "title": "The K is silent!",
+  "keyword": "Spell to Sound",
+  "value": "In k n, the K is silent. Say N.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#pronunciation",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/pron/knowledge",
+  "script_words": 30,
+  "platforms": {
+   "youtube": {
+    "title": "The K is silent!",
+    "description": "In k n, the K is silent. Say N.\n\nPractise this sound, free: https://lexkite.com/app/#/pron/knowledge\n\nSeries: Spell to Sound · Teacher: Carlos\n\n#learnenglish #englishtips #pronunciation #englishteacher",
+    "tags": [
+     "Spell to Sound",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "The K is silent!\n\nIn k n, the K is silent. Say N.\n\nPractise this sound, free: https://lexkite.com/app/#/pron/knowledge"
+   },
+   "instagram": {
+    "caption": "The K is silent!\n\nIn k n, the K is silent. Say N.\n\nPractise this sound: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#pronunciation",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "The K is silent! #learnenglish #englishtips #pronunciation"
+   }
+  },
+  "first_comment": "Answer: K! The K is silent. In k n, the K is silent. Say N. Try the full lesson and quiz here: {link}"
+ }
+}

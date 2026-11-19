@@ -20,8 +20,8 @@ a = Truy hồi chủ động · b = Lặp lại giãn cách · c = Tải nhận 
 | 1 | Bộ từ | ngsl1 | A1 | 59.6 | mẹo nhớ cho từ dễ nhầm (gold "why"): 33% · ví dụ: thiếu collocation/đồng nghĩa |
 | 2 | Bộ từ | bsl6 | B1 | 59.9 | mẹo nhớ cho từ dễ nhầm (gold "why"): 0% · ví dụ: thiếu collocation/đồng nghĩa |
 | 3 | Bộ từ | bsl1 | B2 | 60.2 | mẹo nhớ cho từ dễ nhầm (gold "why"): 0% · ví dụ: thiếu collocation/đồng nghĩa |
-| 4 | Bộ từ | bsl2 | B2 | 60.5 | mẹo nhớ cho từ dễ nhầm (gold "why"): 0% · ví dụ: thiếu collocation/đồng nghĩa |
-| 5 | Bộ từ | ngsl3 | A2 | 60.7 | mẹo nhớ cho từ dễ nhầm (gold "why"): 18% · ví dụ: thiếu collocation/đồng nghĩa |
+| 4 | Bộ từ | bsl2 | B2 | 60.6 | mẹo nhớ cho từ dễ nhầm (gold "why"): 0% · ví dụ: thiếu collocation/đồng nghĩa |
+| 5 | Bộ từ | ngsl3 | A2 | 60.8 | mẹo nhớ cho từ dễ nhầm (gold "why"): 18% · ví dụ: thiếu collocation/đồng nghĩa |
 | 6 | Bộ từ | ngsl5 | B1 | 60.8 | mẹo nhớ cho từ dễ nhầm (gold "why"): 11% · ví dụ: thiếu collocation/đồng nghĩa |
 | 7 | Bộ từ | ngsl2 | A2 | 61 | mẹo nhớ cho từ dễ nhầm (gold "why"): 27% · ví dụ: thiếu collocation/đồng nghĩa |
 | 8 | Bộ từ | ngsl7 | B1 | 61 | mẹo nhớ cho từ dễ nhầm (gold "why"): 3% · ví dụ: thiếu collocation/đồng nghĩa |

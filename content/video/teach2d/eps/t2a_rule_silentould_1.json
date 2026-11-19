@@ -1,0 +1,163 @@
+{
+ "id": "t2a_rule_silentould_1",
+ "template": "rule",
+ "series": "Spell to Sound",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "pronunciation",
+ "lines": [
+  {
+   "id": "h",
+   "text": "The L is silent!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "In o u l d, the L is silent.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Could.",
+   "pause": 0.25,
+   "speed": 0.6
+  },
+  {
+   "id": "v0",
+   "text": "Could.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Should.",
+   "pause": 0.25,
+   "speed": 0.6
+  },
+  {
+   "id": "v1",
+   "text": "Should.",
+   "pause": 0.3
+  },
+  {
+   "id": "p",
+   "text": "Repeat after me!",
+   "pause": 2.4
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which letter is silent in should?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "L! The L is silent.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "rule": "silent-ould",
+  "title": "-ould",
+  "target": "/ʊ/",
+  "letter": "l",
+  "say": "In o u l d, the L is silent.",
+  "words": [
+   {
+    "w": "could",
+    "ipa": "/kʊd/",
+    "silent": [
+     3,
+     4
+    ],
+    "letter": "l",
+    "mean": "Used as the past form of can, to show possibility.",
+    "em": "💪"
+   },
+   {
+    "w": "should",
+    "ipa": "/ʃʊd/",
+    "silent": [
+     4,
+     5
+    ],
+    "letter": "l",
+    "mean": "Used to indicate what is proper or reasonable.",
+    "em": "☝️"
+   }
+  ],
+  "quiz": {
+   "stem": "Which letter is silent in should?",
+   "options": [
+    "S",
+    "L"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "pronunciation",
+  "route": "#/pron/could",
+  "link": "https://lexkite.com/app/#/pron/could",
+  "say": "Practise this sound"
+ },
+ "hook": {
+  "line": "h",
+  "text": "The L is silent"
+ },
+ "src": {
+  "rule": "silent-ould"
+ },
+ "est": {
+  "words": 39,
+  "seconds": 26.7,
+  "wpm": 88
+ },
+ "publish": {
+  "title": "The L is silent!",
+  "keyword": "Spell to Sound",
+  "value": "In o u l d, the L is silent.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#pronunciation",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/pron/could",
+  "script_words": 30,
+  "platforms": {
+   "youtube": {
+    "title": "The L is silent!",
+    "description": "In o u l d, the L is silent.\n\nPractise this sound, free: https://lexkite.com/app/#/pron/could\n\nSeries: Spell to Sound · Teacher: Carlos\n\n#learnenglish #englishtips #pronunciation #englishteacher",
+    "tags": [
+     "Spell to Sound",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "The L is silent!\n\nIn o u l d, the L is silent.\n\nPractise this sound, free: https://lexkite.com/app/#/pron/could"
+   },
+   "instagram": {
+    "caption": "The L is silent!\n\nIn o u l d, the L is silent.\n\nPractise this sound: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#pronunciation",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "The L is silent! #learnenglish #englishtips #pronunciation"
+   }
+  },
+  "first_comment": "Did you get it? L! The L is silent. In o u l d, the L is silent. More practice like this (free): {link}"
+ }
+}

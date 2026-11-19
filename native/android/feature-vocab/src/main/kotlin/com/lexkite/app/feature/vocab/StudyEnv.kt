@@ -14,11 +14,13 @@ import com.lexkite.app.i18n.generated.L10nKey
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import kotlinx.coroutines.withTimeoutOrNull
+import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonArray
 import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.JsonNull
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.JsonPrimitive
+import kotlinx.serialization.json.jsonObject
 import java.io.File
 
 // ---- small JSON helpers (the ones in :core are internal) ----
@@ -118,12 +120,19 @@ object StudyReward {
 /** The web word library (IELTS_DATA topics + groups): the same scripts the web loads, cached on disk; offline falls back to the cache. */
 object StudyWords {
     private val LIBS = listOf("topics-more", "skills", "awl", "ngsl", "ngsl2", "office", "tsl-a", "tsl-b", "domain-a", "domain-b", "exam-vocab", "exam-vocab2", "exam-vocab3", "nawl", "bsl")
+    private val MOVED = setOf("domain-a", "domain-b", "exam-vocab", "exam-vocab2", "exam-vocab3")
     @Volatile private var memo: WebWords? = null
 
     suspend fun load(http: Http, cacheDir: File, base: String = "https://lexkite.com/js/"): WebWords? {
         memo?.let { return it }
         val data = fetch(http, base + "data.js", File(cacheDir, "words/data.js")) ?: return null
-        val libs = LIBS.mapNotNull { fetch(http, base + "lib/$it.js", File(cacheDir, "words/$it.js")) }
+        // 19/11: 5 kho từ tải lười dời sang cpack/lib (tên theo mã băm → cpack/manifest.json); còn lại vẫn ở js/lib
+        val root = base.removeSuffix("js/")
+        val man = fetch(http, root + "cpack/manifest.json", File(cacheDir, "words/manifest.json"))?.let { runCatching { Json.parseToJsonElement(it).jsonObject }.getOrNull() }
+        val libs = LIBS.mapNotNull { n ->
+            val url = if (n in MOVED) root + ((man?.get("cpack/lib/$n.js") as? JsonPrimitive)?.content ?: "cpack/lib/$n.js") else base + "lib/$n.js"
+            fetch(http, url, File(cacheDir, "words/$n.js"))
+        }
         return WebWords.fromScripts(data, libs).also { memo = it }
     }
 

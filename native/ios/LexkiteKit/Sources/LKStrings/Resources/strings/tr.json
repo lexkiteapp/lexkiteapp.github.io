@@ -1215,6 +1215,7 @@
   "skill.listen.luyenTap": "Alıştırma",
   "skill.listen.nghe1Lan": "Bir kez dinle",
   "skill.listen.chepChinhTa": "Dikte",
+  "skill.listen.dienTuConThieu": "Eksik kelimeyi doldur",
   "skill.listen.meoLamBaiListening": "Listening ipuçları",
   "skill.listen.docTruocCauHoi": "Beklerken <b>önce soruları okuyun</b>: anahtar kelimelerin altını çizin ve ne tür bir yanıtın gerekli olduğunu tahmin edin (sayı, ad, isim…).",
   "skill.listen.canThanBayDoi": "<b>Düzeltmelere dikkat edin</b>: konuşmacılar genellikle bir cevap verir ve sonra onu değiştirir (“sorry, I mean…”). Son bilgi cevaptır.",

@@ -29,7 +29,8 @@ ap.add_argument('--layout', default='', help='short layout: corner (teacher bott
 o = ap.parse_args()
 EP = json.load(open(o.ep)); THEME = o.theme or EP['theme']; _TJ = json.load(open(f'{ROOT}/scripts/video/remotion/src/teach/theme.json')); TH = _TJ[THEME]
 MIX = (json.load(open(o.mix))['mix'].get(EP['id']) if o.mix and os.path.exists(o.mix) else None) or {}   # mix.py combination (never changes a word of the script)
-if o.format == 'short' and not o.layout and MIX.get('layout'): o.layout = MIX['layout']
+if EP['template'] == 'rule': o.layout = 'corner'   # rule: always the corner layout (no teacher bubble in the platform right rail), whatever mix.json or --layout say
+elif o.format == 'short' and not o.layout and MIX.get('layout'): o.layout = MIX['layout']
 TINT = _TJ['tints'][EP['template']]   # series colour: the big canvas blob carries it, so each series is recognisable from frame 0
 HG = json.load(open(f'{o.host}/geom.json')); EMBED = o.format == 'wide'
 LAYOUTS = dict(   # same cards / timing; only where the card region, captions and teacher sit (owner 29/10: varied layouts)
@@ -40,6 +41,9 @@ FMT = dict(short=dict(W=1080, H=1920, chip=[60, 236], safe=[48, 232, 960, 1497],
            wide=dict(W=1920, H=1080, region=[96, 150, 1056, 990], chip=[96, 70], safe=[60, 48, 1860, 1032], cap=None, host_h=960, host_cx=1460))[o.format]
 LAYOUT = (o.layout or 'corner') if o.format == 'short' else 'wide'
 SOCIAL = o.format == 'short'   # owner 29/10: social shorts get the cinematic layer (hook punch, camera push / cuts, whoosh + music); lesson embeds stay calm
+PZ = dict(top=0.12, bottom=0.22, right=0.14)   # platform UI zones of a 9:16 short (back / search icons, caption + sound row, like / comment rail): qc.py platform_zones gate
+if EP['template'] == 'rule' and o.format == 'short':   # Spell->Sound: nothing in the right rail (docs/specs/spell-sound.md): region + caption plate stop at 86 % of the width
+    _x = int(FMT['W'] * (1 - PZ['right'])); FMT = dict(FMT, region=[FMT['region'][0], FMT['region'][1], min(FMT['region'][2], _x), FMT['region'][3]], cap=[FMT['cap'][0], FMT['cap'][1], min(FMT['cap'][2], _x), FMT['cap'][3]], safe=[FMT['safe'][0], FMT['safe'][1], min(FMT['safe'][2], _x), FMT['safe'][3]])
 W, H = FMT['W'], FMT['H']; RX0, RY0, RX1, RY1 = FMT['region']; RW = RX1 - RX0
 S = dict(hook=96, big=104, body=60, sub=48, chip=40, ipa=48, cap=58, pill=56)
 PAD, GAP, LEDGE, RADIUS = 40, 24, 10, 44
@@ -682,6 +686,35 @@ def T_review():
     end_card()
 
 
+def T_rule():
+    """Spell->Sound (docs/specs/spell-sound.md): hook (the silent letter) -> rule card (pattern, silent letter, the sound to say) -> one Kit card per word (spelling, the silent letter struck on the
+    NORMAL read, IPA pill, meaning; the slow read comes first) -> "Repeat after me" list -> which letter is silent? -> CTA. <= 6 rows per screen, nothing in the platform UI zones."""
+    D = EP['data']; ws = D['words']; n = len(ws); series_chip(); LT = D['letter'].upper()
+    title([['The ', 'ink'], [' '.join(LT), 'accent'], [' is silent', 'ink']], 96, RY0 + 120, None, start('r') - 0.2, hook=True)   # = EP hook text (hook_gate)
+    c = Card(RY0, tone='card'); chip(c, 'SPELLING RULE', start('r')); sz = 112; t_r = at('r', 0)
+    while tw(D['title'].upper(), sz) > c.inner and sz > 64: sz -= 4
+    c.text([[D['title'].upper(), 'accent']], sz, t_r, align='c', tag=D['title'])
+    c.text([[LT, 'accent'], [' is silent', 'ink']], S['body'], t_r, align='c'); c.text([[D['target'], 'muted']], S['sub'], t_r, align='c')
+    c.place(start('r'), start('w0') - 0.2, 'a')
+    for k, w in enumerate(ws):
+        t0 = start(f'w{k}'); t_out = start(f'w{k + 1}' if k + 1 < n else 'p') - 0.2; c = Card(RY0, tone='card'); chip(c, f'WORD {k + 1} OF {n}', t0)
+        a_, b_ = w['silent']; sz = 120
+        while tw(w['w'], sz) > c.inner and sz > 64: sz -= 4
+        tn = c.text([[w['w'][:a_], 'ink'], [w['w'][a_:b_], 'accent'], [w['w'][b_:], 'ink']], sz, t0, align='c', tag=w['w'])[0]
+        iw = min(c.inner, tw(w['ipa'], S['ipa'], True) + 80)
+        pn = c.add(dict(type='ipapill', text=w['ipa'], size=S['ipa'], box=[PAD + (c.inner - iw) / 2, 0, PAD + (c.inner + iw) / 2, 0], pairs=[[TH['ink'], TH['card'], S['ipa']]], **{'in': cue(at(f'v{k}', 0))}), 88)
+        IPA.append(dict(token=w['w'], ipa=w['ipa'], node=pn['id']))
+        c.text([[w['mean'][0].upper() + w['mean'][1:] + '.', 'muted']], S['sub'], at(f'v{k}', 0)); c.place(t0, t_out, 'a')
+        x0 = tn['box'][0] + tw(w['w'][:a_], sz); x1 = x0 + tw(w['w'][a_:b_], sz); ym = (tn['box'][1] + tn['box'][3]) / 2 + 4   # the silent letters get the red strike on the normal read
+        NODES.append(dict(id=nid('s'), type='strike', parent=tn['parent'], _rel=tn['id'], box=[x0 - 6, ym - 5, x1 + 6, ym + 5], **{'in': cue(at(f'v{k}', 0), 'draw')}))
+    c = Card(RY0, tone='card'); chip(c, 'REPEAT AFTER ME', start('p'))
+    rg = max(GAP - 8, min(110, int((0.58 * (RY1 - RY0) - c.y - 2 * PAD) / max(1, n))))   # few words (2) -> roomier rows, so the card fills the region instead of leaving a flat empty band under it (dead_band gate)
+    for k, w in enumerate(ws): c.text([[w['w'][:w['silent'][0]], 'ink'], [w['w'][w['silent'][0]:w['silent'][1]], 'accent'], [w['w'][w['silent'][1]:], 'ink'], ['  ' + w['ipa'], 'muted']], S['body'], start('p'), align='c', gap=rg)
+    c.place(start('p'), start('q') - 0.2, 'a')
+    q = D['quiz']; quiz_card([[q['stem'], 'ink']], q['options'], q['answer'], start('q'), at('a', 0), start('c') - 0.2)
+    end_card()
+
+
 def T_call():
     """Ask Ama → Call (the app's speaking call): call header (phone + call title + live dot), the caller's bubble with the phrase in gold,
     meaning card, the reply chip the app offers, then the quiz."""
@@ -730,7 +763,7 @@ def T_react():
 
 
 dict(usuk=T_usuk, verbs=T_verbs, stress=T_stress, mistake=T_mistake, phrasal=T_phrasal, pair=T_pair, prep=T_prep, pattern=T_pattern, native=T_native, l1=T_l1, guess=T_guess, level=T_level,
-     grammar=T_grammar, dictation=T_dictation, toeic=T_toeic, review=T_review, call=T_call, react=T_react)[EP['template']]()
+     grammar=T_grammar, dictation=T_dictation, toeic=T_toeic, review=T_review, call=T_call, react=T_react, rule=T_rule)[EP['template']]()
 
 # ---------------- region offset: card-local -> canvas; satellites (check, confetti, strike, badges) resolve their boxes ----------------
 BY = {n['id']: n for n in NODES}

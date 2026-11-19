@@ -22877,7 +22877,7 @@
   },
   "t2_l1_fr_internship": {
    "template": "l1",
-   "hook": "« Stage » ≠ “stage”",
+   "hook": "« Stage » : un faux ami !",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
@@ -32749,6 +32749,825 @@
     "q": "Quick quiz! Which one fits?",
     "a": "Don't have! I don't have a car.",
     "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_rule_silentkn_1": {
+   "template": "rule",
+   "hook": "The K is silent",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --rule-eps gates v1 (words in rules-words.json · every word live in the audited bank with a US IPA that PROVES the rule (rules.py) · family-safe · level <= B1 NGSL except the taught words · hook true · no duplicate lesson)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "892ada8799d2",
+   "script": {
+    "h": "The K is silent!",
+    "r": "In k n, the K is silent. Say N.",
+    "w0": "Know.",
+    "v0": "Know. Say: know.",
+    "w1": "Knee.",
+    "v1": "Knee.",
+    "p": "Repeat after me!",
+    "q": "Quick quiz! Which letter is silent in knee?",
+    "a": "K! The K is silent.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_rule_silentwr_1": {
+   "template": "rule",
+   "hook": "The W is silent",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --rule-eps gates v1 (words in rules-words.json · every word live in the audited bank with a US IPA that PROVES the rule (rules.py) · family-safe · level <= B1 NGSL except the taught words · hook true · no duplicate lesson)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "dae1843a08bd",
+   "script": {
+    "h": "The W is silent!",
+    "r": "In w r, the W is silent. Say R.",
+    "w0": "Write.",
+    "v0": "Write. Say: write.",
+    "w1": "Wrong.",
+    "v1": "Wrong.",
+    "p": "Repeat after me!",
+    "q": "Quick quiz! Which letter is silent in wrong?",
+    "a": "W! The W is silent.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_rule_silentmb_1": {
+   "template": "rule",
+   "hook": "The B is silent",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --rule-eps gates v1 (words in rules-words.json · every word live in the audited bank with a US IPA that PROVES the rule (rules.py) · family-safe · level <= B1 NGSL except the taught words · hook true · no duplicate lesson)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "2eceec1b97f7",
+   "script": {
+    "h": "The B is silent!",
+    "r": "At the end, m b, the B is silent. Say M.",
+    "w0": "Climb.",
+    "v0": "Climb.",
+    "w1": "Comb.",
+    "v1": "Comb.",
+    "p": "Repeat after me!",
+    "q": "Quick quiz! Which letter is silent in comb?",
+    "a": "B! The B is silent.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_rule_silentgn_1": {
+   "template": "rule",
+   "hook": "The G is silent",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --rule-eps gates v1 (words in rules-words.json · every word live in the audited bank with a US IPA that PROVES the rule (rules.py) · family-safe · level <= B1 NGSL except the taught words · hook true · no duplicate lesson)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "da18c1f23892",
+   "script": {
+    "h": "The G is silent!",
+    "r": "In g n, the G is silent. Say N.",
+    "w0": "Design.",
+    "v0": "Design.",
+    "w1": "Foreign.",
+    "v1": "Foreign.",
+    "p": "Repeat after me!",
+    "q": "Quick quiz! Which letter is silent in foreign?",
+    "a": "G! The G is silent.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_rule_silentps_1": {
+   "template": "rule",
+   "hook": "The P is silent",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --rule-eps gates v1 (words in rules-words.json · every word live in the audited bank with a US IPA that PROVES the rule (rules.py) · family-safe · level <= B1 NGSL except the taught words · hook true · no duplicate lesson)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "65dbb05cbbb3",
+   "script": {
+    "h": "The P is silent!",
+    "r": "At the start, p s, the P is silent. Say S.",
+    "w0": "Psychological.",
+    "v0": "Psychological.",
+    "p": "Repeat after me!",
+    "q": "Quick quiz! Which letter is silent in psychological?",
+    "a": "P! The P is silent.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_rule_silentght_1": {
+   "template": "rule",
+   "hook": "The G H is silent",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --rule-eps gates v1 (words in rules-words.json · every word live in the audited bank with a US IPA that PROVES the rule (rules.py) · family-safe · level <= B1 NGSL except the taught words · hook true · no duplicate lesson)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "7ec22c0ad16c",
+   "script": {
+    "h": "The G H is silent!",
+    "r": "In g h t, the G H is silent. Say T.",
+    "w0": "Flight.",
+    "v0": "Flight.",
+    "w1": "Light.",
+    "v1": "Light.",
+    "p": "Repeat after me!",
+    "q": "Quick quiz! Which letter is silent in light?",
+    "a": "G H! The G H is silent.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_rule_silenth_1": {
+   "template": "rule",
+   "hook": "The H is silent",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --rule-eps gates v1 (words in rules-words.json · every word live in the audited bank with a US IPA that PROVES the rule (rules.py) · family-safe · level <= B1 NGSL except the taught words · hook true · no duplicate lesson)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "a9453143566b",
+   "script": {
+    "h": "The H is silent!",
+    "r": "Here the H is silent. Start with the next sound.",
+    "w0": "Hour.",
+    "v0": "Hour.",
+    "w1": "Honest.",
+    "v1": "Honest.",
+    "p": "Repeat after me!",
+    "q": "Quick quiz! Which letter is silent in honest?",
+    "a": "H! The H is silent.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_rule_silentl_1": {
+   "template": "rule",
+   "hook": "The L is silent",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --rule-eps gates v1 (words in rules-words.json · every word live in the audited bank with a US IPA that PROVES the rule (rules.py) · family-safe · level <= B1 NGSL except the taught words · hook true · no duplicate lesson)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "553822809a35",
+   "script": {
+    "h": "The L is silent!",
+    "r": "In a l k and a l m, the L is silent.",
+    "w0": "Half.",
+    "v0": "Half.",
+    "w1": "Talk.",
+    "v1": "Talk.",
+    "p": "Repeat after me!",
+    "q": "Quick quiz! Which letter is silent in talk?",
+    "a": "L! The L is silent.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_rule_silentbt_1": {
+   "template": "rule",
+   "hook": "The B is silent",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --rule-eps gates v1 (words in rules-words.json · every word live in the audited bank with a US IPA that PROVES the rule (rules.py) · family-safe · level <= B1 NGSL except the taught words · hook true · no duplicate lesson)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "3fc3a644d1c1",
+   "script": {
+    "h": "The B is silent!",
+    "r": "Before t, the B is silent. Say T.",
+    "w0": "Doubt.",
+    "v0": "Doubt.",
+    "w1": "Debt.",
+    "v1": "Debt.",
+    "p": "Repeat after me!",
+    "q": "Quick quiz! Which letter is silent in debt?",
+    "a": "B! The B is silent.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_rule_silentt_1": {
+   "template": "rule",
+   "hook": "The T is silent",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --rule-eps gates v1 (words in rules-words.json · every word live in the audited bank with a US IPA that PROVES the rule (rules.py) · family-safe · level <= B1 NGSL except the taught words · hook true · no duplicate lesson)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "39ac1520fc0f",
+   "script": {
+    "h": "The T is silent!",
+    "r": "In s t l e and s t e n, the T is silent.",
+    "w0": "Listen.",
+    "v0": "Listen.",
+    "p": "Repeat after me!",
+    "q": "Quick quiz! Which letter is silent in listen?",
+    "a": "T! The T is silent.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_rule_silentigh_1": {
+   "template": "rule",
+   "hook": "The G H is silent",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --rule-eps gates v1 (words in rules-words.json · every word live in the audited bank with a US IPA that PROVES the rule (rules.py) · family-safe · level <= B1 NGSL except the taught words · hook true · no duplicate lesson)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "5120f342ed55",
+   "script": {
+    "h": "The G H is silent!",
+    "r": "In i g h, the G H is silent. Say eye.",
+    "w0": "High.",
+    "v0": "High. Say: high.",
+    "w1": "Thigh.",
+    "v1": "Thigh.",
+    "p": "Repeat after me!",
+    "q": "Quick quiz! Which letter is silent in thigh?",
+    "a": "G H! The G H is silent.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_rule_silenteigh_1": {
+   "template": "rule",
+   "hook": "The G H is silent",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --rule-eps gates v1 (words in rules-words.json · every word live in the audited bank with a US IPA that PROVES the rule (rules.py) · family-safe · level <= B1 NGSL except the taught words · hook true · no duplicate lesson)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "753459876f97",
+   "script": {
+    "h": "The G H is silent!",
+    "r": "In e i g h, the G H is silent. Say A.",
+    "w0": "Height.",
+    "v0": "Height.",
+    "w1": "Neighbor.",
+    "v1": "Neighbor.",
+    "p": "Repeat after me!",
+    "q": "Quick quiz! Which letter is silent in neighbor?",
+    "a": "G H! The G H is silent.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_rule_silentough_1": {
+   "template": "rule",
+   "hook": "The G H is silent",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --rule-eps gates v1 (words in rules-words.json · every word live in the audited bank with a US IPA that PROVES the rule (rules.py) · family-safe · level <= B1 NGSL except the taught words · hook true · no duplicate lesson)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "3cbdc59d104b",
+   "script": {
+    "h": "The G H is silent!",
+    "r": "In o u g h, the G H can be silent. Do not say it.",
+    "w0": "Through.",
+    "v0": "Through.",
+    "p": "Repeat after me!",
+    "q": "Quick quiz! Which letter is silent in through?",
+    "a": "G H! The G H is silent.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_rule_silentwh_1": {
+   "template": "rule",
+   "hook": "The W is silent",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --rule-eps gates v1 (words in rules-words.json · every word live in the audited bank with a US IPA that PROVES the rule (rules.py) · family-safe · level <= B1 NGSL except the taught words · hook true · no duplicate lesson)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "9509d4da6978",
+   "script": {
+    "h": "The W is silent!",
+    "r": "In w h o, the W is silent. Say H.",
+    "w0": "Who.",
+    "v0": "Who.",
+    "w1": "Whole.",
+    "v1": "Whole. Say: whole.",
+    "p": "Repeat after me!",
+    "q": "Quick quiz! Which letter is silent in whole?",
+    "a": "W! The W is silent.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_rule_silentmn_1": {
+   "template": "rule",
+   "hook": "The N is silent",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --rule-eps gates v1 (words in rules-words.json · every word live in the audited bank with a US IPA that PROVES the rule (rules.py) · family-safe · level <= B1 NGSL except the taught words · hook true · no duplicate lesson)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "ef9783ed1a50",
+   "script": {
+    "h": "The N is silent!",
+    "r": "At the end, m n, the N is silent. Say M.",
+    "w0": "Autumn.",
+    "v0": "Autumn.",
+    "w1": "Column.",
+    "v1": "Column.",
+    "p": "Repeat after me!",
+    "q": "Quick quiz! Which letter is silent in column?",
+    "a": "N! The N is silent.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_rule_silentsc_1": {
+   "template": "rule",
+   "hook": "The C is silent",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --rule-eps gates v1 (words in rules-words.json · every word live in the audited bank with a US IPA that PROVES the rule (rules.py) · family-safe · level <= B1 NGSL except the taught words · hook true · no duplicate lesson)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "553cef0c5f53",
+   "script": {
+    "h": "The C is silent!",
+    "r": "In s c e, the C is silent. Say S.",
+    "w0": "Science.",
+    "v0": "Science.",
+    "w1": "Scientist.",
+    "v1": "Scientist.",
+    "p": "Repeat after me!",
+    "q": "Quick quiz! Which letter is silent in scientist?",
+    "a": "C! The C is silent.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_rule_silentgu_1": {
+   "template": "rule",
+   "hook": "The U is silent",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --rule-eps gates v1 (words in rules-words.json · every word live in the audited bank with a US IPA that PROVES the rule (rules.py) · family-safe · level <= B1 NGSL except the taught words · hook true · no duplicate lesson)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "d21e2728e61d",
+   "script": {
+    "h": "The U is silent!",
+    "r": "In g u, the U is silent. Say G.",
+    "w0": "Build.",
+    "v0": "Build.",
+    "w1": "Guess.",
+    "v1": "Guess.",
+    "p": "Repeat after me!",
+    "q": "Quick quiz! Which letter is silent in guess?",
+    "a": "U! The U is silent.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_rule_silenthex_1": {
+   "template": "rule",
+   "hook": "The H is silent",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --rule-eps gates v1 (words in rules-words.json · every word live in the audited bank with a US IPA that PROVES the rule (rules.py) · family-safe · level <= B1 NGSL except the taught words · hook true · no duplicate lesson)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "806bb1fd27b1",
+   "script": {
+    "h": "The H is silent!",
+    "r": "In e x h, the H is silent. Say Z.",
+    "w0": "Exhibition.",
+    "v0": "Exhibition.",
+    "p": "Repeat after me!",
+    "q": "Quick quiz! Which letter is silent in exhibition?",
+    "a": "H! The H is silent.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_rule_silentrh_1": {
+   "template": "rule",
+   "hook": "The H is silent",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --rule-eps gates v1 (words in rules-words.json · every word live in the audited bank with a US IPA that PROVES the rule (rules.py) · family-safe · level <= B1 NGSL except the taught words · hook true · no duplicate lesson)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "3332f1265c6c",
+   "script": {
+    "h": "The H is silent!",
+    "r": "In r h, the H is silent. Say R.",
+    "w0": "Rhinoceros.",
+    "v0": "Rhinoceros.",
+    "w1": "Rhythm.",
+    "v1": "Rhythm.",
+    "p": "Repeat after me!",
+    "q": "Quick quiz! Which letter is silent in rhythm?",
+    "a": "H! The H is silent.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_rule_silentould_1": {
+   "template": "rule",
+   "hook": "The L is silent",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --rule-eps gates v1 (words in rules-words.json · every word live in the audited bank with a US IPA that PROVES the rule (rules.py) · family-safe · level <= B1 NGSL except the taught words · hook true · no duplicate lesson)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "2230e920d66f",
+   "script": {
+    "h": "The L is silent!",
+    "r": "In o u l d, the L is silent.",
+    "w0": "Could.",
+    "v0": "Could.",
+    "w1": "Should.",
+    "v1": "Should.",
+    "p": "Repeat after me!",
+    "q": "Quick quiz! Which letter is silent in should?",
+    "a": "L! The L is silent.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_rule_silentchk_1": {
+   "template": "rule",
+   "hook": "The H is silent",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --rule-eps gates v1 (words in rules-words.json · every word live in the audited bank with a US IPA that PROVES the rule (rules.py) · family-safe · level <= B1 NGSL except the taught words · hook true · no duplicate lesson)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "2ad1d28488cc",
+   "script": {
+    "h": "The H is silent!",
+    "r": "Here c h says K. The H is silent.",
+    "w0": "School.",
+    "v0": "School.",
+    "w1": "Character.",
+    "v1": "Character.",
+    "p": "Repeat after me!",
+    "q": "Quick quiz! Which letter is silent in character?",
+    "a": "H! The H is silent.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_rule_silentgue_1": {
+   "template": "rule",
+   "hook": "The U E is silent",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --rule-eps gates v1 (words in rules-words.json · every word live in the audited bank with a US IPA that PROVES the rule (rules.py) · family-safe · level <= B1 NGSL except the taught words · hook true · no duplicate lesson)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "67890731e202",
+   "script": {
+    "h": "The U E is silent!",
+    "r": "At the end, g u e, the U E is silent.",
+    "w0": "Colleague.",
+    "v0": "Colleague.",
+    "w1": "Tongue.",
+    "v1": "Tongue.",
+    "p": "Repeat after me!",
+    "q": "Quick quiz! Which letter is silent in tongue?",
+    "a": "U E! The U E is silent.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_rule_silentque_1": {
+   "template": "rule",
+   "hook": "The U E is silent",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --rule-eps gates v1 (words in rules-words.json · every word live in the audited bank with a US IPA that PROVES the rule (rules.py) · family-safe · level <= B1 NGSL except the taught words · hook true · no duplicate lesson)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "69e9c9a70bd9",
+   "script": {
+    "h": "The U E is silent!",
+    "r": "At the end, q u e, the U E is silent. Say K.",
+    "w0": "Mosque.",
+    "v0": "Mosque.",
+    "p": "Repeat after me!",
+    "q": "Quick quiz! Which letter is silent in mosque?",
+    "a": "U E! The U E is silent.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_rule_silente_1": {
+   "template": "rule",
+   "hook": "The E is silent",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --rule-eps gates v1 (words in rules-words.json · every word live in the audited bank with a US IPA that PROVES the rule (rules.py) · family-safe · level <= B1 NGSL except the taught words · hook true · no duplicate lesson)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "cf603d6dd8ed",
+   "script": {
+    "h": "The E is silent!",
+    "r": "At the end, the E is silent.",
+    "w0": "Above.",
+    "v0": "Above.",
+    "w1": "Advice.",
+    "v1": "Advice.",
+    "p": "Repeat after me!",
+    "q": "Quick quiz! Which letter is silent in advice?",
+    "a": "E! The E is silent.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_rule_silentisl_1": {
+   "template": "rule",
+   "hook": "The S is silent",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --rule-eps gates v1 (words in rules-words.json · every word live in the audited bank with a US IPA that PROVES the rule (rules.py) · family-safe · level <= B1 NGSL except the taught words · hook true · no duplicate lesson)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "f7855cf4bc74",
+   "script": {
+    "h": "The S is silent!",
+    "r": "In i s l, the S is silent.",
+    "w0": "Island.",
+    "v0": "Island.",
+    "w1": "Aisle.",
+    "v1": "Aisle.",
+    "p": "Repeat after me!",
+    "q": "Quick quiz! Which letter is silent in aisle?",
+    "a": "S! The S is silent.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_rule_silentver_1": {
+   "template": "rule",
+   "hook": "The E is silent",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --rule-eps gates v1 (words in rules-words.json · every word live in the audited bank with a US IPA that PROVES the rule (rules.py) · family-safe · level <= B1 NGSL except the taught words · hook true · no duplicate lesson)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "2c5f868c4a06",
+   "script": {
+    "h": "The E is silent!",
+    "r": "In v e r, the E is often silent.",
+    "w0": "Everybody.",
+    "v0": "Everybody.",
+    "p": "Repeat after me!",
+    "q": "Quick quiz! Which letter is silent in everybody?",
+    "a": "E! The E is silent.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_rule_silentely_1": {
+   "template": "rule",
+   "hook": "The E is silent",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --rule-eps gates v1 (words in rules-words.json · every word live in the audited bank with a US IPA that PROVES the rule (rules.py) · family-safe · level <= B1 NGSL except the taught words · hook true · no duplicate lesson)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "87e617fc0817",
+   "script": {
+    "h": "The E is silent!",
+    "r": "In e l y, the E is silent.",
+    "w0": "Lonely.",
+    "v0": "Lonely.",
+    "p": "Repeat after me!",
+    "q": "Quick quiz! Which letter is silent in lonely?",
+    "a": "E! The E is silent.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_rule_silentement_1": {
+   "template": "rule",
+   "hook": "The E is silent",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --rule-eps gates v1 (words in rules-words.json · every word live in the audited bank with a US IPA that PROVES the rule (rules.py) · family-safe · level <= B1 NGSL except the taught words · hook true · no duplicate lesson)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "31f0478858b4",
+   "script": {
+    "h": "The E is silent!",
+    "r": "In e m e n t, the first E is silent.",
+    "w0": "Statement.",
+    "v0": "Statement.",
+    "p": "Repeat after me!",
+    "q": "Quick quiz! Which letter is silent in statement?",
+    "a": "E! The E is silent.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_rule_silentng_1": {
+   "template": "rule",
+   "hook": "The G is silent",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --rule-eps gates v1 (words in rules-words.json · every word live in the audited bank with a US IPA that PROVES the rule (rules.py) · family-safe · level <= B1 NGSL except the taught words · hook true · no duplicate lesson)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "7ce3a68a8ebc",
+   "script": {
+    "h": "The G is silent!",
+    "r": "At the end, n g is one sound. Do not say G.",
+    "w0": "Anything.",
+    "v0": "Anything.",
+    "w1": "Bring.",
+    "v1": "Bring.",
+    "p": "Repeat after me!",
+    "q": "Quick quiz! Which letter is silent in bring?",
+    "a": "G! The G is silent.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_rule_silentkn_2": {
+   "template": "rule",
+   "hook": "The K is silent",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --rule-eps gates v1 (words in rules-words.json · every word live in the audited bank with a US IPA that PROVES the rule (rules.py) · family-safe · level <= B1 NGSL except the taught words · hook true · no duplicate lesson)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "4cbcaa54445f",
+   "script": {
+    "h": "The K is silent!",
+    "r": "In k n, the K is silent. Say N.",
+    "w0": "Knowledge.",
+    "v0": "Knowledge.",
+    "w1": "Knit.",
+    "v1": "Knit.",
+    "p": "Repeat after me!",
+    "q": "Quick quiz! Which letter is silent in knit?",
+    "a": "K! The K is silent.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_rule_silentally_1": {
+   "template": "rule",
+   "hook": "The A is silent",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --rule-eps gates v1 (words in rules-words.json · every word live in the audited bank with a US IPA that PROVES the rule (rules.py) · family-safe · level <= B1 NGSL except the taught words · hook true · no duplicate lesson)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "be2ad0327853",
+   "script": {
+    "h": "The A is silent!",
+    "r": "In i c a l l y, the A is silent.",
+    "w0": "Specifically.",
+    "v0": "Specifically.",
+    "p": "Repeat after me!",
+    "q": "Quick quiz! Which letter is silent in specifically?",
+    "a": "A! The A is silent.",
     "c": "Save this. Free on lexkite.com."
    }
   }

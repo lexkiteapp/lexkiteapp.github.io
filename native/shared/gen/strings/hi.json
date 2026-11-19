@@ -1215,6 +1215,7 @@
   "skill.listen.luyenTap": "अभ्यास",
   "skill.listen.nghe1Lan": "एक बार सुनें",
   "skill.listen.chepChinhTa": "श्रुतलेख",
+  "skill.listen.dienTuConThieu": "छूटा शब्द भरें",
   "skill.listen.meoLamBaiListening": "लिसनिंग टिप्स",
   "skill.listen.docTruocCauHoi": "<b>प्रश्नों को पहले पढ़ें</b> प्रतीक्षा करते समय: कीवर्ड को रेखांकित करें और अनुमान लगाएं कि किस प्रकार के उत्तर की आवश्यकता है (संख्या, नाम, संज्ञा…)।",
   "skill.listen.canThanBayDoi": "<b>सुधार पर ध्यान दें</b>: वक्ता अक्सर एक उत्तर देते हैं और फिर उसे बदल देते हैं (\"sorry, I mean…\")। अंतिम जानकारी ही उत्तर है.",
