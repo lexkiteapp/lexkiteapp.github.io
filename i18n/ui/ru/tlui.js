@@ -1,7 +1,7 @@
 /* UI ru – tlui (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ru"] = Object.assign(D["ru"] || {}, {
 "Báo tôi khi có":"Сообщить мне",
-"Bạn muốn học ngôn ngữ nào?":"Какой язык вы хотите изучать?",
+"Bạn muốn học ngôn ngữ nào nhỉ?":"Какой язык вы хотите изучать?",
 "Chọn 1 ngôn ngữ – đổi được bất cứ lúc nào ở Cài đặt.":"Выберите язык – его можно изменить в любое время в Настройках.",
 "IELTS, TOEIC và giao tiếp hằng ngày":"IELTS, TOEIC и повседневное общение",
 "Khóa học khác":"Другие курсы",

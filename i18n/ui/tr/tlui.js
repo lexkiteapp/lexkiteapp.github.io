@@ -1,7 +1,7 @@
 /* UI tr – tlui (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["tr"] = Object.assign(D["tr"] || {}, {
 "Báo tôi khi có":"Bana haber ver",
-"Bạn muốn học ngôn ngữ nào?":"Hangi dili öğrenmek istiyorsun?",
+"Bạn muốn học ngôn ngữ nào nhỉ?":"Hangi dili öğrenmek istiyorsun?",
 "Chọn 1 ngôn ngữ – đổi được bất cứ lúc nào ở Cài đặt.":"Bir dil seç – istediğin zaman Ayarlar’dan değiştirebilirsin.",
 "IELTS, TOEIC và giao tiếp hằng ngày":"IELTS, TOEIC ve günlük konuşma",
 "Khóa học khác":"Diğer kurslar",

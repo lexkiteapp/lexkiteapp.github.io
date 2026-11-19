@@ -1,7 +1,7 @@
 /* UI hi – tlui (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["hi"] = Object.assign(D["hi"] || {}, {
 "Báo tôi khi có":"मुझे सूचित करें",
-"Bạn muốn học ngôn ngữ nào?":"आप कौन-सी भाषा सीखना चाहते हैं?",
+"Bạn muốn học ngôn ngữ nào nhỉ?":"आप कौन-सी भाषा सीखना चाहते हैं?",
 "Chọn 1 ngôn ngữ – đổi được bất cứ lúc nào ở Cài đặt.":"एक भाषा चुनें – आप इसे कभी भी सेटिंग्स में बदल सकते हैं।",
 "IELTS, TOEIC và giao tiếp hằng ngày":"IELTS, TOEIC और रोज़मर्रा की बातचीत",
 "Khóa học khác":"अन्य कोर्स",

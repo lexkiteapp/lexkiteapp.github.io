@@ -44,7 +44,7 @@
   function close() { const m = document.getElementById('modal'); if (m && !m.hidden && m.querySelector('.tlp-sheet')) { if (g.UI && UI.closeModal) UI.closeModal(); else m.hidden = true; } }
   async function open() {
     if (!show()) return; const cur = T().cur(), st = await stats();
-    const box = UI.modal(`<div class="tlp-sheet"><div class="tlp-grab" aria-hidden="true"></div><div class="tlp-head"><h2 id="tlpT">${esc(tr('Bạn muốn học ngôn ngữ nào?'))}</h2><button type="button" class="tlp-x" data-close aria-label="${esc(tr('Đóng'))}"><svg class="i" aria-hidden="true"><use href="#i-x"/></svg></button></div>`
+    const box = UI.modal(`<div class="tlp-sheet"><div class="tlp-grab" aria-hidden="true"></div><div class="tlp-head"><h2 id="tlpT">${esc(tr('Bạn muốn học ngôn ngữ nào nhỉ?'))}</h2><button type="button" class="tlp-x" data-close aria-label="${esc(tr('Đóng'))}"><svg class="i" aria-hidden="true"><use href="#i-x"/></svg></button></div>`
       + `<ul class="tlp-list" role="radiogroup" aria-labelledby="tlpT">${courses().map(c => row(c, cur, st)).join('')}</ul><p class="tlp-foot">${esc(tr('Chọn 1 ngôn ngữ – đổi được bất cứ lúc nào ở Cài đặt.'))}</p></div>`, { v: 'sheet' });
     box.setAttribute('aria-labelledby', 'tlpT');
     box.querySelectorAll('button.tlp-row').forEach((b, i, all) => { b.onclick = () => choose(b.dataset.tl);

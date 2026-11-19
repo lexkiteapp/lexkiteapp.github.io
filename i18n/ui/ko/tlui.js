@@ -1,7 +1,7 @@
 /* UI ko – tlui (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ko"] = Object.assign(D["ko"] || {}, {
 "Báo tôi khi có":"출시되면 알림",
-"Bạn muốn học ngôn ngữ nào?":"어떤 언어를 배우고 싶으신가요?",
+"Bạn muốn học ngôn ngữ nào nhỉ?":"어떤 언어를 배우고 싶으신가요?",
 "Chọn 1 ngôn ngữ – đổi được bất cứ lúc nào ở Cài đặt.":"언어를 하나 선택하세요 – 설정에서 언제든 바꿀 수 있어요.",
 "IELTS, TOEIC và giao tiếp hằng ngày":"IELTS, TOEIC, 일상 회화",
 "Khóa học khác":"다른 코스",

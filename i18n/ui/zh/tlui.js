@@ -1,7 +1,7 @@
 /* UI zh – tlui (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["zh"] = Object.assign(D["zh"] || {}, {
 "Báo tôi khi có":"有了通知我",
-"Bạn muốn học ngôn ngữ nào?":"你想学哪种语言？",
+"Bạn muốn học ngôn ngữ nào nhỉ?":"你想学哪种语言？",
 "Chọn 1 ngôn ngữ – đổi được bất cứ lúc nào ở Cài đặt.":"选择一种语言 – 可随时在设置中更改。",
 "IELTS, TOEIC và giao tiếp hằng ngày":"IELTS、TOEIC 与日常会话",
 "Khóa học khác":"其他课程",

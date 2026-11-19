@@ -1,7 +1,7 @@
 /* UI th – tlui (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["th"] = Object.assign(D["th"] || {}, {
 "Báo tôi khi có":"แจ้งเตือนฉัน",
-"Bạn muốn học ngôn ngữ nào?":"คุณอยากเรียนภาษาอะไร?",
+"Bạn muốn học ngôn ngữ nào nhỉ?":"คุณอยากเรียนภาษาอะไร?",
 "Chọn 1 ngôn ngữ – đổi được bất cứ lúc nào ở Cài đặt.":"เลือกภาษาหนึ่งภาษา – เปลี่ยนได้ทุกเมื่อในการตั้งค่า",
 "IELTS, TOEIC và giao tiếp hằng ngày":"IELTS, TOEIC และการสนทนาในชีวิตประจำวัน",
 "Khóa học khác":"คอร์สอื่น ๆ",

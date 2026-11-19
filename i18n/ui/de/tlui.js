@@ -1,7 +1,7 @@
 /* UI de – tlui (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["de"] = Object.assign(D["de"] || {}, {
 "Báo tôi khi có":"Benachrichtigen Sie mich",
-"Bạn muốn học ngôn ngữ nào?":"Welche Sprache möchten Sie lernen?",
+"Bạn muốn học ngôn ngữ nào nhỉ?":"Welche Sprache möchten Sie lernen?",
 "Chọn 1 ngôn ngữ – đổi được bất cứ lúc nào ở Cài đặt.":"Wählen Sie eine Sprache – sie lässt sich jederzeit in den Einstellungen ändern.",
 "IELTS, TOEIC và giao tiếp hằng ngày":"IELTS, TOEIC und Alltagsgespräche",
 "Khóa học khác":"Weitere Kurse",

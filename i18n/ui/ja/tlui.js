@@ -1,7 +1,7 @@
 /* UI ja – tlui (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ja"] = Object.assign(D["ja"] || {}, {
 "Báo tôi khi có":"お知らせを受け取る",
-"Bạn muốn học ngôn ngữ nào?":"どの言語を学びたいですか？",
+"Bạn muốn học ngôn ngữ nào nhỉ?":"どの言語を学びたいですか？",
 "Chọn 1 ngôn ngữ – đổi được bất cứ lúc nào ở Cài đặt.":"言語を1つ選んでください – 設定からいつでも変更できます。",
 "IELTS, TOEIC và giao tiếp hằng ngày":"IELTS、TOEIC、日常会話",
 "Khóa học khác":"ほかのコース",

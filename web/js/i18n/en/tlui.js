@@ -14,5 +14,5 @@
   'Tiếng TBN Mỹ Latinh · DELE/SIELE A1–C2': 'Latin American Spanish · DELE/SIELE A1–C2',
   'Chọn 1 ngôn ngữ – đổi được bất cứ lúc nào ở Cài đặt.': 'Pick one language – you can change it any time in Settings.',
   'Sắp ra mắt': 'Coming soon',
-  "Bạn muốn học ngôn ngữ nào?": "Which language do you want to learn?",
+  "Bạn muốn học ngôn ngữ nào nhỉ?": "Which language do you want to learn?",
 }); })(typeof self !== 'undefined' ? self : this);
