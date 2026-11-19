@@ -120,7 +120,9 @@ for (const m of models) {
     for (let k = 1; k <= 2; k++) { seed = SEED0 + k; const x = await runPass(m); const pm = passMetrics(sumIelts(x.ielts), sumRp(x.rp)); passes.push(pm); console.log(`  lượt ${k + 1}: ${JSON.stringify(pm)}`); }
   }
   const MV = passes.length > 1 ? medianVerdict(passes) : null;
-  const row = { route: m.route, model: m.model, chain: m.chain, available: avail, cover: Math.round(cover * 100) / 100, pass: avail && judgeOk && (MV ? MV.pass : SI.pass && SR.pass), passes, median: MV ? MV.med : null, ielts: SI, rp: SR, secs: Math.round((Date.now() - t0) / 1000), detail: { ielts, rp } };
+  const passOk = MV ? MV.pass : SI.pass && SR.pass;
+  const row = { route: m.route, model: m.model, chain: m.chain, available: avail, cover: Math.round(cover * 100) / 100, pass: avail && passOk && judgeOk, ielts: SI, rp: SR, secs: Math.round((Date.now() - t0) / 1000), detail: { ielts, rp } };
+  row.passes = passes; row.median = MV ? MV.med : null; // điểm từng lượt + trung vị (chỉ có khi đo lại)
   report.models.push(row);
   console.log(`${row.pass ? '✓' : avail ? '✗' : '·'} ${m.route} ${m.model}${m.chain ? ' [chuỗi]' : ''}: IELTS bắt lỗi ${Math.round(SI.recall * 100)}% · band lệch ${SI.mae} · JSON ${Math.round(SI.valid * 100)}% · ngôn ngữ ${Math.round(SI.lang * 100)}% | roleplay ${SR.mean}/5 · vô lý ${SR.absurd} · hỏi lại ${Math.round(SR.clarify * 100)}% · JSON ${Math.round(SR.valid * 100)}% (${row.secs}s)${MV ? ` · TRUNG VỊ ${passes.length} lượt → ${MV.pass ? 'đạt' : 'trượt'}: ${JSON.stringify(MV.med)}` : ''}`);
   for (const r of ielts) if (r.err || r.missed.length || r.diff > 0.5) console.log(`    ielts ${r.id}: band ${r.band ?? '-'} (kỳ vọng ${r.want}) · sót ${JSON.stringify(r.missed)}${r.missed.length ? ' · model ghi ' + JSON.stringify(r.got).slice(0, 600) : ''}${r.langOk ? '' : ' · SAI NGÔN NGỮ'}${r.err ? ' · ' + r.err : ''}`);
