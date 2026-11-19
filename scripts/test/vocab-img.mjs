@@ -102,7 +102,7 @@ const index = { v: 2, base, sv: 's1', m: { 'apple#n': H, 'kiss#v': H2, 'red#adj'
 const html = rd('web/app/index.html'), appjs = rd('web/js/app.js'), sw = rd('web/sw.js');
 ok(!/vocab-img|lexicon-img/.test(html), 'app/index.html không nạp vocab-img / chỉ mục');
 ok(!/lexicon-img\.json/.test(appjs) && !/<script[^>]*vocab-img/.test(appjs), 'app.js không nạp tĩnh module/chỉ mục');
-ok((appjs.match(/vocab-img\.js/g) || []).length === 1 && /vimg: \['js\/vocab-img\.js'\]/.test(appjs), 'app.js chỉ nhắc vocab-img.js trong bó tải lười BUNDLES.vimg');
+{ const bj = rd('web/js/bundles.js'); ok(!/vocab-img\.js/.test(appjs) && (bj.match(/vocab-img\.js/g) || []).length === 1 && /vimg: \['js\/vocab-img\.js'\]/.test(bj), 'chỉ bundles.js nhắc vocab-img.js (bó tải lười BUNDLES.vimg), app.js không');}
 { const m = /const vimgOn = [^\n]*\n\s*App\.vimgReady = [^\n]*\n\s*App\.vimg = [^\n]*\n\s*(?:\s*\/\/[^\n]*\n)*\s*[^\n]*App\.vimgReady\(\)[^\n]*\n/.exec(appjs); ok(!!m, 'app.js có vimgOn/App.vimgReady/App.vimg');
   for (const [store, want] of [[{}, 1], [{ 'lk.cfg': JSON.stringify({ v: { vocab_img: false } }) }, 0], [{ 'lk.vimg': '0', 'lk.cfg': JSON.stringify({ v: { vocab_img: true } }) }, 0], [{ 'lk.vimg': '1' }, 1], [{ 'lk.cfg': JSON.stringify({ v: { vocab_img: true } }) }, 1]]) {
     const need = []; const ctx = { localStorage: { getItem: k => (k in store ? store[k] : null) }, App: { need: n => { need.push(n); return Promise.resolve(); } }, window: {}, location: { hash: '#/study' }, idle: f => f() };

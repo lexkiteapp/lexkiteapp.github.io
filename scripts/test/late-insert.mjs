@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 import { JSDOM } from 'jsdom';
 const R = fileURLToPath(new URL('../../', import.meta.url)), rd = f => fs.readFileSync(R + f, 'utf8');
 let fail = 0; const ok = (c, m) => { console.log(`${c ? '✓' : '✗'} late-insert: ${m}`); if (!c) fail++; };
-const app = rd('web/js/app.js'), loader = rd('scripts/app-loader.mjs');
+const app = rd('web/js/app.js') + rd('web/js/bundles.js'), loader = rd('scripts/app-loader.mjs');
 
 // ---- 1) Thanh thoát phải gắn TRƯỚC lần vẽ của màn mới (vi tác vụ), không đợi khung hình sau
 {

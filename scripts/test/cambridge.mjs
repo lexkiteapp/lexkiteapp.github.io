@@ -7,10 +7,10 @@ const errs = [], C = loadContent(), T = C.CAMBRIDGE || [];
 if (!T.length) errs.push('không nạp được đề Cambridge nào (web/cpack/cambridge/<cấp>/t<N>.js)');
 if (!T.some(x => x.id === 'a2-t1' && x.gold)) errs.push('mất đề gold a2-t1');
 // 1) file đề ↔ gói "cambridge" trong web/js/app.js
-const app = fs.readFileSync('web/js/app.js', 'utf8'), m = app.match(/\n\s*cambridge: \[([^\]]*)\]/), bundle = m ? m[1] : '';
+const app = fs.readFileSync('web/js/bundles.js', 'utf8'), m = app.match(/\n\s*cambridge: \[([^\]]*)\]/), bundle = m ? m[1] : '';
 for (const l of fs.readdirSync('web/cpack/cambridge').filter(x => /^(a2|b1|b2|c1|c2)$/.test(x))) for (const f of fs.readdirSync('web/cpack/cambridge/' + l).filter(f => /\.js$/.test(f))) {
   if (!/^t\d+\.js$/.test(f)) errs.push(`web/cpack/cambridge/${l}/${f}: tên file phải là t<N>.js`);
-  else if (!bundle.includes(`'cpack/cambridge/${l}/${f}'`)) errs.push(`web/cpack/cambridge/${l}/${f}: chưa có trong gói cambridge của web/js/app.js`);
+  else if (!bundle.includes(`'cpack/cambridge/${l}/${f}'`)) errs.push(`web/cpack/cambridge/${l}/${f}: chưa có trong gói cambridge của web/js/bundles.js`);
 }
 for (const f of ['cpack/cambridge/rubric.js', 'js/cambridge.js', 'js/qengine.js']) if (!bundle.includes(`'${f}'`)) errs.push(`gói cambridge thiếu ${f}`);
 // 2) helper chấm viết của màn thi (chạy thật trong vm) – bài mẫu phải qua đủ ý, đủ từ, ≥ 2 từ nối

@@ -225,8 +225,8 @@ ok(!net.slice(net0).some(u => /(translate\.googleapis|\/api\/dictlookup\?src=gtx
 // ================= 3. Khóa giao diện có bản tiếng Anh =================
 const src = fs.readFileSync('web/js/usage.js', 'utf8');
 const keys = [...new Set([...src.matchAll(/\bt\('((?:[^'\\]|\\.)*)'/g)].map(m => m[1]))];
-// en.js + en/usage.js + các nhóm App.need luôn nạp kèm (i18nx, i18nl trong BUNDLES của app.js) – đúng như trình duyệt khi mở #/usage
-const appSrc = fs.readFileSync('web/js/app.js', 'utf8');
+// en.js + en/usage.js + các nhóm App.need luôn nạp kèm (i18nx, i18nl trong BUNDLES của bundles.js) – đúng như trình duyệt khi mở #/usage
+const appSrc = fs.readFileSync('web/js/bundles.js', 'utf8');
 const withNeed = [...appSrc.matchAll(/^\s*i18n[xl]: \[([^\]]*)\]/gm)].flatMap(m => [...m[1].matchAll(/'([^']+)'/g)].map(x => `web/js/i18n/en/${x[1]}.js`));
 const D = {}; new Function('self', ['web/js/i18n/en.js', 'web/js/i18n/en/usage.js', ...withNeed].map(f => fs.readFileSync(f, 'utf8')).join('\n'))(D);
 const missing = keys.filter(k => D.I18N_DICT.en[k] === undefined);

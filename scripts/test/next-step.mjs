@@ -24,7 +24,7 @@ ok(NS.links('read', R[R.length - 1].id).find(x => x.pri).h === '#/read/' + encod
 const el = { html: '', querySelector: () => (el.html ? {} : null), insertAdjacentHTML(_, h) { el.html += h; } };
 NS.render(el, 'read', R[0].id); NS.render(el, 'read', R[0].id);
 ok((el.html.match(/class="nx-step"/g) || []).length === 1 && /aria-label=/.test(el.html) && !/<script/i.test(el.html), 'render: 1 khối, có aria-label, không chèn HTML thô');
-const rd = J('reading.js'), li = J('listening.js'), app = J('app.js');
+const rd = J('reading.js'), li = J('listening.js'), app = J('app.js') + J('bundles.js');
 ok(/App\.lazy\('nxs'\)\.then\(\(\) => NextStep\.render\(\$\('#qResult \.feedback'\), 'read'/.test(rd), 'reading.js gọi NextStep sau khi chấm');
 ok(/App\.lazy\('nxs'\)\.then\(\(\) => NextStep\.render\(\$\('#lRes \.feedback'\), 'listen'/.test(li), 'listening.js gọi NextStep sau khi chấm');
 ok(/nxs: \['js\/i18n\/en\/nextstep\.js', 'js\/next-step\.js'\]/.test(app) && !/next-step\.js/.test(fs.readFileSync('web/sw.js', 'utf8').match(/const SHELL = \[([\s\S]*?)\];/)[1]), "gói lười 'nxs' (không nằm trong khung app)");
