@@ -401,6 +401,7 @@ node scripts/test/perf-flake.mjs
 node scripts/test/gate-relevance.mjs
 node scripts/test/gate-retest.mjs
 node scripts/test/native-qa-scope.mjs
+node scripts/test/pr-scope-carry.mjs
 node scripts/test/pr-unconflict.mjs
 node scripts/test/regen-conflicts.mjs
 node scripts/test/gen-pr-clean.mjs
