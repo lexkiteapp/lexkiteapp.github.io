@@ -2,16 +2,16 @@
  "_note": "Nghĩa cảnh đã thử đủ biến thể mà không ảnh nào qua giám khảo cảnh – fill bỏ qua tới khi sửa thẻ (vimg-scenes.json) / prompt rồi xoá mục khỏi đây (scene-publish.mjs).",
  "items": {
   "academic calendar#n": {
-   "at": "2026-11-17",
-   "tries": 42,
-   "why": "vision: no (one circle, thoughtful look)",
-   "b": "44000359339"
+   "at": "2026-11-19",
+   "tries": 48,
+   "why": "duplicate (pHash)",
+   "b": "44468786882"
   },
   "academic writing#n": {
-   "at": "2026-11-17",
-   "tries": 42,
+   "at": "2026-11-19",
+   "tries": 48,
    "why": "meaning check: no (Is there a person producing formal university-styl)",
-   "b": "44000359339"
+   "b": "44468786882"
   },
   "acid rain#n": {
    "at": "2026-11-18",
@@ -32,10 +32,10 @@
    "b": "44229253651"
   },
   "again#adv": {
-   "at": "2026-11-17",
-   "tries": 42,
-   "why": "vision description-sentence sim 0.297",
-   "b": "44000359339"
+   "at": "2026-11-19",
+   "tries": 48,
+   "why": "vision: no (man not pushing buttons)",
+   "b": "44468786882"
   },
   "air waybill#n": {
    "at": "2026-11-18",
@@ -56,10 +56,10 @@
    "b": "44000359339"
   },
   "anecdotal#adj": {
-   "at": "2026-11-17",
-   "tries": 48,
+   "at": "2026-11-19",
+   "tries": 54,
    "why": "size > 6 KB",
-   "b": "44000359339"
+   "b": "44468786882"
   },
   "antitoxin#n": {
    "at": "2026-11-18",
@@ -92,10 +92,10 @@
    "b": "44229253651"
   },
   "artisan#n": {
-   "at": "2026-11-17",
-   "tries": 42,
-   "why": "vision: no (chisel and workbench not clearly shown)",
-   "b": "44000359339"
+   "at": "2026-11-19",
+   "tries": 48,
+   "why": "vision: no (chisel and bowl making)",
+   "b": "44468786882"
   },
   "aside#adv": {
    "at": "2026-11-17",
@@ -110,10 +110,10 @@
    "b": "44229253651"
   },
   "assent#n": {
-   "at": "2026-11-17",
-   "tries": 42,
+   "at": "2026-11-19",
+   "tries": 48,
    "why": "vision: no (no head nod)",
-   "b": "44000359339"
+   "b": "44468786882"
   },
   "assign#v": {
    "at": "2026-11-17",
@@ -134,16 +134,16 @@
    "b": "44229253651"
   },
   "auction#n": {
-   "at": "2026-11-17",
-   "tries": 42,
+   "at": "2026-11-19",
+   "tries": 48,
    "why": "meaning check: no (Is a person raising a gavel over a table with item)",
-   "b": "44000359339"
+   "b": "44468786882"
   },
   "authentic#adj": {
-   "at": "2026-11-17",
-   "tries": 42,
-   "why": "vision: no (table and plastic replica)",
-   "b": "44000359339"
+   "at": "2026-11-19",
+   "tries": 48,
+   "why": "vision: no (no table, wrong apple colors)",
+   "b": "44468786882"
   },
   "autotrophic#adj": {
    "at": "2026-11-18",
@@ -152,10 +152,10 @@
    "b": "44229253651"
   },
   "average daily rate#n": {
-   "at": "2026-11-17",
-   "tries": 42,
+   "at": "2026-11-19",
+   "tries": 48,
    "why": "meaning check: no (Does the picture show someone receiving money for )",
-   "b": "44000359339"
+   "b": "44468786882"
   },
   "aviation#n": {
    "at": "2026-11-17",
@@ -170,16 +170,16 @@
    "b": "44229253651"
   },
   "back#adv": {
-   "at": "2026-11-17",
-   "tries": 48,
-   "why": "meaning check: no (Is the person moving toward the rear of the chair?)",
-   "b": "44000359339"
+   "at": "2026-11-19",
+   "tries": 54,
+   "why": "vision description-sentence sim 0.2952",
+   "b": "44468786882"
   },
   "benefits enrollment#n": {
-   "at": "2026-11-17",
-   "tries": 42,
-   "why": "meaning check: no (Is the person deciding which of the two boxes to p)",
-   "b": "44000359339"
+   "at": "2026-11-19",
+   "tries": 48,
+   "why": "vision: no (no heart-shaped box beside piggy-bank)",
+   "b": "44468786882"
   },
   "besiege#v": {
    "at": "2026-11-18",
@@ -194,10 +194,10 @@
    "b": "44229253651"
   },
   "board of directors#n": {
-   "at": "2026-11-17",
-   "tries": 42,
+   "at": "2026-11-19",
+   "tries": 48,
    "why": "meaning check: no (Are the two people shown making a joint decision a)",
-   "b": "44000359339"
+   "b": "44468786882"
   },
   "boarding pass#n": {
    "at": "2026-11-18",
@@ -212,10 +212,10 @@
    "b": "44000359339"
   },
   "bullet#n": {
-   "at": "2026-11-17",
-   "tries": 36,
+   "at": "2026-11-19",
+   "tries": 42,
    "why": "api: unsafe",
-   "b": "44000359339"
+   "b": "44468786882"
   },
   "bullfight#n": {
    "at": "2026-11-18",
@@ -236,22 +236,22 @@
    "b": "44229253651"
   },
   "cancellation policy#n": {
-   "at": "2026-11-17",
-   "tries": 42,
-   "why": "vision: text; vision description-sentence sim 0.2111",
-   "b": "44000359339"
+   "at": "2026-11-19",
+   "tries": 48,
+   "why": "vision: text; vision description-sentence sim 0.2252",
+   "b": "44468786882"
   },
   "capitulate#v": {
-   "at": "2026-11-17",
-   "tries": 36,
-   "why": "meaning check: no (Is the person kneeling with arms raised, showing t)",
-   "b": "44000359339"
+   "at": "2026-11-19",
+   "tries": 42,
+   "why": "vision description-sentence sim 0.2443",
+   "b": "44468786882"
   },
   "cast#n": {
-   "at": "2026-11-17",
-   "tries": 42,
-   "why": "meaning check: no (Is there a group of people performing as actors on)",
-   "b": "44000359339"
+   "at": "2026-11-19",
+   "tries": 48,
+   "why": "vision: no (adults, spotlight)",
+   "b": "44468786882"
   },
   "causation#n": {
    "at": "2026-11-18",
@@ -260,10 +260,10 @@
    "b": "44229253651"
   },
   "cautious#adj": {
-   "at": "2026-11-17",
-   "tries": 48,
-   "why": "vision: no (crosswalk, looking, stepping actions)",
-   "b": "44000359339"
+   "at": "2026-11-19",
+   "tries": 54,
+   "why": "meaning check: no (Is one person checking both directions before cros)",
+   "b": "44468786882"
   },
   "challenge#v": {
    "at": "2026-11-18",
@@ -272,10 +272,10 @@
    "b": "44229253651"
   },
   "checking account#n": {
-   "at": "2026-11-17",
-   "tries": 42,
+   "at": "2026-11-19",
+   "tries": 48,
    "why": "meaning check: no (Is the person using a bank account to pay for ever)",
-   "b": "44000359339"
+   "b": "44468786882"
   },
   "checkmate#n": {
    "at": "2026-11-18",
@@ -294,6 +294,12 @@
    "tries": 4,
    "why": "vision description-sentence sim 0.0577",
    "b": "40088424311"
+  },
+  "clef#n": {
+   "at": "2026-11-19",
+   "tries": 6,
+   "why": "vision: text",
+   "b": "44468786882"
   },
   "clone#v": {
    "at": "2026-11-18",
@@ -320,10 +326,10 @@
    "b": "44229253651"
   },
   "compensation#n": {
-   "at": "2026-11-17",
-   "tries": 48,
+   "at": "2026-11-19",
+   "tries": 54,
    "why": "meaning check: no (Is a person receiving cash as payment for a proble)",
-   "b": "44000359339"
+   "b": "44468786882"
   },
   "completely#adv": {
    "at": "2026-11-18",
@@ -344,16 +350,16 @@
    "b": "44000359339"
   },
   "conditional#adj": {
-   "at": "2026-11-17",
-   "tries": 42,
+   "at": "2026-11-19",
+   "tries": 48,
    "why": "meaning check: no (Is there a key being used to open one door while a)",
-   "b": "44000359339"
+   "b": "44468786882"
   },
   "conditionally#adv": {
-   "at": "2026-11-17",
-   "tries": 48,
+   "at": "2026-11-19",
+   "tries": 54,
    "why": "meaning check: no (Is the person acting only if a certain condition i)",
-   "b": "44000359339"
+   "b": "44468786882"
   },
   "consecutive#adj": {
    "at": "2026-11-17",
@@ -362,10 +368,10 @@
    "b": "44000359339"
   },
   "constitution#n": {
-   "at": "2026-11-17",
-   "tries": 42,
-   "why": "vision description-sentence sim 0.1931",
-   "b": "44000359339"
+   "at": "2026-11-19",
+   "tries": 48,
+   "why": "vision description-sentence sim 0.1939",
+   "b": "44468786882"
   },
   "contract of employment#n": {
    "at": "2026-11-18",
@@ -374,10 +380,10 @@
    "b": "44229253651"
   },
   "convention#n": {
-   "at": "2026-11-17",
-   "tries": 48,
+   "at": "2026-11-19",
+   "tries": 54,
    "why": "meaning check: no (Is a person speaking to a large group of seated li)",
-   "b": "44000359339"
+   "b": "44468786882"
   },
   "convict#v": {
    "at": "2026-11-18",
@@ -386,22 +392,22 @@
    "b": "44229253651"
   },
   "copyright#n": {
-   "at": "2026-11-17",
-   "tries": 42,
-   "why": "meaning check: no (Is the person shown preventing someone else from c)",
-   "b": "44000359339"
+   "at": "2026-11-19",
+   "tries": 48,
+   "why": "text: on",
+   "b": "44468786882"
   },
   "corporate income tax#n": {
-   "at": "2026-11-17",
-   "tries": 42,
+   "at": "2026-11-19",
+   "tries": 48,
    "why": "meaning check: no (Is the person taking some of the company's coins a)",
-   "b": "44000359339"
+   "b": "44468786882"
   },
   "corporate rate#n": {
-   "at": "2026-11-17",
-   "tries": 42,
+   "at": "2026-11-19",
+   "tries": 48,
    "why": "meaning check: no (Is the suited person getting a hotel key as part o)",
-   "b": "44000359339"
+   "b": "44468786882"
   },
   "cosmonaut#n": {
    "at": "2026-11-18",
@@ -422,22 +428,16 @@
    "b": "44229253651"
   },
   "coupon#n": {
-   "at": "2026-11-17",
-   "tries": 48,
-   "why": "meaning check: no (Is there a ticket that gives a discount on a purch)",
-   "b": "44000359339"
+   "at": "2026-11-19",
+   "tries": 54,
+   "why": "vision: text",
+   "b": "44468786882"
   },
   "course registration#n": {
    "at": "2026-11-18",
    "tries": 48,
    "why": "meaning check: no (Is the person putting a paper into a box as a sign)",
    "b": "44229253651"
-  },
-  "cover letter#n": {
-   "at": "2026-11-17",
-   "tries": 36,
-   "why": "meaning check: no (Is a person giving a simple document that accompan)",
-   "b": "44000359339"
   },
   "crankshaft#n": {
    "at": "2026-11-18",
@@ -446,10 +446,10 @@
    "b": "44229253651"
   },
   "credit rating#n": {
-   "at": "2026-11-17",
-   "tries": 42,
+   "at": "2026-11-19",
+   "tries": 48,
    "why": "meaning check: no (Is there a device showing how likely someone will )",
-   "b": "44000359339"
+   "b": "44468786882"
   },
   "crop#n": {
    "at": "2026-11-17",
@@ -464,16 +464,16 @@
    "b": "44229253651"
   },
   "customer acquisition cost#n": {
-   "at": "2026-11-17",
-   "tries": 42,
-   "why": "meaning check: no (Is a single coin shown as the price paid to gain a)",
-   "b": "44000359339"
+   "at": "2026-11-19",
+   "tries": 48,
+   "why": "vision: text; vision description-sentence sim 0.2186",
+   "b": "44468786882"
   },
   "customs bond#n": {
-   "at": "2026-11-17",
-   "tries": 42,
-   "why": "meaning check: no (Is there a plain document that guarantees payment )",
-   "b": "44000359339"
+   "at": "2026-11-19",
+   "tries": 48,
+   "why": "vision description-sentence sim 0.267",
+   "b": "44468786882"
   },
   "cut-off time#n": {
    "at": "2026-11-17",
@@ -500,10 +500,10 @@
    "b": "44000359339"
   },
   "default#v": {
-   "at": "2026-11-17",
-   "tries": 42,
-   "why": "vision: no (bank building and context)",
-   "b": "44000359339"
+   "at": "2026-11-19",
+   "tries": 48,
+   "why": "vision description-sentence sim 0.1987",
+   "b": "44468786882"
   },
   "delegation#n": {
    "at": "2026-11-18",
@@ -524,10 +524,10 @@
    "b": "44229253651"
   },
   "deny#v": {
-   "at": "2026-11-17",
-   "tries": 48,
-   "why": "vision: no (no head shaking, unclear refusal)",
-   "b": "44000359339"
+   "at": "2026-11-19",
+   "tries": 54,
+   "why": "vision description-sentence sim 0.2722",
+   "b": "44468786882"
   },
   "depose#v": {
    "at": "2026-11-18",
@@ -542,22 +542,22 @@
    "b": "44229253651"
   },
   "deterrent#n": {
-   "at": "2026-11-17",
-   "tries": 48,
-   "why": "meaning check: no (Is the dog preventing the man from entering the ga)",
-   "b": "44000359339"
+   "at": "2026-11-19",
+   "tries": 54,
+   "why": "vision: no (dog in front of gate not clear)",
+   "b": "44468786882"
   },
   "dexterity#n": {
-   "at": "2026-11-17",
-   "tries": 42,
-   "why": "vision: no (girl is not juggling balls)",
-   "b": "44000359339"
+   "at": "2026-11-19",
+   "tries": 48,
+   "why": "vision description-sentence sim 0.2806",
+   "b": "44468786882"
   },
   "dictatorship#n": {
-   "at": "2026-11-17",
-   "tries": 42,
+   "at": "2026-11-19",
+   "tries": 48,
    "why": "meaning check: no (Is there a single ruler being obeyed by many peopl)",
-   "b": "44000359339"
+   "b": "44468786882"
   },
   "dimension#n": {
    "at": "2026-11-18",
@@ -566,22 +566,22 @@
    "b": "44229253651"
   },
   "diminish#v": {
-   "at": "2026-11-17",
-   "tries": 42,
-   "why": "vision description-sentence sim 0.2471",
-   "b": "44000359339"
+   "at": "2026-11-19",
+   "tries": 48,
+   "why": "meaning check: no (Is the balloon shown getting smaller compared to i)",
+   "b": "44468786882"
   },
   "dining hall#n": {
-   "at": "2026-11-17",
-   "tries": 42,
+   "at": "2026-11-19",
+   "tries": 48,
    "why": "meaning check: no (Is the scene a large room where many students eat )",
-   "b": "44000359339"
+   "b": "44468786882"
   },
   "discriminate#v": {
-   "at": "2026-11-17",
-   "tries": 42,
+   "at": "2026-11-19",
+   "tries": 48,
    "why": "meaning check: no (Is the person ignoring the older individual in an )",
-   "b": "44000359339"
+   "b": "44468786882"
   },
   "dislike#v": {
    "at": "2026-11-17",
@@ -614,10 +614,10 @@
    "b": "44229253651"
   },
   "economist#n": {
-   "at": "2026-11-17",
-   "tries": 42,
-   "why": "vision: text",
-   "b": "44000359339"
+   "at": "2026-11-19",
+   "tries": 48,
+   "why": "text: CF",
+   "b": "44468786882"
   },
   "edit access#n": {
    "at": "2026-10-24",
@@ -644,10 +644,10 @@
    "b": "40276144478"
   },
   "embassy#n": {
-   "at": "2026-11-17",
-   "tries": 42,
+   "at": "2026-11-19",
+   "tries": 48,
    "why": "meaning check: no (Is there a grand building where foreign officials )",
-   "b": "44000359339"
+   "b": "44468786882"
   },
   "emissary#n": {
    "at": "2026-11-18",
@@ -662,16 +662,16 @@
    "b": "44000359339"
   },
   "entrance exam#n": {
-   "at": "2026-11-17",
-   "tries": 30,
-   "why": "meaning check: no (Is a student taking a formal test while a proctor )",
-   "b": "44000359339"
+   "at": "2026-11-19",
+   "tries": 36,
+   "why": "vision: text",
+   "b": "44468786882"
   },
   "entrepreneur#n": {
-   "at": "2026-11-17",
-   "tries": 42,
-   "why": "text: LL",
-   "b": "44000359339"
+   "at": "2026-11-19",
+   "tries": 48,
+   "why": "meaning check: no (Is a person holding a tiny shop model and a large )",
+   "b": "44468786882"
   },
   "environmental monitoring#n": {
    "at": "2026-11-17",
@@ -686,16 +686,16 @@
    "b": "44229253651"
   },
   "excess#n": {
-   "at": "2026-11-17",
-   "tries": 42,
-   "why": "vision: no (spaghetti overflows table)",
-   "b": "44000359339"
+   "at": "2026-11-19",
+   "tries": 48,
+   "why": "size > 6 KB",
+   "b": "44468786882"
   },
   "expand#v": {
-   "at": "2026-11-17",
-   "tries": 48,
-   "why": "vision: no (woman inflating, not just holding)",
-   "b": "44000359339"
+   "at": "2026-11-19",
+   "tries": 54,
+   "why": "vision: no (woman inflating balloon not shown)",
+   "b": "44468786882"
   },
   "experiential marketing#n": {
    "at": "2026-11-18",
@@ -740,10 +740,10 @@
    "b": "44229253651"
   },
   "fiendish#adj": {
-   "at": "2026-11-17",
-   "tries": 36,
-   "why": "vision: no (glowing red eyes not clearly visible)",
-   "b": "44000359339"
+   "at": "2026-11-19",
+   "tries": 42,
+   "why": "api: unsafe",
+   "b": "44468786882"
   },
   "fine#n": {
    "at": "2026-11-17",
@@ -764,10 +764,10 @@
    "b": "44229253651"
   },
   "flywheel#n": {
-   "at": "2026-11-17",
-   "tries": 36,
-   "why": "meaning check: no (Is there a heavy metal disc that spins to store en)",
-   "b": "44000359339"
+   "at": "2026-11-19",
+   "tries": 42,
+   "why": "text: AD by",
+   "b": "44468786882"
   },
   "follow-up#n": {
    "at": "2026-11-17",
@@ -776,10 +776,10 @@
    "b": "44000359339"
   },
   "forestry#n": {
-   "at": "2026-11-17",
-   "tries": 42,
+   "at": "2026-11-19",
+   "tries": 48,
    "why": "meaning check: no (Is the person shown planting a tree as part of for)",
-   "b": "44000359339"
+   "b": "44468786882"
   },
   "forewing#n": {
    "at": "2026-11-18",
@@ -806,22 +806,16 @@
    "b": "44229253651"
   },
   "franchise#n": {
-   "at": "2026-11-17",
-   "tries": 42,
+   "at": "2026-11-19",
+   "tries": 48,
    "why": "meaning check: no (Is someone receiving the right to sell a product?)",
-   "b": "44000359339"
+   "b": "44468786882"
   },
   "freight forwarder#n": {
    "at": "2026-11-18",
    "tries": 48,
    "why": "meaning check: no (Is the person helping to arrange a ship's cargo?)",
    "b": "44229253651"
-  },
-  "fully booked#adj": {
-   "at": "2026-11-17",
-   "tries": 42,
-   "why": "meaning check: no (Are all the seats in the restaurant taken with no )",
-   "b": "44000359339"
   },
   "fully#adv": {
    "at": "2026-11-18",
@@ -842,10 +836,10 @@
    "b": "44229253651"
   },
   "genocide#n": {
-   "at": "2026-11-17",
-   "tries": 42,
-   "why": "meaning check: no (Are some people being marked for death by a big re)",
-   "b": "44000359339"
+   "at": "2026-11-19",
+   "tries": 48,
+   "why": "text: RL",
+   "b": "44468786882"
   },
   "geopolitics#n": {
    "at": "2026-11-18",
@@ -872,22 +866,10 @@
    "b": "44229253651"
   },
   "grandson#n": {
-   "at": "2026-11-17",
-   "tries": 42,
+   "at": "2026-11-19",
+   "tries": 48,
    "why": "meaning check: no (Is there a young boy shown as the son of the older)",
-   "b": "44000359339"
-  },
-  "grandstand#n": {
-   "at": "2026-11-17",
-   "tries": 18,
-   "why": "vision description-sentence sim 0.2412",
-   "b": "44000359339"
-  },
-  "gravel#n": {
-   "at": "2026-11-17",
-   "tries": 42,
-   "why": "clip-sentence sim 0.2042; size > 6 KB",
-   "b": "44000359339"
+   "b": "44468786882"
   },
   "gravitational pull#n": {
    "at": "2026-11-18",
@@ -896,16 +878,16 @@
    "b": "44229253651"
   },
   "greatly#adv": {
-   "at": "2026-11-17",
-   "tries": 42,
-   "why": "vision: no (clapping hands)",
-   "b": "44000359339"
+   "at": "2026-11-19",
+   "tries": 48,
+   "why": "meaning check: no (Is the person showing an extremely strong feeling )",
+   "b": "44468786882"
   },
   "groundbreaking#adj": {
-   "at": "2026-11-17",
-   "tries": 42,
+   "at": "2026-11-19",
+   "tries": 48,
    "why": "size > 6 KB",
-   "b": "44000359339"
+   "b": "44468786882"
   },
   "guarantee#n": {
    "at": "2026-11-18",
@@ -920,10 +902,10 @@
    "b": "44229253651"
   },
   "haggle#v": {
-   "at": "2026-11-17",
-   "tries": 42,
-   "why": "meaning check: no (Are the two people negotiating the price of the ru)",
-   "b": "44000359339"
+   "at": "2026-11-19",
+   "tries": 48,
+   "why": "vision: no (large rug, frowning not clear)",
+   "b": "44468786882"
   },
   "harm#v": {
    "at": "2026-11-18",
@@ -932,16 +914,16 @@
    "b": "44229253651"
   },
   "helper#n": {
-   "at": "2026-11-17",
-   "tries": 42,
+   "at": "2026-11-19",
+   "tries": 48,
    "why": "meaning check: no (Is one person assisting another with a heavy box?)",
-   "b": "44000359339"
+   "b": "44468786882"
   },
   "hemorrhage#n": {
-   "at": "2026-11-17",
-   "tries": 42,
-   "why": "vision: text",
-   "b": "44000359339"
+   "at": "2026-11-19",
+   "tries": 48,
+   "why": "meaning check: no (Is there a large loss of red fluid from a wound?)",
+   "b": "44468786882"
   },
   "here#adv": {
    "at": "2026-10-24",
@@ -956,34 +938,34 @@
    "b": "44229253651"
   },
   "home#adv": {
-   "at": "2026-11-17",
-   "tries": 42,
+   "at": "2026-11-19",
+   "tries": 48,
    "why": "meaning check: no (Is the person moving toward a house where they liv)",
-   "b": "44000359339"
+   "b": "44468786882"
   },
   "homestay#n": {
-   "at": "2026-11-17",
-   "tries": 42,
+   "at": "2026-11-19",
+   "tries": 48,
    "why": "meaning check: no (Is the traveler being received by a local family t)",
-   "b": "44000359339"
+   "b": "44468786882"
   },
   "honk#v": {
-   "at": "2026-11-17",
-   "tries": 48,
-   "why": "vision: no (hand on horn button)",
-   "b": "44000359339"
+   "at": "2026-11-19",
+   "tries": 54,
+   "why": "vision description-sentence sim 0.215",
+   "b": "44468786882"
   },
   "household registration#n": {
-   "at": "2026-11-17",
-   "tries": 42,
-   "why": "meaning check: no (Is a family giving a house model to be placed in a)",
-   "b": "44000359339"
+   "at": "2026-11-19",
+   "tries": 48,
+   "why": "vision: no (filing cabinet open, clerk)",
+   "b": "44468786882"
   },
   "household#n": {
-   "at": "2026-11-17",
-   "tries": 42,
+   "at": "2026-11-19",
+   "tries": 48,
    "why": "meaning check: no (Are the two adults shown living together as a fami)",
-   "b": "44000359339"
+   "b": "44468786882"
   },
   "hymn#n": {
    "at": "2026-11-18",
@@ -998,10 +980,10 @@
    "b": "44229253651"
   },
   "ideology#n": {
-   "at": "2026-11-17",
-   "tries": 42,
+   "at": "2026-11-19",
+   "tries": 48,
    "why": "meaning check: no (Is one person expressing political beliefs to anot)",
-   "b": "44000359339"
+   "b": "44468786882"
   },
   "immunology#n": {
    "at": "2026-11-18",
@@ -1010,10 +992,10 @@
    "b": "44229253651"
   },
   "import duty#n": {
-   "at": "2026-11-17",
-   "tries": 42,
+   "at": "2026-11-19",
+   "tries": 48,
    "why": "meaning check: no (Is the traveler paying a small amount of money to )",
-   "b": "44000359339"
+   "b": "44468786882"
   },
   "importer#n": {
    "at": "2026-11-17",
@@ -1100,34 +1082,34 @@
    "b": "44229253651"
   },
   "invent#v": {
-   "at": "2026-11-17",
-   "tries": 48,
+   "at": "2026-11-19",
+   "tries": 54,
    "why": "meaning check: no (Is the person creating a brand‑new useful device?)",
-   "b": "44000359339"
+   "b": "44468786882"
   },
   "jury#n": {
-   "at": "2026-11-17",
-   "tries": 42,
-   "why": "vision: no (adults, intently listening)",
-   "b": "44000359339"
+   "at": "2026-11-19",
+   "tries": 48,
+   "why": "meaning check: no (Are the two people deciding together after hearing)",
+   "b": "44468786882"
   },
   "layaway#n": {
-   "at": "2026-11-17",
-   "tries": 42,
+   "at": "2026-11-19",
+   "tries": 48,
    "why": "meaning check: no (Is the picture showing a piece of furniture being )",
-   "b": "44000359339"
+   "b": "44468786882"
   },
   "leatherback#n": {
-   "at": "2026-11-17",
-   "tries": 18,
-   "why": "vision: no (ocean background and massive size)",
-   "b": "44000359339"
+   "at": "2026-11-19",
+   "tries": 24,
+   "why": "meaning check: no (Is there a very large sea turtle with a flexible l)",
+   "b": "44468786882"
   },
   "legislator#n": {
-   "at": "2026-11-17",
-   "tries": 48,
+   "at": "2026-11-19",
+   "tries": 54,
    "why": "meaning check: no (Is there a person speaking at a podium to make law)",
-   "b": "44000359339"
+   "b": "44468786882"
   },
   "liability#n": {
    "at": "2026-11-18",
@@ -1136,22 +1118,22 @@
    "b": "44229253651"
   },
   "loan#n": {
-   "at": "2026-11-17",
-   "tries": 48,
+   "at": "2026-11-19",
+   "tries": 54,
    "why": "meaning check: no (Are the two people exchanging money with the expec)",
-   "b": "44000359339"
+   "b": "44468786882"
   },
   "market research#n": {
-   "at": "2026-11-17",
-   "tries": 42,
+   "at": "2026-11-19",
+   "tries": 48,
    "why": "size > 6 KB",
-   "b": "44000359339"
+   "b": "44468786882"
   },
   "mascot#n": {
-   "at": "2026-11-17",
-   "tries": 42,
-   "why": "vision: no (stadium and foam hand details)",
-   "b": "44000359339"
+   "at": "2026-11-19",
+   "tries": 48,
+   "why": "vision: no (no person, no stadium, no foam hand)",
+   "b": "44468786882"
   },
   "maximize#v": {
    "at": "2026-11-18",
@@ -1226,10 +1208,10 @@
    "b": "44229253651"
   },
   "monotony#n": {
-   "at": "2026-11-17",
-   "tries": 42,
-   "why": "vision: text",
-   "b": "44000359339"
+   "at": "2026-11-19",
+   "tries": 48,
+   "why": "vision: no (plates not being washed, no repetition)",
+   "b": "44468786882"
   },
   "multilingual#adj": {
    "at": "2026-11-18",
@@ -1244,28 +1226,28 @@
    "b": "44229253651"
   },
   "murderer#n": {
-   "at": "2026-11-17",
-   "tries": 42,
-   "why": "meaning check: no (Is the handcuffed person shown as having caused th)",
-   "b": "44000359339"
+   "at": "2026-11-19",
+   "tries": 48,
+   "why": "vision: no (handcuffs not visible)",
+   "b": "44468786882"
   },
   "national assembly#n": {
-   "at": "2026-11-17",
-   "tries": 42,
+   "at": "2026-11-19",
+   "tries": 48,
    "why": "meaning check: no (Are two people approaching a large building with c)",
-   "b": "44000359339"
+   "b": "44468786882"
   },
   "navigate#v": {
-   "at": "2026-11-17",
-   "tries": 42,
-   "why": "vision: text",
-   "b": "44000359339"
+   "at": "2026-11-19",
+   "tries": 48,
+   "why": "meaning check: no (Is the person using a compass to guide the boat's )",
+   "b": "44468786882"
   },
   "niece#n": {
-   "at": "2026-11-17",
-   "tries": 42,
+   "at": "2026-11-19",
+   "tries": 48,
    "why": "meaning check: no (Is the young girl the daughter of the woman's sibl)",
-   "b": "44000359339"
+   "b": "44468786882"
   },
   "nod#v": {
    "at": "2026-11-18",
@@ -1280,10 +1262,10 @@
    "b": "44229253651"
   },
   "operational#adj": {
-   "at": "2026-11-17",
-   "tries": 42,
+   "at": "2026-11-19",
+   "tries": 48,
    "why": "vision: no (gears not spinning or moving)",
-   "b": "44000359339"
+   "b": "44468786882"
   },
   "opportunism#n": {
    "at": "2026-11-18",
@@ -1298,10 +1280,10 @@
    "b": "44229253651"
   },
   "over-the-counter#adj": {
-   "at": "2026-11-17",
-   "tries": 48,
-   "why": "vision: text",
-   "b": "44000359339"
+   "at": "2026-11-19",
+   "tries": 54,
+   "why": "vision: no (shelf, woman, pharmacist behind)",
+   "b": "44468786882"
   },
   "panhandler#n": {
    "at": "2026-11-18",
@@ -1310,10 +1292,10 @@
    "b": "44229253651"
   },
   "paralysis#n": {
-   "at": "2026-11-17",
-   "tries": 42,
+   "at": "2026-11-19",
+   "tries": 48,
    "why": "meaning check: no (Is the person unable to move the shown arm volunta)",
-   "b": "44000359339"
+   "b": "44468786882"
   },
   "patois#n": {
    "at": "2026-11-18",
@@ -1328,22 +1310,22 @@
    "b": "44229253651"
   },
   "pay-per-click#adj": {
-   "at": "2026-11-17",
-   "tries": 48,
-   "why": "text: Be",
-   "b": "44000359339"
+   "at": "2026-11-19",
+   "tries": 54,
+   "why": "meaning check: no (Does a coin appear each time the mouse is clicked?)",
+   "b": "44468786882"
   },
   "peer-reviewed#adj": {
-   "at": "2026-11-17",
-   "tries": 42,
+   "at": "2026-11-19",
+   "tries": 48,
    "why": "meaning check: no (Are the two scientists looking at each other's wor)",
-   "b": "44000359339"
+   "b": "44468786882"
   },
   "penalize#v": {
-   "at": "2026-11-17",
-   "tries": 48,
+   "at": "2026-11-19",
+   "tries": 54,
    "why": "meaning check: no (Is the adult taking away the child's toy as a puni)",
-   "b": "44000359339"
+   "b": "44468786882"
   },
   "permutation#n": {
    "at": "2026-11-18",
@@ -1352,16 +1334,16 @@
    "b": "44229253651"
   },
   "petition#n": {
-   "at": "2026-11-17",
-   "tries": 42,
-   "why": "meaning check: no (Is the paper shown as a request signed by many peo)",
-   "b": "44000359339"
+   "at": "2026-11-19",
+   "tries": 48,
+   "why": "size > 6 KB",
+   "b": "44468786882"
   },
   "phishing#n": {
-   "at": "2026-11-17",
-   "tries": 42,
+   "at": "2026-11-19",
+   "tries": 48,
    "why": "meaning check: no (Is there a masked person receiving personal inform)",
-   "b": "44000359339"
+   "b": "44468786882"
   },
   "phrase#n": {
    "at": "2026-11-18",
@@ -1370,22 +1352,22 @@
    "b": "44229253651"
   },
   "pilot study#n": {
-   "at": "2026-11-17",
-   "tries": 42,
-   "why": "vision: text",
-   "b": "44000359339"
+   "at": "2026-11-19",
+   "tries": 48,
+   "why": "meaning check: no (Is the person conducting a small preliminary exper)",
+   "b": "44468786882"
   },
   "pioneer#n": {
-   "at": "2026-11-17",
-   "tries": 42,
-   "why": "meaning check: no (Is the person standing next to a newly made large )",
-   "b": "44000359339"
+   "at": "2026-11-19",
+   "tries": 48,
+   "why": "size > 6 KB",
+   "b": "44468786882"
   },
   "poaching#n": {
-   "at": "2026-11-17",
-   "tries": 42,
-   "why": "vision: no (no forest, not dead rabbit)",
-   "b": "44000359339"
+   "at": "2026-11-19",
+   "tries": 48,
+   "why": "meaning check: no (Is the person secretly taking a dead animal from t)",
+   "b": "44468786882"
   },
   "port congestion#n": {
    "at": "2026-11-18",
@@ -1424,10 +1406,10 @@
    "b": "44000359339"
   },
   "pretext#n": {
-   "at": "2026-11-17",
-   "tries": 42,
+   "at": "2026-11-19",
+   "tries": 48,
    "why": "meaning check: no (Is the person offering an obvious false reason sho)",
-   "b": "44000359339"
+   "b": "44468786882"
   },
   "primary#n": {
    "at": "2026-11-18",
@@ -1442,10 +1424,10 @@
    "b": "44229253651"
   },
   "productivity#n": {
-   "at": "2026-11-17",
-   "tries": 42,
-   "why": "size > 6 KB",
-   "b": "44000359339"
+   "at": "2026-11-19",
+   "tries": 48,
+   "why": "text: SZ LES",
+   "b": "44468786882"
   },
   "proficient#adj": {
    "at": "2026-11-18",
@@ -1460,16 +1442,16 @@
    "b": "44229253651"
   },
   "prophetess#n": {
-   "at": "2026-11-17",
-   "tries": 30,
+   "at": "2026-11-19",
+   "tries": 36,
    "why": "meaning check: no (Is the woman raising her arms while gazing at the )",
-   "b": "44000359339"
+   "b": "44468786882"
   },
   "prospectus#n": {
-   "at": "2026-11-17",
-   "tries": 42,
-   "why": "meaning check: no (Are they passing a paper that describes a company )",
-   "b": "44000359339"
+   "at": "2026-11-19",
+   "tries": 48,
+   "why": "vision: no (folder, model house)",
+   "b": "44468786882"
   },
   "proverb#n": {
    "at": "2026-11-18",
@@ -1483,17 +1465,11 @@
    "why": "vision: text",
    "b": "44229253651"
   },
-  "queue#n": {
-   "at": "2026-11-17",
-   "tries": 48,
-   "why": "vision: no (bank door not shown)",
-   "b": "44000359339"
-  },
   "quote#v": {
-   "at": "2026-11-17",
-   "tries": 48,
+   "at": "2026-11-19",
+   "tries": 54,
    "why": "size > 6 KB",
-   "b": "44000359339"
+   "b": "44468786882"
   },
   "readjustment#n": {
    "at": "2026-11-18",
@@ -1502,10 +1478,10 @@
    "b": "44229253651"
   },
   "realtor#n": {
-   "at": "2026-11-17",
-   "tries": 36,
+   "at": "2026-11-19",
+   "tries": 42,
    "why": "meaning check: no (Is the person showing a model house to a client wh)",
-   "b": "44000359339"
+   "b": "44468786882"
   },
   "recapitulate#v": {
    "at": "2026-11-18",
@@ -1537,12 +1513,6 @@
    "why": "vision description-sentence sim 0.2295",
    "b": "44000359339"
   },
-  "reminder#n": {
-   "at": "2026-11-17",
-   "tries": 42,
-   "why": "meaning check: no (Is there a plain sheet with a big red circle that )",
-   "b": "44000359339"
-  },
   "remuneration#n": {
    "at": "2026-11-18",
    "tries": 36,
@@ -1562,16 +1532,16 @@
    "b": "44229253651"
   },
   "repay#v": {
-   "at": "2026-11-17",
-   "tries": 42,
-   "why": "text: Here you Thank you so So",
-   "b": "44000359339"
+   "at": "2026-11-19",
+   "tries": 48,
+   "why": "meaning check: no (Is one person giving a sack of coins to another as)",
+   "b": "44468786882"
   },
   "reschedule#v": {
-   "at": "2026-11-17",
-   "tries": 42,
+   "at": "2026-11-19",
+   "tries": 48,
    "why": "meaning check: no (Is the woman swapping a sheet marked with a red cr)",
-   "b": "44000359339"
+   "b": "44468786882"
   },
   "research proposal#n": {
    "at": "2026-11-18",
@@ -1580,28 +1550,28 @@
    "b": "44229253651"
   },
   "restocking fee#n": {
-   "at": "2026-11-17",
-   "tries": 42,
-   "why": "meaning check: no (Is the person receiving a coin as a charge for ret)",
-   "b": "44000359339"
+   "at": "2026-11-19",
+   "tries": 48,
+   "why": "vision: text",
+   "b": "44468786882"
   },
   "return ticket#n": {
-   "at": "2026-11-17",
-   "tries": 48,
+   "at": "2026-11-19",
+   "tries": 54,
    "why": "meaning check: no (Are there two identical travel passes, one for goi)",
-   "b": "44000359339"
+   "b": "44468786882"
   },
   "reverse logistics#n": {
-   "at": "2026-11-17",
-   "tries": 42,
-   "why": "vision description-sentence sim 0.2663",
-   "b": "44000359339"
+   "at": "2026-11-19",
+   "tries": 48,
+   "why": "meaning check: no (Is a box being handed back to a store for return?)",
+   "b": "44468786882"
   },
   "rewrite#v": {
-   "at": "2026-11-17",
-   "tries": 42,
+   "at": "2026-11-19",
+   "tries": 48,
    "why": "meaning check: no (Is the person replacing a crossed‑out page with a )",
-   "b": "44000359339"
+   "b": "44468786882"
   },
   "rival#n": {
    "at": "2026-11-17",
@@ -1610,16 +1580,16 @@
    "b": "44000359339"
   },
   "rock#v": {
-   "at": "2026-11-17",
-   "tries": 42,
-   "why": "meaning check: no (Is the boat shown moving back and forth while the )",
-   "b": "44000359339"
+   "at": "2026-11-19",
+   "tries": 48,
+   "why": "vision: no (boat not tilting, no waves)",
+   "b": "44468786882"
   },
   "routinely#adv": {
-   "at": "2026-11-17",
-   "tries": 42,
+   "at": "2026-11-19",
+   "tries": 48,
    "why": "meaning check: no (Is the man checking the machine regularly at sunri)",
-   "b": "44000359339"
+   "b": "44468786882"
   },
   "rude#adj": {
    "at": "2026-11-17",
@@ -1634,10 +1604,10 @@
    "b": "44229253651"
   },
   "saltwater intrusion#n": {
-   "at": "2026-11-17",
-   "tries": 48,
-   "why": "vision description-sentence sim 0.182",
-   "b": "44000359339"
+   "at": "2026-11-19",
+   "tries": 54,
+   "why": "vision description-sentence sim 0.2693",
+   "b": "44468786882"
   },
   "scam#n": {
    "at": "2026-11-18",
@@ -1664,16 +1634,10 @@
    "b": "44000359339"
   },
   "sister#n": {
-   "at": "2026-11-17",
-   "tries": 46,
+   "at": "2026-11-19",
+   "tries": 52,
    "why": "meaning check: no (Are the two females shown as siblings?)",
-   "b": "44000359339"
-  },
-  "skill#n": {
-   "at": "2026-11-17",
-   "tries": 36,
-   "why": "vision: no (puzzle is not complex, no final fit)",
-   "b": "44000359339"
+   "b": "44468786882"
   },
   "skipper#n": {
    "at": "2026-11-18",
@@ -1682,22 +1646,22 @@
    "b": "44229253651"
   },
   "soak#v": {
-   "at": "2026-11-17",
-   "tries": 42,
+   "at": "2026-11-19",
+   "tries": 48,
    "why": "vision: no (bowl not fully submerged)",
-   "b": "44000359339"
+   "b": "44468786882"
   },
   "soar#v": {
-   "at": "2026-11-17",
-   "tries": 48,
-   "why": "duplicate (pHash)",
-   "b": "44000359339"
+   "at": "2026-11-19",
+   "tries": 54,
+   "why": "vision: no (kite not flying upward)",
+   "b": "44468786882"
   },
   "sometimes#adv": {
-   "at": "2026-11-17",
-   "tries": 42,
-   "why": "meaning check: no (Is there a blank sheet with a big red circle showi)",
-   "b": "44000359339"
+   "at": "2026-11-19",
+   "tries": 48,
+   "why": "vision: no (no coffee cup)",
+   "b": "44468786882"
   },
   "source code#n": {
    "at": "2026-11-17",
@@ -1710,12 +1674,6 @@
    "tries": 48,
    "why": "meaning check: no (Is the machine turning the drum quickly to move th)",
    "b": "44229253651"
-  },
-  "spokesperson#n": {
-   "at": "2026-11-17",
-   "tries": 42,
-   "why": "meaning check: no (Is the adult speaking on behalf of a group at the )",
-   "b": "44000359339"
   },
   "spore#n": {
    "at": "2026-11-18",
@@ -1736,10 +1694,10 @@
    "b": "44229253651"
   },
   "statutory rights#n": {
-   "at": "2026-11-17",
-   "tries": 42,
-   "why": "vision description-sentence sim 0.2854",
-   "b": "44000359339"
+   "at": "2026-11-19",
+   "tries": 48,
+   "why": "vision description-sentence sim 0.1526",
+   "b": "44468786882"
   },
   "stipulate#v": {
    "at": "2026-11-18",
@@ -1748,10 +1706,10 @@
    "b": "44229253651"
   },
   "subsidise#v": {
-   "at": "2026-11-17",
-   "tries": 42,
+   "at": "2026-11-19",
+   "tries": 48,
    "why": "meaning check: no (Is the person giving money to help pay for the bus)",
-   "b": "44000359339"
+   "b": "44468786882"
   },
   "substitute#n": {
    "at": "2026-11-18",
@@ -1771,17 +1729,11 @@
    "why": "meaning check: no (Is the person giving a brief and clear explanation)",
    "b": "44229253651"
   },
-  "sue#v": {
-   "at": "2026-11-17",
-   "tries": 42,
-   "why": "vision: no (judge's bench and judge)",
-   "b": "44000359339"
-  },
   "suite#n": {
-   "at": "2026-11-17",
-   "tries": 42,
+   "at": "2026-11-19",
+   "tries": 48,
    "why": "meaning check: no (Is there a set of adjoining rooms in a hotel?)",
-   "b": "44000359339"
+   "b": "44468786882"
   },
   "suppress#v": {
    "at": "2026-11-17",
@@ -1790,22 +1742,22 @@
    "b": "44000359339"
   },
   "surgery#n": {
-   "at": "2026-11-17",
-   "tries": 42,
+   "at": "2026-11-19",
+   "tries": 48,
    "why": "api: unsafe",
-   "b": "44000359339"
+   "b": "44468786882"
   },
   "swing#v": {
-   "at": "2026-11-17",
-   "tries": 42,
-   "why": "text: NY",
-   "b": "44000359339"
+   "at": "2026-11-19",
+   "tries": 48,
+   "why": "meaning check: no (Is the child moving back and forth while hanging f)",
+   "b": "44468786882"
   },
   "syllabus#n": {
-   "at": "2026-11-17",
-   "tries": 42,
+   "at": "2026-11-19",
+   "tries": 48,
    "why": "meaning check: no (Is there a paper showing a list of topics and date)",
-   "b": "44000359339"
+   "b": "44468786882"
   },
   "synagogue#n": {
    "at": "2026-11-18",
@@ -1820,10 +1772,10 @@
    "b": "44000359339"
   },
   "tenure#n": {
-   "at": "2026-11-17",
-   "tries": 36,
-   "why": "vision: text",
-   "b": "44000359339"
+   "at": "2026-11-19",
+   "tries": 42,
+   "why": "meaning check: no (Is the professor being given a permanent position )",
+   "b": "44468786882"
   },
   "territorial#adj": {
    "at": "2026-11-18",
@@ -1832,10 +1784,10 @@
    "b": "44229253651"
   },
   "theorist#n": {
-   "at": "2026-11-17",
-   "tries": 42,
+   "at": "2026-11-19",
+   "tries": 48,
    "why": "meaning check: no (Is the person creating a new arrangement of puzzle)",
-   "b": "44000359339"
+   "b": "44468786882"
   },
   "thievery#n": {
    "at": "2026-11-18",
@@ -1850,16 +1802,16 @@
    "b": "44229253651"
   },
   "time sheet#n": {
-   "at": "2026-11-17",
-   "tries": 48,
+   "at": "2026-11-19",
+   "tries": 54,
    "why": "meaning check: no (Is there a paper showing many recorded work hours?)",
-   "b": "44000359339"
+   "b": "44468786882"
   },
   "tonsillectomy#n": {
-   "at": "2026-11-17",
-   "tries": 18,
+   "at": "2026-11-19",
+   "tries": 24,
    "why": "meaning check: no (Is a medical professional removing the tonsils fro)",
-   "b": "44000359339"
+   "b": "44468786882"
   },
   "tow#v": {
    "at": "2026-11-18",
@@ -1874,16 +1826,16 @@
    "b": "44000359339"
   },
   "training session#n": {
-   "at": "2026-11-17",
-   "tries": 48,
-   "why": "text: aS",
-   "b": "44000359339"
+   "at": "2026-11-19",
+   "tries": 54,
+   "why": "vision: no (large wrench, demonstration, attentive watching)",
+   "b": "44468786882"
   },
   "transcript#n": {
-   "at": "2026-11-17",
-   "tries": 42,
+   "at": "2026-11-19",
+   "tries": 48,
    "why": "meaning check: no (Is a sealed blank document being handed as proof o)",
-   "b": "44000359339"
+   "b": "44468786882"
   },
   "transgression#n": {
    "at": "2026-11-18",
@@ -1910,10 +1862,10 @@
    "b": "44229253651"
   },
   "user-generated content#n": {
-   "at": "2026-11-17",
-   "tries": 42,
-   "why": "vision: text",
-   "b": "44000359339"
+   "at": "2026-11-19",
+   "tries": 48,
+   "why": "size > 6 KB",
+   "b": "44468786882"
   },
   "verdict#n": {
    "at": "2026-11-17",
@@ -1922,22 +1874,22 @@
    "b": "44000359339"
   },
   "vertebra#n": {
-   "at": "2026-11-17",
-   "tries": 36,
-   "why": "meaning check: no (Is there a bony segment with a round opening that )",
-   "b": "44000359339"
+   "at": "2026-11-19",
+   "tries": 42,
+   "why": "vision description-sentence sim 0.1464",
+   "b": "44468786882"
   },
   "violation#n": {
-   "at": "2026-11-17",
-   "tries": 48,
+   "at": "2026-11-19",
+   "tries": 54,
    "why": "meaning check: no (Is the person crossing a rope barrier that is mean)",
-   "b": "44000359339"
+   "b": "44468786882"
   },
   "vital signs#n": {
-   "at": "2026-11-17",
-   "tries": 42,
-   "why": "duplicate (pHash)",
-   "b": "44000359339"
+   "at": "2026-11-19",
+   "tries": 48,
+   "why": "vision: no (thermometer not visible)",
+   "b": "44468786882"
   },
   "waiting list#n": {
    "at": "2026-11-17",
@@ -1946,10 +1898,10 @@
    "b": "44000359339"
   },
   "wane#v": {
-   "at": "2026-11-17",
-   "tries": 42,
+   "at": "2026-11-19",
+   "tries": 48,
    "why": "vision: no (man releasing air, balloon shrinking)",
-   "b": "44000359339"
+   "b": "44468786882"
   },
   "ward#n": {
    "at": "2026-11-18",
@@ -1958,10 +1910,10 @@
    "b": "44229253651"
   },
   "wave#v": {
-   "at": "2026-11-17",
-   "tries": 48,
+   "at": "2026-11-19",
+   "tries": 54,
    "why": "meaning check: no (Is the person moving their hand side to side in a )",
-   "b": "44000359339"
+   "b": "44468786882"
   },
   "website#n": {
    "at": "2026-11-09",
@@ -1976,10 +1928,10 @@
    "b": "44229253651"
   },
   "work order#n": {
-   "at": "2026-11-17",
-   "tries": 42,
-   "why": "meaning check: no (Is there a paper authorizing a repair job being gi)",
-   "b": "44000359339"
+   "at": "2026-11-19",
+   "tries": 48,
+   "why": "vision description-sentence sim 0.2887",
+   "b": "44468786882"
   }
  }
 }

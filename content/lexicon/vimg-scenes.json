@@ -9567,8 +9567,8 @@
    "draw": 4,
    "v": "e4",
    "by": "@cf/openai/gpt-oss-120b",
-   "e4bad": 7,
-   "badAt": "2026-11-17T03:01:44.249Z"
+   "e4bad": 8,
+   "badAt": "2026-11-19T07:28:36.637Z"
   },
   "boolean#n": {
    "ex": "The flag is stored as a boolean in the settings table.",
@@ -14226,8 +14226,17 @@
    "by": "openai/gpt-oss-120b"
   },
   "clef#n": {
-   "e4bad": 2,
-   "badAt": "2026-11-17T02:13:38.261Z"
+   "ex": "Pretend the written music has a different clef.",
+   "ps": "a large G-shaped symbol at the left of five thin horizontal lines on a plain background",
+   "sc": "a large G-shaped symbol at the left of five thin horizontal lines on a plain background",
+   "check": "Is there a curved symbol at the start of five horizontal lines?",
+   "cap": "a musical staff with a big curved symbol on the left side",
+   "key": "a G-shaped curved symbol at the beginning of five horizontal lines; the symbol placed on the left side",
+   "who": 0,
+   "draw": 4,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 2
   },
   "clergy#n": {
    "ex": "The clergy also had become more powerful.",
@@ -20108,15 +20117,17 @@
   },
   "cover letter#n": {
    "ex": "Your cover letter should explain why you suit this position.",
-   "ps": "a woman hands a plain sheet with a green tick to a man sitting at a desk",
-   "sc": "a woman hands a plain sheet with a green tick to a man sitting at a desk",
-   "check": "Is a person giving a simple document that accompanies a job application?",
-   "cap": "a woman offering a marked sheet to a desk worker",
-   "key": "a plain sheet with a green tick mark; a woman handing it to a man",
+   "ps": "a man in a suit hands a plain white sheet and a brown folder to a woman in office",
+   "sc": "a man in a suit hands a plain white sheet and a brown folder to a woman in office",
+   "check": "Is a person giving a plain paper and a folder to another person for a job?",
+   "cap": "a man offers a paper and folder to a woman",
+   "key": "a plain white sheet; a brown folder",
    "who": 2,
    "draw": 4,
    "v": "e6",
-   "by": "openai/gpt-oss-120b"
+   "by": "openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 1
   },
   "cover#v": {
    "ex": "Snow covered the mountains in winter.",
@@ -28255,8 +28266,8 @@
    "cap": "employees learning on computers in a meeting",
    "who": 2,
    "by": "openai/gpt-oss-120b",
-   "e4bad": 7,
-   "badAt": "2026-11-15T08:05:21.641Z"
+   "e4bad": 8,
+   "badAt": "2026-11-19T07:28:36.637Z"
   },
   "eager#adj": {
    "ex": "The new staff members are eager to learn about our products.",
@@ -29555,8 +29566,8 @@
    "draw": 4,
    "v": "e4",
    "by": "@cf/openai/gpt-oss-120b",
-   "e4bad": 7,
-   "badAt": "2026-11-15T08:05:21.640Z"
+   "e4bad": 8,
+   "badAt": "2026-11-19T07:28:36.636Z"
   },
   "email#v": {
    "e4bad": 7,
@@ -55717,8 +55728,8 @@
    "by": "openai/gpt-oss-120b"
   },
   "missal#n": {
-   "e4bad": 2,
-   "badAt": "2026-11-18T03:46:51.866Z"
+   "e4bad": 3,
+   "badAt": "2026-11-19T06:01:08.612Z"
   },
   "missile#n": {
    "skip": "weapon content not allowed",
