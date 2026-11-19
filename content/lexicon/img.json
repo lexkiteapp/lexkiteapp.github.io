@@ -103980,6 +103980,33 @@
    "b": "41775450761",
    "repo": "m4"
   },
+  "jawbone#n": {
+   "h": "1289c4bc50f73a9b",
+   "url": "https://media.lexkite.com/vimg/1289c4bc50f73a9b.webp",
+   "alt": "jawbone",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "bg": "alpha",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.267,
+    "vision": "@cf/meta/llama-4-scout-17b-16e-instruct",
+    "conf": 90,
+    "tries": 1
+   },
+   "ph": "af5abc8d9234c5b0",
+   "at": "2026-11-19",
+   "b": "44436998125",
+   "repo": "m4"
+  },
   "jazz#n": {
    "h": "d1ace2f84b13e9d7",
    "url": "https://media.lexkite.com/vimg/d1ace2f84b13e9d7.webp",
@@ -132385,6 +132412,32 @@
    "b": "41821221567",
    "repo": "m4"
   },
+  "overdraft#n": {
+   "h": "6aa4015cb1e7a472",
+   "url": "https://media.lexkite.com/vimg/6aa4015cb1e7a472.webp",
+   "alt": "overdraft",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.322,
+    "vision": "@cf/meta/llama-4-scout-17b-16e-instruct",
+    "conf": 80,
+    "tries": 2
+   },
+   "ph": "dea9b451e6a4912d",
+   "at": "2026-11-19",
+   "b": "44436998125",
+   "repo": "m4"
+  },
   "overdue#adj": {
    "h": "5df8aee0c2f99fcf",
    "url": "https://media.lexkite.com/vimg/5df8aee0c2f99fcf.webp",
@@ -147816,6 +147869,32 @@
    "ph": "afb79040ea410fb7",
    "at": "2026-11-09",
    "b": "42654904589",
+   "repo": "m4"
+  },
+  "product recall#n": {
+   "h": "f10c19d0e9ef1863",
+   "url": "https://media.lexkite.com/vimg/f10c19d0e9ef1863.webp",
+   "alt": "product recall",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.372,
+    "vision": "@cf/meta/llama-4-scout-17b-16e-instruct",
+    "conf": 100,
+    "tries": 3
+   },
+   "ph": "8fda8570f0a585b9",
+   "at": "2026-11-19",
+   "b": "44436998125",
    "repo": "m4"
   },
   "production line#n": {
