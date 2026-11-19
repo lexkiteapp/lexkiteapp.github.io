@@ -10,6 +10,26 @@
   {"id": "silent-h", "kind": "silent", "title": "silent h", "pattern": "^(?P<s>h)", "ipa_re": "^[^h]", "target": "the next sound", "wrong": "h-our", "say": "Here the H is silent. Start with the next sound."},
   {"id": "silent-l", "kind": "silent", "title": "-alk / -alm", "pattern": "a(?P<s>l)[kmfv]|o(?P<s2>l)k", "ipa_absent": "l", "target": "no L sound", "wrong": "wal-k", "say": "In a l k and a l m, the L is silent."},
   {"id": "silent-bt", "kind": "silent", "title": "-bt", "pattern": "(?P<s>b)t", "ipa_absent": "b", "target": "/t/", "wrong": "deb-t", "say": "Before t, the B is silent. Say T."},
-  {"id": "silent-t", "kind": "silent", "title": "-stle / -sten", "pattern": "s(?P<s>t)(?:le|en)$|of(?P<s2>t)en$|s(?P<s3>t)mas$", "ipa_absent": "t", "target": "no T sound", "wrong": "cas-tle", "say": "In s t l e and s t e n, the T is silent."}
- ]
+  {"id": "silent-t", "kind": "silent", "title": "-stle / -sten", "pattern": "s(?P<s>t)(?:le|en)$|of(?P<s2>t)en$|s(?P<s3>t)mas$", "ipa_absent": "t", "target": "no T sound", "wrong": "cas-tle", "say": "In s t l e and s t e n, the T is silent."},
+  {"id": "silent-igh", "kind": "silent", "title": "-igh", "pattern": "[^e]i(?P<s>gh)$", "ipa_absent": "[ɡfx]", "target": "/aɪ/", "wrong": "hig-h", "say": "In i g h, the G H is silent. Say eye."},
+  {"id": "silent-eigh", "kind": "silent", "title": "-eigh-", "pattern": "ei(?P<s>gh)", "ipa_absent": "[ɡfx]", "target": "/eɪ/", "wrong": "weig-h", "say": "In e i g h, the G H is silent. Say A."},
+  {"id": "silent-ough", "kind": "silent", "title": "-ough", "pattern": "ou(?P<s>gh)$", "ipa_absent": "[ɡfx]", "target": "no GH sound", "wrong": "thoug-h", "say": "In o u g h, the G H can be silent. Do not say it."},
+  {"id": "silent-wh", "kind": "silent", "title": "wh-", "pattern": "^(?P<s>w)ho", "ipa_re": "^h", "target": "/h/", "wrong": "w-ho", "say": "In w h o, the W is silent. Say H."},
+  {"id": "silent-mn", "kind": "silent", "title": "-mn", "pattern": "^(?!damn$)[a-z]*m(?P<s>n)$", "ipa_absent": "n", "target": "/m/", "wrong": "autum-n", "say": "At the end, m n, the N is silent. Say M."},
+  {"id": "silent-sc", "kind": "silent", "title": "sc-", "pattern": "s(?P<s>c)[ei]", "ipa_absent": "k", "target": "/s/", "wrong": "s-cene", "say": "In s c e, the C is silent. Say S."},
+  {"id": "silent-gu", "kind": "silent", "title": "gu-", "pattern": "g(?P<s>u)[aeiy]|b(?P<s2>u)il", "ipa_absent": "[wj]", "target": "/ɡ/", "wrong": "g-uess", "say": "In g u, the U is silent. Say G."},
+  {"id": "silent-hex", "kind": "silent", "title": "exh-", "pattern": "ex(?P<s>h)[aiu]", "ipa_absent": "h", "target": "/z/", "wrong": "ex-haust", "say": "In e x h, the H is silent. Say Z."},
+  {"id": "silent-rh", "kind": "silent", "title": "rh-", "pattern": "^r(?P<s>h)", "ipa_absent": "h", "target": "/r/", "wrong": "r-hythm", "say": "In r h, the H is silent. Say R."},
+  {"id": "silent-ould", "kind": "silent", "title": "-ould", "pattern": "ou(?P<s>l)d$", "ipa_absent": "l", "target": "/ʊ/", "wrong": "woul-d", "say": "In o u l d, the L is silent."},
+  {"id": "silent-chk", "kind": "silent", "title": "ch = k", "pattern": "^s?c(?P<s>h)", "ipa_re": "^s?k", "target": "/k/", "wrong": "ch-ool", "say": "Here c h says K. The H is silent."},
+  {"id": "silent-gue", "kind": "silent", "title": "-gue", "pattern": "g(?P<s>ue)$", "ipa_absent": "[wj]", "target": "/ɡ/", "wrong": "leag-ue", "say": "At the end, g u e, the U E is silent."},
+  {"id": "silent-que", "kind": "silent", "title": "-que", "pattern": "q(?P<s>ue)$", "ipa_re": "k$", "target": "/k/", "wrong": "uniq-ue", "say": "At the end, q u e, the U E is silent. Say K."},
+  {"id": "silent-e", "kind": "silent", "title": "-e", "pattern": "^(?=.{4})[a-z]*[^aeiou](?P<s>e)$", "ipa_absent": "[əɪi]$|iː$", "target": "no E sound", "wrong": "mak-e", "say": "At the end, the E is silent."},
+  {"id": "silent-isl", "kind": "silent", "title": "isl-", "pattern": "i(?P<s>s)l", "ipa_absent": "s", "target": "/aɪl/", "wrong": "is-land", "say": "In i s l, the S is silent."},
+  {"id": "silent-ver", "kind": "silent", "title": "-ver- / -fer-", "pattern": "[vfmn](?P<s>e)r[aeiy]", "ipa_re": "[vfmn]r", "target": "no E sound", "wrong": "ev-e-ry", "say": "In v e r, the E is often silent."},
+  {"id": "silent-ally", "kind": "silent", "title": "-ically", "pattern": "ic(?P<s>a)lly$", "ipa_absent": "əl", "target": "/kli/", "wrong": "basic-a-lly", "say": "In i c a l l y, the A is silent. Say KLEE."},
+  {"id": "silent-ely", "kind": "silent", "title": "-ely", "pattern": "[^aeiou](?P<s>e)ly$", "ipa_re": "[^əɪeɛ]li$", "target": "/li/", "wrong": "love-ly", "say": "In e l y, the E is silent."},
+  {"id": "silent-ement", "kind": "silent", "title": "-ement", "pattern": "[^aeiou](?P<s>e)ment$", "ipa_re": "[^əɪeɛ]mənt$", "target": "/mənt/", "wrong": "state-ment", "say": "In e m e n t, the first E is silent."},
+  {"id": "silent-ng", "kind": "silent", "title": "-ng", "pattern": "n(?P<s>g)$", "ipa_re": "ŋ$", "ipa_absent": "ɡ", "target": "/ŋ/", "wrong": "son-g", "say": "At the end, n g is one sound. Do not say G."}
+]
 }
