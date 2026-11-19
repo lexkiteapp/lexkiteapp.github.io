@@ -1,0 +1,163 @@
+{
+ "id": "t2a_rule_silentng_1",
+ "template": "rule",
+ "series": "Spell to Sound",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "pronunciation",
+ "lines": [
+  {
+   "id": "h",
+   "text": "The G is silent!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "At the end, n g is one sound. Do not say G.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Anything.",
+   "pause": 0.25,
+   "speed": 0.6
+  },
+  {
+   "id": "v0",
+   "text": "Anything.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Bring.",
+   "pause": 0.25,
+   "speed": 0.6
+  },
+  {
+   "id": "v1",
+   "text": "Bring.",
+   "pause": 0.3
+  },
+  {
+   "id": "p",
+   "text": "Repeat after me!",
+   "pause": 2.4
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which letter is silent in bring?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "G! The G is silent.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "rule": "silent-ng",
+  "title": "-ng",
+  "target": "/ŋ/",
+  "letter": "g",
+  "say": "At the end, n g is one sound. Do not say G.",
+  "words": [
+   {
+    "w": "anything",
+    "ipa": "/ˈeniθɪŋ/",
+    "silent": [
+     7,
+     8
+    ],
+    "letter": "g",
+    "mean": "Thing of any kind.",
+    "em": "📦"
+   },
+   {
+    "w": "bring",
+    "ipa": "/brɪŋ/",
+    "silent": [
+     4,
+     5
+    ],
+    "letter": "g",
+    "mean": "to take or go with someone to a place",
+    "em": "🎒"
+   }
+  ],
+  "quiz": {
+   "stem": "Which letter is silent in bring?",
+   "options": [
+    "B",
+    "G"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "pronunciation",
+  "route": "#/pron/anything",
+  "link": "https://lexkite.com/app/#/pron/anything",
+  "say": "Practise this sound"
+ },
+ "hook": {
+  "line": "h",
+  "text": "The G is silent"
+ },
+ "src": {
+  "rule": "silent-ng"
+ },
+ "est": {
+  "words": 42,
+  "seconds": 28.1,
+  "wpm": 90
+ },
+ "publish": {
+  "title": "The G is silent!",
+  "keyword": "Spell to Sound",
+  "value": "At the end, n g is one sound. Do not say G.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#pronunciation",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/pron/anything",
+  "script_words": 33,
+  "platforms": {
+   "youtube": {
+    "title": "The G is silent!",
+    "description": "At the end, n g is one sound. Do not say G.\n\nPractise this sound, free: https://lexkite.com/app/#/pron/anything\n\nSeries: Spell to Sound · Teacher: Ama\n\n#learnenglish #englishtips #pronunciation #englishteacher",
+    "tags": [
+     "Spell to Sound",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "The G is silent!\n\nAt the end, n g is one sound. Do not say G.\n\nPractise this sound, free: https://lexkite.com/app/#/pron/anything"
+   },
+   "instagram": {
+    "caption": "The G is silent!\n\nAt the end, n g is one sound. Do not say G.\n\nPractise this sound: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#pronunciation",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "The G is silent! #learnenglish #englishtips #pronunciation"
+   }
+  },
+  "first_comment": "Quiz answer: G! The G is silent. At the end, n g is one sound. Do not say G. Practice it with a free quiz: {link}"
+ }
+}
