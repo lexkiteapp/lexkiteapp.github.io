@@ -92,6 +92,9 @@
     new MutationObserver(() => { if (!pre) return; const p = pre; pre = null; ans.querySelectorAll('.lsn-tile').forEach(e => fly(e, e.dataset.a === p.i ? p.from : p.tiles.get(e.dataset.a))); }).observe(ans, { childList: true });
   }
 
-  g.LessonEx = { usable, teacher, targetOk, match, matchBind, decorate, optSay };
+  const shell = (view, sh, L, App) => { const ST2 = g.ST2, d = g.document, r0 = ST2.mount(view, 'ex-frame', { close: sh.close, title: sh.title, qn: '', streak: String(App.streak ? App.streak() : 0), chip: sh.short || '', say: '', teacher: teacher() }, null); r0.id = 'lsn'; r0.classList.add('lsn-v2', 'lsn-fx'); r0.style.opacity = '0'; const shown0 = () => { r0.style.opacity = ''; }; setTimeout(shown0, 1600);
+    L.cssP = (App.loadCss ? App.loadCss('css/story-stage.css') : Promise.resolve()).catch(() => 0).then(() => { shown0(); let n = r0.querySelector('#lsnBub'), c = ''; while (n && n !== r0) { c = g.getComputedStyle(n).backgroundColor; if (c && !/rgba?\(.*(, ?0\)| 0\))$/.test(c) && c !== 'transparent') break; n = n.parentElement; } if (c) r0.style.setProperty('--ss-floor', c); });
+    const bx = d.createElement('div'); bx.innerHTML = ST2['lesson-question']({ close: '', title: '', pct: 0, combo: '', chip: '', play: '', who: '', teacher: '', slow: '', opts: ['off', 'on'].map(v => ({ v, o: '', k: '', t: '' })) }).main; const g0 = bx.querySelector('#lsnBody'); L.tpl = { off: g0.children[0], on: g0.children[1] }; };
+  g.LessonEx = { shell, usable, teacher, targetOk, match, matchBind, decorate, optSay };
   if (g.ST && usable()) override();
 })(self);
