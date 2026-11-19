@@ -9,7 +9,7 @@ import { guardBg } from './_d1guard.js';
 import { limit } from './sync.js';
 import { manifest } from './admin-shorts.js';
 import { setup, chanCfg, chanCfgs, pauseChannel } from './youtube.js';
-import { LANG_TZ, langOfChannel, foreignAccount, pausedAccount, extAccount, normCfg, route, routeAll, implicitSocialRules, pickEmbed, explain, platformOf, planAll, localDate, localHM, PLAN_DAYS } from './_distribution.js';
+import { LANG_TZ, dayCapOf, gapOf, capCfg, langOfChannel, foreignAccount, pausedAccount, extAccount, normCfg, route, routeAll, implicitSocialRules, pickEmbed, explain, platformOf, planAll, localDate, localHM, PLAN_DAYS } from './_distribution.js';
 import { embedMeta, socialMeta, PLATFORMS } from './_role_meta.js';
 import { viewOf, typeOf } from './_clip_logic.js';
 import { TOPICS, SKILLS, EXAMS, CEFR, TYPES } from './_taxonomy.js';
@@ -29,7 +29,7 @@ async function channels(db) {
   for (const c of yt) { const x = get(c.channel_id); out.push({ channel_id: c.channel_id, title: c.title, thumb: c.thumb, status: c.status, cfg: x.cfg, paused_reason: x.paused_reason }); }
   for (const c of ext) { const x = get(c.channel_id), info = parseInfo(c.info); delete c.info;
     out.push({ ...c, thumb: avatarUrl(info) || c.thumb, thumb_src: c.thumb, info, lang_src: x.explicit_lang ? 'cfg' : langOfChannel(c.title) ? 'name' : 'default', cfg: (lang => ({ ...x.cfg, role: 'social', lang, tz: x.explicit_tz ? x.cfg.tz : (LANG_TZ[lang || 'en'] || x.cfg.tz) }))(x.explicit_lang ? x.cfg.lang : (langOfChannel(c.title) || x.cfg.lang)), paused_reason: x.paused_reason, ext: 1 }); }
-  return out.map(c => ({ ...c, platform: c.platform || platformOf(c.channel_id) }));
+  return out.map(c => { const lang = c.cfg.lang || langOfChannel(c.title) || ''; return { ...c, platform: c.platform || platformOf(c.channel_id), cfg: c.cfg.role === 'embed' ? c.cfg : { ...c.cfg, daily_cap: dayCapOf(lang, c.cfg.daily_cap), min_gap_min: gapOf(lang, c.cfg.min_gap_min) } }; }); // trần theo loại kênh (chính 2–3 · bản ngữ 1), MỘT nguồn
 }
 const parseInfo = v => { try { const o = JSON.parse(v || '{}'); return o && typeof o === 'object' && !Array.isArray(o) ? o : {}; } catch (e) { return {}; } };
 /** Avatar cùng origin (băm nội dung → URL bất biến, không đoán được). Không có bản cache → null (client dùng URL gốc, onerror → avatar dự phòng). */
@@ -119,7 +119,7 @@ const OPS = {
   },
   async cfg_set(db, b, who) {
     const id = String(b.channel_id || ''); if (!CHID.test(id) || !(await knownIds(db)).has(id)) return { status: 404, error: 'not-found' };
-    const cfg = normCfg(isExt(id) ? { ...b.cfg, role: 'social' } : b.cfg); // embed = YouTube only (lessons play YouTube ids)
+    const cfg = capCfg(normCfg(isExt(id) ? { ...b.cfg, role: 'social' } : b.cfg)); // trần theo loại kênh (chính 2–3 · bản ngữ 1) lưu luôn đúng; embed = YouTube only (lessons play YouTube ids)
     const was = await chanCfg(db, id);
     await run(db, 'INSERT INTO yt_chan_cfg (channel_id, cfg, paused_reason, updated) VALUES (?, ?, ?, ?) ON CONFLICT(channel_id) DO UPDATE SET cfg = excluded.cfg, paused_reason = excluded.paused_reason, updated = excluded.updated', id, JSON.stringify(cfg), cfg.active ? '' : was.paused_reason, Date.now());
     return { ok: true, cfg };

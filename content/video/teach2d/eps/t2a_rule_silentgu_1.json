@@ -1,0 +1,163 @@
+{
+ "id": "t2a_rule_silentgu_1",
+ "template": "rule",
+ "series": "Spell to Sound",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "pronunciation",
+ "lines": [
+  {
+   "id": "h",
+   "text": "The U is silent!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "In g u, the U is silent. Say G.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Build.",
+   "pause": 0.25,
+   "speed": 0.6
+  },
+  {
+   "id": "v0",
+   "text": "Build.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Guess.",
+   "pause": 0.25,
+   "speed": 0.6
+  },
+  {
+   "id": "v1",
+   "text": "Guess.",
+   "pause": 0.3
+  },
+  {
+   "id": "p",
+   "text": "Repeat after me!",
+   "pause": 2.4
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which letter is silent in guess?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "U! The U is silent.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "rule": "silent-gu",
+  "title": "gu-",
+  "target": "/ɡ/",
+  "letter": "u",
+  "say": "In g u, the U is silent. Say G.",
+  "words": [
+   {
+    "w": "build",
+    "ipa": "/bɪld/",
+    "silent": [
+     1,
+     2
+    ],
+    "letter": "u",
+    "mean": "to make (e.g., a house, by putting materials together)",
+    "em": "🏗️"
+   },
+   {
+    "w": "guess",
+    "ipa": "/ɡes/",
+    "silent": [
+     1,
+     2
+    ],
+    "letter": "u",
+    "mean": "to give an answer without knowing if it is correct",
+    "em": "🤔"
+   }
+  ],
+  "quiz": {
+   "stem": "Which letter is silent in guess?",
+   "options": [
+    "G",
+    "U"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "pronunciation",
+  "route": "#/pron/build",
+  "link": "https://lexkite.com/app/#/pron/build",
+  "say": "Practise this sound"
+ },
+ "hook": {
+  "line": "h",
+  "text": "The U is silent"
+ },
+ "src": {
+  "rule": "silent-gu"
+ },
+ "est": {
+  "words": 39,
+  "seconds": 26.7,
+  "wpm": 88
+ },
+ "publish": {
+  "title": "The U is silent!",
+  "keyword": "Spell to Sound",
+  "value": "In g u, the U is silent. Say G.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#pronunciation",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/pron/build",
+  "script_words": 30,
+  "platforms": {
+   "youtube": {
+    "title": "The U is silent!",
+    "description": "In g u, the U is silent. Say G.\n\nPractise this sound, free: https://lexkite.com/app/#/pron/build\n\nSeries: Spell to Sound · Teacher: Ama\n\n#learnenglish #englishtips #pronunciation #englishteacher",
+    "tags": [
+     "Spell to Sound",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "The U is silent!\n\nIn g u, the U is silent. Say G.\n\nPractise this sound, free: https://lexkite.com/app/#/pron/build"
+   },
+   "instagram": {
+    "caption": "The U is silent!\n\nIn g u, the U is silent. Say G.\n\nPractise this sound: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#pronunciation",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "The U is silent! #learnenglish #englishtips #pronunciation"
+   }
+  },
+  "first_comment": "Did you get it? U! The U is silent. In g u, the U is silent. Say G. More practice like this (free): {link}"
+ }
+}

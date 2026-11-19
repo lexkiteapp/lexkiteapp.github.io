@@ -1,0 +1,177 @@
+{
+ "id": "t2a_roots_duc_3",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, two words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "The root is Duc! Induce, education.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Duc is Latin for lead.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Induce: into plus lead.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Education: out plus lead.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means out plus lead?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Education! Out plus lead.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "DUC",
+  "rid": "duc",
+  "say": "lead",
+  "src": "ducere",
+  "src_lang": "Latin",
+  "src_mean": "to lead",
+  "words": [
+   {
+    "w": "induce",
+    "ipa": "/ɪnˈduːs/",
+    "mean": "lead into",
+    "seg": "in-|duce",
+    "parts": [
+     [
+      "in",
+      "pre"
+     ],
+     [
+      "duce",
+      "root"
+     ]
+    ],
+    "pre": "in",
+    "pm": "into",
+    "pms": "into",
+    "ex": "Higher wages could induce more people to become teachers.",
+    "em": "💊"
+   },
+   {
+    "w": "education",
+    "ipa": "/ˌedʒəˈkeɪʃn/",
+    "mean": "leading out of ignorance",
+    "seg": "e-|duc|-ation",
+    "parts": [
+     [
+      "e",
+      "pre"
+     ],
+     [
+      "duc",
+      "root"
+     ],
+     [
+      "ation",
+      "suf"
+     ]
+    ],
+    "pre": "e",
+    "pm": "out",
+    "pms": "out",
+    "ex": "Education is the key to a better future.",
+    "em": "🎓"
+   }
+  ],
+  "quiz": {
+   "stem": "out plus lead",
+   "options": [
+    "induce",
+    "education"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/induce",
+  "link": "https://lexkite.com/app/#/dict/induce",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, two words"
+ },
+ "src": {
+  "root": "duc"
+ },
+ "est": {
+  "words": 43,
+  "seconds": 26.0,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Duc root: induce and education",
+  "keyword": "duc root",
+  "value": "Duc comes from Latin \"ducere\" (to lead). Words: induce and education. induce = in + duce; education = e + duc.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/induce",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "Duc root: induce and education",
+    "description": "Duc comes from Latin \"ducere\" (to lead). Words: induce and education. induce = in + duce; education = e + duc.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/induce\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "duc root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Duc root: induce and education\n\nDuc comes from Latin \"ducere\" (to lead). Words: induce and education. induce = in + duce; education = e + duc.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/induce"
+   },
+   "instagram": {
+    "caption": "Duc root: induce and education\n\nDuc comes from Latin \"ducere\" (to lead). Words: induce and education. induce = in + duce; education = e + duc.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Duc root: induce and education #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: Education! Out plus lead. Duc comes from Latin \"ducere\" (to lead). Words: induce and education. induce = in + duce; education = e + duc. Practice it with a free quiz: {link}"
+ }
+}

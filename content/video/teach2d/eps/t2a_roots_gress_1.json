@@ -1,0 +1,177 @@
+{
+ "id": "t2a_roots_gress_1",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, two words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "The root is Gress! Progress, aggressive.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Gress is Latin for step.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Progress: forward plus step.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Aggressive: toward plus step.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means toward plus step?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Aggressive! Toward plus step.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "GRESS",
+  "rid": "gress",
+  "say": "step",
+  "src": "gradi",
+  "src_lang": "Latin",
+  "src_mean": "to step, to walk",
+  "words": [
+   {
+    "w": "progress",
+    "ipa": "/ˈprɑːɡres/",
+    "mean": "step forward",
+    "seg": "pro-|gress",
+    "parts": [
+     [
+      "pro",
+      "pre"
+     ],
+     [
+      "gress",
+      "root"
+     ]
+    ],
+    "pre": "pro",
+    "pm": "forward",
+    "pms": "forward",
+    "ex": "You have made great progress with your writing.",
+    "em": "📈"
+   },
+   {
+    "w": "aggressive",
+    "ipa": "/əˈɡresɪv/",
+    "mean": "stepping toward to attack",
+    "seg": "ag-|gress|-ive",
+    "parts": [
+     [
+      "ag",
+      "pre"
+     ],
+     [
+      "gress",
+      "root"
+     ],
+     [
+      "ive",
+      "suf"
+     ]
+    ],
+    "pre": "ag",
+    "pm": "toward",
+    "pms": "toward",
+    "ex": "The dog next door is quite aggressive.",
+    "em": "😠"
+   }
+  ],
+  "quiz": {
+   "stem": "toward plus step",
+   "options": [
+    "progress",
+    "aggressive"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/progress",
+  "link": "https://lexkite.com/app/#/dict/progress",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, two words"
+ },
+ "src": {
+  "root": "gress"
+ },
+ "est": {
+  "words": 43,
+  "seconds": 26.0,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Gress root: progress and aggressive",
+  "keyword": "gress root",
+  "value": "Gress comes from Latin \"gradi\" (to step, to walk). Words: progress and aggressive. progress = pro + gress; aggressive = ag + gress.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/progress",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "Gress root: progress and aggressive",
+    "description": "Gress comes from Latin \"gradi\" (to step, to walk). Words: progress and aggressive. progress = pro + gress; aggressive = ag + gress.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/progress\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "gress root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Gress root: progress and aggressive\n\nGress comes from Latin \"gradi\" (to step, to walk). Words: progress and aggressive. progress = pro + gress; aggressive = ag + gress.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/progress"
+   },
+   "instagram": {
+    "caption": "Gress root: progress and aggressive\n\nGress comes from Latin \"gradi\" (to step, to walk). Words: progress and aggressive. progress = pro + gress; aggressive = ag + gress.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Gress root: progress and aggressive #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: Aggressive! Toward plus step. Gress comes from Latin \"gradi\" (to step, to walk). Words: progress and aggressive. progress = pro + gress; aggressive = ag + gress. Try the full lesson and quiz here: {link}"
+ }
+}

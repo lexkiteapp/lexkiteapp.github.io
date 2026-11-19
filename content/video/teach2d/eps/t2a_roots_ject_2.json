@@ -1,0 +1,173 @@
+{
+ "id": "t2a_roots_ject_2",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, two words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "The root is Ject! Object, subject.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Ject is Latin for throw.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Object: against plus throw.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Subject: under plus throw.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means under plus throw?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Subject! Under plus throw.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "JECT",
+  "rid": "ject",
+  "say": "throw",
+  "src": "jacere",
+  "src_lang": "Latin",
+  "src_mean": "to throw",
+  "words": [
+   {
+    "w": "object",
+    "ipa": "/ˈɑːbdʒekt/",
+    "mean": "throw against",
+    "seg": "ob-|ject",
+    "parts": [
+     [
+      "ob",
+      "pre"
+     ],
+     [
+      "ject",
+      "root"
+     ]
+    ],
+    "pre": "ob",
+    "pm": "against",
+    "pms": "against",
+    "ex": "The museum has thousands of ancient objects.",
+    "em": "📦"
+   },
+   {
+    "w": "subject",
+    "ipa": "/ˈsʌbdʒɪkt/",
+    "mean": "thrown under a topic",
+    "seg": "sub-|ject",
+    "parts": [
+     [
+      "sub",
+      "pre"
+     ],
+     [
+      "ject",
+      "root"
+     ]
+    ],
+    "pre": "sub",
+    "pm": "under",
+    "pms": "under",
+    "ex": "Maths was my favourite subject at school.",
+    "em": "📚"
+   }
+  ],
+  "quiz": {
+   "stem": "under plus throw",
+   "options": [
+    "object",
+    "subject"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/object",
+  "link": "https://lexkite.com/app/#/dict/object",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, two words"
+ },
+ "src": {
+  "root": "ject"
+ },
+ "est": {
+  "words": 43,
+  "seconds": 26.0,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Ject root: object and subject",
+  "keyword": "ject root",
+  "value": "Ject comes from Latin \"jacere\" (to throw). Words: object and subject. object = ob + ject; subject = sub + ject.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/object",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "Ject root: object and subject",
+    "description": "Ject comes from Latin \"jacere\" (to throw). Words: object and subject. object = ob + ject; subject = sub + ject.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/object\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "ject root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Ject root: object and subject\n\nJect comes from Latin \"jacere\" (to throw). Words: object and subject. object = ob + ject; subject = sub + ject.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/object"
+   },
+   "instagram": {
+    "caption": "Ject root: object and subject\n\nJect comes from Latin \"jacere\" (to throw). Words: object and subject. object = ob + ject; subject = sub + ject.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Ject root: object and subject #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: Subject! Under plus throw. Ject comes from Latin \"jacere\" (to throw). Words: object and subject. object = ob + ject; subject = sub + ject. Practice it with a free quiz: {link}"
+ }
+}

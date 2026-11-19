@@ -1,0 +1,199 @@
+{
+ "id": "t2a_roots_duc_1",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, three words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "The root is Duc! Introduce, produce, reduce.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Duc is Latin for lead.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Introduce: inside plus lead.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Produce: forward plus lead.",
+   "pause": 0.3
+  },
+  {
+   "id": "w2",
+   "text": "Reduce: back plus lead.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means back plus lead?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Reduce! Back plus lead.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "DUC",
+  "rid": "duc",
+  "say": "lead",
+  "src": "ducere",
+  "src_lang": "Latin",
+  "src_mean": "to lead",
+  "words": [
+   {
+    "w": "introduce",
+    "ipa": "/ˌɪntrəˈduːs/",
+    "mean": "lead inside",
+    "seg": "intro-|duce",
+    "parts": [
+     [
+      "intro",
+      "pre"
+     ],
+     [
+      "duce",
+      "root"
+     ]
+    ],
+    "pre": "intro",
+    "pm": "inside",
+    "pms": "inside",
+    "ex": "Let me introduce you to my colleague.",
+    "em": "🤝"
+   },
+   {
+    "w": "produce",
+    "ipa": "/prəˈduːs/",
+    "mean": "lead forward, to make",
+    "seg": "pro-|duce",
+    "parts": [
+     [
+      "pro",
+      "pre"
+     ],
+     [
+      "duce",
+      "root"
+     ]
+    ],
+    "pre": "pro",
+    "pm": "forward",
+    "pms": "forward",
+    "ex": "This factory produces parts for bicycles.",
+    "em": "🏭"
+   },
+   {
+    "w": "reduce",
+    "ipa": "/rɪˈduːs/",
+    "mean": "lead back, make smaller",
+    "seg": "re-|duce",
+    "parts": [
+     [
+      "re",
+      "pre"
+     ],
+     [
+      "duce",
+      "root"
+     ]
+    ],
+    "pre": "re",
+    "pm": "back or again",
+    "pms": "back",
+    "ex": "We should reduce the amount of plastic we use.",
+    "em": "📉"
+   }
+  ],
+  "quiz": {
+   "stem": "back plus lead",
+   "options": [
+    "introduce",
+    "reduce"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/introduce",
+  "link": "https://lexkite.com/app/#/dict/introduce",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, three words"
+ },
+ "src": {
+  "root": "duc"
+ },
+ "est": {
+  "words": 48,
+  "seconds": 28.8,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "Duc root: introduce, produce and reduce",
+  "keyword": "duc root",
+  "value": "Duc comes from Latin \"ducere\" (to lead). Words: introduce, produce and reduce. introduce = intro + duce; produce = pro + duce; reduce = re + duce.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/introduce",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "Duc root: introduce, produce and reduce",
+    "description": "Duc comes from Latin \"ducere\" (to lead). Words: introduce, produce and reduce. introduce = intro + duce; produce = pro + duce; reduce = re + duce.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/introduce\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "duc root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Duc root: introduce, produce and reduce\n\nDuc comes from Latin \"ducere\" (to lead). Words: introduce, produce and reduce. introduce = intro + duce; produce = pro + duce; reduce = re + duce.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/introduce"
+   },
+   "instagram": {
+    "caption": "Duc root: introduce, produce and reduce\n\nDuc comes from Latin \"ducere\" (to lead). Words: introduce, produce and reduce. introduce = intro + duce; produce = pro + duce; reduce = re + duce.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Duc root: introduce, produce and reduce #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? Reduce! Back plus lead. Duc comes from Latin \"ducere\" (to lead). Words: introduce, produce and reduce. introduce = intro + duce; produce = pro + duce; reduce = re + duce. More practice like this (free): {link}"
+ }
+}
