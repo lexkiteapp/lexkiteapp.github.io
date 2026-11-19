@@ -1,0 +1,181 @@
+{
+ "id": "t2a_roots_struct_3",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, two words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "The root is Struct! Instruction, instrument.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Struct is Latin for build.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Instruction: into plus build.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Instrument: into plus build.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means into plus build?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Instrument! Into plus build.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "STRUCT",
+  "rid": "struct",
+  "say": "build",
+  "src": "struere",
+  "src_lang": "Latin",
+  "src_mean": "to build",
+  "words": [
+   {
+    "w": "instruction",
+    "ipa": "/ɪnˈstrʌkʃn/",
+    "mean": "a direction that builds skill",
+    "seg": "in-|struct|-ion",
+    "parts": [
+     [
+      "in",
+      "pre"
+     ],
+     [
+      "struct",
+      "root"
+     ],
+     [
+      "ion",
+      "suf"
+     ]
+    ],
+    "pre": "in",
+    "pm": "into",
+    "pms": "into",
+    "ex": "Follow the instructions on the box.",
+    "em": "📋"
+   },
+   {
+    "w": "instrument",
+    "ipa": "/ˈɪnstrəmənt/",
+    "mean": "a tool built for a job",
+    "seg": "in-|stru|-ment",
+    "parts": [
+     [
+      "in",
+      "pre"
+     ],
+     [
+      "stru",
+      "root"
+     ],
+     [
+      "ment",
+      "suf"
+     ]
+    ],
+    "pre": "in",
+    "pm": "into",
+    "pms": "into",
+    "ex": "Do you play a musical instrument?",
+    "em": "🎻"
+   }
+  ],
+  "quiz": {
+   "stem": "into plus build",
+   "options": [
+    "instruction",
+    "instrument"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/instruction",
+  "link": "https://lexkite.com/app/#/dict/instruction",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, two words"
+ },
+ "src": {
+  "root": "struct"
+ },
+ "est": {
+  "words": 43,
+  "seconds": 26.0,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Struct root: instruction and instrument",
+  "keyword": "struct root",
+  "value": "Struct comes from Latin \"struere\" (to build). Words: instruction and instrument. instruction = in + struct; instrument = in + stru.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/instruction",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "Struct root: instruction and instrument",
+    "description": "Struct comes from Latin \"struere\" (to build). Words: instruction and instrument. instruction = in + struct; instrument = in + stru.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/instruction\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "struct root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Struct root: instruction and instrument\n\nStruct comes from Latin \"struere\" (to build). Words: instruction and instrument. instruction = in + struct; instrument = in + stru.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/instruction"
+   },
+   "instagram": {
+    "caption": "Struct root: instruction and instrument\n\nStruct comes from Latin \"struere\" (to build). Words: instruction and instrument. instruction = in + struct; instrument = in + stru.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Struct root: instruction and instrument #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? Instrument! Into plus build. Struct comes from Latin \"struere\" (to build). Words: instruction and instrument. instruction = in + struct; instrument = in + stru. More practice like this (free): {link}"
+ }
+}

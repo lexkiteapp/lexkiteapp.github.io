@@ -1,0 +1,177 @@
+{
+ "id": "t2a_roots_dict_2",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, two words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "The root is Dict! Contradict, indicate.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Dict is Latin for say.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Contradict: against plus say.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Indicate: into plus say.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means into plus say?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Indicate! Into plus say.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "DICT",
+  "rid": "dict",
+  "say": "say",
+  "src": "dicere",
+  "src_lang": "Latin",
+  "src_mean": "to say",
+  "words": [
+   {
+    "w": "contradict",
+    "ipa": "/ˌkɑːntrəˈdɪkt/",
+    "mean": "say the opposite",
+    "seg": "contra-|dict",
+    "parts": [
+     [
+      "contra",
+      "pre"
+     ],
+     [
+      "dict",
+      "root"
+     ]
+    ],
+    "pre": "contra",
+    "pm": "against",
+    "pms": "against",
+    "ex": "The new evidence contradicts earlier findings.",
+    "em": "🔁"
+   },
+   {
+    "w": "indicate",
+    "ipa": "/ˈɪndəkeɪt/",
+    "mean": "say or point toward",
+    "seg": "in-|dic|-ate",
+    "parts": [
+     [
+      "in",
+      "pre"
+     ],
+     [
+      "dic",
+      "root"
+     ],
+     [
+      "ate",
+      "suf"
+     ]
+    ],
+    "pre": "in",
+    "pm": "into",
+    "pms": "into",
+    "ex": "The results indicate that the plan is working.",
+    "em": "👉"
+   }
+  ],
+  "quiz": {
+   "stem": "into plus say",
+   "options": [
+    "contradict",
+    "indicate"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/contradict",
+  "link": "https://lexkite.com/app/#/dict/contradict",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, two words"
+ },
+ "src": {
+  "root": "dict"
+ },
+ "est": {
+  "words": 43,
+  "seconds": 26.0,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Dict root: contradict and indicate",
+  "keyword": "dict root",
+  "value": "Dict comes from Latin \"dicere\" (to say). Words: contradict and indicate. contradict = contra + dict; indicate = in + dic.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/contradict",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "Dict root: contradict and indicate",
+    "description": "Dict comes from Latin \"dicere\" (to say). Words: contradict and indicate. contradict = contra + dict; indicate = in + dic.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/contradict\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "dict root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Dict root: contradict and indicate\n\nDict comes from Latin \"dicere\" (to say). Words: contradict and indicate. contradict = contra + dict; indicate = in + dic.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/contradict"
+   },
+   "instagram": {
+    "caption": "Dict root: contradict and indicate\n\nDict comes from Latin \"dicere\" (to say). Words: contradict and indicate. contradict = contra + dict; indicate = in + dic.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Dict root: contradict and indicate #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? Indicate! Into plus say. Dict comes from Latin \"dicere\" (to say). Words: contradict and indicate. contradict = contra + dict; indicate = in + dic. More practice like this (free): {link}"
+ }
+}

@@ -1,0 +1,177 @@
+{
+ "id": "t2a_roots_volv_2",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, two words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "The root is Volv! Evolution, volume.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Volv is Latin for roll.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Evolution: out plus roll.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Volume: a roll, or a book.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means out plus roll?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Evolution! Out plus roll.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "VOLV",
+  "rid": "volv",
+  "say": "roll",
+  "src": "volvere",
+  "src_lang": "Latin",
+  "src_mean": "to roll, to turn",
+  "words": [
+   {
+    "w": "evolution",
+    "ipa": "/ˌevəˈluːʃn/",
+    "mean": "a slow rolling out of change",
+    "seg": "e-|volut|-ion",
+    "parts": [
+     [
+      "e",
+      "pre"
+     ],
+     [
+      "volut",
+      "root"
+     ],
+     [
+      "ion",
+      "suf"
+     ]
+    ],
+    "pre": "e",
+    "pm": "out",
+    "pms": "out",
+    "ex": "The museum explains the evolution of the horse.",
+    "em": "🐒"
+   },
+   {
+    "w": "volume",
+    "ipa": "/ˈvɑːljuːm/",
+    "mean": "a roll, or a book",
+    "seg": "vol|-ume",
+    "parts": [
+     [
+      "vol",
+      "root"
+     ],
+     [
+      "ume",
+      "suf"
+     ]
+    ],
+    "pre": null,
+    "pm": null,
+    "pms": null,
+    "ex": "Could you turn down the volume, please?",
+    "em": "🔊"
+   }
+  ],
+  "quiz": {
+   "stem": "out plus roll",
+   "options": [
+    "volume",
+    "evolution"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/evolution",
+  "link": "https://lexkite.com/app/#/dict/evolution",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, two words"
+ },
+ "src": {
+  "root": "volv"
+ },
+ "est": {
+  "words": 45,
+  "seconds": 27.0,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "Volv root: evolution and volume",
+  "keyword": "volv root",
+  "value": "Volv comes from Latin \"volvere\" (to roll, to turn). Words: evolution and volume. evolution = e + volut.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/evolution",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "Volv root: evolution and volume",
+    "description": "Volv comes from Latin \"volvere\" (to roll, to turn). Words: evolution and volume. evolution = e + volut.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/evolution\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "volv root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Volv root: evolution and volume\n\nVolv comes from Latin \"volvere\" (to roll, to turn). Words: evolution and volume. evolution = e + volut.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/evolution"
+   },
+   "instagram": {
+    "caption": "Volv root: evolution and volume\n\nVolv comes from Latin \"volvere\" (to roll, to turn). Words: evolution and volume. evolution = e + volut.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Volv root: evolution and volume #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: Evolution! Out plus roll. Volv comes from Latin \"volvere\" (to roll, to turn). Words: evolution and volume. evolution = e + volut. Practice it with a free quiz: {link}"
+ }
+}
