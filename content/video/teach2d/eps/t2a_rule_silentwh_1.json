@@ -1,0 +1,163 @@
+{
+ "id": "t2a_rule_silentwh_1",
+ "template": "rule",
+ "series": "Spell to Sound",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "pronunciation",
+ "lines": [
+  {
+   "id": "h",
+   "text": "The W is silent!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "In w h o, the W is silent. Say H.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Who.",
+   "pause": 0.25,
+   "speed": 0.6
+  },
+  {
+   "id": "v0",
+   "text": "Who.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Whole.",
+   "pause": 0.25,
+   "speed": 0.6
+  },
+  {
+   "id": "v1",
+   "text": "Whole. Say: whole.",
+   "pause": 0.3
+  },
+  {
+   "id": "p",
+   "text": "Repeat after me!",
+   "pause": 1.6
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which letter is silent in whole?",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "W! The W is silent.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "rule": "silent-wh",
+  "title": "wh-",
+  "target": "/h/",
+  "letter": "w",
+  "say": "In w h o, the W is silent. Say H.",
+  "words": [
+   {
+    "w": "who",
+    "ipa": "/huː/",
+    "silent": [
+     0,
+     1
+    ],
+    "letter": "w",
+    "mean": "What or which person or people, to ask about, talking about.",
+    "em": "❓"
+   },
+   {
+    "w": "whole",
+    "ipa": "/hoʊl/",
+    "silent": [
+     0,
+     1
+    ],
+    "letter": "w",
+    "mean": "Complete or full.",
+    "em": "⭕"
+   }
+  ],
+  "quiz": {
+   "stem": "Which letter is silent in whole?",
+   "options": [
+    "H",
+    "W"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "pronunciation",
+  "route": "#/pron/who",
+  "link": "https://lexkite.com/app/#/pron/who",
+  "say": "Practise this sound"
+ },
+ "hook": {
+  "line": "h",
+  "text": "The W is silent"
+ },
+ "src": {
+  "rule": "silent-wh"
+ },
+ "est": {
+  "words": 42,
+  "seconds": 27.1,
+  "wpm": 93
+ },
+ "publish": {
+  "title": "The W is silent!",
+  "keyword": "Spell to Sound",
+  "value": "In w h o, the W is silent. Say H.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#pronunciation",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/pron/who",
+  "script_words": 33,
+  "platforms": {
+   "youtube": {
+    "title": "The W is silent!",
+    "description": "In w h o, the W is silent. Say H.\n\nPractise this sound, free: https://lexkite.com/app/#/pron/who\n\nSeries: Spell to Sound · Teacher: Carlos\n\n#learnenglish #englishtips #pronunciation #englishteacher",
+    "tags": [
+     "Spell to Sound",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "The W is silent!\n\nIn w h o, the W is silent. Say H.\n\nPractise this sound, free: https://lexkite.com/app/#/pron/who"
+   },
+   "instagram": {
+    "caption": "The W is silent!\n\nIn w h o, the W is silent. Say H.\n\nPractise this sound: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#pronunciation",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "The W is silent! #learnenglish #englishtips #pronunciation"
+   }
+  },
+  "first_comment": "Did you get it? W! The W is silent. In w h o, the W is silent. Say H. More practice like this (free): {link}"
+ }
+}
