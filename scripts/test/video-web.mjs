@@ -94,7 +94,7 @@ ok(blogMatch(post, [{ ...good, tags: { ...good.tags, words: ['withdraw', 'fee'] 
 
 // 8) nối dây: gói tải lười + i18n nhóm lười + chỗ đặt
 const app = fs.readFileSync('web/js/app.js', 'utf8'), sh = fs.readFileSync('scripts/build-i18n.sh', 'utf8');
-ok(/lvideo: \['js\/i18n\/en\/lvideo\.js', 'js\/lib\/video-rank\.js', 'js\/lesson-video\.js'\]/.test(app), 'BUNDLES.lvideo');
+ok(/lvideo: \['js\/i18n\/en\/lvideo\.js', 'js\/lib\/video-rank\.js', 'js\/lesson-video\.js'\]/.test(fs.readFileSync('web/js/bundles.js', 'utf8')), 'BUNDLES.lvideo');
 ok(/^LAZY="[^"]*\blvideo\b/m.test(sh), 'LAZY có lvideo');
 for (const f of ['web/js/wordcard.js', 'web/js/grammar.js', 'web/js/path-day.js']) ok(/lv-slot/.test(fs.readFileSync(f, 'utf8')) && /App\.(need|lazy)\('lvideo'\)/.test(fs.readFileSync(f, 'utf8')), 'chỗ đặt video: ' + f);
 ok(/blogVideoBox\(p, VIDEOS, esc\)/.test(fs.readFileSync('scripts/build-blog.mjs', 'utf8')), 'mẫu blog có khối video');

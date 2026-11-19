@@ -17,11 +17,11 @@ const SRC = {};
 const code = f => (SRC[f] ||= src(f));
 export const ORIGIN = 'https://lexkite.com';
 export const DOC_KEYS = ['cards', 'deleted', 'stats', 'game', 'settings', 'settingsAt'];
-/** Library packs the web loads BEFORE every merge (sync.js: App.need('words', 'tsl')) – read from web/js/app.js, data files only (js/lib/*).
+/** Library packs the web loads BEFORE every merge (sync.js: App.need('words', 'tsl')) – read from web/js/bundles.js, data files only (js/lib/*).
  * slim()/fat() depend on IELTS_DATA.INDEX: a card whose word is in these packs travels as L:1 without its library fields. */
 export const LEX_FILES = (() => {
-  const app = src('web/js/app.js'), list = k => { const m = app.match(new RegExp(`\\b${k}: (\\[[^\\]]+\\])`)); if (!m) throw new Error('web-ref: App.need pack "' + k + '" not found in web/js/app.js'); return JSON.parse(m[1].replace(/'/g, '"')); };
-  return [...list('words'), ...list('tsl')].filter(f => f.startsWith('js/lib/')).map(f => 'web/' + f);
+  const app = src('web/js/bundles.js'), list = k => { const m = app.match(new RegExp(`\\b${k}: (\\[[^\\]]+\\])`)); if (!m) throw new Error('web-ref: App.need pack "' + k + '" not found in web/js/bundles.js'); return JSON.parse(m[1].replace(/'/g, '"')); };
+  return [...list('words'), ...list('tsl')].filter(f => f.startsWith('js/lib/') || f.startsWith('cpack/lib/')).map(f => 'web/' + f);
 })();
 const noop = () => {};
 const tick = () => new Promise(r => setImmediate(r));
