@@ -18,7 +18,8 @@
     "_note": "Tải lần đầu theo gói (JS BUNDLES + CSS BCSS, gzip chuẩn) – chỉ được giảm. 3/11 ux1 (Home/Hôm nay): mốc main 32c7194bd = 122044 B (JS 56295 + CSS 65749).",
     "ux1": 122044
   },
-  "cpackTotal": 10500000,
+  "cpackTotal": 10540000,
+  "_cpackNote7": "19/11 (chủ duyệt trực tiếp \"Đồng ý nâng\"): cpackTotal 10 500 000 → 10 540 000 B – chỉ trần lazy-pack; #596 thêm cpack/lesson/ex.js + ex-frame + ex-match (~29 KB, tải lười khi vào bài), không precache; ngân sách tải đầu, byte người học và mọi ngưỡng chất lượng không đổi.",
   "_cpackNote6": "16–17/11 (chủ giao toàn quyền điều phối, budget-self-decide): cpackTotal 9 000 000 → 10 500 000 B (main lên ~8,99 MB trong ngày; chừa cho #1410 IELTS ~9,77 MB + TOEIC S&W sw3–sw6 ~+53 KB + #1368 nội dung đợt 2 ~+247 KB; một lần nâng cho cả ba PR nội dung lazy) – chỉ trần lazy-pack nội dung, không đụng ngân sách tải lần đầu: #1410 kho đề IELTS Academic+General (Listening 11–20 439 KB, Writing models 226 KB, Reading 156 KB, Speaking 68 KB; tải lười theo đề, cache runtime, không precache); main đo 8 524 xxx B, nhánh 9 418 349 B.",
   "_cpackNote5": "15/11 (chủ yêu cầu điều phối tự làm, budget-self-decide): cpackTotal 8 100 000 → 9 000 000 B – chỉ trần lazy-pack nội dung, không đụng ngân sách tải lần đầu: #1389 TOEIC đề 8–10 (+0,38 MB, tải lười theo route), TOEFL bộ 7–10 sắp tới (~0,4 MB), #1315 IELTS Speaking +27 chủ đề (~0,2 MB); main đo 8 014 xxx B.",
   "_cpackNote4": "15/11 (chủ duyệt trực tiếp \"OK nâng 8,1 MB\", budget-self-decide): cpackTotal 7 900 000 → 8 100 000 B – chỉ trần lazy-pack nội dung (#1306 gold, #1315 IELTS Speaking, #1316 nhập vai; đo 7 966 xxx B), tải lười theo route, không precache nền; ngân sách tải đầu, web/js, SLACK, LCP/INP/CLS không đổi.",
