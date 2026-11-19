@@ -22,6 +22,8 @@ const DATA = (await import(new URL('../../functions/api/_shorts_data.js', import
 const [CA, CB, CC] = DATA.index.items.map(x => x.id);
 for (const it of DATA.index.items) it.point = it.point || 'look for: I am looking for a book'; // bản bundle cũ có clip thiếu metadata – trường hợp đó có test riêng (no-metadata)
 const H = 36e5, now = Date.now();
+// Sổ cái 1 bài/kênh/ngày có test riêng (social-ledger.mjs); ở đây nhiều clip dùng chung kênh trong vài giờ → xóa sổ trước mỗi lượt để từng kịch bản đứng riêng.
+const RUN = (env, o) => { try { sql.exec('DELETE FROM soc_ledger'); } catch (e) {} return A.runAuto(env, o); };
 
 // ---------- 1) Hàm thuần ----------
 {
@@ -81,7 +83,7 @@ await MGR.setupMgr(DB);
 sql.prepare("INSERT INTO soc_meta (k, v, at) VALUES ('auto', ?, ?)").run(JSON.stringify({ policy: A.POLICY, auto_approve: true, auto_queue: true, manual_first: 0, autopub: { youtube: true }, plats: { tiktok: false }, plan_daily: false, sync_h: 6, max_per_run: 3 }), now); // kịch bản gốc (3 bài/lượt: mặc định thật nay 8) = cấu hình ownerPolicy 10/11 (chỉ YouTube tự đăng, FB/IG chờ duyệt); từ 16/11 ownerPolicy bật cả FB/IG/TikTok nên phải lưu rõ
 sql.exec('CREATE TABLE yt_queue (clip TEXT PRIMARY KEY, lesson TEXT, status TEXT, privacy TEXT, publish_at TEXT, approved_by TEXT, approved_at INTEGER, video_id TEXT, upload_url TEXT, session_at INTEGER, attempts INTEGER DEFAULT 0, err TEXT, updated INTEGER, thumb INTEGER, title TEXT, channel_id TEXT); CREATE TABLE clip_review (clip TEXT PRIMARY KEY, state TEXT, deleted INTEGER, web INTEGER)');
 for (const c of [CA, CB]) sql.prepare("INSERT INTO yt_queue (clip, status) VALUES (?, 'manual')").run(c); // CC chưa duyệt
-await A.runAuto({ ...ENV, GRABCAST_API_KEY: '' }, { now }); // tạo bảng (setupDist) – không có khóa → không gọi gì
+await RUN({ ...ENV, GRABCAST_API_KEY: '' }, { now }); // tạo bảng (setupDist) – không có khóa → không gọi gì
 ok(calls.length === 0 && JSON.parse(sql.prepare("SELECT v FROM soc_meta WHERE k = 'auto_state'").get().v).last_run.stop === 'no-key', 'thiếu GRABCAST_API_KEY → dừng "no-key", 0 lượt gọi');
 const ext = sql.prepare('INSERT INTO dist_ext (channel_id, platform, account_id, title, status, updated) VALUES (?, ?, ?, ?, ?, ?)');
 ext.run('gc-facebook_page-2', 'facebook_page', '2', 'Lexkite', 'ok', now); ext.run('gc-instagram-3', 'instagram', '3', 'lexkite.app', 'ok', now); ext.run('gc-tiktok-4', 'tiktok', '4', 'TT', 'ok', now); ext.run('gc-facebook_page-5', 'facebook_page', '5', 'Lexkite 2', 'ok', now);
@@ -91,7 +93,7 @@ sql.prepare("INSERT INTO soc_meta (k, v, at) VALUES (?, ?, ?)").run('media:' + C
 const st = () => JSON.parse(sql.prepare("SELECT v FROM soc_meta WHERE k = 'auto_state'").get().v);
 const ds = (clip, ch) => sql.prepare('SELECT * FROM dist_social WHERE clip = ? AND channel_id = ?').get(clip, ch);
 calls = [];
-let r = await A.runAuto(ENV, { now });
+let r = await RUN(ENV, { now });
 const gcCalls = calls.filter(c => c.p !== 'PUT');
 ok(r.due === 4 && r.created === 3 && r.review === 3 && r.scheduled === 0 && !r.stop, `lượt 1 (tự duyệt TẮT): 3 bài NHÁP chờ duyệt (đến hạn ${r.due}, tạo ${r.created}, lên lịch ${r.scheduled}, dừng ${r.stop})`);
 ok(r.skipped.some(s => s.clip === CC && s.why === 'clip-not-approved'), 'clip chưa duyệt trong kho → bỏ qua');
@@ -104,7 +106,7 @@ ok(p1 && /Full lesson \+ quiz/.test(p1.caption) && p1.targets[0].kind === 'reel'
 const b1 = sql.prepare("SELECT * FROM soc_board WHERE post_id = ?").get(p1.id);
 ok(b1 && b1.state === 'review' && b1.by_who === 'autopilot' && b1.want_at === ds(CA, 'gc-facebook_page-2').slot_ms && !b1.hash, 'soc_board: cột Chờ duyệt, giờ mong muốn = slot');
 ok(ds(CA, 'gc-facebook_page-2').state === 'pushed' && ds(CA, 'gc-facebook_page-2').post_id === p1.id && ds(CA, 'gc-tiktok-4').state === 'planned' && ds(CB, 'gc-facebook_page-5').state === 'planned', 'social_ack pushed + post_id; TikTok (tắt) và slot ngoài cửa sổ không đụng');
-calls = []; r = await A.runAuto(ENV, { now: now + 60e3 });
+calls = []; r = await RUN(ENV, { now: now + 60e3 });
 ok(r.created === 0 && calls.length === 0, 'lượt 2 ngay sau: không tạo trùng, 0 lượt GrabCast (đồng bộ chưa tới hạn)');
 ok(st().calls.n === 9 && st().last_sync && st().last_sync.at === now, 'ngân sách ngày + lần đồng bộ lưu ở D1');
 
@@ -117,7 +119,7 @@ ok(st().calls.n === 9 && st().last_sync && st().last_sync.at === now, 'ngân sá
 // tự duyệt: FB đã có 1 bài duyệt tay (manual_first = 1) → bài FB mới tự lên lịch; IG chưa có bài duyệt tay → chờ duyệt
 sql.prepare("INSERT INTO soc_meta (k, v, at) VALUES ('auto', ?, ?) ON CONFLICT(k) DO UPDATE SET v = excluded.v").run(JSON.stringify({ policy: 'owner-1116', auto_approve: true, autopub: { facebook_page: true, instagram: true, tiktok: true, youtube: true, threads: true }, manual_first: 1, plats: { tiktok: false }, plan_daily: false, sync_h: 6 }), now); // giữ cài đặt gốc của kịch bản (TikTok tắt): ghi đè cũ làm rơi plats → TikTok (mặc định bật từ 03/11) chiếm hết max_per_run
 due(CB, 'gc-instagram-3', 10); sql.prepare('UPDATE dist_social SET slot_ms = ? WHERE clip = ? AND channel_id = ?').run(Math.round(now + 9 * H), CB, 'gc-facebook_page-5');
-calls = []; r = await A.runAuto(ENV, { now: now + 2 * 60e3 });
+calls = []; r = await RUN(ENV, { now: now + 2 * 60e3 });
 const p5 = Object.values(GC.posts).find(p => p.targets[0].account_id === 5), b5 = p5 && sql.prepare('SELECT * FROM soc_board WHERE post_id = ?').get(p5.id);
 ok(r.scheduled === 2 && r.review === 1 && p5 && p5.status === 'scheduled' && Date.parse(p5.scheduled_at) === ds(CB, 'gc-facebook_page-5').slot_ms, `tự duyệt: FB (đủ 1 bài duyệt tay) tự lên lịch đúng slot, IG (0) chờ duyệt (lên lịch ${r.scheduled}, chờ ${r.review})`);
 ok(b5 && b5.state === 'scheduled' && b5.approved_by === 'autopilot' && b5.hash, 'bài tự duyệt có dấu băm + approved_by autopilot');
@@ -126,31 +128,31 @@ ok((await A.manualCounts(DB)).facebook_page === 1 && !(await A.manualCounts(DB))
 
 // đồng bộ trạng thái (≥ 6 giờ) → Published ở bảng duyệt + dist_social
 GC.posts[p1.id].status = 'published'; GC.posts[p1.id].targets[0].state = 'published';
-calls = []; r = await A.runAuto(ENV, { now: now + 7 * H });
+calls = []; r = await RUN(ENV, { now: now + 7 * H });
 ok(r.synced && sql.prepare('SELECT state FROM soc_board WHERE post_id = ?').get(p1.id).state === 'published' && ds(CA, 'gc-facebook_page-2').state === 'published', 'đồng bộ nền: bài đã đăng → soc_board published + dist_social published');
 ok(calls.filter(c => c.m === 'GET' && !/^(posts|media)\//.test(c.p)).length === 2 && calls.filter(c => c.m === 'GET' && /^posts\//.test(c.p)).length <= r.scheduled, 'đồng bộ = đúng 2 lượt GET (accounts + posts), không poll; GET bài chỉ khi lên lịch bài đó');
 
 // dừng cả lượt + cầu dao
 GC.fail['POST posts'] = 503; due(CB, 'gc-facebook_page-2', 9.5); sql.prepare("UPDATE dist_social SET state = 'planned' WHERE clip = ? AND channel_id = 'gc-facebook_page-2'").run(CB);
 sql.prepare("DELETE FROM soc_board WHERE clip = ? AND accounts = '[\"2\"]'").run(CB);
-calls = []; r = await A.runAuto(ENV, { now: now + 8 * H });
+calls = []; r = await RUN(ENV, { now: now + 8 * H });
 ok(r.stop === 'x_503' && st().breaker && st().breaker.until === now + 8 * H + 2 * H && calls.filter(c => c.p === 'posts' && c.m === 'POST').length === 1, `GrabCast 503 → dừng cả lượt, không thử lại, cầu dao 2 giờ (dừng ${r.stop})`);
-calls = []; r = await A.runAuto(ENV, { now: now + 9 * H });
+calls = []; r = await RUN(ENV, { now: now + 9 * H });
 ok(r.stop === 'breaker' && calls.length === 0, 'cầu dao mở → lượt sau 0 lượt gọi');
 await A.autoOpFor('POST', 'lk/auto/reset')({ db: DB }); delete GC.fail['POST posts'];
 ok(!st().breaker, 'Quản trị "Mở lại" xóa cầu dao');
 GC.fail['GET accounts'] = 401;
-calls = []; r = await A.runAuto(ENV, { now: now + 14 * H });
+calls = []; r = await RUN(ENV, { now: now + 14 * H });
 ok(r.stop === 'x_401' && st().breaker.until === now + 26 * H && calls.length === 1, 'khóa sai (401) → dừng ngay sau 1 lượt gọi, cầu dao 12 giờ');
 await A.autoOpFor('POST', 'lk/auto/reset')({ db: DB }); delete GC.fail['GET accounts'];
 // kill switch + ngân sách
 await A.autoOpFor('POST', 'lk/auto/save')({ db: DB, b: { cfg: { on: false } } });
-calls = []; r = await A.runAuto(ENV, { now: now + 15 * H });
+calls = []; r = await RUN(ENV, { now: now + 15 * H });
 ok(r.stop === 'off' && calls.length === 0, 'kill switch TẮT → 0 lượt gọi GrabCast');
 ok(A.cleanAuto(JSON.parse(sql.prepare("SELECT v FROM soc_meta WHERE k = 'auto'").get().v)).auto_approve === true, 'lưu cài đặt giữ các trường cũ (gộp)');
 await A.autoOpFor('POST', 'lk/auto/save')({ db: DB, b: { cfg: { on: true, daily_calls: 10 } } });
 { const s = st(); s.calls = { day: A.dayOf(now + 15 * H), n: 8 }; sql.prepare("UPDATE soc_meta SET v = ? WHERE k = 'auto_state'").run(JSON.stringify(s)); }
-calls = []; r = await A.runAuto(ENV, { now: now + 15 * H });
+calls = []; r = await RUN(ENV, { now: now + 15 * H });
 ok(r.stop === 'budget' && calls.length === 0, 'còn < 3 lượt GrabCast hôm nay → không bắt đầu lượt');
 const S = await A.autoStatus(ENV, now + 15 * H);
 ok(S.key && S.webhook && S.cfg.daily_calls === 10 && S.budget_left === 2 && S.upcoming.length >= 3 && S.upcoming.some(u => u.board === 'scheduled'), 'trạng thái cho Quản trị: khóa, webhook, ngân sách, bài sắp đăng kèm cột duyệt');
@@ -244,7 +246,7 @@ ok(S.key && S.webhook && S.cfg.daily_calls === 10 && S.budget_left === 2 && S.up
 
   // Clip không metadata: không đăng tiêu đề là id
   { const it = DATA.index.items.find(x => x.id === CC), sv = { point: it.point, title: it.title }; it.point = ''; it.title = ''; reset({}); sql.prepare("INSERT OR IGNORE INTO yt_queue (clip, status) VALUES (?, 'manual')").run(CC); dueAt(CC, 'gc-facebook_page-2', 3);
-    const y = await A.runAuto(ENV, { now }); ok(y.created === 0 && y.skipped.some(s => s.why === 'no-metadata') && y.alerts.some(a => /^no-metadata:/.test(a.k)), 'clip thiếu metadata → không tạo bài + cảnh báo'); Object.assign(it, sv); sql.prepare('DELETE FROM yt_queue WHERE clip = ?').run(CC); }
+    const y = await RUN(ENV, { now }); ok(y.created === 0 && y.skipped.some(s => s.why === 'no-metadata') && y.alerts.some(a => /^no-metadata:/.test(a.k)), 'clip thiếu metadata → không tạo bài + cảnh báo'); Object.assign(it, sv); sql.prepare('DELETE FROM yt_queue WHERE clip = ?').run(CC); }
 
   // Clip đạt QC tự vào hàng: chỉ khi bật và đã có kênh; tôn trọng clip bị loại/tạm dừng/xóa
   {
@@ -272,91 +274,91 @@ ok(S.key && S.webhook && S.cfg.daily_calls === 10 && S.budget_left === 2 && S.up
 
   // Media cache hết hạn: GrabCast xóa file sau khi bài xong → tải lại, không dùng id cũ
   reset({}); dueAt(CA, 'gc-facebook_page-2', 3); sql.prepare("INSERT INTO soc_meta (k, v, at) VALUES (?, ?, ?)").run('media:' + CA, JSON.stringify({ id: 'm_old' }), now);
-  GC.mediaStatus = 'expired'; calls = []; let mx = await A.runAuto(ENV, { now }); GC.mediaStatus = '';
+  GC.mediaStatus = 'expired'; calls = []; let mx = await RUN(ENV, { now }); GC.mediaStatus = '';
   ok(mx.created === 1 && calls.some(c => c.p === 'media/upload-url') && Object.values(GC.posts)[0].media_ids[0] === 'm_up', 'media expired → tải lại, bài dùng id mới');
   reset({}); dueAt(CA, 'gc-facebook_page-2', 3); sql.prepare("INSERT INTO soc_meta (k, v, at) VALUES (?, ?, ?)").run('media:' + CA, JSON.stringify({ id: 'm_ok' }), now);
-  calls = []; mx = await A.runAuto(ENV, { now });
+  calls = []; mx = await RUN(ENV, { now });
   ok(mx.created === 1 && !calls.some(c => c.p === 'media/upload-url') && Object.values(GC.posts)[0].media_ids[0] === 'm_ok', 'media còn ready → dùng lại');
 
   // needs_check: báo người, không đăng lại
-  reset({ sync_h: 3 }); dueAt(CA, 'gc-facebook_page-2', 3); await A.runAuto(ENV, { now });
-  { const pid = Object.keys(GC.posts)[0]; GC.posts[pid].status = 'needs_check'; const before = Object.keys(GC.posts).length; const y = await A.runAuto(ENV, { now: now + 4 * H });
+  reset({ sync_h: 3 }); dueAt(CA, 'gc-facebook_page-2', 3); await RUN(ENV, { now });
+  { const pid = Object.keys(GC.posts)[0]; GC.posts[pid].status = 'needs_check'; const before = Object.keys(GC.posts).length; const y = await RUN(ENV, { now: now + 4 * H });
     ok(y.alerts.some(a => /needs-check/.test(a.k)) && Object.keys(GC.posts).length === before && ds(CA, 'gc-facebook_page-2').state === 'pushed', 'needs_check → cảnh báo, không tạo bài thứ 2'); }
 
   // Bài độc 422: không được chặn cả hàng mãi
   reset({}); dueAt(CA, 'gc-facebook_page-2', 3); dueAt(CB, 'gc-facebook_page-2', 8);
   sql.prepare("INSERT INTO soc_meta (k, v, at) VALUES (?, ?, ?)").run('media:' + CA, JSON.stringify({ id: 'm_old' }), now);
   GC.fail = { 'POST posts': 422 }; GC.failCode = 'media_invalid';
-  let x = await A.runAuto(ENV, { now });
+  let x = await RUN(ENV, { now });
   ok(x.stop && ds(CA, 'gc-facebook_page-2').state === 'failed' && stNow().fails[CA + '|gc-facebook_page-2'].n === 1, '422: dừng lượt nhưng tính lỗi cho đúng clip');
   ok(!sql.prepare("SELECT 1 FROM soc_meta WHERE k = ?").get('media:' + CA), 'lỗi media → bỏ cache để lượt sau tải lại');
   const stt = stNow(); delete stt.breaker; stt.fails[CA + '|gc-facebook_page-2'].n = 2; sql.prepare("UPDATE soc_meta SET v = ? WHERE k = 'auto_state'").run(JSON.stringify(stt));
-  GC.fail = {}; GC.failCode = ''; x = await A.runAuto(ENV, { now: now + 60e3 });
+  GC.fail = {}; GC.failCode = ''; x = await RUN(ENV, { now: now + 60e3 });
   ok(x.created === 1 && x.skipped.some(s => s.clip === CA && s.why === 'gave-up'), 'clip lỗi 2 lần bị bỏ qua, clip sau vẫn đăng được');
 
   // Bật tự duyệt SAU khi bài đã nằm Chờ duyệt: trước đây kẹt mãi vì social_due không trả 'pushed'
   reset({}); dueAt(CA, 'gc-facebook_page-2', 3);
-  x = await A.runAuto(ENV, { now });
+  x = await RUN(ENV, { now });
   ok(x.created === 1 && x.review === 1 && Object.values(GC.posts)[0].status === 'draft', 'tự duyệt tắt: bài nằm Chờ duyệt, chưa lên lịch');
   sql.prepare("UPDATE soc_meta SET v = ? WHERE k = 'auto'").run(JSON.stringify({ policy: 'owner-1116', sync_h: 24, plan_daily: false, auto_approve: true, autopub: { facebook_page: true, instagram: true, tiktok: true, youtube: true, threads: true }, manual_first: 1 }));
   sql.prepare("INSERT INTO soc_board (id, post_id, clip, state, accounts, plats, approved_by, created, updated, by_who) VALUES ('b_manual01', 'pm', ?, 'published', '[\"2\"]', '[\"facebook_page\"]', 'owner', ?, ?, 'owner')").run(CC, now, now);
-  x = await A.runAuto(ENV, { now: now + 60e3 });
+  x = await RUN(ENV, { now: now + 60e3 });
   ok(x.scheduled === 1 && Object.values(GC.posts)[0].status === 'scheduled', 'bật tự duyệt → bài Chờ duyệt cũ được lên lịch');
 
   // Hợp đồng GrabCast: validate trước khi lên lịch, warning không chặn, 422 giữ mã lỗi từng đích
   ok(A.problemCodes([{ problems: [{ level: 'warning', code: 'w' }, { level: 'error', code: 'privacy_required' }] }, { problems: [{ level: 'error', code: 'privacy_required' }] }]) === 'privacy_required' && A.problemCodes(null) === '', 'problemCodes: bỏ warning, bỏ trùng');
   ok(await A.createKey(CA, 'c', { title: 't', caption: 'x' }) === await A.createKey(CA, 'c', { title: 't', caption: 'x' }) && await A.createKey(CA, 'c', { title: 't', caption: 'x' }) !== await A.createKey(CA, 'c', { title: 't', caption: 'y' }), 'khóa tạo bài: cùng nội dung cùng khóa, sửa chữ đổi khóa');
   const armAuto = () => { sql.prepare("UPDATE soc_meta SET v = ? WHERE k = 'auto'").run(JSON.stringify({ policy: 'owner-1116', sync_h: 24, plan_daily: false, auto_approve: true, autopub: { facebook_page: true, instagram: true, tiktok: true, youtube: true, threads: true }, manual_first: 1 })); sql.prepare("INSERT INTO soc_board (id, post_id, clip, state, accounts, plats, approved_by, created, updated, by_who) VALUES ('b_manual01', 'pm', ?, 'published', '[\"2\"]', '[\"facebook_page\"]', 'owner', ?, ?, 'owner')").run(CC, now, now); };
-  reset({}); dueAt(CA, 'gc-facebook_page-2', 3); await A.runAuto(ENV, { now }); armAuto();
+  reset({}); dueAt(CA, 'gc-facebook_page-2', 3); await RUN(ENV, { now }); armAuto();
   GC.validate = { ok: false, targets: [{ problems: [{ level: 'error', code: 'privacy_required' }] }] };
-  x = await A.runAuto(ENV, { now: now + 60e3 });
+  x = await RUN(ENV, { now: now + 60e3 });
   const vp = Object.values(GC.posts)[0], vb = sql.prepare('SELECT state, err FROM soc_board WHERE post_id = ?').get(vp.id);
   ok(vp.status === 'draft' && vb.state === 'review' && vb.err === 'validate:privacy_required' && !x.stop && x.scheduled === 0, `validate ok:false: không lên lịch, ghi mã lỗi (${vb.state}, ${vb.err}, ${x.stop})`);
   ok(stNow().fails['r|' + CA + '|gc-facebook_page-2'].n === 1, 'validate lỗi: tính lỗi cho clip, không đốt ngân sách mãi');
   GC.validate = { ok: true, targets: [{ problems: [{ level: 'warning', code: 'w' }] }] };
-  x = await A.runAuto(ENV, { now: now + 120e3 }); GC.validate = null;
+  x = await RUN(ENV, { now: now + 120e3 }); GC.validate = null;
   ok(x.scheduled === 1 && vp.status === 'scheduled', 'validate chỉ có warning: vẫn lên lịch');
-  reset({}); dueAt(CA, 'gc-facebook_page-2', 3); await A.runAuto(ENV, { now }); armAuto();
+  reset({}); dueAt(CA, 'gc-facebook_page-2', 3); await RUN(ENV, { now }); armAuto();
   GC.schedule422 = [{ problems: [{ level: 'error', code: 'media_not_ready' }] }];
-  x = await A.runAuto(ENV, { now: now + 60e3 }); GC.schedule422 = null;
+  x = await RUN(ENV, { now: now + 60e3 }); GC.schedule422 = null;
   const qb = sql.prepare('SELECT err FROM soc_board WHERE post_id = ?').get(Object.keys(GC.posts)[0]);
   ok(x.stop && qb.err === 'validation_failed:media_not_ready', `schedule 422: giữ mã lỗi từng đích (${qb.err})`);
 
   // Hợp đồng GrabCast: 409 not_draft / hết giờ chờ khi schedule = đọc lại bài, không dừng lượt, không tính lỗi nội dung
   for (const [cs, wantBoard, wantErr, label] of [['scheduled', 'scheduled', null, 'đã lên lịch từ trước'], ['needs_check', 'approved', 'not_draft:needs_check', 'needs_check: giữ nguyên, báo người'], ['timeout', 'scheduled', null, 'hết giờ chờ nhưng đã lên lịch xong']]) {
     reset({}); dueAt(CA, 'gc-facebook_page-2', 3);
-    await A.runAuto(ENV, { now });
+    await RUN(ENV, { now });
     const nd = Object.values(GC.posts)[0]; if (cs === 'timeout') GC.scheduleTimeout = true; else nd.status = cs;
     sql.prepare("UPDATE soc_meta SET v = ? WHERE k = 'auto'").run(JSON.stringify({ policy: 'owner-1116', sync_h: 24, plan_daily: false, auto_approve: true, autopub: { facebook_page: true, instagram: true, tiktok: true, youtube: true, threads: true }, manual_first: 1 }));
     sql.prepare("INSERT INTO soc_board (id, post_id, clip, state, accounts, plats, approved_by, created, updated, by_who) VALUES ('b_manual01', 'pm', ?, 'published', '[\"2\"]', '[\"facebook_page\"]', 'owner', ?, ?, 'owner')").run(CC, now, now);
-    x = await A.runAuto(ENV, { now: now + 60e3 }); GC.scheduleTimeout = false;
+    x = await RUN(ENV, { now: now + 60e3 }); GC.scheduleTimeout = false;
     const bd = sql.prepare("SELECT state, err FROM soc_board WHERE post_id = ?").get(nd.id);
     ok(!x.stop && !stNow().breaker && bd.state === wantBoard && (bd.err || null) === wantErr, `schedule xung đột (${label}): không dừng lượt, bảng ${bd.state}, lỗi ${bd.err}, stop ${x.stop}`);
   }
 
   // Bài GrabCast đăng lỗi: dist_social 'failed' + cảnh báo, không tự đăng lại (TikTok spam_risk)
   reset({ sync_h: 3 }); dueAt(CA, 'gc-tiktok-4', 3);
-  await A.runAuto(ENV, { now });
+  await RUN(ENV, { now });
   const pid = Object.keys(GC.posts)[0]; GC.posts[pid].status = 'failed'; GC.posts[pid].targets = [{ account_id: 4, platform: 'tiktok', state: 'failed', last_error_code: 'spam_risk' }];
-  x = await A.runAuto(ENV, { now: now + 4 * H });
+  x = await RUN(ENV, { now: now + 4 * H });
   ok(ds(CA, 'gc-tiktok-4').state === 'failed' && /spam_risk/.test(ds(CA, 'gc-tiktok-4').err || ''), 'bài lỗi trên GrabCast → dist_social failed, ghi mã lỗi');
   ok(x.alerts.some(a => /^post-failed:/.test(a.k) && /spam_risk/.test(a.text)), 'bài lỗi → cảnh báo cho người');
-  const nPosts = Object.keys(GC.posts).length; x = await A.runAuto(ENV, { now: now + 5 * H });
+  const nPosts = Object.keys(GC.posts).length; x = await RUN(ENV, { now: now + 5 * H });
   ok(Object.keys(GC.posts).length === nPosts && !calls.some(c => /retry/.test(c.p)), 'không tự đăng lại');
   ok(Object.values(GC.posts)[0].targets && ds(CA, 'gc-tiktok-4').state === 'failed', 'giữ nguyên trạng thái lỗi');
 
   // Lỗi TẠM THỜI của nền tảng (TikTok "lỗi nội bộ"): tự thử lại ≤ 3 lần với backoff, cùng post_id (không đăng trùng), chỉ cảnh báo khi vẫn hỏng
   ok(A.isTransientErr('internal_error') && A.isTransientErr('http_503') && A.isTransientErr('TikTok gặp lỗi nội bộ') && !A.isTransientErr('spam_risk') && !A.isTransientErr('validation_failed') && !A.isTransientErr('') && !A.isTransientErr('privacy_private') && !A.isTransientErr('media_rejected') && !A.isTransientErr('Video format is invalid'), 'phân loại lỗi tạm thời / lỗi thật');
   reset({ sync_h: 3 }); dueAt(CA, 'gc-tiktok-4', 3); GC.retries = 0;
-  await A.runAuto(ENV, { now });
+  await RUN(ENV, { now });
   const pid2 = Object.keys(GC.posts)[0]; GC.posts[pid2].status = 'failed'; GC.posts[pid2].targets = [{ account_id: 4, platform: 'tiktok', state: 'failed', last_error_code: 'media_rejected', last_error: 'TikTok could not publish this post (internal). TikTok had an internal error. Retry in a few minutes.' }]; // mã thật của GrabCast 18/11: media_rejected + nội dung lỗi nội bộ
   const nP2 = Object.keys(GC.posts).length;
-  x = await A.runAuto(ENV, { now: now + 4 * H });
+  x = await RUN(ENV, { now: now + 4 * H });
   ok(GC.retries === 1 && ds(CA, 'gc-tiktok-4').state !== 'failed' && !x.alerts.some(a => /^post-failed:/.test(a.k)), 'lỗi nội bộ lần 1: tự thử lại, chưa báo người, chưa đánh dấu failed');
-  x = await A.runAuto(ENV, { now: now + 4.5 * H }); ok(GC.retries === 1, 'backoff: chưa đủ 2 giờ → không thử lại sớm');
-  x = await A.runAuto(ENV, { now: now + 8 * H }); ok(GC.retries === 2, 'lần 2 sau backoff');
-  x = await A.runAuto(ENV, { now: now + 16 * H }); ok(GC.retries === 3 && !x.alerts.some(a => /^post-failed:/.test(a.k)), 'lần 3, vẫn chưa báo');
-  x = await A.runAuto(ENV, { now: now + 24 * H });
+  x = await RUN(ENV, { now: now + 4.5 * H }); ok(GC.retries === 1, 'backoff: chưa đủ 2 giờ → không thử lại sớm');
+  x = await RUN(ENV, { now: now + 8 * H }); ok(GC.retries === 2, 'lần 2 sau backoff');
+  x = await RUN(ENV, { now: now + 16 * H }); ok(GC.retries === 3 && !x.alerts.some(a => /^post-failed:/.test(a.k)), 'lần 3, vẫn chưa báo');
+  x = await RUN(ENV, { now: now + 24 * H });
   ok(GC.retries === 3 && Object.keys(GC.posts).length === nP2 && ds(CA, 'gc-tiktok-4').state === 'failed' && x.alerts.some(a => /^post-failed:/.test(a.k) && /3 lần/.test(a.text)), 'hết 3 lần mới failed + cảnh báo; không quá 3 lần, không tạo bài trùng');
 
   // Xếp lịch tự động: slot lỡ quá 12 giờ được xếp lại, clip đã lên YouTube vẫn lên social
@@ -364,7 +366,7 @@ ok(S.key && S.webhook && S.cfg.daily_calls === 10 && S.budget_left === 2 && S.up
   sql.exec("DELETE FROM yt_queue; DELETE FROM dist_ext; INSERT INTO dist_ext (channel_id, platform, account_id, title, status, updated) VALUES ('gc-tiktok-4', 'tiktok', '4', 'TT', 'ok', 1)"); sql.prepare("INSERT INTO yt_queue (clip, status) VALUES (?, 'done')").run(CA);
   dueAt(CA, 'gc-tiktok-4', -20);
   sql.prepare("UPDATE soc_meta SET v = ? WHERE k = 'auto_state'").run(JSON.stringify({ last_sync: { at: now } }));
-  x = await A.runAuto({ ...ENV, GRABCAST_API_KEY: '' }, { now });
+  x = await RUN({ ...ENV, GRABCAST_API_KEY: '' }, { now });
   const re = ds(CA, 'gc-tiktok-4');
   ok(re && re.state === 'planned' && re.slot_ms > now, `slot đã lỡ → xếp lại trong tương lai; clip status done vẫn lên social (planned ${x.planned}, ${JSON.stringify(x.skipped)})`);
   ok(x.health && x.health.channels && x.health.approved && x.health.planned, 'rec.health đủ 3 khâu sau khi xếp lịch');

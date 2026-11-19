@@ -8,7 +8,7 @@ Tiêu chí & nguồn nghiên cứu: `docs/specs/learnability.md` · kế hoạch
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | Ngữ pháp | 102 | **96.9** | 99.5 | 96.1 | 99.8 | 96.2 | 100 | 99.5 | 91.3 | 100 | 97.1 | 100 | 100 | 75.8 |
 | Bài lộ trình | 5 | **100** | 100 | – | 100 | 100 | – | 100 | 100 | – | 100 | 100 | – | 100 |
-| Bộ từ | 117 | **74.2** | – | – | – | 96.6 | 56.3 | 80.5 | – | – | 99.3 | – | 5 | – |
+| Bộ từ | 117 | **74.2** | – | – | – | 96.6 | 56.3 | 80.6 | – | – | 99.3 | – | 5 | – |
 | Kỹ năng | 441 | **96.2** | 86.3 | – | 98.8 | 99.6 | 99.4 | 95.9 | 99.4 | – | 100 | 86.8 | – | 100 |
 
 a = Truy hồi chủ động · b = Lặp lại giãn cách · c = Tải nhận thức · d = i+1 (từ không vượt cấp) · e = Ví dụ + cặp ✗/✓ · f = Mã hoá kép (audio + hình) · g = Phản hồi "vì sao" · h = Xen kẽ luật cũ · i = Ngữ cảnh (câu gốc) · j = Đầu ra nói/viết · k = Mẹo nhớ · l = Thời lượng vừa vòng 30′
@@ -37,7 +37,7 @@ a = Truy hồi chủ động · b = Lặp lại giãn cách · c = Tải nhận 
 | 18 | Bộ từ | nawl1 | C1 | 62.2 | mẹo nhớ cho từ dễ nhầm (gold "why"): 4% · ví dụ: thiếu collocation/đồng nghĩa |
 | 19 | Bộ từ | office-meeting | B2 | 62.2 | mã hoá kép 56% (ảnh/audio từ/audio câu) · mẹo nhớ cho từ dễ nhầm (gold "why"): 0% · ví dụ: thiếu collocation/đồng nghĩa |
 | 20 | Bộ từ | nawl3 | C1 | 62.3 | mẹo nhớ cho từ dễ nhầm (gold "why"): 5% · ví dụ: thiếu collocation/đồng nghĩa |
-| 21 | Bộ từ | xw-military | C1 | 63 | mã hoá kép 55% (ảnh/audio từ/audio câu) · mẹo nhớ cho từ dễ nhầm (gold "why"): 0% · ví dụ: thiếu collocation/đồng nghĩa |
+| 21 | Bộ từ | xw-military | C1 | 63.2 | mã hoá kép 56% (ảnh/audio từ/audio câu) · mẹo nhớ cho từ dễ nhầm (gold "why"): 0% · ví dụ: thiếu collocation/đồng nghĩa |
 | 22 | Bộ từ | nawl2 | C1 | 63.3 | mẹo nhớ cho từ dễ nhầm (gold "why"): 9% · ví dụ: thiếu collocation/đồng nghĩa |
 | 23 | Bộ từ | xw-religion-history | C1 | 63.8 | mã hoá kép 62% (ảnh/audio từ/audio câu) · mẹo nhớ cho từ dễ nhầm (gold "why"): 0% · ví dụ: thiếu collocation/đồng nghĩa |
 | 24 | Bộ từ | nawl4 | C1 | 64.4 | mẹo nhớ cho từ dễ nhầm (gold "why"): 20% · ví dụ: thiếu collocation/đồng nghĩa |

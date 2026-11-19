@@ -1390,6 +1390,20 @@
       }
     },
     {
+      "key": "ovdp-anhviet",
+      "name": "Từ điển Anh–Việt Hồ Ngọc Đức (OVDP, StarDict AnhViet.zip, GPL)",
+      "kind": "data",
+      "purpose": "CHỈ làm phiếu đối chiếu nghĩa vi trong CI lexicon-expand/lexicon-gpl-probe (tải vào $RUNNER_TEMP, xoá cuối bước); KHÔNG lưu chữ nào vào repo/kho/app/artifact – lib.mjs viAgreeSources({ g }) chỉ thêm nhãn 'gpl' vào phương án có sẵn. Chủ duyệt 17/11 (ranh giới 11/11 'không vào app').",
+      "console": "https://sourceforge.net/projects/ovdp/",
+      "free": "Miễn phí (GPL)",
+      "upgrade": "Không cần",
+      "status": "Miễn phí",
+      "match": [
+        "downloads.sourceforge.net",
+        "ovdp"
+      ]
+    },
+    {
       "key": "dns-security",
       "name": "DNS & header bảo mật lexkite.com (DNSSEC, CAA, DMARC, SPF, HSTS, security.txt)",
       "kind": "security",
