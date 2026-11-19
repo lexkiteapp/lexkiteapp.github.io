@@ -126,7 +126,7 @@ class Card:
         s.add(h, it); s.text.append(text.upper()); s.m.append(['card', S_CHIP * CAP_J]); s.px.append(S_CHIP)
     def line(s, runs, size, mtype='body', ipa=False, slot=None, align='l'):
         txt = ''.join(r[0] for r in runs); w = tw(txt, size, ipa); lh = round(size * 1.18)
-        if w > s.inner() + 1 and mtype == 'card' and not slot:   # small lines wrap word by word (colour runs kept); body lines are laid out by the spec
+        if w > s.inner() + 1 and mtype in ('card', 'body') and not slot:   # lines that overflow wrap word by word (colour runs kept); a line that fits is left exactly as the spec laid it out (hook lines are always laid out by the spec)
             out = []; cur = []
             for a_, c_ in runs:
                 for k_, wd in enumerate(a_.split(' ')):
