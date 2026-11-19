@@ -2741,7 +2741,7 @@
    "id": "ngsl3",
    "title": "ngsl3",
    "level": "A2",
-   "score": 60.7,
+   "score": 60.8,
    "crit": {
     "a": null,
     "b": null,
@@ -3270,14 +3270,14 @@
    "id": "sport",
    "title": "sport",
    "level": "B2",
-   "score": 75.5,
+   "score": 75.7,
    "crit": {
     "a": null,
     "b": null,
     "c": null,
     "d": 0.98,
     "e": 0.68,
-    "f": 0.77,
+    "f": 0.78,
     "g": null,
     "h": null,
     "i": 1,
@@ -3420,14 +3420,14 @@
    "id": "architecture",
    "title": "architecture",
    "level": "C1",
-   "score": 78.1,
+   "score": 78.3,
    "crit": {
     "a": null,
     "b": null,
     "c": null,
     "d": 1,
     "e": 0.71,
-    "f": 0.77,
+    "f": 0.78,
     "g": null,
     "h": null,
     "i": 1,
@@ -3842,7 +3842,7 @@
     "c": null,
     "d": 0.99,
     "e": 1,
-    "f": 0.68,
+    "f": 0.69,
     "g": null,
     "h": null,
     "i": 0.87,
@@ -3852,7 +3852,7 @@
    },
    "fix": [
     "ngữ cảnh: 14/107 từ chưa có câu gốc ≥ 5 từ chứa từ",
-    "mã hoá kép 68% (ảnh/audio từ/audio câu)"
+    "mã hoá kép 69% (ảnh/audio từ/audio câu)"
    ]
   },
   {
@@ -4477,7 +4477,7 @@
     "c": null,
     "d": 0.98,
     "e": 0.5,
-    "f": 0.94,
+    "f": 0.95,
     "g": null,
     "h": null,
     "i": 1,
@@ -4520,14 +4520,14 @@
    "id": "toeic6",
    "title": "toeic6",
    "level": "B1",
-   "score": 72.7,
+   "score": 72.8,
    "crit": {
     "a": null,
     "b": null,
     "c": null,
     "d": 0.92,
     "e": 0.5,
-    "f": 0.91,
+    "f": 0.92,
     "g": null,
     "h": null,
     "i": 1,
@@ -4595,7 +4595,7 @@
    "id": "toeic9",
    "title": "toeic9",
    "level": "B2",
-   "score": 74,
+   "score": 74.1,
    "crit": {
     "a": null,
     "b": null,
@@ -4697,14 +4697,14 @@
    "id": "office-interview",
    "title": "office-interview",
    "level": "B1",
-   "score": 66,
+   "score": 66.3,
    "crit": {
     "a": null,
     "b": null,
     "c": null,
     "d": 0.96,
     "e": 0.26,
-    "f": 0.53,
+    "f": 0.54,
     "g": null,
     "h": null,
     "i": 1,
@@ -4713,7 +4713,7 @@
     "l": null
    },
    "fix": [
-    "mã hoá kép 53% (ảnh/audio từ/audio câu)",
+    "mã hoá kép 54% (ảnh/audio từ/audio câu)",
     "ví dụ: thiếu collocation/đồng nghĩa"
    ]
   },
@@ -4889,14 +4889,14 @@
    "id": "bsl2",
    "title": "bsl2",
    "level": "B2",
-   "score": 60.5,
+   "score": 60.6,
    "crit": {
     "a": null,
     "b": null,
     "c": null,
     "d": 0.98,
     "e": 0,
-    "f": 0.9,
+    "f": 0.91,
     "g": null,
     "h": null,
     "i": 0.99,
@@ -5139,7 +5139,7 @@
    "id": "dom-mkt",
    "title": "dom-mkt",
    "level": "B2",
-   "score": 73.5,
+   "score": 73.6,
    "crit": {
     "a": null,
     "b": null,
@@ -5189,7 +5189,7 @@
    "id": "dom-hosp",
    "title": "dom-hosp",
    "level": "B1",
-   "score": 72.3,
+   "score": 72.4,
    "crit": {
     "a": null,
     "b": null,
