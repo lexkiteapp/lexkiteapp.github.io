@@ -53,7 +53,9 @@
   /** spec { en, tr, word, hard:{w,m}, idiom, frame, canWhy, saved } → HTML. Không có dữ liệu nào thì phần đó không có mặt. */
   function html(spec, t, esc) {
     const f = spec.frame, A = f && f.alts ? f.alts : [], tr = goodTr(spec.tr, spec.en), idiom = f && f.idiom;
-    const sent = tokens(spec.en).map(x => (x.w ? `<button type="button" class="lkc-w" data-w="${esc(x.w)}">${esc(x.w)}</button>` : esc(x.gap))).join('');
+    const T = tokens(spec.en), B = (w, s) => `<button type="button" class="lkc-w" data-w="${esc(w)}">${esc(s)}</button>`; let sent = '';
+    for (let i = 0; i < T.length; i++) { const x = T[i], n = T[i + 2]; // chữ 1 ký tự (I, a) dính với từ kế → nút đủ rộng để chạm/đọc rõ
+      if (x.w && x.w.length < 2 && n && n.w && T[i + 1].gap && !T[i + 1].gap.trim()) { sent += B(n.w, x.w + T[i + 1].gap + n.w); i += 2; } else sent += x.w ? B(x.w, x.w) : esc(x.gap); }
     return `<div class="lkc" id="lkc" data-sent="${esc(spec.en)}">
       <p class="lkc-l">${esc(t('Câu đúng'))}</p>
       <p class="lkc-s" lang="en" dir="ltr">${sent}</p>
