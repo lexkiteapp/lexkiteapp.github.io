@@ -98,6 +98,7 @@ node scripts/test/speak-ipa.mjs
 node scripts/test/streak-ui.mjs
 node scripts/test/streak-flame.mjs
 node scripts/test/retention.mjs
+node scripts/test/ui-audit-rules.mjs
 node scripts/test/account-ui.mjs
 node scripts/test/ext-popup.mjs
 node scripts/test/ext-selection.mjs
