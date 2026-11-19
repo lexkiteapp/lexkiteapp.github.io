@@ -608,9 +608,13 @@
   {
    "id": "roots",
    "engine": "teach2d",
-   "status": "draft",
+   "status": "approved",
    "spec": "content/video/teach2d/eps/*.json",
-   "note": "Word Roots (Gốc từ), 17/11: no banked clip with QC>=90 yet (bank.json) – the coordinator flips this to approved when the first short + wide pass every qc.py gate"
+   "sample": "https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/44535409178 (vis_1, spir_2, struct_3 short+wide)",
+   "qc": 100,
+   "approved": "2026-11-20",
+   "by": "coordinator (CI gates: 3/3 bank, 16/16 gates, QC 100 short+wide)",
+   "note": "Word Roots (Goc tu), 109 lessons"
   },
   {
    "id": "rule",
