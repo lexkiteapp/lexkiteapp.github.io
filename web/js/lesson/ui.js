@@ -159,11 +159,12 @@
   const v2On = () => !!(window.ST2 && window.ST2['lesson-question'] && window.Chars && window.LessonTeacher && App.ux1On && App.ux1On());
   const GRID = 'grid grid-cols-2 gap-[1rem] mb-[1rem] lsn-opts', FLOW = 'flex flex-col gap-3 mb-[1rem]', LET = 'ABCDEFGH';
   const SLOW = 'absolute top-[1.2rem] right-[1.5rem] z-20 w-7 h-7 flex items-center justify-center rounded-[9999px] active:scale-95 transition-transform lt:bg-[#FFFFFF] lt:text-[#0D6964] dk:bg-[#142328] dk:text-[#2BA39A] motion-reduce:transition-none after:absolute after:-inset-2 after:content-[\'\']';
+  const EXU = () => window.LessonEx && LessonEx.usable();
   function v2shell(sh) {
-    if (window.LessonEx && LessonEx.usable()) { // 🧩 khung bài tập chung (ex-frame)
-      const r0 = ST2.mount(view, 'ex-frame', { close: sh.close, title: sh.title, qn: '', streak: String(App.streak ? App.streak() : 0), chip: sh.short || '', say: '', teacher: LessonEx.teacher() }, null); r0.id = 'lsn'; r0.classList.add('lsn-v2', 'lsn-fx'); r0.style.opacity = '0'; const shown0 = () => { r0.style.opacity = ''; }; setTimeout(shown0, 1600); /* opacity, không visibility: ExitGuard chèn thêm .lk-exitbar */
-      L.cssP = (App.loadCss ? App.loadCss('css/story-stage.css') : Promise.resolve()).catch(() => 0).then(() => { shown0(); let n = r0.querySelector('#lsnBub'), c = ''; while (n && n !== r0) { c = getComputedStyle(n).backgroundColor; if (c && !/rgba?\(.*(, ?0\)| 0\))$/.test(c) && c !== 'transparent') break; n = n.parentElement; } if (c) r0.style.setProperty('--ss-floor', c); }); // sàn/bệ + màu bài tập chung với khung lesson-question
-      const bx = document.createElement('div'); bx.innerHTML = ST2['lesson-question']({ close: '', title: '', pct: 0, combo: '', chip: '', play: '', who: '', teacher: '', slow: '', opts: ['off', 'on'].map(v => ({ v, o: '', k: '', t: '' })) }).main; const g0 = bx.querySelector('#lsnBody'); L.tpl = { off: g0.children[0], on: g0.children[1] }; return; // khuôn thẻ A–D vẫn của lesson-question
+    if (EXU()) {
+      const r0 = ST2.mount(view, 'ex-frame', { close: sh.close, title: sh.title, qn: '', streak: String(App.streak ? App.streak() : 0), chip: sh.short || '', say: '', teacher: LessonEx.teacher() }, null); r0.id = 'lsn'; r0.classList.add('lsn-v2', 'lsn-fx'); r0.style.opacity = '0'; const shown0 = () => { r0.style.opacity = ''; }; setTimeout(shown0, 1600);
+      L.cssP = (App.loadCss ? App.loadCss('css/story-stage.css') : Promise.resolve()).catch(() => 0).then(() => { shown0(); let n = r0.querySelector('#lsnBub'), c = ''; while (n && n !== r0) { c = getComputedStyle(n).backgroundColor; if (c && !/rgba?\(.*(, ?0\)| 0\))$/.test(c) && c !== 'transparent') break; n = n.parentElement; } if (c) r0.style.setProperty('--ss-floor', c); });
+      const bx = document.createElement('div'); bx.innerHTML = ST2['lesson-question']({ close: '', title: '', pct: 0, combo: '', chip: '', play: '', who: '', teacher: '', slow: '', opts: ['off', 'on'].map(v => ({ v, o: '', k: '', t: '' })) }).main; const g0 = bx.querySelector('#lsnBody'); L.tpl = { off: g0.children[0], on: g0.children[1] }; return;
     }
     const d = { close: sh.close, title: sh.title, pct: 0, combo: '', chip: sh.chip, play: t('Nghe lại'), who: sh.who,
       teacher: LessonTeacher.stage('lsnTch'), // sân khấu chuẩn: người to đứng sau thẻ đề bài (thẻ che hông) + bong bóng lời – lesson/teacher.js stage()
@@ -274,7 +275,7 @@
     } else if (it.type === 'match') {
       const L1 = E.shuffle(it.pairs.map((c, i) => i), Math.random), L2 = E.shuffle(it.pairs.map((c, i) => i), Math.random);
       const W1 = it.pairs.map((p, i) => ({ i, t: p.word, pic: imgUrl(p.word, p.pos), ic: p.pos ? 'menu_book' : 'record_voice_over' })), M1 = it.pairs.map((p, i) => ({ i, t: p.mean || meanOf(p) })); L.mx = { W1, M1 };
-      fill(V && window.LessonEx && LessonEx.usable() ? LessonEx.match(L1.map(i => W1[i]), L2.map(i => M1[i])) : ST.lsnMatch(L1.map(i => W1[i]), L2.map(i => M1[i])), false);
+      fill(V && EXU() ? LessonEx.match(L1.map(i => W1[i]), L2.map(i => M1[i])) : ST.lsnMatch(L1.map(i => W1[i]), L2.map(i => M1[i])), false);
     } else if (it.type === 'mean' || (it.type === 'pic' && it.choice)) {
       const pic = it.type === 'pic' ? ST.lsnPic(imgUrl(it.word, it.card.pos), t('Ảnh minh họa')) : '';
       if (V) bub.insertAdjacentHTML('beforeend', pic); // ảnh nằm trong thẻ đề bài
@@ -405,7 +406,7 @@
     }
     const og = $('#lsnBody.lsn-opts');
     if (L.v2 && og) { // khung Stitch: vẽ lại 4 thẻ A–D mỗi lần chọn (khuôn chưa chọn / đã chọn)
-      const paint = focus => { og.textContent = ''; it.options.forEach((o, i) => { const b = v2opt(L.pick === o ? 'on' : 'off', i, o); b.onclick = () => { if (L.checked) return; L.pick = o; const g = $('#lsnGap'); if (g) g.textContent = o; if (chk) chk.disabled = false; paint(true); }; if (window.LessonEx && LessonEx.usable()) LessonEx.optSay(og, b, o, { say: w => say(w) }, it); else og.appendChild(b); if (focus && L.pick === o) setTimeout(() => b.focus(), 0); }); };
+      const paint = focus => { og.textContent = ''; it.options.forEach((o, i) => { const b = v2opt(L.pick === o ? 'on' : 'off', i, o); b.onclick = () => { if (L.checked) return; L.pick = o; const g = $('#lsnGap'); if (g) g.textContent = o; if (chk) chk.disabled = false; paint(true); }; if (EXU()) LessonEx.optSay(og, b, o, { say: w => say(w) }, it); else og.appendChild(b); if (focus && L.pick === o) setTimeout(() => b.focus(), 0); }); };
       paint(false);
     } else if (!L.v2) document.querySelectorAll('.lsn-opts .lsn-opt').forEach(b => { b.onclick = () => { if (L.checked) return; document.querySelectorAll('.lsn-opts .lsn-opt').forEach(x => x.setAttribute('aria-pressed', String(x === b))); L.pick = b.dataset.o; const g = $('#lsnGap'); if (g) g.textContent = L.pick; if (chk) chk.disabled = false; }; });
     const ans = $('#lsnAns'), bank = $('#lsnBank');
