@@ -761,9 +761,9 @@ def T_band():
     top('track', [RX0 + 20, ys, RX1 - 20, ys + 70], ts[0], out=t_end, steps=3, st=[dict(t=round(t_, 4), s=f'cur{i}') for i, t_ in enumerate(ts, 1)] + [dict(t=round(at('w9', 0) + 0.4, 4), s='done')])
     for i, x in enumerate(st):
         b = x['band']; t0 = ts[i]; t_o = (ts[i + 1] if i + 1 < len(st) else start('c')) - 0.2
-        c = Card(ys + 100, tone='card' if b < 9 else 'good'); chip(c, f'BAND {b}' + (f" \u00b7 {x['crit'].upper()}" if b > 5 else ''), t0, **({'tone': 'good'} if b == 9 else {}))
+        c = Card(ys + 100, tone='card' if b < 9 else 'bubble_good'); chip(c, f'BAND {b}' + (f" \u00b7 {x['crit'].upper()}" if b > 5 else ''), t0, **({'tone': 'good'} if b == 9 else {}))
         c.text(runs_hl(x['text'], x.get('mark'), 'onhl' if b == 9 else 'accent', 'ongood' if b == 9 else 'ink'), S['body'], t0)
-        if b > 5: c.text([['\u2b06 ', 'accent'], [bands_why(x['why']), 'ink']], S['sub'], at(f'w{b}', 0))
+        if b > 5: c.text([['\u2b06 ', 'onhl' if b == 9 else 'accent'], [bands_why(x['why']), 'ongood' if b == 9 else 'ink']], S['sub'], at(f'w{b}', 0))
         c.place(t0, t_o, 'a')
     end_card()
 
