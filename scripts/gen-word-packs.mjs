@@ -24,7 +24,8 @@ new Function('self', fs.readFileSync(new URL('web/js/data.js', R), 'utf8'))(g);
 // Bộ cốt lõi (NGSL, TOEIC) nạp trước: từ loại ghi nhận cho từ đa nghĩa = nghĩa cốt lõi, và --refine tinh chỉnh từ thông dụng trước
 const CORE = ['ngsl.js', 'ngsl2.js', 'tsl-a.js', 'tsl-b.js', 'topics-more.js', 'exam-vocab.js', 'exam-vocab2.js', 'exam-vocab3.js'];
 const rank = f => (CORE.indexOf(f) + 1) || 99;
-for (const f of fs.readdirSync(new URL('web/js/lib/', R)).sort((a, b) => rank(a) - rank(b) || a.localeCompare(b))) if (/\.js$/.test(f) && !/^notes/.test(f)) { try { new Function('self', fs.readFileSync(new URL('web/js/lib/' + f, R), 'utf8'))(g); } catch (e) { console.warn('bỏ qua', f, e.message); } }
+const LIBDIR = f => (fs.existsSync(new URL('web/js/lib/' + f, R)) ? 'web/js/lib/' : 'web/cpack/words/') + f; // dữ liệu tải lười dời sang web/cpack/words
+for (const f of [...new Set([...fs.readdirSync(new URL('web/js/lib/', R)), ...fs.readdirSync(new URL('web/cpack/words/', R))])].sort((a, b) => rank(a) - rank(b) || a.localeCompare(b))) if (/\.js$/.test(f) && !/^notes/.test(f)) { try { new Function('self', fs.readFileSync(new URL(LIBDIR(f), R), 'utf8'))(g); } catch (e) { console.warn('bỏ qua', f, e.message); } }
 const WORDS = new Map();
 for (const tp of g.IELTS_DATA.TOPICS) for (const w of tp.words || []) { const k = String(w.word || '').toLowerCase().trim(); if (k && !WORDS.has(k) && k.length < 60) WORDS.set(k, String(w.pos || '').toLowerCase()); }
 // Kho từ vựng (content/lexicon, nguồn chuẩn của điểm 'Kho từ') – đủ mọi từ gốc, không chỉ web/js/data: gói nghĩa phủ cả từ mới của kho (i18n: gói nghĩa từ theo ngôn ngữ)

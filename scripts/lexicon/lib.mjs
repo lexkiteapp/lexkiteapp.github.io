@@ -8,7 +8,8 @@ export const wr = (p, s) => fs.writeFileSync(new URL(p, ROOT), s);
 // Thứ tự ưu tiên khi chọn nghĩa chung (nghĩa thông dụng nhất): danh sách tần suất chung trước, chuyên ngành sau
 export const PRIORITY = ['ngsl.js', 'ngsl2.js', 'data.js', 'topics-more.js', 'skills.js', 'exam-vocab.js', 'exam-vocab2.js', 'exam-vocab3.js',
   'awl.js', 'nawl.js', 'tsl-a.js', 'tsl-b.js', 'office.js', 'bsl.js', 'domain-a.js', 'domain-b.js'];
-export const SOURCES = PRIORITY.map(f => (f === 'data.js' ? 'web/js/data.js' : 'web/js/lib/' + f));
+const CPACK_WORDS = ['domain-a.js', 'domain-b.js', 'exam-vocab.js', 'exam-vocab2.js', 'exam-vocab3.js']; // dữ liệu tải lười: web/cpack/words (không tính vào byte người học)
+export const SOURCES = PRIORITY.map(f => (f === 'data.js' ? 'web/js/data.js' : (CPACK_WORDS.includes(f) ? 'web/cpack/words/' : 'web/js/lib/') + f));
 
 const ROW = /^(\s*)\[\s*'(.*)\](,?)\s*$/;
 export function parseRow(line) {

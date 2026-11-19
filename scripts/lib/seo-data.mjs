@@ -23,7 +23,7 @@ export function loadSpeaking() {
 }
 // Bộ từ vựng + khóa file phát âm (Kokoro bf_emma, audio.lexkite.com) – chỉ gắn nút nghe khi file có trong LISTEN_AUDIO
 export function loadVocab() {
-  const c = load(['data', ...['topics-more', 'skills', 'awl', 'ngsl', 'tsl-a', 'tsl-b', 'domain-a', 'domain-b', 'exam-vocab', 'exam-vocab2', 'exam-vocab3'].map(f => 'lib/' + f), 'listen/kvoice', 'listen/audio-index']);
+  const c = load(['data', ...['topics-more', 'skills', 'awl', 'ngsl', 'tsl-a', 'tsl-b'].map(f => 'lib/' + f), ...['domain-a', 'domain-b', 'exam-vocab', 'exam-vocab2', 'exam-vocab3'].map(f => 'words/' + f), 'listen/kvoice', 'listen/audio-index']);
   const has = c.LISTEN_AUDIO || new Set(), K = c.KVoice;
   const audioKey = w => { if (!K) return ''; const k = K.lineKey('bf_emma', w); return has.has(k) ? k : ''; };
   return { TOPICS: c.IELTS_DATA.TOPICS.filter(x => x.words && x.words.length >= 8), audioKey };

@@ -21,7 +21,7 @@ export const DOC_KEYS = ['cards', 'deleted', 'stats', 'game', 'settings', 'setti
  * slim()/fat() depend on IELTS_DATA.INDEX: a card whose word is in these packs travels as L:1 without its library fields. */
 export const LEX_FILES = (() => {
   const app = src('web/js/bundles.js'), list = k => { const m = app.match(new RegExp(`\\b${k}: (\\[[^\\]]+\\])`)); if (!m) throw new Error('web-ref: App.need pack "' + k + '" not found in web/js/bundles.js'); return JSON.parse(m[1].replace(/'/g, '"')); };
-  return [...list('words'), ...list('tsl')].filter(f => f.startsWith('js/lib/')).map(f => 'web/' + f);
+  return [...list('words'), ...list('tsl')].filter(f => f.startsWith('js/lib/') || f.startsWith('cpack/words/')).map(f => 'web/' + f);
 })();
 const noop = () => {};
 const tick = () => new Promise(r => setImmediate(r));
