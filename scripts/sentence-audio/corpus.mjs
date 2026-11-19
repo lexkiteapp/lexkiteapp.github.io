@@ -3,6 +3,7 @@
 // scripts/audio/coverage.mjs (độ phủ theo nhóm: groups = tên nhóm → khóa). Nhóm theo giọng đọc chung (GEN) có cả Anh lẫn Mỹ: UI.tts tra khóa theo accent người học.
 import fs from 'node:fs'; import vm from 'node:vm';
 import { dataFiles } from '../lib/scan-roots.mjs';
+import { lexFiles } from '../lib/lex-files.mjs';
 export function collect() {
   const groups = new Map(), tag = (g, key) => { if (!groups.has(g)) groups.set(g, new Set()); groups.get(g).add(key); };
   const c = { self: {} }; c.self = c; vm.createContext(c);
@@ -145,7 +146,7 @@ export function collect() {
   // Thứ tự: từ cốt lõi NGSL → công sở → học thuật → còn lại. Câu ví dụ dùng chung đường đọc câu (UI.tts).
   {
     const d = { t: x => x }; vm.createContext(d); vm.runInContext(fs.readFileSync('web/js/data.js', 'utf8').replace(/typeof self !== 'undefined' \? self : this/, 'globalThis'), d);
-    for (const f of fs.readdirSync('web/js/lib').filter(f => /\.js$/.test(f) && !/^notes/.test(f))) { try { vm.runInContext(fs.readFileSync('web/js/lib/' + f, 'utf8').replace(/typeof self !== 'undefined' \? self : this/, 'globalThis'), d); } catch (e) { /* bỏ qua */ } }
+    for (const p of lexFiles(f => !/^notes/.test(f))) { try { vm.runInContext(fs.readFileSync(p, 'utf8').replace(/typeof self !== 'undefined' \? self : this/, 'globalThis'), d); } catch (e) { /* bỏ qua */ } }
     const ord = id => (/^ngsl/.test(id) ? 0 : /^office/.test(id) ? 1 : /^(awl|nawl)/.test(id) ? 2 : 3);
     const tops = [...((d.IELTS_DATA || {}).TOPICS || [])].sort((a, b) => ord(a.id) - ord(b.id));
     const seen = new Set();
