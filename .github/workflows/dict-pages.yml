@@ -4,7 +4,7 @@
 name: Trang từ điển (dict pages)
 on:
   pull_request:
-    paths: ['scripts/dict/**', 'workers/dict/**', 'content/dict/**', 'scripts/build-blog.mjs', 'scripts/test/dict-pages.mjs', '.github/workflows/dict-pages.yml', 'web/js/data.js', 'web/js/lib/**', 'web/js/usage/**', 'web/js/notes/**', 'scripts/lib/site-layout.mjs']
+    paths: ['scripts/dict/**', 'workers/dict/**', 'content/dict/**', 'scripts/build-blog.mjs', 'scripts/test/dict-pages.mjs', '.github/workflows/dict-pages.yml', 'web/js/data.js', 'web/js/lib/**', 'web/cpack/lib/**', 'web/js/usage/**', 'web/js/notes/**', 'scripts/lib/site-layout.mjs']
   push:
     branches: [main]
     paths: ['scripts/dict/**', 'workers/dict/**', 'content/dict/**', 'scripts/test/dict-pages.mjs', '.github/workflows/dict-pages.yml']
