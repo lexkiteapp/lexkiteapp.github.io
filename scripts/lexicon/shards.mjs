@@ -24,7 +24,7 @@ const CORE_RAW = +(arg('--core-bytes') || 9900), LANG_GROUP = +(arg('--lang-grou
 // ---- Nạp dữ liệu như trình duyệt: data.js → gói 'words' → gói 'tsl' (thứ tự lấy từ BUNDLES trong bundles.js – một nguồn)
 export function loadBrowserIndex({ expand = true } = {}) {
   const app = fs.readFileSync(path.join(ROOT, 'web/js/bundles.js'), 'utf8');
-  const bundle = n => { const m = new RegExp(`\\b${n}: \\[([^\\]]*)\\]`).exec(app); if (!m) throw new Error('không thấy BUNDLES.' + n); return [...m[1].matchAll(/'(js\/lib\/[^']+)'/g)].map(x => 'web/' + x[1]); };
+  const bundle = n => { const m = new RegExp(`\\b${n}: \\[([^\\]]*)\\]`).exec(app); if (!m) throw new Error('không thấy BUNDLES.' + n); return [...m[1].matchAll(/'((?:js|cpack)\/lib\/[^']+)'/g)].map(x => 'web/' + x[1]); };
   const files = ['web/js/data.js', ...bundle('words'), ...bundle('tsl'), 'web/js/verbs-core.js'];
   const ctx = { t: s => s, console }; ctx.self = ctx; vm.createContext(ctx);
   for (const f of files) vm.runInContext(fs.readFileSync(path.join(ROOT, f), 'utf8'), ctx, { filename: f });
