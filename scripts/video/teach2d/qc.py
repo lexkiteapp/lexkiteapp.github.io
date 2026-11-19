@@ -106,6 +106,19 @@ for n in T['nodes']:   # nothing may stay on screen after the card it belongs to
         if ends and (not n.get('out') or n['out']['t'] > max(ends) + 0.05): prob.append(dict(id=n['id'], why='outlives its card', type=n['type']))
 seen = set(); prob = [p for p in prob if not (json.dumps({k: v for k, v in p.items() if k != 't'}, sort_keys=True) in seen or seen.add(json.dumps({k: v for k, v in p.items() if k != 't'}, sort_keys=True)))]
 gate('layout', not prob, 3, problems=prob[:8])
+# platform UI zones (Spell->Sound, docs/specs/spell-sound.md): the 9:16 short keeps every element out of the top 12 % (back / search icons), the bottom 22 % (caption + sound row) and the right 14 % (like / comment rail),
+# and shows at most 6 text rows at once. Defects seen in the reference reel (title under the icons, meaning chips under the rail, last row over the caption) must never ship.
+if T['template'] == 'rule' and T['format'] == 'short':
+    ZW, ZH = 1080, 1920; zx, zy0, zy1 = ZW * 0.86, ZH * 0.12, ZH * 0.78; zp = []; ROWS = ('text', 'chip', 'ipapill', 'pill', 'cta')
+    for n in T['nodes']:
+        if n['type'] in ('confetti', 'backdrop') or n.get('hidden'): continue
+        b = n['box']
+        if b[2] > zx + 1 or b[1] < zy0 - 1 or b[3] > zy1 + 1: zp.append(dict(id=n['id'], type=n['type'], box=b))
+    if T['cap_box'] and T['cap_box'][2] > zx + 1: zp.append(dict(id='caption', box=T['cap_box']))
+    mx = 0
+    for i in range(int(T['total'] * 10)):
+        k = len([n for n in T['nodes'] if n['type'] in ROWS and n['id'] != 'series' and alpha(n, i / 10) > 0.3]); mx = max(mx, k)
+    gate('platform_zones', not zp and mx <= 6, 3, outside=zp[:6], max_rows=mx, zones=dict(top=0.12, bottom=0.22, right=0.14, max_rows=6))
 # contrast on the real fill (card tone / chip / pill / caption plate), both themes are separate renders
 def rgb(c, over=None):
     if c.startswith('#'): return c
