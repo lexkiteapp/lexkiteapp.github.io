@@ -176,6 +176,9 @@ public enum LessonEngine {
         return shuffle(ch + Array(shuffle(abc, &r).prefix(3)), &r)
     }
 
+    /// Sentence-pattern card (result card saved by the learner, docs/specs/learn-card.md): word = "Can I have …, please?", practice sentence = ex.
+    static func isPat(_ c: LessonCard) -> Bool { c.word.contains("…") }
+
     private struct Planned { var pick: LessonPick, s: LessonSentenceHit?, pair: LessonSentenceHit?, types: [String], order: [String] = [] }
 
     public static func build(_ picks: [LessonPick], _ o: BuildOptions) -> [LessonItem] {
@@ -183,7 +186,8 @@ public enum LessonEngine {
         let pool = o.pool + picks.map(\.card), off = o.off, per = o.perWord
         var byWord: [Planned] = picks.map { p in
             let c = p.card
-            var s = sentenceOf(c), types: [String] = []
+            let pat = isPat(c) && !c.ex.isEmpty
+            var s = pat ? LessonSentenceHit(text: c.ex, tr: nil, own: false, at: LessonBlank(i: 0, n: 0, toks: toks(c.ex), form: "")) : sentenceOf(c), types: [String] = []
             var pair: LessonSentenceHit?
             for x in c.sentences where !x.en.isEmpty && !x.vi.isEmpty {
                 if let f = findWord(x.en, c.word) {
@@ -192,7 +196,7 @@ public enum LessonEngine {
                 }
             }
             if var ss = s, (ss.tr ?? "").isEmpty, let g = o.gloss { ss.tr = g(c, ss.text); s = ss }
-            if s != nil { types.append("gap") }
+            if s != nil && !pat { types.append("gap") }
             if let ss = s, ss.at.toks.count <= 10, !(ss.tr ?? "").isEmpty || !off.listen { types.append("build") }
             if let h = o.hasImg, h(c.word, c.pos) { types.append("pic") }
             if pair != nil { types.append("tr") }
@@ -232,7 +236,9 @@ public enum LessonEngine {
                 b.sent = s.text; b.own = s.own; b.blank = s.at; b.answer = s.at.form; b.tr = s.tr ?? ""
             case "build", "tr":
                 let s = (type == "tr" ? w.pair : w.s)!
-                let words = toks(s.text), extra = distract(c.word, c.pos, pool, 2, &r).filter { x in !words.contains { same($0, x) } }
+                let words = toks(s.text)   // noise tiles = single words, not in the sentence
+                let extra = Array(distract(c.word, c.pos, pool.filter { !$0.word.trimmingCharacters(in: .whitespacesAndNewlines).contains(where: { $0.isWhitespace }) }, 4, &r)
+                    .filter { x in !words.contains { same($0, x) } }.prefix(2))
                 b.sent = s.text; b.own = s.own; b.prompt = s.tr ?? ""; b.answer = words.joined(separator: " "); b.tiles = shuffle(words + extra, &r)
             case "type":
                 let wd = c.word.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -247,9 +253,9 @@ public enum LessonEngine {
                 b.answer = c.word; b.options = shuffle([c.word] + distract(c.word, c.pos, pool, 3, &r), &r)
             default:   // say
                 let s = w.s
-                let short = s.map { toks($0.text).count <= 8 } ?? false
+                let short = s.map { toks($0.text).count <= 8 || isPat(c) } ?? false
                 var alt: LessonAlt
-                if let s {
+                if let s, !s.at.form.isEmpty {
                     alt = LessonAlt(type: "gap", sent: s.text, own: s.own, blank: s.at, answer: s.at.form,
                                     options: shuffle([s.at.form] + distract(c.word, c.pos, pool, 3, &r), &r), hints: [])
                 } else {
@@ -269,7 +275,7 @@ public enum LessonEngine {
             }
         }
         // matching (word ↔ meaning) in the middle when ≥ 4 words
-        let mp = Array(picks.filter { !$0.card.vi.isEmpty || !$0.card.def.isEmpty }.prefix(5))
+        let mp = Array(picks.filter { (!$0.card.vi.isEmpty || !$0.card.def.isEmpty) && !isPat($0.card) }.prefix(5))
         if o.match && (o.only?.contains("match") ?? true) && mp.count >= 4 {
             id += 1
             var m = LessonItem(id: id, type: "match", word: "#match", card: nil, hints: hints["match"] ?? [])
@@ -421,7 +427,7 @@ public enum LessonEngine {
                 var it = LessonItem(id: id, type: c.type, word: "#story", card: nil, hints: [])
                 if c.type == "tap", let li = c.line {
                     let T = toks(st.lines[li].en)
-                    let extra = Array(shuffle(words.filter { w in !T.contains { $0.lowercased() == w } }, &r).prefix(2))
+                    let extra = c.extra ?? Array(shuffle(words.filter { w in !T.contains { $0.lowercased() == w } }, &r).prefix(2))
                     it.type = "build"; it.sent = st.lines[li].en; it.who = st.lines[li].who; it.answer = T.joined(separator: " "); it.tiles = shuffle(T + extra, &r)
                 } else if c.type == "q", let opts = c.options, let a = c.answer {
                     it.prompt = c.q; it.answer = opts[a]; it.why = c.why ?? ""; it.options = c.keep == true ? opts : shuffle(opts, &r)
