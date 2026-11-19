@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "Same idea, band five to nine!",
+   "text": "Band five to nine!",
    "pause": 0.3
   },
   {
@@ -77,14 +77,14 @@
  },
  "hook": {
   "line": "h",
-  "text": "Same idea, band five to nine"
+  "text": "Band five to nine"
  },
  "src": {
   "band": "cities"
  },
  "est": {
-  "words": 45,
-  "seconds": 24.3,
+  "words": 43,
+  "seconds": 23.3,
   "wpm": 111
  },
  "publish": {
@@ -98,7 +98,7 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/write",
-  "script_words": 44,
+  "script_words": 42,
   "platforms": {
    "youtube": {
     "title": "IELTS band 5 to 9: Cities",

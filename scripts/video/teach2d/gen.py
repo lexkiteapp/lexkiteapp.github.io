@@ -466,7 +466,7 @@ def bands_bank():
 def band(p):   # Band 5 -> 7 -> 9: ONE idea said three ways (bands.json). Hook -> the band-5 sentence -> band 7 + why -> band 9 + why -> CTA. The reason lines name the IELTS criterion the upgrade earns.
     B = bands_bank(); T_ = next((t for t in B['topics'] if t['id'] == p['topic']), None); assert T_, ('topic not in bands.json', p['topic'])
     st = T_['steps']; assert [x['band'] for x in st] == [5, 7, 9], ('three bands 5 / 7 / 9', p['topic'])
-    lines = [L('h', 'Same idea, band five to nine!', 0.3)]
+    lines = [L('h', 'Band five to nine!', 0.3)]
     for x in st:
         lines.append(L(f"s{x['band']}", x['text'], 0.3))
         if x['band'] > 5: lines.append(L(f"w{x['band']}", B['reasons'][x['why']]['en'], 0.3))
@@ -474,7 +474,7 @@ def band(p):   # Band 5 -> 7 -> 9: ONE idea said three ways (bands.json). Hook -
     area = 'writing-ielts' if T_['skill'] == 'writing' else 'speaking'
     return dict(lines=lines, data=dict(topic=T_['id'], skill=T_['skill'], steps=[dict(x, **({'crit': B['reasons'][x['why']]['criterion']} if x['band'] > 5 else {})) for x in st]),
                 cta=cta(area, '#/write' if area == 'writing-ielts' else '#/speaking', 'Try an IELTS model answer' if area == 'writing-ielts' else 'Practise IELTS speaking'),
-                hook=dict(line='h', text='Same idea, band five to nine'), src=dict(band=T_['id']))
+                hook=dict(line='h', text='Band five to nine'), src=dict(band=T_['id']))
 
 
 T['band'] = band; SERIES['band'] = 'Band 5 to 9'
@@ -794,7 +794,7 @@ def hook_gate(row, ep):   # the on-screen hook is a true claim about these facts
     ok = len(words(hk)) <= 6 and len(words(ep['lines'][0]['text'])) <= 7
     if t == 'verbs': ok = ok and hk == f"{p['base']} · {p['P']} · {p['PP']}"
     if t == 'stress': ok = ok and p['a']['stress'] != p['b']['stress']
-    if t == 'band': ok = ok and hk == 'Same idea, band five to nine'
+    if t == 'band': ok = ok and hk == 'Band five to nine'
     if t == 'rule': ok = ok and hk == f"The {' '.join(p_letter(row))} is silent"
     if t == 'usuk': ok = ok and p['us'] != p['uk'] and p['ipa_us'] != p['ipa_uk']
     return ok

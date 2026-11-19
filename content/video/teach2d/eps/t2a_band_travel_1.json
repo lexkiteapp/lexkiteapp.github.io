@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "Same idea, band five to nine!",
+   "text": "Band five to nine!",
    "pause": 0.3
   },
   {
@@ -77,15 +77,15 @@
  },
  "hook": {
   "line": "h",
-  "text": "Same idea, band five to nine"
+  "text": "Band five to nine"
  },
  "src": {
   "band": "travel"
  },
  "est": {
-  "words": 44,
-  "seconds": 23.8,
-  "wpm": 111
+  "words": 42,
+  "seconds": 22.8,
+  "wpm": 110
  },
  "publish": {
   "title": "IELTS band 5 to 9: Travel",
@@ -98,7 +98,7 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/speaking",
-  "script_words": 43,
+  "script_words": 41,
   "platforms": {
    "youtube": {
     "title": "IELTS band 5 to 9: Travel",

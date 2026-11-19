@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "Same idea, band five to nine!",
+   "text": "Band five to nine!",
    "pause": 0.3
   },
   {
@@ -77,15 +77,15 @@
  },
  "hook": {
   "line": "h",
-  "text": "Same idea, band five to nine"
+  "text": "Band five to nine"
  },
  "src": {
   "band": "food"
  },
  "est": {
-  "words": 47,
-  "seconds": 25.3,
-  "wpm": 112
+  "words": 45,
+  "seconds": 24.3,
+  "wpm": 111
  },
  "publish": {
   "title": "IELTS band 5 to 9: Food",
@@ -98,7 +98,7 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/write",
-  "script_words": 46,
+  "script_words": 44,
   "platforms": {
    "youtube": {
     "title": "IELTS band 5 to 9: Food",

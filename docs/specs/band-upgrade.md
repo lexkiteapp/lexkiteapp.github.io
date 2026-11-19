@@ -10,7 +10,7 @@
 - `langs`: hook + mẹo mỗi lý do cho 14 ngôn ngữ + en (tầng i18n-fixed, `docs/I18N-PIPELINE.md`; de = Sie, fr = vous, es = tú). Cổng `scripts/video/teach2d/band-l1-qa.mjs` (teach-video, tĩnh): đủ ngôn ngữ × lý do, luật `i18n-rules`, "Band 5 → 7 → 9" còn nguyên, độ dài, không còn là tiếng Anh. Lượt review bản địa độc lập vẫn chờ (như `rule-l1.json`); nối hook bản địa vào bản dựng là bước sau.
 
 ## Tập (`gen.py --band-eps N`)
-Một tập mỗi chủ đề: hook "Same idea, band five to nine!" → câu band 5 → câu band 7 + lý do → câu band 9 + lý do → CTA. Cổng máy như `rule`: data (câu == `bands.json`, mark trong câu, lý do có thật), level (khung nói ≤ B1 NGSL; câu band 7 / 9 là bài học nên miễn), hook, dup (mỗi chủ đề một lần), **thời lượng đã hiệu chuẩn** `18 ≤ short_secs + BAND_BIAS ≤ 27`. Câu quá dài thì rút câu, không bỏ chủ đề. Test: `scripts/test/teach2d-band.py`.
+Một tập mỗi chủ đề: hook "Band five to nine!" → câu band 5 → câu band 7 + lý do → câu band 9 + lý do → CTA. Cổng máy như `rule`: data (câu == `bands.json`, mark trong câu, lý do có thật), level (khung nói ≤ B1 NGSL; câu band 7 / 9 là bài học nên miễn), hook, dup (mỗi chủ đề một lần), **thời lượng đã hiệu chuẩn** `18 ≤ short_secs + BAND_BIAS ≤ 27`. Câu quá dài thì rút câu, không bỏ chủ đề. Test: `scripts/test/teach2d-band.py`.
 
 ## Duyệt
 `approved.json` `band` = draft tới khi 3 tập thử có short + wide QC ≥ 90 (điều phối lật).

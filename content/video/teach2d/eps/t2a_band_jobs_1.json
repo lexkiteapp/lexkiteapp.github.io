@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "Same idea, band five to nine!",
+   "text": "Band five to nine!",
    "pause": 0.3
   },
   {
@@ -77,15 +77,15 @@
  },
  "hook": {
   "line": "h",
-  "text": "Same idea, band five to nine"
+  "text": "Band five to nine"
  },
  "src": {
   "band": "jobs"
  },
  "est": {
-  "words": 48,
-  "seconds": 25.7,
-  "wpm": 112
+  "words": 46,
+  "seconds": 24.8,
+  "wpm": 111
  },
  "publish": {
   "title": "IELTS band 5 to 9: Jobs",
@@ -98,7 +98,7 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/speaking",
-  "script_words": 47,
+  "script_words": 45,
   "platforms": {
    "youtube": {
     "title": "IELTS band 5 to 9: Jobs",

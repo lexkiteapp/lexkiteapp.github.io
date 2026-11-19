@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "Same idea, band five to nine!",
+   "text": "Band five to nine!",
    "pause": 0.3
   },
   {
@@ -77,15 +77,15 @@
  },
  "hook": {
   "line": "h",
-  "text": "Same idea, band five to nine"
+  "text": "Band five to nine"
  },
  "src": {
   "band": "money"
  },
  "est": {
-  "words": 43,
-  "seconds": 23.3,
-  "wpm": 111
+  "words": 41,
+  "seconds": 22.3,
+  "wpm": 110
  },
  "publish": {
   "title": "IELTS band 5 to 9: Money",
@@ -98,7 +98,7 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/speaking",
-  "script_words": 42,
+  "script_words": 40,
   "platforms": {
    "youtube": {
     "title": "IELTS band 5 to 9: Money",

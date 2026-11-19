@@ -755,15 +755,15 @@ def T_band():
     """Band 5 -> 7 -> 9 (docs/specs/band-upgrade.md, variant of T_level's 3-step track): hook -> one Kit card per band (band chip, the sentence with the upgraded phrase coloured, the reason line + IELTS criterion) -> CTA.
     One card on screen at a time, <= 6 rows, nothing in the platform UI zones."""
     D = EP['data']; st = D['steps']; series_chip(); t_end = start('c') - 0.2
-    y = title([['Same idea,', 'ink']], 96, RY0 + 120, None, start('s5') - 0.2, hook=True)   # = EP hook text (hook_gate)
-    title([['band five to nine', 'accent']], 96, y, None, start('s5') - 0.2, hook=True)
+    y = title([['Band five', 'ink']], 96, RY0 + 120, None, start('s5') - 0.2, hook=True)   # = EP hook text (hook_gate)
+    title([['to nine!', 'accent']], 96, y, None, start('s5') - 0.2, hook=True)
     ys = RY0; ts = [start(f"s{x['band']}") for x in st]
     top('track', [RX0 + 20, ys, RX1 - 20, ys + 70], ts[0], out=t_end, steps=3, st=[dict(t=round(t_, 4), s=f'cur{i}') for i, t_ in enumerate(ts, 1)] + [dict(t=round(at('w9', 0) + 0.4, 4), s='done')])
     for i, x in enumerate(st):
         b = x['band']; t0 = ts[i]; t_o = (ts[i + 1] if i + 1 < len(st) else start('c')) - 0.2
-        c = Card(ys + 100, tone='card' if b < 9 else 'good'); chip(c, f'BAND {b}', t0, **({'tone': 'good'} if b == 9 else {}))
+        c = Card(ys + 100, tone='card' if b < 9 else 'good'); chip(c, f'BAND {b}' + (f" \u00b7 {x['crit'].upper()}" if b > 5 else ''), t0, **({'tone': 'good'} if b == 9 else {}))
         c.text(runs_hl(x['text'], x.get('mark'), 'onhl' if b == 9 else 'accent', 'ongood' if b == 9 else 'ink'), S['body'], t0)
-        if b > 5: c.text([[x['crit'].upper(), 'muted']], S['chip'], at(f'w{b}', 0)); c.text([['\u2b06 ', 'accent'], [bands_why(x['why']), 'ink']], S['sub'], at(f'w{b}', 0))
+        if b > 5: c.text([['\u2b06 ', 'accent'], [bands_why(x['why']), 'ink']], S['sub'], at(f'w{b}', 0))
         c.place(t0, t_o, 'a')
     end_card()
 

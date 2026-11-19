@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "Same idea, band five to nine!",
+   "text": "Band five to nine!",
    "pause": 0.3
   },
   {
@@ -77,14 +77,14 @@
  },
  "hook": {
   "line": "h",
-  "text": "Same idea, band five to nine"
+  "text": "Band five to nine"
  },
  "src": {
   "band": "sleep"
  },
  "est": {
-  "words": 46,
-  "seconds": 24.8,
+  "words": 44,
+  "seconds": 23.8,
   "wpm": 111
  },
  "publish": {
@@ -98,7 +98,7 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/speaking",
-  "script_words": 45,
+  "script_words": 43,
   "platforms": {
    "youtube": {
     "title": "IELTS band 5 to 9: Sleep",

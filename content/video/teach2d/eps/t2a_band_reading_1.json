@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "Same idea, band five to nine!",
+   "text": "Band five to nine!",
    "pause": 0.3
   },
   {
@@ -77,15 +77,15 @@
  },
  "hook": {
   "line": "h",
-  "text": "Same idea, band five to nine"
+  "text": "Band five to nine"
  },
  "src": {
   "band": "reading"
  },
  "est": {
-  "words": 40,
-  "seconds": 21.8,
-  "wpm": 110
+  "words": 38,
+  "seconds": 20.8,
+  "wpm": 109
  },
  "publish": {
   "title": "IELTS band 5 to 9: Reading",
@@ -98,7 +98,7 @@
    "#englishteacher"
   ],
   "link": "https://lexkite.com/app/#/speaking",
-  "script_words": 39,
+  "script_words": 37,
   "platforms": {
    "youtube": {
     "title": "IELTS band 5 to 9: Reading",
