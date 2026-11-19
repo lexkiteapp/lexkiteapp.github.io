@@ -5,7 +5,7 @@
 (function (g) {
   'use strict';
   const T = () => g.Target, tr = (k, v) => (typeof g.t === 'function' ? g.t(k, v) : k), esc = s => (g.UI ? UI.esc(s) : String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])));
-  const ORDER = ['en', 'es', 'fr', 'pt'], SOON = ['fr'], NKEY = 'lk.tlnotify', AKEY = 'lk.tlannounced';
+  const ORDER = ['en', 'es', 'fr', 'pt'], SOON = ['fr', 'pt'], NKEY = 'lk.tlnotify', AKEY = 'lk.tlannounced';
   const ls = (k, v) => { try { if (v === undefined) return g.localStorage.getItem(k); g.localStorage.setItem(k, v); } catch (e) { /* riêng tư */ } return null; };
   const list = k => { try { const a = JSON.parse(ls(k) || '[]'); return Array.isArray(a) ? a : []; } catch (e) { return []; } };
   const SUB = () => ({ en: tr('IELTS, TOEIC và giao tiếp hằng ngày'), pt: tr('Tiếng Bồ Đào Nha Brazil'), es: tr('Tiếng TBN Mỹ Latinh · DELE/SIELE A1–C2'), fr: tr('Tiếng Pháp chuẩn · A1–C2') });
@@ -76,6 +76,12 @@
   const EXPLORE = /^(courses|course|skills)$/;
   function explore(name) { if (!EXPLORE.test(name || '')) return; const v = document.getElementById('view'); if (!v) return; const go = () => { if (v.querySelector('.tlp-card') || !v.firstElementChild) return !!v.querySelector('.tlp-card'); card(v); return true; };
     if (go()) return; const mo = new MutationObserver(() => { if (go()) mo.disconnect(); }); mo.observe(v, { childList: true }); setTimeout(() => mo.disconnect(), 3000); }
+  // Khóa chưa có nội dung (ready:false; chỉ quản trị chọn được): màn "đang chuẩn bị" + đường về tiếng Anh – không bao giờ hiện nội dung tiếng Anh thay thế
+  function prep() { const id = (location.hash.match(/tlprep\/([a-z]{2})/) || [])[1], r = T().TABLE[id]; const v = document.getElementById('view'); if (!v) return;
+    if (!r || r.ready !== false) { location.replace('#/home'); return; }
+    v.innerHTML = `<section class="card tlp-prep" role="status"><span class="tlp-flag" aria-hidden="true">${r.em}</span><h1 translate="no" lang="${id}">${esc(r.name)}</h1><p class="tlp-pill">${esc(tr('Sắp ra mắt'))}</p><p class="muted">${esc(tr('Khóa học này đang được chuẩn bị, chưa có bài học.'))}</p><button type="button" class="btn primary" data-back>${esc(tr('Quay lại tiếng Anh'))}</button></section>`;
+    v.querySelector('[data-back]').onclick = () => { T().set('en'); location.hash = '#/home'; paint(); }; }
+  if (g.App && App.routes) App.routes.tlprep = prep;
   function boot() { top(); announce(); if (!boot.w) { boot.w = 1; addEventListener('lk:tl', paint); document.addEventListener('click', onChip);
     const A = g.App; if (A) { const prev = A.afterRoute; A.afterRoute = name => { if (prev) prev(name); try { explore(name); } catch (e) { /* bỏ qua */ } }; explore((location.hash.match(/^#\/?([a-z-]+)/) || [])[1]); } } }
   g.TLPick = { open, head, card, boot, top, paint, courses, notify, choose };

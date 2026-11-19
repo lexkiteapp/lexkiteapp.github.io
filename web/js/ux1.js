@@ -18,7 +18,8 @@
   const keyOf = w => (window.Core && Core.keyOf ? Core.keyOf(w) : String(w || '').toLowerCase());
 
   // ---------- 5 tab ----------
-  const TABS = () => [['home', '#/home', 'house', t('Hôm nay')], ['vocab', '#/vocab', 'book-open', t('Từ vựng')], ['skills', '#/skills', 'target', t('Kỹ năng')], ['tests', '#/tests', 'flag', t('Thi')], ['me', '#/me', 'user', t('Tôi')]];
+  const TH = k => (window.Target && Target.routeFor(k)) || '#/' + k; // đang học es: Từ vựng/Kỹ năng/Thi trỏ thẳng màn của khóa đó (route() vẫn chuyển hướng phòng khi mở link cũ)
+  const TABS = () => [['home', '#/home', 'house', t('Hôm nay')], ['vocab', TH('vocab'), 'book-open', t('Từ vựng')], ['skills', TH('skills'), 'target', t('Kỹ năng')], ['tests', TH('tests'), 'flag', t('Thi')], ['me', '#/me', 'user', t('Tôi')]];
   const ME = ['me', 'goal', 'stats', 'mistakes', 'settings', 'class', 'method', 'resources', 'tracks', 'streak', 'contact', 'outcome'];
   const tabOf = (name, arg) => { if (!name || ['home', 'lesson', 'path', 'day', 'league'].includes(name)) return 'home'; if (ME.includes(name)) return 'me'; const o = (navOf0 ? navOf0(name, arg) : [])[0]; return o === 'vocab' || o === 'tests' ? o : 'skills'; }; // còn lại (#/train, #/say, #/call…) thuộc Kỹ năng
   const SKN = () => ({ listening: t('Nghe hiểu'), reading: t('Đọc hiểu'), writing: t('Viết'), speaking: t('Nói') });
@@ -52,6 +53,7 @@
     if (bn) { bn.setAttribute('aria-label', t('Điều hướng chính')); bn.classList.add('st-nav', ...ST.NAV_CLS.split(' ')); bn.innerHTML = ST.nav(tabs); } // thanh tab kiểu Stitch (web/js/st/common.js)
     const nav = document.getElementById('nav');
     if (nav) nav.innerHTML = tabs.map(([k, h, i, l]) => `<a href="${h}" data-route="${k}" class="nav-top"><span class="ic">${ic(i)}</span><bdi>${esc(l)}</bdi>${k === 'vocab' ? '<i class="badge" data-due hidden></i>' : ''}</a>`).join('');
+    addEventListener('lk:tl', () => document.querySelectorAll('#bnav [data-tab], #nav [data-route]').forEach(a => { const k = a.dataset.tab || a.dataset.route; if (/^(vocab|skills|tests)$/.test(k)) a.setAttribute('href', TH(k)); })); // đổi khóa học → 3 tab đổi đích ngay, khỏi tải lại
     const shell = document.querySelector('.shell');
     if (shell && !document.getElementById('ux1Rail')) { const r = document.createElement('aside'); r.className = 'ux1-rail'; r.id = 'ux1Rail'; r.setAttribute('aria-label', t('Tiến độ hôm nay')); shell.appendChild(r); }
     if (App.updateChrome) try { App.updateChrome(); } catch (e) { /* bỏ qua */ }

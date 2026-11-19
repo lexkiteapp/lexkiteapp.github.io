@@ -338,6 +338,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
     streak: ['streak', 'ret'],
     style: 'quick',
     task1: 'writing',
+    tlprep: 'tlpick', // màn "khóa đang chuẩn bị" (fr/pt chưa có khóa thật; chỉ quản trị chọn được)
     toefl: ['listening', 'toefl'],
     'toefl-p': ['listening', 'toefl'],
     toeic: ['tsl', 'listening', 'toeic'],
@@ -528,6 +529,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
     scope.ac.abort(); scope = { id: my, ac: new AbortController() };
     if (!state.game) { await dataReadyP; if (my !== routeSeq) return; }
     const { name, arg, query } = parseHash();
+    const tlr = window.Target && Target.routeFor(name); if (tlr && !/[?&]en=1\b/.test(location.hash)) { location.replace(tlr); return; } // đang học es/…: màn chỉ có tiếng Anh → màn của ngôn ngữ đó
     if (name === 'welcome' && welcomeGate(arg)) return; // đã có dữ liệu → thay bằng trang đúng, không tải gói trang giới thiệu
     const STUDY = /^#\/(practice\/|review)/;
     if (STUDY.test(location.hash) && curHash && !STUDY.test(curHash)) backHash = /^#\/welcome/.test(curHash) ? '#/home' : curHash;

@@ -26,3 +26,4 @@ a.tl-chip[href]{display:inline-flex;align-items:center;gap:var(--sp-2);min-heigh
 .tlp-skel{position:fixed;inset:0;z-index:40;background:var(--bg);display:flex;flex-direction:column;gap:var(--sp-3);padding:calc(var(--sp-6) + env(safe-area-inset-top)) var(--sp-4);transition:opacity .2s}.tlp-skel.out{opacity:0}
 .tlp-skel-head{display:flex;align-items:center;gap:var(--sp-3);font-size:var(--fs-lg)}.tlp-skel i{display:block;height:72px;border-radius:var(--r-card,18px);background:linear-gradient(90deg,var(--surface-2),var(--surface-3),var(--surface-2));background-size:200% 100%;animation:tlpsk 1.2s linear infinite}
 @keyframes tlpsk{to{background-position:-200% 0}}@media (prefers-reduced-motion:reduce){.tlp-skel i{animation:none}.tlp-skel{transition:none}}
+.tlp-prep{max-width:560px;margin:var(--sp-6) auto;text-align:center;display:grid;gap:var(--sp-3);justify-items:center}.tlp-prep .tlp-flag{font-size:3rem;width:auto}.tlp-prep h1{margin:0;color:var(--heading)}
