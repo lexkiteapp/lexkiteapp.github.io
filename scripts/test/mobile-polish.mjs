@@ -77,6 +77,13 @@ const chips = [300, 380, 460, 540].map(y => { const c = w.document.createElement
 w.UI.toast('Toast màn dày nút'); await tick(280); // câu mới khi toast đang hiện: câu cũ mờ trước rồi mới đổi chữ (không đổi cỡ khi còn thấy = 0 CLS)
 ok(T.dataset.at === 'top' && /env\(safe-area-inset-top/.test(T.style.getPropertyValue('--ty')), 'nửa dưới kín nút bấm → toast lên mép trên (tính safe-area): --ty=' + T.style.getPropertyValue('--ty'));
 chips.forEach(c => c.remove());
+// 20/11: mép trên cũng kín (nút thanh trên) + nửa dưới kín nút → toast vào KHOẢNG HỞ giữa các hàng nút, hình học không giao với nút nào (Journey phone: toast đè "Làm lại"/"Sổ lỗi sai")
+const hdr = w.document.createElement('header'), hb = w.document.createElement('button'); hdr.appendChild(hb); w.document.body.appendChild(hdr); hb.getBoundingClientRect = () => ({ top: 0, bottom: 60, left: 0, right: 360, width: 360, height: 60 });
+const rows = [100, 330, 380, 440, 500, 560, 620, 680].map(y => { const c = w.document.createElement('a'); c.className = 'chip'; c.href = '#'; $('#view').appendChild(c); const r = { top: y, bottom: y + 44, left: 0, right: 360, width: 360, height: 44 }; c.getBoundingClientRect = () => r; return { c, r }; });
+w.UI.toast('Toast màn kín từ trên xuống'); await tick(280);
+{ const hT = 48, bB = parseFloat(T.dataset.at) || 0, top = 740 - bB - hT, bot = 740 - bB;
+  ok(T.dataset.at && T.dataset.at !== 'top' && rows.concat([{ r: { top: 0, bottom: 60 } }]).every(x => x.r.top >= bot || x.r.bottom <= top), `mép trên kín → toast vào khoảng hở, không giao nút nào (toast ${Math.round(top)}–${Math.round(bot)})`); }
+rows.forEach(x => x.c.remove()); hdr.remove();
 bar.remove(); w.UI.toast('Toast trước khi vẽ lại'); delete T.dataset.at; await tick(280); // câu mới khi toast đang hiện: câu cũ mờ trước rồi mới đổi chữ (không đổi cỡ khi còn thấy = 0 CLS)
 const bar2 = w.document.createElement('div'); bar2.className = 'learn-bar'; bar2.getBoundingClientRect = () => ({ top: 600, bottom: 740, left: 0, right: 360, width: 360, height: 140 }); $('#view').appendChild(bar2); await tick(60);
 ok((parseFloat(T.dataset.at) || 0) >= 148, 'màn vẽ lại khi toast đang hiện → toast đặt lại phía trên nút mới (bottom=' + T.dataset.at + ')');

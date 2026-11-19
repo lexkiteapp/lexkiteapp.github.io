@@ -59,7 +59,13 @@
     for (const b of cands) if (free(H - b - h, H - b)) { at(b); return; }
     const top = 12;
     if (free(top, top + h)) { t.dataset.at = 'top'; t.style.setProperty('--ty', 'calc(' + top + 'px + env(safe-area-inset-top, 0px) - ' + (H - base - h) + 'px)'); return; }
-    if (cands.length) at(cands[cands.length - 1]);
+    // 20/11 (Journey phone #1626: toast "Huy hiệu mới" đè nút "Làm lại"/"Sổ lỗi sai"): mép trên cũng kín → tìm khoảng hở BẤT KỲ giữa các vật cản (ngay trên/dưới từng vật cản, gần chỗ gốc nhất);
+    // vẫn không có chỗ → chỗ đè ÍT nhất (không im lặng đặt đại ở cuối danh sách cũ)
+    const lo = 8, hi = H - h - 12, any = [...new Set(obs.flatMap(r => [H - r.top + 10, H - r.bottom - h - 10]).map(Math.round))].filter(b => b >= lo && b <= hi).sort((a, b) => Math.abs(a - base) - Math.abs(b - base));
+    for (const b of any) if (free(H - b - h, H - b)) { at(b); return; }
+    const cover = b => obs.reduce((n, r) => n + Math.max(0, Math.min(r.bottom, H - b) - Math.max(r.top, H - b - h)), 0);
+    const best = [base, ...any].reduce((m, b) => (cover(b) < cover(m) ? b : m), base);
+    if (best !== base) at(best);
   }
   function toastShow(msg, ms, o) {
     const t = $('#toast'); if (!t) return;
