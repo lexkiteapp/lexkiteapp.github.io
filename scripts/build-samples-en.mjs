@@ -123,7 +123,7 @@ ${group2('all', 'Topics', `${made.length} ${L.items}`, made.map(spCard), '', 'v-
 
 // ---- Vocabulary ----
 {
-  lm = gitDate('web/js/data.js', 'web/js/lib', 'web/js/i18n/en.js');
+  lm = gitDate('web/js/data.js', 'web/js/lib', 'web/cpack/lib', 'web/js/i18n/en.js');
   const { TOPICS: TP, audioKey } = loadVocab();
   const G = { topics: 'IELTS Vocabulary by Topic', writing: 'IELTS Writing Vocabulary', speaking: 'IELTS Speaking Vocabulary', awl: 'Academic Word List (AWL)', core: 'Core Vocabulary (NGSL)', toeic: 'TOEIC Vocabulary', domain: 'Vocabulary for Specific Fields', exam: 'Vocabulary by Exam' };
   const c = { self: {}, window: {} }; c.self = c.window = c; vm.createContext(c); vm.runInContext(fs.readFileSync('web/js/i18n/en.js', 'utf8'), c);
