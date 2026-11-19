@@ -1,0 +1,141 @@
+{
+ "id": "t2a_rule_silentement_1",
+ "template": "rule",
+ "series": "Spell to Sound",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "pronunciation",
+ "lines": [
+  {
+   "id": "h",
+   "text": "The E is silent!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "In e m e n t, the first E is silent.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Statement.",
+   "pause": 0.25,
+   "speed": 0.6
+  },
+  {
+   "id": "v0",
+   "text": "Statement.",
+   "pause": 0.3
+  },
+  {
+   "id": "p",
+   "text": "Repeat after me!",
+   "pause": 1.6
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which letter is silent in statement?",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "E! The E is silent.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "rule": "silent-ement",
+  "title": "-ement",
+  "target": "/mənt/",
+  "letter": "e",
+  "say": "In e m e n t, the first E is silent.",
+  "words": [
+   {
+    "w": "statement",
+    "ipa": "/ˈsteɪtmənt/",
+    "silent": [
+     4,
+     5
+    ],
+    "letter": "e",
+    "mean": "Something that you say or write officially.",
+    "em": "📢"
+   }
+  ],
+  "quiz": {
+   "stem": "Which letter is silent in statement?",
+   "options": [
+    "S",
+    "E"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "pronunciation",
+  "route": "#/pron/statement",
+  "link": "https://lexkite.com/app/#/pron/statement",
+  "say": "Practise this sound"
+ },
+ "hook": {
+  "line": "h",
+  "text": "The E is silent"
+ },
+ "src": {
+  "rule": "silent-ement"
+ },
+ "est": {
+  "words": 39,
+  "seconds": 25.1,
+  "wpm": 93
+ },
+ "publish": {
+  "title": "The E is silent!",
+  "keyword": "Spell to Sound",
+  "value": "In e m e n t, the first E is silent.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#pronunciation",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/pron/statement",
+  "script_words": 30,
+  "platforms": {
+   "youtube": {
+    "title": "The E is silent!",
+    "description": "In e m e n t, the first E is silent.\n\nPractise this sound, free: https://lexkite.com/app/#/pron/statement\n\nSeries: Spell to Sound · Teacher: Carlos\n\n#learnenglish #englishtips #pronunciation #englishteacher",
+    "tags": [
+     "Spell to Sound",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "The E is silent!\n\nIn e m e n t, the first E is silent.\n\nPractise this sound, free: https://lexkite.com/app/#/pron/statement"
+   },
+   "instagram": {
+    "caption": "The E is silent!\n\nIn e m e n t, the first E is silent.\n\nPractise this sound: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#pronunciation",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "The E is silent! #learnenglish #englishtips #pronunciation"
+   }
+  },
+  "first_comment": "Quiz answer: E! The E is silent. In e m e n t, the first E is silent. Practice it with a free quiz: {link}"
+ }
+}

@@ -1,0 +1,173 @@
+{
+ "id": "t2a_roots_sign_1",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, two words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "The root is Sign! Signal, signature.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Sign is Latin for mark.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Signal: a mark that tells you something.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Signature: your own mark.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means your own mark?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Signature! It means your own mark.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "SIGN",
+  "rid": "sign",
+  "say": "mark",
+  "src": "signum",
+  "src_lang": "Latin",
+  "src_mean": "mark, sign",
+  "words": [
+   {
+    "w": "signal",
+    "ipa": "/ˈsɪɡnl/",
+    "mean": "a mark that tells you something",
+    "seg": "sign|-al",
+    "parts": [
+     [
+      "sign",
+      "root"
+     ],
+     [
+      "al",
+      "suf"
+     ]
+    ],
+    "pre": null,
+    "pm": null,
+    "pms": null,
+    "ex": "There is no phone signal in the mountains.",
+    "em": "📶"
+   },
+   {
+    "w": "signature",
+    "ipa": "/ˈsɪɡnətʃər/",
+    "mean": "your own mark",
+    "seg": "sign|-ature",
+    "parts": [
+     [
+      "sign",
+      "root"
+     ],
+     [
+      "ature",
+      "suf"
+     ]
+    ],
+    "pre": null,
+    "pm": null,
+    "pms": null,
+    "ex": "We need your signature at the bottom of the form.",
+    "em": "✍️"
+   }
+  ],
+  "quiz": {
+   "stem": "your own mark",
+   "options": [
+    "signal",
+    "signature"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/signal",
+  "link": "https://lexkite.com/app/#/dict/signal",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, two words"
+ },
+ "src": {
+  "root": "sign"
+ },
+ "est": {
+  "words": 48,
+  "seconds": 28.5,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "Sign root: signal and signature",
+  "keyword": "sign root",
+  "value": "Sign comes from Latin \"signum\" (mark, sign). Words: signal and signature.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/signal",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "Sign root: signal and signature",
+    "description": "Sign comes from Latin \"signum\" (mark, sign). Words: signal and signature.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/signal\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "sign root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Sign root: signal and signature\n\nSign comes from Latin \"signum\" (mark, sign). Words: signal and signature.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/signal"
+   },
+   "instagram": {
+    "caption": "Sign root: signal and signature\n\nSign comes from Latin \"signum\" (mark, sign). Words: signal and signature.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Sign root: signal and signature #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? Signature! It means your own mark. Sign comes from Latin \"signum\" (mark, sign). Words: signal and signature. More practice like this (free): {link}"
+ }
+}

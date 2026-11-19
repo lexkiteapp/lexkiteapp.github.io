@@ -1207,6 +1207,7 @@
   "skill.listen.luyenTap": "ฝึกฝน",
   "skill.listen.nghe1Lan": "ฟังครั้งเดียว",
   "skill.listen.chepChinhTa": "เขียนตามคำบอก",
+  "skill.listen.dienTuConThieu": "เติมคำที่หายไป",
   "skill.listen.meoLamBaiListening": "เคล็ดลับ Listening",
   "skill.listen.docTruocCauHoi": "<b>อ่านคำถามก่อน</b> ขณะที่คุณรอ: ขีดเส้นใต้คำหลักและคาดเดาประเภทของคำตอบที่ต้องการ (หมายเลข ชื่อ คำนาม…)",
   "skill.listen.canThanBayDoi": "<b>ระวังการแก้ไข</b>: ผู้พูดมักจะตอบคำตอบเดียวแล้วจึงเปลี่ยน (“sorry, I mean…”) ข้อมูลสุดท้ายคือคำตอบ",

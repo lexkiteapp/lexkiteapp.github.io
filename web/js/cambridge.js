@@ -9,6 +9,7 @@
   const SPKN = { interview: 'Interview', 'long-turn': 'Long turn', collaborative: 'Collaborative task', discussion: 'Discussion' };
   const WR = new Set(['email', 'story', 'article', 'essay', 'report', 'review', 'letter', 'proposal']); // phần viết sản sinh
   const PAPERS = { rw: ['📖', 'Reading & Writing'], listening: ['🎧', 'Listening'], speaking: ['🗣️', 'Speaking'] };
+  const PN = nm => ({ 'Reading & Writing': `${t('Đọc hiểu')} & ${t('Viết')}`, Listening: t('Nghe hiểu'), Speaking: t('Nói') })[nm] || nm; // nhãn phần thi theo ngôn ngữ giao diện (khóa đã có bản dịch 13 ngôn ngữ)
   const tests = () => self.CAMBRIDGE || [];
   const rub = l => (self.CAMBRIDGE_RUBRIC || {})[l] || { writing: [], speaking: [], linkers: [] };
   const best = () => ((state.game || {}).camBest = (state.game || {}).camBest || {});
@@ -48,7 +49,7 @@
     view.innerHTML = head('🎓 Cambridge English', t('Đề tự biên soạn đúng định dạng Cambridge từ A2 Key đến C2 Proficiency: Đọc & Viết, Nghe, Nói – có lời giải, bài mẫu và tiêu chí chấm.'))
       + LEVELS.map(([l, name]) => { const xs = tests().filter(x => x.level === l).sort((a, c) => a.n - c.n); return `<h2 style="margin-top:1.2rem">${esc(name)}</h2>`
         + (xs.length ? `<div class="grid auto">${xs.map(x => `<div class="card"><span class="chip">${l.toUpperCase()}</span> <b>${esc(x.title)}</b>
-          <div class="row" style="margin-top:.6rem;flex-wrap:wrap">${Object.entries(PAPERS).map(([k, [ic, nm]]) => `<a class="btn sm${k === 'rw' ? ' primary' : ''}" href="#/cambridge/${x.id}?p=${k}">${ic} ${nm}${b[x.id + ':' + k] != null ? ` · ${b[x.id + ':' + k]}%` : ''}</a>`).join('')}</div></div>`).join('')}</div>`
+          <div class="row" style="margin-top:.6rem;flex-wrap:wrap">${Object.entries(PAPERS).map(([k, [ic, nm]]) => `<a class="btn sm${k === 'rw' ? ' primary' : ''}" href="#/cambridge/${x.id}?p=${k}">${ic} ${PN(nm)}${b[x.id + ':' + k] != null ? ` · ${b[x.id + ':' + k]}%` : ''}</a>`).join('')}</div></div>`).join('')}</div>`
           : `<div class="card empty-note"><p class="muted" style="margin:0">${t('Đang soạn đề cho cấp này.')}</p></div>`); }).join('')
       + `<p class="tiny muted" style="margin-top:1rem">${t('Điểm trong ứng dụng là tỉ lệ câu đúng để tự theo dõi, không phải điểm Cambridge English Scale chính thức.')}</p>`;
   };
@@ -56,7 +57,7 @@
   // ---------- Phòng thi ----------
   function paper(T, p) {
     if (!PAPERS[p]) p = 'rw';
-    const tabs = `<div class="row" role="tablist" style="flex-wrap:wrap;margin-bottom:.8rem">${Object.entries(PAPERS).map(([k, [ic, nm]]) => `<a role="tab" aria-selected="${k === p}" class="btn sm${k === p ? ' primary' : ''}" href="#/cambridge/${T.id}?p=${k}">${ic} ${nm}</a>`).join('')}</div>`;
+    const tabs = `<div class="row" role="tablist" style="flex-wrap:wrap;margin-bottom:.8rem">${Object.entries(PAPERS).map(([k, [ic, nm]]) => `<a role="tab" aria-selected="${k === p}" class="btn sm${k === p ? ' primary' : ''}" href="#/cambridge/${T.id}?p=${k}">${ic} ${PN(nm)}</a>`).join('')}</div>`;
     view.innerHTML = head(`🎓 ${esc(T.title)}`, `<a href="#/cambridge">← Cambridge English</a>`) + tabs + '<div id="camBody"></div>';
     const body = $('#camBody');
     if (p === 'speaking') return speaking(T, body);

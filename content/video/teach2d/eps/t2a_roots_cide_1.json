@@ -1,0 +1,177 @@
+{
+ "id": "t2a_roots_cide_1",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, two words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "The root is Cide! Decide, decision.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Cide is Latin for cut or kill.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Decide: off plus cut or kill.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Decision: off plus cut or kill.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means off plus cut or kill?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Decision! Off plus cut or kill.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "CIDE",
+  "rid": "cide",
+  "say": "cut or kill",
+  "src": "caedere",
+  "src_lang": "Latin",
+  "src_mean": "to cut, to kill",
+  "words": [
+   {
+    "w": "decide",
+    "ipa": "/dɪˈsaɪd/",
+    "mean": "cut away the other choices",
+    "seg": "de-|cide",
+    "parts": [
+     [
+      "de",
+      "pre"
+     ],
+     [
+      "cide",
+      "root"
+     ]
+    ],
+    "pre": "de",
+    "pm": "off",
+    "pms": "off",
+    "ex": "We decided to stay at home because of the rain.",
+    "em": "⚖️"
+   },
+   {
+    "w": "decision",
+    "ipa": "/dɪˈsɪʒn/",
+    "mean": "a cutting away of choices",
+    "seg": "de-|cis|-ion",
+    "parts": [
+     [
+      "de",
+      "pre"
+     ],
+     [
+      "cis",
+      "root"
+     ],
+     [
+      "ion",
+      "suf"
+     ]
+    ],
+    "pre": "de",
+    "pm": "off",
+    "pms": "off",
+    "ex": "Moving abroad was the biggest decision of my life.",
+    "em": "⚖️"
+   }
+  ],
+  "quiz": {
+   "stem": "off plus cut or kill",
+   "options": [
+    "decide",
+    "decision"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/decide",
+  "link": "https://lexkite.com/app/#/dict/decide",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, two words"
+ },
+ "src": {
+  "root": "cide"
+ },
+ "est": {
+  "words": 53,
+  "seconds": 30.9,
+  "wpm": 103
+ },
+ "publish": {
+  "title": "Cide root: decide and decision",
+  "keyword": "cide root",
+  "value": "Cide comes from Latin \"caedere\" (to cut, to kill). Words: decide and decision. decide = de + cide; decision = de + cis.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/decide",
+  "script_words": 43,
+  "platforms": {
+   "youtube": {
+    "title": "Cide root: decide and decision",
+    "description": "Cide comes from Latin \"caedere\" (to cut, to kill). Words: decide and decision. decide = de + cide; decision = de + cis.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/decide\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "cide root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Cide root: decide and decision\n\nCide comes from Latin \"caedere\" (to cut, to kill). Words: decide and decision. decide = de + cide; decision = de + cis.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/decide"
+   },
+   "instagram": {
+    "caption": "Cide root: decide and decision\n\nCide comes from Latin \"caedere\" (to cut, to kill). Words: decide and decision. decide = de + cide; decision = de + cis.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Cide root: decide and decision #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: Decision! Off plus cut or kill. Cide comes from Latin \"caedere\" (to cut, to kill). Words: decide and decision. decide = de + cide; decision = de + cis. Practice it with a free quiz: {link}"
+ }
+}

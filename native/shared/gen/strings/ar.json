@@ -1207,6 +1207,7 @@
   "skill.listen.luyenTap": "تدريب",
   "skill.listen.nghe1Lan": "استمع مرة واحدة",
   "skill.listen.chepChinhTa": "إملاء",
+  "skill.listen.dienTuConThieu": "أكمل الكلمة الناقصة",
   "skill.listen.meoLamBaiListening": "نصائح الاستماع",
   "skill.listen.docTruocCauHoi": "<b>اقرأ الأسئلة أولاً</b> أثناء الانتظار: ضع خطًا تحت الكلمات الرئيسية وتوقع نوع الإجابة المطلوبة (رقم، اسم، اسم...).",
   "skill.listen.canThanBayDoi": "<b>احترس من التصحيحات</b>: غالبًا ما يقدم المتحدثون إجابة واحدة ثم يغيرونها (\"sorry, I mean…\"). المعلومات النهائية هي الجواب.",

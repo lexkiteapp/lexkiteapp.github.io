@@ -509,7 +509,8 @@ class SkillsVectorsTest {
             val r = content.reading(i.s("reading"))!!; val deck = i.a("cards").map { it.s().lowercase() }.toSet()
             val ps = Reader.passage(r, lexis) { it in deck }; val hl = Reader.highlights(null)
             check(id, o, obj("back" to obj("href" to "#/reading", "label" to "← " + t("Tất cả bài đọc")), "level" to r.level, "topic" to r.topic, "emoji" to r.emoji, "title" to r.title, "summaryKind" to "text",
-                "highlightChips" to hl.map { obj("k" to it, "on" to true) }, "passageClasses" to hl.map { "hl-$it" }, "counts" to ps.counts, "paragraphs" to ps.paras.size, "sentences" to ps.sentences, "words" to ps.words,
+                "highlightChips" to Reader.HL.map { obj("k" to it, "on" to (it in hl)) }, "passageClasses" to hl.map { "hl-$it" }, "counts" to Reader.HL.associateWith { Reader.painted(ps, hl.toSet())[it] ?: "" },
+                "layers" to obj("counts" to Reader.HL.associateWith { Reader.painted(ps, Reader.LAYERS.toSet())[it] ?: 0 }, "available" to Reader.HL.associateWith { Reader.available(ps, it) }), "paragraphs" to ps.paras.size, "sentences" to ps.sentences, "words" to ps.words,
                 "questions" to r.questions.size, "keywordChips" to r.keywords.size, "passage" to passageJson(ps)))
         }
     }
@@ -525,7 +526,7 @@ class SkillsVectorsTest {
                 else obj("word" to e["word"], "mean" to CardMath.meanOf(e), "def" to e["def"], "saveLabel" to "+ " + t(if (open.saved) "Thêm ngữ cảnh" else "Lưu flashcard"), "detailsHref" to "#/dict/${e.s("word")}"))
             if (e != null) {
                 port.calls.clear(); runBlocking { WordPopup.save(port, e, sentence, "Bài đọc: ${r.title}", i.s("learnLang")) }
-                val after = Reader.passage(r, lexis) { it == word.lowercase() }.counts
+                val pa = Reader.passage(r, lexis) { it == word.lowercase() }; val after = Reader.HL.associateWith { Reader.painted(pa, Reader.highlights(null).toSet())[it] ?: "" }
                 check("${c.s("id")}.save", o["save"], obj("dictCalls" to port.calls, "addWord" to addedJson(port), "buttonLabel" to "✓ " + t("Đã lưu kèm ngữ cảnh"), "minedTokens" to true, "countsAfter" to after))
             }
         }
@@ -538,7 +539,7 @@ class SkillsVectorsTest {
             when (id) {
                 "highlight-toggle" -> { var on = Reader.highlights(i.s("start")).toSet()
                     for ((k, w) in o.a("steps").map { it.jsonObject }.withIndex()) { val (n, saved) = Reader.toggle(on, i.a("toggles")[k].s()); on = n
-                        check("$id.$k", obj("toggled" to w["toggled"], "settings" to w["settings"], "passage" to w["passage"]), obj("toggled" to i.a("toggles")[k].s(), "settings" to saved, "passage" to Reader.HL.filter { it in n }.map { "hl-$it" })) }
+                        check("$id.$k", obj("toggled" to w["toggled"], "settings" to w["settings"], "passage" to w["passage"]), obj("toggled" to i.a("toggles")[k].s(), "settings" to saved, "passage" to Reader.HL.filter { it in n }.map { "hl-$it" }.sorted())) }
                     assertEquals("persisted settings", setOf("settings:hl"), v.o("persist").o("byAction").o("read").a(id).map { it.s() }.toSet()) }
                 "save-all-keywords" -> { val port = FakePort(null) { it in i.a("alreadyInDeck").map { x -> x.s() } }
                     val n = runBlocking { WordPopup.saveKeywords(port, r, ps) }

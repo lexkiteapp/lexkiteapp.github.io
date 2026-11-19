@@ -6,7 +6,7 @@ import LKStrings
 public enum ReadingRules {
     /// the keyword chip scrolls to its word, then opens the popup after this
     public static let keywordPopupDelayMs = 350
-    public static let defaultHighlights = "kw awl link mine"
+    public static let defaultHighlights = "kw"
     public static let highlightKeys = ["kw", "awl", "link", "mine"]
     /// minutes = max(2, round(words / 140))
     public static let wordsPerMinute = 140.0
@@ -68,7 +68,21 @@ public struct ReadingList: Equatable, Sendable {
 public struct ReaderPage: Sendable {
     public let reading: JSON
     public let passage: [[[Lexis.Piece]]]
-    public var counts: [String: Int] { Lexis.counts(passage) }
+    /// Highlight layers, strongest first: a word carries ONE style (the first layer that is on and applies). Words in `highlightCommon` (web cpack/readings/hl.js COMMON) are never painted, except keywords and phrase members.
+    public static let layers = ["mine", "kw", "link", "awl"]
+    public static func has(_ cls: String, _ w: String, _ ph: String?, _ l: String) -> Bool {
+        let c = Set(cls.split(separator: " ").map(String.init))
+        return l == "link" ? (c.contains("link") || c.contains("col")) : c.contains(l) && (l == "kw" || ph != nil || !SkillsConsts.current.highlightCommon.contains(w))
+    }
+    public func layerOf(_ cls: String, _ w: String, _ ph: String?, on: Set<String>) -> String? { Self.layers.first { on.contains($0) && Self.has(cls, w, ph, $0) } }
+    /// distinct words (by phrase) actually painted per layer while `on` is active: the chip counters
+    public func painted(on: Set<String>) -> [String: Int] {
+        var sets: [String: Set<String>] = [:]
+        for s in sentences { for piece in s { if case .word(_, let w, let cls, let ph) = piece, let k = layerOf(cls, w, ph, on: on) { sets[k, default: []].insert(ph ?? w) } } }
+        return sets.mapValues(\.count)
+    }
+    /// chips with nothing to show (e.g. AWL 0) are hidden
+    public func available(_ l: String) -> Bool { sentences.contains { $0.contains { if case .word(_, let w, let cls, let ph) = $0 { return Self.has(cls, w, ph, l) }; return false } } }
     public var paragraphs: Int { passage.count }
     public var sentences: [[Lexis.Piece]] { passage.flatMap { $0 } }
     public var words: Int { sentences.reduce(0) { $0 + $1.filter(\.isWord).count } }

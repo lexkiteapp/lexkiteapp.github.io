@@ -1,0 +1,163 @@
+{
+ "id": "t2a_rule_silentgue_1",
+ "template": "rule",
+ "series": "Spell to Sound",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "pronunciation",
+ "lines": [
+  {
+   "id": "h",
+   "text": "The U E is silent!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "At the end, g u e, the U E is silent.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Colleague.",
+   "pause": 0.25,
+   "speed": 0.6
+  },
+  {
+   "id": "v0",
+   "text": "Colleague.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Tongue.",
+   "pause": 0.25,
+   "speed": 0.6
+  },
+  {
+   "id": "v1",
+   "text": "Tongue.",
+   "pause": 0.3
+  },
+  {
+   "id": "p",
+   "text": "Repeat after me!",
+   "pause": 1.6
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which letter is silent in tongue?",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "U E! The U E is silent.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "rule": "silent-gue",
+  "title": "-gue",
+  "target": "/ɡ/",
+  "letter": "ue",
+  "say": "At the end, g u e, the U E is silent.",
+  "words": [
+   {
+    "w": "colleague",
+    "ipa": "/ˈkɑːliːɡ/",
+    "silent": [
+     7,
+     9
+    ],
+    "letter": "ue",
+    "mean": "Someone who works with you.",
+    "em": "👥"
+   },
+   {
+    "w": "tongue",
+    "ipa": "/tʌŋ/",
+    "silent": [
+     4,
+     6
+    ],
+    "letter": "ue",
+    "mean": "Part of the mouth that tastes food and is used for speaking.",
+    "em": "👅"
+   }
+  ],
+  "quiz": {
+   "stem": "Which letter is silent in tongue?",
+   "options": [
+    "T",
+    "UE"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "pronunciation",
+  "route": "#/pron/colleague",
+  "link": "https://lexkite.com/app/#/pron/colleague",
+  "say": "Practise this sound"
+ },
+ "hook": {
+  "line": "h",
+  "text": "The U E is silent"
+ },
+ "src": {
+  "rule": "silent-gue"
+ },
+ "est": {
+  "words": 44,
+  "seconds": 28.1,
+  "wpm": 94
+ },
+ "publish": {
+  "title": "The U E is silent!",
+  "keyword": "Spell to Sound",
+  "value": "At the end, g u e, the U E is silent.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#pronunciation",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/pron/colleague",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "The U E is silent!",
+    "description": "At the end, g u e, the U E is silent.\n\nPractise this sound, free: https://lexkite.com/app/#/pron/colleague\n\nSeries: Spell to Sound · Teacher: Carlos\n\n#learnenglish #englishtips #pronunciation #englishteacher",
+    "tags": [
+     "Spell to Sound",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "The U E is silent!\n\nAt the end, g u e, the U E is silent.\n\nPractise this sound, free: https://lexkite.com/app/#/pron/colleague"
+   },
+   "instagram": {
+    "caption": "The U E is silent!\n\nAt the end, g u e, the U E is silent.\n\nPractise this sound: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#pronunciation",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "The U E is silent! #learnenglish #englishtips #pronunciation"
+   }
+  },
+  "first_comment": "Quiz answer: U E! The U E is silent. At the end, g u e, the U E is silent. Practice it with a free quiz: {link}"
+ }
+}

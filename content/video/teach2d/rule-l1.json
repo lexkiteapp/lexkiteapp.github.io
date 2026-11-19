@@ -1,0 +1,129 @@
+{
+ "_note": "Hook + mẹo bản địa cho series Spell→Sound (docs/specs/spell-sound.md bước 3): MỘT mẫu mỗi ngôn ngữ, điền {wrong} (cách đọc sai theo từng chữ, rules.json) / {show} (cụm chữ) / {silent} (chữ câm) – bảng tay tầng i18n-fixed (docs/I18N-PIPELINE.md), en = gốc. Kiểm bằng scripts/video/teach2d/rule-l1-qa.mjs (+ dịch ngược gtx khi --online). Xưng hô: de = Sie, fr = vous, es = tú.",
+ "show": {
+  "silent-kn": "kn",
+  "silent-wr": "wr",
+  "silent-gn": "gn",
+  "silent-mb": "mb",
+  "silent-ps": "ps",
+  "silent-ght": "ght",
+  "silent-h": "h",
+  "silent-l": "alk, alm",
+  "silent-bt": "bt",
+  "silent-t": "stle, sten",
+  "silent-igh": "igh",
+  "silent-eigh": "eigh",
+  "silent-ough": "ough",
+  "silent-wh": "wh",
+  "silent-mn": "mn",
+  "silent-sc": "sc",
+  "silent-gu": "gu",
+  "silent-hex": "exh",
+  "silent-rh": "rh",
+  "silent-ould": "ould",
+  "silent-chk": "ch",
+  "silent-gue": "gue",
+  "silent-que": "que",
+  "silent-e": "-e",
+  "silent-isl": "isl",
+  "silent-ver": "ver",
+  "silent-ally": "ically",
+  "silent-ely": "ely",
+  "silent-ement": "ement",
+  "silent-ng": "ng"
+ },
+ "silent": {
+  "silent-kn": "K",
+  "silent-wr": "W",
+  "silent-gn": "G",
+  "silent-mb": "B",
+  "silent-ps": "P",
+  "silent-ght": "GH",
+  "silent-h": "H",
+  "silent-l": "L",
+  "silent-bt": "B",
+  "silent-t": "T",
+  "silent-igh": "GH",
+  "silent-eigh": "GH",
+  "silent-ough": "GH",
+  "silent-wh": "W",
+  "silent-mn": "N",
+  "silent-sc": "C",
+  "silent-gu": "U",
+  "silent-hex": "H",
+  "silent-rh": "H",
+  "silent-ould": "L",
+  "silent-chk": "H",
+  "silent-gue": "UE",
+  "silent-que": "UE",
+  "silent-e": "E",
+  "silent-isl": "S",
+  "silent-ver": "E",
+  "silent-ally": "A",
+  "silent-ely": "E",
+  "silent-ement": "E",
+  "silent-ng": "G"
+ },
+ "langs": {
+  "vi": {
+   "hook": "Bạn có đọc “{wrong}” không?",
+   "tip": "Trong “{show}”, chữ {silent} là âm câm – không đọc nó. Nghe rồi lặp lại nhé!"
+  },
+  "es": {
+   "hook": "¿Lees “{wrong}” así?",
+   "tip": "En “{show}”, la letra {silent} es muda: no se pronuncia. ¡Escucha y repite!"
+  },
+  "pt": {
+   "hook": "Você lê “{wrong}” assim?",
+   "tip": "Em “{show}”, a letra {silent} é muda: não se pronuncia. Ouça e repita!"
+  },
+  "fr": {
+   "hook": "Lisez-vous “{wrong}” ?",
+   "tip": "Dans “{show}”, la lettre {silent} est muette : on ne la prononce pas. Écoutez et répétez !"
+  },
+  "de": {
+   "hook": "Sagen Sie “{wrong}”?",
+   "tip": "In “{show}” ist der Buchstabe {silent} stumm – man spricht ihn nicht. Hören Sie zu und sprechen Sie nach!"
+  },
+  "ru": {
+   "hook": "Вы читаете “{wrong}” так?",
+   "tip": "В “{show}” буква {silent} немая – её не произносят. Послушайте и повторите!"
+  },
+  "tr": {
+   "hook": "“{wrong}” diye mi okuyorsun?",
+   "tip": "“{show}” içinde {silent} harfi sessizdir, okunmaz. Dinle ve tekrar et!"
+  },
+  "ar": {
+   "hook": "هل تقرأ “{wrong}” هكذا؟",
+   "tip": "في “{show}” حرف {silent} صامت ولا يُنطق. استمع وكرّر!"
+  },
+  "hi": {
+   "hook": "आप “{wrong}” ऐसे पढ़ते हैं?",
+   "tip": "“{show}” में अक्षर {silent} मौन है, उसे नहीं बोलते। सुनिए और दोहराइए!"
+  },
+  "th": {
+   "hook": "คุณอ่าน “{wrong}” ใช่ไหม?",
+   "tip": "ใน “{show}” ตัว {silent} เป็นตัวไม่ออกเสียง ไม่ต้องอ่าน ฟังแล้วพูดตาม!"
+  },
+  "zh": {
+   "hook": "你是不是读成“{wrong}”？",
+   "tip": "“{show}”里的字母 {silent} 不发音。听一听，跟着读！"
+  },
+  "ja": {
+   "hook": "「{wrong}」と読んでいませんか？",
+   "tip": "「{show}」の {silent} は発音しない黙字です。聞いてまねしよう！"
+  },
+  "ko": {
+   "hook": "“{wrong}”라고 읽고 있나요?",
+   "tip": "“{show}”에서 {silent}는 소리 나지 않는 묵음이에요. 듣고 따라 해요!"
+  },
+  "id": {
+   "hook": "Kamu membaca “{wrong}”?",
+   "tip": "Di “{show}”, huruf {silent} tidak diucapkan. Dengarkan dan ulangi!"
+  },
+  "en": {
+   "hook": "Do you read “{wrong}” like that?",
+   "tip": "In “{show}”, the letter {silent} is silent: do not say it. Listen and repeat!"
+  }
+ }
+}
