@@ -173,6 +173,8 @@ if o.video:
         crop = im[hx[1]:hx[3], hx[0]:hx[2]].astype(int); diff = (np.abs(crop - bgc).sum(2) > 60).mean(); hostvis.append(round(float(diff), 3))
         if im.std() < 4: blank.append(i)
     gate('frames', min(hostvis) > 0.12 and not blank, 3, host_cover_min=min(hostvis), host_missing_s=[i / 4 for i, x in enumerate(hostvis) if x <= 0.12][:6], blank=blank)   # 4 samples / s
+    from dead_band import check as _dead_band   # owner 19/11: no flat empty band >= 8 % of the frame height (scripts/video/tpl/dead_band.py), short + wide
+    _db = _dead_band(im.astype(np.float32).mean(2) for im in fr); gate('dead_band', _db['ok'], 3, **{k: v for k, v in _db.items() if k != 'ok'})
     if o.sheet:   # contact sheet: one frame per line (middle), for the review sheet
         ts = [round((x['t0'] + x['t1']) / 2, 2) for x in L.values()]
         sel = '+'.join(f'between(t\\,{t - 0.02}\\,{t + 0.02})' for t in ts)
