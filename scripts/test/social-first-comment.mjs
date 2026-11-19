@@ -138,7 +138,7 @@ ok(h1 !== h2, 'bình luận đầu nằm trong dấu băm duyệt: sửa bình l
 // tự duyệt: đã có 1 bài FB duyệt tay KHÔNG bình luận → bài CÓ bình luận vẫn chờ duyệt tay (bài đầu mỗi nền tảng)
 sql.prepare("INSERT INTO soc_board (id, post_id, clip, accounts, plats, state, approved_by, approved_at, created, updated, by_who) VALUES ('b_old', 'p_old', 'old', '[\"2\"]', '[\"facebook_page\"]', 'published', 'boss@lexkite.com', ?, ?, ?, 'boss@lexkite.com')").run(now, now, now);
 setCfg({ auto_approve: true, autopub: { facebook_page: true, instagram: true, tiktok: true, youtube: true, threads: true }, manual_first: 1 });
-due(CB, 'gc-facebook_page-2', 6); due(CB, 'gc-facebook_page-5', 7);
+due(CB, 'gc-facebook_page-2', 6); due(CB, 'gc-facebook_page-5', 30); // +30h: kênh 5 đã có bài CA ở +5h – sổ cái 1 bài/kênh/ngày buộc khác ngày
 calls = []; r = await A.runAuto(ENV, { now: now + 60e3 });
 const pb = post(CB, 2), pb5 = post(CB, 5);
 ok(pb && pb.status === 'draft' && pb.targets[0].options.first_comment && pb5 && pb5.status === 'scheduled', `tự duyệt: bài FB có bình luận chờ duyệt TAY (chưa có bài có bình luận nào duyệt tay); bài không bình luận tự lên lịch (FB ${pb && pb.status}, FB5 ${pb5 && pb5.status})`);
