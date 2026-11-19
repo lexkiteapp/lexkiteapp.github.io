@@ -56,6 +56,7 @@ jobs:
           # 16/11: gtx (dịch ngược miễn phí) đổi bản dịch giữa các lần chạy → hàng sát ngưỡng lúc đạt lúc trượt, đỏ cả PR không đụng hàng đó (t2_l1_ja_hard). PR: dịch ngược online CHỈ hàng PR thêm/sửa (kiểm tĩnh vẫn mọi hàng); main/dispatch + lịch đêm (native-qa-nightly.yml) chạy đủ.
           QA_SCOPE=""; B="${BASE:-main}"; if { [ "$EV" = pull_request ] || [ "$EV" = workflow_dispatch ]; } && git fetch -q --depth=1 origin "$B"; then QA_SCOPE="--online-changed=origin/$B"; fi   # 19/11: dispatch dịch ngược cả ~1750 hàng = 19,6 phút > trần 20 phút (run 44445334700 bị huỷ) → cũng chỉ hàng đổi so với main; cổng tĩnh vẫn chạy mọi hàng; cron/schedule vẫn dịch ngược hết
           run qa    node scripts/video/teach2d/native-qa.mjs --online $QA_SCOPE   # clip L1 (docs/VIDEO-TEACH2D.md): chữ bản địa theo i18n-qa + dịch ngược; đỏ = không render
+          run rl1   node scripts/video/teach2d/rule-l1-qa.mjs   # Spell→Sound hook + mẹo bản địa 14 ngôn ngữ × mọi luật (static; --online ở native-qa-nightly)
           run pub   python3 scripts/video/teach2d/publish.py --check   # publish block of every episode (title / platforms) valid – docs/specs/video-production-v2.md §2
           bad=0; for i in "${!pids[@]}"; do if wait "${pids[$i]}"; then echo "✓ ${names[$i]}"; else echo "::error::✗ ${names[$i]}"; bad=1; fi; echo "::group::log ${names[$i]}"; cat "/tmp/pq-${names[$i]}.log"; echo "::endgroup::"; done
           [ "$bad" = 0 ] || exit 1

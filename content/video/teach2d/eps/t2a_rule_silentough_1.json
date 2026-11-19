@@ -1,0 +1,141 @@
+{
+ "id": "t2a_rule_silentough_1",
+ "template": "rule",
+ "series": "Spell to Sound",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "pronunciation",
+ "lines": [
+  {
+   "id": "h",
+   "text": "The G H is silent!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "In o u g h, the G H can be silent. Do not say it.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Through.",
+   "pause": 0.25,
+   "speed": 0.6
+  },
+  {
+   "id": "v0",
+   "text": "Through.",
+   "pause": 0.3
+  },
+  {
+   "id": "p",
+   "text": "Repeat after me!",
+   "pause": 1.6
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which letter is silent in through?",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "G H! The G H is silent.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "rule": "silent-ough",
+  "title": "-ough",
+  "target": "no GH sound",
+  "letter": "gh",
+  "say": "In o u g h, the G H can be silent. Do not say it.",
+  "words": [
+   {
+    "w": "through",
+    "ipa": "/θruː/",
+    "silent": [
+     5,
+     7
+    ],
+    "letter": "gh",
+    "mean": "From one end or side of something to the other end or side.",
+    "em": "➡️"
+   }
+  ],
+  "quiz": {
+   "stem": "Which letter is silent in through?",
+   "options": [
+    "GH",
+    "T"
+   ],
+   "answer": 0
+  }
+ },
+ "cta": {
+  "area": "pronunciation",
+  "route": "#/pron/through",
+  "link": "https://lexkite.com/app/#/pron/through",
+  "say": "Practise this sound"
+ },
+ "hook": {
+  "line": "h",
+  "text": "The G H is silent"
+ },
+ "src": {
+  "rule": "silent-ough"
+ },
+ "est": {
+  "words": 46,
+  "seconds": 28.5,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "The G H is silent!",
+  "keyword": "Spell to Sound",
+  "value": "In o u g h, the G H can be silent. Do not say it.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#pronunciation",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/pron/through",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "The G H is silent!",
+    "description": "In o u g h, the G H can be silent. Do not say it.\n\nPractise this sound, free: https://lexkite.com/app/#/pron/through\n\nSeries: Spell to Sound · Teacher: Ama\n\n#learnenglish #englishtips #pronunciation #englishteacher",
+    "tags": [
+     "Spell to Sound",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "The G H is silent!\n\nIn o u g h, the G H can be silent. Do not say it.\n\nPractise this sound, free: https://lexkite.com/app/#/pron/through"
+   },
+   "instagram": {
+    "caption": "The G H is silent!\n\nIn o u g h, the G H can be silent. Do not say it.\n\nPractise this sound: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#pronunciation",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "The G H is silent! #learnenglish #englishtips #pronunciation"
+   }
+  },
+  "first_comment": "Quiz answer: G H! The G H is silent. In o u g h, the G H can be silent. Do not say it. Practice it with a free quiz: {link}"
+ }
+}
