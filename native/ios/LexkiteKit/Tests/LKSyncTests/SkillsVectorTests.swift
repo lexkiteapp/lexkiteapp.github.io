@@ -617,8 +617,10 @@ final class SkillsVectorTests: XCTestCase {
             r.eq(ReadingList.summary(rd, learnLang: "vi").1.rawValue, o.s("summaryKind"), "\(id) summary kind")
             r.eq(ReaderPage.highlights(.object([:])), o.list("highlightChips").filter { $0["on"] == JSON.bool(true) }.map { $0.s("k") }, "\(id) chips")
             r.eq(ReaderPage.highlights(.object([:])).map { "hl-" + $0 }, strs(o["passageClasses"]), "\(id) passage classes")
-            let counts = page.counts
-            r.eq([counts["kw"] ?? -1, counts["awl"] ?? -1, counts["link"] ?? -1, counts["mine"] ?? -1], ["kw", "awl", "link", "mine"].map { o["counts"]?.i($0) ?? -2 }, "\(id) counts")
+            let hlOn = Set(ReaderPage.highlights(.object([:]))), counts = page.painted(on: hlOn), all = page.painted(on: Set(ReaderPage.layers))
+            r.eq(["kw", "awl", "link", "mine"].map { counts[$0].map(String.init) ?? "" }, ["kw", "awl", "link", "mine"].map { o["counts"]?[$0]?.jsToString ?? "?" }, "\(id) counts")
+            r.eq(["kw", "awl", "link", "mine"].map { all[$0] ?? 0 }, ["kw", "awl", "link", "mine"].map { o["layers"]?["counts"]?.i($0) ?? -2 }, "\(id) layer counts")
+            r.eq(["kw", "awl", "link", "mine"].map { page.available($0) }, ["kw", "awl", "link", "mine"].map { o["layers"]?["available"]?[$0] == JSON.bool(true) }, "\(id) layers available")
             r.eq([page.paragraphs, page.sentences.count, page.words, rd.list("questions").count, page.keywords.count], ["paragraphs", "sentences", "words", "questions", "keywordChips"].map { o.i($0) }, "\(id) sizes")
             if let ps = o["passage"] { r.diff(.array(page.passage.map { .array($0.map { pieces($0) }) }), ps, "\(id) passage tokens") }
         }
@@ -627,8 +629,8 @@ final class SkillsVectorTests: XCTestCase {
             await popupCase(c, V: V, title: title, &r)
             // after the save every token of the word is "mine" and the counters follow
             if let after = c["out"]?["save"]?["countsAfter"], let rd = D.reading(c["input"]?.s("reading") ?? "") {
-                let w = c["input"]?.s("word") ?? "", page = ReaderPage(rd, lexis: lx, inDeck: { $0 == w }), cn = page.counts
-                r.eq([cn["kw"] ?? -1, cn["awl"] ?? -1, cn["link"] ?? -1, cn["mine"] ?? -1], ["kw", "awl", "link", "mine"].map { after.i($0) }, "\(c.s("id")) counts after save")
+                let w = c["input"]?.s("word") ?? "", page = ReaderPage(rd, lexis: lx, inDeck: { $0 == w }), cn = page.painted(on: Set(ReaderPage.highlights(.object([:]))))
+                r.eq(["kw", "awl", "link", "mine"].map { cn[$0].map(String.init) ?? "" }, ["kw", "awl", "link", "mine"].map { after[$0]?.jsToString ?? "?" }, "\(c.s("id")) counts after save")
             }
         }
         for c in R_.list("questions") {
@@ -659,7 +661,7 @@ final class SkillsVectorTests: XCTestCase {
                 var on = i.s("start").split(separator: " ").map(String.init)
                 for (k, step) in o.list("steps").enumerated() {
                     on = ReaderPage.toggled(on, strs(i["toggles"])[k])
-                    r.eq(on.joined(separator: " "), step.s("settings"), "\(id) step \(k) settings"); r.eq(on.map { "hl-" + $0 }, strs(step["passage"]), "\(id) step \(k) classes")
+                    r.eq(on.joined(separator: " "), step.s("settings"), "\(id) step \(k) settings"); r.eq(on.map { "hl-" + $0 }.sorted(), strs(step["passage"]), "\(id) step \(k) classes") // the web vector lists the classes sorted
                 }
             case "save-all-keywords":
                 let page = ReaderPage(rd, lexis: lx, inDeck: { _ in false }), inDeck = Set(strs(i["alreadyInDeck"]))

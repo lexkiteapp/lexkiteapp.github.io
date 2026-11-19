@@ -104,5 +104,5 @@
     return { words: words.length, sentences: sents.length, avg, sd, diversity, awl, link, topics, phrases, overused, awlRatio, band, lens };
   }
 
-  g.Lexis = { classify, markText, markSentence, analyze, bases, AWL, LINK };
+  g.Lexis = { classify, markText, markSentence, analyze, bases, AWL, LINK, STOP };
 })(typeof self !== 'undefined' ? self : this);

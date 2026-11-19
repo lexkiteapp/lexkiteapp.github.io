@@ -1,0 +1,173 @@
+{
+ "id": "t2a_roots_lect_2",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, two words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "The root is Lect! Legend, neglect.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Lect is Latin for gather or choose.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Legend: a story to be read.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Neglect: not plus gather.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means not plus gather?",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Neglect! Not plus gather.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "LECT",
+  "rid": "lect",
+  "say": "gather or choose",
+  "src": "legere",
+  "src_lang": "Latin",
+  "src_mean": "to gather, to read, to choose",
+  "words": [
+   {
+    "w": "legend",
+    "ipa": "/ˈledʒənd/",
+    "mean": "a story to be read",
+    "seg": "leg|-end",
+    "parts": [
+     [
+      "leg",
+      "root"
+     ],
+     [
+      "end",
+      "suf"
+     ]
+    ],
+    "pre": null,
+    "pm": null,
+    "pms": null,
+    "ex": "According to legend, a dragon lived in the lake.",
+    "em": ""
+   },
+   {
+    "w": "neglect",
+    "ipa": "/nəˈɡlekt/",
+    "mean": "not gather, to ignore",
+    "seg": "neg-|lect",
+    "parts": [
+     [
+      "neg",
+      "pre"
+     ],
+     [
+      "lect",
+      "root"
+     ]
+    ],
+    "pre": "neg",
+    "pm": "not",
+    "pms": "not",
+    "ex": "Don't neglect your health when you are busy.",
+    "em": "🥀"
+   }
+  ],
+  "quiz": {
+   "stem": "not plus gather",
+   "options": [
+    "legend",
+    "neglect"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/legend",
+  "link": "https://lexkite.com/app/#/dict/legend",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, two words"
+ },
+ "src": {
+  "root": "lect"
+ },
+ "est": {
+  "words": 44,
+  "seconds": 26.3,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "Lect root: legend and neglect",
+  "keyword": "lect root",
+  "value": "Lect comes from Latin \"legere\" (to gather, to read, to choose). Words: legend and neglect. neglect = neg + lect.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/legend",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "Lect root: legend and neglect",
+    "description": "Lect comes from Latin \"legere\" (to gather, to read, to choose). Words: legend and neglect. neglect = neg + lect.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/legend\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "lect root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Lect root: legend and neglect\n\nLect comes from Latin \"legere\" (to gather, to read, to choose). Words: legend and neglect. neglect = neg + lect.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/legend"
+   },
+   "instagram": {
+    "caption": "Lect root: legend and neglect\n\nLect comes from Latin \"legere\" (to gather, to read, to choose). Words: legend and neglect. neglect = neg + lect.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Lect root: legend and neglect #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: Neglect! Not plus gather. Lect comes from Latin \"legere\" (to gather, to read, to choose). Words: legend and neglect. neglect = neg + lect. Try the full lesson and quiz here: {link}"
+ }
+}

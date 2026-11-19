@@ -1,0 +1,173 @@
+{
+ "id": "t2a_roots_mov_3",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, two words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "The root is Mov! Mobile, motivate.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Mov is Latin for move.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Mobile: able to move.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Motivate: give a reason to move.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means give a reason to move?",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Motivate! It means give a reason to move.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "MOV",
+  "rid": "mov",
+  "say": "move",
+  "src": "movere",
+  "src_lang": "Latin",
+  "src_mean": "to move",
+  "words": [
+   {
+    "w": "mobile",
+    "ipa": "/ˈmoʊbl/",
+    "mean": "able to move",
+    "seg": "mob|-ile",
+    "parts": [
+     [
+      "mob",
+      "root"
+     ],
+     [
+      "ile",
+      "suf"
+     ]
+    ],
+    "pre": null,
+    "pm": null,
+    "pms": null,
+    "ex": "Please switch your mobile phone to silent.",
+    "em": "📱"
+   },
+   {
+    "w": "motivate",
+    "ipa": "/ˈmoʊtəveɪt/",
+    "mean": "give a reason to move",
+    "seg": "mot|-ivate",
+    "parts": [
+     [
+      "mot",
+      "root"
+     ],
+     [
+      "ivate",
+      "suf"
+     ]
+    ],
+    "pre": null,
+    "pm": null,
+    "pms": null,
+    "ex": "A good teacher knows how to motivate students.",
+    "em": "🔥"
+   }
+  ],
+  "quiz": {
+   "stem": "give a reason to move",
+   "options": [
+    "mobile",
+    "motivate"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/mobile",
+  "link": "https://lexkite.com/app/#/dict/mobile",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, two words"
+ },
+ "src": {
+  "root": "mov"
+ },
+ "est": {
+  "words": 48,
+  "seconds": 28.3,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "Mov root: mobile and motivate",
+  "keyword": "mov root",
+  "value": "Mov comes from Latin \"movere\" (to move). Words: mobile and motivate.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/mobile",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "Mov root: mobile and motivate",
+    "description": "Mov comes from Latin \"movere\" (to move). Words: mobile and motivate.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/mobile\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "mov root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Mov root: mobile and motivate\n\nMov comes from Latin \"movere\" (to move). Words: mobile and motivate.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/mobile"
+   },
+   "instagram": {
+    "caption": "Mov root: mobile and motivate\n\nMov comes from Latin \"movere\" (to move). Words: mobile and motivate.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Mov root: mobile and motivate #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? Motivate! It means give a reason to move. Mov comes from Latin \"movere\" (to move). Words: mobile and motivate. More practice like this (free): {link}"
+ }
+}
