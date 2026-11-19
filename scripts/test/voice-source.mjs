@@ -4,6 +4,9 @@ import assert from 'node:assert/strict'; import fs from 'node:fs'; import { crea
 const A = createRequire(import.meta.url)('../../web/js/audio.js');
 A.src('f'); A.src('f'); A.src('k'); A.src('s', 'wait'); A.src('s', 'bogus'); A.src('x');
 assert.deepEqual({ ...A.vo }, { f: 2, k: 1, s: 2, s_wait: 1 }, 'đếm f/k/s + lý do hợp lệ; nguồn/lý do lạ bị bỏ');
+A.src('s', 'off', 'ios', true); A.src('s', 'off', 'bogus'); A.src('f', 'off', 'ios', true);
+assert.deepEqual({ ...A.vo }, { f: 3, k: 1, s: 4, s_wait: 1, s_off: 2, s_off_ios: 1, s_part: 1 }, 'nhãn con của off + part chỉ đếm cho giọng máy; nhãn lạ bị bỏ');
+A.vo.f = 2; A.vo.s = 2; delete A.vo.s_off; delete A.vo.s_off_ios; delete A.vo.s_part;
 assert.equal(A.sysRate(A.vo), 0.4, 'tỷ lệ giọng máy = s/(f+k+s)');
 assert.equal(A.sysRate({}), 0, 'chưa phát gì → 0');
 const { voRows, VO_KEYS } = await import('../../functions/api/hit.js');
