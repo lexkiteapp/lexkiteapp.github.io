@@ -455,6 +455,30 @@ def rule(p):   # Spell->Sound: ONE rule, 2-3 real words. Hook -> the rule -> eac
 
 T['rule'] = rule; SERIES['rule'] = 'Spell to Sound'
 
+BANDS_F = f'{ROOT}/content/video/teach2d/bands.json'
+_BJ = None
+def bands_bank():
+    global _BJ
+    if _BJ is None: _BJ = json.load(open(BANDS_F))
+    return _BJ
+
+
+def band(p):   # Band 5 -> 7 -> 9: ONE idea said three ways (bands.json). Hook -> the band-5 sentence -> band 7 + why -> band 9 + why -> CTA. The reason lines name the IELTS criterion the upgrade earns.
+    B = bands_bank(); T_ = next((t for t in B['topics'] if t['id'] == p['topic']), None); assert T_, ('topic not in bands.json', p['topic'])
+    st = T_['steps']; assert [x['band'] for x in st] == [5, 7, 9], ('three bands 5 / 7 / 9', p['topic'])
+    lines = [L('h', 'Same idea, band five to nine!', 0.3)]
+    for x in st:
+        lines.append(L(f"s{x['band']}", x['text'], 0.3))
+        if x['band'] > 5: lines.append(L(f"w{x['band']}", B['reasons'][x['why']]['en'], 0.3))
+    lines.append(L('c', 'Save this. Free on lexkite.com.'))
+    area = 'writing-ielts' if T_['skill'] == 'writing' else 'speaking'
+    return dict(lines=lines, data=dict(topic=T_['id'], skill=T_['skill'], steps=[dict(x, **({'crit': B['reasons'][x['why']]['criterion']} if x['band'] > 5 else {})) for x in st]),
+                cta=cta(area, '#/write' if area == 'writing-ielts' else '#/speaking', 'Try an IELTS model answer' if area == 'writing-ielts' else 'Practise IELTS speaking'),
+                hook=dict(line='h', text='Same idea, band five to nine'), src=dict(band=T_['id']))
+
+
+T['band'] = band; SERIES['band'] = 'Band 5 to 9'
+
 T['l1'] = l1; SERIES['l1'] = 'Stop Saying This'
 T['react'] = react; SERIES['react'] = 'Say it like a native'   # 9:16 reaction-card short (owner OK Stitch brand/stitch/say/video-frame 31/10)
 
@@ -732,6 +756,16 @@ def data_gate(row, F=None):   # facts in the row == live sources; returns the li
             if not (b.get('ipa') and b.get('def')): bad.append(f'{w} not in the audited bank')
             elif R and RU.check(R, w, b['ipa']) is None: bad.append(f"{w}: the IPA {b['ipa']} does not show the rule")
             if w in TOPIC_SKIP: bad.append(f'{w} not family-safe')
+    elif t == 'band':   # Band 5->7->9: the topic is in bands.json, bands 5 / 7 / 9 in order, every upgrade mark inside its sentence, every reason known, three different sentences
+        B = bands_bank(); T_ = next((x for x in B['topics'] if x['id'] == p['topic']), None)
+        if not T_: bad.append('topic not in bands.json')
+        else:
+            st = T_['steps']
+            if [x['band'] for x in st] != [5, 7, 9] or len({x['text'] for x in st}) != 3: bad.append('bands 5 / 7 / 9 must be three different sentences')
+            for x in st[1:]:
+                if x.get('mark', '\0') not in x['text']: bad.append(f"band {x['band']}: the mark is not in the sentence")
+                if x.get('why') not in B['reasons']: bad.append(f"band {x['band']}: unknown reason")
+            if not all(len(x['text'].split()) <= 14 for x in st): bad.append('a sentence is longer than 14 words')
     elif t in ('mistake', 'phrasal'):   # hand-written rows (hand.json): the gold-bank row is the audited fact
         g = GOLD.get(p['gold']) or {}
         if not g: bad.append('gold row gone')
@@ -760,6 +794,7 @@ def hook_gate(row, ep):   # the on-screen hook is a true claim about these facts
     ok = len(words(hk)) <= 6 and len(words(ep['lines'][0]['text'])) <= 7
     if t == 'verbs': ok = ok and hk == f"{p['base']} · {p['P']} · {p['PP']}"
     if t == 'stress': ok = ok and p['a']['stress'] != p['b']['stress']
+    if t == 'band': ok = ok and hk == 'Same idea, band five to nine'
     if t == 'rule': ok = ok and hk == f"The {' '.join(p_letter(row))} is silent"
     if t == 'usuk': ok = ok and p['us'] != p['uk'] and p['ipa_us'] != p['ipa_uk']
     return ok
@@ -1022,6 +1057,43 @@ def plan_rules(n):   # first lessons of every rule first (variety), then the sec
     for k, v in why.items(): print(f'  skipped {k}: {len(v)} {v[:4]}')
 
 
+BAND_BIAS, BAND_MAX = 0.9, 27.0   # same calibration as rule / roots (real shorts ~0.9 s over short_secs; QC ceiling 28 s)
+BAND_REVIEWER = 'gen.py --band-eps gates v1 (bands.json sentences == the row · mark inside its sentence · known reason · <= 14 words a sentence · spoken frame level <= B1 NGSL except the taught upgrade words · hook true · no duplicate topic)'
+def band_secs(ep): return short_secs(ep) + BAND_BIAS
+
+
+def band_taught(T_): return [w for x in T_['steps'][1:] for w in re.findall(r"[A-Za-z']+", x['text'])]   # the upgraded sentences are the lesson: their words are exempt from the level gate
+
+
+def plan_bands(n):   # one episode per bands.json topic, writing and speaking alternating; n = how many new rows
+    F = facts(); A = load_auto(); R_ = json.load(open(REV_F)); rows = A['rows']; why = {}; have = {r['id'] for r in rows}; used_h = {r['hash'] for r in rows}; ok = []
+    def skip(k, r): why.setdefault(k, []).append(r)
+    for T_ in bands_bank()['topics']:
+        if len(ok) >= n: break
+        rid = f"t2a_band_{re.sub('[^a-z0-9]', '', T_['id'])}_1"
+        if rid in have: continue
+        row = dict(id=rid, template='band', teacher='ama' if (len(rows) + len(ok)) % 2 == 0 else 'carlos', theme='dusk', area='writing-ielts' if T_['skill'] == 'writing' else 'speaking', point=f"band:{T_['id']}",
+                   hash=chash('band', T_['id']), heads=[f"band:{T_['id']}"], taught=band_taught(T_), **{'in': dict(topic=T_['id'])})
+        if row['hash'] in used_h: skip('dup', rid); continue
+        if data_gate(row, F): skip('data:' + ','.join(data_gate(row, F)), rid); continue
+        try: ep = make(row)
+        except AssertionError as e: skip('shape:' + str(e.args[0]), rid); continue
+        if not 18 <= band_secs(ep) <= BAND_MAX: skip(f'duration {band_secs(ep):.1f}', rid); continue
+        if not hook_gate(row, ep): skip('hook', rid); continue
+        ok.append([row, ep, taught_re(row['taught']).sub(' ', ' '.join(l['text'] for l in ep['lines']))])
+    for x, un in zip(ok, unknown([x[2] for x in ok])): x[2] = [u for u in un if u.lower() not in FRAME | {'band', 'five', 'nine', 'idea'} and not lvl_ok(u, F)]
+    new = []
+    for row, ep, un in ok:
+        if un: skip('level:' + ','.join(un), row['id']); continue
+        rows.append(row); new.append(row)
+        R_['verdicts'][row['id']] = dict(template='band', hook=ep['hook']['text'], hook_true=True, script_reviewed=True, reviewer=BAND_REVIEWER, machine=True,
+                                         gates=dict(data=True, level=True, hook=True, dup=True), hash=row['hash'], script={l['id']: l['text'] for l in ep['lines']})
+    json.dump(A, open(AUTO_F, 'w'), indent=1, ensure_ascii=False); open(AUTO_F, 'a').write('\n')
+    json.dump(R_, open(REV_F, 'w'), indent=1, ensure_ascii=False); open(REV_F, 'a').write('\n')
+    print(f"band: +{len(new)} rows, total {len(rows)}")
+    for k, v in why.items(): print(f'  skipped {k}: {len(v)} {v[:6]}')
+
+
 def pilot_point(r):
     p = r['in']; return dict(usuk=lambda: f"{p.get('us')}/{p.get('uk')}", verbs=lambda: p.get('base'), stress=lambda: f"{p['a']['word']}/{p['b']['word']}" if 'a' in p else '',
                              guess=lambda: p.get('word'), review=lambda: p.get('word')).get(r['template'], lambda: r['id'])()
@@ -1058,6 +1130,7 @@ if __name__ == '__main__':
     if '--plan' in A_: plan(int(A_[A_.index('--plan') + 1])); sys.exit(0)
     if '--hand' in A_: plan_hand(); sys.exit(0)
     if '--roots' in A_: plan_roots(); sys.exit(0)
+    if '--band-eps' in A_: plan_bands(int(A_[A_.index('--band-eps') + 1])); sys.exit(0)
     if '--rule-eps' in A_: plan_rules(int(A_[A_.index('--rule-eps') + 1])); sys.exit(0)
     if '--rules' in A_:   # Spell->Sound word mining (rules.py): rules-words.json regenerates identically (--check) or is rewritten
         import rules as RU; F_ = facts(); W_ = sorted(F_['words']); U_ = set(W_) - {w for w, u in zip(W_, unknown(W_)) if u}
@@ -1068,7 +1141,7 @@ if __name__ == '__main__':
         T_ = todo()
         if '--count' in A_:
             print(f'cần render {len(T_)}')
-            if len(T_) < STOCK_MIN: print(f'::warning::Teach2D còn {len(T_)} tập chưa render < {STOCK_MIN} (7 ngày x 15 kênh x 1 video/ngày): thêm hàng (gen.py --plan / --rule-eps / --hand) trước khi hết kho', file=sys.stderr)
+            if len(T_) < STOCK_MIN: print(f'::warning::Teach2D còn {len(T_)} tập chưa render < {STOCK_MIN} (7 ngày x 15 kênh x 1 video/ngày): thêm hàng (gen.py --plan / --rule-eps / --band-eps / --hand) trước khi hết kho', file=sys.stderr)
             sys.exit(0)
         print(json.dumps(T_[:int(A_[A_.index('--take') + 1])] if '--take' in A_ else T_)); sys.exit(0)
     if '--pick' in A_:   # teach-video preqc: explicit ids > next N todo (ci-filler 'shards') > PR smoke (pilots + first auto ep of each template) > pilots

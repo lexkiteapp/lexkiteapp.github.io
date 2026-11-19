@@ -1,0 +1,131 @@
+{
+ "id": "t2a_band_sleep_1",
+ "template": "band",
+ "series": "Band 5 to 9",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "speaking",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Same idea, band five to nine!",
+   "pause": 0.3
+  },
+  {
+   "id": "s5",
+   "text": "Sleep is very important for students.",
+   "pause": 0.3
+  },
+  {
+   "id": "s7",
+   "text": "Adequate sleep is vital for students’ concentration.",
+   "pause": 0.3
+  },
+  {
+   "id": "w7",
+   "text": "A more exact word.",
+   "pause": 0.3
+  },
+  {
+   "id": "s9",
+   "text": "Adequate sleep is vital, since tired students rarely concentrate or remember much.",
+   "pause": 0.3
+  },
+  {
+   "id": "w9",
+   "text": "A linking word adds logic.",
+   "pause": 0.3
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "topic": "sleep",
+  "skill": "speaking",
+  "steps": [
+   {
+    "band": 5,
+    "text": "Sleep is very important for students."
+   },
+   {
+    "band": 7,
+    "text": "Adequate sleep is vital for students’ concentration.",
+    "mark": "Adequate sleep is vital",
+    "why": "precise",
+    "crit": "Lexical Resource"
+   },
+   {
+    "band": 9,
+    "text": "Adequate sleep is vital, since tired students rarely concentrate or remember much.",
+    "mark": "since tired students rarely concentrate or remember much",
+    "why": "link",
+    "crit": "Coherence & Cohesion"
+   }
+  ]
+ },
+ "cta": {
+  "area": "speaking",
+  "route": "#/speaking",
+  "link": "https://lexkite.com/app/#/speaking",
+  "say": "Practise IELTS speaking"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Same idea, band five to nine"
+ },
+ "src": {
+  "band": "sleep"
+ },
+ "est": {
+  "words": 46,
+  "seconds": 24.8,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "IELTS band 5 to 9: Sleep",
+  "keyword": "ielts band 9",
+  "value": "Sleep, three ways. Band 5: Sleep is very important for students. Band 7: Adequate sleep is vital for students’ concentration. Band 9: Adequate sleep is vital, since tired students rarely concentrate or remember much.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#speakenglish",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/speaking",
+  "script_words": 45,
+  "platforms": {
+   "youtube": {
+    "title": "IELTS band 5 to 9: Sleep",
+    "description": "Sleep, three ways. Band 5: Sleep is very important for students. Band 7: Adequate sleep is vital for students’ concentration. Band 9: Adequate sleep is vital, since tired students rarely concentrate or remember much.\n\nPractise IELTS speaking, free: https://lexkite.com/app/#/speaking\n\nSeries: Band 5 to 9 · Teacher: Carlos\n\n#learnenglish #englishtips #speakenglish #englishteacher",
+    "tags": [
+     "ielts band 9",
+     "Band 5 to 9",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "IELTS band 5 to 9: Sleep\n\nSleep, three ways. Band 5: Sleep is very important for students. Band 7: Adequate sleep is vital for students’ concentration. Band 9: Adequate sleep is vital, since tired students rarely concentrate or remember much.\n\nPractise IELTS speaking, free: https://lexkite.com/app/#/speaking"
+   },
+   "instagram": {
+    "caption": "IELTS band 5 to 9: Sleep\n\nSleep, three ways. Band 5: Sleep is very important for students. Band 7: Adequate sleep is vital for students’ concentration. Band 9: Adequate sleep is vital, since tired students rarely concentrate or remember much.\n\nPractise IELTS speaking: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#speakenglish",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "IELTS band 5 to 9: Sleep #learnenglish #englishtips #speakenglish"
+   }
+  },
+  "first_comment": "Quiz answer: Sleep, three ways. Band 5: Sleep is very important for students. Band 7: Adequate sleep is vital for students’ concentration. Band 9: Adequate sleep is vital, since tired students rarely concentrate or remember much. Practice it with a free quiz: {link}"
+ }
+}

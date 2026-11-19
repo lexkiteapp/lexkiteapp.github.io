@@ -617,6 +617,13 @@
    "note": "Word Roots (Goc tu), 109 lessons"
   },
   {
+   "id": "band",
+   "engine": "teach2d",
+   "status": "draft",
+   "spec": "content/video/teach2d/eps/*.json",
+   "note": "Band 5 to 9 (docs/specs/band-upgrade.md), 20/11: no banked clip with QC>=90 yet (bank.json) - the coordinator flips this to approved when the first short + wide pass every qc.py gate"
+  },
+  {
    "id": "rule",
    "engine": "teach2d",
    "status": "approved",

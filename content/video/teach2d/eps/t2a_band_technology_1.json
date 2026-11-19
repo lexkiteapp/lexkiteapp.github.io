@@ -1,0 +1,131 @@
+{
+ "id": "t2a_band_technology_1",
+ "template": "band",
+ "series": "Band 5 to 9",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "writing-ielts",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Same idea, band five to nine!",
+   "pause": 0.3
+  },
+  {
+   "id": "s5",
+   "text": "Technology is good for people.",
+   "pause": 0.3
+  },
+  {
+   "id": "s7",
+   "text": "Technology is beneficial because it eases communication.",
+   "pause": 0.3
+  },
+  {
+   "id": "w7",
+   "text": "A more exact word.",
+   "pause": 0.3
+  },
+  {
+   "id": "s9",
+   "text": "Technology transforms communication, though it can weaken personal ties.",
+   "pause": 0.3
+  },
+  {
+   "id": "w9",
+   "text": "It weighs both sides.",
+   "pause": 0.3
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "topic": "technology",
+  "skill": "writing",
+  "steps": [
+   {
+    "band": 5,
+    "text": "Technology is good for people."
+   },
+   {
+    "band": 7,
+    "text": "Technology is beneficial because it eases communication.",
+    "mark": "beneficial",
+    "why": "precise",
+    "crit": "Lexical Resource"
+   },
+   {
+    "band": 9,
+    "text": "Technology transforms communication, though it can weaken personal ties.",
+    "mark": "though it can weaken personal ties",
+    "why": "balance",
+    "crit": "Task Response"
+   }
+  ]
+ },
+ "cta": {
+  "area": "writing-ielts",
+  "route": "#/write",
+  "link": "https://lexkite.com/app/#/write",
+  "say": "Try an IELTS model answer"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Same idea, band five to nine"
+ },
+ "src": {
+  "band": "technology"
+ },
+ "est": {
+  "words": 41,
+  "seconds": 22.3,
+  "wpm": 110
+ },
+ "publish": {
+  "title": "IELTS band 5 to 9: Technology",
+  "keyword": "ielts band 9",
+  "value": "Technology, three ways. Band 5: Technology is good for people. Band 7: Technology is beneficial because it eases communication. Band 9: Technology transforms communication, though it can weaken personal ties.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#speakenglish",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/write",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "IELTS band 5 to 9: Technology",
+    "description": "Technology, three ways. Band 5: Technology is good for people. Band 7: Technology is beneficial because it eases communication. Band 9: Technology transforms communication, though it can weaken personal ties.\n\nTry an IELTS model answer, free: https://lexkite.com/app/#/write\n\nSeries: Band 5 to 9 · Teacher: Ama\n\n#learnenglish #englishtips #speakenglish #englishteacher",
+    "tags": [
+     "ielts band 9",
+     "Band 5 to 9",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "IELTS band 5 to 9: Technology\n\nTechnology, three ways. Band 5: Technology is good for people. Band 7: Technology is beneficial because it eases communication. Band 9: Technology transforms communication, though it can weaken personal ties.\n\nTry an IELTS model answer, free: https://lexkite.com/app/#/write"
+   },
+   "instagram": {
+    "caption": "IELTS band 5 to 9: Technology\n\nTechnology, three ways. Band 5: Technology is good for people. Band 7: Technology is beneficial because it eases communication. Band 9: Technology transforms communication, though it can weaken personal ties.\n\nTry an IELTS model answer: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#speakenglish",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "IELTS band 5 to 9: Technology #learnenglish #englishtips #speakenglish"
+   }
+  },
+  "first_comment": "Did you get it? Technology, three ways. Band 5: Technology is good for people. Band 7: Technology is beneficial because it eases communication. Band 9: Technology transforms communication, though it can weaken personal ties. More practice like this (free): {link}"
+ }
+}

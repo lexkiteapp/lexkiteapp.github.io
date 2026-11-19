@@ -108,7 +108,7 @@ seen = set(); prob = [p for p in prob if not (json.dumps({k: v for k, v in p.ite
 gate('layout', not prob, 3, problems=prob[:8])
 # platform UI zones (Spell->Sound, docs/specs/spell-sound.md): the 9:16 short keeps every element out of the top 12 % (back / search icons), the bottom 22 % (caption + sound row) and the right 14 % (like / comment rail),
 # and shows at most 6 text rows at once. Defects seen in the reference reel (title under the icons, meaning chips under the rail, last row over the caption) must never ship.
-if T['template'] == 'rule' and T['format'] == 'short':
+if T['template'] in ('rule', 'band') and T['format'] == 'short':
     ZW, ZH = 1080, 1920; zx, zy0, zy1 = ZW * 0.86, ZH * 0.12, ZH * 0.78; zp = []; ROWS = ('text', 'chip', 'ipapill', 'pill', 'cta')
     for n in T['nodes']:
         if n['type'] in ('confetti', 'backdrop') or n.get('hidden'): continue

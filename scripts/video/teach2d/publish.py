@@ -9,7 +9,7 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..')
 SITE = 'https://lexkite.com'
 AREA_TAG = {'dictionary': '#vocabulary', 'vocab-review': '#vocabulary', 'pronunciation': '#pronunciation', 'verbs': '#englishgrammar', 'grammar': '#englishgrammar',
             'grammar-check': '#englishgrammar', 'phrases': '#phrasalverbs', 'word-usage': '#vocabulary', 'dictation': '#englishlistening', 'toeic': '#toeic',
-            'call': '#speakenglish', 'placement': '#englishtest'}
+            'call': '#speakenglish', 'placement': '#englishtest', 'writing-ielts': '#ielts', 'speaking': '#ielts'}
 DANGLING = re.compile(r'\b(to|and|or|for|of|the|a|an|how|with|at|in|on|your|my)$', re.I)
 BAD_TITLE = re.compile(r'are you saying it right|what textbooks|^cine-|^news_|^auto_|^t2a?_|\? [a-z]')
 
@@ -42,6 +42,9 @@ def facts(ep):
         pcs = '; '.join(f"{x['w']} = {' + '.join(t_ for t_, k in x['parts'] if k != 'suf')}" for x in D['words'] if x['pre'])
         return (_fit(f'{R_} root: {lst}', f'{R_} root: {ws[0]} and {ws[1]}', f'One root, {len(ws)} words: {R_}'), f'{D["root"].lower()} root',
                 f'{R_} comes from {D["src_lang"]} "{D["src"]}" ({D["src_mean"]}). Words: {lst}.' + (f' {pcs}.' if pcs else ''))
+    if t == 'band':   # Band 5 -> 7 -> 9: the title names the topic, the value line gives the three sentences so the post is useful as text
+        tp = D['topic'].replace('-', ' ').capitalize(); S_ = {x['band']: x['text'] for x in D['steps']}
+        return _fit(f'IELTS band 5 to 9: {tp}', f'Band 5 to 9: {tp}', 'IELTS band 5 to 9'), 'ielts band 9', f'{tp}, three ways. Band 5: {S_[5]} Band 7: {S_[7]} Band 9: {S_[9]}'
     if t == 'review':
         w = D['word']; return _fit(f'What does {_q(w)} mean?', f'{w.capitalize()}: what does it mean?'), w, f'{w.capitalize()} means {D["mean"]}.'
     if t == 'usuk':
