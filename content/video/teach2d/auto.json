@@ -9582,6 +9582,84 @@
     "strike": "ought go",
     "answer_say": "Ought to! You ought to see a doctor."
    }
+  },
+  {
+   "id": "t2a_rule_silentkn_1",
+   "template": "rule",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "silent-kn:know/knee",
+   "hash": "892ada8799d2",
+   "heads": [
+    "rule:silent-kn:know",
+    "rule:silent-kn:knee"
+   ],
+   "taught": [
+    "know",
+    "knee",
+    "kn",
+    "gh"
+   ],
+   "in": {
+    "rule": "silent-kn",
+    "words": [
+     "know",
+     "knee"
+    ]
+   }
+  },
+  {
+   "id": "t2a_rule_silentwr_1",
+   "template": "rule",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "silent-wr:write/wrong",
+   "hash": "dae1843a08bd",
+   "heads": [
+    "rule:silent-wr:write",
+    "rule:silent-wr:wrong"
+   ],
+   "taught": [
+    "write",
+    "wrong",
+    "wr",
+    "gh"
+   ],
+   "in": {
+    "rule": "silent-wr",
+    "words": [
+     "write",
+     "wrong"
+    ]
+   }
+  },
+  {
+   "id": "t2a_rule_silentmb_1",
+   "template": "rule",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "silent-mb:climb/comb",
+   "hash": "2eceec1b97f7",
+   "heads": [
+    "rule:silent-mb:climb",
+    "rule:silent-mb:comb"
+   ],
+   "taught": [
+    "climb",
+    "comb",
+    "mb",
+    "gh"
+   ],
+   "in": {
+    "rule": "silent-mb",
+    "words": [
+     "climb",
+     "comb"
+    ]
+   }
   }
  ]
 }

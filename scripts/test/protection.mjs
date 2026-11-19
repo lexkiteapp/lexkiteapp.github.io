@@ -186,7 +186,7 @@ for (const l of ['en', 'vi']) { const t = fs.readFileSync(`content/legal/${l}/te
 const CAN = JSON.parse(fs.readFileSync('content/protection/canaries.json', 'utf8')).canaries;
 ok(new Set(CAN.map(c => c.id)).size === CAN.length, 'canary: id không trùng');
 for (const c of CAN.filter(x => x.q)) {
-  ok(fs.readFileSync(`web/js/${c.module}`, 'utf8').includes(c.q), `canary ${c.id}: cụm "${c.q}" còn trong ${c.module} (sửa đề/từ phải cập nhật canaries.json)`);
+  ok(fs.readFileSync([`web/js/${c.module}`, `web/cpack/${c.module}`].find(f => fs.existsSync(f)), 'utf8').includes(c.q), `canary ${c.id}: cụm "${c.q}" còn trong ${c.module} (sửa đề/từ phải cập nhật canaries.json)`);
   ok(c.q.length >= 15 && c.q.length <= 80, `canary ${c.id}: cụm tìm 15–80 ký tự`);
 }
 ok(['exam', 'vocab'].every(k => CAN.filter(c => c.q && c.kind === k).length >= 3), 'canary: ≥ 3 trong kho đề và ≥ 3 trong kho từ');
