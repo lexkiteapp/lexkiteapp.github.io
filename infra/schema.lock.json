@@ -25,10 +25,10 @@
  },
  "_social_auto.js": {
   "vers": {
-   "soc-lock": 2,
+   "soc-lock": 3,
    "soc-fc": 1
   },
-  "ddl": "6e5e814f8f522196"
+  "ddl": "8d1bf0401520efdc"
  },
  "ads-report.js": {
   "vers": {

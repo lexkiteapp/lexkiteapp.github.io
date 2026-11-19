@@ -47,7 +47,7 @@ jobs:
           mkdir -p lh
           for p in "app/?hl=en" "app/?hl=vi"; do
             k=$(echo "$p" | tr -c 'a-z0-9' '_')
-            for i in 1 2 3; do npx -y lighthouse@12.2.1 "http://localhost:8080/$p" --form-factor=mobile --only-categories=performance,accessibility,best-practices,seo --chrome-flags="--headless=new --no-sandbox" --output=json --output-path=lh/$k$i.json --quiet || true; done
+            for i in 1 2 3; do npx -y lighthouse@12.2.1 "http://localhost:8080/$p" --form-factor=mobile --only-categories=performance,accessibility,best-practices,seo --chrome-flags="--headless=new --no-sandbox --disable-dev-shm-usage --disable-gpu" --output=json --output-path=lh/$k$i.json --quiet || true; done
             node -e "
               const fs=require('fs');const fsr=[1,2,3].map(i=>'lh/$k'+i+'.json').filter(f=>fs.existsSync(f)).map(f=>JSON.parse(fs.readFileSync(f)));
               fsr.sort((a,b)=>a.categories.performance.score-b.categories.performance.score);const d=fsr[Math.floor((fsr.length-1)/2)],a=d.audits;

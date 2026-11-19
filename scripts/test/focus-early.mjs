@@ -12,6 +12,14 @@ for (const r of E.WITH_ARG) { const a = r === 'lesson' ? 'go' : 'x1'; ok(early(`
 for (const r of E.NOT_LEARN) ok(!early(`#/${r}`), `${r}: trang trung tâm không được ẩn khung`);
 ok(early('#/listen/t1p1?ux1=1'), 'màn nghe có query'); ok(early('#/review'), 'phiên ôn'); ok(!early('#/review?hub=1'), 'trung tâm Ôn'); ok(!early('#/practice/mix'), 'practice/mix'); ok(!early('#/lesson'), 'bản đồ bài học'); ok(!early(''), 'trang chủ');
 ok(!early('#/listen/t1p1', { 'lk.exitbar': '0' }), 'tôn trọng lk.exitbar=0'); ok(!early('#/listen/t1p1?exitbar=0'), 'tôn trọng ?exitbar=0');
+// Khung chờ (data-lkph): màn học mở từ link không được đen trơn – có ✕ về trang chủ ngay, quá 12 s thêm nút Tải lại; trang không phải màn học không đụng
+const ph = /<script data-lkph>([\s\S]*?)<\/script>/.exec(html);
+ok(ph && html.indexOf('data-lkph') > html.indexOf('<main id="view"'), 'khung chờ đặt ngay sau #view');
+const phRun = (fo, lang) => { const pw = new JSDOM(`<!doctype html><html${fo ? ' class="lk-fo"' : ''}><body><main id="view"></main></body></html>`, { url: 'https://x.test/app/#/practice/esd', runScripts: 'outside-only' }).window; if (lang) pw.localStorage.setItem('vb.uiLang', lang); pw.setTimeout = f => f(); pw.eval(ph[1]); return pw.document.getElementById('view'); };
+{ const v = phRun(true, 'vi'), x = v.querySelector('a.lk-exit-x'); ok(x && x.getAttribute('href') === '/app/#/' && x.getAttribute('aria-label') === 'Thoát', 'khung chờ có ✕ về trang chủ (nhãn theo ngôn ngữ)'); ok(v.querySelector('.lk-ph[role=status]'), 'khung chờ có trạng thái đang tải'); const b = v.querySelector('button.btn'); ok(b && b.textContent === 'Tải lại', 'quá hạn → nút Tải lại'); }
+ok(!phRun(false).firstChild, 'không phải màn học → không vẽ khung chờ');
+ok(phRun(true, 'zz').querySelector('a.lk-exit-x').getAttribute('aria-label') === 'Exit', 'ngôn ngữ lạ → tiếng Anh');
+ok(fs.readFileSync('scripts/build-extension.sh', 'utf8').includes('<script data-lkph>'), 'add-on bỏ khung chờ nội tuyến (CSP MV3)');
 const app = fs.readFileSync('web/js/app.js', 'utf8'); ok(/ExitGuard\.focusFor\(name, arg, query\.toString\(\)\)\)\)\); document\.documentElement\.classList\.remove\('lk-fo'\)/.test(app), 'route() giữ focus cho màn học và gỡ lk-fo');
 ok(fs.readFileSync('scripts/build-extension.sh', 'utf8').includes('data-lkf') && !fs.readFileSync('extension/app/index.html', 'utf8').includes('data-lkf'), 'add-on bỏ script nội tuyến (CSP MV3)');
 if (fails) { console.error(fails + ' lỗi'); process.exit(1); } console.log('✓ focus-early: script đầu trang khớp ExitGuard'); process.exit(0);
