@@ -12141,6 +12141,438 @@
      "promise"
     ]
    }
+  },
+  {
+   "id": "t2a_roots_log_1",
+   "template": "roots",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "log:biology/psychology",
+   "hash": "b45eff64a427",
+   "heads": [
+    "root:log:biology",
+    "root:log:psychology"
+   ],
+   "taught": [
+    "biology",
+    "psychology",
+    "log",
+    "greek"
+   ],
+   "in": {
+    "root": "log",
+    "words": [
+     "biology",
+     "psychology"
+    ],
+    "tight": 1
+   }
+  },
+  {
+   "id": "t2a_roots_graph_1",
+   "template": "roots",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "graph:photograph/paragraph",
+   "hash": "43d3d0eaaf33",
+   "heads": [
+    "root:graph:photograph",
+    "root:graph:paragraph"
+   ],
+   "taught": [
+    "photograph",
+    "paragraph",
+    "graph",
+    "greek"
+   ],
+   "in": {
+    "root": "graph",
+    "words": [
+     "photograph",
+     "paragraph"
+    ],
+    "tight": 1
+   }
+  },
+  {
+   "id": "t2a_roots_lect_1",
+   "template": "roots",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "lect:collect/select",
+   "hash": "c408626073e5",
+   "heads": [
+    "root:lect:collect",
+    "root:lect:select"
+   ],
+   "taught": [
+    "collect",
+    "select",
+    "lect",
+    "latin"
+   ],
+   "in": {
+    "root": "lect",
+    "words": [
+     "collect",
+     "select"
+    ],
+    "tight": 1
+   }
+  },
+  {
+   "id": "t2a_roots_log_2",
+   "template": "roots",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "log:logic/technology",
+   "hash": "a8928c724dd8",
+   "heads": [
+    "root:log:logic",
+    "root:log:technology"
+   ],
+   "taught": [
+    "logic",
+    "technology",
+    "log",
+    "greek"
+   ],
+   "in": {
+    "root": "log",
+    "words": [
+     "logic",
+     "technology"
+    ],
+    "tight": 1
+   }
+  },
+  {
+   "id": "t2a_roots_graph_2",
+   "template": "roots",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "graph:geography/biography",
+   "hash": "93427fd130f1",
+   "heads": [
+    "root:graph:geography",
+    "root:graph:biography"
+   ],
+   "taught": [
+    "geography",
+    "biography",
+    "graph",
+    "greek"
+   ],
+   "in": {
+    "root": "graph",
+    "words": [
+     "geography",
+     "biography"
+    ],
+    "tight": 1
+   }
+  },
+  {
+   "id": "t2a_roots_cide_2",
+   "template": "roots",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "cide:concise/incision",
+   "hash": "d23d0d04b780",
+   "heads": [
+    "root:cide:concise",
+    "root:cide:incision"
+   ],
+   "taught": [
+    "concise",
+    "incision",
+    "cide",
+    "latin"
+   ],
+   "in": {
+    "root": "cide",
+    "words": [
+     "concise",
+     "incision"
+    ],
+    "tight": 1
+   }
+  },
+  {
+   "id": "t2a_roots_jus_2",
+   "template": "roots",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "jus:injury/justify",
+   "hash": "e760cc3afd8d",
+   "heads": [
+    "root:jus:injury",
+    "root:jus:justify"
+   ],
+   "taught": [
+    "injury",
+    "justify",
+    "jus",
+    "latin"
+   ],
+   "in": {
+    "root": "jus",
+    "words": [
+     "injury",
+     "justify"
+    ],
+    "tight": 1
+   }
+  },
+  {
+   "id": "t2a_roots_fact_3",
+   "template": "roots",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "fact:infect/efficient",
+   "hash": "e560874a8a7c",
+   "heads": [
+    "root:fact:infect",
+    "root:fact:efficient"
+   ],
+   "taught": [
+    "infect",
+    "efficient",
+    "fact",
+    "latin"
+   ],
+   "in": {
+    "root": "fact",
+    "words": [
+     "infect",
+     "efficient"
+    ],
+    "tight": 1
+   }
+  },
+  {
+   "id": "t2a_roots_man_3",
+   "template": "roots",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "man:mandate/manuscript",
+   "hash": "211abc6e038a",
+   "heads": [
+    "root:man:mandate",
+    "root:man:manuscript"
+   ],
+   "taught": [
+    "mandate",
+    "manuscript",
+    "man",
+    "latin"
+   ],
+   "in": {
+    "root": "man",
+    "words": [
+     "mandate",
+     "manuscript"
+    ],
+    "tight": 1
+   }
+  },
+  {
+   "id": "t2a_roots_jus_3",
+   "template": "roots",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "jus:adjust/judgment",
+   "hash": "354c99d6049d",
+   "heads": [
+    "root:jus:adjust",
+    "root:jus:judgment"
+   ],
+   "taught": [
+    "adjust",
+    "judgment",
+    "jus",
+    "latin"
+   ],
+   "in": {
+    "root": "jus",
+    "words": [
+     "adjust",
+     "judgment"
+    ],
+    "tight": 1
+   }
+  },
+  {
+   "id": "t2a_roots_aud_2",
+   "template": "roots",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "aud:auditorium/audit",
+   "hash": "9af1148c33af",
+   "heads": [
+    "root:aud:auditorium",
+    "root:aud:audit"
+   ],
+   "taught": [
+    "auditorium",
+    "audit",
+    "aud",
+    "latin"
+   ],
+   "in": {
+    "root": "aud",
+    "words": [
+     "auditorium",
+     "audit"
+    ],
+    "tight": 1
+   }
+  },
+  {
+   "id": "t2a_roots_port_3",
+   "template": "roots",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "port:portable/important",
+   "hash": "684bd5db853b",
+   "heads": [
+    "root:port:portable",
+    "root:port:important"
+   ],
+   "taught": [
+    "portable",
+    "important",
+    "port",
+    "latin"
+   ],
+   "in": {
+    "root": "port",
+    "words": [
+     "portable",
+     "important"
+    ],
+    "tight": 1
+   }
+  },
+  {
+   "id": "t2a_roots_fer_3",
+   "template": "roots",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "fer:infer/conference",
+   "hash": "afd94f34789b",
+   "heads": [
+    "root:fer:infer",
+    "root:fer:conference"
+   ],
+   "taught": [
+    "infer",
+    "conference",
+    "fer",
+    "latin"
+   ],
+   "in": {
+    "root": "fer",
+    "words": [
+     "infer",
+     "conference"
+    ],
+    "tight": 1
+   }
+  },
+  {
+   "id": "t2a_roots_form_3",
+   "template": "roots",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "form:formula/information",
+   "hash": "4ce3c5f903cb",
+   "heads": [
+    "root:form:formula",
+    "root:form:information"
+   ],
+   "taught": [
+    "formula",
+    "information",
+    "form",
+    "latin"
+   ],
+   "in": {
+    "root": "form",
+    "words": [
+     "formula",
+     "information"
+    ],
+    "tight": 1
+   }
+  },
+  {
+   "id": "t2a_roots_mov_3",
+   "template": "roots",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "mov:mobile/motivate",
+   "hash": "fac3e0069dd4",
+   "heads": [
+    "root:mov:mobile",
+    "root:mov:motivate"
+   ],
+   "taught": [
+    "mobile",
+    "motivate",
+    "mov",
+    "latin"
+   ],
+   "in": {
+    "root": "mov",
+    "words": [
+     "mobile",
+     "motivate"
+    ],
+    "tight": 1
+   }
+  },
+  {
+   "id": "t2a_roots_lect_2",
+   "template": "roots",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "lect:legend/neglect",
+   "hash": "801d0e5797d6",
+   "heads": [
+    "root:lect:legend",
+    "root:lect:neglect"
+   ],
+   "taught": [
+    "legend",
+    "neglect",
+    "lect",
+    "latin"
+   ],
+   "in": {
+    "root": "lect",
+    "words": [
+     "legend",
+     "neglect"
+    ],
+    "tight": 1
+   }
   }
  ]
 }

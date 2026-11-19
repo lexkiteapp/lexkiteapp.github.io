@@ -383,6 +383,7 @@ def seg_parts(seg, R):   # "de-|pos|-it" -> dict(pre, root, suf, parts=[(text, k
 
 def roots(p):   # Gốc từ: one root, N real words. ring preview -> "did you know" (Latin/Greek source) -> each word: prefix + root = meaning, IPA -> 2-option quiz -> CTA
     B = roots_bank(); R = B['roots'][p['root']]; W = {x['w']: x for x in R['words']}; ws = []
+    tight = bool(p.get('tight')); sy = R['say'].split(' or ')[0] if tight else R['say']   # tight (calibrated ceiling, like rule): the spoken gloss is its first sense only, the quiz pause is shorter; the card still shows the full gloss
     assert 2 <= len(p['words']) <= 4 and all(w in W for w in p['words']), ('roots: words must be in the root bank', p['words'])
     for w in p['words']:
         ipa, dfn, ex = bank(w); assert ipa and dfn and ex, ('word not in the audited bank', w)
@@ -391,13 +392,13 @@ def roots(p):   # Gốc từ: one root, N real words. ring preview -> "did you k
     cap, rt = (lambda t: t[0].upper() + t[1:]), R['root'].capitalize(); lines = [
         L('h', f'One root, {["zero", "one", "two", "three", "four"][len(ws)]} words!', 0.3),
         L('r', f"The root is {rt}! " + ', '.join(w['w'].capitalize() if i == 0 else w['w'] for i, w in enumerate(ws)) + '.', 0.3),
-        L('k', f"Did you know? {rt} is {R['lang']} for {R['say']}.", 0.3)]
+        L('k', f"{'' if tight else 'Did you know? '}{rt} is {R['lang']} for {R['say']}.", 0.3)]
     for i, w in enumerate(ws):
-        lines.append(L(f'w{i}', f"{cap(w['w'])}: {w['pms']} plus {R['say']}." if w['pre'] else f"{cap(w['w'])}: {w['mean']}.", 0.3))
+        lines.append(L(f'w{i}', f"{cap(w['w'])}: {w['pms']} plus {sy}." if w['pre'] else f"{cap(w['w'])}: {w['mean']}.", 0.3))
     qw = next((w for w in reversed(ws) if w['pre']), ws[-1]); other = next(w for w in ws if w is not qw)   # asked word = the last prefixed one taught; the distractor = another word of the lesson
-    opts = [other['w'], qw['w']]; ans = 1; ask = f"{qw['pms']} plus {R['say']}" if qw['pre'] else qw['mean']
-    lines += [L('q', f"Quick quiz! Which means {ask}?", 3.0, quiz=True),
-              L('a', f"{cap(qw['w'])}! {cap(qw['pms'])} plus {R['say']}." if qw['pre'] else f"{cap(qw['w'])}! It means {qw['mean']}."),
+    opts = [other['w'], qw['w']]; ans = 1; ask = f"{qw['pms']} plus {sy}" if qw['pre'] else qw['mean']
+    lines += [L('q', f"Quick quiz! Which means {ask}?", 2.4 if tight else 3.0, quiz=True),
+              L('a', f"{cap(qw['w'])}! {cap(qw['pms'])} plus {sy}." if qw['pre'] else f"{cap(qw['w'])}! It means {qw['mean']}."),
               L('c', 'Save this. Free on lexkite.com.')]
     return dict(lines=lines, data=dict(root=R['root'], rid=R['id'], say=R['say'], src=R['src'], src_lang=R['lang'], src_mean=R['src_mean'], words=ws,
                                        quiz=dict(stem=ask, options=opts, answer=ans)),
@@ -940,8 +941,9 @@ def plan_roots():
         if row['hash'] in used_h: skip('dup', rid); continue
         if data_gate(row, F): skip('data:' + ','.join(data_gate(row, F)), rid); continue
         ep = None
-        for z in (len(ws), 2):   # 3 words, else 2 words when the short would run over 28 s
-            row['in'] = dict(root=R['id'], words=ws[:z]) if z != len(ws) else dict(root=R['id'], words=ws)
+        opts = [(ws, 0), (ws[:2], 0), (ws, 1), (ws[:2], 1)] + ([(ws[1:], 1), (ws[::2], 1)] if len(ws) == 3 else [])   # all words, else 2, else the tight read (first sense spoken, no 'Did you know?', shorter quiz pause), else another pair - a lesson is never dropped
+        for wz, tg in opts:
+            row['in'] = dict(root=R['id'], words=wz, **({'tight': 1} if tg else {}))
             try: ep = make(row)
             except AssertionError as e: skip('shape:' + str(e.args[0][0]), rid); ep = None; break
             if 18 <= short_secs(ep) + ROOTS_BIAS <= ROOTS_MAX: break
