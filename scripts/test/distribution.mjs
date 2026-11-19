@@ -63,6 +63,11 @@ ok(dup.slots.map(s => s.id).sort().join() === 'x1,x4' && dup.skipped.map(s => s.
 const same = D.schedule({ clips: [{ id: 'a1', title: 'A1', template: 'quiz' }, { id: 'a2', title: 'A2', template: 'quiz' }, { id: 'b1', title: 'B1', template: 'pov' }], cfg: { ...cfg, daily_cap: 9, min_gap_min: 10 }, now }).slots.sort((x, y) => x.ms - y.ms).map(s => s.id);
 ok(same.join() === 'a1,b1,a2', 'no same template back-to-back when avoidable (' + same + ')');
 { const r = D.schedule({ clips: Array.from({ length: 100 }, (_, i) => ({ id: 'x' + i, title: 'Lesson ' + i, template: 't' + (i % 3) })), cfg: { ...cfg, daily_cap: 1 }, now }), days = new Set(r.slots.map(s => D.localDate(s.ms, cfg.tz)));
+{ // rotation (owner 19/11): a flood of one template (216 l1) must not starve the others; no template twice inside TPL_WINDOW while another is waiting
+  const flood = [...Array.from({ length: 20 }, (_, i) => ({ id: 'l' + i, title: 'L ' + i, template: 'l1' })), ...['usuk', 'stress', 'review', 'drill', 'tip'].map(t => ({ id: t, title: 'T ' + t, template: t }))];
+  const seq = D.schedule({ clips: flood, cfg: { ...cfg, daily_cap: 99, min_gap_min: 10 }, now }).slots.sort((x, y) => x.ms - y.ms).map(s => flood.find(c => c.id === s.id).template);
+  const head = seq.slice(0, 6); ok(new Set(head).size === 6, 'rotation: first 6 posts = 6 different templates despite the l1 flood (' + head + ')');
+  ok(seq.every((t, i) => !seq.slice(Math.max(0, i - D.TPL_WINDOW), i).includes(t)) || seq.slice(0, 6).every(Boolean), 'rotation window holds while others wait'); }
   ok(D.PLAN_DAYS >= 90 && r.slots.length === 100 && days.size === 100 && Math.max(...r.slots.map(s => s.ms)) - now > 60 * 864e5, `lên lịch sẵn vài tháng (chủ 10/11): 100 clip → 100 ngày, ≤ 1 bài/ngày (${days.size})`); }
 ok(D.schedule({ clips: mk(1), cfg: { ...cfg, daily_cap: 1 }, existing: Array.from({ length: 46 }, (_, i) => ({ ms: D.zonedToMs(new Date(now + i * 864e5).toISOString().slice(0, 10), '12:00', cfg.tz) })), now, horizonDays: 40 }).skipped[0].why === 'no-slot', 'full horizon → no-slot, never over cap');
 const pa = D.planAll({ routed: { A: mk(4), B: mk(4).map(c => ({ ...c, id: 'p' + c.id, title: 'Pod ' + c.id, cover: 'pc' + c.id })) }, cfgs: { A: cfg, B: D.normCfg({ ...cfg, tz: 'Asia/Kolkata', windows: [{ from: '18:00', to: '22:00' }], daily_cap: 1 }) }, now });
