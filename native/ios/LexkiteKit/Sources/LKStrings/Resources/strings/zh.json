@@ -248,6 +248,8 @@
   "lesson.story.lookup": "查找“{w}”...",
   "lesson.story.notFound": "没有“{w}”的结果。",
   "lesson.hint": "提示",
+  "lesson.q.buildListen": "听一听，再排成句子",
+  "lesson.card.word": "单词：{w}",
   "rev.noFlashcardsYet": "还没有卡片",
   "rev.addWordsFromThe": "从库中添加单词或在字典中查找它们以开始使用。",
   "rev.openLibrary": "打开词库",

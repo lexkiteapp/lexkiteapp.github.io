@@ -41,7 +41,7 @@ for (const k in W.FILTERS) for (const [, lab] of W.FILTERS[k]) ok(EN[lab] != nul
 for (const lv of [1, 2, 3, 4, 5, 6]) ok(W.TOPICS.filter(tp => tp.lv[0] <= lv && lv <= tp.lv[1]).length >= 6, `trình độ ${W.LEVELS[lv - 1]} có ≥ 6 chủ đề`);
 
 // ---------- Nối gói lười + i18n + luật điều khoản ----------
-const app = read('web/js/app.js'), b = (app.match(/\n\s+watch: (\[[^\]]+\])/) || [])[1];
+const app = read('web/js/app.js'), b = (read('web/js/bundles.js').match(/\n\s+watch: (\[[^\]]+\])/) || [])[1];
 ok(b && JSON.parse(b.replace(/'/g, '"')).every(f => fs.existsSync(new URL('../../web/' + f, import.meta.url))), 'BUNDLES.watch tồn tại và mọi file có thật');
 ok(/ROUTE_BUNDLE = \{[^}]*\bwatch: 'watch'/.test(app) && /BCSS = \{[^}]*watch: 'css\/watch\.css'/.test(app), 'ROUTE_BUNDLE + BCSS cho watch');
 ok(/^LAZY="[^"]*\bwatch\b/m.test(read('scripts/build-i18n.sh')), 'watch thuộc nhóm i18n tải lười');

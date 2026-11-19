@@ -1,0 +1,163 @@
+{
+ "id": "t2a_rule_silentmb_1",
+ "template": "rule",
+ "series": "Spell to Sound",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "pronunciation",
+ "lines": [
+  {
+   "id": "h",
+   "text": "The B is silent!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "At the end, m b, the B is silent. Say M.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Climb.",
+   "pause": 0.25,
+   "speed": 0.6
+  },
+  {
+   "id": "v0",
+   "text": "Climb.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Comb.",
+   "pause": 0.25,
+   "speed": 0.6
+  },
+  {
+   "id": "v1",
+   "text": "Comb.",
+   "pause": 0.3
+  },
+  {
+   "id": "p",
+   "text": "Repeat after me!",
+   "pause": 2.4
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which letter is silent in comb?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "B! The B is silent.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "rule": "silent-mb",
+  "title": "-mb",
+  "target": "/m/",
+  "letter": "b",
+  "say": "At the end, m b, the B is silent. Say M.",
+  "words": [
+   {
+    "w": "climb",
+    "ipa": "/klaɪm/",
+    "silent": [
+     4,
+     5
+    ],
+    "letter": "b",
+    "mean": "to go up something such as stairs, a hill or a tree",
+    "em": "🧗"
+   },
+   {
+    "w": "comb",
+    "ipa": "/koʊm/",
+    "silent": [
+     3,
+     4
+    ],
+    "letter": "b",
+    "mean": "a tool for tidying hair",
+    "em": "🪮"
+   }
+  ],
+  "quiz": {
+   "stem": "Which letter is silent in comb?",
+   "options": [
+    "C",
+    "B"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "pronunciation",
+  "route": "#/pron/climb",
+  "link": "https://lexkite.com/app/#/pron/climb",
+  "say": "Practise this sound"
+ },
+ "hook": {
+  "line": "h",
+  "text": "The B is silent"
+ },
+ "src": {
+  "rule": "silent-mb"
+ },
+ "est": {
+  "words": 41,
+  "seconds": 27.6,
+  "wpm": 89
+ },
+ "publish": {
+  "title": "The B is silent!",
+  "keyword": "Spell to Sound",
+  "value": "At the end, m b, the B is silent. Say M.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#pronunciation",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/pron/climb",
+  "script_words": 32,
+  "platforms": {
+   "youtube": {
+    "title": "The B is silent!",
+    "description": "At the end, m b, the B is silent. Say M.\n\nPractise this sound, free: https://lexkite.com/app/#/pron/climb\n\nSeries: Spell to Sound · Teacher: Ama\n\n#learnenglish #englishtips #pronunciation #englishteacher",
+    "tags": [
+     "Spell to Sound",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "The B is silent!\n\nAt the end, m b, the B is silent. Say M.\n\nPractise this sound, free: https://lexkite.com/app/#/pron/climb"
+   },
+   "instagram": {
+    "caption": "The B is silent!\n\nAt the end, m b, the B is silent. Say M.\n\nPractise this sound: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#pronunciation",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "The B is silent! #learnenglish #englishtips #pronunciation"
+   }
+  },
+  "first_comment": "Quiz answer: B! The B is silent. At the end, m b, the B is silent. Say M. Practice it with a free quiz: {link}"
+ }
+}

@@ -25,7 +25,7 @@ for (const l of LANGS) {
   const html = `<!doctype html><html lang="${l}"${rtl ? ' dir="rtl"' : ''}><head>${head}<style>${CSS}\n${SEO_CSS}\n${css2}</style></head><body><a class="skip" href="#nd">${esc(s.skip)}</a>
 ${siteHeader({ nav, open: [appHref(l), esc(s.open)], home: landingHref(l), lang: l, langHref: x => P(x) })}
 <main id="nd">${crumbsHtml(crumbs)}<h1>${esc(t.h1)}</h1><p>${esc(desc)}</p><p><a class="btn primary" href="${esc(app)}">${esc(t.cta)}</a></p>
-<div class="irv-w"><table class="irv"><thead><tr><th>V1</th><th>V2</th><th>V3</th><th>${esc(t.mean)}</th></tr></thead><tbody>${core.map(row).join('')}</tbody></table></div></main>
+<div class="irv-w" role="region" tabindex="0" aria-label="${esc(t.h1)}"><table class="irv"><thead><tr><th>V1</th><th>V2</th><th>V3</th><th>${esc(t.mean)}</th></tr></thead><tbody>${core.map(row).join('')}</tbody></table></div></main>
 ${siteFooter({ lang: l, text: `Lexkite – ${esc(t.h1)}`, langHref: x => P(x) })}<script>${UI_JS}</script></body></html>`;
   fs.mkdirSync(`${D}${P(l)}`, { recursive: true }); fs.writeFileSync(`${D}${P(l)}index.html`, themePage(html));
 }

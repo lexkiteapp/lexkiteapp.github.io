@@ -248,6 +248,8 @@
   "lesson.story.lookup": "“{w}”을(를) 찾는 중…",
   "lesson.story.notFound": "“{w}”에 대한 검색결과가 없습니다.",
   "lesson.hint": "힌트",
+  "lesson.q.buildListen": "듣고 문장을 만들어 봐요",
+  "lesson.card.word": "단어: {w}",
   "rev.noFlashcardsYet": "아직 카드가 없어요",
   "rev.addWordsFromThe": "시작하려면 도서관에서 단어를 추가하거나 사전에서 찾아보세요.",
   "rev.openLibrary": "단어장 열기",

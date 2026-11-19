@@ -218,7 +218,7 @@ ok(['ama', 'carlos'].includes(wd.who) && wd.sd === today && wd.ok && wd.risk, 's
 ok(/cosmetic: 1/.test(fs.readFileSync('web/js/ads/policy.js', 'utf8')), 'policy có lý do cosmetic (1/ngày)');
 
 // Gắn đúng: gói lười + cờ, không vào khung app
-const app = fs.readFileSync('web/js/app.js', 'utf8');
+const app = fs.readFileSync('web/js/app.js', 'utf8') + fs.readFileSync('web/js/bundles.js', 'utf8');
 ok(/ret: \['js\/i18n\/en\/ret\.js', 'js\/retention\.js'\]/.test(app) && /streak: \['streak', 'ret'\]/.test(app), 'gói lười ret + route (streak-ui chỉ ở gói streak)');
 ok(/App\.retOn\(\)\) App\.lazy\('streak', 'ret'\)/.test(app), 'trang chủ chỉ tải khi cờ bật');
 ok(!/retention\.js/.test(fs.readFileSync('web/app/index.html', 'utf8')), 'không nằm trong khung app');
