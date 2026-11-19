@@ -1,0 +1,30 @@
+{
+ "_note": "US/UK word pairs for the 'US or UK?' series (gen.py --plan). Curated by an English teacher: same meaning, everyday American word vs everyday British word, one word each (the card and the word clock need single tokens). example = a short A2 American sentence using the US word in THIS sense (the bank example can be another sense: line, check). Facts gate: both words + IPA must be in the audited word bank (qc.py shows / checks those IPA cells); pairs missing from the bank are skipped until the bank has them.",
+ "pairs": [
+  { "us": "apartment", "uk": "flat", "example": "My apartment is on the third floor." },
+  { "us": "vacation", "uk": "holiday", "example": "We're going on vacation next week." },
+  { "us": "line", "uk": "queue", "example": "There's a long line at the bank." },
+  { "us": "gas", "uk": "petrol", "example": "We need to stop for gas." },
+  { "us": "cookie", "uk": "biscuit", "example": "Can I have another cookie, please?" },
+  { "us": "mail", "uk": "post", "example": "Did the mail come today?" },
+  { "us": "movie", "uk": "film", "example": "Let's watch a movie tonight." },
+  { "us": "soccer", "uk": "football", "example": "My son plays soccer after school." },
+  { "us": "fall", "uk": "autumn", "example": "The leaves turn red in the fall." },
+  { "us": "subway", "uk": "underground", "example": "I take the subway to work." },
+  { "us": "check", "uk": "bill", "example": "Can we have the check, please?" },
+  { "us": "schedule", "uk": "timetable", "example": "Check the train schedule before you go." },
+  { "us": "semester", "uk": "term", "example": "The new semester starts in January." },
+  { "us": "cellphone", "uk": "mobile", "example": "I left my cellphone at home." },
+  { "us": "purse", "uk": "handbag", "example": "She left her purse in the car." },
+  { "us": "yard", "uk": "garden", "example": "The kids are playing in the yard." },
+  { "us": "sweater", "uk": "jumper", "example": "Take a warm sweater with you." },
+  { "us": "trash", "uk": "rubbish", "example": "Please take out the trash." },
+  { "us": "candy", "uk": "sweets", "example": "Don't eat too much candy." },
+  { "us": "truck", "uk": "lorry", "example": "A big truck is blocking the road." },
+  { "us": "sidewalk", "uk": "pavement", "example": "Walk on the sidewalk, not the road." },
+  { "us": "closet", "uk": "wardrobe", "example": "Put your coat in the closet." },
+  { "us": "restroom", "uk": "toilet", "example": "Excuse me, where's the restroom?" },
+  { "us": "diaper", "uk": "nappy", "example": "The baby needs a clean diaper." },
+  { "us": "highway", "uk": "motorway", "example": "The highway is busy this morning." }
+ ]
+}

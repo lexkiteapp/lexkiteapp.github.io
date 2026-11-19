@@ -1,5 +1,7 @@
 # Lexkite – Hạ tầng toàn cầu (miễn phí, mở rộng theo nhu cầu)
 
+> 📒 Sổ đăng ký tài nguyên: `infra/resources.json` (tự hiện ở Quản trị → Dịch vụ) · Quy tắc thêm tài nguyên, lưu trữ & mail: `docs/INFRA-RULES.md`
+
 ## Nguyên tắc
 1. **Máy người dùng làm phần nặng.** Tra từ, dịch, AI, âm thanh và lịch ôn FSRS đều chạy trên trình duyệt hoặc app, gọi thẳng các dịch vụ công khai miễn phí. Máy chủ của mình không xử lý gì, nên thêm người dùng không làm tăng chi phí.
 2. **Dữ liệu học nằm ở máy người dùng** (IndexedDB, dung lượng hàng GB). Cloud chỉ để đồng bộ giữa các thiết bị: nén gzip, chỉ gửi phần thay đổi, tối đa 3 phút một lần.

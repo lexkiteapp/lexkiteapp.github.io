@@ -1,0 +1,74 @@
+{
+ "unit": "Kling credits",
+ "source": "brand/library/cine/*/tools/ledger.txt (summary only)",
+ "banks": {
+  "airport": {
+   "img_cr": 44,
+   "img_n": 11,
+   "video_cr": 325,
+   "video_n": 13,
+   "rejects": 0,
+   "first": "2026-10-20",
+   "last": "2026-10-20",
+   "by_day": {
+    "2026-10-20": 369
+   },
+   "total": 369
+  },
+  "anchor": {
+   "img_cr": 51,
+   "img_n": 44,
+   "video_cr": 975,
+   "video_n": 39,
+   "rejects": 4,
+   "first": "2026-10-20",
+   "last": "2026-10-21",
+   "by_day": {
+    "2026-10-20": 899,
+    "2026-10-21": 127
+   },
+   "total": 1026
+  },
+  "cafe": {
+   "img_cr": 20,
+   "img_n": 5,
+   "video_cr": 375,
+   "video_n": 15,
+   "rejects": 1,
+   "first": "2026-10-19",
+   "last": "2026-10-20",
+   "by_day": {
+    "2026-10-19": 308,
+    "2026-10-20": 87
+   },
+   "total": 395
+  },
+  "hotel": {
+   "img_cr": 28,
+   "img_n": 10,
+   "video_cr": 350,
+   "video_n": 14,
+   "rejects": 0,
+   "first": "2026-10-20",
+   "last": "2026-10-20",
+   "by_day": {
+    "2026-10-20": 378
+   },
+   "total": 378
+  },
+  "restaurant": {
+   "img_cr": 70,
+   "img_n": 36,
+   "video_cr": 450,
+   "video_n": 18,
+   "rejects": 0,
+   "first": "2026-10-20",
+   "last": "2026-10-20",
+   "by_day": {
+    "2026-10-20": 520
+   },
+   "total": 520
+  }
+ },
+ "total": 2688
+}

@@ -1,11 +1,179 @@
 {
  "appName": {
-  "message": "Lexkite – словарь и карточки IELTS"
+  "message": "Lexkite – английский словарь, переводчик и карточки для слов"
  },
  "appDesc": {
-  "message": "Двойной щелчок по слову: значение, транскрипция, аудио. Перевод фраз и субтитров YouTube. Сохраняйте и повторяйте карточками."
+  "message": "Двойной клик по слову: значение, транскрипция и аудио. Перевод выделенного текста, слова с контекстом и карточки для IELTS/TOEIC."
  },
  "openApp": {
   "message": "Открыть Lexkite"
+ },
+ "rateTitle": {
+  "message": "Нравится Lexkite?"
+ },
+ "rateBody": {
+  "message": "Если Lexkite помогает вам учиться, короткий отзыв в магазине поможет другим ученикам найти его."
+ },
+ "rateYes": {
+  "message": "Оценить Lexkite"
+ },
+ "rateLater": {
+  "message": "Позже"
+ },
+ "rateNever": {
+  "message": "Больше не спрашивать"
+ },
+ "ntGot": {
+  "message": "✓ Помню"
+ },
+ "ntAgain": {
+  "message": "↻ Повторить"
+ },
+ "ntGolden": {
+  "message": "Золотой момент"
+ },
+ "ntSaved": {
+  "message": "Недавно сохранено"
+ },
+ "ntToday": {
+  "message": "Слово момента"
+ },
+ "ntSearch": {
+  "message": "Поиск в интернете…"
+ },
+ "ntSearchBtn": {
+  "message": "Найти"
+ },
+ "ntOff": {
+  "message": "Отключить карточку в новой вкладке"
+ },
+ "ntConf": {
+  "message": "Говори уверенно"
+ },
+ "ntListen": {
+  "message": "Слушать"
+ },
+ "ntSlow": {
+  "message": "Медленно"
+ },
+ "ntUK": {
+  "message": "брит."
+ },
+ "ntUS": {
+  "message": "амер."
+ },
+ "ntFamily": {
+  "message": "Однокоренные слова"
+ },
+ "ntColloc": {
+  "message": "Сочетания"
+ },
+ "ntSyn": {
+  "message": "Синонимы"
+ },
+ "ntAnt": {
+  "message": "Антонимы"
+ },
+ "ntQuiz": {
+  "message": "Режим теста"
+ },
+ "ntReveal": {
+  "message": "Показать значение"
+ },
+ "ntTapTr": {
+  "message": "Нажмите, чтобы увидеть перевод"
+ },
+ "ntMT": {
+  "message": "Машинный перевод"
+ },
+ "ntExample": {
+  "message": "Пример"
+ },
+ "ntAdd": {
+  "message": "＋ Добавить в мою колоду"
+ },
+ "ntAdded": {
+  "message": "✓ Уже в колоде"
+ },
+ "ntNext": {
+  "message": "Следующее слово →"
+ },
+ "ntProgress": {
+  "message": "Сегодня {n}/{g} слов"
+ },
+ "ntShortcuts": {
+  "message": "Горячие клавиши"
+ },
+ "ntKeys": {
+  "message": "Пробел: показать · 1/2: оценить · N: далее · P: слушать"
+ },
+ "posN": {
+  "message": "существительное"
+ },
+ "posV": {
+  "message": "глагол"
+ },
+ "posAdj": {
+  "message": "прилагательное"
+ },
+ "posAdv": {
+  "message": "наречие"
+ },
+ "posPhrV": {
+  "message": "фразовый глагол"
+ },
+ "posPhrase": {
+  "message": "фраза"
+ },
+ "posIdiom": {
+  "message": "идиома"
+ },
+ "posPrep": {
+  "message": "предлог"
+ },
+ "posConj": {
+  "message": "союз"
+ },
+ "posPron": {
+  "message": "местоимение"
+ },
+ "posDet": {
+  "message": "определитель"
+ },
+ "posExcl": {
+  "message": "междометие"
+ },
+ "posNum": {
+  "message": "числительное"
+ },
+ "posAbbr": {
+  "message": "сокращение"
+ },
+ "posColl": {
+  "message": "сочетание"
+ },
+ "ntMoreSenses": {
+  "message": "+{n} знач."
+ },
+ "ntQzTag": {
+  "message": "Быстрый тест"
+ },
+ "ntQzQ": {
+  "message": "Выберите верное значение"
+ },
+ "ntQzTime": {
+  "message": "{s} сек."
+ },
+ "ntQzRight": {
+  "message": "Верно!"
+ },
+ "ntQzWrong": {
+  "message": "Почти — слово скоро вернётся"
+ },
+ "ntQzTimeout": {
+  "message": "Время вышло, ничего страшного"
+ },
+ "ntQzSkip": {
+  "message": "Пропустить"
  }
 }

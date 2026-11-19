@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Bright Day - How Lexkite Teaches</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-dim": "#e2d8d0",
+            "on-secondary": "#ffffff",
+            "inverse-on-surface": "#f9efe6",
+            "on-primary-fixed": "#00201e",
+            "surface-tint": "#136b66",
+            "outline": "#6f7978",
+            "on-secondary-fixed-variant": "#683c00",
+            "surface-container": "#f6ece4",
+            "on-background": "#1f1b16",
+            "on-primary-container": "#9ce9e2",
+            "secondary": "#895100",
+            "on-error-container": "#93000a",
+            "secondary-container": "#f59e0b",
+            "on-secondary-container": "#1c1003",
+            "on-primary-fixed-variant": "#00504c",
+            "error-container": "#ffdad6",
+            "on-surface": "#1f1b16",
+            "on-primary": "#ffffff",
+            "inverse-primary": "#88d4cd",
+            "surface-container-low": "#fcf2e9",
+            "tertiary": "#8e190f",
+            "background": "#fff8f4",
+            "surface-container-lowest": "#ffffff",
+            "surface": "#fff8f4",
+            "primary-fixed": "#a4f0e9",
+            "on-surface-variant": "#3f4947",
+            "on-secondary-fixed": "#2c1600",
+            "primary": "#0f3d3e",
+            "surface-bright": "#fff9f3",
+            "outline-variant": "#bec9c7",
+            "on-error": "#ffffff",
+            "surface-container-high": "#f0e7de",
+            "secondary-fixed-dim": "#ffb86c",
+            "primary-fixed-dim": "#88d4cd",
+            "on-tertiary-container": "#ffd0c9",
+            "surface-container-highest": "#eae1d8",
+            "tertiary-container": "#b03224",
+            "surface-variant": "#eae1d8",
+            "on-tertiary-fixed-variant": "#8c170e",
+            "inverse-surface": "#34302a",
+            "tertiary-fixed-dim": "#ffb4a8",
+            "tertiary-fixed": "#ffdad4",
+            "secondary-fixed": "#ffdcbc",
+            "error": "#ba1a1a",
+            "on-tertiary": "#ffffff",
+            "primary-container": "#136b66",
+            "on-tertiary-fixed": "#410000"
+          },
+          borderRadius: {
+            "DEFAULT": "1rem",
+            "lg": "1.25rem",
+            "xl": "1.75rem",
+            "20": "1.25rem",
+            "full": "9999px"
+          },
+          fontFamily: {
+            sans: ["Plus Jakarta Sans", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      font-size: 22px;
+      line-height: 1;
+      display: inline-block;
+    }
+    .material-symbols-outlined.filled {
+      font-variation-settings: 'FILL' 1, 'wght' 700, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Architectural 3D cards & buttons */
+    .tactile-card {
+      background-color: #ffffff;
+      border: 2px solid #eae1d8;
+      box-shadow: 0 4px 0 #e2d8d0;
+      border-radius: 1.25rem; /* 20px */
+    }
+    .tactile-button-orange {
+      background-color: #f59e0b;
+      color: #1c1003;
+      box-shadow: 0 4px 0 #b45309;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .tactile-button-orange:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 #b45309;
+    }
+    .teacher-slot {
+      background-color: rgba(19, 107, 102, 0.08);
+      border: 2px dashed rgba(15, 61, 62, 0.45);
+      border-radius: 1.25rem;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-[#fff8f4] text-[#1f1b16] font-sans antialiased min-h-screen flex justify-center selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Mobile Portrait 390px Viewport without outer mock frame -->
+<div class="w-full max-w-[390px] min-h-screen bg-[#fff8f4] relative flex flex-col pb-40 border-x border-[#eae1d8]">
+<!-- Top App Bar -->
+<header class="bg-[#fff8f4] border-b-2 border-[#bec9c7] shadow-[0_4px_0_#bec9c7] sticky top-0 z-40">
+<div class="flex justify-between items-center w-full px-4 py-2.5 max-w-[390px] mx-auto">
+<button aria-label="Go back" class="min-w-[44px] min-h-[44px] w-11 h-11 flex items-center justify-center rounded-full bg-white text-[#0f3d3e] hover:bg-[#f6ece4] active:translate-y-[2px] transition-transform duration-100 border-2 border-[#eae1d8] shadow-[0_2px_0_#e2d8d0]">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<div class="flex flex-col items-center text-center px-2">
+<span class="text-[17px] font-extrabold text-[#0f3d3e] tracking-tight leading-tight">Lexkite Bright Day</span>
+<span class="text-[11px] font-bold text-[#6f7978] uppercase tracking-wider scale-95">Methodology</span>
+</div>
+<button aria-label="Settings and options" class="min-w-[44px] min-h-[44px] w-11 h-11 flex items-center justify-center rounded-full bg-white text-[#0f3d3e] hover:bg-[#f6ece4] active:translate-y-[2px] transition-transform duration-100 border-2 border-[#eae1d8] shadow-[0_2px_0_#e2d8d0]">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</div>
+</header>
+<!-- Sub-badge Banner -->
+<div class="px-4 pt-3.5">
+<div class="bg-[#fcf2e9] border-2 border-[#eae1d8] rounded-full py-1.5 px-3 flex items-center justify-center gap-2 shadow-[0_2px_0_#eae1d8]">
+<span class="w-2 h-2 rounded-full bg-[#f59e0b] shrink-0 animate-pulse"></span>
+<span class="text-[11px] font-extrabold text-[#895100] tracking-wider text-center leading-tight break-words">
+        PEDAGOGICAL FRAMEWORK • CEFR &amp; IELTS ALIGNED
+      </span>
+</div>
+</div>
+<!-- Main Content Container -->
+<main class="px-4 pt-4 space-y-6">
+<!-- Hero Header Section -->
+<section class="space-y-2.5">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 bg-[#f6ece4] rounded-full border border-[#e2d8d0]">
+<span class="material-symbols-outlined text-[#0f3d3e] text-base" data-icon="lightbulb">lightbulb</span>
+<span class="text-xs font-bold text-[#0f3d3e]">Bright Day Pedagogy</span>
+</div>
+<h1 class="text-[28px] font-extrabold text-[#1f1b16] tracking-tight leading-[1.2] break-words">
+        How Lexkite teaches
+      </h1>
+<p class="text-[15px] font-medium text-[#3f4947] leading-relaxed break-words">
+        A scientifically calibrated 4-step loop designed for permanent vocabulary retention and effortless exam fluency.
+      </p>
+</section>
+<!-- Teacher Slot: Empty dashed card placeholder with quote bubble -->
+<section class="space-y-3">
+<div class="teacher-slot w-full p-4 flex flex-col items-center justify-center text-center space-y-1.5 min-h-[96px]">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#0f3d3e] text-xl" data-icon="school">school</span>
+<span class="text-xs font-extrabold text-[#0f3d3e] tracking-widest uppercase">TEACHER SLOT</span>
+</div>
+<span class="text-[13px] font-medium text-[#3f4947]/90 leading-tight">
+          2D interactive mentor loads here during live sprint
+        </span>
+</div>
+<!-- Speech Bubble cue from Coach Ama -->
+<div class="tactile-card p-3.5 space-y-1">
+<div class="flex items-start gap-2.5">
+<div class="w-8 h-8 rounded-full bg-[#f59e0b] text-[#1c1003] flex items-center justify-center font-extrabold text-xs shrink-0 shadow-[0_1px_0_#895100]">
+            CA
+          </div>
+<div class="space-y-0.5 min-w-0">
+<span class="text-xs font-bold text-[#895100] block leading-tight">Coach Ama • IELTS Master Coach</span>
+<p class="text-[13.5px] font-medium text-[#1f1b16] italic leading-snug break-words">
+              “Language mastery isn’t cramming — it’s tactile, spaced daily sprints.”
+            </p>
+</div>
+</div>
+</div>
+</section>
+<!-- The 4-Step Pedagogical Loop with Connected Stepper Timeline Rail -->
+<section class="space-y-3.5">
+<div class="flex items-center justify-between gap-2 flex-wrap">
+<h2 class="text-lg font-extrabold text-[#1f1b16] tracking-tight">The 4-Step Loop</h2>
+<span class="text-xs font-bold text-[#0f3d3e] bg-[#a4f0e9]/50 px-2.5 py-1 rounded-full border border-[#0f3d3e]/20 shrink-0">
+          Daily 15m Flow
+        </span>
+</div>
+<!-- Architectural Connected Timeline Rail Container -->
+<div class="relative pl-6 space-y-4">
+<!-- Connecting Vertical Stepper Line -->
+<div class="absolute left-2.5 top-6 bottom-8 w-[3px] bg-[#bec9c7] rounded-full -translate-x-1/2 z-0"></div>
+<!-- Step 1 Card: Discover -->
+<div class="relative z-10 tactile-card p-4 space-y-3">
+<!-- Stepper Node Indicator on Rail -->
+<div class="absolute -left-[30px] top-4 w-4 h-4 rounded-full bg-[#136b66] border-2 border-[#fff8f4] shadow-[0_0_0_2px_#0f3d3e]"></div>
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-xl bg-[#136b66] text-white flex items-center justify-center text-sm font-extrabold shadow-[0_3px_0_#00504c] shrink-0">
+                01
+              </div>
+<div>
+<span class="text-[11px] font-extrabold text-[#136b66] tracking-wider uppercase block">Step 1 • Discover</span>
+<h3 class="text-base font-extrabold text-[#1f1b16] leading-tight">Learn in Living Context</h3>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-[#f0e7de] text-[#3f4947] text-[11px] font-bold border border-[#eae1d8] shrink-0">
+              B1–C2 Corpus
+            </span>
+</div>
+<div class="bg-[#fcf2e9] rounded-xl p-3 border border-[#eae1d8]">
+<p class="text-[13px] font-medium text-[#1f1b16] leading-relaxed break-words">
+<strong class="text-[#0f3d3e] font-bold">Contextual Discovery:</strong> High-yield collocations and authentic CEFR B1–C2 corpus sentences, not isolated wordlists.
+            </p>
+</div>
+<div class="flex flex-wrap gap-1.5 pt-0.5">
+<span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-[#fff9f3] border border-[#e2d8d0] text-[#3f4947] flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-[#0f3d3e]" data-icon="check_circle">check_circle</span> Collocation chunks
+            </span>
+<span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-[#fff9f3] border border-[#e2d8d0] text-[#3f4947] flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-[#0f3d3e]" data-icon="check_circle">check_circle</span> Authentic audio
+            </span>
+</div>
+</div>
+<!-- Step 2 Card: Internalize -->
+<div class="relative z-10 tactile-card p-4 space-y-3">
+<!-- Stepper Node Indicator on Rail -->
+<div class="absolute -left-[30px] top-4 w-4 h-4 rounded-full bg-[#f59e0b] border-2 border-[#fff8f4] shadow-[0_0_0_2px_#895100]"></div>
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-xl bg-[#f59e0b] text-[#1c1003] flex items-center justify-center text-sm font-extrabold shadow-[0_3px_0_#895100] shrink-0">
+                02
+              </div>
+<div>
+<span class="text-[11px] font-extrabold text-[#895100] tracking-wider uppercase block">Step 2 • Internalize</span>
+<h3 class="text-base font-extrabold text-[#1f1b16] leading-tight">Active Retrieval</h3>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-[#f0e7de] text-[#3f4947] text-[11px] font-bold border border-[#eae1d8] shrink-0">
+              Tactile Drill
+            </span>
+</div>
+<div class="bg-[#fcf2e9] rounded-xl p-3 border border-[#eae1d8]">
+<p class="text-[13px] font-medium text-[#1f1b16] leading-relaxed break-words">
+<strong class="text-[#895100] font-bold">Active Retrieval:</strong> 3-beat rhythm shadowing, interactive minimal pairs, and tactile sentence builder drills.
+            </p>
+</div>
+<div class="flex flex-wrap gap-1.5 pt-0.5">
+<span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-[#fff9f3] border border-[#e2d8d0] text-[#3f4947] flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-[#895100]" data-icon="headphones">headphones</span> 3-Beat shadowing
+            </span>
+<span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-[#fff9f3] border border-[#e2d8d0] text-[#3f4947] flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-[#895100]" data-icon="build">build</span> Syntax builder
+            </span>
+</div>
+</div>
+<!-- Step 3 Card: Retain -->
+<div class="relative z-10 tactile-card p-4 space-y-3">
+<!-- Stepper Node Indicator on Rail -->
+<div class="absolute -left-[30px] top-4 w-4 h-4 rounded-full bg-[#0f3d3e] border-2 border-[#fff8f4] shadow-[0_0_0_2px_#00201e]"></div>
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-xl bg-[#0f3d3e] text-white flex items-center justify-center text-sm font-extrabold shadow-[0_3px_0_#00201e] shrink-0">
+                03
+              </div>
+<div>
+<span class="text-[11px] font-extrabold text-[#0f3d3e] tracking-wider uppercase block">Step 3 • Retain</span>
+<h3 class="text-base font-extrabold text-[#1f1b16] leading-tight">Adaptive Spaced Repetition</h3>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-[#f0e7de] text-[#3f4947] text-[11px] font-bold border border-[#eae1d8] shrink-0">
+              SM-2 Algorithm
+            </span>
+</div>
+<div class="bg-[#fcf2e9] rounded-xl p-3 border border-[#eae1d8]">
+<p class="text-[13px] font-medium text-[#1f1b16] leading-relaxed break-words">
+<strong class="text-[#0f3d3e] font-bold">SM-2 Adaptive Memory:</strong> Smart intervals that recall fading memories right before the forgetting curve drops.
+            </p>
+</div>
+<div class="flex flex-wrap gap-1.5 pt-0.5">
+<span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-[#fff9f3] border border-[#e2d8d0] text-[#3f4947] flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-[#0f3d3e]" data-icon="timeline">timeline</span> Ebbinghaus curve guard
+            </span>
+<span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-[#fff9f3] border border-[#e2d8d0] text-[#3f4947] flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-[#0f3d3e]" data-icon="alarm">alarm</span> Pre-decay alerts
+            </span>
+</div>
+</div>
+<!-- Step 4 Card: Validate -->
+<div class="relative z-10 tactile-card p-4 space-y-3">
+<!-- Stepper Node Indicator on Rail -->
+<div class="absolute -left-[30px] top-4 w-4 h-4 rounded-full bg-[#b03224] border-2 border-[#fff8f4] shadow-[0_0_0_2px_#8c170e]"></div>
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-xl bg-[#b03224] text-white flex items-center justify-center text-sm font-extrabold shadow-[0_3px_0_#8c170e] shrink-0">
+                04
+              </div>
+<div>
+<span class="text-[11px] font-extrabold text-[#8e190f] tracking-wider uppercase block">Step 4 • Validate</span>
+<h3 class="text-base font-extrabold text-[#1f1b16] leading-tight">Diagnostic Proof</h3>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-[#f0e7de] text-[#3f4947] text-[11px] font-bold border border-[#eae1d8] shrink-0">
+              Instant AI
+            </span>
+</div>
+<div class="bg-[#fcf2e9] rounded-xl p-3 border border-[#eae1d8]">
+<p class="text-[13px] font-medium text-[#1f1b16] leading-relaxed break-words">
+<strong class="text-[#8e190f] font-bold">Diagnostic Proof:</strong> Timed IELTS &amp; TOEIC exam simulations with instant AI band estimation and error heatmaps.
+            </p>
+</div>
+<div class="flex flex-wrap gap-1.5 pt-0.5">
+<span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-[#fff9f3] border border-[#e2d8d0] text-[#3f4947] flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-[#8e190f]" data-icon="analytics">analytics</span> Instant 0.5 Band score
+            </span>
+<span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-[#fff9f3] border border-[#e2d8d0] text-[#3f4947] flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-[#8e190f]" data-icon="speed">speed</span> Subscore diagnostics
+            </span>
+</div>
+</div>
+</div>
+</section>
+<!-- 15-Minute Micro-Study Plan Comparison Bento -->
+<section class="space-y-3 pt-2">
+<h2 class="text-lg font-extrabold text-[#1f1b16] tracking-tight">Efficiency Comparison</h2>
+<div class="tactile-card p-4 space-y-4">
+<div class="text-sm font-extrabold text-[#1f1b16] tracking-tight leading-snug break-words">
+          Traditional Cramming vs. Lexkite 15-Min Sprint
+        </div>
+<!-- Comparison Cards -->
+<div class="grid grid-cols-2 gap-3">
+<!-- Left: Cramming -->
+<div class="bg-[#fcf2e9] border border-[#eae1d8] rounded-xl p-3 flex flex-col justify-between space-y-2">
+<div class="flex items-center gap-1.5 text-[#3f4947]">
+<span class="material-symbols-outlined text-base" data-icon="close">close</span>
+<span class="text-xs font-bold leading-tight break-words">Cramming (2 hrs)</span>
+</div>
+<div class="space-y-0.5">
+<div class="text-2xl font-extrabold text-[#6f7978]">32%</div>
+<div class="text-[11px] font-semibold text-[#3f4947] leading-tight">30-Day Retention</div>
+</div>
+<div class="pt-2 border-t border-[#e2d8d0] text-xs font-bold text-[#ba1a1a] flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="warning">warning</span> High test fatigue
+            </div>
+</div>
+<!-- Right: Lexkite -->
+<div class="bg-[#136b66] text-white rounded-xl p-3 border-2 border-[#0f3d3e] shadow-[0_3px_0_#00504c] flex flex-col justify-between space-y-2">
+<div class="flex items-center gap-1.5 text-[#9ce9e2]">
+<span class="material-symbols-outlined text-base" data-icon="bolt">bolt</span>
+<span class="text-xs font-bold leading-tight break-words">Lexkite (15 min)</span>
+</div>
+<div class="space-y-0.5">
+<div class="text-2xl font-extrabold text-white">89%</div>
+<div class="text-[11px] font-semibold text-[#9ce9e2] leading-tight">30-Day Retention</div>
+</div>
+<div class="pt-2 border-t border-white/20 text-xs font-bold text-[#9ce9e2] flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="verified">verified</span> Zero exam anxiety
+            </div>
+</div>
+</div>
+<!-- Trajectory Progress Bar -->
+<div class="space-y-1.5 pt-1">
+<div class="flex justify-between items-center text-xs font-bold gap-2">
+<span class="text-[#3f4947]">Exam Readiness Velocity</span>
+<span class="text-[#0f3d3e]">2.8x Faster Band Leap</span>
+</div>
+<div class="w-full h-3 bg-[#f6ece4] rounded-full overflow-hidden p-0.5 border border-[#eae1d8] relative shadow-inner">
+<div class="h-full bg-[#f59e0b] rounded-full relative" style="width: 82%;">
+<div class="absolute inset-x-0 top-0 h-1 bg-white/40 rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Research-Backed Principles (Cognitive Science Foundations) -->
+<section class="space-y-3 pt-2">
+<h2 class="text-lg font-extrabold text-[#1f1b16] tracking-tight">Cognitive Science Foundations</h2>
+<div class="space-y-2.5">
+<!-- Card 1 -->
+<div class="tactile-card p-3.5 flex items-center gap-3">
+<div class="w-12 h-12 rounded-xl bg-[#f6ece4] flex items-center justify-center text-[#0f3d3e] shrink-0 border border-[#eae1d8] shadow-[0_2px_0_#e2d8d0]">
+<span class="material-symbols-outlined text-2xl" data-icon="psychology">psychology</span>
+</div>
+<div class="space-y-0.5 min-w-0">
+<h3 class="text-sm font-extrabold text-[#1f1b16] leading-snug">Cognitive Load Optimization</h3>
+<p class="text-xs font-medium text-[#3f4947] leading-relaxed break-words">Short micro-modules prevent short-term working memory saturation.</p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="tactile-card p-3.5 flex items-center gap-3">
+<div class="w-12 h-12 rounded-xl bg-[#f6ece4] flex items-center justify-center text-[#895100] shrink-0 border border-[#eae1d8] shadow-[0_2px_0_#e2d8d0]">
+<span class="material-symbols-outlined text-2xl" data-icon="auto_stories">auto_stories</span>
+</div>
+<div class="space-y-0.5 min-w-0">
+<h3 class="text-sm font-extrabold text-[#1f1b16] leading-snug">Collocation-First Lexical Chunks</h3>
+<p class="text-xs font-medium text-[#3f4947] leading-relaxed break-words">Store word groups natively to reduce translation latency under time pressure.</p>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="tactile-card p-3.5 flex items-center gap-3">
+<div class="w-12 h-12 rounded-xl bg-[#f6ece4] flex items-center justify-center text-[#0f3d3e] shrink-0 border border-[#eae1d8] shadow-[0_2px_0_#e2d8d0]">
+<span class="material-symbols-outlined text-2xl" data-icon="mic">mic</span>
+</div>
+<div class="space-y-0.5 min-w-0">
+<h3 class="text-sm font-extrabold text-[#1f1b16] leading-snug">Accent &amp; Prosody Feedback</h3>
+<p class="text-xs font-medium text-[#3f4947] leading-relaxed break-words">Real-time spectral analysis trains native intonation patterns for Band 7+ Speaking.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive FAQ Accordion -->
+<section class="space-y-3 pt-2">
+<h2 class="text-lg font-extrabold text-[#1f1b16] tracking-tight">Frequently Asked Questions</h2>
+<div class="space-y-2">
+<!-- FAQ 1 (Open State) -->
+<div class="tactile-card overflow-hidden border-2 border-[#136b66]/50">
+<button class="w-full p-4 flex justify-between items-center text-left bg-[#fcf2e9] min-h-[48px]" onclick="toggleFaq('faq-1')">
+<span class="text-sm font-extrabold text-[#1f1b16] pr-2 break-words leading-snug">Why 15 minutes a day?</span>
+<span class="material-symbols-outlined text-[#0f3d3e] shrink-0 transition-transform duration-200" data-icon="keyboard_arrow_up" id="icon-faq-1">keyboard_arrow_up</span>
+</button>
+<div class="p-4 pt-1 bg-white border-t border-[#eae1d8]" id="faq-1">
+<p class="text-xs font-medium text-[#3f4947] leading-relaxed break-words">
+              15 minutes aligns directly with the neurological threshold of active deliberate focus. Distributed daily micro-sessions prevent the fatigue crash of weekend cramming, guaranteeing sustainable habit compounding and a 3x higher retention index over 90 days.
+            </p>
+</div>
+</div>
+<!-- FAQ 2 (Closed State) -->
+<div class="tactile-card overflow-hidden">
+<button class="w-full p-4 flex justify-between items-center text-left bg-[#fcf2e9] min-h-[48px]" onclick="toggleFaq('faq-2')">
+<span class="text-sm font-extrabold text-[#1f1b16] pr-2 break-words leading-snug">How is Lexkite aligned with IELTS &amp; CEFR standards?</span>
+<span class="material-symbols-outlined text-[#6f7978] shrink-0 transition-transform duration-200" data-icon="keyboard_arrow_down" id="icon-faq-2">keyboard_arrow_down</span>
+</button>
+<div class="p-4 pt-1 bg-white border-t border-[#eae1d8] hidden" id="faq-2">
+<p class="text-xs font-medium text-[#3f4947] leading-relaxed break-words">
+              Every prompt, lexical chunk, and diagnostic passage is curated directly from authentic British Council and Cambridge assessment corpora. Rubrics evaluate Lexical Resource, Cohesion, Grammar Accuracy, and Pronunciation against the official Band 9 descriptor tables.
+            </p>
+</div>
+</div>
+<!-- FAQ 3 (Closed State) -->
+<div class="tactile-card overflow-hidden">
+<button class="w-full p-4 flex justify-between items-center text-left bg-[#fcf2e9] min-h-[48px]" onclick="toggleFaq('faq-3')">
+<span class="text-sm font-extrabold text-[#1f1b16] pr-2 break-words leading-snug">Can I study offline or on desktop?</span>
+<span class="material-symbols-outlined text-[#6f7978] shrink-0 transition-transform duration-200" data-icon="keyboard_arrow_down" id="icon-faq-3">keyboard_arrow_down</span>
+</button>
+<div class="p-4 pt-1 bg-white border-t border-[#eae1d8] hidden" id="faq-3">
+<p class="text-xs font-medium text-[#3f4947] leading-relaxed break-words">
+              Yes. Daily decks download automatically so you can practice during commutes without internet connectivity. Progress synchronizes seamlessly across native mobile apps and our desktop writing lab.
+            </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Trust Seal Endnote -->
+<div class="text-center pt-2 pb-6 space-y-1">
+<span class="material-symbols-outlined text-[#0f3d3e] text-2xl" data-icon="verified_user">verified_user</span>
+<p class="text-xs font-bold text-[#3f4947]">Empirical Pedagogy • No gimmicks • Evidence-based</p>
+</div>
+</main>
+<!-- Sticky Floating CTA Above Bottom Nav -->
+<div class="fixed bottom-16 left-0 w-full z-40 px-4 max-w-[390px] mx-auto pointer-events-none">
+<div class="pointer-events-auto bg-white/95 backdrop-blur-md p-2 rounded-2xl border-2 border-[#eae1d8] shadow-[0_4px_16px_rgba(31,27,22,0.14)]">
+<button class="w-full h-14 tactile-button-orange rounded-xl flex items-center justify-between px-5 active:scale-[0.99] transition-all min-h-[44px]">
+<div class="flex flex-col text-left">
+<span class="text-base font-extrabold tracking-tight text-[#1c1003]">Start learning →</span>
+<span class="text-xs font-bold text-[#1c1003]/80">+15 XP • Diagnostic test included</span>
+</div>
+<div class="w-9 h-9 rounded-lg bg-[#1c1003]/10 flex items-center justify-center text-[#1c1003]">
+<span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</button>
+</div>
+</div>
+<!-- Canonical 5-Tab Bar (Skills active) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-1 max-w-[390px] mx-auto bg-white border-t-2 border-[#bec9c7] shadow-[0_-4px_0_#bec9c7]">
+<!-- Tab 1: Today -->
+<button class="flex flex-col items-center justify-center text-[#3f4947] px-2.5 py-1 min-w-[44px] min-h-[48px] rounded-lg active:translate-y-[1px] transition-transform">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+<span class="text-[11px] font-bold mt-0.5">Today</span>
+</button>
+<!-- Tab 2: Vocab -->
+<button class="flex flex-col items-center justify-center text-[#3f4947] px-2.5 py-1 min-w-[44px] min-h-[48px] rounded-lg active:translate-y-[1px] transition-transform">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+<span class="text-[11px] font-bold mt-0.5">Vocab</span>
+</button>
+<!-- Tab 3: Skills (ACTIVE TAB) -->
+<button class="flex flex-col items-center justify-center bg-[#f59e0b] text-[#1c1003] rounded-full px-3 py-1 shadow-[0_2px_0_#895100] min-w-[48px] min-h-[48px] active:translate-y-[1px] transition-transform">
+<span class="material-symbols-outlined filled" data-icon="psychology">psychology</span>
+<span class="text-[11px] font-extrabold mt-0.5">Skills</span>
+</button>
+<!-- Tab 4: Tests -->
+<button class="flex flex-col items-center justify-center text-[#3f4947] px-2.5 py-1 min-w-[44px] min-h-[48px] rounded-lg active:translate-y-[1px] transition-transform">
+<span class="material-symbols-outlined" data-icon="quiz">quiz</span>
+<span class="text-[11px] font-bold mt-0.5">Tests</span>
+</button>
+<!-- Tab 5: Me -->
+<button class="flex flex-col items-center justify-center text-[#3f4947] px-2.5 py-1 min-w-[44px] min-h-[48px] rounded-lg active:translate-y-[1px] transition-transform">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-[11px] font-bold mt-0.5">Me</span>
+</button>
+</nav>
+</div>
+<!-- Inline Micro-Interactions Script for FAQs -->
+<script>
+  function toggleFaq(id) {
+    const panel = document.getElementById(id);
+    const icon = document.getElementById('icon-' + id);
+    if (panel.classList.contains('hidden')) {
+      panel.classList.remove('hidden');
+      icon.textContent = 'keyboard_arrow_up';
+      icon.classList.add('text-[#0f3d3e]');
+      icon.classList.remove('text-[#6f7978]');
+    } else {
+      panel.classList.add('hidden');
+      icon.textContent = 'keyboard_arrow_down';
+      icon.classList.remove('text-[#0f3d3e]');
+      icon.classList.add('text-[#6f7978]');
+    }
+  }
+</script>
+</body></html>

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ru_let_me",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Let me to or let me?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Let me to help you.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Let me help you.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "After let me, add no to.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Carry! Let me carry your bag.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Let me to help you.",
+  "right": "Let me help you.",
+  "strike": "to",
+  "why": "After let me, add no to.",
+  "memory": "Let me help.",
+  "quiz": {
+   "stem": "Let me ___ your bag.",
+   "options": [
+    "to carry",
+    "carry"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Let me to — лишнее “to”",
+   "tip": "После “let me” “to” не нужно: “Let me help you.”",
+   "caption": "Ты тоже говоришь “Let me to help you”? 😅 В русском после «позволь мне» стоит «помочь» — неопределённая форма, и хочется добавить “to”, но в английском после “let me” сразу идёт глагол. Правильно: “Let me help you.” Послушай Аму и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “carry.” После let me — сразу глагол. Напиши своё предложение с “Let me.” Бесплатный тест для практики здесь: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#учуанглийский",
+    "#английскийдляначинающих",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Let me to: drop the “to”",
+   "tip": "After “let me”, no “to”: “Let me help you.”",
+   "caption": "Do you also say “Let me to help you”? 😅 In Russian the next word is a full verb form, so “to” sneaks in, but after “let me” the verb comes straight away. Correct: “Let me help you.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Let me to — лишнее “to”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ru",
+ "est": {
+  "words": 47,
+  "seconds": 28.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Let me to — лишнее “to”",
+  "keyword": "Let me help you.",
+  "value": "После “let me” “to” не нужно: “Let me help you.”",
+  "hashtags": [
+   "#английскийязык",
+   "#учуанглийский",
+   "#английскийдляначинающих",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "Let me to — лишнее “to”",
+    "description": "После “let me” “to” не нужно: “Let me help you.”\n\nТы тоже говоришь “Let me to help you”? 😅 В русском после «позволь мне» стоит «помочь» — неопределённая форма, и хочется добавить “to”, но в английском после “let me” сразу идёт глагол. Правильно: “Let me help you.” Послушай Аму и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #учуанглийский #английскийдляначинающих #lexkite",
+    "tags": [
+     "Let me help you.",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Ты тоже говоришь “Let me to help you”? 😅 В русском после «позволь мне» стоит «помочь» — неопределённая форма, и хочется добавить “to”, но в английском после “let me” сразу идёт глагол. Правильно: “Let me help you.” Послушай Аму и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Let me to — лишнее “to”\n\nПосле “let me” “to” не нужно: “Let me help you.”\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#учуанглийский",
+     "#английскийдляначинающих",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Let me to — лишнее “to” После “let me” “to” не нужно: “Let me help you.” #английскийязык #учуанглийский #английскийдляначинающих"
+   }
+  },
+  "first_comment": "Ответ: “carry.” После let me — сразу глагол. Напиши своё предложение с “Let me.” Бесплатный тест для практики здесь: {link}",
+  "lang": "ru"
+ }
+}

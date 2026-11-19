@@ -1,0 +1,10 @@
+{
+ "_doc": "Mức pilot đã duyệt (QUALITY-PIPELINE bước 5): chuỗi lexicon-expand dừng khi yield lượt < yield/2. Đo trên mẫu cố định hard.json.",
+ "yield": 0.16,
+ "run": 41050558083,
+ "batch": "pilothard-202610301148",
+ "at": "2026-10-30",
+ "pass": 51,
+ "nonInfra": 321,
+ "review": { "core": "1/50", "tr": "0/50", "ipaBad": 0, "labelLeak": 0, "by": "Sonnet (tờ pilot-sheet.md)" }
+}

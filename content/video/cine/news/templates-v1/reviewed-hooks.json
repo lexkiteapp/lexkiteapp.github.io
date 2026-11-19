@@ -1,0 +1,768 @@
+{
+ "_note": "Reviewed hook + script verdicts for the v9 template samples (qc_v9 hook_truth). Script must equal the rendered script word for word; the hook text must equal the on-screen hook; promise = what the hook promises and the video must deliver.",
+ "verdicts": {
+  "t1_mistake_agree": {
+   "template": "mistake",
+   "hook": "✗ Never say / “I am agree”",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (expert American English teacher review, 26/10/2026: IPA from the app dictionary, 3-word guess round; no GrabCast)",
+   "script": {
+    "m_h": "Stop! Native speakers never say this.",
+    "m_w": "I am agree.",
+    "m_k": "Just say: I agree. No am.",
+    "m_l": "Think of the word like.",
+    "m_p": "You don't say: I am like pizza!",
+    "m_n": "So don't say: I am agree.",
+    "m_t": "Sound native: I totally agree!",
+    "m_q": "Quick quiz! Which one is right?",
+    "m_a": "B! I agree with you.",
+    "m_sh": "Send this to a friend who says it!",
+    "m_c": "Save this, and check your grammar on lexkite.com."
+   },
+   "promise": {
+    "wrong_line": "m_w",
+    "wrong": "I am agree.",
+    "right": "I agree",
+    "right_lines": [
+     "m_k",
+     "m_a"
+    ],
+    "quiz": true,
+    "count": true
+   },
+   "note": "“I am agree” is a very common learner error; native speakers don't say it. Analogy: agree is a verb like 'like' – nobody says 'I am like pizza'. 'I totally agree' is natural US English."
+  },
+  "t2_words5_hotel": {
+   "template": "words5",
+   "hook": "5 hotel words / you need 🏨",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (expert American English teacher review, 25/10/2026; no GrabCast)",
+   "script": {
+    "w_h": "Five hotel words you need.",
+    "w_1": "One: key. Can I get a second key?",
+    "w_2": "Two: luggage. Can you hold my luggage?",
+    "w_3": "Three: elevator. Where's the elevator?",
+    "w_4": "Four: shower. The shower isn't working.",
+    "w_5": "Five: receipt. The p is silent.",
+    "w_6": "Can I get a receipt, please?",
+    "w_r": "Which word was new for you?",
+    "w_t": "Save this for your next trip!",
+    "w_c": "Review these words free on lexkite.com."
+   },
+   "promise": {
+    "cards": 5
+   },
+   "note": "Five hotel nouns, each with a natural US example: second key, hold my luggage (uncountable), elevator (US), the shower isn't working, can I get a receipt (silent p — true: /rɪˈsiːt/)."
+  },
+  "t3_guess_elevator": {
+   "template": "guess",
+   "hook": "? Guess 3 / hotel words🏨",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (expert American English teacher review, 26/10/2026: IPA from the app dictionary, 3-word guess round; no GrabCast)",
+   "script": {
+    "g_h": "Guess these three hotel words. Three seconds each!",
+    "g_1": "Number one. You pack your clothes in it.",
+    "g_1a": "Luggage! Carry my luggage?",
+    "g_2": "Number two. It takes you up and down.",
+    "g_2a": "Elevator! In the UK, they call it a lift.",
+    "g_3": "Number three. You get it after you pay.",
+    "g_3a": "Receipt! The p is silent.",
+    "g_r": "How many did you get? Tell me in the comments!",
+    "g_s": "Save this, and look up any word on lexkite.com."
+   },
+   "promise": {
+    "count": true,
+    "reveal": "receipt"
+   },
+   "note": "Three picture clues from content/lexicon/img.json (luggage, elevator, receipt). IPA from the app dictionary (US where present). UK 'lift' = US 'elevator'. 'receipt': silent p – true."
+  },
+  "t4_pair_borrow_lend": {
+   "template": "pair",
+   "hook": "borrow or / lend?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (expert American English teacher review, 26/10/2026: IPA from the app dictionary, 3-word guess round; no GrabCast)",
+   "script": {
+    "p_h": "Borrow or lend? You probably mix these up.",
+    "p_s": "Borrow: you take it, and give it back later.",
+    "p_b2": "Can I borrow your pen?",
+    "p_l": "Lend: you give it, and get it back later.",
+    "p_l2": "Sure! I can lend you my pen.",
+    "p_t": "Remember: you borrow from someone, and you lend to someone.",
+    "p_q": "Quick quiz! My brother blank me ten dollars.",
+    "p_q2": "Lent, or borrowed?",
+    "p_a": "Lent! My brother lent me ten dollars.",
+    "p_sh": "Send this to a friend who mixes them up!",
+    "p_c": "Save this, and compare tricky words on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true
+   },
+   "note": "Borrow = take temporarily (from); lend = give temporarily (to). 'My brother lent me $10' correct."
+  },
+  "t5_roleplay_checkin": {
+   "template": "roleplay",
+   "hook": "✈️ AIRPORT CHECK-IN / What do you say?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (expert American English teacher review, 25/10/2026; no GrabCast)",
+   "script": {
+    "r_h": "Airport check-in. Here's what to say.",
+    "r_1": "Hi! Can I see your passport, please?",
+    "r_2": "Sure, here you go.",
+    "r_3": "Are you checking any bags today?",
+    "r_4": "Just one, please.",
+    "r_5": "Your turn. Ask for a window seat.",
+    "r_6": "Could I get a window seat, please?",
+    "r_c": "Roleplay this free on lexkite.com."
+   },
+   "promise": {
+    "turn": true,
+    "tags": 4
+   },
+   "note": "Natural US airport check-in exchange (agent: passport, checking bags; traveler: here you go, just one). Your-turn prompt + model answer “Could I get a window seat, please?” is polite and idiomatic."
+  },
+  "t6_pron_comfortable": {
+   "template": "pron",
+   "hook": "🔊 comfortable / com·for·TA·ble✗",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (expert American English teacher review, 26/10/2026: IPA from the app dictionary, 3-word guess round; no GrabCast)",
+   "script": {
+    "f_h": "You're probably saying this word wrong.",
+    "f_w": "Not com, for, table.",
+    "f_m": "That sounds like a table you can sit on!",
+    "f_s": "Slowly:",
+    "f_s2": "comfortable.",
+    "f_r": "Most Americans say three beats. Stress the first one.",
+    "f_n": "Normal speed: comfortable.",
+    "f_y": "Your turn. Repeat after me: comfortable.",
+    "f_e": "This chair is so comfortable!",
+    "f_b": "Same trick: vegetable has three beats, not four.",
+    "f_sh": "Send this to a friend who says it wrong!",
+    "f_c": "Save this, and practice pronunciation on lexkite.com."
+   },
+   "promise": {
+    "stress": "COMF",
+    "turn": true,
+    "slow_line": "f_s2"
+   },
+   "note": "Natural US speech: /ˈkʌmftərbəl/ (COMF-ter-ble, 3 beats, most common); the careful 4-syllable /ˈkʌmfərtəbl/ (app dictionary) also exists, so the script says 'most Americans'. 'com-for-TA-ble' is a learner error. 'vegetable' /ˈvedʒtəbl/ = 3 beats."
+  },
+  "tv1_daniel_mistake_agree": {
+   "template": "mistake",
+   "hook": "✗ STOP saying / “I am agree.”",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (expert American English teacher review, 25/10/2026; no GrabCast)",
+   "script": {
+    "m_h": "Stop saying this.",
+    "m_w": "I am agree.",
+    "m_k": "Just say: I agree.",
+    "m_y": "Agree is a verb, so you don't need am.",
+    "m_x": "I agree. I don't agree. Do you agree?",
+    "m_t": "To agree strongly, say: I totally agree.",
+    "m_q": "Quiz! Which one is right, A or B?",
+    "m_a": "B! I agree with you.",
+    "m_c": "Check your grammar free on lexkite.com."
+   },
+   "promise": {
+    "wrong_line": "m_w",
+    "wrong": "I am agree.",
+    "right": "I agree",
+    "right_lines": [
+     "m_k",
+     "m_a"
+    ],
+    "quiz": true,
+    "count": true
+   },
+   "note": "same reviewed script/hook as t1_mistake_agree, teacher swap only (teachers bank v1)"
+  },
+  "tv1_ama_board_pron": {
+   "template": "pron",
+   "hook": "🔊 comfortable / com·for·TA·ble✗",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (expert American English teacher review, 25/10/2026; no GrabCast)",
+   "script": {
+    "f_h": "Many learners say this word wrong.",
+    "f_w": "Not com, for, table.",
+    "f_s": "Slowly:",
+    "f_s2": "comfortable.",
+    "f_r": "Most Americans say three beats. Stress the first one.",
+    "f_n": "Normal speed: comfortable.",
+    "f_y": "Your turn. Repeat after me: comfortable.",
+    "f_e": "This chair is so comfortable!",
+    "f_c": "Practice pronunciation free on lexkite.com."
+   },
+   "promise": {
+    "stress": "COMF",
+    "turn": true,
+    "slow_line": "f_s2"
+   },
+   "note": "same reviewed script/hook as t6_pron_comfortable, set swap only (teachers bank v1)"
+  },
+  "t2_words5_verygood": {
+   "template": "words5",
+   "hook": "“very good”😴 / Try these 5",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (expert American English teacher review, 26/10/2026: IPA from the app dictionary, 3-word guess round; no GrabCast)",
+   "script": {
+    "w_h": "Stop saying very good all the time. Try these!",
+    "w_s": "Your friend cooks dinner. Very good? Too boring!",
+    "w_1": "One: great. This is great!",
+    "w_2": "Two: delicious. Use it for food.",
+    "w_3": "Three: amazing. It's amazing!",
+    "w_4": "Four: awesome. That's awesome!",
+    "w_5": "Five: excellent. For really great work.",
+    "w_r": "Which one will you use today? Tell me in the comments!",
+    "w_sh": "Send this to a friend who always says very good!",
+    "w_c": "Save this, and review your words on lexkite.com."
+   },
+   "promise": {
+    "tags": 5
+   },
+   "note": "'Very good' is correct but plain; the five alternatives are natural US English: great (general), delicious (food only), amazing, awesome (casual), excellent (work/results). Hook says 'don't JUST say' – not a false error claim."
+  },
+  "t7_usuk_cookie": {
+   "template": "pair",
+   "hook": "🇺🇸 or 🇬🇧? / cookie · biscuit",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (expert American English teacher review, 26/10/2026: IPA from the app dictionary, 3-word guess round; no GrabCast)",
+   "script": {
+    "u_h": "US or UK? Which word do you use?",
+    "u_s": "You want a sweet snack with your coffee.",
+    "u_us": "In America, it's a cookie.",
+    "u_uk": "In Britain, it's a biscuit. Same snack!",
+    "u_tw": "Careful! In America, a biscuit is soft bread.",
+    "u_x": "Can I have a cookie, please?",
+    "u_q": "Quick quiz! You're in London. What do you ask for?",
+    "u_a": "A biscuit! With tea, of course.",
+    "u_sh": "Send this to a friend who loves cookies!",
+    "u_c": "Save this, and compare tricky words on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true
+   },
+   "note": "US cookie = UK biscuit (sweet baked snack). In the US a 'biscuit' is a soft, scone-like quick bread (biscuits and gravy) – true surprise fact. In London you ask for a biscuit with tea."
+  },
+  "t7_usuk_cookie_3d": {
+   "template": "pair",
+   "hook": "🇺🇸 or 🇬🇧? / cookie · biscuit",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (expert American English teacher review, 26/10/2026: IPA from the app dictionary, 3-word guess round; no GrabCast)",
+   "script": {
+    "u_h": "US or UK? Which word do you use?",
+    "u_s": "You want a sweet snack with your coffee.",
+    "u_us": "In America, it's a cookie.",
+    "u_uk": "In Britain, it's a biscuit. Same snack!",
+    "u_tw": "Careful! In America, a biscuit is soft bread.",
+    "u_x": "Can I have a cookie, please?",
+    "u_q": "Quick quiz! You're in London. What do you ask for?",
+    "u_a": "A biscuit! With tea, of course.",
+    "u_sh": "Send this to a friend who loves cookies!",
+    "u_c": "Save this, and compare tricky words on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true
+   },
+   "note": "US cookie = UK biscuit (sweet baked snack). In the US a 'biscuit' is a soft, scone-like quick bread (biscuits and gravy) – true surprise fact. In London you ask for a biscuit with tea."
+  },
+  "t4_pair_borrow_lend_3d": {
+   "template": "pair",
+   "hook": "borrow or / lend?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (expert American English teacher review, 26/10/2026: IPA from the app dictionary, 3-word guess round; no GrabCast)",
+   "script": {
+    "p_h": "Borrow or lend? You probably mix these up.",
+    "p_s": "Borrow: you take it, and give it back later.",
+    "p_b2": "Can I borrow your pen?",
+    "p_l": "Lend: you give it, and get it back later.",
+    "p_l2": "Sure! I can lend you my pen.",
+    "p_t": "Remember: you borrow from someone, and you lend to someone.",
+    "p_q": "Quick quiz! My brother blank me ten dollars.",
+    "p_q2": "Lent, or borrowed?",
+    "p_a": "Lent! My brother lent me ten dollars.",
+    "p_sh": "Send this to a friend who mixes them up!",
+    "p_c": "Save this, and compare tricky words on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true
+   },
+   "note": "Borrow = take temporarily (from); lend = give temporarily (to). 'My brother lent me $10' correct."
+  },
+  "t6_pron_comfortable_3d": {
+   "template": "pron",
+   "hook": "🔊 comfortable / com·for·TA·ble✗",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (expert American English teacher review, 26/10/2026: IPA from the app dictionary, 3-word guess round; no GrabCast)",
+   "script": {
+    "f_h": "You're probably saying this word wrong.",
+    "f_w": "Not com, for, table.",
+    "f_m": "That sounds like a table you can sit on!",
+    "f_s": "Slowly:",
+    "f_s2": "comfortable.",
+    "f_r": "Most Americans say three beats. Stress the first one.",
+    "f_n": "Normal speed: comfortable.",
+    "f_y": "Your turn. Repeat after me: comfortable.",
+    "f_e": "This chair is so comfortable!",
+    "f_b": "Same trick: vegetable has three beats, not four.",
+    "f_sh": "Send this to a friend who says it wrong!",
+    "f_c": "Save this, and practice pronunciation on lexkite.com."
+   },
+   "promise": {
+    "stress": "COMF",
+    "turn": true,
+    "slow_line": "f_s2"
+   },
+   "note": "Natural US speech: /ˈkʌmftərbəl/ (COMF-ter-ble, 3 beats, most common); the careful 4-syllable /ˈkʌmfərtəbl/ (app dictionary) also exists, so the script says 'most Americans'. 'com-for-TA-ble' is a learner error. 'vegetable' /ˈvedʒtəbl/ = 3 beats."
+  },
+  "sts_040ec72a": {
+   "template": "mistake",
+   "hook": "✗ / “I apologize you for the delay.”",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (expert American English teacher review, 27/10/2026: ep2 v14 batch, generated from the gold bank by gold2v9)",
+   "script": {
+    "m_h": "Stop saying this.",
+    "m_w": "I apologize you for the delay.",
+    "m_k": "Just say: I apologize to you for the delay.",
+    "m_y": "Apologize to a person, for a reason.",
+    "m_x": "He apologized to his boss.",
+    "m_t": "Most people just say: sorry for the delay!",
+    "m_q": "Quick quiz! She apologized blank her friend.",
+    "m_q2": "To, or nothing?",
+    "m_a": "To! She apologized to her friend.",
+    "m_sh": "Send this to a friend who says it!",
+    "m_c": "Save this, and check your grammar on lexkite.com."
+   }
+  },
+  "sod_7432d6cb": {
+   "template": "pair",
+   "hook": "win or / beat?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (expert American English teacher review, 27/10/2026: ep2 v14 batch, generated from the gold bank by gold2v9)",
+   "script": {
+    "p_h": "Win or beat? Quick lesson.",
+    "p_y": "You beat people. You win games.",
+    "p_w": "Not: We won the other team.",
+    "p_k": "Say: We beat the other team.",
+    "p_t": "You win a prize, but beat a player!",
+    "p_q": "Quiz! Our team blank them 3 to 1.",
+    "p_q2": "Beat, or won?",
+    "p_a": "Beat! Our team beat them 3 to 1.",
+    "p_sh": "Send this to a friend!",
+    "p_c": "Save this, and compare tricky words on lexkite.com."
+   }
+  },
+  "t7_usuk_trash_3d": {
+   "template": "pair",
+   "hook": "🇺🇸 or 🇬🇧? / trash · rubbish",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (expert American English teacher review, 27/10/2026: ep2 v14 batch; quiz/save/rule fixed before render)",
+   "script": {
+    "u_h": "US or UK? Which word do you use?",
+    "u_s": "You're cleaning up. What do you call this stuff?",
+    "u_us": "In America, it's trash.",
+    "u_uk": "In Britain, it's rubbish. Same stuff!",
+    "u_tw": "Careful! In Britain, rubbish also means nonsense.",
+    "u_x": "A British friend says: That film was rubbish!",
+    "u_q": "Quick quiz! You're in London. What do you call it?",
+    "u_a": "Rubbish! Just like a real Londoner.",
+    "u_sh": "Send this to a friend who loves London!",
+    "u_c": "Save this, and compare tricky words on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true
+   },
+   "note": "US trash = UK rubbish (waste), /træʃ/ vs /ˈrʌbɪʃ/. In Britain, 'rubbish' is also informal for nonsense / very bad ('That film was rubbish!') – true. Quiz: in London say rubbish."
+  },
+  "t6_pron_competition_3d": {
+   "template": "pron",
+   "hook": "🔊 competition / COM·pe·ti·tion✗",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (expert American English teacher review, 27/10/2026: ep2 v14 batch; quiz/save/rule fixed before render)",
+   "script": {
+    "f_h": "You're probably saying this word wrong.",
+    "f_w": "Not com, pe, tish, un.",
+    "f_m": "Many learners stress the first.",
+    "f_s": "Slowly:",
+    "f_s2": "competition.",
+    "f_r": "Say four beats. Stress the third one.",
+    "f_n": "Normal speed: competition.",
+    "f_y": "Your turn. Repeat after me: competition.",
+    "f_e": "She won the dance competition.",
+    "f_why": "Rule: stress the beat right before the shun sound.",
+    "f_b": "Same with information and education!",
+    "f_sh": "Send this to a friend who says it wrong!",
+    "f_c": "Save this, and practice pronunciation on lexkite.com."
+   },
+   "promise": {
+    "stress": "TI",
+    "turn": true,
+    "slow_line": "f_s2"
+   },
+   "note": "Gold bank item sb_014482e2. competition /ˌkɑːmpəˈtɪʃən/ = 4 syllables, stress on the 3rd (com-pe-TI-tion); '-tion' words stress the syllable before -tion; same for information, education. Example sentence from the bank."
+  },
+  "t2_words5_verybad": {
+   "template": "words5",
+   "hook": "“very bad”😖 / Try these 5",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (expert American English teacher review, 27/10/2026: ep2 v14 batch; quiz/save/rule fixed before render)",
+   "script": {
+    "w_h": "Stop saying very bad all the time. Try these!",
+    "w_s": "Your food arrives cold. Very bad? Too boring!",
+    "w_1": "One: terrible. This is terrible!",
+    "w_2": "Two: awful. What an awful day!",
+    "w_3": "Three: horrible. What a horrible smell!",
+    "w_4": "Four: dreadful. A dreadful movie!",
+    "w_5": "Five: disgusting. For taste or smell.",
+    "w_r": "Which one will you use today? Tell me in the comments!",
+    "w_sh": "Send this to a friend who says very bad!",
+    "w_c": "Save this, and review your words on lexkite.com."
+   },
+   "promise": {
+    "tags": 5
+   },
+   "note": "'Very bad' is correct but plain; terrible, awful, horrible, dreadful (US/UK standard) and disgusting (taste/smell) are natural alternatives. Hook says 'don't just say' – not a false error claim."
+  },
+  "t3_guess_airport": {
+   "template": "guess",
+   "hook": "? Guess 3 / airport words✈️",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (expert American English teacher review, 27/10/2026: ep2 v14 batch; quiz/save/rule fixed before render)",
+   "script": {
+    "g_h": "Guess these three airport words!",
+    "g_1": "Number one. You buy it, then you can travel.",
+    "g_1a": "Ticket! Where is my ticket?",
+    "g_2": "Number two. It flies you across the ocean.",
+    "g_2a": "Airplane! In the UK, they say aeroplane.",
+    "g_3": "Number three. This person flies the airplane.",
+    "g_3a": "Pilot! The pilot says hello.",
+    "g_r": "How many did you get? Tell me in the comments!",
+    "g_s": "Save this, and look up any word on lexkite.com."
+   },
+   "promise": {
+    "count": true,
+    "reveal": "pilot"
+   },
+   "note": "Three picture clues from content/lexicon/img.json (ticket#n, airplane#n, pilot#n – all judged icon entries). US airplane = UK aeroplane – true."
+  },
+  "wlw_022772ea": {
+   "template": "mistake",
+   "hook": "✗ / “What's the reason of the delay?”",
+   "hook_true": true,
+   "script_reviewed": true,
+   "script": {
+    "n_h": "Small word, big mistake.",
+    "n_w": "What's the reason of the delay?",
+    "n_k": "Say: What's the reason for the delay?",
+    "n_y": "We say reason for something.",
+    "n_x": "There's a good reason for this rule.",
+    "n_t": "But: the reason why it happened is also fine!",
+    "n_q": "Quick quiz! What's the reason blank the change?",
+    "n_q2": "For, or of?",
+    "n_a": "For! What's the reason for the change?",
+    "n_sh": "Send this to a friend who mixes these up!",
+    "n_c": "Save this, and check your grammar on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "What's the reason for the delay?",
+    "right_lines": [
+     "n_k"
+    ],
+    "wrong_line": "n_w",
+    "wrong": "What's the reason of the delay?"
+   },
+   "source": "sb_022772ea",
+   "reviewer": "Claude (expert American English teacher review, 28/10/2026: new-series sample ep1, gold bank via gold2v9)"
+  },
+  "cmu_0d6dc593": {
+   "template": "mistake",
+   "hook": "✗ / “Let's buy medicine at the spa.”",
+   "hook_true": true,
+   "script_reviewed": true,
+   "script": {
+    "u_h": "Most learners mix this up.",
+    "u_w": "Let's buy medicine at the spa.",
+    "u_k": "Natives say: Let's relax at the spa.",
+    "u_y": "A spa is a place for massages and relaxing.",
+    "u_x": "The hotel has a spa.",
+    "u_t": "A hot tub is sometimes called a spa too!",
+    "u_q": "Quick quiz! The hotel blank offers massages.",
+    "u_q2": "Spa, or pool?",
+    "u_a": "Spa! The hotel spa offers massages.",
+    "u_sh": "Send this to a friend!",
+    "u_c": "Save this, and look up any word on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "Let's relax at the spa.",
+    "right_lines": [
+     "u_k"
+    ],
+    "wrong_line": "u_w",
+    "wrong": "Let's buy medicine at the spa."
+   },
+   "source": "sb_0d6dc593",
+   "reviewer": "Claude (expert American English teacher review, 28/10/2026: new-series sample ep1, gold bank via gold2v9)"
+  },
+  "sin_02938065": {
+   "template": "mistake",
+   "hook": "✗ Not / “Sorry for my answering late.”",
+   "hook_true": true,
+   "script_reviewed": true,
+   "script": {
+    "i_h": "This is how natives say it.",
+    "i_w": "Sorry for my answering late.",
+    "i_k": "Natives say: Sorry for the late reply.",
+    "i_y": "This is the fixed phrase for slow emails.",
+    "i_x": "Sorry for the late reply. I was traveling.",
+    "i_t": "Short and polite. Nobody needs a long excuse!",
+    "i_q": "Quick quiz! Sorry for the late blank.",
+    "i_q2": "Reply, or answering?",
+    "i_a": "Reply! Sorry for the late reply.",
+    "i_sh": "Send this to a friend!",
+    "i_c": "Save this, and look up any word on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "Sorry for the late reply.",
+    "right_lines": [
+     "i_k"
+    ],
+    "wrong_line": "i_w",
+    "wrong": "Sorry for my answering late."
+   },
+   "source": "sb_02938065",
+   "reviewer": "Claude (expert American English teacher review, 28/10/2026: new-series sample, opener changed to \"This is how natives say it.\")"
+  },
+  "vbp_116f3374": {
+   "template": "mistake",
+   "hook": "✗ Not / “I hate wait.”",
+   "hook_true": true,
+   "script_reviewed": true,
+   "script": {
+    "v_h": "Which pattern is right?",
+    "v_w": "I hate wait.",
+    "v_k": "Say: I hate waiting.",
+    "v_y": "After hate, use -ing or to plus verb.",
+    "v_x": "I hate getting up early.",
+    "v_t": "Love and like work the same way!",
+    "v_q": "Quick quiz! I hate blank in traffic.",
+    "v_q2": "Sit, or sitting?",
+    "v_a": "Sitting! I hate sitting in traffic.",
+    "v_sh": "Send this to a friend!",
+    "v_c": "Save this, and check your grammar on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "I hate waiting.",
+    "right_lines": [
+     "v_k"
+    ],
+    "wrong_line": "v_w",
+    "wrong": "I hate wait."
+   },
+   "source": "sb_116f3374",
+   "reviewer": "claude 28/10 (pronunciation fix)",
+   "note": "hook = the real error, delivered by the fix + quiz; IPA = taught word as displayed (pron.mjs bank), quiz pills keep the question"
+  },
+  "rle_1dc7abe0": {
+   "template": "mistake",
+   "hook": "✗ Not / “My room card doesn't work.”",
+   "hook_true": true,
+   "script_reviewed": true,
+   "script": {
+    "r_h": "Real life, real English.",
+    "r_w": "My room card doesn't work.",
+    "r_k": "Say: My key card doesn't work.",
+    "r_y": "Hotel cards that open doors are key cards.",
+    "r_x": "Here is your key card.",
+    "r_t": "Phones near key cards can stop them working!",
+    "r_q": "Quick quiz! Tap your blank card to open the door.",
+    "r_q2": "Key, or room?",
+    "r_a": "Key! Tap your key card to open the door.",
+    "r_sh": "Send this to a friend!",
+    "r_c": "Save this, and look up any word on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "My key card doesn't work.",
+    "right_lines": [
+     "r_k"
+    ],
+    "wrong_line": "r_w",
+    "wrong": "My room card doesn't work."
+   },
+   "source": "sb_1dc7abe0",
+   "reviewer": "claude 28/10 (pronunciation fix)",
+   "note": "hook = the real error, delivered by the fix + quiz; IPA = taught word as displayed (pron.mjs bank), quiz pills keep the question"
+  },
+  "sin_0a35f2ef": {
+   "template": "mistake",
+   "hook": "✗ Not / “Let's divide the bill.”",
+   "hook_true": true,
+   "script_reviewed": true,
+   "script": {
+    "i_h": "This is how natives say it.",
+    "i_w": "Let's divide the bill.",
+    "i_k": "Natives say: Let's split the bill.",
+    "i_y": "For sharing a cost, we say split the bill.",
+    "i_x": "We always split the bill with friends.",
+    "i_t": "You can split a taxi too!",
+    "i_q": "Quick quiz! Dinner was great. Let's blank the bill.",
+    "i_q2": "Divide, or split?",
+    "i_a": "Split! Dinner was great. Let's split the bill.",
+    "i_sh": "Send this to a friend!",
+    "i_c": "Save this, and look up any word on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "Let's split the bill.",
+    "right_lines": [
+     "i_k"
+    ],
+    "wrong_line": "i_w",
+    "wrong": "Let's divide the bill."
+   },
+   "source": "sb_0a35f2ef",
+   "reviewer": "Claude (expert American English teacher review, 28/10/2026: new-series sample, opener changed to \"This is how natives say it.\")"
+  },
+  "mo_drill_risen": {
+   "template": "drill",
+   "hook": "Only ONE is correct.",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (expert American English teacher review, 28/10/2026: motion layer samples, IPA from the audited app dictionary; no GrabCast)",
+   "script": {
+    "d_h": "Only one answer is correct. Can you spot it?",
+    "d_q": "The price of food has blank sharply.",
+    "d_o": "Rose, risen, raised, or rised?",
+    "d_a": "B! Risen. Rise, rose, risen.",
+    "d_w": "Raised needs an object, like: they raised prices.",
+    "d_sh": "Send this to a friend who's learning English!",
+    "d_c": "Save this, and practice verb forms on lexkite.com."
+   },
+   "promise": {
+    "count": true
+   },
+   "note": "Rise-rose-risen: 'has risen' (present perfect, intransitive) is the only correct form; 'raised' needs an object; 'rised' is not a word. Pills appear as each option is spoken."
+  },
+  "mo_mistake_agree": {
+   "template": "mistake",
+   "hook": "I am agree.",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (expert American English teacher review, 28/10/2026: motion layer samples, IPA from the audited app dictionary; no GrabCast)",
+   "script": {
+    "m_h": "Stop saying: I am agree.",
+    "m_w": "Agree is a verb, so you don't need am.",
+    "m_b": "Just say: I agree with you.",
+    "m_s": "Listen: agree. The stress is on the end.",
+    "m_x": "And if you don't, say: I disagree.",
+    "m_sh": "Send this to a friend who says I am agree!",
+    "m_c": "Save this, and fix your grammar on lexkite.com."
+   },
+   "promise": {},
+   "note": "'Agree' is a verb: 'I agree', never 'I am agree'. US IPA /əˈɡriː/ from the app dictionary (audited, PR #178): stress on the 2nd syllable. 'I disagree' is the natural negative."
+  },
+  "mo_tip_since_for": {
+   "template": "tip",
+   "hook": "Since or for?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (expert American English teacher review, 28/10/2026: motion layer samples, IPA from the audited app dictionary; no GrabCast)",
+   "script": {
+    "t_h": "Since or for? Here's the easy rule.",
+    "t_1": "Use for with a length of time.",
+    "t_2": "I've been here for three days.",
+    "t_3": "Since goes with a starting point.",
+    "t_4": "I've been here since Monday.",
+    "t_5": "So: for three days, since Monday.",
+    "t_sh": "Send this to a friend who mixes them up!",
+    "t_c": "Save this, and practice grammar on lexkite.com."
+   },
+   "promise": {},
+   "note": "03/11 re-review: t_3 reworded 'Use since…' → 'Since goes with a starting point.' (same rule; Kokoro read 'Use since' as 'You sense', asr_match failed twice). 'for' + length of time (for three days); 'since' + starting point (since Monday) with the present perfect. Each rule tile appears when spoken."
+  },
+  "mo_ready_band7": {
+   "template": "ready",
+   "hook": "Can you reach Band 7?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (expert American English teacher review, 28/10/2026: motion layer samples, IPA from the audited app dictionary; no GrabCast)",
+   "script": {
+    "r_h": "Can you reach Band 7? Let's check.",
+    "r_q1": "Which word is more formal: get, or obtain?",
+    "r_a1": "Obtain! The formal word for get.",
+    "r_q2": "The number of cars blank growing. Is, or are?",
+    "r_a2": "Is! The number is singular.",
+    "r_s": "Two for two? You're on track for Band 7.",
+    "r_c": "Save this, and take a free mock test on lexkite.com."
+   },
+   "promise": {
+    "count": true
+   },
+   "note": "'obtain' is the formal synonym of 'get' (Lexical Resource); 'the number of + plural noun' takes a singular verb ('is'). The band bar is a motivational estimate (5.0 -> 7.0), not a score claim."
+  },
+  "cmu_1915c5c2": {
+   "template": "mistake",
+   "hook": "✗ Not / “I'm boring in this class.”",
+   "hook_true": true,
+   "script_reviewed": true,
+   "script": {
+    "u_h": "Most learners mix this up.",
+    "u_w": "I'm boring in this class.",
+    "u_k": "Natives say: I'm bored in this class.",
+    "u_y": "Bored is how you feel. Boring is what makes you feel it.",
+    "u_x": "This movie is boring.",
+    "u_t": "Tired and tiring work the same way!",
+    "u_q": "Quick quiz! This lesson is so blank!",
+    "u_q2": "Boring, or bored?",
+    "u_a": "Boring! This lesson is so boring!",
+    "u_sh": "Send this to a friend!",
+    "u_c": "Save this, and look up any word on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "I'm bored in this class.",
+    "right_lines": [
+     "u_k"
+    ],
+    "wrong_line": "u_w",
+    "wrong": "I'm boring in this class."
+   },
+   "source": "sb_1915c5c2",
+   "reviewer": "claude 28/10 (pronunciation fix)",
+   "note": "hook = the real error, delivered by the fix + quiz; IPA = taught word as displayed (pron.mjs bank), quiz pills keep the question"
+  }
+ }
+}

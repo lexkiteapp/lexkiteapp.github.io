@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_th_afraid_of",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Afraid of snakes!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I am afraid snakes.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I am afraid of snakes.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say afraid of before the thing.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Of! He is afraid of dogs.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I am afraid snakes.",
+  "right": "I am afraid of snakes.",
+  "strike": "afraid",
+  "why": "Say afraid of before the thing.",
+  "memory": "Afraid of.",
+  "quiz": {
+   "stem": "He is afraid ___ dogs.",
+   "options": [
+    "of",
+    "to"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "afraid of = กลัว!",
+   "tip": "ภาษาไทยพูด “กลัวงู” ได้เลย แต่ภาษาอังกฤษต้องใส่ of หลัง afraid: “I am afraid of snakes.”",
+   "caption": "คุณเคยพูดว่า “I am afraid snakes.” ไหม? 😅 ภาษาไทยพูด “กลัวงู” ได้เลย แต่ภาษาอังกฤษต้องใส่ of หลัง afraid: “I am afraid of snakes.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+   "comment": "เฉลย: “of” จำไว้ให้ดีนะ! ลองพูดประโยคตัวอย่างออกเสียงหนึ่งรอบ แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Afraid needs “of”!",
+   "tip": "Thai says afraid snakes directly, but English needs of after afraid.",
+   "caption": "Do you say “I am afraid snakes.” 😅 Thai says afraid snakes directly, but English needs of after afraid. Say “I am afraid of snakes.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "afraid of = กลัว!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "th",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "afraid of = กลัว!",
+  "keyword": "I am afraid of snakes.",
+  "value": "ภาษาไทยพูด “กลัวงู” ได้เลย แต่ภาษาอังกฤษต้องใส่ of หลัง afraid: “I am afraid of snakes.”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "afraid of = กลัว!",
+    "description": "ภาษาไทยพูด “กลัวงู” ได้เลย แต่ภาษาอังกฤษต้องใส่ of หลัง afraid: “I am afraid of snakes.”\n\nคุณเคยพูดว่า “I am afraid snakes.” ไหม? 😅 ภาษาไทยพูด “กลัวงู” ได้เลย แต่ภาษาอังกฤษต้องใส่ of หลัง afraid: “I am afraid of snakes.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "I am afraid of snakes.",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "คุณเคยพูดว่า “I am afraid snakes.” ไหม? 😅 ภาษาไทยพูด “กลัวงู” ได้เลย แต่ภาษาอังกฤษต้องใส่ of หลัง afraid: “I am afraid of snakes.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "afraid of = กลัว!\n\nภาษาไทยพูด “กลัวงู” ได้เลย แต่ภาษาอังกฤษต้องใส่ of หลัง afraid: “I am afraid of snakes.”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "afraid of = กลัว! ภาษาไทยพูด “กลัวงู” ได้เลย แต่ภาษาอังกฤษต้องใส่ of หลัง afraid: “I am afraid of snakes.” #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "เฉลย: “of” จำไว้ให้ดีนะ! ลองพูดประโยคตัวอย่างออกเสียงหนึ่งรอบ แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+  "lang": "th"
+ }
+}

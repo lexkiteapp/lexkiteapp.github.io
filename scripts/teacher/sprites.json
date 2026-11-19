@@ -1,0 +1,118 @@
+{
+ "_doc": "Teacher viseme sprites (docs/TEACHER-IN-APP.md §5.4). Boxes are [x, y, w, h] in the 1080x1920 first frame. picks = clip#frame chosen by eye from the contact sheet (sprite_build.py sheet). 0 credits: everything is cut from the 3D bank v2.",
+ "ama": {
+  "first": "ama2_first.png",
+  "clips": [
+   "a05_ama2",
+   "a05b_ama2",
+   "a05l_ama2_listen",
+   "a05l2_ama2_listen",
+   "a05t2_ama2_present",
+   "a05t3_ama2_present"
+  ],
+  "face": [
+   600,
+   720,
+   350,
+   260
+  ],
+  "mouth": [
+   650,
+   940,
+   220,
+   170
+  ],
+  "crop": [
+   475,
+   600,
+   600,
+   800
+  ],
+  "loop": "a05l2_ama2_listen",
+  "voice": [
+   "a_nowyou",
+   "a_could",
+   "a_muffin",
+   "a_askcash"
+  ],
+  "picks": {
+   "X": "a05b_ama2#185",
+   "A": "a05b_ama2#187",
+   "B": "a05_ama2#33",
+   "C1": "a05_ama2#46",
+   "C": "a05_ama2#120",
+   "D": "a05_ama2#146",
+   "E": "a05_ama2#110",
+   "F": "a05l_ama2_listen#47",
+   "G": "a05t3_ama2_present#194",
+   "H": "a05t2_ama2_present#152"
+  },
+  "eyes": [
+   640,
+   850,
+   270,
+   100
+  ],
+  "loop_range": [
+   80,
+   152
+  ]
+ },
+ "carlos": {
+  "first": "carlos2_first.png",
+  "clips": [
+   "c05_carlos2",
+   "c05l_carlos2_listen",
+   "c05t2_carlos2_present",
+   "c05t3_carlos2_talk3",
+   "c05e2_carlos2_question"
+  ],
+  "face": [
+   560,
+   790,
+   300,
+   290
+  ],
+  "mouth": [
+   605,
+   952,
+   200,
+   130
+  ],
+  "crop": [
+   400,
+   640,
+   600,
+   800
+  ],
+  "loop": "c05l_carlos2_listen",
+  "voice": [
+   "c_hi",
+   "c_try",
+   "c_direct",
+   "c_four"
+  ],
+  "picks": {
+   "X": "c05l_carlos2_listen#58",
+   "A": "c05_carlos2#135",
+   "B": "c05_carlos2#7",
+   "C1": "c05l_carlos2_listen#145",
+   "C": "c05l_carlos2_listen#160",
+   "D": "c05l_carlos2_listen#208",
+   "E": "c05_carlos2#124",
+   "F": "c05_carlos2#158",
+   "G": "c05_carlos2#127",
+   "H": "c05l_carlos2_listen#199"
+  },
+  "eyes": [
+   600,
+   840,
+   210,
+   80
+  ],
+  "loop_range": [
+   134,
+   206
+  ]
+ }
+}

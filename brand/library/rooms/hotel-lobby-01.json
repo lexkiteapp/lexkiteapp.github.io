@@ -1,0 +1,43 @@
+{
+ "_note": "Hồ sơ sàn TỰ ĐỘNG (scripts/video/asset_check.py estimate_floor) – canvas rộng 1080. Sửa tay xong đặt \"manual\": true để không bị ghi đè.",
+ "id": "hotel-lobby-01",
+ "manual": false,
+ "confidence": 0.47,
+ "canvas": [
+  1080,
+  1913
+ ],
+ "source": "rooms/hotel-lobby-01-day-9x16.png",
+ "floor": {
+  "yNear": 1912,
+  "yFar": 1022
+ },
+ "vanish": [
+  499,
+  806
+ ],
+ "scaleAt": {
+  "yFar": 1022,
+  "hFar": 245,
+  "yNear": 1912,
+  "hNear": 1252
+ },
+ "stand": [
+  {
+   "x": 209,
+   "y": 1556
+  },
+  {
+   "x": 432,
+   "y": 1556
+  },
+  {
+   "x": 680,
+   "y": 1556
+  }
+ ],
+ "light": {
+  "dir": 1,
+  "warmth": 0.48
+ }
+}

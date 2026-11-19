@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ko_checkfile",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Check the file, not confirm!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Please confirm the attached file.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Please check the attached file.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Check means look at it.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Check! Please check the attached file.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Please confirm the attached file.",
+  "right": "Please check the attached file.",
+  "strike": "confirm",
+  "why": "Check means look at it.",
+  "memory": "Please check.",
+  "quiz": {
+   "stem": "Please ___ the attached file.",
+   "options": [
+    "check",
+    "confirm"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“confirm”이 아니라 check!",
+   "tip": "‘확인해 주세요’를 confirm으로 옮기기 쉬워요. 살펴보라고 할 때는 check! 이렇게 말해요 👉 “Please check the attached file.”",
+   "caption": "“Please confirm the attached file”처럼 말하고 있나요? 😅 ‘확인해 주세요’를 confirm으로 옮기면 어색할 때가 많아요. 파일을 살펴봐 달라고 할 때는 check를 써요. 맞는 문장 ✅ “Please check the attached file.” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+   "comment": "정답 ✅ “Please check the attached file.” 소리 내어 한 번 말해 보고, 나만의 문장도 하나 써 보세요: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say check, not “confirm”!",
+   "tip": "To ask someone to look at a file, say check. Say “Please check the attached file.”",
+   "caption": "Do you say “Please confirm the attached file” in English? 😅 To ask someone to look at a file, “check” sounds more natural than “confirm”! “Please check the attached file” is right. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“confirm”이 아니라 check!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ko",
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "“confirm”이 아니라 check!",
+  "keyword": "Please check the attached file.",
+  "value": "‘확인해 주세요’를 confirm으로 옮기기 쉬워요. 살펴보라고 할 때는 check! 이렇게 말해요 👉 “Please check the attached file.”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "“confirm”이 아니라 check!",
+    "description": "‘확인해 주세요’를 confirm으로 옮기기 쉬워요. 살펴보라고 할 때는 check! 이렇게 말해요 👉 “Please check the attached file.”\n\n“Please confirm the attached file”처럼 말하고 있나요? 😅 ‘확인해 주세요’를 confirm으로 옮기면 어색할 때가 많아요. 파일을 살펴봐 달라고 할 때는 check를 써요. 맞는 문장 ✅ “Please check the attached file.” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "Please check the attached file.",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“Please confirm the attached file”처럼 말하고 있나요? 😅 ‘확인해 주세요’를 confirm으로 옮기면 어색할 때가 많아요. 파일을 살펴봐 달라고 할 때는 check를 써요. 맞는 문장 ✅ “Please check the attached file.” Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“confirm”이 아니라 check!\n\n‘확인해 주세요’를 confirm으로 옮기기 쉬워요. 살펴보라고 할 때는 check! 이렇게 말해요 👉 “Please check the attached file.”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“confirm”이 아니라 check! ‘확인해 주세요’를 confirm으로 옮기기 쉬워요. 살펴보라고 할 때는 check! 이렇게 말해요 👉 “Please check the attached file.” #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답 ✅ “Please check the attached file.” 소리 내어 한 번 말해 보고, 나만의 문장도 하나 써 보세요: {link}",
+  "lang": "ko"
+ }
+}

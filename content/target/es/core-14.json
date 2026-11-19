@@ -1,0 +1,578 @@
+{
+ "v": 1,
+ "tl": "es",
+ "variant": "es-419",
+ "status": "reviewed",
+ "source": {
+  "name": "FrequencyWords (hermitdave) – OpenSubtitles 2018 es_50k",
+  "url": "https://raw.githubusercontent.com/hermitdave/FrequencyWords/master/content/2018/es/es_50k.txt",
+  "license": "CC BY-SA 4.0 (dữ liệu) – chỉ dùng thứ hạng để chọn từ; ghi công trong spec"
+ },
+ "words": [
+  {
+   "word": "a",
+   "pos": "prep",
+   "ipa": "ˈa",
+   "gl": {
+    "es": "a",
+    "en": "to",
+    "pt": "a",
+    "fr": "à",
+    "de": "zu",
+    "vi": "đến",
+    "id": "ke",
+    "th": "ไปยัง",
+    "zh": "到",
+    "ja": "へ",
+    "ko": "에",
+    "hi": "को",
+    "ar": "إلى",
+    "ru": "в, к",
+    "tr": "-e, -a"
+   },
+   "ex": {
+    "es": "Voy a la tienda.",
+    "en": "I go to the store."
+   },
+   "rank": 4,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.7-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "te",
+   "pos": "pron",
+   "ipa": "ˈte",
+   "gl": {
+    "es": "te",
+    "en": "you (object)",
+    "pt": "te",
+    "fr": "te",
+    "de": "dich",
+    "vi": "bạn (tân ngữ)",
+    "id": "kamu",
+    "th": "คุณ",
+    "zh": "你",
+    "ja": "あなた",
+    "ko": "너",
+    "hi": "तुम्हें",
+    "ar": "أنت",
+    "ru": "тебя",
+    "tr": "seni"
+   },
+   "ex": {
+    "es": "Te llamo mañana.",
+    "en": "I’ll call you tomorrow."
+   },
+   "rank": 18,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.7-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "sí",
+   "pos": "adv",
+   "ipa": "ˈsi",
+   "gl": {
+    "es": "sí",
+    "en": "yes",
+    "pt": "sim",
+    "fr": "oui",
+    "de": "ja",
+    "vi": "vâng, có",
+    "id": "ya",
+    "th": "ใช่",
+    "zh": "是",
+    "ja": "はい",
+    "ko": "예",
+    "hi": "हाँ",
+    "ar": "نعم",
+    "ru": "да",
+    "tr": "evet"
+   },
+   "ex": {
+    "es": "Sí, entiendo.",
+    "en": "Yes, I understand."
+   },
+   "rank": 24,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.7-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ],
+    "wikt": "từ loại adv ↔ particle/intj/noun/pron"
+   }
+  },
+  {
+   "word": "su",
+   "pos": "det",
+   "ipa": "ˈsu",
+   "gl": {
+    "es": "su",
+    "en": "his/her/your (formal)",
+    "pt": "seu",
+    "fr": "son/sa",
+    "de": "sein/ihr",
+    "vi": "của anh/chị ấy, của họ, của ngài",
+    "id": "nya",
+    "th": "ของเขา/ของเธอ",
+    "zh": "他的/她的",
+    "ja": "彼の/彼女の",
+    "ko": "그의/그녀의",
+    "hi": "उसका/उसकी",
+    "ar": "له/لها",
+    "ru": "его/её",
+    "tr": "onun"
+   },
+   "ex": {
+    "es": "Su casa es grande.",
+    "en": "His/Her house is big."
+   },
+   "rank": 28,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.7-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ],
+    "spot": true
+   }
+  },
+  {
+   "word": "tu",
+   "pos": "det",
+   "ipa": "ˈtu",
+   "gl": {
+    "es": "tu",
+    "en": "your (informal)",
+    "pt": "teu",
+    "fr": "ton",
+    "de": "dein",
+    "vi": "của bạn (informal)",
+    "id": "milikmu",
+    "th": "ของคุณ (ไม่เป็นทางการ)",
+    "zh": "你的",
+    "ja": "あなたの",
+    "ko": "너의",
+    "hi": "तुम्हारा",
+    "ar": "لك",
+    "ru": "твой",
+    "tr": "senin"
+   },
+   "ex": {
+    "es": "Tu libro está aquí.",
+    "en": "Your book is here."
+   },
+   "rank": 34,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.7-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "esto",
+   "pos": "pron",
+   "ipa": "ˈesto",
+   "gl": {
+    "es": "esto",
+    "en": "this (neuter)",
+    "pt": "isto",
+    "fr": "cela",
+    "de": "das",
+    "vi": "điều này",
+    "id": "ini",
+    "th": "นี่",
+    "zh": "这个",
+    "ja": "これ",
+    "ko": "이것",
+    "hi": "यह",
+    "ar": "هذا",
+    "ru": "это",
+    "tr": "bu"
+   },
+   "ex": {
+    "es": "Esto es fácil.",
+    "en": "This is easy."
+   },
+   "rank": 38,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.7-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "nada",
+   "pos": "pron",
+   "ipa": "ˈnaða",
+   "gl": {
+    "es": "nada",
+    "en": "nothing",
+    "pt": "nada",
+    "fr": "rien",
+    "de": "nichts",
+    "vi": "không có gì",
+    "id": "tidak ada",
+    "th": "ไม่มีอะไร",
+    "zh": "没有",
+    "ja": "何も",
+    "ko": "아무것도",
+    "hi": "कुछ नहीं",
+    "ar": "لا شيء",
+    "ru": "ничего",
+    "tr": "hiçbir şey"
+   },
+   "ex": {
+    "es": "No hay nada.",
+    "en": "There is nothing."
+   },
+   "rank": 58,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.7-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "creer",
+   "pos": "v",
+   "ipa": "kɾeˈeɾ",
+   "gl": {
+    "vi": "tin",
+    "en": "to believe / think",
+    "es": "creer",
+    "pt": "acreditar",
+    "fr": "croire",
+    "de": "glauben",
+    "id": "percaya",
+    "th": "เชื่อ",
+    "zh": "相信",
+    "ja": "信じる",
+    "ko": "믿다",
+    "hi": "विश्वास करना",
+    "ar": "اعتقد",
+    "ru": "верить",
+    "tr": "inanmak"
+   },
+   "ex": {
+    "es": "Creo que va a llover hoy.",
+    "en": "I think it is going to rain today."
+   },
+   "exForm": "Creo",
+   "rank": 79,
+   "qa": {
+    "gen": "gemini-3.8-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "ese",
+   "pos": "det",
+   "ipa": "ˈese",
+   "gl": {
+    "vi": "đó",
+    "en": "that",
+    "es": "ese",
+    "pt": "esse",
+    "fr": "ce",
+    "de": "jener",
+    "id": "itu",
+    "th": "นั้น",
+    "zh": "那个",
+    "ja": "その",
+    "ko": "그",
+    "hi": "वह",
+    "ar": "ذلك",
+    "ru": "тот",
+    "tr": "o"
+   },
+   "ex": {
+    "es": "Ese carro es muy bonito.",
+    "en": "That car is very nice."
+   },
+   "rank": 85,
+   "qa": {
+    "gen": "gemini-3.8-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "solo",
+   "pos": "adj",
+   "ipa": "ˈsolo",
+   "gl": {
+    "vi": "một mình",
+    "en": "alone",
+    "es": "solo",
+    "pt": "sozinho",
+    "fr": "seul",
+    "de": "allein",
+    "id": "sendiri",
+    "th": "คนเดียว",
+    "zh": "独自",
+    "ja": "一人で",
+    "ko": "혼자",
+    "hi": "अकेला",
+    "ar": "وحيد",
+    "ru": "один, в одиночестве",
+    "tr": "yalnız"
+   },
+   "ex": {
+    "es": "Él vive solo en la ciudad.",
+    "en": "He lives alone in the city."
+   },
+   "rank": 89,
+   "qa": {
+    "gen": "gemini-3.8-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "noche",
+   "pos": "n",
+   "gender": "f",
+   "plural": "noches",
+   "ipa": "ˈnotʃe",
+   "gl": {
+    "vi": "đêm",
+    "en": "night",
+    "es": "noche",
+    "pt": "noite",
+    "fr": "nuit",
+    "de": "Nacht",
+    "id": "malam",
+    "th": "กลางคืน",
+    "zh": "夜晚",
+    "ja": "夜",
+    "ko": "밤",
+    "hi": "रात",
+    "ar": "ليل",
+    "ru": "ночь",
+    "tr": "gece"
+   },
+   "ex": {
+    "es": "La noche está muy fría.",
+    "en": "The night is very cold."
+   },
+   "rank": 136,
+   "qa": {
+    "gen": "gemini-3.8-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "acuerdo",
+   "pos": "n",
+   "gender": "m",
+   "plural": "acuerdos",
+   "ipa": "aˈkweɾðo",
+   "gl": {
+    "vi": "thỏa thuận",
+    "en": "agreement",
+    "es": "acuerdo",
+    "pt": "acordo",
+    "fr": "accord",
+    "de": "Vereinbarung",
+    "id": "kesepakatan",
+    "th": "ข้อตกลง",
+    "zh": "协议",
+    "ja": "合意",
+    "ko": "합의",
+    "hi": "समझौता",
+    "ar": "اتفاق",
+    "ru": "соглашение",
+    "tr": "anlaşma"
+   },
+   "ex": {
+    "es": "Llegamos a un buen acuerdo.",
+    "en": "We reached a good agreement."
+   },
+   "rank": 141,
+   "qa": {
+    "gen": "gemini-3.8-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "padre",
+   "pos": "n",
+   "gender": "m",
+   "plural": "padres",
+   "ipa": "ˈpaðɾe",
+   "gl": {
+    "vi": "cha",
+    "en": "father",
+    "es": "padre",
+    "pt": "pai",
+    "fr": "père",
+    "de": "Vater",
+    "id": "ayah",
+    "th": "พ่อ",
+    "zh": "父亲",
+    "ja": "父",
+    "ko": "아버지",
+    "hi": "पिता",
+    "ar": "أب",
+    "ru": "отец",
+    "tr": "baba"
+   },
+   "ex": {
+    "es": "Mi padre trabaja en una escuela.",
+    "en": "My father works at a school."
+   },
+   "rank": 147,
+   "qa": {
+    "gen": "gemini-3.8-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "estado",
+   "pos": "n",
+   "gender": "m",
+   "plural": "estados",
+   "ipa": "esˈtaðo",
+   "gl": {
+    "vi": "trạng thái",
+    "en": "state / condition",
+    "es": "estado",
+    "pt": "estado",
+    "fr": "état",
+    "de": "Zustand",
+    "id": "keadaan",
+    "th": "สภาพ",
+    "zh": "状态",
+    "ja": "状態",
+    "ko": "상태",
+    "hi": "स्थिति",
+    "ar": "حالة",
+    "ru": "состояние",
+    "tr": "durum"
+   },
+   "ex": {
+    "es": "El auto está en buen estado.",
+    "en": "The car is in good condition."
+   },
+   "rank": 170,
+   "qa": {
+    "gen": "gemini-3.8-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  }
+ ],
+ "review": {
+  "by": "sonnet-review-A",
+  "at": "2026-11-09",
+  "checked": 14,
+  "fixed": 7,
+  "dropped": 0,
+  "sample": 14
+ }
+}

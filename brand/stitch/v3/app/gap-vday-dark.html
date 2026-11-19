@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite - Focus Lesson</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-primary-fixed-variant": "#00504b",
+            "on-primary-container": "#00322e",
+            "tertiary-fixed": "#ffdf9e",
+            "surface-container-high": "#202c2f",
+            "tertiary-container": "#ba8b00",
+            "on-tertiary": "#402e00",
+            "on-secondary-container": "#ffa493",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "tertiary": "#f4bf40",
+            "on-primary-fixed": "#00201e",
+            "on-error-container": "#ffdad6",
+            "surface-bright": "#2f3b3e",
+            "surface-container": "#162125",
+            "on-tertiary-container": "#392900",
+            "inverse-surface": "#d8e5e9",
+            "inverse-primary": "#006a64",
+            "tertiary-fixed-dim": "#f4bf40",
+            "secondary-container": "#f05a3e",
+            "primary-fixed-dim": "#6bd8ce",
+            "surface-dim": "#091518",
+            "on-secondary-fixed": "#3f0300",
+            "error-container": "#93000a",
+            "surface-container-lowest": "#051013",
+            "outline": "#879391",
+            "background": "#091518",
+            "on-secondary-fixed-variant": "#900f00",
+            "secondary": "#ffb4a6",
+            "outline-variant": "#243538",
+            "surface": "#091518",
+            "error": "#ffb4ab",
+            "on-error": "#690005",
+            "on-background": "#f0f4f4",
+            "primary-fixed": "#88f5ea",
+            "on-secondary": "#ffffff",
+            "secondary-fixed-dim": "#ffb4a6",
+            "on-primary": "#003733",
+            "surface-tint": "#6bd8ce",
+            "secondary-fixed": "#ffdad3",
+            "inverse-on-surface": "#263236",
+            "on-surface": "#f0f4f4",
+            "surface-container-highest": "#2b373a",
+            "primary": "#6bd8ce",
+            "surface-container-low": "#121d20",
+            "surface-variant": "#172427",
+            "on-surface-variant": "#9bb2b1",
+            "on-tertiary-fixed": "#261a00",
+            "primary-container": "#2ba39a"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter": "1rem",
+            "gutter-lg": "2rem",
+            "margin": "1rem",
+            "margin-md": "2rem",
+            "space-lg": "1.5rem",
+            "gutter-md": "1.5rem",
+            "space-md": "1rem",
+            "space-sm": "0.5rem",
+            "space-xl": "2rem",
+            "margin-lg": "3rem",
+            "space-xs": "0.25rem"
+          },
+          "fontFamily": {
+            "headline": ["Plus Jakarta Sans"],
+            "display": ["Plus Jakarta Sans"],
+            "body": ["Plus Jakarta Sans"],
+            "label": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "display-hero-mobile": ["32px", { "lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "label-md": ["14px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "label-lg": ["16px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "700" }],
+            "display-hero": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "700" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 24px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-smoothing: antialiased;
+    }
+    /* Physical 3D Extrusion Styles - Dark Theme */
+    .tactile-card {
+      box-shadow: 0 4px 0 0 #0c171a;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .tactile-card:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 0 #0c171a;
+    }
+    .tactile-button-primary {
+      box-shadow: 0 4px 0 0 #c83d24;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .tactile-button-primary:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 0 #c83d24;
+    }
+    .tactile-speaker {
+      box-shadow: 0 3px 0 0 #0d1e21;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .tactile-speaker:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 0 #0d1e21;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex flex-col justify-between selection:bg-primary-container selection:text-white">
+<!-- Top App Bar -->
+<header class="sticky top-0 z-30 bg-[#091518]/95 backdrop-blur-md border-b border-[#243538] w-full">
+<div class="flex justify-between items-center w-full px-margin max-w-lg mx-auto h-14">
+<!-- Close Button with 48px hit area -->
+<button aria-label="Close lesson" class="w-12 h-12 flex items-center justify-center rounded-full hover:bg-[#162125] active:translate-y-0.5 transition-transform duration-100 text-[#9bb2b1] focus:outline-none" type="button">
+<span class="material-symbols-outlined text-[#6bd8ce] text-[24px]">close</span>
+</button>
+<!-- Clean lesson progress bar -->
+<div class="flex-1 mx-4 flex items-center gap-2">
+<div class="w-full bg-[#162125] h-2 rounded-full overflow-hidden border border-[#243538]">
+<div aria-valuemax="100" aria-valuemin="0" aria-valuenow="15" class="bg-[#2ba39a] h-full rounded-full w-[15%]" role="progressbar"></div>
+</div>
+</div>
+<!-- Trailing Action: Flag Issue -->
+<button aria-label="Flag issue" class="w-12 h-12 flex items-center justify-center rounded-full hover:bg-[#162125] active:translate-y-0.5 transition-transform duration-100 text-[#9bb2b1] focus:outline-none" type="button">
+<span class="material-symbols-outlined text-[#879391] text-[22px]">flag</span>
+</button>
+</div>
+</header>
+<!-- Main Content Study Canvas -->
+<main class="w-full max-w-lg mx-auto px-margin pt-4 pb-32 flex-1 flex flex-col gap-5">
+<!-- Lesson Overview Header Banner -->
+<section class="flex flex-col gap-2">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-[#6bd8ce] bg-[#121d20] border border-[#243538] px-2.5 py-0.5 rounded-full">
+          IELTS &amp; TOEIC Core · Unit 1
+        </span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-[#f0f4f4] tracking-tight">
+        Day 3 — Work and careers
+      </h1>
+<!-- Meta Information Row: Goal and Status Chips -->
+<div class="flex flex-wrap items-center gap-2 pt-1">
+<!-- Goal Pill with Timer -->
+<div class="inline-flex items-center gap-1.5 bg-[#121d20] border border-[#243538] px-3 py-1.5 rounded-full shadow-sm">
+<span class="material-symbols-outlined text-[#2ba39a] text-[18px]">schedule</span>
+<span class="font-label-md text-label-md text-[#f0f4f4] font-semibold">8 words, about 6 minutes</span>
+</div>
+<!-- 5 New Chip -->
+<div class="inline-flex items-center gap-1 bg-[#121d20] px-2.5 py-1.5 rounded-full border border-[#243538]">
+<span class="w-2 h-2 rounded-full bg-[#2ba39a]"></span>
+<span class="font-label-sm text-label-sm text-[#6bd8ce] font-bold">5 new</span>
+</div>
+<!-- 3 Review Chip -->
+<div class="inline-flex items-center gap-1 bg-[#121d20] px-2.5 py-1.5 rounded-full border border-[#243538]">
+<span class="w-2 h-2 rounded-full bg-[#879391]"></span>
+<span class="font-label-sm text-label-sm text-[#9bb2b1] font-medium">3 review</span>
+</div>
+</div>
+</section>
+<!-- Teacher Slot: Structured Tactile Container -->
+<section class="teacher-slot bg-[#121d20] border-2 border-dashed border-[#243538] rounded-xl p-4 flex flex-col gap-3 relative">
+<div class="flex items-center justify-between border-b border-[#243538] pb-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#2ba39a] text-[20px]">smart_toy</span>
+<span class="font-label-sm text-label-sm text-[#9bb2b1] tracking-wider uppercase">[Carlos - 2D avatar container]</span>
+</div>
+<span class="font-label-sm text-label-sm text-[#00322e] bg-[#6bd8ce] px-2.5 py-0.5 rounded-full font-bold tracking-wide">TUTOR PROMPT</span>
+</div>
+<div class="flex items-start gap-3">
+<div class="w-10 h-10 rounded-lg bg-[#172427] flex items-center justify-center border border-[#243538] shrink-0">
+<span class="material-symbols-outlined text-[#6bd8ce] text-[24px]">forum</span>
+</div>
+<div class="flex flex-col">
+<p class="font-label-sm text-label-sm text-[#6bd8ce] font-bold">Carlos Mentor</p>
+<p class="font-body-md text-body-md text-[#f0f4f4] italic mt-0.5 leading-snug">
+            “Say each word out loud once to lock in the correct pronunciation.”
+          </p>
+</div>
+</div>
+</section>
+<!-- Vocabulary Checklist Target Cards List -->
+<section aria-label="Vocabulary List" class="flex flex-col gap-3">
+<div class="flex justify-between items-center px-1">
+<span class="font-label-md text-label-md text-[#9bb2b1]">Target Vocabulary (6 of 8 previewed)</span>
+<span class="font-label-sm text-label-sm text-[#879391] font-medium">British RP</span>
+</div>
+<!-- Card 1: Colleague -->
+<article class="tactile-card bg-[#121d20] rounded-xl p-4 border border-[#243538] flex flex-col gap-2">
+<div class="flex items-start justify-between gap-3">
+<div class="flex-1">
+<div class="flex items-center gap-2 flex-wrap">
+<h2 class="font-headline-md text-headline-md text-[#f0f4f4] font-bold">colleague</h2>
+<span class="font-label-sm text-label-sm text-[#9bb2b1]">/'kɒli:ɡ/ · noun</span>
+<span class="font-label-sm text-label-sm bg-[#163a38] text-[#6bd8ce] border border-[#2ba39a]/40 px-2 py-0.5 rounded-full font-bold">NEW</span>
+</div>
+<p class="font-body-sm text-body-sm text-[#9bb2b1] mt-1.5 leading-relaxed">
+              A person that you work with in a profession or business.
+            </p>
+</div>
+<!-- Tactile Audio Button with 48px target -->
+<button aria-label="Play pronunciation for colleague" class="tactile-speaker shrink-0 w-12 h-12 rounded-full bg-[#1c3337] border border-[#2ba39a]/40 text-[#6bd8ce] hover:bg-[#234247] flex items-center justify-center focus:outline-none" type="button">
+<span class="material-symbols-outlined text-[24px]">volume_up</span>
+</button>
+</div>
+</article>
+<!-- Card 2: Deadline -->
+<article class="tactile-card bg-[#121d20] rounded-xl p-4 border border-[#243538] flex flex-col gap-2">
+<div class="flex items-start justify-between gap-3">
+<div class="flex-1">
+<div class="flex items-center gap-2 flex-wrap">
+<h2 class="font-headline-md text-headline-md text-[#f0f4f4] font-bold">deadline</h2>
+<span class="font-label-sm text-label-sm text-[#9bb2b1]">/'dedlaɪn/ · noun</span>
+<span class="font-label-sm text-label-sm bg-[#1e2a2e] text-[#9bb2b1] font-semibold px-2 py-0.5 rounded-full border border-[#243538]">REVIEW</span>
+</div>
+<p class="font-body-sm text-body-sm text-[#9bb2b1] mt-1.5 leading-relaxed">
+              The latest time or date by which something must be completed.
+            </p>
+</div>
+<button aria-label="Play pronunciation for deadline" class="tactile-speaker shrink-0 w-12 h-12 rounded-full bg-[#1c3337] border border-[#2ba39a]/40 text-[#6bd8ce] hover:bg-[#234247] flex items-center justify-center focus:outline-none" type="button">
+<span class="material-symbols-outlined text-[24px]">volume_up</span>
+</button>
+</div>
+</article>
+<!-- Card 3: Negotiate -->
+<article class="tactile-card bg-[#121d20] rounded-xl p-4 border border-[#243538] flex flex-col gap-2">
+<div class="flex items-start justify-between gap-3">
+<div class="flex-1">
+<div class="flex items-center gap-2 flex-wrap">
+<h2 class="font-headline-md text-headline-md text-[#f0f4f4] font-bold">negotiate</h2>
+<span class="font-label-sm text-label-sm text-[#9bb2b1]">/nɪ'ɡəʊʃieɪt/ · verb</span>
+<span class="font-label-sm text-label-sm bg-[#163a38] text-[#6bd8ce] border border-[#2ba39a]/40 px-2 py-0.5 rounded-full font-bold">NEW</span>
+</div>
+<p class="font-body-sm text-body-sm text-[#9bb2b1] mt-1.5 leading-relaxed">
+              To discuss something with someone in order to reach an agreement.
+            </p>
+</div>
+<button aria-label="Play pronunciation for negotiate" class="tactile-speaker shrink-0 w-12 h-12 rounded-full bg-[#1c3337] border border-[#2ba39a]/40 text-[#6bd8ce] hover:bg-[#234247] flex items-center justify-center focus:outline-none" type="button">
+<span class="material-symbols-outlined text-[24px]">volume_up</span>
+</button>
+</div>
+</article>
+<!-- Card 4: Promotion -->
+<article class="tactile-card bg-[#121d20] rounded-xl p-4 border border-[#243538] flex flex-col gap-2">
+<div class="flex items-start justify-between gap-3">
+<div class="flex-1">
+<div class="flex items-center gap-2 flex-wrap">
+<h2 class="font-headline-md text-headline-md text-[#f0f4f4] font-bold">promotion</h2>
+<span class="font-label-sm text-label-sm text-[#9bb2b1]">/prə'məʊʃn/ · noun</span>
+<span class="font-label-sm text-label-sm bg-[#163a38] text-[#6bd8ce] border border-[#2ba39a]/40 px-2 py-0.5 rounded-full font-bold">NEW</span>
+</div>
+<p class="font-body-sm text-body-sm text-[#9bb2b1] mt-1.5 leading-relaxed">
+              Movement to a higher position or rank within an organization.
+            </p>
+</div>
+<button aria-label="Play pronunciation for promotion" class="tactile-speaker shrink-0 w-12 h-12 rounded-full bg-[#1c3337] border border-[#2ba39a]/40 text-[#6bd8ce] hover:bg-[#234247] flex items-center justify-center focus:outline-none" type="button">
+<span class="material-symbols-outlined text-[24px]">volume_up</span>
+</button>
+</div>
+</article>
+<!-- Card 5: Candidate -->
+<article class="tactile-card bg-[#121d20] rounded-xl p-4 border border-[#243538] flex flex-col gap-2">
+<div class="flex items-start justify-between gap-3">
+<div class="flex-1">
+<div class="flex items-center gap-2 flex-wrap">
+<h2 class="font-headline-md text-headline-md text-[#f0f4f4] font-bold">candidate</h2>
+<span class="font-label-sm text-label-sm text-[#9bb2b1]">/'kændɪdət/ · noun</span>
+<span class="font-label-sm text-label-sm bg-[#1e2a2e] text-[#9bb2b1] font-semibold px-2 py-0.5 rounded-full border border-[#243538]">REVIEW</span>
+</div>
+<p class="font-body-sm text-body-sm text-[#9bb2b1] mt-1.5 leading-relaxed">
+              A person who applies for a job or is being considered for a position.
+            </p>
+</div>
+<button aria-label="Play pronunciation for candidate" class="tactile-speaker shrink-0 w-12 h-12 rounded-full bg-[#1c3337] border border-[#2ba39a]/40 text-[#6bd8ce] hover:bg-[#234247] flex items-center justify-center focus:outline-none" type="button">
+<span class="material-symbols-outlined text-[24px]">volume_up</span>
+</button>
+</div>
+</article>
+<!-- Card 6: Schedule -->
+<article class="tactile-card bg-[#121d20] rounded-xl p-4 border border-[#243538] flex flex-col gap-2">
+<div class="flex items-start justify-between gap-3">
+<div class="flex-1">
+<div class="flex items-center gap-2 flex-wrap">
+<h2 class="font-headline-md text-headline-md text-[#f0f4f4] font-bold">schedule</h2>
+<span class="font-label-sm text-label-sm text-[#9bb2b1]">/'skedʒu:l/ · noun / verb</span>
+<span class="font-label-sm text-label-sm bg-[#163a38] text-[#6bd8ce] border border-[#2ba39a]/40 px-2 py-0.5 rounded-full font-bold">NEW</span>
+</div>
+<p class="font-body-sm text-body-sm text-[#9bb2b1] mt-1.5 leading-relaxed">
+              A plan of things to be done and the times when they will be done.
+            </p>
+</div>
+<button aria-label="Play pronunciation for schedule" class="tactile-speaker shrink-0 w-12 h-12 rounded-full bg-[#1c3337] border border-[#2ba39a]/40 text-[#6bd8ce] hover:bg-[#234247] flex items-center justify-center focus:outline-none" type="button">
+<span class="material-symbols-outlined text-[24px]">volume_up</span>
+</button>
+</div>
+</article>
+</section>
+</main>
+<!-- Docked Bottom Action Area (Focus Journey - No Nav Shell) -->
+<footer class="fixed bottom-0 left-0 right-0 z-40 bg-[#091518]/95 backdrop-blur-md border-t border-[#243538] pb-safe">
+<div class="max-w-lg mx-auto px-margin py-3 flex flex-col items-center gap-2">
+<!-- Tactile Coral Button -->
+<button class="tactile-button-primary w-full h-14 bg-[#f05a3e] hover:bg-[#ff6b4a] text-white rounded-full font-label-lg text-label-lg flex items-center justify-center gap-2 font-bold tracking-wide focus:outline-none" type="button">
+<span>Start Lesson (6 min)</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+<!-- Calm Metadata Line -->
+<p class="font-label-sm text-label-sm text-[#9bb2b1] tracking-normal">
+        Micro-session · Audio enabled
+      </p>
+</div>
+</footer>
+<!-- Micro-interaction JS for speaker tap simulation -->
+<script>
+    document.querySelectorAll('.tactile-speaker').forEach(button => {
+      button.addEventListener('click', () => {
+        const icon = button.querySelector('.material-symbols-outlined');
+        if (icon) {
+          icon.textContent = 'graphic_eq';
+          setTimeout(() => {
+            icon.textContent = 'volume_up';
+          }, 800);
+        }
+      });
+    });
+  </script>
+</body></html>

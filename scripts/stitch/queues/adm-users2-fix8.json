@@ -1,0 +1,54 @@
+[
+ {
+  "id": "adm-users2-drawer",
+  "mode": "light",
+  "kind": "gen",
+  "device": "DESKTOP",
+  "prompt": "Round 8 redraw. Desktop web admin screen, 1440 px wide, of Lexkite admin (English-learning app). Feel: professional, calm, data-dense like Linear or Stripe dashboards, Lexkite Kit design system: deep teal brand, one warm coral primary button, cream light theme, rounded tactile cards. Left admin sidebar with Lexkite logo and sections (Tổng quan, Người dùng selected, Nội dung, Doanh thu, Hệ thống). All labels in Vietnamese. Realistic data, no lorem ipsum. All text strongly readable (4.5:1 contrast), every clickable control at least 44 px tall. No photos of people: use initials avatars. Screen: Admin › Người dùng. Top: title \"Người dùng\" with total 1.284. A row of 5 KPI cards each with a tiny sparkline (Tổng người dùng, Hoạt động 7 ngày, Mới tuần này, Streak trung bình, Đã trả phí). A filter strip of chips: Quốc gia, Nền tảng, Ngày tham gia, Hoạt động, Cấp độ, Streak, Nhãn, plus a search field, a \"Chế độ xem đã lưu\" button and a column chooser. A data table with a checkbox column, name + email, country flag, platform (Web, iOS, Android, Add-on), level, streak, last active, and status badges (Hoạt động, Ngủ đông, Mới, Bị khoá, Admin). Three rows are selected (checked, highlighted).  On top, a detail drawer slides in from the right (about 440 px wide) for one user: profile header (initials avatar, name, email, country, joined date, status badge), devices/platforms list, learning stats (XP, streak, study days, level), an activity timeline, tags and an admin note field, and destructive buttons at the very bottom (Khoá tài khoản, Xoá dữ liệu in red). The table behind is dimmed slightly.\n\nHard quality bar – an automated check rejects the screen otherwise. Text: every word (sidebar section labels, breadcrumbs, avatar initials, chips, captions, table cells, footers, placeholders) uses a solid colour reaching 4.5:1 on its own background; no opacity utilities, no text-*/60, no mid-grey or pale tints, no coloured text on tinted chips unless it reaches 4.5:1. Touch: every interactive element (sidebar links, tabs, chips, icon buttons, inputs, selects, checkboxes, toggles, pagination, row actions, language buttons, links) is at least 44px tall and 44px wide; checkboxes and radios sit inside a visible 44px label, never a hidden 1px input. Width: nothing wider than the viewport; tables scroll inside their own card with overflow-x:auto; all widths flexible. Icons: only valid Material Symbols Rounded names, loaded from the font, so no icon name ever shows as text. Dark theme has no light panels.",
+  "fix": "8"
+ },
+ {
+  "id": "adm-users2-drawer",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "DESKTOP",
+  "from": "adm-users2-drawer/light",
+  "prompt": "Round 8 redraw. Convert this exact screen to the dark theme: deep teal-black background, slightly lighter dark cards and table rows, readable high-contrast text (4.5:1), brand teal accents lightened, keep the coral primary and red destructive buttons, no white panels left. Keep layout, content and the 1440 px desktop width identical.\n\nHard quality bar – an automated check rejects the screen otherwise. Text: every word (sidebar section labels, breadcrumbs, avatar initials, chips, captions, table cells, footers, placeholders) uses a solid colour reaching 4.5:1 on its own background; no opacity utilities, no text-*/60, no mid-grey or pale tints, no coloured text on tinted chips unless it reaches 4.5:1. Touch: every interactive element (sidebar links, tabs, chips, icon buttons, inputs, selects, checkboxes, toggles, pagination, row actions, language buttons, links) is at least 44px tall and 44px wide; checkboxes and radios sit inside a visible 44px label, never a hidden 1px input. Width: nothing wider than the viewport; tables scroll inside their own card with overflow-x:auto; all widths flexible. Icons: only valid Material Symbols Rounded names, loaded from the font, so no icon name ever shows as text. Dark theme has no light panels.",
+  "fix": "8"
+ },
+ {
+  "id": "adm-users2-table",
+  "mode": "light",
+  "kind": "gen",
+  "device": "DESKTOP",
+  "prompt": "Round 8 redraw. Desktop web admin screen, 1440 px wide, of Lexkite admin (English-learning app). Feel: professional, calm, data-dense like Linear or Stripe dashboards, Lexkite Kit design system: deep teal brand, one warm coral primary button, cream light theme, rounded tactile cards. Left admin sidebar with Lexkite logo and sections (Tổng quan, Người dùng selected, Nội dung, Doanh thu, Hệ thống). All labels in Vietnamese. Realistic data, no lorem ipsum. All text strongly readable (4.5:1 contrast), every clickable control at least 44 px tall. No photos of people: use initials avatars. Screen: Admin › Người dùng. Top: title \"Người dùng\" with total 1.284. A row of 5 KPI cards each with a tiny sparkline (Tổng người dùng, Hoạt động 7 ngày, Mới tuần này, Streak trung bình, Đã trả phí). A filter strip of chips: Quốc gia, Nền tảng, Ngày tham gia, Hoạt động, Cấp độ, Streak, Nhãn, plus a search field, a \"Chế độ xem đã lưu\" button and a column chooser. A data table with a checkbox column, name + email, country flag, platform (Web, iOS, Android, Add-on), level, streak, last active, and status badges (Hoạt động, Ngủ đông, Mới, Bị khoá, Admin). Three rows are selected (checked, highlighted). A floating action bar at the bottom centre: \"3 đã chọn · Chọn cả 1.284 theo bộ lọc\" with buttons Gắn nhãn, Cấp quyền AI, Gửi thông báo, Xuất CSV, Khoá, Xoá (red, destructive) and Bỏ chọn.\n\nHard quality bar – an automated check rejects the screen otherwise. Text: every word (sidebar section labels, breadcrumbs, avatar initials, chips, captions, table cells, footers, placeholders) uses a solid colour reaching 4.5:1 on its own background; no opacity utilities, no text-*/60, no mid-grey or pale tints, no coloured text on tinted chips unless it reaches 4.5:1. Touch: every interactive element (sidebar links, tabs, chips, icon buttons, inputs, selects, checkboxes, toggles, pagination, row actions, language buttons, links) is at least 44px tall and 44px wide; checkboxes and radios sit inside a visible 44px label, never a hidden 1px input. Width: nothing wider than the viewport; tables scroll inside their own card with overflow-x:auto; all widths flexible. Icons: only valid Material Symbols Rounded names, loaded from the font, so no icon name ever shows as text. Dark theme has no light panels.",
+  "fix": "8"
+ },
+ {
+  "id": "adm-users2-table",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "DESKTOP",
+  "from": "adm-users2-table/light",
+  "prompt": "Round 8 redraw. Convert this exact screen to the dark theme: deep teal-black background, slightly lighter dark cards and table rows, readable high-contrast text (4.5:1), brand teal accents lightened, keep the coral primary and red destructive buttons, no white panels left. Keep layout, content and the 1440 px desktop width identical.\n\nHard quality bar – an automated check rejects the screen otherwise. Text: every word (sidebar section labels, breadcrumbs, avatar initials, chips, captions, table cells, footers, placeholders) uses a solid colour reaching 4.5:1 on its own background; no opacity utilities, no text-*/60, no mid-grey or pale tints, no coloured text on tinted chips unless it reaches 4.5:1. Touch: every interactive element (sidebar links, tabs, chips, icon buttons, inputs, selects, checkboxes, toggles, pagination, row actions, language buttons, links) is at least 44px tall and 44px wide; checkboxes and radios sit inside a visible 44px label, never a hidden 1px input. Width: nothing wider than the viewport; tables scroll inside their own card with overflow-x:auto; all widths flexible. Icons: only valid Material Symbols Rounded names, loaded from the font, so no icon name ever shows as text. Dark theme has no light panels.",
+  "fix": "8"
+ },
+ {
+  "id": "adm-users2-drawer",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "DESKTOP",
+  "from": "adm-users2-drawer/light",
+  "prompt": "Recolour this exact screen to the dark theme: deep teal-black page background, cards, table rows and inputs one step lighter dark surfaces; no white, cream or light-grey panels, chips, buttons, inputs or tooltips; every text a solid light colour reaching 4.5:1 on its own background; teal accents brightened for dark; coral primary button keeps a dark readable label; bars and charts stay clearly visible. Change ONLY CSS classes and colours. Every word, number, menu item, icon, section and the whole layout stay exactly as they are: do not add, remove, rename, translate or reorder anything, do not redesign.",
+  "fix": "8b"
+ },
+ {
+  "id": "adm-users2-table",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "DESKTOP",
+  "from": "adm-users2-table/light",
+  "prompt": "Recolour this exact screen to the dark theme: deep teal-black page background, cards, table rows and inputs one step lighter dark surfaces; no white, cream or light-grey panels, chips, buttons, inputs or tooltips; every text a solid light colour reaching 4.5:1 on its own background; teal accents brightened for dark; coral primary button keeps a dark readable label; bars and charts stay clearly visible. Change ONLY CSS classes and colours. Every word, number, menu item, icon, section and the whole layout stay exactly as they are: do not add, remove, rename, translate or reorder anything, do not redesign.",
+  "fix": "8b"
+ }
+]

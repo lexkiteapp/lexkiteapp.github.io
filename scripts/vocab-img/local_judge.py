@@ -1,0 +1,632 @@
+#!/usr/bin/env python3
+"""Giám khảo CỤC BỘ cho ảnh minh hoạ (chủ 24/10): 0 token, không Gemini/API, chạy CPU GitHub Actions, đủ cho 20k ảnh.
+Hai kiểm độc lập PHẢI cùng đồng ý (cộng các cổng cứng):
+  1. CLIP zero-shot (OpenCLIP ViT-B-32 laion2b): ảnh × [đích + 19 nhiễu (anh em cùng chủ đề + từ ngẫu nhiên tất định)] → đích hạng 1 và lề ≥ clip_margin.
+  2. Máy chú thích nhỏ (SmolVLM-256M-Instruct; VIMG_CAPTIONER=florence → Florence-2-base) viết 1 câu → all-MiniLM-L6-v2 so với
+     tham chiếu của đích (gloss + đồng nghĩa / câu ví dụ + chú thích cảnh) và của 19 nhiễu → hạng 1, sim ≥ cap_sim, lề ≥ cap_margin.
+  Cổng cứng: OCR tesseract không chữ (≤ ocr_max token tin cậy), NSFW mở (Falconsai/nsfw_image_detection) < nsfw_max,
+  phong cách = cos(CLIP ảnh, tâm phong cách s1) ≥ style_min, pHash ≤ 6 trùng = loại, cỡ WebP/AVIF ≤ 6 KB (bước encode).
+Ngưỡng: content/lexicon/vimg-judge.json (calibrate.py hiệu chỉnh trên tập gán nhãn – độ chính xác ≥ 98 % trên ảnh NHẬN, chấp nhận recall thấp).
+  python3 scripts/vocab-img/local_judge.py --dir out/x --attempt 1 [--targets out/x/targets.json] [--features-only]
+  → <dir>/judge.local.a<N>.json {k: {pass, reasons[], f:{clip_rank, clip_margin, cap, cap_rank, cap_sim, cap_margin, ocr, nsfw, style, ph}}}
+     <dir>/retry.json (trượt/mơ hồ → 1 lần vẽ lại prompt tinh), <dir>/queue.json (trượt lần 2 → hàng chờ; giám khảo API tuỳ chọn chỉ cho hàng này)
+     <dir>/speed.judge.a<N>.json (ảnh/phút của giám khảo trên máy CI)
+"""
+import argparse, json, os, sys, time, glob, re, shutil
+import numpy as np
+from PIL import Image
+
+ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '../..'))
+TH_FILE = os.path.join(ROOT, 'content/lexicon/vimg-judge.json')
+# *_scene: ngưỡng cho ảnh CẢNH/bìa/bài học (câu dài ↔ chú thích: sim thấp hơn vật đơn) – pilot 24/10, hiệu chỉnh lại khi có nhãn cảnh
+DEF_TH = {'cap_sim_scene': 0.35, 'style_min_scene': 0.5, 'frame_min': 0.04, 'clip_margin': 0.02, 'cap_sim': 0.45, 'cap_margin': 0.05, 'ocr_max': 0, 'nsfw_max': 0.2, 'style_min': 0.70, 'ph_max': 6}
+
+def fnv(s):
+    h = 0x811c9dc5
+    for c in s.encode():
+        h ^= c; h = (h * 0x01000193) & 0xffffffff
+    return h
+
+# ---------- mô hình (tải một lần; trọng số nằm trong actions/cache ~/.cache) ----------
+_M = {}
+def clip():
+    if 'clip' not in _M:
+        import open_clip, torch
+        m, _, pre = open_clip.create_model_and_transforms('ViT-B-32', pretrained='laion2b_s34b_b79k'); m.eval()
+        _M['clip'] = (m, pre, open_clip.get_tokenizer('ViT-B-32'), torch)
+    return _M['clip']
+def emb_img(im):
+    m, pre, tok, torch = clip()
+    with torch.no_grad():
+        v = m.encode_image(pre(im).unsqueeze(0)); v = v / v.norm(dim=-1, keepdim=True)
+    return v[0].numpy()
+_TXT = {}
+def emb_txt(ts):
+    m, pre, tok, torch = clip(); miss = [t for t in ts if t not in _TXT]
+    if miss:
+        with torch.no_grad():
+            for i in range(0, len(miss), 64):
+                v = m.encode_text(tok(miss[i:i + 64])); v = v / v.norm(dim=-1, keepdim=True)
+                for t, e in zip(miss[i:i + 64], v.numpy()): _TXT[t] = e
+    return np.stack([_TXT[t] for t in ts])
+def captioner():
+    if 'cap' not in _M:
+        import torch
+        name = os.environ.get('VIMG_CAPTIONER', 'smolvlm')
+        if name == 'florence':
+            from transformers import AutoProcessor, AutoModelForCausalLM
+            mid = 'microsoft/Florence-2-base'
+            proc = AutoProcessor.from_pretrained(mid, trust_remote_code=True)
+            model = AutoModelForCausalLM.from_pretrained(mid, trust_remote_code=True, torch_dtype=torch.float32).eval()
+            def cap(im):
+                x = proc(text='<CAPTION>', images=im, return_tensors='pt')
+                with torch.no_grad(): o = model.generate(input_ids=x['input_ids'], pixel_values=x['pixel_values'], max_new_tokens=40, num_beams=1, do_sample=False)
+                return proc.batch_decode(o, skip_special_tokens=True)[0].strip()
+        else:
+            from transformers import AutoProcessor, AutoModelForVision2Seq
+            mid = 'HuggingFaceTB/SmolVLM-256M-Instruct'
+            proc = AutoProcessor.from_pretrained(mid)
+            try: proc.image_processor.do_image_splitting = False   # 1 ô ảnh = nhanh trên CPU
+            except Exception: pass
+            model = AutoModelForVision2Seq.from_pretrained(mid, torch_dtype=torch.float32).eval()
+            msgs = [{'role': 'user', 'content': [{'type': 'image'}, {'type': 'text', 'text': 'Describe this picture in one short sentence: who or what is shown and what is happening.'}]}]
+            prompt = proc.apply_chat_template(msgs, add_generation_prompt=True)
+            def cap(im):
+                x = proc(text=prompt, images=[im], return_tensors='pt')
+                with torch.no_grad(): o = model.generate(**x, max_new_tokens=40, do_sample=False)
+                t = proc.batch_decode(o[:, x['input_ids'].shape[1]:], skip_special_tokens=True)[0]
+                return re.sub(r'^\s*(Assistant:)?\s*', '', t).strip()
+        _M['cap'] = cap
+    return _M['cap']
+def minilm():
+    if 'st' not in _M:
+        from sentence_transformers import SentenceTransformer
+        _M['st'] = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2', device='cpu')
+    return _M['st']
+def nsfw(im):
+    if 'nsfw' not in _M:
+        from transformers import pipeline
+        _M['nsfw'] = pipeline('image-classification', model='Falconsai/nsfw_image_detection', device=-1)
+    r = _M['nsfw'](im)
+    return float(sum(x['score'] for x in r if x['label'].lower() == 'nsfw'))
+def ocr(im):
+    """số token chữ TIN CẬY (≥ 2 chữ cái/số, conf ≥ 80) – tranh phẳng hay bị tesseract đọc nhầm nét → ngưỡng ocr_max hiệu chỉnh"""
+    try:
+        import pytesseract
+        d = pytesseract.image_to_data(im.convert('L').resize((768, 768)), output_type=pytesseract.Output.DICT, config='--psm 11')
+        toks = [t for t, c in zip(d['text'], d['conf']) if re.fullmatch(r'[A-Za-z0-9]{2,}', t.strip() or '') and float(c) >= 80]
+        return toks
+    except Exception as e:
+        return ['ocr-error:' + str(e)[:40]]
+def phash(im):
+    import imagehash
+    return str(imagehash.phash(im))
+# ---------- giám khảo API (GrabCast /api/owner-ai/vision, CF llama-4-scout trước) – MÔ TẢ MÙ (không biết từ/câu), rồi xếp hạng như máy chú thích ----------
+API_Q = ('Describe this picture for a vocabulary app in one sentence: who or what is shown and what is happening. Do not guess what it was meant to teach. '
+         'Reply JSON only: {"describe": "one sentence", "text": true if any letters, words or numbers are visible, "unsafe": true if unsuitable for children}')
+_API = {'dead': False, 'calls': 0, 'fails': 0, 'skipped': 0, 'neurons': 0.0, 'tok_missing': 0, 'calls2': 0, 'audit_calls': 0, 'audit_neurons': 0.0, 'audit_disagree': 0, 'size_fail': 0}   # skipped = ảnh trượt cục bộ → không gọi thị giác (25/10: neuron CF dành cho ảnh)
+_CFV = {'accts': None, 'i': 0, 'model': '@cf/meta/llama-4-scout-17b-16e-instruct'}
+# e6 (01/11): neuron THẬT mỗi lượt thị giác từ usage (bảng giá Workers AI 11/2026: neuron / 1M token vào, ra); thiếu usage → ước tính 31 (ảnh 448², ~1.000 token)
+PRICE = {'llama-4-scout-17b-16e-instruct': (24545, 77273), 'mistral-small-3.1-24b-instruct': (31876, 50488), 'gemma-3-12b-it': (31371, 50560)}
+def _neurons(model, usage):
+    pin, pout = PRICE.get(str(model).split('/')[-1], (24545, 77273))
+    try: return (float(usage['prompt_tokens']) * pin + float(usage['completion_tokens']) * pout) / 1e6
+    except Exception: _API['tok_missing'] += 1; return 31.0
+def pool_hold(raw=None, now=None):
+    """CF_POOL_HOLD "<n>@<ISO Z>" → n tài khoản cuối dành cho pilot tới hạn (cùng luật scripts/lib/cf-pool.mjs poolHold); sai/hết hạn → 0"""
+    import time, datetime
+    m = re.match(r'^(\d{1,3})@(\d{4}-\d{2}-\d{2}T[\d:.]+Z)$', str(os.environ.get('CF_POOL_HOLD', '') if raw is None else raw).strip())
+    if not m: return 0
+    try: exp = datetime.datetime.fromisoformat(m.group(2).replace('Z', '+00:00')).timestamp()
+    except ValueError: return 0
+    return min(int(m.group(1)), 60) if exp > (time.time() if now is None else now) else 0
+def _cf_accts():
+    """26/10: thị giác THẲNG trên Workers AI (cùng tài khoản với cf-direct.mjs: CF_POOL bỏ VIMG_POOL_SKIP đầu → tài khoản 2; không bao giờ tài khoản chính)"""
+    if _CFV['accts'] is None:
+        raw, out, seen = os.environ.get('CF_POOL', '').strip(), [], set()
+        try: items = [(o.get('account') or o.get('account_id'), o.get('token') or o.get('api_token')) for o in json.loads(raw)] if raw.startswith('[') else [m.groups() for m in (re.match(r'^(?:cf[:=\s])?([0-9a-f]{32})[:=\s|]+(\S+)$', x.strip(), re.I) for x in re.split(r'[\n,;]+', raw)) if m]
+        except Exception: items = []
+        items = [(a.lower(), t) for a, t in items if a and t and not (a.lower() in seen or seen.add(a.lower()))]   # cùng tài khoản: giữ token đầu (cùng thứ tự với cf-direct.mjs)
+        out = items[int(os.environ.get('VIMG_POOL_SKIP', '5')):]
+        if os.environ.get('CF_ACCOUNT_2') and os.environ.get('CF_AI_TOKEN_2') and os.environ.get('VIMG_CF_USE_CF2') != '0': out.append((os.environ['CF_ACCOUNT_2'], os.environ['CF_AI_TOKEN_2']))
+        main = os.environ.get('CF_ACCOUNT_1'); acc = [a for a in dict(out).items() if a[0] != main]
+        hold = 0 if os.environ.get('CF_POOL_ROLE') == 'pilot' else pool_hold()   # 02/11 giữ chỗ pilot (cf-pool.mjs poolHold): giám khảo fill không dùng n tài khoản cuối
+        _CFV['accts'] = (acc[:max(0, len(acc) - hold)] if hold else acc)[::-1]   # từ ĐUÔI kho (vẽ dùng phần đầu – VIMG_DRAW_SHARE)
+    return _CFV['accts']
+def use_cf_vision():
+    return (os.environ.get('VIMG_VISION') == 'cf' or not os.environ.get('GRABCAST_AI_KEY')) and bool(_cf_accts())
+def cf_vision(prompt, jpeg, model=None):
+    """→ {'text', 'model'} | None; 4006/401/403 → bỏ tài khoản; hết tài khoản → _API dead"""
+    import base64, urllib.request, urllib.error
+    body = json.dumps({'messages': [{'role': 'user', 'content': [{'type': 'text', 'text': prompt}, {'type': 'image_url', 'image_url': {'url': 'data:image/jpeg;base64,' + base64.b64encode(jpeg).decode()}}]}], 'max_tokens': 300, 'temperature': 0}).encode()
+    acc = _cf_accts(); i = -1
+    if not _CFV.get('off'): _CFV['off'] = 1; _CFV['i'] = int(os.environ.get('LEASE_SHARD') or 0) * 7   # việc ma trận khác điểm xuất phát → không cùng dội một tài khoản
+    while i < 15:
+        i += 1
+        if not acc: _API['dead'] = True; print('⏸ thị giác CF: mọi tài khoản hết lượt', flush=True); return None
+        a, t = acc[_CFV['i'] % len(acc)]
+        try:
+            req = urllib.request.Request(f'https://api.cloudflare.com/client/v4/accounts/{a}/ai/run/{model or _CFV["model"]}', data=body, headers={'Authorization': 'Bearer ' + t, 'Content-Type': 'application/json'})
+            j = json.loads(urllib.request.urlopen(req, timeout=90).read()); _API['calls'] += 1; _CFV['i'] += 1
+            res = j.get('result') or {}; r = res.get('response')
+            n_ = _neurons(model or _CFV['model'], res.get('usage') or j.get('usage'))
+            if _CFV.get('audit'): _API['audit_neurons'] += n_; _API['audit_calls'] += 1; _API['calls'] -= 1
+            else: _API['neurons'] += n_
+            if r is None and res.get('choices'): r = res['choices'][0].get('message', {}).get('content')
+            return {'text': r if isinstance(r, str) else json.dumps(r), 'model': model or _CFV['model']}
+        except urllib.error.HTTPError as e:
+            m = e.read().decode('utf8', 'ignore')[:200]; _API.setdefault('err', {})[str(e.code)] = _API.setdefault('err', {}).get(str(e.code), 0) + 1
+            # (d) 01/11: Cloudflare báo hết neuron ngày bằng HTTP 429 "used up your daily free allocation" (pilot 41287956756: 85–93 lần/việc = số tài khoản cạn).
+            #     Bỏ tài khoản cạn KHÔNG tính vào 16 lượt thử – trước đây ≥ 16 tài khoản cạn liền nhau trong kho → 'queue: vision judge unavailable' dù kho còn tài khoản sống
+            if e.code in (401, 403) or re.search(r'4006|neuron|daily free allocation|used up your daily', m, re.I): acc.remove((a, t)); _API['acct_dead'] = _API.get('acct_dead', 0) + 1; i -= 1; continue
+            _CFV['i'] += 1; time.sleep(min(60, 8 * (i + 1)) if e.code == 429 else min(20, 3 * (i + 1))); continue   # pilot 41279771197: 93 lần 429 → chờ lùi dài hơn; e6: lỗi tạm → tài khoản KẾ (pilot 41274610314: thử lại cùng tài khoản → 33 ảnh 'judge unavailable')
+        except Exception as e:
+            k_ = type(e).__name__; _API.setdefault('err', {})[k_] = _API.setdefault('err', {}).get(k_, 0) + 1; _CFV['i'] += 1; time.sleep(3); continue
+    _API['fails'] += 1; return None
+def api_vision(im):
+    """→ dict | None (None = không có/đã cạn → người gọi xử lý 'API exhausted')"""
+    key = os.environ.get('GRABCAST_AI_KEY'); base = os.environ.get('GRABCAST_API_BASE', 'https://grabcast-api-342720596878.us-central1.run.app').rstrip('/')
+    if _API['dead'] or os.environ.get('VIMG_API_JUDGE', '1') == '0' or not (key or use_cf_vision()): return None
+    import base64, io, urllib.request, urllib.error
+    b = io.BytesIO(); im.convert('RGB').resize((384, 384)).save(b, 'JPEG', quality=85)
+    if use_cf_vision():
+        j = cf_vision(API_Q, b.getvalue())
+        if not j: return None
+        t = j['text'] or ''; m = re.search(r'\{.*\}', t, re.S)
+        try: o = json.loads(m.group(0)) if m else {'describe': t}
+        except Exception: o = {'describe': t}
+        o['model'] = j['model']; return o
+    body = json.dumps({'prompt': API_Q, 'image_b64': base64.b64encode(b.getvalue()).decode(), 'mime': 'image/jpeg'}).encode()
+    for i in range(5):
+        try:
+            req = urllib.request.Request(base + '/api/owner-ai/vision', data=body, headers={'X-API-Key': key, 'Content-Type': 'application/json'})
+            j = json.loads(urllib.request.urlopen(req, timeout=60).read()); _API['calls'] += 1
+            t = j.get('text') or ''; m = re.search(r'\{.*\}', t, re.S)
+            try: o = json.loads(m.group(0)) if m else {'describe': t}
+            except Exception: o = {'describe': t}
+            o['model'] = j.get('model') or j.get('provider') or '?'; return o
+        except urllib.error.HTTPError as e:
+            if e.code == 503: _API['dead'] = True; print('⏸ GrabCast vision ai_exhausted – hết lượt; chỉ nhận ảnh cục bộ RẤT chắc', flush=True); return None
+            if e.code == 429: time.sleep(min(240, float(e.headers.get('Retry-After') or 20 * (i + 1)))); continue   # vision 120/phút/IP
+            _API['fails'] += 1; return None
+        except Exception:
+            time.sleep(3); continue
+    _API['fails'] += 1; return None
+
+ASK_Q = ('You check pictures for an English-learning app. Question: does this picture clearly show {desc}? A learner must understand it from the picture alone; '
+         'judge strictly (wrong people, missing key object or action, unclear situation = no). Reply JSON only: {{"shows": "yes" or "no", "confidence": 0-100, '
+         '"missing": "what is missing or wrong, max 8 words", "text": true if any letters, words or numbers are visible}}')
+def ask_q(t):
+    """câu hỏi có/không cho ảnh cảnh/bìa/bài học – CÙNG mẫu cho ảnh cũ và mới (không dùng prompt vẽ)"""
+    if t['kind'] == 'scene' and t.get('ps'): return f'this scene: "{t["ps"]}" (it illustrates the sentence "{t.get("ex")}")'   # e4: chấm đúng câu cảnh đã vẽ
+    if t['kind'] == 'scene': return f'the situation of this sentence: "{t.get("ex") or t.get("target")}"'
+    if t['kind'] == 'cover': return f'the topic "{t["target"].replace("a picture about ", "")}" (recognisable objects or activity of this topic, not a generic room)'
+    return f'this situation: "{t["target"]}"'
+def api_ask(im, q):
+    """GrabCast vision: câu hỏi có/không về TÌNH HUỐNG → {'yes': bool, 'conf': 0-100, 'missing', 'text'} | None. 429 → Retry-After (vision 120/phút/IP)"""
+    key = os.environ.get('GRABCAST_AI_KEY'); base = os.environ.get('GRABCAST_API_BASE', 'https://grabcast-api-342720596878.us-central1.run.app').rstrip('/')
+    if _API['dead'] or os.environ.get('VIMG_API_JUDGE', '1') == '0' or not (key or use_cf_vision()): return None
+    import base64, io, urllib.request, urllib.error
+    b = io.BytesIO(); im.convert('RGB').resize((448, 448)).save(b, 'JPEG', quality=85)
+    body = json.dumps({'prompt': ASK_Q.format(desc=q), 'image_b64': base64.b64encode(b.getvalue()).decode(), 'mime': 'image/jpeg'}).encode()
+    for i in range(6):
+        try:
+            if use_cf_vision():
+                j = cf_vision(ASK_Q.format(desc=q), b.getvalue())
+                if not j: return None
+            else:
+                req = urllib.request.Request(base + '/api/owner-ai/vision', data=body, headers={'X-API-Key': key, 'Content-Type': 'application/json'})
+                j = json.loads(urllib.request.urlopen(req, timeout=60).read()); _API['calls'] += 1
+            t = j.get('text') or ''; m = re.search(r'\{.*\}', t, re.S)
+            try: o = json.loads(m.group(0)) if m else {}
+            except Exception: o = {}
+            ans = str(o.get('shows', '')).strip().lower() or ('yes' if re.match(r'\W*yes', t, re.I) else 'no' if re.match(r'\W*no', t, re.I) else '')
+            if ans not in ('yes', 'no'): continue
+            try: cf = float(o.get('confidence', 50))
+            except Exception: cf = 50.0
+            return {'yes': ans == 'yes', 'conf': cf, 'missing': str(o.get('missing', ''))[:80], 'text': o.get('text') is True, 'model': j.get('model') or j.get('provider') or '?'}
+        except urllib.error.HTTPError as e:
+            if e.code == 503: _API['dead'] = True; print('⏸ GrabCast vision ai_exhausted', flush=True); return None
+            if e.code == 429: time.sleep(min(240, float(e.headers.get('Retry-After') or 20 * (i + 1)))); continue
+            _API['fails'] += 1; return None
+        except Exception:
+            time.sleep(3); continue
+    _API['fails'] += 1; return None
+
+CHECK_Q = ('You check a picture for an English-learning app. Answer from the picture ONLY, strictly (if it is not clearly visible, the answer is no): {q} '
+           'Reply JSON only: {{"answer": "yes" or "no", "confidence": 0-100}}')
+def check_yes(im, q, model=None):
+    """e4 (29/10): câu hỏi kiểm NGHĨA của thẻ (vd. 'Is half of the class getting on the bus?') – bắt buộc yes ≥ VIMG_CHECK_CONF; None = không trả lời"""
+    if not q or not use_cf_vision(): return None
+    import io
+    b = io.BytesIO(); im.convert('RGB').resize((448, 448)).save(b, 'JPEG', quality=85)
+    for _ in range(2):
+        j = cf_vision(CHECK_Q.format(q=q), b.getvalue(), model)
+        if not j: return None
+        t = j['text'] or ''; m = re.search(r'\{.*\}', t, re.S)
+        try: o = json.loads(m.group(0)) if m else {}
+        except Exception: o = {}
+        a = str(o.get('answer', '')).strip().lower() or ('yes' if re.match(r'\W*yes', t, re.I) else 'no' if re.match(r'\W*no', t, re.I) else '')
+        if a in ('yes', 'no'):
+            try: c = float(o.get('confidence', 50))
+            except Exception: c = 50.0
+            return (a == 'yes', c)
+    return None
+
+# ---------- e6 (01/11): giám khảo cảnh MỘT lượt hỏi gộp (lượt fill 41205453283: 4.165 lượt thị giác / 1.469 ảnh ≈ 2,8 lượt × 31 neuron – đắt hơn cả vẽ) ----------
+# Luồng: cổng cục bộ (OCR, NSFW, phong cách, pHash, CLIP/máy chú thích, cỡ ≤ 6 KB) trượt cứng → không gọi API.
+#   1) mô tả MÙ (không thấy câu/từ – giữ cổng api_ex, không thiên vị) ; mô tả mù có chữ/không an toàn/lệch câu → dừng, không hỏi tiếp
+#   2) MỘT lượt hỏi gộp: câu cảnh + câu kiểm NGHĨA + câu anh em giống nhất (chống gật bừa)
+#   3) mô hình thứ 2 (khác họ): đồng thuận khi cục bộ trượt mềm mà mô hình 1 chắc yes; kiểm nghĩa luôn hỏi cả hai (luật e4), trừ khi mô hình 1 đã no chắc.
+# Ảnh gửi JUDGE_PX = 336 (đúng 1 ô ảnh Llama 4 → ~150 token thay ~720 của 448²); ≥ cỡ ảnh người học thấy (≤ 160 CSS px, lưu 384); chữ nhỏ vẫn do OCR 768 px chặn.
+JUDGE_PX = int(os.environ.get('VIMG_JUDGE_PX', '336'))
+CHECK_CONF = float(os.environ.get('VIMG_CHECK_CONF', '70'))
+BLIND_Q = ('Describe this picture for a vocabulary app in one sentence: who or what is shown and what is happening. Do not guess what it was meant to teach. '
+           'Reply JSON only: {"describe": "one sentence", "text": true if any letters, words or numbers are visible, "unsafe": true if unsuitable for children}')
+ONE_Q = ('You check a picture for an English-learning app. Answer from the picture ONLY and strictly (if it is not clearly visible, the answer is no). '
+         'A) Does this picture clearly show {scene}? A learner must understand it from the picture alone (wrong people, missing key object or action, unclear situation = no). B) {check} C) Does the picture clearly show {other}? '
+         'Reply JSON only: {{"a": "yes" or "no", "a_conf": 0-100, "missing": "what is missing or wrong for A, max 8 words", "b": "yes" or "no", "b_conf": 0-100, '
+         '"c": "yes" or "no", "c_conf": 0-100, "text": true if any letters, words or numbers are visible}}')
+PEOPLE_RE = re.compile(r'\b(a|an|the|one)\s+(young |old |little )?(woman|man|girl|boy|lady|gentleman)\b', re.I)
+def people_free(ps, t):
+    """câu cảnh cho giám khảo: tuổi/giới của người KHÔNG phải nghĩa của từ (lượt 41205453283: 'woman instead of boy', 'man not a boy' – phong cách vẽ người tròn trẻ)
+    → 'a person'; giữ nguyên khi chính nghĩa nói về tuổi/giới (lady, boy, adult, elderly…)."""
+    d = ((t.get('target') or '') + ' ' + (t.get('ex') or '')).lower()
+    if re.search(r'\b(woman|women|man|men|girl|boy|child|children|adult|elderly|old|young|lady|male|female|mother|father|son|daughter|wife|husband|gender|sex)\b', d): return ps
+    return PEOPLE_RE.sub('a person', ps)
+def _jpeg(im):
+    import io
+    b = io.BytesIO(); im.convert('RGB').resize((JUDGE_PX, JUDGE_PX)).save(b, 'JPEG', quality=88); return b.getvalue()
+def _json(t):
+    m = re.search(r'\{.*\}', t or '', re.S)
+    try: return json.loads(m.group(0)) if m else {}
+    except Exception: return {}
+def _yn(o, k):
+    a = str(o.get(k, '')).strip().lower()
+    if a not in ('yes', 'no'): return None
+    try: c = float(o.get(k + '_conf', 50))
+    except Exception: c = 50.0
+    return (a == 'yes', c)
+def ask_one(im, t, f, model=None):
+    """MỘT lượt hỏi gộp → {'a': (yes, conf), 'b': ..., 'c': ..., 'missing', 'text'} | None"""
+    q = ONE_Q.format(scene=f'this scene: "{people_free(t.get("ps") or t.get("ex") or t["target"], t)}"', check=t.get('check') or 'Does the picture show the meaning of the sentence "%s"?' % (t.get('ex') or ''),
+                     other=f'the situation of this sentence: "{f.get("hard_ex") or "a busy city street at night"}"')
+    for _ in range(2):
+        j = cf_vision(q, _jpeg(im), model)
+        if not j: return None
+        o = _json(j['text']); a, b, c = _yn(o, 'a'), _yn(o, 'b'), _yn(o, 'c')
+        if a and b and c: return {'a': a, 'b': b, 'c': c, 'missing': str(o.get('missing', ''))[:80], 'text': o.get('text') is True, 'model': j['model']}
+    return None
+def size_ok(im):
+    """cỡ ≤ 6 KB (WebP + AVIF) kiểm TRƯỚC khi gọi thị giác – lượt 41205453283: 103/248 ảnh qua giám khảo bị bỏ ở khâu nén (đốt neuron vô ích)"""
+    try:
+        import importlib.util, tempfile
+        if 'sf' not in _M:
+            sp = importlib.util.spec_from_file_location('scene_final', os.path.join(os.path.dirname(os.path.abspath(__file__)), 'scene_final.py')); m = importlib.util.module_from_spec(sp); sp.loader.exec_module(m); _M['sf'] = m
+        sf = _M['sf']; k_, _ = sf.keyed(im)
+        with tempfile.TemporaryDirectory() as d: return sf.encode(k_, os.path.join(d, 'x')) is not None
+    except Exception as e:
+        print('⚠ size_ok:', str(e)[:80], flush=True); return True   # không kiểm được → để scene_final quyết (vẫn ≤ 6 KB ở đó)
+def judge_scene(im, t, ft, th, kind):
+    """e6 → (reasons, chi tiết). Cùng ngưỡng vimg-judge-scene.json / CONS_CONF / VIMG_CHECK_CONF như e4 – chỉ ít lượt gọi hơn."""
+    r = verdict(ft, th, kind, local_only=True)
+    if any(x.startswith(HARD) for x in r): ft['api_skipped'] = 'local hard fail'; _API['skipped'] += 1; return r
+    if not size_ok(im): _API['size_fail'] += 1; ft['api_skipped'] = 'size'; return r + ['size > 6 KB']
+    soft = list(r)
+    api = None
+    if not _API['dead']:
+        j = cf_vision(BLIND_Q, _jpeg(im))
+        if j:
+            o = _json(j['text']) or {'describe': j['text']}; o['model'] = j['model']; api = o
+    if api is None: return soft + ['queue: vision judge unavailable']
+    st, refs, R = ft['_ctx']['st'], ft['_ctx']['refs'], ft['_ctx']['R']
+    if api.get('describe'):
+        A = st.encode([str(api['describe'])], normalize_embeddings=True)[0]; ap, i = [], 0
+        for rs in refs: ap.append(float(np.max(R[i:i + len(rs)] @ A)) if rs else -1.0); i += len(rs)
+        ap = np.array(ap); ft.update(api=api.get('describe'), api_model=api.get('model'), api_rank=int((ap > ap[0]).sum()) + 1, api_sim=round(float(ap[0]), 4), api_text=api.get('text') is True, api_unsafe=api.get('unsafe') is True)
+        if ft['_ctx'].get('sent'): E3 = st.encode([str(api['describe']), ft['_ctx']['sent']], normalize_embeddings=True); ft['api_ex'] = round(float(E3[0] @ E3[1]), 4)
+    s_ = th['scene_groups'][kind] if kind in (th.get('scene_groups') or {}) else {}
+    pre = []
+    if api.get('text') is True and s_.get('ask_text_block', True): pre.append('vision: text')
+    if api.get('unsafe') is True: pre.append('api: unsafe')
+    if ft.get('api_ex', -1) < s_.get('api_ex_min', -1): pre.append(f"vision description-sentence sim {ft.get('api_ex')}")
+    if pre: return soft + pre   # mô tả mù đã trượt → không hỏi tiếp (tiết kiệm 1 lượt)
+    m1 = ask_one(im, t, ft)
+    if not m1: return soft + ['queue: vision judge unavailable']
+    ft.update(ask_yes=m1['a'][0], ask_conf=m1['a'][1], ask_missing=m1['missing'], ask_text=m1['text'], ask_model=m1['model'], chk=[[m1['b'][0], m1['b'][1]]], other=[m1['c'][0], m1['c'][1]])
+    r = verdict(ft, th, kind)
+    hard_other = m1['c'][0] and m1['c'][1] >= 50
+    # (a) cục bộ chỉ trượt mềm, mô hình 1 chắc yes + không gật câu anh em → sát ngưỡng → mô hình 2 KHÁC HỌ phải đồng ý (giám khảo kép như e4)
+    m2 = None
+    def second():
+        nonlocal m2
+        if m2 is None and len(CONS_MODELS) > 1: _API['calls2'] += 1; m2 = ask_one(im, t, ft, CONS_MODELS[1]) or False
+        return m2
+    if r and os.environ.get('VIMG_CONSENSUS') == '1' and not any(x.startswith(HARD) or x.startswith('vision') for x in r) and soft and set(r) <= set(soft):
+        ok1 = m1['a'][0] and m1['a'][1] >= CONS_CONF and not m1['text'] and not hard_other
+        b = second() if ok1 else None
+        ok2 = bool(b) and b['a'][0] and b['a'][1] >= CONS_CONF and not b['text'] and not (b['c'][0] and b['c'][1] >= 50)
+        ft['cons'] = f"{m1['model'].split('/')[-1]}:{'Y' if m1['a'][0] else 'N'}{int(m1['a'][1])}/{'Y' if m1['c'][0] else 'N'}{int(m1['c'][1])}" + (f" {CONS_MODELS[1].split('/')[-1]}:{'Y' if b['a'][0] else 'N'}{int(b['a'][1])}/{'Y' if b['c'][0] else 'N'}{int(b['c'][1])}" if b else '')
+        if ok1 and ok2: ft['cons_soft'] = r; ft['ask_model'] = 'consensus:' + '+'.join(m.split('/')[-1] for m in CONS_MODELS[:2]); r = []
+    if r: return r
+    if not t.get('check'): return r
+    # (b) kiểm NGHĨA – luật e4 nguyên vẹn: hỏi CẢ HAI mô hình; nhận khi ≥ 1 yes ≥ CHECK_CONF và KHÔNG mô hình nào no chắc (≥ 80).
+    #     Pilot 41274610314: luật tắt "mô hình 1 yes ≥ 90 là đủ" bị mô hình 2 bác chắc 8/32 ca → bỏ luật tắt (chỉ bỏ mô hình 2 khi mô hình 1 đã no chắc).
+    y1, c1 = m1['b']
+    if not y1 and c1 >= 80: return [f'meaning check: no ({t["check"][:50]})']
+    b = second()
+    if not b: return ['queue: meaning check unavailable']
+    ft['chk'].append([b['b'][0], b['b'][1]])
+    got = [(y1, c1), b['b']]
+    yes = any(a_ and c_ >= CHECK_CONF for a_, c_ in got); hard_no = any((not a_) and c_ >= 80 for a_, c_ in got)
+    return [] if yes and not hard_no else [f'meaning check: no ({t["check"][:50]})']
+
+def framing(im):
+    """MỘT khuôn (chủ 24/10): chủ thể ở giữa, chừa lề ~10 %. Đo khung vật = điểm ảnh khác nền viền (trung vị) → lề nhỏ nhất (tỉ lệ cạnh) + lệch tâm."""
+    a = np.asarray(im.convert('RGB').resize((128, 128)), np.int16); edge = np.concatenate([a[0], a[-1], a[:, 0], a[:, -1]]); bg = np.median(edge, 0)
+    m = np.abs(a - bg).max(-1) > 30; ys, xs = np.where(m)
+    if not len(xs): return {'margin': 0.0, 'off': 1.0}
+    x0, x1, y0, y1 = xs.min(), xs.max(), ys.min(), ys.max()
+    margin = min(x0, y0, 127 - x1, 127 - y1) / 128; off = max(abs((x0 + x1) / 2 - 63.5), abs((y0 + y1) / 2 - 63.5)) / 128
+    return {'margin': round(float(margin), 3), 'off': round(float(off), 3)}
+
+def hamm(a, b): return bin(int(a, 16) ^ int(b, 16)).count('1')
+
+# ---------- nhiễu: anh em cùng chủ đề + từ ngẫu nhiên tất định → đủ 19 ----------
+def distractors(k, t, T, LEX, keys_all):
+    def text_of(x):
+        if x in T and T[x].get('target'): return T[x]['target']
+        e = LEX.get(x); return f"an illustration of {e['w']}: {(e.get('def') or '')[:120]}" if e else None
+    def refs_of(x):
+        if x in T and T[x].get('caption_ref'): return [r for r in T[x]['caption_ref'] if r]
+        e = LEX.get(x); return [e['w'], e.get('def') or ''] if e else []
+    out, seen = [], {k}
+    for x in (t.get('sib') or []):
+        if x not in seen and text_of(x): out.append(x); seen.add(x)
+        if len(out) >= 12: break
+    pool = sorted(keys_all, key=lambda x: fnv(k + '|' + x))
+    for x in pool:
+        if len(out) >= 19: break
+        if x not in seen and text_of(x) and x.split('#')[0] != k.split('#')[0]: out.append(x); seen.add(x)
+    return [(x, text_of(x), refs_of(x)) for x in out]
+
+def features(im, k, t, T, LEX, keys_all, centroid):
+    ds = distractors(k, t, T, LEX, keys_all)
+    v = emb_img(im)
+    texts = [t['target']] + [d[1] for d in ds]
+    sims = emb_txt(texts) @ v
+    order = np.argsort(-sims); rank = int(np.where(order == 0)[0][0]) + 1
+    margin = float(sims[0] - np.max(sims[1:]))
+    c = captioner()(im)
+    st = minilm(); refs = [[r for r in (t.get('caption_ref') or [t['target']]) if r]] + [d[2] or [d[1]] for d in ds]
+    flat = [r for rs in refs for r in rs]; E = st.encode([c] + flat, normalize_embeddings=True); ce, R = E[0], E[1:]
+    per, i = [], 0
+    for rs in refs: per.append(float(np.max(R[i:i + len(rs)] @ ce)) if rs else -1.0); i += len(rs)
+    per = np.array(per); crank = int((per > per[0]).sum()) + 1
+    sc = {}
+    if t.get('kind', 'object') != 'object':
+        # tín hiệu RIÊNG cho cảnh (24/10): CLIP ảnh ↔ CÂU (không phải gloss), chú thích ↔ câu, giám khảo thị giác hỏi có/không về tình huống
+        sent = t.get('ps') or t.get('ex') or t['target']   # e4: so với câu cảnh (thứ thật sự được vẽ)
+        dsent = [(T.get(d[0]) or {}).get('ex') or d[1] for d in ds]
+        cs = emb_txt([sent] + dsent) @ v
+        sc['hard_ex'] = dsent[int(np.argmax(cs[1:]))] if len(dsent) else None   # câu anh em CLIP thấy giống nhất → câu đối chứng cho giám khảo kép
+        sc['clip_ex'] = round(float(cs[0]), 4); sc['clip_ex_rank'] = int((cs[1:] > cs[0]).sum()) + 1; sc['clip_ex_margin'] = round(float(cs[0] - cs[1:].max()), 4)
+        E2 = st.encode([c, sent] + dsent, normalize_embeddings=True); ss = E2[1:] @ E2[0]
+        sc['cap_ex'] = round(float(ss[0]), 4); sc['cap_ex_rank'] = int((ss[1:] > ss[0]).sum()) + 1; sc['cap_ex_margin'] = round(float(ss[0] - ss[1:].max()), 4)
+    fr = framing(im)
+    return {**sc, 'frame': fr, 'api': None, 'api_model': None, 'api_rank': None, 'api_sim': None,
+            '_ctx': {'st': st, 'refs': refs, 'R': R, 'sent': (t.get('ps') or t.get('ex') or t['target']) if t.get('kind', 'object') != 'object' else None},
+            'clip_rank': rank, 'clip_margin': round(margin, 4), 'cap': c, 'cap_rank': crank, 'cap_sim': round(float(per[0]), 4),
+            'cap_margin': round(float(per[0] - np.max(per[1:])), 4), 'ocr': ocr(im), 'nsfw': round(nsfw(im), 4),
+            'style': round(float(v @ centroid), 4) if centroid is not None else None, 'ph': phash(im), '_v': v}
+
+def add_api(f, ctx, im, t):
+    """giám khảo thị giác GrabCast (CF llama-4-scout – TỐN neuron bể ảnh): mô tả mù + (cảnh) hỏi có/không. Chỉ gọi cho ảnh ĐÃ qua CLIP + máy chú thích cục bộ."""
+    st, refs, R = ctx['st'], ctx['refs'], ctx['R']
+    api = api_vision(im)
+    if api and api.get('describe'):
+        A = st.encode([str(api['describe'])], normalize_embeddings=True)[0]; ap, i = [], 0
+        for rs in refs: ap.append(float(np.max(R[i:i + len(rs)] @ A)) if rs else -1.0); i += len(rs)
+        ap = np.array(ap); f.update(api=api.get('describe'), api_model=api.get('model'), api_rank=int((ap > ap[0]).sum()) + 1, api_sim=round(float(ap[0]), 4), api_text=api.get('text') is True, api_unsafe=api.get('unsafe') is True)
+        if ctx.get('sent'):
+            E3 = st.encode([str(api['describe']), ctx['sent']], normalize_embeddings=True); f['api_ex'] = round(float(E3[0] @ E3[1]), 4)
+    elif api: f['api_model'] = api.get('model')
+    if t.get('kind', 'object') != 'object':
+        ak = api_ask(im, ask_q(t))
+        if ak: f.update(ask_yes=ak['yes'], ask_conf=ak['conf'], ask_missing=ak['missing'], ask_text=ak['text'], ask_model=ak['model'])
+
+
+# ---------- giám khảo KÉP đối chứng (26/10, chủ: tự động hoàn toàn, không cần nhãn tay) ----------
+# Ngưỡng CLIP/MiniLM hiệu chỉnh trên ảnh schnell → lệch với phong cách klein (phẳng): ảnh đúng nghĩa trượt "clip-sentence sim".
+# Ảnh đã qua MỌI cổng cứng (chữ, NSFW, phong cách, trùng) mà chỉ trượt cổng mềm (tương đồng nhúng) được chấm lại bởi 2 mô hình nhìn KHÁC HỌ:
+# mỗi mô hình phải trả "yes" (≥ CONS_CONF) cho câu ví dụ VÀ "no" cho câu anh em giống nhất (chống gật bừa). Cả 2 đồng ý mới nhận.
+CONS_MODELS = [m for m in os.environ.get('VIMG_CONS_MODELS', '@cf/meta/llama-4-scout-17b-16e-instruct,@cf/mistralai/mistral-small-3.1-24b-instruct').split(',') if m]
+CONS_CONF = float(os.environ.get('VIMG_CONS_CONF', '80'))
+HARD = ('text:', 'nsfw', 'style', 'duplicate', 'vision: text', 'api: unsafe', 'queue:')
+def _yesno(im, q, model):
+    import io
+    b = io.BytesIO(); im.convert('RGB').resize((448, 448)).save(b, 'JPEG', quality=85)
+    for _ in range(2):
+        j = cf_vision(ASK_Q.format(desc=q), b.getvalue(), model)
+        if not j: return None
+        t = j['text'] or ''; m = re.search(r'\{.*\}', t, re.S)
+        try: o = json.loads(m.group(0)) if m else {}
+        except Exception: o = {}
+        ans = str(o.get('shows', '')).strip().lower() or ('yes' if re.match(r'\W*yes', t, re.I) else 'no' if re.match(r'\W*no', t, re.I) else '')
+        if ans in ('yes', 'no'):
+            try: cf = float(o.get('confidence', 50))
+            except Exception: cf = 50.0
+            return {'yes': ans == 'yes', 'conf': cf, 'text': o.get('text') is True}
+    return None
+def consensus(im, t, f):
+    """→ (ok, chi tiết). Chỉ gọi khi VIMG_CONSENSUS=1, ảnh cảnh, có câu ví dụ + câu đối chứng, và đã qua cổng cứng."""
+    sent, hard = t.get('ps') or t.get('ex') or t.get('target'), f.get('hard_ex')
+    if not sent or not hard or not use_cf_vision(): return False, 'no-sentence/no-vision'
+    det = []
+    for m in CONS_MODELS:
+        a = _yesno(im, f'the situation of this sentence: "{sent}"', m); b = _yesno(im, f'the situation of this sentence: "{hard}"', m)
+        if not a or not b: return False, f'{m.split("/")[-1]}: no answer'
+        ok = a['yes'] and a['conf'] >= CONS_CONF and not a['text'] and not (b['yes'] and b['conf'] >= 50)
+        det.append(f"{m.split('/')[-1]}:{'Y' if a['yes'] else 'N'}{int(a['conf'])}/{'Y' if b['yes'] else 'N'}{int(b['conf'])}")
+        if not ok: return False, ' '.join(det)
+    return True, ' '.join(det)
+
+def verdict_scene(f, th, kind, local_only=False):
+    """ảnh cảnh/bìa/bài học – ngưỡng content/lexicon/vimg-judge-scene.json (calibrate_scene.py trên nhãn tay ~470 ảnh, 24/10).
+    Thiếu câu trả lời thị giác (API cạn/lỗi) → hàng chờ, KHÔNG nhận (độ chính xác ≥ 98 %)."""
+    s, r = th['scene_groups'][kind], []
+    if len(f['ocr']) > s.get('ocr_max', 0): r.append('text: ' + ' '.join(f['ocr'])[:40])
+    if f['nsfw'] >= th['nsfw_max']: r.append(f"nsfw {f['nsfw']}")
+    if f.get('style') is not None and f['style'] < s.get('style_min', 0): r.append(f"style {f['style']}")
+    if local_only or f.get('api_skipped'): pass   # chỉ cổng cục bộ (trước khi gọi thị giác) / đã trượt cục bộ nên không hỏi thị giác
+    elif f.get('ask_yes') is None: r.append('queue: vision judge unavailable')
+    else:
+        if not f['ask_yes'] or f.get('ask_conf', 0) < s.get('ask_conf', 0): r.append(f"vision: no ({f.get('ask_missing', '')})")
+        if f.get('ask_text') and s.get('ask_text_block', True): r.append('vision: text')
+        if s.get('missing_empty') and str(f.get('ask_missing') or '').strip().lower() not in ('', 'none', 'nothing', 'n/a'): r.append(f"vision: missing {f.get('ask_missing')}")
+    if f.get('clip_ex_rank', 99) > s.get('clip_ex_rank_max', 99) or f.get('clip_ex_margin', -1) < s.get('clip_ex_margin', -1): r.append(f"clip-sentence rank {f.get('clip_ex_rank')} margin {f.get('clip_ex_margin')}")
+    if f.get('cap_ex', -1) < s.get('cap_ex_min', -1): r.append(f"caption-sentence sim {f.get('cap_ex')}")
+    if f.get('clip_ex', -1) < s.get('clip_ex_min', -1): r.append(f"clip-sentence sim {f.get('clip_ex')}")
+    if not local_only and not f.get('api_skipped') and f.get('api_ex', -1) < s.get('api_ex_min', -1): r.append(f"vision description-sentence sim {f.get('api_ex')}")
+    return r
+
+def verdict(f, th, kind, local_only=False):
+    """local_only=True: chỉ cổng cục bộ (CLIP, máy chú thích, OCR, NSFW, phong cách, khung) – quyết định có gọi thị giác GrabCast hay không."""
+    r = []
+    if kind != 'object' and kind in (th.get('scene_groups') or {}): return verdict_scene(f, th, kind, local_only)
+    if kind != 'object':   # cảnh: cùng phép xếp hạng, ngưỡng tương đồng riêng; phong cách so tâm CẢNH (không so tâm ảnh vật)
+        th = {**th, 'cap_sim': th.get('cap_sim_scene', .35), 'api_sim': th.get('cap_sim_scene', .35), 'style_min': th.get('style_min_scene', .5)}
+    if f['clip_rank'] != 1 or f['clip_margin'] < th['clip_margin']: r.append(f"clip rank {f['clip_rank']} margin {f['clip_margin']}")
+    if f['cap_rank'] != 1 or f['cap_sim'] < th['cap_sim'] or f['cap_margin'] < th['cap_margin']: r.append(f"caption rank {f['cap_rank']} sim {f['cap_sim']}: {f['cap'][:60]}")
+    if len(f['ocr']) > th['ocr_max']: r.append('text: ' + ' '.join(f['ocr'])[:40])
+    if f['nsfw'] >= th['nsfw_max']: r.append(f"nsfw {f['nsfw']}")
+    if f['style'] is not None and f['style'] < th['style_min']: r.append(f"style {f['style']}")
+    fr = f.get('frame') or {}
+    if kind == 'object' and fr and (fr['margin'] < th.get('frame_min', .04) or fr['off'] > .12): r.append(f"framing margin {fr['margin']} off {fr['off']}")   # cảnh được tràn khung, vật phải ở giữa + có lề
+    if th.get('api', True) and not r and not local_only:
+        # chủ 24/10: nhận khi CẢ cục bộ VÀ giám khảo API đồng ý; API cạn → chỉ nhận khi cục bộ RẤT chắc (lề ×2), không thì hàng chờ
+        if f.get('api_rank') is None:
+            if not (f['clip_margin'] >= 2 * max(th['clip_margin'], .01) and f['cap_margin'] >= 2 * max(th['cap_margin'], .03) and f['cap_sim'] >= th['cap_sim'] + .05): r.append('queue: API judge unavailable, local not very high')
+        else:
+            if f['api_rank'] != 1 or f['api_sim'] < th.get('api_sim', th['cap_sim']): r.append(f"api rank {f['api_rank']} sim {f['api_sim']}: {str(f.get('api'))[:60]}")
+            if f.get('api_text'): r.append('api: text')
+            if f.get('api_unsafe'): r.append('api: unsafe')
+    return r
+
+def load_th():
+    j = json.load(open(TH_FILE)) if os.path.exists(TH_FILE) else {}
+    th = {**DEF_TH, **(j.get('th') or {})}
+    sf = os.path.join(ROOT, 'content/lexicon/vimg-judge-scene.json')
+    if os.path.exists(sf):
+        g = json.load(open(sf)).get('groups') or {}
+        th['scene_groups'] = {kd: v['th'] for v in g.values() for kd in (v.get('kinds') or ['scene'])}
+    c = np.array(j['centroid'], dtype=np.float32) if j.get('centroid') else None
+    return th, c, j
+
+def main():
+    ap = argparse.ArgumentParser(); ap.add_argument('--dir', required=True); ap.add_argument('--attempt', type=int, default=1)
+    ap.add_argument('--targets'); ap.add_argument('--lex', default=os.path.join(ROOT, 'dist/lexicon.json')); ap.add_argument('--features-only', action='store_true')
+    ap.add_argument('--prefilter', action='store_true', help='chỉ cổng cục bộ cho ứng viên 1 → <dir>/cand2.a<n>.json (khoá cần ứng viên 2), không gọi thị giác')
+    ap.add_argument('--recand', action='store_true', help='chấm ứng viên 2..N mới vẽ cho khoá đã trượt giám khảo (recand.a<n>.json), không chấm lại ứng viên 1')
+    ap.add_argument('--budget-min', type=float, default=0, help='ngân sách phút: hết giờ thì KHÔNG bắt đầu ảnh mới, ghi kết quả đã chấm rồi thoát sạch (0 = không giới hạn)')
+    a = ap.parse_args()
+    LEX = json.load(open(a.lex)); T = json.load(open(a.targets or os.path.join(a.dir, 'targets.json')))
+    th, centroid, _ = load_th()
+    img = json.load(open(os.path.join(ROOT, 'content/lexicon/img.json')))
+    known = [x.get('ph') for x in img['items'].values() if x.get('ph')]
+    slug = lambda k: re.sub(r'[^a-zA-Z0-9_-]+', '-', k.replace('#', '__'))
+    keys_all = [k for k in LEX if LEX[k].get('def')]
+    out_f = os.path.join(a.dir, f'judge.local.a{a.attempt}.json'); res = json.load(open(out_f)) if os.path.exists(out_f) else {}
+    t0, n = time.time(), 0; seen_ph = list(known)
+    rcf = os.path.join(a.dir, f'recand.a{a.attempt}.json')
+    RC = set(json.load(open(rcf))['items']) if a.recand and os.path.exists(rcf) else set()
+    if a.prefilter:   # (b) vòng 2: ứng viên 1 trượt CỨNG cục bộ (chữ, NSFW, phong cách, trùng) hoặc > 6 KB → cần ứng viên 2 ngay; còn lại chờ giám khảo
+        need = []
+        for k, t in T.items():
+            f = os.path.join(a.dir, 'raw', f'{slug(k)}.a{a.attempt}.jpg')
+            if not (t.get('kind') == 'scene' and t.get('ps') and t.get('prompt') and os.path.exists(f)) or k in res: continue
+            im = Image.open(f).convert('RGB'); ft = features(im, k, t, T, LEX, keys_all, centroid)
+            lr = verdict(ft, th, t['kind'], local_only=True)
+            if any(hamm(ft['ph'], p) <= th['ph_max'] for p in seen_ph) or any(x.startswith(HARD) for x in lr) or not size_ok(im): need.append(k)
+            else: seen_ph.append(ft['ph'])
+        json.dump({'items': need}, open(os.path.join(a.dir, f'cand2.a{a.attempt}.json'), 'w')); print(f'lọc trước ứng viên 1: {len(need)} khoá cần ứng viên 2'); return
+    deadline = t0 + a.budget_min * 60 if a.budget_min > 0 else None; saved_n = 0; stopped = 0
+    def save():   # ghi nguyên tử: job bị huỷ/hết giờ giữa chừng vẫn còn kết quả đã chấm (03/11: 564 ảnh vẽ xong rồi mất hết vì chỉ ghi ở cuối)
+        json.dump(res, open(out_f + '.tmp', 'w'), indent=1); os.replace(out_f + '.tmp', out_f)
+    for k, t in T.items():
+        if not t.get('prompt') or not t.get('target'): continue
+        if n - saved_n >= 8: save(); saved_n = n
+        if deadline and time.time() > deadline and os.path.exists(os.path.join(a.dir, 'raw', f'{slug(k)}.a{a.attempt}.jpg')) and k not in res:
+            stopped += 1; continue   # hết ngân sách: đếm ảnh chưa chấm, không chấm thêm
+        f = os.path.join(a.dir, 'raw', f'{slug(k)}.a{a.attempt}.jpg')
+        if not os.path.exists(f) or (k in res and k not in RC): continue
+        im = Image.open(f).convert('RGB')
+        ft = features(im, k, t, T, LEX, keys_all, centroid); v = ft.pop('_v'); ctx = ft.pop('_ctx'); n += 1
+        dup = any(hamm(ft['ph'], p) <= th['ph_max'] for p in seen_ph)
+        # 25/10: thị giác GrabCast (neuron CF = neuron ẢNH) CHỈ cho ảnh đã qua CLIP + máy chú thích + cổng cứng cục bộ; --features-only (hiệu chỉnh) vẫn gọi đủ
+        cfs = sorted(glob.glob(os.path.join(a.dir, 'raw', f'{slug(k)}.a{a.attempt}.c[0-9].jpg')))
+        if not a.features_only and t['kind'] == 'scene' and t.get('ps') and os.environ.get('VIMG_JUDGE', 'e6') == 'e6' and cfs:
+            # (b) 01/11: VIMG_CANDS ứng viên cùng prompt – lọc CỤC BỘ rẻ (chữ/OCR, NSFW, phong cách, trùng pHash, CLIP/chú thích ↔ câu), xếp hạng,
+            #     chỉ gửi ứng viên tốt nhất lên giám khảo (ngưỡng y nguyên); trượt giám khảo → ứng viên kế trước khi vẽ lại. Ứng viên trượt cục bộ cứng / > 6 KB không tốn lượt thị giác.
+            prior = res.pop(k, None) if k in RC else None   # --recand: ứng viên 1 đã trượt giám khảo → chỉ chấm ứng viên mới
+            C = [] if prior else [(1, f, im, ft, v, ctx, dup)]
+            for cf_ in cfs:
+                im2 = Image.open(cf_).convert('RGB'); f2 = features(im2, k, t, T, LEX, keys_all, centroid); v2 = f2.pop('_v'); c2 = f2.pop('_ctx')
+                C.append((int(cf_.rsplit('.c', 1)[1].split('.')[0]), cf_, im2, f2, v2, c2, any(hamm(f2['ph'], p) <= th['ph_max'] for p in seen_ph)))
+            def rank_(c):
+                lr = verdict(c[3], th, t['kind'], local_only=True)
+                return (c[6] or any(x.startswith(HARD) for x in lr), len(lr), -(c[3].get('clip_ex_margin', -1) + c[3].get('cap_ex_margin', -1)))
+            C.sort(key=rank_); tried = [[1, (prior['reasons'] or ['?'])[0][:60]]] if prior else []
+            for ci, cf_, im_c, ft_c, _, ctx_c, dup_c in C:
+                if dup_c: r = ['duplicate (pHash)']
+                else: ft_c['_ctx'] = ctx_c; r = judge_scene(im_c, t, ft_c, th, t['kind']); ft_c.pop('_ctx', None)
+                ft_c['judge'] = 'e6'; tried.append([ci, (r or ['pass'])[0][:60]])
+                if not r or any(x.startswith('queue:') for x in r): break   # đạt, hoặc giám khảo không trả lời → không đốt ứng viên kế
+            ft_c.update(cands=len(C) + bool(prior), cand=ci, cand_tried=tried)
+            if not r and ci != 1:   # ứng viên thắng → tên ảnh chuẩn (scene_final/scene-publish đọc <slug>.a<n>.jpg); ứng viên 1 giữ lại để soát
+                os.replace(f, f.replace('.jpg', '.c1.jpg')); shutil.copyfile(cf_, f)
+            seen_ph.append(ft_c['ph']); res[k] = {'pass': not r, 'reasons': r, 'kind': t['kind'], 'cands': len(C) + bool(prior), 'f': ft_c}
+            print(k, 'PASS' if not r else 'FAIL', f'[ứng viên {ci}/{len(C) + bool(prior)}]', '; '.join(r)[:140], '·', ft_c['cap'][:70], f'· #{n} {time.time() - t0:.0f}s', flush=True); continue
+        if not a.features_only and not dup and t['kind'] == 'scene' and t.get('ps') and os.environ.get('VIMG_JUDGE', 'e6') == 'e6':
+            ft['_ctx'] = ctx; r = judge_scene(im, t, ft, th, t['kind']); ft.pop('_ctx', None); ft['judge'] = 'e6'
+            seen_ph.append(ft['ph']); res[k] = {'pass': not r, 'reasons': r, 'kind': t['kind'], 'f': ft}
+            print(k, 'PASS' if not r else 'FAIL', '; '.join(r)[:140], '·', ft['cap'][:70], f'· #{n} {time.time() - t0:.0f}s', flush=True); continue
+        if a.features_only or (not dup and not verdict(ft, th, t['kind'], local_only=True)): add_api(ft, ctx, im, t)
+        else: ft['api_skipped'] = 'local fail'; _API['skipped'] += 1
+        r = [] if a.features_only else verdict(ft, th, t['kind'])
+        if dup: r.append('duplicate (pHash)')
+        # e4: ảnh cảnh đã qua (kể cả nhờ giám khảo kép) phải trả lời YES câu kiểm NGHĨA của thẻ – CẢ HAI mô hình (pilot 29/10: 'half', 'future' qua oan khi chỉ hỏi câu cảnh)
+        def _check(rr):
+            # luật (29/10 rejudge: 1 mô hình bắt buộc loại oan 'here'): hỏi CẢ HAI mô hình; nhận khi ≥ 1 'yes' (≥ 70) và KHÔNG mô hình nào 'no' chắc (≥ 80); không ai trả lời → hàng chờ
+            if rr or t['kind'] == 'object' or not t.get('check'): return rr
+            res = [check_yes(im, t['check'], m) for m in CONS_MODELS]; ft['chk'] = [None if x is None else [x[0], x[1]] for x in res]
+            got = [x for x in res if x]
+            if not got: return rr + ['queue: meaning check unavailable']
+            yes = any(a and c >= float(os.environ.get('VIMG_CHECK_CONF', '70')) for a, c in got); hard_no = any((not a) and c >= 80 for a, c in got)
+            return rr if yes and not hard_no else rr + [f'meaning check: no ({t["check"][:50]})']
+        if r and os.environ.get('VIMG_CONSENSUS') == '1' and t['kind'] != 'object' and not any(x.startswith(HARD) for x in r):
+            ok, det = consensus(im, t, ft); ft['cons'] = det
+            if ok: ft['cons_soft'] = r; ft.update(ask_yes=True, ask_model='consensus:' + '+'.join(m.split('/')[-1] for m in CONS_MODELS), ask_conf=ft.get('ask_conf') or CONS_CONF); r = []   # nhận nhờ giám khảo kép; giữ lý do cổng mềm để soát
+        if not a.features_only: r = _check(r)
+        seen_ph.append(ft['ph'])
+        res[k] = {'pass': not r, 'reasons': r, 'kind': t['kind'], 'f': ft}
+        print(k, 'PASS' if not r else 'FAIL', '; '.join(r)[:140], '·', ft['cap'][:70], f'· #{n} {time.time() - t0:.0f}s', flush=True)
+    save()
+    if stopped: print(f'⏱ hết ngân sách {a.budget_min:g} phút: chấm {n} ảnh, còn {stopped} ảnh chưa chấm (giữ file ảnh, không tính trượt)')
+    mins = (time.time() - t0) / 60
+    json.dump({'images': n, 'minutes': round(mins, 2), 'per_min': round(n / max(mins, 1e-3), 2)}, open(os.path.join(a.dir, f'speed.judge.a{a.attempt}.json'), 'w'))
+    # lượt gọi thị giác (neuron bể CF) – tên riêng mỗi việc ma trận để fillpub gộp không đè (scene-publish → fill-report.json)
+    import uuid
+    json.dump({'attempt': a.attempt, 'images': n, 'vision_calls': _API['calls'], 'vision_fails': _API['fails'], 'vision_skipped_local_fail': _API['skipped'], 'vision_dead': _API['dead'],
+               'vision_neurons': round(_API['neurons'], 1), 'vision_tok_missing': _API['tok_missing'], 'second_model_calls': _API['calls2'], 'size_fail_local': _API['size_fail'], 'acct_dead': _API.get('acct_dead', 0),
+               'vision_err': _API.get('err', {}), 'audit_calls': _API['audit_calls'], 'audit_neurons': round(_API['audit_neurons'], 1), 'audit_disagree': _API['audit_disagree']},
+              open(os.path.join(a.dir, f'judge-api.a{a.attempt}.{uuid.uuid4().hex[:8]}.json'), 'w'))
+    fails = [k for k, v in res.items() if not v['pass']]
+    # (b) vòng 2: trượt giám khảo (không phải hàng chờ/trùng) mà chưa có ứng viên kế → vẽ ứng viên 2 rồi --recand trước khi vẽ lại thẻ mới
+    json.dump({'items': [k for k in fails if res[k]['kind'] == 'scene' and not res[k].get('cands') and not any(str(x).startswith(('queue:', 'duplicate')) for x in res[k]['reasons'])]}, open(rcf, 'w'))
+    if a.attempt == 1: json.dump({'items': fails}, open(os.path.join(a.dir, 'retry.json'), 'w'))
+    else: json.dump({'items': fails, '_note': 'trượt 2 lần → hàng chờ; giám khảo API (GrabCast vision / Gemini) tuỳ chọn chỉ chấm hàng này'}, open(os.path.join(a.dir, 'queue.json'), 'w'))
+    print(f'giám khảo cục bộ lần {a.attempt}: {sum(v["pass"] for v in res.values())}/{len(res)} đạt · {n} ảnh trong {mins:.1f} phút = {n / max(mins, 1e-3):.1f} ảnh/phút')
+
+if __name__ == '__main__':
+    main()

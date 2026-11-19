@@ -1,0 +1,127 @@
+# ci-policy: all-paths – mỗi lần main đổi phải gắn tag + smoke site thật; nhóm chung không huỷ = 1 lượt chạy + 1 lượt mới nhất chờ
+# Mỗi lần đẩy main = Cloudflare Pages tự deploy production (tích hợp git của Cloudflare). Workflow này, cho MỖI commit đó:
+#  1) tag    – gắn tag chú thích prod-YYYYMMDD-HHMM-<sha7> (mốc rollback duy nhất, nhìn là biết bản nào đang/đã chạy);
+#  2) gate   – npm test (cổng chặn thật là mergecheck/npm test TRƯỚC khi push; Pages deploy theo push nên bước này là kiểm lại sau-push, đỏ → issue ci-failure);
+#  3) smoke  – chờ Pages build xong commit rồi kiểm tuyến + API quan trọng của lexkite.com; lỗi → workflow đỏ → ci-triage mở issue ci-failure + cảnh báo Quản trị + IN LỆNH ROLLBACK;
+#  4) mark   – smoke + gate đều xanh → dời tag prod-good (bản tốt cuối cùng, đích của `rollback-pages.sh good`).
+# KHÔNG tự rollback: cần chủ OK (docs/ROLLBACK.md §Vì sao không tự rollback). Commit [skip ci] (sổ sao lưu) không chạy workflow này.
+name: Prod release
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      sha: { description: 'Commit cần gắn tag/smoke (mặc định: đầu main)', required: false }
+permissions: { contents: write, checks: read, statuses: read, issues: write }   # issues: máy gác main-red / budget-low (scripts/ci/guards.mjs)
+# push: 1 nhóm chung – 1 lượt chạy + 1 lượt MỚI NHẤT chờ (lượt chờ cũ hơn bị thay; Pages cũng chỉ dựng bản mới nhất); dispatch sha cụ thể: nhóm riêng (docs/METHODS.md §CI)
+concurrency: { group: "prod-release-${{ github.event.inputs.sha || 'main' }}", cancel-in-progress: false }
+env: { SHA: '${{ github.event.inputs.sha || github.sha }}' }
+jobs:
+  tag:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - name: Gắn tag prod-…
+        run: |
+          git fetch -q --tags
+          SHA=$(git rev-parse "$SHA")
+          if [ -n "$(git tag --points-at "$SHA" --list 'prod-2*')" ]; then echo "đã có tag prod-* cho ${SHA::7}"; exit 0; fi
+          TAG="prod-$(date -u +%Y%m%d-%H%M)-${SHA::7}"
+          git config user.name "Lexkite CI"; git config user.email "lexkiteapp@users.noreply.github.com"
+          git tag -a "$TAG" "$SHA" -m "Production deploy ${SHA}"
+          git push -q origin "refs/tags/$TAG"
+          echo "### 🏷️ $TAG" >> "$GITHUB_STEP_SUMMARY"
+          echo "Rollback về bản trước: \`bash scripts/ops/rollback-pages.sh previous\` · về bản này sau này: \`bash scripts/ops/rollback-pages.sh $TAG\`" >> "$GITHUB_STEP_SUMMARY"
+  gate:
+    # npm test: một định nghĩa dùng chung với cổng PR (.github/workflows/npm-test.yml)
+    uses: ./.github/workflows/npm-test.yml
+    permissions: { contents: read, actions: write }   # job `heavy` của npm-test xin actions: write; thiếu → startup_failure cả lượt (scripts/test/workflow-call-perms.mjs)
+    with: { sha: '${{ github.event.inputs.sha || github.sha }}' }
+  smoke:
+    needs: tag
+    outputs: { verified: '${{ steps.smoke.outputs.verified }}' }   # 'false' = commit chưa lên site (Pages gom deploy) → mark/ota không chạy
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Chờ Pages deploy xong + smoke lexkite.com
+        id: smoke
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          LEXKITE_CI_HEADER: ${{ secrets.LEXKITE_CI_HEADER }}
+          LEXKITE_DRIVE_CLI_KEY: ${{ secrets.LEXKITE_DRIVE_CLI_KEY }}
+        run: |
+          git fetch -q --tags
+          node scripts/ops/smoke.mjs --wait --sha "$(git rev-parse "$SHA")"
+  mark:
+    needs: [gate, smoke]
+    if: ${{ success() && needs.smoke.outputs.verified != 'false' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - name: Dời tag prod-good (chỉ tiến, không lùi)
+        run: |
+          git fetch -q --tags
+          SHA=$(git rev-parse "$SHA")
+          OLD=$(git rev-parse -q --verify 'refs/tags/prod-good^{commit}' || true)
+          if [ -n "$OLD" ] && ! git merge-base --is-ancestor "$OLD" "$SHA"; then echo "prod-good ($OLD) mới hơn $SHA – giữ nguyên"; exit 0; fi
+          git config user.name "Lexkite CI"; git config user.email "lexkiteapp@users.noreply.github.com"
+          git tag -fa prod-good "$SHA" -m "Bản production tốt cuối cùng (qua npm test + smoke): ${SHA}"
+          git push -q -f origin refs/tags/prod-good
+          echo "### ✅ prod-good → ${SHA::7}" >> "$GITHUB_STEP_SUMMARY"
+  # 06/11 máy gác: npm test sau-push đỏ → issue `main-red` (xanh lại → đóng). Gốc 05/11 (khung app 374/374 KB): hai PR xanh riêng cộng lại vượt ngân sách vì strict=false.
+  main-red:
+    needs: gate
+    if: ${{ always() && (needs.gate.result == 'failure' || needs.gate.result == 'success') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with: { sparse-checkout: "scripts/ci", sparse-checkout-cone-mode: false }
+      - run: node scripts/ci/guards.mjs main-red --result "${{ needs.gate.result }}" --sha "${{ github.event.inputs.sha || github.sha }}"
+        env: { GITHUB_TOKEN: '${{ github.token }}' }
+  # 06/11 cảnh báo sớm: ngân sách dư < 5 KB / < 2 % → issue `budget-low` (vàng, TRƯỚC khi đỏ); hết thấp → đóng.
+  budget-watch:
+    needs: gate
+    if: ${{ needs.gate.result == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: '${{ github.event.inputs.sha || github.sha }}' }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: node scripts/ci/guards.mjs budget
+        env: { GITHUB_TOKEN: '${{ github.token }}' }
+  # Bản web OTA cho app Android/iOS (docs/OTA.md): CHỈ sau khi gate (npm test) + smoke xanh. Cần secret OTA_SIGNING_KEY (node scripts/ota/keygen.mjs); chưa có → bỏ qua, không đỏ.
+  ota:
+    needs: [gate, smoke]
+    if: ${{ success() && needs.smoke.outputs.verified != 'false' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env: { OTA_SIGNING_KEY: '${{ secrets.OTA_SIGNING_KEY }}', GH_TOKEN: '${{ github.token }}' }
+    steps:
+      - name: Kiểm có khóa ký
+        id: key
+        run: |
+          if [ -z "$OTA_SIGNING_KEY" ]; then echo "has=0" >> "$GITHUB_OUTPUT"; echo "### ⏭️ OTA bỏ qua: chưa có secret OTA_SIGNING_KEY (docs/OTA.md)" >> "$GITHUB_STEP_SUMMARY"; else echo "has=1" >> "$GITHUB_OUTPUT"; fi
+      - uses: actions/checkout@v4
+        if: steps.key.outputs.has == '1'
+        with: { ref: '${{ github.event.inputs.sha || github.sha }}' }
+      - uses: actions/setup-node@v4
+        if: steps.key.outputs.has == '1'
+        with: { node-version: 22 }
+      - name: Dựng mobile/www + ký + phát bản OTA
+        if: steps.key.outputs.has == '1'
+        run: |
+          npm ci --no-audit --no-fund
+          bash scripts/ci/npm-retry.sh ci --prefix mobile --no-audit --no-fund --ignore-scripts
+          OTA_ONLY=1 ./scripts/build-mobile.sh
+          node scripts/ota/release.mjs publish --sha "$SHA"

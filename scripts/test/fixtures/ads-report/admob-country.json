@@ -1,0 +1,1146 @@
+[
+{
+"header": {
+"dateRange": {
+"startDate": {
+"year": 2026,
+"month": 10,
+"day": 20
+},
+"endDate": {
+"year": 2026,
+"month": 10,
+"day": 26
+}
+},
+"localizationSettings": {
+"currencyCode": "USD"
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261020"
+},
+"COUNTRY": {
+"value": "US"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "899999"
+},
+"IMPRESSIONS": {
+"integerValue": "150"
+},
+"CLICKS": {
+"integerValue": "0"
+},
+"AD_REQUESTS": {
+"integerValue": "195"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "180"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 6.0
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261020"
+},
+"COUNTRY": {
+"value": "VN"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "600000"
+},
+"IMPRESSIONS": {
+"integerValue": "100"
+},
+"CLICKS": {
+"integerValue": "0"
+},
+"AD_REQUESTS": {
+"integerValue": "130"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "120"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 6.0
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261020"
+},
+"COUNTRY": {
+"value": "IN"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "300000"
+},
+"IMPRESSIONS": {
+"integerValue": "50"
+},
+"CLICKS": {
+"integerValue": "0"
+},
+"AD_REQUESTS": {
+"integerValue": "65"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "60"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 6.0
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261020"
+},
+"COUNTRY": {
+"value": "GB"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "240000"
+},
+"IMPRESSIONS": {
+"integerValue": "40"
+},
+"CLICKS": {
+"integerValue": "0"
+},
+"AD_REQUESTS": {
+"integerValue": "52"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "48"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 6.0
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261020"
+},
+"COUNTRY": {
+"value": "DE"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "180000"
+},
+"IMPRESSIONS": {
+"integerValue": "30"
+},
+"CLICKS": {
+"integerValue": "0"
+},
+"AD_REQUESTS": {
+"integerValue": "39"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "36"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 6.0
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261021"
+},
+"COUNTRY": {
+"value": "US"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "899999"
+},
+"IMPRESSIONS": {
+"integerValue": "150"
+},
+"CLICKS": {
+"integerValue": "0"
+},
+"AD_REQUESTS": {
+"integerValue": "195"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "180"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 6.0
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261021"
+},
+"COUNTRY": {
+"value": "VN"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "600000"
+},
+"IMPRESSIONS": {
+"integerValue": "100"
+},
+"CLICKS": {
+"integerValue": "0"
+},
+"AD_REQUESTS": {
+"integerValue": "130"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "120"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 6.0
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261021"
+},
+"COUNTRY": {
+"value": "IN"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "300000"
+},
+"IMPRESSIONS": {
+"integerValue": "50"
+},
+"CLICKS": {
+"integerValue": "0"
+},
+"AD_REQUESTS": {
+"integerValue": "65"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "60"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 6.0
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261021"
+},
+"COUNTRY": {
+"value": "GB"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "240000"
+},
+"IMPRESSIONS": {
+"integerValue": "40"
+},
+"CLICKS": {
+"integerValue": "0"
+},
+"AD_REQUESTS": {
+"integerValue": "52"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "48"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 6.0
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261021"
+},
+"COUNTRY": {
+"value": "DE"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "180000"
+},
+"IMPRESSIONS": {
+"integerValue": "30"
+},
+"CLICKS": {
+"integerValue": "0"
+},
+"AD_REQUESTS": {
+"integerValue": "39"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "36"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 6.0
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261022"
+},
+"COUNTRY": {
+"value": "US"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "899999"
+},
+"IMPRESSIONS": {
+"integerValue": "150"
+},
+"CLICKS": {
+"integerValue": "0"
+},
+"AD_REQUESTS": {
+"integerValue": "195"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "180"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 6.0
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261022"
+},
+"COUNTRY": {
+"value": "VN"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "600000"
+},
+"IMPRESSIONS": {
+"integerValue": "100"
+},
+"CLICKS": {
+"integerValue": "0"
+},
+"AD_REQUESTS": {
+"integerValue": "130"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "120"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 6.0
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261022"
+},
+"COUNTRY": {
+"value": "IN"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "300000"
+},
+"IMPRESSIONS": {
+"integerValue": "50"
+},
+"CLICKS": {
+"integerValue": "0"
+},
+"AD_REQUESTS": {
+"integerValue": "65"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "60"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 6.0
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261022"
+},
+"COUNTRY": {
+"value": "GB"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "240000"
+},
+"IMPRESSIONS": {
+"integerValue": "40"
+},
+"CLICKS": {
+"integerValue": "0"
+},
+"AD_REQUESTS": {
+"integerValue": "52"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "48"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 6.0
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261022"
+},
+"COUNTRY": {
+"value": "DE"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "180000"
+},
+"IMPRESSIONS": {
+"integerValue": "30"
+},
+"CLICKS": {
+"integerValue": "0"
+},
+"AD_REQUESTS": {
+"integerValue": "39"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "36"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 6.0
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261023"
+},
+"COUNTRY": {
+"value": "US"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "899999"
+},
+"IMPRESSIONS": {
+"integerValue": "150"
+},
+"CLICKS": {
+"integerValue": "0"
+},
+"AD_REQUESTS": {
+"integerValue": "195"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "180"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 6.0
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261023"
+},
+"COUNTRY": {
+"value": "VN"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "600000"
+},
+"IMPRESSIONS": {
+"integerValue": "100"
+},
+"CLICKS": {
+"integerValue": "0"
+},
+"AD_REQUESTS": {
+"integerValue": "130"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "120"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 6.0
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261023"
+},
+"COUNTRY": {
+"value": "IN"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "300000"
+},
+"IMPRESSIONS": {
+"integerValue": "50"
+},
+"CLICKS": {
+"integerValue": "0"
+},
+"AD_REQUESTS": {
+"integerValue": "65"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "60"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 6.0
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261023"
+},
+"COUNTRY": {
+"value": "GB"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "240000"
+},
+"IMPRESSIONS": {
+"integerValue": "40"
+},
+"CLICKS": {
+"integerValue": "0"
+},
+"AD_REQUESTS": {
+"integerValue": "52"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "48"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 6.0
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261023"
+},
+"COUNTRY": {
+"value": "DE"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "180000"
+},
+"IMPRESSIONS": {
+"integerValue": "30"
+},
+"CLICKS": {
+"integerValue": "0"
+},
+"AD_REQUESTS": {
+"integerValue": "39"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "36"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 6.0
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261024"
+},
+"COUNTRY": {
+"value": "US"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "899999"
+},
+"IMPRESSIONS": {
+"integerValue": "150"
+},
+"CLICKS": {
+"integerValue": "0"
+},
+"AD_REQUESTS": {
+"integerValue": "195"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "180"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 6.0
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261024"
+},
+"COUNTRY": {
+"value": "VN"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "600000"
+},
+"IMPRESSIONS": {
+"integerValue": "100"
+},
+"CLICKS": {
+"integerValue": "0"
+},
+"AD_REQUESTS": {
+"integerValue": "130"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "120"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 6.0
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261024"
+},
+"COUNTRY": {
+"value": "IN"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "300000"
+},
+"IMPRESSIONS": {
+"integerValue": "50"
+},
+"CLICKS": {
+"integerValue": "0"
+},
+"AD_REQUESTS": {
+"integerValue": "65"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "60"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 6.0
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261024"
+},
+"COUNTRY": {
+"value": "GB"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "240000"
+},
+"IMPRESSIONS": {
+"integerValue": "40"
+},
+"CLICKS": {
+"integerValue": "0"
+},
+"AD_REQUESTS": {
+"integerValue": "52"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "48"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 6.0
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261024"
+},
+"COUNTRY": {
+"value": "DE"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "180000"
+},
+"IMPRESSIONS": {
+"integerValue": "30"
+},
+"CLICKS": {
+"integerValue": "0"
+},
+"AD_REQUESTS": {
+"integerValue": "39"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "36"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 6.0
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261025"
+},
+"COUNTRY": {
+"value": "US"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "899999"
+},
+"IMPRESSIONS": {
+"integerValue": "150"
+},
+"CLICKS": {
+"integerValue": "0"
+},
+"AD_REQUESTS": {
+"integerValue": "195"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "180"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 6.0
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261025"
+},
+"COUNTRY": {
+"value": "VN"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "600000"
+},
+"IMPRESSIONS": {
+"integerValue": "100"
+},
+"CLICKS": {
+"integerValue": "0"
+},
+"AD_REQUESTS": {
+"integerValue": "130"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "120"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 6.0
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261025"
+},
+"COUNTRY": {
+"value": "IN"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "300000"
+},
+"IMPRESSIONS": {
+"integerValue": "50"
+},
+"CLICKS": {
+"integerValue": "0"
+},
+"AD_REQUESTS": {
+"integerValue": "65"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "60"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 6.0
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261025"
+},
+"COUNTRY": {
+"value": "GB"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "240000"
+},
+"IMPRESSIONS": {
+"integerValue": "40"
+},
+"CLICKS": {
+"integerValue": "0"
+},
+"AD_REQUESTS": {
+"integerValue": "52"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "48"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 6.0
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261025"
+},
+"COUNTRY": {
+"value": "DE"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "180000"
+},
+"IMPRESSIONS": {
+"integerValue": "30"
+},
+"CLICKS": {
+"integerValue": "0"
+},
+"AD_REQUESTS": {
+"integerValue": "39"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "36"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 6.0
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261026"
+},
+"COUNTRY": {
+"value": "US"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "899999"
+},
+"IMPRESSIONS": {
+"integerValue": "150"
+},
+"CLICKS": {
+"integerValue": "0"
+},
+"AD_REQUESTS": {
+"integerValue": "195"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "180"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 6.0
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261026"
+},
+"COUNTRY": {
+"value": "VN"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "600000"
+},
+"IMPRESSIONS": {
+"integerValue": "100"
+},
+"CLICKS": {
+"integerValue": "0"
+},
+"AD_REQUESTS": {
+"integerValue": "130"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "120"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 6.0
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261026"
+},
+"COUNTRY": {
+"value": "IN"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "300000"
+},
+"IMPRESSIONS": {
+"integerValue": "50"
+},
+"CLICKS": {
+"integerValue": "0"
+},
+"AD_REQUESTS": {
+"integerValue": "65"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "60"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 6.0
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261026"
+},
+"COUNTRY": {
+"value": "GB"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "240000"
+},
+"IMPRESSIONS": {
+"integerValue": "40"
+},
+"CLICKS": {
+"integerValue": "0"
+},
+"AD_REQUESTS": {
+"integerValue": "52"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "48"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 6.0
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261026"
+},
+"COUNTRY": {
+"value": "DE"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "180000"
+},
+"IMPRESSIONS": {
+"integerValue": "30"
+},
+"CLICKS": {
+"integerValue": "0"
+},
+"AD_REQUESTS": {
+"integerValue": "39"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "36"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 6.0
+}
+}
+}
+},
+{
+"footer": {
+"matchingRowCount": "35"
+}
+}
+]

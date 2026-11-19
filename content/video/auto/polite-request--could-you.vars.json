@@ -1,0 +1,25 @@
+{
+ "topic": "Office English: send me the report or could you send it?",
+ "scene": "office",
+ "seed": "pr-could-you",
+ "vars": {
+  "phrase": "Could you",
+  "hookLine": "Too direct?",
+  "direct": "Send me the report today.",
+  "why": "That sounds like an order. Start with Could you to make it a request.",
+  "polite": "Could you send me the report by the end of the day?",
+  "directCard": "Send me the report.",
+  "politeCard": "Could you send me the report?",
+  "tip": "in emails, end with thanks so much. It sounds warm, not bossy."
+ },
+ "lines": {
+  "example": {
+   "expr": "curious"
+  }
+ },
+ "hashtags": [
+  "politeenglish",
+  "businessenglish",
+  "englishphrases"
+ ]
+}

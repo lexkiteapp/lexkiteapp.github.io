@@ -1,0 +1,27 @@
+{
+ "topic": "Doctor's appointment roleplay: describing a cough",
+ "scene": "clinic",
+ "seed": "rp-symptoms",
+ "vars": {
+  "phrase": "I've had a cough",
+  "place": "the clinic",
+  "hookLine": "How do I explain this?",
+  "staffOpen": "Hi, come on in. Tell me what brings you in today.",
+  "learnerLine": "I've had a cough since Monday, and it's getting worse.",
+  "staffReply": "Okay, let's take a look at your throat.",
+  "tip": "I've had plus since or for shows the problem started before and is still going."
+ },
+ "lines": {
+  "hook": {
+   "expr": "thinking"
+  },
+  "explain": {
+   "expr": "friendly"
+  }
+ },
+ "hashtags": [
+  "englishconversation",
+  "speakenglish",
+  "dailyenglish"
+ ]
+}

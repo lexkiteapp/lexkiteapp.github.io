@@ -1,0 +1,23 @@
+# Kiểm toán nâng cấp hằng tuần: làm mới khối số đo (Lighthouse) trong docs/specs/upgrade-audit.md + kiểm ≤ 1 trang, đủ 5 trục, chỉ miễn phí.
+# Không triển khai gì từ danh sách (chủ duyệt). Sổ: infra/jobs.json id upgrade-audit.
+name: Upgrade audit
+on:
+  schedule:
+    - cron: '0 2 * * 1'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency: { group: upgrade-audit, cancel-in-progress: false }
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: main, ssh-key: '${{ secrets.BOT_DEPLOY_KEY }}' }   # đẩy main qua khoá deploy (ruleset) – docs/CI-RUNNERS.md › required-gate
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: node scripts/ci/upgrade-audit.mjs --measure --check
+      - name: Lưu số đo
+        run: |
+          bash scripts/ci/push-main.sh "Kiểm toán nâng cấp: cập nhật số đo Lighthouse" docs/specs/upgrade-audit.md

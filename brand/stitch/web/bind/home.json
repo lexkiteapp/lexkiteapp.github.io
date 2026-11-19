@@ -1,0 +1,412 @@
+{
+ "chrome": true,
+ "unwrap": ":scope > div",
+ "i18n": {
+  "Add to Chrome": "Thêm vào Chrome",
+  "“Hi! Ready for 5 minutes today?”": "“Chào bạn! Học 5 phút hôm nay nhé?”",
+  "100% free": "Miễn phí 100%",
+  "Forever, no paywalls": "Mãi mãi, không tường phí",
+  "No ads blocking lessons": "Không quảng cáo chặn bài học",
+  "Pure uninterrupted focus": "Tập trung, không bị ngắt",
+  "15 interface languages": "Giao diện 15 ngôn ngữ",
+  "Learn in your native tongue": "Học bằng tiếng mẹ đẻ",
+  "A1 to C2 levels": "Trình độ A1 đến C2",
+  "CEFR mapped curriculum": "Lộ trình theo khung CEFR",
+  "Optimal: 94%": "Tối ưu: 94%",
+  "Review scheduled in 3 days": "Ôn lại sau 3 ngày",
+  "Free spaced repetition": "Lặp lại ngắt quãng miễn phí",
+  "Audio Call · 02:14": "Cuộc gọi thoại · 02:14",
+  "Gentle grammar correction": "Sửa ngữ pháp nhẹ nhàng",
+  "Safe speaking room": "Không gian luyện nói an toàn",
+  "Scored: Band 7.5": "Điểm: Band 7.5",
+  "Realistic score evaluation": "Chấm điểm sát đề thật",
+  "browser tab": "thẻ trình duyệt",
+  "Added to your Deck": "Đã thêm vào bộ thẻ",
+  "Double-click instant card": "Bấm đúp là có thẻ",
+  "Chrome Web Store add-on": "Add-on trên Chrome Web Store",
+  "A simple, bite-sized habit that fits effortlessly into your day.": "Một thói quen nhỏ, đơn giản, vừa vặn với ngày của bạn.",
+  "“Step by step, together.”": "“Từng bước, cùng nhau.”",
+  "Everything you need to know about learning with Lexkite.": "Mọi điều bạn cần biết khi học với Lexkite."
+ },
+ "repeat": [
+  {
+   "list": "d.nav.slice(1)",
+   "as": "n",
+   "sel": ":scope > :nth-child(1) > :nth-child(1) > :nth-child(2) > :nth-child(1)",
+   "samples": ":scope > :nth-child(1) > :nth-child(1) > :nth-child(2) > a",
+   "attr": {
+    ":scope": {
+     "href": "n[0]",
+     "hreflang": "n[2]"
+    }
+   },
+   "text": {
+    "Blog": "n[1]"
+   }
+  },
+  {
+   "list": "d.heroLinks",
+   "as": "k",
+   "sel": ":scope > :nth-child(2) > :nth-child(1) > :nth-child(5) > :nth-child(1)",
+   "samples": ":scope > :nth-child(2) > :nth-child(1) > :nth-child(5) > a",
+   "attr": {
+    ":scope": {
+     "href": "k[0]"
+    }
+   },
+   "html": {
+    ":scope": "e(k[1])"
+   }
+  },
+  {
+   "list": "d.feat",
+   "as": "f",
+   "variants": {
+    "fsrs": ":scope > :nth-child(4) > :nth-child(2) > :nth-child(1)",
+    "call": ":scope > :nth-child(4) > :nth-child(2) > :nth-child(2)",
+    "exam": ":scope > :nth-child(4) > :nth-child(2) > :nth-child(3)",
+    "ext": ":scope > :nth-child(4) > :nth-child(2) > :nth-child(4)",
+    "plain": ":scope > :nth-child(4) > :nth-child(2) > :nth-child(1)"
+   },
+   "samples": ":scope > :nth-child(4) > :nth-child(2) > div",
+   "pick": "f.v",
+   "bind": {
+    "fsrs": {
+     "html": {
+      ":scope > :nth-child(1) > :nth-child(2)": "e(f.h)",
+      ":scope > :nth-child(1) > :nth-child(3)": "e(f.p)"
+     },
+     "text": {
+      "ubiquitous": "'ubiquitous'",
+      "FSRS-v5": "'FSRS-v5'"
+     }
+    },
+    "call": {
+     "html": {
+      ":scope > :nth-child(1) > :nth-child(2)": "e(f.h)",
+      ":scope > :nth-child(1) > :nth-child(3)": "e(f.p)"
+     },
+     "text": {
+      "“Great sentence! Try ‘although’.”": "'“Great sentence! Try ‘although’.”'"
+     }
+    },
+    "exam": {
+     "html": {
+      ":scope > :nth-child(1) > :nth-child(2)": "e(f.h)",
+      ":scope > :nth-child(1) > :nth-child(3)": "e(f.p)"
+     },
+     "text": {
+      "IELTS": "'IELTS'",
+      "TOEIC": "'TOEIC'",
+      "TOEFL": "'TOEFL'",
+      "Task 2 Academic": "'Task 2 Academic'"
+     }
+    },
+    "ext": {
+     "html": {
+      ":scope > :nth-child(1) > :nth-child(2)": "e(f.h)",
+      ":scope > :nth-child(1) > :nth-child(3)": "e(f.p)"
+     },
+     "tag": {
+      ":scope > :nth-child(2)": {
+       "to": "a"
+      }
+     },
+     "attr": {
+      ":scope > :nth-child(2)": {
+       "href": "d.store",
+       "target": "'_blank'",
+       "rel": "'noopener'"
+      }
+     },
+     "addClass": {
+      ":scope > :nth-child(2)": "min-h-[44px]"
+     },
+     "text": {
+      "disparities": "'disparities'",
+      "...economic": "'...economic'",
+      "continue...": "'continue...'"
+     }
+    },
+    "plain": {
+     "html": {
+      ":scope > :nth-child(1) > :nth-child(2)": "e(f.h)",
+      ":scope > :nth-child(1) > :nth-child(3)": "e(f.p)"
+     },
+     "remove": [
+      ":scope > :nth-child(1) > :nth-child(1)",
+      ":scope > :nth-child(2)"
+     ]
+    }
+   }
+  },
+  {
+   "list": "d.rescards",
+   "as": "r",
+   "variants": {
+    "blog": ":scope > :nth-child(6) > :nth-child(2) > :nth-child(1)",
+    "doc": ":scope > :nth-child(6) > :nth-child(2) > :nth-child(2)",
+    "list": ":scope > :nth-child(6) > :nth-child(2) > :nth-child(3)"
+   },
+   "samples": ":scope > :nth-child(6) > :nth-child(2) > a",
+   "pick": "r.v",
+   "bind": {
+    "blog": {
+     "attr": {
+      ":scope": {
+       "href": "r.href",
+       "hreflang": "r.hl"
+      }
+     },
+     "html": {
+      ":scope > :nth-child(1) > :nth-child(2)": "e(r.h)",
+      ":scope > :nth-child(1) > :nth-child(3)": "e(r.p)",
+      ":scope > :nth-child(2) > :nth-child(1)": "e(r.more)"
+     }
+    },
+    "doc": {
+     "attr": {
+      ":scope": {
+       "href": "r.href",
+       "hreflang": "r.hl"
+      }
+     },
+     "html": {
+      ":scope > :nth-child(1) > :nth-child(2)": "e(r.h)",
+      ":scope > :nth-child(1) > :nth-child(3)": "e(r.p)",
+      ":scope > :nth-child(2) > :nth-child(1)": "e(r.more)"
+     }
+    },
+    "list": {
+     "attr": {
+      ":scope": {
+       "href": "r.href",
+       "hreflang": "r.hl"
+      }
+     },
+     "html": {
+      ":scope > :nth-child(1) > :nth-child(2)": "e(r.h)",
+      ":scope > :nth-child(1) > :nth-child(3)": "e(r.p)",
+      ":scope > :nth-child(2) > :nth-child(1)": "e(r.more)"
+     }
+    }
+   }
+  },
+  {
+   "list": "d.faq",
+   "as": "q",
+   "variants": {
+    "first": ":scope > :nth-child(7) > :nth-child(2) > :nth-child(1)",
+    "one": ":scope > :nth-child(7) > :nth-child(2) > :nth-child(1)"
+   },
+   "samples": ":scope > :nth-child(7) > :nth-child(2) > div",
+   "pick": "i === 0 ? 'first' : 'one'",
+   "bind": {
+    "first": {
+     "tag": {
+      ":scope > :nth-child(1)": {
+       "to": "summary"
+      },
+      ":scope": {
+       "to": "details"
+      }
+     },
+     "html": {
+      ":scope > :nth-child(1) > :nth-child(1)": "e(q[0])",
+      ":scope > :nth-child(2)": "e(q[1])"
+     },
+     "attr": {
+      ":scope": {
+       "open": "''"
+      }
+     }
+    },
+    "one": {
+     "tag": {
+      ":scope > :nth-child(1)": {
+       "to": "summary"
+      },
+      ":scope": {
+       "to": "details"
+      }
+     },
+     "html": {
+      ":scope > :nth-child(1) > :nth-child(1)": "e(q[0])",
+      ":scope > :nth-child(2)": "e(q[1])",
+      ":scope > :nth-child(1) > :nth-child(2)": "'expand_more'"
+     }
+    }
+   }
+  },
+  {
+   "list": "d.cols",
+   "as": "c",
+   "sel": ":scope > :nth-child(9) > :nth-child(1) > :nth-child(2)",
+   "samples": ":scope > :nth-child(9) > :nth-child(1) > :nth-child(2), :scope > :nth-child(9) > :nth-child(1) > :nth-child(3), :scope > :nth-child(9) > :nth-child(1) > :nth-child(4)",
+   "html": {
+    ":scope > :nth-child(1)": "e(c.h)"
+   },
+   "tag": {
+    ":scope > :nth-child(1)": {
+     "to": "h3"
+    }
+   },
+   "repeat": [
+    {
+     "list": "c.items",
+     "as": "it",
+     "sel": ":scope > ul > li:nth-child(1)",
+     "samples": ":scope > ul > li",
+     "attr": {
+      ":scope > a": {
+       "href": "it[0]"
+      }
+     },
+     "html": {
+      ":scope > a": "e(it[1])"
+     },
+     "addClass": {
+      ":scope > a": "min-w-[44px]"
+     }
+    }
+   ]
+  }
+ ],
+ "html": {
+  ":scope > :nth-child(1) > :nth-child(2) > :nth-child(2)": "d.tswSvg",
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(2)": "e(d.hero.h1a) + '<br>' + e(d.hero.h1b)",
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(3)": "e(d.hero.lead)",
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(4) > :nth-child(1) > :nth-child(1)": "e(d.hero.cta)",
+  ":scope > :nth-child(5) > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(2) > :nth-child(1)": "e(d.steps[0][0])",
+  ":scope > :nth-child(5) > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(2) > :nth-child(2)": "e(d.steps[0][1])",
+  ":scope > :nth-child(5) > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(2) > :nth-child(1)": "e(d.steps[1][0])",
+  ":scope > :nth-child(5) > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(2) > :nth-child(2)": "e(d.steps[1][1])",
+  ":scope > :nth-child(5) > :nth-child(2) > :nth-child(1) > :nth-child(3) > :nth-child(2) > :nth-child(1)": "e(d.steps[2][0])",
+  ":scope > :nth-child(5) > :nth-child(2) > :nth-child(1) > :nth-child(3) > :nth-child(2) > :nth-child(2)": "e(d.steps[2][1])",
+  ":scope > :nth-child(8) > :nth-child(3)": "e(d.finalP)",
+  ":scope > :nth-child(8) > :nth-child(4) > :nth-child(1)": "e(d.hero.cta)",
+  ":scope > :nth-child(9) > :nth-child(1) > :nth-child(1) > :nth-child(2)": "e(d.foot)",
+  ":scope > :nth-child(9) > :nth-child(1) > :nth-child(1) > :nth-child(3)": "e(d.copy) + '<span class=\"block mt-2 font-medium\">' + e(d.tm) + '</span>'",
+  ":scope > :nth-child(9) > :nth-child(2) > :nth-child(1) > :nth-child(1)": "e(d.langLabel)"
+ },
+ "after": {
+  ":scope > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(1)": "'<img src=\"/icons/icon.svg?v=3\" width=\"40\" height=\"40\" alt=\"\">'",
+  ":scope > :nth-child(2) > :nth-child(2) > :nth-child(3) > :nth-child(1)": "d.ama",
+  ":scope > :nth-child(5) > :nth-child(2) > :nth-child(2) > :nth-child(2) > :nth-child(1)": "d.carlos",
+  ":scope > :nth-child(9) > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(1)": "'<img src=\"/icons/icon.svg?v=3\" width=\"32\" height=\"32\" alt=\"\">'",
+  ":scope > :nth-child(9) > :nth-child(1) > :nth-child(1) > :nth-child(3)": "d.getApp",
+  ":scope > :nth-child(9) > :nth-child(2) > :nth-child(1) > :nth-child(2)": "d.menu2",
+  ":scope > :nth-child(9) > :nth-child(2) > :nth-child(2)": "d.pill",
+  ":scope > :nth-child(9)": "d.js ? '<script>' + d.js + '</script>' : ''"
+ },
+ "attr": {
+  ":scope > :nth-child(1) > :nth-child(1) > :nth-child(1)": {
+   "href": "d.home"
+  },
+  ":scope > :nth-child(1) > :nth-child(2) > :nth-child(1)": {
+   "type": "'button'",
+   "aria-haspopup": "'true'",
+   "aria-expanded": "'false'",
+   "aria-controls": "'lsw-m'",
+   "aria-label": "d.lswLabel"
+  },
+  ":scope > :nth-child(1) > :nth-child(2) > :nth-child(2)": {
+   "data-tsw": "''",
+   "data-l": "d.tswL",
+   "aria-label": "d.tswA"
+  },
+  ":scope > :nth-child(1) > :nth-child(2) > :nth-child(3)": {
+   "href": "d.nav[0][0]"
+  },
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(4) > :nth-child(1)": {
+   "href": "d.start",
+   "data-cta": "'start'"
+  },
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(4) > :nth-child(2)": {
+   "href": "d.store",
+   "target": "'_blank'",
+   "rel": "'noopener'",
+   "data-ext-cta": "'land'",
+   "hidden": "''"
+  },
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(4) > :nth-child(3)": {
+   "href": "d.appQ",
+   "data-get-app": "'head'",
+   "hidden": "''"
+  },
+  ":scope > :nth-child(8) > :nth-child(4)": {
+   "href": "d.start"
+  },
+  ":scope > :nth-child(9) > :nth-child(1) > :nth-child(1) > :nth-child(1)": {
+   "href": "d.home"
+  },
+  ":scope > :nth-child(9) > :nth-child(2) > :nth-child(1)": {
+   "data-lsw": "''"
+  },
+  ":scope > :nth-child(9) > :nth-child(2) > :nth-child(1) > :nth-child(2)": {
+   "type": "'button'",
+   "aria-haspopup": "'true'",
+   "aria-expanded": "'false'",
+   "aria-controls": "'lsw-m2'",
+   "aria-label": "d.lswLabel"
+  }
+ },
+ "tag": {
+  ":scope > :nth-child(9) > :nth-child(1) > :nth-child(1) > :nth-child(1)": {
+   "to": "a",
+   "addClass": "min-h-[44px] min-w-[44px]"
+  }
+ },
+ "remove": [
+  ":scope > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(1)",
+  ":scope > :nth-child(2) > :nth-child(2) > :nth-child(3) > :nth-child(1)",
+  ":scope > :nth-child(5) > :nth-child(2) > :nth-child(2) > :nth-child(2) > :nth-child(1)",
+  ":scope > :nth-child(9) > :nth-child(1) > :nth-child(1) > :nth-child(1) > :nth-child(1)",
+  ":scope > :nth-child(9) > :nth-child(2) > :nth-child(2)"
+ ],
+ "text": {
+  "Lexkite": "'Lexkite'",
+  "English": "d.langName",
+  "Open app": "d.nav[0][1]",
+  "Free Web App + Chrome Extension": "d.hero.eyebrow",
+  "Get the app": "d.getAppL",
+  "Designed for how your brain retains English": "d.featuresH",
+  "Four thoughtfully calibrated tools built into one free daily routine.": "d.featuresSub",
+  "How it works": "d.stepsH",
+  "Free resources": "d.resH",
+  "Open-access materials curated to boost your fluency and test scores.": "d.resSub",
+  "Frequently asked questions": "d.faqH",
+  "Ready for your first 5 minutes?": "d.finalH",
+  "English (US)": "d.langName"
+ },
+ "addClass": {
+  ":scope > :nth-child(1)": "flex-wrap gap-y-1",
+  ":scope > :nth-child(1) > :nth-child(2) > :nth-child(1) > :nth-child(2)": "hidden sm:inline",
+  ":scope > :nth-child(2) > :nth-child(1) > :nth-child(5)": "flex flex-wrap gap-x-6",
+  ":scope > :nth-child(9) > :nth-child(2) > :nth-child(1)": "relative"
+ },
+ "wrap": {
+  ":scope > :nth-child(1) > :nth-child(2) > :nth-child(1)": {
+   "to": "div",
+   "class": "relative",
+   "attr": {
+    "data-lsw": "''"
+   },
+   "append": "d.menu"
+  }
+ },
+ "cls": {
+  ":scope > :nth-child(1) > :nth-child(1)": {
+   "flex": "'contents md:flex'"
+  },
+  ":scope > :nth-child(1) > :nth-child(1) > :nth-child(2)": {
+   "hidden": "'flex order-last w-full md:w-auto md:order-none'"
+  },
+  ":scope > :nth-child(1) > :nth-child(2)": {
+   "gap-3": "'gap-2 sm:gap-3'"
+  },
+  ":scope > :nth-child(2) > :nth-child(2) > :nth-child(2)": {
+   "animate-pulse": "''"
+  }
+ }
+}

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_th_play_facebook",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Don't play Facebook!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I play Facebook every night.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I use Facebook every night.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "We use Facebook, we do not play it.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Use! I use Facebook a lot.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I play Facebook every night.",
+  "right": "I use Facebook every night.",
+  "strike": "play",
+  "why": "We use Facebook, we do not play it.",
+  "memory": "Use Facebook.",
+  "quiz": {
+   "stem": "I ___ Facebook a lot.",
+   "options": [
+    "play",
+    "use"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "เล่นเฟซ ≠ play Facebook!",
+   "tip": "ไทยพูด “เล่นเฟซ” แต่อังกฤษไม่ใช้ play กับแอป ใช้ “use” หรือ “be on”",
+   "caption": "คุณเคยพูดว่า “I play Facebook every night.” ไหม? 😅 ภาษาไทยพูดว่า “เล่นเฟซ” แต่ภาษาอังกฤษไม่ใช้ play กับแอป ต้องใช้ use หรือ be on: “I use Facebook every night.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+   "comment": "เฉลย: “use” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Play Facebook” is not English!",
+   "tip": "Thai says “play Facebook”, but English uses use or be on with apps: “I use Facebook”",
+   "caption": "Do you say “I play Facebook every night”? 😅 In Thai you play Facebook, but English does not use play for it. Say “I use Facebook every night”! Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "เล่นเฟซ ≠ play Facebook!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "th",
+ "est": {
+  "words": 47,
+  "seconds": 28.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "เล่นเฟซ ≠ play Facebook!",
+  "keyword": "I use Facebook every night.",
+  "value": "ไทยพูด “เล่นเฟซ” แต่อังกฤษไม่ใช้ play กับแอป ใช้ “use” หรือ “be on”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "เล่นเฟซ ≠ play Facebook!",
+    "description": "ไทยพูด “เล่นเฟซ” แต่อังกฤษไม่ใช้ play กับแอป ใช้ “use” หรือ “be on”\n\nคุณเคยพูดว่า “I play Facebook every night.” ไหม? 😅 ภาษาไทยพูดว่า “เล่นเฟซ” แต่ภาษาอังกฤษไม่ใช้ play กับแอป ต้องใช้ use หรือ be on: “I use Facebook every night.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "I use Facebook every night.",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "คุณเคยพูดว่า “I play Facebook every night.” ไหม? 😅 ภาษาไทยพูดว่า “เล่นเฟซ” แต่ภาษาอังกฤษไม่ใช้ play กับแอป ต้องใช้ use หรือ be on: “I use Facebook every night.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "เล่นเฟซ ≠ play Facebook!\n\nไทยพูด “เล่นเฟซ” แต่อังกฤษไม่ใช้ play กับแอป ใช้ “use” หรือ “be on”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "เล่นเฟซ ≠ play Facebook! ไทยพูด “เล่นเฟซ” แต่อังกฤษไม่ใช้ play กับแอป ใช้ “use” หรือ “be on” #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "เฉลย: “use” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+  "lang": "th"
+ }
+}

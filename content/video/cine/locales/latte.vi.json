@@ -1,0 +1,28 @@
+{
+ "lesson": "cafe-could-i-get",
+ "lang": "vi",
+ "dir": "ltr",
+ "font": "BeVietnamPro-ExtraBold",
+ "name": "Tiếng Việt",
+ "goal": "Gọi món lịch sự",
+ "hook": "“Give me…” có lịch sự không?",
+ "lines": {
+  "c_hi": "Chào cháu! Cháu muốn uống gì?",
+  "a_giveme": "Này! Đưa tôi một ly latte.",
+  "c_order": "Hừm, nghe như đang ra lệnh vậy.",
+  "c_try": "Thử nói: “Could I get a latte, please?”",
+  "a_could": "À! Cho cháu một ly latte được không ạ?",
+  "a_slow": "Cho cháu một ly latte được không ạ?",
+  "a_nowyou": "Đến lượt bạn. Nói theo mình nhé!",
+  "a_asktea": "Đến lượt bạn. Hãy gọi một ly trà!",
+  "a_tea": "Cho tôi một ly trà được không ạ?",
+  "a_thanks": "Cảm ơn ạ!"
+ },
+ "why": "“Give me…” nghe như ra lệnh. Hãy hỏi lịch sự.",
+ "order": "ra lệnh",
+ "polite": "lịch sự",
+ "repeat": "Nói theo nhé",
+ "yourturn": "Gọi một ly trà",
+ "recap": "= cách xin lịch sự",
+ "cta": "Đóng vai hội thoại này miễn phí trên"
+}

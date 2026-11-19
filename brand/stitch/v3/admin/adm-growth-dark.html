@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Admin - Phân tích - Tăng trưởng &amp; giữ chân</title>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            tactile: {
+              base: '#070F12',
+              card: '#0D171C',
+              cardBorder: '#1A2930',
+              sidebar: '#081115',
+              surface: '#112027',
+              accent: '#14B8A6',
+              accentGlow: 'rgba(20, 184, 166, 0.15)',
+              textMuted: '#8EA2AA',
+              textPrimary: '#F1F6F8'
+            }
+          }
+        }
+      }
+    }
+  </script>
+<!-- Google Material Symbols Rounded -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<!-- Custom Styles for Scrollbars and Icons -->
+<style data-purpose="custom-theme-overrides">
+    body {
+      background-color: #070F12;
+      color: #F1F6F8;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      line-height: 1;
+      display: inline-block;
+    }
+    .material-symbols-rounded.filled {
+      font-variation-settings: 'FILL' 1;
+    }
+    /* Custom scrollbar for data tables */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0B161B;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1C2E38;
+      border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #25404E;
+    }
+  </style>
+</head>
+<body class="bg-tactile-base text-tactile-textPrimary antialiased selection:bg-teal-500/20 selection:text-teal-200 min-h-screen overflow-x-hidden">
+<!-- BEGIN: MainLayout -->
+<div class="flex min-h-screen w-[1280px] mx-auto overflow-hidden border-x border-[#16252C] shadow-2xl bg-tactile-base" data-purpose="dashboard-container">
+<!-- BEGIN: Sidebar -->
+<aside class="w-64 flex-shrink-0 bg-tactile-sidebar border-r border-tactile-cardBorder flex flex-col justify-between" data-purpose="sidebar-navigation">
+<div>
+<!-- Logo and Brand -->
+<div class="h-16 px-6 flex items-center gap-3 border-b border-tactile-cardBorder/60">
+<div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-teal-600 to-emerald-400 flex items-center justify-center text-tactile-base shadow-lg shadow-teal-900/30">
+<span class="material-symbols-rounded text-[22px] font-bold">graphic_eq</span>
+</div>
+<div>
+<h1 class="text-base font-bold tracking-tight text-white flex items-center gap-1.5">
+              Lexkite <span class="text-[10px] uppercase font-bold tracking-wider px-1.5 py-0.5 rounded bg-teal-500/20 text-teal-300 border border-teal-500/30">Admin</span>
+</h1>
+<p class="text-[11px] text-tactile-textMuted tracking-tight">Hệ thống phân tích EdTech</p>
+</div>
+</div>
+<!-- Navigation Menu -->
+<nav aria-label="Main Navigation" class="p-3 space-y-1">
+<div class="px-3 py-2 text-[10px] font-semibold uppercase tracking-wider text-tactile-textMuted/70">Tổng quan &amp; Vận hành</div>
+<a class="h-11 px-3.5 rounded-lg flex items-center gap-3 text-sm font-medium text-tactile-textMuted hover:text-white hover:bg-tactile-surface transition-all duration-150" href="#">
+<span class="material-symbols-rounded text-[20px]">dashboard</span>
+<span>Bảng điều khiển</span>
+</a>
+<a class="h-11 px-3.5 rounded-lg flex items-center gap-3 text-sm font-medium text-tactile-textMuted hover:text-white hover:bg-tactile-surface transition-all duration-150" href="#">
+<span class="material-symbols-rounded text-[20px]">group</span>
+<span>Học viên &amp; Lớp học</span>
+</a>
+<div class="px-3 pt-4 pb-2 text-[10px] font-semibold uppercase tracking-wider text-tactile-textMuted/70">Chuyên sâu dữ liệu</div>
+<!-- Active Analytics Tab -->
+<a class="h-11 px-3.5 rounded-lg flex items-center justify-between text-sm font-semibold bg-teal-500/10 text-teal-300 border border-teal-500/25 shadow-sm shadow-teal-950/40 transition-all duration-150" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-rounded filled text-[20px] text-teal-300">analytics</span>
+<span>Tăng trưởng &amp; Giữ chân</span>
+</div>
+<span class="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse"></span>
+</a>
+<a class="h-11 px-3.5 rounded-lg flex items-center gap-3 text-sm font-medium text-tactile-textMuted hover:text-white hover:bg-tactile-surface transition-all duration-150" href="#">
+<span class="material-symbols-rounded text-[20px]">auto_awesome</span>
+<span>Hành vi học tập AI</span>
+</a>
+<a class="h-11 px-3.5 rounded-lg flex items-center gap-3 text-sm font-medium text-tactile-textMuted hover:text-white hover:bg-tactile-surface transition-all duration-150" href="#">
+<span class="material-symbols-rounded text-[20px]">payments</span>
+<span>Doanh thu &amp; Chuyển đổi</span>
+</a>
+<div class="px-3 pt-4 pb-2 text-[10px] font-semibold uppercase tracking-wider text-tactile-textMuted/70">Cấu hình &amp; Tích hợp</div>
+<a class="h-11 px-3.5 rounded-lg flex items-center gap-3 text-sm font-medium text-tactile-textMuted hover:text-white hover:bg-tactile-surface transition-all duration-150" href="#">
+<span class="material-symbols-rounded text-[20px]">hub</span>
+<span>Tích hợp Webhook &amp; LMS</span>
+</a>
+<a class="h-11 px-3.5 rounded-lg flex items-center gap-3 text-sm font-medium text-tactile-textMuted hover:text-white hover:bg-tactile-surface transition-all duration-150" href="#">
+<span class="material-symbols-rounded text-[20px]">settings</span>
+<span>Cài đặt hệ thống</span>
+</a>
+</nav>
+</div>
+<!-- Bottom Profile Container -->
+<div class="p-3 border-t border-tactile-cardBorder/60" data-purpose="user-profile-widget">
+<div class="h-12 px-3 rounded-lg bg-tactile-surface flex items-center justify-between border border-tactile-cardBorder">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-full bg-teal-900/50 border border-teal-500/40 flex items-center justify-center text-teal-300 font-semibold text-xs">
+              AD
+            </div>
+<div class="leading-tight">
+<div class="text-xs font-semibold text-tactile-textPrimary">Lê Minh Quý</div>
+<div class="text-[10px] text-tactile-textMuted">Data Specialist</div>
+</div>
+</div>
+<button class="text-tactile-textMuted hover:text-white transition-colors" title="Đăng xuất">
+<span class="material-symbols-rounded text-[18px]">logout</span>
+</button>
+</div>
+</div>
+</aside>
+<!-- END: Sidebar -->
+<!-- BEGIN: MainContent -->
+<main class="flex-1 flex flex-col min-w-0 bg-tactile-base overflow-y-auto" data-purpose="primary-workspace">
+<!-- BEGIN: TopBar -->
+<header class="h-16 px-6 border-b border-tactile-cardBorder flex items-center justify-between bg-tactile-sidebar/80 backdrop-blur sticky top-0 z-30" data-purpose="workspace-header">
+<div class="flex items-center gap-3">
+<nav aria-label="Breadcrumb" class="flex items-center gap-2 text-xs text-tactile-textMuted">
+<span>Phân tích</span>
+<span class="material-symbols-rounded text-[14px]">chevron_right</span>
+<span class="text-tactile-textPrimary font-semibold">Tăng trưởng &amp; Giữ chân (Cohort Analysis)</span>
+</nav>
+</div>
+<!-- Filter Controls -->
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-tactile-card border border-tactile-cardBorder text-xs text-tactile-textMuted">
+<span class="material-symbols-rounded text-[16px] text-teal-400">calendar_today</span>
+<span>Khoảng thời gian:</span>
+<span class="font-medium text-white">6 tháng gần nhất (2024)</span>
+</div>
+<button class="h-9 px-3 rounded-lg bg-tactile-surface hover:bg-tactile-cardBorder border border-tactile-cardBorder text-xs font-medium text-tactile-textPrimary flex items-center gap-1.5 transition-colors">
+<span class="material-symbols-rounded text-[16px]">tune</span>
+            Lọc phân khúc
+          </button>
+<button class="h-9 px-3.5 rounded-lg bg-teal-600 hover:bg-teal-500 text-tactile-base font-semibold text-xs flex items-center gap-1.5 shadow-md shadow-teal-950/40 transition-colors">
+<span class="material-symbols-rounded text-[16px] font-bold">file_download</span>
+            Xuất dữ liệu CSV
+          </button>
+</div>
+</header>
+<!-- END: TopBar -->
+<!-- Content Area Container -->
+<div class="p-6 space-y-6">
+<!-- BEGIN: KPIOverviewCards -->
+<section aria-label="Key Performance Indicators" class="grid grid-cols-4 gap-4" data-purpose="kpi-metrics-grid">
+<!-- KPI 1: Active Users -->
+<div class="p-4 rounded-xl bg-tactile-card border border-tactile-cardBorder relative overflow-hidden group hover:border-teal-500/40 transition-all">
+<div class="flex items-center justify-between text-tactile-textMuted mb-2">
+<span class="text-xs font-medium uppercase tracking-wider">Học viên hoạt động (MAU)</span>
+<span class="material-symbols-rounded text-teal-400 text-[18px]">group</span>
+</div>
+<div class="text-2xl font-bold text-white tracking-tight">14,820</div>
+<div class="mt-2 flex items-center gap-1.5 text-[11px] text-emerald-400">
+<span class="material-symbols-rounded text-[14px]">trending_up</span>
+<span class="font-semibold">+12.4%</span>
+<span class="text-tactile-textMuted">so với tháng trước</span>
+</div>
+</div>
+<!-- KPI 2: Retained Users containing "318" - Contrast Ratio > 4.5:1 -->
+<!-- Note: 318 is styled with text-emerald-300 / text-white with high luminance on dark container -->
+<div class="p-4 rounded-xl bg-tactile-card border border-tactile-cardBorder relative overflow-hidden group hover:border-teal-500/40 transition-all" data-purpose="retained-count-card">
+<div class="flex items-center justify-between text-tactile-textMuted mb-2">
+<span class="text-xs font-medium uppercase tracking-wider">Học viên giữ chân Tuần 8</span>
+<span class="material-symbols-rounded text-emerald-400 text-[18px]">repeat</span>
+</div>
+<!-- High contrast fix: Pure text-white font-extrabold with clear large rendering -->
+<div class="text-2xl font-extrabold text-white tracking-tight flex items-baseline gap-1">
+<span class="text-white drop-shadow-sm font-mono">318</span>
+<span class="text-xs font-normal text-tactile-textMuted tracking-normal">học viên mới</span>
+</div>
+<div class="mt-2 flex items-center gap-1.5 text-[11px]">
+<span class="px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-semibold border border-emerald-500/30 text-[10px]">Đạt chuẩn</span>
+<span class="text-tactile-textMuted">Tỷ lệ giữ lại 38.6%</span>
+</div>
+</div>
+<!-- KPI 3: Churn Rate -->
+<div class="p-4 rounded-xl bg-tactile-card border border-tactile-cardBorder relative overflow-hidden group hover:border-teal-500/40 transition-all">
+<div class="flex items-center justify-between text-tactile-textMuted mb-2">
+<span class="text-xs font-medium uppercase tracking-wider">Tỷ lệ rời bỏ (Churn)</span>
+<span class="material-symbols-rounded text-rose-400 text-[18px]">person_remove</span>
+</div>
+<div class="text-2xl font-bold text-white tracking-tight">4.2%</div>
+<div class="mt-2 flex items-center gap-1.5 text-[11px] text-emerald-400">
+<span class="material-symbols-rounded text-[14px]">arrow_downward</span>
+<span class="font-semibold">-0.8%</span>
+<span class="text-tactile-textMuted">cải thiện tích cực</span>
+</div>
+</div>
+<!-- KPI 4: Stickiness Ratio -->
+<div class="p-4 rounded-xl bg-tactile-card border border-tactile-cardBorder relative overflow-hidden group hover:border-teal-500/40 transition-all">
+<div class="flex items-center justify-between text-tactile-textMuted mb-2">
+<span class="text-xs font-medium uppercase tracking-wider">Chỉ số gắn kết (DAU/MAU)</span>
+<span class="material-symbols-rounded text-cyan-400 text-[18px]">bolt</span>
+</div>
+<div class="text-2xl font-bold text-white tracking-tight">32.8%</div>
+<div class="mt-2 flex items-center gap-1.5 text-[11px] text-tactile-textMuted">
+<span class="material-symbols-rounded text-[14px] text-cyan-400">insights</span>
+<span>Benchmark ngành: 28%</span>
+</div>
+</div>
+</section>
+<!-- END: KPIOverviewCards -->
+<!-- BEGIN: RetentionCohortAnalysisTable -->
+<section class="rounded-xl bg-tactile-card border border-tactile-cardBorder p-5 shadow-sm" data-purpose="cohort-retention-table-section">
+<div class="flex items-center justify-between mb-4">
+<div>
+<h2 class="text-base font-bold text-white flex items-center gap-2">
+<span class="material-symbols-rounded text-teal-400 text-[20px]">table_chart</span>
+                Bảng Giữ Chân Khách Hàng Theo Đoàn Hệ (Cohort Retention Rate)
+              </h2>
+<p class="text-xs text-tactile-textMuted mt-0.5">Phần trăm học viên tiếp tục hoàn thành ít nhất 1 bài tập ngữ âm sau các tuần đăng ký</p>
+</div>
+<!-- Table Legend -->
+<div class="flex items-center gap-2 text-xs">
+<span class="text-tactile-textMuted">Mức độ giữ chân:</span>
+<div class="flex items-center gap-1">
+<span class="w-3.5 h-3.5 rounded bg-teal-950/70 border border-teal-800 text-[9px] flex items-center justify-center text-teal-300 font-mono">L</span>
+<span class="w-3.5 h-3.5 rounded bg-teal-900/80 border border-teal-700"></span>
+<span class="w-3.5 h-3.5 rounded bg-teal-700/80 border border-teal-500"></span>
+<span class="w-3.5 h-3.5 rounded bg-teal-500 text-tactile-base border border-teal-400 text-[9px] flex items-center justify-center font-bold">H</span>
+</div>
+</div>
+</div>
+<!-- Table Container -->
+<div class="overflow-x-auto rounded-lg border border-tactile-cardBorder/80">
+<table class="w-full text-left border-collapse text-xs">
+<thead>
+<tr class="bg-tactile-surface/80 text-tactile-textMuted border-b border-tactile-cardBorder font-semibold uppercase text-[10px] tracking-wider">
+<th class="py-3 px-4">Đoàn hệ (Cohort)</th>
+<th class="py-3 px-3 text-right">Quy mô</th>
+<th class="py-3 px-2 text-center">Tuần 0</th>
+<th class="py-3 px-2 text-center">Tuần 1</th>
+<th class="py-3 px-2 text-center">Tuần 2</th>
+<th class="py-3 px-2 text-center">Tuần 3</th>
+<th class="py-3 px-2 text-center">Tuần 4</th>
+<th class="py-3 px-2 text-center">Tuần 5</th>
+<th class="py-3 px-2 text-center">Tuần 6</th>
+<th class="py-3 px-2 text-center">Tuần 7</th>
+<th class="py-3 px-2 text-center">Tuần 8</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-tactile-cardBorder/50 font-mono text-[11px]">
+<!-- Row: Tháng 1 -->
+<tr class="hover:bg-tactile-surface/40 transition-colors">
+<td class="py-2.5 px-4 font-sans font-medium text-white flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-teal-400"></span> 01 - 07 Thg 01, 2024
+                  </td>
+<td class="py-2.5 px-3 text-right text-tactile-textPrimary font-semibold">1,240</td>
+<td class="py-2.5 px-2 text-center bg-teal-500/90 text-tactile-base font-bold">100%</td>
+<td class="py-2.5 px-2 text-center bg-teal-600/70 text-white font-medium">58.4%</td>
+<td class="py-2.5 px-2 text-center bg-teal-700/60 text-white font-medium">49.2%</td>
+<td class="py-2.5 px-2 text-center bg-teal-800/60 text-white">43.0%</td>
+<td class="py-2.5 px-2 text-center bg-teal-800/50 text-white">41.1%</td>
+<td class="py-2.5 px-2 text-center bg-teal-900/60 text-teal-200">38.7%</td>
+<td class="py-2.5 px-2 text-center bg-teal-900/50 text-teal-200">36.5%</td>
+<td class="py-2.5 px-2 text-center bg-teal-950/70 text-tactile-textMuted">35.2%</td>
+<td class="py-2.5 px-2 text-center bg-teal-950/80 text-teal-200 font-bold">34.9%</td>
+</tr>
+<!-- Row: Tháng 2 containing "318" cohort group with contrast fix -->
+<tr class="hover:bg-tactile-surface/40 transition-colors bg-teal-500/[0.02]">
+<td class="py-2.5 px-4 font-sans font-medium text-white flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-teal-400"></span> 08 - 14 Thg 01, 2024
+                  </td>
+<!-- Strict Contrast Fix for "318": Bright text-white font-bold with contrast >= 4.5:1 -->
+<td class="py-2.5 px-3 text-right font-bold text-white" data-purpose="high-contrast-cohort-metric">
+<span class="text-white font-bold bg-[#14232C] px-1.5 py-0.5 rounded border border-[#233B49]">318</span>
+</td>
+<td class="py-2.5 px-2 text-center bg-teal-500/90 text-tactile-base font-bold">100%</td>
+<td class="py-2.5 px-2 text-center bg-teal-600/70 text-white font-medium">60.2%</td>
+<td class="py-2.5 px-2 text-center bg-teal-700/60 text-white font-medium">51.8%</td>
+<td class="py-2.5 px-2 text-center bg-teal-800/60 text-white">45.4%</td>
+<td class="py-2.5 px-2 text-center bg-teal-800/50 text-white">43.2%</td>
+<td class="py-2.5 px-2 text-center bg-teal-900/60 text-teal-200">40.1%</td>
+<td class="py-2.5 px-2 text-center bg-teal-900/50 text-teal-200">38.9%</td>
+<td class="py-2.5 px-2 text-center bg-teal-950/70 text-tactile-textMuted">37.1%</td>
+<td class="py-2.5 px-2 text-center text-tactile-textMuted/40">-</td>
+</tr>
+<!-- Row: 15 - 21 Thg 01 -->
+<tr class="hover:bg-tactile-surface/40 transition-colors">
+<td class="py-2.5 px-4 font-sans font-medium text-white flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-teal-400"></span> 15 - 21 Thg 01, 2024
+                  </td>
+<td class="py-2.5 px-3 text-right text-tactile-textPrimary font-semibold">980</td>
+<td class="py-2.5 px-2 text-center bg-teal-500/90 text-tactile-base font-bold">100%</td>
+<td class="py-2.5 px-2 text-center bg-teal-600/70 text-white font-medium">57.9%</td>
+<td class="py-2.5 px-2 text-center bg-teal-700/60 text-white font-medium">48.3%</td>
+<td class="py-2.5 px-2 text-center bg-teal-800/60 text-white">42.1%</td>
+<td class="py-2.5 px-2 text-center bg-teal-800/50 text-white">39.8%</td>
+<td class="py-2.5 px-2 text-center bg-teal-900/60 text-teal-200">37.5%</td>
+<td class="py-2.5 px-2 text-center bg-teal-900/50 text-teal-200">36.0%</td>
+<td class="py-2.5 px-2 text-center text-tactile-textMuted/40">-</td>
+<td class="py-2.5 px-2 text-center text-tactile-textMuted/40">-</td>
+</tr>
+<!-- Row: 22 - 28 Thg 01 -->
+<tr class="hover:bg-tactile-surface/40 transition-colors">
+<td class="py-2.5 px-4 font-sans font-medium text-white flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-teal-400"></span> 22 - 28 Thg 01, 2024
+                  </td>
+<td class="py-2.5 px-3 text-right text-tactile-textPrimary font-semibold">1,054</td>
+<td class="py-2.5 px-2 text-center bg-teal-500/90 text-tactile-base font-bold">100%</td>
+<td class="py-2.5 px-2 text-center bg-teal-600/70 text-white font-medium">62.1%</td>
+<td class="py-2.5 px-2 text-center bg-teal-700/60 text-white font-medium">53.0%</td>
+<td class="py-2.5 px-2 text-center bg-teal-800/60 text-white">47.8%</td>
+<td class="py-2.5 px-2 text-center bg-teal-800/50 text-white">44.6%</td>
+<td class="py-2.5 px-2 text-center bg-teal-900/60 text-teal-200">42.0%</td>
+<td class="py-2.5 px-2 text-center text-tactile-textMuted/40">-</td>
+<td class="py-2.5 px-2 text-center text-tactile-textMuted/40">-</td>
+<td class="py-2.5 px-2 text-center text-tactile-textMuted/40">-</td>
+</tr>
+<!-- Row: 29 Thg 01 - 04 Thg 02 -->
+<tr class="hover:bg-tactile-surface/40 transition-colors">
+<td class="py-2.5 px-4 font-sans font-medium text-white flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-teal-400"></span> 29 Thg 01 - 04 Thg 02
+                  </td>
+<td class="py-2.5 px-3 text-right text-tactile-textPrimary font-semibold">1,420</td>
+<td class="py-2.5 px-2 text-center bg-teal-500/90 text-tactile-base font-bold">100%</td>
+<td class="py-2.5 px-2 text-center bg-teal-600/70 text-white font-medium">64.5%</td>
+<td class="py-2.5 px-2 text-center bg-teal-700/60 text-white font-medium">55.8%</td>
+<td class="py-2.5 px-2 text-center bg-teal-800/60 text-white">49.0%</td>
+<td class="py-2.5 px-2 text-center bg-teal-800/50 text-white">46.5%</td>
+<td class="py-2.5 px-2 text-center text-tactile-textMuted/40">-</td>
+<td class="py-2.5 px-2 text-center text-tactile-textMuted/40">-</td>
+<td class="py-2.5 px-2 text-center text-tactile-textMuted/40">-</td>
+<td class="py-2.5 px-2 text-center text-tactile-textMuted/40">-</td>
+</tr>
+<!-- Row: 05 - 11 Thg 02 -->
+<tr class="hover:bg-tactile-surface/40 transition-colors">
+<td class="py-2.5 px-4 font-sans font-medium text-white flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-teal-400"></span> 05 - 11 Thg 02, 2024
+                  </td>
+<td class="py-2.5 px-3 text-right text-tactile-textPrimary font-semibold">890</td>
+<td class="py-2.5 px-2 text-center bg-teal-500/90 text-tactile-base font-bold">100%</td>
+<td class="py-2.5 px-2 text-center bg-teal-600/70 text-white font-medium">59.8%</td>
+<td class="py-2.5 px-2 text-center bg-teal-700/60 text-white font-medium">50.2%</td>
+<td class="py-2.5 px-2 text-center bg-teal-800/60 text-white">44.1%</td>
+<td class="py-2.5 px-2 text-center text-tactile-textMuted/40">-</td>
+<td class="py-2.5 px-2 text-center text-tactile-textMuted/40">-</td>
+<td class="py-2.5 px-2 text-center text-tactile-textMuted/40">-</td>
+<td class="py-2.5 px-2 text-center text-tactile-textMuted/40">-</td>
+<td class="py-2.5 px-2 text-center text-tactile-textMuted/40">-</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- END: RetentionCohortAnalysisTable -->
+<!-- BEGIN: SecondaryAnalyticsGrid -->
+<section class="grid grid-cols-2 gap-6" data-purpose="secondary-analytics-section">
+<!-- Left Card: Dropoff Funnel -->
+<div class="rounded-xl bg-tactile-card border border-tactile-cardBorder p-5">
+<div class="flex items-center justify-between mb-4">
+<div>
+<h3 class="text-sm font-bold text-white flex items-center gap-2">
+<span class="material-symbols-rounded text-teal-400 text-[18px]">filter_alt</span>
+                  Phễu Chuyển Đổi Người Dùng Mới (Onboarding)
+                </h3>
+<p class="text-[11px] text-tactile-textMuted">Tỷ lệ hoàn thành qua các bước đầu tiên sau khi kích hoạt</p>
+</div>
+<span class="text-xs font-semibold text-teal-400 bg-teal-950/60 px-2 py-1 rounded border border-teal-800">71.8% Tổng</span>
+</div>
+<!-- Funnel Bars -->
+<div class="space-y-3.5 pt-1">
+<div>
+<div class="flex justify-between text-xs mb-1">
+<span class="text-white font-medium">1. Đăng ký &amp; Xác thực tài khoản</span>
+<span class="text-tactile-textPrimary font-mono">10,420 (100%)</span>
+</div>
+<div class="w-full h-2.5 rounded-full bg-tactile-surface overflow-hidden">
+<div class="h-full bg-gradient-to-r from-teal-500 to-teal-400 rounded-full" style="width: 100%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-xs mb-1">
+<span class="text-white font-medium">2. Kiểm tra phát âm đầu vào (AI Speech Test)</span>
+<span class="text-tactile-textPrimary font-mono">8,950 (85.8%)</span>
+</div>
+<div class="w-full h-2.5 rounded-full bg-tactile-surface overflow-hidden">
+<div class="h-full bg-gradient-to-r from-teal-500 to-teal-400 rounded-full" style="width: 85.8%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-xs mb-1">
+<span class="text-white font-medium">3. Hoàn thành bài học ngữ âm đầu tiên</span>
+<span class="text-tactile-textPrimary font-mono">7,810 (74.9%)</span>
+</div>
+<div class="w-full h-2.5 rounded-full bg-tactile-surface overflow-hidden">
+<div class="h-full bg-gradient-to-r from-teal-500 to-teal-400 rounded-full" style="width: 74.9%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-xs mb-1">
+<span class="text-white font-medium">4. Đạt mốc duy trì Streak 3 ngày liên tiếp</span>
+<span class="text-tactile-textPrimary font-mono">5,630 (54.0%)</span>
+</div>
+<div class="w-full h-2.5 rounded-full bg-tactile-surface overflow-hidden">
+<div class="h-full bg-gradient-to-r from-teal-500 to-teal-400 rounded-full" style="width: 54.0%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Card: Feature Retention Impact -->
+<div class="rounded-xl bg-tactile-card border border-tactile-cardBorder p-5">
+<div class="flex items-center justify-between mb-4">
+<div>
+<h3 class="text-sm font-bold text-white flex items-center gap-2">
+<span class="material-symbols-rounded text-emerald-400 text-[18px]">auto_awesome</span>
+                  Tính Năng Ảnh Hưởng Mạnh Nhất Đến Giữ Chân
+                </h3>
+<p class="text-[11px] text-tactile-textMuted">Tương quan giữa việc sử dụng tính năng và khả năng quay lại Tuần 4</p>
+</div>
+<span class="text-xs text-tactile-textMuted">Hệ số Pearson</span>
+</div>
+<!-- Features List -->
+<div class="space-y-3">
+<div class="p-2.5 rounded-lg bg-tactile-surface/80 border border-tactile-cardBorder flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-teal-500/10 border border-teal-500/30 flex items-center justify-center text-teal-300">
+<span class="material-symbols-rounded text-[18px]">graphic_eq</span>
+</div>
+<div>
+<div class="text-xs font-semibold text-white">Chấm điểm âm vị thời gian thực (Waveform)</div>
+<div class="text-[10px] text-tactile-textMuted">Học viên thực hành &gt;= 5 lần/tuần</div>
+</div>
+</div>
+<span class="text-xs font-bold text-emerald-400 font-mono">+42.6% Tỷ lệ giữ chân</span>
+</div>
+<div class="p-2.5 rounded-lg bg-tactile-surface/80 border border-tactile-cardBorder flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-300">
+<span class="material-symbols-rounded text-[18px]">record_voice_over</span>
+</div>
+<div>
+<div class="text-xs font-semibold text-white">Giao tiếp phản xạ AI Tutor (Hội thoại)</div>
+<div class="text-[10px] text-tactile-textMuted">Hoàn thành phiên nói từ 10 phút</div>
+</div>
+</div>
+<span class="text-xs font-bold text-emerald-400 font-mono">+36.2% Tỷ lệ giữ chân</span>
+</div>
+<div class="p-2.5 rounded-lg bg-tactile-surface/80 border border-tactile-cardBorder flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center text-indigo-300">
+<span class="material-symbols-rounded text-[18px]">notifications_active</span>
+</div>
+<div>
+<div class="text-xs font-semibold text-white">Nhắc nhở thông minh dựa trên chu kỳ quên (SRS)</div>
+<div class="text-[10px] text-tactile-textMuted">Phản hồi thông báo đẩy trong 2 giờ</div>
+</div>
+</div>
+<span class="text-xs font-bold text-emerald-400 font-mono">+28.4% Tỷ lệ giữ chân</span>
+</div>
+</div>
+</div>
+</section>
+<!-- END: SecondaryAnalyticsGrid -->
+</div>
+</main>
+<!-- END: MainContent -->
+</div>
+<!-- END: MainLayout -->
+</body></html>

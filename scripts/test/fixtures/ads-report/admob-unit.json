@@ -1,0 +1,1286 @@
+[
+{
+"header": {
+"dateRange": {
+"startDate": {
+"year": 2026,
+"month": 10,
+"day": 20
+},
+"endDate": {
+"year": 2026,
+"month": 10,
+"day": 26
+}
+},
+"localizationSettings": {
+"currencyCode": "USD"
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261020"
+},
+"PLATFORM": {
+"value": "Android"
+},
+"AD_UNIT": {
+"value": "ca-app-pub-2290668854727752/9011640020",
+"displayLabel": "Banner"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "360000"
+},
+"IMPRESSIONS": {
+"integerValue": "240"
+},
+"CLICKS": {
+"integerValue": "1"
+},
+"AD_REQUESTS": {
+"integerValue": "312"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "288"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 1.5
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261020"
+},
+"PLATFORM": {
+"value": "Android"
+},
+"AD_UNIT": {
+"value": "ca-app-pub-2290668854727752/8469336665",
+"displayLabel": "Interstitial"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "1920000"
+},
+"IMPRESSIONS": {
+"integerValue": "320"
+},
+"CLICKS": {
+"integerValue": "1"
+},
+"AD_REQUESTS": {
+"integerValue": "416"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "384"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 6.0
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261020"
+},
+"PLATFORM": {
+"value": "Android"
+},
+"AD_UNIT": {
+"value": "ca-app-pub-2290668854727752/2354732337",
+"displayLabel": "rew_ai"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "1440000"
+},
+"IMPRESSIONS": {
+"integerValue": "240"
+},
+"CLICKS": {
+"integerValue": "1"
+},
+"AD_REQUESTS": {
+"integerValue": "312"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "288"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 6.0
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261020"
+},
+"PLATFORM": {
+"value": "iOS"
+},
+"AD_UNIT": {
+"value": "ca-app-pub-2290668854727752/2135028457",
+"displayLabel": "Banner"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "224999"
+},
+"IMPRESSIONS": {
+"integerValue": "150"
+},
+"CLICKS": {
+"integerValue": "0"
+},
+"AD_REQUESTS": {
+"integerValue": "195"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "180"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 1.5
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261020"
+},
+"PLATFORM": {
+"value": "iOS"
+},
+"AD_UNIT": {
+"value": "ca-app-pub-2290668854727752/9466935590",
+"displayLabel": "Rewarded"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "899999"
+},
+"IMPRESSIONS": {
+"integerValue": "150"
+},
+"CLICKS": {
+"integerValue": "0"
+},
+"AD_REQUESTS": {
+"integerValue": "195"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "180"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 6.0
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261021"
+},
+"PLATFORM": {
+"value": "Android"
+},
+"AD_UNIT": {
+"value": "ca-app-pub-2290668854727752/9011640020",
+"displayLabel": "Banner"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "382500"
+},
+"IMPRESSIONS": {
+"integerValue": "255"
+},
+"CLICKS": {
+"integerValue": "1"
+},
+"AD_REQUESTS": {
+"integerValue": "331"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "306"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 1.5
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261021"
+},
+"PLATFORM": {
+"value": "Android"
+},
+"AD_UNIT": {
+"value": "ca-app-pub-2290668854727752/8469336665",
+"displayLabel": "Interstitial"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "2040000"
+},
+"IMPRESSIONS": {
+"integerValue": "340"
+},
+"CLICKS": {
+"integerValue": "1"
+},
+"AD_REQUESTS": {
+"integerValue": "442"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "408"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 6.0
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261021"
+},
+"PLATFORM": {
+"value": "Android"
+},
+"AD_UNIT": {
+"value": "ca-app-pub-2290668854727752/2354732337",
+"displayLabel": "rew_ai"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "1530000"
+},
+"IMPRESSIONS": {
+"integerValue": "255"
+},
+"CLICKS": {
+"integerValue": "1"
+},
+"AD_REQUESTS": {
+"integerValue": "331"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "306"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 6.0
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261021"
+},
+"PLATFORM": {
+"value": "iOS"
+},
+"AD_UNIT": {
+"value": "ca-app-pub-2290668854727752/2135028457",
+"displayLabel": "Banner"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "262499"
+},
+"IMPRESSIONS": {
+"integerValue": "175"
+},
+"CLICKS": {
+"integerValue": "0"
+},
+"AD_REQUESTS": {
+"integerValue": "227"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "210"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 1.5
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261021"
+},
+"PLATFORM": {
+"value": "iOS"
+},
+"AD_UNIT": {
+"value": "ca-app-pub-2290668854727752/9466935590",
+"displayLabel": "Rewarded"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "1049999"
+},
+"IMPRESSIONS": {
+"integerValue": "175"
+},
+"CLICKS": {
+"integerValue": "0"
+},
+"AD_REQUESTS": {
+"integerValue": "227"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "210"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 6.0
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261022"
+},
+"PLATFORM": {
+"value": "Android"
+},
+"AD_UNIT": {
+"value": "ca-app-pub-2290668854727752/9011640020",
+"displayLabel": "Banner"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "405000"
+},
+"IMPRESSIONS": {
+"integerValue": "270"
+},
+"CLICKS": {
+"integerValue": "1"
+},
+"AD_REQUESTS": {
+"integerValue": "351"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "324"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 1.5
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261022"
+},
+"PLATFORM": {
+"value": "Android"
+},
+"AD_UNIT": {
+"value": "ca-app-pub-2290668854727752/8469336665",
+"displayLabel": "Interstitial"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "2160000"
+},
+"IMPRESSIONS": {
+"integerValue": "360"
+},
+"CLICKS": {
+"integerValue": "1"
+},
+"AD_REQUESTS": {
+"integerValue": "468"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "432"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 6.0
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261022"
+},
+"PLATFORM": {
+"value": "Android"
+},
+"AD_UNIT": {
+"value": "ca-app-pub-2290668854727752/2354732337",
+"displayLabel": "rew_ai"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "1620000"
+},
+"IMPRESSIONS": {
+"integerValue": "270"
+},
+"CLICKS": {
+"integerValue": "1"
+},
+"AD_REQUESTS": {
+"integerValue": "351"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "324"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 6.0
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261022"
+},
+"PLATFORM": {
+"value": "iOS"
+},
+"AD_UNIT": {
+"value": "ca-app-pub-2290668854727752/2135028457",
+"displayLabel": "Banner"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "300000"
+},
+"IMPRESSIONS": {
+"integerValue": "200"
+},
+"CLICKS": {
+"integerValue": "1"
+},
+"AD_REQUESTS": {
+"integerValue": "260"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "240"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 1.5
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261022"
+},
+"PLATFORM": {
+"value": "iOS"
+},
+"AD_UNIT": {
+"value": "ca-app-pub-2290668854727752/9466935590",
+"displayLabel": "Rewarded"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "1200000"
+},
+"IMPRESSIONS": {
+"integerValue": "200"
+},
+"CLICKS": {
+"integerValue": "1"
+},
+"AD_REQUESTS": {
+"integerValue": "260"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "240"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 6.0
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261023"
+},
+"PLATFORM": {
+"value": "Android"
+},
+"AD_UNIT": {
+"value": "ca-app-pub-2290668854727752/9011640020",
+"displayLabel": "Banner"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "427500"
+},
+"IMPRESSIONS": {
+"integerValue": "285"
+},
+"CLICKS": {
+"integerValue": "1"
+},
+"AD_REQUESTS": {
+"integerValue": "370"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "342"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 1.5
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261023"
+},
+"PLATFORM": {
+"value": "Android"
+},
+"AD_UNIT": {
+"value": "ca-app-pub-2290668854727752/8469336665",
+"displayLabel": "Interstitial"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "2280000"
+},
+"IMPRESSIONS": {
+"integerValue": "380"
+},
+"CLICKS": {
+"integerValue": "1"
+},
+"AD_REQUESTS": {
+"integerValue": "494"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "456"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 6.0
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261023"
+},
+"PLATFORM": {
+"value": "Android"
+},
+"AD_UNIT": {
+"value": "ca-app-pub-2290668854727752/2354732337",
+"displayLabel": "rew_ai"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "1710000"
+},
+"IMPRESSIONS": {
+"integerValue": "285"
+},
+"CLICKS": {
+"integerValue": "1"
+},
+"AD_REQUESTS": {
+"integerValue": "370"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "342"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 6.0
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261023"
+},
+"PLATFORM": {
+"value": "iOS"
+},
+"AD_UNIT": {
+"value": "ca-app-pub-2290668854727752/2135028457",
+"displayLabel": "Banner"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "337500"
+},
+"IMPRESSIONS": {
+"integerValue": "225"
+},
+"CLICKS": {
+"integerValue": "1"
+},
+"AD_REQUESTS": {
+"integerValue": "292"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "270"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 1.5
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261023"
+},
+"PLATFORM": {
+"value": "iOS"
+},
+"AD_UNIT": {
+"value": "ca-app-pub-2290668854727752/9466935590",
+"displayLabel": "Rewarded"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "1350000"
+},
+"IMPRESSIONS": {
+"integerValue": "225"
+},
+"CLICKS": {
+"integerValue": "1"
+},
+"AD_REQUESTS": {
+"integerValue": "292"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "270"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 6.0
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261024"
+},
+"PLATFORM": {
+"value": "Android"
+},
+"AD_UNIT": {
+"value": "ca-app-pub-2290668854727752/9011640020",
+"displayLabel": "Banner"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "449999"
+},
+"IMPRESSIONS": {
+"integerValue": "300"
+},
+"CLICKS": {
+"integerValue": "1"
+},
+"AD_REQUESTS": {
+"integerValue": "390"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "360"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 1.5
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261024"
+},
+"PLATFORM": {
+"value": "Android"
+},
+"AD_UNIT": {
+"value": "ca-app-pub-2290668854727752/8469336665",
+"displayLabel": "Interstitial"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "2400000"
+},
+"IMPRESSIONS": {
+"integerValue": "400"
+},
+"CLICKS": {
+"integerValue": "2"
+},
+"AD_REQUESTS": {
+"integerValue": "520"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "480"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 6.0
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261024"
+},
+"PLATFORM": {
+"value": "Android"
+},
+"AD_UNIT": {
+"value": "ca-app-pub-2290668854727752/2354732337",
+"displayLabel": "rew_ai"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "1799999"
+},
+"IMPRESSIONS": {
+"integerValue": "300"
+},
+"CLICKS": {
+"integerValue": "1"
+},
+"AD_REQUESTS": {
+"integerValue": "390"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "360"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 6.0
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261024"
+},
+"PLATFORM": {
+"value": "iOS"
+},
+"AD_UNIT": {
+"value": "ca-app-pub-2290668854727752/2135028457",
+"displayLabel": "Banner"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "375000"
+},
+"IMPRESSIONS": {
+"integerValue": "250"
+},
+"CLICKS": {
+"integerValue": "1"
+},
+"AD_REQUESTS": {
+"integerValue": "325"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "300"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 1.5
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261024"
+},
+"PLATFORM": {
+"value": "iOS"
+},
+"AD_UNIT": {
+"value": "ca-app-pub-2290668854727752/9466935590",
+"displayLabel": "Rewarded"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "1500000"
+},
+"IMPRESSIONS": {
+"integerValue": "250"
+},
+"CLICKS": {
+"integerValue": "1"
+},
+"AD_REQUESTS": {
+"integerValue": "325"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "300"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 6.0
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261025"
+},
+"PLATFORM": {
+"value": "Android"
+},
+"AD_UNIT": {
+"value": "ca-app-pub-2290668854727752/9011640020",
+"displayLabel": "Banner"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "472500"
+},
+"IMPRESSIONS": {
+"integerValue": "315"
+},
+"CLICKS": {
+"integerValue": "1"
+},
+"AD_REQUESTS": {
+"integerValue": "409"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "378"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 1.5
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261025"
+},
+"PLATFORM": {
+"value": "Android"
+},
+"AD_UNIT": {
+"value": "ca-app-pub-2290668854727752/8469336665",
+"displayLabel": "Interstitial"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "2520000"
+},
+"IMPRESSIONS": {
+"integerValue": "420"
+},
+"CLICKS": {
+"integerValue": "2"
+},
+"AD_REQUESTS": {
+"integerValue": "546"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "504"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 6.0
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261025"
+},
+"PLATFORM": {
+"value": "Android"
+},
+"AD_UNIT": {
+"value": "ca-app-pub-2290668854727752/2354732337",
+"displayLabel": "rew_ai"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "1890000"
+},
+"IMPRESSIONS": {
+"integerValue": "315"
+},
+"CLICKS": {
+"integerValue": "1"
+},
+"AD_REQUESTS": {
+"integerValue": "409"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "378"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 6.0
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261025"
+},
+"PLATFORM": {
+"value": "iOS"
+},
+"AD_UNIT": {
+"value": "ca-app-pub-2290668854727752/2135028457",
+"displayLabel": "Banner"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "412500"
+},
+"IMPRESSIONS": {
+"integerValue": "275"
+},
+"CLICKS": {
+"integerValue": "1"
+},
+"AD_REQUESTS": {
+"integerValue": "357"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "330"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 1.5
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261025"
+},
+"PLATFORM": {
+"value": "iOS"
+},
+"AD_UNIT": {
+"value": "ca-app-pub-2290668854727752/9466935590",
+"displayLabel": "Rewarded"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "1650000"
+},
+"IMPRESSIONS": {
+"integerValue": "275"
+},
+"CLICKS": {
+"integerValue": "1"
+},
+"AD_REQUESTS": {
+"integerValue": "357"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "330"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 6.0
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261026"
+},
+"PLATFORM": {
+"value": "Android"
+},
+"AD_UNIT": {
+"value": "ca-app-pub-2290668854727752/9011640020",
+"displayLabel": "Banner"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "495000"
+},
+"IMPRESSIONS": {
+"integerValue": "330"
+},
+"CLICKS": {
+"integerValue": "1"
+},
+"AD_REQUESTS": {
+"integerValue": "429"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "396"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 1.5
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261026"
+},
+"PLATFORM": {
+"value": "Android"
+},
+"AD_UNIT": {
+"value": "ca-app-pub-2290668854727752/8469336665",
+"displayLabel": "Interstitial"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "2640000"
+},
+"IMPRESSIONS": {
+"integerValue": "440"
+},
+"CLICKS": {
+"integerValue": "2"
+},
+"AD_REQUESTS": {
+"integerValue": "572"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "528"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 6.0
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261026"
+},
+"PLATFORM": {
+"value": "Android"
+},
+"AD_UNIT": {
+"value": "ca-app-pub-2290668854727752/2354732337",
+"displayLabel": "rew_ai"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "1980000"
+},
+"IMPRESSIONS": {
+"integerValue": "330"
+},
+"CLICKS": {
+"integerValue": "1"
+},
+"AD_REQUESTS": {
+"integerValue": "429"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "396"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 6.0
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261026"
+},
+"PLATFORM": {
+"value": "iOS"
+},
+"AD_UNIT": {
+"value": "ca-app-pub-2290668854727752/2135028457",
+"displayLabel": "Banner"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "449999"
+},
+"IMPRESSIONS": {
+"integerValue": "300"
+},
+"CLICKS": {
+"integerValue": "1"
+},
+"AD_REQUESTS": {
+"integerValue": "390"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "360"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 1.5
+}
+}
+}
+},
+{
+"row": {
+"dimensionValues": {
+"DATE": {
+"value": "20261026"
+},
+"PLATFORM": {
+"value": "iOS"
+},
+"AD_UNIT": {
+"value": "ca-app-pub-2290668854727752/9466935590",
+"displayLabel": "Rewarded"
+}
+},
+"metricValues": {
+"ESTIMATED_EARNINGS": {
+"microsValue": "1799999"
+},
+"IMPRESSIONS": {
+"integerValue": "300"
+},
+"CLICKS": {
+"integerValue": "1"
+},
+"AD_REQUESTS": {
+"integerValue": "390"
+},
+"MATCHED_REQUESTS": {
+"integerValue": "360"
+},
+"IMPRESSION_RPM": {
+"doubleValue": 6.0
+}
+}
+}
+},
+{
+"footer": {
+"matchingRowCount": "35"
+}
+}
+]

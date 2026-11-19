@@ -4,7 +4,7 @@
   T.reading.push({ id: 'tr5', test: 5, title: 'TOEIC Reading Test 5', parts: [
 
     /* ================= PART 5 ================= */
-    { part: 5, title: 'Incomplete Sentences', instr: 'A word or phrase is missing in each of the sentences below. Four answer choices are given below each sentence. Select the best answer to complete the sentence.',
+    { part: 5, title: 'Incomplete Sentences', instr: g.TQR[2],
       groups: [ { type: 'mcq', instr: '', items: [
         { n: 101, q: 'Ms. Whitaker worked ------- for the past month to prepare for the product launch.', options: ['tireless', 'tirelessly', 'tiredness', 'tire'], a: 1, cue: 'worked -------',
           explain: 'Cần trạng từ bổ nghĩa cho động từ "worked" → "tirelessly" (không biết mệt mỏi). "tireless" là tính từ; "tiredness" là danh từ (sự mệt mỏi); "tire" là động từ.' },
@@ -69,7 +69,7 @@
       ] } ] },
 
     /* ================= PART 6 ================= */
-    { part: 6, title: 'Text Completion', instr: 'Read the texts that follow. A word, phrase, or sentence is missing in parts of each text. Four answer choices for each question are given below the text. Select the best answer to complete the text.',
+    { part: 6, title: 'Text Completion', instr: g.TQR[1],
       passages: [
         { title: 'E-mail', text:
 `To: All tenants, Wexford Tower
@@ -82,7 +82,7 @@ Starting on September 15, the elevators in Wexford Tower will be upgraded -----(
 -----(133)-----. We therefore recommend that tenants allow extra time when arriving in the morning or going out for lunch.
 
 The new elevators will be faster, quieter, and more energy-efficient. We appreciate your -----(134)----- while this important work is completed.`,
-          groups: [ { type: 'mcq', instr: 'Questions 131-134 refer to the following e-mail.', items: [
+          groups: [ { type: 'mcq', instr: g.TQR[12], items: [
             { n: 131, q: '(131)', options: ['for', 'by', 'as', 'with'], a: 2, cue: 'part of a building-wide modernization project',
               explain: 'Cụm cố định "as part of" = như một phần của → việc nâng cấp thang máy là một phần của dự án hiện đại hóa toàn tòa nhà. "for part of", "by part of", "with part of" không tạo nghĩa đúng.' },
             { n: 132, q: '(132)', options: ['while', 'throughout', 'unless', 'whereas'], a: 1, cue: 'the project',
@@ -116,7 +116,7 @@ To apply, send your résumé to hiring@cedarhollowvet.com. Applications will be 
 Workers repaired the theater's original 1920s ceiling and replaced all 650 seats. They also installed a modern sound system -----(140)----- preserving the building's historic appearance.
 
 -----(141)-----. The first performance will be a concert by the Elmsford Symphony Orchestra. Tickets for the opening night are expected to sell out -----(142)-----.`,
-          groups: [ { type: 'mcq', instr: 'Questions 139-142 refer to the following article.', items: [
+          groups: [ { type: 'mcq', instr: g.TQR[6], items: [
             { n: 139, q: '(139)', options: ['what', 'which', 'who', 'where'], a: 1, cue: 'The project, ------- cost $4.2 million',
               explain: 'Đại từ quan hệ thay cho danh từ chỉ vật "The project" và làm chủ ngữ cho "cost" trong mệnh đề có dấu phẩy → "which". "who" dùng cho người; "where" chỉ nơi chốn; "what" không đứng sau danh từ làm đại từ quan hệ.' },
             { n: 140, q: '(140)', options: ['during', 'because', 'despite', 'while'], a: 3, cue: 'preserving the building\'s historic appearance',
@@ -152,7 +152,7 @@ Brightmoor Home Services Customer Care`,
       ] },
 
     /* ================= PART 7 ================= */
-    { part: 7, title: 'Reading Comprehension', instr: 'In this part you will read a selection of texts, such as magazine and newspaper articles, e-mails, and instant messages. Each text or set of texts is followed by several questions. Select the best answer for each question.',
+    { part: 7, title: 'Reading Comprehension', instr: g.TQR[0],
       passages: [
         { title: 'Notice', text:
 `Ashcombe Fitness Center
@@ -163,7 +163,7 @@ The indoor pool will be closed from July 7 to July 20 while new tiles are instal
 During this period, members may use the pool at our Kendrick Street branch at no additional charge. Simply show your membership card at the front desk.
 
 All other facilities, including the weight room and group exercise studios, will remain open as usual. Swimming lessons scheduled during the closure will be rescheduled, and instructors will contact participants directly.`,
-          groups: [ { type: 'mcq', instr: 'Questions 147-148 refer to the following notice.', items: [
+          groups: [ { type: 'mcq', instr: g.TQR[14], items: [
             { n: 147, q: 'Why will the pool be closed?', options: ['A swimming competition will be held.', 'Maintenance work will be done.', 'The center is changing owners.', 'Lifeguards are being trained.'], a: 1, cue: 'while new tiles are installed and the filtration system is serviced',
               explain: 'Bể bơi đóng cửa "while new tiles are installed and the filtration system is serviced" (để lát gạch mới và bảo dưỡng hệ thống lọc) → có công việc bảo trì. Không có thông tin về cuộc thi bơi, đổi chủ hay đào tạo nhân viên cứu hộ.' },
             { n: 148, q: 'What are members offered during the closure?', options: ['A discount on their membership', 'Free swimming lessons', 'Access to a pool at another location', 'Extra group exercise classes'], a: 2, cue: 'members may use the pool at our Kendrick Street branch at no additional charge',
@@ -175,7 +175,7 @@ Tomasz Wren [7:44 A.M.]: Oh no. Should I ask them to reschedule?
 Beatriz Salgado [7:45 A.M.]: They're finalizing their budget this week, so I'd rather not. Could you lead the presentation instead?
 Tomasz Wren [7:47 A.M.]: Leave it to me. Are the slides in the shared folder?
 Beatriz Salgado [7:48 A.M.]: Yes, the latest version is dated yesterday. I'll join by phone if I can find a quiet spot here at the airport.`,
-          groups: [ { type: 'mcq', instr: 'Questions 149-150 refer to the following text-message chain.', items: [
+          groups: [ { type: 'mcq', instr: g.TQR[5], items: [
             { n: 149, q: 'Why does Ms. Salgado contact Mr. Wren?', options: ['She cannot attend a meeting in person.', 'She needs a copy of a budget.', 'She wants to book a new flight.', 'She lost some presentation slides.'], a: 0, cue: "I won't make it to the Halberd Logistics meeting at ten.",
               explain: 'Chuyến bay bị hủy vì bão nên "I won\'t make it to the Halberd Logistics meeting at ten" (tôi không kịp dự cuộc họp lúc 10 giờ) → cô không thể trực tiếp dự họp. Ngân sách là của khách hàng Halberd; bản trình chiếu vẫn nằm trong thư mục chung chứ không bị mất.' },
             { n: 150, q: 'At 7:47 A.M., what does Mr. Wren mean when he writes, "Leave it to me"?', options: ['He will contact Halberd Logistics.', 'He will give the presentation.', 'He will update the slides.', 'He will pick Ms. Salgado up at the airport.'], a: 1, cue: 'Could you lead the presentation instead?',
@@ -189,7 +189,7 @@ Looking for a fun way to bring your team together? Orchard Lane Cooking Studio o
 Classes last about three hours and can be scheduled on weekday afternoons or evenings. Menus can be adjusted for vegetarian, vegan, and gluten-free diets if we are informed at least one week in advance.
 
 Prices start at $85 per person and include all ingredients, aprons, and printed recipe cards to take home. Book before September 30 and receive a free bottle of our house-made olive oil for each participant.`,
-          groups: [ { type: 'mcq', instr: 'Questions 151-153 refer to the following Web page.', items: [
+          groups: [ { type: 'mcq', instr: g.TQR[17], items: [
             { n: 151, q: 'For whom is the Web page most likely intended?', options: ['Professional chefs seeking employment', 'Companies planning team activities', 'Restaurants looking for suppliers', 'Students enrolling in a culinary school'], a: 1, cue: 'Looking for a fun way to bring your team together?',
               explain: 'Tiêu đề "Corporate Classes" (lớp học dành cho doanh nghiệp) và câu mở đầu "Looking for a fun way to bring your team together?" → hướng tới các công ty muốn tổ chức hoạt động gắn kết đội nhóm. Đầu bếp chuyên nghiệp là người dạy lớp, không phải đối tượng tìm việc.' },
             { n: 152, q: 'What is stated about the classes?', options: ['They are held on weekends.', 'They are limited to eight people.', 'Participants eat the food they prepare.', 'Participants must bring their own aprons.'], a: 2, cue: 'prepare a three-course meal, which they then enjoy together in our dining room',
@@ -213,7 +213,7 @@ If you have any questions, please contact me directly at 555-0129.
 Sincerely,
 Yvonne Castellanos
 Customer Accounts Manager`,
-          groups: [ { type: 'mcq', instr: 'Questions 154-157 refer to the following letter.', items: [
+          groups: [ { type: 'mcq', instr: g.TQR[15], items: [
             { n: 154, q: 'Why did Ms. Castellanos write the letter?', options: ['To inform a customer about changes to a service', 'To apologize for a late delivery', 'To request payment of an invoice', 'To announce the opening of a store'], a: 0, cue: 'I am writing to let you know about some changes to our ordering process.',
               explain: '"I am writing to let you know about some changes to our ordering process" – thư thông báo việc đặt hàng chuyển sang cổng trực tuyến và kho hàng chuyển địa điểm → thông báo cho khách hàng về thay đổi dịch vụ. Không có giao hàng trễ, hóa đơn chưa thanh toán hay cửa hàng mới nào.' },
             { n: 155, q: 'What is NOT mentioned as a feature of the online portal?', options: ['Tracking deliveries', 'Viewing past invoices', 'Chatting with a representative', 'Saving lists of items'], a: 2, cue: 'The portal allows customers to track deliveries, view past invoices, and save lists of frequently ordered items.',
@@ -231,7 +231,7 @@ Customer Accounts Manager`,
 The course is free for participants, who will also receive a weekly allowance. Graduates who meet the course requirements will be offered jobs at Tessaro's service centers or at partner bike shops in the region.
 
 Applications open on July 1. The first class will be limited to 20 students.`,
-          groups: [ { type: 'mcq', instr: 'Questions 158-160 refer to the following article.', items: [
+          groups: [ { type: 'mcq', instr: g.TQR[8], items: [
             { n: 158, q: 'What is the purpose of the article?', options: ['To review a new electric bicycle', 'To report on a factory closure', 'To announce a new training program', 'To compare local bike shops'], a: 2, cue: 'will open a training academy for bicycle mechanics',
               explain: 'Câu chủ đề: Tessaro Bikes sẽ mở "a training academy for bicycle mechanics" (học viện đào tạo thợ sửa xe đạp) với khóa học 12 tuần → thông báo chương trình đào tạo mới. Nhà máy Wrenfield là nơi đặt học viện, không phải đóng cửa; bài báo không đánh giá sản phẩm hay so sánh cửa hàng.' },
             { n: 159, q: 'According to Ms. Dufresne, what problem does the industry face?', options: ['A shortage of qualified mechanics', 'Rising prices of bicycle parts', 'Falling sales of electric bicycles', 'A lack of factory space'], a: 0, cue: 'there are not enough trained mechanics to service them',
@@ -248,8 +248,8 @@ Anjali Rao [10:10 A.M.]: Hmm. Alderidge is opening a new wing on Monday, so the 
 Marek Dvorak [10:12 A.M.]: What if we send the 180 now and the remaining 120 on Wednesday? That way they'd have enough for the new rooms on opening day.
 Anjali Rao [10:13 A.M.]: Worth a try. I'll call their purchasing manager and suggest it.
 Suzette Lambert [10:15 A.M.]: And I'll place the order with our supplier so it's ready to go if they agree.`,
-          groups: [ { type: 'mcq', instr: 'Questions 161-164 refer to the following online chat discussion.', items: [
-            { n: 161, q: 'What is the discussion mainly about?', options: ['Opening a new hotel wing', 'Choosing a new supplier', 'Fulfilling a large order', 'Reducing warehouse costs'], a: 2, cue: 'Alderidge Hotels just placed an order for 300 white bath towels.',
+          groups: [ { type: 'mcq', instr: g.TQR[4], items: [
+            { n: 161, q: g.TQR[18], options: ['Opening a new hotel wing', 'Choosing a new supplier', 'Fulfilling a large order', 'Reducing warehouse costs'], a: 2, cue: 'Alderidge Hotels just placed an order for 300 white bath towels.',
               explain: 'Cả nhóm bàn cách giao đơn hàng 300 khăn tắm cho Alderidge Hotels khi kho chỉ còn 180 chiếc → hoàn tất một đơn hàng lớn. Khu phòng mới là của khách sạn (khách hàng), không phải việc của nhóm; họ vẫn dùng nhà cung cấp hiện tại.' },
             { n: 162, q: 'What does Mr. Dvorak say about the towels?', options: ['Not enough are in stock.', 'They are the wrong color.', 'They were damaged in shipping.', 'They cost more than expected.'], a: 0, cue: 'we only have 180 in the warehouse',
               explain: '"According to the system, we only have 180 in the warehouse" (theo hệ thống, kho chỉ còn 180 chiếc) – thiếu so với 300 chiếc được đặt → không đủ hàng tồn kho. Màu sắc, hư hỏng hay giá cả không được nhắc đến.' },
@@ -257,6 +257,87 @@ Suzette Lambert [10:15 A.M.]: And I'll place the order with our supplier so it's
               explain: 'Marek đề xuất giao 180 chiếc trước, 120 chiếc còn lại vào thứ Tư; Anjali đáp "Worth a try" (đáng để thử) rồi gọi cho quản lý mua hàng của khách sạn để đề xuất → cô nghĩ khách hàng có thể chấp nhận đề xuất này. Cô gọi điện chứ không đến khách sạn; câu này không liên quan đến sản phẩm mới hay độ tin cậy của nhà cung cấp.' },
             { n: 164, q: 'What does Ms. Lambert say she will do?', options: ['Call the purchasing manager', 'Order more towels', 'Check the warehouse system', 'Deliver the towels on Monday'], a: 1, cue: "I'll place the order with our supplier so it's ready to go if they agree.",
               explain: '"I\'ll place the order with our supplier" → đặt thêm khăn từ nhà cung cấp (120 chiếc còn thiếu). Người gọi cho quản lý mua hàng là Anjali; người xem hệ thống kho là Marek.' }
+          ] } ] },
+        { title: 'Receipt', text:
+`Quayside Car Hire
+Harbour Terminal Branch, 14 Pier Road, Port Ellery
+Receipt No. QC-58214
+
+Customer: Ms. Henrietta Valdivia
+Vehicle: Compact sedan, automatic
+Pickup: Monday, March 9, 8:30 A.M. – Harbour Terminal Branch
+Return: Thursday, March 12, 6:15 P.M. – Airport Branch
+
+Item | Quantity | Amount
+Daily rate ($46.00 per day) | 3 days | $138.00
+Child safety seat ($7.00 per day) | 3 days | $21.00
+One-way return fee | 1 | $25.00
+Fuel refill charge | 1 | $18.50
+Total charged to card ending in 4471 | | $202.50
+
+Please note: Vehicles must be returned with a full tank to avoid refueling charges. Members of our Road Rewards program earn one point for every dollar spent. Thank you for choosing Quayside Car Hire!`,
+          groups: [ { type: 'mcq', instr: 'Questions 165-166 refer to the following receipt.', items: [
+            { n: 165, q: "What is indicated about Ms. Valdivia's rental?", options: ['She returned the car to a different location.', 'She rented the vehicle for one week.', 'She paid for the rental in cash.', 'She upgraded to a larger vehicle.'], a: 0, cue: 'One-way return fee',
+              explain: 'Xe được nhận ở "Harbour Terminal Branch" nhưng trả ở "Airport Branch", và biên lai có khoản "One-way return fee" (phí trả xe một chiều) → cô trả xe ở địa điểm khác. Cô chỉ thuê 3 ngày, thanh toán bằng thẻ, và xe là loại sedan cỡ nhỏ, không có nâng cấp.' },
+            { n: 166, q: 'Why was Ms. Valdivia most likely charged $18.50?', options: ['She returned the car late.', 'She requested an additional driver.', 'She did not return the car with a full tank.', 'She damaged a child safety seat.'], a: 2, cue: 'Vehicles must be returned with a full tank to avoid refueling charges.',
+              explain: 'Khoản $18.50 là "Fuel refill charge" (phí đổ thêm nhiên liệu); lưu ý ghi "Vehicles must be returned with a full tank to avoid refueling charges" (phải trả xe đầy bình để tránh phí đổ xăng) → cô đã không trả xe đầy bình. Không có khoản phí trả trễ, tài xế phụ hay hư hỏng ghế trẻ em.' }
+          ] } ] },
+        { title: 'Memo', text:
+`MEMO
+
+To: All laboratory and office staff
+From: Gunnar Eklund, Facilities Manager
+Date: August 18
+Subject: New access badges
+
+Starting Monday, August 31, the current magnetic-strip cards will no longer open doors at our Larchmont campus. They will be replaced by new contactless badges, which can also be used to pay at the staff café and to release documents from shared printers.
+
+To receive your badge, please visit the security desk in the main lobby between August 24 and August 28. Bring a form of photo identification; your photograph will be taken on the spot. Staff who work night shifts may collect their badges from the evening security officer after 6:00 P.M.
+
+Old cards should be placed in the collection box at the security desk when you pick up your new badge. Please note that lost badges cost $15 to replace.`,
+          groups: [ { type: 'mcq', instr: 'Questions 167-168 refer to the following memo.', items: [
+            { n: 167, q: 'What is NOT mentioned as a use of the new badges?', options: ['Opening doors', 'Paying at the staff café', 'Printing documents', 'Parking in the staff garage'], a: 3, cue: 'They will be replaced by new contactless badges, which can also be used to pay at the staff café and to release documents from shared printers.',
+              explain: 'Thẻ mới dùng để mở cửa, "pay at the staff café" (thanh toán ở quán cà phê nhân viên) và "release documents from shared printers" (in tài liệu từ máy in chung). Việc đỗ xe ở nhà xe nhân viên hoàn toàn không được nhắc đến → đáp án.' },
+            { n: 168, q: 'What are employees asked to do when they collect their badges?', options: ['Return their old cards', 'Pay a $15 fee', 'Submit a recent photograph', 'Sign a security agreement'], a: 0, cue: 'Old cards should be placed in the collection box at the security desk when you pick up your new badge.',
+              explain: '"Old cards should be placed in the collection box … when you pick up your new badge" (bỏ thẻ cũ vào hộp thu khi nhận thẻ mới) → trả lại thẻ cũ. Phí $15 chỉ áp dụng khi làm mất thẻ; ảnh được chụp tại chỗ nên không cần nộp ảnh; không có thỏa thuận an ninh nào phải ký.' }
+          ] } ] },
+        { title: 'Online chat discussion', text:
+`Klara Nyberg [10:02 A.M.]: Quick update: the Brenton Valley school board moved its deadline. They now want our design proposal by Friday instead of next Wednesday.
+Hyun-woo Park [10:04 A.M.]: That's tight. The 3-D renderings of the gymnasium still aren't finished.
+Klara Nyberg [10:05 A.M.]: How much time do you need for them?
+Hyun-woo Park [10:07 A.M.]: Two full days, if nobody pulls me onto other projects.
+Oluwaseun Adebayo [10:09 A.M.]: I can take over your site visit in Dunmore tomorrow so you can focus on the renderings.
+Hyun-woo Park [10:10 A.M.]: That would help a lot. Thanks, Seun.
+Klara Nyberg [10:12 A.M.]: Sofia, is the cost estimate ready to go?
+Sofia Esteban [10:15 A.M.]: Almost. I'm just waiting on updated prices from the steel supplier.
+Klara Nyberg [10:16 A.M.]: Can you call them this morning? We can't submit without those numbers.
+Sofia Esteban [10:17 A.M.]: I'm on it.
+Klara Nyberg [10:18 A.M.]: Great. Let's meet on Thursday at 2:00 to review everything before we send it.`,
+          groups: [ { type: 'mcq', instr: g.TQR[9], items: [
+            { n: 169, q: 'What is the purpose of the discussion?', options: ['To announce a new client', 'To respond to a change in a deadline', 'To plan a school renovation', 'To choose a new steel supplier'], a: 1, cue: 'They now want our design proposal by Friday instead of next Wednesday.',
+              explain: 'Bà Nyberg mở đầu bằng việc hội đồng trường dời hạn: "They now want our design proposal by Friday instead of next Wednesday" (giờ họ muốn bản đề xuất vào thứ Sáu thay vì thứ Tư tuần sau), và cả nhóm phân công lại công việc → phản ứng với thay đổi thời hạn. Khách hàng không mới; nhà cung cấp thép chỉ cần báo giá mới chứ không phải chọn lại.' },
+            { n: 170, q: 'What will Mr. Adebayo most likely do tomorrow?', options: ['Finish some renderings', 'Prepare a cost estimate', 'Visit a site in Dunmore', 'Meet with the school board'], a: 2, cue: 'I can take over your site visit in Dunmore tomorrow',
+              explain: 'Ông Adebayo nói "I can take over your site visit in Dunmore tomorrow" (tôi có thể đi khảo sát công trường ở Dunmore thay anh vào ngày mai) → ngày mai ông đi khảo sát ở Dunmore. Việc hoàn thành bản vẽ 3-D là của ông Park; dự toán chi phí là của bà Esteban.' },
+            { n: 171, q: 'At 10:17 A.M., what does Ms. Esteban most likely mean when she writes, "I\'m on it"?', options: ['She will contact a supplier right away.', 'She has already submitted the proposal.', 'She will attend the Thursday meeting.', 'She is reviewing the renderings.'], a: 0, cue: 'Can you call them this morning?',
+              explain: 'Ngay trước đó bà Nyberg hỏi "Can you call them this morning?" (chị gọi cho họ – nhà cung cấp thép – sáng nay được không?) → "I\'m on it" (tôi làm ngay đây) nghĩa là cô sẽ liên hệ nhà cung cấp ngay. Bản đề xuất chưa được nộp; cuộc họp thứ Năm và bản vẽ không liên quan đến câu này.' }
+          ] } ] },
+        { title: 'Article', text:
+`PORT SELWYN (February 11) – Tidemark Foods, a small producer of seaweed snacks, has signed an agreement to supply its products to more than 400 Halvorsen supermarkets across northern Europe. —[1]— The deal, which takes effect in May, is the largest in the company's eight-year history.
+
+Tidemark was founded by marine biologist Ingrid Solberg, who began selling roasted seaweed chips at a weekend farmers market. "At first, people were curious but cautious," Ms. Solberg recalled. "Once they tried the chips, though, they kept coming back." —[2]—
+
+To meet the expected demand, Tidemark will add a second production line at its plant on Quarry Road and hire about 30 additional workers by April. —[3]— The company also plans to introduce two new flavors, sea salt and lime and smoked paprika, exclusively for Halvorsen stores.
+
+Industry analysts say the agreement reflects growing consumer interest in plant-based snacks. "Shoppers are looking for alternatives to potato chips that are lower in fat," said Desmond Achterberg of the Northern Grocery Council. —[4]— Tidemark's chips currently sell for about $3.50 per bag.`,
+          groups: [ { type: 'mcq', instr: g.TQR[7], items: [
+            { n: 172, q: g.TQR[3], options: ['The opening of a new supermarket', 'A study on healthy eating habits', 'A business deal involving a local company', 'The retirement of a company founder'], a: 2, cue: 'has signed an agreement to supply its products to more than 400 Halvorsen supermarkets',
+              explain: 'Bài báo nói Tidemark Foods "has signed an agreement to supply its products to more than 400 Halvorsen supermarkets" (đã ký thỏa thuận cung cấp sản phẩm cho hơn 400 siêu thị Halvorsen) → một thương vụ của công ty địa phương. Không có siêu thị mới mở, nghiên cứu về ăn uống hay việc nhà sáng lập nghỉ hưu.' },
+            { n: 173, q: 'What is indicated about Ms. Solberg?', options: ['She previously worked for Halvorsen.', 'She once sold her products at a market.', 'She is a member of the Northern Grocery Council.', 'She plans to start a second company.'], a: 1, cue: 'who began selling roasted seaweed chips at a weekend farmers market',
+              explain: 'Bà Solberg "began selling roasted seaweed chips at a weekend farmers market" (bắt đầu bán snack rong biển ở một chợ nông sản cuối tuần) → từng bán sản phẩm ở chợ. Người thuộc Northern Grocery Council là ông Achterberg; không có thông tin bà từng làm cho Halvorsen hay định lập công ty thứ hai.' },
+            { n: 174, q: 'The word "meet" in paragraph 3, line 1, is closest in meaning to', options: ['greet', 'satisfy', 'gather', 'encounter'], a: 1, cue: 'To meet the expected demand',
+              explain: '"To meet the expected demand" = để đáp ứng nhu cầu dự kiến → "meet" ở đây nghĩa là đáp ứng, thỏa mãn = "satisfy". Các nghĩa "chào đón" (greet), "tụ họp" (gather), "tình cờ gặp" (encounter) chỉ dùng cho người, không đi với "demand".' },
+            { n: 175, q: 'In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong? "This loyalty helped the company expand into more than 60 local shops and cafés within two years."', options: ['[1]', '[2]', '[3]', '[4]'], a: 1, cue: 'Once they tried the chips, though, they kept coming back.',
+              explain: '"This loyalty" (sự trung thành này) phải chỉ lại ý khách hàng quay lại mua nhiều lần → câu đứng sau "Once they tried the chips, though, they kept coming back" (khi đã thử thì họ cứ quay lại mua). Vị trí [2] cũng hợp mạch kể về giai đoạn đầu của công ty; ở các vị trí khác không có chi tiết nào về sự trung thành của khách hàng.' }
           ] } ] },
         { title: 'Schedule and E-mail', text:
 `Greystone Business Library
@@ -287,19 +368,218 @@ Also, a friend of mine who does not have a library card would like to come to th
 
 Thank you,
 Delia Sorensen`,
-          groups: [ { type: 'mcq', instr: 'Questions 165-170 refer to the following schedule and e-mail.', items: [
-            { n: 165, q: 'What is indicated about the workshops?', options: ['They are held in the evening.', 'They take place in different rooms.', 'They are free for all participants.', 'They do not require registration.'], a: 0, cue: 'begin at 6:30 P.M., and last 90 minutes',
+          groups: [ { type: 'mcq', instr: 'Questions 176-180 refer to the following schedule and e-mail.', items: [
+            { n: 176, q: 'What is indicated about the workshops?', options: ['They are held in the evening.', 'They take place in different rooms.', 'They are free for all participants.', 'They do not require registration.'], a: 0, cue: 'begin at 6:30 P.M., and last 90 minutes',
               explain: 'Các buổi hội thảo "begin at 6:30 P.M." (bắt đầu lúc 6 giờ 30 tối) → được tổ chức vào buổi tối. Tất cả đều ở phòng 204; chỉ miễn phí cho người có thẻ thư viện (người khác trả $15); và bắt buộc đăng ký vì chỉ có 25 chỗ.' },
-            { n: 166, q: 'Which workshop did Ms. Sorensen attend?', options: ['Writing a Business Plan', 'Bookkeeping Basics', 'Marketing on a Small Budget', 'Applying for Small Business Loans'], a: 1, cue: "I attended last night's workshop",
+            { n: 177, q: 'Which workshop did Ms. Sorensen attend?', options: ['Writing a Business Plan', 'Bookkeeping Basics', 'Marketing on a Small Budget', 'Applying for Small Business Loans'], a: 1, cue: "I attended last night's workshop",
               explain: 'Kết hợp hai văn bản: email gửi ngày 11/4, cô dự hội thảo "last night" (tối qua) → ngày 10/4, tức buổi "Bookkeeping Basics" (Kế toán sổ sách cơ bản). Chi tiết cô chuyển từ ghi chép sổ tay sang bảng tính cũng khớp với chủ đề ghi sổ sách tài chính.' },
-            { n: 167, q: 'What is suggested about Ms. Sorensen?', options: ['She works at the library.', 'She is a professional accountant.', 'She recently started a business.', 'She has applied for a loan.'], a: 2, cue: 'I have just opened a small bakery',
-              explain: '"I have just opened a small bakery" (tôi vừa mở một tiệm bánh nhỏ) → cô mới khởi nghiệp kinh doanh. Kế toán là nghề của diễn giả Tobias Wenger, không phải của cô; cô không nhắc đến việc vay vốn hay làm việc ở thư viện.' },
-            { n: 168, q: 'Whose workshop will Ms. Sorensen most likely miss?', options: ['Ms. Adler\'s', 'Mr. Wenger\'s', 'Mr. Ochoa\'s', 'Ms. Marsh\'s'], a: 3, cue: 'I will be away at a trade fair until April 18.',
+            { n: 178, q: 'Whose workshop will Ms. Sorensen most likely miss?', options: ["Ms. Adler's", "Mr. Wenger's", "Mr. Ochoa's", "Ms. Marsh's"], a: 3, cue: 'I will be away at a trade fair until April 18.',
               explain: 'Cô muốn dự buổi tuần sau (17/4) về quảng bá tiệm bánh với ít chi phí, nhưng đi hội chợ thương mại đến ngày 18/4 → sẽ lỡ buổi "Marketing on a Small Budget" của Lydia Marsh. Buổi của Wenger cô đã dự; buổi của Ochoa (24/4) diễn ra sau khi cô về.' },
-            { n: 169, q: 'In the e-mail, the word "promote" in paragraph 2 is closest in meaning to', options: ['advertise', 'move up', 'support', 'raise'], a: 0, cue: "I'm hoping to promote the bakery without spending much",
+            { n: 179, q: 'In the e-mail, the word "promote" in paragraph 2 is closest in meaning to', options: ['advertise', 'move up', 'support', 'raise'], a: 0, cue: "I'm hoping to promote the bakery without spending much",
               explain: '"promote the bakery" = quảng bá tiệm bánh ≈ "advertise", phù hợp với chủ đề buổi hội thảo "Marketing on a Small Budget". "move up" (thăng chức) là nghĩa khác của "promote" khi nói về nhân viên; "support" (ủng hộ) và "raise" (nâng lên) không hợp ngữ cảnh.' },
-            { n: 170, q: 'How much will Ms. Sorensen\'s friend most likely pay for the final workshop?', options: ['Nothing', '$15', '$25', '$90'], a: 1, cue: 'other participants pay $15 per session',
+            { n: 180, q: "How much will Ms. Sorensen's friend most likely pay for the final workshop?", options: ['Nothing', '$15', '$25', '$90'], a: 1, cue: 'other participants pay $15 per session',
               explain: 'Kết hợp hai văn bản: bạn của cô không có thẻ thư viện, mà người không có thẻ trả "$15 per session" → $15 cho buổi cuối (24/4). "Nothing" chỉ đúng với người có thẻ; 25 là số chỗ ngồi tối đa, 90 là số phút mỗi buổi – đều là bẫy số liệu.' }
+          ] } ] },
+        { title: 'Web page and Online review', text:
+`www.wordhaven.com/services
+
+Wordhaven Translation Services
+Fast, accurate translation for businesses since 2009
+
+Service | Turnaround | Price
+Standard | 5 business days | $0.12 per word
+Express | 2 business days | $0.18 per word
+Certified (legal and medical documents) | 4 business days | $0.20 per word
+
+All translations are reviewed by a second linguist before delivery. Orders of more than 10,000 words receive a 10 percent discount. First-time customers may request a free sample translation of up to 300 words to evaluate our quality. Files can be uploaded in most formats; documents that must be retyped from paper copies are subject to a $25 formatting fee.
+
+* * *
+
+Customer Review
+Posted by: Mariela Konstantinou, Operations Manager, Brightwater Kayak Tours
+Rating: 4 out of 5 stars
+
+Our company recently expanded its tours to Japan and Brazil, so we hired Wordhaven to translate our booking site and safety guide, about 12,000 words in total. Because our new season was starting in just two weeks, we chose the faster of the two non-certified options, and every file arrived on time. The quality was excellent; our partners in Osaka said the Japanese text read naturally.
+
+My only complaint concerns the safety guide. We had only a printed version, so I mailed it in, and I was surprised by an additional charge on the invoice. That fee should be explained more clearly when customers place orders. Still, I would happily use Wordhaven again.`,
+          groups: [ { type: 'mcq', instr: g.TQR[10], items: [
+            { n: 181, q: 'What is NOT indicated about Wordhaven Translation Services?', options: ['It has been in business for many years.', 'Its translations are checked by a second person.', 'It offers free samples to new customers.', 'It has offices in Japan and Brazil.'], a: 3, cue: 'All translations are reviewed by a second linguist before delivery.',
+              explain: 'Trang web nêu công ty hoạt động "since 2009", bản dịch "reviewed by a second linguist" (được người thứ hai kiểm tra) và có "free sample translation" cho khách mới. Nhật Bản và Brazil là nơi công ty Brightwater mở tour, không phải nơi Wordhaven có văn phòng → đáp án.' },
+            { n: 182, q: 'What price per word did Brightwater Kayak Tours most likely pay before any discount?', options: ['$0.12', '$0.18', '$0.20', '$0.25'], a: 1, cue: 'we chose the faster of the two non-certified options',
+              explain: 'Kết hợp hai văn bản: bài đánh giá cho biết họ chọn "the faster of the two non-certified options" (gói nhanh hơn trong hai gói không công chứng); theo trang web, hai gói đó là Standard và Express, gói nhanh hơn là Express với giá $0.18/từ. $0.12 là gói Standard, $0.20 là gói công chứng.' },
+            { n: 183, q: "What is suggested about Brightwater Kayak Tours' order?", options: ['It was delivered late.', 'It included certified medical documents.', 'It qualified for a discount.', 'It was shorter than 300 words.'], a: 2, cue: 'about 12,000 words in total',
+              explain: 'Kết hợp hai văn bản: đơn hàng có "about 12,000 words in total" (khoảng 12.000 từ), trong khi trang web nêu "Orders of more than 10,000 words receive a 10 percent discount" → đơn hàng được giảm giá. Tài liệu đến đúng hạn ("arrived on time"), không phải tài liệu y tế công chứng, và dài hơn nhiều so với 300 từ.' },
+            { n: 184, q: 'Why was Ms. Konstantinou most likely surprised?', options: ['Her files were lost in the mail.', 'The translation contained errors.', 'She was charged a formatting fee.', 'Her sample translation was not free.'], a: 2, cue: 'documents that must be retyped from paper copies are subject to a $25 formatting fee',
+              explain: 'Kết hợp hai văn bản: bà chỉ có bản in nên gửi qua bưu điện và bất ngờ vì "an additional charge on the invoice"; trang web nêu tài liệu phải đánh máy lại từ bản giấy chịu "a $25 formatting fee" (phí định dạng $25). Bản dịch chất lượng tốt, tài liệu không bị thất lạc, và không nhắc đến bản dịch mẫu.' },
+            { n: 185, q: 'In the online review, the word "concerns" in paragraph 2, line 1, is closest in meaning to', options: ['worries', 'interests', 'troubles', 'relates to'], a: 3, cue: 'My only complaint concerns the safety guide.',
+              explain: '"My only complaint concerns the safety guide" = lời phàn nàn duy nhất của tôi liên quan đến cuốn hướng dẫn an toàn → "concerns" là động từ nghĩa "có liên quan đến" = "relates to". Nghĩa "làm lo lắng" (worries, troubles) hay "làm quan tâm" (interests) không hợp với chủ ngữ "complaint".' }
+          ] } ] },
+        { title: 'Job posting, E-mail and Schedule', text:
+`Position Available: Customer Support Team Leader
+Lumora Home Appliances – Westford Service Center
+
+Lumora is seeking an experienced team leader to supervise a group of twelve support agents who assist customers by phone and online chat. Responsibilities include preparing weekly work schedules, training new staff, and handling complaints that agents cannot resolve on their own.
+
+Applicants must have at least three years of experience in customer service, including one year in a supervisory role. Fluency in Spanish is an advantage, as many of our customers are Spanish speakers. The position is full-time, with some weekend shifts.
+
+To apply, send a résumé and cover letter to Ines Corvo at hr@lumora.com by September 25. Interviews will be held the following week.
+
+* * *
+
+To: Ines Corvo
+From: Rafael Okafor
+Date: September 22
+Subject: Customer Support Team Leader position
+
+Dear Ms. Corvo,
+
+I am writing to apply for the team leader position advertised on your Web site. For the past four years, I have worked in the customer care department at Delmont Telecom, where I was promoted to shift supervisor eighteen months ago. In that role, I oversee eight agents and am responsible for resolving escalated complaints.
+
+I grew up in Monterrey, Mexico, and speak Spanish as my first language. My résumé is attached.
+
+Please note that I will be attending a training course in Chicago from September 29 to October 1, so I would be grateful if any interview could be arranged after those dates.
+
+Sincerely,
+Rafael Okafor
+
+* * *
+
+Lumora Home Appliances – Interview Schedule
+Position: Customer Support Team Leader
+Interview panel: Ines Corvo (Human Resources), Paul Haskins (Service Center Manager)
+
+Date | Time | Candidate
+September 30 | 10:00 A.M. | Hye-jin Park
+September 30 | 2:00 P.M. | Daniel Whitford
+October 1 | 11:00 A.M. | Amara Ndiaye
+October 2 | 9:30 A.M. | Rafael Okafor
+
+All interviews take place in Meeting Room 3. Candidates will be asked to complete a 20-minute written exercise before meeting the panel, so they should arrive fifteen minutes early.`,
+          groups: [ { type: 'mcq', instr: 'Questions 186-190 refer to the following job posting, e-mail, and schedule.', items: [
+            { n: 186, q: 'What is one responsibility of the advertised position?', options: ['Repairing home appliances', 'Selling products by phone', 'Translating documents', 'Creating staff schedules'], a: 3, cue: 'preparing weekly work schedules',
+              explain: 'Tin tuyển dụng liệt kê nhiệm vụ "preparing weekly work schedules" → lập lịch làm việc cho nhân viên. Công ty bán đồ gia dụng nhưng vị trí này không sửa chữa hay bán hàng; tiếng Tây Ban Nha chỉ là lợi thế, không phải việc dịch tài liệu.' },
+            { n: 187, q: 'Why did Mr. Okafor write the e-mail?', options: ['To accept a job offer', 'To request a training course', 'To apply for a job', 'To recommend a colleague'], a: 2, cue: 'I am writing to apply',
+              explain: 'Câu mở đầu email: "I am writing to apply for the team leader position" → nộp đơn xin việc. Khóa đào tạo ở Chicago chỉ được nhắc để giải thích lịch bận, không phải mục đích của email.' },
+            { n: 188, q: 'What is suggested about Mr. Okafor?', options: ['He has a skill that Lumora considers useful.', 'He currently supervises twelve agents.', 'He has worked at Lumora before.', 'He submitted his application after the deadline.'], a: 0, cue: 'speak Spanish as my first language',
+              explain: 'Kết hợp 2 tài liệu: tin tuyển dụng ghi "Fluency in Spanish is an advantage"; email: ông "speak Spanish as my first language" → ông có kỹ năng Lumora coi trọng. Ông giám sát 8 người (12 là số nhân viên ở Lumora); email gửi ngày 22/9, trước hạn 25/9; ông đang làm ở Delmont Telecom.' },
+            { n: 189, q: "What is probably true about Mr. Okafor's interview?", options: ['It will be conducted by phone.', 'It is the first interview of the week.', 'It was scheduled after he returns from a course.', 'It will last only twenty minutes.'], a: 2, cue: 'October 2 | 9:30 A.M. | Rafael Okafor',
+              explain: 'Email: ông học ở Chicago "from September 29 to October 1" và xin phỏng vấn sau thời gian đó; lịch xếp ông vào "October 2 | 9:30 A.M." → được sắp xếp theo yêu cầu. Buổi phỏng vấn diễn ra tại Meeting Room 3, không qua điện thoại; ông là người cuối cùng; 20 phút chỉ là thời gian làm bài viết.' },
+            { n: 190, q: 'In the job posting, the word "handling" in paragraph 1 is closest in meaning to', options: ['touching', 'dealing with', 'carrying', 'delivering'], a: 1, cue: 'handling complaints',
+              explain: '"handling complaints that agents cannot resolve" = xử lý các khiếu nại → "dealing with". "touching" (chạm vào), "carrying" (mang vác), "delivering" (giao) là nghĩa vật lý của "handle", không hợp ngữ cảnh.' }
+          ] } ] },
+        { title: 'Price list, Order form and E-mail', text:
+`Mossgrove Office Plants – Monthly Rental Price List
+
+Plant | Size | Monthly rental (per plant)
+Snake plant | Small (desk) | $9
+Peace lily | Medium (floor) | $16
+Fiddle-leaf fig | Large (floor) | $28
+Living wall panel | 1 m x 1 m | $65
+
+All rentals include a decorative pot, weekly watering, and free replacement of any plant that does not stay healthy. Contracts run for a minimum of six months. Customers who sign a twelve-month contract receive their first month free.
+
+* * *
+
+Mossgrove Office Plants – Rental Order Form
+
+Customer: Calloway Reyes Legal Group
+Contact: Natalia Sorokina, Office Manager
+Address: 220 Brightwell Avenue, Suite 9, Ostrander
+Contract length: 12 months
+Start date: Monday, June 1
+
+Plant | Quantity | Monthly cost
+Snake plant | 10 | $90
+Peace lily | 4 | $64
+Fiddle-leaf fig | 2 | $56
+Total per month | | $210
+
+Preferred service day: Wednesday
+Notes: Please place the fiddle-leaf figs on either side of the reception desk.
+
+* * *
+
+To: service@mossgroveplants.com
+From: Natalia Sorokina
+Date: July 9
+Subject: Account 4417
+
+Hello,
+
+I am writing about a few matters. First, your technician has been visiting on Thursdays rather than on the day we requested on our order form. Thursday mornings are when our partners meet clients in the reception area, so the visits are somewhat disruptive. Could the schedule be changed?
+
+Second, one of the peace lilies in our conference room has turned yellow and lost several leaves, even though it has been watered regularly. I understand that your service covers this situation, so please let me know when someone can come by.
+
+Finally, I noticed that we were charged $210 for June. Since we chose a twelve-month contract, I believe this amount should not have been billed. I would appreciate a credit on our next invoice.
+
+Regards,
+Natalia Sorokina`,
+          groups: [ { type: 'mcq', instr: 'Questions 191-195 refer to the following price list, order form, and e-mail.', items: [
+            { n: 191, q: "What is indicated about Mossgrove's rental contracts?", options: ['They must last at least six months.', 'They allow customers to buy plants later.', 'They require customers to supply their own pots.', 'They include watering every two weeks.'], a: 0, cue: 'Contracts run for a minimum of six months.',
+              explain: 'Bảng giá ghi "Contracts run for a minimum of six months" (hợp đồng kéo dài tối thiểu sáu tháng). Chậu trang trí đã bao gồm, cây được tưới hằng tuần ("weekly watering"), và không có thông tin về việc mua lại cây.' },
+            { n: 192, q: 'On what day does Ms. Sorokina want the technician to visit?', options: ['Wednesday', 'Monday', 'Thursday', 'Friday'], a: 0, cue: 'Preferred service day: Wednesday',
+              explain: 'Kết hợp hai văn bản: trong e-mail bà phàn nàn kỹ thuật viên đến vào thứ Năm "rather than on the day we requested on our order form" (thay vì ngày đã yêu cầu trong đơn đặt hàng); đơn đặt hàng ghi "Preferred service day: Wednesday" → bà muốn thứ Tư. Thứ Hai là ngày bắt đầu hợp đồng; thứ Năm là ngày gây phiền.' },
+            { n: 193, q: 'What will Mossgrove most likely do about the peace lily?', options: ['Charge a fee to repair it', 'Move it to the reception area', 'Water it less often', 'Replace it free of charge'], a: 3, cue: 'free replacement of any plant that does not stay healthy',
+              explain: 'Kết hợp hai văn bản: e-mail cho biết cây lan ý bị vàng lá và bà tin rằng dịch vụ "covers this situation"; bảng giá cam kết "free replacement of any plant that does not stay healthy" (thay miễn phí cây không khỏe) → cây sẽ được thay miễn phí. Không có phí sửa chữa hay việc dời cây ra quầy lễ tân.' },
+            { n: 194, q: 'Why does Ms. Sorokina believe the June charge was a mistake?', options: ['The monthly total was calculated incorrectly.', 'Some plants were never delivered.', 'The service did not begin until July.', 'Her contract length entitles her to a free first month.'], a: 3, cue: 'Customers who sign a twelve-month contract receive their first month free.',
+              explain: 'Kết hợp ba văn bản: đơn đặt hàng ghi "Contract length: 12 months" và bắt đầu ngày 1/6; bảng giá nêu hợp đồng 12 tháng được miễn phí tháng đầu → khoản $210 của tháng Sáu lẽ ra không bị tính. Tổng $90 + $64 + $56 = $210 là đúng, và dịch vụ đã bắt đầu từ tháng Sáu.' },
+            { n: 195, q: 'In the e-mail, the word "covers" in paragraph 2, line 2, is closest in meaning to', options: ['hides', 'includes', 'protects', 'travels'], a: 1, cue: 'I understand that your service covers this situation',
+              explain: '"your service covers this situation" = dịch vụ của quý công ty bao gồm cả trường hợp này → "covers" nghĩa là "bao gồm, áp dụng cho" = "includes". "che giấu" (hides), "che chắn" (protects) và "đi được quãng đường" (travels) không hợp ngữ cảnh.' }
+          ] } ] },
+        { title: 'Notice, Entry form and E-mail', text:
+`Larkspur Valley Tourism Board
+Annual Photography Contest – Call for Entries
+
+Amateur photographers are invited to submit images that capture life in Larkspur Valley. This year's categories are Landscapes, People at Work, and Food and Markets. Each participant may enter up to two photographs, in one category or in two different categories. The entry fee is $10 per photograph.
+
+Entries must be received by 5:00 P.M. on Friday, September 18. Winners will be announced on October 2, and winning images will appear in the board's next visitor guide as well as on posters at Larkspur Station. First-prize winners in each category will receive $500 and a weekend stay at the Hollowmere Lodge.
+
+Photographs must have been taken within the past twelve months. Professional photographers are not eligible.
+
+* * *
+
+Photography Contest Entry Form
+
+Name: Linnea Haugland
+Address: 47 Mill Race Lane, Larkspur
+Occupation: Pharmacist
+
+Entry | Title | Category | Date taken
+1 | Morning Catch | People at Work | August 3 of this year
+2 | Pepper Stalls at Dawn | Food and Markets | November 14 of last year
+
+Total fee enclosed: $20
+Date submitted: September 15
+
+* * *
+
+To: Linnea Haugland
+From: Dominik Varga, Larkspur Valley Tourism Board
+Date: October 2
+Subject: Contest results
+
+Dear Ms. Haugland,
+
+Congratulations! Your photograph "Morning Catch," which shows fishermen unloading their boats at sunrise, has won first prize in its category. The judges admired how it captured the energy of the harbor.
+
+Unfortunately, we were unable to consider your second entry, as it did not meet one of the contest rules. Your fee for that photograph will be refunded within ten business days.
+
+We would also like to feature you in a short interview for the visitor guide. Could you visit our office on Harbor Street sometime next week? Please reply with a convenient time.
+
+Sincerely,
+Dominik Varga
+Contest Coordinator`,
+          groups: [ { type: 'mcq', instr: 'Questions 196-200 refer to the following notice, entry form, and e-mail.', items: [
+            { n: 196, q: 'What is suggested about the photography contest?', options: ['It is intended for amateur photographers.', 'It has four categories.', 'It is free to enter.', 'It is sponsored by a photography magazine.'], a: 0, cue: 'Professional photographers are not eligible.',
+              explain: 'Thông báo mời "Amateur photographers" (nhiếp ảnh gia nghiệp dư) và nêu "Professional photographers are not eligible" (người chuyên nghiệp không đủ điều kiện) → cuộc thi dành cho người nghiệp dư. Cuộc thi có ba hạng mục, phí $10 mỗi ảnh, và do Ban Du lịch tổ chức.' },
+            { n: 197, q: 'What prize did Ms. Haugland most likely receive?', options: ['A new camera', 'A framed print of her photograph', 'A position at the tourism board', '$500 and a weekend stay at a lodge'], a: 3, cue: 'First-prize winners in each category will receive $500 and a weekend stay at the Hollowmere Lodge.',
+              explain: 'Kết hợp hai văn bản: e-mail báo ảnh "Morning Catch" "has won first prize in its category" (đoạt giải nhất hạng mục); thông báo nêu giải nhất mỗi hạng mục nhận "$500 and a weekend stay at the Hollowmere Lodge" → bà nhận $500 và kỳ nghỉ cuối tuần. Máy ảnh, ảnh đóng khung hay việc làm không được nhắc đến.' },
+            { n: 198, q: "Why was Ms. Haugland's second entry most likely not considered?", options: ['It was submitted after the deadline.', 'It was entered in the wrong category.', 'Its entry fee was not paid.', 'It was taken too long ago.'], a: 3, cue: 'Photographs must have been taken within the past twelve months.',
+              explain: 'Kết hợp ba văn bản: e-mail nói ảnh thứ hai "did not meet one of the contest rules"; phiếu dự thi cho thấy ảnh này chụp ngày 14/11 năm ngoái, tức hơn 12 tháng trước khi nộp (15/9), trái với quy định "taken within the past twelve months". Bài nộp trước hạn 18/9, đúng hạng mục, và đã trả đủ $20 cho hai ảnh.' },
+            { n: 199, q: 'In the e-mail, the word "captured" in paragraph 1, line 3, is closest in meaning to', options: ['conveyed', 'arrested', 'collected', 'occupied'], a: 0, cue: 'The judges admired how it captured the energy of the harbor.',
+              explain: '"how it captured the energy of the harbor" = bức ảnh đã lột tả được sự sôi động của bến cảng → "captured" nghĩa là thể hiện, truyền tải = "conveyed". Các nghĩa "bắt giữ" (arrested), "thu gom" (collected), "chiếm đóng" (occupied) không hợp khi nói về một bức ảnh.' },
+            { n: 200, q: 'What does Mr. Varga ask Ms. Haugland to do?', options: ['Submit another photograph', 'Pay an additional fee', 'Arrange a time for an interview', 'Pick up her prize at Larkspur Station'], a: 2, cue: 'Please reply with a convenient time.',
+              explain: 'Ông Varga muốn phỏng vấn bà cho cẩm nang du lịch và đề nghị "Please reply with a convenient time" (vui lòng trả lời với thời gian thuận tiện) → sắp xếp thời gian phỏng vấn. Bà không phải nộp thêm ảnh hay trả thêm phí – ngược lại còn được hoàn phí; ga Larkspur chỉ là nơi treo áp phích.' }
           ] } ] }
       ] }
   ] });

@@ -3,7 +3,7 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 CH="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
-APP="${APP:-https://vocaband.web.app}"
+APP="${APP:-https://lexkite.com}"
 PROFILE="$(mktemp -d)"
 shot() { # file  w,h  url
   "$CH" --headless=new --disable-gpu --hide-scrollbars --no-first-run --user-data-dir="$PROFILE" \

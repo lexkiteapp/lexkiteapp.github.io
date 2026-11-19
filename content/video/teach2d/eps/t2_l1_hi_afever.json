@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_hi_afever",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say a fever!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I have fever today.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I have a fever today.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Fever needs a here.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "A fever! She has a fever.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I have fever today.",
+  "right": "I have a fever today.",
+  "strike": "have fever",
+  "why": "Fever needs a here.",
+  "memory": "I have a fever.",
+  "quiz": {
+   "stem": "She has ___.",
+   "options": [
+    "fever",
+    "a fever"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“have fever” नहीं, “a fever”!",
+   "tip": "हिंदी में “मुझे बुखार है” कहने के लिए अलग छोटा शब्द नहीं लगता, पर अंग्रेज़ी में fever के पहले a लगाएँ।",
+   "caption": "क्या आप भी यही कहते हैं? “I have fever today.” 😅 सही रूप है “I have a fever today.” क्योंकि fever के पहले a लगता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+   "comment": "उत्तर: “a fever”। इसे ज़ोर से बोलकर दोहराइए। मुफ़्त क्विज़ यहाँ: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “a fever”!",
+   "tip": "Many learners skip a before fever, but English needs it.",
+   "caption": "Do you say this? “I have fever today.” 😅 The right way is “I have a fever today.” This is right because fever needs a. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“have fever” नहीं, “a fever”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "hi",
+ "est": {
+  "words": 42,
+  "seconds": 26.1,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "“have fever” नहीं, “a fever”!",
+  "keyword": "I have a fever today.",
+  "value": "हिंदी में “मुझे बुखार है” कहने के लिए अलग छोटा शब्द नहीं लगता, पर अंग्रेज़ी में fever के पहले a लगाएँ।",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "“have fever” नहीं, “a fever”!",
+    "description": "हिंदी में “मुझे बुखार है” कहने के लिए अलग छोटा शब्द नहीं लगता, पर अंग्रेज़ी में fever के पहले a लगाएँ।\n\nक्या आप भी यही कहते हैं? “I have fever today.” 😅 सही रूप है “I have a fever today.” क्योंकि fever के पहले a लगता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "I have a fever today.",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "क्या आप भी यही कहते हैं? “I have fever today.” 😅 सही रूप है “I have a fever today.” क्योंकि fever के पहले a लगता है। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“have fever” नहीं, “a fever”!\n\nहिंदी में “मुझे बुखार है” कहने के लिए अलग छोटा शब्द नहीं लगता, पर अंग्रेज़ी में fever के पहले a लगाएँ।\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“have fever” नहीं, “a fever”! हिंदी में “मुझे बुखार है” कहने के लिए अलग छोटा शब्द नहीं लगता, पर अंग्रेज… #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “a fever”। इसे ज़ोर से बोलकर दोहराइए। मुफ़्त क्विज़ यहाँ: {link}",
+  "lang": "hi"
+ }
+}

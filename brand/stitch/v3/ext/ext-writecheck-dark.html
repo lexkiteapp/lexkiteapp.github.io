@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite · Writing Assistant &amp; Task 2 Checker</title>
+<!-- Fonts & Material Symbols -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary-fixed-dim": "#88d4cd",
+            "on-surface-variant": "#3f4947",
+            "tertiary": "#8e190f",
+            "outline": "#6f7978",
+            "error": "#ba1a1a",
+            "secondary-fixed-dim": "#ffb86c",
+            "tertiary-fixed-dim": "#ffb4a8",
+            "surface-container-lowest": "#ffffff",
+            "background": "#fff8f3",
+            "on-surface": "#1f1b16",
+            "on-primary-container": "#9ce9e2",
+            "on-secondary-fixed": "#2c1600",
+            "inverse-primary": "#88d4cd",
+            "on-primary-fixed-variant": "#00504c",
+            "tertiary-container": "#b03224",
+            "primary": "#00514d",
+            "surface-bright": "#fff8f3",
+            "primary-fixed": "#a4f0e9",
+            "on-background": "#1f1b16",
+            "secondary": "#895100",
+            "surface-container-highest": "#eae1d8",
+            "on-error": "#ffffff",
+            "on-tertiary-container": "#ffd0c9",
+            "on-primary-fixed": "#00201e",
+            "surface": "#fff8f3",
+            "on-secondary-container": "#663b00",
+            "on-error-container": "#93000a",
+            "tertiary-fixed": "#ffdad4",
+            "surface-variant": "#eae1d8",
+            "on-primary": "#ffffff",
+            "secondary-fixed": "#ffdcbc",
+            "primary-container": "#136b66",
+            "outline-variant": "#bec9c7",
+            "on-secondary-fixed-variant": "#683c00",
+            "on-secondary": "#ffffff",
+            "on-tertiary": "#ffffff",
+            "surface-container-low": "#fcf2e9",
+            "inverse-surface": "#34302a",
+            "surface-container": "#f6ece4",
+            "on-tertiary-fixed-variant": "#8c170e",
+            "on-tertiary-fixed": "#410000",
+            "inverse-on-surface": "#f9efe6",
+            "secondary-container": "#fe9d19",
+            "surface-tint": "#106a65",
+            "surface-container-high": "#f0e7de",
+            "surface-dim": "#e2d8d0",
+            "error-container": "#ffdad6"
+          },
+          borderRadius: {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "space-lg": "1.5rem",
+            "gutter": "1rem",
+            "space-sm": "0.5rem",
+            "gutter-desktop": "1.5rem",
+            "margin-desktop": "2.5rem",
+            "margin": "1rem",
+            "space-xs": "0.25rem",
+            "margin-tablet": "1.5rem",
+            "space-xl": "2rem",
+            "space-md": "1rem"
+          },
+          fontFamily: {
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "headline-xl": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-xl-mobile": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"]
+          },
+          fontSize: {
+            "headline-lg-mobile": ["24px", { lineHeight: "32px", fontWeight: "800" }],
+            "headline-xl": ["40px", { lineHeight: "48px", fontWeight: "800" }],
+            "label-lg": ["16px", { lineHeight: "20px", letterSpacing: "0.2px", fontWeight: "700" }],
+            "body-sm": ["14px", { lineHeight: "20px", fontWeight: "500" }],
+            "headline-xl-mobile": ["30px", { lineHeight: "38px", fontWeight: "800" }],
+            "label-md": ["14px", { lineHeight: "18px", letterSpacing: "0.4px", fontWeight: "700" }],
+            "headline-sm": ["18px", { lineHeight: "24px", fontWeight: "700" }],
+            "body-lg": ["18px", { lineHeight: "26px", fontWeight: "500" }],
+            "label-sm": ["12px", { lineHeight: "16px", letterSpacing: "0.6px", fontWeight: "800" }],
+            "body-md": ["16px", { lineHeight: "24px", fontWeight: "500" }],
+            "headline-md": ["22px", { lineHeight: "28px", fontWeight: "700" }],
+            "headline-lg": ["32px", { lineHeight: "40px", fontWeight: "800" }]
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    
+    /* Tactile wavy error indicators */
+    .wavy-coral {
+      text-decoration: underline wavy #b03224 2.5px;
+      text-underline-offset: 4px;
+      background-color: #ffd0c9;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+
+    .wavy-amber-active {
+      text-decoration: underline wavy #895100 2.5px;
+      text-underline-offset: 4px;
+      background-color: #ffdcbc;
+      padding: 2px 6px;
+      border-radius: 6px;
+      box-shadow: 0 0 0 2px #fe9d19, 0 2px 0 0 #683c00;
+      font-weight: 700;
+    }
+
+    /* Tactile 3D mechanical button ledge states */
+    .tactile-btn {
+      transition: transform 0.08s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.08s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .tactile-btn:active {
+      transform: translateY(3px) !important;
+    }
+
+    /* Glossy resin specular highlight */
+    .specular-shine {
+      background: linear-gradient(180deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.05) 50%, rgba(0,0,0,0.06) 100%);
+    }
+  </style>
+<style id="dark-theme-override">
+  body {
+    background-color: #10191B !important;
+    color: #E8F1F0 !important;
+  }
+  header {
+    background-color: #131E21 !important;
+    border-color: #20353A !important;
+    box-shadow: 0 4px 0 0 #091012 !important;
+  }
+  aside {
+    background-color: #131E21 !important;
+    border-color: #20353A !important;
+    box-shadow: 0 4px 0 0 #091012 !important;
+  }
+  .bg-surface-container-lowest, .bg-surface-container, .bg-surface-container-low, .bg-surface-bright {
+    background-color: #172427 !important;
+  }
+  .border-surface-container-highest, .border-surface-container-high, .border-outline-variant {
+    border-color: #20353A !important;
+  }
+  .shadow-\[0_4px_0_0_\#eae1d8\], .shadow-\[0_3px_0_0_\#eae1d8\], .shadow-\[0_2px_0_0_\#eae1d8\] {
+    box-shadow: 0 4px 0 0 #091012 !important;
+  }
+  .text-on-surface {
+    color: #E8F1F0 !important;
+  }
+  .text-on-surface-variant, .text-outline {
+    color: #A9BDBB !important;
+  }
+  .text-primary {
+    color: #2DD4BF !important;
+  }
+  .bg-primary-container {
+    background-color: #14B8A6 !important;
+  }
+  .bg-primary-fixed {
+    background-color: #16383B !important;
+    color: #5EEAD4 !important;
+    border-color: #2DD4BF !important;
+  }
+  .text-on-primary-fixed-variant {
+    color: #5EEAD4 !important;
+  }
+  .teacher-slot {
+    background-color: #132226 !important;
+    border-color: #204b50 !important;
+  }
+  .wavy-coral {
+    text-decoration: underline wavy #F87171 2.5px !important;
+    text-underline-offset: 4px !important;
+    background-color: #3b1819 !important;
+    color: #FECACA !important;
+    border-radius: 4px !important;
+    padding: 2px 6px !important;
+  }
+  .wavy-amber-active {
+    text-decoration: underline wavy #F59E0B 2.5px !important;
+    text-underline-offset: 4px !important;
+    background-color: #382711 !important;
+    color: #FDE68A !important;
+    border-radius: 6px !important;
+    box-shadow: 0 0 0 2px #F59E0B, 0 3px 0 0 #091012 !important;
+  }
+  footer {
+    background-color: #10191B !important;
+    border-color: #20353A !important;
+  }
+</style></head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex flex-col font-body-md select-none">
+<!-- TOP APP BAR -->
+<header class="bg-surface sticky top-0 z-50 border-b-2 border-surface-container-highest shadow-[0_4px_0_0_#eae1d8]">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<!-- Logo & Main Product Anchor -->
+<div class="flex items-center gap-6">
+<a class="flex items-center gap-3 group" href="#">
+<div class="w-11 h-11 rounded-DEFAULT bg-primary-container flex items-center justify-center text-on-primary shadow-[0_4px_0_0_#00201e] group-hover:brightness-105 active:translate-y-[2px] transition-all">
+<span class="material-symbols-outlined text-2xl font-black">flutter_dash</span>
+</div>
+<div class="flex flex-col">
+<span class="text-headline-md font-headline-md text-primary tracking-tight font-extrabold">Lexkite</span>
+<span class="text-label-sm font-label-sm text-[#5EEAD4] font-black -mt-1 tracking-wider">PREP ENGINE</span>
+</div>
+</a>
+<div class="h-8 w-[2px] bg-surface-container-highest hidden md:block"></div>
+<!-- Document & Mode Context -->
+<div class="hidden md:flex items-center gap-3">
+<div class="flex items-center gap-2 bg-surface-container-low px-3 py-1.5 rounded-full border-2 border-surface-container-highest shadow-[0_2px_0_0_#eae1d8]">
+<span class="w-2.5 h-2.5 rounded-full bg-primary animate-pulse"></span>
+<span class="text-label-sm font-label-sm text-primary font-bold">Writing Assistant · Email &amp; Task 2 Checker</span>
+</div>
+<span class="bg-primary-fixed text-on-primary-fixed-variant px-3 py-1 rounded-full text-label-sm font-label-sm border border-outline-variant font-extrabold flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">verified_user</span>
+            Real-Time Linguistic Engine Active
+          </span>
+</div>
+</div>
+<!-- Right Global Actions & Controls -->
+<div class="flex items-center gap-3">
+<!-- Word count & Reading metric chip -->
+<div class="hidden lg:flex items-center gap-4 bg-surface-container-lowest px-4 py-2 rounded-DEFAULT border-2 border-surface-container-highest shadow-[0_3px_0_0_#eae1d8]">
+<div class="flex flex-col text-right">
+<span class="text-label-sm font-label-sm text-on-surface-variant font-bold">184 words</span>
+<span class="text-label-sm font-label-sm text-primary font-black">CEFR B2 Level</span>
+</div>
+<div class="h-6 w-[2px] bg-surface-container-highest"></div>
+<!-- Tactile Overall Clarity Dial Pill -->
+<div class="flex items-center gap-2">
+<div class="relative w-8 h-8 rounded-full border-2 border-primary-container flex items-center justify-center bg-primary-fixed">
+<span class="text-label-sm font-label-sm text-primary font-extrabold">78</span>
+</div>
+<div class="flex flex-col">
+<span class="text-label-sm font-label-sm text-on-surface font-extrabold leading-none">Clarity Score</span>
+<span class="text-label-sm font-label-sm text-primary font-bold">Good Tone</span>
+</div>
+</div>
+</div>
+<!-- Secondary CTA: Sign In / Share -->
+<button class="tactile-btn hidden sm:flex items-center gap-2 px-4 py-2.5 rounded-DEFAULT bg-surface-container-lowest text-on-surface border-2 border-surface-container-highest shadow-[0_4px_0_0_#eae1d8] hover:bg-surface-container-low active:shadow-[0_1px_0_0_#eae1d8] text-label-md font-label-md min-h-[44px]">
+<span class="material-symbols-outlined text-lg">bookmark</span>
+<span>Save Draft</span>
+</button>
+<!-- Primary CTA: Polish & Export (Amber button strictly with deep ink #1C1003) -->
+<button class="tactile-btn flex items-center gap-2 px-5 py-2.5 rounded-DEFAULT bg-secondary-container text-[#1C1003] border-2 border-[#895100] shadow-[0_4px_0_0_#895100] hover:brightness-105 active:shadow-[0_1px_0_0_#895100] text-label-md font-label-md min-h-[44px] font-black">
+<span class="material-symbols-outlined text-xl">auto_fix_high</span>
+<span>Polish All Errors</span>
+</button>
+</div>
+</div>
+</header>
+<!-- SCREEN VIEWPORT BODY (Constrained to 1280px Desktop Shell) -->
+<div class="max-w-7xl mx-auto w-full px-6 py-6 flex gap-6 items-start flex-1">
+<!-- DESKTOP LEFT SIDEBAR (Anchored Rail: 5 Items: Today, Vocab, Skills, Tests, Me) -->
+<aside class="w-64 flex-shrink-0 sticky top-28 self-start bg-surface-container-lowest rounded-DEFAULT border-2 border-surface-container-highest shadow-[0_4px_0_0_#eae1d8] p-4 flex flex-col gap-5">
+<!-- Desk Branding Header -->
+<div class="px-2 pt-1 pb-2 border-b-2 border-surface-container-highest">
+<div class="flex items-center gap-2 text-primary font-extrabold">
+<span class="material-symbols-outlined text-xl">school</span>
+<span class="text-label-md font-label-md">IELTS &amp; Workplace</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant text-xs mt-0.5">High-Stakes Prep Desk</p>
+</div>
+<!-- Exactly 5 Navigation Items: Today, Vocab, Skills (Active), Tests, Me -->
+<nav class="flex flex-col gap-1.5">
+<!-- 1. Today -->
+<a class="tactile-btn flex items-center gap-3.5 px-3.5 py-3 rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-low transition-colors text-label-md font-label-md min-h-[48px]" href="#">
+<span class="material-symbols-outlined text-2xl">wb_sunny</span>
+<span>Today</span>
+</a>
+<!-- 2. Vocab -->
+<a class="tactile-btn flex items-center gap-3.5 px-3.5 py-3 rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-low transition-colors text-label-md font-label-md min-h-[48px]" href="#">
+<span class="material-symbols-outlined text-2xl">menu_book</span>
+<span>Vocab</span>
+</a>
+<!-- 3. Skills (ACTIVE & FOCUSED) -->
+<a class="tactile-btn flex items-center justify-between px-3.5 py-3 rounded-DEFAULT bg-primary text-on-primary font-bold shadow-[0_4px_0_0_#00201e] border-2 border-primary min-h-[48px]" href="#" style="background-color: #1E373A !important; border-color: #2DD4BF !important; color: #5EEAD4 !important; box-shadow: 0 4px 0 0 #091012 !important;">
+<div class="flex items-center gap-3.5">
+<span class="material-symbols-outlined text-2xl">edit_document</span>
+<span class="text-label-md font-label-md font-black">Skills</span>
+</div>
+<span class="w-2.5 h-2.5 rounded-full bg-secondary-container"></span>
+</a>
+<!-- 4. Tests -->
+<a class="tactile-btn flex items-center gap-3.5 px-3.5 py-3 rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-low transition-colors text-label-md font-label-md min-h-[48px]" href="#">
+<span class="material-symbols-outlined text-2xl">quiz</span>
+<span>Tests</span>
+</a>
+<!-- 5. Me -->
+<a class="tactile-btn flex items-center gap-3.5 px-3.5 py-3 rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-low transition-colors text-label-md font-label-md min-h-[48px]" href="#">
+<span class="material-symbols-outlined text-2xl">account_circle</span>
+<span>Me</span>
+</a>
+</nav>
+<!-- Sidebar Mini Streak Widget (Strictly NO hearts or lives) -->
+<div class="bg-surface-container p-3.5 rounded-DEFAULT border-2 border-surface-container-highest shadow-[0_2px_0_0_#eae1d8]">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary-container text-xl font-black">local_fire_department</span>
+<span class="text-label-sm font-label-sm text-[#1C1003] font-black">14 Day Streak</span>
+</div>
+<span class="text-label-sm font-label-sm text-primary font-bold">Top 5%</span>
+</div>
+<!-- Glossy progress bar -->
+<div class="w-full h-3 bg-surface-dim rounded-full mt-2.5 p-0.5 overflow-hidden border border-outline-variant relative">
+<div class="h-full bg-secondary-container rounded-full w-[70%] relative specular-shine"></div>
+</div>
+</div>
+<!-- Sidebar Footer: Multi-language selector & Profile chip -->
+<div class="pt-3 border-t-2 border-surface-container-highest flex flex-col gap-2 mt-auto">
+<button class="tactile-btn flex items-center justify-between w-full px-3 py-2 rounded-DEFAULT bg-surface-container-low border border-surface-container-highest text-label-sm font-label-sm text-on-surface hover:bg-surface-container text-left min-h-[44px]">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg">language</span>
+<span class="font-extrabold text-xs">English (US) / 15 languages</span>
+</div>
+<span class="material-symbols-outlined text-sm text-outline">unfold_more</span>
+</button>
+<div class="flex items-center gap-2.5 px-2 py-1.5">
+<div class="w-8 h-8 rounded-full bg-primary-fixed border border-primary flex items-center justify-center font-black text-primary text-xs">
+            LK
+          </div>
+<div class="flex flex-col overflow-hidden">
+<span class="text-label-sm font-label-sm font-extrabold truncate text-on-surface">Alex Mercer</span>
+<span class="text-body-sm font-body-sm text-[11px] text-on-surface-variant truncate">IELTS Academic Track</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- MAIN TWO-COLUMN WORKSPACE (Editor Canvas + Inspector Deck) -->
+<main class="flex-1 flex flex-col gap-6">
+<!-- Document Header Bar -->
+<div class="bg-surface-container-lowest p-5 rounded-DEFAULT border-2 border-surface-container-highest shadow-[0_4px_0_0_#eae1d8] flex flex-wrap items-center justify-between gap-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-DEFAULT bg-surface-container flex items-center justify-center text-primary border-2 border-surface-container-highest">
+<span class="material-symbols-outlined">mail</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="text-label-sm font-label-sm text-[#FDE68A] font-black bg-secondary-fixed px-2.5 py-0.5 rounded-full border border-secondary" style="background-color: #382711 !important; border-color: #F59E0B !important; box-shadow: 0 4px 0 0 #091012 !important;">
+                TASK TYPE: FORMAL EMAIL
+              </span>
+<span class="text-label-sm font-label-sm text-slate-300 font-bold">Saved 2m ago</span>
+</div>
+<h1 class="text-headline-sm font-headline-sm text-on-surface font-extrabold mt-0.5">
+              Formal Complaint &amp; Rescheduling Email
+            </h1>
+</div>
+</div>
+<!-- Format & Action Controls -->
+<div class="flex items-center gap-2">
+<button class="tactile-btn px-3 py-2 rounded-DEFAULT bg-surface-container-low text-on-surface border-2 border-surface-container-highest shadow-[0_2px_0_0_#eae1d8] hover:bg-surface-container text-label-sm font-label-sm flex items-center gap-1.5 min-h-[44px]">
+<span class="material-symbols-outlined text-base">format_bold</span>
+</button>
+<button class="tactile-btn px-3 py-2 rounded-DEFAULT bg-surface-container-low text-on-surface border-2 border-surface-container-highest shadow-[0_2px_0_0_#eae1d8] hover:bg-surface-container text-label-sm font-label-sm flex items-center gap-1.5 min-h-[44px]">
+<span class="material-symbols-outlined text-base">format_italic</span>
+</button>
+<button class="tactile-btn px-3 py-2 rounded-DEFAULT bg-surface-container-low text-on-surface border-2 border-surface-container-highest shadow-[0_2px_0_0_#eae1d8] hover:bg-surface-container text-label-sm font-label-sm flex items-center gap-1.5 min-h-[44px]">
+<span class="material-symbols-outlined text-base">format_list_bulleted</span>
+</button>
+<div class="h-6 w-[2px] bg-surface-container-highest mx-1"></div>
+<button class="tactile-btn px-3 py-2 rounded-DEFAULT bg-primary-fixed text-primary border-2 border-primary-container shadow-[0_2px_0_0_#00514d] text-label-sm font-label-sm flex items-center gap-1.5 font-bold min-h-[44px]">
+<span class="material-symbols-outlined text-base">restart_alt</span>
+<span>Re-Analyze</span>
+</button>
+</div>
+</div>
+<!-- Two-Column Interactive Core -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-6 items-start">
+<!-- COLUMN 1: Large Rich-Text Editor Canvas (7 cols on Desktop) -->
+<div class="xl:col-span-7 flex flex-col gap-4">
+<div class="bg-surface-container-lowest rounded-DEFAULT border-2 border-surface-container-highest shadow-[0_4px_0_0_#eae1d8] p-7 min-h-[620px] flex flex-col relative">
+<!-- Email Subject Bar -->
+<div class="pb-4 mb-6 border-b-2 border-surface-container-high flex items-center gap-3">
+<span class="text-label-md font-label-md text-outline font-extrabold tracking-wide uppercase">Subject:</span>
+<span class="text-body-lg font-body-lg text-on-surface font-bold tracking-tight">
+                Request for Rescheduling Project Review Meeting
+              </span>
+</div>
+<!-- Email Body Content with 3 Highlighted Errors -->
+<div class="space-y-5 text-body-lg font-body-lg leading-relaxed text-on-surface">
+<p>Dear Mr. Kensington,</p>
+<!-- Paragraph 1 with Error 1 -->
+<p>
+                I am writing to apologize 
+                <!-- Error 1: 'for that' -->
+<span class="wavy-coral relative cursor-pointer group font-semibold" title="Click to inspect grammar correction">
+                  for that
+                  <span class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-tertiary text-on-tertiary text-[10px] font-extrabold px-1.5 py-0.5 rounded shadow">
+                    Preposition
+                  </span>
+</span> 
+                I will not be able to attend our quarterly milestone session scheduled for tomorrow morning at 09:30 AM.
+              </p>
+<!-- Paragraph 2 with Error 2 (ACTIVE & FOCUSED) -->
+<div class="relative py-1">
+<p>
+                  Unfortunately, my flight from the regional logistics center has experienced an unexpected four-hour delay due to severe weather conditions. Therefore, I 
+                  
+                  <!-- Error 2 (ACTIVE & FOCUSED ANCHOR) -->
+<span class="wavy-amber-active inline-flex items-center gap-1 cursor-pointer transition-transform active:scale-95" id="active-error-anchor">
+<span>definitely appreciate</span>
+<span class="material-symbols-outlined text-sm text-[#895100] font-black">arrow_drop_down_circle</span>
+</span>
+                  
+                  if we could reschedule our appointment to Thursday afternoon at 03:00 PM, or alternatively 
+
+                  <!-- Error 3: 'most earliest' -->
+<span class="wavy-coral relative cursor-pointer group font-semibold" title="Double superlative">
+                    at your most earliest
+                    <span class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-tertiary text-on-tertiary text-[10px] font-extrabold px-1.5 py-0.5 rounded shadow">
+                      Superlative
+                    </span>
+</span> 
+                  convenience.
+                </p>
+<!-- TACTILE SUGGESTION CARD POPOVER (Anchored directly to Error 2) -->
+<div class="mt-4 bg-surface-bright rounded-DEFAULT border-2 border-secondary-container shadow-[0_6px_0_0_#895100] p-5 z-20 relative" style="background-color: #1E2F33 !important; border-color: #F59E0B !important; box-shadow: 0 6px 0 0 #091012 !important;">
+<!-- Header with Issue Category Tag -->
+<div class="flex items-center justify-between pb-3 border-b-2 border-surface-container-highest">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-secondary-container border border-[#683c00]"></span>
+<h4 class="text-label-lg font-label-lg text-primary font-black">
+                        Word Choice &amp; Formal Cadence
+                      </h4>
+</div>
+<span class="bg-secondary-fixed text-on-secondary-fixed-variant px-2.5 py-0.5 rounded-full text-label-sm font-label-sm border border-secondary font-black" style="background-color: #382711 !important; border-color: #F59E0B !important; box-shadow: 0 4px 0 0 #091012 !important;">
+                      REGISTER: CASUAL → FORMAL
+                    </span>
+</div>
+<!-- Diff Display Card -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3 my-4 bg-surface-container-low p-3.5 rounded-DEFAULT border-2 border-surface-container-highest" style="background-color: #142124 !important; border-color: #243B40 !important;">
+<!-- Original / Strike-through -->
+<div class="flex items-center gap-2 p-2.5 rounded-DEFAULT bg-tertiary-fixed border border-tertiary" style="background-color: #2D1518 !important; border-color: #EF4444 !important; color: #FCA5A5 !important;">
+<span class="material-symbols-outlined text-tertiary text-xl">cancel</span>
+<div class="flex flex-col">
+<span class="text-[11px] font-extrabold text-on-tertiary-fixed-variant tracking-wider uppercase">Original</span>
+<span class="line-through text-tertiary font-bold text-base">definitely appreciate</span>
+</div>
+</div>
+<!-- Recommended Correction -->
+<div class="flex items-center gap-2 p-2.5 rounded-DEFAULT bg-primary-fixed border-2 border-primary shadow-[0_2px_0_0_#00514d]" style="background-color: #123334 !important; border-color: #2DD4BF !important; box-shadow: 0 2px 0 0 #091012 !important; color: #5EEAD4 !important;">
+<span class="material-symbols-outlined text-primary text-xl font-bold">check_circle</span>
+<div class="flex flex-col">
+<span class="text-[11px] font-extrabold text-primary tracking-wider uppercase">Correction</span>
+<span class="text-primary font-extrabold text-base">would greatly appreciate</span>
+</div>
+</div>
+</div>
+<!-- Clear Linguistic Explanation -->
+<p class="text-body-sm font-body-sm text-on-surface leading-relaxed mb-4">
+                    In formal corporate and academic correspondence, <strong class="text-primary font-bold">"would greatly appreciate"</strong> or <strong class="text-primary font-bold">"would be grateful"</strong> establishes the proper polite hypothetical register, whereas <em class="text-on-surface-variant font-medium">"definitely appreciate"</em> sounds overly colloquial and abrupt.
+                  </p>
+<!-- Popover Action Buttons (All touch targets >= 44x44px, Tactile Ledges) -->
+<div class="flex flex-wrap items-center justify-between gap-3 pt-3 border-t-2 border-surface-container-highest">
+<div class="flex items-center gap-2">
+<!-- Primary CTA: Accept Correction (Mint green/teal with 3D Ledge) -->
+<button class="tactile-btn px-4 py-2.5 rounded-DEFAULT bg-primary text-on-primary border-2 border-[#00201e] shadow-[0_4px_0_0_#00201e] hover:brightness-110 active:shadow-[0_1px_0_0_#00201e] text-label-md font-label-md font-black min-h-[44px] flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">check</span>
+<span>Accept correction</span>
+</button>
+<!-- Secondary CTA: Ignore -->
+<button class="tactile-btn px-3.5 py-2.5 rounded-DEFAULT bg-surface-container-lowest text-on-surface border-2 border-surface-container-highest shadow-[0_4px_0_0_#eae1d8] hover:bg-surface-container-low active:shadow-[0_1px_0_0_#eae1d8] text-label-md font-label-md font-bold min-h-[44px]">
+                        Ignore
+                      </button>
+</div>
+<!-- Explanatory link -->
+<button class="tactile-btn text-primary hover:text-primary-container text-label-sm font-label-sm font-black flex items-center gap-1 min-h-[44px] px-2">
+<span>Explain grammar rule</span>
+<span class="material-symbols-outlined text-base">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Paragraph 3 -->
+<p>
+                I have already attached the revised project deliverable dashboard and slide deck for your preliminary review. Thank you very much for your understanding regarding this unforeseen travel disruption.
+              </p>
+<p class="pt-4">
+                Sincerely,<br/>
+<strong class="text-on-surface font-bold">Alex Mercer</strong><br/>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Operations Lead · Global Logistics Group</span>
+</p>
+</div>
+<!-- Bottom Editor Helper Pill -->
+<div class="mt-auto pt-6 border-t-2 border-surface-container-high flex flex-wrap items-center justify-between gap-3 text-label-sm font-label-sm text-on-surface-variant"><div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary-container"></span>
+<span class="text-slate-300 font-medium">3 suggestions remaining in this draft</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="text-primary hover:brightness-110 cursor-pointer font-bold min-h-[44px] inline-flex items-center">Auto-check: ON</span>
+<span class="text-slate-400">•</span>
+<span class="text-slate-300 hover:text-primary cursor-pointer font-bold min-h-[44px] inline-flex items-center">Style: IELTS Formal Band 8.0</span>
+</div></div>
+</div>
+</div>
+<!-- COLUMN 2: Right Inspector & Diagnostic Panel (5 cols on Desktop) -->
+<div class="xl:col-span-5 flex flex-col gap-6">
+<!-- TEACHER SLOT: Empty rounded container with dashed border labelled "teacher-slot" -->
+<div class="teacher-slot bg-surface-container-lowest rounded-DEFAULT border-2 border-dashed border-outline-variant p-5 shadow-[0_3px_0_0_#eae1d8] flex items-center gap-4"><div class="w-14 h-14 rounded-DEFAULT bg-surface-container border-2 border-dashed border-primary flex items-center justify-center flex-shrink-0 text-primary">
+<span class="material-symbols-outlined text-3xl">school</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="text-label-sm font-label-sm text-primary font-black bg-primary-fixed px-2 py-0.5 rounded-full">
+                  teacher-slot
+                </span>
+<span class="text-label-sm font-label-sm text-[#E8F1F0] font-extrabold">Teacher Carlos tip:</span>
+</div>
+<p class="text-body-sm font-body-sm text-slate-200 mt-1 leading-snug">
+                "Hedging and polite modals boost your cohesion and diplomatic tone in professional emails."
+              </p>
+</div></div>
+<!-- SCORE & METRICS BREAKDOWN CARD -->
+<div class="bg-surface-container-lowest rounded-DEFAULT border-2 border-surface-container-highest shadow-[0_4px_0_0_#eae1d8] p-6 flex flex-col gap-5">
+<div class="flex items-center justify-between pb-3 border-b-2 border-surface-container-highest">
+<div>
+<h3 class="text-headline-sm font-headline-sm text-on-surface font-extrabold">Readiness Diagnostics</h3>
+<p class="text-body-sm font-body-sm text-slate-300 text-xs">Based on CEFR C1 Benchmark</p>
+</div>
+<!-- Big Clarity Badge -->
+<div class="flex items-center gap-2 bg-surface-container px-3.5 py-1.5 rounded-DEFAULT border-2 border-surface-container-highest shadow-[0_2px_0_0_#eae1d8]">
+<div class="w-7 h-7 rounded-full bg-primary flex items-center justify-center text-on-primary text-xs font-black">
+                  ✓
+                </div>
+<div class="flex flex-col text-right">
+<span class="text-[10px] font-extrabold text-outline uppercase tracking-wider">Overall</span>
+<span class="text-label-lg font-label-lg text-primary font-black leading-none">Clarity 78</span>
+</div>
+</div>
+</div>
+<!-- Detailed Bar Metrics with Tactile Resin Fill -->
+<div class="space-y-4">
+<!-- Metric 1: Vocabulary Precision (82%) -->
+<div>
+<div class="flex items-center justify-between text-label-sm font-label-sm mb-1.5">
+<span class="text-on-surface font-bold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-primary">spellcheck</span>
+                    Vocabulary Precision
+                  </span>
+<span class="text-primary font-black">82%</span>
+</div>
+<div class="w-full h-3.5 bg-surface-container rounded-full overflow-hidden border border-surface-container-highest p-0.5">
+<div class="h-full bg-primary rounded-full w-[82%] specular-shine"></div>
+</div>
+</div>
+<!-- Metric 2: Formal Tone (71%) -->
+<div>
+<div class="flex items-center justify-between text-label-sm font-label-sm mb-1.5">
+<span class="text-on-surface font-bold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-secondary">sentiment_satisfied</span>
+                    Formal Tone &amp; Cadence
+                  </span>
+<span class="text-secondary font-black">71%</span>
+</div>
+<div class="w-full h-3.5 bg-surface-container rounded-full overflow-hidden border border-surface-container-highest p-0.5">
+<div class="h-full bg-secondary-container rounded-full w-[71%] specular-shine"></div>
+</div>
+</div>
+<!-- Metric 3: Grammatical Accuracy (84%) -->
+<div>
+<div class="flex items-center justify-between text-label-sm font-label-sm mb-1.5">
+<span class="text-on-surface font-bold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-primary">verified</span>
+                    Grammatical Accuracy
+                  </span>
+<span class="text-primary font-black">84%</span>
+</div>
+<div class="w-full h-3.5 bg-surface-container rounded-full overflow-hidden border border-surface-container-highest p-0.5">
+<div class="h-full bg-primary rounded-full w-[84%] specular-shine"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- ALL 3 ISSUES LIST SUMMARY WITH JUMP LINKS -->
+<div class="bg-surface-container-lowest rounded-DEFAULT border-2 border-surface-container-highest shadow-[0_4px_0_0_#eae1d8] p-6 flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary font-black">format_paint</span>
+<h3 class="text-headline-sm font-headline-sm text-on-surface font-extrabold">Identified Issues</h3>
+</div>
+<span class="bg-surface-container px-2.5 py-0.5 rounded-full text-label-sm font-label-sm font-extrabold text-on-surface-variant">
+                3 Total
+              </span>
+</div>
+<!-- List Items -->
+<div class="space-y-3">
+<!-- Issue 1 -->
+<div class="tactile-btn p-3.5 rounded-DEFAULT bg-surface-container-low hover:bg-surface-container border-2 border-surface-container-highest shadow-[0_3px_0_0_#eae1d8] flex items-center justify-between cursor-pointer group">
+<div class="flex items-start gap-3">
+<div class="w-6 h-6 rounded-full bg-tertiary-fixed text-tertiary flex items-center justify-center font-bold text-xs mt-0.5">
+                    1
+                  </div>
+<div class="flex flex-col">
+<span class="text-label-md font-label-md text-on-surface font-extrabold group-hover:text-primary">
+                      Redundant preposition ('for that')
+                    </span>
+<span class="text-label-sm font-label-sm text-tertiary font-bold">
+                      High priority · Syntax error
+                    </span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:translate-x-1 transition-transform">chevron_right</span>
+</div>
+<!-- Issue 2 (ACTIVE & IN REVIEW) -->
+<div class="p-3.5 rounded-DEFAULT bg-secondary-fixed border-2 border-secondary shadow-[0_4px_0_0_#895100] flex items-center justify-between cursor-pointer" style="background-color: #382711 !important; border-color: #F59E0B !important; box-shadow: 0 4px 0 0 #091012 !important;">
+<div class="flex items-start gap-3">
+<div class="w-6 h-6 rounded-full bg-secondary text-on-secondary flex items-center justify-center font-bold text-xs mt-0.5">
+                    2
+                  </div>
+<div class="flex flex-col">
+<span class="text-label-md font-label-md text-[#1C1003] font-black" style="color: #FEF3C7 !important;">
+                      Colloquial cadence ('definitely appreciate')
+                    </span>
+<span class="text-label-sm font-label-sm text-secondary font-black">
+                      In review · Active on screen
+                    </span>
+</div>
+</div>
+<span class="material-symbols-outlined text-[#1C1003] font-black">visibility</span>
+</div>
+<!-- Issue 3 -->
+<div class="tactile-btn p-3.5 rounded-DEFAULT bg-surface-container-low hover:bg-surface-container border-2 border-surface-container-highest shadow-[0_3px_0_0_#eae1d8] flex items-center justify-between cursor-pointer group">
+<div class="flex items-start gap-3">
+<div class="w-6 h-6 rounded-full bg-tertiary-fixed text-tertiary flex items-center justify-center font-bold text-xs mt-0.5">
+                    3
+                  </div>
+<div class="flex flex-col">
+<span class="text-label-md font-label-md text-on-surface font-extrabold group-hover:text-primary">
+                      Double superlative ('most earliest')
+                    </span>
+<span class="text-label-sm font-label-sm text-tertiary font-bold">
+                      Quick fix · Redundancy
+                    </span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:translate-x-1 transition-transform">chevron_right</span>
+</div>
+</div>
+<!-- Bottom Panel Actions -->
+<div class="pt-3 border-t-2 border-surface-container-highest flex flex-col gap-3">
+<!-- Check entire document button (Amber with strictly deep ink #1C1003) -->
+<button class="tactile-btn w-full py-3.5 px-4 rounded-DEFAULT bg-secondary-container text-[#1C1003] border-2 border-[#895100] shadow-[0_4px_0_0_#895100] hover:brightness-105 active:shadow-[0_1px_0_0_#895100] text-label-md font-label-md font-black min-h-[48px] flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-xl">fact_check</span>
+<span>Check entire document</span>
+</button>
+<!-- Export polished email button -->
+<button class="tactile-btn w-full py-3 px-4 rounded-DEFAULT bg-surface-container-lowest text-on-surface border-2 border-surface-container-highest shadow-[0_4px_0_0_#eae1d8] hover:bg-surface-container-low active:shadow-[0_1px_0_0_#eae1d8] text-label-md font-label-md font-bold min-h-[44px] flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-lg">forward_to_inbox</span>
+<span>Export polished email</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- EDITORIAL FOOTER (Shared Component Alignment) -->
+<footer class="w-full border-t-2 border-surface-container-highest bg-surface-container-high mt-16">
+<div class="max-w-7xl mx-auto px-6 py-10 flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-DEFAULT bg-primary flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-lg">flutter_dash</span>
+</div>
+<span class="text-headline-sm font-headline-sm font-black text-primary">Lexkite</span>
+<span class="text-body-sm font-body-sm text-slate-300 ml-2">
+          © 2025 Lexkite Media Inc. Built on uncompromising accuracy and rigorous independent prep standards.
+        </span>
+</div>
+<div class="flex flex-wrap items-center gap-6 text-label-sm font-label-sm text-on-surface-variant font-bold"><a class="hover:text-primary transition-colors min-h-[44px] inline-flex items-center px-2 py-3 text-slate-300 font-bold" href="#">Ethics Guidelines</a>
+<a class="hover:text-primary transition-colors min-h-[44px] inline-flex items-center px-2 py-3 text-slate-300 font-bold" href="#">Masthead</a>
+<a class="hover:text-primary transition-colors min-h-[44px] inline-flex items-center px-2 py-3 text-slate-300 font-bold" href="#">Corrections Log</a>
+<a class="hover:text-primary transition-colors min-h-[44px] inline-flex items-center px-2 py-3 text-slate-300 font-bold" href="#">Conflict of Interest</a>
+<a class="hover:text-primary transition-colors min-h-[44px] inline-flex items-center px-2 py-3 text-slate-300 font-bold" href="#">Privacy Policy</a></div>
+</div>
+</footer>
+<script>
+    // Micro-interactions for tactile buttons and mock click updates
+    document.querySelectorAll('.tactile-btn').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        // Subtle press response
+        this.classList.add('scale-[0.98]');
+        setTimeout(() => this.classList.remove('scale-[0.98]'), 80);
+      });
+    });
+  </script>
+</body></html>

@@ -1,0 +1,72 @@
+{
+ "_note": "Sinh tự động từ content/video/templates/ielts-writing-phrase.json + vars (node scripts/video/template.mjs build) – ĐỪNG sửa tay: sửa file vars rồi build lại.",
+ "topic": "IELTS Writing Task 2: in my opinion, I think",
+ "format": "short",
+ "template": "ielts-writing-phrase",
+ "script": {
+  "title": "Upgrade your IELTS Task 2 sentence",
+  "hook": "Still writing \"I think\"?",
+  "scene": "classroom",
+  "time": "day",
+  "format_id": "ielts-band-up",
+  "template": "ielts-writing-phrase",
+  "lines": [
+   {
+    "who": "ama",
+    "beat": "hook",
+    "text": "Wait, \"I think\" again?",
+    "expr": "surprised",
+    "gesture": ""
+   },
+   {
+    "who": "ama",
+    "beat": "situation",
+    "text": "My essay says: In my opinion, I think phones are bad. Is that okay?",
+    "expr": "thinking",
+    "gesture": ""
+   },
+   {
+    "who": "ama",
+    "beat": "explain",
+    "text": "That gives your opinion twice. Use one strong phrase: I firmly believe that.",
+    "expr": "confident",
+    "gesture": "open hands",
+    "punch": true
+   },
+   {
+    "who": "ama",
+    "beat": "example",
+    "text": "I firmly believe that schools should limit phone use.",
+    "expr": "confident",
+    "gesture": ""
+   },
+   {
+    "who": "kit",
+    "beat": "tip",
+    "text": "Kit's tip: use it once, in your introduction or conclusion, not in every paragraph.",
+    "expr": "proud",
+    "gesture": ""
+   },
+   {
+    "who": "ama",
+    "beat": "cta",
+    "text": "Practice IELTS writing free on lexkite.com",
+    "expr": "happy smile",
+    "gesture": "waving hello"
+   }
+  ],
+  "keywords": [
+   "I firmly believe that"
+  ],
+  "wrong": "In my opinion, I think…",
+  "right": "I firmly believe that…",
+  "caption": "Save this IELTS Writing Task 2 phrase: I firmly believe that",
+  "hashtags": [
+   "ielts",
+   "ieltswriting",
+   "learnenglish"
+  ],
+  "area": "writing-ielts",
+  "link": "https://lexkite.com/en/samples/"
+ }
+}

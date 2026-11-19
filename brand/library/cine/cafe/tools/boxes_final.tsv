@@ -1,0 +1,13 @@
+c08_ots_carlos_react	carlos	560,200,840,520	690,462
+c10_ama_mcu_talk	ama	300,560,980,1200	640,978
+c09_handover	carlos	540,220,800,520	665,440
+c06_ots_ama_talk_b	ama	240,880,520,1170	425,1068
+c04_ots_carlos_talk_b	carlos	560,200,840,520	690,462
+c07_ots_ama_react	ama	240,880,520,1170	425,1068
+c09_handover	ama	150,560,440,860	372,725
+c03_ots_carlos_talk_a	carlos	580,200,830,480
+c02_master_talk_b	carlos	575,420,770,660
+c01_master_talk_a	ama	110,560,400,870
+c01_master_talk_a	carlos	590,240,770,500
+c05_ots_ama_talk_a	ama	240,880,520,1170	395,1050,480,1110
+c02_master_talk_b	ama	150,560,440,860	295,740,380,805

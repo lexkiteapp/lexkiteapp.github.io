@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_grade",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: grade.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means a mark given for a piece of work or an exam.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "She got a good grade in her history exam.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "grade",
+  "ipa": "/ɡreɪd/",
+  "mean": "a mark given for a piece of work or an exam",
+  "ex": "She got a good grade in her history exam.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=grade",
+  "link": "https://lexkite.com/app/#/review?w=grade",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 47,
+  "seconds": 28.2,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "What does \"grade\" mean?",
+  "keyword": "grade",
+  "value": "Grade means a mark given for a piece of work or an exam.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=grade",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"grade\" mean?",
+    "description": "Grade means a mark given for a piece of work or an exam.\n\nReview your words, free: https://lexkite.com/app/#/review?w=grade\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "grade",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"grade\" mean?\n\nGrade means a mark given for a piece of work or an exam.\n\nReview your words, free: https://lexkite.com/app/#/review?w=grade"
+   },
+   "instagram": {
+    "caption": "What does \"grade\" mean?\n\nGrade means a mark given for a piece of work or an exam.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"grade\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means a mark given for a piece of work or an exam. Grade means a mark given for a piece of work or an exam. Practice it with a free quiz: {link}"
+ }
+}

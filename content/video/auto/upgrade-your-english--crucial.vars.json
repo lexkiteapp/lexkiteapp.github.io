@@ -1,0 +1,27 @@
+{
+ "topic": "Office English: stop saying very important",
+ "scene": "office",
+ "seed": "up-crucial",
+ "vars": {
+  "weak": "very important",
+  "strong": "crucial",
+  "hookLine": "\"Very important\"?",
+  "boring": "This meeting is very important. Very, very important.",
+  "upgrade": "Say crucial. It means very important, and it sounds stronger.",
+  "better": "This meeting is crucial. Can everyone be on time?",
+  "tip": "very big becomes huge. Very small becomes tiny."
+ },
+ "lines": {
+  "hook": {
+   "expr": "curious"
+  },
+  "example": {
+   "expr": "curious"
+  }
+ },
+ "hashtags": [
+  "vocabulary",
+  "ieltsvocabulary",
+  "learnenglish"
+ ]
+}

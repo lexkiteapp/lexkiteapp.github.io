@@ -1,0 +1,107 @@
+{
+ "series": "Common Mix-ups",
+ "template": "mistake",
+ "generator": "scripts/video/tpl/gold2v9.py",
+ "order": [
+  {
+   "ep": 1,
+   "id": "cmu_1915c5c2",
+   "point": "bored vs boring",
+   "cefr": "A2",
+   "diff": "easy",
+   "words": 70,
+   "est_s": 43.3,
+   "ipa": "/bɔːrd/",
+   "content_hash": "54774e05fc1d60c3"
+  },
+  {
+   "ep": 2,
+   "id": "cmu_209d5928",
+   "point": "make vs do",
+   "cefr": "A2",
+   "diff": "easy",
+   "words": 75,
+   "est_s": 45.7,
+   "ipa": null,
+   "content_hash": "1b49f59a9308ba2a"
+  },
+  {
+   "ep": 3,
+   "id": "cmu_41267813",
+   "point": "say vs tell",
+   "cefr": "A2",
+   "diff": "easy",
+   "words": 69,
+   "est_s": 42.8,
+   "ipa": "/toʊld/",
+   "content_hash": "e6ae67f3c2b52acc"
+  },
+  {
+   "ep": 4,
+   "id": "cmu_592551ad",
+   "point": "fun vs funny",
+   "cefr": "A2",
+   "diff": "easy",
+   "words": 74,
+   "est_s": 45.2,
+   "ipa": "/fʌn/",
+   "content_hash": "ea220d81b74025b1"
+  },
+  {
+   "ep": 5,
+   "id": "cmu_a90fd6ec",
+   "point": "listen vs hear",
+   "cefr": "A2",
+   "diff": "easy",
+   "words": 68,
+   "est_s": 42.4,
+   "ipa": "/ˈlɪsnɪŋ/",
+   "content_hash": "aab84225d2f4154a"
+  },
+  {
+   "ep": 6,
+   "id": "cmu_d762c9a4",
+   "point": "miss vs lose",
+   "cefr": "A2",
+   "diff": "easy",
+   "words": 71,
+   "est_s": 43.8,
+   "ipa": "/mɪst/",
+   "content_hash": "6ec891908648915c"
+  },
+  {
+   "ep": 7,
+   "id": "cmu_586c600f",
+   "point": "remind vs remember",
+   "cefr": "B1",
+   "diff": "medium",
+   "words": 68,
+   "est_s": 42.4,
+   "ipa": "/rɪˈmaɪnd/",
+   "content_hash": "b5af303dcc05fd8e"
+  },
+  {
+   "ep": 8,
+   "id": "cmu_95408ad1",
+   "point": "steal vs rob",
+   "cefr": "B1",
+   "diff": "medium",
+   "words": 69,
+   "est_s": 42.8,
+   "ipa": "/stoʊl/",
+   "content_hash": "2278dd416441c85d"
+  },
+  {
+   "ep": 9,
+   "id": "cmu_fed8da72",
+   "point": "affect vs effect",
+   "cefr": "B1",
+   "diff": "medium",
+   "words": 71,
+   "est_s": 43.8,
+   "ipa": "/əˈfektɪd/",
+   "content_hash": "c2d7b2e187d922b1"
+  }
+ ],
+ "skipped": []
+}

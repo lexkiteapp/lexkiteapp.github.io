@@ -1,0 +1,17 @@
+{
+ "topic": "Doctor visit roleplay: making an appointment at the clinic",
+ "scene": "clinic",
+ "vars": {
+  "phrase": "make an appointment",
+  "place": "the clinic",
+  "hookLine": "Um… how do I book?",
+  "staffOpen": "Hello! Welcome to the clinic.",
+  "learnerLine": "Hi, I'd like to make an appointment, please. I have a sore throat.",
+  "staffReply": "Sure. Tomorrow at nine works. See you then!",
+  "tip": "say I'd like to, then why you need the doctor."
+ },
+ "hashtags": [
+  "englishconversation",
+  "speakenglish"
+ ]
+}

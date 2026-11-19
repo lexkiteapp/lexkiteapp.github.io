@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_tr_live_in",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Live in a town, not at!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I live at a small town.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I live in a small town.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say live in.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "In! She lives in a big city.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I live at a small town.",
+  "right": "I live in a small town.",
+  "strike": "at",
+  "why": "Say live in.",
+  "memory": "I live in a small town.",
+  "quiz": {
+   "stem": "She lives ___ a big city.",
+   "options": [
+    "at",
+    "in"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Live at” değil, “live in”!",
+   "tip": "Türkçede “-da” eki hem “in” hem “at” anlamına gelir; İngilizcede kasaba ve şehir için “in” gerekir: “I live in a small town.”",
+   "caption": "“I live at a small town” mi diyorsun? 😅 İngilizcede kasaba ve şehir için “in” kullanılır, “at” gelmez. Doğrusu “I live in a small town.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+   "comment": "Cevap: “in”. Şehir için “in” kullan. Şimdi kendi cümleni yaz ve sesli söyle: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “live in”!",
+   "tip": "Use “in” for a town or city: “I live in a small town.”",
+   "caption": "Do you say “I live at a small town”? 😅 In English we say “in” for a town or a city, not “at”. The right sentence is “I live in a small town.” Listen to Ama and repeat! Open the Lexkite app and practice more."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Live at” değil, “live in”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "tr",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "“Live at” değil, “live in”!",
+  "keyword": "I live in a small town.",
+  "value": "Türkçede “-da” eki hem “in” hem “at” anlamına gelir; İngilizcede kasaba ve şehir için “in” gerekir: “I live in a small town.”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "“Live at” değil, “live in”!",
+    "description": "Türkçede “-da” eki hem “in” hem “at” anlamına gelir; İngilizcede kasaba ve şehir için “in” gerekir: “I live in a small town.”\n\n“I live at a small town” mi diyorsun? 😅 İngilizcede kasaba ve şehir için “in” kullanılır, “at” gelmez. Doğrusu “I live in a small town.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "I live in a small town.",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“I live at a small town” mi diyorsun? 😅 İngilizcede kasaba ve şehir için “in” kullanılır, “at” gelmez. Doğrusu “I live in a small town.” Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Live at” değil, “live in”!\n\nTürkçede “-da” eki hem “in” hem “at” anlamına gelir; İngilizcede kasaba ve şehir için “in” gerekir: “I live in a small town.”\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Live at” değil, “live in”! Türkçede “-da” eki hem “in” hem “at” anlamına gelir; İngilizcede kasaba ve ş… #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “in”. Şehir için “in” kullan. Şimdi kendi cümleni yaz ve sesli söyle: {link}",
+  "lang": "tr"
+ }
+}

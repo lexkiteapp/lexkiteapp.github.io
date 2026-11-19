@@ -1,0 +1,59 @@
+# Lưu kho footage (repo riêng lexkiteapp/lexkite-footage) lên Kho Drive: 2 bản sao / 2 Drive khác nhau, chống trùng sha256,
+# tiếp tục được (manifest ghi sau mỗi 20 file). Ghi brand/library/cine/archive-manifest.json (đường dẫn → sha256, size, copies[{driveId,fileId}]) vào main.
+# Secrets: FOOTAGE_DEPLOY_KEY (chỉ-đọc lexkite-footage), LEXKITE_DRIVE_CLI_KEY (HMAC /api/drive). Kiểm hằng tuần: footage-verify.yml. Tài liệu: docs/VIDEO.md §Kho footage.
+name: footage-archive
+on:
+  workflow_dispatch:
+    inputs:
+      limit: { description: 'Tối đa số file mỗi lượt', default: '100000' }
+      dry_run: { description: 'Chỉ đếm, không tải', type: boolean, default: false }
+      budget_min: { description: 'Ngân sách phút việc mỗi lượt (kể từ đầu job)', default: '40' }
+      rehash: { description: 'Băm lại cả file đã có trong manifest', type: boolean, default: false }
+  schedule:
+    - cron: '45 1,2,6,14,15,16,17,18,20,21,22 * * *'
+concurrency: { group: footage-archive, cancel-in-progress: false }
+permissions: { contents: write }
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Mốc giờ bắt đầu
+        run: echo "T0=$(date +%s)" >> "$GITHUB_ENV"
+      - uses: actions/checkout@v4
+        with: { ssh-key: '${{ secrets.BOT_DEPLOY_KEY }}' }   # đẩy main qua SSH khoá deploy (ruleset) – docs/CI-RUNNERS.md › required-gate
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Thuê tài nguyên (điều phối việc nền, docs/JOBS.md)
+        id: lease
+        env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }
+        run: node scripts/jobs/lease.mjs acquire footage-archive
+      - name: Lấy lexkite-footage (đầy đủ)
+        if: ${{ steps.lease.outputs.skip != '1' }}
+        env: { KEY: '${{ secrets.FOOTAGE_DEPLOY_KEY }}' }
+        run: |
+          [ -n "$KEY" ] || { echo "::error::thiếu secret FOOTAGE_DEPLOY_KEY"; exit 1; }
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh; printf '%s\n' "$KEY" > ~/.ssh/footage && chmod 600 ~/.ssh/footage
+          ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
+          GIT_SSH_COMMAND="ssh -i ~/.ssh/footage -o IdentitiesOnly=yes" git clone -q --depth 1 git@github.com:lexkiteapp/lexkite-footage.git /tmp/footage
+          rm -f ~/.ssh/footage; du -sh /tmp/footage
+          # manifest của repo footage (nếu có) KHÔNG dùng – nguồn thật là bản trong repo công khai
+          rm -f /tmp/footage/archive-manifest.json
+      - name: Tải lên Kho Drive (2 bản / 2 Drive)
+        if: ${{ steps.lease.outputs.skip != '1' }}
+        id: up
+        timeout-minutes: 52
+        env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }
+        run: node scripts/footage/archive.mjs --root /tmp/footage --manifest "$GITHUB_WORKSPACE/brand/library/cine/archive-manifest.json" --deadline-epoch "$((T0 + ${{ github.event.inputs.budget_min || '40' }} * 60))" --limit "${{ github.event.inputs.limit || '100000' }}" ${{ github.event.inputs.dry_run == 'true' && '--dry-run' || '' }} ${{ github.event.inputs.rehash == 'true' && '--rehash' || '' }}
+      - name: Ghi manifest vào main
+        if: ${{ steps.lease.outputs.skip != '1' && (always() && github.event.inputs.dry_run != 'true') }}
+        run: |
+          bash scripts/ci/push-main.sh "footage-archive #${{ github.run_number }}: manifest Kho Drive" brand/library/cine/archive-manifest.json
+      - name: Giữ manifest làm artifact (dự phòng nếu đẩy main lỗi)
+        if: ${{ steps.lease.outputs.skip != '1' && (always() && github.event.inputs.dry_run != 'true') }}
+        uses: actions/upload-artifact@v4
+        with: { name: archive-manifest, path: brand/library/cine/archive-manifest.json, retention-days: 30, if-no-files-found: ignore }
+      - name: Trả thuê
+        if: ${{ always() && steps.lease.outputs.skip != '1' }}
+        env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }
+        run: node scripts/jobs/lease.mjs release footage-archive --status "${{ job.status }}"

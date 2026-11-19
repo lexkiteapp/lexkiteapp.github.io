@@ -1,0 +1,50 @@
+# required-gate: MỘT commit status tổng hợp cho mỗi PR – check bắt buộc DUY NHẤT của ruleset main.
+# Xanh khi mọi check/status/workflow run trên head PR đều đạt (success/skipped/neutral) và không còn gì chạy; đỏ khi có cái hỏng.
+# Bộ canh (3/11): trước đây mỗi workflow xong (workflow_run ×38 + check_suite) khởi động 1 runner chỉ để ghi 1 status → ~20 runner/commit,
+# 66 % lượt CI, giành chỗ check thật. Nay 1 runner canh liên tục: mỗi 30–60 s liệt kê lượt chạy gần nhất + PR mở (ETag), chỉ đánh giá sha
+# có thể đổi trạng thái (lượt đỏ → đỏ ngay; lượt cuối xong → xanh). Lịch 30 phút khởi động, mỗi lượt canh 54 phút, concurrency 1 chạy + 1 chờ
+# → nối tiếp không hở; còn 6 phút thì tự dispatch lượt kế tiếp (cron GitHub bỏ lượt 13 giờ ngày 02/11 – lịch chỉ là lưới). Không nghe sự kiện PR nên không cần danh sách workflow; PR fork vẫn được đánh giá (token của lịch có quyền ghi status).
+# Gác hồi quy: node scripts/ci/required-gate.mjs --check (prepush) + scripts/test/required-gate.mjs. Tài liệu: docs/CI-RUNNERS.md § required-gate.
+name: required-gate
+on:
+  schedule:
+    - cron: '17,47 * * * *'
+  workflow_dispatch:
+    inputs:
+      pr:
+        description: 'Số PR cần đánh giá lại ngay (để trống = khởi động bộ canh)'
+        required: false
+        default: ''
+permissions:
+  contents: read
+  statuses: write
+  checks: read
+  actions: write   # chỉ để tự dispatch lượt canh kế tiếp (cron GitHub bỏ lượt hàng giờ ngày 02/11)
+  pull-requests: read
+  issues: write   # cron-watch: issue "Lịch CI không chạy"
+# bộ canh: 1 chạy + 1 chờ, KHÔNG huỷ lượt đang canh; dispatch theo PR là nhóm riêng (không phải xếp sau 54 phút canh)
+concurrency:
+  group: required-gate-${{ inputs.pr || 'watch' }}
+  cancel-in-progress: false
+jobs:
+  gate:
+    name: required-gate-eval
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      # chỉ lấy script từ nhánh mặc định – không bao giờ checkout mã PR
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: "scripts/ci\nscripts/lib\nscripts/test/jobs-check.mjs\n.github/workflows\ninfra/jobs.json\nweb/free-tier-state.json"   # cron-watch: đọc cron workflow + paused
+          sparse-checkout-cone-mode: false
+          fetch-depth: 1
+          persist-credentials: false
+      - name: Canh + đăng status required-gate
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          IN_PR: ${{ inputs.pr }}
+          CRON_WATCH: '1'   # canh lịch cron mỗi lượt – không phụ thuộc cron của ci-triage (02/11 chết 13 giờ)
+          GATE_CHAIN_REF: ${{ github.event.repository.default_branch }}
+        run: |
+          if [ -n "$IN_PR" ]; then node scripts/ci/required-gate.mjs --pr "$IN_PR"; else node scripts/ci/required-gate.mjs --watch 54; fi

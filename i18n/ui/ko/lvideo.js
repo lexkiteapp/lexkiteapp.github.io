@@ -1,0 +1,15 @@
+/* UI ko – lvideo (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ko"] = Object.assign(D["ko"] || {}, {
+"Chưa đúng. Đáp án: {a} – đã thêm vào thẻ ôn.":"아쉬워요. 정답: {a} – 복습 카드에 추가했어요.",
+"Các phần của video":"영상 챕터",
+"Câu hỏi nhanh":"빠른 퀴즈",
+"Không phát được video – thử lại sau.":"영상을 재생할 수 없어요. 나중에 다시 시도하세요.",
+"Phát video: {t}":"영상 재생: {t}",
+"Video bài học":"레슨 영상",
+"Video của ngày":"오늘의 영상",
+"Video tiếp theo":"다음 영상",
+"Xem 20 giây":"20초 보기",
+"Đóng video":"영상 닫기",
+"Đúng rồi! Đã thêm vào thẻ ôn.":"정답! 복습 카드에 추가했어요.",
+});
+})(typeof self !== 'undefined' ? self : this);

@@ -1,0 +1,22 @@
+{
+ "topic": "Grammar quiz: goed or went?",
+ "scene": "library",
+ "vars": {
+  "wrongForm": "goed",
+  "answer": "went",
+  "forms": "go, went, gone",
+  "gap": "Yesterday I blank to the gym.",
+  "example": "Yes! I went to the gym, then I went straight to bed.",
+  "tip": "say them like a song: go, went, gone. Do, did, done."
+ },
+ "lines": {
+  "example": {
+   "expr": "big laugh"
+  }
+ },
+ "hashtags": [
+  "irregularverbs",
+  "englishquiz",
+  "learnenglish"
+ ]
+}

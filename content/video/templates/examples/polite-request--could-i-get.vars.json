@@ -1,0 +1,19 @@
+{
+ "topic": "Cafe English: give me a latte or could I get a latte?",
+ "scene": "cafe",
+ "vars": {
+  "phrase": "Could I get",
+  "hookLine": "Is \"give me\" rude?",
+  "direct": "Give me a latte.",
+  "why": "It sounds a bit bossy. Could I get is friendly and still simple.",
+  "polite": "Could I get a latte, please?",
+  "directCard": "Give me a latte.",
+  "politeCard": "Could I get a latte, please?",
+  "tip": "add please at the end. It makes almost any request softer."
+ },
+ "hashtags": [
+  "politeenglish",
+  "everydayenglish",
+  "learnenglish"
+ ]
+}

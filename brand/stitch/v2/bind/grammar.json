@@ -1,0 +1,299 @@
+{
+ "_doc": "Màn Ngữ pháp (#/grammar, hub + danh sách bài) – d do web/js/grammar.js (hubData) dựng từ dữ liệu thật. Khung \"inner\" (frame-variants.json): thanh trên + 5 tab chung của app (Back của thanh trên), KHÔNG dựng đầu trang/tab Stitch (tab = null, bỏ st/v2on như vocab-hub); giữ nút Back + tiêu đề + số bài của mẫu (frame-consistency cần nút Back ≥ 44 px ở góc trên trái). Màu theo token v2.1 (frame-consistency). Chỗ mới của mục cũ không có trong mẫu: vòng tiến độ → thanh tiến độ; mô tả hub → đoạn chữ cuối thẻ tiến độ; tên Anh/mô tả bài kế → dòng phụ; chương gập mở (details) có mô tả + tiến độ; đề tổng hợp 40 câu + Chia động từ + Sửa ngữ pháp → cùng khuôn thẻ 'Mixed test' (d.cards, thẻ là liên kết).",
+ "swap": {
+  "w-[390px]": "w-full",
+  "max-w-[390px]": "",
+  "min-h-screen": "min-h-0",
+  "sticky": "",
+  "top-0": "",
+  "z-30": "",
+  "pb-10": "pb-4",
+  "text-[20px]": "",
+  "overflow-x-auto": "flex-wrap",
+  "gap-3": "gap-2",
+  "px-3.5": "px-3"
+ },
+ "attr": {
+  ":scope > main > div > div:nth-child(1) > div:nth-child(1)": {
+   "role": "'progressbar'",
+   "aria-valuemin": "0",
+   "aria-valuemax": "100",
+   "aria-valuenow": "d.pct",
+   "aria-label": "d.prog"
+  },
+  ":scope > main > div > div:nth-child(1) > div:nth-child(1) > div": {
+   "style": "'width:' + d.pct + '%'"
+  },
+  ":scope > main > div > div:nth-child(1) > h2": {
+   "style": "d.nx ? '' : 'display:none'"
+  },
+  ":scope > main > div > div:nth-child(1) > button": {
+   "data-href": "d.nx ? d.nx.href : ''",
+   "style": "d.nx ? '' : 'display:none'"
+  },
+  ":scope > main > div > div:nth-child(2)": {
+   "role": "'group'",
+   "aria-label": "d.title",
+   "id": "'gTabs'"
+  },
+  ":scope > main > header > button": {
+   "aria-label": "t('Quay lại')",
+   "data-gh": "'back'"
+  }
+ },
+ "addClass": {
+  ":scope > main > header > div": "min-w-0",
+  ":scope > main > header > div > p": "[overflow-wrap:anywhere]",
+  ":scope > main > div > div:nth-child(1) > button": "min-h-[48px] lg:w-auto lg:px-12 lg:col-start-2 lg:row-start-3 lg:row-span-2 lg:self-center",
+  ":scope > main > header > div > h1": "[font-family:var(--font-display)]",
+  ":scope > main > header > button > span": "rtl:-scale-x-100",
+  ":scope > main > header > button": "shrink-0",
+  ":scope > main > div > div:nth-child(1) > h2": "[overflow-wrap:break-word] [text-wrap:balance] lg:col-start-1",
+  ":scope > main": "lg:max-w-5xl lg:mx-auto",
+  ":scope > main > div > div:nth-child(1)": "lg:grid lg:grid-cols-[1fr_auto] lg:gap-x-8",
+  ":scope > main > div > div:nth-child(1) > div:nth-child(1)": "lg:col-span-2",
+  ":scope > main > div > div:nth-child(1) > p": "lg:col-span-2"
+ },
+ "text": {
+  "Grammar": "d.title",
+  "80 visual lessons": "d.sub",
+  "32/80 lessons passed": "d.prog",
+  "Next: Present perfect": "d.nx ? d.nx.h : ''",
+  "Start now": "d.cta"
+ },
+ "after": {
+  ":scope > main > div > div:nth-child(1) > h2": "d.nx && d.nx.sub ? '<p class=\"text-[14px] font-semibold leading-snug lg:col-start-1 lt:text-[#0F3D3E] dk:text-[#A3B9B7]\">' + e(d.nx.sub) + '</p>' : ''"
+ },
+ "repeat": [
+  {
+   "list": "d.chips",
+   "as": "r",
+   "variants": {
+    "on": ":scope > main > div > div:nth-child(2) > span:nth-child(1)",
+    "idle": ":scope > main > div > div:nth-child(2) > span:nth-child(2)"
+   },
+   "samples": ":scope > main > div > div:nth-child(2) > span",
+   "pick": "r.on ? 'on' : 'idle'",
+   "bind": {
+    "on": {
+     "tag": {
+      ":scope": {
+       "to": "button",
+       "addClass": "text-left"
+      }
+     },
+     "attr": {
+      ":scope": {
+       "type": "'button'",
+       "aria-pressed": "'true'",
+       "data-gt": "r.k",
+       "title": "r.t"
+      }
+     },
+     "text": {
+      "All 80": "r.l"
+     }
+    },
+    "idle": {
+     "tag": {
+      ":scope": {
+       "to": "button",
+       "addClass": "text-left"
+      }
+     },
+     "attr": {
+      ":scope": {
+       "type": "'button'",
+       "aria-pressed": "'false'",
+       "data-gt": "r.k",
+       "title": "r.t"
+      }
+     },
+     "text": {
+      "IELTS 7.0+": "r.l"
+     }
+    }
+   }
+  },
+  {
+   "list": "d.cards",
+   "as": "r",
+   "variants": {
+    "one": ":scope > main > div > div:nth-child(4)"
+   },
+   "samples": ":scope > main > div > div:nth-child(4)",
+   "bind": {
+    "one": {
+     "tag": {
+      ":scope": {
+       "to": "a",
+       "addClass": "block min-h-[44px] lt:active:[background-color:#FBF7F1] dk:active:[background-color:#0E191C]"
+      }
+     },
+     "attr": {
+      ":scope": {
+       "href": "r.href"
+      }
+     },
+     "text": {
+      "Mixed test · 20 questions": "r.t",
+      "Questions from the lessons you studied.": "r.s"
+     }
+    }
+   }
+  },
+  {
+   "list": "d.ch",
+   "as": "c",
+   "variants": {
+    "ch": ":scope > main > div > div:nth-child(3)",
+    "empty": ":scope > main > div > div:nth-child(3)"
+   },
+   "samples": ":scope > main > div > div:nth-child(3)",
+   "pick": "c.empty ? 'empty' : 'ch'",
+   "bind": {
+    "empty": {
+     "remove": [
+      ":scope > div"
+     ],
+     "text": {
+      "Chapter 1 · Tenses": "c.h"
+     }
+    },
+    "ch": {
+     "repeat": [
+      {
+       "list": "c.rows",
+       "as": "r",
+       "variants": {
+        "done": ":scope > div:nth-child(2)",
+        "weak": ":scope > div:nth-child(3)",
+        "plain": ":scope > div:nth-child(4)",
+        "test": ":scope > div:nth-child(5)"
+       },
+       "samples": ":scope > div",
+       "pick": "r.test ? 'test' : r.pct == null ? 'plain' : r.pct >= 80 ? 'done' : 'weak'",
+       "bind": {
+        "done": {
+         "tag": {
+          ":scope": {
+           "to": "a"
+          }
+         },
+         "attr": {
+          ":scope": {
+           "href": "r.href",
+           "data-grow": "r.id"
+          }
+         },
+         "html": {
+          ":scope > span:nth-child(1)": "e(r.t) + (r.s ? '<small class=\"block text-[12px] font-semibold lt:text-[#0F3D3E] dk:text-[#A3B9B7]\">' + e(r.s) + '</small>' : '')",
+          ":scope > span:nth-child(2)": "e(r.lv)",
+          ":scope > span:nth-child(3)": "'✓ ' + e(r.pct) + '%'"
+         },
+         "addClass": {
+          ":scope": "min-h-[48px] py-1 max-[420px]:grid max-[420px]:grid-cols-[minmax(0,1fr)_auto] max-[420px]:gap-x-3 max-[420px]:gap-y-1",
+          ":scope > span:nth-child(1)": "min-w-0 flex-1 [overflow-wrap:break-word] [text-wrap:pretty] max-[420px]:row-span-2",
+          ":scope > span:nth-child(2)": "shrink-0 max-[420px]:col-start-2 max-[420px]:row-start-1 max-[420px]:justify-self-end rounded-md px-2 py-0.5 text-[12px] font-extrabold lt:bg-[#DDF1EE] dk:bg-[#10302F] lt:!text-[#0D6964] dk:!text-[#5FD0C4]",
+          ":scope > span:nth-child(3)": "shrink-0 max-[420px]:col-start-2 max-[420px]:row-start-2 max-[420px]:justify-self-end"
+         }
+        },
+        "weak": {
+         "tag": {
+          ":scope": {
+           "to": "a"
+          }
+         },
+         "attr": {
+          ":scope": {
+           "href": "r.href",
+           "data-grow": "r.id"
+          }
+         },
+         "html": {
+          ":scope > span:nth-child(1)": "e(r.t) + (r.s ? '<small class=\"block text-[12px] font-semibold lt:text-[#0F3D3E] dk:text-[#A3B9B7]\">' + e(r.s) + '</small>' : '')",
+          ":scope > span:nth-child(2)": "e(r.lv)",
+          ":scope > span:nth-child(3)": "e(r.pct) + '%'"
+         },
+         "addClass": {
+          ":scope": "min-h-[48px] py-1 max-[420px]:grid max-[420px]:grid-cols-[minmax(0,1fr)_auto] max-[420px]:gap-x-3 max-[420px]:gap-y-1",
+          ":scope > span:nth-child(1)": "min-w-0 flex-1 [overflow-wrap:break-word] [text-wrap:pretty] max-[420px]:row-span-2",
+          ":scope > span:nth-child(2)": "shrink-0 max-[420px]:col-start-2 max-[420px]:row-start-1 max-[420px]:justify-self-end rounded-md px-2 py-0.5 text-[12px] font-extrabold lt:bg-[#DDF1EE] dk:bg-[#10302F] lt:!text-[#0D6964] dk:!text-[#5FD0C4]",
+          ":scope > span:nth-child(3)": "shrink-0 max-[420px]:col-start-2 max-[420px]:row-start-2 max-[420px]:justify-self-end"
+         }
+        },
+        "plain": {
+         "tag": {
+          ":scope": {
+           "to": "a"
+          }
+         },
+         "attr": {
+          ":scope": {
+           "href": "r.href",
+           "data-grow": "r.id"
+          }
+         },
+         "html": {
+          ":scope > span:nth-child(1)": "e(r.t) + (r.s ? '<small class=\"block text-[12px] font-semibold lt:text-[#0F3D3E] dk:text-[#A3B9B7]\">' + e(r.s) + '</small>' : '')",
+          ":scope > span:nth-child(2)": "e(r.lv)"
+         },
+         "addClass": {
+          ":scope": "min-h-[48px] py-1 max-[420px]:grid max-[420px]:grid-cols-[minmax(0,1fr)_auto] max-[420px]:gap-x-3 max-[420px]:gap-y-1",
+          ":scope > span:nth-child(1)": "min-w-0 flex-1 [overflow-wrap:break-word] [text-wrap:pretty] max-[420px]:row-span-2",
+          ":scope > span:nth-child(2)": "shrink-0 max-[420px]:col-start-2 max-[420px]:row-start-1 max-[420px]:justify-self-end rounded-md px-2 py-0.5 text-[12px] font-extrabold lt:bg-[#DDF1EE] dk:bg-[#10302F] lt:!text-[#0D6964] dk:!text-[#5FD0C4]"
+         }
+        },
+        "test": {
+         "tag": {
+          ":scope": {
+           "to": "a"
+          }
+         },
+         "attr": {
+          ":scope": {
+           "href": "r.href"
+          }
+         },
+         "html": {
+          ":scope > span:nth-child(1)": "e(r.t) + '<small class=\"block text-[12px] font-semibold lt:text-[#0F3D3E] dk:text-[#A3B9B7]\">' + e(r.s) + '</small>'",
+          ":scope > span:nth-child(2)": "'›'"
+         },
+         "addClass": {
+          ":scope": "min-h-[48px] py-1 border-b-0",
+          ":scope > span:nth-child(1)": "min-w-0 flex-1 [overflow-wrap:break-word] lt:!text-[#0D6964] dk:!text-[#5FD0C4]",
+          ":scope > span:nth-child(2)": "shrink-0 text-[18px] rtl:-scale-x-100"
+         }
+        }
+       }
+      }
+     ],
+     "html": {
+      ":scope > h2": "'<span class=\"block min-w-0 flex-1\">' + (c.eyebrow ? '<span class=\"mb-0.5 block text-[12px] font-extrabold uppercase tracking-wide lt:text-[#0D6964] dk:text-[#5FD0C4]\">' + e(c.eyebrow) + '</span>' : '') + '<h2 class=\"text-[16px] font-extrabold leading-tight [text-wrap:balance] [overflow-wrap:break-word]\">' + e(c.h) + '</h2>' + (c.desc ? '<span class=\"mt-0.5 block line-clamp-2 group-open:line-clamp-none text-[13px] font-semibold leading-snug lt:text-[#0F3D3E] dk:text-[#A3B9B7]\">' + e(c.desc) + '</span>' : '') + '<span class=\"mt-2 flex flex-wrap items-center gap-x-3 gap-y-1\"><span class=\"text-[13px] font-extrabold lt:text-[#0F3D3E] dk:text-[#EAF2F2]\">' + e(c.cnt) + '</span><span class=\"block h-2 w-24 overflow-hidden rounded-full lt:bg-[#0D6964]/20 dk:bg-[#5FD0C4]/25 ring-1 ring-inset lt:ring-[#0D6964]/55 dk:ring-[#5FD0C4]/55\"><i class=\"block h-full rounded-full lt:bg-[#0D6964] dk:bg-[#5FD0C4]\" style=\"width:' + e(c.pct) + '%\"></i></span></span></span><svg class=\"h-6 w-6 shrink-0 transition-transform group-open:rotate-90 rtl:-scale-x-100\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m9 6 6 6-6 6\"/></svg>'"
+     },
+     "attr": {
+      ":scope": {
+       "data-open": "c.open ? '1' : '0'",
+       "id": "c.id"
+      }
+     },
+     "tag": {
+      ":scope > h2": {
+       "to": "summary",
+       "addClass": "flex min-h-[44px] cursor-pointer list-none items-center justify-between gap-3 lg:col-span-2"
+      },
+      ":scope": {
+       "to": "details",
+       "addClass": "group lg:grid lg:grid-cols-2 lg:gap-x-8"
+      }
+     }
+    }
+   }
+  }
+ ],
+ "setClass": {
+  ":scope > main > header": "flex items-center gap-3 pb-3",
+  ":scope > main > div": "flex flex-col gap-4 w-full"
+ },
+ "styles": true
+}

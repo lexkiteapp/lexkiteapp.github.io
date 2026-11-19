@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Admin - Backlink, PR &amp; Thương hiệu</title>
+<!-- Fonts & Material Symbols -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary-fixed-dim": "#f5bf31",
+            "error-container": "#ffdad6",
+            "surface-container-low": "#fff1e8",
+            "shadow-ledge-neutral": "#bec9c6",
+            "on-primary-fixed-variant": "#00504b",
+            "primary-fixed-dim": "#92d2cb",
+            "background": "#fff8f5",
+            "on-secondary-container": "#633700",
+            "secondary-fixed": "#ffdcbf",
+            "on-surface": "#211a14",
+            "on-tertiary-fixed": "#251a00",
+            "on-primary": "#ffffff",
+            "inverse-surface": "#372f28",
+            "on-error": "#ffffff",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "on-tertiary": "#ffffff",
+            "surface-container-highest": "#eee0d6",
+            "surface-container-lowest": "#ffffff",
+            "on-surface-variant": "#3f4947",
+            "secondary-container": "#fc9500",
+            "surface-container": "#faebe1",
+            "on-primary-fixed": "#00201d",
+            "error": "#ba1a1a",
+            "secondary-fixed-dim": "#ffb872",
+            "surface-bright": "#fff8f5",
+            "primary-fixed": "#aeefe7",
+            "on-secondary": "#ffffff",
+            "tertiary-container": "#5b4300",
+            "outline-variant": "#bfc9c6",
+            "surface-dim": "#e6d7cd",
+            "button-text-contrast": "#1a0d00",
+            "tertiary": "#3f2e00",
+            "primary-container": "#136a63",
+            "tertiary-fixed": "#ffdf9b",
+            "on-tertiary-container": "#e1ad1c",
+            "surface-container-high": "#f4e5db",
+            "shadow-ledge-primary": "#136a63",
+            "surface": "#fff8f5",
+            "on-background": "#211a14",
+            "on-primary-container": "#81c1ba",
+            "inverse-on-surface": "#fdeee4",
+            "on-secondary-fixed": "#2d1600",
+            "primary": "#003734",
+            "surface-tint": "#266863",
+            "inverse-primary": "#92d2cb",
+            "surface-variant": "#eee0d6",
+            "outline": "#6f7977",
+            "secondary": "#8b5000",
+            "shadow-ledge-secondary": "#8c5000",
+            "on-error-container": "#93000a",
+            "on-secondary-fixed-variant": "#6a3b00"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "gutter-md": "1.5rem",
+            "space-lg": "1.5rem",
+            "space-xs": "0.25rem",
+            "margin-lg": "3rem",
+            "space-xl": "2.5rem",
+            "margin-md": "2rem",
+            "gutter-lg": "2rem",
+            "gutter": "1rem",
+            "margin": "1rem"
+          },
+          "fontFamily": {
+            "display-lg": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "display-lg": ["44px", { "lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "500" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "800" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+            "label-lg": ["16px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "700" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "500" }],
+            "label-md": ["14px", { "lineHeight": "18px", "letterSpacing": "0.03em", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      font-size: 20px;
+      line-height: 1;
+      display: inline-block;
+    }
+    .material-symbols-outlined.fill-active {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+</head>
+<body class="bg-background text-[#191c1b] antialiased min-h-screen flex justify-center selection:bg-primary-fixed selection:text-primary">
+<!-- Desktop Fixed Container (1280px viewport width) -->
+<div class="w-full max-w-[1280px] min-h-screen flex relative bg-background overflow-x-hidden">
+<!-- 1. SIDEBAR NAVIGATION (240px wide) -->
+<aside class="w-[240px] shrink-0 h-screen sticky top-0 bg-surface-container-low border-r-2 border-outline-variant/80 shadow-[2px_0_0_0_#bec9c6] flex flex-col justify-between p-4 z-40">
+<!-- Brand & Primary Nav -->
+<div class="flex flex-col gap-6">
+<!-- Logo / Header -->
+<div class="flex items-center gap-3 px-2 py-1">
+<div class="w-10 h-10 rounded-DEFAULT bg-primary-container text-surface flex items-center justify-center border-2 border-primary shadow-[0_2px_0_0_#00201d]">
+<span class="material-symbols-outlined text-[22px]">auto_stories</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm font-bold text-[#004d47] tracking-tight">Lexkite Admin</span>
+<span class="font-label-sm text-label-sm font-bold text-[#004d47]">Quản trị SEO</span>
+</div>
+</div>
+<!-- Navigation Tabs -->
+<nav class="flex flex-col gap-2">
+<!-- Active: Backlink & PR -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-DEFAULT bg-surface-container text-primary border-2 border-primary-container font-label-md text-label-md shadow-[0_2px_0_0_#136a63] active:translate-y-0.5 transition-all" href="#">
+<span class="material-symbols-outlined text-primary-container fill-active">link</span>
+<span>Backlink &amp; PR</span>
+</a>
+<!-- Kho Drive -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-DEFAULT text-[#191c1b] font-label-md text-label-md hover:bg-surface-container-high transition-colors active:translate-y-0.5" href="#">
+<span class="material-symbols-outlined text-on-surface-variant">cloud</span>
+<span>Kho Drive</span>
+</a>
+<!-- Người dùng -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-DEFAULT text-[#191c1b] font-label-md text-label-md hover:bg-surface-container-high transition-colors active:translate-y-0.5" href="#">
+<span class="material-symbols-outlined text-on-surface-variant">group</span>
+<span>Người dùng</span>
+</a>
+<!-- Phân tích SEO -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-DEFAULT text-[#191c1b] font-label-md text-label-md hover:bg-surface-container-high transition-colors active:translate-y-0.5" href="#">
+<span class="material-symbols-outlined text-on-surface-variant">bar_chart</span>
+<span>Phân tích SEO</span>
+</a>
+<!-- Cài đặt -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-DEFAULT text-[#191c1b] font-label-md text-label-md hover:bg-surface-container-high transition-colors active:translate-y-0.5" href="#">
+<span class="material-symbols-outlined text-on-surface-variant">settings</span>
+<span>Cài đặt</span>
+</a>
+</nav>
+</div>
+<!-- Bottom Nav Items -->
+<div class="flex flex-col gap-2 pt-4 border-t-2 border-outline-variant/60">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-DEFAULT text-[#191c1b] font-label-md text-label-md hover:bg-surface-container-high transition-colors active:translate-y-0.5 min-h-[44px]" href="#">
+<span class="material-symbols-outlined text-on-surface-variant">help</span>
+<span>Trợ giúp &amp; Hỗ trợ</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-DEFAULT text-[#191c1b] font-label-md text-label-md hover:bg-surface-container-high transition-colors active:translate-y-0.5 min-h-[44px]" href="#">
+<span class="material-symbols-outlined text-on-surface-variant">logout</span>
+<span>Đăng xuất</span>
+</a>
+</div>
+</aside>
+<!-- MAIN CONTENT CANVAS (1040px wide) -->
+<main class="flex-1 flex flex-col min-w-0 bg-background">
+<!-- 2. TOP HEADER BAR -->
+<header class="h-20 px-8 flex items-center justify-between border-b-2 border-outline-variant/80 bg-surface shadow-[0_2px_0_0_#bec9c6] sticky top-0 z-30">
+<!-- Left: Titles -->
+<div class="flex flex-col">
+<h1 class="font-headline-md text-headline-md font-bold text-[#004d47] tracking-tight">Backlink, PR &amp; Thương hiệu</h1>
+<p class="font-body-sm text-body-sm text-[#191c1b] flex items-center gap-1.5 font-medium">
+<span class="w-2 h-2 rounded-full bg-primary-container inline-block"></span>
+            Đồng bộ tự động 15 phút trước
+          </p>
+</div>
+<!-- Right: Actions Cluster -->
+<div class="flex items-center gap-3">
+<!-- Search Input Box -->
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-[#191c1b] pointer-events-none">search</span>
+<input class="h-11 pl-10 pr-4 w-60 rounded-DEFAULT bg-surface-container-lowest border-2 border-outline-variant/80 text-body-sm font-body-sm text-[#191c1b] placeholder-on-surface-variant/70 focus:outline-none focus:border-primary-container shadow-[0_2px_0_0_#bec9c6] transition-all" placeholder="Tìm nguồn, domain, từ khóa..." type="text"/>
+</div>
+<!-- Language Toggle "VI" (min 44x44) -->
+<button aria-label="Ngôn ngữ hiện tại: Tiếng Việt" class="min-w-[44px] min-h-[44px] px-3 rounded-DEFAULT bg-surface-container-lowest border-2 border-outline-variant/80 shadow-[0_2px_0_0_#bec9c6] flex items-center justify-center gap-1 text-[#191c1b] font-label-md text-label-md font-bold hover:bg-surface-container transition-transform active:translate-y-0.5 active:shadow-none">
+<span class="material-symbols-outlined text-[18px]">translate</span>
+<span>VI</span>
+</button>
+<!-- Notification Bell (min 44x44) -->
+<button aria-label="Thông báo" class="min-w-[44px] min-h-[44px] rounded-DEFAULT bg-surface-container-lowest border-2 border-outline-variant/80 shadow-[0_2px_0_0_#bec9c6] flex items-center justify-center text-[#191c1b] hover:bg-surface-container transition-transform active:translate-y-0.5 active:shadow-none relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2.5 right-2.5 w-2 h-2 rounded-full bg-secondary-container"></span>
+</button>
+<!-- Admin Initials Badge "TMV" (min 44x44) -->
+<button aria-label="Hồ sơ quản trị viên" class="min-w-[44px] min-h-[44px] px-3.5 rounded-DEFAULT bg-primary-container text-surface border-2 border-primary shadow-[0_2px_0_0_#00201d] flex items-center justify-center gap-2 font-label-md text-label-md font-bold active:translate-y-0.5 active:shadow-none">
+<span>TMV</span>
+<span class="material-symbols-outlined text-[18px]">expand_more</span>
+</button>
+</div>
+</header>
+<!-- DASHBOARD INNER BODY -->
+<div class="p-8 flex flex-col gap-6">
+<!-- 3. TOP METRICS ROW (3 tactile cards) -->
+<section class="grid grid-cols-3 gap-6">
+<!-- Card 1: Tổng Backlinks -->
+<div class="bg-surface-container-lowest rounded-DEFAULT border-2 border-outline-variant/80 p-5 shadow-[0_3px_0_0_#bec9c6] flex flex-col justify-between gap-4">
+<div class="flex items-start justify-between">
+<div>
+<p class="font-label-md text-label-md text-[#191c1b] font-bold">Tổng Backlinks</p>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-display-lg text-display-lg text-[#191c1b] font-extrabold tracking-tight">142</span>
+<span class="font-label-sm text-label-sm text-[#00504b] bg-primary-fixed/60 border border-primary-container/30 px-2 py-0.5 rounded-full font-bold">+12 tháng này</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-full bg-surface-container border border-outline-variant flex items-center justify-center text-primary-container shadow-[0_2px_0_0_#bec9c6]">
+<span class="material-symbols-outlined">link</span>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<div class="h-3 rounded-full bg-surface-container-highest border border-outline-variant/40 p-0.5 w-full">
+<div class="h-full bg-primary-container rounded-full w-[78%] shadow-[inset_0_1.5px_0_rgba(255,255,255,0.4)]"></div>
+</div>
+<div class="flex justify-between items-center text-[#191c1b]">
+<span class="font-body-sm text-body-sm font-medium">Mục tiêu Q2: 180</span>
+<span class="font-label-sm text-label-sm font-bold text-[#00504b]">78.8%</span>
+</div>
+</div>
+</div>
+<!-- Card 2: Referring Domains -->
+<div class="bg-surface-container-lowest rounded-DEFAULT border-2 border-outline-variant/80 p-5 shadow-[0_3px_0_0_#bec9c6] flex flex-col justify-between gap-4">
+<div class="flex items-start justify-between">
+<div>
+<p class="font-label-md text-label-md text-[#191c1b] font-bold">Referring Domains</p>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-display-lg text-display-lg text-[#191c1b] font-extrabold tracking-tight">58</span>
+<span class="font-label-sm text-label-sm text-secondary border border-secondary/40 bg-secondary-fixed/50 px-2 py-0.5 rounded-full font-bold">+4 mới</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-full bg-surface-container border border-outline-variant flex items-center justify-center text-secondary shadow-[0_2px_0_0_#bec9c6]">
+<span class="material-symbols-outlined">public</span>
+</div>
+</div>
+<div class="flex items-center gap-2 pt-2 border-t border-outline-variant/40">
+<span class="material-symbols-outlined text-[18px] text-[#00504b]">verified</span>
+<span class="font-body-sm text-body-sm text-[#191c1b] font-medium">Báo chí chính thống &amp; giáo dục hàng đầu</span>
+</div>
+</div>
+<!-- Card 3: Chất lượng link -->
+<div class="bg-surface-container-lowest rounded-DEFAULT border-2 border-outline-variant/80 p-5 shadow-[0_3px_0_0_#bec9c6] flex flex-col justify-between gap-4">
+<div class="flex items-start justify-between">
+<div>
+<p class="font-label-md text-label-md text-[#191c1b] font-bold">Chất lượng link</p>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-display-lg text-display-lg text-[#191c1b] font-extrabold tracking-tight">84%</span>
+<span class="font-label-sm text-label-sm text-[#00504b] bg-surface-container-high border border-outline-variant/60 px-2 py-0.5 rounded-full font-bold">Chỉ số tin cậy cao</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-full bg-surface-container border border-outline-variant flex items-center justify-center text-primary-container shadow-[0_2px_0_0_#bec9c6]">
+<span class="material-symbols-outlined">shield</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-outline-variant/40">
+<span class="font-body-sm text-body-sm text-[#191c1b] font-medium">119 DoFollow link</span>
+<span class="font-label-sm text-label-sm text-[#191c1b] font-bold">23 NoFollow</span>
+</div>
+</div>
+</section>
+<!-- 4. ACTION AND FILTER BAR -->
+<section class="flex items-center justify-between gap-4 flex-wrap">
+<!-- Left: Filter Tabs (min-height 44px) -->
+<div class="flex items-center p-1 bg-surface-container border-2 border-outline-variant/80 rounded-DEFAULT gap-1 shadow-[0_2px_0_0_#bec9c6]">
+<!-- Tab: Tất cả (28) -->
+<button class="min-h-[44px] px-4 rounded-DEFAULT bg-primary-container text-surface font-label-md text-label-md font-bold shadow-[0_2px_0_0_#00201d] transition-all">
+              Tất cả (28)
+            </button>
+<!-- Tab: DoFollow -->
+<button class="min-h-[44px] px-4 rounded-DEFAULT text-[#191c1b] font-label-md text-label-md font-bold hover:bg-surface-container-highest transition-colors">
+              DoFollow
+            </button>
+<!-- Tab: NoFollow -->
+<button class="min-h-[44px] px-4 rounded-DEFAULT text-[#191c1b] font-label-md text-label-md font-bold hover:bg-surface-container-highest transition-colors">
+              NoFollow
+            </button>
+<!-- Tab: Báo chí -->
+<button class="min-h-[44px] px-4 rounded-DEFAULT text-[#191c1b] font-label-md text-label-md font-bold hover:bg-surface-container-highest transition-colors">
+              Báo chí
+            </button>
+</div>
+<!-- Right: Controls & Primary Action (min-height 44px) -->
+<div class="flex items-center gap-3">
+<!-- Type Dropdown -->
+<button class="min-h-[44px] px-4 rounded-DEFAULT bg-surface-container-lowest border-2 border-outline-variant/80 text-[#191c1b] font-label-md text-label-md font-bold shadow-[0_2px_0_0_#bec9c6] flex items-center gap-2 hover:bg-surface-container transition-all active:translate-y-0.5 active:shadow-none">
+<span>Tất cả loại</span>
+<span class="material-symbols-outlined text-[18px]">keyboard_arrow_down</span>
+</button>
+<!-- Export Excel Button -->
+<button class="min-h-[44px] px-4 rounded-DEFAULT bg-surface-container-lowest border-2 border-outline-variant/80 text-primary font-label-md text-label-md font-bold shadow-[0_2px_0_0_#bec9c6] flex items-center gap-2 hover:bg-surface-container transition-all active:translate-y-0.5 active:shadow-none">
+<span class="material-symbols-outlined text-[18px]">download</span>
+<span>Xuất Excel</span>
+</button>
+<!-- Primary CTA: Thêm backlink (tactile amber button with dark ink label >= 4.5:1) -->
+<button class="min-h-[44px] px-5 rounded-DEFAULT bg-secondary-container text-button-text-contrast border-2 border-secondary font-label-md text-label-md font-extrabold shadow-[0_4px_0_0_#8c5000] flex items-center gap-2 hover:brightness-105 transition-all active:translate-y-1 active:shadow-none">
+<span class="material-symbols-outlined font-bold">add</span>
+<span>Thêm backlink</span>
+</button>
+</div>
+</section>
+<!-- 5. BACKLINK DATA TABLE CONTAINER -->
+<section class="bg-surface-container-lowest rounded-DEFAULT border-2 border-outline-variant/80 shadow-[0_3px_0_0_#bec9c6] overflow-hidden">
+<div class="overflow-x-auto w-full">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low border-b-2 border-outline-variant/80 text-[#191c1b] font-label-md text-label-md select-none">
+<!-- Checkbox Column -->
+<th class="w-14 p-0" scope="col">
+<label class="min-w-[44px] min-h-[44px] flex items-center justify-center cursor-pointer">
+<input class="w-4 h-4 rounded text-primary-container border-2 border-outline-variant focus:ring-0 cursor-pointer" type="checkbox"/>
+</label>
+</th>
+<!-- Nguồn & URL -->
+<th class="py-3 px-4 font-bold text-[#191c1b]" scope="col">Nguồn &amp; URL</th>
+<!-- Chỉ số (DR / UR) -->
+<th class="py-3 px-4 font-bold text-[#191c1b] whitespace-nowrap" scope="col">Chỉ số (DR / UR)</th>
+<!-- Thuộc tính & Vị trí -->
+<th class="py-3 px-4 font-bold text-[#191c1b]" scope="col">Thuộc tính &amp; Vị trí</th>
+<!-- Ngày phát hiện -->
+<th class="py-3 px-4 font-bold text-[#191c1b] whitespace-nowrap" scope="col">Ngày phát hiện</th>
+<!-- Trạng thái -->
+<th class="py-3 px-4 font-bold text-[#191c1b]" scope="col">Trạng thái</th>
+<!-- Thao tác -->
+<th class="py-3 px-4 font-bold text-[#191c1b] text-right pr-6" scope="col">Thao tác</th>
+</tr>
+</thead>
+<tbody class="divide-y-2 divide-outline-variant/40 font-body-sm text-body-sm text-[#191c1b]">
+<!-- ROW 1 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="p-0">
+<label class="min-w-[44px] min-h-[44px] flex items-center justify-center cursor-pointer">
+<input class="w-4 h-4 rounded text-primary-container border-2 border-outline-variant focus:ring-0 cursor-pointer" type="checkbox"/>
+</label>
+</td>
+<td class="py-2.5 px-4">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold text-[#191c1b]">VnExpress - Chuyên mục Giáo dục</span>
+<a class="min-h-[44px] inline-flex items-center text-[#00504b] font-medium underline hover:text-primary transition-colors" href="https://vnexpress.net" rel="noopener noreferrer" target="_blank">
+                        vnexpress.net/.../phuong
+                      </a>
+</div>
+</td>
+<td class="py-2.5 px-4 whitespace-nowrap">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container border border-outline-variant/60 font-label-md text-label-md">
+<span class="font-extrabold text-[#191c1b]">DR 92</span>
+<span class="text-[#191c1b] font-semibold">/ UR 42</span>
+</div>
+</td>
+<td class="py-2.5 px-4 font-medium text-[#191c1b]">
+                    DoFollow • In-content
+                  </td>
+<td class="py-2.5 px-4 whitespace-nowrap font-medium text-[#191c1b]">
+                    14/04/2024
+                  </td>
+<td class="py-2.5 px-4">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-label-sm font-label-sm font-bold bg-[#dcfce7] text-[#044e3b] border border-[#86efac]">
+<span class="w-1.5 h-1.5 rounded-full bg-[#15803d]"></span>
+                      Còn sống
+                    </span>
+</td>
+<td class="py-2.5 px-4 pr-6 text-right whitespace-nowrap">
+<div class="inline-flex items-center justify-end gap-1">
+<button aria-label="Mở liên kết" class="min-w-[44px] min-h-[44px] rounded-DEFAULT flex items-center justify-center text-[#191c1b] hover:bg-surface-container transition-colors active:translate-y-0.5">
+<span class="material-symbols-outlined text-[20px]">open_in_new</span>
+</button>
+<button aria-label="Tùy chọn khác" class="min-w-[44px] min-h-[44px] rounded-DEFAULT flex items-center justify-center text-[#191c1b] hover:bg-surface-container transition-colors active:translate-y-0.5">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- ROW 2 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="p-0">
+<label class="min-w-[44px] min-h-[44px] flex items-center justify-center cursor-pointer">
+<input class="w-4 h-4 rounded text-primary-container border-2 border-outline-variant focus:ring-0 cursor-pointer" type="checkbox"/>
+</label>
+</td>
+<td class="py-2.5 px-4">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold text-[#191c1b]">Báo Tuổi Trẻ Online</span>
+<a class="min-h-[44px] inline-flex items-center text-[#00504b] font-medium underline hover:text-primary transition-colors" href="https://tuoitre.vn" rel="noopener noreferrer" target="_blank">
+                        tuoitre.vn/.../lexkite-t
+                      </a>
+</div>
+</td>
+<td class="py-2.5 px-4 whitespace-nowrap">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container border border-outline-variant/60 font-label-md text-label-md">
+<span class="font-extrabold text-[#191c1b]">DR 88</span>
+<span class="text-[#191c1b] font-semibold">/ UR 38</span>
+</div>
+</td>
+<td class="py-2.5 px-4 font-medium text-[#191c1b]">
+                    DoFollow • Đoạn mở đầu
+                  </td>
+<td class="py-2.5 px-4 whitespace-nowrap font-medium text-[#191c1b]">
+                    11/04/2024
+                  </td>
+<td class="py-2.5 px-4">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-label-sm font-label-sm font-bold bg-[#dcfce7] text-[#044e3b] border border-[#86efac]">
+<span class="w-1.5 h-1.5 rounded-full bg-[#15803d]"></span>
+                      Còn sống
+                    </span>
+</td>
+<td class="py-2.5 px-4 pr-6 text-right whitespace-nowrap">
+<div class="inline-flex items-center justify-end gap-1">
+<button aria-label="Mở liên kết" class="min-w-[44px] min-h-[44px] rounded-DEFAULT flex items-center justify-center text-[#191c1b] hover:bg-surface-container transition-colors active:translate-y-0.5">
+<span class="material-symbols-outlined text-[20px]">open_in_new</span>
+</button>
+<button aria-label="Tùy chọn khác" class="min-w-[44px] min-h-[44px] rounded-DEFAULT flex items-center justify-center text-[#191c1b] hover:bg-surface-container transition-colors active:translate-y-0.5">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- ROW 3 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="p-0">
+<label class="min-w-[44px] min-h-[44px] flex items-center justify-center cursor-pointer">
+<input class="w-4 h-4 rounded text-primary-container border-2 border-outline-variant focus:ring-0 cursor-pointer" type="checkbox"/>
+</label>
+</td>
+<td class="py-2.5 px-4">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold text-[#191c1b]">Spiderum Community</span>
+<a class="min-h-[44px] inline-flex items-center text-[#00504b] font-medium underline hover:text-primary transition-colors" href="https://spiderum.com" rel="noopener noreferrer" target="_blank">
+                        spiderum.com/.../trai-ng
+                      </a>
+</div>
+</td>
+<td class="py-2.5 px-4 whitespace-nowrap">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container border border-outline-variant/60 font-label-md text-label-md">
+<span class="font-extrabold text-[#191c1b]">DR 65</span>
+<span class="text-[#191c1b] font-semibold">/ UR 29</span>
+</div>
+</td>
+<td class="py-2.5 px-4 font-medium text-[#191c1b]">
+                    DoFollow • Body Card
+                  </td>
+<td class="py-2.5 px-4 whitespace-nowrap font-medium text-[#191c1b]">
+                    08/04/2024
+                  </td>
+<td class="py-2.5 px-4">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-label-sm font-label-sm font-bold bg-[#dcfce7] text-[#044e3b] border border-[#86efac]">
+<span class="w-1.5 h-1.5 rounded-full bg-[#15803d]"></span>
+                      Còn sống
+                    </span>
+</td>
+<td class="py-2.5 px-4 pr-6 text-right whitespace-nowrap">
+<div class="inline-flex items-center justify-end gap-1">
+<button aria-label="Mở liên kết" class="min-w-[44px] min-h-[44px] rounded-DEFAULT flex items-center justify-center text-[#191c1b] hover:bg-surface-container transition-colors active:translate-y-0.5">
+<span class="material-symbols-outlined text-[20px]">open_in_new</span>
+</button>
+<button aria-label="Tùy chọn khác" class="min-w-[44px] min-h-[44px] rounded-DEFAULT flex items-center justify-center text-[#191c1b] hover:bg-surface-container transition-colors active:translate-y-0.5">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- ROW 4 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="p-0">
+<label class="min-w-[44px] min-h-[44px] flex items-center justify-center cursor-pointer">
+<input class="w-4 h-4 rounded text-primary-container border-2 border-outline-variant focus:ring-0 cursor-pointer" type="checkbox"/>
+</label>
+</td>
+<td class="py-2.5 px-4">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold text-[#191c1b]">Báo Dân Trí</span>
+<a class="min-h-[44px] inline-flex items-center text-[#00504b] font-medium underline hover:text-primary transition-colors" href="https://dantri.com.vn" rel="noopener noreferrer" target="_blank">
+                        dantri.com.vn/.../giai-p
+                      </a>
+</div>
+</td>
+<td class="py-2.5 px-4 whitespace-nowrap">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container border border-outline-variant/60 font-label-md text-label-md">
+<span class="font-extrabold text-[#191c1b]">DR 90</span>
+<span class="text-[#191c1b] font-semibold">/ UR 35</span>
+</div>
+</td>
+<td class="py-2.5 px-4 font-medium text-[#191c1b]">
+                    DoFollow • In-content
+                  </td>
+<td class="py-2.5 px-4 whitespace-nowrap font-medium text-[#191c1b]">
+                    04/04/2024
+                  </td>
+<td class="py-2.5 px-4">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-label-sm font-label-sm font-bold bg-[#dcfce7] text-[#044e3b] border border-[#86efac]">
+<span class="w-1.5 h-1.5 rounded-full bg-[#15803d]"></span>
+                      Còn sống
+                    </span>
+</td>
+<td class="py-2.5 px-4 pr-6 text-right whitespace-nowrap">
+<div class="inline-flex items-center justify-end gap-1">
+<button aria-label="Mở liên kết" class="min-w-[44px] min-h-[44px] rounded-DEFAULT flex items-center justify-center text-[#191c1b] hover:bg-surface-container transition-colors active:translate-y-0.5">
+<span class="material-symbols-outlined text-[20px]">open_in_new</span>
+</button>
+<button aria-label="Tùy chọn khác" class="min-w-[44px] min-h-[44px] rounded-DEFAULT flex items-center justify-center text-[#191c1b] hover:bg-surface-container transition-colors active:translate-y-0.5">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- ROW 5 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="p-0">
+<label class="min-w-[44px] min-h-[44px] flex items-center justify-center cursor-pointer">
+<input class="w-4 h-4 rounded text-primary-container border-2 border-outline-variant focus:ring-0 cursor-pointer" type="checkbox"/>
+</label>
+</td>
+<td class="py-2.5 px-4">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold text-[#191c1b]">Diễn đàn Tinh Tế</span>
+<a class="min-h-[44px] inline-flex items-center text-[#00504b] font-medium underline hover:text-primary transition-colors" href="https://tinhte.vn" rel="noopener noreferrer" target="_blank">
+                        tinhte.vn/thread/.../lex
+                      </a>
+</div>
+</td>
+<td class="py-2.5 px-4 whitespace-nowrap">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container border border-outline-variant/60 font-label-md text-label-md">
+<span class="font-extrabold text-[#191c1b]">DR 78</span>
+<span class="text-[#191c1b] font-semibold">/ UR 31</span>
+</div>
+</td>
+<td class="py-2.5 px-4 font-medium text-[#191c1b]">
+                    DoFollow • In-content
+                  </td>
+<td class="py-2.5 px-4 whitespace-nowrap font-medium text-[#191c1b]">
+                    01/04/2024
+                  </td>
+<td class="py-2.5 px-4">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-label-sm font-label-sm font-bold bg-[#dcfce7] text-[#044e3b] border border-[#86efac]">
+<span class="w-1.5 h-1.5 rounded-full bg-[#15803d]"></span>
+                      Còn sống
+                    </span>
+</td>
+<td class="py-2.5 px-4 pr-6 text-right whitespace-nowrap">
+<div class="inline-flex items-center justify-end gap-1">
+<button aria-label="Mở liên kết" class="min-w-[44px] min-h-[44px] rounded-DEFAULT flex items-center justify-center text-[#191c1b] hover:bg-surface-container transition-colors active:translate-y-0.5">
+<span class="material-symbols-outlined text-[20px]">open_in_new</span>
+</button>
+<button aria-label="Tùy chọn khác" class="min-w-[44px] min-h-[44px] rounded-DEFAULT flex items-center justify-center text-[#191c1b] hover:bg-surface-container transition-colors active:translate-y-0.5">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- 6. PAGINATION FOOTER -->
+<div class="p-4 bg-surface-container-low border-t-2 border-outline-variant/80 flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-[#191c1b] font-medium">
+              Hiển thị <span class="font-bold text-[#191c1b]">1-5</span> trong số <span class="font-bold text-[#191c1b]">28</span> backlink
+            </span>
+<div class="flex items-center gap-2">
+<button aria-label="Trang trước" class="min-w-[44px] min-h-[44px] px-3 rounded-DEFAULT bg-surface-container-lowest border-2 border-outline-variant/80 text-[#191c1b] font-label-md text-label-md font-bold shadow-[0_2px_0_0_#bec9c6] flex items-center justify-center gap-1 hover:bg-surface-container transition-all active:translate-y-0.5 active:shadow-none">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+<span>Trước</span>
+</button>
+<div class="flex items-center gap-1 px-1">
+<button class="w-10 h-10 rounded-DEFAULT bg-primary-container text-surface font-label-md text-label-md font-bold shadow-[0_2px_0_0_#00201d] flex items-center justify-center">1</button>
+<button class="w-10 h-10 rounded-DEFAULT bg-surface-container-lowest border-2 border-outline-variant/80 text-[#191c1b] font-label-md text-label-md font-bold hover:bg-surface-container shadow-[0_2px_0_0_#bec9c6] flex items-center justify-center">2</button>
+<button class="w-10 h-10 rounded-DEFAULT bg-surface-container-lowest border-2 border-outline-variant/80 text-[#191c1b] font-label-md text-label-md font-bold hover:bg-surface-container shadow-[0_2px_0_0_#bec9c6] flex items-center justify-center">3</button>
+<span class="px-1 text-on-surface-variant font-bold">...</span>
+<button class="w-10 h-10 rounded-DEFAULT bg-surface-container-lowest border-2 border-outline-variant/80 text-[#191c1b] font-label-md text-label-md font-bold hover:bg-surface-container shadow-[0_2px_0_0_#bec9c6] flex items-center justify-center">6</button>
+</div>
+<button aria-label="Trang tiếp theo" class="min-w-[44px] min-h-[44px] px-3 rounded-DEFAULT bg-surface-container-lowest border-2 border-outline-variant/80 text-[#191c1b] font-label-md text-label-md font-bold shadow-[0_2px_0_0_#bec9c6] flex items-center justify-center gap-1 hover:bg-surface-container transition-all active:translate-y-0.5 active:shadow-none">
+<span>Sau</span>
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+</div>
+</main>
+</div>
+</body></html>

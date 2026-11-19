@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IELTS Writing Task 2 Library — Lexkite</title>
+  <!-- Plus Jakarta Sans Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            cream: {
+              50: '#FFFDF9',
+              100: '#FFF9F0',
+              200: '#FBF2E3',
+              300: '#F5E8D0',
+            },
+            teal: {
+              deep: '#0F3D3E',
+              dark: '#144F4B',
+              vibrant: '#2BA39A',
+              light: '#E2FFFF',
+              mint: '#E6FAF8',
+            },
+            coral: {
+              DEFAULT: '#FF5E3A',
+              dark: '#CC4120',
+              light: '#FFEFEA',
+            },
+            sunny: {
+              DEFAULT: '#F8B830',
+              dark: '#C88C0E',
+              light: '#FFF7E2',
+            },
+            slateInk: '#183133',
+            mutedTeal: '#46686B',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Tactile 3D Button and Card Physics */
+    .tactile-card {
+      transition: transform 0.12s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.12s ease;
+    }
+    .tactile-card:hover {
+      transform: translateY(-2px);
+    }
+    .tactile-card:active {
+      transform: translateY(2px);
+    }
+    .tactile-btn {
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .tactile-btn:active {
+      transform: translateY(3px) !important;
+      box-shadow: 0 1px 0 0 rgba(0,0,0,0.2) !important;
+    }
+    /* Hide scrollbar while keeping horizontal swipe */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="bg-cream-100 text-slateInk font-sans antialiased min-h-screen flex flex-col selection:bg-teal-vibrant/20 selection:text-teal-deep">
+
+  <!-- ================= TOP SITE HEADER ================= -->
+  <header class="sticky top-0 z-50 bg-cream-50/95 backdrop-blur-md border-b-2 border-cream-300 shadow-[0_3px_0_0_#F0E0C5]">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-11 h-11 rounded-2xl bg-teal-vibrant flex items-center justify-center border-2 border-teal-dark shadow-[0_3px_0_0_#144F4B] group-hover:scale-105 transition-transform">
+          <!-- Geometric Kite Logo SVG -->
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L20 10L12 22L4 10L12 2Z" fill="#FFFDF9" stroke="#0F3D3E" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M12 2V22" stroke="#0F3D3E" stroke-width="1.75" stroke-linecap="round"/>
+            <path d="M4 10H20" stroke="#0F3D3E" stroke-width="1.75" stroke-linecap="round"/>
+            <circle cx="12" cy="10" r="2.5" fill="#FF5E3A"/>
+          </svg>
+        </div>
+        <span class="text-2xl font-black tracking-tight text-teal-deep">Lexkite</span>
+        <span class="hidden md:inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-teal-light text-teal-deep border border-teal-vibrant/30 ml-1">
+          IELTS Lab
+        </span>
+      </a>
+
+      <!-- Primary Nav Links -->
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="#" class="font-extrabold text-sm text-teal-deep border-b-2 border-teal-vibrant pb-1">Task 2 Library</a>
+        <a href="#" class="font-bold text-sm text-mutedTeal hover:text-teal-deep transition-colors">Task 1 Graphs</a>
+        <a href="#" class="font-bold text-sm text-mutedTeal hover:text-teal-deep transition-colors">Speaking Drills</a>
+        <a href="#" class="font-bold text-sm text-mutedTeal hover:text-teal-deep transition-colors">Vocab Hub</a>
+      </nav>
+
+      <!-- Action Bar -->
+      <div class="flex items-center gap-3">
+        <a href="#" class="hidden sm:inline-flex text-sm font-bold text-teal-deep px-4 py-2.5 rounded-xl hover:bg-cream-200 transition-colors">
+          Sign in
+        </a>
+        <a href="#" class="tactile-btn inline-flex items-center gap-2 px-5 py-2.5 rounded-2xl bg-coral font-black text-sm text-white border-2 border-coral-dark shadow-[0_4px_0_0_#CC4120] hover:bg-[#FF6B49]">
+          <span>Start free</span>
+          <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
+          </svg>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ================= MAIN CONTENT ================= -->
+  <main class="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 py-8 sm:py-12 space-y-12">
+
+    <!-- 1. SPOTLIGHT HERO WITH TEACHER SLOT -->
+    <section class="relative bg-gradient-to-b from-cream-50 to-cream-200 rounded-[32px] border-2 border-cream-300 p-6 sm:p-10 shadow-[0_6px_0_0_#E8D9C0] overflow-hidden">
+      <!-- Decorative background rings -->
+      <div class="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-teal-light/40 pointer-events-none blur-xl"></div>
+      <div class="absolute -bottom-20 -left-12 w-64 h-64 rounded-full bg-sunny-light/60 pointer-events-none blur-xl"></div>
+
+      <div class="relative grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
+        
+        <!-- Left: Copy & Glanceable Stats -->
+        <div class="lg:col-span-8 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border-2 border-teal-vibrant/30 shadow-[0_2px_0_0_#DCE9E5]">
+            <span class="w-2.5 h-2.5 rounded-full bg-teal-vibrant animate-pulse"></span>
+            <span class="text-xs font-black uppercase tracking-wider text-teal-deep">Academic & General Training</span>
+          </div>
+
+          <div class="space-y-3">
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-teal-deep tracking-tight leading-tight">
+              80 Model Essays with Band 8+ Vocabulary
+            </h1>
+            <p class="text-base sm:text-lg font-bold text-mutedTeal max-w-2xl leading-relaxed">
+              Curated exam samples written sentence-by-sentence with clear paragraph flow, ready to study and mimic.
+            </p>
+          </div>
+
+          <!-- Three Glanceable Chunky Stat Badges -->
+          <div class="grid grid-cols-3 gap-3 sm:gap-4 pt-2 max-w-xl">
+            <!-- Stat 1 -->
+            <div class="bg-white rounded-2xl p-3 sm:p-4 border-2 border-cream-300 shadow-[0_3px_0_0_#E8D9C0] flex items-center gap-3">
+              <div class="w-11 h-11 rounded-xl bg-teal-light border-2 border-teal-vibrant/40 flex items-center justify-center flex-shrink-0 text-teal-deep shadow-inner">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                </svg>
+              </div>
+              <div>
+                <div class="text-xl sm:text-2xl font-black text-teal-deep leading-none">80</div>
+                <div class="text-xs font-bold text-mutedTeal uppercase tracking-wider mt-0.5">Essays</div>
+              </div>
+            </div>
+
+            <!-- Stat 2 -->
+            <div class="bg-white rounded-2xl p-3 sm:p-4 border-2 border-cream-300 shadow-[0_3px_0_0_#E8D9C0] flex items-center gap-3">
+              <div class="w-11 h-11 rounded-xl bg-sunny-light border-2 border-sunny/50 flex items-center justify-center flex-shrink-0 text-sunny-dark shadow-inner">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/>
+                </svg>
+              </div>
+              <div>
+                <div class="text-xl sm:text-2xl font-black text-teal-deep leading-none">6</div>
+                <div class="text-xs font-bold text-mutedTeal uppercase tracking-wider mt-0.5">Types</div>
+              </div>
+            </div>
+
+            <!-- Stat 3 -->
+            <div class="bg-white rounded-2xl p-3 sm:p-4 border-2 border-cream-300 shadow-[0_3px_0_0_#E8D9C0] flex items-center gap-3">
+              <div class="w-11 h-11 rounded-xl bg-coral-light border-2 border-coral/40 flex items-center justify-center flex-shrink-0 text-coral shadow-inner">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+                </svg>
+              </div>
+              <div>
+                <div class="text-xl sm:text-2xl font-black text-teal-deep leading-none">8.5</div>
+                <div class="text-xs font-bold text-mutedTeal uppercase tracking-wider mt-0.5">Target</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Teacher Slot Standing on the Hero Floor -->
+        <div class="lg:col-span-4 flex flex-col items-center justify-end">
+          <div class="relative w-full max-w-[210px] flex flex-col items-center">
+            <!-- Plain empty rounded teacher slot box -->
+            <div class="teacher-slot w-44 h-56 rounded-3xl border-2 border-dashed border-teal-dark/30 bg-cream-50/70 backdrop-blur-sm shadow-inner flex items-center justify-center relative">
+              <!-- Subtle tactile icon hint inside without people or text -->
+              <svg class="w-10 h-10 text-teal-dark/20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+              </svg>
+            </div>
+            <!-- Physical floor shadow -->
+            <div class="w-48 h-3.5 bg-cream-300 rounded-full mt-2 shadow-[0_2px_4px_rgba(20,79,75,0.06)]"></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 2. BENTO MOSAIC: 6 QUESTION TYPES (ONE LARGER) -->
+    <section class="space-y-4">
+      <div class="flex items-center justify-between">
+        <div>
+          <h2 class="text-2xl font-black text-teal-deep tracking-tight">Question Types</h2>
+          <p class="text-xs font-bold text-mutedTeal uppercase tracking-wider mt-0.5">Tap to filter full syllabus</p>
+        </div>
+        <span class="text-xs font-bold text-teal-dark bg-teal-light px-3 py-1 rounded-full border border-teal-vibrant/20">
+          6 Core Formats
+        </span>
+      </div>
+
+      <!-- Bento Grid Layout -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+        
+        <!-- Tile 1: Agree / Disagree (FEATURED LARGER TILE - spans 2 cols on lg) -->
+        <a href="#" class="tactile-card group lg:col-span-2 bg-white rounded-3xl p-6 sm:p-7 border-2 border-[#1E6663] shadow-[0_5px_0_0_#144F4B] flex flex-col sm:flex-row sm:items-center justify-between gap-6 relative overflow-hidden bg-gradient-to-br from-white via-teal-mint/20 to-teal-light/30">
+          <div class="flex items-center gap-5">
+            <!-- Glossy Illustrated Badge -->
+            <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-teal-vibrant border-2 border-teal-dark shadow-[0_4px_0_0_#144F4B] flex items-center justify-center flex-shrink-0 text-white relative">
+              <div class="absolute inset-x-2 top-1.5 h-3 rounded-full bg-white/30"></div>
+              <!-- Balance Scale Icon -->
+              <svg class="w-9 h-9 sm:w-11 sm:h-11" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/>
+              </svg>
+            </div>
+            <div class="space-y-1.5">
+              <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-teal-deep text-white text-[11px] font-black uppercase tracking-wider">
+                Most Common (38%)
+              </div>
+              <h3 class="text-2xl sm:text-3xl font-black text-teal-deep group-hover:text-teal-dark transition-colors">
+                Agree or Disagree
+              </h3>
+              <p class="text-sm font-bold text-mutedTeal max-w-md">
+                Opinion balance, clear thesis statement, and supporting reasoning paragraphs.
+              </p>
+            </div>
+          </div>
+          <div class="flex items-center justify-between sm:flex-col sm:items-end gap-2 pt-2 sm:pt-0 border-t sm:border-t-0 border-cream-200">
+            <span class="text-2xl sm:text-3xl font-black text-teal-deep">28 essays</span>
+            <span class="inline-flex items-center gap-1 text-xs font-black text-teal-vibrant group-hover:translate-x-1 transition-transform">
+              Browse type →
+            </span>
+          </div>
+        </a>
+
+        <!-- Tile 2: Discussion -->
+        <a href="#" class="tactile-card group bg-white rounded-3xl p-6 border-2 border-[#D49826] shadow-[0_5px_0_0_#A87210] flex flex-col justify-between gap-5 relative overflow-hidden bg-gradient-to-br from-white via-sunny-light/20 to-sunny-light/40">
+          <div class="flex items-start justify-between">
+            <div class="w-14 h-14 rounded-2xl bg-sunny border-2 border-sunny-dark shadow-[0_3px_0_0_#A87210] flex items-center justify-center text-slateInk relative">
+              <div class="absolute inset-x-1.5 top-1 h-2 rounded-full bg-white/40"></div>
+              <!-- Speech Bubbles -->
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+              </svg>
+            </div>
+            <span class="px-2.5 py-1 rounded-xl bg-sunny-light border border-sunny-dark/30 text-xs font-black text-slateInk">
+              18 essays
+            </span>
+          </div>
+          <div>
+            <h3 class="text-xl font-black text-teal-deep group-hover:text-sunny-dark transition-colors">
+              Discuss Both Views
+            </h3>
+            <p class="text-xs font-bold text-mutedTeal mt-1">Both sides + give your opinion</p>
+          </div>
+        </a>
+
+        <!-- Tile 3: Problem–Solution -->
+        <a href="#" class="tactile-card group bg-white rounded-3xl p-6 border-2 border-coral-dark shadow-[0_5px_0_0_#A03318] flex flex-col justify-between gap-5 relative overflow-hidden bg-gradient-to-br from-white via-coral-light/20 to-coral-light/40">
+          <div class="flex items-start justify-between">
+            <div class="w-14 h-14 rounded-2xl bg-coral border-2 border-coral-dark shadow-[0_3px_0_0_#A03318] flex items-center justify-center text-white relative">
+              <div class="absolute inset-x-1.5 top-1 h-2 rounded-full bg-white/40"></div>
+              <!-- Lightbulb / Puzzle -->
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+              </svg>
+            </div>
+            <span class="px-2.5 py-1 rounded-xl bg-coral-light border border-coral-dark/30 text-xs font-black text-coral-dark">
+              12 essays
+            </span>
+          </div>
+          <div>
+            <h3 class="text-xl font-black text-teal-deep group-hover:text-coral transition-colors">
+              Problem & Solution
+            </h3>
+            <p class="text-xs font-bold text-mutedTeal mt-1">Causes, impacts & concrete remedies</p>
+          </div>
+        </a>
+
+        <!-- Tile 4: Advantages vs Disadvantages -->
+        <a href="#" class="tactile-card group bg-white rounded-3xl p-6 border-2 border-[#205C94] shadow-[0_5px_0_0_#143C61] flex flex-col justify-between gap-5 relative overflow-hidden bg-gradient-to-br from-white via-blue-50/50 to-blue-100/30">
+          <div class="flex items-start justify-between">
+            <div class="w-14 h-14 rounded-2xl bg-[#3B82F6] border-2 border-[#1E40AF] shadow-[0_3px_0_0_#1E40AF] flex items-center justify-center text-white relative">
+              <div class="absolute inset-x-1.5 top-1 h-2 rounded-full bg-white/40"></div>
+              <!-- Up/Down Arrows / Plus-Minus -->
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4"/>
+              </svg>
+            </div>
+            <span class="px-2.5 py-1 rounded-xl bg-blue-50 border border-blue-200 text-xs font-black text-blue-900">
+              10 essays
+            </span>
+          </div>
+          <div>
+            <h3 class="text-xl font-black text-teal-deep group-hover:text-blue-800 transition-colors">
+              Advantages & Disadvantages
+            </h3>
+            <p class="text-xs font-bold text-mutedTeal mt-1">Outweigh evaluations & trade-offs</p>
+          </div>
+        </a>
+
+        <!-- Tile 5: Positive / Negative Development -->
+        <a href="#" class="tactile-card group bg-white rounded-3xl p-6 border-2 border-[#187556] shadow-[0_5px_0_0_#0F4734] flex flex-col justify-between gap-5 relative overflow-hidden bg-gradient-to-br from-white via-emerald-50/50 to-emerald-100/30">
+          <div class="flex items-start justify-between">
+            <div class="w-14 h-14 rounded-2xl bg-[#10B981] border-2 border-[#047857] shadow-[0_3px_0_0_#047857] flex items-center justify-center text-white relative">
+              <div class="absolute inset-x-1.5 top-1 h-2 rounded-full bg-white/40"></div>
+              <!-- Trending Growth Sparkle -->
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+              </svg>
+            </div>
+            <span class="px-2.5 py-1 rounded-xl bg-emerald-50 border border-emerald-200 text-xs font-black text-emerald-900">
+              7 essays
+            </span>
+          </div>
+          <div>
+            <h3 class="text-xl font-black text-teal-deep group-hover:text-emerald-700 transition-colors">
+              Positive or Negative
+            </h3>
+            <p class="text-xs font-bold text-mutedTeal mt-1">Modern trends & societal shift analysis</p>
+          </div>
+        </a>
+
+        <!-- Tile 6: Two-Part Question -->
+        <a href="#" class="tactile-card group bg-white rounded-3xl p-6 border-2 border-[#763894] shadow-[0_5px_0_0_#4E2163] flex flex-col justify-between gap-5 relative overflow-hidden bg-gradient-to-br from-white via-purple-50/50 to-purple-100/30">
+          <div class="flex items-start justify-between">
+            <div class="w-14 h-14 rounded-2xl bg-[#9333EA] border-2 border-[#6B21A8] shadow-[0_3px_0_0_#6B21A8] flex items-center justify-center text-white relative">
+              <div class="absolute inset-x-1.5 top-1 h-2 rounded-full bg-white/40"></div>
+              <!-- Two Linked Questions -->
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+            </div>
+            <span class="px-2.5 py-1 rounded-xl bg-purple-50 border border-purple-200 text-xs font-black text-purple-900">
+              5 essays
+            </span>
+          </div>
+          <div>
+            <h3 class="text-xl font-black text-teal-deep group-hover:text-purple-700 transition-colors">
+              Two-Part Question
+            </h3>
+            <p class="text-xs font-bold text-mutedTeal mt-1">Direct answers to two separate prompts</p>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- 3. SLIM SEARCH FIELD & HORIZONTAL FILTER ROW -->
+    <section class="space-y-4 pt-2">
+      <!-- Search Input -->
+      <div class="relative w-full">
+        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-mutedTeal">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+          </svg>
+        </div>
+        <input 
+          type="text" 
+          placeholder="Search by topic, keyword, or prompt..." 
+          class="w-full pl-12 pr-28 py-3.5 rounded-2xl bg-white border-2 border-cream-300 text-sm font-bold text-slateInk placeholder:text-mutedTeal/60 focus:outline-none focus:border-teal-vibrant shadow-[0_3px_0_0_#E8D9C0]"
+        >
+        <div class="absolute inset-y-1.5 right-1.5 flex items-center">
+          <button class="px-3.5 py-2 rounded-xl bg-cream-200 hover:bg-cream-300 text-xs font-extrabold text-teal-deep border border-cream-300 transition-colors">
+            Clear
+          </button>
+        </div>
+      </div>
+
+      <!-- Horizontal Pill Filter Row with Soft Fade & Arrow -->
+      <div class="relative flex items-center">
+        <!-- Scrollable Pills Container -->
+        <div class="flex items-center gap-2.5 overflow-x-auto no-scrollbar py-1 pr-14 w-full">
+          <!-- Active Pill -->
+          <button class="tactile-btn flex-shrink-0 px-4 py-2 rounded-xl bg-teal-deep text-white font-extrabold text-xs border-2 border-teal-dark shadow-[0_3px_0_0_#0A2A2B]">
+            All Topics (80)
+          </button>
+          <!-- Inactive Pills with Room to Grow -->
+          <button class="tactile-btn flex-shrink-0 px-4 py-2 rounded-xl bg-white hover:bg-cream-50 text-slateInk font-extrabold text-xs border-2 border-cream-300 shadow-[0_3px_0_0_#E8D9C0]">
+            Education & Schools
+          </button>
+          <button class="tactile-btn flex-shrink-0 px-4 py-2 rounded-xl bg-white hover:bg-cream-50 text-slateInk font-extrabold text-xs border-2 border-cream-300 shadow-[0_3px_0_0_#E8D9C0]">
+            Environment & Climate
+          </button>
+          <button class="tactile-btn flex-shrink-0 px-4 py-2 rounded-xl bg-white hover:bg-cream-50 text-slateInk font-extrabold text-xs border-2 border-cream-300 shadow-[0_3px_0_0_#E8D9C0]">
+            Technology & AI
+          </button>
+          <button class="tactile-btn flex-shrink-0 px-4 py-2 rounded-xl bg-white hover:bg-cream-50 text-slateInk font-extrabold text-xs border-2 border-cream-300 shadow-[0_3px_0_0_#E8D9C0]">
+            Work & Careers
+          </button>
+          <button class="tactile-btn flex-shrink-0 px-4 py-2 rounded-xl bg-white hover:bg-cream-50 text-slateInk font-extrabold text-xs border-2 border-cream-300 shadow-[0_3px_0_0_#E8D9C0]">
+            Health & Society
+          </button>
+          <button class="tactile-btn flex-shrink-0 px-4 py-2 rounded-xl bg-white hover:bg-cream-50 text-slateInk font-extrabold text-xs border-2 border-cream-300 shadow-[0_3px_0_0_#E8D9C0]">
+            Government & Funding
+          </button>
+          <button class="tactile-btn flex-shrink-0 px-4 py-2 rounded-xl bg-white hover:bg-cream-50 text-slateInk font-extrabold text-xs border-2 border-cream-300 shadow-[0_3px_0_0_#E8D9C0]">
+            Media & Advertising
+          </button>
+        </div>
+
+        <!-- Soft Fade and Chevron Indicator at right edge -->
+        <div class="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-cream-100 via-cream-100/90 to-transparent pointer-events-none flex items-center justify-end"></div>
+        <button class="tactile-btn absolute right-0 z-10 w-9 h-9 rounded-full bg-white border-2 border-cream-300 shadow-[0_2px_0_0_#E8D9C0] flex items-center justify-center text-teal-deep hover:bg-cream-50" aria-label="Scroll more topics">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+          </svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- 4. ESSAYS GROUP: BIG FEATURED CARD FIRST + GLANCEABLE GRID -->
+    <section class="space-y-6">
+      
+      <!-- Section Header -->
+      <div class="flex items-center justify-between">
+        <div>
+          <h2 class="text-2xl font-black text-teal-deep tracking-tight">Featured Model Answers</h2>
+          <p class="text-xs font-bold text-mutedTeal uppercase tracking-wider mt-0.5">Scanned by topic & color</p>
+        </div>
+        <div class="flex items-center gap-1.5 text-xs font-bold text-teal-deep bg-white px-3 py-1.5 rounded-xl border border-cream-300 shadow-sm">
+          <span>Sort:</span>
+          <span class="font-extrabold text-teal-vibrant">Highest Rated</span>
+        </div>
+      </div>
+
+      <!-- Essay Cards Layout -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        
+        <!-- CARD 1: BIG FEATURED CARD SPANNING 2 COLS ON LG -->
+        <article class="tactile-card lg:col-span-2 bg-white rounded-3xl p-6 sm:p-8 border-2 border-teal-dark shadow-[0_6px_0_0_#144F4B] flex flex-col justify-between gap-6 relative overflow-hidden group hover:border-teal-vibrant">
+          <!-- Ambient card backdrop -->
+          <div class="absolute top-0 right-0 w-72 h-72 bg-teal-light/20 rounded-full blur-2xl pointer-events-none"></div>
+
+          <div class="relative space-y-4">
+            <!-- Header Row: Illustrated Badge + Band Ring + Action -->
+            <div class="flex items-center justify-between gap-4">
+              <div class="flex items-center gap-3.5">
+                <!-- Coloured Illustrated Topic Badge: Education -->
+                <div class="w-14 h-14 rounded-2xl bg-teal-light border-2 border-teal-vibrant/50 shadow-[0_3px_0_0_#B8E0DC] flex items-center justify-center text-teal-deep flex-shrink-0">
+                  <!-- Graduation Cap -->
+                  <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
+                  </svg>
+                </div>
+                <div>
+                  <span class="inline-block px-2.5 py-0.5 rounded-lg bg-teal-mint border border-teal-vibrant/30 text-[11px] font-black uppercase tracking-wider text-teal-dark">
+                    Featured Model
+                  </span>
+                  <div class="text-xs font-bold text-mutedTeal mt-0.5">Education Policy</div>
+                </div>
+              </div>
+
+              <!-- Band 8.5 Ring Stamp -->
+              <div class="flex items-center gap-2 bg-cream-100 px-3 py-1.5 rounded-2xl border-2 border-cream-300">
+                <div class="w-7 h-7 rounded-full bg-teal-vibrant text-white text-xs font-black flex items-center justify-center shadow-inner">
+                  8.5
+                </div>
+                <span class="text-xs font-black text-teal-deep hidden sm:inline">Band Score</span>
+              </div>
+            </div>
+
+            <!-- Big 2-4 Word Headline -->
+            <h3 class="text-2xl sm:text-3xl font-black text-teal-deep group-hover:text-teal-vibrant transition-colors leading-snug">
+              Free University Education
+            </h3>
+
+            <!-- One quiet line of the exam question -->
+            <p class="text-sm font-semibold text-mutedTeal leading-relaxed line-clamp-2">
+              Some people believe higher education should be completely funded by the state, while others argue students must contribute fees.
+            </p>
+          </div>
+
+          <!-- Bottom Marks & CTA -->
+          <div class="relative pt-4 border-t-2 border-cream-200 flex flex-wrap items-center justify-between gap-4">
+            <!-- Glanceable marks: length, phrases, reading time -->
+            <div class="flex items-center gap-4 text-xs font-bold text-mutedTeal">
+              <span class="inline-flex items-center gap-1.5">
+                <svg class="w-4 h-4 text-teal-vibrant" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"/>
+                </svg>
+                <strong class="text-slateInk">284</strong> words
+              </span>
+              <span class="inline-flex items-center gap-1.5">
+                <svg class="w-4 h-4 text-sunny" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+                </svg>
+                <strong class="text-slateInk">14</strong> phrases
+              </span>
+              <span class="inline-flex items-center gap-1.5">
+                <svg class="w-4 h-4 text-coral" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <strong class="text-slateInk">3 min</strong> read
+              </span>
+            </div>
+
+            <!-- Read Button -->
+            <span class="tactile-btn inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-teal-deep text-white font-extrabold text-xs border border-teal-dark shadow-[0_2px_0_0_#0A2A2B] group-hover:bg-teal-dark">
+              <span>Read Model Essay</span>
+              <svg class="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+              </svg>
+            </span>
+          </div>
+        </article>
+
+        <!-- CARD 2: Artificial Intelligence Workplace -->
+        <article class="tactile-card bg-white rounded-3xl p-6 border-2 border-cream-300 shadow-[0_5px_0_0_#E8D9C0] flex flex-col justify-between gap-5 group hover:border-[#1E6663]">
+          <div class="space-y-3.5">
+            <div class="flex items-center justify-between">
+              <!-- Illustrated Topic Badge: Technology -->
+              <div class="w-12 h-12 rounded-2xl bg-sunny-light border-2 border-sunny/60 shadow-[0_2px_0_0_#D8AF4E] flex items-center justify-center text-sunny-dark flex-shrink-0">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+              </div>
+              <!-- Band Ring -->
+              <div class="w-7 h-7 rounded-full bg-teal-vibrant text-white text-xs font-black flex items-center justify-center shadow-inner">
+                8.0
+              </div>
+            </div>
+
+            <!-- 2-4 Word Topic Headline -->
+            <h3 class="text-xl font-black text-teal-deep group-hover:text-teal-vibrant transition-colors leading-snug">
+              AI in the Workplace
+            </h3>
+            <p class="text-xs font-semibold text-mutedTeal leading-relaxed line-clamp-2">
+              Whether autonomous automation creates more unemployment than opportunities for future generations.
+            </p>
+          </div>
+
+          <!-- Bottom Marks -->
+          <div class="pt-3 border-t border-cream-200 flex items-center justify-between text-xs font-bold text-mutedTeal">
+            <span class="inline-flex items-center gap-1">
+              <strong class="text-slateInk">265</strong> w
+            </span>
+            <span class="inline-flex items-center gap-1">
+              <strong class="text-slateInk">11</strong> collocations
+            </span>
+            <span class="inline-flex items-center gap-1 text-teal-vibrant font-extrabold group-hover:translate-x-0.5 transition-transform">
+              View →
+            </span>
+          </div>
+        </article>
+
+        <!-- CARD 3: Plastic Packaging Bans -->
+        <article class="tactile-card bg-white rounded-3xl p-6 border-2 border-cream-300 shadow-[0_5px_0_0_#E8D9C0] flex flex-col justify-between gap-5 group hover:border-[#1E6663]">
+          <div class="space-y-3.5">
+            <div class="flex items-center justify-between">
+              <!-- Illustrated Topic Badge: Environment -->
+              <div class="w-12 h-12 rounded-2xl bg-emerald-50 border-2 border-emerald-300 shadow-[0_2px_0_0_#A8D5C5] flex items-center justify-center text-emerald-700 flex-shrink-0">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <!-- Band Ring -->
+              <div class="w-7 h-7 rounded-full bg-teal-vibrant text-white text-xs font-black flex items-center justify-center shadow-inner">
+                8.5
+              </div>
+            </div>
+
+            <!-- 2-4 Word Topic Headline -->
+            <h3 class="text-xl font-black text-teal-deep group-hover:text-teal-vibrant transition-colors leading-snug">
+              Banning Plastic Packaging
+            </h3>
+            <p class="text-xs font-semibold text-mutedTeal leading-relaxed line-clamp-2">
+              Should consumer packaging be outlawed by law or replaced voluntarily by corporate green initiatives?
+            </p>
+          </div>
+
+          <!-- Bottom Marks -->
+          <div class="pt-3 border-t border-cream-200 flex items-center justify-between text-xs font-bold text-mutedTeal">
+            <span class="inline-flex items-center gap-1">
+              <strong class="text-slateInk">290</strong> w
+            </span>
+            <span class="inline-flex items-center gap-1">
+              <strong class="text-slateInk">15</strong> collocations
+            </span>
+            <span class="inline-flex items-center gap-1 text-teal-vibrant font-extrabold group-hover:translate-x-0.5 transition-transform">
+              View →
+            </span>
+          </div>
+        </article>
+
+        <!-- CARD 4: Remote Work Lifestyle -->
+        <article class="tactile-card bg-white rounded-3xl p-6 border-2 border-cream-300 shadow-[0_5px_0_0_#E8D9C0] flex flex-col justify-between gap-5 group hover:border-[#1E6663]">
+          <div class="space-y-3.5">
+            <div class="flex items-center justify-between">
+              <!-- Illustrated Topic Badge: Work & Lifestyle -->
+              <div class="w-12 h-12 rounded-2xl bg-coral-light border-2 border-coral/40 shadow-[0_2px_0_0_#F0C4B8] flex items-center justify-center text-coral flex-shrink-0">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+              </div>
+              <!-- Band Ring -->
+              <div class="w-7 h-7 rounded-full bg-teal-vibrant text-white text-xs font-black flex items-center justify-center shadow-inner">
+                8.0
+              </div>
+            </div>
+
+            <!-- 2-4 Word Topic Headline -->
+            <h3 class="text-xl font-black text-teal-deep group-hover:text-teal-vibrant transition-colors leading-snug">
+              Remote Work Revolution
+            </h3>
+            <p class="text-xs font-semibold text-mutedTeal leading-relaxed line-clamp-2">
+              Examining social isolation versus productivity gains when home working becomes the standard.
+            </p>
+          </div>
+
+          <!-- Bottom Marks -->
+          <div class="pt-3 border-t border-cream-200 flex items-center justify-between text-xs font-bold text-mutedTeal">
+            <span class="inline-flex items-center gap-1">
+              <strong class="text-slateInk">272</strong> w
+            </span>
+            <span class="inline-flex items-center gap-1">
+              <strong class="text-slateInk">12</strong> collocations
+            </span>
+            <span class="inline-flex items-center gap-1 text-teal-vibrant font-extrabold group-hover:translate-x-0.5 transition-transform">
+              View →
+            </span>
+          </div>
+        </article>
+
+        <!-- CARD 5: Public Healthcare Funding -->
+        <article class="tactile-card bg-white rounded-3xl p-6 border-2 border-cream-300 shadow-[0_5px_0_0_#E8D9C0] flex flex-col justify-between gap-5 group hover:border-[#1E6663]">
+          <div class="space-y-3.5">
+            <div class="flex items-center justify-between">
+              <!-- Illustrated Topic Badge: Health -->
+              <div class="w-12 h-12 rounded-2xl bg-blue-50 border-2 border-blue-200 shadow-[0_2px_0_0_#B8D5E8] flex items-center justify-center text-blue-800 flex-shrink-0">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                </svg>
+              </div>
+              <!-- Band Ring -->
+              <div class="w-7 h-7 rounded-full bg-teal-vibrant text-white text-xs font-black flex items-center justify-center shadow-inner">
+                9.0
+              </div>
+            </div>
+
+            <!-- 2-4 Word Topic Headline -->
+            <h3 class="text-xl font-black text-teal-deep group-hover:text-teal-vibrant transition-colors leading-snug">
+              Universal Health Coverage
+            </h3>
+            <p class="text-xs font-semibold text-mutedTeal leading-relaxed line-clamp-2">
+              Whether prevention budgets or high-tech emergency treatment should take fiscal priority.
+            </p>
+          </div>
+
+          <!-- Bottom Marks -->
+          <div class="pt-3 border-t border-cream-200 flex items-center justify-between text-xs font-bold text-mutedTeal">
+            <span class="inline-flex items-center gap-1">
+              <strong class="text-slateInk">310</strong> w
+            </span>
+            <span class="inline-flex items-center gap-1">
+              <strong class="text-slateInk">18</strong> collocations
+            </span>
+            <span class="inline-flex items-center gap-1 text-teal-vibrant font-extrabold group-hover:translate-x-0.5 transition-transform">
+              View →
+            </span>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Load More / Full Index Trigger -->
+      <div class="pt-4 flex justify-center">
+        <button class="tactile-btn inline-flex items-center gap-2.5 px-6 py-3.5 rounded-2xl bg-white border-2 border-cream-300 font-extrabold text-sm text-teal-deep shadow-[0_4px_0_0_#E8D9C0] hover:bg-cream-50">
+          <span>Show next 12 essays</span>
+          <span class="w-2 h-2 rounded-full bg-teal-vibrant"></span>
+          <span class="text-xs font-bold text-mutedTeal">75 remaining</span>
+        </button>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ================= FRIENDLY SITE FOOTER ================= -->
+  <footer class="bg-cream-200/80 border-t-2 border-cream-300 mt-16 py-12">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 space-y-8">
+      
+      <!-- Top footer row -->
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-teal-vibrant flex items-center justify-center border-2 border-teal-dark shadow-[0_2px_0_0_#144F4B]">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2L20 10L12 22L4 10L12 2Z" fill="#FFFDF9" stroke="#0F3D3E" stroke-width="2"/>
+            </svg>
+          </div>
+          <div>
+            <span class="font-black text-xl text-teal-deep">Lexkite</span>
+            <p class="text-xs font-bold text-mutedTeal">Playful exam mastery for ambitious learners</p>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-center gap-6 text-xs font-extrabold text-mutedTeal">
+          <a href="#" class="hover:text-teal-deep transition-colors">Task 2 Rubrics</a>
+          <a href="#" class="hover:text-teal-deep transition-colors">Cohesion Connectors</a>
+          <a href="#" class="hover:text-teal-deep transition-colors">Lexical Sets</a>
+          <a href="#" class="hover:text-teal-deep transition-colors">Privacy</a>
+          <a href="#" class="hover:text-teal-deep transition-colors">Feedback</a>
+        </div>
+      </div>
+
+      <!-- Bottom copyright note -->
+      <div class="pt-6 border-t border-cream-300/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-semibold text-mutedTeal/80">
+        <p>© 2025 Lexkite Education. 100% Free IELTS Preparation.</p>
+        <p class="flex items-center gap-1.5">
+          <span>Built with tactile precision</span>
+          <span class="text-coral">♥</span>
+          <span>for Band 8+ dreamers</span>
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+
+<html lang="ru"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Lexkite — Сегодня</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-error-container": "#93000a",
+            "on-surface": "#1f1b16",
+            "inverse-on-surface": "#f9efe6",
+            "secondary-fixed-dim": "#ffb86c",
+            "on-secondary": "#ffffff",
+            "secondary-container": "#fe9d19",
+            "error-container": "#ffdad6",
+            "on-primary": "#ffffff",
+            "primary": "#00514d",
+            "tertiary-fixed-dim": "#ffb4a8",
+            "on-tertiary": "#ffffff",
+            "on-primary-fixed": "#00201e",
+            "surface-tint": "#106a65",
+            "surface-container": "#f6ece4",
+            "tertiary-fixed": "#ffdad4",
+            "primary-fixed-dim": "#88d4cd",
+            "surface-variant": "#eae1d8",
+            "secondary-fixed": "#ffdcbc",
+            "inverse-surface": "#34302a",
+            "on-tertiary-fixed": "#410000",
+            "surface-bright": "#fff8f3",
+            "primary-container": "#136b66",
+            "surface-container-lowest": "#ffffff",
+            "on-primary-fixed-variant": "#00504c",
+            "background": "#fff8f3",
+            "surface": "#fff8f3",
+            "on-error": "#ffffff",
+            "secondary": "#895100",
+            "on-surface-variant": "#3f4947",
+            "on-secondary-fixed": "#2c1600",
+            "on-tertiary-container": "#ffd0c9",
+            "on-tertiary-fixed-variant": "#8c170e",
+            "tertiary": "#8e190f",
+            "on-background": "#1f1b16",
+            "inverse-primary": "#88d4cd",
+            "surface-container-highest": "#eae1d8",
+            "primary-fixed": "#a4f0e9",
+            "outline": "#6f7978",
+            "on-primary-container": "#9ce9e2",
+            "surface-container-high": "#f0e7de",
+            "on-secondary-container": "#663b00",
+            "tertiary-container": "#b03224",
+            "outline-variant": "#bec9c7",
+            "surface-dim": "#e2d8d0",
+            "surface-container-low": "#fcf2e9",
+            "on-secondary-fixed-variant": "#683c00",
+            "error": "#ba1a1a"
+          },
+          borderRadius: {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "space-lg": "1.5rem",
+            "gutter-desktop": "1.5rem",
+            "margin-desktop": "2.5rem",
+            "gutter": "1rem",
+            "space-sm": "0.5rem",
+            "margin-tablet": "1.5rem",
+            "space-xs": "0.25rem",
+            "space-xl": "2rem",
+            "space-md": "1rem",
+            "margin": "1rem"
+          },
+          fontFamily: {
+            "body-sm": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-xl-mobile": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "headline-xl": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"]
+          },
+          fontSize: {
+            "body-sm": ["14px", { lineHeight: "20px", fontWeight: "500" }],
+            "body-md": ["16px", { lineHeight: "24px", fontWeight: "500" }],
+            "headline-xl-mobile": ["30px", { lineHeight: "38px", fontWeight: "800" }],
+            "headline-sm": ["18px", { lineHeight: "24px", fontWeight: "700" }],
+            "headline-md": ["22px", { lineHeight: "28px", fontWeight: "700" }],
+            "label-sm": ["12px", { lineHeight: "16px", letterSpacing: "0.6px", fontWeight: "800" }],
+            "label-md": ["14px", { lineHeight: "18px", letterSpacing: "0.4px", fontWeight: "700" }],
+            "headline-lg-mobile": ["24px", { lineHeight: "32px", fontWeight: "800" }],
+            "headline-lg": ["32px", { lineHeight: "40px", fontWeight: "800" }],
+            "headline-xl": ["40px", { lineHeight: "48px", fontWeight: "800" }],
+            "body-lg": ["18px", { lineHeight: "26px", fontWeight: "500" }],
+            "label-lg": ["16px", { lineHeight: "20px", letterSpacing: "0.2px", fontWeight: "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    
+    /* Tactile 3D Extrusion Styles */
+    .tactile-btn-amber {
+      background-color: #fe9d19;
+      color: #1f1b16;
+      box-shadow: 0 4px 0 0 #b45309;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .tactile-btn-amber:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 0 #b45309;
+    }
+
+    .tactile-node-teal {
+      background-color: #136b66;
+      box-shadow: 0 5px 0 0 #0c4542;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .tactile-node-teal:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 0 #0c4542;
+    }
+
+    .tactile-node-active {
+      background-color: #fe9d19;
+      box-shadow: 0 6px 0 0 #b45309;
+      animation: pulse-ring 2.4s infinite cubic-bezier(0.4, 0, 0.6, 1);
+    }
+    .tactile-node-active:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 0 #b45309;
+    }
+
+    .tactile-node-coral {
+      background-color: #ff6b57;
+      box-shadow: 0 5px 0 0 #d94834;
+    }
+    .tactile-node-coral:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 0 #d94834;
+    }
+
+    .tactile-node-cyan {
+      background-color: #0284c7;
+      box-shadow: 0 5px 0 0 #0369a1;
+    }
+    .tactile-node-cyan:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 0 #0369a1;
+    }
+
+    .tactile-node-indigo {
+      background-color: #4f46e5;
+      box-shadow: 0 5px 0 0 #3730a3;
+    }
+    .tactile-node-indigo:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 0 #3730a3;
+    }
+
+    .tactile-node-locked {
+      background-color: #eae1d8;
+      box-shadow: 0 4px 0 0 #d4c7b3;
+    }
+
+    @keyframes pulse-ring {
+      0%, 100% {
+        outline: 4px solid rgba(254, 157, 25, 0.5);
+        outline-offset: 3px;
+      }
+      50% {
+        outline: 7px solid rgba(254, 157, 25, 0.15);
+        outline-offset: 6px;
+      }
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface antialiased selection:bg-secondary-fixed selection:text-on-secondary-fixed min-h-screen flex justify-center">
+<!-- Mobile Portrait Container (390px native viewport) -->
+<div class="w-full max-w-[390px] min-h-screen bg-surface flex flex-col relative pb-28 select-none">
+<!-- TOP APP BAR -->
+<header class="sticky top-0 z-40 bg-surface/95 backdrop-blur-md px-4 pt-3 pb-2.5 border-b-2 border-surface-variant flex flex-col gap-2">
+<!-- Main Brand & Counter Row -->
+<div class="flex items-center justify-between">
+<!-- Brand Mark (Kite + Lexkite) -->
+<div class="flex items-center gap-1.5 cursor-pointer active:scale-95 transition-transform">
+<button aria-label="Выбрать язык" class="flex items-center justify-center w-8 h-8 min-w-[44px] min-h-[44px] rounded-full bg-surface-container border-2 border-surface-variant shadow-[0_2px_0_0_#eae1d8] text-label-sm font-label-sm text-[#2E2218] font-bold cursor-pointer active:scale-95 transition-transform">RU</button>
+<span class="text-headline-sm font-headline-sm text-primary tracking-tight">Lexkite</span>
+</div>
+<!-- Metric Badges Row -->
+<div class="flex items-center gap-1.5">
+<!-- Streak Pill -->
+<div class="flex items-center gap-1 bg-surface-container px-2.5 py-1 rounded-full border-2 border-surface-variant shadow-[0_2px_0_0_#eae1d8]">
+<span class="material-symbols-outlined text-secondary text-[18px]" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="text-label-sm font-label-sm text-on-surface">14 дней</span>
+</div>
+<!-- XP Pill -->
+<div class="flex items-center gap-1 bg-surface-container px-2.5 py-1 rounded-full border-2 border-surface-variant shadow-[0_2px_0_0_#eae1d8]">
+<span class="material-symbols-outlined text-primary text-[17px]" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<span class="text-label-sm font-label-sm text-primary font-extrabold">420 XP</span>
+</div>
+<!-- Lang Switcher -->
+<button aria-label="Выбрать язык" class="flex items-center justify-center w-8 h-8 min-w-[44px] min-h-[44px] rounded-full bg-surface-container border-2 border-surface-variant shadow-[0_2px_0_0_#eae1d8] text-label-sm font-label-sm text-[#2E2218] font-bold cursor-pointer active:scale-95 transition-transform">RU</button>
+</div>
+</div>
+<!-- IELTS Goal Bar -->
+<div class="flex items-center justify-between px-3 py-1.5 bg-primary-fixed/40 rounded-xl border border-primary/20">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[16px]" style="font-variation-settings: 'FILL' 1;">flag</span>
+<span class="text-label-sm font-label-sm text-on-primary-fixed">Цель: IELTS 7.0 • 15 мин/день</span>
+</div>
+<span class="text-label-sm font-label-sm text-primary font-bold">Уровень B2</span>
+</div>
+</header>
+<!-- CONTENT WRAPPER -->
+<main class="flex-1 px-4 pt-3 flex flex-col items-center relative">
+<!-- TEACHER SLOT BANNER (Strictly empty dashed rounded placeholder + speech bubble) -->
+<section class="w-full mb-6 flex items-start gap-3 bg-surface-container-low p-3.5 rounded-2xl border-2 border-surface-variant shadow-[0_3px_0_0_#e2d8d0]">
+<!-- Empty dashed teacher slot (No drawn person or avatar) -->
+<div class="teacher-slot w-14 h-14 shrink-0 rounded-2xl border-2 border-dashed border-primary/50 bg-primary-fixed/20 flex flex-col items-center justify-center gap-0.5">
+<span class="material-symbols-outlined text-primary text-[22px]" style="font-variation-settings: 'FILL' 1;">school</span>
+<span class="text-[9px] font-bold text-primary tracking-tighter uppercase leading-none">teacher</span>
+</div>
+<!-- Speech Bubble (Optimized for Russian length) -->
+<div class="flex-1 flex flex-col justify-center">
+<div class="flex items-center gap-1 mb-0.5">
+<span class="text-label-sm font-label-sm text-primary font-extrabold">Наставник Lexkite</span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-container"></span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface leading-tight">
+            «С возвращением! Пройди 3 шага, чтобы закрепить грамматику и лексику дня.»
+          </p>
+</div>
+</section>
+<!-- UNIT HEADER BANNER -->
+<div class="w-full mb-5 flex items-center justify-between bg-primary text-white px-4 py-2.5 rounded-2xl shadow-[0_4px_0_0_#00201e]">
+<div>
+<span class="text-label-sm font-label-sm text-primary-fixed uppercase tracking-wider block">Юнит 1 • Основы речи</span>
+<h2 class="text-headline-sm font-headline-sm leading-tight text-white">Стратегии живого диалога</h2>
+</div>
+<div class="w-9 h-9 rounded-xl bg-white/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-[20px]" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+</div>
+</div>
+<!-- INTERACTIVE LESSON PATH MAP CANVAS -->
+<!-- A winding vertical layout using a decorative SVG tactile track with 72px buttons -->
+<div class="relative w-full flex flex-col items-center pt-2 pb-10">
+<!-- Background Connecting Winding Dotted/Dashed Line -->
+<svg class="absolute top-10 left-0 w-full h-[880px] pointer-events-none z-0" fill="none" viewbox="0 0 358 880">
+<!-- Stepping stone path -->
+<path d="M 179 40 
+                   C 179 90, 95 110, 95 170 
+                   C 95 230, 260 250, 260 310
+                   C 260 370, 110 390, 110 450
+                   C 110 510, 250 530, 250 590
+                   C 250 650, 130 670, 130 730
+                   C 130 790, 220 810, 179 860" stroke="#EAE1D8" stroke-linecap="round" stroke-width="12"></path>
+<path d="M 179 40 
+                   C 179 90, 95 110, 95 170 
+                   C 95 230, 260 250, 260 310
+                   C 260 370, 110 390, 110 450
+                   C 110 510, 250 530, 250 590
+                   C 250 650, 130 670, 130 730
+                   C 130 790, 220 810, 179 860" stroke="#136B66" stroke-dasharray="8 8" stroke-linecap="round" stroke-width="4"></path>
+</svg>
+<!-- NODE 1: ЗАВЕРШЕНО (Center-aligned) -->
+<div class="relative z-10 flex flex-col items-center mb-10 w-full">
+<div class="relative flex flex-col items-center">
+<!-- 72x72 Circular Node Button -->
+<button class="tactile-node-teal w-[72px] h-[72px] rounded-full border-2 border-[#0C4542] flex items-center justify-center text-white cursor-pointer group">
+<span class="material-symbols-outlined text-[36px]" style="font-variation-settings: 'FILL' 1;">check</span>
+</button>
+<!-- Badge Stars -->
+<div class="absolute -bottom-2 bg-surface-container-lowest px-2 py-0.5 rounded-full border-2 border-primary-container shadow-[0_2px_0_0_#136b66] flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[13px] text-secondary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[13px] text-secondary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[13px] text-secondary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<!-- Label wraps cleanly to 2 lines -->
+<div class="mt-3.5 text-center px-2">
+<span class="text-label-md font-label-md text-on-surface block leading-tight">Основы диалога</span>
+<span class="text-body-sm font-body-sm text-[#453628] block text-xs font-semibold">(Знакомство)</span>
+</div>
+</div>
+<!-- NODE 2: ЗАВЕРШЕНО (Shifted Left) -->
+<div class="relative z-10 flex flex-col items-start w-full pl-12 mb-10">
+<div class="flex flex-col items-center w-28">
+<div class="relative flex flex-col items-center">
+<button class="tactile-node-teal w-[72px] h-[72px] rounded-full border-2 border-[#0C4542] flex items-center justify-center text-white cursor-pointer">
+<span class="material-symbols-outlined text-[32px]">menu_book</span>
+</button>
+<div class="absolute -bottom-2 bg-surface-container-lowest px-2 py-0.5 rounded-full border-2 border-primary-container shadow-[0_2px_0_0_#136b66] flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[13px] text-secondary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[13px] text-secondary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[13px] text-outline-variant" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<!-- Label 2 lines -->
+<div class="mt-3 text-center w-full">
+<span class="text-label-md font-label-md text-on-surface block leading-tight">Лексика: Работа</span>
+<span class="text-body-sm font-body-sm text-[#453628] block text-xs font-semibold">и карьера</span>
+</div>
+</div>
+</div>
+<!-- NODE 3: ТЕКУЩИЙ УРОК (ACTIVE) (Shifted Right) -->
+<div class="relative z-10 flex flex-col items-end w-full pr-10 mb-10">
+<div class="flex flex-col items-center w-36">
+<!-- Floating Pill Anchor -->
+<div class="mb-1.5 bg-[#1F1B16] text-white px-3 py-1 rounded-full text-label-sm font-label-sm shadow-[0_3px_0_0_#000000] flex items-center gap-1 animate-bounce">
+<span>НАЧАТЬ</span>
+<span class="material-symbols-outlined text-[14px]">arrow_downward</span>
+</div>
+<!-- 72x72 Active Tactile Amber Node -->
+<button class="tactile-node-active w-[72px] h-[72px] rounded-full border-2 border-[#B45309] flex items-center justify-center text-[#1F1B16] cursor-pointer">
+<span class="material-symbols-outlined text-[40px]" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+<!-- Label 2 lines -->
+<div class="mt-3 text-center w-full">
+<span class="text-label-md font-label-md text-secondary block font-extrabold leading-tight">Грамматика: Present</span>
+<span class="text-body-sm font-body-sm text-[#1F1B16] block font-bold text-xs">Perfect vs Past Simple</span>
+</div>
+</div>
+</div>
+<!-- SPECIAL NODE 1: РАБОТА НАД ОШИБКАМИ (Review - Shifted Left) -->
+<div class="relative z-10 flex flex-col items-start w-full pl-14 mb-10">
+<div class="flex flex-col items-center w-32">
+<div class="relative flex flex-col items-center">
+<!-- Tactile Coral Button -->
+<button class="tactile-node-coral w-[72px] h-[72px] rounded-full border-2 border-[#D94834] flex items-center justify-center text-white cursor-pointer">
+<span class="material-symbols-outlined text-[34px]">auto_fix_high</span>
+</button>
+<!-- Tactile Badge -->
+<div class="absolute -top-2 bg-[#991B1B] text-white px-2.5 py-0.5 rounded-full text-[11px] font-extrabold tracking-tight border border-white shadow-[0_2px_0_0_#450A0A]">Повтор</div>
+</div>
+<!-- Label 2 lines -->
+<div class="mt-3 text-center w-full">
+<span class="text-label-md font-label-md text-tertiary block font-bold leading-tight">Работа над</span>
+<span class="text-body-sm font-body-sm text-[#453628] block text-xs font-semibold">ошибками (4)</span>
+</div>
+</div>
+</div>
+<!-- SPECIAL NODE 2: ИСТОРИЯ (Cyan Story lesson - Shifted Right) -->
+<div class="relative z-10 flex flex-col items-end w-full pr-12 mb-10">
+<div class="flex flex-col items-center w-32">
+<!-- 72x72 Cyan Node -->
+<button class="tactile-node-cyan w-[72px] h-[72px] rounded-full border-2 border-[#0369A1] flex items-center justify-center text-white cursor-pointer">
+<span class="material-symbols-outlined text-[32px]">auto_stories</span>
+</button>
+<!-- Label 2 lines -->
+<div class="mt-3 text-center w-full">
+<span class="text-label-md font-label-md text-on-surface block leading-tight">История:</span>
+<span class="text-body-sm font-body-sm text-[#453628] block text-xs font-semibold">В аэропорту</span>
+</div>
+</div>
+</div>
+<!-- NODE 4: ЗАБЛОКИРОВАНО (Collocations - Shifted Left) -->
+<div class="relative z-10 flex flex-col items-start w-full pl-14 mb-10">
+<div class="flex flex-col items-center w-32">
+<!-- Locked Node (slate-cream, 3:1 contrast preserved) -->
+<button class="tactile-node-locked w-[72px] h-[72px] rounded-full border-2 border-[#BEC9C7] flex items-center justify-center text-[#6F7978] cursor-not-allowed">
+<span class="material-symbols-outlined text-[30px]" style="font-variation-settings: 'FILL' 1;">lock</span>
+</button>
+<!-- Label 2 lines -->
+<div class="mt-3 text-center w-full">
+<span class="text-label-md font-label-md text-[#2E2218] block leading-tight font-bold">Коллокации:</span>
+<span class="text-body-sm font-body-sm text-[#453628] block text-xs font-semibold">ошибками (4)</span>
+</div>
+</div>
+</div>
+<!-- SPECIAL NODE 3: RADIO / СПРИНТ (Indigo - Shifted Right) -->
+<div class="relative z-10 flex flex-col items-end w-full pr-14 mb-10">
+<div class="flex flex-col items-center w-32">
+<!-- 72x72 Indigo Node -->
+<button class="tactile-node-indigo w-[72px] h-[72px] rounded-full border-2 border-[#3730A3] flex items-center justify-center text-white cursor-pointer">
+<span class="material-symbols-outlined text-[32px]">podcasts</span>
+</button>
+<!-- Label 2 lines -->
+<div class="mt-3 text-center w-full">
+<span class="text-label-md font-label-md text-on-surface block leading-tight">Radio:</span>
+<span class="text-body-sm font-body-sm text-[#453628] block text-xs font-semibold">Аудио-спринт</span>
+</div>
+</div>
+</div>
+<!-- NODE 5: РУБЕЖНЫЙ ТЕСТ (Locked Flag Trophy - Center) -->
+<div class="relative z-10 flex flex-col items-center w-full mb-6">
+<div class="flex flex-col items-center w-36">
+<div class="relative flex flex-col items-center">
+<button class="tactile-node-locked w-[72px] h-[72px] rounded-full border-2 border-[#BEC9C7] flex items-center justify-center text-[#6F7978] cursor-not-allowed">
+<span class="material-symbols-outlined text-[34px]">emoji_events</span>
+</button>
+<div class="absolute -bottom-2 bg-surface-variant text-[#2E2218] px-2.5 py-0.5 rounded-full text-[10px] font-bold border border-[#BEC9C7]">Тест</div>
+</div>
+<!-- Label 2 lines -->
+<div class="mt-3.5 text-center w-full"><span class="text-label-md font-label-md text-[#2E2218] block leading-tight font-bold">Рубежный тест</span><span class="text-body-sm font-body-sm text-[#453628] block text-xs font-semibold">Юнита 1</span></div>
+</div>
+</div>
+</div>
+</main>
+<!-- FLOATING / PINNED QUICK CTA BAR -->
+<!-- Positioned above the BottomNavBar with tactile high-contrast button -->
+<div class="fixed bottom-16 left-0 right-0 z-40 max-w-[390px] mx-auto px-4 pb-2 pt-1 pointer-events-none">
+<div class="pointer-events-auto bg-surface-container-lowest/95 backdrop-blur-md p-2.5 rounded-2xl border-2 border-surface-variant shadow-[0_4px_12px_rgba(31,27,22,0.08)] flex items-center justify-between gap-3">
+<div class="flex flex-col pl-1 min-w-0">
+<span class="text-label-sm font-label-sm text-primary font-bold flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-secondary-container"></span>
+            Шаг 3 из 5
+          </span>
+<span class="text-body-sm font-body-sm text-on-surface truncate font-semibold">Present Perfect vs Past Simple</span>
+</div>
+<!-- Tactile Amber Action Button (Deep brown ink #1F1B16, never truncated) -->
+<button class="tactile-btn-amber shrink-0 px-4 py-2.5 rounded-xl border-2 border-[#B45309] flex items-center gap-1.5 cursor-pointer"><span class="text-label-md font-label-md font-extrabold text-[#1C1003] whitespace-nowrap">Учить</span><span class="bg-[#1C1003]/15 px-1.5 py-0.5 rounded text-[11px] font-extrabold text-[#1C1003]">+25 XP</span></button>
+</div>
+</div>
+<!-- APP SHELL: BOTTOM NAVIGATION BAR (Strictly from Shared Components JSON logic) -->
+<!-- 5 destinations in strict order: Сегодня (Active), Словарь, Навыки, Тесты, Профиль -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 px-2 pb-safe bg-surface border-t-2 border-on-surface max-w-[390px] mx-auto shadow-[0_-2px_0_0_#1C1003]"><a aria-label="Сегодня" class="flex flex-col items-center justify-center min-w-[48px] min-h-[48px] px-3 py-1 bg-primary-fixed text-primary border-2 border-primary rounded-xl shadow-[0_2px_0_0_#00201e] active:translate-y-1 active:shadow-none transition-transform" href="#today"><span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">calendar_today</span><span class="text-label-sm font-label-sm leading-none mt-0.5">Сегодня</span></a><a aria-label="Словарь" class="relative flex flex-col items-center justify-center min-w-[48px] min-h-[48px] px-3 py-1 text-[#453628] hover:text-primary active:translate-y-1 transition-transform" href="#vocab"><span class="material-symbols-outlined text-[20px]">menu_book</span><span class="text-label-sm font-label-sm leading-none mt-0.5">Словарь</span><span class="absolute top-1 right-2 bg-secondary-container text-on-surface font-extrabold text-[9px] px-1 rounded-full border border-on-surface">12</span></a><a aria-label="Навыки" class="flex flex-col items-center justify-center min-w-[48px] min-h-[48px] px-3 py-1 text-[#453628] hover:text-primary active:translate-y-1 transition-transform" href="#skills"><span class="material-symbols-outlined text-[20px]">psychology</span><span class="text-label-sm font-label-sm leading-none mt-0.5">Навыки</span></a><a aria-label="Тесты" class="flex flex-col items-center justify-center min-w-[48px] min-h-[48px] px-3 py-1 text-[#453628] hover:text-primary active:translate-y-1 transition-transform" href="#tests"><span class="material-symbols-outlined text-[20px]">assignment</span><span class="text-label-sm font-label-sm leading-none mt-0.5">Тесты</span></a><a aria-label="Профиль" class="flex flex-col items-center justify-center min-w-[48px] min-h-[48px] px-3 py-1 text-[#453628] hover:text-primary active:translate-y-1 transition-transform" href="#me"><span class="material-symbols-outlined text-[20px]">person</span><span class="text-label-sm font-label-sm leading-none mt-0.5">Профиль</span></a></nav>
+</div>
+</body></html>

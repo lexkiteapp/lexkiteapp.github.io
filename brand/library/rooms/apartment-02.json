@@ -1,0 +1,43 @@
+{
+ "_note": "Hồ sơ sàn TỰ ĐỘNG (scripts/video/asset_check.py estimate_floor) – canvas rộng 1080. Sửa tay xong đặt \"manual\": true để không bị ghi đè.",
+ "id": "apartment-02",
+ "manual": false,
+ "confidence": 0.5,
+ "canvas": [
+  1080,
+  1913
+ ],
+ "source": "rooms/apartment-02-day-9x16.png",
+ "floor": {
+  "yNear": 1912,
+  "yFar": 1511
+ },
+ "vanish": [
+  577,
+  1060
+ ],
+ "scaleAt": {
+  "yFar": 1511,
+  "hFar": 511,
+  "yNear": 1912,
+  "hNear": 965
+ },
+ "stand": [
+  {
+   "x": 184,
+   "y": 1751
+  },
+  {
+   "x": 432,
+   "y": 1751
+  },
+  {
+   "x": 680,
+   "y": 1751
+  }
+ ],
+ "light": {
+  "dir": -1,
+  "warmth": 0.2
+ }
+}

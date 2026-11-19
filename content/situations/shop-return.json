@@ -1,0 +1,954 @@
+{
+ "id": "shop-return",
+ "group": "shopping",
+ "cefr": "B1",
+ "title": {
+  "en": "Returns & refunds",
+  "vi": "Trả hàng & hòan tiền",
+  "es": "Devoluciones y reembolsos",
+  "pt": "Trocas e reembolsos",
+  "fr": "Retours et remboursements",
+  "de": "Rückgabe & Erstattung",
+  "id": "Pengembalian barang & uang",
+  "th": "คืนสินค้าและขอเงินคืน",
+  "zh": "退货与退款",
+  "ja": "返品・返金",
+  "ko": "반품과 환불",
+  "hi": "वापसी और रिफ़ंड",
+  "ar": "الإرجاع واسترداد المبلغ",
+  "ru": "Возврат и обмен товара",
+  "tr": "İade ve para iadesi"
+ },
+ "goal": {
+  "en": "Return an item and get your money back!",
+  "vi": "Trả món hàng và nhận lại tiền!",
+  "es": "¡Devuelve un artículo y recupera tu dinero!",
+  "pt": "Devolva um item e receba seu dinheiro de volta!",
+  "fr": "Rapportez un article et faites-vous rembourser !",
+  "de": "Gib einen Artikel zurück und bekomm dein Geld wieder!",
+  "id": "Kembalikan barang dan dapatkan uangmu kembali!",
+  "th": "คืนสินค้าและขอเงินคืนให้ได้!",
+  "zh": "退掉商品，把钱要回来！",
+  "ja": "商品を返品してお金を取り戻そう！",
+  "ko": "물건을 반품하고 환불받아요!",
+  "hi": "सामान लौटाएँ और अपने पैसे वापस पाएँ!",
+  "ar": "أرجِع المنتج واسترد مالك!",
+  "ru": "Верни товар и получи деньги назад!",
+  "tr": "Ürünü iade et, paranı geri al!"
+ },
+ "roles": [
+  "customer",
+  "barista"
+ ],
+ "stages": [
+  {
+   "id": "problem",
+   "title": {
+    "en": "The problem",
+    "vi": "Nêu vấn đề",
+    "es": "El problema",
+    "pt": "O problema",
+    "fr": "Le problème",
+    "de": "Das Problem",
+    "id": "Masalahnya",
+    "th": "อธิบายปัญหา",
+    "zh": "说明问题",
+    "ja": "問題を伝える",
+    "ko": "문제 설명",
+    "hi": "समस्या बताएँ",
+    "ar": "المشكلة",
+    "ru": "Проблема",
+    "tr": "Sorun"
+   },
+   "lines": [
+    "r1",
+    "r2",
+    "r3",
+    "r4"
+   ]
+  },
+  {
+   "id": "options",
+   "title": {
+    "en": "Your options",
+    "vi": "Các lựa chọn",
+    "es": "Tus opciones",
+    "pt": "Suas opções",
+    "fr": "Vos options",
+    "de": "Deine Optionen",
+    "id": "Pilihanmu",
+    "th": "ทางเลือกของคุณ",
+    "zh": "可选方案",
+    "ja": "選択肢",
+    "ko": "선택지",
+    "hi": "आपके विकल्प",
+    "ar": "الخيارات المتاحة",
+    "ru": "Варианты",
+    "tr": "Seçenekler"
+   },
+   "lines": [
+    "r5",
+    "r6",
+    "r7",
+    "r8"
+   ]
+  },
+  {
+   "id": "refund",
+   "title": {
+    "en": "Refund",
+    "vi": "Hòan tiền",
+    "es": "Reembolso",
+    "pt": "Reembolso",
+    "fr": "Remboursement",
+    "de": "Erstattung",
+    "id": "Pengembalian uang",
+    "th": "ขอเงินคืน",
+    "zh": "退款",
+    "ja": "返金",
+    "ko": "환불",
+    "hi": "रिफ़ंड",
+    "ar": "استرداد المبلغ",
+    "ru": "Возврат денег",
+    "tr": "Para iadesi"
+   },
+   "lines": [
+    "r9",
+    "r10",
+    "r11",
+    "r12"
+   ]
+  }
+ ],
+ "lines": [
+  {
+   "id": "r1",
+   "who": "customer",
+   "en": "Hi, I'd like to return this jacket, please.",
+   "variants": {
+    "polite": "Hello, I'd like to return this jacket, if that's possible.",
+    "casual": "Hi, I want to return this jacket."
+   },
+   "gloss": {
+    "en": "Saying politely that you want to bring a jacket back.",
+    "vi": "Nói lịch sự rằng bạn muốn trả lại chiếc áo khóac này.",
+    "es": "Hola, quisiera devolver esta chaqueta, por favor.",
+    "pt": "Olá, gostaria de devolver esta jaqueta, por favor.",
+    "fr": "Bonjour, je voudrais rapporter cette veste, s'il vous plaît.",
+    "de": "Hallo, ich möchte diese Jacke gern zurückgeben.",
+    "id": "Halo, saya ingin mengembalikan jaket ini.",
+    "th": "สวัสดีค่ะ ขอคืนเสื้อแจ็กเก็ตตัวนี้หน่อยค่ะ",
+    "zh": "你好，我想退掉这件夹克。",
+    "ja": "こんにちは、このジャケットを返品したいのですが。",
+    "ko": "안녕하세요, 이 재킷을 반품하고 싶은데요.",
+    "hi": "नमस्ते, मैं यह जैकेट वापस करना चाहता/चाहती हूँ।",
+    "ar": "مرحبًا، أودّ إرجاع هذه السترة من فضلك.",
+    "ru": "Здравствуйте, я хотел бы вернуть эту куртку.",
+    "tr": "Merhaba, bu ceketi iade etmek istiyorum."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "return",
+     "ipa": "/rɪˈtɜːrn/",
+     "hi": "TURN",
+     "note": {
+      "en": "Stress the second syllable: ri-TURN, not REE-turn.",
+      "vi": "Nhấn âm tiết thứ hai: ri-TỐN, không phải RI-tơn.",
+      "es": "Acentúa la segunda sílaba: ri-TERN, no RI-tern.",
+      "pt": "Acentue a segunda sílaba: ri-TÉRN, não RÍ-tern.",
+      "fr": "Accentuez la deuxième syllabe : ri-TEURN, pas RI-teurn.",
+      "de": "Betone die zweite Silbe: ri-TÖRN, nicht RI-törn.",
+      "id": "Tekankan suku kata kedua: ri-TÖRN, bukan RI-törn.",
+      "th": "เน้นพยางค์ที่สอง: ริ-เทิร์น (ไม่ใช่เน้นพยางค์แรก)",
+      "zh": "重音在第二个音节：ri-TURN，不是 REE-turn。",
+      "ja": "2番目の音節を強く：リ・ターン。",
+      "ko": "두 번째 음절에 강세를 두세요: 리-턴.",
+      "hi": "दूसरे अक्षर पर ज़ोर दें: रि-टर्न।",
+      "ar": "شدّد على المقطع الثاني: ري-تيرن.",
+      "ru": "Ударение на второй слог: ри-ТЁРН.",
+      "tr": "Vurgu ikinci hecede: ri-TÖRN."
+     }
+    }
+   ]
+  },
+  {
+   "id": "r2",
+   "who": "barista",
+   "en": "Of course. Is there something wrong with it?",
+   "variants": {
+    "polite": "Certainly. May I ask what the problem is?",
+    "casual": "Sure. What's wrong with it?"
+   },
+   "gloss": {
+    "en": "The assistant agrees and asks what the problem is.",
+    "vi": "Nhân viên đồng ý và hỏi có vấn đề gì.",
+    "es": "Claro. ¿Tiene algún problema?",
+    "pt": "Claro. Tem algum problema com ela?",
+    "fr": "Bien sûr. Il y a un problème ?",
+    "de": "Natürlich. Stimmt etwas damit nicht?",
+    "id": "Tentu. Ada masalah dengan jaket itu?",
+    "th": "ได้ค่ะ มีปัญหาอะไรไหมคะ",
+    "zh": "当然可以。是有什么问题吗？",
+    "ja": "もちろんです。何か問題がありましたか？",
+    "ko": "그럼요. 무슨 문제가 있나요?",
+    "hi": "ज़रूर। क्या इसमें कोई समस्या है?",
+    "ar": "بالتأكيد. هل فيها مشكلة؟",
+    "ru": "Конечно. С ней что-то не так?",
+    "tr": "Tabii. Bir sorun mu var?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "r3",
+   "who": "customer",
+   "en": "The zip is broken, and it doesn't fit properly.",
+   "variants": {
+    "polite": "I'm afraid the zip is broken, and it doesn't fit properly.",
+    "casual": "The zip's broken and it doesn't fit."
+   },
+   "gloss": {
+    "en": "Explaining the problem: a broken zip and a bad fit.",
+    "vi": "Giải thích vấn đề: khóa kéo hỏng và áo không vừa.",
+    "es": "La cremallera está rota y tampoco me queda bien.",
+    "pt": "O zíper está quebrado e ela também não serve direito.",
+    "fr": "La fermeture éclair est cassée et elle ne me va pas bien.",
+    "de": "Der Reißverschluss ist kaputt, und die Jacke passt auch nicht richtig.",
+    "id": "Resletingnya rusak dan ukurannya juga tidak pas.",
+    "th": "ซิปเสียค่ะ แล้วก็ใส่ไม่พอดีด้วย",
+    "zh": "拉链坏了，而且也不太合身。",
+    "ja": "ファスナーが壊れていて、サイズも合いません。",
+    "ko": "지퍼가 고장 났고 사이즈도 잘 안 맞아요.",
+    "hi": "ज़िप टूटी हुई है और यह ठीक से फ़िट भी नहीं होती।",
+    "ar": "السحّاب مكسور، كما أنها ليست مناسبة لمقاسي.",
+    "ru": "Молния сломана, и куртка ещё и плохо сидит.",
+    "tr": "Fermuar bozuk, üstelik tam oturmuyor."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "broken",
+     "ipa": "/ˈbroʊ.kən/",
+     "hi": "BROH",
+     "note": {
+      "en": "Say BROH-kuhn; the o is long, like in “go”.",
+      "vi": "Đọc BRÔ-kần; âm o dài như trong “go”.",
+      "es": "Di BROU-ken; la o es larga, como en “go”.",
+      "pt": "Diga BROU-kn; o “o” é longo, como em “go”.",
+      "fr": "Dites BROU-keune ; le o est long, comme dans « go ».",
+      "de": "Sprich BROU-kən; das o ist lang wie in „go“.",
+      "id": "Ucapkan BROU-ken; bunyi o panjang seperti pada “go”.",
+      "th": "ออกเสียง โบร-เคิน เสียง โอ ยาวเหมือนใน “go”",
+      "zh": "读作 BROH-kuhn，o 是长音，和 “go” 一样。",
+      "ja": "「ブロウクン」。oは「go」のように長く伸ばします。",
+      "ko": "‘브로-큰’으로 읽어요. o는 “go”처럼 길게 발음해요.",
+      "hi": "“ब्रोह-कन” बोलें; o लंबा है, जैसे “go” में।",
+      "ar": "انطق برو-كن، وصوت o طويل كما في “go”.",
+      "ru": "Произносите БРОУ-кэн; o долгое, как в “go”.",
+      "tr": "BROU-kın diye söyleyin; o uzundur, “go” gibi."
+     }
+    }
+   ]
+  },
+  {
+   "id": "r4",
+   "who": "barista",
+   "en": "I'm sorry about that. Do you have the receipt with you?",
+   "variants": {
+    "polite": "I'm sorry to hear that. Could I see your receipt, please?",
+    "casual": "Sorry about that. Got the receipt?"
+   },
+   "gloss": {
+    "en": "The assistant apologises and asks to see the receipt.",
+    "vi": "Nhân viên xin lỗi và đề nghị xem hóa đơn.",
+    "es": "Lamento lo ocurrido. ¿Trae el recibo?",
+    "pt": "Sinto muito por isso. Está com o recibo?",
+    "fr": "Désolé pour ça. Vous avez votre ticket de caisse ?",
+    "de": "Das tut mir leid. Haben Sie den Kassenbon dabei?",
+    "id": "Mohon maaf soal itu. Apakah Anda membawa struknya?",
+    "th": "ขอโทษด้วยนะคะ มีใบเสร็จติดตัวมาไหมคะ",
+    "zh": "很抱歉。您带着小票吗？",
+    "ja": "申し訳ございません。レシートはお持ちですか？",
+    "ko": "죄송합니다. 영수증 가지고 계신가요?",
+    "hi": "इसके लिए माफ़ कीजिए। क्या आपके पास रसीद है?",
+    "ar": "نعتذر عن ذلك. هل معك الإيصال؟",
+    "ru": "Приносим извинения. Чек у вас с собой?",
+    "tr": "Bunun için üzgünüm. Fişiniz yanınızda mı?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "receipt",
+     "ipa": "/rɪˈsiːt/",
+     "hi": "SEET",
+     "note": {
+      "en": "The p is silent: ri-SEET.",
+      "vi": "Chữ p câm: đọc là ri-XÍT.",
+      "es": "La p no se pronuncia: ri-SIT.",
+      "pt": "O p é mudo: ri-SIT.",
+      "fr": "Le p est muet : ri-SIT.",
+      "de": "Das p wird nicht gesprochen: ri-SIT.",
+      "id": "Huruf p tidak dibaca: ri-SIT.",
+      "th": "ตัว p ไม่ออกเสียง: ริ-ซีท",
+      "zh": "p 不发音：ri-SEET。",
+      "ja": "pは発音しません：リ・スィート。",
+      "ko": "p는 소리 나지 않아요: 리-싯.",
+      "hi": "p नहीं बोला जाता: रि-सीट।",
+      "ar": "حرف p صامت: ري-سيت.",
+      "ru": "Буква p не читается: ри-СИТ.",
+      "tr": "p harfi okunmaz: ri-SİT."
+     }
+    }
+   ]
+  },
+  {
+   "id": "r5",
+   "who": "customer",
+   "en": "Yes, here it is. I bought it last Saturday.",
+   "variants": {
+    "polite": "Yes, here you are. I bought it last Saturday.",
+    "casual": "Yep, here. I got it last Saturday."
+   },
+   "gloss": {
+    "en": "Handing over the receipt and saying when you bought it.",
+    "vi": "Đưa hóa đơn và nói bạn mua hôm nào.",
+    "es": "Sí, aquí lo tiene. Lo compré el sábado pasado.",
+    "pt": "Sim, aqui está. Comprei no sábado passado.",
+    "fr": "Oui, le voici. Je l'ai acheté samedi dernier.",
+    "de": "Ja, hier bitte. Ich habe sie letzten Samstag gekauft.",
+    "id": "Ya, ini. Saya membelinya Sabtu lalu.",
+    "th": "ค่ะ นี่ค่ะ ฉันซื้อเมื่อวันเสาร์ที่แล้ว",
+    "zh": "有的，给您。我是上周六买的。",
+    "ja": "はい、どうぞ。先週の土曜日に買いました。",
+    "ko": "네, 여기 있어요. 지난 토요일에 샀어요.",
+    "hi": "जी, यह लीजिए। मैंने इसे पिछले शनिवार को ख़रीदा था।",
+    "ar": "نعم، تفضّل. اشتريتها يوم السبت الماضي.",
+    "ru": "Да, вот он. Я купил её в прошлую субботу.",
+    "tr": "Evet, buyurun. Geçen cumartesi aldım."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "r6",
+   "who": "barista",
+   "en": "That's within 30 days, so you can have a refund or an exchange.",
+   "variants": {
+    "polite": "That's within our 30-day policy, so you can choose a refund or an exchange.",
+    "casual": "That's fine. You can get a refund or swap it."
+   },
+   "gloss": {
+    "en": "The assistant explains you can get your money back or a replacement.",
+    "vi": "Nhân viên nói bạn có thể nhận lại tiền hoặc đổi hàng.",
+    "es": "Está dentro de los 30 días, así que puede elegir reembolso o cambio.",
+    "pt": "Está dentro de 30 dias, então você pode escolher reembolso ou troca.",
+    "fr": "C'est dans les 30 jours, donc vous pouvez choisir un remboursement ou un échange.",
+    "de": "Das ist innerhalb von 30 Tagen, also können Sie Erstattung oder Umtausch wählen.",
+    "id": "Masih dalam 30 hari, jadi Anda bisa memilih uang kembali atau tukar barang.",
+    "th": "ยังอยู่ในกำหนด 30 วัน เลือกคืนเงินหรือเปลี่ยนสินค้าได้ค่ะ",
+    "zh": "还在30天之内，所以您可以退款或换货。",
+    "ja": "30日以内ですので、返金か交換をお選びいただけます。",
+    "ko": "30일 이내라서 환불이나 교환 중에 고르실 수 있어요.",
+    "hi": "यह 30 दिनों के अंदर है, इसलिए आप रिफ़ंड या एक्सचेंज चुन सकते हैं।",
+    "ar": "هذا ضمن مدة الثلاثين يومًا، فيمكنك اختيار استرداد المبلغ أو الاستبدال.",
+    "ru": "Это в пределах 30 дней, так что можно выбрать возврат денег или обмен.",
+    "tr": "30 gün içinde, yani para iadesi ya da değişim seçebilirsiniz."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "exchange",
+     "ipa": "/ɪksˈtʃeɪndʒ/",
+     "hi": "CHAYNJ",
+     "note": {
+      "en": "Stress the second syllable: iks-CHAYNJ.",
+      "vi": "Nhấn âm tiết thứ hai: ích-XCHEINH.",
+      "es": "Acentúa la segunda sílaba: iks-CHEINY.",
+      "pt": "Acentue a segunda sílaba: iks-TCHEINJ.",
+      "fr": "Accentuez la deuxième syllabe : iks-TCHEINDJ.",
+      "de": "Betone die zweite Silbe: iks-TSCHEINDSCH.",
+      "id": "Tekankan suku kata kedua: iks-CHEINJ.",
+      "th": "เน้นพยางค์ที่สอง: อิกซ์-เชนจ์",
+      "zh": "重音在第二个音节：iks-CHAYNJ。",
+      "ja": "2番目を強く：イクス・チェインジ。",
+      "ko": "두 번째 음절에 강세: 익스-체인지.",
+      "hi": "दूसरे अक्षर पर ज़ोर: इक्स-चेंज।",
+      "ar": "شدّد على المقطع الثاني: إكس-تشينج.",
+      "ru": "Ударение на второй слог: икс-ЧЕЙНДЖ.",
+      "tr": "Vurgu ikinci hecede: iks-ÇEYNC."
+     }
+    }
+   ]
+  },
+  {
+   "id": "r7",
+   "who": "customer",
+   "en": "Could I exchange it for a larger size instead?",
+   "variants": {
+    "polite": "Would it be possible to exchange it for a larger size?",
+    "casual": "Can I swap it for a bigger size?"
+   },
+   "gloss": {
+    "en": "Asking to swap the item for a bigger size.",
+    "vi": "Hỏi xin đổi sang cỡ lớn hơn.",
+    "es": "¿Podría cambiarla por una talla más grande?",
+    "pt": "Posso trocar por um tamanho maior?",
+    "fr": "Je pourrais l'échanger contre une taille au-dessus ?",
+    "de": "Könnte ich sie gegen eine größere Größe umtauschen?",
+    "id": "Bisakah saya menukarnya dengan ukuran yang lebih besar?",
+    "th": "ขอเปลี่ยนเป็นไซส์ที่ใหญ่กว่านี้ได้ไหมคะ",
+    "zh": "我可以换一件大一号的吗？",
+    "ja": "代わりに、もっと大きいサイズに交換できますか？",
+    "ko": "대신 더 큰 사이즈로 교환할 수 있을까요?",
+    "hi": "क्या मैं इसे बड़े साइज़ से बदल सकता/सकती हूँ?",
+    "ar": "هل يمكنني استبدالها بمقاس أكبر؟",
+    "ru": "Можно обменять её на размер побольше?",
+    "tr": "Bunu daha büyük bir bedenle değiştirebilir miyim?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "r8",
+   "who": "barista",
+   "en": "I'm afraid we're out of that size. We could order one in for you.",
+   "variants": {
+    "polite": "Unfortunately, that size is out of stock, but we could order one in for you.",
+    "casual": "Sorry, we've run out of that size. We can order it."
+   },
+   "gloss": {
+    "en": "The assistant says the size is sold out but offers to order it.",
+    "vi": "Nhân viên báo cỡ đó hết hàng nhưng có thể đặt giúp.",
+    "es": "Me temo que no tenemos esa talla. Podemos pedírsela.",
+    "pt": "Receio que esse tamanho tenha acabado. Podemos encomendar para você.",
+    "fr": "Je crains que nous n'ayons plus cette taille. On peut vous la commander.",
+    "de": "Leider ist diese Größe ausverkauft. Wir können sie für Sie bestellen.",
+    "id": "Maaf, ukuran itu sedang habis. Kami bisa memesankannya untuk Anda.",
+    "th": "ขออภัยค่ะ ไซส์นั้นหมดพอดี แต่เราสั่งให้ได้ค่ะ",
+    "zh": "恐怕那个尺码卖完了。我们可以帮您订货。",
+    "ja": "あいにくそのサイズは品切れです。お取り寄せもできますよ。",
+    "ko": "죄송하지만 그 사이즈는 품절이에요. 주문해 드릴 수는 있어요.",
+    "hi": "माफ़ कीजिए, वह साइज़ ख़त्म हो गया है। हम आपके लिए मँगवा सकते हैं।",
+    "ar": "للأسف نفد هذا المقاس، لكن يمكننا طلبه لك.",
+    "ru": "К сожалению, этот размер закончился. Мы можем заказать его для вас.",
+    "tr": "Maalesef o beden kalmadı. Sizin için sipariş edebiliriz."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "afraid",
+     "ipa": "/əˈfreɪd/",
+     "hi": "FRAYD",
+     "note": {
+      "en": "In “I'm afraid”, the a is soft and the stress is on FRAYD.",
+      "vi": "Trong “I'm afraid”, a đầu đọc nhẹ, nhấn vào FRÂY-đ.",
+      "es": "En “I'm afraid”, la a inicial es suave y se acentúa FREID.",
+      "pt": "Em “I'm afraid”, o a inicial é fraco e a tônica é FREID.",
+      "fr": "Dans « I'm afraid », le a initial est faible, accent sur FREÏD.",
+      "de": "Bei „I'm afraid“ ist das erste a schwach, betont wird FREID.",
+      "id": "Pada “I'm afraid”, a awal lemah; tekankan FREID.",
+      "th": "ใน “I'm afraid” เสียง a แรกเบา เน้นที่ เฟรด",
+      "zh": "“I'm afraid” 中第一个 a 很轻，重音在 FRAYD。",
+      "ja": "「アフレイド」。最初のaは弱く、「フレイド」を強く。",
+      "ko": "“I'm afraid”에서 첫 a는 약하게, ‘프레이드’에 강세를 두세요.",
+      "hi": "“I'm afraid” में पहला a हल्का है, ज़ोर “फ्रेड” पर दें।",
+      "ar": "في “I'm afraid” حرف a الأول خفيف والتشديد على فريد.",
+      "ru": "В “I'm afraid” первое a слабое, ударение на ФРЕЙД.",
+      "tr": "“I'm afraid”de ilk a zayıftır, vurgu FREYD üzerindedir."
+     }
+    }
+   ]
+  },
+  {
+   "id": "r9",
+   "who": "customer",
+   "en": "In that case, I'd prefer a refund. How long will it take?",
+   "variants": {
+    "polite": "In that case, I'd prefer a refund, please. How long will it take?",
+    "casual": "Then I'll take a refund. How long does it take?"
+   },
+   "gloss": {
+    "en": "Choosing the refund and asking how long it takes.",
+    "vi": "Chọn hòan tiền và hỏi mất bao lâu.",
+    "es": "En ese caso, prefiero el reembolso. ¿Cuánto tarda?",
+    "pt": "Nesse caso, prefiro o reembolso. Quanto tempo leva?",
+    "fr": "Dans ce cas, je préfère un remboursement. Ça prend combien de temps ?",
+    "de": "Dann hätte ich lieber die Erstattung. Wie lange dauert das?",
+    "id": "Kalau begitu, saya pilih uang kembali. Berapa lama prosesnya?",
+    "th": "งั้นขอเป็นคืนเงินดีกว่าค่ะ ใช้เวลานานแค่ไหนคะ",
+    "zh": "那样的话，我想退款。要多久？",
+    "ja": "それなら返金でお願いします。どのくらいかかりますか？",
+    "ko": "그렇다면 환불로 할게요. 얼마나 걸리나요?",
+    "hi": "तब मैं रिफ़ंड लेना पसंद करूँगा/करूँगी। इसमें कितना समय लगेगा?",
+    "ar": "في هذه الحالة أفضّل استرداد المبلغ. كم سيستغرق ذلك؟",
+    "ru": "Тогда я предпочту возврат денег. Сколько это займёт?",
+    "tr": "O zaman para iadesini tercih ederim. Ne kadar sürer?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "refund",
+     "ipa": "/ˈriː.fʌnd/",
+     "hi": "REE",
+     "note": {
+      "en": "As a noun, stress the first syllable: REE-fund.",
+      "vi": "Là danh từ, nhấn âm đầu: RI-phân.",
+      "es": "Como sustantivo, acentúa la primera sílaba: RI-fand.",
+      "pt": "Como substantivo, acentue a primeira: RÍ-fand.",
+      "fr": "Comme nom, accentuez la première syllabe : RI-feund.",
+      "de": "Als Nomen betone die erste Silbe: RIE-fand.",
+      "id": "Sebagai kata benda, tekankan suku pertama: RI-fand.",
+      "th": "เป็นคำนาม เน้นพยางค์แรก: รี-ฟันด์",
+      "zh": "作名词时重音在第一个音节：REE-fund。",
+      "ja": "名詞では最初を強く：リー・ファンド。",
+      "ko": "명사일 때는 첫 음절에 강세: 리-펀드.",
+      "hi": "संज्ञा के रूप में पहले अक्षर पर ज़ोर: री-फंड।",
+      "ar": "كاسم، شدّد على المقطع الأول: ري-فاند.",
+      "ru": "Как существительное — ударение на первый слог: РИ-фанд.",
+      "tr": "İsim olarak ilk hecede vurgu: RİY-fand."
+     }
+    }
+   ]
+  },
+  {
+   "id": "r10",
+   "who": "barista",
+   "en": "It goes back to your card within five to seven working days.",
+   "variants": {
+    "polite": "The money will be back on your card within five to seven working days.",
+    "casual": "You'll get it back on your card in about a week."
+   },
+   "gloss": {
+    "en": "The assistant says how long the refund takes.",
+    "vi": "Nhân viên cho biết hòan tiền mất bao lâu.",
+    "es": "Se le devuelve a la tarjeta en un plazo de cinco a siete días laborables.",
+    "pt": "O valor volta ao seu cartão em cinco a sete dias úteis.",
+    "fr": "Le montant revient sur votre carte sous cinq à sept jours ouvrés.",
+    "de": "Das Geld ist innerhalb von fünf bis sieben Werktagen wieder auf Ihrer Karte.",
+    "id": "Uangnya kembali ke kartu Anda dalam lima sampai tujuh hari kerja.",
+    "th": "เงินจะคืนเข้าบัตรภายใน 5 ถึง 7 วันทำการค่ะ",
+    "zh": "款项会在5到7个工作日内退回您的卡上。",
+    "ja": "5〜7営業日以内にカードに返金されます。",
+    "ko": "영업일 기준 5~7일 안에 카드로 환불됩니다.",
+    "hi": "पैसे पाँच से सात कार्य-दिवसों में आपके कार्ड में वापस आ जाएँगे।",
+    "ar": "سيعود المبلغ إلى بطاقتك خلال خمسة إلى سبعة أيام عمل.",
+    "ru": "Деньги вернутся на вашу карту в течение пяти–семи рабочих дней.",
+    "tr": "Para, beş ila yedi iş günü içinde kartınıza geri yatar."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "r11",
+   "who": "customer",
+   "en": "Could I have a written confirmation of the return, please?",
+   "variants": {
+    "polite": "Would you mind giving me a written confirmation of the return?",
+    "casual": "Can I get something in writing for the return?"
+   },
+   "gloss": {
+    "en": "Asking for proof of the return in writing.",
+    "vi": "Xin giấy xác nhận việc trả hàng bằng văn bản.",
+    "es": "¿Me podría dar una confirmación por escrito de la devolución?",
+    "pt": "Poderia me dar uma confirmação por escrito da devolução?",
+    "fr": "Pourrais-je avoir une confirmation écrite du retour, s'il vous plaît ?",
+    "de": "Könnte ich bitte eine schriftliche Bestätigung der Rückgabe haben?",
+    "id": "Bisakah saya minta bukti tertulis pengembaliannya?",
+    "th": "ขอหลักฐานการคืนสินค้าเป็นลายลักษณ์อักษรได้ไหมคะ",
+    "zh": "可以给我一份书面的退货确认吗？",
+    "ja": "返品の確認書をいただけますか？",
+    "ko": "반품 확인서를 서면으로 받을 수 있을까요?",
+    "hi": "क्या मुझे वापसी की लिखित पुष्टि मिल सकती है?",
+    "ar": "هل يمكنني الحصول على تأكيد مكتوب للإرجاع من فضلك؟",
+    "ru": "Можно получить письменное подтверждение возврата?",
+    "tr": "İadeye dair yazılı bir onay alabilir miyim?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "written",
+     "ipa": "/ˈrɪt.ən/",
+     "hi": "RIT",
+     "note": {
+      "en": "The w is silent: RIT-uhn, like “ridden”.",
+      "vi": "Chữ w câm: đọc RÍT-ần.",
+      "es": "La w no se pronuncia: RIT-en.",
+      "pt": "O w é mudo: RIT-n.",
+      "fr": "Le w est muet : RIT-eune.",
+      "de": "Das w ist stumm: RIT-ən.",
+      "id": "Huruf w tidak dibaca: RIT-en.",
+      "th": "ตัว w ไม่ออกเสียง: ริท-เทิน",
+      "zh": "w 不发音：RIT-uhn。",
+      "ja": "wは発音しません：リトゥン。",
+      "ko": "w는 소리 나지 않아요: 리튼.",
+      "hi": "w नहीं बोला जाता: रिट-न।",
+      "ar": "حرف w صامت: ريتن.",
+      "ru": "Буква w не читается: РИТ-н.",
+      "tr": "w harfi okunmaz: RİT-ın."
+     }
+    }
+   ]
+  },
+  {
+   "id": "r12",
+   "who": "customer",
+   "en": "Thank you for sorting this out so quickly.",
+   "variants": {
+    "polite": "Thank you very much for sorting this out so quickly.",
+    "casual": "Thanks, that was quick."
+   },
+   "gloss": {
+    "en": "Thanking the assistant for solving the problem fast.",
+    "vi": "Cảm ơn nhân viên đã giải quyết nhanh.",
+    "es": "Gracias por resolver esto tan rápido.",
+    "pt": "Obrigado por resolver isso tão rápido.",
+    "fr": "Merci d'avoir réglé ça aussi vite.",
+    "de": "Danke, dass Sie das so schnell geregelt haben.",
+    "id": "Terima kasih sudah menyelesaikan ini dengan cepat.",
+    "th": "ขอบคุณที่จัดการเรื่องนี้ให้เร็วมากค่ะ",
+    "zh": "谢谢您这么快就处理好了。",
+    "ja": "迅速に対応してくださってありがとうございます。",
+    "ko": "이렇게 빨리 처리해 주셔서 감사합니다.",
+    "hi": "इसे इतनी जल्दी सुलझाने के लिए धन्यवाद।",
+    "ar": "شكرًا لك على حلّ الأمر بهذه السرعة.",
+    "ru": "Спасибо, что так быстро всё уладили.",
+    "tr": "Bunu bu kadar çabuk hallettiğiniz için teşekkürler."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "q1",
+   "who": "barista",
+   "open": true,
+   "keywords": [
+    "broken",
+    "faulty",
+    "damaged",
+    "small",
+    "big",
+    "size",
+    "fit",
+    "wrong",
+    "colour",
+    "color",
+    "changed my mind",
+    "doesn't work"
+   ],
+   "en": "Why would you like to return it?",
+   "variants": {
+    "polite": "Could you tell me why you're returning it?",
+    "casual": "Why are you returning it?"
+   },
+   "gloss": {
+    "en": "The assistant asks why you want to return it.",
+    "vi": "Nhân viên hỏi lý do bạn muốn trả hàng.",
+    "es": "¿Por qué quiere devolverlo?",
+    "pt": "Por que você quer devolver?",
+    "fr": "Pourquoi voulez-vous le rapporter ?",
+    "de": "Warum möchten Sie es zurückgeben?",
+    "id": "Kenapa Anda ingin mengembalikannya?",
+    "th": "ทำไมถึงอยากคืนคะ",
+    "zh": "您为什么想退货？",
+    "ja": "返品される理由をお聞かせください。",
+    "ko": "왜 반품하고 싶으세요?",
+    "hi": "आप इसे क्यों लौटाना चाहते हैं?",
+    "ar": "لماذا تريد إرجاعه؟",
+    "ru": "Почему вы хотите это вернуть?",
+    "tr": "Neden iade etmek istiyorsunuz?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "q2",
+   "who": "barista",
+   "open": true,
+   "keywords": [
+    "refund",
+    "exchange",
+    "money back",
+    "swap",
+    "credit",
+    "voucher",
+    "replacement",
+    "different size",
+    "another one"
+   ],
+   "en": "Would you prefer a refund or an exchange?",
+   "variants": {
+    "polite": "Would you rather have your money back or something else instead?",
+    "casual": "Refund or exchange?"
+   },
+   "gloss": {
+    "en": "The assistant asks if you want your money back or a replacement.",
+    "vi": "Nhân viên hỏi bạn muốn hòan tiền hay đổi hàng.",
+    "es": "¿Prefiere un reembolso o un cambio?",
+    "pt": "Você prefere reembolso ou troca?",
+    "fr": "Vous préférez un remboursement ou un échange ?",
+    "de": "Möchten Sie lieber eine Erstattung oder einen Umtausch?",
+    "id": "Anda lebih suka uang kembali atau tukar barang?",
+    "th": "อยากได้เงินคืนหรือเปลี่ยนสินค้าคะ",
+    "zh": "您想退款还是换货？",
+    "ja": "返金と交換、どちらになさいますか？",
+    "ko": "환불과 교환 중 어느 쪽이 좋으세요?",
+    "hi": "आप रिफ़ंड लेना चाहेंगे या एक्सचेंज?",
+    "ar": "هل تفضّل استرداد المبلغ أم الاستبدال؟",
+    "ru": "Вы предпочитаете возврат денег или обмен?",
+    "tr": "Para iadesi mi, değişim mi tercih edersiniz?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  }
+ ],
+ "dialogue": [
+  {
+   "who": "barista",
+   "en": "Hello, how can I help you?"
+  },
+  {
+   "who": "customer",
+   "en": "Hi, I'd like to return this jacket, please."
+  },
+  {
+   "who": "barista",
+   "en": "Of course. Is there something wrong with it?"
+  },
+  {
+   "who": "customer",
+   "en": "The zip is broken, and it doesn't fit properly."
+  },
+  {
+   "who": "barista",
+   "en": "I'm sorry about that. Do you have the receipt with you?"
+  },
+  {
+   "who": "customer",
+   "en": "Yes, here it is. I bought it last Saturday."
+  },
+  {
+   "who": "barista",
+   "en": "That's within 30 days, so you can have a refund or an exchange."
+  },
+  {
+   "who": "customer",
+   "en": "In that case, I'd prefer a refund. How long will it take?"
+  },
+  {
+   "who": "barista",
+   "en": "It goes back to your card within five to seven working days."
+  }
+ ],
+ "listening": [
+  {
+   "id": "l1",
+   "turns": [
+    {
+     "who": "customer",
+     "en": "I bought these headphones online, but the left side doesn't work."
+    },
+    {
+     "who": "barista",
+     "en": "I'm sorry about that. Would you like a replacement or your money back?"
+    },
+    {
+     "who": "customer",
+     "en": "A replacement, please."
+    }
+   ],
+   "q": {
+    "en": "What does the customer want?",
+    "vi": "Khách muốn gì?",
+    "es": "¿Qué quiere el cliente?",
+    "pt": "O que o cliente quer?",
+    "fr": "Que veut le client ?",
+    "de": "Was möchte der Kunde?",
+    "id": "Apa yang diinginkan pelanggan?",
+    "th": "ลูกค้าต้องการอะไร",
+    "zh": "顾客想要什么？",
+    "ja": "お客さんは何を希望していますか？",
+    "ko": "손님은 무엇을 원하나요?",
+    "hi": "ग्राहक क्या चाहता है?",
+    "ar": "ماذا يريد الزبون؟",
+    "ru": "Что хочет клиент?",
+    "tr": "Müşteri ne istiyor?"
+   },
+   "answer": "replacement"
+  },
+  {
+   "id": "l2",
+   "turns": [
+    {
+     "who": "barista",
+     "en": "I can't give you a refund without a receipt, but I can offer store credit."
+    },
+    {
+     "who": "customer",
+     "en": "That's fine. How long is the credit valid?"
+    },
+    {
+     "who": "barista",
+     "en": "It's valid for twelve months."
+    }
+   ],
+   "q": {
+    "en": "How long is the store credit valid?",
+    "vi": "Phiếu mua hàng có giá trị trong bao lâu?",
+    "es": "¿Cuánto tiempo es válido el crédito de la tienda?",
+    "pt": "Por quanto tempo o crédito da loja é válido?",
+    "fr": "Combien de temps l'avoir est-il valable ?",
+    "de": "Wie lange ist das Guthaben gültig?",
+    "id": "Berapa lama kredit toko itu berlaku?",
+    "th": "เครดิตร้านใช้ได้นานเท่าไร",
+    "zh": "店内抵用额的有效期是多久？",
+    "ja": "ストアクレジットの有効期間はどのくらいですか？",
+    "ko": "매장 크레딧은 얼마 동안 유효한가요?",
+    "hi": "स्टोर क्रेडिट कितने समय तक मान्य है?",
+    "ar": "ما مدة صلاحية رصيد المتجر؟",
+    "ru": "Как долго действует кредит магазина?",
+    "tr": "Mağaza kredisi ne kadar süreyle geçerli?"
+   },
+   "answer": "twelve months"
+  }
+ ],
+ "mission": {
+  "tasks": [
+   {
+    "id": "problem",
+    "title": {
+     "en": "Explain what is wrong",
+     "vi": "Giải thích món hàng bị lỗi gì",
+     "es": "Explica qué le pasa",
+     "pt": "Explique o que há de errado",
+     "fr": "Expliquer le problème",
+     "de": "Das Problem erklären",
+     "id": "Jelaskan masalahnya",
+     "th": "อธิบายว่าเสียตรงไหน",
+     "zh": "说明哪里有问题",
+     "ja": "不具合を説明する",
+     "ko": "무엇이 문제인지 설명하기",
+     "hi": "बताएँ कि क्या ख़राबी है",
+     "ar": "اشرح المشكلة",
+     "ru": "Объясни, что не так",
+     "tr": "Sorunu anlat"
+    },
+    "intents": [
+     "r3"
+    ]
+   },
+   {
+    "id": "swap",
+    "title": {
+     "en": "Ask for another size",
+     "vi": "Xin đổi cỡ khác",
+     "es": "Pide otra talla",
+     "pt": "Peça outro tamanho",
+     "fr": "Demander une autre taille",
+     "de": "Nach einer anderen Größe fragen",
+     "id": "Minta ukuran lain",
+     "th": "ขอเปลี่ยนไซส์",
+     "zh": "要求换尺码",
+     "ja": "別のサイズを頼む",
+     "ko": "다른 사이즈 요청하기",
+     "hi": "दूसरा साइज़ माँगें",
+     "ar": "اطلب مقاسًا آخر",
+     "ru": "Попроси другой размер",
+     "tr": "Başka beden iste"
+    },
+    "intents": [
+     "r7"
+    ]
+   },
+   {
+    "id": "money",
+    "title": {
+     "en": "Ask how long the refund takes",
+     "vi": "Hỏi hòan tiền mất bao lâu",
+     "es": "Pregunta cuánto tarda el reembolso",
+     "pt": "Pergunte quanto tempo leva o reembolso",
+     "fr": "Demander le délai de remboursement",
+     "de": "Nach der Dauer der Erstattung fragen",
+     "id": "Tanyakan lama pengembalian uang",
+     "th": "ถามว่าคืนเงินนานแค่ไหน",
+     "zh": "询问退款要多久",
+     "ja": "返金にかかる時間を聞く",
+     "ko": "환불에 얼마나 걸리는지 묻기",
+     "hi": "पूछें कि रिफ़ंड में कितना समय लगेगा",
+     "ar": "اسأل كم يستغرق الاسترداد",
+     "ru": "Спроси, как скоро вернут деньги",
+     "tr": "İadenin ne kadar süreceğini sor"
+    },
+    "intents": [
+     "r9"
+    ]
+   }
+  ]
+ },
+ "culture": {
+  "en": "In many countries you can return unused items within a set time if you keep the receipt, but the rules differ from shop to shop. Check the return policy on the receipt, and keep price tags on clothes until you are sure. If something is faulty, say so politely and calmly; staff are usually keen to help.",
+  "vi": "Ở nhiều nước, bạn có thể trả hàng chưa dùng trong một thời hạn nhất định nếu còn hóa đơn, nhưng quy định mỗi cửa hàng một khác. Hãy xem chính sách đổi trả ghi trên hóa đơn và giữ nguyên mác giá của quần áo cho đến khi bạn chắc chắn. Nếu hàng bị lỗi, hãy nói lịch sự và bình tĩnh; nhân viên thường sẵn lòng giúp.",
+  "es": "En muchos países puedes devolver artículos sin usar dentro de un plazo si conservas el recibo, pero las normas cambian según la tienda. Revisa la política de devoluciones en el recibo y deja las etiquetas de la ropa hasta estar seguro. Si algo está defectuoso, dilo con educación y calma; el personal suele querer ayudar.",
+  "pt": "Em muitos países você pode devolver itens sem uso dentro de um prazo se guardar o recibo, mas as regras mudam de loja para loja. Veja a política de trocas no recibo e mantenha as etiquetas das roupas até ter certeza. Se algo estiver com defeito, diga isso com educação e calma; os atendentes costumam querer ajudar.",
+  "fr": "Dans beaucoup de pays, on peut rapporter un article non utilisé dans un délai donné si l'on garde le ticket, mais les règles varient d'un magasin à l'autre. Lisez la politique de retour sur le ticket et gardez les étiquettes des vêtements tant que vous n'êtes pas sûr. En cas de défaut, dites-le poliment et calmement ; le personnel veut généralement aider.",
+  "de": "In vielen Ländern kann man unbenutzte Artikel innerhalb einer Frist zurückgeben, wenn man den Kassenbon aufbewahrt hat, aber die Regeln unterscheiden sich von Geschäft zu Geschäft. Lies die Rückgaberegeln auf dem Bon und lass die Etiketten an der Kleidung, bis du sicher bist. Bei einem Defekt sag das höflich und ruhig; das Personal hilft meist gern.",
+  "id": "Di banyak negara, barang yang belum dipakai bisa dikembalikan dalam jangka waktu tertentu jika struknya disimpan, tetapi aturannya berbeda di tiap toko. Baca kebijakan pengembalian di struk dan biarkan label harga pada pakaian sampai kamu yakin. Jika barang rusak, sampaikan dengan sopan dan tenang; petugas biasanya senang membantu.",
+  "th": "ในหลายประเทศ คุณคืนสินค้าที่ยังไม่ได้ใช้ได้ภายในเวลาที่กำหนดหากเก็บใบเสร็จไว้ แต่กฎของแต่ละร้านไม่เหมือนกัน ดูนโยบายการคืนสินค้าบนใบเสร็จ และอย่าตัดป้ายราคาเสื้อผ้าจนกว่าจะแน่ใจ ถ้าสินค้ามีตำหนิ ให้บอกอย่างสุภาพและใจเย็น พนักงานมักยินดีช่วยเหลือ",
+  "zh": "在许多国家，只要留着小票，未使用的商品可以在规定期限内退货，但各家店的规则不同。请看小票上的退换政策，在确定之前不要剪掉衣服的吊牌。如果商品有问题，请礼貌而平静地说明，店员通常很乐意帮忙。",
+  "ja": "多くの国では、レシートを保管していれば未使用の商品を期限内に返品できますが、ルールは店ごとに異なります。レシートに書かれた返品ポリシーを確認し、確信が持てるまで衣類のタグは外さないでおきましょう。不具合があるときは、丁寧に落ち着いて伝えれば、店員は快く対応してくれることが多いです。",
+  "ko": "많은 나라에서는 영수증을 보관하면 사용하지 않은 물건을 정해진 기간 안에 반품할 수 있지만, 규정은 매장마다 달라요. 영수증에 적힌 반품 규정을 확인하고, 확실해질 때까지 옷의 가격표는 떼지 마세요. 물건에 문제가 있으면 정중하고 차분하게 말하면 직원이 대개 기꺼이 도와줘요.",
+  "hi": "कई देशों में रसीद रखने पर बिना इस्तेमाल किया सामान तय समय के अंदर लौटाया जा सकता है, लेकिन नियम हर दुकान में अलग होते हैं। रसीद पर लिखी वापसी नीति देखें और पक्का होने तक कपड़ों के टैग न हटाएँ। अगर चीज़ में ख़राबी हो, तो विनम्रता और शांति से बताएँ; कर्मचारी आमतौर पर मदद करना चाहते हैं।",
+  "ar": "في كثير من الدول يمكنك إرجاع المنتجات غير المستعملة خلال مدة محددة إذا احتفظت بالإيصال، لكن القواعد تختلف من متجر لآخر. اطّلع على سياسة الإرجاع في الإيصال، واترك بطاقات الأسعار على الملابس حتى تتأكد. وإذا كان المنتج معيبًا فقل ذلك بأدب وهدوء؛ فالموظفون غالبًا يرغبون في المساعدة.",
+  "ru": "Во многих странах неиспользованный товар можно вернуть в определённый срок, если сохранён чек, но правила у каждого магазина свои. Прочитайте условия возврата на чеке и не срезайте ярлыки с одежды, пока не будете уверены. Если вещь с браком, скажите об этом вежливо и спокойно — сотрудники обычно рады помочь.",
+  "tr": "Birçok ülkede fişi saklarsanız kullanılmamış ürünleri belirli bir süre içinde iade edebilirsiniz, ancak kurallar mağazadan mağazaya değişir. Fişteki iade politikasına bakın ve emin olana kadar kıyafetlerin etiketlerini çıkarmayın. Ürün kusurluysa bunu kibarca ve sakince söyleyin; çalışanlar genellikle yardımcı olmak ister."
+ }
+}

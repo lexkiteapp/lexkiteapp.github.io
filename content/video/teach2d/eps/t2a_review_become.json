@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_become",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: become.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means to begin to be.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "She wants to become a doctor.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "become",
+  "ipa": "/bɪˈkʌm/",
+  "mean": "to begin to be",
+  "ex": "She wants to become a doctor.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=become",
+  "link": "https://lexkite.com/app/#/review?w=become",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 37,
+  "seconds": 23.3,
+  "wpm": 95
+ },
+ "publish": {
+  "title": "What does \"become\" mean?",
+  "keyword": "become",
+  "value": "Become means to begin to be.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=become",
+  "script_words": 31,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"become\" mean?",
+    "description": "Become means to begin to be.\n\nReview your words, free: https://lexkite.com/app/#/review?w=become\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "become",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"become\" mean?\n\nBecome means to begin to be.\n\nReview your words, free: https://lexkite.com/app/#/review?w=become"
+   },
+   "instagram": {
+    "caption": "What does \"become\" mean?\n\nBecome means to begin to be.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"become\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means to begin to be. Become means to begin to be. Try the full lesson and quiz here: {link}"
+ }
+}

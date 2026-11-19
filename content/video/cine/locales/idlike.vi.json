@@ -1,0 +1,29 @@
+{
+ "lang": "vi",
+ "dir": "ltr",
+ "font": "BeVietnamPro-ExtraBold",
+ "name": "Tiếng Việt",
+ "lesson_file": "idlike",
+ "lesson": "cafe-id-like",
+ "goal": "Nói muốn gì cho lịch sự",
+ "hook": "“I want…” có lịch sự không?",
+ "lines": {
+  "c_hi": "Chào cháu! Cháu muốn uống gì?",
+  "a_want": "Cháu muốn một ly latte.",
+  "c_direct": "Hừm, “I want” nghe hơi thẳng quá.",
+  "c_tryid": "Thử nói: “I’d like a latte, please.”",
+  "a_idlike": "À! Cho cháu xin một ly latte ạ.",
+  "a_slow_id": "Cho cháu xin một ly latte ạ.",
+  "a_nowyou": "Đến lượt bạn. Nói theo mình nhé!",
+  "a_askcookie": "Đến lượt bạn. Hãy gọi một cái bánh quy!",
+  "a_idcookie": "Cho cháu xin một cái bánh quy ạ.",
+  "a_thanks": "Cảm ơn ạ!"
+ },
+ "why": "“I want…” nghe hơi thẳng. “I’d like…, please” mềm và lịch sự hơn.",
+ "order": "thẳng quá",
+ "polite": "lịch sự",
+ "repeat": "Nói theo nhé",
+ "yourturn": "Gọi một cái bánh quy",
+ "recap": "= cách nói muốn gì lịch sự",
+ "cta": "Đóng vai hội thoại này miễn phí trên"
+}

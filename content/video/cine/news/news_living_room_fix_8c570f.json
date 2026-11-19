@@ -1,0 +1,106 @@
+{
+ "id": "news_living_room_fix_8c570f",
+ "template": "fix",
+ "bg": "library",
+ "area": "grammar-check",
+ "cefr": "A1",
+ "point": "L1 mistake: I really like it, not I very like it",
+ "hook": {
+  "card": "VERY LIKE?",
+  "line": "n_8c570f_h"
+ },
+ "series": [
+  "COMMON MISTAKES",
+  "very vs really"
+ ],
+ "beats": [
+  {
+   "who": "ama",
+   "line": "n_8c570f_1",
+   "card": {
+    "kind": "x",
+    "text": "I very like it.",
+    "sub": null,
+    "label": null
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_8c570f_2",
+   "card": {
+    "kind": "v",
+    "text": "I really like it.",
+    "sub": "very can't go before a verb",
+    "label": null
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_8c570f_3",
+   "card": {
+    "kind": "p",
+    "text": "I like it a lot.",
+    "sub": null,
+    "label": "EXAMPLE"
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_8c570f_4",
+   "card": {
+    "kind": "v",
+    "text": "very good / very nice",
+    "sub": "very + adjective",
+    "label": null
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_8c570f_5",
+   "card": {
+    "kind": "p",
+    "text": "really like / very good",
+    "sub": null,
+    "label": "RULE"
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_8c570f_rp",
+   "card": {
+    "kind": "v",
+    "text": "I really like it.",
+    "sub": null,
+    "label": "REPEAT"
+   },
+   "repeat": true
+  }
+ ],
+ "recap": {
+  "title": "TEACHER'S TIP",
+  "line": "n_8c570f_r",
+  "rows": [
+   "I really like it.",
+   "I like it a lot.",
+   "really like / very good"
+  ],
+  "line_alt": "n_8c570f_r2"
+ },
+ "end_line": "n_8c570f_e",
+ "link": "https://lexkite.com/app/#/fix",
+ "cta": "Check your grammar on lexkite.com",
+ "est": 23.5,
+ "end_alt": "n_8c570f_e2",
+ "publish": {
+  "title": "Stop saying \"I very like it\"",
+  "keyword": "very vs really",
+  "value": "Say \"I really like it\" instead.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#speakenglish",
+   "#a1english"
+  ],
+  "first_comment": "\"Very\" can't go before a verb, but \"really\" can: I really like it, I really want it. Full lesson and quiz: {link}"
+ }
+}

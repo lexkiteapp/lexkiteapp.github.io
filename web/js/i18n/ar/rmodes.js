@@ -1,0 +1,2 @@
+/* SINH từ i18n/ui/ar/rmodes.js – đừng sửa tay (scripts/i18n-pack.mjs) */
+(function(g){const D=g.I18N_DICT=g.I18N_DICT||{};D.ar=Object.assign(D.ar||{},{_hcwb:"وضع المراجعة",_gumz:"جملتك",_en82:"اكتبها",_42cy:"تلميح حرف",_4tgc:"إظهار الكلمة",_8tl2:"نسيتها",_40h8:"تعذّر تشغيل الصوت – اضغط 🔊 للمحاولة مرة أخرى",_58ig:"استمع واختر",_yt56:"استمع إلى الكلمة",_1xxw:"المصدر",_7883:"جارٍ تحميل الصوت…",_s9a7:"الإجابة الصحيحة"});})(typeof self!=='undefined'?self:this);

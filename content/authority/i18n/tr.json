@@ -1,0 +1,212 @@
+{
+  "nav": {
+    "hub": "Lexkite Hakkında",
+    "team": "Editör ekibi",
+    "policy": "Editöryal politika",
+    "corrections": "Düzeltmeler",
+    "sources": "Kaynaklar",
+    "research": "Araştırma",
+    "embed": "Ücretsiz widget'lar"
+  },
+  "byline": "Lexkite Editör Ekibi tarafından",
+  "factChecked": "Doğrulama tarihi: {date}",
+  "related": "Nasıl çalıştığımız hakkında daha fazlası",
+  "about": {
+    "title": "Lexkite Hakkında – ücretsiz İngilizce kelime öğrenme ve sınav hazırlığı",
+    "desc": "Lexkite'ı kim yapıyor, ne işe yarıyor, nasıl finanse ediliyor ve İngilizce öğrenme içeriğimizi nasıl doğru, bağımsız ve ücretsiz tutuyoruz.",
+    "h1": "Lexkite Hakkında",
+    "lead": "Lexkite, İngilizce kelime öğrenmek ve IELTS, TOEIC ve TOEFL'a hazırlanmak için ücretsiz bir uygulamadır; 15 arayüz dilinde sunulur.",
+    "sections": [
+      [
+        "Lexkite ne yapar",
+        "Lexkite; aralıklı tekrar yöntemli bilgi kartlarını (FSRS), iki dilli sözlüğü, okuma, dinleme, yazma ve konuşma alıştırmalarını ve süreli deneme sınavlarını bir araya getirir. Tarayıcıda, Chrome eklentisi olarak ve mobilde çalışır. Temel özellikler ücretsizdir ve kredi kartı gerektirmez."
+      ],
+      [
+        "Lexkite'ı kim işletiyor",
+        "Lexkite, Koşullarımızda belirtildiği gibi, Wyoming'de kurulu bir limited şirket olan MODIAN LUXURY JEWELRY LLC tarafından işletilir. Bu sitedeki içerikler, kendi sayfasında tanıtılan Lexkite Editör Ekibi tarafından, uyduğumuz editöryal standartlarla birlikte hazırlanır."
+      ],
+      [
+        "Lexkite nasıl finanse ediliyor",
+        "Lexkite'ı işletmecisi finanse eder ve temel uygulamayı ücretsiz tutmak için reklam gösterebilir. Reklam verenlerin ve ortakların ne yazdığımız, hangi kelimeleri öğrettiğimiz ya da çalışma yöntemlerini nasıl değerlendirdiğimiz üzerinde hiçbir etkisi yoktur."
+      ],
+      [
+        "Bağımsızlık",
+        "IELTS, TOEIC ve TOEFL, ilgili sahiplerinin ticari markalarıdır. Lexkite bağımsız bir üründür; British Council, IDP, Cambridge University Press & Assessment veya ETS ile bağlantılı değildir ve bunlar tarafından onaylanmamıştır. Asla puan vaat etmeyiz."
+      ],
+      [
+        "İletişim",
+        "Sorular, düzeltmeler ve iş birliği talepleri için: support@lexkite.com."
+      ]
+    ]
+  },
+  "team": {
+    "title": "Lexkite Editör Ekibi – içeriklerimizi kim yazıyor ve kontrol ediyor",
+    "desc": "Lexkite Editör Ekibi, İngilizce öğrenme makalelerimizi, sözlük verilerimizi ve alıştırma sorularımızı yazar ve gözden geçirir. Ekibin nasıl çalıştığı, dürüstçe anlatılıyor.",
+    "h1": "Lexkite Editör Ekibi",
+    "lead": "Lexkite'taki makaleler, sözlük maddeleri ve alıştırma soruları ortak tek bir imzayla yayımlanır: Lexkite Editör Ekibi.",
+    "sections": [
+      [
+        "Neden ekip imzası",
+        "Bireysel isimler yerine ekip adıyla yayımlıyoruz, çünkü her içerik aynı çok adımlı süreçten geçer ve nihai sonuçtan tek bir kişi sorumlu değildir. Kurgusal yazar kimlikleri, unvanlar veya nitelikler uydurmayız."
+      ],
+      [
+        "Yapay zekâ araçlarını nasıl kullanıyoruz",
+        "Taslaklar, çeviriler ve kalite kontrolleri yapay zekâ yazı araçlarının yardımıyla hazırlanır. Yapay zekâ çıktısı asla olduğu gibi yayımlanmaz: yayına girmeden önce altı adımlı editöryal sürecimizden, resmî kaynaklara karşı doğrulamadan ve 100 puanlık kalite incelemesinden geçmelidir. Bir kontrol başarısız olursa içerik yeniden yazılır veya yayından vazgeçilir."
+      ],
+      [
+        "Ekip nelerden sorumlu",
+        "Öğrenenlerin gerçekten aradığı konuları seçmek, özgün açıklamalar ve örnek cümleler yazmak, sınav bilgilerini sınav sahipleriyle karşılaştırarak doğrulamak, her makaleyi 15 dile uyarlamak (kelimesi kelimesine makine çevirisi değil) ve yayımlanmış sayfaları güncel tutmak."
+      ],
+      [
+        "Hesap verebilirlik",
+        "Her makale; yayın tarihini, son güncelleme tarihini ve bilgilerinin en son doğrulandığı tarihi gösterir. Bir hata bulursanız, düzeltme politikamız bunu nasıl bildireceğinizi ve sonrasında ne yaptığımızı açıklar."
+      ]
+    ]
+  },
+  "policy": {
+    "title": "Editöryal politika ve doğrulama süreci – Lexkite",
+    "desc": "Lexkite her makaleyi nasıl araştırır, yazar, doğrular, yerelleştirir ve inceler: altı adımlı editöryal sürecimiz, kalite eşiği ve güncelleme kuralları.",
+    "h1": "Editöryal politika ve doğrulama",
+    "lead": "Her Lexkite makalesi aynı altı adımdan geçer. Bir makale, ancak son incelemede 100 üzerinden en az 90 puan alırsa yayımlanır.",
+    "stepsH": "Altı adımlı sürecimiz",
+    "steps": [
+      [
+        "Brif",
+        "Her dildeki öğrenenlerin gerçekte ne aradığını ve mevcut en iyi yanıtların neyi atladığını inceler, ardından makalenin yanıtlaması gereken soruyu belirleriz."
+      ],
+      [
+        "Taslak plan",
+        "Makale, ana soruyu en başta doğrudan yanıtlar; sonra kolay taranabilir bir yapıyla derinleşir."
+      ],
+      [
+        "Özgün yazım",
+        "Açıklamalar ve her İngilizce örnek cümle Lexkite için yazılır. Diğer yayıncılardan veya resmî sınav materyallerinden metin, soru ya da görsel kopyalamayız."
+      ],
+      [
+        "Doğrulama",
+        "Sınav biçimleri, süreler ve puan ölçekleri resmî sınav sahipleriyle karşılaştırılarak kontrol edilir. Doğrulanamayan bilgi çıkarılır. Doğrulama tarihi her makalede kaydedilir."
+      ],
+      [
+        "Yerelleştirme",
+        "Her dil sürümü, makine çevirisi yerine okurlarına göre uyarlanır – onların tipik hataları, örnekleri ve arama terimleri dikkate alınır."
+      ],
+      [
+        "Bağımsız kalite incelemesi",
+        "Makaleyi yazmamış bir inceleyici; arama niyeti, doğruluk ve derinlik, özgün değer, doğal üslup, okunabilirlik, yararlı bağlantılar ve güvenilirlik üzerinden 100 puan üzerinden değerlendirir. 90 puanın altındaysa makale yeniden düzenlenir veya yayımlanmaz."
+      ]
+    ],
+    "rulesH": "Her zaman uyduğumuz kurallar",
+    "rules": [
+      "Vaat edilen puan ya da garantili sonuç yok.",
+      "Sahte yorum, referans, yazar adı veya yeterlilik yok.",
+      "Görseller kendi uygulama ekran görüntülerimiz veya şemalarımızdır; telif hakkı olan sınav materyali kullanılmaz.",
+      "Sınav bilgileri resmî kaynağa bağlantı verir.",
+      "Bir sınav değiştiğinde etkilenen makaleler güncellenir ve yeni güncelleme tarihini gösterir."
+    ]
+  },
+  "corrections": {
+    "title": "Düzeltme politikası – Lexkite hataları nasıl giderir",
+    "desc": "Lexkite'ta bir hata mı buldunuz? Nasıl bildirebilirsiniz, ne kadar hızlı inceleriz ve düzeltmeler sayfada nasıl gösterilir.",
+    "h1": "Düzeltme politikası",
+    "lead": "Lexkite'taki her bilginin doğru olmasını istiyoruz. Değilse düzeltir ve bunu belirtiriz.",
+    "sections": [
+      [
+        "Hata nasıl bildirilir",
+        "Sayfa adresini ve neyin yanlış olduğunu belirterek support@lexkite.com adresine e-posta gönderin. Doğru bilginin bir kaynağı, kontrolü hızlandırmamıza yardımcı olur."
+      ],
+      [
+        "Sonrasında ne olur",
+        "Her bildirimi inceleriz. Olgusal hatalar doğrulanır doğrulanmaz düzeltilir ve okurların makalenin gözden geçirildiğini görebilmesi için güncelleme tarihi değişir."
+      ],
+      [
+        "Önemli düzeltmeler",
+        "Bir düzeltme tavsiyenin anlamını değiştiriyorsa – örneğin yanlış bir sınav kuralı – makaleye neyin değiştiğini açıklayan kısa bir not ekleriz."
+      ],
+      [
+        "Sözlük ve alıştırma soruları",
+        "Uygulamadaki veya sözlükteki yanlış tanımlar, cevaplar ya da açıklamalar kaynağında düzeltilir; böylece düzeltme, bunları kullanan her sayfaya ve dile ulaşır."
+      ]
+    ]
+  },
+  "sources": {
+    "title": "Lexkite'ın kullandığı kaynaklar ve referanslar",
+    "desc": "Lexkite'ın İngilizce öğrenme içeriğinin arkasındaki resmî sınav sahipleri, çerçeveler, açık kelime listeleri ve açık kaynak araçlar, lisanslarıyla birlikte.",
+    "h1": "Kaynaklar ve referanslar",
+    "lead": "Lexkite'ın açıklamaları ve örnek cümleleri özgündür. Dayandığımız resmî referanslar ve açık veri kümeleri şunlardır.",
+    "groups": [
+      [
+        "Resmî sınav bilgileri",
+        "Sınav biçimleri, süreler ve puan ölçekleri sınav sahipleriyle karşılaştırılarak kontrol edilir."
+      ],
+      [
+        "Dil çerçeveleri",
+        "Düzeyler, Avrupa Konseyi'nin Diller İçin Avrupa Ortak Başvuru Metni'ni (CEFR) takip eder."
+      ],
+      [
+        "Açık kelime listeleri ve veriler",
+        "Kelime listeleri ve telaffuzlar açık lisanslı kaynaklardan gelir; tanımlar ve örnek cümleler bize aittir."
+      ],
+      [
+        "Öğrenme bilimi",
+        "Bilgi kartı planlaması, açık kaynaklı bir aralıklı tekrar algoritması olan FSRS'i kullanır."
+      ]
+    ],
+    "creditsNote": "Görsel ve veri katkılarının tam listesi katkı sayfamızda yer alır."
+  },
+  "research": {
+    "title": "Sık karıştırılan İngilizce kelimeler: {n} çiftlik açık veri kümesi",
+    "desc": "Sık karıştırılan {n} İngilizce kelime grubunu içeren ücretsiz CC BY veri kümesi: sözcük türleri, tanımlar, tipik hatalar ve akılda tutma ipuçlarıyla. Grafikler ve CSV indirme.",
+    "h1": "Sık karıştırılan İngilizce kelimeler: açık bir veri kümesi",
+    "lead": "Öğrenenlerin sık karıştırdığı {n} İngilizce kelime grubu – affect/effect ve borrow/lend gibi – her biri için tanımlar, tipik bir hata ve akılda tutma ipucuyla. Kaynak gösterilerek ücretsiz yeniden kullanılabilir.",
+    "keyH": "Temel bulgular",
+    "keys": [
+      "{n} kelime grubu ve belgelenmiş {m} tipik hata.",
+      "Grupların %{d}'si farklı sözcük türlerinden kelimeleri karşılaştırır (örneğin bir fiil ile bir isim); bu yüzden sözcük türünü kontrol etmek pek çok hatayı çözer.",
+      "Grupların %{s}'si aynı sözcük türünden kelimeler içerir; bunları yalnızca anlam ve kullanım ayırt eder."
+    ],
+    "chart1": "Sözcük türü örüntüsüne göre kelime grupları",
+    "chart2": "Kelime sayısına göre kelime grupları",
+    "other": "Diğer örüntüler",
+    "tableH": "Veri kümesinin tamamı",
+    "cols": [
+      "Kelimeler",
+      "Sözcük türleri",
+      "Tipik hata → düzeltme",
+      "Akılda tutma ipucu"
+    ],
+    "methodH": "Yöntem",
+    "method": [
+      "Gruplar, öğrenenlerin yazılarında ve sınav alıştırmalarında tekrar tekrar görülen hatalardan yola çıkılarak Lexkite Editör Ekibi tarafından seçilmiş ve yazılmıştır. Her grup, her kelimeyi sözcük türü, kısa bir İngilizce tanım, özgün bir örnek cümle ve düzeltmesiyle birlikte tipik bir hatayla listeler. Bir grubun ayrı bir hata notu yoksa tipik hata, o grubun örnek cümlesinde karıştırılan kelimenin yerine koyulmuş hâlidir.",
+      "Bu sayfadaki istatistikler, site her derlendiğinde Lexkite uygulamasındaki \"Sık karıştırılan kelimeler\" derslerine güç veren aynı verilerden otomatik olarak hesaplanır."
+    ],
+    "privacyH": "Gizlilik",
+    "privacy": "Bu veri kümesi hiçbir türde kullanıcı verisi içermez. Yalnızca Lexkite'ın kendi editöryal içeriğinden oluşturulmuştur; öğrenenlerin yazdığı, kaydettiği veya yanıtladığı şeylerden değil.",
+    "limitsH": "Sınırlamalar",
+    "limits": "Bu, öğrenen derleminden elde edilmiş bir sıklık sayımı değil, derlenmiş bir listedir: editörlerimizin hangi karışıklıkları belgelediğini gösterir, her birinin ne sıklıkla yaşandığını değil.",
+    "downloadH": "İndirme ve lisans",
+    "download": "Veri kümesi, Creative Commons Attribution 4.0 lisansı (CC BY 4.0) kapsamında ücretsiz kullanılabilir. Lütfen Lexkite'ı kaynak gösterin ve bu sayfaya bağlantı verin.",
+    "csv": "CSV indir",
+    "json": "JSON indir",
+    "citeH": "Nasıl atıf yapılır",
+    "embedLink": "\"Günün kelime çifti\"ni sitenize ekleyin"
+  },
+  "embed": {
+    "title": "Öğretmenler ve blog yazarları için ücretsiz İngilizce öğrenme widget'ları – Lexkite",
+    "desc": "Web sitenize veya sınıf blogunuza ücretsiz \"günün karıştırılan kelime çifti\" widget'ı ya da CEFR düzey rozeti ekleyin. Hafif, çerezsiz, izlemesiz.",
+    "h1": "Web siteniz için ücretsiz widget'lar",
+    "lead": "Öğretmenler, okullar ve blog yazarları bu ücretsiz widget'ları tek bir kopyala-yapıştır ile ekleyebilir. Üçüncü taraflardan hiçbir şey yüklemez, çerez bırakmaz ve ziyaretçileri izlemez.",
+    "pairH": "Günün kelime çifti",
+    "pair": "Her gün farklı bir sık karıştırılan kelime çiftini, tipik bir hata ve bir akılda tutma ipucuyla gösterir.",
+    "badgeH": "CEFR düzey rozeti",
+    "badge": "Ücretsiz İngilizce seviye testimizi çözen öğrenciler, düzeylerini bir blogda veya profilde gösterebilir.",
+    "copy": "Kodu kopyala",
+    "copied": "Kopyalandı",
+    "previewH": "Önizleme",
+    "rulesH": "Kullanım koşulları",
+    "rules": "Ticari siteler dahil her web sitesi için ücretsizdir. Lütfen kaynak bağlantısını görünür tutun. İçeriği yanıltıcı olacak şekilde değiştirmeyin.",
+    "widgetLabel": "Günün kelime çifti",
+    "mistake": "Tipik hata",
+    "tip": "İpucu",
+    "more": "Lexkite'ta daha fazla kelime çifti"
+  }
+}

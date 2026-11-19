@@ -1,11 +1,179 @@
 {
  "appName": {
-  "message": "Lexkite – Dicionário e flashcards IELTS"
+  "message": "Lexkite – Dicionário de inglês, tradutor e flashcards de vocabulário"
  },
  "appDesc": {
-  "message": "Clique duas vezes numa palavra: significado, IPA e áudio nativo. Traduza frases e legendas do YouTube. Salve e revise em cartões."
+  "message": "Clique duas vezes numa palavra: significado, IPA e áudio. Traduza frases, salve palavras com contexto e revise para IELTS/TOEIC."
  },
  "openApp": {
   "message": "Abrir Lexkite"
+ },
+ "rateTitle": {
+  "message": "Está gostando do Lexkite?"
+ },
+ "rateBody": {
+  "message": "Se o Lexkite ajuda você a aprender, uma avaliação curta na loja ajuda outros alunos a encontrá-lo."
+ },
+ "rateYes": {
+  "message": "Avaliar o Lexkite"
+ },
+ "rateLater": {
+  "message": "Mais tarde"
+ },
+ "rateNever": {
+  "message": "Não perguntar de novo"
+ },
+ "ntGot": {
+  "message": "✓ Já sei"
+ },
+ "ntAgain": {
+  "message": "↻ Revisar"
+ },
+ "ntGolden": {
+  "message": "Momento ideal"
+ },
+ "ntSaved": {
+  "message": "Salva recentemente"
+ },
+ "ntToday": {
+  "message": "Palavra do momento"
+ },
+ "ntSearch": {
+  "message": "Pesquisar na web…"
+ },
+ "ntSearchBtn": {
+  "message": "Pesquisar"
+ },
+ "ntOff": {
+  "message": "Desativar cartão na nova guia"
+ },
+ "ntConf": {
+  "message": "Fale com confiança"
+ },
+ "ntListen": {
+  "message": "Ouvir"
+ },
+ "ntSlow": {
+  "message": "Lento"
+ },
+ "ntUK": {
+  "message": "RU"
+ },
+ "ntUS": {
+  "message": "EUA"
+ },
+ "ntFamily": {
+  "message": "Família de palavras"
+ },
+ "ntColloc": {
+  "message": "Colocações"
+ },
+ "ntSyn": {
+  "message": "Sinônimos"
+ },
+ "ntAnt": {
+  "message": "Antônimos"
+ },
+ "ntQuiz": {
+  "message": "Modo teste"
+ },
+ "ntReveal": {
+  "message": "Ver significado"
+ },
+ "ntTapTr": {
+  "message": "Toque para ver a tradução"
+ },
+ "ntMT": {
+  "message": "Tradução automática"
+ },
+ "ntExample": {
+  "message": "Exemplo"
+ },
+ "ntAdd": {
+  "message": "＋ Adicionar ao meu baralho"
+ },
+ "ntAdded": {
+  "message": "✓ No meu baralho"
+ },
+ "ntNext": {
+  "message": "Próxima →"
+ },
+ "ntProgress": {
+  "message": "{n}/{g} palavras hoje"
+ },
+ "ntShortcuts": {
+  "message": "Atalhos de teclado"
+ },
+ "ntKeys": {
+  "message": "Espaço: ver · 1/2: avaliar · N: próxima · P: ouvir"
+ },
+ "posN": {
+  "message": "substantivo"
+ },
+ "posV": {
+  "message": "verbo"
+ },
+ "posAdj": {
+  "message": "adjetivo"
+ },
+ "posAdv": {
+  "message": "advérbio"
+ },
+ "posPhrV": {
+  "message": "phrasal verb"
+ },
+ "posPhrase": {
+  "message": "expressão"
+ },
+ "posIdiom": {
+  "message": "expressão idiomática"
+ },
+ "posPrep": {
+  "message": "preposição"
+ },
+ "posConj": {
+  "message": "conjunção"
+ },
+ "posPron": {
+  "message": "pronome"
+ },
+ "posDet": {
+  "message": "determinante"
+ },
+ "posExcl": {
+  "message": "interjeição"
+ },
+ "posNum": {
+  "message": "numeral"
+ },
+ "posAbbr": {
+  "message": "abreviatura"
+ },
+ "posColl": {
+  "message": "colocação"
+ },
+ "ntMoreSenses": {
+  "message": "+{n} significados"
+ },
+ "ntQzTag": {
+  "message": "Desafio rápido"
+ },
+ "ntQzQ": {
+  "message": "Escolha o significado certo"
+ },
+ "ntQzTime": {
+  "message": "{s} segundos"
+ },
+ "ntQzRight": {
+  "message": "Correto!"
+ },
+ "ntQzWrong": {
+  "message": "Não foi dessa vez — a palavra volta em breve"
+ },
+ "ntQzTimeout": {
+  "message": "Tempo esgotado, sem problema"
+ },
+ "ntQzSkip": {
+  "message": "Pular"
  }
 }

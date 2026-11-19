@@ -1,0 +1,14 @@
+{
+ "_note": "Danh sách tay cho tầng ICON (scripts/vocab-img/icons-lex.mjs). add = nghĩa → emoji (chỉ vật/màu/hình cụ thể, đã soát định nghĩa); block = nghĩa KHÔNG được có icon (emoji khớp tên nhưng sai nghĩa / từ trừu tượng). Soát tay 24/10.",
+ "add": {
+  "car#n": "🚗", "truck#n": "🚚", "man#n": "👨", "woman#n": "👩", "moon#n": "🌕", "flower#n": "🌼", "heart#n": "🫀",
+  "red#adj": "🔴", "blue#adj": "🔵", "green#adj": "🟢", "yellow#adj": "🟡", "brown#adj": "🟤", "black#adj": "⚫", "white#adj": "⚪",
+  "orange#n": "🍊", "circle#n": "⭕", "square#n": "🟥", "triangle#n": "🔺",
+  "rain#n": "🌧️", "snow#n": "❄️", "storm#n": "⛈️", "ice#n": "🧊", "fire#n": "🔥",
+  "milk#n": "🥛", "tea#n": "🍵", "coffee#n": "☕", "cheese#n": "🧀", "corn#n": "🌽", "sheep#n": "🐑", "soup#n": "🍲", "meat#n": "🍖", "steak#n": "🥩", "chocolate#n": "🍫", "beer#n": "🍺", "juice#n": "🧃",
+  "door#n": "🚪", "clock#n": "⏰", "hat#n": "🎩", "shirt#n": "👕", "dress#n": "👗", "shoe#n": "👞", "knife#n": "🔪", "money#n": "💵", "gift#n": "🎁", "map#n": "🗺️", "globe#n": "🌍", "leaf#n": "🍃",
+  "doctor#n": "🧑‍⚕️", "nurse#n": "🧑‍⚕️", "police#n": "👮", "chef#n": "🧑‍🍳", "soldier#n": "💂", "king#n": "🤴", "seat#n": "💺", "calendar#n": "📅", "shell#n": "🐚", "bank#n": "🏦", "blood#n": "🩸",
+  "lamp#n": "💡", "bell#n": "🔔", "hand#n": "✋", "sofa#n": "🛋️", "robot#n": "🤖", "ghost#n": "👻", "diamond#n": "💎", "piano#n": "🎹", "airport#n": "🛫", "city#n": "🏙️", "beach#n": "🏖️", "ocean#n": "🌊", "sea#n": "🌊", "cup#n": "☕", "ball#n": "⚽"
+ },
+ "block": ["auto#n", "bug#n", "chain#n", "decoration#n", "gear#n", "link#n", "officer#n", "card#n", "fan#n", "flash#n", "frame#n", "ground#n", "hole#n", "lip#n", "piece#n", "receiver#n", "root#n", "scale#n", "score#n", "tower#n", "tube#n", "uniform#n", "net#n", "balance#n", "breast#n", "credit#n", "crystal#n", "level#n", "studio#n", "top#n", "slot#n", "pound#n", "reminder#n", "field#n", "hair#n", "way#n", "spring#n", "arrival#n", "departure#n", "ceremony#n", "voltage#n", "mate#n", "sake#n", "ram#n", "seal#n", "liquid#n", "web#n"]
+}

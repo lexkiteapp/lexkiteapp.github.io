@@ -1,0 +1,72 @@
+{
+ "_note": "Sinh tự động từ content/video/templates/irregular-verb.json + vars (node scripts/video/template.mjs build) – ĐỪNG sửa tay: sửa file vars rồi build lại.",
+ "topic": "Grammar quiz: goed or went?",
+ "format": "short",
+ "template": "irregular-verb",
+ "script": {
+  "title": "Goed or went? Irregular verb quiz",
+  "hook": "Goed? Or went?",
+  "scene": "library",
+  "time": "day",
+  "format_id": "fill-gap",
+  "template": "irregular-verb",
+  "lines": [
+   {
+    "who": "ama",
+    "beat": "hook",
+    "text": "Goed or went?",
+    "expr": "thinking",
+    "gesture": ""
+   },
+   {
+    "who": "ama",
+    "beat": "situation",
+    "text": "Fill the blank: Yesterday I blank to the gym. Three, two, one!",
+    "expr": "confident",
+    "gesture": "explaining with hands"
+   },
+   {
+    "who": "ama",
+    "beat": "explain",
+    "text": "The answer is went: go, went, gone.",
+    "expr": "confident",
+    "gesture": "pointing",
+    "punch": true
+   },
+   {
+    "who": "ama",
+    "beat": "example",
+    "text": "Yes! I went to the gym, then I went straight to bed.",
+    "expr": "big laugh",
+    "gesture": ""
+   },
+   {
+    "who": "kit",
+    "beat": "tip",
+    "text": "Kit's tip: say them like a song: go, went, gone. Do, did, done.",
+    "expr": "proud",
+    "gesture": ""
+   },
+   {
+    "who": "ama",
+    "beat": "cta",
+    "text": "Practice irregular verbs free on lexkite.com",
+    "expr": "happy smile",
+    "gesture": "waving hello"
+   }
+  ],
+  "keywords": [
+   "went"
+  ],
+  "wrong": "goed",
+  "right": "go, went, gone",
+  "caption": "Goed or went? Answer before the reveal!",
+  "hashtags": [
+   "irregularverbs",
+   "englishquiz",
+   "learnenglish"
+  ],
+  "area": "verbs",
+  "link": "https://lexkite.com/app/#/verb"
+ }
+}

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_zh_amwork",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Do not add am to work!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I am work in a bank.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I work in a bank.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Work is a verb. Do not add am.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Works! My father works in a hospital.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I am work in a bank.",
+  "right": "I work in a bank.",
+  "strike": "am work",
+  "why": "Work is a verb. Do not add am.",
+  "memory": "I work in a bank.",
+  "quiz": {
+   "stem": "My father ___ in a hospital.",
+   "options": [
+    "is work",
+    "works"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "work 前面不加 am！",
+   "tip": "work 是动词，不要再加 am/is/are。",
+   "caption": "你是不是也会说 “I am work in a bank.”？😅 work 本身就是动词，前面不需要 am：“I work in a bank.”。跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。",
+   "comment": "答案：“work”。work 本身是动词！免费测验在这里：{link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "No “am” before work!",
+   "tip": "Work is already a verb, so do not add am, is or are.",
+   "caption": "Do you say “I am work in a bank.”? 😅 Work is already a verb, so no am is needed: “I work in a bank.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "work 前面不加 am！"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "zh",
+ "est": {
+  "words": 52,
+  "seconds": 31.0,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "work 前面不加 am！",
+  "keyword": "I work in a bank.",
+  "value": "work 是动词，不要再加 am/is/are。",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 46,
+  "platforms": {
+   "youtube": {
+    "title": "work 前面不加 am！",
+    "description": "你是不是也会说 “I am work in a bank.”？😅 work 本身就是动词，前面不需要 am：“I work in a bank.”。跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "I work in a bank.",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "你是不是也会说 “I am work in a bank.”？😅 work 本身就是动词，前面不需要 am：“I work in a bank.”。跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "你是不是也会说 “I am work in a bank.”？😅 work 本身就是动词，前面不需要 am：“I work in a bank.”。跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "work 前面不加 am！ #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案：“work”。work 本身是动词！免费测验在这里：{link}",
+  "lang": "zh"
+ }
+}

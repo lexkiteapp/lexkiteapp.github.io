@@ -1,0 +1,124 @@
+{
+ "id": "t2a_usuk_schedule",
+ "template": "usuk",
+ "series": "US or UK?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "U.S. or U.K.?",
+   "pause": 0.42
+  },
+  {
+   "id": "us",
+   "text": "In America, people say schedule.",
+   "pause": 0.42
+  },
+  {
+   "id": "uk",
+   "text": "In Britain, people say timetable. Same thing!",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "Check the train schedule before you go.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! You're in Edinburgh. Which word do people use?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Timetable!",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "us": "schedule",
+  "uk": "timetable",
+  "ipa_us": "/ˈskedʒuːl/",
+  "ipa_uk": "/ˈtaɪmteɪbl/",
+  "same": "Same thing!",
+  "quiz": {
+   "options": [
+    "schedule",
+    "timetable"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/schedule",
+  "link": "https://lexkite.com/app/#/dict/schedule",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "US or UK?"
+ },
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Schedule or timetable? US vs UK English",
+  "keyword": "schedule vs timetable",
+  "value": "Americans say schedule. British people say timetable.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/schedule",
+  "script_words": 33,
+  "platforms": {
+   "youtube": {
+    "title": "Schedule or timetable? US vs UK English",
+    "description": "Americans say schedule. British people say timetable.\n\nLook up any word, free: https://lexkite.com/app/#/dict/schedule\n\nSeries: US or UK? · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "schedule vs timetable",
+     "US or UK?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Schedule or timetable? US vs UK English\n\nAmericans say schedule. British people say timetable.\n\nLook up any word, free: https://lexkite.com/app/#/dict/schedule"
+   },
+   "instagram": {
+    "caption": "Schedule or timetable? US vs UK English\n\nAmericans say schedule. British people say timetable.\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Schedule or timetable? US vs UK English #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: Timetable! Americans say schedule. British people say timetable. Try the full lesson and quiz here: {link}"
+ }
+}

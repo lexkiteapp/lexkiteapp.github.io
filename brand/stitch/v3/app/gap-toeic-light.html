@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite - TOEIC Listening Drill</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-container-high": "#dee8ff",
+            "on-primary-fixed": "#00201e",
+            "on-tertiary-fixed": "#311400",
+            "on-tertiary-fixed-variant": "#723600",
+            "on-surface-variant": "#3f4947",
+            "on-primary-fixed-variant": "#00504c",
+            "surface-container": "#e7eeff",
+            "on-primary-container": "#8ed2cc",
+            "outline": "#6f7978",
+            "on-tertiary": "#ffffff",
+            "surface-variant": "#d8e3fb",
+            "error": "#ba1a1a",
+            "primary-container": "#0d5c58",
+            "surface-dim": "#cfdaf2",
+            "on-tertiary-container": "#ffb685",
+            "primary-fixed": "#abefe9",
+            "surface-container-highest": "#d8e3fb",
+            "inverse-surface": "#263143",
+            "secondary-fixed-dim": "#ffb4a2",
+            "secondary-container": "#fd6f4c",
+            "background": "#f9f9ff",
+            "surface-tint": "#216964",
+            "error-container": "#ffdad6",
+            "surface": "#f9f9ff",
+            "on-error-container": "#93000a",
+            "secondary": "#ac3416",
+            "on-surface": "#111c2d",
+            "surface-container-low": "#f0f3ff",
+            "tertiary": "#612d00",
+            "primary": "#004340",
+            "tertiary-fixed-dim": "#ffb786",
+            "on-secondary": "#ffffff",
+            "on-secondary-container": "#661200",
+            "inverse-on-surface": "#ecf1ff",
+            "on-error": "#ffffff",
+            "outline-variant": "#bec9c7",
+            "surface-container-lowest": "#ffffff",
+            "surface-bright": "#f9f9ff",
+            "on-primary": "#ffffff",
+            "on-secondary-fixed-variant": "#8a1c00",
+            "tertiary-container": "#834000",
+            "on-background": "#111c2d",
+            "inverse-primary": "#8fd3cd",
+            "primary-fixed-dim": "#8fd3cd",
+            "tertiary-fixed": "#ffdcc6",
+            "secondary-fixed": "#ffdad2",
+            "on-secondary-fixed": "#3c0700"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "2xl": "1rem",
+            "3xl": "1.5rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "space-md": "1rem",
+            "space-xl": "2rem",
+            "space-lg": "1.5rem",
+            "gutter-tablet": "1.5rem",
+            "margin-tablet": "2rem",
+            "gutter": "1rem",
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "margin": "1rem"
+          },
+          fontFamily: {
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-xl": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-xl-mobile": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"]
+          },
+          fontSize: {
+            "headline-lg-mobile": ["24px", { lineHeight: "32px", letterSpacing: "-0.01em", fontWeight: "700" }],
+            "label-lg": ["16px", { lineHeight: "22px", letterSpacing: "0.01em", fontWeight: "700" }],
+            "body-sm": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+            "headline-xl": ["40px", { lineHeight: "48px", letterSpacing: "-0.02em", fontWeight: "800" }],
+            "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.015em", fontWeight: "700" }],
+            "label-sm": ["12px", { lineHeight: "16px", letterSpacing: "0.02em", fontWeight: "600" }],
+            "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+            "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+            "headline-xl-mobile": ["30px", { lineHeight: "38px", letterSpacing: "-0.02em", fontWeight: "800" }],
+            "headline-sm": ["18px", { lineHeight: "24px", fontWeight: "600" }],
+            "label-md": ["14px", { lineHeight: "18px", letterSpacing: "0.01em", fontWeight: "600" }],
+            "headline-md": ["22px", { lineHeight: "28px", letterSpacing: "-0.01em", fontWeight: "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 450, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    
+    /* Tactile Custom 3D Mechanical Rim Styles */
+    .tactile-key-coral {
+      box-shadow: 0 4px 0 0 #ac3416;
+      border: 1.5px solid #ac3416;
+      transition: all 0.1s ease-in-out;
+    }
+    .tactile-key-coral:active {
+      transform: translateY(4px);
+      box-shadow: 0 0 0 0 #ac3416;
+    }
+
+    .tactile-key-teal {
+      box-shadow: 0 3px 0 0 #004340;
+      border: 1.5px solid #004340;
+      transition: all 0.1s ease-in-out;
+    }
+    .tactile-key-teal:active {
+      transform: translateY(3px);
+      box-shadow: 0 0 0 0 #004340;
+    }
+
+    .tactile-card {
+      box-shadow: 0 3px 0 0 #bec9c7;
+      border: 1.5px solid #bec9c7;
+      transition: all 0.15s ease-in-out;
+    }
+    .tactile-card:active {
+      transform: translateY(3px);
+      box-shadow: 0 0 0 0 #bec9c7;
+    }
+
+    .tactile-card-selected {
+      box-shadow: 0 3px 0 0 #004340;
+      border: 2px solid #004340;
+      background-color: #f0fdf4;
+    }
+
+    /* Sound Waveform Animation Bar */
+    @keyframes wavePulsing {
+      0%, 100% { height: 8px; }
+      50% { height: 26px; }
+    }
+    .wave-bar-active-1 { animation: wavePulsing 0.9s ease-in-out infinite 0.1s; }
+    .wave-bar-active-2 { animation: wavePulsing 1.1s ease-in-out infinite 0.25s; }
+    .wave-bar-active-3 { animation: wavePulsing 0.8s ease-in-out infinite 0.4s; }
+    .wave-bar-active-4 { animation: wavePulsing 1.2s ease-in-out infinite 0.15s; }
+    .wave-bar-active-5 { animation: wavePulsing 0.7s ease-in-out infinite 0.3s; }
+    .wave-bar-active-6 { animation: wavePulsing 1.0s ease-in-out infinite 0.2s; }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface antialiased selection:bg-primary-fixed selection:text-on-primary-fixed min-h-screen flex flex-col justify-between">
+<!-- Top App Bar (Task Sub-Screen Header) -->
+<header class="bg-surface text-primary border-b border-outline-variant sticky top-0 z-40">
+<div class="flex justify-between items-center w-full px-margin py-space-sm max-w-xl mx-auto">
+<!-- Close Button with Tactile Pill Outline -->
+<button aria-label="Close Drill" class="w-10 h-10 rounded-xl bg-surface-container-lowest border border-outline-variant flex items-center justify-center text-primary shadow-[0_2px_0_0_#bec9c7] active:translate-y-0.5 active:shadow-none transition-all" type="button">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+<!-- Center Progress Indicator Segmented Pill -->
+<div class="flex-1 mx-3 flex flex-col items-center max-w-[200px]">
+<div class="flex items-center justify-between w-full mb-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold">Question 3 of 10</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">30%</span>
+</div>
+<!-- Progress Bar Track -->
+<div class="w-full h-2.5 bg-outline-variant/30 rounded-full overflow-hidden p-0.5">
+<div class="h-full bg-primary-container rounded-full w-[30%] transition-all duration-300"></div>
+</div>
+</div>
+<!-- Countdown Timer Pill Badge -->
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-surface-container-lowest border border-outline-variant shadow-[0_2px_0_0_#bec9c7]">
+<span class="material-symbols-outlined text-secondary text-[18px]" data-icon="schedule">schedule</span>
+<span class="font-label-md text-label-md font-bold text-secondary">00:45</span>
+</div>
+</div>
+</header>
+<!-- Main Scrollable Learning Canvas -->
+<main class="flex-1 w-full max-w-xl mx-auto px-margin pt-4 pb-28 flex flex-col gap-4">
+<!-- Section Category & Part Header -->
+<div class="flex items-center justify-between gap-2 pt-1">
+<div class="flex items-center gap-2 flex-wrap">
+<span class="px-2.5 py-1 rounded-full bg-primary-container text-on-primary font-label-sm text-label-sm font-bold tracking-wide">
+          Part 1
+        </span>
+<span class="font-label-sm text-label-sm tracking-wider uppercase text-on-surface-variant font-bold">
+          LISTENING • PHOTOGRAPHS
+        </span>
+</div>
+<span class="font-label-sm text-label-sm text-outline font-medium">
+        TOEIC Listening Drill
+      </span>
+</div>
+<!-- Teacher Carlos Tip Card (No drawn faces/people) -->
+<section class="bg-surface-container-lowest rounded-2xl p-4 border border-outline-variant shadow-[0_2px_0_0_#bec9c7] flex items-center gap-3">
+<!-- Empty Dashed Placeholder for Teacher Slot -->
+<div class="w-14 h-14 min-w-[56px] rounded-xl border-2 border-dashed border-outline flex flex-col items-center justify-center bg-surface p-1 text-center select-none">
+<span class="material-symbols-outlined text-outline text-[18px]" data-icon="account_circle">account_circle</span>
+<span class="font-label-sm text-[10px] leading-tight text-outline font-semibold tracking-tighter">teacher-slot</span>
+</div>
+<!-- Teacher Tip Text Context -->
+<div class="flex-1 flex flex-col justify-center">
+<div class="flex items-center gap-2 mb-0.5">
+<span class="font-label-md text-label-md font-bold text-on-surface">Carlos</span>
+<span class="px-2 py-0.2 rounded-full bg-surface-container text-on-primary-fixed-variant font-label-sm text-[11px] font-semibold">Tutor</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-snug">
+          "Listen for the action verb in the sentence."
+        </p>
+</div>
+</section>
+<!-- Exam Visual Prompt Card: Empty Picture Frame Placeholder -->
+<section class="bg-surface-container-lowest rounded-2xl p-4 border-2 border-outline-variant shadow-[0_3px_0_0_#bec9c7]">
+<div class="w-full rounded-xl border-2 border-dashed border-outline-variant bg-surface py-8 px-4 flex flex-col items-center justify-center text-center">
+<!-- Photo slot camera identifier -->
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-primary-container mb-2">
+<span class="material-symbols-outlined text-[24px]" data-icon="photo_camera">photo_camera</span>
+</div>
+<span class="px-3 py-1 rounded-full bg-surface-container-high text-primary font-label-md text-label-md font-bold mb-2">
+          photo-slot
+        </span>
+<p class="font-headline-sm text-headline-sm text-on-surface font-bold text-center max-w-sm mb-1 leading-snug">
+          [Exam Photo: Office Conference Room]
+        </p>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-xs leading-normal">
+          Visual prompt reference for TOEIC Part 1
+        </p>
+</div>
+</section>
+<!-- Audio Player Component Card -->
+<section class="bg-surface-container-lowest rounded-2xl p-4 border border-outline-variant shadow-[0_3px_0_0_#bec9c7] flex flex-col gap-3">
+<div class="flex items-center justify-between gap-3">
+<!-- Play / Pause Tactile Button -->
+<button aria-label="Play Audio" class="w-13 h-13 min-w-[52px] min-h-[52px] rounded-2xl bg-primary-container text-on-primary flex items-center justify-center tactile-key-teal" type="button">
+<span class="material-symbols-outlined text-[28px]" data-icon="play_arrow" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+<!-- Waveform Visualizer & Timestamp Info -->
+<div class="flex-1 flex flex-col justify-center gap-1.5 px-1">
+<div class="flex justify-between items-center text-on-surface">
+<span class="font-label-md text-label-md font-bold text-primary">Audio Prompt</span>
+<span class="font-label-sm text-label-sm font-semibold text-on-surface-variant">0:03 / 0:08</span>
+</div>
+<!-- Tactile Waveform Bars -->
+<div class="h-8 bg-surface rounded-lg px-2 flex items-center justify-between gap-1 overflow-hidden border border-outline-variant/50">
+<div class="w-1.5 rounded-full bg-primary-container wave-bar-active-1"></div>
+<div class="w-1.5 rounded-full bg-primary-container wave-bar-active-2"></div>
+<div class="w-1.5 rounded-full bg-primary-container wave-bar-active-3"></div>
+<div class="w-1.5 rounded-full bg-primary-container wave-bar-active-4"></div>
+<div class="w-1.5 rounded-full bg-primary-container wave-bar-active-5"></div>
+<div class="w-1.5 rounded-full bg-primary-container wave-bar-active-6"></div>
+<div class="w-1.5 rounded-full bg-outline-variant h-2"></div>
+<div class="w-1.5 rounded-full bg-outline-variant h-4"></div>
+<div class="w-1.5 rounded-full bg-outline-variant h-2.5"></div>
+<div class="w-1.5 rounded-full bg-outline-variant h-5"></div>
+<div class="w-1.5 rounded-full bg-outline-variant h-2"></div>
+<div class="w-1.5 rounded-full bg-outline-variant h-3.5"></div>
+<div class="w-1.5 rounded-full bg-outline-variant h-2"></div>
+<div class="w-1.5 rounded-full bg-outline-variant h-1.5"></div>
+</div>
+</div>
+<!-- Controls: Speed Toggle & Replay -->
+<div class="flex items-center gap-2">
+<!-- Playback Speed Pill Button -->
+<button aria-label="Change Speed" class="h-11 px-3 rounded-xl bg-surface border border-outline-variant text-primary font-label-md text-label-md font-bold shadow-[0_2px_0_0_#bec9c7] active:translate-y-0.5 active:shadow-none transition-all flex items-center justify-center" type="button">
+            1x
+          </button>
+<!-- Replay Button -->
+<button aria-label="Replay Prompt" class="w-11 h-11 rounded-xl bg-surface border border-outline-variant text-on-surface-variant shadow-[0_2px_0_0_#bec9c7] active:translate-y-0.5 active:shadow-none transition-all flex items-center justify-center" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="replay">replay</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Question Prompt Instruction -->
+<div class="pt-1">
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface leading-tight">
+        Select the statement that best describes what you hear.
+      </h2>
+</div>
+<!-- Multiple Choice Options Group -->
+<div aria-label="Listening response options" class="flex flex-col gap-3" role="radiogroup">
+<!-- Option A (Unselected) -->
+<button aria-checked="false" class="w-full text-left bg-surface-container-lowest rounded-2xl p-4 tactile-card flex items-center gap-3.5 min-h-[58px]" role="radio" type="button">
+<div class="w-8 h-8 rounded-full border-2 border-outline-variant flex items-center justify-center bg-surface flex-shrink-0 font-label-md text-label-md font-bold text-on-surface-variant">
+          A
+        </div>
+<div class="flex-1">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold block leading-normal">
+            Statement A
+          </span>
+</div>
+<div class="w-6 h-6 rounded-full border-2 border-outline-variant flex items-center justify-center flex-shrink-0 bg-surface">
+<!-- Empty radio circle -->
+</div>
+</button>
+<!-- Option B (Unselected) -->
+<button aria-checked="false" class="w-full text-left bg-surface-container-lowest rounded-2xl p-4 tactile-card flex items-center gap-3.5 min-h-[58px]" role="radio" type="button">
+<div class="w-8 h-8 rounded-full border-2 border-outline-variant flex items-center justify-center bg-surface flex-shrink-0 font-label-md text-label-md font-bold text-on-surface-variant">
+          B
+        </div>
+<div class="flex-1">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold block leading-normal">
+            Statement B
+          </span>
+</div>
+<div class="w-6 h-6 rounded-full border-2 border-outline-variant flex items-center justify-center flex-shrink-0 bg-surface">
+<!-- Empty radio circle -->
+</div>
+</button>
+<!-- Option C (SELECTED STATE: Deep teal accent rim, soft teal-cream tint, checkmark) -->
+<button aria-checked="true" class="w-full text-left bg-surface-container-lowest rounded-2xl p-4 tactile-card-selected flex items-center gap-3.5 min-h-[58px]" role="radio" type="button">
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary flex items-center justify-center flex-shrink-0 font-label-md text-label-md font-bold">
+          C
+        </div>
+<div class="flex-1">
+<span class="font-label-lg text-label-lg text-primary font-bold block leading-normal">
+            Statement C
+          </span>
+</div>
+<div class="w-6 h-6 rounded-full bg-primary-container text-on-primary flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[16px] font-bold" data-icon="check">check</span>
+</div>
+</button>
+<!-- Option D (Unselected) -->
+<button aria-checked="false" class="w-full text-left bg-surface-container-lowest rounded-2xl p-4 tactile-card flex items-center gap-3.5 min-h-[58px]" role="radio" type="button">
+<div class="w-8 h-8 rounded-full border-2 border-outline-variant flex items-center justify-center bg-surface flex-shrink-0 font-label-md text-label-md font-bold text-on-surface-variant">
+          D
+        </div>
+<div class="flex-1">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold block leading-normal">
+            Statement D
+          </span>
+</div>
+<div class="w-6 h-6 rounded-full border-2 border-outline-variant flex items-center justify-center flex-shrink-0 bg-surface">
+<!-- Empty radio circle -->
+</div>
+</button>
+</div>
+<!-- Informational TOEIC Note Card -->
+<div class="bg-surface-container rounded-2xl p-3.5 border border-outline-variant/60 flex items-start gap-3 mt-1">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5 flex-shrink-0" data-icon="info">info</span>
+<p class="font-body-sm text-body-sm text-on-surface leading-snug">
+<strong class="font-semibold text-primary">Note:</strong> In the actual TOEIC® test, answer options are spoken only and not written in your test book.
+      </p>
+</div>
+</main>
+<!-- Bottom Sticky Navigation Action Bar (Exact BottomNavBar Execution) -->
+<footer class="fixed bottom-0 left-0 w-full z-50 bg-surface border-t border-outline-variant shadow-sm py-space-md px-margin">
+<div class="max-w-xl mx-auto w-full">
+<!-- Full-Width Tactile Coral Primary CTA -->
+<button class="w-full min-h-[56px] rounded-2xl bg-secondary-container text-on-secondary font-label-lg text-label-lg flex items-center justify-center gap-2 tactile-key-coral" type="button">
+<span>Next</span>
+<span class="material-symbols-outlined text-[20px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</footer>
+</body></html>

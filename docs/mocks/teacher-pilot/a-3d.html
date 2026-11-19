@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pilot A – 3D avatar</title>
+<!-- Pilot A (docs/TEACHER-IN-APP.md §5.3): performance test ONLY. three.js r186 + TalkingHead 1.8.2 (MIT) from jsDelivr, avatar = TalkingHead
+     example "mpfb.glb" (CC0, MakeHuman/MPFB) compressed 36.8 MB → 2.98 MB (gltf-transform: WebP 1024 + meshopt). It is NOT Ama: no free
+     Ama/Carlos rig exists yet (design §5.1). Same Kokoro audio + Rhubarb cues as pilot B, mapped to Oculus visemes. -->
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.186.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.186.0/examples/jsm/",
+  "talkinghead": "https://cdn.jsdelivr.net/npm/@met4citizen/talkinghead@1.8.2/modules/talkinghead.mjs"
+} }
+</script>
+<style>
+  :root { --teal2: #17595A; --text: #13201f; --muted: #5b6b6a; --card: #fff; --bg: #F4EFE6; }
+  @media (prefers-color-scheme: dark) { :root { --text: #EAF2F1; --muted: #9DB3B1; --card: #17292A; --bg: #0B1C1D; } }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 15px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; background: var(--bg); color: var(--text); }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 16px; display: grid; gap: 16px; grid-template-columns: minmax(0, 420px) minmax(0, 1fr); }
+  @media (max-width: 760px) { .wrap { grid-template-columns: 1fr; } }
+  #avatar { width: 100%; aspect-ratio: 3 / 4; border-radius: 22px; overflow: hidden; background: linear-gradient(#e9e4da, #cfc8bb); }
+  .bar { display: flex; gap: 8px; flex-wrap: wrap; }
+  button { border: 0; border-radius: 99px; padding: 8px 14px; font: 600 14px system-ui; cursor: pointer; background: var(--teal2); color: #fff; }
+  button:disabled { opacity: .5; }
+  .card { background: var(--card); border-radius: 14px; padding: 12px 14px; }
+  .card h2 { margin: 0 0 6px; font-size: 16px; } .card p { margin: 4px 0; color: var(--muted); font-size: 14px; }
+  .num { font: 13px/1.6 ui-monospace, Menlo, monospace; white-space: pre-wrap; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div>
+    <div id="avatar"></div>
+    <div class="bar" style="margin-top:12px" id="lines"></div>
+    <div class="bar" style="margin-top:8px"><button id="all" disabled>▶ Play all 4</button></div>
+  </div>
+  <div style="display:grid;gap:12px;align-content:start">
+    <div class="card"><h2>Pilot A · real-time 3D (performance test)</h2>
+      <p>Measures whether a rigged 3D head (52 ARKit + 15 viseme blendshapes) runs smoothly on this phone. The face is a <b>stand-in CC0 model</b>, not Ama – look at smoothness, heat and load time, not likeness.</p>
+      <p>Leave it talking for 60 s (Play all, then again) and read p5 fps below.</p></div>
+    <div class="card"><h2>Measured on this device</h2><div class="num" id="m">loading 3D… (≈ 3.6 MB first time)</div></div>
+  </div>
+</div>
+<script type="module">
+import { TalkingHead } from 'talkinghead';
+const $ = id => document.getElementById(id);
+const t0 = performance.now(), M = {};
+const VIS = { X: 'sil', A: 'PP', B: 'SS', C: 'E', D: 'aa', E: 'O', F: 'U', G: 'FF', H: 'nn' }; // Rhubarb → Oculus
+const gl = document.createElement('canvas').getContext('webgl2');
+const dbg = gl && gl.getExtension('WEBGL_debug_renderer_info');
+M.gpu = dbg ? gl.getParameter(dbg.UNMASKED_RENDERER_WEBGL) : (gl ? 'WebGL2 (renderer hidden)' : 'no WebGL2');
+let head;
+try {
+  head = new TalkingHead($('avatar'), { ttsEndpoint: '', lipsyncModules: [], cameraView: 'upper', modelFPS: 30, modelPixelRatio: 1, avatarMute: false });
+  await head.showAvatar({ url: 'assets/mpfb.glb', body: 'F', avatarMood: 'neutral', lipsyncLang: 'en' }, ev => {
+    if (ev.lengthComputable) $('m').textContent = `loading 3D… ${Math.round(ev.loaded / ev.total * 100)} %`;
+  });
+  M.load = performance.now() - t0;
+  window.__head = head; let tris = 0, morphs = 0, verts = 0;
+  head.scene.traverse(o => { if (o.isMesh && o.geometry) { const g = o.geometry; verts += g.attributes.position.count; tris += (g.index ? g.index.count : g.attributes.position.count) / 3; morphs = Math.max(morphs, (g.morphAttributes.position || []).length); } });
+  M.mesh = `${Math.round(tris / 1000)}k tris · ${Math.round(verts / 1000)}k verts · ${morphs} morph targets`;
+} catch (e) { $('m').textContent = 'FAILED: ' + e.message + '\n→ the app would fall back to pilot B (sprite) / video clips.'; throw e; }
+const lines = await fetch('assets/ama_lines.json').then(r => r.json());
+const bufs = {};
+async function play(id) {
+  if (head.audioCtx.state !== 'running') await head.audioCtx.resume();
+  const L = lines[id], cues = L.gated;
+  const audio = bufs[id] || (bufs[id] = await fetch(`assets/${id}.mp3`).then(r => r.arrayBuffer()).then(a => head.audioCtx.decodeAudioData(a)));
+  const visemes = [], vtimes = [], vdurations = [];
+  cues.forEach(([t, k], i) => { const end = i < cues.length - 1 ? cues[i + 1][0] : L.dur; if (k === 'X') return; visemes.push(VIS[k] || 'sil'); vtimes.push(t * 1000); vdurations.push((end - t) * 1000); });
+  head.speakAudio({ audio, words: [], wtimes: [], wdurations: [], visemes, vtimes, vdurations });
+  await new Promise(r => setTimeout(r, L.dur * 1000 + 350));
+}
+Object.entries(lines).forEach(([id, L]) => { const b = document.createElement('button'); b.textContent = L.text; b.onclick = () => play(id); $('lines').append(b); });
+$('all').disabled = false; $('all').onclick = async () => { for (const id of Object.keys(lines)) await play(id); };
+// fps sampler (1 s buckets) + long frames
+const fps = []; let n = 0, ts = performance.now(), long = 0, last = ts;
+(function f() { const t = performance.now(); n++; if (t - last > 50) long++; last = t; if (t - ts >= 1000) { fps.push(n * 1000 / (t - ts)); n = 0; ts = t; } requestAnimationFrame(f); })();
+const q = (a, p) => { const s = [...a].sort((x, y) => x - y); return s.length ? s[Math.min(s.length - 1, Math.floor(p * s.length))] : 0; };
+setInterval(() => {
+  const res = performance.getEntriesByType('resource');
+  const sum = re => res.filter(r => re.test(r.name)).reduce((s, r) => s + (r.encodedBodySize || r.transferSize || 0), 0) / 1024;
+  const w = fps.slice(-60);
+  $('m').textContent = `avatar ready     ${(M.load / 1000).toFixed(1)} s after open\n` +
+    `downloaded       glb ${sum(/\.glb/).toFixed(0)} KB · JS ${sum(/\.m?js/).toFixed(0)} KB · audio ${sum(/\.mp3/).toFixed(0)} KB\n` +
+    `fps (last ${w.length} s)  avg ${w.length ? (w.reduce((a, b) => a + b, 0) / w.length).toFixed(0) : '–'} · p5 ${q(w, .05).toFixed(0)} (model target 30)\n` +
+    `frames > 50 ms   ${long}\n` +
+    `mesh             ${M.mesh}\n` +
+    `GPU              ${M.gpu}\n` +
+    `device           ${navigator.deviceMemory || '?'} GB · ${navigator.hardwareConcurrency || '?'} cores · ${screen.width}×${screen.height}@${devicePixelRatio}`;
+}, 1000);
+</script>
+</body>
+</html>

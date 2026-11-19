@@ -1,0 +1,2 @@
+/* SINH từ i18n/ui/ar/explain.js – đừng sửa tay (scripts/i18n-pack.mjs) */
+(function(g){const D=g.I18N_DICT=g.I18N_DICT||{};D.ar=Object.assign(D.ar||{},{_euv7:"الإبلاغ عن خطأ في هذا الشرح",_oh3:"الدليل في النص",_zw0g:"النمط نفسه",_4gg9:"التركيب",_95jp:"استمع إلى المثال","Sắc thái nghĩa":"الفرق الدقيق في المعنى",_zwdi:"أضف إلى المراجعة",_nktn:"لماذا اختيارك خاطئ",_ncyk:"أمثلة أخرى",_p76b:"عرض الشرح الكامل"});})(typeof self!=='undefined'?self:this);

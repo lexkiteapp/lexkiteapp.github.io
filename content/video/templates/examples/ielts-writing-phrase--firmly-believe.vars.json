@@ -1,0 +1,26 @@
+{
+ "topic": "IELTS Writing Task 2: in my opinion, I think",
+ "scene": "classroom",
+ "vars": {
+  "task": "Task 2",
+  "phrase": "I firmly believe that",
+  "basicShort": "I think",
+  "hookLine": "Wait, \"I think\" again?",
+  "basic": "My essay says: In my opinion, I think phones are bad. Is that okay?",
+  "rule": "That gives your opinion twice. Use one strong phrase: I firmly believe that.",
+  "better": "I firmly believe that schools should limit phone use.",
+  "basicCard": "In my opinion, I think…",
+  "betterCard": "I firmly believe that…",
+  "tip": "use it once, in your introduction or conclusion, not in every paragraph."
+ },
+ "lines": {
+  "situation": {
+   "expr": "thinking"
+  }
+ },
+ "hashtags": [
+  "ielts",
+  "ieltswriting",
+  "learnenglish"
+ ]
+}

@@ -1,0 +1,52 @@
+# media.lexkite.com + audio.lexkite.com phục vụ TĨNH từ R2 (0 lượt Workers – docs/CAPACITY.md §A5, scripts/cdn/).
+# Khoá: secret CLOUDFLARE_API_TOKEN sẵn có (token CI "lexkite-dict GitHub Actions", có Workers R2 Storage + Workers Scripts/Routes);
+# khoá S3 suy từ token (scripts/cdn/creds.mjs) – không cần secret mới. R2 chưa bật / thiếu quyền → dừng TRUNG TÍNH + ghi việc chủ cần bấm.
+# Lịch mỗi giờ: chép tăng dần (sổ _mirror/manifest.json; chỉ khi bucket đã có). Chạy tay: action
+#   mirror (mặc định: tạo bucket + CORS + luật zone nếu token đủ quyền, rồi chép) · switch (cổng status → Worker → R2, lỗi tự quay lại) · verify · rollback.
+# Đỏ khi: lỗi đẩy, mẫu kiểm lệch, nguồn 0 khoá, verify/switch lỗi.
+name: cdn-mirror
+on:
+  schedule:
+    - cron: '47 * * * *'
+  workflow_dispatch:
+    inputs:
+      action: { description: 'mirror | switch | verify | rollback', default: mirror }
+      host: { description: 'media | audio | all (switch/verify/rollback: media hoặc audio)', default: all }
+      max: { description: 'tối đa tệp/lượt chép (0 = hết)', default: '0' }
+concurrency: { group: cdn-mirror, cancel-in-progress: false }
+permissions: { contents: read }
+jobs:
+  cdn:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    env:
+      CLOUDFLARE_API_TOKEN: '${{ secrets.CLOUDFLARE_API_TOKEN }}'
+      ACTION: "${{ inputs.action || 'mirror' }}"
+      HOST: "${{ inputs.host || 'all' }}"
+    steps:
+      - uses: actions/checkout@v4
+        with: { sparse-checkout: "scripts\ninfra\nweb/free-tier-state.json", sparse-checkout-cone-mode: false }  # r2 frozen (chốt $0) → không ghi
+      - uses: actions/setup-node@v4
+        with: { node-version: '24' }
+      - name: R2 đã bật? (chưa → dừng trung tính)
+        id: check
+        run: node scripts/cdn/cutover.mjs check
+      - name: Khoá S3 từ token
+        if: steps.check.outputs.r2 == 'on'
+        run: node scripts/cdn/creds.mjs
+      - name: Tạo bucket + CORS + luật zone (chạy tay)
+        if: steps.check.outputs.r2 == 'on' && github.event_name == 'workflow_dispatch' && env.ACTION == 'mirror'
+        id: prep
+        run: node scripts/cdn/cutover.mjs prepare
+      - name: Chép GitHub → R2
+        if: steps.check.outputs.r2 == 'on' && env.ACTION == 'mirror' && (github.event_name == 'workflow_dispatch' || steps.check.outputs.buckets == '1')
+        env: { GH_TOKEN: '${{ github.token }}' }
+        run: node scripts/cdn/mirror.mjs --host "$HOST" --max "${{ inputs.max || '0' }}"
+      - name: Chuyển / kiểm / quay lại tên miền
+        if: steps.check.outputs.r2 == 'on' && env.ACTION != 'mirror'
+        run: |
+          case "$ACTION" in
+            switch) node scripts/cdn/cutover.mjs switch --host "$HOST" && sleep 30 && node scripts/cdn/cutover.mjs verify --host "$HOST" ;;
+            verify|rollback) node scripts/cdn/cutover.mjs "$ACTION" --host "$HOST" ;;
+            *) echo "::error::action lạ: $ACTION"; exit 1 ;;
+          esac

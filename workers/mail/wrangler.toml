@@ -1,0 +1,28 @@
+# Worker nội bộ chuyển tin nhắn từ form liên hệ (functions/api/contact.js) vào hộp thư support – không có URL công khai.
+name = "lexkite-mail"
+main = "index.js"
+compatibility_date = "2026-10-01"
+workers_dev = false
+preview_urls = false
+
+[[send_email]]
+name = "SEB"
+destination_address = "vintagezulilyjewelry@gmail.com"
+
+# Email cảnh báo tự động mỗi ngày 01:00 UTC (08:00 giờ VN) – chỉ gửi khi có mục cần xử lý
+[triggers]
+crons = ["0 1 * * *"]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "lexkite-sync"
+database_id = "7ce39cd0-9333-4843-bd6f-5ccbefbde670"
+
+# AI Cloudflare (gói miễn phí) – tự xác nhận nghĩa bản dịch mỗi đêm (judge.js)
+[ai]
+binding = "AI"
+
+# Proxy Gemini ghim tại Mỹ (workers/gemini)
+[[services]]
+binding = "GEM"
+service = "lexkite-gemini"

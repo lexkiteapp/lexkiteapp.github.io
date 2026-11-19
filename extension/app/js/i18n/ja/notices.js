@@ -1,0 +1,2 @@
+/* SINH từ i18n/ui/ja/notices.js – đừng sửa tay (scripts/i18n-pack.mjs) */
+(function(g){const D=g.I18N_DICT=g.I18N_DICT||{};D.ja=Object.assign(D.ja||{},{_pffv:"新しい通知はありません",_lyra:"未読",_wyuq:"タップすると最新の状況を確認できます。",_62kr:"報告 {id} に更新があります",_uu8l:"ご報告ありがとうございます。新しいバージョンはアプリの再読み込みで使えます。",_tb6i:"ありがとうございます。進捗はここでお知らせします。",_dlnl:"重要なお知らせ",_m4lx:"たった今",_erjf:"報告を見る",_ub36:"{n} 未読",_z2ii:"報告 {id} を受け付けました",_2tyo:"報告 {id} は修正されました",_zwis:"すべて既読にする"});})(typeof self!=='undefined'?self:this);

@@ -1,0 +1,32 @@
+# Đo UX bản live (docs/research/beat-top-ux.md): Playwright trên CI, 0 tài khoản thật (?sandbox=1). Chạy tay hoặc đẩy nhánh ux-measure*.
+name: UX measure
+on:
+  workflow_dispatch:
+  push:
+    branches: ['ux-measure*']
+    paths: ['scripts/ux/**', '.github/workflows/ux-measure.yml']
+permissions:
+  contents: read
+concurrency:
+  group: ux-measure-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  measure:
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: ./.github/actions/playwright-cache
+        with: { browsers: '--with-deps chromium' }
+      - name: Cài Playwright
+        timeout-minutes: 10
+        run: |
+          npm init -y >/dev/null 2>&1 || true
+          npm i --no-save --no-audit --no-fund playwright@1.50.1
+          bash scripts/ci/pw-install.sh --with-deps chromium
+      - run: node scripts/ux/ux-measure.mjs --out ux-out | tee -a "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: ux-out, path: ux-out, retention-days: 14, if-no-files-found: error }

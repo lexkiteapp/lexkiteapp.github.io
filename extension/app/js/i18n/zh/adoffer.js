@@ -1,0 +1,2 @@
+/* SINH từ i18n/ui/zh/adoffer.js – đừng sửa tay (scripts/i18n-pack.mjs) */
+(function(g){const D=g.I18N_DICT=g.I18N_DICT||{};D.zh=Object.assign(D.zh||{},{_6cnn:"+{xp} XP 添加！",_geu:"视频未完成 - 请重试",_fnvu:"第二次机会",_3ajs:"免费重做",_5218:"重做您的 {n} 个错误答案 – 让它们全部正确以通过课程！",_z8a9:"重做您的 {n} 个错误答案 - 如果答案正确，您的分数就会更新。",_ulpt:"双倍 XP",_xcrq:"领取 2× XP",_gwqe:"观看短片即可赚取 +{xp} 奖励 XP。",_o3j:"看视频重做"});})(typeof self!=='undefined'?self:this);

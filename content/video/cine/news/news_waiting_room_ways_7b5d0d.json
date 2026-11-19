@@ -1,0 +1,159 @@
+{
+ "id": "news_waiting_room_ways_7b5d0d",
+ "template": "ways",
+ "bg": "clinic",
+ "area": "speaking",
+ "cefr": "A2",
+ "point": "booking a doctor's appointment: polite to casual",
+ "hook": {
+  "card": "SEE A DOCTOR?",
+  "line": "n_7b5d0d_h"
+ },
+ "series": [
+  "HEALTH ENGLISH",
+  "Booking a visit"
+ ],
+ "beats": [
+  {
+   "who": "ama",
+   "line": "n_7b5d0d_m",
+   "card": {
+    "kind": "x",
+    "text": "I want a doctor.",
+    "sub": null,
+    "label": null,
+    "icon": null
+   },
+   "kind": "m"
+  },
+  {
+   "who": "carlos",
+   "line": "n_7b5d0d_g",
+   "card": {
+    "kind": "p",
+    "text": "What sounds right?",
+    "sub": null,
+    "label": "GUESS",
+    "icon": "question"
+   },
+   "kind": "g",
+   "guess": true
+  },
+  {
+   "who": "ama",
+   "line": "n_7b5d0d_k",
+   "card": {
+    "kind": "v",
+    "text": "I'd like to make an appointment, please.",
+    "sub": null,
+    "label": null,
+    "icon": "phone",
+    "formula": "I'd like to + VERB"
+   },
+   "kind": "k",
+   "key": true
+  },
+  {
+   "who": "carlos",
+   "line": "n_7b5d0d_y",
+   "card": {
+    "kind": "p",
+    "text": "I'd like is soft. It sounds polite.",
+    "sub": null,
+    "label": "WHY",
+    "icon": "bulb"
+   },
+   "kind": "y"
+  },
+  {
+   "who": "ama",
+   "line": "n_7b5d0d_c",
+   "card": {
+    "kind": "x",
+    "text": "'I want' on the phone? -> No",
+    "sub": null,
+    "label": "CHECK",
+    "icon": null
+   },
+   "kind": "c"
+  },
+  {
+   "who": "carlos",
+   "line": "n_7b5d0d_rs",
+   "card": {
+    "kind": "v",
+    "text": "I'd like to make an appointment, please.",
+    "sub": null,
+    "label": "REPEAT",
+    "icon": "repeat"
+   },
+   "kind": "rs",
+   "repeat": true,
+   "slow": true
+  },
+  {
+   "who": "ama",
+   "line": "n_7b5d0d_rn",
+   "card": {
+    "kind": "v",
+    "text": "I'd like to make an appointment, please.",
+    "sub": null,
+    "label": null,
+    "icon": "phone",
+    "formula": "I'd like to + VERB"
+   },
+   "kind": "rn"
+  }
+ ],
+ "recap": {
+  "title": "TEACHER'S TIP",
+  "line": "n_7b5d0d_r",
+  "rows": [
+   "I'd like to make an appointment, please.",
+   "Do you have anything today?",
+   "Can I see a doctor this morning?"
+  ],
+  "line_alt": "n_7b5d0d_r2"
+ },
+ "end_line": "n_7b5d0d_e",
+ "link": "https://lexkite.com/en/speaking/",
+ "cta": "Practice IELTS speaking on lexkite.com",
+ "est": 24.6,
+ "end_alt": "n_7b5d0d_e2",
+ "v": 7,
+ "difficulty": "easy",
+ "hook_type": "question",
+ "part": 1,
+ "key_line": "I'd like to make an appointment, please.",
+ "wrong_line": "I want a doctor.",
+ "share": "who says \"I want a doctor\"",
+ "l1_tags": [
+  "many learners"
+ ],
+ "style": {
+  "pattern": 0,
+  "moves": [
+   "push",
+   "slide",
+   "handheld"
+  ],
+  "transition": "cut",
+  "layout": 0,
+  "palette": 0,
+  "opener": "ama",
+  "pacing": "calm"
+ },
+ "share_line": "n_7b5d0d_s",
+ "publish": {
+  "title": "3 polite ways to book a doctor's appointment",
+  "keyword": "book a doctor's appointment",
+  "value": "\"I'd like to make an appointment, please.\" Polite to casual, ready to use.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#speakenglish",
+   "#a2english"
+  ],
+  "first_comment": "Quiz answer: \"Do you have anything at 10?\" Short, polite and natural. Practice booking appointments free: {link}"
+ }
+}

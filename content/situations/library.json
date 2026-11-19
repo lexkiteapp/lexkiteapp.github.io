@@ -1,0 +1,898 @@
+{
+ "id": "library",
+ "group": "study",
+ "cefr": "B1",
+ "title": {
+  "en": "At the library",
+  "vi": "Ở thư viện",
+  "es": "En la biblioteca",
+  "pt": "Na biblioteca",
+  "fr": "À la bibliothèque",
+  "de": "In der Bibliothek",
+  "id": "Di perpustakaan",
+  "th": "ที่ห้องสมุด",
+  "zh": "在图书馆",
+  "ja": "図書館で",
+  "ko": "도서관에서",
+  "hi": "पुस्तकालय में",
+  "ar": "في المكتبة",
+  "ru": "В библиотеке",
+  "tr": "Kütüphanede"
+ },
+ "goal": {
+  "en": "Borrow books and reserve a study room!",
+  "vi": "Mượn sách và đặt phòng học nhóm!",
+  "es": "¡Pide libros prestados y reserva una sala de estudio!",
+  "pt": "Pegue livros emprestados e reserve uma sala de estudo!",
+  "fr": "Empruntez des livres et réservez une salle de travail !",
+  "de": "Leih Bücher aus und reserviere einen Lernraum!",
+  "id": "Pinjam buku dan pesan ruang belajar!",
+  "th": "ยืมหนังสือและจองห้องอ่านหนังสือ!",
+  "zh": "借书并预约自习室！",
+  "ja": "本を借りて、自習室を予約しよう！",
+  "ko": "책을 빌리고 스터디룸을 예약해요!",
+  "hi": "किताबें उधार लें और स्टडी रूम बुक करें!",
+  "ar": "استعر الكتب واحجز غرفة دراسة!",
+  "ru": "Возьми книги и забронируй учебную комнату!",
+  "tr": "Kitap ödünç al ve çalışma odası ayırt!"
+ },
+ "roles": [
+  "customer",
+  "barista"
+ ],
+ "stages": [
+  {
+   "id": "find",
+   "title": {
+    "en": "Find a book",
+    "vi": "Tìm sách",
+    "es": "Encontrar un libro",
+    "pt": "Encontrar um livro",
+    "fr": "Trouver un livre",
+    "de": "Ein Buch finden",
+    "id": "Mencari buku",
+    "th": "ค้นหาหนังสือ",
+    "zh": "找书",
+    "ja": "本を探す",
+    "ko": "책 찾기",
+    "hi": "किताब ढूँढें",
+    "ar": "البحث عن كتاب",
+    "ru": "Найти книгу",
+    "tr": "Kitap bulma"
+   },
+   "lines": [
+    "f1",
+    "f2",
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "id": "borrow",
+   "title": {
+    "en": "Borrow and return",
+    "vi": "Mượn và trả sách",
+    "es": "Pedir prestado y devolver",
+    "pt": "Emprestar e devolver",
+    "fr": "Emprunter et rendre",
+    "de": "Ausleihen und zurückgeben",
+    "id": "Meminjam dan mengembalikan",
+    "th": "ยืมและคืนหนังสือ",
+    "zh": "借书与还书",
+    "ja": "貸出と返却",
+    "ko": "대출과 반납",
+    "hi": "उधार लेना और लौटाना",
+    "ar": "الاستعارة والإعادة",
+    "ru": "Взять и вернуть",
+    "tr": "Ödünç alma ve iade"
+   },
+   "lines": [
+    "b1",
+    "b2",
+    "b3",
+    "b4"
+   ]
+  },
+  {
+   "id": "space",
+   "title": {
+    "en": "Study space",
+    "vi": "Chỗ học",
+    "es": "Espacio de estudio",
+    "pt": "Espaço de estudo",
+    "fr": "Espace de travail",
+    "de": "Lernplatz",
+    "id": "Ruang belajar",
+    "th": "พื้นที่อ่านหนังสือ",
+    "zh": "学习空间",
+    "ja": "学習スペース",
+    "ko": "학습 공간",
+    "hi": "पढ़ाई की जगह",
+    "ar": "مساحة الدراسة",
+    "ru": "Место для учёбы",
+    "tr": "Çalışma alanı"
+   },
+   "lines": [
+    "s1",
+    "s2",
+    "s3",
+    "s4"
+   ]
+  }
+ ],
+ "lines": [
+  {
+   "id": "f1",
+   "who": "customer",
+   "en": "Excuse me, I'm looking for books on urban planning. Where should I start?",
+   "variants": {
+    "polite": "Excuse me, could you point me towards the books on urban planning?",
+    "casual": "Hi, where are the urban planning books?"
+   },
+   "gloss": {
+    "en": "Asking where to find books on a topic.",
+    "vi": "Xin lỗi, mình đang tìm sách về quy hoạch đô thị. Mình nên bắt đầu từ đâu ạ?",
+    "es": "Disculpe, busco libros sobre urbanismo. ¿Por dónde debería empezar?",
+    "pt": "Com licença, estou procurando livros sobre planejamento urbano. Por onde devo começar?",
+    "fr": "Excusez-moi, je cherche des livres sur l'urbanisme. Par où dois-je commencer ?",
+    "de": "Entschuldigung, ich suche Bücher zur Stadtplanung. Wo sollte ich anfangen?",
+    "id": "Permisi, saya mencari buku tentang perencanaan kota. Sebaiknya mulai dari mana?",
+    "th": "ขอโทษค่ะ ฉันกำลังหาหนังสือเกี่ยวกับการวางผังเมือง ควรเริ่มดูตรงไหนดีคะ",
+    "zh": "打扰一下，我在找关于城市规划的书，应该从哪里开始找？",
+    "ja": "すみません、都市計画に関する本を探しています。どこから見ればいいですか？",
+    "ko": "실례합니다, 도시 계획에 관한 책을 찾고 있는데 어디서부터 보면 될까요?",
+    "hi": "माफ़ कीजिए, मैं शहरी नियोजन पर किताबें ढूँढ रही हूँ। मुझे कहाँ से शुरू करना चाहिए?",
+    "ar": "عفوًا، أبحث عن كتب في التخطيط العمراني. من أين أبدأ؟",
+    "ru": "Извините, я ищу книги по градостроительству. С чего мне начать?",
+    "tr": "Affedersiniz, şehir planlamasıyla ilgili kitaplar arıyorum. Nereden başlamalıyım?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "planning",
+     "ipa": "/ˈplæn.ɪŋ/",
+     "hi": "PLAN",
+     "note": {
+      "en": "Short “a” in the first syllable: PLAN-ing, not “plain-ing”.",
+      "vi": "Âm “a” ngắn ở âm đầu: PLEN-ing, không đọc “plên-ing” kéo dài như “plain”.",
+      "es": "“a” corta en la primera sílaba: PLAN-ing, no “plein-ing”.",
+      "pt": "“a” curto na primeira sílaba: PLÉN-ing, não “plein-ing”.",
+      "fr": "« a » bref à la première syllabe : PLAN-ing, pas « plein-ing ».",
+      "de": "Kurzes „a“ in der ersten Silbe: PLÄN-ing, nicht „plein-ing“.",
+      "id": "“a” pendek di suku kata pertama: PLEN-ing, bukan “plein-ing”.",
+      "th": "สระเสียงสั้นพยางค์แรก: แพลน-นิ่ง ไม่ใช่ เพลน-นิ่ง",
+      "zh": "第一个音节是短音 a：PLAN-ing，不是 plain-ing。",
+      "ja": "最初の音節は短い「ア」：プラニング。「プレイニング」ではありません。",
+      "ko": "첫 음절은 짧은 ‘a’: 플래-닝. ‘플레인-닝’이 아니에요.",
+      "hi": "पहले अक्षर में छोटा ‘a’: प्लैन-इंग, ‘प्लेन-इंग’ नहीं।",
+      "ar": "حرف a قصير في المقطع الأول: بلان-نغ، وليس بلين-نغ.",
+      "ru": "Краткий «а» в первом слоге: ПЛЭН-инг, а не «плейн-инг».",
+      "tr": "İlk hecede kısa “a”: PLEN-ing, “pleyn-ing” değil."
+     }
+    }
+   ]
+  },
+  {
+   "id": "f2",
+   "who": "barista",
+   "en": "Those are on the third floor, in the section marked with a green sign.",
+   "variants": {
+    "polite": "You'll find them on the third floor, in the section with the green sign.",
+    "casual": "Third floor, green sign."
+   },
+   "gloss": {
+    "en": "The librarian says where the books are.",
+    "vi": "Những quyển đó ở tầng ba, trong khu có biển màu xanh lá.",
+    "es": "Esos están en la tercera planta, en la sección señalada con un cartel verde.",
+    "pt": "Esses ficam no terceiro andar, na seção marcada com uma placa verde.",
+    "fr": "Ils sont au troisième étage, dans la section indiquée par un panneau vert.",
+    "de": "Die stehen im dritten Stock, in dem Bereich mit dem grünen Schild.",
+    "id": "Buku-buku itu ada di lantai tiga, di bagian yang ditandai papan hijau.",
+    "th": "อยู่ชั้นสาม ในโซนที่มีป้ายสีเขียวค่ะ",
+    "zh": "那些书在三楼，有绿色标牌的区域。",
+    "ja": "それは3階の、緑の案内板が出ているコーナーにあります。",
+    "ko": "그 책들은 3층 초록색 표지판이 있는 구역에 있어요.",
+    "hi": "वे तीसरी मंज़िल पर हरे साइन वाले हिस्से में हैं।",
+    "ar": "تجدها في الطابق الثالث، في القسم الذي عليه لافتة خضراء.",
+    "ru": "Они на третьем этаже, в секции с зелёной табличкой.",
+    "tr": "Onlar üçüncü katta, yeşil tabelayla işaretlenmiş bölümde."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "third",
+     "ipa": "/θɜːrd/",
+     "hi": "THURD",
+     "note": {
+      "en": "Put your tongue between your teeth for “th”, then say “ur”: THURD.",
+      "vi": "Đặt lưỡi giữa hai hàm răng cho âm “th”, rồi đọc “ơ”: THƠD.",
+      "es": "Pon la lengua entre los dientes para “th” y di “er”: THERD.",
+      "pt": "Coloque a língua entre os dentes para o “th” e diga “er”: THÂRD.",
+      "fr": "Placez la langue entre les dents pour « th », puis dites « eur » : THEURD.",
+      "de": "Zunge zwischen die Zähne für „th“, dann „ör“: THÖRD.",
+      "id": "Taruh lidah di antara gigi untuk “th”, lalu ucapkan “er”: THERD.",
+      "th": "วางลิ้นระหว่างฟันสำหรับเสียง th แล้วออกเสียง เออ: เธิร์ด",
+      "zh": "舌尖放在上下牙之间发 th，再接 ur：THURD。",
+      "ja": "舌を歯の間に挟んで th を出し、続けて「アー」：サード。",
+      "ko": "혀를 이 사이에 두고 th를 낸 다음 ‘어’: 써드.",
+      "hi": "जीभ दाँतों के बीच रखकर th बोलें, फिर ‘अर’: थर्ड।",
+      "ar": "ضع لسانك بين الأسنان لنطق th ثم قل “ير”: ثِرد.",
+      "ru": "Язык между зубами для th, затем «ёр»: СЁРД (с межзубным th).",
+      "tr": "Dilini dişlerin arasına koyup th sesini çıkar, sonra “ör” de: THÖRD."
+     }
+    }
+   ]
+  },
+  {
+   "id": "f3",
+   "who": "customer",
+   "en": "The catalogue says it's available, but I can't find it on the shelf.",
+   "variants": {
+    "polite": "The catalogue shows it as available, but I can't seem to find it on the shelf.",
+    "casual": "The catalogue says it's here, but it's not on the shelf."
+   },
+   "gloss": {
+    "en": "Saying a book is listed but missing.",
+    "vi": "Danh mục ghi là còn sách, nhưng mình không thấy nó trên kệ.",
+    "es": "El catálogo dice que está disponible, pero no lo encuentro en la estantería.",
+    "pt": "O catálogo diz que está disponível, mas não consigo encontrá-lo na prateleira.",
+    "fr": "Le catalogue indique qu'il est disponible, mais je ne le trouve pas sur l'étagère.",
+    "de": "Im Katalog steht, dass es verfügbar ist, aber ich finde es nicht im Regal.",
+    "id": "Katalog menunjukkan buku itu tersedia, tetapi saya tidak menemukannya di rak.",
+    "th": "ในระบบค้นหาบอกว่ามีหนังสืออยู่ แต่ฉันหาบนชั้นไม่เจอค่ะ",
+    "zh": "目录显示这本书可借，但我在书架上找不到。",
+    "ja": "目録では貸出可能になっているのですが、書架に見当たりません。",
+    "ko": "목록에는 대출 가능으로 나오는데 서가에서 찾을 수가 없어요.",
+    "hi": "कैटलॉग में लिखा है कि यह उपलब्ध है, लेकिन मुझे यह शेल्फ़ पर नहीं मिल रही।",
+    "ar": "يُظهر الفهرس أن الكتاب متاح، لكنني لا أجده على الرف.",
+    "ru": "В каталоге написано, что книга в наличии, но на полке я её не нахожу.",
+    "tr": "Katalogda mevcut görünüyor ama rafta bulamıyorum."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "f4",
+   "who": "barista",
+   "en": "Someone may have left it at the returns desk. Let me check for you.",
+   "variants": {
+    "polite": "It may have been left at the returns desk. Would you like me to check for you?",
+    "casual": "Maybe it's at the returns desk. I'll look."
+   },
+   "gloss": {
+    "en": "The librarian offers to look for the book.",
+    "vi": "Có thể ai đó để quên nó ở quầy trả sách. Để tôi kiểm tra giúp bạn.",
+    "es": "Puede que alguien lo haya dejado en el mostrador de devoluciones. Voy a mirarlo por usted.",
+    "pt": "Alguém pode ter deixado no balcão de devoluções. Vou verificar para você.",
+    "fr": "Quelqu'un l'a peut-être laissé au comptoir des retours. Je vais vérifier pour vous.",
+    "de": "Vielleicht hat es jemand an der Rückgabetheke liegen lassen. Ich sehe für Sie nach.",
+    "id": "Mungkin ada yang meninggalkannya di meja pengembalian. Biar saya cek untuk Anda.",
+    "th": "อาจมีคนวางทิ้งไว้ที่เคาน์เตอร์รับคืน เดี๋ยวฉันไปเช็กให้นะคะ",
+    "zh": "可能有人把它放在还书台了。我帮你查一下。",
+    "ja": "誰かが返却カウンターに置いたのかもしれません。確認してきますね。",
+    "ko": "누군가 반납 데스크에 두고 갔을 수도 있어요. 제가 확인해 볼게요.",
+    "hi": "हो सकता है किसी ने इसे वापसी काउंटर पर छोड़ दिया हो। मैं आपके लिए देख लेती हूँ।",
+    "ar": "ربما تركها أحدهم عند مكتب الإعادة. دعني أتحقق لك.",
+    "ru": "Возможно, кто-то оставил её на стойке возврата. Сейчас проверю для вас.",
+    "tr": "Biri iade masasına bırakmış olabilir. Sizin için bakayım."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "b1",
+   "who": "customer",
+   "en": "I'd like to borrow these three books. Here is my student card.",
+   "variants": {
+    "polite": "I'd like to borrow these three books, if possible. Here is my student card.",
+    "casual": "I'm borrowing these three. Here's my card."
+   },
+   "gloss": {
+    "en": "Checking out books with your student card.",
+    "vi": "Mình muốn mượn ba quyển này. Đây là thẻ sinh viên của mình.",
+    "es": "Quisiera llevarme prestados estos tres libros. Aquí tiene mi carné de estudiante.",
+    "pt": "Gostaria de emprestar estes três livros. Aqui está minha carteirinha de estudante.",
+    "fr": "Je voudrais emprunter ces trois livres. Voici ma carte d'étudiant.",
+    "de": "Ich möchte diese drei Bücher ausleihen. Hier ist mein Studierendenausweis.",
+    "id": "Saya ingin meminjam tiga buku ini. Ini kartu mahasiswa saya.",
+    "th": "ฉันขอยืมหนังสือสามเล่มนี้ค่ะ นี่บัตรนักศึกษาของฉัน",
+    "zh": "我想借这三本书，这是我的学生证。",
+    "ja": "この3冊を借りたいです。こちらが学生証です。",
+    "ko": "이 책 세 권을 빌리고 싶어요. 학생증 여기 있습니다.",
+    "hi": "मैं ये तीन किताबें उधार लेना चाहती हूँ। यह रहा मेरा छात्र कार्ड।",
+    "ar": "أودّ استعارة هذه الكتب الثلاثة. هذه بطاقتي الجامعية.",
+    "ru": "Я хотела бы взять эти три книги. Вот мой студенческий билет.",
+    "tr": "Bu üç kitabı ödünç almak istiyorum. İşte öğrenci kartım."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "b2",
+   "who": "barista",
+   "en": "You can keep them for three weeks. Please return them by the twenty-fourth.",
+   "variants": {
+    "polite": "You may keep them for three weeks. They should be returned by the twenty-fourth.",
+    "casual": "Three weeks. Bring them back by the twenty-fourth."
+   },
+   "gloss": {
+    "en": "The librarian explains the loan period.",
+    "vi": "Bạn được giữ sách ba tuần. Xin trả lại trước ngày hai mươi bốn.",
+    "es": "Puede quedárselos tres semanas. Devuélvalos antes del día veinticuatro.",
+    "pt": "Você pode ficar com eles por três semanas. Devolva até o dia vinte e quatro.",
+    "fr": "Vous pouvez les garder trois semaines. Merci de les rapporter avant le vingt-quatre.",
+    "de": "Sie können sie drei Wochen behalten. Bitte geben Sie sie bis zum Vierundzwanzigsten zurück.",
+    "id": "Anda boleh menyimpannya selama tiga minggu. Mohon dikembalikan paling lambat tanggal dua puluh empat.",
+    "th": "ยืมได้สามสัปดาห์ค่ะ กรุณาคืนภายในวันที่ยี่สิบสี่",
+    "zh": "可以借三周，请在24号之前归还。",
+    "ja": "貸出期間は3週間です。24日までに返却してください。",
+    "ko": "3주 동안 빌리실 수 있어요. 24일까지 반납해 주세요.",
+    "hi": "आप इन्हें तीन हफ़्ते तक रख सकते हैं। कृपया चौबीस तारीख़ तक लौटा दीजिए।",
+    "ar": "يمكنك الاحتفاظ بها ثلاثة أسابيع. يرجى إعادتها بحلول الرابع والعشرين.",
+    "ru": "Вы можете держать их три недели. Пожалуйста, верните до двадцать четвёртого.",
+    "tr": "Üç hafta tutabilirsiniz. Lütfen yirmi dördüne kadar iade edin."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "three",
+     "ipa": "/θriː/",
+     "hi": "THREE",
+     "note": {
+      "en": "Tongue between your teeth for “th”: THREE, not “tree”.",
+      "vi": "Đặt lưỡi giữa hai hàm răng cho âm “th”: THRI, không đọc thành “tri”.",
+      "es": "Lengua entre los dientes para “th”: THRII, no “tri”.",
+      "pt": "Língua entre os dentes para o “th”: THRII, não “tri”.",
+      "fr": "Langue entre les dents pour « th » : THRII, pas « tri ».",
+      "de": "Zunge zwischen die Zähne für „th“: THRIE, nicht „tri“.",
+      "id": "Lidah di antara gigi untuk “th”: THRII, bukan “tri”.",
+      "th": "วางลิ้นระหว่างฟันสำหรับ th: ธรี ไม่ใช่ ทรี",
+      "zh": "舌尖放在牙齿之间发 th：THREE，不是 tree。",
+      "ja": "舌を歯の間に挟んで th：スリー。「トリー」ではありません。",
+      "ko": "혀를 이 사이에 두고 th: 쓰리(THREE). ‘트리’가 아니에요.",
+      "hi": "जीभ दाँतों के बीच रखकर th बोलें: थ्री, ‘ट्री’ नहीं।",
+      "ar": "ضع اللسان بين الأسنان لنطق th: ثْري، وليس تْري.",
+      "ru": "Язык между зубами для th: СРИ (межзубное), а не «три».",
+      "tr": "Dilini dişlerin arasına koy: THRİİ, “tri” değil."
+     }
+    }
+   ]
+  },
+  {
+   "id": "b3",
+   "who": "customer",
+   "en": "Is it possible to renew a book online if I need more time?",
+   "variants": {
+    "polite": "Would it be possible to renew a book online if I need more time?",
+    "casual": "Can I renew online if I need longer?"
+   },
+   "gloss": {
+    "en": "Asking about renewing a loan.",
+    "vi": "Nếu cần thêm thời gian, mình có thể gia hạn sách trực tuyến không?",
+    "es": "¿Es posible renovar un libro en línea si necesito más tiempo?",
+    "pt": "É possível renovar um livro on-line se eu precisar de mais tempo?",
+    "fr": "Est-il possible de renouveler un livre en ligne si j'ai besoin de plus de temps ?",
+    "de": "Kann ich ein Buch online verlängern, wenn ich mehr Zeit brauche?",
+    "id": "Apakah saya bisa memperpanjang peminjaman buku secara daring jika butuh waktu lebih lama?",
+    "th": "ถ้าต้องการเวลาเพิ่ม ขอต่ออายุการยืมหนังสือทางออนไลน์ได้ไหมคะ",
+    "zh": "如果需要更多时间，可以在网上续借吗？",
+    "ja": "もっと時間が必要な場合、オンラインで貸出を延長できますか？",
+    "ko": "시간이 더 필요하면 온라인으로 대출 기간을 연장할 수 있나요?",
+    "hi": "अगर मुझे और समय चाहिए तो क्या मैं किताब ऑनलाइन रिन्यू कर सकती हूँ?",
+    "ar": "هل يمكن تجديد استعارة الكتاب عبر الإنترنت إذا احتجت إلى وقت أطول؟",
+    "ru": "Можно ли продлить книгу онлайн, если мне понадобится больше времени?",
+    "tr": "Daha fazla zamana ihtiyacım olursa bir kitabın süresini internetten uzatabilir miyim?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "b4",
+   "who": "barista",
+   "en": "Yes, once, unless someone else has reserved it. There's a small fine for late returns.",
+   "variants": {
+    "polite": "Yes, you can renew once, unless another reader has reserved it. A small fine applies to late returns.",
+    "casual": "Yep, once, if nobody's reserved it. Late books cost a small fine."
+   },
+   "gloss": {
+    "en": "The librarian explains renewal and late fines.",
+    "vi": "Được, một lần thôi, trừ khi đã có người đặt trước. Trả trễ sẽ bị phạt một khoản nhỏ.",
+    "es": "Sí, una vez, a menos que otra persona lo haya reservado. Hay una pequeña multa por devolverlo tarde.",
+    "pt": "Sim, uma vez, a menos que outra pessoa o tenha reservado. Há uma pequena multa por atraso.",
+    "fr": "Oui, une fois, sauf si quelqu'un d'autre l'a réservé. Un retard entraîne une petite amende.",
+    "de": "Ja, einmal, es sei denn, jemand anderes hat es vorgemerkt. Bei verspäteter Rückgabe fällt eine kleine Gebühr an.",
+    "id": "Bisa, satu kali, kecuali sudah dipesan orang lain. Keterlambatan dikenai denda kecil.",
+    "th": "ได้ค่ะ หนึ่งครั้ง ยกเว้นมีคนจองไว้แล้ว ถ้าคืนช้าจะมีค่าปรับเล็กน้อย",
+    "zh": "可以，但只能续借一次，除非已经有别人预约了。逾期归还会收取少量罚款。",
+    "ja": "はい、1回だけ可能です。ほかの方が予約している場合は除きます。返却が遅れると少額の延滞料がかかります。",
+    "ko": "네, 한 번 가능해요. 다른 사람이 예약해 둔 경우는 안 되고요. 늦게 반납하면 소액의 연체료가 있어요.",
+    "hi": "हाँ, एक बार, जब तक किसी और ने इसे रिज़र्व न किया हो। देर से लौटाने पर थोड़ा जुर्माना लगता है।",
+    "ar": "نعم، مرة واحدة، ما لم يحجزه قارئ آخر. وتُفرض غرامة صغيرة على التأخير.",
+    "ru": "Да, один раз, если её не зарезервировал кто-то другой. За просрочку взимается небольшой штраф.",
+    "tr": "Evet, bir kez, başka biri ayırtmadıysa. Geç iade için küçük bir ceza var."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "reserved",
+     "ipa": "/rɪˈzɜːrvd/",
+     "hi": "ri-ZURVD",
+     "note": {
+      "en": "Stress the second syllable: ri-ZURVD, ending in a soft “d”.",
+      "vi": "Nhấn âm tiết thứ hai: ri-ZƠVD, cuối là âm “d” nhẹ.",
+      "es": "Acentúa la segunda sílaba: ri-ZERVD, con una “d” suave al final.",
+      "pt": "Acentue a segunda sílaba: ri-ZÂRVD, com um “d” leve no fim.",
+      "fr": "Accentuez la deuxième syllabe : ri-ZEURVD, avec un « d » léger à la fin.",
+      "de": "Betone die zweite Silbe: ri-SÖRVD, mit leisem „d“ am Ende.",
+      "id": "Tekankan suku kata kedua: ri-ZERVD, dengan “d” ringan di akhir.",
+      "th": "เน้นพยางค์ที่สอง: ริ-เซิร์ฟ(ดฺ) ลงท้ายด้วย d เบาๆ",
+      "zh": "重音在第二个音节：ri-ZURVD，结尾的 d 要轻。",
+      "ja": "2番目の音節を強く：リ・ザーブド。最後の d は軽く。",
+      "ko": "두 번째 음절에 강세: 리-저브드. 끝의 d는 가볍게.",
+      "hi": "दूसरे अक्षर पर ज़ोर दें: रि-ज़र्व्ड, अंत में हल्का ‘d’।",
+      "ar": "شدّد على المقطع الثاني: ري-زيرفد، مع دال خفيفة في النهاية.",
+      "ru": "Ударение на второй слог: ри-ЗЁРВД, на конце лёгкое «д».",
+      "tr": "Vurgu ikinci hecede: ri-ZÖRVD, sonda hafif bir “d”."
+     }
+    }
+   ]
+  },
+  {
+   "id": "s1",
+   "who": "customer",
+   "en": "Do you have any quiet study rooms that I can book for a group?",
+   "variants": {
+    "polite": "Would it be possible to book a quiet study room for a group?",
+    "casual": "Can I book a study room for our group?"
+   },
+   "gloss": {
+    "en": "Asking about booking a group study room.",
+    "vi": "Thư viện có phòng học yên tĩnh nào mình đặt cho nhóm được không?",
+    "es": "¿Tienen salas de estudio tranquilas que pueda reservar para un grupo?",
+    "pt": "Vocês têm salas de estudo silenciosas que eu possa reservar para um grupo?",
+    "fr": "Avez-vous des salles de travail calmes que je puisse réserver pour un groupe ?",
+    "de": "Gibt es ruhige Lernräume, die ich für eine Gruppe buchen kann?",
+    "id": "Apakah ada ruang belajar yang tenang yang bisa saya pesan untuk kelompok?",
+    "th": "มีห้องอ่านหนังสือเงียบๆ ให้จองสำหรับกลุ่มไหมคะ",
+    "zh": "你们有可以给小组预约的安静自习室吗？",
+    "ja": "グループで予約できる静かな自習室はありますか？",
+    "ko": "그룹이 예약할 수 있는 조용한 스터디룸이 있나요?",
+    "hi": "क्या आपके यहाँ कोई शांत स्टडी रूम है जिसे मैं समूह के लिए बुक कर सकूँ?",
+    "ar": "هل لديكم غرف دراسة هادئة يمكنني حجزها لمجموعة؟",
+    "ru": "У вас есть тихие учебные комнаты, которые можно забронировать для группы?",
+    "tr": "Grup için ayırtabileceğim sessiz çalışma odalarınız var mı?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "s2",
+   "who": "barista",
+   "en": "We do. You can book one for two hours using the library website.",
+   "variants": {
+    "polite": "We do. You can reserve one for up to two hours on the library website.",
+    "casual": "Yes. Two hours max, book on the website."
+   },
+   "gloss": {
+    "en": "The librarian explains how to book.",
+    "vi": "Có ạ. Bạn đặt được một phòng trong hai tiếng qua trang web của thư viện.",
+    "es": "Sí. Puede reservar una durante dos horas en la web de la biblioteca.",
+    "pt": "Temos, sim. Você pode reservar uma por duas horas pelo site da biblioteca.",
+    "fr": "Oui. Vous pouvez en réserver une pour deux heures sur le site de la bibliothèque.",
+    "de": "Ja, haben wir. Sie können über die Website der Bibliothek einen für zwei Stunden buchen.",
+    "id": "Ada. Anda bisa memesan satu ruangan selama dua jam lewat situs web perpustakaan.",
+    "th": "มีค่ะ จองได้ครั้งละสองชั่วโมงผ่านเว็บไซต์ของห้องสมุด",
+    "zh": "有的。你可以通过图书馆网站预约两小时。",
+    "ja": "あります。図書館のウェブサイトから2時間予約できます。",
+    "ko": "있어요. 도서관 웹사이트에서 두 시간 동안 예약할 수 있어요.",
+    "hi": "जी हाँ। आप पुस्तकालय की वेबसाइट से दो घंटे के लिए एक कमरा बुक कर सकते हैं।",
+    "ar": "نعم لدينا. يمكنك حجز غرفة لمدة ساعتين عبر موقع المكتبة.",
+    "ru": "Да, есть. Вы можете забронировать комнату на два часа на сайте библиотеки.",
+    "tr": "Var. Kütüphanenin internet sitesinden iki saatliğine bir oda ayırtabilirsiniz."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "s3",
+   "who": "customer",
+   "en": "How do I use the printer, and can I pay with my student account?",
+   "variants": {
+    "polite": "Could you explain how to use the printer, and whether I can pay from my student account?",
+    "casual": "How does the printer work? Can I pay with my account?"
+   },
+   "gloss": {
+    "en": "Asking how printing and payment work.",
+    "vi": "Mình dùng máy in thế nào, và có thể trả bằng tài khoản sinh viên không?",
+    "es": "¿Cómo se usa la impresora y puedo pagar con mi cuenta de estudiante?",
+    "pt": "Como uso a impressora, e posso pagar com a minha conta de estudante?",
+    "fr": "Comment utiliser l'imprimante, et puis-je payer avec mon compte étudiant ?",
+    "de": "Wie benutze ich den Drucker, und kann ich mit meinem Studierendenkonto bezahlen?",
+    "id": "Bagaimana cara memakai printer, dan apakah bisa membayar dengan akun mahasiswa saya?",
+    "th": "ใช้เครื่องพิมพ์ยังไงคะ แล้วจ่ายด้วยบัญชีนักศึกษาได้ไหม",
+    "zh": "打印机怎么用？可以用我的学生账户付款吗？",
+    "ja": "プリンターの使い方を教えてください。学生アカウントで支払えますか？",
+    "ko": "프린터는 어떻게 쓰나요? 학생 계정으로 결제할 수 있나요?",
+    "hi": "प्रिंटर कैसे इस्तेमाल करूँ, और क्या मैं अपने छात्र खाते से भुगतान कर सकती हूँ?",
+    "ar": "كيف أستخدم الطابعة، وهل يمكنني الدفع من حسابي الجامعي؟",
+    "ru": "Как пользоваться принтером и можно ли платить со студенческого счёта?",
+    "tr": "Yazıcıyı nasıl kullanırım ve öğrenci hesabımla ödeme yapabilir miyim?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "s4",
+   "who": "barista",
+   "en": "Scan your card, choose your file and the cost comes off your balance.",
+   "variants": {
+    "polite": "If you scan your card and choose your file, the cost will be taken from your balance.",
+    "casual": "Scan your card, pick the file, and it comes off your balance."
+   },
+   "gloss": {
+    "en": "The librarian explains printing.",
+    "vi": "Bạn quét thẻ, chọn tệp, và chi phí sẽ được trừ vào số dư của bạn.",
+    "es": "Pase su carné, elija el archivo y el coste se descuenta de su saldo.",
+    "pt": "Passe o cartão, escolha o arquivo e o valor é descontado do seu saldo.",
+    "fr": "Passez votre carte, choisissez votre fichier et le coût est déduit de votre solde.",
+    "de": "Scannen Sie Ihre Karte, wählen Sie die Datei aus, und die Kosten werden von Ihrem Guthaben abgezogen.",
+    "id": "Pindai kartu Anda, pilih berkasnya, dan biayanya dipotong dari saldo Anda.",
+    "th": "สแกนบัตร เลือกไฟล์ แล้วค่าใช้จ่ายจะถูกหักจากยอดเงินคงเหลือของคุณค่ะ",
+    "zh": "刷一下卡，选择文件，费用就会从你的余额里扣除。",
+    "ja": "カードをかざしてファイルを選ぶと、料金は残高から引かれます。",
+    "ko": "카드를 태그하고 파일을 고르면 요금이 잔액에서 빠져나가요.",
+    "hi": "अपना कार्ड स्कैन करें, फ़ाइल चुनें, और ख़र्च आपके बैलेंस से कट जाएगा।",
+    "ar": "امسح بطاقتك ضوئيًا واختر ملفك، وسيُخصم المبلغ من رصيدك.",
+    "ru": "Приложите карту, выберите файл, и стоимость спишется с вашего баланса.",
+    "tr": "Kartınızı okutun, dosyanızı seçin; ücret bakiyenizden düşer."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "q1",
+   "who": "barista",
+   "open": true,
+   "en": "What subject are you researching at the moment?",
+   "keywords": [
+    "history",
+    "science",
+    "law",
+    "medicine",
+    "business",
+    "economics",
+    "art",
+    "literature",
+    "engineering",
+    "psychology",
+    "biology",
+    "thesis",
+    "essay",
+    "project",
+    "architecture"
+   ],
+   "variants": {
+    "polite": "Could you tell me which subject you are researching at the moment?",
+    "casual": "What are you researching right now?"
+   },
+   "gloss": {
+    "en": "Asking what you are researching.",
+    "vi": "Hiện giờ bạn đang nghiên cứu đề tài nào?",
+    "es": "¿Qué tema está investigando en este momento?",
+    "pt": "Que assunto você está pesquisando no momento?",
+    "fr": "Sur quel sujet faites-vous des recherches en ce moment ?",
+    "de": "Welches Thema recherchieren Sie gerade?",
+    "id": "Topik apa yang sedang Anda teliti saat ini?",
+    "th": "ตอนนี้คุณกำลังค้นคว้าเรื่องอะไรอยู่คะ",
+    "zh": "你现在在研究什么课题？",
+    "ja": "今はどんなテーマを調べているんですか？",
+    "ko": "지금은 어떤 주제를 조사하고 계세요?",
+    "hi": "आप इस समय किस विषय पर शोध कर रहे हैं?",
+    "ar": "ما الموضوع الذي تبحث فيه حاليًا؟",
+    "ru": "Какую тему вы сейчас исследуете?",
+    "tr": "Şu anda hangi konuyu araştırıyorsunuz?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "q2",
+   "who": "barista",
+   "open": true,
+   "en": "Would you like to borrow anything else today?",
+   "keywords": [
+    "yes",
+    "no",
+    "that's all",
+    "dictionary",
+    "novel",
+    "magazine",
+    "another",
+    "one more",
+    "nothing else",
+    "just these",
+    "article",
+    "textbook",
+    "please",
+    "thanks"
+   ],
+   "variants": {
+    "polite": "Is there anything else you would like to borrow today?",
+    "casual": "Anything else you want to take out?"
+   },
+   "gloss": {
+    "en": "Asking if you want more books.",
+    "vi": "Hôm nay bạn có muốn mượn thêm gì nữa không?",
+    "es": "¿Quiere llevarse algo más hoy?",
+    "pt": "Quer pegar mais alguma coisa hoje?",
+    "fr": "Souhaitez-vous emprunter autre chose aujourd'hui ?",
+    "de": "Möchten Sie heute noch etwas ausleihen?",
+    "id": "Apakah Anda ingin meminjam yang lain hari ini?",
+    "th": "วันนี้ต้องการยืมอย่างอื่นอีกไหมคะ",
+    "zh": "今天还想借点别的吗？",
+    "ja": "今日はほかに借りたいものはありますか？",
+    "ko": "오늘 더 빌리실 게 있으세요?",
+    "hi": "क्या आज आप कुछ और उधार लेना चाहेंगे?",
+    "ar": "هل تودّ استعارة شيء آخر اليوم؟",
+    "ru": "Хотите сегодня взять что-нибудь ещё?",
+    "tr": "Bugün ödünç almak istediğiniz başka bir şey var mı?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  }
+ ],
+ "culture": {
+  "en": "Most university libraries expect silence or quiet voices in study zones, and group work happens in rooms you book in advance. Late books often carry a daily fine, so always check your return date when you borrow.",
+  "vi": "Hầu hết thư viện đại học yêu cầu giữ yên lặng hoặc nói khẽ ở khu học tập, còn làm việc nhóm thì diễn ra trong phòng đặt trước. Sách trả trễ thường bị phạt theo ngày, nên hãy luôn kiểm tra hạn trả khi mượn.",
+  "es": "En la mayoría de las bibliotecas universitarias se espera silencio o voz baja en las zonas de estudio, y el trabajo en grupo se hace en salas que se reservan con antelación. Los libros devueltos tarde suelen llevar una multa diaria, así que revisa siempre la fecha de devolución.",
+  "pt": "Na maioria das bibliotecas universitárias espera-se silêncio ou voz baixa nas áreas de estudo, e o trabalho em grupo acontece em salas reservadas com antecedência. Livros devolvidos com atraso costumam ter multa diária, então confira sempre a data de devolução.",
+  "fr": "Dans la plupart des bibliothèques universitaires, on attend le silence ou une voix basse dans les espaces d'étude, et le travail en groupe se fait dans des salles réservées à l'avance. Les retards sont souvent sanctionnés par une amende journalière : vérifiez toujours votre date de retour.",
+  "de": "In den meisten Universitätsbibliotheken erwartet man in den Lernbereichen Ruhe oder leises Sprechen; Gruppenarbeit findet in vorab gebuchten Räumen statt. Für verspätet zurückgegebene Bücher fällt oft eine Gebühr pro Tag an, also prüfe beim Ausleihen immer das Rückgabedatum.",
+  "id": "Di sebagian besar perpustakaan universitas, area belajar diharapkan tenang atau berbicara pelan, dan kerja kelompok dilakukan di ruangan yang dipesan lebih dulu. Buku yang terlambat dikembalikan sering dikenai denda harian, jadi selalu periksa tanggal pengembalian saat meminjam.",
+  "th": "ห้องสมุดมหาวิทยาลัยส่วนใหญ่ขอให้เงียบหรือพูดเบาๆ ในโซนอ่านหนังสือ ส่วนการทำงานกลุ่มจะใช้ห้องที่จองไว้ล่วงหน้า หนังสือที่คืนช้ามักมีค่าปรับรายวัน จึงควรเช็กวันกำหนดคืนทุกครั้งที่ยืม",
+  "zh": "大多数高校图书馆要求自习区保持安静或轻声说话，小组讨论则在提前预约的房间里进行。逾期还书通常按天罚款，所以借书时一定要确认还书日期。",
+  "ja": "大学図書館の多くでは、学習エリアでは静かにするか小声で話すことが求められ、グループ作業は事前に予約した部屋で行います。返却が遅れると1日ごとに延滞料がかかることが多いので、借りるときは必ず返却期限を確認しましょう。",
+  "ko": "대부분의 대학 도서관은 열람 구역에서 조용히 하거나 작게 말하길 기대하며, 그룹 활동은 미리 예약한 방에서 해요. 연체하면 하루 단위로 연체료가 붙는 경우가 많으니 빌릴 때 반납일을 꼭 확인하세요.",
+  "hi": "ज़्यादातर विश्वविद्यालय पुस्तकालयों में अध्ययन क्षेत्र में शांति रखने या धीरे बोलने की उम्मीद की जाती है, और समूह में पढ़ाई पहले से बुक किए कमरों में होती है। देर से लौटाई किताबों पर अक्सर रोज़ का जुर्माना लगता है, इसलिए उधार लेते समय लौटाने की तारीख़ ज़रूर देख लें।",
+  "ar": "تتوقع معظم مكتبات الجامعات الهدوء أو خفض الصوت في مناطق الدراسة، ويكون العمل الجماعي في غرف تُحجز مسبقًا. غالبًا ما تُفرض غرامة يومية على الكتب المتأخرة، لذا تحقّق دائمًا من موعد الإعادة عند الاستعارة.",
+  "ru": "В большинстве университетских библиотек в зонах для занятий принято соблюдать тишину или говорить тихо, а групповая работа проходит в комнатах, которые бронируют заранее. За просроченные книги часто начисляют штраф за каждый день, поэтому при выдаче всегда проверяйте срок возврата.",
+  "tr": "Çoğu üniversite kütüphanesinde çalışma alanlarında sessiz olmak ya da alçak sesle konuşmak beklenir; grup çalışmaları önceden ayrılan odalarda yapılır. Geç iade edilen kitaplara çoğunlukla günlük ceza uygulanır, bu yüzden ödünç alırken iade tarihine mutlaka bak."
+ },
+ "dialogue": [
+  {
+   "who": "barista",
+   "en": "Good morning. How can I help you?"
+  },
+  {
+   "who": "customer",
+   "en": "Hi, I'd like to borrow these two books. Here is my student card."
+  },
+  {
+   "who": "barista",
+   "en": "Thanks. You can keep them for three weeks."
+  },
+  {
+   "who": "customer",
+   "en": "Is it possible to renew them online if I need more time?"
+  },
+  {
+   "who": "barista",
+   "en": "Yes, once, unless someone has reserved them."
+  },
+  {
+   "who": "customer",
+   "en": "Great. Do you have any quiet study rooms I can book?"
+  },
+  {
+   "who": "barista",
+   "en": "We do. You can book one for two hours on our website."
+  },
+  {
+   "who": "customer",
+   "en": "That's very helpful. Thank you."
+  },
+  {
+   "who": "barista",
+   "en": "You're welcome. Good luck with your research!"
+  }
+ ],
+ "listening": [
+  {
+   "id": "l1",
+   "turns": [
+    {
+     "who": "customer",
+     "en": "Hello, where do I return a book?"
+    },
+    {
+     "who": "barista",
+     "en": "Use the returns desk by the main entrance, or the box outside after hours."
+    },
+    {
+     "who": "customer",
+     "en": "And is there a fine if it's late?"
+    },
+    {
+     "who": "barista",
+     "en": "Yes, fifty cents per day."
+    }
+   ],
+   "q": {
+    "en": "How much is the fine per day?",
+    "vi": "Phạt mỗi ngày là bao nhiêu?",
+    "es": "¿Cuánto es la multa por día?",
+    "pt": "Qual é o valor da multa por dia?",
+    "fr": "Quel est le montant de l'amende par jour ?",
+    "de": "Wie hoch ist die Gebühr pro Tag?",
+    "id": "Berapa denda per hari?",
+    "th": "ค่าปรับวันละเท่าไร",
+    "zh": "每天罚款多少？",
+    "ja": "延滞料は1日いくらですか？",
+    "ko": "하루 연체료는 얼마인가요?",
+    "hi": "रोज़ का जुर्माना कितना है?",
+    "ar": "كم تبلغ الغرامة في اليوم؟",
+    "ru": "Сколько составляет штраф за день?",
+    "tr": "Günlük ceza ne kadar?"
+   },
+   "answer": "fifty cents"
+  },
+  {
+   "id": "l2",
+   "turns": [
+    {
+     "who": "customer",
+     "en": "I'd like to book a study room for tomorrow."
+    },
+    {
+     "who": "barista",
+     "en": "What time would you like it?"
+    },
+    {
+     "who": "customer",
+     "en": "Around ten, for two people."
+    },
+    {
+     "who": "barista",
+     "en": "Room four is free at ten. I'll put your name down."
+    }
+   ],
+   "q": {
+    "en": "Which room is free at ten?",
+    "vi": "Phòng nào còn trống lúc mười giờ?",
+    "es": "¿Qué sala está libre a las diez?",
+    "pt": "Qual sala está livre às dez?",
+    "fr": "Quelle salle est libre à dix heures ?",
+    "de": "Welcher Raum ist um zehn Uhr frei?",
+    "id": "Ruang mana yang kosong pukul sepuluh?",
+    "th": "ห้องไหนว่างตอนสิบโมง",
+    "zh": "十点哪个房间有空？",
+    "ja": "10時に空いているのはどの部屋ですか？",
+    "ko": "10시에 비어 있는 방은 몇 번인가요?",
+    "hi": "दस बजे कौन-सा कमरा ख़ाली है?",
+    "ar": "أي غرفة متاحة في الساعة العاشرة؟",
+    "ru": "Какая комната свободна в десять?",
+    "tr": "Saat ondaki boş oda hangisi?"
+   },
+   "answer": "room four"
+  }
+ ],
+ "mission": {
+  "tasks": [
+   {
+    "id": "find",
+    "title": {
+     "en": "Find a book",
+     "vi": "Tìm một quyển sách",
+     "es": "Encuentra un libro",
+     "pt": "Encontre um livro",
+     "fr": "Trouver un livre",
+     "de": "Ein Buch finden",
+     "id": "Cari sebuah buku",
+     "th": "ค้นหาหนังสือเล่มหนึ่ง",
+     "zh": "找一本书",
+     "ja": "本を探す",
+     "ko": "책 한 권 찾기",
+     "hi": "एक किताब ढूँढें",
+     "ar": "ابحث عن كتاب",
+     "ru": "Найди книгу",
+     "tr": "Bir kitap bul"
+    },
+    "intents": [
+     "f1"
+    ]
+   },
+   {
+    "id": "renew",
+    "title": {
+     "en": "Ask to renew a loan",
+     "vi": "Hỏi gia hạn sách",
+     "es": "Pregunta por renovar un préstamo",
+     "pt": "Pergunte sobre renovar um empréstimo",
+     "fr": "Demander une prolongation",
+     "de": "Nach einer Verlängerung fragen",
+     "id": "Tanyakan perpanjangan pinjaman",
+     "th": "ถามเรื่องต่ออายุการยืม",
+     "zh": "询问续借",
+     "ja": "貸出延長を頼む",
+     "ko": "대출 연장 문의하기",
+     "hi": "किताब रिन्यू करने के बारे में पूछें",
+     "ar": "اسأل عن تجديد الاستعارة",
+     "ru": "Спроси о продлении",
+     "tr": "Ödünç süresinin uzatılmasını sor"
+    },
+    "intents": [
+     "b3"
+    ]
+   },
+   {
+    "id": "room",
+    "title": {
+     "en": "Book a study room",
+     "vi": "Đặt phòng học",
+     "es": "Reserva una sala de estudio",
+     "pt": "Reserve uma sala de estudo",
+     "fr": "Réserver une salle de travail",
+     "de": "Einen Lernraum buchen",
+     "id": "Pesan ruang belajar",
+     "th": "จองห้องอ่านหนังสือ",
+     "zh": "预约自习室",
+     "ja": "自習室を予約する",
+     "ko": "스터디룸 예약하기",
+     "hi": "स्टडी रूम बुक करें",
+     "ar": "احجز غرفة دراسة",
+     "ru": "Забронируй учебную комнату",
+     "tr": "Çalışma odası ayırt"
+    },
+    "intents": [
+     "s1"
+    ]
+   }
+  ]
+ }
+}

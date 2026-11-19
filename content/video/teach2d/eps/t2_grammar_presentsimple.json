@@ -1,0 +1,134 @@
+{
+ "id": "t2_grammar_presentsimple",
+ "template": "grammar",
+ "series": "Grammar in 60s",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Present Simple. One rule!",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "He, she or it? The verb gets an s.",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Not: She don't like crowded places.",
+   "pause": 0.42
+  },
+  {
+   "id": "b",
+   "text": "Say: She doesn't like crowded places.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Watches! My father watches the news every evening.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "en": "Present Simple",
+  "level": "A2",
+  "bricks": [
+   "he / she / it",
+   "verb",
+   "-s / -es"
+  ],
+  "wrong": "She don't like crowded places.",
+  "right": "She doesn't like crowded places.",
+  "strike": "don't",
+  "hl": "doesn't",
+  "quiz": {
+   "stem": "My father ___ the news every evening.",
+   "options": [
+    "watches",
+    "watch"
+   ],
+   "answer": 0
+  }
+ },
+ "cta": {
+  "area": "grammar",
+  "route": "#/grammar/present-simple",
+  "link": "https://lexkite.com/app/#/grammar/present-simple",
+  "say": "Learn this rule"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Present Simple in 60s"
+ },
+ "src": {
+  "grammar": "present-simple"
+ },
+ "est": {
+  "words": 49,
+  "seconds": 29.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Present Simple. One rule!",
+  "keyword": "Present Simple",
+  "value": "Say \"She doesn't like crowded places\", not \"She don't like crowded places\".",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#englishgrammar",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/grammar/present-simple",
+  "script_words": 43,
+  "platforms": {
+   "youtube": {
+    "title": "Present Simple. One rule!",
+    "description": "Say \"She doesn't like crowded places\", not \"She don't like crowded places\".\n\nLearn this rule, free: https://lexkite.com/app/#/grammar/present-simple\n\nSeries: Grammar in 60s · Teacher: Carlos\n\n#learnenglish #englishtips #englishgrammar #englishteacher",
+    "tags": [
+     "Present Simple",
+     "Grammar in 60s",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Present Simple. One rule!\n\nSay \"She doesn't like crowded places\", not \"She don't like crowded places\".\n\nLearn this rule, free: https://lexkite.com/app/#/grammar/present-simple"
+   },
+   "instagram": {
+    "caption": "Present Simple. One rule!\n\nSay \"She doesn't like crowded places\", not \"She don't like crowded places\".\n\nLearn this rule: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#englishgrammar",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Present Simple. One rule! #learnenglish #englishtips #englishgrammar"
+   }
+  },
+  "first_comment": "Did you get it? Watches! My father watches the news every evening. Say \"She doesn't like crowded places\", not \"She don't like crowded places\". More practice like this (free): {link}"
+ }
+}

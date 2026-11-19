@@ -1,0 +1,89 @@
+name: Say it like a native – meanings
+# docs/SAY-NATIVE.md: 14-language meanings for the reaction cards via the AI pool (Gemini/Groq pools → CF_POOL → CF account 2, 2 judges of different families),
+# then build web/data/say.json. 0 Claude tokens.
+# 2/11: NEVER commits to a PR branch (bot head commit = no CI / required-gate stuck – PR #402; stray commit on rebase – PR #410).
+#   branch ≠ main → meanings.json + say.json + ai-pool report = artifact bot-output-say-native + job summary + 1 sticky PR comment;
+#                   the PR author runs `bash scripts/ci/bot-output.sh say-native` and commits (CI runs as for any push).
+#   main (dispatch / series edit landed) → commit to main over SSH deploy key [skip ci]; the 3-hourly Pages cron picks up say.json.
+#   Guard: scripts/test/no-pr-branch-push.mjs (npm test).
+on:
+  push:   # feature branches: a series edit re-runs only the missing meanings
+    branches-ignore: [main]
+    paths: ['content/say-native/series.json', 'scripts/say-native/translate.mjs', '.github/workflows/say-native.yml']
+  workflow_dispatch:
+    inputs:
+      langs: { description: 'comma list (empty = all 14)', default: '' }
+      redo: { description: 'redo existing meanings (true/false)', default: 'false' }
+permissions:
+  contents: read
+  id-token: write        # OIDC for /api/lexai
+  pull-requests: write   # sticky report comment (branch runs)
+concurrency:
+  group: say-native-${{ github.ref }}
+  cancel-in-progress: false   # a running translate keeps its AI-pool work; the newest push waits as the single pending run
+jobs:
+  meanings:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        # only main holds the deploy key (branch code never gets the ruleset-bypass key)
+        with: { ssh-key: "${{ github.ref == 'refs/heads/main' && secrets.BOT_DEPLOY_KEY || '' }}" }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Translate + judge
+        id: tr
+        shell: bash
+        env:
+          # 01/11: same pool order as lexicon-expand (run 41214894745 failed with only GrabCast + CF account 2): Gemini/Groq free-key pools → cf2 = CF_POOL rotation
+          GEMINI_POOL: ${{ secrets.GEMINI_POOL }}
+          GROQ_POOL: ${{ secrets.GROQ_POOL }}
+          CF_POOL: ${{ secrets.CF_POOL }}
+          CF_ACCOUNT_1: ${{ secrets.CF_ACCOUNT_ID }}   # excluded: never the main account
+          VIMG_POOL_SKIP: '0'
+          AI_POOL_CF2_NEURONS: '100000'   # per-run cap on the CF_POOL route (~377 meanings × gen + 2 judges is far below)
+          GRABCAST_AI_KEY: ${{ secrets.GRABCAST_AI_KEY }}
+          CF_AI_TOKEN_2: ${{ secrets.CF_AI_TOKEN_2 }}
+          CF_ACCOUNT_2: ${{ secrets.CF_ACCOUNT_2 }}
+          AI_POOL_GC_MAX: '2000'
+        run: |
+          mkdir -p out/say-native
+          node scripts/say-native/translate.mjs ${{ inputs.langs && format('--langs {0}', inputs.langs) || '' }} ${{ inputs.redo == 'true' && '--redo' || '' }} 2>&1 | tee out/say-native/translate.log
+      - name: Build say.json
+        if: always()
+        shell: bash
+        run: |
+          if node scripts/say-native/build.mjs 2>&1 | tee out/say-native/build.log; then echo ok > out/say-native/build.status
+          else echo fail > out/say-native/build.status; echo "::warning::build gates still open (see log) – meanings kept for the next run"; fi
+      - name: Report
+        if: always()
+        shell: bash
+        run: |
+          L=out/say-native/translate.log; B=out/say-native/build.log
+          {
+            echo "#### Say it like a native – meanings"
+            echo "- translate: $(grep -E '^say-native translate:' "$L" 2>/dev/null | tail -1 || echo 'no summary line (step failed early)') – step ${{ steps.tr.outcome }}"
+            echo "- build gates: $(cat out/say-native/build.status 2>/dev/null || echo 'not run')"
+            echo; echo "| lang | ✓ kept | ✗ rejected |"; echo "|---|---|---|"
+            awk '$2=="✓"||$2=="✗"{l[$1]=1; if($2=="✓")k[$1]++; else r[$1]++} END{for(x in l) printf "| %s | %d | %d |\n", x, k[x], r[x]}' "$L" 2>/dev/null | sort
+            echo; echo "<details><summary>Full translate log</summary>"; echo; echo '```'; cat "$L" 2>/dev/null; echo '```'; echo "</details>"
+            echo "<details><summary>Build log</summary>"; echo; echo '```'; cat "$B" 2>/dev/null; echo '```'; echo "</details>"
+            echo "<details><summary>reports/ai-pool-say-native.json</summary>"; echo; echo '```json'; cat reports/ai-pool-say-native.json 2>/dev/null; echo '```'; echo "</details>"
+          } > out/say-native/report.md
+      - name: Commit to main
+        if: github.ref == 'refs/heads/main'
+        shell: bash
+        run: |
+          cat out/say-native/report.md >> "$GITHUB_STEP_SUMMARY"
+          bash scripts/ci/push-main.sh "say-native: nghĩa 14 ngôn ngữ (ai-pool, 2 giám khảo)" content/say-native/meanings.json web/data/say.json reports/ai-pool-say-native.json
+      - name: Branch – artifact + summary + PR comment (no push)
+        if: always() && github.ref != 'refs/heads/main'
+        uses: ./.github/actions/bot-output
+        with:
+          name: say-native
+          paths: content/say-native/meanings.json web/data/say.json reports/ai-pool-say-native.json
+          report: out/say-native/report.md
+          comment: 'true'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: say-native-meanings, path: "content/say-native/meanings.json\nout/say-native", retention-days: 7 }

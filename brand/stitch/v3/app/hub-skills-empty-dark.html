@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Skills Hub - Empty State (Bright Day)</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              cream: '#fff8f5',
+              card: '#ffffff',
+              cardBorder: '#e6d7cd',
+              teal: '#136a63',
+              tealLight: '#e6f4f1',
+              orange: '#f59e0b',
+              orangeLedge: '#b45309',
+              primaryOrange: '#f97316',
+              primaryOrangeLedge: '#c2410c',
+              ink: '#1e293b',
+              muted: '#64748b'
+            }
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      background-color: #fff8f5;
+      color: #1e293b;
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .tactile-btn {
+      transition: all 0.1s ease-in-out;
+      box-shadow: 0 4px 0 #c2410c;
+    }
+    .tactile-btn:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 #c2410c;
+    }
+    .tactile-card {
+      box-shadow: 0 4px 0 0 #efe0d6;
+    }
+    .tab-item:active {
+      transform: translateY(1px);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between max-w-[390px] mx-auto bg-[#10191B] text-[#E8F1F0] antialiased select-none pb-20">
+<!-- TOP APP BAR -->
+<header class="sticky top-0 z-40 bg-[#10191B] border-b-2 border-[#1E2F33] px-4 py-3 flex items-center justify-between shadow-[0_2px_0_0_#0B1214]">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-full bg-[#172427] border-2 border-[#2DD4BF] flex items-center justify-center text-[#2DD4BF]">
+<span class="material-symbols-outlined text-[20px]">school</span>
+</div>
+<div>
+<h1 class="text-base font-extrabold text-[#E8F1F0] leading-tight">IELTS Band 7.5</h1>
+<p class="text-xs font-bold text-[#2DD4BF]">Skills Mastery Hub</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<!-- Streak Badge (New learner: 0 or 1 Day) -->
+<div class="flex items-center gap-1 bg-[#1E2F33] border border-[#fbd5c0]/30 px-2.5 py-1 rounded-full shadow-[0_1px_0_0_#0B1214]">
+<span class="material-symbols-outlined text-[#F97316] text-[18px]">local_fire_department</span>
+<span class="text-xs font-extrabold text-[#FED7AA]">0d</span>
+</div>
+<!-- XP Badge -->
+<div class="flex items-center gap-1 bg-[#1E2F33] border border-[#fed7aa]/30 px-2.5 py-1 rounded-full shadow-[0_1px_0_0_#0B1214]">
+<span class="material-symbols-outlined text-[#FBBF24] text-[18px]">bolt</span>
+<span class="text-xs font-extrabold text-[#FEF08A]">0 XP</span>
+</div>
+<!-- Notifications -->
+<button class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full bg-[#172427] border border-[#1E2F33] flex items-center justify-center text-[#A9BDBB] hover:text-[#E8F1F0] active:translate-y-0.5 shadow-[0_2px_0_0_#0B1214]"><span class="material-symbols-outlined text-[20px]">notifications</span></button>
+</div>
+</header>
+<!-- MAIN BODY: EMPTY STATE CONTENT -->
+<main class="flex-1 flex flex-col items-center justify-center px-6 py-8 text-center"><!-- Empty State Graphic Card -->
+<div class="w-full bg-[#172427] border-2 border-[#1E2F33] rounded-3xl p-6 shadow-[0_4px_0_0_#0B1214] flex flex-col items-center relative overflow-hidden">
+<!-- Friendly Stylized Vector Graphic (Diagnostic / Compass / Skills Radar - strictly no people) -->
+<div class="relative w-32 h-32 mb-6 flex items-center justify-center">
+<!-- Glowing outer aura -->
+<div class="absolute inset-0 bg-[#2DD4BF]/10 rounded-full scale-110"></div>
+<div class="absolute inset-2 bg-[#2DD4BF]/15 rounded-full opacity-60"></div>
+<!-- Concentric target circles -->
+<div class="absolute inset-4 rounded-full border-2 border-dashed border-[#2DD4BF]/40"></div>
+<div class="absolute inset-8 rounded-full border border-[#2DD4BF]/30"></div>
+<!-- Central Illustrated Element -->
+<div class="relative z-10 w-20 h-20 bg-gradient-to-br from-[#1E2F33] to-[#132225] rounded-2xl border-2 border-[#2DD4BF]/50 shadow-[0_4px_0_0_#0B1214] flex items-center justify-center rotate-3 transform transition-transform">
+<span class="material-symbols-outlined text-[#2DD4BF] text-[42px]">psychology</span>
+</div>
+<!-- Orbiting Mini Badges -->
+<div class="absolute -top-1 -right-1 w-9 h-9 bg-[#26281E] border-2 border-[#D97706] rounded-xl flex items-center justify-center shadow-[0_2px_0_0_#0B1214] -rotate-6">
+<span class="material-symbols-outlined text-[#FBBF24] text-[20px]">headphones</span>
+</div>
+<div class="absolute -bottom-1 -left-1 w-9 h-9 bg-[#172635] border-2 border-[#0284C7] rounded-xl flex items-center justify-center shadow-[0_2px_0_0_#0B1214] rotate-6">
+<span class="material-symbols-outlined text-[#38BDF8] text-[20px]">edit_note</span>
+</div>
+<div class="absolute -top-1 -left-1 w-8 h-8 bg-[#2A1D20] border-2 border-[#DC2626] rounded-xl flex items-center justify-center shadow-[0_2px_0_0_#0B1214] -rotate-12">
+<span class="material-symbols-outlined text-[#F87171] text-[18px]">mic</span>
+</div>
+</div>
+<!-- Headline -->
+<h2 class="text-xl font-extrabold text-[#E8F1F0] mb-2 tracking-tight">
+        No skill diagnostics yet
+      </h2>
+<!-- One-line explanation -->
+<p class="text-sm font-medium text-[#A9BDBB] leading-relaxed max-w-[280px] mb-6">
+        Complete a 5-minute diagnostic drill to discover your baseline across Listening, Reading, Writing, and Speaking.
+      </p>
+<!-- 4 Skills Preview Pills (Locked / Uncalibrated state) -->
+<div class="w-full grid grid-cols-2 gap-2.5 mb-6 text-left">
+<!-- Listening -->
+<div class="bg-[#1E2F33] border border-[#2B4045] rounded-xl p-2.5 flex items-center gap-2">
+<div class="w-7 h-7 rounded-lg bg-[#172427] flex items-center justify-center text-[#A9BDBB]">
+<span class="material-symbols-outlined text-[16px]">headphones</span>
+</div>
+<div>
+<div class="text-[11px] font-bold text-[#E8F1F0]">Listening</div>
+<div class="text-[10px] font-semibold text-[#829997]">Not assessed</div>
+</div>
+</div>
+<!-- Reading -->
+<div class="bg-[#1E2F33] border border-[#2B4045] rounded-xl p-2.5 flex items-center gap-2">
+<div class="w-7 h-7 rounded-lg bg-[#172427] flex items-center justify-center text-[#A9BDBB]">
+<span class="material-symbols-outlined text-[16px]">menu_book</span>
+</div>
+<div>
+<div class="text-[11px] font-bold text-[#E8F1F0]">Reading</div>
+<div class="text-[10px] font-semibold text-[#829997]">Not assessed</div>
+</div>
+</div>
+<!-- Writing -->
+<div class="bg-[#1E2F33] border border-[#2B4045] rounded-xl p-2.5 flex items-center gap-2">
+<div class="w-7 h-7 rounded-lg bg-[#172427] flex items-center justify-center text-[#A9BDBB]">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+</div>
+<div>
+<div class="text-[11px] font-bold text-[#E8F1F0]">Writing</div>
+<div class="text-[10px] font-semibold text-[#829997]">Not assessed</div>
+</div>
+</div>
+<!-- Speaking -->
+<div class="bg-[#1E2F33] border border-[#2B4045] rounded-xl p-2.5 flex items-center gap-2">
+<div class="w-7 h-7 rounded-lg bg-[#172427] flex items-center justify-center text-[#A9BDBB]">
+<span class="material-symbols-outlined text-[16px]">mic</span>
+</div>
+<div>
+<div class="text-[11px] font-bold text-[#E8F1F0]">Speaking</div>
+<div class="text-[10px] font-semibold text-[#829997]">Not assessed</div>
+</div>
+</div>
+</div>
+<!-- Single Primary Call-to-Action -->
+<a class="tactile-btn w-full bg-[#f97316] hover:bg-[#ea580c] text-[#1a0d00] font-extrabold text-base py-3.5 px-6 rounded-2xl flex items-center justify-center gap-2 border-2 border-[#9a3412] shadow-[0_4px_0_0_#7c2d12] tracking-wide active:translate-y-0.5" href="#/diagnostic">
+<span>Start 5-min Diagnostic</span>
+<span class="material-symbols-outlined text-[20px] font-black">arrow_forward</span>
+</a>
+<!-- Quick footnote -->
+<div class="mt-3 flex items-center justify-center gap-1.5 text-[11px] font-bold text-[#2DD4BF]">
+<span class="material-symbols-outlined text-[14px]">bolt</span>
+<span>Earn +50 XP and unlock personal study path</span>
+</div>
+</div></main>
+<!-- BOTTOM NAVIGATION TAB BAR (Canonical Lexkite 5-tab bar with Skills active) -->
+<nav class="fixed bottom-0 left-0 right-0 max-w-[390px] mx-auto z-50 bg-[#10191B] border-t-2 border-[#1E2F33] px-2 py-1.5 flex justify-around items-center shadow-[0_-3px_0_0_#0B1214]"><!-- Today -->
+<a class="tab-item min-w-[48px] min-h-[48px] flex flex-col items-center justify-center py-1 px-3 text-[#A9BDBB] hover:text-[#2DD4BF] transition-colors" href="#/today">
+<span class="material-symbols-outlined text-[22px]">calendar_today</span>
+<span class="text-[11px] font-bold mt-0.5">Today</span>
+</a>
+<!-- Vocab -->
+<a class="tab-item min-w-[48px] min-h-[48px] flex flex-col items-center justify-center py-1 px-3 text-[#A9BDBB] hover:text-[#2DD4BF] transition-colors relative" href="#/vocab">
+<span class="material-symbols-outlined text-[22px]">menu_book</span>
+<span class="text-[11px] font-bold mt-0.5">Vocab</span>
+</a>
+<!-- Skills (ACTIVE) -->
+<a class="tab-item min-w-[48px] min-h-[48px] flex flex-col items-center justify-center py-1 px-3.5 text-[#2DD4BF]" href="#/skills">
+<div class="w-10 h-7 rounded-full bg-[#1E2F33] flex items-center justify-center mb-0.5 border border-[#2DD4BF]/40 shadow-[0_1px_0_0_#0B1214]">
+<span class="material-symbols-outlined text-[20px] text-[#2DD4BF]">psychology</span>
+</div>
+<span class="text-[11px] font-extrabold text-[#2DD4BF]">Skills</span>
+</a>
+<!-- Tests -->
+<a class="tab-item min-w-[48px] min-h-[48px] flex flex-col items-center justify-center py-1 px-3 text-[#A9BDBB] hover:text-[#2DD4BF] transition-colors" href="#/tests">
+<span class="material-symbols-outlined text-[22px]">assignment</span>
+<span class="text-[11px] font-bold mt-0.5">Tests</span>
+</a>
+<!-- Me -->
+<a class="tab-item min-w-[48px] min-h-[48px] flex flex-col items-center justify-center py-1 px-3 text-[#A9BDBB] hover:text-[#2DD4BF] transition-colors" href="#/me">
+<span class="material-symbols-outlined text-[22px]">person</span>
+<span class="text-[11px] font-bold mt-0.5">Me</span>
+</a></nav>
+</body>
+</html>

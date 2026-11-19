@@ -1,0 +1,75 @@
+{
+ "fixed": [
+  {
+   "word": "mayor",
+   "field": "gl.vi",
+   "from": "lớn hơn",
+   "to": "lớn tuổi hơn, lớn hơn",
+   "why": "nghĩa/ví dụ/dịch chưa đúng hoặc chưa tự nhiên"
+  },
+  {
+   "word": "rey",
+   "field": "ipa",
+   "from": "ˈreɪ",
+   "to": "ˈrej",
+   "why": "IPA theo quy ước g2p (e/o đóng, ɣ sau nguyên âm, ʝ, aw/ej, không đồng hóa nasal)"
+  },
+  {
+   "word": "rey",
+   "field": "ex.es",
+   "from": "El rey es la figura de la monarquía.",
+   "to": "El rey vive en un castillo grande.",
+   "why": "nghĩa/ví dụ/dịch chưa đúng hoặc chưa tự nhiên"
+  },
+  {
+   "word": "rey",
+   "field": "ex.en",
+   "from": "The king is the figure of the monarchy.",
+   "to": "The king lives in a big castle.",
+   "why": "nghĩa/ví dụ/dịch chưa đúng hoặc chưa tự nhiên"
+  },
+  {
+   "word": "puesto",
+   "field": "gl.tr",
+   "from": "makam",
+   "to": "pozisyon, görev",
+   "why": "nghĩa/ví dụ/dịch chưa đúng hoặc chưa tự nhiên"
+  },
+  {
+   "word": "puesto",
+   "field": "gl.pt",
+   "from": "posto",
+   "to": "posto, cargo",
+   "why": "nghĩa/ví dụ/dịch chưa đúng hoặc chưa tự nhiên"
+  },
+  {
+   "word": "agente",
+   "field": "ipa",
+   "from": "aˈxɛnte",
+   "to": "aˈxente",
+   "why": "IPA theo quy ước g2p (e/o đóng, ɣ sau nguyên âm, ʝ, aw/ej, không đồng hóa nasal)"
+  },
+  {
+   "word": "agente",
+   "field": "gl.vi",
+   "from": "đại lý",
+   "to": "nhân viên, đại lý",
+   "why": "nghĩa/ví dụ/dịch chưa đúng hoặc chưa tự nhiên"
+  },
+  {
+   "word": "mente",
+   "field": "ipa",
+   "from": "ˈmɛnte",
+   "to": "ˈmente",
+   "why": "IPA theo quy ước g2p (e/o đóng, ɣ sau nguyên âm, ʝ, aw/ej, không đồng hóa nasal)"
+  },
+  {
+   "word": "centro",
+   "field": "ipa",
+   "from": "ˈsɛntɾo",
+   "to": "ˈsentɾo",
+   "why": "IPA theo quy ước g2p (e/o đóng, ɣ sau nguyên âm, ʝ, aw/ej, không đồng hóa nasal)"
+  }
+ ],
+ "dropped": []
+}

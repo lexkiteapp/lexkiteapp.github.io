@@ -8,7 +8,7 @@
 </head>
 <body class="popup">
   <div class="row between">
-    <div class="brand"><img class="logo" src="icons/icon.svg" alt=""><span class="wordmark">Voca<b>band</b></span></div>
+    <div class="brand"><img class="logo" src="icons/icon.svg" alt=""><span class="wordmark">lex<b>kite</b></span></div>
     <span class="streak" id="streak">🔥 0</span>
   </div>
 
@@ -27,7 +27,20 @@
     <input class="input" id="q" placeholder="Tra nhanh một từ…" data-tx-ph autofocus>
   </form>
   <div id="res"></div>
+  <div id="quick"></div>
   <div id="recent"></div>
+  <div id="rate"></div>
+  <div class="pp-wc" id="siteBox" hidden>
+    <label class="pp-wc-top"><span><b id="siteTxt"></b><span class="tiny muted pp-wc-sub" data-tx>Tắt để Lexkite nghỉ hẳn trên trang này: không tra từ, không đánh dấu từ, không soát lỗi viết.</span></span><input type="checkbox" id="siteOn" class="pp-switch"></label>
+  </div>
+  <div class="pp-wc" id="wcBox">
+    <label class="pp-wc-top"><span><b data-tx>✍️ Soát lỗi viết</b><span class="tiny muted pp-wc-sub" data-tx>Gạch chân lỗi tiếng Anh khi bạn gõ trên mọi trang · bấm để sửa và xem vì sao sai</span></span><input type="checkbox" id="wcOn" class="pp-switch"></label>
+    <div id="wcMore" hidden>
+      <label class="row small"><input type="checkbox" id="wcSite"> <span id="wcSiteTxt"></span></label>
+      <label class="row small"><input type="checkbox" id="wcAdv"> <span data-tx>Kiểm nâng cao (LanguageTool)</span></label>
+      <div class="tiny muted" style="line-height:1.45" data-tx>Mặc định chữ chỉ được soát ngay trên máy. Kiểm nâng cao gửi chữ trong ô bạn đang gõ tới LanguageTool. Không bao giờ soát ô mật khẩu, email, thẻ thanh toán và trang ngân hàng.</div>
+    </div>
+  </div>
   <details class="pp-set"><summary data-tx>⚙️ Cài đặt tra từ</summary>
 
   <div class="row between small" style="margin-top:12px">
@@ -40,17 +53,35 @@
   </div>
   <div class="row between small" style="margin-top:8px">
     <label class="row"><input type="checkbox" id="dbl"> <span data-tx>Bấm đúp để tra từ</span></label>
+    <label class="row"><input type="checkbox" id="acOn"> <span data-tx>Gạch chân từ học thuật B2–C2</span></label>
+    <label class="row"><input type="checkbox" id="ntOn"> <span data-tx>Thẻ từ vựng ở tab mới</span></label>
+    <label class="row"><input type="checkbox" id="ctxOn"> <span data-tx>Lưu câu ngữ cảnh</span></label>
+    <div class="tiny muted" style="margin:-2px 0 4px 24px" data-tx>Khi lưu từ, giữ câu chứa từ đó (tối đa 200 ký tự) và chỉ tên miền trang – không lưu địa chỉ đầy đủ. Tắt để không lưu gì từ trang.</div>
   </div>
   <div class="row between small" style="margin-top:8px">
     <label class="row"><input type="checkbox" id="markK"> <span data-tx>Đánh dấu từ đã học trên trang</span></label>
     <a href="#" id="open" data-tx>Mở ứng dụng ↗</a>
+  </div>
+  <div class="row between small" style="margin-top:8px">
+    <a href="https://lexkite.com/privacy" id="privacy" target="_blank" rel="noopener" data-tx>Chính sách quyền riêng tư</a>
+    <a href="#" id="showQr" class="row" style="gap:4px;color:var(--text);text-decoration:none"><span aria-hidden="true">📱</span> <span data-tx>Mở trên điện thoại (mã QR)</span></a>
+  </div>
+  <div class="row between small" style="margin-top:8px">
+    <a href="#" id="report" class="row" style="gap:4px;color:var(--text);text-decoration:none"><span aria-hidden="true">⚑</span> <span data-tx>Báo cáo sự cố</span></a>
+  </div>
+  <div id="qrBox" class="pp-qr" hidden>
+    <div class="pp-qr-title" data-tx>Quét bằng camera điện thoại để học:</div>
+    <div id="qrSvg" class="pp-qr-img"></div>
+    <div class="tiny muted" style="margin-top:4px">https://lexkite.com</div>
   </div>
   </details>
   <div class="tiny muted" style="margin-top:10px;line-height:1.5" data-tx-html>💡 Bấm đúp vào từ để tra · bôi đen câu để dịch · trên YouTube: bật phụ đề rồi <b>chạm vào từ</b> trong phụ đề
   </div>
   <script src="app/js/data.js"></script>
   <script src="app/js/core.js"></script>
+  <script src="app/js/lex.js"></script>
   <script src="app/js/dictionary.js"></script>
+  <script src="qr.js"></script>
   <script src="popup.js"></script>
 </body>
 </html>

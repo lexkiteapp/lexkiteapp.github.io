@@ -1,0 +1,320 @@
+{
+ "v": 1,
+ "source": "Tatoeba (tatoeba.org), CC BY 2.0 FR",
+ "license": "https://creativecommons.org/licenses/by/2.0/fr/",
+ "lv": "A1",
+ "items": [
+  {
+   "id": 10543459,
+   "au": "Shishir",
+   "s": "No quiero ___ en un mundo sin amor.",
+   "a": "vivir",
+   "o": [
+    "vive",
+    "vivir",
+    "vivió"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 1710914,
+   "au": "marcelostockle",
+   "s": "En algún ___ son las cinco en punto ahora.",
+   "a": "lugar",
+   "o": [
+    "relación",
+    "lugar",
+    "agente"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 1180948,
+   "au": "marcelostockle",
+   "s": "Todo lo que debes ___ es dar lo mejor.",
+   "a": "hacer",
+   "o": [
+    "hace",
+    "hizo",
+    "hacer"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 10993842,
+   "au": "DJ_Saidez",
+   "s": "Se fue sin ___ sido visto.",
+   "a": "haber",
+   "o": [
+    "hubo",
+    "haber",
+    "ha"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 1695410,
+   "au": "marcelostockle",
+   "s": "Él no era solo un ___ para mí.",
+   "a": "padre",
+   "o": [
+    "relación",
+    "vista",
+    "padre"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 1143552,
+   "au": "Shishir",
+   "s": "El ___ tiene razón.",
+   "a": "hombre",
+   "o": [
+    "seguridad",
+    "oportunidad",
+    "hombre"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 11964842,
+   "au": "Seael",
+   "s": "Se fueron a la ___ muy tarde.",
+   "a": "cama",
+   "o": [
+    "daño",
+    "cama",
+    "baño"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 4610761,
+   "au": "DarkHollow",
+   "s": "Creo que va a ___ bien.",
+   "a": "estar",
+   "o": [
+    "estar",
+    "estuvo",
+    "está"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 1717535,
+   "au": "marcelostockle",
+   "s": "El ___ era demasiado para mí.",
+   "a": "problema",
+   "o": [
+    "ley",
+    "problema",
+    "fuerza"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 4958449,
+   "au": "isnamar",
+   "s": "¿Puedes ___ de hablar, por favor?",
+   "a": "dejar",
+   "o": [
+    "deja",
+    "dejó",
+    "dejar"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 4127773,
+   "au": "Leono",
+   "s": "Esta ___ voy a ver a un viejo amigo.",
+   "a": "noche",
+   "o": [
+    "cuidado",
+    "noche",
+    "punto"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 10272482,
+   "au": "Seael",
+   "s": "No vamos a ___ hacer más que esto.",
+   "a": "poder",
+   "o": [
+    "pudo",
+    "poder",
+    "puede"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 1386804,
+   "au": "marcelostockle",
+   "s": "No tengo nada que ___ en contra.",
+   "a": "decir",
+   "o": [
+    "dice",
+    "dijo",
+    "decir"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 5023371,
+   "au": "don_ramon",
+   "s": "La ___ se fue a dormir.",
+   "a": "niña",
+   "o": [
+    "recuerdo",
+    "puesto",
+    "niña"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 1271422,
+   "au": "Silvestre",
+   "s": "¿También puedo ___ yo?",
+   "a": "venir",
+   "o": [
+    "vino",
+    "venir",
+    "viene"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 1252724,
+   "au": "wallebot",
+   "s": "Esta es de la ___ que ha sido siempre.",
+   "a": "manera",
+   "o": [
+    "resto",
+    "manera",
+    "trato"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 4774663,
+   "au": "alegarvid",
+   "s": "Tenemos que ___ ayuda.",
+   "a": "conseguir",
+   "o": [
+    "conseguir",
+    "consiguió",
+    "consigue"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 10750014,
+   "au": "DJ_Saidez",
+   "s": "¿La ___ aquí es difícil?",
+   "a": "vida",
+   "o": [
+    "vida",
+    "cuidado",
+    "chico"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 11128943,
+   "au": "JSKabylie",
+   "s": "No dije que la ___ iba a ser fácil.",
+   "a": "cosa",
+   "o": [
+    "cuerpo",
+    "rey",
+    "cosa"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 2255808,
+   "au": "Shishir",
+   "s": "¿Puede ___ unos minutos?",
+   "a": "esperar",
+   "o": [
+    "espera",
+    "esperó",
+    "esperar"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 2304959,
+   "au": "marcelostockle",
+   "s": "Yo misma lo vi.",
+   "k": "l"
+  },
+  {
+   "id": 2113709,
+   "au": "hayastan",
+   "s": "Te dije que no quería una fiesta.",
+   "k": "l"
+  },
+  {
+   "id": 10081753,
+   "au": "ecorralest101",
+   "s": "Me di cuenta de que no estaba listo.",
+   "k": "l"
+  },
+  {
+   "id": 12000031,
+   "au": "JSKabylie15",
+   "s": "No pasó por la casa.",
+   "k": "l"
+  },
+  {
+   "id": 11808781,
+   "au": "Seael",
+   "s": "No fui yo quien dijo eso.",
+   "k": "l"
+  },
+  {
+   "id": 1201243,
+   "au": "Shishir",
+   "s": "Ella no necesita trabajar.",
+   "k": "l"
+  },
+  {
+   "id": 5011726,
+   "au": "don_ramon",
+   "s": "¡Hay mucho por hacer!",
+   "k": "l"
+  },
+  {
+   "id": 2620796,
+   "au": "aelena",
+   "s": "No conozco a ninguna de estas cinco mujeres.",
+   "k": "l"
+  },
+  {
+   "id": 13463368,
+   "au": "Adelpa",
+   "s": "¿Qué tipo de persona eres?",
+   "k": "l"
+  },
+  {
+   "id": 6694970,
+   "au": "arh",
+   "s": "Lo único que quiero es estar solo.",
+   "k": "l"
+  },
+  {
+   "id": 5127951,
+   "au": "Barra",
+   "s": "Sí, ya lo sé.",
+   "k": "l"
+  },
+  {
+   "id": 9628409,
+   "au": "dpcossio",
+   "s": "Si aún no estás listo, podemos esperar.",
+   "k": "l"
+  }
+ ]
+}

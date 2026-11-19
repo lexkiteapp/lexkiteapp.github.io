@@ -1,0 +1,20 @@
+/* UI tr – wfeed (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["tr"] = Object.assign(D["tr"] || {}, {
+"1 giờ":"1 saat",
+"30 phút":"30 dk",
+"Android: chạm và giữ màn hình chính → Tiện ích → Lexkite → kéo “Từ mỗi giờ” ra màn hình. Chạm và giữ widget để đổi kích thước.":"Android: Ana ekrana dokunup basılı tut → Widget'lar → Lexkite → “Saatin kelimesi”ni ekrana sürükle. Boyutunu değiştirmek için widget'a basılı tut.",
+"Chạm để xem nghĩa":"Anlamını görmek için dokun",
+"Cách thêm widget":"Widget nasıl eklenir",
+"Giờ hoạt động":"Etkin saatler",
+"Hiện nghĩa":"Anlamı göster",
+"Một từ trên màn hình khóa và màn hình chính, tự đổi theo nhịp bạn chọn. Không gửi thông báo.":"Kilit ekranında ve ana ekranda, seçtiğin aralıkla değişen tek bir kelime. Bildirim yok.",
+"Một từ trên màn hình, đổi theo nhịp bạn chọn":"Ekranında tek kelime, seçtiğin aralıkla değişir",
+"Ngoài khung giờ này widget giữ nguyên từ cuối cùng.":"Bu saatlerin dışında widget son kelimeyi göstermeye devam eder.",
+"Tắt = chế độ đố: widget chỉ hiện từ, chạm vào để xem nghĩa trong app.":"Kapalı = test modu: widget yalnızca kelimeyi gösterir; anlamını uygulamada görmek için dokun.",
+"Từ mỗi giờ":"Saatin kelimesi",
+"Widget Từ mỗi giờ":"Saatin kelimesi widget'ı",
+"iPhone: chạm và giữ màn hình chính → nút + → tìm Lexkite → chọn “Từ mỗi giờ”. Màn hình khóa: chạm và giữ màn hình khóa → Tùy chỉnh → Màn hình khóa → chạm vào ô tiện ích → chọn Lexkite.":"iPhone: Ana ekrana dokunup basılı tut → + simgesine dokun → Lexkite'ı ara → “Saatin kelimesi”ni seç. Kilit ekranı: Kilit ekranına dokunup basılı tut → Özelleştir → Kilit Ekranı → widget alanına dokun → Lexkite'ı seç.",
+"{n} giờ":"{n} saat",
+"Đổi từ mỗi":"Kelime değişim sıklığı",
+});
+})(typeof self !== 'undefined' ? self : this);

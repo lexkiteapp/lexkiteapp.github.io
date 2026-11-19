@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite - Live Voice Room: Job Interview</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-background": "#141d1c",
+            "surface-container-highest": "#dbe5e2",
+            "on-surface-variant": "#3f4947",
+            "surface-container": "#e6f0ee",
+            "secondary-fixed": "#ffdad2",
+            "on-tertiary-fixed": "#00201e",
+            "on-error": "#ffffff",
+            "surface-dim": "#d2dcda",
+            "primary-fixed": "#abefe9",
+            "secondary": "#ac3416",
+            "outline-variant": "#bec9c7",
+            "on-primary-fixed": "#00201e",
+            "inverse-on-surface": "#e9f3f1",
+            "surface-variant": "#dbe5e2",
+            "on-tertiary-fixed-variant": "#00504c",
+            "on-tertiary-container": "#82d3cd",
+            "on-secondary-fixed-variant": "#8a1c00",
+            "surface": "#fbf8f2",
+            "on-secondary-container": "#661200",
+            "surface-tint": "#216964",
+            "surface-container-low": "#ecf6f4",
+            "surface-bright": "#fbf8f2",
+            "inverse-primary": "#8fd3cd",
+            "secondary-container": "#fd6f4c",
+            "on-secondary-fixed": "#3c0700",
+            "on-surface": "#141d1c",
+            "background": "#fbf8f2",
+            "on-tertiary": "#ffffff",
+            "outline": "#6f7978",
+            "primary": "#004340",
+            "on-error-container": "#93000a",
+            "primary-fixed-dim": "#8fd3cd",
+            "surface-container-lowest": "#ffffff",
+            "tertiary": "#00433f",
+            "tertiary-fixed": "#9ff1eb",
+            "primary-container": "#0d5c58",
+            "surface-container-high": "#e0eae8",
+            "error": "#ba1a1a",
+            "on-secondary": "#ffffff",
+            "error-container": "#ffdad6",
+            "tertiary-fixed-dim": "#83d5ce",
+            "on-primary-container": "#8ed2cc",
+            "inverse-surface": "#293231",
+            "secondary-fixed-dim": "#ffb4a2",
+            "on-primary": "#ffffff",
+            "on-primary-fixed-variant": "#00504c",
+            "tertiary-container": "#005c58"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter": "1.5rem",
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "space-lg": "1.5rem",
+            "space-xl": "2.5rem",
+            "margin": "2rem",
+            "margin-mobile": "1rem",
+            "gutter-mobile": "0.75rem"
+          },
+          "fontFamily": {
+            "display-hero-mobile": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "title-md": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "display-hero": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "title-sm": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "code-sm": ["JetBrains Mono"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "display-hero-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "body-md": ["14px", { "lineHeight": "22px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "body-lg": ["16px", { "lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "title-md": ["16px", { "lineHeight": "24px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "display-hero": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.03em", "fontWeight": "800" }],
+            "label-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "title-sm": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "code-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "500" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined.fill {
+      font-variation-settings: 'FILL' 1;
+    }
+    @keyframes wave-bounce {
+      0%, 100% { height: 4px; }
+      50% { height: 18px; }
+    }
+    .wave-bar:nth-child(1) { animation: wave-bounce 0.85s ease-in-out infinite; }
+    .wave-bar:nth-child(2) { animation: wave-bounce 0.7s ease-in-out infinite 0.15s; }
+    .wave-bar:nth-child(3) { animation: wave-bounce 1s ease-in-out infinite 0.3s; }
+    .wave-bar:nth-child(4) { animation: wave-bounce 0.65s ease-in-out infinite 0.2s; }
+    .wave-bar:nth-child(5) { animation: wave-bounce 0.9s ease-in-out infinite 0.4s; }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen antialiased flex justify-center py-0 sm:py-6 selection:bg-primary-container selection:text-surface-container-lowest">
+<!-- Mobile Simulator Frame (Max width 390px) -->
+<main class="w-full max-w-[390px] min-h-screen bg-background flex flex-col relative pb-8 shadow-xl sm:border sm:border-[#e2dcd2] sm:rounded-3xl overflow-hidden">
+<!-- Top Navigation Bar (Shared Component TopAppBar matching style guidance) -->
+<header class="flex justify-between items-center w-full px-4 h-14 fixed top-0 left-0 z-50 bg-surface dark:bg-surface border-b-2 border-outline-variant dark:border-outline-variant max-w-[390px] mx-auto right-0 sm:static">
+<button aria-label="Close" class="w-9 h-9 rounded-full flex items-center justify-center text-on-surface hover:bg-surface-container-high transition-colors active:translate-y-0.5" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="close">close</span>
+</button>
+<!-- Center Progress Indicator + Timer -->
+<div class="flex items-center gap-2">
+<div class="w-20 h-2 bg-[#e2dcd2] rounded-full overflow-hidden flex items-center p-[1px]">
+<div class="h-full bg-primary-container rounded-full w-3/5"></div>
+</div>
+<div class="flex items-center gap-1 text-primary-container">
+<span class="material-symbols-outlined text-[16px]" data-icon="schedule">schedule</span>
+<span class="font-headline text-title font-bold text-on-surface dark:text-on-surface text-body-sm font-code-sm">06:12 left</span>
+</div>
+</div>
+<!-- Streak Flame Badge -->
+<div class="flex items-center gap-1 bg-[#fff0ec] border border-[#fcd2c7] px-2.5 py-1 rounded-full text-secondary font-title-sm">
+<span class="material-symbols-outlined text-[16px] text-secondary fill" data-icon="local_fire_department" data-weight="fill" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="font-title-sm font-bold text-secondary">3</span>
+</div>
+</header>
+<!-- Scrollable Content Canvas -->
+<div class="pt-16 sm:pt-4 px-4 flex flex-col gap-4 flex-1">
+<!-- Room Header Sub-bar -->
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-2">
+<!-- Live Room Badge -->
+<div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#fee2e2] border border-[#fca5a5]">
+<span class="w-2 h-2 rounded-full bg-[#dc2626] animate-pulse"></span>
+<span class="font-label-sm text-[10px] tracking-wider font-extrabold text-[#991b1b]">LIVE ROOM</span>
+</div>
+<h1 class="font-headline-md text-headline-sm text-on-surface tracking-tight">Job interview</h1>
+</div>
+<span class="font-label-sm px-2.5 py-1 rounded-full bg-[#edf5f3] text-primary-container border border-[#b6e0db] font-bold">
+          B2–C1
+        </span>
+</div>
+<!-- Interview Prompt Card -->
+<section class="bg-surface-container-lowest rounded-xl border border-[#e2dcd2] shadow-[0_2px_0_0_#d8cebf] p-4 flex flex-col gap-3">
+<div class="flex items-start gap-3">
+<div class="w-8 h-8 rounded-lg bg-[#edf5f3] border border-[#b6e0db] flex items-center justify-center shrink-0 text-primary-container mt-0.5">
+<span class="material-symbols-outlined text-[18px]" data-icon="chat_bubble">chat_bubble</span>
+</div>
+<div>
+<h2 class="font-title-md text-on-surface font-bold text-[15px] leading-snug">
+              Tell us about a challenge you solved
+            </h2>
+<p class="font-body-sm text-on-surface-variant font-medium mt-0.5">
+              Structure: Situation, Action, Result (STAR method)
+            </p>
+</div>
+</div>
+<div class="h-[1px] bg-[#f2ece4] w-full"></div>
+<!-- Useful Phrases Container -->
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-1.5 text-primary-container">
+<span class="material-symbols-outlined text-[16px]" data-icon="lightbulb">lightbulb</span>
+<span class="font-label-sm text-[11px] tracking-wider font-extrabold uppercase text-primary-container">
+              USEFUL PHRASES (TAP TO SPEAK)
+            </span>
+</div>
+<!-- 4 Interactive Phrase Chips -->
+<div class="flex flex-wrap gap-1.5">
+<button class="group flex items-center gap-1 px-3 py-1.5 rounded-lg bg-[#fbf8f2] hover:bg-[#edf5f3] border border-[#d1c5b6] hover:border-primary-container shadow-[0_1px_0_0_#d8cebf] active:translate-y-0.5 transition-all text-left" type="button">
+<span class="font-body-sm font-semibold text-on-surface text-[12px] group-hover:text-primary-container">"In my previous role..."</span>
+</button>
+<button class="group flex items-center gap-1 px-3 py-1.5 rounded-lg bg-[#fbf8f2] hover:bg-[#edf5f3] border border-[#d1c5b6] hover:border-primary-container shadow-[0_1px_0_0_#d8cebf] active:translate-y-0.5 transition-all text-left" type="button">
+<span class="font-body-sm font-semibold text-on-surface text-[12px] group-hover:text-primary-container">"The key was..."</span>
+</button>
+<button class="group flex items-center gap-1 px-3 py-1.5 rounded-lg bg-[#fbf8f2] hover:bg-[#edf5f3] border border-[#d1c5b6] hover:border-primary-container shadow-[0_1px_0_0_#d8cebf] active:translate-y-0.5 transition-all text-left" type="button">
+<span class="font-body-sm font-semibold text-on-surface text-[12px] group-hover:text-primary-container">"We managed to overcome..."</span>
+</button>
+<button class="group flex items-center gap-1 px-3 py-1.5 rounded-lg bg-[#fbf8f2] hover:bg-[#edf5f3] border border-[#d1c5b6] hover:border-primary-container shadow-[0_1px_0_0_#d8cebf] active:translate-y-0.5 transition-all text-left" type="button">
+<span class="font-body-sm font-semibold text-on-surface text-[12px] group-hover:text-primary-container">"Looking back, what I learned was..."</span>
+</button>
+</div>
+</div>
+</section>
+<!-- 2x2 Grid of Room Participants -->
+<section class="grid grid-cols-2 gap-3">
+<!-- Participant 1: Alex M. (You) -->
+<article class="bg-surface-container-lowest rounded-xl border border-[#e2dcd2] shadow-[0_2px_0_0_#d8cebf] p-3 flex flex-col justify-between items-center text-center relative min-h-[148px]">
+<!-- Badge -->
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#e6f0ee] border border-[#bec9c7] text-primary-container font-label-sm text-[10px] font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+            ● Your turn next
+          </span>
+<!-- Avatar with Mic indicator -->
+<div class="relative mt-2">
+<div class="w-12 h-12 rounded-full bg-[#f2ebe1] border-2 border-[#d8cebf] flex items-center justify-center text-on-surface font-headline-sm font-bold">
+              A
+            </div>
+<div class="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-primary-container text-white flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[13px]" data-icon="mic">mic</span>
+</div>
+</div>
+<!-- Participant Info -->
+<div class="mt-1">
+<h3 class="font-title-sm text-on-surface font-bold text-[13px] leading-tight">Alex M.</h3>
+<p class="font-body-sm text-[11px] text-on-surface-variant font-medium">Ready to speak</p>
+</div>
+</article>
+<!-- Participant 2: Linh T. (Active Speaker) -->
+<article class="bg-[#edf5f3] rounded-xl border-2 border-primary-container shadow-[0_2px_0_0_#0d5c58] p-3 flex flex-col justify-between items-center text-center relative min-h-[148px]">
+<!-- Badge with waveform -->
+<div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-[#daf2ee] border border-[#b6e0db] text-primary-container font-label-sm text-[10px] font-bold">
+<div class="flex items-center gap-0.5 h-3">
+<span class="wave-bar w-[2px] bg-primary-container rounded-full"></span>
+<span class="wave-bar w-[2px] bg-primary-container rounded-full"></span>
+<span class="wave-bar w-[2px] bg-primary-container rounded-full"></span>
+</div>
+<span>Speaking (00:45)</span>
+</div>
+<!-- Avatar with speaker icon -->
+<div class="relative mt-2">
+<div class="w-12 h-12 rounded-full bg-[#d0ece8] border-2 border-primary-container flex items-center justify-center text-primary-container font-headline-sm font-bold">
+              L
+            </div>
+<div class="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-primary-container text-white flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[13px]" data-icon="volume_up">volume_up</span>
+</div>
+</div>
+<!-- Participant Info -->
+<div class="mt-1">
+<h3 class="font-title-sm text-on-surface font-bold text-[13px] leading-tight">Linh T.</h3>
+<p class="font-body-sm text-[11px] text-primary font-semibold">Sharing STAR</p>
+</div>
+</article>
+<!-- Participant 3: David K. (Muted Listener) -->
+<article class="bg-surface-container-lowest rounded-xl border border-[#e2dcd2] shadow-[0_2px_0_0_#d8cebf] p-3 flex flex-col justify-between items-center text-center relative min-h-[148px]">
+<!-- Badge -->
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-[#f2ebe1] border border-[#dfd5c6] text-[#51605e] font-label-sm text-[10px] font-bold">
+            Listener
+          </span>
+<!-- Avatar with muted mic -->
+<div class="relative mt-2">
+<div class="w-12 h-12 rounded-full bg-[#f2ebe1] border-2 border-[#d8cebf] flex items-center justify-center text-on-surface font-headline-sm font-bold">
+              D
+            </div>
+<div class="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-[#6f7978] text-white flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[13px]" data-icon="mic_off">mic_off</span>
+</div>
+</div>
+<!-- Participant Info -->
+<div class="mt-1">
+<h3 class="font-title-sm text-on-surface font-bold text-[13px] leading-tight">David K.</h3>
+<p class="font-body-sm text-[11px] text-on-surface-variant font-medium">Muted</p>
+</div>
+</article>
+<!-- Participant 4: Sarah N. (Hand Raised) -->
+<article class="bg-surface-container-lowest rounded-xl border border-[#e2dcd2] shadow-[0_2px_0_0_#d8cebf] p-3 flex flex-col justify-between items-center text-center relative min-h-[148px]">
+<!-- Badge -->
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#fef3c7] border border-[#fde68a] text-[#854d0e] font-label-sm text-[10px] font-bold">
+            ✋ Hand raised
+          </span>
+<!-- Avatar with raised hand indicator -->
+<div class="relative mt-2">
+<div class="w-12 h-12 rounded-full bg-[#f2ebe1] border-2 border-[#d8cebf] flex items-center justify-center text-on-surface font-headline-sm font-bold">
+              S
+            </div>
+<div class="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-[#b45309] text-white flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[13px]" data-icon="back_hand">back_hand</span>
+</div>
+</div>
+<!-- Participant Info -->
+<div class="mt-1">
+<h3 class="font-title-sm text-on-surface font-bold text-[13px] leading-tight">Sarah N.</h3>
+<p class="font-body-sm text-[11px] text-on-surface-variant font-medium">Queued (#2)</p>
+</div>
+</article>
+</section>
+<!-- 4 Action Buttons Row (min 44x44px target) -->
+<section class="grid grid-cols-4 gap-2 pt-1">
+<!-- Action 1: Mute -->
+<button class="min-h-[48px] p-2 flex flex-col items-center justify-center rounded-xl bg-surface-container-lowest hover:bg-[#edf5f3] border border-[#d1c5b6] shadow-[0_2px_0_0_#d8cebf] active:shadow-none active:translate-y-0.5 transition-all text-on-surface" type="button">
+<span class="material-symbols-outlined text-[20px] text-on-surface" data-icon="mic">mic</span>
+<span class="font-label-sm text-[11px] font-bold mt-1 leading-none">Mute</span>
+</button>
+<!-- Action 2: Raise Hand -->
+<button class="min-h-[48px] p-2 flex flex-col items-center justify-center rounded-xl bg-surface-container-lowest hover:bg-[#fef3c7] border border-[#d1c5b6] shadow-[0_2px_0_0_#d8cebf] active:shadow-none active:translate-y-0.5 transition-all text-on-surface" type="button">
+<span class="material-symbols-outlined text-[20px] text-on-surface" data-icon="back_hand">back_hand</span>
+<span class="font-label-sm text-[11px] font-bold mt-1 leading-none">Raise hand</span>
+</button>
+<!-- Action 3: New Cue -->
+<button class="min-h-[48px] p-2 flex flex-col items-center justify-center rounded-xl bg-surface-container-lowest hover:bg-[#edf5f3] border border-[#d1c5b6] shadow-[0_2px_0_0_#d8cebf] active:shadow-none active:translate-y-0.5 transition-all text-on-surface" type="button">
+<span class="material-symbols-outlined text-[20px] text-on-surface" data-icon="skip_next">skip_next</span>
+<span class="font-label-sm text-[11px] font-bold mt-1 leading-none">New cue</span>
+</button>
+<!-- Action 4: Report -->
+<button class="min-h-[48px] p-2 flex flex-col items-center justify-center rounded-xl bg-surface-container-lowest hover:bg-[#fee2e2] border border-[#d1c5b6] shadow-[0_2px_0_0_#d8cebf] active:shadow-none active:translate-y-0.5 transition-all text-on-surface" type="button">
+<span class="material-symbols-outlined text-[20px] text-on-surface" data-icon="flag">flag</span>
+<span class="font-label-sm text-[11px] font-bold mt-1 leading-none">Report</span>
+</button>
+</section>
+<!-- Bottom CTAs -->
+<footer class="flex flex-col gap-2.5 pt-2 mt-auto">
+<!-- Primary CTA: Pass the mic -->
+<button class="w-full min-h-[48px] py-3 px-4 rounded-xl bg-[#f06543] hover:bg-[#f27455] text-white font-title-md font-bold flex items-center justify-center gap-2 border border-[#d94e2c] shadow-[0_3px_0_0_#b83815] active:shadow-none active:translate-y-0.5 transition-all" type="button">
+<span>Pass the mic →</span>
+</button>
+<!-- Secondary CTA: Leave room quietly -->
+<button class="w-full min-h-[48px] py-3 px-4 rounded-xl bg-surface-container-lowest hover:bg-[#f4efe6] text-[#1e293b] font-title-md font-bold flex items-center justify-center gap-2 border border-[#cbd5e1] shadow-[0_2px_0_0_#d8cebf] active:shadow-none active:translate-y-0.5 transition-all" type="button">
+<span class="material-symbols-outlined text-[19px] text-[#475569]" data-icon="logout">logout</span>
+<span>Leave room quietly</span>
+</button>
+</footer>
+</div>
+</main>
+</body></html>

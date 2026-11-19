@@ -1,0 +1,28 @@
+{
+ "lesson": "cafe-could-i-get",
+ "lang": "es",
+ "dir": "ltr",
+ "font": "BeVietnamPro-ExtraBold",
+ "name": "Español",
+ "goal": "Pedir con cortesía",
+ "hook": "¿“Give me…” es educado?",
+ "lines": {
+  "c_hi": "¡Hola! ¿Qué te sirvo?",
+  "a_giveme": "¡Oye! Dame un latte.",
+  "c_order": "Mmm, eso suena a una orden.",
+  "c_try": "Prueba: “Could I get a latte, please?”",
+  "a_could": "¡Ay! ¿Me podría dar un latte, por favor?",
+  "a_slow": "¿Me podría dar un latte, por favor?",
+  "a_nowyou": "Ahora tú. ¡Repite conmigo!",
+  "a_asktea": "Te toca. ¡Pide un té!",
+  "a_tea": "¿Me podría dar un té, por favor?",
+  "a_thanks": "¡Gracias!"
+ },
+ "why": "“Give me…” suena a orden. Pide con cortesía.",
+ "order": "orden",
+ "polite": "educado",
+ "repeat": "Repite conmigo",
+ "yourturn": "Pide un té",
+ "recap": "= forma educada de pedir",
+ "cta": "Practica este juego de roles gratis en"
+}

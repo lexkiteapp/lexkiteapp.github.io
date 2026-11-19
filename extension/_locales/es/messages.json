@@ -1,11 +1,179 @@
 {
  "appName": {
-  "message": "Lexkite – Diccionario y tarjetas IELTS"
+  "message": "Lexkite – Diccionario de inglés, traductor y tarjetas de vocabulario"
  },
  "appDesc": {
-  "message": "Doble clic en una palabra: significado, IPA y audio nativo. Traduce frases y subtítulos de YouTube. Guarda y repasa con tarjetas."
+  "message": "Doble clic en cualquier palabra: significado, IPA y audio. Traduce frases, guarda palabras con contexto y repasa para IELTS/TOEIC."
  },
  "openApp": {
   "message": "Abrir Lexkite"
+ },
+ "rateTitle": {
+  "message": "¿Te gusta Lexkite?"
+ },
+ "rateBody": {
+  "message": "Si Lexkite te ayuda a aprender, una breve reseña en la tienda ayuda a que otros estudiantes lo encuentren."
+ },
+ "rateYes": {
+  "message": "Valorar Lexkite"
+ },
+ "rateLater": {
+  "message": "Más tarde"
+ },
+ "rateNever": {
+  "message": "No volver a preguntar"
+ },
+ "ntGot": {
+  "message": "✓ Lo sé"
+ },
+ "ntAgain": {
+  "message": "↻ Repasar"
+ },
+ "ntGolden": {
+  "message": "Momento ideal"
+ },
+ "ntSaved": {
+  "message": "Guardada hace poco"
+ },
+ "ntToday": {
+  "message": "Palabra del momento"
+ },
+ "ntSearch": {
+  "message": "Buscar en la web…"
+ },
+ "ntSearchBtn": {
+  "message": "Buscar"
+ },
+ "ntOff": {
+  "message": "Desactivar tarjeta en pestaña nueva"
+ },
+ "ntConf": {
+  "message": "Habla con confianza"
+ },
+ "ntListen": {
+  "message": "Escuchar"
+ },
+ "ntSlow": {
+  "message": "Lento"
+ },
+ "ntUK": {
+  "message": "RU"
+ },
+ "ntUS": {
+  "message": "EE. UU."
+ },
+ "ntFamily": {
+  "message": "Familia de palabras"
+ },
+ "ntColloc": {
+  "message": "Colocaciones"
+ },
+ "ntSyn": {
+  "message": "Sinónimos"
+ },
+ "ntAnt": {
+  "message": "Antónimos"
+ },
+ "ntQuiz": {
+  "message": "Modo prueba"
+ },
+ "ntReveal": {
+  "message": "Ver significado"
+ },
+ "ntTapTr": {
+  "message": "Toca para ver la traducción"
+ },
+ "ntMT": {
+  "message": "Traducción automática"
+ },
+ "ntExample": {
+  "message": "Ejemplo"
+ },
+ "ntAdd": {
+  "message": "＋ Añadir a mi mazo"
+ },
+ "ntAdded": {
+  "message": "✓ En mi mazo"
+ },
+ "ntNext": {
+  "message": "Siguiente →"
+ },
+ "ntProgress": {
+  "message": "{n}/{g} palabras hoy"
+ },
+ "ntShortcuts": {
+  "message": "Atajos de teclado"
+ },
+ "ntKeys": {
+  "message": "Espacio: ver · 1/2: calificar · N: siguiente · P: escuchar"
+ },
+ "posN": {
+  "message": "sustantivo"
+ },
+ "posV": {
+  "message": "verbo"
+ },
+ "posAdj": {
+  "message": "adjetivo"
+ },
+ "posAdv": {
+  "message": "adverbio"
+ },
+ "posPhrV": {
+  "message": "verbo frasal"
+ },
+ "posPhrase": {
+  "message": "frase"
+ },
+ "posIdiom": {
+  "message": "modismo"
+ },
+ "posPrep": {
+  "message": "preposición"
+ },
+ "posConj": {
+  "message": "conjunción"
+ },
+ "posPron": {
+  "message": "pronombre"
+ },
+ "posDet": {
+  "message": "determinante"
+ },
+ "posExcl": {
+  "message": "interjección"
+ },
+ "posNum": {
+  "message": "numeral"
+ },
+ "posAbbr": {
+  "message": "abreviatura"
+ },
+ "posColl": {
+  "message": "colocación"
+ },
+ "ntMoreSenses": {
+  "message": "+{n} significados"
+ },
+ "ntQzTag": {
+  "message": "Reto rápido"
+ },
+ "ntQzQ": {
+  "message": "Elige el significado correcto"
+ },
+ "ntQzTime": {
+  "message": "{s} segundos"
+ },
+ "ntQzRight": {
+  "message": "¡Correcto!"
+ },
+ "ntQzWrong": {
+  "message": "No del todo: volverá pronto"
+ },
+ "ntQzTimeout": {
+  "message": "Se acabó el tiempo, no pasa nada"
+ },
+ "ntQzSkip": {
+  "message": "Omitir"
  }
 }

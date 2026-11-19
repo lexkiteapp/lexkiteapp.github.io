@@ -1,0 +1,14 @@
+# Cron Worker kích workflow khi GitHub bỏ lịch (docs/JOBS.md, id "cron-kick") – không có URL công khai, không giữ dữ liệu, không có token GitHub.
+# Bí mật: wrangler secret put CRON_KICK_SECRET (cùng giá trị với Pages: wrangler pages secret put CRON_KICK_SECRET --project-name lexkite). Không commit.
+name = "lexkite-cronkick"
+main = "index.js"
+compatibility_date = "2026-10-01"
+workers_dev = false
+preview_urls = false
+
+# Mỗi 30 phút (48 lượt/ngày): ký yêu cầu gọi /api/cron-kick; máy chủ Pages (giữ GH_DISPATCH_TOKEN) quyết định có dispatch hay không.
+[triggers]
+crons = ["*/30 * * * *"]
+
+[vars]
+API = "https://lexkite.com"

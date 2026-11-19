@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Say it like a native</title>
+  <!-- Google Fonts & Tailwind CDN -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      background-color: #fff8f3;
+      color: #1f1b16;
+      -webkit-font-smoothing: antialiased;
+    }
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+    .material-symbols-rounded-outline {
+      font-family: 'Material Symbols Rounded';
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+</head>
+<body class="flex justify-center min-h-screen bg-[#FBF7F1] text-[#162124]">
+  <!-- Phone screen container: strictly 390px wide, no device frame/bezel -->
+  <div class="w-[390px] min-h-screen bg-[#FBF7F1] flex flex-col relative select-none pb-[80px]">
+
+    <!-- TOP BAR (INNER variant): 56px, round tactile back-arrow button on the left, page title next to it, right side empty -->
+    <header class="h-[56px] w-full px-4 flex items-center justify-between z-20 sticky top-0 bg-[#FBF7F1]/95 backdrop-blur-sm">
+      <div class="flex items-center gap-3">
+        <!-- Round tactile back-arrow button (40x40 with border & subtle tactile ledge) -->
+        <button class="w-10 h-10 rounded-full bg-white border-2 border-[#E6DCCB] shadow-[0_3px_0_0_#e2d5c7] active:translate-y-[2px] active:shadow-[0_1px_0_0_#e2d5c7] flex items-center justify-center transition-transform text-[#162124]" aria-label="Go back">
+          <span class="material-symbols-rounded text-[22px]">arrow_back</span>
+        </button>
+        <!-- Page Title -->
+        <h1 class="text-[19px] font-extrabold tracking-tight text-[#162124]">Say it like a native</h1>
+      </div>
+      <!-- Right side left strictly empty as specified -->
+      <div></div>
+    </header>
+
+    <!-- MAIN CONTENT: 16px side margins, 8px spacing grid -->
+    <main class="flex-1 px-4 pt-2 flex flex-col">
+      <!-- Short intro line in accessible grey (WCAG AA compliant contrast ≥ 4.5:1 on #fff8f3) -->
+      <p class="text-[14px] leading-[20px] font-medium text-[#45555A] mb-5">
+        What native speakers really say – when to use it and what to avoid. Tap a card to flip.
+      </p>
+
+      <!-- Vertical list of 4 tactile series cards (88px tall, white, 16px radius, 2px border, 5px ledge) -->
+      <div class="flex flex-col gap-3">
+
+        <!-- Card 1: Say No Nicely -->
+        <article class="h-[88px] w-full bg-white rounded-[16px] border-2 border-[#E6DCCB] shadow-[0_5px_0_0_#e2d5c7] active:translate-y-[2px] active:shadow-[0_3px_0_0_#e2d5c7] px-3 flex items-center justify-between cursor-pointer transition-transform">
+          <div class="flex items-center gap-3 flex-1 min-w-0 pr-2">
+            <!-- 64x64 rounded soft-cream tile: EMPTY dashed teacher slot (never draw a person) -->
+            <div class="w-[64px] h-[64px] rounded-[14px] bg-[#FBF7F1] border-2 border-dashed border-[#00514d]/40 flex flex-col items-center justify-center flex-shrink-0 text-center p-1">
+              <span class="material-symbols-rounded text-[#00514d]/60 text-[20px] leading-none mb-1">school</span>
+              <span class="text-[9px] font-bold tracking-tight text-[#00514d]/70 uppercase leading-none">Teacher</span>
+            </div>
+
+            <!-- Series Details -->
+            <div class="flex-1 min-w-0">
+              <h2 class="text-[17px] font-bold text-[#162124] truncate leading-tight mb-1">Say No Nicely</h2>
+              <p class="text-[12px] font-medium text-[#45555A] mb-1.5 leading-none">3/7 cards · with Ama</p>
+              <!-- Thin teal progress bar (3/7 = ~43%) -->
+              <div class="w-full max-w-[170px] h-[5px] bg-[#FBF7F1] rounded-full overflow-hidden">
+                <div class="h-full bg-[#00514d] rounded-full" style="width: 43%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Teal arrow on the right -->
+          <div class="w-7 h-7 flex items-center justify-center text-[#00514d] flex-shrink-0">
+            <span class="material-symbols-rounded text-[24px]">chevron_right</span>
+          </div>
+        </article>
+
+        <!-- Card 2: Better Than "I'm Fine" -->
+        <article class="h-[88px] w-full bg-white rounded-[16px] border-2 border-[#E6DCCB] shadow-[0_5px_0_0_#e2d5c7] active:translate-y-[2px] active:shadow-[0_3px_0_0_#e2d5c7] px-3 flex items-center justify-between cursor-pointer transition-transform">
+          <div class="flex items-center gap-3 flex-1 min-w-0 pr-2">
+            <!-- 64x64 rounded soft-cream tile: EMPTY dashed teacher slot -->
+            <div class="w-[64px] h-[64px] rounded-[14px] bg-[#FBF7F1] border-2 border-dashed border-[#00514d]/40 flex flex-col items-center justify-center flex-shrink-0 text-center p-1">
+              <span class="material-symbols-rounded text-[#00514d]/60 text-[20px] leading-none mb-1">school</span>
+              <span class="text-[9px] font-bold tracking-tight text-[#00514d]/70 uppercase leading-none">Teacher</span>
+            </div>
+
+            <!-- Series Details -->
+            <div class="flex-1 min-w-0">
+              <h2 class="text-[17px] font-bold text-[#162124] truncate leading-tight mb-1">Better Than &quot;I'm Fine&quot;</h2>
+              <p class="text-[12px] font-medium text-[#45555A] mb-1.5 leading-none">0/7 cards · with Carlos</p>
+              <!-- Thin teal progress bar (0%) -->
+              <div class="w-full max-w-[170px] h-[5px] bg-[#FBF7F1] rounded-full overflow-hidden">
+                <div class="h-full bg-[#00514d] rounded-full" style="width: 0%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Teal arrow on the right -->
+          <div class="w-7 h-7 flex items-center justify-center text-[#00514d] flex-shrink-0">
+            <span class="material-symbols-rounded text-[24px]">chevron_right</span>
+          </div>
+        </article>
+
+        <!-- Card 3: Disagree Without a Fight -->
+        <article class="h-[88px] w-full bg-white rounded-[16px] border-2 border-[#E6DCCB] shadow-[0_5px_0_0_#e2d5c7] active:translate-y-[2px] active:shadow-[0_3px_0_0_#e2d5c7] px-3 flex items-center justify-between cursor-pointer transition-transform">
+          <div class="flex items-center gap-3 flex-1 min-w-0 pr-2">
+            <!-- 64x64 rounded soft-cream tile: EMPTY dashed teacher slot -->
+            <div class="w-[64px] h-[64px] rounded-[14px] bg-[#FBF7F1] border-2 border-dashed border-[#00514d]/40 flex flex-col items-center justify-center flex-shrink-0 text-center p-1">
+              <span class="material-symbols-rounded text-[#00514d]/60 text-[20px] leading-none mb-1">school</span>
+              <span class="text-[9px] font-bold tracking-tight text-[#00514d]/70 uppercase leading-none">Teacher</span>
+            </div>
+
+            <!-- Series Details -->
+            <div class="flex-1 min-w-0">
+              <h2 class="text-[17px] font-bold text-[#162124] truncate leading-tight mb-1">Disagree Without a Fight</h2>
+              <p class="text-[12px] font-medium text-[#45555A] mb-1.5 leading-none">0/7 cards · with Ama</p>
+              <!-- Thin teal progress bar (0%) -->
+              <div class="w-full max-w-[170px] h-[5px] bg-[#FBF7F1] rounded-full overflow-hidden">
+                <div class="h-full bg-[#00514d] rounded-full" style="width: 0%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Teal arrow on the right -->
+          <div class="w-7 h-7 flex items-center justify-center text-[#00514d] flex-shrink-0">
+            <span class="material-symbols-rounded text-[24px]">chevron_right</span>
+          </div>
+        </article>
+
+        <!-- Card 4: Office English -->
+        <article class="h-[88px] w-full bg-white rounded-[16px] border-2 border-[#E6DCCB] shadow-[0_5px_0_0_#e2d5c7] active:translate-y-[2px] active:shadow-[0_3px_0_0_#e2d5c7] px-3 flex items-center justify-between cursor-pointer transition-transform">
+          <div class="flex items-center gap-3 flex-1 min-w-0 pr-2">
+            <!-- 64x64 rounded soft-cream tile: EMPTY dashed teacher slot -->
+            <div class="w-[64px] h-[64px] rounded-[14px] bg-[#FBF7F1] border-2 border-dashed border-[#00514d]/40 flex flex-col items-center justify-center flex-shrink-0 text-center p-1">
+              <span class="material-symbols-rounded text-[#00514d]/60 text-[20px] leading-none mb-1">school</span>
+              <span class="text-[9px] font-bold tracking-tight text-[#00514d]/70 uppercase leading-none">Teacher</span>
+            </div>
+
+            <!-- Series Details -->
+            <div class="flex-1 min-w-0">
+              <h2 class="text-[17px] font-bold text-[#162124] truncate leading-tight mb-1">Office English</h2>
+              <p class="text-[12px] font-medium text-[#45555A] mb-1.5 leading-none">0/8 cards · with Carlos</p>
+              <!-- Thin teal progress bar (0%) -->
+              <div class="w-full max-w-[170px] h-[5px] bg-[#FBF7F1] rounded-full overflow-hidden">
+                <div class="h-full bg-[#00514d] rounded-full" style="width: 0%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Teal arrow on the right -->
+          <div class="w-7 h-7 flex items-center justify-center text-[#00514d] flex-shrink-0">
+            <span class="material-symbols-rounded text-[24px]">chevron_right</span>
+          </div>
+        </article>
+
+      </div>
+    </main>
+
+    <!-- BOTTOM TAB BAR: 64px on INNER screens, white bar with top border, exactly 5 equal tabs -->
+    <!-- Today (house), Vocab (open book + small red due badge), Skills (target, active), Tests (flag), Me (person) -->
+    <nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-[390px] h-[64px] bg-white border-t border-[#E6DCCB] flex items-center justify-around z-30 px-1" aria-label="Bottom Navigation">
+      
+      <!-- Tab 1: Today (inactive) -->
+      <button class="flex flex-col items-center justify-center flex-1 h-full text-[#4a4238] hover:text-[#162124] transition-colors">
+        <span class="material-symbols-rounded-outline text-[22px] mb-0.5">home</span>
+        <span class="text-[11px] font-semibold tracking-tight">Today</span>
+      </button>
+
+      <!-- Tab 2: Vocab (inactive with small red due badge) -->
+      <button class="flex flex-col items-center justify-center flex-1 h-full text-[#4a4238] hover:text-[#162124] transition-colors relative">
+        <div class="relative inline-flex items-center justify-center">
+          <span class="material-symbols-rounded-outline text-[22px] mb-0.5">menu_book</span>
+          <!-- Small red due badge -->
+          <span class="absolute -top-1 -right-2 bg-[#d93829] text-white text-[9px] font-bold rounded-full h-3.5 min-w-[14px] px-1 flex items-center justify-center shadow-xs leading-none">8</span>
+        </div>
+        <span class="text-[11px] font-semibold tracking-tight">Vocab</span>
+      </button>
+
+      <!-- Tab 3: Skills (ACTIVE: teal icon inside a soft teal pill and a bold teal label) -->
+      <button class="flex flex-col items-center justify-center flex-1 h-full text-[#00514d]" aria-current="page">
+        <div class="bg-[#d7f1ed] text-[#00514d] rounded-full px-3.5 py-0.5 mb-0.5 flex items-center justify-center">
+          <span class="material-symbols-rounded text-[20px]">adjust</span>
+        </div>
+        <span class="text-[11px] font-extrabold tracking-tight text-[#00514d]">Skills</span>
+      </button>
+
+      <!-- Tab 4: Tests (inactive) -->
+      <button class="flex flex-col items-center justify-center flex-1 h-full text-[#4a4238] hover:text-[#162124] transition-colors">
+        <span class="material-symbols-rounded-outline text-[22px] mb-0.5">flag</span>
+        <span class="text-[11px] font-semibold tracking-tight">Tests</span>
+      </button>
+
+      <!-- Tab 5: Me (inactive) -->
+      <button class="flex flex-col items-center justify-center flex-1 h-full text-[#4a4238] hover:text-[#162124] transition-colors">
+        <span class="material-symbols-rounded-outline text-[22px] mb-0.5">person</span>
+        <span class="text-[11px] font-semibold tracking-tight">Me</span>
+      </button>
+
+    </nav>
+  </div>
+</body>
+</html>

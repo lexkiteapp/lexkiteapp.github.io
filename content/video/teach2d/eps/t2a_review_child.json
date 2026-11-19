@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_child",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: child.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means a very young person, between about 2 and 15.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "Every child in the village goes to the same primary school.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "child",
+  "ipa": "/tʃaɪld/",
+  "mean": "a very young person, between about 2 and 15",
+  "ex": "Every child in the village goes to the same primary school.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=child",
+  "link": "https://lexkite.com/app/#/review?w=child",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 47,
+  "seconds": 28.2,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "What does \"child\" mean?",
+  "keyword": "child",
+  "value": "Child means a very young person, between about 2 and 15.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=child",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"child\" mean?",
+    "description": "Child means a very young person, between about 2 and 15.\n\nReview your words, free: https://lexkite.com/app/#/review?w=child\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "child",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"child\" mean?\n\nChild means a very young person, between about 2 and 15.\n\nReview your words, free: https://lexkite.com/app/#/review?w=child"
+   },
+   "instagram": {
+    "caption": "What does \"child\" mean?\n\nChild means a very young person, between about 2 and 15.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"child\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means a very young person, between about 2 and 15. Child means a very young person, between about 2 and 15. More practice like this (free): {link}"
+ }
+}

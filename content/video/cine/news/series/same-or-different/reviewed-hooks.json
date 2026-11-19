@@ -1,0 +1,34 @@
+{
+ "_note": "Same or Different?: hook + script verdicts (qc_v9 hook_truth, video-series.yml gate). Generator writes hook_true null / script_reviewed false; a reviewer (scripts/video/tpl/review_queue.py) sets hook_true, script_reviewed, reviewer, note. Script must equal the spec word for word.",
+ "verdicts": {
+  "sod_7432d6cb": {
+   "template": "pair",
+   "hook": "win or / beat?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "script": {
+    "p_h": "Win or beat? Quick lesson.",
+    "p_y": "You beat people. You win games.",
+    "p_w": "Not: We won the other team.",
+    "p_k": "Say: We beat the other team.",
+    "p_t": "You win a prize, but beat a player!",
+    "p_q": "Quiz! Our team blank them 3 to 1.",
+    "p_q2": "Beat, or won?",
+    "p_a": "Beat! Our team beat them 3 to 1.",
+    "p_sh": "Send this to a friend!",
+    "p_c": "Save this, and compare tricky words on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "We beat the other team.",
+    "right_lines": [
+     "p_k"
+    ]
+   },
+   "source": "sb_7432d6cb",
+   "reviewer": "Claude (expert American English teacher review, 27/10/2026: facts true, natural US English, hook true; US IPA from the app dictionary; no GrabCast)",
+   "note": "Win takes games, prizes and contests; beat takes the opponent ('We beat the other team'). 'We won the other team' is wrong. Quiz and examples natural US English."
+  }
+ }
+}

@@ -1,0 +1,23 @@
+{
+ "topic": "Irregular verbs in class: teached or taught?",
+ "scene": "classroom",
+ "seed": "iv-teach",
+ "vars": {
+  "wrongForm": "teached",
+  "answer": "taught",
+  "forms": "teach, taught, taught",
+  "gap": "Last year, my dad blank me to drive.",
+  "example": "Yes! My mom taught me to swim when I was six.",
+  "tip": "teach and catch are twins: taught and caught."
+ },
+ "lines": {
+  "example": {
+   "expr": "big laugh"
+  }
+ },
+ "hashtags": [
+  "irregularverbs",
+  "grammarquiz",
+  "speakenglish"
+ ]
+}

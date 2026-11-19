@@ -1,0 +1,212 @@
+{
+  "nav": {
+    "hub": "Tentang Lexkite",
+    "team": "Tim editorial",
+    "policy": "Kebijakan editorial",
+    "corrections": "Koreksi",
+    "sources": "Sumber",
+    "research": "Riset",
+    "embed": "Widget gratis"
+  },
+  "byline": "Oleh Tim Editorial Lexkite",
+  "factChecked": "Fakta diperiksa pada {date}",
+  "related": "Selengkapnya tentang cara kerja kami",
+  "about": {
+    "title": "Tentang Lexkite – belajar kosakata Inggris dan latihan ujian gratis",
+    "desc": "Siapa yang membuat Lexkite, untuk apa Lexkite dibuat, bagaimana pendanaannya, dan bagaimana kami menjaga konten belajar bahasa Inggris tetap akurat, independen, dan gratis.",
+    "h1": "Tentang Lexkite",
+    "lead": "Lexkite adalah aplikasi gratis untuk belajar kosakata bahasa Inggris dan mempersiapkan IELTS, TOEIC, dan TOEFL, tersedia dalam 15 bahasa antarmuka.",
+    "sections": [
+      [
+        "Apa yang dilakukan Lexkite",
+        "Lexkite menggabungkan kartu belajar dengan pengulangan berjarak (FSRS), kamus dwibahasa, latihan membaca, mendengarkan, menulis, dan berbicara, serta tes simulasi berwaktu. Lexkite dapat dipakai di browser, sebagai ekstensi Chrome, dan di ponsel. Fitur intinya gratis dan tidak memerlukan kartu kredit."
+      ],
+      [
+        "Siapa yang mengelola Lexkite",
+        "Lexkite dioperasikan oleh MODIAN LUXURY JEWELRY LLC, perseroan terbatas (limited liability company) di Wyoming, sebagaimana tercantum dalam Ketentuan kami. Konten di situs ini dibuat oleh Tim Editorial Lexkite, yang dijelaskan di halamannya sendiri, beserta standar editorial yang kami ikuti."
+      ],
+      [
+        "Bagaimana Lexkite didanai",
+        "Lexkite didanai oleh operatornya dan dapat menampilkan iklan agar aplikasi inti tetap gratis. Pengiklan dan mitra tidak memengaruhi apa yang kami tulis, kata apa yang kami ajarkan, atau cara kami menilai metode belajar."
+      ],
+      [
+        "Independensi",
+        "IELTS, TOEIC, dan TOEFL adalah merek dagang dari pemiliknya masing-masing. Lexkite adalah produk independen dan tidak berafiliasi dengan atau didukung oleh British Council, IDP, Cambridge University Press & Assessment, maupun ETS. Kami tidak pernah menjanjikan skor."
+      ],
+      [
+        "Kontak",
+        "Pertanyaan, koreksi, dan permintaan kemitraan: support@lexkite.com."
+      ]
+    ]
+  },
+  "team": {
+    "title": "Tim Editorial Lexkite – siapa yang menulis dan memeriksa konten kami",
+    "desc": "Tim Editorial Lexkite menulis dan meninjau artikel belajar bahasa Inggris, data kamus, dan soal latihan kami. Cara kerja tim, dijelaskan secara jujur.",
+    "h1": "Tim Editorial Lexkite",
+    "lead": "Artikel, entri kamus, dan soal latihan di Lexkite diterbitkan dengan satu nama penulis bersama: Tim Editorial Lexkite.",
+    "sections": [
+      [
+        "Mengapa memakai nama tim",
+        "Kami menerbitkan dengan nama tim, bukan nama perorangan, karena setiap tulisan melewati proses bertahap yang sama dan tidak ada satu orang pun yang bertanggung jawab atas hasil akhirnya. Kami tidak mengarang sosok penulis, jabatan, atau kualifikasi."
+      ],
+      [
+        "Cara kami memakai alat AI",
+        "Draf, terjemahan, dan pemeriksaan kualitas dibuat dengan bantuan alat penulisan AI. Hasil AI tidak pernah diterbitkan apa adanya: harus lolos proses editorial enam langkah kami, pemeriksaan fakta terhadap sumber resmi, dan tinjauan kualitas 100 poin sebelum tayang. Jika ada pemeriksaan yang gagal, tulisan ditulis ulang atau dibatalkan."
+      ],
+      [
+        "Tanggung jawab tim",
+        "Memilih topik yang benar-benar dicari pelajar, menulis penjelasan dan kalimat contoh yang orisinal, memeriksa fakta ujian kepada pemilik tes, melokalkan setiap artikel untuk 15 bahasa (bukan terjemahan mesin kata demi kata), dan menjaga halaman yang sudah terbit tetap mutakhir."
+      ],
+      [
+        "Akuntabilitas",
+        "Setiap artikel menampilkan tanggal terbit, tanggal pembaruan terakhir, dan tanggal terakhir faktanya diperiksa. Jika Anda menemukan kesalahan, kebijakan koreksi kami menjelaskan cara melaporkannya dan langkah yang kami ambil selanjutnya."
+      ]
+    ]
+  },
+  "policy": {
+    "title": "Kebijakan editorial dan proses pemeriksaan fakta – Lexkite",
+    "desc": "Cara Lexkite meriset, menulis, memeriksa fakta, melokalkan, dan meninjau setiap artikel: proses editorial enam langkah, ambang kualitas, dan aturan pembaruan.",
+    "h1": "Kebijakan editorial dan pemeriksaan fakta",
+    "lead": "Setiap artikel Lexkite melalui enam langkah yang sama. Artikel hanya diterbitkan jika meraih minimal 90 dari 100 pada tinjauan akhir.",
+    "stepsH": "Proses enam langkah kami",
+    "steps": [
+      [
+        "Brief",
+        "Kami mempelajari apa yang benar-benar dicari pelajar di setiap bahasa dan apa yang kurang dari jawaban terbaik yang sudah ada, lalu menentukan pertanyaan yang harus dijawab artikel."
+      ],
+      [
+        "Kerangka",
+        "Artikel menjawab pertanyaan utama secara langsung di bagian atas, lalu membahas lebih dalam dengan struktur yang mudah dipindai."
+      ],
+      [
+        "Penulisan orisinal",
+        "Penjelasan dan setiap kalimat contoh bahasa Inggris ditulis khusus untuk Lexkite. Kami tidak menyalin teks, soal, atau gambar dari penerbit lain maupun dari materi ujian resmi."
+      ],
+      [
+        "Pemeriksaan fakta",
+        "Format tes, durasi, dan skala skor diperiksa kepada pemilik tes resmi. Jika suatu fakta tidak dapat dikonfirmasi, fakta itu dihapus. Tanggal pemeriksaan fakta dicatat di setiap artikel."
+      ],
+      [
+        "Pelokalan",
+        "Setiap versi bahasa disesuaikan untuk pembacanya – kesalahan khas, contoh, dan kata pencarian mereka – bukan diterjemahkan dengan mesin."
+      ],
+      [
+        "Tinjauan kualitas independen",
+        "Peninjau yang tidak menulis artikel tersebut memberi nilai dari 100 untuk maksud pencarian, akurasi dan kedalaman, nilai orisinal, gaya yang alami, keterbacaan, tautan yang membantu, dan keterpercayaan. Di bawah 90 poin, artikel direvisi atau tidak diterbitkan."
+      ]
+    ],
+    "rulesH": "Aturan yang selalu kami patuhi",
+    "rules": [
+      "Tidak menjanjikan skor atau hasil yang dijamin.",
+      "Tidak ada ulasan, testimoni, nama penulis, atau kredensial palsu.",
+      "Gambar adalah tangkapan layar aplikasi kami sendiri atau diagram; tidak ada materi tes berhak cipta.",
+      "Fakta ujian ditautkan ke sumber resmi.",
+      "Saat ujian berubah, artikel yang terdampak diperbarui dan menampilkan tanggal pembaruan yang baru."
+    ]
+  },
+  "corrections": {
+    "title": "Kebijakan koreksi – cara Lexkite memperbaiki kesalahan",
+    "desc": "Menemukan kesalahan di Lexkite? Cara melaporkannya, seberapa cepat kami meninjaunya, dan bagaimana koreksi ditampilkan di halaman.",
+    "h1": "Kebijakan koreksi",
+    "lead": "Kami ingin setiap fakta di Lexkite benar. Jika tidak, kami memperbaikinya dan menyatakannya.",
+    "sections": [
+      [
+        "Cara melaporkan kesalahan",
+        "Kirim email ke support@lexkite.com dengan alamat halaman dan bagian yang salah. Sumber untuk informasi yang benar akan membantu kami memeriksa lebih cepat."
+      ],
+      [
+        "Apa yang terjadi selanjutnya",
+        "Kami meninjau setiap laporan. Kesalahan fakta diperbaiki segera setelah dikonfirmasi, dan tanggal pembaruan artikel berubah agar pembaca tahu artikel itu telah direvisi."
+      ],
+      [
+        "Koreksi penting",
+        "Jika sebuah koreksi mengubah makna saran – misalnya aturan ujian yang salah – kami menambahkan catatan singkat di artikel yang menjelaskan apa yang berubah."
+      ],
+      [
+        "Kamus dan soal latihan",
+        "Definisi, jawaban, atau penjelasan yang salah di aplikasi atau kamus diperbaiki di sumbernya, sehingga perbaikan sampai ke setiap halaman dan bahasa yang memakainya."
+      ]
+    ]
+  },
+  "sources": {
+    "title": "Sumber dan referensi yang digunakan Lexkite",
+    "desc": "Pemilik ujian resmi, kerangka acuan, daftar kata terbuka, dan alat sumber terbuka di balik konten belajar bahasa Inggris Lexkite, beserta lisensinya.",
+    "h1": "Sumber dan referensi",
+    "lead": "Penjelasan dan kalimat contoh Lexkite adalah karya orisinal. Berikut referensi resmi dan kumpulan data terbuka yang kami andalkan.",
+    "groups": [
+      [
+        "Informasi ujian resmi",
+        "Format tes, durasi, dan skala skor diperiksa kepada pemilik tes."
+      ],
+      [
+        "Kerangka bahasa",
+        "Tingkat kemahiran mengikuti Kerangka Acuan Umum Eropa untuk Bahasa (CEFR) dari Dewan Eropa."
+      ],
+      [
+        "Daftar kata dan data terbuka",
+        "Daftar kata dan pelafalan berasal dari sumber berlisensi terbuka; definisi dan kalimat contoh dibuat sendiri oleh kami."
+      ],
+      [
+        "Ilmu belajar",
+        "Penjadwalan kartu belajar memakai FSRS, algoritma pengulangan berjarak sumber terbuka."
+      ]
+    ],
+    "creditsNote": "Kredit lengkap gambar dan data tercantum di halaman kredit kami."
+  },
+  "research": {
+    "title": "Kata bahasa Inggris yang sering tertukar: dataset terbuka berisi {n} pasang",
+    "desc": "Dataset CC BY gratis berisi {n} kelompok kata bahasa Inggris yang sering tertukar, lengkap dengan jenis kata, definisi, kesalahan khas, dan tips mengingat. Dengan grafik dan unduhan CSV.",
+    "h1": "Kata bahasa Inggris yang sering tertukar: dataset terbuka",
+    "lead": "{n} kelompok kata bahasa Inggris yang sering dicampuradukkan pelajar – seperti affect/effect dan borrow/lend – lengkap dengan definisi, satu kesalahan khas, dan tips mengingat untuk masing-masing. Bebas dipakai ulang dengan mencantumkan kredit.",
+    "keyH": "Temuan utama",
+    "keys": [
+      "{n} kelompok kata dan {m} kesalahan khas yang terdokumentasi.",
+      "{d}% kelompok membandingkan kata dari jenis kata yang berbeda (misalnya kata kerja dan kata benda), sehingga memeriksa jenis kata dapat mengatasi banyak kesalahan.",
+      "{s}% kelompok berisi kata dengan jenis kata yang sama, yang hanya bisa dibedakan lewat makna dan penggunaannya."
+    ],
+    "chart1": "Kelompok kata menurut pola jenis kata",
+    "chart2": "Kelompok kata menurut jumlah kata",
+    "other": "Pola lainnya",
+    "tableH": "Dataset lengkap",
+    "cols": [
+      "Kata",
+      "Jenis kata",
+      "Kesalahan khas → koreksi",
+      "Tips mengingat"
+    ],
+    "methodH": "Metode",
+    "method": [
+      "Kelompok kata dipilih dan ditulis oleh Tim Editorial Lexkite berdasarkan kesalahan yang berulang kali muncul dalam tulisan pelajar dan latihan ujian. Setiap kelompok mencantumkan setiap kata beserta jenis katanya, definisi singkat dalam bahasa Inggris, kalimat contoh orisinal, dan satu kesalahan khas beserta koreksinya. Jika sebuah kelompok tidak memiliki catatan kesalahan tersendiri, kesalahan khasnya adalah kalimat contohnya dengan kata yang tertukar dipasang sebagai penggantinya.",
+      "Statistik di halaman ini dihitung otomatis dari data yang sama yang mendukung pelajaran \"Kata yang sering tertukar\" di aplikasi Lexkite, setiap kali situs dibangun."
+    ],
+    "privacyH": "Privasi",
+    "privacy": "Dataset ini tidak berisi data pengguna dalam bentuk apa pun. Dataset ini dibuat hanya dari konten editorial Lexkite sendiri, bukan dari apa yang diketik, disimpan, atau dijawab pelajar.",
+    "limitsH": "Keterbatasan",
+    "limits": "Ini adalah daftar kurasi, bukan hitungan frekuensi dari korpus pelajar: daftar ini menunjukkan kekeliruan apa yang didokumentasikan editor kami, bukan seberapa sering masing-masing terjadi.",
+    "downloadH": "Unduhan dan lisensi",
+    "download": "Dataset ini bebas digunakan di bawah lisensi Creative Commons Attribution 4.0 (CC BY 4.0). Mohon cantumkan kredit Lexkite dan tautkan ke halaman ini.",
+    "csv": "Unduh CSV",
+    "json": "Unduh JSON",
+    "citeH": "Cara mengutip",
+    "embedLink": "Pasang \"pasangan kata hari ini\" di situs Anda"
+  },
+  "embed": {
+    "title": "Widget belajar bahasa Inggris gratis untuk guru dan blogger – Lexkite",
+    "desc": "Tambahkan widget gratis \"pasangan kata yang sering tertukar hari ini\" atau lencana level CEFR ke situs atau blog kelas Anda. Ringan, tanpa cookie, tanpa pelacakan.",
+    "h1": "Widget gratis untuk situs Anda",
+    "lead": "Guru, sekolah, dan blogger dapat menambahkan widget gratis ini hanya dengan sekali salin-tempel. Widget tidak memuat apa pun dari pihak ketiga, tidak memasang cookie, dan tidak melacak pengunjung.",
+    "pairH": "Pasangan kata hari ini",
+    "pair": "Menampilkan pasangan kata yang sering tertukar yang berbeda setiap hari, lengkap dengan kesalahan khas dan tips mengingat.",
+    "badgeH": "Lencana level CEFR",
+    "badge": "Siswa yang mengikuti tes level bahasa Inggris gratis kami dapat menampilkan levelnya di blog atau profil.",
+    "copy": "Salin kode",
+    "copied": "Tersalin",
+    "previewH": "Pratinjau",
+    "rulesH": "Ketentuan penggunaan",
+    "rules": "Gratis untuk situs apa pun, termasuk situs komersial. Mohon biarkan tautan kredit tetap terlihat. Jangan ubah konten sehingga menyesatkan.",
+    "widgetLabel": "Pasangan kata hari ini",
+    "mistake": "Kesalahan khas",
+    "tip": "Tips",
+    "more": "Pasangan kata lainnya di Lexkite"
+  }
+}

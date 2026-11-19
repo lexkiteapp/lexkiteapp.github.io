@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ko_wantyou",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Want you to help!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I want you help me.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I want you to help me.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say want you to.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "You to! I want you to help me.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I want you help me.",
+  "right": "I want you to help me.",
+  "strike": "you help",
+  "why": "Say want you to.",
+  "memory": "Want you to help.",
+  "quiz": {
+   "stem": "I want ___ help me.",
+   "options": [
+    "you",
+    "you to"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“want you help” 틀렸어요!",
+   "tip": "want you 뒤에 to가 빠졌어요! 이렇게 말해요 👉 “I want you to help me.”",
+   "caption": "“I want you help me”처럼 말하고 있나요? 😅 한국어는 ‘네가 도와줬으면 해’처럼 to 없이 말하지만, 영어는 want you 뒤에 to가 꼭 필요해요. 맞는 문장 ✅ “I want you to help me.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+   "comment": "정답: “you to”! want you to로 말해요! 무료 퀴즈로 더 연습해 보세요: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Want you help” is wrong!",
+   "tip": "Add to after want you. Say “I want you to help me.”",
+   "caption": "Do you say “I want you help me” in English? 😅 After want and a person, English needs “to”. “I want you to help me” is right. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“want you help” 틀렸어요!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ko",
+ "est": {
+  "words": 47,
+  "seconds": 28.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "“want you help” 틀렸어요!",
+  "keyword": "I want you to help me.",
+  "value": "want you 뒤에 to가 빠졌어요! 이렇게 말해요 👉 “I want you to help me.”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "“want you help” 틀렸어요!",
+    "description": "want you 뒤에 to가 빠졌어요! 이렇게 말해요 👉 “I want you to help me.”\n\n“I want you help me”처럼 말하고 있나요? 😅 한국어는 ‘네가 도와줬으면 해’처럼 to 없이 말하지만, 영어는 want you 뒤에 to가 꼭 필요해요. 맞는 문장 ✅ “I want you to help me.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "I want you to help me.",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“I want you help me”처럼 말하고 있나요? 😅 한국어는 ‘네가 도와줬으면 해’처럼 to 없이 말하지만, 영어는 want you 뒤에 to가 꼭 필요해요. 맞는 문장 ✅ “I want you to help me.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“want you help” 틀렸어요!\n\nwant you 뒤에 to가 빠졌어요! 이렇게 말해요 👉 “I want you to help me.”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“want you help” 틀렸어요! want you 뒤에 to가 빠졌어요! 이렇게 말해요 👉 “I want you to help me.” #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답: “you to”! want you to로 말해요! 무료 퀴즈로 더 연습해 보세요: {link}",
+  "lang": "ko"
+ }
+}

@@ -1,0 +1,34 @@
+== LIP SYNC (onset error = first frame showing the shape - cue time in audio; target |err| <= 60 ms)
+            ama    pixel check |frame - sprite| in mouth core: mean 2.0, max 3.5 /255 
+  mistake   ama    onsets n=10 mean +21 ms, max |err| 35 ms; open-mouth frames during silence: 0; half-blend frames: 0 (hard switch) 
+  why       ama    listener/silent: mouth held closed in 56/56 frames 
+            carlos pixel check |frame - sprite| in mouth core: mean 2.6, max 7.1 /255 
+  fix       carlos onsets n=12 mean +15 ms, max |err| 35 ms; open-mouth frames during silence: 0; half-blend frames: 0 (hard switch) 
+            ama    pixel check |frame - sprite| in mouth core: mean 2.3, max 4.3 /255 
+  repeat    ama    onsets n=14 mean +15 ms, max |err| 36 ms; open-mouth frames during silence: 0; half-blend frames: 0 (hard switch) 
+            ama    pixel check |frame - sprite| in mouth core: mean 1.3, max 2.8 /255 
+  pattern   ama    onsets n=16 mean +27 ms, max |err| 35 ms; open-mouth frames during silence: 0; half-blend frames: 0 (hard switch) 
+            ama    pixel check |frame - sprite| in mouth core: mean 0.9, max 2.1 /255 
+  yourturn  ama    onsets n=7 mean +20 ms, max |err| 36 ms; open-mouth frames during silence: 0; half-blend frames: 0 (hard switch) 
+== CAPTIONS (verbatim, start <=0.1 s before speech, end <=0.4 s after, <=15 cps, no faces)
+  Hook    Is “Give me…” polite?              [0.0, 1.5] faces CLEAR; spoken lines during it: none 
+  Sub  Hey! Give me a latte.              start -0.09s end +0.39s cps 10.6 verbatim True faces CLEAR 
+  Card    ✗|“Give me…” = an order            [3.332, 4.585] faces CLEAR; spoken lines during it: none 
+  Sub  Hmm, that sounds like an order.    start -0.09s end +0.39s cps 13.8 verbatim True faces CLEAR 
+  Sub  Try: Could I get a latte, please?  start -0.09s end +0.39s cps 12.6 verbatim True faces CLEAR 
+  Sub  Oh! Could I get a latte, please?   start -0.09s end +0.39s cps 12.8 verbatim True faces CLEAR 
+  Card    ✓|Could I get …, please?           [13.112, 14.293] faces CLEAR; spoken lines during it: none 
+  Pattern Could I get ___, please?|a muffin  [14.483, 16.941] faces CLEAR; spoken lines during it: none 
+  Sub  Could I get a muffin, please?      start -0.09s end +0.39s cps 13.8 verbatim True faces CLEAR 
+  Sub  Could I get the bill, please?      start -0.09s end +0.39s cps 14.7 verbatim True faces CLEAR 
+  Pattern Could I get ___, please?|the bill  [17.011, 19.043] faces CLEAR; spoken lines during it: none 
+  Prompt  Your turn!|Ask for a tea.          [19.183, 21.533] faces CLEAR; spoken lines during it: none 
+  Sub  Could I get a tea, please?         start -0.09s end +0.39s cps 14.1 verbatim True faces CLEAR 
+  Sub  Thanks!                            start -0.09s end +0.39s cps  6.9 verbatim True faces CLEAR 
+  Recap   Remember:|Could I get ___, please? [27.4, 29.127] faces CLEAR; spoken lines during it: none 
+== AUDIO
+  integrated -15.8 LUFS
+  first audible sample at 43 ms; first speech at 1.60 s (hook is silent by design, room tone from 0)
+  end card + 0.3 s before it: max 10-ms level rise +0.0 dB, max sample jump 0.0000, level at end -120 dBFS OK
+  cut sample jumps: 4.62:0.029 6.96:0.061 8.04:0.028 10.71:0.026 14.33:0.007 19.08:0.002 23.67:0.001 27.25:0.003 29.17:0.000
+== RESULT: ALL PASS

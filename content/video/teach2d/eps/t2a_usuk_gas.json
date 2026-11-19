@@ -1,0 +1,124 @@
+{
+ "id": "t2a_usuk_gas",
+ "template": "usuk",
+ "series": "US or UK?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "U.S. or U.K.?",
+   "pause": 0.42
+  },
+  {
+   "id": "us",
+   "text": "In America, people say gas.",
+   "pause": 0.42
+  },
+  {
+   "id": "uk",
+   "text": "In Britain, people say petrol. Same thing!",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "We need to stop for gas.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! You're in Edinburgh. Which word do people use?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Petrol!",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "us": "gas",
+  "uk": "petrol",
+  "ipa_us": "/ɡæs/",
+  "ipa_uk": "/ˈpetroʊl/",
+  "same": "Same thing!",
+  "quiz": {
+   "options": [
+    "gas",
+    "petrol"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/gas",
+  "link": "https://lexkite.com/app/#/dict/gas",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "US or UK?"
+ },
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Gas or petrol? US vs UK English",
+  "keyword": "gas vs petrol",
+  "value": "Americans say gas. British people say petrol.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/gas",
+  "script_words": 32,
+  "platforms": {
+   "youtube": {
+    "title": "Gas or petrol? US vs UK English",
+    "description": "Americans say gas. British people say petrol.\n\nLook up any word, free: https://lexkite.com/app/#/dict/gas\n\nSeries: US or UK? · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "gas vs petrol",
+     "US or UK?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Gas or petrol? US vs UK English\n\nAmericans say gas. British people say petrol.\n\nLook up any word, free: https://lexkite.com/app/#/dict/gas"
+   },
+   "instagram": {
+    "caption": "Gas or petrol? US vs UK English\n\nAmericans say gas. British people say petrol.\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Gas or petrol? US vs UK English #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: Petrol! Americans say gas. British people say petrol. Practice it with a free quiz: {link}"
+ }
+}

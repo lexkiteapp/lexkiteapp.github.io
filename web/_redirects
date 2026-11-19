@@ -1,0 +1,10 @@
+# Blog theo thư mục ngôn ngữ: /blog, /blog/ → trang chọn ngôn ngữ (blog-lang.html: theo lựa chọn trong app/trình duyệt, chưa có bài → tiếng Anh). Đích viết không đuôi .html: Pages tự 308 /blog-lang.html → /blog-lang làm thanh địa chỉ đổi thành /blog-lang
+/blog /blog-lang 200
+/blog/ /blog-lang 200
+# bài cũ /blog/<slug> → /vi/blog/<slug> (301, giữ đường dẫn con)
+/blog/* /vi/blog/:splat 301
+# Trang bắt buộc cho duyệt quảng cáo: /about, /contact (mục Liên hệ nằm trong trang Giới thiệu) → bản tiếng Anh; ngôn ngữ khác đã có /<lang>/about/ (302 vì đích có thể thành trang riêng)
+/about /en/about/ 302
+/about/ /en/about/ 302
+/contact /en/about/ 302
+/contact/ /en/about/ 302

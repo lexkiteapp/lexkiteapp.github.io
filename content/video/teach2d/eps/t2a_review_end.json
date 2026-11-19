@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_end",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: end.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means a point that marks the limit of something.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "We will discuss the results at the end of the meeting.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "end",
+  "ipa": "/end/",
+  "mean": "a point that marks the limit of something",
+  "ex": "We will discuss the results at the end of the meeting.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=end",
+  "link": "https://lexkite.com/app/#/review?w=end",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 46,
+  "seconds": 27.7,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "What does \"end\" mean?",
+  "keyword": "end",
+  "value": "End means a point that marks the limit of something.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=end",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"end\" mean?",
+    "description": "End means a point that marks the limit of something.\n\nReview your words, free: https://lexkite.com/app/#/review?w=end\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "end",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"end\" mean?\n\nEnd means a point that marks the limit of something.\n\nReview your words, free: https://lexkite.com/app/#/review?w=end"
+   },
+   "instagram": {
+    "caption": "What does \"end\" mean?\n\nEnd means a point that marks the limit of something.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"end\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means a point that marks the limit of something. End means a point that marks the limit of something. Practice it with a free quiz: {link}"
+ }
+}

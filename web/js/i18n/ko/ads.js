@@ -1,0 +1,2 @@
+/* SINH từ i18n/ui/ko/ads.js – đừng sửa tay (scripts/i18n-pack.mjs) */
+(function(g){const D=g.I18N_DICT=g.I18N_DICT||{};D.ko=Object.assign(D.ko||{},{_ape0:"오늘 무료 횟수를 다 썼나요? 짧은 동영상을 보면 {n}회를 더 받을 수 있어요.",_a5k9:"복습한 덕분에 {n}회가 더 생겼어요.",_dcji:"동영상 보기",_8kw8:"카드 10장을 복습하면 {n}회가 더 열려요 – 무료.",_9lrf:"지금 복습",_iq0k:"횟수가 추가되었어요. 몇 초 후에 다시 시도하세요.",_3iid:"오늘 {r}/{need}장 복습 – 더 복습하면 횟수를 받아요."});})(typeof self!=='undefined'?self:this);

@@ -24,8 +24,8 @@
         <a class="card hover topic-card" href="#/read/${r.id}" style="color:var(--text)">
           <div class="row between"><span class="em">${r.emoji}</span>${levelChip(r.level)}</div>
           <h3>${esc(r.title)}</h3>
-          <div class="muted small">${esc(r.summaryVi)}</div>
-          <div class="row"><span class="chip">⏱ ${t('{n} phút', { n: Math.max(2, Math.round(r.text.split(/\s+/).length / 140)) })}</span><span class="chip">${t('{n} câu hỏi', { n: r.questions.length })}</span>${done[r.id] ? `<span class="chip ok">✓ ${done[r.id]}</span>` : ''}</div>
+          <div class="muted small">${App.viHtml(r.summaryVi, r.summaryEn)}</div>
+          <div class="row"><span class="chip">${UI.icon('timer')} ${t('{n} phút', { n: Math.max(2, Math.round(r.text.split(/\s+/).length / 140)) })}</span><span class="chip">${t('{n} câu hỏi', { n: r.questions.length })}</span>${done[r.id] ? `<span class="chip ok">✓ ${done[r.id]}</span>` : ''}</div>
         </a>`).join('')}</div>`;
   };
 
@@ -44,18 +44,18 @@
           <div class="row between"><div class="row">${levelChip(r.level)}<span class="chip">${r.emoji} ${esc(r.topic)}</span></div>
             <button class="btn sm" id="readAloud">🔊 ${t('Nghe cả bài')}</button></div>
           <h1 style="margin:.8rem 0 .3rem">${esc(r.title)}</h1>
-          <p class="muted" style="margin-bottom:.8rem">${esc(r.summaryVi)}</p>
+          <p class="muted" style="margin-bottom:.8rem">${App.viHtml(r.summaryVi, r.summaryEn)}</p>
           <div class="hl-bar" id="hlBar">
             <span class="tiny muted" style="font-weight:700">${t('TÔ SÁNG:')}</span>
-            ${[['kw', '🔑 ' + t('Từ khóa')], ['awl', '🎓 ' + t('Học thuật AWL')], ['link', '🧷 ' + t('Từ nối & cụm')], ['mine', '📒 ' + t('Từ của tôi')]].map(([k, l]) => `<button class="hl-chip ${k} ${hl.includes(k) ? 'on' : ''}" data-hl="${k}">${l} <b data-count="${k}"></b></button>`).join('')}
+            ${[['kw', '🔑 ' + t('Từ khóa')], ['awl', UI.icon('graduation-cap') + ' ' + t('Học thuật AWL')], ['link', '🧷 ' + t('Từ nối & cụm')], ['mine', UI.icon('notebook') + ' ' + t('Từ của tôi')]].map(([k, l]) => `<button class="hl-chip ${k} ${hl.includes(k) ? 'on' : ''}" data-hl="${k}">${l} <b data-count="${k}"></b></button>`).join('')}
           </div>
           <div class="passage ${hl.map(x => 'hl-' + x).join(' ')}" id="passage">${paras}</div>
-          <div class="small muted">💡 ${t('Chạm vào từ để tra · bấm đúp vào câu để nghe câu đó · gạch chấm = từ khóa IELTS · nền xanh = từ đã có trong sổ')}</div>
+          <div class="small muted">${UI.icon('lightbulb')} ${t('Chạm vào từ để tra · bấm đúp vào câu để nghe câu đó · gạch chấm = từ khóa IELTS · nền xanh = từ đã có trong sổ')}</div>
         </div>
         <div style="position:sticky;top:80px" class="stack">
           <div class="card"><h3>🔑 ${t('Từ khóa')}</h3><div class="row">${r.keywords.map(k => `<button class="chip" data-kw="${esc(k)}" style="border:0;cursor:pointer">${esc(k)}</button>`).join('')}</div>
             <button class="btn sm block" id="addKw" style="margin-top:.8rem">+ ${t('Lưu tất cả từ khóa')}</button></div>
-          <div class="card"><h3>📝 ${t('Câu hỏi')}</h3><p class="small muted">${t('{n} câu · True/False/Not Given & trắc nghiệm', { n: r.questions.length })}</p><a class="btn sm primary block" href="#qs">${t('Làm bài')} →</a></div>
+          <div class="card"><h3>${UI.icon('file-pen')} ${t('Câu hỏi')}</h3><p class="small muted">${t('{n} câu · True/False/Not Given & trắc nghiệm', { n: r.questions.length })}</p><a class="btn sm primary block" href="#qs">${t('Làm bài')} →</a></div>
         </div>
       </div>
       <div class="card" style="margin-top:1rem" id="qs">
@@ -95,32 +95,34 @@
       const pr = paper.getBoundingClientRect(), er = el.getBoundingClientRect();
       pop.style.left = Math.max(8, Math.min(er.left - pr.left - 20, pr.width - 370)) + 'px';
       pop.style.top = (er.bottom - pr.top + 8) + 'px';
-      pop.innerHTML = `<div class="muted">⏳ ${t('Đang tra “{w}”…', { w: esc(word) })}</div>`;
+      pop.innerHTML = `<div class="muted">${UI.icon('hourglass')} ${t('Đang tra “{w}”…', { w: esc(word) })}</div>`;
       paper.appendChild(pop);
       const mine = pop;
       // Tra nhanh (~0,4 giây); âm thanh/ảnh sẽ được bổ sung ngầm khi lưu thẻ
       const e = (await Dict.quick(word)) || (await Dict.lookup(word, { examples: false, image: false }));
       if (pop !== mine) return;
-      if (!e || !e.found) { pop.innerHTML = `<div class="muted">${t('Không tìm thấy “{w}”.', { w: esc(word) })}${e && e.vi ? ` ${t('Dịch: <b>{vi}</b>', { vi: esc(e.vi) })}` : ''}</div>`; return; }
+      if (!e || !e.found) { pop.innerHTML = `<div class="muted">${t('Không tìm thấy “{w}”.', { w: esc(word) })}${e && e.vi ? ` ${t('Dịch: <b>{vi}</b>', { vi: esc(App.meanOf ? App.meanOf(e) : e.vi) })}` : ''}</div>`; return; }
       const saved = App.inDeck(e.word);
+      const mText = App.meanOf ? App.meanOf(e) : e.vi;
       pop.innerHTML = `
         <div class="row between nowrap"><div><span style="font-size:1.3rem;font-weight:800">${esc(e.word)}</span> ${posChip(e.pos)}${levelChip(e.level)}</div><button class="icon-btn sm" data-x>✕</button></div>
-        <div class="row"><span class="ipa">${esc(e.ipa)}</span><button class="icon-btn sm" data-s>🔊</button></div>
-        <div class="vi" style="font-size:1.05rem">${esc(e.vi)}</div>
-        ${e.def ? `<div class="small" style="margin-top:.3rem">${esc(e.def)}</div>` : ''}
+        <div class="row">${UI.ipaHtml(e)}<button class="icon-btn sm" data-s>🔊</button></div>
+        ${mText ? `<div class="vi" style="font-size:1.05rem">${esc(mText)}</div>` : ''}
+        ${e.def && e.def !== mText ? `<div class="small" style="margin-top:.3rem">${esc(e.def)}</div>` : ''}
         ${UI.ctxBox(sentence, e.word === word ? word : e.word)}
         <div class="row" style="margin-top:.7rem"><button class="btn sm primary" data-save>+ ${saved ? t('Thêm ngữ cảnh') : t('Lưu flashcard')}</button><a class="btn sm" href="#/dict/${encodeURIComponent(e.word)}">${t('Chi tiết')}</a></div>`;
       $('[data-x]', pop).onclick = closePop;
-      $('[data-s]', pop).onclick = () => speak(e.word, state.settings.accent, e.audio);
+      $('[data-s]', pop).onclick = () => speak(e.word, state.settings.accent, UI.audioFor(e, state.settings.accent));
       $('[data-save]', pop).onclick = async ev => {
         const b = ev.currentTarget; b.disabled = true;
-        const vi = await Dict.translateVi(sentence);
-        await App.addWord(e, { text: sentence, vi, title: t('Bài đọc: {title}', { title: r.title }) });
+        const L = I18N.learnLang();
+        const vi = L === 'vi' ? await Dict.translateVi(sentence) : await Dict.translateTo(sentence, L);
+        await App.addWord(e, { text: sentence, vi, title: 'Bài đọc: ' + r.title /* khóa – dịch lúc vẽ (study.js ctxTitle) */ });
         b.textContent = '✓ ' + t('Đã lưu kèm ngữ cảnh');
         $$(`.tw[data-w="${CSS.escape(word)}"]`).forEach(x => x.classList.add('mine'));
         paintCounts();
       };
-      if (state.settings.autoSpeak) speak(e.word, state.settings.accent, e.audio);
+      if (state.settings.autoSpeak) speak(e.word, state.settings.accent, UI.audioFor(e, state.settings.accent));
     }
     $('#passage').addEventListener('click', e => { const t = e.target.closest('.tw'); if (t) openPop(t); });
     document.addEventListener('mousedown', function off(e) {
@@ -139,7 +141,7 @@
         const tw = $(`.tw[data-w="${CSS.escape(k.toLowerCase())}"]`);
         const sentence = tw ? tw.closest('.sent').textContent.replace(/\s+/g, ' ').trim() : '';
         const local = IELTS_DATA.INDEX[k.toLowerCase()];
-        await App.addWord(local || { word: k, topic: 'mine', emoji: r.emoji }, sentence ? { text: sentence, title: t('Bài đọc: {title}', { title: r.title }) } : null, { silent: true });
+        await App.addWord(local || { word: k, topic: 'mine', emoji: r.emoji }, sentence ? { text: sentence, title: 'Bài đọc: ' + r.title /* khóa – dịch lúc vẽ (study.js ctxTitle) */ } : null, { silent: true });
         n++;
       }
       Sfx.win(); toast(t('Đã lưu {n} từ khóa kèm câu ngữ cảnh', { n }));
@@ -179,18 +181,19 @@
         const right = String(q.answer);
         const ok = answers[i] === right;
         if (ok) score++;
-        else if (App.logMistake) App.logMistake({ kind: 'reading', q: `${r.title}: ${q.q}`, answer: q.type === 'tfng' ? right : q.options[+right], given: answers[i] == null ? t('(bỏ trống)') : q.type === 'tfng' ? answers[i] : q.options[+answers[i]], explain: q.explain, ref: r.id });
+        else if (App.logMistake) App.logMistake({ kind: 'reading', q: `${r.title}: ${q.q}`, answer: q.type === 'tfng' ? right : q.options[+right], given: answers[i] == null ? I18N.tk('(bỏ trống)') : q.type === 'tfng' ? answers[i] : q.options[+answers[i]], explain: q.explain, ref: r.id });
         $$('.opts button', item).forEach(b => { if (b.dataset.v === right) b.classList.add('right'); else if (b.classList.contains('sel')) b.classList.add('wrong'); });
-        const ex = $('[data-explain]', item); ex.hidden = false; ex.innerHTML = `${ok ? '✅' : '❌'} ${esc(q.explain)}`;
+        const ex = $('[data-explain]', item); ex.hidden = false; ex.innerHTML = `${ok ? UI.icon('circle-check') : '❌'} ${esc(q.explain)}`;
       });
       $('#check').disabled = true;
       const pct = Math.round(score / r.questions.length * 100);
       const first = !(state.game.readDone || {})[r.id];
       await App.reward({ readings: first ? 1 : 0, quizzes: 1, perfect: pct === 100 ? 1 : 0, xp: 10 + score * 4 }, $('#check'));
       state.game = await Game.mutate(gs => { gs.readDone = { ...(gs.readDone || {}), [r.id]: `${score}/${r.questions.length}` }; });
-      if (pct >= 80) { Sfx.win(); confetti(); }
       $('#qResult').innerHTML = `<div class="feedback ${pct >= 60 ? 'ok' : 'no'}" style="position:static"><b>${t('Kết quả: {score}/{n} ({pct}%)', { score, n: r.questions.length, pct })}</b> · +${10 + score * 4} XP
         <div class="row" style="margin-top:.6rem"><a class="btn sm" href="#/reading">${t('Bài đọc khác')}</a><a class="btn sm primary" href="#/practice/learn?src=deck">🧠 ${t('Học các từ vừa lưu')}</a></div></div>`;
+      Sfx.finish({ pct, xp: 10 + score * 4, el: $('#qResult') });
+      App.lazy('nxs').then(() => NextStep.render($('#qResult .feedback'), 'read', r.id)).catch(() => {});
     };
   };
 })();

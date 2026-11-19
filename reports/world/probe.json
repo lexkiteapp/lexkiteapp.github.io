@@ -1,0 +1,26 @@
+{
+ "at": "2026-11-18T07:38:12.630Z",
+ "lang": "en",
+ "device": "Pixel 7",
+ "firstRun": {
+  "ok": true,
+  "seconds": 5.8,
+  "taps": 9,
+  "trail": [
+   "[data-cta=start], .ctas a.btn.lg",
+   "[data-track]",
+   "#obNext",
+   "#obNext",
+   "#obNext",
+   "#obNext",
+   "#go",
+   "#view button.btn.primary",
+   ".option[data-k]:not([data-k=\"-1\"])"
+  ]
+ },
+ "today": {
+  "ok": false,
+  "err": "không tới bài hôm nay từ /app/?sandbox=1&hl=en#/day/1"
+ },
+ "errors": []
+}

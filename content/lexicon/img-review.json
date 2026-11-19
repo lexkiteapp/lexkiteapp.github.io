@@ -1,0 +1,10 @@
+{
+ "_note": "Hàng chờ duyệt ảnh (5 % mẫu tất định mỗi lô) – Quản trị đánh dấu ok/bad; bad → img.json rejected",
+ "items": {
+  "car#n": {
+   "h": "2aebe1a217902a9a",
+   "at": "2026-10-24",
+   "status": "pending"
+  }
+ }
+}

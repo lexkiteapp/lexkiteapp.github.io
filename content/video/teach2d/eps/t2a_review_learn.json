@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_learn",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: learn.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means to get knowledge or skills by study or experience.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "Children learn languages quickly.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "learn",
+  "ipa": "/lɜːrn/",
+  "mean": "to get knowledge or skills by study or experience",
+  "ex": "Children learn languages quickly.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=learn",
+  "link": "https://lexkite.com/app/#/review?w=learn",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 40,
+  "seconds": 24.7,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "What does \"learn\" mean?",
+  "keyword": "learn",
+  "value": "Learn means to get knowledge or skills by study or experience.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=learn",
+  "script_words": 34,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"learn\" mean?",
+    "description": "Learn means to get knowledge or skills by study or experience.\n\nReview your words, free: https://lexkite.com/app/#/review?w=learn\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "learn",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"learn\" mean?\n\nLearn means to get knowledge or skills by study or experience.\n\nReview your words, free: https://lexkite.com/app/#/review?w=learn"
+   },
+   "instagram": {
+    "caption": "What does \"learn\" mean?\n\nLearn means to get knowledge or skills by study or experience.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"learn\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means to get knowledge or skills by study or experience. Learn means to get knowledge or skills by study or experience. Practice it with a free quiz: {link}"
+ }
+}

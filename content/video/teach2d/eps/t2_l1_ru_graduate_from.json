@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ru_graduate_from",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Graduate or graduate from?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: She graduated the university.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: She graduated from the university.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Graduate needs from.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "From! She graduated from the university.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "She graduated the university.",
+  "right": "She graduated from the university.",
+  "strike": "graduated",
+  "why": "Graduate needs from.",
+  "memory": "Graduate from.",
+  "quiz": {
+   "stem": "She graduated ___ the university in May.",
+   "options": [
+    "from",
+    "—"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "Graduate the или graduate from?",
+   "tip": "Закончить вуз — “graduate from”: “She graduated from the university.”",
+   "caption": "Ты тоже говоришь “She graduated the university”? 😅 По-русски «окончила университет» — без предлога, а по-английски нужен “from.” Правильно: “She graduated from the university.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “from.” Окончить университет — graduate from the university. Напиши одно предложение о себе: “I graduated from …” Бесплатный тест для практики здесь: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#учуанглийский",
+    "#английскийдляначинающих",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Graduate the or graduate from?",
+   "tip": "To finish school, use “graduate from”: “She graduated from the university.”",
+   "caption": "Do you also say “She graduated the university”? 😅 The Russian phrase has no extra word here, but English needs “from.” Correct: “She graduated from the university.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Graduate the или graduate from?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ru",
+ "est": {
+  "words": 42,
+  "seconds": 26.1,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "Graduate the или graduate from?",
+  "keyword": "She graduated from the university.",
+  "value": "Закончить вуз — “graduate from”: “She graduated from the university.”",
+  "hashtags": [
+   "#английскийязык",
+   "#учуанглийский",
+   "#английскийдляначинающих",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "Graduate the или graduate from?",
+    "description": "Закончить вуз — “graduate from”: “She graduated from the university.”\n\nТы тоже говоришь “She graduated the university”? 😅 По-русски «окончила университет» — без предлога, а по-английски нужен “from.” Правильно: “She graduated from the university.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #учуанглийский #английскийдляначинающих #lexkite",
+    "tags": [
+     "She graduated from the university.",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Ты тоже говоришь “She graduated the university”? 😅 По-русски «окончила университет» — без предлога, а по-английски нужен “from.” Правильно: “She graduated from the university.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Graduate the или graduate from?\n\nЗакончить вуз — “graduate from”: “She graduated from the university.”\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#учуанглийский",
+     "#английскийдляначинающих",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Graduate the или graduate from? Закончить вуз — “graduate from”: “She graduated from the univ… #английскийязык #учуанглийский #английскийдляначинающих"
+   }
+  },
+  "first_comment": "Ответ: “from.” Окончить университет — graduate from the university. Напиши одно предложение о себе: “I graduated from …” Бесплатный тест для практики здесь: {link}",
+  "lang": "ru"
+ }
+}

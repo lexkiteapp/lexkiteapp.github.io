@@ -1,0 +1,82 @@
+# ci-policy: heavy-gate – việc nặng trên PR chờ npm test xanh (job `gate`, luật 11)
+# 🏛️ Uy tín / E-E-A-T (docs/SEO-AUTHORITY.md): dựng 105 trang Giới thiệu/biên tập/nghiên cứu/widget 15 ngôn ngữ, cổng authority-pages (JSON-LD bắt buộc
+# của Google: Organization, ProfilePage, Dataset, BreadcrumbList), Lighthouse điện thoại trên bản xem thử (máy chủ tĩnh cục bộ, median 3 lần/URL), ảnh chụp.
+# Miễn phí (GitHub Actions), không deploy – deploy theo luồng Pages thường của main.
+name: Uy tín (authority pages)
+on:
+  pull_request:
+    paths: ['content/authority/**', 'scripts/build-authority.mjs', 'scripts/lib/authority-links.mjs', 'scripts/test/authority-pages.mjs', 'web/js/usage/pair.js', 'scripts/lib/site-layout.mjs', 'web/_headers', '.github/workflows/authority-pages.yml']
+  push:
+    branches: [main]
+    paths: ['content/authority/**', 'scripts/build-authority.mjs', 'scripts/lib/authority-links.mjs', '.github/workflows/authority-pages.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+# PR: 1 lượt/nhánh, lượt cũ bị hủy khi đẩy tiếp; push main: xếp hàng, không hủy (docs/METHODS.md §CI)
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+jobs:
+  # luật 11 (làn nhanh trước làn nặng, scripts/test/ci-policy.mjs): trên PR việc nặng chỉ chạy khi `npm test` đã XANH cùng sha (hoặc PR có nhãn `ready`) – đỏ/chưa xong thì mọi job dưới là skipped
+  # (không chiếm runner); npm-test.yml job `heavy` chạy lại lượt này ngay khi npm test xanh (scripts/ci/heavy-rerun.mjs). Lỗi API → mở cổng (không mất kiểm).
+  gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    permissions: { contents: read, checks: read }
+    outputs: { go: '${{ steps.g.outputs.go }}' }
+    steps:
+      - id: g
+        env: { GH_TOKEN: '${{ github.token }}', EV: '${{ github.event_name }}', SHA: '${{ github.event.pull_request.head.sha }}', REPO: '${{ github.repository }}', READY: '${{ contains(github.event.pull_request.labels.*.name, ''ready'') }}' }
+        run: |
+          go=true
+          if [ "$EV" = pull_request ] && [ "$READY" != true ]; then
+            n=$(gh api "repos/$REPO/commits/$SHA/check-runs?check_name=npm%20test&per_page=20" --jq '[.check_runs[] | select(.conclusion == "success")] | length' 2>/dev/null) || n=1
+            [ "${n:-1}" -ge 1 ] || go=false
+          fi
+          echo "go=$go" >> "$GITHUB_OUTPUT"; echo "npm test xanh cùng sha (hoặc nhãn ready) → go=$go"
+  build:
+    needs: gate
+    if: needs.gate.outputs.go == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 50 }
+      - uses: ./.github/actions/gen-if-needed   # bản sinh khớp nguồn PR khi không npm ci (luật 18)
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci --no-audit --no-fund --ignore-scripts
+      - name: Cổng authority-pages (i18n 15 ngôn ngữ, sameAs kênh thật, dữ liệu không PII, hreflang, JSON-LD, widget không theo dõi)
+        run: node scripts/test/authority-pages.mjs
+      - name: Bản xem thử
+        run: |
+          AUTHORITY_DIST=preview node scripts/build-authority.mjs
+          cp -r web/icons preview/icons
+      - name: Lighthouse (điện thoại, 4G giả lập) – median 3 lần + ảnh chụp
+        run: |
+          (cd preview && python3 -m http.server 8080 >/dev/null 2>&1 &) ; sleep 2
+          mkdir -p reports/authority shots
+          fail=0
+          for p in en/about/ vi/about/editorial-policy/ en/about/editorial-team/ en/research/confused-words/ ja/research/confused-words/ ar/research/confused-words/ en/embed/; do
+            id=$(echo "$p" | tr '/' '_')
+            for i in 1 2 3; do npx -y lighthouse@12.2.1 "http://localhost:8080/$p" --form-factor=mobile --only-categories=performance,accessibility,best-practices,seo --chrome-flags="--headless=new --no-sandbox --disable-dev-shm-usage --disable-gpu" --output=json --output-path="reports/authority/$id-$i.json" --quiet || true; done
+            node -e "
+              const fs=require('fs');const runs=[1,2,3].map(i=>'reports/authority/$id-'+i+'.json').filter(f=>fs.existsSync(f)).map(f=>require('./'+f));
+              if(!runs.length){console.log('✗ lighthouse lỗi $p');process.exit(1)}
+              const cats=Object.keys(runs[0].categories),med=a=>a.sort((x,y)=>x-y)[Math.floor(a.length/2)];
+              const s=Object.fromEntries(cats.map(k=>[k,med(runs.map(r=>Math.round(r.categories[k].score*100)))]));
+              const min={performance:90,accessibility:95,'best-practices':90,seo:95};
+              const shot=runs[0].audits['final-screenshot']&&runs[0].audits['final-screenshot'].details;if(shot)fs.writeFileSync('shots/$id.jpg',Buffer.from(shot.data.split(',')[1],'base64'));
+              const bad=Object.entries(min).filter(([k,v])=>s[k]<v);console.log('$p',JSON.stringify(s),'LCP',runs[0].audits['largest-contentful-paint'].displayValue,'CLS',runs[0].audits['cumulative-layout-shift'].displayValue);
+              if(bad.length){console.log('  ✗ dưới ngưỡng:',bad.map(([k,v])=>k+' '+s[k]+'<'+v).join(', '));console.log('  ',Object.values(runs[0].audits).filter(a=>a.score!==null&&a.score<0.9).map(a=>a.id).join(' '));process.exit(1)}" || fail=1
+          done
+          exit $fail
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: authority-pages
+          retention-days: 14
+          path: |
+            reports/authority/
+            shots/
+            preview/en/research/

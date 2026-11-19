@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite — الإحصائيات والأوسمة (Tactile Night Mobile - Arabic RTL)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,600,1,0" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            night: {
+              bg: '#10191B',
+              card: '#172427',
+              raised: '#1E2F33',
+              border: '#2A4045',
+              borderLight: '#354E54',
+              ledge: '#0B1213',
+              primaryText: '#E8F1F0',
+              secondaryText: '#A9BDBB',
+              muted: '#7A9193',
+            },
+            brand: {
+              teal: '#2EC4B6',
+              tealGlow: '#38E1D1',
+              tealDark: '#194B4E',
+              coral: '#F2553B',
+              amber: '#FFB054',
+              ctaLedge: '#8E2816',
+              gold: '#FFC94A',
+              goldDark: '#855E04',
+              ink: '#1B0B04'
+            }
+          },
+          fontFamily: {
+            arabic: ['Cairo', 'sans-serif'],
+            numeric: ['Plus Jakarta Sans', 'sans-serif']
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    body {
+      background-color: #10191B;
+      color: #E8F1F0;
+      font-family: 'Cairo', sans-serif;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+    .font-num {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .tactile-card {
+      background-color: #172427;
+      border: 2px solid #2A4045;
+      box-shadow: 0 4px 0 #0B1213;
+      border-radius: 20px;
+    }
+    .tactile-panel {
+      background-color: #1E2F33;
+      border: 2px solid #354E54;
+      box-shadow: 0 3px 0 #0B1213;
+      border-radius: 16px;
+    }
+    .tactile-btn-primary {
+      background: linear-gradient(180deg, #F2553B 0%, #FF7A45 100%);
+      border: 2px solid #F2553B;
+      box-shadow: 0 5px 0 #8E2816;
+      border-radius: 16px;
+      transition: all 0.1s ease;
+    }
+    .tactile-btn-primary:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 #8E2816;
+    }
+    .tab-item-active {
+      background-color: rgba(46, 196, 182, 0.12);
+      border: 2px solid #2EC4B6;
+      border-radius: 14px;
+      color: #38E1D1;
+    }
+  </style>
+</head>
+<body class="bg-night-bg flex justify-center min-h-screen text-night-primaryText select-none">
+  <!-- Mobile Screen Container (390px Native App Experience) -->
+  <main class="w-full max-w-[420px] min-h-screen bg-night-bg flex flex-col relative pb-28">
+
+    <!-- Top Bar -->
+    <header class="w-full px-4 pt-4 pb-3 flex items-center justify-between sticky top-0 bg-night-bg/95 backdrop-blur-md z-40 border-b border-night-border/40">
+      <!-- Right: Brand Logo in RTL -->
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-xl bg-night-card border border-night-border flex items-center justify-center shadow-sm">
+          <svg class="w-5 h-5 text-brand-teal" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2L4 12l8 10 8-10L12 2zm0 3.5l5.2 6.5-5.2 6.5-5.2-6.5L12 5.5z"/>
+          </svg>
+        </div>
+        <span class="font-extrabold text-xl text-night-primaryText tracking-tight font-num">Lexkite</span>
+      </div>
+
+      <!-- Left: Streak & XP Metrics in RTL -->
+      <div class="flex items-center gap-2">
+        <!-- Streak Chip -->
+        <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-night-card border border-night-border shadow-[0_2px_0_#0B1213]">
+          <span class="material-symbols-rounded text-brand-coral text-lg">local_fire_department</span>
+          <span class="font-num font-bold text-sm text-night-primaryText">14</span>
+        </div>
+        <!-- XP Chip -->
+        <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-night-card border border-night-border shadow-[0_2px_0_#0B1213]">
+          <span class="material-symbols-rounded text-brand-gold text-lg">bolt</span>
+          <span class="font-num font-bold text-sm text-night-primaryText">820</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <div class="px-4 py-3 flex flex-col gap-4">
+
+      <!-- Learner Profile Header Card -->
+      <section class="tactile-card p-4 flex flex-col gap-3">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <!-- Avatar -->
+            <div class="relative">
+              <div class="w-12 h-12 rounded-2xl bg-night-raised border-2 border-brand-teal flex items-center justify-center font-num font-extrabold text-lg text-brand-teal">
+                LK
+              </div>
+              <div class="w-4 h-4 rounded-full bg-brand-teal text-night-bg flex items-center justify-center absolute -bottom-1 -left-1 border-2 border-night-card">
+                <span class="material-symbols-rounded text-[10px] font-bold">check</span>
+              </div>
+            </div>
+            <!-- Name & Title -->
+            <div class="flex flex-col">
+              <div class="flex items-center gap-1.5">
+                <h1 class="font-extrabold text-lg text-night-primaryText">المتعلّم كاي</h1>
+                <span class="material-symbols-rounded text-brand-gold text-base">star</span>
+              </div>
+              <p class="text-xs text-night-secondaryText">مستكشف الكلمات • المستوى <span class="font-num">7</span></p>
+            </div>
+          </div>
+          <!-- Target Band Badge -->
+          <div class="px-3 py-1 rounded-full bg-brand-gold/15 border border-brand-gold/40 text-brand-gold font-bold text-xs flex items-center gap-1 font-num">
+            IELTS 7.5
+          </div>
+        </div>
+
+        <!-- Metric Triplets -->
+        <div class="grid grid-cols-3 gap-2 pt-1">
+          <!-- Metric 1: Streak -->
+          <div class="tactile-panel p-2.5 flex flex-col items-center justify-center text-center">
+            <span class="material-symbols-rounded text-brand-coral text-xl mb-0.5">local_fire_department</span>
+            <span class="font-num font-extrabold text-lg text-night-primaryText leading-tight">14</span>
+            <span class="text-[11px] font-bold text-night-secondaryText mt-0.5">أيام متتالية</span>
+          </div>
+          <!-- Metric 2: XP -->
+          <div class="tactile-panel p-2.5 flex flex-col items-center justify-center text-center">
+            <span class="material-symbols-rounded text-brand-gold text-xl mb-0.5">bolt</span>
+            <span class="font-num font-extrabold text-lg text-night-primaryText leading-tight">820</span>
+            <span class="text-[11px] font-bold text-night-secondaryText mt-0.5">نقاط الخبرة</span>
+          </div>
+          <!-- Metric 3: Exam Words -->
+          <div class="tactile-panel p-2.5 flex flex-col items-center justify-center text-center">
+            <span class="material-symbols-rounded text-brand-teal text-xl mb-0.5">menu_book</span>
+            <span class="font-num font-extrabold text-lg text-night-primaryText leading-tight">142</span>
+            <span class="text-[11px] font-bold text-night-secondaryText mt-0.5">مفردة للامتحان</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Coach Ama Briefing Card -->
+      <section class="tactile-card p-4 flex gap-3 relative overflow-hidden">
+        <!-- Teacher Slot (Dashed Placeholder Box) -->
+        <div class="w-[90px] h-[110px] rounded-xl border-2 border-dashed border-brand-teal/50 bg-night-raised/50 flex flex-col items-center justify-center text-center p-2 shrink-0">
+          <div class="w-8 h-8 rounded-full bg-brand-teal/20 text-brand-teal flex items-center justify-center mb-1">
+            <span class="material-symbols-rounded text-lg">school</span>
+          </div>
+          <span class="text-[10px] font-bold text-brand-teal leading-tight">المعلّم</span>
+          <span class="text-[9px] font-num text-night-muted">140 × 170</span>
+        </div>
+
+        <!-- Coach Quote & Insight -->
+        <div class="flex-1 flex flex-col justify-between py-0.5">
+          <div>
+            <div class="flex items-center justify-between mb-1.5">
+              <div class="flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-brand-teal animate-pulse"></span>
+                <span class="text-xs font-bold text-brand-teal">توجيه المدرب</span>
+              </div>
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-brand-teal/15 text-brand-teal border border-brand-teal/30">موثَّق</span>
+            </div>
+            <p class="text-xs font-semibold text-night-primaryText leading-relaxed">
+              "استرجاعك اليومي للمفردات يؤتي ثماره! توقعك لدرجة IELTS 7.5 يزداد قوة يوماً بعد يوم."
+            </p>
+          </div>
+          <div class="text-[10px] font-num text-night-muted mt-2">
+            اليوم، 09:14 ص
+          </div>
+        </div>
+      </section>
+
+      <!-- Weekly Word Velocity (Chart) -->
+      <section class="tactile-card p-4 flex flex-col gap-3">
+        <div class="flex items-center justify-between">
+          <div class="flex flex-col">
+            <div class="flex items-center gap-2">
+              <h2 class="font-extrabold text-base text-night-primaryText">سرعة اكتساب الكلمات أسبوعياً</h2>
+              <span class="material-symbols-rounded text-brand-teal text-lg">show_chart</span>
+            </div>
+            <p class="text-xs text-night-secondaryText">الحفظ النشط خلال 7 أيام</p>
+          </div>
+          <span class="px-2.5 py-1 rounded-full bg-brand-teal/15 text-brand-teal text-xs font-extrabold font-num border border-brand-teal/30" dir="ltr">
+            +18% W/W
+          </span>
+        </div>
+
+        <!-- Bar Graph (Sat to Fri in Arabic Week Order) -->
+        <div class="tactile-panel p-3 flex flex-col gap-2">
+          <div class="flex items-end justify-between h-28 pt-4 px-2">
+            <!-- Sat (Best Day) -->
+            <div class="flex flex-col items-center gap-1.5 flex-1">
+              <span class="material-symbols-rounded text-brand-gold text-xs leading-none">crown</span>
+              <span class="font-num text-[11px] font-bold text-brand-teal">32</span>
+              <div class="w-7 bg-brand-teal rounded-t-md shadow-[0_2px_0_#194B4E]" style="height: 64px;"></div>
+              <span class="text-xs font-bold text-brand-teal">س</span>
+            </div>
+            <!-- Sun -->
+            <div class="flex flex-col items-center gap-1.5 flex-1">
+              <span class="font-num text-[11px] font-semibold text-night-secondaryText">19</span>
+              <div class="w-7 bg-night-border rounded-t-md" style="height: 38px;"></div>
+              <span class="text-xs font-bold text-night-secondaryText">ح</span>
+            </div>
+            <!-- Mon -->
+            <div class="flex flex-col items-center gap-1.5 flex-1">
+              <span class="font-num text-[11px] font-semibold text-night-secondaryText">22</span>
+              <div class="w-7 bg-night-border rounded-t-md" style="height: 44px;"></div>
+              <span class="text-xs font-bold text-night-secondaryText">ن</span>
+            </div>
+            <!-- Tue -->
+            <div class="flex flex-col items-center gap-1.5 flex-1">
+              <span class="font-num text-[11px] font-semibold text-night-secondaryText">18</span>
+              <div class="w-7 bg-night-border rounded-t-md" style="height: 36px;"></div>
+              <span class="text-xs font-bold text-night-secondaryText">ث</span>
+            </div>
+            <!-- Wed -->
+            <div class="flex flex-col items-center gap-1.5 flex-1">
+              <span class="font-num text-[11px] font-semibold text-night-secondaryText">25</span>
+              <div class="w-7 bg-night-border rounded-t-md" style="height: 50px;"></div>
+              <span class="text-xs font-bold text-night-secondaryText">ر</span>
+            </div>
+            <!-- Thu -->
+            <div class="flex flex-col items-center gap-1.5 flex-1">
+              <span class="font-num text-[11px] font-semibold text-night-secondaryText">14</span>
+              <div class="w-7 bg-night-border rounded-t-md" style="height: 28px;"></div>
+              <span class="text-xs font-bold text-night-secondaryText">خ</span>
+            </div>
+            <!-- Fri -->
+            <div class="flex flex-col items-center gap-1.5 flex-1">
+              <span class="font-num text-[11px] font-semibold text-night-secondaryText">28</span>
+              <div class="w-7 bg-night-border rounded-t-md" style="height: 56px;"></div>
+              <span class="text-xs font-bold text-night-secondaryText">ج</span>
+            </div>
+          </div>
+          <!-- Legend -->
+          <div class="border-t border-night-border/50 pt-2 flex items-center justify-between text-xs text-night-secondaryText px-1">
+            <div class="flex items-center gap-1.5">
+              <span class="w-2.5 h-2.5 rounded-full bg-brand-teal"></span>
+              <span>أفضل يوم: <strong class="text-night-primaryText">السبت (32 كلمة)</strong></span>
+            </div>
+            <span class="font-semibold">الإجمالي: <strong class="text-night-primaryText font-num">158</strong> كلمة</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Twin Stat Cards (Study Duration & Accuracy) -->
+      <section class="grid grid-cols-2 gap-3">
+        <!-- Card 1: Study Duration -->
+        <div class="tactile-card p-3.5 flex flex-col justify-between">
+          <div class="flex items-center justify-between">
+            <span class="material-symbols-rounded text-brand-amber text-lg">schedule</span>
+            <span class="text-[10px] font-num font-bold px-2 py-0.5 rounded-full bg-brand-amber/15 text-brand-amber border border-brand-amber/30" dir="ltr">+35m</span>
+          </div>
+          <div class="my-2">
+            <span class="text-[11px] font-bold text-night-secondaryText block">مدة الدراسة</span>
+            <span class="font-num font-extrabold text-xl text-night-primaryText leading-tight">4 س 15 د</span>
+          </div>
+          <span class="text-[10px] text-night-muted">مقارنة بالأسبوع الماضي</span>
+        </div>
+
+        <!-- Card 2: Accuracy -->
+        <div class="tactile-card p-3.5 flex flex-col justify-between">
+          <div class="flex items-center justify-between">
+            <span class="material-symbols-rounded text-brand-teal text-lg">track_changes</span>
+            <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-brand-teal/15 text-brand-teal border border-brand-teal/30">ناجح</span>
+          </div>
+          <div class="my-2">
+            <span class="text-[11px] font-bold text-night-secondaryText block">دقة التمارين</span>
+            <span class="font-num font-extrabold text-xl text-night-primaryText leading-tight">91.4%</span>
+          </div>
+          <span class="text-[10px] text-night-muted">المستهدف: ≥85%</span>
+        </div>
+      </section>
+
+      <!-- Four Skills Competency (IELTS Benchmark) -->
+      <section class="tactile-card p-4 flex flex-col gap-3">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-rounded text-brand-teal text-lg">psychology</span>
+            <h2 class="font-extrabold text-base text-night-primaryText">كفاءة المهارات الأربع</h2>
+          </div>
+          <span class="text-xs font-bold text-brand-gold font-num">الهدف: Band 7.5</span>
+        </div>
+
+        <div class="flex flex-col gap-2.5">
+          <!-- Skill 1: Listening -->
+          <div class="tactile-panel p-2.5 flex flex-col gap-1.5">
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-bold flex items-center gap-1.5 text-night-primaryText">
+                <span class="material-symbols-rounded text-brand-teal text-sm">headphones</span>
+                الاستماع
+              </span>
+              <span class="font-num font-extrabold text-brand-teal">94% <span class="text-[10px] text-night-secondaryText">(Band 7.5)</span></span>
+            </div>
+            <!-- RTL Progress Bar -->
+            <div class="w-full h-2.5 bg-night-border rounded-full overflow-hidden">
+              <div class="h-full bg-brand-teal rounded-full" style="width: 94%;"></div>
+            </div>
+          </div>
+
+          <!-- Skill 2: Reading -->
+          <div class="tactile-panel p-2.5 flex flex-col gap-1.5">
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-bold flex items-center gap-1.5 text-night-primaryText">
+                <span class="material-symbols-rounded text-brand-teal text-sm">menu_book</span>
+                القراءة
+              </span>
+              <span class="font-num font-extrabold text-brand-teal">88% <span class="text-[10px] text-night-secondaryText">(Band 7.5)</span></span>
+            </div>
+            <div class="w-full h-2.5 bg-night-border rounded-full overflow-hidden">
+              <div class="h-full bg-brand-teal rounded-full" style="width: 88%;"></div>
+            </div>
+          </div>
+
+          <!-- Skill 3: Writing -->
+          <div class="tactile-panel p-2.5 flex flex-col gap-1.5">
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-bold flex items-center gap-1.5 text-night-primaryText">
+                <span class="material-symbols-rounded text-brand-amber text-sm">edit</span>
+                الكتابة
+              </span>
+              <div class="flex items-center gap-1">
+                <span class="text-[10px] font-bold text-brand-coral">يحتاج تركيز الترابط</span>
+                <span class="font-num font-extrabold text-brand-amber">82%</span>
+              </div>
+            </div>
+            <div class="w-full h-2.5 bg-night-border rounded-full overflow-hidden">
+              <div class="h-full bg-brand-amber rounded-full" style="width: 82%;"></div>
+            </div>
+          </div>
+
+          <!-- Skill 4: Speaking -->
+          <div class="tactile-panel p-2.5 flex flex-col gap-1.5">
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-bold flex items-center gap-1.5 text-night-primaryText">
+                <span class="material-symbols-rounded text-brand-coral text-sm">mic</span>
+                المحادثة
+              </span>
+              <div class="flex items-center gap-1">
+                <span class="text-[10px] font-bold text-brand-coral">الطلاقة والمتلازمات</span>
+                <span class="font-num font-extrabold text-brand-coral">78%</span>
+              </div>
+            </div>
+            <div class="w-full h-2.5 bg-night-border rounded-full overflow-hidden">
+              <div class="h-full bg-brand-coral rounded-full" style="width: 78%;"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Streak Heatmap Calendar -->
+      <section class="tactile-card p-4 flex flex-col gap-3">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-rounded text-brand-coral text-lg">calendar_month</span>
+            <h2 class="font-extrabold text-base text-night-primaryText">سجل الأيام المتتالية</h2>
+          </div>
+          <span class="text-[11px] font-bold text-brand-teal flex items-center gap-1">
+            <span class="w-2 h-2 rounded-full bg-brand-teal"></span>
+            تجميد مُستخدم (الخميس 12)
+          </span>
+        </div>
+
+        <!-- 7 Days Grid -->
+        <div class="tactile-panel p-3">
+          <div class="grid grid-cols-7 gap-1.5 text-center">
+            <!-- Day 1: Sun 15 (Locked) -->
+            <div class="flex flex-col items-center gap-1 p-1 rounded-xl bg-night-card border border-night-border/50">
+              <span class="text-[10px] font-bold text-night-muted">أح</span>
+              <span class="font-num text-xs font-bold text-night-muted">15</span>
+              <span class="material-symbols-rounded text-night-muted text-sm">lock</span>
+            </div>
+            <!-- Day 2: Sat 14 (Active Flame) -->
+            <div class="flex flex-col items-center gap-1 p-1 rounded-xl bg-night-card border-2 border-brand-gold shadow-sm">
+              <span class="text-[10px] font-bold text-brand-gold">سب</span>
+              <span class="font-num text-xs font-bold text-brand-gold">14</span>
+              <span class="material-symbols-rounded text-brand-gold text-sm">local_fire_department</span>
+            </div>
+            <!-- Day 3: Fri 13 (Flame) -->
+            <div class="flex flex-col items-center gap-1 p-1 rounded-xl bg-night-card border border-brand-coral/50">
+              <span class="text-[10px] font-bold text-night-secondaryText">جم</span>
+              <span class="font-num text-xs font-bold text-night-primaryText">13</span>
+              <span class="material-symbols-rounded text-brand-coral text-sm">local_fire_department</span>
+            </div>
+            <!-- Day 4: Thu 12 (Freeze) -->
+            <div class="flex flex-col items-center gap-1 p-1 rounded-xl bg-brand-teal/20 border-2 border-brand-teal">
+              <span class="text-[10px] font-bold text-brand-teal">خم</span>
+              <span class="font-num text-xs font-bold text-brand-teal">12</span>
+              <span class="material-symbols-rounded text-brand-teal text-sm">ac_unit</span>
+            </div>
+            <!-- Day 5: Wed 11 (Flame) -->
+            <div class="flex flex-col items-center gap-1 p-1 rounded-xl bg-night-card border border-brand-coral/50">
+              <span class="text-[10px] font-bold text-night-secondaryText">أر</span>
+              <span class="font-num text-xs font-bold text-night-primaryText">11</span>
+              <span class="material-symbols-rounded text-brand-coral text-sm">local_fire_department</span>
+            </div>
+            <!-- Day 6: Tue 10 (Flame) -->
+            <div class="flex flex-col items-center gap-1 p-1 rounded-xl bg-night-card border border-brand-coral/50">
+              <span class="text-[10px] font-bold text-night-secondaryText">ثل</span>
+              <span class="font-num text-xs font-bold text-night-primaryText">10</span>
+              <span class="material-symbols-rounded text-brand-coral text-sm">local_fire_department</span>
+            </div>
+            <!-- Day 7: Mon 09 (Flame) -->
+            <div class="flex flex-col items-center gap-1 p-1 rounded-xl bg-night-card border border-brand-coral/50">
+              <span class="text-[10px] font-bold text-night-secondaryText">إث</span>
+              <span class="font-num text-xs font-bold text-night-primaryText">09</span>
+              <span class="material-symbols-rounded text-brand-coral text-sm">local_fire_department</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Hall of Badges -->
+      <section class="tactile-card p-4 flex flex-col gap-3">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-rounded text-brand-gold text-lg">emoji_events</span>
+            <h2 class="font-extrabold text-base text-night-primaryText">قاعة أوسمة ليكسكايت</h2>
+          </div>
+          <span class="px-2.5 py-0.5 rounded-full bg-brand-gold/15 text-brand-gold text-xs font-bold border border-brand-gold/30">المستوى 3</span>
+        </div>
+        <p class="text-xs text-night-secondaryText -mt-1.5">5 من 8 أوسمة مفتوحة هذا الموسم</p>
+
+        <!-- 2x4 Badge Grid -->
+        <div class="grid grid-cols-2 gap-2.5">
+          <!-- Badge 1: Streak Star -->
+          <div class="tactile-panel p-2.5 flex items-center gap-2.5">
+            <div class="w-10 h-10 rounded-xl bg-brand-coral/15 border border-brand-coral/30 flex items-center justify-center shrink-0">
+              <span class="material-symbols-rounded text-brand-coral text-xl">local_fire_department</span>
+            </div>
+            <div class="flex flex-col">
+              <span class="font-bold text-xs text-night-primaryText leading-tight">نجم الاستمرار</span>
+              <span class="text-[10px] text-night-secondaryText">14 يوماً نشطاً</span>
+            </div>
+          </div>
+
+          <!-- Badge 2: Collocation Ace -->
+          <div class="tactile-panel p-2.5 flex items-center gap-2.5">
+            <div class="w-10 h-10 rounded-xl bg-brand-teal/15 border border-brand-teal/30 flex items-center justify-center shrink-0">
+              <span class="material-symbols-rounded text-brand-teal text-xl">diamond</span>
+            </div>
+            <div class="flex flex-col">
+              <span class="font-bold text-xs text-night-primaryText leading-tight">بطل المتلازمات</span>
+              <span class="text-[10px] text-night-secondaryText">100 زوج متقدم</span>
+            </div>
+          </div>
+
+          <!-- Badge 3: Speed Drill -->
+          <div class="tactile-panel p-2.5 flex items-center gap-2.5">
+            <div class="w-10 h-10 rounded-xl bg-brand-gold/15 border border-brand-gold/30 flex items-center justify-center shrink-0">
+              <span class="material-symbols-rounded text-brand-gold text-xl">bolt</span>
+            </div>
+            <div class="flex flex-col">
+              <span class="font-bold text-xs text-night-primaryText leading-tight">تحدي السرعة</span>
+              <span class="text-[10px] text-night-secondaryText">فوز بسباق 60 ث</span>
+            </div>
+          </div>
+
+          <!-- Badge 4: IELTS Ready -->
+          <div class="tactile-panel p-2.5 flex items-center gap-2.5">
+            <div class="w-10 h-10 rounded-xl bg-brand-teal/15 border border-brand-teal/30 flex items-center justify-center shrink-0">
+              <span class="material-symbols-rounded text-brand-teal text-xl">verified</span>
+            </div>
+            <div class="flex flex-col">
+              <span class="font-bold text-xs text-night-primaryText leading-tight">جاهز لـ IELTS</span>
+              <span class="text-[10px] font-num text-night-secondaryText">اجتياز Band 7.5</span>
+            </div>
+          </div>
+
+          <!-- Badge 5: Night Owl -->
+          <div class="tactile-panel p-2.5 flex items-center gap-2.5">
+            <div class="w-10 h-10 rounded-xl bg-purple-500/15 border border-purple-500/30 flex items-center justify-center shrink-0">
+              <span class="material-symbols-rounded text-purple-400 text-xl">dark_mode</span>
+            </div>
+            <div class="flex flex-col">
+              <span class="font-bold text-xs text-night-primaryText leading-tight">ساهر الليل</span>
+              <span class="text-[10px] text-night-secondaryText">جلسة دراسة 10 م</span>
+            </div>
+          </div>
+
+          <!-- Badge 6: 30-Day Flame (Locked) -->
+          <div class="tactile-panel p-2.5 flex items-center gap-2.5 opacity-60">
+            <div class="w-10 h-10 rounded-xl bg-night-border/40 border border-night-border flex items-center justify-center shrink-0">
+              <span class="material-symbols-rounded text-night-muted text-xl">lock</span>
+            </div>
+            <div class="flex flex-col">
+              <span class="font-bold text-xs text-night-muted leading-tight">شعلة 30 يوماً</span>
+              <span class="text-[10px] text-night-muted">يُفتح في اليوم 30</span>
+            </div>
+          </div>
+
+          <!-- Badge 7: Lexicon Titan (Locked) -->
+          <div class="tactile-panel p-2.5 flex items-center gap-2.5 opacity-60">
+            <div class="w-10 h-10 rounded-xl bg-night-border/40 border border-night-border flex items-center justify-center shrink-0">
+              <span class="material-symbols-rounded text-night-muted text-xl">lock</span>
+            </div>
+            <div class="flex flex-col">
+              <span class="font-bold text-xs text-night-muted leading-tight">عملاق المعجم</span>
+              <span class="text-[10px] text-night-muted">إتقان 500 كلمة</span>
+            </div>
+          </div>
+
+          <!-- Badge 8: Flawless 100 (Locked) -->
+          <div class="tactile-panel p-2.5 flex items-center gap-2.5 opacity-60">
+            <div class="w-10 h-10 rounded-xl bg-night-border/40 border border-night-border flex items-center justify-center shrink-0">
+              <span class="material-symbols-rounded text-night-muted text-xl">lock</span>
+            </div>
+            <div class="flex flex-col">
+              <span class="font-bold text-xs text-night-muted leading-tight">علامة كاملة</span>
+              <span class="text-[10px] text-night-muted">100% في 3 اختبارات</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Primary Action CTA -->
+      <button class="tactile-btn-primary w-full py-3.5 px-6 flex items-center justify-center gap-3 text-brand-ink font-extrabold text-base shadow-lg mt-1 cursor-pointer">
+        <span class="material-symbols-rounded text-xl leading-none">share</span>
+        <span>مشاركة تقرير التقدم</span>
+        <span class="material-symbols-rounded text-xl leading-none">arrow_backward</span>
+      </button>
+
+      <p class="text-center text-[11px] text-night-muted -mt-2">
+        بطاقة إتقان موثوقة لمشاركتها على WhatsApp و Wechat ومجموعات الدراسة
+      </p>
+
+    </div>
+
+    <!-- Fixed Bottom Tab Bar (5 Tabs, RTL Mirrored Order, Me Active) -->
+    <nav class="fixed bottom-0 left-0 right-0 max-w-[420px] mx-auto bg-night-card/95 backdrop-blur-md border-t-2 border-night-border py-2 px-3 flex justify-between items-center z-50 shadow-[0_-4px_12px_rgba(0,0,0,0.5)]">
+      <!-- Tab 1 (RTL): Today -->
+      <a href="#" class="flex flex-col items-center justify-center py-1 px-3 text-night-secondaryText hover:text-night-primaryText transition-colors flex-1">
+        <span class="material-symbols-rounded text-2xl mb-0.5">calendar_today</span>
+        <span class="text-[11px] font-bold">اليوم</span>
+      </a>
+
+      <!-- Tab 2: Vocab -->
+      <a href="#" class="flex flex-col items-center justify-center py-1 px-3 text-night-secondaryText hover:text-night-primaryText transition-colors flex-1">
+        <span class="material-symbols-rounded text-2xl mb-0.5">menu_book</span>
+        <span class="text-[11px] font-bold">المفردات</span>
+      </a>
+
+      <!-- Tab 3: Skills -->
+      <a href="#" class="flex flex-col items-center justify-center py-1 px-3 text-night-secondaryText hover:text-night-primaryText transition-colors flex-1">
+        <span class="material-symbols-rounded text-2xl mb-0.5">psychology</span>
+        <span class="text-[11px] font-bold">المهارات</span>
+      </a>
+
+      <!-- Tab 4: Tests -->
+      <a href="#" class="flex flex-col items-center justify-center py-1 px-3 text-night-secondaryText hover:text-night-primaryText transition-colors flex-1">
+        <span class="material-symbols-rounded text-2xl mb-0.5">help</span>
+        <span class="text-[11px] font-bold">الاختبارات</span>
+      </a>
+
+      <!-- Tab 5: Me (ACTIVE) -->
+      <a href="#" class="flex flex-col items-center justify-center py-1 px-3 tab-item-active flex-1">
+        <span class="material-symbols-rounded text-2xl mb-0.5">person</span>
+        <span class="text-[11px] font-bold">أنا</span>
+      </a>
+    </nav>
+
+  </main>
+</body>
+</html>

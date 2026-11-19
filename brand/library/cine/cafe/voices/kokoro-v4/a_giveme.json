@@ -1,0 +1,20 @@
+{
+  "metadata": {
+    "soundFile": "/home/runner/work/lexkiteapp.github.io/lexkiteapp.github.io/cine/wav/a_giveme.wav",
+    "duration": 1.55
+  },
+  "mouthCues": [
+    { "start": 0.00, "end": 0.04, "value": "X" },
+    { "start": 0.04, "end": 0.31, "value": "C" },
+    { "start": 0.31, "end": 0.67, "value": "B" },
+    { "start": 0.67, "end": 0.75, "value": "A" },
+    { "start": 0.75, "end": 0.80, "value": "B" },
+    { "start": 0.80, "end": 0.84, "value": "C" },
+    { "start": 0.84, "end": 0.91, "value": "H" },
+    { "start": 0.91, "end": 1.05, "value": "D" },
+    { "start": 1.05, "end": 1.12, "value": "B" },
+    { "start": 1.12, "end": 1.40, "value": "C" },
+    { "start": 1.40, "end": 1.47, "value": "B" },
+    { "start": 1.47, "end": 1.55, "value": "X" }
+  ]
+}

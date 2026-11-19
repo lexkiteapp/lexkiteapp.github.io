@@ -1,39 +1,45 @@
 /* Thư viện phát âm (kiểu ELSA): bảng 44 âm IPA, khẩu hình, cặp từ dễ nhầm (nghe – chọn), luyện nói có chấm điểm,
  * chuyên đề cho người Việt: âm cuối, -ed/-s, trọng âm, ngữ điệu, nối âm. */
 (function () {
-  const { $, $$, esc, speak, tts, ring, shuffle } = UI;
+  const { $, $$, esc, speak, tts, shuffle } = UI;
   const App = window.App;
   const { state, routes } = App;
   const view = App.view;
   const P = () => window.PRON || [];
   const GROUPS = [
-    { id: 'vowels', name: 'Nguyên âm đơn', emoji: '🅰️', desc: '12 nguyên âm – phân biệt âm dài/ngắn (ship – sheep)' },
-    { id: 'diphthongs', name: 'Nguyên âm đôi', emoji: '🔀', desc: '8 nguyên âm đôi – trượt từ âm này sang âm kia' },
-    { id: 'consonants', name: 'Phụ âm', emoji: '🅱️', desc: '24 phụ âm – vô thanh/hữu thanh, vị trí cấu âm' },
-    { id: 'vn', name: 'Sửa lỗi người Việt', emoji: '🇻🇳', desc: 'Âm cuối, đuôi -ed/-s, /θ ð/, /ʃ s/, cụm phụ âm' },
-    { id: 'stress', name: 'Trọng âm & ngữ điệu', emoji: '🎵', desc: 'Trọng âm từ, câu, ngữ điệu, nối âm – điểm Pronunciation band 7+' },
+    { id: 'vowels', name: 'Nguyên âm đơn', desc: '12 nguyên âm – phân biệt âm dài/ngắn (ship – sheep)' },
+    { id: 'diphthongs', name: 'Nguyên âm đôi', desc: '8 nguyên âm đôi – trượt từ âm này sang âm kia' },
+    { id: 'consonants', name: 'Phụ âm', desc: '24 phụ âm – vô thanh/hữu thanh, vị trí cấu âm' },
+    { id: 'vn', name: 'Sửa lỗi người Việt', desc: 'Âm cuối, đuôi -ed/-s, /θ ð/, /ʃ s/, cụm phụ âm' },
+    { id: 'stress', name: 'Trọng âm & ngữ điệu', desc: 'Trọng âm từ, câu, ngữ điệu, nối âm – điểm Pronunciation band 7+' },
   ];
   const done = () => state.game.pronDone || {};
   const accent = () => state.settings.accent;
+  const RHYTHM = ['weak-forms', 'word-stress', 'stress-shift', 'connected-speech', 'chunking', 'intonation'];
 
+  // Khung Stitch v2 pron-hub (brand/stitch/v2/bind/pron-hub.json): d = dữ liệu thật; nhóm lưới (nguyên âm/phụ âm) và nhóm hàng (lỗi người Việt, trọng âm) cùng một danh sách d.groups
+  const ICON = { vn: 'tips_and_updates', stress: 'graphic_eq' };
+  const CHART = ['vowels', 'diphthongs', 'consonants'];
+  const L = (x, k) => (window.I18N && I18N.lang() === 'en' && x[k + 'En']) || x[k]; // giao diện English: chuyên đề có sẵn bản tiếng Anh (titleEn/howEn) thì dùng, khỏi lộ tiếng Việt
   routes.pron = function (id) {
     if (id) return lesson(decodeURIComponent(id));
-    const d = done(), all = P();
-    view.innerHTML = `
-      <div class="page-head"><div><h1>🔤 ${t('Thư viện phát âm')}</h1><p class="muted">${t('Luyện như ELSA: học khẩu hình từng âm IPA, nghe – phân biệt cặp từ dễ nhầm, nói và được chấm điểm, rồi sửa các lỗi người Việt hay mắc.')}</p></div>
-        ${ring(all.length ? Object.keys(d).length / all.length * 100 : 0, `${Object.keys(d).length}/${all.length}`, 'var(--good)')}</div>
-      ${GROUPS.map(gr => {
-        const ls = all.filter(x => x.group === gr.id);
-        if (!ls.length) return '';
-        const isChart = ['vowels', 'diphthongs', 'consonants'].includes(gr.id);
-        return `<div class="section-title"><h2>${gr.emoji} ${esc(t(gr.name))}</h2><span class="muted small">${esc(t(gr.desc))}</span></div>
-          ${isChart ? `<div class="ipa-grid">${ls.map(x => `<a class="ipa-tile ${d[x.id] ? 'ok' : ''} ${x.mouth && x.mouth.voiced === false ? 'unv' : ''}" href="#/pron/${encodeURIComponent(x.id)}" title="${esc(x.title)}">
-              <b>${esc(x.ipa.replace(/\//g, ''))}</b><span>${esc((x.words[0] || {}).w || '')}</span>${d[x.id] ? '<i>✓</i>' : ''}</a>`).join('')}</div>`
-          : `<div class="grid auto">${ls.map(x => `<a class="card hover topic-card" href="#/pron/${encodeURIComponent(x.id)}" style="color:var(--text)">
-              <div class="row between"><span class="em">${x.emoji}</span>${d[x.id] ? `<span class="chip ok">✓ ${d[x.id]}%</span>` : `<span class="chip">${esc(x.ipa || '')}</span>`}</div>
-              <h3>${esc(x.title)}</h3><div class="muted small">${esc((x.how || '').slice(0, 110))}${(x.how || '').length > 110 ? '…' : ''}</div></a>`).join('')}</div>`}`;
-      }).join('') || `<div class="card empty"><div class="em">🔤</div>${t('Đang cập nhật bài học…')}</div>`}
-      <p class="tiny muted" style="margin-top:1rem">${t('Ô viền xám nhạt = phụ âm vô thanh · Mỗi bài: khẩu hình → nghe mẫu → phân biệt cặp từ → nói & chấm điểm.')}</p>`;
+    const d = done(), all = P(), nx = all.find(x => d[x.id] == null), n = Object.keys(d).length, href = x => '#/pron/' + encodeURIComponent(x.id), word = x => (x.words || []).slice(0, 3).map(v => v.w).filter(Boolean).sort((a, b) => a.length - b.length)[0] || '';
+    const groups = GROUPS.map(gr => {
+      const ls = all.filter(x => x.group === gr.id);
+      if (!ls.length) return null;
+      const chart = CHART.includes(gr.id);
+      return { v: !chart ? 'rows' : gr.id === 'consonants' ? 'c5' : 'v4', name: t(gr.name), desc: t(gr.desc), note: t('Viền nét đứt = phụ âm vô thanh'), count: `${ls.filter(x => d[x.id]).length}/${ls.length}`,
+        items: ls.map(x => chart ? { id: x.id, href: href(x), ipa: x.ipa, w: word(x), done: d[x.id] || 0, next: x === nx, unv: !!(x.mouth && x.mouth.voiced === false), label: `${x.ipa} · ${word(x)}${d[x.id] ? ' · ' + t('Đã xong') + ' ' + d[x.id] + '%' : x === nx ? ' · ' + t('Âm tiếp theo') : ''}` }
+          : { id: x.id, href: href(x), icon: ICON[x.group] || 'graphic_eq', title: L(x, 'title'), done: d[x.id] || 0, sub: `${d[x.id] ? '✓ ' + d[x.id] + '% · ' : ''}${(L(x, 'how') || '').slice(0, 110)}${(L(x, 'how') || '').length > 110 ? '…' : ''}`, end: d[x.id] ? 'check_circle' : 'chevron_right' }) };
+    }).filter(Boolean);
+    ST2.mount(view, 'pron-hub', {
+      back: '#/skills', backL: t('Quay lại'), title: t('Thư viện phát âm'), intro: t('Luyện như ELSA: học khẩu hình từng âm IPA, nghe – phân biệt cặp từ dễ nhầm, nói và được chấm điểm, rồi sửa các lỗi người Việt hay mắc.'),
+      count: `${n}/${all.length}`, pct: all.length ? n / all.length * 100 : 0, doneL: t('Đã xong'), groups, next: nx, nextHref: nx ? href(nx) : '#/pron',
+      nextL: nx ? t('Âm tiếp theo') : t('Đã xong'), nextS: nx ? (nx.ipa ? `${nx.ipa} · ${(nx.words[0] || {}).w || ''}` : L(nx, 'title')) : `${n}/${all.length}`, cta: nx ? `${t('Học tiếp')}: ${nx.ipa || nx.title}` : '',
+      teacher: Chars.slot('ama', { pose: nx ? 'point' : 'cheer', size: 'xs', lazy: false }),
+      empty: all.length ? '' : `<div class="rounded-2xl border-2 p-4 text-center"><p>${t('Đang cập nhật bài học…')}</p></div>`,
+    }, null);
+    const dc = typeof document !== 'undefined' && document.body; if (dc) dc.classList.remove('st', 'v2on'); // khung chung inner: giữ thanh trên (Back) + thanh 5 tab + lề #view của app (như tab Từ vựng)
   };
 
   // Hình khẩu hình đơn giản (SVG) cho nguyên âm
@@ -83,6 +89,9 @@
           <button class="icon-btn sm pmic" data-k="${k}" title="${t('Nói & chấm điểm')}">🎙️</button><span class="pscore" data-s="${k}"></span></div>`).join('')}</div>
         <div class="small muted" id="pHint" style="margin-top:.5rem"></div></div>
 
+      ${window.PronPairs && PronPairs.forSkill(x.id).length ? `<div class="card" style="margin-top:1rem" id="sayIt"></div>` : ''}
+      ${window.PronRhythm && RHYTHM.includes(x.id) ? `<div class="card" style="margin-top:1rem" id="pRhythm"></div>` : ''}
+
       ${(x.pairs || []).length ? `<div class="card" style="margin-top:1rem"><h3>👂 ${t('Nghe & phân biệt cặp từ')}</h3><p class="small muted">${t('Nghe một từ trong cặp rồi chọn đúng từ bạn nghe được. Luyện tai trước, miệng sẽ chuẩn theo.')}</p>
         <div class="row">${x.pairs.map(p => `<span class="chip">${esc(p[0])} ↔ ${esc(p[1])}</span>`).join('')}</div>
         <div id="pairGame" style="margin-top:.8rem"><button class="btn primary" id="startPairs">▶️ ${t('Bắt đầu ({n} lượt)', { n: 8 })}</button></div></div>` : ''}
@@ -127,6 +136,9 @@
 
     // Trò chơi nghe – phân biệt cặp từ
     const sp = $('#startPairs');
+    // Luyện NÓI cặp từ (pron/sayit.js) – micro bị chặn → chuyển sang trò nghe ở trên
+    if (window.PronRhythm && $('#pRhythm')) PronRhythm.mount($('#pRhythm'), x); // nhịp câu, dạng yếu, shadowing (pron/rhythm.js)
+    if (window.PronSay) PronSay.mount($('#sayIt'), x, { fallback: () => { const pg = $('#pairGame'); if (pg) { pg.scrollIntoView({ behavior: 'smooth', block: 'center' }); if (sp) sp.click(); } } });
     if (sp) sp.onclick = () => {
       const rounds = shuffle(Array.from({ length: 8 }, (_, k) => x.pairs[k % x.pairs.length])).map(p => ({ p, ans: Math.random() < .5 ? 0 : 1 }));
       let r = 0, ok = 0;
@@ -134,9 +146,11 @@
       const step = () => {
         if (r >= rounds.length) {
           const pct = Math.round(ok / rounds.length * 100);
-          box.innerHTML = `<div class="feedback ${pct >= 75 ? 'ok' : 'no'}" style="position:static"><b>${t('Nghe đúng {ok}/{n}', { ok, n: rounds.length })}</b> – ${pct >= 75 ? t('tai bạn đã phân biệt tốt!') : t('nghe chậm lại từng cặp và thử lần nữa.')} <button class="btn sm" id="startPairs2">↺ ${t('Chơi lại')}</button></div>`;
-          App.reward({ quizzes: 1, pron: 1, xp: 5 + ok * 2 }); if (pct >= 75) Sfx.win();
-          $('#startPairs2').onclick = sp.onclick; return;
+          box.innerHTML = `<div class="feedback ${pct >= 75 ? 'ok' : 'no'}" style="position:static" data-lesson-done><b>${t('Nghe đúng {ok}/{n}', { ok, n: rounds.length })}</b> – ${pct >= 75 ? t('tai bạn đã phân biệt tốt!') : t('nghe chậm lại từng cặp và thử lần nữa.')} <button class="btn sm" id="startPairs2">↺ ${t('Chơi lại')}</button></div>`;
+          App.reward({ quizzes: 1, pron: 1, xp: 5 + ok * 2 });
+          $('#startPairs2').onclick = sp.onclick;
+          Sfx.finish({ pct, xp: 5 + ok * 2, good: 75, el: box });
+          return;
         }
         const { p, ans } = rounds[r];
         box.innerHTML = `<div class="row"><button class="btn" id="replay">🔊 ${t('Nghe lại ({i}/{n})', { i: r + 1, n: rounds.length })}</button></div>
@@ -161,13 +175,13 @@
       qa++; if (okk) qr++;
       $$('.opts button', item).forEach(b2 => { if (+b2.dataset.v === q.answer) b2.classList.add('right'); });
       if (!okk) btn.classList.add('wrong');
-      okk ? Sfx.correct() : Sfx.wrong();
+      Sfx.answer(okk);
       const ex = $('[data-explain]', item); ex.hidden = false; ex.innerHTML = `${okk ? '✅' : '❌'} ${esc(q.explain)}`;
       if (qa === x.quiz.length) {
         const pct = Math.round(qr / qa * 100);
         await App.reward({ quizzes: 1, pron: 1, perfect: pct === 100 ? 1 : 0, xp: 8 + qr * 3 });
         state.game = await Game.mutate(g => { g.pronDone = { ...(g.pronDone || {}), [x.id]: Math.max(pct, (g.pronDone || {})[x.id] || 0) }; });
-        if (pct >= 80) { Sfx.win(); confetti(80); }
+        Sfx.finish({ pct, xp: 8 + qr * 3, el: item.parentNode });
       }
     }));
   }

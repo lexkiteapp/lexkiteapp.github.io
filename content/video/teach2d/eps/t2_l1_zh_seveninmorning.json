@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_zh_seveninmorning",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say in the morning!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I get up at seven morning.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I get up at seven in the morning.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Add in the before morning.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "In the morning! I get up at seven in the morning.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I get up at seven morning.",
+  "right": "I get up at seven in the morning.",
+  "strike": "seven morning",
+  "why": "Add in the before morning.",
+  "memory": "Seven in the morning.",
+  "quiz": {
+   "stem": "I get up at seven ___.",
+   "options": [
+    "morning",
+    "in the morning"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“早上七点”要加 in the！",
+   "tip": "中文说“早上七点”，时段放在前面。英语把时间放前面，再加 in the morning。",
+   "caption": "你是不是也会说 “I get up at seven morning.”😅 英语把时间放前面，再加 in the morning：“I get up at seven in the morning.”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。",
+   "comment": "答案：“I get up at seven in the morning.”大声读一遍，再写一句你自己的句子。免费测验在这里：{link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Add “in the” to morning!",
+   "tip": "Say the time first, then in the morning.",
+   "caption": "Do you say “I get up at seven morning.” 😅 Say the time first, then in the morning: “I get up at seven in the morning.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“早上七点”要加 in the！"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "zh",
+ "est": {
+  "words": 54,
+  "seconds": 32.0,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "“早上七点”要加 in the！",
+  "keyword": "I get up at seven in the morning.",
+  "value": "中文说“早上七点”，时段放在前面。英语把时间放前面，再加 in the morning。",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 48,
+  "platforms": {
+   "youtube": {
+    "title": "“早上七点”要加 in the！",
+    "description": "中文说“早上七点”，时段放在前面。英语把时间放前面，再加 in the morning。\n\n你是不是也会说 “I get up at seven morning.”😅 英语把时间放前面，再加 in the morning：“I get up at seven in the morning.”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "I get up at seven in the morning.",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "你是不是也会说 “I get up at seven morning.”😅 英语把时间放前面，再加 in the morning：“I get up at seven in the morning.”跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“早上七点”要加 in the！\n\n中文说“早上七点”，时段放在前面。英语把时间放前面，再加 in the morning。\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“早上七点”要加 in the！ 中文说“早上七点”，时段放在前面。英语把时间放前面，再加 in the morning。 #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案：“I get up at seven in the morning.”大声读一遍，再写一句你自己的句子。免费测验在这里：{link}",
+  "lang": "zh"
+ }
+}

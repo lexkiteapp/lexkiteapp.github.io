@@ -1,22 +1,52 @@
 {
-  "appId": "com.vocaband.app",
+  "appId": "com.lexkite.app",
   "appName": "Lexkite",
   "webDir": "www",
-  "backgroundColor": "#f6f7fb",
+  "backgroundColor": "#00000000",
   "android": {
     "allowMixedContent": false
   },
   "ios": {
     "contentInset": "never"
   },
+  "experimental": {
+    "ios": {
+      "spm": {
+        "swiftToolsVersion": "6.1",
+        "packageOptions": {
+          "@capacitor-firebase/authentication": { "symlink": true },
+          "@capacitor-firebase/crashlytics": { "symlink": true }
+        },
+        "packageTraits": {
+          "@capacitor-firebase/authentication": ["Google"]
+        }
+      }
+    }
+  },
   "plugins": {
+    "FirebaseMessaging": {
+      "presentationOptions": ["badge", "sound", "alert"]
+    },
+    "SystemBars": {
+      "insetsHandling": "disable"
+    },
     "SplashScreen": {
       "launchShowDuration": 600,
-      "backgroundColor": "#5b4cf0",
+      "backgroundColor": "#0F3D3E",
       "showSpinner": false
     },
     "LocalNotifications": {
-      "iconColor": "#5b4cf0"
+      "iconColor": "#E5502F"
+    },
+    "CapacitorUpdater": {
+      "autoUpdate": false,
+      "appReadyTimeout": 15000,
+      "resetWhenUpdate": true,
+      "directUpdate": false
+    },
+    "FirebaseAuthentication": {
+      "skipNativeAuth": false,
+      "providers": ["google.com", "apple.com"]
     }
   }
 }

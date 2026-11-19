@@ -1,0 +1,249 @@
+{
+ "id": "mo_bm_gap_sb_0ad85c2e",
+ "template": "gap",
+ "title": "Motion gap – alone (adj/adv) vs lonely (adj) (sb_0ad85c2e)",
+ "teacher": "ama",
+ "clips": [
+  "ga11_talk",
+  "ga11_explain",
+  "ga11_happy",
+  "ga11_thinking",
+  "ga11_surprise_3"
+ ],
+ "listen": [
+  "ga11_listen_2"
+ ],
+ "set": "reg2d",
+ "layout": "right",
+ "host_fx": "raw",
+ "speed": 0.7,
+ "accent": "navy2",
+ "active": "mint",
+ "display": {
+  "blank": "___"
+ },
+ "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
+ "cta": {
+  "area": "x-vs-y",
+  "link": "https://lexkite.com/app/",
+  "say": "Practice free on lexkite.com"
+ },
+ "series": {
+  "name": "Home",
+  "ep": 1
+ },
+ "lines": [
+  {
+   "id": "h",
+   "text": "Fill the blank.",
+   "gap": 0.7
+  },
+  {
+   "id": "q",
+   "text": "I live blank, but I'm not lonely.",
+   "gap": 0.7
+  },
+  {
+   "id": "o",
+   "text": "alone, or lonely?",
+   "gap": 0.7
+  },
+  {
+   "id": "_count",
+   "beat": "count",
+   "dur": 3.0
+  },
+  {
+   "id": "a",
+   "text": "alone! Alone means without people.",
+   "gap": 0.7
+  },
+  {
+   "id": "w",
+   "text": "You can be alone and happy!",
+   "gap": 0.7
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend who's learning English!",
+   "gap": 0.7
+  },
+  {
+   "id": "c",
+   "text": "Save this, and practice free on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 96,
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "h",
+    -1,
+    "e",
+    0.25
+   ],
+   "rows": [
+    [
+     [
+      "Fill the",
+      "white"
+     ]
+    ],
+    [
+     [
+      "blank.",
+      "yellow"
+     ]
+    ]
+   ],
+   "align": "l"
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "motion": {
+  "top": [
+   {
+    "id": "hook",
+    "hook": true,
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Fill the blank",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "Fill the"
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "blank."
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "id": "q",
+    "at": [
+     "q",
+     0
+    ],
+    "rows": [
+     {
+      "t": "chip",
+      "text": "X Vs Y",
+      "tone": "teal",
+      "ring": "_count"
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "I live "
+       ],
+       [
+        "_____",
+        "muted"
+       ],
+       [
+        ", but I'm not lonely."
+       ]
+      ],
+      "slot": {
+       "run": 1,
+       "word": "alone"
+      }
+     }
+    ],
+    "reveal": [
+     "a",
+     0
+    ],
+    "xp": [
+     {
+      "at": [
+       "a",
+       0
+      ],
+      "n": 10
+     }
+    ]
+   }
+  ],
+  "col": [
+   {
+    "t": "opts",
+    "id": "opts",
+    "opts": [
+     "alone",
+     "lonely"
+    ],
+    "cues": [
+     [
+      "o",
+      0
+     ],
+     [
+      "o",
+      2
+     ]
+    ],
+    "reveal": [
+     "a",
+     0
+    ],
+    "right": 0
+   }
+  ],
+  "hook_text": "Fill the blank.",
+  "end_line": "c"
+ },
+ "embed": {
+  "drop": [
+   "sh",
+   "c"
+  ],
+  "end": {
+   "id": "n",
+   "text": "Next, let's practice more together."
+  }
+ },
+ "uses": {
+  "template": "gap",
+  "row": "sb_0ad85c2e",
+  "teacher": "ama",
+  "accent": "navy2",
+  "active": "mint",
+  "tones": 2
+ }
+}

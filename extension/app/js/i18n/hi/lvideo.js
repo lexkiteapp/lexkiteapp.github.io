@@ -1,0 +1,2 @@
+/* SINH từ i18n/ui/hi/lvideo.js – đừng sửa tay (scripts/i18n-pack.mjs) */
+(function(g){const D=g.I18N_DICT=g.I18N_DICT||{};D.hi=Object.assign(D.hi||{},{_39cs:"सही नहीं। उत्तर: {a} – रिव्यू कार्ड में जोड़ दिया गया।",_kj2p:"वीडियो के अध्याय",_vbgs:"झटपट सवाल",_ifv9:"वीडियो नहीं चल सका – बाद में फिर कोशिश करें।",_djl:"वीडियो चलाएँ: {t}",_qfll:"पाठ वीडियो",_46hz:"आज का वीडियो",_yrgg:"अगला वीडियो",_nmea:"20 सेकंड देखें",_5ws0:"वीडियो बंद करें",_k07p:"सही! आपके रिव्यू कार्ड में जोड़ दिया गया।"});})(typeof self!=='undefined'?self:this);

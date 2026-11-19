@@ -1,0 +1,72 @@
+{
+ "_note": "Sinh tự động từ content/video/templates/three-words.json + vars (node scripts/video/template.mjs build) – ĐỪNG sửa tay: sửa file vars rồi build lại.",
+ "topic": "Vocabulary: 3 words for rain",
+ "format": "short",
+ "template": "three-words",
+ "script": {
+  "title": "3 words for rain (not just \"rainy\")",
+  "hook": "Not just \"rainy\"",
+  "scene": "library",
+  "time": "day",
+  "format_id": "top-3",
+  "template": "three-words",
+  "lines": [
+   {
+    "who": "ama",
+    "beat": "hook",
+    "text": "Wait, only \"rainy\"?",
+    "expr": "surprised",
+    "gesture": ""
+   },
+   {
+    "who": "ama",
+    "beat": "situation",
+    "text": "I only ever say rainy. What else is there?",
+    "expr": "curious",
+    "gesture": ""
+   },
+   {
+    "who": "ama",
+    "beat": "explain",
+    "text": "First, drizzle. Light, soft rain.",
+    "expr": "confident",
+    "gesture": "open hands",
+    "punch": true
+   },
+   {
+    "who": "ama",
+    "beat": "example",
+    "text": "Second, shower. A short rain that stops fast.",
+    "expr": "friendly",
+    "gesture": ""
+   },
+   {
+    "who": "kit",
+    "beat": "tip",
+    "text": "Kit's tip: and third, downpour. Very heavy rain, so grab an umbrella.",
+    "expr": "proud",
+    "gesture": ""
+   },
+   {
+    "who": "ama",
+    "beat": "cta",
+    "text": "Review new words free on lexkite.com",
+    "expr": "happy smile",
+    "gesture": "waving hello"
+   }
+  ],
+  "keywords": [
+   "drizzle",
+   "shower",
+   "downpour"
+  ],
+  "caption": "3 words for rain: drizzle, shower, downpour. Which one is new?",
+  "hashtags": [
+   "vocabulary",
+   "newwords",
+   "learnenglish"
+  ],
+  "area": "vocab-review",
+  "link": "https://lexkite.com/app/#/review"
+ }
+}

@@ -1,0 +1,149 @@
+{
+ "id": "t2_l1_vi_attached_file",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Is attach the right form?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Please read the attach file.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Please read the attached file.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say attached, not attach.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Attached! Please open the attached file.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Please read the attach file.",
+  "right": "Please read the attached file.",
+  "strike": "attach",
+  "why": "Say attached, not attach.",
+  "memory": "Attached, not attach.",
+  "quiz": {
+   "stem": "Please open the ___ file.",
+   "options": [
+    "attached",
+    "attach"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "Email: attach hay attached?",
+   "tip": "Tiếng Việt chỉ cần “đính kèm”, nhưng tiếng Anh cần đuôi -ed: “the attached file”.",
+   "caption": "Bạn có hay nói “Please read the attach file.” không? 📎 Trong email, hãy viết “attached”: “Please read the attached file.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
+   "comment": "Đáp án: “attached.” Hãy viết một câu email ngắn có “Please read the attached file.” nhé. Luyện thêm miễn phí tại đây: {link}",
+   "hashtags": [
+    "#hoctienganh",
+    "#loisaithuonggap",
+    "#nguphaptienganh",
+    "#tienganhcoban",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Email: attach or attached?",
+   "tip": "Vietnamese uses one short word, but English needs -ed: “the attached file”.",
+   "caption": "Do you often say this? “Please read the attach file.” In an email, write “attached”: “Please read the attached file.” Listen to Carlos read it, then repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Email: attach hay attached?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "vi",
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Email: attach hay attached?",
+  "keyword": "Please read the attached file.",
+  "value": "Tiếng Việt chỉ cần “đính kèm”, nhưng tiếng Anh cần đuôi -ed: “the attached file”.",
+  "hashtags": [
+   "#hoctienganh",
+   "#loisaithuonggap",
+   "#nguphaptienganh",
+   "#tienganhcoban",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "Email: attach hay attached?",
+    "description": "Tiếng Việt chỉ cần “đính kèm”, nhưng tiếng Anh cần đuôi -ed: “the attached file”.\n\nBạn có hay nói “Please read the attach file.” không? 📎 Trong email, hãy viết “attached”: “Please read the attached file.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#hoctienganh #loisaithuonggap #nguphaptienganh #tienganhcoban #lexkite",
+    "tags": [
+     "Please read the attached file.",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "Bạn có hay nói “Please read the attach file.” không? 📎 Trong email, hãy viết “attached”: “Please read the attached file.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Email: attach hay attached?\n\nTiếng Việt chỉ cần “đính kèm”, nhưng tiếng Anh cần đuôi -ed: “the attached file”.\n\nlexkite.com",
+    "hashtags": [
+     "#hoctienganh",
+     "#loisaithuonggap",
+     "#nguphaptienganh",
+     "#tienganhcoban",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Email: attach hay attached? Tiếng Việt chỉ cần “đính kèm”, nhưng tiếng Anh cần đuôi -ed: “the attached… #hoctienganh #loisaithuonggap #nguphaptienganh"
+   }
+  },
+  "first_comment": "Đáp án: “attached.” Hãy viết một câu email ngắn có “Please read the attached file.” nhé. Luyện thêm miễn phí tại đây: {link}",
+  "lang": "vi"
+ }
+}

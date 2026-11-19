@@ -1,0 +1,155 @@
+{
+ "_doc": "Machine-readable exam format (structure only, no exam content). Counts/times checked against the official pages in verified.sources on verified.date; criteria descriptions are LexKite's own wording. Read by scripts/content-qa/exam-format-check.mjs (docs/CONTENT-QA.md §6).",
+ "id": "toeic-sw",
+ "name": "TOEIC Speaking and Writing",
+ "provider": "ETS",
+ "audience": "work",
+ "verified": {
+  "date": "2026-11-01",
+  "sources": ["https://www.ets.org/toeic/about/speaking-writing.html", "ETS TOEIC S&W sample tests (task rating scales)"]
+ },
+ "total_minutes": 80,
+ "sections": [
+  {
+   "id": "speaking",
+   "name": "Speaking",
+   "minutes": 20,
+   "questions": 11,
+   "tasks": [
+    {
+     "n": 1,
+     "name": "Read a text aloud",
+     "questions": 2,
+     "types": ["read"],
+     "q": [1, 2],
+     "prep_s": 45,
+     "resp_s": 45,
+     "rating": "0–3",
+     "criteria": ["pronunciation", "intonation and stress"]
+    },
+    {
+     "n": 2,
+     "name": "Describe a picture",
+     "questions": 2,
+     "types": ["picture"],
+     "q": [3, 4],
+     "prep_s": 45,
+     "resp_s": 30,
+     "rating": "0–3",
+     "criteria": ["pronunciation", "intonation and stress", "grammar", "vocabulary", "cohesion"]
+    },
+    {
+     "n": 3,
+     "name": "Respond to questions",
+     "questions": 3,
+     "types": ["respond"],
+     "q": [5, 7],
+     "prep_s": 3,
+     "resp_s": [15, 15, 30],
+     "rating": "0–3",
+     "criteria": ["pronunciation", "intonation and stress", "grammar", "vocabulary", "cohesion", "relevance", "completeness"]
+    },
+    {
+     "n": 4,
+     "name": "Respond to questions using information provided",
+     "questions": 3,
+     "types": ["info"],
+     "q": [8, 10],
+     "read_s": 45,
+     "prep_s": 3,
+     "resp_s": [15, 15, 30],
+     "rating": "0–3",
+     "note": "question 10 is heard twice"
+    },
+    {
+     "n": 5,
+     "name": "Express an opinion",
+     "questions": 1,
+     "types": ["opinion"],
+     "q": [11, 11],
+     "prep_s": 45,
+     "resp_s": 60,
+     "rating": "0–5"
+    }
+   ]
+  },
+  {
+   "id": "writing",
+   "name": "Writing",
+   "minutes": 60,
+   "questions": 8,
+   "tasks": [
+    {
+     "n": 1,
+     "name": "Write a sentence based on a picture",
+     "questions": 5,
+     "types": ["picture-sentence"],
+     "q": [1, 5],
+     "minutes": 8,
+     "rating": "0–3",
+     "note": "two given words/phrases must be used"
+    },
+    {
+     "n": 2,
+     "name": "Respond to a written request",
+     "questions": 2,
+     "types": ["request"],
+     "q": [6, 7],
+     "minutes": 10,
+     "each": true,
+     "rating": "0–4"
+    },
+    {
+     "n": 3,
+     "name": "Write an opinion essay",
+     "questions": 1,
+     "types": ["essay"],
+     "q": [8, 8],
+     "minutes": 30,
+     "min_words": 300,
+     "min_words_note": "ETS: an effective essay typically has at least 300 words",
+     "rating": "0–5"
+    }
+   ]
+  }
+ ],
+ "scoring": {
+  "scale": "0–200 per test",
+  "step": 10,
+  "method": "task ratings combined and converted; speaking and writing reported separately"
+ },
+ "criteria": {
+  "speaking": [
+   {
+    "id": "delivery",
+    "focus": "Clear sounds, word stress and natural intonation so a listener understands without effort."
+   },
+   {
+    "id": "language",
+    "focus": "Grammar and vocabulary accurate enough and varied enough for the task."
+   },
+   {
+    "id": "content",
+    "focus": "Answer is relevant, complete and, for the opinion task, supported with reasons and examples."
+   }
+  ],
+  "writing": [
+   {
+    "id": "grammar",
+    "focus": "Sentences are grammatical; picture sentences use both given words correctly."
+   },
+   {
+    "id": "task",
+    "focus": "Every request or question in the email or prompt is answered in an appropriate tone."
+   },
+   {
+    "id": "organisation",
+    "focus": "Essay states an opinion and develops it with organised reasons and examples."
+   },
+   {
+    "id": "language",
+    "focus": "Range and accuracy of vocabulary and sentence structure."
+   }
+  ]
+ }
+}

@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_clock",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: clock.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means a device that shows the time.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "The clock on the wall is five minutes fast.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "clock",
+  "ipa": "/klɑːk/",
+  "mean": "a device that shows the time",
+  "ex": "The clock on the wall is five minutes fast.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=clock",
+  "link": "https://lexkite.com/app/#/review?w=clock",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 42,
+  "seconds": 25.7,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"clock\" mean?",
+  "keyword": "clock",
+  "value": "Clock means a device that shows the time.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=clock",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"clock\" mean?",
+    "description": "Clock means a device that shows the time.\n\nReview your words, free: https://lexkite.com/app/#/review?w=clock\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "clock",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"clock\" mean?\n\nClock means a device that shows the time.\n\nReview your words, free: https://lexkite.com/app/#/review?w=clock"
+   },
+   "instagram": {
+    "caption": "What does \"clock\" mean?\n\nClock means a device that shows the time.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"clock\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means a device that shows the time. Clock means a device that shows the time. Practice it with a free quiz: {link}"
+ }
+}

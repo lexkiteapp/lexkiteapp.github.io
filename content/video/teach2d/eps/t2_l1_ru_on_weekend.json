@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ru_on_weekend",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "In the weekend or on?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: We go to the park in the weekend.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: We go to the park on the weekend.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use on with weekend.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "On! I rest on the weekend.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "We go to the park in the weekend.",
+  "right": "We go to the park on the weekend.",
+  "strike": "in the weekend",
+  "why": "Use on with weekend.",
+  "memory": "On the weekend.",
+  "quiz": {
+   "stem": "I rest ___ the weekend.",
+   "options": [
+    "in",
+    "on"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "В выходные — on the weekend",
+   "tip": "В выходные — “on the weekend”: “We go to the park on the weekend.”",
+   "caption": "Ты тоже говоришь “We go to the park in the weekend”? 😅 По-русски «в выходные» — со словом «в», и хочется сказать “in”, но в американском английском говорят “on the weekend.” Правильно: “We go to the park on the weekend.” Послушай Аму и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “on.” В выходные — on the weekend. Напиши своё предложение с “on the weekend.” Бесплатный тест для практики здесь: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#учуанглийский",
+    "#английскийдляначинающих",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "In the weekend or on the weekend?",
+   "tip": "For the weekend, use “on”: “We go to the park on the weekend.”",
+   "caption": "Do you also say “We go to the park in the weekend”? 😅 In Russian «в выходные» starts with «в», so “in” feels right, but American English says “on the weekend.” Correct: “We go to the park on the weekend.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "В выходные — on the weekend"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ru",
+ "est": {
+  "words": 51,
+  "seconds": 30.5,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "В выходные — on the weekend",
+  "keyword": "We go to the park on the weekend.",
+  "value": "В выходные — “on the weekend”: “We go to the park on the weekend.”",
+  "hashtags": [
+   "#английскийязык",
+   "#учуанглийский",
+   "#английскийдляначинающих",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 45,
+  "platforms": {
+   "youtube": {
+    "title": "В выходные — on the weekend",
+    "description": "В выходные — “on the weekend”: “We go to the park on the weekend.”\n\nТы тоже говоришь “We go to the park in the weekend”? 😅 По-русски «в выходные» — со словом «в», и хочется сказать “in”, но в американском английском говорят “on the weekend.” Правильно: “We go to the park on the weekend.” Послушай Аму и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #учуанглийский #английскийдляначинающих #lexkite",
+    "tags": [
+     "We go to the park on the weekend.",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Ты тоже говоришь “We go to the park in the weekend”? 😅 По-русски «в выходные» — со словом «в», и хочется сказать “in”, но в американском английском говорят “on the weekend.” Правильно: “We go to the park on the weekend.” Послушай Аму и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "В выходные — on the weekend\n\nВ выходные — “on the weekend”: “We go to the park on the weekend.”\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#учуанглийский",
+     "#английскийдляначинающих",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "В выходные — on the weekend В выходные — “on the weekend”: “We go to the park on the weekend.” #английскийязык #учуанглийский #английскийдляначинающих"
+   }
+  },
+  "first_comment": "Ответ: “on.” В выходные — on the weekend. Напиши своё предложение с “on the weekend.” Бесплатный тест для практики здесь: {link}",
+  "lang": "ru"
+ }
+}

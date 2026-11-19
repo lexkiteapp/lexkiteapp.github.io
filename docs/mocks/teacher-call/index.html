@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Call with Ama – mock</title>
+<!-- MOCK (docs/TEACHER-IN-APP.md). Not shipped. Clips: Ama 3D bank v2 a05 / a05b / a05l, crop 3:4, 480×640, H.264 CRF 28 (~240 KB / 10 s).
+     Speech-gated: talk clip only while TTS speaks, closed-mouth listen clip while the learner speaks or in silence.
+     Real build: js/call.js + UI.tts / UI.recognize, i18n via t(), lazy bundle 'call'. -->
+<style>
+  :root { --teal: #0F3D3E; --teal2: #17595A; --orange: #E5502F; --amber: #FFB054; --cream: #FFF7EA; --ok: #2FBF71; --text: #13201f; --muted: #5b6b6a; --card: #fff; --bg: #F4EFE6; }
+  @media (prefers-color-scheme: dark) { :root { --text: #EAF2F1; --muted: #9DB3B1; --card: #17292A; --bg: #0B1C1D; } }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 15px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; background: var(--bg); color: var(--text); }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 16px; display: grid; gap: 16px; grid-template-columns: minmax(0, 420px) minmax(0, 1fr); }
+  @media (max-width: 760px) { .wrap { grid-template-columns: 1fr; } }
+  .phone { position: relative; border-radius: 22px; overflow: hidden; background: #000; aspect-ratio: 3 / 4.6; box-shadow: 0 10px 30px #0004; }
+  .phone video { position: absolute; inset: 0; width: 100%; height: 72%; object-fit: cover; object-position: 50% 20%; transition: opacity .18s linear; }
+  .top { position: absolute; top: 0; left: 0; right: 0; display: flex; align-items: center; gap: 8px; padding: 10px 12px; color: #fff; background: linear-gradient(#0009, #0000); z-index: 3; }
+  .top b { font-size: 16px; } .chip { font-size: 12px; padding: 2px 8px; border-radius: 99px; background: #fff3; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 0 3px #2FBF7144; }
+  .state { margin-left: auto; font-size: 12px; opacity: .9; }
+  .panel { position: absolute; left: 0; right: 0; bottom: 0; height: 34%; background: var(--card); color: var(--text); border-radius: 18px 18px 0 0; padding: 12px 12px 10px; display: flex; flex-direction: column; gap: 8px; z-index: 3; }
+  .bubble { background: var(--cream); color: #13201f; border-radius: 14px 14px 14px 4px; padding: 8px 10px; font-size: 15px; min-height: 2.4em; }
+  .me { align-self: flex-end; background: var(--teal); color: #fff; border-radius: 14px 14px 4px 14px; padding: 6px 10px; font-size: 14px; max-width: 90%; min-height: 0; }
+  .me:empty { display: none; }
+  .hints { display: flex; gap: 6px; flex-wrap: wrap; } .hints button { border: 1px solid #0F3D3E33; background: transparent; color: var(--text); border-radius: 99px; padding: 4px 10px; font-size: 13px; cursor: pointer; }
+  .bar { margin-top: auto; display: flex; align-items: center; justify-content: center; gap: 18px; }
+  .round { width: 54px; height: 54px; border-radius: 50%; border: 0; font-size: 22px; cursor: pointer; color: #fff; }
+  .mic { background: var(--teal2); } .mic.on { background: var(--orange); animation: pulse 1s infinite; } .hang { background: #D23B2A; } .go { background: var(--ok); width: auto; padding: 0 18px; border-radius: 99px; font-size: 15px; font-weight: 700; }
+  @keyframes pulse { 50% { box-shadow: 0 0 0 10px #E5502F33; } }
+  .react { position: absolute; right: 10px; top: 52px; z-index: 4; width: 84px; opacity: 0; transform: scale(.7); transition: .25s; }
+  .react.show { opacity: 1; transform: none; }
+  .side { display: grid; gap: 12px; align-content: start; }
+  .card { background: var(--card); border-radius: 14px; padding: 12px 14px; }
+  .card h2 { margin: 0 0 6px; font-size: 16px; } .card p, .card li { margin: 4px 0; color: var(--muted); font-size: 14px; }
+  .log { font: 12px/1.5 ui-monospace, Menlo, monospace; max-height: 180px; overflow: auto; color: var(--muted); white-space: pre-wrap; }
+  .tag { display: inline-block; font: 600 11px system-ui; padding: 1px 6px; border-radius: 6px; background: #E5502F22; color: var(--orange); }
+  @media (prefers-reduced-motion: reduce) { .phone video { transition: none; } .mic.on { animation: none; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="phone" id="phone">
+    <video id="vA" muted playsinline preload="auto" poster="clips/ama_poster.jpg"></video>
+    <video id="vB" muted playsinline preload="auto" style="opacity:0"></video>
+    <div class="top"><span class="dot"></span><b>Ama</b><span class="chip">A2 · Café order</span><span class="state" id="st">ready</span></div>
+    <div class="react" id="react" aria-hidden="true"></div>
+    <div class="panel">
+      <div class="bubble" id="say" lang="en">Tap “Call” to start. Ama will greet you.</div>
+      <div class="bubble me" id="me" lang="en"></div>
+      <div class="hints" id="hints"></div>
+      <div class="bar">
+        <button class="round go" id="go">📞 Call</button>
+        <button class="round mic" id="mic" aria-label="Speak" hidden>🎙</button>
+        <button class="round hang" id="hang" aria-label="Hang up" hidden>✕</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="side">
+    <div class="card">
+      <h2>What this mock shows <span class="tag">MOCK · not shipped</span></h2>
+      <ul>
+        <li><b>Talk clip</b> (a05 / a05b, random start) plays only while the teacher's voice speaks.</li>
+        <li><b>Listen clip</b> (a05l, mouth closed) plays while you speak and in every pause.</li>
+        <li>Switch = 180 ms crossfade between two stacked videos, so there is no black flash.</li>
+        <li>Lips follow the <i>tempo</i> of the voice, not each word (honest limit).</li>
+        <li>Replies here are scripted branches (0 AI calls). The real build tries on-device AI first, then the shared quota.</li>
+        <li>The Kit badge stands in for the teacher reaction clips that are not in the bank yet.</li>
+      </ul>
+    </div>
+    <div class="card"><h2>Device tier (pilot gate, design §5.2)</h2><div class="log" id="tier">measuring…</div></div>
+    <div class="card"><h2>Viseme driver (design §5)</h2><p>Real build: CI writes <code>visemes.json</code> from Kokoro for every scripted line. Here: rough visemes from the TTS word clock, to show what a 3D/sprite mouth would receive.</p><div class="log" id="vis" style="font-size:20px;letter-spacing:2px">–</div></div>
+    <div class="card"><h2>Event log</h2><div class="log" id="log"></div></div>
+  </div>
+</div>
+
+<script src="../../../web/js/kit.js"></script>
+<script>
+(() => {
+  const CLIPS = { talk: ['clips/ama_talk1.mp4', 'clips/ama_talk2.mp4'], listen: 'clips/ama_listen.mp4' };
+  // Self-written mini script (same shape as js/call/calls.js: m = teacher line, o = hints, br = [regex, reply], re = default reply)
+  const TURNS = [
+    { m: "Hi! Welcome to the café. What can I get for you today?", o: ["Can I get a latte, please?", "I'd like a tea, please.", "Just a water, thanks."],
+      br: [[/latte|coffee/i, "Great choice. What size would you like, small or large?"], [/tea/i, "Sure. Hot tea or iced tea?"]], re: "No problem. Anything else for you?" },
+    { m: null, o: ["A small one, please.", "Large, please.", "Hot, please."], br: [[/small|large|hot|iced/i, "Perfect. Is that for here or to go?"]], re: "Okay. Is that for here or to go?" },
+    { m: null, o: ["For here, please.", "To go, please."], br: [[/here|go/i, "Lovely. That's four fifty. Have a great day!"]], re: "That's four fifty. Have a great day!" },
+  ];
+  const $ = id => document.getElementById(id);
+  const vids = [$('vA'), $('vB')]; let front = 0, mode = '', turn = 0, pendingReply = null, rec = null, alive = false;
+  const log = s => { const l = $('log'); l.textContent += `${(performance.now() / 1000).toFixed(1)}s  ${s}\n`; l.scrollTop = 1e9; };
+  const state = s => { $('st').textContent = s; };
+
+  // Speech-gated clip switch: preload into the hidden video, crossfade when it can play.
+  function show(next) {
+    if (next === mode) return; mode = next;
+    const src = next === 'talk' ? CLIPS.talk[Math.random() < .5 ? 0 : 1] : CLIPS.listen;
+    const back = vids[1 - front];
+    back.src = src; back.loop = true;
+    back.onloadedmetadata = () => { if (next === 'talk') back.currentTime = Math.random() * Math.max(0, back.duration - 4); };
+    back.oncanplay = () => { back.oncanplay = null; back.play().catch(() => {}); back.style.opacity = 1; vids[front].style.opacity = 0; const old = vids[front]; front = 1 - front; setTimeout(() => old.pause(), 200); };
+    log(`clip → ${next} (${src.split('/').pop()})`);
+  }
+
+  function speak(text, done) {
+    $('say').textContent = text; state('Ama is speaking'); show('talk');
+    if (!('speechSynthesis' in window)) { setTimeout(() => { show('listen'); done && done(); }, 400 + text.length * 55); return; }
+    const u = new SpeechSynthesisUtterance(text); u.lang = 'en-US'; u.rate = .9;
+    const v = speechSynthesis.getVoices().find(x => /en-US/.test(x.lang) && /female|samantha|aria|jenny/i.test(x.name)); if (v) u.voice = v;
+    u.onstart = () => show('talk');
+    u.onboundary = e => { if (e.name && e.name !== 'word') return; const w = text.slice(e.charIndex).split(/\W/)[0]; $('vis').textContent = w + '  →  ' + visemes(w).join(' '); };
+    u.onend = u.onerror = () => { show('listen'); state('your turn'); done && done(); };
+    speechSynthesis.cancel(); speechSynthesis.speak(u);
+  }
+
+  // Very rough letter → Oculus viseme map (demo only; the real track comes from Kokoro phonemes on CI)
+  const VM = [[/th/g, 'TH'], [/ch|sh|j/g, 'CH'], [/[pbm]/g, 'PP'], [/[fv]/g, 'FF'], [/[tdnl]/g, 'DD'], [/[kgcq]/g, 'kk'], [/[sz]/g, 'SS'], [/r/g, 'RR'], [/a/g, 'aa'], [/e/g, 'E'], [/i|y/g, 'I'], [/o/g, 'O'], [/u|w/g, 'U']];
+  function visemes(w) { let s = w.toLowerCase(); const out = []; while (s) { const hit = VM.find(([re]) => { re.lastIndex = 0; const m = re.exec(s); return m && m.index === 0; }); if (hit) { hit[0].lastIndex = 0; const m = hit[0].exec(s); out.push(hit[1]); s = s.slice(m[0].length); } else s = s.slice(1); } return out.filter((v, i) => v !== out[i - 1]); }
+
+  // Tier gate: WebGL2 + deviceMemory ≥ 4 + ≥ 24 fps in 2 s → 3D; else sprite; saveData / 2g / reduced motion → still + Kit
+  (async function tier() {
+    const gl = !!document.createElement('canvas').getContext('webgl2'), mem = navigator.deviceMemory || 0, c = navigator.connection || {};
+    const lite = c.saveData || /2g/.test(c.effectiveType || '') || matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let n = 0; const t0 = performance.now(); await new Promise(r => { const f = () => { n++; performance.now() - t0 < 2000 ? requestAnimationFrame(f) : r(); }; requestAnimationFrame(f); });
+    const fps = Math.round(n / 2), SR = !!(window.SpeechRecognition || window.webkitSpeechRecognition);
+    let nano = 'no'; try { if (window.LanguageModel) nano = await LanguageModel.availability(); } catch (e) { nano = 'error'; }
+    let local = 'n/a'; try { const S = window.SpeechRecognition; if (S && S.available) local = await S.available({ langs: ['en-US'], processLocally: true }); } catch (e) { local = 'error'; }
+    const pick = lite ? 'still + Kit' : gl && mem >= 4 && fps >= 24 ? '3D avatar (A)' : 'viseme sprite (B)';
+    $('tier').textContent = `WebGL2 ${gl} · deviceMemory ${mem || '?'} GB · fps ${fps} · lite ${!!lite}\nWeb Speech ${SR} · on-device STT ${local}\nGemini Nano (Prompt API) ${nano}\n→ character tier: ${pick}`;
+  })();
+
+  function react(kind) {
+    const r = $('react'); if (!window.Kit) return;
+    r.innerHTML = Kit.svg(kind === 'good' ? 'cheer' : 'think', 84); r.classList.add('show');
+    setTimeout(() => r.classList.remove('show'), 1400);
+  }
+
+  function answer(text) {
+    if (!alive) return; $('me').textContent = text; $('hints').innerHTML = '';
+    const t = TURNS[turn]; const hit = t.br.find(([re]) => re.test(text)); react(hit ? 'good' : 'try');
+    log(`learner: "${text}" → ${hit ? 'branch' : 'default'} reply`);
+    turn++;
+    const reply = hit ? hit[1] : t.re;
+    setTimeout(() => speak(reply, () => { if (turn < TURNS.length) hints(); else end(); }), 700);
+  }
+
+  function hints() {
+    const t = TURNS[turn]; $('hints').innerHTML = '';
+    t.o.forEach(o => { const b = document.createElement('button'); b.textContent = o; b.onclick = () => answer(o); $('hints').append(b); });
+  }
+
+  function listen() {
+    const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!SR) { log('no Web Speech here – tap a hint instead (real app falls back to on-device Whisper)'); return; }
+    if (rec) { rec.stop(); return; }
+    rec = new SR(); rec.lang = 'en-US'; rec.interimResults = true; rec.maxAlternatives = 3;
+    $('mic').classList.add('on'); state('listening…'); show('listen');
+    rec.onresult = e => { const r = e.results[e.results.length - 1]; $('me').textContent = r[0].transcript; if (r.isFinal) { const txt = r[0].transcript; rec.stop(); answer(txt); } };
+    rec.onend = () => { rec = null; $('mic').classList.remove('on'); };
+    rec.onerror = e => log(`STT error: ${e.error}`);
+    rec.start();
+  }
+
+  function end() { state('call ended'); log('end → summary card (phrases to flashcards, XP) in the real build'); $('hang').hidden = true; $('mic').hidden = true; alive = false;
+    setTimeout(() => { $('say').textContent = 'Call ended. Great job! 3 phrases saved for review.'; react('good'); }, 600); }
+
+  $('go').onclick = () => {
+    alive = true; turn = 0; $('go').hidden = true; $('mic').hidden = false; $('hang').hidden = false; $('me').textContent = '';
+    show('listen'); setTimeout(() => speak(TURNS[0].m, hints), 500); log('call start (0 server calls)');
+  };
+  $('mic').onclick = listen;
+  $('hang').onclick = () => { speechSynthesis && speechSynthesis.cancel(); end(); };
+  show('listen');
+})();
+</script>
+</body>
+</html>

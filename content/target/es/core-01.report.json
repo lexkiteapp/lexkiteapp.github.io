@@ -1,0 +1,1078 @@
+{
+ "at": "2026-11-05T02:19:05.769Z",
+ "accepted": 35,
+ "rejected": [
+  {
+   "form": "de",
+   "word": "de",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "que",
+   "word": "que",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "no",
+   "word": "no",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "a",
+   "word": "a",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "la",
+   "word": "la",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "el",
+   "word": "el",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "y",
+   "word": "y",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "es",
+   "word": "ser",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "en",
+   "word": "en",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "lo",
+   "word": "lo",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "un",
+   "word": "un",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "por",
+   "word": "por",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "qué",
+   "word": "qué",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "me",
+   "word": "me",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "una",
+   "word": "una",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "los",
+   "word": "los",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "se",
+   "word": "se",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "te",
+   "word": "te",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "con",
+   "word": "con",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "para",
+   "word": "para",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "está",
+   "word": "estar",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả",
+    "cổng: estar: thiếu nghĩa th"
+   ]
+  },
+  {
+   "form": "mi",
+   "word": "mi",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả",
+    "cổng: mi: thiếu nghĩa th"
+   ]
+  },
+  {
+   "form": "pero",
+   "word": "pero",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả",
+    "cổng: pero: thiếu nghĩa th"
+   ]
+  },
+  {
+   "form": "sí",
+   "word": "sí",
+   "why": [
+    "giám khảo A: Russian gloss is 'sí' (Spanish word) instead of Russian translation (да).",
+    "giám khảo B: ru translation is untranslated Spanish 'sí' instead of 'да'",
+    "dịch ngược lệch: dịch ngược không trả",
+    "cổng: sí: thiếu nghĩa th; sí: nghĩa ru sai chữ viết: sí"
+   ]
+  },
+  {
+   "form": "si",
+   "word": "si",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả",
+    "cổng: si: thiếu nghĩa th"
+   ]
+  },
+  {
+   "form": "bien",
+   "word": "bien",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả",
+    "cổng: bien: thiếu nghĩa th"
+   ]
+  },
+  {
+   "form": "eso",
+   "word": "eso",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả",
+    "cổng: eso: thiếu nghĩa th"
+   ]
+  },
+  {
+   "form": "su",
+   "word": "su",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả",
+    "cổng: su: thiếu nghĩa th"
+   ]
+  },
+  {
+   "form": "las",
+   "word": "las",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả",
+    "cổng: las: thiếu nghĩa th"
+   ]
+  },
+  {
+   "form": "yo",
+   "word": "yo",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả",
+    "cổng: yo: thiếu nghĩa th"
+   ]
+  },
+  {
+   "form": "del",
+   "word": "de",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "como",
+   "word": "como",
+   "why": [
+    "giám khảo A: Example 'Como estudias, aprobarás' uses 'como' as a conditional conjunction ('if'), but the gloss defines it as 'as, like' (simile/manner). The example does not match the provided gloss sense.",
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "aquí",
+   "word": "aquí",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "tu",
+   "word": "tu",
+   "why": [
+    "giám khảo B: The POS tag is 'pron' (pronoun) for the possessive determiner 'tu', which should be 'adj' or possessive adjective/determiner.",
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "al",
+   "word": "a",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "más",
+   "word": "más",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "le",
+   "word": "le",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "esto",
+   "word": "esto",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "todo",
+   "word": "todo",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "ya",
+   "word": "ya",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "estoy",
+   "word": "estar",
+   "why": [
+    "dịch ngược lệch: vi,id"
+   ]
+  },
+  {
+   "form": "muy",
+   "word": "muy",
+   "why": [
+    "cổng: muy: nghĩa ar sai chữ viết: jiddan"
+   ]
+  },
+  {
+   "form": "ha",
+   "word": "haber",
+   "why": [
+    "dịch ngược lệch: vi,id,th,zh,ja,ko,ar,ru,tr"
+   ]
+  },
+  {
+   "form": "esta",
+   "word": "este",
+   "why": [
+    "cổng: este: nghĩa ar sai chữ viết: hādhihi"
+   ]
+  },
+  {
+   "form": "así",
+   "word": "así",
+   "why": [
+    "cổng: así: nghĩa ar sai chữ viết: hākadhā"
+   ]
+  },
+  {
+   "form": "vamos",
+   "word": "ir",
+   "why": [
+    "dịch ngược lệch: vi,pt,fr,de,id,th,zh,ja,ko,hi,ar,ru,tr",
+    "cổng: ir: nghĩa ar sai chữ viết: yadhhab"
+   ]
+  },
+  {
+   "form": "algo",
+   "word": "algo",
+   "why": [
+    "cổng: algo: nghĩa ar sai chữ viết: shay' mā"
+   ]
+  },
+  {
+   "form": "hay",
+   "word": "haber",
+   "why": [
+    "cổng: haber: nghĩa ar sai chữ viết: yūjad"
+   ]
+  },
+  {
+   "form": "bueno",
+   "word": "bueno",
+   "why": [
+    "cổng: bueno: nghĩa ar sai chữ viết: jayyid"
+   ]
+  },
+  {
+   "form": "tengo",
+   "word": "tener",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả",
+    "cổng: tener: câu ví dụ không chứa \"tener\""
+   ]
+  },
+  {
+   "form": "él",
+   "word": "él",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "cuando",
+   "word": "cuando",
+   "why": [
+    "giám khảo B: The entry uses unaccented 'cuando' (relative adverb/conjunction), but the non-English translations (e.g. English gloss 'when' vs interrogative glosses in Vietnamese, German, Indonesian, Thai, Chinese, Japanese, Korean, Hindi, Arabic, Turkish) and the example '¿Cuándo llegas?' use the interrogative 'cuándo'.",
+    "dịch ngược lệch: dịch ngược không trả",
+    "cổng: cuando: câu ví dụ không chứa \"cuando\""
+   ]
+  },
+  {
+   "form": "estás",
+   "word": "estar",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả",
+    "cổng: estar: câu ví dụ có ngôn ngữ lạ"
+   ]
+  },
+  {
+   "form": "sé",
+   "word": "saber",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả",
+    "cổng: saber: câu ví dụ có ngôn ngữ lạ"
+   ]
+  },
+  {
+   "form": "tú",
+   "word": "tú",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "nos",
+   "word": "nos",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "nada",
+   "word": "nada",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "cómo",
+   "word": "cómo",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "este",
+   "word": "este",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "he",
+   "word": "haber",
+   "why": [
+    "giám khảo A: IPA given (\"e\") does not match the lemma \"haber\"",
+    "dịch ngược lệch: vi,id,th,zh,ja,ko,hi,ar,ru,tr"
+   ]
+  },
+  {
+   "form": "ser",
+   "word": "ser",
+   "why": [
+    "dịch ngược lệch: ar"
+   ]
+  },
+  {
+   "form": "tiene",
+   "word": "tener",
+   "why": [
+    "giám khảo A: IPA corresponds to the form \"tiene\" not to the lemma \"tener\"",
+    "dịch ngược lệch: id,ar,tr"
+   ]
+  },
+  {
+   "form": "puedo",
+   "word": "poder",
+   "why": [
+    "giám khảo A: IPA corresponds to the form \"puedo\" not to the lemma \"poder\"",
+    "giám khảo B: IPA contains 'ð' which is not standard Latin American Spanish (should be 'd' or 'ð' depending on dialect, but 'ð' is often associated with Spain or specific transcriptions; however, the main issue is usually the 'e' vs 'ɛ' or the 'd' realization. Actually, 'puedo' is /ˈpweðo/ in many LA dialects due to debuccalization/lenition, but 'ð' is the symbol for the interdental fricative. In LA Spanish, the 'd' in 'puedo' is often a fricative [ð]. So the IPA is acceptable. Let's re-evaluate. Is there a better error? The gloss 'can' is fine. The example is fine. Wait, looking at 'he' (haber), the IPA is 'e'. That is very short. 'haber' is /aˈβeɾ/ or /aˈbeɾ/. The IPA 'e' is missing the first syllable 'a'. This is a significant error in the 'he' item. Let's check 'he' again. Entry word is 'haber', exForm is 'he'. IPA is 'e'. This is wrong. It should be /e/ for the form 'he' (3rd person singular present of haber? No, 'he' is 1st person singular present of haber: /e/. Wait. 'haber' conjugation: yo he, tú has, él ha. So 'he' is /e/. The IPA 'e' is correct for the form 'he'. But the entry word is 'haber'. Usually, the IPA corresponds to the entry word or the exForm? The prompt says 'IPA has θ or is not Latin American'. It doesn't specify which word the IPA is for. However, typically it's for the headword. If the headword is 'haber', IPA should be /aˈβeɾ/. If it's for 'he', it is /e/. Given the field is 'ipa' and the word is 'haber', it's ambiguous. But let's look at 'tiene'. Word 'tener', IPA 'ˈtjene'. This is for 'tiene'. So the IPA seems to correspond to the 'exForm' or the specific form presented. For 'he', exForm is 'he', IPA is 'e'. This is correct. For 'puedo', exForm is 'puedo', IPA is 'ˈpweðo'. This is correct for LA Spanish (dental/interdental fricative). So 'puedo' is likely ok. Let's look for other errors. 'ella' IPA 'ˈeʝa'. Correct. 'quiero' IPA 'ˈkjeɾo'. Correct. 'hacer' IPA 'aˈseɾ'. Correct. 'fue' IPA 'fwe'. Correct. 'gracias' IPA 'ˈɡɾasjas'. Correct. 'o' IPA 'o'. Correct. 'ser' IPA 'seɾ'. Correct. 'tiene' IPA 'ˈtjene'. Correct. 'he' IPA 'e'. Correct. Are there any Spain-only words? No. Any vulgar words? No. Any wrong glosses? 'haber' gloss 'have (auxiliary)'. Correct. 'ser' gloss 'to be (essential)'. Correct. 'tener' gloss 'has'. The entry is 'tener' (infinitive), but the gloss is 'has' (3rd person singular). The gloss should probably be 'to have' or 'have'. The example uses 'tiene' (he has). The gloss 'has' is specific to the 3rd person, while the headword is the infinitive. This is a mismatch in number/person in the gloss. Similarly, 'poder' gloss 'can' (1st person) vs headword 'poder' (infinitive). 'querer' gloss 'want' (infinitive/1st person). 'hacer' gloss 'to do, to make' (infinitive). 'ser' gloss 'to be' (infinitive). 'tener' gloss 'has' is inconsistent with the infinitive headword. It should be 'to have'. This is a minor error in the gloss. Is it enough for ok=false? 'any gloss mistranslates the sense'. 'has' is a valid translation of the sense of 'tener' in the context of the example, but as a dictionary entry for the infinitive, it's imprecise. However, compared to 'to have', it's a specific form. Let's look at 'poder'. Gloss 'can'. Headword 'poder'. 'Can' is 1st person. 'Poder' is infinitive. This is also imprecise. But 'tener' -> 'has' is more jarring because 'has' is 3rd person, while 'can' is 1st person (matching 'puedo' in the example?). No, the example for 'poder' is 'puedo' (1st person). The example for 'tener' is 'tiene' (3rd person). So the glosses match the *example forms*, not the headwords. This is a consistent pattern in the deck? 'he' (haber) -> 'have (auxiliary)'. 'he' is 1st person. 'have' is 1st person. 'ser' -> 'to be'. 'ser' is infinitive. 'fue' (ser) -> 'was'. 'fue' is 3rd person. 'was' is 3rd person. So the glosses match the exForm. This is a valid design choice. So the glosses are not 'wrong' in that sense. Let's look closer at 'he'. IPA 'e'. Is 'e' a valid IPA representation? Yes. Is it Latin American? Yes. Is there a θ? No. Let's look at 'puedo' again. IPA 'ˈpweðo'. The 'ð' is the symbol for the voiced dental fricative. In Latin American Spanish, the 'd' in intervocalic position or final is often realized as [ð] or [ð̞]. So this is acceptable. What about 'gracias'? IPA 'ˈɡɾasjas'. The 'j' is [x] or [h]. The IPA uses 'j' which is not standard IPA for the sound, but often used in simplified transcriptions. However, standard IPA for 'gracias' is /ˈɡɾasjas/ where 'j' represents the palatal approximant /j/ in 'ja'. Wait. 'gracias' is /ˈɡɾasjas/. The 'j' in 'ja' is /j/. The 'c' is /s/. So /ˈɡɾasjas/ is correct. The 'j' in the IPA string is the letter j, which in IPA stands for /j/. So it is correct. Let's check 'ella'. IPA 'ˈeʝa'. Correct. 'quiero'. IPA 'ˈkjeɾo'. Correct. 'hacer'. IPA 'aˈseɾ'. Correct. 'fue'. IPA 'fwe'. Correct. 'o'. IPA 'o'. Correct. 'ser'. IPA 'seɾ'. Correct. 'tiene'. IPA 'ˈtjene'. Correct. 'he'. IPA 'e'. Correct. 'puedo'. IPA 'ˈpweðo'. Correct. Are there any other issues? 'haber' example: 'Hoy he comido muy bien.' Translation: 'Today I have eaten very well.' Correct. 'ser' example: 'Quiero ser un buen médico.' Translation: 'I want to be a good doctor.' Correct. 'tener' example: 'Él tiene un perro grande.' Translation: 'He has a big dog.' Correct. 'poder' example: 'Yo puedo ir contigo mañana.' Translation: 'I can go with you tomorrow.' Correct. 'ella' example: 'Ella habla español muy bien.' Translation: 'She speaks Spanish very well.' Correct. 'querer' example: 'Yo quiero comprar agua.' Translation: 'I want to buy water.' Correct. 'hacer' example: 'Voy a hacer la tarea ahora.' Translation: 'I am going to do the homework now.' Correct. 'fue' example: 'La fiesta fue muy divertida.' Translation: 'The party was very fun.' Correct. 'gracias' example: 'Muchas gracias por tu ayuda.' Translation: 'Thank you very much for your help.' Correct. 'o' example: '¿Quieres té o café?' Translation: 'Do you want tea or coffee?' Correct. It seems all items are correct. I will mark them all as ok=true. Wait, let me double check 'he' IPA. 'haber' is the headword. If the IPA is for the headword, it is wrong. If it is for the exForm 'he', it is correct. The item 'tiene' has headword 'tener' and IPA 'ˈtjene' (for 'tiene'). The item 'puedo' has headword 'poder' and IPA 'ˈpweðo' (for 'puedo'). The item 'quiero' has headword 'querer' and IPA 'ˈkjeɾo' (for 'quiero'). The item 'fue' has headword 'ser' and IPA 'fwe' (for 'fue'). The pattern is clear: IPA corresponds to the exForm. Therefore, 'he' with IPA 'e' is correct. All items appear to be valid."
+   ]
+  },
+  {
+   "form": "quiero",
+   "word": "querer",
+   "why": [
+    "giám khảo A: IPA corresponds to the form \"quiero\" not to the lemma \"querer\""
+   ]
+  },
+  {
+   "form": "hacer",
+   "word": "hacer",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "fue",
+   "word": "ser",
+   "why": [
+    "giám khảo A: Lemma mismatched (\"ser\" instead of \"fue\") and IPA incorrect"
+   ]
+  },
+  {
+   "form": "sólo",
+   "word": "solo",
+   "why": [
+    "LanguageTool: SOLO: Sólo – La tilde es innecesaria según la norma actual. Con el sentido de «solamente» (adv.), cuando hay riesgo de ambigüedad con el adj. «solo», puede escribirse «sólo» (DRAE)."
+   ]
+  },
+  {
+   "form": "vez",
+   "word": "vez",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "era",
+   "word": "ser",
+   "why": [
+    "giám khảo A: The key 'era' suggests the headword should be 'era' (noun), but the entry defines the verb 'ser'. If the intent is the verb form, the key is misleading; if the intent is the noun, the POS and gloss are wrong.",
+    "dịch ngược lệch: dịch ngược không trả",
+    "cổng: ser: câu ví dụ không chứa \"ser\""
+   ]
+  },
+  {
+   "form": "soy",
+   "word": "ser",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả",
+    "cổng: ser: câu ví dụ không chứa \"ser\""
+   ]
+  },
+  {
+   "form": "todos",
+   "word": "todo",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả",
+    "cổng: todo: câu ví dụ không chứa \"todo\""
+   ]
+  },
+  {
+   "form": "porque",
+   "word": "porque",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "son",
+   "word": "ser",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả",
+    "cổng: ser: câu ví dụ không chứa \"ser\""
+   ]
+  },
+  {
+   "form": "tienes",
+   "word": "tener",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả",
+    "cổng: tener: câu ví dụ không chứa \"tener\""
+   ]
+  },
+  {
+   "form": "creo",
+   "word": "creer",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả",
+    "cổng: creer: câu ví dụ không chứa \"creer\""
+   ]
+  },
+  {
+   "form": "voy",
+   "word": "ir",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả",
+    "cổng: ir: câu ví dụ không chứa \"ir\""
+   ]
+  },
+  {
+   "form": "sabes",
+   "word": "saber",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "estaba",
+   "word": "estar",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "puede",
+   "word": "poder",
+   "why": [
+    "giám khảo A: IPA contains 'ð' (Spain-only); Latin American Spanish uses /d/ or /ð/ depending on region but standard es-419 transcription typically avoids the interdental fricative symbol in favor of /d/ or specifies the region. More critically, the prompt explicitly flags IPA with θ as invalid, and while 'ð' is not 'θ', it is the Spain-specific realization. However, the main issue is often the use of 'ð' in a generic es-419 context where 'd' is preferred or the distinction is not marked as Spain-specific. Let's look closer: The prompt says 'IPA has θ'. 'ð' is not 'θ'. But 'poder' in es-419 is /poˈdeɾ/. The entry has /poˈðeɾ/. This is the Spain pronunciation. Therefore, it is not neutral Latin American Spanish.",
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "eres",
+   "word": "ser",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "ese",
+   "word": "ese",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "usted",
+   "word": "usted",
+   "why": [
+    "giám khảo A: IPA contains 'ð' (Spain-only); Latin American Spanish uses /d/ (e.g., usˈted).",
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "entonces",
+   "word": "entonces",
+   "why": [
+    "giám khảo B: The French (alors), German (dannach - misspelling of danach), Indonesian (kemudian), Thai (แล้ว), Chinese (然后), Japanese (それから), Turkish (sonra) glosses mean 'afterwards/then' sequentially, whereas 'entonces' here is logical/temporal ('then/so'). Also IPA contains a dot (enˈton.se instead of enˈtonse).",
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "hola",
+   "word": "hola",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "solo",
+   "word": "solo",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "verdad",
+   "word": "verdad",
+   "why": [
+    "giám khảo A: IPA contains 'ð' (Spain-only); Latin American Spanish uses /d/ (e.g., beɾˈdad).",
+    "giám khảo B: IPA for 'verdad' starts with 'b' (/beɾˈðað/) instead of 'v' symbol /beɾˈðað/ (phonetically correct [beɾˈðað] / [veɾˈðað], standard phonemic is /beɾˈðað/, but initial b without slashes or proper notation is okay, wait: Latin American Spanish IPA phonemic is /beɾˈðað/. Wait, let's re-check IPA. IPA /beɾˈðað/ is phonemically correct in Spanish since /b/ is used for 'v'). Actually IPA is standard.",
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "quién",
+   "word": "quién",
+   "why": [
+    "giám khảo A: IPA not proper Latin American format"
+   ]
+  },
+  {
+   "form": "sus",
+   "word": "su",
+   "why": [
+    "giám khảo A: Lemma should be 'sus', not 'su'",
+    "dịch ngược lệch: id"
+   ]
+  },
+  {
+   "form": "esa",
+   "word": "ese",
+   "why": [
+    "giám khảo A: Lemma and gender mismatch"
+   ]
+  },
+  {
+   "form": "dónde",
+   "word": "dónde",
+   "why": [
+    "cổng: dónde: nghĩa zh sai chữ viết:  where"
+   ]
+  },
+  {
+   "form": "va",
+   "word": "ir",
+   "why": [
+    "giám khảo A: Lemma should be 'va', not 'ir'"
+   ]
+  },
+  {
+   "form": "favor",
+   "word": "favor",
+   "why": [
+    "dịch ngược lệch: id,th,zh,ru,tr"
+   ]
+  },
+  {
+   "form": "mucho",
+   "word": "mucho",
+   "why": [
+    "giám khảo B: IPA uses ʃ instead of the correct tʃ for the Spanish /tʃ/ sound"
+   ]
+  },
+  {
+   "form": "mí",
+   "word": "mí",
+   "why": [
+    "dịch ngược lệch: vi,id,th,zh,ja,ko,ar,tr"
+   ]
+  },
+  {
+   "form": "siento",
+   "word": "sentir",
+   "why": [
+    "dịch ngược lệch: ja",
+    "cổng: sentir: nghĩa ja sai chữ viết:  felt"
+   ]
+  },
+  {
+   "form": "señor",
+   "word": "señor",
+   "why": [
+    "dịch ngược lệch: ja"
+   ]
+  },
+  {
+   "form": "has",
+   "word": "haber",
+   "why": [
+    "dịch ngược lệch: vi,id,th,zh,ja,ko,hi,ar,tr"
+   ]
+  },
+  {
+   "form": "decir",
+   "word": "decir",
+   "why": [
+    "dịch ngược lệch: id,ar"
+   ]
+  },
+  {
+   "form": "también",
+   "word": "también",
+   "why": [
+    "cổng: también: nghĩa ru sai chữ viết: también"
+   ]
+  },
+  {
+   "form": "tenemos",
+   "word": "tener",
+   "why": [
+    "dịch ngược lệch: hi"
+   ]
+  },
+  {
+   "form": "estar",
+   "word": "estar",
+   "why": [
+    "trùng lemma"
+   ]
+  },
+  {
+   "form": "estamos",
+   "word": "estar",
+   "why": [
+    "trùng lemma"
+   ]
+  },
+  {
+   "form": "ni",
+   "word": "ni",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả",
+    "cổng: ni: nghĩa vi = nguyên từ es"
+   ]
+  },
+  {
+   "form": "poco",
+   "word": "poco",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "día",
+   "word": "día",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "uno",
+   "word": "uno",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "noche",
+   "word": "noche",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "hecho",
+   "word": "hecho",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "mis",
+   "word": "mi",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "otra",
+   "word": "otro",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả",
+    "cổng: otro: câu ví dụ không chứa \"otro\""
+   ]
+  },
+  {
+   "form": "acuerdo",
+   "word": "acuerdo",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "trabajo",
+   "word": "trabajo",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "nosotros",
+   "word": "nosotros",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "parece",
+   "word": "parecer",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả",
+    "cổng: parecer: câu ví dụ không chứa \"parecer\""
+   ]
+  },
+  {
+   "form": "gente",
+   "word": "gente",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "sea",
+   "word": "ser",
+   "why": [
+    "giám khảo B: IPA transcription for 'ser' has an incorrect stress accent placement (seˈa instead of ˈseɾ or ˈsea for subjunctive).",
+    "dịch ngược lệch: dịch ngược không trả",
+    "cổng: ser: câu ví dụ không chứa \"ser\""
+   ]
+  },
+  {
+   "form": "padre",
+   "word": "padre",
+   "why": [
+    "giám khảo A: IPA contains 'ð' (paˈðɾe) which is not standard Latin American Spanish (should be paˈdɾe).",
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "mira",
+   "word": "mirar",
+   "why": [
+    "giám khảo B: IPA transcription for 'mirar' has an incorrect stress accent placement (miˈɾa instead of miˈɾaɾ or ˈmiɾa for conjugated form).",
+    "dịch ngược lệch: dịch ngược không trả",
+    "cổng: mirar: câu ví dụ không chứa \"mirar\""
+   ]
+  },
+  {
+   "form": "mismo",
+   "word": "mismo",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "dijo",
+   "word": "decir",
+   "why": [
+    "dịch ngược lệch: dịch ngược không trả",
+    "cổng: decir: câu ví dụ không chứa \"decir\""
+   ]
+  },
+  {
+   "form": "nadie",
+   "word": "nadie",
+   "why": [
+    "giám khảo A: IPA contains 'ð' (naˈðje) which is not standard Latin American Spanish (should be naˈdje).",
+    "dịch ngược lệch: dịch ngược không trả"
+   ]
+  },
+  {
+   "form": "vas",
+   "word": "ir",
+   "why": [
+    "trùng lemma"
+   ]
+  },
+  {
+   "form": "podría",
+   "word": "poder",
+   "why": [
+    "trùng lemma"
+   ]
+  },
+  {
+   "form": "quiere",
+   "word": "querer",
+   "why": [
+    "trùng lemma"
+   ]
+  },
+  {
+   "form": "han",
+   "word": "haber",
+   "why": [
+    "dịch ngược lệch: vi,id,zh,ja,ko,ru,tr"
+   ]
+  }
+ ],
+ "tried": [
+  "estoy",
+  "ahora",
+  "muy",
+  "ha",
+  "esta",
+  "así",
+  "vamos",
+  "algo",
+  "hay",
+  "bueno",
+  "o",
+  "he",
+  "ser",
+  "tiene",
+  "puedo",
+  "ella",
+  "quiero",
+  "fue",
+  "gracias",
+  "sólo",
+  "tan",
+  "quién",
+  "sus",
+  "tiempo",
+  "dos",
+  "esa",
+  "nunca",
+  "dónde",
+  "va",
+  "oh",
+  "favor",
+  "mucho",
+  "mí",
+  "quieres",
+  "siento",
+  "señor",
+  "mejor",
+  "hace",
+  "has",
+  "decir",
+  "también",
+  "sobre",
+  "dios",
+  "sin",
+  "tenemos",
+  "están",
+  "ti",
+  "puedes",
+  "ver",
+  "hombre",
+  "vida",
+  "alguien",
+  "cosas",
+  "siempre",
+  "hasta",
+  "ahí",
+  "ir",
+  "años",
+  "antes",
+  "estar",
+  "estamos",
+  "quiere",
+  "podría",
+  "vas",
+  "ellos",
+  "tal",
+  "pasa",
+  "fuera",
+  "después",
+  "han",
+  "desde"
+ ],
+ "spot": [
+  "oh",
+  "sobre"
+ ],
+ "stats": {
+  "used": {
+   "lexai": 0,
+   "gc": 0,
+   "cf2": 0,
+   "cfLeak": 0,
+   "cf2Dead": [],
+   "gem": 16,
+   "groq": 62
+  },
+  "budget": {
+   "lexai": 0,
+   "gc": 10000,
+   "cf2": 0
+  },
+  "by": {
+   "gem|gemini-3.8-flash": {
+    "ok": 1,
+    "fail": 9,
+    "bad": 0
+   },
+   "gem|gemini-3.6-flash": {
+    "ok": 15,
+    "fail": 6,
+    "bad": 0
+   },
+   "groq|openai/gpt-oss-120b": {
+    "ok": 26,
+    "fail": 3,
+    "bad": 0
+   },
+   "groq|qwen/qwen3.8-27b": {
+    "ok": 36,
+    "fail": 1,
+    "bad": 0
+   },
+   "lexai|gemini-3.5-flash": {
+    "ok": 0,
+    "fail": 10,
+    "bad": 0
+   },
+   "gem|gemini-3.7-flash": {
+    "ok": 0,
+    "fail": 6,
+    "bad": 0
+   },
+   "lexai|gemma-3-27b-it": {
+    "ok": 0,
+    "fail": 1,
+    "bad": 0
+   }
+  },
+  "keys": {
+   "gem": {
+    "size": 85,
+    "live": 54,
+    "parked": {
+     "day": 24,
+     "auth": 2,
+     "minute": 5
+    }
+   },
+   "groq": {
+    "size": 109,
+    "live": 108,
+    "parked": {
+     "auth": 1
+    }
+   }
+  }
+ },
+ "wiktFlags": []
+}

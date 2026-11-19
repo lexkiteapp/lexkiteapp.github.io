@@ -1,0 +1,4 @@
+{
+ "_doc": "Lệch spec đã biết của đề hiện có (01/11/2026, P0-A). CHỈ được xoá dòng khi đã sửa nội dung đề cho khớp spec – không thêm dòng để làm xanh (no-cuts). Lệch mới → exam-format-check đỏ. Sửa theo hàng chờ ở docs/CONTENT-QA.md §6.",
+ "known": {}
+}

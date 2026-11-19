@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_es_actually",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Actually does not mean currently!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Actually, I live in Madrid.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Currently, I live in Madrid.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Actually means in fact. Currently means now.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Currently! Currently, I work at home.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Actually, I live in Madrid.",
+  "right": "Currently, I live in Madrid.",
+  "strike": "Actually",
+  "why": "Actually means in fact. Currently means now.",
+  "memory": "Currently = now.",
+  "quiz": {
+   "stem": "___ = now, these days",
+   "options": [
+    "Actually",
+    "Currently"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Actually” no es “actualmente”",
+   "tip": "Falso amigo: “actually” significa “en realidad”. “Actualmente” se dice “currently”.",
+   "caption": "¡Cuidado con este falso amigo! 😬 “Actualmente” no es “actually”: no digas “Actually, I live in Madrid.”, sino “Currently, I live in Madrid.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
+   "comment": "Respuesta: “Currently”. “Actually” es “en realidad”; “actualmente” es “currently”. Practica más con un quiz gratis aquí: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#falsosamigos",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Actually” is not “actualmente”",
+   "tip": "False friend: “actually” means “en realidad”. “Actualmente” is “currently”.",
+   "caption": "Careful with this false friend! “Actualmente” is not “actually”: do not say “Actually, I live in Madrid.”, say “Currently, I live in Madrid.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Actually” no es “actualmente”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "es",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "“Actually” no es “actualmente”",
+  "keyword": "Currently, I live in Madrid.",
+  "value": "Falso amigo: “actually” significa “en realidad”. “Actualmente” se dice “currently”.",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#falsosamigos",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "“Actually” no es “actualmente”",
+    "description": "Falso amigo: “actually” significa “en realidad”. “Actualmente” se dice “currently”.\n\n¡Cuidado con este falso amigo! 😬 “Actualmente” no es “actually”: no digas “Actually, I live in Madrid.”, sino “Currently, I live in Madrid.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #falsosamigos #lexkite",
+    "tags": [
+     "Currently, I live in Madrid.",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "¡Cuidado con este falso amigo! 😬 “Actualmente” no es “actually”: no digas “Actually, I live in Madrid.”, sino “Currently, I live in Madrid.” ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Actually” no es “actualmente”\n\nFalso amigo: “actually” significa “en realidad”. “Actualmente” se dice “currently”.\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#falsosamigos",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Actually” no es “actualmente” Falso amigo: “actually” significa “en realidad”. “Actualmente” se dice “cur… #aprenderingles #inglesfacil #falsosamigos"
+   }
+  },
+  "first_comment": "Respuesta: “Currently”. “Actually” es “en realidad”; “actualmente” es “currently”. Practica más con un quiz gratis aquí: {link}",
+  "lang": "es"
+ }
+}

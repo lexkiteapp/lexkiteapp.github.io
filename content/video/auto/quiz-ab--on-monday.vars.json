@@ -1,0 +1,19 @@
+{
+ "topic": "Grammar quiz: \"in Monday\" or \"on Monday\"?",
+ "scene": "library",
+ "seed": "q-on-monday",
+ "vars": {
+  "question": "In or on Monday?",
+  "optionA": "See you in Monday.",
+  "optionB": "See you on Monday.",
+  "answer": "It's B, on Monday. We use on with days.",
+  "example": "Exactly! On Friday, on my birthday, on the weekend.",
+  "tip": "on for days, in for months, at for times.",
+  "kw": "on Monday"
+ },
+ "hashtags": [
+  "englishquiz",
+  "grammarquiz",
+  "englishgrammar"
+ ]
+}

@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+
+<html lang="de"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Lexkite Mistake Notebook (German Bright Day)</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Plus Jakarta Sans Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary-container": "#785a00",
+            "inverse-primary": "#88d4cb",
+            "secondary-container": "#fd9500",
+            "surface-container-low": "#fff1e8",
+            "surface": "#fff8f5",
+            "secondary-fixed-dim": "#ffb872",
+            "tertiary-fixed": "#ffdf9b",
+            "surface-container-highest": "#efe0d6",
+            "on-secondary-fixed": "#2d1600",
+            "on-primary-fixed-variant": "#00504a",
+            "primary": "#00504b",
+            "error": "#ba1a1a",
+            "inverse-surface": "#372f28",
+            "secondary-fixed": "#ffdcbf",
+            "on-primary-container": "#9be7de",
+            "background": "#fff8f5",
+            "on-secondary": "#ffffff",
+            "on-tertiary-container": "#ffd370",
+            "on-background": "#211a14",
+            "on-surface-variant": "#3f4947",
+            "on-surface": "#211a14",
+            "secondary": "#8c5000",
+            "on-error-container": "#93000a",
+            "inverse-on-surface": "#fdeee3",
+            "on-secondary-container": "#633700",
+            "tertiary-fixed-dim": "#f5bf31",
+            "primary-container": "#136a63",
+            "primary-fixed": "#a4f1e7",
+            "outline": "#6f7977",
+            "surface-container": "#faebe1",
+            "surface-variant": "#efe0d6",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "on-primary": "#ffffff",
+            "primary-fixed-dim": "#88d4cb",
+            "error-container": "#ffdad6",
+            "surface-container-lowest": "#ffffff",
+            "on-tertiary": "#ffffff",
+            "surface-dim": "#e6d7cd",
+            "surface-bright": "#fff8f5",
+            "on-tertiary-fixed": "#251a00",
+            "on-secondary-fixed-variant": "#6a3b00",
+            "outline-variant": "#bec9c6",
+            "on-error": "#ffffff",
+            "on-primary-fixed": "#00201d",
+            "tertiary": "#5b4300",
+            "surface-tint": "#126a63",
+            "surface-container-high": "#f4e5db"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-sm": "0.5rem",
+            "space-lg": "1.5rem",
+            "gutter-md": "1.5rem",
+            "gutter-lg": "2rem",
+            "space-xl": "2.5rem",
+            "margin-md": "2rem",
+            "margin-lg": "3rem",
+            "margin": "1rem",
+            "gutter": "1rem",
+            "space-xs": "0.25rem",
+            "space-md": "1rem"
+          },
+          "fontFamily": {
+            "display-lg-mobile": ["Plus Jakarta Sans"],
+            "display-lg": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+            "display-lg": ["44px", {"lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+            "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+            "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "800"}],
+            "label-lg": ["16px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "700"}],
+            "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+            "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "500"}],
+            "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+            "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "800"}],
+            "label-md": ["14px", {"lineHeight": "18px", "letterSpacing": "0.03em", "fontWeight": "700"}],
+            "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+            "headline-lg-mobile": ["26px", {"lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "800"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      font-size: 20px;
+      line-height: 1;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .material-symbols-outlined.fill-1 {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased flex justify-center w-full min-h-screen">
+<!-- Mobile Container (390px Native Screen) -->
+<div class="w-[390px] min-h-screen bg-background relative flex flex-col pb-44">
+<!-- Top App Bar (Inner Variant) -->
+<header class="sticky top-0 z-40 bg-surface/95 backdrop-blur-sm px-4 py-3 flex items-center justify-between shadow-[0_4px_0_0_#efe0d6]">
+<div class="flex items-center gap-2.5">
+<button aria-label="Zurück" class="min-w-[48px] min-h-[48px] w-11 h-11 rounded-full bg-surface-container-lowest border-2 border-surface-variant flex items-center justify-center text-primary shadow-[0_2px_0_0_#efe0d6] active:translate-y-0.5 active:shadow-none transition-all"><span class="material-symbols-outlined text-primary">arrow_back</span></button>
+<div class="flex flex-col">
+<h1 class="font-headline-sm text-headline-sm text-primary leading-tight">Fehler-Notizbuch</h1>
+<span class="font-label-sm text-label-sm text-on-surface-variant">#/fehler • 25 Einträge ausstehend</span>
+</div>
+</div>
+<div class="flex items-center gap-1.5">
+<button aria-label="Filter" class="min-w-[48px] min-h-[48px] w-11 h-11 rounded-full bg-surface-container-lowest border-2 border-surface-variant flex items-center justify-center text-on-surface-variant shadow-[0_2px_0_0_#efe0d6] active:translate-y-0.5 active:shadow-none transition-all"><span class="material-symbols-outlined text-[18px]">tune</span></button>
+<button aria-label="Lesezeichen" class="min-w-[48px] min-h-[48px] w-11 h-11 rounded-full bg-surface-container-lowest border-2 border-surface-variant flex items-center justify-center text-on-surface-variant shadow-[0_2px_0_0_#efe0d6] active:translate-y-0.5 active:shadow-none transition-all"><span class="material-symbols-outlined text-[18px]">bookmark</span></button>
+</div>
+</header>
+<!-- Main Content Stream -->
+<main class="px-4 pt-3 flex flex-col gap-4">
+<!-- Teacher Tip Card -->
+<section class="bg-surface-container rounded-DEFAULT border-2 border-surface-variant p-3.5 shadow-[0_4px_0_0_#efe0d6] flex items-center gap-3">
+<!-- Dashed Teacher Container -->
+<div class="w-16 h-16 shrink-0 rounded-DEFAULT border-2 border-dashed border-primary bg-primary-fixed/20 flex flex-col items-center justify-center text-center p-1">
+<span class="material-symbols-outlined text-primary text-[20px]">school</span>
+<span class="font-label-sm text-[9px] leading-tight text-primary font-bold mt-0.5 tracking-tight">LEHRER-SLOT</span>
+</div>
+<!-- Tip Text -->
+<div class="flex-1">
+<div class="flex items-center gap-1 text-secondary mb-0.5">
+<span class="material-symbols-outlined text-[15px] fill-1">tips_and_updates</span>
+<span class="font-label-sm text-label-sm tracking-wide uppercase">Lern-Tipp</span>
+</div>
+<p class="font-body-sm text-[13px] leading-[18px] text-on-surface font-medium">
+            Das Wiederholen von Fehlern innerhalb von 24 Stunden verdoppelt die Merkfähigkeit für Band 7,5+.
+          </p>
+</div>
+</section>
+<!-- Filter & Timeline Section -->
+<section class="flex flex-col gap-2.5">
+<!-- Category Pills Row -->
+<div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-0.5"><button class="shrink-0 px-3.5 py-2.5 min-h-[48px] rounded-full bg-primary text-on-primary font-label-md text-label-md border-2 border-on-primary-fixed-variant shadow-[0_3px_0_0_#00201d] active:translate-y-0.5 active:shadow-none transition-transform flex items-center justify-center">Alle (25)</button><button class="shrink-0 px-3.5 py-2.5 min-h-[48px] rounded-full bg-surface-container-lowest text-on-surface font-label-md text-label-md border-2 border-surface-variant shadow-[0_3px_0_0_#efe0d6] active:translate-y-0.5 active:shadow-none transition-transform flex items-center justify-center">Grammatik (12)</button><button class="shrink-0 px-3.5 py-2.5 min-h-[48px] rounded-full bg-surface-container-lowest text-on-surface font-label-md text-label-md border-2 border-surface-variant shadow-[0_3px_0_0_#efe0d6] active:translate-y-0.5 active:shadow-none transition-transform flex items-center justify-center">Wortschatz (8)</button></div>
+<!-- Timeline Dropdown Filter -->
+<div class="flex items-center justify-between"><button class="flex items-center gap-1.5 px-3 py-2.5 min-h-[48px] rounded-full bg-surface-container text-on-surface-variant border-2 border-surface-variant shadow-[0_2px_0_0_#efe0d6] font-label-sm text-label-sm active:translate-y-0.5 active:shadow-none transition-all"><span>Zeitraum: Letzte 7 Tage</span><span class="material-symbols-outlined text-[16px]">arrow_drop_down</span></button><span class="font-label-sm text-label-sm text-on-surface-variant font-semibold">Sortiert nach Relevanz</span></div>
+</section>
+<!-- Mistake Cards List -->
+<section class="flex flex-col gap-3.5">
+<!-- Card 1: Grammar -->
+<article class="bg-surface-container-lowest rounded-DEFAULT border-2 border-surface-variant p-3.5 shadow-[0_4px_0_0_#efe0d6] flex flex-col gap-2.5">
+<!-- Card Header -->
+<div class="flex items-center justify-between border-b border-surface-variant pb-2">
+<span class="px-2.5 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-[11px]">
+              Grammatik • IELTS Schreibaufgabe 2
+            </span>
+<span class="font-label-sm text-[11px] text-on-surface-variant font-semibold">Gestern</span>
+</div>
+<!-- Stimulus Sentence -->
+<div class="font-body-md text-body-md font-bold text-on-surface bg-surface-container-low px-3 py-2 rounded-DEFAULT border border-surface-variant">
+            „Despite of the bad weather, the outdoor symposium continued.“
+          </div>
+<!-- Mistake vs Correction Stack -->
+<div class="flex flex-col gap-1.5">
+<!-- Incorrect Attempt -->
+<div class="flex items-center gap-2 p-2 rounded-DEFAULT bg-error-container/40 border border-error-container text-error">
+<span class="material-symbols-outlined text-[18px] text-error shrink-0">close</span>
+<div class="font-body-sm text-[13px] text-on-error-container">
+<span class="font-bold">Dein Versuch:</span> <span class="line-through decoration-error decoration-2">Despite of</span>
+</div>
+</div>
+<!-- Correct Standard -->
+<div class="flex items-center gap-2 p-2 rounded-DEFAULT bg-emerald-50 border border-emerald-200 text-emerald-900">
+<span class="material-symbols-outlined text-[18px] text-emerald-700 shrink-0">check_circle</span>
+<div class="font-body-sm text-[13px] text-emerald-950 font-bold">
+                Korrekter Standard: <span class="text-emerald-800">Despite / In spite of</span>
+</div>
+</div>
+</div>
+<!-- Rule Box -->
+<div class="flex items-start gap-2 p-2.5 rounded-DEFAULT bg-amber-50 border border-amber-200 text-amber-950">
+<span class="material-symbols-outlined text-amber-700 text-[18px] shrink-0 mt-0.5 fill-1">lightbulb</span>
+<p class="font-body-sm text-[12px] leading-[17px] text-amber-900 font-medium">
+<span class="font-bold text-amber-950">Regel:</span> 'Despite' verlangt ein Substantiv direkt ohne Präposition ('of'). 'In spite' benötigt immer 'of'.
+            </p>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center justify-end gap-2 pt-1"><button class="px-3.5 py-2.5 min-h-[48px] rounded-full bg-surface-container-lowest border-2 border-surface-variant text-primary font-label-md text-label-md flex items-center gap-1 shadow-[0_3px_0_0_#efe0d6] active:translate-y-0.5 active:shadow-none transition-all"><span class="material-symbols-outlined text-[16px]">volume_up</span><span>Anhören</span></button><button class="px-3.5 py-2.5 min-h-[48px] rounded-full bg-primary-container text-on-primary font-label-md text-label-md border-2 border-[#0B423E] flex items-center gap-1 shadow-[0_3px_0_0_#0B423E] active:translate-y-0.5 active:shadow-none transition-all"><span class="material-symbols-outlined text-[16px]">fitness_center</span><span>Üben (1x)</span></button></div>
+</article>
+<!-- Card 2: Vocabulary / Collocation -->
+<article class="bg-surface-container-lowest rounded-DEFAULT border-2 border-surface-variant p-3.5 shadow-[0_4px_0_0_#efe0d6] flex flex-col gap-2.5">
+<!-- Card Header -->
+<div class="flex items-center justify-between border-b border-surface-variant pb-2">
+<span class="px-2.5 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-[11px]">
+              Wortschatz • Band 7,5 Kollokation
+            </span>
+<span class="font-label-sm text-[11px] text-on-surface-variant font-semibold">Vor 2 Tagen</span>
+</div>
+<!-- Stimulus Sentence -->
+<div class="font-body-md text-body-md font-bold text-on-surface bg-surface-container-low px-3 py-2 rounded-DEFAULT border border-surface-variant">
+            „The committee decided to make a decision quickly.“
+          </div>
+<!-- Weak attempt -->
+<div class="flex items-center gap-2 p-2 rounded-DEFAULT bg-amber-50/70 border border-amber-200 text-amber-900">
+<span class="material-symbols-outlined text-[18px] text-amber-700 shrink-0">priority_high</span>
+<div class="font-body-sm text-[13px] text-amber-950">
+<span class="font-bold">Schwaches Sprachregister:</span> make a decision
+            </div>
+</div>
+<!-- Natural Collocation -->
+<div class="flex items-start gap-2 p-2 rounded-DEFAULT bg-emerald-50 border border-emerald-200 text-emerald-900">
+<span class="material-symbols-outlined text-[18px] text-emerald-700 shrink-0 mt-0.5">verified</span>
+<div class="font-body-sm text-[13px] text-emerald-950 font-bold leading-snug">
+              Band 8,0 Natürliche Kollokation: <span class="text-emerald-800 underline decoration-emerald-500">reach a consensus / arrive at a decision</span>
+</div>
+</div>
+<!-- Academic Note -->
+<div class="flex items-start gap-2 p-2.5 rounded-DEFAULT bg-surface-container border border-surface-variant">
+<span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">auto_stories</span>
+<p class="font-body-sm text-[12px] leading-[17px] text-on-surface-variant font-medium">
+<span class="font-bold text-on-surface">Akademischer Wortschatz:</span> Gehobene Kollokationen wie 'reach a consensus' steigern das Lexical Resource Ergebnis in Schreiben &amp; Sprechen.
+            </p>
+</div>
+<!-- Action Button -->
+<div class="flex items-center justify-end gap-2 pt-1"><button class="px-3.5 py-2.5 min-h-[48px] rounded-full bg-primary-container text-on-primary font-label-md text-label-md border-2 border-[#0B423E] flex items-center gap-1 shadow-[0_3px_0_0_#0B423E] active:translate-y-0.5 active:shadow-none transition-all"><span class="material-symbols-outlined text-[16px]">fitness_center</span><span>Üben (1x)</span></button></div>
+</article>
+<!-- Card 3: Pronunciation / Word Stress -->
+<article class="bg-surface-container-lowest rounded-DEFAULT border-2 border-surface-variant p-3.5 shadow-[0_4px_0_0_#efe0d6] flex flex-col gap-2.5">
+<!-- Card Header -->
+<div class="flex items-center justify-between border-b border-surface-variant pb-2">
+<span class="px-2.5 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-[11px]">
+              Aussprache • Wortbetonung
+            </span>
+<span class="font-label-sm text-[11px] text-on-surface-variant font-semibold">Vor 3 Tagen</span>
+</div>
+<!-- Target Word Display -->
+<div class="flex items-baseline justify-between bg-surface-container-low px-3 py-2 rounded-DEFAULT border border-surface-variant">
+<span class="font-headline-sm text-headline-sm text-primary">photographer</span>
+<span class="font-body-sm text-on-surface-variant font-bold">/fəˈtɒɡ.rə.fər/</span>
+</div>
+<!-- Stress Comparisons -->
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center gap-2 p-2 rounded-DEFAULT bg-error-container/40 border border-error-container text-error">
+<span class="material-symbols-outlined text-[18px] text-error shrink-0">cancel</span>
+<div class="font-body-sm text-[13px] text-on-error-container">
+<span class="font-bold">Falsche Silbenbetonung:</span> PHO-to-graph-er (1. Silbe)
+              </div>
+</div>
+<div class="flex items-center gap-2 p-2 rounded-DEFAULT bg-emerald-50 border border-emerald-200 text-emerald-950 font-bold">
+<span class="material-symbols-outlined text-[18px] text-emerald-700 shrink-0">mic</span>
+<div class="font-body-sm text-[13px] text-emerald-950">
+                Korrekte Silbenbetonung: <span class="text-emerald-800">pho-TOG-ra-pher</span> (2. Silbe)
+              </div>
+</div>
+</div>
+<!-- Principle Box -->
+<div class="flex items-start gap-2 p-2.5 rounded-DEFAULT bg-amber-50 border border-amber-200 text-amber-950">
+<span class="material-symbols-outlined text-amber-700 text-[18px] shrink-0 mt-0.5 fill-1">sync_alt</span>
+<p class="font-body-sm text-[12px] leading-[17px] text-amber-900 font-medium">
+<span class="font-bold text-amber-950">Betonungsverschiebung:</span> Die primäre Betonung wandert von 'PHO-to-graph' zu 'pho-TOG-ra-pher' durch das Suffix '-er'.
+            </p>
+</div>
+<!-- Actions -->
+<div class="flex items-center justify-end gap-2 pt-1"><button class="px-3.5 py-2.5 min-h-[48px] rounded-full bg-surface-container-lowest border-2 border-surface-variant text-primary font-label-md text-label-md flex items-center gap-1 shadow-[0_3px_0_0_#efe0d6] active:translate-y-0.5 active:shadow-none transition-all"><span class="material-symbols-outlined text-[16px]">volume_up</span><span>Anhören</span></button><button class="px-3.5 py-2.5 min-h-[48px] rounded-full bg-surface-container-lowest border-2 border-primary text-primary font-label-md text-label-md flex items-center gap-1 shadow-[0_3px_0_0_#00504b] active:translate-y-0.5 active:shadow-none transition-all"><span class="material-symbols-outlined text-[16px]">mic</span><span>Aufnehmen</span></button></div>
+</article>
+<!-- Card 4: Grammar / Agreement -->
+<article class="bg-surface-container-lowest rounded-DEFAULT border-2 border-surface-variant p-3.5 shadow-[0_4px_0_0_#efe0d6] flex flex-col gap-2.5">
+<!-- Card Header -->
+<div class="flex items-center justify-between border-b border-surface-variant pb-2">
+<span class="px-2.5 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-[11px]">
+              Grammatik • Kongruenz
+            </span>
+<span class="font-label-sm text-[11px] text-on-surface-variant font-semibold">Vor 4 Tagen</span>
+</div>
+<!-- Stimulus Sentence -->
+<div class="font-body-md text-body-md font-bold text-on-surface bg-surface-container-low px-3 py-2 rounded-DEFAULT border border-surface-variant">
+            „The number of international students are increasing rapidly.“
+          </div>
+<!-- Agreement comparison -->
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center gap-2 p-2 rounded-DEFAULT bg-error-container/40 border border-error-container text-error">
+<span class="material-symbols-outlined text-[18px] text-error shrink-0">close</span>
+<div class="font-body-sm text-[13px] text-on-error-container">
+<span class="font-bold">Kongruenzfehler:</span> <span class="line-through decoration-error">are increasing</span>
+</div>
+</div>
+<div class="flex items-center gap-2 p-2 rounded-DEFAULT bg-emerald-50 border border-emerald-200 text-emerald-950 font-bold">
+<span class="material-symbols-outlined text-[18px] text-emerald-700 shrink-0">check_circle</span>
+<div class="font-body-sm text-[13px] text-emerald-950">
+                Singular-Standard: <span class="text-emerald-800">is increasing</span>
+</div>
+</div>
+</div>
+<!-- Rule Box -->
+<div class="flex items-start gap-2 p-2.5 rounded-DEFAULT bg-amber-50 border border-amber-200 text-amber-950">
+<span class="material-symbols-outlined text-amber-700 text-[18px] shrink-0 mt-0.5 fill-1">lightbulb</span>
+<p class="font-body-sm text-[12px] leading-[17px] text-amber-900 font-medium">
+<span class="font-bold text-amber-950">Regel:</span> 'The number of' fungiert als Singular-Einheit ('is'), während 'A number of' Plural verlangt ('are').
+            </p>
+</div>
+<!-- Action Button -->
+<div class="flex items-center justify-end gap-2 pt-1"><button class="px-3.5 py-2.5 min-h-[48px] rounded-full bg-primary-container text-on-primary font-label-md text-label-md border-2 border-[#0B423E] flex items-center gap-1 shadow-[0_3px_0_0_#0B423E] active:translate-y-0.5 active:shadow-none transition-all"><span class="material-symbols-outlined text-[16px]">fitness_center</span><span>Üben (1x)</span></button></div>
+</article>
+</section>
+</main>
+<!-- Bottom Sticky Floating CTA Bar -->
+<div class="fixed bottom-20 left-0 right-0 max-w-[390px] mx-auto px-4 z-40 pointer-events-none">
+<div class="pointer-events-auto bg-surface/90 backdrop-blur-md p-2 rounded-DEFAULT border-2 border-surface-variant shadow-[0_4px_0_0_#efe0d6]">
+<button class="w-full bg-[#FF9600] active:translate-y-1 active:shadow-none transition-all duration-100 rounded-DEFAULT border-2 border-[#D97300] shadow-[0_4px_0_0_#D97300] py-2.5 px-4 flex flex-col items-center justify-center text-center">
+<div class="flex items-center justify-center gap-1.5 text-[#1a0d00] font-headline-sm text-headline-sm font-extrabold leading-tight">
+<span>Diese 25 Fehler üben</span>
+<span class="text-xl">⚡</span>
+</div>
+<span class="font-label-sm text-[11px] text-[#2d1600] font-bold opacity-90 mt-0.5">
+            Geschätzte Dauer: 8 Min. • +50 XP
+          </span>
+</button>
+</div>
+</div>
+<!-- Canonical 5-Tab Bottom Navigation Bar (Wortschatz / Vocab Active) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-space-xs py-space-xs h-20 bg-surface shadow-[0_-4px_0_0_#efe0d6] max-w-[390px] mx-auto border-t-2 border-surface-variant">
+<!-- 1. Heute (Today) -->
+<a aria-label="Heute" class="flex flex-col items-center justify-center text-on-surface-variant px-space-sm py-space-xs min-w-[48px] min-h-[48px] hover:bg-surface-container active:translate-y-0.5 transition-transform" href="#">
+<span class="material-symbols-outlined text-[24px]">today</span>
+<span class="text-label-sm font-label-sm mt-0.5">Heute</span>
+</a>
+<!-- 2. Wortschatz (Vocab - ACTIVE) -->
+<a aria-current="page" aria-label="Wortschatz" class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-fixed rounded-full px-space-sm py-space-xs border-2 border-secondary shadow-[0_2px_0_0_#8c5000] min-w-[56px] min-h-[48px]" href="#">
+<span class="material-symbols-outlined text-[24px] fill-1">menu_book</span>
+<span class="text-label-sm font-label-sm mt-0.5">Wortschatz</span>
+</a>
+<!-- 3. Fertigkeiten (Skills) -->
+<a aria-label="Fertigkeiten" class="flex flex-col items-center justify-center text-on-surface-variant px-space-sm py-space-xs min-w-[48px] min-h-[48px] hover:bg-surface-container active:translate-y-0.5 transition-transform" href="#">
+<span class="material-symbols-outlined text-[24px]">psychology</span>
+<span class="text-label-sm font-label-sm mt-0.5 leading-none text-center">Fertigkeiten</span>
+</a>
+<!-- 4. Prüfungen (Tests) -->
+<a aria-label="Prüfungen" class="flex flex-col items-center justify-center text-on-surface-variant px-space-sm py-space-xs min-w-[48px] min-h-[48px] hover:bg-surface-container active:translate-y-0.5 transition-transform" href="#">
+<span class="material-symbols-outlined text-[24px]">assignment</span>
+<span class="text-label-sm font-label-sm mt-0.5">Prüfungen</span>
+</a>
+<!-- 5. Profil (Me/Profile) -->
+<a aria-label="Profil" class="flex flex-col items-center justify-center text-on-surface-variant px-space-sm py-space-xs min-w-[48px] min-h-[48px] hover:bg-surface-container active:translate-y-0.5 transition-transform" href="#">
+<span class="material-symbols-outlined text-[24px]">person</span>
+<span class="text-label-sm font-label-sm mt-0.5">Profil</span>
+</a>
+</nav>
+</div>
+</body></html>

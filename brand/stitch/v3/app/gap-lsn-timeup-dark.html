@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite - Exam Drill Results</title>
+<!-- Material Symbols Outlined Font -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Plus Jakarta Sans Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;family=JetBrains+Mono:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-primary-container": "#fffbff",
+            "primary-fixed-dim": "#ffb4a6",
+            "secondary-container": "#beebeb",
+            "on-secondary-fixed-variant": "#224d4e",
+            "on-error-container": "#93000a",
+            "background": "#fff8f0",
+            "on-primary": "#ffffff",
+            "surface-container": "#f5ede0",
+            "surface-dim": "#e1d9cd",
+            "primary-fixed": "#ffdad3",
+            "tertiary": "#855000",
+            "surface-container-high": "#efe7db",
+            "outline": "#8e706a",
+            "surface-container-highest": "#e9e2d5",
+            "on-secondary": "#ffffff",
+            "surface-variant": "#e9e2d5",
+            "error-container": "#ffdad6",
+            "surface": "#fff8f0",
+            "on-error": "#ffffff",
+            "primary-container": "#d33f28",
+            "surface-container-lowest": "#ffffff",
+            "on-tertiary-container": "#fffbff",
+            "secondary-fixed": "#beebeb",
+            "surface-container-low": "#fbf3e6",
+            "inverse-on-surface": "#f8f0e3",
+            "tertiary-fixed": "#ffdcbb",
+            "on-surface-variant": "#5a413c",
+            "on-primary-fixed": "#3f0300",
+            "inverse-surface": "#343028",
+            "on-tertiary": "#ffffff",
+            "tertiary-container": "#a66608",
+            "inverse-primary": "#ffb4a6",
+            "error": "#ba1a1a",
+            "on-secondary-fixed": "#002020",
+            "outline-variant": "#e3beb8",
+            "on-background": "#1e1b14",
+            "primary": "#b02611",
+            "on-tertiary-fixed-variant": "#683d00",
+            "on-tertiary-fixed": "#2c1700",
+            "surface-tint": "#b42814",
+            "secondary-fixed-dim": "#a3cfcf",
+            "on-secondary-container": "#426b6c",
+            "on-primary-fixed-variant": "#900f00",
+            "tertiary-fixed-dim": "#ffb869",
+            "secondary": "#3b6566",
+            "on-surface": "#1e1b14",
+            "surface-bright": "#fff8f0",
+            /* App Identity Specifics */
+            "ink-teal": "#0F3D3E",
+            "border-rim": "#E6DCB8",
+            "ledge-base": "#E0D5B8",
+            "coral-accent": "#F2553B",
+            "amber-gold": "#FFB054",
+            "coral-ledge": "#BA311B",
+            "mint-accent": "#2D9C5E",
+            "mint-ledge": "#1F6C41"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "2xl": "1rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "space-lg": "1.5rem",
+            "space-xl": "2.5rem",
+            "margin": "1rem",
+            "margin-tablet": "2rem",
+            "margin-desktop": "3rem",
+            "gutter": "1.25rem",
+            "gutter-desktop": "2rem"
+          },
+          fontFamily: {
+            "display-mobile": ["Plus Jakarta Sans", "sans-serif"],
+            "headline-lg-mobile": ["Plus Jakarta Sans", "sans-serif"],
+            "headline-md": ["Plus Jakarta Sans", "sans-serif"],
+            "body-lg": ["Plus Jakarta Sans", "sans-serif"],
+            "body-md": ["Plus Jakarta Sans", "sans-serif"],
+            "body-sm": ["Plus Jakarta Sans", "sans-serif"],
+            "label-lg": ["Plus Jakarta Sans", "sans-serif"],
+            "label-md": ["Plus Jakarta Sans", "sans-serif"],
+            "label-sm": ["Plus Jakarta Sans", "sans-serif"],
+            "mono-timer": ["JetBrains Mono", "monospace"]
+          },
+          fontSize: {
+            "display-mobile": ["32px", { lineHeight: "38px", letterSpacing: "-0.02em", fontWeight: "800" }],
+            "headline-lg-mobile": ["24px", { lineHeight: "32px", letterSpacing: "-0.01em", fontWeight: "700" }],
+            "headline-md": ["20px", { lineHeight: "28px", fontWeight: "700" }],
+            "body-lg": ["18px", { lineHeight: "28px", fontWeight: "500" }],
+            "body-md": ["16px", { lineHeight: "24px", fontWeight: "500" }],
+            "body-sm": ["14px", { lineHeight: "20px", fontWeight: "500" }],
+            "label-lg": ["15px", { lineHeight: "20px", letterSpacing: "0.02em", fontWeight: "700" }],
+            "label-md": ["13px", { lineHeight: "18px", letterSpacing: "0.03em", fontWeight: "700" }],
+            "label-sm": ["11px", { lineHeight: "16px", letterSpacing: "0.05em", fontWeight: "800" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined.fill {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+
+    /* Tactile physics utilities */
+    .tactile-card {
+      background-color: #ffffff;
+      border: 2px solid #E6DCB8;
+      box-shadow: 0 4px 0 0 #E0D5B8;
+    }
+    .tactile-card-teal {
+      background-color: #FFFDF9;
+      border: 2px solid #0F3D3E;
+      box-shadow: 0 4px 0 0 #0F3D3E;
+    }
+    .tactile-button-primary {
+      background: linear-gradient(180deg, #FFB054 0%, #F2553B 100%);
+      border: 2px solid #BA311B;
+      box-shadow: 0 5px 0 0 #BA311B;
+      transition: transform 120ms cubic-bezier(0.2, 0.8, 0.4, 1), box-shadow 120ms cubic-bezier(0.2, 0.8, 0.4, 1);
+    }
+    .tactile-button-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 0 0 #BA311B;
+    }
+    .tactile-button-primary:active {
+      transform: translateY(4px);
+      box-shadow: 0 1px 0 0 #BA311B;
+    }
+
+    .tactile-button-secondary {
+      background-color: #ffffff;
+      border: 2px solid #0F3D3E;
+      box-shadow: 0 4px 0 0 #0F3D3E;
+      transition: transform 120ms cubic-bezier(0.2, 0.8, 0.4, 1), box-shadow 120ms cubic-bezier(0.2, 0.8, 0.4, 1);
+    }
+    .tactile-button-secondary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 5px 0 0 #0F3D3E;
+    }
+    .tactile-button-secondary:active {
+      transform: translateY(4px);
+      box-shadow: 0 0 0 0 #0F3D3E;
+    }
+
+    .speech-tail::after {
+      content: '';
+      position: absolute;
+      left: -10px;
+      top: 24px;
+      width: 0;
+      height: 0;
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      border-right: 10px solid #E6DCB8;
+    }
+    .speech-tail::before {
+      content: '';
+      position: absolute;
+      left: -7px;
+      top: 25px;
+      width: 0;
+      height: 0;
+      border-top: 7px solid transparent;
+      border-bottom: 7px solid transparent;
+      border-right: 8px solid #ffffff;
+      z-index: 10;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-[#091518] text-[#d8e5e9] min-h-screen flex justify-center antialiased">
+<!-- Mobile Screen Shell Container (Strict 390px Native Viewport simulation) -->
+<main class="w-full max-w-[390px] min-h-screen bg-[#091518] flex flex-col relative pb-8 shadow-2xl">
+<!-- Top Pinned Bar: Shared Component Protocol Alignment -->
+<!-- Fully task-focused drill screen: Navigation shell suppressed, dedicated dismiss & progress header -->
+<header class="sticky top-0 z-40 bg-[#091518]/95 backdrop-blur-sm px-4 pt-3 pb-2 border-b-2 border-[#1e2f33] flex flex-col gap-2.5">
+<div class="flex items-center justify-between">
+<!-- Close (X) Touch target min 44x44px -->
+<button aria-label="Close drill results" class="w-11 h-11 rounded-xl bg-[#121d20] border-2 border-[#233539] shadow-[0_3px_0_0_#0a1113] flex items-center justify-center text-[#d8e5e9] hover:translate-y-[-1px] active:translate-y-[3px] active:shadow-none transition-all" type="button">
+<span class="material-symbols-outlined text-[22px]">close</span>
+</button>
+<!-- Brand / Activity Pill -->
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#121d20] border-2 border-[#233539] shadow-[0_2px_0_0_#0a1113]">
+<span class="w-2 h-2 rounded-full bg-[#F2553B] animate-pulse"></span>
+<span class="font-label-md text-label-md text-[#6bd8ce] tracking-wider uppercase font-bold">IELTS 7.5+ SPRINT</span>
+</div>
+<!-- Optional drill flag/bookmark button (min 44x44px) -->
+<button aria-label="Flag drill summary" class="w-11 h-11 rounded-xl bg-[#121d20] border-2 border-[#233539] shadow-[0_3px_0_0_#0a1113] flex items-center justify-center text-[#90B2B5] hover:translate-y-[-1px] active:translate-y-[3px] active:shadow-none transition-all" type="button">
+<span class="material-symbols-outlined text-[20px]">flag</span>
+</button>
+</div>
+<!-- Slim 100% Horizontal Progress Track (Completed Sprint) -->
+<div class="w-full h-2.5 bg-[#121d20] rounded-full border-2 border-[#233539] overflow-hidden p-[1px] relative">
+<div class="h-full w-full bg-gradient-to-r from-[#FFB054] via-[#F2553B] to-[#6bd8ce] rounded-full"></div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<div class="flex-1 px-4 pt-4 flex flex-col gap-5"><!-- Hero Section: Tactile Timer & Main Headline -->
+<section aria-labelledby="headline-result" class="flex flex-col items-center text-center gap-2 pt-1">
+<!-- Tactile Timer Ended Badge -->
+<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-2xl bg-[#351215] border-2 border-[#681c20] shadow-[0_3px_0_0_#1b0607]">
+<span class="material-symbols-outlined text-[#ffb4ab] text-[18px] fill">timer_off</span>
+<span class="font-label-sm text-label-sm text-[#ffb4ab] uppercase tracking-wider font-bold">TIMER ENDED</span>
+<span class="font-mono-timer font-bold text-sm text-[#ffb4ab] ml-0.5">00:00</span>
+</div>
+<!-- Main Headline and Subtitle Chip -->
+<div class="flex flex-col items-center mt-1">
+<h1 class="font-display-mobile text-display-mobile text-[#EEF6F7] tracking-tight font-extrabold" id="headline-result">
+            Time's up!
+          </h1>
+<div class="mt-1 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#121d20] border border-[#233539]">
+<span class="font-label-md text-label-md text-[#90B2B5]">RAPID VOCAB SPRINT • IELTS 7.5+</span>
+</div>
+</div>
+</section>
+<!-- Teacher Feedback Card with Speech Bubble -->
+<section aria-label="Instructor coaching message" class="tactile-card rounded-2xl p-3.5 flex items-center gap-3 relative">
+<!-- 80x80 Empty Dashed Placeholder (NO drawings, NO avatars, NO photos) -->
+<div class="w-20 h-20 shrink-0 rounded-xl border-2 border-dashed border-[#3d4f54] bg-[#0c1619] flex flex-col items-center justify-center text-center p-1 select-none">
+<span class="material-symbols-outlined text-[#62D7CE] text-[22px] mb-0.5">school</span>
+<span class="font-label-sm text-label-sm text-[#EEF6F7] font-bold leading-tight">2D Carlos</span>
+<span class="text-[9px] text-[#90B2B5] font-medium">teacher-slot</span>
+</div>
+<!-- Attached Speech Balloon -->
+<div class="flex-1 rounded-xl p-3 bg-[#162125] border-2 border-[#233539] relative speech-tail shadow-[0_3px_0_0_#0a1113]">
+<div class="flex items-center gap-1 mb-1">
+<span class="font-label-sm text-label-sm text-[#62D7CE] tracking-wide uppercase font-bold">TEACHER CARLOS</span>
+<span class="text-[10px] text-[#90B2B5] font-medium">• IELTS Coach</span>
+</div>
+<p class="font-body-md text-body-md text-[#EEF6F7] font-semibold leading-snug">
+            "So close — one more round?"
+          </p>
+</div>
+</section>
+<!-- Summary Statistics (6 Tactile Cards / Stat Tiles Bento Grid) -->
+<section aria-label="Performance summary" class="flex flex-col gap-2">
+<div class="flex items-center justify-between px-1">
+<span class="font-label-md text-label-md text-[#90B2B5] uppercase tracking-wider font-bold">DRILL METRICS</span>
+<span class="font-label-sm text-label-sm text-[#62D7CE] font-bold">100% COMPLETE</span>
+</div>
+<div class="grid grid-cols-2 gap-2.5">
+<!-- Tile 1: Answered -->
+<div class="tactile-card rounded-2xl p-3 flex flex-col justify-between min-h-[82px] hover:translate-y-[-1px] transition-transform">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-[#90B2B5]">Answered</span>
+<div class="w-7 h-7 rounded-lg bg-[#18282c] border border-[#263c42] flex items-center justify-center text-[#90B2B5]">
+<span class="material-symbols-outlined text-[18px]">checklist</span>
+</div>
+</div>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-[#EEF6F7]">8</span>
+<span class="font-body-sm text-body-sm text-[#6b8588]">/ 10</span>
+</div>
+</div>
+<!-- Tile 2: Correct -->
+<div class="tactile-card rounded-2xl p-3 flex flex-col justify-between min-h-[82px] hover:translate-y-[-1px] transition-transform">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-[#90B2B5]">Correct</span>
+<div class="w-7 h-7 rounded-lg bg-[#0f2d1e] border border-[#1b4b33] flex items-center justify-center text-[#3BD4C7]">
+<span class="material-symbols-outlined text-[18px] fill">check_circle</span>
+</div>
+</div>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-[#3BD4C7]">6</span>
+<span class="font-body-sm text-body-sm text-[#90B2B5]">words</span>
+</div>
+</div>
+<!-- Tile 3: Accuracy -->
+<div class="tactile-card rounded-2xl p-3 flex flex-col justify-between min-h-[82px] hover:translate-y-[-1px] transition-transform">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-[#90B2B5]">Accuracy</span>
+<div class="w-7 h-7 rounded-lg bg-[#122e33] border border-[#1d474e] flex items-center justify-center text-[#62D7CE]">
+<span class="material-symbols-outlined text-[18px]">pie_chart</span>
+</div>
+</div>
+<div class="mt-1">
+<span class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-[#62D7CE]">75%</span>
+</div>
+</div>
+<!-- Tile 4: Earned XP -->
+<div class="tactile-card rounded-2xl p-3 flex flex-col justify-between min-h-[82px] hover:translate-y-[-1px] transition-transform">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-[#90B2B5]">Earned</span>
+<div class="w-7 h-7 rounded-lg bg-[#322306] border border-[#52390a] flex items-center justify-center text-[#f4bf40]">
+<span class="material-symbols-outlined text-[18px] fill">bolt</span>
+</div>
+</div>
+<div class="mt-1">
+<span class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-[#f4bf40]">+12 XP</span>
+</div>
+</div>
+<!-- Tile 5: Streak -->
+<div class="tactile-card rounded-2xl p-3 flex flex-col justify-between min-h-[82px] hover:translate-y-[-1px] transition-transform">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-[#90B2B5]">Streak</span>
+<div class="w-7 h-7 rounded-lg bg-[#381611] border border-[#61271e] flex items-center justify-center text-[#F2553B]">
+<span class="material-symbols-outlined text-[18px] fill">local_fire_department</span>
+</div>
+</div>
+<div class="mt-1">
+<span class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-[#F2553B]">4 days</span>
+</div>
+</div>
+<!-- Tile 6: Pace -->
+<div class="tactile-card rounded-2xl p-3 flex flex-col justify-between min-h-[82px] hover:translate-y-[-1px] transition-transform">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-[#90B2B5]">Pace</span>
+<div class="w-7 h-7 rounded-lg bg-[#18282c] border border-[#263c42] flex items-center justify-center text-[#90B2B5]">
+<span class="material-symbols-outlined text-[18px]">timer</span>
+</div>
+</div>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-[#EEF6F7]">4.2s</span>
+<span class="font-label-sm text-label-sm text-[#6b8588]">/ q</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Last Question Review Card -->
+<section aria-labelledby="review-card-heading" class="tactile-card rounded-2xl p-4 flex flex-col gap-3 relative">
+<!-- Header Ribbon -->
+<div class="flex items-center justify-between border-b border-[#233539] pb-2.5">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[#62D7CE] text-[18px]">history_edu</span>
+<span class="font-label-md text-label-md text-[#62D7CE] tracking-wide uppercase font-bold" id="review-card-heading">
+              LAST QUESTION REVIEW
+            </span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-[#122e33] text-[#62D7CE] font-label-sm text-label-sm font-bold border border-[#1d474e]">
+            C1 ACADEMIC
+          </span>
+</div>
+<!-- Question Prompt -->
+<div>
+<span class="font-label-sm text-label-sm text-[#90B2B5] uppercase tracking-wider block mb-0.5 font-bold">Prompt</span>
+<p class="font-body-md text-body-md text-[#EEF6F7] font-semibold">
+            Which word means <span class="text-[#62D7CE] underline decoration-[#F2553B] decoration-2 underline-offset-2">"vital"</span>?
+          </p>
+</div>
+<!-- Highlighted Answer Option -->
+<div class="rounded-xl border-2 border-[#1F6C41] bg-[#0d2319] p-3 shadow-[0_3px_0_0_#06130d] flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="font-headline-md text-headline-md text-[#EEF6F7] font-extrabold tracking-tight">Crucial</span>
+<div class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#1F6C41] text-[#EEF6F7] font-label-sm text-label-sm font-bold">
+<span class="material-symbols-outlined text-[14px]">check</span>
+<span>Correct Choice</span>
+</div>
+</div>
+<div class="inline-flex items-center gap-1 text-[#3BD4C7] text-xs font-semibold">
+<span class="material-symbols-outlined text-[14px] fill">verified</span>
+<span>Synonym match • Accuracy verified</span>
+</div>
+</div>
+<!-- Coach Tip Box -->
+<div class="rounded-xl bg-[#0e171a] border border-[#233539] p-3 flex gap-2.5 items-start">
+<span class="material-symbols-outlined text-[#f4bf40] text-[20px] shrink-0 mt-0.5">lightbulb</span>
+<p class="font-body-sm text-body-sm text-[#A9BFC1] leading-relaxed">
+            "Crucial" and "vital" are high-band academic substitutes for "important" in Writing Task 2.
+          </p>
+</div>
+</section>
+<!-- Sticky-feel Physical CTA Dock at Bottom -->
+<section aria-label="Action controls" class="flex flex-col gap-3 pt-2">
+<!-- Primary Tactile CTA: Coral-to-Amber with Solid Deep Ledge -->
+<button class="tactile-button-primary w-full min-h-[54px] rounded-2xl px-6 py-3.5 flex items-center justify-center gap-2 cursor-pointer group" type="button">
+<span class="font-label-lg text-label-lg font-extrabold text-[#1B0B04] tracking-wide text-center">
+            Try again →
+          </span>
+</button>
+<!-- Secondary Tactile CTA: Dark Card with Deep Rim Stroke & Ledge -->
+<button class="tactile-button-secondary w-full min-h-[50px] rounded-2xl px-6 py-3 flex items-center justify-center gap-2 cursor-pointer" type="button">
+<span class="material-symbols-outlined text-[#3BD4C7] text-[20px]">visibility</span>
+<span class="font-label-lg text-label-lg font-bold text-[#EEF6F7]">
+            See answers
+          </span>
+</button>
+</section></div>
+<!-- Calm Reassurance Micro-Footer (Excludes Anxiety Metrics) -->
+<footer class="mt-4 px-6 text-center">
+<p class="font-label-sm text-label-sm text-[#90B2B5]">Daily Drill 4 of 5 • Steady progress builds fluency</p>
+</footer>
+</main>
+</body></html>

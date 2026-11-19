@@ -1,0 +1,122 @@
+{
+ "id": "m14",
+ "level": "B2",
+ "lo": "M.B2.04",
+ "activity": "relay",
+ "title": "Electric bike or ordinary bike?",
+ "scenario": "Your friend Jonas has a 12 km commute with one steep hill. He lives on the third floor, with no lift, and is deciding which bike to buy. He has not read this article, so tell him what it says that applies to him.",
+ "source": {
+  "kind": "text",
+  "text": [
+   "Choosing a commuter bike usually comes down to two options, and each has real strengths.",
+   "An electric bike gives a push on hills and in headwinds, so riders arrive faster and far less sweaty. This matters most on rides over ten kilometres. It also makes carrying shopping easy. On the other hand, it typically costs four or five times as much as an ordinary bike, it is heavy, often over twenty kilograms, so carrying it upstairs is hard, and the battery needs charging after about forty kilometres. Thieves also target electric models.",
+   "An ordinary bike is cheaper, light enough to lift, and needs no charging. It is also simple to repair. However, hills are tiring, riders often arrive hot, and long trips can feel like a chore, which means some owners stop cycling in winter.",
+   "Neither choice is correct for everyone. Weigh your distance, your hills and, importantly, where you will store the bike. The first electric bikes appeared in the 1890s, but only recently have batteries become light enough for them to be popular."
+  ]
+ },
+ "task": {
+  "mode": "write",
+  "audience": "a friend who must decide what to buy",
+  "prompt": "Write a message to Jonas (80–120 words). Explain the main pros and cons and say which points matter most for his situation.",
+  "min_words": 80,
+  "max_words": 120
+ },
+ "points": [
+  {
+   "id": "pro",
+   "idea": "The electric bike helps with hills and he arrives less sweaty.",
+   "checks": [
+    [
+     "electric"
+    ],
+    [
+     "hill"
+    ],
+    [
+     "sweat",
+     "hot",
+     "tired"
+    ]
+   ]
+  },
+  {
+   "id": "cost",
+   "idea": "It costs much more than an ordinary bike.",
+   "checks": [
+    [
+     "expensive",
+     "costs",
+     "price",
+     "more money",
+     "four or five times"
+    ]
+   ]
+  },
+  {
+   "id": "heavy",
+   "idea": "It is heavy to carry up to a third-floor flat.",
+   "checks": [
+    [
+     "heavy"
+    ],
+    [
+     "stairs",
+     "floor",
+     "upstairs",
+     "lift"
+    ]
+   ]
+  },
+  {
+   "id": "range",
+   "idea": "The battery lasts about 40 km, enough for his 24 km round trip.",
+   "checks": [
+    [
+     "battery",
+     "charge"
+    ],
+    [
+     "40"
+    ]
+   ]
+  },
+  {
+   "id": "advice",
+   "idea": "A recommendation tied to Jonas.",
+   "checks": [
+    [
+     "in your case",
+     "for you",
+     "since your",
+     "because your",
+     "i would",
+     "i'd"
+    ]
+   ]
+  }
+ ],
+ "leave_out": [
+  {
+   "idea": "The history of electric bikes (1890s).",
+   "checks": [
+    [
+     "1890",
+     "invented",
+     "history"
+    ]
+   ]
+  }
+ ],
+ "model": "Hi Jonas, I read that article for you. In short, an electric bike would help with your hill and you would arrive far less sweaty on a 12 km ride. The battery lasts about 40 km, so your 24 km round trip is fine. The downsides are the price, which is about four or five times higher, and the weight: it is heavy to carry up to your third-floor flat. In your case, I'd think hard about where you can keep it. If you can park it safely downstairs, I'd go electric; if not, an ordinary bike may be easier.",
+ "useful": [
+  "In short, … would help with …",
+  "The downsides are …",
+  "In your case, …",
+  "If …, I'd go for …; if not, …"
+ ],
+ "tips": [
+  "When you relay pros and cons for a decision, sort them by relevance to the person, not by their order in the text.",
+  "Do some small calculations for the reader (12 km each way = 24 km a day). Linking the text to their life is what makes it useful."
+ ],
+ "explain": "Jonas needs the hill and sweat benefit, the cost, the weight on the stairs, and the battery range checked against his commute, with a recommendation. The history of electric bikes does not help his choice."
+}

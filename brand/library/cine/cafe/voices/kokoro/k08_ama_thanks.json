@@ -1,0 +1,13 @@
+{
+  "metadata": {
+    "soundFile": "/home/runner/work/lexkiteapp.github.io/lexkiteapp.github.io/cine/wav/k08_ama_thanks.wav",
+    "duration": 0.58
+  },
+  "mouthCues": [
+    { "start": 0.00, "end": 0.04, "value": "X" },
+    { "start": 0.04, "end": 0.10, "value": "B" },
+    { "start": 0.10, "end": 0.29, "value": "C" },
+    { "start": 0.29, "end": 0.50, "value": "B" },
+    { "start": 0.50, "end": 0.58, "value": "X" }
+  ]
+}

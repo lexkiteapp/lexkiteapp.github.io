@@ -1,0 +1,27 @@
+{
+ "topic": "Supermarket roleplay: where can I find the eggs?",
+ "scene": "supermarket",
+ "vars": {
+  "phrase": "where can I find",
+  "place": "the supermarket",
+  "hookLine": "Wait, where are the eggs?",
+  "staffOpen": "Looking for something? I can help.",
+  "learnerLine": "Yes, please. Where can I find the eggs?",
+  "staffReply": "They're in aisle five, next to the milk.",
+  "tip": "excuse me, where can I find… works in any store."
+ },
+ "lines": {
+  "hook": {
+   "expr": "surprised",
+   "gesture": "hands on cheeks"
+  },
+  "example": {
+   "expr": "curious"
+  }
+ },
+ "hashtags": [
+  "englishconversation",
+  "roleplay",
+  "learnenglish"
+ ]
+}

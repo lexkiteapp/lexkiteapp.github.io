@@ -1,0 +1,49 @@
+# Ảnh từ vựng – tầng MIỄN PHÍ, TẤT ĐỊNH (docs/LEXICON.md § Tầng miễn phí): icon Noto Emoji → OpenMoji, ảnh Wikimedia qua Wikidata.
+# Nguồn ngoài CHỈ dùng ở đây (CI) – app chỉ gọi media.lexkite.com. Không giám khảo AI cho icon (ánh xạ tất định + soát tay); wiki soát tay 10 %.
+# stage = vẽ + tờ soát (artifact) · publish = vẽ lại (cùng kết quả) + đăng lexkite-media + img.json. Hằng tuần thứ Hai: publish nghĩa mới (ánh xạ đã commit).
+name: Ảnh từ vựng (icon + Wikimedia)
+on:
+  schedule:
+    - cron: '40 4 * * 1'
+  workflow_dispatch:
+    inputs:
+      mode: { description: 'stage = chỉ vẽ + tờ soát · publish = vẽ + đăng', default: 'stage' }
+permissions:
+  contents: write
+concurrency: { group: vocab-img-free, cancel-in-progress: false }
+jobs:
+  free:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      MODE: ${{ github.event.inputs.mode || 'publish' }}
+    steps:
+      - uses: actions/checkout@v4
+        with: { ssh-key: '${{ secrets.BOT_DEPLOY_KEY }}' }   # đẩy main qua SSH khoá deploy (ruleset) – docs/CI-RUNNERS.md › required-gate
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: pip install -q pillow==11.0.0 pillow-avif-plugin==1.4.6
+      - name: Kho từ vựng
+        run: node scripts/build-lexicon.mjs --write
+      - name: Vẽ tầng miễn phí
+        run: mkdir -p out/free && python3 scripts/vocab-img/free_tier.py out/free --sheet out/free/sheet.jpg
+      - uses: actions/upload-artifact@v4
+        with: { name: vocab-img-free, retention-days: 14, path: out/free/ }
+      - name: Đăng (kho m4 media.lexkite.com/vimg + content/lexicon/img.json)
+        if: env.MODE == 'publish'
+        env: { K: '${{ secrets.MEDIA4_DEPLOY_KEY }}', LEX_CDN_CHECK: '0' }
+        run: |
+          # 12/11: cùng đường với lượt "Ảnh mọi nghĩa" (vocab-img-scene fillpub): ảnh → m4 qua push.mjs; chỉ mục img.json sinh lại trên main mới nhất (commit-regen.sh, idempotent) → không đè lượt khác
+          node scripts/vocab-img/publish-free.mjs --result out/free/result.json --stage .media-out
+          if [ -n "$(ls .media-out/vimg 2>/dev/null)" ]; then
+            [ -n "$K" ] || { echo "::error::thiếu secret MEDIA4_DEPLOY_KEY"; exit 1; }
+            install -m 600 /dev/null $RUNNER_TEMP/m4key && printf '%s\n' "$K" > $RUNNER_TEMP/m4key
+            MEDIA_KEY_M4=$RUNNER_TEMP/m4key node scripts/media/push.mjs --src .media-out --kind img --msg "vimg: tầng miễn phí ${{ github.run_id }}"
+            REGEN="node scripts/vocab-img/publish-free.mjs --result out/free/result.json --stage .media-out >/dev/null"
+            bash scripts/ci/commit-regen.sh "Ảnh từ vựng tầng miễn phí: lượt ${{ github.run_id }} [CF-Pages-Skip]" "$REGEN" content/lexicon/img.json web/js/lexicon-img.json extension/app/js/lexicon-img.json web/js/vimg extension/app/js/vimg
+          else echo "tầng miễn phí: không có ảnh mới để đăng"; fi
+      - name: CDN – mỗi mục img phải có file (HEAD mẫu 5 %)
+        if: env.MODE == 'publish'
+        run: for i in 1 2 3 4 5 6 7 8 9 10; do sleep 60; node scripts/vocab-img/cdn-check.mjs --sample 0.05 && exit 0; done; exit 1   # chờ Pages của lexkite-media triển khai (~2–5 phút)

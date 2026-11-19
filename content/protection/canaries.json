@@ -1,0 +1,111 @@
+{
+  "_note": "Danh sách các mẫu câu, ví dụ, tên riêng độc nhất (canary tokens) do Lexkite biên soạn trong kho câu hỏi/đề thi để đối soát bản quyền khi phát hiện bên thứ ba sao chép dữ liệu. Mục có 'q' = cụm tìm nguyên văn (copy-watch.mjs dò hằng tuần qua Brave Search + GitHub code search, báo Quản trị). Canary là câu đúng ngữ pháp/nghĩa, chỉ đổi tên riêng hư cấu → không ảnh hưởng người học, đáp án, lời giải.",
+  "updated": "2026-11-03",
+  "canaries": [
+    {
+      "id": "cnr-tsw-01",
+      "module": "toeic/sw1.js",
+      "task": "tsw-rd1",
+      "token": "Greenfield Market reusable shopping bag bakery deli seafood counters",
+      "context": "Đề đọc to TOEIC Speaking: thông báo siêu thị Greenfield Market với ưu đãi túi tái sử dụng độc quyền biên soạn bởi Lexkite.",
+      "kind": "exam",
+      "q": "Thank you for visiting Greenfield Market. This week only"
+    },
+    {
+      "id": "cnr-tsw-02",
+      "module": "toeic/sw1.js",
+      "task": "tsw-rd3",
+      "token": "Carter and Lee Accounting tax returns payroll or business planning",
+      "context": "Hộp thư thoại văn phòng kế toán Carter and Lee trong bài thi đọc to.",
+      "kind": "exam"
+    },
+    {
+      "id": "cnr-tsw-03",
+      "module": "toeic/sw1.js",
+      "task": "tsw-rd4",
+      "token": "Dr. Amelia Grant Regional Enterprise Centre Small Business Awards",
+      "context": "Bài giới thiệu diễn giả khách mời tiến sĩ Amelia Grant tại lễ trao giải doanh nghiệp nhỏ.",
+      "kind": "exam",
+      "q": "our guest speaker, Dr. Amelia Grant"
+    },
+    {
+      "id": "cnr-tsw-04",
+      "module": "toeic/sw1.js",
+      "task": "CK_OP",
+      "token": "my sister took a lower-paid job at a start-up and was promoted within a year",
+      "context": "Ví dụ mẫu sửa câu ❌ → ✅ trong tiêu chí chấm phần nêu ý kiến TOEIC Speaking.",
+      "kind": "exam"
+    },
+    {
+      "id": "cnr-tsw-05",
+      "module": "toeic/sw1.js",
+      "task": "CK_INFO",
+      "token": "He's leading two workshops. The first is at 10:45, and the second starts at 2:15.",
+      "context": "Mẫu câu trả lời câu hỏi số 10 trong bài thi TOEIC Speaking dựa trên bảng thông tin.",
+      "kind": "exam"
+    },
+    {
+      "id": "cnr-tr-01",
+      "kind": "exam",
+      "module": "toeic/reading1.js",
+      "task": "tr1 Part 5 #118",
+      "token": "The annual employee awards dinner ------- at the Quillmere Riverside Hotel last Saturday.",
+      "q": "Quillmere Riverside Hotel",
+      "context": "Câu Part 5 – tên khách sạn hư cấu Quillmere (chèn 3/11/2026)."
+    },
+    {
+      "id": "cnr-tr-02",
+      "kind": "exam",
+      "module": "toeic/reading4.js",
+      "task": "tr4 Part 5 #105",
+      "token": "The Hollin Crest Hotel recently ------- its lobby to create more seating space for guests.",
+      "q": "Hollin Crest Hotel recently",
+      "context": "Câu Part 5 – tên khách sạn hư cấu Hollin Crest (chèn 3/11/2026)."
+    },
+    {
+      "id": "cnr-tr-03",
+      "kind": "exam",
+      "module": "toeic/reading3.js",
+      "task": "tr3 Part 5 #124",
+      "token": "Ms. Nakamura has worked at Ostrander Bank ------- she graduated from university in 2015.",
+      "q": "Nakamura has worked at Ostrander Bank",
+      "context": "Câu Part 5 tự biên soạn, tên ngân hàng hư cấu."
+    },
+    {
+      "id": "cnr-vx-01",
+      "kind": "vocab",
+      "module": "lib/exam-vocab.js",
+      "task": "harbour#n ex",
+      "token": "Boat trips leave from the harbour at Quellsby every hour during the summer.",
+      "q": "harbour at Quellsby",
+      "context": "Câu ví dụ từ vựng – địa danh hư cấu Quellsby (chèn 3/11/2026)."
+    },
+    {
+      "id": "cnr-vx-02",
+      "kind": "vocab",
+      "module": "lib/exam-vocab.js",
+      "task": "lighthouse#n ex",
+      "token": "The old lighthouse at Marrowick Point has been turned into a small maritime museum.",
+      "q": "lighthouse at Marrowick Point",
+      "context": "Câu ví dụ từ vựng – địa danh hư cấu Marrowick Point."
+    },
+    {
+      "id": "cnr-vx-03",
+      "kind": "vocab",
+      "module": "lib/exam-vocab2.js",
+      "task": "pottery#n ex",
+      "token": "Fragments of painted pottery from the Velden Hollow dig help date each layer of the site.",
+      "q": "Velden Hollow dig",
+      "context": "Câu ví dụ từ vựng – khu khảo cổ hư cấu Velden Hollow."
+    },
+    {
+      "id": "cnr-vx-04",
+      "kind": "vocab",
+      "module": "lib/tsl-a.js",
+      "task": "ferry#n ex",
+      "token": "We took the ferry from Brannoch Quay to the island for the retreat.",
+      "q": "ferry from Brannoch Quay",
+      "context": "Câu ví dụ từ vựng – bến hư cấu Brannoch Quay."
+    }
+  ]
+}

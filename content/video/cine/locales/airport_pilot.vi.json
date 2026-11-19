@@ -1,0 +1,25 @@
+{
+ "lang": "vi",
+ "dir": "ltr",
+ "font": "BeVietnamPro-ExtraBold",
+ "name": "Tiếng Việt",
+ "lesson_file": "airport_pilot",
+ "lesson": "airport-window-seat",
+ "goal": "Làm thủ tục ở sân bay",
+ "hook": "Muốn ngồi cạnh cửa sổ thì nói sao?",
+ "lines": {
+  "m_hi": "Chào em! Cho chị xem hộ chiếu nhé?",
+  "a_passport": "Dạ vâng. Hộ chiếu của em đây ạ.",
+  "m_seat": "Cảm ơn em. Em muốn ghế cửa sổ hay lối đi?",
+  "a_window": "Cho em ghế cạnh cửa sổ được không ạ?",
+  "a_slow_window": "Cho em ghế cạnh cửa sổ được không ạ?",
+  "a_nowyou_air": "Đến lượt bạn! Xin ghế cạnh lối đi nhé.",
+  "a_aisle": "Cho em ghế cạnh lối đi được không ạ?",
+  "m_done": "Được chứ! Thẻ lên máy bay của em đây.",
+  "a_thanks_air": "Em cảm ơn chị nhiều ạ!"
+ },
+ "repeat": "Nói theo nhé",
+ "yourturn": "Xin ghế cạnh lối đi",
+ "recap": "= xin chỗ ngồi lịch sự",
+ "cta": "Đóng vai hội thoại này miễn phí trên"
+}

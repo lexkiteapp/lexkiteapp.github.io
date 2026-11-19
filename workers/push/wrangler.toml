@@ -1,0 +1,14 @@
+# Cron Worker nhắc học (docs/REMINDERS.md) – không có URL công khai. Bí mật: wrangler secret put PUSH_CRON_SECRET / VAPID_PUBLIC / VAPID_PRIVATE_JWK / FCM_SA
+name = "lexkite-push"
+main = "index.js"
+compatibility_date = "2026-10-01"
+workers_dev = false
+preview_urls = false
+
+# Mỗi 10 phút: máy chủ trả các thiết bị đến giờ địa phương (≤ 40/lượt). Đăng ký trong infra/jobs.json (id "push").
+[triggers]
+crons = ["*/10 * * * *"]
+
+[vars]
+API = "https://lexkite.com"
+VAPID_SUB = "mailto:support@lexkite.com"

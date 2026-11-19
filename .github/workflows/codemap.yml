@@ -1,0 +1,32 @@
+# Bản đồ mã nguồn: sinh lại docs/CODEMAP.md (≤ 25 KB, đọc đầu phiên) + docs/codemap.json khi mã đổi trên main; chỉ commit nếu có khác. Không phụ thuộc gói ngoài (node scripts/codemap.mjs), chạy < 1 phút. Luật: docs/TOKEN-RULES.md §1.
+name: codemap
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'web/**'
+      - 'functions/**'
+      - 'workers/**'
+      - 'scripts/**'
+      - 'extension/**'
+      - '!extension/app/**'
+      - 'infra/**'
+      - '.github/workflows/**'
+      - 'package.json'
+  workflow_dispatch:
+concurrency: { group: codemap, cancel-in-progress: false }
+permissions: { contents: write }
+jobs:
+  map:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with: { ssh-key: '${{ secrets.BOT_DEPLOY_KEY }}' }   # đẩy main qua SSH khoá deploy (ruleset) – docs/CI-RUNNERS.md › required-gate
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Sinh bản đồ
+        run: node scripts/codemap.mjs
+      - name: Ghi vào main nếu đổi
+        run: |
+          bash scripts/ci/push-main.sh "codemap #${{ github.run_number }}: cập nhật bản đồ mã nguồn" docs/CODEMAP.md docs/codemap.json

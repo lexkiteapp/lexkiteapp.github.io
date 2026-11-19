@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_fr_good_at",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "She is good at cooking.",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: She is very good in cooking.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: She is very good at cooking.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "With good, we say at.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "At! He is good at drawing.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "She is very good in cooking.",
+  "right": "She is very good at cooking.",
+  "strike": "in",
+  "why": "With good, we say at.",
+  "memory": "Good: at.",
+  "quiz": {
+   "stem": "He is very good ___ drawing.",
+   "options": [
+    "in",
+    "at"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "« Bon en » : “good at”",
+   "tip": "En français, on dit « bonne en cuisine ». En anglais, on dit “good at”.",
+   "caption": "Vous dites “She is very good in cooking.” ? En français, on dit « bonne en cuisine ». En anglais, on dit “good at”. Dites plutôt “She is very good at cooking.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.",
+   "comment": "Réponse : “She is very good at cooking.” — En français, on dit « bonne en cuisine ». En anglais, on dit “good at”. À vous : dites la phrase à voix haute, puis écrivez une phrase de votre cru. Quiz gratuit : {link}",
+   "hashtags": [
+    "#apprendrelanglais",
+    "#anglaisfacile",
+    "#coursdanglais",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say “good at”!",
+   "tip": "French says « bonne en cuisine ». English says “good at”.",
+   "caption": "Do you say this? “She is very good in cooking.” French says « bonne en cuisine ». English says “good at”. Say “She is very good at cooking.” Listen to Carlos and repeat with him! More exercises in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "« Bon en » : “good at”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "fr",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "« Bon en » : “good at”",
+  "keyword": "She is very good at cooking.",
+  "value": "En français, on dit « bonne en cuisine ». En anglais, on dit “good at”.",
+  "hashtags": [
+   "#apprendrelanglais",
+   "#anglaisfacile",
+   "#coursdanglais",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "« Bon en » : “good at”",
+    "description": "En français, on dit « bonne en cuisine ». En anglais, on dit “good at”.\n\nVous dites “She is very good in cooking.” ? En français, on dit « bonne en cuisine ». En anglais, on dit “good at”. Dites plutôt “She is very good at cooking.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "tags": [
+     "She is very good at cooking.",
+     "learn english",
+     "fr"
+    ]
+   },
+   "facebook": {
+    "text": "Vous dites “She is very good in cooking.” ? En français, on dit « bonne en cuisine ». En anglais, on dit “good at”. Dites plutôt “She is very good at cooking.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "« Bon en » : “good at”\n\nEn français, on dit « bonne en cuisine ». En anglais, on dit “good at”.\n\nlexkite.com",
+    "hashtags": [
+     "#apprendrelanglais",
+     "#anglaisfacile",
+     "#coursdanglais",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "« Bon en » : “good at” En français, on dit « bonne en cuisine ». En anglais, on dit “good at”. #apprendrelanglais #anglaisfacile #coursdanglais"
+   }
+  },
+  "first_comment": "Réponse : “She is very good at cooking.” — En français, on dit « bonne en cuisine ». En anglais, on dit “good at”. À vous : dites la phrase à voix haute, puis écrivez une phrase de votre cru. Quiz gratuit : {link}",
+  "lang": "fr"
+ }
+}

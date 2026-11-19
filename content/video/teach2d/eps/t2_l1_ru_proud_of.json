@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ru_proud_of",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "With or of?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I am proud with my son.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I am proud of my son.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Proud goes with of.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Of! We are proud of you.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I am proud with my son.",
+  "right": "I am proud of my son.",
+  "strike": "with",
+  "why": "Proud goes with of.",
+  "memory": "Proud of you.",
+  "quiz": {
+   "stem": "We are proud ___ you.",
+   "options": [
+    "with",
+    "of"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Горжусь сыном: “with” или “of”?",
+   "tip": "После proud ставь “of”: “I am proud of my son.”",
+   "caption": "Ты тоже говоришь “I am proud with my son”? 😅 По-русски «горжусь сыном» — без предлога, и хочется вставить “with”, а нужно “of.” Правильно: “I am proud of my son.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “of.” После proud — of. Скажи вслух: “I am proud of my son.” Бесплатный тест для практики здесь: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#английский",
+    "#изучениеанглийского",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "With or of?",
+   "tip": "After proud, use “of”: “I am proud of my son.”",
+   "caption": "Do you also say “I am proud with my son”? 😅 In Russian there is no small word, so “with” slips in, but English needs “of.” Correct: “I am proud of my son.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Горжусь сыном: “with” или “of”?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ru",
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Горжусь сыном: “with” или “of”?",
+  "keyword": "I am proud of my son.",
+  "value": "После proud ставь “of”: “I am proud of my son.”",
+  "hashtags": [
+   "#английскийязык",
+   "#английский",
+   "#изучениеанглийского",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "Горжусь сыном: “with” или “of”?",
+    "description": "После proud ставь “of”: “I am proud of my son.”\n\nТы тоже говоришь “I am proud with my son”? 😅 По-русски «горжусь сыном» — без предлога, и хочется вставить “with”, а нужно “of.” Правильно: “I am proud of my son.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #английский #изучениеанглийского #lexkite",
+    "tags": [
+     "I am proud of my son.",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Ты тоже говоришь “I am proud with my son”? 😅 По-русски «горжусь сыном» — без предлога, и хочется вставить “with”, а нужно “of.” Правильно: “I am proud of my son.” Послушай Карлоса и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Горжусь сыном: “with” или “of”?\n\nПосле proud ставь “of”: “I am proud of my son.”\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#английский",
+     "#изучениеанглийского",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Горжусь сыном: “with” или “of”? После proud ставь “of”: “I am proud of my son.” #английскийязык #английский #изучениеанглийского"
+   }
+  },
+  "first_comment": "Ответ: “of.” После proud — of. Скажи вслух: “I am proud of my son.” Бесплатный тест для практики здесь: {link}",
+  "lang": "ru"
+ }
+}

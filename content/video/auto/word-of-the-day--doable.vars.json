@@ -1,0 +1,24 @@
+{
+ "topic": "Vocabulary: word of the day \"doable\"",
+ "scene": "classroom",
+ "seed": "wotd-doable",
+ "vars": {
+  "word": "doable",
+  "hookLine": "Wait, doable?",
+  "question": "My teacher said the essay is doable. Is that good?",
+  "meaning": "possible to do, and not too hard",
+  "example": "One chapter a night is totally doable.",
+  "tip": "doable is do plus able. If you are able to do it, it's doable."
+ },
+ "lines": {
+  "hook": {
+   "expr": "surprised",
+   "gesture": "hands on cheeks"
+  }
+ },
+ "hashtags": [
+  "wordoftheday",
+  "englishvocabulary",
+  "learnenglish"
+ ]
+}

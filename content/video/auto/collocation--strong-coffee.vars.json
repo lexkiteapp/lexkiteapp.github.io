@@ -1,0 +1,28 @@
+{
+ "topic": "Cafe English: powerful coffee or strong coffee?",
+ "scene": "cafe",
+ "seed": "col-coffee",
+ "vars": {
+  "wrongColl": "powerful coffee",
+  "rightColl": "strong coffee",
+  "hookLine": "\"Powerful coffee\"?",
+  "question": "I always order a powerful coffee in the morning.",
+  "rule": "We say strong coffee. Strong means lots of coffee, not much water.",
+  "example": "One strong coffee coming up. That will wake you up!",
+  "tip": "strong coffee and strong tea. If it tastes like water, it's weak."
+ },
+ "lines": {
+  "hook": {
+   "expr": "thinking",
+   "gesture": ""
+  },
+  "situation": {
+   "expr": "calm"
+  }
+ },
+ "hashtags": [
+  "collocations",
+  "commonmistakes",
+  "speakenglish"
+ ]
+}

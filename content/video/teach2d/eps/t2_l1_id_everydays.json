@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_id_everydays",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Every day, no “s”!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I study every days.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I study every day.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "After every, one day.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Day! I walk every day.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I study every days.",
+  "right": "I study every day.",
+  "strike": "days",
+  "why": "After every, one day.",
+  "memory": "I study every day.",
+  "quiz": {
+   "stem": "I walk every ___.",
+   "options": [
+    "days",
+    "day"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "every day",
+   "tip": "Kita bilang “setiap hari” dengan satu kata hari. Di bahasa Inggris, setelah every juga satu kata: day, tanpa s.",
+   "caption": "Pernah bilang begini? “I study every days.” 😅 Setelah every, pakai day tanpa s: “I study every day.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
+   "comment": "Jawaban: “day”. Ucapkan dengan lantang: “I study every day.” lalu tulis satu hal yang kamu lakukan setiap hari. Latihan gratis lainnya di sini: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#kosakata",
+    "#bahasainggris",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Every day, no “s”",
+   "tip": "We say “setiap hari” with one word for day. In English, after every also use one word: day, with no s.",
+   "caption": "Ever say this? “I study every days.” 😅 After every, use day with no s: “I study every day.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "every day"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "id",
+ "est": {
+  "words": 41,
+  "seconds": 25.6,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "every day",
+  "keyword": "I study every day.",
+  "value": "Kita bilang “setiap hari” dengan satu kata hari. Di bahasa Inggris, setelah every juga satu kata: day, tanpa s.",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#kosakata",
+   "#bahasainggris",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "every day",
+    "description": "Kita bilang “setiap hari” dengan satu kata hari. Di bahasa Inggris, setelah every juga satu kata: day, tanpa s.\n\nPernah bilang begini? “I study every days.” 😅 Setelah every, pakai day tanpa s: “I study every day.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#belajarbahasainggris #kosakata #bahasainggris #lexkite",
+    "tags": [
+     "I study every day.",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Pernah bilang begini? “I study every days.” 😅 Setelah every, pakai day tanpa s: “I study every day.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "every day\n\nKita bilang “setiap hari” dengan satu kata hari. Di bahasa Inggris, setelah every juga satu kata: day, tanpa s.\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#kosakata",
+     "#bahasainggris",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "every day Kita bilang “setiap hari” dengan satu kata hari. Di bahasa Inggris, setelah every juga satu… #belajarbahasainggris #kosakata #bahasainggris"
+   }
+  },
+  "first_comment": "Jawaban: “day”. Ucapkan dengan lantang: “I study every day.” lalu tulis satu hal yang kamu lakukan setiap hari. Latihan gratis lainnya di sini: {link}",
+  "lang": "id"
+ }
+}

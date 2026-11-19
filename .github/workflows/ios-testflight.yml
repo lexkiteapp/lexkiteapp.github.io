@@ -1,0 +1,39 @@
+# Ký + tải bản iOS lên TestFlight (App Store Connect app 6824714708, Bundle ID com.lexkite.app, team B285J68262).
+# Ký Manual CỐ ĐỊNH (scripts/native/ios-sign.sh, trong store-build-ios.yml): chứng chỉ Apple Distribution + hồ sơ App Store app + widget từ secret – không ký Automatic (ci-policy luật 13, docs/CI-SIGNING-IOS.md).
+# Bước build/ký/tải: workflow tái dùng store-build-ios.yml (chung với store-submit.yml). Số build = max(build trên App Store Connect) + 1
+# (scripts/store/asc-submit.mjs plan) – trước đây = run_number nên trùng/thấp hơn build do workflow khác tải lên.
+# Secret: IOS_DIST_P12_BASE64, IOS_DIST_P12_PASSWORD, IOS_PROFILE_APP_BASE64, IOS_PROFILE_WIDGET_BASE64; ASC_KEY_ID/ASC_ISSUER_ID/ASC_KEY_P8 chỉ để tải lên (không in ra log). Chạy tay: Actions → "iOS → TestFlight".
+# Nộp duyệt App Store tự động: Actions → "Store submit" (store-submit.yml).
+name: iOS → TestFlight
+on:
+  workflow_dispatch:
+    inputs:
+      version: { description: 'Phiên bản hiển thị (MARKETING_VERSION); trống = bản kế tiếp theo App Store Connect', required: false, default: '' }
+      upload: { description: 'Tải lên TestFlight (bỏ chọn = chỉ archive + kiểm ký/entitlements)', type: boolean, required: false, default: true }
+permissions:
+  contents: read
+concurrency: { group: ios-testflight, cancel-in-progress: false }
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    outputs:
+      version: ${{ inputs.version || steps.p.outputs.version }}
+      build: ${{ steps.p.outputs.build }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Số build kế tiếp từ App Store Connect (chỉ đọc)
+        id: p
+        env: { ASC_KEY_ID: '${{ secrets.ASC_KEY_ID }}', ASC_ISSUER_ID: '${{ secrets.ASC_ISSUER_ID }}', ASC_KEY_P8: '${{ secrets.ASC_KEY_P8 }}' }
+        run: node scripts/store/asc-submit.mjs plan --app capacitor --bump patch
+  upload:
+    needs: plan
+    uses: ./.github/workflows/store-build-ios.yml
+    with:
+      app: capacitor
+      version: ${{ needs.plan.outputs.version }}
+      build: ${{ needs.plan.outputs.build }}
+      upload: ${{ inputs.upload }}
+    secrets: inherit

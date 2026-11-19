@@ -1,0 +1,27 @@
+{
+ "topic": "IELTS Writing Task 1: went up a lot",
+ "scene": "library",
+ "seed": "iw-rose",
+ "vars": {
+  "task": "Task 1",
+  "phrase": "rose sharply",
+  "basicShort": "went up a lot",
+  "hookLine": "Wait, \"went up a lot\"?",
+  "basic": "I wrote: Sales went up a lot in May. Is that too simple?",
+  "rule": "For a big, fast increase, use rose sharply. It sounds more academic.",
+  "better": "Sales rose sharply in May, then leveled off in June.",
+  "basicCard": "Sales went up a lot",
+  "betterCard": "Sales rose sharply",
+  "tip": "for a slow change, use rose slightly or fell slightly."
+ },
+ "lines": {
+  "situation": {
+   "expr": "thinking"
+  }
+ },
+ "hashtags": [
+  "ielts",
+  "ieltswriting",
+  "ieltsvocabulary"
+ ]
+}

@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Methodology</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "secondary-fixed-dim": "#ffb4a8",
+            "surface-container": "#f4ede3",
+            "on-surface-variant": "#3f4947",
+            "surface": "#fff8f1",
+            "secondary-container": "#fc6955",
+            "outline-variant": "#bec9c7",
+            "on-secondary": "#ffffff",
+            "on-primary-fixed-variant": "#00504c",
+            "tertiary-container": "#3e5754",
+            "on-error-container": "#93000a",
+            "on-surface": "#1e1b15",
+            "surface-dim": "#e0d9cf",
+            "surface-container-low": "#faf2e8",
+            "inverse-surface": "#333029",
+            "inverse-on-surface": "#f7f0e6",
+            "on-tertiary-fixed-variant": "#324b48",
+            "on-secondary-container": "#690000",
+            "tertiary": "#27403d",
+            "surface-variant": "#e9e1d8",
+            "primary-container": "#0d5c58",
+            "inverse-primary": "#8fd3cd",
+            "surface-container-high": "#efe7dd",
+            "on-tertiary": "#ffffff",
+            "surface-container-highest": "#e9e1d8",
+            "on-secondary-fixed": "#410000",
+            "background": "#fff8f1",
+            "on-primary": "#ffffff",
+            "on-error": "#ffffff",
+            "on-primary-fixed": "#00201e",
+            "error-container": "#ffdad6",
+            "on-primary-container": "#8ed2cc",
+            "surface-bright": "#fff8f1",
+            "surface-tint": "#216964",
+            "tertiary-fixed-dim": "#b0ccc8",
+            "primary-fixed-dim": "#8fd3cd",
+            "secondary-fixed": "#ffdad4",
+            "on-secondary-fixed-variant": "#8c170e",
+            "on-tertiary-fixed": "#051f1d",
+            "outline": "#6f7978",
+            "on-background": "#1e1b15",
+            "error": "#ba1a1a",
+            "tertiary-fixed": "#cce8e4",
+            "surface-container-lowest": "#ffffff",
+            "primary-fixed": "#abefe9",
+            "primary": "#004340",
+            "on-tertiary-container": "#b0ccc7",
+            "secondary": "#ae3123"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin-lg": "3rem",
+            "space-md": "1rem",
+            "gutter-md": "1.5rem",
+            "margin-md": "2rem",
+            "space-lg": "1.5rem",
+            "gutter-lg": "2rem",
+            "space-sm": "0.5rem",
+            "space-2xl": "3rem",
+            "space-xs": "0.25rem",
+            "space-xl": "2rem",
+            "margin": "1rem",
+            "gutter": "1rem"
+          },
+          "fontFamily": {
+            "headline-md": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "display-lg": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "body-lg": ["17px", { "lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "label-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "body-md": ["15px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "label-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "600" }],
+            "label-lg": ["15px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "700" }],
+            "body-sm": ["13px", { "lineHeight": "20px", "letterSpacing": "0.005em", "fontWeight": "400" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 24px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-smoothing: antialiased;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-[#10191B] text-[#E8F1F0] antialiased min-h-screen flex justify-center selection:bg-primary-container selection:text-white">
+<!-- Mobile Screen Container (390px fixed profile) -->
+<div class="w-full max-w-[390px] min-h-screen flex flex-col bg-[#10191B] relative overflow-x-hidden border-x border-[#22353a] shadow-sm pb-36">
+<!-- TopAppBar Component (from Shared Components JSON & Specifications) -->
+<header class="sticky top-0 z-30 bg-[#10191B]/95 backdrop-blur-md border-b border-[#22353a] shadow-[0_2px_0_0_#172427]">
+<div class="flex justify-between items-center w-full px-4 h-14 max-w-md mx-auto">
+<button aria-label="Back" class="w-11 h-11 flex items-center justify-center rounded-xl border border-[#22353a] bg-[#172427] text-[#38d9cb] shadow-[0_2px_0_0_#0c1416] hover:bg-[#1E2F33] transition-colors duration-150 active:translate-y-0.5 active:shadow-none" type="button">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="text-headline-sm font-headline-sm font-bold text-[#E8F1F0] tracking-tight">Methodology</h1>
+<button aria-label="Bookmark" class="w-11 h-11 flex items-center justify-center rounded-xl border border-[#22353a] bg-[#172427] text-[#38d9cb] shadow-[0_2px_0_0_#0c1416] hover:bg-[#1E2F33] transition-colors duration-150 active:translate-y-0.5 active:shadow-none" type="button">
+<span class="material-symbols-outlined">bookmark</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 px-4 pt-5 pb-6 space-y-7"><!-- Hero Header Section -->
+<section class="space-y-3">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1E2F33] border border-[#2ba39a]/40 text-[#38d9cb]">
+<span class="material-symbols-outlined text-[16px]">school</span>
+<span class="font-label-sm text-label-sm font-bold tracking-wider">COGNITIVE PEDAGOGY · CEFR &amp; EXAM ALIGNED</span>
+</div>
+<h2 class="font-display-lg-mobile text-display-lg-mobile text-[#E8F1F0] tracking-tight leading-tight">How Lexkite teaches</h2>
+<p class="font-body-md text-body-md text-[#A9BDBB] leading-relaxed">
+          A high-retention system engineered for working adults and university candidates aiming for IELTS 7.5+, TOEFL 105+, and TOEIC 900+.
+        </p>
+<!-- Teacher Coach Card -->
+<div class="mt-4 p-4 rounded-2xl bg-[#172427] border border-[#22353a] shadow-[0_2px_0_0_#0c1416] space-y-3">
+<div class="flex items-center gap-3">
+<!-- [teacher-slot] Empty rounded placeholder -->
+<div class="w-12 h-12 rounded-xl border-2 border-dashed border-[#38d9cb]/50 bg-[#1E2F33] flex flex-col items-center justify-center text-[#38d9cb]" title="[teacher-slot]">
+<span class="material-symbols-outlined text-[20px]">psychology</span>
+<span class="text-[9px] font-bold leading-none mt-0.5 font-label-sm">[teacher-slot]</span>
+</div>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-label-lg text-label-lg text-[#E8F1F0] font-bold">Ama</span>
+<span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-bold bg-[#0d5c58] text-[#abefe9]">CEFR Expert</span>
+</div>
+<p class="font-label-sm text-label-sm text-[#A9BDBB]">Academic Mentor &amp; Exam Assessor</p>
+</div>
+</div>
+<div class="p-3 rounded-xl bg-[#142023] border border-[#22353a]">
+<p class="font-body-sm text-body-sm text-[#E8F1F0] italic leading-snug">
+              "Traditional cramming decays in 72 hours. Our four-stage retrieval loop guarantees automatic recall during timed speaking and reading."
+            </p>
+</div>
+</div>
+</section>
+<!-- The 4-Stage Learning Loop -->
+<section class="space-y-3.5">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-[#E8F1F0] font-bold">The 4-Stage Learning Loop</h3>
+<span class="font-label-sm text-label-sm text-[#38d9cb] bg-[#1E2F33] border border-[#22353a] px-2 py-0.5 rounded-full font-bold">Closed-Loop Recall</span>
+</div>
+<div class="grid grid-cols-1 gap-3">
+<!-- Step 1 -->
+<div class="p-4 rounded-2xl bg-[#172427] border border-[#22353a] shadow-[0_3px_0_0_#0c1416] hover:-translate-y-0.5 transition-transform duration-150">
+<div class="flex items-start gap-3">
+<div class="w-10 h-10 rounded-xl bg-[#1E2F33] border border-[#2ba39a]/30 text-[#38d9cb] flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined">menu_book</span>
+</div>
+<div class="space-y-1 flex-1">
+<div class="flex items-center justify-between">
+<h4 class="font-label-lg text-label-lg text-[#E8F1F0] font-bold">1. Learn (Micro-Input)</h4>
+<span class="font-label-sm text-label-sm font-semibold text-[#f06543] px-2 py-0.5 rounded bg-[#410000]/60 border border-[#f06543]/30">3 min</span>
+</div>
+<p class="font-body-sm text-body-sm text-[#A9BDBB] leading-relaxed">
+                  Focused 3-minute conceptual grammar, authentic lexical collocations, and acoustic phoneme analysis.
+                </p>
+</div>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="p-4 rounded-2xl bg-[#172427] border border-[#22353a] shadow-[0_3px_0_0_#0c1416] hover:-translate-y-0.5 transition-transform duration-150">
+<div class="flex items-start gap-3">
+<div class="w-10 h-10 rounded-xl bg-[#1E2F33] border border-[#2ba39a]/30 text-[#38d9cb] flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined">psychology</span>
+</div>
+<div class="space-y-1 flex-1">
+<div class="flex items-center justify-between">
+<h4 class="font-label-lg text-label-lg text-[#E8F1F0] font-bold">2. Practise (Active Recall)</h4>
+<span class="font-label-sm text-label-sm font-semibold text-[#38d9cb] px-2 py-0.5 rounded bg-[#1E2F33] border border-[#22353a]">Zero Swiping</span>
+</div>
+<p class="font-body-sm text-body-sm text-[#A9BDBB] leading-relaxed">
+                  Zero passive swiping. Immediate forced-choice, contextual sentence assembly, and timed speech shadowing.
+                </p>
+</div>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="p-4 rounded-2xl bg-[#172427] border border-[#22353a] shadow-[0_3px_0_0_#0c1416] hover:-translate-y-0.5 transition-transform duration-150">
+<div class="flex items-start gap-3">
+<div class="w-10 h-10 rounded-xl bg-[#1E2F33] border border-[#2ba39a]/30 text-[#38d9cb] flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined">schedule</span>
+</div>
+<div class="space-y-1 flex-1">
+<div class="flex items-center justify-between">
+<h4 class="font-label-lg text-label-lg text-[#E8F1F0] font-bold">3. Review (Spaced Repetition)</h4>
+<span class="font-label-sm text-label-sm font-semibold text-[#38d9cb] px-2 py-0.5 rounded bg-[#1E2F33] border border-[#22353a]">FSRS Algorithm</span>
+</div>
+<p class="font-body-sm text-body-sm text-[#A9BDBB] leading-relaxed">
+                  SuperMemo-2 / FSRS algorithm scheduling reviews at the exact moment of memory decay (1 day, 3 days, 7 days, 21 days).
+                </p>
+</div>
+</div>
+</div>
+<!-- Step 4 -->
+<div class="p-4 rounded-2xl bg-[#172427] border border-[#22353a] shadow-[0_3px_0_0_#0c1416] hover:-translate-y-0.5 transition-transform duration-150">
+<div class="flex items-start gap-3">
+<div class="w-10 h-10 rounded-xl bg-[#1E2F33] border border-[#2ba39a]/30 text-[#38d9cb] flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined">verified</span>
+</div>
+<div class="space-y-1 flex-1">
+<div class="flex items-center justify-between">
+<h4 class="font-label-lg text-label-lg text-[#E8F1F0] font-bold">4. Test (Exam Calibration)</h4>
+<span class="font-label-sm text-label-sm font-semibold text-[#f06543] px-2 py-0.5 rounded bg-[#410000]/60 border border-[#f06543]/30">IELTS / ETS</span>
+</div>
+<p class="font-body-sm text-body-sm text-[#A9BDBB] leading-relaxed">
+                  Full timed simulation mode matching British Council, ETS, and Pearson exam scoring rubrics.
+                </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Research-Backed Highlights -->
+<section class="space-y-3">
+<h3 class="font-headline-sm text-headline-sm text-[#E8F1F0] font-bold">Research-Backed Efficacy</h3>
+<div class="grid grid-cols-1 gap-2.5">
+<div class="p-3.5 rounded-xl bg-[#172427] border border-[#22353a] flex items-start gap-3 shadow-[0_2px_0_0_#0c1416]">
+<span class="material-symbols-outlined text-[#f06543] shrink-0 mt-0.5">bolt</span>
+<div>
+<p class="font-label-lg text-label-lg text-[#E8F1F0] font-bold">+42% Higher Retention</p>
+<p class="font-body-sm text-body-sm text-[#A9BDBB]">vs. standard flashcard apps through Ebbinghaus decay curve mitigation.</p>
+</div>
+</div>
+<div class="p-3.5 rounded-xl bg-[#172427] border border-[#22353a] flex items-start gap-3 shadow-[0_2px_0_0_#0c1416]">
+<span class="material-symbols-outlined text-[#38d9cb] shrink-0 mt-0.5">schedule</span>
+<div>
+<p class="font-label-lg text-label-lg text-[#E8F1F0] font-bold">15 Minutes Daily</p>
+<p class="font-body-sm text-body-sm text-[#A9BDBB]">Replaces 2-hour exhausting weekend cram sessions with persistent neural consolidation.</p>
+</div>
+</div>
+<div class="p-3.5 rounded-xl bg-[#172427] border border-[#22353a] flex items-start gap-3 shadow-[0_2px_0_0_#0c1416]">
+<span class="material-symbols-outlined text-[#38d9cb] shrink-0 mt-0.5">check_circle</span>
+<div>
+<p class="font-label-lg text-label-lg text-[#E8F1F0] font-bold">Native Pronunciation Accuracy</p>
+<p class="font-body-sm text-body-sm text-[#A9BDBB]">Scored directly against real acoustic spectrograms and native phoneme boundaries.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Comparison Matrix -->
+<section class="space-y-3">
+<div class="space-y-1">
+<h3 class="font-headline-sm text-headline-sm text-[#E8F1F0] font-bold">Comparison Matrix</h3>
+<p class="font-label-sm text-label-sm text-[#A9BDBB]">15-Min Lexkite Plan vs Traditional Prep</p>
+</div>
+<div class="rounded-2xl border border-[#22353a] bg-[#172427] overflow-hidden shadow-[0_3px_0_0_#0c1416]">
+<!-- Column headers -->
+<div class="grid grid-cols-2 bg-[#1E2F33] border-b border-[#22353a] px-3 py-2.5">
+<span class="font-label-sm text-label-sm font-bold text-[#38d9cb] flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-[#38d9cb]"></span>
+              Lexkite Method
+            </span>
+<span class="font-label-sm text-label-sm font-bold text-[#A9BDBB] flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-[#6f7978]"></span>
+              Traditional Prep
+            </span>
+</div>
+<div class="divide-y divide-[#22353a]">
+<!-- Row 1 -->
+<div class="grid grid-cols-2 p-3 gap-2 bg-[#1E2F33]/40">
+<div>
+<p class="font-label-sm text-label-sm text-[#A9BDBB] uppercase font-semibold">Time Commitment</p>
+<p class="font-body-sm text-body-sm font-bold text-[#E8F1F0] mt-0.5">15 focused mins/day</p>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-[#A9BDBB] uppercase font-semibold">Weekend Binge</p>
+<p class="font-body-sm text-body-sm text-[#A9BDBB] mt-0.5">2+ hrs weekend cramming</p>
+</div>
+</div>
+<!-- Row 2 -->
+<div class="grid grid-cols-2 p-3 gap-2">
+<div>
+<p class="font-label-sm text-label-sm text-[#A9BDBB] uppercase font-semibold">Retention Mechanism</p>
+<p class="font-body-sm text-body-sm font-bold text-[#E8F1F0] mt-0.5">Algorithmic Spaced Recall</p>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-[#A9BDBB] uppercase font-semibold">Passive Review</p>
+<p class="font-body-sm text-body-sm text-[#A9BDBB] mt-0.5">Passive re-reading &amp; notes</p>
+</div>
+</div>
+<!-- Row 3 -->
+<div class="grid grid-cols-2 p-3 gap-2 bg-[#1E2F33]/40">
+<div>
+<p class="font-label-sm text-label-sm text-[#A9BDBB] uppercase font-semibold">Exam Relevance</p>
+<p class="font-body-sm text-body-sm font-bold text-[#E8F1F0] mt-0.5">Authentic IELTS/TOEIC stems</p>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-[#A9BDBB] uppercase font-semibold">General Vocab</p>
+<p class="font-body-sm text-body-sm text-[#A9BDBB] mt-0.5">Generic phrasebook vocab</p>
+</div>
+</div>
+<!-- Row 4 -->
+<div class="grid grid-cols-2 p-3 gap-2">
+<div>
+<p class="font-label-sm text-label-sm text-[#A9BDBB] uppercase font-semibold">Feedback Loop</p>
+<p class="font-body-sm text-body-sm font-bold text-[#E8F1F0] mt-0.5">Instant error analysis &amp; IPA audio</p>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-[#A9BDBB] uppercase font-semibold">Correction Gap</p>
+<p class="font-body-sm text-body-sm text-[#A9BDBB] mt-0.5">Uncorrected recurring errors</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ Accordion Section -->
+<section class="space-y-3">
+<h3 class="font-headline-sm text-headline-sm text-[#E8F1F0] font-bold">Frequently Asked Questions</h3>
+<div class="space-y-2.5" id="faq-container">
+<!-- FAQ 1 (Open by default) -->
+<div class="rounded-xl border border-[#22353a] bg-[#172427] overflow-hidden shadow-[0_2px_0_0_#0c1416]">
+<button class="w-full min-h-[48px] px-3.5 py-3 text-left flex justify-between items-center gap-2" onclick="toggleFaq(this)" type="button">
+<span class="font-label-lg text-label-lg font-bold text-[#E8F1F0]">Why only 15 minutes a day?</span>
+<span class="material-symbols-outlined text-[#38d9cb] shrink-0 transition-transform duration-200">expand_more</span>
+</button>
+<div class="px-3.5 pb-3 pt-0">
+<p class="font-body-sm text-body-sm text-[#A9BDBB] leading-relaxed">
+                Synaptic plasticity peaks during high-focus, short-duration tasks. Sessions exceeding 20 minutes experience steep cognitive decline and diminishing returns for long-term semantic storage.
+              </p>
+</div>
+</div>
+<!-- FAQ 2 -->
+<div class="rounded-xl border border-[#22353a] bg-[#172427] overflow-hidden shadow-[0_2px_0_0_#0c1416]">
+<button class="w-full min-h-[48px] px-3.5 py-3 text-left flex justify-between items-center gap-2" onclick="toggleFaq(this)" type="button">
+<span class="font-label-lg text-label-lg font-bold text-[#E8F1F0]">Is Lexkite aligned with official IELTS and TOEFL criteria?</span>
+<span class="material-symbols-outlined text-[#38d9cb] shrink-0 transition-transform duration-200 -rotate-90">expand_more</span>
+</button>
+<div class="px-3.5 pb-3 pt-0 hidden">
+<p class="font-body-sm text-body-sm text-[#A9BDBB] leading-relaxed">
+                Yes. Every task calibration strictly implements the CEFR C1/C2 descriptors, IELTS Speaking/Writing Band 7.5+ band descriptors, and ETS TOEFL iBT automated scoring dimensions.
+              </p>
+</div>
+</div>
+<!-- FAQ 3 -->
+<div class="rounded-xl border border-[#22353a] bg-[#172427] overflow-hidden shadow-[0_2px_0_0_#0c1416]">
+<button class="w-full min-h-[48px] px-3.5 py-3 text-left flex justify-between items-center gap-2" onclick="toggleFaq(this)" type="button">
+<span class="font-label-lg text-label-lg font-bold text-[#E8F1F0]">How does spaced repetition schedule my cards?</span>
+<span class="material-symbols-outlined text-[#38d9cb] shrink-0 transition-transform duration-200 -rotate-90">expand_more</span>
+</button>
+<div class="px-3.5 pb-3 pt-0 hidden">
+<p class="font-body-sm text-body-sm text-[#A9BDBB] leading-relaxed">
+                Our adaptive FSRS engine calculates memory stability based on latency and hesitation in responses, serving target items right at 85% expected recall probability.
+              </p>
+</div>
+</div>
+</div>
+</section></main>
+<!-- Bottom Pinned Action Area -->
+<div class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[390px] p-4 bg-[#10191B]/95 backdrop-blur-md border-t border-[#22353a] z-40 space-y-2">
+<!-- Tactile Coral Primary Action Button -->
+<button class="w-full min-h-[52px] px-5 py-3 rounded-2xl bg-[#f06543] border-[1.5px] border-[#d85232] text-white font-label-lg text-label-lg font-bold flex items-center justify-center gap-2 shadow-[0_4px_0_0_#982b13] hover:-translate-y-0.5 active:translate-y-1 active:shadow-none transition-all duration-100 cursor-pointer" type="button">
+<span>Start Learning – 15 Min Free</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+<!-- Trust Note Underneath -->
+<p class="text-center font-label-sm text-label-sm text-[#A9BDBB] font-medium flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-[#38d9cb]">verified</span>
+<span>No credit card required · Free 7-day diagnostics included</span>
+</p>
+</div>
+</div>
+<!-- Micro-interaction JS for Accordion -->
+<script>
+    function toggleFaq(btn) {
+      const content = btn.nextElementSibling;
+      const icon = btn.querySelector('.material-symbols-outlined');
+      const isHidden = content.classList.contains('hidden');
+
+      if (isHidden) {
+        content.classList.remove('hidden');
+        icon.classList.remove('-rotate-90');
+      } else {
+        content.classList.add('hidden');
+        icon.classList.add('-rotate-90');
+      }
+    }
+  </script>
+</body></html>

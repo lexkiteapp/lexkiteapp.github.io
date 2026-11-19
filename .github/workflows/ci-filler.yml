@@ -1,0 +1,30 @@
+# 02/11: chạm file để GitHub đăng ký lại lịch sau khi bật lại (cron không chạy) – canh bởi scripts/ci/cron-watch.mjs
+# Lấp runner rảnh (GitHub Pro = 40 runner): mỗi 10 phút đo busy/queued; busy < 32 và không job đói → dispatch việc tồn đọng
+# trong infra/ci-backlog.json (shard = min(trần mục, 40 − busy − 8), luôn chừa 8 runner cho PR). Không bao giờ dispatch workflow đang có
+# lượt queued/in_progress. Ghi 1 dòng/lượt vào nhánh ci-stats/util.tsv; bản tin 24 h nằm trong ci-triage (giờ 00 UTC). scripts/ci/filler.mjs
+name: ci-filler
+on:
+  schedule:
+    - cron: '4-59/10 * * * *'
+  workflow_dispatch:
+permissions: { contents: write, actions: write }
+concurrency: { group: ci-filler, cancel-in-progress: false }
+jobs:
+  fill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with: { sparse-checkout: "scripts/ci\nscripts/lib\ninfra", sparse-checkout-cone-mode: true }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - id: g
+        run: node scripts/ci/filler.mjs gate
+        env: { GITHUB_TOKEN: '${{ github.token }}' }
+      - if: steps.g.outputs.free != '0'
+        uses: actions/checkout@v4
+        with: { path: full }
+      - if: steps.g.outputs.free != '0'
+        working-directory: full
+        run: node scripts/ci/filler.mjs run
+        env: { GITHUB_TOKEN: '${{ github.token }}' }

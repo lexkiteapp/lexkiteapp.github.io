@@ -52,76 +52,142 @@
   };
 
   // ---------- Vẽ biểu đồ (SVG) ----------
-  function lineChart(d) {
-    const W = 640, H = 300, L = 46, B = 34, T = 14, Rr = 120;
+  // Bố cục tính theo nội dung (độ dài chữ ước lượng, số hàng/cột) thay vì tọa độ cố định → không tràn khung, không đè chữ.
+  // Màn hẹp (< 600 px) dùng khung 340 đơn vị + chú giải dưới biểu đồ để chữ không bị thu quá nhỏ.
+  // Cổng CI scripts/test/figure-layout.mjs vẽ MỌI đề ở 360 px/1280 px × sáng/tối và chặn chồng/tràn/thiếu tương phản.
+  const narrow = () => (window.innerWidth || 1024) < 600;
+  const textW = (s, fs, bold) => String(s).length * fs * (bold ? 0.62 : 0.57);
+  const wrapText = (s, maxW, fs, bold) => {
+    const out = [];
+    String(s).split(/\s+/).forEach(w => { const cur = out[out.length - 1]; if (cur != null && textW(cur + ' ' + w, fs, bold) <= maxW) out[out.length - 1] = cur + ' ' + w; else out.push(w); });
+    return out;
+  };
+  const tspans = (lines, x, lh) => lines.map((l, i) => `<tspan x="${x}" dy="${i ? lh : 0}">${esc(l)}</tspan>`).join('');
+  // Chữ trên nền màu: chọn mực tối hoặc trắng theo độ tương phản WCAG (trắng trên cam/xanh lá chỉ ~2–3:1)
+  const lumOf = hex => { const n = parseInt(hex.slice(1), 16); return [n >> 16, (n >> 8) & 255, n & 255].map(v => { v /= 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; }).reduce((a, v, i) => a + v * [0.2126, 0.7152, 0.0722][i], 0); };
+  const INK = '#0b1220';
+  const inkOn = hex => { const L = lumOf(hex), dark = (L + 0.05) / (lumOf(INK) + 0.05), white = 1.05 / (L + 0.05); return dark >= white ? INK : '#ffffff'; };
+  // Khung trục + chú giải chung cho đường & cột; plot(x0, x1, ys) trả phần vẽ dữ liệu
+  function axesChart(d, groups, plot) {
+    const nw = narrow(), W = nw ? Math.max(300, Math.min(560, (window.innerWidth || 360) - 50)) : 640, L = 40, T = 24, LH = 13;
     const max = Math.ceil(Math.max(...d.series.flatMap(s => s[1])) / 10) * 10 || 10;
-    const xs = i => L + i * (W - L - Rr) / (d.x.length - 1), ys = v => T + (H - T - B) * (1 - v / max);
+    const lgW = Math.max(...d.series.map(s => textW(s[0], 12, true))) + 22;
+    // đường: điểm cuối nằm ngay mép phải → chừa nửa nhãn trục x cuối để không bị cắt
+    const lastHalf = groups === d.x.length - 1 ? textW(d.x[d.x.length - 1], 11) / 2 + 4 : 0;
+    const Rr = nw ? Math.max(12, lastHalf) : Math.min(240, Math.max(110, lgW + 18, lastHalf));
+    const x1 = W - Rr, step = (x1 - L) / groups;
+    const xl = d.x.map(x => wrapText(x, step - 6, 11));
+    // Nhãn trục x chật (vd. 12 tháng trên điện thoại) → so le 2 hàng thay vì đè nhau; ước lượng dư 15 % cho font thật
+    const stag = d.x.length > 2 && xl.some(l => l.some(t => textW(t, 11) * 1.15 > step - 4));
+    const xLines = Math.max(...xl.map(l => l.length)) + (stag ? 1 : 0);
+    // Chú giải: bên phải (rộng) hoặc thành hàng dưới trục (hẹp)
+    const items = []; let lx = L, ly = 0;
+    d.series.forEach(([name], si) => { const w = textW(name, 12, true) + 34; if (nw && lx + w > W - 8 && lx > L) { lx = L; ly++; } items.push([name, si, lx, ly]); lx += w; });
+    const plotH = nw ? 190 : 230, axisB = T + plotH, B = 12 + xLines * LH;
+    const H = axisB + B + (nw ? (ly + 1) * 20 + 6 : 0);
+    const ys = v => T + plotH * (1 - v / max);
     let g = '';
-    for (let k = 0; k <= 5; k++) { const v = max * k / 5; g += `<line x1="${L}" x2="${W - Rr}" y1="${ys(v)}" y2="${ys(v)}" stroke="var(--line)"/><text x="${L - 6}" y="${ys(v) + 4}" text-anchor="end" class="ch-ax">${Math.round(v)}</text>`; }
-    d.x.forEach((x, i) => { g += `<text x="${xs(i)}" y="${H - 12}" text-anchor="middle" class="ch-ax">${esc(x)}</text>`; });
-    d.series.forEach(([name, vals], si) => {
-      g += `<polyline fill="none" stroke="${COLORS[si]}" stroke-width="3" points="${vals.map((v, i) => `${xs(i)},${ys(v)}`).join(' ')}"/>`;
-      vals.forEach((v, i) => { g += `<circle cx="${xs(i)}" cy="${ys(v)}" r="4" fill="${COLORS[si]}"><title>${esc(name)} ${esc(d.x[i])}: ${v}</title></circle>`; });
-      g += `<rect x="${W - Rr + 12}" y="${T + si * 22}" width="12" height="12" rx="3" fill="${COLORS[si]}"/><text x="${W - Rr + 30}" y="${T + si * 22 + 11}" class="ch-lg">${esc(name)}</text>`;
+    for (let k = 0; k <= 5; k++) { const v = max * k / 5; g += `<line x1="${L}" x2="${x1}" y1="${ys(v)}" y2="${ys(v)}" stroke="var(--line)"/><text x="${L - 6}" y="${ys(v) + 4}" text-anchor="end" class="ch-ax">${Math.round(v)}</text>`; }
+    g += plot(L, step, ys, xl, axisB, i => stag && i % 2 ? LH : 0);
+    items.forEach(([name, si, ix, iy]) => {
+      const x = nw ? ix : x1 + 12, y = nw ? axisB + B + 6 + iy * 20 : T + si * 22;
+      g += `<rect x="${x}" y="${y}" width="12" height="12" rx="3" fill="${COLORS[si]}"/><text x="${x + 18}" y="${y + 11}" class="ch-lg">${esc(name)}</text>`;
     });
-    return `<svg viewBox="0 0 ${W} ${H}" class="chart">${g}<text x="${L}" y="10" class="ch-ax">${esc(d.unit)}</text></svg>`;
+    return `<svg viewBox="0 0 ${W} ${H}" class="chart" role="img" aria-label="${esc(d.title)}">${g}<text x="${L - 6}" y="12" class="ch-ax">${esc(d.unit)}</text></svg>`;
+  }
+  const xLabel = (lines, x, axisB) => `<text x="${x}" y="${axisB + 20}" text-anchor="middle" class="ch-ax">${tspans(lines, x, 13)}</text>`;
+  function lineChart(d) {
+    return axesChart(d, d.x.length - 1 || 1, (L, step, ys, xl, axisB, off) => {
+      const xs = i => L + i * step; let g = '';
+      d.x.forEach((x, i) => { g += xLabel(xl[i], xs(i), axisB + off(i)); });
+      d.series.forEach(([name, vals], si) => {
+        g += `<polyline fill="none" stroke="${COLORS[si]}" stroke-width="3" stroke-linejoin="round" points="${vals.map((v, i) => `${xs(i)},${ys(v)}`).join(' ')}"/>`;
+        vals.forEach((v, i) => { g += `<circle cx="${xs(i)}" cy="${ys(v)}" r="4" fill="${COLORS[si]}"><title>${esc(name)} ${esc(d.x[i])}: ${v}</title></circle>`; });
+      });
+      return g;
+    });
   }
   function barChart(d) {
-    const W = 640, H = 300, L = 46, B = 34, T = 14, Rr = 140;
-    const max = Math.ceil(Math.max(...d.series.flatMap(s => s[1])) / 10) * 10 || 10;
-    const gw = (W - L - Rr) / d.x.length, bw = gw * 0.7 / d.series.length, ys = v => T + (H - T - B) * (1 - v / max);
-    let g = '';
-    for (let k = 0; k <= 5; k++) { const v = max * k / 5; g += `<line x1="${L}" x2="${W - Rr}" y1="${ys(v)}" y2="${ys(v)}" stroke="var(--line)"/><text x="${L - 6}" y="${ys(v) + 4}" text-anchor="end" class="ch-ax">${Math.round(v)}</text>`; }
-    d.x.forEach((x, i) => {
-      g += `<text x="${L + gw * i + gw / 2}" y="${H - 12}" text-anchor="middle" class="ch-ax">${esc(x)}</text>`;
-      d.series.forEach(([name, vals], si) => { const x0 = L + gw * i + gw * 0.15 + bw * si; g += `<rect x="${x0}" y="${ys(vals[i])}" width="${bw - 2}" height="${ys(0) - ys(vals[i])}" rx="3" fill="${COLORS[si]}"><title>${esc(name)} – ${esc(x)}: ${vals[i]}</title></rect>`; });
+    return axesChart(d, d.x.length, (L, gw, ys, xl, axisB, off) => {
+      const bw = gw * 0.7 / d.series.length; let g = '';
+      d.x.forEach((x, i) => {
+        g += xLabel(xl[i], L + gw * i + gw / 2, axisB + off(i));
+        d.series.forEach(([name, vals], si) => { const x0 = L + gw * i + gw * 0.15 + bw * si; g += `<rect x="${x0}" y="${ys(vals[i])}" width="${Math.max(1, bw - 2)}" height="${ys(0) - ys(vals[i])}" rx="3" fill="${COLORS[si]}"><title>${esc(name)} – ${esc(x)}: ${vals[i]}</title></rect>`; });
+      });
+      return g;
     });
-    d.series.forEach(([name], si) => { g += `<rect x="${W - Rr + 12}" y="${T + si * 22}" width="12" height="12" rx="3" fill="${COLORS[si]}"/><text x="${W - Rr + 30}" y="${T + si * 22 + 11}" class="ch-lg">${esc(name)}</text>`; });
-    return `<svg viewBox="0 0 ${W} ${H}" class="chart">${g}<text x="${L}" y="10" class="ch-ax">${esc(d.unit)}</text></svg>`;
   }
   function pieCharts(d) {
     const one = (label, parts) => {
-      const tot = parts.reduce((a, p) => a + p[1], 0); let a0 = -Math.PI / 2, g = '';
+      const tot = parts.reduce((a, p) => a + p[1], 0); let a0 = -Math.PI / 2, g = '', lb = '', prev = null;
+      const p = (a, r) => `${100 + r * Math.cos(a)},${100 + r * Math.sin(a)}`;
       parts.forEach(([n, v], i) => {
-        const a1 = a0 + v / tot * Math.PI * 2, large = a1 - a0 > Math.PI ? 1 : 0;
-        const p = (a, r) => `${100 + r * Math.cos(a)},${100 + r * Math.sin(a)}`;
-        g += `<path d="M100,100 L${p(a0, 90)} A90,90 0 ${large} 1 ${p(a1, 90)} Z" fill="${COLORS[i % COLORS.length]}" stroke="var(--surface)" stroke-width="2"><title>${esc(n)}: ${v}%</title></path>`;
-        const am = (a0 + a1) / 2; g += `<text x="${100 + 60 * Math.cos(am)}" y="${100 + 60 * Math.sin(am) + 4}" text-anchor="middle" class="ch-pie">${v}%</text>`;
+        const a1 = a0 + v / tot * Math.PI * 2, large = a1 - a0 > Math.PI ? 1 : 0, c = COLORS[i % COLORS.length];
+        g += `<path d="M100,100 L${p(a0, 90)} A90,90 0 ${large} 1 ${p(a1, 90)} Z" fill="${c}" stroke="var(--surface)" stroke-width="2"><title>${esc(n)}: ${v}%</title></path>`;
+        // Số % nằm trong lát nếu cung đủ rộng; lát nhỏ → nhãn ngoài vòng tròn + vạch dẫn (kiểu đề thật), đẩy xa hơn nếu sát nhãn ngoài trước
+        const am = (a0 + a1) / 2, w = textW(v + '%', 12, true);
+        if ((a1 - a0) * 62 >= w + 12) lb += `<text x="${100 + 62 * Math.cos(am)}" y="${100 + 62 * Math.sin(am) + 4}" text-anchor="middle" class="ch-pie" style="fill:${inkOn(c)}">${v}%</text>`;
+        else {
+          let r = 108; const pos = rr => [100 + rr * Math.cos(am), 100 + rr * Math.sin(am)];
+          if (prev && Math.hypot(pos(r)[0] - prev[0], pos(r)[1] - prev[1]) < 22) r = 126;
+          const [x, y] = pos(r); prev = [x, y];
+          lb += `<line x1="${p(am, 91).split(',')[0]}" y1="${p(am, 91).split(',')[1]}" x2="${100 + (r - 10) * Math.cos(am)}" y2="${100 + (r - 10) * Math.sin(am)}" stroke="var(--muted)" stroke-width="1"/><text x="${x}" y="${y + 4}" text-anchor="middle" class="ch-pie-o">${v}%</text>`;
+        }
         a0 = a1;
       });
-      return `<div style="text-align:center"><b>${esc(label)}</b><svg viewBox="0 0 200 200" style="width:100%;max-width:220px">${g}</svg></div>`;
+      return `<figure class="t1fig"><figcaption class="t1cap">${esc(label)}</figcaption><svg viewBox="-42 -42 284 284" class="t1pie" role="img" aria-label="${esc(label)}: ${esc(parts.map(([n, v]) => `${n} ${v}%`).join(', '))}">${g}${lb}</svg></figure>`;
     };
     const legend = d.pies[0][1].map(([n], i) => `<span class="row nowrap" style="gap:.3rem"><i style="width:12px;height:12px;border-radius:3px;background:${COLORS[i % COLORS.length]}"></i>${esc(n)}</span>`).join('');
-    return `<div class="grid g2">${d.pies.map(([l, p]) => one(l, p)).join('')}</div><div class="row center small" style="gap:1rem">${legend}</div>`;
+    return `<div class="grid g2">${d.pies.map(([l, p]) => one(l, p)).join('')}</div><div class="row center small" style="gap:.4rem 1rem;flex-wrap:wrap">${legend}</div>`;
   }
   const tableChart = d => `<div style="overflow-x:auto"><table class="gtable"><thead><tr>${d.head.map(h => `<th>${esc(h)}</th>`).join('')}</tr></thead><tbody>${d.rows.map(r => `<tr>${r.map(c => `<td>${esc(c)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
-  const processChart = d => `<div class="proc">${d.steps.map((s, i) => `<div class="pstep"><span class="pnum">${i + 1}</span>${esc(s)}</div>`).join('<div class="parrow">→</div>')}</div>`;
+  const processChart = d => `<div class="proc">${d.steps.map((s, i) => `<div class="pstep"><span class="pnum">${i + 1}</span>${esc(s)}</div>`).join('<div class="parrow" aria-hidden="true">→</div>')}</div>`;
+  // Bản đồ kiểu đề IELTS: năm là tiêu đề trên khung, đường là dải dọc giữa có tên xoay trong lòng đường,
+  // khối 2 bên tính theo lưới (cột 1–2 | đường | cột 3–4, số hàng theo dữ liệu), nhãn tự xuống dòng trong khối.
   function mapChart(d) {
-    const one = (label, blocks) => `<div style="text-align:center"><b>${esc(label)}</b><svg viewBox="0 0 220 180" style="width:100%;max-width:300px">
-      <rect x="2" y="2" width="216" height="176" rx="10" fill="var(--surface-2)" stroke="var(--line)"/>
-      <text x="110" y="14" text-anchor="middle" class="ch-ax">N ↑</text><line x1="110" y1="20" x2="110" y2="176" stroke="var(--line)" stroke-width="10"/><text x="114" y="170" class="ch-ax">Main St</text>
-      ${blocks.map(([n, x, y, w, h, c]) => `<rect x="${(x - 1) * 54 + 8 + (x > 2 ? 14 : 0)}" y="${(y - 1) * 50 + 24}" width="${w * 54 - 14}" height="${h * 50 - 8}" rx="6" fill="${c}" opacity=".85"/><text x="${(x - 1) * 54 + 8 + (x > 2 ? 14 : 0) + (w * 54 - 14) / 2}" y="${(y - 1) * 50 + 24 + (h * 50 - 8) / 2 + 4}" text-anchor="middle" class="ch-map">${esc(n)}</text>`).join('')}</svg></div>`;
+    const road = d.road || 'Main St';
+    const VW = 300, FX = 3, TOP = 30, PAD = 10, RW = 28, GAP = 6, RH = 54, RG = 8, cx = VW / 2;
+    const lx0 = FX + PAD, l1 = cx - RW / 2 - GAP, r0 = cx + RW / 2 + GAP, colW = (l1 - lx0 - GAP) / 2;
+    const colX = c => c <= 2 ? lx0 + (c - 1) * (colW + GAP) : r0 + (c - 3) * (colW + GAP);
+    const one = (label, blocks) => {
+      const rows = Math.max(1, ...blocks.map(b => b[2] + b[4] - 1));
+      const y0 = TOP + PAD, FH = PAD * 2 + rows * RH + (rows - 1) * RG, VH = TOP + FH + FX;
+      let g = `<text x="${cx}" y="19" text-anchor="middle" class="ch-map-t">${esc(label)}</text><text x="${VW - FX}" y="19" text-anchor="end" class="ch-ax" aria-label="North">N ↑</text>
+        <rect x="${FX}" y="${TOP}" width="${VW - FX * 2}" height="${FH}" rx="10" class="ch-map-f"/>
+        <rect x="${cx - RW / 2}" y="${TOP + 1}" width="${RW}" height="${FH - 2}" class="ch-road"/>
+        <text transform="translate(${cx} ${TOP + FH / 2}) rotate(-90)" text-anchor="middle" dominant-baseline="central" class="ch-road-t">${esc(road)}</text>`;
+      blocks.forEach(([n, bx, by, bw, bh, c]) => {
+        const end = Math.min(bx + bw - 1, bx <= 2 ? 2 : 4), x = colX(bx), w = colX(end) + colW - x;
+        const y = y0 + (by - 1) * (RH + RG), h = bh * RH + (bh - 1) * RG;
+        let fs = 11, lines = wrapText(n, w - 10, fs, true);
+        if (lines.length * 13 > h - 8 || lines.some(l => textW(l, fs, true) > w - 10)) { fs = 10; lines = wrapText(n, w - 8, fs, true); }
+        const lh = fs + 2, ty = y + h / 2 - (lines.length - 1) * lh / 2 + fs * 0.35;
+        g += `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="6" fill="${c}"><title>${esc(n)}</title></rect><text x="${x + w / 2}" y="${ty}" text-anchor="middle" class="ch-map" style="fill:${inkOn(c)};font-size:${fs}px">${tspans(lines, x + w / 2, lh)}</text>`;
+      });
+      return `<svg viewBox="0 0 ${VW} ${VH}" class="t1map" role="img" aria-label="${esc(label)}: ${esc(blocks.map(b => b[0]).join(', '))}">${g}</svg>`;
+    };
     return `<div class="grid g2">${d.maps.map(([l, b]) => one(l, b)).join('')}</div>`;
   }
   const DRAW = { line: lineChart, bar: barChart, pie: pieCharts, table: tableChart, process: processChart, map: mapChart };
   App.task1 = { SETS, draw: d => DRAW[d.type](d), score: (t, d) => score(t, d) };
-  const TYPE_VI = { line: t('Biểu đồ đường'), bar: t('Biểu đồ cột'), pie: t('Biểu đồ tròn'), table: t('Bảng số liệu'), process: t('Quy trình'), map: t('Bản đồ') };
+  const TYPE_VI = () => ({ line: t('Biểu đồ đường'), bar: t('Biểu đồ cột'), pie: t('Biểu đồ tròn'), table: t('Bảng số liệu'), process: t('Quy trình'), map: t('Bản đồ') });
 
   let timer = null;
-  routes.task1 = async function (id) {
+  routes.task1 = App.guard(async function (id) {
+    const w = App.W;
     const d = SETS.find(x => x.id === id) || SETS[0];
-    const drafts = await Store.get('task1Drafts', {});
+    const drafts = await w(Store.get('task1Drafts', {}));
     view.innerHTML = `
       <div class="page-head"><div><h1>📈 Writing Task 1</h1><p class="muted">${t('Mô tả biểu đồ ≥150 từ trong 20 phút. Đề tự soạn – số liệu giả định để luyện tập.')} <a href="#/write">Task 2 →</a></p></div></div>
-      <div class="tabs" style="margin-bottom:1rem">${SETS.map(x => `<button class="${x.id === d.id ? 'on' : ''}" data-set="${x.id}">${TYPE_VI[x.type]} · ${esc(x.id)}</button>`).join('')}</div>
+      <div class="tabs" style="margin-bottom:1rem">${SETS.map(x => `<button class="${x.id === d.id ? 'on' : ''}" data-set="${x.id}">${TYPE_VI()[x.type]} · ${esc(x.id)}</button>`).join('')}</div>
       <div class="grid" style="grid-template-columns:minmax(0,1fr) 300px;align-items:start" id="t1Grid">
         <div class="stack">
-          <div class="card"><span class="chip lv">${TYPE_VI[d.type]}</span><p style="font-weight:600;margin:.6rem 0 1rem">${esc(d.title)} Summarise the information by selecting and reporting the main features, and make comparisons where relevant.</p>
-            <div class="chart-wrap">${DRAW[d.type](d)}</div></div>
+          <div class="card"><span class="chip lv">${TYPE_VI()[d.type]}</span><p style="font-weight:600;margin:.6rem 0 1rem">${esc(d.title)} Summarise the information by selecting and reporting the main features, and make comparisons where relevant.</p>
+            <div class="chart-wrap">${DRAW[d.type](d)}</div><div class="tiny muted" style="margin-top:.3rem">ℹ️ ${t('Dữ liệu minh họa (tự biên soạn)')}</div></div>
           <div class="card">
             <textarea class="input" id="t1" style="min-height:260px;font-size:1.02rem;line-height:1.7" placeholder="The ${d.type === 'map' ? 'maps illustrate' : d.type === 'process' ? 'diagram illustrates' : 'chart shows'}…">${esc(drafts[d.id] || '')}</textarea>
             <div class="row between" style="margin-top:.7rem"><div class="row"><b id="wc">${t('{n} từ', { n: 0 })}</b><span class="timer" id="clock" style="font-size:1rem">20:00</span><button class="btn sm" id="tBtn">⏱ ${t('Bấm giờ')}</button></div>
-              <button class="btn primary" id="go">🔍 ${t('Phân tích bài Task 1')}</button></div>
+              <button class="btn primary" id="go" data-lk-primary>🔍 ${t('Phân tích bài Task 1')}</button></div>
           </div>
           <div id="t1Res"></div>
         </div>
@@ -129,7 +195,7 @@
           <div class="card"><h3>🧭 ${t('Cấu trúc 4 đoạn')}</h3><ol class="small" style="padding-left:1.1rem;line-height:1.7;margin:.3rem 0"><li>${t('<b>Mở bài:</b> viết lại đề (paraphrase).')}</li><li>${t('<b>Tổng quan:</b> 2 đặc điểm nổi bật nhất, không số liệu.')}</li><li>${t('<b>Thân bài 1:</b> nhóm số liệu thứ nhất + so sánh.')}</li><li>${t('<b>Thân bài 2:</b> nhóm còn lại + so sánh.')}</li></ol>
             ${(window.MODELS || []).some(m => m.id === 't1-' + d.id) ? `<a class="btn sm primary block" href="#/model/t1-${d.id}" style="margin:.4rem 0">📄 ${t('Bài mẫu band 8 có chú thích')}</a>` : ''}
             <details><summary class="small"><b>👀 ${t('Xem câu tổng quan mẫu')}</b></summary><div class="example-box small" style="margin-top:.4rem">${esc(d.overview)}</div></details></div>
-          <div class="card"><h3>💡 ${t('Từ vựng cho {type}', { type: TYPE_VI[d.type].toLowerCase() })}</h3><div class="row" style="margin-top:.4rem">${VOCAB[d.type].map(v => `<button class="chip" data-ins="${esc(v.split(' / ')[0].replace(/ \\(.*\\)/, ''))}" style="border:0;cursor:pointer">${esc(v.replace('(bị động)', t('(bị động)')))}</button>`).join('')}</div><div class="tiny muted" style="margin-top:.4rem">${t('Bấm để chèn vào bài')}</div></div>
+          <div class="card"><h3>💡 ${t('Từ vựng cho {type}', { type: TYPE_VI()[d.type].toLowerCase() })}</h3><div class="row" style="margin-top:.4rem">${VOCAB[d.type].map(v => `<button class="chip" data-ins="${esc(v.split(' / ')[0].replace(/ \\(.*\\)/, ''))}" style="border:0;cursor:pointer">${esc(v.replace('(bị động)', t('(bị động)')))}</button>`).join('')}</div><div class="tiny muted" style="margin-top:.4rem">${t('Bấm để chèn vào bài')}</div></div>
           <div class="card"><h3>⚠️ ${t('Lưu ý')}</h3><ul class="small" style="padding-left:1.1rem;margin:.3rem 0;line-height:1.6"><li>${t('Không nêu ý kiến cá nhân (I think…).')}</li><li>${t('Thì động từ theo mốc thời gian của biểu đồ (quá khứ / hiện tại / dự đoán).')}</li><li>${t('Không cần mô tả mọi con số – chọn số liệu nổi bật.')}</li></ul></div>
         </div>
       </div>`;
@@ -149,7 +215,7 @@
     };
     $('#go').onclick = () => analyse(ta.value, d);
     if (window.Assist && $('#t1')) Assist.attach($('#t1'), $('#t1').parentElement);
-  };
+  });
 
   // Chấm Task 1 (thuần, dùng chung cho Phòng viết & Thi thử 4 kỹ năng)
   function score(text, d) {

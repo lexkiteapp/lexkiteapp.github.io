@@ -1,0 +1,40 @@
+# Lời giải đáp án (mẫu · vì sao · vì sao sai · mẹo · ví dụ) cho 15 ngôn ngữ – miễn phí (kho khóa Gemini → Workers AI qua /api/lexai), có duyệt AI.
+# Tiếp tục từ chỗ dừng; điểm ≤ 3 → content/explain/review.json (không xuất). Xem docs/EXPLAIN.md.
+name: Lời giải đáp án (sinh + duyệt AI)
+on:
+  schedule:
+    - cron: '30 7 * * *'   # 14:30 giờ VN – ngay sau khi hạn mức Gemini miễn phí làm mới (00:00 giờ Thái Bình Dương)
+  workflow_dispatch:
+    inputs:
+      set: { description: 'Bộ (usage, grammar…)', default: 'usage' }
+      calls: { description: 'Số lần gọi AI', default: '400' }
+      langs: { description: 'Ngôn ngữ (vd vi,ko) – trống = tất cả', default: '' }
+permissions:
+  contents: write
+  id-token: write   # JWT OIDC cho /api/lexai (không cần secret)
+concurrency: { group: explain-gen, cancel-in-progress: false }
+jobs:
+  explain:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+        with: { ssh-key: '${{ secrets.BOT_DEPLOY_KEY }}' }   # đẩy main qua SSH khoá deploy (ruleset) – docs/CI-RUNNERS.md › required-gate
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Sinh + duyệt
+        env:  # ai-pool (scripts/lib/ai-pool.mjs): Gemini kho Lexkite → GrabCast → Workers AI tài khoản 2 (neuron = phần cấp điều phối) → GrabCast Groq
+          GRABCAST_AI_KEY: ${{ secrets.GRABCAST_AI_KEY }}
+          CF_AI_TOKEN_2: ${{ secrets.CF_AI_TOKEN_2 }}
+          CF_ACCOUNT_2: ${{ secrets.CF_ACCOUNT_2 }}
+          AI_POOL_GC_MAX: '15000'
+        run: |
+          for s in ${{ github.event.inputs.set || 'usage grammar' }}; do
+            node scripts/explain/job.mjs --set "$s" --calls "${{ github.event.inputs.calls || '400' }}" ${{ github.event.inputs.langs && format('--langs {0}', github.event.inputs.langs) || '' }} || true
+          done
+          node scripts/explain/build.mjs
+          node scripts/content-qa/gate.mjs   # cổng QA: mục chưa có 2 giám khảo đồng ý không được xuất (docs/CONTENT-QA.md)
+          test -n "$(git status --porcelain content/explain web/js/explain)" || { echo '✗ explain: không có thay đổi'; exit 1; }
+      - name: Lưu kết quả
+        run: |
+          bash scripts/ci/push-main.sh "Lời giải đáp án: sinh + duyệt AI (lô tự động)" content/explain web/js/explain

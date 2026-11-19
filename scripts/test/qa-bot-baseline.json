@@ -1,0 +1,137 @@
+{
+ "note": "Lỗi giao diện đã biết (qa-bot). Chỉ được XOÁ dòng khi đã sửa – không thêm dòng để làm xanh. docs/QA-BOT.md",
+ "known": {
+  "clip|span#xpPill": [
+   "home@1440l",
+   "stats@1440l",
+   "ux1-home@1440l",
+   "home@1440d",
+   "stats@1440d",
+   "ux1-home@1440d"
+  ],
+  "cls|home": [
+   "home@1440l",
+   "home@1440d"
+  ],
+  "cls|ux1-home": [
+   "ux1-home@1440l",
+   "ux1-home@1440d"
+  ],
+  "tap|button#avatarBtn": [
+   "home@768l",
+   "vocab@768l",
+   "practice@768l",
+   "skills@768l",
+   "tests@768l",
+   "me@768l"
+  ],
+  "tap|button#examChip": [
+   "home@768l",
+   "vocab@768l",
+   "practice@768l",
+   "skills@768l",
+   "tests@768l",
+   "me@768l"
+  ],
+  "tap|button#langBtn": [
+   "home@768l",
+   "vocab@768l",
+   "practice@768l",
+   "skills@768l",
+   "tests@768l",
+   "me@768l"
+  ],
+  "tap|button#rmGive": [
+   "review@768l",
+   "review-type@768l",
+   "review@768d",
+   "review-type@768d",
+   "review@1440l",
+   "review-type@1440l"
+  ],
+  "tap|button#rmHear": [
+   "review@768l",
+   "review-type@768l",
+   "review@768d",
+   "review-type@768d",
+   "review@1440l",
+   "review-type@1440l"
+  ],
+  "tap|button#rmLet": [
+   "review@768l",
+   "review-type@768l",
+   "review@768d",
+   "review-type@768d",
+   "review@1440l",
+   "review-type@1440l"
+  ],
+  "tap|button#toggleRev": [
+   "review@768l",
+   "review-card@768l",
+   "review-type@768l",
+   "review@768d",
+   "review-card@768d",
+   "review-type@768d"
+  ],
+  "tap|div.main>header.topbar>a.brand": [
+   "home@768l",
+   "vocab@768l",
+   "practice@768l",
+   "skills@768l",
+   "tests@768l",
+   "me@768l"
+  ],
+  "tap|div>div.row>button.btn.sm": [
+   "home@768l",
+   "home@768d",
+   "home@1440l",
+   "home@1440d"
+  ],
+  "tap|div>h4.text-[22px].tracking-[0em]>a.after:absolute.after:inset-0": [
+   "ux1-train@390l",
+   "ux1-train@390d",
+   "ux1-train@768l",
+   "ux1-train@768d",
+   "ux1-train@1440l",
+   "ux1-train@1440d"
+  ],
+  "tap|main#view>details.hub-more>summary": [
+   "tests@768l",
+   "tests@768d",
+   "tests@1440l",
+   "tests@1440d"
+  ],
+  "tap|main#view>div.page-head>button.btn.sm": [
+   "skills@768l",
+   "tests@768l",
+   "stats@768l",
+   "skills@768d",
+   "tests@768d",
+   "stats@768d"
+  ],
+  "tap|main#view>div.today-head>a.goal-chip": [
+   "home@768l",
+   "home@768d",
+   "home@1440l",
+   "home@1440d"
+  ],
+  "tap|section.card.rings-card>div.rings-legend>a": [
+   "home@768l",
+   "home@768d",
+   "home@1440l",
+   "home@1440d"
+  ],
+  "tap|select#rmSel": [
+   "review@768l",
+   "review-card@768l",
+   "review-type@768l",
+   "review@768d",
+   "review-card@768d",
+   "review-type@768d"
+  ],
+  "wrap|span.pron2>span.pron-acc>button.icon-btn.sm": [
+   "review-card@390l",
+   "review-card@390d"
+  ]
+ }
+}

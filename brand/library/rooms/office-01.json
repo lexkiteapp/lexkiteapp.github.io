@@ -1,0 +1,43 @@
+{
+ "_note": "Hồ sơ sàn TỰ ĐỘNG (scripts/video/asset_check.py estimate_floor) – canvas rộng 1080. Sửa tay xong đặt \"manual\": true để không bị ghi đè.",
+ "id": "office-01",
+ "manual": false,
+ "confidence": 0.55,
+ "canvas": [
+  1080,
+  1913
+ ],
+ "source": "rooms/office-01-day-9x16.png",
+ "floor": {
+  "yNear": 1912,
+  "yFar": 1364
+ },
+ "vanish": [
+  595,
+  1115
+ ],
+ "scaleAt": {
+  "yFar": 1364,
+  "hFar": 281,
+  "yNear": 1912,
+  "hNear": 902
+ },
+ "stand": [
+  {
+   "x": 184,
+   "y": 1692
+  },
+  {
+   "x": 432,
+   "y": 1692
+  },
+  {
+   "x": 680,
+   "y": 1692
+  }
+ ],
+ "light": {
+  "dir": -1,
+  "warmth": 0.28
+ }
+}

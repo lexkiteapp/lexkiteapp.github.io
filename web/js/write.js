@@ -59,18 +59,19 @@
   };
 
   let timer = null;
-  routes.write = async function (arg) {
-    const essays = await Store.get('essays', []);
-    const draft = await Store.get('essayDraft', { prompt: 'p1', text: '' });
+  routes.write = App.guard(async function (arg) {
+    const w = App.W;
+    const essays = await w(Store.get('essays', []));
+    const draft = await w(Store.get('essayDraft', { prompt: 'p1', text: '' }));
     const p = PROMPTS.find(x => x.id === (arg || draft.prompt)) || PROMPTS[0];
     const topic = App.topicOf(p.topic);
     view.innerHTML = `
-      <div class="page-head"><div><h1>✍️ ${t('Phòng viết')}</h1><p class="muted"><a href="#/task1">📈 ${t('Chuyển sang Task 1 (biểu đồ) →')}</a><br>${t('Viết bài IELTS Task 2 rồi nhận <b>phân tích từ vựng tức thì</b>: từ học thuật, từ nối, collocation, từ bị lặp và gợi ý thay thế. Bài viết chỉ lưu trên máy bạn.')}</p></div></div>
+      <div class="page-head"><div><h1>✍️ ${t('Phòng viết')}</h1><p class="muted"><a href="#/task1">📈 ${t('Chuyển sang Task 1 (biểu đồ) →')}</a> · <a href="#/criteria?skill=writing">📊 ${t('Tiêu chí chấm band 4–9')}</a><br>${t('Viết bài IELTS Task 2 rồi nhận <b>phân tích từ vựng tức thì</b>: từ học thuật, từ nối, collocation, từ bị lặp và gợi ý thay thế. Bài viết chỉ lưu trên máy bạn.')}</p></div></div>
       <div class="grid" style="grid-template-columns:minmax(0,1fr) 300px;align-items:start" id="wGrid">
         <div class="stack">
           <div class="card">
             <div class="row between"><span class="chip lv">${esc(p.type)}</span>
-              <div class="row"><select class="input" id="pSel" style="width:auto;padding:.35rem .6rem">${Object.keys(OUTLINE).map(ty => `<optgroup label="${esc(ty)}">${PROMPTS.filter(x => x.type === ty).map(x => `<option value="${x.id}" ${x.id === p.id ? 'selected' : ''}>${t('Đề {n}', { n: x.id.slice(1) })} · ${esc((App.topicOf(x.topic) || { name: x.topic }).name)}</option>`).join('')}</optgroup>`).join('')}</select>
+              <div class="row"><select class="input" id="pSel" aria-label="${t('Chọn đề')}" style="width:auto;padding:.35rem .6rem">${Object.keys(OUTLINE).map(ty => `<optgroup label="${esc(ty)}">${PROMPTS.filter(x => x.type === ty).map(x => `<option value="${x.id}" ${x.id === p.id ? 'selected' : ''}>${t('Đề {n}', { n: x.id.slice(1) })} · ${esc((App.topicOf(x.topic) || { name: x.topic }).name)}</option>`).join('')}</optgroup>`).join('')}</select>
               <button class="btn sm" id="rndP" title="${t('Đề ngẫu nhiên')}">🎲</button></div></div>
             <p style="font-size:1.08rem;font-weight:600;margin:.8rem 0 0">${esc(p.text)}</p>
             <a class="btn sm ghost" href="#/ideas/${esc(p.topic)}" style="margin-top:.5rem">💡 ${t('Bí ý? Mở ngân hàng ý tưởng chủ đề này')}</a>
@@ -81,20 +82,20 @@
             <textarea class="input" id="essay" style="min-height:340px;font-size:1.02rem;line-height:1.7" placeholder="${t('Bắt đầu viết bài của bạn…')}" spellcheck="true">${esc(draft.prompt === p.id ? draft.text : '')}</textarea>
             <div class="row between" style="margin-top:.7rem">
               <div class="row"><b id="wc">${t('{n} từ', { n: 0 })}</b><span class="timer" id="clock" style="font-size:1rem">40:00</span><button class="btn sm" id="tBtn">⏱ ${t('Bấm giờ')}</button></div>
-              <button class="btn primary" id="analyze">🔍 ${t('Phân tích từ vựng')}</button>
+              <button class="btn primary" id="analyze" data-lk-primary>🔍 ${t('Phân tích từ vựng')}</button>
             </div>
           </div>
           <div id="report"></div>
         </div>
         <div class="stack" style="position:sticky;top:80px">
           <div class="card"><h3>💡 ${t('Từ vựng gợi ý')} · ${topic ? esc(topic.name) : ''}</h3>
-            <div class="row" style="margin-top:.4rem">${(topic ? topic.words.slice(0, 14) : []).map(w => `<button class="chip" data-ins="${esc(w.word)}" title="${esc(w.vi)}" style="border:0;cursor:pointer">${esc(w.word)}</button>`).join('')}</div>
+            <div class="row" style="margin-top:.4rem">${(topic ? topic.words.slice(0, 14) : []).map(w => `<button class="chip" data-ins="${esc(w.word)}" title="${esc(App.meanOf(w))}" style="border:0;cursor:pointer">${esc(w.word)}</button>`).join('')}</div>
             <div class="tiny muted" style="margin-top:.5rem">${t('Bấm để chèn vào bài')}</div></div>
           <div class="card"><h3>📊 ${t('Xu hướng đề Task 2 (2026)')}</h3>
             ${TRENDS.types.map(([ty, v]) => `<div class="srow" style="grid-template-columns:120px minmax(0,1fr) 34px"><span class="tiny"><b>${esc(t(ty))}</b></span><div class="sbar"><i style="width:${v * 2}%;background:var(--primary)"></i></div><span class="tiny muted">${v}%</span></div>`).join('')}
             <div class="tiny muted" style="margin-top:.5rem"><b>${t('Chủ đề lặp nhiều:')}</b> ${TRENDS.topics.map(x => t(x)).join(' · ')}</div>
             <div class="tiny muted" style="margin-top:.4rem"><b>Task 1:</b> ${TRENDS.task1.map(([ty, v]) => `${t(ty)} ${v}%`).join(' · ')}</div>
-            <div class="tiny muted" style="margin-top:.4rem">${t('Thống kê từ ~90 đề thi thật do thí sinh báo lại (07–10/2026).')}</div></div>
+            <div class="tiny muted" style="margin-top:.4rem">${t('Ước tính sơ bộ từ ~90 đề do thí sinh báo lại (07–10/2026) – không phải số liệu chính thức của IELTS.')}</div></div>
           <div class="card"><h3>🧷 ${t('Từ nối hay dùng')}</h3>
             <div class="row" style="margin-top:.4rem">${['Firstly,', 'Moreover,', 'However,', 'On the other hand,', 'For instance,', 'As a result,', 'It could be argued that', 'In conclusion,'].map(w => `<button class="chip" data-ins="${esc(w)}" style="border:0;cursor:pointer">${esc(w)}</button>`).join('')}</div></div>
           ${essays.length ? `<div class="card"><h3>🗂 ${t('Bài đã viết')}</h3>${essays.slice(0, 6).map((e, i) => `<div class="row between small" style="padding:.35rem 0;border-bottom:1px dashed var(--line)"><span>${t('Đề {n}', { n: esc(e.prompt.slice(1)) })} · ${t('{n} từ', { n: e.words })}</span><span class="chip lv">LR ~${e.band}</span><button class="btn sm ghost" data-open="${i}">${t('Mở')}</button></div>`).join('')}</div>` : ''}
@@ -131,7 +132,7 @@
     };
     $('#analyze').onclick = () => report(ta.value, p, true);
     if (window.Assist) Assist.attach(ta, ta.parentElement);
-  };
+  });
 
   async function report(text, p, fresh) {
     const a = Lexis.analyze(text);
@@ -175,7 +176,7 @@
       const w = el.dataset.alt;
       let alts = ((IELTS_DATA.INDEX[w] || {}).syn || []).slice(0, 4);
       if (alts.length < 3) {
-        try { const r = await fetch(`https://api.datamuse.com/words?ml=${encodeURIComponent(w)}&max=8`).then(x => x.json()); alts = [...new Set([...alts, ...r.map(x => x.word).filter(x => !/\s/.test(x))])].slice(0, 5); } catch (e) { /* offline */ }
+        try { const r = (await Dict.dm(`words?ml=${encodeURIComponent(w)}&max=8`)) || []; alts = [...new Set([...alts, ...r.map(x => x.word).filter(x => !/\s/.test(x))])].slice(0, 5); } catch (e) { /* offline */ }
       }
       el.innerHTML = alts.length ? '→ ' + alts.map(x => `<a class="chip" href="#/dict/${encodeURIComponent(x)}">${esc(x)}</a>`).join(' ') : t('không có gợi ý');
     });

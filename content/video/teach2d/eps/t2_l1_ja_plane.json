@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ja_plane",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Wait for what?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I waited the bus.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I waited for the bus.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Wait needs for before the thing.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "For! I am waiting for my friend.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I waited the bus.",
+  "right": "I waited for the bus.",
+  "strike": "waited the",
+  "why": "Wait needs for before the thing.",
+  "memory": "I waited for the bus.",
+  "quiz": {
+   "stem": "I am waiting ___ my friend.",
+   "options": [
+    "for",
+    "to"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "「I waited the bus」で合ってる？",
+   "tip": "wait のあとには for が必要。「バスを待つ」につられて忘れがち。",
+   "caption": "“I waited the bus.”と言っていませんか？😅 日本語の「バスを待った」につられて、for を抜かしがちです。wait のあとには for が必要です。 “I waited for the bus.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+   "comment": "答え：“for”。wait のあとは for。無料クイズで練習：{link}",
+   "hashtags": [
+    "#英語学習",
+    "#英会話",
+    "#英語勉強",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “I waited the bus”?",
+   "tip": "Wait needs for before the thing you wait for.",
+   "caption": "Do you say this? “I waited the bus.” 😅 It is easy to drop for, but wait needs it. The natural way is “I waited for the bus.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "「I waited the bus」で合ってる？"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ja",
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "「I waited the bus」で合ってる？",
+  "keyword": "I waited for the bus.",
+  "value": "wait のあとには for が必要。「バスを待つ」につられて忘れがち。",
+  "hashtags": [
+   "#英語学習",
+   "#英会話",
+   "#英語勉強",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "「I waited the bus」で合ってる？",
+    "description": "wait のあとには for が必要。「バスを待つ」につられて忘れがち。\n\n“I waited the bus.”と言っていませんか？😅 日本語の「バスを待った」につられて、for を抜かしがちです。wait のあとには for が必要です。 “I waited for the bus.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix\n\n#英語学習 #英会話 #英語勉強 #lexkite",
+    "tags": [
+     "I waited for the bus.",
+     "learn english",
+     "ja"
+    ]
+   },
+   "facebook": {
+    "text": "“I waited the bus.”と言っていませんか？😅 日本語の「バスを待った」につられて、for を抜かしがちです。wait のあとには for が必要です。 “I waited for the bus.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "「I waited the bus」で合ってる？\n\nwait のあとには for が必要。「バスを待つ」につられて忘れがち。\n\nlexkite.com",
+    "hashtags": [
+     "#英語学習",
+     "#英会話",
+     "#英語勉強",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "「I waited the bus」で合ってる？ wait のあとには for が必要。「バスを待つ」につられて忘れがち。 #英語学習 #英会話 #英語勉強"
+   }
+  },
+  "first_comment": "答え：“for”。wait のあとは for。無料クイズで練習：{link}",
+  "lang": "ja"
+ }
+}

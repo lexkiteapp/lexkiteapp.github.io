@@ -1,0 +1,72 @@
+{
+ "_note": "Sinh tự động từ content/video/templates/collocation.json + vars (node scripts/video/template.mjs build) – ĐỪNG sửa tay: sửa file vars rồi build lại.",
+ "topic": "Vocabulary: make or do homework?",
+ "format": "short",
+ "template": "collocation",
+ "script": {
+  "title": "Don't say \"make homework\"",
+  "hook": "Not \"make homework\"!",
+  "scene": "library",
+  "time": "day",
+  "format_id": "dont-say",
+  "template": "collocation",
+  "lines": [
+   {
+    "who": "ama",
+    "beat": "hook",
+    "text": "Don't say \"make homework.\"",
+    "expr": "surprised",
+    "gesture": "hands on cheeks"
+   },
+   {
+    "who": "ama",
+    "beat": "situation",
+    "text": "I always say I make my homework. What's the problem?",
+    "expr": "confused",
+    "gesture": ""
+   },
+   {
+    "who": "ama",
+    "beat": "explain",
+    "text": "We do homework, chores, and the dishes. Make is for things you create.",
+    "expr": "confident",
+    "gesture": "open hands",
+    "punch": true
+   },
+   {
+    "who": "ama",
+    "beat": "example",
+    "text": "I usually do my homework after dinner.",
+    "expr": "friendly",
+    "gesture": ""
+   },
+   {
+    "who": "kit",
+    "beat": "tip",
+    "text": "Kit's tip: do is for tasks, make is for creating: do the laundry, make a cake.",
+    "expr": "proud",
+    "gesture": ""
+   },
+   {
+    "who": "ama",
+    "beat": "cta",
+    "text": "Learn word partners free on lexkite.com",
+    "expr": "happy smile",
+    "gesture": "waving hello"
+   }
+  ],
+  "keywords": [
+   "do homework"
+  ],
+  "wrong": "make homework",
+  "right": "do homework",
+  "caption": "Say \"do homework\", not \"make homework\"",
+  "hashtags": [
+   "collocations",
+   "englishvocabulary",
+   "learnenglish"
+  ],
+  "area": "phrases",
+  "link": "https://lexkite.com/app/#/phrases"
+ }
+}

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+
+<html class="" lang="de"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite - Einstufungstest</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-tertiary-fixed-variant": "#5b4300",
+            "tertiary": "#f4bf40",
+            "surface-container": "#162125",
+            "surface-container-low": "#121d20",
+            "primary-fixed": "#88f5ea",
+            "surface": "#091518",
+            "tertiary-fixed": "#ffdf9e",
+            "primary-fixed-dim": "#6bd8ce",
+            "on-tertiary": "#402e00",
+            "surface-tint": "#6bd8ce",
+            "on-secondary-fixed": "#3f0300",
+            "on-secondary-fixed-variant": "#900f00",
+            "on-primary-container": "#00322e",
+            "on-primary": "#003733",
+            "on-primary-fixed-variant": "#00504b",
+            "error-container": "#93000a",
+            "on-background": "#d8e5e9",
+            "error": "#ffb4ab",
+            "on-surface": "#d8e5e9",
+            "secondary": "#ffb4a6",
+            "primary-container": "#2ba39a",
+            "on-surface-variant": "#bcc9c7",
+            "on-secondary": "#660800",
+            "on-error-container": "#ffdad6",
+            "secondary-fixed-dim": "#ffb4a6",
+            "on-primary-fixed": "#00201e",
+            "inverse-surface": "#d8e5e9",
+            "surface-dim": "#091518",
+            "on-error": "#690005",
+            "background": "#091518",
+            "tertiary-container": "#ba8b00",
+            "outline-variant": "#3d4947",
+            "inverse-primary": "#006a64",
+            "surface-bright": "#2f3b3e",
+            "on-secondary-container": "#ffa493",
+            "on-tertiary-container": "#392900",
+            "secondary-container": "#981201",
+            "on-tertiary-fixed": "#261a00",
+            "surface-container-lowest": "#051013",
+            "outline": "#879391",
+            "primary": "#6bd8ce",
+            "tertiary-fixed-dim": "#f4bf40",
+            "secondary-fixed": "#ffdad3",
+            "surface-variant": "#2b373a",
+            "surface-container-high": "#202c2f",
+            "inverse-on-surface": "#263236",
+            "surface-container-highest": "#2b373a"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "space-md": "16px",
+            "gutter": "16px",
+            "margin": "16px",
+            "space-xs": "4px",
+            "space-sm": "8px",
+            "space-xl": "32px",
+            "space-lg": "24px"
+          },
+          fontFamily: {
+            body: ["Plus Jakarta Sans"],
+            title: ["Plus Jakarta Sans"],
+            display: ["Plus Jakarta Sans"],
+            label: ["Plus Jakarta Sans"]
+          },
+          fontSize: {
+            body: ["16px", { lineHeight: "24px", fontWeight: "500" }],
+            title: ["22px", { lineHeight: "28px", fontWeight: "700" }],
+            display: ["32px", { lineHeight: "38px", fontWeight: "800" }],
+            label: ["12px", { lineHeight: "16px", letterSpacing: "0.06em", fontWeight: "800" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    /* Tactile 3D Button and Card Physics */
+    .tactile-btn {
+      transition: all 0.08s ease-in-out;
+    }
+    .tactile-btn:active {
+      transform: translateY(3px);
+    }
+    .tactile-coral-btn {
+      box-shadow: 0 5px 0 #8E2816, inset 0 1px 0 rgba(255, 255, 255, 0.35);
+    }
+    .tactile-coral-btn:active {
+      box-shadow: 0 2px 0 #8E2816, inset 0 1px 0 rgba(255, 255, 255, 0.35);
+      transform: translateY(3px);
+    }
+    .tactile-card-selected {
+      box-shadow: 0 4px 0 #1B6E67, inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    }
+    .tactile-card-selected:active {
+      box-shadow: 0 1px 0 #1B6E67;
+      transform: translateY(3px);
+    }
+    .tactile-card-idle {
+      box-shadow: 0 4px 0 #1A2629, inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    }
+    .tactile-card-idle:active {
+      box-shadow: 0 1px 0 #1A2629;
+      transform: translateY(3px);
+    }
+    .tactile-secondary-btn {
+      box-shadow: 0 3px 0 #1A2629, inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    }
+    .tactile-secondary-btn:active {
+      box-shadow: 0 1px 0 #1A2629;
+      transform: translateY(2px);
+    }
+    .tactile-pill-chip {
+      box-shadow: 0 2px 0 rgba(0,0,0,0.3);
+    }
+    /* Smooth Pulse on Progress bar shine */
+    @keyframes shine {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(200%); }
+    }
+    .shine-sweep {
+      animation: shine 2.5s infinite ease-in-out;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="text-on-surface font-body min-h-screen flex justify-center items-start antialiased selection:bg-primary-container selection:text-on-primary-container" style="background-color: #FFF7EA; color: #0F3D3E;">
+<!-- Mobile Container Shell (390px Native Viewport standard) -->
+<main class="w-full max-w-[420px] min-h-screen flex flex-col justify-between relative overflow-x-hidden pb-6" style="background-color: #FFF7EA;">
+<!-- Top Sticky / Docked Header Zone -->
+<header class="w-full pt-3 pb-2 px-margin flex flex-col gap-2.5 z-40 border-b-2" style="border-bottom-color: #EADEC8;"><!-- Top Row: Exit action, Diagnostic Test Pill, Session status -->
+<div class="flex items-center justify-between min-h-[44px]">
+<!-- Exit Quiz Action Button: min 44x44px, white card, border #EADEC8 -->
+<button aria-label="Test beenden" class="tactile-btn tactile-secondary-btn w-11 h-11 rounded-xl bg-white border-2 border-[#EADEC8] flex items-center justify-center text-[#0F3D3E] hover:opacity-80 transition-colors shadow-sm cursor-pointer" type="button">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 0;">close</span>
+</button>
+<!-- Diagnostic Badge: white pill, border #EADEC8 -->
+<div class="tactile-pill-chip flex items-center gap-1.5 px-3 py-1.5 min-h-[44px] rounded-full bg-white border border-[#EADEC8] shadow-sm">
+<span class="material-symbols-outlined text-[15px] text-[#B45309]" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<span class="font-label text-[11px] tracking-wider text-[#0F3D3E] uppercase font-bold">KALIBRIERUNGSTEST</span>
+</div>
+<!-- Question Counter Indicator: white card, border #EADEC8, min 44x44px -->
+<div class="flex items-center justify-center px-2.5 py-1 min-h-[44px] min-w-[54px] rounded-xl bg-white border border-[#EADEC8] shadow-sm">
+<span class="font-label text-label text-[#006A64] font-extrabold tracking-tight">07<span class="text-[#6A7B7E] font-normal text-[10px]">/20</span></span>
+</div>
+</div>
+<!-- Tactile Progress Track (Cream track #EADEC8, teal fill #2BA39A) -->
+<div class="w-full flex items-center gap-3">
+<div class="flex-1 h-3.5 bg-[#EADEC8] rounded-full overflow-hidden p-0.5 border border-[#D8CFBC] relative">
+<!-- 35% Progress Bar (Question 7 of 20) -->
+<div class="h-full bg-gradient-to-r from-[#2BA39A] to-[#00877C] rounded-full relative overflow-hidden transition-all duration-300" style="width: 35%;">
+<!-- Specular top reflection -->
+<div class="absolute inset-x-0 top-0 h-[2px] bg-white/40"></div>
+<!-- Animated shimmer shine -->
+<div class="shine-sweep absolute inset-0 w-1/2 bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+</div>
+</div>
+<span class="font-label text-[11px] text-[#0F3D3E] font-bold shrink-0">35%</span>
+</div>
+<!-- CEFR Level & Target Domain Pills -->
+<div class="flex items-center justify-between gap-2 pt-0.5">
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white border border-[#EADEC8] shadow-sm">
+<span class="material-symbols-outlined text-[14px] text-[#006A64]" style="font-variation-settings: 'FILL' 1;">school</span>
+<span class="font-label text-[11px] text-[#0F3D3E] font-extrabold tracking-wide">GER B1–B2</span>
+</div>
+<div class="flex items-center gap-1.5 px-2 py-0.5 rounded text-[#134E4A] text-[11px] font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-[#00877C]"></span>
+<span>Grammatik &amp; Syntax</span>
+</div>
+</div></header>
+<!-- Main Content Canvas -->
+<div class="flex-1 px-margin pt-4 flex flex-col gap-4"><!-- Teacher Slot & Pedagogical Speech Bubble (Bright Day Light Theme) -->
+<section aria-label="Coach-Hinweis" class="flex items-start gap-3 w-full">
+<!-- Coach Avatar Slot -->
+<div class="teacher-slot shrink-0 w-[54px] h-[54px] rounded-2xl bg-[#E6F7F5] border-2 border-dashed border-[#2BA39A] flex flex-col items-center justify-center relative overflow-hidden shadow-sm" title="Coach-Avatar">
+<span class="material-symbols-outlined text-[#006A64] text-[24px]" style="font-variation-settings: 'FILL' 0;">psychology</span>
+<div class="absolute bottom-1 px-1 rounded bg-[#C4ECE7] text-[8px] font-bold text-[#004E4A] tracking-tighter">AICOACH</div>
+</div>
+<!-- Coach speech bubble with warm light card & drop ledge -->
+<div class="flex-1 p-3.5 rounded-2xl rounded-tl-sm bg-white border-2 border-[#EADEC8] relative shadow-[0_3px_0_#D8CFBC]">
+<div class="flex items-center justify-between mb-1">
+<div class="flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-[#00877C] shrink-0"></span>
+<span class="font-label text-[11px] text-[#006A64] font-bold uppercase tracking-wider">EINSTUFUNGSTIPP</span>
+</div>
+<span class="material-symbols-outlined text-[14px] text-[#6A7B7E]" style="font-variation-settings: 'FILL' 0;">settings</span>
+</div>
+<p class="font-body text-[13px] leading-[18px] text-[#0F3D3E] font-medium">
+      Wähle die Option, die im formellen Schriftverkehr am natürlichsten klingt und einen fortlaufenden Bezug zur Gegenwart zeigt.
+    </p>
+</div>
+</section>
+<!-- Question Card with Audio Hear Affordance (White card, 2px border #EADEC8, 4px bottom ledge #D8CFBC) -->
+<section class="rounded-2xl p-4 bg-white border-2 border-[#EADEC8] shadow-[0_4px_0_#D8CFBC] relative">
+<div class="flex items-start justify-between gap-3 mb-3">
+<span class="px-2.5 py-1 rounded-md bg-[#EDF7F6] border border-[#BDE0DC] font-label text-[10px] text-[#006A64] font-extrabold tracking-wider uppercase">
+      SATZVERVOLLSTÄNDIGUNG
+    </span>
+<!-- Audio Hear Action min 44x44px -->
+<button aria-label="Satz anhören" class="tactile-btn min-w-[44px] min-h-[44px] px-3 rounded-xl bg-white border-2 border-[#EADEC8] flex items-center justify-center gap-1.5 text-[#0F3D3E] hover:bg-[#F9F5EC] transition-colors shadow-sm cursor-pointer" type="button">
+<span class="material-symbols-outlined text-[20px] text-[#006A64]" style="font-variation-settings: 'FILL' 1;">volume_up</span>
+<span class="font-label text-[11px] tracking-wide font-extrabold uppercase text-[#0F3D3E]">ANHÖREN</span>
+</button>
+</div>
+<!-- The Prompt with blank space token -->
+<h1 class="font-title text-[18px] leading-[26px] text-[#0F3D3E] font-bold tracking-tight" dir="ltr">
+    “The economic survey indicates that private investment 
+    <span class="inline-flex items-center justify-center min-w-[96px] px-2 py-0.5 mx-1 border-b-4 border-dashed border-[#00877C] bg-[#E0F3F1] text-[#006A64] font-extrabold rounded-md text-[17px]">
+      ________
+    </span>
+    steadily since the new regulations were introduced.”
+  </h1>
+</section>
+<!-- Multiple Choice Options (A, B, C, D) in Bright Day tactile styling -->
+<section aria-label="Antwortmöglichkeiten" class="flex flex-col gap-2.5 w-full">
+<!-- Option A: SELECTED STATE (Light teal card #E6F7F5, 2px border #2BA39A, ledge #1F7A75) -->
+<button class="tactile-btn tactile-card-selected w-full min-h-[60px] p-3.5 rounded-2xl flex items-center justify-between text-left group cursor-pointer" type="button">
+<div class="flex items-center gap-3.5">
+<!-- Chip Letter A (#2BA39A with white text) -->
+<div class="w-9 h-9 rounded-xl bg-[#2BA39A] text-white flex items-center justify-center font-display text-[15px] font-extrabold shrink-0 shadow-sm">
+        A
+      </div>
+<div class="flex flex-col">
+<span class="font-body text-[16px] text-[#0F3D3E] font-bold group-hover:text-[#006A64] transition-colors" dir="ltr">has grown</span>
+<span class="font-label text-[10px] text-[#134E4A] font-semibold tracking-wide">Present Perfect • Zeitdauer</span>
+</div>
+</div>
+<!-- Selected Radio Indicator (#2BA39A filled) -->
+<div class="w-7 h-7 rounded-full bg-[#2BA39A] flex items-center justify-center text-white shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[18px] font-bold" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+</button>
+<!-- Option B: IDLE STATE (White card #FFFFFF, border #EADEC8, ledge #D8CFBC) -->
+<button class="tactile-btn tactile-card-idle w-full min-h-[60px] p-3.5 rounded-2xl flex items-center justify-between text-left group cursor-pointer" type="button">
+<div class="flex items-center gap-3.5">
+<!-- Chip Letter B -->
+<div class="w-9 h-9 rounded-xl bg-[#F3ECE0] text-[#0F3D3E] flex items-center justify-center font-display text-[15px] font-extrabold shrink-0 border border-[#D8CFBC]">
+        B
+      </div>
+<div class="flex flex-col">
+<span class="font-body text-[16px] text-[#0F3D3E] font-medium transition-colors" dir="ltr">grew</span>
+<span class="font-label text-[10px] text-[#4E6668] font-medium tracking-wide">Past Simple</span>
+</div>
+</div>
+<div class="w-7 h-7 rounded-full border-2 border-[#D8CFBC] group-hover:border-[#2BA39A] shrink-0"></div>
+</button>
+<!-- Option C: IDLE STATE -->
+<button class="tactile-btn tactile-card-idle w-full min-h-[60px] p-3.5 rounded-2xl flex items-center justify-between text-left group cursor-pointer" type="button">
+<div class="flex items-center gap-3.5">
+<!-- Chip Letter C -->
+<div class="w-9 h-9 rounded-xl bg-[#F3ECE0] text-[#0F3D3E] flex items-center justify-center font-display text-[15px] font-extrabold shrink-0 border border-[#D8CFBC]">
+        C
+      </div>
+<div class="flex flex-col">
+<span class="font-body text-[16px] text-[#0F3D3E] font-medium transition-colors" dir="ltr">is growing</span>
+<span class="font-label text-[10px] text-[#4E6668] font-medium tracking-wide">Present Continuous</span>
+</div>
+</div>
+<div class="w-7 h-7 rounded-full border-2 border-[#D8CFBC] group-hover:border-[#2BA39A] shrink-0"></div>
+</button>
+<!-- Option D: IDLE STATE -->
+<button class="tactile-btn tactile-card-idle w-full min-h-[60px] p-3.5 rounded-2xl flex items-center justify-between text-left group cursor-pointer" type="button">
+<div class="flex items-center gap-3.5">
+<!-- Chip Letter D -->
+<div class="w-9 h-9 rounded-xl bg-[#F3ECE0] text-[#0F3D3E] flex items-center justify-center font-display text-[15px] font-extrabold shrink-0 border border-[#D8CFBC]">
+        D
+      </div>
+<div class="flex flex-col">
+<span class="font-body text-[16px] text-[#0F3D3E] font-medium transition-colors" dir="ltr">had grown</span>
+<span class="font-label text-[10px] text-[#4E6668] font-medium tracking-wide">Past Perfect</span>
+</div>
+</div>
+<div class="w-7 h-7 rounded-full border-2 border-[#D8CFBC] group-hover:border-[#2BA39A] shrink-0"></div>
+</button>
+</section></div>
+<!-- Bottom Action Dock -->
+<footer class="w-full px-margin pt-3 pb-2 mt-4 flex flex-col gap-2.5 border-t-2" style="border-top-color: #EADEC8;"><!-- Primary Action CTA Button: min 56px, tactile coral gradient with bottom ledge #B53A22 -->
+<button class="tactile-coral-btn w-full min-h-[56px] py-3.5 px-4 rounded-2xl flex items-center justify-center gap-2 cursor-pointer select-none" type="button">
+<span class="font-display text-[17px] font-extrabold text-[#1B0B04] tracking-tight">Antwort prüfen</span>
+<span class="material-symbols-outlined text-[20px] text-[#1B0B04] font-bold" style="font-variation-settings: 'FILL' 1;">arrow_forward</span>
+</button>
+<!-- Secondary 'I don't know' skip action without calibration penalty: White card, border #EADEC8, ledge #D8CFBC, min 48px -->
+<button class="tactile-btn tactile-secondary-btn w-full min-h-[48px] py-2.5 px-4 rounded-xl flex items-center justify-center gap-2 text-[#0F3D3E] hover:text-[#006A64] transition-colors cursor-pointer" type="button">
+<span class="material-symbols-outlined text-[18px] text-[#006A64] shrink-0" style="font-variation-settings: 'FILL' 0;">help_outline</span>
+<span class="font-label text-[11px] sm:text-[12px] font-extrabold tracking-wider uppercase text-center">DAS WEISS ICH NOCH NICHT</span>
+</button>
+<!-- Reassurance Micro-Label: high contrast deep teal ink #1A4346 on #FFF7EA >= 5:1 -->
+<p class="text-center font-label text-[10px] text-[#1A4346] tracking-wider font-semibold px-2">
+  Das Überspringen verfeinert dein GER-Niveau ohne Punktabzug
+</p></footer>
+</main>
+</body></html>

@@ -1,0 +1,2 @@
+/* SINH từ i18n/ui/tr/lvideo.js – đừng sửa tay (scripts/i18n-pack.mjs) */
+(function(g){const D=g.I18N_DICT=g.I18N_DICT||{};D.tr=Object.assign(D.tr||{},{_39cs:"Tam değil. Cevap: {a} – tekrar kartlarına eklendi.",_kj2p:"Video bölümleri",_vbgs:"Hızlı soru",_ifv9:"Video oynatılamadı. Daha sonra tekrar dene.",_djl:"Videoyu oynat: {t}",_qfll:"Ders videosu",_46hz:"Günün videosu",_yrgg:"Sonraki video",_nmea:"20 saniye izle",_5ws0:"Videoyu kapat",_k07p:"Doğru! Tekrar kartlarına eklendi."});})(typeof self!=='undefined'?self:this);

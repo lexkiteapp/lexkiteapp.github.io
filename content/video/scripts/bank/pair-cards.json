@@ -1,0 +1,14 @@
+{
+ "sb_7432d6cb": {
+  "win": {"mean": "= come first in a game", "save_mean": "= a game · a prize", "ex": ["“We ", "won", " the game.”"]},
+  "beat": {"mean": "= defeat a person or team", "save_mean": "= a person · a team", "ex": ["“She ", "beat", " me at chess.”"]}
+ },
+ "sb_47b3e9e9": {
+  "rob": {"mean": "= take from a person or place", "save_mean": "= a person · a place", "ex": ["“They ", "robbed", " a store.”"]},
+  "steal": {"mean": "= take a thing", "save_mean": "= a thing", "ex": ["“My bike was ", "stolen", ".”"]}
+ },
+ "sb_6e178745": {
+  "hope": {"mean": "= it could really happen", "save_mean": "= possible", "ex": ["“I ", "hope", " it doesn't rain.”"]},
+  "wish": {"mean": "= it is not real", "save_mean": "= not real", "ex": ["“I ", "wish", " I could fly.”"]}
+ }
+}

@@ -1,0 +1,1497 @@
+{
+ "_doc": "Cây chủ đề kho từ 20k (docs/LEXICON.md §Chủ đề): miền → chủ đề → tiểu chủ đề (chủ đề × từ loại). Nguồn duy nhất; tên 15 ngôn ngữ viết tay (I18N-PIPELINE §2.4 nhãn ngắn). sets = bộ hiện có (104) liên quan. Quy tắc: 1 từ ≤ 2 chủ đề; nút 10–60 từ (> 60 tách, < 10 chờ); bộ học 10–20 từ, xếp CEFR → tần suất, gom nghĩa gần, 2 từ neo.",
+ "langs": [
+  "en",
+  "vi",
+  "es",
+  "pt",
+  "fr",
+  "de",
+  "id",
+  "th",
+  "zh",
+  "ja",
+  "ko",
+  "hi",
+  "ar",
+  "ru",
+  "tr"
+ ],
+ "rules": {
+  "maxTopicsPerWord": 2,
+  "nodeMin": 10,
+  "nodeMax": 60,
+  "setMin": 10,
+  "setMax": 20,
+  "anchors": 2
+ },
+ "domains": [
+  {
+   "id": "daily",
+   "name": {
+    "en": "Daily life",
+    "vi": "Đời sống hằng ngày",
+    "es": "Vida diaria",
+    "pt": "Vida diária",
+    "fr": "Vie quotidienne",
+    "de": "Alltag",
+    "id": "Kehidupan sehari-hari",
+    "th": "ชีวิตประจำวัน",
+    "zh": "日常生活",
+    "ja": "日常生活",
+    "ko": "일상생활",
+    "hi": "दैनिक जीवन",
+    "ar": "الحياة اليومية",
+    "ru": "Повседневная жизнь",
+    "tr": "Günlük yaşam"
+   }
+  },
+  {
+   "id": "people",
+   "name": {
+    "en": "People & body",
+    "vi": "Con người & cơ thể",
+    "es": "Personas y cuerpo",
+    "pt": "Pessoas e corpo",
+    "fr": "Personnes et corps",
+    "de": "Menschen & Körper",
+    "id": "Manusia & tubuh",
+    "th": "คนและร่างกาย",
+    "zh": "人与身体",
+    "ja": "人と体",
+    "ko": "사람과 몸",
+    "hi": "लोग और शरीर",
+    "ar": "الناس والجسم",
+    "ru": "Люди и тело",
+    "tr": "İnsan ve beden"
+   }
+  },
+  {
+   "id": "work",
+   "name": {
+    "en": "Work & business",
+    "vi": "Công việc & kinh doanh",
+    "es": "Trabajo y negocios",
+    "pt": "Trabalho e negócios",
+    "fr": "Travail et affaires",
+    "de": "Arbeit & Wirtschaft",
+    "id": "Pekerjaan & bisnis",
+    "th": "งานและธุรกิจ",
+    "zh": "工作与商业",
+    "ja": "仕事とビジネス",
+    "ko": "일과 비즈니스",
+    "hi": "काम और व्यापार",
+    "ar": "العمل والأعمال",
+    "ru": "Работа и бизнес",
+    "tr": "İş ve ticaret"
+   }
+  },
+  {
+   "id": "society",
+   "name": {
+    "en": "Society & law",
+    "vi": "Xã hội & pháp luật",
+    "es": "Sociedad y ley",
+    "pt": "Sociedade e lei",
+    "fr": "Société et droit",
+    "de": "Gesellschaft & Recht",
+    "id": "Masyarakat & hukum",
+    "th": "สังคมและกฎหมาย",
+    "zh": "社会与法律",
+    "ja": "社会と法律",
+    "ko": "사회와 법",
+    "hi": "समाज और कानून",
+    "ar": "المجتمع والقانون",
+    "ru": "Общество и право",
+    "tr": "Toplum ve hukuk"
+   }
+  },
+  {
+   "id": "learning",
+   "name": {
+    "en": "Education & language",
+    "vi": "Giáo dục & ngôn ngữ",
+    "es": "Educación e idiomas",
+    "pt": "Educação e idiomas",
+    "fr": "Éducation et langues",
+    "de": "Bildung & Sprache",
+    "id": "Pendidikan & bahasa",
+    "th": "การศึกษาและภาษา",
+    "zh": "教育与语言",
+    "ja": "教育と言語",
+    "ko": "교육과 언어",
+    "hi": "शिक्षा और भाषा",
+    "ar": "التعليم واللغة",
+    "ru": "Образование и язык",
+    "tr": "Eğitim ve dil"
+   }
+  },
+  {
+   "id": "scitech",
+   "name": {
+    "en": "Science & technology",
+    "vi": "Khoa học & công nghệ",
+    "es": "Ciencia y tecnología",
+    "pt": "Ciência e tecnologia",
+    "fr": "Sciences et technologie",
+    "de": "Wissenschaft & Technik",
+    "id": "Sains & teknologi",
+    "th": "วิทยาศาสตร์และเทคโนโลยี",
+    "zh": "科学与技术",
+    "ja": "科学と技術",
+    "ko": "과학과 기술",
+    "hi": "विज्ञान और प्रौद्योगिकी",
+    "ar": "العلوم والتكنولوجيا",
+    "ru": "Наука и техника",
+    "tr": "Bilim ve teknoloji"
+   }
+  },
+  {
+   "id": "nature",
+   "name": {
+    "en": "Nature & environment",
+    "vi": "Thiên nhiên & môi trường",
+    "es": "Naturaleza y medio ambiente",
+    "pt": "Natureza e meio ambiente",
+    "fr": "Nature et environnement",
+    "de": "Natur & Umwelt",
+    "id": "Alam & lingkungan",
+    "th": "ธรรมชาติและสิ่งแวดล้อม",
+    "zh": "自然与环境",
+    "ja": "自然と環境",
+    "ko": "자연과 환경",
+    "hi": "प्रकृति और पर्यावरण",
+    "ar": "الطبيعة والبيئة",
+    "ru": "Природа и окружающая среда",
+    "tr": "Doğa ve çevre"
+   }
+  },
+  {
+   "id": "culture",
+   "name": {
+    "en": "Arts, culture & sport",
+    "vi": "Nghệ thuật, văn hóa & thể thao",
+    "es": "Arte, cultura y deporte",
+    "pt": "Arte, cultura e esporte",
+    "fr": "Arts, culture et sport",
+    "de": "Kunst, Kultur & Sport",
+    "id": "Seni, budaya & olahraga",
+    "th": "ศิลปะ วัฒนธรรม และกีฬา",
+    "zh": "艺术、文化与体育",
+    "ja": "芸術・文化・スポーツ",
+    "ko": "예술, 문화, 스포츠",
+    "hi": "कला, संस्कृति और खेल",
+    "ar": "الفنون والثقافة والرياضة",
+    "ru": "Искусство, культура и спорт",
+    "tr": "Sanat, kültür ve spor"
+   }
+  },
+  {
+   "id": "general",
+   "name": {
+    "en": "General words",
+    "vi": "Từ thông dụng",
+    "es": "Palabras generales",
+    "pt": "Palavras gerais",
+    "fr": "Mots courants",
+    "de": "Allgemeine Wörter",
+    "id": "Kata umum",
+    "th": "คำทั่วไป",
+    "zh": "通用词汇",
+    "ja": "一般的な語",
+    "ko": "일반 어휘",
+    "hi": "सामान्य शब्द",
+    "ar": "كلمات عامة",
+    "ru": "Общая лексика",
+    "tr": "Genel kelimeler"
+   }
+  }
+ ],
+ "sub": {
+  "n": {
+   "en": "Nouns",
+   "vi": "Danh từ",
+   "es": "Sustantivos",
+   "pt": "Substantivos",
+   "fr": "Noms",
+   "de": "Nomen",
+   "id": "Kata benda",
+   "th": "คำนาม",
+   "zh": "名词",
+   "ja": "名詞",
+   "ko": "명사",
+   "hi": "संज्ञा",
+   "ar": "الأسماء",
+   "ru": "Существительные",
+   "tr": "İsimler"
+  },
+  "v": {
+   "en": "Verbs",
+   "vi": "Động từ",
+   "es": "Verbos",
+   "pt": "Verbos",
+   "fr": "Verbes",
+   "de": "Verben",
+   "id": "Kata kerja",
+   "th": "คำกริยา",
+   "zh": "动词",
+   "ja": "動詞",
+   "ko": "동사",
+   "hi": "क्रिया",
+   "ar": "الأفعال",
+   "ru": "Глаголы",
+   "tr": "Fiiller"
+  },
+  "d": {
+   "en": "Adjectives & adverbs",
+   "vi": "Tính từ & trạng từ",
+   "es": "Adjetivos y adverbios",
+   "pt": "Adjetivos e advérbios",
+   "fr": "Adjectifs et adverbes",
+   "de": "Adjektive & Adverbien",
+   "id": "Kata sifat & keterangan",
+   "th": "คำคุณศัพท์และคำวิเศษณ์",
+   "zh": "形容词与副词",
+   "ja": "形容詞と副詞",
+   "ko": "형용사와 부사",
+   "hi": "विशेषण और क्रियाविशेषण",
+   "ar": "الصفات والظروف",
+   "ru": "Прилагательные и наречия",
+   "tr": "Sıfatlar ve zarflar"
+  }
+ },
+ "topics": [
+  {
+   "id": "food",
+   "domain": "daily",
+   "sets": [
+    "food",
+    "dom-hosp"
+   ],
+   "name": {
+    "en": "Food & drink",
+    "vi": "Ăn uống",
+    "es": "Comida y bebida",
+    "pt": "Comida e bebida",
+    "fr": "Nourriture et boissons",
+    "de": "Essen & Trinken",
+    "id": "Makanan & minuman",
+    "th": "อาหารและเครื่องดื่ม",
+    "zh": "饮食",
+    "ja": "飲食",
+    "ko": "음식과 음료",
+    "hi": "खाना-पीना",
+    "ar": "الطعام والشراب",
+    "ru": "Еда и напитки",
+    "tr": "Yiyecek ve içecek"
+   }
+  },
+  {
+   "id": "xw-home",
+   "domain": "daily",
+   "sets": [
+    "us-housing",
+    "ex-ielts-gt-life"
+   ],
+   "name": {
+    "en": "Home & household",
+    "vi": "Nhà cửa & việc nhà",
+    "es": "Hogar",
+    "pt": "Casa e lar",
+    "fr": "Maison et foyer",
+    "de": "Haus & Haushalt",
+    "id": "Rumah & rumah tangga",
+    "th": "บ้านและงานบ้าน",
+    "zh": "家居",
+    "ja": "家と家事",
+    "ko": "집과 살림",
+    "hi": "घर और गृहस्थी",
+    "ar": "المنزل والأسرة",
+    "ru": "Дом и хозяйство",
+    "tr": "Ev ve ev işleri"
+   }
+  },
+  {
+   "id": "us-housing",
+   "domain": "daily",
+   "sets": [
+    "us-housing"
+   ],
+   "name": {
+    "en": "Housing",
+    "vi": "Nhà ở",
+    "es": "Vivienda",
+    "pt": "Moradia",
+    "fr": "Logement",
+    "de": "Wohnen",
+    "id": "Perumahan",
+    "th": "ที่อยู่อาศัย",
+    "zh": "住房",
+    "ja": "住まい",
+    "ko": "주거",
+    "hi": "आवास",
+    "ar": "السكن",
+    "ru": "Жильё",
+    "tr": "Konut"
+   }
+  },
+  {
+   "id": "xw-objects",
+   "domain": "daily",
+   "sets": [
+    "consumerism",
+    "ex-ielts-gt-life"
+   ],
+   "name": {
+    "en": "Everyday objects",
+    "vi": "Đồ vật thường ngày",
+    "es": "Objetos cotidianos",
+    "pt": "Objetos do dia a dia",
+    "fr": "Objets du quotidien",
+    "de": "Alltagsgegenstände",
+    "id": "Benda sehari-hari",
+    "th": "สิ่งของในชีวิตประจำวัน",
+    "zh": "日常用品",
+    "ja": "身の回りの物",
+    "ko": "생활용품",
+    "hi": "रोज़मर्रा की चीज़ें",
+    "ar": "أشياء يومية",
+    "ru": "Повседневные предметы",
+    "tr": "Günlük eşyalar"
+   }
+  },
+  {
+   "id": "xw-everyday",
+   "domain": "daily",
+   "sets": [
+    "ex-ielts-gt-life",
+    "ngsl1"
+   ],
+   "name": {
+    "en": "Everyday life",
+    "vi": "Sinh hoạt thường ngày",
+    "es": "Vida cotidiana",
+    "pt": "Dia a dia",
+    "fr": "Quotidien",
+    "de": "Tägliches Leben",
+    "id": "Keseharian",
+    "th": "ชีวิตทั่วไป",
+    "zh": "日常琐事",
+    "ja": "毎日の暮らし",
+    "ko": "일상",
+    "hi": "रोज़मर्रा का जीवन",
+    "ar": "الحياة اليومية العادية",
+    "ru": "Быт",
+    "tr": "Gündelik hayat"
+   }
+  },
+  {
+   "id": "us-money",
+   "domain": "daily",
+   "sets": [
+    "us-money",
+    "economy"
+   ],
+   "name": {
+    "en": "Personal finance",
+    "vi": "Tài chính cá nhân",
+    "es": "Finanzas personales",
+    "pt": "Finanças pessoais",
+    "fr": "Finances personnelles",
+    "de": "Persönliche Finanzen",
+    "id": "Keuangan pribadi",
+    "th": "การเงินส่วนบุคคล",
+    "zh": "个人理财",
+    "ja": "家計とお金",
+    "ko": "개인 금융",
+    "hi": "व्यक्तिगत वित्त",
+    "ar": "التمويل الشخصي",
+    "ru": "Личные финансы",
+    "tr": "Kişisel finans"
+   }
+  },
+  {
+   "id": "travel",
+   "domain": "daily",
+   "sets": [
+    "travel",
+    "ex-toeic-travel"
+   ],
+   "name": {
+    "en": "Travel",
+    "vi": "Du lịch",
+    "es": "Viajes",
+    "pt": "Viagens",
+    "fr": "Voyages",
+    "de": "Reisen",
+    "id": "Perjalanan",
+    "th": "การท่องเที่ยว",
+    "zh": "旅行",
+    "ja": "旅行",
+    "ko": "여행",
+    "hi": "यात्रा",
+    "ar": "السفر",
+    "ru": "Путешествия",
+    "tr": "Seyahat"
+   }
+  },
+  {
+   "id": "urban",
+   "domain": "daily",
+   "sets": [
+    "urban"
+   ],
+   "name": {
+    "en": "Cities & towns",
+    "vi": "Thành phố & đô thị",
+    "es": "Ciudades",
+    "pt": "Cidades",
+    "fr": "Villes",
+    "de": "Städte",
+    "id": "Kota",
+    "th": "เมือง",
+    "zh": "城市",
+    "ja": "都市と町",
+    "ko": "도시",
+    "hi": "शहर",
+    "ar": "المدن",
+    "ru": "Города",
+    "tr": "Şehirler"
+   }
+  },
+  {
+   "id": "consumerism",
+   "domain": "daily",
+   "sets": [
+    "consumerism",
+    "dom-mkt"
+   ],
+   "name": {
+    "en": "Shopping & consumers",
+    "vi": "Mua sắm & tiêu dùng",
+    "es": "Compras y consumo",
+    "pt": "Compras e consumo",
+    "fr": "Achats et consommation",
+    "de": "Einkaufen & Konsum",
+    "id": "Belanja & konsumen",
+    "th": "การช้อปปิ้งและผู้บริโภค",
+    "zh": "购物与消费",
+    "ja": "買い物と消費",
+    "ko": "쇼핑과 소비",
+    "hi": "खरीदारी और उपभोक्ता",
+    "ar": "التسوق والاستهلاك",
+    "ru": "Покупки и потребление",
+    "tr": "Alışveriş ve tüketim"
+   }
+  },
+  {
+   "id": "xw-people",
+   "domain": "people",
+   "sets": [
+    "describe",
+    "ex-ielts-speak"
+   ],
+   "name": {
+    "en": "People & relationships",
+    "vi": "Con người & các mối quan hệ",
+    "es": "Personas y relaciones",
+    "pt": "Pessoas e relacionamentos",
+    "fr": "Personnes et relations",
+    "de": "Menschen & Beziehungen",
+    "id": "Orang & hubungan",
+    "th": "ผู้คนและความสัมพันธ์",
+    "zh": "人与人际关系",
+    "ja": "人と人間関係",
+    "ko": "사람과 관계",
+    "hi": "लोग और रिश्ते",
+    "ar": "الناس والعلاقات",
+    "ru": "Люди и отношения",
+    "tr": "İnsanlar ve ilişkiler"
+   }
+  },
+  {
+   "id": "xw-feelings",
+   "domain": "people",
+   "sets": [
+    "opinion",
+    "describe"
+   ],
+   "name": {
+    "en": "Feelings",
+    "vi": "Cảm xúc",
+    "es": "Sentimientos",
+    "pt": "Sentimentos",
+    "fr": "Sentiments",
+    "de": "Gefühle",
+    "id": "Perasaan",
+    "th": "ความรู้สึก",
+    "zh": "情感",
+    "ja": "気持ち",
+    "ko": "감정",
+    "hi": "भावनाएँ",
+    "ar": "المشاعر",
+    "ru": "Чувства",
+    "tr": "Duygular"
+   }
+  },
+  {
+   "id": "xw-body",
+   "domain": "people",
+   "sets": [
+    "health"
+   ],
+   "name": {
+    "en": "The body",
+    "vi": "Cơ thể",
+    "es": "El cuerpo",
+    "pt": "O corpo",
+    "fr": "Le corps",
+    "de": "Der Körper",
+    "id": "Tubuh",
+    "th": "ร่างกาย",
+    "zh": "身体",
+    "ja": "体",
+    "ko": "신체",
+    "hi": "शरीर",
+    "ar": "الجسم",
+    "ru": "Тело",
+    "tr": "Vücut"
+   }
+  },
+  {
+   "id": "health",
+   "domain": "people",
+   "sets": [
+    "health",
+    "us-health"
+   ],
+   "name": {
+    "en": "Health",
+    "vi": "Sức khỏe",
+    "es": "Salud",
+    "pt": "Saúde",
+    "fr": "Santé",
+    "de": "Gesundheit",
+    "id": "Kesehatan",
+    "th": "สุขภาพ",
+    "zh": "健康",
+    "ja": "健康",
+    "ko": "건강",
+    "hi": "स्वास्थ्य",
+    "ar": "الصحة",
+    "ru": "Здоровье",
+    "tr": "Sağlık"
+   }
+  },
+  {
+   "id": "us-health",
+   "domain": "people",
+   "sets": [
+    "us-health"
+   ],
+   "name": {
+    "en": "Health care",
+    "vi": "Chăm sóc y tế",
+    "es": "Atención médica",
+    "pt": "Assistência médica",
+    "fr": "Soins de santé",
+    "de": "Gesundheitsversorgung",
+    "id": "Layanan kesehatan",
+    "th": "การดูแลสุขภาพ",
+    "zh": "医疗保健",
+    "ja": "医療制度",
+    "ko": "의료 서비스",
+    "hi": "स्वास्थ्य सेवा",
+    "ar": "الرعاية الصحية",
+    "ru": "Здравоохранение",
+    "tr": "Sağlık hizmetleri"
+   }
+  },
+  {
+   "id": "dom-med",
+   "domain": "people",
+   "sets": [
+    "dom-med"
+   ],
+   "name": {
+    "en": "Medicine",
+    "vi": "Y khoa",
+    "es": "Medicina",
+    "pt": "Medicina",
+    "fr": "Médecine",
+    "de": "Medizin",
+    "id": "Kedokteran",
+    "th": "การแพทย์",
+    "zh": "医学",
+    "ja": "医学",
+    "ko": "의학",
+    "hi": "चिकित्सा",
+    "ar": "الطب",
+    "ru": "Медицина",
+    "tr": "Tıp"
+   }
+  },
+  {
+   "id": "work",
+   "domain": "work",
+   "sets": [
+    "work",
+    "office-meeting",
+    "ex-toeic-office"
+   ],
+   "name": {
+    "en": "Work & jobs",
+    "vi": "Công việc & nghề nghiệp",
+    "es": "Trabajo y empleo",
+    "pt": "Trabalho e emprego",
+    "fr": "Travail et emploi",
+    "de": "Arbeit & Beruf",
+    "id": "Pekerjaan & profesi",
+    "th": "งานและอาชีพ",
+    "zh": "工作与职业",
+    "ja": "仕事と職業",
+    "ko": "일과 직업",
+    "hi": "काम और नौकरी",
+    "ar": "العمل والوظائف",
+    "ru": "Работа и профессии",
+    "tr": "İş ve meslekler"
+   }
+  },
+  {
+   "id": "office-hr",
+   "domain": "work",
+   "sets": [
+    "office-hr",
+    "office-interview"
+   ],
+   "name": {
+    "en": "Hiring & HR",
+    "vi": "Tuyển dụng & nhân sự",
+    "es": "Contratación y RR. HH.",
+    "pt": "Recrutamento e RH",
+    "fr": "Recrutement et RH",
+    "de": "Personal & Einstellung",
+    "id": "Rekrutmen & SDM",
+    "th": "การจ้างงานและทรัพยากรบุคคล",
+    "zh": "招聘与人事",
+    "ja": "採用と人事",
+    "ko": "채용과 인사",
+    "hi": "भर्ती और मानव संसाधन",
+    "ar": "التوظيف والموارد البشرية",
+    "ru": "Найм и кадры",
+    "tr": "İşe alım ve İK"
+   }
+  },
+  {
+   "id": "office-it",
+   "domain": "work",
+   "sets": [
+    "office-it",
+    "dom-it"
+   ],
+   "name": {
+    "en": "Office IT",
+    "vi": "CNTT văn phòng",
+    "es": "Informática de oficina",
+    "pt": "TI no escritório",
+    "fr": "Informatique de bureau",
+    "de": "Büro-IT",
+    "id": "TI perkantoran",
+    "th": "ไอทีในสำนักงาน",
+    "zh": "办公IT",
+    "ja": "オフィスIT",
+    "ko": "사무실 IT",
+    "hi": "ऑफ़िस आईटी",
+    "ar": "تقنية المكتب",
+    "ru": "Офисные ИТ",
+    "tr": "Ofis BT"
+   }
+  },
+  {
+   "id": "dom-biz",
+   "domain": "work",
+   "sets": [
+    "dom-biz",
+    "office-email"
+   ],
+   "name": {
+    "en": "Business",
+    "vi": "Kinh doanh",
+    "es": "Negocios",
+    "pt": "Negócios",
+    "fr": "Affaires",
+    "de": "Geschäft",
+    "id": "Bisnis",
+    "th": "ธุรกิจ",
+    "zh": "商务",
+    "ja": "ビジネス",
+    "ko": "비즈니스",
+    "hi": "व्यापार",
+    "ar": "الأعمال",
+    "ru": "Бизнес",
+    "tr": "İş dünyası"
+   }
+  },
+  {
+   "id": "dom-mkt",
+   "domain": "work",
+   "sets": [
+    "dom-mkt"
+   ],
+   "name": {
+    "en": "Marketing",
+    "vi": "Tiếp thị",
+    "es": "Marketing",
+    "pt": "Marketing",
+    "fr": "Marketing",
+    "de": "Marketing",
+    "id": "Pemasaran",
+    "th": "การตลาด",
+    "zh": "市场营销",
+    "ja": "マーケティング",
+    "ko": "마케팅",
+    "hi": "मार्केटिंग",
+    "ar": "التسويق",
+    "ru": "Маркетинг",
+    "tr": "Pazarlama"
+   }
+  },
+  {
+   "id": "dom-log",
+   "domain": "work",
+   "sets": [
+    "dom-log"
+   ],
+   "name": {
+    "en": "Logistics",
+    "vi": "Hậu cần",
+    "es": "Logística",
+    "pt": "Logística",
+    "fr": "Logistique",
+    "de": "Logistik",
+    "id": "Logistik",
+    "th": "โลจิสติกส์",
+    "zh": "物流",
+    "ja": "物流",
+    "ko": "물류",
+    "hi": "लॉजिस्टिक्स",
+    "ar": "الخدمات اللوجستية",
+    "ru": "Логистика",
+    "tr": "Lojistik"
+   }
+  },
+  {
+   "id": "dom-hosp",
+   "domain": "work",
+   "sets": [
+    "dom-hosp",
+    "food"
+   ],
+   "name": {
+    "en": "Hospitality",
+    "vi": "Nhà hàng & khách sạn",
+    "es": "Hostelería",
+    "pt": "Hotelaria",
+    "fr": "Hôtellerie et restauration",
+    "de": "Gastgewerbe",
+    "id": "Perhotelan",
+    "th": "การบริการและการโรงแรม",
+    "zh": "酒店餐饮",
+    "ja": "接客・ホテル業",
+    "ko": "호텔·외식업",
+    "hi": "आतिथ्य",
+    "ar": "الضيافة",
+    "ru": "Гостиничное дело",
+    "tr": "Konaklama ve ağırlama"
+   }
+  },
+  {
+   "id": "economy",
+   "domain": "work",
+   "sets": [
+    "economy",
+    "us-money"
+   ],
+   "name": {
+    "en": "Economy",
+    "vi": "Kinh tế",
+    "es": "Economía",
+    "pt": "Economia",
+    "fr": "Économie",
+    "de": "Wirtschaftslage",
+    "id": "Ekonomi",
+    "th": "เศรษฐกิจ",
+    "zh": "经济",
+    "ja": "経済",
+    "ko": "경제",
+    "hi": "अर्थव्यवस्था",
+    "ar": "الاقتصاد",
+    "ru": "Экономика",
+    "tr": "Ekonomi"
+   }
+  },
+  {
+   "id": "society",
+   "domain": "society",
+   "sets": [
+    "society"
+   ],
+   "name": {
+    "en": "Society",
+    "vi": "Xã hội",
+    "es": "Sociedad",
+    "pt": "Sociedade",
+    "fr": "Société",
+    "de": "Gesellschaft",
+    "id": "Masyarakat",
+    "th": "สังคม",
+    "zh": "社会",
+    "ja": "社会",
+    "ko": "사회",
+    "hi": "समाज",
+    "ar": "المجتمع",
+    "ru": "Общество",
+    "tr": "Toplum"
+   }
+  },
+  {
+   "id": "crime",
+   "domain": "society",
+   "sets": [
+    "crime",
+    "dom-law"
+   ],
+   "name": {
+    "en": "Crime & justice",
+    "vi": "Tội phạm & công lý",
+    "es": "Delito y justicia",
+    "pt": "Crime e justiça",
+    "fr": "Crime et justice",
+    "de": "Kriminalität & Justiz",
+    "id": "Kejahatan & keadilan",
+    "th": "อาชญากรรมและความยุติธรรม",
+    "zh": "犯罪与司法",
+    "ja": "犯罪と司法",
+    "ko": "범죄와 사법",
+    "hi": "अपराध और न्याय",
+    "ar": "الجريمة والعدالة",
+    "ru": "Преступность и правосудие",
+    "tr": "Suç ve adalet"
+   }
+  },
+  {
+   "id": "dom-law",
+   "domain": "society",
+   "sets": [
+    "dom-law"
+   ],
+   "name": {
+    "en": "Law",
+    "vi": "Luật",
+    "es": "Derecho",
+    "pt": "Direito",
+    "fr": "Droit",
+    "de": "Recht",
+    "id": "Hukum",
+    "th": "กฎหมาย",
+    "zh": "法律",
+    "ja": "法律",
+    "ko": "법률",
+    "hi": "कानून",
+    "ar": "القانون",
+    "ru": "Право",
+    "tr": "Hukuk"
+   }
+  },
+  {
+   "id": "government",
+   "domain": "society",
+   "sets": [
+    "government"
+   ],
+   "name": {
+    "en": "Government & politics",
+    "vi": "Chính phủ & chính trị",
+    "es": "Gobierno y política",
+    "pt": "Governo e política",
+    "fr": "Gouvernement et politique",
+    "de": "Regierung & Politik",
+    "id": "Pemerintahan & politik",
+    "th": "รัฐบาลและการเมือง",
+    "zh": "政府与政治",
+    "ja": "政府と政治",
+    "ko": "정부와 정치",
+    "hi": "सरकार और राजनीति",
+    "ar": "الحكومة والسياسة",
+    "ru": "Власть и политика",
+    "tr": "Hükümet ve siyaset"
+   }
+  },
+  {
+   "id": "media",
+   "domain": "society",
+   "sets": [
+    "media"
+   ],
+   "name": {
+    "en": "Media & news",
+    "vi": "Truyền thông & tin tức",
+    "es": "Medios y noticias",
+    "pt": "Mídia e notícias",
+    "fr": "Médias et actualités",
+    "de": "Medien & Nachrichten",
+    "id": "Media & berita",
+    "th": "สื่อและข่าว",
+    "zh": "媒体与新闻",
+    "ja": "メディアとニュース",
+    "ko": "미디어와 뉴스",
+    "hi": "मीडिया और समाचार",
+    "ar": "الإعلام والأخبار",
+    "ru": "СМИ и новости",
+    "tr": "Medya ve haberler"
+   }
+  },
+  {
+   "id": "xw-military",
+   "domain": "society",
+   "sets": [
+    "government"
+   ],
+   "name": {
+    "en": "Military & war",
+    "vi": "Quân sự & chiến tranh",
+    "es": "Ejército y guerra",
+    "pt": "Forças armadas e guerra",
+    "fr": "Armée et guerre",
+    "de": "Militär & Krieg",
+    "id": "Militer & perang",
+    "th": "การทหารและสงคราม",
+    "zh": "军事与战争",
+    "ja": "軍事と戦争",
+    "ko": "군사와 전쟁",
+    "hi": "सेना और युद्ध",
+    "ar": "الجيش والحرب",
+    "ru": "Армия и война",
+    "tr": "Ordu ve savaş"
+   }
+  },
+  {
+   "id": "xw-religion-history",
+   "domain": "society",
+   "sets": [
+    "culture",
+    "society"
+   ],
+   "name": {
+    "en": "Religion & history",
+    "vi": "Tôn giáo & lịch sử",
+    "es": "Religión e historia",
+    "pt": "Religião e história",
+    "fr": "Religion et histoire",
+    "de": "Religion & Geschichte",
+    "id": "Agama & sejarah",
+    "th": "ศาสนาและประวัติศาสตร์",
+    "zh": "宗教与历史",
+    "ja": "宗教と歴史",
+    "ko": "종교와 역사",
+    "hi": "धर्म और इतिहास",
+    "ar": "الدين والتاريخ",
+    "ru": "Религия и история",
+    "tr": "Din ve tarih"
+   }
+  },
+  {
+   "id": "education",
+   "domain": "learning",
+   "sets": [
+    "education",
+    "ex-toefl-campus"
+   ],
+   "name": {
+    "en": "Education",
+    "vi": "Giáo dục",
+    "es": "Educación",
+    "pt": "Educação",
+    "fr": "Éducation",
+    "de": "Bildung",
+    "id": "Pendidikan",
+    "th": "การศึกษา",
+    "zh": "教育",
+    "ja": "教育",
+    "ko": "교육",
+    "hi": "शिक्षा",
+    "ar": "التعليم",
+    "ru": "Образование",
+    "tr": "Eğitim"
+   }
+  },
+  {
+   "id": "dom-edu",
+   "domain": "learning",
+   "sets": [
+    "dom-edu"
+   ],
+   "name": {
+    "en": "Teaching",
+    "vi": "Giảng dạy",
+    "es": "Enseñanza",
+    "pt": "Ensino",
+    "fr": "Enseignement",
+    "de": "Unterricht",
+    "id": "Pengajaran",
+    "th": "การสอน",
+    "zh": "教学",
+    "ja": "指導",
+    "ko": "교수법",
+    "hi": "अध्यापन",
+    "ar": "التدريس",
+    "ru": "Преподавание",
+    "tr": "Öğretim"
+   }
+  },
+  {
+   "id": "language",
+   "domain": "learning",
+   "sets": [
+    "language",
+    "linking",
+    "phrasal",
+    "idioms"
+   ],
+   "name": {
+    "en": "Language",
+    "vi": "Ngôn ngữ",
+    "es": "Lenguaje",
+    "pt": "Linguagem",
+    "fr": "Langage",
+    "de": "Sprache",
+    "id": "Bahasa",
+    "th": "ภาษา",
+    "zh": "语言",
+    "ja": "言語",
+    "ko": "언어",
+    "hi": "भाषा",
+    "ar": "اللغة",
+    "ru": "Язык",
+    "tr": "Dil"
+   }
+  },
+  {
+   "id": "technology",
+   "domain": "scitech",
+   "sets": [
+    "technology",
+    "dom-it"
+   ],
+   "name": {
+    "en": "Technology",
+    "vi": "Công nghệ",
+    "es": "Tecnología",
+    "pt": "Tecnologia",
+    "fr": "Technologie",
+    "de": "Technologie",
+    "id": "Teknologi",
+    "th": "เทคโนโลยี",
+    "zh": "技术",
+    "ja": "テクノロジー",
+    "ko": "기술",
+    "hi": "प्रौद्योगिकी",
+    "ar": "التكنولوجيا",
+    "ru": "Технологии",
+    "tr": "Teknoloji"
+   }
+  },
+  {
+   "id": "dom-it",
+   "domain": "scitech",
+   "sets": [
+    "dom-it",
+    "office-it"
+   ],
+   "name": {
+    "en": "IT & software",
+    "vi": "CNTT & phần mềm",
+    "es": "Informática y software",
+    "pt": "TI e software",
+    "fr": "Informatique et logiciels",
+    "de": "IT & Software",
+    "id": "TI & perangkat lunak",
+    "th": "ไอทีและซอฟต์แวร์",
+    "zh": "IT与软件",
+    "ja": "ITとソフトウェア",
+    "ko": "IT와 소프트웨어",
+    "hi": "आईटी और सॉफ़्टवेयर",
+    "ar": "تقنية المعلومات والبرمجيات",
+    "ru": "ИТ и софт",
+    "tr": "BT ve yazılım"
+   }
+  },
+  {
+   "id": "science",
+   "domain": "scitech",
+   "sets": [
+    "science",
+    "ex-toefl-lecture"
+   ],
+   "name": {
+    "en": "Science",
+    "vi": "Khoa học",
+    "es": "Ciencia",
+    "pt": "Ciência",
+    "fr": "Sciences",
+    "de": "Wissenschaft",
+    "id": "Sains",
+    "th": "วิทยาศาสตร์",
+    "zh": "科学",
+    "ja": "科学",
+    "ko": "과학",
+    "hi": "विज्ञान",
+    "ar": "العلوم",
+    "ru": "Наука",
+    "tr": "Bilim"
+   }
+  },
+  {
+   "id": "dom-eng",
+   "domain": "scitech",
+   "sets": [
+    "dom-eng"
+   ],
+   "name": {
+    "en": "Engineering",
+    "vi": "Kỹ thuật",
+    "es": "Ingeniería",
+    "pt": "Engenharia",
+    "fr": "Ingénierie",
+    "de": "Ingenieurwesen",
+    "id": "Teknik",
+    "th": "วิศวกรรม",
+    "zh": "工程",
+    "ja": "工学",
+    "ko": "공학",
+    "hi": "इंजीनियरिंग",
+    "ar": "الهندسة",
+    "ru": "Инженерия",
+    "tr": "Mühendislik"
+   }
+  },
+  {
+   "id": "space",
+   "domain": "scitech",
+   "sets": [
+    "space"
+   ],
+   "name": {
+    "en": "Space",
+    "vi": "Vũ trụ",
+    "es": "El espacio",
+    "pt": "O espaço",
+    "fr": "L'espace",
+    "de": "Weltraum",
+    "id": "Luar angkasa",
+    "th": "อวกาศ",
+    "zh": "太空",
+    "ja": "宇宙",
+    "ko": "우주",
+    "hi": "अंतरिक्ष",
+    "ar": "الفضاء",
+    "ru": "Космос",
+    "tr": "Uzay"
+   }
+  },
+  {
+   "id": "energy",
+   "domain": "scitech",
+   "sets": [
+    "energy"
+   ],
+   "name": {
+    "en": "Energy",
+    "vi": "Năng lượng",
+    "es": "Energía",
+    "pt": "Energia",
+    "fr": "Énergie",
+    "de": "Energie",
+    "id": "Energi",
+    "th": "พลังงาน",
+    "zh": "能源",
+    "ja": "エネルギー",
+    "ko": "에너지",
+    "hi": "ऊर्जा",
+    "ar": "الطاقة",
+    "ru": "Энергия",
+    "tr": "Enerji"
+   }
+  },
+  {
+   "id": "environment",
+   "domain": "nature",
+   "sets": [
+    "environment",
+    "dom-env"
+   ],
+   "name": {
+    "en": "Environment",
+    "vi": "Môi trường",
+    "es": "Medio ambiente",
+    "pt": "Meio ambiente",
+    "fr": "Environnement",
+    "de": "Umwelt",
+    "id": "Lingkungan",
+    "th": "สิ่งแวดล้อม",
+    "zh": "环境",
+    "ja": "環境",
+    "ko": "환경",
+    "hi": "पर्यावरण",
+    "ar": "البيئة",
+    "ru": "Окружающая среда",
+    "tr": "Çevre"
+   }
+  },
+  {
+   "id": "dom-env",
+   "domain": "nature",
+   "sets": [
+    "dom-env"
+   ],
+   "name": {
+    "en": "Environmental science",
+    "vi": "Khoa học môi trường",
+    "es": "Ciencias ambientales",
+    "pt": "Ciências ambientais",
+    "fr": "Sciences de l'environnement",
+    "de": "Umweltwissenschaft",
+    "id": "Ilmu lingkungan",
+    "th": "วิทยาศาสตร์สิ่งแวดล้อม",
+    "zh": "环境科学",
+    "ja": "環境科学",
+    "ko": "환경 과학",
+    "hi": "पर्यावरण विज्ञान",
+    "ar": "علوم البيئة",
+    "ru": "Экология",
+    "tr": "Çevre bilimi"
+   }
+  },
+  {
+   "id": "xw-nature",
+   "domain": "nature",
+   "sets": [
+    "environment",
+    "wildlife"
+   ],
+   "name": {
+    "en": "Nature",
+    "vi": "Thiên nhiên",
+    "es": "Naturaleza",
+    "pt": "Natureza",
+    "fr": "Nature",
+    "de": "Natur",
+    "id": "Alam",
+    "th": "ธรรมชาติ",
+    "zh": "自然",
+    "ja": "自然",
+    "ko": "자연",
+    "hi": "प्रकृति",
+    "ar": "الطبيعة",
+    "ru": "Природа",
+    "tr": "Doğa"
+   }
+  },
+  {
+   "id": "wildlife",
+   "domain": "nature",
+   "sets": [
+    "wildlife"
+   ],
+   "name": {
+    "en": "Animals & wildlife",
+    "vi": "Động vật hoang dã",
+    "es": "Animales y fauna",
+    "pt": "Animais e vida selvagem",
+    "fr": "Animaux et faune",
+    "de": "Tiere & Wildtiere",
+    "id": "Hewan & satwa liar",
+    "th": "สัตว์และสัตว์ป่า",
+    "zh": "动物与野生动物",
+    "ja": "動物と野生生物",
+    "ko": "동물과 야생 생물",
+    "hi": "जानवर और वन्यजीव",
+    "ar": "الحيوانات والحياة البرية",
+    "ru": "Животные",
+    "tr": "Hayvanlar ve yaban hayatı"
+   }
+  },
+  {
+   "id": "culture",
+   "domain": "culture",
+   "sets": [
+    "culture"
+   ],
+   "name": {
+    "en": "Culture",
+    "vi": "Văn hóa",
+    "es": "Cultura",
+    "pt": "Cultura",
+    "fr": "Culture",
+    "de": "Kultur",
+    "id": "Budaya",
+    "th": "วัฒนธรรม",
+    "zh": "文化",
+    "ja": "文化",
+    "ko": "문화",
+    "hi": "संस्कृति",
+    "ar": "الثقافة",
+    "ru": "Культура",
+    "tr": "Kültür"
+   }
+  },
+  {
+   "id": "xw-arts",
+   "domain": "culture",
+   "sets": [
+    "culture"
+   ],
+   "name": {
+    "en": "Arts",
+    "vi": "Nghệ thuật",
+    "es": "Artes",
+    "pt": "Artes",
+    "fr": "Arts",
+    "de": "Kunst",
+    "id": "Seni",
+    "th": "ศิลปะ",
+    "zh": "艺术",
+    "ja": "芸術",
+    "ko": "예술",
+    "hi": "कला",
+    "ar": "الفنون",
+    "ru": "Искусство",
+    "tr": "Sanat"
+   }
+  },
+  {
+   "id": "architecture",
+   "domain": "culture",
+   "sets": [
+    "architecture",
+    "dom-eng"
+   ],
+   "name": {
+    "en": "Buildings & architecture",
+    "vi": "Công trình & kiến trúc",
+    "es": "Edificios y arquitectura",
+    "pt": "Edifícios e arquitetura",
+    "fr": "Bâtiments et architecture",
+    "de": "Gebäude & Architektur",
+    "id": "Bangunan & arsitektur",
+    "th": "อาคารและสถาปัตยกรรม",
+    "zh": "建筑",
+    "ja": "建物と建築",
+    "ko": "건물과 건축",
+    "hi": "इमारतें और वास्तुकला",
+    "ar": "المباني والعمارة",
+    "ru": "Здания и архитектура",
+    "tr": "Binalar ve mimari"
+   }
+  },
+  {
+   "id": "sport",
+   "domain": "culture",
+   "sets": [
+    "sport"
+   ],
+   "name": {
+    "en": "Sport",
+    "vi": "Thể thao",
+    "es": "Deporte",
+    "pt": "Esporte",
+    "fr": "Sport",
+    "de": "Sport",
+    "id": "Olahraga",
+    "th": "กีฬา",
+    "zh": "体育",
+    "ja": "スポーツ",
+    "ko": "스포츠",
+    "hi": "खेल",
+    "ar": "الرياضة",
+    "ru": "Спорт",
+    "tr": "Spor"
+   }
+  },
+  {
+   "id": "xw-actions",
+   "domain": "general",
+   "sets": [
+    "phrasal",
+    "ngsl1"
+   ],
+   "name": {
+    "en": "Common actions",
+    "vi": "Hành động thường gặp",
+    "es": "Acciones comunes",
+    "pt": "Ações comuns",
+    "fr": "Actions courantes",
+    "de": "Häufige Handlungen",
+    "id": "Tindakan umum",
+    "th": "การกระทำทั่วไป",
+    "zh": "常见动作",
+    "ja": "よくある動作",
+    "ko": "자주 하는 동작",
+    "hi": "आम क्रियाएँ",
+    "ar": "أفعال شائعة",
+    "ru": "Обычные действия",
+    "tr": "Yaygın eylemler"
+   }
+  },
+  {
+   "id": "xw-qualities",
+   "domain": "general",
+   "sets": [
+    "describe",
+    "collocations"
+   ],
+   "name": {
+    "en": "Qualities",
+    "vi": "Tính chất & phẩm chất",
+    "es": "Cualidades",
+    "pt": "Qualidades",
+    "fr": "Qualités",
+    "de": "Eigenschaften",
+    "id": "Sifat & kualitas",
+    "th": "คุณลักษณะ",
+    "zh": "性质与品质",
+    "ja": "性質と特徴",
+    "ko": "성질과 특성",
+    "hi": "गुण",
+    "ar": "الصفات والخصائص",
+    "ru": "Качества",
+    "tr": "Nitelikler"
+   }
+  },
+  {
+   "id": "xw-time-place",
+   "domain": "general",
+   "sets": [
+    "urban",
+    "task1"
+   ],
+   "name": {
+    "en": "Time & place",
+    "vi": "Thời gian & nơi chốn",
+    "es": "Tiempo y lugar",
+    "pt": "Tempo e lugar",
+    "fr": "Temps et lieu",
+    "de": "Zeit & Ort",
+    "id": "Waktu & tempat",
+    "th": "เวลาและสถานที่",
+    "zh": "时间与地点",
+    "ja": "時と場所",
+    "ko": "시간과 장소",
+    "hi": "समय और स्थान",
+    "ar": "الزمان والمكان",
+    "ru": "Время и место",
+    "tr": "Zaman ve mekân"
+   }
+  }
+ ]
+}

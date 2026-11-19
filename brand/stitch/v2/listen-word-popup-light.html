@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite - Listening Practice Word Lookup</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Plus Jakarta Sans Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-tertiary-fixed": "#251a00",
+            "on-secondary": "#ffffff",
+            "surface-container": "#faebe1",
+            "inverse-on-surface": "#fdeee4",
+            "on-surface": "#211a14",
+            "primary-fixed-dim": "#92d2cb",
+            "surface": "#fff8f5",
+            "on-secondary-fixed-variant": "#6a3b00",
+            "secondary-container": "#fc9500",
+            "surface-bright": "#fff8f5",
+            "outline": "#6f7977",
+            "on-secondary-fixed": "#2d1600",
+            "surface-container-lowest": "#ffffff",
+            "on-tertiary": "#ffffff",
+            "primary-fixed": "#a4f1e7",
+            "on-surface-variant": "#3f4947",
+            "on-primary-fixed": "#00201e",
+            "secondary": "#8b5000",
+            "on-error": "#ffffff",
+            "on-primary-fixed-variant": "#00504b",
+            "on-primary": "#ffffff",
+            "tertiary-container": "#5b4300",
+            "surface-container-high": "#f4e5db",
+            "on-primary-container": "#81c1ba",
+            "surface-container-highest": "#eee0d6",
+            "tertiary-fixed": "#ffdf9b",
+            "surface-variant": "#eee0d6",
+            "on-secondary-container": "#633700",
+            "surface-dim": "#e6d7cd",
+            "error-container": "#ffdad6",
+            "surface-container-low": "#fff1e8",
+            "shadow-ledge-secondary": "#8c5000",
+            "error": "#ba1a1a",
+            "inverse-primary": "#92d2cb",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "on-tertiary-container": "#e1ad1c",
+            "shadow-ledge-primary": "#136a63",
+            "tertiary-fixed-dim": "#f5bf31",
+            "background": "#fff8f5",
+            "on-error-container": "#93000a",
+            "primary-container": "#136a63",
+            "tertiary": "#3f2e00",
+            "secondary-fixed": "#ffdcbf",
+            "shadow-ledge-neutral": "#bec9c6",
+            "surface-tint": "#266863",
+            "primary": "#003734",
+            "inverse-surface": "#372f28",
+            "button-text-contrast": "#1a0d00",
+            "on-background": "#211a14",
+            "outline-variant": "#bfc9c6",
+            "secondary-fixed-dim": "#ffb872"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter": "1rem",
+            "space-lg": "1.5rem",
+            "margin": "1rem",
+            "space-xl": "2.5rem",
+            "margin-md": "2rem",
+            "gutter-md": "1.5rem",
+            "space-sm": "0.5rem",
+            "gutter-lg": "2rem",
+            "space-md": "1rem",
+            "space-xs": "0.25rem",
+            "margin-lg": "3rem"
+          },
+          "fontFamily": {
+            "label-sm": ["Plus Jakarta Sans"],
+            "display-lg": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "mono": ["JetBrains Mono", "monospace"]
+          },
+          "fontSize": {
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "800" }],
+            "display-lg": ["44px", { "lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "500" }],
+            "label-md": ["14px", { "lineHeight": "18px", "letterSpacing": "0.03em", "fontWeight": "700" }],
+            "label-lg": ["16px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "700" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "500" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "800" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      line-height: 1;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+    }
+    .material-symbols-fill {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Hide scrollbars for clean presentation */
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    * {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[#1e1c1a] text-on-surface antialiased min-h-screen flex items-center justify-center p-0 sm:p-4">
+<!-- Mobile Screen Shell (Exact 390px Mobile Viewport) -->
+<main class="relative w-full max-w-[390px] h-[844px] bg-surface overflow-hidden shadow-2xl flex flex-col font-body-md select-none border-x border-[#E6DCCB]">
+<!-- ============================================== -->
+<!-- 1. TOP APP BAR (Shared Anchor: Inner Screen Variant) -->
+<!-- ============================================== -->
+<header class="w-full h-14 bg-surface z-10 flex items-center justify-between px-4 border-b-2 border-outline-variant/50 shrink-0">
+<div class="flex items-center gap-2">
+<button aria-label="Go back" class="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl bg-surface-container-lowest border-2 border-outline-variant/70 text-primary shadow-[0_2px_0_0_#bec9c6] active:translate-y-[2px] active:shadow-none transition-transform duration-100">
+<span class="material-symbols-outlined text-[22px]">arrow_back</span>
+</button>
+<h1 class="font-headline-sm text-headline-sm text-primary tracking-tight">Listening practice</h1>
+</div>
+<!-- Right Audio/Headphone Indicator Pill -->
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container-high border border-outline-variant/60">
+<span class="material-symbols-outlined text-[18px] text-primary-container material-symbols-fill">headphones</span>
+<span class="font-label-sm text-label-sm text-primary tracking-normal">Part 1</span>
+</div>
+</header>
+<!-- ============================================== -->
+<!-- 2. BACKGROUND SCROLL CANVAS (Behind veil) -->
+<!-- ============================================== -->
+<div class="flex-1 overflow-y-auto px-4 pt-4 pb-20 space-y-4">
+<!-- Audio Player Control Card -->
+<section class="bg-surface-container-lowest rounded-2xl border-2 border-outline-variant/80 p-4 shadow-[0_3px_0_0_#bec9c6] space-y-3">
+<!-- Track info row -->
+<div class="flex items-start justify-between">
+<div class="space-y-0.5">
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-secondary uppercase tracking-wider">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+              IELTS Listening Section 1
+            </span>
+<p class="font-label-lg text-label-lg text-on-surface">Campus Sports Center Registration</p>
+</div>
+<button aria-label="Bookmark audio" class="w-9 h-9 min-w-[36px] min-h-[36px] flex items-center justify-center rounded-lg text-on-surface-variant hover:bg-surface-container">
+<span class="material-symbols-outlined text-[20px]">bookmark</span>
+</button>
+</div>
+<!-- Progress Tracker Bar -->
+<div class="space-y-1.5">
+<div class="h-3 rounded-full bg-surface-container-highest border border-outline-variant/60 p-0.5 w-full">
+<div class="h-full bg-primary-container rounded-full w-[33%] shadow-[inset_0_1.5px_0_rgba(255,255,255,0.4)]"></div>
+</div>
+<div class="flex justify-between items-center font-mono text-[11px] text-on-surface-variant font-medium">
+<span>01:14</span>
+<span>03:45</span>
+</div>
+</div>
+<!-- Playback Controls -->
+<div class="flex items-center justify-between pt-1">
+<button class="px-2.5 py-1 rounded-lg bg-surface-container font-label-sm text-label-sm text-on-surface-variant border border-outline-variant/50">
+            1.0x
+          </button>
+<div class="flex items-center gap-3">
+<button aria-label="Replay 5s" class="w-10 h-10 min-w-[40px] min-h-[40px] rounded-full flex items-center justify-center text-primary-container hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[24px]">replay_5</span>
+</button>
+<button aria-label="Play or pause" class="w-12 h-12 min-w-[48px] min-h-[48px] rounded-full bg-primary-container text-white flex items-center justify-center border-2 border-primary shadow-[0_3px_0_0_#00201e] active:translate-y-1 active:shadow-none transition-transform">
+<span class="material-symbols-outlined text-[26px] material-symbols-fill">pause</span>
+</button>
+<button aria-label="Forward 5s" class="w-10 h-10 min-w-[40px] min-h-[40px] rounded-full flex items-center justify-center text-primary-container hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[24px]">forward_5</span>
+</button>
+</div>
+<button aria-label="Audio settings" class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]">volume_up</span>
+</button>
+</div>
+</section>
+<!-- Transcript Dialogue Container -->
+<section class="space-y-3.5 pt-1">
+<div class="flex items-center justify-between px-1">
+<h2 class="font-label-lg text-label-lg text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[20px] text-primary">forum</span>
+            Live Transcript
+          </h2>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Tap word to look up</span>
+</div>
+<!-- Speaker Line 1 -->
+<article class="bg-surface-container-lowest rounded-2xl border-2 border-outline-variant/60 p-3.5 space-y-1">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-surface-container-high border border-outline-variant text-[11px] font-bold text-primary flex items-center justify-center">A</span>
+<span class="font-label-md text-label-md text-primary">Clerk</span>
+<span class="font-mono text-[11px] text-on-surface-variant">01:08</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface pl-8">
+            Good afternoon! Welcome to the University Sports Pavilion. How can I help you today?
+          </p>
+</article>
+<!-- Speaker Line 2 (With active selected word) -->
+<article class="bg-surface-container-low rounded-2xl border-2 border-primary/40 p-3.5 space-y-1 relative ring-2 ring-primary/20">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-primary-container text-white text-[11px] font-bold flex items-center justify-center">B</span>
+<span class="font-label-md text-label-md text-primary-container font-extrabold">Student</span>
+<span class="font-mono text-[11px] text-on-surface-variant">01:14</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface pl-8 leading-relaxed">
+            I'd like to sign up for a 
+            <!-- Highlighted word with interactive chip styling -->
+<span class="inline-block relative bg-primary-container text-white font-bold px-2 py-0.5 rounded-lg border border-primary shadow-[0_2px_0_0_#00201e] mx-1">
+              membership
+              <span class="absolute -top-2 -right-1 flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-secondary"></span>
+</span>
+</span>, 
+            if that's possible over the phone.
+          </p>
+</article>
+<!-- Speaker Line 3 -->
+<article class="bg-surface-container-lowest rounded-2xl border-2 border-outline-variant/60 p-3.5 space-y-1">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-surface-container-high border border-outline-variant text-[11px] font-bold text-primary flex items-center justify-center">A</span>
+<span class="font-label-md text-label-md text-primary">Clerk</span>
+<span class="font-mono text-[11px] text-on-surface-variant">01:21</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface pl-8">
+            Yes, certainly. We offer two tiers: student standard and peak gym access.
+          </p>
+</article>
+</section>
+</div>
+<!-- ============================================== -->
+<!-- 3. DIMMED BACKDROP VEIL -->
+<!-- ============================================== -->
+<div class="absolute inset-0 bg-on-surface/35 backdrop-blur-[1.5px] z-20 pointer-events-auto transition-opacity duration-200"></div>
+<!-- ============================================== -->
+<!-- 4. WORD LOOKUP BOTTOM SHEET CONTAINER -->
+<!-- ============================================== -->
+<aside aria-label="Word lookup modal" class="absolute bottom-0 inset-x-0 z-30 bg-surface-container-lowest rounded-t-[28px] border-t-2 border-x-2 border-outline-variant shadow-[0_-6px_20px_rgba(0,0,0,0.14)] px-5 pt-3 pb-6 flex flex-col space-y-3.5 max-h-[78%] overflow-y-auto">
+<!-- Drag Handle -->
+<div class="w-12 h-1.5 bg-outline-variant rounded-full mx-auto shrink-0 mb-0.5"></div>
+<!-- Header Row: Lookup Badge & 44px Close Target Button -->
+<div class="flex items-center justify-between shrink-0">
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary font-label-sm text-label-sm uppercase tracking-wider">
+<span class="material-symbols-outlined text-[16px] text-primary">translate</span>
+            Quick Lookup
+          </span>
+<span class="font-mono text-[12px] text-on-surface-variant font-semibold">IELTS Core</span>
+</div>
+<button aria-label="Close word lookup" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full bg-surface-container-low border border-outline-variant/70 text-on-surface flex items-center justify-center hover:bg-surface-container shadow-[0_2px_0_0_#bec9c6] active:translate-y-[2px] active:shadow-none transition-transform">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Main Word Header: Word, Badges & Audio Pronunciation -->
+<div class="space-y-2 pt-0.5">
+<div class="flex items-center justify-between gap-2">
+<div class="space-y-1">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-[#0f3d3e] font-extrabold tracking-tight">membership</h2>
+<div class="flex items-center gap-2 flex-wrap">
+<!-- CEFR Level Chip -->
+<span class="inline-flex items-center rounded-full px-2.5 py-0.5 font-label-sm text-label-sm bg-[#e1f8f3] text-[#00504b] border border-[#00504b]/30">
+                B1
+              </span>
+<!-- Part of Speech Chip -->
+<span class="inline-flex items-center rounded-full px-2.5 py-0.5 font-label-sm text-label-sm bg-[#F8F4EC] text-[#9a3412] border border-[#ffb872]/50">
+                noun
+              </span>
+<span class="font-mono text-body-sm text-[#4a5568]">/ˈmembəʃɪp/</span>
+</div>
+</div>
+<!-- Pronunciation Speaker Button (>= 44x44px target) -->
+<button aria-label="Listen to pronunciation of membership" class="w-12 h-12 min-w-[48px] min-h-[48px] rounded-full bg-[#00504b] text-white flex items-center justify-center border-2 border-primary shadow-[0_3px_0_0_#00201d] active:translate-y-1 active:shadow-none hover:bg-[#003833] transition-all shrink-0">
+<span class="material-symbols-outlined text-[24px] material-symbols-fill">volume_up</span>
+</button>
+</div>
+</div>
+<!-- Meaning in Vietnamese (High Contrast Authentic Card) -->
+<section class="bg-surface-container-low rounded-2xl border-2 border-outline-variant/70 p-3.5 space-y-1 shadow-[0_2px_0_0_#bec9c6]">
+<div class="flex items-center gap-1.5 text-secondary">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary">Định nghĩa chính</span>
+</div>
+<p class="font-headline-sm text-body-lg text-[#162124] font-extrabold leading-snug">
+          tư cách hội viên, thẻ thành viên
+        </p>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed pt-0.5">
+          Sự tham gia hoặc quyền lợi thành viên của một tổ chức / câu lạc bộ thể thao.
+        </p>
+</section>
+<!-- Context Sentence Box (from dialogue) -->
+<section class="bg-[#FBF7F1] border-2 border-[#e2e8f0] rounded-xl p-3 space-y-1.5">
+<div class="flex items-center gap-1.5 text-primary">
+<span class="material-symbols-outlined text-[16px] text-primary-container">format_quote</span>
+<span class="font-label-sm text-[11px] font-bold uppercase tracking-wider text-primary-container">Câu trong bài nghe</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface italic leading-snug">
+          "I'd like to sign up for a <span class="font-extrabold text-[#00504b] underline decoration-2 decoration-primary-container">membership</span>, if that's possible over the phone."
+        </p>
+<p class="font-body-sm text-body-sm text-on-surface-variant pt-0.5 border-t border-outline-variant/30 leading-snug">
+          "Tôi muốn đăng ký thẻ thành viên, nếu có thể làm qua điện thoại."
+        </p>
+</section>
+<!-- Action Buttons (One-Thumb Ergonomics, Raised 3D Ledged CTAs) -->
+<div class="space-y-2.5 pt-1">
+<!-- Primary CTA: Amber Tactile Raised Ledge Button -->
+<button class="w-full min-h-[48px] h-12 rounded-2xl bg-secondary-container hover:bg-[#d97706] text-button-text-contrast font-headline-sm text-label-lg font-extrabold border-2 border-secondary shadow-[0_4px_0_0_#8c5000] active:translate-y-1 active:shadow-none flex items-center justify-center gap-2 transition-transform duration-100">
+<span class="material-symbols-outlined text-[22px] material-symbols-fill">bookmark_add</span>
+<span>+ Save flashcard</span>
+</button>
+<!-- Secondary CTA: Outlined Details Button -->
+<button class="w-full min-h-[44px] h-11 rounded-xl bg-surface-container-lowest border-2 border-primary/30 text-primary font-headline-sm text-body-md font-bold hover:bg-[#e1f8f3] shadow-[0_2px_0_0_#bec9c6] active:translate-y-1 active:shadow-none flex items-center justify-center gap-1.5 transition-all duration-100">
+<span>Details &amp; Examples</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</aside>
+</main>
+</body></html>

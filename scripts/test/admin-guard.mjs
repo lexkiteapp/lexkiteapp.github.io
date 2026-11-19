@@ -1,0 +1,190 @@
+// 🛡️ Gác bố cục MỌI trang quản trị (owner 28/10: "nhiều phần giao diện lỗi chồng chéo" ở #video/overview – biểu đồ phóng to, cột trống, thẻ bị cắt).
+// Khung thật web/admin.html + js/admin.js, Firebase giả + /api/* = dữ liệu mẫu (scripts/test/fixtures/admin-fx.mjs) → 0 tài khoản thật, 0 mạng.
+// Mọi mục thanh bên + 7 mục con Trung tâm video · 1280/1440/1736/1920 (máy tính) · 820 (máy tính bảng) · 390 (điện thoại) · sáng/tối · VI/EN.
+// FAIL khi (lõi chung scripts/lib/layout-scan.mjs): chồng nhau > 4 px, bị cắt/ra ngoài màn hình, chữ tràn nút, chữ SVG phóng/co theo viewBox,
+//           tràn ngang trang, nội dung không lấp khung (khoảng trống > 48 px giữa thanh bên và nội dung, hoặc hụt bề rộng).
+// Dùng: node scripts/test/admin-guard.mjs [web=web] [out=out/admin-guard] [tag=after]   (tag=before: chỉ chụp ảnh, không fail)
+//       node scripts/test/admin-guard.mjs --compare out/admin-guard → sheet-*.jpg (TRƯỚC | SAU, thu nhỏ)   CI: .github/workflows/admin-guard.yml
+import fs from 'node:fs'; import path from 'node:path';
+import { scan, ADMIN_SEL } from '../lib/layout-scan.mjs';
+import { tableScan, checkMapColors } from '../lib/admin-table-scan.mjs';
+import { FX, BFX, VFX, VIT, NOW } from './fixtures/admin-fx.mjs';
+import { buildRows, readFixture, unitMap } from '../ads/report.mjs';
+import { stats, guardOf, revPack } from '../../functions/api/_ads.js';
+let pw; try { pw = await import('playwright'); } catch (e) { console.log('admin-guard: playwright chưa cài – bỏ qua'); process.exit(0); }
+const browser = await pw.chromium.launch(process.env.PW_CHANNEL ? { channel: process.env.PW_CHANNEL } : {}); // PW_CHANNEL=chrome: chạy thử nhanh bằng Chrome có sẵn
+const SHOTS = [['users', 390, 'dark'], ['users', 360, 'light'], ['users~sheet', 390, 'dark'], ['users~bulk', 390, 'light'], ['users~menu', 360, 'dark'], ['backlinks', 390, 'dark'], ['dist', 360, 'light'], ['growth', 390, 'light'], ['video/overview', 1736, 'dark'], ['video/overview', 390, 'light'], ['overview', 1440, 'dark'], ['analytics', 1280, 'light'], ['ads', 1920, 'light'], ['growth', 820, 'dark'], ['analytics', 360, 'dark'], ['quota', 390, 'light'], ['reports', 1280, 'light'], ['reports', 1440, 'dark'], ['reports', 390, 'light'], ['reports', 390, 'dark']];
+
+if (process.argv[2] === '--compare') { // TRƯỚC | SAU cạnh nhau, thu nhỏ để soát nhanh
+  const OUT = process.argv[3] || 'out/admin-guard', made = [];
+  for (const [r, w, th] of SHOTS) {
+    const n = `${r.replace(/\//g, '_')}-${w}-${th}.jpg`, fb = path.join(OUT, 'before-' + n), fa = path.join(OUT, 'after-' + n); if (!fs.existsSync(fb) || !fs.existsSync(fa)) continue;
+    const img = f => 'data:image/jpeg;base64,' + fs.readFileSync(f).toString('base64'), cw = Math.min(w, 960);
+    const page = await browser.newPage({ viewport: { width: cw * 2 + 48, height: 400 } });
+    await page.setContent(`<body style="margin:0;background:#777;font:600 18px system-ui;color:#fff;display:flex;gap:16px;padding:16px;align-items:flex-start">${[['TRƯỚC', fb], ['SAU', fa]].map(([t, f]) => `<figure style="margin:0;width:${cw}px"><figcaption style="padding:0 0 8px">${t} · #${r} · ${w}px ${th}</figcaption><img style="width:100%;display:block" src="${img(f)}"></figure>`).join('')}</body>`);
+    await page.waitForTimeout(150); const f = path.join(OUT, 'sheet-' + n); await page.screenshot({ path: f, fullPage: true, type: 'jpeg', quality: 70 }); made.push(f); await page.close();
+  }
+  await browser.close(); console.log(made.join('\n') || 'không có cặp ảnh'); process.exit(0);
+}
+
+const [WEB = 'web', OUT = 'out/admin-guard', TAG = 'after'] = process.argv.slice(2); fs.mkdirSync(OUT, { recursive: true });
+const J = x => JSON.parse(JSON.stringify(x)), iso = d => new Date(NOW + d * 864e5).toISOString().slice(0, 10) + 'T05:00:00Z';
+// Ca của owner: dữ liệu thưa – 3 ngày có video (115, 9, 1) trong 30 ngày → trước đây SVG viewBox 76 px kéo rộng = chữ ~90 px, ngày đè "10-210-22"
+const VIDEO = { ...VFX, items: [...VFX.items, ...Array.from({ length: 125 }, (_, i) => VIT('s' + i, { created: iso(i < 115 ? -6 : i < 124 ? -5 : -3), title: 'Sparse ' + i }))] };
+// Quảng cáo: cùng cách dựng số mẫu như admin-ads-shots.mjs (fixture báo cáo AdSense/AdMob + sự kiện 30 ngày)
+const ADS = (() => {
+  const today = iso(0).slice(0, 10), sh = (d, n) => new Date(Date.parse(d + 'T00:00:00Z') + n * 864e5).toISOString().slice(0, 10), { rows } = buildRows(readFixture('scripts/test/fixtures/ads-report'), unitMap());
+  const ev = []; for (let i = 1; i <= 30; i++) { const d = sh(today, -i); ev.push({ day: d, kind: 'ad:imp:web:home', n: 900 + i * 7 }, { day: d, kind: 'ad:req:web:home', n: 1000 }, { day: d, kind: 'ad:show:android:inter', n: 120 }, { day: d, kind: 'adc:a:ses', n: 300 }, { day: d, kind: 'adc:a:n1', n: 40 }, { day: d, kind: 'adc:h:n1', n: 40 }, { day: d, kind: 'adc:a:r1', n: 14 }, { day: d, kind: 'adc:h:r1', n: 15 }); }
+  const ecpm = { web: 2, android: 6, ios: 6 };
+  return { at: NOW, today, ...stats(ev, today, ecpm), guard: guardOf(ev, today, { prev: 1 }), ecpm, real: revPack(rows, { at: NOW, srcs: ['adsense', 'admob'] }, { balance: '$42.17', last: { amount: '$118.40', date: '2026-09-21' } }, ev, ecpm, today, today), reporting: { connected: true } };
+})();
+const GROW = { events: Array.from({ length: 30 }, (_, i) => ({ day: iso(i - 29).slice(0, 10), install: 3 + (i % 6), uninstall: i % 3 })), daily: Array.from({ length: 14 }, (_, i) => ({ day: iso(i - 13).slice(0, 10), dau: 40 + i * 3, lookup: 120 + i * 9, save: 30 + i, popup: 50, newtab: 12 })) };
+// Hạn mức (/api/quota): đủ trường admin-quota.js đọc (nhà cung cấp, top, chặn, cờ, cho phép, tính năng, nhật ký)
+const QUOTA = { day: iso(0).slice(0, 10), breaker: 0.8, providers: [{ p: 'gemini', unit: 'req', used: 640, cap: 1000, pct: 64 }, { p: 'cf-ai', unit: 'neurons', used: 2100, cap: 10000, pct: 21 }],
+  top: { lookup: [{ id: 'u1', email: 'learner@example.com', n: 42 }, { id: 'ip:ab12', n: 17 }] }, blocks: [{ id: 'ip:ff00', until: NOW + 864e5, reason: 'abuse', by: 'admin@example.com' }],
+  flags: [{ id: 'u9', feature: 'explain', strikes: 2, last: NOW }], allow: [{ id: 'u1', note: 'tester', by: 'admin@example.com', at: NOW }],
+  features: [{ feature: 'explain', free: 20, anon: 5, store: 'kv', custom: false, ipx: 3, bans: 0 }, { feature: 'tts', free: 50, anon: 10, store: 'kv', custom: true, ipx: 2, bans: 1 }],
+  audit: [{ at: NOW, by: 'admin@example.com', op: 'block', target: 'ip:ff00', detail: '24h' }] };
+// owner 4/11: tên + email rất dài, không tên, nhiều chip/nhãn (bảng #users phải giữ cột, cắt "…"); đủ 5 nhóm khách để đo màu bản đồ
+SHOTS.push(['users', 1280, 'light'], ['users', 1440, 'dark'], ['analytics', 1440, 'dark']);
+const DAY = 864e5, USERS = { ...FX.users, rows: [{ uid: 'L1', email: 'nguyen.thi.bich.ngoc.very.long.mailbox.address@subdomain.example-university.edu.vn', name: 'Nguyễn Thị Bích Ngọc Trần Lê Phạm Hoàng Đặng Bùi Võ Dương', created: NOW - 9 * DAY, seen: NOW - 3600e3, plat: 'web', n: 5, isAdmin: false, cc: 'VN' }, { uid: 'L2', email: 'old@example.com', name: 'Bo', created: NOW - 90 * DAY, seen: NOW - 40 * DAY, plat: 'ios', n: 2, isAdmin: false, cc: null, blocked: 1, ai: 1, tags: '["beta","vip","teacher-program-long-tag"]' }, { uid: 'L3', email: 'a'.repeat(70) + '@example.com', name: 'Wolfeschlegelsteinhausenbergerdorffwelchevoralternwaren', created: NOW - 3 * DAY, seen: NOW - 2 * DAY, plat: 'ext', n: 1234, isAdmin: true, cc: 'US' }, { uid: 'L4', email: '', name: '', created: NOW - 3 * DAY, seen: NOW - DAY, plat: 'android', n: 1, isAdmin: false, cc: 'JP' }, ...FX.users.rows] };
+const MAP_CC = { VN: 1, US: 3, JP: 12, DE: 50, BR: 300 }, LIVE = { ...FX.live, countries: [...Object.entries(MAP_CC).map(([k, n]) => ({ k, n })), { k: 'XX', n: 2 }] };
+// owner 3/11: bảng Nền tảng tràn thẻ + tên nước bị cắt ở cột ~300 px → thêm 360 (tối), 768, 1024. ADMIN_GUARD_W=360,1440 = chỉ chạy các bề rộng đó (thử nhanh)
+// Hộp báo lỗi (/api/report): dữ liệu mẫu, chỉ sandbox – không người thật
+const REP = (() => { const L = ['Audio stops after the first tap on the vocabulary card', 'Không bấm được nút Tiếp tục trong truyện sau câu hỏi giữa bài, phải tải lại trang', 'Wrong example sentence in the grammar lesson about the present perfect', 'Please add an automatic flip mode for flashcards'], S = ['new', 'prog', 'new', 'ack'], P = ['P1', 'P1', 'P2', 'P3'], C = ['audio', 'bug', 'content', 'idea'];
+  const rows = Array.from({ length: 14 }, (_, i) => ({ tid: 'LX-' + (1001 + i), id: i + 1, at: NOW - (i + 1) * 36e5, upd: NOW - i * 36e5, status: S[i % 4], cat: C[i % 4], area: ['vocab', 'reading', 'grammar', 'other'][i % 4], msg: L[i % 4], ai_sum: L[i % 4], lang: ['zh', 'vi', 'fr', 'en'][i % 4], plat: ['web', 'ios', 'android', 'ext'][i % 4], ver: '1.0.' + i, sev: P[i % 4], people: i % 5 === 0 ? 3 : 1, has_shot: i % 3 === 0 ? 1 : 0, notify: i % 4 === 0 ? 1 : 0, sandbox: 1, asg: i % 6 === 0 ? 'admin@example.com' : '' }));
+  return { list: { rows, total: rows.length, counts: { new: 6, ack: 3, prog: 4, fixed: 18, wontfix: 2, dup: 5, ideas: 3 }, sevs: { P0: 1, P1: 6 }, areas: { vocab: 5, reading: 4 }, spam: 2, admins: ['admin@example.com'], gh: true },
+    get: { ...rows[0], ctx: { route: 'vocab/flash', vw: '390x844', dpr: 3, tz: 'Asia/Shanghai', ua: 'Mozilla/5.0 (sample)' }, errs: ['TypeError: sample error at audio.js:42'], events: [{ at: NOW, by: 'ai', act: 'triage', note: 'P1 · ai' }, { at: NOW - 36e5, by: 'reporter', act: 'create' }], dups: ['LX-1006'], gh: true, ai: { by: 'ai', severity: 'P1', summary_vi: 'Âm thanh dừng sau lần chạm đầu ở thẻ từ vựng', area: 'vocab', type: 'bug', confidence: 0.86, likely_cause: 'AudioContext chưa được mở lại sau khi tạm dừng.', suggested_fix: 'Gọi resume() trước khi phát.' }, tpl: { thanks: '感谢你的反馈!我们的团队已收到,很快会查看。', prog: '我们的团队正在处理此问题,完成后会立即通知你。', fixed: '此问题已修复。感谢你的反馈!请重新加载应用以使用新版本。', more: '我们的团队需要更多信息。' }, tpl_vi: { thanks: 'Cảm ơn bạn đã báo! Đội ngũ đã nhận được và sẽ xem sớm.', prog: 'Đội ngũ đang xử lý.', fixed: 'Vấn đề này đã được sửa.', more: 'Đội ngũ cần thêm chút thông tin.' } },
+    cfg: { notify: 'instant', eta: { serious: 24, normal: 72, content: 168 } } }; })();
+const CONFIGS = [[1280, 'light', 'vi'], [1440, 'dark', 'vi'], [1736, 'dark', 'vi'], [1920, 'light', 'en'], [1024, 'light', 'en'], [820, 'dark', 'vi'], [768, 'light', 'vi'], [390, 'light', 'en'], [390, 'dark', 'vi', ['reports']], [360, 'dark', 'vi'], [360, 'light', 'en']]
+  .filter(([w]) => !process.env.ADMIN_GUARD_W || process.env.ADMIN_GUARD_W.split(',').includes(String(w)));
+// Điện thoại (<640 px, owner 3/11 iPhone): vùng chạm ≥ 44 px, chữ không ngắt giữa từ, bảng không cuộn ngang (phải thành thẻ), thanh trên không tràn.
+const MOBILE = () => {
+  const vis = e => { const r = e.getBoundingClientRect(); if (r.width < 1 || r.height < 1) return null; const cs = getComputedStyle(e); if (cs.visibility === 'hidden' || +cs.opacity === 0) return null; if (e.closest('.tbl-cards:not(.u-tbl) thead, .u-tbl.tbl-cards thead th:not(.u-ckc), [hidden], .sr-only, .adm-skip, dialog:not([open]), .adm-side:not(.open), .fsheet:not(.open)')) return null; return r; };
+  const nm = e => e.tagName.toLowerCase() + (e.id ? '#' + e.id : '') + [...e.classList].slice(0, 2).map(c => '.' + c).join('') + ' "' + ((e.getAttribute('aria-label') || e.textContent || e.value || '').trim().slice(0, 18)) + '"';
+  const tap = [], seen = new Set(), sheet = document.querySelector('.fsheet.open'), menu = document.querySelector('#meMenu.open');
+  const scope = sheet || menu ? [sheet, menu, ...(sheet ? [] : [document.querySelector('.adm-top')])].filter(Boolean) : [document.querySelector('.adm-top'), document.querySelector('.adm-content'), document.querySelector('#uBulk')].filter(Boolean);
+  for (const root of scope) for (const e of root.querySelectorAll('a[href], button, input:not([type=hidden]), select, textarea, summary, [role=button], [role=tab]')) {
+    if (e.closest('[data-tap-ok]')) continue; const r = vis(e); if (!r) continue;
+    if (e.tagName === 'A' && getComputedStyle(e).display === 'inline' && /\S/.test((e.parentElement.textContent || '').replace(e.textContent, ''))) continue; // liên kết trong câu chữ (ngoại lệ WCAG 2.5.8)
+    const l = e.closest('label'), lr = l ? l.getBoundingClientRect() : r, w = Math.max(r.width, lr.width), h = Math.max(r.height, lr.height);
+    if (Math.min(w, h) < 43.5) { const k = nm(e).replace(/ ".*/, ''); if (!seen.has(k)) { seen.add(k); tap.push(`${nm(e)} ${Math.round(w)}×${Math.round(h)}`); } }
+  }
+  const brk = [], tw = document.createTreeWalker(document.querySelector('.adm-content') || document.body, NodeFilter.SHOW_TEXT), RX = /[\p{L}\p{N}\p{M}@._']{4,32}/gu; let n = 0;
+  for (let t; (t = tw.nextNode()) && n < 6000;) {
+    const pe = t.parentElement; if (!pe || pe.closest('svg, code, pre, [data-break-ok], script, style, .sr-only, [hidden]') || !vis(pe)) continue;
+    for (const m of t.textContent.matchAll(RX)) { n++; const rg = document.createRange(); rg.setStart(t, m.index); rg.setEnd(t, m.index + m[0].length); const tops = new Set([...rg.getClientRects()].filter(x => x.width > 0.5).map(x => Math.round(x.top / 4))); if (tops.size > 1 && brk.length < 8) brk.push(`"${m[0]}" trong ${nm(pe).replace(/ ".*/, '')}`); }
+  }
+  const tbl = [];
+  for (const t of document.querySelectorAll('.adm-content table:not([data-keep-table])')) { const b = t.closest('.tbl-x, .tbl-wrap, .g-wrap, .drv-tw, .ds-tw, [data-sx]'); if (b && vis(b) && b.scrollWidth > b.clientWidth + 1) tbl.push(`bảng ${nm(t).replace(/ ".*/, '')} cuộn ngang ${b.scrollWidth}/${b.clientWidth} px`); }
+  const top = document.querySelector('.adm-top'), tops = []; if (top) for (const e of top.querySelectorAll('*')) { const r = vis(e); if (r && (r.right > innerWidth + 1 || r.left < -1) && !e.closest('#meMenu')) { tops.push(nm(e) + ' ra ngoài màn hình'); break; } }
+  if (tap.length) { const b = document.querySelector('#navBtn'), cs = b && getComputedStyle(b), sh = [...document.styleSheets].map(x => { let n = -1, m = 0; try { n = x.cssRules.length; for (const r of x.cssRules) if (r.media && /640/.test(r.media.mediaText)) m += r.cssRules.length; } catch (e) { /* bỏ qua */ } return (x.href || 'inline').replace(/^.*\//, '') + ':' + n + '/' + m; }); tap.unshift(`[chẩn đoán] innerWidth=${innerWidth} burger ${cs && cs.width}×${cs && cs.height} bodyClass=${document.body.className} sheets=${sh.join(',')}`); }
+  return { 'vùng chạm < 44 px': tap.slice(0, 12), 'chữ ngắt giữa từ': brk, 'bảng cuộn ngang trên điện thoại': tbl, 'thanh trên tràn': tops };
+};
+const FB = `window.firebase = { initializeApp() {}, auth: Object.assign(() => window.__AUTH, { GoogleAuthProvider: function () { this.setCustomParameters = () => {}; } }) };
+  const U = { uid: 'guard', email: 'admin@example.com', displayName: 'Guard', photoURL: '', getIdToken: async () => 'x' };
+  window.__AUTH = { currentUser: U, onAuthStateChanged: cb => setTimeout(() => cb(U), 0), signOut: async () => {}, signInWithPopup: async () => {} };`;
+const api = (pathn, b) => {
+  if (pathn === '/api/admin-shorts') return b.op === 'list' ? VIDEO : { error: 'needs-token' };
+  if (pathn === '/api/admin-prefs') return b.op === 'get' ? { ok: true, pref: { tab: 'overview', lang: 'vi', theme: 'auto', autoLogoutMin: 0, alertTypes: ['js_error'], jsErrorThreshold: 10, quotaThresholdPct: 70 } } : { ok: true, rows: [] };
+  if (pathn === '/api/admin') return { users: USERS, live: LIVE }[b.op] || FX[b.op] || (b.op === 'adsStats' ? ADS : /^(growth|ext)/i.test(b.op) ? GROW : { ok: true, rows: [] });
+  if (pathn === '/api/backlinks') return BFX[b.op] || { ok: true };
+  if (pathn === '/api/report') return REP[b.op] || { ok: true, rows: [] };
+  if (pathn === '/api/drive') return { alerts: [] };
+  if (pathn === '/api/quota') return b.op === 'state' ? QUOTA : { day: QUOTA.day, jobs: [], runs: [], leases: [], budget: {} };
+  return { ok: true, rows: [] };
+};
+// Bản đồ: đọc màu THẬT trên SVG (không tin token) – 0 khách + 5 nhóm so với nền thật ở theme đang hiện; đổi theme bằng nút và theo hệ điều hành thì phải vẽ lại
+const mapRead = page => page.evaluate(cc => { const fill = c => { const e = document.querySelector(`#worldMap .jvm-region[data-code="${c}"]`); return e && getComputedStyle(e).fill; }; let n = document.querySelector('#worldMap'), bg = ''; while (n && (!bg || /rgba\(0, 0, 0, 0\)|transparent/.test(bg))) { bg = getComputedStyle(n).backgroundColor; n = n.parentElement; } return { bg, zero: fill('FR'), buckets: cc.map(fill) }; }, Object.keys(MAP_CC));
+const mapCheck = async (page, full) => {
+  await page.waitForSelector('#worldMap .jvm-region', { state: 'attached', timeout: 8000 }).catch(() => {});
+  const look = async tag => { const m = await mapRead(page); return [m, m.zero ? checkMapColors([m.zero, ...m.buckets], m.bg, tag) : [`${tag}: không thấy vùng bản đồ`]]; }, o = (await look('hiện tại'))[1];
+  if (!full) return o;
+  const set = m => page.evaluate(v => { const b = document.querySelector('#thm'); for (let i = 0; i < 3 && localStorage.getItem('lk.admTheme') !== v; i++) b.click(); }, m).then(() => page.waitForTimeout(350));
+  const start = await page.evaluate(() => localStorage.getItem('lk.admTheme')), step = async (tag, act) => { await act(); const [m, e] = await look(tag); o.push(...e); return m.zero; };
+  const light = await step('bấm sáng', () => set('light')), dark = await step('bấm tối', () => set('dark')); if (light === dark) o.push(`đổi sáng/tối mà nước 0 khách vẫn ${dark} (không vẽ lại)`);
+  await set('auto'); const scheme = await page.evaluate(() => matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'), other = scheme === 'dark' ? 'light' : 'dark', was = scheme === 'dark' ? dark : light;
+  if (await step('hệ điều hành đổi', () => page.emulateMedia({ colorScheme: other }).then(() => page.waitForTimeout(350))) === was) o.push('hệ điều hành đổi theme mà bản đồ không vẽ lại');
+  await page.emulateMedia({ colorScheme: scheme }); await set(start);
+  return o;
+};
+const found = {}, errs = [], add = (k, v) => { (found[k] ||= []).push(v); };
+for (const [width, scheme, lang, only] of CONFIGS) {
+  const vp = width < 768 ? { viewport: { width, height: 844 }, deviceScaleFactor: 1, isMobile: true, hasTouch: true } : { viewport: { width, height: 900 } };
+  const ctx = await browser.newContext({ ...vp, colorScheme: scheme, serviceWorkers: 'block' });
+  await ctx.addInitScript(([l, th]) => { try { localStorage.setItem('lk.admLang', l); localStorage.setItem('lk.admTheme', th); } catch (e) { /* bỏ qua */ } }, [lang, scheme]);
+  await ctx.route('**/*', r => {
+    const req = r.request(), u = new URL(req.url());
+    if (u.hostname === 'www.gstatic.com' && /firebase-app-compat/.test(u.pathname)) return r.fulfill({ contentType: 'text/javascript', body: FB });
+    if (u.hostname === 'www.gstatic.com') return r.fulfill({ contentType: 'text/javascript', body: '' });
+    if (u.hostname !== 'lk.test') return r.abort();
+    if (u.pathname.startsWith('/api/')) { let b = {}; try { b = JSON.parse(req.postData() || '{}'); } catch (e) { /* bỏ qua */ } return r.fulfill({ contentType: 'application/json', body: JSON.stringify(J(api(u.pathname, b))) }); }
+    const f = path.join(WEB, decodeURIComponent(u.pathname)); return fs.existsSync(f) && fs.statSync(f).isFile() ? r.fulfill({ path: f }) : r.fulfill({ status: 404, body: '' });
+  });
+  const page = await ctx.newPage(), tag = `${width}-${scheme}-${lang}`;
+  let cur = 'overview'; page.on('pageerror', e => errs.push(`${tag} #${cur}: ${e.message}`));
+  await page.goto('https://lk.test/admin.html#overview', { waitUntil: 'load' });
+  await page.waitForSelector('body.adm-in #tabs a[data-tab]', { state: 'attached', timeout: 15000 }); await page.waitForTimeout(800);
+  const tabs = await page.$$eval('#tabs a[data-tab]', a => a.map(x => x.dataset.tab));
+  const routes = only || [...tabs, ...['overview', 'review', 'library', 'qc', 'scripts', 'channels', 'archive'].map(s => 'video/' + s)];
+  for (const r of routes) {
+    cur = r;
+    await page.evaluate(h => { location.hash = h; }, r); await page.waitForTimeout(r.startsWith('video/') ? 900 : 700);
+    await page.waitForFunction(() => !document.querySelector('#main [aria-busy="true"], #main .sk'), null, { timeout: 5000 }).catch(() => {});
+    const res = await page.evaluate(scan, { root: '.adm-content', sel: ADMIN_SEL, okScroll: '.tbl-x, .cl-vp, .vx-nav', boxes: '.card, .ds-card, .lt, .kpi' }).catch(e => ({ err: [e.message] }));
+    res.table = await page.evaluate(tableScan).catch(e => [e.message]);
+    if (r === 'analytics') res.map = await mapCheck(page, width === 1280);
+    // khung: tràn ngang trang, nội dung lấp khung (không cột trống giữa thanh bên và nội dung)
+    res.shell = await page.evaluate(() => {
+      const o = [], over = document.scrollingElement.scrollWidth - innerWidth;
+      if (over > 1) { const sc = e => { for (let p = e.parentElement; p; p = p.parentElement) if (/auto|scroll|hidden|clip/.test(getComputedStyle(p).overflowX) && p.getBoundingClientRect().right <= innerWidth + 1) return true; return false; };
+        const who = [...document.querySelectorAll('body *')].filter(e => e.getBoundingClientRect().right > innerWidth + 1 && !sc(e)).slice(-3).map(e => e.tagName.toLowerCase() + '.' + [...e.classList].slice(0, 2).join('.') + ' "' + (e.textContent || '').trim().slice(0, 20) + '"');
+        const tw = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT), txt = []; for (let t; (t = tw.nextNode());) { const rg = document.createRange(); rg.selectNodeContents(t); if (rg.getBoundingClientRect().right > innerWidth + 1 && !sc(t)) txt.push('chữ "' + t.textContent.trim().slice(0, 24) + '" trong ' + t.parentElement.tagName.toLowerCase() + '.' + [...t.parentElement.classList].slice(0, 2).join('.')); }
+        const wide = [...document.querySelectorAll('body *')].filter(e => e.scrollWidth > innerWidth).sort((x, y) => y.scrollWidth - x.scrollWidth).slice(0, 2).map(e => e.tagName.toLowerCase() + '.' + [...e.classList].slice(0, 2).join('.') + ':' + e.scrollWidth + '/' + Math.round(e.getBoundingClientRect().width));
+        o.push(`trang tràn ngang ${over} px (${[...who, ...txt.slice(-3)].join(', ')} · rộng: ${wide.join(', ')})`); }
+      // lưới thẻ không bị CSS khác đè (3/11: css/adm.css cũng định nghĩa .adm-grid, nạp sau → thẻ 220 px, điện thoại 2 cột ~150 px)
+      for (const g of document.querySelectorAll('.adm-content .adm-grid')) {
+        const gw = g.clientWidth, min = Math.min(300, gw) - 2;
+        for (const c of g.children) { const w = c.getBoundingClientRect().width; if (w > 0 && w < min && !c.matches('[data-narrow-ok]')) { o.push(`thẻ ${c.className} "${(c.textContent || '').trim().slice(0, 20)}" bị ép còn ${Math.round(w)} px trong lưới ${gw} px`); break; } }
+      }
+      // 3/11 gốc lỗi iPhone: .u-tbl td:first-child { min-width: 15rem } trúng cột ô chọn → cột Người dùng bị ép. Ô chọn phải gọn ở mọi bề rộng.
+      for (const c of document.querySelectorAll('.u-tbl:not(.tbl-cards) td.u-ckc')) { const w = c.getBoundingClientRect().width; if (w > 72) { o.push(`cột ô chọn rộng ${Math.round(w)} px (cột Người dùng bị ép)`); break; } }
+      const side = document.querySelector('#side'), main = document.querySelector('#main'), cont = document.querySelector('.adm-content');
+      if (innerWidth > 900 && side && !side.hidden) {
+        const sr = side.getBoundingClientRect(), mr = main.getBoundingClientRect(), cr = cont.getBoundingClientRect(), pad = parseFloat(getComputedStyle(cont).paddingLeft) + parseFloat(getComputedStyle(cont).paddingRight);
+        if (mr.left - sr.right > 48) o.push(`khoảng trống ${Math.round(mr.left - sr.right)} px giữa thanh bên và nội dung`);
+        if (mr.width < Math.min(1600, cr.width - pad) - 2) o.push(`nội dung chỉ rộng ${Math.round(mr.width)}/${Math.round(cr.width - pad)} px`);
+      }
+      return o;
+    });
+    if (width < 640) Object.assign(res, await page.evaluate(MOBILE));
+    let bad = false; for (const [k, v] of Object.entries(res)) if (v.length) { bad = true; add(k, `${tag} #${r}: ${v.join(' | ')}`); }
+    const sh = SHOTS.find(([sr, w, th]) => sr === r && w === width && th === scheme);
+    if (width < 640 && r === 'users') { // trạng thái điện thoại: sheet Lọc, thanh chọn hàng loạt dính đáy, menu ⋯ – cũng phải qua gác
+      for (const [st, open, close] of [['sheet', '.fs-btn', '.fsheet.open .fs-done'], ['bulk', '#uTable tbody .u-ckh', '[data-bulk=clear]'], ['menu', '#meMore', '#meMore']]) {
+        const el = await page.$$(open); if (!el.length) { add('trạng thái', `${tag} #users~${st}: thiếu ${open}`); continue; }
+        const ck = async e => { try { await e.click({ timeout: 4000 }); return ''; } catch (x) { return (x.message.match(/<[^>]+>[^\n]*intercepts pointer events/) || [x.message.split('\n')[0]])[0]; } };
+        let er = await ck(el[0]); if (!er && st === 'bulk' && el[1]) er = await ck(el[1]); if (er) add('trạng thái', `${tag} #users~${st}: bấm ${open} lỗi – ${er}`); await page.waitForTimeout(350);
+        const m = await page.evaluate(MOBILE); m.shell = await page.evaluate(() => { const o = [], over = document.scrollingElement.scrollWidth - innerWidth; if (over > 1) o.push(`trang tràn ngang ${over} px`); return o; });
+        if (st === 'sheet' && !(await page.$('.fsheet.open'))) m.shell.push('sheet Lọc không mở');
+        if (st === 'bulk') { const b = await page.evaluate(() => { const e = document.querySelector('#uBulk'); if (!e || e.hidden) return 'thanh chọn hàng loạt không hiện'; const r = e.getBoundingClientRect(); return innerHeight - r.bottom > 2 ? `thanh chọn hàng loạt không dính đáy (cách ${Math.round(innerHeight - r.bottom)} px)` : ''; }); if (b) m.shell.push(b); }
+        if (st === 'menu' && !(await page.$('#meMenu.open'))) m.shell.push('menu ⋯ không mở');
+        for (const [k, v] of Object.entries(m)) if (v.length) add(k, `${tag} #users~${st}: ${v.join(' | ')}`);
+        if (SHOTS.find(([sr, w, th]) => sr === 'users~' + st && w === width && th === scheme)) await page.screenshot({ path: path.join(OUT, `${TAG}-users~${st}-${width}-${scheme}.jpg`), type: 'jpeg', quality: 70 });
+        const c = await page.$(close); let ce = c && await c.isVisible() ? await ck(c) : 'x'; if (ce && ce !== 'x') add('trạng thái', `${tag} #users~${st}: bấm ${close} lỗi – ${ce}`); if (ce) await page.keyboard.press('Escape'); await page.waitForTimeout(200);
+      }
+    }
+    if (width < 640) await page.screenshot({ path: path.join(OUT, `m-${TAG}-${r.replace(/\//g, '_')}-${width}-${scheme}.jpg`), type: 'jpeg', quality: 50, fullPage: true }); // owner 3/11: chụp MỌI trang ở 360/390 sáng/tối
+    if (sh) await page.screenshot({ path: path.join(OUT, `${TAG}-${r.replace(/\//g, '_')}-${width}-${scheme}.jpg`), type: 'jpeg', quality: 70, fullPage: true });
+    else if (bad && TAG !== 'before') await page.screenshot({ path: path.join(OUT, `fail-${tag}-${r.replace(/\//g, '_')}.jpg`), type: 'jpeg', quality: 55, fullPage: true });
+  }
+  await ctx.close();
+}
+await browser.close();
+fs.writeFileSync(path.join(OUT, TAG + '.json'), JSON.stringify({ found, errs }, null, 1));
+for (const [k, v] of Object.entries(found)) { console.log(`\n✗ ${k}: ${v.length}`); for (const x of v.slice(0, 60)) console.log('  ' + x); }
+for (const [k, v] of Object.entries(found)) for (const x of v.slice(0, 6)) console.log(`::error title=admin-guard::${k}: ${String(x).replace(/[\r\n%]/g, ' ').slice(0, 280)}`); // chú thích lỗi: đọc được qua API annotations khi không có log
+console.log(`\nlỗi JS (chỉ báo): ${errs.length}`, JSON.stringify(errs.slice(0, 8)));
+if (TAG === 'before') process.exit(0);
+if (Object.keys(found).length) process.exit(1);
+console.log(`✓ admin-guard: mọi trang quản trị × ${CONFIGS.length} cấu hình – không chồng lấn, không cắt, không tràn, biểu đồ đúng cỡ chữ, nội dung lấp khung`);

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="lex_widget_bg">#0F3D3E</color>
+    <color name="lex_widget_bg2">#17595A</color>
+    <color name="lex_widget_ink">#FFFFFF</color>
+    <color name="lex_widget_sub">#C7FFFFFF</color>
+    <color name="lex_widget_accent">#FFB054</color>
+    <color name="lex_widget_chip">#24FFFFFF</color>
+</resources>

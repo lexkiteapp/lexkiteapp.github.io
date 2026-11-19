@@ -1,0 +1,75 @@
+{
+ "fixed": [
+  {
+   "word": "novia",
+   "field": "ex.es",
+   "from": "Mi hermana es la novia de Juan.",
+   "to": "Ana es la novia de Juan.",
+   "why": "nghĩa/ví dụ/dịch chưa đúng hoặc chưa tự nhiên"
+  },
+  {
+   "word": "novia",
+   "field": "ex.en",
+   "from": "My sister is Juan's girlfriend.",
+   "to": "Ana is Juan's girlfriend.",
+   "why": "nghĩa/ví dụ/dịch chưa đúng hoặc chưa tự nhiên"
+  },
+  {
+   "word": "cita",
+   "field": "gl.ru",
+   "from": "прием",
+   "to": "встреча, приём",
+   "why": "nghĩa/ví dụ/dịch chưa đúng hoặc chưa tự nhiên"
+  },
+  {
+   "word": "prueba",
+   "field": "ipa",
+   "from": "pɾuˈeβa",
+   "to": "ˈpɾweβa",
+   "why": "IPA theo quy ước g2p (e/o đóng, ɣ sau nguyên âm, ʝ, aw/ej, không đồng hóa nasal)"
+  },
+  {
+   "word": "prueba",
+   "field": "gl.en",
+   "from": "proof",
+   "to": "proof, evidence",
+   "why": "nghĩa/ví dụ/dịch chưa đúng hoặc chưa tự nhiên"
+  },
+  {
+   "word": "club",
+   "field": "ipa",
+   "from": "ˈklub",
+   "to": "ˈkluβ",
+   "why": "IPA theo quy ước g2p (e/o đóng, ɣ sau nguyên âm, ʝ, aw/ej, không đồng hóa nasal)"
+  },
+  {
+   "word": "amable",
+   "field": "gl.vi",
+   "from": "đáng yêu",
+   "to": "tử tế, thân thiện",
+   "why": "nghĩa/ví dụ/dịch chưa đúng hoặc chưa tự nhiên"
+  },
+  {
+   "word": "investigación",
+   "field": "ipa",
+   "from": "imbestiɣaˈsjon",
+   "to": "inbestiɣaˈsjon",
+   "why": "IPA theo quy ước g2p (e/o đóng, ɣ sau nguyên âm, ʝ, aw/ej, không đồng hóa nasal)"
+  },
+  {
+   "word": "investigación",
+   "field": "gl.vi",
+   "from": "nghiên cứu",
+   "to": "cuộc điều tra, nghiên cứu",
+   "why": "nghĩa/ví dụ/dịch chưa đúng hoặc chưa tự nhiên"
+  },
+  {
+   "word": "investigación",
+   "field": "gl.en",
+   "from": "research",
+   "to": "investigation, research",
+   "why": "nghĩa/ví dụ/dịch chưa đúng hoặc chưa tự nhiên"
+  }
+ ],
+ "dropped": []
+}

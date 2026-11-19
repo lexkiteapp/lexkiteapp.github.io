@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_es_for_to_read",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "To read, not for to read!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I use my phone for to read.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I use my phone to read.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "To shows the reason. No for.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "To! I use my phone to read.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I use my phone for to read.",
+  "right": "I use my phone to read.",
+  "strike": "for",
+  "why": "To shows the reason. No for.",
+  "memory": "Use it to read.",
+  "quiz": {
+   "stem": "I use my phone ___ read.",
+   "options": [
+    "for to",
+    "to"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "¿“For to read”? ¡No lo digas!",
+   "tip": "En español “para leer” se traduce solo con “to read”: no hace falta “for.”",
+   "caption": "Muchos dicen “I use my phone for to read.” 🙈 En español “para leer” se dice solo con “to read”, sin “for”: “I use my phone to read.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.",
+   "comment": "Respuesta: “to read”. “Para + verbo” se dice solo con “to”, sin “for”. Escribe una frase tuya con “to read”. Practica más con un quiz gratis aquí: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#gramatica",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“For to read”? Do not say it!",
+   "tip": "Spanish “para leer” is just “to read” in English, with no “for.”",
+   "caption": "Many learners say “I use my phone for to read.” Spanish “para leer” is just “to read” in English, with no “for”: “I use my phone to read.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "¿“For to read”? ¡No lo digas!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "es",
+ "est": {
+  "words": 52,
+  "seconds": 31.0,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "¿“For to read”? ¡No lo digas!",
+  "keyword": "I use my phone to read.",
+  "value": "En español “para leer” se traduce solo con “to read”: no hace falta “for.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#gramatica",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 46,
+  "platforms": {
+   "youtube": {
+    "title": "¿“For to read”? ¡No lo digas!",
+    "description": "En español “para leer” se traduce solo con “to read”: no hace falta “for.”\n\nMuchos dicen “I use my phone for to read.” 🙈 En español “para leer” se dice solo con “to read”, sin “for”: “I use my phone to read.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #gramatica #lexkite",
+    "tags": [
+     "I use my phone to read.",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "Muchos dicen “I use my phone for to read.” 🙈 En español “para leer” se dice solo con “to read”, sin “for”: “I use my phone to read.” ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "¿“For to read”? ¡No lo digas!\n\nEn español “para leer” se traduce solo con “to read”: no hace falta “for.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#gramatica",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "¿“For to read”? ¡No lo digas! En español “para leer” se traduce solo con “to read”: no hace falta “for.” #aprenderingles #inglesfacil #gramatica"
+   }
+  },
+  "first_comment": "Respuesta: “to read”. “Para + verbo” se dice solo con “to”, sin “for”. Escribe una frase tuya con “to read”. Practica más con un quiz gratis aquí: {link}",
+  "lang": "es"
+ }
+}

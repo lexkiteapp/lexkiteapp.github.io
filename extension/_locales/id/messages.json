@@ -1,11 +1,179 @@
 {
  "appName": {
-  "message": "Lexkite – Kamus & Flashcard IELTS"
+  "message": "Lexkite – Kamus Bahasa Inggris, Penerjemah & Flashcard Kosakata"
  },
  "appDesc": {
-  "message": "Klik dua kali kata: arti, IPA, dan audio penutur asli. Terjemahkan kalimat dan subtitle YouTube. Simpan dan ulangi dengan flashcard."
+  "message": "Klik dua kali kata apa pun: arti, IPA, dan audio. Terjemahkan teks pilihan, simpan kata beserta konteks, ulangi untuk IELTS/TOEIC."
  },
  "openApp": {
   "message": "Buka Lexkite"
+ },
+ "rateTitle": {
+  "message": "Suka dengan Lexkite?"
+ },
+ "rateBody": {
+  "message": "Jika Lexkite membantumu belajar, ulasan singkat di toko membantu pelajar lain menemukannya."
+ },
+ "rateYes": {
+  "message": "Beri ulasan"
+ },
+ "rateLater": {
+  "message": "Nanti"
+ },
+ "rateNever": {
+  "message": "Jangan tanya lagi"
+ },
+ "ntGot": {
+  "message": "✓ Sudah ingat"
+ },
+ "ntAgain": {
+  "message": "↻ Ulangi"
+ },
+ "ntGolden": {
+  "message": "Waktu emas"
+ },
+ "ntSaved": {
+  "message": "Baru disimpan"
+ },
+ "ntToday": {
+  "message": "Kata saat ini"
+ },
+ "ntSearch": {
+  "message": "Cari di web…"
+ },
+ "ntSearchBtn": {
+  "message": "Cari"
+ },
+ "ntOff": {
+  "message": "Matikan kartu tab baru"
+ },
+ "ntConf": {
+  "message": "Bicara dengan percaya diri"
+ },
+ "ntListen": {
+  "message": "Dengarkan"
+ },
+ "ntSlow": {
+  "message": "Lambat"
+ },
+ "ntUK": {
+  "message": "UK"
+ },
+ "ntUS": {
+  "message": "AS"
+ },
+ "ntFamily": {
+  "message": "Keluarga kata"
+ },
+ "ntColloc": {
+  "message": "Kolokasi"
+ },
+ "ntSyn": {
+  "message": "Sinonim"
+ },
+ "ntAnt": {
+  "message": "Antonim"
+ },
+ "ntQuiz": {
+  "message": "Mode kuis"
+ },
+ "ntReveal": {
+  "message": "Lihat arti"
+ },
+ "ntTapTr": {
+  "message": "Ketuk untuk melihat terjemahan"
+ },
+ "ntMT": {
+  "message": "Terjemahan mesin"
+ },
+ "ntExample": {
+  "message": "Contoh"
+ },
+ "ntAdd": {
+  "message": "＋ Tambah ke dek saya"
+ },
+ "ntAdded": {
+  "message": "✓ Sudah di dek"
+ },
+ "ntNext": {
+  "message": "Kata berikutnya →"
+ },
+ "ntProgress": {
+  "message": "{n}/{g} kata hari ini"
+ },
+ "ntShortcuts": {
+  "message": "Pintasan keyboard"
+ },
+ "ntKeys": {
+  "message": "Spasi: lihat · 1/2: nilai · N: berikutnya · P: dengar"
+ },
+ "posN": {
+  "message": "nomina"
+ },
+ "posV": {
+  "message": "verba"
+ },
+ "posAdj": {
+  "message": "adjektiva"
+ },
+ "posAdv": {
+  "message": "adverbia"
+ },
+ "posPhrV": {
+  "message": "verba frasa"
+ },
+ "posPhrase": {
+  "message": "frasa"
+ },
+ "posIdiom": {
+  "message": "idiom"
+ },
+ "posPrep": {
+  "message": "preposisi"
+ },
+ "posConj": {
+  "message": "konjungsi"
+ },
+ "posPron": {
+  "message": "pronomina"
+ },
+ "posDet": {
+  "message": "penentu"
+ },
+ "posExcl": {
+  "message": "interjeksi"
+ },
+ "posNum": {
+  "message": "numeralia"
+ },
+ "posAbbr": {
+  "message": "singkatan"
+ },
+ "posColl": {
+  "message": "kolokasi"
+ },
+ "ntMoreSenses": {
+  "message": "+{n} arti"
+ },
+ "ntQzTag": {
+  "message": "Kuis kilat"
+ },
+ "ntQzQ": {
+  "message": "Pilih arti yang benar"
+ },
+ "ntQzTime": {
+  "message": "{s} detik"
+ },
+ "ntQzRight": {
+  "message": "Benar!"
+ },
+ "ntQzWrong": {
+  "message": "Belum tepat — kata ini akan muncul lagi"
+ },
+ "ntQzTimeout": {
+  "message": "Waktu habis, tidak apa-apa"
+ },
+ "ntQzSkip": {
+  "message": "Lewati"
  }
 }

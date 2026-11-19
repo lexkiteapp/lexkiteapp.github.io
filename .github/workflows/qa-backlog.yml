@@ -1,0 +1,28 @@
+# ci-policy: queue – ghi backlog lượt đỏ trên main tuần tự, huỷ là mất bản ghi lượt đỏ
+# Mỗi lượt QA đỏ trên main (do ci-filler hoặc lịch) → 1 dòng trong docs/QA-BACKLOG.md. Không mở PR/issue theo lỗi.
+name: QA backlog
+on:
+  workflow_run:
+    workflows: ['Visual QA', 'Journey E2E', 'UX cards', 'Content QA gate', 'Đo tốc độ Lighthouse', 'Kiểm thử add-on (E2E)', 'QA bot', 'Web sweep']
+    types: [completed]
+    branches: [main]   # 2/11: chỉ lượt trên main mới ghi backlog – lượt PR (≈ 200/ngày) không còn sinh lượt bị bỏ qua
+permissions:
+  contents: write
+  actions: read
+concurrency: { group: qa-backlog, cancel-in-progress: false }
+jobs:
+  log:
+    if: github.event.workflow_run.conclusion == 'failure' && github.event.workflow_run.event != 'pull_request' && github.event.workflow_run.head_branch == 'main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: main, ssh-key: '${{ secrets.BOT_DEPLOY_KEY }}' }   # đẩy main qua khoá deploy (ruleset) – docs/CI-RUNNERS.md › required-gate
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Ghi lỗi vào QA-BACKLOG
+        env: { GITHUB_TOKEN: '${{ github.token }}', RUN_ID: '${{ github.event.workflow_run.id }}' }
+        run: node scripts/ci/qa-backlog.mjs
+      - name: Lưu
+        run: |
+          bash scripts/ci/push-main.sh "QA-BACKLOG: lỗi mới từ ${{ github.event.workflow_run.name }}" docs/QA-BACKLOG.md

@@ -1,0 +1,124 @@
+{
+ "id": "t2a_usuk_cellphone",
+ "template": "usuk",
+ "series": "US or UK?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "U.S. or U.K.?",
+   "pause": 0.42
+  },
+  {
+   "id": "us",
+   "text": "In America, people say cellphone.",
+   "pause": 0.42
+  },
+  {
+   "id": "uk",
+   "text": "In Britain, people say mobile. Same thing!",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "I left my cellphone at home.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! You're in Manchester. Which word do people use?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Mobile!",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "us": "cellphone",
+  "uk": "mobile",
+  "ipa_us": "/ˈselfoʊn/",
+  "ipa_uk": "/ˈmoʊbl/",
+  "same": "Same thing!",
+  "quiz": {
+   "options": [
+    "cellphone",
+    "mobile"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/cellphone",
+  "link": "https://lexkite.com/app/#/dict/cellphone",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "US or UK?"
+ },
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Cellphone or mobile? US vs UK English",
+  "keyword": "cellphone vs mobile",
+  "value": "Americans say cellphone. British people say mobile.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/cellphone",
+  "script_words": 32,
+  "platforms": {
+   "youtube": {
+    "title": "Cellphone or mobile? US vs UK English",
+    "description": "Americans say cellphone. British people say mobile.\n\nLook up any word, free: https://lexkite.com/app/#/dict/cellphone\n\nSeries: US or UK? · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "cellphone vs mobile",
+     "US or UK?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Cellphone or mobile? US vs UK English\n\nAmericans say cellphone. British people say mobile.\n\nLook up any word, free: https://lexkite.com/app/#/dict/cellphone"
+   },
+   "instagram": {
+    "caption": "Cellphone or mobile? US vs UK English\n\nAmericans say cellphone. British people say mobile.\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Cellphone or mobile? US vs UK English #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: Mobile! Americans say cellphone. British people say mobile. Practice it with a free quiz: {link}"
+ }
+}

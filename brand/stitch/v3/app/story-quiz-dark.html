@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Story Quiz Sentence Builder</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,600,0,0" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              teal: '#0F3D3E',
+              'teal-light': '#136a63',
+              'teal-surface': '#e7f3f1',
+              coral: '#f97316',
+              'coral-dark': '#c2410c',
+              cream: '#fff8f5',
+              'card-bg': '#ffffff',
+              'cream-alt': '#fff1e8',
+              ink: '#192528',
+              'ink-muted': '#4a5d61',
+            }
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      background-color: #fff8f5;
+      color: #192528;
+      -webkit-font-smoothing: antialiased;
+    }
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      line-height: 1;
+    }
+    .teacher-slot {
+      border: 2px dashed #0F3D3E;
+      background-color: #e7f3f1;
+    }
+    .tactile-btn {
+      box-shadow: 0 4px 0 #9a3412;
+      transition: all 0.1s ease;
+    }
+    .tactile-btn:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 #9a3412;
+    }
+    .tile-tactile {
+      box-shadow: 0 3px 0 #d1d5db;
+      transition: all 0.1s ease;
+    }
+    .tile-tactile:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 #d1d5db;
+    }
+    .tile-placed {
+      box-shadow: 0 3px 0 #0b2e2f;
+    }
+    .tile-slot-empty {
+      border: 2px dashed #cbd5e1;
+      background-color: #f8fafc;
+    }
+  </style>
+</head>
+<body class="flex justify-center bg-[#10191B] text-[#E8F1F0] min-h-screen">
+<!-- Mobile Container: 390px fixed width -->
+<main class="w-full max-w-[390px] min-h-screen bg-[#10191B] text-[#E8F1F0] flex flex-col justify-between pb-24 relative overflow-x-hidden border-x border-[#23373B]">
+<!-- Top Focus Bar (Progress + Close) -->
+<header class="sticky top-0 z-30 bg-[#10191B]/95 backdrop-blur-sm px-4 pt-3 pb-2.5 border-b border-[#23373B]">
+<div class="flex items-center justify-between gap-3">
+<!-- Close Button (Min 44x44) -->
+<button aria-label="Exit quiz" class="w-11 h-11 flex items-center justify-center rounded-xl bg-[#1E2F33] border border-[#2C4247] text-[#E8F1F0] shadow-sm active:translate-y-0.5" type="button">
+<span class="material-symbols-rounded text-2xl">close</span>
+</button>
+<!-- Progress Bar (No hearts or lives) -->
+<div class="flex-1 px-1"><div class="flex items-center justify-between text-xs font-bold text-[#A9BDBB] mb-1"><span>Question 4 of 8</span><span class="text-[#4ED8CA] font-extrabold">IELTS Band 7+</span></div><div class="h-2.5 w-full bg-[#1E2F33] rounded-full overflow-hidden p-0.5 border border-[#2C4247]"><div class="h-full bg-[#38B2A6] rounded-full w-1/2 transition-all duration-300"></div></div></div>
+<!-- Hint / Sound Button (Min 44x44) -->
+<button aria-label="Listen to sentence audio" class="w-11 h-11 flex items-center justify-center rounded-xl bg-[#1E2F33] border border-[#2C4247] text-[#4ED8CA] shadow-sm active:translate-y-0.5" type="button">
+<span class="material-symbols-rounded text-2xl">volume_up</span>
+</button>
+</div>
+</header>
+<!-- Main Content Area -->
+<section class="flex-1 px-4 py-3 flex flex-col gap-4">
+<!-- Teacher Instruction Bar with Empty teacher-slot -->
+<div class="flex items-start gap-3"><div class="w-14 h-14 rounded-2xl flex-shrink-0 flex flex-col items-center justify-center text-[#4ED8CA] border-2 border-dashed border-[#38B2A6] bg-[#38B2A6]/10" title="Teacher slot for code injection"><span class="material-symbols-rounded text-xl opacity-90">school</span><span class="text-[9px] font-extrabold tracking-tight uppercase mt-0.5 opacity-90 leading-none">teacher-slot</span></div><div class="flex-1 bg-[#172427] rounded-2xl p-3 border border-[#23373B] shadow-sm relative before:content-[''] before:absolute before:-left-1.5 before:top-4 before:w-3 before:h-3 before:bg-[#172427] before:border-l before:border-b before:border-[#23373B] before:rotate-45"><div class="flex items-center gap-1.5 mb-0.5"><span class="w-2 h-2 rounded-full bg-emerald-400"></span><p class="text-[11px] font-extrabold uppercase tracking-wide text-[#4ED8CA]">Coach Ama • Task 2 Coach</p></div><p class="text-xs font-semibold text-[#E8F1F0] leading-snug break-words">Reorder the tiles to craft an academic cohesion sentence about remote work productivity.</p></div></div>
+<!-- Story Context Panel (Top Panel) -->
+<article class="bg-[#172427] rounded-2xl p-4 border border-[#23373B] shadow-sm"><div class="flex items-center justify-between gap-2 mb-2 pb-2 border-b border-[#23373B]"><span class="inline-flex items-center gap-1 text-[11px] font-bold text-[#4ED8CA] uppercase tracking-wider bg-[#38B2A6]/15 px-2.5 py-1 rounded-lg"><span class="material-symbols-rounded text-sm">auto_stories</span>Story Context • Scene 2</span><span class="text-[11px] font-semibold text-[#A9BDBB]">Work &amp; Innovation</span></div><p class="text-sm font-medium text-[#E8F1F0] leading-relaxed break-words">“When team members communicate across different time zones, clarity becomes vital. Although synchronous meetings were reduced, overall productivity soared unexpectedly.”</p></article>
+<!-- Target Sentence Slot Area (Drop / Construction Zone) -->
+<section aria-label="Constructed sentence area" class="bg-[#172427] rounded-2xl p-4 border border-[#23373B] shadow-inner flex flex-col gap-2.5 min-h-[140px]"><div class="flex items-center justify-between text-xs font-extrabold text-[#A9BDBB]"><span class="flex items-center gap-1 text-[#A9BDBB]"><span class="material-symbols-rounded text-base text-brand-coral">format_quote</span>Target Sentence:</span><button class="text-[#4ED8CA] text-xs font-bold hover:underline inline-flex items-center justify-center gap-0.5 min-h-[44px] min-w-[44px] px-2 py-2 -mr-2" type="button"><span class="material-symbols-rounded text-sm">restart_alt</span>Reset</button></div><div class="flex flex-wrap gap-2 items-center min-h-[88px] p-2 bg-[#10191B]/60 rounded-xl border border-[#23373B]"><button class="text-[#4ED8CA] text-xs font-bold hover:underline inline-flex items-center justify-center gap-0.5 min-h-[44px] min-w-[44px] px-2 py-2 -mr-2" type="button"><span class="material-symbols-rounded text-sm">restart_alt</span>Reset</button><button class="text-[#4ED8CA] text-xs font-bold hover:underline inline-flex items-center justify-center gap-0.5 min-h-[44px] min-w-[44px] px-2 py-2 -mr-2" type="button"><span class="material-symbols-rounded text-sm">restart_alt</span>Reset</button><button class="text-[#4ED8CA] text-xs font-bold hover:underline inline-flex items-center justify-center gap-0.5 min-h-[44px] min-w-[44px] px-2 py-2 -mr-2" type="button"><span class="material-symbols-rounded text-sm">restart_alt</span>Reset</button><button class="text-[#4ED8CA] text-xs font-bold hover:underline inline-flex items-center justify-center gap-0.5 min-h-[44px] min-w-[44px] px-2 py-2 -mr-2" type="button"><span class="material-symbols-rounded text-sm">restart_alt</span>Reset</button><div class="tile-slot-empty min-w-[48px] h-11 rounded-xl flex items-center justify-center px-2 border-2 border-dashed border-[#37555B] bg-[#1E2F33]/40"><span class="w-6 h-0.5 bg-[#37555B] rounded-full"></span></div><div class="tile-slot-empty min-w-[60px] h-11 rounded-xl flex items-center justify-center px-2 border-2 border-dashed border-[#37555B] bg-[#1E2F33]/40"><span class="w-8 h-0.5 bg-[#37555B] rounded-full"></span></div></div></section>
+<!-- Word Bank Section -->
+<section aria-label="Available word tiles bank" class="bg-[#172427] rounded-2xl p-4 border border-[#23373B] shadow-sm flex flex-col gap-3"><div class="flex items-center justify-between"><h2 class="text-xs font-extrabold uppercase tracking-wider text-[#A9BDBB]">Available Word Bank</h2><span class="text-xs font-semibold text-[#4ED8CA] bg-[#38B2A6]/15 px-2 py-0.5 rounded-md">8 choices</span></div><div class="flex flex-wrap gap-2 items-center"><button class="min-w-[44px] min-h-[44px] px-3.5 py-2.5 bg-[#1E2F33] border-2 border-[#2C4247] text-[#E8F1F0] rounded-xl font-bold text-sm flex items-center justify-center shadow-[0_3px_0_#0B1214] active:translate-y-0.5" type="button">the</button><button class="min-w-[44px] min-h-[44px] px-3.5 py-2.5 bg-[#1E2F33] border-2 border-[#2C4247] text-[#E8F1F0] rounded-xl font-bold text-sm flex items-center justify-center shadow-[0_3px_0_#0B1214] active:translate-y-0.5" type="button">boost</button><button class="min-w-[44px] min-h-[44px] px-3.5 py-2.5 bg-[#1E2F33] border-2 border-[#2C4247] text-[#E8F1F0] rounded-xl font-bold text-sm flex items-center justify-center shadow-[0_3px_0_#0B1214] active:translate-y-0.5" type="button">in</button><button class="min-w-[44px] min-h-[44px] px-3.5 py-2.5 bg-[#1E2F33] border-2 border-[#2C4247] text-[#E8F1F0] rounded-xl font-bold text-sm flex items-center justify-center shadow-[0_3px_0_#0B1214] active:translate-y-0.5" type="button">output</button><button class="min-w-[44px] min-h-[44px] px-3.5 py-2.5 bg-[#1E2F33] border-2 border-[#2C4247] text-[#E8F1F0] rounded-xl font-bold text-sm flex items-center justify-center opacity-60 shadow-[0_3px_0_#0B1214] active:translate-y-0.5" type="button">Hi</button><button class="min-w-[44px] min-h-[44px] px-3.5 py-2.5 bg-[#1E2F33] border-2 border-[#2C4247] text-[#E8F1F0] rounded-xl font-bold text-sm flex items-center justify-center shadow-[0_3px_0_#0B1214] active:translate-y-0.5" type="button">efficiency</button><button class="min-w-[44px] min-h-[44px] px-3.5 py-2.5 bg-[#1E2F33] border-2 border-[#2C4247] text-[#E8F1F0] rounded-xl font-bold text-sm flex items-center justify-center shadow-[0_3px_0_#0B1214] active:translate-y-0.5" type="button">despite</button><button class="min-w-[44px] min-h-[44px] px-3.5 py-2.5 bg-[#1E2F33] border-2 border-[#2C4247] text-[#E8F1F0] rounded-xl font-bold text-sm flex items-center justify-center shadow-[0_3px_0_#0B1214] active:translate-y-0.5" type="button">distractions</button></div></section>
+<!-- Check Action CTA Button (Tactile Coral with bottom drop ledge & dark ink label) -->
+<div class="pt-1">
+<button class="tactile-btn w-full min-h-[52px] bg-brand-coral rounded-2xl flex items-center justify-center gap-2 px-6 py-3.5 text-[#190902] font-extrabold text-base tracking-wide border border-[#ea580c] active:translate-y-1" type="button">
+<span class="material-symbols-rounded text-xl">check_circle</span>
+<span>Check Sentence</span>
+</button>
+</div>
+</section>
+<!-- Canonical Lexkite Mobile Bottom Tab Bar (Exactly 5 tabs: Today, Vocab, Skills, Tests, Me) -->
+<nav aria-label="Bottom primary navigation" class="fixed bottom-0 left-0 right-0 z-40 bg-[#10191B] border-t border-[#23373B] shadow-[0_-4px_12px_rgba(0,0,0,0.3)] flex justify-around items-center px-1 py-1.5 h-16 max-w-[390px] mx-auto"><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[48px] py-1 text-[#A9BDBB] hover:text-[#4ED8CA] transition-colors" href="#/today"><span class="material-symbols-rounded text-2xl">today</span><span class="text-[11px] font-bold tracking-tight mt-0.5">Today</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[48px] py-1 text-[#A9BDBB] hover:text-[#4ED8CA] transition-colors" href="#/vocab"><span class="material-symbols-rounded text-2xl">menu_book</span><span class="text-[11px] font-bold tracking-tight mt-0.5">Vocab</span></a><a aria-current="page" class="flex flex-col items-center justify-center min-w-[56px] min-h-[48px] py-1 text-[#4ED8CA]" href="#/skills"><div class="bg-[#38B2A6]/20 px-3 py-1 rounded-full flex flex-col items-center"><span class="material-symbols-rounded text-2xl text-[#4ED8CA]">bolt</span><span class="text-[11px] font-extrabold tracking-tight mt-0.5 text-[#4ED8CA]">Skills</span></div></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[48px] py-1 text-[#A9BDBB] hover:text-[#4ED8CA] transition-colors" href="#/tests"><span class="material-symbols-rounded text-2xl">assignment</span><span class="text-[11px] font-bold tracking-tight mt-0.5">Tests</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[48px] py-1 text-[#A9BDBB] hover:text-[#4ED8CA] transition-colors" href="#/me"><span class="material-symbols-rounded text-2xl">person</span><span class="text-[11px] font-bold tracking-tight mt-0.5">Me</span></a></nav>
+</main>
+</body>
+</html>

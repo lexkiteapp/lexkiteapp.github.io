@@ -1,0 +1,212 @@
+{
+  "nav": {
+    "hub": "Über Lexkite",
+    "team": "Redaktionsteam",
+    "policy": "Redaktionsrichtlinien",
+    "corrections": "Korrekturen",
+    "sources": "Quellen",
+    "research": "Forschung",
+    "embed": "Kostenlose Widgets"
+  },
+  "byline": "Vom Lexkite-Redaktionsteam",
+  "factChecked": "Fakten geprüft am {date}",
+  "related": "Mehr darüber, wie wir arbeiten",
+  "about": {
+    "title": "Über Lexkite – kostenlos Englischvokabeln lernen und Prüfungen üben",
+    "desc": "Wer hinter Lexkite steht, wofür es gedacht ist, wie es finanziert wird und wie wir unsere Englisch-Lerninhalte korrekt, unabhängig und kostenlos halten.",
+    "h1": "Über Lexkite",
+    "lead": "Lexkite ist eine kostenlose App zum Lernen von Englischvokabeln und zur Vorbereitung auf IELTS, TOEIC und TOEFL, verfügbar in 15 Oberflächensprachen.",
+    "sections": [
+      [
+        "Was Lexkite bietet",
+        "Lexkite verbindet Lernkarten mit verteilter Wiederholung (FSRS), ein zweisprachiges Wörterbuch, Übungen für Lesen, Hören, Schreiben und Sprechen sowie Probetests mit Zeitlimit. Es läuft im Browser, als Chrome-Erweiterung und auf dem Smartphone. Die Kernfunktionen sind kostenlos und erfordern keine Kreditkarte."
+      ],
+      [
+        "Wer Lexkite betreibt",
+        "Lexkite wird von MODIAN LUXURY JEWELRY LLC betrieben, einer Limited Liability Company mit Sitz in Wyoming, wie in unseren Nutzungsbedingungen angegeben. Die Inhalte dieser Website werden vom Lexkite-Redaktionsteam erstellt, das auf einer eigenen Seite vorgestellt wird, zusammen mit den redaktionellen Standards, denen wir folgen."
+      ],
+      [
+        "Wie Lexkite finanziert wird",
+        "Lexkite wird vom Betreiber finanziert und kann Werbung anzeigen, damit die Kern-App kostenlos bleibt. Werbetreibende und Partner haben keinen Einfluss darauf, was wir schreiben, welche Wörter wir vermitteln oder wie wir Lernmethoden bewerten."
+      ],
+      [
+        "Unabhängigkeit",
+        "IELTS, TOEIC und TOEFL sind Marken ihrer jeweiligen Inhaber. Lexkite ist ein unabhängiges Produkt und weder mit dem British Council, IDP, Cambridge University Press & Assessment oder ETS verbunden noch von ihnen empfohlen. Wir versprechen niemals Punktzahlen."
+      ],
+      [
+        "Kontakt",
+        "Fragen, Korrekturen und Kooperationsanfragen: support@lexkite.com."
+      ]
+    ]
+  },
+  "team": {
+    "title": "Lexkite-Redaktionsteam – wer unsere Inhalte schreibt und prüft",
+    "desc": "Das Lexkite-Redaktionsteam schreibt und prüft unsere Artikel zum Englischlernen, die Wörterbuchdaten und die Übungsaufgaben. Wie das Team arbeitet – ehrlich erklärt.",
+    "h1": "Das Lexkite-Redaktionsteam",
+    "lead": "Artikel, Wörterbucheinträge und Übungsaufgaben auf Lexkite erscheinen unter einer gemeinsamen Autorenzeile: dem Lexkite-Redaktionsteam.",
+    "sections": [
+      [
+        "Warum eine Teamzeile",
+        "Wir veröffentlichen unter dem Teamnamen statt unter Einzelnamen, weil jeder Beitrag denselben mehrstufigen Prozess durchläuft und keine einzelne Person allein für das Endergebnis verantwortlich ist. Wir erfinden keine Autorenpersonas, Berufsbezeichnungen oder Qualifikationen."
+      ],
+      [
+        "Wie wir KI-Werkzeuge einsetzen",
+        "Entwürfe, Übersetzungen und Qualitätsprüfungen entstehen mit Unterstützung von KI-Schreibwerkzeugen. KI-Ergebnisse werden nie unverändert veröffentlicht: Sie müssen vor der Veröffentlichung unseren sechsstufigen Redaktionsprozess, einen Faktencheck anhand offizieller Quellen und eine Qualitätsprüfung mit 100 Punkten bestehen. Fällt eine Prüfung durch, wird der Beitrag neu geschrieben oder verworfen."
+      ],
+      [
+        "Wofür das Team verantwortlich ist",
+        "Themen wählen, nach denen Lernende tatsächlich suchen, eigene Erklärungen und Beispielsätze schreiben, Prüfungsfakten bei den Testanbietern gegenprüfen, jeden Artikel für 15 Sprachen lokalisieren (nicht als wörtliche maschinelle Übersetzung) und veröffentlichte Seiten aktuell halten."
+      ],
+      [
+        "Verantwortlichkeit",
+        "Jeder Artikel zeigt sein Veröffentlichungsdatum, das Datum der letzten Aktualisierung und das Datum der letzten Faktenprüfung. Wenn Sie einen Fehler finden, erklärt unsere Korrekturrichtlinie, wie Sie ihn melden können und was wir danach tun."
+      ]
+    ]
+  },
+  "policy": {
+    "title": "Redaktionsrichtlinien und Faktencheck-Prozess – Lexkite",
+    "desc": "Wie Lexkite jeden Artikel recherchiert, schreibt, auf Fakten prüft, lokalisiert und begutachtet: unser sechsstufiger Redaktionsprozess, die Qualitätsschwelle und die Regeln für Aktualisierungen.",
+    "h1": "Redaktionsrichtlinien und Faktencheck",
+    "lead": "Jeder Lexkite-Artikel durchläuft dieselben sechs Schritte. Ein Artikel wird nur veröffentlicht, wenn er in der Abschlussprüfung mindestens 90 von 100 Punkten erreicht.",
+    "stepsH": "Unser Prozess in sechs Schritten",
+    "steps": [
+      [
+        "Briefing",
+        "Wir untersuchen, wonach Lernende in jeder Sprache tatsächlich suchen und was den besten vorhandenen Antworten fehlt, und legen dann die Frage fest, die der Artikel beantworten muss."
+      ],
+      [
+        "Gliederung",
+        "Der Artikel beantwortet die Hauptfrage gleich am Anfang direkt und geht dann mit einer leicht überfliegbaren Struktur in die Tiefe."
+      ],
+      [
+        "Eigenständiges Schreiben",
+        "Erklärungen und jeder englische Beispielsatz werden eigens für Lexkite geschrieben. Wir kopieren keine Texte, Aufgaben oder Bilder von anderen Verlagen oder aus offiziellen Prüfungsmaterialien."
+      ],
+      [
+        "Faktencheck",
+        "Prüfungsformate, Zeitvorgaben und Bewertungsskalen werden bei den offiziellen Testanbietern gegengeprüft. Kann ein Fakt nicht bestätigt werden, wird er entfernt. Das Datum der Faktenprüfung wird bei jedem Artikel festgehalten."
+      ],
+      [
+        "Lokalisierung",
+        "Jede Sprachversion wird auf ihre Leser zugeschnitten – auf deren typische Fehler, Beispiele und Suchbegriffe –, statt maschinell übersetzt zu werden."
+      ],
+      [
+        "Unabhängige Qualitätsprüfung",
+        "Ein Prüfer, der den Artikel nicht geschrieben hat, bewertet ihn mit bis zu 100 Punkten nach Suchintention, Genauigkeit und Tiefe, eigenem Mehrwert, natürlichem Stil, Lesbarkeit, hilfreichen Links und Glaubwürdigkeit. Unter 90 Punkten wird der Artikel überarbeitet oder nicht veröffentlicht."
+      ]
+    ],
+    "rulesH": "Regeln, an die wir uns immer halten",
+    "rules": [
+      "Keine versprochenen Punktzahlen oder garantierten Ergebnisse.",
+      "Keine gefälschten Bewertungen, Erfahrungsberichte, Autorennamen oder Qualifikationen.",
+      "Bilder sind eigene App-Screenshots oder Diagramme; keine urheberrechtlich geschützten Prüfungsmaterialien.",
+      "Prüfungsfakten verlinken auf die offizielle Quelle.",
+      "Ändert sich eine Prüfung, werden die betroffenen Artikel aktualisiert und zeigen das neue Aktualisierungsdatum."
+    ]
+  },
+  "corrections": {
+    "title": "Korrekturrichtlinie – wie Lexkite Fehler behebt",
+    "desc": "Einen Fehler auf Lexkite gefunden? So melden Sie ihn, wie schnell wir ihn prüfen und wie Korrekturen auf der Seite angezeigt werden.",
+    "h1": "Korrekturrichtlinie",
+    "lead": "Wir möchten, dass jede Information auf Lexkite stimmt. Wenn nicht, korrigieren wir sie und sagen es offen.",
+    "sections": [
+      [
+        "So melden Sie einen Fehler",
+        "Schreiben Sie an support@lexkite.com und nennen Sie die Adresse der Seite und was falsch ist. Eine Quelle für die richtige Information hilft uns, schneller zu prüfen."
+      ],
+      [
+        "Was danach passiert",
+        "Wir prüfen jede Meldung. Sachliche Fehler werden korrigiert, sobald sie bestätigt sind, und das Aktualisierungsdatum des Artikels ändert sich, damit Leser sehen, dass er überarbeitet wurde."
+      ],
+      [
+        "Wesentliche Korrekturen",
+        "Ändert eine Korrektur den Sinn eines Ratschlags – etwa bei einer falschen Prüfungsregel –, ergänzen wir im Artikel einen kurzen Hinweis, was sich geändert hat."
+      ],
+      [
+        "Wörterbuch und Übungsaufgaben",
+        "Falsche Definitionen, Antworten oder Erklärungen in der App oder im Wörterbuch werden an der Quelle korrigiert, sodass die Korrektur jede Seite und jede Sprache erreicht, die sie verwendet."
+      ]
+    ]
+  },
+  "sources": {
+    "title": "Quellen und Referenzen von Lexkite",
+    "desc": "Die offiziellen Testanbieter, Referenzrahmen, offenen Wortlisten und Open-Source-Werkzeuge hinter den Englisch-Lerninhalten von Lexkite, mit Lizenzen.",
+    "h1": "Quellen und Referenzen",
+    "lead": "Die Erklärungen und Beispielsätze von Lexkite sind eigenständig verfasst. Dies sind die offiziellen Referenzen und offenen Datensätze, auf die wir uns stützen.",
+    "groups": [
+      [
+        "Offizielle Prüfungsinformationen",
+        "Prüfungsformate, Zeitvorgaben und Bewertungsskalen werden bei den Testanbietern gegengeprüft."
+      ],
+      [
+        "Sprachreferenzrahmen",
+        "Die Niveaus folgen dem Gemeinsamen Europäischen Referenzrahmen für Sprachen (GER, CEFR) des Europarats."
+      ],
+      [
+        "Offene Wortlisten und Daten",
+        "Wortlisten und Aussprachen stammen aus offen lizenzierten Quellen; Definitionen und Beispielsätze sind unsere eigenen."
+      ],
+      [
+        "Lernwissenschaft",
+        "Die Planung der Lernkarten nutzt FSRS, einen quelloffenen Algorithmus für verteilte Wiederholung."
+      ]
+    ],
+    "creditsNote": "Die vollständigen Bild- und Datennachweise finden Sie auf unserer Nachweisseite."
+  },
+  "research": {
+    "title": "Häufig verwechselte englische Wörter: offener Datensatz mit {n} Paaren",
+    "desc": "Kostenloser CC-BY-Datensatz mit {n} Gruppen häufig verwechselter englischer Wörter, mit Wortarten, Definitionen, typischen Fehlern und Merkhilfen. Diagramme und CSV-Download.",
+    "h1": "Häufig verwechselte englische Wörter: ein offener Datensatz",
+    "lead": "{n} Gruppen englischer Wörter, die Lernende oft durcheinanderbringen – wie affect/effect und borrow/lend – mit Definitionen, einem typischen Fehler und einer Merkhilfe für jede Gruppe. Mit Quellenangabe frei nutzbar.",
+    "keyH": "Wichtigste Ergebnisse",
+    "keys": [
+      "{n} Wortgruppen und {m} dokumentierte typische Fehler.",
+      "{d} % der Gruppen stellen Wörter unterschiedlicher Wortarten gegenüber (zum Beispiel ein Verb und ein Nomen); ein Blick auf die Wortart löst also viele Fehler.",
+      "{s} % der Gruppen enthalten Wörter derselben Wortart, die sich nur durch Bedeutung und Gebrauch unterscheiden lassen."
+    ],
+    "chart1": "Wortgruppen nach Wortart-Muster",
+    "chart2": "Wortgruppen nach Anzahl der Wörter",
+    "other": "Andere Muster",
+    "tableH": "Der vollständige Datensatz",
+    "cols": [
+      "Wörter",
+      "Wortarten",
+      "Typischer Fehler → Korrektur",
+      "Merkhilfe"
+    ],
+    "methodH": "Methode",
+    "method": [
+      "Die Gruppen wurden vom Lexkite-Redaktionsteam ausgewählt und verfasst, ausgehend von Fehlern, die in Lernertexten und in der Prüfungsvorbereitung immer wieder auftauchen. Jede Gruppe führt jedes Wort mit seiner Wortart, einer kurzen englischen Definition, einem eigenen Beispielsatz und einem typischen Fehler mit Korrektur auf. Hat eine Gruppe keine eigene Fehlernotiz, ist der typische Fehler ihr Beispielsatz, in den das verwechselte Wort eingesetzt wurde.",
+      "Die Statistiken auf dieser Seite werden bei jedem Aufbau der Website automatisch aus denselben Daten berechnet, die auch die Lektionen „Häufig verwechselte Wörter“ in der Lexkite-App speisen."
+    ],
+    "privacyH": "Datenschutz",
+    "privacy": "Dieser Datensatz enthält keinerlei Nutzerdaten. Er wird ausschließlich aus Lexkites eigenen redaktionellen Inhalten erstellt, nicht aus dem, was Lernende eingeben, speichern oder beantworten.",
+    "limitsH": "Einschränkungen",
+    "limits": "Dies ist eine kuratierte Liste und keine Häufigkeitszählung aus einem Lernerkorpus: Sie zeigt, welche Verwechslungen unsere Redakteure dokumentieren, nicht wie oft jede einzelne vorkommt.",
+    "downloadH": "Download und Lizenz",
+    "download": "Der Datensatz darf kostenlos unter der Creative-Commons-Lizenz „Namensnennung 4.0“ (Creative Commons Attribution 4.0, CC BY 4.0) genutzt werden. Bitte nennen Sie Lexkite und verlinken Sie diese Seite.",
+    "csv": "CSV herunterladen",
+    "json": "JSON herunterladen",
+    "citeH": "So zitieren Sie",
+    "embedLink": "Das „Wortpaar des Tages“ auf Ihrer Website anzeigen"
+  },
+  "embed": {
+    "title": "Kostenlose Englisch-Lern-Widgets für Lehrkräfte und Blogger – Lexkite",
+    "desc": "Fügen Sie Ihrer Website oder Ihrem Klassenblog ein kostenloses Widget „Verwechselbares Wortpaar des Tages“ oder ein CEFR-Niveau-Abzeichen hinzu. Schlank, ohne Cookies, ohne Tracking.",
+    "h1": "Kostenlose Widgets für Ihre Website",
+    "lead": "Lehrkräfte, Schulen und Blogger können diese kostenlosen Widgets per Copy-and-paste einbauen. Sie laden nichts von Drittanbietern, setzen keine Cookies und tracken keine Besucher.",
+    "pairH": "Wortpaar des Tages",
+    "pair": "Zeigt jeden Tag ein anderes häufig verwechseltes Wortpaar, mit einem typischen Fehler und einer Merkhilfe.",
+    "badgeH": "CEFR-Niveau-Abzeichen",
+    "badge": "Lernende, die unseren kostenlosen Englisch-Einstufungstest gemacht haben, können ihr Niveau in einem Blog oder Profil zeigen.",
+    "copy": "Code kopieren",
+    "copied": "Kopiert",
+    "previewH": "Vorschau",
+    "rulesH": "Nutzungsbedingungen",
+    "rules": "Kostenlos für jede Website, auch kommerzielle. Bitte lassen Sie den Quellenlink sichtbar. Ändern Sie den Inhalt nicht so, dass er irreführend wird.",
+    "widgetLabel": "Wortpaar des Tages",
+    "mistake": "Typischer Fehler",
+    "tip": "Tipp",
+    "more": "Mehr Wortpaare auf Lexkite"
+  }
+}

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_fr_cold",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Cold? Say I am!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I have cold.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I am cold.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "For cold, use am, not have.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Am! I am cold.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I have cold.",
+  "right": "I am cold.",
+  "strike": "have",
+  "why": "For cold, use am, not have.",
+  "memory": "Cold: I am.",
+  "quiz": {
+   "stem": "It is winter. I ___ cold.",
+   "options": [
+    "have",
+    "am"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "« J’ai froid » ≠ “I have cold”",
+   "tip": "En français, « J’ai froid » se dit avec « avoir ». En anglais, on dit “I am cold”.",
+   "caption": "Vous dites “I have cold.” ? En français, « avoir froid » utilise « avoir ». En anglais, on dit “I am cold”. Dites plutôt “I am cold.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.",
+   "comment": "Réponse : “I am cold.” — En français, « avoir froid » utilise « avoir ». En anglais, on dit “I am cold”. À vous : dites la phrase à voix haute, puis écrivez une phrase de votre cru. Quiz gratuit : {link}",
+   "hashtags": [
+    "#apprendrelanglais",
+    "#anglaisfacile",
+    "#coursdanglais",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Cold? Say “I am”!",
+   "tip": "French says “I have cold”. English says “I am cold”.",
+   "caption": "Do you say this? “I have cold.” French says “I have cold”. English says “I am cold”. Say “I am cold.” Listen to Ama and repeat with her! More exercises in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "« J’ai froid » ≠ “I have cold”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "fr",
+ "est": {
+  "words": 40,
+  "seconds": 25.1,
+  "wpm": 95
+ },
+ "publish": {
+  "title": "« J’ai froid » ≠ “I have cold”",
+  "keyword": "I am cold.",
+  "value": "En français, « J’ai froid » se dit avec « avoir ». En anglais, on dit “I am cold”.",
+  "hashtags": [
+   "#apprendrelanglais",
+   "#anglaisfacile",
+   "#coursdanglais",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 34,
+  "platforms": {
+   "youtube": {
+    "title": "« J’ai froid » ≠ “I have cold”",
+    "description": "En français, « J’ai froid » se dit avec « avoir ». En anglais, on dit “I am cold”.\n\nVous dites “I have cold.” ? En français, « avoir froid » utilise « avoir ». En anglais, on dit “I am cold”. Dites plutôt “I am cold.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "tags": [
+     "I am cold.",
+     "learn english",
+     "fr"
+    ]
+   },
+   "facebook": {
+    "text": "Vous dites “I have cold.” ? En français, « avoir froid » utilise « avoir ». En anglais, on dit “I am cold”. Dites plutôt “I am cold.” — écoutez Ama et répétez avec elle ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "« J’ai froid » ≠ “I have cold”\n\nEn français, « J’ai froid » se dit avec « avoir ». En anglais, on dit “I am cold”.\n\nlexkite.com",
+    "hashtags": [
+     "#apprendrelanglais",
+     "#anglaisfacile",
+     "#coursdanglais",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "« J’ai froid » ≠ “I have cold” En français, « J’ai froid » se dit avec « avoir ». En anglais, on dit… #apprendrelanglais #anglaisfacile #coursdanglais"
+   }
+  },
+  "first_comment": "Réponse : “I am cold.” — En français, « avoir froid » utilise « avoir ». En anglais, on dit “I am cold”. À vous : dites la phrase à voix haute, puis écrivez une phrase de votre cru. Quiz gratuit : {link}",
+  "lang": "fr"
+ }
+}

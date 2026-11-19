@@ -3,7 +3,7 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 CH="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
-APP="${APP:-https://vocaband.web.app}"
+APP="${APP:-https://lexkite.com}"
 OUT="${OUT:-qa/mobile}"; mkdir -p "$OUT"
 P="$(mktemp -d)"
 shot() { "$CH" --headless=new --disable-gpu --hide-scrollbars --no-first-run --user-data-dir="$P" --window-size=390,844 --force-device-scale-factor=2 \

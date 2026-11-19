@@ -1,0 +1,108 @@
+{
+ "_note": "Sinh bởi scripts/vocab-img/icons.mjs từ CLDR annotations en (cldr-annotations-full@46.0.0) – KHÔNG sửa tay. Ảnh: Noto Emoji png/512 (Apache-2.0, © Google), qua cùng cổng giám khảo như ảnh AI.",
+ "v": 1,
+ "cldr": "46.0.0",
+ "noto": "v2.047",
+ "items": {
+  "apple#n": {
+   "cp": "1f34e",
+   "e": "🍎",
+   "name": "red apple"
+  },
+  "airplane#n": {
+   "cp": "2708",
+   "e": "✈",
+   "name": "airplane"
+  },
+  "umbrella#n": {
+   "cp": "2602",
+   "e": "☂",
+   "name": "umbrella"
+  },
+  "bicycle#n": {
+   "cp": "1f6b2",
+   "e": "🚲",
+   "name": "bicycle"
+  },
+  "guitar#n": {
+   "cp": "1f3b8",
+   "e": "🎸",
+   "name": "guitar"
+  },
+  "elephant#n": {
+   "cp": "1f418",
+   "e": "🐘",
+   "name": "elephant"
+  },
+  "map#n": {
+   "cp": "1f5fa",
+   "e": "🗺",
+   "name": "world map"
+  },
+  "key#n": {
+   "cp": "1f511",
+   "e": "🔑",
+   "name": "key"
+  },
+  "broom#n": {
+   "cp": "1f9f9",
+   "e": "🧹",
+   "name": "broom"
+  },
+  "wheelchair#n": {
+   "cp": "1f9bd",
+   "e": "🦽",
+   "name": "manual wheelchair"
+  },
+  "tent#n": {
+   "cp": "26fa",
+   "e": "⛺",
+   "name": "tent"
+  },
+  "scarf#n": {
+   "cp": "1f9e3",
+   "e": "🧣",
+   "name": "scarf"
+  },
+  "extinguisher#n": {
+   "cp": "1f9ef",
+   "e": "🧯",
+   "name": "fire extinguisher"
+  },
+  "pizza#n": {
+   "cp": "1f355",
+   "e": "🍕",
+   "name": "pizza"
+  },
+  "tomato#n": {
+   "cp": "1f345",
+   "e": "🍅",
+   "name": "tomato"
+  },
+  "whale#n": {
+   "cp": "1f40b",
+   "e": "🐋",
+   "name": "whale"
+  },
+  "tooth#n": {
+   "cp": "1f9b7",
+   "e": "🦷",
+   "name": "tooth"
+  },
+  "castle#n": {
+   "cp": "1f3f0",
+   "e": "🏰",
+   "name": "castle"
+  },
+  "climb#v": {
+   "cp": "1f9d7",
+   "e": "🧗",
+   "name": "person climbing"
+  },
+  "swim#v": {
+   "cp": "1f3ca",
+   "e": "🏊",
+   "name": "person swimming"
+  }
+ }
+}

@@ -1,11 +1,179 @@
 {
  "appName": {
-  "message": "Lexkite – 사전 & IELTS 플래시카드"
+  "message": "Lexkite – 영어 사전·번역·영단어 플래시카드"
  },
  "appDesc": {
-  "message": "단어를 더블클릭하면 뜻, 발음기호, 원어민 음성을 확인할 수 있습니다. 문장과 YouTube 자막을 번역하고, 문맥과 함께 저장해 간격 반복으로 복습하세요."
+  "message": "단어를 더블클릭하면 뜻, 발음기호, 음성을 바로 확인. 선택한 문장 번역, 문맥과 함께 단어 저장, 플래시카드로 IELTS·TOEIC 복습."
  },
  "openApp": {
   "message": "Lexkite 열기"
+ },
+ "rateTitle": {
+  "message": "Lexkite가 마음에 드시나요?"
+ },
+ "rateBody": {
+  "message": "Lexkite가 학습에 도움이 된다면, 스토어에 짧은 리뷰를 남겨 다른 학습자들이 찾을 수 있게 도와주세요."
+ },
+ "rateYes": {
+  "message": "리뷰 남기기"
+ },
+ "rateLater": {
+  "message": "나중에"
+ },
+ "rateNever": {
+  "message": "다시 묻지 않기"
+ },
+ "ntGot": {
+  "message": "✓ 외웠어요"
+ },
+ "ntAgain": {
+  "message": "↻ 다시"
+ },
+ "ntGolden": {
+  "message": "골든 타임"
+ },
+ "ntSaved": {
+  "message": "최근 저장"
+ },
+ "ntToday": {
+  "message": "지금의 단어"
+ },
+ "ntSearch": {
+  "message": "웹 검색…"
+ },
+ "ntSearchBtn": {
+  "message": "검색"
+ },
+ "ntOff": {
+  "message": "새 탭 카드 끄기"
+ },
+ "ntConf": {
+  "message": "자신 있게 말하기"
+ },
+ "ntListen": {
+  "message": "듣기"
+ },
+ "ntSlow": {
+  "message": "느리게"
+ },
+ "ntUK": {
+  "message": "영"
+ },
+ "ntUS": {
+  "message": "미"
+ },
+ "ntFamily": {
+  "message": "파생어"
+ },
+ "ntColloc": {
+  "message": "연어"
+ },
+ "ntSyn": {
+  "message": "유의어"
+ },
+ "ntAnt": {
+  "message": "반의어"
+ },
+ "ntQuiz": {
+  "message": "퀴즈 모드"
+ },
+ "ntReveal": {
+  "message": "뜻 보기"
+ },
+ "ntTapTr": {
+  "message": "탭하여 번역 보기"
+ },
+ "ntMT": {
+  "message": "기계 번역"
+ },
+ "ntExample": {
+  "message": "예문"
+ },
+ "ntAdd": {
+  "message": "＋ 내 단어장에 추가"
+ },
+ "ntAdded": {
+  "message": "✓ 단어장에 있음"
+ },
+ "ntNext": {
+  "message": "다음 단어 →"
+ },
+ "ntProgress": {
+  "message": "오늘 {n}/{g}단어"
+ },
+ "ntShortcuts": {
+  "message": "단축키"
+ },
+ "ntKeys": {
+  "message": "Space: 보기 · 1/2: 평가 · N: 다음 · P: 듣기"
+ },
+ "posN": {
+  "message": "명사"
+ },
+ "posV": {
+  "message": "동사"
+ },
+ "posAdj": {
+  "message": "형용사"
+ },
+ "posAdv": {
+  "message": "부사"
+ },
+ "posPhrV": {
+  "message": "구동사"
+ },
+ "posPhrase": {
+  "message": "구"
+ },
+ "posIdiom": {
+  "message": "관용구"
+ },
+ "posPrep": {
+  "message": "전치사"
+ },
+ "posConj": {
+  "message": "접속사"
+ },
+ "posPron": {
+  "message": "대명사"
+ },
+ "posDet": {
+  "message": "한정사"
+ },
+ "posExcl": {
+  "message": "감탄사"
+ },
+ "posNum": {
+  "message": "수사"
+ },
+ "posAbbr": {
+  "message": "약어"
+ },
+ "posColl": {
+  "message": "연어"
+ },
+ "ntMoreSenses": {
+  "message": "+{n}개 뜻"
+ },
+ "ntQzTag": {
+  "message": "빠른 퀴즈"
+ },
+ "ntQzQ": {
+  "message": "알맞은 뜻을 고르세요"
+ },
+ "ntQzTime": {
+  "message": "{s}초"
+ },
+ "ntQzRight": {
+  "message": "정답!"
+ },
+ "ntQzWrong": {
+  "message": "아쉬워요 — 곧 다시 나옵니다"
+ },
+ "ntQzTimeout": {
+  "message": "시간 초과, 괜찮아요"
+ },
+ "ntQzSkip": {
+  "message": "건너뛰기"
  }
 }

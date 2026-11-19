@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_es_if_will",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "After if, don't use will",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: If I will see her, I will call.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: If I see her, I will call.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "After if, use the present.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Is! If he is late, call me.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "If I will see her, I will call.",
+  "right": "If I see her, I will call.",
+  "strike": "will see",
+  "why": "After if, use the present.",
+  "memory": "If + present.",
+  "quiz": {
+   "stem": "If he ___ late, call me.",
+   "options": [
+    "will be",
+    "is"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "¿“If I will see”? Sin “will”",
+   "tip": "Después de “if” se usa el presente: “If I see her…”, aunque hablemos del futuro.",
+   "caption": "En español usamos presente tras “si” y en inglés también 📞 No digas “If I will see her, I will call.”, sino “If I see her, I will call.”. ¡Escucha a Carlos y repite! Practica más en la app Lexkite.",
+   "comment": "Respuesta: “is”. “If” + presente, luego “will”. Practica más con un quiz gratis aquí: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#condicionales",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“If I will see”? Drop the “will”",
+   "tip": "After “if” use the present: “If I see her…”, even for the future.",
+   "caption": "Use the present after if. Do not say “If I will see her, I will call.”, say “If I see her, I will call.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "¿“If I will see”? Sin “will”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "es",
+ "est": {
+  "words": 52,
+  "seconds": 31.0,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "¿“If I will see”? Sin “will”",
+  "keyword": "If I see her, I will call.",
+  "value": "Después de “if” se usa el presente: “If I see her…”, aunque hablemos del futuro.",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#condicionales",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 46,
+  "platforms": {
+   "youtube": {
+    "title": "¿“If I will see”? Sin “will”",
+    "description": "En español usamos presente tras “si” y en inglés también 📞 No digas “If I will see her, I will call.”, sino “If I see her, I will call.”. ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #condicionales #lexkite",
+    "tags": [
+     "If I see her, I will call.",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "En español usamos presente tras “si” y en inglés también 📞 No digas “If I will see her, I will call.”, sino “If I see her, I will call.”. ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "En español usamos presente tras “si” y en inglés también 📞 No digas “If I will see her, I will call.”, sino “If I see her, I will call.”. ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#condicionales",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "¿“If I will see”? Sin “will” #aprenderingles #inglesfacil #condicionales"
+   }
+  },
+  "first_comment": "Respuesta: “is”. “If” + presente, luego “will”. Practica más con un quiz gratis aquí: {link}",
+  "lang": "es"
+ }
+}

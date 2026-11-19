@@ -1,0 +1,302 @@
+/* Bài mẫu có chú thích (tự biên soạn). Cú pháp: [[cụm từ|nghĩa tiếng Việt]] = cụm hay; {{từ nối}}; <<Nhãn vai trò>> đặt ở đầu câu. */
+(function (g) {
+  g.MODELS = [
+    { id: 't1-energy', task: 1, ref: 'energy', band: '8.0', words: 164,
+      text: `<<Mở bài>> The line graph [[illustrates|minh họa]] [[the proportion of households|tỉ lệ hộ gia đình]] in a European country that relied on gas, electricity and renewable sources [[for heating|để sưởi ấm]] [[over the thirty-year period from 1990 to 2020|trong giai đoạn 30 năm từ 1990 đến 2020]].
+
+<<Tổng quan>> {{Overall}}, gas [[remained the dominant heating source|vẫn là nguồn sưởi chủ đạo]] throughout the period, {{although}} its share [[declined steadily|giảm đều đặn]]. {{By contrast}}, renewables [[saw a dramatic increase|có sự gia tăng đáng kể]] and had [[almost caught up with|gần như bắt kịp]] gas by the final year.
+
+<<Thân bài 1>> In 1990, gas was used by 62% of households, [[well ahead of|bỏ xa]] electricity at 25%, {{while}} renewables [[accounted for a mere|chỉ chiếm vỏn vẹn]] 3%. The figure for gas [[edged up to a peak of|nhích lên đạt đỉnh]] 64% in 1995 {{but}} then [[fell continuously|giảm liên tục]], reaching just 35% in 2020. Electricity [[followed a gradual upward trend|đi theo xu hướng tăng dần]], rising from 24% in 1995 to 34% in 2015 before [[levelling off|chững lại]] at 33%.
+
+<<Thân bài 2>> {{Meanwhile}}, the use of renewable energy grew slowly at first, reaching only 6% in 2000. {{However}}, [[growth accelerated considerably|tốc độ tăng trưởng tăng mạnh]] [[in the following two decades|trong hai thập kỷ sau đó]], with the proportion climbing to 15% in 2010 and 31% in 2020. {{As a result}}, renewables [[were only two percentage points behind|chỉ kém hai điểm phần trăm so với]] electricity in the final year and [[trailed gas by just|chỉ thua gas]] four points.`,
+      band7: {
+        words: 187,
+        text: "The line graph compares the proportions of households in a European nation that used three heating sources between 1990 and 2020.\n\nOverall, gas remained the most widely used energy source for domestic heating despite a substantial decline, whereas renewable energy experienced dramatic growth and nearly equalled gas by 2020. The share of households using electricity showed a moderate increase before stabilising.\n\nIn 1990, gas was used by 62% of households, which was considerably higher than electricity (25%) and renewables (a mere 3%). The percentage of households relying on gas peaked at 64% in 1995 before decreasing steadily to finish at 35% in 2020. In contrast, electricity followed a gradual upward trend, climbing from 24% in 1995 to 34% in 2015, after which it levelled off at 33% in the final year.\n\nMeanwhile, renewable energy began at very low levels, rising marginally to 6% in 2000. However, its growth accelerated markedly over the next two decades, with the figure reaching 15% in 2010 and 31% in 2020. By the end of the period, renewables were only two percentage points below electricity and trailed gas by just four points.",
+        notes: {
+          "TA": "Đoạn tổng quan nêu rõ hai xu hướng trái ngược nổi bật; chọn lọc số liệu tiêu biểu đầy đủ, chỉ thiếu nhận xét so sánh tổng hợp ở các mốc giữa kì để đạt sự tinh tế của band 8.",
+          "CC": "Bố cục 4 đoạn mạch lạc, chuyển ý nhịp nhàng với In contrast, Meanwhile, By the end of the period.",
+          "LR": "Từ vựng học thuật phong phú: domestic heating, substantial decline, levelled off, accelerated markedly.",
+          "GRA": "Kết hợp đa dạng câu phức, mệnh đề quan hệ (which was considerably higher than...) và cụm phân từ; kiểm soát ngữ pháp chặt chẽ."
+}
+},
+      band6: {
+        words: 162,
+        text: "The line graph shows the percentage of households in a European country that used gas, electricity and renewables for heating between 1990 and 2020.\n\nOverall, gas was the most used heating source, but it decreased over the period. On the other hand, renewable energy grew very fast and almost caught up with gas in 2020. Electricity also went up a little bit.\n\nIn 1990, gas was 62%, which was much higher than electricity at 25% and renewables at only 3%. Then gas increased to 64% in 1995, but after that it dropped steadily and reached 35% in 2020. For electricity, it was 24% in 1995 and increased slowly to 34% in 2015, and then fell slightly to 33% in 2020.\n\nRenewables started very low with only 3% in 1990 and 6% in 2000. But after that it increased faster. The figure was 15% in 2010 and reached 31% in 2020. In the end, renewables was almost the same as electricity and gas.",
+        notes: {
+          "TA": "Có đoạn tổng quan và nêu đủ 3 nguồn năng lượng, nhưng còn liệt kê số liệu từng năm; phần kết bài so sánh số liệu chưa thực sự chính xác và sắc sảo.",
+          "CC": "Phân đoạn rõ ràng nhưng liên kết câu còn cơ học (Then, but after that, On the other hand, In the end).",
+          "LR": "Vốn từ cơ bản, dùng từ đơn giản và lặp ý (most used, went up a little bit, grew very fast, increased faster); thiếu cụm diễn đạt học thuật.",
+          "GRA": "Chủ yếu dùng câu ghép đơn giản với and, but; có lỗi chia động từ hòa hợp chủ ngữ: renewables was almost the same."
+}
+} },
+
+    { id: 't1-leisure', task: 1, ref: 'leisure', band: '8.0', words: 188,
+      text: `<<Mở bài>> The bar chart [[compares the average amount of time|so sánh lượng thời gian trung bình]] that people in four age groups [[spent each week on|dành mỗi tuần cho]] social media, sport and reading in 2022.
+
+<<Tổng quan>> {{Overall}}, time spent on social media [[was inversely related to age|tỉ lệ nghịch với tuổi tác]], {{whereas}} the opposite was true for reading. Young people [[devoted far more time to|dành nhiều thời gian hơn hẳn cho]] social media than to any other activity, {{while}} reading was [[the most popular pastime|thú vui phổ biến nhất]] among those aged 65 and over.
+
+<<Thân bài 1>> Those aged 16 to 24 spent 14 hours a week on social media, [[more than double the figure for|gấp hơn hai lần con số của]] sport (6 hours) and seven times as much as reading (2 hours). Time spent online [[dropped sharply with age|giảm mạnh theo độ tuổi]], [[falling to|giảm xuống còn]] 9 hours for the 25–44 group, 5 hours for people aged 45 to 64 and [[a mere two hours|chỉ vỏn vẹn hai giờ]] for the oldest group.
+
+<<Thân bài 2>> Reading [[showed the reverse pattern|thể hiện xu hướng ngược lại]], rising from 2 hours among the youngest respondents to 8 hours among the over-65s, [[making it|khiến nó trở thành]] their main leisure activity. In the 45–64 group, reading and social media [[were equally popular|phổ biến như nhau]], at 5 hours each. Sport, {{meanwhile}}, [[varied relatively little|dao động tương đối ít]] [[across the age groups|giữa các nhóm tuổi]], ranging from 3 to 6 hours, {{although}} it was [[slightly more popular|phổ biến hơn một chút]] among the oldest people (4 hours) than among the 45–64 group (3 hours).`,
+      band7: {
+        words: 193,
+        text: "The bar chart compares the average weekly hours that individuals across four different age categories dedicated to three leisure activities in 2022.\n\nOverall, engagement with social media was inversely correlated with age, whereas reading displayed the opposite pattern. Meanwhile, participation in sport and exercise remained relatively consistent across all age demographics.\n\nYounger individuals aged 16 to 24 spent 14 hours per week on social media, which was more than double the figure for sport (6 hours) and seven times that of reading (2 hours). Time spent on social platforms declined progressively with age, falling to 9 hours among 25 to 44-year-olds, 5 hours for the 45 to 64 cohort, and a mere 2 hours for people aged 65 and over.\n\nConversely, reading time increased steadily across the age brackets, rising from just 2 hours among the youngest respondents to 8 hours for those aged 65 and above, becoming their primary pastime. For the 45 to 64 group, reading and social media were equally popular at 5 hours each. Finally, time devoted to sport and exercise varied moderately, ranging from 3 hours in the 45 to 64 category to 6 hours among young adults.",
+        notes: {
+          "TA": "Khái quát rõ nét mối tương quan nghịch giữa độ tuổi và mạng xã hội, làm nổi bật các điểm số liệu then chốt ở cả 4 nhóm tuổi.",
+          "CC": "Tổ chức bài viết chặt chẽ theo từng nhóm hoạt động đối lập; phương tiện liên kết đa dạng (Conversely, Meanwhile, Finally).",
+          "LR": "Sử dụng tốt các cụm từ chỉ tỉ lệ và nhóm tuổi (inversely correlated, cohort, primary pastime, varied moderately).",
+          "GRA": "Vận dụng linh hoạt các cấu trúc so sánh bội số (more than double, seven times that of...) và cụm phân từ hiện tại (becoming their primary pastime)."
+}
+},
+      band6: {
+        words: 181,
+        text: "The bar chart compares how many hours per week four age groups spent on social media, sport and exercise, and reading in 2022.\n\nOverall, younger people spent much more time on social media than older people, while reading was more popular for old people. Sport had the smallest difference between the groups.\n\nFor social media, people aged 16 to 24 spent 14 hours per week, which was the highest number on the chart. This number decreased when people got older. The 25 to 44 age group spent 9 hours, the 45 to 64 group spent 5 hours, and people over 65 only spent 2 hours on social media.\n\nIn contrast, reading showed an opposite trend. The youngest group only spent 2 hours per week on reading, but the hours increases with age. People aged 25 to 44 spends 3 hours, the 45 to 64 group spent 5 hours, and the over 65s spent 8 hours, making it their favourite activity. Finally, sport and exercise was quite stable, with 6 hours for the youngest group and 4 hours for the oldest group.",
+        notes: {
+          "TA": "Trình bày đầy đủ các số liệu nhưng thiếu các so sánh tương quan sâu giữa các nhóm tuổi và giữa các hoạt động trong cùng một nhóm.",
+          "CC": "Có chia đoạn theo từng môn nhưng nối câu bằng từ quen thuộc đơn giản (Overall, For social media, In contrast, Finally).",
+          "LR": "Từ vựng thông thường, dùng từ mô tả định tính đơn giản (much more time, old people, highest number, quite stable).",
+          "GRA": "Lỗi điển hình band 6: 'the hours increases' và 'People aged 25 to 44 spends' (hòa hợp chủ–vị); câu ngắn, lặp mô thức S + V + spent X hours."
+}
+} },
+
+    { id: 't1-spending', task: 1, ref: 'spending', band: '8.0', words: 165,
+      text: `<<Mở bài>> The two pie charts [[illustrate how household income was allocated|minh họa thu nhập hộ gia đình được phân bổ ra sao]] across five main categories of spending in one country in 1980 and 2020.
+
+<<Tổng quan>> {{Overall}}, [[the most striking change|thay đổi nổi bật nhất]] was [[a shift from food to housing|sự chuyển dịch từ thực phẩm sang nhà ở]] as the main household expense. {{In addition}}, the share spent on leisure [[almost doubled|gần như tăng gấp đôi]] [[over the forty-year period|trong suốt 40 năm]].
+
+<<Thân bài 1>> In 1980, food [[made up the largest proportion of|chiếm tỉ trọng lớn nhất trong]] spending, at 35%, {{while}} housing [[accounted for|chiếm]] 22%. By 2020, {{however}}, [[the positions had been reversed|vị trí đã bị đảo ngược]]: the figure for food [[had fallen by about half to|đã giảm khoảng một nửa xuống còn]] 17%, {{whereas}} housing had risen to 34%, [[roughly a third of|khoảng một phần ba]] the total budget. {{In other words}}, households in 2020 [[spent twice as much on|chi tiêu gấp đôi cho]] housing as they did on food.
+
+<<Thân bài 2>> [[Turning to the other categories|Xét đến các hạng mục còn lại]], leisure [[experienced the greatest relative growth|có mức tăng tương đối lớn nhất]], climbing from 8% to 14% of the total. Spending on transport [[rose slightly|tăng nhẹ]], from 12% to 15%, {{while}} the proportion devoted to other items [[dipped marginally|giảm nhẹ]] from 23% to 20%. {{Consequently}}, [[by the end of the period|đến cuối giai đoạn]], leisure and transport together [[represented nearly|chiếm gần]] 30% of household expenditure, [[compared with|so với]] only 20% in 1980.`,
+      band7: {
+        words: 162,
+        text: "The two pie charts illustrate the allocation of household spending across five distinct categories in a particular country in 1980 and 2020.\n\nOverall, there was a pronounced shift in expenditure from food to housing, with housing becoming the dominant cost by 2020. Furthermore, leisure spending witnessed a significant increase, while the other categories experienced comparatively minor changes.\n\nIn 1980, food constituted the largest proportion of family spending at 35%, whereas housing accounted for 22%. Other miscellaneous expenses represented 23%, followed by transport at 12% and leisure at only 8%.\n\nBy 2020, however, these priorities had altered considerably. Housing expenditure rose sharply to 34%, representing approximately one third of the overall budget and twice the proportion spent on food, which declined by roughly half to 17%. Meanwhile, leisure spending saw noticeable growth, climbing to 14%, and transport expenditure edged up to 15%. Conversely, the proportion allocated to other goods and services dipped moderately from 23% to 20% by the end of the period.",
+        notes: {
+          "TA": "Làm nổi bật sự đảo ngược vị trí giữa nhà ở và thực phẩm; so sánh tỉ lệ gấp đôi và một phần ba rất chuẩn xác.",
+          "CC": "Phân tích mạch lạc theo hai mốc thời gian 1980 và 2020, kết nối ý so sánh tương phản tự nhiên (By 2020, however, Meanwhile, Conversely).",
+          "LR": "Sử dụng phong phú các danh từ và động từ chỉ phân bổ chi tiêu (allocation, expenditure, constituted, miscellaneous expenses, edged up).",
+          "GRA": "Kiểm soát tốt mệnh đề quan hệ không xác định (food, which declined...) và cụm phân từ (representing..., climbing to...)."
+}
+},
+      band6: {
+        words: 159,
+        text: "The two pie charts compare how households in one country spent their income on five categories in 1980 and 2020.\n\nOverall, the biggest change was the fall in spending on food and the rise in spending on housing. In addition, people spent more money on leisure in 2020 than in 1980.\n\nIn 1980, food was the highest expenditure, accounting for 35% of total spending. Other items were second with 23%, followed by housing at 22%. Transport was 12%, and leisure have the lowest percentage with only 8%.\n\nHowever, forty years later in 2020, the situation changed a lot. Housing become the largest category, increasing to 34%, which was exactly double the figure for food. In contrast, food dropped sharply to 17%. Leisure increased from 8% to 14%, and transport also went up a little bit to 15%. Finally, spending on other things decreased slightly from 23% to 20% in 2020. It is clear that housing and food changed places.",
+        notes: {
+          "TA": "Nêu đủ các lát cắt của cả 2 biểu đồ tròn nhưng cách thức phân tích còn mang tính liệt kê phần trăm cơ học từng hạng mục.",
+          "CC": "Bố cục 4 đoạn rõ ràng, tuy nhiên phương tiện chuyển đoạn còn mang tính công thức (In 1980, However, forty years later).",
+          "LR": "Dùng từ vựng cơ bản và có sự lặp lại (spending, money, changed a lot, went up a little bit, other things).",
+          "GRA": "Lỗi điển hình band 6: 'Housing become' (sai thì/chia động từ) và 'leisure have' (hòa hợp chủ–vị); phạm vi cấu trúc hẹp, đa phần câu đơn và câu ghép nối bằng and."
+}
+} },
+
+    { id: 't1-students', task: 1, ref: 'students', band: '8.0', words: 174,
+      text: `<<Mở bài>> The table [[provides information about|cung cấp thông tin về]] [[the number of international students|số lượng sinh viên quốc tế]] enrolled at universities in five countries in 2010, 2015 and 2020.
+
+<<Tổng quan>> {{Overall}}, most of the countries [[attracted more overseas students|thu hút nhiều du học sinh hơn]] over the decade, with Countries B and D [[recording the most significant growth|ghi nhận mức tăng trưởng đáng kể nhất]]. Country E, {{meanwhile}}, [[remained the least popular destination|vẫn là điểm đến kém hấp dẫn nhất]] [[throughout the period|trong suốt giai đoạn]].
+
+<<Thân bài 1>> In 2010, Country A [[was by far the most popular choice|là lựa chọn được ưa chuộng nhất, bỏ xa phần còn lại]], with 380,000 international students. This number [[climbed to|tăng lên]] 430,000 in 2015 {{but}} then [[fell back slightly to|giảm nhẹ trở lại còn]] 410,000. Country C [[followed a similar pattern|theo một xu hướng tương tự]], rising from 180,000 to 210,000 before [[dipping to|giảm nhẹ xuống]] 200,000 in 2020. Despite its slight decline, Country A still hosted more students than any other country except Country B in the final year.
+
+<<Thân bài 2>> {{By contrast}}, Country B [[saw continuous growth|tăng trưởng liên tục]], with its figure [[nearly doubling|gần như tăng gấp đôi]] from 250,000 to 450,000, [[which allowed it to overtake|điều này giúp nó vượt qua]] Country A as the leading destination by 2020. [[Even more remarkable|Còn đáng chú ý hơn]] was the rise in Country D, where enrolments almost tripled, from 90,000 to 260,000. Country E [[fluctuated at a much lower level|dao động ở mức thấp hơn nhiều]], dropping from 60,000 to 55,000 before [[recovering to|phục hồi lên]] 70,000, although it still remained well behind the other four countries.`,
+      band7: {
+        words: 174,
+        text: "The table details the enrolment figures for international students across five different countries in 2010, 2015 and 2020.\n\nOverall, the vast majority of nations experienced growth in their overseas student populations over the decade, with Countries B and D recording the most substantial expansions. In contrast, Country E consistently remained the least popular study destination.\n\nIn 2010, Country A was the most popular host nation with 380,000 international students. This figure climbed to 430,000 in 2015 before dropping slightly to 410,000 in 2020. Similarly, Country C followed a comparable trajectory, rising from 180,000 to 210,000 in the first five years, but subsequently dipping to 200,000 by the final year.\n\nConversely, Country B demonstrated continuous upward momentum throughout the decade, with student enrolments almost doubling from 250,000 to 450,000, allowing it to surpass Country A as the primary destination. Country D witnessed even steeper growth, nearly tripling its enrolment from 90,000 to 260,000. Finally, Country E exhibited minor fluctuations at much lower levels, decreasing from 60,000 to 55,000 before recovering to 70,000 students in 2020.",
+        notes: {
+          "TA": "Tổng quan xuất sắc khi nhóm các quốc gia tăng trưởng mạnh đối lập với quốc gia thấp nhất; tổng hợp xu hướng tương đồng giữa Country A và C.",
+          "CC": "Sắp xếp số liệu thông minh theo nhóm xu hướng thay vì đọc bảng máy móc từ trên xuống dưới; từ nối phong phú (Similarly, Conversely, Finally).",
+          "LR": "Vốn từ chuyên môn về học tập và số liệu ấn tượng (enrolment figures, overseas student populations, comparable trajectory, upward momentum).",
+          "GRA": "Vận dụng chính xác mệnh đề phân từ (allowing it to surpass...) và cụm danh từ phức hợp."
+}
+},
+      band6: {
+        words: 178,
+        text: "The table gives information about the number of international students at universities in five countries in 2010, 2015 and 2020.\n\nOverall, most countries saw an increase in the number of international students over the ten-year period. Country B and Country D had the biggest increases, while Country E had the lowest numbers in all three years.\n\nIn 2010, Country A was the top destination with 380,000 overseas students. This number went up to 430,000 in 2015, but then it dropped to 410,000 in 2020. In Country C, the number of international students also increased from 180,000 in 2010 to 210,000 in 2015, before going down slightly to 200,000 in 2020.\n\nOn the other hand, Country B experienced strong growth. The number of students were 250,000 in 2010, and it increased to 330,000 in 2015 and 450,000 in 2020, making it the highest country at the end. Country D also saw a very large increase from 90,000 to 260,000 students. In contrast, Country E have the lowest figure, changing from 60,000 to 55,000 and then finishing at 70,000 students.",
+        notes: {
+          "TA": "Bao quát được các số liệu chính của bảng nhưng phương pháp gom nhóm số liệu chưa sâu, dẫn đến việc tường thuật từng nước một dù có ghép A–C và B–D.",
+          "CC": "Các đoạn văn rõ ý nhưng cách nối giữa các câu còn đơn điệu, lặp lại cụm The number of international students.",
+          "LR": "Từ vựng tương đối lặp và quen thuộc (went up, dropped, increased, biggest increases, highest country).",
+          "GRA": "Lỗi điển hình band 6: 'The number of students were' và 'Country E have' (hòa hợp chủ–vị), 'the highest country' (dùng từ: nên là destination); cấu trúc ít đa dạng."
+}
+} },
+
+    { id: 't1-museums', task: 1, ref: 'museums', band: '8.0', words: 170,
+      text: `<<Mở bài>> The line graph [[shows changes in|cho thấy sự thay đổi của]] [[visitor numbers|lượng khách tham quan]] at three museums in a city [[between 2000 and 2020|từ năm 2000 đến 2020]].
+
+<<Tổng quan>> {{Overall}}, the Science Centre [[became the most visited attraction|trở thành điểm tham quan đông khách nhất]] after 2008, {{while}} the Art Gallery [[consistently attracted the fewest visitors|luôn thu hút ít khách nhất]]. [[It is also noticeable that|Cũng có thể thấy rằng]] all three museums [[experienced a sharp drop|trải qua sự sụt giảm mạnh]] in the final year.
+
+<<Thân bài 1>> In 2000, the History Museum [[was the most popular|được ưa chuộng nhất]], receiving 120,000 visitors, compared with 80,000 at the Science Centre. {{However}}, the Science Centre [[grew rapidly|tăng trưởng nhanh chóng]], and [[by 2012 it had overtaken|đến năm 2012 đã vượt qua]] the History Museum, with 175,000 visitors against 145,000. It [[went on to peak at|tiếp tục đạt đỉnh ở mức]] 200,000 in 2016. The History Museum, {{meanwhile}}, [[rose more modestly|tăng khiêm tốn hơn]], reaching 160,000 in the same year, which was its highest figure over the two decades.
+
+<<Thân bài 2>> The Art Gallery [[remained fairly stable|duy trì khá ổn định]] [[at around|ở mức khoảng]] 60,000 visitors until 2008, {{before}} [[increasing gradually to|tăng dần lên]] 75,000 in 2016. [[In the final period|Trong giai đoạn cuối]], {{however}}, [[visitor numbers fell dramatically|lượng khách giảm mạnh]] at all three sites. The Science Centre [[lost two fifths of its visitors|mất hai phần năm lượng khách]], dropping to 120,000, the History Museum fell to 90,000, its lowest level in the whole period, and the Art Gallery [[almost halved to|giảm gần một nửa, còn]] 40,000.`,
+      band7: {
+        words: 185,
+        text: "The line graph illustrates changes in attendance figures at three different museums within a city over a twenty-year period from 2000 to 2020.\n\nOverall, the Science Centre experienced substantial growth to become the most visited venue from 2012 onwards, whereas the Art Gallery attracted the fewest visitors throughout. Furthermore, all three institutions suffered a dramatic collapse in visitor numbers in the final year.\n\nIn 2000, the History Museum was the leading attraction with 120,000 attendees, followed by the Science Centre with 80,000 and the Art Gallery with 60,000. The History Museum grew, apart from a slight dip in 2012, to reach a peak of 160,000 in 2016, though it was overtaken by the Science Centre by 2012. By 2016, the Science Centre had surged to a high of 200,000 visitors.\n\nIn contrast, attendance at the Art Gallery remained comparatively flat, fluctuating around 60,000 until 2008 and increasing modestly to 75,000 in 2016. Between 2016 and 2020, visitor figures plunged across the board: the Science Centre lost 80,000 visitors to finish at 120,000, the History Museum dropped to 90,000, and the Art Gallery declined to 40,000.",
+        notes: {
+          "TA": "Đoạn tổng quan nêu bật được sự vươn lên dẫn đầu của Science Centre và cú sụt giảm đồng loạt năm 2020; mốc Science Centre vượt History Museum (khoảng 2012) được nêu.",
+          "CC": "Mạch viết trôi chảy, phân bổ thời gian hợp lý (từ đầu kỳ đến đỉnh cao 2016, rồi phân tích riêng giai đoạn sụt giảm 2020).",
+          "LR": "Từ vựng đa dạng về bảo tàng và biến động số lượng (attendance figures, leading attraction, plunged across the board, comparatively flat).",
+          "GRA": "Sử dụng tốt thì quá khứ hoàn thành (had surged), cấu trúc bị động (was overtaken), cụm giới từ chỉ thời gian (until 2008, Between 2016 and 2020) và mệnh đề nhượng bộ (though...)."
+}
+},
+      band6: {
+        words: 179,
+        text: "The line graph shows how many people visited three museums in a city between 2000 and 2020.\n\nOverall, visitor numbers at the Science Centre increased a lot and it became the most popular museum. On the other hand, the Art Gallery was the least visited in the whole period. In the last year, all three museums had a big drop in visitors.\n\nIn 2000, History Museum was in first place with 120,000 visitors, compared to 80,000 for the Science Centre and 60,000 for the Art Gallery. The History Museum went up steady to 150,000 in 2008 and reached a peak of 160,000 in 2016. However, in 2020 its visitors fell sharply to 90,000.\n\nMeanwhile, the Science Centre had much faster growth. The number of visitors rose to 140,000 in 2008 and overtook the History Museum by 2012, reaching a high point of 200,000 in 2016. But like the other museums, it dropped to 120,000 in 2020. The Art Gallery stayed relatively stable around 60,000 until 2008, and then rose to 75,000 in 2016 before falling to 40,000 in 2020.",
+        notes: {
+          "TA": "Xác định được các điểm mốc chính và nêu overview, nhưng mô tả còn liệt kê từng bảo tàng, ít so sánh trực tiếp.",
+          "CC": "Mạch văn dễ theo dõi nhưng liên kết câu còn dựa dẫm vào các từ nối đơn giản (In 2000, Meanwhile, But like the other museums).",
+          "LR": "Từ vựng ở mức cơ bản (increased a lot, big drop, in first place, high point); lặp lại danh từ visitors nhiều lần.",
+          "GRA": "Lỗi điển hình band 6: 'went up steady' (tính từ thay trạng từ) và thiếu mạo từ 'In 2000, History Museum'; chủ yếu câu trần thuật đơn giản."
+}
+} },
+
+    { id: 't1-commute', task: 1, ref: 'commute', band: '8.0', words: 176,
+      text: `<<Mở bài>> The bar chart [[compares the proportion of workers|so sánh tỉ lệ người lao động]] in four cities who [[travelled to work by|đi làm bằng]] car, public transport or bicycle in 2021.
+
+<<Tổng quan>> {{Overall}}, [[each city had a distinct commuting pattern|mỗi thành phố có thói quen đi lại riêng]]: cars [[were the dominant mode of transport|là phương tiện chủ đạo]] in City W, public transport was most popular in City X, {{and}} cycling [[played a much larger role|đóng vai trò lớn hơn nhiều]] in City Z than elsewhere.
+
+<<Thân bài 1>> In City W, [[well over half of|hơn hẳn một nửa]] all workers (58%) drove to work, almost twice the proportion who used public transport (30%), {{while}} only 12% cycled. City Y [[showed a more balanced distribution|có sự phân bổ cân bằng hơn]], with 41% commuting by car and 36% by bus or train. {{Nevertheless}}, the figure for cycling there, at 23%, [[was nearly double that of|gần gấp đôi con số của]] City W.
+
+<<Thân bài 2>> {{In contrast}}, public transport [[was the preferred option|là lựa chọn được ưa chuộng]] in City X, [[used by|được sử dụng bởi]] 55% of commuters, {{whereas}} cars accounted for 32% and bicycles [[a mere|chỉ vỏn vẹn]] 13%. City Z [[stood out|nổi bật]] [[for its low reliance on cars|vì ít phụ thuộc vào ô tô]], which only 20% of workers used. Public transport was [[the most common choice|lựa chọn phổ biến nhất]] there (45%), {{but}} cycling [[was not far behind|không kém xa]] at 35%, [[the highest figure for|con số cao nhất đối với]] this mode [[among the four cities|trong bốn thành phố]].`,
+      band7: {
+        words: 182,
+        text: "The bar chart compares commuting preferences across four cities in 2021, focusing on the proportion of workers travelling by car, public transport and bicycle.\n\nOverall, commuting habits differed noticeably between the cities: private cars dominated in City W, public transport was the primary choice in City X, and cycling played a considerably more prominent role in City Z than in any other location.\n\nIn City W, driving was by far the preferred mode, chosen by 58% of workers, compared to 30% who relied on public transport and just 12% who cycled. City Y displayed a more balanced distribution, with 41% commuting by car and 36% using public transport, alongside 23% who cycled to work.\n\nConversely, public transport was the leading option in City X, accounting for 55% of all commuters, whereas cars represented 32% and bicycles made up only 13%. Most notably, City Z showed the lowest dependency on private cars at just 20%. While public transit was the most popular mode there at 45%, cycling accounted for a substantial 35% of commuters, representing the highest cycling rate across the four cities.",
+        notes: {
+          "TA": "Tổng quan cô đọng, nêu bật nét đặc thù của 3 thành phố tiêu biểu; phân tích số liệu chi tiết và có tính đối chiếu cao.",
+          "CC": "Tổ chức các đoạn thân bài logic (City W & Y có ô tô cao; City X & Z chuộng phương tiện công cộng và xe đạp); liên kết chặt chẽ.",
+          "LR": "Dùng từ vựng chuẩn xác và linh hoạt về giao thông (commuting preferences, dominated, balanced distribution, dependency on private cars).",
+          "GRA": "Đa dạng cấu trúc ngữ pháp: mệnh đề phân từ (chosen by..., representing...), mệnh đề nhượng bộ (While public transit was...)."
+}
+},
+      band6: {
+        words: 176,
+        text: "The bar chart compares the percentage of workers using car, public transport and bicycle to commute in four cities in 2021.\n\nOverall, each city had a different choice of transport. Cars were the most popular in City W, public transport was the favourite in City X, and cycling was used the most in City Z compared to other cities.\n\nIn City W, 58% of workers drove a car to work, which was the highest percentage. Public transport was used by 30% of workers, while only 12% chose bicycles. City Y also had a high car usage at 41%, while public transport were 36% and bicycles accounted for 23%.\n\nOn the other hand, City X preferred public transport, with 55% of workers choosing this mode. Cars were second at 32%, and bicycles were only 13%. Finally, in City Z, only 20% of commuters drove cars, which was the lowest figure among all cities. Public transport was the most common with 45%, but cycling was also very popular at 35%, much higher than in the other three cities.",
+        notes: {
+          "TA": "Cung cấp đủ số liệu của cả 4 thành phố nhưng nhận xét còn chung chung (each city had a different choice of transport); thiếu so sánh chéo.",
+          "CC": "Bố cục rõ 4 đoạn nhưng các câu nối còn đơn giản và mang tính liệt kê lần lượt City W, Y, X, Z.",
+          "LR": "Từ vựng lặp nhiều (most popular, percentage, chose, workers); thiếu các từ vựng chỉ phương tiện và thói quen đi lại chuyên sâu.",
+          "GRA": "Lỗi điển hình band 6: 'public transport were 36%' (hòa hợp chủ–vị); mô hình câu lặp City + had / was + percentage; ít câu phức."
+}
+} },
+
+    { id: 't1-glass', task: 1, ref: 'glass', band: '8.0', words: 174,
+      text: `<<Mở bài>> The diagram [[illustrates the process by which|minh họa quy trình mà qua đó]] used glass bottles [[are recycled into|được tái chế thành]] new ones.
+
+<<Tổng quan>> {{Overall}}, there are seven stages [[in the process|trong quy trình]], [[beginning with|bắt đầu với]] the collection of used bottles and [[culminating in|kết thúc bằng]] the delivery of new bottles to shops, which means that [[the process forms a continuous cycle|quy trình tạo thành một vòng tuần hoàn liên tục]].
+
+<<Thân bài 1>> {{First}}, used bottles [[are collected from|được thu gom từ]] recycling bins and then [[transported to|được vận chuyển đến]] a sorting plant. {{Next}}, the glass [[is sorted according to colour|được phân loại theo màu sắc]] {{before}} being cleaned [[to remove any impurities|để loại bỏ tạp chất]]. {{Once}} it is clean, the glass [[is crushed into small fragments|được nghiền thành những mảnh nhỏ]], which are known as cullet. These pieces are then ready for the second half of the process.
+
+<<Thân bài 2>> {{In the next stage}}, the cullet [[is melted down in a furnace|được nung chảy trong lò]] [[at a temperature of approximately|ở nhiệt độ xấp xỉ]] 1,500°C, turning it into a liquid. The molten glass [[is then shaped into|sau đó được tạo hình thành]] new bottles. {{Finally}}, these bottles [[are filled with|được đổ đầy]] drinks or other products and [[delivered to shops|được giao đến các cửa hàng]], [[where they are sold to consumers|nơi chúng được bán cho người tiêu dùng]]. {{After}} use, they [[can be returned to|có thể được đưa trở lại]] recycling bins, [[allowing the cycle to begin again|giúp chu trình bắt đầu lại]].`,
+      band7: {
+        words: 158,
+        text: "The diagram illustrates the sequential process through which discarded glass bottles are recycled into new products.\n\nOverall, the recycling procedure comprises seven distinct stages, commencing from the collection of empty bottles and culminating in the delivery of newly manufactured bottles to retail stores, creating a closed-loop system.\n\nInitially, used glass containers are collected from recycling bins and transported to a dedicated sorting plant. The glass is subsequently categorized by colour and thoroughly washed. Once cleaned, the glass is crushed into small fragments, known as cullet.\n\nIn the subsequent phase, this cullet is transferred into a furnace where it is melted at an extreme temperature of approximately 1,500°C. The resulting molten glass is then moulded into brand new bottles. Finally, these containers are filled and transported to shops. Following consumption, the bottles can be deposited into recycling bins once more, allowing the cycle to repeat. Altogether, the process passes through seven stages before the glass returns to the start.",
+        notes: {
+          "TA": "Mô tả trọn vẹn và chính xác tất cả 7 bước của quy trình tuần hoàn khép kín; nêu rõ nguyên liệu đầu vào và sản phẩm hoàn thiện.",
+          "CC": "Sử dụng từ chỉ trình tự quy trình rất tự nhiên và học thuật (commencing from, culminating in, Initially, subsequently, Once cleaned).",
+          "LR": "Sử dụng từ vựng chuẩn xác về tái chế công nghiệp (closed-loop system, dedicated sorting plant, crushed into small fragments, molten glass).",
+          "GRA": "Sử dụng thể bị động (are collected, is melted, is moulded) kết hợp với cụm phân từ (commencing from..., culminating in..., allowing the cycle to repeat); còn lỗi giới từ nhỏ ('commencing from')."
+}
+},
+      band6: {
+        words: 164,
+        text: "The diagram illustrates how used glass bottles are recycled to produce new bottles.\n\nOverall, the recycling process consists of seven main stages. It starts with collecting used bottles from recycling bins and finishes with sending new bottles to shops. Because of this, it is a continuous cycle.\n\nFirst, people put used bottles into recycling bins, and then these bottles are collected and transported to a sorting plant. Next, the glass is sorted according to its colour, and then the glass is washed to remove dirt and impurities. After that, the clean bottles are crushed into very small pieces, which are called cullet.\n\nIn the next stage, the cullet is heated and melted down in a special furnace at a high temperature of about 1,500°C. After the glass becomes liquid, it is shaped and moulded into new glass bottles. Finally, the new bottles are filled, and then they are delivered to shops for people to buy. When customers finish using them, the cycle start again.",
+        notes: {
+          "TA": "Nêu đủ 7 bước từ thu gom đến cửa hàng, nhưng diễn đạt còn văn nói (people put bottles, for people to buy).",
+          "CC": "Dùng các từ nối thời gian tương đối máy móc và lặp (First, and then, Next, and then, After that, Finally).",
+          "LR": "Từ vựng đơn giản, lặp từ bottles, glass; giải thích từ ngữ bằng cụm thông thường (very small pieces, special furnace).",
+          "GRA": "Lỗi điển hình band 6: 'Because of this, it is a continuous cycle' (liên kết nguyên nhân sai), 'the cycle start again' (hòa hợp chủ–vị); lẫn câu chủ động và bị động."
+}
+} },
+
+    { id: 't1-town', task: 1, ref: 'town', band: '8.0', words: 185,
+      text: `<<Mở bài>> The maps [[illustrate the changes that have taken place in|minh họa những thay đổi đã diễn ra ở]] the centre of a small town [[between 2000 and the present day|từ năm 2000 đến nay]].
+
+<<Tổng quan>> {{Overall}}, the town centre [[has become more residential|đã trở nên mang tính dân cư hơn]] and [[better served by public transport|được phục vụ tốt hơn bởi giao thông công cộng]], with the industrial area [[making way for|nhường chỗ cho]] housing and entertainment. {{However}}, the shops and the park [[have been retained|được giữ lại]].
+
+<<Thân bài 1>> The most significant developments have occurred [[to the west of|ở phía tây của]] Main Street. In 2000, the north-western corner [[was occupied by|là nơi đặt]] a car park, {{but}} this [[has since been replaced by|từ đó đã được thay thế bằng]] a bus station. {{Further south}}, a large factory [[used to stand|từng tọa lạc]], [[taking up|chiếm]] much of the western side. This factory [[has been demolished|đã bị phá bỏ]], and its site [[has been divided between|đã được chia cho]] apartments in the north and a new cinema in the south.
+
+<<Thân bài 2>> {{By contrast}}, the eastern side of Main Street [[has remained largely unchanged|hầu như không thay đổi]]. The shops in the north-east corner [[are still in the same location|vẫn ở vị trí cũ]], {{and}} the park, which [[occupies the south-eastern part of|chiếm phần đông nam của]] the town centre, [[has been preserved in its original size|được giữ nguyên diện tích ban đầu]]. {{In other words}}, all of the changes [[have been confined to|chỉ giới hạn ở]] the western half of the town centre.`,
+      band7: {
+        words: 170,
+        text: "The maps illustrate the urban redevelopment that has occurred in a small town centre between 2000 and the present day.\n\nOverall, the town centre has transitioned toward residential and recreational purposes alongside improved public transit, primarily driven by the clearance of industrial land. Meanwhile, the commercial facilities and the green park have remained intact.\n\nTo the west of Main Street, substantial modifications are evident. In 2000, a car park was situated in the north-western sector, but this has since been converted into a bus station. Further south, the large industrial factory that occupied much of the western area was demolished. This brownfield site has subsequently been divided to accommodate new residential apartments alongside a cinema.\n\nIn contrast, the eastern portion of the town centre has experienced minimal alteration. The shopping zone in the north-east remains entirely unchanged from its 2000 layout. Similarly, the public park in the south-eastern quadrant has been preserved in its original dimensions, meaning that all infrastructural development was concentrated on the western side of Main Street.",
+        notes: {
+          "TA": "Tổng quan sâu sắc, phân tích rõ sự chuyển đổi từ khu công nghiệp sang nhà ở/tiện ích; chỉ rõ khu vực giữ nguyên và khu vực thay đổi.",
+          "CC": "Tổ chức bài mẫu mực theo không gian: chia đôi bờ đông và bờ tây của Main Street, giúp người đọc hình dung quy hoạch rất dễ dàng.",
+          "LR": "Từ vựng quy hoạch đô thị và phương hướng chuẩn mực (urban redevelopment, brownfield site, north-western sector, preserved in its original dimensions).",
+          "GRA": "Kết hợp linh hoạt các thì hoàn thành và bị động (has transitioned, was demolished, has subsequently been divided, was concentrated)."
+}
+},
+      band6: {
+        words: 167,
+        text: "The two maps show how the centre of a small town has changed from the year 2000 to the present day.\n\nOverall, the town centre has seen noticeable modernization. More residential and transport facilities have been constructed, while the industrial zone was removed. However, the shops and the park have stayed in the same place.\n\nIn 2000, the west side of the town had a car park in the north-west and a big factory in the south-west. Today, the car park has been replaced by a bus station. Moreover, the factory has been demolished completely, and in its place they have built new apartments and a cinema for entertainment.\n\nOn the other side of Main Street, the eastern part has not changed very much. The shops in the north-east corner are still there, in the same location as in 2000. In addition, the public park in the south-east has been kept with the same size. Therefore, most developments have happened on the western half of the town.",
+        notes: {
+          "TA": "Nhận biết được các công trình mới và cũ nhưng cách mô tả vị trí không gian còn đơn giản, chưa làm bật được tính chất quy hoạch tổng thể.",
+          "CC": "Phân đoạn Đông - Tây rõ ràng, tuy nhiên câu chuyển ý còn giản đơn (On the other side of Main Street, In addition, Therefore).",
+          "LR": "Từ vựng còn thông thường (big factory, stayed in the same place, are still there, kept with the same size); thiếu thuật ngữ bản đồ.",
+          "GRA": "Dùng đại từ không xác định trong văn cảnh học thuật (they have built); sự phối hợp các thì đôi chỗ chưa thật nhất quán."
+}
+} },
+
+    { id: 't2-p1', task: 2, ref: 'p1', band: '8.0', words: 279,
+      text: `<<Mở bài>> [[The question of who should pay for higher education|Vấn đề ai nên chi trả cho giáo dục đại học]] [[has long been a matter of debate|từ lâu đã là chủ đề tranh luận]]. {{While}} I accept that [[cost should never prevent|chi phí không bao giờ nên ngăn cản]] talented young people from studying, I do not believe that university should be completely free for everyone.
+
+<<Thân bài 1>> <<Nhượng bộ>> [[It is undeniable that|Không thể phủ nhận rằng]] free tuition [[would bring certain benefits|sẽ mang lại một số lợi ích]]. <<Giải thích>> Students from low-income families would no longer [[be deterred by|bị cản bước bởi]] high fees or [[graduate with crippling debts|tốt nghiệp với khoản nợ nặng nề]], and society as a whole [[would gain from|sẽ được hưởng lợi từ]] a more highly skilled workforce. <<Ví dụ>> {{For instance}}, several Nordic countries [[offer tuition-free degrees|cung cấp bằng đại học miễn học phí]], and they [[consistently rank among|liên tục nằm trong nhóm]] the best-educated nations in the world.
+
+<<Thân bài 2>> <<Câu chủ đề>> {{However}}, [[making higher education free for all|việc miễn phí giáo dục đại học cho tất cả]] [[would place an enormous burden on|sẽ đặt gánh nặng khổng lồ lên]] public finances. <<Giải thích>> The money would have to come from taxes, which means that [[ordinary workers|người lao động bình thường]], many of whom never attended university, would be [[subsidising graduates|trợ cấp cho người có bằng đại học]] who are likely to [[earn higher salaries|có mức lương cao hơn]] later in life. {{Moreover}}, when governments must fund unlimited places, universities often [[suffer from|chịu cảnh]] overcrowded lecture halls and [[a decline in teaching quality|chất lượng giảng dạy đi xuống]]. <<Ví dụ>> In some countries that abolished fees, class sizes grew so quickly that students struggled to receive [[individual attention|sự quan tâm riêng]] from their lecturers.
+
+<<Thân bài 3>> <<Câu chủ đề>> [[A fairer approach|Một cách tiếp cận công bằng hơn]] would be to [[combine modest fees with|kết hợp mức học phí vừa phải với]] generous financial support. <<Giải thích>> Means-tested grants and scholarships could [[cover the full cost|chi trả toàn bộ chi phí]] for students from disadvantaged backgrounds, {{while}} income-contingent loans would [[require graduates to repay|yêu cầu người tốt nghiệp hoàn trả]] only once they earn above a certain threshold. {{In this way}}, [[access would be determined by ability rather than wealth|cơ hội được quyết định bởi năng lực thay vì sự giàu có]].
+
+<<Kết bài>> {{In conclusion}}, {{although}} free university education [[appears attractive|có vẻ hấp dẫn]] [[at first glance|thoạt nhìn]], I believe that [[a targeted system of financial aid|hệ thống hỗ trợ tài chính có trọng tâm]] is [[a more sustainable and equitable solution|giải pháp bền vững và công bằng hơn]], as it protects both opportunity and public finances.` },
+
+    { id: 't2-p5', task: 2, ref: 'p5', band: '8.0', words: 267,
+      text: `<<Mở bài>> [[In recent years|Trong những năm gần đây]], [[the effects of climate change|tác động của biến đổi khí hậu]] have led some people to argue that environmental protection should [[receive a larger share of|nhận phần lớn hơn của]] public funding than any other service. {{Although}} I agree that environmental spending must increase, I disagree that it should [[take priority over|được ưu tiên hơn]] essential services such as healthcare and education.
+
+<<Thân bài 1>> <<Nhượng bộ>> [[There is no doubt that|Không còn nghi ngờ gì rằng]] environmental problems [[pose a serious threat to|gây ra mối đe dọa nghiêm trọng cho]] human well-being. <<Giải thích>> Floods, droughts and air pollution [[cause enormous economic losses|gây thiệt hại kinh tế khổng lồ]] and [[put pressure on|gây áp lực lên]] other public services, {{especially}} hospitals. <<Ví dụ>> {{For example}}, a city that invests in flood defences today may [[save far more|tiết kiệm được nhiều hơn hẳn]] in reconstruction costs [[in the long run|về lâu dài]].
+
+<<Thân bài 2>> <<Câu chủ đề>> {{Nevertheless}}, [[it would be unwise to|sẽ là thiếu khôn ngoan nếu]] [[divert funds away from|chuyển hướng ngân sách khỏi]] services that people [[depend on daily|phụ thuộc hằng ngày]]. <<Giải thích>> Governments [[have a fundamental duty to|có nghĩa vụ cơ bản là]] keep citizens healthy, educated and safe, and [[cutting budgets in these areas|cắt giảm ngân sách ở những lĩnh vực này]] would harm the most vulnerable groups first. <<Ví dụ>> A patient waiting for urgent surgery or a child in an underfunded school [[cannot afford to wait|không thể chờ đợi được]] while money is spent on long-term environmental projects.
+
+<<Thân bài 3>> <<Câu chủ đề>> {{Furthermore}}, environmental protection [[does not have to compete with|không nhất thiết phải cạnh tranh với]] other services. <<Giải thích>> Many green policies, such as [[improving public transport|cải thiện giao thông công cộng]] or [[insulating schools and hospitals|cách nhiệt trường học và bệnh viện]], [[serve several goals at once|phục vụ nhiều mục tiêu cùng lúc]]. {{In addition}}, measures like carbon taxes can [[generate revenue|tạo ra nguồn thu]] rather than consume it. <<Ví dụ>> {{For instance}}, revenue from such taxes could be [[reinvested in|tái đầu tư vào]] hospitals or schools, [[benefiting both|mang lại lợi ích cho cả]] the environment and society.
+
+<<Kết bài>> {{In conclusion}}, {{while}} the environment clearly deserves greater investment, I believe that [[a balanced approach|một cách tiếp cận cân bằng]] which [[integrates environmental goals into|lồng ghép mục tiêu môi trường vào]] all areas of public spending is far more effective than [[placing it above|đặt nó lên trên]] everything else.` },
+
+    { id: 't2-p8', task: 2, ref: 'p8', band: '8.0', words: 263,
+      text: `<<Mở bài>> Some people argue that [[imposing longer prison sentences|áp dụng án tù dài hơn]] is the most effective way to [[tackle crime|giải quyết tội phạm]]. {{Although}} harsh punishment [[may have a role to play|có thể có vai trò nhất định]] for serious offenders, I strongly disagree that it is the best solution.
+
+<<Thân bài 1>> <<Nhượng bộ>> [[Admittedly|Phải thừa nhận rằng]], longer sentences [[offer some advantages|mang lại một số lợi ích]]. <<Giải thích>> Dangerous criminals who are kept behind bars [[are unable to reoffend|không thể tái phạm]], {{and}} the threat of a lengthy sentence [[may act as a deterrent|có thể đóng vai trò răn đe]] for some potential offenders. {{Moreover}}, [[victims and their families|nạn nhân và gia đình họ]] often feel that justice has been done when punishment is severe.
+
+<<Thân bài 2>> <<Câu chủ đề>> {{However}}, [[the evidence suggests that|bằng chứng cho thấy rằng]] longer sentences do little to reduce crime overall. <<Giải thích>> Many crimes [[are committed on impulse|được thực hiện do bốc đồng]] or under the influence of drugs, so offenders rarely [[weigh up the consequences|cân nhắc hậu quả]] beforehand. {{In addition}}, prisons can [[become breeding grounds for|trở thành mảnh đất nuôi dưỡng]] further criminal behaviour, as inmates [[mix with|giao du với]] more experienced criminals and lose contact with their families and jobs. <<Ví dụ>> {{As a result}}, many former prisoners [[find it difficult to reintegrate into society|khó tái hòa nhập xã hội]] and [[end up returning to crime|cuối cùng quay lại con đường phạm tội]].
+
+<<Thân bài 3>> <<Câu chủ đề>> [[In my view|Theo quan điểm của tôi]], crime [[is better addressed by|được giải quyết tốt hơn bằng cách]] tackling its [[root causes|nguyên nhân gốc rễ]]. <<Giải thích>> Investment in education, youth programmes and job training can [[steer young people away from|giúp người trẻ tránh xa]] crime [[in the first place|ngay từ đầu]]. <<Ví dụ>> {{Likewise}}, rehabilitation schemes that teach prisoners practical skills [[have been shown to reduce|đã được chứng minh là làm giảm]] [[reoffending rates|tỉ lệ tái phạm]] in many countries. Such programmes are also [[considerably cheaper than|rẻ hơn đáng kể so với]] keeping people in prison for many years.
+
+<<Kết bài>> {{In conclusion}}, {{while}} lengthy sentences may be [[justified for|hợp lý đối với]] the most violent criminals, they are not the best way to reduce crime. [[Prevention and rehabilitation|Phòng ngừa và cải tạo]] offer a far more lasting solution, benefiting both offenders and society.` },
+
+    { id: 't2-p14', task: 2, ref: 'p14', band: '8.0', words: 269,
+      text: `<<Mở bài>> Governments [[face difficult choices|đối mặt với những lựa chọn khó khăn]] about how to spend limited health budgets. I largely agree that [[public health campaigns|các chiến dịch y tế cộng đồng]] aimed at preventing illness [[represent better value for money|đáng đồng tiền hơn]] than treatment, {{although}} the needs of those who are already ill [[must not be neglected|không được phép bị xem nhẹ]].
+
+<<Thân bài 1>> <<Câu chủ đề>> The main argument for prevention is that it is [[far more cost-effective|hiệu quả về chi phí hơn nhiều]]. <<Giải thích>> Treating chronic conditions such as diabetes and heart disease [[requires expensive medication|đòi hỏi thuốc men đắt đỏ]], long hospital stays and [[years of follow-up care|nhiều năm chăm sóc theo dõi]]. {{By contrast}}, a campaign that [[persuades people to|thuyết phục mọi người]] stop smoking or [[exercise regularly|tập thể dục thường xuyên]] costs relatively little [[yet benefits millions|nhưng mang lại lợi ích cho hàng triệu người]]. <<Ví dụ>> {{For example}}, [[anti-smoking campaigns|các chiến dịch chống hút thuốc]] in many countries [[have contributed to|đã góp phần vào]] a steady fall in smoking rates, [[easing the pressure on|giảm bớt áp lực lên]] hospitals.
+
+<<Thân bài 2>> <<Câu chủ đề>> {{Furthermore}}, prevention improves [[quality of life|chất lượng cuộc sống]] [[in ways that treatment cannot|theo những cách mà điều trị không làm được]]. <<Giải thích>> A person who avoids a serious illness can continue working, supporting a family and [[contributing to the economy|đóng góp cho nền kinh tế]], {{whereas}} even successful treatment often leaves patients with [[long-term health problems|vấn đề sức khỏe lâu dài]]. <<Ví dụ>> {{For instance}}, someone who [[suffers a stroke|bị đột quỵ]] may survive thanks to modern medicine but [[remain partially disabled|bị tàn tật một phần]] for the rest of their life.
+
+<<Thân bài 3>> <<Nhượng bộ>> {{Nevertheless}}, [[it would be morally unacceptable to|sẽ là không thể chấp nhận về mặt đạo đức nếu]] reduce care for those who are already sick. <<Giải thích>> Not all diseases can be prevented, since many are caused by genetic factors or ageing, and patients [[have a right to|có quyền được hưởng]] proper treatment. {{Moreover}}, the benefits of campaigns [[take years to materialise|phải mất nhiều năm mới thành hiện thực]], so hospitals still need adequate funding [[in the meantime|trong thời gian đó]].
+
+<<Kết bài>> {{In conclusion}}, I believe that prevention should [[receive a greater share of|nhận phần lớn hơn của]] health spending because it [[saves both money and lives|tiết kiệm cả tiền bạc lẫn sinh mạng]] [[in the long term|về lâu dài]]. {{However}}, this should be achieved [[without compromising|mà không làm ảnh hưởng đến]] care for existing patients.` },
+
+    { id: 't2-p17', task: 2, ref: 'p17', band: '8.0', words: 275,
+      text: `<<Mở bài>> [[The rapid growth of online resources|Sự phát triển nhanh chóng của tài nguyên trực tuyến]] has led some people to predict that schools will soon [[become obsolete|trở nên lỗi thời]]. I completely disagree with this view, {{as}} schools provide [[far more than just|nhiều hơn hẳn chứ không chỉ]] access to information.
+
+<<Thân bài 1>> <<Nhượng bộ>> [[It is true that|Đúng là]] the internet has [[transformed the way people learn|thay đổi cách con người học tập]]. <<Giải thích>> Students can now watch lectures by leading experts, [[take online courses|tham gia các khóa học trực tuyến]] and find answers to almost any question [[within seconds|chỉ trong vài giây]]. <<Ví dụ>> {{For instance}}, many learners [[have mastered|đã thành thạo]] programming or foreign languages [[entirely through|hoàn toàn thông qua]] free websites and video tutorials. {{In addition}}, digital platforms allow people in remote areas to [[gain access to|tiếp cận]] high-quality materials that were once [[available only to|chỉ dành cho]] students in major cities.
+
+<<Thân bài 2>> <<Câu chủ đề>> {{However}}, [[access to information is not the same as|tiếp cận thông tin không đồng nghĩa với]] education. <<Giải thích>> Children need teachers to [[guide their learning|định hướng việc học]], explain difficult concepts and help them [[distinguish reliable sources from misleading ones|phân biệt nguồn đáng tin cậy với nguồn sai lệch]]. Without this support, most young learners [[lack the discipline|thiếu tính kỷ luật]] to study independently and [[are easily distracted by|dễ bị phân tâm bởi]] games and social media. <<Ví dụ>> {{Indeed}}, when schools closed during the pandemic, many students [[fell behind|bị tụt lại phía sau]], [[particularly those from|đặc biệt là những em đến từ]] poorer families.
+
+<<Thân bài 3>> <<Câu chủ đề>> {{Moreover}}, schools [[play a vital role in|đóng vai trò thiết yếu trong]] children's social development. <<Giải thích>> In the classroom and the playground, pupils learn to [[cooperate with others|hợp tác với người khác]], [[resolve conflicts|giải quyết mâu thuẫn]] and respect different opinions, which are [[essential skills for adult life|kỹ năng thiết yếu cho cuộc sống trưởng thành]]. Schools also provide [[a safe environment|một môi trường an toàn]] where children are supervised while their parents are at work. <<Ví dụ>> Group projects and team sports, {{for example}}, teach children how to share responsibilities and [[work towards a common goal|hướng tới một mục tiêu chung]].
+
+<<Kết bài>> {{In conclusion}}, {{although}} online information is [[a valuable supplement to|nguồn bổ trợ quý giá cho]] classroom learning, it cannot replace schools. [[Rather than disappearing|Thay vì biến mất]], schools are likely to [[adapt by integrating|thích nghi bằng cách tích hợp]] digital tools into their teaching.` },
+
+    { id: 't2-p24', task: 2, ref: 'p24', band: '8.0', words: 270,
+      text: `<<Mở bài>> [[A growing number of|Ngày càng nhiều]] young people are choosing to [[pursue their degrees overseas|theo học đại học ở nước ngoài]]. {{Although}} this choice [[involves certain difficulties|kéo theo một số khó khăn]], I believe that the benefits [[clearly outweigh|vượt trội rõ rệt so với]] the drawbacks.
+
+<<Thân bài 1>> <<Nhượng bộ>> [[Admittedly|Phải thừa nhận rằng]], studying abroad [[can be a daunting experience|có thể là một trải nghiệm đầy thử thách]]. <<Giải thích>> International students often [[pay significantly higher tuition fees|trả học phí cao hơn đáng kể]] than local students, {{in addition to}} the cost of accommodation and travel. Many also [[struggle with homesickness|vật lộn với nỗi nhớ nhà]] and [[culture shock|sốc văn hóa]], {{especially}} in their first year, when they must [[adapt to|thích nghi với]] unfamiliar food, weather and teaching methods.
+
+<<Thân bài 2>> <<Câu chủ đề>> {{However}}, these challenges are usually temporary, {{whereas}} the advantages [[last a lifetime|kéo dài cả đời]]. <<Giải thích>> {{Firstly}}, living in another country is [[one of the most effective ways to|một trong những cách hiệu quả nhất để]] [[achieve fluency in|đạt được sự lưu loát trong]] a foreign language, {{since}} students use it every day both inside and outside the classroom. <<Ví dụ>> {{For example}}, a student who arrives in the UK with intermediate English may become [[confident enough to|đủ tự tin để]] write academic essays and give presentations within a year or two. {{Secondly}}, managing their own finances and solving problems without family support [[helps young people become|giúp người trẻ trở nên]] [[more independent and resilient|độc lập và kiên cường hơn]]. These qualities are just as valuable as academic knowledge.
+
+<<Thân bài 3>> <<Câu chủ đề>> {{In addition}}, an overseas degree can [[significantly enhance|nâng cao đáng kể]] [[career prospects|triển vọng nghề nghiệp]]. <<Giải thích>> Employers [[place a high value on|đánh giá cao]] graduates who have [[international experience|kinh nghiệm quốc tế]] and [[cross-cultural communication skills|kỹ năng giao tiếp liên văn hóa]], {{particularly}} in multinational companies. <<Ví dụ>> {{For example}}, a Vietnamese student who completes an engineering degree in Australia [[gains not only|không chỉ có được]] up-to-date technical knowledge {{but also}} [[a network of contacts|mạng lưới quan hệ]] that may lead to job opportunities [[at home and abroad|trong và ngoài nước]].
+
+<<Kết bài>> {{In conclusion}}, {{while}} studying abroad [[requires considerable financial and emotional investment|đòi hỏi sự đầu tư đáng kể về tài chính và tinh thần]], the linguistic, personal and professional benefits [[make it a worthwhile choice|khiến nó trở thành lựa chọn xứng đáng]] for those who [[have the opportunity|có cơ hội]].` },
+  ].concat(g.MODELS || []); // + bài mẫu bổ sung từ js/write/*.js (nạp trước)
+})(typeof self !== 'undefined' ? self : this);

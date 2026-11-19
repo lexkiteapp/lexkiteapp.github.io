@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_share",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: share.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means to have or use something together with other people.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "We share a flat with two other students.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "share",
+  "ipa": "/ʃer/",
+  "mean": "to have or use something together with other people",
+  "ex": "We share a flat with two other students.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=share",
+  "link": "https://lexkite.com/app/#/review?w=share",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 44,
+  "seconds": 26.7,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "What does \"share\" mean?",
+  "keyword": "share",
+  "value": "Share means to have or use something together with other people.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=share",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"share\" mean?",
+    "description": "Share means to have or use something together with other people.\n\nReview your words, free: https://lexkite.com/app/#/review?w=share\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "share",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"share\" mean?\n\nShare means to have or use something together with other people.\n\nReview your words, free: https://lexkite.com/app/#/review?w=share"
+   },
+   "instagram": {
+    "caption": "What does \"share\" mean?\n\nShare means to have or use something together with other people.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"share\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means to have or use something together with other people. Share means to have or use something together with other people. More practice like this (free): {link}"
+ }
+}

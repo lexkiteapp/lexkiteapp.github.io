@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ليكسكايت - مراجعة التكرار المتباعد</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;600;700;800;900&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "background": "#10191B",
+            "surface": "#10191B",
+            "card-surface": "#172427",
+            "surface-raised": "#1E2F33",
+            "border-dark": "#253B40",
+            "primary": "#5EEAD4",
+            "primary-container": "#2DD4BF",
+            "on-primary": "#003733",
+            "on-surface": "#E8F1F0",
+            "on-surface-variant": "#A9BDBB",
+            "secondary-accent": "#F59E0B",
+            "secondary-container": "#D97706"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xl": "2.5rem",
+            "space-sm": "0.5rem",
+            "gutter-lg": "2rem",
+            "margin-lg": "3rem",
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem",
+            "margin-md": "2rem",
+            "space-md": "1rem",
+            "gutter-md": "1.5rem",
+            "margin": "1rem",
+            "gutter": "1rem"
+          },
+          "fontFamily": {
+            "sans": ["Cairo", "Plus Jakarta Sans", "sans-serif"],
+            "label-lg": ["Cairo", "Plus Jakarta Sans", "sans-serif"],
+            "body-lg": ["Cairo", "Plus Jakarta Sans", "sans-serif"],
+            "label-md": ["Cairo", "Plus Jakarta Sans", "sans-serif"],
+            "headline-lg": ["Cairo", "Plus Jakarta Sans", "sans-serif"],
+            "display-lg-mobile": ["Cairo", "Plus Jakarta Sans", "sans-serif"],
+            "headline-md": ["Cairo", "Plus Jakarta Sans", "sans-serif"],
+            "label-sm": ["Cairo", "Plus Jakarta Sans", "sans-serif"],
+            "headline-lg-mobile": ["Cairo", "Plus Jakarta Sans", "sans-serif"],
+            "headline-sm": ["Cairo", "Plus Jakarta Sans", "sans-serif"],
+            "display-lg": ["Cairo", "Plus Jakarta Sans", "sans-serif"],
+            "body-sm": ["Cairo", "Plus Jakarta Sans", "sans-serif"],
+            "body-md": ["Cairo", "Plus Jakarta Sans", "sans-serif"]
+          },
+          "fontSize": {
+            "label-lg": ["16px", { "lineHeight": "22px", "letterSpacing": "0.01em", "fontWeight": "700" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "500" }],
+            "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "700" }],
+            "headline-lg": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+            "display-lg-mobile": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "label-sm": ["12px", { "lineHeight": "17px", "letterSpacing": "0.01em", "fontWeight": "800" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+            "headline-sm": ["19px", { "lineHeight": "26px", "fontWeight": "700" }],
+            "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "body-sm": ["13px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "body-md": ["15px", { "lineHeight": "23px", "fontWeight": "500" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Cairo', 'Plus Jakarta Sans', sans-serif;
+      min-height: max(884px, 100dvh);
+      background-color: #10191B;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      line-height: 1;
+    }
+    .tactile-btn {
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .tactile-btn:active {
+      transform: translateY(2px);
+    }
+  </style>
+</head>
+<body class="bg-[#10191B] text-[#E8F1F0] antialiased flex justify-center min-h-screen">
+<!-- Mobile Container strictly 390px wide -->
+<main class="w-[390px] min-h-screen bg-[#10191B] relative flex flex-col pb-[90px] pt-[76px] px-gutter overflow-x-hidden selection:bg-teal-500/30 selection:text-white">
+<!-- Top App Bar (Mirrored for RTL) -->
+<header class="fixed top-0 left-0 w-full max-w-[390px] right-0 mx-auto z-50 flex items-center justify-between px-gutter py-space-sm bg-[#10191B]/95 backdrop-blur-md border-b border-[#253B40] shadow-[0_2px_8px_rgba(0,0,0,0.4)]">
+<div class="flex items-center gap-2">
+<div class="w-10 h-10 rounded-full bg-[#1E2F33] flex items-center justify-center border-2 border-[#253B40] text-[#5EEAD4]">
+<span class="material-symbols-outlined" data-icon="school" style="font-variation-settings: 'FILL' 1;">school</span>
+</div>
+<div>
+<span class="font-headline-sm text-headline-sm font-bold text-[#5EEAD4] block leading-none">IELTS الدرجة 7.5</span>
+<span class="font-label-sm text-label-sm text-[#A9BDBB] font-bold">مركز ذاكرة ليكسكايت</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<!-- Streak Flame Pill -->
+<div class="flex items-center gap-1 bg-[#D97706]/20 border-2 border-[#F59E0B]/60 px-2.5 py-1 rounded-full shadow-[0_2px_0_0_#92400E] text-[#FDE68A]">
+<span class="material-symbols-outlined text-[18px] text-[#F59E0B]" data-icon="local_fire_department" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="font-label-sm text-label-sm font-extrabold text-[#FDE68A]">14 ي</span>
+</div>
+<button aria-label="الإعدادات" class="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl bg-[#1E2F33] border-2 border-[#253B40] shadow-[0_3px_0_0_#142023] tactile-btn active:shadow-none text-[#A9BDBB]">
+<span class="material-symbols-outlined" data-icon="tune">tune</span>
+</button>
+</div>
+</header>
+<!-- Subheader Flow Status Bar -->
+<section class="mt-2 mb-3 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-extrabold text-[#5EEAD4] tracking-tight">قائمة المراجعة</h1>
+</div>
+<!-- Due Badge -->
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#D97706]/20 text-[#FDE68A] font-label-sm text-label-sm font-extrabold border-2 border-[#F59E0B]/60 shadow-[0_2px_0_0_#92400E]">
+<span class="material-symbols-outlined text-[14px] text-[#F59E0B]" data-icon="pending_actions">pending_actions</span>
+        18 مستحق اليوم
+      </span>
+</section>
+<!-- Section 2: Empty Dashed Teacher Slot & Carlos Speech Bubble (Mirrored RTL) -->
+<section class="mb-4">
+<div class="grid grid-cols-[88px_1fr] gap-3 items-center">
+<!-- Empty Dashed Teacher Slot -->
+<div aria-label="خانة المعلم" class="teacher-slot min-h-[76px] h-full rounded-2xl border-2 border-dashed border-[#2DD4BF]/60 bg-[#172427] flex flex-col items-center justify-center p-2 text-center">
+<span class="material-symbols-outlined text-[#5EEAD4] text-[22px] mb-0.5" data-icon="psychology">psychology</span>
+<span class="font-label-sm text-[11px] uppercase tracking-wider text-[#5EEAD4] font-extrabold leading-tight">خانة المعلم</span>
+</div>
+<!-- Speech Bubble from Coach Carlos with RTL Pointer -->
+<div class="relative bg-[#172427] border-2 border-[#253B40] rounded-2xl p-3 shadow-[0_3px_0_0_#0D1517]">
+<div class="absolute -right-2 top-1/2 -translate-y-1/2 w-3 h-3 bg-[#172427] border-t-2 border-r-2 border-[#253B40] rotate-45"></div>
+<div class="flex items-center gap-1.5 mb-0.5">
+<span class="font-label-sm text-label-sm font-bold text-[#5EEAD4]">المدرب كارلوس</span>
+<span class="w-1.5 h-1.5 rounded-full bg-[#F59E0B]"></span>
+<span class="font-label-sm text-[11px] text-[#A9BDBB] font-semibold">مُحسِّن FSRS</span>
+</div>
+<p class="font-body-sm text-body-sm text-[#A9BDBB] leading-snug font-medium">
+            "الجودة أهم من السرعة — قيّم بصدق لتمكين خوارزمية FSRS من تحسين منحنى ذاكرتك!"
+          </p>
+</div>
+</div>
+</section>
+<!-- Section 3: Session Progress Bar (RTL Filled Bar) -->
+<section class="mb-4 bg-[#172427] border-2 border-[#253B40] rounded-2xl p-3 shadow-[0_3px_0_0_#0D1517]">
+<div class="flex items-center justify-between mb-1.5">
+<span class="font-label-md text-label-md text-[#E8F1F0] font-extrabold">البطاقة 4 من 18</span>
+<div class="flex items-center gap-1 text-[#2DD4BF]">
+<span class="material-symbols-outlined text-[16px]" data-icon="memory" style="font-variation-settings: 'FILL' 1;">memory</span>
+<span class="font-label-sm text-label-sm font-bold">نسبة الاحتفاظ المستهدفة 92%</span>
+</div>
+</div>
+<!-- Progress Bar Track -->
+<div class="h-3.5 w-full bg-[#10191B] rounded-full overflow-hidden p-0.5 border border-[#253B40]">
+<div class="h-full bg-gradient-to-l from-[#F59E0B] to-[#D97706] rounded-full relative" style="width: 22.2%;">
+<div class="absolute top-0 left-0 right-0 h-[2px] bg-white/30 rounded-full"></div>
+</div>
+</div>
+<div class="flex justify-between items-center mt-1.5 text-[11px] font-label-sm text-[#A9BDBB] font-semibold">
+<span>المتبقي في الانتظار: 14</span>
+<span dir="ltr">Stability: +1.8x</span>
+</div>
+</section>
+<!-- Section 4: Card Stack Preview of Flashcard -->
+<section class="relative mb-5 pt-1">
+<!-- Tactile Card-Stack Peek Background Layer 2 -->
+<div class="absolute inset-x-4 top-3 h-48 bg-[#131F21] rounded-2xl border-2 border-[#203135] -z-20 transform translate-y-3"></div>
+<!-- Tactile Card-Stack Peek Background Layer 1 -->
+<div class="absolute inset-x-2 top-2 h-52 bg-[#152326] rounded-2xl border-2 border-[#253B40] -z-10 transform translate-y-1.5"></div>
+<!-- Main Flashcard -->
+<article class="bg-[#172427] border-2 border-[#253B40] rounded-2xl p-4 shadow-[0_4px_0_0_#0D1517] relative">
+<!-- Word Header & Target Badges -->
+<div class="flex items-start justify-between gap-2 mb-2.5">
+<div>
+<div class="flex items-center gap-2" dir="ltr">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile font-extrabold text-[#E8F1F0] tracking-tight font-['Plus_Jakarta_Sans']">meticulous</h2>
+<!-- Audio Button -->
+<button aria-label="استمع لنطق meticulous" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full bg-[#1E2F33] text-[#5EEAD4] flex items-center justify-center border-2 border-[#253B40] shadow-[0_2px_0_0_#142023] tactile-btn active:shadow-none">
+<span class="material-symbols-outlined text-[22px]" data-icon="volume_up" style="font-variation-settings: 'FILL' 1;">volume_up</span>
+</button>
+</div>
+<p class="font-body-md text-body-md text-[#A9BDBB] font-semibold tracking-wide" dir="ltr">/məˈtɪk.jə.ləs/ <span class="text-xs text-[#2DD4BF] font-bold">adj.</span></p>
+</div>
+<!-- CEFR & Band Pills -->
+<div class="flex flex-col items-end gap-1">
+<span class="inline-block px-2.5 py-0.5 rounded-md bg-[#2DD4BF]/20 text-[#5EEAD4] font-label-sm text-[11px] font-extrabold border border-[#2DD4BF]/40" dir="ltr">
+              CEFR C1
+            </span>
+<span class="inline-block px-2.5 py-0.5 rounded-md bg-[#D97706]/20 text-[#FDE68A] font-label-sm text-[11px] font-extrabold border border-[#F59E0B]/40" dir="ltr">
+              Band 7.5+
+            </span>
+</div>
+</div>
+<!-- Definition -->
+<div class="bg-[#1E2F33] rounded-xl p-3 border border-[#253B40] mb-3 text-right">
+<span class="font-label-sm text-[11px] text-[#5EEAD4] font-extrabold block uppercase tracking-wider mb-0.5">التعريف الرسمي</span>
+<p class="font-body-md text-body-md text-[#E8F1F0] font-semibold leading-relaxed">
+            إظهار عناية فائقة بالتفاصيل؛ دقيق وحريص للغاية.
+          </p>
+</div>
+<!-- IELTS Writing Task 2 Context (Mirrored border) -->
+<div class="mb-3.5 pr-3 border-r-4 border-[#2DD4BF]">
+<div class="flex items-center gap-1.5 mb-1">
+<span class="material-symbols-outlined text-[16px] text-[#5EEAD4]" data-icon="edit_note">edit_note</span>
+<span class="font-label-sm text-label-sm font-bold text-[#5EEAD4]">سياق مهمة الكتابة 2 في آيلتس</span>
+</div>
+<p class="font-body-sm text-body-sm text-[#A9BDBB] font-medium leading-relaxed">
+            "تتطلب الأبحاث الأكاديمية تدقيقاً دقيقاً <span class="text-[#5EEAD4] font-bold underline decoration-[#F59E0B] decoration-2 underline-offset-2" dir="ltr">meticulous</span> للبيانات لتجنب الأخطاء المنهجية."
+          </p>
+</div>
+<!-- Collocation Chips -->
+<div>
+<span class="font-label-sm text-[11px] font-bold text-[#A9BDBB] uppercase tracking-wider block mb-1.5">التلازمات اللفظية الأساسية</span>
+<div class="flex flex-wrap gap-2">
+<span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#1E2F33] border border-[#253B40] text-[#E8F1F0] font-label-sm text-label-sm font-bold">
+<span class="material-symbols-outlined text-[14px] text-[#5EEAD4]" data-icon="bolt">bolt</span>
+              عناية فائقة <span class="text-[11px] text-[#A9BDBB] font-medium" dir="ltr">meticulous attention</span>
+</span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#1E2F33] border border-[#253B40] text-[#E8F1F0] font-label-sm text-label-sm font-bold">
+<span class="material-symbols-outlined text-[14px] text-[#5EEAD4]" data-icon="bolt">bolt</span>
+              تخطيط دقيق <span class="text-[11px] text-[#A9BDBB] font-medium" dir="ltr">meticulous planning</span>
+</span>
+</div>
+</div>
+</article>
+</section>
+<!-- Section 5: SRS Rating Buttons (FSRS Algorithm - RTL Mirrored Order) -->
+<section class="mb-5">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-md text-label-md font-extrabold text-[#E8F1F0]">تقييم التذكر</span>
+<span class="font-label-sm text-label-sm font-bold text-[#A9BDBB]">انقر لإعادة الجدولة</span>
+</div>
+<!-- 4 Action Buttons Grid in natural RTL flow: مجدداً (Again), صعب (Hard), جيد (Good), سهل (Easy) -->
+<div class="grid grid-cols-4 gap-2">
+<!-- 1. مجدداً (<10 د) - Soft Coral / Red -->
+<button class="min-h-[60px] min-w-[44px] flex flex-col items-center justify-center px-1 py-1.5 rounded-xl bg-[#2A1719] border-2 border-[#EF4444] shadow-[0_3px_0_0_#991B1B] tactile-btn active:shadow-none active:translate-y-1 text-center">
+<span class="font-label-md text-label-md font-extrabold text-[#FCA5A5] leading-none mb-1">مجدداً</span>
+<span class="inline-block px-1.5 py-0.5 rounded-md bg-[#EF4444]/20 text-[#FCA5A5] font-label-sm text-[11px] font-extrabold">&lt;10 د</span>
+</button>
+<!-- 2. صعب (12 س) - Warm Amber -->
+<button class="min-h-[60px] min-w-[44px] flex flex-col items-center justify-center px-1 py-1.5 rounded-xl bg-[#2A2012] border-2 border-[#F59E0B] shadow-[0_3px_0_0_#92400E] tactile-btn active:shadow-none active:translate-y-1 text-center">
+<span class="font-label-md text-label-md font-extrabold text-[#FCD34D] leading-none mb-1">صعب</span>
+<span class="inline-block px-1.5 py-0.5 rounded-md bg-[#F59E0B]/20 text-[#FCD34D] font-label-sm text-[11px] font-extrabold">12 س</span>
+</button>
+<!-- 3. جيد (2 ي) - Soft Teal -->
+<button class="min-h-[60px] min-w-[44px] flex flex-col items-center justify-center px-1 py-1.5 rounded-xl bg-[#122728] border-2 border-[#2DD4BF] shadow-[0_3px_0_0_#0F766E] tactile-btn active:shadow-none active:translate-y-1 text-center">
+<span class="font-label-md text-label-md font-extrabold text-[#5EEAD4] leading-none mb-1">جيد</span>
+<span class="inline-block px-1.5 py-0.5 rounded-md bg-[#2DD4BF]/20 text-[#5EEAD4] font-label-sm text-[11px] font-extrabold">2 ي</span>
+</button>
+<!-- 4. سهل (5 ي) - Crisp Emerald -->
+<button class="min-h-[60px] min-w-[44px] flex flex-col items-center justify-center px-1 py-1.5 rounded-xl bg-[#10281D] border-2 border-[#22C55E] shadow-[0_3px_0_0_#166534] tactile-btn active:shadow-none active:translate-y-1 text-center">
+<span class="font-label-md text-label-md font-extrabold text-[#86EFAC] leading-none mb-1">سهل</span>
+<span class="inline-block px-1.5 py-0.5 rounded-md bg-[#22C55E]/20 text-[#86EFAC] font-label-sm text-[11px] font-extrabold">5 ي</span>
+</button>
+</div>
+</section>
+<!-- Section 6: Upcoming Reviews Forecast (7-day Bar Chart RTL) -->
+<section class="bg-[#172427] border-2 border-[#253B40] rounded-2xl p-3.5 shadow-[0_3px_0_0_#0D1517] mb-4">
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[#5EEAD4] text-[18px]" data-icon="bar_chart">bar_chart</span>
+<span class="font-label-md text-label-md font-extrabold text-[#E8F1F0]">توقعات أعباء 7 أيام</span>
+</div>
+<!-- Optimal Indicator -->
+<div class="flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#10281D] border border-[#22C55E]/40 text-[#86EFAC]">
+<span class="w-1.5 h-1.5 rounded-full bg-[#22C55E] animate-pulse"></span>
+<span class="font-label-sm text-[11px] font-bold">احتفاظ مثالي</span>
+</div>
+</div>
+<!-- 7-day Bar Chart in RTL order: الإثنين (18), الثلاثاء (12), الأربعاء (24), الخميس (15), الجمعة (9), السبت (21), الأحد (14) -->
+<div class="grid grid-cols-7 gap-2 items-end h-24 pt-4 border-b border-[#253B40] pb-2">
+<!-- إثنين: 18 -->
+<div class="flex flex-col items-center gap-1">
+<span class="font-label-sm text-[10px] text-[#A9BDBB] font-bold">18</span>
+<div class="w-full bg-[#D97706] rounded-t-md relative transition-all" style="height: 48px;">
+<div class="absolute top-0 inset-x-0 h-1 bg-white/30 rounded-t-md"></div>
+</div>
+<span class="font-label-sm text-[11px] font-extrabold text-[#E8F1F0]">ن</span>
+</div>
+<!-- ثلاثاء: 12 -->
+<div class="flex flex-col items-center gap-1">
+<span class="font-label-sm text-[10px] text-[#A9BDBB] font-bold">12</span>
+<div class="w-full bg-[#2DD4BF] rounded-t-md relative transition-all opacity-85" style="height: 32px;">
+<div class="absolute top-0 inset-x-0 h-1 bg-white/30 rounded-t-md"></div>
+</div>
+<span class="font-label-sm text-[11px] font-semibold text-[#A9BDBB]">ث</span>
+</div>
+<!-- أربعاء: 24 (Peak) -->
+<div class="flex flex-col items-center gap-1">
+<span class="font-label-sm text-[10px] text-[#FCD34D] font-extrabold">24</span>
+<div class="w-full bg-[#F59E0B] rounded-t-md relative transition-all" style="height: 64px;">
+<div class="absolute top-0 inset-x-0 h-1 bg-white/30 rounded-t-md"></div>
+</div>
+<span class="font-label-sm text-[11px] font-bold text-[#E8F1F0]">ر</span>
+</div>
+<!-- خميس: 15 -->
+<div class="flex flex-col items-center gap-1">
+<span class="font-label-sm text-[10px] text-[#A9BDBB] font-bold">15</span>
+<div class="w-full bg-[#2DD4BF] rounded-t-md relative transition-all opacity-85" style="height: 40px;">
+<div class="absolute top-0 inset-x-0 h-1 bg-white/30 rounded-t-md"></div>
+</div>
+<span class="font-label-sm text-[11px] font-semibold text-[#A9BDBB]">خ</span>
+</div>
+<!-- جمعة: 9 -->
+<div class="flex flex-col items-center gap-1">
+<span class="font-label-sm text-[10px] text-[#A9BDBB] font-bold">9</span>
+<div class="w-full bg-[#2DD4BF] rounded-t-md relative transition-all opacity-70" style="height: 24px;">
+<div class="absolute top-0 inset-x-0 h-1 bg-white/30 rounded-t-md"></div>
+</div>
+<span class="font-label-sm text-[11px] font-semibold text-[#A9BDBB]">ج</span>
+</div>
+<!-- سبت: 21 -->
+<div class="flex flex-col items-center gap-1">
+<span class="font-label-sm text-[10px] text-[#A9BDBB] font-bold">21</span>
+<div class="w-full bg-[#D97706] rounded-t-md relative transition-all opacity-90" style="height: 56px;">
+<div class="absolute top-0 inset-x-0 h-1 bg-white/30 rounded-t-md"></div>
+</div>
+<span class="font-label-sm text-[11px] font-bold text-[#E8F1F0]">س</span>
+</div>
+<!-- أحد: 14 -->
+<div class="flex flex-col items-center gap-1">
+<span class="font-label-sm text-[10px] text-[#A9BDBB] font-bold">14</span>
+<div class="w-full bg-[#2DD4BF] rounded-t-md relative transition-all opacity-80" style="height: 37px;">
+<div class="absolute top-0 inset-x-0 h-1 bg-white/30 rounded-t-md"></div>
+</div>
+<span class="font-label-sm text-[11px] font-semibold text-[#A9BDBB]">ح</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2 text-[11px] font-label-sm text-[#A9BDBB]">
+<span>المعدل: 16.1 بطاقة/يوم</span>
+<span class="text-[#5EEAD4] font-bold">المجموع: 113 بطاقة</span>
+</div>
+</section>
+<!-- Bottom Navigation Bar (Mirrored order RTL: اليوم, المفردات, المهارات, الاختبارات, أنا) -->
+<nav aria-label="شريط التنقل الرئيسي" class="fixed bottom-0 left-0 w-full max-w-[390px] right-0 mx-auto z-50 flex justify-around items-center px-space-xs py-space-xs bg-[#10191B]/95 backdrop-blur-md border-t border-[#253B40] shadow-[0_-4px_12px_rgba(0,0,0,0.5)]">
+<!-- البند 1: اليوم -->
+<a class="min-w-[44px] min-h-[44px] flex flex-col items-center justify-center text-[#A9BDBB] py-1 active:translate-y-0.5 transition-transform duration-100 hover:text-[#5EEAD4]" href="#">
+<span class="material-symbols-outlined text-[24px]" data-icon="today">today</span>
+<span class="font-label-sm text-label-sm mt-0.5">اليوم</span>
+</a>
+<!-- البند 2: المفردات (التبويب النشط) -->
+<a aria-current="page" class="min-w-[44px] min-h-[44px] flex flex-col items-center justify-center text-[#5EEAD4] font-bold py-1 px-3 bg-[#1E2F33] rounded-2xl border border-[#2DD4BF]/30 active:translate-y-0.5 transition-transform duration-100" href="#">
+<span class="material-symbols-outlined text-[24px]" data-icon="menu_book" style="font-variation-settings: 'FILL' 1;">menu_book</span>
+<span class="font-label-sm text-label-sm mt-0.5">المفردات</span>
+</a>
+<!-- البند 3: المهارات -->
+<a class="min-w-[44px] min-h-[44px] flex flex-col items-center justify-center text-[#A9BDBB] py-1 active:translate-y-0.5 transition-transform duration-100 hover:text-[#5EEAD4]" href="#">
+<span class="material-symbols-outlined text-[24px]" data-icon="bolt">bolt</span>
+<span class="font-label-sm text-label-sm mt-0.5">المهارات</span>
+</a>
+<!-- البند 4: الاختبارات -->
+<a class="min-w-[44px] min-h-[44px] flex flex-col items-center justify-center text-[#A9BDBB] py-1 active:translate-y-0.5 transition-transform duration-100 hover:text-[#5EEAD4]" href="#">
+<span class="material-symbols-outlined text-[24px]" data-icon="assignment">assignment</span>
+<span class="font-label-sm text-label-sm mt-0.5">الاختبارات</span>
+</a>
+<!-- البند 5: أنا -->
+<a class="min-w-[44px] min-h-[44px] flex flex-col items-center justify-center text-[#A9BDBB] py-1 active:translate-y-0.5 transition-transform duration-100 hover:text-[#5EEAD4]" href="#">
+<span class="material-symbols-outlined text-[24px]" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm mt-0.5">أنا</span>
+</a>
+</nav>
+</main>
+</body></html>

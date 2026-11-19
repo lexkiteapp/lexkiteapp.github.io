@@ -1,0 +1,1110 @@
+{
+ "date": "2026-10-26",
+ "site": "sc-domain:lexkite.com",
+ "range": {
+  "startDate": "2026-09-26",
+  "endDate": "2026-10-23"
+ },
+ "prevRange": {
+  "startDate": "2026-08-29",
+  "endDate": "2026-09-25"
+ },
+ "rows": {
+  "qpc": 121,
+  "qp": 83,
+  "pageCur": 170,
+  "pagePrev": 0
+ },
+ "thresholds": {
+  "days": 28,
+  "lagDays": 3,
+  "rowLimit": 25000,
+  "maxPages": 20,
+  "gapMinImpr": 50,
+  "matchKw": 0.8,
+  "matchQ": 0.5,
+  "weakPos": 30,
+  "sdMin": 8,
+  "sdMax": 30,
+  "sdMinImpr": 100,
+  "lowCtrRatio": 0.75,
+  "canMinImpr": 50,
+  "canPageMin": 10,
+  "canPageShare": 0.1,
+  "decPrevMin": 100,
+  "decDrop": 0.4,
+  "decAbsMin": 50,
+  "keepDays": 182,
+  "titleMax": 60,
+  "titleMaxCjk": 32,
+  "descMin": 70,
+  "descMax": 160
+ },
+ "totals": {
+  "current": {
+   "clicks": 15,
+   "impressions": 535,
+   "ctr": 0.028,
+   "position": 31.1
+  },
+  "previous": {
+   "clicks": 0,
+   "impressions": 0,
+   "ctr": 0,
+   "position": 0
+  }
+ },
+ "gaps": [],
+ "striking": [],
+ "cannibal": [],
+ "declines": [],
+ "dictQueue": [
+  {
+   "term": "cau tuong thuat",
+   "impressions": 1,
+   "clicks": 0,
+   "queries": [
+    "câu tường thuật là gì"
+   ]
+  },
+  {
+   "term": "energy",
+   "impressions": 1,
+   "clicks": 0,
+   "queries": [
+    "energy là gì"
+   ]
+  },
+  {
+   "term": "traditional story",
+   "impressions": 1,
+   "clicks": 0,
+   "queries": [
+    "traditional story là gì"
+   ]
+  }
+ ],
+ "priority": [],
+ "pages": [
+  {
+   "page": "https://lexkite.com/en/speaking/",
+   "clicks": 0,
+   "impressions": 76,
+   "position": 75
+  },
+  {
+   "page": "https://lexkite.com/ja/blog/eitango-oboekata/",
+   "clicks": 0,
+   "impressions": 33,
+   "position": 38.9
+  },
+  {
+   "page": "https://lexkite.com/en/blog/academic-word-list/",
+   "clicks": 0,
+   "impressions": 23,
+   "position": 56.6
+  },
+  {
+   "page": "https://lexkite.com/en/speaking/thoi-tiet-cac-mua",
+   "clicks": 0,
+   "impressions": 11,
+   "position": 4.5
+  },
+  {
+   "page": "https://lexkite.com/ngu-phap/reported-speech",
+   "clicks": 0,
+   "impressions": 10,
+   "position": 77.3
+  },
+  {
+   "page": "https://lexkite.com/en/samples/p27",
+   "clicks": 0,
+   "impressions": 9,
+   "position": 7.2
+  },
+  {
+   "page": "https://lexkite.com/en/samples/p29",
+   "clicks": 0,
+   "impressions": 9,
+   "position": 8.7
+  },
+  {
+   "page": "https://lexkite.com/en/samples/p80",
+   "clicks": 1,
+   "impressions": 8,
+   "position": 5.9
+  },
+  {
+   "page": "https://lexkite.com/en/speaking/ban-be-cac-moi-quan-he",
+   "clicks": 1,
+   "impressions": 8,
+   "position": 5.9
+  },
+  {
+   "page": "https://lexkite.com/en/blog/spaced-repetition-for-language-learning/",
+   "clicks": 0,
+   "impressions": 8,
+   "position": 52.4
+  },
+  {
+   "page": "https://lexkite.com/en/samples/p41",
+   "clicks": 0,
+   "impressions": 8,
+   "position": 6.9
+  },
+  {
+   "page": "https://lexkite.com/en/speaking/the-thao",
+   "clicks": 0,
+   "impressions": 8,
+   "position": 16.8
+  },
+  {
+   "page": "https://lexkite.com/samples/p41",
+   "clicks": 0,
+   "impressions": 7,
+   "position": 6.9
+  },
+  {
+   "page": "https://lexkite.com/samples/p71",
+   "clicks": 0,
+   "impressions": 7,
+   "position": 6.4
+  },
+  {
+   "page": "https://lexkite.com/en/",
+   "clicks": 2,
+   "impressions": 6,
+   "position": 2.3
+  },
+  {
+   "page": "https://lexkite.com/en/blog/about/",
+   "clicks": 2,
+   "impressions": 6,
+   "position": 5.7
+  },
+  {
+   "page": "https://lexkite.com/en/samples/p42",
+   "clicks": 0,
+   "impressions": 6,
+   "position": 7.7
+  },
+  {
+   "page": "https://lexkite.com/en/samples/p59",
+   "clicks": 0,
+   "impressions": 6,
+   "position": 8.5
+  },
+  {
+   "page": "https://lexkite.com/en/samples/p73",
+   "clicks": 0,
+   "impressions": 6,
+   "position": 21.2
+  },
+  {
+   "page": "https://lexkite.com/ngu-phap/conditionals-0-1",
+   "clicks": 0,
+   "impressions": 6,
+   "position": 62.8
+  },
+  {
+   "page": "https://lexkite.com/en/terms",
+   "clicks": 2,
+   "impressions": 5,
+   "position": 4.6
+  },
+  {
+   "page": "https://lexkite.com/",
+   "clicks": 1,
+   "impressions": 5,
+   "position": 52.6
+  },
+  {
+   "page": "https://lexkite.com/en/samples/",
+   "clicks": 0,
+   "impressions": 5,
+   "position": 80.2
+  },
+  {
+   "page": "https://lexkite.com/en/samples/p20",
+   "clicks": 0,
+   "impressions": 5,
+   "position": 9.2
+  },
+  {
+   "page": "https://lexkite.com/en/samples/p50",
+   "clicks": 0,
+   "impressions": 5,
+   "position": 7.6
+  },
+  {
+   "page": "https://lexkite.com/en/vocabulary/ex-ielts-write",
+   "clicks": 0,
+   "impressions": 5,
+   "position": 7
+  },
+  {
+   "page": "https://lexkite.com/en/vocabulary/food",
+   "clicks": 0,
+   "impressions": 5,
+   "position": 5.8
+  },
+  {
+   "page": "https://lexkite.com/zh/blog/bei-dan-ci-de-fang-fa/",
+   "clicks": 0,
+   "impressions": 5,
+   "position": 6
+  },
+  {
+   "page": "https://lexkite.com/en/samples/p74",
+   "clicks": 1,
+   "impressions": 4,
+   "position": 4.8
+  },
+  {
+   "page": "https://lexkite.com/en/speaking/thoi-quen-song-xanh",
+   "clicks": 1,
+   "impressions": 4,
+   "position": 5.5
+  },
+  {
+   "page": "https://lexkite.com/en/vocabulary/architecture",
+   "clicks": 1,
+   "impressions": 4,
+   "position": 8.3
+  },
+  {
+   "page": "https://lexkite.com/de/blog/englische-zeiten-uebersicht/",
+   "clicks": 0,
+   "impressions": 4,
+   "position": 25.5
+  },
+  {
+   "page": "https://lexkite.com/en/blog/fsrs-algorithm-explained/",
+   "clicks": 0,
+   "impressions": 4,
+   "position": 14.8
+  },
+  {
+   "page": "https://lexkite.com/en/samples/p26",
+   "clicks": 0,
+   "impressions": 4,
+   "position": 7.3
+  },
+  {
+   "page": "https://lexkite.com/en/speaking/du-lich",
+   "clicks": 0,
+   "impressions": 4,
+   "position": 7.5
+  },
+  {
+   "page": "https://lexkite.com/en/speaking/tai-che-rac-thai",
+   "clicks": 0,
+   "impressions": 4,
+   "position": 3.3
+  },
+  {
+   "page": "https://lexkite.com/en/vocabulary/awl1",
+   "clicks": 0,
+   "impressions": 4,
+   "position": 6
+  },
+  {
+   "page": "https://lexkite.com/hi/blog/angrezi-kaise-seekhe/",
+   "clicks": 0,
+   "impressions": 4,
+   "position": 8.8
+  },
+  {
+   "page": "https://lexkite.com/vi/blog/cau-truc-de-thi-toeic/",
+   "clicks": 0,
+   "impressions": 4,
+   "position": 88.3
+  },
+  {
+   "page": "https://lexkite.com/en/vocabulary/",
+   "clicks": 1,
+   "impressions": 3,
+   "position": 7.3
+  },
+  {
+   "page": "https://lexkite.com/en/samples/p72",
+   "clicks": 0,
+   "impressions": 3,
+   "position": 5.3
+  },
+  {
+   "page": "https://lexkite.com/en/samples/p76",
+   "clicks": 0,
+   "impressions": 3,
+   "position": 6
+  },
+  {
+   "page": "https://lexkite.com/en/speaking/am-thuc-nau-an",
+   "clicks": 0,
+   "impressions": 3,
+   "position": 8.7
+  },
+  {
+   "page": "https://lexkite.com/en/speaking/cong-trinh-lich-su",
+   "clicks": 0,
+   "impressions": 3,
+   "position": 9.3
+  },
+  {
+   "page": "https://lexkite.com/en/vocabulary/dom-log",
+   "clicks": 0,
+   "impressions": 3,
+   "position": 5.7
+  },
+  {
+   "page": "https://lexkite.com/ngu-phap/determiners",
+   "clicks": 0,
+   "impressions": 3,
+   "position": 21.3
+  },
+  {
+   "page": "https://lexkite.com/ngu-phap/reason-contrast",
+   "clicks": 0,
+   "impressions": 3,
+   "position": 26.7
+  },
+  {
+   "page": "https://lexkite.com/samples/p76",
+   "clicks": 0,
+   "impressions": 3,
+   "position": 2
+  },
+  {
+   "page": "https://lexkite.com/viet-thu/gt11",
+   "clicks": 0,
+   "impressions": 3,
+   "position": 43.7
+  },
+  {
+   "page": "http://lexkite.com/",
+   "clicks": 1,
+   "impressions": 2,
+   "position": 2.5
+  },
+  {
+   "page": "https://lexkite.com/de/blog/englisch-lernen-tipps/",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 44.5
+  },
+  {
+   "page": "https://lexkite.com/en/samples/p10",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 10.5
+  },
+  {
+   "page": "https://lexkite.com/en/samples/p15",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 7.5
+  },
+  {
+   "page": "https://lexkite.com/en/samples/p35",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 10.5
+  },
+  {
+   "page": "https://lexkite.com/en/samples/p44",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 24
+  },
+  {
+   "page": "https://lexkite.com/en/samples/p5",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 4
+  },
+  {
+   "page": "https://lexkite.com/en/samples/p51",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 2
+  },
+  {
+   "page": "https://lexkite.com/en/samples/p65",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 4.5
+  },
+  {
+   "page": "https://lexkite.com/en/speaking/ren-luyen-the-chat",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 32
+  },
+  {
+   "page": "https://lexkite.com/en/speaking/suc-khoe",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 9
+  },
+  {
+   "page": "https://lexkite.com/en/speaking/thanh-pho",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 7.5
+  },
+  {
+   "page": "https://lexkite.com/en/speaking/truyen-thong",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 8.5
+  },
+  {
+   "page": "https://lexkite.com/en/vocabulary/culture",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 92.5
+  },
+  {
+   "page": "https://lexkite.com/en/vocabulary/ex-toeic-l",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 5
+  },
+  {
+   "page": "https://lexkite.com/en/vocabulary/government",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 47
+  },
+  {
+   "page": "https://lexkite.com/en/vocabulary/linking",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 72
+  },
+  {
+   "page": "https://lexkite.com/fr/",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 6
+  },
+  {
+   "page": "https://lexkite.com/ja/",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 7
+  },
+  {
+   "page": "https://lexkite.com/ja/blog/toeic-benkyouhou/",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 67
+  },
+  {
+   "page": "https://lexkite.com/ngu-phap/alternatives-to-if",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 14.5
+  },
+  {
+   "page": "https://lexkite.com/ngu-phap/as-if-unreal-past",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 49
+  },
+  {
+   "page": "https://lexkite.com/ngu-phap/countable-uncountable",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 52
+  },
+  {
+   "page": "https://lexkite.com/ngu-phap/noun-clauses",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 71
+  },
+  {
+   "page": "https://lexkite.com/ngu-phap/passive-voice",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 88
+  },
+  {
+   "page": "https://lexkite.com/ngu-phap/present-perfect",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 74.5
+  },
+  {
+   "page": "https://lexkite.com/ngu-phap/subjunctive",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 9.5
+  },
+  {
+   "page": "https://lexkite.com/privacy",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 5
+  },
+  {
+   "page": "https://lexkite.com/ru/",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 4.5
+  },
+  {
+   "page": "https://lexkite.com/samples/p3",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 10
+  },
+  {
+   "page": "https://lexkite.com/samples/p72",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 6
+  },
+  {
+   "page": "https://lexkite.com/tu-vung/ex-ielts-write",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 7
+  },
+  {
+   "page": "https://lexkite.com/tu-vung/ngsl1",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 7
+  },
+  {
+   "page": "https://lexkite.com/tu-vung/toeic4",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 8
+  },
+  {
+   "page": "https://lexkite.com/tu-vung/urban",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 70.5
+  },
+  {
+   "page": "https://lexkite.com/vi/blog/gioi-thieu/",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 3
+  },
+  {
+   "page": "https://lexkite.com/vi/privacy",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 4.5
+  },
+  {
+   "page": "https://lexkite.com/viet-thu/gt18",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 47
+  },
+  {
+   "page": "https://lexkite.com/viet-thu/gt22",
+   "clicks": 0,
+   "impressions": 2,
+   "position": 42.5
+  },
+  {
+   "page": "https://lexkite.com/ko/blog/toeic-part5-munbeop/",
+   "clicks": 1,
+   "impressions": 1,
+   "position": 49
+  },
+  {
+   "page": "https://lexkite.com/ar/blog/hifz-al-kalimat-al-injliziya/",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 7
+  },
+  {
+   "page": "https://lexkite.com/en/blog/how-to-learn-ielts-vocabulary/",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 2
+  },
+  {
+   "page": "https://lexkite.com/en/blog/ielts-collocations/",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 9
+  },
+  {
+   "page": "https://lexkite.com/en/samples/p19",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 9
+  },
+  {
+   "page": "https://lexkite.com/en/samples/p21",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 10
+  },
+  {
+   "page": "https://lexkite.com/en/samples/p24",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 11
+  },
+  {
+   "page": "https://lexkite.com/en/samples/p28",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 8
+  },
+  {
+   "page": "https://lexkite.com/en/samples/p30",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 5
+  },
+  {
+   "page": "https://lexkite.com/en/samples/p31",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 7
+  },
+  {
+   "page": "https://lexkite.com/en/samples/p33",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 11
+  },
+  {
+   "page": "https://lexkite.com/en/samples/p36",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 9
+  },
+  {
+   "page": "https://lexkite.com/en/samples/p37",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 11
+  },
+  {
+   "page": "https://lexkite.com/en/samples/p39",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 7
+  },
+  {
+   "page": "https://lexkite.com/en/samples/p45",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 8
+  },
+  {
+   "page": "https://lexkite.com/en/samples/p49",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 8
+  },
+  {
+   "page": "https://lexkite.com/en/samples/p53",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 2
+  },
+  {
+   "page": "https://lexkite.com/en/samples/p66",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 10
+  },
+  {
+   "page": "https://lexkite.com/en/samples/p69",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 9
+  },
+  {
+   "page": "https://lexkite.com/en/samples/p70",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 7
+  },
+  {
+   "page": "https://lexkite.com/en/samples/p79",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 7
+  },
+  {
+   "page": "https://lexkite.com/en/samples/p8",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 5
+  },
+  {
+   "page": "https://lexkite.com/en/speaking/giao-thong-i-lai",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 2
+  },
+  {
+   "page": "https://lexkite.com/en/speaking/khoa-hoc-cong-nghe-trong-nha",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 8
+  },
+  {
+   "page": "https://lexkite.com/en/speaking/le-hoi-dip-ky-niem",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 10
+  },
+  {
+   "page": "https://lexkite.com/en/speaking/nghe-nghiep-noi-lam-viec",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 10
+  },
+  {
+   "page": "https://lexkite.com/en/speaking/phuong-tien-cong-cong",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 6
+  },
+  {
+   "page": "https://lexkite.com/en/speaking/que-huong-noi-o",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 9
+  },
+  {
+   "page": "https://lexkite.com/en/speaking/quy-dinh-luat-le",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 10
+  },
+  {
+   "page": "https://lexkite.com/en/speaking/thoi-gian-ranh-so-thich",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 8
+  },
+  {
+   "page": "https://lexkite.com/en/speaking/trang-web-ung-dung",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 7
+  },
+  {
+   "page": "https://lexkite.com/en/speaking/tranh-anh-nhiep-anh",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 11
+  },
+  {
+   "page": "https://lexkite.com/en/vocabulary/awl4",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 2
+  },
+  {
+   "page": "https://lexkite.com/en/vocabulary/awl8",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 5
+  },
+  {
+   "page": "https://lexkite.com/en/vocabulary/consumerism",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 5
+  },
+  {
+   "page": "https://lexkite.com/en/vocabulary/dom-law",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 11
+  },
+  {
+   "page": "https://lexkite.com/en/vocabulary/ex-toeic-travel",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 5
+  },
+  {
+   "page": "https://lexkite.com/en/vocabulary/media",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 93
+  },
+  {
+   "page": "https://lexkite.com/en/vocabulary/society",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 23
+  },
+  {
+   "page": "https://lexkite.com/en/vocabulary/task2",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 5
+  },
+  {
+   "page": "https://lexkite.com/en/vocabulary/toeic6",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 10
+  },
+  {
+   "page": "https://lexkite.com/fr/blog/a-propos/",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 4
+  },
+  {
+   "page": "https://lexkite.com/fr/blog/categorie/phuong-phap/",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 7
+  },
+  {
+   "page": "https://lexkite.com/hi/blog/english-grammar-rules-in-hindi/",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 5
+  },
+  {
+   "page": "https://lexkite.com/id/blog/tips-listening-ielts/",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 85
+  },
+  {
+   "page": "https://lexkite.com/ja/blog/l-to-r-hatsuon/",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 31
+  },
+  {
+   "page": "https://lexkite.com/ko/blog/toeic-gongbubeop/",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 8
+  },
+  {
+   "page": "https://lexkite.com/ngu-phap/adjectives-adverbs",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 76
+  },
+  {
+   "page": "https://lexkite.com/ngu-phap/hedging",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 84
+  },
+  {
+   "page": "https://lexkite.com/ngu-phap/ing-ed-adjectives-prepositions",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 46
+  },
+  {
+   "page": "https://lexkite.com/ngu-phap/modals-deduction",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 4
+  },
+  {
+   "page": "https://lexkite.com/ngu-phap/paraphrase-ielts",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 96
+  },
+  {
+   "page": "https://lexkite.com/ngu-phap/quantity-advanced",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 10
+  },
+  {
+   "page": "https://lexkite.com/ngu-phap/stative-dynamic",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 92
+  },
+  {
+   "page": "https://lexkite.com/ngu-phap/subject-verb-agreement",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 2
+  },
+  {
+   "page": "https://lexkite.com/samples/",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 47
+  },
+  {
+   "page": "https://lexkite.com/samples/p44",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 9
+  },
+  {
+   "page": "https://lexkite.com/samples/p54",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 9
+  },
+  {
+   "page": "https://lexkite.com/samples/p65",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 9
+  },
+  {
+   "page": "https://lexkite.com/samples/p69",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 2
+  },
+  {
+   "page": "https://lexkite.com/samples/p74",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 4
+  },
+  {
+   "page": "https://lexkite.com/samples/p9",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 9
+  },
+  {
+   "page": "https://lexkite.com/speaking/giao-thong-di-lai",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 6
+  },
+  {
+   "page": "https://lexkite.com/speaking/hang-xom-lang-gieng",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 3
+  },
+  {
+   "page": "https://lexkite.com/speaking/ngay-le-truyen-thong",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 56
+  },
+  {
+   "page": "https://lexkite.com/speaking/qua-tang",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 9
+  },
+  {
+   "page": "https://lexkite.com/speaking/thanh-pho",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 80
+  },
+  {
+   "page": "https://lexkite.com/th/blog/kham-sap-phasa-angkrit-chai-boi/",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 8
+  },
+  {
+   "page": "https://lexkite.com/th/blog/theknik-tham-kho-sop-toeic/",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 30
+  },
+  {
+   "page": "https://lexkite.com/tu-vung/dom-log",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 92
+  },
+  {
+   "page": "https://lexkite.com/tu-vung/energy",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 93
+  },
+  {
+   "page": "https://lexkite.com/tu-vung/ex-toefl",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 3
+  },
+  {
+   "page": "https://lexkite.com/tu-vung/ngsl2",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 10
+  },
+  {
+   "page": "https://lexkite.com/tu-vung/ngsl8",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 2
+  },
+  {
+   "page": "https://lexkite.com/tu-vung/technology",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 94
+  },
+  {
+   "page": "https://lexkite.com/tu-vung/work",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 89
+  },
+  {
+   "page": "https://lexkite.com/vi/blog/2800-tu-tieng-anh-thong-dung-ngsl/",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 6
+  },
+  {
+   "page": "https://lexkite.com/vi/blog/cach-hoc-tu-vung-ielts-hieu-qua/",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 34
+  },
+  {
+   "page": "https://lexkite.com/vi/blog/cau-truc-ielts-writing-task-2/",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 97
+  },
+  {
+   "page": "https://lexkite.com/vi/blog/phan-biet-hien-tai-hoan-thanh-va-qua-khu-don/",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 84
+  },
+  {
+   "page": "https://lexkite.com/viet-thu/gt12",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 2
+  },
+  {
+   "page": "https://lexkite.com/zh/blog/ying-yu-dong-ci-duan-yu-phrasal-verbs/",
+   "clicks": 0,
+   "impressions": 1,
+   "position": 5
+  }
+ ]
+}

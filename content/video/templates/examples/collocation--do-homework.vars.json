@@ -1,0 +1,23 @@
+{
+ "topic": "Vocabulary: make or do homework?",
+ "scene": "library",
+ "vars": {
+  "wrongColl": "make homework",
+  "rightColl": "do homework",
+  "hookLine": "Don't say \"make homework.\"",
+  "question": "I always say I make my homework. What's the problem?",
+  "rule": "We do homework, chores, and the dishes. Make is for things you create.",
+  "example": "I usually do my homework after dinner.",
+  "tip": "do is for tasks, make is for creating: do the laundry, make a cake."
+ },
+ "lines": {
+  "situation": {
+   "expr": "confused"
+  }
+ },
+ "hashtags": [
+  "collocations",
+  "englishvocabulary",
+  "learnenglish"
+ ]
+}

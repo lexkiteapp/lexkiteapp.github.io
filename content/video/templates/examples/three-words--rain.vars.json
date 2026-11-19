@@ -1,0 +1,25 @@
+{
+ "topic": "Vocabulary: 3 words for rain",
+ "scene": "library",
+ "vars": {
+  "topicWord": "rain",
+  "basic": "rainy",
+  "hookLine": "Wait, only \"rainy\"?",
+  "w1": "drizzle",
+  "s1": "Light, soft rain.",
+  "w2": "shower",
+  "s2": "A short rain that stops fast.",
+  "w3": "downpour",
+  "s3": "Very heavy rain, so grab an umbrella."
+ },
+ "lines": {
+  "hook": {
+   "expr": "surprised"
+  }
+ },
+ "hashtags": [
+  "vocabulary",
+  "newwords",
+  "learnenglish"
+ ]
+}

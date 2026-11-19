@@ -1,0 +1,391 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1920" width="1080" height="1920" style="background:#FFF9F3; font-family:'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;">
+  <defs>
+    <!-- Background Warm Cream Gradient -->
+    <radialGradient id="bgCanvasGrad" cx="50%" cy="30%" r="80%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.95"/>
+      <stop offset="45%" stop-color="#FFF9F3" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#F7ECE0" stop-opacity="1"/>
+    </radialGradient>
+
+    <!-- Tactile Ledge & Drop Shadows -->
+    <filter id="heroCardShadow" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="18" stdDeviation="20" flood-color="#7A5636" flood-opacity="0.12"/>
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#136B66" flood-opacity="0.08"/>
+    </filter>
+
+    <filter id="subCardShadow" x="-12%" y="-12%" width="124%" height="130%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#7A5636" flood-opacity="0.09"/>
+    </filter>
+
+    <filter id="pillLedgeShadow" x="-10%" y="-15%" width="120%" height="135%">
+      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#7A5636" flood-opacity="0.10"/>
+    </filter>
+
+    <!-- Kite Emblem Gradients -->
+    <linearGradient id="kiteTealGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2DD4BF"/>
+      <stop offset="100%" stop-color="#0E5E58"/>
+    </linearGradient>
+    <linearGradient id="kiteOrangeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FBBF24"/>
+      <stop offset="100%" stop-color="#EA580C"/>
+    </linearGradient>
+
+    <!-- Gloss Sheen Gradients -->
+    <linearGradient id="whiteCardGloss" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.9"/>
+      <stop offset="30%" stop-color="#FFFFFF" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+
+    <linearGradient id="coralAccentGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FF6B7A"/>
+      <stop offset="100%" stop-color="#E11D48"/>
+    </linearGradient>
+
+    <!-- Four-Point Star Sparkle -->
+    <g id="starDustAmber">
+      <path d="M 0 -16 Q 2 -3 16 0 Q 2 3 0 16 Q -2 3 -16 0 Q -2 -3 0 -16 Z" fill="#F59E0B"/>
+    </g>
+    <g id="starDustTeal">
+      <path d="M 0 -14 Q 2 -2 14 0 Q 2 2 0 14 Q -2 2 -14 0 Q -2 -2 0 -14 Z" fill="#136B66"/>
+    </g>
+  </defs>
+
+  <!-- ================= CANVAS BACKGROUND ================= -->
+  <rect width="1080" height="1920" fill="url(#bgCanvasGrad)"/>
+
+  <!-- Subtle Ambient Dust / Sparkles in Upper & Edge Negative Space -->
+  <use href="#starDustAmber" x="120" y="180" transform="scale(1.2)" opacity="0.55"/>
+  <use href="#starDustTeal" x="960" y="240" transform="scale(1.1)" opacity="0.6"/>
+  <use href="#starDustAmber" x="980" y="740" transform="scale(0.85)" opacity="0.45"/>
+  <use href="#starDustTeal" x="90" y="860" transform="scale(0.9)" opacity="0.5"/>
+  <circle cx="990" cy="520" r="7" fill="#F97316" opacity="0.5"/>
+  <circle cx="80" cy="460" r="6" fill="#136B66" opacity="0.4"/>
+
+  <!-- ================= TOP THIRD: SERIES CHIP & HOOK QUESTION ================= -->
+  <g transform="translate(80, 130)">
+    <!-- Series / Category Pill Badge with Tactile 3D Ledge -->
+    <g filter="url(#pillLedgeShadow)">
+      <!-- Ledge -->
+      <rect x="0" y="6" width="460" height="64" rx="32" fill="#D9C7B6"/>
+      <!-- Body -->
+      <rect x="0" y="0" width="460" height="64" rx="32" fill="#FFFFFF" stroke="#EDE1D3" stroke-width="2.5"/>
+
+      <!-- Kite Mini Emblem -->
+      <g transform="translate(36, 32)">
+        <polygon points="0,-16 11,-3 0,0 -11,-3" fill="url(#kiteOrangeGrad)"/>
+        <polygon points="0,0 11,-3 0,16 -11,-3" fill="url(#kiteTealGrad)"/>
+        <!-- Kite String bead -->
+        <circle cx="0" cy="19" r="2.2" fill="#F59E0B"/>
+      </g>
+
+      <!-- Label -->
+      <text x="66" y="41" font-size="20" font-weight="900" fill="#136B66" letter-spacing="1.5">SAY IT LIKE A NATIVE</text>
+      <circle cx="340" cy="32" r="4" fill="#F59E0B"/>
+      <text x="358" y="41" font-size="18" font-weight="900" fill="#715C4B" letter-spacing="1">PRONUNCIATION</text>
+    </g>
+
+    <!-- Context Cue Pill -->
+    <g transform="translate(0, 94)">
+      <rect x="0" y="0" width="260" height="42" rx="21" fill="#FFF1E6" stroke="#FBD5BC" stroke-width="1.8"/>
+      <circle cx="24" cy="21" r="5" fill="#E11D48"/>
+      <text x="40" y="27" font-size="16" font-weight="800" fill="#B45309" letter-spacing="1">COMMON TEST TRAP</text>
+    </g>
+
+    <!-- Hook Question: Big, Bold, Scroll-Stopping -->
+    <g transform="translate(0, 195)">
+      <text x="0" y="64" font-size="68" font-weight="900" fill="#141819" letter-spacing="-2">
+        Are you saying
+      </text>
+      <text x="0" y="148" font-size="78" font-weight="900" fill="#E11D48" letter-spacing="-2.5">
+        ‘comfortable’
+      </text>
+      <text x="0" y="228" font-size="68" font-weight="900" fill="#136B66" letter-spacing="-2">
+        wrong?
+      </text>
+    </g>
+  </g>
+
+  <!-- ================= MIDDLE: MAIN COMPARISON CARD ================= -->
+  <!-- 920px wide card with 2 columns: Wrong vs Right, IPA, Audio Button, and Tip -->
+  <g transform="translate(80, 560)" filter="url(#heroCardShadow)">
+    <!-- 3D Bottom Ledge -->
+    <rect x="0" y="16" width="920" height="820" rx="44" fill="#DCCBBB"/>
+    <!-- Card Face -->
+    <rect x="0" y="0" width="920" height="820" rx="44" fill="#FFFFFF" stroke="#F1E4D6" stroke-width="3"/>
+
+    <!-- Subtle Top Gloss Highlight -->
+    <path d="M 4,44 C 4,22 22,4 44,4 L 876,4 C 898,4 916,22 916,44 L 916,130 C 620,80 300,80 4,130 Z" fill="url(#whiteCardGloss)"/>
+
+    <!-- Headword Strip & Part-of-speech inside Card -->
+    <g transform="translate(48, 56)">
+      <!-- Word & Lexical Type -->
+      <text x="0" y="32" font-size="36" font-weight="900" fill="#141819" letter-spacing="-1">comfortable</text>
+      
+      <!-- adjective badge -->
+      <g transform="translate(245, 4)">
+        <rect x="0" y="3" width="90" height="34" rx="17" fill="#D3C1B0"/>
+        <rect x="0" y="0" width="90" height="34" rx="17" fill="#F3E9DF"/>
+        <text x="45" y="22" font-size="14" font-weight="800" fill="#6B5B4E" text-anchor="middle">adjective</text>
+      </g>
+
+      <!-- CEFR Level Pill -->
+      <g transform="translate(348, 4)">
+        <rect x="0" y="3" width="60" height="34" rx="17" fill="#0D514D"/>
+        <rect x="0" y="0" width="60" height="34" rx="17" fill="#136B66"/>
+        <text x="30" y="22" font-size="14" font-weight="900" fill="#FFFFFF" text-anchor="middle">B1</text>
+      </g>
+
+      <!-- Audio Speaker Button (Raised Tactile Button) -->
+      <g transform="translate(740, -4)" filter="url(#subCardShadow)">
+        <rect x="0" y="6" width="84" height="54" rx="20" fill="#0A4642"/>
+        <rect x="0" y="0" width="84" height="54" rx="20" fill="#136B66"/>
+        <!-- Speaker Icon -->
+        <g transform="translate(42, 27)">
+          <path d="M -10,-5 L -5,-5 L 2,-11 L 2,11 L -5,5 L -10,5 Z" fill="#FFFFFF"/>
+          <path d="M 6,-6 C 9,-3 9,3 6,6" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M 10,-10 C 15,-5 15,5 10,10" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+        </g>
+      </g>
+    </g>
+
+    <!-- Horizontal Divider -->
+    <line x1="48" y1="126" x2="872" y2="126" stroke="#F1E4D6" stroke-width="2"/>
+
+    <!-- ================= TWO COLUMNS: WRONG (LEFT) vs RIGHT (RIGHT) ================= -->
+
+    <!-- LEFT COLUMN: WRONG PRONUNCIATION -->
+    <g transform="translate(48, 156)">
+      <!-- Sub-card background with soft pink/coral tint -->
+      <g filter="url(#subCardShadow)">
+        <rect x="0" y="8" width="396" height="390" rx="30" fill="#E8CFCF"/>
+        <rect x="0" y="0" width="396" height="390" rx="30" fill="#FFF5F5" stroke="#FCDAD9" stroke-width="2"/>
+      </g>
+
+      <!-- Header Chip: Cross mark + "DON'T SAY" -->
+      <g transform="translate(24, 24)">
+        <rect x="0" y="3" width="160" height="42" rx="21" fill="#9F1239"/>
+        <rect x="0" y="0" width="160" height="42" rx="21" fill="#E11D48"/>
+        <!-- Cross Icon -->
+        <g transform="translate(24, 21)">
+          <line x1="-7" y1="-7" x2="7" y2="7" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+          <line x1="7" y1="-7" x2="-7" y2="7" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+        </g>
+        <text x="44" y="27" font-size="16" font-weight="900" fill="#FFFFFF" letter-spacing="1">DON'T SAY</text>
+      </g>
+
+      <!-- Phonetic Breakdown with WRONG stress -->
+      <!-- cum-FORT-a-ble (stress placed on 2nd syllable "FORT") -->
+      <g transform="translate(198, 160)">
+        <text x="0" y="0" font-size="34" font-weight="700" fill="#6B5B4E" text-anchor="middle">
+          cum-<tspan font-weight="900" font-size="44" fill="#E11D48">FORT</tspan>-a-ble
+        </text>
+      </g>
+
+      <!-- Syllable Count Badge -->
+      <g transform="translate(198, 230)">
+        <rect x="-105" y="0" width="210" height="36" rx="18" fill="#FCE8E8"/>
+        <text x="0" y="23" font-size="15" font-weight="800" fill="#BE123C" text-anchor="middle">4 syllables (common slip)</text>
+      </g>
+
+      <!-- Diagnostic Note -->
+      <g transform="translate(198, 305)">
+        <text x="0" y="0" font-size="17" font-weight="700" fill="#7F1D1D" text-anchor="middle">
+          Do not stress "fort".
+        </text>
+        <text x="0" y="26" font-size="15" font-weight="600" fill="#991B1B" text-anchor="middle">
+          Native speakers drop the 'or'.
+        </text>
+      </g>
+    </g>
+
+    <!-- RIGHT COLUMN: RIGHT PRONUNCIATION -->
+    <g transform="translate(476, 156)">
+      <!-- Sub-card background with soft mint/teal tint -->
+      <g filter="url(#subCardShadow)">
+        <rect x="0" y="8" width="396" height="390" rx="30" fill="#BFE3DE"/>
+        <rect x="0" y="0" width="396" height="390" rx="30" fill="#F0FDF4" stroke="#C7EFEA" stroke-width="2"/>
+      </g>
+
+      <!-- Header Chip: Check mark + "SAY THIS" -->
+      <g transform="translate(24, 24)">
+        <rect x="0" y="3" width="150" height="42" rx="21" fill="#0C4B47"/>
+        <rect x="0" y="0" width="150" height="42" rx="21" fill="#136B66"/>
+        <!-- Check Icon -->
+        <g transform="translate(24, 21)">
+          <polyline points="-7,0 -2,6 8,-6" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+        <text x="42" y="27" font-size="16" font-weight="900" fill="#FFFFFF" letter-spacing="1">SAY THIS</text>
+      </g>
+
+      <!-- Phonetic Breakdown with RIGHT stress -->
+      <!-- KUMF-tuh-bul (stress placed on 1st syllable "KUMF") -->
+      <g transform="translate(198, 160)">
+        <text x="0" y="0" font-size="34" font-weight="700" fill="#145953" text-anchor="middle">
+          <tspan font-weight="900" font-size="44" fill="#136B66">KUMF</tspan>-tuh-bul
+        </text>
+      </g>
+
+      <!-- Syllable Count Badge -->
+      <g transform="translate(198, 230)">
+        <rect x="-105" y="0" width="210" height="36" rx="18" fill="#D1FAE5"/>
+        <text x="0" y="23" font-size="15" font-weight="900" fill="#065F46" text-anchor="middle">Only 3 syllables!</text>
+      </g>
+
+      <!-- Diagnostic Note -->
+      <g transform="translate(198, 305)">
+        <text x="0" y="0" font-size="17" font-weight="800" fill="#064E3B" text-anchor="middle">
+          Strong beat on "KUMF".
+        </text>
+        <text x="0" y="26" font-size="15" font-weight="700" fill="#0D5F59" text-anchor="middle">
+          Then quickly: -tuh-bul.
+        </text>
+      </g>
+    </g>
+
+    <!-- ================= FULL IPA PHONETIC STRIP ================= -->
+    <g transform="translate(48, 580)">
+      <!-- Ledge -->
+      <rect x="0" y="5" width="824" height="66" rx="22" fill="#D3C3B2"/>
+      <!-- Body -->
+      <rect x="0" y="0" width="824" height="66" rx="22" fill="#FFF9F3" stroke="#ECDDCF" stroke-width="2"/>
+
+      <text x="36" y="42" font-size="17" font-weight="800" fill="#715C4B" letter-spacing="1">IPA (UK / US):</text>
+      
+      <!-- Primary IPA Transcription with Primary Stress Mark highlighted -->
+      <text x="210" y="44" font-size="28" font-weight="800" fill="#141819" letter-spacing="1">
+        /<tspan fill="#E11D48" font-weight="900">ˈ</tspan><tspan fill="#136B66" font-weight="900">kʌmf</tspan>.tə.bəl/
+      </text>
+
+      <!-- Audio Cadence Badge -->
+      <g transform="translate(640, 14)">
+        <rect x="0" y="0" width="150" height="38" rx="19" fill="#E6F5F3" stroke="#BCEAE4" stroke-width="1.5"/>
+        <circle cx="20" cy="19" r="4.5" fill="#136B66"/>
+        <text x="34" y="24" font-size="13" font-weight="900" fill="#136B66">3-BEAT FLOW</text>
+      </g>
+    </g>
+
+    <!-- ================= COACH TIP CONTAINER (BOTTOM OF CARD) ================= -->
+    <g transform="translate(48, 674)">
+      <!-- Tactile Card Ledge -->
+      <rect x="0" y="5" width="824" height="106" rx="24" fill="#C5B7A8"/>
+      <!-- Card Body -->
+      <rect x="0" y="0" width="824" height="106" rx="24" fill="#FAF4EC" stroke="#ECDDCF" stroke-width="2"/>
+
+      <!-- Amber Bulb Icon -->
+      <g transform="translate(42, 38)">
+        <circle cx="0" cy="0" r="22" fill="#FEF3C7" stroke="#FDE68A" stroke-width="1.8"/>
+        <!-- Lightbulb silhouette -->
+        <path d="M -6,-8 C -9,-4 -9,2 -6,5 L -3,8 L 3,8 L 6,5 C 9,2 9,-4 6,-8 C 3,-12 -3,-12 -6,-8 Z" fill="#D97706"/>
+        <line x1="-3" y1="11" x2="3" y2="11" stroke="#D97706" stroke-width="2" stroke-linecap="round"/>
+      </g>
+
+      <!-- Tip Text: Multi-line wrapped, highly legible -->
+      <g transform="translate(86, 36)">
+        <text x="0" y="0" font-size="18" font-weight="900" fill="#B45309" letter-spacing="0.5">COACH'S MEMORY SHORTCUT:</text>
+        <text x="0" y="28" font-size="19" font-weight="800" fill="#2E241B" letter-spacing="-0.2">
+          Think: <tspan fill="#136B66" font-weight="900">"Come for a bowl"</tspan> → <tspan fill="#E11D48" font-weight="900">"Comf-ter-bl"</tspan>. Say it fast in 3 quick beats!
+        </text>
+      </g>
+    </g>
+  </g>
+
+  <!-- ================= LOWER SIDE: EMPTY DASHED TEACHER SLOT ================= -->
+  <!-- Labelled "teacher-slot", strictly empty rounded placeholder for 2D teacher Carlos -->
+  <g transform="translate(80, 1420)">
+    <!-- Backing container with dashed border -->
+    <rect x="0" y="6" width="340" height="230" rx="32" fill="#EFE3D5" opacity="0.6"/>
+    <rect x="0" y="0" width="340" height="230" rx="32" fill="#FFFDFB" opacity="0.9"/>
+    
+    <!-- Dashed border line -->
+    <rect x="2" y="2" width="336" height="226" rx="30" fill="none"
+          stroke="#136B66" stroke-width="3" stroke-dasharray="10 8" opacity="0.85"/>
+
+    <!-- Placeholder Center Emblem & Label -->
+    <g transform="translate(170, 78)">
+      <circle cx="0" cy="3" r="28" fill="#D8EFEB"/>
+      <circle cx="0" cy="0" r="28" fill="#E6F7F4" stroke="#136B66" stroke-width="2"/>
+      <!-- Graduation / Teacher Cap glyph -->
+      <path d="M -16,-2 L 0,-9 L 16,-2 L 0,5 Z" fill="#136B66"/>
+      <path d="M -10,4 L -10,11 C -10,15 10,15 10,11 L 10,4" fill="none" stroke="#136B66" stroke-width="2"/>
+      <path d="M 14,-1 L 16,10" stroke="#F59E0B" stroke-width="2" stroke-linecap="round"/>
+      <circle cx="16" cy="11" r="2.5" fill="#F59E0B"/>
+    </g>
+
+    <!-- Clear labels -->
+    <text x="170" y="142" font-size="17" font-weight="900" fill="#136B66" letter-spacing="1.5" text-anchor="middle">TEACHER-SLOT</text>
+    <text x="170" y="168" font-size="14" font-weight="800" fill="#6B5B4E" text-anchor="middle">Teacher Carlos (2D) loads here</text>
+    <text x="170" y="194" font-size="12" font-weight="700" fill="#8C7A6B" text-anchor="middle">• Real-time Video Layer •</text>
+  </g>
+
+  <!-- Next to Teacher Slot: Rapid Repeat Interactive Prompt Pill -->
+  <g transform="translate(450, 1450)" filter="url(#subCardShadow)">
+    <!-- Ledge -->
+    <rect x="0" y="8" width="550" height="170" rx="30" fill="#D8C6B6"/>
+    <!-- Body -->
+    <rect x="0" y="0" width="550" height="170" rx="30" fill="#FFFFFF" stroke="#EDE1D3" stroke-width="2.5"/>
+
+    <!-- Eyebrow Pill -->
+    <g transform="translate(36, 26)">
+      <rect x="0" y="0" width="160" height="32" rx="16" fill="#FFF1E6" stroke="#FED7AA" stroke-width="1.5"/>
+      <text x="80" y="21" font-size="13" font-weight="900" fill="#C2410C" text-anchor="middle">SHADOW DRILL</text>
+    </g>
+
+    <!-- Main Callout text -->
+    <g transform="translate(36, 88)">
+      <text x="0" y="0" font-size="24" font-weight="900" fill="#141819" letter-spacing="-0.5">
+        Repeat 3 times out loud:
+      </text>
+      <text x="0" y="38" font-size="28" font-weight="900" fill="#136B66" letter-spacing="-0.5">
+        “A comfortable chair.”
+      </text>
+    </g>
+
+    <!-- Mini waveform decoration on right -->
+    <g transform="translate(460, 85)">
+      <line x1="-20" y1="-8" x2="-20" y2="8" stroke="#136B66" stroke-width="3.5" stroke-linecap="round"/>
+      <line x1="-10" y1="-18" x2="-10" y2="18" stroke="#136B66" stroke-width="3.5" stroke-linecap="round"/>
+      <line x1="0" y1="-28" x2="0" y2="28" stroke="#E11D48" stroke-width="4" stroke-linecap="round"/>
+      <line x1="10" y1="-16" x2="10" y2="16" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round"/>
+      <line x1="20" y1="-6" x2="20" y2="6" stroke="#136B66" stroke-width="3.5" stroke-linecap="round"/>
+    </g>
+  </g>
+
+  <!-- ================= BOTTOM: BRAND WATERMARK & FOLLOW FOR MORE ================= -->
+  <!-- Safely positioned inside vertical safe area (above y=1750, well clear of UI overlays) -->
+  <g transform="translate(540, 1750)">
+    <!-- Follow for more banner with tactile raised feel -->
+    <g filter="url(#subCardShadow)">
+      <!-- Ledge -->
+      <rect x="-320" y="6" width="640" height="74" rx="37" fill="#9F1239"/>
+      <!-- Body: Coral accent button with raised feel -->
+      <rect x="-320" y="0" width="640" height="74" rx="37" fill="url(#coralAccentGrad)"/>
+      
+      <!-- Label: High-contrast white typography -->
+      <g transform="translate(0, 46)">
+        <text x="0" y="0" font-size="24" font-weight="900" fill="#FFFFFF" letter-spacing="0.5" text-anchor="middle">
+          Follow for daily IELTS &amp; accent tips
+        </text>
+      </g>
+    </g>
+
+    <!-- Lexkite Wordmark and domain below button -->
+    <g transform="translate(0, 116)">
+      <!-- Kite Mini Icon -->
+      <g transform="translate(-130, -5)">
+        <polygon points="0,-13 9,-3 0,0 -9,-3" fill="url(#kiteOrangeGrad)"/>
+        <polygon points="0,0 9,-3 0,13 -9,-3" fill="url(#kiteTealGrad)"/>
+      </g>
+
+      <!-- Brand Wordmark -->
+      <text x="-105" y="0" font-size="24" font-weight="900" fill="#136B66" letter-spacing="0.5">Lexkite</text>
+      <circle cx="-5" cy="-6" r="3.5" fill="#F59E0B"/>
+      
+      <!-- Secondary line -->
+      <text x="16" y="0" font-size="18" font-weight="800" fill="#715C4B" letter-spacing="0.3">lexkite.com</text>
+      <circle cx="120" cy="-6" r="3.5" fill="#D3C3B2"/>
+      <text x="138" y="0" font-size="16" font-weight="700" fill="#8C7A6B">Daily English</text>
+    </g>
+  </g>
+</svg>

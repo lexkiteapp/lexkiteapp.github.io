@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_call",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: call.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means to phone someone.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "I'll call you when I arrive at the hotel.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "call",
+  "ipa": "/kɔːl/",
+  "mean": "to phone someone",
+  "ex": "I'll call you when I arrive at the hotel.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=call",
+  "link": "https://lexkite.com/app/#/review?w=call",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 39,
+  "seconds": 24.2,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "What does \"call\" mean?",
+  "keyword": "call",
+  "value": "Call means to phone someone.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=call",
+  "script_words": 33,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"call\" mean?",
+    "description": "Call means to phone someone.\n\nReview your words, free: https://lexkite.com/app/#/review?w=call\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "call",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"call\" mean?\n\nCall means to phone someone.\n\nReview your words, free: https://lexkite.com/app/#/review?w=call"
+   },
+   "instagram": {
+    "caption": "What does \"call\" mean?\n\nCall means to phone someone.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"call\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means to phone someone. Call means to phone someone. Try the full lesson and quiz here: {link}"
+ }
+}

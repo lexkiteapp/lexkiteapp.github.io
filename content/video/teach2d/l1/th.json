@@ -1,0 +1,3805 @@
+{
+  "_note": "L1 clip rows for th (daily reels content lane); same schema as ../l1.json",
+  "rows": [
+    {
+      "id": "t2_l1_th_final_s",
+      "lang": "th",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Don't forget the s!",
+        "wrong": "She like coffee.",
+        "right": "She likes coffee.",
+        "strike": "like",
+        "why": "With he, she, it, add s to the verb.",
+        "memory": "He, she, it: add s.",
+        "quiz": {
+          "stem": "He ___ tea every day.",
+          "options": [
+            "drink",
+            "drinks"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Drinks! He drinks tea every day.",
+        "native": {
+          "hook": "he/she/it ต้องเติม s ที่กริยา!",
+          "tip": "ภาษาไทยกริยาไม่เปลี่ยนรูป แต่ he/she/it ต้องเติม s: “She likes coffee”",
+          "caption": "คุณเคยพูดว่า “She like coffee.” ไหม? 😅 ภาษาไทยไม่เปลี่ยนรูปกริยา แต่ในภาษาอังกฤษ he/she/it ต้องเติม s ที่กริยา: “She likes coffee.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “drinks” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "He/she/it: add “s” to the verb!",
+          "tip": "With he/she/it the verb needs -s. Thai verbs never change, so it is easy to forget",
+          "caption": "Do you say “She like coffee”? 😅 Thai verbs do not change, but with he/she/it English verbs need -s. Say “She likes coffee”! Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_very_like",
+      "lang": "th",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Very much goes last!",
+        "wrong": "I like very much music.",
+        "right": "I like music very much.",
+        "strike": "very much music",
+        "why": "Put very much after the thing you like.",
+        "memory": "Like music very much.",
+        "quiz": {
+          "stem": "I like pizza ___.",
+          "options": [
+            "very",
+            "very much"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Very much! I like pizza very much.",
+        "native": {
+          "hook": "very much ไว้ท้ายประโยค!",
+          "tip": "เรามักจำ “like very much” เป็นก้อนเดียว แต่ very much ต้องอยู่หลังสิ่งที่ชอบ: “I like music very much”",
+          "caption": "คุณเคยพูดว่า “I like very much music.” ไหม? 😅 เรามักจำ “like very much” เป็นก้อนเดียว เลยวาง very much ไว้กลางประโยค แต่ภาษาอังกฤษวางไว้หลังสิ่งที่ชอบ: “I like music very much.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “very much” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Very much goes at the end!",
+          "tip": "Learners keep “like very much” as one chunk, but very much goes after the thing you like: “I like music very much”",
+          "caption": "Do you say “I like very much music”? 😅 Learners often keep “like very much” as one chunk, but very much goes after the thing you like. Say “I like music very much”! Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_agree",
+      "lang": "th",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Don't say I am agree!",
+        "wrong": "I am agree with you.",
+        "right": "I agree with you.",
+        "strike": "am",
+        "why": "Agree is already a verb. Do not add am.",
+        "memory": "I agree.",
+        "quiz": {
+          "stem": "She ___ with me.",
+          "options": [
+            "is agree",
+            "agrees"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Agrees! She agrees with me.",
+        "native": {
+          "hook": "agree ไม่ต้องมี am!",
+          "tip": "agree เป็นกริยาอยู่แล้ว ไม่ต้องใส่ am พูดว่า “I agree”",
+          "caption": "คุณเคยพูดว่า “I am agree with you.” ไหม? 😅 agree เป็นกริยาอยู่แล้ว จึงไม่ต้องใส่ am นำหน้า ต้องพูดว่า “I agree with you.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “agrees” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Don't say “I am agree”!",
+          "tip": "Agree is already a verb, so you do not need “am”: “I agree”",
+          "caption": "Do you say “I am agree with you”? 😅 Agree is already a verb, so it does not need am. Say “I agree with you”! Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_past_go",
+      "lang": "th",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Yesterday means the past!",
+        "wrong": "Yesterday I go to school.",
+        "right": "Yesterday I went to school.",
+        "strike": "go",
+        "why": "Yesterday means the past. Use went.",
+        "memory": "Yesterday: went, not go.",
+        "quiz": {
+          "stem": "Yesterday she ___ to work.",
+          "options": [
+            "go",
+            "went"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Went! Yesterday she went to work.",
+        "native": {
+          "hook": "เมื่อวานต้องใช้ went!",
+          "tip": "ภาษาไทยไม่เปลี่ยนกริยาตามเวลา แต่อังกฤษต้อง: เมื่อวาน = “went”",
+          "caption": "คุณเคยพูดว่า “Yesterday I go to school.” ไหม? 😅 ภาษาไทยกริยาไม่เปลี่ยนรูปตามเวลา แต่ภาษาอังกฤษเหตุการณ์ในอดีตต้องใช้กริยาอดีต: “Yesterday I went to school.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “went” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "“Yesterday” changes the verb!",
+          "tip": "Thai verbs do not change with time, but English verbs do: yesterday means “went”",
+          "caption": "Do you say “Yesterday I go to school”? 😅 Thai verbs stay the same in every tense, but English past events need a past verb. Say “Yesterday I went to school”! Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_open_light",
+      "lang": "th",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Don't open the light!",
+        "wrong": "Please open the light.",
+        "right": "Please turn on the light.",
+        "strike": "open",
+        "why": "Open is for doors. For lights, turn on.",
+        "memory": "Turn on the light.",
+        "quiz": {
+          "stem": "Please ___ the music.",
+          "options": [
+            "open",
+            "turn on"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Turn on! Please turn on the music.",
+        "native": {
+          "hook": "เปิดไฟ ไม่ใช่ open!",
+          "tip": "ไทยพูด “เปิดไฟ” แต่อังกฤษ open ใช้กับประตู ไฟใช้ “turn on”",
+          "caption": "คุณเคยพูดว่า “Please open the light.” ไหม? 😅 ภาษาไทยพูดว่า “เปิดไฟ” แต่ในภาษาอังกฤษ open ใช้กับประตู ส่วนไฟต้องใช้ turn on: “Please turn on the light.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “turn on” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Not “open the light”!",
+          "tip": "In Thai you “open” a light, but in English open is for doors. For lights say “turn on”",
+          "caption": "Do you say “Please open the light”? 😅 In Thai we say “open the light”, but English uses open for doors and lids. For a light, use turn on. Say “Please turn on the light”! Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_a_job",
+      "lang": "th",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Say a or an before a job!",
+        "wrong": "She is teacher.",
+        "right": "She is a teacher.",
+        "strike": "teacher",
+        "why": "Use a or an before a job.",
+        "memory": "She is a teacher.",
+        "quiz": {
+          "stem": "My brother is ___.",
+          "options": [
+            "engineer",
+            "an engineer"
+          ],
+          "answer": 1
+        },
+        "answer_say": "An engineer! My brother is an engineer.",
+        "native": {
+          "hook": "อย่าลืม a/an หน้าอาชีพ!",
+          "tip": "ภาษาไทยไม่มี a/an แต่อังกฤษต้องใส่หน้าอาชีพ: “She is a teacher”",
+          "caption": "คุณเคยพูดว่า “She is teacher.” ไหม? 😅 ภาษาไทยไม่มีคำนำหน้านาม แต่ภาษาอังกฤษต้องใส่ a หรือ an หน้าอาชีพ: “She is a teacher.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “an engineer” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Don't forget a/an career page!",
+          "tip": "Thai has no a/an, but English puts one before a job: “She is a teacher”",
+          "caption": "Do you say “She is teacher”? 😅 Thai has no a or an, but English puts a or an before a job. Say “She is a teacher”! Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_where_do",
+      "lang": "th",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Where do you live?",
+        "wrong": "Where you live?",
+        "right": "Where do you live?",
+        "strike": "Where you live",
+        "why": "Questions need do or does.",
+        "memory": "Question word, then do.",
+        "quiz": {
+          "stem": "Where ___ you work?",
+          "options": [
+            "do",
+            "are"
+          ],
+          "answer": 0
+        },
+        "answer_say": "Do! Where do you work?",
+        "native": {
+          "hook": "ถามต้องมี do/does!",
+          "tip": "ไทยถาม “คุณอยู่ที่ไหน” ได้เลย แต่อังกฤษต้องมี do: “Where do you live?”",
+          "caption": "คุณเคยพูดว่า “Where you live?” ไหม? 😅 ภาษาไทยถามได้โดยเรียงคำตรง ๆ แต่ภาษาอังกฤษคำถามต้องมี do หรือ does ช่วย: “Where do you live?” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “do” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Asking must have do/does!",
+          "tip": "Thai can ask “where you live?”, but English questions need do or does: “Where do you live?”",
+          "caption": "Do you say “Where you live?” 😅 Thai can ask with the same word order as a statement, but English questions need a helper: do or does. Say “Where do you live?”! Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_by_walk",
+      "lang": "th",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Walk to work, not by walk!",
+        "wrong": "I go to work by walk.",
+        "right": "I walk to work.",
+        "strike": "go to work by walk",
+        "why": "We walk to work, we do not go by walk.",
+        "memory": "Walk to work.",
+        "quiz": {
+          "stem": "She ___ to school.",
+          "options": [
+            "goes by walk",
+            "walks"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Walks! She walks to school.",
+        "native": {
+          "hook": "เดินไป ใช้ walk ไม่ใช่ by walk!",
+          "tip": "by bus, by car ได้ แต่ by walk ไม่ได้ ใช้กริยา walk: “I walk to work”",
+          "caption": "คุณเคยพูดว่า “I go to work by walk.” ไหม? 😅 เราพูด by bus, by car ได้ แต่ไม่พูด by walk ต้องใช้กริยา walk (หรือ on foot): “I walk to work.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “walks” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Walk to work, not “by walk”!",
+          "tip": "We say by bus or by car, but not by walk. Use the verb: “I walk to work”",
+          "caption": "Do you say “I go to work by walk”? 😅 We say by bus and by car, but not by walk. Use the verb walk. Say “I walk to work”! Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_listen_to",
+      "lang": "th",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Listen to music, not listen music!",
+        "wrong": "I listen music every day.",
+        "right": "I listen to music every day.",
+        "strike": "listen music",
+        "why": "Say listen to.",
+        "memory": "Listen to music.",
+        "quiz": {
+          "stem": "She likes to listen ___ the radio.",
+          "options": [
+            "to",
+            "at"
+          ],
+          "answer": 0
+        },
+        "answer_say": "To! She likes to listen to the radio.",
+        "native": {
+          "hook": "ฟังเพลง = listen to music!",
+          "tip": "ไทยพูด “ฟังเพลง” ไม่มีคำเชื่อม แต่อังกฤษต้อง “listen to music”",
+          "caption": "คุณเคยพูดว่า “I listen music every day.” ไหม? 😅 ภาษาไทยพูดว่า “ฟังเพลง” ได้เลย แต่ภาษาอังกฤษหลัง listen ต้องมี to: “I listen to music every day.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “to” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Listen needs “to”!",
+          "tip": "Thai says “listen music” with no linking word, but English needs “listen to music”",
+          "caption": "Do you say “I listen music every day”? 😅 In Thai there is no word between listen and music, but English needs to after listen. Say “I listen to music every day”! Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_much_people",
+      "lang": "th",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Many for people!",
+        "wrong": "There are much people here.",
+        "right": "There are many people here.",
+        "strike": "much",
+        "why": "Use many with people.",
+        "memory": "Many people.",
+        "quiz": {
+          "stem": "How ___ books do you have?",
+          "options": [
+            "much",
+            "many"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Many! How many books do you have?",
+        "native": {
+          "hook": "people ใช้ many ไม่ใช่ much!",
+          "tip": "ไทยใช้ “เยอะ” ได้กับทุกอย่าง แต่อังกฤษ people ใช้ “many”",
+          "caption": "คุณเคยพูดว่า “There are much people here.” ไหม? 😅 ภาษาไทยใช้คำว่า “เยอะ” ได้กับทุกอย่าง แต่ภาษาอังกฤษของที่นับได้ต้องใช้ many: “There are many people here.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “many” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Countable things take “many”!",
+          "tip": "Thai uses one word for a lot of anything, but English uses many with countable things: “many people”",
+          "caption": "Do you say “There are much people here”? 😅 Thai uses one word for “a lot” with everything, but English uses many for things you can count. Say “There are many people here”! Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_didnt_went",
+      "lang": "th",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "After didn't, use go!",
+        "wrong": "I didn't went there.",
+        "right": "I didn't go there.",
+        "strike": "went",
+        "why": "After didn't, use go.",
+        "memory": "Didn't go.",
+        "quiz": {
+          "stem": "She didn't ___ to school.",
+          "options": [
+            "went",
+            "go"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Go! She didn't go to school.",
+        "native": {
+          "hook": "หลัง didn’t ใช้ go!",
+          "tip": "หลัง didn’t ใช้กริยาช่องที่ 1: “I didn’t go there”",
+          "caption": "คุณเคยพูดว่า “I didn't went there.” ไหม? 😅 หลัง didn’t ต้องใช้กริยาช่องที่ 1 เพราะ didn’t บอกอดีตไปแล้ว: “I didn't go there.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “go” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "After “didn't”, use the base verb!",
+          "tip": "After didn't we use the base verb, not the past: “I didn't go there”",
+          "caption": "Do you say “I didn't went there”? 😅 Didn't already shows the past, so the verb after it goes back to the base form. Say “I didn't go there”! Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_swimming",
+      "lang": "th",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Swim is fun? Say swimming!",
+        "wrong": "Swim is fun.",
+        "right": "Swimming is fun.",
+        "strike": "Swim",
+        "why": "Use swimming, not swim, here.",
+        "memory": "Swimming is fun.",
+        "quiz": {
+          "stem": "___ is fun.",
+          "options": [
+            "Read",
+            "Reading"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Reading! Reading is fun.",
+        "native": {
+          "hook": "ใช้ Swimming ไม่ใช่ Swim!",
+          "tip": "ไทยใช้กริยาเป็นประธานได้เลย แต่อังกฤษต้องเติม -ing: “Swimming is fun”",
+          "caption": "คุณเคยพูดว่า “Swim is fun.” ไหม? 😅 ภาษาไทยใช้กริยาเป็นประธานได้ทันที เช่น “ว่ายน้ำสนุก” แต่ภาษาอังกฤษต้องเติม -ing: “Swimming is fun.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “Reading” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "“Swim is fun”? Use “-ing”!",
+          "tip": "In Thai a verb can be the subject, but English needs -ing: “Swimming is fun”",
+          "caption": "Do you say “Swim is fun”? 😅 In Thai a plain verb can be the subject, but English needs the -ing form. Say “Swimming is fun”! Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_on_monday",
+      "lang": "th",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "On Monday, not in!",
+        "wrong": "I work in Monday.",
+        "right": "I work on Monday.",
+        "strike": "in",
+        "why": "Use on with days.",
+        "memory": "On Monday.",
+        "quiz": {
+          "stem": "We meet ___ Monday.",
+          "options": [
+            "in",
+            "on"
+          ],
+          "answer": 1
+        },
+        "answer_say": "On! We meet on Monday.",
+        "native": {
+          "hook": "on Monday ไม่ใช่ in Monday!",
+          "tip": "ไทยพูด “ในวันจันทร์” เลยติดใช้ in แต่อังกฤษใช้ on กับวัน: “on Monday”",
+          "caption": "คุณเคยพูดว่า “I work in Monday.” ไหม? 😅 ภาษาไทยพูดว่า “ในวันจันทร์” จึงมักใช้ in แต่ภาษาอังกฤษใช้ on กับวัน: “I work on Monday.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “on” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Days take “on”, not “in”!",
+          "tip": "Thai says “in Monday”, so people use in, but English uses on with days: “on Monday”",
+          "caption": "Do you say “I work in Monday”? 😅 Thai says “in Monday”, so people use in, but English uses on with days. Say “I work on Monday”! Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_play_facebook",
+      "lang": "th",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Don't play Facebook!",
+        "wrong": "I play Facebook every night.",
+        "right": "I use Facebook every night.",
+        "strike": "play",
+        "why": "We use Facebook, we do not play it.",
+        "memory": "Use Facebook.",
+        "quiz": {
+          "stem": "I ___ Facebook a lot.",
+          "options": [
+            "play",
+            "use"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Use! I use Facebook a lot.",
+        "native": {
+          "hook": "เล่นเฟซ ≠ play Facebook!",
+          "tip": "ไทยพูด “เล่นเฟซ” แต่อังกฤษไม่ใช้ play กับแอป ใช้ “use” หรือ “be on”",
+          "caption": "คุณเคยพูดว่า “I play Facebook every night.” ไหม? 😅 ภาษาไทยพูดว่า “เล่นเฟซ” แต่ภาษาอังกฤษไม่ใช้ play กับแอป ต้องใช้ use หรือ be on: “I use Facebook every night.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “use” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "“Play Facebook” is not English!",
+          "tip": "Thai says “play Facebook”, but English uses use or be on with apps: “I use Facebook”",
+          "caption": "Do you say “I play Facebook every night”? 😅 In Thai you play Facebook, but English does not use play for it. Say “I use Facebook every night”! Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_two_child",
+      "lang": "th",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Two child? Say two children!",
+        "wrong": "I have two child.",
+        "right": "I have two children.",
+        "strike": "child",
+        "why": "Child has a special plural: children.",
+        "memory": "I have two children.",
+        "quiz": {
+          "stem": "I have two ___.",
+          "options": [
+            "child",
+            "children"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Children! I have two children.",
+        "native": {
+          "hook": "สองขึ้นไป ต้องเป็นพหูพจน์!",
+          "tip": "ภาษาไทยไม่มีรูปพหูพจน์ แต่อังกฤษต้องมี: child → children",
+          "caption": "คุณเคยพูดว่า “I have two child.” ไหม? 😅 ภาษาไทยไม่เปลี่ยนคำนามหลังตัวเลข แต่ภาษาอังกฤษต้องใช้พหูพจน์ และ child มีรูปพิเศษคือ children: “I have two children.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “children” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Two or more? Make it plural!",
+          "tip": "Thai has no plural form, but after two or more English needs one: child becomes children",
+          "caption": "Do you say “I have two child”? 😅 Thai does not mark the plural, but English nouns after two or more must be plural. Child is special: children. Say “I have two children”! Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_sorry_late",
+      "lang": "th",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Say sorry, I'm late!",
+        "wrong": "Sorry for late.",
+        "right": "Sorry I'm late.",
+        "strike": "for late",
+        "why": "Use a full phrase: I'm late.",
+        "memory": "Sorry I'm late.",
+        "quiz": {
+          "stem": "Sorry ___ late.",
+          "options": [
+            "for",
+            "I'm"
+          ],
+          "answer": 1
+        },
+        "answer_say": "I'm! Sorry I'm late.",
+        "native": {
+          "hook": "Sorry for late ฟังแปลก!",
+          "tip": "พูดเต็มประโยคหลัง sorry: “Sorry I’m late” หรือ “Sorry for being late”",
+          "caption": "คุณเคยพูดว่า “Sorry for late.” ไหม? 😅 ภาษาไทยพูดว่า “ขอโทษที่มาสาย” ได้ แต่ภาษาอังกฤษควรพูดเป็นประโยคเต็มหลัง sorry: “Sorry I'm late.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “I'm” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "“Sorry for late” sounds odd!",
+          "tip": "After sorry, say a full phrase: “Sorry I'm late” or “Sorry for being late”",
+          "caption": "Do you say “Sorry for late”? 😅 A word-for-word Thai translation sounds odd. After sorry, say a full phrase. Say “Sorry I'm late”! Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_its_raining",
+      "lang": "th",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Raining now? Add it!",
+        "wrong": "Raining now.",
+        "right": "It is raining now.",
+        "strike": "Raining",
+        "why": "English needs a subject, even for weather.",
+        "memory": "It is raining now.",
+        "quiz": {
+          "stem": "___ is sunny today.",
+          "options": [
+            "There",
+            "It"
+          ],
+          "answer": 1
+        },
+        "answer_say": "It! It is sunny today.",
+        "native": {
+          "hook": "ฝนตก ก็ต้องมี It!",
+          "tip": "ไทยพูด “ฝนตก” ไม่มีประธาน แต่อังกฤษต้องมี it: “It is raining”",
+          "caption": "คุณเคยพูดว่า “Raining now.” ไหม? 😅 ภาษาไทยพูดว่า “ฝนตก” โดยไม่มีประธาน แต่ภาษาอังกฤษต้องมีประธาน แม้เป็นเรื่องอากาศ ต้องใช้ it: “It is raining now.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “It” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "When it rains, you must have It!",
+          "tip": "Thai says “raining” with no subject, but English needs it: “It is raining”",
+          "caption": "Do you say “Raining now”? 😅 Thai says “raining” with no subject, but English needs one, even for weather. Use it. Say “It is raining now”! Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_drop_subject",
+      "lang": "th",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Who went? Say who!",
+        "wrong": "Went to Chiang Mai yesterday.",
+        "right": "I went to Chiang Mai yesterday.",
+        "strike": "Went",
+        "why": "Do not drop the subject.",
+        "memory": "I went to Chiang Mai yesterday.",
+        "quiz": {
+          "stem": "Pick the full sentence.",
+          "options": [
+            "Ate pizza.",
+            "I ate pizza."
+          ],
+          "answer": 1
+        },
+        "answer_say": "I ate pizza!",
+        "native": {
+          "hook": "อย่าลืมประธาน I!",
+          "tip": "ไทยละประธานได้ แต่ภาษาอังกฤษต้องพูด I: “I went to Chiang Mai”",
+          "caption": "คุณเคยพูดว่า “Went to Chiang Mai yesterday.” ไหม? 😅 ภาษาไทยละประธานได้บ่อย ๆ แต่ภาษาอังกฤษต้องมีประธาน ต้องพูดว่า “I went to Chiang Mai yesterday.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “I ate pizza.” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Don't drop the “I”!",
+          "tip": "Thai often drops the subject, but English needs I: “I went to Chiang Mai”",
+          "caption": "Do you say “Went to Chiang Mai yesterday”? 😅 Thai often drops the subject, but English needs one. Say “I went to Chiang Mai yesterday”! Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_borrow_lend",
+      "lang": "th",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Lend, not borrow!",
+        "wrong": "Can you borrow me a pen?",
+        "right": "Can you lend me a pen?",
+        "strike": "borrow",
+        "why": "Lend means give for a while.",
+        "memory": "Lend me a pen.",
+        "quiz": {
+          "stem": "Can you ___ me a pen?",
+          "options": [
+            "borrow",
+            "lend"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Lend! Can you lend me a pen?",
+        "native": {
+          "hook": "borrow หรือ lend?",
+          "tip": "lend คือให้ยืม borrow คือยืมมา: “lend me a pen”",
+          "caption": "คุณเคยพูดว่า “Can you borrow me a pen?” ไหม? 😅 ภาษาไทยใช้ “ยืม” กับ “ให้ยืม” ซึ่งมาจากคำเดียวกัน แต่ภาษาอังกฤษใช้คนละคำ: lend = ให้ยืม, borrow = ยืมมา ต้องพูดว่า “Can you lend me a pen?” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “lend” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Borrow or lend?",
+          "tip": "lend means to lend, borrow means to borrow: “lend me a pen”",
+          "caption": "Do you say “Can you borrow me a pen”? 😅 Thai uses the same root word for both borrowing and lending, but English has two words: lend is to give, borrow is to take. Say “Can you lend me a pen”! Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_watch_tv",
+      "lang": "th",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Watch TV, not look TV!",
+        "wrong": "I look TV every night.",
+        "right": "I watch TV every night.",
+        "strike": "look",
+        "why": "We watch TV.",
+        "memory": "Watch TV.",
+        "quiz": {
+          "stem": "I ___ TV after dinner.",
+          "options": [
+            "look",
+            "watch"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Watch! I watch TV after dinner.",
+        "native": {
+          "hook": "ดูทีวี ใช้ watch ไม่ใช่ look!",
+          "tip": "ไทยใช้ “ดู” ทั้ง look และ watch แต่ดูทีวีต้องใช้ “watch”",
+          "caption": "คุณเคยพูดว่า “I look TV every night.” ไหม? 😅 ภาษาไทยใช้ “ดู” ทั้ง look และ watch แต่ภาษาอังกฤษดูทีวีต้องใช้ watch ไม่ใช่ look: “I watch TV every night.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “watch” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Watch TV, not “look TV”!",
+          "tip": "Thai uses one verb for look and watch, but for TV English uses watch: “I watch TV”",
+          "caption": "Do you say “I look TV every night”? 😅 Thai uses one verb for look and watch, but for TV English uses watch. Say “I watch TV every night”! Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_there_is",
+      "lang": "th",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Say there are, not have!",
+        "wrong": "In Bangkok have many cars.",
+        "right": "There are many cars in Bangkok.",
+        "strike": "have",
+        "why": "Use there is or there are, not have.",
+        "memory": "There are many cars.",
+        "quiz": {
+          "stem": "___ a park near my house.",
+          "options": [
+            "Have",
+            "There is"
+          ],
+          "answer": 1
+        },
+        "answer_say": "There is! There is a park near my house.",
+        "native": {
+          "hook": "“มี” ไม่ใช่ have เสมอไป!",
+          "tip": "ไทยใช้ “มี” ทั้ง have และ there is แต่ถ้าบอกว่ามีอะไรอยู่ที่ไหน ใช้ “there is/are”",
+          "caption": "คุณเคยพูดว่า “In Bangkok have many cars.” ไหม? 😅 ภาษาไทยใช้ “มี” ทั้ง have และ there is แต่ภาษาอังกฤษบอกว่ามีอะไรอยู่ที่ไหนต้องใช้ there is หรือ there are: “There are many cars in Bangkok.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “There is” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Not “have”, say “there are”!",
+          "tip": "Thai uses one word for have and there is, but English says there is/are for what is in a place",
+          "caption": "Do you say “In Bangkok have many cars”? 😅 Thai uses one word for have and there is, but English says there is or there are for what is in a place. Say “There are many cars in Bangkok”! Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_wait_for",
+      "lang": "th",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Wait for me!",
+        "wrong": "Please wait me here.",
+        "right": "Please wait for me here.",
+        "strike": "wait me",
+        "why": "We say wait for.",
+        "memory": "Wait for me.",
+        "quiz": {
+          "stem": "Please ___ here.",
+          "options": [
+            "wait for me",
+            "wait me"
+          ],
+          "answer": 0
+        },
+        "answer_say": "Wait for me! Please wait for me here.",
+        "native": {
+          "hook": "รอฉัน = wait for me!",
+          "tip": "ไทยพูด “รอฉัน” ได้เลย แต่อังกฤษต้องมี for: “wait for me”",
+          "caption": "คุณเคยพูดว่า “Please wait me here.” ไหม? 😅 ภาษาไทยพูดว่า “รอฉัน” ได้เลย แต่ภาษาอังกฤษหลัง wait ต้องมี for: “Please wait for me here.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “wait for me” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Wait for, not “wait me”!",
+          "tip": "Thai says “wait me”, so people drop for, but English needs it: “wait for me”",
+          "caption": "Do you say “Please wait me here”? 😅 In Thai you can say “wait me”, but English needs for after wait. Say “Please wait for me here”! Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_take_medicine",
+      "lang": "th",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Take medicine, don't eat it!",
+        "wrong": "I eat medicine every morning.",
+        "right": "I take medicine every morning.",
+        "strike": "eat",
+        "why": "We take medicine, we do not eat it.",
+        "memory": "Take medicine.",
+        "quiz": {
+          "stem": "Don't forget to ___ your medicine.",
+          "options": [
+            "eat",
+            "take"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Take! Don't forget to take your medicine.",
+        "native": {
+          "hook": "กินยา ≠ eat medicine!",
+          "tip": "ไทยพูด “กินยา” แต่อังกฤษใช้ take กับยา: “I take medicine”",
+          "caption": "คุณเคยพูดว่า “I eat medicine every morning.” ไหม? 😅 ภาษาไทยพูดว่า “กินยา” แต่ภาษาอังกฤษใช้ take กับยา ไม่ใช้ eat: “I take medicine every morning.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “take” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Take medicine, don't eat it!",
+          "tip": "Thai “eats” medicine, but English uses take: “I take medicine”",
+          "caption": "Do you say “I eat medicine every morning”? 😅 Thai says “eat” for medicine, but English uses take. Say “I take medicine every morning”! Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_is_beautiful",
+      "lang": "th",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Don't forget is!",
+        "wrong": "She very beautiful.",
+        "right": "She is very beautiful.",
+        "strike": "She very",
+        "why": "English needs is.",
+        "memory": "She is.",
+        "quiz": {
+          "stem": "Pick the right sentence.",
+          "options": [
+            "She very tired.",
+            "She is very tired."
+          ],
+          "answer": 1
+        },
+        "answer_say": "She is very tired!",
+        "native": {
+          "hook": "อย่าลืม is!",
+          "tip": "ไทยพูด “เธอสวยมาก” ไม่ต้องมี “เป็น” แต่อังกฤษต้องมี is: “She is very beautiful”",
+          "caption": "คุณเคยพูดว่า “She very beautiful.” ไหม? 😅 ภาษาไทยพูดว่า “เธอสวยมาก” ได้โดยไม่ต้องมีกริยา แต่ภาษาอังกฤษต้องมี is: “She is very beautiful.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “She is very tired.” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Don't forget “is”!",
+          "tip": "Thai says “she very beautiful” with no verb, but English needs is: “She is very beautiful”",
+          "caption": "Do you say “She very beautiful”? 😅 Thai can say this sentence without a verb, but English needs is. Say “She is very beautiful”! Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_want_to",
+      "lang": "th",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "What small word is missing?",
+        "wrong": "I want go home.",
+        "right": "I want to go home.",
+        "strike": "want go",
+        "why": "After want, add to.",
+        "memory": "Want to go.",
+        "quiz": {
+          "stem": "She is tired. She wants ___ home.",
+          "options": [
+            "to go",
+            "go"
+          ],
+          "answer": 0
+        },
+        "answer_say": "To go! She wants to go home.",
+        "native": {
+          "hook": "หลัง want ต้องมี to ด้วยนะ!",
+          "tip": "ไทยพูด “อยากไป” ไม่มี to แต่อังกฤษต้อง “want to go”",
+          "caption": "คุณเคยพูดว่า “I want go home.” ไหม? 😅 ภาษาไทยพูดว่า “อยากไป” ได้เลย แต่ภาษาอังกฤษหลัง want ต้องมี to: “I want to go home.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “to go” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "After “want”, add “to”!",
+          "tip": "Thai has no “to” before the second verb, but English needs it: “I want to go home”",
+          "caption": "Do you say “I want go home”? 😅 In Thai you say “want go” with no extra word, but English needs to after want. Say “I want to go home”! Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_he_she",
+      "lang": "th",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "She, not he, for a woman!",
+        "wrong": "My sister is a nurse. He works hard.",
+        "right": "My sister is a nurse. She works hard.",
+        "strike": "He",
+        "why": "Use she for a woman.",
+        "memory": "She works hard.",
+        "quiz": {
+          "stem": "My mother is kind. ___ helps me.",
+          "options": [
+            "He",
+            "She"
+          ],
+          "answer": 1
+        },
+        "answer_say": "She! My mother is kind. She helps me.",
+        "native": {
+          "hook": "ผู้หญิงใช้ she ไม่ใช่ he!",
+          "tip": "ไทยใช้ “เขา” ได้ทั้งชายหญิง แต่อังกฤษแยก he กับ she",
+          "caption": "คุณเคยพูดว่า “My sister is a nurse. He works hard.” ไหม? 😅 ภาษาไทยใช้ “เขา” ได้ทั้งผู้ชายและผู้หญิง แต่ภาษาอังกฤษแยก he กับ she ผู้หญิงต้องใช้ she: “My sister is a nurse. She works hard.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “She” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "A woman is “she”, not “he”!",
+          "tip": "Thai uses one word for he and she, but English has both: “She works hard”",
+          "caption": "Do you say “My sister is a nurse. He works hard”? 😅 Thai uses one word for both men and women, but English separates he and she. Say “My sister is a nurse. She works hard”! Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_was_born",
+      "lang": "th",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Was born, not I born!",
+        "wrong": "I born in Bangkok.",
+        "right": "I was born in Bangkok.",
+        "strike": "I born",
+        "why": "Say was born.",
+        "memory": "I was born.",
+        "quiz": {
+          "stem": "She ___ in 1995.",
+          "options": [
+            "born",
+            "was born"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Was born! She was born in 1995.",
+        "native": {
+          "hook": "เกิด = was born!",
+          "tip": "ไทยพูด “ฉันเกิด” แต่อังกฤษต้องใช้ “was born”",
+          "caption": "คุณเคยพูดว่า “I born in Bangkok.” ไหม? 😅 ภาษาไทยพูดว่า “ฉันเกิดที่…” ได้เลย แต่ภาษาอังกฤษต้องใช้ was born: “I was born in Bangkok.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “was born” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Not “I born”, but “I was born”!",
+          "tip": "Thai says “I born”, but English needs was born: “I was born in Bangkok”",
+          "caption": "Do you say “I born in Bangkok”? 😅 Thai says “I born”, but English needs was before born. Say “I was born in Bangkok”! Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_yes_i_can",
+      "lang": "th",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Answer with a full yes!",
+        "wrong": "Can you swim? Can.",
+        "right": "Can you swim? Yes, I can.",
+        "strike": "Can.",
+        "why": "Answer with yes and a subject.",
+        "memory": "Yes, I can.",
+        "quiz": {
+          "stem": "Can you cook? ___",
+          "options": [
+            "Can.",
+            "Yes, I can."
+          ],
+          "answer": 1
+        },
+        "answer_say": "Yes, I can! Can you cook? Yes, I can.",
+        "native": {
+          "hook": "ตอบ “ได้” อย่าพูดแค่ Can!",
+          "tip": "ไทยตอบ “ได้” คำเดียวพอ แต่อังกฤษมักตอบ yes พร้อมประธาน: “Yes, I can”",
+          "caption": "คุณเคยพูดว่า “Can you swim? Can.” ไหม? 😅 ภาษาไทยตอบว่า “ได้” คำเดียวก็พอ แต่ภาษาอังกฤษควรตอบ yes พร้อมประธาน: “Can you swim? Yes, I can.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “Yes, I can.” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Don't just answer “Can”!",
+          "tip": "Thai can answer with one word, but English usually answers with yes plus a subject: “Yes, I can”",
+          "caption": "Do you answer “Can you swim?” with just “Can”? 😅 Thai can answer with one word, but English usually answers with yes plus a subject. Say “Can you swim? Yes, I can”! Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_sister_she",
+      "lang": "th",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Do you say the subject twice?",
+        "wrong": "My friend he lives in Phuket.",
+        "right": "My friend lives in Phuket.",
+        "strike": "he",
+        "why": "Say the person once, not twice.",
+        "memory": "Say the person once.",
+        "quiz": {
+          "stem": "My dad ___ tall.",
+          "options": [
+            "is",
+            "he is"
+          ],
+          "answer": 0
+        },
+        "answer_say": "Is! My dad is tall.",
+        "native": {
+          "hook": "ไม่ต้องพูดประธานซ้ำ!",
+          "tip": "ไทยพูดซ้ำประธานได้ แต่อังกฤษพูดครั้งเดียวพอ: “My friend lives in Phuket”",
+          "caption": "คุณเคยพูดว่า “My friend he lives in Phuket.” ไหม? 😅 ภาษาไทยมักพูดซ้ำประธานได้ แต่ภาษาอังกฤษพูดถึงคนครั้งเดียวก็พอ: “My friend lives in Phuket.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “is” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Don't say the subject twice!",
+          "tip": "Thai can repeat the subject, but English says it only once: “My friend lives in Phuket”",
+          "caption": "Do you say “My friend he lives in Phuket”? 😅 Thai can repeat the subject, but English names the person only once. Say “My friend lives in Phuket”! Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_yes_no",
+      "lang": "th",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Yes or no? Be careful!",
+        "wrong": "Yes, I don't like fish.",
+        "right": "No, I don't like fish.",
+        "strike": "Yes",
+        "why": "If you don't, say no.",
+        "memory": "No, I don't like fish.",
+        "quiz": {
+          "stem": "You don't like fish? ___, I don't.",
+          "options": [
+            "Yes",
+            "No"
+          ],
+          "answer": 1
+        },
+        "answer_say": "No! No, I don't.",
+        "native": {
+          "hook": "Yes หรือ No? ระวังกับดัก!",
+          "tip": "อังกฤษตอบตามความจริง ถ้าไม่ชอบ ต้องตอบ No",
+          "caption": "คุณเคยพูดว่า “Yes, I don't like fish.” ไหม? 😅 ภาษาไทยตอบ “ใช่” เพื่อยืนยันประโยคปฏิเสธได้ แต่ภาษาอังกฤษตอบตามความจริง ถ้าไม่ชอบต้องตอบ No: “No, I don't like fish.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “No” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Yes or No? Watch the trap!",
+          "tip": "England answers truthfully. If you don't like it, you must answer No.",
+          "caption": "Do you say “Yes, I don't like fish”? 😅 In Thai you can say yes to agree, but English answers by the fact. If it is negative, say No. Say “No, I don't like fish”! Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_go_home",
+      "lang": "th",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Going home? Drop the to!",
+        "wrong": "I'm going to home.",
+        "right": "I'm going home.",
+        "strike": "to",
+        "why": "Home needs no to.",
+        "memory": "Going home, no to.",
+        "quiz": {
+          "stem": "I'm going ___ now.",
+          "options": [
+            "home",
+            "to home"
+          ],
+          "answer": 0
+        },
+        "answer_say": "Home! I'm going home now.",
+        "native": {
+          "hook": "go home ไม่ต้องใส่ to นะ!",
+          "tip": "go home ไม่ต้องมี to (ต่างจาก go to school): “I'm going home”",
+          "caption": "คุณเคยพูดว่า “I'm going to home.” ไหม? 😅 เราติดพูด go to school, go to work จึงใส่ to หน้า home ด้วย แต่ home ไม่ต้องมี to: “I'm going home.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “home” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Don't say “go to home”!",
+          "tip": "Home needs no to, unlike go to school: “I'm going home”",
+          "caption": "Do you say “I'm going to home”? 😅 We say go to school and go to work, so people add to before home too, but home needs no to. Say “I'm going home”! Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_bored",
+      "lang": "th",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Boring or bored? Careful!",
+        "wrong": "I am boring today.",
+        "right": "I am bored today.",
+        "strike": "boring",
+        "why": "Bored is how you feel.",
+        "memory": "I feel bored.",
+        "quiz": {
+          "stem": "There is nothing to do. I'm ___.",
+          "options": [
+            "boring",
+            "bored"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Bored! There is nothing to do. I'm bored.",
+        "native": {
+          "hook": "ความรู้สึก ใช้ bored!",
+          "tip": "bored คือเรารู้สึกเบื่อ ส่วน boring คือสิ่งที่น่าเบื่อ: “I am bored today”",
+          "caption": "คุณเคยพูดว่า “I am boring today.” ไหม? 😅 ภาษาอังกฤษความรู้สึกเบื่อของเราต้องใช้ bored ส่วน boring ใช้กับสิ่งที่น่าเบื่อ: “I am bored today.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “bored” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "For feelings, use “bored”!",
+          "tip": "Bored is how you feel, boring is what makes you feel it: “I am bored today”",
+          "caption": "Do you say “I am boring today”? 😅 Your feeling is bored, and the thing that causes it is boring. Say “I am bored today”! Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_because_so",
+      "lang": "th",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Because and so, not together!",
+        "wrong": "Because I was tired, so I went to bed.",
+        "right": "Because I was tired, I went to bed.",
+        "strike": "so",
+        "why": "Use because or so, not both.",
+        "memory": "One link word.",
+        "quiz": {
+          "stem": "Because it was raining, ___.",
+          "options": [
+            "we stayed home",
+            "so we stayed home"
+          ],
+          "answer": 0
+        },
+        "answer_say": "We stayed home! Because it was raining, we stayed home.",
+        "native": {
+          "hook": "because กับ so ใช้พร้อมกันไม่ได้!",
+          "tip": "ไทยพูด “เพราะ…เลย” ได้ แต่อังกฤษเลือกใช้คำเดียว",
+          "caption": "คุณเคยพูดว่า “Because I was tired, so I went to bed.” ไหม? 😅 ภาษาไทยพูดว่า “เพราะ… ก็เลย…” ได้ แต่ภาษาอังกฤษใช้ because หรือ so เพียงคำเดียว: “Because I was tired, I went to bed.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “we stayed home” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Don't use “because” with “so”!",
+          "tip": "Thai says “because … so …”, but English uses only one linking word",
+          "caption": "Do you say “Because I was tired, so I went to bed”? 😅 Thai can use both words together, but English uses because or so, not both. Say “Because I was tired, I went to bed”! Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_homework",
+      "lang": "th",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Homework: no s, please!",
+        "wrong": "I have many homeworks today.",
+        "right": "I have a lot of homework today.",
+        "strike": "many homeworks",
+        "why": "Homework has no s. Say a lot of.",
+        "memory": "A lot of homework.",
+        "quiz": {
+          "stem": "I have a lot of ___.",
+          "options": [
+            "homework",
+            "homeworks"
+          ],
+          "answer": 0
+        },
+        "answer_say": "Homework! I have a lot of homework.",
+        "native": {
+          "hook": "homework ไม่มี s!",
+          "tip": "homework นับไม่ได้ จึงไม่เติม s ใช้ “a lot of homework”",
+          "caption": "คุณเคยพูดว่า “I have many homeworks today.” ไหม? 😅 ไทยพูดว่า “การบ้านเยอะ” แต่ในภาษาอังกฤษ homework นับไม่ได้ จึงไม่เติม s และไม่ใช้ many: “I have a lot of homework today.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “homework” จำไว้ให้ดีนะ! ฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "No “s” on homework!",
+          "tip": "Homework is uncountable, so no s and no many. Say “a lot of homework”",
+          "caption": "Do you say “I have many homeworks today”? 😅 Homework is uncountable in English, so it takes no s and no many. Say “I have a lot of homework today”! Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_years_old",
+      "lang": "th",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Say years old, not just years!",
+        "wrong": "I am 20 years.",
+        "right": "I am 20 years old.",
+        "strike": "years",
+        "why": "After the number, say years old.",
+        "memory": "Years old.",
+        "quiz": {
+          "stem": "My son is five ___.",
+          "options": [
+            "years",
+            "years old"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Years old! My son is five years old.",
+        "native": {
+          "hook": "อายุต้องมี years old!",
+          "tip": "ไทยพูด “อายุ 20 ปี” แต่อังกฤษต้องพูดว่า years old: “I am 20 years old.”",
+          "caption": "คุณเคยพูดว่า “I am 20 years.” ไหม? 😅 ภาษาไทยพูดว่า “อายุ 20 ปี” แต่ภาษาอังกฤษต้องพูดว่า years old: “I am 20 years old.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “years old” จำไว้ให้ดีนะ! ลองพูดประโยคนี้ออกเสียงดัง ๆ หนึ่งครั้ง แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Say “years old”!",
+          "tip": "Thai gives an age as a number and a word for years, but English needs years old: “I am 20 years old.”",
+          "caption": "Do you say “I am 20 years”? 😅 Thai gives an age as a number and a word for years, but English needs years old. Say “I am 20 years old”! Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_red_car",
+      "lang": "th",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Color first, then the thing!",
+        "wrong": "I have a car red.",
+        "right": "I have a red car.",
+        "strike": "car red",
+        "why": "Say the color before the thing.",
+        "memory": "Red car, blue bag.",
+        "quiz": {
+          "stem": "She has a ___.",
+          "options": [
+            "blue bag",
+            "bag blue"
+          ],
+          "answer": 0
+        },
+        "answer_say": "Blue bag! She has a blue bag.",
+        "native": {
+          "hook": "สีต้องมาก่อนคำนาม!",
+          "tip": "ภาษาไทยวางสีไว้หลัง (รถสีแดง) แต่ภาษาอังกฤษวางไว้หน้า: “a red car”",
+          "caption": "คุณเคยพูดว่า “I have a car red.” ไหม? 😅 ภาษาไทยพูดว่า “รถสีแดง” โดยวางสีไว้หลังคำนาม แต่ภาษาอังกฤษวางสีไว้หน้าคำนาม: “I have a red car.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “blue bag” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยค แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Color goes before the thing!",
+          "tip": "Thai puts the color after the thing, but English puts it before: “a red car”",
+          "caption": "Do you say “I have a car red”? 😅 Thai puts the color after the thing, but English puts it before. Say “I have a red car”! Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_already_ate",
+      "lang": "th",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Already ate, not already eat!",
+        "wrong": "I already eat.",
+        "right": "I already ate.",
+        "strike": "eat",
+        "why": "That was before, so say ate.",
+        "memory": "Already ate.",
+        "quiz": {
+          "stem": "I already ___ lunch.",
+          "options": [
+            "eat",
+            "ate"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Ate! I already ate lunch.",
+        "native": {
+          "hook": "กินแล้ว ต้องใช้ ate!",
+          "tip": "ไทยพูด “กินแล้ว” กริยาไม่เปลี่ยนรูป แต่อังกฤษต้องใช้ ate: “I already ate.”",
+          "caption": "คุณเคยพูดว่า “I already eat.” ไหม? 😅 ภาษาไทยพูดว่า “กินแล้ว” กริยาไม่เปลี่ยนรูป แต่ภาษาอังกฤษต้องใช้ ate: “I already ate.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “ate” จำไว้ให้ดีนะ! ลองพูดประโยคนี้ออกเสียงดัง ๆ หนึ่งครั้ง แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Say “ate”, not “eat”!",
+          "tip": "Thai verbs do not change form, but English needs ate for something done: “I already ate.”",
+          "caption": "Do you say “I already eat”? 😅 Thai verbs do not change form, but English needs ate for something that is done. Say “I already ate”! Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_have_eaten",
+      "lang": "th",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Have you eaten? Not eat!",
+        "wrong": "Have you eat lunch?",
+        "right": "Have you eaten lunch?",
+        "strike": "eat",
+        "why": "After have, use eaten.",
+        "memory": "Have eaten.",
+        "quiz": {
+          "stem": "Have you ___ dinner?",
+          "options": [
+            "eat",
+            "eaten"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Eaten! Have you eaten dinner?",
+        "native": {
+          "hook": "Have you eaten ไม่ใช่ eat!",
+          "tip": "ภาษาไทยกริยาไม่เปลี่ยนรูป แต่หลัง have ต้องใช้รูป eaten: “Have you eaten lunch?”",
+          "caption": "คุณเคยพูดว่า “Have you eat lunch?” ไหม? 😅 ภาษาไทยพูดว่า “กินข้าวหรือยัง” กริยาไม่เปลี่ยนรูป แต่ภาษาอังกฤษหลัง have ต้องใช้รูป eaten: “Have you eaten lunch?” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “eaten” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยค แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "After “have”, use “eaten”!",
+          "tip": "Thai verbs do not change, but after have you need eaten: “Have you eaten lunch?”",
+          "caption": "Do you say “Have you eat lunch”? 😅 After have, English needs the form eaten. Say “Have you eaten lunch”! Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_do_homework",
+      "lang": "th",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Do your homework, not make!",
+        "wrong": "I make homework every night.",
+        "right": "I do homework every night.",
+        "strike": "make",
+        "why": "Say do homework.",
+        "memory": "Do homework.",
+        "quiz": {
+          "stem": "I ___ my homework after dinner.",
+          "options": [
+            "make",
+            "do"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Do! I do my homework after dinner.",
+        "native": {
+          "hook": "การบ้านใช้ do ไม่ใช่ make!",
+          "tip": "ภาษาไทยใช้ “ทำ” คำเดียว แต่ภาษาอังกฤษ การบ้านใช้ do: “I do homework”",
+          "caption": "คุณเคยพูดว่า “I make homework every night.” ไหม? 😅 ภาษาไทยใช้ “ทำ” กับทุกอย่าง แต่ภาษาอังกฤษการบ้านต้องใช้ do ไม่ใช่ make: “I do homework every night.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “do” จำไว้ให้ดีนะ! ลองพูดประโยคนี้ออกเสียงดัง ๆ หนึ่งครั้ง แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Say “do homework”!",
+          "tip": "Thai uses one word for doing and making, but English says do homework: “I do homework every night”",
+          "caption": "Do you say “I make homework every night”? 😅 Thai uses one word for doing and making, but English says do homework. Say “I do homework every night”! Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_you_like",
+      "lang": "th",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Do you like, not are you like!",
+        "wrong": "Are you like spicy food?",
+        "right": "Do you like spicy food?",
+        "strike": "Are",
+        "why": "In questions with like, use do, not are.",
+        "memory": "Do you like...?",
+        "quiz": {
+          "stem": "___ you like coffee?",
+          "options": [
+            "Do",
+            "Are"
+          ],
+          "answer": 0
+        },
+        "answer_say": "Do! Do you like coffee?",
+        "native": {
+          "hook": "ถามว่าชอบไหม ใช้ Do ไม่ใช่ Are!",
+          "tip": "คนไทยมักขึ้นต้นคำถามด้วย Are แต่ประโยคที่มีกริยา เช่น like ต้องขึ้นต้นด้วย Do: “Do you like spicy food?”",
+          "caption": "คุณเคยพูดว่า “Are you like spicy food?” ไหม? 😅 ประโยคคำถามที่มีกริยา เช่น like ต้องขึ้นต้นด้วย Do ไม่ใช่ Are: “Do you like spicy food?” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “Do” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยค แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Use “Do”, not “Are”!",
+          "tip": "Thai learners often start questions with are, but questions with a verb such as like start with do: “Do you like spicy food?”",
+          "caption": "Do you say “Are you like spicy food”? 😅 Questions with a verb such as like start with do, not are. Say “Do you like spicy food”! Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_i_not_have",
+      "lang": "th",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "I don't have, not I not have!",
+        "wrong": "I not have money.",
+        "right": "I don't have money.",
+        "strike": "not",
+        "why": "Use don't before have.",
+        "memory": "I don't have.",
+        "quiz": {
+          "stem": "I ___ have time.",
+          "options": [
+            "not",
+            "don't"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Don't! I don't have time.",
+        "native": {
+          "hook": "ปฏิเสธต้องใช้ don't!",
+          "tip": "ไทยวาง “ไม่” หน้ากริยา (ไม่มี) แต่อังกฤษต้องใช้ don't: “I don't have money”",
+          "caption": "คุณเคยพูดว่า “I not have money.” ไหม? 😅 ภาษาไทยวาง “ไม่” ไว้หน้ากริยาได้เลย (ไม่มี) แต่ภาษาอังกฤษต้องใช้ don't: “I don't have money.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “don't” จำไว้ให้ดีนะ! ลองพูดประโยคนี้ออกเสียงดัง ๆ หนึ่งครั้ง แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Say “don't have”!",
+          "tip": "Thai puts not before the verb, but English needs don't: “I don't have money”",
+          "caption": "Do you say “I not have money”? 😅 Thai puts not before the verb, but English needs don't. Say “I don't have money”! Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_same_as",
+      "lang": "th",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "The same as, not same like!",
+        "wrong": "My bag is the same like yours.",
+        "right": "My bag is the same as yours.",
+        "strike": "like",
+        "why": "After the same, use as.",
+        "memory": "The same as.",
+        "quiz": {
+          "stem": "Your phone is the same ___ mine.",
+          "options": [
+            "as",
+            "like"
+          ],
+          "answer": 0
+        },
+        "answer_say": "As! Your phone is the same as mine.",
+        "native": {
+          "hook": "the same ตามด้วย as!",
+          "tip": "ไทยพูด “เหมือน” คำเดียว แต่ the same ต้องตามด้วย as: “the same as yours”",
+          "caption": "คุณเคยพูดว่า “My bag is the same like yours.” ไหม? 😅 ภาษาไทยพูด “เหมือน” คำเดียว แต่ในภาษาอังกฤษ the same ต้องตามด้วย as ไม่ใช่ like: “My bag is the same as yours.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “as” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยค แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "“The same” goes with “as”!",
+          "tip": "Thai uses one word for same, but the same needs as: “the same as yours”",
+          "caption": "Do you say “My bag is the same like yours”? 😅 Thai uses one word for same, but the same needs as, not like. Say “My bag is the same as yours”! Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_speak_english",
+      "lang": "th",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Speak English, not say English!",
+        "wrong": "I say English a little.",
+        "right": "I speak English a little.",
+        "strike": "say",
+        "why": "For a language, use speak.",
+        "memory": "Speak English.",
+        "quiz": {
+          "stem": "Do you ___ English?",
+          "options": [
+            "say",
+            "speak"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Speak! Do you speak English?",
+        "native": {
+          "hook": "ภาษาใช้ speak ไม่ใช่ say!",
+          "tip": "ไทยใช้ “พูด” คำเดียว แต่กับภาษาต้องใช้ speak: “I speak English a little”",
+          "caption": "คุณเคยพูดว่า “I say English a little.” ไหม? 😅 ภาษาไทยใช้ “พูด” ได้ทั้งคำและภาษา แต่ภาษาอังกฤษพูดภาษาต้องใช้ speak: “I speak English a little.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “speak” จำไว้ให้ดีนะ! ลองพูดประโยคนี้ออกเสียงดัง ๆ หนึ่งครั้ง แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "The language used is speak, not sa",
+          "tip": "Thai uses one word for talking, but for a language English says speak: “I speak English a little”",
+          "caption": "Do you say “I say English a little”? 😅 Thai uses one word for talking, but for a language English says speak. Say “I speak English a little”! Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_id_like",
+      "lang": "th",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Be polite: say I'd like.",
+        "wrong": "I want a coffee, please.",
+        "right": "I'd like a coffee, please.",
+        "strike": "want",
+        "why": "I'd like sounds kinder than I want.",
+        "memory": "I'd like...",
+        "quiz": {
+          "stem": "Politely: I ___ a tea, please.",
+          "options": [
+            "want",
+            "would like"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Would like! I would like a tea, please.",
+        "native": {
+          "hook": "สุภาพต้องใช้ I'd like!",
+          "tip": "ไทยเติม ค่ะ/ครับ ให้สุภาพ แต่อังกฤษ I want ฟังตรงเกินไป ใช้ I'd like: “I'd like a coffee, please”",
+          "caption": "คุณเคยพูดว่า “I want a coffee, please.” ไหม? 😅 ภาษาไทยเติม ค่ะ/ครับ ก็สุภาพแล้ว แต่ในภาษาอังกฤษ I want ฟังตรงเกินไป ให้ใช้ I'd like: “I'd like a coffee, please.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “would like” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยค แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Say “I'd like” to be polite!",
+          "tip": "Thai adds a polite word, but English I want sounds too direct. Say I'd like: “I'd like a coffee, please”",
+          "caption": "Do you say “I want a coffee, please”? 😅 Thai adds a polite word at the end, but in English I want sounds too direct. Say “I'd like a coffee, please”! Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_at_six",
+      "lang": "th",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "At six o'clock, not in six!",
+        "wrong": "I wake up in six o'clock.",
+        "right": "I wake up at six o'clock.",
+        "strike": "in",
+        "why": "Use at for clock times.",
+        "memory": "At six.",
+        "quiz": {
+          "stem": "The class starts ___ six.",
+          "options": [
+            "in",
+            "at"
+          ],
+          "answer": 1
+        },
+        "answer_say": "At! The class starts at six.",
+        "native": {
+          "hook": "ใช้ at กับเวลานาฬิกา!",
+          "tip": "ไทยพูด “ตอนหกโมง” คำเดียว แต่อังกฤษเวลานาฬิกาใช้ at: “at six o'clock”",
+          "caption": "คุณเคยพูดว่า “I wake up in six o'clock.” ไหม? 😅 ภาษาไทยใช้ “ตอน” กับเวลาได้หลายแบบ แต่ภาษาอังกฤษเวลาบนนาฬิกาใช้ at: “I wake up at six o'clock.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “at” จำไว้ให้ดีนะ! ลองพูดประโยคนี้ออกเสียงดัง ๆ หนึ่งครั้ง แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Clock time: use “at”!",
+          "tip": "Thai uses one word for when, but English uses at for clock times: “at six o'clock”",
+          "caption": "Do you say “I wake up in six o'clock”? 😅 Thai uses one word for when, but English uses at for clock times. Say “I wake up at six o'clock”! Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_arrive_in",
+      "lang": "th",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Arrive in, not arrive to!",
+        "wrong": "I arrived to Bangkok at noon.",
+        "right": "I arrived in Bangkok at noon.",
+        "strike": "to",
+        "why": "Use in after arrive for a city.",
+        "memory": "Arrive in a city.",
+        "quiz": {
+          "stem": "We arrive ___ Bangkok at noon.",
+          "options": [
+            "in",
+            "to"
+          ],
+          "answer": 0
+        },
+        "answer_say": "In! We arrive in Bangkok at noon.",
+        "native": {
+          "hook": "ใช้ in หลัง arrive!",
+          "tip": "“ถึง” แปลว่า to ได้ แต่ arrive ใช้ in กับเมือง: “arrived in Bangkok”",
+          "caption": "คุณเคยพูดว่า “I arrived to Bangkok at noon.” ไหม? 😅 ภาษาไทยพูดว่า “ถึงกรุงเทพ” ซึ่ง “ถึง” มักแปลว่า to แต่ arrive ใช้ in กับชื่อเมือง: “I arrived in Bangkok at noon.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “in” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยค แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Say “arrive in” a city!",
+          "tip": "Thai learners often say arrive to, but arrive uses in with a city: “arrived in Bangkok”",
+          "caption": "Do you say “I arrived to Bangkok at noon”? 😅 Many Thai learners say arrive to, but arrive uses in with a city. Say “I arrived in Bangkok at noon”! Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_married_to",
+      "lang": "th",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Married to, not married with!",
+        "wrong": "She is married with a doctor.",
+        "right": "She is married to a doctor.",
+        "strike": "with",
+        "why": "Use to after married.",
+        "memory": "Married to.",
+        "quiz": {
+          "stem": "My sister is married ___ a teacher.",
+          "options": [
+            "to",
+            "with"
+          ],
+          "answer": 0
+        },
+        "answer_say": "To! My sister is married to a teacher.",
+        "native": {
+          "hook": "ใช้ to หลัง married!",
+          "tip": "ไทยพูด “แต่งงานกับ” จึงมักใช้ with แต่อังกฤษใช้ to: “married to a doctor”",
+          "caption": "คุณเคยพูดว่า “She is married with a doctor.” ไหม? 😅 ภาษาไทยพูดว่า “แต่งงานกับหมอ” จึงมักใช้ with แต่ภาษาอังกฤษใช้ to: “She is married to a doctor.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “to” จำไว้ให้ดีนะ! ลองพูดประโยคนี้ออกเสียงดัง ๆ หนึ่งครั้ง แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Use to after marriage!",
+          "tip": "Thai says married with, but English says married to: “married to a doctor”",
+          "caption": "Do you say “She is married with a doctor”? 😅 Thai says married with, but English says married to. Say “She is married to a doctor”! Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_discuss",
+      "lang": "th",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Discuss the plan, no about!",
+        "wrong": "Let's discuss about the plan.",
+        "right": "Let's discuss the plan.",
+        "strike": "about",
+        "why": "Discuss already means talk about.",
+        "memory": "Discuss it.",
+        "quiz": {
+          "stem": "Let's discuss ___.",
+          "options": [
+            "the plan",
+            "about the plan"
+          ],
+          "answer": 0
+        },
+        "answer_say": "The plan! Let's discuss the plan.",
+        "native": {
+          "hook": "discuss ไม่ต้องมี about!",
+          "tip": "ไทยพูด “คุยเกี่ยวกับ…” แต่ discuss แปลว่าคุยเรื่องนั้นอยู่แล้ว: “discuss the plan”",
+          "caption": "คุณเคยพูดว่า “Let's discuss about the plan.” ไหม? 😅 ภาษาไทยพูดว่า “คุยเกี่ยวกับแผน” จึงมักเติม about แต่ discuss แปลว่าคุยเรื่องนั้นอยู่แล้ว: “Let's discuss the plan.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “the plan” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยค แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "No “about” after “discuss”!",
+          "tip": "Thai says talk about, but discuss already means talk about: “discuss the plan”",
+          "caption": "Do you say “Let's discuss about the plan”? 😅 Thai says talk about, but discuss already means talk about. Say “Let's discuss the plan”! Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_sit_bus",
+      "lang": "th",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Take the bus, not sit the bus!",
+        "wrong": "I sit the bus to work.",
+        "right": "I take the bus to work.",
+        "strike": "sit",
+        "why": "Say take for a bus or taxi.",
+        "memory": "Take the bus.",
+        "quiz": {
+          "stem": "I ___ a taxi to the airport.",
+          "options": [
+            "sit",
+            "take"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Take! I take a taxi to the airport.",
+        "native": {
+          "hook": "รถเมล์ใช้ take ไม่ใช่ sit!",
+          "tip": "ไทยพูด “นั่งรถเมล์” แต่อังกฤษใช้ take กับรถ: “I take the bus to work”",
+          "caption": "คุณเคยพูดว่า “I sit the bus to work.” ไหม? 😅 ภาษาไทยพูดว่า “นั่งรถเมล์ไปทำงาน” แต่ภาษาอังกฤษใช้ take กับรถเมล์และแท็กซี่: “I take the bus to work.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “take” จำไว้ให้ดีนะ! ลองพูดประโยคนี้ออกเสียงดัง ๆ หนึ่งครั้ง แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Buses are used to take, not sit!",
+          "tip": "Thai says sit on the bus, but English says take the bus: “I take the bus to work”",
+          "caption": "Do you say “I sit the bus to work”? 😅 Thai says sit on the bus, but English says take the bus. Say “I take the bus to work”! Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_tall",
+      "lang": "th",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "People are tall, not high!",
+        "wrong": "My brother is very high.",
+        "right": "My brother is very tall.",
+        "strike": "high",
+        "why": "For people, say tall.",
+        "memory": "Tall person.",
+        "quiz": {
+          "stem": "My sister is ___. She plays basketball.",
+          "options": [
+            "high",
+            "tall"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Tall! My sister is tall.",
+        "native": {
+          "hook": "คนสูงใช้ tall ไม่ใช่ high!",
+          "tip": "ไทยใช้ “สูง” คำเดียว แต่คนสูงต้องใช้ tall: “He is very tall”",
+          "caption": "คุณเคยพูดว่า “My brother is very high.” ไหม? 😅 ภาษาไทยใช้ “สูง” คำเดียวทั้งกับคนและสิ่งของ แต่ภาษาอังกฤษพูดถึงคนสูงต้องใช้ tall: “My brother is very tall.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “tall” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยค แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Tall people, not high!",
+          "tip": "Thai uses one word for tall and high, but for a person English says tall: “He is very tall”",
+          "caption": "Do you say “My brother is very high”? 😅 Thai uses one word for tall and high, but for a person English says tall. Say “My brother is very tall”! Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_careful",
+      "lang": "th",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Say carefully, not careful!",
+        "wrong": "He drives careful.",
+        "right": "He drives carefully.",
+        "strike": "careful",
+        "why": "Say carefully to tell how he drives.",
+        "memory": "Careful, carefully.",
+        "quiz": {
+          "stem": "Please walk ___.",
+          "options": [
+            "careful",
+            "carefully"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Carefully! Please walk carefully.",
+        "native": {
+          "hook": "บอกวิธีทำ ต้องเติม ly!",
+          "tip": "ไทยพูด “ขับรถระวัง” ได้เลย แต่อังกฤษต้องเติม ly: “drives carefully”",
+          "caption": "คุณเคยพูดว่า “He drives careful.” ไหม? 😅 ภาษาไทยพูดว่า “ขับรถระวัง ๆ” ได้โดยไม่ต้องเปลี่ยนคำ แต่ภาษาอังกฤษต้องเติม ly: “He drives carefully.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “carefully” จำไว้ให้ดีนะ! ลองพูดประโยคนี้ออกเสียงดัง ๆ หนึ่งครั้ง แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Add “ly” to say how!",
+          "tip": "Thai does not change the word, but English adds ly: “drives carefully”",
+          "caption": "Do you say “He drives careful”? 😅 Thai does not change the word, but English adds ly to say how. Say “He drives carefully”! Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_thanks_reply",
+      "lang": "th",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Thank you for YOUR reply!",
+        "wrong": "Thank you for reply.",
+        "right": "Thank you for your reply.",
+        "strike": "for reply",
+        "why": "Say your before reply.",
+        "memory": "Your reply.",
+        "quiz": {
+          "stem": "Thank you for ___ help.",
+          "options": [
+            "your",
+            "you"
+          ],
+          "answer": 0
+        },
+        "answer_say": "Your! Thank you for your help.",
+        "native": {
+          "hook": "อย่าลืม your หน้า reply!",
+          "tip": "ไทยพูด “ขอบคุณที่ตอบ” ไม่ต้องมี “ของคุณ” แต่อังกฤษต้องมี your: “your reply”",
+          "caption": "คุณเคยพูดว่า “Thank you for reply.” ไหม? 😅 ภาษาไทยพูดว่า “ขอบคุณที่ตอบ” ได้โดยไม่ต้องมี “ของคุณ” แต่ในอีเมลภาษาอังกฤษต้องมี your: “Thank you for your reply.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “your” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยค แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Don't forget “your”!",
+          "tip": "Thai can skip “your”, but English needs it: “Thank you for your reply”",
+          "caption": "Do you say “Thank you for reply”? 😅 Thai can skip “your”, but English needs it in an email. Say “Thank you for your reply”! Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_reply_to",
+      "lang": "th",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Reply to me, not reply me!",
+        "wrong": "Please reply me soon.",
+        "right": "Please reply to me soon.",
+        "strike": "reply me",
+        "why": "After reply, say to.",
+        "memory": "Reply to me.",
+        "quiz": {
+          "stem": "Please ___ soon.",
+          "options": [
+            "reply me",
+            "reply to me"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Reply to me! Please reply to me soon.",
+        "native": {
+          "hook": "reply to ไม่ใช่ reply me!",
+          "tip": "ไทยพูด “ตอบฉัน” ได้เลย แต่อังกฤษต้องมี to: “reply to me”",
+          "caption": "คุณเคยพูดว่า “Please reply me soon.” ไหม? 😅 ภาษาไทยพูดว่า “ตอบฉันด้วยนะ” ได้เลย แต่ภาษาอังกฤษ reply ต้องตามด้วย to: “Please reply to me soon.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “reply to me” จำไว้ให้ดีนะ! ลองพูดประโยคนี้ออกเสียงดัง ๆ หนึ่งครั้ง แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Say “reply to me”!",
+          "tip": "Thai says reply me directly, but English needs to: “reply to me”",
+          "caption": "Do you say “Please reply me soon”? 😅 Thai says reply me directly, but English needs to after reply. Say “Please reply to me soon”! Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_the_toilet",
+      "lang": "th",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Don't forget the word the!",
+        "wrong": "Where is bathroom?",
+        "right": "Where is the bathroom?",
+        "strike": "bathroom",
+        "why": "Say the before the place.",
+        "memory": "The bathroom.",
+        "quiz": {
+          "stem": "Where is ___?",
+          "options": [
+            "the bathroom",
+            "bathroom"
+          ],
+          "answer": 0
+        },
+        "answer_say": "The bathroom! Where is the bathroom?",
+        "native": {
+          "hook": "ห้องน้ำ ต้องมี the นะ!",
+          "tip": "ภาษาไทยไม่มีคำ the แต่ภาษาอังกฤษต้องมี: “Where is the bathroom?”",
+          "caption": "คุณเคยพูดว่า “Where is bathroom?” ไหม? 😅 ภาษาไทยพูดว่า “ห้องน้ำอยู่ไหน” โดยไม่มีคำเทียบกับ the แต่ภาษาอังกฤษต้องมี the: “Where is the bathroom?” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “the bathroom” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยค แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Say “the bathroom”!",
+          "tip": "Thai has no word like the, but English needs it: “Where is the bathroom?”",
+          "caption": "Do you say “Where is bathroom”? 😅 Thai has no word like the, but English needs it here. Say “Where is the bathroom”! Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_called",
+      "lang": "th",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Say called, not call!",
+        "wrong": "What is this call in English?",
+        "right": "What is this called in English?",
+        "strike": "call",
+        "why": "Say is called when you ask a name.",
+        "memory": "Is called.",
+        "quiz": {
+          "stem": "A baby dog is ___ a puppy.",
+          "options": [
+            "call",
+            "called"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Called! A baby dog is called a puppy.",
+        "native": {
+          "hook": "ใช้ called ไม่ใช่ call!",
+          "tip": "ภาษาไทยกริยาไม่เปลี่ยนรูป (เรียกว่า) แต่ภาษาอังกฤษต้องใช้ called: “What is this called?”",
+          "caption": "คุณเคยพูดว่า “What is this call in English?” ไหม? 😅 ภาษาไทยพูดว่า “อันนี้เรียกว่าอะไร” กริยาไม่เปลี่ยนรูป แต่ภาษาอังกฤษต้องใช้ called: “What is this called in English?” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “called” จำไว้ให้ดีนะ! ลองพูดประโยคนี้ออกเสียงดัง ๆ หนึ่งครั้ง แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Say “is called”!",
+          "tip": "Thai verbs do not change, but English needs called: “What is this called?”",
+          "caption": "Do you say “What is this call in English”? 😅 Thai verbs do not change, but English needs called here. Say “What is this called in English”! Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_topic",
+      "lang": "th",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Start with I, not the thing!",
+        "wrong": "This song I like.",
+        "right": "I like this song.",
+        "strike": "This song I like",
+        "why": "Say who first, then the verb.",
+        "memory": "I like this.",
+        "quiz": {
+          "stem": "Which is correct?",
+          "options": [
+            "I love this song",
+            "This song I love"
+          ],
+          "answer": 0
+        },
+        "answer_say": "I love this song! Not this song I love.",
+        "native": {
+          "hook": "เริ่มด้วย I ไม่ใช่สิ่งของ!",
+          "tip": "ไทยวางสิ่งที่พูดถึงไว้หน้าประโยค (เพลงนี้ชอบ) แต่อังกฤษขึ้นต้นด้วย I: “I like this song”",
+          "caption": "คุณเคยพูดว่า “This song I like.” ไหม? 😅 ภาษาไทยพูดว่า “เพลงนี้ชอบ” โดยวางสิ่งที่พูดถึงไว้หน้าประโยค แต่ภาษาอังกฤษขึ้นต้นด้วย I: “I like this song.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “I love this song” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยค แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Start with “I”, then the verb!",
+          "tip": "Thai puts the thing first, but English starts with I and the verb: “I like this song”",
+          "caption": "Do you say “This song I like”? 😅 Thai puts the thing first, but English starts with who and the verb. Say “I like this song”! Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_hobby",
+      "lang": "th",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Say it depends, not is depend.",
+        "wrong": "It is depend on you.",
+        "right": "It depends on you.",
+        "strike": "is depend",
+        "why": "Depends is the verb, so no is.",
+        "memory": "It depends on you.",
+        "quiz": {
+          "stem": "It ___ on the weather.",
+          "options": [
+            "is depend",
+            "depends"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Depends! It depends on the weather.",
+        "native": {
+          "hook": "ใช้ It depends ไม่ใช่ is depend!",
+          "tip": "หลายคนคิดว่า depend เป็นคำบอกสภาพ เหมือน “ขึ้นอยู่กับ” จึงใส่ is ข้างหน้า แต่ depend เป็นกริยาอยู่แล้ว ไม่ต้องมี is: “It depends on you.”",
+          "caption": "คุณเคยพูดว่า “It is depend on you.” ไหม? 😅 หลายคนคิดว่า depend เป็นคำบอกสภาพ จึงใส่ is ข้างหน้า แต่ depend เป็นกริยาอยู่แล้ว ไม่ต้องมี is: “It depends on you.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “depends” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยคด้วย It depends แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Say “It depends,” not “is depend”!",
+          "tip": "Many Thai speakers feel depend is a state word, so they put is before it, but depend is already the verb, so we do not need is: “It depends on you.”",
+          "caption": "Do you ever say this? “It is depend on you.” 😅 Many Thai speakers put is before depend, but depend is already the verb, so we do not need is. Say “It depends on you.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_bigger",
+      "lang": "th",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Big, bigger: no more!",
+        "wrong": "Her house is more big than mine.",
+        "right": "Her house is bigger than mine.",
+        "strike": "more big",
+        "why": "With short words, change the end.",
+        "memory": "Big, bigger.",
+        "quiz": {
+          "stem": "This bag is ___ than that bag.",
+          "options": [
+            "more big",
+            "bigger"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Bigger! This bag is bigger than that bag.",
+        "native": {
+          "hook": "คำสั้นเติม er ไม่ใช้ more!",
+          "tip": "ไทยเติม “กว่า” ท้ายคำ แต่อังกฤษคำสั้นเติม er ที่ท้ายคำ: “bigger than mine”",
+          "caption": "คุณเคยพูดว่า “Her house is more big than mine.” ไหม? 😅 ภาษาไทยเติม “กว่า” ท้ายคำ เช่น “ใหญ่กว่า” แต่ภาษาอังกฤษคำสั้นเติม er ไม่ใช้ more: “Her house is bigger than mine.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “bigger” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยค แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Short word: add “er”!",
+          "tip": "Thai adds a word after, but short English words take er: “bigger than mine”",
+          "caption": "Do you say “Her house is more big than mine”? 😅 Thai adds a word after, but short English words take er, not more. Say “Her house is bigger than mine”! Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_friend_book",
+      "lang": "th",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "My friend's book, not book of friend!",
+        "wrong": "This is book of my friend.",
+        "right": "This is my friend's book.",
+        "strike": "book of my friend",
+        "why": "Put my friend's before the thing.",
+        "memory": "My friend's book.",
+        "quiz": {
+          "stem": "This is ___ phone.",
+          "options": [
+            "my sister's",
+            "of my sister"
+          ],
+          "answer": 0
+        },
+        "answer_say": "My sister's! This is my sister's phone.",
+        "native": {
+          "hook": "บอกเจ้าของ ใช้ 's!",
+          "tip": "ไทยพูด “หนังสือของเพื่อน” จึงมักใช้ of แต่อังกฤษใช้ 's: “my friend's book”",
+          "caption": "คุณเคยพูดว่า “This is book of my friend.” ไหม? 😅 ภาษาไทยพูดว่า “หนังสือของเพื่อน” จึงมักใช้ of แต่ภาษาอังกฤษบอกเจ้าของด้วย 's: “This is my friend's book.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “my sister's” จำไว้ให้ดีนะ! ลองพูดประโยคนี้ออกเสียงดัง ๆ หนึ่งครั้ง แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Owner? Add “'s”!",
+          "tip": "Thai says book of a friend, so people use of, but English adds 's: “my friend's book”",
+          "caption": "Do you say “This is book of my friend”? 😅 Thai says book of a friend, so people use of, but English adds 's. Say “This is my friend's book”! Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_stomach",
+      "lang": "th",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Say hurts, not pain!",
+        "wrong": "My stomach pain.",
+        "right": "My stomach hurts.",
+        "strike": "pain",
+        "why": "Pain is not the verb. Say hurts.",
+        "memory": "It hurts.",
+        "quiz": {
+          "stem": "My head ___.",
+          "options": [
+            "pain",
+            "hurts"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Hurts! My head hurts.",
+        "native": {
+          "hook": "ปวดใช้ hurts ไม่ใช่ pain!",
+          "tip": "ไทยพูด “ปวดท้อง” ใช้ “ปวด” เป็นกริยา แต่ pain เป็นคำนาม ให้ใช้ hurts: “My stomach hurts”",
+          "caption": "คุณเคยพูดว่า “My stomach pain.” ไหม? 😅 ภาษาไทยพูดว่า “ปวดท้อง” โดยใช้ “ปวด” เป็นกริยา แต่ pain เป็นคำนาม ภาษาอังกฤษใช้ hurts: “My stomach hurts.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “hurts” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยค แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Say “hurts”, not “pain”!",
+          "tip": "Thai uses one word as the verb, but pain is a noun in English. Say hurts: “My stomach hurts”",
+          "caption": "Do you say “My stomach pain”? 😅 Thai uses one word as the verb, but pain is a noun in English, so say hurts. Say “My stomach hurts”! Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_ever_been",
+      "lang": "th",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Say have been, not have ever been!",
+        "wrong": "I have ever been to Japan.",
+        "right": "I have been to Japan.",
+        "strike": "ever",
+        "why": "Use ever in questions, not here.",
+        "memory": "Have been.",
+        "quiz": {
+          "stem": "I have ___ to Japan.",
+          "options": [
+            "ever been",
+            "been"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Been! I have been to Japan.",
+        "native": {
+          "hook": "ไม่ต้องใส่ ever!",
+          "tip": "ไทยพูด “เคยไป” จึงมักแปล “เคย” เป็น ever แต่ประโยคบอกเล่าไม่ต้องใส่: “I have been to Japan.”",
+          "caption": "คุณเคยพูดว่า “I have ever been to Japan.” ไหม? 😅 ภาษาไทยพูดว่า “เคยไปญี่ปุ่น” จึงมักแปล “เคย” เป็น ever แต่ประโยคบอกเล่าไม่ต้องใส่: “I have been to Japan.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “been” จำไว้ให้ดีนะ! ลองพูดประโยคนี้ออกเสียงดัง ๆ หนึ่งครั้ง แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "No “ever” here!",
+          "tip": "Thai uses a word for ever to talk about past experiences, but this sentence does not need it: “I have been to Japan.”",
+          "caption": "Do you say “I have ever been to Japan”? 😅 Thai uses a word for ever to talk about past experiences, but this sentence does not need it. Say “I have been to Japan.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_what_think",
+      "lang": "th",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "What, not how!",
+        "wrong": "How do you think?",
+        "right": "What do you think?",
+        "strike": "How",
+        "why": "Ask what for an idea.",
+        "memory": "What do you think?",
+        "quiz": {
+          "stem": "___ do you think?",
+          "options": [
+            "How",
+            "What"
+          ],
+          "answer": 1
+        },
+        "answer_say": "What! What do you think?",
+        "native": {
+          "hook": "ถามความคิดเห็น ใช้ What!",
+          "tip": "ไทยพูด “คิดยังไง” จึงมักใช้ how แต่อังกฤษใช้ what: “What do you think?”",
+          "caption": "คุณเคยพูดว่า “How do you think?” ไหม? 😅 ภาษาไทยพูดว่า “คุณคิดยังไง” จึงมักใช้ how แต่ภาษาอังกฤษถามความคิดเห็นด้วย what: “What do you think?” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “What” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยค แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Ask ideas with “What”!",
+          "tip": "Thai says how do you think, but English asks what do you think: “What do you think?”",
+          "caption": "Do you say “How do you think”? 😅 Thai says how do you think, but English asks what. Say “What do you think”! Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_live_be",
+      "lang": "th",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Say have lived, not live!",
+        "wrong": "I live in Bangkok since 2020.",
+        "right": "I have lived in Bangkok since 2020.",
+        "strike": "live",
+        "why": "Use have lived with since.",
+        "memory": "Have lived since.",
+        "quiz": {
+          "stem": "I ___ here since 2020.",
+          "options": [
+            "have lived",
+            "live"
+          ],
+          "answer": 0
+        },
+        "answer_say": "Have lived! I have lived here since 2020.",
+        "native": {
+          "hook": "ใช้ since ต้องมี have + V3!",
+          "tip": "ไทยไม่เปลี่ยนรูปกริยา แต่อังกฤษใช้ have lived กับ since: “I have lived in Bangkok since 2020.”",
+          "caption": "คุณเคยพูดว่า “I live in Bangkok since 2020.” ไหม? 😅 ภาษาไทยไม่ต้องเปลี่ยนรูปกริยา แต่ภาษาอังกฤษใช้ have lived เมื่อมี since: “I have lived in Bangkok since 2020.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “have lived” จำไว้ให้ดีนะ! ลองพูดประโยคนี้ออกเสียงดัง ๆ หนึ่งครั้ง แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Use “have” with “since”!",
+          "tip": "Thai does not change the verb here, but English uses have lived with since: “I have lived in Bangkok since 2020.”",
+          "caption": "Do you say “I live in Bangkok since 2020”? 😅 Thai does not change the verb, but English uses have lived with since. Say “I have lived in Bangkok since 2020”! Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_thirsty",
+      "lang": "th",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Say thirsty, not hungry water!",
+        "wrong": "I'm hungry water.",
+        "right": "I'm thirsty.",
+        "strike": "hungry water",
+        "why": "When you want a drink, say thirsty.",
+        "memory": "I'm thirsty.",
+        "quiz": {
+          "stem": "I need a drink. I'm ___.",
+          "options": [
+            "thirsty",
+            "hungry water"
+          ],
+          "answer": 0
+        },
+        "answer_say": "Thirsty! I'm thirsty.",
+        "native": {
+          "hook": "หิวน้ำ ไม่ใช่ hungry water!",
+          "tip": "ภาษาไทยพูดว่า “หิวน้ำ” แต่ภาษาอังกฤษใช้คำเดียวว่า thirsty: “I'm thirsty.”",
+          "caption": "คุณเคยพูดว่า “I'm hungry water.” ไหม? 😅 ภาษาไทยพูดว่า “หิวน้ำ” แต่ภาษาอังกฤษใช้คำเดียวว่า thirsty: “I'm thirsty.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “thirsty” จำไว้ให้ดีนะ! ลองพูดประโยคนี้ออกเสียงดัง ๆ หนึ่งครั้ง แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Say “thirsty”!",
+          "tip": "Thai says this with the word for hungry, but English uses one word: “I'm thirsty.”",
+          "caption": "Do you say “I'm hungry water”? 😅 Thai says this with the word for hungry, but English uses one word. Say “I'm thirsty”! Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_have_fever",
+      "lang": "th",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Say I have a fever!",
+        "wrong": "I am fever.",
+        "right": "I have a fever.",
+        "strike": "am",
+        "why": "Use have with a fever.",
+        "memory": "I have a fever.",
+        "quiz": {
+          "stem": "I ___ a fever today.",
+          "options": [
+            "have",
+            "am"
+          ],
+          "answer": 0
+        },
+        "answer_say": "Have! I have a fever today.",
+        "native": {
+          "hook": "เป็นไข้ ใช้ have a fever!",
+          "tip": "ภาษาไทยพูดว่า “เป็นไข้” แต่ภาษาอังกฤษใช้ have: “I have a fever.”",
+          "caption": "คุณเคยพูดว่า “I am fever.” ไหม? 😅 ภาษาไทยพูดว่า “เป็นไข้” แต่ภาษาอังกฤษใช้ have: “I have a fever.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “have” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยค แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Say “I have a fever.”",
+          "tip": "Thai uses a word like am here, but English uses have: “I have a fever.”",
+          "caption": "Do you say “I am fever”? 😅 Thai uses a word like am here, but English uses have. Say “I have a fever”! Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_will_to",
+      "lang": "th",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Say will go, not will going!",
+        "wrong": "I will going tomorrow.",
+        "right": "I will go tomorrow.",
+        "strike": "going",
+        "why": "After will, use the plain verb.",
+        "memory": "Will + verb.",
+        "quiz": {
+          "stem": "I will ___ tomorrow.",
+          "options": [
+            "going",
+            "go"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Go! I will go tomorrow.",
+        "native": {
+          "hook": "หลัง will ไม่ต้องเติม -ing!",
+          "tip": "กริยาภาษาไทยไม่เปลี่ยนรูป หลายคนจึงสับสนว่าหลัง will ใช้รูปไหน แต่หลัง will ใช้กริยาธรรมดาเสมอ: “I will go tomorrow.”",
+          "caption": "คุณเคยพูดว่า “I will going tomorrow.” ไหม? 😅 กริยาภาษาไทยไม่เปลี่ยนรูป หลายคนจึงสับสนว่าหลัง will ใช้รูปไหน แต่ภาษาอังกฤษใช้ will + กริยาธรรมดา: “I will go tomorrow.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “go” จำไว้ให้ดีนะ! ลองพูดประโยคนี้ออกเสียงดัง ๆ หนึ่งครั้ง แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "No “-ing” after “will”!",
+          "tip": "Thai verbs never change form, so many people are not sure which form comes after will. After will, use the plain verb: “I will go tomorrow.”",
+          "caption": "Do you ever say this? “I will going tomorrow.” 😅 Thai verbs never change form, so many people are not sure which form comes after will. After will, English uses the plain verb. Say “I will go tomorrow.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_what_end",
+      "lang": "th",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Ask the time with What time!",
+        "wrong": "What o'clock does class end?",
+        "right": "What time does class end?",
+        "strike": "o'clock",
+        "why": "Ask the time with what time.",
+        "memory": "What time...?",
+        "quiz": {
+          "stem": "___ does the movie start?",
+          "options": [
+            "What o'clock",
+            "What time"
+          ],
+          "answer": 1
+        },
+        "answer_say": "What time! What time does the movie start?",
+        "native": {
+          "hook": "ถามเวลา ใช้ What time!",
+          "tip": "ภาษาไทยถามว่า “กี่โมง” หลายคนจึงพูด o'clock ตาม แต่ภาษาอังกฤษถามเวลาด้วย What time: “What time does class end?”",
+          "caption": "คุณเคยพูดว่า “What o'clock does class end?” ไหม? 😅 ภาษาไทยถามว่า “เลิกเรียนกี่โมง” จึงมักพูด o'clock ตาม แต่ภาษาอังกฤษถามเวลาด้วย What time: “What time does class end?” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “What time” จำไว้ให้ดีนะ! ลองเขียนประโยคถามเวลาของคุณเองหนึ่งประโยค แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Ask the time with “What time”!",
+          "tip": "Thai asks “how many o'clock,” so people say o'clock, but English asks What time: “What time does class end?”",
+          "caption": "Do you ever say this? “What o'clock does class end?” 😅 Thai asks “how many o'clock,” so many people say o'clock, but English asks What time. Say “What time does class end?” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_how_much",
+      "lang": "th",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Ask the price with How much!",
+        "wrong": "How many is this bag?",
+        "right": "How much is this bag?",
+        "strike": "many",
+        "why": "Ask the price with how much.",
+        "memory": "Price? How much!",
+        "quiz": {
+          "stem": "___ is this shirt?",
+          "options": [
+            "How many",
+            "How much"
+          ],
+          "answer": 1
+        },
+        "answer_say": "How much! How much is this shirt?",
+        "native": {
+          "hook": "ถามราคา ใช้ How much!",
+          "tip": "ภาษาไทยใช้ “เท่าไหร่” ถามได้ทั้งราคาและจำนวน แต่ภาษาอังกฤษถามราคาต้องใช้ How much: “How much is this bag?”",
+          "caption": "คุณเคยพูดว่า “How many is this bag?” ไหม? 😅 ภาษาไทยใช้ “เท่าไหร่” ถามได้ทั้งราคาและจำนวน แต่ภาษาอังกฤษถามราคาต้องใช้ How much: “How much is this bag?” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “How much” จำไว้ให้ดีนะ! ลองพูดประโยคตัวอย่างออกเสียงหนึ่งรอบ แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Ask the price with “How much”!",
+          "tip": "Thai uses one word to ask both price and number, but English asks the price with How much.",
+          "caption": "Do you say “How many is this bag?” 😅 Thai uses one word to ask both price and number, but English asks the price with How much. Say “How much is this bag?” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_am_study",
+      "lang": "th",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Am studying, not am study!",
+        "wrong": "I am study English now.",
+        "right": "I am studying English now.",
+        "strike": "study",
+        "why": "Use studying after am.",
+        "memory": "Am studying.",
+        "quiz": {
+          "stem": "She is ___ a book.",
+          "options": [
+            "read",
+            "reading"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Reading! She is reading a book.",
+        "native": {
+          "hook": "am ต้องตามด้วย -ing!",
+          "tip": "ภาษาไทยใช้ “กำลัง” นำหน้ากริยา แต่ภาษาอังกฤษต้องเติม -ing หลัง am/is/are: “I am studying English now.”",
+          "caption": "คุณเคยพูดว่า “I am study English now.” ไหม? 😅 ภาษาไทยใช้ “กำลัง” นำหน้ากริยา แต่ภาษาอังกฤษต้องเติม -ing หลัง am/is/are: “I am studying English now.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “reading” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยคด้วยคำนี้ แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "After am, add -ing!",
+          "tip": "Thai puts one word before the verb for something happening now, but English adds -ing after am, is, are.",
+          "caption": "Do you say “I am study English now.” 😅 Thai puts one word before the verb for something happening now, but English adds -ing after am, is, are. Say “I am studying English now.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_take_photo",
+      "lang": "th",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "A photo of me, please!",
+        "wrong": "Can you take a photo me?",
+        "right": "Can you take a photo of me?",
+        "strike": "photo me",
+        "why": "Say a photo of me.",
+        "memory": "A photo of me.",
+        "quiz": {
+          "stem": "Can you take a photo ___ us?",
+          "options": [
+            "of",
+            "to"
+          ],
+          "answer": 0
+        },
+        "answer_say": "Of! Can you take a photo of us?",
+        "native": {
+          "hook": "ถ่ายรูปฉัน = a photo of me",
+          "tip": "ภาษาไทยพูด “ถ่ายรูปฉัน” ได้เลย แต่ภาษาอังกฤษต้องมี of ก่อนคนในรูป: “Can you take a photo of me?”",
+          "caption": "คุณเคยพูดว่า “Can you take a photo me?” ไหม? 😅 ภาษาไทยพูด “ถ่ายรูปฉัน” ได้เลย แต่ภาษาอังกฤษต้องมี of ก่อนคนในรูป: “Can you take a photo of me?” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “of” จำไว้ให้ดีนะ! ลองพูดประโยคตัวอย่างออกเสียงหนึ่งรอบ แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "A photo of me, not photo me!",
+          "tip": "Thai puts the person right after photo, but English needs of before the person.",
+          "caption": "Do you say “Can you take a photo me?” 😅 Thai puts the person right after photo, but English needs of before the person. Say “Can you take a photo of me?” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_forgot_bring",
+      "lang": "th",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Forgot to bring it!",
+        "wrong": "I forgot bring my phone.",
+        "right": "I forgot to bring my phone.",
+        "strike": "bring",
+        "why": "After forgot, say to before the verb.",
+        "memory": "Forgot to.",
+        "quiz": {
+          "stem": "Don't forget ___ the door.",
+          "options": [
+            "close",
+            "to close"
+          ],
+          "answer": 1
+        },
+        "answer_say": "To close! Don't forget to close the door.",
+        "native": {
+          "hook": "forgot + to + กริยา!",
+          "tip": "ภาษาไทยพูด “ลืมเอามือถือมา” โดยวางกริยาต่อกันได้เลย แต่ภาษาอังกฤษต้องใส่ to ก่อนกริยาตัวที่สอง: “I forgot to bring my phone.”",
+          "caption": "คุณเคยพูดว่า “I forgot bring my phone.” ไหม? 😅 ภาษาไทยพูด “ลืมเอามือถือมา” โดยวางกริยาต่อกันได้เลย แต่ภาษาอังกฤษต้องใส่ to ก่อนกริยาตัวที่สอง: “I forgot to bring my phone.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “to close” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยคด้วยคำนี้ แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "After forgot, add “to”!",
+          "tip": "Thai joins the two verbs directly, but English needs to before the second verb.",
+          "caption": "Do you say “I forgot bring my phone.” 😅 Thai joins the two verbs directly, but English needs to before the second verb. Say “I forgot to bring my phone.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_same_the",
+      "lang": "th",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Say the same!",
+        "wrong": "We have same bag.",
+        "right": "We have the same bag.",
+        "strike": "same",
+        "why": "Say the same, not same.",
+        "memory": "The same.",
+        "quiz": {
+          "stem": "We have ___ phone.",
+          "options": [
+            "same",
+            "the same"
+          ],
+          "answer": 1
+        },
+        "answer_say": "The same! We have the same phone.",
+        "native": {
+          "hook": "same ต้องมี the นำหน้า!",
+          "tip": "ภาษาไทยพูด “กระเป๋าใบเดียวกัน” ได้โดยไม่ต้องมีคำนำหน้า แต่ภาษาอังกฤษ same ต้องมี the เสมอ: “We have the same bag.”",
+          "caption": "คุณเคยพูดว่า “We have same bag.” ไหม? 😅 ภาษาไทยพูด “กระเป๋าใบเดียวกัน” ได้โดยไม่ต้องมีคำนำหน้า แต่ภาษาอังกฤษ same ต้องมี the เสมอ: “We have the same bag.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “the same” จำไว้ให้ดีนะ! ลองพูดประโยคตัวอย่างออกเสียงหนึ่งรอบ แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Same needs “the” before it!",
+          "tip": "Thai needs no small word here, but English always puts the before same.",
+          "caption": "Do you say “We have same bag.” 😅 Thai needs no small word here, but English always puts the before same. Say “We have the same bag.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_call_me",
+      "lang": "th",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Call me, not call I!",
+        "wrong": "Please call I tonight.",
+        "right": "Please call me tonight.",
+        "strike": "I",
+        "why": "After a verb, use me, not I.",
+        "memory": "Call me.",
+        "quiz": {
+          "stem": "She called ___ yesterday.",
+          "options": [
+            "I",
+            "me"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Me! She called me yesterday.",
+        "native": {
+          "hook": "หลังกริยา ใช้ me ไม่ใช่ I!",
+          "tip": "ภาษาไทยใช้ “ฉัน” ได้ทั้งหน้าและหลังกริยา แต่ภาษาอังกฤษหลังกริยาต้องใช้ me: “Please call me tonight.”",
+          "caption": "คุณเคยพูดว่า “Please call I tonight.” ไหม? 😅 ภาษาไทยใช้ “ฉัน” ได้ทั้งหน้าและหลังกริยา แต่ภาษาอังกฤษหลังกริยาต้องใช้ me: “Please call me tonight.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “me” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยคด้วยคำนี้ แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "After a verb, use “me”!",
+          "tip": "Thai uses one word for I and me, but English needs me after a verb.",
+          "caption": "Do you say “Please call I tonight.” 😅 Thai uses one word for I and me, but English needs me after a verb. Say “Please call me tonight.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_afraid_of",
+      "lang": "th",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Afraid of snakes!",
+        "wrong": "I am afraid snakes.",
+        "right": "I am afraid of snakes.",
+        "strike": "afraid",
+        "why": "Say afraid of before the thing.",
+        "memory": "Afraid of.",
+        "quiz": {
+          "stem": "He is afraid ___ dogs.",
+          "options": [
+            "of",
+            "to"
+          ],
+          "answer": 0
+        },
+        "answer_say": "Of! He is afraid of dogs.",
+        "native": {
+          "hook": "afraid of = กลัว!",
+          "tip": "ภาษาไทยพูด “กลัวงู” ได้เลย แต่ภาษาอังกฤษต้องใส่ of หลัง afraid: “I am afraid of snakes.”",
+          "caption": "คุณเคยพูดว่า “I am afraid snakes.” ไหม? 😅 ภาษาไทยพูด “กลัวงู” ได้เลย แต่ภาษาอังกฤษต้องใส่ of หลัง afraid: “I am afraid of snakes.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “of” จำไว้ให้ดีนะ! ลองพูดประโยคตัวอย่างออกเสียงหนึ่งรอบ แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Afraid needs “of”!",
+          "tip": "Thai says afraid snakes directly, but English needs of after afraid.",
+          "caption": "Do you say “I am afraid snakes.” 😅 Thai says afraid snakes directly, but English needs of after afraid. Say “I am afraid of snakes.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_excuse_me",
+      "lang": "th",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Start with Excuse me!",
+        "wrong": "Sorry, where is the station?",
+        "right": "Excuse me, where is the station?",
+        "strike": "Sorry",
+        "why": "To ask a stranger, say excuse me.",
+        "memory": "Excuse me first.",
+        "quiz": {
+          "stem": "___, where is the bank?",
+          "options": [
+            "Sorry",
+            "Excuse me"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Excuse me! Excuse me, where is the bank?",
+        "native": {
+          "hook": "เรียกคนแปลกหน้า ใช้ Excuse me!",
+          "tip": "ไทยใช้ “ขอโทษ” ทั้งตอนถามทางและตอนขอโทษ จึงมักพูด Sorry แต่อังกฤษเริ่มด้วย Excuse me: “Excuse me, where is the station?”",
+          "caption": "คุณเคยพูดว่า “Sorry, where is the station?” ไหม? 😅 ไทยใช้ “ขอโทษ” ทั้งตอนถามทางและตอนขอโทษ จึงมักพูด Sorry แต่อังกฤษเริ่มด้วย Excuse me: “Excuse me, where is the station?” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “Excuse me” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยคด้วยคำนี้ แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Ask a stranger with “Excuse me”!",
+          "tip": "Thai uses one word to get attention and to say sorry, but English starts a question to a stranger with Excuse me.",
+          "caption": "Do you say “Sorry, where is the station?” 😅 Thai uses one word to get attention and to say sorry, but English starts a question to a stranger with Excuse me. Say “Excuse me, where is the station?” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_good_at",
+      "lang": "th",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Good at, not good in!",
+        "wrong": "She is good in cooking.",
+        "right": "She is good at cooking.",
+        "strike": "in",
+        "why": "Say good at before the skill.",
+        "memory": "Good at.",
+        "quiz": {
+          "stem": "He is good ___ drawing.",
+          "options": [
+            "at",
+            "on"
+          ],
+          "answer": 0
+        },
+        "answer_say": "At! He is good at drawing.",
+        "native": {
+          "hook": "เก่งอะไร ต้องใช้ “good at”",
+          "tip": "ภาษาไทยพูด “เก่งทำอาหาร” โดยไม่มีคำเชื่อม จึงมักเดาเป็น in แต่ภาษาอังกฤษต้องใช้ good at: “She is good at cooking.”",
+          "caption": "คุณเคยพูดว่า “She is good in cooking.” ไหม? 😅 ภาษาไทยพูด “เก่งทำอาหาร” โดยไม่มีคำเชื่อม จึงมักเดาเป็น in แต่ภาษาอังกฤษต้องใช้ good at: “She is good at cooking.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “at” จำไว้ให้ดีนะ! ลองพูดประโยคตัวอย่างออกเสียงหนึ่งรอบ แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "If you're good at something, you h",
+          "tip": "Thai has no small word here, so it is easy to pick the wrong one, but English says good at.",
+          "caption": "Do you say “She is good in cooking.” 😅 Thai has no small word here, so it is easy to pick the wrong one, but English says good at. Say “She is good at cooking.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_can_order",
+      "lang": "th",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Put can before the verb!",
+        "wrong": "I speak English can.",
+        "right": "I can speak English.",
+        "strike": "can",
+        "why": "Can goes before the verb.",
+        "memory": "Can + verb.",
+        "quiz": {
+          "stem": "He ___ a car.",
+          "options": [
+            "drive can",
+            "can drive"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Can drive! He can drive a car.",
+        "native": {
+          "hook": "can ต้องอยู่หน้ากริยา!",
+          "tip": "ภาษาไทยวาง “ได้” ไว้หลังกริยา (พูดอังกฤษได้) แต่ภาษาอังกฤษต้องวาง can ไว้หน้ากริยา: “I can speak English.”",
+          "caption": "คุณเคยพูดว่า “I speak English can.” ไหม? 😅 ภาษาไทยวาง “ได้” ไว้หลังกริยา (พูดอังกฤษได้) แต่ภาษาอังกฤษต้องวาง can ไว้หน้ากริยา: “I can speak English.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “can drive” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยคด้วยคำนี้ แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Put “can” before the verb!",
+          "tip": "Thai puts the word for can after the verb, but English puts can before the verb.",
+          "caption": "Do you say “I speak English can.” 😅 Thai puts the word for can after the verb, but English puts can before the verb. Say “I can speak English.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_finish_eat",
+      "lang": "th",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Say finished eating!",
+        "wrong": "I finished eat lunch.",
+        "right": "I finished eating lunch.",
+        "strike": "eat",
+        "why": "After finish, use eating.",
+        "memory": "Finish eating.",
+        "quiz": {
+          "stem": "She finished ___ her homework.",
+          "options": [
+            "do",
+            "doing"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Doing! She finished doing her homework.",
+        "native": {
+          "hook": "finish ต้องตามด้วย -ing!",
+          "tip": "ภาษาไทยพูด “กินเสร็จ” โดยวางกริยาติดกันได้เลย แต่ภาษาอังกฤษหลัง finish ต้องเติม -ing: “I finished eating lunch.”",
+          "caption": "คุณเคยพูดว่า “I finished eat lunch.” ไหม? 😅 ภาษาไทยพูด “กินเสร็จ” โดยวางกริยาติดกันได้เลย แต่ภาษาอังกฤษหลัง finish ต้องเติม -ing: “I finished eating lunch.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “doing” จำไว้ให้ดีนะ! ลองพูดประโยคตัวอย่างออกเสียงหนึ่งรอบ แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "After finish, add -ing!",
+          "tip": "Thai joins two verbs directly, but English needs -ing after finish.",
+          "caption": "Do you say “I finished eat lunch.” 😅 Thai joins two verbs directly, but English needs -ing after finish. Say “I finished eating lunch.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_worried",
+      "lang": "th",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Say worried, not worry!",
+        "wrong": "I am worry about you.",
+        "right": "I am worried about you.",
+        "strike": "worry",
+        "why": "After am, use worried.",
+        "memory": "Am worried.",
+        "quiz": {
+          "stem": "She is ___ about the test.",
+          "options": [
+            "worry",
+            "worried"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Worried! She is worried about the test.",
+        "native": {
+          "hook": "am ต้องตามด้วย worried!",
+          "tip": "ภาษาไทยพูด “เป็นห่วง” (เป็น + ห่วง) จึงมักแปลตรง ๆ ว่า am worry แต่ภาษาอังกฤษต้องใช้ worried: “I am worried about you.”",
+          "caption": "คุณเคยพูดว่า “I am worry about you.” ไหม? 😅 ภาษาไทยพูด “เป็นห่วง” (เป็น + ห่วง) จึงมักแปลตรง ๆ ว่า am worry แต่ภาษาอังกฤษต้องใช้ worried: “I am worried about you.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “worried” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยคด้วยคำนี้ แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "After am, say “worried”!",
+          "tip": "Thai says be plus worry, so people say am worry, but English needs worried.",
+          "caption": "Do you say “I am worry about you.” 😅 Thai says be plus worry, so people say am worry, but English needs worried. Say “I am worried about you.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_take_me",
+      "lang": "th",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Go there? Use take!",
+        "wrong": "Please bring me to the airport.",
+        "right": "Please take me to the airport.",
+        "strike": "bring",
+        "why": "Use take when you go to another place.",
+        "memory": "Take me there.",
+        "quiz": {
+          "stem": "Can you ___ me to the bank?",
+          "options": [
+            "bring",
+            "take"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Take! Can you take me to the bank?",
+        "native": {
+          "hook": "พาไปที่อื่น ใช้ take!",
+          "tip": "ภาษาไทยใช้ “พา” กับการไปที่อื่น เมื่อแปลมักเลือก bring แต่ภาษาอังกฤษใช้ take เมื่อไปที่อื่น: “Please take me to the airport.”",
+          "caption": "คุณเคยพูดว่า “Please bring me to the airport.” ไหม? 😅 ภาษาไทยใช้ “พา” กับการไปที่อื่น เมื่อแปลมักเลือก bring แต่ภาษาอังกฤษใช้ take เมื่อไปที่อื่น: “Please take me to the airport.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “take” จำไว้ให้ดีนะ! ลองพูดประโยคตัวอย่างออกเสียงหนึ่งรอบ แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Going somewhere? Use “take”!",
+          "tip": "Thai uses one word for going with someone, so many people pick bring, but English uses take for going somewhere else.",
+          "caption": "Do you say “Please bring me to the airport.” 😅 Thai uses one word for going with someone, so many people pick bring, but English uses take for going somewhere else. Say “Please take me to the airport.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_thanks_coming",
+      "lang": "th",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Say thanks for coming!",
+        "wrong": "Thank you for come.",
+        "right": "Thank you for coming.",
+        "strike": "come",
+        "why": "After for, use coming.",
+        "memory": "For coming.",
+        "quiz": {
+          "stem": "Thanks for ___ me.",
+          "options": [
+            "help",
+            "helping"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Helping! Thanks for helping me.",
+        "native": {
+          "hook": "for ต้องตามด้วย -ing!",
+          "tip": "ภาษาไทยพูด “ขอบคุณที่มา” โดยใช้กริยาเดิม แต่ภาษาอังกฤษหลัง for ต้องเติม -ing: “Thank you for coming.”",
+          "caption": "คุณเคยพูดว่า “Thank you for come.” ไหม? 😅 ภาษาไทยพูด “ขอบคุณที่มา” โดยใช้กริยาเดิม แต่ภาษาอังกฤษหลัง for ต้องเติม -ing: “Thank you for coming.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “helping” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยคด้วยคำนี้ แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "After for, add -ing!",
+          "tip": "Thai uses the plain verb after thanks, but English needs -ing after for.",
+          "caption": "Do you say “Thank you for come.” 😅 Thai uses the plain verb after thanks, but English needs -ing after for. Say “Thank you for coming.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_phone_dead",
+      "lang": "th",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Say dead, not die!",
+        "wrong": "My phone is die.",
+        "right": "My phone is dead.",
+        "strike": "die",
+        "why": "Use dead after is.",
+        "memory": "Is dead.",
+        "quiz": {
+          "stem": "My battery is ___.",
+          "options": [
+            "die",
+            "dead"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Dead! My battery is dead.",
+        "native": {
+          "hook": "is ต้องตามด้วย dead!",
+          "tip": "ภาษาไทยใช้ “ตาย” คำเดียวทั้ง die และ dead จึงมักพูด is die แต่หลัง is ต้องใช้ dead: “My phone is dead.”",
+          "caption": "คุณเคยพูดว่า “My phone is die.” ไหม? 😅 ภาษาไทยใช้ “ตาย” คำเดียวทั้ง die และ dead จึงมักพูด is die แต่หลัง is ต้องใช้ dead: “My phone is dead.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “dead” จำไว้ให้ดีนะ! ลองพูดประโยคตัวอย่างออกเสียงหนึ่งรอบ แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "After is, say “dead”!",
+          "tip": "Thai uses one word for die and dead, so many people say is die, but English needs dead after is.",
+          "caption": "Do you say “My phone is die.” 😅 Thai uses one word for die and dead, so many people say is die, but English needs dead after is. Say “My phone is dead.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_older_years",
+      "lang": "th",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Put two years first!",
+        "wrong": "He is older than me two years.",
+        "right": "He is two years older than me.",
+        "strike": "two years",
+        "why": "Say how many years before older.",
+        "memory": "Two years older.",
+        "quiz": {
+          "stem": "She is ___ than me.",
+          "options": [
+            "older three years",
+            "three years older"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Three years older! She is three years older than me.",
+        "native": {
+          "hook": "กี่ปี ต้องวางไว้หน้า older!",
+          "tip": "ภาษาไทยพูด “แก่กว่าสองปี” โดยวางจำนวนปีไว้ท้าย แต่ภาษาอังกฤษต้องวางไว้หน้า older: “He is two years older than me.”",
+          "caption": "คุณเคยพูดว่า “He is older than me two years.” ไหม? 😅 ภาษาไทยพูด “แก่กว่าสองปี” โดยวางจำนวนปีไว้ท้าย แต่ภาษาอังกฤษต้องวางไว้หน้า older: “He is two years older than me.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “three years older” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยคด้วยคำนี้ แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Put the years before “older”!",
+          "tip": "Thai puts the number of years at the end, but English puts it before older.",
+          "caption": "Do you say “He is older than me two years.” 😅 Thai puts the number of years at the end, but English puts it before older. Say “He is two years older than me.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_youre_welcome",
+      "lang": "th",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Reply with You're welcome!",
+        "wrong": "Thank you. Welcome.",
+        "right": "Thank you. You're welcome.",
+        "strike": "Welcome",
+        "why": "To answer thank you, say you're welcome.",
+        "memory": "You're welcome.",
+        "quiz": {
+          "stem": "Thank you! ___.",
+          "options": [
+            "Welcome",
+            "You're welcome"
+          ],
+          "answer": 1
+        },
+        "answer_say": "You're welcome! Thank you. You're welcome.",
+        "native": {
+          "hook": "ตอบขอบคุณ ใช้ You're welcome!",
+          "tip": "ภาษาไทยตอบรับคำขอบคุณสั้น ๆ ว่า “ยินดี” จึงมักพูดแค่ Welcome แต่ภาษาอังกฤษตอบว่า You're welcome: “Thank you. You're welcome.”",
+          "caption": "คุณเคยพูดว่า “Thank you. Welcome.” ไหม? 😅 ภาษาไทยตอบรับคำขอบคุณสั้น ๆ ว่า “ยินดี” จึงมักพูดแค่ Welcome แต่ภาษาอังกฤษตอบว่า You're welcome: “Thank you. You're welcome.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “You're welcome” จำไว้ให้ดีนะ! ลองพูดประโยคตัวอย่างออกเสียงหนึ่งรอบ แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Reply: “You're welcome”!",
+          "tip": "Thai answers thanks with one short word, so people say only Welcome, but English says You're welcome.",
+          "caption": "Do you say “Thank you. Welcome.” 😅 Thai answers thanks with one short word, so people say only Welcome, but English says You're welcome. Say “Thank you. You're welcome.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_how_long",
+      "lang": "th",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Just say how long!",
+        "wrong": "How long time does it take?",
+        "right": "How long does it take?",
+        "strike": "time",
+        "why": "Do not add time after how long.",
+        "memory": "How long?",
+        "quiz": {
+          "stem": "___ does the trip take?",
+          "options": [
+            "How long time",
+            "How long"
+          ],
+          "answer": 1
+        },
+        "answer_say": "How long! How long does the trip take?",
+        "native": {
+          "hook": "ถามระยะเวลา ใช้ How long!",
+          "tip": "ภาษาไทยถามว่า “ใช้เวลานานแค่ไหน” มีคำว่าเวลา จึงมักเติม time แต่ภาษาอังกฤษพูดแค่ How long: “How long does it take?”",
+          "caption": "คุณเคยพูดว่า “How long time does it take?” ไหม? 😅 ภาษาไทยถามว่า “ใช้เวลานานแค่ไหน” มีคำว่าเวลา จึงมักเติม time แต่ภาษาอังกฤษพูดแค่ How long: “How long does it take?” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “How long” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยคด้วยคำนี้ แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Just say “How long”!",
+          "tip": "Thai has the word for time in this question, so people add time, but English says only How long.",
+          "caption": "Do you say “How long time does it take?” 😅 Thai has the word for time in this question, so people add time, but English says only How long. Say “How long does it take?” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_always_late",
+      "lang": "th",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Always goes before late!",
+        "wrong": "I am late always.",
+        "right": "I am always late.",
+        "strike": "always",
+        "why": "Put always before late.",
+        "memory": "Am always late.",
+        "quiz": {
+          "stem": "She is ___.",
+          "options": [
+            "happy always",
+            "always happy"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Always happy! She is always happy.",
+        "native": {
+          "hook": "always วางไว้ก่อน late!",
+          "tip": "ภาษาไทยวางคำว่า “เสมอ” ไว้ท้ายประโยคได้ (มาสายเสมอ) แต่ภาษาอังกฤษต้องวาง always ไว้หน้า late: “I am always late.”",
+          "caption": "คุณเคยพูดว่า “I am late always.” ไหม? 😅 ภาษาไทยวางคำว่า “เสมอ” ไว้ท้ายประโยคได้ (มาสายเสมอ) แต่ภาษาอังกฤษต้องวาง always ไว้หน้า late: “I am always late.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “always happy” จำไว้ให้ดีนะ! ลองพูดประโยคตัวอย่างออกเสียงหนึ่งรอบ แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Put “always” before “late”!",
+          "tip": "Thai can put the word for always at the end, but English puts always before late.",
+          "caption": "Do you say “I am late always.” 😅 Thai can put the word for always at the end, but English puts always before late. Say “I am always late.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_me_neither",
+      "lang": "th",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Say me neither!",
+        "wrong": "I don't like fish. Me too.",
+        "right": "I don't like fish. Me neither.",
+        "strike": "too",
+        "why": "After a no, say me neither.",
+        "memory": "No? Me neither.",
+        "quiz": {
+          "stem": "I can't swim. ___.",
+          "options": [
+            "Me too",
+            "Me neither"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Me neither! I can't swim. Me neither.",
+        "native": {
+          "hook": "ตอบปฏิเสธ ใช้ Me neither!",
+          "tip": "ไทยตอบว่า “ฉันก็เหมือนกัน” ได้ทั้งสองกรณี จึงมักพูด Me too แต่หลังประโยคปฏิเสธ ต้องพูด Me neither: “I don't like fish. Me neither.”",
+          "caption": "คุณเคยพูดว่า “I don't like fish. Me too.” ไหม? 😅 ไทยตอบว่า “ฉันก็เหมือนกัน” ได้ทั้งสองกรณี จึงมักพูด Me too แต่หลังประโยคปฏิเสธ ต้องพูด Me neither: “I don't like fish. Me neither.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “Me neither” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยคด้วยคำนี้ แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "After a no, say “Me neither”!",
+          "tip": "Thai answers with one phrase for both cases, so people say Me too, but after a no English says Me neither.",
+          "caption": "Do you say “I don't like fish. Me too.” 😅 Thai answers with one phrase for both cases, so people say Me too, but after a no English says Me neither. Say “I don't like fish. Me neither.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_half_past",
+      "lang": "th",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Say three thirty!",
+        "wrong": "It is three half.",
+        "right": "It is three thirty.",
+        "strike": "half",
+        "why": "For :30, say thirty.",
+        "memory": "Three thirty.",
+        "quiz": {
+          "stem": "It is 5:30. It is five ___.",
+          "options": [
+            "half",
+            "thirty"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Thirty! It is five thirty.",
+        "native": {
+          "hook": "สามโมงครึ่ง = three thirty",
+          "tip": "ภาษาไทยพูด “สามโมงครึ่ง” จึงมักแปลตรง ๆ ว่า three half แต่ภาษาอังกฤษแบบอเมริกันพูดว่า thirty: “It is three thirty.”",
+          "caption": "คุณเคยพูดว่า “It is three half.” ไหม? 😅 ภาษาไทยพูด “สามโมงครึ่ง” จึงมักแปลตรง ๆ ว่า three half แต่ภาษาอังกฤษแบบอเมริกันพูดว่า thirty: “It is three thirty.” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “thirty” จำไว้ให้ดีนะ! ลองพูดประโยคตัวอย่างออกเสียงหนึ่งรอบ แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Say “three thirty”!",
+          "tip": "Thai says the hour and then half, but English says thirty.",
+          "caption": "Do you say “It is three half.” 😅 Thai says the hour and then half, but English says thirty. Say “It is three thirty.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_make_mistake",
+      "lang": "th",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Make a mistake!",
+        "wrong": "I did a mistake in my test.",
+        "right": "I made a mistake in my test.",
+        "strike": "did",
+        "why": "We say make a mistake.",
+        "memory": "Make a mistake.",
+        "quiz": {
+          "stem": "Oops, I ___ a mistake.",
+          "options": [
+            "did",
+            "made"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Made! I made a mistake.",
+        "native": {
+          "hook": "ทำผิด = make a mistake!",
+          "tip": "ภาษาไทยใช้ “ทำ” กับแทบทุกอย่าง (ทำผิด ทำการบ้าน) จึงมักพูด did แต่ mistake ใช้คู่กับ make: “I made a mistake in my test.”",
+          "caption": "คุณเคยพูดว่า “I did a mistake in my test.” ไหม? 😅 ภาษาไทยใช้ “ทำ” กับแทบทุกอย่าง (ทำผิด ทำการบ้าน) จึงมักพูด did แต่ mistake ใช้คู่กับ make: “I made a mistake in my test.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “made” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยคด้วยคำนี้ แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Say “make a mistake”!",
+          "tip": "Thai uses one word for do and make, so many people say did a mistake, but English says made a mistake.",
+          "caption": "Do you say “I did a mistake in my test.” 😅 Thai uses one word for do and make, so many people say did a mistake, but English says made a mistake. Say “I made a mistake in my test.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_tag_question",
+      "lang": "th",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Say aren't you, not isn't it!",
+        "wrong": "You are a teacher, isn't it?",
+        "right": "You are a teacher, aren't you?",
+        "strike": "isn't it",
+        "why": "End with a short question that fits.",
+        "memory": "You are, aren't you?",
+        "quiz": {
+          "stem": "She is tired, ___?",
+          "options": [
+            "isn't it",
+            "isn't she"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Isn't she! She is tired, isn't she?",
+        "native": {
+          "hook": "ถามย้ำ ต้องตรงกับประโยค!",
+          "tip": "ภาษาไทยลงท้ายถามย้ำว่า “ใช่ไหม” ได้ทุกประโยค จึงมักพูด isn't it แต่ภาษาอังกฤษต้องเปลี่ยนตามประโยค: “You are a teacher, aren't you?”",
+          "caption": "คุณเคยพูดว่า “You are a teacher, isn't it?” ไหม? 😅 ภาษาไทยลงท้ายถามย้ำว่า “ใช่ไหม” ได้ทุกประโยค จึงมักพูด isn't it แต่ภาษาอังกฤษต้องเปลี่ยนตามประโยค: “You are a teacher, aren't you?” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “isn't she” จำไว้ให้ดีนะ! ลองพูดประโยคตัวอย่างออกเสียงหนึ่งรอบ แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Make the ending fit the sentence!",
+          "tip": "Thai uses one short ending for every sentence, so people say isn't it each time, but English changes it to fit the sentence.",
+          "caption": "Do you say “You are a teacher, isn't it?” 😅 Thai uses one short ending for every sentence, so people say isn't it each time, but English changes it to fit the sentence. Say “You are a teacher, aren't you?” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_because_of",
+      "lang": "th",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Because of traffic!",
+        "wrong": "I am late because traffic.",
+        "right": "I am late because of traffic.",
+        "strike": "because",
+        "why": "Before a thing, say because of.",
+        "memory": "Because of.",
+        "quiz": {
+          "stem": "We stayed home ___ the rain.",
+          "options": [
+            "because",
+            "because of"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Because of! We stayed home because of the rain.",
+        "native": {
+          "hook": "because of + คำนาม!",
+          "tip": "ภาษาไทยใช้ “เพราะ” ได้ทั้งหน้าคำนามและประโยค (เพราะฝน) แต่ภาษาอังกฤษ ถ้าตามด้วยคำนามต้องใช้ because of: “I am late because of traffic.”",
+          "caption": "คุณเคยพูดว่า “I am late because traffic.” ไหม? 😅 ภาษาไทยใช้ “เพราะ” ได้ทั้งหน้าคำนามและประโยค (เพราะฝน / เพราะฝนตก) แต่ภาษาอังกฤษ ถ้าตามด้วยคำนามต้องใช้ because of: “I am late because of traffic.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “because of” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยคด้วยคำนี้ แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Before a noun, use “because of”!",
+          "tip": "Thai uses one word before a noun or a sentence, but English needs because of before a noun.",
+          "caption": "Do you say “I am late because traffic.” 😅 Thai uses one word before a noun or a sentence, but English needs because of before a noun. Say “I am late because of traffic.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_dont_touch",
+      "lang": "th",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Say Don't, not No!",
+        "wrong": "No touch it!",
+        "right": "Don't touch it!",
+        "strike": "No",
+        "why": "To say stop, begin with don't.",
+        "memory": "Don't + verb.",
+        "quiz": {
+          "stem": "___ run here!",
+          "options": [
+            "No",
+            "Don't"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Don't! Don't run here!",
+        "native": {
+          "hook": "จะบอก “อย่า” ให้ใช้ Don't!",
+          "tip": "เราใช้ “อย่า” นำหน้ากริยา และเห็นป้าย “No smoking” บ่อย จึงพูด No + กริยา แต่ถ้าสั่งห้าม ต้องใช้ Don't: “Don't touch it!”",
+          "caption": "คุณเคยพูดว่า “No touch it!” ไหม? 😅 ภาษาไทยใช้ “อย่า” นำหน้ากริยา และเราเห็นป้าย “No smoking” บ่อย จึงมักพูด No + กริยา แต่ถ้าบอกให้ใครหยุดทำ ภาษาอังกฤษต้องใช้ Don't: “Don't touch it!” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “Don't” จำไว้ให้ดีนะ! ลองพูดประโยคตัวอย่างออกเสียงหนึ่งรอบ แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "To say stop, use “Don't”!",
+          "tip": "Thai puts one word before the verb, and signs like “No smoking” make people say No, but to tell someone to stop, English needs Don't: “Don't touch it!”",
+          "caption": "Do you ever say this? “No touch it!” 😅 Thai puts one word before the verb, and signs like “No smoking” make people say No, but to tell someone to stop, English needs Don't. Say “Don't touch it!” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_lets_go",
+      "lang": "th",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Say let's, not let!",
+        "wrong": "Let go home now.",
+        "right": "Let's go home now.",
+        "strike": "Let",
+        "why": "To say we go together, use let's.",
+        "memory": "Let's go.",
+        "quiz": {
+          "stem": "___ eat now.",
+          "options": [
+            "Let",
+            "Let's"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Let's! Let's eat now.",
+        "native": {
+          "hook": "ชวนกันไป ใช้ Let's go!",
+          "tip": "ภาษาไทยไม่มีเสียง s ท้ายคำ จึงมักพูดและเขียนแค่ Let แต่ชวนกันทำอะไรต้องใช้ Let's: “Let's go home now.”",
+          "caption": "คุณเคยพูดว่า “Let go home now.” ไหม? 😅 ภาษาไทยไม่มีเสียง s ท้ายคำ จึงมักพูดและเขียนแค่ Let แต่ชวนกันทำอะไรต้องใช้ Let's: “Let's go home now.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “Let's” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยคด้วยคำนี้ แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Invite with “Let's”!",
+          "tip": "Thai has no s sound at the end of words, so people drop the 's, but English invites with Let's.",
+          "caption": "Do you say “Let go home now.” 😅 Thai has no s sound at the end of words, so people drop the 's, but English invites with Let's. Say “Let's go home now.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_how_to_say",
+      "lang": "th",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Ask: How do you say it?",
+        "wrong": "How to say this in English?",
+        "right": "How do you say this in English?",
+        "strike": "How to say",
+        "why": "Ask a full question with do you.",
+        "memory": "How do you say?",
+        "quiz": {
+          "stem": "___ this word in English?",
+          "options": [
+            "How to say",
+            "How do you say"
+          ],
+          "answer": 1
+        },
+        "answer_say": "How do you say! How do you say this word in English?",
+        "native": {
+          "hook": "ถามคำพูด ใช้ How do you say!",
+          "tip": "ภาษาไทยถามสั้น ๆ ว่า “พูดอย่างไร” ได้เลย จึงมักพูด How to say แต่ภาษาอังกฤษต้องมี do you: “How do you say this in English?”",
+          "caption": "คุณเคยพูดว่า “How to say this in English?” ไหม? 😅 ภาษาไทยถามสั้น ๆ ว่า “พูดอย่างไร” ได้เลย จึงมักพูด How to say แต่ภาษาอังกฤษต้องมี do you: “How do you say this in English?” ฟังครู Carlos แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “How do you say” จำไว้ให้ดีนะ! ลองพูดประโยคตัวอย่างออกเสียงหนึ่งรอบ แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Ask with “How do you say”!",
+          "tip": "Thai asks this in a short way, so people say How to say, but English needs do you.",
+          "caption": "Do you say “How to say this in English?” 😅 Thai asks this in a short way, so people say How to say, but English needs do you. Say “How do you say this in English?” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_th_in_five_min",
+      "lang": "th",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Say in five minutes!",
+        "wrong": "I will be back after five minutes.",
+        "right": "I will be back in five minutes.",
+        "strike": "after",
+        "why": "For a time from now, use in.",
+        "memory": "In five minutes.",
+        "quiz": {
+          "stem": "The bus comes ___ five minutes.",
+          "options": [
+            "after",
+            "in"
+          ],
+          "answer": 1
+        },
+        "answer_say": "In! The bus comes in five minutes.",
+        "native": {
+          "hook": "อีก 5 นาที ใช้ in ไม่ใช่ after!",
+          "tip": "ภาษาไทยพูด “อีกห้านาที” หรือ “หลังจากห้านาที” ได้ จึงมักเลือก after แต่บอกเวลาที่จะถึงจากตอนนี้ ใช้ in: “I will be back in five minutes.”",
+          "caption": "คุณเคยพูดว่า “I will be back after five minutes.” ไหม? 😅 ภาษาไทยพูด “อีกห้านาที” หรือ “หลังจากห้านาที” ได้ จึงมักเลือก after แต่บอกเวลาที่จะถึงจากตอนนี้ ใช้ in: “I will be back in five minutes.” ฟังครู Ama แล้วพูดตามนะ! ฝึกเพิ่มในแอป Lexkite",
+          "comment": "เฉลย: “in” จำไว้ให้ดีนะ! ลองเขียนประโยคของคุณเองหนึ่งประโยคด้วยคำนี้ แล้วฝึกเพิ่มฟรีได้ที่นี่: {link}",
+          "hashtags": [
+            "#เรียนภาษาอังกฤษ",
+            "#ภาษาอังกฤษ",
+            "#พูดอังกฤษ",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Use “in”, not “after”!",
+          "tip": "Thai can say after for a time from now, but English uses in.",
+          "caption": "Do you say “I will be back after five minutes.” 😅 Thai can say after for a time from now, but English uses in. Say “I will be back in five minutes.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    }
+  ]
+}

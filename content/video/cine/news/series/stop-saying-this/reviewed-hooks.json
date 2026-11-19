@@ -1,0 +1,305 @@
+{
+ "_note": "Stop Saying This: hook + script verdicts (qc_v9 hook_truth, video-series.yml gate). Generator writes hook_true null / script_reviewed false; a reviewer (scripts/video/tpl/review_queue.py) sets hook_true, script_reviewed, reviewer, note. Script must equal the spec word for word.",
+ "verdicts": {
+  "sts_040ec72a": {
+   "template": "mistake",
+   "hook": "✗ “I apologize you for the delay.”",
+   "hook_true": null,
+   "script_reviewed": false,
+   "script": {
+    "m_h": "Stop saying this.",
+    "m_w": "I apologize you for the delay.",
+    "m_k": "Just say: I apologize to you for the delay.",
+    "m_y": "Apologize to a person, for a reason.",
+    "m_x": "He apologized to his boss.",
+    "m_t": "Most people just say: sorry for the delay!",
+    "m_q": "Quick quiz! She apologized blank her friend.",
+    "m_q2": "To, or nothing?",
+    "m_a": "To! She apologized to her friend.",
+    "m_sh": "Send this to a friend who says it!",
+    "m_c": "Save this, and check your grammar on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "I apologize to you for the delay.",
+    "right_lines": [
+     "m_k"
+    ],
+    "wrong_line": "m_w",
+    "wrong": "I apologize you for the delay."
+   },
+   "source": "sb_040ec72a"
+  },
+  "sts_3237e46f": {
+   "template": "mistake",
+   "hook": "✗ Stop saying / “What I do?”",
+   "hook_true": null,
+   "script_reviewed": false,
+   "script": {
+    "m_h": "Stop saying this.",
+    "m_w": "What I do?",
+    "m_k": "Just say: What are my options?",
+    "m_y": "Ask for options. The agent will offer solutions.",
+    "m_x": "I missed my flight. What are my options?",
+    "m_t": "One question opens many doors!",
+    "m_q": "Quick quiz! I missed my flight. What blank my options?",
+    "m_q2": "Is, or are?",
+    "m_a": "Are! I missed my flight. What are my options?",
+    "m_sh": "Send this to a friend who says it!",
+    "m_c": "Save this, and check your grammar on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "What are my options?",
+    "right_lines": [
+     "m_k"
+    ],
+    "wrong_line": "m_w",
+    "wrong": "What I do?"
+   },
+   "source": "sb_3237e46f"
+  },
+  "sts_43b7bd40": {
+   "template": "mistake",
+   "hook": "✗ Stop saying / “They lack of experience.”",
+   "hook_true": null,
+   "script_reviewed": false,
+   "script": {
+    "m_h": "Stop saying this.",
+    "m_w": "They lack of experience.",
+    "m_k": "Just say: They lack experience.",
+    "m_y": "The verb lack takes no of.",
+    "m_x": "The team lacks money. There's a lack of time.",
+    "m_t": "The noun uses of: a lack of sleep!",
+    "m_q": "Quick quiz! This soup lacks blank.",
+    "m_q2": "Salt, or of salt?",
+    "m_a": "Salt! This soup lacks salt.",
+    "m_sh": "Send this to a friend who says it!",
+    "m_c": "Save this, and check your grammar on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "They lack experience.",
+    "right_lines": [
+     "m_k"
+    ],
+    "wrong_line": "m_w",
+    "wrong": "They lack of experience."
+   },
+   "source": "sb_43b7bd40"
+  },
+  "sts_7281e267": {
+   "template": "mistake",
+   "hook": "✗ Stop / “From where you know Emma?”",
+   "hook_true": null,
+   "script_reviewed": false,
+   "script": {
+    "m_h": "Stop saying this.",
+    "m_w": "From where you know Emma?",
+    "m_k": "Just say: So how do you know Emma?",
+    "m_y": "Ask with do: how do you know her?",
+    "m_x": "How do you know Sam?",
+    "m_t": "This means how did you meet her!",
+    "m_q": "Quick quiz! So how blank know Emma?",
+    "m_q2": "You, or do you?",
+    "m_a": "Do you! So how do you know Emma?",
+    "m_sh": "Send this to a friend who says it!",
+    "m_c": "Save this, and check your grammar on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "So how do you know Emma?",
+    "right_lines": [
+     "m_k"
+    ],
+    "wrong_line": "m_w",
+    "wrong": "From where you know Emma?"
+   },
+   "source": "sb_7281e267"
+  },
+  "sts_9172f8df": {
+   "template": "mistake",
+   "hook": "✗ Stop saying / “I lost my luggages.”",
+   "hook_true": null,
+   "script_reviewed": false,
+   "script": {
+    "m_h": "Stop saying this.",
+    "m_w": "I lost my luggages.",
+    "m_k": "Just say: My bag didn't arrive.",
+    "m_y": "Luggage has no plural. Say bags or my luggage.",
+    "m_x": "My bags didn't arrive. All my luggage is in one suitcase.",
+    "m_t": "One bag, two bags, some luggage!",
+    "m_q": "Quick quiz! My blank didn't arrive.",
+    "m_q2": "Luggages, or luggage?",
+    "m_a": "Luggage! My luggage didn't arrive.",
+    "m_sh": "Send this to a friend who says it!",
+    "m_c": "Save this, and check your grammar on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "My bag didn't arrive.",
+    "right_lines": [
+     "m_k"
+    ],
+    "wrong_line": "m_w",
+    "wrong": "I lost my luggages."
+   },
+   "source": "sb_9172f8df"
+  },
+  "sts_f6d438d7": {
+   "template": "mistake",
+   "hook": "✗ Stop / “It depends of the weather.”",
+   "hook_true": null,
+   "script_reviewed": false,
+   "script": {
+    "m_h": "Stop saying this.",
+    "m_w": "It depends of the weather.",
+    "m_k": "Just say: It depends on the weather.",
+    "m_y": "The word after depends is always on.",
+    "m_x": "It depends on the price.",
+    "m_t": "Rely on, count on, depend on. All on!",
+    "m_q": "Quick quiz! It all depends blank you.",
+    "m_q2": "On, or of?",
+    "m_a": "On! It all depends on you.",
+    "m_sh": "Send this to a friend who says it!",
+    "m_c": "Save this, and check your grammar on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "It depends on the weather.",
+    "right_lines": [
+     "m_k"
+    ],
+    "wrong_line": "m_w",
+    "wrong": "It depends of the weather."
+   },
+   "source": "sb_f6d438d7"
+  },
+  "sts_04105eed": {
+   "template": "mistake",
+   "hook": "✗ Stop saying / “We rely in technology.”",
+   "hook_true": null,
+   "script_reviewed": false,
+   "script": {
+    "m_h": "Stop saying this.",
+    "m_w": "We rely in technology.",
+    "m_k": "Just say: We rely on technology.",
+    "m_y": "Rely always takes on.",
+    "m_x": "You can rely on me. Many people rely on their phones.",
+    "m_t": "Depend works the same: depend on!",
+    "m_q": "Quick quiz! Small shops rely blank local customers.",
+    "m_q2": "In, or on?",
+    "m_a": "On! Small shops rely on local customers.",
+    "m_sh": "Send this to a friend who says it!",
+    "m_c": "Save this, and check your grammar on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "We rely on technology.",
+    "right_lines": [
+     "m_k"
+    ],
+    "wrong_line": "m_w",
+    "wrong": "We rely in technology."
+   },
+   "source": "sb_04105eed"
+  },
+  "sts_1ec77f5c": {
+   "template": "mistake",
+   "hook": "✗ Stop saying / “Please fix until Friday.”",
+   "hook_true": null,
+   "script_reviewed": false,
+   "script": {
+    "m_h": "Stop saying this.",
+    "m_w": "Please fix until Friday.",
+    "m_k": "Just say: I'd like this fixed by Friday.",
+    "m_y": "Use by for the last day. Until means all the time before.",
+    "m_x": "Please reply by Monday.",
+    "m_t": "Until Friday means keep fixing all week!",
+    "m_q": "Quick quiz! Please send it blank Friday.",
+    "m_q2": "Until, or by?",
+    "m_a": "By! Please send it by Friday.",
+    "m_sh": "Send this to a friend who says it!",
+    "m_c": "Save this, and check your grammar on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "I'd like this fixed by Friday.",
+    "right_lines": [
+     "m_k"
+    ],
+    "wrong_line": "m_w",
+    "wrong": "Please fix until Friday."
+   },
+   "source": "sb_1ec77f5c"
+  },
+  "sts_91e27418": {
+   "template": "mistake",
+   "hook": "✗ Stop / “I don't rarely go out.”",
+   "hook_true": null,
+   "script_reviewed": false,
+   "script": {
+    "m_h": "Stop saying this.",
+    "m_w": "I don't rarely go out.",
+    "m_k": "Just say: I rarely go out.",
+    "m_y": "Rarely is already negative. No don't.",
+    "m_x": "She rarely eats meat. We rarely watch TV.",
+    "m_t": "Hardly and seldom work the same way!",
+    "m_q": "Quick quiz! I blank drink coffee.",
+    "m_q2": "Don't rarely, or rarely?",
+    "m_a": "Rarely! I rarely drink coffee.",
+    "m_sh": "Send this to a friend who says it!",
+    "m_c": "Save this, and check your grammar on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "I rarely go out.",
+    "right_lines": [
+     "m_k"
+    ],
+    "wrong_line": "m_w",
+    "wrong": "I don't rarely go out."
+   },
+   "source": "sb_91e27418"
+  },
+  "sts_9e149cb1": {
+   "template": "mistake",
+   "hook": "✗ Stop / “He resembles to his father.”",
+   "hook_true": null,
+   "script_reviewed": false,
+   "script": {
+    "m_h": "Stop saying this.",
+    "m_w": "He resembles to his father.",
+    "m_k": "Just say: He resembles his father.",
+    "m_y": "Resemble needs no word after it.",
+    "m_x": "She resembles her mom. This city resembles Paris.",
+    "m_t": "Also never say is resembling!",
+    "m_q": "Quick quiz! She blank her sister.",
+    "m_q2": "Resembles, or resembles to?",
+    "m_a": "Resembles! She resembles her sister.",
+    "m_sh": "Send this to a friend who says it!",
+    "m_c": "Save this, and check your grammar on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "He resembles his father.",
+    "right_lines": [
+     "m_k"
+    ],
+    "wrong_line": "m_w",
+    "wrong": "He resembles to his father."
+   },
+   "source": "sb_9e149cb1"
+  }
+ }
+}

@@ -1,0 +1,46 @@
+{
+ "id": "ielts-writing-phrase",
+ "area": "writing-ielts",
+ "name": "IELTS Writing phrase (Task 1/2) – câu đơn giản → cụm học thuật",
+ "goal": "Câu viết đơn giản/lặp của người học → hỏi có ổn không → cụm học thuật dùng được ngay + khi nào dùng → câu nâng cấp → mẹo Kit. Payoff: thanh đo (meter) BAND 5 → BAND 7+ ở beat example.",
+ "format_id": "ielts-band-up",
+ "cefr": "B1–B2",
+ "duration": [20, 40],
+ "topicHint": "\"IELTS Writing Task 1: …\" / \"IELTS Writing Task 2: …\" → ielts-exam (library/classroom; phòng exam/school chưa ready) – chỉ Ama (khuôn hình 1 người nói)",
+ "roles": { "learner": "Ama – người viết câu đơn giản, tự nâng cấp + CTA", "kit": "Kit – lưu ý dùng cụm (vị trí, dấu phẩy, tránh lặp)" },
+ "scenes": {
+  "library": { "roles": { "learner": ["ama"] } },
+  "classroom": { "roles": { "learner": ["ama"] } }
+ },
+ "vars": {
+  "task": { "desc": "Task 1 hoặc Task 2", "required": true, "maxWords": 2 },
+  "phrase": { "desc": "cụm học thuật (từ khóa) – I firmly believe that, rose sharply, The chart illustrates, On the other hand", "required": true, "maxWords": 4 },
+  "basicShort": { "desc": "2–4 từ lõi của câu đơn giản (I think, went up a lot) – chữ hook trên hình", "required": true, "maxWords": 4 },
+  "hookLine": { "desc": "câu mở ≤ 5 âm tiết, Ama nói. Có wait → clip sốc (Wait, \"I think\" again?) – khi đó câu situation dùng ?; hoặc câu hỏi thường → clip think, khi đó example mở bằng Perfect:/Great: (clip cười)", "required": true, "maxWords": 5 },
+  "basic": { "desc": "câu đơn giản người học viết (band thấp) – nếu hook có wait: kết thúc bằng câu hỏi (… Is that okay?)", "required": true },
+  "rule": { "desc": "câu giới thiệu cụm, chứa NGUYÊN VĂN phrase + khi nào dùng", "required": true },
+  "better": { "desc": "câu nâng cấp hoàn chỉnh chứa phrase, cùng ý câu basic", "required": true },
+  "basicCard": { "desc": "thẻ BAND 5 (≤ 32 ký tự)", "required": true },
+  "betterCard": { "desc": "thẻ BAND 7+ (≤ 32 ký tự)", "required": true },
+  "tip": { "desc": "lưu ý dùng cụm sau \"Kit's tip:\" (vị trí trong bài, dấu phẩy, đừng lặp quá 1 lần)", "required": true }
+ },
+ "title": ["IELTS Writing {{task}}: \"{{phrase}}\"", "Upgrade your IELTS {{task}} sentence"],
+ "hook": ["Still writing \"{{basicShort}}\"?", "IELTS {{task}} phrase"],
+ "beats": [
+  { "id": "hook", "beat": "hook", "role": "learner", "emotions": ["wrong", "ask"], "maxWords": 5, "maxSec": 1.9, "text": ["{{hookLine}}"], "expr": "surprised", "gesture": "" },
+  { "id": "situation", "beat": "situation", "role": "learner", "emotions": ["ask", "explain"], "maxWords": 16, "text": ["{{basic}}"], "expr": "thinking", "gesture": "" },
+  { "id": "explain", "beat": "explain", "role": "learner", "emotions": ["explain"], "maxWords": 16, "punch": true, "must": ["kw:0"], "text": ["{{rule}}"], "expr": "confident", "gesture": "open hands" },
+  { "id": "example", "beat": "example", "role": "learner", "emotions": ["explain", "right"], "maxWords": 16, "must": ["kw:0"], "text": ["{{better}}"], "expr": "confident", "gesture": "" },
+  { "id": "tip", "beat": "tip", "role": "kit", "maxWords": 18, "text": ["Kit's tip: {{tip}}"], "expr": "proud", "gesture": "" },
+  { "id": "cta", "beat": "cta", "role": "learner", "emotions": ["cta"], "maxWords": 8, "text": ["Practice IELTS writing free on lexkite.com", "Build your IELTS phrases on lexkite.com", "See model essays on lexkite.com"], "expr": "happy smile", "gesture": "waving hello" }
+ ],
+ "keywords": ["{{phrase}}"],
+ "wrong": "{{basicCard}}",
+ "right": "{{betterCard}}",
+ "caption": ["IELTS Writing {{task}}: try \"{{phrase}}\" instead of \"{{basicShort}}\"", "Save this IELTS Writing {{task}} phrase: {{phrase}}"],
+ "hashtags": ["ielts", "ieltswriting", "ieltspreparation", "academicenglish", "ieltsvocabulary"],
+ "writing": {
+  "do": ["Cụm học thuật thông dụng, dùng được ngay trong Task 1 (The chart illustrates, rose sharply) hoặc Task 2 (I firmly believe that, On the other hand)", "Câu basic là lỗi THẬT của người học: lặp ý (In my opinion, I think), quá đời thường (went up a lot), mở bằng But", "Câu nâng cấp giữ nguyên ý, chỉ đổi cụm – nói rõ dùng ở phần nào của bài", "Chỉ Ama nói (khuôn hình ielts-band-up 1 người): 5 câu = 5 clip khác nhau (think, sốc/cười, 2 clip giảng, vẫy tay)"],
+  "dont": ["Không hứa điểm band (\"get band 7 with this\") – chỉ \"sounds more academic\"", "Không nói câu basic là sai ngữ pháp khi nó chỉ kém học thuật", "Không cụm sáo rỗng giám khảo không thích (In this day and age, Every coin has two sides)"]
+ }
+}

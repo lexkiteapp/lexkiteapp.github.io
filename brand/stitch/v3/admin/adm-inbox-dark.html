@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Admin — Hộp thư liên hệ</title>
+<!-- Google Fonts: Inter & Material Symbols Rounded -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<!-- Tailwind CSS CDN with Forms Plugin -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config Customization -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            night: {
+              base: '#091518',
+              surface: '#0E1F24',
+              surfaceAlt: '#142A30',
+              panel: '#102428',
+              elevated: '#19363E',
+              border: '#1F4751',
+              borderDark: '#234E57',
+              shadow: '#040C0E',
+            },
+            coral: {
+              DEFAULT: '#FF6B6B',
+              hover: '#FA5252',
+              dark: '#4C1D24',
+              badge: '#FF4D4D',
+            },
+            amberDark: {
+              surface: '#3D2605',
+              border: '#6B4309',
+              text: '#FDE047',
+            },
+            tealAccent: {
+              DEFAULT: '#14B8A6',
+              surface: '#0D3338',
+              border: '#1E636D',
+            }
+          },
+          boxShadow: {
+            'tactile': '0 4px 0 #040C0E',
+            'tactile-sm': '0 2px 0 #040C0E',
+            'tactile-active': '0 1px 0 #040C0E',
+          }
+        }
+      }
+    }
+  </script>
+<!-- Custom Styling for Scrollbar and UI Tweaks -->
+<style data-purpose="custom-scrollbar">
+    /* Custom dark tactile scrollbars */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #091518;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1F4751;
+      border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #2D6775;
+    }
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-rounded.filled {
+      font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+</head>
+<body class="bg-night-base text-slate-100 font-sans antialiased h-screen overflow-hidden flex flex-row">
+<!-- BEGIN: LeftSidebar -->
+<aside class="w-[260px] flex-shrink-0 bg-night-surface border-r border-night-border flex flex-col justify-between select-none z-20 shadow-tactile" data-purpose="admin-sidebar">
+<!-- Top Branding & Navigation -->
+<div class="flex flex-col flex-1 overflow-y-auto">
+<!-- App Brand Header -->
+<div class="h-20 px-5 border-b border-night-border flex items-center gap-3 bg-night-panel">
+<div class="w-11 h-11 rounded-xl bg-tealAccent-surface border border-tealAccent-border flex items-center justify-center shadow-tactile-sm flex-shrink-0">
+<!-- Kite Emblem SVG -->
+<svg class="w-6 h-6 text-teal-400" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 2L20 10L12 22L4 10L12 2Z" fill-opacity="0.85" stroke="#2DD4BF" stroke-linejoin="round" stroke-width="1.5"></path>
+<path d="M12 2V22M4 10H20" stroke="#091518" stroke-width="1.5"></path>
+</svg>
+</div>
+<div class="flex flex-col">
+<span class="font-bold text-white tracking-wide text-base leading-tight">Lexkite Admin</span>
+<span class="text-xs text-[#A9BDBA] font-medium leading-normal mt-0.5">v2.4 Enterprise</span>
+</div>
+</div>
+<!-- Navigation Links -->
+<nav aria-label="Sidebar Navigation" class="p-3 space-y-1.5 flex-1">
+<!-- Tổng quan -->
+<a class="flex items-center gap-3 px-3.5 min-h-[44px] rounded-lg text-[#CBD5E1] hover:bg-night-surfaceAlt hover:text-white transition-colors duration-150 border border-transparent" href="#dashboard">
+<span class="material-symbols-rounded text-[#94A3B8]">dashboard</span>
+<span class="text-sm font-medium">Tổng quan</span>
+</a>
+<!-- Người dùng & Học viên -->
+<a class="flex items-center gap-3 px-3.5 min-h-[44px] rounded-lg text-[#CBD5E1] hover:bg-night-surfaceAlt hover:text-white transition-colors duration-150 border border-transparent" href="#users">
+<span class="material-symbols-rounded text-[#94A3B8]">group</span>
+<span class="text-sm font-medium">Người dùng &amp; Học viên</span>
+</a>
+<!-- Hộp thư liên hệ (ACTIVE) -->
+<a aria-current="page" class="flex items-center justify-between px-3.5 min-h-[44px] rounded-lg bg-tealAccent-surface text-teal-300 border border-tealAccent-border shadow-tactile-sm transition-all" href="#mailbox">
+<div class="flex items-center gap-3">
+<span class="material-symbols-rounded filled text-teal-300">mail</span>
+<span class="text-sm font-semibold text-white">Hộp thư liên hệ</span>
+</div>
+<span class="inline-flex items-center justify-center px-2 min-h-[22px] text-xs font-bold rounded-full bg-coral-badge text-white shadow-sm">3</span>
+</a>
+<!-- Báo lỗi người dùng -->
+<a class="flex items-center justify-between px-3.5 min-h-[44px] rounded-lg text-[#CBD5E1] hover:bg-night-surfaceAlt hover:text-white transition-colors duration-150 border border-transparent" href="#bug-reports">
+<div class="flex items-center gap-3">
+<span class="material-symbols-rounded text-[#94A3B8]">bug_report</span>
+<span class="text-sm font-medium">Báo lỗi người dùng</span>
+</div>
+<span class="inline-flex items-center justify-center px-2 min-h-[22px] text-xs font-semibold rounded-full bg-[#422006] text-[#FDE047] border border-[#6B4309]">4</span>
+</a>
+<!-- Quản trị Lưu trữ -->
+<a class="flex items-center gap-3 px-3.5 min-h-[44px] rounded-lg text-[#CBD5E1] hover:bg-night-surfaceAlt hover:text-white transition-colors duration-150 border border-transparent" href="#storage">
+<span class="material-symbols-rounded text-[#94A3B8]">storage</span>
+<span class="text-sm font-medium">Quản trị Lưu trữ</span>
+</a>
+<!-- Quản trị Quảng cáo -->
+<a class="flex items-center gap-3 px-3.5 min-h-[44px] rounded-lg text-[#CBD5E1] hover:bg-night-surfaceAlt hover:text-white transition-colors duration-150 border border-transparent" href="#campaigns">
+<span class="material-symbols-rounded text-[#94A3B8]">campaign</span>
+<span class="text-sm font-medium">Quản trị Quảng cáo</span>
+</a>
+<!-- Trung tâm video -->
+<a class="flex items-center gap-3 px-3.5 min-h-[44px] rounded-lg text-[#CBD5E1] hover:bg-night-surfaceAlt hover:text-white transition-colors duration-150 border border-transparent" href="#videos">
+<span class="material-symbols-rounded text-[#94A3B8]">video_library</span>
+<span class="text-sm font-medium">Trung tâm video</span>
+</a>
+<!-- Cài đặt & Khoá API -->
+<a class="flex items-center gap-3 px-3.5 min-h-[44px] rounded-lg text-[#CBD5E1] hover:bg-night-surfaceAlt hover:text-white transition-colors duration-150 border border-transparent" href="#settings">
+<span class="material-symbols-rounded text-[#94A3B8]">settings</span>
+<span class="text-sm font-medium">Cài đặt &amp; Khoá API</span>
+</a>
+</nav>
+</div>
+<!-- Sidebar Bottom Profile Card -->
+<div class="p-3 border-t border-night-border bg-night-panel">
+<div class="flex items-center justify-between p-2 min-h-[44px] rounded-xl bg-night-surfaceAlt border border-night-borderDark">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-lg bg-[#1B3E48] text-teal-300 font-bold text-xs flex items-center justify-center border border-tealAccent-border">
+            AD
+          </div>
+<div class="flex flex-col">
+<span class="text-xs font-semibold text-white leading-tight">Admin Root</span>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+<span class="text-[11px] text-[#A9BDBA] font-medium leading-none">Trực tuyến</span>
+</div>
+</div>
+</div>
+<button aria-label="Cài đặt tài khoản" class="p-1 min-h-[36px] min-w-[36px] rounded-lg text-[#94A3B8] hover:text-white hover:bg-night-elevated transition-colors flex items-center justify-center" type="button">
+<span class="material-symbols-rounded text-lg">settings</span>
+</button>
+</div>
+</div>
+</aside>
+<!-- END: LeftSidebar -->
+<!-- BEGIN: MainContentArea -->
+<div class="flex-1 flex flex-col min-w-0 bg-night-base overflow-hidden">
+<!-- BEGIN: TopHeaderBar -->
+<header class="h-20 bg-night-surface border-b border-night-border px-6 flex items-center justify-between flex-shrink-0 z-10 shadow-tactile-sm" data-purpose="top-header">
+<!-- Breadcrumb & Search Container -->
+<div class="flex items-center gap-6 flex-1 max-w-3xl">
+<!-- Breadcrumb -->
+<nav aria-label="Breadcrumb" class="hidden xl:flex items-center gap-2 text-xs font-medium whitespace-nowrap">
+<span class="text-[#94A3B8]">Quản trị</span>
+<span class="text-night-border font-bold">/</span>
+<span class="text-teal-400 font-semibold">Hộp thư &amp; Phản hồi người dùng</span>
+</nav>
+<!-- Search Bar (min-height 44px) -->
+<div class="relative flex-1">
+<div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
+<span class="material-symbols-rounded text-[#94A3B8] text-xl">search</span>
+</div>
+<input class="w-full min-h-[44px] pl-10 pr-4 bg-night-base border border-night-border focus:border-teal-500 rounded-xl text-xs text-white placeholder-[#94A3B8] focus:outline-none focus:ring-1 focus:ring-teal-500 transition-all shadow-inner" id="ticket-search-input" placeholder="Tìm kiếm theo người gửi, email, mã #MSG..." type="text"/>
+</div>
+</div>
+<!-- Header Right Actions & Quick Buttons -->
+<div class="flex items-center gap-3">
+<!-- Quick Action Notification Bell -->
+<button aria-label="Thông báo hệ thống" class="relative min-w-[44px] min-h-[44px] rounded-xl bg-night-panel border border-night-border hover:bg-night-surfaceAlt flex items-center justify-center text-[#CBD5E1] hover:text-white transition-colors shadow-tactile-sm" type="button">
+<span class="material-symbols-rounded text-xl">notifications</span>
+<span class="absolute top-2 right-2 w-2.5 h-2.5 bg-coral-badge rounded-full border-2 border-night-surface"></span>
+</button>
+<!-- Help Icon Button -->
+<button aria-label="Trung tâm trợ giúp" class="min-w-[44px] min-h-[44px] rounded-xl bg-night-panel border border-night-border hover:bg-night-surfaceAlt flex items-center justify-center text-[#CBD5E1] hover:text-white transition-colors shadow-tactile-sm" type="button">
+<span class="material-symbols-rounded text-xl">help</span>
+</button>
+<!-- Language Switcher Pill -->
+<div class="flex items-center min-h-[44px] bg-night-panel border border-night-border rounded-xl p-1 shadow-tactile-sm">
+<button class="min-h-[36px] px-3 rounded-lg text-xs font-bold bg-tealAccent-surface text-teal-300 border border-tealAccent-border" type="button">VI</button>
+<button class="min-h-[36px] px-3 rounded-lg text-xs font-medium text-[#94A3B8] hover:text-white" type="button">EN</button>
+</div>
+</div>
+</header>
+<!-- END: TopHeaderBar -->
+<!-- BEGIN: MasterDetailContainer -->
+<main class="flex-1 flex flex-col min-h-0 overflow-hidden p-6 gap-5" data-purpose="inbox-workspace">
+<!-- Top KPI Summary Bar -->
+<section class="grid grid-cols-4 gap-4 flex-shrink-0" data-purpose="kpi-metrics-bar">
+<!-- KPI 1 -->
+<div class="bg-night-surface border border-night-border rounded-xl p-3.5 shadow-tactile-sm flex items-center justify-between">
+<div class="flex flex-col">
+<span class="text-xs font-medium text-[#A9BDBA]">Tin nhắn mới hôm nay</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="text-2xl font-bold text-white">24</span>
+<span class="text-xs font-semibold text-emerald-400 flex items-center">↑ 12%</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-lg bg-night-surfaceAlt border border-night-border flex items-center justify-center text-teal-400">
+<span class="material-symbols-rounded">forward_to_inbox</span>
+</div>
+</div>
+<!-- KPI 2 -->
+<div class="bg-night-surface border border-night-border rounded-xl p-3.5 shadow-tactile-sm flex items-center justify-between">
+<div class="flex flex-col">
+<span class="text-xs font-medium text-[#A9BDBA]">Thời gian phản hồi TB</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="text-2xl font-bold text-white">18 phút</span>
+<span class="text-xs font-semibold text-emerald-400 flex items-center">↓ 4m</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-lg bg-night-surfaceAlt border border-night-border flex items-center justify-center text-teal-400">
+<span class="material-symbols-rounded">schedule</span>
+</div>
+</div>
+<!-- KPI 3 -->
+<div class="bg-night-surface border border-night-border rounded-xl p-3.5 shadow-tactile-sm flex items-center justify-between">
+<div class="flex flex-col">
+<span class="text-xs font-medium text-[#A9BDBA]">Tỷ lệ hài lòng CSAT</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="text-2xl font-bold text-white">98.4%</span>
+<span class="text-xs font-semibold text-emerald-400 flex items-center">Tuyệt vời</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-lg bg-night-surfaceAlt border border-night-border flex items-center justify-center text-teal-400">
+<span class="material-symbols-rounded">thumb_up</span>
+</div>
+</div>
+<!-- KPI 4 -->
+<div class="bg-night-surface border border-night-border rounded-xl p-3.5 shadow-tactile-sm flex items-center justify-between">
+<div class="flex flex-col">
+<span class="text-xs font-medium text-[#A9BDBA]">Đang chờ giải quyết</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="text-2xl font-bold text-coral-DEFAULT">3 vé</span>
+<span class="text-xs font-semibold text-[#CBD5E1]">Cần ưu tiên</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-lg bg-[#4C1D24] border border-[#6E2A34] flex items-center justify-center text-coral-DEFAULT">
+<span class="material-symbols-rounded">priority_high</span>
+</div>
+</div>
+</section>
+<!-- Split Layout Area (Ticket List + Selected Detail Panel) -->
+<div class="flex-1 flex gap-5 min-h-0 overflow-hidden">
+<!-- Column 1: Ticket List (Left / Main Column) -->
+<section class="w-[440px] flex-shrink-0 flex flex-col bg-night-surface rounded-2xl border border-night-border shadow-tactile overflow-hidden" data-purpose="ticket-inbox-list">
+<!-- Filter Tabs & Status Bar -->
+<div class="p-3 border-b border-night-border bg-night-panel flex flex-col gap-2.5">
+<div class="flex items-center justify-between">
+<h2 class="text-sm font-bold text-white tracking-wide flex items-center gap-2">
+<span>Hộp thư đến</span>
+<span class="px-2 py-0.5 rounded-full text-xs font-semibold bg-night-surfaceAlt border border-night-border text-teal-300">128</span>
+</h2>
+<button aria-label="Làm mới danh sách" class="min-h-[36px] px-2.5 rounded-lg text-xs font-medium text-[#A9BDBA] hover:text-white hover:bg-night-surfaceAlt border border-transparent transition-colors flex items-center gap-1" type="button">
+<span class="material-symbols-rounded text-base">refresh</span>
+                Làm mới
+              </button>
+</div>
+<!-- Horizontal Filter Chips (Min touch target 44px) -->
+<div class="flex items-center gap-1.5 overflow-x-auto pb-1" role="tablist">
+<button aria-selected="false" class="min-h-[44px] px-3.5 rounded-xl text-xs font-medium text-[#94A3B8] hover:text-white bg-night-surfaceAlt border border-night-border flex items-center whitespace-nowrap" role="tab" type="button">
+                Tất cả
+              </button>
+<button aria-selected="true" class="min-h-[44px] px-3.5 rounded-xl text-xs font-bold text-white bg-tealAccent-surface border border-tealAccent-border flex items-center whitespace-nowrap shadow-tactile-sm" role="tab" type="button">
+                Chưa xử lý (3)
+              </button>
+<button aria-selected="false" class="min-h-[44px] px-3.5 rounded-xl text-xs font-medium text-[#94A3B8] hover:text-white bg-night-surfaceAlt border border-night-border flex items-center whitespace-nowrap" role="tab" type="button">
+                Góp ý sản phẩm
+              </button>
+<button aria-selected="false" class="min-h-[44px] px-3.5 rounded-xl text-xs font-medium text-[#94A3B8] hover:text-white bg-night-surfaceAlt border border-night-border flex items-center whitespace-nowrap" role="tab" type="button">
+                Học phí &amp; Gói học
+              </button>
+</div>
+</div>
+<!-- Ticket List Scrollable Container -->
+<div aria-label="Danh sách tin nhắn yêu cầu hỗ trợ" class="flex-1 overflow-y-auto divide-y divide-night-border" tabindex="0">
+<!-- Item #MSG-342 (ACTIVE SELECTED) -->
+<article aria-current="true" class="p-4 bg-night-surfaceAlt border-l-4 border-l-teal-400 cursor-pointer transition-all hover:bg-night-elevated">
+<div class="flex items-center justify-between mb-1.5">
+<div class="flex items-center gap-2">
+<span class="text-xs font-bold text-teal-300">#MSG-342</span>
+<span class="flex items-center gap-1 text-[11px] font-semibold text-coral-DEFAULT">
+<span class="w-2 h-2 rounded-full bg-coral-DEFAULT animate-pulse"></span>
+                    Ưu tiên cao
+                  </span>
+</div>
+<span class="text-xs text-[#94A3B8]">10 phút trước</span>
+</div>
+<h3 class="text-sm font-bold text-white leading-snug mb-1 line-clamp-1">
+                Đóng góp ý kiến về tính năng Luyện nói AI và phòng thi ảo
+              </h3>
+<p class="text-xs text-[#A9BDBA] line-clamp-2 mb-2.5 font-normal">
+                Chào đội ngũ Lexkite, mình đang luyện phần IELTS Speaking Part 2 với trợ lý ảo. Trải nghiệm chấm điểm phát âm /θ/ rất tốt nhưng cần cân nhắc...
+              </p>
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-teal-900 border border-teal-500 text-[10px] font-bold text-teal-300 flex items-center justify-center">MA</div>
+<span class="text-xs text-[#CBD5E1] font-medium">Trần Mai Anh</span>
+</div>
+<span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-amberDark-surface border border-amberDark-border text-amberDark-text">
+                  Góp ý tính năng
+                </span>
+</div>
+</article>
+<!-- Item #MSG-341 -->
+<article class="p-4 bg-night-surface hover:bg-night-surfaceAlt cursor-pointer transition-colors">
+<div class="flex items-center justify-between mb-1.5">
+<div class="flex items-center gap-2">
+<span class="text-xs font-bold text-[#94A3B8]">#MSG-341</span>
+<span class="w-2 h-2 rounded-full bg-amber-400"></span>
+</div>
+<span class="text-xs text-[#94A3B8]">25 phút trước</span>
+</div>
+<h3 class="text-sm font-semibold text-white leading-snug mb-1 line-clamp-1">
+                Thắc mắc gia hạn gói 6 tháng qua MoMo
+              </h3>
+<p class="text-xs text-[#94A3B8] line-clamp-2 mb-2.5">
+                Em đã chuyển tiền thành công lúc 14:15 nhưng tài khoản chưa kích hoạt huy hiệu Pro. Nhờ admin kiểm tra mã giao dịch MOMO-98214 giúp em với ạ...
+              </p>
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-[#1F4751] text-[10px] font-bold text-[#CBD5E1] flex items-center justify-center">VH</div>
+<span class="text-xs text-[#CBD5E1] font-medium">Nguyễn Văn Hùng</span>
+</div>
+<span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-night-panel border border-night-border text-[#CBD5E1]">
+                  Thanh toán
+                </span>
+</div>
+</article>
+<!-- Item #MSG-340 -->
+<article class="p-4 bg-night-surface hover:bg-night-surfaceAlt cursor-pointer transition-colors">
+<div class="flex items-center justify-between mb-1.5">
+<div class="flex items-center gap-2">
+<span class="text-xs font-bold text-[#94A3B8]">#MSG-340</span>
+<span class="w-2 h-2 rounded-full bg-slate-500"></span>
+</div>
+<span class="text-xs text-[#94A3B8]">1 giờ trước</span>
+</div>
+<h3 class="text-sm font-semibold text-white leading-snug mb-1 line-clamp-1">
+                Đề xuất thêm đề thi Cambridge IELTS 19
+              </h3>
+<p class="text-xs text-[#94A3B8] line-clamp-2 mb-2.5">
+                Lexkite có kế hoạch update bộ đề Cam 19 trong tháng này không? Lớp mình đang rất cần bộ giải thích chi tiết và audio tách câu.
+              </p>
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-[#1F4751] text-[10px] font-bold text-[#CBD5E1] flex items-center justify-center">HY</div>
+<span class="text-xs text-[#CBD5E1] font-medium">Lê Hoàng Yến</span>
+</div>
+<span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-night-panel border border-night-border text-[#CBD5E1]">
+                  Nội dung
+                </span>
+</div>
+</article>
+<!-- Item #MSG-339 -->
+<article class="p-4 bg-night-surface hover:bg-night-surfaceAlt cursor-pointer transition-colors">
+<div class="flex items-center justify-between mb-1.5">
+<div class="flex items-center gap-2">
+<span class="text-xs font-bold text-[#94A3B8]">#MSG-339</span>
+<span class="w-2 h-2 rounded-full bg-coral-DEFAULT"></span>
+</div>
+<span class="text-xs text-[#94A3B8]">2 giờ trước</span>
+</div>
+<h3 class="text-sm font-semibold text-white leading-snug mb-1 line-clamp-1">
+                Báo cáo lỗi đồng bộ điểm thi lớp B2
+              </h3>
+<p class="text-xs text-[#94A3B8] line-clamp-2 mb-2.5">
+                Dear Technical Support, bảng điểm mock test sáng nay của 18 học viên cơ sở Cầu Giấy không đẩy về dashboard LMS của giáo viên...
+              </p>
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-[#273F3A] text-[10px] font-bold text-teal-300 flex items-center justify-center">DM</div>
+<span class="text-xs text-[#CBD5E1] font-medium">Thầy David Miller (Giáo viên)</span>
+</div>
+<span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-night-panel border border-night-border text-[#CBD5E1]">
+                  Đối tác
+                </span>
+</div>
+</article>
+</div>
+</section>
+<!-- Column 2: Detail View Panel (#MSG-342 Full Thread & Composer) -->
+<section class="flex-1 flex flex-col bg-night-surface rounded-2xl border border-night-border shadow-tactile overflow-hidden" data-purpose="ticket-detail-panel">
+<!-- Ticket Header Bar -->
+<div class="p-4 border-b border-night-border bg-night-panel flex items-center justify-between flex-shrink-0">
+<div class="flex items-center gap-3">
+<h2 class="text-base font-bold text-white flex items-center gap-2">
+                #MSG-342
+              </h2>
+<span class="px-2.5 py-1 rounded-full text-xs font-bold bg-[#4C1D24] text-coral-DEFAULT border border-[#6E2A34]">
+                Chưa giải quyết
+              </span>
+<span class="px-2.5 py-1 rounded-full text-xs font-semibold bg-amberDark-surface text-amberDark-text border border-amberDark-border">
+                Ưu tiên: Cao
+              </span>
+</div>
+<!-- Detail Action Icons (Min target size 44px) -->
+<div class="flex items-center gap-2">
+<button class="min-h-[44px] px-3.5 rounded-xl bg-night-surfaceAlt border border-night-border text-[#CBD5E1] hover:text-white hover:border-teal-500 transition-colors flex items-center gap-1.5 text-xs font-semibold shadow-tactile-sm" type="button">
+<span class="material-symbols-rounded text-lg text-teal-400">reply</span>
+                Chuyển tiếp
+              </button>
+<button aria-label="Gắn sao yêu cầu" class="min-w-[44px] min-h-[44px] rounded-xl bg-night-surfaceAlt border border-night-border text-[#CBD5E1] hover:text-yellow-400 transition-colors flex items-center justify-center shadow-tactile-sm" type="button">
+<span class="material-symbols-rounded text-xl">star</span>
+</button>
+<button class="min-h-[44px] px-3.5 rounded-xl bg-night-surfaceAlt border border-night-border text-[#CBD5E1] hover:text-emerald-400 transition-colors flex items-center gap-1.5 text-xs font-semibold shadow-tactile-sm" type="button">
+<span class="material-symbols-rounded text-lg">check_circle</span>
+                Đóng ticket
+              </button>
+</div>
+</div>
+<!-- Ticket Content & Sender Info (Scrollable Body) -->
+<div class="flex-1 overflow-y-auto p-5 space-y-4">
+<!-- Sender Metadata Profile Card -->
+<div class="p-4 rounded-xl bg-night-panel border border-night-border flex items-center justify-between shadow-tactile-sm">
+<div class="flex items-center gap-3.5">
+<div class="w-12 h-12 rounded-xl bg-[#1B3E48] text-teal-300 font-bold text-base flex items-center justify-center border border-tealAccent-border shadow-sm flex-shrink-0">
+                  MA
+                </div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="text-sm font-bold text-white">Trần Mai Anh</span>
+<span class="text-xs text-[#A9BDBA] font-medium">(Học viên IELTS Intensive)</span>
+</div>
+<div class="flex items-center gap-3 text-xs text-[#CBD5E1] mt-1">
+<span class="flex items-center gap-1">
+<span class="text-[#94A3B8]">Email:</span>
+<strong class="font-medium text-white">maianh.tran@gmail.com</strong>
+</span>
+<span class="text-night-border">•</span>
+<span class="flex items-center gap-1">
+<span class="text-[#94A3B8]">SĐT:</span>
+<strong class="font-medium text-white">+84 912 *** 892</strong>
+</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-end gap-1 text-right">
+<span class="px-2.5 py-1 rounded-md text-xs font-bold bg-[#142A30] border border-tealAccent-border text-teal-300">
+                  Mục tiêu: IELTS 7.5 Target
+                </span>
+<span class="text-[11px] text-[#A9BDBA]">Thiết bị: Web Desktop Chrome (macOS)</span>
+</div>
+</div>
+<!-- Subject Header -->
+<div class="px-1">
+<h1 class="text-base font-bold text-white leading-relaxed">
+                Đóng góp ý kiến về tính năng Luyện nói AI và phòng thi ảo
+              </h1>
+<p class="text-xs text-[#A9BDBA] mt-0.5">Đã gửi vào lúc 10:42 SA — 24 Tháng 10, 2024</p>
+</div>
+<!-- Original User Message Body Card -->
+<div class="p-4 rounded-xl bg-night-surfaceAlt border border-night-border text-sm leading-relaxed text-[#F0FDF4] space-y-2.5 shadow-sm">
+<p>
+                Chào đội ngũ Lexkite, mình đang luyện phần <strong>IELTS Speaking Part 2</strong> với trợ lý ảo. Trải nghiệm chấm điểm phát âm /θ/ và nối âm rất tốt.
+              </p>
+<p>
+                Tuy nhiên trong phòng thi ảo, nếu mình tạm dừng quá 10 giây thì hệ thống tự nộp bài hơi nhanh. Mong admin có thể cân nhắc tăng thời gian chờ lên 20 giây để học viên kịp suy nghĩ ý tưởng. Xin cảm ơn!
+              </p>
+</div>
+<!-- Internal Staff Note (Banner) -->
+<div class="p-3.5 rounded-xl bg-[#142A30] border-l-4 border-l-amber-400 border border-night-border flex items-start gap-3">
+<span class="material-symbols-rounded text-amber-400 text-xl flex-shrink-0 mt-0.5">priority_high</span>
+<div class="flex flex-col text-xs leading-normal">
+<span class="font-bold text-amber-300 uppercase tracking-wider text-[11px]">Ghi chú nội bộ:</span>
+<span class="text-slate-200 mt-0.5">Đã gắn thẻ Product Lead &amp; AI Voice Team để review thời gian timeout phòng thi. Đã xếp vào sprint v2.4.2.</span>
+</div>
+</div>
+<!-- Response Draft & Rich Editor Composer Area -->
+<div class="p-4 rounded-xl bg-night-panel border border-night-border flex flex-col gap-3 shadow-tactile-sm">
+<div class="flex items-center justify-between">
+<span class="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-1.5">
+<span class="material-symbols-rounded text-teal-400 text-base">edit_note</span>
+                  Phản hồi học viên
+                </span>
+<!-- Quick Response Template Select (Min 44px) -->
+<div class="relative">
+<select aria-label="Chọn mẫu phản hồi" class="min-h-[44px] pl-3 pr-8 rounded-xl bg-night-surfaceAlt border border-night-border text-xs text-white focus:outline-none focus:border-teal-500 cursor-pointer">
+<option selected="">Mẫu phản hồi: Cảm ơn góp ý tính năng</option>
+<option>Mẫu phản hồi: Đã tiếp nhận &amp; chuyển kỹ thuật</option>
+<option>Mẫu phản hồi: Hướng dẫn cấu hình mic</option>
+</select>
+</div>
+</div>
+<!-- Rich Text Formatting Toolbar -->
+<div class="flex items-center gap-1 p-1 bg-night-surfaceAlt rounded-lg border border-night-border text-[#CBD5E1]">
+<button aria-label="In đậm" class="min-h-[36px] min-w-[36px] rounded hover:bg-night-elevated hover:text-white flex items-center justify-center" type="button">
+<span class="material-symbols-rounded text-lg">format_bold</span>
+</button>
+<button aria-label="In nghiêng" class="min-h-[36px] min-w-[36px] rounded hover:bg-night-elevated hover:text-white flex items-center justify-center" type="button">
+<span class="material-symbols-rounded text-lg">format_italic</span>
+</button>
+<span class="w-px h-4 bg-night-border mx-1"></span>
+<button aria-label="Đính kèm tệp" class="min-h-[36px] min-w-[36px] rounded hover:bg-night-elevated hover:text-white flex items-center justify-center" type="button">
+<span class="material-symbols-rounded text-lg">attach_file</span>
+</button>
+</div>
+<!-- Editable Textarea -->
+<textarea aria-label="Nội dung phản hồi" class="w-full p-3 bg-night-base border border-night-border rounded-xl text-xs leading-relaxed text-white placeholder-[#94A3B8] focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 resize-none" rows="4">Chào Mai Anh, cảm ơn bạn đã tin tưởng và đồng hành cùng Lexkite! Đội ngũ AI Lab đã ghi nhận phản hồi và chuẩn bị điều chỉnh thời gian pause time từ 10s lên 25s trong bản cập nhật Thứ 6 tuần này để trải nghiệm luyện thi tự nhiên hơn. Chúc bạn ôn luyện đạt Band 7.5+ như mục tiêu nhé!</textarea>
+<!-- Action Bar (Buttons >= 44px height) -->
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-2">
+<button class="min-h-[44px] px-4 rounded-xl bg-night-surfaceAlt border border-night-border text-xs font-semibold text-[#CBD5E1] hover:text-white hover:bg-night-elevated transition-colors shadow-tactile-sm" type="button">
+                    Lưu bản nháp
+                  </button>
+<button class="min-h-[44px] px-4 rounded-xl bg-night-surfaceAlt border border-night-border text-xs font-semibold text-[#CBD5E1] hover:text-white hover:bg-night-elevated transition-colors shadow-tactile-sm" type="button">
+                    Chuyển tiếp kỹ thuật
+                  </button>
+</div>
+<!-- Primary Coral Send CTA Button with Readable Contrast -->
+<button class="min-h-[44px] px-5 rounded-xl bg-coral-DEFAULT hover:bg-coral-hover text-[#1C1003] font-bold text-xs flex items-center gap-2 shadow-tactile transition-all active:translate-y-0.5" type="button">
+<span class="material-symbols-rounded text-base">send</span>
+                  Gửi phản hồi qua Email
+                </button>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- END: MasterDetailContainer -->
+</div>
+<!-- END: MainContentArea -->
+</body></html>

@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite – Practice Hub</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary-fixed": "#ffdf9e",
+            "surface-container": "#172427",
+            "secondary": "#ff8a7a",
+            "on-surface": "#E8F1F0",
+            "surface": "#10191B",
+            "outline-variant": "#2a3d42",
+            "on-tertiary-container": "#392900",
+            "on-primary-fixed": "#00201e",
+            "primary": "#5eead4",
+            "surface-bright": "#253a3f",
+            "on-tertiary": "#402e00",
+            "outline": "#879391",
+            "on-primary": "#003733",
+            "surface-container-high": "#1E2F33",
+            "surface-variant": "#1E2F33",
+            "surface-container-lowest": "#0b1214",
+            "surface-tint": "#6bd8ce",
+            "on-surface-variant": "#A9BDBB",
+            "tertiary": "#f4bf40",
+            "surface-dim": "#10191B",
+            "secondary-container": "#f06543",
+            "error": "#ff8a7a",
+            "primary-container": "#0e3938",
+            "background": "#10191B",
+            "on-background": "#E8F1F0"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "fontFamily": {
+            "display-lg-mobile": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "display-lg": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "body-sm": ["13px", { "lineHeight": "20px", "letterSpacing": "0.005em", "fontWeight": "400" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "label-lg": ["15px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "700" }],
+            "label-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "600" }],
+            "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "body-md": ["15px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "label-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "body-lg": ["17px", { "lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "400" }]
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-[#10191B] text-[#E8F1F0] min-h-screen font-body-md text-body-md antialiased flex justify-center selection:bg-teal-800 selection:text-white">
+<!-- Mobile Viewport Container capped at 390px -->
+<div class="w-full max-w-[390px] min-h-screen bg-[#10191B] flex flex-col relative pb-28">
+<!-- Top Navigation Anchor -->
+<header class="sticky top-0 z-40 bg-[#10191B]/95 backdrop-blur-md border-b border-[#1E2F33] shadow-[0_2px_0_0_#0b1214]">
+<div class="flex justify-between items-center w-full px-4 h-16 max-w-md mx-auto">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-xl bg-[#172427] border border-[#233539] flex items-center justify-center text-[#5eead4] shadow-[0_2px_0_0_#0b1214]">
+<span class="material-symbols-outlined text-[20px]" data-icon="school">school</span>
+</div>
+<div class="flex flex-col">
+<h1 class="font-headline-md text-headline-md text-[#E8F1F0] leading-tight">Practice</h1>
+<span class="font-label-sm text-label-sm text-[#ff8a7a] font-bold tracking-tight">3 weak areas flagged</span>
+</div>
+</div>
+<button aria-label="Settings and Calibration" class="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl bg-[#172427] hover:bg-[#1E2F33] text-[#5eead4] border border-[#233539] shadow-[0_2px_0_0_#0b1214] active:translate-y-0.5 active:shadow-none transition-all" type="button">
+<span class="material-symbols-outlined text-[22px]" data-icon="tune">tune</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 px-4 pt-4 space-y-5">
+<!-- Section: Learning Coach Tip Card -->
+<section aria-labelledby="coach-title" class="bg-[#172427] rounded-2xl p-4 border border-[#233539] shadow-[0_3px_0_0_#0b1214] flex flex-col gap-3">
+<div class="flex items-center justify-between gap-3">
+<div class="flex items-center gap-3">
+<!-- Strict Placeholder: Teacher Slot -->
+<div aria-hidden="true" class="w-12 h-12 min-w-[48px] min-h-[48px] rounded-xl border-2 border-dashed border-[#2d4347] bg-[#10191B] flex flex-col items-center justify-center text-center p-0.5 select-none">
+<span class="font-label-sm text-[9px] leading-tight text-[#A9BDBB] font-bold">[teacher-slot]</span>
+</div>
+<div class="flex flex-col">
+<div class="font-label-lg text-label-lg text-[#E8F1F0]" id="coach-title">Ama · Diagnostic Mentor</div>
+<span class="font-body-sm text-body-sm text-[#A9BDBB]">Cognitive Language Guide</span>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-[#1E2F33] text-[#A9BDBB] font-label-sm text-label-sm font-bold border border-[#2d4347] whitespace-nowrap">
+            Target Band 7.5
+          </span>
+</div>
+<blockquote class="font-body-md text-body-md text-[#E8F1F0] bg-[#10191B]/80 rounded-xl p-3 border-l-4 border-[#2ba39a] leading-relaxed">
+          “Targeting your lowest-accuracy sub-skills first creates the fastest score leap before Saturday’s mock.”
+        </blockquote>
+</section>
+<!-- Section: Mixed 10-Min Workout CTA (Primary Hero Action) -->
+<section aria-labelledby="workout-headline" class="bg-[#0e3938] text-[#E8F1F0] rounded-2xl p-4 border-2 border-[#195b57] shadow-[0_4px_0_0_#051515] flex flex-col gap-3.5">
+<div class="flex items-center gap-2">
+<span class="px-2.5 py-1 rounded-full bg-[#10191B]/40 text-[#5eead4] border border-[#2ba39a]/30 font-label-sm text-label-sm font-bold tracking-wide uppercase">
+            ⚡ High-Retention Daily Sprint · 10 Mins
+          </span>
+</div>
+<div class="space-y-1">
+<h2 class="font-headline-md text-headline-md text-white font-extrabold leading-snug" id="workout-headline">
+            Adaptive Weakness Workout
+          </h2>
+<p class="font-body-md text-body-md text-[#A9BDBB] leading-relaxed">
+            12 dynamic questions calibrated across your 3 weakest areas with instant feedback.
+          </p>
+</div>
+<!-- Coral Primary Action Tactile CTA Button -->
+<button class="w-full min-h-[52px] px-5 py-3.5 rounded-xl bg-[#f06543] text-white font-label-lg text-label-lg font-bold flex items-center justify-center gap-2 border-2 border-[#ff8366] shadow-[0_4px_0_0_#a83218] hover:bg-[#ff7250] active:translate-y-[3px] active:shadow-[0_1px_0_0_#a83218] transition-all" type="button">
+<span>Start 10-Min Workout</span>
+<span class="material-symbols-outlined text-[20px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</section>
+<!-- Section: Weak Areas Detected (Diagnostic Cards) -->
+<section aria-labelledby="weak-areas-title" class="space-y-3">
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-sm text-headline-sm text-[#E8F1F0] font-bold" id="weak-areas-title">Weak Areas Detected</h2>
+<span class="font-label-sm text-label-sm font-bold px-2.5 py-0.5 rounded-md bg-[#3a1d1d] text-[#ff8a7a] border border-[#5a2727]">3 Critical</span>
+</div>
+<p class="font-body-sm text-body-sm text-[#A9BDBB]">Based on recent 42 questions</p>
+</div>
+<div class="space-y-3">
+<!-- Diagnostic Card 1 -->
+<article class="bg-[#172427] rounded-2xl p-4 border border-[#233539] shadow-[0_3px_0_0_#0b1214] flex flex-col gap-3">
+<div class="flex items-start justify-between gap-3">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-[#A9BDBB] font-bold uppercase tracking-wider">IELTS Academic · Writing Task 2</span>
+<h3 class="font-label-lg text-label-lg text-[#E8F1F0] mt-0.5 leading-snug">Thesis &amp; Cohesion</h3>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-[#3a1d1d] text-[#ff8a7a] border border-[#5a2727] font-label-sm text-label-sm font-bold whitespace-nowrap shadow-sm">
+                48% accuracy
+              </span>
+</div>
+<p class="font-body-sm text-body-sm text-[#A9BDBB] leading-relaxed">
+              Struggling with complex discourse connectors and paragraph topic transitions.
+            </p>
+<div class="pt-1 flex items-center justify-between">
+<div class="flex items-center gap-1.5 text-[#A9BDBB] font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-[#ff8a7a]" data-icon="flag">flag</span>
+<span>High impact on Band 7.0</span>
+</div>
+<button class="min-h-[44px] min-w-[104px] px-4 py-2 rounded-xl bg-[#1E2F33] hover:bg-[#253a3f] text-[#5eead4] font-label-md text-label-md font-bold border-2 border-[#2ba39a] shadow-[0_3px_0_0_#0a1d1f] active:translate-y-[2px] active:shadow-[0_1px_0_0_#0a1d1f] transition-all" type="button">
+                Practise
+              </button>
+</div>
+</article>
+<!-- Diagnostic Card 2 -->
+<article class="bg-[#172427] rounded-2xl p-4 border border-[#233539] shadow-[0_3px_0_0_#0b1214] flex flex-col gap-3">
+<div class="flex items-start justify-between gap-3">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-[#A9BDBB] font-bold uppercase tracking-wider">TOEFL iBT · Listening</span>
+<h3 class="font-label-lg text-label-lg text-[#E8F1F0] mt-0.5 leading-snug">Pragmatic Understanding</h3>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-[#3a1d1d] text-[#ff8a7a] border border-[#5a2727] font-label-sm text-label-sm font-bold whitespace-nowrap shadow-sm">
+                52% accuracy
+              </span>
+</div>
+<p class="font-body-sm text-body-sm text-[#A9BDBB] leading-relaxed">
+              Inferring professor's nuanced stance, sarcasm, and subtle rhetorical intent.
+            </p>
+<div class="pt-1 flex items-center justify-between">
+<div class="flex items-center gap-1.5 text-[#A9BDBB] font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-[#ff8a7a]" data-icon="flag">flag</span>
+<span>Crucial for Section 3</span>
+</div>
+<button class="min-h-[44px] min-w-[104px] px-4 py-2 rounded-xl bg-[#1E2F33] hover:bg-[#253a3f] text-[#5eead4] font-label-md text-label-md font-bold border-2 border-[#2ba39a] shadow-[0_3px_0_0_#0a1d1f] active:translate-y-[2px] active:shadow-[0_1px_0_0_#0a1d1f] transition-all" type="button">
+                Practise
+              </button>
+</div>
+</article>
+<!-- Diagnostic Card 3 -->
+<article class="bg-[#172427] rounded-2xl p-4 border border-[#233539] shadow-[0_3px_0_0_#0b1214] flex flex-col gap-3">
+<div class="flex items-start justify-between gap-3">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-[#A9BDBB] font-bold uppercase tracking-wider">Lexical Resource · Advanced</span>
+<h3 class="font-label-lg text-label-lg text-[#E8F1F0] mt-0.5 leading-snug">Academic Collocations &amp; Prepositions</h3>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-[#3a1d1d] text-[#ff8a7a] border border-[#5a2727] font-label-sm text-label-sm font-bold whitespace-nowrap shadow-sm">
+                59% accuracy
+              </span>
+</div>
+<p class="font-body-sm text-body-sm text-[#A9BDBB] leading-relaxed">
+              Inconsistent dependent preposition pairings (e.g. ‘adjacent to’, ‘conducive to’).
+            </p>
+<div class="pt-1 flex items-center justify-between">
+<div class="flex items-center gap-1.5 text-[#A9BDBB] font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-[#ff8a7a]" data-icon="flag">flag</span>
+<span>High frequency errors</span>
+</div>
+<button class="min-h-[44px] min-w-[104px] px-4 py-2 rounded-xl bg-[#1E2F33] hover:bg-[#253a3f] text-[#5eead4] font-label-md text-label-md font-bold border-2 border-[#2ba39a] shadow-[0_3px_0_0_#0a1d1f] active:translate-y-[2px] active:shadow-[0_1px_0_0_#0a1d1f] transition-all" type="button">
+                Practise
+              </button>
+</div>
+</article>
+</div>
+</section>
+<!-- Section: Mistakes to Fix (Spaced Repetition Queue) -->
+<section aria-labelledby="mistakes-title" class="bg-[#1E2F33] rounded-2xl p-4 border border-[#2a4045] shadow-[0_3px_0_0_#0b1214] space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-8 h-8 rounded-lg bg-[#172427] flex items-center justify-center text-[#ff8a7a] border border-[#2a4045]">
+<span class="material-symbols-outlined text-[20px]" data-icon="history_edu">history_edu</span>
+</span>
+<h2 class="font-headline-sm text-headline-sm text-[#E8F1F0] font-bold" id="mistakes-title">Mistakes to Fix</h2>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-[#10191B] text-[#A9BDBB] font-label-sm text-label-sm font-bold border border-[#2a4045]">
+            14 items in review queue
+          </span>
+</div>
+<p class="font-body-md text-body-md text-[#E8F1F0] leading-snug">
+          Last session: <span class="font-bold text-[#ff8a7a]">6 preposition slips</span> &amp; <span class="font-bold text-[#ff8a7a]">2 inference traps</span> identified for rapid spaced rehearsal.
+        </p>
+<button class="w-full min-h-[44px] px-4 py-2.5 rounded-xl bg-[#172427] hover:bg-[#1E2F33] text-[#5eead4] font-label-lg text-label-lg font-bold border-2 border-[#2ba39a] shadow-[0_3px_0_0_#0a1d1f] active:translate-y-[2px] active:shadow-[0_1px_0_0_#0a1d1f] transition-all flex items-center justify-center gap-2" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="refresh">refresh</span>
+<span>Review Mistakes (5 min)</span>
+</button>
+</section>
+<!-- Section: Quick Drills Grid -->
+<section aria-labelledby="drills-title" class="space-y-3">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-sm text-headline-sm text-[#E8F1F0] font-bold" id="drills-title">Targeted Quick Drills</h2>
+<span class="font-body-sm text-body-sm text-[#A9BDBB] font-medium">Bite-sized</span>
+</div>
+<div class="flex flex-col gap-2.5">
+<!-- Drill 1: Listening Drills -->
+<button class="w-full text-left bg-[#172427] rounded-2xl p-3.5 border border-[#233539] shadow-[0_2px_0_0_#0b1214] hover:bg-[#1E2F33] active:translate-y-0.5 active:shadow-none transition-all flex items-center justify-between gap-3 min-h-[56px]" type="button">
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 min-w-[44px] rounded-xl bg-[#0e3938] text-[#5eead4] border border-[#195b57] flex items-center justify-center shadow-[0_2px_0_0_#051515]">
+<span class="material-symbols-outlined text-[22px]" data-icon="headphones">headphones</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-[#E8F1F0] font-bold leading-tight">Listening Drills</span>
+<span class="font-body-sm text-body-sm text-[#A9BDBB]">Audio tone &amp; detail recognition</span>
+</div>
+</div>
+<div class="flex items-center gap-1.5 pl-2 text-right">
+<span class="font-label-sm text-label-sm text-[#5eead4] font-bold whitespace-nowrap bg-[#1E2F33] border border-[#2a4045] px-2 py-1 rounded-md">5 min · 8 Qs</span>
+<span class="material-symbols-outlined text-[18px] text-[#A9BDBB]" data-icon="chevron_right">chevron_right</span>
+</div>
+</button>
+<!-- Drill 2: Speaking Prompts -->
+<button class="w-full text-left bg-[#172427] rounded-2xl p-3.5 border border-[#233539] shadow-[0_2px_0_0_#0b1214] hover:bg-[#1E2F33] active:translate-y-0.5 active:shadow-none transition-all flex items-center justify-between gap-3 min-h-[56px]" type="button">
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 min-w-[44px] rounded-xl bg-[#0e3938] text-[#5eead4] border border-[#195b57] flex items-center justify-center shadow-[0_2px_0_0_#051515]">
+<span class="material-symbols-outlined text-[22px]" data-icon="mic">mic</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-[#E8F1F0] font-bold leading-tight">Speaking Prompts</span>
+<span class="font-body-sm text-body-sm text-[#A9BDBB]">Fluency shadowing &amp; lexical pacing</span>
+</div>
+</div>
+<div class="flex items-center gap-1.5 pl-2 text-right">
+<span class="font-label-sm text-label-sm text-[#5eead4] font-bold whitespace-nowrap bg-[#1E2F33] border border-[#2a4045] px-2 py-1 rounded-md">4 min · 3 tasks</span>
+<span class="material-symbols-outlined text-[18px] text-[#A9BDBB]" data-icon="chevron_right">chevron_right</span>
+</div>
+</button>
+<!-- Drill 3: Writing Micro-Tasks -->
+<button class="w-full text-left bg-[#172427] rounded-2xl p-3.5 border border-[#233539] shadow-[0_2px_0_0_#0b1214] hover:bg-[#1E2F33] active:translate-y-0.5 active:shadow-none transition-all flex items-center justify-between gap-3 min-h-[56px]" type="button">
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 min-w-[44px] rounded-xl bg-[#0e3938] text-[#5eead4] border border-[#195b57] flex items-center justify-center shadow-[0_2px_0_0_#051515]">
+<span class="material-symbols-outlined text-[22px]" data-icon="edit_note">edit_note</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-[#E8F1F0] font-bold leading-tight">Writing Micro-Tasks</span>
+<span class="font-body-sm text-body-sm text-[#A9BDBB]">Paraphrasing &amp; cohesive markers</span>
+</div>
+</div>
+<div class="flex items-center gap-1.5 pl-2 text-right">
+<span class="font-label-sm text-label-sm text-[#5eead4] font-bold whitespace-nowrap bg-[#1E2F33] border border-[#2a4045] px-2 py-1 rounded-md">6 min · 5 drills</span>
+<span class="material-symbols-outlined text-[18px] text-[#A9BDBB]" data-icon="chevron_right">chevron_right</span>
+</div>
+</button>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<!-- Active Destination: 'Skills' -->
+<nav aria-label="Primary Navigation" class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-3 py-2 bg-[#172427] border-t border-[#233539] shadow-[0_-3px_10px_0_rgba(0,0,0,0.4)] max-w-[390px] mx-auto inset-x-0">
+<!-- Destination 1: Today -->
+<a class="flex flex-col items-center justify-center text-[#A9BDBB] px-2 py-1.5 min-w-[44px] min-h-[48px] hover:text-[#E8F1F0] active:translate-y-0.5 transition-colors" href="#today">
+<span class="material-symbols-outlined text-[22px]" data-icon="today">today</span>
+<span class="font-label-sm text-label-sm mt-0.5">Today</span>
+</a>
+<!-- Destination 2: Vocab -->
+<a class="flex flex-col items-center justify-center text-[#A9BDBB] px-2 py-1.5 min-w-[44px] min-h-[48px] hover:text-[#E8F1F0] active:translate-y-0.5 transition-colors" href="#vocab">
+<span class="material-symbols-outlined text-[22px]" data-icon="menu_book">menu_book</span>
+<span class="font-label-sm text-label-sm mt-0.5">Vocab</span>
+</a>
+<!-- Destination 3: Skills (ACTIVE TAB per Practice Hub semantic intent) -->
+<a aria-current="page" class="flex flex-col items-center justify-center bg-[#1E2F33] text-[#5eead4] border border-[#2ba39a]/50 rounded-xl px-3 py-1.5 min-w-[56px] min-h-[48px] shadow-[0_2px_0_0_#0b1214] active:translate-y-0.5 transition-all" href="#skills">
+<span class="material-symbols-outlined text-[22px]" data-icon="psychology" data-weight="fill" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<span class="font-label-sm text-label-sm font-bold mt-0.5">Skills</span>
+</a>
+<!-- Destination 4: Tests -->
+<a class="flex flex-col items-center justify-center text-[#A9BDBB] px-2 py-1.5 min-w-[44px] min-h-[48px] hover:text-[#E8F1F0] active:translate-y-0.5 transition-colors" href="#tests">
+<span class="material-symbols-outlined text-[22px]" data-icon="assignment">assignment</span>
+<span class="font-label-sm text-label-sm mt-0.5">Tests</span>
+</a>
+<!-- Destination 5: Me -->
+<a class="flex flex-col items-center justify-center text-[#A9BDBB] px-2 py-1.5 min-w-[44px] min-h-[48px] hover:text-[#E8F1F0] active:translate-y-0.5 transition-colors" href="#me">
+<span class="material-symbols-outlined text-[22px]" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm mt-0.5">Me</span>
+</a>
+</nav>
+</div>
+</body></html>

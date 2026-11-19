@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite IELTS - Diamond Badge</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container-high": "#202c2f",
+            "on-secondary-container": "#ffa493",
+            "error": "#ffb4ab",
+            "primary-fixed": "#88f5ea",
+            "surface-bright": "#2f3b3e",
+            "primary": "#6bd8ce",
+            "on-secondary-fixed": "#3f0300",
+            "surface-container-low": "#121d20",
+            "inverse-primary": "#006a64",
+            "on-surface": "#d8e5e9",
+            "outline-variant": "#3d4947",
+            "tertiary-container": "#ba8b00",
+            "on-tertiary-fixed": "#261a00",
+            "on-background": "#d8e5e9",
+            "inverse-surface": "#d8e5e9",
+            "surface-container": "#162125",
+            "error-container": "#93000a",
+            "background": "#091518",
+            "inverse-on-surface": "#263236",
+            "secondary": "#ffb4a6",
+            "on-error": "#690005",
+            "on-primary-container": "#00322e",
+            "secondary-container": "#981201",
+            "primary-fixed-dim": "#6bd8ce",
+            "on-primary-fixed-variant": "#00504b",
+            "secondary-fixed-dim": "#ffb4a6",
+            "surface-variant": "#2b373a",
+            "on-primary-fixed": "#00201e",
+            "on-tertiary": "#402e00",
+            "on-secondary-fixed-variant": "#900f00",
+            "surface-container-highest": "#2b373a",
+            "tertiary-fixed": "#ffdf9e",
+            "primary-container": "#2ba39a",
+            "on-primary": "#003733",
+            "on-secondary": "#660800",
+            "surface-container-lowest": "#051013",
+            "surface": "#091518",
+            "on-tertiary-container": "#392900",
+            "outline": "#879391",
+            "on-surface-variant": "#bcc9c7",
+            "secondary-fixed": "#ffdad3",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "tertiary": "#f4bf40",
+            "tertiary-fixed-dim": "#f4bf40",
+            "on-error-container": "#ffdad6",
+            "surface-dim": "#091518",
+            "surface-tint": "#6bd8ce"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "fontFamily": {
+            "headline": ["Plus Jakarta Sans"],
+            "display": ["Plus Jakarta Sans"],
+            "body": ["Plus Jakarta Sans"],
+            "label": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.6px", "fontWeight": "800" }],
+            "body-lg": ["18px", { "lineHeight": "26px", "fontWeight": "500" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "700" }],
+            "headline-md": ["22px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "label-md": ["14px", { "lineHeight": "18px", "letterSpacing": "0.4px", "fontWeight": "700" }],
+            "headline-xl": ["40px", { "lineHeight": "48px", "fontWeight": "800" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "500" }],
+            "headline-xl-mobile": ["30px", { "lineHeight": "38px", "fontWeight": "800" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "800" }],
+            "label-lg": ["16px", { "lineHeight": "20px", "letterSpacing": "0.2px", "fontWeight": "700" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "800" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 24px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    @keyframes floatJewel {
+      0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+      }
+      50% {
+        transform: translateY(-8px) rotate(1.5deg);
+      }
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% {
+        opacity: 0.55;
+        transform: scale(0.96);
+      }
+      50% {
+        opacity: 0.85;
+        transform: scale(1.06);
+      }
+    }
+
+    .animate-float {
+      animation: floatJewel 3.8s ease-in-out infinite;
+    }
+
+    .animate-pulse-glow {
+      animation: pulseGlow 3s ease-in-out infinite;
+    }
+
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-[#091518] text-[#d8e5e9] antialiased min-h-screen flex justify-center selection:bg-primary selection:text-[#003733]">
+<!-- Mobile Viewport Container -->
+<div class="relative w-full max-w-md min-h-screen bg-[#091518] overflow-hidden flex flex-col justify-between shadow-2xl">
+<!-- UNDERLYING SCREEN: Dimmed Badges & Achievements Grid (Context) in Tactile Night -->
+<div class="absolute inset-0 z-0 bg-[#071214] overflow-hidden pointer-events-none select-none"><div class="absolute -top-20 -left-20 w-80 h-80 rounded-full bg-[#113835]/40 blur-3xl"></div><div class="absolute top-1/4 -right-24 w-72 h-72 rounded-full bg-[#0e3037]/50 blur-3xl"></div><div class="absolute bottom-1/3 left-10 w-64 h-64 rounded-full bg-[#1b373f]/30 blur-3xl"></div></div>
+<!-- TRANSLUCENT SCRIM / MODAL BACKDROP -->
+<div class="absolute inset-0 z-10 bg-[#071214]/90 backdrop-blur-md transition-opacity"></div>
+<!-- FOREGROUND MODAL BOTTOM SHEET -->
+<div class="relative z-20 mt-auto w-full flex flex-col">
+<!-- Tactile Night Card Sheet -->
+<div class="w-full bg-[#0e1c20] rounded-t-3xl border-t-2 border-x-2 border-[#213f47] shadow-[0_-12px_40px_rgba(0,0,0,0.6)] px-6 pt-3 pb-8 flex flex-col items-center text-center">
+<!-- Drag Handle / Tactile Pill -->
+<div class="w-12 h-1.5 rounded-full bg-[#294b54] mb-4"></div>
+<!-- Jewel Showcase Area with Ambient Glow -->
+<div class="relative w-48 h-48 flex items-center justify-center my-2">
+<!-- Soft radiant glow layer behind diamond -->
+<div class="absolute inset-2 rounded-full bg-gradient-to-tr from-[#f59e0b]/25 via-[#2ba39a]/40 to-[#6bd8ce]/30 blur-2xl animate-pulse-glow"></div>
+<!-- Tactile 3D Diamond Medallion -->
+<div class="relative z-10 w-36 h-36 animate-float flex items-center justify-center">
+<!-- Outer Amber/Gold Beveled Rim Ring -->
+<div class="absolute inset-0 rounded-3xl rotate-45 bg-gradient-to-b from-[#fde68a] via-[#f59e0b] to-[#b45309] p-1 shadow-[0_6px_0_#78350f]">
+<!-- Inner Glossy Deep Teal / Emerald Jewel Base -->
+<div class="w-full h-full rounded-[1.3rem] bg-gradient-to-tr from-[#094e48] via-[#106b63] to-[#14857b] flex items-center justify-center border border-[#88f5ea]/40 overflow-hidden relative shadow-inner">
+<!-- Specular Highlight Sheen Bar -->
+<div class="absolute -top-6 -left-6 w-20 h-20 bg-white/20 rounded-full blur-sm"></div>
+<!-- Faceted Gem Shape Structure (Icon) -->
+<span class="material-symbols-outlined text-[#ffffff] text-[68px] drop-shadow-[0_4px_8px_rgba(0,18,16,0.6)] -rotate-45" data-icon="diamond" data-weight="fill" style="font-variation-settings: 'FILL' 1;">diamond</span>
+<!-- Prismatic Micro-Reflections -->
+<div class="absolute bottom-2 right-2 w-5 h-5 bg-[#ffffff]/30 rounded-full blur-[1px]"></div>
+</div>
+</div>
+<!-- Sparkling Star Accents -->
+<div class="absolute -top-1 right-2 z-20 flex items-center justify-center text-[#fbbf24] drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">
+<span class="material-symbols-outlined text-2xl" data-icon="sparkles" data-weight="fill" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div class="absolute bottom-3 -left-1 z-20 flex items-center justify-center text-[#fef08a] drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">
+<span class="material-symbols-outlined text-xl" data-icon="auto_awesome" data-weight="fill" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+</div>
+</div>
+<!-- Badge Title -->
+<h2 class="text-headline-xl-mobile font-headline-xl-mobile text-[#ffffff] font-extrabold mt-1 mb-1 tracking-tight">Diamond</h2>
+<!-- Requirement Subtitle with strict >= 4.5:1 contrast -->
+<p class="text-body-md font-body-md text-[#d1e7ea] font-medium mb-4">Keep a 30–day streak</p>
+<!-- Earned Date Chip / Capsule Pill -->
+<div class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#142e34] border border-[#254e56] shadow-[0_2px_0_#061013] mb-7"><span class="material-symbols-outlined text-[#34d399] text-base" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span><span class="text-label-sm font-label-sm text-[#e6f4f5] font-bold">Earned 12 Oct</span></div>
+<!-- Tactile Candy Action Buttons -->
+<div class="w-full flex items-center gap-3"><button class="flex-1 h-14 bg-[#12252a] hover:bg-[#183036] border-2 border-[#22444c] text-[#e6f5f3] rounded-2xl flex items-center justify-center gap-2 shadow-[0_3px_0_#061013] active:translate-y-[2px] active:shadow-[0_1px_0_#061013] transition-all duration-75" type="button"><span class="material-symbols-outlined text-[#6bd8ce]" data-icon="share">share</span><span class="text-label-lg font-bold text-[#e6f5f3]">Share</span></button><button class="flex-1 h-14 bg-[#f59e0b] hover:bg-[#d97706] border-2 border-[#b45309] rounded-2xl flex items-center justify-center gap-1.5 shadow-[0_4px_0_#9a3412] active:translate-y-[3px] active:shadow-[0_1px_0_#9a3412] transition-all duration-75" type="button"><span class="text-label-lg font-bold text-[#1c1003]">Close</span></button></div>
+</div>
+</div>
+</div>
+</body></html>

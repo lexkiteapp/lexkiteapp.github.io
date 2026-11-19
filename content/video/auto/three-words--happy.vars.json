@@ -1,0 +1,26 @@
+{
+ "topic": "Vocabulary: 3 words for happy",
+ "scene": "library",
+ "seed": "tw-happy",
+ "vars": {
+  "topicWord": "happy",
+  "basic": "happy",
+  "hookLine": "Wait, just \"happy\"?",
+  "w1": "glad",
+  "s1": "A little happy, often about news.",
+  "w2": "thrilled",
+  "s2": "Very happy and excited.",
+  "w3": "relieved",
+  "s3": "Happy because a worry is finally over."
+ },
+ "lines": {
+  "hook": {
+   "expr": "surprised"
+  }
+ },
+ "hashtags": [
+  "vocabulary",
+  "englishvocabulary",
+  "learnenglish"
+ ]
+}

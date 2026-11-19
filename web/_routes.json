@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "include": [
+    "/api/*",
+    "/",
+    "/ar/words/*",
+    "/de/words/*",
+    "/es/words/*",
+    "/fr/words/*",
+    "/hi/words/*",
+    "/id/words/*",
+    "/ja/words/*",
+    "/ko/words/*",
+    "/pt/words/*",
+    "/ru/words/*",
+    "/th/words/*",
+    "/tr/words/*",
+    "/zh/words/*"
+  ],
+  "exclude": []
+}

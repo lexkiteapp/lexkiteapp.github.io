@@ -1,11 +1,179 @@
 {
  "appName": {
-  "message": "Lexkite – Wörterbuch & IELTS-Karteikarten"
+  "message": "Lexkite – Englisch-Wörterbuch, Übersetzer & Vokabel-Karteikarten"
  },
  "appDesc": {
-  "message": "Doppelklick auf ein Wort: Bedeutung, Lautschrift, Audio. Sätze und YouTube-Untertitel übersetzen. Speichern und mit Karten lernen."
+  "message": "Doppelklick auf ein Wort: Bedeutung, IPA und Audio. Auswahl übersetzen, Wörter mit Kontext speichern, für IELTS/TOEIC wiederholen."
  },
  "openApp": {
   "message": "Lexkite öffnen"
+ },
+ "rateTitle": {
+  "message": "Gefällt dir Lexkite?"
+ },
+ "rateBody": {
+  "message": "Wenn dir Lexkite beim Lernen hilft, hilft eine kurze Bewertung im Store anderen Lernenden, es zu finden."
+ },
+ "rateYes": {
+  "message": "Lexkite bewerten"
+ },
+ "rateLater": {
+  "message": "Später"
+ },
+ "rateNever": {
+  "message": "Nicht mehr fragen"
+ },
+ "ntGot": {
+  "message": "✓ Gewusst"
+ },
+ "ntAgain": {
+  "message": "↻ Wiederholen"
+ },
+ "ntGolden": {
+  "message": "Perfekter Moment"
+ },
+ "ntSaved": {
+  "message": "Kürzlich gespeichert"
+ },
+ "ntToday": {
+  "message": "Wort des Moments"
+ },
+ "ntSearch": {
+  "message": "Im Web suchen…"
+ },
+ "ntSearchBtn": {
+  "message": "Suchen"
+ },
+ "ntOff": {
+  "message": "Karte im neuen Tab ausschalten"
+ },
+ "ntConf": {
+  "message": "Selbstbewusst sprechen"
+ },
+ "ntListen": {
+  "message": "Anhören"
+ },
+ "ntSlow": {
+  "message": "Langsam"
+ },
+ "ntUK": {
+  "message": "UK"
+ },
+ "ntUS": {
+  "message": "US"
+ },
+ "ntFamily": {
+  "message": "Wortfamilie"
+ },
+ "ntColloc": {
+  "message": "Kollokationen"
+ },
+ "ntSyn": {
+  "message": "Synonyme"
+ },
+ "ntAnt": {
+  "message": "Gegenteile"
+ },
+ "ntQuiz": {
+  "message": "Quiz-Modus"
+ },
+ "ntReveal": {
+  "message": "Bedeutung zeigen"
+ },
+ "ntTapTr": {
+  "message": "Tippen für Übersetzung"
+ },
+ "ntMT": {
+  "message": "Maschinelle Übersetzung"
+ },
+ "ntExample": {
+  "message": "Beispiel"
+ },
+ "ntAdd": {
+  "message": "＋ Zu meinem Stapel"
+ },
+ "ntAdded": {
+  "message": "✓ In meinem Stapel"
+ },
+ "ntNext": {
+  "message": "Nächstes Wort →"
+ },
+ "ntProgress": {
+  "message": "{n}/{g} Wörter heute"
+ },
+ "ntShortcuts": {
+  "message": "Tastenkürzel"
+ },
+ "ntKeys": {
+  "message": "Leertaste: zeigen · 1/2: bewerten · N: weiter · P: anhören"
+ },
+ "posN": {
+  "message": "Nomen"
+ },
+ "posV": {
+  "message": "Verb"
+ },
+ "posAdj": {
+  "message": "Adjektiv"
+ },
+ "posAdv": {
+  "message": "Adverb"
+ },
+ "posPhrV": {
+  "message": "Phrasal Verb"
+ },
+ "posPhrase": {
+  "message": "Wendung"
+ },
+ "posIdiom": {
+  "message": "Redewendung"
+ },
+ "posPrep": {
+  "message": "Präposition"
+ },
+ "posConj": {
+  "message": "Konjunktion"
+ },
+ "posPron": {
+  "message": "Pronomen"
+ },
+ "posDet": {
+  "message": "Artikelwort"
+ },
+ "posExcl": {
+  "message": "Ausruf"
+ },
+ "posNum": {
+  "message": "Zahlwort"
+ },
+ "posAbbr": {
+  "message": "Abkürzung"
+ },
+ "posColl": {
+  "message": "Kollokation"
+ },
+ "ntMoreSenses": {
+  "message": "+{n} Bedeutungen"
+ },
+ "ntQzTag": {
+  "message": "Blitz-Quiz"
+ },
+ "ntQzQ": {
+  "message": "Wähle die richtige Bedeutung"
+ },
+ "ntQzTime": {
+  "message": "{s} Sekunden"
+ },
+ "ntQzRight": {
+  "message": "Richtig!"
+ },
+ "ntQzWrong": {
+  "message": "Knapp daneben – das Wort kommt bald wieder"
+ },
+ "ntQzTimeout": {
+  "message": "Zeit um – kein Problem"
+ },
+ "ntQzSkip": {
+  "message": "Überspringen"
  }
 }

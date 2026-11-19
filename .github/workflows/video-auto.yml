@@ -1,0 +1,57 @@
+# Video tự động hằng ngày (docs/VIDEO-PIPELINE.md §12): kho kịch bản khuôn → lint → Studio ciCreate → video.yml (dựng + QA + tải kho GrabCast).
+# Studio chặn: trùng nguồn · công tắc Tự động tắt · hạn mức/ngày · tồn đọng chờ duyệt. Đăng công khai vẫn theo luật Studio (chấm tay knowledge/share, N video đầu duyệt tay).
+name: Video tự động (hằng ngày)
+on:
+  schedule:
+    - cron: '17 23 * * *' # 06:17 giờ VN – video xong trước giờ vàng New York 7·8 giờ
+    - cron: '53 3,6 * * *' # lượt thấp điểm dự phòng (chủ 10/11): chỉ chạy khi lượt chính bị dời vì hàng CI đông
+  workflow_dispatch:
+    inputs:
+      n: { description: 'Số video tạo lần này (1–5)', required: false, default: '1' }
+      only: { description: 'Chỉ chạy 1 kịch bản (<khuôn>--<slug>), để trống = kế tiếp', required: false, default: '' }
+      force: { description: 'Bỏ qua công tắc Tự động/hạn mức/tồn đọng (chạy tay)', type: boolean, default: false }
+permissions:
+  contents: read
+  actions: write # gọi video.yml (workflow_dispatch bằng GITHUB_TOKEN)
+concurrency: { group: video-auto, cancel-in-progress: false }
+jobs:
+  pick:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Kiểm kho kịch bản (cổng tĩnh)
+        continue-on-error: true
+        run: node scripts/video/auto.mjs --check | tail -40
+      - name: video.yml còn bật? (tắt tay → bỏ qua TRUNG TÍNH, không đỏ mỗi sáng vô ích)
+        id: on
+        env: { GH_TOKEN: '${{ github.token }}' }
+        run: |
+          st=$(curl -fsS -H "Authorization: Bearer $GH_TOKEN" "https://api.github.com/repos/${{ github.repository }}/actions/workflows/video.yml" | python3 -c 'import json,sys;print(json.load(sys.stdin)["state"])') || st=unknown
+          echo "state=$st" >> "$GITHUB_OUTPUT"
+          [ "$st" = active ] || echo "::notice::video.yml đang '$st' (GrabCast tạm tắt, docs/VIDEO-PIPELINE.md) → hôm nay không tạo job Studio"
+      - name: Hàng CI đông thì dời (chủ 10/11 – video nhường runner cho web/hệ thống; scripts/ci/busy-gate.mjs)
+        id: ci
+        if: steps.on.outputs.state == 'active'
+        env: { GITHUB_TOKEN: '${{ github.token }}', CRON: '${{ github.event.schedule }}' }
+        run: |
+          if [ -n "$CRON" ] && [ "$CRON" != '17 23 * * *' ]; then # lượt dự phòng: hôm nay đã gọi dựng (video.yml tạo ≤ 8 giờ trước) → thôi
+            since=$(date -u -d '8 hours ago' +%Y-%m-%dT%H:%M:%SZ)
+            n=$(curl -fsS -H "Authorization: Bearer $GITHUB_TOKEN" "https://api.github.com/repos/${{ github.repository }}/actions/workflows/video.yml/runs?created=%3E%3D$since&per_page=1" | python3 -c 'import json,sys;print(json.load(sys.stdin)["total_count"])') || n=0
+            [ "$n" = 0 ] || { echo "recent=1: video.yml đã chạy trong 8 giờ → lượt dự phòng bỏ qua"; echo "busy=1" >> "$GITHUB_OUTPUT"; exit 0; }
+          fi
+          node scripts/ci/busy-gate.mjs
+      - name: Tạo job Studio + gọi dựng
+        if: steps.on.outputs.state == 'active' && (steps.ci.outputs.busy == '0' || inputs.force)
+        env:
+          STUDIO_CALLBACK_SECRET: ${{ secrets.STUDIO_CALLBACK_SECRET }}
+          GITHUB_TOKEN: ${{ github.token }}
+          N: ${{ inputs.n || '1' }}
+          ONLY: ${{ inputs.only }}
+          FORCE: ${{ inputs.force && '--force' || '' }}
+        run: |
+          echo "$N" | grep -Eq '^[1-5]$' || { echo "n không hợp lệ"; exit 1; }
+          [ -z "$ONLY" ] || echo "$ONLY" | grep -Eq '^[a-z0-9-]{1,40}--[a-z0-9-]{1,60}$' || { echo "only không hợp lệ"; exit 1; }
+          node scripts/video/auto.mjs --n "$N" ${ONLY:+--only "$ONLY"} $FORCE

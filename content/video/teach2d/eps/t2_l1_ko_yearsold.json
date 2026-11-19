@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ko_yearsold",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say years old!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I am 25 years.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I am 25 years old.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "After years, say old.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Years old! My sister is five years old.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I am 25 years.",
+  "right": "I am 25 years old.",
+  "strike": "25 years",
+  "why": "After years, say old.",
+  "memory": "I am 25 years old.",
+  "quiz": {
+   "stem": "My sister is five ___.",
+   "options": [
+    "years",
+    "years old"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "나이는 years old로 말해요!",
+   "tip": "한국어 ‘25살’의 ‘살’을 years로만 옮기기 쉬워요. 영어는 years 뒤에 old를 꼭 붙이거나, 그냥 “I am 25.”라고 해요. 이렇게 말해요 👉 “I am 25 years old.”",
+   "caption": "“I am 25 years.”처럼 말하고 있나요? 😅 한국어 ‘25살’의 ‘살’을 years로만 옮기기 쉬워요. 영어는 years 뒤에 old를 꼭 붙이거나, 그냥 “I am 25.”라고 해요. 맞는 문장 ✅ “I am 25 years old.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+   "comment": "정답: “years old”! 이 표현을 넣어 소리 내어 한 문장 말해 보세요. 무료 퀴즈로 더 연습해요: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Say years old for age!",
+   "tip": "After years, add old. You can also just say “I am 25.” Say “I am 25 years old.”",
+   "caption": "Do you say it like this? 😅 “I am 25 years.” After years, add old. You can also just say “I am 25.” Right: “I am 25 years old.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "나이는 years old로 말해요!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ko",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "나이는 years old로 말해요!",
+  "keyword": "I am 25 years old.",
+  "value": "한국어 ‘25살’의 ‘살’을 years로만 옮기기 쉬워요. 영어는 years 뒤에 old를 꼭 붙이거나, 그냥 “I am 25.”라고 해요. 이렇게 말해요 👉 “I am 25 years old.”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "나이는 years old로 말해요!",
+    "description": "한국어 ‘25살’의 ‘살’을 years로만 옮기기 쉬워요. 영어는 years 뒤에 old를 꼭 붙이거나, 그냥 “I am 25.”라고 해요. 이렇게 말해요 👉 “I am 25 years old.”\n\n“I am 25 years.”처럼 말하고 있나요? 😅 한국어 ‘25살’의 ‘살’을 years로만 옮기기 쉬워요. 영어는 years 뒤에 old를 꼭 붙이거나, 그냥 “I am 25.”라고 해요. 맞는 문장 ✅ “I am 25 years old.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "I am 25 years old.",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“I am 25 years.”처럼 말하고 있나요? 😅 한국어 ‘25살’의 ‘살’을 years로만 옮기기 쉬워요. 영어는 years 뒤에 old를 꼭 붙이거나, 그냥 “I am 25.”라고 해요. 맞는 문장 ✅ “I am 25 years old.” Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "나이는 years old로 말해요!\n\n한국어 ‘25살’의 ‘살’을 years로만 옮기기 쉬워요. 영어는 years 뒤에 old를 꼭 붙이거나, 그냥 “I am 25.”라고 해요. 이렇게 말해요 👉 “I am 25 years old.”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "나이는 years old로 말해요! 한국어 ‘25살’의 ‘살’을 years로만 옮기기 쉬워요. 영어는 years 뒤에 old를 꼭 붙이거나, 그냥 “I am 25.”라고 해요. 이렇게 말해요 👉 “I am 25 years old.” #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답: “years old”! 이 표현을 넣어 소리 내어 한 문장 말해 보세요. 무료 퀴즈로 더 연습해요: {link}",
+  "lang": "ko"
+ }
+}

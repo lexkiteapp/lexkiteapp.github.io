@@ -1,0 +1,476 @@
+{
+ "fixed": [
+  {
+   "word": "y",
+   "field": "ipa",
+   "from": "i",
+   "to": "ˈi",
+   "why": "theo es-g2p (ʝ yeísmo / bán nguyên âm / ɛ→e / ˈ nhấn)"
+  },
+  {
+   "word": "decir",
+   "field": "gl.en",
+   "from": "said",
+   "to": "to say, to tell",
+   "why": "gloss ở quá khứ \"said/сказал/कहा\""
+  },
+  {
+   "word": "decir",
+   "field": "gl.hi",
+   "from": "कहा",
+   "to": "कहना",
+   "why": "gloss ở quá khứ \"said/сказал/कहा\""
+  },
+  {
+   "word": "decir",
+   "field": "gl.ru",
+   "from": "сказал",
+   "to": "говорить, сказать",
+   "why": "gloss ở quá khứ \"said/сказал/कहा\""
+  },
+  {
+   "word": "decir",
+   "field": "gl.tr",
+   "from": "demek",
+   "to": "demek, söylemek",
+   "why": "gloss ở quá khứ \"said/сказал/कहा\""
+  },
+  {
+   "word": "haber",
+   "field": "gl.vi",
+   "from": "có (quá khứ)",
+   "to": "có (hay); đã (trợ động từ)",
+   "why": "gloss chỉ quá khứ \"there was\""
+  },
+  {
+   "word": "haber",
+   "field": "gl.en",
+   "from": "there was / there were",
+   "to": "to have (auxiliary); there is/are",
+   "why": "gloss chỉ quá khứ \"there was\""
+  },
+  {
+   "word": "haber",
+   "field": "gl.pt",
+   "from": "haver",
+   "to": "haver (há)",
+   "why": "gloss chỉ quá khứ \"there was\""
+  },
+  {
+   "word": "haber",
+   "field": "gl.fr",
+   "from": "il y avait",
+   "to": "avoir (auxiliaire); il y a",
+   "why": "gloss chỉ quá khứ \"there was\""
+  },
+  {
+   "word": "haber",
+   "field": "gl.de",
+   "from": "es gab",
+   "to": "haben (Hilfsverb); es gibt",
+   "why": "gloss chỉ quá khứ \"there was\""
+  },
+  {
+   "word": "haber",
+   "field": "gl.id",
+   "from": "ada (dulu)",
+   "to": "ada; telah (bantu)",
+   "why": "gloss chỉ quá khứ \"there was\""
+  },
+  {
+   "word": "haber",
+   "field": "gl.th",
+   "from": "เคยมี",
+   "to": "มี; (กริยาช่วย)",
+   "why": "gloss chỉ quá khứ \"there was\""
+  },
+  {
+   "word": "haber",
+   "field": "gl.zh",
+   "from": "有（过去式）",
+   "to": "有；已（助动词）",
+   "why": "gloss chỉ quá khứ \"there was\""
+  },
+  {
+   "word": "haber",
+   "field": "gl.ja",
+   "from": "あった",
+   "to": "ある；〜した（助動詞）",
+   "why": "gloss chỉ quá khứ \"there was\""
+  },
+  {
+   "word": "haber",
+   "field": "gl.ko",
+   "from": "있었다",
+   "to": "있다; ~했다 (조동사)",
+   "why": "gloss chỉ quá khứ \"there was\""
+  },
+  {
+   "word": "haber",
+   "field": "gl.hi",
+   "from": "था",
+   "to": "होना (सहायक क्रिया); है",
+   "why": "gloss chỉ quá khứ \"there was\""
+  },
+  {
+   "word": "haber",
+   "field": "gl.ar",
+   "from": "كان هناك",
+   "to": "يوجد؛ (فعل مساعد)",
+   "why": "gloss chỉ quá khứ \"there was\""
+  },
+  {
+   "word": "haber",
+   "field": "gl.ru",
+   "from": "было",
+   "to": "быть, иметься (вспомог.)",
+   "why": "gloss chỉ quá khứ \"there was\""
+  },
+  {
+   "word": "haber",
+   "field": "gl.tr",
+   "from": "vardı",
+   "to": "var olmak; (yardımcı fiil)",
+   "why": "gloss chỉ quá khứ \"there was\""
+  },
+  {
+   "word": "suficiente",
+   "field": "ipa",
+   "from": "sufiˈsjɛnte",
+   "to": "sufiˈsjente",
+   "why": "theo es-g2p (ʝ yeísmo / bán nguyên âm / ɛ→e / ˈ nhấn)"
+  },
+  {
+   "word": "seis",
+   "field": "ipa",
+   "from": "ˈseɪs",
+   "to": "ˈsejs",
+   "why": "theo es-g2p (ʝ yeísmo / bán nguyên âm / ɛ→e / ˈ nhấn)"
+  },
+  {
+   "word": "seis",
+   "field": "gl.ko",
+   "from": "육",
+   "to": "여섯",
+   "why": "thống nhất số thuần Hàn như dos/cinco"
+  },
+  {
+   "word": "matar",
+   "field": "gl.ja",
+   "from": "人・物を殺す",
+   "to": "殺す",
+   "why": "\"人・物を殺す\" thừa"
+  },
+  {
+   "word": "perder",
+   "field": "gl.vi",
+   "from": "thua",
+   "to": "mất, thua",
+   "why": "thiếu nghĩa \"mất\""
+  },
+  {
+   "word": "perder",
+   "field": "gl.id",
+   "from": "kalah",
+   "to": "kehilangan, kalah",
+   "why": "thiếu nghĩa \"mất\""
+  },
+  {
+   "word": "perder",
+   "field": "gl.th",
+   "from": "แพ้",
+   "to": "แพ้; ทำหาย",
+   "why": "thiếu nghĩa \"mất\""
+  },
+  {
+   "word": "perder",
+   "field": "gl.zh",
+   "from": "输",
+   "to": "输；丢失",
+   "why": "thiếu nghĩa \"mất\""
+  },
+  {
+   "word": "perder",
+   "field": "gl.ja",
+   "from": "失う",
+   "to": "失う、負ける",
+   "why": "thiếu nghĩa \"mất\""
+  },
+  {
+   "word": "perder",
+   "field": "gl.ru",
+   "from": "терять",
+   "to": "терять, проигрывать",
+   "why": "thiếu nghĩa \"mất\""
+  },
+  {
+   "word": "tratar",
+   "field": "gl.vi",
+   "from": "cố gắng",
+   "to": "cố gắng; đối xử",
+   "why": "thiếu nghĩa đối xử"
+  },
+  {
+   "word": "tratar",
+   "field": "gl.en",
+   "from": "to try",
+   "to": "to try; to treat",
+   "why": "thiếu nghĩa đối xử"
+  },
+  {
+   "word": "montón",
+   "field": "gl.pt",
+   "from": "monte, monte de",
+   "to": "pilha, monte; muito",
+   "why": "\"monte, monte de\" lặp"
+  },
+  {
+   "word": "ley",
+   "field": "ipa",
+   "from": "ˈleɪ",
+   "to": "ˈlej",
+   "why": "theo es-g2p (ʝ yeísmo / bán nguyên âm / ɛ→e / ˈ nhấn)"
+  },
+  {
+   "word": "inteligente",
+   "field": "ipa",
+   "from": "inteliˈxɛnte",
+   "to": "inteliˈxente",
+   "why": "theo es-g2p (ʝ yeísmo / bán nguyên âm / ɛ→e / ˈ nhấn)"
+  },
+  {
+   "word": "cliente",
+   "field": "ipa",
+   "from": "ˈkliɛnte",
+   "to": "ˈkljente",
+   "why": "theo es-g2p (ʝ yeísmo / bán nguyên âm / ɛ→e / ˈ nhấn)"
+  },
+  {
+   "word": "pedir",
+   "field": "gl.vi",
+   "from": "yêu cầu",
+   "to": "xin, gọi (món), yêu cầu",
+   "why": "hi \"पूछना\" = hỏi (sai); thiếu nghĩa gọi món"
+  },
+  {
+   "word": "pedir",
+   "field": "gl.en",
+   "from": "to ask for",
+   "to": "to ask for, to order, to request",
+   "why": "hi \"पूछना\" = hỏi (sai); thiếu nghĩa gọi món"
+  },
+  {
+   "word": "pedir",
+   "field": "gl.hi",
+   "from": "पूछना",
+   "to": "माँगना",
+   "why": "hi \"पूछना\" = hỏi (sai); thiếu nghĩa gọi món"
+  },
+  {
+   "word": "pedir",
+   "field": "gl.zh",
+   "from": "请求",
+   "to": "要求；点（菜）",
+   "why": "hi \"पूछना\" = hỏi (sai); thiếu nghĩa gọi món"
+  },
+  {
+   "word": "ojalá",
+   "field": "gl.tr",
+   "from": "inşallah",
+   "to": "keşke",
+   "why": "\"inşallah\" lệch sắc thái tôn giáo"
+  },
+  {
+   "word": "cuello",
+   "field": "ipa",
+   "from": "ˈkwejjo",
+   "to": "ˈkweʝo",
+   "why": "theo es-g2p (ʝ yeísmo / bán nguyên âm / ɛ→e / ˈ nhấn)"
+  },
+  {
+   "word": "nombre",
+   "field": "gl.en",
+   "from": "names",
+   "to": "name",
+   "why": "gloss ở dạng số nhiều"
+  },
+  {
+   "word": "nombre",
+   "field": "gl.pt",
+   "from": "nomes",
+   "to": "nome",
+   "why": "gloss ở dạng số nhiều"
+  },
+  {
+   "word": "nombre",
+   "field": "gl.fr",
+   "from": "noms",
+   "to": "nom",
+   "why": "gloss ở dạng số nhiều"
+  },
+  {
+   "word": "nombre",
+   "field": "gl.de",
+   "from": "Namen",
+   "to": "Name",
+   "why": "gloss ở dạng số nhiều"
+  },
+  {
+   "word": "nombre",
+   "field": "gl.id",
+   "from": "nama-nama",
+   "to": "nama",
+   "why": "gloss ở dạng số nhiều"
+  },
+  {
+   "word": "nombre",
+   "field": "gl.ko",
+   "from": "이름들",
+   "to": "이름",
+   "why": "gloss ở dạng số nhiều"
+  },
+  {
+   "word": "nombre",
+   "field": "gl.ar",
+   "from": "أسماء",
+   "to": "اسم",
+   "why": "gloss ở dạng số nhiều"
+  },
+  {
+   "word": "nombre",
+   "field": "gl.ru",
+   "from": "имена",
+   "to": "имя",
+   "why": "gloss ở dạng số nhiều"
+  },
+  {
+   "word": "nombre",
+   "field": "gl.tr",
+   "from": "isimler",
+   "to": "isim, ad",
+   "why": "gloss ở dạng số nhiều"
+  },
+  {
+   "word": "referirse",
+   "field": "gl.fr",
+   "from": "référer",
+   "to": "se référer à",
+   "why": "phản thân"
+  },
+  {
+   "word": "referirse",
+   "field": "gl.en",
+   "from": "refer to",
+   "to": "to refer to",
+   "why": "phản thân"
+  },
+  {
+   "word": "volar",
+   "field": "gl.ja",
+   "from": "飞ぶ",
+   "to": "飛ぶ",
+   "why": "chữ giản thể 飞 trong tiếng Nhật"
+  },
+  {
+   "word": "quedar",
+   "field": "gl.vi",
+   "from": "ở lại",
+   "to": "ở lại; còn lại",
+   "why": "gloss ở quá khứ (remained/blieb/остался...)"
+  },
+  {
+   "word": "quedar",
+   "field": "gl.en",
+   "from": "remained",
+   "to": "to stay, remain; to be left",
+   "why": "gloss ở quá khứ (remained/blieb/остался...)"
+  },
+  {
+   "word": "quedar",
+   "field": "gl.pt",
+   "from": "ficou",
+   "to": "ficar; sobrar",
+   "why": "gloss ở quá khứ (remained/blieb/остался...)"
+  },
+  {
+   "word": "quedar",
+   "field": "gl.fr",
+   "from": "est resté",
+   "to": "rester",
+   "why": "gloss ở quá khứ (remained/blieb/остался...)"
+  },
+  {
+   "word": "quedar",
+   "field": "gl.de",
+   "from": "blieb",
+   "to": "bleiben",
+   "why": "gloss ở quá khứ (remained/blieb/остался...)"
+  },
+  {
+   "word": "quedar",
+   "field": "gl.id",
+   "from": "tetap",
+   "to": "tinggal; tersisa",
+   "why": "gloss ở quá khứ (remained/blieb/остался...)"
+  },
+  {
+   "word": "quedar",
+   "field": "gl.th",
+   "from": "คงอยู่",
+   "to": "อยู่; เหลือ",
+   "why": "gloss ở quá khứ (remained/blieb/остался...)"
+  },
+  {
+   "word": "quedar",
+   "field": "gl.zh",
+   "from": "留下",
+   "to": "留下；剩下",
+   "why": "gloss ở quá khứ (remained/blieb/остался...)"
+  },
+  {
+   "word": "quedar",
+   "field": "gl.ja",
+   "from": "残った",
+   "to": "とどまる；残る",
+   "why": "gloss ở quá khứ (remained/blieb/остался...)"
+  },
+  {
+   "word": "quedar",
+   "field": "gl.ko",
+   "from": "남았다",
+   "to": "머물다; 남다",
+   "why": "gloss ở quá khứ (remained/blieb/остался...)"
+  },
+  {
+   "word": "quedar",
+   "field": "gl.hi",
+   "from": "रहा",
+   "to": "रहना; बचना",
+   "why": "gloss ở quá khứ (remained/blieb/остался...)"
+  },
+  {
+   "word": "quedar",
+   "field": "gl.ru",
+   "from": "остался",
+   "to": "оставаться",
+   "why": "gloss ở quá khứ (remained/blieb/остался...)"
+  },
+  {
+   "word": "quedar",
+   "field": "gl.tr",
+   "from": "kaldı",
+   "to": "kalmak",
+   "why": "gloss ở quá khứ (remained/blieb/остался...)"
+  }
+ ],
+ "dropped": [
+  {
+   "word": "otro",
+   "why": "trùng từ otro (đã có ở core-03, adj), gloss \"another / other (female)\" sai giống"
+  },
+  {
+   "word": "referir",
+   "why": "dư thừa với referirse; ví dụ dùng dạng phản thân, nghĩa lệch"
+  }
+ ]
+}

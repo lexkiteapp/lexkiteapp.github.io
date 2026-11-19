@@ -1,0 +1,131 @@
+{
+ "id": "m21",
+ "level": "C1",
+ "lo": "M.C1.06",
+ "activity": "relay",
+ "title": "A letter about housing support",
+ "scenario": "Your friend Mr Okafor arrived in the country recently and received this letter. He understands everyday English but not official language. Turn it into a list of actions he can follow.",
+ "source": {
+  "kind": "text",
+  "text": [
+   "Reference: HS/2291/08",
+   "Dear Mr Okafor,",
+   "We refer to your application for housing support received on 3 February, and apologise for the delay in responding. In accordance with Section 14 of the Housing Assistance Regulations, your application has been provisionally accepted, subject to the completion of the enclosed Form B and the supply of the supporting evidence described below.",
+   "You are required to return the completed Form B, either by post or through the online portal, no later than 15 March, quoting the reference number shown above. Applications that reach us after this date will be treated as withdrawn and a fresh application will be needed.",
+   "Form B must be accompanied by documentary proof of your household income for the preceding three months, which may take the form of payslips or bank statements. Please note that originals are not required; clear copies will suffice.",
+   "At this stage no payment is due. Should the application be approved, a separate notice will set out any contribution payable and the date from which support begins. Please do not make any payment in response to unsolicited messages claiming to come from this department.",
+   "Any change in your address, income or the number of people in your household must be notified in writing within 14 days of the change taking effect.",
+   "Yours sincerely, Housing Support Team"
+  ]
+ },
+ "task": {
+  "mode": "write",
+  "audience": "a friend who is new to official English",
+  "prompt": "Write a numbered list of what Mr Okafor must do (100–155 words in total). Use plain language and include any deadline.",
+  "min_words": 100,
+  "max_words": 155
+ },
+ "points": [
+  {
+   "id": "form",
+   "idea": "Return Form B by 15 March, by post or online, with the reference number.",
+   "checks": [
+    [
+     "form b"
+    ],
+    [
+     "15 march",
+     "march 15"
+    ],
+    [
+     "reference"
+    ]
+   ]
+  },
+  {
+   "id": "proof",
+   "idea": "Attach proof of income for the last three months (copies are fine).",
+   "checks": [
+    [
+     "income",
+     "payslip",
+     "bank statement"
+    ],
+    [
+     "three months",
+     "3 months"
+    ]
+   ]
+  },
+  {
+   "id": "late",
+   "idea": "If it is late, the application is cancelled and he must start again.",
+   "checks": [
+    [
+     "late",
+     "after"
+    ],
+    [
+     "withdrawn",
+     "cancel",
+     "start again",
+     "new application",
+     "start over",
+     "apply again"
+    ]
+   ]
+  },
+  {
+   "id": "pay",
+   "idea": "Do not pay anything now, and ignore messages asking for money.",
+   "checks": [
+    [
+     "not pay",
+     "don't pay",
+     "no payment",
+     "nothing to pay",
+     "do not make any payment",
+     "not send money"
+    ]
+   ]
+  },
+  {
+   "id": "change",
+   "idea": "Tell them in writing within 14 days of any change.",
+   "checks": [
+    [
+     "14 days",
+     "two weeks",
+     "fourteen"
+    ],
+    [
+     "change"
+    ]
+   ]
+  }
+ ],
+ "leave_out": [
+  {
+   "idea": "The legal reference (Section 14) and the apology for the delay.",
+   "checks": [
+    [
+     "section 14",
+     "regulations",
+     "apolog"
+    ]
+   ]
+  }
+ ],
+ "model": "Mr Okafor, here is what the letter asks you to do.\n1. Fill in the Form B that came with the letter. Send it back by 15 March, by post or on the website, and write the reference number HS/2291/08 on it.\n2. Add proof of how much money your household earned in the last three months. Payslips or bank statements are fine, and copies are enough.\n3. Do not be late. If the form arrives after 15 March, your application is cancelled and you will have to apply again.\n4. Do not pay anything now, and ignore any message that asks you for money.\n5. If your address, income or number of people at home changes, tell them in writing within 14 days.",
+ "useful": [
+  "Here is what the letter asks you to do.",
+  "Send it back by …",
+  "If it arrives after …, you will have to …",
+  "ignore any message that asks you for …"
+ ],
+ "tips": [
+  "Turn each formal obligation (\"you are required to…\") into a short command with a verb first. The list should be usable without the letter.",
+  "Keep identifiers the reader will need (the reference number, the date) and drop the legal framing that does not change what they do."
+ ],
+ "explain": "The action list covers the form with its deadline and reference, proof of income, the consequence of lateness, the no-payment warning and the 14-day rule. The regulation number and the apology are courtesy and legal wording."
+}

@@ -1,0 +1,1803 @@
+{
+ "scene": "cafe",
+ "version": 1,
+ "created": "2026-10-20",
+ "characters": {
+  "ama": {
+   "desc": "teen girl, curly hair, yellow headband, coral hoodie, teal denim overall dress, brown backpack, white sneakers",
+   "voice": {
+    "engine": "kokoro-js@1 Kokoro-82M q8 (free, CI)",
+    "voice": "af_bella",
+    "speed": 0.9,
+    "why": "kept (assets.json): af_heart scored similar but is Mia's voice; af_nicole is breathy/older (F0 147 Hz). Native speed 0.9 instead of atempo; extra atempo only when a caption would exceed 14.8 cps (floor 0.85)."
+   },
+   "ref": "frames/ref-ama.png"
+  },
+  "carlos": {
+   "desc": "adult barista, black curly hair faded sides, mustache, olive henley, navy apron, light jeans",
+   "voice": {
+    "engine": "kokoro-js@1 Kokoro-82M q8 (free, CI)",
+    "voice": "am_fenrir",
+    "speed": 0.9,
+    "why": "A/B on CI: am_adam (current casting) is flat (pitch std 2.5-2.7 st, Kokoro grade F+); am_michael is Leo's voice; am_fenrir most expressive (4.4 st, range 13 st). Suggest updating content/video/casting.json carlos -> am_fenrir."
+   },
+   "ref": "frames/ref-carlos.png"
+  }
+ },
+ "rules": {
+  "axis_180": "Ama always screen-LEFT facing RIGHT; Carlos screen-RIGHT facing LEFT, always BEHIND the counter",
+  "props": "latte exists only from c09 onward (taken from the machine top); c10 MCU has no cup -> place before c09"
+ },
+ "viseme_set": "Rhubarb A-F,X (+G->B, H->C fallbacks); sprites are aligned crops of THIS clip (frame0 coords of sprite_roi); X = frame 0",
+ "clips": [
+  {
+   "id": "c01_master_talk_a",
+   "file": "clips/c01_master_talk_a.mp4",
+   "first_frame": "frames/blk-1.png",
+   "kling": {
+    "model": "kling-video-v2_5",
+    "duration": 5,
+    "resolution": "1080p",
+    "generationId": "AXJFlplIgQqr0HwekaitrkJ_kr5Kve_rOvdGMh-oUs0Xpo_hewk7fXXzF8RLPg4h-poq5FMI"
+   },
+   "framing": "master",
+   "speakers": [
+    "ama",
+    "carlos"
+   ],
+   "listeners": [],
+   "facing": {
+    "ama": "screen-left, facing right",
+    "carlos": "screen-right, facing left"
+   },
+   "fps": 24,
+   "frames": 121,
+   "usable_segments": [
+    [
+     0.0,
+     5.0
+    ]
+   ],
+   "tags": [
+    "conversation",
+    "friendly",
+    "alternate-speakers",
+    "gesture"
+   ],
+   "post": {
+    "watermark_crop": null,
+    "board_blur": true
+   },
+   "mouths": {
+    "ama": {
+     "mouth_set": "meta/c01_master_talk_a/ama/sprites/",
+     "crops": "meta/c01_master_talk_a/ama/crops.npz",
+     "track": "meta/c01_master_talk_a/ama/track.npy",
+     "track_raw": "meta/c01_master_talk_a/ama/track_raw.npy",
+     "mouth_box": [
+      346,
+      697,
+      398,
+      727
+     ],
+     "face_box": [
+      110,
+      560,
+      400,
+      870
+     ],
+     "sprite_roi": [
+      323,
+      674,
+      98,
+      76
+     ],
+     "visemes": {
+      "A": 12,
+      "B": 18,
+      "C": 27,
+      "D": 81,
+      "E": 45,
+      "F": 76,
+      "G": 18,
+      "H": 27,
+      "X": 0
+     },
+     "track_quality": {
+      "cc_min": 0.346,
+      "cc_mean": 0.965,
+      "jitter_px_rms": 5.72,
+      "mouth_x": [
+       355.8,
+       405.8
+      ],
+      "mouth_y": [
+       632.7,
+       730.3
+      ],
+      "scale": [
+       0.538,
+       1.545
+      ]
+     },
+     "usable_for_swap": true
+    },
+    "carlos": {
+     "mouth_set": "meta/c01_master_talk_a/carlos/sprites/",
+     "crops": "meta/c01_master_talk_a/carlos/crops.npz",
+     "track": "meta/c01_master_talk_a/carlos/track.npy",
+     "track_raw": "meta/c01_master_talk_a/carlos/track_raw.npy",
+     "mouth_box": [
+      645,
+      381,
+      735,
+      449
+     ],
+     "face_box": [
+      590,
+      240,
+      770,
+      500
+     ],
+     "sprite_roi": [
+      605,
+      341,
+      170,
+      148
+     ],
+     "visemes": {
+      "A": 105,
+      "B": 34,
+      "C": 18,
+      "D": 111,
+      "E": 101,
+      "F": 117,
+      "G": 34,
+      "H": 18,
+      "X": 0
+     },
+     "track_quality": {
+      "cc_min": 0.701,
+      "cc_mean": 0.925,
+      "jitter_px_rms": 0.74,
+      "mouth_x": [
+       668.5,
+       691.4
+      ],
+      "mouth_y": [
+       399.0,
+       421.7
+      ],
+      "scale": [
+       0.977,
+       1.05
+      ]
+     },
+     "usable_for_swap": true
+    }
+   },
+   "qa": "PASS: 180 ok (Ama L facing R, Carlos R facing L, eyelines meet), outfits match refs, no props; chalkboard text needs board_blur",
+   "source": {
+    "kind": "kling urlWithoutWatermark (query_tasks works[].urlWithoutWatermark; signed CDN URL, may expire -> re-query by generationId)",
+    "url": "https://v15-kling.klingai.com/bs2/upload-ylab-stunt-sgp/b9b2e599-7000-4976-a598-8c7d75a5dacc-qRyI__hAw4DLI1F9G_EBVw-output.mp4?x-kcdn-pid=112372"
+   },
+   "geometry_check": "frame diff vs watermarked copy outside the watermark area 0.5-0.65/255 (codec noise) -> tracks/sprites reused unchanged"
+  },
+  {
+   "id": "c02_master_talk_b",
+   "file": "clips/c02_master_talk_b.mp4",
+   "first_frame": "frames/blk-9.png",
+   "kling": {
+    "model": "kling-video-v2_5",
+    "duration": 5,
+    "resolution": "1080p",
+    "generationId": "AQstxRSrVjInOHzey7ZqAaU_aQHphl67itRqFwllmoz44GFTTjXedQg9HDC9NzYT5vjXBg3L"
+   },
+   "framing": "master",
+   "speakers": [
+    "carlos",
+    "ama"
+   ],
+   "listeners": [],
+   "facing": {
+    "ama": "screen-left, facing right",
+    "carlos": "screen-right, facing left"
+   },
+   "fps": 24,
+   "frames": 121,
+   "usable_segments": [
+    [
+     0.0,
+     5.0
+    ]
+   ],
+   "tags": [
+    "conversation",
+    "carlos-leans",
+    "nod",
+    "shrug"
+   ],
+   "post": {
+    "watermark_crop": null,
+    "board_blur": true
+   },
+   "mouths": {
+    "ama": {
+     "mouth_set": "meta/c02_master_talk_b/ama/sprites/",
+     "crops": "meta/c02_master_talk_b/ama/crops.npz",
+     "track": "meta/c02_master_talk_b/ama/track.npy",
+     "track_raw": "meta/c02_master_talk_b/ama/track_raw.npy",
+     "mouth_box": [
+      304,
+      750,
+      359,
+      778
+     ],
+     "face_box": [
+      150,
+      560,
+      440,
+      860
+     ],
+     "sprite_roi": [
+      280,
+      726,
+      103,
+      76
+     ],
+     "visemes": {
+      "A": 8,
+      "B": 53,
+      "C": 49,
+      "D": 62,
+      "E": 11,
+      "F": 51,
+      "G": 53,
+      "H": 49,
+      "X": 0
+     },
+     "track_quality": {
+      "cc_min": -1.0,
+      "cc_mean": 0.943,
+      "jitter_px_rms": 2.01,
+      "mouth_x": [
+       330.1,
+       366.0
+      ],
+      "mouth_y": [
+       751.9,
+       773.2
+      ],
+      "scale": [
+       0.907,
+       1.055
+      ]
+     },
+     "usable_for_swap": true
+    },
+    "carlos": {
+     "mouth_set": "meta/c02_master_talk_b/carlos/sprites/",
+     "crops": "meta/c02_master_talk_b/carlos/crops.npz",
+     "track": "meta/c02_master_talk_b/carlos/track.npy",
+     "track_raw": "meta/c02_master_talk_b/carlos/track_raw.npy",
+     "mouth_box": [
+      621,
+      547,
+      708,
+      622
+     ],
+     "face_box": [
+      575,
+      420,
+      770,
+      660
+     ],
+     "sprite_roi": [
+      582,
+      508,
+      165,
+      153
+     ],
+     "visemes": {
+      "A": 15,
+      "B": 48,
+      "C": 66,
+      "D": 31,
+      "E": 65,
+      "F": 36,
+      "G": 48,
+      "H": 66,
+      "X": 0
+     },
+     "track_quality": {
+      "cc_min": 0.825,
+      "cc_mean": 0.904,
+      "jitter_px_rms": 1.16,
+      "mouth_x": [
+       641.5,
+       676.8
+      ],
+      "mouth_y": [
+       570.6,
+       603.2
+      ],
+      "scale": [
+       0.961,
+       1.053
+      ]
+     },
+     "usable_for_swap": true
+    }
+   },
+   "qa": "PASS: 180 ok; different board/lean variant of the master; board_blur required",
+   "source": {
+    "kind": "kling urlWithoutWatermark (query_tasks works[].urlWithoutWatermark; signed CDN URL, may expire -> re-query by generationId)",
+    "url": "https://v15-kling.klingai.com/bs2/upload-ylab-stunt-sgp/dee808f5-31dc-4b5f-badd-24cc8195cff2-DscBTIun2V8ubXoLDAVXfw-output.mp4?x-kcdn-pid=112372"
+   },
+   "geometry_check": "frame diff vs watermarked copy outside the watermark area 0.5-0.65/255 (codec noise) -> tracks/sprites reused unchanged"
+  },
+  {
+   "id": "c03_ots_carlos_talk_a",
+   "file": "clips/c03_ots_carlos_talk_a.mp4",
+   "first_frame": "frames/blk-2.png",
+   "kling": {
+    "model": "kling-video-v2_5",
+    "duration": 5,
+    "resolution": "1080p",
+    "generationId": "AWcIwQBIulhEhC7t-OhLY71oJ6d1cR59GNpJJCI15GUwK56eJAP9HXH4WQRePyp7-UHzuDfr"
+   },
+   "framing": "ots",
+   "speakers": [
+    "carlos"
+   ],
+   "listeners": [
+    "ama"
+   ],
+   "facing": {
+    "ama": "screen-left, facing right",
+    "carlos": "screen-right, facing left"
+   },
+   "fps": 24,
+   "frames": 121,
+   "usable_segments": [
+    [
+     0.0,
+     5.0
+    ]
+   ],
+   "tags": [
+    "explain",
+    "kind",
+    "gesture"
+   ],
+   "post": {
+    "watermark_crop": null,
+    "board_blur": true
+   },
+   "mouths": {
+    "carlos": {
+     "mouth_set": "meta/c03_ots_carlos_talk_a/carlos/sprites/",
+     "crops": "meta/c03_ots_carlos_talk_a/carlos/crops.npz",
+     "track": "meta/c03_ots_carlos_talk_a/carlos/track.npy",
+     "track_raw": "meta/c03_ots_carlos_talk_a/carlos/track_raw.npy",
+     "mouth_box": [
+      629,
+      378,
+      735,
+      450
+     ],
+     "face_box": [
+      580,
+      200,
+      830,
+      480
+     ],
+     "sprite_roi": [
+      582,
+      331,
+      200,
+      166
+     ],
+     "visemes": {
+      "A": 20,
+      "B": 1,
+      "C": 74,
+      "D": 17,
+      "E": 18,
+      "F": 19,
+      "G": 1,
+      "H": 74,
+      "X": 0
+     },
+     "track_quality": {
+      "cc_min": 0.609,
+      "cc_mean": 0.827,
+      "jitter_px_rms": 2.21,
+      "mouth_x": [
+       670.9,
+       729.1
+      ],
+      "mouth_y": [
+       397.2,
+       435.5
+      ],
+      "scale": [
+       0.903,
+       1.049
+      ]
+     },
+     "usable_for_swap": true
+    }
+   },
+   "qa": "PASS: OTS past Ama (fg L, back), Carlos R facing L; head motion large -> local track refine needed (done)",
+   "source": {
+    "kind": "kling urlWithoutWatermark (query_tasks works[].urlWithoutWatermark; signed CDN URL, may expire -> re-query by generationId)",
+    "url": "https://v15-kling.klingai.com/bs2/upload-ylab-stunt-sgp/c60a8b14-930b-45b4-8501-34f932d24942-YvSFtQtsdYgS5-OPm5ClTQ-output.mp4?x-kcdn-pid=112372"
+   },
+   "geometry_check": "frame diff vs watermarked copy outside the watermark area 0.5-0.65/255 (codec noise) -> tracks/sprites reused unchanged"
+  },
+  {
+   "id": "c04_ots_carlos_talk_b",
+   "file": "clips/c04_ots_carlos_talk_b.mp4",
+   "first_frame": "frames/blk-4.png",
+   "kling": {
+    "model": "kling-video-v2_5",
+    "duration": 5,
+    "resolution": "1080p",
+    "generationId": "AW2zo6GRatcsLw2QXXCyGPlc8dfsVtA_UZRhGrqGXTMAtvMZucXSuxt8fb8c1W-ijqjnLJX_"
+   },
+   "framing": "ots",
+   "speakers": [
+    "carlos"
+   ],
+   "listeners": [
+    "ama"
+   ],
+   "facing": {
+    "ama": "screen-left, facing right",
+    "carlos": "screen-right, facing left"
+   },
+   "fps": 24,
+   "frames": 121,
+   "usable_segments": [
+    [
+     0.0,
+     5.0
+    ]
+   ],
+   "tags": [
+    "teasing",
+    "raised-eyebrow",
+    "smile",
+    "open-palm"
+   ],
+   "post": {
+    "watermark_crop": null,
+    "board_blur": true
+   },
+   "mouths": {
+    "carlos": {
+     "mouth_set": "meta/c04_ots_carlos_talk_b/carlos/sprites/",
+     "crops": "meta/c04_ots_carlos_talk_b/carlos/crops.npz",
+     "track": "meta/c04_ots_carlos_talk_b/carlos/track.npy",
+     "track_raw": "meta/c04_ots_carlos_talk_b/carlos/track_raw.npy",
+     "mouth_box": [
+      664,
+      447,
+      756,
+      507
+     ],
+     "face_box": [
+      560,
+      200,
+      840,
+      520
+     ],
+     "sprite_roi": [
+      623,
+      406,
+      174,
+      142
+     ],
+     "visemes": {
+      "A": 36,
+      "B": 91,
+      "C": 67,
+      "D": 9,
+      "E": 12,
+      "F": 5,
+      "G": 91,
+      "H": 67,
+      "X": 0
+     },
+     "track_quality": {
+      "cc_min": 0.613,
+      "cc_mean": 0.778,
+      "jitter_px_rms": 1.64,
+      "mouth_x": [
+       707.9,
+       784.9
+      ],
+      "mouth_y": [
+       449.8,
+       487.9
+      ],
+      "scale": [
+       0.966,
+       1.088
+      ]
+     },
+     "usable_for_swap": true
+    }
+   },
+   "qa": "PASS: same setup as c08; track cc lower (0.61 min) - check swap",
+   "source": {
+    "kind": "kling urlWithoutWatermark (query_tasks works[].urlWithoutWatermark; signed CDN URL, may expire -> re-query by generationId)",
+    "url": "https://v15-kling.klingai.com/bs2/upload-ylab-stunt-sgp/ded1b596-1d41-4673-b92f-33292c704e2d-CN8EHa05CYYlQPmZFSfMAw-output.mp4?x-kcdn-pid=112372"
+   },
+   "geometry_check": "frame diff vs watermarked copy outside the watermark area 0.5-0.65/255 (codec noise) -> tracks/sprites reused unchanged"
+  },
+  {
+   "id": "c05_ots_ama_talk_a",
+   "file": "clips/c05_ots_ama_talk_a.mp4",
+   "first_frame": "frames/otsama.png",
+   "kling": {
+    "model": "kling-video-v2_5",
+    "duration": 5,
+    "resolution": "1080p",
+    "generationId": "AdT82HBaEx-7TUP7DeaohLofn1_XmlxN6MhqTROu_uqea9Hly589J_3QEnprZFB8CmfTOv_J"
+   },
+   "framing": "ots",
+   "speakers": [
+    "ama"
+   ],
+   "listeners": [
+    "carlos"
+   ],
+   "facing": {
+    "ama": "screen-left, facing right",
+    "carlos": "screen-right, facing left"
+   },
+   "fps": 24,
+   "frames": 121,
+   "usable_segments": [
+    [
+     0.0,
+     5.0
+    ]
+   ],
+   "tags": [
+    "confident",
+    "hand-gesture"
+   ],
+   "post": {
+    "watermark_crop": null,
+    "board_blur": false
+   },
+   "mouths": {
+    "ama": {
+     "mouth_set": "meta/c05_ots_ama_talk_a/ama/sprites/",
+     "crops": "meta/c05_ots_ama_talk_a/ama/crops.npz",
+     "track": "meta/c05_ots_ama_talk_a/ama/track.npy",
+     "track_raw": "meta/c05_ots_ama_talk_a/ama/track_raw.npy",
+     "mouth_box": [
+      398,
+      1062,
+      468,
+      1104
+     ],
+     "face_box": [
+      240,
+      880,
+      520,
+      1170
+     ],
+     "sprite_roi": [
+      367,
+      1031,
+      132,
+      104
+     ],
+     "visemes": {
+      "A": 23,
+      "B": 33,
+      "C": 11,
+      "D": 111,
+      "E": 20,
+      "F": 21,
+      "G": 33,
+      "H": 11,
+      "X": 0
+     },
+     "track_quality": {
+      "cc_min": 0.561,
+      "cc_mean": 0.897,
+      "jitter_px_rms": 2.77,
+      "mouth_x": [
+       433.0,
+       507.8
+      ],
+      "mouth_y": [
+       1079.7,
+       1112.9
+      ],
+      "scale": [
+       0.948,
+       1.164
+      ]
+     },
+     "usable_for_swap": true
+    }
+   },
+   "qa": "PASS: OTS past Carlos (fg R, back, behind counter), Ama L facing R up; first frame regenerated (old blk OTS-onto-Ama had Carlos on the customer side)",
+   "source": {
+    "kind": "kling urlWithoutWatermark (query_tasks works[].urlWithoutWatermark; signed CDN URL, may expire -> re-query by generationId)",
+    "url": "https://v15-kling.klingai.com/bs2/upload-ylab-stunt-sgp/98dfb3e4-bce9-45a4-b8f4-6db7abd8bc90-XSBn54A_ssxYws3LfjxzWQ-output.mp4?x-kcdn-pid=112372"
+   },
+   "geometry_check": "frame diff vs watermarked copy outside the watermark area 0.5-0.65/255 (codec noise) -> tracks/sprites reused unchanged"
+  },
+  {
+   "id": "c06_ots_ama_talk_b",
+   "file": "clips/c06_ots_ama_talk_b.mp4",
+   "first_frame": "frames/otsama.png",
+   "kling": {
+    "model": "kling-video-v2_5",
+    "duration": 5,
+    "resolution": "1080p",
+    "generationId": "AVQxfF6haVo8DWbttLy12rJapGFvNBqdMAtaiQTEcC7dN4fU_aks7__9gSJG64qVSEafbKAE"
+   },
+   "framing": "ots",
+   "speakers": [
+    "ama"
+   ],
+   "listeners": [
+    "carlos"
+   ],
+   "facing": {
+    "ama": "screen-left, facing right",
+    "carlos": "screen-right, facing left"
+   },
+   "fps": 24,
+   "frames": 121,
+   "usable_segments": [
+    [
+     0.0,
+     5.0
+    ]
+   ],
+   "tags": [
+    "polite",
+    "hands-together",
+    "warm-smile"
+   ],
+   "post": {
+    "watermark_crop": null,
+    "board_blur": false
+   },
+   "mouths": {
+    "ama": {
+     "mouth_set": "meta/c06_ots_ama_talk_b/ama/sprites/",
+     "crops": "meta/c06_ots_ama_talk_b/ama/crops.npz",
+     "track": "meta/c06_ots_ama_talk_b/ama/track.npy",
+     "track_raw": "meta/c06_ots_ama_talk_b/ama/track_raw.npy",
+     "mouth_box": [
+      403,
+      1062,
+      470,
+      1099
+     ],
+     "face_box": [
+      240,
+      880,
+      520,
+      1170
+     ],
+     "sprite_roi": [
+      373,
+      1032,
+      127,
+      97
+     ],
+     "visemes": {
+      "A": 74,
+      "B": 40,
+      "C": 72,
+      "D": 109,
+      "E": 80,
+      "F": 80,
+      "G": 40,
+      "H": 72,
+      "X": 0
+     },
+     "track_quality": {
+      "cc_min": 0.796,
+      "cc_mean": 0.946,
+      "jitter_px_rms": 2.11,
+      "mouth_x": [
+       432.1,
+       465.1
+      ],
+      "mouth_y": [
+       1072.9,
+       1109.6
+      ],
+      "scale": [
+       0.869,
+       1.352
+      ]
+     },
+     "usable_for_swap": true
+    }
+   },
+   "qa": "PASS | F sprite (frame 19) smeared -> F mapped to E.",
+   "source": {
+    "kind": "kling urlWithoutWatermark (query_tasks works[].urlWithoutWatermark; signed CDN URL, may expire -> re-query by generationId)",
+    "url": "https://v15-kling.klingai.com/bs2/upload-ylab-stunt-sgp/b85eeb06-9fae-4fb6-b913-2ee524298994-3iZQb3KuoelZOY_o9ZKZYA-output.mp4?x-kcdn-pid=112372"
+   },
+   "geometry_check": "frame diff vs watermarked copy outside the watermark area 0.5-0.65/255 (codec noise) -> tracks/sprites reused unchanged"
+  },
+  {
+   "id": "c07_ots_ama_react",
+   "file": "clips/c07_ots_ama_react.mp4",
+   "first_frame": "frames/otsama.png",
+   "kling": {
+    "model": "kling-video-v2_5",
+    "duration": 5,
+    "resolution": "1080p",
+    "generationId": "AVVYq5LRYKU5g-26Lm1r-3g9I-6J09W7sMDRwNGOH6EsJpD4ZzxFna2dZCRUkmLkg-QtbiDA"
+   },
+   "framing": "react",
+   "speakers": [],
+   "listeners": [
+    "ama"
+   ],
+   "facing": {
+    "ama": "screen-left, facing right",
+    "carlos": "screen-right, facing left"
+   },
+   "fps": 24,
+   "frames": 121,
+   "usable_segments": [
+    [
+     0.8,
+     3.2
+    ]
+   ],
+   "tags": [
+    "realize-mistake",
+    "embarrassed-laugh",
+    "hand-over-mouth",
+    "blush"
+   ],
+   "post": {
+    "watermark_crop": null,
+    "board_blur": false
+   },
+   "mouths": {
+    "ama": {
+     "mouth_set": "meta/c07_ots_ama_react/ama/sprites/",
+     "crops": "meta/c07_ots_ama_react/ama/crops.npz",
+     "track": "meta/c07_ots_ama_react/ama/track.npy",
+     "track_raw": "meta/c07_ots_ama_react/ama/track_raw.npy",
+     "mouth_box": [
+      347,
+      1009,
+      501,
+      1125
+     ],
+     "face_box": [
+      240,
+      880,
+      520,
+      1170
+     ],
+     "sprite_roi": [
+      278,
+      940,
+      292,
+      254
+     ],
+     "visemes": {
+      "A": 87,
+      "B": 3,
+      "C": 8,
+      "D": 11,
+      "E": 1,
+      "F": 27,
+      "G": 3,
+      "H": 8,
+      "X": 0
+     },
+     "track_quality": {
+      "cc_min": -1.0,
+      "cc_mean": 0.436,
+      "jitter_px_rms": 10.32,
+      "mouth_x": [
+       424.5,
+       721.2
+      ],
+      "mouth_y": [
+       1035.5,
+       1227.4
+      ],
+      "scale": [
+       0.982,
+       1.958
+      ]
+     },
+     "usable_for_swap": false
+    }
+   },
+   "qa": "PASS (silent): hand covers mouth -> no swap possible/needed; tracking unusable (occlusion)",
+   "source": {
+    "kind": "kling urlWithoutWatermark (query_tasks works[].urlWithoutWatermark; signed CDN URL, may expire -> re-query by generationId)",
+    "url": "https://v15-kling.klingai.com/bs2/upload-ylab-stunt-sgp/1b2f745a-cbca-47d5-aa7c-c6ccead102aa-ngk6PlZqkIqKsnYYNwdZpw-output.mp4?x-kcdn-pid=112372"
+   },
+   "geometry_check": "frame diff vs watermarked copy outside the watermark area 0.5-0.65/255 (codec noise) -> tracks/sprites reused unchanged"
+  },
+  {
+   "id": "c08_ots_carlos_react",
+   "file": "clips/c08_ots_carlos_react.mp4",
+   "first_frame": "frames/blk-4.png",
+   "kling": {
+    "model": "kling-video-v2_5",
+    "duration": 5,
+    "resolution": "1080p",
+    "generationId": "AbZkG_zNQTszfidzWymyCQ_JPaF-XClsnzxCoyKJO64j8Vh81CdIcal-YyokIr1-mvJT9PJI"
+   },
+   "framing": "react",
+   "speakers": [],
+   "listeners": [
+    "carlos"
+   ],
+   "facing": {
+    "ama": "screen-left, facing right",
+    "carlos": "screen-right, facing left"
+   },
+   "fps": 24,
+   "frames": 121,
+   "usable_segments": [
+    [
+     0.0,
+     3.0
+    ]
+   ],
+   "tags": [
+    "kind-smile",
+    "nod",
+    "reassure"
+   ],
+   "post": {
+    "watermark_crop": null,
+    "board_blur": true
+   },
+   "mouths": {
+    "carlos": {
+     "mouth_set": "meta/c08_ots_carlos_react/carlos/sprites/",
+     "crops": "meta/c08_ots_carlos_react/carlos/crops.npz",
+     "track": "meta/c08_ots_carlos_react/carlos/track.npy",
+     "track_raw": "meta/c08_ots_carlos_react/carlos/track_raw.npy",
+     "mouth_box": [
+      612,
+      398,
+      766,
+      516
+     ],
+     "face_box": [
+      560,
+      200,
+      840,
+      520
+     ],
+     "sprite_roi": [
+      543,
+      329,
+      292,
+      256
+     ],
+     "visemes": {
+      "A": 28,
+      "B": 67,
+      "C": 67,
+      "D": 18,
+      "E": 67,
+      "F": 65,
+      "G": 67,
+      "H": 67,
+      "X": 0
+     },
+     "track_quality": {
+      "cc_min": 0.702,
+      "cc_mean": 0.829,
+      "jitter_px_rms": 3.39,
+      "mouth_x": [
+       663.3,
+       802.0
+      ],
+      "mouth_y": [
+       420.6,
+       469.1
+      ],
+      "scale": [
+       0.927,
+       1.072
+      ]
+     },
+     "usable_for_swap": false
+    }
+   },
+   "qa": "PASS 0-3 s; after 3.5 s expression turns odd (wide-eyed) - avoid",
+   "source": {
+    "kind": "kling urlWithoutWatermark (query_tasks works[].urlWithoutWatermark; signed CDN URL, may expire -> re-query by generationId)",
+    "url": "https://v15-kling.klingai.com/bs2/upload-ylab-stunt-sgp/18aa3b1a-1ece-4f00-b3c5-ff158c4b41ad-B50jMgR5avzSRbs6JlloPg-output.mp4?x-kcdn-pid=112372"
+   },
+   "geometry_check": "frame diff vs watermarked copy outside the watermark area 0.5-0.65/255 (codec noise) -> tracks/sprites reused unchanged"
+  },
+  {
+   "id": "c09_handover",
+   "file": "clips/c09_handover.mp4",
+   "first_frame": "frames/blk-3.png",
+   "kling": {
+    "model": "kling-video-v2_5",
+    "duration": 5,
+    "resolution": "1080p",
+    "generationId": "AaR6sct2KFEcv5JU_kqKYN9U4ljxqtf3gi6-rhwnq-JelgyhJs51XffuZ-ci6J-asytxIbP4"
+   },
+   "framing": "action",
+   "speakers": [],
+   "listeners": [
+    "ama",
+    "carlos"
+   ],
+   "facing": {
+    "ama": "screen-left, facing right",
+    "carlos": "screen-right, facing left"
+   },
+   "fps": 24,
+   "frames": 121,
+   "usable_segments": [
+    [
+     0.0,
+     5.0
+    ]
+   ],
+   "tags": [
+    "handover",
+    "latte",
+    "slide-cup",
+    "thank-you-nod"
+   ],
+   "post": {
+    "watermark_crop": null,
+    "board_blur": true
+   },
+   "mouths": {
+    "ama": {
+     "mouth_set": "meta/c09_handover/ama/sprites/",
+     "crops": "meta/c09_handover/ama/crops.npz",
+     "track": "meta/c09_handover/ama/track.npy",
+     "track_raw": "meta/c09_handover/ama/track_raw.npy",
+     "mouth_box": [
+      350,
+      665,
+      444,
+      785
+     ],
+     "face_box": [
+      150,
+      560,
+      440,
+      860
+     ],
+     "sprite_roi": [
+      296,
+      611,
+      202,
+      228
+     ],
+     "visemes": {
+      "A": 14,
+      "B": 86,
+      "C": 72,
+      "D": 89,
+      "E": 107,
+      "F": 10,
+      "G": 86,
+      "H": 72,
+      "X": 0
+     },
+     "track_quality": {
+      "cc_min": -1.0,
+      "cc_mean": 0.627,
+      "jitter_px_rms": 6.21,
+      "mouth_x": [
+       394.3,
+       484.5
+      ],
+      "mouth_y": [
+       664.1,
+       774.0
+      ],
+      "scale": [
+       0.752,
+       1.116
+      ]
+     },
+     "usable_for_swap": false
+    },
+    "carlos": {
+     "mouth_set": "meta/c09_handover/carlos/sprites/",
+     "crops": "meta/c09_handover/carlos/crops.npz",
+     "track": "meta/c09_handover/carlos/track.npy",
+     "track_raw": "meta/c09_handover/carlos/track_raw.npy",
+     "mouth_box": [
+      592,
+      380,
+      736,
+      500
+     ],
+     "face_box": [
+      540,
+      220,
+      800,
+      520
+     ],
+     "sprite_roi": [
+      528,
+      316,
+      272,
+      248
+     ],
+     "visemes": {
+      "A": 12,
+      "B": 116,
+      "C": 9,
+      "D": 68,
+      "E": 45,
+      "F": 42,
+      "G": 116,
+      "H": 9,
+      "X": 0
+     },
+     "track_quality": {
+      "cc_min": -1.0,
+      "cc_mean": 0.821,
+      "jitter_px_rms": 7.61,
+      "mouth_x": [
+       661.6,
+       961.7
+      ],
+      "mouth_y": [
+       378.1,
+       441.9
+      ],
+      "scale": [
+       0.97,
+       2.285
+      ]
+     },
+     "usable_for_swap": false
+    }
+   },
+   "qa": "PASS with note: Carlos takes the cup from the machine top (set dressing in every counter shot) -> Ama ends holding it in both hands; Ama holds an open grin (silent) 0.5-4 s; head-turn makes mouth tracking unreliable | v2 uses an INSERT crop (470,545,540,960) of frames 22-108: hands + cup only (no faces -> no silent-grin issue).",
+   "source": {
+    "kind": "kling urlWithoutWatermark (query_tasks works[].urlWithoutWatermark; signed CDN URL, may expire -> re-query by generationId)",
+    "url": "https://v15-kling.klingai.com/bs2/upload-ylab-stunt-sgp/f467a540-a852-44b9-95af-c366ff5fff92-70oemJarAlB_sWqvXWd0uQ-output.mp4?x-kcdn-pid=112372"
+   },
+   "geometry_check": "frame diff vs watermarked copy outside the watermark area 0.5-0.65/255 (codec noise) -> tracks/sprites reused unchanged"
+  },
+  {
+   "id": "c10_ama_mcu_talk",
+   "file": "clips/c10_ama_mcu_talk.mp4",
+   "first_frame": "frames/amamcu.png",
+   "kling": {
+    "model": "kling-video-v2_5",
+    "duration": 5,
+    "resolution": "1080p",
+    "generationId": "AWWqlCPO83-GZUJMbUxEoTzfv9KTx8Pvj-4n6I-fYOZ5QBI285L5TvdIpYMCKZnQGI-3Mo3h"
+   },
+   "framing": "mcu",
+   "speakers": [
+    "ama"
+   ],
+   "listeners": [],
+   "facing": {
+    "ama": "centre, facing camera"
+   },
+   "fps": 24,
+   "frames": 121,
+   "usable_segments": [
+    [
+     0.0,
+     5.0
+    ]
+   ],
+   "tags": [
+    "direct-to-camera",
+    "explain",
+    "tip",
+    "nod",
+    "hand-gesture"
+   ],
+   "post": {
+    "watermark_crop": null,
+    "board_blur": false
+   },
+   "mouths": {
+    "ama": {
+     "mouth_set": "meta/c10_ama_mcu_talk/ama/sprites/",
+     "crops": "meta/c10_ama_mcu_talk/ama/crops.npz",
+     "track": "meta/c10_ama_mcu_talk/ama/track.npy",
+     "track_raw": "meta/c10_ama_mcu_talk/ama/track_raw.npy",
+     "mouth_box": [
+      559,
+      959,
+      741,
+      1016
+     ],
+     "face_box": [
+      300,
+      560,
+      980,
+      1200
+     ],
+     "sprite_roi": [
+      478,
+      878,
+      344,
+      219
+     ],
+     "visemes": {
+      "A": 114,
+      "B": 21,
+      "C": 11,
+      "D": 110,
+      "E": 62,
+      "F": 83,
+      "G": 21,
+      "H": 11,
+      "X": 0
+     },
+     "track_quality": {
+      "cc_min": 0.836,
+      "cc_mean": 0.966,
+      "jitter_px_rms": 3.19,
+      "mouth_x": [
+       641.9,
+       682.9
+      ],
+      "mouth_y": [
+       983.2,
+       1039.6
+      ],
+      "scale": [
+       0.892,
+       1.078
+      ]
+     },
+     "usable_for_swap": true
+    }
+   },
+   "qa": "PASS: front-facing MCU from new kling-image-v3_0 frame (watermark cropped before i2v); no cup (use BEFORE hand-over)",
+   "source": {
+    "kind": "kling urlWithoutWatermark (query_tasks works[].urlWithoutWatermark; signed CDN URL, may expire -> re-query by generationId)",
+    "url": "https://v15-kling.klingai.com/bs2/upload-ylab-stunt-sgp/3daac115-3e7a-444e-9a7f-030424d0ba4c-6KnD-EiMZjxrwpSMm-awHA-output.mp4?x-kcdn-pid=112372"
+   },
+   "geometry_check": "frame diff vs watermarked copy outside the watermark area 0.5-0.65/255 (codec noise) -> tracks/sprites reused unchanged"
+  },
+  {
+   "id": "c12b_closing",
+   "file": "clips/c12b_closing.mp4",
+   "first_frame": "frames/c09_last.png",
+   "kling": {
+    "model": "kling-video-v2_5",
+    "duration": 5,
+    "resolution": "1080p",
+    "generationId": "AWF2puup1FG-dt39R-d_HZHdoqHoqBGhkQPIGhkP5OnpanHcIaonGcVZUBiR0hk7aBtz_B_s"
+   },
+   "framing": "master",
+   "speakers": [],
+   "listeners": [
+    "ama",
+    "carlos"
+   ],
+   "facing": {
+    "ama": "screen-left, facing right",
+    "carlos": "screen-right, facing left"
+   },
+   "fps": 24,
+   "frames": 121,
+   "usable_segments": [],
+   "tags": [
+    "goodbye",
+    "wave",
+    "walk-out-left",
+    "holds-latte"
+   ],
+   "post": {
+    "watermark_crop": null,
+    "board_blur": true
+   },
+   "mouths": {
+    "ama": {
+     "mouth_set": "meta/c12b_closing/ama/sprites/",
+     "crops": "meta/c12b_closing/ama/crops.npz",
+     "track": "meta/c12b_closing/ama/track.npy",
+     "track_raw": "meta/c12b_closing/ama/track_raw.npy",
+     "mouth_box": [
+      399,
+      682,
+      436,
+      757
+     ],
+     "face_box": [
+      300,
+      560,
+      500,
+      800
+     ],
+     "sprite_roi": [
+      366,
+      649,
+      103,
+      141
+     ],
+     "visemes": {
+      "A": 7,
+      "B": 54,
+      "C": 10,
+      "D": 8,
+      "E": 42,
+      "F": 32,
+      "G": 54,
+      "H": 10,
+      "X": 0
+     },
+     "track_quality": {
+      "cc_min": 0.8,
+      "cc_mean": 0.899,
+      "jitter_px_rms": 2.52,
+      "mouth_x": [
+       401.6,
+       444.2
+      ],
+      "mouth_y": [
+       705.2,
+       736.3
+      ],
+      "scale": [
+       0.727,
+       1.117
+      ]
+     },
+     "usable_for_swap": false
+    },
+    "carlos": {
+     "mouth_set": "meta/c12b_closing/carlos/sprites/",
+     "crops": "meta/c12b_closing/carlos/crops.npz",
+     "track": "meta/c12b_closing/carlos/track.npy",
+     "track_raw": "meta/c12b_closing/carlos/track_raw.npy",
+     "mouth_box": [
+      692,
+      285,
+      755,
+      335
+     ],
+     "face_box": [
+      540,
+      40,
+      820,
+      330
+     ],
+     "sprite_roi": [
+      664,
+      257,
+      119,
+      106
+     ],
+     "visemes": {
+      "A": 77,
+      "B": 22,
+      "C": 59,
+      "D": 30,
+      "E": 11,
+      "F": 23,
+      "G": 22,
+      "H": 59,
+      "X": 0
+     },
+     "track_quality": {
+      "cc_min": 0.787,
+      "cc_mean": 0.953,
+      "jitter_px_rms": 1.27,
+      "mouth_x": [
+       724.0,
+       753.7
+      ],
+      "mouth_y": [
+       302.5,
+       332.2
+      ],
+      "scale": [
+       0.926,
+       1.002
+      ]
+     },
+     "usable_for_swap": false
+    }
+   },
+   "qa": "PASS: starts on c09 last frame (prop continuity: Ama keeps the latte), exits L; replaces c12 (REJECTED: Ama left without the latte, cup+bottle appeared on counter, odd object in hand) | v2: NOT USED - after the wave Ama turns/walks in a way the owner judged wrong for the 180 rule; frames 0-56 face right but 3/4-profile mouth swap shows edge artifacts. Keep for reference only.",
+   "source": {
+    "kind": "kling urlWithoutWatermark (query_tasks works[].urlWithoutWatermark; signed CDN URL, may expire -> re-query by generationId)",
+    "url": "https://v15-kling.klingai.com/bs2/upload-ylab-stunt-sgp/1e30a136-b665-480d-a955-fd6206e30e40-HtU21t1wKgBBz3t8BFFNDQ-output.mp4?x-kcdn-pid=112372"
+   },
+   "geometry_check": "frame diff vs watermarked copy outside the watermark area 0.5-0.65/255 (codec noise) -> tracks/sprites reused unchanged"
+  },
+  {
+   "id": "c13_ots_carlos_varied",
+   "file": "clips/c13_ots_carlos_varied.mp4",
+   "first_frame": "frames/carcu2.png",
+   "kling": {
+    "model": "kling-video-v2_5",
+    "duration": 5,
+    "resolution": "1080p",
+    "generationId": "Abr8lnzt84z2-u8R_R_Qm-JAwuOT73eamJgK1koPRj4pNIyBWJ3MfDE9HTJFkb5ovBYXnb3g"
+   },
+   "source": {
+    "kind": "urlWithoutWatermark",
+    "url": "https://v15-kling.klingai.com/bs2/upload-ylab-stunt-sgp/40448081-3b45-4634-b285-66ac70617d2f-7KBfEQVVkK2HF4k0U54RCA-output.mp4?x-kcdn-pid=112372"
+   },
+   "framing": "ots",
+   "speakers": [
+    "carlos"
+   ],
+   "listeners": [
+    "ama"
+   ],
+   "fps": 24,
+   "frames": 121,
+   "usable_segments": [
+    [
+     0.0,
+     0.5
+    ]
+   ],
+   "tags": [
+    "varied-mouths",
+    "explain",
+    "gesture"
+   ],
+   "post": {
+    "watermark_crop": null,
+    "board_blur": true
+   },
+   "mouths": {
+    "carlos": {
+     "mouth_set": "meta/c13_ots_carlos_varied/carlos/sprites/",
+     "track": "meta/c13_ots_carlos_varied/carlos/track.npy",
+     "mouth_box": [
+      620,
+      417,
+      750,
+      475
+     ],
+     "visemes": {
+      "A": 98,
+      "B": 82,
+      "C": 44,
+      "D": 16,
+      "E": 73,
+      "F": 41,
+      "G": 82,
+      "H": 44,
+      "X": 0
+     },
+     "track_quality": {
+      "cc_min": 0.44,
+      "cc_mean": 0.676,
+      "jitter_px_rms": 2.86,
+      "mouth_x": [
+       685.0,
+       755.3
+      ],
+      "mouth_y": [
+       434.6,
+       454.6
+      ],
+      "scale": [
+       0.976,
+       1.302
+      ]
+     },
+     "usable_for_swap": false
+    }
+   },
+   "qa": "PARTIAL: varied mouth shapes really present (wide open, rounded O, smile), but Carlos turns his head in 3D after ~0.5 s -> 2D face tracking (ECC, chained ECC, ORB, LK all tried) fails (rigid-band NCC < 0.45 after frame 12) -> harvested A-H set is misaligned, NOT used for lip sync. Carlos lines stay off-face (over Ama listening, mouth closed)."
+  },
+  {
+   "id": "c14_entrance",
+   "file": "clips/c14_entrance.mp4",
+   "first_frame": "frames/entrance.png",
+   "kling": {
+    "model": "kling-video-v2_5",
+    "duration": 5,
+    "resolution": "1080p",
+    "generationId": "Afqi-_Yq1L1o1tYDUbx41_fptr3lSAEqIW29snVFIvlobm3YzkEhqQ5z9id2Qfq5YvxFwS1J"
+   },
+   "source": {
+    "kind": "urlWithoutWatermark",
+    "url": "https://v15-kling.klingai.com/bs2/upload-ylab-stunt-sgp/403a4c85-1f39-45d8-b84c-70e75fd80080-NW_M5ctydq-9aMU5fuSTUw-output.mp4?x-kcdn-pid=112372"
+   },
+   "framing": "establishing",
+   "speakers": [],
+   "listeners": [
+    "ama",
+    "carlos"
+   ],
+   "fps": 24,
+   "frames": 121,
+   "usable_segments": [
+    [
+     1.0,
+     5.0
+    ]
+   ],
+   "tags": [
+    "enter",
+    "walk-in",
+    "greeting-wave",
+    "wide"
+   ],
+   "post": {
+    "watermark_crop": null,
+    "board_blur": false
+   },
+   "mouths": {},
+   "qa": "PASS: Ama enters from the glass door (screen-left) and walks right to the counter; Carlos behind the counter (screen-right) looks up, waves; no cups; generated without audio (Kling audio price unknown -> room-tone bed reused; no footsteps)"
+  },
+  {
+   "id": "c15_insert_handover",
+   "file": "clips/c15_insert_handover.mp4",
+   "first_frame": "frames/insert.png",
+   "kling": {
+    "model": "kling-video-v2_5",
+    "duration": 5,
+    "resolution": "1080p",
+    "generationId": "ASgkZTPbqLQ0_C358X0Jyxcurld6-PMzVcXRG0Fx6MLElGjNOs1BMFFlBlzl3kYdfSEtDUGq"
+   },
+   "source": {
+    "kind": "urlWithoutWatermark",
+    "url": "https://v15-kling.klingai.com/bs2/upload-ylab-stunt-sgp/c1ebc3ce-77e0-4cf6-994b-8da1c7b73136-kk7JKd2fav3CV71AhomS1A-output.mp4?x-kcdn-pid=112372"
+   },
+   "framing": "insert",
+   "speakers": [],
+   "listeners": [
+    "ama",
+    "carlos"
+   ],
+   "fps": 24,
+   "frames": 121,
+   "usable_segments": [
+    [
+     0.0,
+     1.85
+    ]
+   ],
+   "tags": [
+    "handover",
+    "latte",
+    "hands",
+    "close-up"
+   ],
+   "post": {
+    "watermark_crop": null,
+    "board_blur": false
+   },
+   "mouths": {},
+   "qa": "PASS: real close-up: Carlos (tan hand, olive sleeve, right) slides ONE white cup left, Ama (brown hand, coral sleeve, left) takes and lifts it; no faces. After ~3.8 s the cup drifts up toward Carlos side - use 0-3.6 s. | v5 frame audit: frames 0-44 clean (cup slides, open hand reaching); 45-95 hands overlap/merge with the cup (Kling artifact), 100+ deformed fingers -> use ONLY frames 0-44; the take itself happens off-screen."
+  }
+ ],
+ "rejected": [
+  {
+   "id": "c12_closing",
+   "generationId": "AbBKcEo1t92U77dIuf2zZ802jGP4gS-pdH9bYBtfrzuL8-gmu-ZFNRDSCciZvu9txX7Vr0bW",
+   "why": "prop continuity: Ama left without the latte; cup + bottle appeared on the counter; odd brown object in her hand"
+  },
+  {
+   "id": "blk-6/blk-8 (old OTS-onto-Ama first frames)",
+   "why": "Carlos standing on the customer side of the counter (blk-8 also in jeans, full body) -> regenerated otsama.png"
+  }
+ ],
+ "voice_rule": "One voice per character per video. Legacy Kling TTS lines (l1-l3: Peppy/Michael) must not be mixed with Kokoro lines; v2+ uses Kokoro only, playback atempo 0.87 (0.84 on long lines to keep <=15 cps); visemes time-scaled.",
+ "lipsync": {
+  "delay_ms": -5,
+  "switch": "hard (no blend frames)",
+  "mask": "ellipse + change-extent mask from well-tracked frames, connected to the mouth only",
+  "listener": "mouth held at X"
+ },
+ "lesson_meta": {
+  "note": "every sample/video built from this bank carries lesson metadata for A1->B2 sequencing",
+  "example": {
+   "id": "cafe-could-i-get",
+   "cefr": "A2",
+   "goal": "Ordering politely",
+   "pattern": "Could I get ___, please?",
+   "area": "roleplay",
+   "link": "https://lexkite.com/app/#/roleplay",
+   "cta": "Roleplay this free on lexkite.com",
+   "video": "out/cine-cafe-sample-v3.mp4"
+  }
+ },
+ "layout_rules": {
+  "safe_zone": "1080x1920: text only inside x[60,940] y[230,1500] (top 220 / bottom 420 / right 140 reserved for platform UI)",
+  "captions": "<=2 lines, verbatim, -0.1/+0.4 s around speech, <=15 cps",
+  "cards": "never the same sentence as the caption on screen"
+ },
+ "lessons": [
+  {
+   "id": "cafe-could-i-get",
+   "cefr": "A2",
+   "goal": "Ordering politely",
+   "pattern": "Could I get ___, please?",
+   "area": "roleplay",
+   "out": "cine-cafe-v4-latte.mp4",
+   "link": "https://lexkite.com/app/#/roleplay",
+   "cta": "Roleplay this free on lexkite.com",
+   "duration": 30.792,
+   "shots": [
+    [
+     "enter",
+     "c14_entrance"
+    ],
+    [
+     "mistake",
+     "c05_ots_ama_talk_a"
+    ],
+    [
+     "why",
+     "c06_ots_ama_talk_b"
+    ],
+    [
+     "oops",
+     "c07_ots_ama_react"
+    ],
+    [
+     "fix",
+     "c05_ots_ama_talk_a"
+    ],
+    [
+     "repeat",
+     "c06_ots_ama_talk_b"
+    ],
+    [
+     "pattern",
+     "c10_ama_mcu_talk"
+    ],
+    [
+     "yourturn",
+     "c10_ama_mcu_talk"
+    ],
+    [
+     "insert",
+     "c15_insert_handover"
+    ],
+    [
+     "nod",
+     "c08_ots_carlos_react"
+    ]
+   ],
+   "qa": "qa4.py ALL PASS"
+  },
+  {
+   "id": "cafe-for-here-or-to-go",
+   "cefr": "A2",
+   "goal": "Answering “For here or to go?”",
+   "pattern": "For here, please. / To go, please.",
+   "area": "roleplay",
+   "out": "cine-cafe-forhere.mp4",
+   "link": "https://lexkite.com/app/#/roleplay",
+   "cta": "Roleplay this free on lexkite.com",
+   "duration": 22.417,
+   "shots": [
+    [
+     "enter",
+     "c14_entrance"
+    ],
+    [
+     "order",
+     "c05_ots_ama_talk_a"
+    ],
+    [
+     "question",
+     "c06_ots_ama_talk_b"
+    ],
+    [
+     "answer",
+     "c06_ots_ama_talk_b"
+    ],
+    [
+     "meaning",
+     "c10_ama_mcu_talk"
+    ],
+    [
+     "yourturn",
+     "c10_ama_mcu_talk"
+    ],
+    [
+     "insert",
+     "c15_insert_handover"
+    ],
+    [
+     "nod",
+     "c08_ots_carlos_react"
+    ]
+   ],
+   "qa": "qa4.py ALL PASS"
+  },
+  {
+   "id": "cafe-can-i-pay-by",
+   "cefr": "A2",
+   "goal": "Paying",
+   "pattern": "Can I pay by ___? (card / phone) · Can I pay in cash?",
+   "area": "roleplay",
+   "out": "cine-cafe-paycard.mp4",
+   "link": "https://lexkite.com/app/#/roleplay",
+   "cta": "Roleplay this free on lexkite.com",
+   "duration": 22.083,
+   "shots": [
+    [
+     "price",
+     "c06_ots_ama_talk_b"
+    ],
+    [
+     "ask",
+     "c05_ots_ama_talk_a"
+    ],
+    [
+     "pattern",
+     "c10_ama_mcu_talk"
+    ],
+    [
+     "yourturn",
+     "c10_ama_mcu_talk"
+    ],
+    [
+     "insert",
+     "c15_insert_handover"
+    ],
+    [
+     "nod",
+     "c08_ots_carlos_react"
+    ]
+   ],
+   "qa": "qa4.py ALL PASS"
+  },
+  {
+   "id": "cafe-id-like",
+   "cefr": "A2",
+   "goal": "Polite ordering",
+   "pattern": "I'd like a ___, please.",
+   "area": "roleplay",
+   "out": "cine-cafe-idlike.mp4",
+   "link": "https://lexkite.com/app/#/roleplay",
+   "cta": "Roleplay this free on lexkite.com",
+   "duration": 29.875,
+   "shots": [
+    [
+     "enter",
+     "c14_entrance"
+    ],
+    [
+     "mistake",
+     "c05_ots_ama_talk_a"
+    ],
+    [
+     "why",
+     "c06_ots_ama_talk_b"
+    ],
+    [
+     "oops",
+     "c07_ots_ama_react"
+    ],
+    [
+     "fix",
+     "c05_ots_ama_talk_a"
+    ],
+    [
+     "repeat",
+     "c06_ots_ama_talk_b"
+    ],
+    [
+     "pattern",
+     "c10_ama_mcu_talk"
+    ],
+    [
+     "yourturn",
+     "c10_ama_mcu_talk"
+    ],
+    [
+     "insert",
+     "c15_insert_handover"
+    ],
+    [
+     "nod",
+     "c08_ots_carlos_react"
+    ]
+   ],
+   "qa": "qa4.py ALL PASS"
+  },
+  {
+   "id": "cafe-could-i-get",
+   "cefr": "A2",
+   "goal_en": "Ordering politely",
+   "goal": "Gọi món lịch sự",
+   "lang": "vi",
+   "pattern": "Could I get ___, please?",
+   "area": "roleplay",
+   "link": "https://lexkite.com/app/#/roleplay",
+   "cta_en": "Roleplay this free on lexkite.com",
+   "cta": "Đóng vai hội thoại này miễn phí trên lexkite.com",
+   "out": "cine-cafe-v5-latte-vi.mp4",
+   "duration": 30.708,
+   "locale": "content/video/cine/locales/latte.vi.json",
+   "qa": "qa5.py ALL PASS"
+  },
+  {
+   "id": "cafe-could-i-get",
+   "cefr": "A2",
+   "goal_en": "Ordering politely",
+   "goal": "Pedir con cortesía",
+   "lang": "es",
+   "pattern": "Could I get ___, please?",
+   "area": "roleplay",
+   "link": "https://lexkite.com/app/#/roleplay",
+   "cta_en": "Roleplay this free on lexkite.com",
+   "cta": "Practica este juego de roles gratis en lexkite.com",
+   "out": "cine-cafe-v5-latte-es.mp4",
+   "duration": 30.708,
+   "locale": "content/video/cine/locales/latte.es.json",
+   "qa": "qa5.py ALL PASS"
+  },
+  {
+   "id": "cafe-could-i-get",
+   "cefr": "A2",
+   "goal_en": "Ordering politely",
+   "goal": "الطلب بأدب",
+   "lang": "ar",
+   "pattern": "Could I get ___, please?",
+   "area": "roleplay",
+   "link": "https://lexkite.com/app/#/roleplay",
+   "cta_en": "Roleplay this free on lexkite.com",
+   "cta": "تدرّب على هذا الحوار مجانًا على lexkite.com",
+   "out": "cine-cafe-v5-latte-ar.mp4",
+   "duration": 30.708,
+   "locale": "content/video/cine/locales/latte.ar.json",
+   "qa": "qa5.py ALL PASS"
+  }
+ ],
+ "foley": [
+  {
+   "file": "tools/foley_steps.wav",
+   "what": "soft footsteps on wood (entrance)",
+   "source": "synthesized in tools/foley.py (filtered noise + 95 Hz body)",
+   "license": "own work, no third-party rights"
+  },
+  {
+   "file": "tools/foley_clink.wav",
+   "what": "light ceramic cup clink (hand-over)",
+   "source": "synthesized in tools/foley.py (inharmonic partials 2.2/3.5/5.3/7.9 kHz + contact tick)",
+   "license": "own work, no third-party rights"
+  }
+ ],
+ "fonts": {
+  "latin_vi": "BeVietnamPro (OFL, brand)",
+  "latin_cyrillic_greek": "NotoSans-Medium (OFL, brand/social/src/fonts) - needed for ru (BeVietnamPro has no Cyrillic)",
+  "arabic": "NotoSansArabic variable (OFL, google/fonts) - downloaded to scratch for v5; ADD to brand/social/src/fonts",
+  "missing": [
+   "Noto Sans Devanagari (hi)",
+   "Noto Sans Thai (th)",
+   "Noto Sans CJK / Noto Sans JP, KR, SC (ja, ko, zh)"
+  ],
+  "shaping": "Arabic: arabic_reshaper + python-bidi (base_dir R, English isolated with LRI/PDI, guillemets mirrored). hi/th need real OpenType shaping -> Pillow with libraqm (HarfBuzz) on CI; local Pillow here has no raqm."
+ }
+}

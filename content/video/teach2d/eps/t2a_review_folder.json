@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_folder",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: folder.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means a cover for papers.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "Save the final version of the document in the shared folder.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "folder",
+  "ipa": "/ˈfoʊldər/",
+  "mean": "a cover for papers",
+  "ex": "Save the final version of the document in the shared folder.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=folder",
+  "link": "https://lexkite.com/app/#/review?w=folder",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 42,
+  "seconds": 25.7,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"folder\" mean?",
+  "keyword": "folder",
+  "value": "Folder means a cover for papers.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=folder",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"folder\" mean?",
+    "description": "Folder means a cover for papers.\n\nReview your words, free: https://lexkite.com/app/#/review?w=folder\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "folder",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"folder\" mean?\n\nFolder means a cover for papers.\n\nReview your words, free: https://lexkite.com/app/#/review?w=folder"
+   },
+   "instagram": {
+    "caption": "What does \"folder\" mean?\n\nFolder means a cover for papers.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"folder\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means a cover for papers. Folder means a cover for papers. More practice like this (free): {link}"
+ }
+}

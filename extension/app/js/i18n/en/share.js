@@ -1,0 +1,25 @@
+/* English UI strings – web/js/share-card.js (Thẻ khoe thành tích S1). NHÓM TẢI LƯỜI: không gộp vào en.js (khung app); module tự nạp file này.
+* Bản dịch 13 ngôn ngữ: scripts/i18n-fixed.json (dịch tay). Kiểm tra: i18n-missing / i18n-qa đọc cả nhóm tải lười (LAZY trong build-i18n.sh). */
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D.en = Object.assign(D.en || {}, {
+"Trí nhớ siêu đỉnh!": "Amazing memory!",
+"Xong mục tiêu hôm nay!": "Today's goal done!",
+"Hôm nay mình đã học bài!": "I studied today!",
+"Từng bước nhỏ mỗi ngày, tiến bộ lớn mỗi tháng.": "Small steps every day, big progress every month.",
+"Thẻ ôn hôm nay": "Cards reviewed today",
+"Học từ vựng & luyện thi miễn phí": "Free vocabulary & exam prep",
+"Mình đang học tiếng Anh mỗi ngày cùng Lexkite 🔥 Học miễn phí tại {url}": "I'm learning English every day with Lexkite 🔥 Learn for free at {url}",
+"Não bạn đang ở chế độ nghỉ dưỡng": "Your brain is on vacation mode",
+"Làm ly cà phê rồi ôn vài thẻ nhé ☕ – xong là có thành tích để khoe ngay.": "Grab a coffee and review a few cards ☕ – then you'll have something to show off.",
+"Story 9:16": "Story 9:16",
+"Bài đăng 1:1": "Post 1:1",
+"Thẻ thành tích": "Achievement card",
+"Chia sẻ": "Share",
+"Tải ảnh": "Save image",
+"Đã tải ảnh – link đã được chép, dán kèm khi đăng nhé": "Image saved – link copied, paste it into your post",
+  'Mời bạn học cùng': 'Invite a friend',
+  'Bạn và bạn bè cùng nhận +{xp} XP và 1 lượt đóng băng chuỗi khi bạn ấy học xong bài đầu': 'You and your friend both get +{xp} XP and 1 streak freeze when they finish their first lesson',
+  'Mình đang học tiếng Anh miễn phí với Lexkite. Vào học thử 1 phút, hai đứa cùng nhận quà nhé! {url}': 'I\'m learning English for free with Lexkite. Try a 1-minute lesson – we both get a gift! {url}',
+  'Link mời đã được chép – dán gửi bạn nhé': 'Invite link copied – paste it to a friend',
+  '🎁 Bạn được bạn bè mời! Nhận +{xp} XP và 1 lượt đóng băng chuỗi': '🎁 A friend invited you! Get +{xp} XP and 1 streak freeze',
+  '🎉 {n} bạn bè bạn mời đã học xong bài đầu – bạn nhận +{xp} XP và 1 lượt đóng băng chuỗi': '🎉 {n} of your invited friends finished their first lesson – you get +{xp} XP and 1 streak freeze',
+}); })(typeof self !== 'undefined' ? self : this);

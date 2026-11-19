@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_vi_how_much_time",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Many or much with time?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: How many time do you need?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: How much time do you need?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use much with time, not many.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Much! How much time do you have?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "How many time do you need?",
+  "right": "How much time do you need?",
+  "strike": "many",
+  "why": "Use much with time, not many.",
+  "memory": "Much time.",
+  "quiz": {
+   "stem": "How ___ time do you have?",
+   "options": [
+    "much",
+    "many"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“Thời gian”: many hay much?",
+   "tip": "Tiếng Việt dùng “bao nhiêu” cho mọi thứ, nhưng tiếng Anh dùng “much” với “time.”",
+   "caption": "Bạn có hay nói “How many time do you need?” không? ⏰ Với “time” dùng “much”: “How much time do you need?” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
+   "comment": "Đáp án: “much.” Hỏi bạn bè bằng “How much time…” thử xem nhé! Luyện thêm miễn phí tại đây: {link}",
+   "hashtags": [
+    "#tuhoctienganh",
+    "#luyennoitienganh",
+    "#loisaiphobien",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“How many time”? Many or much?",
+   "tip": "Learners use one word for every amount, but English uses “much” with “time.”",
+   "caption": "Do you often say this? “How many time do you need?” Say “How much time do you need?” instead. Listen to Carlos, then repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Thời gian”: many hay much?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "vi",
+ "est": {
+  "words": 50,
+  "seconds": 30.0,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "“Thời gian”: many hay much?",
+  "keyword": "How much time do you need?",
+  "value": "Tiếng Việt dùng “bao nhiêu” cho mọi thứ, nhưng tiếng Anh dùng “much” với “time.”",
+  "hashtags": [
+   "#tuhoctienganh",
+   "#luyennoitienganh",
+   "#loisaiphobien",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 44,
+  "platforms": {
+   "youtube": {
+    "title": "“Thời gian”: many hay much?",
+    "description": "Tiếng Việt dùng “bao nhiêu” cho mọi thứ, nhưng tiếng Anh dùng “much” với “time.”\n\nBạn có hay nói “How many time do you need?” không? ⏰ Với “time” dùng “much”: “How much time do you need?” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#tuhoctienganh #luyennoitienganh #loisaiphobien #lexkite",
+    "tags": [
+     "How much time do you need?",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "Bạn có hay nói “How many time do you need?” không? ⏰ Với “time” dùng “much”: “How much time do you need?” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Thời gian”: many hay much?\n\nTiếng Việt dùng “bao nhiêu” cho mọi thứ, nhưng tiếng Anh dùng “much” với “time.”\n\nlexkite.com",
+    "hashtags": [
+     "#tuhoctienganh",
+     "#luyennoitienganh",
+     "#loisaiphobien",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Thời gian”: many hay much? Tiếng Việt dùng “bao nhiêu” cho mọi thứ, nhưng tiếng Anh dùng “much” với… #tuhoctienganh #luyennoitienganh #loisaiphobien"
+   }
+  },
+  "first_comment": "Đáp án: “much.” Hỏi bạn bè bằng “How much time…” thử xem nhé! Luyện thêm miễn phí tại đây: {link}",
+  "lang": "vi"
+ }
+}

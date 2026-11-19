@@ -1,0 +1,19 @@
+{
+ "lang": "en",
+ "dir": "ltr",
+ "font": "BeVietnamPro-ExtraBold",
+ "name": "English",
+ "english_only": true,
+ "lesson_file": "hotel_tpl_pov",
+ "goal": "You're the guest",
+ "cta": "Roleplay this free on",
+ "lines": {},
+ "choose": "",
+ "recap": "",
+ "hook": "",
+ "say": "",
+ "which": "",
+ "comment": "",
+ "answer": "",
+ "onepossible": ""
+}

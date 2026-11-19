@@ -1,0 +1,18 @@
+{
+ "topic": "Quiz: \"a hour\" or \"an hour\"?",
+ "scene": "classroom",
+ "vars": {
+  "question": "A hour or an hour?",
+  "optionA": "I waited a hour.",
+  "optionB": "I waited an hour.",
+  "answer": "It's B, an hour. The h is silent, so it starts with a vowel sound.",
+  "example": "Exactly! An honest answer, but a happy face.",
+  "tip": "listen to the first sound, not the first letter.",
+  "kw": "an hour"
+ },
+ "hashtags": [
+  "englishquiz",
+  "testyourenglish",
+  "englishgrammar"
+ ]
+}
