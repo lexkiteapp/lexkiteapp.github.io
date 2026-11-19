@@ -16,6 +16,10 @@ runs:
       run: echo "key=apt-${ImageOS:-x}-${ImageVersion:-x}-$(printf '%s\n' $P | sort -u | sha1sum | cut -c1-16)" >> "$GITHUB_OUTPUT"
     - uses: actions/cache@v4
       with: { path: ~/.cache/apt-debs, key: '${{ steps.k.outputs.key }}' }
+    # fonts-noto-*: .deb tải thẳng (scripts/ci/fonts-install.sh) lưu ~/.cache/lk-fonts – khoá theo băm bảng ghim SHA, chung mọi workflow
+    - if: contains(inputs.packages, 'fonts-noto-')
+      uses: actions/cache@v4
+      with: { path: ~/.cache/lk-fonts, key: "fonts-debs-${{ hashFiles('scripts/ci/fonts-debs.tsv') }}" }
     - shell: bash
       env: { P: '${{ inputs.packages }}' }
       run: APT_CACHE_DIR="$HOME/.cache/apt-debs" bash "$GITHUB_WORKSPACE/scripts/ci/apt-install.sh" $P
