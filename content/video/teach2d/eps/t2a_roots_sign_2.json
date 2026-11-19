@@ -1,0 +1,173 @@
+{
+ "id": "t2a_roots_sign_2",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, two words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "The root is Sign! Assign, significant.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Sign is Latin for mark.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Assign: toward plus mark.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Significant: making a mark, important.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means toward plus mark?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Assign! Toward plus mark.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "SIGN",
+  "rid": "sign",
+  "say": "mark",
+  "src": "signum",
+  "src_lang": "Latin",
+  "src_mean": "mark, sign",
+  "words": [
+   {
+    "w": "assign",
+    "ipa": "/əˈsaɪn/",
+    "mean": "mark out for someone",
+    "seg": "as-|sign",
+    "parts": [
+     [
+      "as",
+      "pre"
+     ],
+     [
+      "sign",
+      "root"
+     ]
+    ],
+    "pre": "as",
+    "pm": "toward",
+    "pms": "toward",
+    "ex": "The teacher assigned us a project on local history.",
+    "em": "📋"
+   },
+   {
+    "w": "significant",
+    "ipa": "/sɪɡˈnɪfɪkənt/",
+    "mean": "making a mark, important",
+    "seg": "sign|-ificant",
+    "parts": [
+     [
+      "sign",
+      "root"
+     ],
+     [
+      "ificant",
+      "suf"
+     ]
+    ],
+    "pre": null,
+    "pm": null,
+    "pms": null,
+    "ex": "There has been a significant increase in online shopping.",
+    "em": "❗"
+   }
+  ],
+  "quiz": {
+   "stem": "toward plus mark",
+   "options": [
+    "significant",
+    "assign"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/assign",
+  "link": "https://lexkite.com/app/#/dict/assign",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, two words"
+ },
+ "src": {
+  "root": "sign"
+ },
+ "est": {
+  "words": 44,
+  "seconds": 26.5,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "Sign root: assign and significant",
+  "keyword": "sign root",
+  "value": "Sign comes from Latin \"signum\" (mark, sign). Words: assign and significant. assign = as + sign.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/assign",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "Sign root: assign and significant",
+    "description": "Sign comes from Latin \"signum\" (mark, sign). Words: assign and significant. assign = as + sign.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/assign\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "sign root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Sign root: assign and significant\n\nSign comes from Latin \"signum\" (mark, sign). Words: assign and significant. assign = as + sign.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/assign"
+   },
+   "instagram": {
+    "caption": "Sign root: assign and significant\n\nSign comes from Latin \"signum\" (mark, sign). Words: assign and significant. assign = as + sign.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Sign root: assign and significant #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: Assign! Toward plus mark. Sign comes from Latin \"signum\" (mark, sign). Words: assign and significant. assign = as + sign. Try the full lesson and quiz here: {link}"
+ }
+}

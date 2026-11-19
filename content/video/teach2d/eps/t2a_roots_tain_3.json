@@ -1,0 +1,177 @@
+{
+ "id": "t2a_roots_tain_3",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, two words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "The root is Tain! Container, tenant.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Tain is Latin for hold.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Container: together plus hold.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Tenant: a person who holds a home.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means together plus hold?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Container! Together plus hold.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "TAIN",
+  "rid": "tain",
+  "say": "hold",
+  "src": "tenere",
+  "src_lang": "Latin",
+  "src_mean": "to hold",
+  "words": [
+   {
+    "w": "container",
+    "ipa": "/kənˈteɪnər/",
+    "mean": "a thing that holds",
+    "seg": "con-|tain|-er",
+    "parts": [
+     [
+      "con",
+      "pre"
+     ],
+     [
+      "tain",
+      "root"
+     ],
+     [
+      "er",
+      "suf"
+     ]
+    ],
+    "pre": "con",
+    "pm": "together",
+    "pms": "together",
+    "ex": "The goods arrived by ship in two containers.",
+    "em": "📦"
+   },
+   {
+    "w": "tenant",
+    "ipa": "/ˈtenənt/",
+    "mean": "a person who holds a home",
+    "seg": "ten|-ant",
+    "parts": [
+     [
+      "ten",
+      "root"
+     ],
+     [
+      "ant",
+      "suf"
+     ]
+    ],
+    "pre": null,
+    "pm": null,
+    "pms": null,
+    "ex": "New laws give tenants more protection against unfair eviction.",
+    "em": "🧳"
+   }
+  ],
+  "quiz": {
+   "stem": "together plus hold",
+   "options": [
+    "tenant",
+    "container"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/container",
+  "link": "https://lexkite.com/app/#/dict/container",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, two words"
+ },
+ "src": {
+  "root": "tain"
+ },
+ "est": {
+  "words": 46,
+  "seconds": 27.5,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "Tain root: container and tenant",
+  "keyword": "tain root",
+  "value": "Tain comes from Latin \"tenere\" (to hold). Words: container and tenant. container = con + tain.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/container",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "Tain root: container and tenant",
+    "description": "Tain comes from Latin \"tenere\" (to hold). Words: container and tenant. container = con + tain.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/container\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "tain root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Tain root: container and tenant\n\nTain comes from Latin \"tenere\" (to hold). Words: container and tenant. container = con + tain.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/container"
+   },
+   "instagram": {
+    "caption": "Tain root: container and tenant\n\nTain comes from Latin \"tenere\" (to hold). Words: container and tenant. container = con + tain.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Tain root: container and tenant #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? Container! Together plus hold. Tain comes from Latin \"tenere\" (to hold). Words: container and tenant. container = con + tain. More practice like this (free): {link}"
+ }
+}
