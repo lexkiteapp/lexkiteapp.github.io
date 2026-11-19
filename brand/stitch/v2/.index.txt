@@ -51,3 +51,4 @@ grammar-light 9e62a2e8 / grammar-dark e5fec5b8 (Hub Ngữ pháp #/grammar – m�
 pron-hub-light / pron-hub-dark (Thư viện phát âm #/pron – mẫu v2.1 từ Native M4 #979; không có id Stitch riêng (v3 gốc: pron efe7f984… / 30018c66… ở v3/app, cùng bố cục); sound/pairs/rhythm/result chưa port)
 dict-light / dict-dark (Từ điển #/dict – mẫu v2.1 từ Native M4 #979, không có id Stitch riêng; word-card/listen-word-popup chưa port)
 today-light/dark: nút cờ 🇬🇧 (Target Language) ghép từ Stitch edit 20/11 (key3 màn 161ef34e/30b0c1ef → bản sửa ea97dccc/9d7e5e26); phần còn lại giữ nguyên bản chủ duyệt
+me-light/dark: nút cờ 🇬🇧 trong hàng Language = HTML nút do Stitch vẽ ở today (ea97dccc/9d7e5e26, 20/11), ghép vào bản me đã duyệt (Stitch edit me trên key1 không áp dụng được; key2–5 không chứa màn me)
