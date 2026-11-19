@@ -64,13 +64,13 @@
 .lsn-emo{display:none}.lsn-bar i{transition:width .18s ease}
 .lsn-foot.ok,.lsn-foot.bad{animation:lsnFade .18s ease-out}@keyframes lsnFade{from{opacity:0}to{opacity:1}}
 /* 🧱 Khung bài tập chung (mọi dạng): cột 640 px · thanh kết quả CỐ ĐỊNH đáy cao ≤ 35 % màn (Tiếp tục không phải cuộn) · thẻ từ gọn, Vì sao? chạm mới mở · ô chờ xếp câu */
-.lsn-v2 main>div{max-width:640px;margin-inline:auto;padding-bottom:calc(var(--lsn-fh,0px) + 1.5rem)}
-.lsn-fv2{position:fixed;left:0;right:0;bottom:0;z-index:30;max-height:min(46vh,360px);overflow-y:auto;overscroll-behavior:contain;margin:0!important;padding:.5rem 1rem calc(.5rem + env(safe-area-inset-bottom));background:linear-gradient(transparent,rgb(var(--st-surface)/.94) .5rem)}
-.lsn-fv2>div{max-width:608px;margin-inline:auto}.lsn-fv2 .lsn-dict>div:first-child{display:none}.lsn-fv2{display:flex;flex-direction:column;overflow:hidden!important}.lsn-fv2 .lsn-fcol{display:flex;flex-direction:column;min-height:0;flex:1 1 auto}.lsn-fv2 .lsn-fscroll{flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain}.lsn-fv2 .lsn-nextrow{flex:none;padding-top:.25rem}.lsn-aux{flex-wrap:wrap;justify-content:center}
+.lsn-v2 main>div{max-width:640px;margin-inline:auto;padding-bottom:1.5rem}
+.lsn-fv2{margin:0 0 1rem!important}
+.lsn-fv2>div{max-width:608px;margin-inline:auto}.lsn-fv2 .lsn-dict>div:first-child{display:none}.lsn-aux{flex-wrap:wrap;justify-content:center}
 .lsn-slot{flex:none;min-width:44px;min-height:44px;border:2px dashed currentColor;border-radius:.75rem;opacity:.25;pointer-events:none}
 /* 🏁 Màn Hoàn thành gọn: vòng nhỏ lại, 4 ô chỉ số một hàng (nhãn HOA, không xuống dòng), nút chính cố định đáy */
 .lsn-end main>div>div:nth-child(1){padding-bottom:.75rem}.lsn-end .lsn-ring{zoom:.5;margin-block:-2rem}.lsn-end main>div>div:nth-child(1)>h1{margin-bottom:.25rem}
-.lsn-end .lsn-tiles.grid.grid-cols-3{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:.4rem}.lsn-end .lsn-tiles>div{padding:.5rem .125rem;gap:0}.lsn-end .lsn-tiles>div>div:first-child{display:none}.lsn-end .lsn-tiles>div>span:nth-child(2){font-size:1.25rem;line-height:1.5rem}.lsn-end .lsn-tiles>div>span:last-child{text-transform:uppercase;font-size:10px;line-height:12px;letter-spacing:0;text-wrap:balance;overflow-wrap:anywhere;margin:0}.lsn-v2.lsn-end main>div{padding-bottom:.5rem}
+.lsn-end .lsn-tiles.grid.grid-cols-3{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:.4rem}.lsn-end .lsn-tiles>div{padding:.375rem .125rem;gap:0}.lsn-end .lsn-sub :is(h1,h2,h3,p,div,span):not(.lsn-learned,.lsn-learned *,.material-symbols-outlined){font-size:.875rem!important;line-height:1.25rem!important}.lsn-end .lsn-week{padding-block:.5rem!important;row-gap:.5rem!important}.lsn-end .lsn-tiles>div>div:first-child{display:none}.lsn-end .lsn-tiles>div>span:nth-child(2){font-size:1.25rem;line-height:1.5rem}.lsn-end .lsn-tiles>div>span:last-child{text-transform:uppercase;font-size:10px;line-height:12px;letter-spacing:0;text-wrap:balance;overflow-wrap:anywhere;margin:0}.lsn-v2.lsn-end main>div{padding-bottom:.5rem}
 .lsn-end .lsn-cta{position:sticky;bottom:0;z-index:30;background:linear-gradient(transparent,rgb(var(--st-surface)/.96) .75rem);padding-bottom:calc(.5rem + env(safe-area-inset-bottom));margin-inline:-1rem;padding-inline:1rem}
 .lsn-end .lsn-ama{display:flex;align-items:flex-end;gap:.5rem;margin-bottom:.5rem}.lsn-end .lsn-ama>.lsn-endt{flex:none;width:76px;height:92px;margin:0}.lsn-end .lsn-ama>.lsn-endt>div{width:76px;height:92px}.lsn-end .lsn-ama>.lsn-sub{flex:1;min-width:0;margin:0}
 .lsn-learned{display:flex;flex-wrap:wrap;gap:.25rem;margin-top:.25rem;font-size:.875rem}.lsn-learned button,.lsn-learned a{display:inline-flex;align-items:center;min-height:44px;padding:.25rem .5rem;border-radius:9999px;border:1px solid currentColor;background:transparent;color:inherit;font:inherit;font-weight:700;cursor:pointer}.lsn-learned a{border-style:dashed}
@@ -588,8 +588,7 @@
     if (!c) foot.querySelectorAll(en ? '.lsn-dict' : '.lsn-dict,.lsn-whyrow').forEach(x => x.remove());
     v2optMark(it, ok);
     if (an && ($('#lsnBody.lsn-opts') || (c && same(it.answer, c.word)))) an.hidden = true; // đáp án đã hiện ở thẻ đáp án / dòng từ → không nhắc lần hai
-    const nx = $('#lsnNext'); if (nx && nx.parentElement) { const nr = nx.parentElement; nr.classList.add('lsn-nextrow'); const sc = document.createElement('div'); sc.className = 'lsn-fscroll'; while (nr.parentElement && nr.previousSibling) sc.prepend(nr.previousSibling); nr.before(sc); for (let a = nr.parentElement; a && a !== foot; a = a.parentElement) a.classList.add('lsn-fcol'); }
-    requestAnimationFrame(() => requestAnimationFrame(() => { const bd = $('#lsnBody'), f2 = $('#lsnFoot'); if (!bd || !f2 || f2.hidden) return; const need = bd.getBoundingClientRect().bottom - f2.getBoundingClientRect().top; if (need > 0) window.scrollBy({ top: need + 8 }); })); // đáp án luôn nằm trên tấm phản hồi, không bị che
+    const nx = $('#lsnNext'); if (nx && nx.parentElement) nx.parentElement.classList.add('lsn-nextrow');
     if (one && c) { const b2 = foot.querySelector('.lsn-dict button:nth-child(2)'); if (b2) b2.remove(); } // chỉ một nút loa khi UK = US
     const inp = $('#lsnIn'); if (inp) { inp.readOnly = true; inp.classList.add(...(ok ? GAP_OK : GAP_BAD).split(' ')); } // gõ từ: khóa ô nhập + tô màu ngay tại đó
     const aa = $('#lsnAns'); if (aa && $('#lsnBank')) aa.classList.add(...(ok ? GAP_OK : GAP_BAD).split(' '));
