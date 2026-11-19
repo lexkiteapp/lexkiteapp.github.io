@@ -67,7 +67,7 @@
   ":scope > div > main > div > div:nth-child(2)": "lsn-tiles",
   ":scope > div > main > div > div:nth-child(3)": "lsn-sub",
   ":scope > div > main > div > div:nth-child(4)": "lsn-week",
-  ":scope > div > main > div > div:nth-child(5)": "lsn-cta sticky bottom-0 z-10 lt:bg-[#FFF7EA] dk:bg-[#091518]",
+  ":scope > div > main > div > div:nth-child(5)": "lsn-cta sticky bottom-0 z-10 lt:bg-[#FBF7F1] dk:bg-[#091416]",
   ":scope > div > main > div > div:nth-child(5) > button:nth-child(2)": "no-underline",
   ":scope > div > main > div > div:nth-child(3) > div:nth-child(2)": "lsn-learned"
  },

@@ -126,11 +126,13 @@
     try { if (sessionStorage.getItem('lk.es.dayctx')) App.need('esday').then(() => App.esDayMark('gp')); } catch (e) { /* bỏ qua */ } // lộ trình ngày TBN: bài ngữ pháp/phát âm xong → đánh dấu bước (cpack/es-app/day-ui.js)
     const n = o.n, acc = Math.round(o.ok / n * 100), xp = 10 + o.ok * 2 + (o.ok === n ? 5 : 0);
     try { await App.reward({ quizzes: 1, perfect: o.ok === n ? 1 : 0, xp }); } catch (e) { /* bỏ qua */ }
-    const off = (v) => Math.round(490 * (1 - v)), ic = x => `<span class="material-symbols-outlined text-[16px]" aria-hidden="true">${x}</span>`;
-    const d = { close: '#/practice', mapL: t('Làm lại'), title: o.title || t('Luyện tiếng Tây Ban Nha'), pct: '100%', chip: o.chip, xp: '+' + xp, acc: acc + '%', streak: String(App.streak ? App.streak() : 0), off1: off(acc / 100), off2: Math.round(414 * (1 - o.first / Math.max(1, n))),
-      sub: acc >= 80 ? t('Tuyệt vời!') : t('Làm tốt lắm, cứ tiếp tục nhé!'), learned: ' ', more: `<span class="flex flex-wrap items-center gap-x-3 mt-1 text-[13px] font-bold">${ic('local_fire_department')}${esc(t('COMBO cao nhất'))}: ${o.best}</span>`,
-      rev: o.rev, revHref: o.revHref, teacher: '' };
+    const run = App.streak ? App.streak() : 0;
+    const d = { close: '#/practice', mapL: t('Làm lại'), title: o.title || t('Luyện tiếng Tây Ban Nha'), chip: o.chip, kick: t('Chính xác') + ' ' + acc + '%', xpL: '+' + xp + ' XP', combo: String(o.best), first: o.first + '/' + n, mins: '', nwords: '', streakT: t('Chuỗi hiện tại') + ': ' + run, weekN: '', streak: String(run),
+      off1: Math.round(201.06 * (1 - acc / 100) * 100) / 100, off2: Math.round(144.51 * (1 - o.first / Math.max(1, n)) * 100) / 100,
+      sub: acc >= 80 ? t('Tuyệt vời!') : t('Làm tốt lắm, cứ tiếp tục nhé!'), learned: ' ', more: '', wl: [],
+      rev: o.rev, revHref: o.revHref, revIcon: 'arrow_forward' };
     const root = ST2.mount(view, 'lesson-complete', d, null); root.id = 'lsn'; root.classList.add('lsn-v2', 'lsn-end', 'st-end');
+    root.querySelectorAll('.lsn-tiles > div:nth-child(n+3), .lsn-week > div:nth-child(2)').forEach(x => { x.hidden = true; }); // bài ngữ pháp/phát âm: không có đồng hồ, không có danh sách từ, chưa có chấm tuần thật → ẩn (không vẽ số giả)
     try { if (window.Sfx) Sfx.win(); } catch (e) { /* bỏ qua */ }
     $('#lsnAgain').onclick = o.again; $('#lsnAgain').focus({ preventScroll: true });
   }
