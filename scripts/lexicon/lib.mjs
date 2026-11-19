@@ -1,6 +1,7 @@
 // Đọc/ghi kho từ vựng gốc (web/js/data.js + web/js/lib/*.js) theo DÒNG – nguồn sự thật duy nhất.
 // Mỗi dòng mục từ: ['word', '/ipa/', 'pos', 'vi', 'def', 'ex', 'col', 'syn', 'level', 'emoji', 'ipaUS?']
 import fs from 'fs';
+import { lexPath } from '../lib/lex-files.mjs';
 export const ROOT = new URL('../../', import.meta.url);
 export const rd = p => fs.readFileSync(new URL(p, ROOT), 'utf8');
 export const wr = (p, s) => fs.writeFileSync(new URL(p, ROOT), s);
@@ -8,8 +9,7 @@ export const wr = (p, s) => fs.writeFileSync(new URL(p, ROOT), s);
 // Thứ tự ưu tiên khi chọn nghĩa chung (nghĩa thông dụng nhất): danh sách tần suất chung trước, chuyên ngành sau
 export const PRIORITY = ['ngsl.js', 'ngsl2.js', 'data.js', 'topics-more.js', 'skills.js', 'exam-vocab.js', 'exam-vocab2.js', 'exam-vocab3.js',
   'awl.js', 'nawl.js', 'tsl-a.js', 'tsl-b.js', 'office.js', 'bsl.js', 'domain-a.js', 'domain-b.js'];
-const CPACK_WORDS = ['domain-a.js', 'domain-b.js', 'exam-vocab.js', 'exam-vocab2.js', 'exam-vocab3.js']; // dữ liệu tải lười: web/cpack/words (không tính vào byte người học)
-export const SOURCES = PRIORITY.map(f => (f === 'data.js' ? 'web/js/data.js' : (CPACK_WORDS.includes(f) ? 'web/cpack/words/' : 'web/js/lib/') + f));
+export const SOURCES = PRIORITY.map(f => (f === 'data.js' ? 'web/js/data.js' : lexPath(f))); // web/js/lib hoặc web/cpack/lib (tải lười) – một nguồn đường dẫn: scripts/lib/lex-files.mjs
 
 const ROW = /^(\s*)\[\s*'(.*)\](,?)\s*$/;
 export function parseRow(line) {
