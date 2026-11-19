@@ -22877,7 +22877,7 @@
   },
   "t2_l1_fr_internship": {
    "template": "l1",
-   "hook": "« Stage » ≠ “stage”",
+   "hook": "« Stage » : un faux ami !",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
