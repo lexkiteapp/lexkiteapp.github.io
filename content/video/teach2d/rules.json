@@ -1,0 +1,15 @@
+{
+ "_note": "Rule bank for the Spell->Sound series (docs/specs/spell-sound.md, template `rule`). Hand-written ONCE; every word is mined by `gen.py --rules` from the audited word bank (spelling match + IPA check + CEFR/NGSL order, top 6) into rules-words.json - never hand-edited, never an IPA override. pattern = regex on the lowercase spelling, group (?P<s>..) = the silent letters shown struck through. ipa_re / ipa_absent = regexes on the US IPA (stress marks stripped) that PROVE the rule (a word whose IPA does not show it is dropped). target = the sound the learner should say instead of the letter-by-letter reading; wrong = the typical letter-by-letter reading used by the hook. Tests: scripts/test/teach2d-rules.py.",
+ "rules": [
+  {"id": "silent-kn", "kind": "silent", "title": "kn-", "pattern": "^(?P<s>k)n", "ipa_re": "^n", "target": "/n/", "wrong": "k-now", "say": "In k n, the K is silent. Say N."},
+  {"id": "silent-wr", "kind": "silent", "title": "wr-", "pattern": "^(?P<s>w)r", "ipa_re": "^r", "target": "/r/", "wrong": "w-rite", "say": "In w r, the W is silent. Say R."},
+  {"id": "silent-gn", "kind": "silent", "title": "gn", "pattern": "(?P<s>g)n", "ipa_re": "n", "ipa_absent": "ɡ", "target": "/n/", "wrong": "sig-n", "say": "In g n, the G is silent. Say N."},
+  {"id": "silent-mb", "kind": "silent", "title": "-mb", "pattern": "m(?P<s>b)$", "ipa_re": "m$", "ipa_absent": "b", "target": "/m/", "wrong": "clim-b", "say": "At the end, m b, the B is silent. Say M."},
+  {"id": "silent-ps", "kind": "silent", "title": "ps-", "pattern": "^(?P<s>p)s", "ipa_re": "^s", "target": "/s/", "wrong": "p-sychology", "say": "At the start, p s, the P is silent. Say S."},
+  {"id": "silent-ght", "kind": "silent", "title": "-ght", "pattern": "(?P<s>gh)t$", "ipa_re": "t$", "ipa_absent": "[ɡhx]", "target": "/t/", "wrong": "nigh-t", "say": "In g h t, the G H is silent. Say T."},
+  {"id": "silent-h", "kind": "silent", "title": "silent h", "pattern": "^(?P<s>h)", "ipa_re": "^[^h]", "target": "the next sound", "wrong": "h-our", "say": "Here the H is silent. Start with the next sound."},
+  {"id": "silent-l", "kind": "silent", "title": "-alk / -alm", "pattern": "a(?P<s>l)[kmfv]|o(?P<s2>l)k", "ipa_absent": "l", "target": "no L sound", "wrong": "wal-k", "say": "In a l k and a l m, the L is silent."},
+  {"id": "silent-bt", "kind": "silent", "title": "-bt", "pattern": "(?P<s>b)t", "ipa_absent": "b", "target": "/t/", "wrong": "deb-t", "say": "Before t, the B is silent. Say T."},
+  {"id": "silent-t", "kind": "silent", "title": "-stle / -sten", "pattern": "s(?P<s>t)(?:le|en)$|of(?P<s2>t)en$|s(?P<s3>t)mas$", "ipa_absent": "t", "target": "no T sound", "wrong": "cas-tle", "say": "In s t l e and s t e n, the T is silent."}
+ ]
+}
