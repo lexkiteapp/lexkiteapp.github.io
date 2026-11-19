@@ -60,7 +60,7 @@
     if (tr) tr.hidden = !(it.type === 'tr' || (it.type === 'build' && it.prompt));
     if (card) { card.hidden = it.type === 'match';
       const col = bub && bub.parentElement, old = card.querySelector('.lsn-xtile'); if (old) old.remove();
-      if (it.type !== 'match' && it.type !== 'pic' && col) { const row = card.firstElementChild; let w = row.querySelector('.lsn-xprompt'); if (!w) { w = document.createElement('div'); w.className = 'lsn-xprompt'; col.before(w); w.appendChild(col); }
+      if (it.type !== 'match' && it.type !== 'pic' && col) { const row = card.firstElementChild, w = row; /* ô hình chèn thẳng vào hàng thẻ (không bọc thêm lớp: final-qc not-pasted-on chỉ xét 4 tổ tiên của chữ đề để thấy mặt đục che hông giáo viên) */
         const cd = it.card || {}, src = cd.word ? c.img(cd.word, cd.pos) : (it.word && it.word[0] !== '#' ? c.img(it.word, cd.pos) : ''), ic = ICON[it.type] || 'menu_book';
         w.insertAdjacentHTML('afterbegin', `<span class="lsn-xtile" aria-hidden="true">${pic(src, ic)}</span>`); const im = w.querySelector('.lsn-xtile img'); if (im) im.onerror = () => { im.outerHTML = icon(ic); }; } }
     if (it.type === 'type') slots(it);
