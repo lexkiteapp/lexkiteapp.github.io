@@ -27,7 +27,7 @@ const KEEP_READ = { A2: 1, B1: 2, B2: 2, C1: 1 };  // readings carried (first N 
 const LISTEN_FILES = ['web/js/lexis.js', 'web/js/qengine.js', 'web/js/qtips.js', 'web/js/listen/kvoice.js'];
 const SPLIT = vm.runInNewContext(`(function(){ ${slice(rd('web/js/ui.js'), /function splitSentences\(text\) \{/)}\n return splitSentences; })()`);
 const UI_SRC = rd('web/js/ui.js');
-const CDN_SRC = UI_SRC.slice(UI_SRC.indexOf('let cdnFail = 0;'), UI_SRC.indexOf('g.audioFail = () => { cdnFail++; };') + 'g.audioFail = () => { cdnFail++; };'.length).replace(/const lk = [^\n]*\n/, 'const lk = k => k;\n');
+const CDN_SRC = UI_SRC.slice(UI_SRC.indexOf('let cdnFail = 0'), UI_SRC.indexOf('\n', UI_SRC.indexOf('g.audioFail = '))).replace(/const lk = [^\n]*\n/, 'const lk = k => k;\n');
 const VIHTML = /App\.viHtml = (\(vi, en\) => \{[^\n]*\});/.exec(rd('web/js/app.js'))[1];
 
 // ---------- fake platform: speech, <audio>, timers (a recorder; completes every utterance/clip by itself unless a scenario holds it) ----------

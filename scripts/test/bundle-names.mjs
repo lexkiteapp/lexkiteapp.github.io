@@ -3,13 +3,12 @@
 // và meanOf của bài học chịu được thẻ null (bài ghép cặp). Nguồn: bảng admin "JavaScript errors (24h)" 01/11/2026.
 import fs from 'node:fs';
 import path from 'node:path';
+import { bundlesIn } from '../lib/bundles.mjs';
 import { execFileSync } from 'node:child_process';
 
 const WEB = path.resolve(process.argv[2] || 'web'), errors = [];
 const src = fs.readFileSync(path.join(WEB, 'js/app.js'), 'utf8');
-const a = src.indexOf("const G = 'js/grammar/', BUNDLES = {"), b = src.indexOf('\n  };', a);
-if (a < 0 || b < 0) throw new Error('không tìm thấy BUNDLES trong app.js');
-const BUNDLES = new Function(src.slice(a, b + 4) + '; return BUNDLES;')();
+const BUNDLES = bundlesIn(WEB);
 const r0 = src.indexOf('const ROUTE_BUNDLE = {'), r1 = src.indexOf('};', r0);
 const ROUTE_BUNDLE = new Function(src.slice(r0, r1 + 2) + '; return ROUTE_BUNDLE;')();
 
