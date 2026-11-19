@@ -1,0 +1,199 @@
+{
+ "id": "t2a_roots_press_1",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, three words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "The root is Press! Express, impress, depress.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Press is Latin for press.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Express: out plus press.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Impress: into plus press.",
+   "pause": 0.3
+  },
+  {
+   "id": "w2",
+   "text": "Depress: down plus press.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means down plus press?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Depress! Down plus press.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "PRESS",
+  "rid": "press",
+  "say": "press",
+  "src": "premere",
+  "src_lang": "Latin",
+  "src_mean": "to press",
+  "words": [
+   {
+    "w": "express",
+    "ipa": "/ɪkˈspres/",
+    "mean": "press out",
+    "seg": "ex-|press",
+    "parts": [
+     [
+      "ex",
+      "pre"
+     ],
+     [
+      "press",
+      "root"
+     ]
+    ],
+    "pre": "ex",
+    "pm": "out",
+    "pms": "out",
+    "ex": "It can be hard to express your feelings in a foreign language.",
+    "em": "💬"
+   },
+   {
+    "w": "impress",
+    "ipa": "/ɪmˈpres/",
+    "mean": "press into the mind",
+    "seg": "im-|press",
+    "parts": [
+     [
+      "im",
+      "pre"
+     ],
+     [
+      "press",
+      "root"
+     ]
+    ],
+    "pre": "im",
+    "pm": "into",
+    "pms": "into",
+    "ex": "Her English skills impressed the interviewer.",
+    "em": "🤩"
+   },
+   {
+    "w": "depress",
+    "ipa": "/dɪˈpres/",
+    "mean": "press down",
+    "seg": "de-|press",
+    "parts": [
+     [
+      "de",
+      "pre"
+     ],
+     [
+      "press",
+      "root"
+     ]
+    ],
+    "pre": "de",
+    "pm": "down or away",
+    "pms": "down",
+    "ex": "Rainy weather depresses me.",
+    "em": "😞"
+   }
+  ],
+  "quiz": {
+   "stem": "down plus press",
+   "options": [
+    "express",
+    "depress"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/express",
+  "link": "https://lexkite.com/app/#/dict/express",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, three words"
+ },
+ "src": {
+  "root": "press"
+ },
+ "est": {
+  "words": 48,
+  "seconds": 28.8,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "Press root: express, impress and depress",
+  "keyword": "press root",
+  "value": "Press comes from Latin \"premere\" (to press). Words: express, impress and depress. express = ex + press; impress = im + press; depress = de + press.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/express",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "Press root: express, impress and depress",
+    "description": "Press comes from Latin \"premere\" (to press). Words: express, impress and depress. express = ex + press; impress = im + press; depress = de + press.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/express\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "press root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Press root: express, impress and depress\n\nPress comes from Latin \"premere\" (to press). Words: express, impress and depress. express = ex + press; impress = im + press; depress = de + press.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/express"
+   },
+   "instagram": {
+    "caption": "Press root: express, impress and depress\n\nPress comes from Latin \"premere\" (to press). Words: express, impress and depress. express = ex + press; impress = im + press; depress = de + press.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Press root: express, impress and depress #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: Depress! Down plus press. Press comes from Latin \"premere\" (to press). Words: express, impress and depress. express = ex + press; impress = im + press; depress = de + press. Try the full lesson and quiz here: {link}"
+ }
+}

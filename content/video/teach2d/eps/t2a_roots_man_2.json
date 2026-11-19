@@ -1,0 +1,173 @@
+{
+ "id": "t2a_roots_man_2",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, two words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "The root is Man! Command, demand.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Man is Latin for hand.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Command: together plus hand.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Demand: down plus hand.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means down plus hand?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Demand! Down plus hand.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "MAN",
+  "rid": "man",
+  "say": "hand",
+  "src": "manus",
+  "src_lang": "Latin",
+  "src_mean": "hand",
+  "words": [
+   {
+    "w": "command",
+    "ipa": "/kəˈmænd/",
+    "mean": "put fully in someone's hand",
+    "seg": "com-|mand",
+    "parts": [
+     [
+      "com",
+      "pre"
+     ],
+     [
+      "mand",
+      "root"
+     ]
+    ],
+    "pre": "com",
+    "pm": "together",
+    "pms": "together",
+    "ex": "The dog responds to simple commands.",
+    "em": "🫡"
+   },
+   {
+    "w": "demand",
+    "ipa": "/dɪˈmænd/",
+    "mean": "put in hand, ask strongly",
+    "seg": "de-|mand",
+    "parts": [
+     [
+      "de",
+      "pre"
+     ],
+     [
+      "mand",
+      "root"
+     ]
+    ],
+    "pre": "de",
+    "pm": "down or away",
+    "pms": "down",
+    "ex": "There is a growing demand for electric cars.",
+    "em": "📈"
+   }
+  ],
+  "quiz": {
+   "stem": "down plus hand",
+   "options": [
+    "command",
+    "demand"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/command",
+  "link": "https://lexkite.com/app/#/dict/command",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, two words"
+ },
+ "src": {
+  "root": "man"
+ },
+ "est": {
+  "words": 43,
+  "seconds": 26.0,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Man root: command and demand",
+  "keyword": "man root",
+  "value": "Man comes from Latin \"manus\" (hand). Words: command and demand. command = com + mand; demand = de + mand.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/command",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "Man root: command and demand",
+    "description": "Man comes from Latin \"manus\" (hand). Words: command and demand. command = com + mand; demand = de + mand.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/command\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "man root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Man root: command and demand\n\nMan comes from Latin \"manus\" (hand). Words: command and demand. command = com + mand; demand = de + mand.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/command"
+   },
+   "instagram": {
+    "caption": "Man root: command and demand\n\nMan comes from Latin \"manus\" (hand). Words: command and demand. command = com + mand; demand = de + mand.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Man root: command and demand #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: Demand! Down plus hand. Man comes from Latin \"manus\" (hand). Words: command and demand. command = com + mand; demand = de + mand. Try the full lesson and quiz here: {link}"
+ }
+}

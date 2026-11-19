@@ -479,3 +479,4 @@ node scripts/test/flake-tracker.mjs
 node scripts/test/lesson-lang.mjs
 node scripts/test/gate-impact.mjs
 node scripts/test/budget-comment.mjs
+node scripts/test/read-highlight.mjs

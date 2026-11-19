@@ -1,0 +1,173 @@
+{
+ "id": "t2a_roots_fer_2",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, two words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "The root is Fer! Offer, suffer.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Fer is Latin for carry.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Offer: toward plus carry.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Suffer: from under plus carry.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means from under plus carry?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Suffer! From under plus carry.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "FER",
+  "rid": "fer",
+  "say": "carry",
+  "src": "ferre",
+  "src_lang": "Latin",
+  "src_mean": "to carry, to bring",
+  "words": [
+   {
+    "w": "offer",
+    "ipa": "/ˈɔːfər/",
+    "mean": "bring toward",
+    "seg": "of-|fer",
+    "parts": [
+     [
+      "of",
+      "pre"
+     ],
+     [
+      "fer",
+      "root"
+     ]
+    ],
+    "pre": "of",
+    "pm": "toward",
+    "pms": "toward",
+    "ex": "The company offered her a job in London.",
+    "em": "🤲"
+   },
+   {
+    "w": "suffer",
+    "ipa": "/ˈsʌfər/",
+    "mean": "carry from under, bear pain",
+    "seg": "suf-|fer",
+    "parts": [
+     [
+      "suf",
+      "pre"
+     ],
+     [
+      "fer",
+      "root"
+     ]
+    ],
+    "pre": "suf",
+    "pm": "from under",
+    "pms": "from under",
+    "ex": "Many people suffer from back pain.",
+    "em": "😖"
+   }
+  ],
+  "quiz": {
+   "stem": "from under plus carry",
+   "options": [
+    "offer",
+    "suffer"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/offer",
+  "link": "https://lexkite.com/app/#/dict/offer",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, two words"
+ },
+ "src": {
+  "root": "fer"
+ },
+ "est": {
+  "words": 46,
+  "seconds": 27.5,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "Fer root: offer and suffer",
+  "keyword": "fer root",
+  "value": "Fer comes from Latin \"ferre\" (to carry, to bring). Words: offer and suffer. offer = of + fer; suffer = suf + fer.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/offer",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "Fer root: offer and suffer",
+    "description": "Fer comes from Latin \"ferre\" (to carry, to bring). Words: offer and suffer. offer = of + fer; suffer = suf + fer.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/offer\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "fer root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Fer root: offer and suffer\n\nFer comes from Latin \"ferre\" (to carry, to bring). Words: offer and suffer. offer = of + fer; suffer = suf + fer.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/offer"
+   },
+   "instagram": {
+    "caption": "Fer root: offer and suffer\n\nFer comes from Latin \"ferre\" (to carry, to bring). Words: offer and suffer. offer = of + fer; suffer = suf + fer.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Fer root: offer and suffer #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: Suffer! From under plus carry. Fer comes from Latin \"ferre\" (to carry, to bring). Words: offer and suffer. offer = of + fer; suffer = suf + fer. Practice it with a free quiz: {link}"
+ }
+}

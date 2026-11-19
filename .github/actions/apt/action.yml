@@ -13,9 +13,13 @@ runs:
     - id: k
       shell: bash
       env: { P: '${{ inputs.packages }}' }
-      run: echo "key=apt-${ImageOS:-x}-${ImageVersion:-x}-$(printf '%s\n' $P | sort -u | sha1sum | cut -c1-16)" >> "$GITHUB_OUTPUT"
-    - uses: actions/cache@v4
-      with: { path: ~/.cache/apt-debs, key: '${{ steps.k.outputs.key }}' }
+      run: |
+        echo "pre=apt-${ImageOS:-x}-${ImageVersion:-x}-" >> "$GITHUB_OUTPUT"
+        echo "key=apt-${ImageOS:-x}-${ImageVersion:-x}-$(printf '%s\n' $P | sort -u | sha1sum | cut -c1-16)" >> "$GITHUB_OUTPUT"
+    # .deb apt dùng chung: restore-keys theo ảnh runner → workflow khác tập gói vẫn nhận .deb đã tải (apt-prefetch chỉ tải phần thiếu); lưu NGAY sau khi cài (bước cuối) kể cả job sau đó đỏ.
+    - id: ac
+      uses: actions/cache/restore@v4
+      with: { path: ~/.cache/apt-debs, key: '${{ steps.k.outputs.key }}', restore-keys: '${{ steps.k.outputs.pre }}' }
     # fonts-noto-*: .deb tải thẳng (scripts/ci/fonts-install.sh) lưu ~/.cache/lk-fonts. Khoá = băm bảng ghim SHA + tập gói font; restore-keys theo băm bảng ghim
     # → workflow khác tập gói vẫn nhận .deb đã có (chỉ tải phần thiếu). Chung mọi workflow.
     - id: fk
@@ -29,7 +33,8 @@ runs:
       if: contains(inputs.packages, 'fonts-noto-')
       uses: actions/cache/restore@v4
       with: { path: ~/.cache/lk-fonts, key: '${{ steps.fk.outputs.key }}', restore-keys: '${{ steps.fk.outputs.pre }}' }
-    - shell: bash
+    - id: ai
+      shell: bash
       env: { P: '${{ inputs.packages }}' }
       run: APT_CACHE_DIR="$HOME/.cache/apt-debs" bash "$GITHUB_WORKSPACE/scripts/ci/apt-install.sh" $P
     # lưu NGAY sau khi cài (kể cả job sau đó đỏ – actions/cache thường chỉ lưu khi cả job xanh) → lượt sau không chạm mirror Ubuntu.
@@ -44,3 +49,6 @@ runs:
     - if: always() && steps.fo.outputs.full == '1'
       uses: actions/cache/save@v4
       with: { path: ~/.cache/lk-fonts, key: '${{ steps.fk.outputs.key }}' }
+    - if: always() && steps.ai.outcome == 'success' && steps.ac.outputs.cache-hit != 'true'
+      uses: actions/cache/save@v4
+      with: { path: ~/.cache/apt-debs, key: '${{ steps.k.outputs.key }}' }

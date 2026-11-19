@@ -1,0 +1,173 @@
+{
+ "id": "t2a_roots_press_2",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, two words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "The root is Press! Suppress, pressure.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Press is Latin for press.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Suppress: under plus press.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Pressure: a pressing force.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means under plus press?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Suppress! Under plus press.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "PRESS",
+  "rid": "press",
+  "say": "press",
+  "src": "premere",
+  "src_lang": "Latin",
+  "src_mean": "to press",
+  "words": [
+   {
+    "w": "suppress",
+    "ipa": "/səˈpres/",
+    "mean": "press under",
+    "seg": "sup-|press",
+    "parts": [
+     [
+      "sup",
+      "pre"
+     ],
+     [
+      "press",
+      "root"
+     ]
+    ],
+    "pre": "sup",
+    "pm": "under",
+    "pms": "under",
+    "ex": "The company tried to suppress the bad news.",
+    "em": ""
+   },
+   {
+    "w": "pressure",
+    "ipa": "/ˈpreʃər/",
+    "mean": "a pressing force",
+    "seg": "press|-ure",
+    "parts": [
+     [
+      "press",
+      "root"
+     ],
+     [
+      "ure",
+      "suf"
+     ]
+    ],
+    "pre": null,
+    "pm": null,
+    "pms": null,
+    "ex": "Students are under a lot of pressure before exams.",
+    "em": "🎈"
+   }
+  ],
+  "quiz": {
+   "stem": "under plus press",
+   "options": [
+    "pressure",
+    "suppress"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/suppress",
+  "link": "https://lexkite.com/app/#/dict/suppress",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, two words"
+ },
+ "src": {
+  "root": "press"
+ },
+ "est": {
+  "words": 43,
+  "seconds": 26.0,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Press root: suppress and pressure",
+  "keyword": "press root",
+  "value": "Press comes from Latin \"premere\" (to press). Words: suppress and pressure. suppress = sup + press.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/suppress",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "Press root: suppress and pressure",
+    "description": "Press comes from Latin \"premere\" (to press). Words: suppress and pressure. suppress = sup + press.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/suppress\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "press root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Press root: suppress and pressure\n\nPress comes from Latin \"premere\" (to press). Words: suppress and pressure. suppress = sup + press.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/suppress"
+   },
+   "instagram": {
+    "caption": "Press root: suppress and pressure\n\nPress comes from Latin \"premere\" (to press). Words: suppress and pressure. suppress = sup + press.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Press root: suppress and pressure #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: Suppress! Under plus press. Press comes from Latin \"premere\" (to press). Words: suppress and pressure. suppress = sup + press. Practice it with a free quiz: {link}"
+ }
+}

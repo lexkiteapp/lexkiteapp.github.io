@@ -1,0 +1,199 @@
+{
+ "id": "t2a_roots_cur_1",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, three words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "The root is Cur! Current, occur, recur.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Cur is Latin for run.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Current: running, now.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Occur: toward plus run.",
+   "pause": 0.3
+  },
+  {
+   "id": "w2",
+   "text": "Recur: back plus run.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means back plus run?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Recur! Back plus run.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "CUR",
+  "rid": "cur",
+  "say": "run",
+  "src": "currere",
+  "src_lang": "Latin",
+  "src_mean": "to run",
+  "words": [
+   {
+    "w": "current",
+    "ipa": "/ˈkɜːrənt/",
+    "mean": "running, now",
+    "seg": "curr|-ent",
+    "parts": [
+     [
+      "curr",
+      "root"
+     ],
+     [
+      "ent",
+      "suf"
+     ]
+    ],
+    "pre": null,
+    "pm": null,
+    "pms": null,
+    "ex": "What is your current address?",
+    "em": "⏱️"
+   },
+   {
+    "w": "occur",
+    "ipa": "/əˈkɜːr/",
+    "mean": "run toward, happen",
+    "seg": "oc-|cur",
+    "parts": [
+     [
+      "oc",
+      "pre"
+     ],
+     [
+      "cur",
+      "root"
+     ]
+    ],
+    "pre": "oc",
+    "pm": "toward",
+    "pms": "toward",
+    "ex": "The accident occurred just after midnight.",
+    "em": "💥"
+   },
+   {
+    "w": "recur",
+    "ipa": "/rɪˈkɜːr/",
+    "mean": "run back again",
+    "seg": "re-|cur",
+    "parts": [
+     [
+      "re",
+      "pre"
+     ],
+     [
+      "cur",
+      "root"
+     ]
+    ],
+    "pre": "re",
+    "pm": "back or again",
+    "pms": "back",
+    "ex": "Please contact our support team if the problem recurs after restarting.",
+    "em": "🔁"
+   }
+  ],
+  "quiz": {
+   "stem": "back plus run",
+   "options": [
+    "current",
+    "recur"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/current",
+  "link": "https://lexkite.com/app/#/dict/current",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, three words"
+ },
+ "src": {
+  "root": "cur"
+ },
+ "est": {
+  "words": 47,
+  "seconds": 28.3,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "Cur root: current, occur and recur",
+  "keyword": "cur root",
+  "value": "Cur comes from Latin \"currere\" (to run). Words: current, occur and recur. occur = oc + cur; recur = re + cur.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/current",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "Cur root: current, occur and recur",
+    "description": "Cur comes from Latin \"currere\" (to run). Words: current, occur and recur. occur = oc + cur; recur = re + cur.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/current\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "cur root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Cur root: current, occur and recur\n\nCur comes from Latin \"currere\" (to run). Words: current, occur and recur. occur = oc + cur; recur = re + cur.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/current"
+   },
+   "instagram": {
+    "caption": "Cur root: current, occur and recur\n\nCur comes from Latin \"currere\" (to run). Words: current, occur and recur. occur = oc + cur; recur = re + cur.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Cur root: current, occur and recur #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: Recur! Back plus run. Cur comes from Latin \"currere\" (to run). Words: current, occur and recur. occur = oc + cur; recur = re + cur. Practice it with a free quiz: {link}"
+ }
+}
