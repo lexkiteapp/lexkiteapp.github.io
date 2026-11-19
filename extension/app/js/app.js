@@ -1446,7 +1446,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
   { let q = 0; const kick = () => { if (q) return; q = 1; requestAnimationFrame(() => { q = 0; edgeFade(); }); }; const v = document.getElementById('view'); if (v && window.MutationObserver) new MutationObserver(kick).observe(v, { childList: true, subtree: true }); addEventListener('resize', kick, { passive: true }); }
   // 🐕 Canh khởi động (thấy trên live 4/11: indexedDB.open treo → App.ready không xong, #view trắng vĩnh viễn): 8 s chưa vẽ → thẻ lỗi, Thử lại = tải lại trang. KHÔNG đọc dữ liệu giả (sẽ ghi đè dữ liệu thật).
   // Dữ liệu treo thì khung chào #lkHero cũng là trang chết (bấm không đi đâu) → thay luôn; dữ liệu đã về mà còn chờ bản dịch thì giữ khung chào.
-  const bootDog = setTimeout(() => { if (state.game && routeSeq) return; if (!view.children.length || (!state.game && view.querySelector('#lkHero'))) errState(true, true); }, 8000);
+  const bootDog = setTimeout(() => { if (state.game && routeSeq) return; if (!view.children.length || view.querySelector('[data-lkph]') || (!state.game && view.querySelector('#lkHero'))) errState(true, true); }, 8000); // khung chờ màn học (index.html data-lkph) = chưa vẽ
   App.ready = (async function init() {
     if (/[?&]demo=1/.test(location.search)) { await App.need('demo'); await App.seedDemo(); }
     if (Store.sandbox) setTimeout(() => toast('🧪 ' + t('Chế độ thử nghiệm – dữ liệu tách riêng, không đồng bộ')), 800);
