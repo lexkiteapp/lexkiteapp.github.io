@@ -65,12 +65,12 @@
 .lsn-foot.ok,.lsn-foot.bad{animation:lsnFade .18s ease-out}@keyframes lsnFade{from{opacity:0}to{opacity:1}}
 /* 🧱 Khung bài tập chung (mọi dạng): cột 640 px · thanh kết quả CỐ ĐỊNH đáy cao ≤ 35 % màn (Tiếp tục không phải cuộn) · thẻ từ gọn, Vì sao? chạm mới mở · ô chờ xếp câu */
 .lsn-v2 main>div{max-width:640px;margin-inline:auto;padding-bottom:calc(var(--lsn-fh,0px) + 1.5rem)}
-.lsn-fv2{position:fixed;left:0;right:0;bottom:0;z-index:30;max-height:min(35vh,300px);overflow-y:auto;overscroll-behavior:contain;margin:0!important;padding:.5rem 1rem calc(.5rem + env(safe-area-inset-bottom));background:linear-gradient(transparent,rgb(var(--st-surface)/.94) .5rem)}
+.lsn-fv2{position:fixed;left:0;right:0;bottom:0;z-index:30;max-height:min(46vh,360px);overflow-y:auto;overscroll-behavior:contain;margin:0!important;padding:.5rem 1rem calc(.5rem + env(safe-area-inset-bottom));background:linear-gradient(transparent,rgb(var(--st-surface)/.94) .5rem)}
 .lsn-fv2>div{max-width:608px;margin-inline:auto}.lsn-fv2 .lsn-dict>div:first-child{display:none}.lsn-fv2 .lsn-nextrow{position:sticky;bottom:0;background:inherit;padding-top:.25rem}
 .lsn-slot{flex:none;min-width:44px;min-height:44px;border:2px dashed currentColor;border-radius:.75rem;opacity:.25;pointer-events:none}
 /* 🏁 Màn Hoàn thành gọn: vòng nhỏ lại, 4 ô chỉ số một hàng (nhãn HOA, không xuống dòng), nút chính cố định đáy */
-.lsn-end main>div>div:nth-child(1){padding-bottom:2.25rem}.lsn-end .lsn-ring{zoom:.7;margin-block:-1.5rem}.lsn-end main>div>div:nth-child(1)>h1{margin-bottom:.25rem}
-.lsn-end .lsn-tiles{grid-template-columns:repeat(4,minmax(0,1fr));gap:.4rem}.lsn-end .lsn-tiles>div{padding-inline:.25rem}.lsn-end .lsn-tiles>div>span:last-child{text-transform:uppercase;white-space:nowrap;font-size:10px;line-height:14px;letter-spacing:.02em}
+.lsn-end main>div>div:nth-child(1){padding-bottom:1.25rem}.lsn-end .lsn-ring{zoom:.6;margin-block:-1.75rem}.lsn-end main>div>div:nth-child(1)>h1{margin-bottom:.25rem}
+.lsn-end .lsn-tiles.grid.grid-cols-3{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:.4rem}.lsn-end .lsn-tiles>div{padding:.5rem .125rem;gap:0}.lsn-end .lsn-tiles>div>div:first-child{width:1.5rem;height:1.5rem}.lsn-end .lsn-tiles>div>span:nth-child(2){font-size:1.25rem;line-height:1.5rem}.lsn-end .lsn-tiles>div>span:last-child{text-transform:uppercase;font-size:10px;line-height:12px;letter-spacing:0;text-wrap:balance;overflow-wrap:anywhere;margin:0}.lsn-v2.lsn-end main>div{padding-bottom:.5rem}
 .lsn-end .lsn-cta{position:sticky;bottom:0;z-index:30;background:linear-gradient(transparent,rgb(var(--st-surface)/.96) .75rem);padding-bottom:calc(.5rem + env(safe-area-inset-bottom));margin-inline:-1rem;padding-inline:1rem}
 .lsn-end .lsn-ama{display:flex;align-items:flex-end;gap:.5rem;margin-bottom:.5rem}.lsn-end .lsn-ama>.lsn-endt{flex:none;width:96px;height:112px;margin:0}.lsn-end .lsn-ama>.lsn-endt>div{width:96px;height:112px}.lsn-end .lsn-ama>.lsn-sub{flex:1;min-width:0;margin:0}
 .lsn-learned{display:flex;flex-wrap:wrap;gap:.375rem;margin-top:.375rem}.lsn-learned button,.lsn-learned a{display:inline-flex;align-items:center;min-height:44px;padding:.25rem .75rem;border-radius:9999px;border:1px solid currentColor;background:transparent;color:inherit;font:inherit;font-weight:700;cursor:pointer}.lsn-learned a{border-style:dashed}
@@ -201,7 +201,7 @@
     list.push(['lsnIdk', t('Bỏ qua'), 'fast_forward']);
     sk.hidden = false; set(sk, list[0]);
     list.slice(1).reverse().forEach(x => { const c = sk.cloneNode(true); c.classList.add('lsn-skip2'); set(c, x); sk.after(c); });
-    const rt = $('#lsnRep > span:last-child'); if (rt) rt.classList.add('sr-only'); // Báo lỗi: chỉ biểu tượng (nhãn cho trình đọc màn hình) → đủ chỗ cho 3 nút trên một hàng
+    const rt = $('#lsnRep > span:last-child'); if (rt) { $('#lsnRep').setAttribute('aria-label', rt.textContent.trim()); rt.hidden = true; } // Báo lỗi: chỉ biểu tượng (nhãn cho trình đọc màn hình) → đủ chỗ cho 3 nút trên một hàng
     const chk = $('#lsnCheck'); chk.hidden = SPEAKS(it); chk.disabled = true;
     $('#lsnRep').onclick = () => { const cid = 'lesson:' + it.type + ':' + String(it.word || (it.card && it.card.word) || '').slice(0, 40); if (window.LexReportLoad) LexReportLoad().then(R => R.open({ cat: 'content', cid })).catch(() => {}); else window.open('#/report/new', '_blank'); };
   }
@@ -405,9 +405,9 @@
     if (L.keyH) document.removeEventListener('keydown', L.keyH);
     // ⌨️ Desktop: 1–4 chọn đáp án (thẻ A–D) · Enter = Tiếp tục khi đã chấm (Enter = Kiểm tra do enterH bên dưới)
     L.keyH = e => {
-      if (!L || e.isComposing || e.ctrlKey || e.metaKey || e.altKey || (e.target.closest && e.target.closest('input,textarea,select'))) return;
+      if (!L || e.defaultPrevented || e.isComposing || e.ctrlKey || e.metaKey || e.altKey || (e.target.closest && e.target.closest('input,textarea,select'))) return;
       if (/^[1-4]$/.test(e.key) && !L.checked) { const o = document.querySelectorAll('#lsnBody.lsn-opts .lsn-opt')[+e.key - 1]; if (o && !o.disabled) { e.preventDefault(); o.click(); } }
-      else if (e.key === 'Enter' && L.checked && !(e.target.closest && e.target.closest('button,a'))) { const n = $('#lsnNext'); if (n && n.isConnected) { e.preventDefault(); n.click(); } }
+      else if (e.key === 'Enter' && L.checked && Date.now() - (L.fbAt || 0) > 500 && !(e.target.closest && e.target.closest('button,a'))) { const n = $('#lsnNext'); if (n && n.isConnected) { e.preventDefault(); n.click(); } }
     };
     document.addEventListener('keydown', L.keyH);
     if (chk) { L.enterH = e => { if (e.key === 'Enter' && !e.isComposing && !(e.target.closest && e.target.closest('button,a,input,textarea,select,[role="button"]')) && chk.isConnected && !chk.disabled && !L.checked) { e.preventDefault(); chk.click(); } }; document.addEventListener('keydown', L.enterH); }
@@ -480,7 +480,7 @@
   }
 
   function submit(ans, heard, idk) {
-    if (!L || L.checked) return; L.checked = true; L.ans = ans;
+    if (!L || L.checked) return; L.checked = true; L.fbAt = Date.now(); L.ans = ans;
     const it = L.sess.cur, ok = idk ? false : E.check(it, ans), r = L.sess.answer(ok);
     document.querySelectorAll('#lsnBody button, #lsnIn').forEach(x => { x.disabled = true; }); // đã chấm: khóa đáp án (luật QA)
     bar(it);
@@ -640,7 +640,7 @@
   const weak0 = s => [...s.wrong.keys()].filter(k => k[0] !== '#');
   // 🧩 Stitch v2.1 lesson-complete (brand/stitch/v2/bind/lesson-complete.json)
   // Số + đơn vị theo ngôn ngữ giao diện
-  const unitFmt = (n, unit) => { try { return new Intl.NumberFormat((window.I18N && I18N.lang && I18N.lang()) || undefined, { style: 'unit', unit, unitDisplay: 'long' }).format(n); } catch (e) { return n + ' ' + unit; } };
+  const unitFmt = (n, unit) => { try { return new Intl.NumberFormat((window.I18N && I18N.lang && I18N.lang()) || undefined, { style: 'unit', unit, unitDisplay: 'long' }).format(n).replace(/^(?!.*\p{Nd})(.*)$/u, m => n + ' ' + m); } catch (e) { return n + ' ' + unit; } };
   let kbd = false; addEventListener('keydown', () => { kbd = true; }, true); addEventListener('pointerdown', () => { kbd = false; }, true); // thiết bị nhập gần nhất: bàn phím mới hiện vòng focus
   function finishV2(s, xp, weak, cheer) {
     const mins = Math.max(1, Math.round((Date.now() - L.t0) / 60000)), streak = App.streak ? App.streak() : 0, w = L.picks || [], q = Q(L.demo);

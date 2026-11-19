@@ -104,7 +104,7 @@ for (const [name, vp, scheme, lang, wrongEvery, kbd] of CASES) {
   // 6 · ✕ không bị cắt mép trên; trang bắt đầu ở đỉnh
   ok(m.sy === 0 && m.x2.t >= 0 && m.x2.t >= m.hdr.b - 1, `${tag}: nút ✕ không bị cắt (cuộn ${m.sy}, ✕ top ${m.x2.t.toFixed(0)}, thanh trên đáy ${m.hdr.b.toFixed(0)})`);
   // 7 · 3 ô cùng hàng, chữ không tràn, không cuộn ngang
-  ok(m.tiles.length === 4 && m.tiles.every(t => Math.abs(t.t - m.tiles[0].t) <= 1 && !t.over && t.h <= 96), `${tag}: 4 ô (XP · COMBO · từ nhớ · thời gian) cùng hàng, nhãn không xuống dòng, không tràn (${tx.join(' | ')})`);
+  ok(m.tiles.length === 4 && m.tiles.every(t => Math.abs(t.t - m.tiles[0].t) <= 1 && !t.over && t.h <= 96), `${tag}: 4 ô (XP · COMBO · từ nhớ · thời gian) cùng hàng, gọn (≤96 px), không tràn (${tx.join(' | ')})`);
   ok(!m.xpCard, `${tag}: không còn khối XP riêng (đã gộp vào hàng chỉ số)`);
   ok(m.learnedBtns.length === S.picks.length && m.learnedBtns.every(b => b.h >= 44) && (!S.picks.length || m.revBtn), `${tag}: từ đã học = chip chạm để nghe (≥ 44 px) + nút Ôn lại (${m.learnedBtns.length}/${S.picks.length})`);
   ok(m.sw <= m.iw, `${tag}: không cuộn ngang (${m.sw} ≤ ${m.iw})`);
