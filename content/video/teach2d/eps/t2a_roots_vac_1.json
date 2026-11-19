@@ -1,0 +1,173 @@
+{
+ "id": "t2a_roots_vac_1",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, two words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "The root is Vac! Vacation, vacuum.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Vac is Latin for empty.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Vacation: a time of empty days.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Vacuum: an empty space.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means an empty space?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Vacuum! It means an empty space.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "VAC",
+  "rid": "vac",
+  "say": "empty",
+  "src": "vacare",
+  "src_lang": "Latin",
+  "src_mean": "to be empty",
+  "words": [
+   {
+    "w": "vacation",
+    "ipa": "/veɪˈkeɪʃn/",
+    "mean": "a time of empty days",
+    "seg": "vac|-ation",
+    "parts": [
+     [
+      "vac",
+      "root"
+     ],
+     [
+      "ation",
+      "suf"
+     ]
+    ],
+    "pre": null,
+    "pm": null,
+    "pms": null,
+    "ex": "She requested two weeks of vacation in August.",
+    "em": "🏖️"
+   },
+   {
+    "w": "vacuum",
+    "ipa": "/ˈvækjuːm/",
+    "mean": "an empty space",
+    "seg": "vac|-uum",
+    "parts": [
+     [
+      "vac",
+      "root"
+     ],
+     [
+      "uum",
+      "suf"
+     ]
+    ],
+    "pre": null,
+    "pm": null,
+    "pms": null,
+    "ex": "The cleaners vacuum the carpets in every office each night.",
+    "em": "🧹"
+   }
+  ],
+  "quiz": {
+   "stem": "an empty space",
+   "options": [
+    "vacation",
+    "vacuum"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/vacation",
+  "link": "https://lexkite.com/app/#/dict/vacation",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, two words"
+ },
+ "src": {
+  "root": "vac"
+ },
+ "est": {
+  "words": 47,
+  "seconds": 28.0,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "Vac root: vacation and vacuum",
+  "keyword": "vac root",
+  "value": "Vac comes from Latin \"vacare\" (to be empty). Words: vacation and vacuum.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/vacation",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "Vac root: vacation and vacuum",
+    "description": "Vac comes from Latin \"vacare\" (to be empty). Words: vacation and vacuum.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/vacation\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "vac root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Vac root: vacation and vacuum\n\nVac comes from Latin \"vacare\" (to be empty). Words: vacation and vacuum.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/vacation"
+   },
+   "instagram": {
+    "caption": "Vac root: vacation and vacuum\n\nVac comes from Latin \"vacare\" (to be empty). Words: vacation and vacuum.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Vac root: vacation and vacuum #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: Vacuum! It means an empty space. Vac comes from Latin \"vacare\" (to be empty). Words: vacation and vacuum. Try the full lesson and quiz here: {link}"
+ }
+}
