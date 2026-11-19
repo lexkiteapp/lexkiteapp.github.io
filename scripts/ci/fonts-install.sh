@@ -11,10 +11,9 @@ DIR=$(cd "$(dirname "$0")" && pwd); TSV=${FONTS_TSV:-$DIR/fonts-debs.tsv}; CACHE
 MIRRORS=${FONTS_MIRRORS:-"http://archive.ubuntu.com/ubuntu http://mirrors.kernel.org/ubuntu http://mirror.math.princeton.edu/pub/ubuntu http://azure.archive.ubuntu.com/ubuntu"}
 mkdir -p "$CACHE"; rest=()
 if command -v sha256sum >/dev/null 2>&1; then sha() { sha256sum "$1" | cut -d' ' -f1; }; else sha() { shasum -a 256 "$1" | cut -d' ' -f1; }; fi
-# Phụ thuộc giữa các .deb (apt tự kéo, dpkg -i thì không): fonts-noto-core cần fonts-noto-mono (19/11: thiếu → dpkg "dependency problems" → apt cũng hỏng "Unmet dependencies").
-want_pkgs=(); for p in "$@"; do want_pkgs+=("$p"); case "$p" in fonts-noto-core) want_pkgs+=(fonts-noto-mono);; esac; done
-debs=(); names=()
-for p in "${want_pkgs[@]}"; do
+# fonts-noto-core phụ thuộc fonts-noto-mono: `dpkg -i` riêng core → "dependency problems" (đỏ mọi job 19/11) → cài mono trước (nếu bảng ghim có dòng của nó)
+args=("$@"); case " $* " in *" fonts-noto-core "*) case " $* " in *" fonts-noto-mono "*) ;; *) awk -F'\t' '$1 == "fonts-noto-mono" {f=1} END {exit !f}' "$TSV" && args=(fonts-noto-mono "$@");; esac;; esac
+for p in "${args[@]}"; do
   row=$(awk -F'\t' -v p="$p" '$1 == p' "$TSV"); [ -n "$row" ] || { rest+=("$p"); continue; }
   rel=$(echo "$row" | cut -f2); want=$(echo "$row" | cut -f3); f="$CACHE/$(basename "$rel")"; got=""
   [ -f "$f" ] && [ "$(sha "$f")" = "$want" ] && got=cache
@@ -26,12 +25,7 @@ for p in "${want_pkgs[@]}"; do
     done
     rm -f "$f.part"
   fi
-  if [ -n "$got" ]; then debs+=("$f"); names+=("$p"); else echo "::warning::fonts: không tải được $p bằng .deb trực tiếp → để apt thử" >&2; rest+=("$p"); fi
+  if [ -n "$got" ] && $SUDO "$DPKG" -i "$f" >&2; then echo "✓ fonts: $p ($got)" >&2; else echo "::warning::fonts: không cài được $p bằng .deb trực tiếp → để apt thử" >&2; rest+=("$p"); fi
 done
-# MỘT lệnh dpkg cho cả bộ → tự xếp thứ tự phụ thuộc; hỏng thì gỡ bộ vừa cài dở để apt dự phòng không gặp "Unmet dependencies".
-if [ ${#debs[@]} -gt 0 ]; then
-  if $SUDO "$DPKG" -i "${debs[@]}" >&2; then echo "✓ fonts: ${names[*]}" >&2
-  else echo "::warning::fonts: dpkg -i lỗi → gỡ dở, để apt thử" >&2; $SUDO "$DPKG" --purge --force-depends "${names[@]}" >&2 || true; for n in "${names[@]}"; do case " ${rest[*]:-} " in *" $n "*) ;; *) [ "$n" = fonts-noto-mono ] || rest+=("$n");; esac; done; fi
-fi
 [ ${#rest[@]} -eq 0 ] || printf '%s\n' "${rest[@]}"
 exit 0

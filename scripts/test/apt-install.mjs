@@ -61,14 +61,19 @@ case "$u" in *treo*) exit 28;; *sai*) printf sai > "$o";; *) printf '${body}' > 
   fs.rmSync(FC, { recursive: true, force: true });
   r = fr(['fonts-noto-gia'], { FONTS_MIRRORS: 'http://treo.example http://sai.example' });
   ok(r.status === 0 && r.stdout.trim() === 'fonts-noto-gia' && !r.calls.some(c => c.startsWith('dpkg')), 'mọi mirror lỗi → trả gói về cho apt (không im lặng, không cài tệp sai SHA)');
+  // fonts-noto-core cần fonts-noto-mono: mono phải được dpkg -i TRƯỚC core (nếu không → "dependency problems", đỏ mọi job 19/11)
+  fs.writeFileSync(TSV, `fonts-noto-mono\tpool/x/fonts-noto-mono_1_all.deb\t${want}\nfonts-noto-core\tpool/x/fonts-noto-core_1_all.deb\t${want}\n`);
+  fs.rmSync(FC, { recursive: true, force: true });
+  r = fr(['fonts-noto-core'], { FONTS_MIRRORS: 'http://ok.example' });
+  const dp = r.calls.filter(c => c.startsWith('dpkg -i'));
+  ok(r.status === 0 && dp.length === 2 && /mono/.test(dp[0]) && /core/.test(dp[1]), 'fonts-noto-core → cài fonts-noto-mono trước core (phụ thuộc)');
+  fs.writeFileSync(TSV, `fonts-noto-gia\tpool/x/fonts-noto-gia_1_all.deb\t${want}\n`);
   // apt-install.sh: font đi đường .deb, không gọi apt; gói khác vẫn qua apt
   fs.rmSync(FC, { recursive: true, force: true });
   const aptRun = run(['fonts-noto-gia', 'goi-a'], { FONTS_TSV: TSV, FONTS_CACHE_DIR: FC, FONTS_MIRRORS: 'http://ok.example', FONTS_DPKG: path.join(BIN, 'dpkg') });
   ok(aptRun.status === 0 && aptRun.calls.length === 1 && / goi-a$/.test(aptRun.calls[0]) && !/fonts-noto-gia/.test(aptRun.calls[0]), 'apt-install.sh: fonts-noto-* qua .deb trực tiếp, apt chỉ còn gói khác');
   const tsv = fs.readFileSync('scripts/ci/fonts-debs.tsv', 'utf8').trim().split('\n').map(l => l.split('\t'));
-  ok(['fonts-noto-core', 'fonts-noto-cjk', 'fonts-noto-color-emoji'].every(p => tsv.some(c => c[0] === p && /^[0-9a-f]{64}$/.test(c[2]))), 'bảng ghim có core/cjk/color-emoji với SHA-256');
-  ok(tsv.some(c => c[0] === 'fonts-noto-mono' && /^[0-9a-f]{64}$/.test(c[2])) && /fonts-noto-core\) want_pkgs\+=\(fonts-noto-mono\)/.test(fs.readFileSync('scripts/ci/fonts-install.sh', 'utf8')), 'fonts-noto-core kéo theo fonts-noto-mono (phụ thuộc dpkg -i không tự kéo)');
-  const dp = fr(['fonts-noto-gia'], { FONTS_MIRRORS: 'http://ok.example', FONTS_DPKG: path.join(BIN, 'dpkg') }); ok(dp.status === 0, 'một lệnh dpkg cho cả bộ chạy ổn');
+  ok(['fonts-noto-core', 'fonts-noto-mono', 'fonts-noto-cjk', 'fonts-noto-color-emoji'].every(p => tsv.some(c => c[0] === p && /^[0-9a-f]{64}$/.test(c[2]))), 'bảng ghim có core/cjk/color-emoji với SHA-256');
   ok(/fonts-debs\.tsv/.test(act) && /lk-fonts/.test(act) && /cache\/save@/.test(act), 'action apt: cache ~/.cache/lk-fonts theo băm bảng ghim');
 }
 function require_sha(s) { return spawnSync('bash', ['-c', `printf '%s' "$1" | (sha256sum 2>/dev/null || shasum -a 256) | cut -d' ' -f1`, '_', s], { encoding: 'utf8' }).stdout.trim(); }
