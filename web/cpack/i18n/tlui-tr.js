@@ -1,0 +1,2 @@
+/* SINH từ i18n/ui/tr/tlui.js – đừng sửa tay (scripts/i18n-pack.mjs) */
+(function(g){const D=g.I18N_DICT=g.I18N_DICT||{};D.tr=Object.assign(D.tr||{},{_zcim:"Bana haber ver",_msjx:"Diğer kurslar",_6lo2:"Bu kurs hazırlanıyor; henüz ders yok.",_xyvo:"Yeni kurs hazır: {name}",_wnbl:"İngilizceye dön",_u79i:"Haber vereceğiz",_nazf:"Standart Fransızca · A1–C2",_x994:"{n} kelime öğrenildi",_ljzy:"Öğrenilen dili değiştir"});})(typeof self!=='undefined'?self:this);

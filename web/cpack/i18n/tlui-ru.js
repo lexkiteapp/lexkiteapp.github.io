@@ -1,0 +1,2 @@
+/* SINH từ i18n/ui/ru/tlui.js – đừng sửa tay (scripts/i18n-pack.mjs) */
+(function(g){const D=g.I18N_DICT=g.I18N_DICT||{};D.ru=Object.assign(D.ru||{},{_zcim:"Сообщить мне",_msjx:"Другие курсы",_6lo2:"Этот курс готовится, уроков пока нет.",_xyvo:"Новый курс доступен: {name}",_wnbl:"Вернуться к английскому",_u79i:"Мы сообщим вам",_nazf:"Стандартный французский · A1–C2",_x994:"{n} выучено слов",_ljzy:"Сменить язык обучения"});})(typeof self!=='undefined'?self:this);

@@ -82,7 +82,9 @@
     v.innerHTML = `<a class="back tlp-back" href="#/home" data-back aria-label="${esc(tr('Quay lại'))}"><span aria-hidden="true">←</span></a><section class="card tlp-prep" role="status"><span class="tlp-flag" aria-hidden="true">${r ? r.em : '🌐'}</span><h1 translate="no"${r ? ` lang="${id}"` : ''}>${esc(r ? r.name : '')}</h1><p class="tlp-pill">${esc(tr('Sắp ra mắt'))}</p><p class="muted">${esc(tr('Khóa học này đang được chuẩn bị, chưa có bài học.'))}</p><button type="button" class="btn primary" data-back>${esc(tr('Quay lại tiếng Anh'))}</button></section>`;
     v.querySelectorAll('[data-back]').forEach(b => { b.onclick = e => { e.preventDefault(); T().set('en'); location.hash = '#/home'; paint(); }; }); }
   if (g.App && App.routes) App.routes.tlprep = prep;
-  function boot() { top(); announce(); if (!boot.w) { boot.w = 1; addEventListener('lk:tl', paint); document.addEventListener('click', onChip);
+  // đổi khóa học → 3 tab (dưới + bên) đổi đích ngay, khỏi tải lại (đích lúc dựng nằm ở ux1.js TH)
+  function tabs() { document.querySelectorAll('#bnav [data-tab], #nav [data-route]').forEach(a => { const k = a.dataset.tab || a.dataset.route; if (/^(vocab|skills|tests)$/.test(k)) a.setAttribute('href', T().routeFor(k) || '#/' + k); }); }
+  function boot() { top(); announce(); tabs(); if (!boot.w) { boot.w = 1; addEventListener('lk:tl', paint); addEventListener('lk:tl', tabs); document.addEventListener('click', onChip);
     const A = g.App; if (A) { const prev = A.afterRoute; A.afterRoute = name => { if (prev) prev(name); try { explore(name); } catch (e) { /* bỏ qua */ } }; explore((location.hash.match(/^#\/?([a-z-]+)/) || [])[1]); } } }
-  g.TLPick = { open, head, card, boot, top, paint, courses, notify, choose };
+  g.TLPick = { open, head, card, boot, top, paint, tabs, courses, notify, choose };
 })(typeof self !== 'undefined' ? self : this);

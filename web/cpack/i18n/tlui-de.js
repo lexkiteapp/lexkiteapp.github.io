@@ -1,0 +1,2 @@
+/* SINH từ i18n/ui/de/tlui.js – đừng sửa tay (scripts/i18n-pack.mjs) */
+(function(g){const D=g.I18N_DICT=g.I18N_DICT||{};D.de=Object.assign(D.de||{},{_zcim:"Benachrichtigen Sie mich",_msjx:"Weitere Kurse",_6lo2:"Dieser Kurs ist in Vorbereitung; es gibt noch keine Lektionen.",_xyvo:"Neuer Kurs verfügbar: {name}",_wnbl:"Zurück zu Englisch",_u79i:"Wir benachrichtigen Sie",_nazf:"Standardfranzösisch · A1–C2",_x994:"{n} Wörter gelernt",_ljzy:"Lernsprache wechseln"});})(typeof self!=='undefined'?self:this);

@@ -1,0 +1,2 @@
+/* SINH từ i18n/ui/hi/tlui.js – đừng sửa tay (scripts/i18n-pack.mjs) */
+(function(g){const D=g.I18N_DICT=g.I18N_DICT||{};D.hi=Object.assign(D.hi||{},{_zcim:"मुझे सूचित करें",_msjx:"अन्य कोर्स",_6lo2:"यह कोर्स तैयार किया जा रहा है, अभी कोई पाठ नहीं है।",_xyvo:"नया कोर्स उपलब्ध: {name}",_wnbl:"अंग्रेज़ी पर वापस जाएँ",_u79i:"आने पर हम बताएँगे",_nazf:"मानक फ़्रेंच · A1–C2",_x994:"{n} सीखे गए शब्द",_ljzy:"सीखने की भाषा बदलें"});})(typeof self!=='undefined'?self:this);

@@ -58,7 +58,7 @@ const tick = () => new Promise(r => setTimeout(r, 20));
 // 6) onboarding: bước 'lang' chỉ khi ≥ 2 ngôn ngữ; Target.set chỉ khi bấm Tiếp tục (đã onboard xong không bị hỏi: bước chỉ chạy trong luồng thiết lập)
 { const o = rd('web/js/onboard.js'); ok(/Target\.avail\(\)\.length > 1 \? \['lang', \.\.\.BASE\] : BASE/.test(o), 'onboard: bước lang khi avail ≥ 2'); ok(/pick\.tl \|\| Target\.cur\(\)/.test(o), 'onboard: mặc định = ngôn ngữ hiện tại (en)'); }
 // 7) nối dây: bundle + css + hook
-{ const a = rd('web/js/app.js'); ok(/tlpick: \['cpack\/tl-app\/tl-pick\.js'\]/.test(rd('web/js/bundles.js')) && /tlpick: \['css\/tl-pick\.css'\]/.test(a) && /App\.need\('tlpick'\)/.test(a), 'app.js: gói + css + boot'); ok(/TLPick\.head\(root\)/.test(rd('web/js/ux1.js')) && /TLPick\.card\(root\)/.test(rd('web/js/ux1-me.js')), 'ux1 + tab Tôi gắn cờ/thẻ');
+{ const a = rd('web/js/app.js'); ok(/tlpick: \['js\/i18n\/en\/tlui\.js', 'cpack\/tl-app\/tl-pick\.js'\]/.test(rd('web/js/bundles.js')) && fs.existsSync('web/cpack/i18n/tlui-es.js') && /cpackI18n\.tlui/.test(rd('web/js/app.js')) && /tlpick: \['css\/tl-pick\.css'\]/.test(a) && /App\.need\('tlpick'\)/.test(a), 'app.js: gói + css + boot'); ok(/TLPick\.head\(root\)/.test(rd('web/js/ux1.js')) && /TLPick\.card\(root\)/.test(rd('web/js/ux1-me.js')), 'ux1 + tab Tôi gắn cờ/thẻ');
   ok(!/#[0-9a-fA-F]{3,8}\b/.test(rd('web/css/tl-pick.css')), 'css không hex'); }
 // 8) (19/11) đang học es/fr/pt KHÔNG BAO GIỜ ra màn tiếng Anh: bản đồ route + ready:false + màn chuẩn bị
 { const NAV = ['vocab', 'skills', 'skill', 'tests', 'toeic', 'mock', 'path', 'library', 'deck', 'grammar', 'lesson', 'listen', 'read', 'write', 'speaking', 'today'];
@@ -73,6 +73,6 @@ const tick = () => new Promise(r => setTimeout(r, 20));
   a.w.App = { routes: {} }; a.w.eval(rd('web/cpack/tl-app/tl-pick.js')); a.w.location.hash = '#/tlprep/fr'; a.w.App.routes.tlprep(); ok(!!a.d.querySelector('.tlp-prep [data-back]') && /Français/.test(a.d.querySelector('.tlp-prep').textContent), 'màn chuẩn bị: tên khóa + nút quay lại tiếng Anh');
   a.d.querySelector('[data-back]').click(); ok(a.w.Target.cur() === 'en' && a.w.location.hash === '#/home', 'quay lại tiếng Anh → #/home');
   const ap = rd('web/js/app.js'); ok(/Target\.routeFor\(name\)/.test(ap) && /tlprep: 'tlpick'/.test(ap), 'app.js route(): chuyển hướng + gói tlprep');
-  ok(/TH\('vocab'\)/.test(rd('web/js/ux1.js')), 'ux1: thanh tab theo bản đồ'); }
+  ok(/routeFor\(k\)/.test(rd('web/cpack/tl-app/tl-pick.js')), 'tl-pick: thanh tab đổi đích theo bản đồ'); }
 
 console.log(fails ? `✗ tl-picker: ${fails}/${n} lỗi` : `✓ tl-picker: ${n}/${n} đạt`); process.exit(fails ? 1 : 0);

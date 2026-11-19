@@ -99,7 +99,7 @@
     xport: ['js/export.js'],
     file: ['js/lib/save-file.js'],
     lsw: ['js/lang-menu.js'],
-    tlpick: ['cpack/tl-app/tl-pick.js'], // 🚩 nút cờ + bảng chọn ngôn ngữ ĐANG HỌC (Target) – tải lười sau khi vẽ xong
+    tlpick: ['js/i18n/en/tlui.js', 'cpack/tl-app/tl-pick.js'],
     quick: ['js/i18n/en/quick.js', 'js/quick.js'],
     pgames: ['js/i18n/en/rhythm.js', 'js/study-games.js', 'js/pron/coach.js', 'cpack/play-app/play-blitz.js', 'cpack/play-app/play-rhythm.js'], // ⚡ Thử thách 60 giây (docs/specs/play-learn.md)
     rmodes: ['js/i18n/en/rmodes.js', 'js/study-modes.js'], // 🔁 Ôn tập đa chế độ (Gõ phản xạ · Nghe chọn nghĩa) + ✍️ thẻ "Câu của bạn" [P2-1.2/P2-1.1-UI]

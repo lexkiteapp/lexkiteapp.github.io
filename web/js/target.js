@@ -25,7 +25,7 @@
     return n > 0 && bucket() < Math.min(100, n);
   }
   const enabled = tl => (tl ? on(tl) : LANGS.some(on));
-  const usable = k => on(k) && (TABLE[k].ready !== false || ls('lk.adm') === '1'); // ready:false (fr/pt chưa có khóa thật): cờ vẫn quyết enabled(), nhưng chỉ quản trị chọn được → màn "đang chuẩn bị", người thường không bao giờ ra nội dung tiếng Anh thay thế
+  const usable = k => on(k) && (TABLE[k].ready !== false || ls('lk.adm') === '1'); // ready:false: chỉ quản trị chọn được
   const avail = () => LANGS.filter(k => k === 'en' || usable(k)); // ngôn ngữ chọn được lúc này
   const cur = () => { const v = ls(KEY); return v && v !== 'en' && TABLE[v] && usable(v) ? v : 'en'; };
   function set(tl) {
@@ -36,7 +36,7 @@
   }
   const table = tl => TABLE[tl] || TABLE.en;
   const homeOf = tl => table(tl).home || ''; // trang chủ riêng của ngôn ngữ đích ('' = dùng Hôm nay chung)
-  // Màn chỉ có bản tiếng Anh (Từ vựng · Kỹ năng · Thi · bài/ngữ pháp/nghe…) → màn tương ứng của ngôn ngữ đang học; chưa ánh xạ → trang chủ của nó, KHÔNG BAO GIỜ rơi về tiếng Anh. '' = giữ nguyên (en, ?en=1, màn dùng chung)
+  // màn chỉ có tiếng Anh → màn của ngôn ngữ đang học (chưa ánh xạ → trang chủ nó, không về en); '' = giữ nguyên
   const EN_ONLY = /^(vocab|skills|skill|tests|toeic|ielts|mock|path|library|deck|grammar|lesson|listen|read|write|speaking|today)$/;
   const routeFor = name => { const tl = cur(); if (tl === 'en' || !EN_ONLY.test(name || '')) return ''; const r = table(tl); return (r.routes && r.routes[name]) || r.home || ''; };
   const isEn = accent => !accent || /^en(-|$)/i.test(String(accent));
