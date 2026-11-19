@@ -34,6 +34,9 @@ for (const [vn, vp] of Object.entries(VPS)) for (const scheme of ['light', 'dark
   for (let i = 0; i < 8; i++) {
     const f = `${OUT}/shots/${vn}-${scheme}-welcome_step${i}.jpg`; await page.addStyleTag({ content: still }).catch(() => {});
     await page.screenshot({ path: f, type: 'jpeg', quality: 70 }).catch(() => {}); shots.push({ vn, scheme, name: 'welcome step ' + i, f });
+    // chữ bị nút dính (CTA) che khi đã cuộn tới đáy: mỗi bước Welcome không được có chữ bị che
+    const cov = await page.evaluate(() => { scrollTo(0, 1e6); const out = []; for (const e of document.querySelectorAll('body *')) { if (![...e.childNodes].some(n => n.nodeType === 3 && n.textContent.trim().length > 3)) continue; const r = e.getBoundingClientRect(); if (r.width < 4 || r.height < 4 || r.bottom < 0 || r.top > innerHeight) continue; const x = Math.min(Math.max(r.left + r.width / 2, 1), innerWidth - 2), y = Math.min(Math.max(r.top + r.height / 2, 1), innerHeight - 2), t = document.elementFromPoint(x, y); if (t && !e.contains(t) && !t.contains(e) && !/toast|sandbox/i.test(t.className + ' ' + (t.closest('[class*=toast]') ? 'toast' : ''))) out.push((e.textContent || '').trim().slice(0, 40) + ' ← ' + t.tagName.toLowerCase() + '.' + String(t.className).slice(0, 30)); } scrollTo(0, 0); return out; }).catch(() => []);
+    if (cov.length) metrics.push({ vn, scheme, route: 'welcome step ' + i, covered: cov.slice(0, 5) });
     if ((await page.$('#go')) || !(await page.$('#obNext'))) break; await page.click('#obNext').catch(() => {}); await page.waitForTimeout(200);
   }
   const go = await page.$('#go'); if (go) { await go.click().catch(() => {}); await page.waitForTimeout(1800); }
