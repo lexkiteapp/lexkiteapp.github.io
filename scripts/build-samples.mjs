@@ -154,7 +154,7 @@ ${sectionNav('vi', '/tu-vung/')}
 ${filterBox('vi')}
 ${catNav(Object.entries(byG).map(([k, xs]) => [k, GROUP[k] || k, xs.length, '', vocabArt('', k)]), TP.length, 'vi', F[1], esc)}
 ${Object.entries(byG).map(([k, xs]) => group2(k, GROUP[k] || k, `${xs.length} ${L.sets}`, xs.map(vCard), '', vocabArt('', k))).join('\n')}</div>`));
-  addSm([`${SITE}tu-vung/`, ...TP.map(x => `${SITE}tu-vung/${x.id}`)], 'web/js/data.js', 'web/js/lib');
+  addSm([`${SITE}tu-vung/`, ...TP.map(x => `${SITE}tu-vung/${x.id}`)], 'web/js/data.js', 'web/js/lib', 'web/cpack/lib');
   console.log(`✓ SEO: ${TP.length} trang bộ từ vựng + mục lục`);
 }
 
