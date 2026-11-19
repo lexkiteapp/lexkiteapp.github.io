@@ -1,0 +1,199 @@
+{
+ "id": "t2a_roots_mit_2",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, three words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "The root is Mit! Commit, transmit, emit.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Mit is Latin for send.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Commit: together plus send.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Transmit: across plus send.",
+   "pause": 0.3
+  },
+  {
+   "id": "w2",
+   "text": "Emit: out plus send.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means out plus send?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Emit! Out plus send.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "MIT",
+  "rid": "mit",
+  "say": "send",
+  "src": "mittere",
+  "src_lang": "Latin",
+  "src_mean": "to send",
+  "words": [
+   {
+    "w": "commit",
+    "ipa": "/kəˈmɪt/",
+    "mean": "send together, to pledge",
+    "seg": "com-|mit",
+    "parts": [
+     [
+      "com",
+      "pre"
+     ],
+     [
+      "mit",
+      "root"
+     ]
+    ],
+    "pre": "com",
+    "pm": "together",
+    "pms": "together",
+    "ex": "She is committed to helping the local community.",
+    "em": "🤝"
+   },
+   {
+    "w": "transmit",
+    "ipa": "/trænzˈmɪt/",
+    "mean": "send across",
+    "seg": "trans-|mit",
+    "parts": [
+     [
+      "trans",
+      "pre"
+     ],
+     [
+      "mit",
+      "root"
+     ]
+    ],
+    "pre": "trans",
+    "pm": "across",
+    "pms": "across",
+    "ex": "The virus is transmitted through contaminated water.",
+    "em": "📡"
+   },
+   {
+    "w": "emit",
+    "ipa": "/ɪˈmɪt/",
+    "mean": "send out",
+    "seg": "e-|mit",
+    "parts": [
+     [
+      "e",
+      "pre"
+     ],
+     [
+      "mit",
+      "root"
+     ]
+    ],
+    "pre": "e",
+    "pm": "out",
+    "pms": "out",
+    "ex": "Older cars emit more harmful gases than newer models.",
+    "em": ""
+   }
+  ],
+  "quiz": {
+   "stem": "out plus send",
+   "options": [
+    "commit",
+    "emit"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/commit",
+  "link": "https://lexkite.com/app/#/dict/commit",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, three words"
+ },
+ "src": {
+  "root": "mit"
+ },
+ "est": {
+  "words": 48,
+  "seconds": 28.8,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "Mit root: commit, transmit and emit",
+  "keyword": "mit root",
+  "value": "Mit comes from Latin \"mittere\" (to send). Words: commit, transmit and emit. commit = com + mit; transmit = trans + mit; emit = e + mit.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/commit",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "Mit root: commit, transmit and emit",
+    "description": "Mit comes from Latin \"mittere\" (to send). Words: commit, transmit and emit. commit = com + mit; transmit = trans + mit; emit = e + mit.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/commit\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "mit root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Mit root: commit, transmit and emit\n\nMit comes from Latin \"mittere\" (to send). Words: commit, transmit and emit. commit = com + mit; transmit = trans + mit; emit = e + mit.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/commit"
+   },
+   "instagram": {
+    "caption": "Mit root: commit, transmit and emit\n\nMit comes from Latin \"mittere\" (to send). Words: commit, transmit and emit. commit = com + mit; transmit = trans + mit; emit = e + mit.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Mit root: commit, transmit and emit #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? Emit! Out plus send. Mit comes from Latin \"mittere\" (to send). Words: commit, transmit and emit. commit = com + mit; transmit = trans + mit; emit = e + mit. More practice like this (free): {link}"
+ }
+}

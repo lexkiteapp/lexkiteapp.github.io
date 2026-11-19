@@ -1,0 +1,177 @@
+{
+ "id": "t2a_roots_pos_1",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, two words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "The root is Pos! Position, deposit.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Pos is Latin for put.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Position: a place where something is.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Deposit: down plus put.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means down plus put?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Deposit! Down plus put.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "POS",
+  "rid": "pos",
+  "say": "put",
+  "src": "ponere",
+  "src_lang": "Latin",
+  "src_mean": "to put, to place",
+  "words": [
+   {
+    "w": "position",
+    "ipa": "/pəˈzɪʃn/",
+    "mean": "a place where something is",
+    "seg": "pos|-ition",
+    "parts": [
+     [
+      "pos",
+      "root"
+     ],
+     [
+      "ition",
+      "suf"
+     ]
+    ],
+    "pre": null,
+    "pm": null,
+    "pms": null,
+    "ex": "The position of the sofa makes the room look bigger.",
+    "em": "📍"
+   },
+   {
+    "w": "deposit",
+    "ipa": "/dɪˈpɑːzɪt/",
+    "mean": "money put down",
+    "seg": "de-|pos|-it",
+    "parts": [
+     [
+      "de",
+      "pre"
+     ],
+     [
+      "pos",
+      "root"
+     ],
+     [
+      "it",
+      "suf"
+     ]
+    ],
+    "pre": "de",
+    "pm": "down or away",
+    "pms": "down",
+    "ex": "You have to pay a deposit when you rent a flat.",
+    "em": "🏦"
+   }
+  ],
+  "quiz": {
+   "stem": "down plus put",
+   "options": [
+    "position",
+    "deposit"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/position",
+  "link": "https://lexkite.com/app/#/dict/position",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, two words"
+ },
+ "src": {
+  "root": "pos"
+ },
+ "est": {
+  "words": 45,
+  "seconds": 27.0,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "Pos root: position and deposit",
+  "keyword": "pos root",
+  "value": "Pos comes from Latin \"ponere\" (to put, to place). Words: position and deposit. deposit = de + pos.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/position",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "Pos root: position and deposit",
+    "description": "Pos comes from Latin \"ponere\" (to put, to place). Words: position and deposit. deposit = de + pos.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/position\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "pos root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Pos root: position and deposit\n\nPos comes from Latin \"ponere\" (to put, to place). Words: position and deposit. deposit = de + pos.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/position"
+   },
+   "instagram": {
+    "caption": "Pos root: position and deposit\n\nPos comes from Latin \"ponere\" (to put, to place). Words: position and deposit. deposit = de + pos.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Pos root: position and deposit #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: Deposit! Down plus put. Pos comes from Latin \"ponere\" (to put, to place). Words: position and deposit. deposit = de + pos. Try the full lesson and quiz here: {link}"
+ }
+}

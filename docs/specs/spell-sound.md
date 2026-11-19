@@ -20,6 +20,10 @@ Ngân hàng luật (mọi luật kiểm được bằng IPA): chữ câm kn/wr/g
 ## Hook theo L1 (một bảng chuỗi mỗi ngôn ngữ, 1 lượt review bản địa độc lập, không review từng video)
 vi bỏ âm cuối · es/pt "e-school" · ja/ko l/r · ar p/b · hi v/w · th phụ âm cuối · zh/ru/tr/fr/de/id lỗi điển hình tương ứng. Chuỗi nằm trong `l1`/i18n pipeline (`docs/I18N-PIPELINE.md`), qua `native-qa.mjs`.
 
+**Bước 3 (đã làm, 19/11):** `content/video/teach2d/rule-l1.json` = một mẫu hook + mẹo mỗi ngôn ngữ (14 + en), điền `{wrong}` / `{show}` / `{silent}` từ `rules.json`; `scripts/video/teach2d/rule-l1-qa.mjs` gác đủ ngôn ngữ × luật, luật i18n chung, độ dài, cách đọc sai còn nguyên văn (PR: tĩnh trong teach-video; đêm: `--online` dịch ngược). Lượt review bản địa độc lập vẫn chờ (người bản ngữ / owner) – máy chỉ kiểm hình thức + dịch ngược.
+
+**Bước 4 (đã làm, 19/11):** `rules.json` 10 → 30 luật chữ câm (thêm -igh, -eigh-, -ough, wh-, -mn, sc-, gu-, exh-, rh-, -ould, ch = k, -gue, -que, -e, isl-, -ver-, -ically, -ely, -ement, -ng), mỗi luật được `gen.py --rules` quét ≥ 2 từ A1–B2 có IPA chứng minh luật (142 từ); `rule-l1.json` có `show`/`silent` cho cả 30. Luật không-câm (-ed 3 âm, th, -tion, trọng âm, đồng/dị âm) cần thẻ khác `T_rule` nên để bước sau.
+
 ## Cổng QC mới (thêm, không hạ cổng cũ: ≥90, caption, nhịp, LUFS giữ nguyên)
 - IPA mỗi từ == kho (US) và khớp luật (`gen.py` + `qc.py`).
 - **Vùng nền tảng**: không phần tử nào trong 12% đầu, 22% cuối, 14% lề phải (khung 1080×1920) – chặn bằng `qc.py` layout từ `SAFE` + 3 dải mới.

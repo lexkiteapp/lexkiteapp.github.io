@@ -1,0 +1,2152 @@
+{
+ "_note": "Root bank for the Gốc từ / word-roots video series (docs/VIDEO-TEACH2D.md). Each root: Latin/Greek source word (Etymonline / Wiktionary), 6-9 real words. seg = prefix-|root|-suffix (concatenation == word, root part in variants). IPA, definition, example, vi gloss and emoji come from the audited word bank at build time (scripts/scriptbank); never stored here. mean = short spoken gloss, pm = optional prefix-meaning override. Tests: scripts/test/teach2d-roots.py.",
+ "prefixes": {
+  "de": "down or away",
+  "com": "together",
+  "con": "together",
+  "col": "together",
+  "cor": "together",
+  "ex": "out",
+  "e": "out",
+  "ef": "out",
+  "ob": "against",
+  "op": "against",
+  "o": "against",
+  "sup": "under",
+  "sub": "under",
+  "sus": "up from under",
+  "su": "up from under",
+  "suc": "up after",
+  "suf": "from under",
+  "pro": "forward",
+  "re": "back or again",
+  "in": "into",
+  "im": "into",
+  "ac": "toward",
+  "ad": "toward",
+  "at": "toward",
+  "af": "toward",
+  "ag": "toward",
+  "as": "toward",
+  "ap": "toward",
+  "a": "toward",
+  "oc": "toward",
+  "per": "through",
+  "trans": "across",
+  "tran": "across",
+  "inter": "between",
+  "intro": "inside",
+  "enter": "between",
+  "dis": "apart",
+  "dif": "apart",
+  "di": "apart",
+  "pre": "before",
+  "ab": "away",
+  "abs": "away",
+  "of": "toward",
+  "se": "apart",
+  "neg": "not",
+  "non": "not",
+  "uni": "one",
+  "super": "above",
+  "circum": "around",
+  "contra": "against",
+  "intel": "between",
+  "up": "up",
+  "bio": "life",
+  "psycho": "mind",
+  "apo": "away",
+  "dia": "through",
+  "cata": "down",
+  "techno": "skill",
+  "geo": "earth",
+  "photo": "light",
+  "auto": "self",
+  "para": "beside",
+  "tele": "far",
+  "sui": "self",
+  "pesti": "pest",
+  "homi": "human",
+  "manu": "hand",
+  "mani": "hand",
+  "mand": "hand"
+ },
+ "roots": [
+  {
+   "id": "pos",
+   "root": "POS",
+   "variants": [
+    "pos",
+    "pon"
+   ],
+   "lang": "Latin",
+   "src": "ponere",
+   "src_mean": "to put, to place",
+   "say": "put",
+   "vi": "đặt, để",
+   "words": [
+    {
+     "w": "position",
+     "seg": "pos|-ition",
+     "mean": "a place where something is"
+    },
+    {
+     "w": "deposit",
+     "seg": "de-|pos|-it",
+     "mean": "money put down"
+    },
+    {
+     "w": "opposite",
+     "seg": "op-|pos|-ite",
+     "mean": "placed against, facing"
+    },
+    {
+     "w": "compose",
+     "seg": "com-|pos|-e",
+     "mean": "put parts together"
+    },
+    {
+     "w": "expose",
+     "seg": "ex-|pos|-e",
+     "mean": "put out in the open"
+    },
+    {
+     "w": "suppose",
+     "seg": "sup-|pos|-e",
+     "mean": "put under, so assume"
+    },
+    {
+     "w": "positive",
+     "seg": "pos|-itive",
+     "mean": "put firmly, so sure or good"
+    },
+    {
+     "w": "propose",
+     "seg": "pro-|pos|-e",
+     "mean": "put forward an idea"
+    },
+    {
+     "w": "impose",
+     "seg": "im-|pos|-e",
+     "mean": "put on someone"
+    }
+   ]
+  },
+  {
+   "id": "cept",
+   "root": "CEPT",
+   "variants": [
+    "cept",
+    "ceive",
+    "cap",
+    "capt"
+   ],
+   "lang": "Latin",
+   "src": "capere",
+   "src_mean": "to take, to seize",
+   "say": "take",
+   "vi": "lấy, nắm",
+   "words": [
+    {
+     "w": "accept",
+     "seg": "ac-|cept",
+     "mean": "take what is offered"
+    },
+    {
+     "w": "concept",
+     "seg": "con-|cept",
+     "mean": "an idea taken together in the mind"
+    },
+    {
+     "w": "except",
+     "seg": "ex-|cept",
+     "mean": "taken out, not included"
+    },
+    {
+     "w": "receive",
+     "seg": "re-|ceive",
+     "mean": "take back, get"
+    },
+    {
+     "w": "perceive",
+     "seg": "per-|ceive",
+     "mean": "take in through the senses"
+    },
+    {
+     "w": "deceive",
+     "seg": "de-|ceive",
+     "mean": "take away the truth"
+    },
+    {
+     "w": "intercept",
+     "seg": "inter-|cept",
+     "mean": "take between, to stop"
+    },
+    {
+     "w": "reception",
+     "seg": "re-|cept|-ion",
+     "mean": "the act of receiving"
+    }
+   ]
+  },
+  {
+   "id": "port",
+   "root": "PORT",
+   "variants": [
+    "port"
+   ],
+   "lang": "Latin",
+   "src": "portare",
+   "src_mean": "to carry",
+   "say": "carry",
+   "vi": "mang, vác",
+   "words": [
+    {
+     "w": "transport",
+     "seg": "trans-|port",
+     "mean": "carry across"
+    },
+    {
+     "w": "import",
+     "seg": "im-|port",
+     "mean": "carry into a country"
+    },
+    {
+     "w": "export",
+     "seg": "ex-|port",
+     "mean": "carry out of a country"
+    },
+    {
+     "w": "support",
+     "seg": "sup-|port",
+     "mean": "carry from under"
+    },
+    {
+     "w": "report",
+     "seg": "re-|port",
+     "mean": "carry back news"
+    },
+    {
+     "w": "portable",
+     "seg": "port|-able",
+     "mean": "able to be carried"
+    },
+    {
+     "w": "important",
+     "seg": "im-|port|-ant",
+     "mean": "carrying weight, so it matters"
+    }
+   ]
+  },
+  {
+   "id": "ject",
+   "root": "JECT",
+   "variants": [
+    "ject"
+   ],
+   "lang": "Latin",
+   "src": "jacere",
+   "src_mean": "to throw",
+   "say": "throw",
+   "vi": "ném, phóng",
+   "words": [
+    {
+     "w": "reject",
+     "seg": "re-|ject",
+     "mean": "throw back"
+    },
+    {
+     "w": "project",
+     "seg": "pro-|ject",
+     "mean": "throw forward"
+    },
+    {
+     "w": "inject",
+     "seg": "in-|ject",
+     "mean": "throw into"
+    },
+    {
+     "w": "object",
+     "seg": "ob-|ject",
+     "mean": "throw against"
+    },
+    {
+     "w": "subject",
+     "seg": "sub-|ject",
+     "mean": "thrown under a topic"
+    },
+    {
+     "w": "projector",
+     "seg": "pro-|ject|-or",
+     "mean": "a machine that throws light forward"
+    },
+    {
+     "w": "injection",
+     "seg": "in-|ject|-ion",
+     "mean": "a throwing in with a needle"
+    }
+   ]
+  },
+  {
+   "id": "mit",
+   "root": "MIT",
+   "variants": [
+    "mit",
+    "miss",
+    "mis"
+   ],
+   "lang": "Latin",
+   "src": "mittere",
+   "src_mean": "to send",
+   "say": "send",
+   "vi": "gửi, cho đi",
+   "words": [
+    {
+     "w": "permit",
+     "seg": "per-|mit",
+     "mean": "let go through"
+    },
+    {
+     "w": "admit",
+     "seg": "ad-|mit",
+     "mean": "let in"
+    },
+    {
+     "w": "submit",
+     "seg": "sub-|mit",
+     "mean": "send under, hand in"
+    },
+    {
+     "w": "commit",
+     "seg": "com-|mit",
+     "mean": "send together, to pledge"
+    },
+    {
+     "w": "transmit",
+     "seg": "trans-|mit",
+     "mean": "send across"
+    },
+    {
+     "w": "emit",
+     "seg": "e-|mit",
+     "mean": "send out"
+    },
+    {
+     "w": "omit",
+     "seg": "o-|mit",
+     "mean": "leave out"
+    },
+    {
+     "w": "mission",
+     "seg": "miss|-ion",
+     "mean": "a task you are sent on"
+    },
+    {
+     "w": "dismiss",
+     "seg": "dis-|miss",
+     "mean": "send away"
+    },
+    {
+     "w": "promise",
+     "seg": "pro-|mis|-e",
+     "mean": "send forward, to pledge"
+    }
+   ]
+  },
+  {
+   "id": "dict",
+   "root": "DICT",
+   "variants": [
+    "dict",
+    "dic"
+   ],
+   "lang": "Latin",
+   "src": "dicere",
+   "src_mean": "to say",
+   "say": "say",
+   "vi": "nói",
+   "words": [
+    {
+     "w": "predict",
+     "seg": "pre-|dict",
+     "mean": "say before it happens"
+    },
+    {
+     "w": "dictate",
+     "seg": "dict|-ate",
+     "mean": "say words for someone to write down"
+    },
+    {
+     "w": "dictionary",
+     "seg": "dict|-ionary",
+     "mean": "a book of words, said and explained"
+    },
+    {
+     "w": "contradict",
+     "seg": "contra-|dict",
+     "mean": "say the opposite"
+    },
+    {
+     "w": "indicate",
+     "seg": "in-|dic|-ate",
+     "mean": "say or point toward"
+    },
+    {
+     "w": "prediction",
+     "seg": "pre-|dict|-ion",
+     "mean": "a saying before"
+    }
+   ]
+  },
+  {
+   "id": "duc",
+   "root": "DUC",
+   "variants": [
+    "duc",
+    "duce",
+    "duct"
+   ],
+   "lang": "Latin",
+   "src": "ducere",
+   "src_mean": "to lead",
+   "say": "lead",
+   "vi": "dẫn dắt",
+   "words": [
+    {
+     "w": "introduce",
+     "seg": "intro-|duce",
+     "mean": "lead inside"
+    },
+    {
+     "w": "produce",
+     "seg": "pro-|duce",
+     "mean": "lead forward, to make"
+    },
+    {
+     "w": "reduce",
+     "seg": "re-|duce",
+     "mean": "lead back, make smaller"
+    },
+    {
+     "w": "conduct",
+     "seg": "con-|duct",
+     "mean": "lead together"
+    },
+    {
+     "w": "product",
+     "seg": "pro-|duct",
+     "mean": "something led forward, made"
+    },
+    {
+     "w": "deduce",
+     "seg": "de-|duce",
+     "mean": "lead away a conclusion"
+    },
+    {
+     "w": "induce",
+     "seg": "in-|duce",
+     "mean": "lead into"
+    },
+    {
+     "w": "education",
+     "seg": "e-|duc|-ation",
+     "mean": "leading out of ignorance"
+    }
+   ]
+  },
+  {
+   "id": "spect",
+   "root": "SPECT",
+   "variants": [
+    "spect",
+    "pect"
+   ],
+   "lang": "Latin",
+   "src": "specere",
+   "src_mean": "to look",
+   "say": "look",
+   "vi": "nhìn",
+   "words": [
+    {
+     "w": "inspect",
+     "seg": "in-|spect",
+     "mean": "look into"
+    },
+    {
+     "w": "respect",
+     "seg": "re-|spect",
+     "mean": "look back at, so honor"
+    },
+    {
+     "w": "expect",
+     "seg": "ex-|pect",
+     "mean": "look out for"
+    },
+    {
+     "w": "suspect",
+     "seg": "su-|spect",
+     "mean": "look up from under, so doubt"
+    },
+    {
+     "w": "prospect",
+     "seg": "pro-|spect",
+     "mean": "a look forward"
+    },
+    {
+     "w": "aspect",
+     "seg": "a-|spect",
+     "mean": "a look toward, a side"
+    },
+    {
+     "w": "spectator",
+     "seg": "spect|-ator",
+     "mean": "a person who looks on"
+    },
+    {
+     "w": "perspective",
+     "seg": "per-|spect|-ive",
+     "mean": "a way of looking through"
+    }
+   ]
+  },
+  {
+   "id": "scrib",
+   "root": "SCRIB",
+   "variants": [
+    "scrib",
+    "scribe",
+    "script"
+   ],
+   "lang": "Latin",
+   "src": "scribere",
+   "src_mean": "to write",
+   "say": "write",
+   "vi": "viết",
+   "words": [
+    {
+     "w": "describe",
+     "seg": "de-|scribe",
+     "mean": "write down how it looks"
+    },
+    {
+     "w": "prescribe",
+     "seg": "pre-|scribe",
+     "mean": "write before, as a doctor does"
+    },
+    {
+     "w": "subscribe",
+     "seg": "sub-|scribe",
+     "mean": "write your name under"
+    },
+    {
+     "w": "script",
+     "seg": "script",
+     "mean": "the written text"
+    },
+    {
+     "w": "transcript",
+     "seg": "tran-|script",
+     "mean": "a copy written across"
+    },
+    {
+     "w": "description",
+     "seg": "de-|script|-ion",
+     "mean": "a written picture"
+    },
+    {
+     "w": "subscription",
+     "seg": "sub-|script|-ion",
+     "mean": "a signing up in writing"
+    }
+   ]
+  },
+  {
+   "id": "tract",
+   "root": "TRACT",
+   "variants": [
+    "tract"
+   ],
+   "lang": "Latin",
+   "src": "trahere",
+   "src_mean": "to pull, to drag",
+   "say": "pull",
+   "vi": "kéo",
+   "words": [
+    {
+     "w": "attract",
+     "seg": "at-|tract",
+     "mean": "pull toward"
+    },
+    {
+     "w": "distract",
+     "seg": "dis-|tract",
+     "mean": "pull apart your attention"
+    },
+    {
+     "w": "extract",
+     "seg": "ex-|tract",
+     "mean": "pull out"
+    },
+    {
+     "w": "contract",
+     "seg": "con-|tract",
+     "mean": "pull together"
+    },
+    {
+     "w": "subtract",
+     "seg": "sub-|tract",
+     "mean": "pull away from below"
+    },
+    {
+     "w": "abstract",
+     "seg": "abs-|tract",
+     "mean": "pulled away from real things"
+    },
+    {
+     "w": "attraction",
+     "seg": "at-|tract|-ion",
+     "mean": "a pulling toward"
+    }
+   ]
+  },
+  {
+   "id": "fer",
+   "root": "FER",
+   "variants": [
+    "fer"
+   ],
+   "lang": "Latin",
+   "src": "ferre",
+   "src_mean": "to carry, to bring",
+   "say": "carry",
+   "vi": "mang, đem",
+   "words": [
+    {
+     "w": "transfer",
+     "seg": "trans-|fer",
+     "mean": "carry across"
+    },
+    {
+     "w": "refer",
+     "seg": "re-|fer",
+     "mean": "carry back to"
+    },
+    {
+     "w": "prefer",
+     "seg": "pre-|fer",
+     "mean": "carry before, choose first"
+    },
+    {
+     "w": "offer",
+     "seg": "of-|fer",
+     "mean": "bring toward"
+    },
+    {
+     "w": "suffer",
+     "seg": "suf-|fer",
+     "mean": "carry from under, bear pain"
+    },
+    {
+     "w": "differ",
+     "seg": "dif-|fer",
+     "mean": "carry apart, be unlike"
+    },
+    {
+     "w": "infer",
+     "seg": "in-|fer",
+     "mean": "carry into a conclusion"
+    },
+    {
+     "w": "conference",
+     "seg": "con-|fer|-ence",
+     "mean": "a bringing together"
+    }
+   ]
+  },
+  {
+   "id": "vert",
+   "root": "VERT",
+   "variants": [
+    "vert",
+    "verse",
+    "vers"
+   ],
+   "lang": "Latin",
+   "src": "vertere",
+   "src_mean": "to turn",
+   "say": "turn",
+   "vi": "quay, xoay",
+   "words": [
+    {
+     "w": "convert",
+     "seg": "con-|vert",
+     "mean": "turn completely, change"
+    },
+    {
+     "w": "reverse",
+     "seg": "re-|verse",
+     "mean": "turn back"
+    },
+    {
+     "w": "divert",
+     "seg": "di-|vert",
+     "mean": "turn aside"
+    },
+    {
+     "w": "invert",
+     "seg": "in-|vert",
+     "mean": "turn inside out"
+    },
+    {
+     "w": "version",
+     "seg": "vers|-ion",
+     "mean": "a turn, one form of a thing"
+    },
+    {
+     "w": "universe",
+     "seg": "uni-|verse",
+     "mean": "all turned into one"
+    },
+    {
+     "w": "advertise",
+     "seg": "ad-|vert|-ise",
+     "mean": "turn attention toward"
+    },
+    {
+     "w": "introvert",
+     "seg": "intro-|vert",
+     "mean": "turned inward"
+    }
+   ]
+  },
+  {
+   "id": "pend",
+   "root": "PEND",
+   "variants": [
+    "pend",
+    "pens",
+    "pense"
+   ],
+   "lang": "Latin",
+   "src": "pendere",
+   "src_mean": "to hang, to weigh",
+   "say": "hang",
+   "vi": "treo, cân",
+   "words": [
+    {
+     "w": "depend",
+     "seg": "de-|pend",
+     "mean": "hang from"
+    },
+    {
+     "w": "suspend",
+     "seg": "sus-|pend",
+     "mean": "hang up, stop for now"
+    },
+    {
+     "w": "expense",
+     "seg": "ex-|pense",
+     "mean": "money weighed out"
+    },
+    {
+     "w": "pension",
+     "seg": "pens|-ion",
+     "mean": "a payment, once weighed out"
+    },
+    {
+     "w": "append",
+     "seg": "ap-|pend",
+     "mean": "hang on, add"
+    },
+    {
+     "w": "pending",
+     "seg": "pend|-ing",
+     "mean": "hanging, not decided yet"
+    }
+   ]
+  },
+  {
+   "id": "struct",
+   "root": "STRUCT",
+   "variants": [
+    "struct",
+    "stru"
+   ],
+   "lang": "Latin",
+   "src": "struere",
+   "src_mean": "to build",
+   "say": "build",
+   "vi": "xây dựng",
+   "words": [
+    {
+     "w": "construct",
+     "seg": "con-|struct",
+     "mean": "build together"
+    },
+    {
+     "w": "instruct",
+     "seg": "in-|struct",
+     "mean": "build knowledge in someone"
+    },
+    {
+     "w": "structure",
+     "seg": "struct|-ure",
+     "mean": "a thing that is put together"
+    },
+    {
+     "w": "destruction",
+     "seg": "de-|struct|-ion",
+     "mean": "a building down"
+    },
+    {
+     "w": "construction",
+     "seg": "con-|struct|-ion",
+     "mean": "the work of putting up a building"
+    },
+    {
+     "w": "instruction",
+     "seg": "in-|struct|-ion",
+     "mean": "a direction that builds skill"
+    },
+    {
+     "w": "instrument",
+     "seg": "in-|stru|-ment",
+     "mean": "a tool built for a job"
+    }
+   ]
+  },
+  {
+   "id": "form",
+   "root": "FORM",
+   "variants": [
+    "form"
+   ],
+   "lang": "Latin",
+   "src": "forma",
+   "src_mean": "shape, form",
+   "say": "shape",
+   "vi": "hình dạng",
+   "words": [
+    {
+     "w": "inform",
+     "seg": "in-|form",
+     "mean": "give shape to an idea"
+    },
+    {
+     "w": "perform",
+     "seg": "per-|form",
+     "mean": "carry a shape through, do"
+    },
+    {
+     "w": "reform",
+     "seg": "re-|form",
+     "mean": "shape again"
+    },
+    {
+     "w": "transform",
+     "seg": "trans-|form",
+     "mean": "change the shape across"
+    },
+    {
+     "w": "uniform",
+     "seg": "uni-|form",
+     "mean": "one shape"
+    },
+    {
+     "w": "conform",
+     "seg": "con-|form",
+     "mean": "take the same shape"
+    },
+    {
+     "w": "formula",
+     "seg": "form|-ula",
+     "mean": "a small shape, a set pattern"
+    },
+    {
+     "w": "information",
+     "seg": "in-|form|-ation",
+     "mean": "facts that shape the mind"
+    }
+   ]
+  },
+  {
+   "id": "press",
+   "root": "PRESS",
+   "variants": [
+    "press"
+   ],
+   "lang": "Latin",
+   "src": "premere",
+   "src_mean": "to press",
+   "say": "press",
+   "vi": "ép, nhấn",
+   "words": [
+    {
+     "w": "express",
+     "seg": "ex-|press",
+     "mean": "press out"
+    },
+    {
+     "w": "impress",
+     "seg": "im-|press",
+     "mean": "press into the mind"
+    },
+    {
+     "w": "depress",
+     "seg": "de-|press",
+     "mean": "press down"
+    },
+    {
+     "w": "suppress",
+     "seg": "sup-|press",
+     "mean": "press under"
+    },
+    {
+     "w": "pressure",
+     "seg": "press|-ure",
+     "mean": "a pressing force"
+    },
+    {
+     "w": "impression",
+     "seg": "im-|press|-ion",
+     "mean": "a mark pressed in the mind"
+    },
+    {
+     "w": "expression",
+     "seg": "ex-|press|-ion",
+     "mean": "a pressing out of feeling"
+    }
+   ]
+  },
+  {
+   "id": "cede",
+   "root": "CEDE",
+   "variants": [
+    "cede",
+    "ceed",
+    "cess",
+    "ced"
+   ],
+   "lang": "Latin",
+   "src": "cedere",
+   "src_mean": "to go, to yield",
+   "say": "go",
+   "vi": "đi, nhường",
+   "words": [
+    {
+     "w": "proceed",
+     "seg": "pro-|ceed",
+     "mean": "go forward"
+    },
+    {
+     "w": "succeed",
+     "seg": "suc-|ceed",
+     "mean": "go up after, reach a goal"
+    },
+    {
+     "w": "exceed",
+     "seg": "ex-|ceed",
+     "mean": "go out beyond"
+    },
+    {
+     "w": "precede",
+     "seg": "pre-|cede",
+     "mean": "go before"
+    },
+    {
+     "w": "concede",
+     "seg": "con-|cede",
+     "mean": "yield completely"
+    },
+    {
+     "w": "process",
+     "seg": "pro-|cess",
+     "mean": "a going forward in steps"
+    },
+    {
+     "w": "access",
+     "seg": "ac-|cess",
+     "mean": "a going toward"
+    },
+    {
+     "w": "success",
+     "seg": "suc-|cess",
+     "mean": "a going well"
+    }
+   ]
+  },
+  {
+   "id": "gress",
+   "root": "GRESS",
+   "variants": [
+    "gress",
+    "grad",
+    "grade"
+   ],
+   "lang": "Latin",
+   "src": "gradi",
+   "src_mean": "to step, to walk",
+   "say": "step",
+   "vi": "bước",
+   "words": [
+    {
+     "w": "progress",
+     "seg": "pro-|gress",
+     "mean": "step forward"
+    },
+    {
+     "w": "aggressive",
+     "seg": "ag-|gress|-ive",
+     "mean": "stepping toward to attack"
+    },
+    {
+     "w": "gradual",
+     "seg": "grad|-ual",
+     "mean": "step by step"
+    },
+    {
+     "w": "graduate",
+     "seg": "grad|-uate",
+     "mean": "step up to a degree"
+    },
+    {
+     "w": "grade",
+     "seg": "grade",
+     "mean": "a step in a scale"
+    },
+    {
+     "w": "upgrade",
+     "seg": "up-|grade",
+     "mean": "a step up"
+    }
+   ]
+  },
+  {
+   "id": "log",
+   "root": "LOG",
+   "variants": [
+    "log",
+    "logue",
+    "logy"
+   ],
+   "lang": "Greek",
+   "src": "logos",
+   "src_mean": "word, speech, study",
+   "say": "word or study",
+   "vi": "từ, lời nói, môn học",
+   "words": [
+    {
+     "w": "biology",
+     "seg": "bio-|logy",
+     "mean": "the study of life"
+    },
+    {
+     "w": "psychology",
+     "seg": "psycho-|logy",
+     "mean": "the study of the mind"
+    },
+    {
+     "w": "apology",
+     "seg": "apo-|logy",
+     "mean": "words said to say sorry"
+    },
+    {
+     "w": "logic",
+     "seg": "log|-ic",
+     "mean": "the study of right reason"
+    },
+    {
+     "w": "technology",
+     "seg": "techno-|logy",
+     "mean": "the study of skill"
+    },
+    {
+     "w": "geology",
+     "seg": "geo-|logy",
+     "mean": "the study of the earth"
+    }
+   ]
+  },
+  {
+   "id": "graph",
+   "root": "GRAPH",
+   "variants": [
+    "graph"
+   ],
+   "lang": "Greek",
+   "src": "graphein",
+   "src_mean": "to write, to draw",
+   "say": "write or draw",
+   "vi": "viết, vẽ",
+   "words": [
+    {
+     "w": "photograph",
+     "seg": "photo-|graph",
+     "mean": "a drawing with light"
+    },
+    {
+     "w": "paragraph",
+     "seg": "para-|graph",
+     "mean": "a mark written beside the text"
+    },
+    {
+     "w": "graphic",
+     "seg": "graph|-ic",
+     "mean": "drawn or written"
+    },
+    {
+     "w": "geography",
+     "seg": "geo-|graph|-y",
+     "mean": "a writing about the earth"
+    },
+    {
+     "w": "biography",
+     "seg": "bio-|graph|-y",
+     "mean": "a writing about a life"
+    },
+    {
+     "w": "telegraph",
+     "seg": "tele-|graph",
+     "mean": "a far writing"
+    },
+    {
+     "w": "graph",
+     "seg": "graph",
+     "mean": "a drawing of data"
+    }
+   ]
+  },
+  {
+   "id": "vis",
+   "root": "VIS",
+   "variants": [
+    "vis",
+    "vid",
+    "vide",
+    "vise",
+    "view"
+   ],
+   "lang": "Latin",
+   "src": "videre",
+   "src_mean": "to see",
+   "say": "see",
+   "vi": "nhìn thấy",
+   "words": [
+    {
+     "w": "visible",
+     "seg": "vis|-ible",
+     "mean": "able to be seen"
+    },
+    {
+     "w": "vision",
+     "seg": "vis|-ion",
+     "mean": "the power to see"
+    },
+    {
+     "w": "video",
+     "seg": "vid|-eo",
+     "mean": "moving pictures you watch"
+    },
+    {
+     "w": "evidence",
+     "seg": "e-|vid|-ence",
+     "mean": "what is clearly seen"
+    },
+    {
+     "w": "provide",
+     "seg": "pro-|vide",
+     "mean": "see ahead, supply"
+    },
+    {
+     "w": "revise",
+     "seg": "re-|vise",
+     "mean": "see again"
+    },
+    {
+     "w": "supervise",
+     "seg": "super-|vis|-e",
+     "mean": "see from above"
+    },
+    {
+     "w": "television",
+     "seg": "tele-|vis|-ion",
+     "mean": "seeing from far"
+    }
+   ]
+  },
+  {
+   "id": "aud",
+   "root": "AUD",
+   "variants": [
+    "aud"
+   ],
+   "lang": "Latin",
+   "src": "audire",
+   "src_mean": "to hear",
+   "say": "hear",
+   "vi": "nghe",
+   "words": [
+    {
+     "w": "audience",
+     "seg": "aud|-ience",
+     "mean": "people who hear"
+    },
+    {
+     "w": "audio",
+     "seg": "aud|-io",
+     "mean": "sound you hear"
+    },
+    {
+     "w": "audible",
+     "seg": "aud|-ible",
+     "mean": "able to be heard"
+    },
+    {
+     "w": "auditorium",
+     "seg": "aud|-itorium",
+     "mean": "a place for hearing"
+    },
+    {
+     "w": "audit",
+     "seg": "aud|-it",
+     "mean": "a hearing of accounts"
+    },
+    {
+     "w": "audition",
+     "seg": "aud|-ition",
+     "mean": "a hearing to test a performer"
+    }
+   ]
+  },
+  {
+   "id": "vent",
+   "root": "VENT",
+   "variants": [
+    "vent",
+    "ven",
+    "vene"
+   ],
+   "lang": "Latin",
+   "src": "venire",
+   "src_mean": "to come",
+   "say": "come",
+   "vi": "đến",
+   "words": [
+    {
+     "w": "event",
+     "seg": "e-|vent",
+     "mean": "something that comes out"
+    },
+    {
+     "w": "prevent",
+     "seg": "pre-|vent",
+     "mean": "come before, stop"
+    },
+    {
+     "w": "invent",
+     "seg": "in-|vent",
+     "mean": "come upon, find new"
+    },
+    {
+     "w": "adventure",
+     "seg": "ad-|vent|-ure",
+     "mean": "something about to come"
+    },
+    {
+     "w": "convention",
+     "seg": "con-|vent|-ion",
+     "mean": "a coming together"
+    },
+    {
+     "w": "venue",
+     "seg": "ven|-ue",
+     "mean": "a place people come to"
+    },
+    {
+     "w": "intervene",
+     "seg": "inter-|vene",
+     "mean": "come between"
+    },
+    {
+     "w": "revenue",
+     "seg": "re-|ven|-ue",
+     "mean": "money that comes back"
+    }
+   ]
+  },
+  {
+   "id": "sens",
+   "root": "SENS",
+   "variants": [
+    "sens",
+    "sent"
+   ],
+   "lang": "Latin",
+   "src": "sentire",
+   "src_mean": "to feel",
+   "say": "feel",
+   "vi": "cảm thấy",
+   "words": [
+    {
+     "w": "sense",
+     "seg": "sens|-e",
+     "mean": "the power to feel"
+    },
+    {
+     "w": "sensitive",
+     "seg": "sens|-itive",
+     "mean": "quick to feel"
+    },
+    {
+     "w": "sensible",
+     "seg": "sens|-ible",
+     "mean": "using good feeling and reason"
+    },
+    {
+     "w": "consent",
+     "seg": "con-|sent",
+     "mean": "feel together, agree"
+    },
+    {
+     "w": "sentiment",
+     "seg": "sent|-iment",
+     "mean": "a feeling or opinion"
+    },
+    {
+     "w": "sensation",
+     "seg": "sens|-ation",
+     "mean": "a feeling in the body"
+    },
+    {
+     "w": "nonsense",
+     "seg": "non-|sens|-e",
+     "mean": "not making sense"
+    }
+   ]
+  },
+  {
+   "id": "tend",
+   "root": "TEND",
+   "variants": [
+    "tend",
+    "tens",
+    "tent",
+    "tense"
+   ],
+   "lang": "Latin",
+   "src": "tendere",
+   "src_mean": "to stretch",
+   "say": "stretch",
+   "vi": "căng, kéo dài",
+   "words": [
+    {
+     "w": "intend",
+     "seg": "in-|tend",
+     "mean": "stretch toward, to plan"
+    },
+    {
+     "w": "attend",
+     "seg": "at-|tend",
+     "mean": "stretch toward, be present"
+    },
+    {
+     "w": "extend",
+     "seg": "ex-|tend",
+     "mean": "stretch out"
+    },
+    {
+     "w": "pretend",
+     "seg": "pre-|tend",
+     "mean": "stretch in front, to act"
+    },
+    {
+     "w": "tension",
+     "seg": "tens|-ion",
+     "mean": "a stretched feeling"
+    },
+    {
+     "w": "tendency",
+     "seg": "tend|-ency",
+     "mean": "a stretch toward something"
+    },
+    {
+     "w": "intense",
+     "seg": "in-|tense",
+     "mean": "stretched very tight"
+    },
+    {
+     "w": "extent",
+     "seg": "ex-|tent",
+     "mean": "how far something stretches"
+    }
+   ]
+  },
+  {
+   "id": "tain",
+   "root": "TAIN",
+   "variants": [
+    "tain",
+    "ten",
+    "tent"
+   ],
+   "lang": "Latin",
+   "src": "tenere",
+   "src_mean": "to hold",
+   "say": "hold",
+   "vi": "giữ",
+   "words": [
+    {
+     "w": "contain",
+     "seg": "con-|tain",
+     "mean": "hold together"
+    },
+    {
+     "w": "obtain",
+     "seg": "ob-|tain",
+     "mean": "hold on to, get"
+    },
+    {
+     "w": "retain",
+     "seg": "re-|tain",
+     "mean": "hold back"
+    },
+    {
+     "w": "sustain",
+     "seg": "sus-|tain",
+     "mean": "hold up"
+    },
+    {
+     "w": "entertain",
+     "seg": "enter-|tain",
+     "mean": "hold between, keep amused"
+    },
+    {
+     "w": "container",
+     "seg": "con-|tain|-er",
+     "mean": "a thing that holds"
+    },
+    {
+     "w": "tenant",
+     "seg": "ten|-ant",
+     "mean": "a person who holds a home"
+    }
+   ]
+  },
+  {
+   "id": "cur",
+   "root": "CUR",
+   "variants": [
+    "cur",
+    "curr",
+    "curs",
+    "cours"
+   ],
+   "lang": "Latin",
+   "src": "currere",
+   "src_mean": "to run",
+   "say": "run",
+   "vi": "chạy",
+   "words": [
+    {
+     "w": "current",
+     "seg": "curr|-ent",
+     "mean": "running, now"
+    },
+    {
+     "w": "occur",
+     "seg": "oc-|cur",
+     "mean": "run toward, happen"
+    },
+    {
+     "w": "recur",
+     "seg": "re-|cur",
+     "mean": "run back again"
+    },
+    {
+     "w": "course",
+     "seg": "cours|-e",
+     "mean": "a path you run"
+    },
+    {
+     "w": "excursion",
+     "seg": "ex-|curs|-ion",
+     "mean": "a run out on a trip"
+    },
+    {
+     "w": "cursor",
+     "seg": "curs|-or",
+     "mean": "a runner on the screen"
+    },
+    {
+     "w": "currency",
+     "seg": "curr|-ency",
+     "mean": "money that runs from hand to hand"
+    },
+    {
+     "w": "incur",
+     "seg": "in-|cur",
+     "mean": "run into, to bring on"
+    }
+   ]
+  },
+  {
+   "id": "fact",
+   "root": "FACT",
+   "variants": [
+    "fact",
+    "fect",
+    "fic"
+   ],
+   "lang": "Latin",
+   "src": "facere",
+   "src_mean": "to make, to do",
+   "say": "make or do",
+   "vi": "làm, tạo ra",
+   "words": [
+    {
+     "w": "effect",
+     "seg": "ef-|fect",
+     "mean": "what is made out of a cause"
+    },
+    {
+     "w": "factory",
+     "seg": "fact|-ory",
+     "mean": "a place where things are made"
+    },
+    {
+     "w": "perfect",
+     "seg": "per-|fect",
+     "mean": "made all the way through"
+    },
+    {
+     "w": "affect",
+     "seg": "af-|fect",
+     "mean": "make toward, to change"
+    },
+    {
+     "w": "defect",
+     "seg": "de-|fect",
+     "mean": "a making that fell away"
+    },
+    {
+     "w": "manufacture",
+     "seg": "manu-|fact|-ure",
+     "mean": "make by hand"
+    },
+    {
+     "w": "infect",
+     "seg": "in-|fect",
+     "mean": "make sick, put into"
+    },
+    {
+     "w": "efficient",
+     "seg": "ef-|fic|-ient",
+     "mean": "making well without waste"
+    },
+    {
+     "w": "factor",
+     "seg": "fact|-or",
+     "mean": "a thing that makes a result"
+    }
+   ]
+  },
+  {
+   "id": "lect",
+   "root": "LECT",
+   "variants": [
+    "lect",
+    "leg",
+    "lig"
+   ],
+   "lang": "Latin",
+   "src": "legere",
+   "src_mean": "to gather, to read, to choose",
+   "say": "gather or choose",
+   "vi": "chọn, đọc, gom",
+   "words": [
+    {
+     "w": "collect",
+     "seg": "col-|lect",
+     "mean": "gather together"
+    },
+    {
+     "w": "select",
+     "seg": "se-|lect",
+     "mean": "choose apart"
+    },
+    {
+     "w": "elect",
+     "seg": "e-|lect",
+     "mean": "choose out"
+    },
+    {
+     "w": "lecture",
+     "seg": "lect|-ure",
+     "mean": "a talk given to a class"
+    },
+    {
+     "w": "legend",
+     "seg": "leg|-end",
+     "mean": "a story to be read"
+    },
+    {
+     "w": "neglect",
+     "seg": "neg-|lect",
+     "mean": "not gather, to ignore"
+    }
+   ]
+  },
+  {
+   "id": "mov",
+   "root": "MOV",
+   "variants": [
+    "mov",
+    "mot",
+    "mob",
+    "move",
+    "mote"
+   ],
+   "lang": "Latin",
+   "src": "movere",
+   "src_mean": "to move",
+   "say": "move",
+   "vi": "di chuyển",
+   "words": [
+    {
+     "w": "remove",
+     "seg": "re-|move",
+     "mean": "move away"
+    },
+    {
+     "w": "motion",
+     "seg": "mot|-ion",
+     "mean": "the act of moving"
+    },
+    {
+     "w": "emotion",
+     "seg": "e-|mot|-ion",
+     "mean": "a feeling that moves you"
+    },
+    {
+     "w": "promote",
+     "seg": "pro-|mote",
+     "mean": "move forward"
+    },
+    {
+     "w": "motive",
+     "seg": "mot|-ive",
+     "mean": "a reason that moves you"
+    },
+    {
+     "w": "motor",
+     "seg": "mot|-or",
+     "mean": "a thing that moves"
+    },
+    {
+     "w": "mobile",
+     "seg": "mob|-ile",
+     "mean": "able to move"
+    },
+    {
+     "w": "motivate",
+     "seg": "mot|-ivate",
+     "mean": "give a reason to move"
+    }
+   ]
+  },
+  {
+   "id": "man",
+   "root": "MAN",
+   "variants": [
+    "man",
+    "manu",
+    "mani",
+    "mand"
+   ],
+   "lang": "Latin",
+   "src": "manus",
+   "src_mean": "hand",
+   "say": "hand",
+   "vi": "tay",
+   "words": [
+    {
+     "w": "manual",
+     "seg": "manu|-al",
+     "mean": "made with the hands"
+    },
+    {
+     "w": "manage",
+     "seg": "man|-age",
+     "mean": "handle with your hands"
+    },
+    {
+     "w": "manner",
+     "seg": "man|-ner",
+     "mean": "a way of handling things"
+    },
+    {
+     "w": "command",
+     "seg": "com-|mand",
+     "mean": "put fully in someone's hand"
+    },
+    {
+     "w": "demand",
+     "seg": "de-|mand",
+     "mean": "put in hand, ask strongly"
+    },
+    {
+     "w": "mandate",
+     "seg": "mand|-ate",
+     "mean": "something put in hand, an order"
+    },
+    {
+     "w": "manuscript",
+     "seg": "manu|-script",
+     "mean": "written by hand"
+    }
+   ]
+  },
+  {
+   "id": "sign",
+   "root": "SIGN",
+   "variants": [
+    "sign"
+   ],
+   "lang": "Latin",
+   "src": "signum",
+   "src_mean": "mark, sign",
+   "say": "mark",
+   "vi": "dấu hiệu",
+   "words": [
+    {
+     "w": "signal",
+     "seg": "sign|-al",
+     "mean": "a mark that tells you something"
+    },
+    {
+     "w": "signature",
+     "seg": "sign|-ature",
+     "mean": "your own mark"
+    },
+    {
+     "w": "design",
+     "seg": "de-|sign",
+     "mean": "mark out a plan"
+    },
+    {
+     "w": "assign",
+     "seg": "as-|sign",
+     "mean": "mark out for someone"
+    },
+    {
+     "w": "significant",
+     "seg": "sign|-ificant",
+     "mean": "making a mark, important"
+    },
+    {
+     "w": "designate",
+     "seg": "de-|sign|-ate",
+     "mean": "mark out for a role"
+    },
+    {
+     "w": "sign",
+     "seg": "sign",
+     "mean": "a mark that means something"
+    }
+   ]
+  },
+  {
+   "id": "rupt",
+   "root": "RUPT",
+   "variants": [
+    "rupt"
+   ],
+   "lang": "Latin",
+   "src": "rumpere",
+   "src_mean": "to break",
+   "say": "break",
+   "vi": "vỡ, phá",
+   "words": [
+    {
+     "w": "interrupt",
+     "seg": "inter-|rupt",
+     "mean": "break between"
+    },
+    {
+     "w": "corrupt",
+     "seg": "cor-|rupt",
+     "mean": "break completely"
+    },
+    {
+     "w": "erupt",
+     "seg": "e-|rupt",
+     "mean": "break out"
+    },
+    {
+     "w": "disrupt",
+     "seg": "dis-|rupt",
+     "mean": "break apart"
+    },
+    {
+     "w": "eruption",
+     "seg": "e-|rupt|-ion",
+     "mean": "a breaking out"
+    },
+    {
+     "w": "interruption",
+     "seg": "inter-|rupt|-ion",
+     "mean": "a break in the flow"
+    }
+   ]
+  },
+  {
+   "id": "flect",
+   "root": "FLECT",
+   "variants": [
+    "flect",
+    "flex"
+   ],
+   "lang": "Latin",
+   "src": "flectere",
+   "src_mean": "to bend",
+   "say": "bend",
+   "vi": "uốn cong",
+   "words": [
+    {
+     "w": "reflect",
+     "seg": "re-|flect",
+     "mean": "bend back"
+    },
+    {
+     "w": "flexible",
+     "seg": "flex|-ible",
+     "mean": "able to bend"
+    },
+    {
+     "w": "reflex",
+     "seg": "re-|flex",
+     "mean": "a body bend back"
+    },
+    {
+     "w": "deflect",
+     "seg": "de-|flect",
+     "mean": "bend away"
+    },
+    {
+     "w": "reflection",
+     "seg": "re-|flect|-ion",
+     "mean": "light or thought bent back"
+    },
+    {
+     "w": "flexibility",
+     "seg": "flex|-ibility",
+     "mean": "how well something bends"
+    }
+   ]
+  },
+  {
+   "id": "cide",
+   "root": "CIDE",
+   "variants": [
+    "cide",
+    "cis",
+    "cise"
+   ],
+   "lang": "Latin",
+   "src": "caedere",
+   "src_mean": "to cut, to kill",
+   "say": "cut or kill",
+   "vi": "cắt, giết",
+   "words": [
+    {
+     "w": "decide",
+     "seg": "de-|cide",
+     "mean": "cut away the other choices",
+     "pm": "off"
+    },
+    {
+     "w": "decision",
+     "seg": "de-|cis|-ion",
+     "mean": "a cutting away of choices",
+     "pm": "off"
+    },
+    {
+     "w": "precise",
+     "seg": "pre-|cise",
+     "mean": "cut short in front, exact"
+    },
+    {
+     "w": "concise",
+     "seg": "con-|cise",
+     "mean": "cut down, short"
+    },
+    {
+     "w": "incision",
+     "seg": "in-|cis|-ion",
+     "mean": "a cut into"
+    },
+    {
+     "w": "suicide",
+     "seg": "sui-|cide",
+     "mean": "a killing of oneself"
+    }
+   ]
+  },
+  {
+   "id": "spir",
+   "root": "SPIR",
+   "variants": [
+    "spir",
+    "pir",
+    "spire",
+    "pire"
+   ],
+   "lang": "Latin",
+   "src": "spirare",
+   "src_mean": "to breathe",
+   "say": "breathe",
+   "vi": "thở",
+   "words": [
+    {
+     "w": "inspire",
+     "seg": "in-|spire",
+     "mean": "breathe into"
+    },
+    {
+     "w": "spirit",
+     "seg": "spir|-it",
+     "mean": "the breath of life"
+    },
+    {
+     "w": "conspire",
+     "seg": "con-|spire",
+     "mean": "breathe together, plot"
+    },
+    {
+     "w": "expire",
+     "seg": "ex-|pire",
+     "mean": "breathe out, end"
+    },
+    {
+     "w": "inspiration",
+     "seg": "in-|spir|-ation",
+     "mean": "a breathing in of ideas"
+    },
+    {
+     "w": "respiratory",
+     "seg": "re-|spir|-atory",
+     "mean": "about breathing again and again"
+    }
+   ]
+  },
+  {
+   "id": "vac",
+   "root": "VAC",
+   "variants": [
+    "vac"
+   ],
+   "lang": "Latin",
+   "src": "vacare",
+   "src_mean": "to be empty",
+   "say": "empty",
+   "vi": "trống",
+   "words": [
+    {
+     "w": "vacation",
+     "seg": "vac|-ation",
+     "mean": "a time of empty days"
+    },
+    {
+     "w": "vacuum",
+     "seg": "vac|-uum",
+     "mean": "an empty space"
+    },
+    {
+     "w": "vacant",
+     "seg": "vac|-ant",
+     "mean": "empty, not used"
+    },
+    {
+     "w": "evacuate",
+     "seg": "e-|vac|-uate",
+     "mean": "empty out a place"
+    },
+    {
+     "w": "vacancy",
+     "seg": "vac|-ancy",
+     "mean": "an empty room or job"
+    },
+    {
+     "w": "vacate",
+     "seg": "vac|-ate",
+     "mean": "make empty, leave"
+    }
+   ]
+  },
+  {
+   "id": "jus",
+   "root": "JUS",
+   "variants": [
+    "jud",
+    "jur",
+    "just",
+    "jus"
+   ],
+   "lang": "Latin",
+   "src": "jus",
+   "src_mean": "law, right",
+   "say": "law or right",
+   "vi": "luật, đúng",
+   "words": [
+    {
+     "w": "judge",
+     "seg": "jud|-ge",
+     "mean": "a person who speaks the law"
+    },
+    {
+     "w": "justice",
+     "seg": "just|-ice",
+     "mean": "what is right by law"
+    },
+    {
+     "w": "jury",
+     "seg": "jur|-y",
+     "mean": "people who swear to judge"
+    },
+    {
+     "w": "injury",
+     "seg": "in-|jur|-y",
+     "mean": "a wrong, not right"
+    },
+    {
+     "w": "justify",
+     "seg": "just|-ify",
+     "mean": "show it is right"
+    },
+    {
+     "w": "prejudice",
+     "seg": "pre-|jud|-ice",
+     "mean": "a judgment made before"
+    },
+    {
+     "w": "adjust",
+     "seg": "ad-|just",
+     "mean": "make right toward a need"
+    },
+    {
+     "w": "judgment",
+     "seg": "jud|-gment",
+     "mean": "a decision by law"
+    }
+   ]
+  },
+  {
+   "id": "stat",
+   "root": "STAT",
+   "variants": [
+    "sta",
+    "stat",
+    "stit",
+    "stab",
+    "stan",
+    "tance",
+    "stant",
+    "stance"
+   ],
+   "lang": "Latin",
+   "src": "stare",
+   "src_mean": "to stand",
+   "say": "stand",
+   "vi": "đứng",
+   "words": [
+    {
+     "w": "station",
+     "seg": "sta|-tion",
+     "mean": "a place where you stand"
+    },
+    {
+     "w": "stable",
+     "seg": "stab|-le",
+     "mean": "able to stand firm"
+    },
+    {
+     "w": "status",
+     "seg": "stat|-us",
+     "mean": "how you stand"
+    },
+    {
+     "w": "institute",
+     "seg": "in-|stit|-ute",
+     "mean": "set up, made to stand"
+    },
+    {
+     "w": "establish",
+     "seg": "e-|stab|-lish",
+     "mean": "make stand firmly"
+    },
+    {
+     "w": "distance",
+     "seg": "dis-|tance",
+     "mean": "standing apart"
+    },
+    {
+     "w": "substance",
+     "seg": "sub-|stance",
+     "mean": "what stands under"
+    },
+    {
+     "w": "circumstance",
+     "seg": "circum-|stance",
+     "mean": "what stands around"
+    }
+   ]
+  },
+  {
+   "id": "volv",
+   "root": "VOLV",
+   "variants": [
+    "volv",
+    "volut",
+    "vol",
+    "volve"
+   ],
+   "lang": "Latin",
+   "src": "volvere",
+   "src_mean": "to roll, to turn",
+   "say": "roll",
+   "vi": "cuộn, lăn",
+   "words": [
+    {
+     "w": "evolve",
+     "seg": "e-|volve",
+     "mean": "roll out slowly"
+    },
+    {
+     "w": "involve",
+     "seg": "in-|volve",
+     "mean": "roll into"
+    },
+    {
+     "w": "revolution",
+     "seg": "re-|volut|-ion",
+     "mean": "a turning back around"
+    },
+    {
+     "w": "evolution",
+     "seg": "e-|volut|-ion",
+     "mean": "a slow rolling out of change"
+    },
+    {
+     "w": "volume",
+     "seg": "vol|-ume",
+     "mean": "a roll, or a book"
+    },
+    {
+     "w": "involvement",
+     "seg": "in-|volv|-ement",
+     "mean": "a rolling into something"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,163 @@
+{
+ "id": "t2a_rule_silentsc_1",
+ "template": "rule",
+ "series": "Spell to Sound",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "pronunciation",
+ "lines": [
+  {
+   "id": "h",
+   "text": "The C is silent!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "In s c e, the C is silent. Say S.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Science.",
+   "pause": 0.25,
+   "speed": 0.6
+  },
+  {
+   "id": "v0",
+   "text": "Science.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Scientist.",
+   "pause": 0.25,
+   "speed": 0.6
+  },
+  {
+   "id": "v1",
+   "text": "Scientist.",
+   "pause": 0.3
+  },
+  {
+   "id": "p",
+   "text": "Repeat after me!",
+   "pause": 2.4
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which letter is silent in scientist?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "C! The C is silent.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "rule": "silent-sc",
+  "title": "sc-",
+  "target": "/s/",
+  "letter": "c",
+  "say": "In s c e, the C is silent. Say S.",
+  "words": [
+   {
+    "w": "science",
+    "ipa": "/ˈsaɪəns/",
+    "silent": [
+     1,
+     2
+    ],
+    "letter": "c",
+    "mean": "Knowledge of the physical world based on facts.",
+    "em": "🔬"
+   },
+   {
+    "w": "scientist",
+    "ipa": "/ˈsaɪəntɪst/",
+    "silent": [
+     1,
+     2
+    ],
+    "letter": "c",
+    "mean": "a person who is trained to gain knowledge by making predictions, testing them, and developing theories",
+    "em": "🧑‍🔬"
+   }
+  ],
+  "quiz": {
+   "stem": "Which letter is silent in scientist?",
+   "options": [
+    "S",
+    "C"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "pronunciation",
+  "route": "#/pron/science",
+  "link": "https://lexkite.com/app/#/pron/science",
+  "say": "Practise this sound"
+ },
+ "hook": {
+  "line": "h",
+  "text": "The C is silent"
+ },
+ "src": {
+  "rule": "silent-sc"
+ },
+ "est": {
+  "words": 40,
+  "seconds": 27.1,
+  "wpm": 88
+ },
+ "publish": {
+  "title": "The C is silent!",
+  "keyword": "Spell to Sound",
+  "value": "In s c e, the C is silent. Say S.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#pronunciation",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/pron/science",
+  "script_words": 31,
+  "platforms": {
+   "youtube": {
+    "title": "The C is silent!",
+    "description": "In s c e, the C is silent. Say S.\n\nPractise this sound, free: https://lexkite.com/app/#/pron/science\n\nSeries: Spell to Sound · Teacher: Carlos\n\n#learnenglish #englishtips #pronunciation #englishteacher",
+    "tags": [
+     "Spell to Sound",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "The C is silent!\n\nIn s c e, the C is silent. Say S.\n\nPractise this sound, free: https://lexkite.com/app/#/pron/science"
+   },
+   "instagram": {
+    "caption": "The C is silent!\n\nIn s c e, the C is silent. Say S.\n\nPractise this sound: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#pronunciation",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "The C is silent! #learnenglish #englishtips #pronunciation"
+   }
+  },
+  "first_comment": "Did you get it? C! The C is silent. In s c e, the C is silent. Say S. More practice like this (free): {link}"
+ }
+}
