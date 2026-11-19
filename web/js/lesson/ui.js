@@ -650,25 +650,27 @@
     const lang = document.documentElement.lang || 'en', W = E.weekDots(App.activeDays ? App.activeDays() : new Set(), new Date(), Core.todayKey), wk = { on: W.on, n: W.n, lt: W.days.map(x => { try { return new Intl.DateTimeFormat(lang, { weekday: 'narrow' }).format(x); } catch (e) { return ''; } }) }; // 7 chấm tuần này (thứ 2 → CN): sáng = ngày đã học (hôm nay tính luôn)
     const run = Math.max(streak, E.runOf(App.activeDays ? App.activeDays() : new Set(), new Date(), Core.todayKey)); // chuỗi LIỀN tới hôm nay – KHÁC số ngày học trong tuần (hai nhãn riêng, không mâu thuẫn)
     let minsS = String(mins); try { minsS = new Intl.NumberFormat(lang, { style: 'unit', unit: 'minute', unitDisplay: 'narrow' }).format(mins); } catch (e) { /* bỏ qua */ }
+    const CHIP = 'px-2 py-0.5 min-h-[44px] inline-flex items-center rounded-md border font-bold text-[12px] leading-4 lt:bg-[#FBF7F1] lt:border-[#EADEC8] lt:text-[#145652] lt:shadow-[0_1.5px_0_0_#D8CFBC] dk:bg-[#121D20] dk:border-[#2B373A] dk:text-[#6BD8CE] dk:shadow-[0_1.5px_0_0_#051013]';
+    const chipsH = w.map(p => `<button type="button" lang="en" data-say="${esc(p.card.word)}" class="${CHIP}" aria-label="${esc(t('Chạm để nghe') + ': ' + p.card.word)}">${esc(p.card.word)}</button>`).join('') + (w.length ? `<a class="lsn-rev no-underline ${CHIP} lt:!bg-transparent dk:!bg-transparent" href="#/review">${esc(t('Ôn lại'))}</a>` : '') + more;
     const d = {
       close: `#/lesson${q}`,
       mapL: t('Bản đồ bài học'),
       title: L.title,
-      pct: '100%',
       chip: L.endChip || L.title,
-      xp: '+' + xp,
-      acc: s.accuracy + '%',
-      first: got + '/' + w.length,
+      kick: t('Chính xác') + ' ' + s.accuracy + '%',
+      xpL: '+' + xp + ' XP',
       combo: String(s.best),
+      first: got + '/' + w.length,
       mins: minsS,
+      nwords: String(w.length),
       streakT: t('Chuỗi hiện tại') + ': ' + unitFmt(run, 'day'),
       weekN: t('Tuần này') + ': ' + unitFmt(wk.n, 'day'),
       streak: String(run),
-      off1: Math.round(490 * (1 - Math.min(100, s.accuracy) / 100)),
-      off2: Math.round(414 * (1 - (w.length ? got / w.length : 1))),
+      off1: Math.round(201.06 * (1 - Math.min(100, s.accuracy) / 100) * 100) / 100,
+      off2: Math.round(144.51 * (1 - (w.length ? got / w.length : 1)) * 100) / 100,
       sub: s.accuracy >= 80 ? t('Tuyệt vời!') : t('Làm tốt lắm, cứ tiếp tục nhé!'),
-      learned: ' ', // danh sách từ = chip chạm để nghe (bên dưới), không còn một dòng chữ
-      more,
+      learned: ' ',
+      chipsH,
       rev: weak.length ? t('Sổ lỗi sai') : t('Bản đồ bài học'),
       revIcon: weak.length ? 'edit_note' : 'map',
       revHref: weak.length ? '#/mistakes' : `#/lesson${q}`,
@@ -677,19 +679,13 @@
     if (L.teacher) { try { L.teacher.destroy(); } catch (e) { /* bỏ qua */ } L.teacher = null; }
     const root = ST2.mount(view, 'lesson-complete', d, null); root.id = 'lsn'; root.classList.add('lsn-v2', 'lsn-end', 'st-end'); root.classList.toggle('lsn-ptr', !kbd);
     try { window.scrollTo(0, 0); } catch (e) { /* bỏ qua */ } // câu cuối kéo trang xuống (tấm phản hồi): màn kết luôn bắt đầu ở đỉnh, nút ✕ không bị thanh trên che
-    { const wd = root.querySelectorAll('.lsn-week > div:nth-child(2) > div'); if (wd.length === 7) { const onC = wd[0].firstElementChild.className, onH = wd[0].firstElementChild.innerHTML, offC = wd[5].firstElementChild.className; wd.forEach((el, i) => { const dot = el.firstElementChild; dot.className = wk.on[i] ? onC : offC; dot.innerHTML = wk.on[i] ? onH : ''; el.lastElementChild.textContent = wk.lt[i]; }); } } // chấm tuần: lấy lớp "sáng/tắt" có sẵn từ khung Stitch (không thêm CSS)
-    if (!w.length) { const lg = root.querySelector('.lsn-tiles > div:nth-child(2)'); if (lg) lg.hidden = true; const r2 = root.querySelector(':scope > main > div > div:nth-child(1) > div:nth-child(3) > svg:nth-child(3)'); if (r2) r2.hidden = true; const ln = root.querySelector('.lsn-sub > div > span:nth-child(2)'); if (ln) ln.hidden = true; } // truyện/radio không có từ học: bỏ vòng + chú giải "từ nhớ ngay" + dòng "Bạn đã học"
-    { // 🏁 gọn một viewport: XP vào hàng chỉ số (4 ô, nhãn ngắn viết hoa) · Ama đứng cạnh lời khen · từ đã học = chip chạm để nghe + Ôn lại · nút chính cố định đáy
-      const main = root.querySelector(':scope > main > div'), xpc = main && main.children[1], tl = root.querySelectorAll('.lsn-tiles > div'), lab = el => el.querySelector(':scope > span:last-child');
-      if (xpc && tl.length === 3) { const x = tl[0].cloneNode(true); x.querySelector('.material-symbols-outlined').textContent = 'bolt'; x.querySelector(':scope > span:nth-child(2)').textContent = d.xp; lab(x).textContent = 'XP'; tl[0].before(x); xpc.remove(); lab(tl[0]).textContent = t('Combo tốt nhất'); lab(tl[1]).textContent = t('Nhớ ngay'); }
-      const ring = root.querySelector(':scope > main > div > div:nth-child(1) > div:nth-child(3)'); if (ring) ring.classList.add('lsn-ring');
-      const endt = root.querySelector('.lsn-endt'), sb = root.querySelector('.lsn-sub'); if (endt && sb) { const row = document.createElement('div'); row.className = 'lsn-ama'; endt.before(row); row.append(endt, sb); }
-      const ln = sb && sb.querySelector(':scope > div > span:nth-child(2)'); if (ln && w.length) { ln.hidden = true; ln.insertAdjacentHTML('afterend', `<span class="lsn-learned">${w.map(p => `<button type="button" lang="en" data-say="${esc(p.card.word)}" aria-label="${esc(t('Chạm để nghe') + ': ' + p.card.word)}">${esc(p.card.word)}</button>`).join('')}<a class="lsn-rev no-underline" href="#/review">${esc(t('Ôn lại'))}</a></span>`); sb.querySelectorAll('.lsn-learned [data-say]').forEach(b => { b.onclick = () => say(b.dataset.say, false, 'ama'); }); }
-      const wkc = root.querySelector('.lsn-week > div:nth-child(1)'); if (wkc) wkc.classList.add('lsn-wk-h');
-      const ag = $('#lsnAgain'); if (ag && ag.parentElement) ag.parentElement.classList.add('lsn-cta');
-    }
+    { const wd = root.querySelectorAll('.lsn-week > div:nth-child(2) > div'); if (wd.length === 7) { const onD = wd[0].firstElementChild, offD = wd[6].firstElementChild, onC = onD.className, onH = onD.innerHTML, offC = offD.className, offH = offD.innerHTML, onL = wd[0].lastElementChild.className, offL = wd[6].lastElementChild.className, todL = wd[5].lastElementChild.className, tod = (new Date().getDay() + 6) % 7;
+      wd.forEach((el, i) => { const dot = el.firstElementChild, lab = el.lastElementChild; dot.className = wk.on[i] ? onC : offC; dot.innerHTML = wk.on[i] ? onH : offH; lab.className = i === tod ? todL : wk.on[i] ? onL : offL; lab.textContent = wk.lt[i]; if (i === tod && wk.on[i]) dot.classList.add('ring-2', 'ring-offset-1', 'ring-[#F2553B]'); }); } } // chấm tuần: lấy lớp "sáng/tắt" có sẵn từ khung Stitch (không thêm CSS)
+    if (!w.length) { const t4 = root.querySelector('.lsn-tiles > div:nth-child(2)'); if (t4) t4.hidden = true; const t5 = root.querySelector('.lsn-tiles > div:nth-child(4)'); if (t5) t5.hidden = true; const r2 = root.querySelector('.lsn-ring svg > circle:nth-child(3), .lsn-ring svg > circle:nth-child(4)'); if (r2) r2.parentNode.querySelectorAll('circle:nth-child(n+3)').forEach(c => { c.style.display = 'none'; }); const lb = root.querySelector('.lsn-sub > div:nth-child(2) > div:first-child > span:nth-child(2)'); if (lb) lb.hidden = true; } // truyện/radio không có từ học: bỏ ô "nhớ ngay" + "từ mới" + vòng trong + dòng "đã học"
+    root.querySelectorAll('.lsn-sub [data-say]').forEach(b => { b.onclick = () => say(b.dataset.say, false, 'ama'); });
+    { const ag = $('#lsnAgain'); if (ag && ag.parentElement) { ag.parentElement.classList.add('lsn-cta'); } }
     try { L.teacher = window.LessonTeacher ? LessonTeacher.mount($('#lsnTch'), 'ama') : null; if (L.teacher) { if (L.teacher.pose) L.teacher.pose(App.streak && App.streak() > L.s0 ? MOOD('streak', {}, 'cheer') : 'cheer'); L.teacher.say(cheer, { rate: 1, voice: VOICE('ama') }); } } catch (e) { L.teacher = null; }
-    if (window.Feel && Feel.on) { const x = root.querySelector('.lsn-tiles > div:first-child > span:nth-child(2)'); if (x && Feel.count) Feel.count(x, xp, { prefix: '+', from: 0 }); const b = root.querySelector('[role=progressbar]'); if (b && Feel.fill) Feel.fill(b, 100); }
+    if (window.Feel && Feel.on) { const x = root.querySelector('.lsn-xp > span'); if (x && Feel.count) Feel.count(x, xp, { prefix: '+', suffix: ' XP', from: 0 }); const b = root.querySelector('[role=progressbar]'); if (b && Feel.fill) Feel.fill(b, 100); }
     if (s.accuracy >= 80 && !navigator.webdriver && typeof window.confetti === 'function') try { window.confetti(90); } catch (e) { /* bỏ qua */ } // ăn mừng 1 lần khi vào màn: pháo giấy dùng chung (game.js; reduced-motion → Kit đứng yên, không chặn chạm)
     const sh = $('#lsnShare'); if (sh) sh.onclick = async () => { const text = t('Mình vừa hoàn thành một bài học Lexkite: {a}% đúng, +{x} XP', { a: s.accuracy, x: xp }); try { if (navigator.share) await navigator.share({ title: 'Lexkite', text, url: location.origin + '/' }); else if (navigator.clipboard) { await navigator.clipboard.writeText(text); UI.toast(t('Đã sao chép')); } } catch (e) { /* người dùng hủy */ } };
     $('#lsnAgain').onclick = againGo(L.xs, L.demo);
