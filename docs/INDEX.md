@@ -28,6 +28,7 @@
 - [specs/sentence-builder.md](specs/sentence-builder.md) — Xếp câu + Vì sao? theo câu (why.js, #336)
 - [specs/exam-mini-test-srs.md](specs/exam-mini-test-srs.md) — mini-test 10 phút + dải tuần + thẻ dạng yếu của #/qstats (đã duyệt 14/11); đọc khi: làm qstats/ôn dạng yếu/mini-test
 - [specs/learnability.md](specs/learnability.md) — Spec P0-H Dễ học – dễ nhớ: 12 tiêu chí sư phạm → luật máy đo tầng 0, trọng số, điểm sàn; đọc khi: sửa bộ chấm learnability.mjs hoặc nội dung bài để tăng điểm
+- [specs/spell-sound.md](specs/spell-sound.md) — series "Spell→Sound": template rule (chữ câm → âm), ngân hàng luật JSON, hook L1, cổng vùng nền tảng; đọc khi: thêm luật phát âm / sửa mẫu rule
 - [specs/home-upgrade.md](specs/home-upgrade.md) — Spec nâng cấp Home 3/11: so 5 app lớn, lát L1–L5 (cô giáo vòng nghỉ mắt mở, Home v2, lưới màn học, thử thách, lộ trình nhiều chặng), cổng CI; đọc khi: sửa Home/#/home hoặc giáo viên trên Home
 - [specs/daily-reels.md](specs/daily-reels.md) — Spec reels hằng ngày tự động 12/11: 6 định dạng, chọn chủ đề → dựng → QC → lịch → số liệu; đọc khi: thêm template reels, đổi lịch đăng hằng ngày
 - [specs/upgrade-2026-11.md](specs/upgrade-2026-11.md) — Spec nâng cấp toàn diện 11/2026: 12 hạng mục chủ gửi 04/11 (top bar, linh vật, nhập tài liệu, Tab mới, đầu vào, shadowing, sổ lỗi, lượt AI, 1v1, kho cộng đồng) so main, 3 đợt; đọc khi: làm bất kỳ hạng mục nào trong đó
@@ -171,6 +172,7 @@
 - [TTS-AB.md](TTS-AB.md) — Phép thử A/B giọng Kokoro ↔ ElevenLabs: bộ câu, chấm CI, nghe mù, trần credit, giấy phép; đọc khi: chọn engine giọng đọc, xem sổ chi ElevenLabs
 - [specs/audio-quality.md](specs/audio-quality.md) — Chất lượng giọng đọc/phát âm/nghe: điểm hiện tại theo mảng (~64/100), 5 nâng cấp $0 lên 100, có nên dùng ElevenLabs (giá, điều khoản); đọc khi: sửa giọng đọc, chấm phát âm, nghe hoặc cân nhắc TTS trả phí
 - [specs/ci-fast-lane.md](specs/ci-fast-lane.md) — CI làn nhanh + nặng một lần: PR chỉ chạy làn nhanh (≤10 phút), việc nặng chạy một lần trong merge queue, không bỏ check nào; đọc khi: sửa merge-queue.yml, required-gate, heavy-gate, thêm workflow nặng
+- [specs/media-one-source.md](specs/media-one-source.md) — Một kịch bản → 4 đầu ra (video nhúng, dọc, podcast MP3+RSS, truyện đọc): ánh xạ, QC, chỗ đặt trong app, thước đo; đọc khi thêm đầu ra media từ kịch bản
 - [WORD-AUDIO.md](WORD-AUDIO.md) — Giọng đọc từ đơn (audio/w) bản s3: vấn đề, thí nghiệm word-audio-lab, cách làm hiện tại, giấy phép, kết quả; đọc khi: sửa âm thanh từ
 - [YOUTUBE-SETUP.md](YOUTUBE-SETUP.md) — Tải short đã duyệt lên YouTube ($0): hiện đăng tay qua Studio, thiết lập một lần, dùng hằng ngày, kiểm định API compliance, bảo mật, nhiều kênh; đọc khi: đăng video lên YouTube
 - [YOUTUBE-AUDIT.md](YOUTUBE-AUDIT.md) — Hồ sơ soạn sẵn xin YouTube API audit + quota (câu trả lời form, phạm vi, lưu lượng, kịch bản video demo, việc sau khi duyệt); đọc khi: nộp form audit YouTube
@@ -180,3 +182,5 @@
 - [INDEX-ARCHIVE.md](INDEX-ARCHIVE.md) — Con trỏ tài liệu đã chuyển, thư mục con (agents/audits/legal/research/specs…), kho docs/archive/ (tách nguyên văn từ INDEX.md khi INDEX chạm 45 KB); đọc khi: tìm dòng mục lục của doc trong thư mục con hoặc archive, hoặc thêm doc mới ở đó
 - [NEW-UI-QA.md](NEW-UI-QA.md) — Soát hình các màn mới trên CI (15 ngôn ngữ × 4 khung × sáng/tối, đầu dò tràn/che/44 px/tương phản/nhân vật, contact sheet); đọc khi: sửa màn bài học, chuỗi, giáo viên, video
 - [research/latent-bugs-1611.md](research/latent-bugs-1611.md) — Soát lỗi tiềm ẩn trên main 16/11 (6 vùng, kiểm lại độc lập, nhóm theo chủ vùng, 2 P0 + 6 P1); đọc khi: nhận việc sửa lỗi trong vùng của mình
+
+- [specs/top1-upgrade-plan.md](specs/top1-upgrade-plan.md) — Kế hoạch lên top 1 từ kiểm toán CI 18/11 (so Duolingo/Speak/ELSA/Cake theo hành trình; UI/UX, nội dung, tính năng; thước đo, thứ tự); đọc khi: chọn việc nâng chất lượng, vẽ màn Stitch mới

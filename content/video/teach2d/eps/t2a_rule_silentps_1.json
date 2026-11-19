@@ -1,0 +1,141 @@
+{
+ "id": "t2a_rule_silentps_1",
+ "template": "rule",
+ "series": "Spell to Sound",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "pronunciation",
+ "lines": [
+  {
+   "id": "h",
+   "text": "The P is silent!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "At the start, p s, the P is silent. Say S.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Psychological.",
+   "pause": 0.25,
+   "speed": 0.6
+  },
+  {
+   "id": "v0",
+   "text": "Psychological.",
+   "pause": 0.3
+  },
+  {
+   "id": "p",
+   "text": "Repeat after me!",
+   "pause": 1.6
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which letter is silent in psychological?",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "P! The P is silent.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "rule": "silent-ps",
+  "title": "ps-",
+  "target": "/s/",
+  "letter": "p",
+  "say": "At the start, p s, the P is silent. Say S.",
+  "words": [
+   {
+    "w": "psychological",
+    "ipa": "/ˌsaɪkəˈlɑːdʒɪkl/",
+    "silent": [
+     0,
+     1
+    ],
+    "letter": "p",
+    "mean": "Having to do with the mind.",
+    "em": "🧠"
+   }
+  ],
+  "quiz": {
+   "stem": "Which letter is silent in psychological?",
+   "options": [
+    "P",
+    "S"
+   ],
+   "answer": 0
+  }
+ },
+ "cta": {
+  "area": "pronunciation",
+  "route": "#/pron/psychological",
+  "link": "https://lexkite.com/app/#/pron/psychological",
+  "say": "Practise this sound"
+ },
+ "hook": {
+  "line": "h",
+  "text": "The P is silent"
+ },
+ "src": {
+  "rule": "silent-ps"
+ },
+ "est": {
+  "words": 39,
+  "seconds": 25.1,
+  "wpm": 93
+ },
+ "publish": {
+  "title": "The P is silent!",
+  "keyword": "Spell to Sound",
+  "value": "At the start, p s, the P is silent. Say S.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#pronunciation",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/pron/psychological",
+  "script_words": 30,
+  "platforms": {
+   "youtube": {
+    "title": "The P is silent!",
+    "description": "At the start, p s, the P is silent. Say S.\n\nPractise this sound, free: https://lexkite.com/app/#/pron/psychological\n\nSeries: Spell to Sound · Teacher: Ama\n\n#learnenglish #englishtips #pronunciation #englishteacher",
+    "tags": [
+     "Spell to Sound",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "The P is silent!\n\nAt the start, p s, the P is silent. Say S.\n\nPractise this sound, free: https://lexkite.com/app/#/pron/psychological"
+   },
+   "instagram": {
+    "caption": "The P is silent!\n\nAt the start, p s, the P is silent. Say S.\n\nPractise this sound: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#pronunciation",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "The P is silent! #learnenglish #englishtips #pronunciation"
+   }
+  },
+  "first_comment": "Answer: P! The P is silent. At the start, p s, the P is silent. Say S. Try the full lesson and quiz here: {link}"
+ }
+}
