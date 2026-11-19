@@ -47,26 +47,33 @@
   const AVOID = '.bottom-nav, .learn-bar, .sheet, .install-nudge, [data-toast-avoid], header button, header a, .topbar button, .topbar a, #view button, #view a.btn, #view a.chip, #view [role="button"], #view .option';
   // Chọn chỗ đặt toast không đè vật cản: vị trí CSS gốc → ngay trên từng vật cản ở nửa dưới màn (≤ 55 %) → mép trên (dưới tai thỏ); hết chỗ thì giữ gốc
   function toastLift(t) {
-    t.style.removeProperty('--ty'); delete t.dataset.at; const H = g.innerHeight || document.documentElement.clientHeight || 0, W = g.innerWidth || document.documentElement.clientWidth || 0; if (!H) return;
+    t.style.removeProperty('--ty'); delete t.dataset.at; const H = g.innerHeight || document.documentElement.clientHeight || 0, W = g.innerWidth || document.documentElement.clientWidth || 0; if (!H) return true;
     const tr = t.getBoundingClientRect(), h = tr.height || 48, tw = Math.min(tr.width || W, W), x0 = (W - tw) / 2, x1 = x0 + tw;
     const base = tr.height ? H - tr.bottom + (t.classList.contains('show') ? 0 : 20) : 28; // chưa .show: translateY(20px)
     const obs = [...document.querySelectorAll(AVOID)].map(el => el.getBoundingClientRect()).filter(r => r.height && r.width && r.top < H && r.bottom > 0 && (!W || (r.left < x1 && r.right > x0)));
     const free = (top, bot) => !obs.some(r => r.top < bot && r.bottom > top);
-    if (free(H - base - h, H - base)) return;
+    if (free(H - base - h, H - base)) return true;
     const cands = obs.filter(r => r.top > H * .45).map(r => H - r.top + 10).filter(b => b > base && b <= H * .55).sort((a, b) => a - b);
     // Dời bằng transform (--ty, style.css .toast): đổi chỗ khi toast ĐANG HIỆN (màn vẽ lại) không tính là layout shift (CLS 0,26 @360)
     const at = b => { t.dataset.at = b; t.style.setProperty('--ty', (base - b) + 'px'); };
-    for (const b of cands) if (free(H - b - h, H - b)) { at(b); return; }
+    for (const b of cands) if (free(H - b - h, H - b)) { at(b); return true; }
     const top = 12;
     if (free(top, top + h)) { t.dataset.at = 'top'; t.style.setProperty('--ty', 'calc(' + top + 'px + env(safe-area-inset-top, 0px) - ' + (H - base - h) + 'px)'); return; }
     // 20/11 (Journey phone #1626: toast "Huy hiệu mới" đè nút "Làm lại"/"Sổ lỗi sai"): mép trên cũng kín → tìm khoảng hở BẤT KỲ giữa các vật cản (ngay trên/dưới từng vật cản, gần chỗ gốc nhất);
-    // vẫn không có chỗ → chỗ đè ÍT nhất (không im lặng đặt đại ở cuối danh sách cũ)
+    // vẫn không có chỗ → trả false: toastShow hoãn toast (không đè)
     const lo = 8, hi = H - h - 12, any = [...new Set(obs.flatMap(r => [H - r.top + 10, H - r.bottom - h - 10]).map(Math.round))].filter(b => b >= lo && b <= hi).sort((a, b) => Math.abs(a - base) - Math.abs(b - base));
-    for (const b of any) if (free(H - b - h, H - b)) { at(b); return; }
-    const cover = b => obs.reduce((n, r) => n + Math.max(0, Math.min(r.bottom, H - b) - Math.max(r.top, H - b - h)), 0);
-    const best = [base, ...any].reduce((m, b) => (cover(b) < cover(m) ? b : m), base);
-    if (best !== base) at(best);
+    for (const b of any) if (free(H - b - h, H - b)) { at(b); return true; }
+    return false; // LUẬT CỨNG: toast không bao giờ đè nút/CTA → không có chỗ thì hoãn (toastDefer), hiện khi màn đổi
   }
+  // Hoãn toast khi không có chỗ không đè nút: xếp hàng, thử lại mỗi khi #view đổi + mỗi 1,5 s, bỏ sau 30 s (toast chỉ là tin phụ)
+  function toastDefer(e) {
+    e.at = e.at || Date.now(); toast._last = null;
+    if (!toastQ.some(q => q[0] === e[0])) toastQ.push(e);
+    const v = document.getElementById('view'), run = () => { const t = $('#toast'); while (toastQ.length && Date.now() - (toastQ[0].at || 0) > 30000) toastQ.shift(); if (!toastQ.length) { toastDeferStop(); return; } if (t && !t._msg && !toast._sw && !modalOpen()) toastShow(...toastQ.shift()); };
+    if (!toast._di) toast._di = setInterval(run, 1500);
+    if (v && g.MutationObserver && !toast._dm) { toast._dm = new MutationObserver(() => setTimeout(run, 60)); toast._dm.observe(v, { childList: true, subtree: true }); }
+  }
+  function toastDeferStop() { clearInterval(toast._di); toast._di = 0; if (toast._dm) { toast._dm.disconnect(); toast._dm = null; } }
   function toastShow(msg, ms, o) {
     const t = $('#toast'); if (!t) return;
     if (t.classList.contains('show') || toast._sw) { // đổi chữ tại chỗ khi đang hiện = hộp đổi cỡ (CLS @#/dict) → mờ hết rồi mới đổi, dồn nhiều câu giữ câu cuối
@@ -78,9 +85,10 @@
     // chỉ toast có nút hành động mới nhận chạm (.act)
     t.classList.toggle('act', !!(o && o.action));
     if (o && o.action) { const b = document.createElement('button'); b.type = 'button'; b.className = 'toast-act'; b.textContent = o.action; b.onclick = () => { if (!t._msg || t._msg[2] !== o) return; toastHide(t); try { o.onAction && o.onAction(); } catch (e) { /* bỏ qua */ } }; t.append(' ', b); }
-    toastLift(t); t.classList.add('show');
+    if (!toastLift(t)) { t.textContent = ''; t._msg = null; t.classList.remove('act'); toastDefer([msg, ms, o]); return; } // không chỗ → hoãn, không đè
+    t.classList.add('show');
     // màn vẽ lại khi toast đang hiện → đặt lại chỗ để không đè nút mới
-    const v = document.getElementById('view'); if (v && g.MutationObserver && !toast._mo) { let q = 0; toast._mo = new MutationObserver(() => { if (q) return; q = 1; (g.requestAnimationFrame || setTimeout)(() => { q = 0; if (t._msg) toastLift(t); }); }); toast._mo.observe(v, { childList: true, subtree: true }); }
+    const v = document.getElementById('view'); if (v && g.MutationObserver && !toast._mo) { let q = 0; toast._mo = new MutationObserver(() => { if (q) return; q = 1; (g.requestAnimationFrame || setTimeout)(() => { q = 0; if (t._msg && !toastLift(t)) { const m = t._msg; clearTimeout(toast._t); t.classList.remove('show', 'act'); t._msg = null; toastDefer(m); } }); }); toast._mo.observe(v, { childList: true, subtree: true }); }
     toastTimer(t, ms);
   }
   const toastTimer = (t, ms) => { clearTimeout(toast._t); toast._t = setTimeout(() => toastHide(t), ms); };

@@ -83,6 +83,14 @@ const rows = [100, 330, 380, 440, 500, 560, 620, 680].map(y => { const c = w.doc
 w.UI.toast('Toast màn kín từ trên xuống'); await tick(280);
 { const hT = 48, bB = parseFloat(T.dataset.at) || 0, top = 740 - bB - hT, bot = 740 - bB;
   ok(T.dataset.at && T.dataset.at !== 'top' && rows.concat([{ r: { top: 0, bottom: 60 } }]).every(x => x.r.top >= bot || x.r.bottom <= top), `mép trên kín → toast vào khoảng hở, không giao nút nào (toast ${Math.round(top)}–${Math.round(bot)})`); }
+// LUẬT CỨNG (20/11): không có khoảng hở nào → toast HOÃN (không hiện, không đè), có chỗ lại (màn đổi) → hiện; khi hiện không giao với phần tử tương tác nào
+{ T.classList.remove('show'); T._msg = null; await tick(50);
+  const wall = Array.from({ length: 15 }, (_, i) => { const c = w.document.createElement('button'); $('#view').appendChild(c); const r = { top: i * 50, bottom: i * 50 + 46, left: 0, right: 360, width: 360, height: 46 }; c.getBoundingClientRect = () => r; return { c, r }; });
+  w.UI.toast('Huy hiệu mới: Cấp 5'); await tick(120);
+  ok(!shown(), 'kín hết màn (không khoảng hở ≥ toast) → toast hoãn, KHÔNG hiện đè lên nút');
+  wall.forEach(x => x.c.remove()); await tick(1800);
+  ok(shown() && T.textContent === 'Huy hiệu mới: Cấp 5', 'có chỗ trở lại → toast hoãn hiện ra: ' + T.textContent);
+  }
 rows.forEach(x => x.c.remove()); hdr.remove();
 bar.remove(); w.UI.toast('Toast trước khi vẽ lại'); delete T.dataset.at; await tick(280); // câu mới khi toast đang hiện: câu cũ mờ trước rồi mới đổi chữ (không đổi cỡ khi còn thấy = 0 CLS)
 const bar2 = w.document.createElement('div'); bar2.className = 'learn-bar'; bar2.getBoundingClientRect = () => ({ top: 600, bottom: 740, left: 0, right: 360, width: 360, height: 140 }); $('#view').appendChild(bar2); await tick(60);
