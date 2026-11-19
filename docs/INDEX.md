@@ -27,6 +27,7 @@
 - [specs/sentence-builder.md](specs/sentence-builder.md) — Xếp câu + Vì sao? theo câu (why.js, #336)
 - [specs/exam-mini-test-srs.md](specs/exam-mini-test-srs.md) — mini-test 10 phút + dải tuần + thẻ dạng yếu của #/qstats (đã duyệt 14/11); đọc khi: làm qstats/ôn dạng yếu/mini-test
 - [specs/learnability.md](specs/learnability.md) — Spec P0-H Dễ học – dễ nhớ: 12 tiêu chí sư phạm → luật máy đo tầng 0, trọng số, điểm sàn; đọc khi: sửa bộ chấm learnability.mjs hoặc nội dung bài để tăng điểm
+- [specs/spell-sound.md](specs/spell-sound.md) — series "Spell→Sound": template rule (chữ câm → âm), ngân hàng luật JSON, hook L1, cổng vùng nền tảng; đọc khi: thêm luật phát âm / sửa mẫu rule
 - [specs/home-upgrade.md](specs/home-upgrade.md) — Spec nâng cấp Home 3/11: so 5 app lớn, lát L1–L5 (cô giáo vòng nghỉ mắt mở, Home v2, lưới màn học, thử thách, lộ trình nhiều chặng), cổng CI; đọc khi: sửa Home/#/home hoặc giáo viên trên Home
 - [specs/daily-reels.md](specs/daily-reels.md) — Spec reels hằng ngày tự động 12/11: 6 định dạng, chọn chủ đề → dựng → QC → lịch → số liệu; đọc khi: thêm template reels, đổi lịch đăng hằng ngày
 - [specs/upgrade-2026-11.md](specs/upgrade-2026-11.md) — Spec nâng cấp toàn diện 11/2026: 12 hạng mục chủ gửi 04/11 (top bar, linh vật, nhập tài liệu, Tab mới, đầu vào, shadowing, sổ lỗi, lượt AI, 1v1, kho cộng đồng) so main, 3 đợt; đọc khi: làm bất kỳ hạng mục nào trong đó
