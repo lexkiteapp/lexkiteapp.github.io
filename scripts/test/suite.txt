@@ -402,6 +402,7 @@ node scripts/test/perf-flake.mjs
 node scripts/test/gate-relevance.mjs
 node scripts/test/gate-retest.mjs
 node scripts/test/native-qa-scope.mjs
+node scripts/test/pr-scope-carry.mjs
 node scripts/test/pr-unconflict.mjs
 node scripts/test/regen-conflicts.mjs
 node scripts/test/gen-pr-clean.mjs
@@ -457,6 +458,7 @@ node scripts/test/body-limit.mjs
 node scripts/test/ai-task.mjs
 node scripts/test/video-junk.mjs
 node scripts/test/dict-add.mjs
+node scripts/test/quote-english.mjs
 node scripts/test/css-notes.mjs
 node scripts/test/ci-portable.mjs
 node scripts/test/sr-only.mjs
@@ -467,6 +469,7 @@ node scripts/test/live-csp-safe.mjs
 node scripts/test/home-words.mjs
 node scripts/test/red-report.mjs
 node scripts/test/run-suite-annotate.mjs
+node scripts/test/ai-shim.mjs
 node scripts/test/prwatch.mjs
 node scripts/test/flake-tracker.mjs
 node scripts/test/lesson-lang.mjs
