@@ -70,7 +70,7 @@ export const V2REF = {
   day: 'day',
   dict: 'dict',
   feedback: 'feedback-correct',
-  'feedback-wrong': 'feedback-wrong',
+  'feedback-wrong': 'feedback-wrong-full',
   grammar: 'grammar',
   home: 'today',
   leagues: 'leagues',
