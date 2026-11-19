@@ -29,7 +29,8 @@ ap.add_argument('--layout', default='', help='short layout: corner (teacher bott
 o = ap.parse_args()
 EP = json.load(open(o.ep)); THEME = o.theme or EP['theme']; _TJ = json.load(open(f'{ROOT}/scripts/video/remotion/src/teach/theme.json')); TH = _TJ[THEME]
 MIX = (json.load(open(o.mix))['mix'].get(EP['id']) if o.mix and os.path.exists(o.mix) else None) or {}   # mix.py combination (never changes a word of the script)
-if o.format == 'short' and not o.layout and MIX.get('layout') and EP['template'] != 'rule': o.layout = MIX['layout']   # rule: always the corner layout (no teacher bubble in the platform right rail)
+if EP['template'] == 'rule': o.layout = 'corner'   # rule: always the corner layout (no teacher bubble in the platform right rail), whatever mix.json or --layout say
+elif o.format == 'short' and not o.layout and MIX.get('layout'): o.layout = MIX['layout']
 TINT = _TJ['tints'][EP['template']]   # series colour: the big canvas blob carries it, so each series is recognisable from frame 0
 HG = json.load(open(f'{o.host}/geom.json')); EMBED = o.format == 'wide'
 LAYOUTS = dict(   # same cards / timing; only where the card region, captions and teacher sit (owner 29/10: varied layouts)

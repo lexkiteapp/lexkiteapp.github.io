@@ -158,7 +158,8 @@ jobs:
           for A in dark dusk light; do [ $A = $TH ] && continue   # the other looks, for the owner's colour pick (stills only)
             python3 scripts/video/teach2d/build.py --ep $E --vo vo --host host --format ${{ matrix.fmt }} --theme $A --public $O/pub_$A --out $O/props_$A.json; done
           LAY=$(python3 -c "import json;print((json.load(open('content/video/teach2d/mix.json'))['mix'].get(json.load(open('$E'))['id']) or {}).get('layout','corner'))")
-          if [ ${{ matrix.fmt }} = short ]; then for L in corner side bubble; do [ $L = $LAY ] && continue   # the other layouts (owner 29/10: show layout variety) – stills only
+          RULE=$(python3 -c "import json;print(json.load(open('$E'))['template']=='rule')")   # rule has ONE layout (corner): no layout variants to build or still
+          if [ ${{ matrix.fmt }} = short ] && [ $RULE = False ]; then for L in corner side bubble; do [ $L = $LAY ] && continue   # the other layouts (owner 29/10: show layout variety) – stills only
             python3 scripts/video/teach2d/build.py --ep $E --vo vo --host host --format short --layout $L --public $O/pub_lay_$L --out $O/props_lay_$L.json; done; fi
           # pass 2: the rig on this timeline (same voice clock in every look/layout) -> rig.webm + rig.frames.json, then into every pub dir
           node scripts/video/teach2d/rig_host.mjs $O/props.json.timeline.json vo host | tee -a $O/host.log
@@ -186,7 +187,7 @@ jobs:
             TS=$(python3 -c "import json;T=json.load(open('$R/props.json.timeline.json'));L=list(T['lines'].values());print(' '.join(str(round((L[i]['t0']+L[i]['t1'])/2,2)) for i in (3,len(L)-3)))")
             LAY=$(python3 -c "import json;T=json.load(open('$R/props.json.timeline.json'));print(T.get('layout') or 'corner')")   # the mix layout of the real render (mix.py) – stills for the OTHER two
             for t in $TS; do ffmpeg -nostdin -v error -y -ss $t -i "$R/${{ matrix.ep }}-short.mp4" -frames:v 1 "$R/lay_${LAY}_$t.png"
-              for L in corner side bubble; do [ $L = $LAY ] && continue; npx remotion still src/index.jsx teach-short "$R/lay_${L}_$t.png" --props="$R/props_lay_$L.json" --public-dir="$R/pub_lay_$L" --frame=$(python3 -c "print(int($t*30))") --log=error; done; done
+              for L in corner side bubble; do [ $L = $LAY ] && continue; [ -f "$R/props_lay_$L.json" ] || continue; npx remotion still src/index.jsx teach-short "$R/lay_${L}_$t.png" --props="$R/props_lay_$L.json" --public-dir="$R/pub_lay_$L" --frame=$(python3 -c "print(int($t*30))") --log=error; done; done
           fi
       - name: QC after render (file, loudness, teacher visible, frames) + contact sheet
         shell: bash
