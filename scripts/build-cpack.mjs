@@ -24,7 +24,7 @@ while (todo.size) {
     const h = crypto.createHash('sha256').update(t).digest('hex').slice(0, 10), hashed = rel.replace(/\.js$/, `.${h}.js`);
     let used = cited.has(rel) ? 1 : 0;
     for (const [jf, jt] of src) { const parts = jt.split(rel); if (parts.length > 1) { used += parts.length - 1; src.set(jf, parts.join(hashed)); } }
-    if (!used) errs.push(`gói ${rel} không được js/*.js hay gói nào tham chiếu (mồ côi – xoá hoặc thêm vào BUNDLES)`);
+    if (!used) errs.push(`gói ${rel} không được js/*.js hay gói nào tham chiếu (mồ côi – xoá hoặc thêm vào BUNDLES trong web/js/bundles.js)`);
     fs.writeFileSync(path.join(root, rel), t); fs.renameSync(path.join(root, rel), path.join(root, hashed)); manifest[rel] = hashed;
   }
 }

@@ -6,7 +6,7 @@
 
 /** Danh sách registry được giữ định dạng. mark = đoạn mã đứng ngay trước dấu "{" mở registry (duy nhất trong tệp). */
 export const REGISTRIES = [
-  { file: 'web/js/app.js', mark: "const G = 'js/grammar/', BUNDLES = ", sort: false }, // thứ tự = thứ tự tải sẵn (App.prefetchAll) → không sắp
+  { file: 'web/js/bundles.js', mark: 'g.LK_BUNDLES = ', sort: false }, // đăng ký gói tải lười; thứ tự = thứ tự tải sẵn (App.prefetchAll) → không sắp
   { file: 'web/js/app.js', mark: 'const ROUTE_BUNDLE = ' },
   { file: 'web/js/app.js', mark: 'const BCSS = ' },
   { file: 'scripts/build-stitch-css.mjs', mark: 'const V2DATA = ' },
