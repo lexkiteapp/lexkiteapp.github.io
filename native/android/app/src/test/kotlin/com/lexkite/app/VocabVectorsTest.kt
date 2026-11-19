@@ -102,7 +102,7 @@ class VocabVectorsTest {
     private val words: WebWords by lazy {
         val app = File(web, "js/bundles.js").readText() // gói tải lười đăng ký ở bundles.js (không còn ở app.js)
         fun pack(k: String) = Regex("\\b$k: (\\[[^\\]]+\\])").find(app)!!.groupValues[1].let { l -> Regex("'([^']+)'").findAll(l).map { it.groupValues[1] }.toList() }
-        val libs = (pack("words") + pack("tsl")).filter { it.startsWith("js/lib/") }.map { File(web, it).readText() }
+        val libs = (pack("words") + pack("tsl")).filter { it.startsWith("js/lib/") || it.startsWith("cpack/lib/") }.map { File(web, it).readText() }
         WebWords.fromScripts(File(web, "js/data.js").readText(), libs)
     }
     private val verbData: VerbData by lazy { VerbData.parse(File(gen, "verbs.json").readText()) }

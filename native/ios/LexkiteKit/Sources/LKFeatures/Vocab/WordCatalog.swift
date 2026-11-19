@@ -9,6 +9,7 @@ public actor WordCatalogRemote {
     public static let shared = WordCatalogRemote()
     /// load order of the web app
     static let libs = ["topics-more", "skills", "awl", "ngsl", "ngsl2", "office", "tsl-a", "tsl-b", "domain-a", "domain-b", "exam-vocab", "exam-vocab2", "exam-vocab3", "nawl", "bsl"]
+    static let moved: Set<String> = ["domain-a", "domain-b", "exam-vocab", "exam-vocab2", "exam-vocab3"]
     private let source: LessonTextSource
     private var memo: TopicCatalog?
 
@@ -19,7 +20,12 @@ public actor WordCatalogRemote {
         guard let data = await source.text("js/data.js") else { return StudyCatalog.bundled() }
         let src = source
         let texts: [String?] = await withTaskGroup(of: (Int, String?).self) { g in
-            for (n, l) in Self.libs.enumerated() { g.addTask { (n, await src.text("js/lib/\(l).js")) } }
+            // 19/11: 5 kho từ tải lười dời sang cpack/lib (tên theo mã băm → cpack/manifest.json); còn lại vẫn ở js/lib
+            let manifest: [String: String] = await src.text("cpack/manifest.json").flatMap { try? JSONSerialization.jsonObject(with: Data($0.utf8)) as? [String: String] } ?? [:]
+            for (n, l) in Self.libs.enumerated() {
+                let path = Self.moved.contains(l) ? (manifest["cpack/lib/\(l).js"] ?? "cpack/lib/\(l).js") : "js/lib/\(l).js"
+                g.addTask { (n, await src.text(path)) }
+            }
             var out = [String?](repeating: nil, count: Self.libs.count)
             for await (n, t) in g { out[n] = t }
             return out
