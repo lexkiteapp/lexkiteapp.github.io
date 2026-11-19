@@ -1,7 +1,7 @@
 {
  "id": "t2a_rule_silentwr_1",
  "template": "rule",
- "series": "Spell → Sound",
+ "series": "Spell to Sound",
  "part": 1,
  "theme": "dusk",
  "teacher": "carlos",
@@ -122,7 +122,7 @@
  },
  "publish": {
   "title": "The W is silent!",
-  "keyword": "Spell → Sound",
+  "keyword": "Spell to Sound",
   "value": "In w r, the W is silent. Say R.",
   "hashtags": [
    "#learnenglish",
@@ -135,9 +135,9 @@
   "platforms": {
    "youtube": {
     "title": "The W is silent!",
-    "description": "In w r, the W is silent. Say R.\n\nPractise this sound, free: https://lexkite.com/app/#/pron/write\n\nSeries: Spell → Sound · Teacher: Carlos\n\n#learnenglish #englishtips #pronunciation #englishteacher",
+    "description": "In w r, the W is silent. Say R.\n\nPractise this sound, free: https://lexkite.com/app/#/pron/write\n\nSeries: Spell to Sound · Teacher: Carlos\n\n#learnenglish #englishtips #pronunciation #englishteacher",
     "tags": [
-     "Spell → Sound",
+     "Spell to Sound",
      "learn english",
      "english lesson"
     ]
