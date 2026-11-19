@@ -29,9 +29,12 @@ const tick = () => new Promise(r => setTimeout(r, 20));
   ok(!!d.querySelector('[data-close][aria-label]'), 'nút đóng có aria-label');
   // báo tôi: lưu, không mở thêm hộp, nút khóa
   d.querySelector('[data-notify="fr"]').click(); ok(JSON.parse(w.localStorage.getItem('lk.tlnotify')).join() === 'fr', 'lưu lk.tlnotify'); ok(d.querySelector('[data-notify="fr"]').disabled && !d.getElementById('modal').hidden, 'nút khóa, hộp vẫn là bảng chọn (không popup mới)');
+  ok(rows[0].querySelector('.tlp-lv') && /A1–C2/.test(rows[1].querySelector('.tlp-lv').textContent), 'mỗi khóa có nhãn cấp A1–C2');
+  ok(rows[0].querySelector('.tlp-cur') && !rows[1].querySelector('.tlp-cur'), 'chỉ khóa hiện tại có nhãn "Đang học"');
   // chọn es
   rows[1].click(); ok(w.Target.cur() === 'es', 'Target.set(es)'); ok(w.location.hash === '#/practice/esd', 'điều hướng về Target.homeOf(es): ' + w.location.hash);
   ok(d.getElementById('modal').hidden, 'bảng đóng sau khi chọn');
+  ok(!!d.querySelector('.tlp-skel[role=status]') && /Español/.test(d.querySelector('.tlp-skel').textContent), 'đổi khóa → khung xương có cờ + tên khóa mới (không màn trống)');
   // quay lại en → Hôm nay
   await w.TLPick.open(); await tick(); d.querySelector('button.tlp-row[data-tl="en"]').click(); ok(w.Target.cur() === 'en' && w.location.hash === '#/home', 'về en → #/home');
 }
@@ -55,6 +58,6 @@ const tick = () => new Promise(r => setTimeout(r, 20));
 // 6) onboarding: bước 'lang' chỉ khi ≥ 2 ngôn ngữ; Target.set chỉ khi bấm Tiếp tục (đã onboard xong không bị hỏi: bước chỉ chạy trong luồng thiết lập)
 { const o = rd('web/js/onboard.js'); ok(/Target\.avail\(\)\.length > 1 \? \['lang', \.\.\.BASE\] : BASE/.test(o), 'onboard: bước lang khi avail ≥ 2'); ok(/pick\.tl \|\| Target\.cur\(\)/.test(o), 'onboard: mặc định = ngôn ngữ hiện tại (en)'); }
 // 7) nối dây: bundle + css + hook
-{ const a = rd('web/js/app.js'); ok(/tlpick: \['cpack\/tl-app\/tl-pick\.js'\]/.test(a) && /tlpick: \['css\/tl-pick\.css'\]/.test(a) && /App\.need\('tlpick'\)/.test(a), 'app.js: gói + css + boot'); ok(/TLPick\.head\(root\)/.test(rd('web/js/ux1.js')) && /TLPick\.card\(root\)/.test(rd('web/js/ux1-me.js')), 'ux1 + tab Tôi gắn cờ/thẻ');
+{ const a = rd('web/js/app.js'); ok(/tlpick: \['cpack\/tl-app\/tl-pick\.js'\]/.test(rd('web/js/bundles.js')) && /tlpick: \['css\/tl-pick\.css'\]/.test(a) && /App\.need\('tlpick'\)/.test(a), 'app.js: gói + css + boot'); ok(/TLPick\.head\(root\)/.test(rd('web/js/ux1.js')) && /TLPick\.card\(root\)/.test(rd('web/js/ux1-me.js')), 'ux1 + tab Tôi gắn cờ/thẻ');
   ok(!/#[0-9a-fA-F]{3,8}\b/.test(rd('web/css/tl-pick.css')), 'css không hex'); }
 console.log(fails ? `✗ tl-picker: ${fails}/${n} lỗi` : `✓ tl-picker: ${n}/${n} đạt`); process.exit(fails ? 1 : 0);

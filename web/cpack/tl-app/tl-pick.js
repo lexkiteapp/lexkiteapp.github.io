@@ -23,17 +23,24 @@
       return `<li class="tlp-row soon" data-tl="${id}">${flag(id)}<div class="tlp-body">${name}<span class="tlp-pill">${esc(tr('Sắp ra mắt'))}</span><span class="tlp-sub">${esc(SUB()[id] || '')}</span></div>`
         + `<button type="button" class="tlp-notify" data-notify="${id}" aria-pressed="${got}"${got ? ' disabled' : ''}>${esc(got ? tr('Sẽ báo bạn khi có') : tr('Báo tôi khi có'))}</button></li>`; }
     const on = id === cur;
-    return `<li class="tlp-li"><button type="button" class="tlp-row${on ? ' on' : ''}" role="radio" aria-checked="${on}" data-tl="${id}">${flag(id)}<span class="tlp-body">${name}<span class="tlp-sub">${esc(SUB()[id] || '')}</span>`
+    return `<li class="tlp-li"><button type="button" class="tlp-row${on ? ' on' : ''}" role="radio" aria-checked="${on}" data-tl="${id}">${flag(id)}<span class="tlp-body"><span class="tlp-top">${name}<span class="tlp-lv" translate="no">A1–C2</span>${on ? `<span class="tlp-pill tlp-cur">${esc(tr('Đang học'))}</span>` : ''}</span><span class="tlp-sub">${esc(SUB()[id] || '')}</span>`
       + `<span class="tlp-bar" role="img" aria-label="${esc(tr('{n} từ đã học', { n: s.n }))}"><i style="width:${pct}%"></i></span><span class="tlp-cnt">${esc(tr('{n} từ đã học', { n: s.n }))}</span></span>`
       + `<span class="tlp-tick" aria-hidden="true">${on ? '✓' : ''}</span></button></li>`;
   };
   function choose(id) {
     const T0 = T(); if (!T0.avail().includes(id)) return;
     const was = T0.cur(); if (id !== was) T0.set(id);
-    close(); const home = T0.homeOf(id) || '#/home';
+    close(); const home = T0.homeOf(id) || '#/home'; if (id !== was) skel(id);
     if (location.hash === home) { try { g.dispatchEvent(new HashChangeEvent('hashchange')); } catch (e) { location.reload(); } } else location.hash = home;
     paint();
   }
+  // Chuyển khóa: lớp khung xương (cờ + tên + thanh mờ) phủ vùng nội dung tới khi trang mới vẽ xong (gói tải lười) – không để màn trống/tối (tối đa 4 s)
+  function skel(id) { const v = document.getElementById('view'); if (!v) return; const old = document.querySelector('.tlp-skel'); if (old) old.remove();
+    const r = T().table(id), o = document.createElement('div'); o.className = 'tlp-skel'; o.setAttribute('role', 'status'); o.setAttribute('aria-live', 'polite'); o.setAttribute('aria-label', tr('Đang tải…'));
+    o.innerHTML = `<div class="tlp-skel-head"><span class="tlp-flag" aria-hidden="true">${r.em}</span><span class="tlp-name" translate="no" lang="${id}">${esc(r.name)}</span></div><i></i><i></i><i></i>`;
+    document.body.appendChild(o); const t0 = Date.now(); let done = 0;
+    const end = () => { if (done) return; done = 1; mo.disconnect(); clearTimeout(tm); o.classList.add('out'); setTimeout(() => o.remove(), 200); };
+    const mo = new MutationObserver(() => { if (Date.now() - t0 > 250 && v.firstElementChild) setTimeout(end, 150); }); mo.observe(v, { childList: true, subtree: true }); const tm = setTimeout(end, 4000); }
   function close() { const m = document.getElementById('modal'); if (m && !m.hidden && m.querySelector('.tlp-sheet')) { if (g.UI && UI.closeModal) UI.closeModal(); else m.hidden = true; } }
   async function open() {
     if (!show()) return; const cur = T().cur(), st = await stats();
