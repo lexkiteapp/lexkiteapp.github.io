@@ -532,7 +532,7 @@ function wireReader(P, r, o = {}) {
     for (const m of pass.matchAll(/<span class="sent">([\s\S]*?)<\/span>(?=<span class="sent">|<\/p>)/g)) { const toks = tokensOf(m[1]), sentEl = el(P, '.sent', { textContent: plainOf(toks) }); sents.push(sentEl);
       for (const t of toks) if (Array.isArray(t)) { const tw = el(P, '.tw', { dataset: { w: t[1], ...(t[3] ? { ph: t[3] } : {}) }, classes: ['tw', ...t[2].split(' ').filter(Boolean)], removeAttribute() {} }); tw.closest = s => (s === '.tw' ? tw : s === '.sent' ? sentEl : null); tws.push(tw); } }
     const chips = [...h.matchAll(/<button class="hl-chip (\w+) ?(on)?" data-hl="(\w+)"[^>]*>/g)].map(m => el(P, '[data-hl]', { dataset: { hl: m[3] }, classes: m[2] ? ['on'] : [], setAttribute() {} }));
-    return (cache = { sents, tws, chips, passageClasses: (/<div class="passage ([^"]*)" id="passage">/.exec(h) || [])[1] || '' }); };
+    return (cache = { sents, tws, chips, passageClasses: (/<div [^>]*class="passage ([^"]*)" id="passage">/.exec(h) || [])[1] || '' }); };
   const D = P.E.dom, L = (sel, fn) => D.resolveList(sel, fn);
   L('#passage .tw.kw', () => parse().tws.filter(t => t._cls.has('kw'))); L('#passage .tw.awl', () => parse().tws.filter(t => t._cls.has('awl')));
   L('#passage .tw.link, #passage .tw.col', () => parse().tws.filter(t => t._cls.has('link') || t._cls.has('col'))); L('#passage .tw.mine', () => parse().tws.filter(t => t._cls.has('mine')));
@@ -565,7 +565,7 @@ async function readerVectors() {
   { const { P, r, W } = await base({}); const chips = P.E.dom.$$('[data-hl]'); const seq = []; W.parse().passageClasses.split(' ').filter(Boolean).forEach(x => P.$('#passage')._cls.add(x));
     for (const k of ['awl', 'kw', 'mine', 'link']) { chips.find(c => c.dataset.hl === k).onclick(); seq.push({ toggled: k, settings: lastW(P, 'settings', 'hl'), passage: [...P.$('#passage')._cls].sort() }); }
     out.actions.push({ id: 'highlight-toggle', why: 'each chip toggles class "on" and hl-<k> on the passage; settings.hl = the chips that are on, space-joined in DOM order (kw awl link mine) and saved (App.saveSettings)', input: { reading: r.id, start: 'kw', toggles: ['awl', 'kw', 'mine', 'link'] }, out: { steps: seq } }); note('read', 'highlight-toggle', P); }
-  { const { P, r } = await base({ settings: { hl: 'kw' } }); out.render.push({ id: 'settings-hl-kw', why: 'settings.hl = "kw" → only the keyword highlight is on', input: { settingsHl: 'kw' }, out: { passageClasses: readInit(P, r, { parse: () => ({ passageClasses: (/<div class="passage ([^"]*)" id="passage">/.exec(P.view.innerHTML) || [])[1] || '', sents: [], tws: [] }) }).passageClasses } }); }
+  { const { P, r } = await base({ settings: { hl: 'kw' } }); out.render.push({ id: 'settings-hl-kw', why: 'settings.hl = "kw" → only the keyword highlight is on', input: { settingsHl: 'kw' }, out: { passageClasses: readInit(P, r, { parse: () => ({ passageClasses: (/<div [^>]*class="passage ([^"]*)" id="passage">/.exec(P.view.innerHTML) || [])[1] || '', sents: [], tws: [] }) }).passageClasses } }); }
   // ---- word popup ----
   const popFlow = async (id, why, o) => {
     const { P, r, W } = await base({ cards: o.cards, learnLang: o.learnLang, dict: o.dict, settings: o.settings || { autoSpeak: false }, words: [o.word] }); const created = []; const ce = P.sb.document.createElement; P.sb.document.createElement = () => { const e = ce(); created.push(e); return e; };
