@@ -1,3 +1,4 @@
+# ci-policy: fast-lane – chỉ chạy khi đổi chính script/workflow chụp (đường dẫn hẹp) hoặc chạy tay
 # Chụp mọi màn chính (375/1440 × sáng/tối) để soát giao diện bằng mắt – chạy tay (docs/audit/ui-audit-1911.md). Artifact 5 ngày, không commit ảnh.
 name: UI audit shots
 on:
