@@ -94,19 +94,13 @@
    "rows": [
     [
      [
-      "Wait, \"I",
+      "Stop \"I",
       "white"
      ]
     ],
     [
      [
       "think\"",
-      "yellow"
-     ]
-    ],
-    [
-     [
-      "again?",
       "yellow"
      ]
     ]
@@ -143,7 +137,7 @@
       "hook": true,
       "runs": [
        [
-        "Wait, \"I"
+        "Stop \"I"
        ]
       ]
      },
@@ -153,15 +147,6 @@
       "runs": [
        [
         "think\""
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "again?"
        ]
       ]
      }
@@ -256,7 +241,7 @@
     ]
    }
   ],
-  "hook_text": "Wait, \"I think\" again?",
+  "hook_text": "Stop \"I think\"",
   "end_line": "c"
  },
  "embed": {

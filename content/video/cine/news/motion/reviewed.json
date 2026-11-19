@@ -1141,7 +1141,7 @@
   },
   "mo_tp_collocation_do-homework": {
    "template": "collocation",
-   "hook": "Don't say \"make homework.\"",
+   "hook": "Make homework?",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "content/video/templates example vars (reviewed) via tpl2motion.py 15/11/2026",
@@ -1157,7 +1157,7 @@
   },
   "mo_tp_confusing_pair_affect-effect": {
    "template": "confusing-pair",
-   "hook": "I mix them up in every essay.",
+   "hook": "Affect or effect?",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "content/video/templates example vars (reviewed) via tpl2motion.py 15/11/2026",
@@ -1172,7 +1172,7 @@
   },
   "mo_tp_idiom_vs_textbook_circle-back": {
    "template": "idiom-vs-textbook",
-   "hook": "Let's circle back on this.",
+   "hook": "Circle back?",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "content/video/templates example vars (reviewed) via tpl2motion.py 15/11/2026",
@@ -1188,7 +1188,7 @@
   },
   "mo_tp_idiom_vs_textbook_im-down": {
    "template": "idiom-vs-textbook",
-   "hook": "Wait, \"I'm down\" means sad?",
+   "hook": "I'm down?",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "content/video/templates example vars (reviewed) via tpl2motion.py 15/11/2026",
@@ -1220,7 +1220,7 @@
   },
   "mo_tp_ielts_writing_phrase_firmly-believe": {
    "template": "ielts-writing-phrase",
-   "hook": "Wait, \"I think\" again?",
+   "hook": "Stop \"I think\"",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "content/video/templates example vars (reviewed) via tpl2motion.py 15/11/2026",
@@ -1300,7 +1300,7 @@
   },
   "mo_tp_pronunciation_pair_ship-sheep": {
    "template": "pronunciation-pair",
-   "hook": "So I just told everyone I'm traveling by sheep?",
+   "hook": "Ship or sheep?",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "content/video/templates example vars (reviewed) via tpl2motion.py 15/11/2026",
@@ -1449,7 +1449,7 @@
   },
   "mo_tp_roleplay_supermarket-eggs": {
    "template": "roleplay",
-   "hook": "Wait, where are the eggs?",
+   "hook": "Where are eggs?",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "content/video/templates example vars (reviewed) via tpl2motion.py 15/11/2026",
@@ -1514,7 +1514,7 @@
   },
   "mo_tp_upgrade_your_english_exhausted": {
    "template": "upgrade-your-english",
-   "hook": "Stop saying \"very tired.\"",
+   "hook": "Not \"very tired\"",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "content/video/templates example vars (reviewed) via tpl2motion.py 15/11/2026",

@@ -84,26 +84,8 @@
    "rows": [
     [
      [
-      "So I just",
+      "Ship or",
       "white"
-     ]
-    ],
-    [
-     [
-      "told",
-      "yellow"
-     ]
-    ],
-    [
-     [
-      "everyone I'm",
-      "yellow"
-     ]
-    ],
-    [
-     [
-      "traveling by",
-      "yellow"
      ]
     ],
     [
@@ -145,34 +127,7 @@
       "hook": true,
       "runs": [
        [
-        "So I just"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "told"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "everyone I'm"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "traveling by"
+        "Ship or"
        ]
       ]
      },
@@ -276,7 +231,7 @@
     ]
    }
   ],
-  "hook_text": "So I just told everyone I'm traveling by sheep?",
+  "hook_text": "Ship or sheep?",
   "end_line": "c"
  },
  "embed": {

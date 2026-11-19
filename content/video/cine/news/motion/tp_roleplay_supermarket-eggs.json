@@ -94,14 +94,8 @@
    "rows": [
     [
      [
-      "Wait, where",
+      "Where are",
       "white"
-     ]
-    ],
-    [
-     [
-      "are the",
-      "yellow"
      ]
     ],
     [
@@ -143,16 +137,7 @@
       "hook": true,
       "runs": [
        [
-        "Wait, where"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "are the"
+        "Where are"
        ]
       ]
      },
@@ -283,7 +268,7 @@
     ]
    }
   ],
-  "hook_text": "Wait, where are the eggs?",
+  "hook_text": "Where are eggs?",
   "end_line": "c"
  },
  "embed": {

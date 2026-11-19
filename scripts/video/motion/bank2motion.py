@@ -31,7 +31,15 @@ def fit(t, n=40):   # a summary card is 2 wrapped lines (~22 chars each at the b
     w = short(t, n).split(); 
     while len(w) > 3 and w[-1].lower().strip(",.") in DANGLE: w.pop()   # no sentence ending on a function word
     return ' '.join(w)
+def hook2(t, rows=2, n=12):   # the hook card is chip + at most 2 hook lines (a 3rd line is 536 px > the 401 px free above the head): whole words that fit, no dangling function word
+    w = t.split(); out = []
+    while w:
+        out.append(w.pop(0))
+        if len(NM.split_hook(' '.join(out), n)) > rows: out.pop(); break
+    while len(out) > 2 and out[-1].lower().strip('",.?!') in DANGLE | {'every', 'just', 'only', 'so', 'told'}: out.pop()
+    return ' '.join(out) if out else t
 def base(kind, r, tpl, lines, motion, hook_text, base_kind):
+    hook_text = hook2(hook_text)
     k = NM.BASE[base_kind]; v = h(r['id'] + tpl, 12); teacher = ('ama', 'carlos')[v % 2]; src = NM.BASE['mistake' if teacher == 'ama' else 'drill']
     hl, pr = NM.hook_parts(hook_text)
     motion['top'][0]['rows'] = [motion['top'][0]['rows'][0]] + hl

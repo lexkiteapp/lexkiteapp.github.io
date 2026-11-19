@@ -25,14 +25,17 @@ def upgrade(v): return v['hookLine'], [S('BORING', 'coral', v['boring'], v['weak
 def wotd(v): return v['hookLine'], [S(None, None, v['question']), S('MEANING', 'teal', f"{v['word']} means {v['meaning']}.", v['word'], v['meaning']), S('EXAMPLE', 'gold', v['example'], v['example'])], v['tip'], 'Word of the day'
 STEPS = {'collocation': collocation, 'confusing-pair': confusing, 'idiom-vs-textbook': idiom, 'ielts-speaking': ielts_s, 'ielts-writing-phrase': ielts_w, 'irregular-verb': irregular, 'phrasal-verb': phrasal, 'polite-request': polite, 'pronunciation-pair': pron, 'roleplay': roleplay, 'three-words': three, 'upgrade-your-english': upgrade, 'word-of-the-day': wotd}
 def row(tpl, slug, v): return dict(id=f'tp_{tpl.replace("-", "_")}_{slug}'[:60], point=f'{tpl}: {slug}', topic=tpl.replace('-', ' '), cat=tpl, type=tpl)
+# hook CARD (what is on screen; the spoken hook line is unchanged): chip + at most 2 lines of <= 12 chars, written, not cut from the sentence
+HOOK_CARD = {'collocation:do-homework': 'Make homework?', 'confusing_pair:affect-effect': 'Affect or effect?', 'idiom_vs_textbook:circle-back': 'Circle back?', 'idiom_vs_textbook:im-down': "I'm down?",
+             'ielts_writing_phrase:firmly-believe': 'Stop "I think"', 'pronunciation_pair:ship-sheep': 'Ship or sheep?', 'roleplay:supermarket-eggs': 'Where are eggs?', 'upgrade_your_english:exhausted': 'Not "very tired"'}
 def steps_spec(tpl, slug, v):
-    hook, steps, tip, label = STEPS[tpl](v); r = row(tpl, slug, v); lines = [BM.line('h', hook)]; tiles = []
+    hook, steps, tip, label = STEPS[tpl](v); card = HOOK_CARD.get(f'{tpl.replace("-", "_")}:{slug}', hook); r = row(tpl, slug, v); lines = [BM.line('h', hook)]; tiles = []
     for i, s in enumerate(steps):
         lines.append(BM.line(f's{i}', s['say']))
         if s['tag']: tiles.append(dict(t='tile', tag=s['tag'], tone=s['tone'], lines=[[[BM.short(s['sub'], 46) if s['sub'] else ' ', 'muted']]], ex=[[BM.short(s['card'], 46), s['tone']]], ex_at=[f's{i}', 0], at=[f's{i}', 0]))
     lines.append(BM.line('t', f'Tip: {tip}'))
     top = [BM.hookcard(label), dict(id='sum', at=['t', 0], rows=[BM.chip('Tip', 'gold'), BM.ln(BM.fit(tip))])]
-    first = tiles[0]['at']; sp = BM.base(tpl, r, tpl, lines, dict(top=top, col=[dict(t='card', id='rules', at=first, rows=tiles[:3])]), hook, 'tip'); sp['id'] = 'mo_' + r['id']; sp['uses']['template'] = tpl; return sp
+    first = tiles[0]['at']; sp = BM.base(tpl, r, tpl, lines, dict(top=top, col=[dict(t='card', id='rules', at=first, rows=tiles[:3])]), card, 'tip'); sp['id'] = 'mo_' + r['id']; sp['uses']['template'] = tpl; return sp
 def quiz(tpl, slug, v):
     r = row(tpl, slug, v); a, b = v['optionA'], v['optionB']; right = 0 if v['answer'].strip().lower().startswith("it's a") or v['answer'].strip().lower().startswith('a,') else 1
     o = f"A: {a.rstrip('.')}? Or B: {b.rstrip('.')}?"; ot = o.split(); ia, ib = ot.index('A:') + 1, ot.index('B:') + 1

@@ -84,19 +84,13 @@
    "rows": [
     [
      [
-      "I mix them",
+      "Affect or",
       "white"
      ]
     ],
     [
      [
-      "up in every",
-      "yellow"
-     ]
-    ],
-    [
-     [
-      "essay.",
+      "effect?",
       "yellow"
      ]
     ]
@@ -133,7 +127,7 @@
       "hook": true,
       "runs": [
        [
-        "I mix them"
+        "Affect or"
        ]
       ]
      },
@@ -142,16 +136,7 @@
       "hook": true,
       "runs": [
        [
-        "up in every"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "essay."
+        "effect?"
        ]
       ]
      }
@@ -246,7 +231,7 @@
     ]
    }
   ],
-  "hook_text": "I mix them up in every essay.",
+  "hook_text": "Affect or effect?",
   "end_line": "c"
  },
  "embed": {

@@ -89,19 +89,13 @@
    "rows": [
     [
      [
-      "Stop saying",
+      "Not \"very",
       "white"
      ]
     ],
     [
      [
-      "\"very",
-      "yellow"
-     ]
-    ],
-    [
-     [
-      "tired.\"",
+      "tired\"",
       "yellow"
      ]
     ]
@@ -138,7 +132,7 @@
       "hook": true,
       "runs": [
        [
-        "Stop saying"
+        "Not \"very"
        ]
       ]
      },
@@ -147,16 +141,7 @@
       "hook": true,
       "runs": [
        [
-        "\"very"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "tired.\""
+        "tired\""
        ]
       ]
      }
@@ -278,7 +263,7 @@
     ]
    }
   ],
-  "hook_text": "Stop saying \"very tired.\"",
+  "hook_text": "Not \"very tired\"",
   "end_line": "c"
  },
  "embed": {

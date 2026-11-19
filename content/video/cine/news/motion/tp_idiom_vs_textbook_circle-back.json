@@ -89,20 +89,8 @@
    "rows": [
     [
      [
-      "Let's circle",
+      "Circle back?",
       "white"
-     ]
-    ],
-    [
-     [
-      "back on",
-      "yellow"
-     ]
-    ],
-    [
-     [
-      "this.",
-      "yellow"
      ]
     ]
    ],
@@ -138,25 +126,7 @@
       "hook": true,
       "runs": [
        [
-        "Let's circle"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "back on"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "this."
+        "Circle back?"
        ]
       ]
      }
@@ -251,7 +221,7 @@
     ]
    }
   ],
-  "hook_text": "Let's circle back on this.",
+  "hook_text": "Circle back?",
   "end_line": "c"
  },
  "embed": {

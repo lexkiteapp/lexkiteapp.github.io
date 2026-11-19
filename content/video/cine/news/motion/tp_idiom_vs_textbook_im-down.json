@@ -89,20 +89,8 @@
    "rows": [
     [
      [
-      "Wait, \"I'm",
+      "I'm down?",
       "white"
-     ]
-    ],
-    [
-     [
-      "down\" means",
-      "yellow"
-     ]
-    ],
-    [
-     [
-      "sad?",
-      "yellow"
      ]
     ]
    ],
@@ -138,25 +126,7 @@
       "hook": true,
       "runs": [
        [
-        "Wait, \"I'm"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "down\" means"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "sad?"
+        "I'm down?"
        ]
       ]
      }
@@ -251,7 +221,7 @@
     ]
    }
   ],
-  "hook_text": "Wait, \"I'm down\" means sad?",
+  "hook_text": "I'm down?",
   "end_line": "c"
  },
  "embed": {

@@ -89,19 +89,13 @@
    "rows": [
     [
      [
-      "Don't say",
+      "Make",
       "white"
      ]
     ],
     [
      [
-      "\"make",
-      "yellow"
-     ]
-    ],
-    [
-     [
-      "homework.\"",
+      "homework?",
       "yellow"
      ]
     ]
@@ -138,7 +132,7 @@
       "hook": true,
       "runs": [
        [
-        "Don't say"
+        "Make"
        ]
       ]
      },
@@ -147,16 +141,7 @@
       "hook": true,
       "runs": [
        [
-        "\"make"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "homework.\""
+        "homework?"
        ]
       ]
      }
@@ -251,7 +236,7 @@
     ]
    }
   ],
-  "hook_text": "Don't say \"make homework.\"",
+  "hook_text": "Make homework?",
   "end_line": "c"
  },
  "embed": {
