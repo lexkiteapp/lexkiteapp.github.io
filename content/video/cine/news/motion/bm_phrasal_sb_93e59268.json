@@ -24,9 +24,9 @@
  },
  "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
  "cta": {
-  "area": "situational",
-  "link": "https://lexkite.com/app/",
-  "say": "Practice free on lexkite.com"
+  "area": "phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Practice it free"
  },
  "series": {
   "name": "Money",
@@ -97,18 +97,6 @@
       "Stop saying",
       "white"
      ]
-    ],
-    [
-     [
-      "'more or",
-      "yellow"
-     ]
-    ],
-    [
-     [
-      "not?",
-      "yellow"
-     ]
     ]
    ],
    "align": "l"
@@ -144,24 +132,6 @@
       "runs": [
        [
         "Stop saying"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "'more or"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "not?"
        ]
       ]
      }
@@ -264,7 +234,7 @@
     ]
    }
   ],
-  "hook_text": "Stop saying 'more or not?",
+  "hook_text": "Stop saying",
   "end_line": "c"
  },
  "embed": {

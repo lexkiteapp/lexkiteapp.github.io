@@ -24,9 +24,9 @@
  },
  "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
  "cta": {
-  "area": "misunderstanding",
-  "link": "https://lexkite.com/app/",
-  "say": "Practice free on lexkite.com"
+  "area": "grammar-check",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Practice it free"
  },
  "series": {
   "name": "Shopping",
@@ -94,20 +94,8 @@
    "rows": [
     [
      [
-      "Water is a",
+      "Water is",
       "white"
-     ]
-    ],
-    [
-     [
-      "luxury. I",
-      "yellow"
-     ]
-    ],
-    [
-     [
-      "need it.",
-      "yellow"
      ]
     ]
    ],
@@ -144,25 +132,7 @@
       "hook": true,
       "runs": [
        [
-        "Water is a"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "luxury. I"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "need it."
+        "Water is"
        ]
       ]
      }
@@ -206,7 +176,7 @@
     ]
    }
   ],
-  "hook_text": "Water is a luxury. I need it.",
+  "hook_text": "Water is",
   "end_line": "c"
  },
  "embed": {

@@ -17,14 +17,44 @@ def h(s, m): return int(hashlib.sha256(s.encode()).hexdigest(), 16) % m
 def sent(t): return t.strip()
 def line(i, t, gap=0.7): return dict(id=i, text=t, gap=gap)
 def hook_of(r): return re.sub(r'\s+', ' ', r['hook']).strip(" '\"")
+# the CTA must name a real ecosystem area with its exact link (qc_v9 'cta' gate); the old r.get('cat') was a content tag, not an area
+CTA_AREA = {'collocation': 'phrases', 'confusing-pair': 'word-usage', 'idiom-vs-textbook': 'phrases', 'ielts-speaking': 'ielts', 'ielts-writing-phrase': 'writing-ielts', 'irregular-verb': 'verbs',
+            'phrasal-verb': 'phrases', 'polite-request': 'speaking', 'pronunciation-pair': 'pronunciation', 'quiz-ab': 'grammar', 'roleplay': 'roleplay', 'spot-the-mistake': 'grammar-check',
+            'three-words': 'dictionary', 'upgrade-your-english': 'paraphrase', 'word-of-the-day': 'dictionary',
+            'tf': 'grammar', 'gap': 'grammar', 'pair': 'word-usage', 'phrasal': 'phrases', 'pattern': 'grammar', 'native': 'phrases', 'recall': 'vocab-review', 'spot': 'grammar-check'}
+ECO_LINK = {a['id']: a['link'] for a in json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), '../../../content/video/ecosystem.json')))['areas']}
 def short(t, n=44): return t if len(t) <= n else t[:n].rsplit(' ', 1)[0]
+DANGLE = {'a', 'an', 'the', 'to', 'of', 'in', 'at', 'on', 'for', 'with', 'under', 'by', 'and', 'or', 'but', 'i', "i'm", "i'd", 'is', 'are', 'it', 'that', 'your', 'my', 'before', 'from', 'as', 'so', 'if'}
+def fit(t, n=40):   # a summary card is 2 wrapped lines (~22 chars each at the body size): keep whole sentences (else whole clauses) that fit, never a cut-off one
+    t = t.strip()
+    if len(t) <= n: return t
+    for sep in (r'(?<=[.!?]) ', r'(?<=[.!?,;:]) '):
+        out = ''
+        for c in re.split(sep, t):
+            if len((out + ' ' + c).strip()) > n: break
+            out = (out + ' ' + c).strip()
+        if len(out) >= 10: return out.rstrip(',;:')
+    w = short(t, n).split(); 
+    while len(w) > 3 and w[-1].lower().strip(",.") in DANGLE: w.pop()   # no sentence ending on a function word
+    return ' '.join(w)
+def hook2(t, rows=2, n=12):   # the hook card is chip + at most 2 hook lines (a 3rd line is 536 px > the 401 px free above the head): whole words that fit, no dangling function word
+    w = t.split(); out = []
+    while w:
+        out.append(w.pop(0))
+        if len(NM.split_hook(' '.join(out), n)) > rows: out.pop(); break
+    while len(out) > 2 and out[-1].lower().strip('",.?!') in DANGLE | {'every', 'just', 'only', 'so', 'told'}: out.pop()
+    return ' '.join(out) if out else t
 def base(kind, r, tpl, lines, motion, hook_text, base_kind):
     k = NM.BASE[base_kind]; v = h(r['id'] + tpl, 12); teacher = ('ama', 'carlos')[v % 2]; src = NM.BASE['mistake' if teacher == 'ama' else 'drill']
-    hl, pr = NM.hook_parts(hook_text)
+    if isinstance(hook_text, tuple): hook_text = hook_text[0 if teacher == 'ama' else 1]   # (ama one-liner, carlos text)
+    keep = isinstance(hook_text, dict)   # spot-the-mistake: the hook rows are already laid out (struck run), keep them
+    if keep: hl, pr = motion['top'][0]['rows'][1:], [[[hook_text['text'], 'white']]]; hook_text = hook_text['text']
+    else: hook_text = hook2(hook_text, 1)   # the free band above the head is 401-430 px depending on the clip: chip + 1 hook line always fits (2 lines = 414 px did not on every Carlos clip)
+    if not keep: hl, pr = NM.hook_parts(hook_text)
     motion['top'][0]['rows'] = [motion['top'][0]['rows'][0]] + hl
     ac, act = [('navy2', 'mint'), ('navy2', 'yellow'), ('navy', 'mint'), ('navy', 'yellow')][v // 3 % 4], None
     return dict(id=f"mo_bm_{tpl}_{r['id']}", template=tpl, title=f"Motion {tpl} – {r['point'][:70]} ({r['id']})", teacher=teacher, clips=src['clips'], listen=src['listen'], set=src['set'], layout=src['layout'], host_fx=src['host_fx'], speed=src['speed'], accent=ac[0], active=ac[1], display=src['display'], motif=src['motif'],
-                cta=dict(area=r.get('cat', 'grammar'), link='https://lexkite.com/app/', say='Practice free on lexkite.com'), series=dict(name=r['topic'].title(), ep=1), lines=lines + [line('sh', NM.SHARE), line('c', NM.CTA, 0.6)],
+                cta=dict(area=CTA_AREA.get(tpl, 'grammar'), link=ECO_LINK[CTA_AREA.get(tpl, 'grammar')], say='Practice it free'), series=dict(name=r['topic'].title(), ep=1), lines=lines + [line('sh', NM.SHARE), line('c', NM.CTA, 0.6)],
                 pops=[dict(k['pops'][0], rows=pr, to=['h', -1, 'e', 0.25]), dict(k['pops'][1], **{'from': ['c', 0, 's', -0.05]})], motion=dict(motion, hook_text=hook_text, end_line='c'), embed=dict(drop=['sh', 'c'], end=dict(id='n', text="Next, let's practice more together.")),
                 uses=dict(template=tpl, row=r['id'], teacher=teacher, accent=ac[0], active=ac[1], tones=v % 3))
 def chip(t, tone='gold', **k): return dict(t='chip', text=t, tone=tone, **k)

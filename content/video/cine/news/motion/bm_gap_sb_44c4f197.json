@@ -24,9 +24,9 @@
  },
  "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
  "cta": {
-  "area": "idiom-phrasal",
-  "link": "https://lexkite.com/app/",
-  "say": "Practice free on lexkite.com"
+  "area": "grammar",
+  "link": "https://lexkite.com/app/#/grammar",
+  "say": "Practice it free"
  },
  "series": {
   "name": "Travel",
@@ -97,12 +97,6 @@
       "Fill the",
       "white"
      ]
-    ],
-    [
-     [
-      "blank.",
-      "yellow"
-     ]
     ]
    ],
    "align": "l"
@@ -138,15 +132,6 @@
       "runs": [
        [
         "Fill the"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "blank."
        ]
       ]
      }
@@ -225,7 +210,7 @@
     "right": 1
    }
   ],
-  "hook_text": "Fill the blank.",
+  "hook_text": "Fill the",
   "end_line": "c"
  },
  "embed": {

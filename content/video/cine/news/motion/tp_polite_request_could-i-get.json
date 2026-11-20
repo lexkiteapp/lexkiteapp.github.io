@@ -24,9 +24,9 @@
  },
  "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
  "cta": {
-  "area": "polite-request",
-  "link": "https://lexkite.com/app/",
-  "say": "Practice free on lexkite.com"
+  "area": "speaking",
+  "link": "https://lexkite.com/en/speaking/",
+  "say": "Practice it free"
  },
  "series": {
   "name": "Polite Request",
@@ -35,7 +35,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "Is \"give me\" rude?",
+   "text": "Is saying give me polite?",
    "gap": 0.7
   },
   {
@@ -49,7 +49,7 @@
    "gap": 0.7
   },
   {
-   "id": "t",
+   "id": "tip",
    "text": "Tip: add please at the end. It makes almost any request softer.",
    "gap": 0.7
   },
@@ -84,14 +84,8 @@
    "rows": [
     [
      [
-      "Is \"give me\"",
+      "Give me?",
       "white"
-     ]
-    ],
-    [
-     [
-      "rude?",
-      "yellow"
      ]
     ]
    ],
@@ -127,16 +121,7 @@
       "hook": true,
       "runs": [
        [
-        "Is \"give me\""
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "rude?"
+        "Give me?"
        ]
       ]
      }
@@ -145,7 +130,7 @@
    {
     "id": "sum",
     "at": [
-     "t",
+     "tip",
      0
     ],
     "rows": [
@@ -158,7 +143,7 @@
       "t": "line",
       "runs": [
        [
-        "add please at the end. It makes almost any request"
+        "add please at the end."
        ]
       ]
      }
@@ -231,7 +216,7 @@
     ]
    }
   ],
-  "hook_text": "Is \"give me\" rude?",
+  "hook_text": "Give me?",
   "end_line": "c"
  },
  "embed": {
