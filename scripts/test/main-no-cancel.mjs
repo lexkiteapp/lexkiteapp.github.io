@@ -1,30 +1,37 @@
-// 21/11: stitch-diff trên push main bị huỷ mỗi lần gộp kế tiếp (concurrency cancel-in-progress: true) → shard chậm luôn 'cancelled', drift không ai thấy (ui-audit-all).
-// Workflow trong MAIN_COMPLETE chạy sau gộp phải tới cùng: cancel-in-progress KHÔNG được vô điều kiện true (chỉ `github.event_name == 'pull_request'`), và bước cache trình duyệt phải `if: always()`.
-// Thêm workflow vào danh sách khi nó cũng chạy trên push main và gác drift.
+// 21/11 (điều phối, luật 18): việc nặng chạy SAU gộp trên push main nên KHÔNG workflow nào có `push: branches: [main]` được huỷ lượt đang chạy trên main –
+// concurrency cancel-in-progress vô điều kiện làm lượt main bị huỷ mỗi lần gộp (stitch-diff shard 1 luôn 'cancelled', drift không ai thấy). GitHub giữ 1 chạy + 1 chờ
+// (lượt chờ mới thay lượt chờ cũ) → tải không nhân đôi và commit mới nhất luôn được kiểm trọn. Cho phép: false, hoặc biểu thức loại trừ push (== 'pull_request', != 'push', ref != main…).
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 const WF = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', '..', '.github/workflows');
-export const MAIN_COMPLETE = ['stitch-diff.yml'];
+const onBlock = t => (t.match(/^on:\n([\s\S]*?)(?=^\S)/m) || [, ''])[1];
+export const pushesMain = t => /^  push:/m.test(onBlock(t)) && /branches:.*main/.test(onBlock(t));
+/** Biểu thức cancel-in-progress có huỷ lượt push main không (thuần). */
+export function cancelsPush(expr) {
+  const e = String(expr || '').trim().replace(/\s+#.*$/, '');
+  if (!e || /^false\b/.test(e)) return false;
+  if (/^true\b/.test(e)) return true;
+  if (/!=\s*'push'/.test(e) || /ref\s*!=\s*'refs\/heads\/main'/.test(e)) return false;
+  if (/event_name\s*==\s*'pull_request'/.test(e) && !/'push'/.test(e)) return false;
+  return true;   // không chứng minh được là loại trừ push → coi là huỷ
+}
 export function problems(text) {
-  const out = [], m = text.match(/^concurrency:\n(?:[ \t]+.*\n)+/m);
-  if (!/^  push:/m.test(text)) out.push('không chạy trên push');
-  if (!m) out.push('thiếu concurrency');
-  else {
-    const c = (m[0].match(/cancel-in-progress:\s*(.+)/) || [])[1] || '';
-    if (/^true\b/.test(c.trim())) out.push('cancel-in-progress: true vô điều kiện → lượt main bị huỷ bởi lần gộp sau');
-    else if (!/pull_request/.test(c)) out.push('cancel-in-progress phải chỉ bật cho pull_request');
-  }
-  return out;
+  if (!pushesMain(text)) return [];
+  const m = text.match(/^concurrency:\n((?:[ \t]+.*\n)+)/m); if (!m) return [];
+  const c = (m[1].match(/^\s+cancel-in-progress:\s*(.+)$/m) || [])[1];
+  return cancelsPush(c ? c.replace(/^\$\{\{\s*|\s*\}\}$/g, '') : '') ? [`cancel-in-progress (${c}) huỷ lượt push main – dùng \`\${{ github.event_name != 'push' }}\``] : [];
 }
-let bad = 0; const fail = m => { bad++; console.log('✗ ' + m); };
-const self = (name, text, want) => { if (!!problems(text).length !== want) fail('bộ bắt lỗi sai: ' + name); };
-self('true', 'on:\n  push:\n    branches: [main]\nconcurrency:\n  group: g\n  cancel-in-progress: true\njobs: {}\n', true);
-self('pr', "on:\n  push:\n    branches: [main]\nconcurrency:\n  group: g\n  cancel-in-progress: ${{ github.event_name == 'pull_request' }}\njobs: {}\n", false);
-for (const f of MAIN_COMPLETE) {
-  const t = fs.readFileSync(path.join(WF, f), 'utf8');
-  for (const p of problems(t)) fail(`${f}: ${p}`);
-  if (!/- uses: \.\/\.github\/actions\/playwright-cache\n\s+if: always\(\)/.test(t)) fail(`${f}: bước playwright-cache phải \`if: always()\` (bước trước đỏ không được làm mất cache)`);
-}
-if (bad) { console.log(`✗ main-no-cancel: ${bad} lỗi`); process.exit(1); }
-console.log(`✓ main-no-cancel: ${MAIN_COMPLETE.length} workflow chạy tới cùng trên push main`);
+let bad = 0, n = 0; const fail = m => { bad++; console.log('✗ ' + m); };
+const t = (name, text, want) => { n++; if (!!problems(text).length !== want) fail('bộ bắt lỗi sai: ' + name); };
+const w = c => `on:\n  push:\n    branches: [main]\nconcurrency:\n  group: g\n  cancel-in-progress: ${c}\njobs: {}\n`;
+t('true', w('true'), true); t('pr+push', w("${{ github.event_name == 'pull_request' || github.event_name == 'push' }}"), true);
+t('dispatch', w("${{ github.event_name != 'workflow_dispatch' }}"), true);
+t('false', w('false'), false); t('!= push', w("${{ github.event_name != 'push' }}"), false); t('pr', w("${{ github.event_name == 'pull_request' }}"), false);
+t('ref main', w("${{ github.ref != 'refs/heads/main' }}"), false);
+t('không push', 'on:\n  pull_request:\nconcurrency:\n  group: g\n  cancel-in-progress: true\njobs: {}\n', false);
+for (const f of fs.readdirSync(WF).filter(f => /\.ya?ml$/.test(f))) { n++; for (const p of problems(fs.readFileSync(path.join(WF, f), 'utf8'))) fail(`${f}: ${p}`); }
+const sd = fs.readFileSync(path.join(WF, 'stitch-diff.yml'), 'utf8');
+n++; if (!/- uses: \.\/\.github\/actions\/playwright-cache\n\s+if: always\(\)/.test(sd)) fail('stitch-diff.yml: bước playwright-cache phải `if: always()` (bước trước đỏ không được làm mất cache)');
+if (bad) { console.log(`✗ main-no-cancel: ${bad}/${n} lỗi`); process.exit(1); }
+console.log(`✓ main-no-cancel: ${n} kiểm tra – không workflow push main nào huỷ lượt main`);

@@ -10,7 +10,7 @@ permissions:
   contents: write
 concurrency:
   group: android-${{ github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: ${{ github.event_name != 'push' }}
 jobs:
   apk:
     runs-on: ubuntu-latest
