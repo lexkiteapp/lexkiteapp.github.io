@@ -292,6 +292,7 @@
         let bad; try { bad = await W.LKJN[s.f](); } finally { clearInterval(hb); } for (const m of bad || []) add('journey', m); await shot('jrn-' + s.f); return;
       }
       case 'hub': {
+        try { localStorage.setItem('lk.ux1', '1'); } catch (e) { /* thanh hub chung chỉ có khi cờ ux1 BẬT (DESIGN-SYSTEM §5d, như hub-bar.mjs/frame-consistency): app trong Simulator offline không lấy được ux1_pct từ xa → bật cờ như Playwright */ }
         await host('appearance', { mode: s.th }); await sleep(1200);
         await visit(s.r, 'hub ' + s.th + ' ' + s.r, { wait: 9000 });
         await sleep(600); for (const m of hubMeasure(s.r)) add('hubbar', '[' + s.th + '/' + s.r + '] ' + m);
