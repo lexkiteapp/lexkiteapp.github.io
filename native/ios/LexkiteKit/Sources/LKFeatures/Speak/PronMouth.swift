@@ -28,5 +28,9 @@ struct PronMouthFigure: View {
         .accessibilityElement(children: .ignore)
         .accessibilityLabel(Text(verbatim: t(.speakPronKhauHinh) + ": " + caption))
     }
-    private var caption: String { SpeakText.render(.string(shape.lipsKey), t) + " · " + SpeakText.render(.string(shape.jawKey), t) }
+    private var caption: String {
+        func line(_ l: String, _ j: String) -> String { SpeakText.render(.string(l), t) + " · " + SpeakText.render(.string(j), t) }
+        guard let tl = shape.toLipsKey, let tj = shape.toJawKey else { return line(shape.lipsKey, shape.jawKey) }
+        return line(shape.lipsKey, shape.jawKey) + "\n→ " + line(tl, tj) // diphthong: start point, then end point (web mouthSvg)
+    }
 }
