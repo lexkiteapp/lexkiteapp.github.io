@@ -17,6 +17,9 @@ for (const r of JSON.parse(fs.readFileSync(path.join(ROOT, MAP), 'utf8')).rules)
   new RegExp(r.paths);
   for (const t of r.tests) assert.ok(suite.has(t), `${MAP}: "${t}" không có trong scripts/test/suite.txt`);
 }
+{ const real = JSON.parse(fs.readFileSync(path.join(ROOT, MAP), 'utf8')).rules;   // 20/11 (bot e324ece371): word-packs --refine đẩy web/packs/*.json làm tr 'norm' rơi khỏi tập trang → dict-enrich đỏ cho mọi PR; gói nghĩa phải chạy dict-enrich trước khi đẩy
+  assert.ok(pickTests(['web/packs/tr.json', 'web/packs/de.json'], real).includes('node scripts/test/dict-enrich.mjs'), 'web/packs/** phải kích dict-enrich trước khi bot đẩy');
+}
 { const real = JSON.parse(fs.readFileSync(path.join(ROOT, MAP), 'utf8')).rules;   // đúng ca 9c4e52d158: tệp bot lexicon-expand đổi → lex.mjs phải được chạy
   const t = pickTests(['content/lexicon/expand/20261113-r229.json', 'content/qa/review-queue.json', 'web/data/ai-capacity.json'], real);
   assert.ok(t.includes('node scripts/test/lex.mjs') && t.includes('node scripts/test/lexicon-expand.mjs'), 'ca 9c4e52d158: lex.mjs + lexicon-expand.mjs'); }
