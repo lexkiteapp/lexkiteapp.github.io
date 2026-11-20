@@ -1055,7 +1055,6 @@
   "pretend#adj",
   "price#v",
   "primo#n",
-  "primogeniture#n",
   "principled#adj",
   "prismatic#adj",
   "profanity#n",
@@ -1347,7 +1346,6 @@
   "sunroof#n",
   "superbly#adv",
   "supernatural#adj",
-  "supernatural#n",
   "supersonic#adj",
   "superstition#n",
   "supra#adv",
@@ -1557,6 +1555,8 @@
   "zilch#n",
   "zing#n",
   "zinger#n",
-  "zooplankton#n"
+  "zooplankton#n",
+  "conjugate#v",
+  "herbage#n"
  ]
 }
