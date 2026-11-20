@@ -4,7 +4,7 @@
 name: Trang từ điển (dict pages)
 on:
   pull_request:
-    paths: ['scripts/dict/**', 'workers/dict/**', 'content/dict/**', 'scripts/build-blog.mjs', 'scripts/test/dict-pages.mjs', '.github/workflows/dict-pages.yml', 'web/js/data.js', 'web/js/lib/**', 'web/js/usage/**', 'web/js/notes/**', 'scripts/lib/site-layout.mjs']
+    paths: ['scripts/dict/**', 'workers/dict/**', 'content/dict/**', 'scripts/build-blog.mjs', 'scripts/test/dict-pages.mjs', '.github/workflows/dict-pages.yml', 'web/js/data.js', 'web/js/lib/**', 'web/cpack/lib/**', 'web/js/usage/**', 'web/js/notes/**', 'scripts/lib/site-layout.mjs']
   push:
     branches: [main]
     paths: ['scripts/dict/**', 'workers/dict/**', 'content/dict/**', 'scripts/test/dict-pages.mjs', '.github/workflows/dict-pages.yml']
@@ -63,7 +63,7 @@ jobs:
           for p in "vi/tu-dien/$VI/" "en/dictionary/$EN/" "vi/tu-dien/" "en/dictionary/"; do
             id=$(echo "$p" | tr '/' '_')
             # 3 lượt/URL, chấm theo lượt có điểm performance TRUNG VỊ (Lighthouse dao động theo máy CI; lượt đầu Chrome nguội từng ra 75 trên trang tĩnh y hệt main) – ngưỡng giữ nguyên
-            for k in 1 2 3; do npx -y lighthouse@12.2.1 "http://localhost:8080/$p" --form-factor=mobile --only-categories=performance,accessibility,best-practices,seo --chrome-flags="--headless=new --no-sandbox" --output=json --output-path="reports/dict/$id.$k.json" --quiet || { echo "✗ lighthouse lỗi $p (lượt $k)"; fail=1; continue 2; }; done
+            for k in 1 2 3; do npx -y lighthouse@12.2.1 "http://localhost:8080/$p" --form-factor=mobile --only-categories=performance,accessibility,best-practices,seo --chrome-flags="--headless=new --no-sandbox --disable-dev-shm-usage --disable-gpu" --output=json --output-path="reports/dict/$id.$k.json" --quiet || { echo "✗ lighthouse lỗi $p (lượt $k)"; fail=1; continue 2; }; done
             node -e "const f=[1,2,3].map(k=>'reports/dict/$id.'+k+'.json'),r=f.map(x=>require('./'+x)).sort((a,b)=>a.categories.performance.score-b.categories.performance.score);console.log('$p performance 3 lượt:',r.map(x=>Math.round(x.categories.performance.score*100)).join('/'));require('fs').writeFileSync('reports/dict/$id.json',JSON.stringify(r[1]))"
             node -e "
               const d=require('./reports/dict/$id.json'),c=d.categories,s=Object.fromEntries(Object.entries(c).map(([k,v])=>[k,Math.round(v.score*100)]));

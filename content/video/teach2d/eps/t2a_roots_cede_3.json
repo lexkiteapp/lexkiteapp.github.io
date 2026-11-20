@@ -1,0 +1,173 @@
+{
+ "id": "t2a_roots_cede_3",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, two words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "The root is Cede! Access, success.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Cede is Latin for go.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Access: toward plus go.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Success: up after plus go.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means up after plus go?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Success! Up after plus go.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "CEDE",
+  "rid": "cede",
+  "say": "go",
+  "src": "cedere",
+  "src_lang": "Latin",
+  "src_mean": "to go, to yield",
+  "words": [
+   {
+    "w": "access",
+    "ipa": "/ˈækses/",
+    "mean": "a going toward",
+    "seg": "ac-|cess",
+    "parts": [
+     [
+      "ac",
+      "pre"
+     ],
+     [
+      "cess",
+      "root"
+     ]
+    ],
+    "pre": "ac",
+    "pm": "toward",
+    "pms": "toward",
+    "ex": "All students have free access to the online library.",
+    "em": "🔑"
+   },
+   {
+    "w": "success",
+    "ipa": "/səkˈses/",
+    "mean": "a going well",
+    "seg": "suc-|cess",
+    "parts": [
+     [
+      "suc",
+      "pre"
+     ],
+     [
+      "cess",
+      "root"
+     ]
+    ],
+    "pre": "suc",
+    "pm": "up after",
+    "pms": "up after",
+    "ex": "The concert was a great success.",
+    "em": "🏆"
+   }
+  ],
+  "quiz": {
+   "stem": "up after plus go",
+   "options": [
+    "access",
+    "success"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/access",
+  "link": "https://lexkite.com/app/#/dict/access",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, two words"
+ },
+ "src": {
+  "root": "cede"
+ },
+ "est": {
+  "words": 46,
+  "seconds": 27.5,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "Cede root: access and success",
+  "keyword": "cede root",
+  "value": "Cede comes from Latin \"cedere\" (to go, to yield). Words: access and success. access = ac + cess; success = suc + cess.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/access",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "Cede root: access and success",
+    "description": "Cede comes from Latin \"cedere\" (to go, to yield). Words: access and success. access = ac + cess; success = suc + cess.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/access\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "cede root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Cede root: access and success\n\nCede comes from Latin \"cedere\" (to go, to yield). Words: access and success. access = ac + cess; success = suc + cess.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/access"
+   },
+   "instagram": {
+    "caption": "Cede root: access and success\n\nCede comes from Latin \"cedere\" (to go, to yield). Words: access and success. access = ac + cess; success = suc + cess.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Cede root: access and success #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? Success! Up after plus go. Cede comes from Latin \"cedere\" (to go, to yield). Words: access and success. access = ac + cess; success = suc + cess. More practice like this (free): {link}"
+ }
+}

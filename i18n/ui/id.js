@@ -762,6 +762,7 @@
 "Ngôi":"Subyek",
 "Ngôn ngữ & Giao tiếp":"Bahasa & komunikasi",
 "Ngôn ngữ giao diện":"Bahasa antarmuka",
+"Ngôn ngữ đang học":"Bahasa yang dipelajari",
 "Người dùng":"Pengguna",
 "Người dùng, hộp thư, phân tích, chất lượng, Gemini API":"Pengguna, kotak masuk, analitik, kualitas, API Gemini",
 "Người mới":"Pemula",

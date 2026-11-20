@@ -1,0 +1,163 @@
+{
+ "id": "t2a_rule_silentchk_1",
+ "template": "rule",
+ "series": "Spell to Sound",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "pronunciation",
+ "lines": [
+  {
+   "id": "h",
+   "text": "The H is silent!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "Here c h says K. The H is silent.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "School.",
+   "pause": 0.25,
+   "speed": 0.6
+  },
+  {
+   "id": "v0",
+   "text": "School.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Character.",
+   "pause": 0.25,
+   "speed": 0.6
+  },
+  {
+   "id": "v1",
+   "text": "Character.",
+   "pause": 0.3
+  },
+  {
+   "id": "p",
+   "text": "Repeat after me!",
+   "pause": 2.4
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which letter is silent in character?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "H! The H is silent.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "rule": "silent-chk",
+  "title": "ch = k",
+  "target": "/k/",
+  "letter": "h",
+  "say": "Here c h says K. The H is silent.",
+  "words": [
+   {
+    "w": "school",
+    "ipa": "/skuːl/",
+    "silent": [
+     2,
+     3
+    ],
+    "letter": "h",
+    "mean": "Building where you learn in classes with a teacher.",
+    "em": "🏫"
+   },
+   {
+    "w": "character",
+    "ipa": "/ˈkærəktər/",
+    "silent": [
+     1,
+     2
+    ],
+    "letter": "h",
+    "mean": "a person in a book, film or play",
+    "em": "🎭"
+   }
+  ],
+  "quiz": {
+   "stem": "Which letter is silent in character?",
+   "options": [
+    "C",
+    "H"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "pronunciation",
+  "route": "#/pron/school",
+  "link": "https://lexkite.com/app/#/pron/school",
+  "say": "Practise this sound"
+ },
+ "hook": {
+  "line": "h",
+  "text": "The H is silent"
+ },
+ "src": {
+  "rule": "silent-chk"
+ },
+ "est": {
+  "words": 39,
+  "seconds": 26.7,
+  "wpm": 88
+ },
+ "publish": {
+  "title": "The H is silent!",
+  "keyword": "Spell to Sound",
+  "value": "Here c h says K. The H is silent.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#pronunciation",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/pron/school",
+  "script_words": 30,
+  "platforms": {
+   "youtube": {
+    "title": "The H is silent!",
+    "description": "Here c h says K. The H is silent.\n\nPractise this sound, free: https://lexkite.com/app/#/pron/school\n\nSeries: Spell to Sound · Teacher: Ama\n\n#learnenglish #englishtips #pronunciation #englishteacher",
+    "tags": [
+     "Spell to Sound",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "The H is silent!\n\nHere c h says K. The H is silent.\n\nPractise this sound, free: https://lexkite.com/app/#/pron/school"
+   },
+   "instagram": {
+    "caption": "The H is silent!\n\nHere c h says K. The H is silent.\n\nPractise this sound: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#pronunciation",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "The H is silent! #learnenglish #englishtips #pronunciation"
+   }
+  },
+  "first_comment": "Did you get it? H! The H is silent. Here c h says K. The H is silent. More practice like this (free): {link}"
+ }
+}

@@ -66,6 +66,11 @@ if (UI && UI.toast) {
   T.dispatchEvent(new w.Event('pointerenter')); await sleep(6200); ok(T.classList.contains('show'), 'toast có nút: con trỏ ở trên → không tự ẩn');
   T.dispatchEvent(new w.Event('pointerleave'));
   b.click(); b.click(); ok(hit === 1 && !T.classList.contains('show') && !T.classList.contains('act'), 'toast: bấm nút → chạy đúng 1 lần rồi ẩn');
+  // 17/11 (#1504 toastCls 0,0212): sau khi toast ẨN (gỡ .show) nó còn MỜ DẦN ~200 ms – toast mới tới lúc này mà đổi chữ NGAY là đổi cỡ hộp khi còn thấy = layout shift
+  UI.toast('Tiếp theo', 300); ok(T.textContent.startsWith('Không tải được') && !T.classList.contains('show'), 'toast: toast mới tới NGAY sau khi ẩn (đang mờ dần) → KHÔNG đổi chữ tại chỗ');
+  await sleep(120); ok(T.textContent.startsWith('Không tải được'), 'toast: vẫn chưa đổi chữ khi chưa mờ hết (120 ms)');
+  await sleep(300); ok(T.textContent === 'Tiếp theo' && T.classList.contains('show') && d.querySelectorAll('.toast.show').length === 1, 'toast: mờ hết rồi mới đổi chữ và hiện (không mất toast, chỉ một toast)');
+  await sleep(2500); ok(!T.classList.contains('show'), 'toast: tự ẩn lại');
   d.getElementById('modal').hidden = false; UI.toast('Sau hộp thoại', 300); ok(!T.classList.contains('show'), 'toast: hộp thoại mở → xếp hàng, không đè');
   d.getElementById('modal').hidden = true; await sleep(400); ok(T.textContent === 'Sau hộp thoại' && T.classList.contains('show'), 'toast: đóng hộp thoại → hiện hàng chờ');
 }

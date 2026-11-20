@@ -10,6 +10,7 @@ node scripts/test/say-text.mjs
 node scripts/test/stitch-coverage.mjs
 node scripts/test/world-scorecard.mjs
 node scripts/test/bundle-names.mjs web
+node scripts/test/bundles-manifest.mjs
 node scripts/test/no-url-pathname.mjs
 node scripts/test/ext-sync.mjs
 node scripts/test/sync-drive.mjs
@@ -295,6 +296,9 @@ node scripts/test/crashlytics.mjs
 node scripts/test/deep-links.mjs
 node scripts/test/stories.mjs
 node scripts/content-qa/exam-format-check.mjs
+node scripts/test/lesson-why.mjs
+node scripts/test/lesson-card.mjs
+node scripts/test/sentence-punct.mjs
 node scripts/test/toeic-photos.mjs
 node scripts/content-qa/lkf-check.mjs
 node scripts/test/lkf.mjs
@@ -400,9 +404,11 @@ node scripts/test/perf-flake.mjs
 node scripts/test/gate-relevance.mjs
 node scripts/test/gate-retest.mjs
 node scripts/test/native-qa-scope.mjs
+node scripts/test/pr-scope-carry.mjs
 node scripts/test/pr-unconflict.mjs
 node scripts/test/regen-conflicts.mjs
 node scripts/test/gen-pr-clean.mjs
+node scripts/test/p0-top1.mjs
 node scripts/test/main-red-sweep.mjs
 node scripts/test/ci-queue-gate.mjs
 node scripts/test/android-xml-comments.mjs
@@ -435,6 +441,7 @@ node scripts/test/play-rhythm-run.mjs
 node scripts/test/funnel.mjs
 node scripts/test/share-link.mjs
 node scripts/test/stitch-theme-lint.mjs
+node scripts/test/round-clip.mjs
 node scripts/test/referral.mjs
 node scripts/test/pwa-installable.mjs
 node scripts/test/addon-listings.mjs
@@ -456,17 +463,22 @@ node scripts/test/body-limit.mjs
 node scripts/test/ai-task.mjs
 node scripts/test/video-junk.mjs
 node scripts/test/dict-add.mjs
+node scripts/test/quote-english.mjs
 node scripts/test/css-notes.mjs
 node scripts/test/ci-portable.mjs
 node scripts/test/sr-only.mjs
 node scripts/test/sw-reminder-day.mjs
 node scripts/test/core-day.mjs
+node scripts/test/health-board.mjs
 node scripts/test/live-csp-safe.mjs
 node scripts/test/home-words.mjs
 node scripts/test/red-report.mjs
 node scripts/test/run-suite-annotate.mjs
+node scripts/test/ai-shim.mjs
 node scripts/test/prwatch.mjs
 node scripts/test/flake-tracker.mjs
 node scripts/test/lesson-lang.mjs
 node scripts/test/gate-impact.mjs
 node scripts/test/budget-comment.mjs
+node scripts/test/admin-analytics-mobile.mjs
+node scripts/test/read-highlight.mjs

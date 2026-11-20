@@ -1,6 +1,78 @@
 {
  "_note": "Teach2D episodes that passed QC (bank.py). Videos: CI artifact tv-bank-<run> (90 days). Do not edit by hand.",
  "eps": {
+  "t2_call_mytreat": {
+   "run": "44491319374",
+   "at": "2026-11-19T11:31Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "c37572a46bdd4254",
+    "wide": "9e62c343ff936733"
+   },
+   "why": [],
+   "state": "banked",
+   "publish_block": [
+    "template:draft"
+   ],
+   "tries": 0
+  },
+  "t2_dictation_surname": {
+   "run": "44491319374",
+   "at": "2026-11-19T11:31Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "116586d8d6d35020",
+    "wide": "12bfd6bf198c2b7e"
+   },
+   "why": [],
+   "state": "banked",
+   "publish_block": [
+    "template:draft"
+   ],
+   "tries": 0
+  },
+  "t2_grammar_presentsimple": {
+   "run": "44491319374",
+   "at": "2026-11-19T11:31Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "4a734e8abed1e93d",
+    "wide": "a72c10cdf897cd4f"
+   },
+   "why": [],
+   "state": "banked",
+   "publish_block": [
+    "template:draft"
+   ],
+   "tries": 0
+  },
+  "t2_guess_umbrella": {
+   "run": "44491319374",
+   "at": "2026-11-19T11:31Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "6a325b91286ce304",
+    "wide": "6857f9e8ba08b8a6"
+   },
+   "why": [],
+   "state": "banked",
+   "publish_block": [
+    "template:draft"
+   ],
+   "tries": 0
+  },
   "t2_l1_*": {
    "run": "43028189144",
    "at": "2026-11-11T13:23Z",
@@ -4694,6 +4766,180 @@
    "why": [],
    "state": "banked",
    "tries": 1
+  },
+  "t2_level_a2": {
+   "run": "44491319374",
+   "at": "2026-11-19T11:31Z",
+   "score": {},
+   "sha": {},
+   "why": [
+    "short: no render",
+    "wide: no render"
+   ],
+   "state": "failed",
+   "tries": 1
+  },
+  "t2_mistake_discuss": {
+   "run": "44262329940",
+   "at": "2026-11-18T13:08Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "a14ad7c11cb06954",
+    "wide": "06f68a7ddafddce8"
+   },
+   "why": [],
+   "state": "banked",
+   "publish_block": [
+    "template:draft"
+   ],
+   "tries": 0
+  },
+  "t2_native_flushot": {
+   "run": "44262329940",
+   "at": "2026-11-18T13:08Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "836b389449405e84",
+    "wide": "72ac9281a594a570"
+   },
+   "why": [],
+   "state": "banked",
+   "publish_block": [
+    "template:draft"
+   ],
+   "tries": 0
+  },
+  "t2_pair_raise": {
+   "run": "44491319374",
+   "at": "2026-11-19T11:31Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "6d615542a0e484f0",
+    "wide": "5ea8a667e1832223"
+   },
+   "why": [],
+   "state": "banked",
+   "publish_block": [
+    "template:draft"
+   ],
+   "tries": 0
+  },
+  "t2_pattern_decide": {
+   "run": "44491319374",
+   "at": "2026-11-19T11:31Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "adf1debddd2bf336",
+    "wide": "794e0538ace666f6"
+   },
+   "why": [],
+   "state": "banked",
+   "publish_block": [
+    "template:draft"
+   ],
+   "tries": 0
+  },
+  "t2_phrasal_hangout": {
+   "run": "44491319374",
+   "at": "2026-11-19T11:31Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "5928dbc9e0310497",
+    "wide": "5594da98daf76dcd"
+   },
+   "why": [],
+   "state": "banked",
+   "publish_block": [
+    "template:draft"
+   ],
+   "tries": 0
+  },
+  "t2_prep_smile": {
+   "run": "44491319374",
+   "at": "2026-11-19T11:31Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "7266696c37f9d6ad",
+    "wide": "8a5087736338cbbd"
+   },
+   "why": [],
+   "state": "banked",
+   "publish_block": [
+    "template:draft"
+   ],
+   "tries": 0
+  },
+  "t2_react_calmdown": {
+   "run": "44262329940",
+   "at": "2026-11-18T13:08Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "f14914d93030830c",
+    "wide": "20070b5ba0b64ee0"
+   },
+   "why": [],
+   "state": "banked",
+   "publish_block": [
+    "template:draft"
+   ],
+   "tries": 0
+  },
+  "t2_react_lookintoit": {
+   "run": "44262329940",
+   "at": "2026-11-18T13:08Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "87175e0dd2cf2289",
+    "wide": "7bcd2c7e4806af24"
+   },
+   "why": [],
+   "state": "banked",
+   "publish_block": [
+    "template:draft"
+   ],
+   "tries": 0
+  },
+  "t2_toeic_nextspring": {
+   "run": "44491319374",
+   "at": "2026-11-19T11:31Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "54c1dc1039d65e4f",
+    "wide": "7a68f75aa0e8071e"
+   },
+   "why": [],
+   "state": "banked",
+   "publish_block": [
+    "template:draft"
+   ],
+   "tries": 0
   },
   "t2a_review_access": {
    "run": "42534524390",

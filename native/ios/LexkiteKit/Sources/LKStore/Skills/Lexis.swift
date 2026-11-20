@@ -37,7 +37,7 @@ public struct LexisData: Sendable {
 /// The constants of the web code that the ports must not retype (qengine BAND, kvoice POOL / NARRATOR, listening STOPW): `consts` of the content pack (or of the bundled starter).
 public struct SkillsConsts: Sendable {
     public var band: [String: [(Int, Double)]] = [:]
-    public var narrator = "", pools: [String: [String]] = [:], stopwords: Set<String> = []
+    public var narrator = "", pools: [String: [String]] = [:], stopwords: Set<String> = [], highlightCommon: Set<String> = []
     /// question-type names (qtips NAME): exam terms, shown untranslated in every language like the web
     public var names: [String: String] = [:]
     public init() {}
@@ -46,6 +46,7 @@ public struct SkillsConsts: Sendable {
         narrator = j["kvoice"]?.s("narrator") ?? ""
         pools = (j["kvoice"]?["pools"]?.object ?? [:]).mapValues { ($0.array ?? []).compactMap(\.string) }
         stopwords = Set(j.strs("stopwords"))
+        highlightCommon = Set(j.strs("highlightCommon"))
         names = (j["names"]?.object ?? [:]).compactMapValues(\.string)
     }
     /// the active constants: the bundled starter until a pack is installed
