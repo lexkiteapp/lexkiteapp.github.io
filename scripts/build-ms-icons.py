@@ -18,7 +18,7 @@ for p in files:
     for m in re.finditer(r"""\bms\(\s*['"]([a-z_0-9]+)['"]([^)]*)\)""", t):  # ms(tên, lớp, đặc) của web/js/st/common.js = Outlined
         a = m.group(2); use.add(('o', m.group(1), a.count(',') >= 2 and not re.search(r",\s*(false|0|null|'')\s*$", a.strip())))
     for m in re.finditer(r"""class=\\?["']material-symbols-(rounded|outlined)([^"'>]*)\\?["'][^>]*>\s*([a-z_0-9]+)\s*<""", t):
-        use.add((m.group(1)[0], m.group(3), 'fill' in m.group(2).split()))
+        use.add((m.group(1)[0], m.group(3), bool(re.search(r'\bfill\b', m.group(2)))))
 for n in names: use |= {('o', n, False), ('r', n, False)}  # tên chỉ gọi động (icon theo dữ liệu) có thể dùng họ nào cũng được → đủ cả hai, rỗng
 use = {u for u in use if u[1] in names}
 out = {}
