@@ -34,7 +34,7 @@
         <div class="ho-qr" aria-label="QR">${window.LKQR ? LKQR.svg(link) : ''}</div>
         <p class="small muted">${t('Mã dùng 1 lần, hết hạn sau')} <b id="hoLeft">10:00</b> · ${t('dữ liệu được mã hóa – máy chủ không đọc được.')}</p>
         <div class="row center" style="gap:.5rem"><button class="btn" id="hoCopy">🔗 ${t('Sao chép link')}</button><a class="btn ghost" href="#/settings">${t('Xong')}</a></div></div>`;
-      $('#hoCopy').onclick = () => navigator.clipboard.writeText(link).then(() => toast(t('Đã sao chép link'))).catch(() => prompt('', link));
+      $('#hoCopy').onclick = () => navigator.clipboard.writeText(link).then(() => toast(t('Đã sao chép link'))).catch(() => LXDialog.prompt(t('Sao chép link'), link));
       clearInterval(timer); timer = setInterval(() => { const s = Math.max(0, Math.round((r.j.exp - Date.now()) / 1000)), el = $('#hoLeft'); if (!el) return clearInterval(timer); el.textContent = `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`; if (!s) { clearInterval(timer); el.textContent = t('đã hết hạn'); } }, 1000);
     } catch (e) {
       view.innerHTML = `<div class="card center"><h1>📲 ${t('Chuyển sang thiết bị khác')}</h1><p>⚠️ ${t('Chưa tạo được mã – kiểm tra kết nối mạng rồi thử lại.')}</p><button class="btn primary" id="hoRetry">${t('Thử lại')}</button></div>`;

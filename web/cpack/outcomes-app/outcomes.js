@@ -122,7 +122,7 @@
       el.innerHTML = `<span class="small muted">${el.dataset.aud.endsWith(':rd') ? t('Đọc to') : t('Nói tự do')}</span><audio controls preload="none" src="${u}"></audio>`;
     }
     const del = $('#ocDelAud');
-    if (del) del.onclick = async () => { if (!confirm(t('Xóa mọi ghi âm bài đo trên máy này? Chỉ số và bài viết vẫn giữ.'))) return; for (const k of await clipKeys() || []) await clipDel(k); toast(t('Đã xóa ghi âm')); hub(view); };
+    if (del) del.onclick = async () => { if (!await LXDialog.confirm(t('Xóa mọi ghi âm bài đo trên máy này? Chỉ số và bài viết vẫn giữ.'))) return; for (const k of await clipKeys() || []) await clipDel(k); toast(t('Đã xóa ghi âm')); hub(view); };
   }
 
   // ---------- Bài đo 3 phần ----------
@@ -148,7 +148,7 @@
       btn.onclick = async () => {
         if (R && R.on) {
           const sec = (Date.now() - R.t0) / 1000;
-          if (sec < minSec && !confirm(t('Bạn mới nói {s} giây. Dừng thật chứ? Nói lâu hơn giúp đo chính xác hơn.', { s: Math.round(sec) }))) return;
+          if (sec < minSec && !await LXDialog.confirm(t('Bạn mới nói {s} giây. Dừng thật chứ? Nói lâu hơn giúp đo chính xác hơn.', { s: Math.round(sec) }))) return;
           clearInterval(tick); btn.disabled = true; const r = await R.stop(); R = null; return next(r);
         }
         if (!navigator.mediaDevices || !g.MediaRecorder) return toast(t('Trình duyệt không hỗ trợ ghi âm – hãy dùng Chrome hoặc Edge.'), 4000);
@@ -186,8 +186,8 @@
       const ta = $('#ocTxt'), wc = () => O.words(ta.value).length;
       ta.oninput = () => { $('#ocWc').textContent = t('{n} từ', { n: wc() }); };
       tick = setInterval(() => { const el = $('#ocClock'); if (!el) return clearInterval(tick); const left = Math.max(0, 600 - (Date.now() - t0) / 1000); el.textContent = clock(left); if (!left) { clearInterval(tick); el.textContent = t('Hết giờ – nộp khi bạn sẵn sàng'); } }, 500);
-      $('#ocDone').onclick = () => {
-        if (wc() < O.MIN_WRITE && !confirm(t('Bài viết mới có {n} từ. Nộp luôn chứ? Phần viết cần ít nhất {m} từ để được chấm.', { n: wc(), m: O.MIN_WRITE }))) return;
+      $('#ocDone').onclick = async () => {
+        if (wc() < O.MIN_WRITE && !await LXDialog.confirm(t('Bài viết mới có {n} từ. Nộp luôn chứ? Phần viết cần ít nhất {m} từ để được chấm.', { n: wc(), m: O.MIN_WRITE }))) return;
         clearInterval(tick); C.wr = Object.assign(O.writing({ text: ta.value }), { text: ta.value.trim(), min: Math.round((Date.now() - t0) / 6e4) });
         finish();
       };

@@ -12,6 +12,8 @@ class LexkiteBridgeViewController: CAPBridgeViewController {
         }
     }
 
+    private var dialogGuard: DialogSafeUIDelegate? // WKWebView.uiDelegate là weak → giữ mạnh ở đây
+
     override open func viewDidLoad() {
         super.viewDidLoad()
         let bg = themeBackground()
@@ -22,6 +24,7 @@ class LexkiteBridgeViewController: CAPBridgeViewController {
     }
 
     override open func capacitorDidLoad() {
+        if let wv = webView, let ui = wv.uiDelegate { dialogGuard = DialogSafeUIDelegate(wrapping: ui, host: self); wv.uiDelegate = dialogGuard } // luôn gọi completionHandler dù không hiện được hộp JS gốc (crash NSInternalInconsistencyException)
         bridge?.registerPluginInstance(WidgetBridgePlugin())
         bridge?.registerPluginInstance(WordWidgetPlugin()) // widget "Từ mỗi giờ"
         bridge?.registerPluginInstance(LexAIPlugin()) // AI có sẵn trên máy (Foundation Models/Translation/NaturalLanguage) – web/js/ai-local.js
