@@ -406,7 +406,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
     psheet: ['css/st-v2-path-sheet.css', 'css/path-sheet.css'],
     readings: 'css/exam.css',
     say: ['css/st-v2-say-front.css', 'css/st-v2-say-back.css'],
-    settings: ['css/adm.css', 'css/st-v2-settings.css'],
+    settings: 'css/adm.css',
     tlpick: ['css/tl-pick.css'],
     toefl: 'css/exam.css',
     toeic: 'css/exam.css',
