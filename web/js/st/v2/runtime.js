@@ -44,6 +44,7 @@
 .hb-b{flex:none;position:relative;display:flex;align-items:center;justify-content:center;width:44px;height:44px;margin:0;padding:0;border:0;background:none;color:var(--heading);font:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}
 .hb-b .i{width:22px;height:22px}.hb-logo img{width:32px;height:32px;border-radius:9px;display:block}
 .hb-s{flex:1;min-width:0;display:flex;align-items:center;gap:8px;height:44px;margin:0;padding:0 14px;border:0;background:none;color:var(--muted);font:inherit;font-size:14px;cursor:pointer;text-align:start}
+.hb-s{container-type:inline-size}.hb-t{font-style:normal;min-width:0;overflow:hidden;text-overflow:ellipsis}@container (max-width:200px){.hb-t{display:none}.hb-s span{justify-content:center;padding:0}}
 .hb-s span{flex:1;min-width:0;height:36px;display:flex;align-items:center;gap:8px;padding:0 14px;border-radius:999px;background:var(--surface-2);border:1px solid var(--line-2);overflow:hidden;white-space:nowrap}.hb-s .i{width:18px;height:18px}
 .hb-av i{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:999px;background:var(--primary);color:#fff;font:800 15px/1 inherit;font-style:normal;overflow:hidden;box-shadow:0 0 0 3px var(--surface-2)}.hb-av img{width:100%;height:100%;object-fit:cover;display:block}.hb-av .i{width:20px;height:20px;color:#fff}
 .hb-c{flex:1 1 0;min-width:0;display:flex;align-items:center;justify-content:center;min-height:44px;color:var(--text);text-decoration:none;-webkit-tap-highlight-color:transparent}
@@ -60,7 +61,7 @@
     const chip = (k, href, id, val, lab, icon) => `<a class="hb-c" href="${esc(href)}" aria-label="${esc(lab + ': ' + val)}" data-hdr="${k}"><span>${icon || ic(id)}<b>${esc(val)}</b></span></a>`;
     const av = u && u.photoURL ? `<img src="${esc(u.photoURL)}" alt="" referrerpolicy="no-referrer">` : nm ? esc((nm.trim()[0] || 'L').toUpperCase()) : ic('user');
     return `<header class="hb"><div class="hb-r"><a class="hb-b hb-logo" href="#/home" aria-label="Lexkite"><img src="icons/icon.svg?v=3" width="32" height="32" alt=""></a>`
-      + `<button type="button" class="hb-s" data-act="search" aria-label="${esc(t('Tra từ'))}"><span>${ic('search')}${esc(t('Tra từ…'))}</span></button>`
+      + `<button type="button" class="hb-s" data-act="search" aria-label="${esc(t('Tra từ'))}"><span>${ic('search')}<em class="hb-t">${esc(t('Tra từ…'))}</em></span></button>`
       + `<button type="button" class="hb-b" data-act="notif" aria-label="${esc(t('Thông báo'))}">${ic('bell')}<span data-notif-badge class="hidden"></span></button>`
       + `<button type="button" class="hb-b" data-act="lang" aria-haspopup="dialog" aria-label="${esc(t('Chọn ngôn ngữ giao diện') + ' (' + L + ')')}">${ic('globe')}</button>`
       + `<a class="hb-b hb-av" href="#/me" aria-label="${esc(t('Tài khoản'))}"><i>${av}</i></a></div>`

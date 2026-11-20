@@ -99,3 +99,5 @@
 :root .lsn-fx:has(.lsn-fv2.bad) #lsnBub{padding-bottom:.125rem}
 :root .lsn-fv2.bad .lsn-dict button{margin-block:-.2rem}
 :root .lsn-fv2.bad .lsn-dict>p{margin-top:0}
+/* Bài học v2: nút Nghe lại (cả hàng thẻ) chừa chỗ cho nút 0.75× đặt tuyệt đối ở mép phải (vật lý, cả RTL) → hai nút không đè nhau, chữ dài (de/ar) tự xuống dòng (ux1 overlap) */
+.lsn-v2 .lsn-qcard #lsnPlay{width:auto;margin-right:5.5rem}
