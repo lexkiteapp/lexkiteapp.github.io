@@ -79,7 +79,7 @@ for (const [name, g] of Object.entries(groups)) {
 return { out, items };
 }
 
-if (import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
 const { out } = auditBank(loadContent());
 fs.mkdirSync('reports', { recursive: true }); fs.writeFileSync('reports/bank-audit.json', JSON.stringify(out, null, 1));
 const tot = Object.values(out).reduce((a, x) => a + x.items, 0);
