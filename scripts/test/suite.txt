@@ -131,6 +131,7 @@ node scripts/test/vocab-img-free-sheet.mjs
 node scripts/test/pages-skip.mjs
 node scripts/test/sync-pack.mjs
 node scripts/test/target-lang.mjs
+node scripts/test/tl-picker.mjs
 node scripts/test/es-conjugate.mjs
 node scripts/test/sync-ctx.mjs
 node scripts/test/schema-lock.mjs
@@ -293,6 +294,7 @@ node scripts/test/dict-stage.mjs
 node scripts/test/dict-enrich.mjs
 node scripts/test/native-auth.mjs
 node scripts/test/ota.mjs
+node scripts/test/pron-features.mjs
 node scripts/test/crashlytics.mjs
 node scripts/test/deep-links.mjs
 node scripts/test/stories.mjs
@@ -420,6 +422,7 @@ node scripts/test/stitch-today-contrast.mjs
 node scripts/test/is-main-guard.mjs
 node scripts/test/big-data.mjs
 node scripts/test/heavy-rerun.mjs
+node scripts/test/heavy-main.mjs
 node scripts/test/json-dupkeys.mjs
 node scripts/test/cls-chrome.mjs
 node scripts/test/es-practice.mjs
@@ -455,6 +458,7 @@ node scripts/test/l1-notes.mjs
 node scripts/test/qengine-flag.mjs
 node scripts/test/qwk.mjs
 node scripts/test/es-native-bundle.mjs
+node scripts/test/ms-icons.mjs
 node scripts/test/lexai-oidc.mjs
 node scripts/test/firestore-rules.mjs
 node scripts/test/ext-imgdata.mjs

@@ -80,7 +80,10 @@ import org.junit.Test
 class SkillsVectorsTest {
     private val v = Json.parseToJsonElement(javaClass.classLoader!!.getResource("skills.json")!!.readText()).jsonObject
     /** The downloaded pack (web/data/skills-pack.json): parsing it installs the band table, Kokoro pools and stopwords the assertions below check against the vectors. */
-    private val pack = SkillsContent.parse(Json.parseToJsonElement(javaClass.classLoader!!.getResource("skills-pack.json")!!.readText()).jsonObject)
+    private val core = SkillsContent.parse(Json.parseToJsonElement(javaClass.classLoader!!.getResource("skills-pack.json")!!.readText()).jsonObject)
+    /** The advanced pack (web/data/skills-pack-adv.json: the C1–C2 readings); core + adv = the complete content the app shows once the background download lands. */
+    private val adv = SkillsContent.parseAdv(Json.parseToJsonElement(javaClass.classLoader!!.getResource("skills-pack-adv.json")!!.readText()).jsonObject)
+    private val pack = core.withReadings(adv)
     private val now = v.getValue("now").jsonPrimitive.long
     private val tx = Tx.RAW
 
@@ -131,6 +134,7 @@ class SkillsVectorsTest {
     private fun packCounts() {
         val k = v.o("counts")
         assertEquals(k.n("tests").toInt(), pack.tests.size); assertEquals(k.n("listening").toInt(), pack.listening.size); assertEquals(k.n("readings").toInt(), pack.readings.size)
+        assertEquals(core.readings.size + adv.size, pack.readings.size); assertTrue(adv.isNotEmpty() && adv.all { it.level == "C1" || it.level == "C2" } && core.readings.none { it.level == "C1" || it.level == "C2" })
         assertTrue(pack.tests.size >= 10 && pack.listening.size >= 40 && pack.readings.size >= 57)
     }
     private fun cut(p: Part, n: Int) = Part(JsonObject(p.j + ("script" to JsonArray(p.j.a("script").take(n)))))
@@ -724,9 +728,10 @@ class SkillsVectorsTest {
         for (c in cases(sp.o("pron").a("hub"))) { val done = PronPage.doneOf(obj("pronDone" to c.o("input")["pronDone"])); val h = PronPage.hub(p, done); val o = c.o("out")
             assertEquals(cid(c), o.n("ring").toInt(), jsRoundForTest(h.ring)); assertEquals(o.s("ringLabel"), h.ringLabel); assertEquals(o.n("lessonCount").toInt(), h.total)
             for (g in h.groups) assertEquals(cid(c) + " " + g.g.id, o.o("counts").n(g.g.name).toInt(), g.lessons.size) }
-        for (c in cases(sp.o("pron").a("mouth"))) { val i = c.o("input"); val m = PronPage.mouth(MouthSpec(JsonObject(mapOf("lips" to JsonPrimitive(i.s("lips")), "jaw" to JsonPrimitive(i.s("jaw")), "tongue" to JsonPrimitive(i.s("tongue"))))))!!; val o = c.o("out")
+        for (c in cases(sp.o("pron").a("mouth"))) { val i = c.o("input"); if (c.o("out").isEmpty()) { assertNull(cid(c) + " no diagram", PronPage.mouth(MouthSpec(JsonObject(i.filterValues { it is JsonPrimitive })))); continue }
+            val m = PronPage.mouth(MouthSpec(JsonObject(mapOf<String, JsonElement>("lips" to JsonPrimitive(i.s("lips")), "jaw" to JsonPrimitive(i.s("jaw")), "back" to JsonPrimitive(i.s("back"))).let { b -> val t = i["to"] as? JsonObject; if (t == null) b else b + ("to" to JsonObject(mapOf("lips" to JsonPrimitive(t.s("lips")), "jaw" to JsonPrimitive(t.s("jaw"))))) })))!!; val o = c.o("out")
             for ((nm, got) in listOf("outerLip" to m.outerLip, "innerMouth" to m.innerMouth, "tongue" to m.tongue)) { val want = o.a(nm).map { it.jsonPrimitive.content.toDouble() }; assertEquals(nm, want.size, got.size); for (z in want.indices) assertEquals(nm, want[z], got[z], 1e-6) }
-            assertEquals(o.s("caption"), m.caption.joinToString(" · ") { it.k }) }
+            assertEquals(o.s("caption"), m.caption.joinToString(" · ") { it.k }); if (m.captionTo.isNotEmpty()) assertEquals(o.s("captionTo"), m.captionTo.joinToString(" · ") { it.k }) }
         for (c in cases(sp.o("pron").a("lesson"))) { val id = cid(c); val i = c.o("input"); val l = p.lesson(i.s("lesson")) ?: continue; val o = c.o("out")
             if (id.startsWith("render")) { assertEquals("$id ipa", o.s("ipa"), l.ipa); assertEquals("$id title", o.s("title"), l.title); check("$id.chips", o["chips"], PronPage.chips(l).map { it.json() }); assertEquals("$id words", o.n("words").toInt(), l.words.size); assertEquals("$id pairs", o.n("pairs").toInt(), l.pairs.size)
                 assertEquals("$id sentences", o.n("sentences").toInt(), l.sentences.size); assertEquals("$id quiz", o.n("quiz").toInt(), l.quiz.size); assertEquals("$id rules", o.n("rules").toInt(), l.rules.size); assertEquals("$id mouth", o["hasMouth"]!!.jsonPrimitive.boolean, PronPage.mouth(l.mouth) != null)
