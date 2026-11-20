@@ -149,7 +149,7 @@
       "t": "line",
       "runs": [
        [
-        "The flood caused "
+        "… flood caused "
        ],
        [
         "_____",
@@ -196,7 +196,7 @@
       "tone": "green"
      },
      {
-      "t": "line",
+      "t": "sub",
       "runs": [
        [
         "The flood caused a lot of damage.",

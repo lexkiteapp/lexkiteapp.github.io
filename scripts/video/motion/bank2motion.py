@@ -114,9 +114,11 @@ def recall(r):
     if not ops: return None
     i1, i2 = ops[0][1], max(ops[0][2], ops[0][1] + 1); i2 = min(i2, len(ra)); key = ' '.join(ra[i1:i2]); pre, post = ' '.join(ra[:i1]), ' '.join(ra[i2:])
     lines = [line('h', 'Say it before I do.'), line('q', f"How do you say this correctly? Many learners say: {wrong}"), dict(id='_count', beat='count', dur=3.0), line('a', f"{right} {r['why']}"), line('w', r['aha'])]
+    if len(right) > 28:   # a long sentence wraps to 5+ lines at the body size: the slot line shows only the words around the blank
+        pw, qw = pre.split(), post.split(); pre = ('… ' if len(pw) > 2 else '') + ' '.join(pw[-2:]); post = ' '.join(qw[:2]) + (' …' if len(qw) > 2 else '')
     runs = [[pre + ' ' if pre else ' '], ['_____', 'muted'], [' ' + post if post else ' ']]
     top = [hookcard('Your turn'), dict(id='q', at=['q', 0], rows=[chip('Say it right', 'teal', ring='_count'), *([ln('Fix: ' + short(wrong, 40))] if len(wrong) <= 26 else []), dict(t='line', runs=runs, slot=dict(run=1, word=key))], reveal=['a', 0], xp=[dict(at=['a', 0], n=10)])]
-    return base('recall', r, 'recall', lines, dict(top=top, col=[dict(t='card', id='better', at=['a', 0], tone='green', rows=[chip('Better', 'green'), (dict(t='sub', runs=[[right, 'green']]) if max(len(w) for w in right.split()) > 8 else ln([[right, 'green']])), *([dict(t='sub', runs=[[short(r['why'], 60)]])] if len(right) <= 34 else [])])]), 'Say it before I do.', 'mistake')
+    return base('recall', r, 'recall', lines, dict(top=top, col=[dict(t='card', id='better', at=['a', 0], tone='green', rows=[chip('Better', 'green'), (dict(t='sub', runs=[[right, 'green']]) if len(right) > 28 or max(len(w) for w in right.split()) > 8 else ln([[right, 'green']])), *([dict(t='sub', runs=[[short(r['why'], 60)]])] if len(right) <= 34 else [])])]), 'Say it before I do.', 'mistake')
 def spot(r):
     runs, si = NM.wrong_runs(r['wrong'], r['right']); lines = [line('h', hook_of(r)), line('q', f"Spot the mistake. {r['wrong']}"), dict(id='_count', beat='count', dur=3.0), line('a', f"The mistake! {r['why']}"), line('b', f"Say: {r['right']}"), line('w', r['aha'])]
     top = [dict(id='hook', hook=True, rows=[chip('Spot the mistake', 'coral', ring='_count'), dict(t='line', hook=True, runs=runs)], strike=[dict(line=0, run=si, at=['a', 0])])]
