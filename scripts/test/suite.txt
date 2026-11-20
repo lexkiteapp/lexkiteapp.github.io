@@ -456,6 +456,7 @@ node scripts/test/l1-notes.mjs
 node scripts/test/qengine-flag.mjs
 node scripts/test/qwk.mjs
 node scripts/test/es-native-bundle.mjs
+node scripts/test/ms-icons.mjs
 node scripts/test/lexai-oidc.mjs
 node scripts/test/firestore-rules.mjs
 node scripts/test/ext-imgdata.mjs
