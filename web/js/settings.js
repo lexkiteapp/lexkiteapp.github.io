@@ -225,7 +225,7 @@
     $('#sAnkiIn').onclick = () => App.anki('import');
     $('#sImport').onchange = importData;
     $('#sReset').onclick = async () => {
-      if (!confirm(t('Xóa toàn bộ flashcard, tiến độ, XP và thống kê trên thiết bị này? Không thể hoàn tác.'))) return;
+      if (!await LXDialog.confirm(t('Xóa toàn bộ flashcard, tiến độ, XP và thống kê trên thiết bị này? Không thể hoàn tác.'))) return;
       await Store.set('cards', {}); await Store.set('stats', { days: {}, newToday: { day: '', n: 0 } }); await Store.set('game', null);
       if (window.Sync && Sync.afterLocalReset) await Sync.afterLocalReset().catch(() => {});
       await load(); toast(t('Đã xóa dữ liệu')); routes.settings();
@@ -243,7 +243,7 @@
       </div></div>`;
       const btn = $('#btnLeaveLeague');
       if (btn) btn.onclick = async () => {
-        if (!confirm(t('Rời bảng xếp hạng tuần này? Điểm XP tuần này sẽ bị xóa khỏi giải đấu.'))) return;
+        if (!await LXDialog.confirm(t('Rời bảng xếp hạng tuần này? Điểm XP tuần này sẽ bị xóa khỏi giải đấu.'))) return;
         try {
           await Sync.league('leave');
           toast(t('Đã rời bảng xếp hạng tuần'));

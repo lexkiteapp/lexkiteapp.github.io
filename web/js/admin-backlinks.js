@@ -93,7 +93,7 @@
 
   function render(box, bapi, L, { esc, when, lang, toast }) {
     const B = (vi, vars) => { if (lang() !== 'en' || !Object.prototype.hasOwnProperty.call(EN, vi)) return L(vi, vars); const s = EN[vi]; return vars ? s.replace(/\{(\w+)\}/g, (m, k) => (vars[k] != null ? String(vars[k]) : m)) : s; };
-    const say = (m, k) => (toast ? toast(m, k) : window.alert(m));
+    const say = (m, k) => (toast ? toast(m, k) : LXDialog.alert(m));
     const url = u => (/^https:\/\/[^\s<>"']+$/.test(String(u || '')) ? String(u) : '');
     const ext = (u, label) => (url(u) ? `<a href="${esc(url(u))}" target="_blank" rel="noopener noreferrer">${esc(label == null ? u : label)}</a>` : esc(label == null ? u || '–' : label));
     const chip = ([cls, vi]) => `<span class="chip ${cls}">${esc(B(vi))}</span>`;
@@ -181,7 +181,7 @@
         try { await bapi('placementSet', { row, isNew }); say(B('Đã lưu')); load(); }
         catch (e) { err(e.code === 'exists' ? B('Mã đã tồn tại') : e.code === 'invalid' && e.data && e.data.fields ? (e.data.fields.includes('email') ? B('Không ghi email ở đây (repo/quản trị chỉ lưu tên công khai).') : B('Thiếu hoặc sai: {f}', { f: e.data.fields.join(', ') })) : B('Lỗi: {e}', { e: e.message })); }
       };
-      const del = q('#bwDel'); if (del) del.onclick = async () => { if (!window.confirm(B('Xóa mục này khỏi sổ theo dõi?'))) return; try { await bapi('placementDelete', { id: v.id }); say(B('Đã xóa')); load(); } catch (e) { err(B('Lỗi: {e}', { e: e.message })); } };
+      const del = q('#bwDel'); if (del) del.onclick = async () => { if (!await LXDialog.confirm(B('Xóa mục này khỏi sổ theo dõi?'))) return; try { await bapi('placementDelete', { id: v.id }); say(B('Đã xóa')); load(); } catch (e) { err(B('Lỗi: {e}', { e: e.message })); } };
       const first = q(isNew ? '[name=id]' : '[name=platform]'); if (first) first.focus();
     }
     async function exportJson() {
@@ -212,7 +212,7 @@
       const byK = k => D.handles.find(h => h.k === k);
       el.querySelectorAll('[data-own]').forEach(c => { c.onchange = async () => { const h = byK(c.dataset.own); try { await bapi('handleSet', { row: { platform: h.platform, handle: h.handle, url: h.url, notes: h.notes, status: c.checked ? 'owned' : 'not-yet' } }); say(B('Đã lưu')); load(); } catch (e) { c.checked = !c.checked; say(B('Lỗi: {e}', { e: e.message }), 'bad'); } }; });
       el.querySelectorAll('[data-hplay]').forEach(b => { b.onclick = () => play(handlePlay(byK(b.dataset.hplay))); });
-      el.querySelectorAll('[data-hdel]').forEach(b => { b.onclick = async () => { if (!window.confirm(B('Xóa mục này khỏi sổ theo dõi?'))) return; try { await bapi('handleDelete', { k: b.dataset.hdel }); say(B('Đã xóa')); load(); } catch (e) { say(B('Lỗi: {e}', { e: e.message }), 'bad'); } }; });
+      el.querySelectorAll('[data-hdel]').forEach(b => { b.onclick = async () => { if (!await LXDialog.confirm(B('Xóa mục này khỏi sổ theo dõi?'))) return; try { await bapi('handleDelete', { k: b.dataset.hdel }); say(B('Đã xóa')); load(); } catch (e) { say(B('Lỗi: {e}', { e: e.message }), 'bad'); } }; });
     }
     function hform() {
       const el = box.querySelector('#bwHForm'); el.hidden = false;

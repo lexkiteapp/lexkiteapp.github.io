@@ -44,6 +44,7 @@ export const SCREENS = {
   home: 'home',
   leagues: 'league',
   lesson: 'lesson/go?demo=1',
+  library: 'library?g=all',
   me: 'me',
   'onb-goal': 'welcome/setup',
   'onb-level': 'welcome/setup?s=level',
