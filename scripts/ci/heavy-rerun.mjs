@@ -11,12 +11,12 @@ import { isMain } from '../lib/is-main.mjs';
 export const MARK = /^# ci-policy: heavy-gate\b/m;
 /** Tên file workflow nặng trong thư mục workflows (thuần theo nội dung file). */
 export function heavyFiles(dir = '.github/workflows') { return fs.readdirSync(dir).filter(f => /\.ya?ml$/.test(f) && MARK.test(fs.readFileSync(path.join(dir, f), 'utf8'))); }
-/** Hàm thuần: lượt cần chạy lại = đã xong, thuộc workflow nặng, có job gate thành công (hoặc skipped ở lượt 1 – gate không tốn máy khi npm test chưa thể xanh) và MỌI job khác skipped (cổng đóng, chưa làm việc nặng). */
+/** Hàm thuần: lượt cần chạy lại = đã xong, thuộc workflow nặng, có job gate thành công và MỌI job khác skipped (cổng đóng, chưa làm việc nặng). */
 export function pickReruns(runs, jobsByRun, heavy) {
   const set = new Set(heavy);
   return runs.filter(r => r.event === 'pull_request' && r.status === 'completed' && set.has(path.basename(r.path || '')))
     .filter(r => { const js = jobsByRun[r.id] || []; const g = js.find(j => j.name === 'gate'); const rest = js.filter(j => j.name !== 'gate');
-      return g && (g.conclusion === 'success' || g.conclusion === 'skipped') && rest.length > 0 && rest.every(j => j.conclusion === 'skipped'); })
+      return g && g.conclusion === 'success' && rest.length > 0 && rest.every(j => j.conclusion === 'skipped'); })
     .map(r => r.id);
 }
 /** Hàm thuần: sha đã bị commit mới hơn thay (tip nhánh đọc lại khác sha) → KHÔNG được chạy lại lượt nào của nó (sẽ huỷ lượt của head trong nhóm concurrency).

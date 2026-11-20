@@ -70,22 +70,6 @@ Gốc hàng chờ 200–330: workflow nặng (Stitch diff, Mobile QA, Journey, F
 
   **Kết luận trung thực:** mục tiêu "PR chỉ đổi nội dung ≥ 50 %" KHÔNG đạt bằng scope: PR nội dung thuần đã nhẹ sẵn (~16 job, phần lớn là npm test bắt buộc), và 84 % PR gần đây có file UI thật nên phải chạy đủ. Nghẽn thật nằm ở PR UI: ~70 job/lượt (scroll-perf 8, ux-cards 5, qa-bot 5, journey ×2 10, native-iOS macOS 5…) và ~27 job `gate` mỗi PR UI – mỗi gate xếp hàng riêng rồi job nặng xếp hàng LẦN HAI (needs: gate). Đề xuất bước sau (chưa làm): gộp gate thành 1 job `scope+npm-test` chung, hoặc đẩy gate vào cùng job nặng đầu tiên.
 
-## Gate chỉ chạy ở lượt 2 (15/11, luật 17)
-Mỗi PR UI có ~17 workflow nặng × 1 job `gate`; gate chạy **2 lần** (lượt 1 khi mở/đẩy commit – npm test chưa thể xanh nên luôn đóng; lượt 2 do `heavy-rerun` khi npm test xanh). Nay gate có `if: event != pull_request || run_attempt > 1 || nhãn ready` → lượt 1 là `skipped` (không xin máy), job nặng skipped theo; `heavy-rerun` nhận lượt toàn skipped (gate skipped) và chạy lại → gate lượt 2 làm việc thật (npm test xanh + phạm vi PR). Nhãn `ready` vẫn chạy ngay như cũ. Không bỏ check nào.
-- Gộp tất cả gate thành MỘT job chung cho PR là KHÔNG khả thi: mỗi workflow là một lượt chạy riêng, job của workflow này không đọc được output của workflow kia (workflow_call vẫn tạo job gate trong từng lượt gọi; artifact/status cần runner + chờ = tốn máy hơn; workflow_run/check_suite bị cấm bởi luật fan-out). Mức tối thiểu là 1 gate/workflow/PR.
-- Số đo (26 PR UI gộp gần nhất, job thật trên sha cuối): 639 lượt gate chạy cho 426 lượt workflow (lượt 1 + lượt 2) trên 1691 job → sau: ≤ 426 gate (−213 = −33 % gate, −13 % tổng job; ~8 job/PR UI). Con số "26 lượt chờ máy/PR" ban đầu là ước lượng cao: gate tối thiểu vẫn 1 lượt/workflow.
-- Gác: ci-policy luật 17 (mọi `heavy-gate` có điều kiện run_attempt) + `scripts/test/heavy-rerun.mjs` (gate skipped → chạy lại; gate skipped mà đã có job nặng chạy → không).
-- RỦI RO cần soi sau merge: `POST /rerun` trên lượt toàn skipped – nếu GitHub từ chối thì heavy không bao giờ chạy (required-gate sẽ pending, không xanh giả). Kiểm bằng PR UI đầu tiên sau merge.
-
-## Luật 18 – PR chỉ chờ làn nhanh, việc nặng chạy SAU gộp (16/11, chủ OK)
-- **Vì sao:** 247 workflow, mỗi push 20–28 run, ~20–29 job chạy cùng lúc, 59 PR mở → hàng chờ 100–200; PR giao diện ≈ 70 job/lượt. Chủ: "PR chỉ chờ làn nhanh rồi merge".
-- **PR:** `npm test` (lint, unit, size-budget, i18n-qa, ci-policy…) + `required-gate`. Job `gate` của 51 workflow nặng (E2E, Mobile/Visual QA, golden, scroll-perf, teacher-motion, Stitch…) **skipped** trên PR (không tốn máy; required-gate tính skipped là đạt). Muốn chạy nặng trên PR: gắn nhãn `ready-heavy` (hoặc `ready`) **trước khi** đẩy commit. Workflow native/audio/golden… tự giới hạn bằng `paths:` – chỉ chạy khi PR chạm đúng vùng.
-- **Sau gộp:** mọi workflow nặng có `push: branches: [main]` cùng `paths:` với PR → chạy một lần trên commit gộp (concurrency huỷ lượt cũ khi main có commit mới hơn).
-- **Đỏ sau gộp:** `prod-release.yml` job `heavy-main` (`scripts/ci/heavy-main.mjs`) chờ các lượt nặng của commit: xanh → `mark` (prod-good) + OTA; đỏ → nếu chính commit làm đỏ (lượt trước của workflow đó không đỏ) tự đẩy nhánh `revert/<sha7>` bằng khoá deploy + mở PR revert (nhãn `main-red-revert`), đã đỏ từ trước → không revert oan (issue `main-red-wf` lo); bị huỷ vì commit mới → bỏ qua OTA lượt này, lượt của commit mới kiểm tiếp. Mất hết lượt nặng ≠ OTA: OTA chỉ phát khi `green`/`none` (commit không chạm vùng nặng).
-- **Không bỏ check nào:** chỉ dời chỗ chạy. Máy gác: `ci-policy` luật 18 (gate không chạy nặng trên PR, không mở lại ở lượt 2, mọi workflow nặng có push main) + `scripts/test/heavy-main.mjs`. `heavy-rerun` giữ cho PR có nhãn `ready-heavy`.
-- **Khi bật merge queue (docs/specs/ci-fast-lane.md):** thêm `merge_group` vào `if` của `gate` và bỏ `push` – một chỗ.
-- **Số đo:** job/PR giao diện trước ≈ 70 → sau = làn nhanh (~45, như #1395: 46 check xanh). Số phút/PR thật đo sau khi lên main (24h đầu) – xem báo cáo.
-
 ## learn-flow chập chờn 1/234 – gốc (16/11)
 Test đóng băng `Date.now` của app (bảo vệ chạm đúp 250 ms) rồi **trả về giờ thật**: giờ thật có thể nhỏ hơn mốc ảo (+300 ms) → máy nhanh thì `nextQ` bị chặn, không có tiến độ, ✕ không hỏi xác nhận. Sửa gốc: rã đông thì chạy tiếp liên tục từ mốc ảo (không nhảy ngược); chờ modal bằng `until()` thay vì `tick` cố định. Máy gác: `learn-flow-stress.yml` (10 máy × 5 lượt, chạy khi PR đụng `learn-flow.mjs`/`study.js` hoặc chạy tay).
 

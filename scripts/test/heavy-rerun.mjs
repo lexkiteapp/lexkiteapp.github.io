@@ -7,8 +7,6 @@ const J = (g, ...rest) => [{ name: 'gate', conclusion: g }, ...rest.map(c => ({ 
 const H = ['qa-bot.yml', 'size-guard.yml'];
 ok(pickReruns([run(1, 'qa-bot.yml')], { 1: J('success', 'skipped', 'skipped') }, H).join() === '1', 'gate xong, mọi job nặng skipped → chạy lại');
 ok(pickReruns([run(1, 'qa-bot.yml')], { 1: J('success', 'success', 'skipped') }, H).length === 0, 'đã có job nặng chạy thật → KHÔNG chạy lại (không lặp việc)');
-ok(pickReruns([run(1, 'qa-bot.yml')], { 1: J('skipped', 'skipped', 'skipped') }, H).join() === '1', 'luật 17: lượt 1 gate skipped + mọi job skipped → chạy lại');
-ok(pickReruns([run(1, 'qa-bot.yml')], { 1: J('skipped', 'success') }, H).length === 0, 'luật 17: gate skipped nhưng đã có job nặng chạy thật → không chạy lại');
 ok(pickReruns([run(1, 'qa-bot.yml')], { 1: J('failure', 'skipped') }, H).length === 0, 'gate lỗi → không chạy lại');
 ok(pickReruns([run(1, 'qa-bot.yml', { status: 'in_progress' })], { 1: J('success', 'skipped') }, H).length === 0, 'lượt còn đang chạy → không chạy lại');
 ok(pickReruns([run(1, 'ci.yml')], { 1: J('success', 'skipped') }, H).length === 0, 'workflow không thuộc nhóm nặng → bỏ qua');

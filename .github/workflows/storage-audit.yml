@@ -6,9 +6,6 @@ name: Storage audit
 on:
   pull_request:
     paths: ['web/sw.js', 'web/js/core.js', 'web/js/app.js', 'web/js/settings*.js', 'web/js/lex*.js', 'scripts/test/storage-audit.mjs', 'scripts/test/storage-audit.budget.json', '.github/workflows/storage-audit.yml']
-  push:
-    branches: [main]
-    paths: ['web/sw.js', 'web/js/core.js', 'web/js/app.js', 'web/js/settings*.js', 'web/js/lex*.js', 'scripts/test/storage-audit.mjs', 'scripts/test/storage-audit.budget.json', '.github/workflows/storage-audit.yml']
   workflow_dispatch:
 permissions:
   contents: read
@@ -19,8 +16,6 @@ jobs:
   # luật 11 (làn nhanh trước làn nặng, scripts/test/ci-policy.mjs): trên PR việc nặng chỉ chạy khi `npm test` đã XANH cùng sha (hoặc PR có nhãn `ready`) – đỏ/chưa xong thì mọi job dưới là skipped
   # (không chiếm runner); npm-test.yml job `heavy` chạy lại lượt này ngay khi npm test xanh (scripts/ci/heavy-rerun.mjs). Lỗi API → mở cổng (không mất kiểm).
   gate:
-    # luật 18 (CI làn nhanh, 16/11): PR chỉ chờ làn nhanh – việc nặng bỏ qua trên PR (skipped, không tốn máy), chạy SAU gộp trên push main; nhãn ready-heavy/ready = chạy nặng ngay trên PR
-    if: ${{ github.event_name != 'pull_request' || contains(github.event.pull_request.labels.*.name, 'ready-heavy') || contains(github.event.pull_request.labels.*.name, 'ready') }}
     runs-on: ubuntu-latest
     timeout-minutes: 3
     permissions: { contents: read, checks: read }
