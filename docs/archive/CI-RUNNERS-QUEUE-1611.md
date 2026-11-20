@@ -1,0 +1,6 @@
+# CI-RUNNERS – đo hàng chờ 16/11 (nhật ký cũ)
+
+> Tách nguyên văn từ `docs/CI-RUNNERS.md` (20/11/2026). Chỉ để tra cứu.
+
+## Đo hàng chờ 16/11 ~22:30Z: 148 run queued nhưng đó là NHU CẦU vượt công suất, không phải cấu hình sai
+Đo qua API (queued/in_progress): 148 run xếp hàng, 14 đang chạy; ở mức JOB: 35 job đang chạy (ubuntu ≈ 30 + macOS 5 = chạm trần gói) và 185 job chờ (ubuntu 175, macOS 10), tuổi chờ p50 21 phút, p90 49, tối đa 164. 33/35 job đang chạy là CI của PR; `npm test` 11 chạy / 57 chờ. 28 PR còn 186 job chưa xong, 5 PR lớn nhất (#1482, #1449, #1012, #1340, #1410) chiếm ≈135. Kiểm cấu hình: 70/71 workflow chạy trên PR có nhóm `concurrency` theo ref/số PR/run (ngoại lệ `store-reviews` không phải CI PR nặng) → KHÔNG có nhóm nào xếp hàng chung PR khác nhau; 0 run queued/in-progress thuộc head đã bị thay (`cancel-in-progress` chạy đúng) → không có gì để huỷ. Phần thừa do chính CI owner thêm: `perf-baseline` (10 job mỗi lần PR đụng `lib/perf-calibrate.mjs`) và `learn-flow-stress` (10 job mỗi lần PR đụng `web/js/study.js`) → bỏ trigger PR / thu hẹp đường dẫn. Đòn bẩy lớn hơn (chưa làm, cần quyết định): luật 18 (heavy chạy SAU gộp, #1451 đang giữ draft), giảm 8 shard `npm test` × `npm ci` lặp.
