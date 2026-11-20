@@ -4,7 +4,7 @@
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { api, evaluate, gateDrift, applyDrift, rerunCancelled, MAX_AUTO_RERUN, prCapable, checkWorkflow, dirtyShas, run, paceDue, PACED, chainAlive, CHAIN_CHECK_MS, CHAIN_RETRIES, CONTEXT, SELF_JOB, SELF_PATH } from '../ci/required-gate.mjs';
+import { api, evaluate, gateDrift, applyDrift, rerunCancelled, MAX_AUTO_RERUN, prCapable, checkWorkflow, dirtyShas, probeOf, run, paceDue, PACED, chainAlive, CHAIN_CHECK_MS, CHAIN_RETRIES, CONTEXT, SELF_JOB, SELF_PATH } from '../ci/required-gate.mjs';
 let fails = 0, n = 0; const ok = (c, m) => { n++; if (!c) { fails++; console.log('✗', m); } };
 
 const cr = (name, status, conclusion, id = 1) => ({ name, status, conclusion, id });
@@ -159,6 +159,20 @@ ok(!prCapable('name: a\non:\n  workflow_run:\n    workflows: [b]\njobs: {}\n'), 
   ok(JSON.stringify(posted) === '[["s1","success"]]', '--sweep: chỉ PR gate pending/thiếu và cập nhật ≤ 14 ngày ' + JSON.stringify(posted));
 }
 
+// 20/11 (#1664): check xong NGAY SAU khi gather đọc (chen giữa đọc và thăm dò) → gate không được kẹt pending tới lưới 'stale' 5 phút – phải đánh giá lại ở vòng kế (chữ ký thăm dò lấy TRƯỚC gather)
+{
+  let t = 0, done = false, doneAt = 0; const clock = { now: () => t, sleep: async ms => { t += ms; } }, posted = [];
+  const checks = () => [{ id: 1, name: 'npm test', status: done ? 'completed' : 'in_progress', conclusion: done ? 'success' : null, completed_at: done ? new Date(doneAt).toISOString() : null }];
+  const A = {
+    openPrs: async () => [{ number: 7, head: { sha: 'h9' }, updated_at: new Date(Date.now()).toISOString() }], gateState: async () => undefined,
+    recentRuns: async () => [],   // lượt chạy đã trượt khỏi trang 100 của /actions/runs
+    probe: async () => probeOf(checks()),
+    gather: async () => { const snap = checks(); done = true; doneAt = t; return { checkRuns: snap }; },   // npm test xong ngay sau khi đọc
+    post: async (sha, r) => posted.push(r.state + ':' + Math.round(t / 1e3)),
+  };
+  await run(['--watch', '4'], {}, A, () => {}, clock);   // 4 phút < staleMs 5 phút: chỉ đường 'sig' mới cứu được
+  ok(posted[0] === 'pending:0' && posted.some(x => x.startsWith('success:')), 'check xong sát sau lần đọc đầu → xanh trong 4 phút (không chờ lưới stale 5 phút): ' + posted.join());
+}
 // bộ canh --watch: mô phỏng 1 PR qua nhiều vòng – số lần đánh giá ít, đỏ ngay, xanh khi lượt cuối xong, không đăng lặp
 {
   let t = 0; const clock = { now: () => t, sleep: async ms => { t += ms; } };
