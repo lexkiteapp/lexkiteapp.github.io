@@ -10,16 +10,16 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - `extension/` (2328 file): Add-on Chrome/Edge (background/content/popup/newtab). extension/app là BẢN SAO dựng từ web/ (scripts/build-extension.sh) – KHÔNG sửa tay, bị bỏ khỏi map
 - `functions/` (112 file): Cloudflare Pages Functions = backend /api/* (file _*.js là helper dùng chung)
 - `workers/` (19 file): Cloudflare Workers riêng: audio, dict, gemini (AI), mail, media; workers/lib dùng chung
-- `scripts/` (1587 file): Công cụ build/gen/ops (mjs); scripts/test = chuỗi `npm test`; thư mục con theo mảng (video, lexicon, dict, ops, jobs, ci, social, seo…)
+- `scripts/` (1589 file): Công cụ build/gen/ops (mjs); scripts/test = chuỗi `npm test`; thư mục con theo mảng (video, lexicon, dict, ops, jobs, ci, social, seo…)
 - `.github/workflows/` (242 file): CI/CD + việc nền theo lịch (xem mục Workflows)
 - `infra/` (15 file): Sổ hạ tầng JSON: resources, jobs (nguồn của docs/JOBS.md), media-repos, schema.lock
 - `brand/` (1917 file): tokens.json (màu), logo, stitch/ (ref + DTCG), library/ (kho cảnh/clip video)
-- `content/` (6022 file): Nội dung nguồn: blog, authority, dict, confidence, explain, brand (dữ liệu lớn – bỏ khỏi map)
+- `content/` (6037 file): Nội dung nguồn: blog, authority, dict, confidence, explain, brand (dữ liệu lớn – bỏ khỏi map)
 - `mobile/` (217 file): Capacitor iOS/Android (ios/ android/ bỏ khỏi map)
 - `store/` (47 file): Hồ sơ listing Chrome/Edge/Apple/Play
-- `docs/` (261 file): Luật + tài liệu chủ đề (README.md → INDEX.md); cũ: docs/archive
+- `docs/` (262 file): Luật + tài liệu chủ đề (README.md → INDEX.md); cũ: docs/archive
 - API `/api/*` (50): account,admin,admin-accounts,admin-clips,admin-prefs,admin-shared,admin-shorts,ads-report,ads-reward,ai,aiearn,backlinks,capacity,class…
-- Thư mục con (số file; js/=web/js, s/=scripts): js/i18n:746 s/test:675 s/video:130 s/stitch:93 s/lib:74 js/vimg:64 s/cine:54 s/ci:53 js/st:43 s/lexicon:39 s/vocab-img:33 s/native:30 js/notes:27 js/readtest:21 s/pron:20 s/target:17 s/lesson:16 js/get-app:15 js/irv:15 js/lib:15 js/toeic:15 s/content-qa:14 s/ops:14 js/call:14 s/word-audio:13 s/lipsync:12
+- Thư mục con (số file; js/=web/js, s/=scripts): js/i18n:746 s/test:676 s/video:131 s/stitch:93 s/lib:74 js/vimg:64 s/cine:54 s/ci:53 js/st:43 s/lexicon:39 s/vocab-img:33 s/native:30 js/notes:27 js/readtest:21 s/pron:20 s/target:17 s/lesson:16 js/get-app:15 js/irv:15 js/lib:15 js/toeic:15 s/content-qa:14 s/ops:14 js/call:14 s/word-audio:13 s/lipsync:12
 
 ## Sửa ở đâu (tác vụ → file)
 - **Chuỗi i18n (15 ngôn ngữ)**: Khóa = câu tiếng Việt trong t('…'). Bản dịch web/js/i18n/<lang>.js + web/js/i18n/en/*.js; add-on extension/_locales/<lang>/messages.json. Tool: scripts/i18n-missing.mjs, i18n-qa.mjs, gen-i18n.mjs, i18n-sync.sh. Luật: docs/I18N-PIPELINE.md
@@ -209,7 +209,7 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - `workers/mail`: mail-prefs
 - `workers/push`: fcm-push
 
-## Mô-đun JS chính (5/2528, ngoài god nodes; phần còn lại trong json) – tên: export →nạp/import ←số nơi dùng
+## Mô-đun JS chính (5/2529, ngoài god nodes; phần còn lại trong json) – tên: export →nạp/import ←số nơi dùng
 - `functions/api/` _schema.js: once,_resetSchema →- ←15 (_keys.js,_meta_oauth.js,_quota.js)
 - `scripts/lib/` blog-content.mjs: ROOT,CATEGORIES,config,parse,setField… →blog-images.mjs,url-guard.mjs ←14 (blog-captions.mjs,blog-check.mjs,blog-due.mjs)
 - `scripts/target/` lib.mjs: ROOT,MEAN_LANGS,POS,seedPath,coreFiles… →i18n-rules.mjs ←14 (grammar-map-check.mjs,build.mjs,calls-check.mjs)
