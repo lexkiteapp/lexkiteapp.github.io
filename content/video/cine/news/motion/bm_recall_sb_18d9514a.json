@@ -196,7 +196,7 @@
       "tone": "green"
      },
      {
-      "t": "line",
+      "t": "sub",
       "runs": [
        [
         "The number of students is increasing.",
