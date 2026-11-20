@@ -61,7 +61,7 @@
  },
  "addClass": {
   ":scope > div > main > div > div:nth-child(1) > div:nth-child(1) > button": "no-underline",
-  ":scope > div > main > div > div:nth-child(1) > div:nth-child(1) > div": "min-w-0 max-w-[70%] break-words",
+  ":scope > div > main > div > div:nth-child(1) > div:nth-child(1) > div": "min-w-0 break-words",
   ":scope > div > main > div > div:nth-child(1) > div:nth-child(2) > div:nth-child(2)": "lsn-ring",
   ":scope > div > main > div > div:nth-child(1) > div:nth-child(3)": "lsn-xp",
   ":scope > div > main > div > div:nth-child(2)": "lsn-tiles",
