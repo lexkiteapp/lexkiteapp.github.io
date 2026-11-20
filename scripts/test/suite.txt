@@ -419,6 +419,7 @@ node scripts/test/stitch-today-contrast.mjs
 node scripts/test/is-main-guard.mjs
 node scripts/test/big-data.mjs
 node scripts/test/heavy-rerun.mjs
+node scripts/test/heavy-main.mjs
 node scripts/test/json-dupkeys.mjs
 node scripts/test/cls-chrome.mjs
 node scripts/test/es-practice.mjs
@@ -441,6 +442,7 @@ node scripts/test/play-rhythm-run.mjs
 node scripts/test/funnel.mjs
 node scripts/test/share-link.mjs
 node scripts/test/stitch-theme-lint.mjs
+node scripts/test/round-clip.mjs
 node scripts/test/referral.mjs
 node scripts/test/pwa-installable.mjs
 node scripts/test/addon-listings.mjs

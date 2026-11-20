@@ -23,6 +23,15 @@ export const SCRIPT_MAIN = { 'scripts/ops/ledger-push.mjs': /scripts\/ops\/ledge
   'scripts/ci/push-main.sh': /scripts\/ci\/push-main\.sh/, 'scripts/factory/open-pr.sh': /scripts\/factory\/open-pr\.sh/ };
 // đẩy NHÁNH PR bot (refs/heads/bot/…) vào repo chính để mở PR – CẦN kích check (không [skip ci]), không bao giờ đẩy main; được kiểm bên dưới
 export const PR_BRANCH = new Set(['scripts/factory/open-pr.sh']);
+// đẩy NHÁNH revert/<sha> (heavy-main tự mở PR revert, SSH khoá deploy để kích CI) – không bao giờ đẩy main; được kiểm bên dưới
+export const PR_REVERT = new Set(['scripts/ci/heavy-main.mjs']);
+export function scanPrRevert(f, s) {
+  const e = [], pushes = s.split('\n').filter(l => /'push'/.test(l) && !/^\s*\/\//.test(l));
+  if (/HEAD:main|refs\/heads\/main\b/.test(s)) e.push(`${f}: script revert không được đẩy main`);
+  if (!pushes.length || pushes.some(l => !/'push'[^\n]*`HEAD:refs\/heads\/\$\{br\}`/.test(l))) e.push(`${f}: mọi git push phải là HEAD:refs/heads/${'$'}{br}`);
+  if (!/br = `revert\//.test(s)) e.push(`${f}: nhánh phải có tiền tố revert/`);
+  return e;
+}
 // gộp main vào nhánh PR CÓ SẴN (pr-unconflict): không bao giờ đẩy main, không force-push
 export const PR_UPDATE = new Set(['scripts/pr-unconflict.mjs', 'scripts/ci/commit-regen-pr.sh']);
 export function scanPrUpdate(f, s) {
@@ -175,10 +184,11 @@ if (self) {
   for (const f of Object.keys(SCRIPT_MAIN)) scanScript(f, fs.readFileSync(f, 'utf8')).forEach(bad);
   for (const f of PR_BRANCH) scanPrBranch(f, fs.readFileSync(f, 'utf8')).forEach(bad);
   for (const f of PR_UPDATE) scanPrUpdate(f, fs.readFileSync(f, 'utf8')).forEach(bad);
+  for (const f of PR_REVERT) scanPrRevert(f, fs.readFileSync(f, 'utf8')).forEach(bad);
   const walk = d => fs.readdirSync(d, { withFileTypes: true }).flatMap(e => e.name === 'node_modules' ? [] : e.isDirectory() ? walk(path.join(d, e.name)) : [path.join(d, e.name)]);
   for (const f of walk('scripts').filter(f => /\.(m?js|sh|py)$/.test(f) && !f.startsWith('scripts/test/'))) {
     const s = fs.readFileSync(f, 'utf8');
-    if (!/git push|'push',\s*'-q'|'push',\s*'origin'|HEAD:main/.test(s) || SCRIPT_MAIN[f] || EXTERNAL.has(f) || PR_BRANCH.has(f) || PR_UPDATE.has(f)) continue;
+    if (!/git push|'push',\s*'-q'|'push',\s*'origin'|HEAD:main/.test(s) || SCRIPT_MAIN[f] || EXTERNAL.has(f) || PR_BRANCH.has(f) || PR_UPDATE.has(f) || PR_REVERT.has(f)) continue;
     bad(`${f} có git push/HEAD:main nhưng chưa phân loại – thêm vào SCRIPT_MAIN (đẩy repo chính: cần ssh-key + [skip ci]), PR_BRANCH (nhánh PR bot/…) PR_UPDATE (gộp main vào nhánh PR có sẵn) hoặc EXTERNAL (kho khác)`);
   }
   if (found.length < 30) bad(`chỉ nhận ra ${found.length} workflow đẩy main – bộ nhận diện hỏng?`);
