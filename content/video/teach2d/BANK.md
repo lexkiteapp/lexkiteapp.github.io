@@ -450,7 +450,7 @@
 | t2_l1_pt_intend | 100.0 | 100.0 | banked | 44778194772 |
 | t2_l1_pt_itsubject | – | – | red ×2: short: no render; wide: no render | 43879340893 |
 | t2_l1_pt_job | 100.0 | 100.0 | banked | 43879340893 |
-| t2_l1_pt_laptop | – | – | red ×1: short: no render; wide: no render | 44778194772 |
+| t2_l1_pt_laptop | – | – | red ×2: short: no render; wide: no render | 44778194772 |
 | t2_l1_pt_lend | 100.0 | 100.0 | banked | 43879340893 |
 | t2_l1_pt_library | 100.0 | 100.0 | banked | 43879340893 |
 | t2_l1_pt_life | 100.0 | 100.0 | banked | 44778194772 |
@@ -467,12 +467,12 @@
 | t2_l1_pt_nextfriday | 100.0 | 100.0 | banked | 44778194772 |
 | t2_l1_pt_nice | 100.0 | 100.0 | banked | 44778194772 |
 | t2_l1_pt_nolike | 100.0 | 100.0 | banked | 44778194772 |
-| t2_l1_pt_nothing | – | – | red ×1: short: no render; wide: no render | 44778194772 |
+| t2_l1_pt_nothing | – | – | red ×2: short: no render; wide: no render | 44778194772 |
 | t2_l1_pt_oclock | 100.0 | 100.0 | banked | 44778194772 |
 | t2_l1_pt_onbus | – | – | red ×1: short: no render; wide: no render | 43250170409 |
 | t2_l1_pt_onvacation | 100.0 | 100.0 | banked | 44778194772 |
 | t2_l1_pt_order | – | – | red ×1: short: no render; wide: no render | 43250170409 |
-| t2_l1_pt_pantsare | – | – | red ×1: short: no render; wide: no render | 44778194772 |
+| t2_l1_pt_pantsare | – | – | red ×2: short: no render; wide: no render | 44778194772 |
 | t2_l1_pt_paris | – | – | red ×1: short: no render; wide: no render | 43250170409 |
 | t2_l1_pt_peopleare | 100.0 | 100.0 | banked | 44778194772 |
 | t2_l1_pt_pretend | 100.0 | 100.0 | banked | 43129502972 |
