@@ -12,6 +12,7 @@ let out = src.replace(/(tailwind\.config\s*=\s*)(\{[\s\S]*?\})(\s*<\/script>)/, 
   for (const [from, to] of Object.entries(map.hex || {})) cfg = cfg.split(from).join(to); // bóng tactile trong boxShadow
   return a + cfg + z; });
 out = out.replace(/class="([^"]*)"/g, (m, c) => `class="${c.split(/\s+/).map(x => map.cls?.[x] ?? x).join(' ')}"`);
+for (const [from, to] of map.raw || []) out = out.split(from).join(to); // thay nguyên chuỗi (vd <html class> / nền <body>: bản tối phải có nền tối, không phải token sáng)
 for (const [from, to] of Object.entries(map.attr || {})) out = out.split(from).join(to); // thuộc tính màu trực tiếp (SVG stroke="#…" / fill="#…"): khóa = cả chuỗi thuộc tính, vd 'stroke="#F4E6DC"'
 out = out.replace(/(<style[\s\S]*?<\/style>)/, s => { for (const [from, to] of Object.entries(map.hex || {})) s = s.split(from).join(to); return s; });
 out = out.replace(/<title>([^<]*)<\/title>/, (m, x) => `<title>${x} (dark – dark-from-light.mjs)</title>`);

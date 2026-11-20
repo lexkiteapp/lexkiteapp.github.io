@@ -23,8 +23,8 @@
   "Words": "t('Từ mới')",
   "Awesome!": "d.sub",
   "New vocabulary locked in:": "d.learned",
-  "14-day streak": "d.streakT",
-  "Today is completed!": "d.weekN",
+  "Current streak: 14 days": "d.streakT",
+  "This week: 5 days": "d.weekN",
   "Next lesson": "t('Bài tiếp theo')",
   "Lesson map": "d.rev"
  },
