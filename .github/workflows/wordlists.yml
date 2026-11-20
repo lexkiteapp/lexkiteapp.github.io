@@ -17,12 +17,12 @@ concurrency: { group: wordlists, cancel-in-progress: false }
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 75
+    timeout-minutes: 240
     steps:
-      - name: Chờ word-packs + sent-packs xong (cùng gọi Google Translate; tối đa 90 phút, TRƯỚC checkout; quá hạn thì bỏ lượt)
+      - name: Chờ word-packs + sent-packs xong (cùng gọi Google Translate; tối đa 170 phút, TRƯỚC checkout; quá hạn thì ĐỎ (không bỏ lượt im lặng))
         env: { GH_TOKEN: '${{ github.token }}' }
         run: |
-          for i in $(seq 1 90); do
+          for i in $(seq 1 170); do
             t=0
             for w in word-packs sent-packs; do
               for st in in_progress queued; do
@@ -33,38 +33,32 @@ jobs:
             [ "$t" = "0" ] && exit 0
             sleep 60
           done
-          echo '::warning::word-packs/sent-packs còn chạy sau 90 phút → bỏ lượt wordlists'; echo SKIP=1 >> "$GITHUB_ENV"
+          # 20/11: trần job cũ 75' < chờ 90' → job bị cancelled giữa lúc chờ (5 lượt liền); nay trần 240' > chờ 170' + việc ~45'. Quá hạn chờ = ĐỎ để cron-watch báo, không bỏ im lặng.
+          echo '::error::word-packs/sent-packs còn chạy sau 170 phút → wordlists không có lượt'; exit 1
       - uses: actions/checkout@v4
-        if: env.SKIP != '1'
         with: { ssh-key: "${{ github.ref == 'refs/heads/main' && secrets.BOT_DEPLOY_KEY || '' }}" }   # chỉ main cầm khoá deploy (ruleset) – docs/CI-RUNNERS.md › required-gate
       - uses: actions/setup-node@v4
-        if: env.SKIP != '1'
         with: { node-version: 22 }
       - name: Làm giàu & kiểm tra
-        if: env.SKIP != '1'
         run: |
           node scripts/gen-wordlist.mjs nawl --max 600
           node scripts/gen-wordlist.mjs bsl --max 600
           node scripts/vi-lint.mjs | tail -3
       - name: Bổ sung phiên âm & ví dụ còn trống (chạy dần, có lưu đệm)
-        if: env.SKIP != '1'
         run: |
           node scripts/fill-vocab.mjs --max 1000 --minutes 25 | tail -3
           if ! node scripts/test/content-check.mjs > "$RUNNER_TEMP/cc.txt"; then tail -20 "$RUNNER_TEMP/cc.txt"; echo 'content-check lỗi → bỏ thay đổi kho từ lần này'; git checkout web/js/lib web/js/data.js; fi
       # 26/10: gen-wordlist ghi dòng KHÔNG có IPA Mỹ → commit thẳng làm dict-consistency đỏ (759 dòng, Prod release + vocab-img-scene hỏng).
       # Luôn chuẩn hoá kho (IPA Mỹ, bản chép add-on, dist) + tab mới add-on rồi mới lưu; cổng còn đỏ → không commit.
       - name: Chuẩn hoá kho + tab mới add-on (docs/LEXICON.md)
-        if: env.SKIP != '1'
         run: |
           node scripts/build-lexicon.mjs --write | tail -2
           node scripts/gen-newtab.mjs | tail -1
           node scripts/build-lexicon.mjs
       - name: Lưu kết quả (thử lại tối đa 5 lần)
-        if: env.SKIP != '1' && github.ref == 'refs/heads/main'
         run: |
           bash scripts/ci/push-main.sh "Kho từ theo kỳ thi: cập nhật tự động" web/js/lib web/js/data.js content/wordlists extension/app/js extension/nt
       - name: Nhánh khác main – artifact + summary (không đẩy vào nhánh; lấy về bằng bash scripts/ci/bot-output.sh wordlists <nhánh>)
-        if: env.SKIP != '1' && github.ref != 'refs/heads/main'
         uses: ./.github/actions/bot-output
         with:
           name: wordlists
