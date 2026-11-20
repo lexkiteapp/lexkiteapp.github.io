@@ -23,15 +23,26 @@
     return null;
   }
 
-  // Câu luyện của một thẻ: câu người học gặp trên web (add-on)
-  function sentenceOf(c, viOk) {
+  // Câu luyện của một thẻ: câu người học gặp trên web (add-on) → câu song ngữ → ví dụ thư viện. Chỉ câu chứa từ, 3–14 từ.
+  // Độ dài câu mong muốn theo trình độ CEFR (1=A1 … 6=C2): câu quá ngắn so với mục tiêu (A1 trong khi mục tiêu IELTS 7.5) là lệch đề
+  const SENT_LEN = [0, 5, 7, 9, 11, 12, 13];
+  // Trình độ câu = trình độ hiện tại + 1 (i+1), không vượt mục tiêu: exam 'ielts…' target = band, còn lại target = CEFR 1–6
+  function sentLevel(own, exam, target) {
+    const tg = /^ielts|^toefl|^toeic/.test(String(exam || '')) ? (+target >= 7 ? 5 : +target >= 6 ? 4 : +target >= 5 ? 3 : +target > 0 ? 2 : 0) : +target || 0;
+    const o = Math.max(1, Math.min(6, +own || 2));
+    return tg ? Math.max(1, Math.min(6, Math.min(tg, o + 1))) : o;
+  }
+  function sentenceOf(c, viOk, lvl) {
     const cands = [];
     if (c.ctx) cands.push({ text: c.ctx, own: true });
     (c.contexts || []).forEach(x => x && x.text && cands.push({ text: x.text, own: true }));
     (c.sentences || []).forEach(x => x && x.en && cands.push({ text: x.en, tr: viOk === false ? '' : x.vi || '', own: false })); // .vi = tiếng Việt: chỉ người học vi (viOk=false → không bao giờ lộ tiếng Việt ở ngôn ngữ khác)
     if (c.ex) cands.push({ text: c.ex, own: false });
-    for (const s of cands) { const n = toks(s.text).length, f = findWord(s.text, c.word); if (f && n >= 3 && n <= 14) return Object.assign({}, s, { at: f }); }
-    return null;
+    const ok = [];
+    for (const s of cands) { const n = toks(s.text).length, f = findWord(s.text, c.word); if (f && n >= 3 && n <= 14) ok.push(Object.assign({}, s, { at: f })); }
+    if (!lvl || ok.length < 2) return ok[0] || null;
+    const want = SENT_LEN[lvl] || 9; // câu người học tự tra (own) vẫn được ưu tiên khi cùng độ lệch
+    return ok.map((s, i) => ({ s, d: Math.abs(toks(s.text).length - want) + (s.own ? -0.5 : 0) + i * 0.01 })).sort((a, b) => a.d - b.d)[0].s;
   }
   // Thẻ mẫu câu (thẻ kết quả tự lưu, docs/specs/learn-card.md): từ = "Can I have …, please?", câu luyện = ex
   const isPat = c => /…/.test(String((c && c.word) || ''));
@@ -54,11 +65,35 @@
     return out;
   }
 
-  // Phương án nhiễu: ưu tiên cùng loại từ, không trùng đáp án
-  function distract(word, pos, pool, k, r) {
-    const P = POS(pos), cand = shuffle(pool.filter(c => c && c.word && !same(c.word, word)), r);
-    const pick = cand.filter(c => POS(c.pos) === P).concat(cand.filter(c => POS(c.pos) !== P));
-    const out = []; for (const c of pick) { if (!out.some(x => same(x, c.word))) out.push(c.word); if (out.length >= k) break; }
+  // Dạng biến đổi của chỗ trống so với từ gốc ('ing' | 'ed' | 's' | ''): phương án nhiễu phải CÙNG dạng ngữ pháp với đáp án
+  const formKind = (form, word) => { const f = String(form || '').toLowerCase(), w = String(word || '').toLowerCase(); return !f || f === w ? '' : /ing$/.test(f) ? 'ing' : /ed$/.test(f) ? 'ed' : /s$/.test(f) ? 's' : ''; };
+  // Chia đuôi theo quy tắc đều; từ khó (gấp đôi phụ âm, cụm nhiều từ) → '' (bỏ ứng viên, không bao giờ sinh từ sai chính tả)
+  function inflect(w, k) {
+    w = String(w || '').trim(); if (!k) return w; if (!/^[a-z]+$/i.test(w)) return '';
+    if (/[^aeiou][aeiou][^aeiouwxy]$/i.test(w) && w.length <= 5 && k !== 's') return '';
+    if (k === 'ing') return /ee$/i.test(w) || !/e$/i.test(w) ? w + 'ing' : w.slice(0, -1) + 'ing';
+    if (k === 'ed') return /e$/i.test(w) ? w + 'd' : /[^aeiou]y$/i.test(w) ? w.slice(0, -1) + 'ied' : w + 'ed';
+    return /[^aeiou]y$/i.test(w) ? w.slice(0, -1) + 'ies' : /(s|x|z|ch|sh)$/i.test(w) ? w + 'es' : w + 's';
+  }
+  const topicOf = c => String(c.topic || c.unit || c.cat || (c.tags && c.tags[0]) || '').toLowerCase();
+  const defSet = c => new Set(String((c.def || '') + ' ' + (c.vi || '')).toLowerCase().split(/[^a-zà-ỹ]+/).filter(x => x.length > 2));
+  /** Phương án nhiễu: cùng loại từ + cùng dạng ngữ pháp + cùng chủ đề (thẻ cùng bài/chặng `near`, cùng topic, trùng từ trong định nghĩa) + cùng độ dài; không trùng đáp án/chữ có trong câu.
+   *  opts { form: chỗ trống trong câu ('decided'), near: [thẻ cùng chủ đề], avoid: [chữ đã có trong câu] } */
+  function distract(word, pos, pool, k, r, opts = {}) {
+    if (!opts.modern) { // đường cũ (native Swift/Kotlin đối chiếu vectors/lesson.json): chỉ cùng loại từ; bài web đi đường mới qua build({ near | level })
+      const P0 = POS(pos), cand0 = shuffle(pool.filter(c => c && c.word && !same(c.word, word)), r), pick = cand0.filter(c => POS(c.pos) === P0).concat(cand0.filter(c => POS(c.pos) !== P0)), out0 = [];
+      for (const c of pick) { if (!out0.some(x => same(x, c.word))) out0.push(c.word); if (out0.length >= k) break; }
+      return out0;
+    }
+    const P = POS(pos), kind = formKind(opts.form, word), near = new Set((opts.near || []).map(c => norm(c.word))), avoid = new Set((opts.avoid || []).map(norm));
+    const me = pool.find(c => c && same(c.word, word)) || {}, T = topicOf(me), D = defSet(me), multi = /\s/.test(String(word).trim());
+    const cand = shuffle(pool.filter(c => c && c.word && !same(c.word, word) && !avoid.has(norm(c.word))), r).map((c, i) => {
+      const txt = inflect(c.word, kind); if (kind && !txt) return null; // đáp án chia đuôi mà ứng viên không chia đều được → bỏ
+      let sc = (POS(c.pos) === P ? 0 : 5) + (/\s/.test(c.word.trim()) !== multi ? 5 : 0) + (near.has(norm(c.word)) ? -6 : 0) + (T && topicOf(c) === T ? -2 : 0) + Math.abs(c.word.length - word.length) * 0.15 + i * 0.01;
+      const dc = defSet(c); let ov = 0; D.forEach(x => { if (dc.has(x)) ov++; }); sc -= Math.min(2, ov);
+      return { w: txt, sc };
+    }).filter(Boolean).sort((a, b) => a.sc - b.sc);
+    const out = []; for (const c of cand) { if (!out.some(x => same(x, c.w)) && !same(c.w, opts.form || word)) out.push(c.w); if (out.length >= k) break; }
     return out;
   }
 
@@ -75,9 +110,9 @@
    *  Luật nội dung: đề luôn khớp dữ liệu – xếp câu cần bản dịch CÂU (hoặc âm thanh), không bao giờ lấy định nghĩa của TỪ làm đề câu.
    *  → [{ id, type, word, card, why, sent?, answer, options?, tiles?, prompt?, tr?, mean?, def?, len?, first?, bank?, hints }] */
   function build(picks, opts = {}) {
-    const viOk = opts.vi !== false, r = rng(opts.seed || Date.now()), pool = (opts.pool || []).concat(picks.map(p => p.card)), off = opts.off || {}, per = opts.perWord || 2;
+    const viOk = opts.vi !== false, r = rng(opts.seed || Date.now()), modern = opts.near != null || opts.level != null, pool = modern ? picks.map(p => p.card).concat(opts.near || [], opts.pool || []) : (opts.pool || []).concat(picks.map(p => p.card)), near = picks.map(p => p.card).concat(opts.near || []), off = opts.off || {}, per = opts.perWord || 2;
     const byWord = picks.map(p => {
-      const c = p.card, pat = isPat(c) && c.ex, s = pat ? { text: c.ex, own: false, at: { toks: toks(c.ex) } } : sentenceOf(c, viOk), types = [];
+      const c = p.card, pat = isPat(c) && c.ex, s = pat ? { text: c.ex, own: false, at: { toks: toks(c.ex) } } : sentenceOf(c, viOk, opts.level), types = [];
       // câu song ngữ riêng cho dạng dịch (câu add-on thường không có bản dịch)
       // dạng dịch cần bản dịch CÂU đúng ngôn ngữ người học
       const trOf = x => (viOk ? x.vi : opts.gloss && opts.gloss(c, x.en)) || '';
@@ -104,15 +139,15 @@
     const items = []; let id = 0;
     const make = (w, type) => {
       const { p, c, s } = w, base = { id: ++id, type, word: c.word, card: c, why: p.why, ipa: c.ipaUS || c.ipa || '', retry: 0, hints: HINTS[type] || [], mean: (opts.mean && opts.mean(c)) || '' };
-      if (type === 'gap') { const opt = shuffle([s.at.form].concat(distract(c.word, c.pos, pool, 3, r)), r); return Object.assign(base, { sent: s.text, own: s.own, blank: s.at, answer: s.at.form, options: opt, tr: s.tr || '' }); }
+      if (type === 'gap') { const opt = shuffle([s.at.form].concat(distract(c.word, c.pos, pool, 3, r, { modern, form: s.at.form, near, avoid: s.at.toks })), r); return Object.assign(base, { sent: s.text, own: s.own, blank: s.at, answer: s.at.form, options: opt, tr: s.tr || '' }); }
       if (type === 'build' || type === 'tr') {
-        const s = type === 'tr' ? w.pair : w.s, words = toks(s.text), extra = distract(c.word, c.pos, pool.filter(x => x && !/\s/.test(String(x.word).trim())), 4, r).filter(x => !words.some(y => same(y, x))).slice(0, 2); // ô nhiễu = 1 từ, không trùng từ của câu
+        const s = type === 'tr' ? w.pair : w.s, words = toks(s.text), extra = distract(c.word, c.pos, pool.filter(x => x && !/\s/.test(String(x.word).trim())), 4, r, { modern, near }).filter(x => !words.some(y => same(y, x))).slice(0, 2); // ô nhiễu = 1 từ, không trùng từ của câu
         return Object.assign(base, { sent: s.text, own: s.own, prompt: s.tr || '', answer: words.join(' '), tiles: shuffle(words.concat(extra), r) }); // build: prompt = bản dịch câu (có thể '' khi chỉ nghe)
       }
       if (type === 'type') { const wd = c.word.trim(); return Object.assign(base, { answer: wd, def: c.def || '', len: wd.replace(/[\s'-]/g, '').length, first: wd[0], bank: letterBank(wd.toLowerCase(), rng([...wd].reduce((h, ch) => (h * 31 + ch.charCodeAt(0)) >>> 0, 7))) }); } // rng riêng theo từ: không làm lệch dãy xáo của cả bài (thứ tự đáp án/ô giữ ổn định)
-      if (type === 'pic') return Object.assign(base, { answer: c.word, options: shuffle([c.word].concat(distract(c.word, c.pos, pool, 3, r)), r) });
-      const short = s && (toks(s.text).length <= 8 || isPat(c)), alt = s && s.at && s.at.form ? { type: 'gap', sent: s.text, own: s.own, blank: s.at, answer: s.at.form, options: shuffle([s.at.form].concat(distract(c.word, c.pos, pool, 3, r)), r) }
-        : { type: 'mean', answer: c.word, options: shuffle([c.word].concat(distract(c.word, c.pos, pool, 3, r)), r) }; // bản thay khi tắt nói
+      if (type === 'pic') return Object.assign(base, { answer: c.word, options: shuffle([c.word].concat(distract(c.word, c.pos, pool, 3, r, { modern, near })), r) });
+      const short = s && (toks(s.text).length <= 8 || isPat(c)), alt = s && s.at && s.at.form ? { type: 'gap', sent: s.text, own: s.own, blank: s.at, answer: s.at.form, options: shuffle([s.at.form].concat(distract(c.word, c.pos, pool, 3, r, { modern, form: s.at.form, near, avoid: s.at.toks })), r) }
+        : { type: 'mean', answer: c.word, options: shuffle([c.word].concat(distract(c.word, c.pos, pool, 3, r, { modern, near })), r) }; // bản thay khi tắt nói
       alt.hints = HINTS[alt.type]; if (alt.type === 'gap') alt.tr = s.tr || '';
       return Object.assign(base, { sent: short ? s.text : c.word, answer: short ? s.text : c.word, alt });
     };
@@ -253,5 +288,19 @@
   // Dạng bài theo loại nút
   const KIND = { lesson: null, review: null, listen: ['gap', 'build', 'type', 'match'], speak: ['say', 'pic', 'gap'] };
 
-  g.LessonEngine = { isPat, HINTS, letterBank, pathPlan, unitPlan, nextKind, calm, HARD, storyItems, KIND, norm, toks, rng, shuffle, findWord, sentenceOf, fromExt, isDue, pickWords, build, adapt, check, Session, results, stress, usuk, visemes, DAY };
+  /** Tuần này (thứ 2 → CN) cho thẻ chuỗi ngày: `on[i]` = đã học ngày i (hôm nay tính luôn vì bài vừa xong), `today` = chỉ số hôm nay, `n` = số ngày học trong tuần,
+   *  `days` = Date từng ngày (ui gắn nhãn thứ). Khác `streak` (chuỗi LIỀN tới hôm nay): 2/7 ngày học trong tuần có thể là chuỗi 1 – hai số tách nhãn, không mâu thuẫn. */
+  function weekDots(act, now, keyOf) {
+    const d0 = new Date(now), mon = new Date(d0); mon.setDate(d0.getDate() - ((d0.getDay() + 6) % 7));
+    const days = [], on = [];
+    for (let i = 0; i < 7; i++) { const x = new Date(mon); x.setDate(mon.getDate() + i); days.push(x); on.push(keyOf(x) === keyOf(d0) || !!(act && act.has(keyOf(x)))); }
+    return { on, days, today: (d0.getDay() + 6) % 7, n: on.filter(Boolean).length };
+  }
+  /** Chuỗi liền kết thúc hôm nay (hôm nay tính nếu vừa học) trong tập ngày học – dùng khi App.streak() chưa cập nhật */
+  const runOf = (act, now, keyOf) => { let n = 0; const d = new Date(now); while (n < 4000 && (n === 0 || (act && act.has(keyOf(d))))) { n++; d.setDate(d.getDate() - 1); if (!(act && act.has(keyOf(d)))) break; } return n; };
+  /** Bong bóng giáo viên chỉ hiện khi có lời thật: rỗng / chỉ "🔊 · · ·" / chỉ dấu chấm → ẩn (không bao giờ bong bóng trống) */
+  const hasLine = s => /[\p{L}\p{N}]/u.test(String(s == null ? '' : s));
+  /** Hai giọng đọc giống hệt (IPA UK = US, hoặc cùng file âm) → chỉ một loa + một IPA */
+  const sameVoice = (a, b) => !!a && !!b && String(a).replace(/\s/g, '') === String(b).replace(/\s/g, '');
+  g.LessonEngine = { isPat, weekDots, runOf, hasLine, sameVoice, sentLevel, inflect, formKind, distract, HINTS, letterBank, pathPlan, unitPlan, nextKind, calm, HARD, storyItems, KIND, norm, toks, rng, shuffle, findWord, sentenceOf, fromExt, isDue, pickWords, build, adapt, check, Session, results, stress, usuk, visemes, DAY };
 })(typeof self !== 'undefined' ? self : globalThis);
