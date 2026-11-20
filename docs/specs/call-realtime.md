@@ -16,7 +16,7 @@ Cả 3 dùng GPU máy chủ trả phí → không hợp $0 ở 1 triệu ngườ
 
 ## M1 – độ mượt
 - **Biết nói xong** `CallEP` (thuần, test node): xác suất Silero (thiếu mô hình / saveData → năng lượng RMS + nền ồn thích nghi) → nói từ ≥ 3 khung > 0,5; im khi < 0,35 kéo dài *hangover*: 550 ms; 350 ms nếu đã đủ `min` từ và câu trọn; 1000 ms nếu chữ tạm (interim) dừng ở "and/because/the/um…"; Part 2: 1200 ms. Xong → `rec.stop()` ngay (Web Speech trả kết quả cuối; Whisper dừng ghi thay vì chờ khung cố định 3–15 s).
-- **Ngắt lời**: khi giáo viên nói và người học đã bật micro rảnh tay: VAD chặt hơn (> 0,8, 3 khung, AEC của trình duyệt) → `hush()` + mở nghe. Đích ≤ 200 ms từ lúc có tiếng tới lúc giáo viên im.
+- **Ngắt lời**: khi giáo viên nói và người học đã bật micro rảnh tay: VAD chặt hơn (bộ đếm rò: khung ≥ 0,5 +1, < 0,5 −1, đủ 3 và có ≥ 1 khung > 0,8 – 16/11: Silero dao động giữa chừng làm luật "3 khung > 0,8 liền" hush trễ 220–295 ms; AEC của trình duyệt) → `hush()` + mở nghe. Đích ≤ 200 ms từ lúc có tiếng tới lúc giáo viên im.
 - **Che trễ**: 180 ms sau khi VAD báo xong mà chưa có câu đáp → câu đệm ("Mm-hm.", "Okay!", "Right…") Kokoro sinh sẵn theo đúng giọng giáo viên (`call/fillers.js` → corpus audio), miệng chạy vòng nói; câu đáp thật xếp ngay sau, không cắt câu đệm. Không lặp câu đệm liền nhau.
 - **Riêng tư**: VAD chỉ đọc khung âm thanh trong RAM, không ghi, không gửi. Micro chỉ mở sau khi người học bấm 🎙️ lần đầu; cúp máy → tắt hết.
 - **Cổng CI** `call-rt.yml` (Chromium, CPU 4×, micro giả = AudioContext phát wav espeak biết trước mốc kết thúc): trễ "nói xong → giáo viên có tiếng" p50/p95 (cờ bật vs tắt), ngắt lời ≤ 200 ms, fps ≥ 50, 0 lỗi JS; báo cáo `report.md` + GIF.
