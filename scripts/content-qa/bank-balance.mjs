@@ -10,7 +10,7 @@ import { ROOT } from '../lib/content-load.mjs';
 const DIRS = ['js/grammar', 'cpack/grammar', 'js/toeic', 'cpack/toeic', 'js/toefl', 'cpack/toefl', 'js/listen', 'cpack/listen', 'cpack/cambridge', 'cpack/readings', 'js/readings.js', 'js/readtest', 'cpack/readtest'];
 const STR = String.raw`(?:"(?:[^"\\\n]|\\.)*"|'(?:[^'\\\n]|\\.)*'|\x60(?:[^\x60\\$]|\\.)*\x60)`; // "…" '…' hoặc `…` (không có ${})
 const RE = new RegExp(String.raw`options:\s*\[((?:\s*${STR}\s*,?)+)\]\s*,\s*(a|answer):\s*(\d)\b`, 'g');
-const LETTER = /(options?|choices?|answers?|đáp án|phương án|câu)\s+[A-E]\b|\([A-E]\)/i; // lời giải chỉ cần tránh nhắc chữ cái phương án
+const LETTER = /(options?|choices?|answers?|đáp án|phương án|câu)\s+[A-E]\b|\([A-E]\)|(?:→|->|=>)\s*[A-E]\b/i; // lời giải chỉ cần tránh nhắc chữ cái phương án
 const TOK = new RegExp(STR, 'g');
 const RISKY = /\b(above|both|neither|none of|all of|either)\b|\b(options?|choices?|answers?)\s+[A-E]\b|\([A-E]\)/i;
 const lettered = opts => opts.every((o, i) => new RegExp(`^${String.fromCharCode(65 + i)}[.)]?\\s`).test(o)); // phương án đã đánh sẵn chữ A,B,C… → đổi chỗ sẽ sai nhãn

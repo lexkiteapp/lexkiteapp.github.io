@@ -348,7 +348,7 @@ explain: 'Dev nói "I\'ll call Fulton Rentals right after this meeting" → gọ
 { type: 'mcq', instr: g.TQL[18],
 items: [
 { n: 38, q: g.TQL[44], options: ["A client's complaint", 'A team-building event', 'Software for managing projects', 'Hiring a new manager'], a: 2, cue: 'Our subscription to their project management software expires',
-explain: 'Cả cuộc hội thoại bàn về việc gia hạn hay đổi phần mềm quản lý dự án (Brightdesk → TaskHarbor) → A. "project management software" được diễn đạt lại thành "software for managing projects".' },
+explain: 'Cả cuộc hội thoại bàn về việc gia hạn hay đổi phần mềm quản lý dự án (Brightdesk → TaskHarbor) → C. "project management software" được diễn đạt lại thành "software for managing projects".' },
 { n: 39, q: 'What concern does the man express about changing programs?', options: ['The cost of training', 'A lack of storage space', 'The time needed to move files', 'A missed deadline'], a: 2, cue: 'moving all of our project files to a new system could take weeks',
 explain: 'Anh lo rằng "moving all of our project files … could take weeks" (chuyển toàn bộ tệp có thể mất nhiều tuần) → thời gian chuyển dữ liệu (C). Việc tăng giá 20% là lý do không muốn gia hạn phần mềm cũ, không phải mối lo khi đổi phần mềm.' },
 { n: 40, q: g.TQL[42], options: ['Call a friend', 'Lead a meeting', 'Compare prices', 'Register for a trial'], a: 3, cue: 'Could you sign us up for the trial today?',
@@ -359,7 +359,7 @@ items: [
 { n: 41, q: 'What has been delayed?', options: ['The installation of a machine', 'A shipment of raw materials', 'A safety inspection', 'A job interview'], a: 0, cue: "The new packaging machine won't be installed until next Wednesday",
 explain: 'Máy đóng gói mới sẽ không được lắp đặt cho đến thứ Tư tới ("won\'t be installed until next Wednesday") → việc lắp đặt máy bị chậm (A). Đơn hàng của Delmar Foods vẫn dự kiến giao thứ Sáu.' },
 { n: 42, q: 'What does Rosa suggest?', options: ['Hiring a new technician', 'Adding a night shift', 'Asking a client for more time', 'Buying a used machine'], a: 1, cue: 'if we add a night shift, we should be able to finish the order on time',
-explain: 'Rosa đề xuất chạy máy cũ qua đêm và "add a night shift" (thêm ca đêm) → C. Không ai đề nghị xin khách gia hạn – ngược lại, họ muốn giao đúng hẹn để giữ khách hàng Delmar.' },
+explain: 'Rosa đề xuất chạy máy cũ qua đêm và "add a night shift" (thêm ca đêm) → B. Không ai đề nghị xin khách gia hạn – ngược lại, họ muốn giao đúng hẹn để giữ khách hàng Delmar.' },
 { n: 43, q: 'What will Rosa do this morning?', options: ['Call Delmar Foods', 'Post a sign-up sheet', 'Repair the old machine', 'Approve overtime pay'], a: 1, cue: "I'll post a sign-up sheet in the break room this morning",
 explain: '"I\'ll post a sign-up sheet in the break room this morning" → dán bảng đăng ký (B). Việc trả lương tăng ca chỉ được nhắc như một chi phí, không ai nói Rosa sẽ phê duyệt.' },
 ] },

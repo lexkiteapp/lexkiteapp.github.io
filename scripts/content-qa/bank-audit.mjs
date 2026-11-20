@@ -24,7 +24,7 @@ export function contextOf(v, anc) {
     }
     if (typeof a.text === 'string' && a.text.length > 40) {
       const m = v.n != null ? a.text.indexOf(`(${v.n})`) : -1, from = m >= 0 ? Math.max(0, m - 450) : 0;
-      parts.push(a.text.slice(from, from + 900)); break;
+      parts.push(a.text.slice(from, from + 3000)); break;
     }
   }
   if (v.cue) parts.push(`cue: ${v.cue}`);
@@ -34,13 +34,15 @@ export function auditBank(C) {
 const groups = {}, items = [];
 const G = name => (groups[name] ||= { n: 0, pos: [0, 0, 0, 0, 0, 0], nOpt: {}, noExplain: 0, shortExplain: 0, explainNotMention: 0, longestIsAnswer: 0, dupOpts: 0, allAbove: 0, level: {}, kind: {}, q: new Map(), lead: new Map(), expl: new Map() });
 const seen = new WeakSet();
+// Bài Reading IELTS lưu lời giải ở gói riêng READ_EXPLAIN[testId][số câu].why (không nằm trong câu) → ghép lại để đo/chấm đúng thực tế người học thấy.
+const sideExplain = (v, anc) => { const R = C.READ_EXPLAIN || {}; for (let k = anc.length - 1; k >= 0; k--) { const id = anc[k] && anc[k].id; if (id && R[id] && v.n != null && R[id][v.n]) return String(R[id][v.n].why || ''); } return ''; };
 function walk(v, path, lvl, anc = []) {
   if (!v || typeof v !== 'object' || seen.has(v)) return; seen.add(v);
   if (Array.isArray(v)) { for (const x of v) walk(x, path, lvl, anc); return; }
   const level = String(v.level || v.cefr || lvl || '').toUpperCase() || '—';
   if (Array.isArray(v.options) && v.options.length >= 2 && (Number.isInteger(v.a) || Number.isInteger(v.answer))) {
     const g = G(path), a = Number.isInteger(v.a) ? v.a : v.answer, opts = v.options.map(String);
-    g.n++; items.push({ group: path, level, q: String(v.q || v.text || ''), options: opts, a, explain: Array.isArray(v.explain) ? v.explain.join(' ') : String(v.explain || v.why || v.exp || ''), id: v.id || v.n || '', ctx: contextOf(v, anc) });
+    g.n++; items.push({ group: path, level, q: String(v.q || v.text || ''), options: opts, a, explain: Array.isArray(v.explain) ? v.explain.join(' ') : String(v.explain || v.why || v.exp || sideExplain(v, anc)), id: v.id || v.n || '', ctx: contextOf(v, anc) });
     g.pos[Math.min(a, 5)]++; ((g.posN ||= {})[opts.length] ||= new Array(opts.length).fill(0))[Math.min(a, opts.length - 1)]++; g.nOpt[opts.length] = (g.nOpt[opts.length] || 0) + 1;
     g.level[level] = (g.level[level] || 0) + 1; const kind = v.kind || v.type || '—'; g.kind[kind] = (g.kind[kind] || 0) + 1;
     const lens = opts.map(o => o.length), mx = Math.max(...lens);
@@ -48,7 +50,7 @@ function walk(v, path, lvl, anc = []) {
     if (new Set(opts.map(norm)).size < opts.length) g.dupOpts++;
     if (opts.some(o => /all of the above|none of the above/i.test(o))) g.allAbove++;
     const k = norm((v.q || v.text || '') + '|' + opts.map(norm).sort().join('|')); if (String(v.q || v.text || '').trim().length >= 12 && opts.some(o => o.trim().length > 1)) g.q.set(k, (g.q.get(k) || 0) + 1);
-    const ex = Array.isArray(v.explain) ? v.explain.join(' ') : v.explain || v.why || v.exp || '';
+    const ex = Array.isArray(v.explain) ? v.explain.join(' ') : v.explain || v.why || v.exp || sideExplain(v, anc);
     if (!String(ex).trim()) g.noExplain++;
     else {
       if (String(ex).length < 40) g.shortExplain++;

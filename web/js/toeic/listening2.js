@@ -331,9 +331,9 @@ items: [
 { n: 32, q: 'What problem does the woman report?', options: ['Her room key does not work.', 'Her room is too noisy.', 'The heating in her room is not working.', 'There is a leak in her bathroom.'], a: 2, cue: "The heating in my room doesn't seem to be working",
 explain: 'Bà Whitcombe nói "The heating in my room doesn\'t seem to be working" – máy sưởi trong phòng không hoạt động → C. "Burst pipe" (vỡ ống nước) là sự cố ở tầng 2, không phải phòng của bà – bẫy cho phương án D. Thẻ phòng mới (key card) chỉ được nhắc khi đổi phòng.' },
 { n: 33, q: 'Why is the woman concerned about waiting?', options: ['She is checking out soon.', 'She needs to prepare for a presentation.', 'She is expecting a visitor.', 'She has a dinner reservation.'], a: 1, cue: 'I have to prepare for a presentation tonight',
-explain: 'Bà không thể chờ một tiếng vì "I have to prepare for a presentation tonight" (phải chuẩn bị bài thuyết trình tối nay) → A. Không nhắc đến trả phòng, khách đến thăm hay đặt bàn ăn tối.' },
+explain: 'Bà không thể chờ một tiếng vì "I have to prepare for a presentation tonight" (phải chuẩn bị bài thuyết trình tối nay) → B. Không nhắc đến trả phòng, khách đến thăm hay đặt bàn ăn tối.' },
 { n: 34, q: 'What does the man offer to do?', options: ['Give the woman a discount', 'Call a repair company', 'Bring the woman a heater', 'Move the woman to a different room'], a: 3, cue: 'I can move you to a suite on the seventh floor at no extra charge',
-explain: 'Anh ấy đề nghị chuyển bà lên một phòng suite ở tầng 7 không tính thêm phí → B. "At no extra charge" (không tính thêm tiền) không có nghĩa là giảm giá – bẫy cho A.' },
+explain: 'Anh ấy đề nghị chuyển bà lên một phòng suite ở tầng 7 không tính thêm phí → D. "At no extra charge" (không tính thêm tiền) không có nghĩa là giảm giá – bẫy cho A.' },
 ] },
 { type: 'mcq', instr: g.TQL[17],
 items: [
@@ -347,7 +347,7 @@ explain: '"work out the costs" = tính toán chi phí → "Calculate some costs"
 { type: 'mcq', instr: g.TQL[18],
 items: [
 { n: 38, q: 'What event are the speakers planning?', options: ['A newspaper interview', 'A business conference', 'A sculpture competition', 'A museum reception'], a: 3, cue: "they've hired us to plan the opening reception",
-explain: 'Bảo tàng Corvell thuê họ tổ chức "the opening reception" (tiệc khai trương) cho cánh phía đông → A. "Reporter" và "sculpture garden" xuất hiện trong bài nhưng chỉ là chi tiết phụ.' },
+explain: 'Bảo tàng Corvell thuê họ tổ chức "the opening reception" (tiệc khai trương) cho cánh phía đông → D. "Reporter" và "sculpture garden" xuất hiện trong bài nhưng chỉ là chi tiết phụ.' },
 { n: 39, q: 'What problem does Hannah point out?', options: ['The budget is too small.', 'Some guests have not replied.', 'The event date is too soon.', 'A space is not large enough.'], a: 3, cue: 'The east wing only holds two hundred people at a time.',
 explain: 'Hannah nói cánh phía đông chỉ chứa được 200 người trong khi có khoảng 300 khách → không đủ chỗ (D). Không ai nhắc đến ngân sách hay khách chưa phản hồi.' },
 { n: 40, q: 'What will Hannah do this week?', options: ['Visit the museum', 'Request price quotes', 'Send invitations', 'Hire a caterer'], a: 1, cue: "I'll have some quotes for you by Friday.",
@@ -369,7 +369,7 @@ explain: '"Welcome to Ridgeway Bikes", kèm các từ "bicycle", "gears", "chain
 { n: 45, q: 'What does the mechanic say is the cause of the problem?', options: ['A tire is damaged.', 'The brakes are worn out.', 'The chain has stretched.', 'A part was installed incorrectly.'], a: 2, cue: 'It looks like the chain has stretched a little.',
 explain: 'Thợ sửa xe nói "the chain has stretched a little" (xích bị giãn một chút) → C. Anh còn nói đây là hiện tượng bình thường, không phải do lắp sai (D).' },
 { n: 46, q: 'Why will the woman not have to pay?', options: ['Adjustments are free during the first year.', 'She has a discount coupon.', 'She is a member of a cycling club.', 'The store made a mistake.'], a: 0, cue: 'all adjustments are free during the first year',
-explain: '"all adjustments are free during the first year" – mọi điều chỉnh đều miễn phí trong năm đầu → B. Cô có hóa đơn (receipt) nhưng không phải phiếu giảm giá; không có câu lạc bộ đạp xe nào được nhắc.' },
+explain: '"all adjustments are free during the first year" – mọi điều chỉnh đều miễn phí trong năm đầu → A. Cô có hóa đơn (receipt) nhưng không phải phiếu giảm giá; không có câu lạc bộ đạp xe nào được nhắc.' },
 ] },
 { type: 'mcq', instr: g.TQL[21],
 items: [
@@ -593,9 +593,9 @@ explain: '"submitting your application by Friday" – nộp đơn trước thứ
 { type: 'mcq', instr: g.TQL[31],
 items: [
 { n: 77, q: 'What did the city council approve?', options: ['A community festival', 'A road expansion', 'A new library', 'A school renovation'], a: 2, cue: 'approve the construction of a new public library',
-explain: 'Hội đồng thành phố thông qua việc xây "a new public library" (thư viện công cộng mới) → A.' },
+explain: 'Hội đồng thành phố thông qua việc xây "a new public library" (thư viện công cộng mới) → C.' },
 { n: 78, q: 'Why is the project needed?', options: ['The old building is unsafe.', 'Funding will soon expire.', 'A new school is opening nearby.', 'The current facility is too small.'], a: 3, cue: 'has become too small for the town\'s growing population',
-explain: 'Thư viện hiện tại "has become too small for the town\'s growing population" – quá nhỏ so với dân số ngày càng tăng → B. Không nói tòa nhà cũ không an toàn.' },
+explain: 'Thư viện hiện tại "has become too small for the town\'s growing population" – quá nhỏ so với dân số ngày càng tăng → D. Không nói tòa nhà cũ không an toàn.' },
 { n: 79, q: 'According to the speaker, what can residents do at the Town Hall?', options: ['Sign up for a library card', 'Attend a council meeting', 'Look at building designs', 'Donate books'], a: 2, cue: "Residents can view the architect's designs at an exhibition in the Town Hall lobby",
 explain: 'Người dân có thể xem bản thiết kế của kiến trúc sư tại triển lãm ở sảnh Tòa thị chính → "Look at building designs" (C).' },
 ] },

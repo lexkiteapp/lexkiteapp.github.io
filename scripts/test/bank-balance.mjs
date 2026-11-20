@@ -17,4 +17,7 @@ assert.match(run('{ options: [`p`, `q`, `r`, `s`], answer: 0, explain: `t` },\n'
 // kho thật
 const bank = auditBank(loadContent()).out;
 for (const [k, g] of Object.entries(bank)) if (g.items >= 60) assert.ok(g.posSkew <= 3, `${k}: lệch vị trí đáp án ${g.posSkew}% > 3%`);
+// lời giải kết bằng “→ B” phải trỏ ĐÚNG chữ của đáp án (giám khảo LLM bắt được 23 câu lệch sau khi hoán vị)
+const arrow = /(?:→|->|=>)\s*([A-E])\b/g;
+for (const it of auditBank(loadContent()).items) { let m, last = null; arrow.lastIndex = 0; while ((m = arrow.exec(it.explain))) last = m[1]; if (last) assert.equal(last, 'ABCDE'[it.a], `lời giải trỏ ${last} nhưng đáp án ${'ABCDE'[it.a]}: ${it.q.slice(0, 50)}`); }
 console.log('✓ bank-balance: hoán vị an toàn + kho thật cân bằng vị trí đáp án');

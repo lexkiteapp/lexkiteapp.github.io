@@ -12,7 +12,8 @@ import { createPool } from '../lib/ai-pool.mjs';
 
 export const RUBRIC = 'Items are multiple-choice test questions (grammar, TOEIC, TOEFL, IELTS, Cambridge). Each has "q", "options", "key" (index of the intended answer) and "explain". ' +
   'Check: (1) exactly ONE option is defensible and it equals the key; (2) distractors are plausible but clearly wrong for a reason (no joke options, no duplicate meanings, no giveaway by length or grammar); ' +
-  '(3) the explanation is correct, specific to THIS item (not a generic template) and says why the key is right; (4) English is natural and the level fits an exam of this type.';
+  '(3) the explanation is correct, specific to THIS item (not a generic template) and says why the key is right; (4) English is natural and the level fits an exam of this type. ' +
+  'NOTE: this is a bilingual app — explanations are written in Vietnamese ON PURPOSE (do not penalise Vietnamese); the context field is an excerpt of the passage/transcript (judge only against what is shown; do not penalise a long passage that is cut at the end); an explanation ending in an arrow and a letter (→ B) names the option letter A/B/C/D by position (key 0 = A, 1 = B …).';
 const h = s => createHash('sha1').update(s).digest('hex');
 // chấm được = có chữ để đọc: câu tự đủ nghĩa, hoặc có ngữ cảnh (kịch bản phần nghe "Number n." / đoạn bài đọc quanh chỗ trống / cue). Chỉ audio mà không có kịch bản → cần ASR (CI), đếm vào `needAsr`.
 const textual = i => !!i.ctx || (i.q.trim().length >= 12 && i.options.some(o => o.trim().length > 1));
@@ -27,7 +28,7 @@ export function sample(items, total = 1500, seed = 'e0') {
   }
   return out;
 }
-const view = i => ({ q: i.q, options: i.options, key: i.a, explain: i.explain.slice(0, 600), level: i.level, ...(i.ctx ? { context: i.ctx.slice(0, 1200), note: 'context = transcript/passage the item refers to; bare A/B/C options are the spoken choices in the transcript' } : {}) });
+const view = i => ({ q: i.q, options: i.options, key: i.a, explain: i.explain.slice(0, 600), level: i.level, ...(i.ctx ? { context: i.ctx.slice(0, 3500), note: 'context = transcript/passage the item refers to; bare A/B/C options are the spoken choices in the transcript' } : {}) });
 
 // concurrency = số lô chấm song song; deadline (ms epoch) = hết giờ thì dừng và trả kết quả một phần (đủ để đo, không mất cả lần chạy).
 export async function judge(items, AI, log = console.log, { concurrency = 4, deadline = Infinity } = {}) {
