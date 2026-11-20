@@ -282,7 +282,7 @@ App.cpackI18n.lcardui = { es: 'cpack/i18n/lcardui-es.js', pt: 'cpack/i18n/lcardu
 App.esGx = { en: 'cpack/es/gx-en.js', vi: 'cpack/es/gx-vi.js', es: 'cpack/es/gx-es.js', pt: 'cpack/es/gx-pt.js', fr: 'cpack/es/gx-fr.js', de: 'cpack/es/gx-de.js', id: 'cpack/es/gx-id.js', th: 'cpack/es/gx-th.js', zh: 'cpack/es/gx-zh.js', ja: 'cpack/es/gx-ja.js', ko: 'cpack/es/gx-ko.js', hi: 'cpack/es/gx-hi.js', ar: 'cpack/es/gx-ar.js', ru: 'cpack/es/gx-ru.js', tr: 'cpack/es/gx-tr.js' }; // giải thích ngữ pháp TBN theo ngôn ngữ người học, tải lười 1 gói (js/espr.js)
 App.esX = { lv: { A1: 'cpack/es/x-A1.js', A2: 'cpack/es/x-A2.js', B1: 'cpack/es/x-B1.js' }, ui: { en: 'cpack/es/x-ui-en.js', vi: 'cpack/es/x-ui-vi.js', es: 'cpack/es/x-ui-es.js', pt: 'cpack/es/x-ui-pt.js', fr: 'cpack/es/x-ui-fr.js', de: 'cpack/es/x-ui-de.js', id: 'cpack/es/x-ui-id.js', th: 'cpack/es/x-ui-th.js', zh: 'cpack/es/x-ui-zh.js', ja: 'cpack/es/x-ui-ja.js', ko: 'cpack/es/x-ui-ko.js', hi: 'cpack/es/x-ui-hi.js', ar: 'cpack/es/x-ui-ar.js', ru: 'cpack/es/x-ui-ru.js', tr: 'cpack/es/x-ui-tr.js' } }; // luyện định dạng DELE/SIELE W5 (cpack/es-app/exam-ui.js): đề theo cấp + nhãn theo ngôn ngữ người học, tải lười
 App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-es.js', pt: 'cpack/es/px-pt.js', fr: 'cpack/es/px-fr.js', de: 'cpack/es/px-de.js', id: 'cpack/es/px-id.js', th: 'cpack/es/px-th.js', zh: 'cpack/es/px-zh.js', ja: 'cpack/es/px-ja.js', ko: 'cpack/es/px-ko.js', hi: 'cpack/es/px-hi.js', ar: 'cpack/es/px-ar.js', ru: 'cpack/es/px-ru.js', tr: 'cpack/es/px-tr.js' }; // gói phát âm TBN W3 theo ngôn ngữ người học (js/espr-pron.js): nhãn giao diện + giải thích 8 chủ đề
-  const ROUTE_UX1 = { topic: 'utopic', deck: 'udeck', mistakes: 'umist', stats: 'ustat' }; // cờ ux1: gói màn Stitch nạp sau gói dữ liệu (nó bao routes.<màn> của gói đó)
+  const ROUTE_UX1 = { topic: 'utopic', deck: 'udeck', mistakes: 'umist', stats: 'ustat' };
   const ROUTE_BUNDLE = {
     call: 'call',
     cambridge: ['listening', 'cambridge'],
@@ -668,7 +668,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
   // Chia theo chữ cái đầu (js/notes/a.json…) → chỉ tải phần cần; chỗ hiển thị là ô trống được điền khi dữ liệu về.
   const notesCache = {};
   const notesFile = w => { const c = /^[a-z]/.test(w) ? w[0] : '_'; return notesCache[c] || (notesCache[c] = fetch(`js/notes/${c}.json`).then(r => r.ok ? r.json() : {}).catch(() => { delete notesCache[c]; return {}; })); };
-  App.shareDeck = shareDeck; App.editCard = editCard; // màn Sổ từ Stitch v2 (ux1-deck.js) dùng lại hộp chia sẻ / sửa thẻ cũ
+  App.shareDeck = shareDeck; App.editCard = editCard;
   // 🧩 Bài học trộn (cờ lesson_mix: config công khai true/false; thử: localStorage lk.lesson=1; demo #/lesson?demo=1 luôn mở – docs/LESSON-ENGINE.md)
   // 🧭 UX1 "Một app duy nhất" (cờ ux1, mặc định TẮT – docs/LEARNING-PATH.md): 5 tab, trang chủ = bản đồ, Luyện gom mọi tính năng. Thử: localStorage lk.ux1=1 · xem trước 1 phiên: #/home?ux1=1
   // Bật dần (như ret, docs/LEARNING-PATH.md §Phát hành): ux1 "0" tắt / "1" bật hết / nhóm lk.ub < ux1_pct; chốt 1 lần/lượt tải

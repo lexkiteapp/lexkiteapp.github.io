@@ -61,9 +61,8 @@
     v.tip = tip;
     return v;
   };
-  // Thao tác sổ lỗi dùng CHUNG cho trang cũ và khung Stitch v2 (web/js/ux1-mistakes.js, cờ ux1)
   App.mistakesOpen = async (w = p => p) => { const list = await w(Store.get('mistakes', [])); if (migrate(list)) await w(Store.set('mistakes', list)); return list.filter(x => !x.fixed); };
-  App.mistakeSettle = async (key, ok) => { const all = await Store.get('mistakes', []); const it = all.find(x => x.key === key); if (it) { if (ok) it.fixed = true; else it.n = (it.n || 1) + 1; } await Store.set('mistakes', all); }; // đúng/Đã hiểu → đã sửa · sai → +1 lần sai
+  App.mistakeSettle = async (key, ok) => { const all = await Store.get('mistakes', []); const it = all.find(x => x.key === key); if (it) { if (ok) it.fixed = true; else it.n = (it.n || 1) + 1; } await Store.set('mistakes', all); };
   App.mistakeClearFixed = async () => Store.set('mistakes', (await Store.get('mistakes', [])).filter(x => !x.fixed));
   App.mistakeCheck = (input, answer) => (window.QE && QE.norm ? QE.norm(input) === QE.norm(answer) : String(input).trim().toLowerCase() === String(answer).trim().toLowerCase());
   routes.mistakes = App.guard(async function (arg, query) {
