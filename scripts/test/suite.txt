@@ -106,6 +106,7 @@ node scripts/test/ext-orphan.mjs
 node scripts/test/social-proxy.mjs
 node scripts/test/social-ui.mjs
 node scripts/test/social-mgr.mjs
+node scripts/test/ad-export.mjs
 node scripts/test/social-auto.mjs
 node scripts/test/social-coverage.mjs
 node scripts/test/yt-fill.mjs
@@ -130,6 +131,7 @@ node scripts/test/vocab-img-free-sheet.mjs
 node scripts/test/pages-skip.mjs
 node scripts/test/sync-pack.mjs
 node scripts/test/target-lang.mjs
+node scripts/test/tl-picker.mjs
 node scripts/test/es-conjugate.mjs
 node scripts/test/sync-ctx.mjs
 node scripts/test/schema-lock.mjs
@@ -243,6 +245,7 @@ node scripts/test/headers.mjs
 node scripts/test/static-routes.mjs
 node scripts/test/words-r2-fn.mjs
 node scripts/test/cf-words-cache.mjs
+node scripts/test/ci-wait-budget.mjs
 node scripts/test/layout-guards.mjs
 node scripts/test/home-logic.mjs
 node scripts/test/vocab-hub.mjs
@@ -292,6 +295,7 @@ node scripts/test/dict-stage.mjs
 node scripts/test/dict-enrich.mjs
 node scripts/test/native-auth.mjs
 node scripts/test/ota.mjs
+node scripts/test/pron-features.mjs
 node scripts/test/crashlytics.mjs
 node scripts/test/deep-links.mjs
 node scripts/test/stories.mjs
@@ -419,6 +423,7 @@ node scripts/test/stitch-today-contrast.mjs
 node scripts/test/is-main-guard.mjs
 node scripts/test/big-data.mjs
 node scripts/test/heavy-rerun.mjs
+node scripts/test/heavy-main.mjs
 node scripts/test/json-dupkeys.mjs
 node scripts/test/cls-chrome.mjs
 node scripts/test/es-practice.mjs
@@ -441,6 +446,7 @@ node scripts/test/play-rhythm-run.mjs
 node scripts/test/funnel.mjs
 node scripts/test/share-link.mjs
 node scripts/test/stitch-theme-lint.mjs
+node scripts/test/round-clip.mjs
 node scripts/test/referral.mjs
 node scripts/test/pwa-installable.mjs
 node scripts/test/addon-listings.mjs
@@ -453,6 +459,7 @@ node scripts/test/l1-notes.mjs
 node scripts/test/qengine-flag.mjs
 node scripts/test/qwk.mjs
 node scripts/test/es-native-bundle.mjs
+node scripts/test/ms-icons.mjs
 node scripts/test/lexai-oidc.mjs
 node scripts/test/firestore-rules.mjs
 node scripts/test/ext-imgdata.mjs
@@ -478,4 +485,5 @@ node scripts/test/flake-tracker.mjs
 node scripts/test/lesson-lang.mjs
 node scripts/test/gate-impact.mjs
 node scripts/test/budget-comment.mjs
+node scripts/test/admin-analytics-mobile.mjs
 node scripts/test/read-highlight.mjs

@@ -1,0 +1,35 @@
+/* Chọn ngôn ngữ đang học (js/tl-pick.js) – bảng dưới + nút cờ + thẻ Khóa học khác. Chỉ biến token, không hex. Chạm ≥ 44 px. */
+.tlp-btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--sp-1);min-height:var(--tap,44px);min-width:44px;padding:0;border:1px solid var(--line-2);border-radius:var(--r-pill,999px);background:var(--surface);color:var(--text);font-size:var(--fs-md);line-height:1;cursor:pointer}
+.tlp-btn:hover{background:var(--surface-2)}.tlp-chev{display:none}
+.tlp-mini{min-height:var(--tap,44px);min-width:var(--tap,44px);padding:0;position:relative;z-index:1}.tlp-mini::after{content:"";position:absolute;inset:calc(var(--sp-1)*-1) -2px}
+/* Me: hàng Ngôn ngữ cao đúng như các hàng khác (nút cờ vẫn chạm 44 px, phần dư tràn lề âm, không đẩy các hàng dưới) */
+.v2-me [data-row] .tlp-mini{margin-block:-6px}
+/* đầu Hôm nay: ô cờ 40 px bo vuông như mẫu Stitch (vùng chạm 44 px nhờ ::after) */
+.tlp-hd{flex:none;position:relative;width:40px;height:40px;min-width:40px;min-height:40px;border-width:2px;border-radius:var(--r-sm);box-shadow:0 2px 0 var(--ledge);font-size:var(--fs-md)}.tlp-hd::after{content:"";position:absolute;inset:-2px}
+#modal .tlp-sheet{padding:var(--sp-2) var(--sp-4) var(--sp-4)}.tlp-grab{width:40px;height:4px;border-radius:99px;background:var(--line-2);margin:var(--sp-1) auto var(--sp-2)}
+.tlp-head{display:flex;align-items:center;justify-content:space-between;gap:var(--sp-2)}.tlp-head h2{margin:0;font-size:var(--fs-lg);color:var(--heading)}
+.tlp-x{width:44px;height:44px;border:0;border-radius:50%;background:transparent;color:var(--text);display:grid;place-items:center;cursor:pointer}.tlp-x:hover{background:var(--surface-2)}
+.tlp-list,.tlp-card ul{list-style:none;margin:var(--sp-3) 0 0;padding:0;display:grid;gap:var(--sp-2)}
+.tlp-row{display:flex;align-items:center;gap:var(--sp-3);width:100%;min-height:64px;padding:var(--sp-3) var(--sp-4);text-align:start;background:var(--surface);color:var(--text);border:1.5px solid var(--line-2);border-radius:var(--r-card,18px);box-shadow:0 2px 0 var(--ledge);font:inherit}
+button.tlp-row{cursor:pointer}button.tlp-row:active{transform:translateY(1px);box-shadow:none}
+.tlp-row.on{border-color:var(--done);background:var(--accent-soft)}.tlp-row:focus-visible,.tlp-open:focus-visible,.tlp-notify:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.tlp-flag{font-size:var(--fs-xl);line-height:1;flex:none;width:40px;text-align:center}
+.tlp-body{display:flex;flex-direction:column;gap:var(--sp-1);min-width:0;flex:1}.tlp-name{font-weight:800;color:var(--heading)}.tlp-sub,.tlp-cnt{color:var(--muted);font-size:var(--fs-sm)}
+.tlp-bar{display:block;height:8px;border-radius:99px;background:var(--surface-3);overflow:hidden;margin-top:var(--sp-1)}.tlp-bar i{display:block;height:100%;background:var(--done);border-radius:99px}
+.tlp-tick{flex:none;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-weight:800;color:var(--on-done);background:transparent}.tlp-row.on .tlp-tick{background:var(--done)}
+.tlp-row.soon{opacity:1;flex-wrap:wrap}.tlp-pill{align-self:flex-start;background:var(--accent-soft);color:var(--accent);border-radius:99px;padding:.1rem var(--sp-2);font-size:var(--fs-xs);font-weight:800}
+.tlp-notify{min-height:44px;padding:0 var(--sp-4);border:1.5px solid var(--line-2);border-radius:var(--r-pill,999px);background:var(--surface);color:var(--heading);font:inherit;font-weight:700;cursor:pointer}.tlp-notify[disabled]{color:var(--muted);cursor:default;background:var(--chip)}
+.tlp-foot{margin:var(--sp-3) 0 0;text-align:center;color:var(--muted);font-size:var(--fs-sm)}
+.tlp-card{margin:var(--sp-4) 0}.tlp-card h3{margin:0 0 var(--sp-2);font-size:var(--fs-md);color:var(--heading)}
+.tlp-open{display:flex;align-items:center;gap:var(--sp-3);width:100%;min-height:56px;padding:var(--sp-2) var(--sp-4);background:var(--surface);color:var(--text);border:1px solid var(--line);border-radius:var(--r-card,18px);font:inherit;text-align:start;cursor:pointer}
+@media (prefers-reduced-motion:reduce){button.tlp-row{transition:none}}
+a.tl-chip[href]{display:inline-flex;align-items:center;gap:var(--sp-2);min-height:44px;padding-inline:var(--sp-3);cursor:pointer}a.tl-chip[href]::after{content:"▾";font-size:var(--fs-xs);opacity:.8}
+@media (max-width:720px){#tlBtn{display:none}}
+.top-stats:has(#tlBtn){gap:var(--sp-1)}
+.tlp-top{display:flex;align-items:center;flex-wrap:wrap;gap:var(--sp-2)}.tlp-lv{font-size:var(--fs-xs);font-weight:700;color:var(--muted);border:1px solid var(--line-2);border-radius:99px;padding:0 var(--sp-2)}.tlp-cur{background:var(--done);color:var(--on-done)}
+.tlp-skel{position:fixed;inset:0;z-index:40;background:var(--bg);display:flex;flex-direction:column;gap:var(--sp-3);padding:calc(var(--sp-6) + env(safe-area-inset-top)) var(--sp-4);transition:opacity .2s}.tlp-skel.out{opacity:0}
+.tlp-skel-head{display:flex;align-items:center;gap:var(--sp-3);font-size:var(--fs-lg)}.tlp-skel i{display:block;height:72px;border-radius:var(--r-card,18px);background:linear-gradient(90deg,var(--surface-2),var(--surface-3),var(--surface-2));background-size:200% 100%;animation:tlpsk 1.2s linear infinite}
+@keyframes tlpsk{to{background-position:-200% 0}}@media (prefers-reduced-motion:reduce){.tlp-skel i{animation:none}.tlp-skel{transition:none}}
+.tlp-prep{max-width:560px;margin:var(--sp-6) auto;text-align:center;display:grid;gap:var(--sp-3);justify-items:center}.tlp-prep .tlp-flag{font-size:var(--fs-xl);width:auto}.tlp-prep h1{margin:0;color:var(--heading)}
+.tlp-back{display:inline-flex;align-items:center;justify-content:center;min-width:var(--tap,44px);min-height:var(--tap,44px);border-radius:50%;font-size:var(--fs-lg);text-decoration:none}
+.tlp-page{display:block}.tlp-page>.tlp-prep{margin-block:var(--sp-4)}

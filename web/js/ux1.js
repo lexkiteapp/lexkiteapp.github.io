@@ -303,6 +303,7 @@
     if (ST2.shell) root.insertAdjacentHTML('beforeend', ST2.shell(Object.assign({ hdr: ST2.hdr(), tabs: ST2.tabs('home') }, d)).nav); // thanh tab CHUNG (5 tab), thay thanh tab riêng của mẫu
     if (k === 'today-desk') { const lb = document.getElementById('langBtn'); if (lb && lb.offsetParent) root.querySelectorAll('[data-act="lang"]').forEach(x => x.remove()); }
     prune(root); langBtn(root); headBtns(root);
+    if (window.Target && Target.LANGS.length > 1) App.need('tlpick').then(() => window.TLPick && TLPick.head(root)).catch(() => {}); // cờ ngôn ngữ đang học cạnh nút ngôn ngữ giao diện
     root.querySelectorAll(`[data-href="${(d.k || {}).href}"]`).forEach(x => x.classList.add('lsn-start', 'ux1-go')); // nút Bắt đầu chính = móc chung (lộ trình v1 cũng có) cho test/gác bố cục
     root.querySelectorAll('[data-act="path"]').forEach(x => x.addEventListener('click', e => { e.preventDefault(); const c = root.querySelector('[data-cur]'); if (c) try { c.scrollIntoView({ block: 'center', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }); } catch (er) { /* bỏ qua */ } }));
     o.demoNote(root); o.guide(root);

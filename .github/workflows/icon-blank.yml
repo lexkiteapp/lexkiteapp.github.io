@@ -1,0 +1,69 @@
+# ci-policy: heavy-gate – việc nặng trên PR chờ npm test xanh (job `gate`, luật 11)
+# Icon RỖNG (P0 15/11: iPhone Safari – ô icon có nền nhưng không có hình): đo PIXEL trên dist thật bằng WebKit (iPhone 14) + Chromium, sáng + tối, 4 màn chính (Hôm nay, Từ vựng, Kỹ năng, Tôi).
+# scripts/test/icon-blank.mjs: icon vẽ giống hệt khi bị ẩn = rỗng; <use> trỏ symbol thiếu; icon còn là chữ ligature; asset 4xx. Cũng chạy trên bản LIVE sau mỗi lượt deploy (post-deploy-check.yml).
+name: Icon blank
+on:
+  workflow_dispatch:
+    inputs:
+      base_url: { description: 'đo bản đã chạy (vd. https://lexkite.com) thay vì dựng dist; trống = dựng dist của nhánh', default: '' }
+  push:
+    branches: [main]
+    paths: ['web/css/**', 'web/fonts/**', 'web/app/index.html', 'web/js/ms-*.js', 'web/js/st/**', 'web/js/ui.js', 'scripts/build-ms-icons.py', 'scripts/test/icon-blank.mjs']
+  pull_request:
+    paths: ['web/css/**', 'web/fonts/**', 'web/app/index.html', 'web/js/ms-*.js', 'web/js/st/**', 'web/js/ui.js', 'scripts/build-ms-icons.py', 'scripts/test/icon-blank.mjs', 'scripts/test/ms-icons.mjs', '.github/workflows/icon-blank.yml']
+permissions: { contents: read }
+concurrency:
+  group: icon-blank-${{ github.workflow }}-${{ github.event_name == 'workflow_dispatch' && github.run_id || github.head_ref || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+jobs:
+  # luật 11 (làn nhanh trước làn nặng, scripts/test/ci-policy.mjs): trên PR việc nặng chỉ chạy khi `npm test` đã XANH cùng sha (hoặc PR có nhãn `ready`) – đỏ/chưa xong thì mọi job dưới là skipped
+  # (không chiếm runner); npm-test.yml job `heavy` chạy lại lượt này ngay khi npm test xanh (scripts/ci/heavy-rerun.mjs). Lỗi API → mở cổng (không mất kiểm).
+  gate:
+    if: ${{ github.event_name != 'pull_request' || contains(github.event.pull_request.labels.*.name, 'ready-heavy') || contains(github.event.pull_request.labels.*.name, 'ready') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    permissions: { contents: read, checks: read }
+    outputs: { go: '${{ steps.g.outputs.go }}' }
+    steps:
+      - id: g
+        env: { GH_TOKEN: '${{ github.token }}', EV: '${{ github.event_name }}', SHA: '${{ github.event.pull_request.head.sha }}', REPO: '${{ github.repository }}', READY: '${{ contains(github.event.pull_request.labels.*.name, ''ready'') }}' }
+        run: |
+          go=true
+          if [ "$EV" = pull_request ] && [ "$READY" != true ]; then
+            n=$(gh api "repos/$REPO/commits/$SHA/check-runs?check_name=npm%20test&per_page=20" --jq '[.check_runs[] | select(.conclusion == "success")] | length' 2>/dev/null) || n=1
+            [ "${n:-1}" -ge 1 ] || go=false
+          fi
+          echo "go=$go" >> "$GITHUB_OUTPUT"; echo "npm test xanh cùng sha (hoặc nhãn ready) → go=$go"
+  blank:
+    needs: gate
+    if: needs.gate.outputs.go == 'true'
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
+    timeout-minutes: 25
+    env:
+      LEXKITE_CI_HEADER: ${{ secrets.LEXKITE_CI_HEADER }}
+      BASE: ${{ inputs.base_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Dựng dist + phục vụ có nén
+        timeout-minutes: 10
+        run: |
+          npm ci --no-audit --no-fund >/dev/null
+          npm i --no-save --no-audit --no-fund playwright@1.48.2 >/dev/null
+          if [ -z "$BASE" ]; then bash scripts/build-web.sh >/dev/null; (node scripts/test/serve-web.mjs dist 8080 >/dev/null 2>&1 &) ; sleep 2; echo "BASE=http://localhost:8080" >> "$GITHUB_ENV"; fi
+      - uses: ./.github/actions/playwright-cache
+        with: { browsers: '--with-deps chromium webkit' }
+      - name: Cài WebKit + Chromium
+        timeout-minutes: 10
+        run: bash scripts/ci/pw-install.sh --with-deps chromium webkit
+      - name: Đo icon rỗng (WebKit iPhone + Chromium, sáng + tối)
+        timeout-minutes: 20
+        run: |
+          # 2 engine chạy SONG SONG (16 màn × tới 40 icon × 2 ảnh tuần tự vượt 12 phút trên runner chậm); giữ nguyên độ phủ, mã thoát gộp cả hai
+          node scripts/test/icon-blank.mjs "$BASE" --strict --engine=webkit --shots=shots & p1=$!
+          node scripts/test/icon-blank.mjs "$BASE" --strict --engine=chromium --shots=shots & p2=$!
+          r=0; wait $p1 || r=1; wait $p2 || r=1; exit $r
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: icon-blank-shots, path: shots, if-no-files-found: ignore, retention-days: 7 }
