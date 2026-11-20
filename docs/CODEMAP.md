@@ -6,7 +6,7 @@
 Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['web/js/app.js'])"` · `g.routes` · `g.workflows` · `g.tests` · `g.god`. Mỗi node: exports, imports, importedBy.
 
 ## Khu vực
-- `web/` (3083 file): App (SPA) + landing: shell web/app/index.html nạp web/js/*.js bằng <script> (toàn cục App/UI/Chars, KHÔNG import); lazy bundle: BUNDLES trong web/js/bundles.js (nạp lười); css web/css; trang tĩnh sinh bởi scripts/build-*.mjs → dist
+- `web/` (3083 file): App (SPA) + landing: shell web/app/index.html nạp web/js/*.js bằng <script> (toàn cục App/UI/Chars, KHÔNG import); lazy: BUNDLES ở web/js/bundles.js; css web/css; trang tĩnh sinh bởi scripts/build-*.mjs → dist
 - `extension/` (2328 file): Add-on Chrome/Edge (background/content/popup/newtab). extension/app là BẢN SAO dựng từ web/ (scripts/build-extension.sh) – KHÔNG sửa tay, bị bỏ khỏi map
 - `functions/` (112 file): Cloudflare Pages Functions = backend /api/* (file _*.js là helper dùng chung)
 - `workers/` (19 file): Cloudflare Workers riêng: audio, dict, gemini (AI), mail, media; workers/lib dùng chung
@@ -17,20 +17,20 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - `content/` (6022 file): Nội dung nguồn: blog, authority, dict, confidence, explain, brand (dữ liệu lớn – bỏ khỏi map)
 - `mobile/` (217 file): Capacitor iOS/Android (ios/ android/ bỏ khỏi map)
 - `store/` (47 file): Hồ sơ listing Chrome/Edge/Apple/Play
-- `docs/` (261 file): Luật + tài liệu chủ đề (docs/README.md → INDEX.md); lịch sử ở docs/archive
-- API `/api/*` (50): account,admin,admin-accounts,admin-clips,admin-prefs,admin-shared,admin-shorts,ads-report,ads-reward,ai,aiearn,backlinks,capacity,class,community,config,contact,cron-kick,dictlookup,distribution,drive,duel,funnel-digest,growth…
+- `docs/` (261 file): Luật + tài liệu chủ đề (README.md → INDEX.md); cũ: docs/archive
+- API `/api/*` (50): account,admin,admin-accounts,admin-clips,admin-prefs,admin-shared,admin-shorts,ads-report,ads-reward,ai,aiearn,backlinks,capacity,class…
 - Thư mục con (số file; js/=web/js, s/=scripts): js/i18n:746 s/test:675 s/video:130 s/stitch:93 s/lib:74 js/vimg:64 s/cine:54 s/ci:53 js/st:43 s/lexicon:39 s/vocab-img:33 s/native:30 js/notes:27 js/readtest:21 s/pron:20 s/target:17 s/lesson:16 js/get-app:15 js/irv:15 js/lib:15 js/toeic:15 s/content-qa:14 s/ops:14 js/call:14 s/word-audio:13 s/lipsync:12
 
 ## Sửa ở đâu (tác vụ → file)
-- **Chuỗi i18n (15 ngôn ngữ)**: Khóa = câu tiếng Việt trong t('…'). Bản dịch web/js/i18n/<lang>.js + web/js/i18n/en/*.js (nhóm theo tính năng); add-on extension/_locales/<lang>/messages.json. Tool: scripts/i18n-missing.mjs, i18n-qa.mjs, gen-i18n.mjs, i18n-sync.sh. Luật: docs/I18N-PIPELINE.md
+- **Chuỗi i18n (15 ngôn ngữ)**: Khóa = câu tiếng Việt trong t('…'). Bản dịch web/js/i18n/<lang>.js + web/js/i18n/en/*.js; add-on extension/_locales/<lang>/messages.json. Tool: scripts/i18n-missing.mjs, i18n-qa.mjs, gen-i18n.mjs, i18n-sync.sh. Luật: docs/I18N-PIPELINE.md
 - **Design token / màu**: brand/tokens.json → scripts/build-tokens.mjs → :root trong web/css/style.css (+ scripts/lib/site-layout.mjs). Stitch: brand/stitch/tokens.dtcg.json, scripts/build-stitch-css.mjs → web/css/st-*.css. Luật: docs/DESIGN-SYSTEM.md, docs/BRAND-RULES.md
 - **Giáo viên Ama/Carlos**: Registry web/teach/characters.json (+ ama/ carlos/); API Chars.* ở web/js/characters.js; lời/khẩu hình web/js/lesson/teacher.js, web/js/st/v2/teacher-call.js; tool scripts/teach, scripts/teacher; luật docs/CHARACTERS.md
 - **Luồng bài học**: web/js/lesson/{engine,ui,stories,gold,teacher}.js; màn st: web/js/st/lesson.js, web/js/st/v2/lesson-question.js, lesson-complete.js; lộ trình web/js/path.js, plan.js, next-step.js; build scripts/lesson/; docs/LESSON-ENGINE.md, docs/LEARNING-PATH.md
 - **Từ điển / từ vựng**: web/js/dictionary.js (route #/dict), lexis.js, lex.js, wordcard.js, vocab-img.js; dữ liệu sinh: scripts/build-lexicon.mjs, scripts/lexicon/, scripts/dict/, workers/dict; docs/LEXICON.md
-- **Cổng Stitch v2**: scripts/stitch-v2-convert.mjs (HTML Stitch → module) → web/js/st/v2/*.js + web/css/st-v2-*.css; ref brand/stitch/v2; docs/STITCH-V2-PORT.md; CI so ảnh (workflow nav-render, dist-ui)
-- **Pipeline video**: scripts/video/{render,auto,synth,motion}.mjs + remotion/ + motion/; cảnh cine scripts/cine; footage scripts/footage; kho brand/library/cine; docs/VIDEO.md, docs/VIDEO-MOTION.md, docs/CREDIT-RULES.md (tiêu credit: đọc trước); workflow cine-render, footage-*
-- **Route / màn hình app**: routes.<tên> = … rải ở web/js/*.js (bảng Routes dưới); alias + route→gói ở web/js/app.js (ROUTE_ALIAS, ROUTE_BUNDLE), đăng ký gói ở web/js/bundles.js (BUNDLES); thêm script toàn cục → web/app/index.html
-- **API backend**: functions/api/<tên>.js = /api/<tên>; helper functions/api/_*.js (quota, abuse…)
+- **Cổng Stitch v2**: scripts/stitch-v2-convert.mjs (HTML Stitch → module) → web/js/st/v2/*.js + web/css/st-v2-*.css; ref brand/stitch/v2; docs/STITCH-V2-PORT.md; CI so ảnh: nav-render, dist-ui
+- **Pipeline video**: scripts/video/{render,auto,synth,motion}.mjs + remotion/ + motion/; cảnh cine scripts/cine; footage scripts/footage; kho brand/library/cine; docs/VIDEO.md, docs/VIDEO-MOTION.md, docs/CREDIT-RULES.md (tiêu credit); workflow cine-render, footage-*
+- **Route / màn hình app**: routes.<tên> = … rải ở web/js/*.js (bảng Routes dưới); alias + route→gói ở web/js/app.js (ROUTE_ALIAS, ROUTE_BUNDLE), đăng ký gói ở web/js/bundles.js (BUNDLES); script toàn cục → web/app/index.html
+- **API backend**: functions/api/<tên>.js = /api/<tên>; helper functions/api/_*.js (quota…)
 - **Add-on**: extension/{manifest.json,background.js,content.js,popup.js,newtab.js}; build scripts/build-extension.sh (web → extension/app)
 - **Blog / SEO**: content/blog + scripts/blog-pipeline.mjs, build-blog.mjs, build-seo.mjs; workflow blog-daily; docs/BLOG-RUNBOOK.md
 - **CI / việc nền**: infra/jobs.json → docs/JOBS.md (node scripts/jobs/gen.mjs); lease scripts/jobs/lease.mjs; chuỗi test = scripts/test/suite.txt (npm test → run-suite.mjs); scripts/prepush.sh; docs/CI-RUNNERS.md
@@ -136,36 +136,36 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - [push:main,pr,manual,call] journey-e2e: Hành…
 
 ## Test (577) → vùng phủ (file đích chi tiết: json `tests`)
-- `web/js`: account-delete account-flow account-ui admin-flow admin-gate admin-metrics admin-plat admin-reports-ui admin-series admin-share admin-tabs admin-ui ads-admin ads-cls ads-revenue ads ai-local ai-shim ai-task anki audio-heal audio-play audio-voice big-data bundles-manifest call-e2e call-engine call-rt cambridge choice-kit client-security clips-perf comment-code confidence core-day cpack criteria datamuse-resilience dialog dict-entry-layout dict-hub dict-sent-lang dictlookup drive-ui es-practice exam-clock exit-guard ext-bundles ext-selection facade-perf feel firestore-rules focus-early focus-targets gate-relevance get-app grammar-hub haptics home-logic i18n-pack inline-box install-sheet ios-audio-unlock ipa-accent js-budget klocal landing-routing late-insert lazyfix league learn-flow lesson-card lesson-drag lesson-lang lesson-top1 lex lip-clock lipsync-lesson lipsync mediation mic-exclusive mistake-variant mobile-guards mobile-qa ms-icons native-auth native-m2-vectors next-step notify-ux outcomes p0-top1 path3 pr-scope-carry probe-cta pron-coach pron-hub pron-shadow qengine-flag quick-ui qwk readtest-dedupe reminders report-ui required-gate retention say-text scroll-boot sel-translate sentence-punct settings-subpages share-link shell-lazy size-budget social-stats-ui social-ui speak-ipa speak-split speak st-web-i18n st2-href stories story-stage streak-flame streak-ui sync-cross-client sync-drive sync-ext-drive target-lang teacher-loop teacher-native teacher-rig tl-picker today-debt today-mobile-actions tutor unit usage verbs video-web vocab-hub watch welcome-flow word-arrange-e2e
-- `(không rõ)`: a11y admin-drive-shots admin-video-shots ads-demo-android ads-demo app-lcp-probe call-rt-e2e ci-wait-budget clutter confidence-shots content-check contrast crawl d1-scan dispatch-guard docs-budget e2e explain-shots ffmpeg-setup-policy figure-layout final-qc floor-guard icon-blank icon-flash ios-audio-e2e ios-driver-watchdog irregular-ui lcard-shots lesson-complete-geometry lip-shots listing-check live-csp-safe live-lesson-lang mobile-nav mobile-qa-keyboard native-facade native-parity nav-render new-ui-sheets no-url-pathname perf-baseline perf-calibrate perf-median phrasebook-shots profile-route pron-read pwa-installable qa-bot-diff rate-prompt read-highlight review-done review-lookup review-modes-e2e review-modes-ui review-modes review-shots review-taps round-clip route-race route-vitals run-suite-annotate run-suite samples-visual screens seo-pages seo-sitemap seo-words-shots serve-web shell-responsive side-menu size-guard-pr smoke storage-audit suite-shards teacher-native-shots teacher-rig-browser theme-default toeic-read-e2e tools-ui topbar-lang tsc-check ui-audit-shots ux-cards ux-guard-lib ux-guard ux-public ux-shots ux-sweep ux1-guard video-junk video-web-e2e visual-qa web-sweep welcome-journey workflow-call-perms workflow-yaml
-- `functions/api`: accounts admin-ads-shots admin-dist-shots admin-gh admin-guard admin-prefs admin-rollup ai-pool aiearn analytics api-security body-limit capacity classroom clip-bulk community-api d1-cap dist-channels dist-roles dist-roundtrips distribution drive-repair drive-state drive funnel-digest funnel hit-retry img-api importdeck install-links jobs keys league-xp lexai-oidc live-check mail-digest notices play-duel post-deploy-check pr-check quota readable referral report retention-admin root-lang schema-lock sessions-scan-gate share-measure social-admin social-auto social-coverage social-first-comment social-ledger social-meta-oauth social-meta social-mgr social-preview social-proxy social-time-budget static-routes sync-ctx sync-pack user-mgmt users-bulk ux1-rollout voice-source yt-manual yt-stats-op
-- `scripts`: authority-pages axe blog-images blog-lang-gates blog-thumbs blog-youtube bot-push-key brand-check build-hash cf-words-cache codemap-budget explain-check explain-let ext-version fmt-stable frame-consistency gen-guard i18n-english i18n-single journey-e2e landing-fonts lesson-content links-js mobile-polish mobile-www-slim mqa-parity-self mqa-parity native-strings-locked origin-fetch pack-gloss pages-lag pages-skip pr-unconflict protection quote-english regen-conflicts samples-ui scan-roots self-fonts sentence-asr sw-cache-fixed teacher-mood theme-switch token-drift tools-pages word-ipa world-scorecard
-- `scripts/ci`: apt-install audio-coverage audio-pr-branch audio-shard-equiv budget-comment busy-gate ci-guards ci-hog ci-policy ci-portable ci-queue-gate ci-shards-busy ci-triage cron-watch flake-tracker gate-impact gate-retest gh-api health-board heavy-main no-pr-branch-push npm-retry-policy perf-flake prwatch push-main qa-fill queue-report red-report required-gate-stale retry5xx sparse-imports stitch-shard workflow-cd-paths zombie-pages
-- `scripts/lib`: csp-probe font-audit gh-tree i18n-switch is-main-guard json-dupkeys lastmod qa-classify rig-live syntax-check theme-static word-depth
-- `web`: admin-analytics-mobile admin-plat-shots adsense-hygiene brand-logo-stitch ci-header-scope deep-links headers seo-twin site-footer skills-hub sw-reminder-day sw-storage
-- `web/cpack`: es-exam es-native-bundle gen-pr-clean grammar-lazy-e2e i18n-native-score l1-notes lesson-why phrasebook play-blitz play-rhythm-run play-rhythm pron-pairs
-- `brand/stitch`: landing-v3 layout-guards stitch-coverage stitch-diff stitch-quality-qc stitch-refs-qc stitch-render stitch-screens stitch-theme-lint stitch-today-contrast stitch-web-diff
-- `content/video`: characters-gate embed-publish library studio teach2d-l1 video-layout video-pron video-templates video
+- `web/js`: ads anki cambridge confidence cpack criteria dialog dictlookup feel haptics klocal lazyfix league lex lipsync mediation outcomes path3 qwk reminders retention speak stories tutor unit usage verbs watch account-delete account-flow account-ui admin-{flow,gate,metrics,plat,reports-ui,series,share,tabs,ui} ads-admin ads-cls ads-revenue ai-local ai-shim ai-task audio-heal audio-play audio-voice big-data bundles-manifest call-e2e call-engine call-rt choice-kit client-security clips-perf comment-code core-day datamuse-resilience dict-entry-layout dict-hub dict-sent-lang drive-ui es-practice exam-clock exit-guard ext-bundles ext-selection facade-perf firestore-rules focus-early focus-targets gate-relevance get-app grammar-hub home-logic i18n-pack inline-box install-sheet ios-audio-unlock ipa-accent js-budget landing-routing late-insert learn-flow lesson-{card,drag,lang,top1} lip-clock lipsync-lesson mic-exclusive mistake-variant mobile-guards mobile-qa ms-icons native-auth native-m2-vectors next-step notify-ux p0-top1 pr-scope-carry probe-cta pron-coach pron-hub pron-shadow qengine-flag quick-ui readtest-dedupe report-ui required-gate say-text scroll-boot sel-translate sentence-punct settings-subpages share-link shell-lazy size-budget social-stats-ui social-ui speak-ipa speak-split st-web-i18n st2-href story-stage streak-flame streak-ui sync-cross-client sync-drive sync-ext-drive target-lang teacher-loop teacher-native teacher-rig tl-picker today-debt today-mobile-actions video-web vocab-hub welcome-flow word-arrange-e2e
+- `(không rõ)`: a11y clutter contrast crawl e2e screens smoke admin-drive-shots admin-video-shots ads-demo-android ads-demo app-lcp-probe call-rt-e2e ci-wait-budget confidence-shots content-check d1-scan dispatch-guard docs-budget explain-shots ffmpeg-setup-policy figure-layout final-qc floor-guard icon-blank icon-flash ios-audio-e2e ios-driver-watchdog irregular-ui lcard-shots lesson-complete-geometry lip-shots listing-check live-csp-safe live-lesson-lang mobile-nav mobile-qa-keyboard native-facade native-parity nav-render new-ui-sheets no-url-pathname perf-baseline perf-calibrate perf-median phrasebook-shots profile-route pron-read pwa-installable qa-bot-diff rate-prompt read-highlight review-{done,lookup,modes-e2e,modes-ui,modes,shots,taps} round-clip route-race route-vitals run-suite-annotate run-suite samples-visual seo-pages seo-sitemap seo-words-shots serve-web shell-responsive side-menu size-guard-pr storage-audit suite-shards teacher-native-shots teacher-rig-browser theme-default toeic-read-e2e tools-ui topbar-lang tsc-check ui-audit-shots ux-{cards,guard-lib,guard,public,shots,sweep} ux1-guard video-junk video-web-e2e visual-qa web-sweep welcome-journey workflow-call-perms workflow-yaml
+- `functions/api`: accounts aiearn analytics capacity classroom distribution drive funnel importdeck jobs keys notices quota readable referral report admin-{ads-shots,dist-shots,gh,guard,prefs,rollup} ai-pool api-security body-limit clip-bulk community-api d1-cap dist-channels dist-roles dist-roundtrips drive-repair drive-state funnel-digest hit-retry img-api install-links league-xp lexai-oidc live-check mail-digest play-duel post-deploy-check pr-check retention-admin root-lang schema-lock sessions-scan-gate share-measure social-{admin,auto,coverage,first-comment,ledger,meta-oauth,meta,mgr,preview,proxy,time-budget} static-routes sync-ctx sync-pack user-mgmt users-bulk ux1-rollout voice-source yt-manual yt-stats-op
+- `scripts`: axe protection authority-pages blog-{images,lang-gates,thumbs,youtube} bot-push-key brand-check build-hash cf-words-cache codemap-budget explain-check explain-let ext-version fmt-stable frame-consistency gen-guard i18n-english i18n-single journey-e2e landing-fonts lesson-content links-js mobile-polish mobile-www-slim mqa-parity-self mqa-parity native-strings-locked origin-fetch pack-gloss pages-lag pages-skip pr-unconflict quote-english regen-conflicts samples-ui scan-roots self-fonts sentence-asr sw-cache-fixed teacher-mood theme-switch token-drift tools-pages word-ipa world-scorecard
+- `scripts/ci`: prwatch retry5xx apt-install audio-coverage audio-pr-branch audio-shard-equiv budget-comment busy-gate ci-{guards,hog,policy,portable,queue-gate,shards-busy,triage} cron-watch flake-tracker gate-impact gate-retest gh-api health-board heavy-main no-pr-branch-push npm-retry-policy perf-flake push-main qa-fill queue-report red-report required-gate-stale sparse-imports stitch-shard workflow-cd-paths zombie-pages
+- `scripts/lib`: lastmod csp-probe font-audit gh-tree i18n-switch is-main-guard json-dupkeys qa-classify rig-live syntax-check theme-static word-depth
+- `web`: headers admin-analytics-mobile admin-plat-shots adsense-hygiene brand-logo-stitch ci-header-scope deep-links seo-twin site-footer skills-hub sw-reminder-day sw-storage
+- `web/cpack`: phrasebook es-exam es-native-bundle gen-pr-clean grammar-lazy-e2e i18n-native-score l1-notes lesson-why play-blitz play-rhythm-run play-rhythm pron-pairs
+- `brand/stitch`: landing-v3 layout-guards stitch-{coverage,diff,quality-qc,refs-qc,render,screens,theme-lint,today-contrast,web-diff}
+- `content/video`: library studio video characters-gate embed-publish teach2d-l1 video-layout video-pron video-templates
 - `scripts/quality`: exit-sweep journey-matrix landing-cls nav-sweep new-ui-qa qa-bot qs-fix-queue scroll-perf today-fold
-- `scripts/video`: capsplit motion-core motion native-qa-scope overlay-gates put-session shorts-scale teach2d-rig tpl1b-pipeline
+- `scripts/video`: capsplit motion motion-core native-qa-scope overlay-gates put-session shorts-scale teach2d-rig tpl1b-pipeline
 - `web/css`: admin-map-colors card-actions cls-chrome css-lazy css-notes play-rhythm-shots sr-only wordcard-ui
-- `extension`: addon-listings ext-imgdata ext-newtab-quiz ext-orphan ext-popup infra-check word-audio-s2
-- `scripts/native`: asc-signing ios-sign-patch native-compat native-ios-paths native-one-source native-pick-sim native-visual
+- `extension`: addon-listings ext-{imgdata,newtab-quiz,orphan,popup} infra-check word-audio-s2
+- `scripts/native`: asc-signing ios-sign-patch native-{compat,ios-paths,one-source,pick-sim,visual}
 - `extension/app`: ext-dict-i18n ext-sync i18n-leak main-red-sweep shell-size teacher-bubble
 - `infra`: ci-filler dns-security no-prod-hosts size-guard
-- `scripts/vocab-img`: vocab-img-free-sheet vocab-img-judge-budget vocab-img-worth vocab-img
+- `scripts/vocab-img`: vocab-{img-free-sheet,img-judge-budget,img-worth,img}
 - `.github/workflows`: ad-export ci-autopilot heavy-rerun
-- `brand`: brand-shots png-rgba ux1
-- `content/blog`: blog-captions cpm-plan gsc
+- `brand`: ux1 brand-shots png-rgba
+- `content/blog`: gsc blog-captions cpm-plan
 - `mobile/android`: android-ime android-xml-comments token-contrast
 - `scripts/content-qa`: bank-judge content-qa sense-check
 - `content/dict`: dict-add dict-enrich
-- `content/framework`: grammar-inventory lkf
+- `content/framework`: lkf grammar-inventory
 - `content/seo`: home-words words-r2-fn
 - `scripts/audio`: audio-loudness tts-sites
 - `scripts/cine`: publish-meta whisper-det
 - `scripts/lexicon`: dict-perf lexicon-expand
-- `scripts/ops`: ledger-merge rollback
+- `scripts/ops`: rollback ledger-merge
 - `scripts/pron`: pron-features pron-gop
 - `scripts/social`: yt-fill yt-stats
 - `scripts/store`: store-reviews store-submit
@@ -209,5 +209,8 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - `workers/mail`: mail-prefs
 - `workers/push`: fcm-push
 
-## Mô-đun JS chính (1/2528, ngoài god nodes; phần còn lại trong json) – tên: export →nạp/import ←số nơi dùng
-- `web/js/` native.js →app.js,crash.js ←1 (sw.js)
+## Mô-đun JS chính (5/2528, ngoài god nodes; phần còn lại trong json) – tên: export →nạp/import ←số nơi dùng
+- `functions/api/` _schema.js: once,_resetSchema →- ←15 (_keys.js,_meta_oauth.js,_quota.js)
+- `scripts/lib/` blog-content.mjs: ROOT,CATEGORIES,config,parse,setField… →blog-images.mjs,url-guard.mjs ←14 (blog-captions.mjs,blog-check.mjs,blog-due.mjs)
+- `scripts/target/` lib.mjs: ROOT,MEAN_LANGS,POS,seedPath,coreFiles… →i18n-rules.mjs ←14 (grammar-map-check.mjs,build.mjs,calls-check.mjs)
+- `web/js/` bundles.js →calls-lot3.js,calls-lot4.js,t1.js ←5 (shards.mjs,bundles.mjs,fmt-registry.mjs) · ui.js →app.js,human.js ←9 (ipa-audit.mjs,gen-audio.mjs,gen-call.mjs)
