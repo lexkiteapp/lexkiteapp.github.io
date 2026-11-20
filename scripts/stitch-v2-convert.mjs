@@ -12,13 +12,23 @@ const A = process.argv.slice(2), WEB = A.includes('--web'), CHECK = A.includes('
 const SRC = WEB ? 'brand/stitch/web' : 'brand/stitch/v2', OUT = WEB ? 'brand/stitch/web/gen' : 'web/js/st/v2', EN = WEB ? 'web/js/i18n/en/v2web.js' : 'web/js/i18n/en/v2.js';
 const ALL = fs.readdirSync(path.join(SRC, 'bind')).filter(f => f.endsWith('.json')).map(f => f.slice(0, -5));
 const ONLY = A.filter(a => !a.startsWith('--')), SCREENS = ALL; // luôn chạy MỌI màn (nhanh) để en/v2.js đủ khóa; chỉ GHI file màn được nêu (ONLY)
-const errs = [], enMap = {};
+const CPK = new Set(['topic', 'deck', 'mistakes', 'stats']); // nhóm B (cờ ux1): khung lười ra web/cpack/st2 để không tính vào byte người học (totalJs) – bundles.js nạp 'cpack/st2/<màn>.js'
+const errs = [], enMap = {}, enMapB = {}; // enMapB: khóa của 4 màn lười (CPK) → en/v2b.js, nạp cùng gói lười (không vào gói ux1 tải lần đầu)
 // Khóa dịch đã có ở các nhóm EN khác: trùng nghĩa → dùng lại (không ghi lại), khác nghĩa → ĐỎ (không được đổi nghĩa chữ ở chỗ khác của app)
-const EN_HAVE = {}; for (const f of fs.readdirSync('web/js/i18n/en').filter(f => f.endsWith('.js') && f !== 'v2.js' && f !== 'v2web.js')) for (const m of fs.readFileSync('web/js/i18n/en/' + f, 'utf8').matchAll(/^\s*(["'])((?:\\.|(?!\1).)*)\1\s*:\s*(["'])((?:\\.|(?!\3).)*)\3/gm)) EN_HAVE[m[2]] = [m[4], f];
+const EN_HAVE = {}; for (const f of fs.readdirSync('web/js/i18n/en').filter(f => f.endsWith('.js') && f !== 'v2.js' && f !== 'v2b.js' && f !== 'v2web.js')) for (const m of fs.readFileSync('web/js/i18n/en/' + f, 'utf8').matchAll(/^\s*(["'])((?:\\.|(?!\1).)*)\1\s*:\s*(["'])((?:\\.|(?!\3).)*)\3/gm)) EN_HAVE[m[2]] = [m[4], f];
 
 // ---- tailwind.config riêng của file → bảng tra tên → giá trị ----
 function cfgOf(html, f) { const m = html.match(/tailwind\.config\s*=\s*(\{[\s\S]*?\})\s*;?\s*<\/script>/); if (!m) return {};
-  try { return vm.runInNewContext('(' + m[1] + ')', Object.create(null), { timeout: 200 }).theme?.extend || {}; } catch (e) { errs.push(`${f}: tailwind.config đọc lỗi`); return {}; } }
+  let ext; try { ext = vm.runInNewContext('(' + m[1] + ')', Object.create(null), { timeout: 200 }).theme?.extend || {}; } catch (e) { errs.push(`${f}: tailwind.config đọc lỗi`); return {}; }
+  const col = {}; for (const [k, v] of Object.entries(ext.colors || {})) if (v && typeof v === 'object') { for (const [s, x] of Object.entries(v)) col[s === 'DEFAULT' ? k : `${k}-${s}`] = x; } else col[k] = v; // màu lồng (brand: {teal}) → brand-teal
+  ext.colors = col; ext.css = cssOf(html); return ext; } // css chỉ dùng khi bind có "pageCss": true (màn cũ giữ nguyên khung đã duyệt)
+// <style> riêng của file Stitch: class tự đặt (.btn-teal{…} .word-card:active{…} .no-scrollbar::-webkit-scrollbar{…}) → class thuộc tính tuỳ ý [prop:val] (+ biến thể active:/hover:/focus:, [&::x]:)
+function cssOf(html) { const out = {}; for (const [, css] of html.matchAll(/<style[^>]*>([\s\S]*?)<\/style>/g)) for (const [, sel, body] of css.replace(/\/\*[\s\S]*?\*\//g, '').matchAll(/([^{}]+)\{([^{}]*)\}/g))
+  for (const one of sel.split(',').map(x => x.trim())) { const m = one.match(/^\.([\w-]+)(::?[\w-]+)?$/); if (!m) continue;
+    const pv = !m[2] ? '' : /^:(active|hover|focus|focus-visible|disabled)$/.test(m[2]) ? m[2].slice(1) + ':' : m[2].startsWith('::') ? `[&${m[2]}]:` : null; if (pv == null) continue;
+    for (const d of body.split(';').map(x => x.trim()).filter(Boolean)) { const i = d.indexOf(':'); if (i < 0) continue; const imp = /!important/.test(d) ? '!' : '';
+      (out[m[1]] = out[m[1]] || []).push(`${pv}${imp}[${d.slice(0, i).trim().toLowerCase()}:${arb(d.slice(i + 1).replace(/!important/, ''))}]`); } }
+  return out; }
 const COLOR_P = ['bg', 'text', 'border', 'border-t', 'border-b', 'border-l', 'border-r', 'border-x', 'border-y', 'ring', 'ring-offset', 'from', 'via', 'to', 'fill', 'stroke', 'shadow', 'outline', 'divide', 'placeholder', 'decoration', 'accent', 'caret'];
 const SPACE_P = ['p', 'px', 'py', 'pt', 'pb', 'pl', 'pr', 'm', 'mx', 'my', 'mt', 'mb', 'ml', 'mr', 'gap', 'gap-x', 'gap-y', 'space-x', 'space-y', 'w', 'h', 'min-w', 'min-h', 'max-w', 'max-h', 'top', 'bottom', 'left', 'right', 'inset', 'inset-x', 'inset-y', 'translate-x', 'translate-y'];
 const RAD_P = ['rounded', 'rounded-t', 'rounded-b', 'rounded-l', 'rounded-r', 'rounded-tl', 'rounded-tr', 'rounded-bl', 'rounded-br'];
@@ -28,9 +38,9 @@ const split = c => { const i = c.lastIndexOf(':', c.includes('[') ? c.indexOf('[
   const m = rest.match(/^(!?)(-?)(.*?)(\/[\w.[\]]+)?$/); return { pre, imp: m[1], neg: m[2], base: m[3], op: m[4] || '' }; };
 // màu lồng nhau như Tailwind: { teal: { deep, DEFAULT } } → 'teal-deep', 'teal' (thiếu bước này → lt:bg-teal-deep không ra CSS, nút mất nền)
 const flat = (o, k = '', r = {}) => { for (const [s, v] of Object.entries(o || {})) { const n = s === 'DEFAULT' ? k : k ? `${k}-${s}` : s; if (v && typeof v === 'object' && !Array.isArray(v)) flat(v, n, r); else r[n] = v; } return r; };
-function resolver(ext) { const col = flat(ext.colors), fs_ = ext.fontSize || {}, rad = ext.borderRadius || {}, sp = ext.spacing || {}, bsh = ext.boxShadow || {};
-  return (cls, has) => { const { pre, imp, neg, base, op } = split(cls), out = [];
-    if (base.startsWith('shadow-') && bsh[base.slice(7)] != null) return [`${pre}${imp}shadow-[${arb(bsh[base.slice(7)])}]`]; // bóng riêng của mẫu (shadow-btn-teal)
+function resolver(ext, pageCss) { const col = flat(ext.colors), fs_ = ext.fontSize || {}, rad = ext.borderRadius || {}, sp = ext.spacing || {}, css = pageCss && ext.css || {}, bsh = ext.boxShadow || {};
+  return (cls, has) => { if (css[cls]) return css[cls]; const { pre, imp, neg, base, op } = split(cls), out = [];
+    if (base.startsWith('shadow-') && bsh[base.slice(7)] != null) return [`${pre}${imp}shadow-[${pageCss ? arb(bsh[base.slice(7)]).replace(/,_*/g, ',') : arb(bsh[base.slice(7)])}]`]; // bóng tên riêng (shadow-tactile-card, shadow-btn-teal) → giá trị thật (màn pageCss gọn dấu phẩy)
     if (base.startsWith('font-') && (ext.fontFamily || {})[base.slice(5)]) return []; // họ chữ: cả app dùng Plus Jakarta Sans ở gốc
     for (const p of COLOR_P) if (base.startsWith(p + '-') && col[base.slice(p.length + 1)] != null) { const v = col[base.slice(p.length + 1)]; return [`${pre}${imp}${p}-[${arb(v)}]${op}`]; }
     if (base.startsWith('text-') && fs_[base.slice(5)]) { const v = fs_[base.slice(5)], [size, o = {}] = Array.isArray(v) ? v : [v]; const lh = typeof o === 'string' ? o : o.lineHeight;
@@ -96,7 +106,7 @@ function emit(root, bind, k) {
   const M = [], mark = expr => { M.push(expr); return `\u0001${M.length - 1}\u0002`; }, q = s => JSON.stringify(s);
   const tr = (s, where) => { const key = bind.i18n?.[s.trim()]; if (key == null) { errs.push(`${k}: thiếu khóa dịch ${where}: ${q(s.trim())}`); return mark(`e(${q(s.trim())})`); }
     const have = EN_HAVE[key]; if (have && have[0].toLowerCase() !== s.trim().toLowerCase()) errs.push(`${k}: khóa ${q(key)} đã có nghĩa ${q(have[0])} (${have[1]}) ≠ ${q(s.trim())} → chọn khóa khác`);
-    else if (!have) enMap[key] = s.trim(); return mark(`e(t(${q(key)}))`); };
+    else if (!have) (CPK.has(k) ? enMapB : enMap)[key] = s.trim(); return mark(`e(t(${q(key)}))`); };
   // bộ chọn: CSS thường, thêm hậu tố " << n" = tổ tiên thứ n của phần tử khớp (bọc hàng/khung quanh nút có aria-label)
   const QA = (scope, sel) => { const m = sel.match(/^(.*?)\s*<<\s*(\d+)$/), base = m ? m[1] : sel; let r = base === ':scope' ? [scope] : [...scope.querySelectorAll(base)];
     if (m) r = r.map(e => { for (let n = +m[2]; n-- && e;) e = e.parentElement; return e; }).filter(Boolean); if (!r.length) errs.push(`${k}: bộ chọn không khớp: ${sel}`); return r; };
@@ -132,7 +142,7 @@ function emit(root, bind, k) {
     const tw = el.ownerDocument.createTreeWalker(el, 4); const texts = []; while (tw.nextNode()) texts.push(tw.currentNode);
     for (const n of texts) { const s = n.textContent; if (/\u0001/.test(s) || !needT(s) || (n.parentElement && isIcon(n.parentElement))) continue; n.textContent = s.replace(s.trim(), tr(s, 'chữ')); }
     for (const e of [el, ...el.querySelectorAll('*')]) for (const a of ['aria-label', 'title', 'alt', 'placeholder']) { const v = e.getAttribute(a); if (v && !/\u0001/.test(v) && needT(v)) e.setAttribute(a, tr(v, a)); }
-    return el.outerHTML.replace(/\s+/g, ' ').replace(/[`\\]|\$\{/g, m => '\\' + m).replace(/ class="([^"]*)"/g, (_, c) => ` class="${WEB ? c : c.split(' ').map(x => (x && !/\u0001/.test(x) ? `\u0005${x}\u0006` : x)).join(' ')}"`).replace(/\u0001(\d+)\u0002/g, (_, i) => '${' + M[+i] + '}'); };
+    return el.outerHTML.replace(/ class="[^"]*&amp;[^"]*"/g, m => m.replace(/&amp;/g, '&')).replace(/\s+/g, ' ').replace(/[`\\]|\$\{/g, m => '\\' + m).replace(/ class="([^"]*)"/g, (_, c) => ` class="${WEB ? c : c.split(' ').map(x => (x && !/\u0001/.test(x) ? `\u0005${x}\u0006` : x)).join(' ')}"`).replace(/\u0001(\d+)\u0002/g, (_, i) => '${' + M[+i] + '}'); };
   // protos {tên: bộ chọn | {sel, …phép}}: phần tử Stitch làm KHUÔN cho nội dung dựng lúc build (vd thân bài markdown → h2/p/bảng/FAQ đúng class mẫu, không tự đặt
   //   màu/cỡ) – lấy TRƯỚC các phép của khung (khung có thể thay chỗ đó bằng html), gắn phép riêng → ST2.P.<màn>(t, e).<tên>(d) trả HTML (st-web.mjs protos()).
   const protos = Object.entries(bind.protos || {}).map(([n, o]) => { const sel = typeof o === 'string' ? o : o.sel, el = QA(root, sel)[0]; if (!el) return [n, '``'];
@@ -178,8 +188,8 @@ for (const k of SCREENS) { const bind = JSON.parse(fs.readFileSync(path.join(SRC
   if (!fs.existsSync(f('light')) || !fs.existsSync(f('dark'))) { errs.push(`${k}: thiếu file Stitch`); continue; }
   const hl = fs.readFileSync(f('light'), 'utf8'), hd = fs.readFileSync(f('dark'), 'utf8');
   // keys {khóa Việt: chữ EN}: chữ do generator dựng lúc build (tr(lang)(khóa) trong scripts/lib/st-web.mjs) – không nằm trong mẫu nhưng đi cùng pipeline v2web 15 ngôn ngữ
-  for (const [kk, v] of Object.entries(bind.keys || {})) { const have = EN_HAVE[kk]; if (have && have[0] !== v) errs.push(`${k}: khóa ${JSON.stringify(kk)} đã có nghĩa ${JSON.stringify(have[0])} (${have[1]}) ≠ ${JSON.stringify(v)}`); else if (!have) enMap[kk] = v; }
-  const L = new JSDOM(hl, { virtualConsole: VC }).window.document, D = new JSDOM(hd, { virtualConsole: VC }).window.document, RL = resolver(cfgOf(hl, k + '-light')), RD = resolver(cfgOf(hd, k + '-dark'));
+  for (const [kk, v] of Object.entries(bind.keys || {})) { const have = EN_HAVE[kk]; if (have && have[0] !== v) errs.push(`${k}: khóa ${JSON.stringify(kk)} đã có nghĩa ${JSON.stringify(have[0])} (${have[1]}) ≠ ${JSON.stringify(v)}`); else if (!have) (CPK.has(k) ? enMapB : enMap)[kk] = v; }
+  const L = new JSDOM(hl, { virtualConsole: VC }).window.document, D = new JSDOM(hd, { virtualConsole: VC }).window.document, RL = resolver(cfgOf(hl, k + '-light'), bind.pageCss), RD = resolver(cfgOf(hd, k + '-dark'), bind.pageCss);
   if (bind.styles) { RL.sty = stylesOf(hl, k + '-light'); RD.sty = stylesOf(hd, k + '-dark'); }
   if (bind.swap) RL.swap = RD.swap = bind.swap;
   const doc = new JSDOM('<div></div>').window.document, body = merge(L.body, D.body, RL, RD, doc), root = doc.createElement('div');
@@ -193,6 +203,11 @@ for (const k of SCREENS) { const bind = JSON.parse(fs.readFileSync(path.join(SRC
       console.log(`${'  '.repeat(d)}${path} <${e.tagName.toLowerCase()}> ${cls}${al ? ` [${al}]` : ''}${tx ? ` "${tx.slice(0, 40)}"` : ''}`); [...e.children].forEach((c, i) => walk(c, d + 1, `${path}>${i + 1}`)); };
     walk(root, 0, '·'); continue; }
   const o = emit(root, bind, k);
+  if (bind.recolor && bind.src) for (const [f, to] of Object.entries(bind.recolor)) { // recolor {class mẫu: class thay}: đổi màu ĐỒNG LOẠT cả màn (sau cls) để đạt tương phản AA – chỉ màn khai báo; class không có trong khung = lỗi
+    const re = new RegExp(`(?<=[\\s"'\u0005])${f.replace(/[.*+?^${}()|[\]\\/]/g, '\\$&')}(?=[\\s"'\u0006])`, 'g'); let n = 0; // token class của emit() nằm giữa \u0005…\u0006: bản thay nhiều class tách thành nhiều token
+    const sub = (m, off, str) => (n++, str[off - 1] === '\u0005' ? to.split(' ').join('\u0006 \u0005') : to);
+    for (const key of ['header', 'main', 'nav']) o[key] = o[key].replace(re, sub); o.parts = o.parts.map(([nm, h]) => [nm, h.replace(re, sub)]);
+    if (!n) errs.push(`${k}: recolor – không có class ${f} trong khung`); }
   if (WEB) { const cs = `/* TỰ SINH bởi scripts/stitch-v2-convert.mjs --web từ <style> của ${SRC}/${k}-light|dark.html – KHÔNG sửa tay. */\n` + webCss(hl, hd), cf = path.join(OUT, k + '.css');
     if (CHECK) { if (!fs.existsSync(cf) || fs.readFileSync(cf, 'utf8') !== cs) errs.push(`${cf} trôi`); } else if (!ONLY.length || ONLY.includes(k)) { fs.mkdirSync(OUT, { recursive: true }); fs.writeFileSync(cf, cs); } }
   // Thanh tab: icon = sprite SVG #i-* của index.html (cùng nguồn với menu trái + #bnav) thay chữ ghép Material Symbols – font chậm/thiếu glyph không bao giờ lộ chữ "home"/"H"; mục đang chọn = tô đầy (st-ti-on)
@@ -208,9 +223,10 @@ for (const k of SCREENS) { const bind = JSON.parse(fs.readFileSync(path.join(SRC
   const recolor = colorMap(bind), code = recolor(`(self.ST2 || (self.ST2 = {}))[${JSON.stringify(k)}] = (d, t = self.t || (s => s), e = self.ST ? ST.esc : (s => String(s))) => ({ root: ${JSON.stringify(o.root)},\n header: ${o.header},\n main: ${o.main},\n nav: ${o.nav}${WEB ? `,\n footer: ${o.footer}` : ''}${o.parts.map(([n, h]) => `,\n ${n}: ${h}`).join('')} });\n` +
     (o.protos.length ? `(self.ST2.P || (self.ST2.P = {}))[${JSON.stringify(k)}] = (t = self.t || (s => s), e = self.ST ? ST.esc : (s => String(s))) => ({\n${o.protos.map(([n, h]) => ` ${JSON.stringify(n)}: d => ${h}`).join(',\n')} });\n` : '')), sk = shrink(code);
   const js = `/* TỰ SINH bởi scripts/stitch-v2-convert.mjs từ ${SRC}/${k}-light|dark.html + bind/${k}.json – KHÔNG sửa tay (sửa bind map rồi chạy lại). */\n` + (sk.head ? `{ ${sk.head}\n${sk.body}}\n` : sk.body);
-  const out = path.join(OUT, k + '.js');
+  const out = path.join(!WEB && CPK.has(k) ? 'web/cpack/st2' : OUT, k + '.js');
   if (CHECK) { if (!fs.existsSync(out) || fs.readFileSync(out, 'utf8') !== js) errs.push(`${k}: ${out} trôi so với Stitch/bind (chạy lại bộ chuyển)`); }
   else if (!ONLY.length || ONLY.includes(k)) { fs.mkdirSync(OUT, { recursive: true }); fs.writeFileSync(out, js); console.log(`✓ ${k}: ${(js.length / 1024).toFixed(1)} KB`); } }
-{ const en = `/* English UI – ${WEB ? 'v2web (trang web Stitch' : 'v2 (màn Stitch v2'}: TỰ SINH bởi scripts/stitch-v2-convert.mjs, khóa Việt → chữ Stitch; lazy group, LAZY in scripts/build-i18n.sh) */\n(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D.en = Object.assign(D.en || {}, {\n${Object.entries(enMap).sort().map(([k, v]) => `  ${JSON.stringify(k)}: ${JSON.stringify(v)},`).join('\n')}\n}); })(typeof self !== 'undefined' ? self : this);\n`;
-  if (CHECK) { if (!fs.existsSync(EN) || fs.readFileSync(EN, 'utf8') !== en) errs.push(`${EN} trôi`); } else if (!A.includes('--dump')) fs.writeFileSync(EN, en); } // --dump chỉ in sơ đồ: KHÔNG ghi en/v2.js (bỏ qua màn → mất khóa các màn khác)
+for (const [F, M, nm] of WEB ? [[EN, enMap, 'v2web (trang web Stitch']] : [[EN, enMap, 'v2 (màn Stitch v2'], ['web/js/i18n/en/v2b.js', Object.fromEntries(Object.entries(enMapB).filter(([k]) => !(k in enMap))), 'v2b (4 màn Stitch lười: topic/deck/mistakes/stats']]) {
+  const en = `/* English UI – ${nm}: TỰ SINH bởi scripts/stitch-v2-convert.mjs, khóa Việt → chữ Stitch; lazy group, LAZY in scripts/build-i18n.sh) */\n(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D.en = Object.assign(D.en || {}, {\n${Object.entries(M).sort().map(([k, v]) => `  ${JSON.stringify(k)}: ${JSON.stringify(v)},`).join('\n')}\n}); })(typeof self !== 'undefined' ? self : this);\n`;
+  if (CHECK) { if (!fs.existsSync(F) || fs.readFileSync(F, 'utf8') !== en) errs.push(`${F} trôi`); } else if (!A.includes('--dump')) fs.writeFileSync(F, en); } // --dump chỉ in sơ đồ: KHÔNG ghi en/v2.js (bỏ qua màn → mất khóa các màn khác)
 if (errs.length) { console.error('✗ stitch-v2-convert:\n  ' + errs.join('\n  ')); process.exit(1); }

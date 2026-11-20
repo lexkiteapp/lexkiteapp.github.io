@@ -14,6 +14,19 @@ export const STREAK_NOW = '2026-10-30T12:00:00Z';
 export const FIX_CLOCK = page => page.clock.setFixedTime(new Date(STREAK_NOW));
 export const SEED_STREAK = async () => { const k = d => { const x = new Date(); x.setDate(x.getDate() - d); return x.getFullYear() + '-' + String(x.getMonth() + 1).padStart(2, '0') + '-' + String(x.getDate()).padStart(2, '0'); };
   const days = {}; for (let i = 1; i < 14; i++) days[k(i)] = 5; days[k(0)] = 14; App.state.stats.days = Object.assign(App.state.stats.days || {}, days); App.state.game = App.state.game || {}; App.state.game.xp = Math.max(App.state.game.xp || 0, 820); App.state.settings.dailyGoal = 20; await App.saveSettings(); await Core.Store.set('stats', App.state.stats); };
+// Sổ lỗi sai mẫu giống Stitch (3 thẻ: ngữ pháp · từ vựng · khác) – chỉ nạp khi vào màn này (không đổi dữ liệu các màn khác)
+export const SEED_MISTAKES = async () => { const now = Date.now(), D = 864e5;
+  await Core.Store.set('mistakes', [
+    { kind: 'grammar', q: 'I like ___ to music on my daily commute.', answer: 'listening', given: 'listen', explain: 'Preference verbs (like, love, enjoy, avoid) almost always take the -ing form.', ref: 'tenses', key: 'sg1', n: 3, at: now - D, fixed: false },
+    { kind: 'vocab', q: 'The budget cut will severely ___ laboratory research.', answer: 'affect', given: 'effect', explain: 'Affect is a verb, effect is a noun.', ref: 'affect', key: 'sv1', n: 2, at: now - 6 * D, fixed: false },
+    { kind: 'reading', q: 'I am confident that she is good ___ data analysis.', answer: 'at', given: 'in', explain: "Say 'good at' for subjects, skills and sports.", ref: '', key: 'sr1', n: 2, at: now - 8 * D, fixed: false }]); };
+// Tiến độ mẫu (#/stats, như mẫu Stitch: cấp ~7, 1.420 lượt ôn, lịch 4 tháng có hoạt động, 30 từ ở đủ 5 cấp nhớ, 6 huy hiệu đã mở) – chỉ nạp khi vào màn này
+export const SEED_STATS = async () => { const D = 864e5, now = Date.now(), k = d => Core.todayKey(new Date(now - d * D)), g = App.state.game, st = App.state.stats;
+  g.xp = Math.max(g.xp || 0, 2340); g.total = Object.assign(g.total || {}, { reviews: 1420, quizzes: 94, spoken: 386, readings: 42 });
+  for (let i = 0; i < 120; i++) { if (i % 3 === 2 && i > 14) continue; const x = g.days[k(i)] || (g.days[k(i)] = {}); x.xp = (x.xp || 0) + 20 + (i * 7) % 60; x.reviews = (x.reviews || 0) + 10 + (i * 5) % 30; x.newWords = (x.newWords || 0) + i % 4; x.quizzes = (x.quizzes || 0) + i % 2; st.days[k(i)] = (st.days[k(i)] || 0) + 10 + (i * 5) % 30; }
+  g.badges = Object.assign({ first: now - 50 * D, streak3: now - 20 * D, streak7: now - 10 * D, words50: now - 5 * D, reader: now - 3 * D, level5: now - D }, g.badges || {});
+  for (const [i, w] of IELTS_DATA.TOPICS[0].words.slice(0, 30).entries()) { await App.addWord(w, null, { silent: true }); const c = App.state.cards[w.word.toLowerCase()], iv = [0.5, 2, 6, 15, 40][i % 5];
+    if (c) c.srs = Object.assign(c.srs || {}, { reps: 1 + i % 5, interval: iv, last: now - iv * D, due: now + ((i % 7) - 1) * D, S: iv, D: 5 }); } };
 // Màn Chuỗi (mẫu Stitch streak-v5, 5/11): kịch bản RIÊNG đúng như mẫu – thứ Bảy 14/11/2026, chuỗi 14 ngày (31/10→13/11), thứ Năm 12/11 đóng băng, hôm nay chưa học,
 //   còn 1/2 lượt băng, 1 rương chưa mở (mốc 3/7/14 đã chúc mừng), sự kiện thu 2/5 mảnh. Chỉ áp cho màn streak (các màn khác giữ STREAK_NOW thứ Sáu).
 export const STREAK_V5_NOW = '2026-11-14T12:00:00Z';
@@ -27,7 +40,7 @@ export const SEED_SETTINGS = () => { const S = App.state.settings; S.theme = 'au
 // Từ điển: lịch sử tra như mẫu (8 từ ở "Recent searches")
 export const SEED_DICT = async () => { await Core.Store.set('recent', ['ambiguous', 'feasible', 'mitigate', 'diligent', 'concur', 'went', 'coherent', 'pinnacle']); };
 export const SEED_DAY = async () => { await App.need('pathx'); const d = (await DayPath.days())[0]; if (d) await Core.Store.set('pathDays', { [d.key]: { s: ['learn', 'match'] } }); }; // Ngày 1: đã xong 2 bước (xong / tiếp theo / chưa làm cùng lúc)
-export const SEED_SCREEN = async (page, k) => { if (k === 'settings') { await page.evaluate(SEED_SETTINGS); await page.evaluate(() => App.route()); await page.waitForTimeout(600); return; } if (k === 'day') { await page.evaluate(SEED_DAY); await page.reload({ waitUntil: 'load' }); await page.waitForTimeout(1500); return; } if (k === 'dict') { await page.evaluate(SEED_DICT); await page.evaluate(() => App.route()); await page.waitForTimeout(600); return; } if (k === 'grammar') { await page.evaluate(SEED_GRAMMAR); await page.evaluate(() => App.route()); await page.waitForTimeout(600); return; } if (k === 'pron-hub') { await page.evaluate(SEED_PRON); await page.evaluate(() => App.route()); await page.waitForTimeout(600); return; } if (k !== 'streak') return; await page.clock.setFixedTime(new Date(STREAK_V5_NOW)); await page.evaluate(SEED_STREAK_V5); await page.evaluate(() => App.route()); await page.waitForTimeout(600); };
+export const SEED_SCREEN = async (page, k) => { if (k === 'settings') { await page.evaluate(SEED_SETTINGS); await page.evaluate(() => App.route()); await page.waitForTimeout(600); return; } if (k === 'day') { await page.evaluate(SEED_DAY); await page.reload({ waitUntil: 'load' }); await page.waitForTimeout(1500); return; } if (k === 'dict') { await page.evaluate(SEED_DICT); await page.evaluate(() => App.route()); await page.waitForTimeout(600); return; } if (k === 'mistakes' || k === 'stats') { await page.evaluate(k === 'stats' ? SEED_STATS : SEED_MISTAKES); await page.evaluate(() => App.route()); await page.waitForTimeout(900); return; } if (k === 'grammar') { await page.evaluate(SEED_GRAMMAR); await page.evaluate(() => App.route()); await page.waitForTimeout(600); return; } if (k === 'pron-hub') { await page.evaluate(SEED_PRON); await page.evaluate(() => App.route()); await page.waitForTimeout(600); return; } if (k !== 'streak') return; await page.clock.setFixedTime(new Date(STREAK_V5_NOW)); await page.evaluate(SEED_STREAK_V5); await page.evaluate(() => App.route()); await page.waitForTimeout(600); };
 export const SEED_LEAGUE = () => {
   const names = ['An Nguyen', 'Linh Khanh', 'Marcus Roy', 'Tariq Chen', 'You Lexkite', 'Sara Hansen', 'Daiki Kato'], xps = [1420, 1280, 1150, 980, 820, 760, 690]; // bảng giải đấu mẫu giống Stitch (hạng 5 = mình)
   window.Sync = window.Sync || {}; Sync.user = { uid: 'u1', displayName: 'You Lexkite' }; Sync.authed = async () => Sync.user;
@@ -37,6 +50,7 @@ export const SCREENS = {
   call: 'call/coffee',
   complete: 'lesson/go?demo=1',
   day: 'day/1',
+  deck: 'deck',
   dict: 'dict',
   feedback: 'lesson/go?demo=1',
   'feedback-wrong': 'lesson/go?demo=1',
@@ -46,6 +60,7 @@ export const SCREENS = {
   lesson: 'lesson/go?demo=1',
   library: 'library?g=all',
   me: 'me',
+  mistakes: 'mistakes',
   'onb-goal': 'welcome/setup',
   'onb-level': 'welcome/setup?s=level',
   'onb-pace': 'welcome/setup?s=pace',
@@ -59,9 +74,11 @@ export const SCREENS = {
   skills: 'skills',
   'speak-drill': 'speak/cafe/drill',
   'speak-sit': 'speak/cafe',
+  stats: 'stats',
   story: 'lesson/go?demo=1',
   streak: 'streak',
   'today-new': 'home',
+  topic: 'topic/education',
   'vocab-hub': 'vocab',
   welcome: 'welcome',
   'welcome-desk': 'welcome',
@@ -71,6 +88,7 @@ export const V2REF = {
   call: 'teacher-call',
   complete: 'lesson-complete',
   day: 'day',
+  deck: 'deck',
   dict: 'dict',
   feedback: 'feedback-correct',
   'feedback-wrong': 'feedback-wrong',
@@ -78,7 +96,9 @@ export const V2REF = {
   home: 'today',
   leagues: 'leagues',
   lesson: 'lesson-question',
+  library: 'library',
   me: 'me',
+  mistakes: 'mistakes',
   'onb-goal': 'onb-goal',
   'onb-level': 'onb-level',
   'onb-pace': 'onb-pace',
@@ -92,9 +112,11 @@ export const V2REF = {
   skills: 'skills',
   'speak-drill': 'pas-drill',
   'speak-sit': 'pas-sit',
+  stats: 'stats',
   story: 'story-duo',
   streak: 'streak',
   'today-new': 'today-new',
+  topic: 'topic',
   'vocab-hub': 'vocab-hub',
   welcome: 'welcome',
   'welcome-desk': 'welcome-desk',
@@ -159,6 +181,8 @@ export const FINAL = [
   { stitch: 'lesson-question', k: 'lesson', ready: '.lsn-opts .lsn-opt', teacher: ['listen', 'talk'], speaks: true }, { stitch: 'feedback-correct', k: 'feedback', ready: '.lsn-fv2.ok', teacher: ['cheer'], sfx: ['correct'] },
   { stitch: 'feedback-wrong', k: 'feedback-wrong', ready: '.lsn-fv2.bad', teacher: ['concern'], sfx: ['wrong'] }, { stitch: 'lesson-complete', k: 'complete', ready: '.lsn-end', teacher: ['cheer'], sfx: ['win'] },
   { stitch: 'story-duo', k: 'story', ready: '.lsn-qblk ~ #lsnBody .lsn-opt, .lsn-qblk + #lsnBody .lsn-opt', teacher: ['talk', 'listen'], duo: true, speaks: true },
+  { stitch: 'library', k: 'library', teacher: null }, { stitch: 'topic', k: 'topic', teacher: null }, // nhóm B (31/10)  { stitch: 'stats', k: 'stats', teacher: ['encourage'] },
+  { stitch: 'deck', k: 'deck', teacher: null }, { stitch: 'mistakes', k: 'mistakes', teacher: ['thinking'] },
 ];
 export const READY = Object.fromEntries(FINAL.filter(f => f.k && f.ready).map(f => [f.k, f.ready]));
 Object.assign(READY, { 'speak-sit': '.v2s-pas-sit', 'speak-drill': '.v2s-pas-drill', 'onb-goal': '.v2s-onb-goal', 'onb-level': '.v2s-onb-level', 'onb-target': '.v2s-onb-target', 'onb-pace': '.v2s-onb-pace', 'onb-ready': '.v2s-onb-ready', welcome: ':is(.v2s-welcome, .v2s-welcome-desk)', 'welcome-desk': ':is(.v2s-welcome, .v2s-welcome-desk)' }); // welcome: điện thoại/máy tính cùng route, chọn khung theo độ rộng // 2 màn Nói (cờ lk.speak=1): trang lỗi/không tải gói = ĐỎ, không xanh giả
