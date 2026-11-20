@@ -164,6 +164,10 @@ export function violations(file, src) {
   if (/^# ci-policy: heavy-gate\b/m.test(src)) {   // luật 11
     const js = jobs(src), g = js.find(j => j.id === 'gate');
     if (!g || !/check_name=npm%20test/.test(g.text) || !/outputs:\s*\{\s*go:/.test(g.text)) out.push(`${file}: heavy-gate cần job "gate" đọc check-run npm test và xuất output go`);
+    // luật 18 (16/11, chủ OK): PR chỉ chờ làn nhanh; việc nặng bỏ qua trên PR (trừ nhãn ready-heavy/ready) và chạy SAU gộp trên push main
+    if (g && !/^    if:[^\n]*github\.event_name != 'pull_request'[^\n]*'ready-heavy'[^\n]*'ready'/m.test(g.text)) out.push(`${file}: job gate phải có if: github.event_name != 'pull_request' || … 'ready-heavy' … 'ready' (luật 18: PR không chạy việc nặng)`);
+    if (g && /run_attempt/.test(g.text.replace(/^\s*#.*$/gm, ''))) out.push(`${file}: gate không được mở lại ở lượt 2 (luật 18: hết heavy-rerun, nặng chạy sau gộp)`);
+    if (!t.events.has('push') || !/^  push:\s*\n(?:    .*\n)*?    branches:\s*\[?\s*main\b/m.test(String(src))) out.push(`${file}: workflow nặng phải có trigger push vào main cùng paths (luật 18: việc nặng chạy sau gộp)`);
     for (const j of js) if (j.id !== 'gate' && !/^    uses:/m.test(j.text) ? !(/^    needs:[^\n]*\bgate\b/m.test(j.text) && /^    if:[^\n]*needs\.gate\.outputs\.go == 'true'/m.test(j.text)) : false) out.push(`${file}: job "${j.id}" phải needs: gate và if: … needs.gate.outputs.go == 'true' (luật 11: việc nặng chờ npm test xanh)`);
   }
   // 10) (06/11 – stitch-web đỏ vì `timeout 600 npx playwright install --with-deps` treo apt hết 600 s, #780): cài Playwright qua scripts/ci/pw-install.sh
@@ -282,12 +286,15 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
     ok(vl('      - uses: actions/checkout@v4\n        with: { sparse-checkout: "scripts\\n.github/actions" }\n      - uses: ./.github/actions/apt\n') === 0 && vl('      - uses: actions/checkout@v4\n      - uses: ./.github/actions/apt\n') === 0, 'action cục bộ: checkout đủ → đạt');
     ok(!violations('mobile-qa.yml', job('      - timeout-minutes: 12\n        run: npx playwright install chromium\n')).some(x => /luật 10/.test(x)), 'luật 10: mobile-qa.yml được miễn');
   }
-  { const hv = "# ci-policy: heavy-gate – x\n" + base.replace("  push:\n    branches: [main]\n    paths: ['a/**']", "  pull_request:\n    paths: ['a/**']").replace('concurrency: { group: x }', 'concurrency: { group: x, cancel-in-progress: true }');
-    const gate = "  gate:\n    runs-on: ubuntu-latest\n    timeout-minutes: 3\n    outputs: { go: '${{ steps.g.outputs.go }}' }\n    steps:\n      - run: gh api 'x?check_name=npm%20test' $READY\n";
+  { const hv = "# ci-policy: heavy-gate – x\n" + base.replace("  push:\n    branches: [main]\n    paths: ['a/**']", "  pull_request:\n    paths: ['a/**']\n  push:\n    branches: [main]\n    paths: ['a/**']").replace('concurrency: { group: x }', 'concurrency: { group: x, cancel-in-progress: true }');
+    const gate = "  gate:\n    if: ${{ github.event_name != 'pull_request' || contains(github.event.pull_request.labels.*.name, 'ready-heavy') || contains(github.event.pull_request.labels.*.name, 'ready') }}\n    runs-on: ubuntu-latest\n    timeout-minutes: 3\n    outputs: { go: '${{ steps.g.outputs.go }}' }\n    steps:\n      - run: gh api 'x?check_name=npm%20test' $READY\n";
     const good = hv.replace('jobs:\n', 'jobs:\n' + gate).replace('  a:\n', "  a:\n    needs: gate\n    if: needs.gate.outputs.go == 'true'\n");
     ok(violations('h.yml', good).length === 0, 'luật 11: gate + needs + if → đạt');
     ok(violations('h.yml', hv.replace('jobs:\n', 'jobs:\n' + gate)).some(v => /luật 11/.test(v)), 'luật 11: job không needs gate → lỗi');
     ok(violations('h.yml', hv).some(v => /gate/.test(v)), 'luật 11: thiếu job gate → lỗi');
+    ok(violations('h.yml', good.replace("'ready-heavy') || contains(github.event.pull_request.labels.*.name, ", '')).some(v => /luật 18/.test(v)), 'luật 18: gate không bỏ qua việc nặng trên PR → lỗi');
+    ok(violations('h.yml', good.replace("github.event_name != 'pull_request' ||", "github.event_name != 'pull_request' || github.run_attempt > 1 ||")).some(v => /luật 18/.test(v)), 'luật 18: gate mở lại ở lượt 2 → lỗi');
+    ok(violations('h.yml', good.replace('  push:\n    branches: [main]\n    paths: [\'a/**\']\n', '')).some(v => /luật 18/.test(v)), 'luật 18: workflow nặng thiếu push main → lỗi');
     ok(violations('h.yml', good.replace(' $READY', '')).some(v => /luật 14/.test(v)), 'luật 14: gate thiếu nhãn ready → lỗi');
     const ui = base.replace("  push:\n    branches: [main]\n", '  pull_request:\n').replace('concurrency: { group: x }', 'concurrency: { group: x, cancel-in-progress: true }').replace('    steps: []\n', '    steps:\n      - run: npx playwright test\n');
     ok(violations('u.yml', ui).some(v => /luật 14/.test(v)), 'luật 14: PR chạy trình duyệt không qua làn nhanh → lỗi');

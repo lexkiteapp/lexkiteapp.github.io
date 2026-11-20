@@ -8,6 +8,9 @@ name: QA bot
 on:
   pull_request:
     paths: ['web/**', '!web/**/*.md', '!web/**/*.txt', 'extension/app/**', 'scripts/build-web.sh', 'scripts/test/qa-bot.mjs', 'scripts/test/exit-sweep.mjs', 'scripts/test/nav-sweep.mjs', 'scripts/test/nav-sweep.known.json', 'scripts/test/lib/learn-samples.mjs', 'scripts/test/qa-bot/**', 'scripts/test/qa-bot-diff.mjs', 'scripts/test/qa-bot-baseline.json', '.github/workflows/qa-bot.yml']
+  push:
+    branches: [main]
+    paths: ['web/**', '!web/**/*.md', '!web/**/*.txt', 'extension/app/**', 'scripts/build-web.sh', 'scripts/test/qa-bot.mjs', 'scripts/test/exit-sweep.mjs', 'scripts/test/nav-sweep.mjs', 'scripts/test/nav-sweep.known.json', 'scripts/test/lib/learn-samples.mjs', 'scripts/test/qa-bot/**', 'scripts/test/qa-bot-diff.mjs', 'scripts/test/qa-bot-baseline.json', '.github/workflows/qa-bot.yml']
   workflow_run:
     workflows: ['Pages deploy', 'Preview site']
     types: [completed]
@@ -27,7 +30,8 @@ jobs:
   # luật 11 (làn nhanh trước làn nặng, scripts/test/ci-policy.mjs): trên PR việc nặng chỉ chạy khi `npm test` đã XANH cùng sha – đỏ/chưa xong thì mọi job dưới là skipped
   # (không chiếm runner); npm-test.yml job `heavy` chạy lại lượt này ngay khi npm test xanh (scripts/ci/heavy-rerun.mjs). Lỗi API → mở cổng (không mất kiểm).
   gate:
-    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'   # như job bot: workflow_run không thành công → skipped lan xuống
+    # luật 18 (CI làn nhanh, 16/11): PR chỉ chờ làn nhanh – việc nặng bỏ qua trên PR (skipped, không tốn máy), chạy SAU gộp trên push main; nhãn ready-heavy/ready = chạy nặng ngay trên PR
+    if: ${{ (github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success') && (github.event_name != 'pull_request' || contains(github.event.pull_request.labels.*.name, 'ready-heavy') || contains(github.event.pull_request.labels.*.name, 'ready')) }}   # như job bot: workflow_run không thành công → skipped lan xuống
     runs-on: ubuntu-latest
     timeout-minutes: 3
     permissions: { contents: read, checks: read, pull-requests: read }

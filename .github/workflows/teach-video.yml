@@ -14,12 +14,17 @@ on:
       shards: { description: 'render the next N gated episodes not yet in bank.json (gen.py --todo; ci-filler fills idle runners with this), 0 = pilots', default: '0' }
   pull_request:
     paths: ['scripts/video/teach2d/**', 'scripts/video/teach2d/rig_host.mjs', 'web/js/teacher-rig.js', 'web/js/call/**', 'web/js/characters.js', 'scripts/test/teach2d-rig.mjs', 'scripts/media/origin.py', 'scripts/cine/publish_meta.py', 'brand/library/sfx/**', 'scripts/video/synth.mjs', 'web/teach/characters.json', 'scripts/test/media-origin.py', 'scripts/ci/shards.mjs', 'scripts/lib/i18n-rules.mjs', 'scripts/video/remotion/src/teach/**', 'content/video/teach2d/**', '.github/workflows/teach-video.yml']
+  push:
+    branches: [main]
+    paths: ['scripts/video/teach2d/**', 'scripts/video/teach2d/rig_host.mjs', 'web/js/teacher-rig.js', 'web/js/call/**', 'web/js/characters.js', 'scripts/test/teach2d-rig.mjs', 'scripts/media/origin.py', 'scripts/cine/publish_meta.py', 'brand/library/sfx/**', 'scripts/video/synth.mjs', 'web/teach/characters.json', 'scripts/test/media-origin.py', 'scripts/ci/shards.mjs', 'scripts/lib/i18n-rules.mjs', 'scripts/video/remotion/src/teach/**', 'content/video/teach2d/**', '.github/workflows/teach-video.yml']
 permissions: { contents: read, actions: read }   # actions: read = count busy runners (scripts/ci/shards.mjs)
 concurrency: { group: "${{ github.event_name == 'workflow_dispatch' && format('teach-video-batch-{0}', github.event.inputs.batch || github.run_id) || format('teach-video-{0}-{1}', github.ref, github.event_name) }}", cancel-in-progress: "${{ github.event_name == 'pull_request' }}" }   # 12/11: GitHub keeps ONE pending run per group and cancels the older pending one – 3 of 4 dispatches vanished silently. Every dispatch now has its own group (batch id or run id) and is never cancelled; PR smoke runs: newest wins (5/11)
 jobs:
   # luật 11 (làn nhanh trước làn nặng, scripts/test/ci-policy.mjs): trên PR việc nặng chỉ chạy khi `npm test` đã XANH cùng sha – đỏ/chưa xong thì mọi job dưới là skipped
   # (không chiếm runner); npm-test.yml job `heavy` chạy lại lượt này ngay khi npm test xanh (scripts/ci/heavy-rerun.mjs). Lỗi API → mở cổng (không mất kiểm).
   gate:
+    # luật 18 (CI làn nhanh, 16/11): PR chỉ chờ làn nhanh – việc nặng bỏ qua trên PR (skipped, không tốn máy), chạy SAU gộp trên push main; nhãn ready-heavy/ready = chạy nặng ngay trên PR
+    if: ${{ github.event_name != 'pull_request' || contains(github.event.pull_request.labels.*.name, 'ready-heavy') || contains(github.event.pull_request.labels.*.name, 'ready') }}
     runs-on: ubuntu-latest
     timeout-minutes: 3
     permissions: { contents: read, checks: read }
