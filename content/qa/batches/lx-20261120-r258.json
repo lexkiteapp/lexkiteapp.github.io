@@ -1,0 +1,148 @@
+{
+ "id": "20261120-r258",
+ "source": "lexicon-expand",
+ "n": 31,
+ "checked": [
+  {
+   "id": "geologically#adv",
+   "ok": true
+  },
+  {
+   "id": "aeroplane#n",
+   "ok": true
+  },
+  {
+   "id": "veto#v",
+   "ok": true
+  },
+  {
+   "id": "anarchism#n",
+   "ok": true
+  },
+  {
+   "id": "preposition#n",
+   "ok": true
+  },
+  {
+   "id": "sentient#adj",
+   "ok": true
+  },
+  {
+   "id": "archeologist#n",
+   "ok": true
+  },
+  {
+   "id": "yoghurt#n",
+   "ok": true
+  },
+  {
+   "id": "sprint#v",
+   "ok": true
+  },
+  {
+   "id": "col#n",
+   "ok": true
+  },
+  {
+   "id": "mutability#n",
+   "ok": true
+  },
+  {
+   "id": "crystallization#n",
+   "ok": true
+  },
+  {
+   "id": "overthrow#n",
+   "ok": true
+  },
+  {
+   "id": "exile#v",
+   "ok": true
+  },
+  {
+   "id": "semicolon#n",
+   "ok": true
+  },
+  {
+   "id": "scheme#v",
+   "ok": true
+  },
+  {
+   "id": "rhyme#n",
+   "ok": true
+  },
+  {
+   "id": "antonym#n",
+   "ok": true
+  },
+  {
+   "id": "integral#n",
+   "ok": true,
+   "note": "1/3 nêu lỗi (về hàng duyệt): def: definition describes integral.n.02 (mathematical function) but sense is integral.n.01 (part/essential) · vi: Vietnamese translation “tích phân” matches the mathematical sense, not the part‑of‑a‑whole sense indicated by the synset"
+  },
+  {
+   "id": "brook#v",
+   "ok": true,
+   "note": "1/3 nêu lỗi (về hàng duyệt): def: definition describes brook.v.01 (to tolerate) but sense is digest.v.03 · ex: examples use “brook” in the tolerate sense, not in the sense of digest.v.03 · vi: Vietnamese translation “chịu; chịu đựng” matches the tolerate sense, not the sense of digest.v.03"
+  },
+  {
+   "id": "lassitude#n",
+   "ok": true
+  },
+  {
+   "id": "treasure#v",
+   "ok": true
+  },
+  {
+   "id": "indolence#n",
+   "ok": true
+  },
+  {
+   "id": "metadata#n",
+   "ok": true
+  },
+  {
+   "id": "verandah#n",
+   "ok": true
+  },
+  {
+   "id": "naivety#n",
+   "ok": true
+  },
+  {
+   "id": "repeal#n",
+   "ok": true
+  },
+  {
+   "id": "outright#adj",
+   "ok": true
+  },
+  {
+   "id": "toothache#n",
+   "ok": true
+  },
+  {
+   "id": "motorway#n",
+   "ok": true
+  },
+  {
+   "id": "tautly#adv",
+   "ok": true
+  },
+  {
+   "id": "offensive#n",
+   "ok": true
+  },
+  {
+   "id": "anger#v",
+   "ok": true,
+   "note": "1/3 nêu lỗi (về hàng duyệt): ex: The example 'That's what really angered me' uses the past tense 'angered', but the headword is 'anger' (base form). While common in dictionaries, strict lexicography for a headword entry usually requires the example to reflect the headword form or clearly indicate conjugation; however, the primary error is that 'anger' as a verb is archaic/rare in modern English, making the entry potentially misleading for learners if not flagged as such, but strictly checking the fields: The definition 'to make someone feel angry' is correct for the verb sense. The examples use 'angered' and 'anger'. 'I don't wish to anger you' is correct. 'That's what really angered me' is grammatically correct but uses a different form. Is this a 'real error a teacher would correct'? Usually, examples can be conjugated. Let's look closer. Is 'anger' a common verb? It is rare. But the sense is locked. The Vietnamese 'làm tức giận' is correct. The level C1 is plausible for a rare word. Wait, looking at the first example: 'That's what really angered me.' The headword is 'anger'. The example uses 'angered'. This is acceptable. However, is there a better error? Let's re-read the prompt: 'Flag ONLY real errors... wrong sense, wrong pos, wrong or nonexistent word, unnatural/misleading example'. 'Anger' as a verb is valid (WordNet anger.v.01). The examples are natural. The Vietnamese is correct. The level is plausible. Is there an error? Let's check 'suspect#adj' first. 'suspect' as adj means 'fishy'. Def: 'seeming doubtful or not as expected'. Ex: 'level of competition was suspect' (meaning questionable/dubious). 'discourse becomes suspect' (questionable). Vi: 'đáng ngờ' (suspicious/questionable). M: pt 'suspeito', fr 'suspect'. These are correct. Level C1 is plausible. Back to 'anger#v'. Is 'anger' a standard verb for learners? It is very rare. But the task is to audit the *fields* against the *locked sense*. The fields are consistent. Is there a subtle error? 'to make someone feel angry' is the definition. Example 1: 'angered'. Example 2: 'anger'. Both fit. Vi: 'làm tức giận'. Correct. Maybe the level? C1 is high, but for a rare word, it's appropriate. I will mark it as ok unless I find a specific flaw. Wait, 'anger' is often considered a noun. Using it as a verb is archaic or literary. If the dictionary is for *learners*, including a rare/archaic verb form without a note might be misleading, but the prompt says 'Do not flag style...'. It says 'Flag ONLY real errors... wrong sense...'. The sense is locked. The def matches the sense. The examples match the sense. The vi matches. I will mark it ok. Let's double check 'tautly'. 'tautly' adv. Def: 'in a tightly stretched or tense way'. Ex: 'net stretched tautly', 'rope was tautly stretched'. Vi: 'căng'. Correct. Level C1. Ok. 'offensive#n'. Def: 'an attack on an enemy'. Ex: 'offensive was a failure', 'preparations for the new offensive'. Vi: 'sự tấn công'. Correct. Level C1. Ok. 'suspect#adj'. Def: 'seeming doubtful or not as expected'. Ex: 'competition was suspect', 'discourse becomes suspect'. Vi: 'đáng ngờ'. Correct. M: pt 'suspeito', fr 'suspect'. Correct. Level C1. Ok. All seem ok. Let me re-evaluate 'anger#v'. Is 'anger' a verb in modern English? Merriam-Webster lists it as a verb, but it is rare. WordNet has it. The prompt says 'judge the fields against the def and gloss'. The def is 'to make someone feel angry'. This is the correct definition for the verb sense. The examples are natural in a literary context. The Vietnamese is correct. I see no *error* in the fields relative to the locked sense. I will return ok for all."
+  },
+  {
+   "id": "suspect#adj",
+   "ok": true
+  }
+ ],
+ "at": "2026-11-20",
+ "status": "published"
+}
