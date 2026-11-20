@@ -486,3 +486,6 @@ node scripts/test/gate-impact.mjs
 node scripts/test/budget-comment.mjs
 node scripts/test/admin-analytics-mobile.mjs
 node scripts/test/read-highlight.mjs
+node scripts/test/no-native-dialogs.mjs --self
+node scripts/test/no-native-dialogs.mjs
+node scripts/test/dialog.mjs

@@ -57,3 +57,8 @@ Google chặn OAuth trong WebView → app dùng SDK gốc qua plugin `@capacitor
 - **Chạm widget** → `lexkite://review?w=từ` → app mở `#/review?w=từ` (thẻ đó lên đầu phiên ôn).
 - Mô tả trong thư viện widget: `node scripts/gen-widget-i18n.mjs` (lấy từ i18n web).
 - **Khi phát hành iOS**: tạo App Group `group.com.lexkite.app` trên Apple Developer, bật App Groups cho cả `com.lexkite.app` và `com.lexkite.app.widget`, chọn Team cho cả 2 target (entitlements đã có sẵn).
+
+## Hộp thoại JS gốc → crash iOS (đã vá 20/11/2026)
+- Lỗi Crashlytics `NSInternalInconsistencyException – Completion handler … runJavaScriptConfirmPanelWithMessage … was not called`: web gọi `confirm/alert/prompt` gốc; `@capacitor/ios` (kể cả 8.6.2 mới nhất, đã kiểm) không gọi `completionHandler` khi không hiện được hộp (app ở nền, đang có hộp khác) → WebKit ném lỗi → app chết. Capacitor chưa sửa nên **không nâng cấp để vá**.
+- Web: dùng `await LXDialog.confirm/prompt/alert` (`web/js/dialog.js`, `UI.confirm…`); `scripts/test/no-native-dialogs.mjs` cấm mọi lời gọi gốc trong `web/` (OTA/Pages deploy là đủ cho người dùng bản 1.0 hiện tại).
+- Native (vào bản store kế tiếp): `ios/App/App/DialogSafeUIDelegate.swift` bọc `WKWebView.uiDelegate`, luôn gọi `completionHandler` (alert xong · confirm false · prompt nil) khi không hiện được; cuộc gọi cookie nội bộ của Capacitor đi qua nguyên vẹn. Gắn ở `LexkiteBridgeViewController.capacitorDidLoad`.

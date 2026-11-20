@@ -33,6 +33,7 @@
 		B73A696BDB86C81A5C918A07 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E7189C16E6EE0840EA7D4C0 /* WidgetKit.framework */; };
 		B9D0D9C9423193E2DCCBCC63 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 538C2784CD91E2D8FCE0582D /* SwiftUI.framework */; };
 		C555A85B2237479742F91D52 /* LexkiteBridgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472533D67AAAFC089022E72F /* LexkiteBridgeViewController.swift */; };
+		D1A10C0DE5AFE0001D1A10C1 /* DialogSafeUIDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A10C0DE5AFE0002D1A10C2 /* DialogSafeUIDelegate.swift */; };
 		CB0E61AA63BFF4876C7DAEB7 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 6CAE5F1AFFAA6A47661BAA73 /* PrivacyInfo.xcprivacy */; };
 		E7812FBF8F485E0DF759E67C /* WidgetViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = C215F53F7DE48D1BA934567F /* WidgetViews.swift */; };
 /* End PBXBuildFile section */
@@ -77,6 +78,7 @@
 		2FAD9762203C412B000D30F8 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = config.xml; sourceTree = "<group>"; };
 		34AFA3EC93CE9E693209F321 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		472533D67AAAFC089022E72F /* LexkiteBridgeViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LexkiteBridgeViewController.swift; sourceTree = "<group>"; };
+		D1A10C0DE5AFE0002D1A10C2 /* DialogSafeUIDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DialogSafeUIDelegate.swift; sourceTree = "<group>"; };
 		50379B222058CBB4000EE86E /* capacitor.config.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = capacitor.config.json; sourceTree = "<group>"; };
 		504EC3041FED79650016851F /* App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		504EC3071FED79650016851F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				7A1F00000000000000000003 /* WordWidgetPlugin.swift */,
 				7A1F000000000000000000A1 /* LexAIPlugin.swift */,
 				472533D67AAAFC089022E72F /* LexkiteBridgeViewController.swift */,
+				D1A10C0DE5AFE0002D1A10C2 /* DialogSafeUIDelegate.swift */,
 				04647CD86025B57FA019C25A /* App.entitlements */,
 				138FF258B30F7EE8340AA671 /* PrivacyInfo.xcprivacy */,
 			);
@@ -378,6 +381,7 @@
 				7A1F000000000000000000A2 /* LexAIPlugin.swift in Sources */,
 				7A1F00000000000000000012 /* WordFeed.swift in Sources */,
 				C555A85B2237479742F91D52 /* LexkiteBridgeViewController.swift in Sources */,
+				D1A10C0DE5AFE0001D1A10C1 /* DialogSafeUIDelegate.swift in Sources */,
 				1CC5DD35450CEE99C9F7C8AF /* WidgetSnapshot.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

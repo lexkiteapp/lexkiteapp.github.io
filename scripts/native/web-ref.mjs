@@ -60,7 +60,7 @@ export async function webClient(opts = {}) {
     setTimeout: (fn, ms) => { if (ms === 1200 && !initT) { initT = fn; return 1; } return 0; }, clearTimeout: noop, setInterval: () => 0, clearInterval: noop, requestAnimationFrame: noop, scrollTo: noop, scrollY: 0,
     addEventListener: (ev, fn) => { (listeners[ev] ||= []).push(fn); }, removeEventListener: (ev, fn) => { listeners[ev] = (listeners[ev] || []).filter(f => f !== fn); },
     document: { hidden: false, addEventListener: noop, removeEventListener: noop, body: { contains: () => false }, querySelector: () => null, createElement: () => ({}), head: { appendChild: noop } },
-    t: s => s, I18N: { lang: () => 'vi' }, confirm: () => true,
+    t: s => s, I18N: { lang: () => 'vi' }, confirm: () => true, LXDialog: { confirm: async () => true, prompt: async () => null, alert() {} },
     UI: { $: () => null, esc: s => String(s), toast: noop, icon: () => '', modal: () => null, closeModal: noop },
     App: { state: {}, updateChrome: noop, load: async () => {}, route: noop, need: async () => {} },
     FIREBASE_CONFIG: { apiKey: 'test-only' }, LK_SYNC: { drive: true },
