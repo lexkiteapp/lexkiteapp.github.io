@@ -64,7 +64,7 @@
       return {
         title: t('Sổ từ của bạn'), backL: t('Trở về trang trước'), findL: t('Tìm trong sổ từ'), mastL: t('Mức thuộc'),
         exam: se.goal && se.goal.exam && App.goalLabel ? `${ex.short} ${App.goalLabel(se.goal)}` : ex.short,
-        savedN: t('{n} từ đã lưu', { n: list.length }), mastN: t('{n} đã thuộc', { n: mast }), pct: list.length ? Math.round(mast / list.length * 100) : 0,
+        savedN: list.length ? t('{n} từ đã lưu', { n: list.length }) + ' ·' : '', mastN: list.length ? t('{n} đã thuộc', { n: mast }) : '', // sổ trống: không hiện dòng số 0 pct: list.length ? Math.round(mast / list.length * 100) : 0,
         dueT: t('{n} đến hạn', { n: due }), testT: t('{n} từ', { n: list.length }),
         shareL: t('Chia sẻ bộ thẻ'), importL: t('Nhập'), ankiOutL: t('Xuất sang Anki'), ankiInL: t('Nhập từ Anki'),
         qPh: t('Tìm từ hoặc nghĩa…'), q, micL: t('Tìm bằng giọng nói'), filtL: t('Bộ lọc'), chips,

@@ -154,7 +154,7 @@
   ":scope > div > main > div:nth-child(4) > div > span:nth-child(2)": "e(d.sortT)"
  },
  "text": {
-  "248 words saved ·": "d.savedN + ' ·'"
+  "248 words saved ·": "d.savedN"
  },
  "after": {
   ":scope > div > main > div:nth-child(2) > div > button:nth-child(3)": "'<input type=\"file\" id=\"importFile\" accept=\"application/json\" hidden>'",
