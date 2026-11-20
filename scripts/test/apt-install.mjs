@@ -15,7 +15,7 @@ X('apt-cache', 'exit 0');   // chỉ mục có sẵn (lời gọi update đầu 
 X('dpkg-query', `[ "\${@: -1}" = co-san ] && printf 'install ok installed' || exit 1`);   // "co-san" = gói đã cài
 if (spawnSync('bash', ['-c', 'command -v timeout']).status !== 0) X('timeout', 'exec perl -e \'alarm shift; exec @ARGV\' "$@"');   // macOS
 const run = (args, env = {}) => { fs.rmSync(CALLS, { force: true });
-  const r = spawnSync('bash', [SH, ...args], { encoding: 'utf8', env: { ...process.env, PATH: `${BIN}:${process.env.PATH}`, APT_SUDO: '', APT_GET: path.join(BIN, 'apt-get'), APT_INSTALL_TIMEOUT: '2', ...env } });
+  const r = spawnSync('bash', [SH, ...args], { encoding: 'utf8', env: { ...process.env, PATH: `${BIN}:${process.env.PATH}`, APT_SUDO: '', APT_GET: path.join(BIN, 'apt-get'), APT_INSTALL_TIMEOUT: '2', APT_PREFETCH: '0', ...env } });
   return { ...r, out: r.stdout + r.stderr, calls: fs.existsSync(CALLS) ? fs.readFileSync(CALLS, 'utf8').trim().split('\n') : [] }; };
 try {
   let r = run(['co-san']);
@@ -43,7 +43,7 @@ for (const f of files) fs.readFileSync(f, 'utf8').split('\n').forEach((l, i) => 
 });
 ok(!naked.length, 'workflow không tự gọi `apt-get install` (dùng ./.github/actions/apt hoặc scripts/ci/apt-install.sh)' + (naked.length ? ': ' + naked.join(', ') : ''));
 const act = fs.readFileSync('.github/actions/apt/action.yml', 'utf8');
-ok(/actions\/cache@/.test(act) && /ImageVersion/.test(act) && /sort -u/.test(act) && /apt-install\.sh/.test(act), 'action apt: cache theo ảnh runner + danh sách gói đã sắp xếp, gọi apt-install.sh');
+ok(/actions\/cache\/restore@/.test(act) && /ImageVersion/.test(act) && /sort -u/.test(act) && /apt-install\.sh/.test(act), 'action apt: cache theo ảnh runner + danh sách gói đã sắp xếp, gọi apt-install.sh');
 // fonts-install.sh (19/11): fonts-noto-* tải thẳng .deb có ghim SHA, nhiều mirror, mirror treo/SHA sai → mirror kế, hết mirror → trả gói cho apt
 {
   const FI = path.join(ROOT, 'scripts/ci/fonts-install.sh'), body = 'deb-gia', want = require_sha(body), TSV = path.join(T, 'fonts.tsv'), FC = path.join(T, 'fcache'), LOG = path.join(T, 'fcalls');
@@ -75,6 +75,29 @@ case "$u" in *treo*) exit 28;; *sai*) printf sai > "$o";; *) printf '${body}' > 
   const tsv = fs.readFileSync('scripts/ci/fonts-debs.tsv', 'utf8').trim().split('\n').map(l => l.split('\t'));
   ok(['fonts-noto-core', 'fonts-noto-mono', 'fonts-noto-cjk', 'fonts-noto-color-emoji'].every(p => tsv.some(c => c[0] === p && /^[0-9a-f]{64}$/.test(c[2]))), 'bảng ghim có core/cjk/color-emoji với SHA-256');
   ok(/fonts-debs\.tsv/.test(act) && /lk-fonts/.test(act) && /cache\/save@/.test(act), 'action apt: cache ~/.cache/lk-fonts theo băm bảng ghim');
+}
+// apt-prefetch.sh (19/11): .deb (cả phụ thuộc) tải trước qua nhiều mirror có trần chậm, SHA-256 lấy từ chính chỉ mục apt (--print-uris)
+{
+  const PF = path.join(ROOT, 'scripts/ci/apt-prefetch.sh'), body = 'deb-gia', want = require_sha(body), D = path.join(T, 'pf'), CL = path.join(T, 'pfcurl'), AL = path.join(T, 'pfapt');
+  fs.mkdirSync(path.join(D, 'bin'), { recursive: true }); const PB = path.join(D, 'bin');
+  const Y = (n, sh) => { fs.writeFileSync(path.join(PB, n), '#!/usr/bin/env bash\n' + sh + '\n'); fs.chmodSync(path.join(PB, n), 0o755); };
+  Y('apt-get', `echo "$*" >> "${AL}"; printf "'http://azure.archive.ubuntu.com/ubuntu/pool/main/i/imagemagick/imagemagick_1_amd64.deb' imagemagick_1_amd64.deb 5 SHA256:${want}\\n'http://azure.archive.ubuntu.com/ubuntu/pool/main/libm/libm_2_amd64.deb' libm_2_amd64.deb 5 SHA256:${want}\\n"`);
+  // curl giả: azure treo (mã 28), archive trả tệp SHA sai (lần đầu mỗi tệp không có), kernel trả đúng
+  Y('curl', `u="\${@: -1}"; o=""; while [ $# -gt 1 ]; do [ "$1" = -o ] && o="$2"; shift; done; echo "$u" >> "${CL}"
+case "$u" in *azure*) exit 28;; *archive.ubuntu.com*) printf sai > "$o"; exit 0;; *) printf '%s' '${body}' > "$o"; exit 0;; esac`);
+  const pr = (args, env = {}) => { fs.rmSync(CL, { force: true }); fs.rmSync(AL, { force: true }); return { ...spawnSync('bash', [PF, ...args], { encoding: 'utf8', env: { ...process.env, PATH: `${PB}:${process.env.PATH}`, APT_SUDO: '', APT_GET: path.join(PB, 'apt-get'), APT_CACHE_DIR: path.join(D, 'cache'), ...env } }), calls: fs.existsSync(CL) ? fs.readFileSync(CL, 'utf8').trim().split('\n') : [] }; };
+  let r = pr(['imagemagick']);
+  ok(r.status === 0 && fs.readFileSync(AL, 'utf8').includes('--print-uris') && fs.existsSync(path.join(D, 'cache/imagemagick_1_amd64.deb')) && fs.existsSync(path.join(D, 'cache/libm_2_amd64.deb')), 'prefetch: tải cả gói và phụ thuộc theo URI của apt vào cache');
+  ok(/mirrors\.kernel\.org/.test(r.calls.join('\n')) && fs.readFileSync(path.join(D, 'cache/libm_2_amd64.deb'), 'utf8') === body, 'prefetch: mirror treo → SHA sai → mirror kế, tệp đúng SHA');
+  r = pr(['imagemagick']);
+  ok(r.status === 0 && r.calls.length === 0 && /2 \.deb sẵn trong cache/.test(r.stderr), 'prefetch: đã có trong cache (SHA khớp) → không tải lại');
+  r = pr(['imagemagick'], { APT_CACHE_DIR: path.join(D, 'c2'), APT_MIRRORS: 'http://azure.archive.ubuntu.com/ubuntu' });
+  ok(r.status === 0 && /không tải được/.test(r.stderr) && !fs.readdirSync(path.join(D, 'c2')).some(f => f.endsWith('.deb') || f.endsWith('.part')), 'prefetch: mọi mirror lỗi → cảnh báo, không đỏ job, không để tệp dở/sai SHA');
+  ok(pr(['x'], { APT_CACHE_DIR: '' }).status === 0, 'prefetch: không có APT_CACHE_DIR → bỏ qua');
+  fs.rmSync(AL, { force: true }); r = run(['goi-a'], { APT_CACHE_DIR: path.join(D, 'c3'), APT_PREFETCH: '1', APT_GET: path.join(PB, 'apt-get'), PATH: `${PB}:${BIN}:${process.env.PATH}` });
+  const al = fs.existsSync(AL) ? fs.readFileSync(AL, 'utf8').trim().split('\n') : []; ok(r.status === 0 && /print-uris/.test(al[0]) && al.some(c => /^install .*--no-install-recommends/.test(c)) && al.findIndex(c => /print-uris/.test(c)) < al.findIndex(c => /^install .*no-install-recommends/.test(c) && !/print-uris/.test(c)), 'apt-install.sh: tải trước (--print-uris) rồi mới apt install');
+  const act2 = fs.readFileSync('.github/actions/apt/action.yml', 'utf8');
+  ok(/cache\/restore@/.test(act2) && /restore-keys/.test(act2) && /cache\/save@/.test(act2) && /apt-debs/.test(act2), 'action apt: .deb apt dùng chung theo ảnh runner (restore-keys), lưu ngay sau khi cài');
 }
 function require_sha(s) { return spawnSync('bash', ['-c', `printf '%s' "$1" | (sha256sum 2>/dev/null || shasum -a 256) | cut -d' ' -f1`, '_', s], { encoding: 'utf8' }).stdout.trim(); }
 fs.rmSync(T, { recursive: true, force: true });

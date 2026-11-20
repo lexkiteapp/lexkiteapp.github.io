@@ -13,7 +13,7 @@
     pron: ['js/i18n/en/pron.js', 'cpack/pron/sounds.js', 'cpack/pron/skills.js', 'js/pron/pairs.js', 'js/pron/sayit.js', 'js/pron/coach.js', 'js/pron/rhythm.js', 'js/st/v2/runtime.js', 'js/st/v2/pron-hub.js', 'js/pron.js'],
     shadow: ['js/speak/score.js', 'js/pron/shadow.js'], // Nói đuổi liên tục (nút trong pron/rhythm.js)
     words: ['js/lib/topics-more.js', 'js/lib/skills.js', 'js/lib/awl.js', 'js/lib/ngsl.js', 'js/lib/ngsl2.js', 'js/lib/office.js', 'js/distract.js'], // 4 kho từ (~145 KB nén) – không chặn trang đầu, tải khi cần/lúc rảnh
-    readings: ['js/reading.js', 'js/readings.js', 'cpack/readings/more.js', 'js/choice-kit.js', 'js/exam-clock.js', 'js/cbt.js', 'js/method.js'], // 30 bài đọc – chỉ tải khi cần (trang chủ tự điền mục "Bài đọc hôm nay")
+    readings: ['js/reading.js', 'js/readings.js', 'cpack/readings/more.js', 'cpack/readings/hl.js', 'js/choice-kit.js', 'js/exam-clock.js', 'js/cbt.js', 'js/method.js'], // 30 bài đọc – chỉ tải khi cần (trang chủ tự điền mục "Bài đọc hôm nay")
     l1: ['cpack/grammar-l1/ar.js', 'cpack/grammar-l1/de.js', 'cpack/grammar-l1/es.js', 'cpack/grammar-l1/fr.js', 'cpack/grammar-l1/hi.js', 'cpack/grammar-l1/id.js', 'cpack/grammar-l1/ja.js', 'cpack/grammar-l1/ko.js', 'cpack/grammar-l1/pt.js', 'cpack/grammar-l1/ru.js', 'cpack/grammar-l1/th.js', 'cpack/grammar-l1/tr.js', 'cpack/grammar-l1/vi.js', 'cpack/grammar-l1/zh.js'], // ghi chú "vì sao sai" theo tiếng mẹ đẻ – grammar.js nạp đúng 1 gói theo ngôn ngữ giao diện (L1_PACK), KHÔNG prefetch cả 14
     klocal: ['js/klocal.js'], // Kokoro trên máy cho chữ chưa có file dựng sẵn (docs/specs/kokoro-on-device.md) – tự quyết có nạp mô hình hay không
     voice: ['js/listen/kvoice.js', 'js/listen/audio-index.js'], // danh mục giọng Kokoro: mọi lần phát âm từ/câu dùng giọng chất lượng cao nếu có
@@ -100,6 +100,7 @@
     xport: ['js/export.js'],
     file: ['js/lib/save-file.js'],
     lsw: ['js/lang-menu.js'],
+    tlpick: ['js/i18n/en/tlui.js', 'cpack/tl-app/tl-pick.js'],
     quick: ['js/i18n/en/quick.js', 'js/quick.js'],
     pgames: ['js/i18n/en/rhythm.js', 'js/study-games.js', 'js/pron/coach.js', 'cpack/play-app/play-blitz.js', 'cpack/play-app/play-rhythm.js'], // ⚡ Thử thách 60 giây (docs/specs/play-learn.md)
     rmodes: ['js/i18n/en/rmodes.js', 'js/study-modes.js'], // 🔁 Ôn tập đa chế độ (Gõ phản xạ · Nghe chọn nghĩa) + ✍️ thẻ "Câu của bạn" [P2-1.2/P2-1.1-UI]

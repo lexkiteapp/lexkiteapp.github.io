@@ -1,0 +1,199 @@
+{
+ "id": "t2a_roots_tend_1",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, three words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "The root is Tend! Intend, attend, extend.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Tend is Latin for stretch.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Intend: into plus stretch.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Attend: toward plus stretch.",
+   "pause": 0.3
+  },
+  {
+   "id": "w2",
+   "text": "Extend: out plus stretch.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means out plus stretch?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Extend! Out plus stretch.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "TEND",
+  "rid": "tend",
+  "say": "stretch",
+  "src": "tendere",
+  "src_lang": "Latin",
+  "src_mean": "to stretch",
+  "words": [
+   {
+    "w": "intend",
+    "ipa": "/ɪnˈtend/",
+    "mean": "stretch toward, to plan",
+    "seg": "in-|tend",
+    "parts": [
+     [
+      "in",
+      "pre"
+     ],
+     [
+      "tend",
+      "root"
+     ]
+    ],
+    "pre": "in",
+    "pm": "into",
+    "pms": "into",
+    "ex": "I intend to finish the report this week.",
+    "em": "🎯"
+   },
+   {
+    "w": "attend",
+    "ipa": "/əˈtend/",
+    "mean": "stretch toward, be present",
+    "seg": "at-|tend",
+    "parts": [
+     [
+      "at",
+      "pre"
+     ],
+     [
+      "tend",
+      "root"
+     ]
+    ],
+    "pre": "at",
+    "pm": "toward",
+    "pms": "toward",
+    "ex": "More than a hundred people attended the meeting.",
+    "em": "🙋"
+   },
+   {
+    "w": "extend",
+    "ipa": "/ɪkˈstend/",
+    "mean": "stretch out",
+    "seg": "ex-|tend",
+    "parts": [
+     [
+      "ex",
+      "pre"
+     ],
+     [
+      "tend",
+      "root"
+     ]
+    ],
+    "pre": "ex",
+    "pm": "out",
+    "pms": "out",
+    "ex": "We decided to extend our holiday by two days.",
+    "em": "↔️"
+   }
+  ],
+  "quiz": {
+   "stem": "out plus stretch",
+   "options": [
+    "intend",
+    "extend"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/intend",
+  "link": "https://lexkite.com/app/#/dict/intend",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, three words"
+ },
+ "src": {
+  "root": "tend"
+ },
+ "est": {
+  "words": 48,
+  "seconds": 28.8,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "Tend root: intend, attend and extend",
+  "keyword": "tend root",
+  "value": "Tend comes from Latin \"tendere\" (to stretch). Words: intend, attend and extend. intend = in + tend; attend = at + tend; extend = ex + tend.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/intend",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "Tend root: intend, attend and extend",
+    "description": "Tend comes from Latin \"tendere\" (to stretch). Words: intend, attend and extend. intend = in + tend; attend = at + tend; extend = ex + tend.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/intend\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "tend root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Tend root: intend, attend and extend\n\nTend comes from Latin \"tendere\" (to stretch). Words: intend, attend and extend. intend = in + tend; attend = at + tend; extend = ex + tend.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/intend"
+   },
+   "instagram": {
+    "caption": "Tend root: intend, attend and extend\n\nTend comes from Latin \"tendere\" (to stretch). Words: intend, attend and extend. intend = in + tend; attend = at + tend; extend = ex + tend.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Tend root: intend, attend and extend #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? Extend! Out plus stretch. Tend comes from Latin \"tendere\" (to stretch). Words: intend, attend and extend. intend = in + tend; attend = at + tend; extend = ex + tend. More practice like this (free): {link}"
+ }
+}

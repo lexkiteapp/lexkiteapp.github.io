@@ -22,11 +22,12 @@ function env() {
   sb.self = sb; sb.globalThis = sb; vm.createContext(sb);
   return { sb, ls, mem };
 }
+const ready = T => { T.TABLE.pt.ready = T.TABLE.fr.ready = true; return T; }; // các ca logic cờ/thẻ giả định khóa đã sẵn sàng; luật ready:false có khối riêng ở cuối tệp
 const load = (sb, f) => vm.runInContext(rd(f), sb, { filename: f });
 
 // ---------- 1) cờ + ngôn ngữ hiện tại ----------
 {
-  const { sb, ls } = env(); load(sb, 'web/js/target.js'); const T = sb.Target;
+  const { sb, ls } = env(); load(sb, 'web/js/target.js'); const T = ready(sb.Target);
   ok(T.cur() === 'en' && !T.enabled(), 'mặc định: en, cờ tắt');
   T.set('pt'); ok(T.cur() === 'en', 'cờ tắt: chọn pt vẫn ra en (thẻ pt ẩn)');
   ls.set('lk.pt', '1'); ok(T.enabled() && T.cur() === 'pt', 'lk.pt=1 → bật, cur = pt');
@@ -38,7 +39,7 @@ const load = (sb, f) => vm.runInContext(rd(f), sb, { filename: f });
 }
 // ---------- 1b) es: cờ es_course RIÊNG, mặc định tắt (docs/specs/spanish-course.md W0) ----------
 {
-  const { sb, ls } = env(); load(sb, 'web/js/target.js'); const T = sb.Target;
+  const { sb, ls } = env(); load(sb, 'web/js/target.js'); const T = ready(sb.Target);
   ok(T.LANGS.join() === 'en,pt,es,fr' && !T.enabled('es') && T.avail().join() === 'en', 'es: mặc định tắt, chỉ chọn được en');
   T.set('es'); ok(T.cur() === 'en', 'cờ es tắt: chọn es vẫn ra en');
   ls.set('lk.pt', '1'); ok(T.cur() === 'en' && !T.enabled('es') && T.avail().join() === 'en,pt', 'bật pt KHÔNG bật es');
@@ -82,14 +83,14 @@ const load = (sb, f) => vm.runInContext(rd(f), sb, { filename: f });
 
 // ---------- 1d) W7b chống rò tiếng Anh: tl≠en thì Hôm nay chuyển sang lộ trình của ngôn ngữ đó; mỗi dòng bảng có home ----------
 {
-  const ux = rd('web/js/ux1.js'), { sb } = env(); load(sb, 'web/js/target.js'); const T = sb.Target;
+  const ux = rd('web/js/ux1.js'), { sb } = env(); load(sb, 'web/js/target.js'); const T = ready(sb.Target);
   ok(/Target\.cur\(\) !== 'en'[^;]*Target\.homeOf\(Target\.cur\(\)\)/.test(ux) && /location\.replace\(tlHome\)/.test(ux), 'ux1.map: tl≠en → vào lộ trình của ngôn ngữ đích, không vẽ lộ trình IELTS');
   ok(T.LANGS.filter(k => k !== 'en').every(k => k === 'pt' || k === 'fr' /* fr: trang chủ = lộ trình ngày W4 */ || /^#\/practice\//.test(T.table(k).home || '')), 'mọi ngôn ngữ đích có trang chủ riêng (trừ pt thử nghiệm)');
 }
 
 // ---------- 1c) nhãn ngôn ngữ đích (W7a): en = rỗng; es = huy hiệu cờ+tên → Cài đặt; mark chèn đúng 1 lần ----------
 {
-  const { sb, ls } = env(); load(sb, 'web/js/target.js'); const T = sb.Target;
+  const { sb, ls } = env(); load(sb, 'web/js/target.js'); const T = ready(sb.Target);
   ok(T.chip() === '' && T.chip('en') === '', 'chip: en = chuỗi rỗng, không chèn gì (từng byte như cũ)');
   const h = T.chip('es'); ok(/class="chip tl-chip"/.test(h) && /href="#\/settings"/.test(h) && /translate="no"/.test(h) && /lang="es"/.test(h) && !/<a [^>]*lang=/.test(h) && !/style=/.test(h) && /Español/.test(h) && /aria-label=/.test(h), 'chip es: cờ + tên, bấm → Cài đặt, không dịch, có nhãn đọc màn hình');
   const st = T.chip('es', true); ok(/^<span class="chip tl-chip"/.test(st) && !/href=/.test(st), 'chip tĩnh (trong phiên học) không là liên kết');
@@ -101,7 +102,7 @@ const load = (sb, f) => vm.runInContext(rd(f), sb, { filename: f });
 
 // ---------- 2) bảng giọng/lang: 'en' tái tạo đúng hành vi cũ ----------
 {
-  const { sb } = env(); load(sb, 'web/js/target.js'); const T = sb.Target;
+  const { sb } = env(); load(sb, 'web/js/target.js'); const T = ready(sb.Target);
   ok(T.kokoroVoice('en-US') === 'af_heart' && T.kokoroVoice('en-GB') === 'bf_emma' && T.kokoroVoice(undefined) === 'bf_emma' && T.kokoroVoice('en-AU') === 'bf_emma', 'Kokoro en như cũ (US af_heart, còn lại bf_emma)');
   ok(T.wordVoice('en-US') === 'af_heart' && T.wordVoice('en-GB') === 'bf_emma', 'file từ en như cũ');
   ok(T.accent('en-US') === 'en-US' && T.accent('en-GB') === 'en-GB', 'accent en = Cài đặt');
@@ -129,7 +130,7 @@ const load = (sb, f) => vm.runInContext(rd(f), sb, { filename: f });
 
 // ---------- 3) thẻ: không gian khóa, lọc theo tl, tiếng Anh không đổi ----------
 {
-  const { sb, ls, mem } = env(); load(sb, 'web/js/target.js'); load(sb, 'web/js/core.js'); const { Core, Target: T } = sb;
+  const { sb, ls, mem } = env(); load(sb, 'web/js/target.js'); load(sb, 'web/js/core.js'); const { Core, Target: T } = sb; T.TABLE.pt.ready = true; // ca lọc thẻ theo tl; luật ready:false: khối cuối tệp
   const C = Core.Cards;
   ok(Object.keys(C.make({ word: 'come' })).join() === 'word,ipa,ipaUS,pos,vi,def,ex,col,syn,level,topic,emoji,image,imageCredit,audio,sentences,contexts,note,added,srs', 'thẻ en: đúng trường cũ, không có tl');
   await C.add({ word: 'Come', pos: 'v', vi: 'đến' });
@@ -214,7 +215,7 @@ const load = (sb, f) => vm.runInContext(rd(f), sb, { filename: f });
 
 // ---------- 4c) fr (W0): cờ RIÊNG fr_course/fr_course_pct/fr_kill (mặc định tắt) + bộ từ mẫu fr (giống, số nhiều, h muet/aspiré, tu/vous) ----------
 {
-  const { sb, ls } = env(); load(sb, 'web/js/target.js'); const T = sb.Target, cfg = v => ls.set('lk.cfg', JSON.stringify({ v }));
+  const { sb, ls } = env(); load(sb, 'web/js/target.js'); const T = ready(sb.Target), cfg = v => ls.set('lk.cfg', JSON.stringify({ v }));
   ok(!T.enabled('fr') && T.avail().join() === 'en', 'fr: mặc định tắt'); T.set('fr'); ok(T.cur() === 'en', 'cờ fr tắt: chọn fr vẫn ra en');
   ls.set('lk.es', '1'); ok(!T.enabled('fr') && T.avail().join() === 'en,es', 'bật es KHÔNG bật fr'); ls.delete('lk.es');
   ls.set('lk.fr', '1'); ok(T.cur() === 'fr' && T.avail().join() === 'en,fr', 'lk.fr=1 → fr'); ls.delete('lk.fr');
@@ -245,6 +246,13 @@ const load = (sb, f) => vm.runInContext(rd(f), sb, { filename: f });
   ok(a > 0 && a < b, 'index.html nạp target.js trước core.js');
   ok(/'\/js\/target\.js'/.test(rd('web/sw.js')), 'sw.js cache target.js');
 }
+
+// 19/11: ready:false (fr/pt chưa có khóa thật) – cờ vẫn quyết enabled(), nhưng chỉ quản trị chọn được; người thường cur() = en, avail() không có
+{ const { sb, ls } = env(); load(sb, 'web/js/target.js'); const T = sb.Target;
+  ls.set('lk.pt', '1'); T.set('pt'); ok(T.enabled('pt') && T.cur() === 'en' && T.avail().join() === 'en', 'pt ready:false: cờ bật nhưng người thường không chọn được (cur = en)');
+  ls.set('lk.fr', '1'); T.set('fr'); ok(T.enabled('fr') && T.cur() === 'en', 'fr ready:false: như pt');
+  ls.set('lk.adm', '1'); T.set('fr'); ok(T.cur() === 'fr' && T.avail().includes('fr') && T.homeOf('fr') === '#/tlprep/fr', 'quản trị chọn được fr → màn chuẩn bị');
+  ls.set('lk.es', '1'); T.set('es'); ok(T.cur() === 'es', 'es ready → vẫn chọn được'); }
 
 console.log(fails ? `✗ target-lang: ${fails}/${n} lỗi` : `✓ target-lang: ${n}/${n} đạt`);
 process.exit(fails ? 1 : 0);

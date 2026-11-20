@@ -141,6 +141,13 @@ export const DRIVE = async k => { const nz = v => String(v).trim().replace(/[.,!
 
 // 13 màn chủ duyệt (v2.1) → khóa trong SCREENS (null = chưa port/chưa chụp → QC cuối ĐỎ). teacher: tư thế mong đợi theo trạng thái (teacher-pose-map), null = màn không có giáo viên;
 // ready: bộ chọn chứng tỏ đã lái TỚI đúng trạng thái (chụp khi chưa tới = ĐỎ ở stitch-diff + final-qc); speaks: giáo viên phải nói (kiểm giọng == giáo viên + khớp miệng); sfx: âm hiệu ứng phải phát; duo: 2 giáo viên cùng màn. Màn port xong: điền k + SCREENS/V2REF/DRIVE.
+// Chia việc theo màn cho CI (stitch-diff.yml matrix, 19/11: một job 30 phút bị huỷ – "So với mẫu Stitch" 1136 s + "QC cuối" 507 s): SHARD="i/n" (i từ 0) → mỗi shard chỉ xử lý
+// các màn có chỉ số (theo thứ tự khai báo trong SCREENS) ≡ i (mod n); bỏ SHARD = chạy đủ (như cũ). Mục không gắn màn (k=null) và gallery chỉ shard 0. stitch-diff.mjs và final-qc.mjs
+// dùng CHUNG phép chia này nên final-qc của shard i luôn thấy scores.json của chính shard i.
+const [SH_I, SH_N] = (process.env.SHARD || '0/1').split('/').map(Number);
+export const SHARD = { i: SH_I, n: SH_N };
+export const inShard = k => (k == null ? SH_I === 0 : Object.keys(SCREENS).indexOf(k) % SH_N === SH_I);
+export const shardScreens = () => Object.entries(SCREENS).filter(([k]) => inShard(k));
 export const FINAL = [
   { stitch: 'today', k: 'home', ready: ':is(.v2-today, .v2-today-desk) [data-blk="path"] :is([data-cur], [data-pv])' /* một component PathTrail [data-pv] ở cả today (điện thoại) và today-desk (≥ 1024): thu gọn = chặng hiện tại, mở rộng chỉ thêm hàng */, teacher: ['happy', 'talk', 'point'] /* happy = vòng nghỉ Chars.idle (chủ 3/11: cô sống ở Hôm nay) */ }, { stitch: 'today-new', k: 'today-new', ready: '.v2-today-new [data-step]', teacher: ['wave'] }, { stitch: 'review', k: 'review', teacher: null }, { stitch: 'practice', k: 'practice', teacher: null },
   { stitch: 'leagues', k: 'leagues', teacher: null }, { stitch: 'me', k: 'me', teacher: null }, { stitch: 'streak', k: 'streak', teacher: ['encourage'] },
