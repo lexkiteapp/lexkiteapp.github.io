@@ -494,3 +494,4 @@ node scripts/test/read-highlight.mjs
 node scripts/test/no-native-dialogs.mjs --self
 node scripts/test/no-native-dialogs.mjs
 node scripts/test/dialog.mjs
+node scripts/test/main-no-cancel.mjs
