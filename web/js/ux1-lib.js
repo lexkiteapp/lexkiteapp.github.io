@@ -75,7 +75,7 @@
     const syncUrl = () => history.replaceState(null, '', location.pathname + location.search + `#/library?g=${g}${lvf ? '&lv=' + lvf : ''}`);
     const draw = (focusQ, scrollTab) => {
       const caret = focusQ ? [focusQ.selectionStart, focusQ.selectionEnd] : null;
-      const root = ST2.mount(view, 'library', page(g, lvf, q), 'train');
+      const root = ST2.mount(view, 'library', page(g, lvf, q), 'vocab');
       const $r = s => root.querySelector(s), $$r = s => [...root.querySelectorAll(s)];
       $$r('#libTabs [data-g]').forEach(b => b.onclick = () => { g = b.dataset.g; syncUrl(); draw(null, true); });
       $$r('[data-lvf]').forEach(b => b.onclick = () => { lvf = b.dataset.lvf; syncUrl(); draw(); });

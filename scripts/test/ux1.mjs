@@ -323,7 +323,7 @@ const fx = JSON.parse(fs.readFileSync('scripts/i18n-fixed.json', 'utf8'));
 {
   w.localStorage.setItem('lk.ux1', '1'); const P = w.document, A0 = App.anki, calls = []; App.anki = m => { calls.push(m); };
   await go('#/library?g=all', '.v2-library');
-  ok($('.v2-library') && $('#bnav a[data-tab="train"]').getAttribute('aria-current') === 'page', 'library (v2): khung Stitch, tab Luyện đang chọn');
+  ok($('.v2-library') && $('#bnav a[data-tab="vocab"]').getAttribute('aria-current') === 'page', 'library (v2): khung Stitch, tab Từ vựng đang chọn');
   ok($('#libTabs [data-g="all"].on') && $('#libTabs [data-g="all"]').getAttribute('aria-pressed') === 'true' && $$('#libTabs [data-g]').length === w.IELTS_DATA.GROUPS.length + 2 && $('#libTabs [data-g="mine"]'), 'library (v2): #libTabs đủ nhóm + Tất cả + Đang học, .on/aria-pressed');
   ok($$('.v2-library main section').length >= 3 && $$('.v2-library main section a[href^="#/topic/"]').length >= 6 && $('.v2-library [data-go-g]'), 'library (v2): mỗi nhóm thẻ bộ từ thật → #/topic/…, nhóm dài có "Xem cả n bộ" [data-go-g]');
   ok($$('[data-lvf]').length === 7 && $('#libQ') && $('#libAnkiOut') && $('#libAnkiIn') && $('#libNewSet'), 'library (v2): 7 nút CEFR + ô lọc + Anki xuất/nhập + Tạo bộ từ');
