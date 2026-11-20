@@ -53,6 +53,8 @@ class RQ(j: JsonObject) { val type = j.gs("type"); val q = j.gs("q"); val option
 
 /** The P06 content the screens read: parts + passages + word tables (vectors/skills.json `data` has this exact shape; the app downloads the same JSON pack). */
 class SkillsContent(val listening: List<Part>, val readings: List<Reading>, val lexis: Lexis) {
+    /** The same content plus the C1–C2 passages of the advanced pack (skills-pack-adv.json); ids already present are kept once. */
+    fun withReadings(extra: List<Reading>): SkillsContent { val have = readings.mapTo(HashSet()) { it.id }; return SkillsContent(listening, readings + extra.filter { have.add(it.id) }, lexis) }
     fun part(id: String?) = listening.find { it.id == id }
     fun reading(id: String?) = readings.find { it.id == id }
     val tests: List<Int> get() = listening.map { it.test }.distinct().sorted()
@@ -60,6 +62,8 @@ class SkillsContent(val listening: List<Part>, val readings: List<Reading>, val 
     companion object {
         /** [data] = the pack root (or vectors/skills.json `data`). A `consts` block (band table, voice pools, stopwords) is installed into [SkillsConsts]. */
         fun parse(data: JsonObject): SkillsContent { data.go("consts")?.let { SkillsConsts.install(it) }; return build(data) }
+        /** The advanced reading pack `{v, schema, readings[]}` (C1–C2): just its passages; empty on a malformed pack. */
+        fun parseAdv(data: JsonObject): List<Reading> = runCatching { data.ga("readings").map { Reading(it as JsonObject) } }.getOrDefault(emptyList())
         private fun build(data: JsonObject) = SkillsContent(data.ga("listening").map { Part(it as JsonObject) }, data.ga("readings").map { Reading(it as JsonObject) }, Lexis.fromJson(data.go("lexis")))
     }
 }
