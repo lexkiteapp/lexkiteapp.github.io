@@ -281,6 +281,7 @@ App.cpackI18n.lcardui = { es: 'cpack/i18n/lcardui-es.js', pt: 'cpack/i18n/lcardu
 App.esGx = { en: 'cpack/es/gx-en.js', vi: 'cpack/es/gx-vi.js', es: 'cpack/es/gx-es.js', pt: 'cpack/es/gx-pt.js', fr: 'cpack/es/gx-fr.js', de: 'cpack/es/gx-de.js', id: 'cpack/es/gx-id.js', th: 'cpack/es/gx-th.js', zh: 'cpack/es/gx-zh.js', ja: 'cpack/es/gx-ja.js', ko: 'cpack/es/gx-ko.js', hi: 'cpack/es/gx-hi.js', ar: 'cpack/es/gx-ar.js', ru: 'cpack/es/gx-ru.js', tr: 'cpack/es/gx-tr.js' }; // giải thích ngữ pháp TBN theo ngôn ngữ người học, tải lười 1 gói (js/espr.js)
 App.esX = { lv: { A1: 'cpack/es/x-A1.js', A2: 'cpack/es/x-A2.js', B1: 'cpack/es/x-B1.js' }, ui: { en: 'cpack/es/x-ui-en.js', vi: 'cpack/es/x-ui-vi.js', es: 'cpack/es/x-ui-es.js', pt: 'cpack/es/x-ui-pt.js', fr: 'cpack/es/x-ui-fr.js', de: 'cpack/es/x-ui-de.js', id: 'cpack/es/x-ui-id.js', th: 'cpack/es/x-ui-th.js', zh: 'cpack/es/x-ui-zh.js', ja: 'cpack/es/x-ui-ja.js', ko: 'cpack/es/x-ui-ko.js', hi: 'cpack/es/x-ui-hi.js', ar: 'cpack/es/x-ui-ar.js', ru: 'cpack/es/x-ui-ru.js', tr: 'cpack/es/x-ui-tr.js' } }; // luyện định dạng DELE/SIELE W5 (cpack/es-app/exam-ui.js): đề theo cấp + nhãn theo ngôn ngữ người học, tải lười
 App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-es.js', pt: 'cpack/es/px-pt.js', fr: 'cpack/es/px-fr.js', de: 'cpack/es/px-de.js', id: 'cpack/es/px-id.js', th: 'cpack/es/px-th.js', zh: 'cpack/es/px-zh.js', ja: 'cpack/es/px-ja.js', ko: 'cpack/es/px-ko.js', hi: 'cpack/es/px-hi.js', ar: 'cpack/es/px-ar.js', ru: 'cpack/es/px-ru.js', tr: 'cpack/es/px-tr.js' }; // gói phát âm TBN W3 theo ngôn ngữ người học (js/espr-pron.js): nhãn giao diện + giải thích 8 chủ đề
+  const ROUTE_UX1 = { library: 'ulib', topic: 'utopic', deck: 'udeck', mistakes: 'umist', stats: 'ustat' }; // cờ ux1: gói màn Stitch nạp sau gói dữ liệu (nó bao routes.<màn> của gói đó)
   const ROUTE_BUNDLE = {
     call: 'call',
     cambridge: ['listening', 'cambridge'],
@@ -563,7 +564,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
       const skelDefault = `<div class="skel-page" aria-busy="true" aria-label="${t('Đang tải…')}"><div class="skel skel-h"></div><div class="skel skel-l"></div><div class="skel-grid">${'<div class="skel skel-card"></div>'.repeat(4)}</div></div>`;
       view.innerHTML = name === 'review' ? skelReview : name === 'home' || !name ? skelHome : skelDefault;
     }, 150);
-    if (b.length) { try { await App.need(...b); } catch (e) { if (my === routeSeq) errState(); throw e; } finally { clearTimeout(skel); } if (my !== routeSeq) return; }
+    if (b.length) { try { await App.need(...b); if (ux1 && ROUTE_UX1[name]) await App.need(ROUTE_UX1[name]); } catch (e) { if (my === routeSeq) errState(); throw e; } finally { clearTimeout(skel); } if (my !== routeSeq) return; }
     if (ux1 && window.Ux1) Ux1.init();
     if (!routes[name] && ROUTE_ALIAS[name]) { location.replace(location.pathname + location.search + '#/' + [ROUTE_ALIAS[name], arg && encodeURIComponent(arg)].filter(Boolean).join('/') + (query.toString() ? '?' + query : '')); return; } // gõ nhầm quen thuộc (#/wellcom…) → trang đúng
     const fn = routes[name] || (name ? notFound : routes.home);
@@ -655,7 +656,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
       <div class="row center" style="flex-wrap:wrap">${[['home', 'house', t('Hôm nay')], ['vocab', 'library', t('Từ vựng')], ['skills', 'target', t('Kỹ năng')], ['tests', 'flag', t('Thi thử')], ['me', 'user', t('Tôi')]].map(([r, ic, l]) => `<a class="btn sm" href="#/${r}">${UI.icon(ic)} ${l}</a>`).join('')}</div></div>`;
   }
   // Tải trước gói của trang khi người dùng sắp bấm (rê chuột/chạm vào liên kết) → mở trang gần như tức thì
-  const prefetchFor = a => { const h = a && a.getAttribute && a.getAttribute('href'); if (!h || !h.startsWith('#/')) return; const n = h.slice(2).split(/[/?]/)[0]; const b = [].concat(ROUTE_BUNDLE[n] || []); if (b.some(x => !App.loaded(x))) App.need(...b).catch(() => {}); };
+  const prefetchFor = a => { const h = a && a.getAttribute && a.getAttribute('href'); if (!h || !h.startsWith('#/')) return; const n = h.slice(2).split(/[/?]/)[0]; const b = [].concat(ROUTE_BUNDLE[n] || []); if (b.some(x => !App.loaded(x))) App.need(...b).then(() => App.ux1On() && ROUTE_UX1[n] && App.need(ROUTE_UX1[n])).catch(() => {}); };
   ['pointerdown', 'mouseover', 'focusin'].forEach(ev => document.addEventListener(ev, e => prefetchFor(e.target.closest && e.target.closest('a[href^="#/"]')), { passive: true }));
   // Ghi chú học từ soạn sẵn (AI tầng T0 – không cần mạng/khóa): mẹo nhớ, lỗi người Việt hay mắc, cách dùng khi thi, họ từ.
   // Chia theo chữ cái đầu (js/notes/a.json…) → chỉ tải phần cần; chỗ hiển thị là ô trống được điền khi dữ liệu về.
