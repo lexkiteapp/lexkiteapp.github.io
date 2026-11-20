@@ -5,6 +5,9 @@ on:
   workflow_dispatch:
   pull_request:
     paths: ['web/js/lesson/**', 'web/packs/lcard/**', 'scripts/test/lcard-shots.mjs', '.github/workflows/lcard-shots.yml']
+  push:
+    branches: [main]
+    paths: ['web/js/lesson/**', 'web/packs/lcard/**', 'scripts/test/lcard-shots.mjs', '.github/workflows/lcard-shots.yml']
 permissions:
   contents: read
   actions: write   # fast-lane: huỷ lượt nặng khi npm test cùng sha đã đỏ
@@ -15,6 +18,8 @@ concurrency:
 jobs:
   # luật 11: trên PR việc nặng chỉ chạy khi `npm test` đã XANH cùng sha (npm-test.yml job `heavy` chạy lại ngay khi xanh); lỗi API → mở cổng
   gate:
+    # luật 18 (CI làn nhanh, 16/11): PR chỉ chờ làn nhanh – việc nặng bỏ qua trên PR, chạy SAU gộp trên push main; nhãn ready-heavy/ready = chạy nặng ngay trên PR
+    if: ${{ github.event_name != 'pull_request' || contains(github.event.pull_request.labels.*.name, 'ready-heavy') || contains(github.event.pull_request.labels.*.name, 'ready') }}
     runs-on: ubuntu-latest
     timeout-minutes: 3
     permissions: { contents: read, checks: read }
