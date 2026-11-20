@@ -42,6 +42,10 @@ def problems():
         sp = json.load(open(f)); tp = sp.get('template')
         say = (sp.get('cta') or {}).get('say') or ''
         if len(say) > MAX_CTA_SAY: out.append(f'{os.path.basename(f)}: cta.say "{say}" is {len(say)} chars > {MAX_CTA_SAY} (wraps taller than the 240 px pop band -> render_v9 "pop taller than the band"; 19/11: 64/64 generated renders failed on this)')
+        for l in sp.get('lines') or []:
+            if l.get('id') in ('t', 'end', 'beat'): out.append(f'{os.path.basename(f)}: line id "{l["id"]}" is a reserved time anchor in build_overlay.at() — a card anchored to ["{l["id"]}", 0] fires at t=0 and replaces the hook at once (19/11: tp_ hook visible 0.4 s -> 5 QC gates red)')
+        cta = sp.get('cta') or {}; eco = {x['id']: x['link'] for x in json.load(open(f'{ROOT}/content/video/ecosystem.json'))['areas']}
+        if cta.get('link') and eco.get(cta.get('area')) != cta.get('link'): out.append(f'{os.path.basename(f)}: cta.area "{cta.get("area")}" is not an ecosystem area with link {cta.get("link")} (qc_v9 cta gate)')
         if ('motion', tp) not in ids: out.append(f'motion template {tp} (in {os.path.basename(f)}) is not in the book'); break
     return out
 if __name__ == '__main__':

@@ -24,8 +24,8 @@
  },
  "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
  "cta": {
-  "area": "idiom-vs-textbook",
-  "link": "https://lexkite.com/app/",
+  "area": "phrases",
+  "link": "https://lexkite.com/app/#/phrases",
   "say": "Practice it free"
  },
  "series": {
@@ -54,7 +54,7 @@
    "gap": 0.7
   },
   {
-   "id": "t",
+   "id": "tip",
    "text": "Tip: I'm down is for friends. At work, say I'd love to.",
    "gap": 0.7
   },
@@ -135,7 +135,7 @@
    {
     "id": "sum",
     "at": [
-     "t",
+     "tip",
      0
     ],
     "rows": [

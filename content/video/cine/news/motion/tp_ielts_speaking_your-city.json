@@ -24,8 +24,8 @@
  },
  "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
  "cta": {
-  "area": "ielts-speaking",
-  "link": "https://lexkite.com/app/",
+  "area": "ielts",
+  "link": "https://lexkite.com/app/#/mock",
   "say": "Practice it free"
  },
  "series": {
@@ -54,7 +54,7 @@
    "gap": 0.7
   },
   {
-   "id": "t",
+   "id": "tip",
    "text": "Tip: answer, reason, example. Two or three sentences is enough for Part 1.",
    "gap": 0.7
   },
@@ -150,7 +150,7 @@
    {
     "id": "sum",
     "at": [
-     "t",
+     "tip",
      0
     ],
     "rows": [

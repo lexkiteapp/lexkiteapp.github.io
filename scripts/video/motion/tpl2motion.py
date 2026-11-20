@@ -39,8 +39,8 @@ def steps_spec(tpl, slug, v):
     for i, s in enumerate(steps):
         lines.append(BM.line(f's{i}', s['say']))
         if s['tag']: tiles.append(dict(t='tile', tag=s['tag'], tone=s['tone'], lines=[[[BM.short(s['sub'], 46) if s['sub'] else ' ', 'muted']]], ex=[[BM.short(s['card'], 46), s['tone']]], ex_at=[f's{i}', 0], at=[f's{i}', 0]))
-    lines.append(BM.line('t', f'Tip: {tip}'))
-    top = [BM.hookcard(label), dict(id='sum', at=['t', 0], rows=[BM.chip('Tip', 'gold'), BM.ln(BM.fit(tip))])]
+    lines.append(BM.line('tip', f'Tip: {tip}'))
+    top = [BM.hookcard(label), dict(id='sum', at=['tip', 0], rows=[BM.chip('Tip', 'gold'), BM.ln(BM.fit(tip))])]
     first = tiles[0]['at']; sp = BM.base(tpl, r, tpl, lines, dict(top=top, col=[dict(t='card', id='rules', at=first, rows=tiles[:3])]), card, 'tip'); sp['id'] = 'mo_' + r['id']; sp['uses']['template'] = tpl; return sp
 def quiz(tpl, slug, v):
     r = row(tpl, slug, v); a, b = v['optionA'], v['optionB']; right = 0 if v['answer'].strip().lower().startswith("it's a") or v['answer'].strip().lower().startswith('a,') else 1
