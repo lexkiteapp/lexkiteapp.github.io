@@ -3,7 +3,8 @@
  "remove": [
   ":scope > header",
   ":scope > nav",
-  ":scope > main > div > div:nth-child(2) > div:nth-child(3) > div:nth-child(2)"
+  ":scope > main > div > div:nth-child(2) > div:nth-child(3) > div:nth-child(2)",
+  ":scope > main > div > [data-ref-only]"
  ],
  "html": {
   ":scope > main > div > div:nth-child(1) > div:nth-child(1) > span:nth-child(2)": "e(d.readyChip)",
@@ -120,8 +121,8 @@
  ],
  "text": {
   "Overall Projection": "d.lProj",
-  "Mod": "d.lMin",
   "Goal": "d.lGoal",
-  "Expert": "d.lMax"
+  "Min": "d.lMin",
+  "Max": "d.lMax"
  }
 }
