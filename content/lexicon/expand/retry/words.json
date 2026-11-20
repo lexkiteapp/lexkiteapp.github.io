@@ -395,7 +395,6 @@
   "duce#n",
   "dude#n",
   "dun#v",
-  "duplicate#v",
   "duplicity#n",
   "dura#n",
   "dweeb#n",
@@ -429,7 +428,6 @@
   "ersatz#adj",
   "erstwhile#adj",
   "estrogen#n",
-  "evacuation#n",
   "eventuality#n",
   "evidentiary#adj",
   "excess#adj",
@@ -1522,7 +1520,6 @@
   "weepy#adj",
   "weightlifter#n",
   "wellbeing#n",
-  "welter#n",
   "westward#adv",
   "wham#v",
   "whammy#n",
@@ -1559,6 +1556,10 @@
   "zilch#n",
   "zing#n",
   "zinger#n",
-  "hydroponics#n"
+  "hydroponics#n",
+  "carriageway#n",
+  "potentiometer#n",
+  "scrumptious#adj",
+  "zooplankton#n"
  ]
 }
