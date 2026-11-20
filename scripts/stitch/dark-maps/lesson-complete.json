@@ -41,6 +41,18 @@
   [
    "<body class=\"bg-surface text-on-surface",
    "<body class=\"bg-[#0E191C] text-[#EAF2F2]"
+  ],
+  [
+   "\"surface\": \"#FFF7EA\"",
+   "\"surface\": \"#091518\""
+  ],
+  [
+   "\"background\": \"#FFF7EA\"",
+   "\"background\": \"#091518\""
+  ],
+  [
+   "\"on-surface\": \"#0F3D3E\"",
+   "\"on-surface\": \"#D8E5E9\""
   ]
  ]
 }
