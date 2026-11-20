@@ -27,7 +27,7 @@
    "id": "'lsnWhy'",
    "type": "'button'"
   },
-  ":scope > main > div > div:nth-child(4) > div:nth-child(5) > button": {
+  ":scope > main > div > div:nth-child(4) > div:nth-child(6) > button": {
    "id": "'lsnNext'",
    "type": "'button'"
   },
@@ -51,11 +51,14 @@
  },
  "addClass": {
   ":scope > main > div > div:nth-child(4) > div:nth-child(1) > div:nth-child(2) > span:nth-child(2)": "lsn-ans",
-  ":scope > main > div > div:nth-child(4) > div:nth-child(5) > button > span:nth-child(1)": "uppercase",
+  ":scope > main > div > div:nth-child(4) > div:nth-child(6) > button > span:nth-child(1)": "uppercase",
   ":scope > main > div > div:nth-child(4) > div:nth-child(3)": "lsn-dict",
   ":scope > main > div > div:nth-child(4) > div:nth-child(4)": "lsn-whyrow"
  },
  "after": {
   ":scope > main > div > div:nth-child(4) > div:nth-child(4)": "d.boxes"
- }
+ },
+ "remove": [
+  ":scope > main > div > div:nth-child(4) > div.lsn-ph"
+ ]
 }
