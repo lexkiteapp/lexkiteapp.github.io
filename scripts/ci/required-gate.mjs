@@ -12,7 +12,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { isZombie } from './zombie.mjs';
 import { retry5xx } from '../lib/retry5xx.mjs';
-import { workflowMatches, readsAny } from './gate-relevance.mjs';
+import { workflowMatches, readsAny, skipsOnPr } from './gate-relevance.mjs';
 import { retestPlan, verdict as retestVerdict, tagOf, CONTEXT as RETEST_CONTEXT, WORKFLOW as RETEST_WORKFLOW } from './gate-retest.mjs';
 
 export const CONTEXT = 'required-gate';            // tên commit status (thứ ruleset sẽ yêu cầu)
@@ -108,11 +108,12 @@ export const SUITE = 'scripts/test/suite.txt';
 /** Hàm thuần: files = [{ filename, status }] main đã đổi kể từ merge-base của PR → tệp cổng đã đổi VÀ có thể đổi kết quả PR này.
  *  prFiles = tệp PR đổi (null = chưa biết → tính hết); srcs = { tên tệp: nguồn bản main } đã tải sẵn (thiếu → giữ cách cũ: test/luật tính, workflow chỉ tính khi PR cũng sửa nó).
  *  Liên quan = PR cũng sửa đúng tệp đó · workflow có `pull_request.paths` khớp tệp PR · test/luật nhắc tới tệp PR (lib/gate-relevance.mjs). Tệp bị xoá không làm PR đỏ → bỏ qua. */
-export const gateDrift = (files = [], prFiles = null, srcs = {}) => files.filter(f => {
+export const gateDrift = (files = [], prFiles = null, srcs = {}, ready = false) => files.filter(f => {
   const n = f.filename;
   if (/\(>300 tệp đổi\)/.test(n)) return true;
   if (GATE_WORKFLOW.test(n)) {
     if (!prFiles || prFiles.includes(n)) return true;
+    if (typeof srcs[n] === 'string' && !ready && skipsOnPr(srcs[n])) return false;   // 20/11: workflow nặng bỏ qua trên PR không nhãn → không làm đổi kết quả PR
     return typeof srcs[n] === 'string' && f.status !== 'removed' && workflowMatches(srcs[n], prFiles);
   }
   if (!(GATE_ANY.some(r => r.test(n)) || (GATE_CHANGED.some(r => r.test(n)) && f.status !== 'added')) || f.status === 'removed') return false;
@@ -242,7 +243,8 @@ export function api(token, repo, fetchImpl = globalThis.fetch) {
       const cand = all.filter(f => f.status !== 'removed' && (GATE_WORKFLOW.test(f.filename) || GATE_ANY.some(r => r.test(f.filename)) || (GATE_CHANGED.some(r => r.test(f.filename)) && f.status !== 'added')) && !(prFiles || []).includes(f.filename) && !/\(>300/.test(f.filename)).slice(0, 40);
       const srcs = {};
       await Promise.all([...cand, ...(cand.some(f => /^scripts\/test\/[^/]+\.mjs$/.test(f.filename)) && !cand.some(f => f.filename === SUITE) ? [{ filename: SUITE }] : [])].map(async f => { try { const r = await call(`/contents/${f.filename.split('/').map(encodeURIComponent).join('/')}?ref=main`); if (r && r.encoding === 'base64' && typeof r.content === 'string') srcs[f.filename] = Buffer.from(r.content, 'base64').toString('utf8'); } catch {} }));
-      return gateDrift(all, prFiles, srcs);
+      let ready = true; try { ready = ((await call(`/commits/${sha}/pulls`))[0]?.labels || []).some(l => l.name === 'ready' || l.name === 'ready-heavy'); } catch { /* không biết nhãn → coi là có (cách cũ) */ }
+      return gateDrift(all, prFiles, srcs, ready);
     },
     // gate-retest (docs/CI-RUNNERS.md): drift toàn là test trong suite → chạy THẬT các test đó (bản main) trên đầu PR bằng workflow nhẹ thay vì bắt gộp main (~100 job). Trả { clear } | { wait, note } | {} (= cách cũ).
     // Mọi bất định (không phải PR cùng repo, lỗi API, dispatch lỗi, kết quả đỏ/lỗi thời) → {} = đòi gộp main như cũ; không bao giờ mở cổng khi chưa có kết quả ĐẠT cho đúng sha main hiện tại.
