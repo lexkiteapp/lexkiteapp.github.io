@@ -38,6 +38,8 @@ jobs:
       - uses: ./.github/actions/gen-if-needed   # luật 18
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
+      - uses: ./.github/actions/playwright-cache
+        with: { browsers: '--with-deps chromium webkit' }
       - name: Cài trình duyệt
         timeout-minutes: 14
         run: |
