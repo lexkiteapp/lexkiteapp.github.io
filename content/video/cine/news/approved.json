@@ -753,9 +753,14 @@
   {
    "id": "ielts-writing-phrase",
    "engine": "motion",
-   "status": "draft",
+   "status": "approved",
    "spec": "content/video/cine/news/motion/*.json",
-   "note": "generated spec (tpl2motion/bank2motion/news2motion); clip dispatched 15/11, approve after CI QC"
+   "note": "generated spec (tpl2motion/bank2motion/news2motion); clip dispatched 15/11, approve after CI QC",
+   "sample": "https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/44740167556",
+   "qc": 100.0,
+   "approved": "2026-11-20",
+   "by": "auto: video-motion CI 20/11 (short 43/43 + embed 14/14 gates)",
+   "motion_qc": "43/43"
   },
   {
    "id": "irregular-verb",
@@ -795,9 +800,14 @@
   {
    "id": "phrasal-verb",
    "engine": "motion",
-   "status": "draft",
+   "status": "approved",
    "spec": "content/video/cine/news/motion/*.json",
-   "note": "generated spec (tpl2motion/bank2motion/news2motion); clip dispatched 15/11, approve after CI QC"
+   "note": "generated spec (tpl2motion/bank2motion/news2motion); clip dispatched 15/11, approve after CI QC",
+   "sample": "https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/44740167556",
+   "qc": 100.0,
+   "approved": "2026-11-20",
+   "by": "auto: video-motion CI 20/11 (short 43/43 + embed 14/14 gates)",
+   "motion_qc": "43/43"
   },
   {
    "id": "polite-request",
