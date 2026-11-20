@@ -1,53 +1,49 @@
 {
- "at": "2026-11-18T07:38:35.931Z",
+ "at": "2026-11-20T11:52:36.934Z",
  "workflows": {
   "npm-test": {
    "conclusion": "success",
-   "at": "2026-11-18T06:45:46Z",
-   "id": 44251681506
+   "at": "2026-11-20T11:24:59Z",
+   "id": 44726637946
   },
   "visual-qa": {
-   "conclusion": "success",
-   "at": "2026-11-18T07:21:25Z",
-   "id": 44254909500
+   "conclusion": "failure",
+   "at": "2026-11-20T11:18:03Z",
+   "id": 44722469186
   },
   "new-ui-qa": null,
   "mobile-qa": {
    "conclusion": "success",
-   "at": "2026-11-18T07:30:36Z",
-   "id": 44254912751
+   "at": "2026-11-20T11:06:50Z",
+   "id": 44722469129
   },
   "journey-e2e": {
    "conclusion": "success",
-   "at": "2026-11-16T16:00:17Z",
-   "id": 43899747857
+   "at": "2026-11-20T11:25:57Z",
+   "id": 44722469549
   },
   "stitch-quality-qc": {
    "conclusion": "success",
-   "at": "2026-11-16T19:11:51Z",
-   "id": 43929670075
+   "at": "2026-11-20T02:23:09Z",
+   "id": 44655552483
   },
   "ext-e2e": {
    "conclusion": "failure",
-   "at": "2026-11-17T19:17:46Z",
-   "id": 44150299942
+   "at": "2026-11-20T11:11:42Z",
+   "id": 44722469366
   },
   "native-auth-e2e": {
    "conclusion": "success",
-   "at": "2026-11-16T21:58:21Z",
-   "id": 43953094824
+   "at": "2026-11-20T11:04:07Z",
+   "id": 44722457014
   },
-  "qa-bot": {
-   "conclusion": "success",
-   "at": "2026-11-18T06:14:19Z",
-   "id": 44245383298
-  }
+  "qa-bot": null
  },
  "mobile": {
-  "maxLcp": 6693,
+  "maxLcp": 6820,
   "maxCls": 0.0112,
-  "maxInp": 112,
-  "maxTbt": 37,
-  "at": "2026-11-18T07:24:28.670Z"
+  "maxInp": 96,
+  "maxTbt": 49,
+  "at": "2026-11-20T11:01:02.842Z"
  }
 }
