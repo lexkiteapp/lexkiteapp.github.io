@@ -58,7 +58,7 @@ La Section 2 est un monologue portant sur un sujet d'intérêt général (visite
 - Tracez mentalement les repères cardinaux (North, South, East, West).
 - Mémorisez le lexique spatial : *adjacent to, opposite, turn clockwise, past the junction*.
 
-N'hésitez pas à étoffer votre lexique thématique à l'aide de nos [listes de vocabulaire spécialisées](/tu-vung/).
+N'hésitez pas à étoffer votre lexique thématique à l'aide de nos [listes de vocabulaire spécialisées](/en/vocabulary/).
 
 ## Section 3 & 4 : Débats académiques et cours magistraux
 
@@ -94,6 +94,8 @@ En pratiquant le shadowing dix minutes par jour sur des enregistrements de l'IEL
 {{youtube: | Idée de vidéo : Les 5 pièges les plus fréquents à l'IELTS Listening et comment les déjouer}}
 
 {{cta: /#/listening | S'entraîner à l'IELTS Listening}}
+
+Pour aller plus loin, chaque format a sa méthode et son piège : voyez [IELTS Listening types de questions](/fr/blog/ielts-listening-types-de-questions-methode/).
 
 ## Questions fréquentes
 

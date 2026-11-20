@@ -104,6 +104,18 @@ Kişisel gelişim sürecinizi doğrudan [uygulamadaki öğrenme rotasından](/#/
 
 {{youtube: | IELTS calisma plani sifirdan 6.5 seviyesine adim adim rehber}}
 
+Deneme sınavı aşamasına geldiğinizde [IELTS Reading zaman yönetimi stratejisi](/tr/blog/ielts-reading-zaman-yonetimi-60-dakika-stratejisi/) 60 dakikayı üç pasaja bölmenize yardımcı olur.
+
+Hangi sınavı seçeceğinize karar verirken [yeni TOEFL formatı ve hazırlık rehberi](/tr/blog/yeni-toefl-format-2026-hazirlik-rehberi/) size fikir verebilir.
+
+Writing haftalarında agree/disagree sorularına ayrıca çalışmak isterseniz [IELTS opinion essay nasıl yazılır](/tr/blog/ielts-opinion-essay-nasil-yazilir/) yazısındaki beş dakikalık plan yöntemi işinize yarar.
+
+Hedef puanınızın hangi beceri bandlarından oluştuğunu görmek için [IELTS puanı nasıl hesaplanır](/tr/blog/ielts-puani-nasil-hesaplanir-band-skorlari/) rehberine, Reading görevlerini tek tek çalışmak için de [IELTS Reading soru tipleri](/tr/blog/ielts-reading-soru-tipleri-ve-cozum-yontemleri/) yazısına göz atın.
+
+Planınızı İngiltere vizesi için bir sınav tarihine bağlıyorsanız önce [IELTS UKVI nedir](/tr/blog/ielts-ukvi-nedir-kimlere-gerekir/) yazısındaki kontrol listesine, Speaking hedefiniz için ise [band 7 örnek cevaplar](/tr/blog/ielts-speaking-band-7-ornek-cevaplar/) rehberine bakın.
+
+Sınav tarihiniz belliyse kalan haftaya göre kurulmuş [IELTS hazırlık programı: 4, 8 ve 12 haftalık planlar](/tr/blog/ielts-hazirlik-programi-4-8-12-haftalik/) yazısına, vizeniz için IELTS gerekiyorsa da [göçmenlik için IELTS rehberine](/tr/blog/gocmenlik-icin-ielts-general-academic-ukvi/) göz atın.
+
 ## Sıkça Sorulan Sorular
 
 ### Sıfırdan veya B1 seviyesinden 6.5 bandına çıkmak kaç ay sürer?

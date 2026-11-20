@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_character",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: character.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means a person in a book, film or play.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "The main character of the novel is a young teacher.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "character",
+  "ipa": "/ˈkærəktər/",
+  "mean": "a person in a book, film or play",
+  "ex": "The main character of the novel is a young teacher.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=character",
+  "link": "https://lexkite.com/app/#/review?w=character",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 45,
+  "seconds": 27.2,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "What does \"character\" mean?",
+  "keyword": "character",
+  "value": "Character means a person in a book, film or play.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=character",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"character\" mean?",
+    "description": "Character means a person in a book, film or play.\n\nReview your words, free: https://lexkite.com/app/#/review?w=character\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "character",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"character\" mean?\n\nCharacter means a person in a book, film or play.\n\nReview your words, free: https://lexkite.com/app/#/review?w=character"
+   },
+   "instagram": {
+    "caption": "What does \"character\" mean?\n\nCharacter means a person in a book, film or play.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"character\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means a person in a book, film or play. Character means a person in a book, film or play. Practice it with a free quiz: {link}"
+ }
+}

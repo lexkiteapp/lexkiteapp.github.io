@@ -1,0 +1,54 @@
+# Cài gói apt có cache .deb + trần thời gian + thử lại/đổi mirror (scripts/ci/apt-install.sh – một nguồn, test scripts/test/apt-install.mjs).
+# Gốc 10/11 (#983 ux1): apt-get install imagemagick fonts-noto-* treo mirror > 10 phút → "Cài" hết 14 phút. Cache: khoá = ảnh runner
+# (ImageOS + ImageVersion) + danh sách gói đã sắp xếp → lượt sau chỉ giải nén .deb có sẵn, không tải lại từ mirror.
+name: apt
+description: Cài gói apt (cache .deb, --no-install-recommends, trần + thử lại)
+inputs:
+  packages:
+    description: Danh sách gói (cách nhau dấu cách)
+    required: true
+runs:
+  using: composite
+  steps:
+    - id: k
+      shell: bash
+      env: { P: '${{ inputs.packages }}' }
+      run: |
+        echo "pre=apt-${ImageOS:-x}-${ImageVersion:-x}-" >> "$GITHUB_OUTPUT"
+        echo "key=apt-${ImageOS:-x}-${ImageVersion:-x}-$(printf '%s\n' $P | sort -u | sha1sum | cut -c1-16)" >> "$GITHUB_OUTPUT"
+    # .deb apt dùng chung: restore-keys theo ảnh runner → workflow khác tập gói vẫn nhận .deb đã tải (apt-prefetch chỉ tải phần thiếu); lưu NGAY sau khi cài (bước cuối) kể cả job sau đó đỏ.
+    - id: ac
+      uses: actions/cache/restore@v4
+      with: { path: ~/.cache/apt-debs, key: '${{ steps.k.outputs.key }}', restore-keys: '${{ steps.k.outputs.pre }}' }
+    # fonts-noto-*: .deb tải thẳng (scripts/ci/fonts-install.sh) lưu ~/.cache/lk-fonts. Khoá = băm bảng ghim SHA + tập gói font; restore-keys theo băm bảng ghim
+    # → workflow khác tập gói vẫn nhận .deb đã có (chỉ tải phần thiếu). Chung mọi workflow.
+    - id: fk
+      if: contains(inputs.packages, 'fonts-noto-')
+      shell: bash
+      env: { P: '${{ inputs.packages }}', H: "${{ hashFiles('scripts/ci/fonts-debs.tsv') }}" }
+      run: |
+        echo "pre=fonts-debs-$H-" >> "$GITHUB_OUTPUT"
+        echo "key=fonts-debs-$H-$(printf '%s\n' $P | grep '^fonts-noto-' | sort -u | sha1sum | cut -c1-12)" >> "$GITHUB_OUTPUT"
+    - id: fc
+      if: contains(inputs.packages, 'fonts-noto-')
+      uses: actions/cache/restore@v4
+      with: { path: ~/.cache/lk-fonts, key: '${{ steps.fk.outputs.key }}', restore-keys: '${{ steps.fk.outputs.pre }}' }
+    - id: ai
+      shell: bash
+      env: { P: '${{ inputs.packages }}' }
+      run: APT_CACHE_DIR="$HOME/.cache/apt-debs" bash "$GITHUB_WORKSPACE/scripts/ci/apt-install.sh" $P
+    # lưu NGAY sau khi cài (kể cả job sau đó đỏ – actions/cache thường chỉ lưu khi cả job xanh) → lượt sau không chạm mirror Ubuntu.
+    # Chỉ lưu khi đủ .deb của mọi gói font yêu cầu (khoá bất biến: không để khoá dính bản thiếu).
+    - id: fo
+      if: always() && contains(inputs.packages, 'fonts-noto-') && steps.fc.outputs.cache-hit != 'true'
+      shell: bash
+      env: { P: '${{ inputs.packages }}' }
+      run: |
+        ok=1; for p in $P; do case "$p" in fonts-noto-*) ls "$HOME/.cache/lk-fonts/${p}_"*.deb >/dev/null 2>&1 || ok=0;; esac; done
+        echo "full=$ok" >> "$GITHUB_OUTPUT"
+    - if: always() && steps.fo.outputs.full == '1'
+      uses: actions/cache/save@v4
+      with: { path: ~/.cache/lk-fonts, key: '${{ steps.fk.outputs.key }}' }
+    - if: always() && steps.ai.outcome == 'success' && steps.ac.outputs.cache-hit != 'true'
+      uses: actions/cache/save@v4
+      with: { path: ~/.cache/apt-debs, key: '${{ steps.k.outputs.key }}' }

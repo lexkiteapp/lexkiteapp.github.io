@@ -24,6 +24,8 @@ Dalam panduan mendalam ini, kita akan mengupas tuntas alasan linguistik mengapa 
 
 Ketika Anda memeriksa naskah transkrip dari rekaman audio yang tadinya tidak Anda pahami sama sekali, biasanya Anda akan terkejut: lebih dari 90 persen kata yang digunakan sebenarnya sudah Anda hafal maknanya. Hambatan pendengaran ini disebabkan oleh empat faktor fonologis dan kognitif:
 
+Untuk pembahasan lebih lengkap, baca juga [strategi TOEIC Listening Part 2](/id/blog/strategi-toeic-listening-part-2-tanya-jawab/).
+
 1. **Anda hanya menghafal ejaan visual, bukan rekaman bunyi:** saat mempelajari kata baru hanya dari buku teks tanpa mendengar audionya secara sinkron, otak Anda menyimpan rangkaian huruf dan mereka-reka pelafalan berdasarkan aturan bahasa Indonesia. Ketika *native speaker* mengucapkan kata tersebut dengan fonetik aslinya, otak Anda tidak dapat mencocokkannya dengan rekaman suara di memori jangka panjang.
 2. **Bahasa Inggris lisan tidak memiliki jeda spasi antar-kata:** dalam teks tertulis, spasi memisahkan setiap kata dengan rapi. Namun dalam percakapan lisan yang wajar, kata-kata melebur menjadi satu melalui fenomena *connected speech*. Kalimat seperti *What do you want to do?* sering kali meluncur begitu saja menjadi "Whaddaya wanna do?".
 3. **Bahasa Inggris berbasis ritme tekanan suku kata (*stress-timed*):** berbeda dengan bahasa Indonesia yang berbasis suku kata teratur (*syllable-timed*), bahasa Inggris hanya menekankan kata bermakna (kata benda, kata kerja utama, kata sifat) dan mereduksi kata gramatikal (seperti preposisi, kata sandang, dan kata kerja bantu) menjadi bunyi samar schwa /ə/.
@@ -88,6 +90,8 @@ Pembelajar dari Indonesia kerap terbentur pada pola fonetik khas:
 - **Mengabaikan catatan salah dengar:** banyak orang tidak mendokumentasikan kata-kata yang salah mereka tangkap, padahal memiliki buku catatan khusus untuk frasa yang sering salah dengar (*misheard words*) akan mempercepat proses adaptasi pendengaran secara signifikan.
 
 {{youtube: | Cara meningkatkan listening bahasa inggris dengan metode 5 tahap}}
+
+Kalau targetmu IELTS, kenali juga [jenis soal IELTS Listening](/id/blog/jenis-soal-ielts-listening/) dan jebakan masing-masing.
 
 ## Pertanyaan yang Sering Diajukan (FAQ)
 

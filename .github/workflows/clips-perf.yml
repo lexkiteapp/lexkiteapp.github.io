@@ -13,14 +13,16 @@ concurrency:
 
 jobs:
   perf:
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 8
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
+      - uses: ./.github/actions/playwright-cache
+        with: { browsers: '--with-deps chromium' }
       - name: Đo
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
-          npx playwright install --with-deps chromium
+          bash scripts/ci/pw-install.sh --with-deps chromium
           node scripts/test/clips-perf.mjs

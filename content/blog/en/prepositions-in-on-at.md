@@ -123,7 +123,7 @@ The method of travel uses *by* with no article: *by car*, *by train*, but *on fo
 - **Street name only:** *on Hill Road* (American and increasingly common everywhere), *in Hill Road* (traditional British)
 - **City or country:** *in Lisbon*, *in Canada*
 
-**Arrive** never takes *to*. Use *arrive in* for cities and countries, *arrive at* for buildings, stations and events: *We arrived in Rome on Friday and arrived at the hotel at six.* Compare *go to* and *get to*, which do take *to*.
+**Arrive** never takes *to*. Use *arrive in* for cities and countries, *arrive at* for buildings, stations and events: *We arrived in Rome on Friday and arrived at the hotel at six.* Compare *go to* and *get to*, which do take *to*. You will use these small words constantly in [English phrases for renting an apartment](/en/blog/english-for-newcomers-renting/), from *a flat on Elm Road* to *move in at the end of the month*.
 
 ![](media:@s2 "The usage note for arrive shows which preposition follows it, the kind of word-level detail that fixes recurring errors")
 
@@ -185,6 +185,8 @@ If articles also trouble you (*at the airport* but *at home*), read [a, an, the 
 {{cta: /app/#/grammar/prepositions | Practise in, on and at with instant feedback}}
 
 {{youtube: | Video idea: three pictures for in, on and at (container, surface, point) with twelve quick examples}}
+
+Prepositions of place in action: [asking for directions in English](/en/blog/asking-for-directions-and-using-public-transport-in-english/).
 
 ## Frequently asked questions
 

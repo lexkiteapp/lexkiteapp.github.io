@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite — League Promotion (Silver to Gold)</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              teal: '#0D5E58',
+              'teal-dark': '#073B37',
+              'teal-light': '#E6F4F2',
+              'teal-border': '#136B66',
+              coral: '#FF5252',
+              'coral-hover': '#FF3838',
+              'coral-ledge': '#C92A2A',
+            },
+            surface: {
+              cream: '#FFF9F3',
+              card: '#FFFFFF',
+              dim: '#F4ECE1',
+              border: '#E8DBCB',
+              ledge: '#DBC9B5',
+            },
+            ink: {
+              primary: '#1A1816',
+              secondary: '#4A423A',
+              muted: '#6B6055',
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          },
+          boxShadow: {
+            'card-tactile': '0 8px 0 0 #DBC9B5, 0 16px 28px -6px rgba(120, 85, 50, 0.12)',
+            'btn-coral': '0 5px 0 0 #C92A2A',
+            'btn-coral-active': '0 1px 0 0 #C92A2A',
+            'pill-tactile': '0 3px 0 0 #DBC9B5',
+            'badge-tactile': '0 4px 0 0 #B45309',
+            'shield-tactile': '0 4px 0 0 #94A3B8',
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Subtle dot grid backdrop */
+    .bg-dot-grid {
+      background-color: #FFF8F2;
+      background-image: radial-gradient(#E8DACB 1.25px, transparent 1.25px);
+      background-size: 20px 20px;
+    }
+  </style>
+</head>
+<body class="bg-[#091518] text-[#d8e5e9] font-sans antialiased min-h-screen flex flex-col justify-between items-center p-0 selection:bg-[#2ba39a] selection:text-white">
+<!-- Mobile Screen Container (390px native portrait canvas) -->
+<main class="w-full max-w-[390px] min-h-screen bg-dot-grid flex flex-col justify-between px-4 pt-3 pb-6 relative shadow-[0_24px_50px_rgba(0,0,0,0.6)] border-x border-[#12252a]/60">
+<!-- Top Focus Bar (Focus mode during lesson) -->
+<header class="w-full flex items-center justify-between gap-3 pt-1 pb-2"><!-- Close (X) Button: Accessible 44x44px target with dark tactile style -->
+<button aria-label="Close" class="w-11 h-11 flex items-center justify-center rounded-2xl bg-[#14282e] border-2 border-[#203f48] text-[#d8e5e9] shadow-[0_3px_0_0_#061013] active:translate-y-[2px] active:shadow-[0_1px_0_0_#061013] transition-transform duration-75 flex-shrink-0 cursor-pointer" type="button">
+<span class="material-symbols-rounded text-2xl leading-none text-[#d8e5e9]">close</span>
+</button>
+<!-- Slim Progress Bar with Glowing Teal Fill -->
+<div class="flex-1 h-3 bg-[#0d1d21] rounded-full p-[2px] border border-[#203f48] overflow-hidden">
+<div class="h-full bg-gradient-to-r from-[#2ba39a] to-[#6bd8ce] rounded-full w-full shadow-[0_0_8px_#6bd8ce80] transition-all duration-300"></div>
+</div>
+<!-- Lexkite Brand Wordmark in Mint/White -->
+<div class="flex items-center gap-1.5 px-2 flex-shrink-0">
+<div class="w-2.5 h-2.5 rounded-sm bg-[#6bd8ce] rotate-45 shadow-[0_0_6px_#6bd8ce]"></div>
+<span class="text-sm font-extrabold tracking-tight text-white">Lexkite</span>
+</div></header>
+<!-- Main Celebratory Card -->
+<section class="w-full bg-[#0e1e22] rounded-3xl border-2 border-[#1e3b42] p-5 shadow-[0_8px_0_0_#061013,0_16px_32px_rgba(0,0,0,0.5)] my-auto flex flex-col items-center text-center relative overflow-hidden">
+<!-- Subtle Deep Glow Accents -->
+<div class="absolute -top-6 -left-6 w-24 h-24 bg-amber-500/10 rounded-full blur-2xl pointer-events-none"></div>
+<div class="absolute -bottom-8 -right-8 w-28 h-28 bg-[#6bd8ce]/10 rounded-full blur-2xl pointer-events-none"></div>
+<!-- Top Pill Header: "WEEKLY LEAGUE RESULTS" -->
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#163038] border border-[#2a5561] mb-3.5 shadow-sm">
+<span class="material-symbols-rounded text-[#6bd8ce] text-base leading-none">emoji_events</span>
+<span class="text-[11px] font-extrabold uppercase tracking-wider text-[#6bd8ce]">Weekly League Results</span>
+</div>
+<!-- Headline & Subtitle -->
+<h1 class="text-[26px] leading-tight font-black text-white tracking-tight mb-1 text-balance">
+        You were promoted!
+      </h1>
+<p class="text-sm font-semibold text-[#a5c6cb] mb-4">
+        Finished <strong class="text-[#6bd8ce] font-extrabold">#4 of 30</strong> this week
+      </p>
+<!-- Tier Promotion Visual: Silver to Gold with Tier Up Badge -->
+<div class="w-full bg-[#14282e] rounded-2xl p-3 border border-[#234b54] flex items-center justify-around gap-2 mb-3 shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
+<!-- Silver League (Previous Tier) -->
+<div class="flex flex-col items-center gap-1.5 flex-1 min-w-0">
+<div class="w-14 h-14 rounded-2xl bg-[#0d1d21] border-2 border-[#203f48] flex items-center justify-center shadow-[0_4px_0_0_#061013]">
+<span class="material-symbols-rounded text-[#728f96] text-3xl leading-none">shield</span>
+</div>
+<span class="text-xs font-bold text-[#a5c6cb] truncate w-full text-center">Silver</span>
+</div>
+<!-- Tier Up Indicator -->
+<div class="flex flex-col items-center justify-center px-1 flex-shrink-0">
+<div class="w-8 h-8 rounded-full bg-[#103837] text-[#6bd8ce] border border-[#2ba39a]/40 flex items-center justify-center shadow-[0_2px_0_0_#051d1c]">
+<span class="material-symbols-rounded text-lg leading-none">arrow_forward</span>
+</div>
+<span class="text-[10px] font-extrabold uppercase tracking-wider text-[#6bd8ce] mt-1">Tier Up</span>
+</div>
+<!-- Gold League (Newly Unlocked Tier) -->
+<div class="flex flex-col items-center gap-1.5 flex-1 min-w-0 relative">
+<!-- Achievement Pin -->
+<div class="absolute -top-1.5 -right-1 w-5 h-5 rounded-full bg-[#ff5252] text-white flex items-center justify-center text-[10px] font-black border-2 border-[#0e1e22] shadow-[0_2px_4px_rgba(0,0,0,0.4)] z-10">
+            ★
+          </div>
+<div class="w-14 h-14 rounded-2xl bg-gradient-to-b from-[#f59e0b] via-[#d97706] to-[#b45309] border-2 border-[#fcd34d] flex items-center justify-center shadow-[0_4px_0_0_#78350f] ring-2 ring-[#f59e0b]/40">
+<span class="material-symbols-rounded text-[#3d1a00] text-3xl leading-none drop-shadow-[0_1px_1px_rgba(255,255,255,0.4)]">military_tech</span>
+</div>
+<span class="text-xs font-extrabold text-[#fef08a] truncate w-full text-center drop-shadow-sm">Gold League</span>
+</div>
+</div>
+<!-- Gold League Unlocked Pill (Tactile Amber) -->
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-gradient-to-b from-[#f59e0b] to-[#d97706] border border-[#fef08a]/60 text-[#261500] font-black shadow-[0_3px_0_0_#78350f] mb-4 active:translate-y-[1px]">
+<span class="material-symbols-rounded text-[#261500] text-base leading-none">lock_open</span>
+<span class="text-xs font-extrabold tracking-tight">Gold League Unlocked</span>
+</div>
+<!-- Short Leaderboard Container (3 rows) -->
+<div class="w-full bg-[#14282e] rounded-2xl border-2 border-[#234b54] p-2.5 flex flex-col gap-2 mb-4 text-left shadow-[inset_0_1px_3px_rgba(0,0,0,0.2)]">
+<!-- Header row of the leaderboard -->
+<div class="flex items-center justify-between px-1 text-[11px] font-extrabold uppercase tracking-wider">
+<span class="flex items-center gap-1 text-[#6bd8ce]">
+<span class="w-2 h-2 rounded-full bg-[#6bd8ce] shadow-[0_0_6px_#6bd8ce]"></span>
+            Top 5 Promoted to Gold
+          </span>
+<span class="text-[#a5c6cb] text-[10px] font-bold">IELTS / TOEFL Div.</span>
+</div>
+<!-- Row 1: Sara K. -->
+<div class="flex items-center justify-between gap-2 p-2 rounded-xl bg-[#0e1e22] border border-[#1e3b42]">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="w-6 h-6 rounded-lg bg-[#d97706] text-[#1c1003] text-xs font-black flex items-center justify-center border border-[#fcd34d]/60 shadow-[0_1px_0_0_#78350f] flex-shrink-0">3</span>
+<span class="text-xs font-bold text-white truncate">Sara K.</span>
+</div>
+<span class="text-xs font-extrabold text-[#a5c6cb] flex-shrink-0">1,980 XP</span>
+</div>
+<!-- Row 2: YOU Alex L. (Highlighted active row in rich glowing teal) -->
+<div class="flex items-center justify-between gap-2 p-2.5 rounded-xl bg-gradient-to-r from-[#0d4a46] to-[#125853] border-2 border-[#6bd8ce] shadow-[0_3px_0_0_#052321,0_0_14px_rgba(107,216,206,0.2)]">
+<div class="flex items-center gap-2 min-w-0">
+<span class="w-6 h-6 rounded-lg bg-[#6bd8ce] text-[#003733] text-xs font-black flex items-center justify-center flex-shrink-0 shadow-sm">4</span>
+<span class="px-1.5 py-0.5 rounded bg-[#6bd8ce] text-[#003733] text-[10px] font-black uppercase tracking-wide flex-shrink-0">YOU</span>
+<span class="text-xs font-extrabold text-white truncate">Alex L.</span>
+</div>
+<div class="flex items-center gap-1 flex-shrink-0 text-[#6bd8ce]">
+<span class="text-xs font-black text-[#88f5ea]">1,940 XP</span>
+<span class="material-symbols-rounded text-sm font-black text-[#88f5ea]">arrow_upward</span>
+</div>
+</div>
+<!-- Row 3: James R. -->
+<div class="flex items-center justify-between gap-2 p-2 rounded-xl bg-[#0e1e22] border border-[#1e3b42]">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="w-6 h-6 rounded-lg bg-[#1c333a] text-[#a5c6cb] text-xs font-black flex items-center justify-center border border-[#2b4c56] flex-shrink-0">5</span>
+<span class="text-xs font-bold text-white truncate">James R.</span>
+</div>
+<span class="text-xs font-extrabold text-[#a5c6cb] flex-shrink-0">1,820 XP</span>
+</div>
+</div>
+<!-- Coach Quote with empty teacher-slot placeholder -->
+<div class="w-full flex items-center gap-2.5 p-2 rounded-2xl bg-[#14282e] border border-[#234b54] text-left shadow-sm">
+<!-- Empty teacher-slot placeholder (Dark teal dashed box) -->
+<div aria-label="teacher-slot" class="w-11 h-11 rounded-xl border-2 border-dashed border-[#2ba39a] bg-[#0d1d21] flex flex-col items-center justify-center flex-shrink-0">
+<span class="material-symbols-rounded text-[#6bd8ce] text-base leading-none">school</span>
+<span class="text-[8px] font-black text-[#6bd8ce] uppercase tracking-tight leading-none mt-0.5">teacher-slot</span>
+</div>
+<!-- Speech Bubble Text -->
+<div class="flex-1 min-w-0">
+<div class="text-[10px] font-extrabold uppercase tracking-wider text-[#f59e0b]">Carlos</div>
+<p class="text-xs font-bold text-white leading-tight">
+            “Gold looks good on you!”
+          </p>
+</div>
+</div>
+</section>
+<!-- Bottom Actions: Primary Tactile Coral Button & Quiet Link -->
+<footer class="w-full flex flex-col items-center gap-2.5 pt-3"><!-- Coral Primary Action Button with 3D darker ledge -->
+<button class="w-full h-14 rounded-2xl bg-[#ff5252] hover:bg-[#ff3838] text-white text-base font-black tracking-wide flex items-center justify-center gap-2 shadow-[0_5px_0_0_#9f1239] active:translate-y-[4px] active:shadow-[0_1px_0_0_#9f1239] transition-all duration-75 cursor-pointer" type="button">
+<span>Continue</span>
+<span class="material-symbols-rounded text-xl leading-none">arrow_forward</span>
+</button>
+<!-- Quiet Secondary "See leaderboard" Link: crisp light teal with min 44px tap target -->
+<a class="min-h-[44px] px-4 flex items-center justify-center text-sm font-bold text-[#6bd8ce] hover:text-[#88f5ea] active:opacity-75 transition-colors gap-1.5" href="#leaderboard">
+<span class="material-symbols-rounded text-lg leading-none">leaderboard</span>
+<span>See leaderboard</span>
+</a></footer>
+</main>
+</body>
+</html>

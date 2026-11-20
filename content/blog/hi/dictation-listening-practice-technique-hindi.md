@@ -8,7 +8,7 @@ translationKey: luyen-nghe-tieng-anh-bang-phuong-phap-dictation
 category: phuong-phap
 tags: [dictation, listening, connected-speech, fast-speech]
 cover: listening
-coverAlt: "Phòng luyện listening và dictation chép chính tả trên Lexkite"
+coverAlt: "Lexkite का IELTS लिसनिंग रूम: 10 टेस्ट, हर टेस्ट में 4 भाग, ब्रिटिश-अमेरिकी-ऑस्ट्रेलियाई उच्चारण, समायोज्य गति और अभ्यास / पहली बार सुनें / डिक्टेशन बटन"
 qualityScore: 95
 factChecked: 2026-10-15
 author: Lexkite
@@ -132,7 +132,7 @@ publishAt: 2026-11-24T07:44:00+05:30
 
 लिसनिंग से सीखे गए शब्दों और वाक्यांशों का अभ्यास [Lexkite इंटरएक्टिव टेस्ट](/#/practice) में करें।
 
-![Teste de múltipla escolha com quiz da expressão run out of no Lexkite](media:practice-test "चार विकल्पों वाले छोटे प्रश्नों से अपनी शब्दावली जाँचें")
+![Lexkite का बहुविकल्पीय टेस्ट: चार विकल्पों में से run out of का सही अर्थ चुनना](media:practice-test "बहुविकल्पीय टेस्ट से run out of जैसे वाक्यांशों को पक्का करें, Lexkite पर")
 
 ## केस स्टडी: एक कठिन एकेडमिक वाक्य का डिक्टेशन विश्लेषण
 
@@ -163,6 +163,8 @@ publishAt: 2026-11-24T07:44:00+05:30
 {{youtube: | डिक्टेशन इंग्लिश लिसनिंग तकनीक तेज अंग्रेजी सुनने और समझने के 4 स्टेप्स}}
 
 {{cta: /#/listening | अभी Lexkite लिसनिंग लैब में जाएं और अपना पहला 15 मिनट का डिक्टेशन सत्र शुरू करें}}
+
+Listening के अलग-अलग प्रश्न प्रकारों पर इसी अभ्यास को कैसे लगाएँ, यह [IELTS Listening Question Types in Hindi](/hi/blog/ielts-listening-question-types-in-hindi/) में देखें।
 
 ## अक्सर पूछे जाने वाले प्रश्न (FAQ)
 

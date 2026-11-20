@@ -2,6 +2,7 @@
  * Gồm vòng lặp mỗi ngày, bộ nhớ từ vựng (FSRS), cân bằng 4 mạch học (Nation), 12 nguyên lý và lộ trình theo band. */
 (function () {
   const { $, $$, esc } = UI;
+  const I = (n, cls) => UI.icon(n, cls);
   const { Store, SRS, Golden, todayKey, DAY } = Core;
   const App = window.App;
   const { state, routes } = App;
@@ -51,7 +52,8 @@
     const dueNow = Golden.dueNow(state.cards);
     const forget = App.forgetting().length;
     const mistakes = (await w(Store.get('mistakes', []))).filter(x => !x.fixed).length;
-    const essays = (await w(Store.get('essays', []))).length;
+    const essayList = await w(Store.get('essays', []));
+    const essays = essayList.length;
     const cards = Object.values(state.cards);
     const mine = cards.reduce((a, c) => a + (c.contexts || []).filter(x => x.title === 'Câu của tôi').length, 0);
     const withCtx = cards.filter(c => (c.contexts || []).some(x => x.title !== 'Câu của tôi')).length;
@@ -62,42 +64,55 @@
     const m = memory();
     const pl = s.placement;
 
+    // Bài cụ thể kế tiếp (truy hồi ngay): bài chưa học đầu tiên; hết bài chưa học thì về trang danh sách
+    const nextG = (window.GRAMMAR || []).find(x => (g.grammarDone || {})[x.id] == null);
+    const nextR = READ.find(x => (g.readDone || {})[x.id] == null);
+    const nextL = (window.LISTENING || []).find(x => (g.listenDone || {})[x.id] == null);
+    const hG = nextG ? '#/grammar/' + nextG.id : '#/grammar', hR = nextR ? '#/read/' + nextR.id : '#/reading', hL = nextL ? '#/listen/' + nextL.id : '#/listening';
+    App.speakMerge && App.speakMerge();
+    const bank = App.speakBank || [];
+    const hSpeak = bank.length ? '#/speaking/p1/' + (Math.floor(Date.now() / DAY) % bank.length) : '#/speaking';
+    const doneIds = new Set(essayList.map(e => e.prompt));
+    const WP = window.WRITE_PROMPTS || [];
+    const wp = WP.find(x => !doneIds.has(x.id)) || WP[Math.floor(Date.now() / DAY) % (WP.length || 1)];
+    const hWrite = wp ? '#/write/' + wp.id : '#/write';
+
     // Vòng lặp hôm nay
     const LOOP = [
-      { em: '🔁', t: t('Ôn thẻ đến hạn'), sub: dueNow ? t('{n} thẻ đang ở thời điểm vàng', { n: dueNow }) : t('Không còn thẻ đến hạn'), href: '#/review', done: !dueNow && (state.stats.days[todayKey()] || 0) > 0, why: t('Lặp lại ngắt quãng') },
-      { em: '🎧', t: t('Nghe hoặc đọc 1 bài'), sub: t('Đầu vào dễ hiểu, hơi vượt trình độ'), href: (d.readings || 0) > (d.listens || 0) ? '#/listening' : '#/reading', done: (d.readings || 0) + (d.listens || 0) > 0, why: t('Ngữ liệu dễ hiểu') },
-      { em: '📌', t: t('Lưu 5 từ kèm câu gốc'), sub: t('Hôm nay: {n} từ', { n: d.newWords || 0 }), href: '#/reading', done: (d.newWords || 0) >= 5, why: t('Học trong ngữ cảnh') },
-      { em: '📐', t: t('1 bài ngữ pháp'), sub: t('Học từng bước + tự luận'), href: '#/grammar', done: (d.grammar || 0) > 0, why: t('Học tập trung vào ngôn ngữ') },
-      { em: '🗣️', t: t('Nói hoặc viết'), sub: t('Dùng lại từ vừa học'), href: (d.spoken || 0) ? '#/write' : '#/speaking', done: (d.spoken || 0) + (d.writes || 0) > 0, why: t('Đầu ra bắt buộc') },
-      { em: '📕', t: t('Sửa lỗi sai'), sub: mistakes ? t('{n} lỗi chưa xem lại', { n: mistakes }) : t('Không có lỗi tồn đọng'), href: '#/mistakes', done: !mistakes, why: t('Phản hồi sửa lỗi') },
+      { ic: 'layers', t: t('Ôn thẻ đến hạn'), sub: dueNow ? t('{n} thẻ đang ở thời điểm vàng', { n: dueNow }) : t('Không còn thẻ đến hạn'), href: '#/review', done: !dueNow && (state.stats.days[todayKey()] || 0) > 0, why: t('Lặp lại ngắt quãng') },
+      { ic: 'headphones', t: t('Nghe hoặc đọc 1 bài'), sub: t('Đầu vào dễ hiểu, hơi vượt trình độ'), href: (d.readings || 0) > (d.listens || 0) ? hL : hR, done: (d.readings || 0) + (d.listens || 0) > 0, why: t('Ngữ liệu dễ hiểu') },
+      { ic: 'pin', t: t('Lưu 5 từ kèm câu gốc'), sub: t('Hôm nay: {n} từ', { n: d.newWords || 0 }), href: hR, done: (d.newWords || 0) >= 5, why: t('Học trong ngữ cảnh') },
+      { ic: 'ruler', t: t('1 bài ngữ pháp'), sub: t('Học từng bước + tự luận'), href: hG, done: (d.grammar || 0) > 0, why: t('Học tập trung vào ngôn ngữ') },
+      { ic: 'message-circle', t: t('Nói hoặc viết'), sub: t('Dùng lại từ vừa học'), href: (d.spoken || 0) ? hWrite : hSpeak, done: (d.spoken || 0) + (d.writes || 0) > 0, why: t('Đầu ra bắt buộc') },
+      { ic: 'book-x', t: t('Sửa lỗi sai'), sub: mistakes ? t('{n} lỗi chưa xem lại', { n: mistakes }) : t('Không có lỗi tồn đọng'), href: '#/mistakes', done: !mistakes, why: t('Phản hồi sửa lỗi') },
     ];
     const loopDone = LOOP.filter(x => x.done).length;
 
     // 4 mạch học (7 ngày) – quy đổi về “phiên” ~10 phút
     const D = g.days || {};
     const strands = [
-      { k: 'in', em: '📖', t: t('Đầu vào có nghĩa'), sub: t('Đọc, nghe'), v: sumDays(D, ['readings']) + sumDays(D, ['listens']), href: '#/listening', cta: t('Nghe 1 phần') },
-      { k: 'out', em: '🗣️', t: t('Đầu ra có nghĩa'), sub: t('Nói, viết, tự đặt câu'), v: Math.round(sumDays(D, ['spoken']) / 3) + sumDays(D, ['writes']) + cards.reduce((a, c) => a + (c.contexts || []).filter(x => x.title === 'Câu của tôi' && Date.now() - (x.at || 0) < 7 * DAY).length, 0) / 3, href: '#/speaking', cta: t('Luyện Speaking') },
-      { k: 'lang', em: '🧠', t: t('Tập trung ngôn ngữ'), sub: t('Flashcard, ngữ pháp, phát âm'), v: Math.round(reviewsIn(7) / 20) + sumDays(D, ['grammar', 'pron']), href: '#/grammar', cta: t('Học ngữ pháp') },
-      { k: 'flu', em: '⚡', t: t('Luyện trôi chảy'), sub: t('Ghép thẻ tính giờ, chép chính tả, thi thử'), v: sumDays(D, ['matches', 'dictations']), href: '#/practice/match?src=deck', cta: t('Ghép thẻ tính giờ') },
+      { k: 'in', ic: 'book-open', t: t('Đầu vào có nghĩa'), sub: t('Đọc, nghe'), v: sumDays(D, ['readings']) + sumDays(D, ['listens']), href: hL, cta: t('Nghe 1 phần') },
+      { k: 'out', ic: 'message-circle', t: t('Đầu ra có nghĩa'), sub: t('Nói, viết, tự đặt câu'), v: Math.round(sumDays(D, ['spoken']) / 3) + sumDays(D, ['writes']) + cards.reduce((a, c) => a + (c.contexts || []).filter(x => x.title === 'Câu của tôi' && Date.now() - (x.at || 0) < 7 * DAY).length, 0) / 3, href: hSpeak, cta: t('Luyện Speaking') },
+      { k: 'lang', ic: 'brain', t: t('Tập trung ngôn ngữ'), sub: t('Flashcard, ngữ pháp, phát âm'), v: Math.round(reviewsIn(7) / 20) + sumDays(D, ['grammar', 'pron']), href: hG, cta: t('Học ngữ pháp') },
+      { k: 'flu', ic: 'zap', t: t('Luyện trôi chảy'), sub: t('Ghép thẻ tính giờ, chép chính tả, thi thử'), v: sumDays(D, ['matches', 'dictations']), href: '#/practice/match?src=deck', cta: t('Ghép thẻ tính giờ') },
     ].map(x => ({ ...x, v: Math.round(x.v) }));
     const sTotal = strands.reduce((a, x) => a + x.v, 0);
     const weakest = sTotal ? strands.slice().sort((a, b) => a.v - b.v)[0] : null;
 
     // 12 nguyên lý → tính năng → số liệu của bạn
     const P = [
-      { em: '📉', t: t('Đường cong quên lãng'), who: t('Ebbinghaus (1885) · Murre & Dros (2015, tái lập)'), idea: t('Trí nhớ về thông tin mới giảm nhanh nhất trong vài ngày đầu; mỗi lần nhớ lại thành công làm đường cong thoải hơn.'), how: t('Mỗi từ có chỉ số <b>🧠 % còn nhớ</b> tính theo FSRS. Từ tụt dưới mục tiêu vào danh sách <b>Sắp quên</b>.'), stat: forget ? t('{n} từ đang sắp quên', { n: forget }) : t('Chưa có từ nào sắp quên'), links: [['#/deck?from=forget', t('Xem từ sắp quên')]] },
-      { em: '🔁', t: t('Lặp lại ngắt quãng (FSRS)'), who: t('Leitner (1972) · Woźniak (1987) · Ye và cs. (2022)'), idea: t('Ôn với khoảng cách tăng dần, đúng lúc sắp quên, cho hiệu quả gấp nhiều lần học dồn.'), how: t('Thuật toán <b>FSRS</b> (mặc định của Anki) tính độ ổn định & độ khó riêng từng từ; lịch ôn giữ khả năng nhớ ≈ <b>{pct}%</b>.', { pct: Math.round(SRS.retentionTarget * 100) }), stat: t('{due} thẻ đến hạn · {total} lượt ôn đã làm', { due: dueNow, total: totalReviews }), links: [['#/review', t('Ôn tập ngay')], ['#/settings', t('Chỉnh mục tiêu ghi nhớ')]] },
-      { em: '🎯', t: t('Chủ động nhớ lại'), who: 'Roediger & Karpicke (2006)', idea: t('Tự kiểm tra – cố nhớ ra trước khi xem đáp án – giúp nhớ lâu hơn hẳn đọc lại nhiều lần.'), how: t('Thẻ luôn bắt <b>đoán trước khi lật</b>; Học thông minh đi từ nhận diện (trắc nghiệm) đến <b>tự gõ lại từ</b>; ngữ pháp có <b>bài tự luận</b>.'), stat: t('{n} từ đã học', { n: cards.filter(c => c.srs && c.srs.last).length }), links: [['#/practice/learn?src=deck', t('Học thông minh')]] },
-      { em: '📖', t: t('Ngữ liệu dễ hiểu (i+1)'), who: t('Krashen (1985) · Nation (2006): cần biết ~98% từ để đọc thoải mái'), idea: t('Ngôn ngữ được tiếp thu qua nội dung có ý nghĩa, hơi vượt trình độ hiện tại.'), how: t('Bài đọc B1→C1 và <b>20 phần nghe</b> nhiều giọng Anh–Mỹ–Úc; chạm từ bất kỳ để tra & lưu kèm câu gốc.'), stat: t('Đã đọc {read}/{readTotal} bài · nghe {listen}/{listenTotal} phần', { read: readDone, readTotal: READ.length, listen: listenDone, listenTotal: (window.LISTENING || []).length || 20 }), links: [['#/reading', t('Đọc bài')], ['#/listening', t('Luyện nghe')]] },
-      { em: '🔦', t: t('Chú ý có chủ đích (Noticing)'), who: 'Schmidt (1990)', idea: t('Người học chỉ tiếp thu được những gì họ để ý thấy – tô sáng cấu trúc giúp “nhìn ra” ngôn ngữ.'), how: t('Bài đọc tô sáng <b>từ học thuật AWL, từ nối, collocation</b>; bài mẫu Writing chú thích <b>cụm hay, nghĩa, vai trò từng câu</b>.'), stat: t('{n} từ đã lưu kèm ngữ cảnh thật', { n: withCtx }), links: [['#/phrases', t('Bài mẫu có chú thích')]] },
-      { em: '✍️', t: t('Hiệu ứng tự tạo'), who: 'Slamecka & Graf (1978) · Laufer & Hulstijn (2001)', idea: t('Thông tin do chính mình tạo ra (tự đặt câu, tự viết lại) được nhớ tốt hơn thông tin cho sẵn.'), how: t('Mặt sau flashcard có ô <b>Tự đặt câu</b>; câu của bạn thành ngữ cảnh cho lần ôn sau. Bài mẫu có dạng <b>viết lại câu</b>.'), stat: t('{n} câu tự đặt', { n: mine }), links: [['#/review', t('Thử đặt câu')]] },
-      { em: '🖼️', t: t('Mã hóa kép'), who: 'Paivio (1971) · Mayer (2009)', idea: t('Kết hợp hình ảnh, chữ và âm thanh tạo nhiều “đường dẫn” để gọi lại trí nhớ.'), how: t('Từ có <b>hình minh họa</b> (ảnh giấy phép mở), IPA, <b>phát âm UK/US</b>; ngữ pháp có dòng thời gian & sơ đồ màu.'), stat: t('{n} bài phát âm đã học', { n: pronDone }), links: [['#/practice/speak?src=deck', t('Luyện phát âm từ')], ['#/pron', t('Thư viện phát âm')]] },
-      { em: '🔀', t: t('Học xen kẽ'), who: 'Rohrer & Taylor (2007) · Brunmair & Richter (2019)', idea: t('Trộn nhiều dạng bài/chủ điểm trong một buổi giúp phân biệt và ghi nhớ tốt hơn học từng khối.'), how: t('<b>Kiểm tra chương</b> trộn trắc nghiệm với tự luận; phiên ôn xen từ mới vào giữa từ cũ.'), stat: t('{n} bài ngữ pháp đã làm', { n: grammarDone }), links: [['#/grammar/mix', t('Luyện trộn ngữ pháp')]] },
-      { em: '🗣️', t: t('Đầu ra bắt buộc'), who: 'Swain (1985, Output Hypothesis)', idea: t('Phải nói/viết mới phát hiện ra lỗ hổng của mình – đầu ra buộc xử lý ngữ pháp sâu hơn đầu vào.'), how: t('<b>Phòng Speaking</b> ghi âm & phân tích từ vựng; <b>Phòng viết</b> Task 1 & 2 bấm giờ, chấm sơ bộ theo band.'), stat: t('{essays} bài viết · {spoken} điểm nói (30 ngày)', { essays, spoken: sumDays(D, ['spoken'], 30) }), links: [['#/speaking', t('Phòng Speaking')], ['#/write', t('Phòng viết')]] },
-      { em: '🧩', t: t('Học theo cụm từ'), who: 'Lewis (1993, Lexical Approach) · Boers & Lindstromberg (2009)', idea: t('Người bản ngữ nói bằng các cụm có sẵn; học collocation giúp nói & viết tự nhiên và nhanh hơn.'), how: t('<b>Sổ cụm từ</b>: bôi đen bất kỳ đoạn nào để lưu cụm kèm nghĩa; 5 dạng bài luyện từ mỗi bài mẫu.'), stat: t('{n} cụm từ đã lưu', { n: phrases }), links: [['#/phrases', t('Sổ cụm từ')]] },
-      { em: '📕', t: t('Phản hồi sửa lỗi'), who: 'Lyster & Ranta (1997) · Hattie (2007)', idea: t('Phản hồi cụ thể, kịp thời và được xem lại là một trong những yếu tố tác động mạnh nhất tới kết quả học.'), how: t('Mọi câu sai (từ vựng, ngữ pháp, đọc, nghe) tự vào <b>Sổ lỗi sai</b> kèm giải thích và nút học lại đúng chỗ.'), stat: mistakes ? t('{n} lỗi chưa xem lại', { n: mistakes }) : t('Không có lỗi tồn đọng'), links: [['#/mistakes', t('Sổ lỗi sai')]] },
-      { em: '🏆', t: t('Động lực & thói quen'), who: t('Deci & Ryan (Self-Determination) · Lally và cs. (2010)'), idea: t('Thói quen hình thành sau trung bình ~66 ngày lặp lại; mục tiêu nhỏ, phản hồi tiến bộ giữ động lực.'), how: t('Chuỗi ngày, XP, nhiệm vụ & huy hiệu; <b>thời điểm vàng</b> nhắc đúng lúc; kế hoạch hôm nay cá nhân hóa.'), stat: t('Chuỗi {n} ngày · {xp} XP', { n: App.streak(), xp: g.xp || 0 }), links: [['#/stats', t('Tiến độ & huy hiệu')]] },
+      { ic: 'hourglass', t: t('Đường cong quên lãng'), who: t('Ebbinghaus (1885) · Murre & Dros (2015, tái lập)'), idea: t('Trí nhớ về thông tin mới giảm nhanh nhất trong vài ngày đầu; mỗi lần nhớ lại thành công làm đường cong thoải hơn.'), how: t('Mỗi từ có chỉ số <b>{ic} % còn nhớ</b> tính theo FSRS. Từ tụt dưới mục tiêu vào danh sách <b>Sắp quên</b>.', { ic: UI.icon('brain') }), stat: forget ? t('{n} từ đang sắp quên', { n: forget }) : t('Chưa có từ nào sắp quên'), links: [['#/deck?from=forget', t('Xem từ sắp quên')]] },
+      { ic: 'repeat', t: t('Lặp lại ngắt quãng (FSRS)'), who: t('Leitner (1972) · Woźniak (1987) · Ye và cs. (2022)'), idea: t('Ôn với khoảng cách tăng dần, đúng lúc sắp quên, cho hiệu quả gấp nhiều lần học dồn.'), how: t('Thuật toán <b>FSRS</b> (mặc định của Anki) tính độ ổn định & độ khó riêng từng từ; lịch ôn giữ khả năng nhớ ≈ <b>{pct}%</b>.', { pct: Math.round(SRS.retentionTarget * 100) }), stat: t('{due} thẻ đến hạn · {total} lượt ôn đã làm', { due: dueNow, total: totalReviews }), links: [['#/review', t('Ôn tập ngay')], ['#/settings', t('Chỉnh mục tiêu ghi nhớ')]] },
+      { ic: 'target', t: t('Chủ động nhớ lại'), who: 'Roediger & Karpicke (2006)', idea: t('Tự kiểm tra – cố nhớ ra trước khi xem đáp án – giúp nhớ lâu hơn hẳn đọc lại nhiều lần.'), how: t('Thẻ luôn bắt <b>đoán trước khi lật</b>; Học thông minh đi từ nhận diện (trắc nghiệm) đến <b>tự gõ lại từ</b>; ngữ pháp có <b>bài tự luận</b>.'), stat: t('{n} từ đã học', { n: cards.filter(c => c.srs && c.srs.last).length }), links: [['#/practice/learn?src=deck', t('Học thông minh')]] },
+      { ic: 'book-open', t: t('Ngữ liệu dễ hiểu (i+1)'), who: t('Krashen (1985) · Nation (2006): cần biết ~98% từ để đọc thoải mái'), idea: t('Ngôn ngữ được tiếp thu qua nội dung có ý nghĩa, hơi vượt trình độ hiện tại.'), how: t('Bài đọc B1→C1 và <b>20 phần nghe</b> nhiều giọng Anh–Mỹ–Úc; chạm từ bất kỳ để tra & lưu kèm câu gốc.'), stat: t('Đã đọc {read}/{readTotal} bài · nghe {listen}/{listenTotal} phần', { read: readDone, readTotal: READ.length, listen: listenDone, listenTotal: (window.LISTENING || []).length || 20 }), links: [[hR, t('Đọc bài')], [hL, t('Luyện nghe')]] },
+      { ic: 'search', t: t('Chú ý có chủ đích (Noticing)'), who: 'Schmidt (1990)', idea: t('Người học chỉ tiếp thu được những gì họ để ý thấy – tô sáng cấu trúc giúp “nhìn ra” ngôn ngữ.'), how: t('Bài đọc tô sáng <b>từ học thuật AWL, từ nối, collocation</b>; bài mẫu Writing chú thích <b>cụm hay, nghĩa, vai trò từng câu</b>.'), stat: t('{n} từ đã lưu kèm ngữ cảnh thật', { n: withCtx }), links: [['#/phrases', t('Bài mẫu có chú thích')]] },
+      { ic: 'pen-line', t: t('Hiệu ứng tự tạo'), who: 'Slamecka & Graf (1978) · Laufer & Hulstijn (2001)', idea: t('Thông tin do chính mình tạo ra (tự đặt câu, tự viết lại) được nhớ tốt hơn thông tin cho sẵn.'), how: t('Mặt sau flashcard có ô <b>Tự đặt câu</b>; câu của bạn thành ngữ cảnh cho lần ôn sau. Bài mẫu có dạng <b>viết lại câu</b>.'), stat: t('{n} câu tự đặt', { n: mine }), links: [['#/review', t('Thử đặt câu')]] },
+      { ic: 'layers', t: t('Mã hóa kép'), who: 'Paivio (1971) · Mayer (2009)', idea: t('Kết hợp hình ảnh, chữ và âm thanh tạo nhiều “đường dẫn” để gọi lại trí nhớ.'), how: t('Từ có <b>hình minh họa</b> (ảnh giấy phép mở), IPA, <b>phát âm UK/US</b>; ngữ pháp có dòng thời gian & sơ đồ màu.'), stat: t('{n} bài phát âm đã học', { n: pronDone }), links: [['#/practice/speak?src=deck', t('Luyện phát âm từ')], ['#/pron', t('Thư viện phát âm')]] },
+      { ic: 'refresh-cw', t: t('Học xen kẽ'), who: 'Rohrer & Taylor (2007) · Brunmair & Richter (2019)', idea: t('Trộn nhiều dạng bài/chủ điểm trong một buổi giúp phân biệt và ghi nhớ tốt hơn học từng khối.'), how: t('<b>Kiểm tra chương</b> trộn trắc nghiệm với tự luận; phiên ôn xen từ mới vào giữa từ cũ.'), stat: t('{n} bài ngữ pháp đã làm', { n: grammarDone }), links: [['#/grammar/mix', t('Luyện trộn ngữ pháp')]] },
+      { ic: 'message-circle', t: t('Đầu ra bắt buộc'), who: 'Swain (1985, Output Hypothesis)', idea: t('Phải nói/viết mới phát hiện ra lỗ hổng của mình – đầu ra buộc xử lý ngữ pháp sâu hơn đầu vào.'), how: t('<b>Phòng Speaking</b> ghi âm & phân tích từ vựng; <b>Phòng viết</b> Task 1 & 2 bấm giờ, chấm sơ bộ theo band.'), stat: t('{essays} bài viết · {spoken} điểm nói (30 ngày)', { essays, spoken: sumDays(D, ['spoken'], 30) }), links: [[hSpeak, t('Phòng Speaking')], [hWrite, t('Phòng viết')]] },
+      { ic: 'puzzle', t: t('Học theo cụm từ'), who: 'Lewis (1993, Lexical Approach) · Boers & Lindstromberg (2009)', idea: t('Người bản ngữ nói bằng các cụm có sẵn; học collocation giúp nói & viết tự nhiên và nhanh hơn.'), how: t('<b>Sổ cụm từ</b>: bôi đen bất kỳ đoạn nào để lưu cụm kèm nghĩa; 5 dạng bài luyện từ mỗi bài mẫu.'), stat: t('{n} cụm từ đã lưu', { n: phrases }), links: [['#/phrases', t('Sổ cụm từ')]] },
+      { ic: 'book-x', t: t('Phản hồi sửa lỗi'), who: 'Lyster & Ranta (1997) · Hattie (2007)', idea: t('Phản hồi cụ thể, kịp thời và được xem lại là một trong những yếu tố tác động mạnh nhất tới kết quả học.'), how: t('Mọi câu sai (từ vựng, ngữ pháp, đọc, nghe) tự vào <b>Sổ lỗi sai</b> kèm giải thích và nút học lại đúng chỗ.'), stat: mistakes ? t('{n} lỗi chưa xem lại', { n: mistakes }) : t('Không có lỗi tồn đọng'), links: [['#/mistakes', t('Sổ lỗi sai')]] },
+      { ic: 'trophy', t: t('Động lực & thói quen'), who: t('Deci & Ryan (Self-Determination) · Lally và cs. (2010)'), idea: t('Thói quen hình thành sau trung bình ~66 ngày lặp lại; mục tiêu nhỏ, phản hồi tiến bộ giữ động lực.'), how: t('Chuỗi ngày, XP, nhiệm vụ & huy hiệu; <b>thời điểm vàng</b> nhắc đúng lúc; kế hoạch hôm nay cá nhân hóa.'), stat: t('Chuỗi {n} ngày · {xp} XP', { n: App.streak(), xp: g.xp || 0 }), links: [['#/stats', t('Tiến độ & huy hiệu')]] },
     ];
 
     // Lộ trình gợi ý theo band (phút/ngày)
@@ -111,16 +126,16 @@
     const plan = PLAN[stage] || PLAN.s1;
 
     view.innerHTML = `
-      <div class="page-head"><div><h1>🧪 ${t('Phương pháp học của Lexkite')}</h1><p class="muted">${t('Mỗi tính năng dựa trên một nguyên lý đã được nghiên cứu về trí nhớ và thụ đắc ngôn ngữ – kèm số liệu thật của chính bạn để biết nên làm gì tiếp theo.')}</p></div></div>
+      <div class="page-head"><div><h1>${I('flask-conical')} ${t('Phương pháp học của Lexkite')}</h1><p class="muted">${t('Mỗi tính năng dựa trên một nguyên lý đã được nghiên cứu về trí nhớ và thụ đắc ngôn ngữ – kèm số liệu thật của chính bạn để biết nên làm gì tiếp theo.')}</p></div></div>
 
       <div class="card hero-main" style="margin-bottom:1rem">
         <div class="row between"><h2 style="color:#fff;margin:0">${t('Vòng lặp học mỗi ngày (~30 phút)')}</h2><span class="chip" style="background:rgba(255,255,255,.2);color:#fff">${t('Hôm nay {done}/{total}', { done: loopDone, total: LOOP.length })}</span></div>
-        <div class="mloop">${LOOP.map((x, i) => `<a class="mstep ${x.done ? 'done' : ''}" href="${x.href}"><span class="mnum">${x.done ? '✓' : i + 1}</span><span class="mem">${x.em}</span><b>${x.t}</b><small>${esc(x.sub)}</small><i>${x.why}</i></a>`).join('')}</div>
+        <div class="mloop">${LOOP.map((x, i) => `<a class="mstep ${x.done ? 'done' : ''}" href="${x.href}"><span class="mnum">${x.done ? '✓' : i + 1}</span><span class="mem">${I(x.ic)}</span><b>${x.t}</b><small>${esc(x.sub)}</small><i>${x.why}</i></a>`).join('')}</div>
       </div>
 
       <div class="grid g2" style="margin-bottom:1rem">
         <div class="card">
-          <div class="row between"><h2 style="margin:0">🧠 ${t('Bộ nhớ từ vựng của bạn')}</h2><a class="small" href="#/settings">${t('Mục tiêu {pct}% →', { pct: Math.round(SRS.retentionTarget * 100) })}</a></div>
+          <div class="row between"><h2 style="margin:0">${I('brain')} ${t('Bộ nhớ từ vựng của bạn')}</h2><a class="small" href="#/settings">${t('Mục tiêu {pct}% →', { pct: Math.round(SRS.retentionTarget * 100) })}</a></div>
           ${m.cards.length ? `<div class="mstats"><div><b>${m.cards.length}</b><span>${t('từ đang nhớ')}</span></div><div><b>${Math.round(m.at(0) * 100)}%</b><span>${t('khả năng nhớ trung bình')}</span></div><div><b>${dueNow}</b><span>${t('đến hạn ôn')}</span></div><div><b>${m.learning}</b><span>${t('đang ở bước học')}</span></div></div>`
             : `<p class="small muted">${t('Bạn chưa có từ nào ở lịch ôn theo ngày. Dưới đây là đường cong của một từ mới học – hãy học vài từ để xem biểu đồ của chính bạn.')}</p>`}
           <div id="mCurve" style="margin-top:.6rem">${curveSvg(m, 7)}</div>
@@ -128,29 +143,29 @@
           <div class="row" style="margin-top:.4rem">${dueNow ? `<a class="btn primary sm" href="#/review">${t('Ôn {n} thẻ ngay', { n: dueNow })}</a>` : `<a class="btn primary sm" href="#/library">${t('Học từ mới')}</a>`}${forget ? `<a class="btn sm" href="#/deck?from=forget">${t('{n} từ sắp quên', { n: forget })}</a>` : ''}</div>
         </div>
         <div class="card">
-          <h2 style="margin:0 0 .3rem">⚖️ ${t('Cân bằng 4 mạch học')} <span class="tiny muted">${t('· 7 ngày qua')}</span></h2>
+          <h2 style="margin:0 0 .3rem">${I('chart-column')} ${t('Cân bằng 4 mạch học')} <span class="tiny muted">${t('· 7 ngày qua')}</span></h2>
           <p class="small muted" style="margin-top:0">${t('Paul Nation (2007): một chương trình hiệu quả chia thời gian gần đều cho 4 mạch. Thiếu mạch nào thì tiến bộ chậm ở mạch đó.')}</p>
-          ${strands.map(x => `<div class="mstrand"><span class="mse">${x.em}</span><div class="grow"><div class="row between nowrap"><b class="small">${x.t}</b><span class="tiny muted">${sTotal ? pct(x.v, sTotal) : 0}%</span></div><div class="progress"><i style="width:${sTotal ? pct(x.v, sTotal) : 0}%;background:${weakest && x.k === weakest.k ? '#f59e0b' : 'var(--primary)'}"></i></div><div class="tiny muted">${x.sub}</div></div></div>`).join('')}
-          ${weakest ? `<div class="example-box small" style="margin-top:.6rem">💡 ${t('Mạch đang thiếu: <b>{name}</b>.', { name: weakest.t })} <a href="${weakest.href}">${weakest.cta} →</a></div>` : `<div class="example-box small" style="margin-top:.6rem">${t('Bắt đầu học để xem bạn đang cân bằng thế nào giữa 4 mạch.')}</div>`}
+          ${strands.map(x => `<div class="mstrand"><span class="mse">${I(x.ic)}</span><div class="grow"><div class="row between nowrap"><b class="small">${x.t}</b><span class="tiny muted">${sTotal ? pct(x.v, sTotal) : 0}%</span></div><div class="progress"><i style="width:${sTotal ? pct(x.v, sTotal) : 0}%;background:${weakest && x.k === weakest.k ? '#f59e0b' : 'var(--primary)'}"></i></div><div class="tiny muted">${x.sub}</div></div></div>`).join('')}
+          ${weakest ? `<div class="example-box small" style="margin-top:.6rem">${I('lightbulb')} ${t('Mạch đang thiếu: <b>{name}</b>.', { name: weakest.t })} <a href="${weakest.href}">${weakest.cta} →</a></div>` : `<div class="example-box small" style="margin-top:.6rem">${t('Bắt đầu học để xem bạn đang cân bằng thế nào giữa 4 mạch.')}</div>`}
         </div>
       </div>
 
       <div class="card" style="margin-bottom:1rem">
-        <div class="row between"><h2 style="margin:0">🗺️ ${t('Lộ trình gợi ý: {name}', { name: plan[0] })}</h2>${pl ? `<span class="chip">${t('Band đầu vào {band}', { band: esc(pl.band) })}</span>` : `<a class="btn sm primary" href="#/placement">🧭 ${t('Kiểm tra trình độ để cá nhân hóa')}</a>`}</div>
+        <div class="row between"><h2 style="margin:0">${I('map')} ${t('Lộ trình gợi ý: {name}', { name: plan[0] })}</h2>${pl ? `<span class="chip">${t('Band đầu vào {band}', { band: esc(pl.band) })}</span>` : `<a class="btn sm primary" href="#/placement">${I('compass')} ${t('Kiểm tra trình độ để cá nhân hóa')}</a>`}</div>
         <div class="mplan">${plan[1].map(([label, min, href]) => `<a class="mpi" href="${href}"><b>${min}′</b><span>${label}</span></a>`).join('')}</div>
         <div class="tiny muted" style="margin-top:.4rem">${t('Tổng ~{n} phút/ngày. Đều đặn mỗi ngày hiệu quả hơn học dồn cuối tuần.', { n: plan[1].reduce((a, x) => a + x[1], 0) })} <a href="#/path">${t('Xem Lộ trình chi tiết →')}</a></div>
       </div>
 
-      <h2>📚 ${t('12 nguyên lý & cách Lexkite áp dụng')}</h2>
+      <h2>${I('library')} ${t('12 nguyên lý & cách Lexkite áp dụng')}</h2>
       <div class="grid g2">${P.map(p => `
         <div class="card mprin">
-          <div class="row nowrap"><span style="font-size:2rem">${p.em}</span><div><h3 style="margin:0">${p.t}</h3><div class="tiny muted">${p.who}</div></div></div>
+          <div class="row nowrap"><span class="mpic">${I(p.ic)}</span><div><h3 style="margin:0">${p.t}</h3><div class="tiny muted">${p.who}</div></div></div>
           <p class="small" style="margin:.6rem 0">${p.idea}</p>
           <div class="example-box small" style="border-left-color:var(--primary)"><b>${t('Trong Lexkite:')}</b> ${p.how}</div>
-          <div class="row between" style="margin-top:auto;padding-top:.7rem"><span class="chip">📊 ${esc(p.stat)}</span><div class="row">${p.links.map(([h, l], i) => `<a class="btn sm ${i ? 'ghost' : ''}" href="${h}">${l} →</a>`).join('')}</div></div>
+          <div class="row between" style="margin-top:auto;padding-top:.7rem"><span class="chip">${I('chart-column')} ${esc(p.stat)}</span><div class="row">${p.links.map(([h, l], i) => `<a class="btn sm ${i ? 'ghost' : ''}" href="${h}">${l} →</a>`).join('')}</div></div>
         </div>`).join('')}</div>
 
-      <div class="card" style="margin-top:1rem"><h2 style="margin-top:0">❓ ${t('Câu hỏi thường gặp')}</h2>
+      <div class="card" style="margin-top:1rem"><h2 style="margin-top:0">${I('info')} ${t('Câu hỏi thường gặp')}</h2>
         <details><summary><b>${t('Mỗi ngày nên học bao nhiêu từ mới?')}</b></summary><p class="small">${t('10–20 từ là hợp lý. Mỗi từ mới sinh ra khoảng 5–8 lượt ôn trong tháng đầu, nên học quá nhiều sẽ khiến lượng ôn dồn lên. Chỉnh số từ mới/ngày và giới hạn phiên ôn trong <a href="#/settings">Cài đặt</a>.')}</p></details>
         <details><summary><b>${t('Bấm “Khó” hay “Quên” khác nhau thế nào?')}</b></summary><p class="small">${t('“Quên” = không nhớ ra → thẻ quay lại bước học (1 phút), độ ổn định giảm. “Khó” = nhớ ra nhưng vất vả → khoảng ôn tăng ít. Hãy trả lời trung thực – FSRS dựa vào đó để tính lịch tối ưu cho riêng bạn.')}</p></details>
         <details><summary><b>${t('Mục tiêu ghi nhớ 90% nghĩa là gì?')}</b></summary><p class="small">${t('Khi một từ đến lượt ôn, bạn có ~90% khả năng còn nhớ. Tăng lên 95% thì nhớ chắc hơn nhưng số lượt ôn gần gấp đôi; giảm xuống 85% thì ít ôn hơn. 90% là điểm cân bằng được khuyên dùng.')}</p></details>

@@ -739,7 +739,7 @@
                 const on = curModelBand === b;
                 const bCol = b === '8.0' ? 'var(--accent-text)' : b === '6.5' ? 'var(--good-text)' : 'var(--gold-text)';
                 return `
-                <button class="btn sm ${on ? 'primary' : 'ghost'}" data-mband="${b}" style="font-weight:800;border-radius:10px;${on ? `background:${bCol};border-color:${bCol}` : ''}">
+                <button class="btn sm ${on ? 'primary' : 'ghost'}" data-mband="${b}" style="font-weight:800;border-radius:10px;${on ? `background:${bCol};border-color:${bCol};color:var(--surface)` : ''}">
                   Band ${b}
                 </button>
                 `;

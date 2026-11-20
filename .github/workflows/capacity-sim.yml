@@ -1,5 +1,6 @@
 # Mô phỏng chi phí D1 / Functions theo người dùng trên D1 CỤC BỘ của Miniflare (workerd) – số rows_read/rows_written thật, KHÔNG gọi production.
-# Ngoại suy 10k / 100k / 1M DAU từ số đo / người (không dội tải thật). Đỏ khi: có truy vấn đường người dùng quét cả bảng, hoặc số đo = 0.
+# Ngoại suy 10k / 100k / 1M DAU từ số đo / người (không dội tải thật). Đỏ khi: có truy vấn đường người dùng quét cả bảng, hoặc số đo = 0,
+# hoặc 1 lần mở trang Quản trị > 5.000 dòng đọc / có SCAN sessions (scripts/capacity/admin-sim.mjs – sự cố 03/11).
 # Tài liệu: docs/CAPACITY.md · mã: scripts/capacity/{sim,meter,model}.mjs
 name: capacity-sim
 on:
@@ -29,6 +30,8 @@ jobs:
       - name: Mô phỏng (ước lượng node:sqlite, đối chiếu)
         if: always()
         run: node scripts/capacity/sim.mjs --users=3 --seed=1500 --json=out/capacity/sqlite.json --md=out/capacity/sqlite.md
+      - name: Quản trị – dòng đọc / lần mở, trước ↔ sau (Miniflare; đỏ khi > 5.000 hoặc SCAN sessions – docs/CAPACITY.md §D4)
+        run: node scripts/capacity/admin-sim.mjs --d1=miniflare --json=out/capacity/admin.json --md=out/capacity/admin.md
       - name: Kiểm số đo khác 0
         run: node -e "const r=require('./out/capacity/miniflare.json');const t=r.profiles.typical;if(!(t.reads>0&&t.writes>0&&t.requests>0)){console.error('số đo = 0',t);process.exit(1)}"
       - name: Tóm tắt

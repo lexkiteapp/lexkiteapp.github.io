@@ -21,3 +21,14 @@
 .tk-num{font-family:var(--font-display);font-variant-numeric:tabular-nums}
 @media (prefers-reduced-motion:reduce){.tk-bar>i{transition:none}
 }
+/* §5d Một khung app – chuẩn chung cho MỌI route (cổng frame-consistency.yml): thanh 5 tab 64, nút điều hướng ≥ 44 */
+@media (max-width:1023px){.bottom-nav{height:calc(64px + env(safe-area-inset-bottom,0px));min-height:0;box-sizing:border-box;align-items:stretch}
+html.native .bottom-nav{height:calc(64px + env(safe-area-inset-bottom,0px));min-height:0}
+}
+.crumb a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px}
+/* P0 kiểm toán 18/11 – vùng chạm ≥ 44 px (đầu dò tap của qa-bot/Audit tổng; cổng scripts/test/tap-targets.mjs). Link quay lại + ô chọn + chip + nút nhỏ: mở vùng chạm bằng ::after trong suốt hoặc min-height, không đổi nhìn. */
+#view>a.small{position:relative}
+#view>a.small::after{content:"";position:absolute;left:-6px;right:-6px;top:-13px;bottom:-13px}
+#view select,#view details>summary{min-height:44px;box-sizing:border-box}
+#view details>summary{padding-block:var(--sp-2)}
+@media (max-width:820px){#view .btn.sm,#view button.chip,#view a.chip{min-height:44px}}

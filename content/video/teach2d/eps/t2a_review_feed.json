@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_feed",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: feed.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means to give food (e.g., to an animal or a baby).",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "Don't feed the animals at the zoo.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "feed",
+  "ipa": "/fiːd/",
+  "mean": "to give food (e.g., to an animal or a baby)",
+  "ex": "Don't feed the animals at the zoo.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=feed",
+  "link": "https://lexkite.com/app/#/review?w=feed",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 45,
+  "seconds": 27.2,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "What does \"feed\" mean?",
+  "keyword": "feed",
+  "value": "Feed means to give food (e.g., to an animal or a baby).",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=feed",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"feed\" mean?",
+    "description": "Feed means to give food (e.g., to an animal or a baby).\n\nReview your words, free: https://lexkite.com/app/#/review?w=feed\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "feed",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"feed\" mean?\n\nFeed means to give food (e.g., to an animal or a baby).\n\nReview your words, free: https://lexkite.com/app/#/review?w=feed"
+   },
+   "instagram": {
+    "caption": "What does \"feed\" mean?\n\nFeed means to give food (e.g., to an animal or a baby).\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"feed\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means to give food (e.g., to an animal or a baby). Feed means to give food (e.g., to an animal or a baby). Practice it with a free quiz: {link}"
+ }
+}

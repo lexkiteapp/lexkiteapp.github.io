@@ -47,6 +47,8 @@ Dalam panduan praktis ini, Anda akan mempelajari cara membaca 44 simbol IPA, men
 
 Bahasa Indonesia memiliki korespondensi huruf-ke-bunyi yang sangat teratur: huruf 'a' hampir selalu berbunyi [a]. Namun dalam bahasa Inggris, satu huruf bisa menghasilkan belasan variasi bunyi tergantung konteks suku katanya.
 
+Artikel terkait: [panduan latihan pelafalan bahasa Inggris mandiri](/id/blog/cara-latihan-pelafalan-bahasa-inggris/).
+
 Bagi pembelajar asal Indonesia, menguasai IPA mengatasi empat kesalahan umum:
 
 1. **Tidak membedakan vokal pendek dan panjang**: Pasangan kata seperti *ship* /ʃɪp/ (kapal) dan *sheep* /ʃiːp/ (domba), atau *fit* /fɪt/ dan *feet* /fiːt/ sering tertukar karena bahasa Indonesia hanya memiliki satu varian bunyi 'i'.
@@ -153,6 +155,8 @@ Uji ketepatan pelafalan Anda dan peroleh skor akurasi langsung di [latihan berbi
 {{youtube: | Saran video panduan pengucapan 44 simbol fonetik IPA bahasa Inggris}}
 
 {{cta: /#/pron | Latih pelafalan 44 simbol IPA dengan audio native speaker di Lexkite}}
+
+Tanda tekanan dalam IPA dibahas di [word stress bahasa Inggris](/id/blog/word-stress-bahasa-inggris-aturan-tekanan-kata/).
 
 ## Pertanyaan yang Sering Diajukan (FAQ)
 

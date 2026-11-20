@@ -1,0 +1,23 @@
+/* UI pt – resources (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["pt"] = Object.assign(D["pt"] || {}, {
+"Bài luyện, mẹo và video miễn phí từ IDP.":"Práticas gratuitas, dicas e vídeos do IDP.",
+"Bài làm quen giao diện thi trên máy (Familiarisation test) và tài liệu ôn miễn phí của Hội đồng Anh.":"Familiarisation test do British Council para a interface fornecida por computador, além de materiais de preparação gratuitos.",
+"Bài nói chủ đề học thuật có phụ đề – bật add-on Lexkite trên YouTube để tra từ trong phụ đề.":"Palestras sobre temas acadêmicos com legendas – ative o complemento Lexkite no YouTube para procurar palavras nas legendas.",
+"Bài đọc, nghe, ngữ pháp theo trình độ A1–C1 – có bài tập tương tác.":"Leitura, compreensão auditiva e gramática por nível, A1–C1 – com exercícios interativos.",
+"Làm quen thi trên máy tính":"Acostume-se com o IELTS ministrado por computador",
+"Nghe 1 bài BBC 6 Minute English hoặc 1 video TED có phụ đề – tra từ trong phụ đề bằng add-on.":"Ouça 1 episódio de 6 minutos em inglês da BBC ou 1 palestra TED legendada – procure palavras nas legendas com o complemento.",
+"Nghe một từ được người bản xứ phát âm trong hàng nghìn video thật.":"Ouça qualquer palavra pronunciada por falantes nativos em milhares de vídeos reais.",
+"Nói lại nội dung vừa nghe/đọc trong 1 phút ở Phòng Speaking.":"Reconte o que você acabou de ouvir ou ler em 1 minuto na sala de conversação.",
+"Nộp đoạn viết để nhận phản hồi tự động miễn phí (cấp độ CEFR).":"Envie sua redação para feedback automatizado gratuito (nível CEFR).",
+"Thói quen “tắm ngôn ngữ” 20 phút/ngày":"Um hábito de imersão diária de 20 minutos",
+"Tin tức đọc chậm, rõ (giọng Mỹ) kèm bản chữ.":"As notícias são lidas lenta e claramente (sotaque americano) com transcrições.",
+"Tài nguyên miễn phí chính thống":"Recursos gratuitos confiáveis",
+"Từ điển cho người học – tra thêm ví dụ, collocation; add-on Lexkite hoạt động ngay trên trang này.":"Um dicionário do aluno – encontre mais exemplos e colocações; o complemento Lexkite funciona diretamente neste site.",
+"Ôn flashcard đúng thời điểm vàng.":"Revise seus flashcards no momento ideal.",
+"Đã chọn lọc từ các nguồn uy tín, hợp pháp. Mẹo: mở trang và dùng add-on Lexkite để <b>bấm đúp tra từ, bôi đen dịch câu</b> – mọi từ mới tự vào thư viện “Từ trang web”.":"Escolhidos a dedo em fontes legais e respeitáveis. Dica: abra um site e use o complemento Lexkite para <b>clicar duas vezes para procurar palavras e destacar para traduzir frases</b> – novas palavras vão direto para sua biblioteca “De sites”.",
+"Đề mẫu chính thức IELTS":"Testes de amostra oficiais do IELTS",
+"Đề mẫu cả 4 kỹ năng từ đơn vị tổ chức thi – dùng để làm quen dạng bài thật.":"Exemplos de perguntas para todas as 4 habilidades do fornecedor do teste – familiarize-se com os tipos de perguntas reais.",
+"Đọc 1 bài trong Lexkite hoặc LearnEnglish – lưu 3–5 từ kèm câu gốc.":"Leia 1 passagem no Lexkite ou LearnEnglish – salve de 3 a 5 palavras com suas frases originais.",
+"“6 Minute English”, tin tức chậm – tuyệt vời để “tắm ngôn ngữ” mỗi ngày.":"“6 Minute English” e notícias lentas – ótimo para imersão diária no idioma.",
+});
+})(typeof self !== 'undefined' ? self : this);

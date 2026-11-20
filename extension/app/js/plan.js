@@ -17,7 +17,7 @@
   const MK = ['{title} – câu {n}: {q}', '{title} – Câu {n}: {q}', 'Test {t} – Câu {n}: {q}', 'Thi thử – câu {n}: {q}', 'Từ tiếng Anh nghĩa là “{vi}”?', 'Điền từ: {sentence}', 'Nghĩa của “{word}”?', 'Gõ lại từ bạn nghe được', '(bỏ trống)', 'Nghe: “…{cue}…”', 'Tham khảo: “…{cue}…”'];
   const unkey = s => {
     const D = window.I18N_DICT || {};
-    for (const k of MK) for (const pat of new Set([k, D.en && D.en[k], D[I18N.lang()] && D[I18N.lang()][k]].filter(Boolean))) {
+    for (const k of MK) for (const pat of new Set([k, D.en && D.en[k], (I18N.tr ? I18N.tr(I18N.lang(), k) : D[I18N.lang()] && D[I18N.lang()][k])].filter(Boolean))) {
       const names = []; const re = new RegExp('^' + pat.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/\\\{(\w+)\\\}/g, (m, n) => { names.push(n); return '([\\s\\S]*?)'; }) + '$');
       const m = re.exec(s); if (m) return { k, v: Object.fromEntries(names.map((n, i) => [n, m[i + 1]])) };
     }
@@ -61,18 +61,16 @@
     v.tip = tip;
     return v;
   };
-  // Thao tác sổ lỗi dùng CHUNG cho trang cũ và khung Stitch v2 (web/js/ux1-mistakes.js, cờ ux1)
-  App.mistakesOpen = async (w = p => p) => { const list = await w(Store.get('mistakes', [])); if (migrate(list)) await w(Store.set('mistakes', list)); return list.filter(x => !x.fixed); };
-  App.mistakeSettle = async (key, ok) => { const all = await Store.get('mistakes', []); const it = all.find(x => x.key === key); if (it) { if (ok) it.fixed = true; else it.n = (it.n || 1) + 1; } await Store.set('mistakes', all); }; // đúng/Đã hiểu → đã sửa · sai → +1 lần sai
-  App.mistakeClearFixed = async () => Store.set('mistakes', (await Store.get('mistakes', [])).filter(x => !x.fixed));
-  App.mistakeCheck = (input, answer) => (window.QE && QE.norm ? QE.norm(input) === QE.norm(answer) : String(input).trim().toLowerCase() === String(answer).trim().toLowerCase());
   routes.mistakes = App.guard(async function (arg, query) {
     const w = App.W;
     const retry = !!(query && query.get && query.get('retry'));
-    const open = await App.mistakesOpen(w);
+    if (query && query.get && query.get('variant')) return App.lazy('mvar').then(() => MVar.run());
+    const list = await w(Store.get('mistakes', []));
+    if (migrate(list)) await w(Store.set('mistakes', list));
+    const open = list.filter(x => !x.fixed);
     view.innerHTML = `
       <div class="page-head"><div><h1>${UI.icon('book-x')} ${t('Sổ lỗi sai')}</h1><p class="muted">${t('Mọi câu bạn làm sai đều được ghi lại tự động. Ôn lại lỗi sai là cách tăng điểm nhanh nhất – xem lại vì sao sai rồi đánh dấu “Đã hiểu”.')}</p></div>
-        <div class="row">${open.length ? (retry ? `<a class="btn" href="#/mistakes">${UI.icon('clipboard-list')} ${t('Xem danh sách')}</a>` : `<a class="btn primary" href="#/mistakes?retry=1">${UI.icon('repeat')} ${t('Làm lại lỗi sai')}</a>`) : ''}${open.length ? `<a class="btn" href="#/practice/learn?src=forgetting">🧠 ${t('Ôn từ sắp quên')}</a>` : ''}<button class="btn sm" id="clearFixed">${t('Dọn lỗi đã sửa')}</button></div></div>
+        <div class="row">${open.length ? (retry ? `<a class="btn" href="#/mistakes">${UI.icon('clipboard-list')} ${t('Xem danh sách')}</a>` : `<a class="btn primary" href="#/mistakes?retry=1">${UI.icon('repeat')} ${t('Làm lại lỗi sai')}</a>`) : ''}${open.length ? `<a class="btn" href="#/mistakes?variant=1">${UI.icon('puzzle')} ${t('Mini-test biến thể')}</a>` : ''}${open.length ? `<a class="btn" href="#/practice/learn?src=forgetting">🧠 ${t('Ôn từ sắp quên')}</a>` : ''}<button class="btn sm" id="clearFixed">${t('Dọn lỗi đã sửa')}</button></div></div>
       <div class="tabs" style="display:inline-flex;margin-bottom:1rem" id="mTabs"><button class="on" data-k="">${t('Tất cả ({n})', { n: open.length })}</button>${Object.entries(KIND()).map(([k, [e, n]]) => `<button data-k="${k}">${e} ${n} (${open.filter(x => x.kind === k).length})</button>`).join('')}</div>
       <div id="mList"></div>`;
     const draw = k => {
@@ -95,7 +93,9 @@
       App.bindCommon(); UI.fillIpa($('#mList'));
       // Làm lại: tự nhớ đáp án trước khi xem (active recall) → đúng thì gỡ khỏi sổ, sai thì tăng số lần sai
       const settle = async (card, key, ok) => {
-        await App.mistakeSettle(key, ok);
+        const all = await Store.get('mistakes', []); const it = all.find(x => x.key === key);
+        if (it) { if (ok) it.fixed = true; else it.n = (it.n || 1) + 1; }
+        await Store.set('mistakes', all);
         if (ok) { App.reward({ xp: 3 }, card); Sfx.correct(); card.style.opacity = '.5'; setTimeout(() => card.remove(), 600); } else Sfx.wrong();
       };
       $$('[data-rt]').forEach(box => {
@@ -103,18 +103,19 @@
         const reveal = () => { ans.hidden = false; box.hidden = true; };
         const show = $('[data-show]', box); if (show) show.onclick = reveal;
         const chk = $('[data-chk]', box), inp = $('[data-in]', box);
-        if (chk) { const go = () => { const ok = App.mistakeCheck(inp.value, it.answer); reveal(); const self = $('[data-self]', card); if (self) self.hidden = true; settle(card, key, ok); }; chk.onclick = go; inp.onkeydown = e => { if (e.key === 'Enter') go(); }; }
+        if (chk) { const go = () => { const ok = window.QE && QE.norm ? QE.norm(inp.value) === QE.norm(it.answer) : inp.value.trim().toLowerCase() === String(it.answer).trim().toLowerCase(); reveal(); const self = $('[data-self]', card); if (self) self.hidden = true; settle(card, key, ok); }; chk.onclick = go; inp.onkeydown = e => { if (e.key === 'Enter') go(); }; }
         const okB = $('[data-ok]', card), noB = $('[data-no]', card);
         if (okB) okB.onclick = () => settle(card, key, true);
         if (noB) noB.onclick = () => { settle(card, key, false); $('[data-self]', card).hidden = true; };
       });
       $$('[data-fix]').forEach(b => b.onclick = async () => {
-        await App.mistakeSettle(b.dataset.fix, true); App.reward({ xp: 2 }, b); b.closest('.card').remove();
+        const all = await Store.get('mistakes', []); const it = all.find(x => x.key === b.dataset.fix); if (it) it.fixed = true;
+        await Store.set('mistakes', all); App.reward({ xp: 2 }, b); b.closest('.card').remove();
       });
     };
     draw('');
     $$('#mTabs button').forEach(b => b.onclick = () => { $$('#mTabs button').forEach(x => x.classList.toggle('on', x === b)); draw(b.dataset.k); });
-    $('#clearFixed').onclick = async () => { await App.mistakeClearFixed(); toast(t('Đã dọn')); };
+    $('#clearFixed').onclick = async () => { await Store.set('mistakes', (await Store.get('mistakes', [])).filter(x => !x.fixed)); toast(t('Đã dọn')); };
   });
 
   // KIỂM TRA ĐẦU VÀO (#/placement): js/placement.js – tải lười, ước tính thích ứng + khoảng band.
@@ -122,14 +123,16 @@
   // ================= KẾ HOẠCH HÔM NAY (1 kế hoạch duy nhất, theo kỳ thi) =================
   // Thứ tự ưu tiên: Ngày N của lộ trình (gồm ôn nhanh từ đến hạn) → kiểm tra đầu vào (nhảy cóc) → ôn thẻ đến hạn → sửa lỗi sai → 1 bài kỹ năng theo kỳ thi (xoay vòng theo ngày).
   // Không tải gói nặng ở trang chủ: dữ liệu có sẵn thì gợi ý đúng bài, chưa có thì dẫn tới trang danh sách.
+  // Đếm ẩn danh vòng thói quen trang chủ (hit.js HAB_EV): mỗi máy 1 lượt/ngày/sự kiện, chỉ số đếm, tôn trọng lk.noTrack
+  App.habTrack = ev => { try { if (/[?&](sandbox|demo)=/.test(location.search) || navigator.webdriver) return; /* demo/sandbox/trình duyệt tự động không đo (tránh beacon 503 trong ext-e2e) */ const k = 'lk.hab.' + ev, d = todayKey(); if (localStorage.getItem('lk.noTrack') === '1' || localStorage.getItem(k) === d) return; localStorage.setItem(k, d); const u = (/(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname) ? '' : 'https://lexkite.com') + '/api/hit', b = JSON.stringify({ t: 'q', ev }); navigator.sendBeacon ? navigator.sendBeacon(u, b) : fetch(u, { method: 'POST', body: b, keepalive: true, mode: 'no-cors' }).catch(() => {}); } catch (e) { /* bỏ qua */ } };
   App.todayPlan = async function () {
     const s = state.settings, g = state.game, d = g.days[todayKey()] || {};
     const ex = App.exam ? App.exam() : 'ielts', dow = new Date().getDay();
     const tasks = [];
-    if (!s.placement) tasks.push({ em: '🧭', t: t('Làm bài kiểm tra đầu vào (5 phút)'), sub: t('Để Lexkite cá nhân hóa lộ trình cho bạn'), href: '#/placement', mins: 5, done: false });
-    const { total } = Cards.dueCount(state.cards, s, state.stats);
+    if (!s.placement) tasks.push({ em: '🧭', t: t('Làm bài kiểm tra đầu vào'), sub: t('Để Lexkite cá nhân hóa lộ trình cho bạn'), href: '#/placement', mins: 5, done: false });
+    const { total, due: dueOld, newCount } = Cards.dueCount(state.cards, s, state.stats);
     const gold = Golden.dueNow(state.cards), doneReviews = state.stats.days[todayKey()] || 0;
-    if (total || doneReviews) tasks.push({ em: '🔁', t: total ? t('Ôn {n} thẻ', { n: total }) : t('Ôn tập thẻ đến hạn'), sub: gold ? t('{n} thẻ đang ở thời điểm vàng – sắp quên', { n: gold }) : t('Lặp lại ngắt quãng – ưu tiên số 1'), href: '#/review', mins: Math.max(2, Math.ceil(total / 6)), done: !total && doneReviews > 0 });
+    if (total || doneReviews) tasks.push({ em: '🔁', t: !total ? t('Ôn tập thẻ đến hạn') : dueOld ? t('Ôn {n} thẻ', { n: total }) : t('{n} từ mới', { n: newCount }), sub: gold ? t('{n} thẻ đang ở thời điểm vàng – sắp quên', { n: gold }) : t('Lặp lại ngắt quãng – ưu tiên số 1'), href: '#/review', mins: Math.max(2, Math.ceil(total / 6)), done: !total && doneReviews > 0 });
     // Sau kiểm tra đầu vào: kỹ năng yếu hơn được ưu tiên ngay sau ôn tập (lộ trình đã mở từ chặng gợi ý – path.js)
     const pl = s.placement, why = t('Ưu tiên theo bài kiểm tra đầu vào');
     const weak = !pl ? '' : pl.weak || (pl.vocab != null && pl.grammar != null ? (pl.vocab <= pl.grammar ? 'vocab' : 'grammar') : ''); // bản ghi cũ (v1): % đúng từng kỹ năng
@@ -145,6 +148,7 @@
       if (cur) tasks.push({ em: cur.topic.emoji, t: t('Học bài: {name}', { name: cur.topic.name }), sub: `${cur.stage.name} · ${t('đã học {pct}%', { pct: Math.round(cur.pct * 100) })}`, href: pn.href, mins: 8, done: (d.newWords || 0) >= 5, focus: weak === 'vocab' ? 'vocab' : '' }); }
     const mistakes = (await Store.get('mistakes', [])).filter(x => !x.fixed).length;
     if (mistakes) tasks.push({ em: '📕', t: t('Làm lại {n} lỗi sai', { n: mistakes }), sub: t('Tự nhớ lại đáp án – sửa lỗi = tăng điểm nhanh nhất'), href: '#/mistakes?retry=1', mins: Math.min(10, 2 + mistakes), done: false });
+    if (mistakes) { const mv = await App.lazy('mvar').then(() => MVar.todayTask()).catch(() => null); if (mv) tasks.push(mv); }
     const sk = await skillTask(ex, dow, d);
     if (sk && !tasks.some(x => x.href === sk.href)) tasks.push(sk);
     return tasks.slice(0, 5);
@@ -153,7 +157,7 @@
   async function skillTask(ex, dow, d) {
     const g = state.game;
     if (ex === 'toefl') { const [k, em, n] = TOEFL_ROT[Math.floor(Date.now() / Core.DAY) % TOEFL_ROT.length]; return { em, t: 'TOEFL · ' + n, sub: t('Bài luyện hôm nay theo đúng dạng đề 2026'), href: '#/toefl-p/' + k, mins: 10, done: false }; }
-    if (ex === 'toeic') return dow % 2 ? { em: '🎧', t: t('TOEIC Listening: 1 Part'), sub: t('Mô tả tranh, hỏi – đáp, hội thoại, bài nói'), href: '#/toeic', mins: 10, done: (d.listens || 0) > 0 } : { em: '📰', t: t('TOEIC Reading: 1 Part'), sub: t('Điền câu, điền đoạn, đọc hiểu'), href: '#/toeic', mins: 12, done: (d.quizzes || 0) > 0 };
+    if (ex === 'toeic') return dow % 2 ? { em: '🎧', t: t('TOEIC Listening: luyện 1 phần'), sub: t('Mô tả tranh, hỏi – đáp, hội thoại, bài nói'), href: '#/toeic', mins: 10, done: (d.listens || 0) > 0 } : { em: '📰', t: t('TOEIC Reading: luyện 1 phần'), sub: t('Điền câu, điền đoạn, đọc hiểu'), href: '#/toeic', mins: 12, done: (d.quizzes || 0) > 0 };
     if (ex === 'general') {
       const r = dow % 3;
       if (r === 0) return { em: '📰', t: t('Đọc 1 bài & lưu từ mới'), sub: t('Ngữ liệu vừa sức – học từ trong ngữ cảnh'), href: '#/reading', mins: 12, done: (d.readings || 0) > 0 };

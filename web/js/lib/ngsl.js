@@ -367,7 +367,7 @@ add('ngsl2', 'Từ cốt lõi 282–562', '🧱', 'Từ giao tiếp hằng ngày
 ['subject', '/ˈsʌbdʒɪkt/', 'n', 'môn học; chủ đề', 'an area of knowledge studied at school; the thing that is being talked or written about', 'Maths was my favourite subject at school.', '', '', 'A1', '📚'],
 ['class', '/klɑːs/', 'n', 'lớp học; tầng lớp', 'a group of students who are taught together; a group of people in society', 'There are twenty-five students in our class.', '', '', 'A1', '🏫', '/klæs/'],
 ['development', '/dɪˈveləpmənt/', 'n', 'sự phát triển', 'act or process of growing bigger or more advanced', 'The government supports the development of renewable energy.', '', '', 'B1', '📈'],
-['town', '/taʊn/', 'n', 'thị trấn', 'small city', 'I grew up in a small town by the sea.', '', '', 'A1', '🏘️'],
+['town', '/taʊn/', 'n', 'thị trấn', 'a place where people live and work, bigger than a village but smaller than a city', 'I grew up in a small town by the sea.', '', '', 'A1', '🏘️'],
 ['half', '/hɑːf/', 'n', 'một nửa', 'the part you get when one is divided into two; ½', 'Half of the class went on the trip.', '', '', 'A1', '🌗', '/hæf/'],
 ['minute', '/ˈmɪnɪt/', 'n', 'phút', 'unit of time equal to 60 seconds', 'The bus will arrive in five minutes.', '', '', 'A1', '⏱️', '/ˈmɪnət/'],
 ['food', '/fuːd/', 'n', 'thức ăn', 'what people and animals eat to live', 'The food at this restaurant is delicious.', '', '', 'A1', '🍲'],

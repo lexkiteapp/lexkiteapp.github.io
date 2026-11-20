@@ -52,7 +52,7 @@ publishAt: 2026-12-03T19:30:00+08:00
 2. **符合英美文化的得体社交礼仪**: 在跨文化交际中，直来直去的反对极易引起误会。使用 *« I could be wrong, but perhaps... »* 这类缓冲句式，既表达了不同看法，又显得涵养十足。
 3. **消除对话中的尴尬冷场**: 掌握自然的接话词与争取思考时间的句型，能够让你在卡壳时优雅从容地掌控谈话节奏。
 
-想要全方位提升口语实操能力，建议结合 [Lexkite口语演练室](/#/speaking) 进行针对性模拟，并在 [智能词典](/#/dict/resilient) 中随时拓展近义表达。同时，欢迎阅读我们的 [如何用英语思维思考不翻译](/zh/blog/ru-he-yong-ying-yu-si-wei-bu-fan-yi/) 以及 [商务英语演讲实用句型](/zh/blog/shang-wu-ying-yu-yan-jiang-presentation-ju-xing/)。查阅更多主题词汇请访问 [词汇学习中心](/tu-vung/)。
+想要全方位提升口语实操能力，建议结合 [Lexkite口语演练室](/#/speaking) 进行针对性模拟，并在 [智能词典](/#/dict/resilient) 中随时拓展近义表达。同时，欢迎阅读我们的 [如何用英语思维思考不翻译](/zh/blog/ru-he-yong-ying-yu-si-wei-bu-fan-yi/) 以及 [商务英语演讲实用句型](/zh/blog/shang-wu-ying-yu-yan-jiang-presentation-ju-xing/)。查阅更多主题词汇请访问 [词汇学习中心](/en/vocabulary/)。
 
 ## 1. 自然破冰：地道问候与寒暄表达
 
@@ -136,6 +136,8 @@ publishAt: 2026-12-03T19:30:00+08:00
 | **体面结束谈话** | *It was wonderful chatting with you, let's keep in touch!* | 今天聊得真开心，回头保持联系！ |
 
 如果你想在职场办公与正式邮件沟通中也写出专业地道的英文，欢迎深入阅读我们的 [商务英语邮件标准格式与范例](/zh/blog/shang-wu-ying-yu-you-jian-ge-shi/)，以及 [出境旅游常用英语口语大全](/zh/blog/chu-jing-lv-you-ying-yu-chang-yong-kou-yu/)。
+
+想把这些句型练成“自动反应”，可以读[自信开口说英语：12个日常场景](/zh/blog/zi-xin-kai-kou-shuo-ying-yu-12-ge-ri-chang-chang-jing/)。
 
 ## 场景模拟与自测小练笔
 

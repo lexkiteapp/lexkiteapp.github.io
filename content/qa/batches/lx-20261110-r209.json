@@ -1,0 +1,216 @@
+{
+ "id": "20261110-r209",
+ "source": "lexicon-expand",
+ "n": 130,
+ "checked": [
+  {
+   "id": "stubborn#adj",
+   "ok": true
+  },
+  {
+   "id": "rebuke#v",
+   "ok": true
+  },
+  {
+   "id": "boldly#adv",
+   "ok": true
+  },
+  {
+   "id": "care#v",
+   "ok": true
+  },
+  {
+   "id": "melodious#adj",
+   "ok": true
+  },
+  {
+   "id": "reorganization#n",
+   "ok": true
+  },
+  {
+   "id": "blockade#n",
+   "ok": true
+  },
+  {
+   "id": "zoologist#n",
+   "ok": true
+  },
+  {
+   "id": "rule#v",
+   "ok": true
+  },
+  {
+   "id": "workbench#n",
+   "ok": true
+  },
+  {
+   "id": "motorist#n",
+   "ok": true
+  },
+  {
+   "id": "utter#adj",
+   "ok": true
+  },
+  {
+   "id": "beware#v",
+   "ok": true
+  },
+  {
+   "id": "jump#n",
+   "ok": true,
+   "note": "1/3 nêu lỗi (về hàng duyệt): def: does not match sense jump.n.06 · ex: examples not appropriate for sense"
+  },
+  {
+   "id": "reunify#v",
+   "ok": true
+  },
+  {
+   "id": "practicality#n",
+   "ok": true
+  },
+  {
+   "id": "inflow#n",
+   "ok": true
+  },
+  {
+   "id": "epic#n",
+   "ok": true
+  },
+  {
+   "id": "vogue#n",
+   "ok": true,
+   "note": "1/3 nêu lỗi (về hàng duyệt): ex: first example unnatural ('were the vogue')"
+  },
+  {
+   "id": "methodical#adj",
+   "ok": true
+  },
+  {
+   "id": "thunder#n",
+   "ok": true
+  },
+  {
+   "id": "deep#adv",
+   "ok": false,
+   "note": "soát AI 3/3: def: definition describes adjective not adverb · ex: examples use adjective not adverb · vi: Vietnamese word is adjective not adverb"
+  },
+  {
+   "id": "anonymous#adj",
+   "ok": true
+  },
+  {
+   "id": "fallout#n",
+   "ok": true
+  },
+  {
+   "id": "variant#n",
+   "ok": true
+  },
+  {
+   "id": "township#n",
+   "ok": true
+  },
+  {
+   "id": "unconscious#adj",
+   "ok": true
+  },
+  {
+   "id": "revaluation#n",
+   "ok": true
+  },
+  {
+   "id": "plumage#n",
+   "ok": true
+  },
+  {
+   "id": "desire#v",
+   "ok": true
+  },
+  {
+   "id": "unpromising#adj",
+   "ok": true
+  },
+  {
+   "id": "attractiveness#n",
+   "ok": true
+  },
+  {
+   "id": "glorify#v",
+   "ok": true
+  },
+  {
+   "id": "incurable#adj",
+   "ok": true
+  },
+  {
+   "id": "hedgehog#n",
+   "ok": true
+  },
+  {
+   "id": "rein#n",
+   "ok": true
+  },
+  {
+   "id": "darling#n",
+   "ok": true
+  },
+  {
+   "id": "fabricate#v",
+   "ok": true,
+   "note": "1/3 nêu lỗi (về hàng duyệt): sense: wrong sense, should be fabricate.v.01"
+  },
+  {
+   "id": "ravage#n",
+   "ok": true,
+   "note": "1/3 nêu lỗi (về hàng duyệt): ex: 'A twin can save the crops...' is semantically nonsensical and unnatural; 'twin' does not logically protect crops from weather damage in this context."
+  },
+  {
+   "id": "sanction#v",
+   "ok": true,
+   "note": "1/3 nêu lỗi (về hàng duyệt): sense: wrong sense, should be sanction.v.02"
+  },
+  {
+   "id": "hack#v",
+   "ok": true
+  },
+  {
+   "id": "stipulate#v",
+   "ok": true
+  },
+  {
+   "id": "ginger#n",
+   "ok": true
+  },
+  {
+   "id": "showy#adj",
+   "ok": true
+  },
+  {
+   "id": "equal#v",
+   "ok": true,
+   "note": "1/3 nêu lỗi (về hàng duyệt): ex: 'equals' is the third-person singular form, not the headword 'equal'; examples must use the headword in its base form or clearly conjugated form matching the headword entry, but typically dictionary examples for a verb headword 'equal' should use 'equal' (e.g., 'X equals Y' is acceptable if 'equal' is the lemma, but here the headword is 'equal' and the example uses 'equals'. However, the stricter issue is that 'equal' as a verb is often used in the form 'equals' in examples, which is standard. Let's re-evaluate. Actually, the main issue might be the sense. 'equal.v.01' is 'to be equal to'. The examples are correct. The Vietnamese 'bằng' is correct. The level B2 is plausible. Wait, is there a better error? Let's look at 'hack'. 'chém' is a bit strong for 'hack' (which is more like 'chặt' or 'chém' roughly). But 'chém' is acceptable. Let's look at 'stipulate'. 'quy định' is correct. 'ginger'. 'củ gừng' is correct. 'showy'. 'phô trương' is correct. 'equal'. The examples use 'equals'. In a dictionary entry for the headword 'equal', using 'equals' in the example is standard (e.g., Merriam-Webster uses 'equals'). So that is not an error. Is there any other error? Let's check 'hack' again. 'chém' implies a slashing blow. 'Hack' is a rough chop. 'chặt' is better, but 'chém' is not wrong. Let's check 'stipulate' again. 'stipulate.v.01' is 'to require as a condition'. The definition is correct. The examples are correct. The French 'stipuler' is correct. Let's check 'ginger'. 'ginger.n.03' is the plant/spice. Definition is correct. Examples are correct. Vietnamese is correct. Let's check 'showy'. 'flamboyant.s.01' is 'showy'. Definition is correct. Examples are correct. Vietnamese 'phô trương' is correct. Let's check 'equal' again. Is 'equal' a B2 word? It's quite common. Maybe B1? But C1/B2 is plausible. Is there a mistake in the sense? 'equal.v.01' is 'to be equal to'. The definition 'to have the same value as something' is correct. The examples are correct. The Vietnamese 'bằng' is correct. Wait, look at 'hack' again. 'chém' is often used for 'hack' in the sense of 'hack a computer' (hack) or 'hack' as in 'hack a tree'. But 'chém' is a bit violent. 'chặt' is more neutral for chopping. However, 'chém' is not a *wrong* word, just a specific one. Is it a *real error*? A teacher might correct it to 'chặt'. But is it a *wrong* sense? No. Is it a *non-word*? No. Is it *unnatural*? 'Tom chém his way through the jungle' is unnatural in Vietnamese. You would say 'Tom chặt đường xuyên qua rừng' or 'Tom chém đẫm...'. 'Chém' is usually for weapons or very rough chopping. 'Hack' in the jungle context is 'chặt'. So 'chém' is arguably a poor translation/unnatural. Let's flag 'vi' for hack. Also, let's look at 'equal' again. Is there a subtle error? 'Two plus two equals four.' This is a mathematical identity. 'Equal' as a verb is often used in this way. It seems fine. Let's look at 'stipulate'. 'Fees and taxes are stipulated near the end.' This is passive. 'Stipulated' is the past participle. This is fine. Let's look at 'ginger'. 'Hot peppers may also be used instead of ginger.' This is fine. Let's look at 'showy'. 'The plant bears showy red-purple flowers.' This is fine. So the most likely error is 'hack' -> 'vi'. 'Chém' is too specific/violent for the general sense of 'hack' (chop roughly). 'Chặt' is the standard equivalent. A teacher would likely correct 'chém' to 'chặt' or 'chặt phá'. So I will flag 'vi' for hack."
+  },
+  {
+   "id": "monopolist#n",
+   "ok": true
+  },
+  {
+   "id": "unafraid#adj",
+   "ok": true
+  },
+  {
+   "id": "inscrutable#adj",
+   "ok": true
+  },
+  {
+   "id": "challenge#v",
+   "ok": true
+  },
+  {
+   "id": "uncomfortably#adv",
+   "ok": true
+  }
+ ],
+ "at": "2026-11-10",
+ "status": "published"
+}

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite IELTS CBT Reading Practice</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-tertiary-fixed": "#261a00",
+            "secondary-fixed": "#ffdad3",
+            "inverse-on-surface": "#263236",
+            "background": "#091518",
+            "on-surface-variant": "#bcc9c7",
+            "surface-variant": "#2b373a",
+            "on-error": "#690005",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "surface-tint": "#6bd8ce",
+            "error-container": "#93000a",
+            "surface-bright": "#2f3b3e",
+            "primary-container": "#2ba39a",
+            "secondary-fixed-dim": "#ffb4a6",
+            "on-primary-fixed-variant": "#00504b",
+            "surface-container-highest": "#2b373a",
+            "outline": "#879391",
+            "primary": "#6bd8ce",
+            "on-surface": "#d8e5e9",
+            "tertiary-fixed": "#ffdf9e",
+            "on-secondary-fixed": "#3f0300",
+            "surface-dim": "#091518",
+            "on-primary-fixed": "#00201e",
+            "inverse-primary": "#006a64",
+            "on-error-container": "#ffdad6",
+            "tertiary-container": "#ba8b00",
+            "tertiary": "#f4bf40",
+            "on-background": "#d8e5e9",
+            "on-primary": "#003733",
+            "outline-variant": "#3d4947",
+            "on-secondary": "#660800",
+            "primary-fixed-dim": "#6bd8ce",
+            "surface-container": "#162125",
+            "primary-fixed": "#88f5ea",
+            "error": "#ffb4ab",
+            "on-tertiary-container": "#392900",
+            "on-secondary-fixed-variant": "#900f00",
+            "inverse-surface": "#d8e5e9",
+            "surface": "#091518",
+            "on-secondary-container": "#ffa493",
+            "on-primary-container": "#00322e",
+            "on-tertiary": "#402e00",
+            "surface-container-low": "#121d20",
+            "secondary": "#ffb4a6",
+            "surface-container-high": "#202c2f",
+            "secondary-container": "#981201",
+            "tertiary-fixed-dim": "#f4bf40",
+            "surface-container-lowest": "#051013"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          fontFamily: {
+            headline: ["Plus Jakarta Sans", "sans-serif"],
+            display: ["Plus Jakarta Sans", "sans-serif"],
+            body: ["Plus Jakarta Sans", "sans-serif"],
+            label: ["Plus Jakarta Sans", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #091518;
+      color: #d8e5e9;
+      -webkit-font-smoothing: antialiased;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      line-height: 1;
+      display: inline-block;
+    }
+    .material-symbols-outlined.fill-icon {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface flex flex-col items-center min-h-screen">
+<!-- Mobile Container (Max 390px, Native Shell Canvas) -->
+<main class="w-full max-w-[390px] min-h-screen flex flex-col bg-background pb-10">
+<!-- 1. Top Bar -->
+<header class="w-full px-4 pt-3 pb-3 flex items-center justify-between gap-2.5 sticky top-0 z-30 bg-background/95 backdrop-blur-md">
+<!-- Close Button -->
+<button aria-label="Close Practice" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full bg-[#12252A] border border-[#1D363D] shadow-[0_3px_0_#050F12] flex items-center justify-center text-[#2DD4BF] active:translate-y-[2px] active:shadow-none transition-transform duration-100" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="close">close</span>
+</button>
+<!-- Central Progress Card -->
+<div class="flex-1 bg-[#0E1E22] border border-[#1D363D] shadow-[0_3px_0_#050F12] rounded-xl px-2.5 py-1.5 flex flex-col justify-center">
+<div class="flex items-center justify-between text-[11px] font-extrabold tracking-wide text-white uppercase">
+<span>READING 14 OF 26</span>
+<span class="flex items-center gap-0.5 text-[#F59E0B]">
+<span class="material-symbols-outlined text-[13px] fill-icon" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>5</span>
+</span>
+</div>
+<!-- Progress Track -->
+<div class="w-full h-2 bg-[#1A343A] rounded-full mt-1.5 overflow-hidden flex">
+<div class="h-full bg-[#14B8A6] rounded-l-full w-[54%]"></div>
+<div class="h-full bg-[#F59E0B] w-[8%]"></div>
+</div>
+</div>
+<!-- Right Pill -->
+<div class="h-11 min-h-[44px] px-2.5 rounded-xl bg-[#0E1E22] border border-[#1D363D] shadow-[0_3px_0_#050F12] flex items-center gap-1.5">
+<span class="bg-[#0C2E32] text-[#2DD4BF] font-extrabold text-[10px] px-1.5 py-0.5 rounded tracking-wider">CBT</span>
+<div class="flex items-center gap-1 text-white font-bold text-xs pl-0.5">
+<span class="material-symbols-outlined text-[14px] text-[#A3BFC4]" data-icon="timer">timer</span>
+<span>38:12</span>
+</div>
+<button class="text-[10px] font-extrabold text-[#95AFB4] hover:text-white uppercase ml-0.5 tracking-wider active:scale-95 transition-transform" type="button">
+          HIDE
+        </button>
+</div>
+</header>
+<!-- Main Content Stream -->
+<div class="px-4 flex flex-col gap-3.5 mt-1">
+<!-- 2. Coach Ama IELTS Tip Card -->
+<section class="bg-[#0E1E22] border border-[#1D363D] shadow-[0_4px_0_#050F12] rounded-2xl p-3.5 flex gap-3 items-start">
+<!-- Empty dashed teacher slot (No face/person) -->
+<div class="teacher-slot shrink-0 w-14 h-14 rounded-2xl border-2 border-dashed border-[#14B8A6]/60 bg-[#0C2428] flex items-center justify-center">
+<span class="material-symbols-outlined text-2xl text-[#2DD4BF]" data-icon="school">school</span>
+</div>
+<div class="flex-1 flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-[#F59E0B] inline-block animate-pulse"></span>
+<span class="text-[11px] font-extrabold uppercase tracking-wide text-[#A3BFC4]">COACH AMA • IELTS TIP</span>
+</div>
+<span class="text-[9px] font-extrabold tracking-wider bg-[#0C2E32] border border-[#14B8A6] text-[#2DD4BF] px-1.5 py-0.5 rounded-full uppercase">
+              HIGH-SCORING
+            </span>
+</div>
+<p class="text-[13px] font-medium leading-snug text-white/95 mt-0.5">
+            Remember: <span class="font-extrabold text-[#FB7185]">FALSE</span> means the text states the direct opposite. If it's not mentioned at all, pick <span class="font-extrabold text-[#2DD4BF]">NOT GIVEN</span>!
+          </p>
+</div>
+</section>
+<!-- 3. Academic Stimulus Card ("The Termite Mound Architecture") -->
+<article class="bg-[#0E1E22] border border-[#1D363D] shadow-[0_4px_0_#050F12] rounded-2xl p-4 flex flex-col gap-3">
+<!-- Header row -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="bg-[#0D5E58] text-white text-[10px] font-extrabold tracking-wider px-2 py-0.5 rounded-md uppercase">
+              ACADEMIC STIMULUS
+            </span>
+<span class="text-[12px] font-bold text-[#95AFB4]">Passage 2</span>
+</div>
+<button class="min-h-[32px] px-2.5 py-1 rounded-lg bg-[#12252A] border border-[#2DD4BF] text-[#2DD4BF] text-[11px] font-bold flex items-center gap-1 active:translate-y-[1px] transition-transform" type="button">
+<span class="material-symbols-outlined text-[13px]" data-icon="edit">edit</span>
+            Highlight: On
+          </button>
+</div>
+<!-- Title -->
+<h2 class="text-white text-[19px] font-extrabold tracking-tight leading-snug">
+          The Termite Mound Architecture
+        </h2>
+<!-- Paragraph [A] & [B] container -->
+<div class="bg-[#0A171A] border border-[#1A343A] rounded-xl p-3 flex flex-col gap-3 text-[13px] leading-relaxed text-[#E2E8F0]">
+<!-- Paragraph A -->
+<div>
+<span class="font-extrabold text-[#2DD4BF] mr-1">[A]</span>
+            Biomimetic structural engineering draws extensively from subterranean nest mounds constructed by
+            <span class="bg-[#3D2800] text-[#FDE68A] font-semibold px-1 rounded inline">Macrotermes colonies</span>.
+            These towering earthen chimney spires maintain internal chamber equilibrium at exactly 30.5°C despite external savannah variances shifting from near-freezing dawn to scorched noon temperatures exceeding 42°C.
+          </div>
+<!-- Paragraph B -->
+<div>
+<span class="font-extrabold text-[#2DD4BF] mr-1">[B]</span>
+            Architect Mick Pearce famously translated these self-regulating convective thermal siphons when planning the Eastgate Centre commercial complex in Harare, Zimbabwe.
+            <span class="bg-[#3D2800] border border-[#F59E0B]/40 text-[#FDE68A] font-medium px-1 rounded inline">Traditional synthetic cladding was completely bypassed</span>
+            in favor of porous local porous stone facades and passive subterranean duct dampers, cutting conventional HVAC power consumption by upwards of 35 percent.
+          </div>
+</div>
+<!-- Footer -->
+<div class="flex items-center justify-between pt-1">
+<span class="text-[11px] font-semibold text-[#95AFB4]">Paragraphs A–C of 6</span>
+<button class="text-[12px] font-bold text-[#2DD4BF] flex items-center gap-0.5 active:translate-y-[1px] transition-transform" type="button">
+<span>Expand full passage (680 words)</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="expand_more">expand_more</span>
+</button>
+</div>
+</article>
+<!-- 4. Questions 14–17 Section -->
+<section class="flex flex-col gap-3">
+<!-- Section Header -->
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<h3 class="text-white text-base font-extrabold tracking-tight">Questions 14–17</h3>
+<button class="min-h-[36px] px-2.5 py-1 rounded-lg bg-[#12252A] border border-[#1D363D] text-[#95AFB4] text-[11px] font-bold flex items-center gap-1 active:translate-y-[1px] transition-transform" type="button">
+<span class="material-symbols-outlined text-[14px]" data-icon="flag">flag</span>
+              Review
+            </button>
+</div>
+<div class="flex items-center justify-between">
+<p class="text-[12px] text-[#95AFB4] font-medium">Choose the correct answer according to the stimulus.</p>
+<span class="bg-[#332205] border border-[#F59E0B]/50 text-[#FBBF24] text-[9px] font-extrabold px-2 py-0.5 rounded-full uppercase tracking-wider">
+              TRUE / FALSE / NOT GIVEN
+            </span>
+</div>
+</div>
+<!-- Question 14 Card -->
+<div class="bg-[#0E1E22] border border-[#1D363D] shadow-[0_4px_0_#050F12] rounded-2xl p-4 flex flex-col gap-3">
+<div class="flex items-start gap-2.5">
+<span class="w-6 h-6 min-w-[24px] rounded-full bg-[#0D5E58] text-white text-[12px] font-extrabold flex items-center justify-center shrink-0 mt-0.5">
+              14
+            </span>
+<p class="text-[13px] font-semibold text-white leading-snug">
+              Harare's Eastgate Centre relies primarily on organic termite blueprints rather than electric HVAC refrigeration.
+            </p>
+</div>
+<!-- Options Grid -->
+<div class="grid grid-cols-3 gap-2 pt-1">
+<!-- TRUE (Selected) -->
+<button class="min-h-[44px] rounded-xl bg-[#0C2E32] border-2 border-[#14B8A6] shadow-[0_3px_0_#062326] text-[#2DD4BF] text-[12px] font-extrabold flex items-center justify-center gap-1.5 active:translate-y-[1px] transition-all" type="button">
+<span>TRUE</span>
+<span class="w-1.5 h-1.5 rounded-full bg-[#2DD4BF]"></span>
+</button>
+<!-- FALSE -->
+<button class="min-h-[44px] rounded-xl bg-[#12252A] border border-[#1D363D] shadow-[0_3px_0_#050F12] text-[#E2E8F0] text-[12px] font-bold flex items-center justify-center active:translate-y-[1px] transition-all hover:border-[#2DD4BF]/40" type="button">
+              FALSE
+            </button>
+<!-- NOT GIVEN -->
+<button class="min-h-[44px] rounded-xl bg-[#12252A] border border-[#1D363D] shadow-[0_3px_0_#050F12] text-[#E2E8F0] text-[11px] font-bold flex items-center justify-center active:translate-y-[1px] transition-all hover:border-[#2DD4BF]/40" type="button">
+              NOT GIVEN
+            </button>
+</div>
+</div>
+<!-- Question 15 Card -->
+<div class="bg-[#0E1E22] border border-[#1D363D] shadow-[0_4px_0_#050F12] rounded-2xl p-4 flex flex-col gap-3">
+<div class="flex items-start gap-2.5">
+<span class="w-6 h-6 min-w-[24px] rounded-full bg-[#0D5E58] text-white text-[12px] font-extrabold flex items-center justify-center shrink-0 mt-0.5">
+              15
+            </span>
+<p class="text-[13px] font-semibold text-white leading-snug">
+              The project architects spent over three years observing termite species prior to commencing construction.
+            </p>
+</div>
+<!-- Options Grid -->
+<div class="grid grid-cols-3 gap-2 pt-1">
+<!-- TRUE -->
+<button class="min-h-[44px] rounded-xl bg-[#12252A] border border-[#1D363D] shadow-[0_3px_0_#050F12] text-[#E2E8F0] text-[12px] font-bold flex items-center justify-center active:translate-y-[1px] transition-all hover:border-[#2DD4BF]/40" type="button">
+              TRUE
+            </button>
+<!-- FALSE -->
+<button class="min-h-[44px] rounded-xl bg-[#12252A] border border-[#1D363D] shadow-[0_3px_0_#050F12] text-[#E2E8F0] text-[12px] font-bold flex items-center justify-center active:translate-y-[1px] transition-all hover:border-[#2DD4BF]/40" type="button">
+              FALSE
+            </button>
+<!-- NOT GIVEN (Selected) -->
+<button class="min-h-[44px] rounded-xl bg-[#0C2E32] border-2 border-[#14B8A6] shadow-[0_3px_0_#062326] text-[#2DD4BF] text-[11px] font-extrabold flex items-center justify-center gap-1 active:translate-y-[1px] transition-all" type="button">
+<span>NOT GIVEN</span>
+<span class="w-1.5 h-1.5 rounded-full bg-[#2DD4BF]"></span>
+</button>
+</div>
+</div>
+<!-- Bottom Links -->
+<div class="flex items-center justify-between px-1">
+<span class="text-[12px] font-semibold text-[#95AFB4]">Question 16 &amp; 17 below</span>
+<button class="text-[12px] font-extrabold text-[#2DD4BF] flex items-center gap-0.5 active:translate-y-[1px] transition-transform" type="button">
+<span>Next Question</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</section>
+<!-- 5. Passage 2 Navigator -->
+<section class="bg-[#0E1E22] border border-[#1D363D] shadow-[0_4px_0_#050F12] rounded-2xl p-4 flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<h4 class="text-white text-xs font-extrabold tracking-wider uppercase">PASSAGE 2 NAVIGATOR</h4>
+<span class="bg-[#0C2E32] text-[#2DD4BF] text-[11px] font-bold px-2 py-0.5 rounded-full">
+            4 of 13 answered
+          </span>
+</div>
+<!-- Navigator Pills 14–20 -->
+<div class="flex items-center justify-between gap-1.5 pt-0.5">
+<!-- 14: Answered -->
+<button class="w-10 h-10 min-w-[40px] rounded-xl bg-[#0D5E58] text-white text-[12px] font-extrabold flex items-center justify-center shadow-[0_2px_0_#063330] active:translate-y-[1px]" type="button">
+            14
+          </button>
+<!-- 15: Answered -->
+<button class="w-10 h-10 min-w-[40px] rounded-xl bg-[#0D5E58] text-white text-[12px] font-extrabold flex items-center justify-center shadow-[0_2px_0_#063330] active:translate-y-[1px]" type="button">
+            15
+          </button>
+<!-- 16: Active / Current with indicator dot -->
+<button class="w-10 h-10 min-w-[40px] rounded-xl bg-[#12252A] border-2 border-[#F59E0B] text-[#F59E0B] text-[12px] font-extrabold flex flex-col items-center justify-center relative shadow-[0_2px_0_#050F12] active:translate-y-[1px]" type="button">
+<span>16</span>
+<span class="w-1 h-1 rounded-full bg-[#F59E0B] absolute bottom-1"></span>
+</button>
+<!-- 17: Pending -->
+<button class="w-10 h-10 min-w-[40px] rounded-xl bg-[#12252A] border border-[#1D363D] text-[#95AFB4] text-[12px] font-bold flex items-center justify-center shadow-[0_2px_0_#050F12] active:translate-y-[1px]" type="button">
+            17
+          </button>
+<!-- 18: Pending -->
+<button class="w-10 h-10 min-w-[40px] rounded-xl bg-[#12252A] border border-[#1D363D] text-[#95AFB4] text-[12px] font-bold flex items-center justify-center shadow-[0_2px_0_#050F12] active:translate-y-[1px]" type="button">
+            18
+          </button>
+<!-- 19: Pending -->
+<button class="w-10 h-10 min-w-[40px] rounded-xl bg-[#12252A] border border-[#1D363D] text-[#95AFB4] text-[12px] font-bold flex items-center justify-center shadow-[0_2px_0_#050F12] active:translate-y-[1px]" type="button">
+            19
+          </button>
+<!-- 20: Pending -->
+<button class="w-10 h-10 min-w-[40px] rounded-xl bg-[#12252A] border border-[#1D363D] text-[#95AFB4] text-[12px] font-bold flex items-center justify-center shadow-[0_2px_0_#050F12] active:translate-y-[1px]" type="button">
+            20
+          </button>
+</div>
+</section>
+<!-- 6. Bottom Action Area -->
+<footer class="pt-2 flex flex-col items-center gap-2.5">
+<!-- Sunny orange primary CTA button -->
+<button class="w-full h-14 min-h-[56px] rounded-2xl bg-[#F59E0B] text-[#1C1003] text-base font-extrabold tracking-wide shadow-[0_4px_0_#9A3412] flex items-center justify-center gap-2 active:translate-y-[3px] active:shadow-[0_1px_0_#9A3412] transition-all duration-100" type="button">
+<span>Save &amp; Next Question</span>
+<span class="material-symbols-outlined text-[20px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<!-- Guarantee subtext -->
+<div class="flex items-center gap-1.5 text-[11px] font-semibold text-[#95AFB4]">
+<span class="material-symbols-outlined text-[15px] text-[#2DD4BF]" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>Autosaves answers every 10 seconds</span>
+</div>
+</footer>
+</div>
+</main>
+</body></html>

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite — Irregular Verbs</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "tertiary-container": "#b03224",
+            "surface-container-high": "#f0e7de",
+            "surface-container": "#f6ece4",
+            "on-surface-variant": "#3f4947",
+            "on-secondary-container": "#663b00",
+            "outline-variant": "#bec9c7",
+            "on-primary": "#ffffff",
+            "tertiary-fixed": "#ffdad4",
+            "outline": "#6f7978",
+            "inverse-on-surface": "#f9efe6",
+            "inverse-surface": "#34302a",
+            "primary-container": "#136b66",
+            "on-tertiary": "#ffffff",
+            "on-error": "#ffffff",
+            "tertiary-fixed-dim": "#ffb4a8",
+            "surface-bright": "#fff8f3",
+            "on-tertiary-fixed-variant": "#8c170e",
+            "primary": "#00514d",
+            "tertiary": "#8e190f",
+            "on-primary-fixed-variant": "#00504c",
+            "on-tertiary-fixed": "#410000",
+            "error": "#ba1a1a",
+            "on-secondary-fixed": "#2c1600",
+            "error-container": "#ffdad6",
+            "surface-dim": "#e2d8d0",
+            "primary-fixed": "#a4f0e9",
+            "background": "#fff8f3",
+            "secondary-fixed-dim": "#ffb86c",
+            "on-surface": "#1f1b16",
+            "on-error-container": "#93000a",
+            "on-secondary-fixed-variant": "#683c00",
+            "inverse-primary": "#88d4cd",
+            "secondary": "#895100",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-highest": "#eae1d8",
+            "primary-fixed-dim": "#88d4cd",
+            "surface-tint": "#106a65",
+            "surface-container-low": "#fcf2e9",
+            "secondary-fixed": "#ffdcbc",
+            "surface": "#fff8f3",
+            "on-tertiary-container": "#ffd0c9",
+            "on-secondary": "#ffffff",
+            "on-background": "#1f1b16",
+            "secondary-container": "#fe9d19",
+            "surface-variant": "#eae1d8",
+            "on-primary-container": "#9ce9e2",
+            "on-primary-fixed": "#00201e"
+          },
+          borderRadius: {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          fontFamily: {
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-xl-mobile": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "headline-xl": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "mono": ["JetBrains Mono", "monospace"]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      font-size: 20px;
+    }
+    .material-symbols-outlined.fill-icon {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-[#FFF8F3] text-on-surface antialiased select-none font-body-md min-h-screen">
+<!-- Mobile Container (Max 390px, edge-to-edge portrait) -->
+<main class="w-full min-h-screen max-w-[390px] mx-auto bg-[#FFF8F3] flex flex-col pb-24 relative overflow-x-hidden">
+<!-- TOP BAR -->
+<header class="w-full px-4 pt-3 pb-2.5 flex items-center justify-between sticky top-0 bg-[#FFF8F3]/95 backdrop-blur-md z-40 border-b border-[#EDE0D2]/60">
+<div class="flex items-center gap-2.5">
+<button aria-label="Go back" class="w-11 h-11 rounded-full bg-white border-2 border-[#EDE0D2] shadow-[0_2px_0_0_#DCCBBB] flex items-center justify-center text-[#141819] active:translate-y-0.5 active:shadow-none transition-all" type="button">
+<span class="material-symbols-outlined text-[22px]">arrow_back</span>
+</button>
+<div class="flex flex-col">
+<h1 class="font-headline-sm text-headline-sm leading-tight text-[#141819] tracking-tight">Irregular Verbs</h1>
+<span class="text-[11px] font-label-sm tracking-wider text-[#6B5B4E] uppercase">ALPHABET &amp; SOUNDS</span>
+</div>
+</div>
+<!-- Right status chips -->
+<div class="flex items-center gap-1.5">
+<!-- Streak chip -->
+<div class="flex items-center gap-1 bg-[#FFF1E6] border border-[#FED7AA] text-[#B45309] font-label-md text-xs px-2 py-1 rounded-full shadow-[0_1px_0_0_#FDBA74]">
+<span class="material-symbols-outlined fill-icon text-[#EA580C] text-[15px]">local_fire_department</span>
+<span>14</span>
+</div>
+<!-- XP chip -->
+<div class="flex items-center gap-1 bg-[#FEF3C7] border border-[#FDE68A] text-[#B45309] font-label-md text-xs px-2 py-1 rounded-full shadow-[0_1px_0_0_#FCD34D]">
+<span class="material-symbols-outlined fill-icon text-[#D97706] text-[15px]">star</span>
+<span>820</span>
+</div>
+<!-- User avatar chip -->
+<div aria-label="User initials" class="w-7 h-7 rounded-full bg-[#0D5E58] text-white font-label-sm text-xs flex items-center justify-center shadow-[0_1px_0_0_#063935]">
+          VM
+        </div>
+</div>
+</header>
+<!-- CONTENT BODY -->
+<div class="px-4 pt-3 flex flex-col gap-3.5">
+<!-- TEACHER COACH TIP CARD -->
+<section class="bg-white border-2 border-[#EDE0D2] rounded-3xl p-3.5 shadow-[0_4px_0_0_#DCCBBB] flex items-start gap-3">
+<!-- Teacher Slot -->
+<div class="teacher-slot flex-shrink-0 w-16 h-16 rounded-2xl border-2 border-dashed border-[#0D5E58] bg-[#E6F5F3] flex items-center justify-center"></div>
+<!-- Coach Guidance -->
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-1.5 mb-0.5">
+<span class="w-2 h-2 rounded-full bg-[#EA580C]"></span>
+<span class="font-label-sm text-[11px] tracking-wide text-[#0D5E58] uppercase">TEACHER AMA • IELTS COACH</span>
+</div>
+<p class="font-headline-sm text-base text-[#141819] leading-snug tracking-tight">“Say all three forms aloud.”</p>
+<div class="mt-2 flex items-center flex-wrap gap-2">
+<span class="bg-[#E6F5F3] text-[#0D5E58] font-label-md text-[11px] px-2.5 py-0.5 rounded-full border border-[#0D5E58]/20">
+              Focus: V2 → V3 shift
+            </span>
+<a class="inline-flex items-center gap-1 text-[#0D5E58] font-label-md text-xs hover:underline active:opacity-75" href="#tips">
+<span class="material-symbols-outlined text-[15px] fill-icon text-[#EA580C]">lightbulb</span>
+<span>Tips</span>
+<span class="text-[#6B5B4E] font-normal">•</span>
+<span class="underline decoration-[#0D5E58]/40">Rhythm cadence</span>
+</a>
+</div>
+</div>
+</section>
+<!-- CURRICULUM BENCHMARK CARD -->
+<section class="bg-white border-2 border-[#EDE0D2] rounded-3xl p-4 shadow-[0_4px_0_0_#DCCBBB] flex flex-col gap-2.5">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-xs tracking-wider text-[#6B5B4E] uppercase">CURRICULUM BENCHMARK</span>
+<span class="bg-[#E6F5F3] text-[#0D5E58] font-headline-sm text-xs px-2.5 py-0.5 rounded-xl border border-[#0D5E58]/30 shadow-[0_1px_0_0_#0D5E58]/20">
+            17%
+          </span>
+</div>
+<p class="font-headline-sm text-sm text-[#141819] tracking-tight">16 of 95 high-yield verbs mastered</p>
+<!-- Gamified Progress Bar -->
+<div class="w-full bg-[#EFE4D6] h-2.5 rounded-full overflow-hidden p-[1px] shadow-inner">
+<div class="bg-[#0D5E58] h-full rounded-full transition-all duration-500 relative" style="width: 17%;">
+<div class="absolute inset-x-0 top-0 h-[2px] bg-white/40 rounded-full"></div>
+</div>
+</div>
+<!-- Rapid recall banner pill -->
+<div class="mt-1 bg-[#FFF9EC] border border-[#FDE68A] text-[#B45309] text-xs font-label-md py-2 px-3 rounded-xl flex items-center gap-2 shadow-[0_1px_0_0_#FDE68A]">
+<span class="material-symbols-outlined text-[#EA580C] text-[18px] fill-icon">bolt</span>
+<span>5-minute rapid recall drill • +20 XP reward</span>
+</div>
+</section>
+<!-- FILTER TABS (3-part segmented control) -->
+<div class="grid grid-cols-3 gap-1.5" role="tablist">
+<!-- Tab 1 (Active) -->
+<button aria-selected="true" class="bg-[#E6F5F3] border-2 border-[#0D5E58] text-[#0D5E58] font-headline-sm text-[11px] py-2 px-1 rounded-xl shadow-[0_2px_0_0_#0D5E58] flex items-center justify-center gap-1 active:translate-y-0.5 active:shadow-none transition-all" role="tab" type="button">
+<span class="material-symbols-outlined text-[15px] fill-icon text-[#0D5E58]">star</span>
+<span class="truncate">Most common</span>
+</button>
+<!-- Tab 2 -->
+<button aria-selected="false" class="bg-white border-2 border-[#EDE0D2] text-[#6B5B4E] font-label-md text-xs py-2 px-1 rounded-xl shadow-[0_2px_0_0_#DCCBBB] hover:bg-[#FAF5EE] active:translate-y-0.5 active:shadow-none transition-all text-center" role="tab" type="button">
+          AZ A–Z
+        </button>
+<!-- Tab 3 -->
+<button aria-selected="false" class="bg-white border-2 border-[#EDE0D2] text-[#6B5B4E] font-label-md text-[11px] py-2 px-1 rounded-xl shadow-[0_2px_0_0_#DCCBBB] hover:bg-[#FAF5EE] active:translate-y-0.5 active:shadow-none transition-all flex items-center justify-center gap-1" role="tab" type="button">
+<span class="w-2 h-2 rounded-full bg-[#EA580C] flex-shrink-0"></span>
+<span class="truncate">My tricky ones (4)</span>
+</button>
+</div>
+<!-- IRREGULAR VERBS DATA TABLE / CARD LIST -->
+<section class="bg-white border-2 border-[#EDE0D2] rounded-3xl shadow-[0_4px_0_0_#DCCBBB] p-3.5 flex flex-col">
+<!-- Header row -->
+<div class="grid grid-cols-12 pb-2.5 mb-1 border-b border-[#EDE0D2] items-center text-[11px] font-label-sm tracking-wider text-[#6B5B4E] uppercase">
+<div class="col-span-3">BASE (V1)</div>
+<div class="col-span-3">PAST (V2)</div>
+<div class="col-span-4">PARTICIPLE (V3)</div>
+<div class="col-span-2 text-right pr-1">AUDIO</div>
+</div>
+<!-- Rows -->
+<div class="divide-y divide-[#F2E8DC]">
+<!-- Row 1: go -->
+<div class="grid grid-cols-12 py-2.5 items-center">
+<div class="col-span-3">
+<span class="font-headline-sm text-sm text-[#0D5E58] block">go</span>
+<span class="font-mono text-[10px] text-[#6B5B4E]">/ɡoʊ/</span>
+</div>
+<div class="col-span-3">
+<span class="font-label-md text-sm text-[#141819] block">went</span>
+<span class="font-mono text-[10px] text-[#6B5B4E]">/went/</span>
+</div>
+<div class="col-span-4 flex flex-col items-start gap-0.5">
+<span class="bg-[#E6F5F3] text-[#0D5E58] font-label-md text-xs px-2 py-0.5 rounded-lg border border-[#0D5E58]/20">
+                gone
+              </span>
+<span class="font-mono text-[10px] text-[#6B5B4E] pl-1">/ɡɒn/</span>
+</div>
+<div class="col-span-2 flex justify-end">
+<button aria-label="Listen to go pronunciation" class="w-9 h-9 rounded-full bg-[#F3EFE9] border border-[#DDD0C2] flex items-center justify-center text-[#0D5E58] shadow-[0_2px_0_0_#D3C5B5] active:translate-y-0.5 active:shadow-none transition-all" type="button">
+<span class="material-symbols-outlined text-[19px]">volume_up</span>
+</button>
+</div>
+</div>
+<!-- Row 2: buy -->
+<div class="grid grid-cols-12 py-2.5 items-center">
+<div class="col-span-3">
+<span class="font-headline-sm text-sm text-[#0D5E58] block">buy</span>
+<span class="font-mono text-[10px] text-[#6B5B4E]">/baɪ/</span>
+</div>
+<div class="col-span-3">
+<span class="font-label-md text-sm text-[#141819] block">bought</span>
+<span class="font-mono text-[10px] text-[#6B5B4E]">/bɔːt/</span>
+</div>
+<div class="col-span-4 flex flex-col items-start gap-0.5">
+<span class="bg-[#E6F5F3] text-[#0D5E58] font-label-md text-xs px-2 py-0.5 rounded-lg border border-[#0D5E58]/20">
+                bought
+              </span>
+<span class="font-mono text-[10px] text-[#6B5B4E] pl-1">/bɔːt/</span>
+</div>
+<div class="col-span-2 flex justify-end">
+<button aria-label="Listen to buy pronunciation" class="w-9 h-9 rounded-full bg-[#F3EFE9] border border-[#DDD0C2] flex items-center justify-center text-[#0D5E58] shadow-[0_2px_0_0_#D3C5B5] active:translate-y-0.5 active:shadow-none transition-all" type="button">
+<span class="material-symbols-outlined text-[19px]">volume_up</span>
+</button>
+</div>
+</div>
+<!-- Row 3: write -->
+<div class="grid grid-cols-12 py-2.5 items-center">
+<div class="col-span-3">
+<span class="font-headline-sm text-sm text-[#0D5E58] block">write</span>
+<span class="font-mono text-[10px] text-[#6B5B4E]">/raɪt/</span>
+</div>
+<div class="col-span-3">
+<span class="font-label-md text-sm text-[#141819] block">wrote</span>
+<span class="font-mono text-[10px] text-[#6B5B4E]">/roʊt/</span>
+</div>
+<div class="col-span-4 flex flex-col items-start gap-0.5">
+<span class="bg-[#E6F5F3] text-[#0D5E58] font-label-md text-xs px-2 py-0.5 rounded-lg border border-[#0D5E58]/20">
+                written
+              </span>
+<span class="font-mono text-[10px] text-[#6B5B4E] pl-1">/ˈrɪt.ən/</span>
+</div>
+<div class="col-span-2 flex justify-end">
+<button aria-label="Listen to write pronunciation" class="w-9 h-9 rounded-full bg-[#F3EFE9] border border-[#DDD0C2] flex items-center justify-center text-[#0D5E58] shadow-[0_2px_0_0_#D3C5B5] active:translate-y-0.5 active:shadow-none transition-all" type="button">
+<span class="material-symbols-outlined text-[19px]">volume_up</span>
+</button>
+</div>
+</div>
+<!-- Row 4: take -->
+<div class="grid grid-cols-12 py-2.5 items-center">
+<div class="col-span-3">
+<span class="font-headline-sm text-sm text-[#0D5E58] block">take</span>
+<span class="font-mono text-[10px] text-[#6B5B4E]">/teɪk/</span>
+</div>
+<div class="col-span-3">
+<span class="font-label-md text-sm text-[#141819] block">took</span>
+<span class="font-mono text-[10px] text-[#6B5B4E]">/tʊk/</span>
+</div>
+<div class="col-span-4 flex flex-col items-start gap-0.5">
+<span class="bg-[#E6F5F3] text-[#0D5E58] font-label-md text-xs px-2 py-0.5 rounded-lg border border-[#0D5E58]/20">
+                taken
+              </span>
+<span class="font-mono text-[10px] text-[#6B5B4E] pl-1">/ˈteɪ.kən/</span>
+</div>
+<div class="col-span-2 flex justify-end">
+<button aria-label="Listen to take pronunciation" class="w-9 h-9 rounded-full bg-[#F3EFE9] border border-[#DDD0C2] flex items-center justify-center text-[#0D5E58] shadow-[0_2px_0_0_#D3C5B5] active:translate-y-0.5 active:shadow-none transition-all" type="button">
+<span class="material-symbols-outlined text-[19px]">volume_up</span>
+</button>
+</div>
+</div>
+<!-- Row 5: speak -->
+<div class="grid grid-cols-12 py-2.5 items-center">
+<div class="col-span-3">
+<span class="font-headline-sm text-sm text-[#0D5E58] block">speak</span>
+<span class="font-mono text-[10px] text-[#6B5B4E]">/spiːk/</span>
+</div>
+<div class="col-span-3">
+<span class="font-label-md text-sm text-[#141819] block">spoke</span>
+<span class="font-mono text-[10px] text-[#6B5B4E]">/spoʊk/</span>
+</div>
+<div class="col-span-4 flex flex-col items-start gap-0.5">
+<span class="bg-[#E6F5F3] text-[#0D5E58] font-label-md text-xs px-2 py-0.5 rounded-lg border border-[#0D5E58]/20">
+                spoken
+              </span>
+<span class="font-mono text-[10px] text-[#6B5B4E] pl-1">/ˈspoʊ.kən/</span>
+</div>
+<div class="col-span-2 flex justify-end">
+<button aria-label="Listen to speak pronunciation" class="w-9 h-9 rounded-full bg-[#F3EFE9] border border-[#DDD0C2] flex items-center justify-center text-[#0D5E58] shadow-[0_2px_0_0_#D3C5B5] active:translate-y-0.5 active:shadow-none transition-all" type="button">
+<span class="material-symbols-outlined text-[19px]">volume_up</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- PRIMARY CTA BUTTON -->
+<div class="pt-1 pb-4">
+<button class="w-full bg-[#F59E0B] hover:bg-[#D97706] text-[#1C1003] font-headline-sm text-base py-3.5 px-6 rounded-2xl shadow-[0_4px_0_0_#B45309] active:translate-y-[2px] active:shadow-[0_2px_0_0_#B45309] flex items-center justify-center gap-2 transition-all" type="button">
+<span>Quiz me on 10</span>
+<span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- DOCKED BOTTOM NAVIGATION BAR (Shared Component Pattern) -->
+<nav aria-label="Main Navigation" class="fixed bottom-0 left-0 right-0 w-full z-50 bg-white/95 backdrop-blur-md border-t-2 border-[#EDE0D2] py-1.5 px-3 max-w-[390px] mx-auto shadow-[0_-3px_10px_rgba(0,0,0,0.03)]">
+<div class="flex justify-around items-center">
+<!-- Destination 1: Today -->
+<button class="flex flex-col items-center justify-center text-[#6B5B4E] px-2.5 py-1 min-w-[56px] hover:text-[#141819] active:translate-y-0.5 transition-all" type="button">
+<span class="material-symbols-outlined text-[22px]">calendar_today</span>
+<span class="font-label-sm text-[11px] mt-0.5">Today</span>
+</button>
+<!-- Destination 2: Vocab -->
+<button class="flex flex-col items-center justify-center text-[#6B5B4E] px-2.5 py-1 min-w-[56px] relative hover:text-[#141819] active:translate-y-0.5 transition-all" type="button">
+<span class="relative">
+<span class="material-symbols-outlined text-[22px]">menu_book</span>
+<span class="absolute -top-1 -right-2 bg-[#A3261B] text-white text-[9px] font-headline-sm rounded-full w-4 h-4 flex items-center justify-center border border-white">3</span>
+</span>
+<span class="font-label-sm text-[11px] mt-0.5">Vocab</span>
+</button>
+<!-- Destination 3: Skills (ACTIVE) -->
+<button class="flex flex-col items-center justify-center bg-[#E6F5F3] text-[#0D5E58] border border-[#0D5E58] rounded-2xl px-3.5 py-1 min-w-[62px] shadow-[0_2px_0_0_#0D5E58] active:translate-y-0.5 active:shadow-none transition-all" type="button">
+<span class="material-symbols-outlined text-[22px] fill-icon text-[#0D5E58]">psychology</span>
+<span class="font-headline-sm text-[11px] mt-0.5">Skills</span>
+</button>
+<!-- Destination 4: Tests -->
+<button class="flex flex-col items-center justify-center text-[#6B5B4E] px-2.5 py-1 min-w-[56px] hover:text-[#141819] active:translate-y-0.5 transition-all" type="button">
+<span class="material-symbols-outlined text-[22px]">quiz</span>
+<span class="font-label-sm text-[11px] mt-0.5">Tests</span>
+</button>
+<!-- Destination 5: Me -->
+<button class="flex flex-col items-center justify-center text-[#6B5B4E] px-2.5 py-1 min-w-[56px] hover:text-[#141819] active:translate-y-0.5 transition-all" type="button">
+<span class="material-symbols-outlined text-[22px]">person</span>
+<span class="font-label-sm text-[11px] mt-0.5">Me</span>
+</button>
+</div>
+</nav>
+</main>
+</body></html>

@@ -1,3 +1,2 @@
-/* UI ja – lvideo (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ja"] = Object.assign(D["ja"] || {}, {"Xem 20 giây":"20秒で見る","Video của ngày":"今日の動画","Video bài học":"レッスン動画","Phát video: {t}":"動画を再生：{t}","Đóng video":"動画を閉じる","Không phát được video – thử lại sau.":"動画を再生できませんでした。後でもう一度お試しください。","Câu hỏi nhanh":"クイック問題","Đúng rồi! Đã thêm vào thẻ ôn.":"正解！復習カードに追加しました。","Chưa đúng. Đáp án: {a} – đã thêm vào thẻ ôn.":"惜しい！答え：{a}。復習カードに追加しました。","Video tiếp theo":"次の動画"});
-})(typeof self !== 'undefined' ? self : this);
+/* SINH từ i18n/ui/ja/lvideo.js – đừng sửa tay (scripts/i18n-pack.mjs) */
+(function(g){const D=g.I18N_DICT=g.I18N_DICT||{};D.ja=Object.assign(D.ja||{},{_39cs:"惜しい！答え：{a}。復習カードに追加しました。",_kj2p:"動画のチャプター",_vbgs:"クイック問題",_ifv9:"動画を再生できませんでした。後でもう一度お試しください。",_djl:"動画を再生：{t}",_qfll:"レッスン動画",_46hz:"今日の動画",_yrgg:"次の動画",_nmea:"20秒で見る",_5ws0:"動画を閉じる",_k07p:"正解！復習カードに追加しました。"});})(typeof self!=='undefined'?self:this);

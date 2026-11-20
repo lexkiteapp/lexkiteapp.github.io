@@ -153,6 +153,8 @@ L'élément est-il spécifique et identifiable par les deux interlocuteurs ?
              └── NON (pluriel ou indénombrable général) ➔ Utilisez L'ARTICLE ZÉRO (Ø)
 ```
 
+Ces oublis et ces *the* en trop figurent parmi les [erreurs IELTS Writing](/fr/blog/erreurs-ielts-writing-task-1-et-2/) les plus fréquentes chez les francophones.
+
 ## Top 5 des erreurs fréquentes chez les francophones
 
 | Phrase fautive courante | Cause linguistique de l'erreur | Correction recommandée |
@@ -163,6 +165,8 @@ L'élément est-il spécifique et identifiable par les deux interlocuteurs ?
 | *I like the chocolate.* (général) | Traduction littérale de "le chocolat" | *I like chocolate.* |
 | *She has a headache.* | Formulation correcte (headache est dénombrable) | *She has a headache.* |
 
-Pour approfondir votre aisance grammaticale, découvrez nos dossiers comparatifs sur le [present perfect et le prétérit](/fr/blog/present-perfect-ou-preterit/), les [mots de liaison en anglais (linking words)](/fr/blog/mots-de-liaison-en-anglais-linking-words/), la maîtrise des [phrases conditionnelles en anglais](/fr/blog/phrases-conditionnelles-anglais-if-clauses/) et les règles de construction des [phrases complexes au Writing](/fr/blog/phrases-complexes-ielts-writing-task-2/). Vous pouvez également enrichir votre bagage lexical dans notre espace [/tu-vung/](/tu-vung/).
+Pour approfondir votre aisance grammaticale, découvrez nos dossiers comparatifs sur le [present perfect et le prétérit](/fr/blog/present-perfect-ou-preterit/), les [mots de liaison en anglais (linking words)](/fr/blog/mots-de-liaison-en-anglais-linking-words/), la maîtrise des [phrases conditionnelles en anglais](/fr/blog/phrases-conditionnelles-anglais-if-clauses/) et les règles de construction des [phrases complexes au Writing](/fr/blog/phrases-complexes-ielts-writing-task-2/). Vous pouvez également enrichir votre bagage lexical dans notre espace [/tu-vung/](/en/vocabulary/).
 
 En adoptant ce filtre mental entre généralité et spécificité, vous éliminerez naturellement l'un des tics d'écriture les plus tenaces et donnerez à vos textes une clarté authentiquement anglophone.
+
+Si vous hésitez entre un verbe et un nom, le test de l’article de notre article sur [affect ou effect](/fr/blog/affect-ou-effect-difference-anglais/) est une bonne application de cette règle.

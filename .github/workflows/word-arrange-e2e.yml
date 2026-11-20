@@ -1,0 +1,62 @@
+# ci-policy: heavy-gate – việc nặng trên PR chờ npm test xanh (job `gate`, luật 11)
+# 🧩 Xếp câu (web/js/word-arrange.js): chèn từ vào giữa câu trên Chromium + WebKit thật – scripts/test/word-arrange-e2e.mjs
+# Ảnh + video thao tác ở artifact word-arrange-<trình duyệt>. Hermetic: 0 lượt chạm prod, 0 tài khoản.
+name: Word arrange E2E
+on:
+  workflow_dispatch:
+  pull_request:
+    paths: ['web/js/word-arrange.js', 'web/js/lesson/**', 'web/js/st/lesson.js', 'web/js/grammar.js', 'web/js/toefl.js', 'web/js/i18n/en/arrange.js', 'scripts/test/word-arrange-e2e.mjs', '.github/workflows/word-arrange-e2e.yml']
+  push:
+    branches: [main]
+    paths: ['web/js/word-arrange.js', 'web/js/lesson/**', 'web/js/st/lesson.js', 'web/js/grammar.js', 'web/js/toefl.js', 'web/js/i18n/en/arrange.js', 'scripts/test/word-arrange-e2e.mjs', '.github/workflows/word-arrange-e2e.yml']
+concurrency: { group: 'word-arrange-${{ github.ref }}', cancel-in-progress: true }
+permissions: { contents: read }
+jobs:
+  # luật 11 (làn nhanh trước làn nặng, scripts/test/ci-policy.mjs): trên PR việc nặng chỉ chạy khi `npm test` đã XANH cùng sha (hoặc PR có nhãn `ready`) – đỏ/chưa xong thì mọi job dưới là skipped
+  # (không chiếm runner); npm-test.yml job `heavy` chạy lại lượt này ngay khi npm test xanh (scripts/ci/heavy-rerun.mjs). Lỗi API → mở cổng (không mất kiểm).
+  gate:
+    # luật 18 (CI làn nhanh, 16/11): PR chỉ chờ làn nhanh – việc nặng bỏ qua trên PR (skipped, không tốn máy), chạy SAU gộp trên push main; nhãn ready-heavy/ready = chạy nặng ngay trên PR
+    if: ${{ github.event_name != 'pull_request' || contains(github.event.pull_request.labels.*.name, 'ready-heavy') || contains(github.event.pull_request.labels.*.name, 'ready') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    permissions: { contents: read, checks: read }
+    outputs: { go: '${{ steps.g.outputs.go }}' }
+    steps:
+      - id: g
+        env: { GH_TOKEN: '${{ github.token }}', EV: '${{ github.event_name }}', SHA: '${{ github.event.pull_request.head.sha }}', REPO: '${{ github.repository }}', READY: '${{ contains(github.event.pull_request.labels.*.name, ''ready'') }}' }
+        run: |
+          go=true
+          if [ "$EV" = pull_request ] && [ "$READY" != true ]; then
+            n=$(gh api "repos/$REPO/commits/$SHA/check-runs?check_name=npm%20test&per_page=20" --jq '[.check_runs[] | select(.conclusion == "success")] | length' 2>/dev/null) || n=1
+            [ "${n:-1}" -ge 1 ] || go=false
+          fi
+          echo "go=$go" >> "$GITHUB_OUTPUT"; echo "npm test xanh cùng sha (hoặc nhãn ready) → go=$go"
+  e2e:
+    needs: gate
+    if: needs.gate.outputs.go == 'true'
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix: { browser: [chromium, webkit] }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      # 5/11: 'playwright install --with-deps webkit' treo 20 phút (2 lượt liền, run 42059013822) → job bị hủy, required-gate đỏ.
+      # Mỗi lượt cài có trần 4 phút + thử lại 3 lần + khóa apt chờ có hạn; log cài được in ra để biết treo ở đâu.
+      - uses: ./.github/actions/playwright-cache
+        with: { browsers: '${{ matrix.browser }}' }
+      - name: Cài
+        timeout-minutes: 14
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2
+          bash scripts/ci/pw-install.sh --with-deps ${{ matrix.browser }}
+      - uses: ./.github/actions/apt
+        with: { packages: fonts-noto-color-emoji fonts-noto-core }
+      - name: E2E (390 px + máy tính · sáng/tối · vi/en/ar · chạm/kéo/bàn phím · chấm)
+        env: { PW_BROWSER: '${{ matrix.browser }}' }
+        run: node scripts/test/word-arrange-e2e.mjs web out/word-arrange
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: 'word-arrange-${{ matrix.browser }}', path: out/word-arrange, retention-days: 14 }

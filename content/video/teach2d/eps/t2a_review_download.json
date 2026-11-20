@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_download",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: download.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means to copy data from the internet to a computer.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "You can download the form from our website.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "download",
+  "ipa": "/ˈdaʊnloʊd/",
+  "mean": "to copy data from the internet to a computer",
+  "ex": "You can download the form from our website.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=download",
+  "link": "https://lexkite.com/app/#/review?w=download",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 44,
+  "seconds": 26.7,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "What does \"download\" mean?",
+  "keyword": "download",
+  "value": "Download means to copy data from the internet to a computer.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=download",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"download\" mean?",
+    "description": "Download means to copy data from the internet to a computer.\n\nReview your words, free: https://lexkite.com/app/#/review?w=download\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "download",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"download\" mean?\n\nDownload means to copy data from the internet to a computer.\n\nReview your words, free: https://lexkite.com/app/#/review?w=download"
+   },
+   "instagram": {
+    "caption": "What does \"download\" mean?\n\nDownload means to copy data from the internet to a computer.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"download\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means to copy data from the internet to a computer. Download means to copy data from the internet to a computer. Try the full lesson and quiz here: {link}"
+ }
+}

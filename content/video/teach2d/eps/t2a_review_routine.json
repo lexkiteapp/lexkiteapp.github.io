@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_routine",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: routine.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means the usual order and way in which you regularly do things.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "Exercise is part of my daily routine.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "routine",
+  "ipa": "/ruːˈtiːn/",
+  "mean": "the usual order and way in which you regularly do things",
+  "ex": "Exercise is part of my daily routine.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=routine",
+  "link": "https://lexkite.com/app/#/review?w=routine",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 45,
+  "seconds": 27.2,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "What does \"routine\" mean?",
+  "keyword": "routine",
+  "value": "Routine means the usual order and way in which you regularly do things.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=routine",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"routine\" mean?",
+    "description": "Routine means the usual order and way in which you regularly do things.\n\nReview your words, free: https://lexkite.com/app/#/review?w=routine\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "routine",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"routine\" mean?\n\nRoutine means the usual order and way in which you regularly do things.\n\nReview your words, free: https://lexkite.com/app/#/review?w=routine"
+   },
+   "instagram": {
+    "caption": "What does \"routine\" mean?\n\nRoutine means the usual order and way in which you regularly do things.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"routine\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means the usual order and way in which you regularly do things. Routine means the usual order and way in which you regularly do things. More practice like this (free): {link}"
+ }
+}

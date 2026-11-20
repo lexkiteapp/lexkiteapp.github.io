@@ -154,5 +154,26 @@
  },
  "ntMoreSenses": {
   "message": "+{n} nghĩa"
+ },
+ "ntQzTag": {
+  "message": "Câu đố nhanh"
+ },
+ "ntQzQ": {
+  "message": "Chọn nghĩa đúng"
+ },
+ "ntQzTime": {
+  "message": "{s} giây"
+ },
+ "ntQzRight": {
+  "message": "Chính xác!"
+ },
+ "ntQzWrong": {
+  "message": "Chưa đúng — từ này sẽ quay lại sớm"
+ },
+ "ntQzTimeout": {
+  "message": "Hết giờ — không sao"
+ },
+ "ntQzSkip": {
+  "message": "Bỏ qua"
  }
 }

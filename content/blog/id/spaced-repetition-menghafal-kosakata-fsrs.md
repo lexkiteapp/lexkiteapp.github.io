@@ -114,7 +114,7 @@ Konsistensi harian jauh lebih penting daripada kuantitas impulsif. Menambahkan 1
 
 {{cta: /tu-vung/ | Akses Bank Kosakata Esensial}}
 
-Mulai perjalanan penguasaan kosakata terstruktur Anda dengan mengakses ribuan kata berfrekuensi tinggi yang telah dikurasi pada [daftar kosakata esensial](/tu-vung/).
+Mulai perjalanan penguasaan kosakata terstruktur Anda dengan mengakses ribuan kata berfrekuensi tinggi yang telah dikurasi pada [daftar kosakata esensial](/en/vocabulary/).
 
 {{youtube: | Spaced Repetition FSRS Vocabulary Mastery}}
 
@@ -127,6 +127,8 @@ Proses menyimpan kosakata ke dalam memori permanen melalui algoritma FSRS melewa
 3. **Tahap Pemahaman Reseptif Penuh (Full Receptive Mastery)**: Begitu mendengar kata tersebut di dalam rekaman podcast atau membaca artikel ujian, maknanya langsung terserap seketika tanpa perlu diterjemahkan lagi ke dalam bahasa Indonesia.
 4. **Tahap Penggunaan Produktif Terkendali (Controlled Production)**: Anda mulai mampu menggunakan kata tersebut saat menulis esai atau menyusun kalimat presentasi dengan sedikit jeda perencanaan.
 5. **Tahap Refleks Otomatis (Automatic Fluency)**: Kata tersebut meluncur alami dari bibir Anda saat percakapan spontan tanpa berpikir sadar, menandakan bahwa kata itu telah berpindah seutuhnya ke dalam memori implisit (*procedural memory*).
+
+Jadwal saja belum cukup; padukan dengan [active recall](/id/blog/active-recall-adalah-cara-menghafal-kosakata/).
 
 ## Pertanyaan yang Sering Diajukan (FAQ)
 

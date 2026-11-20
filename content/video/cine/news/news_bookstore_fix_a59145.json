@@ -143,5 +143,17 @@
   "opener": "ama",
   "pacing": "brisk"
  },
- "share_line": "n_a59145_s"
+ "share_line": "n_a59145_s",
+ "publish": {
+  "title": "Stop saying \"I'm looking a book\"",
+  "keyword": "look for",
+  "value": "You look for something: \"I'm looking for a book.\"",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#speakenglish",
+   "#a2english"
+  ],
+  "first_comment": "Quiz answer: \"I'm looking for my phone.\" Look always needs \"for\" when you're searching. More practice like this (free): {link}"
+ }
 }

@@ -153,7 +153,7 @@ No mundo corporativo e em conversas profissionais, confundir termos pode custar 
 | **Mayor** | Maior (tamanho) | Prefeito municipal | *Bigger* / *Larger* |
 | **Prejudice** | Prejuízo financeiro | Preconceito racial/social | *Loss* / *Damage* (prejuízo) |
 
-Ao redigir comunicações de trabalho, um falso cognato pode mudar o tom da mensagem. Veja nosso guia de [como escrever email em inglês formal](/pt/blog/como-escrever-email-em-ingles-formal/) para adotar expressões diplomáticas e leia sobre estratégias de retenção em [como aprender vocabulário em inglês](/pt/blog/como-aprender-vocabulario-em-ingles/). Para consolidar o uso dessas palavras na memória duradoura, adicione-as ao sistema de [repetição espaçada para aprender inglês](/pt/blog/repeticao-espacada-para-aprender-ingles/) e consulte listas no portal de [vocabulário prático](/tu-vung/).
+Ao redigir comunicações de trabalho, um falso cognato pode mudar o tom da mensagem. Veja nosso guia de [como escrever email em inglês formal](/pt/blog/como-escrever-email-em-ingles-formal/) para adotar expressões diplomáticas e leia sobre estratégias de retenção em [como aprender vocabulário em inglês](/pt/blog/como-aprender-vocabulario-em-ingles/). Para consolidar o uso dessas palavras na memória duradoura, adicione-as ao sistema de [repetição espaçada para aprender inglês](/pt/blog/repeticao-espacada-para-aprender-ingles/) e consulte listas no portal de [vocabulário prático](/en/vocabulary/).
 
 Pratique também combinações naturais com nosso artigo sobre [phrasal verbs mais usados](/pt/blog/phrasal-verbs-mais-usados/) e faça checagens de definição no [dicionário do Lexkite](/app/#/dict).
 
@@ -162,6 +162,8 @@ Na prova oral, o falso cognato *actually* é um dos que mais aparecem; veja como
 {{cta: /app/#/library | Explorar biblioteca de vocabulário no Lexkite}}
 
 {{youtube: | Os falsos cognatos mais perigosos em inglês e como evitar gafes}}
+
+Outro par que confunde brasileiros é affect e effect, tratado em [a diferença entre affect e effect](/pt/blog/diferenca-entre-affect-e-effect/).
 
 ## Perguntas frequentes
 

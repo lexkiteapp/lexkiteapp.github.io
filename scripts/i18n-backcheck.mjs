@@ -19,7 +19,7 @@ async function back(lang, lines) {
 }
 const report = fs.existsSync(path.join(ROOT, 'web/i18n/backcheck.json')) ? JSON.parse(fs.readFileSync(path.join(ROOT, 'web/i18n/backcheck.json'), 'utf8')) : { langs: {} };
 for (const lang of LANGS) {
-  const T = load(path.join(DIR, lang + '.js'))[lang] || {};
+  const T = load(path.join(ROOT, 'i18n/ui', lang + '.js'))[lang] || {}; // nguồn khóa nguyên câu (web/js/i18n/<lang>.js là gói khóa băm)
   const items = Object.keys(EN).filter(k => T[k] && clean(EN[k]).trim().split(/\s+/).length >= 4).map(k => ({ k, en: EN[k], tr: T[k], h: hash(lang + '|' + EN[k] + '|' + T[k]) }));
   const todo = items.filter(x => !cache[x.h]);
   for (let i = 0; i < todo.length;) {

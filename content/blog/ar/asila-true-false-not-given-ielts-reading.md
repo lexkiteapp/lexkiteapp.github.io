@@ -26,6 +26,8 @@ qualityScore: 94
 
 على عكس الاختبارات التقليدية حيث تكون العبارات الخاطئة واضحة أو غير منطقية، تؤخذ نصوص الآيلتس الأكاديمي من دوريات علمية ومجلات محكمة. يصمم واضعو الأسئلة الخيارات لاختبار قدرتك على التدقيق الشديد:
 
+ومن المفيد أن تطّلع كذلك على [إدارة الوقت في IELTS Reading](/ar/blog/idarat-al-waqt-fi-ielts-reading-istratijiyyat-60-daqiqah/).
+
 1. **True (صحيح):** جميع العناصر الجوهرية للعبارة تتطابق تماماً مع معنى النص. تذكر أن الكلمات نادراً ما تكون متطابقة حرفياً؛ بل يعتمد النص على المترادفات وإعادة الصياغة اللغوية المتقدمة (Paraphrasing).
 2. **False (خاطئ):** يذكر النص عكس الفكرة تماماً أو يورد دليلاً يجعل تحقق العبارة مستحيلاً من الناحية المنطقية. يوجد تعارض وتناقض يمكن إثباته بنص المقال.
 3. **Not Given (غير مذكور):** النص لا يقدم دليلاً كافياً للحكم. قد يناقش المقال الفكرة العامة، لكن العلاقة المحددة أو السبب والنتيجة الواردة في السؤال غير موجودة بتاتاً.
@@ -93,7 +95,9 @@ qualityScore: 94
 
 1. **القراءة المتدرجة مع التحقق:** تصفح قسم [مقالات القراءة الموجهة](/#/reading) في ليكسكايت، وتدرب على النصوص التي تعرض الأسئلة بمحاذاة الفقرات مباشرة للتحقق من الأدلة سطراً بسطر.
 2. **مراجعة الأخطاء في السجل الذكي:** راجع إجاباتك غير الصحيحة المحفوظة تلقائياً في [سجل الأخطاء](/#/mistakes)، لتحديد ما إذا كان سبب الخطأ قصوراً في المفردات أم تسرعاً في الاستنتاج.
-3. **تطوير مهارات الفهم اللغوي:** ادمج تدريبك مع دراسة [al mutalazimat al lafziyyah ielts collocations](/ar/blog/al-mutalazimat-al-lafziyyah-ielts-collocations/) وتعرف على استراتيجيات حفظ الكلمات في [hifz al kalimat al injliziya](/ar/blog/hifz-al-kalimat-al-injliziya/). كما يمكنك الاستفادة من مراجعة الروابط اللغوية في [adawat al rabt fi al injliziyyah linking words](/ar/blog/adawat-al-rabt-fi-al-injliziyyah-linking-words/) وشروحات القواعد المتنوعة في قسمنا المخصص [/ngu-phap/](/ngu-phap/). ولإتقان تراكيب الجمل المتقدمة، طالع أيضاً مقالنا حول [al jumal al muaqqadah complex sentences ielts writing](/ar/blog/al-jumal-al-muaqqadah-complex-sentences-ielts-writing/).
+3. **تطوير مهارات الفهم اللغوي:** ادمج تدريبك مع دراسة [al mutalazimat al lafziyyah ielts collocations](/ar/blog/al-mutalazimat-al-lafziyyah-ielts-collocations/) وتعرف على استراتيجيات حفظ الكلمات في [hifz al kalimat al injliziya](/ar/blog/hifz-al-kalimat-al-injliziya/). كما يمكنك الاستفادة من مراجعة الروابط اللغوية في [adawat al rabt fi al injliziyyah linking words](/ar/blog/adawat-al-rabt-fi-al-injliziyyah-linking-words/) وشروحات القواعد المتنوعة في قسمنا المخصص [/ngu-phap/](/en/grammar/). ولإتقان تراكيب الجمل المتقدمة، طالع أيضاً مقالنا حول [al jumal al muaqqadah complex sentences ielts writing](/ar/blog/al-jumal-al-muaqqadah-complex-sentences-ielts-writing/).
+
+وللنظرة الشاملة على بقية المهام، راجع [أنواع أسئلة القراءة في الآيلتس](/ar/blog/anwa-asilat-al-qiraa-fi-al-ielts-reading/) وطريقة كل نوع.
 
 ## أسئلة شائعة (FAQ)
 

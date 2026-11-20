@@ -111,7 +111,7 @@ qualityScore: 94
 - *highly anticipated* (대단히 기대되는)
 - *strictly confidential* (엄격히 기밀인)
 
-단어를 외울 때는 철자와 뜻만 외우지 말고, [토익 핵심 단어장](/tu-vung/)을 활용하여 전치사 및 목적어와의 결합 관계를 통째로 암기해야 합니다. 망각을 방지하고 장기기억으로 넘기는 암기 시스템은 [영어 단어 암기법](/ko/blog/yeongdaneo-amgibeop/)을 참고하시기 바랍니다.
+단어를 외울 때는 철자와 뜻만 외우지 말고, [토익 핵심 단어장](/en/vocabulary/)을 활용하여 전치사 및 목적어와의 결합 관계를 통째로 암기해야 합니다. 망각을 방지하고 장기기억으로 넘기는 암기 시스템은 [영어 단어 암기법](/ko/blog/yeongdaneo-amgibeop/)을 참고하시기 바랍니다.
 
 리스닝 파트2나 파트4의 빠른 대화 흐름을 잡고 싶다면 [토익 LC 공부법](/ko/blog/toeic-listening-part3-4-gongbubeop/)의 스키밍 기술과 함께 하루 10분씩 [영어 쉐도잉 방법](/ko/blog/yeongeo-shadowing-bangbeop/)을 병행하여 청취력과 직독직해 속도를 함께 끌어올리는 것을 추천합니다.
 
@@ -142,6 +142,8 @@ qualityScore: 94
 {{youtube: | 영상 아이디어: 토익 파트5 3초 만에 풀리는 품사 자리 공식 5가지 총정리}}
 
 {{cta: /#/toeic | 토익 파트5 실전 연습 시작}}
+
+파트 5가 전체 시험에서 차지하는 위치와 권장 시간은 [토익 시험 구성 총정리](/ko/blog/toeic-siheom-guseong-part-munhangsu-sigan/)에서 볼 수 있습니다.
 
 ## 자주 묻는 질문
 

@@ -1,0 +1,2 @@
+/* SINH TỰ ĐỘNG từ scripts/lib/site-layout.mjs THEME_HEAD – sửa ở đó rồi chạy node scripts/build-landing.mjs */
+function lkT(){try{var s=localStorage,t=s.getItem('lk.theme'),p;try{p=JSON.parse(s.getItem('ielts.settings')||'0')}catch(e){}if(p&&p.theme&&+s.getItem('ielts.settingsAt')>(+s.getItem('lk.themeAt')||0))t=p.theme;return t=='light'||t=='dark'?t:''}catch(e){return''}}lkT()&&document.documentElement.setAttribute('data-theme',lkT())

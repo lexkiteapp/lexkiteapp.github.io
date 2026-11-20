@@ -165,7 +165,7 @@
       { k: 'rules', icon: 'info', title: t('Quy tắc giải đấu tuần'), sub: t('Bảng xếp hạng 30 người học cùng hạng · Cập nhật theo tuần'), btn: t('Xem'), act: 'rules', aria: t('Quy tắc giải đấu tuần') });
     const d = { tier: curTier.name(), left: leftTime || '', lead: canUp ? t('Top {n} lên', { n: upCut }) : t('Top {n} giữ hạng', { n: upCut }), next: canUp ? nextTier.name() : curTier.name(),
       zoneMsg: me.zone === 'up' ? t('Đang trong vùng thăng hạng') : me.zone === 'down' ? t('Cần thêm XP để tránh xuống hạng') : t('Vị trí an toàn'), rows, cards };
-    const root = window.ST2.mount(view, 'leagues', d, 'league');
+    const root = window.ST2.mount(view, 'leagues', d, 'home');
     root.addEventListener('click', e => {
       const b = e.target.closest && e.target.closest('[data-act]'); const a = b && b.getAttribute('data-act'); if (!a) return;
       if (a === 'nick') League.promptChangeNick(data.member.nick);
@@ -246,8 +246,10 @@
           <div style="font-size:2.5rem;margin-bottom:.5rem">⚠️</div>
           <h3>${t('Không tải được giải đấu')}</h3>
           <p class="muted">${t('Vui lòng kiểm tra kết nối mạng và thử lại.')}</p>
-          <button type="button" class="btn primary" onclick="App.route()">${t('Thử lại')}</button>
+          <button type="button" class="btn primary" id="leagueRetry">${t('Thử lại')}</button>
         </div>`;
+      // CSP chặn handler nội tuyến (onclick=) → gắn listener
+      const rb = body.querySelector('#leagueRetry'); if (rb) rb.addEventListener('click', () => App.route());
       return;
     }
 
@@ -264,7 +266,7 @@
             <div class="muted small">${t('Bắt đầu từ Hạng Đồng · Thi đua cùng 30 người học')}</div>
           </div>
 
-          <form id="leagueJoinForm" onsubmit="return false">
+          <form id="leagueJoinForm">
             <label class="set-row col" style="margin-bottom:1rem">
               <span class="set-top">
                 <span><b>${t('Đặt biệt danh của bạn')}</b></span>
@@ -289,7 +291,8 @@
       const errBox = $('#joinNickErr');
       const subBtn = $('#leagueJoinSubmit');
 
-      if (form) form.onsubmit = async () => {
+      if (form) form.onsubmit = async (e) => {
+        e.preventDefault(); // không gửi form (trước đây trình duyệt tải lại trang vì handler async không trả false)
         const nick = cleanNick(input.value);
         if (!nick) {
           errBox.textContent = t('Biệt danh phải từ 2–20 ký tự, không chứa ký tự lạ hoặc liên kết web.');

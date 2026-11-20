@@ -162,6 +162,8 @@ Muốn có thêm từ vựng theo chủ đề để nghe dễ hơn, tham khảo 
 
 {{youtube: | Gợi ý video: Phân tích một đoạn nghe 1 phút theo 5 lượt}}
 
+Nếu bạn luyện nghe để thi, đọc thêm [các dạng câu hỏi IELTS Listening](/vi/blog/cac-dang-cau-hoi-ielts-listening/) và bẫy thường gặp của từng dạng.
+
 ## Câu hỏi thường gặp
 
 ### Mỗi ngày nên luyện nghe tiếng Anh bao lâu?

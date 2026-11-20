@@ -1,0 +1,60 @@
+# ci-policy: heavy-gate – việc nặng trên PR chờ npm test xanh (job `gate`, luật 11)
+# Chữ ligature phông icon (Material Symbols) không bao giờ được hiện thành chữ thường (P1 07/11): đo trên dist thật, 4G chậm + CPU ×4, 6 màn × en/vi.
+# scripts/test/icon-flash.mjs (rAF mỗi khung hình: .material-symbols-* hiện mà rộng > 1,8× cỡ chữ). Chạy trên PR đụng CSS/font/loader hoặc tay (strict=1: đỏ nếu lộ).
+name: Icon flash
+on:
+  workflow_dispatch:
+    inputs:
+      strict: { description: 'đỏ nếu có màn lộ chữ ligature (1) hay chỉ đo (0)', default: '0' }
+  pull_request:
+    paths: ['web/css/**', 'web/fonts/**', 'web/app/index.html', 'scripts/app-loader.mjs', 'scripts/build-fonts.mjs', 'scripts/build-stitch-css.mjs', 'scripts/test/icon-flash.mjs', '.github/workflows/icon-flash.yml']
+  push:
+    branches: [main]
+    paths: ['web/css/**', 'web/fonts/**', 'web/app/index.html', 'scripts/app-loader.mjs', 'scripts/build-fonts.mjs', 'scripts/build-stitch-css.mjs', 'scripts/test/icon-flash.mjs', '.github/workflows/icon-flash.yml']
+permissions: { contents: read }
+concurrency:
+  group: icon-flash-${{ github.workflow }}-${{ github.event_name == 'workflow_dispatch' && github.run_id || github.head_ref || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+jobs:
+  # luật 11 (làn nhanh trước làn nặng, scripts/test/ci-policy.mjs): trên PR việc nặng chỉ chạy khi `npm test` đã XANH cùng sha (hoặc PR có nhãn `ready`) – đỏ/chưa xong thì mọi job dưới là skipped
+  # (không chiếm runner); npm-test.yml job `heavy` chạy lại lượt này ngay khi npm test xanh (scripts/ci/heavy-rerun.mjs). Lỗi API → mở cổng (không mất kiểm).
+  gate:
+    # luật 18 (CI làn nhanh, 16/11): PR chỉ chờ làn nhanh – việc nặng bỏ qua trên PR (skipped, không tốn máy), chạy SAU gộp trên push main; nhãn ready-heavy/ready = chạy nặng ngay trên PR
+    if: ${{ github.event_name != 'pull_request' || contains(github.event.pull_request.labels.*.name, 'ready-heavy') || contains(github.event.pull_request.labels.*.name, 'ready') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    permissions: { contents: read, checks: read }
+    outputs: { go: '${{ steps.g.outputs.go }}' }
+    steps:
+      - id: g
+        env: { GH_TOKEN: '${{ github.token }}', EV: '${{ github.event_name }}', SHA: '${{ github.event.pull_request.head.sha }}', REPO: '${{ github.repository }}', READY: '${{ contains(github.event.pull_request.labels.*.name, ''ready'') }}' }
+        run: |
+          go=true
+          if [ "$EV" = pull_request ] && [ "$READY" != true ]; then
+            n=$(gh api "repos/$REPO/commits/$SHA/check-runs?check_name=npm%20test&per_page=20" --jq '[.check_runs[] | select(.conclusion == "success")] | length' 2>/dev/null) || n=1
+            [ "${n:-1}" -ge 1 ] || go=false
+          fi
+          echo "go=$go" >> "$GITHUB_OUTPUT"; echo "npm test xanh cùng sha (hoặc nhãn ready) → go=$go"
+  flash:
+    needs: gate
+    if: needs.gate.outputs.go == 'true'
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Dựng dist + phục vụ có nén
+        timeout-minutes: 10
+        run: |
+          npm ci --no-audit --no-fund >/dev/null && bash scripts/build-web.sh >/dev/null
+          npm i --no-save --no-audit --no-fund playwright@1.48.2 >/dev/null
+          (node scripts/test/serve-web.mjs dist 8080 >/dev/null 2>&1 &) ; sleep 2
+      - uses: ./.github/actions/playwright-cache
+        with: { browsers: 'chromium' }
+      - name: Cài Chromium
+        timeout-minutes: 8
+        run: bash scripts/ci/pw-install.sh chromium
+      - name: Đo chữ ligature lộ ra
+        timeout-minutes: 10
+        run: node scripts/test/icon-flash.mjs http://localhost:8080 ${{ (github.event_name == 'pull_request' || inputs.strict == '1') && '--strict' || '' }}

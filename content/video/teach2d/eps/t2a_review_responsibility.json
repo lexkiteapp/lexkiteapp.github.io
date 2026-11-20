@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_responsibility",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: responsibility.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means a duty to deal with or take care of something or someone.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "Looking after the garden is my responsibility.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "responsibility",
+  "ipa": "/rɪˌspɑːnsəˈbɪləti/",
+  "mean": "a duty to deal with or take care of something or someone",
+  "ex": "Looking after the garden is my responsibility.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=responsibility",
+  "link": "https://lexkite.com/app/#/review?w=responsibility",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 46,
+  "seconds": 27.7,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "What does \"responsibility\" mean?",
+  "keyword": "responsibility",
+  "value": "Responsibility means a duty to deal with or take care of something or someone.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=responsibility",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"responsibility\" mean?",
+    "description": "Responsibility means a duty to deal with or take care of something or someone.\n\nReview your words, free: https://lexkite.com/app/#/review?w=responsibility\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "responsibility",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"responsibility\" mean?\n\nResponsibility means a duty to deal with or take care of something or someone.\n\nReview your words, free: https://lexkite.com/app/#/review?w=responsibility"
+   },
+   "instagram": {
+    "caption": "What does \"responsibility\" mean?\n\nResponsibility means a duty to deal with or take care of something or someone.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"responsibility\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means a duty to deal with or take care of something or someone. Responsibility means a duty to deal with or take care of something or someone. More practice like this (free): {link}"
+ }
+}

@@ -167,6 +167,8 @@ publishAt: 2026-12-09T20:57:00+09:00
              └── NO (복수형이거나 셀 수 없는 명사) ➔ 【무관사(Ø)】
 ```
 
+관사가 빠지기 쉬운 예로 *have an effect on* 같은 연어를 [affect effect 차이](/ko/blog/affect-effect-chai-gubunbeop/) 글에서도 확인할 수 있습니다.
+
 ## 한국인 학습자가 자주 틀리는 대표 오류 Top 5
 
 | 대표 오답 문장 | 오류 원인 분석 | 올바른 표준 문장 |
@@ -177,6 +179,11 @@ publishAt: 2026-12-09T20:57:00+09:00
 | *I love the apple.* (총칭) | 사과 전반을 가리킬 때는 복수 무관사 원칙 | *I love apples.* |
 | *She has a headache.* | 올바른 표현 (headache는 가산 질병 명사) | *She has a headache.* |
 
-문법 실력을 탄탄하게 다지고자 하신다면 과거 시제와의 구분을 다룬 [현재완료와 과거 시제 차이](/ko/blog/hyeonjaewanryo-gwageo-chai/), 문장의 매끄러운 전개를 돕는 [영어 접속사 연결어 linking words](/ko/blog/yeongeo-jeobsogsa-yeangyeol-eowa-linking-words/), 조건문의 정석을 정리한 [영어 가정법 if 완벽 정리](/ko/blog/yeongeo-gajeongbeop-if-chongjeongri/), 그리고 [영어 전치사 in on at 총정리](/ko/blog/yeongeo-jeonchisa-in-on-at-chongjeongri/)를 함께 확인해 보세요. 어휘력 보강에는 [/tu-vung/](/tu-vung/)도 큰 도움이 됩니다.
+문법 실력을 탄탄하게 다지고자 하신다면 과거 시제와의 구분을 다룬 [현재완료와 과거 시제 차이](/ko/blog/hyeonjaewanryo-gwageo-chai/), 문장의 매끄러운 전개를 돕는 [영어 접속사 연결어 linking words](/ko/blog/yeongeo-jeobsogsa-yeangyeol-eowa-linking-words/), 조건문의 정석을 정리한 [영어 가정법 if 완벽 정리](/ko/blog/yeongeo-gajeongbeop-if-chongjeongri/), 그리고 [영어 전치사 in on at 총정리](/ko/blog/yeongeo-jeonchisa-in-on-at-chongjeongri/)를 함께 확인해 보세요. 어휘력 보강에는 [/tu-vung/](/en/vocabulary/)도 큰 도움이 됩니다.
 
 '특정성'과 '윤곽'이라는 두 가지 렌즈를 머릿속에 장착하면, 영작이나 스피킹 시 더 이상 관사 앞에서 멈칫거리지 않고 원어민처럼 자연스럽고 정교한 표현을 구사할 수 있습니다.
+
+
+이민용 IELTS에서도 관사 오류는 감점으로 이어지니, 목표 밴드는 [이민 IELTS 점수 총정리](/ko/blog/ielts-imin-jeomsu-kaenada-hoju-yeongguk/)와 함께 보세요.
+
+관사와 전치사가 자유 빈칸 문제로 나오는 모습은 [케임브리지 B2 First 시험 구성](/ko/blog/cambridge-b2-first-sihom-guseong-fce/) 글에서 볼 수 있습니다.

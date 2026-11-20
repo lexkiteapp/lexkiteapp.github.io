@@ -47,7 +47,7 @@
           if (!App.inDeck(w.word)) await App.addWord(IX[w.word.toLowerCase()] || w, null, { silent: true });
           await Core.Cards.patch(w.word, c => { if (c.srs && !c.srs.last) c.srs = { ...c.srs, last: now, due: now + 6e5 }; }).catch(() => {});
         }
-        App.state.cards = await Core.Cards.all();
+        App.state.cards = await Core.Cards.mine();
       }
       if (d.wait) await d.wait.catch(() => {}); // Kiểm tra bài: chờ ghi unitDone xong
       const u = P.unitState().find(x => x.topic.id === id); if (!u) return;

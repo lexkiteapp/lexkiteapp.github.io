@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Quản lý dữ liệu - DataStore Tactile Night</title>
+<!-- Tailwind CSS CDN with forms and container queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Material Symbols Rounded Font -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<!-- Inter & Plus Jakarta Sans Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Configuration -->
+<script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            tactile: {
+              bg: '#091518',
+              surface: '#0c1a1d',
+              elevated: '#121d20',
+              input: '#162529',
+              hover: '#1b2d32',
+              border: '#23393e',
+              borderLight: '#2c474d',
+              teal: '#2dd4bf',
+              tealDark: '#2ba39a',
+              coral: '#ff7849',
+              coralHover: '#ff6633',
+              textPrimary: '#f0faf8',
+              textSecondary: '#c4d7d3',
+              textMuted: '#a9bdbb',
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<!-- Custom Styles for Tactile Components -->
+<style data-purpose="tactile-elevation">
+    /* Tactile bottom ledge styling */
+    .tactile-button-coral {
+      background-color: #ff7849;
+      color: #1a0d00;
+      box-shadow: 0 4px 0 #b3471f;
+      transition: all 0.1s ease-in-out;
+    }
+    .tactile-button-coral:hover {
+      background-color: #ff8559;
+      transform: translateY(-1px);
+      box-shadow: 0 5px 0 #b3471f;
+    }
+    .tactile-button-coral:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 #b3471f;
+    }
+    
+    .tactile-card-ledge {
+      box-shadow: 0 4px 0 #050c0e, 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+    }
+
+    .tactile-input {
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
+    }
+  </style>
+<style data-purpose="custom-scrollbars">
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0c1a1d;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #23393e;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #2dd4bf;
+    }
+  </style>
+</head>
+<body class="bg-tactile-bg text-tactile-textPrimary font-sans antialiased min-h-screen selection:bg-tactile-teal selection:text-black">
+<div class="flex h-screen overflow-hidden">
+<!-- BEGIN: Sidebar -->
+<aside class="w-72 bg-tactile-surface border-r border-tactile-border flex flex-col justify-between shrink-0 select-none z-20">
+<div class="p-6">
+<!-- Logo Header -->
+<div class="flex items-center gap-3.5 mb-8">
+<div class="w-11 h-11 rounded-xl bg-tactile-input border border-tactile-border flex items-center justify-center text-tactile-teal shadow-inner">
+<span class="material-symbols-rounded text-2xl font-bold">database</span>
+</div>
+<div>
+<h1 class="font-bold text-lg leading-tight tracking-wide text-tactile-textPrimary">DataStore</h1>
+<span class="text-xs uppercase font-bold tracking-widest text-tactile-teal">Tactile Vault</span>
+</div>
+</div>
+<!-- Navigation Menu -->
+<nav aria-label="Menu chính" class="space-y-1.5">
+<a class="flex items-center gap-3.5 px-4 h-12 rounded-xl bg-tactile-input border border-tactile-border text-tactile-textPrimary font-semibold transition-all" href="#">
+<span class="material-symbols-rounded text-tactile-teal text-xl">folder_shared</span>
+<span class="text-sm">Tất cả tệp tin</span>
+</a>
+<a class="flex items-center gap-3.5 px-4 h-12 rounded-xl text-tactile-textSecondary hover:bg-tactile-hover hover:text-tactile-textPrimary border border-transparent hover:border-tactile-border transition-all" href="#">
+<span class="material-symbols-rounded text-tactile-textMuted text-xl">star</span>
+<span class="text-sm">Đã đánh dấu sao</span>
+</a>
+<a class="flex items-center gap-3.5 px-4 h-12 rounded-xl text-tactile-textSecondary hover:bg-tactile-hover hover:text-tactile-textPrimary border border-transparent hover:border-tactile-border transition-all" href="#">
+<span class="material-symbols-rounded text-tactile-textMuted text-xl">schedule</span>
+<span class="text-sm">Gần đây</span>
+</a>
+<a class="flex items-center gap-3.5 px-4 h-12 rounded-xl text-tactile-textSecondary hover:bg-tactile-hover hover:text-tactile-textPrimary border border-transparent hover:border-tactile-border transition-all" href="#">
+<span class="material-symbols-rounded text-tactile-textMuted text-xl">delete</span>
+<span class="text-sm">Thùng rác</span>
+</a>
+<a class="flex items-center gap-3.5 px-4 h-12 rounded-xl text-tactile-textSecondary hover:bg-tactile-hover hover:text-tactile-textPrimary border border-transparent hover:border-tactile-border transition-all" href="#">
+<span class="material-symbols-rounded text-tactile-textMuted text-xl">settings</span>
+<span class="text-sm">Cài đặt</span>
+</a>
+</nav>
+</div>
+<!-- Storage Quota Widget -->
+<div class="p-6">
+<div class="bg-tactile-elevated p-4 rounded-xl border border-tactile-border tactile-card-ledge">
+<div class="flex items-center justify-between mb-3">
+<span class="text-xs font-semibold uppercase tracking-wider text-tactile-textMuted">Bộ nhớ lưu trữ</span>
+<span class="text-xs font-bold px-2 py-0.5 rounded-full bg-tactile-input border border-tactile-border text-tactile-teal">68%</span>
+</div>
+<!-- Progress Bar -->
+<div class="w-full h-3 rounded-full bg-tactile-input overflow-hidden border border-tactile-border mb-3">
+<div class="h-full bg-tactile-teal rounded-full" style="width: 68%;"></div>
+</div>
+<div class="flex justify-between items-center text-xs font-medium text-tactile-textSecondary mb-4">
+<span>68.4 GB</span>
+<span class="text-tactile-textMuted">100 GB</span>
+</div>
+<button class="w-full h-11 flex items-center justify-center gap-2 rounded-lg bg-tactile-input hover:bg-tactile-hover border border-tactile-border text-tactile-textPrimary font-semibold text-xs transition-colors" type="button">
+<span class="material-symbols-rounded text-base text-tactile-teal">bolt</span>
+            Nâng cấp gói
+          </button>
+</div>
+</div>
+</aside>
+<!-- END: Sidebar -->
+<!-- Main Content Area -->
+<div class="flex-1 flex flex-col min-w-0 bg-tactile-bg">
+<!-- BEGIN: Header -->
+<header class="h-20 bg-tactile-surface border-b border-tactile-border px-8 flex items-center justify-between shrink-0 gap-6">
+<!-- Search bar with tactile indentation -->
+<div class="flex-1 max-w-xl">
+<div class="relative flex items-center">
+<span class="material-symbols-rounded absolute left-4 text-tactile-textMuted text-xl pointer-events-none">search</span>
+<input class="w-full h-12 pl-12 pr-4 bg-tactile-input border border-tactile-border rounded-xl text-tactile-textPrimary placeholder:text-tactile-textMuted text-sm font-medium focus:outline-none focus:border-tactile-teal focus:ring-1 focus:ring-tactile-teal tactile-input transition-colors" placeholder="Tìm kiếm tệp, thư mục, tài liệu..." type="search"/>
+</div>
+</div>
+<!-- Action tools and Profile -->
+<div class="flex items-center gap-4">
+<!-- Notification Bell -->
+<button aria-label="Thông báo" class="w-11 h-11 rounded-xl bg-tactile-input border border-tactile-border hover:bg-tactile-hover flex items-center justify-center text-tactile-textSecondary hover:text-tactile-textPrimary transition-colors relative" type="button">
+<span class="material-symbols-rounded text-xl">notifications</span>
+<span class="w-2.5 h-2.5 rounded-full bg-tactile-coral absolute top-2 right-2 border-2 border-tactile-surface"></span>
+</button>
+<!-- Primary Action: Upload -->
+<button class="tactile-button-coral h-11 px-5 rounded-xl flex items-center gap-2.5 font-bold text-sm tracking-wide shrink-0" type="button">
+<span class="material-symbols-rounded text-xl font-bold">cloud_upload</span>
+<span>Tải lên tệp mới</span>
+</button>
+<!-- Profile Badge -->
+<div class="h-11 pl-2 pr-3 rounded-xl bg-tactile-input border border-tactile-border flex items-center gap-3 select-none">
+<div class="w-8 h-8 rounded-lg bg-tactile-hover border border-tactile-border flex items-center justify-center font-bold text-tactile-teal text-xs">
+              AD
+            </div>
+<div class="hidden sm:block text-left">
+<p class="text-xs font-bold leading-none text-tactile-textPrimary">Anh Đức</p>
+<p class="text-[11px] font-medium leading-none text-tactile-textMuted mt-1">Admin</p>
+</div>
+<span class="material-symbols-rounded text-tactile-textMuted text-lg">expand_more</span>
+</div>
+</div>
+</header>
+<!-- END: Header -->
+<!-- Main Body -->
+<main class="flex-1 overflow-y-auto p-8 flex flex-col gap-6">
+<!-- BEGIN: PageTitle & FilterChips -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div>
+<h2 class="text-2xl font-bold text-tactile-textPrimary tracking-tight">Danh sách tài liệu</h2>
+<p class="text-sm font-medium text-tactile-textMuted mt-0.5">Quản lý, phân loại và bảo mật toàn bộ dữ liệu nội bộ</p>
+</div>
+<!-- Filter Chips -->
+<div class="flex items-center gap-2 overflow-x-auto pb-1">
+<button class="h-11 px-4 rounded-xl bg-tactile-elevated border border-tactile-border text-tactile-teal font-semibold text-xs flex items-center gap-2 shrink-0" type="button">
+<span class="material-symbols-rounded text-base">category</span>
+              Tất cả
+            </button>
+<button class="h-11 px-4 rounded-xl bg-tactile-surface hover:bg-tactile-hover border border-tactile-border text-tactile-textSecondary hover:text-tactile-textPrimary font-semibold text-xs flex items-center gap-2 shrink-0 transition-colors" type="button">
+<span class="material-symbols-rounded text-base">description</span>
+              Tài liệu
+            </button>
+<button class="h-11 px-4 rounded-xl bg-tactile-surface hover:bg-tactile-hover border border-tactile-border text-tactile-textSecondary hover:text-tactile-textPrimary font-semibold text-xs flex items-center gap-2 shrink-0 transition-colors" type="button">
+<span class="material-symbols-rounded text-base">image</span>
+              Hình ảnh
+            </button>
+<button class="h-11 px-4 rounded-xl bg-tactile-surface hover:bg-tactile-hover border border-tactile-border text-tactile-textSecondary hover:text-tactile-textPrimary font-semibold text-xs flex items-center gap-2 shrink-0 transition-colors" type="button">
+<span class="material-symbols-rounded text-base">video_file</span>
+              Video
+            </button>
+<button class="h-11 px-4 rounded-xl bg-tactile-surface hover:bg-tactile-hover border border-tactile-border text-tactile-textSecondary hover:text-tactile-textPrimary font-semibold text-xs flex items-center gap-2 shrink-0 transition-colors" type="button">
+<span class="material-symbols-rounded text-base">filter_list</span>
+              Bộ lọc khác
+            </button>
+</div>
+</div>
+<!-- END: PageTitle & FilterChips -->
+<!-- BEGIN: DataTable -->
+<div class="bg-tactile-surface border border-tactile-border rounded-2xl tactile-card-ledge flex flex-col flex-1 overflow-hidden">
+<div class="overflow-x-auto flex-1">
+<table class="w-full text-left border-collapse min-w-[840px]">
+<thead>
+<tr class="border-b border-tactile-border bg-tactile-elevated text-tactile-textMuted text-xs font-bold uppercase tracking-wider">
+<th class="w-14 px-4 py-4 text-center" scope="col">
+<label class="w-11 h-11 inline-flex items-center justify-center cursor-pointer">
+<input class="w-4 h-4 rounded bg-tactile-input border-tactile-border text-tactile-teal focus:ring-tactile-teal focus:ring-offset-tactile-surface" type="checkbox"/>
+</label>
+</th>
+<th class="px-4 py-4" scope="col">Tên tệp</th>
+<th class="px-4 py-4" scope="col">Định dạng</th>
+<th class="px-4 py-4" scope="col">Kích thước</th>
+<th class="px-4 py-4" scope="col">Ngày cập nhật</th>
+<th class="px-4 py-4" scope="col">Trạng thái</th>
+<th class="w-20 px-4 py-4 text-right" scope="col">Thao tác</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-tactile-border text-sm">
+<!-- Row 1 -->
+<tr class="hover:bg-tactile-elevated transition-colors group">
+<td class="px-4 py-3 text-center">
+<label class="w-11 h-11 inline-flex items-center justify-center cursor-pointer">
+<input class="w-4 h-4 rounded bg-tactile-input border-tactile-border text-tactile-teal focus:ring-tactile-teal focus:ring-offset-tactile-surface" type="checkbox"/>
+</label>
+</td>
+<td class="px-4 py-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-tactile-input border border-tactile-border flex items-center justify-center text-tactile-teal">
+<span class="material-symbols-rounded text-xl">picture_as_pdf</span>
+</div>
+<div>
+<p class="font-semibold text-tactile-textPrimary">Ke_hoach_kinh_doanh_2025.pdf</p>
+<p class="text-xs text-tactile-textMuted">Tài liệu bảo mật cao</p>
+</div>
+</div>
+</td>
+<td class="px-4 py-3">
+<span class="px-2.5 py-1 rounded-md text-xs font-bold bg-tactile-input border border-tactile-border text-tactile-textSecondary">PDF</span>
+</td>
+<td class="px-4 py-3 font-medium text-tactile-textSecondary">14.8 MB</td>
+<td class="px-4 py-3 text-tactile-textMuted">Hôm nay, 10:24</td>
+<td class="px-4 py-3">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-tactile-input border border-tactile-border text-tactile-teal">
+<span class="w-1.5 h-1.5 rounded-full bg-tactile-teal"></span>
+                      Đã đồng bộ
+                    </span>
+</td>
+<td class="px-4 py-3 text-right">
+<div class="flex justify-end gap-1">
+<button aria-label="Tải về" class="w-11 h-11 rounded-lg hover:bg-tactile-input flex items-center justify-center text-tactile-textMuted hover:text-tactile-teal transition-colors" type="button">
+<span class="material-symbols-rounded text-xl">download</span>
+</button>
+<button aria-label="Tùy chọn khác" class="w-11 h-11 rounded-lg hover:bg-tactile-input flex items-center justify-center text-tactile-textMuted hover:text-tactile-textPrimary transition-colors" type="button">
+<span class="material-symbols-rounded text-xl">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-tactile-elevated transition-colors group">
+<td class="px-4 py-3 text-center">
+<label class="w-11 h-11 inline-flex items-center justify-center cursor-pointer">
+<input class="w-4 h-4 rounded bg-tactile-input border-tactile-border text-tactile-teal focus:ring-tactile-teal focus:ring-offset-tactile-surface" type="checkbox"/>
+</label>
+</td>
+<td class="px-4 py-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-tactile-input border border-tactile-border flex items-center justify-center text-tactile-coral">
+<span class="material-symbols-rounded text-xl">image</span>
+</div>
+<div>
+<p class="font-semibold text-tactile-textPrimary">Ban_ve_thiet_ke_UI_UX.fig</p>
+<p class="text-xs text-tactile-textMuted">Bản nháp giao diện tactile</p>
+</div>
+</div>
+</td>
+<td class="px-4 py-3">
+<span class="px-2.5 py-1 rounded-md text-xs font-bold bg-tactile-input border border-tactile-border text-tactile-textSecondary">FIG</span>
+</td>
+<td class="px-4 py-3 font-medium text-tactile-textSecondary">102.4 MB</td>
+<td class="px-4 py-3 text-tactile-textMuted">18 Thg 5, 2024</td>
+<td class="px-4 py-3">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-tactile-input border border-tactile-border text-tactile-teal">
+<span class="w-1.5 h-1.5 rounded-full bg-tactile-teal"></span>
+                      Đã đồng bộ
+                    </span>
+</td>
+<td class="px-4 py-3 text-right">
+<div class="flex justify-end gap-1">
+<button aria-label="Tải về" class="w-11 h-11 rounded-lg hover:bg-tactile-input flex items-center justify-center text-tactile-textMuted hover:text-tactile-teal transition-colors" type="button">
+<span class="material-symbols-rounded text-xl">download</span>
+</button>
+<button aria-label="Tùy chọn khác" class="w-11 h-11 rounded-lg hover:bg-tactile-input flex items-center justify-center text-tactile-textMuted hover:text-tactile-textPrimary transition-colors" type="button">
+<span class="material-symbols-rounded text-xl">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-tactile-elevated transition-colors group">
+<td class="px-4 py-3 text-center">
+<label class="w-11 h-11 inline-flex items-center justify-center cursor-pointer">
+<input class="w-4 h-4 rounded bg-tactile-input border-tactile-border text-tactile-teal focus:ring-tactile-teal focus:ring-offset-tactile-surface" type="checkbox"/>
+</label>
+</td>
+<td class="px-4 py-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-tactile-input border border-tactile-border flex items-center justify-center text-tactile-teal">
+<span class="material-symbols-rounded text-xl">table_chart</span>
+</div>
+<div>
+<p class="font-semibold text-tactile-textPrimary">Bang_tinh_chi_phi_Q3.xlsx</p>
+<p class="text-xs text-tactile-textMuted">Báo cáo tài chính</p>
+</div>
+</div>
+</td>
+<td class="px-4 py-3">
+<span class="px-2.5 py-1 rounded-md text-xs font-bold bg-tactile-input border border-tactile-border text-tactile-textSecondary">XLSX</span>
+</td>
+<td class="px-4 py-3 font-medium text-tactile-textSecondary">4.2 MB</td>
+<td class="px-4 py-3 text-tactile-textMuted">12 Thg 5, 2024</td>
+<td class="px-4 py-3">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-tactile-input border border-tactile-border text-tactile-coral">
+<span class="w-1.5 h-1.5 rounded-full bg-tactile-coral"></span>
+                      Đang xử lý
+                    </span>
+</td>
+<td class="px-4 py-3 text-right">
+<div class="flex justify-end gap-1">
+<button aria-label="Tải về" class="w-11 h-11 rounded-lg hover:bg-tactile-input flex items-center justify-center text-tactile-textMuted hover:text-tactile-teal transition-colors" type="button">
+<span class="material-symbols-rounded text-xl">download</span>
+</button>
+<button aria-label="Tùy chọn khác" class="w-11 h-11 rounded-lg hover:bg-tactile-input flex items-center justify-center text-tactile-textMuted hover:text-tactile-textPrimary transition-colors" type="button">
+<span class="material-symbols-rounded text-xl">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-tactile-elevated transition-colors group">
+<td class="px-4 py-3 text-center">
+<label class="w-11 h-11 inline-flex items-center justify-center cursor-pointer">
+<input class="w-4 h-4 rounded bg-tactile-input border-tactile-border text-tactile-teal focus:ring-tactile-teal focus:ring-offset-tactile-surface" type="checkbox"/>
+</label>
+</td>
+<td class="px-4 py-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-tactile-input border border-tactile-border flex items-center justify-center text-tactile-teal">
+<span class="material-symbols-rounded text-xl">folder_zip</span>
+</div>
+<div>
+<p class="font-semibold text-tactile-textPrimary">Sao_luu_he_thong_052024.zip</p>
+<p class="text-xs text-tactile-textMuted">Tập tin nén hệ thống</p>
+</div>
+</div>
+</td>
+<td class="px-4 py-3">
+<span class="px-2.5 py-1 rounded-md text-xs font-bold bg-tactile-input border border-tactile-border text-tactile-textSecondary">ZIP</span>
+</td>
+<td class="px-4 py-3 font-medium text-tactile-textSecondary">1.4 GB</td>
+<td class="px-4 py-3 text-tactile-textMuted">01 Thg 5, 2024</td>
+<td class="px-4 py-3">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-tactile-input border border-tactile-border text-tactile-teal">
+<span class="w-1.5 h-1.5 rounded-full bg-tactile-teal"></span>
+                      Đã đồng bộ
+                    </span>
+</td>
+<td class="px-4 py-3 text-right">
+<div class="flex justify-end gap-1">
+<button aria-label="Tải về" class="w-11 h-11 rounded-lg hover:bg-tactile-input flex items-center justify-center text-tactile-textMuted hover:text-tactile-teal transition-colors" type="button">
+<span class="material-symbols-rounded text-xl">download</span>
+</button>
+<button aria-label="Tùy chọn khác" class="w-11 h-11 rounded-lg hover:bg-tactile-input flex items-center justify-center text-tactile-textMuted hover:text-tactile-textPrimary transition-colors" type="button">
+<span class="material-symbols-rounded text-xl">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- BEGIN: Pagination Footer -->
+<footer class="h-16 bg-tactile-elevated border-t border-tactile-border px-6 flex items-center justify-between">
+<span class="text-xs font-semibold text-tactile-textMuted">
+              Hiển thị <strong class="text-tactile-textPrimary">1-4</strong> trên tổng số <strong class="text-tactile-textPrimary">28</strong> tệp tin
+            </span>
+<div class="flex items-center gap-1.5">
+<button aria-label="Trang trước" class="w-11 h-11 rounded-xl bg-tactile-input border border-tactile-border hover:bg-tactile-hover flex items-center justify-center text-tactile-textSecondary hover:text-tactile-textPrimary disabled:opacity-40 transition-colors" type="button">
+<span class="material-symbols-rounded text-lg">chevron_left</span>
+</button>
+<button class="w-11 h-11 rounded-xl bg-tactile-teal text-tactile-bg font-bold text-xs flex items-center justify-center shadow" type="button">
+                1
+              </button>
+<button class="w-11 h-11 rounded-xl bg-tactile-input border border-tactile-border hover:bg-tactile-hover font-semibold text-xs text-tactile-textSecondary hover:text-tactile-textPrimary flex items-center justify-center transition-colors" type="button">
+                2
+              </button>
+<button class="w-11 h-11 rounded-xl bg-tactile-input border border-tactile-border hover:bg-tactile-hover font-semibold text-xs text-tactile-textSecondary hover:text-tactile-textPrimary flex items-center justify-center transition-colors" type="button">
+                3
+              </button>
+<button aria-label="Trang sau" class="w-11 h-11 rounded-xl bg-tactile-input border border-tactile-border hover:bg-tactile-hover flex items-center justify-center text-tactile-textSecondary hover:text-tactile-textPrimary transition-colors" type="button">
+<span class="material-symbols-rounded text-lg">chevron_right</span>
+</button>
+</div>
+</footer>
+<!-- END: Pagination Footer -->
+</div>
+<!-- END: DataTable -->
+</main>
+</div>
+</div>
+</body></html>

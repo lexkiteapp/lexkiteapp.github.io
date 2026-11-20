@@ -2,10 +2,14 @@
 //   tĩnh, đủ phần tử (ảnh PNG của Stitch chụp giữa hoạt ảnh nên thiếu). Xuất tờ duyệt: mỗi cột 1 màn, hàng trên tối, hàng dưới sáng.
 //   Chủ duyệt tờ này, KHÔNG duyệt PNG Stitch. Ảnh vẽ ra cũng là mẫu chuẩn cho SSIM của stitch-diff.mjs (cùng job CI).
 // Dùng: node scripts/test/stitch-render.mjs [brand/stitch/v2] [out/stitch-v2]   (cần playwright + imagemagick; CI: stitch-diff.yml)
+import { outsideRound } from './lib/round-clip.mjs'; // góc bo của huy hiệu/avatar tròn là nền trang, không tính vào tương phản chữ
 import fs from 'node:fs'; import path from 'node:path'; import { execFileSync } from 'node:child_process'; import { chromium } from 'playwright'; import { PNG } from 'pngjs';
 const [SRC = 'brand/stitch/v2', OUT = 'out/stitch-v2'] = process.argv.slice(2); fs.mkdirSync(path.join(OUT, 'png'), { recursive: true });
-export const ORDER = ['path', 'lesson-question', 'feedback-correct', 'feedback-wrong', 'lesson-complete', 'story-duo', 'review', 'practice', 'leagues', 'streak', 'me', 'teacher-call', 'exam-readiness', 'library', 'topic', 'deck', 'mistakes', 'dictionary', 'stats', 'pas-sit', 'pas-drill'];
+export const ORDER = ['today', 'today-new', 'today-desk', 'path', 'lesson-question', 'feedback-correct', 'feedback-wrong', 'lesson-complete', 'story-duo', 'review', 'practice', 'skills', 'leagues', 'streak', 'me', 'teacher-call', 'exam-readiness', 'pas-sit', 'pas-drill', 'grammar', 'day', 'library', 'topic', 'deck', 'mistakes', 'stats'];
 const STILL = '*,*::before,*::after{animation:none!important;transition:none!important;caret-color:transparent!important}';
+// Logo thật trong ảnh mẫu: HTML Stitch chỉ chừa chỗ (<img class="logo">, .wordmark) và mở bằng file:// nên không có file/CSS của app → vẽ bằng đúng web/icons/icon.svg + luật .logo/.wordmark của web/css/style.css (một nguồn, không vẽ logo riêng trong mẫu).
+const APP_CSS = fs.readFileSync('web/css/style.css', 'utf8'), BRAND_CSS = (APP_CSS.match(/^\.(?:logo|wordmark(?: b)?) \{[^\n]*\}[ \t]*$/gm) || []).join('\n'), BRAND_ICON = 'data:image/svg+xml;base64,' + fs.readFileSync('web/icons/icon.svg').toString('base64');
+if (!/\.logo \{/.test(BRAND_CSS) || !/\.wordmark b \{/.test(BRAND_CSS)) throw new Error('stitch-render: không đọc được luật .logo/.wordmark trong web/css/style.css');
 const browser = await chromium.launch(), ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 1, reducedMotion: 'reduce' });
 const done = {}, info = {};
 // ---- Rà đồng bộ tối ↔ sáng (tự động): thanh tab, đầu trang, nút, chữ, nút chỉ-icon thiếu tên, tương phản chữ thật (pixel) ----
@@ -17,7 +21,7 @@ const STAT = () => { const vis = e => { const r = e.getBoundingClientRect(), cs 
   const iconOnly = [...document.querySelectorAll('a,button,[role=button],[role=switch]')].filter(vis).filter(b => !txt(b).length && !b.getAttribute('aria-label') && !b.getAttribute('title') && !b.getAttribute('aria-labelledby')).map(b => (b.className.toString().match(/\S+/g) || []).slice(0, 2).join('.') + '@' + Math.round(b.getBoundingClientRect().top));
   const boxes = [...document.querySelectorAll('body *')].filter(x => [...x.childNodes].some(n => n.nodeType === 3 && n.textContent.trim()) && !/material-symbols/.test(x.className) && vis(x)).map(x => { const r = x.getBoundingClientRect(), cs = getComputedStyle(x), fs = parseFloat(cs.fontSize), fw = +cs.fontWeight || 400;
     let op = 1; for (let q = x; q && q.nodeType === 1; q = q.parentElement) op *= +getComputedStyle(q).opacity;
-    const hh = Math.min(r.height, fs * 1.2), cy = r.top + r.height / 2 + scrollY; return { t: x.textContent.trim().slice(0, 30), x: r.left, y: cy - hh / 2, w: r.width, h: hh, c: cs.color, op, large: fs >= 24 || (fs >= 18.66 && fw >= 700) }; });
+    const hh = Math.min(r.height, fs * 1.2), cy = r.top + r.height / 2 + scrollY; return { t: x.textContent.trim().slice(0, 30), x: r.left, y: cy - hh / 2, w: r.width, h: hh, c: cs.color, op, rad: parseFloat(cs.borderTopLeftRadius) || 0, bt: r.top + scrollY, bh: r.height, large: fs >= 24 || (fs >= 18.66 && fw >= 700) }; });
   return { navLabels: tabs.map(t => txt(t).join(' ')).filter(Boolean), navAria: tabs.map(t => t.getAttribute('aria-label')).filter(Boolean), navN: tabs.length,
     header: hdr ? txt(hdr) : [], buttons: [...document.querySelectorAll('button,a')].filter(vis).map(b => txt(b).join(' ')).filter(Boolean), words: txt(document.body), iconOnly, boxes }; };
 const lum = c => { const f = v => { v /= 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; }; return 0.2126 * f(c[0]) + 0.7152 * f(c[1]) + 0.0722 * f(c[2]); };
@@ -28,14 +32,15 @@ function contrast(png, boxes) { const p = PNG.sync.read(fs.readFileSync(png)), b
     const x0 = Math.max(0, Math.floor(b.x)), y0 = Math.max(0, Math.floor(b.y)), x1 = Math.min(p.width, Math.ceil(b.x + b.w)), y1 = Math.min(p.height, Math.ceil(b.y + b.h)); if (x1 - x0 < 3 || y1 - y0 < 3) continue;
     const H = new Map(); let far = 0;
     for (let y = y0; y < y1; y++) for (let x = x0; x < x1; x++) { const i = (y * p.width + x) * 4, R = p.data[i], G = p.data[i + 1], B = p.data[i + 2];
-      if (Math.abs(R - m[0]) + Math.abs(G - m[1]) + Math.abs(B - m[2]) < 90) continue; far++; const q = ((R >> 3) << 10) | ((G >> 3) << 5) | (B >> 3); H.set(q, (H.get(q) || 0) + 1); }
+      if (Math.abs(R - m[0]) + Math.abs(G - m[1]) + Math.abs(B - m[2]) < 90 || outsideRound(x + .5, y + .5, b.x, b.bt, b.w, b.bh, b.rad)) continue; far++; const q = ((R >> 3) << 10) | ((G >> 3) << 5) | (B >> 3); H.set(q, (H.get(q) || 0) + 1); }
     if (far < 6) continue; let w = 99;
     for (const [q, c] of H) { if (c < far * 0.15) continue; const bg = [(q >> 10) * 8 + 4, ((q >> 5) & 31) * 8 + 4, (q & 31) * 8 + 4]; w = Math.min(w, cr([0, 1, 2].map(k => m[k] * a + bg[k] * (1 - a)), bg)); }
     const need = b.large ? 3 : 4.5; if (w < need - 0.05) bad.push(`"${b.t}" ${w.toFixed(2)}<${need}`); }
   return bad; }
 for (const s of ORDER) for (const m of ['dark', 'light']) { const f = path.join(SRC, `${s}-${m}.html`); if (!fs.existsSync(f)) continue;
   const p = await ctx.newPage(); await p.goto('file://' + path.resolve(f), { waitUntil: 'networkidle' }).catch(() => {});
-  await p.addStyleTag({ content: STILL });
+  await p.addStyleTag({ content: STILL + BRAND_CSS + `:root{--text:${/-dark\.html$/.test(f) ? '#F3F8F8' : '#102225'}}` });
+  await p.evaluate(async src => { for (const i of document.querySelectorAll('img.logo')) { i.src = src; await i.decode().catch(() => {}); } }, BRAND_ICON);
   // Lỗi xuất của Stitch (feedback-correct-dark): class material-symbols-outlined nhưng chỉ nạp font Rounded → dùng Rounded (app cũng tự host Rounded)
   await p.evaluate(() => { const h = [...document.querySelectorAll('link[href*="Material+Symbols"]')].map(l => l.href).join(' ');
     if (!/Outlined/.test(h) && /Rounded/.test(h)) document.head.insertAdjacentHTML('beforeend', '<style>.material-symbols-outlined{font-family:"Material Symbols Rounded"!important}</style>'); });
@@ -84,11 +89,11 @@ const nz = x => x.replace(/\d+(\.\d+)?(?=<|;|$)/g, '#').replace(/ \d+ chữ/, ' 
 const fresh = must.filter((x, i) => !KN.includes(MN[i])), gone = KNOWN.filter((x, i) => !MN.includes(KN[i]));
 if (gone.length) console.log('ℹ lỗi mẫu đã hết (xóa khỏi known-issues.json):\n  ' + gone.join('\n  '));
 if (fresh.length) { console.error('✗ lỗi mẫu MỚI:\n  ' + fresh.join('\n  ')); process.exitCode = 1; }
-// tờ duyệt: 3 tờ (7 + 6 + 6 màn), mỗi ô thu 50 %, thiếu bản → ô xám "chưa có trong Stitch"
+// tờ duyệt: 2 tờ (7 + 6 màn), mỗi ô thu 50 %, thiếu bản → ô xám "chưa có trong Stitch"
 const cell = (s, m) => done[`${s}-${m}`] || (() => { const o = path.join(OUT, 'png', `_missing-${s}-${m}.png`);
   execFileSync('convert', ['-size', '390x844', 'xc:#777', '-gravity', 'center', '-pointsize', '28', '-fill', 'white', '-annotate', '0', `${s}\n${m}\nchưa có trong Stitch`, o]); return o; })();
-for (const [i, part] of [ORDER.slice(0, 7), ORDER.slice(7, 13), ORDER.slice(13)].entries()) {
+for (const [i, part] of [ORDER.slice(0, 7), ORDER.slice(7)].entries()) {
   const tiles = [...part.map(s => cell(s, 'dark')), ...part.map(s => cell(s, 'light'))];
   execFileSync('montage', [...tiles, '-tile', `${part.length}x2`, '-geometry', '195x+8+8', '-gravity', 'north', '-background', '#e9eef0',
-    '-title', `Stitch v2.1 (HTML tĩnh 390 px) · trên: tối · dưới: sáng · tờ ${i + 1}/3`, '-pointsize', '20', path.join(OUT, `sheet-${i + 1}.png`)]); }
-console.log(`stitch-render: ${Object.keys(done).length} màn → ${OUT}/png, tờ ${OUT}/sheet-1..3.png`);
+    '-title', `Stitch v2.1 (HTML tĩnh 390 px) · trên: tối · dưới: sáng · tờ ${i + 1}/2`, '-pointsize', '20', path.join(OUT, `sheet-${i + 1}.png`)]); }
+console.log(`stitch-render: ${Object.keys(done).length} màn → ${OUT}/png, tờ ${OUT}/sheet-1.png, sheet-2.png`);

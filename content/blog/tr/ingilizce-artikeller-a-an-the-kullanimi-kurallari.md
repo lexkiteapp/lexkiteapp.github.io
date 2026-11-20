@@ -169,6 +169,8 @@ Bahsettiğiniz varlık karşı tarafça kesin olarak biliniyor mu?
                └── HAYIR (çoğul veya sayılamayan genel kavram) ➔ SIFIR ARTİKEL (Ø)
 ```
 
+Artikel eksikliğinin IELTS Writing puanına etkisini [IELTS Writing hataları ve çözümleri](/tr/blog/ielts-writing-hatalari-ve-cozumleri/) yazısında örneklerle görebilirsiniz.
+
 ## Türk Öğrencilerin En Sık Yaptığı 5 Hata
 
 | Sık Yapılan Hatalı Cümle | Hatanın Sebebi | Doğru Cümle Yapısı |
@@ -179,6 +181,6 @@ Bahsettiğiniz varlık karşı tarafça kesin olarak biliniyor mu?
 | *I like the music.* (genel) | Türkçedeki 'müziği severim' ifadesini birebir çevirmek | *I like music.* |
 | *She has a headache.* | Bu cümle doğrudur (headache sayılabilir bir rahatsızlıktır) | *She has a headache.* |
 
-Dil bilgisi altyapınızı güçlendirmek için [present perfect ve simple past farkı](/tr/blog/present-perfect-simple-past-farki/), metinlerinize akıcılık katan [İngilizce bağlaçlar ve linking words tablosu](/tr/blog/ingilizce-baglaclar-ve-linking-words-tablosu/), şart cümlelerinin mantığını ele alan [İngilizce if clauses rehberi](/tr/blog/ingilizce-if-clauses-kosul-cumleleri-rehberi/) ve [İngilizce edatlar in on at kullanımı](/tr/blog/ingilizce-edatlar-in-on-at-kullanimi/) yazılarımıza göz atabilirsiniz. Akademik kelime haznenizi genişletmek için [/tu-vung/](/tu-vung/) sayfamızı ziyaret edin.
+Dil bilgisi altyapınızı güçlendirmek için [present perfect ve simple past farkı](/tr/blog/present-perfect-simple-past-farki/), metinlerinize akıcılık katan [İngilizce bağlaçlar ve linking words tablosu](/tr/blog/ingilizce-baglaclar-ve-linking-words-tablosu/), şart cümlelerinin mantığını ele alan [İngilizce if clauses rehberi](/tr/blog/ingilizce-if-clauses-kosul-cumleleri-rehberi/) ve [İngilizce edatlar in on at kullanımı](/tr/blog/ingilizce-edatlar-in-on-at-kullanimi/) yazılarımıza göz atabilirsiniz. Akademik kelime haznenizi genişletmek için [/tu-vung/](/en/vocabulary/) sayfamızı ziyaret edin.
 
 Belirlilik ve biçimsel sınır mantığını zihninize yerleştirdiğinizde, İngilizce artikeller bir problem olmaktan çıkacak ve anlatımınız ana dili İngilizce olan birinin doğallığına kavuşacaktır.

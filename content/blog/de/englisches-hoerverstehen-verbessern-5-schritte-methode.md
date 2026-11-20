@@ -24,6 +24,8 @@ In diesem ausführlichen Leitfaden beleuchten wir die phonetischen und kognitive
 
 Wer nach einem unverständlichen Audioabschnitt das Transkript öffnet, erlebt fast immer einen Aha-Effekt: Die meisten der verwendeten Vokabeln waren längst bekannt. Für diese Blockade gibt es vier typische Gründe:
 
+Mehr dazu findest du in unserem Beitrag [TOEIC Listening Part 2: Strategien für Fragen und Antworten](/de/blog/toeic-listening-part-2-strategien-fragen-antworten/).
+
 1. **Sie kennen das Schriftbild, nicht die akustische Signatur:** Wenn Vokabeln primär über Lehrbücher gelernt werden, speichert das Gehirn die Buchstabenfolge ab und entwirft eine hypothetische Aussprache nach deutschen Lautregeln. Spricht ein Muttersprachler das Wort natürlich aus, findet das Gehirn keinen passenden Eintrag im Hörgedächtnis.
 2. **Gesprochenes Englisch trennt Wörter nicht isoliert ab:** Im Schriftbild trennen Leerzeichen jedes Wort sauber ab. In der natürlichen Rede verschmelzen Wortgrenzen durch Verbindungslaute (*connected speech*). Aus *What are you going to do?* wird umgangssprachlich oft ein flüssiges "Whatcha gonna do?". Mehr dazu erfahren Sie in unserem Beitrag über [Connected Speech im Englischen und Verbindungslaute](/de/blog/connected-speech-englisch-verbindungslaute/).
 3. **Englisch ist eine akzentzählende Sprache (*stress-timed*):** Zwar sind beide Sprachen akzentzählend, doch das Englische reduziert unbetonte Silben deutlich stärker (Schwa, Schwachformen): Es dehnt betonte Silben und komprimiert unbetonte Funktionswörter (wie Artikel, Hilfsverben und Präpositionen) radikal zu kurzen Murmellauten.

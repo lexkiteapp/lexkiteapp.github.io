@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_afford",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: afford.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means to have enough money to pay for something.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "We can't afford a new car this year.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "afford",
+  "ipa": "/əˈfɔːrd/",
+  "mean": "to have enough money to pay for something",
+  "ex": "We can't afford a new car this year.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=afford",
+  "link": "https://lexkite.com/app/#/review?w=afford",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 43,
+  "seconds": 26.2,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"afford\" mean?",
+  "keyword": "afford",
+  "value": "Afford means to have enough money to pay for something.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=afford",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"afford\" mean?",
+    "description": "Afford means to have enough money to pay for something.\n\nReview your words, free: https://lexkite.com/app/#/review?w=afford\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "afford",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"afford\" mean?\n\nAfford means to have enough money to pay for something.\n\nReview your words, free: https://lexkite.com/app/#/review?w=afford"
+   },
+   "instagram": {
+    "caption": "What does \"afford\" mean?\n\nAfford means to have enough money to pay for something.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"afford\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means to have enough money to pay for something. Afford means to have enough money to pay for something. Practice it with a free quiz: {link}"
+ }
+}

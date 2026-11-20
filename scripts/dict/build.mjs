@@ -24,7 +24,7 @@ const gpos = p => { p = String(p || '').toLowerCase(); return /^(n|noun)\b/.test
 const gitDate = (...f) => { try { return execFileSync('git', ['log', '-1', '--format=%cs', '--', ...f], { encoding: 'utf8' }).trim() || new Date().toISOString().slice(0, 10); } catch { return new Date().toISOString().slice(0, 10); } };
 
 // ---------- Nguồn ----------
-function loadSources() {
+export function loadSources(blogLangs = ENABLED) {
   const { INDEX } = loadBrowserIndex();
   const { audioKey } = loadVocab();
   const notes = {}; for (const f of fs.readdirSync('web/js/notes').filter(f => f.endsWith('.json'))) Object.assign(notes, J('web/js/notes/' + f));
@@ -34,7 +34,7 @@ function loadSources() {
   const U = ctx.LK_USAGE, usage = new Map();
   for (const k of U.KINDS) for (const e of U.load(k)) for (const w of U.words(e)) (usage.get(w) || usage.set(w, []).get(w)).push(e);
   const now = Date.now(), blog = {};
-  for (const l of ENABLED) {
+  for (const l of blogLangs) {
     const dir = `content/blog/${l}`; blog[l] = [];
     for (const f of fs.existsSync(dir) ? fs.readdirSync(dir).filter(f => f.endsWith('.md')) : []) {
       const s = fs.readFileSync(path.join(dir, f), 'utf8'), fm = (s.match(/^---\n([\s\S]*?)\n---/) || [])[1]; if (!fm) continue;
@@ -49,7 +49,8 @@ function loadSources() {
   for (const k of U.KINDS) for (const e of U.load(k)) for (const x of e.items || []) for (const q of x.ex || []) addS(U.example(q).text);
   for (const a of corpus.values()) a.sort((x, y) => x.length - y.length || x.localeCompare(y));
   const wn = fs.existsSync('content/dict/wordnet.json') ? J('content/dict/wordnet.json').words : {}; // Open English WordNet (CC BY 4.0) – scripts/dict/wordnet.mjs
-  return { INDEX, audioKey, notes, U, usage, blog, corpus, wn };
+  const addF = n => Object.assign({}, ...fs.readdirSync('content/dict/add').filter(f => f === `${n}.json` || (f.startsWith(`${n}-b`) && f.endsWith('.json'))).sort().map(f => J(`content/dict/add/${f}`))), add = { w: addF('words'), en: addF('en'), vi: addF('vi') }; // bổ sung tự viết cho từ chưa đạt ngưỡng (docs §12)
+  return { INDEX, audioKey, notes, U, usage, blog, corpus, wn, add };
 }
 
 // ---------- Chọn từ: từ đơn thông dụng (NGSL/A1–B1) có đủ dữ liệu tự soạn ----------
@@ -70,32 +71,45 @@ function selectPool(src, n, pool) { const all = select(src, Math.max(n, pool)), 
 function seeded(word) { let x = parseInt(hash(word).slice(0, 8), 16); return () => (x = (x * 1103515245 + 12345) >>> 0) / 2 ** 32; }
 function shuffle(arr, rnd) { const a = [...arr]; for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(rnd() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
 
-function entryJson(src, e, l, ctx) {
-  const { U, usage, notes, audioKey, INDEX, blog } = src, w = e.word, k = w.toLowerCase(), pos = gpos(e.pos), rnd = seeded(l + w);
-  const inSet = ctx.bySlug, href = x => { const s = slugOf(x); return inSet.has(s) ? wordPath(l, s) : ''; };
-  const meaning = l === 'vi' ? e.vi : e.def, m = x => (l === 'vi' ? x.vi || x.en : x.en || x.vi) || '';
+// Phần làm giàu dùng chung (trang từ điển + trang tĩnh /<lang>/words/ – docs/specs/seo-words-depth.md): ví dụ, cấu trúc, từ dễ nhầm, lỗi hay gặp,
+// collocation, WordNet, bài blog đã đăng. Chỉ dữ liệu thật của repo; ngôn ngữ ≠ vi → chữ giải thích tiếng Anh.
+export function enrich(src, e, l, phrases) {
+  const { U, usage, blog } = src, w = e.word, k = w.toLowerCase(), pos = gpos(e.pos);
+  const m = x => (l === 'vi' ? x.vi || x.en : x.en || x.vi) || '';
   const ux = usage.get(k) || [], exText = s => U.example(s).text;
   const examples = [e.ex], addEx = s => { if (s && examples.length < 6 && !examples.includes(s) && new RegExp(`\\b${k}`, 'i').test(s)) examples.push(s); };
   const patterns = [], confus = [], mistakes = [], col = [...(e.col || [])];
   for (const u of ux) {
-    if (u.kind === 'c') confus.push({ items: u.items.map(x => ({ h: l === 'vi' ? x.h : x.h.replace(/\s*\(([^)]*)\)/, (_, a) => (VI_RE.test(a) ? ` (${a.split(',')[0].trim()})` : ` (${a})`)), m: m(x), ex: x.ex[0] ? exText(x.ex[0]) : '' })), tip: (u.notes[0] && (l === 'vi' ? u.notes[0].vi : u.notes[0].en)) || '' }); // href thêm sau khi có cHref
+    if (u.kind === 'c') confus.push({ items: u.items.map(x => ({ h: l === 'vi' ? x.h : x.h.replace(/\s*\(([^)]*)\)/, (_, a) => (VI_RE.test(a) ? ` (${a.split(',')[0].trim()})` : ` (${a})`)), m: m(x), ex: x.ex[0] ? exText(x.ex[0]) : '' })), tip: (u.notes[0] && (l === 'vi' ? u.notes[0].vi : u.notes[0].en)) || '' }); // href thêm ở nơi gọi
     else if (u.kind === 'p' || u.kind === 'v') for (const x of u.items.slice(0, 4)) { patterns.push({ h: u.kind === 'p' ? `${u.key} ${x.h}` : `${u.key} + ${x.h}`, m: m(x), ex: x.ex[0] ? exText(x.ex[0]) : '' }); x.ex.forEach(s => addEx(exText(s))); }
     for (const x of u.mis || []) if (mistakes.length < 3) mistakes.push({ w: x.w, r: x.r, why: l === 'vi' ? x.vi : x.en });
     for (const c of u.col || []) if (!col.includes(c)) col.push(c);
   }
-  for (const p of ctx.phrases.get(k) || []) { if (col.length < 10 && !col.includes(p.word)) col.push(p.word); addEx(p.ex); }
+  for (const p of phrases.get(k) || []) { if (col.length < 10 && !col.includes(p.word)) col.push(p.word); addEx(p.ex); }
   for (const t of [k, k + 's', k + 'es', k + 'ed', k + 'd', k + 'ing']) for (const s of src.corpus.get(t) || []) addEx(s); // câu tự soạn khác của app có chứa từ
-  const wn = (src.wn[k] && src.wn[k][pos]) || {}, chip = x => ({ w: x, href: href(x) });
-  const syn = [...new Set([...(e.syn || []), ...(wn.syn || [])])].slice(0, 8).map(chip);
+  const wn = (src.wn[k] && src.wn[k][pos]) || {};
+  const aw = (src.add && src.add.w[k]) || {}, at = (src.add && src.add[l === 'vi' ? 'vi' : 'en'][k]) || {}; // dữ liệu bổ sung: trung tính (col/syn/IPA Mỹ) + theo ngôn ngữ (lỗi hay gặp, ghi chú)
+  for (const c of aw.col || []) if (!col.includes(c)) col.push(c);
+  for (const x of at.mis || []) if (mistakes.length < 3 && !mistakes.some(y => y.w === x.w)) mistakes.push(x);
+  const syn = [...new Set([...(e.syn || []), ...(aw.syn || []), ...(wn.syn || [])])].slice(0, 8);
   const wnS = (wn.s || []).filter(([g]) => g && g.toLowerCase() !== String(e.def).toLowerCase()).map(([g, x]) => ({ g, x }));
+  // Bài blog liên quan: tiêu đề/từ khoá/thẻ nhắc từ, hoặc thân bài nhấn *từ* (đang bàn về chính từ này)
+  const re = new RegExp(`(^|[^a-z])${k}([^a-z]|$)`);
+  const blogs = (blog[l] || []).map(b => ({ b, s: (re.test(b.t.toLowerCase()) || re.test(b.kw) ? 3 : 0) + (b.tags.includes(k) ? 2 : 0) + (b.body.includes(`*${k}*`) ? 1 : 0) })).filter(x => x.s).sort((a, b) => b.s - a.s || a.b.slug.localeCompare(b.b.slug)).slice(0, 3).map(({ b }) => ({ t: b.t, href: `/${l}/blog/${b.slug}/` }));
+  return { examples, patterns, confus, mistakes, col, syn, ant: wn.ant || [], fam: wn.der || [], wnS, ipaUS: aw.ipaUS || (src.wn[k] && src.wn[k].us) || '', noteU: at.u || '', blogs };
+}
+
+function entryJson(src, e, l, ctx) {
+  const { notes, audioKey } = src, w = e.word, k = w.toLowerCase(), pos = gpos(e.pos), rnd = seeded(l + w);
+  const inSet = ctx.bySlug, href = x => { const s = slugOf(x); return inSet.has(s) ? wordPath(l, s) : ''; };
+  const meaning = l === 'vi' ? e.vi : e.def;
+  const { examples, patterns, confus, mistakes, col, syn: synW, ant, fam, wnS, blogs, noteU, ipaUS: ipaX } = enrich(src, e, l, ctx.phrases), chip = x => ({ w: x, href: href(x) });
+  const syn = synW.map(chip);
   const ts = toolStrings(l), lvU = String(e.level || '').toUpperCase();
   const tools = ts ? [ts.levels && ts.levels[lvU] && [toolPath(l, 'test', lvU), fill(ts.level.h1, { lv: lvU, name: ts.levels[lvU].name })], [toolPath(l, 'test'), ts.nav.levelTest], [toolPath(l, 'toeic'), ts.nav.toeic]].filter(Boolean).map(([href, t]) => ({ href, t })) : [];
   const cHref = h => href(String(h).split(/[\s(]/)[0]);
   const related = ctx.list.filter(x => x !== e && x.topic === e.topic).slice(0, 8);
   const i = ctx.list.indexOf(e); for (const x of ctx.list.slice(Math.max(0, i - 4), i + 5)) if (related.length < 8 && x !== e && !related.includes(x)) related.push(x);
-  // Bài blog liên quan: tiêu đề/từ khoá/thẻ nhắc từ, hoặc thân bài nhấn *từ* (đang bàn về chính từ này)
-  const re = new RegExp(`(^|[^a-z])${k}([^a-z]|$)`);
-  const blogs = blog[l].map(b => ({ b, s: (re.test(b.t.toLowerCase()) || re.test(b.kw) ? 3 : 0) + (b.tags.includes(k) ? 2 : 0) + (b.body.includes(`*${k}*`) ? 1 : 0) })).filter(x => x.s).sort((a, b) => b.s - a.s || a.b.slug.localeCompare(b.b.slug)).slice(0, 3).map(({ b }) => ({ t: b.t, href: `/${l}/blog/${b.slug}/` }));
   // Kiểm tra nhanh (0 JS, đáp án trong <details>): nghĩa · điền chỗ trống · câu đúng
   const quiz = [], same = ctx.list.filter(x => x !== e && gpos(x.pos) === pos);
   const pool = (same.length >= 3 ? same : ctx.list.filter(x => x !== e));
@@ -104,10 +118,11 @@ function entryJson(src, e, l, ctx) {
   const gap = examples.map(s => [s, s.match(new RegExp(`\\b(${k}s?)\\b`, 'i'))]).find(([, mm]) => mm);
   if (gap) { const [s, mm] = gap, form = mm[1].toLowerCase(), suf = form.slice(k.length), o = shuffle([form, ...shuffle(pool, rnd).slice(0, 3).map(x => x.word + suf)], rnd); quiz.push({ q: T[l].qGap, s: s.replace(mm[0], '_____'), o, a: o.indexOf(form), oEn: true }); }
   if (mistakes[0]) { const o = shuffle([mistakes[0].r, mistakes[0].w], rnd); quiz.push({ q: T[l].qRight, o, a: o.indexOf(mistakes[0].r), oEn: true }); }
-  const note = l === 'vi' && notes[k] ? Object.fromEntries(['m', 'e', 'u', 'f'].filter(q => notes[k][q]).map(q => [q, notes[k][q]])) : null;
+  let note = l === 'vi' && notes[k] ? Object.fromEntries(['m', 'e', 'u', 'f'].filter(q => notes[k][q]).map(q => [q, notes[k][q]])) : null;
+  if (!note && noteU) note = { u: noteU }; // ghi chú cách dùng tự viết (en + 13 ngôn ngữ: tiếng Anh; vi: tiếng Việt)
   // trang web mở sẵn mọi mục (đọc đủ + máy tìm kiếm thấy hết); app mặc định chỉ mở "Mẹo nhớ"
-  const noteHtml = note ? wordCard().notes(notes[k], w).replace(/<details class="(wc-sec[^"]*)" data-wc="(\w)">/g, '<details class="$1" data-wc="$2" open>') : '';
-  const d = { v: 1, lang: l, slug: slugOf(w), word: w, pos, level: e.level, emoji: e.emoji || '', usage: usage.has(k), ipa: e.ipa, ipaUS: e.ipaUS || (src.wn[k] && src.wn[k].us) || '', audio: audioKey(w), meaning, def: e.def, examples, col: col.slice(0, 10), patterns: patterns.slice(0, 6), syn, ant: (wn.ant || []).map(chip), fam: (wn.der || []).map(chip), wn: wnS, tools, confus: confus.slice(0, 2).map(c => ({ ...c, items: c.items.map(x => ({ ...x, href: x.h.split(/[\s(]/)[0].toLowerCase() === k ? '' : cHref(x.h) })) })), mistakes, note, noteHtml, quiz, blog: blogs, related: related.map(x => ({ w: x.word, href: wordPath(l, slugOf(x.word)) })), app: `${appHref(l)}#/dict/${encodeURIComponent(w)}`, lastmod: ctx.lastmod };
+  const noteHtml = note && l === 'vi' && notes[k] ? wordCard().notes(notes[k], w).replace(/<details class="(wc-sec[^"]*)" data-wc="(\w)">/g, '<details class="$1" data-wc="$2" open>') : '';
+  const d = { v: 1, lang: l, slug: slugOf(w), word: w, pos, level: e.level, emoji: e.emoji || '', usage: src.usage.has(k), ipa: e.ipa, ipaUS: e.ipaUS || ipaX, audio: audioKey(w), meaning, def: e.def, examples, col: col.slice(0, 10), patterns: patterns.slice(0, 6), syn, ant: ant.map(chip), fam: fam.map(chip), wn: wnS, tools, confus: confus.slice(0, 2).map(c => ({ ...c, items: c.items.map(x => ({ ...x, href: x.h.split(/[\s(]/)[0].toLowerCase() === k ? '' : cHref(x.h) })) })), mistakes, note, noteHtml, quiz, blog: blogs, related: related.map(x => ({ w: x.word, href: wordPath(l, slugOf(x.word)) })), app: `${appHref(l)}#/dict/${encodeURIComponent(w)}`, lastmod: ctx.lastmod };
   d.quality = quality(d);
   return d;
 }
@@ -200,9 +215,11 @@ export function purgeCss(css, used) {
     for (; i < src.length; i++) { const c = src[i]; if (c === '{') depth++; else if (c === '}' && --depth === 0) { const r = src.slice(start, i + 1).trim(), b = r.indexOf('{'), sel = r.slice(0, b).trim();
       if (/^@(media|supports)/.test(sel)) { const inner = walk(r.slice(b + 1, -1)); if (inner) out += `${sel}{${inner}}`; } else if (sel.startsWith('@') || keepSel(sel)) out += r; start = i + 1; } }
     return out; };
-  return walk(css.replace(/\/\*[\s\S]*?\*\//g, ''));
+  // gọn thêm 'thuộc tính: giá trị' → 'thuộc tính:giá trị' và ';}' → '}' (không đụng chuỗi nháy: lookahead dừng ở { }), trừ ~120 B gzip mỗi trang
+  return walk(css.replace(/\/\*[\s\S]*?\*\//g, '')).replace(/;}/g, '}').replace(/([\w)%\]]): (?=[^{}"']*[;}])/g, '$1:');
 }
-export const usedClasses = (htmls, js) => { const u = new Set(); for (const h of htmls) for (const m of h.matchAll(/class="([^"]*)"/g)) m[1].split(/\s+/).forEach(c => c && u.add(c)); for (const m of js.matchAll(/['"`]([\w -]+)['"`]/g)) m[1].split(/\s+/).forEach(c => c && u.add(c)); return u; };
+export const usedClasses = (htmls, js) => { const u = new Set(); for (const h of htmls) for (const m of h.matchAll(/class="([^"]*)"/g)) m[1].split(/\s+/).forEach(c => c && u.add(c)); for (const m of js.matchAll(/class(?:Name\s*=\s*|=\\?)(["'`])((?:\$\{[^}]*\}|(?!\1)[^])*)/g)) { for (const t of m[2].replace(/\$\{([^}]*)\}/g, ' $1 ').matchAll(/(?<![\w$.(])[a-zA-Z][\w-]*/g)) u.add(t[0]); for (const q of m[2].matchAll(/['"]([\w -]+)['"]/g)) q[1].split(/\s+/).forEach(c => c && u.add(c)); } // class do mã dựng/script gán: chỉ trong giá trị class=/className= (không gom MỌI chuỗi JS → .ext/.q của trang khác không lọt)
+  for (const m of js.matchAll(/['"`]([\w -]+)['"`]/g)) if (/^(?:A1|A2|B1|B2|C1|C2)(?: (?:A1|A2|B1|B2|C1|C2))*$/.test(m[1])) m[1].split(/\s+/).forEach(c => u.add(c)); return u; };
 
 export function buildShell() {
   const CSS2 = `.wd .pron .au{margin:0}.wd .acts .btn{text-decoration:none}.wd .acts .btn:not(.primary){color:var(--text)!important;background:var(--surface)}.wd .entry-head{grid-template-columns:minmax(0,1fr)}.wd h1.entry-word{margin:0}.wd .def{margin-top:.4rem}.wd .acts{margin-top:.9rem}.wd .example-box{margin-top:1rem}.wd .example-box p{margin:.3rem 0}.wd .wc-chips{margin-top:.9rem}.wd .wn.wc{margin-top:1rem}.wd .blk{margin-top:1rem}.wd .card h2{font-size:1.1rem;margin:0 0 .6rem}.wd .card h3{font-size:1rem;margin:.9rem 0 .2rem}.wd .pair+.pair{border-top:1px dashed var(--line);margin-top:.6rem;padding-top:.4rem}.wd .tip{margin:.6rem 0 0;padding:.6rem .8rem;border-radius:12px;background:var(--gold-soft)}.wd .note{margin:.3rem 0}.wd .notes{margin-top:1rem}.quiz{padding-inline-start:1.2rem;margin:0}.quiz>li{margin:.8rem 0}.quiz .opts{list-style:none;padding:0;margin:.3rem 0;display:flex;flex-wrap:wrap;gap:.4rem}.quiz .opts .chip{font-size:.9rem;white-space:normal}.quiz details{margin:.3rem 0}.quiz summary{cursor:pointer;min-height:44px;display:flex;align-items:center;color:var(--link)}.wd .ok{color:var(--good-text)}.wd .wc-chip{min-height:44px;box-sizing:border-box;text-decoration:none}.wd .cta{margin-top:1rem}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.az{columns:3 12rem;column-gap:1.5rem}.az li{break-inside:avoid;margin:.15rem 0}.az small{color:var(--muted)}.letters{display:flex;flex-wrap:wrap;gap:.4rem;margin:.8rem 0}.letters a{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;box-sizing:border-box;padding:.2rem .5rem;border:1px solid var(--line);border-radius:6px;text-decoration:none}`;
@@ -218,7 +235,7 @@ export function buildShell() {
 }
 
 export function build({ out = 'dist-dict', n = 200, pool = n, staticN = Infinity, index = '', write = true } = {}) {
-  const src = loadSources(), { list, top } = selectPool(src, n, pool), open = parseOpen(index), lastmod = gitDate('web/js/data.js', 'web/js/lib', 'web/js/usage', 'web/js/notes', 'scripts/dict', 'workers/dict');
+  const src = loadSources(), { list, top } = selectPool(src, n, pool), open = parseOpen(index), lastmod = gitDate('web/js/data.js', 'web/js/lib', 'web/cpack/lib', 'web/js/usage', 'web/js/notes', 'scripts/dict', 'workers/dict');
   const phrases = new Map(); for (const e of Object.values(src.INDEX)) if (e && /\s/.test(e.word)) for (const t of e.word.toLowerCase().split(/\s+/)) { const a = phrases.get(t) || phrases.set(t, []).get(t); if (a.length < 6) a.push(e); }
   const PIN = fs.existsSync('content/dict/open-pin.json') ? J('content/dict/open-pin.json') : {}, pin = (l, d) => ((PIN[l] || []).includes(d.slug) ? 1 : 0); // trang đã mở xếp trước → không rơi index khi điểm đổi
   const ctx = { list, phrases, lastmod, bySlug: new Set(list.map(e => slugOf(e.word))) };

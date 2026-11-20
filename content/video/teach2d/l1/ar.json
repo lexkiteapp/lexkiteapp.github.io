@@ -1,0 +1,3886 @@
+{
+  "_note": "L1 ar: 32 extra rows for the reels pipeline",
+  "rows": [
+    {
+      "id": "t2_l1_ar_hehave",
+      "lang": "ar",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "He have? Say he has!",
+        "wrong": "He have a car.",
+        "right": "He has a car.",
+        "strike": "have",
+        "why": "Use has with he, she, it.",
+        "memory": "He has. She has.",
+        "quiz": {
+          "stem": "She ___ a big house.",
+          "options": [
+            "have",
+            "has"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Has! She has a big house.",
+        "native": {
+          "hook": "هل تقول “He have”؟",
+          "tip": "مع he وshe وit نستخدم has: “He has a car.” وليس “He have a car.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “He have a car” 😅 مع he وshe وit نستخدم has، فالجملة الصحيحة “He has a car.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “has” — مع he وshe وit نستخدم has. اختبار مجاني هنا: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “He have”?",
+          "tip": "With he, she and it we use has: “He has a car.” not “He have a car.”",
+          "caption": "Do you sometimes say this? “He have a car” 😅 With he, she and it we use has, so the right sentence is “He has a car.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_informations",
+      "lang": "ar",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "No s on information!",
+        "wrong": "I need some informations.",
+        "right": "I need some information.",
+        "strike": "informations",
+        "why": "Information has no plural s.",
+        "memory": "Some information. No s.",
+        "quiz": {
+          "stem": "Can I have some ___?",
+          "options": [
+            "information",
+            "informations"
+          ],
+          "answer": 0
+        },
+        "answer_say": "Information! Some information, please.",
+        "native": {
+          "hook": "هل تجمع information؟",
+          "tip": "كلمة information لا تُجمع: “I need some information.” وليس “I need some informations.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “I need some informations” 😅 كلمة information لا تُجمع، فالجملة الصحيحة “I need some information.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “information” — كلمة information لا تُجمع. اختبار مجاني هنا: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you make information plural?",
+          "tip": "Information has no plural: “I need some information.” not “I need some informations.”",
+          "caption": "Do you sometimes say this? “I need some informations” 😅 Information has no plural, so the right sentence is “I need some information.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_afraidfrom",
+      "lang": "ar",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Say afraid of!",
+        "wrong": "I am afraid from dogs.",
+        "right": "I am afraid of dogs.",
+        "strike": "from",
+        "why": "Say afraid of, not afraid from.",
+        "memory": "Afraid of dogs.",
+        "quiz": {
+          "stem": "She is afraid ___ the dark.",
+          "options": [
+            "of",
+            "from"
+          ],
+          "answer": 0
+        },
+        "answer_say": "Of! She is afraid of the dark.",
+        "native": {
+          "hook": "هل تقول “afraid from”؟",
+          "tip": "في العربية نقول «خائف من»، أما في الإنجليزية فنقول afraid of: “I am afraid of dogs.” وليس “I am afraid from dogs.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “I am afraid from dogs” 😅 بعد afraid نستخدم of وليس from، فالجملة الصحيحة “I am afraid of dogs.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “of” — بعد afraid نستخدم of وليس from. اختبار مجاني هنا: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “afraid from”?",
+          "tip": "After afraid we use of, not from: “I am afraid of dogs.” not “I am afraid from dogs.”",
+          "caption": "Do you sometimes say this? “I am afraid from dogs” 😅 After afraid we use of, not from, so the right sentence is “I am afraid of dogs.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_discussabout",
+      "lang": "ar",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Discuss needs no about!",
+        "wrong": "We discussed about the plan.",
+        "right": "We discussed the plan.",
+        "strike": "about",
+        "why": "Discuss needs no about.",
+        "memory": "Discuss the plan.",
+        "quiz": {
+          "stem": "Let us ___ the problem.",
+          "options": [
+            "discuss about",
+            "discuss"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Discuss! Let us discuss the problem.",
+        "native": {
+          "hook": "هل تقول “discuss about”؟",
+          "tip": "الفعل discuss لا يحتاج about: “We discussed the plan.” وليس “We discussed about the plan.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “We discussed about the plan” 😅 الفعل discuss لا يحتاج about، فالجملة الصحيحة “We discussed the plan.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “discuss” — الفعل discuss لا يحتاج about. اختبار مجاني هنا: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “discuss about”?",
+          "tip": "The verb discuss needs no about: “We discussed the plan.” not “We discussed about the plan.”",
+          "caption": "Do you sometimes say this? “We discussed about the plan” 😅 The verb discuss needs no about, so the right sentence is “We discussed the plan.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_listenmusic",
+      "lang": "ar",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Listen needs to!",
+        "wrong": "I listen music every day.",
+        "right": "I listen to music every day.",
+        "strike": "listen music",
+        "why": "Say listen to.",
+        "memory": "Listen to music.",
+        "quiz": {
+          "stem": "She likes to listen ___ the radio.",
+          "options": [
+            "to",
+            "at"
+          ],
+          "answer": 0
+        },
+        "answer_say": "To! She listens to the radio.",
+        "native": {
+          "hook": "هل تقول “listen music”؟",
+          "tip": "بعد listen نضع to: “I listen to music every day.” وليس “I listen music every day.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “I listen music every day” 😅 بعد listen نضع to، فالجملة الصحيحة “I listen to music every day.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “to” — بعد listen نضع to. اختبار مجاني هنا: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “listen music”?",
+          "tip": "After listen we put to: “I listen to music every day.” not “I listen music every day.”",
+          "caption": "Do you sometimes say this? “I listen music every day” 😅 After listen we put to, so the right sentence is “I listen to music every day.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_iamagree",
+      "lang": "ar",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Agree is a verb!",
+        "wrong": "I am agree with you.",
+        "right": "I agree with you.",
+        "strike": "am",
+        "why": "Agree is a verb. No am.",
+        "memory": "I agree.",
+        "quiz": {
+          "stem": "We ___ with him.",
+          "options": [
+            "are agree",
+            "agree"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Agree! We agree with him.",
+        "native": {
+          "hook": "هل تقول “I am agree”؟",
+          "tip": "agree فعل، فلا نضع am قبله: “I agree with you.” وليس “I am agree with you.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “I am agree with you” 😅 agree فعل، فلا نضع am قبله، فالجملة الصحيحة “I agree with you.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “agree” — agree فعل، فلا نضع am قبله. اختبار مجاني هنا: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “I am agree”?",
+          "tip": "Agree is a verb, so no am: “I agree with you.” not “I am agree with you.”",
+          "caption": "Do you sometimes say this? “I am agree with you” 😅 Agree is a verb, so we do not put am before it. The right sentence is “I agree with you.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_boredboring",
+      "lang": "ar",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Bored or boring?",
+        "wrong": "I am boring in class.",
+        "right": "I am bored in class.",
+        "strike": "boring",
+        "why": "Use bored for your feeling.",
+        "memory": "I am bored.",
+        "quiz": {
+          "stem": "The film is ___, so I am sleepy.",
+          "options": [
+            "boring",
+            "bored"
+          ],
+          "answer": 0
+        },
+        "answer_say": "Boring! The film is boring.",
+        "native": {
+          "hook": "bored أم boring؟",
+          "tip": "للشعور نقول bored وللشيء boring: “I am bored in class.” وليس “I am boring in class.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “I am boring in class” 😅 للشعور نقول bored وللشيء boring، فالجملة الصحيحة “I am bored in class.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “boring” — للشعور نقول bored وللشيء boring. اختبار مجاني هنا: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Bored or boring?",
+          "tip": "For a feeling say bored; for a thing say boring: “I am bored in class.” not “I am boring in class.”",
+          "caption": "Do you sometimes say this? “I am boring in class” 😅 For a feeling say bored; for a thing say boring, so the right sentence is “I am bored in class.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_peoples",
+      "lang": "ar",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "People is plural!",
+        "wrong": "Many peoples came.",
+        "right": "Many people came.",
+        "strike": "peoples",
+        "why": "People is already plural.",
+        "memory": "Many people.",
+        "quiz": {
+          "stem": "There are many ___ here.",
+          "options": [
+            "people",
+            "peoples"
+          ],
+          "answer": 0
+        },
+        "answer_say": "People! There are many people here.",
+        "native": {
+          "hook": "هل تقول “peoples”؟",
+          "tip": "كلمة people جمع بنفسها: “Many people came.” وليس “Many peoples came.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “Many peoples came” 😅 كلمة people جمع بنفسها، فالجملة الصحيحة “Many people came.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “people” — كلمة people جمع بنفسها. اختبار مجاني هنا: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “peoples”?",
+          "tip": "People is already a plural: “Many people came.” not “Many peoples came.”",
+          "caption": "Do you sometimes say this? “Many peoples came” 😅 People is already a plural, so the right sentence is “Many people came.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_newsare",
+      "lang": "ar",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Say the news is, not are!",
+        "wrong": "The news are bad.",
+        "right": "The news is bad.",
+        "strike": "are",
+        "why": "News takes is.",
+        "memory": "The news is.",
+        "quiz": {
+          "stem": "The news ___ good today.",
+          "options": [
+            "are",
+            "is"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Is! The news is good today.",
+        "native": {
+          "hook": "هل تقول “The news are”؟",
+          "tip": "كلمة news مفرد، لذلك نقول is: “The news is bad.” وليس “The news are bad.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “The news are bad” 😅 كلمة news مفرد، لذلك نقول is. الجملة الصحيحة “The news is bad.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “is” — كلمة news مفرد، لذلك نقول is. اختبار مجاني هنا: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “The news are”?",
+          "tip": "News is singular, so we say is: “The news is bad.” not “The news are bad.”",
+          "caption": "Do you sometimes say this? “The news are bad” 😅 News is singular, so we say is. The right sentence is “The news is bad.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_sincefor",
+      "lang": "ar",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Time length needs for!",
+        "wrong": "I live here since two years.",
+        "right": "I have lived here for two years.",
+        "strike": "since",
+        "why": "Use for with a time length.",
+        "memory": "For two years.",
+        "quiz": {
+          "stem": "I have worked here ___ five years.",
+          "options": [
+            "since",
+            "for"
+          ],
+          "answer": 1
+        },
+        "answer_say": "For! I have worked here for five years.",
+        "native": {
+          "hook": "هل تقول “since two years”؟",
+          "tip": "مع المدة نستخدم for لا since: “I have lived here for two years.” وليس “I live here since two years.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “I live here since two years” 😅 مع المدة نستخدم for لا since، فالجملة الصحيحة “I have lived here for two years.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “for” — مع المدة نستخدم for لا since. اختبار مجاني هنا: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “since two years”?",
+          "tip": "With a length of time we use for, not since: “I have lived here for two years.” not “I live here since two years.”",
+          "caption": "Do you sometimes say this? “I live here since two years” 😅 With a length of time we use for, not since, so the right sentence is “I have lived here for two years.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_hedont",
+      "lang": "ar",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "He doesn't!",
+        "wrong": "He don't like tea.",
+        "right": "He doesn't like tea.",
+        "strike": "don't",
+        "why": "Use doesn't with he and she.",
+        "memory": "He doesn't like.",
+        "quiz": {
+          "stem": "She ___ like milk.",
+          "options": [
+            "don't",
+            "doesn't"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Doesn't! She doesn't like milk.",
+        "native": {
+          "hook": "هل تقول “He don't”؟",
+          "tip": "مع he وshe نقول doesn't: “He doesn't like tea.” وليس “He don't like tea.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “He don't like tea” 😅 مع he وshe نقول doesn't، فالجملة الصحيحة “He doesn't like tea.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “doesn't” — مع he وshe نقول doesn't. اختبار مجاني هنا: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “He don't”?",
+          "tip": "With he and she we say doesn't: “He doesn't like tea.” not “He don't like tea.”",
+          "caption": "Do you sometimes say this? “He don't like tea” 😅 With he and she we say doesn't, so the right sentence is “He doesn't like tea.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_ajob",
+      "lang": "ar",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Jobs need a!",
+        "wrong": "She is teacher.",
+        "right": "She is a teacher.",
+        "strike": "teacher",
+        "why": "Use a before a job.",
+        "memory": "She is a teacher.",
+        "quiz": {
+          "stem": "My brother is ___.",
+          "options": [
+            "engineer",
+            "an engineer"
+          ],
+          "answer": 1
+        },
+        "answer_say": "An engineer! My brother is an engineer.",
+        "native": {
+          "hook": "هل تنسى a قبل المهنة؟",
+          "tip": "قبل المهنة نضع a أو an: “She is a teacher.” وليس “She is teacher.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “She is teacher” 😅 قبل المهنة نضع a أو an، فالجملة الصحيحة “She is a teacher.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “an engineer” — قبل المهنة نضع a أو an. اختبار مجاني هنا: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you forget a before a job?",
+          "tip": "Before a job we put a or an: “She is a teacher.” not “She is teacher.”",
+          "caption": "Do you sometimes say this? “She is teacher” 😅 Before a job we put a or an, so the right sentence is “She is a teacher.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_thelife",
+      "lang": "ar",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "No the for life!",
+        "wrong": "The life is beautiful.",
+        "right": "Life is beautiful.",
+        "strike": "The",
+        "why": "No the for general things.",
+        "memory": "Life is beautiful.",
+        "quiz": {
+          "stem": "___ is short.",
+          "options": [
+            "The life",
+            "Life"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Life! Life is short.",
+        "native": {
+          "hook": "هل تقول “The life is”؟",
+          "tip": "مع الأشياء العامة لا نضع the: “Life is beautiful.” وليس “The life is beautiful.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “The life is beautiful” 😅 مع الأشياء العامة لا نضع the، فالجملة الصحيحة “Life is beautiful.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “Life” — مع الأشياء العامة لا نضع the. اختبار مجاني هنا: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “The life is”?",
+          "tip": "With general things we do not use the: “Life is beautiful.” not “The life is beautiful.”",
+          "caption": "Do you sometimes say this? “The life is beautiful” 😅 With general things we do not use the, so the right sentence is “Life is beautiful.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_saidme",
+      "lang": "ar",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Say told me, not said me!",
+        "wrong": "He said me a story.",
+        "right": "He told me a story.",
+        "strike": "said",
+        "why": "Use told before a person: told me.",
+        "memory": "Tell me. Say to me.",
+        "quiz": {
+          "stem": "She ___ me the truth.",
+          "options": [
+            "said",
+            "told"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Told! She told me the truth.",
+        "native": {
+          "hook": "هل تقول “said me”؟",
+          "tip": "مع الشخص نقول told me: “He told me a story.” وليس “He said me a story.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “He said me a story” 😅 نقول told me وليس said me، فالجملة الصحيحة “He told me a story.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “told” — نقول told me وليس said me. اختبار مجاني هنا: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “said me”?",
+          "tip": "With a person we say told me: “He told me a story.” not “He said me a story.”",
+          "caption": "Do you sometimes say this? “He said me a story” 😅 We say told me, not said me, so the right sentence is “He told me a story.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_bybus",
+      "lang": "ar",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Say by bus!",
+        "wrong": "I will travel with the bus.",
+        "right": "I will travel by bus.",
+        "strike": "with the",
+        "why": "Say by bus.",
+        "memory": "By bus.",
+        "quiz": {
+          "stem": "We go to school ___ car.",
+          "options": [
+            "by",
+            "with"
+          ],
+          "answer": 0
+        },
+        "answer_say": "By! We go to school by car.",
+        "native": {
+          "hook": "هل تقول “with the bus”؟",
+          "tip": "لوسيلة النقل نقول by: “I will travel by bus.” وليس “I will travel with the bus.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “I will travel with the bus” 😅 لوسيلة النقل نقول by، فالجملة الصحيحة “I will travel by bus.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “by” — لوسيلة النقل نقول by. اختبار مجاني هنا: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “with the bus”?",
+          "tip": "For transport we say by: “I will travel by bus.” not “I will travel with the bus.”",
+          "caption": "Do you sometimes say this? “I will travel with the bus” 😅 For transport we say by, so the right sentence is “I will travel by bus.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_atnight",
+      "lang": "ar",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Say at night!",
+        "wrong": "I study in the night.",
+        "right": "I study at night.",
+        "strike": "in the",
+        "why": "Say at night, with no the.",
+        "memory": "At night.",
+        "quiz": {
+          "stem": "I sleep ___ night.",
+          "options": [
+            "at",
+            "in"
+          ],
+          "answer": 0
+        },
+        "answer_say": "At! I sleep at night.",
+        "native": {
+          "hook": "هل تقول “in the night”؟",
+          "tip": "في العربية نقول «في الليل»، أما في الإنجليزية فنقول at night: “I study at night.” وليس “I study in the night.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “I study in the night” 😅 نقول at night بلا the، فالجملة الصحيحة “I study at night.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “at” — نقول at night بلا the. اختبار مجاني هنا: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “in the night”?",
+          "tip": "We say at night, with no the: “I study at night.” not “I study in the night.”",
+          "caption": "Do you sometimes say this? “I study in the night” 😅 We say at night, with no the, so the right sentence is “I study at night.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_muchmany",
+      "lang": "ar",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Many for people!",
+        "wrong": "There are much people here.",
+        "right": "There are many people here.",
+        "strike": "much",
+        "why": "Use many with people.",
+        "memory": "Many people.",
+        "quiz": {
+          "stem": "How ___ books do you have?",
+          "options": [
+            "much",
+            "many"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Many! How many books do you have?",
+        "native": {
+          "hook": "هل تقول “much people”؟",
+          "tip": "مع المعدود نستخدم many: “There are many people here.” وليس “There are much people here.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “There are much people here” 😅 مع المعدود نستخدم many، فالجملة الصحيحة “There are many people here.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “many” — مع المعدود نستخدم many. اختبار مجاني هنا: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “much people”?",
+          "tip": "With countable things we use many: “There are many people here.” not “There are much people here.”",
+          "caption": "Do you sometimes say this? “There are much people here” 😅 With countable things we use many, so the right sentence is “There are many people here.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_didntwent",
+      "lang": "ar",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "After didn't, use go!",
+        "wrong": "I didn't went there.",
+        "right": "I didn't go there.",
+        "strike": "went",
+        "why": "After didn't, use go.",
+        "memory": "Didn't go.",
+        "quiz": {
+          "stem": "She didn't ___ to school.",
+          "options": [
+            "went",
+            "go"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Go! She didn't go to school.",
+        "native": {
+          "hook": "هل تقول “didn't went”؟",
+          "tip": "بعد didn't نستخدم الفعل الأصلي: “I didn't go there.” وليس “I didn't went there.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “I didn't went there” 😅 بعد didn't نستخدم الفعل الأصلي، فالجملة الصحيحة “I didn't go there.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “go” — بعد didn't نستخدم الفعل الأصلي. اختبار مجاني هنا: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “didn't went”?",
+          "tip": "After didn't we use the base verb: “I didn't go there.” not “I didn't went there.”",
+          "caption": "Do you sometimes say this? “I didn't went there” 😅 After didn't we use the base verb, so the right sentence is “I didn't go there.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_cantto",
+      "lang": "ar",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "No to after can!",
+        "wrong": "I can to swim.",
+        "right": "I can swim.",
+        "strike": "to",
+        "why": "No to after can.",
+        "memory": "I can swim.",
+        "quiz": {
+          "stem": "He can ___ English.",
+          "options": [
+            "to speak",
+            "speak"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Speak! He can speak English.",
+        "native": {
+          "hook": "هل تقول “can to”؟",
+          "tip": "بعد can لا نضع to: “I can swim.” وليس “I can to swim.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “I can to swim” 😅 بعد can لا نضع to، فالجملة الصحيحة “I can swim.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “speak” — بعد can لا نضع to. اختبار مجاني هنا: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “can to”?",
+          "tip": "After can we do not put to: “I can swim.” not “I can to swim.”",
+          "caption": "Do you sometimes say this? “I can to swim” 😅 After can we do not put to, so the right sentence is “I can swim.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_openlight",
+      "lang": "ar",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Turn on the light!",
+        "wrong": "Please open the light.",
+        "right": "Please turn on the light.",
+        "strike": "open",
+        "why": "Say turn on the light.",
+        "memory": "Turn on the light.",
+        "quiz": {
+          "stem": "Please ___ on the light.",
+          "options": [
+            "open",
+            "turn"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Turn! Please turn on the light.",
+        "native": {
+          "hook": "هل تقول “open the light”؟",
+          "tip": "للضوء نقول turn on وليس open: “Please turn on the light.” وليس “Please open the light.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “Please open the light” 😅 للضوء نقول turn on وليس open، فالجملة الصحيحة “Please turn on the light.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “turn” — للضوء نقول turn on وليس open. اختبار مجاني هنا: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “open the light”?",
+          "tip": "For a light we say turn on, not open: “Please turn on the light.” not “Please open the light.”",
+          "caption": "Do you sometimes say this? “Please open the light” 😅 For a light we say turn on, not open, so the right sentence is “Please turn on the light.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_wantthat",
+      "lang": "ar",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Want you to!",
+        "wrong": "I want that you come.",
+        "right": "I want you to come.",
+        "strike": "that",
+        "why": "Say want you to.",
+        "memory": "Want you to.",
+        "quiz": {
+          "stem": "Mom wants ___ study.",
+          "options": [
+            "me to",
+            "that I"
+          ],
+          "answer": 0
+        },
+        "answer_say": "Me to! Mom wants me to study.",
+        "native": {
+          "hook": "هل تقول “I want that you”؟",
+          "tip": "نقول want you to + فعل: “I want you to come.” وليس “I want that you come.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “I want that you come” 😅 نقول want you to + فعل، فالجملة الصحيحة “I want you to come.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “me to” — نقول want you to + فعل. اختبار مجاني هنا: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “I want that you”?",
+          "tip": "We say want you to plus a verb: “I want you to come.” not “I want that you come.”",
+          "caption": "Do you sometimes say this? “I want that you come” 😅 We say want you to plus a verb, so the right sentence is “I want you to come.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_yesihave",
+      "lang": "ar",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Answer with do!",
+        "wrong": "Do you like tea? Yes, I like.",
+        "right": "Do you like tea? Yes, I do.",
+        "strike": "I like",
+        "why": "Answer with do, not like.",
+        "memory": "Yes, I do.",
+        "quiz": {
+          "stem": "Do you like tea? Yes, I ___.",
+          "options": [
+            "do",
+            "like"
+          ],
+          "answer": 0
+        },
+        "answer_say": "Do! Yes, I do.",
+        "native": {
+          "hook": "هل تجيب “Yes, I like”؟",
+          "tip": "نجيب بـ do عن أسئلة do: “Do you like tea? Yes, I do.” وليس “Do you like tea? Yes, I like.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “Do you like tea? Yes, I like” 😅 نجيب بـ do عن أسئلة do، فالجملة الصحيحة “Do you like tea? Yes, I do.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “do” — نجيب بـ do عن أسئلة do. اختبار مجاني هنا: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you answer “Yes, I like”?",
+          "tip": "We answer do-questions with do: “Do you like tea? Yes, I do.” not “Do you like tea? Yes, I like.”",
+          "caption": "Do you sometimes say this? “Do you like tea? Yes, I like” 😅 We answer do-questions with do, so the right sentence is “Do you like tea? Yes, I do.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_myhe",
+      "lang": "ar",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Say it only once!",
+        "wrong": "My brother he is a doctor.",
+        "right": "My brother is a doctor.",
+        "strike": "he",
+        "why": "One subject is enough.",
+        "memory": "My brother is.",
+        "quiz": {
+          "stem": "My sister ___ a nurse.",
+          "options": [
+            "she is",
+            "is"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Is! My sister is a nurse.",
+        "native": {
+          "hook": "هل تكرّر الفاعل؟",
+          "tip": "في العربية نقول «أخي هو طبيب»، أما في الإنجليزية فلا نكرّر الفاعل بضمير: “My brother is a doctor.” وليس “My brother he is a doctor.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “My brother he is a doctor.” 😅 لا نكرّر الفاعل بضمير بعد ذكره، فالجملة الصحيحة “My brother is a doctor.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “is” — لا نكرّر الفاعل بضمير بعد ذكره. اختبار مجاني هنا: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you repeat the subject?",
+          "tip": "We do not repeat the subject with a pronoun: “My brother is a doctor.” not “My brother he is a doctor.”",
+          "caption": "Do you sometimes say this? “My brother he is a doctor.” 😅 In English we do not repeat the subject with a pronoun, so the right sentence is “My brother is a doctor.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_bookitread",
+      "lang": "ar",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "No extra it!",
+        "wrong": "The book that I read it was good.",
+        "right": "The book that I read was good.",
+        "strike": "it",
+        "why": "Do not add it after read.",
+        "memory": "The book I read.",
+        "quiz": {
+          "stem": "The song that I heard ___ nice.",
+          "options": [
+            "was",
+            "it was"
+          ],
+          "answer": 0
+        },
+        "answer_say": "Was! The song that I heard was nice.",
+        "native": {
+          "hook": "هل تضيف “it” زائدة؟",
+          "tip": "في العربية نقول «الكتاب الذي قرأتُه» بضمير عائد، لكن في الإنجليزية: “The book that I read was good.” وليس “…read it was good.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “The book that I read it was good.” 😅 لا نعيد الضمير بعد الفعل في الجملة الموصولة، فالجملة الصحيحة “The book that I read was good.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “was” — لا نعيد الضمير بعد الفعل في الجملة الموصولة. اختبار مجاني هنا: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you add an extra “it”?",
+          "tip": "We do not repeat the pronoun: “The book that I read was good.” not “The book that I read it was good.”",
+          "caption": "Do you sometimes say this? “The book that I read it was good.” 😅 In English we do not add it after the verb, so the right sentence is “The book that I read was good.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_expensives",
+      "lang": "ar",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Tall, not talls!",
+        "wrong": "My brothers are talls.",
+        "right": "My brothers are tall.",
+        "strike": "talls",
+        "why": "Describing words never take s.",
+        "memory": "Brothers are tall.",
+        "quiz": {
+          "stem": "The girls are ___.",
+          "options": [
+            "happy",
+            "happys"
+          ],
+          "answer": 0
+        },
+        "answer_say": "Happy! The girls are happy.",
+        "native": {
+          "hook": "هل تجمع الصفة؟",
+          "tip": "في العربية تُجمع الصفة مع جمع العاقل «إخوتي طِوال»، لكن في الإنجليزية لا تُجمع أبدًا: “My brothers are tall.” وليس “talls.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “My brothers are talls.” 😅 الصفة في الإنجليزية لا تُجمع ولا تأخذ s، فالجملة الصحيحة “My brothers are tall.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “happy” — الصفة في الإنجليزية لا تُجمع ولا تأخذ s. اختبار مجاني هنا: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you make adjectives plural?",
+          "tip": "Describing words never take plural s: “My brothers are tall.” not “My brothers are talls.”",
+          "caption": "Do you sometimes say this? “My brothers are talls.” 😅 In English describing words never take plural s, so the right sentence is “My brothers are tall.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_cityis",
+      "lang": "ar",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Add there is!",
+        "wrong": "In my city is a park.",
+        "right": "In my city, there is a park.",
+        "strike": "is",
+        "why": "Use there is to say it exists.",
+        "memory": "There is a park.",
+        "quiz": {
+          "stem": "In my room ___ a bed.",
+          "options": [
+            "is",
+            "there is"
+          ],
+          "answer": 1
+        },
+        "answer_say": "There is! In my room, there is a bed.",
+        "native": {
+          "hook": "هل تنسى “there”؟",
+          "tip": "نقول بالعربية «في مدينتي حديقة» بلا كلمة مثل there، لكن الإنجليزية تحتاجها: “In my city, there is a park.” وليس “In my city is a park.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “In my city is a park.” 😅 نقول there is للدلالة على الوجود ولا نكتفي بـ is وحدها، فالجملة الصحيحة “In my city, there is a park.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “There is” — نقول there is للدلالة على الوجود ولا نكتفي بـ is وحدها. اختبار مجاني هنا: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you forget “there”?",
+          "tip": "To say something exists we use there is: “In my city, there is a park.” not “In my city is a park.”",
+          "caption": "Do you sometimes say this? “In my city is a park.” 😅 In English we say there is to show that something exists, so the right sentence is “In my city, there is a park.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_amnotlike",
+      "lang": "ar",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Say I do not understand!",
+        "wrong": "I am not understand the lesson.",
+        "right": "I do not understand the lesson.",
+        "strike": "am not",
+        "why": "Use do not with verbs.",
+        "memory": "I do not understand.",
+        "quiz": {
+          "stem": "She ___ understand me.",
+          "options": [
+            "is not",
+            "does not"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Does not! She does not understand me.",
+        "native": {
+          "hook": "النفي: do not لا am not",
+          "tip": "النفي مع الأفعال في الإنجليزية يكون بـ do not لا بـ am not: “I do not understand the lesson.” وليس “I am not understand the lesson.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “I am not understand the lesson” 😅 النفي مع الأفعال يكون بـ do not، فالجملة الصحيحة “I do not understand the lesson.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “does not” — النفي مع الأفعال يكون بـ do not. اختبار مجاني هنا: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Negation: do not, not am not",
+          "tip": "With verbs we use do not: “I do not understand the lesson.” not “I am not understand the lesson.”",
+          "caption": "Do you sometimes say this? “I am not understand the lesson” 😅 In English we use do not with verbs, so the right sentence is “I do not understand the lesson.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_enteredto",
+      "lang": "ar",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Enter has no to!",
+        "wrong": "He entered to the room.",
+        "right": "He entered the room.",
+        "strike": "to",
+        "why": "Enter needs no to.",
+        "memory": "Enter the room.",
+        "quiz": {
+          "stem": "She entered ___ kitchen.",
+          "options": [
+            "the",
+            "to the"
+          ],
+          "answer": 0
+        },
+        "answer_say": "The! She entered the kitchen.",
+        "native": {
+          "hook": "هل تقول “entered to”؟",
+          "tip": "في العربية نقول «دخل إلى الغرفة»، أما enter فلا يحتاج إلى حرف جر: “He entered the room.” وليس “He entered to the room.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “He entered to the room.” 😅 الفعل enter لا يحتاج إلى حرف جر، فالجملة الصحيحة “He entered the room.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “the” — الفعل enter لا يحتاج إلى حرف جر. اختبار مجاني هنا: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “entered to”?",
+          "tip": "Enter needs no preposition: “He entered the room.” not “He entered to the room.”",
+          "caption": "Do you sometimes say this? “He entered to the room.” 😅 In English enter needs no preposition, so the right sentence is “He entered the room.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_askedto",
+      "lang": "ar",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Ask has no from!",
+        "wrong": "I asked from my teacher to help me.",
+        "right": "I asked my teacher to help me.",
+        "strike": "from",
+        "why": "Ask needs no from before a person.",
+        "memory": "I asked him.",
+        "quiz": {
+          "stem": "I asked ___ friend for help.",
+          "options": [
+            "my",
+            "from my"
+          ],
+          "answer": 0
+        },
+        "answer_say": "My! I asked my friend for help.",
+        "native": {
+          "hook": "هل تقول “asked from”؟",
+          "tip": "نترجم «طلبتُ من معلمي» حرفيًا، لكن ask يأخذ الشخص بلا from: “I asked my teacher to help me.” وليس “I asked from my teacher.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “I asked from my teacher to help me.” 😅 مع ask نذكر الشخص مباشرةً بلا from، فالجملة الصحيحة “I asked my teacher to help me.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “my” — مع ask نذكر الشخص مباشرةً بلا from. اختبار مجاني هنا: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ],
+          "ncap": "مع ask نذكر الشخص مباشرةً بلا from"
+        },
+        "en": {
+          "hook": "Do you say “asked from”?",
+          "tip": "Ask takes the person directly, with no from: “I asked my teacher to help me.” not “I asked from my teacher to help me.”",
+          "caption": "Do you sometimes say this? “I asked from my teacher to help me.” 😅 In English ask needs no from before a person, so the right sentence is “I asked my teacher to help me.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_marriedwith",
+      "lang": "ar",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Married to, not with!",
+        "wrong": "She is married with a doctor.",
+        "right": "She is married to a doctor.",
+        "strike": "with",
+        "why": "Say married to before a person.",
+        "memory": "Married to him.",
+        "quiz": {
+          "stem": "He is married ___ my sister.",
+          "options": [
+            "to",
+            "with"
+          ],
+          "answer": 0
+        },
+        "answer_say": "To! He is married to my sister.",
+        "native": {
+          "hook": "هل تقول “married with”؟",
+          "tip": "في العربية نقول «متزوجة بطبيب»، أما في الإنجليزية فنقول married to: “She is married to a doctor.” وليس “She is married with a doctor.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “She is married with a doctor” 😅 مع married نستخدم to قبل الشخص، فالجملة الصحيحة “She is married to a doctor.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “to” — مع married نستخدم to قبل الشخص. اختبار مجاني هنا: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “married with”?",
+          "tip": "Before a person we say married to: “She is married to a doctor.” not “She is married with a doctor.”",
+          "caption": "Do you sometimes say this? “She is married with a doctor” 😅 Before a person we say married to, so the right sentence is “She is married to a doctor.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_mosttall",
+      "lang": "ar",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Most plus tall? No!",
+        "wrong": "She is the most tall girl.",
+        "right": "She is the tallest girl.",
+        "strike": "most tall",
+        "why": "For short words, say the tallest.",
+        "memory": "The tallest girl.",
+        "quiz": {
+          "stem": "He is the ___ boy.",
+          "options": [
+            "tallest",
+            "most tall"
+          ],
+          "answer": 0
+        },
+        "answer_say": "Tallest! He is the tallest boy.",
+        "native": {
+          "hook": "هل تقول “most tall”؟",
+          "tip": "نترجم «الأكثر طولًا» حرفيًا، لكن الصفة القصيرة تأخذ est: “She is the tallest girl.” وليس “She is the most tall girl.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “She is the most tall girl.” 😅 الصفة القصيرة تأخذ est، فالجملة الصحيحة “She is the tallest girl.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “tallest” — الصفة القصيرة تأخذ est. اختبار مجاني هنا: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “most tall”?",
+          "tip": "Short adjectives take est: “She is the tallest girl.” not “She is the most tall girl.”",
+          "caption": "Do you sometimes say this? “She is the most tall girl.” 😅 In English short adjectives take est, so the right sentence is “She is the tallest girl.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_walkedto",
+      "lang": "ar",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Home needs no to!",
+        "wrong": "We walked to home.",
+        "right": "We walked home.",
+        "strike": "to home",
+        "why": "Home needs no to.",
+        "memory": "Walk home.",
+        "quiz": {
+          "stem": "They ran ___ after school.",
+          "options": [
+            "home",
+            "to home"
+          ],
+          "answer": 0
+        },
+        "answer_say": "Home! They ran home after school.",
+        "native": {
+          "hook": "هل تقول “to home”؟",
+          "tip": "في العربية نقول «مشينا إلى البيت»، أما home بعد أفعال الحركة فلا تحتاج إلى to: “We walked home.” وليس “We walked to home.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “We walked to home.” 😅 كلمة home بعد أفعال الحركة لا تحتاج إلى to، فالجملة الصحيحة “We walked home.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “home” — كلمة home بعد أفعال الحركة لا تحتاج إلى to. اختبار مجاني هنا: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “to home”?",
+          "tip": "After a verb of movement, home needs no to: “We walked home.” not “We walked to home.”",
+          "caption": "Do you sometimes say this? “We walked to home.” 😅 In English home needs no to, so the right sentence is “We walked home.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_hevery",
+      "lang": "ar",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "No “is”? Say he is!",
+        "wrong": "He very tired today.",
+        "right": "He is very tired today.",
+        "strike": "He very",
+        "why": "Before tired or happy, say is, am or are.",
+        "memory": "He is. I am.",
+        "quiz": {
+          "stem": "Which one is right?",
+          "options": [
+            "She happy today.",
+            "She is happy today."
+          ],
+          "answer": 1
+        },
+        "answer_say": "The second! She is happy today.",
+        "native": {
+          "hook": "هل تقول “He very”؟",
+          "tip": "في العربية نقول «هو متعب» دون فعل، أما في الإنجليزية فنحتاج is: “He is very tired today.” وليس “He very tired today.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “He very tired today.” 😅 في العربية نقول «هو متعب» دون فعل، أما في الإنجليزية فنحتاج is، فالجملة الصحيحة “He is very tired today.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “is” — في العربية نقول «هو متعب» دون فعل، أما في الإنجليزية فنحتاج is. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “He very”?",
+          "tip": "In Arabic we can say «هو متعب» without a verb, but in English we need is: “He is very tired today.” not “He very tired today.”",
+          "caption": "Do you sometimes say this? “He very tired today.” 😅 In Arabic we can say «هو متعب» without a verb, but in English we need is, so the right sentence is “He is very tired today.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_goodat",
+      "lang": "ar",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Good in? Say good at!",
+        "wrong": "She is good in English.",
+        "right": "She is good at English.",
+        "strike": "in",
+        "why": "Use at after good.",
+        "memory": "Good at. Bad at.",
+        "quiz": {
+          "stem": "He is good ___ singing.",
+          "options": [
+            "in",
+            "at"
+          ],
+          "answer": 1
+        },
+        "answer_say": "At! He is good at singing.",
+        "native": {
+          "hook": "هل تقول “good in”؟",
+          "tip": "نقول بالعربية «جيدة في»، لكن مع good نستخدم at: “She is good at English.” وليس “She is good in English.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “She is good in English.” 😅 نقول بالعربية «جيدة في»، لكن مع good نستخدم at، فالجملة الصحيحة “She is good at English.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “at” — نقول بالعربية «جيدة في»، لكن مع good نستخدم at. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “good in”?",
+          "tip": "In Arabic we say «جيدة في», but after good we use at: “She is good at English.” not “She is good in English.”",
+          "caption": "Do you sometimes say this? “She is good in English.” 😅 In Arabic we say «جيدة في», but after good we use at, so the right sentence is “She is good at English.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_angrywith",
+      "lang": "ar",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Angry from? Say angry with!",
+        "wrong": "He is angry from me.",
+        "right": "He is angry with me.",
+        "strike": "from",
+        "why": "Use with after angry.",
+        "memory": "Angry with him.",
+        "quiz": {
+          "stem": "She is angry ___ her brother.",
+          "options": [
+            "from",
+            "with"
+          ],
+          "answer": 1
+        },
+        "answer_say": "With! She is angry with her brother.",
+        "native": {
+          "hook": "هل تقول “angry from”؟",
+          "tip": "نقول بالعربية «غاضب مني» بحرف من، لكن مع angry نستخدم with: “He is angry with me.” وليس “He is angry from me.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “He is angry from me.” 😅 نقول بالعربية «غاضب مني» بحرف من، لكن مع angry نستخدم with، فالجملة الصحيحة “He is angry with me.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “with” — نقول بالعربية «غاضب مني» بحرف من، لكن مع angry نستخدم with. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “angry from”?",
+          "tip": "In Arabic we use «من» after angry, but in English we use with: “He is angry with me.” not “He is angry from me.”",
+          "caption": "Do you sometimes say this? “He is angry from me.” 😅 In Arabic we use «من» after angry, but in English we use with, so the right sentence is “He is angry with me.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_arrivedat",
+      "lang": "ar",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Arrived to? Say arrived at!",
+        "wrong": "We arrived to the airport.",
+        "right": "We arrived at the airport.",
+        "strike": "to",
+        "why": "Do not use to after arrive.",
+        "memory": "Arrive at.",
+        "quiz": {
+          "stem": "We arrived ___ the station.",
+          "options": [
+            "to",
+            "at"
+          ],
+          "answer": 1
+        },
+        "answer_say": "At! We arrived at the station.",
+        "native": {
+          "hook": "هل تقول “arrived to”؟",
+          "tip": "في العربية نقول «وصلنا إلى»، أما arrive فلا تأخذ to: “We arrived at the airport.” وليس “We arrived to the airport.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “We arrived to the airport.” 😅 في العربية نقول «وصلنا إلى»، أما arrive فلا تأخذ to، فالجملة الصحيحة “We arrived at the airport.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “at” — في العربية نقول «وصلنا إلى»، أما arrive فلا تأخذ to. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “arrived to”?",
+          "tip": "In Arabic we say «وصلنا إلى», but arrive does not take to: “We arrived at the airport.” not “We arrived to the airport.”",
+          "caption": "Do you sometimes say this? “We arrived to the airport.” 😅 In Arabic we say «وصلنا إلى», but arrive does not take to, so the right sentence is “We arrived at the airport.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_answeredto",
+      "lang": "ar",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Answered to? Just answered!",
+        "wrong": "She answered to my question.",
+        "right": "She answered my question.",
+        "strike": "to",
+        "why": "Answer needs no to.",
+        "memory": "Answer it. No to.",
+        "quiz": {
+          "stem": "Which one is right?",
+          "options": [
+            "He answered to the phone.",
+            "He answered the phone."
+          ],
+          "answer": 1
+        },
+        "answer_say": "The second! He answered the phone.",
+        "native": {
+          "hook": "هل تقول “answered to”؟",
+          "tip": "في العربية نقول «أجابت عن السؤال» بحرف جر، أما answer فلا تحتاج إلى to: “She answered my question.” وليس “She answered to my question.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “She answered to my question.” 😅 في العربية نقول «أجابت عن السؤال» بحرف جر، أما answer فلا تحتاج إلى to، فالجملة الصحيحة “She answered my question.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “answered” — في العربية نقول «أجابت عن السؤال» بحرف جر، أما answer فلا تحتاج إلى to. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “answered to”?",
+          "tip": "In Arabic we use a preposition after «أجاب», but answer needs no to: “She answered my question.” not “She answered to my question.”",
+          "caption": "Do you sometimes say this? “She answered to my question.” 😅 In Arabic we use a preposition after «أجاب», but answer needs no to, so the right sentence is “She answered my question.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_carred",
+      "lang": "ar",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Car red? Say red car!",
+        "wrong": "She has a car red.",
+        "right": "She has a red car.",
+        "strike": "car red",
+        "why": "Say the color first.",
+        "memory": "Red car. Big car.",
+        "quiz": {
+          "stem": "Which one is right?",
+          "options": [
+            "She has a bag black.",
+            "She has a black bag."
+          ],
+          "answer": 1
+        },
+        "answer_say": "The second! She has a black bag.",
+        "native": {
+          "hook": "هل تقول “a car red”؟",
+          "tip": "في العربية تأتي الصفة بعد الاسم «سيارة حمراء»، أما في الإنجليزية فتأتي قبله: “She has a red car.” وليس “She has a car red.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “She has a car red.” 😅 في العربية تأتي الصفة بعد الاسم «سيارة حمراء»، أما في الإنجليزية فتأتي قبله، فالجملة الصحيحة “She has a red car.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “red car” — في العربية تأتي الصفة بعد الاسم «سيارة حمراء»، أما في الإنجليزية فتأتي قبله. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “a car red”?",
+          "tip": "In Arabic the describing word comes after the noun «سيارة حمراء», but in English it comes before it: “She has a red car.” not “She has a car red.”",
+          "caption": "Do you sometimes say this? “She has a car red.” 😅 In Arabic the describing word comes after the noun «سيارة حمراء», but in English it comes before it, so the right sentence is “She has a red car.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_camefriend",
+      "lang": "ar",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Came first? Say who first!",
+        "wrong": "Came my friend yesterday.",
+        "right": "My friend came yesterday.",
+        "strike": "Came my friend",
+        "why": "Say who first, then what.",
+        "memory": "My friend came.",
+        "quiz": {
+          "stem": "Which one is right?",
+          "options": [
+            "Went he home.",
+            "He went home."
+          ],
+          "answer": 1
+        },
+        "answer_say": "The second! He went home.",
+        "native": {
+          "hook": "هل تبدأ بالفعل؟",
+          "tip": "في العربية نبدأ بالفعل «جاء صديقي»، أما في الإنجليزية فنبدأ بمن قام بالفعل: “My friend came yesterday.” وليس “Came my friend yesterday.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “Came my friend yesterday.” 😅 في العربية نبدأ بالفعل «جاء صديقي»، أما في الإنجليزية فنبدأ بمن قام بالفعل، فالجملة الصحيحة “My friend came yesterday.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “My friend came” — في العربية نبدأ بالفعل «جاء صديقي»، أما في الإنجليزية فنبدأ بمن قام بالفعل. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you start with the verb?",
+          "tip": "In Arabic we can start with the verb «جاء صديقي», but in English we start with who did it: “My friend came yesterday.” not “Came my friend yesterday.”",
+          "caption": "Do you sometimes say this? “Came my friend yesterday.” 😅 In Arabic we can start with the verb «جاء صديقي», but in English we start with who did it, so the right sentence is “My friend came yesterday.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_waitfor",
+      "lang": "ar",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Waiting you? Say waiting for you!",
+        "wrong": "I am waiting you.",
+        "right": "I am waiting for you.",
+        "strike": "waiting you",
+        "why": "After wait, say for.",
+        "memory": "Wait for me.",
+        "quiz": {
+          "stem": "Please wait ___ me.",
+          "options": [
+            "-",
+            "for"
+          ],
+          "answer": 1
+        },
+        "answer_say": "For! Please wait for me.",
+        "native": {
+          "hook": "هل تقول “waiting you”؟",
+          "tip": "نقول بالعربية «أنتظرك» دون حرف جر، أما في الإنجليزية فنقول wait for: “I am waiting for you.” وليس “I am waiting you.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “I am waiting you.” 😅 نقول بالعربية «أنتظرك» دون حرف جر، أما في الإنجليزية فنقول wait for، فالجملة الصحيحة “I am waiting for you.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “for” — نقول بالعربية «أنتظرك» دون حرف جر، أما في الإنجليزية فنقول wait for. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “waiting you”?",
+          "tip": "In Arabic we say «أنتظرك» with no extra word, but in English we say wait for: “I am waiting for you.” not “I am waiting you.”",
+          "caption": "Do you sometimes say this? “I am waiting you.” 😅 In Arabic we say «أنتظرك» with no extra word, but in English we say wait for, so the right sentence is “I am waiting for you.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_iborn",
+      "lang": "ar",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "I born? Say I was born!",
+        "wrong": "I born in a small town.",
+        "right": "I was born in a small town.",
+        "strike": "I born",
+        "why": "Use was with born.",
+        "memory": "I was born.",
+        "quiz": {
+          "stem": "Which one is right?",
+          "options": [
+            "She born in May.",
+            "She was born in May."
+          ],
+          "answer": 1
+        },
+        "answer_say": "The second! She was born in May.",
+        "native": {
+          "hook": "هل تقول “I born”؟",
+          "tip": "نقول بالعربية «ولدتُ» بكلمة واحدة، أما في الإنجليزية فنقول was born: “I was born in a small town.” وليس “I born in a small town.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “I born in a small town.” 😅 نقول بالعربية «ولدتُ» بكلمة واحدة، أما في الإنجليزية فنقول was born، فالجملة الصحيحة “I was born in a small town.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “was born” — نقول بالعربية «ولدتُ» بكلمة واحدة، أما في الإنجليزية فنقول was born. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “I born”?",
+          "tip": "In Arabic we say «ولدتُ», one word, but in English we say was born: “I was born in a small town.” not “I born in a small town.”",
+          "caption": "Do you sometimes say this? “I born in a small town.” 😅 In Arabic we say «ولدتُ», one word, but in English we say was born, so the right sentence is “I was born in a small town.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_threeare",
+      "lang": "ar",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "There is three? Say there are!",
+        "wrong": "There is three students here.",
+        "right": "There are three students here.",
+        "strike": "is",
+        "why": "Many things? Use are.",
+        "memory": "There are two. There are three.",
+        "quiz": {
+          "stem": "There ___ four books here.",
+          "options": [
+            "is",
+            "are"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Are! There are four books here.",
+        "native": {
+          "hook": "هل تقول “There is three”؟",
+          "tip": "«يوجد» لا تتغيّر مع العدد في العربية، أما هنا فنقول there are: “There are three students here.” وليس “There is three students here.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “There is three students here.” 😅 «يوجد» لا تتغيّر مع العدد في العربية، أما هنا فنقول there are، فالجملة الصحيحة “There are three students here.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “are” — «يوجد» لا تتغيّر مع العدد في العربية، أما هنا فنقول there are. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “There is three”?",
+          "tip": "«يوجد» does not change for more than one in Arabic, but here we say there are: “There are three students here.” not “There is three students here.”",
+          "caption": "Do you sometimes say this? “There is three students here.” 😅 «يوجد» does not change for more than one in Arabic, but here we say there are, so the right sentence is “There are three students here.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_twentybook",
+      "lang": "ar",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Twenty book? Say books!",
+        "wrong": "I read twenty book last year.",
+        "right": "I read twenty books last year.",
+        "strike": "book",
+        "why": "After twenty, add s.",
+        "memory": "Twenty books.",
+        "quiz": {
+          "stem": "Which one is right?",
+          "options": [
+            "I have twenty pen.",
+            "I have twenty pens."
+          ],
+          "answer": 1
+        },
+        "answer_say": "The second! Twenty pens.",
+        "native": {
+          "hook": "هل تقول “twenty book”؟",
+          "tip": "في العربية «عشرون كتابًا» بالمفرد، أما هنا فنضيف s بعد العدد: “I read twenty books last year.” وليس “I read twenty book last year.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “I read twenty book last year.” 😅 في العربية «عشرون كتابًا» بالمفرد، أما هنا فنضيف s بعد العدد، فالجملة الصحيحة “I read twenty books last year.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “books” — في العربية «عشرون كتابًا» بالمفرد، أما هنا فنضيف s بعد العدد. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “twenty book”?",
+          "tip": "In Arabic «عشرون كتابًا» is singular, but here we add s after the number: “I read twenty books last year.” not “I read twenty book last year.”",
+          "caption": "Do you sometimes say this? “I read twenty book last year.” 😅 In Arabic «عشرون كتابًا» is singular, but here we add s after the number, so the right sentence is “I read twenty books last year.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_didmistake",
+      "lang": "ar",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Did a mistake? Say made a mistake!",
+        "wrong": "I did a mistake.",
+        "right": "I made a mistake.",
+        "strike": "did",
+        "why": "We make a mistake.",
+        "memory": "Make a mistake.",
+        "quiz": {
+          "stem": "He ___ a mistake.",
+          "options": [
+            "did",
+            "made"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Made! He made a mistake.",
+        "native": {
+          "hook": "هل تقول “did a mistake”؟",
+          "tip": "نقول بالعامية «عملت غلطة» فنترجمها did، لكن الصحيح make a mistake: “I made a mistake.” وليس “I did a mistake.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “I did a mistake.” 😅 نقول بالعامية «عملت غلطة» فنترجمها did، لكن الصحيح make a mistake، فالجملة الصحيحة “I made a mistake.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “made” — نقول بالعامية «عملت غلطة» فنترجمها did، لكن الصحيح make a mistake. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “did a mistake”?",
+          "tip": "In spoken Arabic we say «عملت غلطة», so we use did, but in English we make a mistake: “I made a mistake.” not “I did a mistake.”",
+          "caption": "Do you sometimes say this? “I did a mistake.” 😅 In spoken Arabic we say «عملت غلطة», so we use did, but in English we make a mistake, so the right sentence is “I made a mistake.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_solvehomework",
+      "lang": "ar",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Solve homework? Do it!",
+        "wrong": "I solved my homework.",
+        "right": "I did my homework.",
+        "strike": "solved",
+        "why": "We do homework.",
+        "memory": "Do homework.",
+        "quiz": {
+          "stem": "She ___ her homework.",
+          "options": [
+            "solved",
+            "did"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Did! She did her homework.",
+        "native": {
+          "hook": "هل تقول “solve homework”؟",
+          "tip": "نقول «حللتُ الواجب»، أما في الإنجليزية فنقول do homework: “I did my homework.” وليس “I solved my homework.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “I solved my homework.” 😅 نقول «حللتُ الواجب»، أما في الإنجليزية فنقول do homework، فالجملة الصحيحة “I did my homework.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “did” — نقول «حللتُ الواجب»، أما في الإنجليزية فنقول do homework. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “solve homework”?",
+          "tip": "In Arabic we say «حللتُ الواجب», but in English we say do homework: “I did my homework.” not “I solved my homework.”",
+          "caption": "Do you sometimes say this? “I solved my homework.” 😅 In Arabic we say «حللتُ الواجب», but in English we say do homework, so the right sentence is “I did my homework.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_lookat",
+      "lang": "ar",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Look to me? Say look at me!",
+        "wrong": "Look to me, please.",
+        "right": "Look at me, please.",
+        "strike": "to",
+        "why": "After look, say at.",
+        "memory": "Look at me.",
+        "quiz": {
+          "stem": "Look ___ the board.",
+          "options": [
+            "to",
+            "at"
+          ],
+          "answer": 1
+        },
+        "answer_say": "At! Look at the board.",
+        "native": {
+          "hook": "هل تقول “look to me”؟",
+          "tip": "نقول بالعربية «انظر إليّ»، أما في الإنجليزية فنقول look at: “Look at me, please.” وليس “Look to me, please.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “Look to me, please.” 😅 نقول بالعربية «انظر إليّ»، أما في الإنجليزية فنقول look at، فالجملة الصحيحة “Look at me, please.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “at” — نقول بالعربية «انظر إليّ»، أما في الإنجليزية فنقول look at. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “look to me”?",
+          "tip": "In Arabic we say «انظر إليّ», but in English we say look at: “Look at me, please.” not “Look to me, please.”",
+          "caption": "Do you sometimes say this? “Look to me, please.” 😅 In Arabic we say «انظر إليّ», but in English we say look at, so the right sentence is “Look at me, please.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_playingnow",
+      "lang": "ar",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Plays now? Say is playing!",
+        "wrong": "Ali plays soccer now.",
+        "right": "Ali is playing soccer now.",
+        "strike": "plays",
+        "why": "Now? Say is playing.",
+        "memory": "Now: is playing.",
+        "quiz": {
+          "stem": "Look! She ___ now.",
+          "options": [
+            "sings",
+            "is singing"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Is singing! She is singing now.",
+        "native": {
+          "hook": "هل تقول “plays now”؟",
+          "tip": "نقول «يلعب الآن» بصيغة واحدة، أما مع now فنقول is playing: “Ali is playing soccer now.” وليس “Ali plays soccer now.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “Ali plays soccer now.” 😅 نقول «يلعب الآن» بصيغة واحدة، أما مع now فنقول is playing، فالجملة الصحيحة “Ali is playing soccer now.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “is playing” — نقول «يلعب الآن» بصيغة واحدة، أما مع now فنقول is playing. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “plays now”?",
+          "tip": "In Arabic one form says «يلعب الآن», but with now we say is playing: “Ali is playing soccer now.” not “Ali plays soccer now.”",
+          "caption": "Do you sometimes say this? “Ali plays soccer now.” 😅 In Arabic one form says «يلعب الآن», but with now we say is playing, so the right sentence is “Ali is playing soccer now.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_athome",
+      "lang": "ar",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "In home? Say at home!",
+        "wrong": "She is in home now.",
+        "right": "She is at home now.",
+        "strike": "in",
+        "why": "We say at home.",
+        "memory": "At home. At school.",
+        "quiz": {
+          "stem": "I am ___ home today.",
+          "options": [
+            "in",
+            "at"
+          ],
+          "answer": 1
+        },
+        "answer_say": "At! I am at home today.",
+        "native": {
+          "hook": "هل تقول “in home”؟",
+          "tip": "نقول بالعربية «في البيت»، أما في الإنجليزية فنقول at home: “She is at home now.” وليس “She is in home now.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “She is in home now.” 😅 نقول بالعربية «في البيت»، أما في الإنجليزية فنقول at home، فالجملة الصحيحة “She is at home now.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “at” — نقول بالعربية «في البيت»، أما في الإنجليزية فنقول at home. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “in home”?",
+          "tip": "In Arabic we say «في البيت», but in English we say at home: “She is at home now.” not “She is in home now.”",
+          "caption": "Do you sometimes say this? “She is in home now.” 😅 In Arabic we say «في البيت», but in English we say at home, so the right sentence is “She is at home now.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_ifrains",
+      "lang": "ar",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Is raining? Say it is raining!",
+        "wrong": "Is raining today.",
+        "right": "It is raining today.",
+        "strike": "Is raining",
+        "why": "Start with it.",
+        "memory": "It is raining. It is cold.",
+        "quiz": {
+          "stem": "Which one is right?",
+          "options": [
+            "Is cold today.",
+            "It is cold today."
+          ],
+          "answer": 1
+        },
+        "answer_say": "The second! It is cold today.",
+        "native": {
+          "hook": "هل تقول “Is raining”؟",
+          "tip": "في العربية نقول «تمطر اليوم» دون كلمة قبل الفعل، أما في الإنجليزية فنبدأ بـ it: “It is raining today.” وليس “Is raining today.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “Is raining today.” 😅 في العربية نقول «تمطر اليوم» دون كلمة قبل الفعل، أما في الإنجليزية فنبدأ بـ it، فالجملة الصحيحة “It is raining today.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “It is raining” — في العربية نقول «تمطر اليوم» دون كلمة قبل الفعل، أما في الإنجليزية فنبدأ بـ it. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “Is raining”?",
+          "tip": "In Arabic we say «تمطر اليوم» with no word before the verb, but in English we start with it: “It is raining today.” not “Is raining today.”",
+          "caption": "Do you sometimes say this? “Is raining today.” 😅 In Arabic we say «تمطر اليوم» with no word before the verb, but in English we start with it, so the right sentence is “It is raining today.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_everyoneis",
+      "lang": "ar",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Everyone are? Say is!",
+        "wrong": "Everyone are ready.",
+        "right": "Everyone is ready.",
+        "strike": "are",
+        "why": "Everyone is one group.",
+        "memory": "Everyone is here.",
+        "quiz": {
+          "stem": "Everyone ___ happy today.",
+          "options": [
+            "are",
+            "is"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Is! Everyone is happy today.",
+        "native": {
+          "hook": "هل تقول “Everyone are”؟",
+          "tip": "كلمة «الجميع» جمع في العربية، أما everyone في الإنجليزية فتأخذ is: “Everyone is ready.” وليس “Everyone are ready.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “Everyone are ready.” 😅 كلمة «الجميع» جمع في العربية، أما everyone في الإنجليزية فتأخذ is، فالجملة الصحيحة “Everyone is ready.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “is” — كلمة «الجميع» جمع في العربية، أما everyone في الإنجليزية فتأخذ is. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “Everyone are”?",
+          "tip": "«الجميع» is plural in Arabic, but everyone takes is in English: “Everyone is ready.” not “Everyone are ready.”",
+          "caption": "Do you sometimes say this? “Everyone are ready.” 😅 «الجميع» is plural in Arabic, but everyone takes is in English, so the right sentence is “Everyone is ready.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_thankgod",
+      "lang": "ar",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Thanks God? Thank God!",
+        "wrong": "I am fine, thanks God.",
+        "right": "I am fine, thank God.",
+        "strike": "thanks",
+        "why": "We say thank God.",
+        "memory": "Thank God.",
+        "quiz": {
+          "stem": "Which one is right?",
+          "options": [
+            "Thanks God.",
+            "Thank God."
+          ],
+          "answer": 1
+        },
+        "answer_say": "The second! Thank God.",
+        "native": {
+          "hook": "هل تقول “thanks God”؟",
+          "tip": "نترجم «الحمد لله» حرفيًا، لكن العبارة المعتادة هي thank God: “I am fine, thank God.” وليس “I am fine, thanks God.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “I am fine, thanks God.” 😅 نترجم «الحمد لله» حرفيًا، لكن العبارة المعتادة هي thank God، فالجملة الصحيحة “I am fine, thank God.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “thank” — نترجم «الحمد لله» حرفيًا، لكن العبارة المعتادة هي thank God. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “thanks God”?",
+          "tip": "We translate «الحمد لله» word by word, but the usual phrase is thank God: “I am fine, thank God.” not “I am fine, thanks God.”",
+          "caption": "Do you sometimes say this? “I am fine, thanks God.” 😅 We translate «الحمد لله» word by word, but the usual phrase is thank God, so the right sentence is “I am fine, thank God.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_havebreakfast",
+      "lang": "ar",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Take breakfast? Have it!",
+        "wrong": "I take breakfast at seven.",
+        "right": "I have breakfast at seven.",
+        "strike": "take",
+        "why": "We have breakfast.",
+        "memory": "Have breakfast.",
+        "quiz": {
+          "stem": "We ___ lunch at one.",
+          "options": [
+            "take",
+            "have"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Have! We have lunch at one.",
+        "native": {
+          "hook": "هل تقول “take breakfast”؟",
+          "tip": "في العربية نقول «أتناول الفطور»، أما في الإنجليزية فنقول have breakfast: “I have breakfast at seven.” وليس “I take breakfast at seven.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “I take breakfast at seven.” 😅 في العربية نقول «أتناول الفطور»، أما في الإنجليزية فنقول have breakfast، فالجملة الصحيحة “I have breakfast at seven.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “have” — في العربية نقول «أتناول الفطور»، أما في الإنجليزية فنقول have breakfast. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “take breakfast”?",
+          "tip": "In Arabic we say «أتناول الفطور», but in English we say have breakfast: “I have breakfast at seven.” not “I take breakfast at seven.”",
+          "caption": "Do you sometimes say this? “I take breakfast at seven.” 😅 In Arabic we say «أتناول الفطور», but in English we say have breakfast, so the right sentence is “I have breakfast at seven.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_thefriday",
+      "lang": "ar",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "The Friday? Just Friday!",
+        "wrong": "I rest on the Friday.",
+        "right": "I rest on Friday.",
+        "strike": "the",
+        "why": "No the before a day.",
+        "memory": "On Friday.",
+        "quiz": {
+          "stem": "Which one is right?",
+          "options": [
+            "On the Friday.",
+            "On Friday."
+          ],
+          "answer": 1
+        },
+        "answer_say": "The second! On Friday.",
+        "native": {
+          "hook": "هل تقول “on the Friday”؟",
+          "tip": "في العربية نقول «يوم الجمعة» بالألف واللام، أما في الإنجليزية فلا نضع the قبل اليوم: “I rest on Friday.” وليس “I rest on the Friday.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “I rest on the Friday.” 😅 في العربية نقول «يوم الجمعة» بالألف واللام، أما في الإنجليزية فلا نضع the قبل اليوم، فالجملة الصحيحة “I rest on Friday.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “Friday” — في العربية نقول «يوم الجمعة» بالألف واللام، أما في الإنجليزية فلا نضع the قبل اليوم. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “on the Friday”?",
+          "tip": "In Arabic «الجمعة» has the article, but in English we do not put the before a day: “I rest on Friday.” not “I rest on the Friday.”",
+          "caption": "Do you sometimes say this? “I rest on the Friday.” 😅 In Arabic «الجمعة» has the article, but in English we do not put the before a day, so the right sentence is “I rest on Friday.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_fatherscar",
+      "lang": "ar",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Car of my father? Say father's car!",
+        "wrong": "This is the car of my father.",
+        "right": "This is my father's car.",
+        "strike": "the car of my father",
+        "why": "Use 's for who has it.",
+        "memory": "Ali's car.",
+        "quiz": {
+          "stem": "Which one is right?",
+          "options": [
+            "This is the bag of my sister.",
+            "This is my sister's bag."
+          ],
+          "answer": 1
+        },
+        "answer_say": "The second! This is my sister's bag.",
+        "native": {
+          "hook": "هل تقول “the car of my father”؟",
+          "tip": "نقول «سيارة أبي»، أما هنا فنضيف 's إلى صاحب الشيء: “This is my father's car.” وليس “This is the car of my father.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “This is the car of my father.” 😅 نقول «سيارة أبي»، أما هنا فنضيف 's إلى صاحب الشيء، فالجملة الصحيحة “This is my father's car.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “my father's car” — نقول «سيارة أبي»، أما هنا فنضيف 's إلى صاحب الشيء. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “the car of my father”?",
+          "tip": "In Arabic we say «سيارة أبي», but here we add 's to the owner: “This is my father's car.” not “This is the car of my father.”",
+          "caption": "Do you sometimes say this? “This is the car of my father.” 😅 In Arabic we say «سيارة أبي», but here we add 's to the owner, so the right sentence is “This is my father's car.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_whatmeans",
+      "lang": "ar",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "What means? Say does mean!",
+        "wrong": "What means this word?",
+        "right": "What does this word mean?",
+        "strike": "means",
+        "why": "Say what does, then mean.",
+        "memory": "What does it mean?",
+        "quiz": {
+          "stem": "What ___ it mean?",
+          "options": [
+            "does",
+            "is"
+          ],
+          "answer": 0
+        },
+        "answer_say": "Does! What does it mean?",
+        "native": {
+          "hook": "هل تقول “What means”؟",
+          "tip": "نقول «ماذا تعني» دون فعل مساعد، أما هنا فنحتاج does: “What does this word mean?” وليس “What means this word?”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “What means this word?” 😅 نقول «ماذا تعني» دون فعل مساعد، أما هنا فنحتاج does، فالجملة الصحيحة “What does this word mean?” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “does” — نقول «ماذا تعني» دون فعل مساعد، أما هنا فنحتاج does. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “What means”?",
+          "tip": "In Arabic «ماذا تعني» needs no helper word, but here we need does: “What does this word mean?” not “What means this word?”",
+          "caption": "Do you sometimes say this? “What means this word?” 😅 In Arabic «ماذا تعني» needs no helper word, but here we need does, so the right sentence is “What does this word mean?” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_alwaysi",
+      "lang": "ar",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Always first? Put I first!",
+        "wrong": "Always I drink tea in the morning.",
+        "right": "I always drink tea in the morning.",
+        "strike": "Always I",
+        "why": "I first, then always.",
+        "memory": "I always drink.",
+        "quiz": {
+          "stem": "Which one is right?",
+          "options": [
+            "Always I eat fish.",
+            "I always eat fish."
+          ],
+          "answer": 1
+        },
+        "answer_say": "The second! I always eat fish.",
+        "native": {
+          "hook": "هل تبدأ بـ“Always I”؟",
+          "tip": "نقول «دائمًا أشرب الشاي»، أما هنا فتأتي always بعد I: “I always drink tea in the morning.” وليس “Always I drink tea in the morning.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “Always I drink tea in the morning.” 😅 نقول «دائمًا أشرب الشاي»، أما هنا فتأتي always بعد I، فالجملة الصحيحة “I always drink tea in the morning.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “I always” — نقول «دائمًا أشرب الشاي»، أما هنا فتأتي always بعد I. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you start with “Always I”?",
+          "tip": "In Arabic we say «دائمًا أشرب الشاي», but here always comes after I: “I always drink tea in the morning.” not “Always I drink tea in the morning.”",
+          "caption": "Do you sometimes say this? “Always I drink tea in the morning.” 😅 In Arabic we say «دائمًا أشرب الشاي», but here always comes after I, so the right sentence is “I always drink tea in the morning.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_startsat",
+      "lang": "ar",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "In nine? Say at nine!",
+        "wrong": "The class starts in nine o'clock.",
+        "right": "The class starts at nine o'clock.",
+        "strike": "in",
+        "why": "Use at for clock time.",
+        "memory": "At nine. At ten.",
+        "quiz": {
+          "stem": "We eat ___ nine o'clock.",
+          "options": [
+            "in",
+            "at"
+          ],
+          "answer": 1
+        },
+        "answer_say": "At! We eat at nine o'clock.",
+        "native": {
+          "hook": "هل تقول “in nine o'clock”؟",
+          "tip": "نقول «في الساعة التاسعة»، أما مع الساعة فنستخدم at: “The class starts at nine o'clock.” وليس “The class starts in nine o'clock.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “The class starts in nine o'clock.” 😅 نقول «في الساعة التاسعة»، أما مع الساعة فنستخدم at، فالجملة الصحيحة “The class starts at nine o'clock.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “at” — نقول «في الساعة التاسعة»، أما مع الساعة فنستخدم at. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “in nine o'clock”?",
+          "tip": "In Arabic we say «في الساعة التاسعة», but with clock time we use at: “The class starts at nine o'clock.” not “The class starts in nine o'clock.”",
+          "caption": "Do you sometimes say this? “The class starts in nine o'clock.” 😅 In Arabic we say «في الساعة التاسعة», but with clock time we use at, so the right sentence is “The class starts at nine o'clock.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_whereareyou",
+      "lang": "ar",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Where you are? Say where are you!",
+        "wrong": "Where you are going?",
+        "right": "Where are you going?",
+        "strike": "you are",
+        "why": "Put are before you.",
+        "memory": "Where are you? Where are you going?",
+        "quiz": {
+          "stem": "Which one is right?",
+          "options": [
+            "Where you are from?",
+            "Where are you from?"
+          ],
+          "answer": 1
+        },
+        "answer_say": "The second! Where are you from?",
+        "native": {
+          "hook": "هل تقول “Where you are”؟",
+          "tip": "نقول «إلى أين أنت ذاهب؟»، لكن في الإنجليزية نضع are قبل you: “Where are you going?” وليس “Where you are going?”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “Where you are going?” 😅 نقول «إلى أين أنت ذاهب؟»، لكن في الإنجليزية نضع are قبل you، فالجملة الصحيحة “Where are you going?” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “are you” — نقول «إلى أين أنت ذاهب؟»، لكن في الإنجليزية نضع are قبل you. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “Where you are”?",
+          "tip": "In Arabic we say «إلى أين أنت ذاهب؟», but in English we put are before you: “Where are you going?” not “Where you are going?”",
+          "caption": "Do you sometimes say this? “Where you are going?” 😅 In Arabic we say «إلى أين أنت ذاهب؟», but in English we put are before you, so the right sentence is “Where are you going?” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_smalli",
+      "lang": "ar",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Small i? Write big I!",
+        "wrong": "i am happy today.",
+        "right": "I am happy today.",
+        "strike": "i",
+        "why": "Write I with a big letter.",
+        "memory": "I am. I can.",
+        "quiz": {
+          "stem": "Which one is right?",
+          "options": [
+            "i am ready.",
+            "I am ready."
+          ],
+          "answer": 1
+        },
+        "answer_say": "The second! I am ready.",
+        "native": {
+          "hook": "هل تكتب “i” صغيرة؟",
+          "tip": "في العربية لا توجد أحرف كبيرة وصغيرة، أما في الإنجليزية فنكتب I دائمًا بحرف كبير: “I am happy today.” وليس “i am happy today.”",
+          "caption": "هل تكتب أحيانًا هذه الجملة؟ “i am happy today.” 😅 في العربية لا توجد أحرف كبيرة وصغيرة، أما في الإنجليزية فنكتب I دائمًا بحرف كبير، فالجملة الصحيحة “I am happy today.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “I” — في العربية لا توجد أحرف كبيرة وصغيرة، أما في الإنجليزية فنكتب I دائمًا بحرف كبير. مثال: “I am here.” قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you write a small “i”?",
+          "tip": "Arabic has no big and small letters, but in English we always write I as a capital: “I am happy today.” not “i am happy today.”",
+          "caption": "Do you sometimes write this? “i am happy today.” 😅 Arabic has no big and small letters, but in English we always write I as a capital, so the right sentence is “I am happy today.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_tallerthan",
+      "lang": "ar",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Taller from? Say than!",
+        "wrong": "She is taller from me.",
+        "right": "She is taller than me.",
+        "strike": "from",
+        "why": "Use than to compare.",
+        "memory": "Taller than.",
+        "quiz": {
+          "stem": "He is older ___ me.",
+          "options": [
+            "from",
+            "than"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Than! He is older than me.",
+        "native": {
+          "hook": "هل تقول “taller from”؟",
+          "tip": "نقول «أطول مني» بحرف من، أما في الإنجليزية فنستخدم than: “She is taller than me.” وليس “She is taller from me.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “She is taller from me.” 😅 نقول «أطول مني» بحرف من، أما في الإنجليزية فنستخدم than، فالجملة الصحيحة “She is taller than me.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “than” — نقول «أطول مني» بحرف من، أما في الإنجليزية فنستخدم than. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “taller from”?",
+          "tip": "In Arabic we say «أطول مني» with «من», but in English we use than: “She is taller than me.” not “She is taller from me.”",
+          "caption": "Do you sometimes say this? “She is taller from me.” 😅 In Arabic we say «أطول مني» with «من», but in English we use than, so the right sentence is “She is taller than me.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_manytime",
+      "lang": "ar",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "How many time? Say how much time!",
+        "wrong": "How many time do you need?",
+        "right": "How much time do you need?",
+        "strike": "many",
+        "why": "Time is one thing, so say much.",
+        "memory": "How much time?",
+        "quiz": {
+          "stem": "Which one is right?",
+          "options": [
+            "How many time do you need?",
+            "How much time do you need?"
+          ],
+          "answer": 1
+        },
+        "answer_say": "The second! How much time do you need?",
+        "native": {
+          "hook": "هل تقول “How many time”؟",
+          "tip": "نقول «كم وقت»، أما في الإنجليزية فنقول how much time: “How much time do you need?” وليس “How many time do you need?”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “How many time do you need?” 😅 في العربية نقول «كم وقت» بكلمة «كم» وحدها، أما في الإنجليزية فنقول how much مع time، فالجملة الصحيحة “How much time do you need?” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “How much time do you need?” — نقول how much مع time. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “How many time”?",
+          "tip": "In Arabic we say «كم وقت» with the one word «كم», but in English we say how much time: “How much time do you need?” not “How many time do you need?”",
+          "caption": "Do you sometimes say this? “How many time do you need?” 😅 In Arabic we say «كم وقت» with the one word «كم», but in English we say how much with time, so the right sentence is “How much time do you need?” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_madehomework",
+      "lang": "ar",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Write to ask, not for ask!",
+        "wrong": "I am writing for ask about the class.",
+        "right": "I am writing to ask about the class.",
+        "strike": "for ask",
+        "why": "Say to ask, not for ask.",
+        "memory": "Writing to ask.",
+        "quiz": {
+          "stem": "Which one is right?",
+          "options": [
+            "I am writing for ask about the class.",
+            "I am writing to ask about the class."
+          ],
+          "answer": 1
+        },
+        "answer_say": "The second! I am writing to ask about the class.",
+        "native": {
+          "hook": "هل تكتب “writing for ask”؟",
+          "tip": "نقول «أكتب لأسأل»، أما في الإنجليزية فنقول to ask: “I am writing to ask about the class.” وليس “I am writing for ask about the class.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “I am writing for ask about the class.” 😅 في العربية نقول «أكتب لأسأل» بحرف «لـ»، أما في الإنجليزية فنقول to ask، فالجملة الصحيحة “I am writing to ask about the class.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “to ask” — نقول I am writing to ask في الرسائل. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you write “writing for ask”?",
+          "tip": "In Arabic we say «أكتب لأسأل» with the letter «لـ», but in English we say to ask: “I am writing to ask about the class.” not “I am writing for ask about the class.”",
+          "caption": "Do you sometimes say this? “I am writing for ask about the class.” 😅 In Arabic we say «أكتب لأسأل» with the letter «لـ», but in English we say to ask, so the right sentence is “I am writing to ask about the class.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_wantinging",
+      "lang": "ar",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Say I want, not I am wanting!",
+        "wrong": "I am wanting a coffee.",
+        "right": "I want a coffee.",
+        "strike": "am wanting",
+        "why": "Say want, not am wanting.",
+        "memory": "I want a coffee.",
+        "quiz": {
+          "stem": "Which one is right?",
+          "options": [
+            "I am wanting a coffee.",
+            "I want a coffee."
+          ],
+          "answer": 1
+        },
+        "answer_say": "The second! I want a coffee.",
+        "native": {
+          "hook": "هل تقول “I am wanting”؟",
+          "tip": "نستعمل -ing للكلام عن الآن، لكن want لا تأخذ -ing أبدًا، مثل «أريد» تمامًا. قل: “I want a coffee.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “I am wanting a coffee.” 😅 نستعمل -ing للكلام عن الآن، لكن want لا تأخذ -ing أبدًا، مثل «أريد» تمامًا. الجملة الصحيحة: “I want a coffee.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “I want a coffee.” — نقول want بلا -ing. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “I am wanting”?",
+          "tip": "We use -ing for now, but want never takes -ing, just like «أريد». Say: “I want a coffee.”",
+          "caption": "Do you sometimes say this? “I am wanting a coffee.” 😅 We use -ing for now, but want never takes -ing, just like «أريد». The right sentence is “I want a coffee.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_yesterdaygo",
+      "lang": "ar",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Yesterday? Say I went!",
+        "wrong": "I have gone to the market yesterday.",
+        "right": "I went to the market yesterday.",
+        "strike": "have gone",
+        "why": "With yesterday, say went.",
+        "memory": "Yesterday, I went.",
+        "quiz": {
+          "stem": "Which one is right?",
+          "options": [
+            "I have gone to the market yesterday.",
+            "I went to the market yesterday."
+          ],
+          "answer": 1
+        },
+        "answer_say": "The second! I went to the market yesterday.",
+        "native": {
+          "hook": "هل تقول “have gone yesterday”؟",
+          "tip": "في العربية نقول «ذهبتُ» أو «قد ذهبتُ»، لكن مع yesterday نقول went فقط: “I went to the market yesterday.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “I have gone to the market yesterday.” 😅 في العربية نقول «ذهبتُ» أو «قد ذهبتُ»، أما في الإنجليزية فمع yesterday نقول went فقط، فالجملة الصحيحة “I went to the market yesterday.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “went” — مع yesterday نقول went. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “have gone yesterday”?",
+          "tip": "In Arabic we can say «ذهبتُ» or «قد ذهبتُ», but in English with yesterday we only say went: “I went to the market yesterday.” not “I have gone to the market yesterday.”",
+          "caption": "Do you sometimes say this? “I have gone to the market yesterday.” 😅 In Arabic we can say «ذهبتُ» or «قد ذهبتُ», but in English with yesterday we only say went, so the right sentence is “I went to the market yesterday.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_whereisbank",
+      "lang": "ar",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Near here, not just near!",
+        "wrong": "Is there a bank near?",
+        "right": "Is there a bank near here?",
+        "strike": "near",
+        "why": "Say near here.",
+        "memory": "Near here.",
+        "quiz": {
+          "stem": "Which one is right?",
+          "options": [
+            "Is there a bank near?",
+            "Is there a bank near here?"
+          ],
+          "answer": 1
+        },
+        "answer_say": "The second! Is there a bank near here?",
+        "native": {
+          "hook": "هل تقول “a bank near”؟",
+          "tip": "في العربية نقول «هل يوجد بنك قريب؟» بـ«قريب» فقط، أما بالإنجليزية فنقول near here: “Is there a bank near here?” وليس “Is there a bank near?”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “Is there a bank near?” 😅 في العربية نقول «هل يوجد بنك قريب؟» بكلمة «قريب» وحدها، أما في الإنجليزية فنقول near here، فالجملة الصحيحة “Is there a bank near here?” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “near here” — نقول: “Is there a bank near here?” قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “a bank near”?",
+          "tip": "In Arabic we say «هل يوجد بنك قريب؟» with just «قريب», but in English we say near here: “Is there a bank near here?” not “Is there a bank near?”",
+          "caption": "Do you sometimes say this? “Is there a bank near?” 😅 In Arabic we say «هل يوجد بنك قريب؟» with just «قريب», but in English we say near here, so the right sentence is “Is there a bank near here?” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_explainme",
+      "lang": "ar",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Say the lesson first!",
+        "wrong": "He explained to me the lesson.",
+        "right": "He explained the lesson to me.",
+        "strike": "to me the lesson",
+        "why": "Say the thing first, then to me.",
+        "memory": "Explain it to me.",
+        "quiz": {
+          "stem": "Which one is right?",
+          "options": [
+            "Show to me the map.",
+            "Show the map to me."
+          ],
+          "answer": 1
+        },
+        "answer_say": "The second! Show the map to me.",
+        "native": {
+          "hook": "هل تقول “explained to me”؟",
+          "tip": "نقول «شرح لي الدرس»، أما في الإنجليزية فنقول the lesson أولًا: “He explained the lesson to me.” وليس “He explained to me the lesson.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “He explained to me the lesson.” 😅 نقول «شرح لي الدرس»، أما في الإنجليزية فنقول the lesson أولًا، فالجملة الصحيحة “He explained the lesson to me.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “Show the map to me.” — نقول «شرح لي الدرس»، أما في الإنجليزية فنقول الشيء أولًا ثم to me. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “explained to me”?",
+          "tip": "In Arabic we say «شرح لي الدرس», but in English the lesson comes first: “He explained the lesson to me.” not “He explained to me the lesson.”",
+          "caption": "Do you sometimes say this? “He explained to me the lesson.” 😅 In Arabic we say «شرح لي الدرس», but in English the lesson comes first, so the right sentence is “He explained the lesson to me.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_thinkin",
+      "lang": "ar",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Think in? Say think about!",
+        "wrong": "I think in my family.",
+        "right": "I think about my family.",
+        "strike": "in",
+        "why": "Use about after think.",
+        "memory": "Think about it.",
+        "quiz": {
+          "stem": "I often think ___ my job.",
+          "options": [
+            "in",
+            "about"
+          ],
+          "answer": 1
+        },
+        "answer_say": "About! I often think about my job.",
+        "native": {
+          "hook": "هل تقول “think in”؟",
+          "tip": "نقول بالعربية «أفكر في عائلتي» بحرف في، لكن مع think نستخدم about: “I think about my family.” وليس “I think in my family.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “I think in my family.” 😅 نقول بالعربية «أفكر في عائلتي» بحرف في، لكن مع think نستخدم about، فالجملة الصحيحة “I think about my family.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “about” — نقول بالعربية «أفكر في عائلتي» بحرف في، لكن مع think نستخدم about. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “think in”?",
+          "tip": "In Arabic we say «أفكر في عائلتي» with «في», but after think we use about: “I think about my family.” not “I think in my family.”",
+          "caption": "Do you sometimes say this? “I think in my family.” 😅 In Arabic we say «أفكر في عائلتي» with «في», but after think we use about, so the right sentence is “I think about my family.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_thankson",
+      "lang": "ar",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Thank you on? Say for!",
+        "wrong": "Thank you on your help.",
+        "right": "Thank you for your help.",
+        "strike": "on",
+        "why": "Use for to say why you thank.",
+        "memory": "Thank you for.",
+        "quiz": {
+          "stem": "Thank you ___ the gift.",
+          "options": [
+            "on",
+            "for"
+          ],
+          "answer": 1
+        },
+        "answer_say": "For! Thank you for the gift.",
+        "native": {
+          "hook": "هل تقول “thank you on”؟",
+          "tip": "نقول بالعربية «شكرًا على مساعدتك» بحرف على، أما في الإنجليزية فنستخدم for: “Thank you for your help.” وليس “Thank you on your help.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “Thank you on your help.” 😅 نقول بالعربية «شكرًا على مساعدتك» بحرف على، أما في الإنجليزية فنستخدم for، فالجملة الصحيحة “Thank you for your help.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “for” — نقول بالعربية «شكرًا على مساعدتك» بحرف على، أما في الإنجليزية فنستخدم for. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “thank you on”?",
+          "tip": "In Arabic we say «شكرًا على مساعدتك» with «على», but in English we use for: “Thank you for your help.” not “Thank you on your help.”",
+          "caption": "Do you sometimes say this? “Thank you on your help.” 😅 In Arabic we say «شكرًا على مساعدتك» with «على», but in English we use for, so the right sentence is “Thank you for your help.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_proudwith",
+      "lang": "ar",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Proud with? Say proud of!",
+        "wrong": "I am proud with you.",
+        "right": "I am proud of you.",
+        "strike": "with",
+        "why": "Use of after proud.",
+        "memory": "Proud of you.",
+        "quiz": {
+          "stem": "She is proud ___ her son.",
+          "options": [
+            "of",
+            "with"
+          ],
+          "answer": 0
+        },
+        "answer_say": "Of! She is proud of her son.",
+        "native": {
+          "hook": "هل تقول “proud with”؟",
+          "tip": "نقول بالعربية «فخور بك» بحرف الباء، لكن مع proud نستخدم of: “I am proud of you.” وليس “I am proud with you.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “I am proud with you.” 😅 نقول بالعربية «فخور بك» بحرف الباء، لكن مع proud نستخدم of، فالجملة الصحيحة “I am proud of you.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “of” — نقول بالعربية «فخور بك» بحرف الباء، لكن مع proud نستخدم of. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “proud with”?",
+          "tip": "In Arabic we say «فخور بك» with the letter «بـ», but after proud we use of: “I am proud of you.” not “I am proud with you.”",
+          "caption": "Do you sometimes say this? “I am proud with you.” 😅 In Arabic we say «فخور بك» with the letter «بـ», but after proud we use of, so the right sentence is “I am proud of you.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_lookingabout",
+      "lang": "ar",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Searching about? Say searching for!",
+        "wrong": "I am searching about a new job.",
+        "right": "I am searching for a new job.",
+        "strike": "about",
+        "why": "Use for when you try to find something.",
+        "memory": "Search for it.",
+        "quiz": {
+          "stem": "She is searching ___ her keys.",
+          "options": [
+            "about",
+            "for"
+          ],
+          "answer": 1
+        },
+        "answer_say": "For! She is searching for her keys.",
+        "native": {
+          "hook": "هل تقول “searching about”؟",
+          "tip": "نقول «أبحث عن وظيفة» بحرف عن، لكن نقول search for: “I am searching for a new job.” وليس “I am searching about a new job.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “I am searching about a new job.” 😅 نقول بالعربية «أبحث عن وظيفة» بحرف عن، لكن في الإنجليزية نقول search for، فالجملة الصحيحة “I am searching for a new job.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “for” — نقول بالعربية «أبحث عن وظيفة» بحرف عن، لكن في الإنجليزية نقول search for. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “searching about”?",
+          "tip": "In Arabic we say «أبحث عن وظيفة» with «عن», but in English we say search for: “I am searching for a new job.” not “I am searching about a new job.”",
+          "caption": "Do you sometimes say this? “I am searching about a new job.” 😅 In Arabic we say «أبحث عن وظيفة» with «عن», but in English we say search for, so the right sentence is “I am searching for a new job.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_suggestto",
+      "lang": "ar",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Suggest to? Say suggest going!",
+        "wrong": "I suggest to go to the park.",
+        "right": "I suggest going to the park.",
+        "strike": "to go",
+        "why": "After suggest, say going, not to go.",
+        "memory": "Suggest going.",
+        "quiz": {
+          "stem": "He suggests ___ early.",
+          "options": [
+            "to leave",
+            "leaving"
+          ],
+          "answer": 1
+        },
+        "answer_say": "The second! He suggests leaving early.",
+        "native": {
+          "hook": "هل تقول “suggest to go”؟",
+          "tip": "نقول «أقترح أن نذهب»، أما بعد suggest فنستخدم الفعل مع ing: “I suggest going to the park.” وليس “I suggest to go to the park.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “I suggest to go to the park.” 😅 نقول «أقترح أن نذهب»، أما بعد suggest فنستخدم الفعل مع ing، فالجملة الصحيحة “I suggest going to the park.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “suggest going” — نقول «أقترح أن نذهب»، أما بعد suggest فنستخدم الفعل مع ing. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “suggest to go”?",
+          "tip": "In Arabic we say «أقترح أن نذهب» with «أن», but after suggest we use the verb with ing: “I suggest going to the park.” not “I suggest to go to the park.”",
+          "caption": "Do you sometimes say this? “I suggest to go to the park.” 😅 In Arabic we say «أقترح أن نذهب» with «أن», but after suggest we use the verb with ing, so the right sentence is “I suggest going to the park.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_fromwhere",
+      "lang": "ar",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Fix the order: where first!",
+        "wrong": "From where are you?",
+        "right": "Where are you from?",
+        "strike": "From where",
+        "why": "Start with where, end with from.",
+        "memory": "Where are you from?",
+        "quiz": {
+          "stem": "Which one is right?",
+          "options": [
+            "From where is he?",
+            "Where is he from?"
+          ],
+          "answer": 1
+        },
+        "answer_say": "The second! Where is he from?",
+        "native": {
+          "hook": "هل تقول “From where are you”؟",
+          "tip": "نبدأ بالعربية بـ «من أين أنت»، أما في الإنجليزية فتأتي where أولًا وfrom في النهاية: “Where are you from?” وليس “From where are you?”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “From where are you?” 😅 نبدأ بالعربية بـ «من أين أنت»، أما في الإنجليزية فتأتي where أولًا وfrom في النهاية، فالجملة الصحيحة “Where are you from?” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “Where is he from?” — نبدأ بالعربية بـ «من أين أنت»، أما في الإنجليزية فتأتي where أولًا وfrom في النهاية. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “From where are you”?",
+          "tip": "In Arabic we start with «من أين أنت», but in English where comes first and from comes at the end: “Where are you from?” not “From where are you?”",
+          "caption": "Do you sometimes say this? “From where are you?” 😅 In Arabic we start with «من أين أنت», but in English where comes first and from comes at the end, so the right sentence is “Where are you from?” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_docan",
+      "lang": "ar",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Do you can? Just say can!",
+        "wrong": "Do you can swim?",
+        "right": "Can you swim?",
+        "strike": "Do you can",
+        "why": "Do not use do with can.",
+        "memory": "Can you? Yes, I can.",
+        "quiz": {
+          "stem": "Which one is right?",
+          "options": [
+            "Do you can drive?",
+            "Can you drive?"
+          ],
+          "answer": 1
+        },
+        "answer_say": "The second! Can you drive?",
+        "native": {
+          "hook": "هل تقول “Do you can”؟",
+          "tip": "نقول «هل تستطيع السباحة»، أما في الإنجليزية فنبدأ بـ can دون do: “Can you swim?” وليس “Do you can swim?”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “Do you can swim?” 😅 نقول «هل تستطيع السباحة»، أما في الإنجليزية فنبدأ بـ can دون do، فالجملة الصحيحة “Can you swim?” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “Can you drive?” — نقول «هل تستطيع السباحة»، أما في الإنجليزية فنبدأ بـ can دون do. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “Do you can”?",
+          "tip": "In Arabic we say «هل تستطيع السباحة», but in English we start with can and use no do: “Can you swim?” not “Do you can swim?”",
+          "caption": "Do you sometimes say this? “Do you can swim?” 😅 In Arabic we say «هل تستطيع السباحة», but in English we start with can and use no do, so the right sentence is “Can you swim?” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_kindwith",
+      "lang": "ar",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Kind with? Say kind to!",
+        "wrong": "Our teacher is kind with us.",
+        "right": "Our teacher is kind to us.",
+        "strike": "with",
+        "why": "Use to after kind.",
+        "memory": "Kind to me.",
+        "quiz": {
+          "stem": "Be kind ___ animals.",
+          "options": [
+            "with",
+            "to"
+          ],
+          "answer": 1
+        },
+        "answer_say": "To! Be kind to animals.",
+        "native": {
+          "hook": "هل تقول “kind with”؟",
+          "tip": "نقول بالعربية «لطيف معنا» بكلمة مع، أما في الإنجليزية فنقول kind to: “Our teacher is kind to us.” وليس “Our teacher is kind with us.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “Our teacher is kind with us.” 😅 نقول بالعربية «لطيف معنا» بكلمة مع، أما في الإنجليزية فنقول kind to، فالجملة الصحيحة “Our teacher is kind to us.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “to” — نقول بالعربية «لطيف معنا» بكلمة مع، أما في الإنجليزية فنقول kind to. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “kind with”?",
+          "tip": "In Arabic we say «لطيف معنا» with «مع», but in English we say kind to: “Our teacher is kind to us.” not “Our teacher is kind with us.”",
+          "caption": "Do you sometimes say this? “Our teacher is kind with us.” 😅 In Arabic we say «لطيف معنا» with «مع», but in English we say kind to, so the right sentence is “Our teacher is kind to us.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_borrowlend",
+      "lang": "ar",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Borrow me? Say lend me!",
+        "wrong": "Can you borrow me a pen?",
+        "right": "Can you lend me a pen?",
+        "strike": "borrow",
+        "why": "Lend is to give. Borrow is to take.",
+        "memory": "Lend it. Borrow it.",
+        "quiz": {
+          "stem": "Can you ___ me some money?",
+          "options": [
+            "borrow",
+            "lend"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Lend! Can you lend me some money?",
+        "native": {
+          "hook": "هل تقول “borrow me”؟",
+          "tip": "«أعار» و«استعار» من جذر واحد فنخلط بينهما، لكن lend للمعطي وborrow للآخذ: “Can you lend me a pen?” وليس “Can you borrow me a pen?”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “Can you borrow me a pen?” 😅 في العربية «أعار» و«استعار» من جذر واحد فنخلط بينهما، لكن في الإنجليزية lend للمعطي وborrow للآخذ، فالجملة الصحيحة “Can you lend me a pen?” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “lend” — «أعار» و«استعار» من جذر واحد، لكن في الإنجليزية lend للمعطي وborrow للآخذ. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “borrow me”?",
+          "tip": "In Arabic the words for lend and borrow come from one root, so we mix them up, but lend is to give and borrow is to take: “Can you lend me a pen?” not “Can you borrow me a pen?”",
+          "caption": "Do you sometimes say this? “Can you borrow me a pen?” 😅 In Arabic the words for lend and borrow come from one root, so we mix them up, but lend is to give and borrow is to take, so the right sentence is “Can you lend me a pen?” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_drinkscig",
+      "lang": "ar",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Drinks? No, he smokes!",
+        "wrong": "He drinks cigarettes.",
+        "right": "He smokes cigarettes.",
+        "strike": "drinks",
+        "why": "We smoke cigarettes. We drink tea.",
+        "memory": "Smoke it. Drink it.",
+        "quiz": {
+          "stem": "My uncle ___ cigarettes.",
+          "options": [
+            "drinks",
+            "smokes"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Smokes! My uncle smokes cigarettes.",
+        "native": {
+          "hook": "هل تقول “drinks cigarettes”؟",
+          "tip": "نقول بالعربية «يشرب السجائر» بفعل الشرب، أما في الإنجليزية فنستخدم smoke: “He smokes cigarettes.” وليس “He drinks cigarettes.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “He drinks cigarettes.” 😅 نقول بالعربية «يشرب السجائر» بفعل الشرب، أما في الإنجليزية فنستخدم smoke، فالجملة الصحيحة “He smokes cigarettes.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “smokes” — نقول بالعربية «يشرب السجائر» بفعل الشرب، أما في الإنجليزية فنستخدم smoke. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “drinks cigarettes”?",
+          "tip": "In Arabic we say «يشرب السجائر» with the verb for drink, but in English we use smoke: “He smokes cigarettes.” not “He drinks cigarettes.”",
+          "caption": "Do you sometimes say this? “He drinks cigarettes.” 😅 In Arabic we say «يشرب السجائر» with the verb for drink, but in English we use smoke, so the right sentence is “He smokes cigarettes.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_cutticket",
+      "lang": "ar",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Cut a ticket? Say bought!",
+        "wrong": "I cut a ticket for the train.",
+        "right": "I bought a ticket for the train.",
+        "strike": "cut",
+        "why": "We buy a ticket.",
+        "memory": "Buy a ticket.",
+        "quiz": {
+          "stem": "I ___ a ticket for the game.",
+          "options": [
+            "cut",
+            "bought"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Bought! I bought a ticket for the game.",
+        "native": {
+          "hook": "هل تقول “cut a ticket”؟",
+          "tip": "نقول «قطعت تذكرة»، أما في الإنجليزية فنقول buy a ticket: “I bought a ticket for the train.” وليس “I cut a ticket for the train.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “I cut a ticket for the train.” 😅 نقول «قطعت تذكرة»، أما في الإنجليزية فنقول buy a ticket، فالجملة الصحيحة “I bought a ticket for the train.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “bought” — نقول «قطعت تذكرة»، أما في الإنجليزية فنقول buy a ticket. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “cut a ticket”?",
+          "tip": "In Arabic we say «قطعت تذكرة», but in English we say buy a ticket: “I bought a ticket for the train.” not “I cut a ticket for the train.”",
+          "caption": "Do you sometimes say this? “I cut a ticket for the train.” 😅 In Arabic we say «قطعت تذكرة», but in English we say buy a ticket, so the right sentence is “I bought a ticket for the train.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_yearsold",
+      "lang": "ar",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Add old at the end!",
+        "wrong": "I am 20 years.",
+        "right": "I am 20 years old.",
+        "strike": "years",
+        "why": "Say years old to give your age.",
+        "memory": "I am 20 years old.",
+        "quiz": {
+          "stem": "Which one is right?",
+          "options": [
+            "She is 25 years.",
+            "She is 25 years old."
+          ],
+          "answer": 1
+        },
+        "answer_say": "The second! She is 25 years old.",
+        "native": {
+          "hook": "هل تقول “I am 20 years”؟",
+          "tip": "نقول «عمري عشرون سنة» دون كلمة تقابل old، أما في الإنجليزية فنضيف old: “I am 20 years old.” وليس “I am 20 years.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “I am 20 years.” 😅 نقول «عمري عشرون سنة» دون كلمة تقابل old، أما في الإنجليزية فنضيف old، فالجملة الصحيحة “I am 20 years old.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “She is 25 years old.” — نقول «عمري عشرون سنة» دون كلمة تقابل old، أما في الإنجليزية فنضيف old. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “I am 20 years”?",
+          "tip": "In Arabic we say «عمري عشرون سنة» with no word for old, but in English we add old: “I am 20 years old.” not “I am 20 years.”",
+          "caption": "Do you sometimes say this? “I am 20 years.” 😅 In Arabic we say «عمري عشرون سنة» with no word for old, but in English we add old, so the right sentence is “I am 20 years old.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_innextweek",
+      "lang": "ar",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "In next week? Drop in!",
+        "wrong": "I will see you in next week.",
+        "right": "I will see you next week.",
+        "strike": "in",
+        "why": "Do not use in before next.",
+        "memory": "Next week. Next year.",
+        "quiz": {
+          "stem": "Which one is right?",
+          "options": [
+            "See you in next year.",
+            "See you next year."
+          ],
+          "answer": 1
+        },
+        "answer_say": "The second! See you next year.",
+        "native": {
+          "hook": "هل تقول “in next week”؟",
+          "tip": "نقول «في الأسبوع القادم»، أما في الإنجليزية فنقول next week دون in: “I will see you next week.” وليس “I will see you in next week.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “I will see you in next week.” 😅 نقول «في الأسبوع القادم»، أما في الإنجليزية فنقول next week دون in، فالجملة الصحيحة “I will see you next week.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “next week” — نقول «في الأسبوع القادم»، أما في الإنجليزية فنقول next week دون in. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “in next week”?",
+          "tip": "In Arabic we say «في الأسبوع القادم», but in English we say next week with no in: “I will see you next week.” not “I will see you in next week.”",
+          "caption": "Do you sometimes say this? “I will see you in next week.” 😅 In Arabic we say «في الأسبوع القادم», but in English we say next week with no in, so the right sentence is “I will see you next week.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_ofmay",
+      "lang": "ar",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Say the month, then the day!",
+        "wrong": "I was born on 5 of May.",
+        "right": "I was born on May 5.",
+        "strike": "5 of May",
+        "why": "Say the month, then the day.",
+        "memory": "May 5. May 1.",
+        "quiz": {
+          "stem": "Which one is right?",
+          "options": [
+            "My birthday is 5 of May.",
+            "My birthday is May 5."
+          ],
+          "answer": 1
+        },
+        "answer_say": "The second! My birthday is May 5.",
+        "native": {
+          "hook": "هل تقول “5 of May”؟",
+          "tip": "نقول «الخامس من مايو»، أما في الإنجليزية الأمريكية فنقول الشهر ثم اليوم: “I was born on May 5.” وليس “I was born on 5 of May.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “I was born on 5 of May.” 😅 نقول «الخامس من مايو»، أما في الإنجليزية الأمريكية فنقول الشهر ثم اليوم، فالجملة الصحيحة “I was born on May 5.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “My birthday is May 5.” — نقول «الخامس من مايو»، أما في الإنجليزية الأمريكية فنقول الشهر ثم اليوم. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “5 of May”?",
+          "tip": "In Arabic we say «الخامس من مايو», but in American English we say the month first, then the day: “I was born on May 5.” not “I was born on 5 of May.”",
+          "caption": "Do you sometimes say this? “I was born on 5 of May.” 😅 In Arabic we say «الخامس من مايو», but in American English we say the month first, then the day, so the right sentence is “I was born on May 5.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_sorrylate",
+      "lang": "ar",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Sorry for late? Add being!",
+        "wrong": "I am sorry for late.",
+        "right": "I am sorry for being late.",
+        "strike": "for late",
+        "why": "Say being late, not just late.",
+        "memory": "Sorry for being late.",
+        "quiz": {
+          "stem": "Which one is right?",
+          "options": [
+            "Sorry for late.",
+            "Sorry for being late."
+          ],
+          "answer": 1
+        },
+        "answer_say": "The second! Sorry for being late.",
+        "native": {
+          "hook": "هل تقول “sorry for late”؟",
+          "tip": "نقول «آسف على التأخير»، أما في الإنجليزية فنقول sorry for being late: “I am sorry for being late.” وليس “I am sorry for late.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “I am sorry for late.” 😅 نقول «آسف على التأخير»، أما في الإنجليزية فنقول sorry for being late، فالجملة الصحيحة “I am sorry for being late.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “being late” — نقول «آسف على التأخير»، أما في الإنجليزية فنقول sorry for being late. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “sorry for late”?",
+          "tip": "In Arabic we say «آسف على التأخير», but in English we say sorry for being late: “I am sorry for being late.” not “I am sorry for late.”",
+          "caption": "Do you sometimes say this? “I am sorry for late.” 😅 In Arabic we say «آسف على التأخير», but in English we say sorry for being late, so the right sentence is “I am sorry for being late.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_benpen",
+      "lang": "ar",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Ben? No, say pen!",
+        "wrong": "I write with a ben.",
+        "right": "I write with a pen.",
+        "strike": "ben",
+        "why": "Pen starts with p, not b.",
+        "memory": "Pen. Park. Pizza.",
+        "quiz": {
+          "stem": "Which one is right?",
+          "options": [
+            "I need a ben.",
+            "I need a pen."
+          ],
+          "answer": 1
+        },
+        "answer_say": "The second! I need a pen.",
+        "native": {
+          "hook": "هل تكتب “ben” بدل “pen”؟",
+          "tip": "في العربية لا يوجد صوت p، فيكتب كثيرون b بدلًا منه، لكن الكلمة الصحيحة pen: “I write with a pen.” وليس “I write with a ben.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “I write with a ben.” 😅 في العربية لا يوجد صوت p، فيكتب كثيرون b بدلًا منه، لكن الكلمة الصحيحة pen، فالجملة الصحيحة “I write with a pen.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “pen” — في العربية لا يوجد صوت p، فيكتب كثيرون b بدلًا منه، لكن الكلمة الصحيحة pen. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you write “ben” for “pen”?",
+          "tip": "Arabic has no p sound, so many learners write b instead, but the right word is pen: “I write with a pen.” not “I write with a ben.”",
+          "caption": "Do you sometimes say this? “I write with a ben.” 😅 Arabic has no p sound, so many learners write b instead, but the right word is pen, so the right sentence is “I write with a pen.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_welcomereply",
+      "lang": "ar",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Thanks? Say you are welcome!",
+        "wrong": "Thank you. Welcome.",
+        "right": "Thank you. You are welcome.",
+        "strike": "Welcome",
+        "why": "Say you are welcome to answer thanks.",
+        "memory": "You are welcome.",
+        "quiz": {
+          "stem": "Thanks a lot! ___",
+          "options": [
+            "Welcome.",
+            "You are welcome."
+          ],
+          "answer": 1
+        },
+        "answer_say": "The second! You are welcome.",
+        "native": {
+          "hook": "هل تقول “Welcome” فقط؟",
+          "tip": "نرد على الشكر بـ «أهلًا»، لكن welcome للضيف، وللرد نقول you are welcome: “Thank you. You are welcome.” وليس “Thank you. Welcome.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “Thank you. Welcome.” 😅 نرد على الشكر بـ «أهلًا»، لكن welcome للضيف، وللرد نقول you are welcome، فالجملة الصحيحة “Thank you. You are welcome.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “You are welcome” — نرد على الشكر بـ «أهلًا»، لكن welcome للضيف، وللرد نقول you are welcome. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you only say “Welcome”?",
+          "tip": "We answer thanks with «أهلًا», but welcome is for guests, so we say you are welcome: “Thank you. You are welcome.” not “Thank you. Welcome.”",
+          "caption": "Do you sometimes say this? “Thank you. Welcome.” 😅 We often answer thanks with «أهلًا», but welcome is for guests. The right sentence is “Thank you. You are welcome.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_withyou",
+      "lang": "ar",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Ask: Do you have a pen?",
+        "wrong": "Is there a pen with you?",
+        "right": "Do you have a pen with you?",
+        "strike": "Is there",
+        "why": "Use have to ask what someone owns.",
+        "memory": "Do you have it?",
+        "quiz": {
+          "stem": "Which one is right?",
+          "options": [
+            "Is there a pen with you?",
+            "Do you have a pen with you?"
+          ],
+          "answer": 1
+        },
+        "answer_say": "The second! Do you have a pen with you?",
+        "native": {
+          "hook": "هل تقول “Is there a pen”؟",
+          "tip": "في العربية نقول «هل معك قلم؟»، أما في الإنجليزية فنسأل بـ do you have: “Do you have a pen with you?” وليس “Is there a pen with you?”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “Is there a pen with you?” 😅 في العربية نقول «هل معك قلم؟»، أما في الإنجليزية فنسأل بـ do you have، فالجملة الصحيحة “Do you have a pen with you?” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “Do you have a pen with you?” — في الإنجليزية نسأل بـ do you have. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “Is there a pen”?",
+          "tip": "In Arabic we say «هل معك قلم؟», but in English we ask with do you have: “Do you have a pen with you?” not “Is there a pen with you?”",
+          "caption": "Do you sometimes say this? “Is there a pen with you?” 😅 In Arabic we say «هل معك قلم؟», but in English we ask with do you have, so the right sentence is “Do you have a pen with you?” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_wouldlike",
+      "lang": "ar",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "I want? Say I would like!",
+        "wrong": "I want a table for two, please.",
+        "right": "I would like a table for two, please.",
+        "strike": "want",
+        "why": "Would like is more polite than want.",
+        "memory": "I would like...",
+        "quiz": {
+          "stem": "Which one is polite?",
+          "options": [
+            "I want a table.",
+            "I would like a table."
+          ],
+          "answer": 1
+        },
+        "answer_say": "The second! I would like a table.",
+        "native": {
+          "hook": "هل تقول “I want” للطلب؟",
+          "tip": "«أريد» عادية، لكن want تبدو جافة، فنقول would like: “I would like a table for two, please.” وليس “I want a table for two, please.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “I want a table for two, please.” 😅 «أريد» عادية بالعربية، لكن want تبدو جافة في الإنجليزية، فنقول would like، فالجملة الصحيحة “I would like a table for two, please.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “would like” — «أريد» عادية بالعربية، لكن want تبدو جافة في الإنجليزية، فنقول would like. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “I want” to ask?",
+          "tip": "In Arabic «أريد» is normal, but want sounds too direct, so we say would like: “I would like a table for two, please.” not “I want a table for two, please.”",
+          "caption": "Do you sometimes say this? “I want a table for two, please.” 😅 In Arabic «أريد» is normal, but want sounds too direct in English, so we say would like, and the right sentence is “I would like a table for two, please.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_samelike",
+      "lang": "ar",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Same like? Say same as!",
+        "wrong": "My bag is the same like yours.",
+        "right": "My bag is the same as yours.",
+        "strike": "like",
+        "why": "Use as after same.",
+        "memory": "The same as.",
+        "quiz": {
+          "stem": "He has the same phone ___ me.",
+          "options": [
+            "like",
+            "as"
+          ],
+          "answer": 1
+        },
+        "answer_say": "As! He has the same phone as me.",
+        "native": {
+          "hook": "هل تقول “the same like”؟",
+          "tip": "نقول بالعربية «مثل حقيبتك» بكلمة مثل، أما بعد the same فنستخدم as: “My bag is the same as yours.” وليس “My bag is the same like yours.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “My bag is the same like yours.” 😅 نقول بالعربية «مثل حقيبتك» بكلمة مثل، أما بعد the same فنستخدم as، فالجملة الصحيحة “My bag is the same as yours.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “as” — نقول بالعربية «مثل حقيبتك» بكلمة مثل، أما بعد the same فنستخدم as. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “the same like”?",
+          "tip": "In Arabic we say «مثل حقيبتك» with «مثل», but after the same we use as: “My bag is the same as yours.” not “My bag is the same like yours.”",
+          "caption": "Do you sometimes say this? “My bag is the same like yours.” 😅 In Arabic we say «مثل حقيبتك» with «مثل», but after the same we use as, so the right sentence is “My bag is the same as yours.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_fivepersons",
+      "lang": "ar",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Five persons? Say people!",
+        "wrong": "Five persons came to the party.",
+        "right": "Five people came to the party.",
+        "strike": "persons",
+        "why": "In everyday English, we say people.",
+        "memory": "Five people.",
+        "quiz": {
+          "stem": "There are four ___ in my family.",
+          "options": [
+            "persons",
+            "people"
+          ],
+          "answer": 1
+        },
+        "answer_say": "People! There are four people in my family.",
+        "native": {
+          "hook": "هل تقول “five persons”؟",
+          "tip": "نقول «خمسة أشخاص»، لكن persons رسمية جدًا، فنقول people: “Five people came to the party.” وليس “Five persons came to the party.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “Five persons came to the party.” 😅 نقول «خمسة أشخاص»، وكلمة persons رسمية جدًا، أما في الكلام اليومي فنقول five people، فالجملة الصحيحة “Five people came to the party.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “people” — نقول «خمسة أشخاص»، وكلمة persons رسمية جدًا، أما في الكلام اليومي فنقول five people. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “five persons”?",
+          "tip": "In Arabic we say «خمسة أشخاص», but persons is very formal, and in everyday English we say five people: “Five people came to the party.” not “Five persons came to the party.”",
+          "caption": "Do you sometimes say this? “Five persons came to the party.” 😅 In Arabic we say «خمسة أشخاص», but persons is very formal, and in everyday English we say five people, so the right sentence is “Five people came to the party.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_wishcan",
+      "lang": "ar",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Wish can? Say wish could!",
+        "wrong": "I wish I can speak English well.",
+        "right": "I wish I could speak English well.",
+        "strike": "can",
+        "why": "After wish, use could.",
+        "memory": "I wish I could.",
+        "quiz": {
+          "stem": "I wish I ___ fly.",
+          "options": [
+            "can",
+            "could"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Could! I wish I could fly.",
+        "native": {
+          "hook": "هل تقول “I wish I can”؟",
+          "tip": "نقول «ليتني أستطيع»، أما بعد wish فنستخدم could: “I wish I could speak English well.” وليس “I wish I can speak English well.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “I wish I can speak English well.” 😅 نقول «ليتني أستطيع»، أما بعد wish فنستخدم could، فالجملة الصحيحة “I wish I could speak English well.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “could” — نقول «ليتني أستطيع»، أما بعد wish فنستخدم could. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “I wish I can”?",
+          "tip": "In Arabic we say «ليتني أستطيع», but in English we use could after wish: “I wish I could speak English well.” not “I wish I can speak English well.”",
+          "caption": "Do you sometimes say this? “I wish I can speak English well.” 😅 In Arabic we say «ليتني أستطيع», but in English we use could after wish, so the right sentence is “I wish I could speak English well.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_beforeago",
+      "lang": "ar",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Before two years? Say ago!",
+        "wrong": "I moved here before two years.",
+        "right": "I moved here two years ago.",
+        "strike": "before two years",
+        "why": "Put ago after the time.",
+        "memory": "Two years ago.",
+        "quiz": {
+          "stem": "I met him three days ___.",
+          "options": [
+            "before",
+            "ago"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Ago! I met him three days ago.",
+        "native": {
+          "hook": "هل تقول “before two years”؟",
+          "tip": "نقول «قبل سنتين» بـ «قبل» أولًا، أما في الإنجليزية فنضع ago بعد المدة: “I moved here two years ago.” وليس “I moved here before two years.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “I moved here before two years.” 😅 نقول «قبل سنتين» بـ «قبل» أولًا، أما في الإنجليزية فنضع ago بعد المدة، فالجملة الصحيحة “I moved here two years ago.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “two years ago” — نقول «قبل سنتين» بـ «قبل» أولًا، أما في الإنجليزية فنضع ago بعد المدة. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “before two years”?",
+          "tip": "In Arabic we say «قبل سنتين» with «قبل» first, but in English ago comes after the time: “I moved here two years ago.” not “I moved here before two years.”",
+          "caption": "Do you sometimes say this? “I moved here before two years.” 😅 In Arabic we say «قبل سنتين» with «قبل» first, but in English ago comes after the time, so the right sentence is “I moved here two years ago.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_lateclass",
+      "lang": "ar",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Late from? Say late for!",
+        "wrong": "I am late from class.",
+        "right": "I am late for class.",
+        "strike": "from",
+        "why": "Use for after late.",
+        "memory": "Late for school.",
+        "quiz": {
+          "stem": "He is late ___ work.",
+          "options": [
+            "from",
+            "for"
+          ],
+          "answer": 1
+        },
+        "answer_say": "For! He is late for work.",
+        "native": {
+          "hook": "هل تقول “late from”؟",
+          "tip": "نقول بالعربية «متأخر عن الدرس» بحرف عن، أما في الإنجليزية فنقول late for: “I am late for class.” وليس “I am late from class.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “I am late from class.” 😅 نقول بالعربية «متأخر عن الدرس» بحرف عن، أما في الإنجليزية فنقول late for، فالجملة الصحيحة “I am late for class.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “for” — نقول بالعربية «متأخر عن الدرس» بحرف عن، أما في الإنجليزية فنقول late for. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “late from”?",
+          "tip": "In Arabic we say «متأخر عن الدرس» with «عن», but in English we say late for: “I am late for class.” not “I am late from class.”",
+          "caption": "Do you sometimes say this? “I am late from class.” 😅 In Arabic we say «متأخر عن الدرس» with «عن», but in English we say late for, so the right sentence is “I am late for class.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_friendofme",
+      "lang": "ar",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Friend of me? Say of mine!",
+        "wrong": "He is a friend of me.",
+        "right": "He is a friend of mine.",
+        "strike": "of me",
+        "why": "Use mine after of.",
+        "memory": "A friend of mine.",
+        "quiz": {
+          "stem": "She is a friend of ___.",
+          "options": [
+            "me",
+            "mine"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Mine! She is a friend of mine.",
+        "native": {
+          "hook": "هل تقول “friend of me”؟",
+          "tip": "نقول بالعربية «صديق لي»، أما في الإنجليزية فنقول a friend of mine: “He is a friend of mine.” وليس “He is a friend of me.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “He is a friend of me.” 😅 نقول بالعربية «صديق لي»، أما في الإنجليزية فنقول a friend of mine، فالجملة الصحيحة “He is a friend of mine.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “mine” — نقول بالعربية «صديق لي»، أما في الإنجليزية فنقول a friend of mine. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “friend of me”?",
+          "tip": "In Arabic we say «صديق لي», but in English we say a friend of mine: “He is a friend of mine.” not “He is a friend of me.”",
+          "caption": "Do you sometimes say this? “He is a friend of me.” 😅 In Arabic we say «صديق لي», but in English we say a friend of mine, so the right sentence is “He is a friend of mine.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_withdoctor",
+      "lang": "ar",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Interested with? Say interested in!",
+        "wrong": "I am interested with music.",
+        "right": "I am interested in music.",
+        "strike": "with",
+        "why": "Use in after interested.",
+        "memory": "Interested in music.",
+        "quiz": {
+          "stem": "He is interested ___ sports.",
+          "options": [
+            "with",
+            "in"
+          ],
+          "answer": 1
+        },
+        "answer_say": "In! He is interested in sports.",
+        "native": {
+          "hook": "هل تقول “interested with”؟",
+          "tip": "نقول بالعربية «مهتم بالموسيقى» بحرف الباء، لكن مع interested نستخدم in: “I am interested in music.” وليس “I am interested with music.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “I am interested with music.” 😅 نقول بالعربية «مهتم بالموسيقى» بحرف الباء، لكن مع interested نستخدم in، فالجملة الصحيحة “I am interested in music.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “in” — نقول بالعربية «مهتم بالموسيقى» بحرف الباء، لكن مع interested نستخدم in. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “interested with”?",
+          "tip": "In Arabic we say «مهتم بالموسيقى» with the letter «بـ», but after interested we use in: “I am interested in music.” not “I am interested with music.”",
+          "caption": "Do you sometimes say this? “I am interested with music.” 😅 In Arabic we say «مهتم بالموسيقى» with the letter «بـ», but after interested we use in, so the right sentence is “I am interested in music.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_afterhour",
+      "lang": "ar",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "After one hour? Say in!",
+        "wrong": "I will call you after one hour.",
+        "right": "I will call you in one hour.",
+        "strike": "after",
+        "why": "Use in for a time from now.",
+        "memory": "In ten minutes.",
+        "quiz": {
+          "stem": "The bus comes ___ five minutes.",
+          "options": [
+            "after",
+            "in"
+          ],
+          "answer": 1
+        },
+        "answer_say": "In! The bus comes in five minutes.",
+        "native": {
+          "hook": "هل تقول “after one hour”؟",
+          "tip": "نقول «بعد ساعة»، أما في الإنجليزية فنقول in one hour: “I will call you in one hour.” وليس “I will call you after one hour.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “I will call you after one hour.” 😅 نقول «بعد ساعة»، أما في الإنجليزية فنقول in one hour، فالجملة الصحيحة “I will call you in one hour.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “in one hour” — نقول «بعد ساعة»، أما في الإنجليزية فنقول in one hour. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “after one hour”?",
+          "tip": "In Arabic we say «بعد ساعة», but in English we say in one hour: “I will call you in one hour.” not “I will call you after one hour.”",
+          "caption": "Do you sometimes say this? “I will call you after one hour.” 😅 In Arabic we say «بعد ساعة», but in English we say in one hour, so the right sentence is “I will call you in one hour.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_friendand",
+      "lang": "ar",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Say my friend and I!",
+        "wrong": "I and my friend went to the park.",
+        "right": "My friend and I went to the park.",
+        "strike": "I and my friend",
+        "why": "Put I last: my friend and I.",
+        "memory": "My friend and I.",
+        "quiz": {
+          "stem": "___ went to the market.",
+          "options": [
+            "I and my sister",
+            "My sister and I"
+          ],
+          "answer": 1
+        },
+        "answer_say": "My sister and I! My sister and I went to the market.",
+        "native": {
+          "hook": "هل تقول “I and my friend”؟",
+          "tip": "نقول «أنا وصديقي»، أما في الإنجليزية فنضع I في النهاية: “My friend and I went to the park.” وليس “I and my friend went to the park.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “I and my friend went to the park.” 😅 نقول «أنا وصديقي» فنبدأ بـ«أنا»، أما في الإنجليزية فنضع I في النهاية، فالجملة الصحيحة “My friend and I went to the park.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “My sister and I” — في الإنجليزية نضع I في النهاية. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “I and my friend”?",
+          "tip": "In Arabic we say «أنا وصديقي» and start with «أنا», but in English we put I last: “My friend and I went to the park.” not “I and my friend went to the park.”",
+          "caption": "Do you sometimes say this? “I and my friend went to the park.” 😅 In Arabic we say «أنا وصديقي» and start with «أنا», but in English we put I last, so the right sentence is “My friend and I went to the park.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_pricewhat",
+      "lang": "ar",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Price? Say what, not how much!",
+        "wrong": "How much is the price?",
+        "right": "What is the price?",
+        "strike": "How much",
+        "why": "Use what with the word price.",
+        "memory": "What is the price?",
+        "quiz": {
+          "stem": "___ is the price of this bag?",
+          "options": [
+            "How much",
+            "What"
+          ],
+          "answer": 1
+        },
+        "answer_say": "What! What is the price of this bag?",
+        "native": {
+          "hook": "هل تقول “How much is the price?”",
+          "tip": "نقول «كم السعر؟»، أما في الإنجليزية فنقول what مع كلمة price: “What is the price?” وليس “How much is the price?”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “How much is the price?” 😅 نقول «كم السعر؟»، أما في الإنجليزية فنقول what مع كلمة price، فالجملة الصحيحة “What is the price?” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “What” — مع كلمة price نقول what. اسأل عن سعر شيء بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Ever say “How much is the price?”",
+          "tip": "In Arabic we say «كم السعر؟», but in English we say what with the word price: “What is the price?” not “How much is the price?”",
+          "caption": "Do you sometimes say this? “How much is the price?” 😅 In Arabic we say «كم السعر؟», but in English we say what with the word price, so the right sentence is “What is the price?” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_salarylow",
+      "lang": "ar",
+      "teacher": "ama",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Salary is low, not little!",
+        "wrong": "My salary is little.",
+        "right": "My salary is low.",
+        "strike": "little",
+        "why": "Say low for a salary or a price.",
+        "memory": "Low salary, low price.",
+        "quiz": {
+          "stem": "The prices here are ___.",
+          "options": [
+            "little",
+            "low"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Low! The prices here are low.",
+        "native": {
+          "hook": "هل تقول “salary is little”؟",
+          "tip": "نقول «راتبي قليل»، أما في الإنجليزية فنقول low مع الراتب والسعر: “My salary is low.” وليس “My salary is little.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “My salary is little.” 😅 نقول «راتبي قليل»، أما في الإنجليزية فنقول low مع الراتب والسعر، فالجملة الصحيحة “My salary is low.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “low” — مع الراتب والسعر نقول low. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “salary is little”?",
+          "tip": "In Arabic we say «راتبي قليل», but in English we say low for a salary or a price: “My salary is low.” not “My salary is little.”",
+          "caption": "Do you sometimes say this? “My salary is little.” 😅 In Arabic we say «راتبي قليل», but in English we say low for a salary or a price, so the right sentence is “My salary is low.” Listen to Ama and repeat! Practice more in the Lexkite app."
+        }
+      }
+    },
+    {
+      "id": "t2_l1_ar_sisterolder",
+      "lang": "ar",
+      "teacher": "carlos",
+      "theme": "dusk",
+      "in": {
+        "hook_say": "Older, not bigger, for age!",
+        "wrong": "My sister is bigger than me.",
+        "right": "My sister is older than me.",
+        "strike": "bigger",
+        "why": "Use older for age, not bigger.",
+        "memory": "Older sister.",
+        "quiz": {
+          "stem": "My brother is two years ___ than me.",
+          "options": [
+            "bigger",
+            "older"
+          ],
+          "answer": 1
+        },
+        "answer_say": "Older! My brother is two years older than me.",
+        "native": {
+          "hook": "هل تقول “bigger than me”؟",
+          "tip": "نقول «أختي أكبر مني»، أما في الإنجليزية فنقول older للعمر: “My sister is older than me.” وليس “My sister is bigger than me.”",
+          "caption": "هل تقول أحيانًا هذه الجملة؟ “My sister is bigger than me.” 😅 نقول «أختي أكبر مني»، أما في الإنجليزية فنقول older للعمر، فالجملة الصحيحة “My sister is older than me.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+          "comment": "الإجابة: “older” — للعمر نقول older. قلها بصوت عالٍ ثم اكتب جملة من عندك: {link}",
+          "hashtags": [
+            "#تعلم_الانجليزية",
+            "#اللغة_الانجليزية",
+            "#englishlearning",
+            "#lexkite"
+          ]
+        },
+        "en": {
+          "hook": "Do you say “bigger than me”?",
+          "tip": "In Arabic we say «أختي أكبر مني», but in English we say older for age: “My sister is older than me.” not “My sister is bigger than me.”",
+          "caption": "Do you sometimes say this? “My sister is bigger than me.” 😅 In Arabic we say «أختي أكبر مني», but in English we say older for age, so the right sentence is “My sister is older than me.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+        }
+      }
+    }
+  ]
+}

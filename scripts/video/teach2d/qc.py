@@ -1,15 +1,18 @@
 #!/usr/bin/env python3
 """Teach2D QC (docs/VIDEO-TEACH2D.md): every gate must pass and the weighted score must be >= 90, else exit 1 (nothing ships).
   python3 scripts/video/teach2d/qc.py --timeline PROPS.json.timeline.json [--video OUT.mp4] [--sheet OUT.sheet.jpg] [--out qc.json]
-Gates: voice_teacher · pace (<= 150 wpm) · caption_sync (caption == script == whisper) · mouth (talk only while speaking, listen in pauses)
+Gates: voice_teacher · pace (<= 150 wpm) · caption_sync (caption == script == whisper) · mouth (registry host: talk only while speaking, listen in pauses)
+· lipsync_rig (TeacherRig host: every Rhubarb cue >= 50 ms on screen within +-33 ms, X in silences > 0.35 s, no pose over the mouth, frame count – lipsync_gate.py)
 · hook (on screen at frame 0, <= 6 words, spoken by 2.2 s) · cue_timing (+-80 ms on the word) · layout (text in SAFE, no overlap, head clear)
 · contrast (text >= 4.5:1, large >= 3:1, both on the real fill) · min_text · ipa (== audited bank, stress dot == IPA stress mark) · cta (deep link)
 · duration · file (fps, AAC, duration, -16 LUFS) · frames (teacher visible every second, no blank frame) – the last two need --video."""
 import argparse, json, os, re, subprocess, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); from labels import nf_of   # noqa: E402  one frame-count formula
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(f'{HERE}/../../..')
 sys.path.insert(0, f'{ROOT}/scripts/video/motion'); sys.path.insert(0, f'{ROOT}/scripts/video/tpl')
 import core as C  # noqa: E402
 sys.path.insert(0, HERE); import pace as P  # noqa: E402
+import lipsync_gate as LG  # noqa: E402
 from overlay_gates import contrast as _cr, bank_ipa, stress_index  # noqa: E402
 def contrast(a, b): return _cr(*[[int(x[i:i + 2], 16) for i in (1, 3, 5)] for x in (a, b)])
 ap = argparse.ArgumentParser(); ap.add_argument('--timeline', required=True); ap.add_argument('--video'); ap.add_argument('--sheet'); ap.add_argument('--out')
@@ -42,7 +45,7 @@ if T['format'] == 'short':
     if capw != allw: bad.append(dict(captions='caption tokens != spoken tokens'))
 gate('caption_sync', not bad, 3, bad=bad[:6])
 # mouth: talk frames cover every spoken word, no talk in silences > 0.35 s
-fps = T['fps']; nf = int(round(T['total'] * fps)); talk = [False] * nf
+fps = T['fps']; nf = nf_of(T); talk = [False] * nf
 for s in T['segs']:
     for f in range(s['from'], min(nf, s['from'] + s['dur'])): talk[f] = s['clip'] == 'talk'
 miss = [w['w'] for v in L.values() for w in v['words'] if not all(talk[f] for f in range(int(w['s'] * fps) + 1, max(int(w['s'] * fps) + 2, int(w['e'] * fps))) if f < nf)]
@@ -58,7 +61,12 @@ for i, s_ in enumerate(HS):
         a_ = 1.0 if i == 0 or not XF or not can(i - 1) else C.ease_out((f - s_['from']) / XF); cov[f] = max(cov[f], a_)
 holes = [round(f / fps, 2) for f in range(nf) if cov[f] < 0.99]   # an outgoing clip under a fade counts 1.0
 gate('host_cover', not holes and HL, 3, holes=holes[:6], frames=nf)
-gate('mouth', not miss and not long_talk, 3, words_without_talk=miss[:5], talk_in_silence=long_talk[:5], segments=len(T['segs']))
+if T.get('host') == 'rig':   # TeacherRig host: the mouth is the episode's own visemes, checked frame by frame on what rig_host.mjs rendered
+    rg = T['rig']
+    if os.path.exists(rg['frames']): lr = LG.check(T, json.load(open(rg['frames'])), rg['vo'])
+    else: lr = dict(ok=False, missing=rg['frames'])
+    gate('lipsync_rig', lr.pop('ok'), 3, **lr)
+else: gate('mouth', not miss and not long_talk, 3, words_without_talk=miss[:5], talk_in_silence=long_talk[:5], segments=len(T['segs']))
 # hook
 hk = [n for n in T['nodes'] if n.get('hook')]
 gate('hook', hk and alpha(hk[0], 0.0) >= 0.99 and len(L['h']['text'].split()) <= 6 and L['h']['words'][-1]['e'] <= 2.2, 3,
@@ -98,6 +106,19 @@ for n in T['nodes']:   # nothing may stay on screen after the card it belongs to
         if ends and (not n.get('out') or n['out']['t'] > max(ends) + 0.05): prob.append(dict(id=n['id'], why='outlives its card', type=n['type']))
 seen = set(); prob = [p for p in prob if not (json.dumps({k: v for k, v in p.items() if k != 't'}, sort_keys=True) in seen or seen.add(json.dumps({k: v for k, v in p.items() if k != 't'}, sort_keys=True)))]
 gate('layout', not prob, 3, problems=prob[:8])
+# platform UI zones (Spell->Sound, docs/specs/spell-sound.md): the 9:16 short keeps every element out of the top 12 % (back / search icons), the bottom 22 % (caption + sound row) and the right 14 % (like / comment rail),
+# and shows at most 6 text rows at once. Defects seen in the reference reel (title under the icons, meaning chips under the rail, last row over the caption) must never ship.
+if T['template'] == 'rule' and T['format'] == 'short':
+    ZW, ZH = 1080, 1920; zx, zy0, zy1 = ZW * 0.86, ZH * 0.12, ZH * 0.78; zp = []; ROWS = ('text', 'chip', 'ipapill', 'pill', 'cta')
+    for n in T['nodes']:
+        if n['type'] in ('confetti', 'backdrop') or n.get('hidden'): continue
+        b = n['box']
+        if b[2] > zx + 1 or b[1] < zy0 - 1 or b[3] > zy1 + 1: zp.append(dict(id=n['id'], type=n['type'], box=b))
+    if T['cap_box'] and T['cap_box'][2] > zx + 1: zp.append(dict(id='caption', box=T['cap_box']))
+    mx = 0
+    for i in range(int(T['total'] * 10)):
+        k = len([n for n in T['nodes'] if n['type'] in ROWS and n['id'] != 'series' and alpha(n, i / 10) > 0.3]); mx = max(mx, k)
+    gate('platform_zones', not zp and mx <= 6, 3, outside=zp[:6], max_rows=mx, zones=dict(top=0.12, bottom=0.22, right=0.14, max_rows=6))
 # contrast on the real fill (card tone / chip / pill / caption plate), both themes are separate renders
 def rgb(c, over=None):
     if c.startswith('#'): return c
@@ -152,6 +173,8 @@ if o.video:
         crop = im[hx[1]:hx[3], hx[0]:hx[2]].astype(int); diff = (np.abs(crop - bgc).sum(2) > 60).mean(); hostvis.append(round(float(diff), 3))
         if im.std() < 4: blank.append(i)
     gate('frames', min(hostvis) > 0.12 and not blank, 3, host_cover_min=min(hostvis), host_missing_s=[i / 4 for i, x in enumerate(hostvis) if x <= 0.12][:6], blank=blank)   # 4 samples / s
+    from dead_band import check as _dead_band   # owner 19/11: no flat empty band >= 8 % of the frame height (scripts/video/tpl/dead_band.py), short + wide
+    _db = _dead_band(im.astype(np.float32).mean(2) for im in fr); gate('dead_band', _db['ok'], 3, **{k: v for k, v in _db.items() if k != 'ok'})
     if o.sheet:   # contact sheet: one frame per line (middle), for the review sheet
         ts = [round((x['t0'] + x['t1']) / 2, 2) for x in L.values()]
         sel = '+'.join(f'between(t\\,{t - 0.02}\\,{t + 0.02})' for t in ts)

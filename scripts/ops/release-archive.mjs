@@ -10,6 +10,9 @@ import { arg, loadJson, saveJson, summary, sha256File, uploadTwoCopies, pruneOld
 export const SOURCES = [
   { kind: 'android-aab', wf: 'android.yml', art: 'lexkite-play-aab', rx: /\.aab$/, label: (f, run) => { const m = f.match(/lexkite-([\d.]+)-(\d+)\.aab$/); return { version: m && m[1], build: m && +m[2], name: f }; } },
   { kind: 'ios-ipa', wf: 'ios-testflight.yml', art: 'lexkite-ios-ipa', rx: /\.ipa$/, label: (f, run) => { const m = f.match(/lexkite-([\d.]+)-(\d+)\.ipa$/); return { version: m && m[1], build: m ? +m[2] : run.run_number, name: f }; } },
+  // Bản nộp store tự động (store-submit.yml → store-build-*.yml) cùng tên artifact/file – chung sổ với bản build tay
+  { kind: 'android-aab', wf: 'store-submit.yml', art: 'lexkite-play-aab', rx: /\.aab$/, label: (f) => { const m = f.match(/lexkite-([\d.]+)-(\d+)\.aab$/); return { version: m && m[1], build: m && +m[2], name: f }; } },
+  { kind: 'ios-ipa', wf: 'store-submit.yml', art: 'lexkite-ios-ipa', rx: /\.ipa$/, label: (f, run) => { const m = f.match(/lexkite-([\d.]+)-(\d+)\.ipa$/); return { version: m && m[1], build: m ? +m[2] : run.run_number, name: f }; } },
   { kind: 'addon-zip', wf: 'cws-publish.yml', art: 'lexkite-extension-zip', rx: /\.zip$/, label: (f, run, abs) => { let v = null; try { v = JSON.parse(execFileSync('unzip', ['-p', abs, 'manifest.json'], { encoding: 'utf8' })).version; } catch { /* zip lạ */ } return { version: v, build: run.run_number, name: `lexkite-addon-${v || 'x'}-run${run.run_number}.zip` }; } },
 ];
 const REPO = process.env.GITHUB_REPOSITORY || 'lexkiteapp/lexkiteapp.github.io', TOK = process.env.GITHUB_TOKEN || process.env.GH_TOKEN || '';
@@ -52,6 +55,7 @@ async function main() {
   if (!DRY) { man.updated = new Date().toISOString(); saveJson(MAN, man); }
   summary('### release-archive\n' + (lines.join('\n') || '- không có bản mới'));
   if (failed) { await alert('backup_rel', false, `Lưu bản phát hành: ${failed} lỗi`); return 1; }
+  if (!DRY) await alert('backup_rel', true, 'ok'); // 1/11: trước đây cờ chỉ được ĐẶT, không bao giờ gỡ → đỏ mãi dù các lượt sau xanh
   return 0;
 }
 if (process.argv[1] && process.argv[1].endsWith('release-archive.mjs')) main().then(c => process.exit(c)).catch(async e => { console.error('✗ ' + e.message); await alert('backup_rel', false, 'release-archive: ' + e.message); process.exit(1); });

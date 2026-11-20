@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Dictionary - resilient</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "primary": "#b02611",
+            "on-primary-container": "#fffbff",
+            "tertiary-fixed": "#ffdead",
+            "secondary-container": "#beebeb",
+            "surface-container": "#edeef0",
+            "secondary-fixed-dim": "#a3cfcf",
+            "surface-container-low": "#f3f3f6",
+            "on-secondary-container": "#426b6c",
+            "surface-tint": "#b42814",
+            "inverse-on-surface": "#f0f0f3",
+            "on-error": "#ffffff",
+            "error": "#ba1a1a",
+            "surface-container-lowest": "#ffffff",
+            "primary-container": "#d33f28",
+            "inverse-primary": "#ffb4a6",
+            "on-tertiary-fixed": "#281900",
+            "on-error-container": "#93000a",
+            "surface-bright": "#f9f9fb",
+            "outline": "#8e706a",
+            "tertiary-container": "#9b6b00",
+            "on-tertiary-container": "#fffbff",
+            "surface-dim": "#d9dadc",
+            "on-surface": "#1a1c1e",
+            "error-container": "#ffdad6",
+            "surface-container-high": "#e8e8ea",
+            "surface-container-highest": "#e2e2e5",
+            "primary-fixed": "#ffdad3",
+            "on-primary-fixed-variant": "#900f00",
+            "on-primary-fixed": "#3f0300",
+            "on-tertiary-fixed-variant": "#604100",
+            "on-primary": "#ffffff",
+            "on-secondary": "#ffffff",
+            "on-tertiary": "#ffffff",
+            "primary-fixed-dim": "#ffb4a6",
+            "on-secondary-fixed": "#002020",
+            "background": "#f9f9fb",
+            "outline-variant": "#e3beb8",
+            "tertiary": "#7b5500",
+            "on-background": "#1a1c1e",
+            "secondary": "#3b6566",
+            "surface": "#f9f9fb",
+            "surface-variant": "#e2e2e5",
+            "on-surface-variant": "#5a413c",
+            "tertiary-fixed-dim": "#fabc4d",
+            "on-secondary-fixed-variant": "#224d4e",
+            "inverse-surface": "#2f3133",
+            "secondary-fixed": "#beebeb"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "space-md": "1rem",
+            "space-xl": "2rem",
+            "gutter": "1rem",
+            "space-lg": "1.5rem",
+            "margin": "1rem",
+            "space-sm": "0.5rem"
+          },
+          "fontFamily": {
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-xl": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "headline-xl-mobile": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "body-sm": ["13px", {"lineHeight": "18px", "fontWeight": "500"}],
+            "headline-xl": ["36px", {"lineHeight": "44px", "fontWeight": "800"}],
+            "headline-lg": ["28px", {"lineHeight": "36px", "fontWeight": "800"}],
+            "headline-xl-mobile": ["28px", {"lineHeight": "34px", "fontWeight": "800"}],
+            "headline-lg-mobile": ["22px", {"lineHeight": "28px", "fontWeight": "800"}],
+            "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+            "label-md": ["13px", {"lineHeight": "16px", "letterSpacing": "0.4px", "fontWeight": "700"}],
+            "body-md": ["15px", {"lineHeight": "22px", "fontWeight": "500"}],
+            "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.6px", "fontWeight": "800"}],
+            "headline-md": ["20px", {"lineHeight": "26px", "fontWeight": "700"}],
+            "headline-sm": ["17px", {"lineHeight": "22px", "fontWeight": "700"}],
+            "label-lg": ["16px", {"lineHeight": "20px", "letterSpacing": "0.2px", "fontWeight": "700"}]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    /* Tactile Pop Metaphors: Mechanical Extruded Ledges */
+    .tactile-card-neutral {
+      background-color: #ffffff;
+      border: 2px solid #232B2B;
+      box-shadow: 0 5px 0 #D8CFBC;
+    }
+    .tactile-card-teal {
+      background-color: #ffffff;
+      border: 2px solid #232B2B;
+      box-shadow: 0 5px 0 #0F3D3E;
+    }
+    .tactile-btn-primary {
+      background-color: #F2553B;
+      border: 2px solid #232B2B;
+      box-shadow: 0 5px 0 #B53A22;
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+    }
+    .tactile-btn-primary:active {
+      transform: translateY(4px);
+      box-shadow: 0 1px 0 #B53A22;
+    }
+    .tactile-btn-teal {
+      background-color: #0F3D3E;
+      border: 2px solid #232B2B;
+      box-shadow: 0 4px 0 #092526;
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+    }
+    .tactile-btn-teal:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 #092526;
+    }
+    .tactile-pill {
+      border: 2px solid #232B2B;
+      box-shadow: 0 3px 0 #D8CFBC;
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+    }
+    .tactile-pill:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 #D8CFBC;
+    }
+    .tactile-pill-active {
+      border: 2px solid #232B2B;
+      box-shadow: 0 3px 0 #0F3D3E;
+      background-color: #E8F0F0;
+    }
+    .tactile-input-wrap {
+      border: 2px solid #232B2B;
+      box-shadow: 0 4px 0 #DDD2C1;
+      background-color: #ffffff;
+    }
+    .tactile-input-wrap:focus-within {
+      border-color: #0F3D3E;
+      box-shadow: 0 4px 0 #0F3D3E;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[#FFF7EA] text-[#232B2B] font-body-md antialiased min-h-screen flex justify-center selection:bg-secondary selection:text-white">
+<!-- Mobile Device Simulation Frame (390px fixed width canvas) -->
+<div class="w-full max-w-[390px] min-h-screen bg-[#FFF7EA] relative flex flex-col pb-28">
+<!-- 1. TOP APP BAR (from Shared Components JSON: TopAppBar) -->
+<header class="sticky top-0 left-0 w-full z-40 bg-[#FFF7EA] border-b-2 border-[#232B2B] px-margin h-14 flex items-center justify-between">
+<!-- Back Arrow Button (min 44x44px target) -->
+<button aria-label="Go back" class="min-w-[44px] min-h-[44px] w-11 h-11 rounded-xl flex items-center justify-center bg-white border-2 border-[#232B2B] shadow-[0_3px_0_#D8CFBC] active:translate-y-0.5 active:shadow-[0_1px_0_#D8CFBC] transition-transform text-[#0F3D3E]" type="button">
+<span class="material-symbols-outlined text-[22px]">arrow_back</span>
+</button>
+<!-- Center Title -->
+<h1 class="font-headline-sm text-headline-sm font-bold text-[#0F3D3E] tracking-tight">
+        Dictionary
+      </h1>
+<!-- Bookmark Action Button (44x44px target) -->
+<button aria-label="Bookmark word" class="min-w-[44px] min-h-[44px] w-11 h-11 rounded-xl flex items-center justify-center bg-white border-2 border-[#232B2B] shadow-[0_3px_0_#D8CFBC] active:translate-y-0.5 active:shadow-[0_1px_0_#D8CFBC] transition-transform text-[#0F3D3E]" type="button">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+</button>
+</header>
+<!-- MAIN SCROLLABLE CONTENT CANVAS -->
+<main class="flex-1 px-margin pt-4 flex flex-col gap-5">
+<!-- 2. SEARCH BLOCK -->
+<section class="flex flex-col gap-2.5">
+<form class="flex items-center gap-2" onsubmit="event.preventDefault();">
+<div class="flex-1 tactile-input-wrap rounded-xl h-[52px] flex items-center px-3 gap-2">
+<span class="material-symbols-outlined text-[#0F3D3E] text-[22px]">search</span>
+<input aria-label="Search dictionary word" class="w-full bg-transparent border-0 p-0 text-[#0F3D3E] font-headline-sm text-headline-sm focus:ring-0 focus:outline-none" type="text" value="resilient"/>
+</div>
+<!-- Tactile Find Button -->
+<button class="tactile-btn-teal h-[52px] px-5 rounded-xl text-white font-label-md text-label-md flex items-center justify-center gap-1.5 min-w-[76px]" type="submit">
+            Find
+          </button>
+</form>
+<!-- Recent Searches Chips -->
+<div aria-label="Recent searches" class="flex flex-wrap items-center gap-2 pt-1">
+<span class="font-label-sm text-label-sm text-[#0F3D3E] uppercase tracking-wider font-extrabold mr-0.5">Recent:</span>
+<!-- Chip 1 (Active) -->
+<button class="tactile-pill-active h-9 min-h-[44px] px-3.5 rounded-full flex items-center gap-1.5 text-[#0F3D3E] font-label-md text-label-md" type="button">
+<span>resilient</span>
+<span class="material-symbols-outlined text-[16px] font-bold" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</button>
+<!-- Chip 2 -->
+<button class="tactile-pill bg-white h-9 min-h-[44px] px-3.5 rounded-full flex items-center text-[#232B2B] font-label-md text-label-md" type="button">
+<span>ubiquitous</span>
+</button>
+<!-- Chip 3 -->
+<button class="tactile-pill bg-white h-9 min-h-[44px] px-3.5 rounded-full flex items-center text-[#232B2B] font-label-md text-label-md" type="button">
+<span>affect vs effect</span>
+</button>
+</div>
+</section>
+<!-- 3. WORD ENTRY HERO CARD -->
+<article class="tactile-card-teal rounded-2xl p-4 flex flex-col gap-4">
+<!-- Header Row: Title & High-Contrast Badges -->
+<div class="flex items-start justify-between flex-wrap gap-2 pb-1 border-b-2 border-[#E1D4C0]">
+<div>
+<span class="font-label-sm text-label-sm text-[#0F3D3E] tracking-widest font-extrabold block uppercase mb-0.5">Headword</span>
+<h2 class="font-headline-xl-mobile text-headline-xl-mobile font-extrabold text-[#0F3D3E] tracking-tight">
+              resilient
+            </h2>
+</div>
+<!-- Badges cluster -->
+<div class="flex items-center gap-2 pt-1">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full border-2 border-[#232B2B] bg-[#FFF7EA] text-[#0F3D3E] font-label-sm text-label-sm shadow-[0_2px_0_#D8CFBC]">
+              adjective
+            </span>
+<span class="inline-flex items-center px-2.5 py-1 rounded-full border-2 border-[#232B2B] bg-[#E8F0F0] text-[#0F3D3E] font-label-sm text-label-sm font-extrabold shadow-[0_2px_0_#0F3D3E]">
+              Level B2
+            </span>
+</div>
+</div>
+<!-- Pronunciation & Audio Section -->
+<div class="flex flex-col gap-2.5 bg-[#FFF7EA] p-3 rounded-xl border-2 border-[#232B2B]">
+<div class="flex flex-wrap gap-2 items-center">
+<!-- UK Accent Button -->
+<button class="tactile-pill bg-white flex-1 min-h-[44px] px-3 py-2 rounded-xl flex items-center justify-between text-[#0F3D3E]" type="button">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-[#E8F0F0] border border-[#232B2B] flex items-center justify-center font-label-sm text-label-sm font-bold">UK</span>
+<span class="font-body-md text-body-md font-bold text-[#0F3D3E]">/rɪˈzɪl.i.ənt/</span>
+</div>
+<span class="material-symbols-outlined text-[20px] text-[#0F3D3E]" style="font-variation-settings: 'FILL' 1;">volume_up</span>
+</button>
+<!-- US Accent Button -->
+<button class="tactile-pill bg-white flex-1 min-h-[44px] px-3 py-2 rounded-xl flex items-center justify-between text-[#0F3D3E]" type="button">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-[#E8F0F0] border border-[#232B2B] flex items-center justify-center font-label-sm text-label-sm font-bold">US</span>
+<span class="font-body-md text-body-md font-bold text-[#0F3D3E]">/ˈrəˈzɪl.jənt/</span>
+</div>
+<span class="material-symbols-outlined text-[20px] text-[#0F3D3E]" style="font-variation-settings: 'FILL' 1;">volume_up</span>
+</button>
+</div>
+<!-- Syllable Stress & Slow Play Controls -->
+<div class="flex items-center justify-between flex-wrap gap-2 pt-1">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white border border-[#232B2B] text-[#0F3D3E] font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]">graphic_eq</span>
+<span>Stress on 2nd syllable (re-<strong>ZIL</strong>-ient)</span>
+</div>
+<button class="tactile-pill bg-white min-h-[36px] px-2.5 py-1 rounded-lg flex items-center gap-1 text-[#0F3D3E] font-label-sm text-label-sm font-bold" type="button">
+<span class="material-symbols-outlined text-[16px]">slow_motion_video</span>
+<span>Slow 0.75x</span>
+</button>
+</div>
+</div>
+<!-- Learner's Own Language Definition (German) -->
+<div class="p-3 rounded-xl bg-[#F4EDE2] border-2 border-[#232B2B] flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-[#0F3D3E] font-extrabold uppercase tracking-wider">DEUTSCH · Bedeutung</span>
+<span class="material-symbols-outlined text-[18px] text-[#0F3D3E]">translate</span>
+</div>
+<p class="font-body-md text-body-md font-bold text-[#1A1C1E] leading-snug">
+            widerstandsfähig, belastbar; fähig, sich von Rückschlägen schnell zu erholen
+          </p>
+</div>
+<!-- English Core Definition -->
+<div class="flex flex-col gap-1.5">
+<span class="font-label-sm text-label-sm text-[#0F3D3E] font-extrabold uppercase tracking-wider">English Definition</span>
+<p class="font-body-lg text-body-lg text-[#0F3D3E] font-medium leading-relaxed bg-[#FFFDF9] p-3 rounded-xl border border-[#232B2B]">
+            Able to withstand or recover quickly from difficult conditions, hardship, or pressure.
+          </p>
+</div>
+</article>
+<!-- 4. TEACHER NOTE & TEACHER SLOT SECTION -->
+<section class="tactile-card-neutral rounded-2xl p-4 flex flex-col gap-3.5">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-[#0F3D3E]"></span>
+<h3 class="font-headline-sm text-headline-sm font-bold text-[#0F3D3E]">Pedagogical Guidance</h3>
+</div>
+<div class="flex flex-col sm:flex-row gap-3.5 items-center">
+<!-- Strictly Empty Teacher Slot Box (140x170 dimensions, NO people/NO photos) -->
+<div aria-label="teacher-slot placeholder" class="w-[140px] h-[170px] min-w-[140px] min-h-[170px] rounded-2xl border-2 border-dashed border-[#0F3D3E] bg-[#F5ECE0] flex flex-col items-center justify-center p-2 text-center select-none">
+<span class="material-symbols-outlined text-[28px] text-[#0F3D3E] mb-1">widgets</span>
+<span class="font-label-sm text-label-sm text-[#0F3D3E] font-extrabold uppercase tracking-wider">teacher-slot</span>
+<span class="font-body-sm text-body-sm text-[#426B6C] text-[11px] leading-tight mt-1">2D Avatar / Sign Vector Mount</span>
+</div>
+<!-- Speech / Note Card from Coach Ama -->
+<div class="flex-1 w-full bg-[#FFF7EA] border-2 border-[#232B2B] rounded-xl p-3.5 shadow-[0_3px_0_#D8CFBC] flex flex-col gap-1.5">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-[#F2553B]" style="font-variation-settings: 'FILL' 1;">tips_and_updates</span>
+<h4 class="font-headline-sm text-headline-sm font-extrabold text-[#0F3D3E]">Coach Ama's Tip</h4>
+</div>
+<p class="font-body-md text-body-md text-[#232B2B] font-medium leading-normal">
+              In your academic writing, try swapping generic words like “strong” or “tough” for “resilient” to express adaptability with greater precision.
+            </p>
+<div class="pt-1 flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-[#0F3D3E] font-bold">Register: Academic &amp; Formal</span>
+<span class="material-symbols-outlined text-[16px] text-[#0F3D3E]">verified</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 5. PRIMARY ACTION BUTTON -->
+<section class="pt-1">
+<button class="tactile-btn-primary w-full h-[54px] rounded-2xl flex items-center justify-center gap-2.5 text-white font-label-lg text-label-lg tracking-wide uppercase font-extrabold" type="button">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">bookmark_add</span>
+<span>Save to My Deck</span>
+</button>
+</section>
+</main>
+<!-- 6. FIVE-TAB BOTTOM NAVIGATION BAR (Shared Components JSON execution) -->
+<nav aria-label="Main Navigation" class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-[68px] px-gutter pb-safe bg-surface-container-lowest border-t-2 border-on-surface">
+<!-- Tab 1: Today -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-2 py-1 min-w-[44px] min-h-[44px] active:translate-y-0.5 transition-transform" href="#today">
+<span class="material-symbols-outlined text-[22px]">calendar_today</span>
+<span class="font-label-md text-label-md mt-0.5">Today</span>
+</a>
+<!-- Tab 2: Vocab (ACTIVELY HIGHLIGHTED MATCH) -->
+<a aria-current="page" class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container border-2 border-on-surface rounded-xl px-3 py-1 min-w-[56px] min-h-[44px] active:translate-y-0.5 transition-transform" href="#vocab">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">menu_book</span>
+<span class="font-label-md text-label-md font-bold mt-0.5 text-[#0F3D3E]">Vocab</span>
+</a>
+<!-- Tab 3: Skills -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-2 py-1 min-w-[44px] min-h-[44px] active:translate-y-0.5 transition-transform" href="#skills">
+<span class="material-symbols-outlined text-[22px]">psychology</span>
+<span class="font-label-md text-label-md mt-0.5">Skills</span>
+</a>
+<!-- Tab 4: Tests -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-2 py-1 min-w-[44px] min-h-[44px] active:translate-y-0.5 transition-transform" href="#tests">
+<span class="material-symbols-outlined text-[22px]">assignment</span>
+<span class="font-label-md text-label-md mt-0.5">Tests</span>
+</a>
+<!-- Tab 5: Me -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-2 py-1 min-w-[44px] min-h-[44px] active:translate-y-0.5 transition-transform" href="#me">
+<span class="material-symbols-outlined text-[22px]">person</span>
+<span class="font-label-md text-label-md mt-0.5">Me</span>
+</a>
+</nav>
+</div>
+</body></html>

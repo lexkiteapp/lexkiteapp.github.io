@@ -1,0 +1,33 @@
+{
+ "fixed": [
+  {
+   "word": "aunque",
+   "field": "ipa",
+   "from": "ˈaʊnke",
+   "to": "ˈawnke",
+   "why": "IPA theo quy ước g2p (e/o đóng, ɣ sau nguyên âm, ʝ, aw/ej, không đồng hóa nasal)"
+  },
+  {
+   "word": "aunque",
+   "field": "gl.th",
+   "from": "although, ถึงแม้ว่า",
+   "to": "แม้ว่า, ถึงแม้ว่า",
+   "why": "nghĩa/ví dụ/dịch chưa đúng hoặc chưa tự nhiên"
+  },
+  {
+   "word": "además",
+   "field": "gl.vi",
+   "from": "cũng",
+   "to": "hơn nữa, ngoài ra",
+   "why": "nghĩa/ví dụ/dịch chưa đúng hoặc chưa tự nhiên"
+  },
+  {
+   "word": "además",
+   "field": "gl.en",
+   "from": "also",
+   "to": "also, besides",
+   "why": "nghĩa/ví dụ/dịch chưa đúng hoặc chưa tự nhiên"
+  }
+ ],
+ "dropped": []
+}

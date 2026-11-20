@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_west",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: west.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means the direction where the sun sets.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "The sun sets in the west.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "west",
+  "ipa": "/west/",
+  "mean": "the direction where the sun sets",
+  "ex": "The sun sets in the west.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=west",
+  "link": "https://lexkite.com/app/#/review?w=west",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 39,
+  "seconds": 24.2,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "What does \"west\" mean?",
+  "keyword": "west",
+  "value": "West means the direction where the sun sets.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=west",
+  "script_words": 33,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"west\" mean?",
+    "description": "West means the direction where the sun sets.\n\nReview your words, free: https://lexkite.com/app/#/review?w=west\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "west",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"west\" mean?\n\nWest means the direction where the sun sets.\n\nReview your words, free: https://lexkite.com/app/#/review?w=west"
+   },
+   "instagram": {
+    "caption": "What does \"west\" mean?\n\nWest means the direction where the sun sets.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"west\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means the direction where the sun sets. West means the direction where the sun sets. Try the full lesson and quiz here: {link}"
+ }
+}

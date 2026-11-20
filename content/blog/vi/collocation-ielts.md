@@ -174,6 +174,8 @@ Giới từ đi kèm (interested in, depend on) cũng nên học theo cụm như
 
 Muốn đưa collocation vào bài viết mạch lạc hơn, đọc thêm bài [từ nối trong IELTS Writing](/vi/blog/tu-noi-trong-ielts-writing/).
 
+Một ví dụ điển hình về giới từ đi kèm là *the effect of X on Y*, xem bài [phân biệt affect và effect](/vi/blog/phan-biet-affect-va-effect/).
+
 ## Câu hỏi thường gặp
 
 ### Học collocation khác gì học từ vựng thông thường?

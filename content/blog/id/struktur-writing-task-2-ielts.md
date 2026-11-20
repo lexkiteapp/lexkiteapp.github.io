@@ -26,6 +26,8 @@ Format esai 4 paragraf terdiri dari: satu paragraf pendahuluan (Introduction), d
 
 Kriteria penilaian resmi IELTS Writing Task 2 dinilai berdasarkan empat komponen yang memiliki bobot sama (masing-masing 25%):
 
+Kalau ingin melanjutkan, lihat juga [panduan format baru TOEFL iBT 2026](/id/blog/format-baru-toefl-ibt-2026-panduan/).
+
 1. **Task Response (TR):** Seberapa tepat Anda menjawab seluruh instruksi soal dan mempertahankan posisi yang konsisten dari awal hingga akhir.
 2. **Coherence and Cohesion (CC):** Bagaimana Anda mengelompokkan ide dalam paragraf logis serta menggunakan kata penghubung secara wajar.
 3. **Lexical Resource (LR):** Variasi dan ketepatan penggunaan kosakata serta kolokasi akademis.
@@ -138,6 +140,10 @@ Variasikan kalimat aktif dan pasif agar grammar-mu terlihat beragam; aturannya a
 {{cta: /#/write | Latih struktur esai Task 2 di Lexkite}}
 
 {{youtube: | Ide video: langkah menyusun outline esai IELTS Task 2 dalam 5 menit pertama}}
+
+Kalau soalmu bertipe setuju atau tidak setuju, lanjutkan dengan [esai opini IELTS: cara setuju atau tidak setuju dengan jelas](/id/blog/esai-opini-ielts-setuju-atau-tidak-setuju/) yang memuat contoh esai lengkap dengan catatannya.
+
+Untuk memahami bagaimana skor akhirmu terbentuk, baca juga [cara menghitung skor IELTS dan band score](/id/blog/cara-menghitung-skor-ielts-band-score/). Kesalahan yang berulang di esai bisa dipetakan per kriteria penilaian di [kesalahan IELTS Writing yang sering terjadi](/id/blog/kesalahan-ielts-writing-yang-sering-terjadi/).
 
 ## Pertanyaan yang Sering Diajukan
 

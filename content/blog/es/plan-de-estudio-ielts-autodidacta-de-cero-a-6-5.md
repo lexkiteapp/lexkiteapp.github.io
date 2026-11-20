@@ -24,6 +24,8 @@ En este artículo analizaremos cómo diseñar un calendario de trabajo realista 
 
 El error más común entre quienes estudian de manera independiente es comprar un libro de exámenes Cambridge y empezar a cronometrar pruebas completas el primer día. Si tu nivel de vocabulario general o gramática básica todavía no alcanza el umbral B1 o B2 del Marco Común Europeo (MCER), enfrentarte directamente a textos académicos solo generará frustración y agotamiento mental.
 
+Te puede interesar además: [la estrategia de gestión del tiempo en IELTS Reading](/es/blog/gestion-del-tiempo-en-ielts-reading-60-minutos/).
+
 ![Prueba de nivel de 20 preguntas con sugerencias de ruta en Lexkite](media:placement "Evaluación diagnóstica de 20 preguntas de vocabulario y gramática en Lexkite")
 
 Antes de definir tus semanas de trabajo, necesitas medir tu punto de partida objetivo mediante una prueba diagnóstica:
@@ -87,6 +89,12 @@ La mayoría de los candidatos al IELTS deben compaginar sus estudios con comprom
 Al mantener este ritmo durante 16 a 24 semanas consecutivas, tu capacidad de respuesta ante el examen se transformará en un reflejo natural. Puedes seguir tu progreso detallado consultando [la ruta de estudio en la aplicación](/#/path).
 
 {{youtube: | Plan de estudio IELTS autodidacta de cero a 6.5 paso a paso}}
+
+Para un visado del Reino Unido, comprueba también si te piden [IELTS UKVI](/es/blog/ielts-ukvi-que-es-y-como-reservar/) antes de fijar tu fecha de examen.
+
+Si tu examen está cerca, el [plan IELTS de 4, 8 y 12 semanas](/es/blog/plan-ielts-4-8-12-semanas/) adapta este calendario a un plazo fijo. Y si tu meta es un trámite migratorio, empieza por [IELTS para inmigrar](/es/blog/ielts-para-inmigrar-version-y-nota/).
+
+Antes de fijar tu calendario, entiende [cómo se calcula la nota de IELTS](/es/blog/como-se-calcula-la-nota-de-ielts-band/) para calcular qué destreza necesita más horas y no malgastar tu tiempo de estudio.
 
 ## Preguntas frecuentes sobre la preparación autodidacta del IELTS
 

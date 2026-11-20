@@ -61,6 +61,8 @@ In diesem umfassenden Leitfaden lernst du, wie du Texte in unter drei Minuten ü
 
 Viele Prüflinge werfen beide Begriffe durcheinander oder setzen sie zur falschen Zeit ein:
 
+Mehr dazu findest du in unserem Beitrag [Zeitmanagement im IELTS Reading](/de/blog/zeitmanagement-im-ielts-reading-60-minuten-strategie/).
+
 ### 1. Skimming (Das kursorische Überfliegen)
 - **Ziel:** Die Kernaussage (*Gist*), die Tonlage und die grobe Gliederung des Textes erfassen.
 - **Geschwindigkeit:** 400 bis 500 Wörter pro Minute.
@@ -149,6 +151,8 @@ Teste deine Performance unter Prüfungsbedingungen im [Prüfungssimulator auf Le
 {{cta: /app/#/reading | IELTS Reading auf Lexkite üben}}
 
 {{youtube: | IELTS Reading Skimming und Scanning Strategien für Band 7+}}
+
+Welche Technik zu welcher Aufgabe passt, ordnet der Überblick zu den [IELTS Reading Fragetypen](/de/blog/ielts-reading-fragetypen-strategie-fuer-jede-aufgabe/) übersichtlich nach vier Aufgabenfamilien.
 
 ## Häufig gestellte Fragen
 

@@ -8,7 +8,7 @@ translationKey: ngu-phap-ielts-cau-phuc
 category: ielts
 tags: [ielts, writing, complex-sentences, qawaid]
 cover: write
-coverAlt: "Phòng viết writing IELTS Task 2 trên Lexkite với gợi ý ý tưởng và bài mẫu band 8"
+coverAlt: "غرفة كتابة IELTS Task 2 في Lexkite: اختيار الموضوع، أفكار مقترحة، مفردات، هيكل المقال ونموذج إجابة باند 8 مع شروحات"
 qualityScore: 95
 factChecked: 2026-10-15
 author: Lexkite
@@ -127,7 +127,7 @@ publishAt: 2026-11-25T21:43:00+03:00
 
 تحقق من حروف الجر والروابط الأكاديمية الصحيحة في [قاموس Lexkite المتقدم](/#/dict/resilient).
 
-![قاموس ثنائي اللغة Lexkite: البحث عن كلمة resilient مع النسخ الصوتي الصوتي البريطاني/الأمريكي وجمل أمثلة](media:dict "البحث عن الكلمات والمتلازمات الأكاديمية وجمل الأمثلة المترجمة في قاموس Lexkite")
+![قاموس Lexkite: البحث عن كلمة resilient مع النطق البريطاني/الأمريكي والمعنى وجمل الأمثلة والمتلازمات اللفظية والمرادفات](media:dict "البحث عن الكلمات والمتلازمات الأكاديمية وجمل الأمثلة المترجمة في قاموس Lexkite")
 
 ## تمارين دمج الجمل المعقدة (Sentence Combining Practice)
 
@@ -169,11 +169,17 @@ publishAt: 2026-11-25T21:43:00+03:00
 - **الاستماع للأكاديميين**: تدرب على استيعاب تراكيب الجمل في [تقنية الاملاء dictation لغة انجليزية](/ar/blog/taqniyyat-al-imla-dictation-tahsin-al-istima/)
 - **تكوين الأسئلة**: اضبط ترتيب الجمل مع [تكوين السؤال في اللغة الانجليزية 5W1H](/ar/blog/kayfa-tatrah-as-ilah-bi-al-injliziyyah-5w1h/)
 - **النطق ومخارج الحروف**: استعن بـ [جدول رموز IPA الانجليزية الكامل](/ar/blog/dalil-rumuz-al-sawtiyyah-ipa-al-injliziyyah/)
-- **أرشيف النماذج المكتوبة**: تصفح مقالات كاملة في [نماذج المحادثات والمقالات الإنجليزية اليومية](/samples/)
+- **أرشيف النماذج المكتوبة**: تصفح مقالات كاملة في [نماذج المحادثات والمقالات الإنجليزية اليومية](/en/samples/)
 
 {{youtube: | جمل معقدة complex sentences ايلتس أسرار التنوع النحوي لباند 7.5}}
 
 {{cta: /#/write | ابدأ الآن كتابة مقالك في غرفة Lexkite واحصل على تقييم فوري لتنوعك النحوي}}
+
+طبّق الجمل المركبة على مقال كامل في دليل [مقال الرأي في IELTS: كيف توافق أو تعارض بوضوح](/ar/blog/maqal-al-ray-ielts-agree-or-disagree/).
+
+وبعد أن تتقن الجمل المعقدة، راجع [أخطاء الكتابة في الآيلتس](/ar/blog/akhta-al-kitaba-fi-al-ielts-writing/) لتتأكد أنها لا تجرّ معها أخطاء أدوات التعريف أو الفاصلة.
+
+ولترى كيف تُستعمل الجمل المعقدة في تقرير بيانات قصير راجع [وصف الرسم البياني بالأعمدة في IELTS](/ar/blog/wasf-al-rasm-al-bayani-bi-al-aamida-ielts/).
 
 ## أسئلة شائعة (FAQ)
 

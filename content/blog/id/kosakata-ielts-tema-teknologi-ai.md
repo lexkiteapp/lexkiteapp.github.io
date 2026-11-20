@@ -148,6 +148,8 @@ Berikut adalah contoh respon spontan bernilai Band 8.0:
 
 {{cta: /#/reading | Baca artikel tentang kecerdasan buatan dan perluas kosakata akademik di Lexkite}}
 
+Kata-kata topik ini lebih mudah dipakai kalau kamu juga menguasai kosakata akademik umum di [Academic Word List (AWL) untuk IELTS](/id/blog/academic-word-list-awl-untuk-ielts/).
+
 ## Pertanyaan yang Sering Diajukan (FAQ)
 
 ### Apakah saya harus menghafal istilah teknis yang sangat rumit seperti "backpropagation"?

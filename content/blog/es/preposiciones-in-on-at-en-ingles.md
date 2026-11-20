@@ -61,6 +61,8 @@ La clave definitiva para no volver a dudar reside en visualizar el modelo de la 
 
 Imagina un triángulo invertido dividido en tres secciones horizontales:
 
+Si quieres profundizar, lee también [las estrategias de TOEIC Part 5](/es/blog/toeic-part-5-estrategias-gramatica-tiempo/).
+
 1. **IN (La cúspide amplia):** Espacios y periodos generales, no específicos, tridimensionales y de larga duración.
 2. **ON (El tramo medio):** Superficies bidimensionales, vías de tránsito y días o fechas puntuales del calendario.
 3. **AT (El vértice afilado):** Puntos geográficos exactos, direcciones con número postal y horas precisas del reloj.
@@ -161,6 +163,8 @@ Para enriquecer tu dominio de estructuras gramaticales avanzadas, revisa las dif
 {{cta: /app/#/grammar | Aprender gramática y preposiciones en Lexkite}}
 
 {{youtube: | Domina las preposiciones in on at en inglés de forma definitiva}}
+
+Las preposiciones son clave en la Parte 2 del [Cambridge B2 First](/es/blog/cambridge-b2-first-formato-del-examen/), donde rellenas huecos sin opciones.
 
 ## Preguntas frecuentes
 

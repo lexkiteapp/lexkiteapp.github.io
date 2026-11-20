@@ -1,0 +1,30 @@
+# Chép mô hình Kokoro-82M q8 + giọng app từ Hugging Face lên R2 lexkite-audio-cdn (audio.lexkite.com/kokoro/<VER>/) cho kokoro-js trên máy người dùng
+# (docs/specs/kokoro-on-device.md). Kiểm sha256 LFS trước khi đẩy; đã có thì bỏ qua → chạy lại an toàn. Chạy tay (đổi bản mô hình = VER mới) +
+# khi chính script đổi trên main. Khoá S3 suy từ CLOUDFLARE_API_TOKEN (scripts/cdn/creds.mjs) như cdn-mirror.yml.
+name: Mô hình Kokoro lên R2
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['scripts/cdn/kokoro-model.mjs']
+concurrency: { group: kokoro-model, cancel-in-progress: false }
+permissions: { contents: read }
+jobs:
+  up:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env: { CLOUDFLARE_API_TOKEN: '${{ secrets.CLOUDFLARE_API_TOKEN }}' }
+    steps:
+      - uses: actions/checkout@v4
+        with: { sparse-checkout: "scripts\ninfra\nweb/free-tier-state.json", sparse-checkout-cone-mode: false }
+      - uses: actions/setup-node@v4
+        with: { node-version: '24' }
+      - name: R2 đã bật?
+        id: check
+        run: node scripts/cdn/cutover.mjs check
+      - name: Khoá S3 từ token
+        if: steps.check.outputs.r2 == 'on'
+        run: node scripts/cdn/creds.mjs
+      - name: Chép mô hình
+        if: steps.check.outputs.r2 == 'on'
+        run: node scripts/cdn/kokoro-model.mjs

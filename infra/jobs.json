@@ -60,7 +60,7 @@
    "exclusive": false
   },
   "grabcast_social": {
-   "label": "GrabCast social API (đăng FB/IG qua autopilot – Neon free của GrabCast: ≤ 60 lượt/ngày, dừng khi 401/403/409/422/429/503)",
+   "label": "GrabCast social API (đăng FB/IG qua autopilot – API chính thức: ≤ 480 lượt/ngày, dừng khi 401/403/409/422/429/503)",
    "exclusive": false
   }
  },
@@ -85,6 +85,20 @@
     "gh_minutes"
    ],
    "minutes": 60,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "web-merge-daily",
+   "workflow": "web-merge-daily.yml",
+   "cron": [
+    "23 5 * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 2,
    "est": {},
    "lease": false
   },
@@ -132,6 +146,21 @@
    "lease": false
   },
   {
+   "id": "video-junk",
+   "workflow": "video-junk.yml",
+   "cron": [
+    "37 5 * * 0"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 15,
+   "est": {},
+   "lease": false,
+   "_note": "Dọn artifact Actions video rác (failed-run / superseded / gone-episode); lịch chỉ dry-run + manifest, xoá thật chỉ khi chạy tay apply=true (docs/VIDEO-STORAGE.md)"
+  },
+  {
    "id": "capacity-watch",
    "workflow": "capacity-watch.yml",
    "cron": [
@@ -147,6 +176,25 @@
     "d1_main_reads": 40
    },
    "lease": false
+  },
+  {
+   "id": "d1-usage-watch",
+   "workflow": "d1-usage-watch.yml",
+   "cron": [
+    "7,27,47 * * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "d1_main",
+    "gh_minutes"
+   ],
+   "minutes": 1,
+   "est": {
+    "d1_main_reads": 10,
+    "d1_main_writes": 2
+   },
+   "lease": false,
+   "_note": "03/11 sự cố D1: số Cloudflare trong ngày cho _d1guard (85 %) + thư 50/75 % khi Pages chưa có CF_ANALYTICS_TOKEN; 1 yêu cầu prod/lượt"
   },
   {
    "id": "preview-site",
@@ -177,6 +225,36 @@
    "lease": false
   },
   {
+   "id": "report-autofix",
+   "workflow": "report-autofix.yml",
+   "cron": [
+    "53 */3 * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 1,
+   "est": {
+    "d1_main_reads": 200
+   },
+   "lease": false
+  },
+  {
+   "id": "report-shots",
+   "workflow": "report-shots.yml",
+   "cron": [
+    "41 4 * * 1"
+   ],
+   "priority": "archive",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 2,
+   "est": {},
+   "lease": false
+  },
+  {
    "id": "free-tier-guard",
    "workflow": "free-tier-guard.yml",
    "cron": [
@@ -192,19 +270,76 @@
    "lease": false
   },
   {
+   "id": "cdn-mirror",
+   "workflow": "cdn-mirror.yml",
+   "cron": [
+    "47 * * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 3,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "words-r2-sync",
+   "workflow": "words-r2-sync.yml",
+   "cron": [
+    "35 4 * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 8,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "pr-unconflict",
+   "workflow": "pr-unconflict.yml",
+   "cron": [
+    "23,53 * * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 2,
+   "est": {},
+   "lease": false
+  },
+  {
    "id": "ci-triage",
    "workflow": "ci-triage.yml",
    "cron": [
+    "*/10 * * * *",
     "12 * * * *"
    ],
    "priority": "reports",
    "resources": [
     "gh_minutes"
    ],
-   "minutes": 5,
+   "minutes": 1,
    "est": {
     "d1_internal_reads": 10
    },
+   "lease": false
+  },
+  {
+   "id": "main-red-sweep",
+   "workflow": "main-red-sweep.yml",
+   "cron": [
+    "41 * * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 1,
+   "est": {},
    "lease": false
   },
   {
@@ -212,6 +347,20 @@
    "workflow": "ci-filler.yml",
    "cron": [
     "4-59/10 * * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 3,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "ci-autopilot",
+   "workflow": "ci-autopilot.yml",
+   "cron": [
+    "7-57/10 * * * *"
    ],
    "priority": "reports",
    "resources": [
@@ -245,6 +394,21 @@
     "gh_minutes"
    ],
    "minutes": 10,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "content-evidence",
+   "workflow": "content-evidence.yml",
+   "cron": [
+    "41 3 * * *",
+    "23 4 1 * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 30,
    "est": {},
    "lease": false
   },
@@ -296,6 +460,24 @@
    "est": {
     "d1_internal_reads": 20000,
     "drive_calls": 1500
+   },
+   "lease": true
+  },
+  {
+   "id": "drive-tidy",
+   "workflow": "drive-tidy.yml",
+   "cron": [
+    "43 7,19 * * *"
+   ],
+   "priority": "archive",
+   "resources": [
+    "drive_pool",
+    "d1_internal"
+   ],
+   "minutes": 5,
+   "est": {
+    "d1_internal_reads": 4000,
+    "drive_calls": 300
    },
    "lease": true
   },
@@ -372,6 +554,20 @@
    "lease": false
   },
   {
+   "id": "health-board",
+   "workflow": "health-board.yml",
+   "cron": [
+    "23 1 * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 5,
+   "est": {},
+   "lease": false
+  },
+  {
    "id": "i18n",
    "workflow": "i18n.yml",
    "cron": [
@@ -440,6 +636,20 @@
     "gh_minutes"
    ],
    "minutes": 2,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "store-reviews",
+   "workflow": "store-reviews.yml",
+   "cron": [
+    "20 1 * * 1"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 1,
    "est": {},
    "lease": false
   },
@@ -574,7 +784,8 @@
    "id": "video-auto",
    "workflow": "video-auto.yml",
    "cron": [
-    "17 23 * * *"
+    "17 23 * * *",
+    "53 3,6 * * *"
    ],
    "priority": "render",
    "resources": [
@@ -838,6 +1049,36 @@
    "_note": "27/10: dò kho CF_POOL ngay sau giờ nạp neuron (mỗi tài khoản 1 câu ~1 neuron) – kho có thật sự nạp lại lúc 00:00 UTC không, có ai khác dùng không. Kết quả ở tóm tắt run."
   },
   {
+   "id": "ai-golden",
+   "workflow": "ai-golden.yml",
+   "cron": [
+    "41 6 * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 15,
+   "lease": false,
+   "paused": false,
+   "_note": "03/11: cổng chất lượng AI người dùng (docs/AI-CHAIN.md §4) – ~20 bài IELTS + ~20 lượt roleplay × mỗi model Gemini/Groq/Llama, giám khảo khác họ; gọi thẳng nhà cung cấp bằng GEMINI_POOL/GROQ_POOL/CF_POOL (≈ 250 lượt/ngày, không chạm API của site)."
+  },
+  {
+   "id": "ai-keys-sync",
+   "workflow": "ai-keys-sync.yml",
+   "cron": [
+    "17 3 * * 1"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 1,
+   "lease": false,
+   "paused": false,
+   "_note": "03/11: đồng bộ GEMINI_POOL/GROQ_POOL vào kho khóa mã hóa của site (/api/keysync, OIDC) – 2 lượt gọi API/tuần (docs/AI-CHAIN.md §3)."
+  },
+  {
    "id": "vocab-img-scene",
    "workflow": "vocab-img-scene.yml",
    "cron": [
@@ -898,6 +1139,22 @@
    "lease": true
   },
   {
+   "id": "drive-repair",
+   "workflow": "drive-repair.yml",
+   "cron": [
+    "47 3 * * *"
+   ],
+   "priority": "archive",
+   "resources": [
+    "drive_pool"
+   ],
+   "minutes": 30,
+   "est": {
+    "drive_calls": 100
+   },
+   "lease": false
+  },
+  {
    "id": "code-bundle",
    "workflow": "code-bundle.yml",
    "cron": [
@@ -929,6 +1186,20 @@
    "lease": true
   },
   {
+   "id": "audit-all",
+   "workflow": "audit-all.yml",
+   "cron": [
+    "17 19 * * 1,4"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 300,
+   "est": {},
+   "lease": false
+  },
+  {
    "id": "content-qa",
    "workflow": "content-qa.yml",
    "cron": [
@@ -958,6 +1229,19 @@
     "d1_internal_writes": 2000
    },
    "lease": false
+  },
+  {
+   "id": "cron-kick",
+   "worker": "workers/cronkick",
+   "cron": [
+    "*/30 * * * *"
+   ],
+   "priority": "reports",
+   "resources": [],
+   "minutes": 1,
+   "est": {},
+   "lease": false,
+   "_note": "3/11: lưới an toàn cuối – Worker ký HMAC gọi /api/cron-kick; Pages (có GH_DISPATCH_TOKEN) dispatch free-tier-guard/required-gate/ci-triage khi quá ngưỡng cron-watch, chống trùng, ≤ 5 lượt, ≤ 4 lượt/giờ. Không đụng D1."
   },
   {
    "id": "lexicon-expand",
@@ -1047,12 +1331,149 @@
    "lease": false
   },
   {
+   "id": "social-coverage",
+   "workflow": "social-coverage.yml",
+   "cron": [
+    "41 3 * * *"
+   ],
+   "priority": "publishing",
+   "resources": [
+    "d1_main"
+   ],
+   "minutes": 1,
+   "est": {
+    "d1_main_reads": 700
+   },
+   "lease": false
+  },
+  {
    "id": "upgrade-audit",
    "workflow": "upgrade-audit.yml",
    "cron": [
     "0 2 * * 1"
    ],
    "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 2,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "world-scorecard",
+   "workflow": "world-scorecard.yml",
+   "cron": [
+    "30 2 * * 1"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 15,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "content-factory",
+   "workflow": "content-factory.yml",
+   "cron": [
+    "50 17 * * *"
+   ],
+   "priority": "render",
+   "resources": [
+    "gemini",
+    "grabcast_ai",
+    "gh_minutes"
+   ],
+   "minutes": 90,
+   "est": {
+    "gemini_calls": 600,
+    "grabcast_text": 300
+   },
+   "lease": false
+  },
+  {
+   "id": "funnel-digest",
+   "workflow": "funnel-digest.yml",
+   "cron": [
+    "5 1 * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 1,
+   "lease": false,
+   "_note": "14/11: tóm tắt phễu tăng trưởng 1 tin/ngày (08:05 VN) → issue growth-funnel; 1 GET /api/funnel-digest (chỉ đọc D1, đệm), không ghi"
+  },
+  {
+   "id": "ci-queue-report",
+   "workflow": "ci-queue-report.yml",
+   "cron": [
+    "20 7 * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 3,
+   "lease": false,
+   "_note": "05/11 PR #719: đo hàng chờ CI mức job mỗi ngày (chờ p50/p90, phút, lượt trùng) so với mốc → issue ci-queue; chỉ đọc API"
+  },
+  {
+   "id": "perf-flake-report",
+   "workflow": "perf-flake-report.yml",
+   "cron": [
+    "17 2 * * 1"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 1,
+   "lease": false,
+   "_note": "16/11: tỉ lệ chập chờn hiệu năng hằng tuần (call-rt, story-stage, scroll-perf, mobile-qa, ux-cards); chỉ đọc API"
+  },
+  {
+   "id": "native-qa-nightly",
+   "workflow": "native-qa-nightly.yml",
+   "cron": [
+    "40 3 * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 8,
+   "lease": false,
+   "_note": "16/11: native-qa --online đủ mọi hàng L1 mỗi đêm (PR chỉ dịch ngược hàng đổi); gtx miễn phí, chỉ đọc"
+  },
+  {
+   "id": "social-metrics",
+   "workflow": "social-metrics.yml",
+   "cron": [
+    "50 2 * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "youtube_api",
+    "d1_main"
+   ],
+   "minutes": 2,
+   "est": {
+    "d1_main_reads": 200,
+    "d1_main_writes": 150
+   },
+   "lease": false
+  },
+  {
+   "id": "store-rollout",
+   "workflow": "store-rollout.yml",
+   "cron": [
+    "23 3 * * *"
+   ],
+   "priority": "publishing",
    "resources": [
     "gh_minutes"
    ],

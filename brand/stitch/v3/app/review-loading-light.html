@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Review Queue - Spaced Repetition</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-secondary-container": "#633700",
+            "surface-container-high": "#f4e5db",
+            "secondary-fixed": "#ffdcbf",
+            "on-surface-variant": "#3f4947",
+            "primary": "#00504b",
+            "surface-container-lowest": "#ffffff",
+            "tertiary-fixed": "#ffdf9b",
+            "on-secondary": "#ffffff",
+            "inverse-on-surface": "#fdeee3",
+            "surface-tint": "#126a63",
+            "on-tertiary": "#ffffff",
+            "surface": "#fff8f5",
+            "surface-container": "#faebe1",
+            "on-surface": "#211a14",
+            "outline": "#6f7977",
+            "on-background": "#211a14",
+            "on-primary-fixed": "#00201d",
+            "on-primary": "#ffffff",
+            "surface-dim": "#e6d7cd",
+            "surface-bright": "#fff8f5",
+            "surface-variant": "#efe0d6",
+            "surface-container-highest": "#efe0d6",
+            "secondary-fixed-dim": "#ffb872",
+            "on-tertiary-container": "#ffd370",
+            "surface-container-low": "#fff1e8",
+            "background": "#fff8f5",
+            "tertiary-fixed-dim": "#f5bf31",
+            "secondary": "#8c5000",
+            "primary-fixed-dim": "#88d4cb",
+            "primary-fixed": "#a4f1e7",
+            "on-primary-container": "#9be7de",
+            "on-secondary-fixed-variant": "#6a3b00",
+            "on-secondary-fixed": "#2d1600",
+            "on-error-container": "#93000a",
+            "inverse-surface": "#372f28",
+            "inverse-primary": "#88d4cb",
+            "error-container": "#ffdad6",
+            "primary-container": "#136a63",
+            "on-tertiary-fixed": "#251a00",
+            "outline-variant": "#bec9c6",
+            "error": "#ba1a1a",
+            "on-error": "#ffffff",
+            "on-primary-fixed-variant": "#00504a",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "tertiary-container": "#785a00",
+            "secondary-container": "#fd9500",
+            "tertiary": "#5b4300"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin-lg": "3rem",
+            "space-xs": "0.25rem",
+            "gutter-md": "1.5rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "gutter-lg": "2rem",
+            "margin-md": "2rem",
+            "margin": "1rem",
+            "gutter": "1rem",
+            "space-xl": "2.5rem",
+            "space-lg": "1.5rem"
+          },
+          "fontFamily": {
+            "label-lg": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "display-lg": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "label-lg": ["16px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "700" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "500" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "800" }],
+            "display-lg": ["44px", { "lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "500" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "label-md": ["14px", { "lineHeight": "18px", "letterSpacing": "0.03em", "fontWeight": "700" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    
+    @keyframes shimmerWave {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+
+    .shimmer-box {
+      position: relative;
+      overflow: hidden;
+      background-color: #f5ebe1;
+    }
+
+    .shimmer-box::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      transform: translateX(-100%);
+      background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.65) 50%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      animation: shimmerWave 1.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    }
+
+    .tactile-card {
+      background: #ffffff;
+      border: 2px solid #efe0d6;
+      box-shadow: 0 4px 0 #efe0d6;
+    }
+
+    .tactile-btn {
+      box-shadow: 0 3px 0 #efe0d6;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface antialiased flex justify-center selection:bg-secondary-container selection:text-surface-container-lowest">
+<!-- Mobile Viewport Container: 390px fixed canvas -->
+<div class="w-full max-w-[390px] min-h-screen bg-surface flex flex-col relative pb-28">
+<!-- Top App Bar (Shared Components Anchor) -->
+<header class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-gutter py-space-sm bg-surface max-w-[390px] left-1/2 -translate-x-1/2 shadow-[0_2px_0_0_#efe0d6]">
+<div class="flex items-center space-x-2">
+<div class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-primary border-2 border-surface-variant">
+<span class="material-symbols-outlined text-[20px]" data-icon="school">school</span>
+</div>
+<div>
+<div class="flex items-center space-x-1">
+<span class="font-headline-sm text-headline-sm font-bold text-primary leading-tight">IELTS Band 7.5</span>
+</div>
+<p class="font-label-sm text-[11px] text-on-surface-variant font-bold leading-none">Lexkite Memory Hub</p>
+</div>
+</div>
+<div class="flex items-center space-x-2">
+<!-- Streak Chip -->
+<div class="flex items-center space-x-1 px-2.5 py-1 bg-tertiary-fixed rounded-full border-2 border-tertiary shadow-[0_2px_0_#5b4300] active:translate-y-0.5 transition-transform">
+<span class="material-symbols-outlined text-[16px] text-on-tertiary-container" data-icon="local_fire_department" data-weight="fill" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="font-label-sm text-label-sm text-on-tertiary-fixed font-extrabold">14d</span>
+</div>
+<!-- Settings/Filter trailing icon -->
+<button aria-label="Settings" class="w-11 h-11 rounded-full bg-surface-container-lowest border-2 border-surface-variant flex items-center justify-center text-primary shadow-[0_2px_0_#efe0d6] active:translate-y-0.5 transition-transform">
+<span class="material-symbols-outlined text-[20px]" data-icon="tune">tune</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="mt-[68px] px-gutter flex flex-col space-y-4 pt-2">
+<!-- Page Sub-Header with Status Badge -->
+<section class="flex items-end justify-between pt-1">
+<div>
+<div class="flex items-center space-x-1.5">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface font-extrabold tracking-tight">Review Queue</h1>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center space-x-1">
+<span class="material-symbols-outlined text-[15px] text-primary" data-icon="bolt">bolt</span>
+<span>FSRS Spaced Repetition</span>
+</p>
+</div>
+<div class="px-3 py-1.5 bg-secondary-fixed rounded-full border-2 border-secondary shadow-[0_2px_0_#8c5000] flex items-center space-x-1 animate-pulse">
+<span class="w-2 h-2 rounded-full bg-secondary-container"></span>
+<span class="font-label-sm text-label-sm text-on-secondary-container font-extrabold">18 Due Today</span>
+</div>
+</section>
+<!-- 1. Coach Carlos / Teacher Slot Guidance Card -->
+<section class="border-2 border-dashed border-outline-variant bg-surface-container-low rounded-DEFAULT p-3.5 flex items-center space-x-3.5">
+<div class="relative shrink-0">
+<div class="w-12 h-12 rounded-full shimmer-box border-2 border-surface-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-outline-variant text-[24px]" data-icon="person">person</span>
+</div>
+<div class="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-primary-container border-2 border-surface flex items-center justify-center">
+<span class="material-symbols-outlined text-[10px] text-surface" data-icon="psychology">psychology</span>
+</div>
+</div>
+<div class="flex-1 space-y-2">
+<div class="h-3.5 shimmer-box rounded-full w-28"></div>
+<div class="h-3 shimmer-box rounded-full w-full"></div>
+<div class="h-3 shimmer-box rounded-full w-4/5"></div>
+</div>
+</section>
+<!-- 2. Queue Progress Indicator Card -->
+<section class="tactile-card rounded-DEFAULT p-3.5 space-y-2.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-2">
+<div class="h-4 w-20 shimmer-box rounded-md"></div>
+</div>
+<div class="h-5 w-24 shimmer-box rounded-full"></div>
+</div>
+<!-- Gamified Progress Bar Skeleton -->
+<div class="w-full h-3.5 bg-surface-container-high rounded-full overflow-hidden p-0.5 border border-surface-variant">
+<div class="h-full shimmer-box rounded-full w-1/3"></div>
+</div>
+</section>
+<!-- 3. Main Flashcard Container Skeleton -->
+<section class="tactile-card rounded-DEFAULT p-4.5 space-y-4 relative">
+<!-- Card Top Bar: Speaker, CEFR Tag, Band Tag -->
+<div class="flex items-center justify-between pb-1 border-b border-surface-container-high">
+<div class="w-9 h-9 rounded-full shimmer-box border-2 border-surface-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-outline-variant text-[18px]" data-icon="volume_up">volume_up</span>
+</div>
+<div class="flex items-center space-x-2">
+<div class="h-6 w-14 shimmer-box rounded-full border border-surface-variant"></div>
+<div class="h-6 w-16 shimmer-box rounded-full border border-surface-variant"></div>
+</div>
+</div>
+<!-- Word Headline & Phonetic -->
+<div class="space-y-2 py-1">
+<div class="h-8 w-44 shimmer-box rounded-md"></div>
+<div class="h-4 w-24 shimmer-box rounded-md"></div>
+</div>
+<!-- Formal Definition Skeleton Box -->
+<div class="bg-surface-container-low rounded-DEFAULT p-3.5 border-2 border-surface-container space-y-2">
+<div class="flex items-center space-x-2">
+<div class="w-4 h-4 rounded shimmer-box"></div>
+<div class="h-3.5 w-32 shimmer-box rounded-md"></div>
+</div>
+<div class="space-y-1.5 pt-1">
+<div class="h-3 shimmer-box rounded-full w-full"></div>
+<div class="h-3 shimmer-box rounded-full w-5/6"></div>
+</div>
+</div>
+<!-- IELTS Context Skeleton Box -->
+<div class="bg-surface-container-low rounded-DEFAULT p-3.5 border-2 border-surface-container space-y-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-1.5">
+<div class="w-4 h-4 rounded shimmer-box"></div>
+<div class="h-3.5 w-36 shimmer-box rounded-md"></div>
+</div>
+<div class="h-4 w-16 shimmer-box rounded-full"></div>
+</div>
+<div class="space-y-1.5 pt-1">
+<div class="h-3 shimmer-box rounded-full w-full"></div>
+<div class="h-3 shimmer-box rounded-full w-11/12"></div>
+<div class="h-3 shimmer-box rounded-full w-3/4"></div>
+</div>
+</div>
+<!-- Collocations Pills Skeletons -->
+<div class="space-y-1.5 pt-0.5">
+<div class="h-3 w-24 shimmer-box rounded-md"></div>
+<div class="flex items-center space-x-2">
+<div class="h-7 w-28 shimmer-box rounded-full border border-surface-variant"></div>
+<div class="h-7 w-32 shimmer-box rounded-full border border-surface-variant"></div>
+</div>
+</div>
+</section>
+<!-- 4. Memory Rating Section Skeleton (Again, Hard, Good, Easy) -->
+<section class="space-y-2.5">
+<div class="flex items-center justify-between px-1">
+<div class="h-4 w-28 shimmer-box rounded-md"></div>
+<div class="h-3 w-20 shimmer-box rounded-md"></div>
+</div>
+<div class="grid grid-cols-4 gap-2">
+<!-- Button 1: Again -->
+<div class="bg-surface-container-lowest border-2 border-surface-variant rounded-DEFAULT p-2 flex flex-col items-center space-y-1.5 shadow-[0_3px_0_#efe0d6]">
+<div class="h-2.5 w-8 shimmer-box rounded-full"></div>
+<div class="h-4 w-12 shimmer-box rounded-md"></div>
+<div class="h-2 w-9 shimmer-box rounded-full"></div>
+</div>
+<!-- Button 2: Hard -->
+<div class="bg-surface-container-lowest border-2 border-surface-variant rounded-DEFAULT p-2 flex flex-col items-center space-y-1.5 shadow-[0_3px_0_#efe0d6]">
+<div class="h-2.5 w-8 shimmer-box rounded-full"></div>
+<div class="h-4 w-12 shimmer-box rounded-md"></div>
+<div class="h-2 w-9 shimmer-box rounded-full"></div>
+</div>
+<!-- Button 3: Good -->
+<div class="bg-surface-container-lowest border-2 border-surface-variant rounded-DEFAULT p-2 flex flex-col items-center space-y-1.5 shadow-[0_3px_0_#efe0d6]">
+<div class="h-2.5 w-8 shimmer-box rounded-full"></div>
+<div class="h-4 w-12 shimmer-box rounded-md"></div>
+<div class="h-2 w-9 shimmer-box rounded-full"></div>
+</div>
+<!-- Button 4: Easy -->
+<div class="bg-surface-container-lowest border-2 border-surface-variant rounded-DEFAULT p-2 flex flex-col items-center space-y-1.5 shadow-[0_3px_0_#efe0d6]">
+<div class="h-2.5 w-8 shimmer-box rounded-full"></div>
+<div class="h-4 w-12 shimmer-box rounded-md"></div>
+<div class="h-2 w-9 shimmer-box rounded-full"></div>
+</div>
+</div>
+</section>
+<!-- 5. 7-Day Load Forecast Card Skeleton -->
+<section class="tactile-card rounded-DEFAULT p-4 space-y-3.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-[18px] text-primary" data-icon="bar_chart">bar_chart</span>
+<div class="h-4 w-32 shimmer-box rounded-md"></div>
+</div>
+<div class="h-5 w-16 shimmer-box rounded-full border border-surface-variant"></div>
+</div>
+<!-- 7 Column Bars Simulation -->
+<div class="h-24 pt-4 flex items-end justify-between px-2 border-b border-surface-variant pb-2"><!-- Day 1: M -->
+<div class="flex flex-col items-center space-y-1.5">
+<div class="w-6 h-14 shimmer-box rounded-t-md"></div>
+<span class="font-label-sm text-[11px] text-on-surface-variant font-bold">M</span>
+</div>
+<!-- Day 2: T -->
+<div class="flex flex-col items-center space-y-1.5">
+<div class="w-6 h-10 shimmer-box rounded-t-md"></div>
+<span class="font-label-sm text-[11px] text-on-surface-variant font-bold">T</span>
+</div>
+<!-- Day 3: W -->
+<div class="flex flex-col items-center space-y-1.5">
+<div class="w-6 h-16 shimmer-box rounded-t-md"></div>
+<span class="font-label-sm text-[11px] text-on-surface-variant font-bold">W</span>
+</div>
+<!-- Day 4: T -->
+<div class="flex flex-col items-center space-y-1.5">
+<div class="w-6 h-8 shimmer-box rounded-t-md"></div>
+<span class="font-label-sm text-[11px] text-on-surface-variant font-bold">T</span>
+</div>
+<!-- Day 5: F -->
+<div class="flex flex-col items-center space-y-1.5">
+<div class="w-6 h-12 shimmer-box rounded-t-md"></div>
+<span class="font-label-sm text-[11px] text-on-surface-variant font-bold">F</span>
+</div>
+<!-- Day 6: S -->
+<div class="flex flex-col items-center space-y-1.5">
+<div class="w-6 h-5 shimmer-box rounded-t-md"></div>
+<span class="font-label-sm text-[11px] text-on-surface-variant font-bold">S</span>
+</div>
+<!-- Day 7: S -->
+<div class="flex flex-col items-center space-y-1.5">
+<div class="w-6 h-7 shimmer-box rounded-t-md"></div>
+<span class="font-label-sm text-[11px] text-on-surface-variant font-bold">S</span>
+</div></div>
+<!-- Forecast Summary Row -->
+<div class="flex items-center justify-between pt-0.5">
+<div class="h-3.5 w-28 shimmer-box rounded-md"></div>
+<div class="h-3.5 w-20 shimmer-box rounded-md"></div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar (Shared Components JSON Anchor) -->
+<!-- Destination count 5: ["Today", "Vocab", "Skills", "Tests", "Me"] -->
+<!-- "Vocab" is active with golden pill & dark ink and red indicator dot -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-space-xs py-space-xs bg-surface max-w-[390px] left-1/2 -translate-x-1/2 shadow-[0_-4px_0_0_#efe0d6]">
+<!-- 1. Today -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary py-1 px-3 active:translate-y-0.5 transition-transform duration-100" href="#">
+<span class="material-symbols-outlined text-[24px]" data-icon="today">today</span>
+<span class="font-label-sm text-label-sm mt-0.5">Today</span>
+</a>
+<!-- 2. Vocab (ACTIVE ITEM) -->
+<a class="flex flex-col items-center justify-center text-on-surface py-1 px-3 active:translate-y-0.5 transition-transform duration-100 relative" href="#">
+<div class="relative flex items-center justify-center px-4 py-0.5 bg-tertiary-fixed rounded-full border-2 border-tertiary-container shadow-[0_2px_0_#5b4300]">
+<span class="material-symbols-outlined text-[22px] text-on-tertiary-fixed" data-icon="menu_book" data-weight="fill" style="font-variation-settings: 'FILL' 1;">menu_book</span>
+<!-- Red indicator dot -->
+<span class="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-error border border-surface-container-lowest"></span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface font-extrabold mt-0.5">Vocab</span>
+</a>
+<!-- 3. Skills -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary py-1 px-3 active:translate-y-0.5 transition-transform duration-100" href="#">
+<span class="material-symbols-outlined text-[24px]" data-icon="bolt">bolt</span>
+<span class="font-label-sm text-label-sm mt-0.5">Skills</span>
+</a>
+<!-- 4. Tests -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary py-1 px-3 active:translate-y-0.5 transition-transform duration-100" href="#">
+<span class="material-symbols-outlined text-[24px]" data-icon="assignment">assignment</span>
+<span class="font-label-sm text-label-sm mt-0.5">Tests</span>
+</a>
+<!-- 5. Me -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary py-1 px-3 active:translate-y-0.5 transition-transform duration-100" href="#">
+<span class="material-symbols-outlined text-[24px]" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm mt-0.5">Me</span>
+</a>
+</nav>
+</div>
+</body></html>

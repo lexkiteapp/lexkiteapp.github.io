@@ -2,7 +2,7 @@
 """Câu ví dụ NGƯỜI VIẾT cho mục mở rộng (docs/LEXICON.md §Mở rộng 20k – source-first 24/10).
   python scripts/lexicon/expand/examples.py --words words.json --tatoeba eng_sentences.tsv [--bad ldnoobw.txt] --out ex.json
 words.json: [{"k": "alarm#n", "w": "alarm", "pos": "n"}]
-Nguồn: Tatoeba (CC BY 2.0 FR, ghi id câu để ghi công) – câu chứa ĐÚNG lemma + từ loại (WordNet morphy + thẻ từ loại nltk perceptron),
+Nguồn: Tatoeba (CC BY 2.0 FR, ghi id câu để ghi công) + Simple English Wikipedia (CC BY-SA 4.0, cùng TSV, id sw…, ghép bởi workflow) + Common Voice en (CC0, id cv…, commonvoice.py) – câu chứa ĐÚNG lemma + từ loại (WordNet morphy + thẻ từ loại nltk perceptron),
 5–14 từ, từ còn lại phổ biến (wordfreq Zipf ≥ 3,3 = dễ, xếp theo độ dễ), không số/ngoặc kép/từ xúc phạm, không trùng ý (3 từ đầu khác nhau).
 Nghĩa (đúng nghĩa khóa WordNet) do 2 giám khảo kiểm ở job.mjs (lxsrc) – tệp này chỉ lọc hình thức.
 Kèm ứng viên cụm từ đồng xuất hiện (từ nội dung kề bên ≥ 3 lần) – giám khảo lọc theo nghĩa, không đủ → bỏ trống (không bịa)."""
@@ -59,7 +59,7 @@ for line in open(a.tatoeba, encoding='utf-8'):
         rest = [t for j, t in enumerate(low) if j != i and t not in STOP]
         if rest and min(z(t) for t in rest) < 3.3: continue  # câu dễ: mọi từ khác phổ biến
         caps = sum(1 for j, t in enumerate(words) if j and t[0].isupper() and t != 'I')
-        score = (sum(z(t) for t in rest) / max(1, len(rest))) - 0.08 * abs(len(words) - 9) - 0.5 * caps
+        score = (sum(z(t) for t in rest) / max(1, len(rest))) - 0.08 * abs(len(words) - 9) - 0.5 * caps - (0.3 if sid.startswith(('sw', 'cv', 'wv', 'wnw', 'wb')) else 0)  # câu bản ngữ Tatoeba hơn chút khi điểm ngang
         hits[wp].append((score, sid, s, i))
 out = {}
 for x in W:
@@ -76,7 +76,7 @@ for x in W:
                 col[(low[j] + ' ' + x['w']) if j < i else (x['w'] + ' ' + low[j])] += 1
         key = ' '.join(low[:3]); bag = set(low)
         if key in seen or len(keep) >= a.per or any(len(bag & b) / len(bag | b) >= 0.5 for b in bags): continue  # không trùng ý (He/She pondered his next move)
-        seen.add(key); bags.append(bag); keep.append({'t': s, 'id': int(sid), 'sc': round(sc, 2)})
+        seen.add(key); bags.append(bag); keep.append({'t': s, 'id': int(sid) if sid.isdigit() else sid, 'sc': round(sc, 2)})  # Tatoeba = số; Simple Wikipedia = sw<trang>.<n> (simplewiki.py)
     out[x['k']] = {'ex': keep, 'col': [c for c, n in col.most_common(6) if n >= 3][:4], 'n': len(hits.get(wp, []))}
 json.dump(out, open(a.out, 'w'), ensure_ascii=False)
 print(f"✓ examples: {sum(1 for v in out.values() if len(v['ex']) >= 2)}/{len(out)} có ≥ 2 câu Tatoeba · {sum(1 for v in out.values() if v['col'])} có cụm đồng xuất hiện")

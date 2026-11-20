@@ -23,6 +23,8 @@ IELTS परीक्षा में 0 से 9 के पैमाने प�
 
 तैयारी की शुरुआत कभी भी भारी-भरकम किताबों से मत कीजिए। पहला कदम यह जानना है कि आज की तारीख में आपकी अंग्रेजी का वास्तविक स्तर क्या है। 5 मिनट का [प्लेसमेंट टेस्ट](/#/placement) देकर यह जांचें कि आप A2, B1 या B2 लेवल पर हैं। यदि आपकी बुनियादी ग्रामर ही कमज़ोर है, तो सीधे कैम्ब्रिज के टेस्ट पेपर लगाने से केवल आत्मविश्वास टूटेगा।
 
+अभ्यास को आगे बढ़ाने के लिए [नया TOEFL प्रारूप 2026 की तैयारी गाइड](/hi/blog/new-toefl-format-2026-preparation-guide-hindi/) देखें।
+
 अगर आपके बेसिक कॉन्सेप्ट्स में कमी है, तो सबसे पहले हमारा शुरुआती लेख [अंग्रेजी कैसे सीखें](/hi/blog/angrezi-kaise-seekhe/) पढ़ें ताकि फाउंडेशन मजबूत हो सके। इसके बाद [स्टडी पाथवे](/#/path) की मदद से अपनी दैनिक पढ़ाई को छोटे-छोटे लक्ष्यों में बांटें।
 
 ![Lexkite का IELTS स्टडी पाथवे](media:path "बैंड स्कोर के आधार पर व्यवस्थित स्टडी पाथवे आपको हर पड़ाव पर सही सामग्री देता है")
@@ -56,7 +58,7 @@ IELTS राइटिंग और स्पीकिंग में 25% अं
 
 > यह भी पढ़ें: [IELTS Reading Skimming Scanning Tips in Hindi: 60 मिनट गाइड](/hi/blog/ielts-reading-skimming-scanning-tips-hindi/)
 
-उदाहरण के लिए, *fast shower* गलत है, सही शब्द *quick shower* है। इसी तरह *heavy rain* सही है, *strong rain* नहीं। शब्दों को लंबे समय तक याद रखने की वैज्ञानिक विधि हमारे गाइड [इंग्लिश वर्ड्स याद करने का तरीका](/hi/blog/english-words-yaad-karne-ka-tarika/) में विस्तार से बताई गई है। आप हमारी तैयार की गई [IELTS वोकैबुलरी लिस्ट](/tu-vung/) से भी विषयवार शब्द सीख सकते हैं।
+उदाहरण के लिए, *fast shower* गलत है, सही शब्द *quick shower* है। इसी तरह *heavy rain* सही है, *strong rain* नहीं। शब्दों को लंबे समय तक याद रखने की वैज्ञानिक विधि हमारे गाइड [इंग्लिश वर्ड्स याद करने का तरीका](/hi/blog/english-words-yaad-karne-ka-tarika/) में विस्तार से बताई गई है। आप हमारी तैयार की गई [IELTS वोकैबुलरी लिस्ट](/en/vocabulary/) से भी विषयवार शब्द सीख सकते हैं।
 
 ग्रामर में भारतीय छात्रों को सबसे अधिक परेशानी काल के सही प्रयोग में आती है; खासकर जब उन्हें अपने पुराने अनुभवों को बयां करना होता है। इसके सटीक नियम आप [present perfect tense in Hindi](/hi/blog/present-perfect-tense-hindi/) में पढ़ सकते हैं। इसके अलावा यदि आप अमेरिकी विश्वविद्यालयों के लिए विकल्प तलाश रहे हैं, तो [TOEFL Exam Pattern in Hindi](/hi/blog/toefl-exam-pattern-hindi/) का भी विश्लेषण करें।
 
@@ -89,6 +91,16 @@ IELTS राइटिंग और स्पीकिंग में 25% अं
 Speaking के कठिन हिस्से की तैयारी के लिए [IELTS Speaking Part 3 tips in Hindi](/hi/blog/ielts-speaking-part-3-tips-hindi/) उपयोगी रहेगा।
 
 {{cta: /#/path | IELTS स्टडी पाथ शुरू करें}}
+
+अगर आप UK वीज़ा के लिए परीक्षा दे रहे हैं, तो पहले [IELTS UKVI क्या है](/hi/blog/ielts-ukvi-kya-hai/) पढ़कर जान लीजिए कि आपको कौन-सा संस्करण बुक करना है।
+
+IELTS के साथ-साथ ऊपरी-मध्यम स्तर की प्रमाणपत्र-परीक्षा पर विचार हो, तो [Cambridge B2 First exam pattern](/hi/blog/cambridge-b2-first-exam-pattern-hindi/) का प्रारूप देखिए।
+
+Listening में हर प्रश्न प्रकार की तैयारी के लिए [IELTS Listening Question Types in Hindi](/hi/blog/ielts-listening-question-types-in-hindi/) पढ़ें।
+
+टारगेट तय करने से पहले यह देख लीजिए कि चारों स्किल का औसत और राउंडिंग कैसे चलती है; यह गणित [IELTS band score कैसे निकालें](/hi/blog/ielts-band-score-kaise-nikale/) में उदाहरणों के साथ है।
+
+कम समय बचा हो तो [IELTS Study Plan in Hindi](/hi/blog/ielts-study-plan-4-8-12-hafte-hindi/) में 4, 8 और 12 हफ्ते के अलग शेड्यूल दिए हैं।
 
 ## अक्सर पूछे जाने वाले सवाल
 

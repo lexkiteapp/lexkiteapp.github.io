@@ -1,0 +1,40 @@
+# gate-retest (16/11, điều phối): main đổi test cổng → thay vì bắt PR gộp lại main (~100 job CI mỗi PR) cổng chạy THẬT các test đó (bản main) trên đầu PR, 1 job nhẹ, rồi ghi commit status `gate-retest`.
+# Do required-gate (scripts/ci/required-gate.mjs › retest) dispatch; KHÔNG chạy trên PR. Bất định/đỏ/lỗi hạ tầng → required-gate quay về cách cũ (đòi gộp main). Xem scripts/ci/gate-retest.mjs, docs/CI-RUNNERS.md.
+# An toàn: chỉ PR cùng repo (nhánh của cộng tác viên); bước chạy test KHÔNG có token (persist-credentials: false, env rỗng), token chỉ ở bước ghi status và chạy mã `gate-retest.mjs` lấy từ MAIN (không phải từ PR).
+name: gate-retest
+run-name: gate-retest ${{ inputs.sha }} ${{ inputs.main }}
+on:
+  workflow_dispatch:
+    inputs:
+      sha: { description: 'sha đầu PR (cùng repo)', required: true }
+      main: { description: 'sha main dùng để ghi đè test cổng', required: true }
+      cmds: { description: 'các lệnh test (mỗi dòng 1 lệnh: node scripts/test/X.mjs)', required: true }
+permissions:
+  contents: read
+  statuses: write
+concurrency:
+  group: gate-retest-${{ inputs.sha }}
+  cancel-in-progress: true
+jobs:
+  retest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: '${{ inputs.sha }}', fetch-depth: 0, persist-credentials: false }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci --no-audit --no-fund
+      - name: Mã chạy lại lấy từ main (không tin mã của PR)
+        run: |
+          git fetch --no-tags origin main   # KHÔNG --depth: lịch sử đã đủ (fetch-depth 0), --depth=1 cắt nông làm merge-base lỗi
+          git show FETCH_HEAD:scripts/ci/gate-retest.mjs > "$RUNNER_TEMP/gate-retest.mjs"
+      - name: Ghi đè test cổng từ main lên đầu PR rồi chạy (không token)
+        env: { CMDS: '${{ inputs.cmds }}', MAIN: '${{ inputs.main }}' }
+        run: |
+          printf '%s\n' "$CMDS" > "$RUNNER_TEMP/cmds.txt"
+          node "$RUNNER_TEMP/gate-retest.mjs" run --main "$MAIN" --cmds-file "$RUNNER_TEMP/cmds.txt" --out "$RUNNER_TEMP/result.json"
+      - name: Ghi commit status gate-retest
+        if: always()
+        env: { GH_TOKEN: '${{ github.token }}', SHA: '${{ inputs.sha }}', MAIN: '${{ inputs.main }}' }
+        run: node "$RUNNER_TEMP/gate-retest.mjs" post --sha "$SHA" --main "$MAIN" --result "$RUNNER_TEMP/result.json"

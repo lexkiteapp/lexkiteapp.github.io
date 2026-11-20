@@ -83,6 +83,10 @@ Para potencializar os resultados do método das cinco etapas, incorpore pequenos
 
 {{youtube: | Como melhorar o listening em ingles com o metodo das 5 etapas}}
 
+Para aplicar esse método ao TOEIC, veja as [estratégias para o Listening Part 2](/pt/blog/toeic-listening-part-2-estrategias-perguntas-respostas/), com perguntas e respostas curtas.
+
+Se o seu objetivo é a prova, combine esse método com os [tipos de questões do IELTS Listening](/pt/blog/tipos-de-questoes-ielts-listening-estrategias/) e aprenda a armadilha de cada formato.
+
 ## Perguntas frequentes sobre o desenvolvimento do listening
 
 ### Quanto tempo de prática diária é necessário para notar evolução?

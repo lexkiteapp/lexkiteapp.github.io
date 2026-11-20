@@ -91,11 +91,15 @@ qualityScore: 94
 - **答案：** True  
 - **解析：** 题目中的 *costly initial investment in equipment* 对应原文的 *high initial capital expenditure required for specialized LED grow lights and automated HVAC systems*；*poses a challenge for large-scale implementation* 对应 *remains a formidable barrier to widespread commercial adoption*，完全同义替换，故为 True。
 
-想要通过更多真题磨炼做题手感，请进入[雅思阅读限时测试库](/#/reading)进行计时实测，并在[核心词汇专区](/tu-vung/)加深对学术同义替换词对的储备。
+想要通过更多真题磨炼做题手感，请进入[雅思阅读限时测试库](/#/reading)进行计时实测，并在[核心词汇专区](/en/vocabulary/)加深对学术同义替换词对的储备。
 
 {{youtube: | 视频推荐：雅思阅读True/False/Not Given判断题逻辑死穴与平行阅读法}}
 
 {{cta: /#/reading | 开始雅思阅读真题限时训练}}
+
+想按题型逐一练习，可以接着读[雅思阅读题型全解析](/zh/blog/ya-si-yue-du-ti-xing-jie-ti-fang-fa/)，里面有每类题的步骤和两周练习计划。
+
+如果你的雅思成绩要用于英国签证，别忘了先确认是否需要 UKVI 版本，详见 [雅思UKVI和普通雅思的区别](/zh/blog/ya-si-ukvi-he-pu-tong-ya-si-de-qu-bie/)。
 
 ## 常见问题解答
 

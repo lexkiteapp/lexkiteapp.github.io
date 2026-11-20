@@ -154,6 +154,8 @@ Telaffuzunuzu yapay zeka destekli konuşma odasında test etmek için [Lexkite k
 
 {{cta: /#/pron | Lexkite IPA telaffuz kütüphanesinde 44 sesi anadili konuşuru sesleriyle çalışın}}
 
+IPA'daki vurgu işaretini nasıl yorumlayacağınızı [İngilizce kelime vurgusu kuralları](/tr/blog/ingilizce-kelime-vurgusu-kurallari/) rehberinde örneklerle görebilirsiniz.
+
 ## Sıkça Sorulan Sorular (FAQ)
 
 ### 44 IPA sembolünün tamamını ezberlemek şart mı?

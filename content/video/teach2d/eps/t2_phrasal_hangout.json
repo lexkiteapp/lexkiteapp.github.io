@@ -91,5 +91,46 @@
   "words": 53,
   "seconds": 31.9,
   "wpm": 100
+ },
+ "publish": {
+  "title": "Say \"hang out\" like a native",
+  "keyword": "hang out",
+  "value": "Hang out = spend free time together. Say \"Want to hang out this weekend\", not \"Want to play together this weekend\".",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#phrasalverbs",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 46,
+  "platforms": {
+   "youtube": {
+    "title": "Say \"hang out\" like a native",
+    "description": "Hang out = spend free time together. Say \"Want to hang out this weekend\", not \"Want to play together this weekend\".\n\nLearn phrasal verbs, free: https://lexkite.com/app/#/phrases\n\nSeries: Phrasal Verb in 30s · Teacher: Ama\n\n#learnenglish #englishtips #phrasalverbs #englishteacher",
+    "tags": [
+     "hang out",
+     "Phrasal Verb in 30s",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Say \"hang out\" like a native\n\nHang out = spend free time together. Say \"Want to hang out this weekend\", not \"Want to play together this weekend\".\n\nLearn phrasal verbs, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Say \"hang out\" like a native\n\nHang out = spend free time together. Say \"Want to hang out this weekend\", not \"Want to play together this weekend\".\n\nLearn phrasal verbs: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#phrasalverbs",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Say \"hang out\" like a native #learnenglish #englishtips #phrasalverbs"
+   }
+  },
+  "first_comment": "Did you get it? Hang out! Want to hang out after class? Hang out = spend free time together. Say \"Want to hang out this weekend\", not \"Want to play together this weekend\". More practice like this (free): {link}"
  }
 }

@@ -18,16 +18,22 @@ if (srcs.length < 10) { console.error('✗ app-loader: chỉ thấy ' + srcs.len
 // Thứ tự chạy cũ: script đồng bộ (i18n.js) chạy lúc phân tích HTML, trước mọi script defer
 const sync = [...html.matchAll(/<script src="([^"]+)"><\/script>/g)].map(m => m[1]);
 const order = [...sync, ...srcs.filter(s => !sync.includes(s))];
-const FONT = /[ \t]*<link rel="stylesheet" href="(https:\/\/fonts\.googleapis\.com\/[^"]+)" media="print" onload="this\.media='all'">\n/;
-const font = (html.match(FONT) || [])[1] || '';
+const FONT = /[ \t]*<link rel="stylesheet" href="(https:\/\/fonts\.googleapis\.com\/[^"]+)" media="print" onload="this\.media='all'">\n/g;
+const font = [...html.matchAll(FONT)].map(m => m[1]);
 html = html.replace(TAG, '').replace(FONT, '');
-// Nạp sau khung hình đầu (rAF → setTimeout); tab nền không chạy rAF → dự phòng 300 ms
-const boot = `<script id="lk-boot">(function(){var S=${JSON.stringify(order)},F=${JSON.stringify(font)},d=document,w=window,done=0;
+// JS: nạp sau lần vẽ đầu THẬT. 14/11 (mqa LCP home 1,8–3,1 s cùng mã): rAF → setTimeout có thể chạy TRƯỚC khi khung đó hiện lên (FCP 117 ms, JS bắt đầu 91 ms)
+// → Lighthouse (Lantern) tính 330 KB JS vào LCP. Có Paint Timing: chờ mục first-contentful-paint (đã hiện) rồi mới nạp; dự phòng 3 s (tab nền không vẽ).
+// Không có Paint Timing (trình duyệt cũ): như cũ rAF → setTimeout, dự phòng 300 ms.
+// Font web: nạp sau khi TRANG ĐẦU đã vẽ (sự kiện lk:drawn của app.js, dự phòng 6 s) – 70–135 KB font không giành băng thông với JS khung; chữ vẽ trước bằng font dự phòng khớp số đo (--font).
+const boot = `<script id="lk-boot">(function(){var S=${JSON.stringify(order)},F=${JSON.stringify(font)},d=document,w=window,done=0,fd=0;
+function fonts(){if(fd)return;fd=1;F.forEach(function(u){var l=d.createElement('link');l.rel='stylesheet';l.href=u;d.head.appendChild(l)})}
+w.addEventListener('lk:drawn',fonts);setTimeout(fonts,6000);
 function go(){if(done)return;if(d.readyState==='loading'){d.addEventListener('DOMContentLoaded',go);return}done=1;var late=d.readyState==='complete',n=S.length;
-if(F){var l=d.createElement('link');l.rel='stylesheet';l.href=F;d.head.appendChild(l)}
 S.forEach(function(u){var s=d.createElement('script');s.src=u;s.async=false;s.onload=s.onerror=function(){if(--n)return;w.__lkReady=1;d.dispatchEvent(new Event('DOMContentLoaded'));if(late||d.readyState==='complete'&&w.__lkLoaded)w.dispatchEvent(new Event('load'))};d.body.appendChild(s)})}
 w.addEventListener('load',function(){w.__lkLoaded=1});
-if(w.requestAnimationFrame)requestAnimationFrame(function(){setTimeout(go,0)});setTimeout(go,300)})()</script>
+var P=w.PerformanceObserver,fcp=P&&P.supportedEntryTypes&&P.supportedEntryTypes.indexOf('paint')>=0;
+if(fcp){try{new P(function(l,o){if(l.getEntriesByName('first-contentful-paint').length){o.disconnect();setTimeout(go,0)}}).observe({type:'paint',buffered:true})}catch(e){fcp=0}}
+if(!fcp&&w.requestAnimationFrame)requestAnimationFrame(function(){setTimeout(go,0)});setTimeout(go,fcp?3000:300)})()</script>
 `;
 if (!html.includes('</body>')) { console.error('✗ app-loader: thiếu </body>'); process.exit(1); }
 html = html.replace(/(<noscript><nav[\s\S]*?<\/noscript>\n)?<\/body>/, m => boot + m);

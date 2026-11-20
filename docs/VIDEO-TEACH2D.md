@@ -1,12 +1,12 @@
 # Teach2D – English-teaching video templates (29/10/2026)
 
-> TL;DR: one Remotion pipeline, 5 templates, ONE 2D teacher (Ama or Carlos from `web/teach/characters.json`), Lexkite Kit cards (Stitch, dark A / light B), every element on its spoken word, 9:16 social + 16:9 lesson embed from the same data. CI only (`teach-video.yml`), 0 credits. QC before AND after render. Bulk only after the owner OKs the pilots.
+> TL;DR: one Remotion pipeline, 16 templates (5 batch-generated from data, see Batch), ONE 2D teacher (Ama or Carlos from `web/teach/characters.json`), Lexkite Kit cards (Stitch, dark A / light B), every element on its spoken word, 9:16 social + 16:9 lesson embed from the same data. CI only (`teach-video.yml`), 0 credits. QC before AND after render. Bulk only after the owner OKs the pilots.
 > Read when: making or changing teaching videos. Older engines: `VIDEO-MOTION.md` (#191 overlay on render_v9 plates – superseded here), `VIDEO-SERIES.md` (series rules, still valid).
 
 ## Pipeline (`.github/workflows/teach-video.yml`, never on the Mac)
 1. **preqc** – `gen.py` regenerates `content/video/teach2d/eps/*.json` from `pilots.json` (must be identical) + every script == `reviewed.json` (hook true) + motion parity test.
 2. **voice** – Kokoro with the registry voice of the teacher shown (Ama `af_bella`, Carlos `am_fenrir`) → Rhubarb → faster-whisper clock on the exact caption tokens (`pilot5_voice.py`).
-3. **render** (per pilot × short/wide) – `host.py` (registry stacked-alpha talk/listen → VP9 alpha) → `build.py` (layout, cues, captions, voice −16 LUFS + soft ticks, QR deep link) →
+3. **render** (per pilot × short/wide) – `rig_host.mjs --geom-only` (static TeacherRig geometry) → `build.py` (every look/layout) → `rig_host.mjs` on the timeline (TeacherRig drawn frame by frame on a fake page clock, mouth = this voice's Rhubarb visemes → `rig.webm` VP9 alpha + `rig.frames.json`, page == core simulation, re-render byte-identical; spec `docs/specs/video-production-v2.md` §1; `host.py` registry talk/listen stays for the old path) → `build.py` (layout, cues, captions, voice −16 LUFS + soft ticks, QR deep link) →
    **QC before render** (`qc.py` on the timeline, both themes) → Remotion `teach-short` 30 fps → **QC after render** (`qc.py --video`) → contact sheet, phone copy, poster, VTT.
 4. **embed** – Playwright screenshots of `docs/mocks/teach-video/embed.html` (lesson step, light/dark, phone/desktop). Real wiring = `web/js/lesson-video.js` (#195) after the owner's OK.
 5. **sheet** – `sheet.py`: one owner review sheet + score table; red if any pilot < 90 or a gate fails.
@@ -31,6 +31,7 @@
 | `toeic` | TOEIC Word | app TOEIC Part 5 item (`web/js/toeic/reading*`: answer key + cue) | `#/toeic` |
 | `review` | Remember This? | audited word bank card + the app's 4 grade buttons (en i18n) | `#/review?w=<word>` |
 | `call` | Ask Ama | app call script (`web/js/call/calls.js`: phrase, meaning, reply) – in-app caller is Mia, so the CTA says "Practice a real call" | `#/call/<id>` |
+| `roots` | Word Roots (Gốc từ, 17/11) | `content/video/teach2d/roots.json`: 40 Latin / Greek roots × 6–10 real words; IPA / definition / example from the audited bank | `#/dict/<first word>` |
 
 ## Variety (owner 29/10: "đa dạng, đỡ nhàm chán")
 - Fixed per series (recognition): series chip + series tint on the canvas (`theme.json` tints: US/UK teal, Verbs gold, Stress coral, Stop Saying red-coral, Phrasal mint) + one teacher per series.
@@ -38,8 +39,14 @@
 - Rotating per episode (batch only after the owner's OK): hook style (question · challenge · "most learners…" · myth), layout, example scene. Look = `dusk` (owner pick 29/10).
 - Planner rule: no two consecutive videos share template, teacher or look; a point (content hash) is never reused; ≥ 1 new template per month (`VIDEO-SERIES.md`).
 
+## Mix – the 0-credit build bank (owner 5/11: "kho dựng 0đ, hàng triệu clip, không lặp")
+- Every clip = episode (template × data row × teacher, reviewed script untouched) + one seeded combination of pieces we already own: `scripts/video/teach2d/mix.py` → `content/video/teach2d/mix.json` (render order = pilots then auto, seed = sha256(episode id), regenerated identically in preqc).
+- Axes: layout 3 · canvas blob arrangement 4 (`TeachShort.jsx` BLOBS, series tint always large and high) · music 6 (`synth.mjs`) · camera rhythm 4 (`build.py` FR) · hook stinger 4 + card swish 2 (`brand/library/sfx`) · silence gestures after a teaching line / after the quiz answer (TeacherRig pose gestures with the teacher's OWN approved image only – an `alt` stand-in is not counted as variety).
+- Anti-repeat: no axis repeats the previous clip; background (layout+canvas) and opening (hook+cam) never repeat in the last 6, gestures and music never in the last 4. Diversity = mean pairwise normalised Hamming distance per 6-clip window, gate ≥ 70 (`mix.py --check`, `scripts/test/teach2d-mix.py`). `mix.py --stats` = pieces, distinct clips, score.
+- Kling only ADDS a new kind of piece (a new approved gesture image → it enters the gesture lists automatically via `characters.json`); never per clip. Look stays `dusk` (owner pick); dark/light are an axis only after the owner says so.
+
 ## QC gates (`qc.py`, all must pass, weighted score ≥ 90)
-voice_teacher · pace ≤ 150 wpm · caption_sync (caption == script == whisper) · mouth (talk only while speaking, closed-mouth listen in pauses > 0.35 s) · hook · cue_timing ±80 ms ·
+voice_teacher · pace ≤ 150 wpm · caption_sync (caption == script == whisper) · lipsync_rig (rig host: every Rhubarb cue ≥ 50 ms on screen within ±33 ms, X in silences > 0.35 s, no pose over the mouth while the voice is on, frame count; `lipsync_gate.py`) · mouth (registry host: talk only while speaking, closed-mouth listen in pauses > 0.35 s) · hook · cue_timing ±80 ms ·
 layout (text in SAFE, no overlap, nothing on the head, caption off the face, nothing under the ring) · contrast (≥ 4.5:1, ≥ 56 px ≥ 3:1, real fill) · min_text (40 / 34 px) ·
 ipa (== audited bank, stress dot == IPA mark) · cta (lexkite.com/app deep link) · duration 18–42 s · file (30 fps, AAC, −16 LUFS ±1.5) · frames (teacher visible every second, no blank frame).
 
@@ -56,6 +63,43 @@ ipa (== audited bank, stress dot == IPA mark) · cta (lexkite.com/app deep link)
 | 8 | reading / toeic / placement | quiz-only variant of `verbs`/`mistake` (A/B card, 3-2-1) | placement + TOEIC item banks (answer key = data) | after OK |
 | 9 | lesson `#/lesson`, call `#/call`, confidence `#/confidence` | embed 16:9 inside the lesson step; CTA "Call Ama" only where the feature exists | lesson engine items | after OK |
 Excluded (strength filter, `VIDEO-SERIES.md`): accents/intonation, slang, roleplay, long listening.
+
+## Batch (owner 2/11: hundreds of episodes, machine QC instead of a per-image OK; 0 credits)
+- `gen.py --plan N` appends rows to `content/video/teach2d/auto.json` from our data only – `usuk` (curated `usuk-pairs.json`, both IPA in the bank), `verbs` (verb engine + lexicon example sentences), `stress` (stress-shift families word + suffix from the IPA bank, spelling syllables = IPA nuclei), `guess` (img.json picture of the exact `word#n`), `review` (bank card). Facts are frozen in the row; order = least-covered app area first, never the same template twice in a row.
+- Machine gates per row → `reviewed.json` verdict (`machine: true`): **data** (== bank / verb engine / img.json) · **level** (every spoken word NGSL or bank A1–B1, taught words exempt) · **hook** (true for these facts, ≤ 6 words) · **dup** (point hash never reused, one word = one episode, picture pHash ≥ 10 bits apart). Teacher skip lists in `gen.py` (other sense in the bank example, family-safe topics). Tests: `scripts/test/teach2d-gen.py` (preqc).
+- `gen.py --verify` re-checks every row against the live bank before a render (changed fact → not rendered, warned). `gen.py --todo` = verified, not banked, < 2 red tries.
+- `teach-video.yml` input `shards` = render the next N (≤ 120, matrix limit); ci-filler entry `teach-video` (probe `gen.py --todo --count`). Pictures via `scripts/media/origin.py` with `MEDIA_ORIGIN_ONLY=1` (GitHub origins only, never media.lexkite.com or /api).
+- `bank.py`: an episode enters `bank.json` only when short AND wide pass every qc.py gate with score ≥ 90 and the mp4 is not a byte copy; videos = artifact `tv-bank-<run>` (90 days); score table `BANK.md`. Committed to main by the main batch run (deploy key, `commit-regen.sh`).
+
+## L1 clips for native pages (owner 11/11; replaces PRs #377 / #360)
+> Page Facebook bản địa (D1 `yt_chan_cfg.cfg.lang`: vi 11, pt 13, es 14, de 15, fr 16, hi 17, ar 18, tr 19, ru 20, + ja/ko/zh) đăng clip riêng theo ngôn ngữ page, giáo viên vẫn dạy tiếng Anh; page EN và kênh toàn cầu giữ nguyên. Mẫu `l1`, hàng dữ liệu `content/video/teach2d/l1.json`, test `scripts/test/teach2d-l1.mjs`.
+> Đọc khi: thêm clip L1, thêm ngôn ngữ page, đổi luật đăng clip bản địa.
+
+### Đường ống
+mẫu `l1` trong `gen.py`/`build.py`, hàng dữ liệu `content/video/teach2d/l1.json`, QC `qc.py`, kho `bank.py`, lưu `store.py`, phân phối GrabCast `functions/api/_distribution.js`.
+
+### Mỗi clip
+- **Dạy (tiếng Anh)**: Ama hoặc Carlos, ≤ B1 (cổng `l1_gate`), ≤ 150 wpm; câu sai ✗ → đúng ✓ hiện trên màn hình; quiz 3-2-1.
+- **Bản địa** (`native.*` trong hàng): `hook` ≤ 34 ký tự, hiện từ khung 0 (cổng hook của qc: trong 1,5 s đầu); `tip` = mẹo giải thích trên khung; `caption` = chú thích bài đăng (giữ nguyên câu tiếng Anh mẫu trong “ ”); `comment` = bình luận đầu (có đúng một `{link}`); `hashtags` 3–5, có `#lexkite`. Tiêu đề, chú thích, hashtag, bình luận đầu của `publish` lấy từ đây (`publish.py` `build_l1`).
+- **Nội dung**: lỗi L1 (người nói ngôn ngữ đó hay mắc: bỏ -s ở vi, “I have 20 years” ở pt/fr, “I am agree” ở es, “become”≠bekommen ở de, “library”≠librairie ở fr…).
+
+### Bản dịch (docs/I18N-PIPELINE.md)
+`en.*` là gốc, `native.*` là bản tay tầng i18n-fixed (thắng dịch máy). `{m:từ}` lấy nghĩa từ kho: vi = kho từ, ngôn ngữ khác = `web/packs/<lang>.json`. `scripts/video/teach2d/native-qa.mjs` (luật chung `scripts/lib/i18n-rules.mjs`, dùng chung với `i18n-qa.mjs`): không lẫn tiếng Việt, không lỗi dịch máy đã biết, giữ câu tiếng Anh mẫu, hashtag, độ dài, bình luận đầu, nghĩa lấy từ kho; `--online` thêm dịch ngược gtx (teach-video preqc luôn chạy; gtx không trả lời thì bỏ riêng cổng này). Kết quả `l1-qa.json` (`--write`).
+
+Chữ không-Latin (ru/hi/ar/ja/ko/zh): Chromium tự lùi phông theo glyph (job render cài `fonts-noto-core` + `fonts-noto-cjk`); `build.py` chỉ ĐO chữ (`tw`, cùng họ Noto, ja/zh xuống dòng theo từng ký tự, ar đặt `rtl` cho dòng bản địa, tiếng Anh vẫn trái→phải); hashtag cho phép chữ Unicode. Hook/tip hi·ar·ja·ko·zh cần người bản ngữ liếc lại ở bài đầu mỗi page.
+
+### Định tuyến và lịch (đã có ở main, test `scripts/test/teach2d-l1.mjs`)
+`store.py` ghi `lang` vào index → `blockOf`/`implicitSocialRules`: clip `lang=X` chỉ đi page `cfg.lang`=X (page EN chung không nhận). Mỗi page ≤ 2 bài/ngày, khung 09–21 giờ địa phương (`schedule`). Link web gắn UTM + bình luận đầu: phần code phân phối dùng chung (phiên page-kit), clip chỉ mang `first_comment` có `{link}`.
+
+### Tự duyệt (chủ cho tự đăng 11/11)
+`autopub_gate.py`: QC ≥ 90 cả short + wide, mọi cổng xanh (phụ đề khớp, vùng an toàn, chính tả/IPA, wpm), `native-qa` xanh (`l1-qa.json`), publish hợp lệ → tự duyệt, tự đăng, lên lịch sẵn. Bài đầu tiên mỗi page được báo điều phối để chủ xem sau.
+
+## Word Roots – "Gốc từ" (17/11, template `roots`)
+> Chuỗi "một gốc – ba từ": mở bằng vòng tròn (gốc ở giữa, các từ của bài nằm trên vòng, mỗi từ hiện đúng lúc giáo viên đọc tên), rồi "Did you know?" (từ gốc Latin/Hy Lạp), mỗi từ một thẻ Kit (tiền tố mực + GỐC vàng, IPA, công thức `de- + pos = down + put`, nghĩa ngắn, câu ví dụ của kho), quiz 3 giây, CTA `#/dict/<từ>`. Ý tưởng định dạng tham khảo kênh khác; hình, câu chữ, nhân vật là của Lexkite (giáo viên 2D Ama/Carlos, thẻ Kit, emoji của kho từ).
+- **Kho**: `roots.json` (≥ 30 gốc; hiện 40 / ~290 từ). Mỗi từ: `seg` = `tiền-|gốc|-hậu` (nối lại == chính tả, phần gốc ∈ `variants`), `mean` = nghĩa ngắn nói thành lời, `pm` = nghĩa tiền tố riêng (tuỳ chọn). Nguồn từ nguyên (`lang` + `src` + `src_mean`) đã đối chiếu Etymonline / Wiktionary; `scripts/test/teach2d-roots.py` khoá nguồn từng gốc, từ phải có trong từ điển app (IPA + nghĩa + ví dụ), `vi` giữ cho clip L1 tiếng Việt.
+- **Sinh tập**: `gen.py --roots` chia mỗi gốc thành bài 3 từ (2 khi dư 1 hoặc quá 28 s), 4 cổng máy như `--plan` (data == kho · level ≤ B1 trừ từ dạy · hook · dup) → `auto.json` + `reviewed.json`. Giáo viên xen kẽ Ama/Carlos. Bài đầu mỗi gốc lên trước (đa dạng), bài sau theo sau.
+- **Dựng**: `build.py` `T_roots`; vòng tròn `ring.png` sinh lúc dựng; tint `roots` trong `theme.json`; nhạc `chill-keys`. Metadata `publish.py` (tiêu đề `Pos root: position, deposit and opposite`, mô tả có từ nguyên + công thức).
+- **Duyệt/đăng**: mẫu `roots` nằm ở sổ duyệt (`approved.json`) trạng thái `draft` tới khi tập đầu có short + wide QC ≥ 90 (bank.py) → điều phối chuyển `approved` → autopub_gate → store → lịch như mọi tập Teach2D (1 video/kênh/ngày).
 
 ## Not done yet (needs the owner)
 - Owner OK 30/10 on the 5 new templates (grammar, dictation, toeic, review, call – CI f5c3fe8, all 32 renders QC 100). Batch / cron / publish still need their own OK.

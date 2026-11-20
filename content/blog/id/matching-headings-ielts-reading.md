@@ -52,6 +52,8 @@ publishAt: 2026-11-11T21:54:00+07:00
 
 Di IELTS Academic Reading kamu punya 60 menit untuk tiga passage dan 40 soal. Soal matching headings biasanya terlihat seperti ini:
 
+Artikel terkait: [strategi manajemen waktu IELTS Reading 60 menit](/id/blog/manajemen-waktu-ielts-reading-strategi-60-menit/).
+
 - Daftar heading berlabel angka Romawi kecil (i, ii, iii…).
 - Instruksi memilih heading untuk sebagian atau semua paragraf (A, B, C…).
 - Heading selalu lebih banyak daripada paragraf, jadi ada yang tidak terpakai.
@@ -164,6 +166,8 @@ Kalau kamu belajar mandiri, susun jadwal latihan reading dengan panduan [belajar
 {{cta: /app/#/reading | Latih ringkasan paragraf di bacaan IELTS}}
 
 {{youtube: | Ide video: mengerjakan satu soal matching headings lima paragraf sambil berpikir keras di tiap langkah}}
+
+Kalau ingin mengenal semua format soal sebelum berlatih, lihat [tipe soal IELTS Reading dan strategi tiap tugas](/id/blog/tipe-soal-ielts-reading-strategi/).
 
 ## Pertanyaan yang sering diajukan
 

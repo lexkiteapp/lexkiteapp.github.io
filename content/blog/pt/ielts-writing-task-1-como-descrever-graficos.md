@@ -141,6 +141,8 @@ Distribuir os 20 minutos com rigor metodológico assegura que você não comprom
 - **Minutos 3 a 17 (Redação contínua)**: Redija os quatro parágrafos mantendo o foco em agrupar dados conexos e articular comparações relativas.
 - **Minutos 17 a 20 (Revisão ortográfica e numérica)**: Verifique se todos os verbos no passado foram conjugados corretamente, confirme se as preposições numéricas estão certas e confira a pontuação das orações subordinadas.
 
+Se o seu gráfico for de colunas, veja também o passo a passo específico do [gráfico de barras IELTS](/pt/blog/grafico-de-barras-ielts-writing-task-1-modelo/), com relatório modelo.
+
 ## Principais armadilhas e erros a evitar no Task 1
 
 | Erro clássico | Formulação defeituosa | Abordagem correta recomendada |
@@ -150,6 +152,8 @@ Distribuir os 20 minutos com rigor metodológico assegura que você não comprom
 | **Listar dados sem comparar** | *"A was 10. B was 20. C was 30."* | Comparar: *"B was twice as high as A, while C formed the largest share at 30."* |
 | **Copiar palavras do título** | Replicar o enunciado verbatim | Parafrasear a introdução com sinônimos acadêmicos precisos |
 
-Para aprofundar seu treinamento de escrita, examine nossas orientações em [dicas para IELTS Writing Task 2](/pt/blog/dicas-ielts-writing-task-2/) e estude a composição de [frases complexas no IELTS Writing Task 2](/pt/blog/frases-complexas-ielts-writing-task-2/). Aprenda também a articular transições com [conectivos em inglês (linking words)](/pt/blog/conectivos-em-ingles-linking-words-guia/) e domine a impessoalidade da [voz passiva em inglês](/pt/blog/voz-passiva-em-ingles-passive-voice-guia/), expandindo seu domínio léxico com os repositórios em [/tu-vung/](/tu-vung/).
+Para aprofundar seu treinamento de escrita, examine nossas orientações em [dicas para IELTS Writing Task 2](/pt/blog/dicas-ielts-writing-task-2/) e estude a composição de [frases complexas no IELTS Writing Task 2](/pt/blog/frases-complexas-ielts-writing-task-2/). Aprenda também a articular transições com [conectivos em inglês (linking words)](/pt/blog/conectivos-em-ingles-linking-words-guia/) e domine a impessoalidade da [voz passiva em inglês](/pt/blog/voz-passiva-em-ingles-passive-voice-guia/), expandindo seu domínio léxico com os repositórios em [/tu-vung/](/en/vocabulary/).
 
 Adotando esta estrutura lógica e o vocabulário quantitativo adequado, você produzirá relatórios do Task 1 fluidos, analíticos e plenamente merecedores de notas de topo.
+
+Quando o Task 1 trouxer um diagrama em vez de números, o guia de [IELTS Writing Task 1 process](/pt/blog/ielts-writing-task-1-process-como-descrever-um-processo/) mostra como descrever as etapas.

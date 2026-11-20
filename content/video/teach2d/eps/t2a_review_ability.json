@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_ability",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: ability.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means the skill or power to do something.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "She has the ability to explain difficult ideas simply.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "ability",
+  "ipa": "/əˈbɪləti/",
+  "mean": "the skill or power to do something",
+  "ex": "She has the ability to explain difficult ideas simply.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=ability",
+  "link": "https://lexkite.com/app/#/review?w=ability",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 43,
+  "seconds": 26.2,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"ability\" mean?",
+  "keyword": "ability",
+  "value": "Ability means the skill or power to do something.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=ability",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"ability\" mean?",
+    "description": "Ability means the skill or power to do something.\n\nReview your words, free: https://lexkite.com/app/#/review?w=ability\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "ability",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"ability\" mean?\n\nAbility means the skill or power to do something.\n\nReview your words, free: https://lexkite.com/app/#/review?w=ability"
+   },
+   "instagram": {
+    "caption": "What does \"ability\" mean?\n\nAbility means the skill or power to do something.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"ability\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means the skill or power to do something. Ability means the skill or power to do something. More practice like this (free): {link}"
+ }
+}

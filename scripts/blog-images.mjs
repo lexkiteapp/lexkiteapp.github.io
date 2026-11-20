@@ -8,7 +8,7 @@
 // Công cụ (CI cài): LEXKITE_TOOLS/node_modules/{@resvg/resvg-js,sharp,playwright-core}; phông Noto (apt fonts-noto-core fonts-noto-cjk) + brand/social/src/fonts.
 import fs from 'node:fs'; import path from 'node:path'; import { createRequire } from 'node:module'; import { execFileSync } from 'node:child_process';
 import { loadPosts, loadMedia, config, ROOT, isLive, publishTime } from './lib/blog-content.mjs';
-import { wantedItems, specOf, coverSvg, autoAlt, sha, overBudget, mediaId, appRoutes, routeName } from './lib/blog-images.mjs';
+import { wantedItems, specOf, coverSvg, autoAlt, sha, overBudget, fitAvif, ssimGray, mediaId, appRoutes, routeName } from './lib/blog-images.mjs';
 import { pushDir, r2Config, r2List, r2Delete } from './lib/media-store.mjs';
 
 const args = process.argv.slice(2), cmd = args[0] || 'status';
@@ -49,11 +49,20 @@ function tools() {
   return createRequire(T + '/');
 }
 async function encode(sharp, png, { og = false } = {}) {
-  const meta = await sharp(png).metadata(), maxW = Math.min(meta.width, 1440), hash = sha(png, 16);
-  const widths = [...new Set([...IMG.widths.filter(w => w < maxW), maxW])].sort((a, b) => a - b), bytes = {}, budget = IMG.budgetKB * 1024;
+  const meta = await sharp(png).metadata(), natW = Math.min(meta.width, 1440), hash = sha(png, 16), budget = IMG.budgetKB * 1024;
   fs.mkdirSync(OUT, { recursive: true });
-  let q = 55, top;
-  for (;;) { top = await sharp(png).resize({ width: maxW }).avif({ quality: q, effort: 6, chromaSubsampling: '4:2:0' }).toBuffer(); if (top.length <= budget || q <= 30) break; q -= 5; } // giảm chất lượng tới khi ≤ trần
+  // Ảnh chụp chữ nhỏ: chất lượng dừng ở sàn SSIM; vẫn > trần → giảm kích thước hiển thị 1440→1200→1080 (srcset giữ đủ bậc), không hạ q tiếp.
+  const tries = [...new Set([natW, 1200, 1080].filter(w => w <= natW))], minScore = IMG.minSsim ?? 0.95;
+  let fit = null, maxW = natW;
+  for (const W of tries) {
+    maxW = W;
+    const ref = await sharp(png).resize({ width: W }).greyscale().raw().toBuffer({ resolveWithObject: true });
+    fit = await fitAvif(q => sharp(png).resize({ width: W }).avif({ quality: q, effort: 6, chromaSubsampling: '4:2:0' }).toBuffer(), budget, {
+      minScore, score: async buf => ssimGray(ref.data, await sharp(buf).greyscale().raw().toBuffer(), ref.info.width, ref.info.height) });
+    if (fit.ok) break;
+  }
+  const { buf: top, q } = fit; console.log(`  · AVIF ${maxW}px q${q} SSIM ${fit.score.toFixed(3)} ${(top.length / 1024).toFixed(1)} KB${maxW < natW ? ` (hạ kích thước từ ${natW})` : ''}`);
+  const widths = [...new Set([...IMG.widths.filter(w => w < maxW), maxW])].sort((a, b) => a - b), bytes = {};
   for (const w of widths) {
     const av = w === maxW ? top : await sharp(png).resize({ width: w }).avif({ quality: q, effort: 6 }).toBuffer();
     let wq = 78, wb; for (;;) { wb = await sharp(png).resize({ width: w }).webp({ quality: wq, effort: 5 }).toBuffer(); if (wb.length <= budget * 2.5 || wq <= 60) break; wq -= 8; }
@@ -196,7 +205,7 @@ function suggest() {
   const f = args[1]; if (!f) { console.error('Dùng: node scripts/blog-images.mjs suggest content/blog/<lang>/<slug>.md'); process.exit(2); }
   const p = loadPosts().find(x => path.resolve(x.file) === path.resolve(f)); if (!p) { console.error('không thấy bài', f); process.exit(2); }
   const words = s => (s || '').toLowerCase().split(/[^a-z0-9]+/).filter(Boolean), have = new Set([...words(p.slug), ...(p.tags || []).flatMap(words), ...words(p.keyword)]);
-  const gids = []; for (const g of fs.readdirSync('web/js/grammar').filter(f => f.endsWith('.js'))) for (const m of fs.readFileSync(`web/js/grammar/${g}`, 'utf8').matchAll(/id: ?'([a-z0-9-]+)'/g)) gids.push(m[1]);
+  const gids = []; for (const d of ['web/js/grammar', 'web/cpack/grammar']) for (const g of fs.readdirSync(d).filter(f => f.endsWith('.js'))) for (const m of fs.readFileSync(`${d}/${g}`, 'utf8').matchAll(/id: ?'([a-z0-9-]+)'/g)) gids.push(m[1]);
   const shots = [], gram = gids.filter(id => id.split('-').every(w => have.has(w))).sort((a, b) => b.length - a.length)[0];
   if (gram) shots.push(`{route: '#/grammar/${gram}', crop: main}`);
   const ital = [...new Set([...p.body.matchAll(/(?<![*\w])\*([a-z]{4,18})\*(?!\*)/g)].map(m => m[1]))].slice(0, 2);

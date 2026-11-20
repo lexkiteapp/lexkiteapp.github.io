@@ -28,7 +28,7 @@ qualityScore: 94
 2. **CC (Coherence & Cohesion - 连贯与衔接):**  
    全文是否分为逻辑合理的4~5个段落？段落内部句子之间是否有自然的逻辑过渡？切忌为了连接而通篇滥用机械连接词（如每句话开头都加 *Furthermore, Moreover, In addition*）。反过来，读文章时找主题句的方法也能帮你做[雅思阅读段落标题配对题](/zh/blog/ya-si-yue-du-duan-luo-biao-ti-pei-dui/)。
 3. **LR (Lexical Resource - 词汇丰富度):**  
-   是否运用了地道的学术搭配（Collocation）和话题专有词汇？重点不在于使用晦涩偏怪的冷门词，而在于用词的准确性和恰当性。积累词汇搭配可参阅[背单词的方法](/zh/blog/bei-dan-ci-de-fang-fa/)，并可通过[学术核心词汇库](/tu-vung/)系统扩充高频大作文话题词群。
+   是否运用了地道的学术搭配（Collocation）和话题专有词汇？重点不在于使用晦涩偏怪的冷门词，而在于用词的准确性和恰当性。积累词汇搭配可参阅[背单词的方法](/zh/blog/bei-dan-ci-de-fang-fa/)，并可通过[学术核心词汇库](/en/vocabulary/)系统扩充高频大作文话题词群。
 4. **GRA (Grammatical Range & Accuracy - 语法多样性与准确性):**  
    长短句结合，熟练运用从句（定语从句、状语从句、名词性从句）、条件句以及精准的时态搭配。过去发生的调查数据与普遍真理的时态必须严格区分，时态辨析要点见[现在完成时和一般过去时的区别](/zh/blog/xian-zai-wan-cheng-shi-he-yi-ban-guo-qu-shi/)。
 
@@ -128,6 +128,14 @@ qualityScore: 94
 {{youtube: | 视频推荐：雅思写作Task 2四段式高分模板与逻辑连贯扣分点大揭秘}}
 
 {{cta: /#/write | 进入雅思写作Task 2实战训练}}
+
+如果你同时在比较雅思和托福，可以看看[托福新题型2026备考指南](/zh/blog/toefl-xin-ti-xing-2026-bei-kao-zhi-nan/)了解新版考试结构。
+
+如果你遇到的是 agree or disagree 类题目，可以继续读[雅思观点类作文怎么写](/zh/blog/ya-si-guan-dian-lei-zuo-wen-agree-disagree/)，里面有三种立场写法和一篇带点评的范文。
+
+写完一篇 Task 2 以后，可以对照[雅思写作常见错误](/zh/blog/ya-si-xie-zuo-chang-jian-cuo-wu/)里的清单自查：冠词、单复数、逗号连接句有没有漏网。
+
+如果你要考移民用的培训类雅思，大作文结构同样适用，选考细节见[移民雅思考什么](/zh/blog/ya-si-yi-min-kao-shi-xuan-ze-ya-si-g-lei-a-lei-yao-qiu/)。
 
 ## 常见问题解答
 

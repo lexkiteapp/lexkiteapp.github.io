@@ -52,7 +52,7 @@ Ada 3 penyebab utama mengapa kata bahasa Inggris yang sering salah arti ini kera
 2. **Kategori Kata Berbeda (Verb vs. Noun)**: Pasangan kata seperti *advise* (kata kerja) dan *advice* (kata benda), atau *affect* (kata kerja) dan *effect* (kata benda). Dalam bahasa Indonesia, kata "pengaruh" atau "nasihat" bisa bertindak sebagai kata kerja maupun kata benda tanpa perubahan bentuk ejaan yang kaku.
 3. **Arah Tindakan Berlawanan (Directionality)**: Kata kerja relasional seperti *borrow* (meminjam ke dalam) dan *lend* (meminjamkan ke luar) kerap tertukar karena dalam percakapan sehari-hari bahasa daerah sering disederhanakan.
 
-Untuk memeriksa bentuk turunan kata secara akurat, Anda dapat memanfaatkan [kamus kosakata Lexkite](/#/dict/resilient) dan memperdalam penguasaan grammar di [ruang latihan tata bahasa](/#/grammar). Anda juga bisa membaca panduan kami tentang [cara belajar vocabulary IELTS secara efektif](/id/blog/cara-belajar-vocabulary-ielts/) serta [tips menulis email bisnis dalam bahasa Inggris](/id/blog/cara-menulis-email-bahasa-inggris-bisnis/). Kunjungi pula [panduan kosakata](/tu-vung/) untuk referensi lengkap.
+Untuk memeriksa bentuk turunan kata secara akurat, Anda dapat memanfaatkan [kamus kosakata Lexkite](/#/dict/resilient) dan memperdalam penguasaan grammar di [ruang latihan tata bahasa](/#/grammar). Anda juga bisa membaca panduan kami tentang [cara belajar vocabulary IELTS secara efektif](/id/blog/cara-belajar-vocabulary-ielts/) serta [tips menulis email bisnis dalam bahasa Inggris](/id/blog/cara-menulis-email-bahasa-inggris-bisnis/). Kunjungi pula [panduan kosakata](/en/vocabulary/) untuk referensi lengkap.
 
 ## 1. Pasangan Kata Kerja vs. Kata Benda (Verb vs. Noun)
 
@@ -153,6 +153,10 @@ Ini adalah pasangan kata yang paling sering menimbulkan keraguan bahkan bagi pen
 | **Historical** | Adjective | Berkaitan dengan masa lalu / sejarah |
 
 Untuk meningkatkan pemahaman Anda dalam menyusun kalimat esai tingkat lanjut, simak artikel kami tentang [pola kalimat kompleks untuk IELTS Writing](/id/blog/kalimat-kompleks-ielts-writing-task-2/) serta teknik [penggunaan kolokasi alami bahasa Inggris](/id/blog/collocation-bahasa-inggris-untuk-ielts/).
+
+Latihan menjawab dari ingatan dijelaskan di [active recall](/id/blog/active-recall-adalah-cara-menghafal-kosakata/).
+
+Untuk satu pasangan yang sangat sering tertukar, baca [perbedaan affect dan effect](/id/blog/perbedaan-affect-dan-effect/).
 
 ## Latihan Mandiri: Uji Ketelitian Kosakata Anda
 

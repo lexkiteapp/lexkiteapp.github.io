@@ -25,7 +25,7 @@ O maior erro cometido por quem estuda sozinho é copiar listas gigantescas de pa
 
 Em vez de anotar apenas "sustainable" com a tradução "sustentável", crie um modelo de uso prático: "The company needs to find sustainable solutions to reduce carbon emissions". Dessa forma, você aprende simultaneamente a preposição que acompanha o adjetivo, o substantivo com o qual ele costuma se combinar e o tom formal em que ele normalmente aparece. Se você já leu nosso artigo sobre [como aprender inglês sozinho](/pt/blog/como-aprender-ingles-sozinho/), sabe que a eficiência do estudo depende diretamente da relevância do material selecionado.
 
-Explore as [listas de vocabulário temáticas](/tu-vung/) para identificar termos que realmente aparecem em exames e situações profissionais, evitando gastar energia com jargões obsoletos.
+Explore as [listas de vocabulário temáticas](/en/vocabulary/) para identificar termos que realmente aparecem em exames e situações profissionais, evitando gastar energia com jargões obsoletos.
 
 ## Passo 1 e 2: Filtrar termos por nível e focar em famílias de palavras
 
@@ -74,6 +74,12 @@ Grave também a si mesmo pronunciando essas frases no gravador do celular. Escut
 {{youtube: | Ideia de vídeo: O método de 7 passos para memorizar 15 palavras novas em inglês todos os dias}}
 
 {{cta: /#/library | Explorar biblioteca de vocabulário}}
+
+Para vocabulário de nível acadêmico, estude a [Academic Word List (AWL)](/pt/blog/academic-word-list-awl-guia-ielts-toefl/) por sublistas.
+
+Para tornar cada revisão mais eficaz, responda antes de olhar o cartão: o guia de [active recall](/pt/blog/active-recall-para-aprender-vocabulario-em-ingles/) mostra como.
+
+Para ver como guardar um par confuso junto com seus vizinhos mais comuns, veja [a diferença entre affect e effect](/pt/blog/diferenca-entre-affect-e-effect/).
 
 ## Perguntas frequentes
 

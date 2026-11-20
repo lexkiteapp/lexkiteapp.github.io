@@ -1,0 +1,142 @@
+{
+ "id": "m24",
+ "level": "C1",
+ "lo": "M.C1.10",
+ "activity": "explain-data",
+ "title": "Do sleep programmes work in schools?",
+ "scenario": "Five small studies tested the same school sleep programme. Dr Mensah, the head teacher, cannot read the research summary in time. Explain where the studies agree and disagree, so she can judge whether to adopt it.",
+ "source": {
+  "kind": "chart",
+  "caption": "Five studies of a school sleep programme for teenagers",
+  "unit": "minutes",
+  "cols": [
+   "Students",
+   "Extra sleep per night (minutes)"
+  ],
+  "rows": [
+   [
+    "Study A",
+    40,
+    12
+   ],
+   [
+    "Study B",
+    210,
+    18
+   ],
+   [
+    "Study C",
+    95,
+    -3
+   ],
+   [
+    "Study D",
+    180,
+    15
+   ],
+   [
+    "Study E",
+    60,
+    31
+   ]
+  ],
+  "note": "Studies A and E took place in boarding schools, B, C and D in day schools. Study C lasted four weeks; the others lasted twelve."
+ },
+ "task": {
+  "mode": "write",
+  "audience": "a head teacher deciding on a programme",
+  "prompt": "Write a short briefing for Dr Mensah (90–145 words). Explain where the studies agree, where they differ and why, and what you would conclude.",
+  "min_words": 90,
+  "max_words": 145
+ },
+ "points": [
+  {
+   "id": "agree",
+   "idea": "Four of the five studies found students slept longer.",
+   "checks": [
+    [
+     "four"
+    ],
+    [
+     "five"
+    ]
+   ]
+  },
+  {
+   "id": "core",
+   "idea": "The two largest studies are consistent: about 15 to 18 minutes more.",
+   "checks": [
+    [
+     "15"
+    ],
+    [
+     "18"
+    ]
+   ]
+  },
+  {
+   "id": "c",
+   "idea": "Study C found no gain, but it was much shorter (four weeks).",
+   "checks": [
+    [
+     "study c"
+    ],
+    [
+     "four weeks",
+     "shorter",
+     "short"
+    ]
+   ]
+  },
+  {
+   "id": "e",
+   "idea": "Study E showed the largest effect, but it was small and in a boarding school.",
+   "checks": [
+    [
+     "study e"
+    ],
+    [
+     "small",
+     "boarding",
+     "60"
+    ]
+   ]
+  },
+  {
+   "id": "verdict",
+   "idea": "The likely benefit is modest but real; be cautious.",
+   "checks": [
+    [
+     "modest",
+     "moderate",
+     "small but",
+     "cautious",
+     "cautiously"
+    ]
+   ]
+  }
+ ],
+ "leave_out": [
+  {
+   "idea": "Study A's figures.",
+   "checks": [
+    [
+     "study a",
+     "12 minutes"
+    ]
+   ]
+  }
+ ],
+ "model": "Dr Mensah, the studies mostly agree: in four of the five, students slept longer. The two largest studies, B and D, are in close agreement, with about 15 to 18 extra minutes a night. The differences are easy to explain. Study C found no gain, but it ran for only four weeks, while the others lasted twelve. Study E reported the biggest effect, 31 minutes, yet it was small and took place in a boarding school, where pupils' evenings are more controlled, so I would not rely on it. My conclusion is cautious: the programme probably gives a modest but real benefit of around a quarter of an hour, which may justify a trial, but not great expectations.",
+ "useful": [
+  "The studies mostly agree: …",
+  "The differences are easy to explain.",
+  "… reported the biggest effect, yet …",
+  "My conclusion is cautious: …"
+ ],
+ "tips": [
+  "To combine several studies, first say where they agree, then explain each exception with a reason (length, size, setting) from the notes.",
+  "Give more weight to larger studies and say so. A small outlier should be reported but not allowed to set the headline."
+ ],
+ "explain": "The briefing needs the shared direction, the consistent 15 to 18 minutes in the larger studies, a reason for each outlier and a cautious verdict. Study A fits the general pattern and adds nothing to the decision."
+}

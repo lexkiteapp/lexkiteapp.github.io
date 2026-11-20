@@ -1,4 +1,5 @@
 {
+ "src": "libraryweb",
  "_doc": "Thư viện (#/library, cờ ux1) – d do web/js/app.js libV2() dựng từ TOPICS/GROUPS/state.cards thật. Đầu trang Stitch giữ (quay lại #/train, chuỗi/XP thật, ô lọc #libQ, Anki xuất/nhập #libAnkiOut/#libAnkiIn); tab nhóm #libTabs (data-g, .on) + CEFR [data-lvf]; mỗi lần đổi tab/lọc dựng lại khung (giữ con trỏ ô lọc). Thẻ nổi bật = bộ đang học dở nhiều nhất (hoặc bộ đầu của nhóm theo kỳ thi) – dữ liệu thật, A/B chủ. 'Tạo bộ của bạn' → Nhập từ Anki (tính năng thật). Thanh tab dưới = shell (tab Luyện).",
  "remove": [
   ":scope > nav"

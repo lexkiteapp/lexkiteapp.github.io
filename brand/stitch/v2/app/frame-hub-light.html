@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite - Today</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-secondary": "#ffffff",
+            "secondary-container": "#fd9500",
+            "on-background": "#211a14",
+            "surface-variant": "#efe0d6",
+            "on-primary-container": "#9be7de",
+            "inverse-primary": "#88d4cb",
+            "tertiary-container": "#785a00",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "tertiary-fixed": "#ffdf9b",
+            "surface": "#fff8f5",
+            "inverse-surface": "#372f28",
+            "on-primary": "#ffffff",
+            "on-primary-fixed": "#00201d",
+            "surface-container-low": "#fff1e8",
+            "on-tertiary-fixed": "#251a00",
+            "secondary": "#8c5000",
+            "on-secondary-container": "#633700",
+            "on-secondary-fixed": "#2d1600",
+            "surface-container": "#faebe1",
+            "background": "#fff8f5",
+            "on-secondary-fixed-variant": "#6a3b00",
+            "secondary-fixed-dim": "#ffb872",
+            "error": "#ba1a1a",
+            "secondary-fixed": "#ffdcbf",
+            "on-error-container": "#93000a",
+            "primary-container": "#136a63",
+            "outline": "#6f7977",
+            "primary": "#00504b",
+            "surface-container-lowest": "#ffffff",
+            "on-tertiary-container": "#ffd370",
+            "on-error": "#ffffff",
+            "inverse-on-surface": "#fdeee3",
+            "outline-variant": "#bec9c6",
+            "primary-fixed-dim": "#88d4cb",
+            "on-primary-fixed-variant": "#00504a",
+            "surface-container-high": "#f4e5db",
+            "tertiary": "#5b4300",
+            "surface-container-highest": "#efe0d6",
+            "surface-bright": "#fff8f5",
+            "tertiary-fixed-dim": "#f5bf31",
+            "surface-tint": "#126a63",
+            "surface-dim": "#e6d7cd",
+            "on-tertiary": "#ffffff",
+            "error-container": "#ffdad6",
+            "on-surface": "#211a14",
+            "primary-fixed": "#a4f1e7",
+            "on-surface-variant": "#3f4947"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin": "1rem",
+            "margin-lg": "3rem",
+            "gutter": "1rem",
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "space-xl": "2.5rem",
+            "margin-md": "2rem",
+            "gutter-lg": "2rem",
+            "space-lg": "1.5rem",
+            "gutter-md": "1.5rem",
+            "space-md": "1rem"
+          },
+          "fontFamily": {
+            "label-lg": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "display-lg": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "label-lg": ["16px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "700" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "500" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "500" }],
+            "label-md": ["14px", { "lineHeight": "18px", "letterSpacing": "0.03em", "fontWeight": "700" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "800" }],
+            "display-lg": ["44px", { "lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "800" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex justify-center selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- PHONE CONTAINER: Exactly 390px, no frames, no status bar -->
+<div class="w-[390px] min-h-screen bg-background relative flex flex-col pb-[80px]">
+<!-- TOP BAR (HUB variant, 56px height, docked top) -->
+<header class="sticky top-0 z-40 w-full h-[56px] bg-surface flex items-center justify-between px-space-md shadow-[0_4px_0_0_#efe0d6]">
+<!-- Brand Left -->
+<div class="flex items-center gap-space-xs">
+<div class="w-8 h-8 rounded-DEFAULT bg-primary flex items-center justify-center text-primary-fixed shadow-[0_2px_0_0_#00201d]">
+<span class="material-symbols-outlined text-[20px]" data-icon="kitesurfing">kitesurfing</span>
+</div>
+<span class="text-headline-sm font-headline-sm font-extrabold text-primary-container tracking-tight">Lexkite</span>
+</div>
+<!-- Hub Status Indicators Right -->
+<div class="flex items-center gap-space-xs">
+<!-- Exam Badge -->
+<span class="text-label-sm font-label-sm bg-primary-fixed text-on-primary-fixed px-2 py-0.5 rounded-full border border-primary/20">
+          IELTS
+        </span>
+<!-- Flame Streak Pill -->
+<div class="flex items-center gap-1 bg-surface-container-high px-2 py-0.5 rounded-full border-2 border-surface-variant shadow-[0_2px_0_0_#efe0d6]">
+<span class="material-symbols-outlined text-secondary-container text-[16px]" data-icon="local_fire_department" data-weight="fill" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="text-label-sm font-label-sm text-on-surface font-extrabold">14</span>
+</div>
+<!-- Star XP Pill -->
+<div class="flex items-center gap-1 bg-tertiary-fixed px-2 py-0.5 rounded-full border-2 border-tertiary-fixed-dim/70 shadow-[0_2px_0_0_#d49b10]">
+<span class="material-symbols-outlined text-tertiary text-[16px]" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-label-sm font-label-sm text-on-tertiary-fixed font-extrabold">820</span>
+</div>
+<!-- Round Avatar -->
+<div class="w-7 h-7 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-bold text-label-sm border-2 border-surface-container-lowest shadow-[0_2px_0_0_#efe0d6]">
+          L
+        </div>
+</div>
+</header>
+<!-- MAIN SCROLLABLE CONTENT -->
+<main class="flex-1 px-space-md pt-space-md flex flex-col gap-space-md">
+<!-- 1. GREETING -->
+<section class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-surface-container-high border border-surface-variant text-label-sm font-label-sm text-primary">
+<span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span>
+            Band 7.5 Target Prep
+          </div>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Day 14 · Evening</span>
+</div>
+<h1 class="text-headline-lg-mobile font-headline-lg-mobile text-on-surface tracking-tight mt-1">
+          Good evening, Linh
+        </h1>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+          Ready for today's 15-minute quick sprint? Keep your streak ignited!
+        </p>
+</section>
+<!-- 2. DAILY GOAL RING CARD -->
+<section class="bg-surface-container-lowest rounded-DEFAULT border-2 border-surface-variant p-space-md shadow-[0_5px_0_0_#d9c7bb] relative overflow-hidden">
+<div class="flex items-center justify-between gap-space-md">
+<!-- Circular Progress Ring (SVG) -->
+<div class="relative w-20 h-20 flex-shrink-0 flex items-center justify-center">
+<svg class="w-20 h-20 transform -rotate-90" viewbox="0 0 72 72">
+<!-- Ring Track -->
+<circle cx="36" cy="36" fill="transparent" r="28" stroke="#efe0d6" stroke-width="7"></circle>
+<!-- Ring Fill (60% of 175.9 circumference = 105.5 stroke-dasharray) -->
+<circle class="transition-all duration-700 ease-out" cx="36" cy="36" fill="transparent" r="28" stroke="#fd9500" stroke-dasharray="175.9" stroke-dashoffset="70.3" stroke-linecap="round" stroke-width="7"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-label-sm font-label-sm text-on-surface font-extrabold leading-tight">18/30</span>
+<span class="text-[10px] font-extrabold text-on-surface-variant tracking-wider">XP</span>
+</div>
+</div>
+<!-- Goal Info & Inline Candy Action -->
+<div class="flex-1 flex flex-col justify-center">
+<div class="flex items-center gap-1.5 mb-1">
+<span class="text-label-md font-label-md text-on-surface font-bold">Daily Goal</span>
+<span class="bg-secondary-fixed text-on-secondary-fixed text-[11px] font-extrabold px-1.5 py-0.2 rounded-full">
+                60%
+              </span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant leading-snug mb-2">
+              12 XP to reach your daily streak!
+            </p>
+<div class="self-start">
+<button class="inline-flex items-center gap-1 px-3 py-1 bg-secondary-container text-on-secondary-fixed text-label-sm font-label-sm rounded-DEFAULT border-2 border-secondary shadow-[0_3px_0_0_#8c5000] active:translate-y-[3px] active:shadow-none transition-all">
+<span class="material-symbols-outlined text-[16px] text-on-secondary-fixed" data-icon="bolt" data-weight="fill" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<span>Power Boost</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. 'TODAY'S PLAN' CARD -->
+<section class="bg-surface-container-lowest rounded-DEFAULT border-2 border-surface-variant p-space-md shadow-[0_5px_0_0_#d9c7bb] flex flex-col gap-space-md">
+<!-- Header -->
+<div class="flex items-center justify-between border-b-2 border-surface-container-high pb-space-sm">
+<div>
+<h2 class="text-headline-sm font-headline-sm text-on-surface font-extrabold tracking-tight">Today's plan</h2>
+<p class="text-label-sm font-label-sm text-primary-container font-bold">0 of 3 completed</p>
+</div>
+<!-- Tiny status badge -->
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-[18px]" data-icon="task_alt">task_alt</span>
+</div>
+</div>
+<!-- Step Rows -->
+<div class="flex flex-col gap-space-sm">
+<!-- Row 1: Quick review of old words -->
+<div class="flex items-center justify-between p-2.5 rounded-DEFAULT bg-surface hover:bg-surface-container transition-colors border border-surface-variant/80">
+<div class="flex items-center gap-space-sm">
+<div class="w-11 h-11 rounded-DEFAULT bg-primary-fixed flex items-center justify-center text-primary-container border-2 border-primary/20 shadow-[inset_0_2px_0_rgba(255,255,255,0.7)] flex-shrink-0">
+<span class="material-symbols-outlined text-[24px]" data-icon="style" data-weight="fill" style="font-variation-settings: 'FILL' 1;">style</span>
+</div>
+<div class="flex flex-col">
+<span class="text-label-md font-label-md text-on-surface font-bold leading-tight">Quick review of old words</span>
+<span class="text-body-sm font-body-sm text-error font-bold flex items-center gap-1 mt-0.5">
+<span class="w-1.5 h-1.5 rounded-full bg-error inline-block"></span>
+                  12 due
+                </span>
+</div>
+</div>
+<!-- Tactile Candy Button -->
+<button class="px-3.5 py-1.5 bg-secondary-container text-[#241400] text-label-sm font-label-sm font-extrabold rounded-DEFAULT border-2 border-[#994000] shadow-[0_3px_0_0_#994000] active:translate-y-[3px] active:shadow-none transition-all flex-shrink-0">
+              Start
+            </button>
+</div>
+<!-- Row 2: New words -->
+<div class="flex items-center justify-between p-2.5 rounded-DEFAULT bg-surface hover:bg-surface-container transition-colors border border-surface-variant/80">
+<div class="flex items-center gap-space-sm">
+<div class="w-11 h-11 rounded-DEFAULT bg-tertiary-fixed flex items-center justify-center text-tertiary border-2 border-tertiary/20 shadow-[inset_0_2px_0_rgba(255,255,255,0.7)] flex-shrink-0">
+<span class="material-symbols-outlined text-[24px]" data-icon="auto_awesome" data-weight="fill" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div class="flex flex-col">
+<span class="text-label-md font-label-md text-on-surface font-bold leading-tight">New words</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant font-medium mt-0.5">10 words</span>
+</div>
+</div>
+<!-- Tactile Candy Button -->
+<button class="px-3.5 py-1.5 bg-secondary-container text-[#241400] text-label-sm font-label-sm font-extrabold rounded-DEFAULT border-2 border-[#994000] shadow-[0_3px_0_0_#994000] active:translate-y-[3px] active:shadow-none transition-all flex-shrink-0">
+              Start
+            </button>
+</div>
+<!-- Row 3: Listening part 1 -->
+<div class="flex items-center justify-between p-2.5 rounded-DEFAULT bg-surface hover:bg-surface-container transition-colors border border-surface-variant/80">
+<div class="flex items-center gap-space-sm">
+<div class="w-11 h-11 rounded-DEFAULT bg-primary-fixed-dim/50 flex items-center justify-center text-primary border-2 border-primary/20 shadow-[inset_0_2px_0_rgba(255,255,255,0.7)] flex-shrink-0">
+<span class="material-symbols-outlined text-[24px]" data-icon="headphones" data-weight="fill" style="font-variation-settings: 'FILL' 1;">headphones</span>
+</div>
+<div class="flex flex-col">
+<span class="text-label-md font-label-md text-on-surface font-bold leading-tight">Listening part 1</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant font-medium mt-0.5">Campus conversation</span>
+</div>
+</div>
+<!-- Tactile Candy Button -->
+<button class="px-3.5 py-1.5 bg-secondary-container text-[#241400] text-label-sm font-label-sm font-extrabold rounded-DEFAULT border-2 border-[#994000] shadow-[0_3px_0_0_#994000] active:translate-y-[3px] active:shadow-none transition-all flex-shrink-0">
+              Start
+            </button>
+</div>
+</div>
+</section>
+<!-- EXTRA QUICK PRACTICE NUDGE CARD -->
+<section class="bg-surface-container-high rounded-DEFAULT border-2 border-surface-variant p-3 flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-full bg-surface-container-lowest flex items-center justify-center text-primary-container shadow-sm">
+<span class="material-symbols-outlined text-[20px]" data-icon="mic">mic</span>
+</div>
+<div class="flex flex-col">
+<span class="text-label-sm font-label-sm text-on-surface font-bold">Speaking Drill 90s</span>
+<span class="text-[12px] text-on-surface-variant">Pronunciation &amp; Lexical Fluency</span>
+</div>
+</div>
+<button class="px-3 py-1 bg-surface-container-lowest text-primary text-label-sm font-label-sm rounded-DEFAULT border-2 border-surface-variant shadow-[0_2px_0_0_#efe0d6] active:translate-y-[2px] active:shadow-none transition-all">
+          Try
+        </button>
+</section>
+</main>
+<!-- BOTTOM TAB BAR (Docked bottom, 64px, 5 equal tabs) -->
+<nav class="fixed bottom-0 left-0 right-0 w-full max-w-md mx-auto h-16 bg-white border-t-2 border-[#e6d7cd] z-50 flex items-center justify-around">
+<!-- Tab 1: Today (Active) -->
+<button class="flex-1 flex flex-col items-center justify-center gap-0.5 active:translate-y-0.5 transition-transform">
+<div class="w-14 h-8 rounded-full bg-[#d0f0eb] text-[#136a63] flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]" data-icon="home" style="font-variation-settings: 'FILL' 1;">home</span>
+</div>
+<span class="font-bold text-xs text-[#136a63] leading-tight">Today</span>
+</button>
+<!-- Tab 2: Vocab (Inactive with red badge) -->
+<button class="flex-1 flex flex-col items-center justify-center gap-0.5 active:translate-y-0.5 transition-transform text-[#2d3132]">
+<div class="relative flex items-center justify-center h-8">
+<span class="material-symbols-outlined text-[22px] text-[#2d3132]" data-icon="menu_book">menu_book</span>
+<span class="absolute top-1 -right-1 w-2 h-2 rounded-full bg-error border-2 border-white ring-1 ring-error/50"></span>
+</div>
+<span class="font-medium text-xs text-[#2d3132] leading-tight">Vocab</span>
+</button>
+<!-- Tab 3: Skills (Inactive) -->
+<button class="flex-1 flex flex-col items-center justify-center gap-0.5 active:translate-y-0.5 transition-transform text-[#2d3132]">
+<div class="flex items-center justify-center h-8">
+<span class="material-symbols-outlined text-[22px] text-[#2d3132]" data-icon="track_changes">track_changes</span>
+</div>
+<span class="font-medium text-xs text-[#2d3132] leading-tight">Skills</span>
+</button>
+<!-- Tab 4: Tests (Inactive) -->
+<button class="flex-1 flex flex-col items-center justify-center gap-0.5 active:translate-y-0.5 transition-transform text-[#2d3132]">
+<div class="flex items-center justify-center h-8">
+<span class="material-symbols-outlined text-[22px] text-[#2d3132]" data-icon="flag">flag</span>
+</div>
+<span class="font-medium text-xs text-[#2d3132] leading-tight">Tests</span>
+</button>
+<!-- Tab 5: Me (Inactive) -->
+<button class="flex-1 flex flex-col items-center justify-center gap-0.5 active:translate-y-0.5 transition-transform text-[#2d3132]">
+<div class="flex items-center justify-center h-8">
+<span class="material-symbols-outlined text-[22px] text-[#2d3132]" data-icon="person">person</span>
+</div>
+<span class="font-medium text-xs text-[#2d3132] leading-tight">Me</span>
+</button>
+</nav>
+</div>
+</body></html>

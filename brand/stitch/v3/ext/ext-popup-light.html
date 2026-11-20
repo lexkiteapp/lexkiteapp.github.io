@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite — Chrome Extension Popup</title>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Rounded -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              teal: '#0F3D3E',
+              'teal-dark': '#092526',
+              'teal-surface': '#E6F5F3',
+              'teal-border': '#136B66',
+              coral: '#E15241',
+              'coral-ledge': '#B83829',
+              amber: '#F59E0B',
+              'amber-ledge': '#B45309',
+            },
+            surface: {
+              cream: '#FFF8F3',
+              card: '#FFFFFF',
+              'card-subtle': '#FFFDF9',
+              inset: '#F7EDE2',
+              border: '#EADBCB',
+              ledge: '#DEC9B4',
+            },
+            ink: {
+              primary: '#1C1003',
+              secondary: '#4A3B2F',
+              muted: '#5A4E45',
+              subtle: '#524338',
+            }
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-rounded.outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+</head>
+<body class="bg-[#FFF8F3] text-ink-primary font-sans antialiased m-0 p-0 min-h-screen flex items-center justify-center">
+<!-- Main Extension Popup Container (Edge to edge view, 360px popup width) -->
+<div class="w-full max-w-[390px] min-h-[580px] bg-[#FFF8F3] mx-auto p-4 flex flex-col justify-between shadow-[0_4px_24px_rgba(28,16,3,0.08)] rounded-3xl border-2 border-surface-border">
+<!-- Top Header Bar -->
+<div>
+<div class="flex items-center justify-between pb-3 border-b-2 border-surface-border">
+<!-- Logo & Product Name -->
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-xl bg-brand-teal flex items-center justify-center shadow-[0_3px_0_#092526]">
+<!-- Kite Icon -->
+<svg class="w-5 h-5" fill="none" viewbox="0 0 24 24">
+<polygon fill="#F59E0B" points="12,2 20,10 12,12 4,10"></polygon>
+<polygon fill="#2DD4BF" points="12,12 20,10 12,22 4,10"></polygon>
+<circle cx="12" cy="12" fill="#FFFFFF" r="1.5"></circle>
+</svg>
+</div>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="text-[17px] font-extrabold tracking-tight text-brand-teal">Lexkite</span>
+<span class="text-[10px] font-extrabold uppercase px-1.5 py-0.5 rounded-full bg-[#E6F5F3] text-brand-teal border border-[#136B66]/30">Add-on</span>
+</div>
+</div>
+</div>
+<!-- Sync Indicator & Keyboard Shortcut Hint -->
+<div class="flex items-center gap-2">
+<div class="flex items-center gap-1 text-[11px] font-bold text-ink-muted bg-surface-inset px-2.5 py-1 rounded-full border border-surface-border">
+<span class="w-2 h-2 rounded-full bg-[#047857] animate-pulse"></span>
+<span>Synced</span>
+</div>
+<button aria-label="More options" class="min-w-[44px] min-h-[44px] p-2 flex items-center justify-center rounded-xl bg-white border border-surface-border text-ink-muted hover:text-ink-primary shadow-[0_2px_0_#DEC9B4] active:translate-y-[2px] active:shadow-none transition-all" title="Pin / Options">
+<span class="material-symbols-rounded outlined text-[20px]">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Quick Translate Input Field -->
+<div class="mt-3.5">
+<label class="block text-[11px] font-extrabold uppercase tracking-wider text-ink-muted mb-1.5 flex items-center justify-between" for="quick-lookup">
+<span>Quick Lookup &amp; Translate</span>
+<span class="text-[10px] font-bold text-brand-teal normal-case bg-brand-teal-surface px-2 py-0.5 rounded-full">Alt + L shortcut</span>
+</label>
+<div class="relative flex items-center">
+<span class="material-symbols-rounded outlined absolute left-3 text-ink-muted text-[20px] pointer-events-none">search</span>
+<input class="w-full bg-white text-ink-primary text-[14px] font-semibold pl-10 pr-[100px] min-h-[48px] py-2 rounded-2xl border-2 border-surface-border focus:border-brand-teal focus:outline-none shadow-[0_3px_0_#DEC9B4] transition-all" id="quick-lookup" placeholder="Type word, idiom, or paste sentence..." type="text" value="serendipity"/>
+<button aria-label="Lookup word" class="absolute right-1 min-w-[44px] min-h-[44px] px-3.5 rounded-xl bg-brand-teal text-white text-[12px] font-extrabold flex items-center gap-1 shadow-[0_2px_0_#092526] active:translate-y-[1px] active:shadow-none transition-all">
+<span>Lookup</span>
+<span class="material-symbols-rounded text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Word of the Day Card -->
+<div class="mt-3.5 bg-white rounded-2xl border-2 border-surface-border p-3 shadow-[0_3px_0_#DEC9B4]">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-brand-amber"></span>
+<span class="text-[11px] font-extrabold uppercase tracking-wider text-brand-teal">Word of the Day</span>
+</div>
+<span class="text-[11px] font-extrabold px-2 py-0.5 rounded-full bg-[#FFF3DC] text-[#9A3412] border border-[#FDE68A]">C1 Academic</span>
+</div>
+<div class="flex items-start justify-between gap-2">
+<div>
+<div class="flex items-baseline gap-2 flex-wrap">
+<h3 class="text-[18px] font-black text-ink-primary leading-tight">serendipity</h3>
+<span class="text-[12px] font-semibold text-ink-muted font-mono">/ˌser.ənˈdɪp.ə.ti/</span>
+</div>
+<p class="text-[12px] font-bold text-brand-teal mt-0.5 flex items-center gap-1.5">
+<span>noun</span>
+<span aria-hidden="true" class="text-[#5A4E45] font-black">•</span>
+<span>IELTS high-frequency</span>
+</p>
+</div>
+<button aria-label="Listen pronunciation" class="min-w-[44px] min-h-[44px] rounded-xl bg-brand-teal-surface text-brand-teal border border-[#136B66]/30 flex items-center justify-center hover:bg-brand-teal hover:text-white shadow-[0_2px_0_#C5E8E4] active:translate-y-[1px] transition-all" title="Listen pronunciation">
+<span class="material-symbols-rounded text-[22px]">volume_up</span>
+</button>
+</div>
+<p class="text-[13px] font-medium text-ink-secondary leading-snug mt-2 pt-2 border-t border-surface-border/60">
+          "Finding valuable, pleasant things by chance or happy accident."
+        </p>
+</div>
+<!-- Today's Reviews Card with CTA Button -->
+<div class="mt-3 bg-[#EBF7F5] rounded-2xl border-2 border-[#136B66]/40 p-3 shadow-[0_3px_0_#C4EBE6]">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-10 h-10 rounded-xl bg-brand-teal text-white flex items-center justify-center shadow-[0_2px_0_#092526]">
+<span class="material-symbols-rounded text-[22px]">psychology</span>
+</div>
+<div>
+<div class="text-[11px] font-extrabold uppercase tracking-wider text-brand-teal">Spaced Repetition</div>
+<div class="text-[15px] font-extrabold text-ink-primary">
+<span class="text-[#0F3D3E] font-black">18 cards</span> ready today
+              </div>
+</div>
+</div>
+<!-- Review CTA Button with Tactile Ledge (Deep Brown-Black Label) -->
+<button class="min-h-[44px] px-3.5 py-2 rounded-xl bg-[#F59E0B] text-[#1C1003] font-black text-[13px] shadow-[0_3px_0_#B45309] hover:bg-[#FBBF24] active:translate-y-[2px] active:shadow-none transition-all flex items-center justify-center gap-1.5 whitespace-nowrap">
+<span>Review now</span>
+<span class="material-symbols-rounded text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Extension Toggles Section -->
+<div class="mt-3 bg-white rounded-2xl border-2 border-surface-border p-3 shadow-[0_3px_0_#DEC9B4] space-y-1">
+<div class="text-[11px] font-extrabold uppercase tracking-wider text-ink-muted mb-1">
+          Active Browser Tools
+        </div>
+<!-- Toggle 1: Translate on hover -->
+<label class="min-h-[44px] py-1 flex items-center justify-between cursor-pointer group">
+<div class="flex items-center gap-2.5 pr-2">
+<div class="w-7 h-7 rounded-lg bg-surface-inset flex items-center justify-center text-brand-teal border border-surface-border shrink-0">
+<span class="material-symbols-rounded outlined text-[17px]">translate</span>
+</div>
+<div>
+<div class="text-[13px] font-bold text-ink-primary leading-tight">Translate on hover</div>
+<div class="text-[11px] font-medium text-ink-muted">Instant tooltip definition on web pages</div>
+</div>
+</div>
+<!-- Tactile Switch On -->
+<div class="relative min-w-[44px] min-h-[44px] flex items-center justify-end cursor-pointer shrink-0">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-[#D1D5DB] peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[12px] after:right-[22px] peer-checked:after:right-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-brand-teal shadow-inner"></div>
+</div>
+</label>
+<div class="border-t border-surface-border/60"></div>
+<!-- Toggle 2: Writing check -->
+<label class="min-h-[44px] py-1 flex items-center justify-between cursor-pointer group">
+<div class="flex items-center gap-2.5 pr-2">
+<div class="w-7 h-7 rounded-lg bg-surface-inset flex items-center justify-center text-brand-teal border border-surface-border shrink-0">
+<span class="material-symbols-rounded outlined text-[17px]">edit_note</span>
+</div>
+<div>
+<div class="text-[13px] font-bold text-ink-primary leading-tight">Writing check</div>
+<div class="text-[11px] font-medium text-ink-muted">Highlight academic collocations in input fields</div>
+</div>
+</div>
+<!-- Tactile Switch On -->
+<div class="relative min-w-[44px] min-h-[44px] flex items-center justify-end cursor-pointer shrink-0">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-[#D1D5DB] peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[12px] after:right-[22px] peer-checked:after:right-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-brand-teal shadow-inner"></div>
+</div>
+</label>
+</div>
+</div>
+<!-- Footer Links & Actions -->
+<div class="mt-3.5 pt-2 border-t-2 border-surface-border flex items-center justify-between text-[12px] font-bold text-ink-secondary">
+<div class="flex items-center gap-1.5">
+<a class="min-h-[44px] py-2 px-1 flex items-center gap-1 text-brand-teal hover:underline font-extrabold hover:text-brand-coral transition-colors" href="#open-app">
+<span class="material-symbols-rounded text-[18px]">open_in_new</span>
+<span>Open Web App</span>
+</a>
+<span aria-hidden="true" class="text-[#5A4E45] font-black px-1">•</span>
+<a class="min-h-[44px] py-2 px-1 flex items-center gap-1 text-ink-muted hover:text-ink-primary hover:underline transition-colors" href="#settings">
+<span class="material-symbols-rounded outlined text-[18px]">settings</span>
+<span>Settings</span>
+</a>
+</div>
+<div class="text-[11px] font-semibold text-ink-subtle">
+        v2.4 • IELTS &amp; TOEIC
+      </div>
+</div>
+</div>
+</body></html>

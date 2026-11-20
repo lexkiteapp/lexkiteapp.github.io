@@ -1,5 +1,5 @@
 // 🔎 Vòng dữ liệu Google Search Console (docs/SEO-DICT-PAGES.md §9, docs/BLOG-RUNBOOK.md § GSC) – 0 đồng, 0 thư viện.
-// Kéo 28 ngày (kết thúc D-3, dataState final) theo query × page × country (+ query×page, page, page 28 ngày trước) từ
+// Kéo 28 ngày (kết thúc D-3, dataState final) theo query × page × country (+ query×page, page, page 28 ngày trước, country 28 ngày + 7 ngày + 7 ngày trước) từ
 // sc-domain:lexkite.com → phân tích (a) truy vấn chưa có bài · (b) hạng 8–30 CTR thấp + gợi ý title/description ·
 // (c) cannibalization · (d) trang tụt hiển thị → ghi reports/seo/gsc-<ngày>.{json,md} + content/blog/plan/gsc-priority.json.
 // Khoá: CHỈ đọc từ biến môi trường GSC_SA_JSON (secret GitHub), giữ trong bộ nhớ – không bao giờ ghi/in ra.
@@ -12,6 +12,7 @@ import fs from 'fs';
 import path from 'path';
 import crypto from 'crypto';
 import { fileURLToPath } from 'url';
+import { tierOf, CPM_W } from '../../functions/api/_cpm.js';
 
 export const SITE = 'sc-domain:lexkite.com';
 export const ORIGIN = 'https://lexkite.com';
@@ -19,7 +20,8 @@ export const LANGS = ['vi', 'en', 'es', 'ja', 'id', 'pt', 'fr', 'de', 'tr', 'ru'
 const TOKEN_URL = 'https://oauth2.googleapis.com/token';
 const API = 'https://searchconsole.googleapis.com/webmasters/v3/sites/';
 const SCOPE = 'https://www.googleapis.com/auth/webmasters.readonly';
-// Ngưỡng (chỉ được chặt hơn khi có đủ dữ liệu – không nới để "ra nhiều việc").
+// Ngưỡng cho site lớn (≥ 50k hiển thị/28 ngày). Site nhỏ: effThresholds() co ngưỡng hiển thị theo tổng hiển thị (sàn 20/5) – dữ liệu ~10k hiển thị toàn đuôi dài
+// (mỗi cặp truy vấn×trang 1–5 hiển thị) nên ngưỡng 100/50 cố định làm cả 4 phần ra 0. Chỉ co theo quy mô dữ liệu, không nới chất lượng (CTR/hạng/khớp giữ nguyên).
 export const T = {
   days: 28, lagDays: 3, rowLimit: 25000, maxPages: 20,
   gapMinImpr: 50, matchKw: 0.8, matchQ: 0.5, weakPos: 30,          // (a)
@@ -28,6 +30,11 @@ export const T = {
   decPrevMin: 100, decDrop: 0.4, decAbsMin: 50,                      // (d)
   keepDays: 182, titleMax: 60, titleMaxCjk: 32, descMin: 70, descMax: 160,
 };
+export const effThresholds = total => {
+  const k = Math.min(1, Math.max(0.2, total / 50000)), f = (v, floor) => Math.max(floor, Math.round(v * k));
+  return { scale: r2(k), gapMinImpr: f(T.gapMinImpr, 20), sdMinImpr: f(T.sdMinImpr, 20), canMinImpr: f(T.canMinImpr, 20), canPageMin: f(T.canPageMin, 5), decPrevMin: f(T.decPrevMin, 30), decAbsMin: f(T.decAbsMin, 15) };
+};
+const r2 = x => Math.round(x * 100) / 100;
 export const expectedCtr = p => 0.30 / Math.pow(Math.max(1, p), 1.25); // đường CTR tự nhiên ước lượng (hạng 8 ≈ 2,2 %, 10 ≈ 1,7 %, 20 ≈ 0,7 %)
 
 // ---------- chuẩn hoá & đặc trưng truy vấn ----------
@@ -50,7 +57,9 @@ export function matches(q, kw) {
   if (!A.size || !B.size) return false;
   const n = inter(A, B); return n / B.size >= T.matchKw && n / A.size >= T.matchQ;
 }
-export const clusterKey = q => [...feats(q)].sort().join(' ');
+// Từ "tra nghĩa" (meaning/definition/แปลว่า…) không tính vào khoá cụm → "X meaning" + "define X" + "X definition" gộp một cụm.
+const LOOKUP_W = new Set(['meaning', 'definition', 'define', 'significado', 'signification', 'bedeutung', 'artinya', 'arti', 'nghia', 'translation', 'แปลว่า', 'معنى', '意味', '뜻']);
+export const clusterKey = q => [...feats(q)].filter(x => !LOOKUP_W.has(x)).sort().join(' ');
 
 const VI = /[ăâđêôơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i;
 const COUNTRY = {
@@ -153,7 +162,7 @@ export function analyze(data, content, opts = {}) {
   const maxPosts = Math.max(1, ...Object.values(perLang));
   const langW = l => 1 + 0.5 * (1 - (perLang[l] || 0) / maxPosts);
   const covering = (q, qf, lang) => postFeat.filter(x => x.p.lang === lang && (matches(qf, x.kw) || (qf.size >= 2 && inter(qf, x.ti) === qf.size)));
-  const targetCtr = expectedCtr(5);
+  const total = sum(pageCur.length ? pageCur : qpc, r => r.impressions), E = effThresholds(total), targetCtr = expectedCtr(5);
 
   // (a) truy vấn có hiển thị chưa có bài khớp – gom cụm theo ngôn ngữ + đặc trưng đã chuẩn hoá
   const cl = new Map();
@@ -171,7 +180,7 @@ export function analyze(data, content, opts = {}) {
     const ctr = c.impressions ? c.clicks / c.impressions : 0, position = c.pw / c.impressions;
     const term = lookupTerm(q);
     if (term) { const d = dictQueue.get(term) || { term, impressions: 0, clicks: 0, queries: [] }; d.impressions += c.impressions; d.clicks += c.clicks; if (d.queries.length < 5) d.queries.push(q); dictQueue.set(term, d); }
-    if (c.impressions < T.gapMinImpr || intent === 'brand') continue;
+    if (c.impressions < E.gapMinImpr || intent === 'brand') continue;
     if (term && intent === 'lookup') continue; // "X là gì / แปลว่า": việc của trang từ điển (dictQueue), không viết blog mỏng ăn thịt trang từ
     const qf = feats(q), cov = covering(q, qf, c.lang);
     const topPage = [...c.pages].sort((a, b) => b[1] - a[1])[0][0];
@@ -189,14 +198,16 @@ export function analyze(data, content, opts = {}) {
   // (b) striking distance: (trang, truy vấn) hạng 8–30, đủ hiển thị, CTR thấp so với đường CTR tự nhiên
   const striking = [];
   const qpRows = qp.length ? qp : [...agg(qpc, r => `${r.keys[0]}\u0000${cleanUrl(r.keys[1])}`).values()].map(a => ({ ...a, keys: [a.keys[0], cleanUrl(a.keys[1])] }));
+  // Gộp theo TRANG: trang hạng 8–30 gồm nhiều truy vấn đuôi dài (mỗi cái vài hiển thị) vẫn đáng sửa khi cộng lại đủ ngưỡng; CTR so với đường kỳ vọng theo hiển thị.
   const byPage = new Map();
   for (const r of qpRows) {
-    const [q, page] = r.keys, exp = expectedCtr(r.position);
-    if (r.position < T.sdMin || r.position > T.sdMax || r.impressions < T.sdMinImpr || r.ctr >= exp * T.lowCtrRatio || intentOf(q) === 'brand') continue;
-    const u = cleanUrl(page), e = byPage.get(u) || { page: u, queries: [], impressions: 0, gain: 0 };
+    const [q, page] = r.keys;
+    if (r.position < T.sdMin || r.position > T.sdMax || intentOf(q) === 'brand') continue;
+    const u = cleanUrl(page), e = byPage.get(u) || { page: u, queries: [], impressions: 0, clicks: 0, exp: 0, gain: 0 }, exp = expectedCtr(r.position);
     e.queries.push({ query: q, impressions: r.impressions, clicks: r.clicks, ctr: r4(r.ctr), position: r1(r.position), expectedCtr: r4(exp) });
-    e.impressions += r.impressions; e.gain += r.impressions * exp - r.clicks; byPage.set(u, e);
+    e.impressions += r.impressions; e.clicks += r.clicks; e.exp += r.impressions * exp; byPage.set(u, e);
   }
+  for (const [u, e] of byPage) { if (e.impressions < E.sdMinImpr || e.clicks / e.impressions >= (e.exp / e.impressions) * T.lowCtrRatio) byPage.delete(u); else e.gain = e.exp - e.clicks; }
   for (const e of byPage.values()) {
     e.queries.sort((a, b) => b.impressions - a.impressions);
     const post = byUrl.get(e.page), lang = post ? post.lang : pageLang(e.page) || 'en';
@@ -209,8 +220,8 @@ export function analyze(data, content, opts = {}) {
   const cannibal = [], qGroups = new Map();
   for (const r of qpRows) { const g = qGroups.get(r.keys[0]) || []; g.push(r); qGroups.set(r.keys[0], g); }
   for (const [q, rows] of qGroups) {
-    const total = sum(rows, r => r.impressions); if (total < T.canMinImpr || intentOf(q) === 'brand') continue;
-    const pages = rows.filter(r => r.impressions >= Math.max(T.canPageMin, total * T.canPageShare)).map(r => ({ page: cleanUrl(r.keys[1]), impressions: r.impressions, clicks: r.clicks, position: r1(r.position) }))
+    const total = sum(rows, r => r.impressions); if (total < E.canMinImpr || intentOf(q) === 'brand') continue;
+    const pages = rows.filter(r => r.impressions >= Math.max(E.canPageMin, total * T.canPageShare)).map(r => ({ page: cleanUrl(r.keys[1]), impressions: r.impressions, clicks: r.clicks, position: r1(r.position) }))
       .sort((a, b) => b.clicks - a.clicks || a.position - b.position);
     if (pages.length < 2) continue;
     const langs = new Set(pages.map(p => pageLang(p.page) || 'en')), sameLang = langs.size === 1, win = pages[0];
@@ -225,7 +236,7 @@ export function analyze(data, content, opts = {}) {
   const cur = agg(pageCur, r => cleanUrl(r.keys[0])), prev = agg(pagePrev, r => cleanUrl(r.keys[0])), declines = [];
   for (const [u, p] of prev) {
     const c = cur.get(u) || { impressions: 0, clicks: 0, position: 0, ctr: 0 };
-    if (p.impressions < T.decPrevMin || c.impressions > p.impressions * (1 - T.decDrop) || p.impressions - c.impressions < T.decAbsMin) continue;
+    if (p.impressions < E.decPrevMin || c.impressions > p.impressions * (1 - T.decDrop) || p.impressions - c.impressions < E.decAbsMin) continue;
     const post = byUrl.get(u);
     declines.push({ page: u, lang: post ? post.lang : pageLang(u) || 'en', slug: post ? post.slug : null, prevImpressions: p.impressions, impressions: c.impressions,
       change: r4(c.impressions / p.impressions - 1), prevPosition: r1(p.position), position: r1(c.position), prevClicks: p.clicks, clicks: c.clicks, gain: r1(Math.max(p.clicks - c.clicks, (p.impressions - c.impressions) * p.ctr)),
@@ -236,19 +247,51 @@ export function analyze(data, content, opts = {}) {
   const tot = rows => ({ clicks: sum(rows, r => r.clicks), impressions: sum(rows, r => r.impressions), ctr: r4(sum(rows, r => r.clicks) / Math.max(1, sum(rows, r => r.impressions))), position: r1(sum(rows, r => r.position * r.impressions) / Math.max(1, sum(rows, r => r.impressions))) });
   const dq = [...dictQueue.values()].sort((a, b) => b.impressions - a.impressions);
 
-  // thứ tự ưu tiên mới cho lượt viết hằng tuần: một thang chung = ước tính thêm lượt bấm / 28 ngày
+  // Tỉ lệ hiển thị từ nhóm CPM cao theo truy vấn (qpc có nước): cùng số lượt bấm ước tính, truy vấn của thị trường CPM cao xếp trên. Trang lạ/truy vấn thiếu → 0, không loại mục nào.
+  const qTier = new Map();
+  for (const r of qpc) { const a = qTier.get(r.keys[0]) || qTier.set(r.keys[0], { h: 0, t: 0 }).get(r.keys[0]); a.t += r.impressions || 0; if (tierOf(r.keys[2]) === 'high') a.h += r.impressions || 0; }
+  const cpmShareOf = q => { const a = qTier.get(q); return a && a.t ? r4(a.h / a.t) : 0; };
+  // thứ tự ưu tiên mới cho lượt viết hằng tuần: gain = ước tính thêm lượt bấm / 28 ngày; score = gain × (1 + CPM_W × cpmShare)
   const priority = [
     ...gaps.map(g => ({ type: g.kind === 'post-weak' ? 'enrich' : g.kind === 'brief-unwritten' ? 'write-brief' : 'new-brief', lang: g.lang, query: g.query, slug: g.brief || (g.post ? g.post.split('/').slice(-2)[0] : null), cluster: g.cluster, gain: g.gain, impressions: g.impressions, position: g.position, reason: g.reason })),
     ...striking.map(s => ({ type: 'refresh-title', lang: s.lang, query: s.queries[0].query, slug: s.slug, page: s.page, gain: s.gain, impressions: s.impressions, position: s.queries[0].position, reason: s.hints[0] })),
     ...cannibal.map(c => ({ type: 'cannibal', lang: pageLang(c.winner) || 'en', query: c.query, page: c.winner, gain: c.gain, impressions: c.impressions, reason: c.action })),
     ...declines.map(d => ({ type: 'decline', lang: d.lang, slug: d.slug, page: d.page, gain: d.gain, impressions: d.impressions, position: d.position, reason: d.hint })),
-  ].filter(x => x.gain > 0).sort((a, b) => b.gain - a.gain).slice(0, 100).map((x, i) => ({ rank: i + 1, ...x }));
+  ].filter(x => x.gain > 0).map(x => { const cpmShare = cpmShareOf(x.query); return { ...x, cpmShare, score: r1(x.gain * (1 + CPM_W * cpmShare)) }; }).sort((a, b) => b.score - a.score || b.gain - a.gain).slice(0, 100).map((x, i) => ({ rank: i + 1, ...x }));
 
   return {
     totals: { current: tot(pageCur.length ? pageCur : qpc), previous: tot(pagePrev) },
     gaps: gaps.slice(0, 200), striking: striking.slice(0, 200), cannibal: cannibal.slice(0, 100), declines: declines.slice(0, 100), dictQueue: dq.slice(0, 200), priority,
     pages: [...cur].sort((a, b) => b[1].impressions - a[1].impressions).slice(0, 500).map(([u, a]) => ({ page: u, clicks: a.clicks, impressions: a.impressions, position: r1(a.position) })),
+    cpm: cpmReport(data), thresholdsEffective: E,
+    noBaseline: sum(pagePrev, r => r.impressions) < E.decPrevMin,
   };
+}
+
+// ---------- theo nước & nhóm CPM (functions/api/_cpm.js) ----------
+const TIERS = ['high', 'vn', 'other'];
+export function tierTable(rows) {
+  const t = Object.fromEntries(TIERS.map(k => [k, { clicks: 0, impressions: 0, pw: 0 }])); let C = 0, I = 0;
+  for (const r of rows || []) { const a = t[tierOf(r.keys[r.keys.length - 1])]; a.clicks += r.clicks || 0; a.impressions += r.impressions || 0; a.pw += (r.position || 0) * (r.impressions || 0); C += r.clicks || 0; I += r.impressions || 0; }
+  for (const a of Object.values(t)) { a.position = a.impressions ? r1(a.pw / a.impressions) : null; a.clickShare = C ? r4(a.clicks / C) : 0; a.imprShare = I ? r4(a.impressions / I) : 0; delete a.pw; }
+  return t;
+}
+/** Dòng dimension country (mã alpha-3, không mất lượt ẩn danh như query×page×country); thiếu → gộp từ qpc. */
+export function cpmReport(data) {
+  const { qpc = [], countryCur = [], countryWeek = [], countryPrevWeek = [] } = data;
+  const rows = countryCur.length ? countryCur : [...agg(qpc, r => r.keys[2]).values()].map(a => ({ ...a, keys: [a.keys[2]] }));
+  return { tiers: tierTable(rows), week: countryWeek.length || countryPrevWeek.length ? { cur: tierTable(countryWeek), prev: tierTable(countryPrevWeek) } : null,
+    countries: [...rows].sort((a, b) => b.clicks - a.clicks || b.impressions - a.impressions).slice(0, 30).map(r => ({ country: r.keys[r.keys.length - 1], tier: tierOf(r.keys[r.keys.length - 1]), clicks: r.clicks, impressions: r.impressions, position: r1(r.position) })) };
+}
+
+// ---------- khách thật từ tìm kiếm vào trang tĩnh (D1 ext_events land:*, /api/seo-visits) ----------
+/** v = { from, to, days:[{day,search,google,high,vn,other}] } → số nền: trung bình/ngày 7 ngày gần nhất & 28 ngày theo nhóm CPM + bảng 7 ngày. null khi không có dữ liệu. */
+export function visitsSummary(v) {
+  const days = (v && v.days) || []; if (!days.length) return null;
+  const span = Math.max(1, Math.round((Date.parse(`${v.to}T00:00:00Z`) - Date.parse(`${v.from}T00:00:00Z`)) / 864e5) + 1);
+  const agg = (rows, n) => { const t = { search: 0, google: 0, high: 0, vn: 0, other: 0 }; for (const r of rows) for (const k in t) t[k] += r[k] || 0; return Object.fromEntries(Object.entries(t).map(([k, x]) => [k, r1(x / n)])); };
+  const cut = ymd(addDays(new Date(`${v.to}T00:00:00Z`), -6));
+  return { from: v.from, to: v.to, perDay28: agg(days, span), perDay7: agg(days.filter(d => d.day >= cut), 7), last7: days.filter(d => d.day >= cut) };
 }
 
 // ---------- báo cáo ----------
@@ -260,7 +303,21 @@ export function markdown(rep) {
     `| | Lượt bấm | Hiển thị | CTR | Hạng TB |`, `|---|---|---|---|---|`,
     `| 28 ngày này | ${t.current.clicks} | ${t.current.impressions} | ${pct(t.current.ctr)} | ${t.current.position} |`,
     `| 28 ngày trước | ${t.previous.clicks} | ${t.previous.impressions} | ${pct(t.previous.ctr)} | ${t.previous.position} |`, '',
-    `Ưu tiên mới cho lượt viết thứ Hai: \`content/blog/plan/gsc-priority.json\` (${rep.priority.length} mục, xếp theo ước tính thêm lượt bấm/28 ngày). Không tự đổi lịch đăng – \`blog-schedule.mjs\` vẫn do người chạy.`, '');
+    `Ưu tiên mới cho lượt viết thứ Hai: \`content/blog/plan/gsc-priority.json\` (${rep.priority.length} mục, xếp theo điểm = ước tính thêm lượt bấm/28 ngày × (1 + tỉ lệ hiển thị từ nhóm CPM cao)). Không tự đổi lịch đăng – \`blog-schedule.mjs\` vẫn do người chạy.`, '');
+  if (rep.cpm) {
+    const { tiers, week, countries } = rep.cpm, TN = { high: 'Nhóm CPM cao', vn: 'Việt Nam', other: 'Nước khác' };
+    const pts = (a, b) => { const d = (a - b) * 100; return `${d >= 0 ? '+' : ''}${d.toFixed(1)} điểm`; };
+    L.push('## Theo nhóm CPM (nhóm giả định: `functions/api/_cpm.js`)', '', `| Nhóm | Lượt bấm | % bấm | Hiển thị | % hiển thị | Hạng TB |${week ? ' % bấm 7 ngày (so tuần trước) | % hiển thị 7 ngày (so tuần trước) |' : ''}`, `|---|---|---|---|---|---|${week ? '---|---|' : ''}`);
+    for (const k of TIERS) { const x = tiers[k], c = week && week.cur[k], p = week && week.prev[k]; L.push(`| ${TN[k]} | ${x.clicks} | ${pct(x.clickShare)} | ${x.impressions} | ${pct(x.imprShare)} | ${x.position ?? '–'} |${week ? ` ${pct(c.clickShare)} (${pts(c.clickShare, p.clickShare)}) | ${pct(c.imprShare)} (${pts(c.imprShare, p.imprShare)}) |` : ''}`); }
+    L.push('', '## Theo nước (top 30 theo lượt bấm)', '', '| Nước | Nhóm | Lượt bấm | Hiển thị | Hạng TB |', '|---|---|---|---|---|');
+    for (const c of countries) L.push(`| ${c.country.toUpperCase()} | ${TN[c.tier]} | ${c.clicks} | ${c.impressions} | ${c.position} |`);
+    L.push('');
+  }
+  if (rep.visits) {
+    const v = rep.visits, row = (n, x) => `| ${n} | ${x.search} | ${x.google} | ${x.high} | ${x.vn} | ${x.other} |`;
+    L.push(`## Khách thật từ tìm kiếm vào trang tĩnh (số nền, /ngày) – ${v.from} → ${v.to}`, '', 'Nguồn: D1 `land:*` (hit.js; bỏ bot, bản preview, giới hạn 30 lượt/giờ/IP). Nhóm theo nước của khách (`functions/api/_cpm.js`). So với Hiển thị/Bấm của GSC ở trên: GSC đếm cả bấm từ kết quả lặp, số này đếm phiên mới/nguồn/30 phút.', '',
+      '| | Tìm kiếm | trong đó Google | CPM cao | VN | Nước khác |', '|---|--:|--:|--:|--:|--:|', row('TB 7 ngày', v.perDay7), row('TB 28 ngày', v.perDay28), ...v.last7.map(d => row(d.day, d)), '');
+  } else if (rep.visitsError) L.push('> Số khách từ tìm kiếm trang tĩnh: chưa lấy được (' + rep.visitsError + ').', '');
   L.push(`## (a) Truy vấn chưa có bài khớp (${rep.gaps.length})`, '', '| # | Ngôn ngữ | Truy vấn | Hiển thị | Hạng | Loại | Việc |', '|---|---|---|---|---|---|---|');
   rep.gaps.slice(0, 10).forEach((g, i) => L.push(`| ${i + 1} | ${g.lang} | ${esc(g.query)} | ${g.impressions} | ${g.position} | ${g.kind} | ${esc(g.reason)} |`));
   L.push('', `## (b) Hạng 8–30, CTR thấp (${rep.striking.length})`, '', '| # | Trang | Truy vấn chính | Hiển thị | Hạng | CTR / kỳ vọng | Tiêu đề gợi ý |', '|---|---|---|---|---|---|---|');
@@ -269,6 +326,7 @@ export function markdown(rep) {
   rep.cannibal.slice(0, 10).forEach((c, i) => L.push(`| ${i + 1} | ${esc(c.query)} | ${c.impressions} | ${c.pages.map(p => `${esc(short(p.page))} (${p.position})`).join('<br>')} | ${esc(c.action)} |`));
   L.push('', `## (d) Trang tụt hiển thị mạnh (${rep.declines.length})`, '', '| # | Trang | Hiển thị trước → nay | Hạng trước → nay | Gợi ý |', '|---|---|---|---|---|');
   rep.declines.slice(0, 10).forEach((d, i) => L.push(`| ${i + 1} | ${esc(short(d.page))} | ${d.prevImpressions} → ${d.impressions} (${pct(d.change)}) | ${d.prevPosition} → ${d.position} | ${esc(d.hint)} |`));
+  if (rep.noBaseline) L.push('', '> (d) 0 mục là đúng, không phải lỗi: 28 ngày trước gần như không có dữ liệu (site mới) nên chưa có mốc so sánh; phần này tự có mục khi kỳ trước đủ dữ liệu.');
   if (rep.dictQueue.length) L.push('', `## Từ người ta tra (hàng đợi trang từ điển, ${rep.dictQueue.length})`, '', rep.dictQueue.slice(0, 20).map(d => `\`${d.term}\` ${d.impressions}`).join(' · '));
   L.push('', `_Tự sinh bởi \`scripts/seo/gsc.mjs\` – số liệu chi tiết: \`reports/seo/gsc-${rep.date}.json\`._`, '');
   return L.join('\n');
@@ -310,13 +368,15 @@ export async function queryAll(token, body, fetchImpl = fetch) {
 const ymd = d => d.toISOString().slice(0, 10), addDays = (d, n) => new Date(d.getTime() + n * 864e5);
 export function ranges(date) {
   const end = addDays(new Date(`${date}T00:00:00Z`), -T.lagDays), start = addDays(end, -(T.days - 1));
-  return { range: { startDate: ymd(start), endDate: ymd(end) }, prevRange: { startDate: ymd(addDays(start, -T.days)), endDate: ymd(addDays(start, -1)) } };
+  return { range: { startDate: ymd(start), endDate: ymd(end) }, prevRange: { startDate: ymd(addDays(start, -T.days)), endDate: ymd(addDays(start, -1)) },
+    week: { startDate: ymd(addDays(end, -6)), endDate: ymd(end) }, prevWeek: { startDate: ymd(addDays(end, -13)), endDate: ymd(addDays(end, -7)) } };
 }
 export async function pull(sa, date, fetchImpl = fetch) {
-  const token = await getToken(sa, fetchImpl), { range, prevRange } = ranges(date);
+  const token = await getToken(sa, fetchImpl), { range, prevRange, week, prevWeek } = ranges(date);
   const q = (dimensions, r = range) => queryAll(token, { startDate: r.startDate, endDate: r.endDate, dimensions }, fetchImpl);
   const [qpc, qp, pageCur, pagePrev] = [await q(['query', 'page', 'country']), await q(['query', 'page']), await q(['page']), await q(['page'], prevRange)];
-  return { qpc, qp, pageCur, pagePrev };
+  const [countryCur, countryWeek, countryPrevWeek] = [await q(['country']), await q(['country'], week), await q(['country'], prevWeek)];
+  return { qpc, qp, pageCur, pagePrev, countryCur, countryWeek, countryPrevWeek };
 }
 
 // ---------- ghi file ----------
@@ -326,7 +386,7 @@ export function write(root, date, rep) {
   fs.writeFileSync(jf, JSON.stringify(rep, null, 1) + '\n'); fs.writeFileSync(mf, markdown(rep));
   const plan = path.join(root, 'content/blog/plan'); fs.mkdirSync(plan, { recursive: true });
   fs.writeFileSync(path.join(plan, 'gsc-priority.json'), JSON.stringify({
-    _note: 'Tự sinh mỗi thứ Hai bởi scripts/seo/gsc.mjs (workflow seo-gsc.yml) từ Google Search Console 28 ngày. Lượt viết hằng tuần đọc file này TRƯỚC 2026-11-seo-program.json/briefs.json. type: write-brief = brief có sẵn chưa viết · new-brief = soạn brief mới (1 từ khoá chính/bài) · enrich = làm giàu bài đã có (không viết bài thứ 2) · refresh-title = sửa title/description theo truy vấn (không đổi slug) · cannibal = gộp/phân vai 2 URL · decline = điều tra trang tụt. gain = ước tính thêm lượt bấm/28 ngày. Không tự sửa lịch đăng.',
+    _note: 'Tự sinh mỗi thứ Hai bởi scripts/seo/gsc.mjs (workflow seo-gsc.yml) từ Google Search Console 28 ngày. Lượt viết hằng tuần đọc file này TRƯỚC 2027-01-cpm-clusters.json, 2026-11-seo-program.json, briefs.json. type: write-brief = brief có sẵn chưa viết · new-brief = soạn brief mới (1 từ khoá chính/bài) · enrich = làm giàu bài đã có (không viết bài thứ 2) · refresh-title = sửa title/description theo truy vấn (không đổi slug) · cannibal = gộp/phân vai 2 URL · decline = điều tra trang tụt. gain = ước tính thêm lượt bấm/28 ngày · cpmShare = tỉ lệ hiển thị từ nhóm CPM cao (functions/api/_cpm.js) · score = gain × (1 + CPM_W × cpmShare), là khoá xếp hạng. Không tự sửa lịch đăng.',
     generated: date, source: `reports/seo/gsc-${date}.json`, range: rep.range, items: rep.priority }, null, 1) + '\n');
   // giữ 26 tuần báo cáo, cắt bản cũ
   const cut = ymd(addDays(new Date(`${date}T00:00:00Z`), -T.keepDays));
@@ -372,7 +432,15 @@ async function main(argv) {
   }
   if (!(data.qpc || []).length) throw new Error(`0 dòng query×page×country cho ${SITE} – kiểm service account đã được thêm vào GSC (quyền Restricted) và thuộc tính đúng`);
   const { range, prevRange } = ranges(date);
-  const rep = { date, site: SITE, range, prevRange, rows: { qpc: data.qpc.length, qp: (data.qp || []).length, pageCur: (data.pageCur || []).length, pagePrev: (data.pagePrev || []).length }, thresholds: T, ...analyze(data, loadContent(root)) };
+  let visits = null, visitsError = '';
+  if (data.visits) visits = visitsSummary(data.visits);
+  else if (!fx && process.env.STUDIO_CALLBACK_SECRET) {
+    try {
+      const r = await fetch(process.env.SEO_VISITS_API || 'https://lexkite.com/api/seo-visits?days=28', { headers: { 'X-Studio-Secret': process.env.STUDIO_CALLBACK_SECRET, 'User-Agent': 'lexkite-ci', ...(process.env.LEXKITE_CI_HEADER ? { 'X-Lexkite-CI': process.env.LEXKITE_CI_HEADER } : {}) } });
+      if (!r.ok) throw new Error(`HTTP ${r.status}`); visits = visitsSummary(await r.json());
+    } catch (e) { visitsError = e.message; console.warn(`⚠ seo-visits: ${e.message}`); }
+  }
+  const rep = { date, site: SITE, range, prevRange, rows: { qpc: data.qpc.length, qp: (data.qp || []).length, pageCur: (data.pageCur || []).length, pagePrev: (data.pagePrev || []).length }, thresholds: T, ...analyze(data, loadContent(root)), visits, visitsError };
   const { jf, mf } = write(root, date, rep);
   console.log(`✓ GSC ${range.startDate}→${range.endDate}: ${rep.rows.qpc} dòng · (a) ${rep.gaps.length} · (b) ${rep.striking.length} · (c) ${rep.cannibal.length} · (d) ${rep.declines.length} · ưu tiên ${rep.priority.length} → ${jf}`);
   if (process.env.GITHUB_OUTPUT) fs.appendFileSync(process.env.GITHUB_OUTPUT, `report=${mf}\n`);

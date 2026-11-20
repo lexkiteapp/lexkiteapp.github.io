@@ -1,4 +1,5 @@
 {
+ "src": "topicweb",
  "_doc": "Bộ từ (#/topic/:id, cờ ux1) – d do web/js/ux1-topic.js dựng từ IELTS_DATA.TOPICS thật. Giữ đủ ý trang cũ: quay lại nhóm (#/library?g=…), #addAll (Thêm n từ vào flashcard), #tCount, 4 chế độ luyện (learn/match/test ?src=topic:id, #/handsfree/id), #tpAnki xuất Anki, #lvTabs (data-lv, .on) đếm từ theo CEFR, #wordList: từ → #/dict/…, [data-speak], [data-add-seed][data-topic], nghĩa + định nghĩa, câu ví dụ tô từ, collocation. 'Sort: Frequency' ẩn (không có sắp xếp thật – A/B chủ). 'View all n words' = hiện hết khi bộ > 20 từ. Thanh tab dưới = shell (tab Luyện).",
  "remove": [
   ":scope > div > nav"

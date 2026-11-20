@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lexkite Kit Illustration Badge Sheet</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800;900&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        cream: '#FFF8F5',
+        'cream-low': '#FFF1E8',
+        'outline-ledge': '#E2CEBF'
+      }
+    }
+  }
+}
+</script>
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #FFF8F5;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.badge-card {
+  transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.15s ease;
+}
+.badge-card:hover {
+  transform: translateY(-4px);
+}
+.badge-card:active {
+  transform: translateY(2px);
+}
+</style>
+</head>
+<body class="bg-[#FFF8F5] p-6 md:p-12 selection:bg-amber-200">
+
+  <!-- Illustration Badge Sheet Container: No header, footer, navigation or text -->
+  <main class="w-full max-w-5xl mx-auto flex items-center justify-center py-6">
+    <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 md:gap-10 w-full max-w-4xl justify-items-center">
+
+      <!-- BADGE 1: Steaming Noodle Bowl with Chopsticks (Warm Tangerine Coral) -->
+      <div class="badge-card w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-[32px] md:rounded-[40px] bg-[#FF7A50] border-2 border-[#E05A32] shadow-[0_8px_0_0_#C24520] p-3 sm:p-4 flex items-center justify-center relative overflow-hidden group cursor-pointer">
+        <!-- Gloss highlight on badge rim -->
+        <div class="absolute -top-12 -left-12 w-32 h-32 md:w-40 md:h-40 bg-white/20 rounded-full blur-xl pointer-events-none"></div>
+        <svg viewBox="0 0 200 200" class="w-full h-full drop-shadow-md select-none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="bowlGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#FFFFFF" />
+              <stop offset="100%" stop-color="#FFE3D6" />
+            </linearGradient>
+            <linearGradient id="brothGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#FFB03A" />
+              <stop offset="100%" stop-color="#E88A10" />
+            </linearGradient>
+          </defs>
+          <!-- Steam trails -->
+          <path d="M72 58 C66 48 76 38 70 28" fill="none" stroke="#FFFFFF" stroke-width="6.5" stroke-linecap="round" opacity="0.9" />
+          <path d="M100 52 C94 40 106 32 100 20" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" opacity="0.95" />
+          <path d="M128 58 C122 48 132 38 126 28" fill="none" stroke="#FFFFFF" stroke-width="6.5" stroke-linecap="round" opacity="0.9" />
+          
+          <!-- Chopsticks crossed -->
+          <line x1="42" y1="46" x2="162" y2="76" stroke="#5C2612" stroke-width="6.5" stroke-linecap="round" />
+          <line x1="48" y1="36" x2="168" y2="72" stroke="#7A3418" stroke-width="6" stroke-linecap="round" />
+          
+          <!-- Bowl base shadow -->
+          <ellipse cx="100" cy="162" rx="42" ry="7" fill="#B83A16" opacity="0.4" />
+          
+          <!-- Outer Bowl Body -->
+          <path d="M38 88 C38 142 66 156 100 156 C134 156 162 142 162 88 Z" fill="url(#bowlGrad)" stroke="#662208" stroke-width="7" stroke-linejoin="round" />
+          <!-- Bowl Foot -->
+          <rect x="76" y="152" width="48" height="10" rx="5" fill="#FFE3D6" stroke="#662208" stroke-width="6" />
+
+          <!-- Broth ellipse -->
+          <ellipse cx="100" cy="88" rx="58" ry="18" fill="url(#brothGrad)" stroke="#662208" stroke-width="6" />
+
+          <!-- Noodles in Broth -->
+          <path d="M60 88 Q78 98 96 86 T138 88" fill="none" stroke="#FFE9A8" stroke-width="6.5" stroke-linecap="round" />
+          <path d="M68 93 Q86 103 108 92 T132 94" fill="none" stroke="#FFE9A8" stroke-width="5.5" stroke-linecap="round" />
+
+          <!-- Boiled Egg half -->
+          <ellipse cx="80" cy="84" rx="14" ry="10" fill="#FFFFFF" />
+          <circle cx="80" cy="84" r="6.5" fill="#FF8400" />
+
+          <!-- Green scallion slice -->
+          <circle cx="124" cy="86" r="6" fill="#48BB78" stroke="#22543D" stroke-width="2.5" />
+          <circle cx="112" cy="82" r="4.5" fill="#48BB78" stroke="#22543D" stroke-width="2" />
+
+          <!-- Bowl specular shine -->
+          <path d="M52 102 C50 126 64 140 76 144" fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" opacity="0.8" />
+        </svg>
+      </div>
+
+      <!-- BADGE 2: Shopping Bag (Vibrant Teal Turquoise) -->
+      <div class="badge-card w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-[32px] md:rounded-[40px] bg-[#00A896] border-2 border-[#008778] shadow-[0_8px_0_0_#006B5F] p-3 sm:p-4 flex items-center justify-center relative overflow-hidden group cursor-pointer">
+        <div class="absolute -top-12 -left-12 w-32 h-32 md:w-40 md:h-40 bg-white/20 rounded-full blur-xl pointer-events-none"></div>
+        <svg viewBox="0 0 200 200" class="w-full h-full drop-shadow-md select-none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="bagGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#FFDD53" />
+              <stop offset="100%" stop-color="#F59E0B" />
+            </linearGradient>
+            <linearGradient id="bagFold" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#E58E00" />
+              <stop offset="100%" stop-color="#F59E0B" />
+            </linearGradient>
+          </defs>
+          <!-- Bag drop shadow ground -->
+          <ellipse cx="100" cy="168" rx="46" ry="7" fill="#004D44" opacity="0.35" />
+
+          <!-- Handles -->
+          <path d="M78 80 V50 C78 37 122 37 122 50 V80" fill="none" stroke="#683400" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M78 80 V50 C78 41 122 41 122 50 V80" fill="none" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.8" />
+
+          <!-- Bag Main Body -->
+          <path d="M52 74 L60 162 C60.8 165.5 63.8 168 67.5 168 H132.5 C136.2 168 139.2 165.5 140 162 L148 74 Z" fill="url(#bagGrad)" stroke="#522700" stroke-width="7" stroke-linejoin="round" />
+
+          <!-- Fold creases -->
+          <path d="M68 74 L73 166" stroke="#DF8400" stroke-width="3" stroke-linecap="round" opacity="0.6" />
+          <path d="M100 74 L100 168" stroke="#DF8400" stroke-width="3" stroke-linecap="round" opacity="0.4" />
+          <path d="M132 74 L127 166" stroke="#DF8400" stroke-width="3" stroke-linecap="round" opacity="0.6" />
+
+          <!-- Decorative smiling badge tag on bag -->
+          <circle cx="100" cy="118" r="19" fill="#FFFFFF" stroke="#522700" stroke-width="4.5" />
+          <path d="M92 116 Q100 126 108 116" fill="none" stroke="#E05A32" stroke-width="4.5" stroke-linecap="round" />
+          <circle cx="91" cy="111" r="2.5" fill="#522700" />
+          <circle cx="109" cy="111" r="2.5" fill="#522700" />
+
+          <!-- Bag top fold rim -->
+          <path d="M50 74 H150" stroke="#522700" stroke-width="7" stroke-linecap="round" />
+          <!-- Bag gloss streak -->
+          <path d="M62 86 L68 150" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" opacity="0.6" />
+        </svg>
+      </div>
+
+      <!-- BADGE 3: Speech Bubble with Small Globe Inside (Sunny Amber Yellow) -->
+      <div class="badge-card w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-[32px] md:rounded-[40px] bg-[#FFB703] border-2 border-[#E09D00] shadow-[0_8px_0_0_#BD8100] p-3 sm:p-4 flex items-center justify-center relative overflow-hidden group cursor-pointer">
+        <div class="absolute -top-12 -left-12 w-32 h-32 md:w-40 md:h-40 bg-white/25 rounded-full blur-xl pointer-events-none"></div>
+        <svg viewBox="0 0 200 200" class="w-full h-full drop-shadow-md select-none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="bubbleGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#FFFFFF" />
+              <stop offset="100%" stop-color="#F1F8F7" />
+            </linearGradient>
+            <linearGradient id="globeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#38BDF8" />
+              <stop offset="100%" stop-color="#0284C7" />
+            </linearGradient>
+          </defs>
+          <!-- Speech bubble ground shadow -->
+          <ellipse cx="100" cy="168" rx="44" ry="7" fill="#8C5C00" opacity="0.3" />
+
+          <!-- Speech Bubble shape -->
+          <path d="M100 32 C54 32 32 58 32 88 C32 108 46 126 72 136 L66 160 C65 163 68 166 72 164 L102 144 C150 144 168 122 168 88 C168 58 146 32 100 32 Z" fill="url(#bubbleGrad)" stroke="#4A2E00" stroke-width="7" stroke-linejoin="round" />
+
+          <!-- Globe inside speech bubble -->
+          <!-- Globe ocean -->
+          <circle cx="100" cy="88" r="34" fill="url(#globeGrad)" stroke="#4A2E00" stroke-width="5" />
+
+          <!-- Globe landmasses (green vector continents) -->
+          <!-- North continent -->
+          <path d="M82 72 Q92 64 104 68 Q114 72 110 82 Q98 84 88 80 Z" fill="#22C55E" />
+          <!-- South continent -->
+          <path d="M96 92 Q108 90 114 98 Q118 112 106 118 Q94 116 92 104 Z" fill="#22C55E" />
+          <!-- Side island -->
+          <circle cx="120" cy="80" r="4" fill="#22C55E" />
+
+          <!-- Globe coordinate lines (latitude & meridian) -->
+          <path d="M68 88 H132" fill="none" stroke="#FFFFFF" stroke-width="3" opacity="0.75" />
+          <ellipse cx="100" cy="88" rx="16" ry="32" fill="none" stroke="#FFFFFF" stroke-width="3" opacity="0.7" />
+
+          <!-- Speech bubble gloss highlight -->
+          <path d="M50 56 C62 44 84 42 104 42" fill="none" stroke="#FFFFFF" stroke-width="5.5" stroke-linecap="round" />
+        </svg>
+      </div>
+
+      <!-- BADGE 4: Laboratory Flask with Bubbles (Soft Indigo Violet) -->
+      <div class="badge-card w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-[32px] md:rounded-[40px] bg-[#7857FF] border-2 border-[#603FE8] shadow-[0_8px_0_0_#4929D1] p-3 sm:p-4 flex items-center justify-center relative overflow-hidden group cursor-pointer">
+        <div class="absolute -top-12 -left-12 w-32 h-32 md:w-40 md:h-40 bg-white/20 rounded-full blur-xl pointer-events-none"></div>
+        <svg viewBox="0 0 200 200" class="w-full h-full drop-shadow-md select-none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="liquidGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#4EEDD2" />
+              <stop offset="100%" stop-color="#059669" />
+            </linearGradient>
+            <linearGradient id="glassGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.3" />
+              <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.05" />
+            </linearGradient>
+          </defs>
+          <!-- Ground shadow -->
+          <ellipse cx="100" cy="168" rx="46" ry="7" fill="#29127A" opacity="0.35" />
+
+          <!-- Rising Bubbles above flask -->
+          <circle cx="86" cy="30" r="6" fill="#A7F3D0" stroke="#1E105C" stroke-width="3.5" />
+          <circle cx="114" cy="22" r="8" fill="#5EEAD4" stroke="#1E105C" stroke-width="4" />
+          <circle cx="102" cy="38" r="4.5" fill="#FFFFFF" stroke="#1E105C" stroke-width="3" />
+
+          <!-- Flask Container Body (Outer Glass) -->
+          <path d="M86 48 H114 V84 L149 146 C155 156 148 166 136 166 H64 C52 166 45 156 51 146 L86 84 Z" fill="url(#glassGrad)" stroke="#220D68" stroke-width="7" stroke-linejoin="round" />
+
+          <!-- Flask Lip -->
+          <rect x="80" y="42" width="40" height="9" rx="4.5" fill="#E2D9F3" stroke="#220D68" stroke-width="6" />
+
+          <!-- Chemical Liquid inside flask -->
+          <path d="M62 144 L77 116 Q100 120 123 116 L138 144 C143 152 138 160 129 160 H71 C62 160 57 152 62 144 Z" fill="url(#liquidGrad)" stroke="#134E4A" stroke-width="5" stroke-linejoin="round" />
+
+          <!-- Liquid Surface wave -->
+          <ellipse cx="100" cy="116" rx="23" ry="5" fill="#A7F3D0" />
+
+          <!-- Submerged Bubbles -->
+          <circle cx="84" cy="136" r="4.5" fill="#FFFFFF" opacity="0.8" />
+          <circle cx="108" cy="144" r="6" fill="#FFFFFF" opacity="0.85" />
+          <circle cx="118" cy="130" r="3.5" fill="#FFFFFF" opacity="0.75" />
+
+          <!-- Measurement Graduations on glass -->
+          <line x1="88" y1="126" x2="98" y2="126" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" opacity="0.8" />
+          <line x1="84" y1="136" x2="96" y2="136" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" opacity="0.8" />
+
+          <!-- Glass Refraction & Gloss Streak -->
+          <path d="M60 148 L86 96 V84" fill="none" stroke="#FFFFFF" stroke-width="5.5" stroke-linecap="round" opacity="0.75" />
+        </svg>
+      </div>
+
+      <!-- BADGE 5: Friendly Owl (Emerald Jade Green) -->
+      <div class="badge-card w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-[32px] md:rounded-[40px] bg-[#10B981] border-2 border-[#059669] shadow-[0_8px_0_0_#047857] p-3 sm:p-4 flex items-center justify-center relative overflow-hidden group cursor-pointer">
+        <div class="absolute -top-12 -left-12 w-32 h-32 md:w-40 md:h-40 bg-white/20 rounded-full blur-xl pointer-events-none"></div>
+        <svg viewBox="0 0 200 200" class="w-full h-full drop-shadow-md select-none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="owlBodyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#C084FC" />
+              <stop offset="100%" stop-color="#8B5CF6" />
+            </linearGradient>
+            <linearGradient id="owlChestGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#FFFFFF" />
+              <stop offset="100%" stop-color="#F3E8FF" />
+            </linearGradient>
+          </defs>
+          <!-- Ground shadow -->
+          <ellipse cx="100" cy="168" rx="42" ry="7" fill="#064E3B" opacity="0.35" />
+
+          <!-- Owl Claws / Perch -->
+          <ellipse cx="84" cy="162" rx="9" ry="5" fill="#F59E0B" stroke="#371B58" stroke-width="4" />
+          <ellipse cx="116" cy="162" rx="9" ry="5" fill="#F59E0B" stroke="#371B58" stroke-width="4" />
+
+          <!-- Owl Body with Tufted Ears -->
+          <path d="M60 52 L78 72 C85 69 115 69 122 72 L140 52 C142 66 142 82 142 98 C142 136 124 162 100 162 C76 162 58 136 58 98 C58 82 58 66 60 52 Z" fill="url(#owlBodyGrad)" stroke="#371B58" stroke-width="7" stroke-linejoin="round" />
+
+          <!-- Wings folded on sides -->
+          <path d="M58 100 C52 118 56 138 68 146 C64 132 64 116 68 102 Z" fill="#7C3AED" stroke="#371B58" stroke-width="4" />
+          <path d="M142 100 C148 118 144 138 132 146 C136 132 136 116 132 102 Z" fill="#7C3AED" stroke="#371B58" stroke-width="4" />
+
+          <!-- Soft Chest Belly -->
+          <ellipse cx="100" cy="126" rx="28" ry="24" fill="url(#owlChestGrad)" stroke="#371B58" stroke-width="4.5" />
+          <!-- Chest scalloped feathers -->
+          <path d="M92 118 Q100 124 108 118" fill="none" stroke="#C084FC" stroke-width="3.5" stroke-linecap="round" />
+          <path d="M86 128 Q94 134 102 128 Q110 134 118 128" fill="none" stroke="#C084FC" stroke-width="3.5" stroke-linecap="round" />
+
+          <!-- Big Friendly Eyes (Outer white rings) -->
+          <circle cx="80" cy="92" r="18" fill="#FFFFFF" stroke="#371B58" stroke-width="5" />
+          <circle cx="120" cy="92" r="18" fill="#FFFFFF" stroke="#371B58" stroke-width="5" />
+
+          <!-- Irises (Warm Amber/Honey) -->
+          <circle cx="83" cy="92" r="10" fill="#F59E0B" />
+          <circle cx="117" cy="92" r="10" fill="#F59E0B" />
+
+          <!-- Pupils & Catchlights -->
+          <circle cx="84" cy="92" r="6.5" fill="#1E1B4B" />
+          <circle cx="116" cy="92" r="6.5" fill="#1E1B4B" />
+          <circle cx="81" cy="89" r="2.5" fill="#FFFFFF" />
+          <circle cx="113" cy="89" r="2.5" fill="#FFFFFF" />
+
+          <!-- Cute Beak -->
+          <polygon points="100,108 94,98 106,98" fill="#F97316" stroke="#371B58" stroke-width="4" stroke-linejoin="round" />
+        </svg>
+      </div>
+
+      <!-- BADGE 6: Judge's Gavel on a Sound Block (Warm Plum Crimson) -->
+      <div class="badge-card w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-[32px] md:rounded-[40px] bg-[#E11D48] border-2 border-[#BE123C] shadow-[0_8px_0_0_#9F1239] p-3 sm:p-4 flex items-center justify-center relative overflow-hidden group cursor-pointer">
+        <div class="absolute -top-12 -left-12 w-32 h-32 md:w-40 md:h-40 bg-white/20 rounded-full blur-xl pointer-events-none"></div>
+        <svg viewBox="0 0 200 200" class="w-full h-full drop-shadow-md select-none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="woodGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#F59E0B" />
+              <stop offset="100%" stop-color="#B45309" />
+            </linearGradient>
+            <linearGradient id="brassGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#FEF08A" />
+              <stop offset="100%" stop-color="#EAB308" />
+            </linearGradient>
+          </defs>
+          <!-- Ground shadow -->
+          <ellipse cx="100" cy="168" rx="46" ry="7" fill="#4C0519" opacity="0.4" />
+
+          <!-- Sound Block (Round tiered base) -->
+          <ellipse cx="100" cy="154" rx="44" ry="12" fill="#78350F" stroke="#450A0A" stroke-width="6" />
+          <path d="M56 154 V160 C56 166 76 170 100 170 C124 170 144 166 144 160 V154" fill="#92400E" stroke="#450A0A" stroke-width="6" stroke-linejoin="round" />
+          <ellipse cx="100" cy="152" rx="38" ry="9" fill="url(#woodGrad)" stroke="#450A0A" stroke-width="4.5" />
+
+          <!-- Dynamic Action Impact Sparkles -->
+          <path d="M60 128 L50 126" stroke="#FEF08A" stroke-width="4" stroke-linecap="round" />
+          <path d="M66 116 L58 108" stroke="#FEF08A" stroke-width="4" stroke-linecap="round" />
+          <path d="M78 112 L76 102" stroke="#FEF08A" stroke-width="4" stroke-linecap="round" />
+
+          <!-- Angled Gavel Group -->
+          <g transform="rotate(-25 100 110)">
+            <!-- Gavel Handle -->
+            <path d="M96 116 L96 46 C96 41 104 41 104 46 L104 116 Z" fill="url(#woodGrad)" stroke="#450A0A" stroke-width="6" stroke-linejoin="round" />
+            <!-- Handle grip rings -->
+            <rect x="94" y="52" width="12" height="6" rx="2" fill="url(#brassGrad)" stroke="#450A0A" stroke-width="2.5" />
+            <circle cx="100" cy="42" r="5" fill="#B45309" stroke="#450A0A" stroke-width="3" />
+
+            <!-- Gavel Head (Cylinder) -->
+            <rect x="68" y="106" width="64" height="26" rx="7" fill="url(#woodGrad)" stroke="#450A0A" stroke-width="6.5" />
+            
+            <!-- Brass Center Ring -->
+            <rect x="92" y="106" width="16" height="26" fill="url(#brassGrad)" stroke="#450A0A" stroke-width="3" />
+
+            <!-- Gavel Left Striking Cap -->
+            <rect x="62" y="104" width="9" height="30" rx="3.5" fill="url(#brassGrad)" stroke="#450A0A" stroke-width="4.5" />
+            <!-- Gavel Right Cap -->
+            <rect x="129" y="104" width="9" height="30" rx="3.5" fill="url(#brassGrad)" stroke="#450A0A" stroke-width="4.5" />
+
+            <!-- Gloss highlight on gavel head -->
+            <line x1="74" y1="112" x2="124" y2="112" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" opacity="0.65" />
+          </g>
+        </svg>
+      </div>
+
+    </div>
+  </main>
+
+</body>
+</html>

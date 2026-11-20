@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Lexkite v2.1 Light — My Deck</title>
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600&display=swap" rel="stylesheet">
+  <!-- Material Symbols Outlined & Rounded / Filled styling -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,600,1,0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              cream: '#FFF7EA',
+              card: '#FFFFFF',
+              border: '#EADEC8',
+              ledge: '#D8CFBC',
+              darkLedge: '#C4B9A4',
+              ink: '#10191B',
+              inkMuted: '#5F7376',
+              teal: '#0D6964',
+              tealLight: '#E8F5F4',
+              tealBorder: '#2BA39A',
+              tealLedge: '#094B47',
+              coral: '#F2553B',
+              coralLedge: '#B53A22',
+              coralLight: '#FDF1EE',
+              amber: '#FFB054',
+              amberLedge: '#D68930',
+              gold: '#FFC94A',
+              success: '#279655',
+              successLight: '#E7F7ED',
+              successLedge: '#1E7542',
+              danger: '#E03131',
+              dangerLight: '#FDECEC',
+              dangerLedge: '#B02525'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Lexkite Tactile Button Physics */
+    .tactile-btn {
+      transition: transform 0.08s ease-out, box-shadow 0.08s ease-out;
+    }
+    .tactile-btn:active {
+      transform: translateY(3px) !important;
+    }
+    
+    .btn-teal {
+      background: linear-gradient(180deg, #188680 0%, #0D6964 100%);
+      box-shadow: 0 5px 0 #084340;
+    }
+    .btn-teal:active {
+      box-shadow: 0 2px 0 #084340 !important;
+    }
+    
+    .btn-coral {
+      background: linear-gradient(180deg, #F56B54 0%, #F2553B 100%);
+      box-shadow: 0 5px 0 #B53A22;
+    }
+    .btn-coral:active {
+      box-shadow: 0 2px 0 #B53A22 !important;
+    }
+
+    .btn-tool {
+      background: #FFFFFF;
+      border: 1.5px solid #EADEC8;
+      box-shadow: 0 3px 0 #D8CFBC;
+    }
+    .btn-tool:active {
+      box-shadow: 0 1px 0 #D8CFBC !important;
+    }
+
+    .word-card {
+      background: #FFFFFF;
+      border: 1.5px solid #EADEC8;
+      box-shadow: 0 4px 0 #D8CFBC;
+      transition: transform 0.08s ease-out, box-shadow 0.08s ease-out;
+    }
+    .word-card:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 #D8CFBC;
+    }
+
+    /* Hide scrollbars for clean sticker row */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="bg-brand-cream text-brand-ink font-sans antialiased selection:bg-brand-teal selection:text-white flex justify-center min-h-screen">
+  
+  <!-- Mobile Container (390px fixed canvas) -->
+  <div class="w-full max-w-[390px] min-h-screen flex flex-col pb-28 border-x border-[#F0E4D0] shadow-sm relative">
+
+    <!-- Top Header Sticky -->
+    <header class="sticky top-0 z-30 bg-brand-cream/95 backdrop-blur-md px-4 pt-3 pb-3 border-b border-[#F0E4D0]/80">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-2.5">
+          <button class="w-9 h-9 rounded-full bg-white border border-brand-border flex items-center justify-center text-brand-ink shadow-sm tactile-btn active:translate-y-0.5">
+            <span class="material-symbols-rounded text-[20px]">arrow_back</span>
+          </button>
+          <div>
+            <div class="flex items-center gap-2">
+              <h1 class="text-[20px] font-extrabold tracking-tight text-brand-ink leading-tight">My Deck</h1>
+              <span class="px-2 py-0.5 rounded-full bg-brand-tealLight border border-brand-teal/30 text-[11px] font-bold text-brand-teal uppercase tracking-wider">IELTS 7.5+</span>
+            </div>
+            <p class="text-[12px] font-semibold text-brand-inkMuted leading-tight mt-0.5">248 words saved · <span class="text-brand-teal font-bold">96 mastered</span></p>
+          </div>
+        </div>
+
+        <button class="w-9 h-9 rounded-full bg-white border border-brand-border flex items-center justify-center text-brand-teal shadow-sm tactile-btn active:translate-y-0.5">
+          <span class="material-symbols-rounded text-[20px]">search</span>
+        </button>
+      </div>
+
+      <!-- Mastered Progress Track -->
+      <div class="mt-3">
+        <div class="flex justify-between items-center text-[11px] font-extrabold uppercase tracking-wider mb-1.5">
+          <span class="text-brand-inkMuted flex items-center gap-1">
+            <span class="w-2 h-2 rounded-full bg-brand-teal inline-block"></span>
+            Deck Mastery Level
+          </span>
+          <span class="text-brand-teal font-extrabold">38.7%</span>
+        </div>
+        <div class="w-full h-3 bg-white border border-brand-border rounded-full p-[2px] shadow-inner">
+          <div class="h-full rounded-full bg-gradient-to-r from-brand-teal to-[#36C4B8]" style="width: 38.7%;"></div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="px-4 pt-3.5 flex-1 flex flex-col gap-4">
+
+      <!-- Hero Chunky Action CTAs -->
+      <div class="grid grid-cols-2 gap-3">
+        <!-- Study CTA -->
+        <button class="btn-teal tactile-btn rounded-[18px] py-3.5 px-3.5 text-white flex items-center justify-between group">
+          <div class="text-left">
+            <span class="text-[10px] uppercase font-extrabold tracking-wider opacity-85 block">Flashcards</span>
+            <span class="text-[18px] font-extrabold tracking-tight block">Study</span>
+            <span class="text-[11px] font-semibold opacity-90 block mt-0.5">14 due today</span>
+          </div>
+          <div class="w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white shrink-0 shadow-sm">
+            <span class="material-symbols-rounded text-[24px]">school</span>
+          </div>
+        </button>
+
+        <!-- Test CTA -->
+        <button class="btn-coral tactile-btn rounded-[18px] py-3.5 px-3.5 text-white flex items-center justify-between group">
+          <div class="text-left">
+            <span class="text-[10px] uppercase font-extrabold tracking-wider opacity-85 block">Quiz Sprint</span>
+            <span class="text-[18px] font-extrabold tracking-tight block">Test</span>
+            <span class="text-[11px] font-semibold opacity-90 block mt-0.5">3-min sprint</span>
+          </div>
+          <div class="w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white shrink-0 shadow-sm">
+            <span class="material-symbols-rounded text-[24px]">bolt</span>
+          </div>
+        </button>
+      </div>
+
+      <!-- Small Round Tool Buttons Row (Treasured deck tools) -->
+      <div class="bg-white/80 rounded-[20px] p-2.5 border border-brand-border/80 shadow-sm">
+        <div class="flex items-center justify-around">
+          <!-- Share -->
+          <button class="flex flex-col items-center gap-1 group tactile-btn">
+            <div class="w-10 h-10 rounded-full bg-white border border-brand-border flex items-center justify-center text-brand-ink shadow-sm group-hover:border-brand-teal">
+              <span class="material-symbols-rounded text-[19px] text-[#2BA39A]">share</span>
+            </div>
+            <span class="text-[10px] font-bold text-brand-inkMuted">Share</span>
+          </button>
+
+          <!-- Export -->
+          <button class="flex flex-col items-center gap-1 group tactile-btn">
+            <div class="w-10 h-10 rounded-full bg-white border border-brand-border flex items-center justify-center text-brand-ink shadow-sm group-hover:border-brand-teal">
+              <span class="material-symbols-rounded text-[19px] text-brand-teal">file_download</span>
+            </div>
+            <span class="text-[10px] font-bold text-brand-inkMuted">Export</span>
+          </button>
+
+          <!-- Import -->
+          <button class="flex flex-col items-center gap-1 group tactile-btn">
+            <div class="w-10 h-10 rounded-full bg-white border border-brand-border flex items-center justify-center text-brand-ink shadow-sm group-hover:border-brand-teal">
+              <span class="material-symbols-rounded text-[19px] text-brand-amber">file_upload</span>
+            </div>
+            <span class="text-[10px] font-bold text-brand-inkMuted">Import</span>
+          </button>
+
+          <!-- Anki out -->
+          <button class="flex flex-col items-center gap-1 group tactile-btn">
+            <div class="w-10 h-10 rounded-full bg-white border border-brand-border flex items-center justify-center text-brand-ink shadow-sm group-hover:border-brand-teal">
+              <span class="material-symbols-rounded text-[19px] text-brand-coral">ios_share</span>
+            </div>
+            <span class="text-[10px] font-bold text-brand-inkMuted">Anki out</span>
+          </button>
+
+          <!-- Anki in -->
+          <button class="flex flex-col items-center gap-1 group tactile-btn">
+            <div class="w-10 h-10 rounded-full bg-white border border-brand-border flex items-center justify-center text-brand-ink shadow-sm group-hover:border-brand-teal">
+              <span class="material-symbols-rounded text-[19px] text-[#4F46E5]">sync</span>
+            </div>
+            <span class="text-[10px] font-bold text-brand-inkMuted">Anki in</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Search & Filter Controls -->
+      <div class="flex flex-col gap-2">
+        <!-- Search bar -->
+        <div class="relative flex items-center">
+          <span class="material-symbols-rounded absolute left-3.5 text-[18px] text-brand-inkMuted">search</span>
+          <input type="text" placeholder="Search 248 saved words or meanings..." value="" class="w-full bg-white border border-brand-border rounded-full pl-10 pr-9 py-2.5 text-[13px] font-semibold text-brand-ink placeholder:text-brand-inkMuted/60 shadow-sm focus:outline-none focus:border-brand-teal focus:ring-2 focus:ring-brand-teal/20" />
+          <button class="absolute right-3 text-brand-inkMuted hover:text-brand-ink text-[16px]">
+            <span class="material-symbols-rounded text-[18px]">mic</span>
+          </button>
+        </div>
+
+        <!-- 3 Compact Dropdown Filter Pills -->
+        <div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-0.5">
+          <!-- Topic -->
+          <button class="bg-white border border-brand-border rounded-full px-3 py-1.5 flex items-center gap-1 text-[11px] font-extrabold text-brand-ink shadow-sm tactile-btn whitespace-nowrap active:translate-y-0.5">
+            <span class="material-symbols-rounded text-[14px] text-brand-teal">category</span>
+            <span>Topic: <span class="text-brand-teal">All Topics</span></span>
+            <span class="material-symbols-rounded text-[14px] text-brand-inkMuted">expand_more</span>
+          </button>
+
+          <!-- Source (with About to forget indicator) -->
+          <button class="bg-brand-coralLight border border-brand-coral/40 rounded-full px-3 py-1.5 flex items-center gap-1 text-[11px] font-extrabold text-brand-coral shadow-sm tactile-btn whitespace-nowrap active:translate-y-0.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-brand-coral animate-pulse"></span>
+            <span>Source: About to forget</span>
+            <span class="material-symbols-rounded text-[14px] text-brand-coral">expand_more</span>
+          </button>
+
+          <!-- Mastery -->
+          <button class="bg-white border border-brand-border rounded-full px-3 py-1.5 flex items-center gap-1 text-[11px] font-extrabold text-brand-ink shadow-sm tactile-btn whitespace-nowrap active:translate-y-0.5">
+            <span class="material-symbols-rounded text-[14px] text-brand-gold">military_tech</span>
+            <span>Mastery</span>
+            <span class="material-symbols-rounded text-[14px] text-brand-inkMuted">expand_more</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Word Collection List Section Header -->
+      <div class="flex items-center justify-between pt-1">
+        <div class="flex items-center gap-2">
+          <span class="text-[13px] font-extrabold uppercase tracking-wider text-brand-ink">Saved Words (6 shown)</span>
+          <span class="px-2 py-0.5 rounded-full bg-brand-border/60 text-[10px] font-extrabold text-brand-inkMuted">SORT: RETENTION</span>
+        </div>
+        <button class="text-[12px] font-bold text-brand-teal flex items-center gap-0.5 hover:underline">
+          Select All
+        </button>
+      </div>
+
+      <!-- 6 Tactile Word Cards with Sticker Album Feeling -->
+      <div class="flex flex-col gap-3">
+
+        <!-- Card 1: resilient (Mastered / High retention) -->
+        <div class="word-card rounded-[18px] p-3.5 relative">
+          <div class="flex items-start justify-between gap-2.5">
+            
+            <!-- Left Emoji / Sticker Tile -->
+            <div class="w-11 h-11 rounded-[14px] bg-[#E9F8F0] border border-[#279655]/30 flex items-center justify-center text-[22px] shadow-sm shrink-0">
+              🌱
+            </div>
+
+            <!-- Middle Content -->
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="text-[17px] font-extrabold text-brand-ink tracking-tight">resilient</span>
+                <span class="text-[12px] font-mono text-brand-inkMuted">/rɪˈzɪl.jənt/</span>
+                <span class="text-[10px] font-extrabold px-1.5 py-0.5 rounded bg-brand-cream border border-brand-border text-brand-inkMuted uppercase">adj</span>
+              </div>
+              <p class="text-[13px] font-semibold text-brand-ink leading-snug mt-0.5">
+                Able to quickly recover from shock, illness, or hardship.
+              </p>
+              <p class="text-[12px] italic font-medium text-brand-inkMuted mt-1 leading-snug">
+                "The domestic economy proved remarkably <span class="font-semibold text-brand-teal not-italic underline decoration-brand-teal/40">resilient</span> against shocks."
+              </p>
+              
+              <!-- Bottom Row: Mastery Dots & Source Tag -->
+              <div class="flex items-center justify-between mt-2.5 pt-2 border-t border-[#F3ECE0]">
+                <!-- 5 Mastery Dots (5/5 filled) -->
+                <div class="flex items-center gap-1.5" title="Mastery: 5/5">
+                  <span class="w-2.5 h-2.5 rounded-full bg-brand-success shadow-xs"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-brand-success shadow-xs"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-brand-success shadow-xs"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-brand-success shadow-xs"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-brand-success shadow-xs"></span>
+                  <span class="text-[10px] font-extrabold text-brand-success ml-1">MASTERED</span>
+                </div>
+                <span class="text-[10px] font-bold text-brand-inkMuted/80">IELTS Task 2 · Essay</span>
+              </div>
+            </div>
+
+            <!-- Right Actions & Retention Badge -->
+            <div class="flex flex-col items-end gap-2 shrink-0">
+              <!-- Retention % Chip (Green High) -->
+              <span class="px-2 py-0.5 rounded-full bg-brand-successLight border border-brand-success/30 text-brand-success text-[11px] font-extrabold flex items-center gap-0.5">
+                <span class="material-symbols-rounded text-[12px]">trending_up</span> 98%
+              </span>
+
+              <!-- Action buttons -->
+              <div class="flex items-center gap-1 mt-1">
+                <button class="w-7 h-7 rounded-full bg-brand-tealLight border border-brand-teal/20 text-brand-teal flex items-center justify-center hover:bg-brand-teal hover:text-white tactile-btn" title="Pronounce">
+                  <span class="material-symbols-rounded text-[15px]">volume_up</span>
+                </button>
+                <button class="w-7 h-7 rounded-full bg-white border border-brand-border text-brand-inkMuted flex items-center justify-center hover:text-brand-ink tactile-btn" title="Edit note">
+                  <span class="material-symbols-rounded text-[14px]">edit</span>
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Card 2: ubiquitous (Medium High / 4/5 dots) -->
+        <div class="word-card rounded-[18px] p-3.5 relative">
+          <div class="flex items-start justify-between gap-2.5">
+            
+            <!-- Left Emoji / Sticker Tile -->
+            <div class="w-11 h-11 rounded-[14px] bg-[#EEF2FF] border border-[#6366F1]/30 flex items-center justify-center text-[22px] shadow-sm shrink-0">
+              📱
+            </div>
+
+            <!-- Middle Content -->
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="text-[17px] font-extrabold text-brand-ink tracking-tight">ubiquitous</span>
+                <span class="text-[12px] font-mono text-brand-inkMuted">/juːˈbɪk.wɪ.təs/</span>
+                <span class="text-[10px] font-extrabold px-1.5 py-0.5 rounded bg-brand-cream border border-brand-border text-brand-inkMuted uppercase">adj</span>
+              </div>
+              <p class="text-[13px] font-semibold text-brand-ink leading-snug mt-0.5">
+                Present, appearing, or found everywhere in daily modern life.
+              </p>
+              <p class="text-[12px] italic font-medium text-brand-inkMuted mt-1 leading-snug">
+                "Smartphones have become <span class="font-semibold text-brand-teal not-italic underline decoration-brand-teal/40">ubiquitous</span> across universities."
+              </p>
+              
+              <!-- Bottom Row: Mastery Dots & Source Tag -->
+              <div class="flex items-center justify-between mt-2.5 pt-2 border-t border-[#F3ECE0]">
+                <!-- 5 Mastery Dots (4/5 filled) -->
+                <div class="flex items-center gap-1.5" title="Mastery: 4/5">
+                  <span class="w-2.5 h-2.5 rounded-full bg-brand-teal shadow-xs"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-brand-teal shadow-xs"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-brand-teal shadow-xs"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-brand-teal shadow-xs"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#E5DFD4] shadow-xs"></span>
+                  <span class="text-[10px] font-extrabold text-brand-teal ml-1">SOLID</span>
+                </div>
+                <span class="text-[10px] font-bold text-brand-inkMuted/80">Chrome Extension · BBC</span>
+              </div>
+            </div>
+
+            <!-- Right Actions & Retention Badge -->
+            <div class="flex flex-col items-end gap-2 shrink-0">
+              <!-- Retention % Chip (Green High) -->
+              <span class="px-2 py-0.5 rounded-full bg-brand-successLight border border-brand-success/30 text-brand-success text-[11px] font-extrabold flex items-center gap-0.5">
+                <span class="material-symbols-rounded text-[12px]">trending_up</span> 86%
+              </span>
+
+              <!-- Action buttons -->
+              <div class="flex items-center gap-1 mt-1">
+                <button class="w-7 h-7 rounded-full bg-brand-tealLight border border-brand-teal/20 text-brand-teal flex items-center justify-center hover:bg-brand-teal hover:text-white tactile-btn">
+                  <span class="material-symbols-rounded text-[15px]">volume_up</span>
+                </button>
+                <button class="w-7 h-7 rounded-full bg-white border border-brand-border text-brand-inkMuted flex items-center justify-center hover:text-brand-ink tactile-btn">
+                  <span class="material-symbols-rounded text-[14px]">edit</span>
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Card 3: meticulous (Medium Amber / 3/5 dots) -->
+        <div class="word-card rounded-[18px] p-3.5 relative">
+          <div class="flex items-start justify-between gap-2.5">
+            
+            <!-- Left Emoji / Sticker Tile -->
+            <div class="w-11 h-11 rounded-[14px] bg-[#FFF8E6] border border-[#D97706]/30 flex items-center justify-center text-[22px] shadow-sm shrink-0">
+              🔍
+            </div>
+
+            <!-- Middle Content -->
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="text-[17px] font-extrabold text-brand-ink tracking-tight">meticulous</span>
+                <span class="text-[12px] font-mono text-brand-inkMuted">/məˈtɪk.jə.ləs/</span>
+                <span class="text-[10px] font-extrabold px-1.5 py-0.5 rounded bg-brand-cream border border-brand-border text-brand-inkMuted uppercase">adj</span>
+              </div>
+              <p class="text-[13px] font-semibold text-brand-ink leading-snug mt-0.5">
+                Showing immense precision, care, and thoroughness with details.
+              </p>
+              <p class="text-[12px] italic font-medium text-brand-inkMuted mt-1 leading-snug">
+                "The research demanded <span class="font-semibold text-brand-teal not-italic underline decoration-brand-teal/40">meticulous</span> observation over years."
+              </p>
+              
+              <!-- Bottom Row: Mastery Dots & Source Tag -->
+              <div class="flex items-center justify-between mt-2.5 pt-2 border-t border-[#F3ECE0]">
+                <!-- 5 Mastery Dots (3/5 filled) -->
+                <div class="flex items-center gap-1.5" title="Mastery: 3/5">
+                  <span class="w-2.5 h-2.5 rounded-full bg-brand-amber shadow-xs"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-brand-amber shadow-xs"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-brand-amber shadow-xs"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#E5DFD4] shadow-xs"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#E5DFD4] shadow-xs"></span>
+                  <span class="text-[10px] font-extrabold text-brand-amber ml-1">LEARNING</span>
+                </div>
+                <span class="text-[10px] font-bold text-brand-inkMuted/80">Teacher Ama · Speaking Call</span>
+              </div>
+            </div>
+
+            <!-- Right Actions & Retention Badge -->
+            <div class="flex flex-col items-end gap-2 shrink-0">
+              <!-- Retention % Chip (Amber Medium) -->
+              <span class="px-2 py-0.5 rounded-full bg-[#FFF4E5] border border-brand-amber/40 text-[#B45309] text-[11px] font-extrabold flex items-center gap-0.5">
+                <span class="material-symbols-rounded text-[12px]">horizontal_rule</span> 64%
+              </span>
+
+              <!-- Action buttons -->
+              <div class="flex items-center gap-1 mt-1">
+                <button class="w-7 h-7 rounded-full bg-brand-tealLight border border-brand-teal/20 text-brand-teal flex items-center justify-center hover:bg-brand-teal hover:text-white tactile-btn">
+                  <span class="material-symbols-rounded text-[15px]">volume_up</span>
+                </button>
+                <button class="w-7 h-7 rounded-full bg-white border border-brand-border text-brand-inkMuted flex items-center justify-center hover:text-brand-ink tactile-btn">
+                  <span class="material-symbols-rounded text-[14px]">edit</span>
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Card 4: spearhead (Critical Low / 1/5 dots / About to forget) -->
+        <div class="word-card rounded-[18px] p-3.5 relative border-l-4 border-l-brand-coral bg-[#FFFDFC]">
+          <!-- Critical Badge Pill -->
+          <div class="absolute -top-2.5 right-4 px-2 py-0.5 bg-brand-coral text-white text-[9px] font-extrabold uppercase tracking-wider rounded-full shadow-xs flex items-center gap-0.5">
+            <span class="material-symbols-rounded text-[11px]">priority_high</span> Review today
+          </div>
+
+          <div class="flex items-start justify-between gap-2.5">
+            
+            <!-- Left Emoji / Sticker Tile -->
+            <div class="w-11 h-11 rounded-[14px] bg-[#FFF0EE] border border-brand-coral/30 flex items-center justify-center text-[22px] shadow-sm shrink-0">
+              🚀
+            </div>
+
+            <!-- Middle Content -->
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="text-[17px] font-extrabold text-brand-ink tracking-tight">spearhead</span>
+                <span class="text-[12px] font-mono text-brand-inkMuted">/ˈspɪə.hed/</span>
+                <span class="text-[10px] font-extrabold px-1.5 py-0.5 rounded bg-brand-coralLight border border-brand-coral/30 text-brand-coral uppercase">verb</span>
+              </div>
+              <p class="text-[13px] font-semibold text-brand-ink leading-snug mt-0.5">
+                Lead an initiative from the front; champion and drive a project.
+              </p>
+              <p class="text-[12px] italic font-medium text-brand-inkMuted mt-1 leading-snug">
+                "She was asked to <span class="font-semibold text-brand-coral not-italic underline decoration-brand-coral/40">spearhead</span> the international expansion."
+              </p>
+              
+              <!-- Bottom Row: Mastery Dots & Source Tag -->
+              <div class="flex items-center justify-between mt-2.5 pt-2 border-t border-[#F3ECE0]">
+                <!-- 5 Mastery Dots (1/5 filled) -->
+                <div class="flex items-center gap-1.5" title="Mastery: 1/5">
+                  <span class="w-2.5 h-2.5 rounded-full bg-brand-coral shadow-xs"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#E5DFD4] shadow-xs"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#E5DFD4] shadow-xs"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#E5DFD4] shadow-xs"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#E5DFD4] shadow-xs"></span>
+                  <span class="text-[10px] font-extrabold text-brand-coral ml-1">ABOUT TO FORGET</span>
+                </div>
+                <span class="text-[10px] font-bold text-brand-inkMuted/80">Job Interview Drill</span>
+              </div>
+            </div>
+
+            <!-- Right Actions & Retention Badge -->
+            <div class="flex flex-col items-end gap-2 shrink-0">
+              <!-- Retention % Chip (Red Low) -->
+              <span class="px-2 py-0.5 rounded-full bg-brand-dangerLight border border-brand-danger/30 text-brand-danger text-[11px] font-extrabold flex items-center gap-0.5">
+                <span class="material-symbols-rounded text-[12px]">trending_down</span> 42%
+              </span>
+
+              <!-- Action buttons -->
+              <div class="flex items-center gap-1 mt-1">
+                <button class="w-7 h-7 rounded-full bg-brand-tealLight border border-brand-teal/20 text-brand-teal flex items-center justify-center hover:bg-brand-teal hover:text-white tactile-btn">
+                  <span class="material-symbols-rounded text-[15px]">volume_up</span>
+                </button>
+                <button class="w-7 h-7 rounded-full bg-white border border-brand-border text-brand-inkMuted flex items-center justify-center hover:text-brand-ink tactile-btn">
+                  <span class="material-symbols-rounded text-[14px]">edit</span>
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Card 5: bottleneck (Medium Low / 2/5 dots) -->
+        <div class="word-card rounded-[18px] p-3.5 relative">
+          <div class="flex items-start justify-between gap-2.5">
+            
+            <!-- Left Emoji / Sticker Tile -->
+            <div class="w-11 h-11 rounded-[14px] bg-[#FFF2E8] border border-[#EA580C]/30 flex items-center justify-center text-[22px] shadow-sm shrink-0">
+              ⏳
+            </div>
+
+            <!-- Middle Content -->
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="text-[17px] font-extrabold text-brand-ink tracking-tight">bottleneck</span>
+                <span class="text-[12px] font-mono text-brand-inkMuted">/ˈbɒt.əl.nek/</span>
+                <span class="text-[10px] font-extrabold px-1.5 py-0.5 rounded bg-brand-cream border border-brand-border text-brand-inkMuted uppercase">noun</span>
+              </div>
+              <p class="text-[13px] font-semibold text-brand-ink leading-snug mt-0.5">
+                A point of congestion that slows down or impedes an entire system.
+              </p>
+              <p class="text-[12px] italic font-medium text-brand-inkMuted mt-1 leading-snug">
+                "Severe customs delays created a critical supply chain <span class="font-semibold text-brand-teal not-italic underline decoration-brand-teal/40">bottleneck</span>."
+              </p>
+              
+              <!-- Bottom Row: Mastery Dots & Source Tag -->
+              <div class="flex items-center justify-between mt-2.5 pt-2 border-t border-[#F3ECE0]">
+                <!-- 5 Mastery Dots (2/5 filled) -->
+                <div class="flex items-center gap-1.5" title="Mastery: 2/5">
+                  <span class="w-2.5 h-2.5 rounded-full bg-brand-amber shadow-xs"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-brand-amber shadow-xs"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#E5DFD4] shadow-xs"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#E5DFD4] shadow-xs"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#E5DFD4] shadow-xs"></span>
+                  <span class="text-[10px] font-extrabold text-[#D97706] ml-1">SHAKY</span>
+                </div>
+                <span class="text-[10px] font-bold text-brand-inkMuted/80">TOEIC Logistics Part 7</span>
+              </div>
+            </div>
+
+            <!-- Right Actions & Retention Badge -->
+            <div class="flex flex-col items-end gap-2 shrink-0">
+              <!-- Retention % Chip (Amber Medium) -->
+              <span class="px-2 py-0.5 rounded-full bg-[#FFF4E5] border border-brand-amber/40 text-[#B45309] text-[11px] font-extrabold flex items-center gap-0.5">
+                <span class="material-symbols-rounded text-[12px]">horizontal_rule</span> 58%
+              </span>
+
+              <!-- Action buttons -->
+              <div class="flex items-center gap-1 mt-1">
+                <button class="w-7 h-7 rounded-full bg-brand-tealLight border border-brand-teal/20 text-brand-teal flex items-center justify-center hover:bg-brand-teal hover:text-white tactile-btn">
+                  <span class="material-symbols-rounded text-[15px]">volume_up</span>
+                </button>
+                <button class="w-7 h-7 rounded-full bg-white border border-brand-border text-brand-inkMuted flex items-center justify-center hover:text-brand-ink tactile-btn">
+                  <span class="material-symbols-rounded text-[14px]">edit</span>
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Card 6: substantiate (Mastered High / 5/5 dots) -->
+        <div class="word-card rounded-[18px] p-3.5 relative">
+          <div class="flex items-start justify-between gap-2.5">
+            
+            <!-- Left Emoji / Sticker Tile -->
+            <div class="w-11 h-11 rounded-[14px] bg-[#E8F5F4] border border-brand-teal/30 flex items-center justify-center text-[22px] shadow-sm shrink-0">
+              📑
+            </div>
+
+            <!-- Middle Content -->
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="text-[17px] font-extrabold text-brand-ink tracking-tight">substantiate</span>
+                <span class="text-[12px] font-mono text-brand-inkMuted">/səbˈstæn.ʃi.eɪt/</span>
+                <span class="text-[10px] font-extrabold px-1.5 py-0.5 rounded bg-brand-cream border border-brand-border text-brand-inkMuted uppercase">verb</span>
+              </div>
+              <p class="text-[13px] font-semibold text-brand-ink leading-snug mt-0.5">
+                Provide solid empirical evidence to validate or prove truth.
+              </p>
+              <p class="text-[12px] italic font-medium text-brand-inkMuted mt-1 leading-snug">
+                "They offered verified data to <span class="font-semibold text-brand-teal not-italic underline decoration-brand-teal/40">substantiate</span> the argument."
+              </p>
+              
+              <!-- Bottom Row: Mastery Dots & Source Tag -->
+              <div class="flex items-center justify-between mt-2.5 pt-2 border-t border-[#F3ECE0]">
+                <!-- 5 Mastery Dots (5/5 filled) -->
+                <div class="flex items-center gap-1.5" title="Mastery: 5/5">
+                  <span class="w-2.5 h-2.5 rounded-full bg-brand-success shadow-xs"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-brand-success shadow-xs"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-brand-success shadow-xs"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-brand-success shadow-xs"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-brand-success shadow-xs"></span>
+                  <span class="text-[10px] font-extrabold text-brand-success ml-1">MASTERED</span>
+                </div>
+                <span class="text-[10px] font-bold text-brand-inkMuted/80">Academic Collocations B2</span>
+              </div>
+            </div>
+
+            <!-- Right Actions & Retention Badge -->
+            <div class="flex flex-col items-end gap-2 shrink-0">
+              <!-- Retention % Chip (Green High) -->
+              <span class="px-2 py-0.5 rounded-full bg-brand-successLight border border-brand-success/30 text-brand-success text-[11px] font-extrabold flex items-center gap-0.5">
+                <span class="material-symbols-rounded text-[12px]">trending_up</span> 94%
+              </span>
+
+              <!-- Action buttons -->
+              <div class="flex items-center gap-1 mt-1">
+                <button class="w-7 h-7 rounded-full bg-brand-tealLight border border-brand-teal/20 text-brand-teal flex items-center justify-center hover:bg-brand-teal hover:text-white tactile-btn">
+                  <span class="material-symbols-rounded text-[15px]">volume_up</span>
+                </button>
+                <button class="w-7 h-7 rounded-full bg-white border border-brand-border text-brand-inkMuted flex items-center justify-center hover:text-brand-ink tactile-btn">
+                  <span class="material-symbols-rounded text-[14px]">edit</span>
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Add Word / Quick Add floating button -->
+      <div class="pt-2 pb-1 text-center">
+        <button class="w-full py-3 rounded-[16px] bg-white border-2 border-dashed border-brand-border text-brand-teal font-extrabold text-[13px] flex items-center justify-center gap-2 hover:border-brand-teal hover:bg-brand-tealLight/40 transition-all tactile-btn">
+          <span class="material-symbols-rounded text-[18px]">add_circle</span>
+          Add new word to this deck
+        </button>
+      </div>
+
+    </main>
+
+    <!-- Bottom Fixed Tab Bar: Exactly 5 tabs, Train (Practice) active with 2px teal border & tint -->
+    <nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[390px] h-18 bg-white border-t border-brand-border z-40 px-3 py-2 flex items-center justify-between shadow-[0_-4px_16px_rgba(16,25,27,0.04)]">
+      <!-- Learn -->
+      <a href="#" class="flex flex-col items-center justify-center w-14 py-1 text-brand-inkMuted hover:text-brand-ink transition-colors group">
+        <span class="material-symbols-rounded text-[22px]">timeline</span>
+        <span class="text-[10px] font-bold mt-0.5 tracking-tight">Learn</span>
+      </a>
+
+      <!-- Review -->
+      <a href="#" class="flex flex-col items-center justify-center w-14 py-1 text-brand-inkMuted hover:text-brand-ink transition-colors group relative">
+        <span class="material-symbols-rounded text-[22px]">style</span>
+        <span class="text-[10px] font-bold mt-0.5 tracking-tight">Review</span>
+        <span class="w-2 h-2 rounded-full bg-brand-coral absolute top-1 right-3.5"></span>
+      </a>
+
+      <!-- Train / Practice (ACTIVE with tactile teal border + tint) -->
+      <a href="#" class="flex flex-col items-center justify-center w-14 py-1 rounded-[14px] bg-brand-tealLight border-2 border-brand-teal text-brand-teal shadow-xs">
+        <span class="material-symbols-rounded text-[22px] text-brand-teal font-bold">bolt</span>
+        <span class="text-[10px] font-extrabold mt-0.5 tracking-tight text-brand-teal">Train</span>
+      </a>
+
+      <!-- Leagues -->
+      <a href="#" class="flex flex-col items-center justify-center w-14 py-1 text-brand-inkMuted hover:text-brand-ink transition-colors group">
+        <span class="material-symbols-rounded text-[22px]">trophy</span>
+        <span class="text-[10px] font-bold mt-0.5 tracking-tight">Leagues</span>
+      </a>
+
+      <!-- Me -->
+      <a href="#" class="flex flex-col items-center justify-center w-14 py-1 text-brand-inkMuted hover:text-brand-ink transition-colors group">
+        <span class="material-symbols-rounded text-[22px]">person</span>
+        <span class="text-[10px] font-bold mt-0.5 tracking-tight">Me</span>
+      </a>
+    </nav>
+
+  </div>
+
+</body>
+</html>
+

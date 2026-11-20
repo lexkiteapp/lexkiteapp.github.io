@@ -17,7 +17,7 @@ paras: [
 ],
 groups: [
 { type: 'tfng',
-instr: 'Do the following statements agree with the information given in Reading Passage 1? Write TRUE if the statement agrees with the information, FALSE if the statement contradicts the information, NOT GIVEN if there is no information on this.',
+instr: g.RTI[1],
 items: [
 { n: 1, text: 'Obsidian forms when lava cools slowly over a long period.', a: 'FALSE', cue: 'cools so quickly that crystals do not have time to grow' },
 { n: 2, text: 'The edge of an obsidian flake can be finer than that of a modern surgical blade.', a: 'TRUE', cue: 'edges that can be thinner than those of a modern steel scalpel' },
@@ -36,7 +36,7 @@ items: [
 { n: 11, text: '↓ The closest match shows where the artefact came from, i.e. its ___.', a: ['origin'], cue: 'The closest match reveals the artefact' },
 ] },
 { type: 'match',
-instr: 'Reading Passage 1 has seven paragraphs, A–G. Which paragraph contains the following information? NB You may use any letter more than once.',
+instr: g.RTI[5],
 options: ['A', 'B', 'C', 'D', 'E', 'F', 'G'],
 items: [
 { n: 12, text: 'reasons why some artefacts cannot be linked to any source', a: 'G', cue: 'a few artefacts cannot be matched with any known source' },
@@ -74,7 +74,7 @@ paras: [
 ],
 groups: [
 { type: 'match',
-instr: 'Reading Passage 2 has seven paragraphs, A–G. Which paragraph contains the following information? NB You may use any letter more than once.',
+instr: g.RTI[13],
 options: ['A', 'B', 'C', 'D', 'E', 'F', 'G'],
 items: [
 { n: 14, text: 'an estimate of the total number of glaciers on Earth', a: 'B', cue: 'out of more than two hundred thousand glaciers worldwide' },
@@ -97,7 +97,7 @@ items: [
 { n: 21, text: "Pollution can cause glacier surfaces to absorb more of the sun's energy.", a: 'C', cue: 'darkens their surface so that it absorbs more sunlight' },
 ] },
 { type: 'summary', title: 'Measuring mass balance',
-instr: 'Complete the summary below. Choose NO MORE THAN TWO WORDS from the passage for each answer.', limit: 2,
+instr: g.RTI[2], limit: 2,
 items: [
 { n: 22, text: 'Mass balance compares what a glacier gains each year, mainly from ___, with what it loses.', a: ['snowfall'], cue: 'mostly through snowfall' },
 { n: 23, text: 'Glaciers that end in water also lose ice through ___, when blocks break away.', a: ['calving'], cue: 'through calving, the breaking off of blocks of ice' },
@@ -137,7 +137,7 @@ paras: [
 { k: 'G', t: "The labelled jar, in other words, is not a defect to be removed from human psychology but a tool, and like any tool it can be used well or badly. The question that matters is not whether people sort their money into categories, since they almost certainly always will, but who designs the categories and in whose interest. Economics will be more useful when it starts from that question rather than from the assumption that a dollar is always just a dollar." },
 ],
 groups: [
-{ type: 'mcq', instr: 'Choose the correct letter, A, B, C or D.',
+{ type: 'mcq', instr: g.RTI[3],
 items: [
 { n: 27, q: 'According to the standard economic model described in paragraph A,',
 options: ['people should spend unexpected income before regular income.', 'the origin of a sum of money should not affect how it is used.', 'people naturally divide their money into separate categories.', 'money that has been saved is worth more than money that has been earned.'],
@@ -153,7 +153,7 @@ options: ['They expect the government to compensate them.', 'They are advised to
 a: 2, cue: 'selling would mean closing the account at a loss and admitting a mistake' },
 ] },
 { type: 'ynng',
-instr: 'Do the following statements agree with the claims of the writer in Reading Passage 3? Write YES if the statement agrees with the claims of the writer, NO if the statement contradicts the claims of the writer, NOT GIVEN if it is impossible to say what the writer thinks about this.',
+instr: g.RTI[0],
 items: [
 { n: 31, text: 'Dividing money into categories can help people on low incomes to control their spending.', a: 'YES', cue: 'A household living on a tight budget may divide its cash into envelopes' },
 { n: 32, text: 'Gamblers usually become more cautious after a win.', a: 'NO', cue: 'go on to take much larger risks than they would with money they had brought with them' },
@@ -162,7 +162,7 @@ items: [
 { n: 35, text: 'Automatically moving part of a salary into a labelled account is an effective way of helping people to save.', a: 'YES', cue: 'Because the money never appears in the everyday account, it is rarely spent' },
 ] },
 { type: 'sentence',
-instr: 'Complete the sentences below. Choose NO MORE THAN TWO WORDS from the passage for each answer.', limit: 2,
+instr: g.RTI[8], limit: 2,
 items: [
 { n: 36, text: 'Unexpected sums such as bonuses are often regarded as a ___ and spent more readily than a salary.', a: ['windfall'], cue: 'tends to be treated as a windfall and spent more freely than regular income' },
 { n: 37, text: 'Families on tight budgets may put money for rent, food and transport into separate ___.', a: ['envelopes'], cue: 'divide its cash into envelopes marked for rent, food and transport' },

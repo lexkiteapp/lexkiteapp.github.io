@@ -21,6 +21,8 @@ Si te preguntas cómo mejorar el listening en inglés, la respuesta corta es est
 
 No entiendes el audio, abres la transcripción y conocías casi todas las palabras. La causa suele estar en uno de estos cuatro puntos.
 
+Si quieres profundizar, lee también [las estrategias de TOEIC Listening Part 2](/es/blog/toeic-listening-part-2-estrategias-preguntas-respuestas/).
+
 **1. Conoces la palabra escrita, no la palabra sonora.** Si aprendiste inglés sobre todo con libros, tu memoria guarda la imagen de la palabra, no su sonido. El español se pronuncia casi como se escribe, así que tendemos a "leer" el inglés en voz alta a la española. *Comfortable* se queda en la cabeza como "con-for-ta-ble", cuando en realidad suena /ˈkʌmftəbl/, con tres sílabas. Cuando el audio llega, buscas un sonido que nunca guardaste.
 
 **2. El habla real no separa las palabras.** En el papel hay espacios; en la boca, no. Los nativos enlazan sonidos, se comen otros y reducen las palabras gramaticales. *What do you want to do?* puede sonar como "wadaya wanna do?". Aprendiste cada palabra por separado, pero no las reconoces cuando llegan pegadas.
@@ -178,6 +180,8 @@ Para elegir audios de tu nivel, conviene saber dónde estás: repasa los [nivele
 {{cta: /#/listening | Prueba el método de 5 escuchas con una parte de Listening}}
 
 {{youtube: | Idea de vídeo: analizar un fragmento de un minuto con el método de 5 escuchas}}
+
+Si te preparas para IELTS, consulta además [los tipos de preguntas IELTS Listening](/es/blog/tipos-de-preguntas-ielts-listening/) y cómo atacar cada uno.
 
 ## Preguntas frecuentes
 

@@ -54,6 +54,8 @@ quiz: [
 
 Que vous prépariez une candidature pour une université prestigieuse en Amérique du Nord, un échange universitaire Erasmus au Royaume-Uni ou un dossier d'expatriation professionnelle, la question fatidique se pose inévitablement : **toefl ou ielts lequel choisir** pour maximiser vos chances de réussite ? Ces deux mastodontes de l'évaluation linguistique jouissent d'une réputation planétaire indiscutable, mais ils reposent sur des philosophies d'examen, des formats d'épreuves et des types d'interactions radicalement différents.
 
+Si votre projet est l'immigration, lisez aussi notre guide [IELTS pour immigrer au Canada, en Australie ou au Royaume-Uni](/fr/blog/ielts-pour-immigrer-canada-australie-royaume-uni/).
+
 Choisir le mauvais test peut vous pénaliser lourdement : un candidat très à l'aise face à un interlocuteur humain perdra ses moyens devant le chronomètre strict d'un ordinateur au TOEFL, tandis qu'un profil adepte des QCM standardisés et des claviers QWERTY sera déstabilisé par les réponses manuscrites de l'IELTS.
 
 Dans ce comparatif exhaustif et objectif, nous analysons point par point les formats d'épreuve, les barèmes de notation, les coûts et la reconnaissance institutionnelle pour vous guider vers l'examen le plus adapté à votre profil d'apprentissage.
@@ -61,9 +63,13 @@ Dans ce comparatif exhaustif et objectif, nous analysons point par point les for
 ![Interface d examen blanc IELTS pour les 4 compétences dans Lexkite](media:mock)
 *Simulation d examen IELTS permettant d évaluer ses performances avant de choisir son test.*
 
+Si vous penchez pour l'IELTS, voyez comment [le band global est calculé et ce que signifient les bands](/fr/blog/calcul-score-ielts-band-signification/).
+
 ## Vue d'ensemble : Les cartes d'identité des deux géants
 
 Avant d'entrer dans les subtilités pédagogiques, comparons les données fondamentales des deux certifications :
+
+À lire aussi : [notre guide du nouveau format TOEFL iBT 2026](/fr/blog/nouveau-format-toefl-ibt-2026/).
 
 | Critère | TOEFL iBT (Test of English as a Foreign Language) | IELTS Academic (International English Language Testing System) |
 | :--- | :--- | :--- |
@@ -152,6 +158,8 @@ Quel que soit votre choix final, les compétences linguistiques fondamentales re
 * Familiarisez-vous avec des formulations de haut niveau en consultant nos [Exemples de textes académiques](/samples/).
 
 Si vous optez pour le TOEFL, notre guide de la [TOEFL Academic Discussion](/fr/blog/toefl-academic-discussion-conseils/) détaille la dernière tâche de Writing, exemple corrigé à l'appui.
+
+Pour un dossier de visa britannique, la version à connaître est l'[IELTS UKVI](/fr/blog/ielts-ukvi-difference-ielts-classique/), détaillée dans notre article dédié.
 
 {{cta: /app/#/mock | Passer un test blanc sur Lexkite}}
 

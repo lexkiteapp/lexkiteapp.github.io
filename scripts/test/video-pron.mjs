@@ -16,6 +16,12 @@ for (const f of files) {
   const q = s.pops.find(p => p.kind === 'quiz'); ok(q && q.q, `${f}: quiz pills keep the question`);
   const h = s.pops.find(p => p.role === 'hook'); ok(!(h && h.kind === 'rich' && h.rows.some(r => r.every(g => g[0].startsWith('@') || !g[0].trim()))), `${f}: no badge-only hook row`);
 }
+// Mọi workflow chạy cổng qc_v9 (trực tiếp hoặc qua qc_motion) phải sinh pron.json ở job giọng – thiếu thì pron_kokoro/ipa_token đỏ
+// mọi PR chạm workflow đó (2/11: video-motion.yml + video-series.yml thiếu sau #181)
+for (const f of fs.readdirSync('.github/workflows').filter(f => f.endsWith('.yml'))) {
+  const y = fs.readFileSync('.github/workflows/' + f, 'utf8');
+  if (/qc_v9\.py|qc_motion\.py/.test(y)) ok(/pron\.mjs audit-json/.test(y), `${f}: chạy qc_v9 → job giọng phải có \`node scripts/video/tpl/pron.mjs audit-json\` (pron.json)`);
+}
 const mix = fs.readFileSync('content/video/scripts/bank/mixups.jsonl', 'utf8').trim().split('\n').map(JSON.parse);
 ok(mix.length >= 8 && mix.every(x => x.type === 'mix-up' && x.wrong !== x.right), 'curated mix-ups bank');
 console.log(bad ? `video-pron: ${bad} fail(s)` : `✓ video-pron: ${files.length} specs, IPA = bank for the exact taught token`);

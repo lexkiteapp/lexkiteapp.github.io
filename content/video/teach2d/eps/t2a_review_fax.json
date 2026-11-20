@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_fax",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: fax.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means a document sent by phone line.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "Please fax the signed contract to our head office.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "fax",
+  "ipa": "/fæks/",
+  "mean": "a document sent by phone line",
+  "ex": "Please fax the signed contract to our head office.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=fax",
+  "link": "https://lexkite.com/app/#/review?w=fax",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 42,
+  "seconds": 25.7,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"fax\" mean?",
+  "keyword": "fax",
+  "value": "Fax means a document sent by phone line.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=fax",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"fax\" mean?",
+    "description": "Fax means a document sent by phone line.\n\nReview your words, free: https://lexkite.com/app/#/review?w=fax\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "fax",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"fax\" mean?\n\nFax means a document sent by phone line.\n\nReview your words, free: https://lexkite.com/app/#/review?w=fax"
+   },
+   "instagram": {
+    "caption": "What does \"fax\" mean?\n\nFax means a document sent by phone line.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"fax\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means a document sent by phone line. Fax means a document sent by phone line. Try the full lesson and quiz here: {link}"
+ }
+}

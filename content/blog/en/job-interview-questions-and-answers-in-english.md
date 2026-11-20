@@ -114,6 +114,10 @@ You can practice structuring your interview stories in the interactive simulator
 2. **Take a three-second strategic pause:** When asked a complex behavioral question, avoid blurting out the first thought that comes to mind. Smile calmly and state: *"That is a thoughtful question; allow me a brief moment to structure my thoughts."* This conveys poise and analytical maturity.
 3. **Maintain engaging non-verbal rapport:** Keep eye contact centered directly on the camera lens during virtual calls, sit with upright posture, and nod attentively when the interviewer shares organizational context.
 
+Start strong with how to [answer "Tell me about yourself"](/en/blog/tell-me-about-yourself-answer-in-english/).
+
+After the interview, send a [follow-up email](/en/blog/follow-up-email-in-english-examples-and-timing/).
+
 ## Frequently Asked Questions (FAQ)
 
 ### What should I do if I fail to understand an interviewer's question?
@@ -124,3 +128,5 @@ Unless the recruiter explicitly initiates the compensation topic, focus entirely
 
 ### How should I set up my space for a remote video interview?
 Ensure strong front-facing lighting, test your microphone and internet connection beforehand, position the camera at eye level, and eliminate background distractions. Keep a notepad and a glass of water within comfortable reach.
+
+If you are new to the country, our guide to [job interview English for newcomers](/en/blog/job-interview-english-newcomers/) covers the language for the interview itself.

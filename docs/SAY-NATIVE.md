@@ -7,13 +7,13 @@
 
 ## Dữ liệu (một nguồn)
 - `content/say-native/series.json` (tay): loạt → thẻ {key = headword kho từ, say, reg, mean, when, swap, dont, pose, quiz}. Loạt có `teacher` (ama | carlos).
-- `content/say-native/meanings.json`: nghĩa 13 ngôn ngữ – CI `say-native.yml` (ai-pool: Gemini/Groq → CF_POOL; 2 giám khảo khác họ, đều ≥ 4); vi = nghĩa kho từ đã duyệt.
+- `content/say-native/meanings.json`: nghĩa 13 ngôn ngữ – CI `say-native.yml` (ai-pool: Gemini/Groq → CF_POOL; 2 giám khảo khác họ, đều ≥ 4); vi = nghĩa kho từ đã duyệt. Trên nhánh PR bot KHÔNG commit: kết quả = artifact + summary + comment PR → `bash scripts/ci/bot-output.sh say-native` rồi tự commit; trên main bot commit main.
 - `node scripts/say-native/build.mjs [--check]` → `web/data/say.json`. Cổng: ≥ 3 loạt, 6–10 thẻ, key trong kho có IPA, reg hợp lệ, đủ 14 nghĩa, không chữ Việt ngoài vi, câu thô đã che và không vào quiz, pose có clip của giáo viên, id duy nhất. `--check` nằm trong `npm test` (khi say.json có trên nhánh).
 - Bản dịch `web/packs` cho idiom là dịch máy theo chữ → thẻ KHÔNG dùng packs.
 
 ## Web (#/say)
 - `web/js/say.js` (tải lười `BUNDLES.say`): `#/say` danh sách loạt; `#/say/<loạt>/<thẻ>` thẻ, chạm lật. Link sâu `https://lexkite.com/app/#/say/<loạt>/<thẻ>`.
-- Khung: `brand/stitch/v2/say-{front,back}-{light,dark}.html` → bind `brand/stitch/v2/bind/say-front|say-back.json` → `ST2.mount` (cách port: `STITCH-V2-PORT.md`). Thanh tab Stitch → thanh tab chung (tab Luyện).
+- Khung: `brand/stitch/v2/say-{front,back}-{light,dark}.html` → bind `brand/stitch/v2/bind/say-front|say-back.json` → `ST2.mount` (cách port: `STITCH-V2-PORT.md`). Thanh tab Stitch → thanh tab chung (tab Kỹ năng).
 - Giáo viên: `Chars.still(<giáo viên loạt>, <pose thẻ>)` vào chỗ trống; 🔊 `UI.tts(say, 'en-US', …, { voice: Chars.voice(<giáo viên>) })`, 🎧 chậm 0.7, 🎤 `UI.recognize` (% giống), ⚑ `LexReport` cid `say:<loạt>/<thẻ>`.
 - Chia sẻ: Canvas 1:1 (1080²) và 4:5 (1080×1350), không chứa câu "đừng nói"; `LKFile.save` / tải ảnh / chép link.
 - Danh sách loạt chưa có ref Stitch riêng → dùng token thẻ của mặt trước (chủ duyệt ảnh; cần thì vẽ ref).

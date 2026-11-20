@@ -45,6 +45,15 @@ export function metaFor(spec, lines = {}) {
   return { title, description, tags, url };
 }
 
+/** Clip không có kịch bản cine-news (Teach2D, bản ngữ, mẫu Motion…): metadata từ chính mục manifest (it.publish do publish.py viết lúc dựng; title/description/point dự phòng). → null nếu thiếu tiêu đề. */
+export function metaFromItem(it) {
+  const pub = (it && it.publish) || {}, title = String(pub.title || (it && it.title) || '').replace(/\s+/g, ' ').trim().slice(0, 100); if (!title) return null;
+  const tagsIn = [...(Array.isArray(pub.hashtags) ? pub.hashtags : []), ...(Array.isArray(it.hashtags) ? it.hashtags : [])].map(h => String(h).replace(/^#/, '').toLowerCase()).filter(h => /^[a-z0-9]+$/.test(h));
+  const hashtags = [...new Set(['shorts', ...tagsIn])].slice(0, 6).map(h => '#' + h), kw = String(pub.keyword || it.point || '').trim();
+  const description = [String(pub.value || it.description || '').trim(), '', `Full lesson + quick quiz: ${String(it.link || 'https://lexkite.com/')}`, 'Learn English free with Lexkite: https://lexkite.com/', '', 'The hosts and voices in this video are AI-generated.', '', hashtags.join(' ')].filter((x, i, a) => x !== '' || a[i - 1] !== '').join('\n').trim();
+  return { title, description, tags: [...new Set([kw.toLowerCase(), 'learn english', 'english lesson', 'english shorts'].filter(Boolean))], lang: String(it.lang || 'en').toLowerCase() };
+}
+
 /** PUT the file into the resumable session; on failure query the received range and resume (≤ 5 tries). → video resource JSON. */
 export async function putResumable(url, buf, { fetcher = fetch, tries = 5, wait = 3000 } = {}) {
   let off = 0;
@@ -68,16 +77,17 @@ export async function runUploads({ index, max = 6, dry = false, api = ytApi, fet
   const idx = typeof index === 'string' ? JSON.parse(fs.readFileSync(index, 'utf8')) : index, by = new Map((idx.items || []).map(x => [x.id, x]));
   const lines = readJSON('content/video/cine/news/lines.json', {});
   const nx = await api('next', { max }), rep = { uploaded: [], failed: [], quota: nx.quota, queued: (nx.items || []).length };
+  if (!(nx.items || []).length) log(`Hàng đợi tải trống: ${JSON.stringify(nx.counts || {})} · chế độ ${nx.mode || 'api'} · hạn mức còn ${(nx.quota || {}).left ?? '?'} → không có clip nào được duyệt chờ tải (lấp lịch: social-coverage › yt-fill)`);
   if (!nx.channel) { log('YouTube chưa kết nối (Quản trị → Thư viện video → Kết nối YouTube)'); return rep; }
   for (const q of nx.items || []) {
     const it = by.get(q.id), v = it && it.drive && it.drive.video;
-    const spec = readJSON(`content/video/cine/news/${q.lesson || (it || {}).lesson}.json`);
-    if (!it || !v || !v.fileId || v.retired || !spec) { await api('fail', { id: q.id, error: !spec ? 'no lesson script' : 'master not on Drive' }); rep.failed.push(q.id); continue; }
-    const meta = metaFor(spec, lines);
+    const spec = readJSON(`content/video/cine/news/${q.lesson || (it || {}).lesson}.json`), meta = spec ? metaFor(spec, lines) : metaFromItem(it);
+    const why = !it ? 'clip not in manifest' : !v || !v.fileId || v.retired ? 'master not on Drive' : !meta ? 'no title (no lesson script, no publish metadata)' : '';
+    if (why) { log(`✗ bỏ qua ${q.id}: ${why}`); await api('fail', { id: q.id, error: why.slice(0, 60) }); rep.failed.push(q.id); continue; }
     if (dry) { log(`· ${q.id} [${q.privacy}${q.publish_at ? ' → ' + q.publish_at : ''}] ${meta.title}`); continue; }
     try {
       const f = path.join(work, q.id + '.mp4'); await fetchMaster(v.fileId, f, { sha: v.sha256 });
-      const buf = readFile(f), s = await api('session', { id: q.id, meta: { title: meta.title, description: meta.description, tags: meta.tags, size: buf.length } });
+      const buf = readFile(f), s = await api('session', { id: q.id, meta: { title: meta.title, description: meta.description, tags: meta.tags, lang: meta.lang, size: buf.length } });
       const video = await put(s.upload_url, buf);
       const d = await api('done', { id: q.id, video_id: video.id });
       rep.uploaded.push({ id: q.id, video_id: video.id, privacy: d.privacy, thumb: d.thumb }); rep.quota = d.quota || rep.quota;
@@ -92,8 +102,8 @@ export async function runUploads({ index, max = 6, dry = false, api = ytApi, fet
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const a = process.argv.slice(2), opt = n => { const i = a.indexOf('--' + n); return i >= 0 ? a[i + 1] : undefined; };
-  const rep = await runUploads({ index: opt('index') || '/tmp/shorts/shorts/index.json', max: +(opt('max') || 6), dry: a.includes('--dry-run') });
-  const q = rep.quota || {}, line = `YouTube: ${rep.uploaded.length} lên · ${rep.failed.length} lỗi · hạn mức còn ${q.left ?? '?'} / ${q.limit ?? 10000} đơn vị (≈ ${q.uploads_left ?? '?'} video) hôm nay (${q.day || ''} PT)`;
+  const rep = await runUploads({ index: opt('index') || '/tmp/shorts/shorts/index.json', max: +(opt('max') || 12), dry: a.includes('--dry-run') });
+  const q = rep.quota || {}, line = `YouTube: ${rep.uploaded.length} lên · ${rep.failed.length} lỗi · hạn mức còn ${q.left ?? '?'} / ${q.limit ?? 60000} đơn vị (≈ ${q.uploads_left ?? '?'} video) hôm nay (${q.day || ''} PT)`;
   console.log(line);
   if (process.env.GITHUB_STEP_SUMMARY) fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, `### YouTube upload\n${line}\n`);
   process.exit(rep.failed.length && !rep.uploaded.length ? 1 : 0);

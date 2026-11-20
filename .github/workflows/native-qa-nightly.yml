@@ -1,0 +1,22 @@
+# Kiểm đủ chữ bản địa clip L1 mỗi đêm (docs/VIDEO-TEACH2D.md): native-qa --online trên MỌI hàng của main (dịch ngược gtx). Trên PR teach-video chỉ dịch ngược hàng PR đổi (16/11, scripts/video/teach2d/qa-scope.mjs) → đêm nào hàng lệch cũng bị bắt, không làm đỏ PR không liên quan.
+# Đỏ = có hàng l1 lệch nghĩa so với en.* → sửa lớp en.* cho khớp bản bản địa (như video-script-bank làm 109 hàng). Chỉ đọc dữ liệu + gọi gtx; không render, không đăng.
+name: native-qa-nightly
+on:
+  schedule:
+    - cron: '40 3 * * *'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: native-qa-nightly
+  cancel-in-progress: false
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: node scripts/video/teach2d/native-qa.mjs --online
+      - run: node scripts/video/teach2d/rule-l1-qa.mjs --online

@@ -1,0 +1,262 @@
+{
+ "v": 1,
+ "tl": "es",
+ "variant": "es-419",
+ "status": "reviewed",
+ "source": {
+  "name": "FrequencyWords (hermitdave) – OpenSubtitles 2018 es_50k",
+  "url": "https://raw.githubusercontent.com/hermitdave/FrequencyWords/master/content/2018/es/es_50k.txt",
+  "license": "CC BY-SA 4.0 (dữ liệu) – chỉ dùng thứ hạng để chọn từ; ghi công trong spec"
+ },
+ "words": [
+  {
+   "word": "en",
+   "pos": "prep",
+   "ipa": "ˈen",
+   "gl": {
+    "vi": "trong, ở",
+    "en": "in, on, at",
+    "es": "en",
+    "pt": "em, dentro de",
+    "fr": "dans, sur, à",
+    "de": "in, auf, bei",
+    "id": "di, dalam",
+    "th": "ใน, บน",
+    "zh": "在, 于",
+    "ja": "～に, ～で",
+    "ko": "에, 안에",
+    "hi": "में, पर",
+    "ar": "في, على",
+    "ru": "в, на",
+    "tr": "içinde, -de"
+   },
+   "ex": {
+    "es": "El libro está en la mesa.",
+    "en": "The book is on the table."
+   },
+   "rank": 9,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.6-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "con",
+   "pos": "prep",
+   "ipa": "ˈkon",
+   "gl": {
+    "vi": "với, cùng",
+    "en": "with, together with",
+    "es": "con",
+    "pt": "com",
+    "fr": "avec",
+    "de": "mit",
+    "id": "dengan",
+    "th": "กับ",
+    "zh": "和, 与",
+    "ja": "～と, ～で",
+    "ko": "와, 과",
+    "hi": "के साथ",
+    "ar": "مع",
+    "ru": "с",
+    "tr": "ile"
+   },
+   "ex": {
+    "es": "Voy con mi amigo al cine.",
+    "en": "I go with my friend to the cinema."
+   },
+   "rank": 19,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.6-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "todo",
+   "pos": "adj",
+   "ipa": "ˈtoðo",
+   "gl": {
+    "vi": "tất cả",
+    "en": "all, every",
+    "es": "todo",
+    "pt": "todo, toda",
+    "fr": "tout, toute",
+    "de": "alles, jeder",
+    "id": "semua",
+    "th": "ทั้งหมด",
+    "zh": "全部",
+    "ja": "すべての",
+    "ko": "모든",
+    "hi": "सब",
+    "ar": "كل",
+    "ru": "все",
+    "tr": "her, bütün"
+   },
+   "ex": {
+    "es": "Trabajo todo el día.",
+    "en": "I work all day."
+   },
+   "rank": 39,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.6-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ],
+    "wikt": "từ loại adj ↔ det/pron"
+   }
+  },
+  {
+   "word": "cómo",
+   "pos": "adv",
+   "ipa": "ˈkomo",
+   "gl": {
+    "vi": "như thế nào",
+    "en": "how",
+    "es": "cómo",
+    "pt": "como",
+    "fr": "comment",
+    "de": "wie",
+    "id": "bagaimana",
+    "th": "อย่างไร",
+    "zh": "如何",
+    "ja": "どうやって",
+    "ko": "어떻게",
+    "hi": "कैसे",
+    "ar": "كيف",
+    "ru": "как",
+    "tr": "nasıl"
+   },
+   "ex": {
+    "es": "¿Cómo estás?",
+    "en": "How are you?"
+   },
+   "rank": 59,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.6-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "verdad",
+   "pos": "n",
+   "gender": "f",
+   "plural": "verdades",
+   "ipa": "beɾˈðad",
+   "gl": {
+    "vi": "sự thật",
+    "en": "truth",
+    "es": "verdad",
+    "pt": "verdade",
+    "fr": "vérité",
+    "de": "Wahrheit",
+    "id": "kebenaran",
+    "th": "ความจริง",
+    "zh": "真相",
+    "ja": "真実",
+    "ko": "진실",
+    "hi": "सच्चाई",
+    "ar": "حقيقة",
+    "ru": "правда",
+    "tr": "gerçek"
+   },
+   "ex": {
+    "es": "La verdad es importante.",
+    "en": "The truth is important."
+   },
+   "rank": 90,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.6-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ],
+    "ipaAi": "beɾˈðað"
+   }
+  },
+  {
+   "word": "trabajo",
+   "pos": "n",
+   "gender": "m",
+   "plural": "trabajos",
+   "ipa": "tɾaˈβaxo",
+   "gl": {
+    "vi": "công việc",
+    "en": "work, job",
+    "es": "trabajo",
+    "pt": "trabalho",
+    "fr": "travail",
+    "de": "Arbeit",
+    "id": "pekerjaan",
+    "th": "งาน",
+    "zh": "工作",
+    "ja": "仕事",
+    "ko": "일",
+    "hi": "काम",
+    "ar": "عمل",
+    "ru": "работа",
+    "tr": "iş"
+   },
+   "ex": {
+    "es": "Tengo mucho trabajo hoy.",
+    "en": "I have a lot of work today."
+   },
+   "rank": 142,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.6-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ],
+    "spot": true
+   }
+  }
+ ],
+ "review": {
+  "by": "sonnet-review-A",
+  "at": "2026-11-09",
+  "checked": 6,
+  "fixed": 1,
+  "dropped": 0,
+  "sample": 6
+ }
+}

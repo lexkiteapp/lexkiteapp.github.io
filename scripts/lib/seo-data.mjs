@@ -2,12 +2,12 @@
 import fs from 'node:fs'; import vm from 'node:vm';
 
 const ctx = (extra = {}) => { const c = { self: {}, window: {}, t: s => s, localStorage: { getItem() {}, setItem() {} }, ...extra }; c.self = c.window = c; vm.createContext(c); return c; };
-const run = (c, f) => vm.runInContext(fs.readFileSync(`web/js/${f}.js`, 'utf8'), c);
+const run = (c, f) => vm.runInContext(fs.readFileSync(fs.existsSync(`web/js/${f}.js`) ? `web/js/${f}.js` : `web/cpack/${f}.js`, 'utf8'), c); // dữ liệu lớn tải lười nằm ở web/cpack (cùng tên, không có ở web/js)
 const load = files => { const c = ctx(); for (const f of files) run(c, f); return c; };
 
 // Writing Task 2: đề (write.js PROMPTS + WRITE_MORE) + bài mẫu (MODELS)
 export function loadWriting() {
-  const c = load(['write/task2-more', 'models', 'write/models2', 'write/models3', 'write/models4', 'write/models5']);
+  const c = load(['write/task2-more', 'write/models', 'write/models2', 'write/models3', 'write/models4', 'write/models5']);
   const w = fs.readFileSync('web/js/write.js', 'utf8'), T = (id, type, topic, text) => ({ id, type, topic, text });
   const P = vm.runInNewContext(w.slice(w.indexOf('const PROMPTS = [') + 16, w.indexOf('];', w.indexOf('const PROMPTS = [')) + 1), { T });
   for (const a of c.WRITE_MORE || []) if (!P.some(p => p.id === a[0])) P.push(T(...a));
@@ -43,6 +43,21 @@ export function relatedOf(list, item, same, n = 6) {
   const i = list.indexOf(item), after = pool.filter(x => list.indexOf(x) > i), before = pool.filter(x => list.indexOf(x) < i);
   return [...after, ...before].slice(0, n);
 }
+// Mục mới thêm vào một họ trang: trang CŨ giữ NGUYÊN 4 gợi ý như trước (cổng samples-seo-parity cấm mất link), mục mới chỉ được THÊM vào cuối (tối đa 2); trang mới gợi ý như thường.
+export function relatedKeep(list, item, same, isNew, n = 4) {
+  if (isNew(item)) return relatedOf(list, item, same, n);
+  return [...relatedOf(list.filter(x => !isNew(x)), item, same, n), ...list.filter(x => isNew(x) && same(x)).slice(0, 2)];
+}
+// Task 2: đề id > p80 là đợt mới (p81+). Task 1 Academic: 14 đề đợt 2 (task1-more3.js).
+export const isNewT2 = x => +String(x[0].id).replace(/\D/g, '') > 80;
+const NEW_T1 = new Set('smartwatch cinema commuting studyabroad budget library rentcity sportsgender recycling rainwater bricks harbour townsquare schoolsite'.split(' '));
+export const isNewT1 = x => NEW_T1.has(x[0].id);
+// Phát âm: bài cũ giữ NGUYÊN 4 gợi ý như trước (cổng samples-seo-parity cấm mất link), bài nâng cao mới (adv) chỉ được THÊM vào cuối (tối đa 2); bài adv gợi ý như thường.
+export function relatedPron(list, x) {
+  const same = y => y.group === x.group;
+  if (x.adv) return relatedOf(list, x, same, 4);
+  return [...relatedOf(list.filter(y => !y.adv), x, same, 4), ...relatedOf(list.filter(y => y.adv), x, same, 2)];
+}
 // Ngữ pháp: bài + tên chủ điểm (UNITS trong web/js/grammar.js)
 export function loadGrammar() {
   const c = load(['grammar/tenses', 'grammar/verbs', 'grammar/sentences', 'grammar/foundation', 'grammar/academic', 'grammar/chapters', 'grammar/book2']);
@@ -57,7 +72,7 @@ export function loadLetters() {
 }
 // IELTS Academic Task 1: đề (SETS trong task1.js + TASK1_MORE) + bài mẫu MODELS 't1-<id>'
 export function loadTask1() {
-  const c = load(['models', 'write/task1-more', 'write/task1-more2']);
+  const c = load(['write/models', 'write/task1-more', 'write/task1-more2', 'write/task1-more3']);
   const w = fs.readFileSync('web/js/task1.js', 'utf8'), i0 = w.indexOf('const SETS = [') + 13;
   const SETS = vm.runInNewContext(w.slice(i0, w.indexOf('\n  ];', i0) + 4));
   for (const d of c.TASK1_MORE || []) if (!SETS.some(x => x.id === d.id)) SETS.push(d);

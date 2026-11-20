@@ -104,11 +104,13 @@ qualityScore: 94
 *Thirty-three thousand people think this theme is thrilling.*  
 - **要点解析：** 句子中密集出现 /θ/ 和 /ð/，朗读时切忌将 *thirty-three* 念成 *sirty-sree*。舌尖需频繁在上下门牙之间自然伸缩穿梭。
 
-配合[常用场景词汇与例句库](/tu-vung/)，在语境中强化单词的发音记忆，效果将事半功倍。
+配合[常用场景词汇与例句库](/en/vocabulary/)，在语境中强化单词的发音记忆，效果将事半功倍。
 
 {{youtube: | 视频推荐：中国人英语发音4大致命盲点与国际音标肌肉记忆训练法}}
 
 {{cta: /#/pron | 开启实时发音测评训练}}
+
+单个多音节词的重音位置怎么判断，可以继续看[英语单词重音规则](/zh/blog/ying-yu-dan-ci-zhong-yin-gui-ze/)。
 
 ## 常见问题解答
 

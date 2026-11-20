@@ -23,6 +23,10 @@ Artikel ini membagi perjalanan dari nol sampai band 6.5+ menjadi empat tahap. Du
 
 Kesalahan paling umum adalah memilih materi berdasarkan perasaan. Ada yang masih kesulitan menyusun kalimat sederhana tetapi langsung membeli buku kumpulan soal tebal. Ada juga yang sebenarnya sudah di level menengah tetapi mengulang materi SMP dari awal karena merasa "belum siap". Dua-duanya membuang waktu.
 
+Kalau ingin melanjutkan, lihat juga [strategi manajemen waktu IELTS Reading 60 menit](/id/blog/manajemen-waktu-ielts-reading-strategi-60-menit/).
+
+Artikel terkait: [panduan format baru TOEFL iBT 2026](/id/blog/format-baru-toefl-ibt-2026-panduan/).
+
 Kerjakan tes penempatan singkat tentang kosakata dan tata bahasa untuk mengetahui apakah kamu berada di sekitar A2, B1, atau B2. Setelah itu, tetapkan tiga angka:
 
 1. **Skor target**, misalnya 6.5 overall dengan tidak ada skill di bawah 6.0. Jika targetmu beasiswa atau kampus tertentu, cek syarat terbarunya langsung di situs resmi lembaga tersebut, karena ketentuannya bisa berubah.
@@ -142,6 +146,10 @@ Untuk latihan reading yang lebih terarah, mulai dari tipe soal tersulit lewat [p
 
 {{youtube: | Ide video: cara menyusun jadwal belajar IELTS mingguan untuk karyawan yang hanya punya 1 jam sehari}}
 
+Kalau tanggal tesmu sudah pasti, pilih rencana yang sesuai di [jadwal belajar IELTS 4, 8, dan 12 minggu](/id/blog/jadwal-belajar-ielts-4-8-12-minggu/), dan kalau tujuanmu migrasi, baca dulu [IELTS untuk imigrasi](/id/blog/ielts-untuk-imigrasi-panduan/) agar tidak salah memilih versi tes.
+
+Untuk memahami bagaimana skor akhirmu terbentuk, baca juga [cara menghitung skor IELTS dan band score](/id/blog/cara-menghitung-skor-ielts-band-score/).
+
 ## Pertanyaan yang sering diajukan
 
 ### Berapa lama belajar IELTS otodidak dari nol sampai 6.5?
@@ -159,3 +167,5 @@ Tidak wajib. Belajar mandiri sangat mungkin jika kamu punya rencana yang jelas, 
 ### Berapa menit sehari idealnya belajar IELTS?
 
 Sekitar 60–90 menit adalah durasi yang bisa dipertahankan banyak orang dalam jangka panjang. Jika sedang sibuk, 30 menit setiap hari tetap lebih baik daripada satu sesi panjang di akhir pekan.
+
+Kalau tujuanmu visa Inggris, pastikan dulu versi tesnya lewat [penjelasan IELTS UKVI dan cara daftarnya](/id/blog/ielts-ukvi-adalah-perbedaan-dan-cara-daftar/) sebelum membayar.

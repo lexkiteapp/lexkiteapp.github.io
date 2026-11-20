@@ -1,3 +1,4 @@
+# ci-policy: heavy-gate – việc nặng trên PR chờ npm test xanh (job `gate`, luật 11)
 # Quảng cáo DEMO/THỬ chính thức của Google, gọi MẠNG THẬT (docs/ADS.md §6) – KHÔNG nằm trong npm test.
 # Web: GPT rewarded, ô công khai /22639388115/rewarded_web_example (scripts/test/ads-demo.mjs, Chromium).
 # Android: AdMob mã thử ca-app-pub-3940256099942544 (testing: true), bản ADS_NATIVE=1 trên giả lập (scripts/test/ads-demo-android.mjs).
@@ -7,25 +8,52 @@ on:
   workflow_dispatch:
   pull_request:
     paths: ['scripts/test/ads-demo.mjs', 'scripts/test/ads-demo-android.mjs', '.github/workflows/ads-demo.yml']
+  push:
+    branches: [main]
+    paths: ['scripts/test/ads-demo.mjs', 'scripts/test/ads-demo-android.mjs', '.github/workflows/ads-demo.yml']
   schedule:
     - cron: '17 4 * * 1' # thứ Hai hằng tuần
 permissions:
   contents: read
-concurrency:
-  group: ads-demo
+concurrency: # theo ref: lượt PR và lượt main không huỷ nhau (2/11: PR #448 huỷ lượt kiểm main); cùng nhánh thì lượt mới huỷ lượt cũ
+  group: ads-demo-${{ github.ref }}
   cancel-in-progress: true
 jobs:
-  web:
+  # luật 11 (làn nhanh trước làn nặng, scripts/test/ci-policy.mjs): trên PR việc nặng chỉ chạy khi `npm test` đã XANH cùng sha (hoặc PR có nhãn `ready`) – đỏ/chưa xong thì mọi job dưới là skipped
+  # (không chiếm runner); npm-test.yml job `heavy` chạy lại lượt này ngay khi npm test xanh (scripts/ci/heavy-rerun.mjs). Lỗi API → mở cổng (không mất kiểm).
+  gate:
+    # luật 18 (CI làn nhanh, 16/11): PR chỉ chờ làn nhanh – việc nặng bỏ qua trên PR (skipped, không tốn máy), chạy SAU gộp trên push main; nhãn ready-heavy/ready = chạy nặng ngay trên PR
+    if: ${{ github.event_name != 'pull_request' || contains(github.event.pull_request.labels.*.name, 'ready-heavy') || contains(github.event.pull_request.labels.*.name, 'ready') }}
     runs-on: ubuntu-latest
+    timeout-minutes: 3
+    permissions: { contents: read, checks: read }
+    outputs: { go: '${{ steps.g.outputs.go }}' }
+    steps:
+      - id: g
+        env: { GH_TOKEN: '${{ github.token }}', EV: '${{ github.event_name }}', SHA: '${{ github.event.pull_request.head.sha }}', REPO: '${{ github.repository }}', READY: '${{ contains(github.event.pull_request.labels.*.name, ''ready'') }}' }
+        run: |
+          go=true
+          if [ "$EV" = pull_request ] && [ "$READY" != true ]; then
+            n=$(gh api "repos/$REPO/commits/$SHA/check-runs?check_name=npm%20test&per_page=20" --jq '[.check_runs[] | select(.conclusion == "success")] | length' 2>/dev/null) || n=1
+            [ "${n:-1}" -ge 1 ] || go=false
+          fi
+          echo "go=$go" >> "$GITHUB_OUTPUT"; echo "npm test xanh cùng sha (hoặc nhãn ready) → go=$go"
+  web:
+    needs: gate
+    if: needs.gate.outputs.go == 'true'
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 12
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
+      - uses: ./.github/actions/playwright-cache
+        with: { browsers: '--with-deps chrome' }
       - name: Playwright
+        timeout-minutes: 14
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
-          google-chrome --version || npx playwright install --with-deps chrome
+          google-chrome --version || bash scripts/ci/pw-install.sh --with-deps chrome
       - name: GPT rewarded (quảng cáo demo thật)
         run: node scripts/test/ads-demo.mjs
         env: { ADS_DEMO_OUT: ads-web }
@@ -34,6 +62,8 @@ jobs:
         with: { name: ads-web, path: ads-web/, retention-days: 14 }
 
   android:
+    needs: gate
+    if: needs.gate.outputs.go == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 45
     steps:
@@ -47,9 +77,9 @@ jobs:
       - name: Build APK debug (ADS_NATIVE=1)
         run: |
           npm ci --no-audit --no-fund
-          npm ci --prefix mobile --no-audit --no-fund
+          bash scripts/ci/npm-retry.sh ci --prefix mobile --no-audit --no-fund
           ADS_NATIVE=1 node scripts/mobile-ads.mjs --enable
-          npm install --prefix mobile --no-audit --no-fund
+          bash scripts/ci/npm-retry.sh install --prefix mobile --no-audit --no-fund
           ADS_NATIVE=1 bash scripts/build-mobile.sh
           grep -q 'com.google.android.gms.ads.APPLICATION_ID' mobile/android/app/src/main/AndroidManifest.xml
           grep -o 'ca-app-pub-[0-9~/]*' mobile/android/app/src/main/AndroidManifest.xml

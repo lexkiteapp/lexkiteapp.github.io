@@ -65,6 +65,8 @@ In diesem ausführlichen Leitfaden betrachten wir die kognitionspsychologischen 
 
 Bereits Ende des 19. Jahrhunderts untersuchte der deutsche Psychologe Hermann Ebbinghaus die Gesetzmäßigkeiten des menschlichen Gedächtnisses. In bahnbrechenden Selbstversuchen mit sinnlosen Silbenreihen stellte er fest, dass der Informationsverlust exponentiell verläuft: Bereits zwanzig Minuten nach dem Lernen schrumpft die Behaltensleistung messbar, nach einem Tag ist oft mehr als die Hälfte des Gelernten vergessen, und nach einer Woche verbleibt ohne Auffrischung nur ein Bruchteil.
 
+Spaced Repetition entscheidet, wann du wiederholst. Wie du dabei jede Karte wirklich aus dem Gedächtnis abrufst, statt sie nur wiederzuerkennen, erklärt [Active Recall Methode: Englisch Vokabeln besser merken](/de/blog/active-recall-methode-englisch-vokabeln/).
+
 Dieses Muster erklärt, warum klassisches Pauken vor einer Klausur oder einer Sprachprüfung wie dem IELTS zwar kurzfristig funktioniert, langfristig jedoch kaum Spuren hinterlässt. Man spricht treffend von „Bulimielernen“: Große Mengen an Fakten werden hineingestopft, in der Prüfung reproduziert und anschließend vom Gehirn restlos gelöscht.
 
 ```
@@ -117,7 +119,7 @@ Ein hochentwickelter Algorithmus entfaltet seine volle Durchschlagskraft nur dan
 * **Empfohlen:** Erstelle für unterschiedliche Bedeutungen separate Kontextkarten, etwa *run a business* (ein Unternehmen leiten) und *run out of time* (keine Zeit mehr haben).
 
 ### 2. Kontext schlägt isolierte Wörter
-Das isolierte Einprägen deutscher Übersetzungen führt dazu, dass man Wörter im echten Gespräch nicht spontan abrufen kann. Verbinde jedes neue Wort mit einem prägnanten Beispielsatz oder einer typischen Wortverbindung (Kollokation). Dies verknüpft die neue Vokabel mit vorhandenem Weltwissen und syntaktischen Mustern. Erkunde dazu auch strukturierte [Vokabel-Themenbereiche](/tu-vung/) für gezieltes Aufbautraining.
+Das isolierte Einprägen deutscher Übersetzungen führt dazu, dass man Wörter im echten Gespräch nicht spontan abrufen kann. Verbinde jedes neue Wort mit einem prägnanten Beispielsatz oder einer typischen Wortverbindung (Kollokation). Dies verknüpft die neue Vokabel mit vorhandenem Weltwissen und syntaktischen Mustern. Erkunde dazu auch strukturierte [Vokabel-Themenbereiche](/en/vocabulary/) für gezieltes Aufbautraining.
 
 ### 3. Aktiver Abruf statt passivem Wiedererkennen
 Viele Lernende betrachten eine Vokabel, nicken zustimmend und denken: „Klar, das kenne ich.“ Kognitionswissenschaftler bezeichnen dies als die *Illusion des Wissens* (Illusion of Competence). Nur der aktive Abruf (Active Recall) – das bewusste Ringen um die Antwort vor dem Umdrehen der Karte – setzt den notwendigen Reiz für synaptisches Wachstum.

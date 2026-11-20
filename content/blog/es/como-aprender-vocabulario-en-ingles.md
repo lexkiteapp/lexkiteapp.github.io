@@ -21,6 +21,8 @@ Apuntas 40 palabras nuevas en una libreta, al día siguiente recuerdas diez y un
 
 Antes de los pasos, conviene entender las tres causas más habituales de que el vocabulario no crezca aunque le dediques horas:
 
+Si quieres profundizar, lee también [la guía de repetición espaciada con FSRS](/es/blog/repeticion-espaciada-para-aprender-ingles-fsrs/).
+
 - **Demasiadas palabras de golpe.** Una lista de 50 términos sueltos se siente productiva, pero el cerebro no tiene tiempo de fijar ninguno.
 - **Palabras sin contexto.** Memorizar *achieve = lograr* no te dice con qué se combina (*achieve a goal*, *achieve success*) ni cómo suena. Con los verbos pasa lo mismo: la traducción de *enjoy* no te avisa de que va seguido de *-ing* (lo explicamos en [gerundio o infinitivo en inglés](/es/blog/gerundio-o-infinitivo-en-ingles/)).
 - **Ningún plan de repaso.** Lo que no se recupera de la memoria en los días siguientes se borra. Es lo que describe la curva del olvido de Ebbinghaus: el olvido es rápido al principio y se frena con cada repaso bien espaciado.
@@ -130,6 +132,12 @@ Corrige estas frases (respuestas debajo):
 **Respuestas:** 1. *Currently I live in Madrid…* (o *I live in Madrid now*). 2. *some advice* / *a piece of advice*. 3. *do my homework*. 4. *explain this word to me*. 5. *put up with the noise* (*put off* = posponer).
 
 Si fallaste dos o más, añade esas expresiones a tus tarjetas hoy mismo.
+
+Para el vocabulario de exámenes, empieza por la [lista de palabras académicas (AWL)](/es/blog/lista-de-palabras-academicas-awl-ielts/).
+
+Para que las palabras duren, combina esta lista de pasos con el [recuerdo activo para vocabulario](/es/blog/recuerdo-activo-vocabulario-ingles/).
+
+Un buen ejemplo de vocabulario que conviene aprender en contexto es [la diferencia entre affect y effect](/es/blog/diferencia-entre-affect-y-effect-en-ingles/): las dos palabras se recuerdan mejor con sus vecinas habituales.
 
 ## Preguntas frecuentes
 

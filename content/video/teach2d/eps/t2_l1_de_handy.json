@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_de_handy",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Handy is not a phone!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I lost my handy.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I lost my phone.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "In English, handy means useful.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Phone! I lost my phone.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I lost my handy.",
+  "right": "I lost my phone.",
+  "strike": "handy",
+  "why": "In English, handy means useful.",
+  "memory": "Phone, not handy.",
+  "quiz": {
+   "stem": "I lost my ___.",
+   "options": [
+    "phone",
+    "handy"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "Ihr „Handy“ heißt „phone“!",
+   "tip": "Auf Englisch heißt „handy“ „praktisch“. Ihr Handy ist ein „phone“ oder „cell phone“.",
+   "caption": "Ihr Handy ist kein „handy“! 📱 Falsch: “I lost my handy.” Richtig: “I lost my phone.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+   "comment": "Lösung: “phone”. Richtig heißt es: “I lost my phone.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Your Handy is not a “handy”!",
+   "tip": "In English “handy” means useful. Your Handy is a “phone” or “cell phone”.",
+   "caption": "Your Handy is not a “handy”! Wrong: “I lost my handy.” Right: “I lost my phone.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Ihr „Handy“ heißt „phone“!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "de",
+ "est": {
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "Ihr „Handy“ heißt „phone“!",
+  "keyword": "I lost my phone.",
+  "value": "Auf Englisch heißt „handy“ „praktisch“. Ihr Handy ist ein „phone“ oder „cell phone“.",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "Ihr „Handy“ heißt „phone“!",
+    "description": "Auf Englisch heißt „handy“ „praktisch“. Ihr Handy ist ein „phone“ oder „cell phone“.\n\nIhr Handy ist kein „handy“! 📱 Falsch: “I lost my handy.” Richtig: “I lost my phone.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "I lost my phone.",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Ihr Handy ist kein „handy“! 📱 Falsch: “I lost my handy.” Richtig: “I lost my phone.” Hören Sie Ama zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Ihr „Handy“ heißt „phone“!\n\nAuf Englisch heißt „handy“ „praktisch“. Ihr Handy ist ein „phone“ oder „cell phone“.\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Ihr „Handy“ heißt „phone“! Auf Englisch heißt „handy“ „praktisch“. Ihr Handy ist ein „phone“ oder „cel… #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Lösung: “phone”. Richtig heißt es: “I lost my phone.” Üben Sie mehr mit einem kostenlosen Quiz: {link}",
+  "lang": "de"
+ }
+}

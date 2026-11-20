@@ -25,7 +25,7 @@ Günde 50 kelime ezberlemeye çalışıp hafta sonunda hevesi kırılanların ya
 
 Kelime öğrenirken Türkçe ile İngilizce arasındaki söz dizimi farklarını ve edat (preposition) kullanımlarını da birlikte kaydetmek şarttır. Temel seviyeden başlayarak dengeli bir çalışma düzeni kurmak istiyorsanız, sitemizdeki [İngilizce nasıl öğrenilir](/tr/blog/ingilizce-nasil-ogrenilir/) rehberimizi inceleyerek 90 günlük genel çalışma planınızı netleştirebilirsiniz.
 
-Ayrıca sınav ve iş hayatına yönelik hedefleriniz için [tematik kelime listelerimizi](/tu-vung/) inceleyerek zaman kaybettirmeyen en gerekli sözcük gruplarını belirleyebilirsiniz.
+Ayrıca sınav ve iş hayatına yönelik hedefleriniz için [tematik kelime listelerimizi](/en/vocabulary/) inceleyerek zaman kaybettirmeyen en gerekli sözcük gruplarını belirleyebilirsiniz.
 
 ## Adım 1 ve 2: Seviyeye uygun seçim ve kelime aileleri
 
@@ -86,6 +86,10 @@ Kurduğunuz bu özgün cümleleri akıllı telefonunuzun ses kaydedicisine kayde
 {{youtube: | Video fikri: Günde 15 yeni İngilizce kelimeyi kalıcı olarak öğrenmenin 7 adımlı formülü}}
 
 {{cta: /#/library | Kelime kütüphanesini keşfet}}
+
+Kelimeleri çevirmeden önce kendiniz hatırlamaya çalışmanın yöntemini [active recall nedir](/tr/blog/active-recall-nedir-kelime-ezberleme-yontemi/) yazısında ayrıntılı bulabilirsiniz.
+
+Kelimeleri çiftler halinde ve bağlam içinde öğrenmenin güzel bir örneği için [affect effect farkı](/tr/blog/affect-effect-farki/) yazısına göz atın.
 
 ## Sıkça sorulan sorular
 

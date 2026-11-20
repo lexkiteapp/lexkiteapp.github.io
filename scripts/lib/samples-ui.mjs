@@ -1,10 +1,10 @@
 // Giao diện riêng cho họ trang "bài mẫu" tĩnh: Writing Task 2 (/samples/, /en/samples/), IELTS Speaking (/speaking/, /en/speaking/),
 // thư mẫu IELTS General (/viet-thu/). Dùng CHUNG hệ thiết kế của scripts/lib/site-layout.mjs (token màu, thẻ, chip, CTA) – file này
 // chỉ thêm lớp .smp (CSS phạm vi riêng, chèn vào <head> bởi build-samples*.mjs) + JS nhỏ (~1.5 KB) cho popover nghĩa, bật/tắt tô màu, lọc theo dạng đề.
-// Màu: chỉ token thương hiệu (docs/BRAND-RULES.md, EXTRA_TOKENS) – scripts/test/brand-check.mjs quét cả file này. Kit: chỉ từ web/js/kit.js.
+// Màu: chỉ token thương hiệu (docs/BRAND-RULES.md, EXTRA_TOKENS) – scripts/test/brand-check.mjs quét cả file này. Nhân vật: chỉ Ama/Carlos 2D (web/teach).
 // Chữ giao diện: S.vi / S.en (các trang này chỉ có 2 bản ngôn ngữ vi + en; x-default = en).
-import fs from 'node:fs'; import vm from 'node:vm';
 import { esc } from './site-layout.mjs';
+import { art, heroTeacher, scrollBtns } from './samples-visual.mjs';
 
 // ---------- Chữ giao diện (vi / en) ----------
 export const S = {
@@ -68,15 +68,12 @@ export const sideHtml = (paras, lang, { gloss = lang === 'vi' } = {}) => { const
 <div class="tools" role="group" aria-label="${t.view}"><button type="button" data-cls="plain" data-inv="1" aria-pressed="true">${t.tgHl}</button>${gloss ? `<button type="button" data-cls="gl-on" aria-pressed="false">${t.tgGl}</button>` : ''}<button type="button" data-print>${t.print}</button></div></div></div>`; };
 
 // Dải số liệu dưới tiêu đề: [[giá trị, nhãn, lớp?]]
-export const stats = items => `<ul class="stats">${items.filter(Boolean).map(([v, l, c]) => `<li${c ? ` class="${c}"` : ''}>${c === 'band' ? `<span>${esc(l)}</span><b>${esc(v)}</b>` : `<b>${esc(v)}</b><span>${esc(l)}</span>`}</li>`).join('')}</ul>`;
-
-// Kit (linh vật) – lấy từ web/js/kit.js, tĩnh (không hoạt cảnh), trang trí → aria-hidden
-let KIT;
-export const kit = (mood = 'happy', size = 72) => { if (!KIT) { const c = {}; c.window = c.self = c; vm.createContext(c); vm.runInContext(fs.readFileSync('web/js/kit.js', 'utf8'), c); KIT = c.Kit; }
-  return KIT.svg(mood, size, false).replace(/\s*role="img"\s*aria-label="[^"]*"/, ' aria-hidden="true" focusable="false"').replace(/<!--[\s\S]*?-->/g, '').replace(/>\s+</g, '><').trim(); };
+// Mỗi số liệu có hình riêng (web/img/lib); nhãn tra theo chữ nên trang chi tiết không phải đổi lời gọi. Ngoài bảng → 'doc'.
+const STAT_ART = { Band: 'medal', IELTS: 'medal', [S.vi.words]: 'doc', [S.en.words]: 'doc', [S.vi.paras]: 'notebook', [S.en.paras]: 'notebook', [S.vi.phrases]: 'phrase', [S.en.phrases]: 'phrase', [S.vi.links]: 'tick', [S.en.links]: 'tick', [S.vi.minL]: 'clock', [S.en.minL]: 'clock', [S.vi.questions]: 'q', [S.en.questions]: 'q', [S.vi.statEss]: 'doc', [S.en.statEss]: 'doc', [S.vi.statTypes]: 'shapes', [S.en.statTypes]: 'shapes', [S.vi.statGl]: 'phrase', [S.en.statGl]: 'phrase', [S.vi.statTopics]: 'v-speaking', [S.en.statTopics]: 'v-speaking', [S.vi.statQ]: 'q', [S.en.statQ]: 'q', [S.vi.statLt]: 'letter', [S.en.statLt]: 'letter', [S.vi.statTone]: 'shapes', [S.en.statTone]: 'shapes' };
+export const stats = items => `<ul class="stats vs">${items.filter(Boolean).map(([v, l, c, a]) => `<li${c ? ` class="${c}"` : ''}>${art(a || STAT_ART[l] || 'doc', 34)}${c === 'band' ? `<span>${esc(l)}</span><b>${esc(v)}</b>` : `<b>${esc(v)}</b><span>${esc(l)}</span>`}</li>`).join('')}</ul>`;
 
 // Phần đầu trang: dòng nhỏ (kicker) + h1 + mô tả + số liệu (+ Kit trên trang mục lục)
-export const hero2 = ({ kicker = [], h1, lead = '', statsHtml = '', mood = '', cls = '' }) => `<header class="hero hero2${cls ? ' ' + cls : ''}">${kicker.length ? `<p class="kick">${kicker.map(k => `<span>${esc(k)}</span>`).join('')}</p>` : ''}<h1>${h1}</h1>${lead ? `<p class="lead">${lead}</p>` : ''}${statsHtml}${mood ? `<span class="kit">${kit(mood, 96)}</span>` : ''}</header>`;
+export const hero2 = ({ kicker = [], h1, lead = '', statsHtml = '', mood = '', cls = '' }) => `<header class="hero hero2${cls ? ' ' + cls : ''}${mood ? ' vh' : ''}"><div class="vh-c">${kicker.length ? `<p class="kick">${kicker.map(k => `<span>${esc(k)}</span>`).join('')}</p>` : ''}<h1>${h1}</h1>${lead ? `<p class="lead">${lead}</p>` : ''}${statsHtml}</div>${mood ? heroTeacher(mood) : ''}</header>`;
 
 // Ô đề bài / tình huống
 export const promptBox = (label, inner, cls = '') => `<section class="prompt${cls ? ' ' + cls : ''}" aria-labelledby="pr-h"><h2 class="k" id="pr-h">${label}</h2>${inner}</section>`;
@@ -86,7 +83,7 @@ export const phraseCards = rows => `<ol class="phr">${rows.map(([e, v], i) => `<
 export const saveBox = (href, lang) => { const t = S[lang].save; return `<div class="save"><span class="ic" aria-hidden="true">🔖</span><p><strong>${t[0]}</strong><small>${t[1]}</small></p><a class="btn" href="${href}">${t[2]} →</a></div>`; };
 
 // CTA cuối bài có Kit
-export const ctaKit = (href, title, btn, note = '', mood = 'cheer') => `<div class="cta2"><span class="kit">${kit(mood, 64)}</span><p><strong>${title}</strong>${note ? `<small>${note}</small>` : ''}</p><a class="btn" href="${href}">${btn} →</a></div>`;
+export const ctaKit = (href, title, btn, note = '', mood = 'cheer') => `<div class="cta2"><span class="kit"><img src="/teach/${mood === 'happy' ? 'carlos' : 'ama'}/avatar.webp" width="64" height="64" alt="" loading="lazy" decoding="async"></span><p><strong>${title}</strong>${note ? `<small>${note}</small>` : ''}</p><a class="btn" href="${href}">${btn} →</a></div>`;
 
 // Bài trước / bài sau: [href, tiêu đề] | null
 export const pager2 = (prev, next, lang, topic = false) => { const t = S[lang]; if (!prev && !next) return '';
@@ -102,13 +99,14 @@ const PAL = ['di', 'ad', 'ps', 'av', 'pn', 'tp'];
 export const topicCls = t => 't-' + PAL[[...String(t || '')].reduce((a, c) => a + c.charCodeAt(0), 0) % PAL.length];
 
 // Thẻ trong lưới (giữ .card.set + data-k để ô lọc chung của site-layout vẫn chạy)
-export const smpCard = ({ href, cls = '', tag = '', emoji = '', title, desc = '', band = '', meta = [], key = '', h = 'h3' }) =>
-  `<article class="card set sc ${cls}" data-k="${esc(key)}"><a class="ti" href="${href}"><div class="bd"><span class="sc-top">${tag ? `<span class="tchip">${esc(tag)}</span>` : '<span></span>'}${emoji ? `<span class="sc-em" aria-hidden="true">${esc(emoji)}</span>` : ''}</span><${h}>${esc(title)}</${h}>${desc ? `<p>${esc(desc)}</p>` : ''}<span class="sc-meta">${band ? `<span class="bnd">Band ${esc(band)}</span>` : ''}${meta.filter(Boolean).map(m => `<span>${esc(m)}</span>`).join('')}</span></div></a></article>`;
+// title = tiêu đề ngắn lướt được; desc = đề đầy đủ (chữ thật, kẹp dòng bằng CSS, không ẩn); tag chỉ hiện khi không lặp nhóm (kind); meta: [[lớp icon vm-*, số, đơn vị]]
+export const smpCard = ({ href, cls = '', tag = '', art: a = 'doc', title, desc = '', band = '', meta = [], key = '', h = 'h3' }) =>
+  `<article class="card set vc ${cls}" data-k="${esc(key)}"><a class="ti" href="${href}"><div class="bd"><span class="vc-top">${art(a, 56)}${band ? `<span class="ring" title="Band ${esc(band)}" style="--v:${(+band / 9).toFixed(3)}"><b><span class="sr">Band </span>${esc(band)}</b></span>` : ''}</span>${tag ? `<span class="vc-k">${esc(tag)}</span>` : ''}<${h} class="vc-t">${esc(title)}</${h}>${desc ? `<p class="vc-q">${esc(desc)}</p>` : ''}<span class="vc-m">${meta.filter(Boolean).map(([k, n, u]) => `<span class="vm ${k}">${esc(n)}<span class="vu"> ${esc(u)}</span></span>`).join('')}</span></div></a></article>`;
 
 // Nhóm thẻ có màu nhấn; id = mốc cho chip lọc
-export const group2 = (id, title, sub, cards, cls = '') => `<section class="grp ${cls}" aria-labelledby="g-${id}"><h2 id="g-${id}">${esc(title)} <small>${sub}</small></h2><div class="grid">${cards.join('')}</div></section>`;
+export const group2 = (id, title, sub, cards, cls = '', a = '') => `<section class="grp ${cls}" aria-labelledby="g-${id}"><h2 id="g-${id}"${a ? ' class="vg"' : ''}>${a ? art(a, 44) : ''}${esc(title)} <small>${sub}</small></h2><div class="grid">${cards.map((c, i) => i ? c : c.replace(/class="vu"/g, 'class="vu1"')).join('')}</div></section>`;
 // Chip lọc theo nhóm (không JS: là liên kết nhảy tới nhóm; có JS: ẩn/hiện nhóm)
-export const typeFilter = (items, total, lang, label = S[lang].types) => `<nav class="tf" aria-label="${label}"><a href="#nd" data-g="">${S[lang].all} <b>${total}</b></a>${items.map(([id, name, n, cls]) => `<a class="${cls}" href="#g-${id}" data-g="g-${id}">${esc(name)} <b>${n}</b></a>`).join('')}</nav>`;
+export const typeFilter = (items, total, lang, label = S[lang].types) => `<div class="tfw"><nav class="tf" aria-label="${label}"><a href="#nd" data-g="">${S[lang].all} <b>${total}</b></a>${items.map(([id, name, n, cls]) => `<a class="${cls}" href="#g-${id}" data-g="g-${id}">${esc(name)} <b>${n}</b></a>`).join('')}</nav>${scrollBtns(lang)}</div>`;
 
 // JSON-LD danh sách (trang mục lục)
 export const itemList = (name, urls) => ({ '@context': 'https://schema.org', '@type': 'ItemList', name, numberOfItems: urls.length, itemListElement: urls.map((url, i) => ({ '@type': 'ListItem', position: i + 1, url })) });
@@ -173,7 +171,7 @@ export const SMP_CSS = `.smp .prompt{position:relative;background:var(--surface)
 .smp .phr b{display:block;font-size:16px}.smp .phr .m{display:block;color:var(--muted)}
 .save{display:flex;gap:12px 14px;align-items:center;flex-wrap:wrap;background:var(--accent-soft);border-radius:var(--r);padding:14px 18px;margin:16px 0 28px}.save .ic{font-size:26px}.save p{margin:0;flex:1 1 240px}.save small{display:block;color:var(--muted);font-size:14px}
 .cta2{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:12px 18px;align-items:center;background:linear-gradient(135deg,#0F3D3E,#12807A);color:#fff;border-radius:20px;padding:16px 22px;margin:28px 0}
-.cta2 .kit{background:radial-gradient(circle at 50% 50%,#FFEBE4 0 62%,rgba(255,235,228,.35) 63% 69%,transparent 70%);border-radius:50%;padding:6px;filter:drop-shadow(0 6px 14px rgba(0,0,0,.28))}.cta2 .kit svg{display:block}.cta2 p{margin:0}.cta2 strong{display:block;font-size:19px;line-height:1.35}.cta2 small{display:block;opacity:.9;font-size:14px}.cta2 .btn{background:#FFC94A;color:#0F3D3E!important;white-space:nowrap}
+.cta2 .kit{background:radial-gradient(circle at 50% 50%,#FFEBE4 0 62%,rgba(255,235,228,.35) 63% 69%,transparent 70%);border-radius:50%;padding:6px;filter:drop-shadow(0 6px 14px rgba(0,0,0,.28))}.cta2 .kit img{display:block;border-radius:50%}.cta2 p{margin:0}.cta2 strong{display:block;font-size:19px;line-height:1.35}.cta2 small{display:block;opacity:.9;font-size:14px}.cta2 .btn{background:#FFC94A;color:#0F3D3E!important;white-space:nowrap}
 @media (max-width:560px){.cta2{grid-template-columns:auto minmax(0,1fr);padding:16px}.cta2 .btn{grid-column:1/-1;text-align:center}}
 .pg2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:28px 0}
 .pg2 a{display:flex;flex-direction:column;gap:2px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px 16px;text-decoration:none;color:var(--text);transition:border-color .15s}

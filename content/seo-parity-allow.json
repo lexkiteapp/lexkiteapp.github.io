@@ -1,0 +1,1058 @@
+{
+ "_doc": "Manifest thay đổi CÓ CHỦ ĐÍCH cho cổng samples-seo-parity (scripts/test/samples-seo-parity.mjs). Mỗi mục: page + reason (bắt buộc) + words (chữ được phép bỏ) + replace [[từ,thành]] (title/meta/ld đổi đúng cặp) + itemList (mục lục chỉ được thêm). Link nội bộ mất / canonical / hreflang / trang biến mất không bao giờ được khai ở đây. Giữ mục chỉ trong PR gây thay đổi; PR sau so với base đã gộp nên mục cũ vô hại.",
+ "entries": [
+  {
+   "page": "phat-am/chunking-thought-groups.html",
+   "reason": "Sửa IPA \"In my opinion\": /ɪn ˈmaɪ əˈpɪnjən/ nhấn sai \"my\" → /ɪn maɪ əˈpɪnjən/ (nhấn \"pin\").",
+   "words": [
+    "ˈmaɪ"
+   ]
+  },
+  {
+   "page": "phat-am/final-consonants.html",
+   "reason": "Âm cuối /t k p/ không bắt buộc bật hơi (thường không bật): \"chặn lại rồi bật nhẹ hơi\" → \"phát âm rõ, có thể bật nhẹ hơi\".",
+   "words": [
+    "rồi"
+   ]
+  },
+  {
+   "page": "phat-am/index.html",
+   "reason": "Thêm 6 bài phát âm nâng cao B2–C1 (CQ4): tiêu đề/mô tả/mục lục tăng 56 → 62 bài.",
+   "words": [
+    "56",
+    "dứt",
+    "gọn",
+    "khoát",
+    "ma",
+    "suỵt",
+    "sát"
+   ],
+   "replace": [
+    [
+     "56 bài",
+     "62 bài"
+    ]
+   ]
+  },
+  {
+   "page": "phat-am/sentence-stress-weak-forms.html",
+   "reason": "Nhịp \"gần như đều nhau\" → \"có xu hướng khá đều\"; \"can't\" nêu cả giọng Mỹ /kænt/; bỏ khẳng định tuyệt đối dạng mạnh/phủ định.",
+   "words": [
+    "gần"
+   ]
+  },
+  {
+   "page": "phat-am/sh-ch-j-zh-sounds.html",
+   "reason": "Sửa -sion/-ssion (/ʒ/ sau nguyên âm, /ʃ/ sau phụ âm hoặc -ssion), -stion /tʃ/, lẫn s/x chủ yếu miền Bắc; /s/ khác /ʃ/ ở vị trí lưỡi chứ không chỉ môi.",
+   "words": [
+    "miền",
+    "nam/miền",
+    "nếu",
+    "đang",
+    "cười",
+    "đó"
+   ]
+  },
+  {
+   "page": "phat-am/stress-shift.html",
+   "reason": "Bỏ -ism khỏi nhóm \"lùi về âm thứ 3\" (-ism không dời trọng âm); -ian → -cian; thêm rào chắn xu hướng.",
+   "words": [
+    "ian",
+    "ic/-ian/-tion"
+   ]
+  },
+  {
+   "page": "phat-am/word-stress.html",
+   "reason": "Ví dụ -ee/-ese nhất quán với danh sách từ (refugee, Japanese thay employee, Vietnamese); thêm \"thường\" + ngoại lệ (Arabic, Catholic).",
+   "words": [
+    "emploˈyee",
+    "vietnaˈmese",
+    "thì"
+   ]
+  },
+  {
+   "page": "en/pronunciation/chunking-thought-groups.html",
+   "reason": "Sửa IPA \"In my opinion\": /ɪn ˈmaɪ əˈpɪnjən/ nhấn sai \"my\" → /ɪn maɪ əˈpɪnjən/ (nhấn \"pin\").",
+   "words": [
+    "ˈmaɪ"
+   ]
+  },
+  {
+   "page": "en/pronunciation/final-consonants.html",
+   "reason": "Âm cuối /t k p/ không bắt buộc bật hơi (thường không bật): \"chặn lại rồi bật nhẹ hơi\" → \"phát âm rõ, có thể bật nhẹ hơi\".",
+   "words": [
+    "puff",
+    "air",
+    "close"
+   ]
+  },
+  {
+   "page": "en/pronunciation/index.html",
+   "reason": "Thêm 6 bài phát âm nâng cao B2–C1 (CQ4): tiêu đề/mô tả/mục lục tăng 56 → 62 bài.",
+   "words": [
+    "56",
+    "bee",
+    "blocking",
+    "closed",
+    "comes",
+    "compact",
+    "giving",
+    "like",
+    "make",
+    "nearly",
+    "opening",
+    "throat"
+   ],
+   "itemList": true
+  },
+  {
+   "page": "en/pronunciation/sentence-stress-weak-forms.html",
+   "reason": "Nhịp \"gần như đều nhau\" → \"có xu hướng khá đều\"; \"can't\" nêu cả giọng Mỹ /kænt/; bỏ khẳng định tuyệt đối dạng mạnh/phủ định.",
+   "words": [
+    "roughly",
+    "long"
+   ]
+  },
+  {
+   "page": "en/pronunciation/sh-ch-j-zh-sounds.html",
+   "reason": "Sửa -sion/-ssion (/ʒ/ sau nguyên âm, /ʃ/ sau phụ âm hoặc -ssion), -stion /tʃ/, lẫn s/x chủ yếu miền Bắc; /s/ khác /ʃ/ ở vị trí lưỡi chứ không chỉ môi.",
+   "words": [
+    "smile"
+   ]
+  },
+  {
+   "page": "en/pronunciation/stress-shift.html",
+   "reason": "Bỏ -ism khỏi nhóm \"lùi về âm thứ 3\" (-ism không dời trọng âm); -ian → -cian; thêm rào chắn xu hướng.",
+   "words": [
+    "ian",
+    "ic/-ian/-tion"
+   ]
+  },
+  {
+   "page": "en/pronunciation/th-sounds-theta-eth.html",
+   "reason": "Sửa quy tắc /ð/ \"giữa hai nguyên âm\" → \"giữa các nguyên âm\" (although có /ð/ sau /l/).",
+   "words": [
+    "two"
+   ]
+  },
+  {
+   "page": "en/pronunciation/word-stress.html",
+   "reason": "Ví dụ -ee/-ese nhất quán với danh sách từ (refugee, Japanese thay employee, Vietnamese); thêm \"thường\" + ngoại lệ (Arabic, Catholic).",
+   "words": [
+    "emploˈyee",
+    "vietnaˈmese"
+   ]
+  },
+  {
+   "page": "samples/index.html",
+   "reason": "Đợt 2 nội dung (#1368): thêm 20 đề IELTS Task 2 (80 → 100) và 14 đề Task 1 Academic (38 → 52); số đếm trong title/mô tả/mục lục tăng theo.",
+   "words": [
+    "80",
+    "527"
+   ],
+   "replace": [
+    [
+     "80 bài mẫu",
+     "100 bài mẫu"
+    ],
+    [
+     "numberOfItems\":80",
+     "numberOfItems\":100"
+    ]
+   ],
+   "itemList": true
+  },
+  {
+   "page": "en/samples/index.html",
+   "reason": "Đợt 2 nội dung (#1368): thêm 20 đề IELTS Task 2 (80 → 100) và 14 đề Task 1 Academic (38 → 52); số đếm trong title/mô tả/mục lục tăng theo.",
+   "words": [
+    "80",
+    "527",
+    "14"
+   ],
+   "replace": [
+    [
+     "80 band 8 IELTS",
+     "100 band 8 IELTS"
+    ],
+    [
+     "80 IELTS Writing",
+     "100 IELTS Writing"
+    ],
+    [
+     "numberOfItems\":80",
+     "numberOfItems\":100"
+    ]
+   ],
+   "itemList": true
+  },
+  {
+   "page": "en/ielts-writing/index.html",
+   "reason": "Đợt 2 nội dung (#1368): thêm 20 đề IELTS Task 2 (80 → 100) và 14 đề Task 1 Academic (38 → 52); số đếm trong title/mô tả/mục lục tăng theo.",
+   "words": [
+    "38",
+    "80"
+   ],
+   "replace": [
+    [
+     "38 Academic Task 1",
+     "52 Academic Task 1"
+    ],
+    [
+     "80 Task 2",
+     "100 Task 2"
+    ]
+   ]
+  },
+  {
+   "page": "en/ielts-writing/task-1/index.html",
+   "reason": "Đợt 2 nội dung (#1368): thêm 20 đề IELTS Task 2 (80 → 100) và 14 đề Task 1 Academic (38 → 52); số đếm trong title/mô tả/mục lục tăng theo.",
+   "words": [
+    "38",
+    "4"
+   ],
+   "replace": [
+    [
+     "38 IELTS",
+     "52 IELTS"
+    ],
+    [
+     "38 band 8",
+     "52 band 8"
+    ],
+    [
+     "numberOfItems\":38",
+     "numberOfItems\":52"
+    ]
+   ],
+   "itemList": true
+  },
+  {
+   "page": "phat-am/air-diphthong.html",
+   "reason": "Khẩu hình nguyên âm/phụ âm theo bảng chuẩn mới (scripts/pron/features.mjs): lời hướng dẫn \"how\" viết lại cho đúng khẩu hình (#286)",
+   "words": [
+    "ngang",
+    "đưa",
+    "trước"
+   ]
+  },
+  {
+   "page": "phat-am/ay-diphthong.html",
+   "reason": "Khẩu hình nguyên âm/phụ âm theo bảng chuẩn mới (scripts/pron/features.mjs): lời hướng dẫn \"how\" viết lại cho đúng khẩu hình (#286)",
+   "words": [
+    "kéo",
+    "ngang",
+    "đưa",
+    "trước"
+   ]
+  },
+  {
+   "page": "phat-am/ch-sound.html",
+   "reason": "Khẩu hình nguyên âm/phụ âm theo bảng chuẩn mới (scripts/pron/features.mjs): lời hướng dẫn \"how\" viết lại cho đúng khẩu hình (#286)",
+   "words": [
+    "bắt",
+    "mạnh",
+    "d/",
+    "ma",
+    "sát"
+   ],
+   "replace": [
+    [
+     "Bắt đầu như /t/ (lưỡi chặn ở lợi) rồi nhả ra",
+     "Đầu lưỡi chặn hơi ở vùng ngay sau lợi trên (lùi"
+    ]
+   ]
+  },
+  {
+   "page": "phat-am/d-sound.html",
+   "reason": "Khẩu hình nguyên âm/phụ âm theo bảng chuẩn mới (scripts/pron/features.mjs): lời hướng dẫn \"how\" viết lại cho đúng khẩu hình (#286)",
+   "words": [
+    "giống",
+    "lùi",
+    "lên"
+   ]
+  },
+  {
+   "page": "phat-am/eye-diphthong.html",
+   "reason": "Khẩu hình nguyên âm/phụ âm theo bảng chuẩn mới (scripts/pron/features.mjs): lời hướng dẫn \"how\" viết lại cho đúng khẩu hình (#286)",
+   "words": [
+    "kéo",
+    "ngang",
+    "đưa",
+    "lên",
+    "trước"
+   ]
+  },
+  {
+   "page": "phat-am/h-sound.html",
+   "reason": "Khẩu hình nguyên âm/phụ âm theo bảng chuẩn mới (scripts/pron/features.mjs): lời hướng dẫn \"how\" viết lại cho đúng khẩu hình (#286)",
+   "words": [
+    "ma",
+    "sát",
+    "nâng"
+   ]
+  },
+  {
+   "page": "phat-am/j-sound.html",
+   "reason": "Khẩu hình nguyên âm/phụ âm theo bảng chuẩn mới (scripts/pron/features.mjs): lời hướng dẫn \"how\" viết lại cho đúng khẩu hình (#286)",
+   "words": [
+    "bắt",
+    "d/",
+    "ma",
+    "sát"
+   ],
+   "replace": [
+    [
+     "Bắt đầu như /d/ rồi nhả thành /ʒ/, có rung dây",
+     "Đầu lưỡi chặn hơi ở vùng ngay sau lợi trên như"
+    ]
+   ]
+  },
+  {
+   "page": "phat-am/k-sound.html",
+   "reason": "Khẩu hình nguyên âm/phụ âm theo bảng chuẩn mới (scripts/pron/features.mjs): lời hướng dẫn \"how\" viết lại cho đúng khẩu hình (#286)",
+   "words": [
+    "nên",
+    "khi",
+    "hơn"
+   ]
+  },
+  {
+   "page": "phat-am/l-sound.html",
+   "reason": "Khẩu hình nguyên âm/phụ âm theo bảng chuẩn mới (scripts/pron/features.mjs): lời hướng dẫn \"how\" viết lại cho đúng khẩu hình (#286)",
+   "words": [
+    "giọng",
+    "r",
+    "khi",
+    "răng",
+    "ma",
+    "sát"
+   ],
+   "replace": [
+    [
+     ". Ở",
+     ", dây"
+    ]
+   ]
+  },
+  {
+   "page": "phat-am/long-aw-sound.html",
+   "reason": "Khẩu hình nguyên âm/phụ âm theo bảng chuẩn mới (scripts/pron/features.mjs): lời hướng dẫn \"how\" viết lại cho đúng khẩu hình (#286)",
+   "words": [
+    "gọn"
+   ]
+  },
+  {
+   "page": "phat-am/long-ee-sound.html",
+   "reason": "Khẩu hình nguyên âm/phụ âm theo bảng chuẩn mới (scripts/pron/features.mjs): lời hướng dẫn \"how\" viết lại cho đúng khẩu hình (#286)",
+   "words": [
+    "dứt",
+    "khoát"
+   ]
+  },
+  {
+   "page": "phat-am/long-er-sound.html",
+   "reason": "Khẩu hình nguyên âm/phụ âm theo bảng chuẩn mới (scripts/pron/features.mjs): lời hướng dẫn \"how\" viết lại cho đúng khẩu hình (#286)",
+   "words": [
+    "dứt",
+    "khoát"
+   ],
+   "replace": [
+    [
+     "hơi",
+     "thả"
+    ]
+   ]
+  },
+  {
+   "page": "phat-am/long-oo-sound.html",
+   "reason": "Khẩu hình nguyên âm/phụ âm theo bảng chuẩn mới (scripts/pron/features.mjs): lời hướng dẫn \"how\" viết lại cho đúng khẩu hình (#286)",
+   "words": [
+    "hơi",
+    "vừa",
+    "gọn"
+   ]
+  },
+  {
+   "page": "phat-am/m-sound.html",
+   "reason": "Khẩu hình nguyên âm/phụ âm theo bảng chuẩn mới (scripts/pron/features.mjs): lời hướng dẫn \"how\" viết lại cho đúng khẩu hình (#286)",
+   "words": [
+    "nâng",
+    "về",
+    "phía",
+    "giọng",
+    "r"
+   ]
+  },
+  {
+   "page": "phat-am/n-sound.html",
+   "reason": "Khẩu hình nguyên âm/phụ âm theo bảng chuẩn mới (scripts/pron/features.mjs): lời hướng dẫn \"how\" viết lại cho đúng khẩu hình (#286)",
+   "words": [
+    "giọng",
+    "r",
+    "khi",
+    "nguyên",
+    "răng"
+   ]
+  },
+  {
+   "page": "phat-am/ng-sound.html",
+   "reason": "Khẩu hình nguyên âm/phụ âm theo bảng chuẩn mới (scripts/pron/features.mjs): lời hướng dẫn \"how\" viết lại cho đúng khẩu hình (#286)",
+   "words": [
+    "giọng",
+    "r",
+    "khi",
+    "răng",
+    "ma",
+    "sát"
+   ]
+  },
+  {
+   "page": "phat-am/oor-diphthong.html",
+   "reason": "Khẩu hình nguyên âm/phụ âm theo bảng chuẩn mới (scripts/pron/features.mjs): lời hướng dẫn \"how\" viết lại cho đúng khẩu hình (#286)",
+   "words": [
+    "kéo",
+    "ngang",
+    "đưa",
+    "trước"
+   ]
+  },
+  {
+   "page": "phat-am/ow-diphthong.html",
+   "reason": "Khẩu hình nguyên âm/phụ âm theo bảng chuẩn mới (scripts/pron/features.mjs): lời hướng dẫn \"how\" viết lại cho đúng khẩu hình (#286)",
+   "replace": [
+    [
+     "Mở miệng rộng ở &quot;a&quot;, sau đó khép hàm và tròn môi",
+     "Bắt đầu với miệng mở rộng ở &quot;a&quot;, môi thả lỏng"
+    ],
+    [
+     "Mở miệng rộng ở \\\"a\\\", sau đó khép hàm và tròn môi",
+     "Bắt đầu với miệng mở rộng ở \\\"a\\\", môi thả lỏng"
+    ]
+   ]
+  },
+  {
+   "page": "phat-am/oy-diphthong.html",
+   "reason": "Khẩu hình nguyên âm/phụ âm theo bảng chuẩn mới (scripts/pron/features.mjs): lời hướng dẫn \"how\" viết lại cho đúng khẩu hình (#286)",
+   "words": [
+    "kéo",
+    "ngang"
+   ],
+   "replace": [
+    [
+     " ở /ɔː/, sau đó kéo môi ngang",
+     ", lưỡi lùi sau và hàm mở khá"
+    ]
+   ]
+  },
+  {
+   "page": "phat-am/r-sound.html",
+   "reason": "Khẩu hình nguyên âm/phụ âm theo bảng chuẩn mới (scripts/pron/features.mjs): lời hướng dẫn \"how\" viết lại cho đúng khẩu hình (#286)",
+   "words": [
+    "răng",
+    "ma",
+    "sát"
+   ],
+   "replace": [
+    [
+     "về phía",
+     "lên vùng"
+    ]
+   ]
+  },
+  {
+   "page": "phat-am/s-sound.html",
+   "reason": "Khẩu hình nguyên âm/phụ âm theo bảng chuẩn mới (scripts/pron/features.mjs): lời hướng dẫn \"how\" viết lại cho đúng khẩu hình (#286)",
+   "words": [
+    "sờ",
+    "miền",
+    "bắc",
+    "chỗ",
+    "ngạc",
+    "cứng",
+    "thổi",
+    "suỵt",
+    "gặp",
+    "bắt",
+    "bật",
+    "mạnh"
+   ]
+  },
+  {
+   "page": "phat-am/schwa-sound.html",
+   "reason": "Khẩu hình nguyên âm/phụ âm theo bảng chuẩn mới (scripts/pron/features.mjs): lời hướng dẫn \"how\" viết lại cho đúng khẩu hình (#286)",
+   "words": [
+    "dứt",
+    "khoát"
+   ]
+  },
+  {
+   "page": "phat-am/sh-sound.html",
+   "reason": "Khẩu hình nguyên âm/phụ âm theo bảng chuẩn mới (scripts/pron/features.mjs): lời hướng dẫn \"how\" viết lại cho đúng khẩu hình (#286)",
+   "words": [
+    "ngạc",
+    "cứng",
+    "gặp",
+    "bắt",
+    "bật",
+    "mạnh",
+    "d/",
+    "ma",
+    "sát"
+   ],
+   "replace": [
+    [
+     "Thân lưỡi nâng gần ngạc cứng (lùi sau /s/), môi",
+     "Đầu và mặt lưỡi đặt gần vùng ngay sau lợi trên"
+    ]
+   ]
+  },
+  {
+   "page": "phat-am/short-i-sound.html",
+   "reason": "Khẩu hình nguyên âm/phụ âm theo bảng chuẩn mới (scripts/pron/features.mjs): lời hướng dẫn \"how\" viết lại cho đúng khẩu hình (#286)",
+   "replace": [
+    [
+     "và ở phía trước nhưng thấp và lùi hơn",
+     "ở phía trước nhưng thấp hơn và lùi vào"
+    ]
+   ]
+  },
+  {
+   "page": "phat-am/short-o-sound.html",
+   "reason": "Khẩu hình nguyên âm/phụ âm theo bảng chuẩn mới (scripts/pron/features.mjs): lời hướng dẫn \"how\" viết lại cho đúng khẩu hình (#286)",
+   "words": [
+    "gọn"
+   ]
+  },
+  {
+   "page": "phat-am/short-oo-sound.html",
+   "reason": "Khẩu hình nguyên âm/phụ âm theo bảng chuẩn mới (scripts/pron/features.mjs): lời hướng dẫn \"how\" viết lại cho đúng khẩu hình (#286)",
+   "words": [
+    "hơi",
+    "vừa",
+    "gọn"
+   ]
+  },
+  {
+   "page": "phat-am/short-uh-sound.html",
+   "reason": "Khẩu hình nguyên âm/phụ âm theo bảng chuẩn mới (scripts/pron/features.mjs): lời hướng dẫn \"how\" viết lại cho đúng khẩu hình (#286)",
+   "words": [
+    "hơi",
+    "vừa",
+    "dứt",
+    "khoát"
+   ],
+   "replace": [
+    [
+     "ở giữa, hơi thấp. Hàm mở vừa, môi thả lỏng tự",
+     "nằm ở giữa miệng, khá thấp. Hàm mở khá rộng"
+    ]
+   ]
+  },
+  {
+   "page": "phat-am/t-sound.html",
+   "reason": "Khẩu hình nguyên âm/phụ âm theo bảng chuẩn mới (scripts/pron/features.mjs): lời hướng dẫn \"how\" viết lại cho đúng khẩu hình (#286)",
+   "words": [
+    "then",
+    "kiểu"
+   ]
+  },
+  {
+   "page": "phat-am/v-sound.html",
+   "reason": "Khẩu hình nguyên âm/phụ âm theo bảng chuẩn mới (scripts/pron/features.mjs): lời hướng dẫn \"how\" viết lại cho đúng khẩu hình (#286)",
+   "words": [
+    "he"
+   ]
+  },
+  {
+   "page": "phat-am/voiced-th-sound.html",
+   "reason": "Khẩu hình nguyên âm/phụ âm theo bảng chuẩn mới (scripts/pron/features.mjs): lời hướng dẫn \"how\" viết lại cho đúng khẩu hình (#286)",
+   "words": [
+    "ngạc",
+    "cứng",
+    "thổi",
+    "suỵt",
+    "gặp"
+   ]
+  },
+  {
+   "page": "phat-am/voiceless-th-sound.html",
+   "reason": "Khẩu hình nguyên âm/phụ âm theo bảng chuẩn mới (scripts/pron/features.mjs): lời hướng dẫn \"how\" viết lại cho đúng khẩu hình (#286)",
+   "words": [
+    "ngạc",
+    "cứng",
+    "suỵt"
+   ]
+  },
+  {
+   "page": "phat-am/w-sound.html",
+   "reason": "Khẩu hình nguyên âm/phụ âm theo bảng chuẩn mới (scripts/pron/features.mjs): lời hướng dẫn \"how\" viết lại cho đúng khẩu hình (#286)",
+   "words": [
+    "ma",
+    "sát"
+   ],
+   "replace": [
+    [
+     ", rồi",
+     " về"
+    ]
+   ]
+  },
+  {
+   "page": "phat-am/y-sound.html",
+   "reason": "Khẩu hình nguyên âm/phụ âm theo bảng chuẩn mới (scripts/pron/features.mjs): lời hướng dẫn \"how\" viết lại cho đúng khẩu hình (#286)",
+   "words": [
+    "ma",
+    "sát"
+   ],
+   "replace": [
+    [
+     "rồi lướt",
+     "dây thanh"
+    ]
+   ]
+  },
+  {
+   "page": "phat-am/z-sound.html",
+   "reason": "Khẩu hình nguyên âm/phụ âm theo bảng chuẩn mới (scripts/pron/features.mjs): lời hướng dẫn \"how\" viết lại cho đúng khẩu hình (#286)",
+   "words": [
+    "ngạc",
+    "cứng",
+    "thổi",
+    "suỵt",
+    "gặp",
+    "bắt",
+    "bật",
+    "mạnh",
+    "d/"
+   ],
+   "replace": [
+    [
+     "nhưng rung dây thanh, tạo tiếng như",
+     "(đầu lưỡi gần lợi trên) nhưng rung"
+    ]
+   ]
+  },
+  {
+   "page": "phat-am/zh-sound.html",
+   "reason": "Khẩu hình nguyên âm/phụ âm theo bảng chuẩn mới (scripts/pron/features.mjs): lời hướng dẫn \"how\" viết lại cho đúng khẩu hình (#286)",
+   "words": [
+    "kiểu",
+    "nhiều",
+    "miền",
+    "nam",
+    "gi",
+    "bắt",
+    "bật",
+    "mạnh",
+    "d/",
+    "ma",
+    "sát"
+   ],
+   "replace": [
+    [
+     "lưỡi lùi) nhưng rung",
+     "đầu lưỡi ở vùng sau"
+    ]
+   ]
+  },
+  {
+   "page": "en/pronunciation/air-diphthong.html",
+   "reason": "Khẩu hình nguyên âm/phụ âm theo bảng chuẩn mới (scripts/pron/features.mjs): lời hướng dẫn \"how\" viết lại cho đúng khẩu hình (#286)",
+   "words": [
+    "spread",
+    "as",
+    "move",
+    "forward"
+   ]
+  },
+  {
+   "page": "en/pronunciation/ay-diphthong.html",
+   "reason": "Khẩu hình nguyên âm/phụ âm theo bảng chuẩn mới (scripts/pron/features.mjs): lời hướng dẫn \"how\" viết lại cho đúng khẩu hình (#286)",
+   "words": [
+    "as",
+    "move",
+    "forward"
+   ]
+  },
+  {
+   "page": "en/pronunciation/ch-sound.html",
+   "reason": "Khẩu hình nguyên âm/phụ âm theo bảng chuẩn mới (scripts/pron/features.mjs): lời hướng dẫn \"how\" viết lại cho đúng khẩu hình (#286)",
+   "words": [
+    "starts",
+    "blocking",
+    "at",
+    "strongly",
+    "aspirated",
+    "d/",
+    "comes",
+    "from",
+    "throat"
+   ],
+   "replace": [
+    [
+     "Starts like /t/ (tongue blocking the air",
+     "The tongue tip blocks the air just behind"
+    ]
+   ]
+  },
+  {
+   "page": "en/pronunciation/d-sound.html",
+   "reason": "Khẩu hình nguyên âm/phụ âm theo bảng chuẩn mới (scripts/pron/features.mjs): lời hướng dẫn \"how\" viết lại cho đúng khẩu hình (#286)",
+   "words": [
+    "using",
+    "dental",
+    "put"
+   ]
+  },
+  {
+   "page": "en/pronunciation/ear-diphthong.html",
+   "reason": "Khẩu hình nguyên âm/phụ âm theo bảng chuẩn mới (scripts/pron/features.mjs): lời hướng dẫn \"how\" viết lại cho đúng khẩu hình (#286)",
+   "words": [
+    "spread",
+    "front",
+    "close"
+   ]
+  },
+  {
+   "page": "en/pronunciation/eye-diphthong.html",
+   "reason": "Khẩu hình nguyên âm/phụ âm theo bảng chuẩn mới (scripts/pron/features.mjs): lời hướng dẫn \"how\" viết lại cho đúng khẩu hình (#286)",
+   "words": [
+    "spread",
+    "front",
+    "as",
+    "move",
+    "forward",
+    "up"
+   ]
+  },
+  {
+   "page": "en/pronunciation/f-sound.html",
+   "reason": "Khẩu hình nguyên âm/phụ âm theo bảng chuẩn mới (scripts/pron/features.mjs): lời hướng dẫn \"how\" viết lại cho đúng khẩu hình (#286)",
+   "words": [
+    "nearly",
+    "closed",
+    "make"
+   ]
+  },
+  {
+   "page": "en/pronunciation/h-sound.html",
+   "reason": "Khẩu hình nguyên âm/phụ âm theo bảng chuẩn mới (scripts/pron/features.mjs): lời hướng dẫn \"how\" viết lại cho đúng khẩu hình (#286)",
+   "words": [
+    "comes",
+    "from",
+    "end"
+   ]
+  },
+  {
+   "page": "en/pronunciation/j-sound.html",
+   "reason": "Khẩu hình nguyên âm/phụ âm theo bảng chuẩn mới (scripts/pron/features.mjs): lời hướng dẫn \"how\" viết lại cho đúng khẩu hình (#286)",
+   "words": [
+    "starts",
+    "d/",
+    "touch",
+    "comes"
+   ],
+   "replace": [
+    [
+     "Starts like /d/ and releases into /ʒ/",
+     "The tongue tip blocks the air just behind"
+    ]
+   ]
+  },
+  {
+   "page": "en/pronunciation/k-sound.html",
+   "reason": "Khẩu hình nguyên âm/phụ âm theo bảng chuẩn mới (scripts/pron/features.mjs): lời hướng dẫn \"how\" viết lại cho đúng khẩu hình (#286)",
+   "words": [
+    "light",
+    "have",
+    "clear"
+   ]
+  },
+  {
+   "page": "en/pronunciation/l-sound.html",
+   "reason": "Khẩu hình nguyên âm/phụ âm theo bảng chuẩn mới (scripts/pron/features.mjs): lời hướng dẫn \"how\" viết lại cho đúng khẩu hình (#286)",
+   "words": [
+    "opening",
+    "following"
+   ]
+  },
+  {
+   "page": "en/pronunciation/long-aw-sound.html",
+   "reason": "Khẩu hình nguyên âm/phụ âm theo bảng chuẩn mới (scripts/pron/features.mjs): lời hướng dẫn \"how\" viết lại cho đúng khẩu hình (#286)",
+   "words": [
+    "natural",
+    "compact",
+    "spread"
+   ]
+  },
+  {
+   "page": "en/pronunciation/long-oo-sound.html",
+   "reason": "Khẩu hình nguyên âm/phụ âm theo bảng chuẩn mới (scripts/pron/features.mjs): lời hướng dẫn \"how\" viết lại cho đúng khẩu hình (#286)",
+   "words": [
+    "slightly",
+    "moderately",
+    "natural",
+    "compact"
+   ]
+  },
+  {
+   "page": "en/pronunciation/n-sound.html",
+   "reason": "Khẩu hình nguyên âm/phụ âm theo bảng chuẩn mới (scripts/pron/features.mjs): lời hướng dẫn \"how\" viết lại cho đúng khẩu hình (#286)",
+   "words": [
+    "quickly",
+    "opening",
+    "into",
+    "following"
+   ]
+  },
+  {
+   "page": "en/pronunciation/ng-sound.html",
+   "reason": "Khẩu hình nguyên âm/phụ âm theo bảng chuẩn mới (scripts/pron/features.mjs): lời hướng dẫn \"how\" viết lại cho đúng khẩu hình (#286)",
+   "words": [
+    "opening",
+    "following"
+   ]
+  },
+  {
+   "page": "en/pronunciation/oor-diphthong.html",
+   "reason": "Khẩu hình nguyên âm/phụ âm theo bảng chuẩn mới (scripts/pron/features.mjs): lời hướng dẫn \"how\" viết lại cho đúng khẩu hình (#286)",
+   "words": [
+    "close",
+    "as",
+    "spread",
+    "move",
+    "forward"
+   ]
+  },
+  {
+   "page": "en/pronunciation/ow-diphthong.html",
+   "reason": "Khẩu hình nguyên âm/phụ âm theo bảng chuẩn mới (scripts/pron/features.mjs): lời hướng dẫn \"how\" viết lại cho đúng khẩu hình (#286)",
+   "replace": [
+    [
+     "Mouth wide open for “a”, then close the",
+     "Open the mouth wide for “a” with relaxed"
+    ]
+   ]
+  },
+  {
+   "page": "en/pronunciation/oy-diphthong.html",
+   "reason": "Khẩu hình nguyên âm/phụ âm theo bảng chuẩn mới (scripts/pron/features.mjs): lời hướng dẫn \"how\" viết lại cho đúng khẩu hình (#286)",
+   "words": [
+    "as",
+    "spread",
+    "mid"
+   ],
+   "replace": [
+    [
+     " as for /ɔː/, then",
+     ", the tongue back"
+    ]
+   ]
+  },
+  {
+   "page": "en/pronunciation/r-sound.html",
+   "reason": "Khẩu hình nguyên âm/phụ âm theo bảng chuẩn mới (scripts/pron/features.mjs): lời hướng dẫn \"how\" viết lại cho đúng khẩu hình (#286)",
+   "words": [
+    "opening",
+    "following"
+   ],
+   "replace": [
+    [
+     "slightly back behind",
+     "up toward the area"
+    ]
+   ]
+  },
+  {
+   "page": "en/pronunciation/s-sound.html",
+   "reason": "Khẩu hình nguyên âm/phụ âm theo bảng chuẩn mới (scripts/pron/features.mjs): lời hướng dẫn \"how\" viết lại cho đúng khẩu hình (#286)",
+   "words": [
+    "nearly",
+    "closed",
+    "flat",
+    "giving",
+    "bee",
+    "rises",
+    "near",
+    "hard",
+    "palate",
+    "pushed",
+    "pulled",
+    "starts",
+    "blocking",
+    "then",
+    "releases",
+    "into"
+   ],
+   "replace": [
+    [
+     "ongue tip close to the upper alveola",
+     "he tongue tip is close to the uppe"
+    ]
+   ]
+  },
+  {
+   "page": "en/pronunciation/sh-sound.html",
+   "reason": "Khẩu hình nguyên âm/phụ âm theo bảng chuẩn mới (scripts/pron/features.mjs): lời hướng dẫn \"how\" viết lại cho đúng khẩu hình (#286)",
+   "words": [
+    "rises",
+    "near",
+    "hard",
+    "palate",
+    "start",
+    "starts",
+    "blocking",
+    "d/",
+    "comes",
+    "from",
+    "throat"
+   ],
+   "replace": [
+    [
+     "body of the tongue rises near the hard",
+     "tip and blade of the tongue sit just"
+    ]
+   ]
+  },
+  {
+   "page": "en/pronunciation/short-i-sound.html",
+   "reason": "Khẩu hình nguyên âm/phụ âm theo bảng chuẩn mới (scripts/pron/features.mjs): lời hướng dẫn \"how\" viết lại cho đúng khẩu hình (#286)",
+   "words": [
+    "front",
+    "close"
+   ],
+   "replace": [
+    [
+     "lower and",
+     "a little"
+    ]
+   ]
+  },
+  {
+   "page": "en/pronunciation/short-o-sound.html",
+   "reason": "Khẩu hình nguyên âm/phụ âm theo bảng chuẩn mới (scripts/pron/features.mjs): lời hướng dẫn \"how\" viết lại cho đúng khẩu hình (#286)",
+   "words": [
+    "natural",
+    "compact"
+   ]
+  },
+  {
+   "page": "en/pronunciation/short-oo-sound.html",
+   "reason": "Khẩu hình nguyên âm/phụ âm theo bảng chuẩn mới (scripts/pron/features.mjs): lời hướng dẫn \"how\" viết lại cho đúng khẩu hình (#286)",
+   "words": [
+    "close",
+    "moderately",
+    "natural",
+    "compact",
+    "spread"
+   ]
+  },
+  {
+   "page": "en/pronunciation/short-uh-sound.html",
+   "reason": "Khẩu hình nguyên âm/phụ âm theo bảng chuẩn mới (scripts/pron/features.mjs): lời hướng dẫn \"how\" viết lại cho đúng khẩu hình (#286)",
+   "words": [
+    "moderately"
+   ],
+   "replace": [
+    [
+     ", slightly low. Jaw",
+     " of the mouth, fairly"
+    ]
+   ]
+  },
+  {
+   "page": "en/pronunciation/v-sound.html",
+   "reason": "Khẩu hình nguyên âm/phụ âm theo bảng chuẩn mới (scripts/pron/features.mjs): lời hướng dẫn \"how\" viết lại cho đúng khẩu hình (#286)",
+   "words": [
+    "hay",
+    "nearly",
+    "closed",
+    "gap",
+    "make",
+    "giving"
+   ]
+  },
+  {
+   "page": "en/pronunciation/voiced-th-sound.html",
+   "reason": "Khẩu hình nguyên âm/phụ âm theo bảng chuẩn mới (scripts/pron/features.mjs): lời hướng dẫn \"how\" viết lại cho đúng khẩu hình (#286)",
+   "words": [
+    "nearly",
+    "closed",
+    "narrow",
+    "gap",
+    "make",
+    "giving",
+    "bee",
+    "rises",
+    "near",
+    "hard",
+    "palate",
+    "pushed",
+    "pulled",
+    "start"
+   ]
+  },
+  {
+   "page": "en/pronunciation/voiceless-th-sound.html",
+   "reason": "Khẩu hình nguyên âm/phụ âm theo bảng chuẩn mới (scripts/pron/features.mjs): lời hướng dẫn \"how\" viết lại cho đúng khẩu hình (#286)",
+   "words": [
+    "nearly",
+    "closed",
+    "make",
+    "giving",
+    "bee",
+    "rises",
+    "near",
+    "hard",
+    "palate",
+    "lips",
+    "rounded",
+    "pushed"
+   ]
+  },
+  {
+   "page": "en/pronunciation/z-sound.html",
+   "reason": "Khẩu hình nguyên âm/phụ âm theo bảng chuẩn mới (scripts/pron/features.mjs): lời hướng dẫn \"how\" viết lại cho đúng khẩu hình (#286)",
+   "words": [
+    "giving",
+    "rises",
+    "near",
+    "hard",
+    "palate",
+    "pushed",
+    "pulled",
+    "start",
+    "starts",
+    "blocking",
+    "no",
+    "d/"
+   ],
+   "replace": [
+    [
+     ", but with voicing",
+     " (tongue tip close to"
+    ]
+   ]
+  },
+  {
+   "page": "en/pronunciation/zh-sound.html",
+   "reason": "Khẩu hình nguyên âm/phụ âm theo bảng chuẩn mới (scripts/pron/features.mjs): lời hướng dẫn \"how\" viết lại cho đúng khẩu hình (#286)",
+   "words": [
+    "pulled",
+    "starts",
+    "blocking",
+    "no",
+    "d/",
+    "comes",
+    "from"
+   ],
+   "replace": [
+    [
+     "rounded lips",
+     "lips rounded"
+    ]
+   ]
+  }
+ ]
+}

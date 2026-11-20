@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_sender",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: sender.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means a person who sends a letter or message.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "If the address is wrong, return the parcel to the sender.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "sender",
+  "ipa": "/ˈsendər/",
+  "mean": "a person who sends a letter or message",
+  "ex": "If the address is wrong, return the parcel to the sender.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=sender",
+  "link": "https://lexkite.com/app/#/review?w=sender",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 46,
+  "seconds": 27.7,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "What does \"sender\" mean?",
+  "keyword": "sender",
+  "value": "Sender means a person who sends a letter or message.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=sender",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"sender\" mean?",
+    "description": "Sender means a person who sends a letter or message.\n\nReview your words, free: https://lexkite.com/app/#/review?w=sender\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "sender",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"sender\" mean?\n\nSender means a person who sends a letter or message.\n\nReview your words, free: https://lexkite.com/app/#/review?w=sender"
+   },
+   "instagram": {
+    "caption": "What does \"sender\" mean?\n\nSender means a person who sends a letter or message.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"sender\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means a person who sends a letter or message. Sender means a person who sends a letter or message. Practice it with a free quiz: {link}"
+ }
+}

@@ -118,7 +118,7 @@ Aşağıdaki geçiş bağlaçlarını (transitional words) kompozisyonlarınızd
 | Örnek Verme | For example, Like | *To illustrate this point, A compelling instance of this is* |
 | Özetleme | In the end | *To encapsulate, In conclusion, Taking all points into account* |
 
-{{youtube: sRFEVUtq9LA | IELTS Writing Task 2'de 40 Dakikada 250+ Kelimelik Kompozisyon Yazma Rehberi}}
+{{youtube: | IELTS Writing Task 2'de 40 Dakikada 250+ Kelimelik Kompozisyon Yazma Rehberi}}
 
 {{cta: /#/write | IELTS Task 2 Yazma Odasını Dene}}
 
@@ -135,6 +135,16 @@ A) Doğrudan sonuca odaklanıp kompozisyonu geriye doğru yazmak
 B) Beyin fırtınası yapmak, soru kökünü analiz etmek ve paragraf taslağı (outline) çıkarmak  
 C) Kelimelerin sözlük anlamlarını kontrol etmek  
 *Doğru Cevap:* B (İlk 5 dakikayı planlamaya ayırmak yazarken duraksamanızı ve mantık hatalarını önler).
+
+IELTS ile TOEFL yazma bölümlerini kıyaslıyorsanız [yeni TOEFL formatı 2026](/tr/blog/yeni-toefl-format-2026-hazirlik-rehberi/) rehberine de bakabilirsiniz.
+
+Fikir sorularında duruşunuzu nasıl netleştireceğinizi ve üç cevap biçimini ayrıca [IELTS opinion essay nasıl yazılır](/tr/blog/ielts-opinion-essay-nasil-yazilir/) rehberinde bulabilirsiniz.
+
+Task 2'de en çok puan kaybettiren alışkanlıkları ve düzeltmelerini [IELTS Writing hataları ve çözümleri](/tr/blog/ielts-writing-hatalari-ve-cozumleri/) rehberinde bulabilirsiniz; puanın nasıl hesaplandığı için [IELTS puanı nasıl hesaplanır](/tr/blog/ielts-puani-nasil-hesaplanir-band-skorlari/) yazısına bakın.
+
+Sınav tarihini vize başvurunuza göre planlıyorsanız [IELTS UKVI nedir](/tr/blog/ielts-ukvi-nedir-kimlere-gerekir/) yazısı, hangi sürümü ve hangi merkezi seçeceğiniz konusunda sizi uyarır.
+
+Task 1 tarafında çubuk grafik raporu yazmayı çalışmak için [IELTS Writing Task 1 bar chart](/tr/blog/ielts-writing-task-1-bar-chart-ornek-rapor/) yazısı, sınav tarihine göre bir plan kurmak için ise [4, 8 ve 12 haftalık IELTS hazırlık programı](/tr/blog/ielts-hazirlik-programi-4-8-12-haftalik/) işinize yarar.
 
 ## Sıkça Sorulan Sorular (SSS)
 

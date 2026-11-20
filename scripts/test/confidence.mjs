@@ -99,6 +99,12 @@ const labelled = (b, w) => (b.getAttribute('aria-label') || b.textContent || '')
     ok(C.rpLevel('A1').L === 0 && C.rpLevel('A2').L === 1 && C.rpLevel('B1').L === 2 && C.rpLevel(undefined).L === 0, 'roleplay A1/A2/B1 giữ mức cũ'); }
   ok(w.Confidence.scoreOf({ wpm: 110, pausesPerMin: 1, secs: 120, phrases: 2 }, 5) > w.Confidence.scoreOf({ wpm: 40, pausesPerMin: 8, secs: 30, phrases: 0 }, 2), 'điểm tự tin: nói trôi + dùng cụm + tự tin cao → điểm cao hơn');
   await go('#/confidence/daily'); ok(!!$('#cfRec') && /2:00/.test($('#cfClock').textContent), 'thử thách 2 phút: đồng hồ + nút ghi');
+  { // rời trang lúc hộp xin quyền micro còn mở → phiên đến muộn bị huỷ, mic không sáng mãi
+    const orig = w.UI.speechSession; let release, cancelled = 0;
+    w.UI.speechSession = () => new Promise(r => { release = () => r({ stream: null, stop: async () => ({ text: '', audio: '' }), cancel: () => { cancelled++; } }); });
+    click($('#cfRec')); await tick(30); await go('#/confidence'); release(); await tick(60);
+    w.UI.speechSession = orig; ok(cancelled === 1, 'rời trang lúc hộp xin quyền mic mở → phiên bị huỷ (mic không sáng mãi)');
+  }
   // cuối roleplay thường → lối vào bài tương ứng
   await go('#/roleplay/cafe'); click($('#rpGo')); await tick(200); $('#rpIn').value = 'Hi! Can I get a latte, please?'; click($('#rpSend')); await tick(200); click($('#rpEnd')); await tick(800);
   ok(!!$('#view a[href="#/confidence/cafe"]'), 'lối vào: cuối roleplay → bài Ở quán cà phê');
@@ -133,7 +139,7 @@ for (const lang of ['es', 'ja', 'ar']) {
 {
   const sw = fs.readFileSync('web/sw.js', 'utf8'), app = fs.readFileSync('web/js/app.js', 'utf8'), js = fs.readFileSync('web/js/confidence.js', 'utf8');
   ok(!/confidence/.test((sw.match(/const SHELL = \[([\s\S]*?)\];/) || [])[1] || ''), 'khung app không chứa file Giao tiếp tự tin (tải lười)');
-  ok(/confidence: \['js\/i18n\/en\/confidence\.js', 'js\/confidence\/data\.js', 'js\/confidence\.js'\]/.test(app), 'bundle confidence trong BUNDLES (prefetch → dùng offline)');
+  ok(/confidence: \['js\/i18n\/en\/confidence\.js', 'cpack\/confidence\/data\.js', 'js\/speech-session\.js', 'js\/confidence\.js'\]/.test(fs.readFileSync('web/js/bundles.js', 'utf8')), 'bundle confidence trong BUNDLES (prefetch → dùng offline)');
   ok(!/(?<!max-)width:\s*\d{3,}px/.test(js) && /min\(100%/.test(js), 'mobile: không bề rộng cố định, lưới co theo màn hình');
   ok((js.match(/min-(height|width):4[4-9]px|min-(height|width):5\dpx|min-(height|width):6\dpx/g) || []).length >= 4, 'vùng chạm ≥ 44 px');
   // t() lúc nạp module: i18n-switch.mjs --scan (npm test) quét cả file này

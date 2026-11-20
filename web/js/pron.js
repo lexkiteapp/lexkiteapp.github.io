@@ -1,58 +1,68 @@
 /* Thư viện phát âm (kiểu ELSA): bảng 44 âm IPA, khẩu hình, cặp từ dễ nhầm (nghe – chọn), luyện nói có chấm điểm,
  * chuyên đề cho người Việt: âm cuối, -ed/-s, trọng âm, ngữ điệu, nối âm. */
 (function () {
-  const { $, $$, esc, speak, tts, ring, shuffle } = UI;
+  const { $, $$, esc, speak, tts, shuffle } = UI;
   const App = window.App;
   const { state, routes } = App;
   const view = App.view;
   const P = () => window.PRON || [];
   const GROUPS = [
-    { id: 'vowels', name: 'Nguyên âm đơn', emoji: '🅰️', desc: '12 nguyên âm – phân biệt âm dài/ngắn (ship – sheep)' },
-    { id: 'diphthongs', name: 'Nguyên âm đôi', emoji: '🔀', desc: '8 nguyên âm đôi – trượt từ âm này sang âm kia' },
-    { id: 'consonants', name: 'Phụ âm', emoji: '🅱️', desc: '24 phụ âm – vô thanh/hữu thanh, vị trí cấu âm' },
-    { id: 'vn', name: 'Sửa lỗi người Việt', emoji: '🇻🇳', desc: 'Âm cuối, đuôi -ed/-s, /θ ð/, /ʃ s/, cụm phụ âm' },
-    { id: 'stress', name: 'Trọng âm & ngữ điệu', emoji: '🎵', desc: 'Trọng âm từ, câu, ngữ điệu, nối âm – điểm Pronunciation band 7+' },
+    { id: 'vowels', name: 'Nguyên âm đơn', desc: '12 nguyên âm – phân biệt âm dài/ngắn (ship – sheep)' },
+    { id: 'diphthongs', name: 'Nguyên âm đôi', desc: '8 nguyên âm đôi – trượt từ âm này sang âm kia' },
+    { id: 'consonants', name: 'Phụ âm', desc: '24 phụ âm – vô thanh/hữu thanh, vị trí cấu âm' },
+    { id: 'vn', name: 'Sửa lỗi người Việt', desc: 'Âm cuối, đuôi -ed/-s, /θ ð/, /ʃ s/, cụm phụ âm' },
+    { id: 'stress', name: 'Trọng âm & ngữ điệu', desc: 'Trọng âm từ, câu, ngữ điệu, nối âm – điểm Pronunciation band 7+' },
   ];
   const done = () => state.game.pronDone || {};
   const accent = () => state.settings.accent;
   const RHYTHM = ['weak-forms', 'word-stress', 'stress-shift', 'connected-speech', 'chunking', 'intonation'];
 
+  // Khung Stitch v2 pron-hub (brand/stitch/v2/bind/pron-hub.json): d = dữ liệu thật; nhóm lưới (nguyên âm/phụ âm) và nhóm hàng (lỗi người Việt, trọng âm) cùng một danh sách d.groups
+  const ICON = { vn: 'tips_and_updates', stress: 'graphic_eq' };
+  const CHART = ['vowels', 'diphthongs', 'consonants'];
+  const L = (x, k) => (window.I18N && I18N.lang() === 'en' && x[k + 'En']) || x[k]; // giao diện English: chuyên đề có sẵn bản tiếng Anh (titleEn/howEn) thì dùng, khỏi lộ tiếng Việt
   routes.pron = function (id) {
     if (id) return lesson(decodeURIComponent(id));
-    const d = done(), all = P();
-    view.innerHTML = `
-      <div class="page-head"><div><h1>🔤 ${t('Thư viện phát âm')}</h1><p class="muted">${t('Luyện như ELSA: học khẩu hình từng âm IPA, nghe – phân biệt cặp từ dễ nhầm, nói và được chấm điểm, rồi sửa các lỗi người Việt hay mắc.')}</p></div>
-        ${ring(all.length ? Object.keys(d).length / all.length * 100 : 0, `${Object.keys(d).length}/${all.length}`, 'var(--good)')}</div>
-      ${GROUPS.map(gr => {
-        const ls = all.filter(x => x.group === gr.id);
-        if (!ls.length) return '';
-        const isChart = ['vowels', 'diphthongs', 'consonants'].includes(gr.id);
-        return `<div class="section-title"><h2>${gr.emoji} ${esc(t(gr.name))}</h2><span class="muted small">${esc(t(gr.desc))}</span></div>
-          ${isChart ? `<div class="ipa-grid">${ls.map(x => `<a class="ipa-tile ${d[x.id] ? 'ok' : ''} ${x.mouth && x.mouth.voiced === false ? 'unv' : ''}" href="#/pron/${encodeURIComponent(x.id)}" title="${esc(x.title)}">
-              <b>${esc(x.ipa.replace(/\//g, ''))}</b><span>${esc((x.words[0] || {}).w || '')}</span>${d[x.id] ? '<i>✓</i>' : ''}</a>`).join('')}</div>`
-          : `<div class="grid auto">${ls.map(x => `<a class="card hover topic-card" href="#/pron/${encodeURIComponent(x.id)}" style="color:var(--text)">
-              <div class="row between"><span class="em">${x.emoji}</span>${d[x.id] ? `<span class="chip ok">✓ ${d[x.id]}%</span>` : `<span class="chip">${esc(x.ipa || '')}</span>`}</div>
-              <h3>${esc(x.title)}</h3><div class="muted small">${esc((x.how || '').slice(0, 110))}${(x.how || '').length > 110 ? '…' : ''}</div></a>`).join('')}</div>`}`;
-      }).join('') || `<div class="card empty"><div class="em">🔤</div>${t('Đang cập nhật bài học…')}</div>`}
-      <p class="tiny muted" style="margin-top:1rem">${t('Ô viền xám nhạt = phụ âm vô thanh · Mỗi bài: khẩu hình → nghe mẫu → phân biệt cặp từ → nói & chấm điểm.')}</p>`;
+    const d = done(), all = P(), nx = all.find(x => d[x.id] == null), n = Object.keys(d).length, href = x => '#/pron/' + encodeURIComponent(x.id), word = x => (x.words || []).slice(0, 3).map(v => v.w).filter(Boolean).sort((a, b) => a.length - b.length)[0] || '';
+    const groups = GROUPS.map(gr => {
+      const ls = all.filter(x => x.group === gr.id);
+      if (!ls.length) return null;
+      const chart = CHART.includes(gr.id);
+      return { v: !chart ? 'rows' : gr.id === 'consonants' ? 'c5' : 'v4', name: t(gr.name), desc: t(gr.desc), note: t('Viền nét đứt = phụ âm vô thanh'), count: `${ls.filter(x => d[x.id]).length}/${ls.length}`,
+        items: ls.map(x => chart ? { id: x.id, href: href(x), ipa: x.ipa, w: word(x), done: d[x.id] || 0, next: x === nx, unv: !!(x.mouth && x.mouth.voiced === false), label: `${x.ipa} · ${word(x)}${d[x.id] ? ' · ' + t('Đã xong') + ' ' + d[x.id] + '%' : x === nx ? ' · ' + t('Âm tiếp theo') : ''}` }
+          : { id: x.id, href: href(x), icon: ICON[x.group] || 'graphic_eq', title: L(x, 'title'), done: d[x.id] || 0, sub: `${d[x.id] ? '✓ ' + d[x.id] + '% · ' : ''}${(L(x, 'how') || '').slice(0, 110)}${(L(x, 'how') || '').length > 110 ? '…' : ''}`, end: d[x.id] ? 'check_circle' : 'chevron_right' }) };
+    }).filter(Boolean);
+    ST2.mount(view, 'pron-hub', {
+      back: '#/skills', backL: t('Quay lại'), title: t('Thư viện phát âm'), intro: t('Luyện như ELSA: học khẩu hình từng âm IPA, nghe – phân biệt cặp từ dễ nhầm, nói và được chấm điểm, rồi sửa các lỗi người Việt hay mắc.'),
+      count: `${n}/${all.length}`, pct: all.length ? n / all.length * 100 : 0, doneL: t('Đã xong'), groups, next: nx, nextHref: nx ? href(nx) : '#/pron',
+      nextL: nx ? t('Âm tiếp theo') : t('Đã xong'), nextS: nx ? (nx.ipa ? `${nx.ipa} · ${(nx.words[0] || {}).w || ''}` : L(nx, 'title')) : `${n}/${all.length}`, cta: nx ? `${t('Học tiếp')}: ${nx.ipa || nx.title}` : '',
+      teacher: Chars.slot('ama', { pose: nx ? 'point' : 'cheer', size: 'xs', lazy: false }),
+      empty: all.length ? '' : `<div class="rounded-2xl border-2 p-4 text-center"><p>${t('Đang cập nhật bài học…')}</p></div>`,
+    }, null);
+    const dc = typeof document !== 'undefined' && document.body; if (dc) dc.classList.remove('st', 'v2on'); // khung chung inner: giữ thanh trên (Back) + thanh 5 tab + lề #view của app (như tab Từ vựng)
   };
 
-  // Hình khẩu hình đơn giản (SVG) cho nguyên âm
+  // Hình khẩu hình đơn giản (SVG) cho nguyên âm – số liệu từ mouth (scripts/pron/features.mjs là bảng chuẩn); nguyên âm đôi: điểm đầu → điểm cuối
+  const lipsVi = k => ({ spread: t('môi hơi kéo sang hai bên'), neutral: t('môi tự nhiên'), round: t('môi tròn') })[k] || '';
+  const jawVi = k => ({ close: t('hàm gần khép'), 'near-close': t('hàm hé'), mid: t('hàm mở vừa'), 'open-mid': t('hàm mở khá rộng'), open: t('hàm mở rộng') })[k] || '';
   function mouthSvg(m) {
-    if (!m || !m.lips) return '';
-    const open = { close: 6, mid: 16, open: 28 }[m.jaw] || 14;
+    if (!m || !m.lips || !m.jaw) return '';
+    const open = { close: 4, 'near-close': 8, mid: 14, 'open-mid': 20, open: 28 }[m.jaw] || 14;
     const wide = { spread: 70, neutral: 56, round: 34 }[m.lips] || 56;
-    const tx = { front: 92, central: 100, back: 112 }[m.tongue] || 100;
-    const ty = 108 - ({ close: 14, mid: 8, open: 2 }[m.jaw] || 8);
-    return `<svg viewBox="0 0 200 160" class="mouth" role="img" aria-label="${t('Khẩu hình')}">
+    const tx = { front: 90, 'near-front': 94, central: 100, 'near-back': 106, back: 110 }[m.back] || 100;
+    const ty = 108 - ({ close: 14, 'near-close': 12, mid: 8, 'open-mid': 5, open: 2 }[m.jaw] || 8);
+    const cap = x => `${lipsVi(x.lips)} · ${jawVi(x.jaw)}`;
+    // Chú thích nằm DƯỚI hình tròn (đáy tròn y = 154), không đè lên mép
+    const lines = m.to ? [cap(m), '→ ' + cap(m.to)] : [cap(m)];
+    return `<svg viewBox="0 0 200 ${162 + lines.length * 14}" class="mouth" role="img" aria-label="${t('Khẩu hình')}">
       <circle cx="100" cy="80" r="74" fill="var(--surface-2)"/>
       <ellipse cx="100" cy="98" rx="${wide / 2 + 10}" ry="${open / 2 + 12}" fill="#f9a8b8"/>
       <ellipse cx="100" cy="98" rx="${wide / 2}" ry="${open / 2 + 2}" fill="#7f1d1d"/>
       <ellipse cx="${tx}" cy="${ty + open / 3}" rx="18" ry="6" fill="#fb7185" opacity=".9"/>
-      <text x="100" y="152" text-anchor="middle" class="tl-ax">${{ spread: t('môi dàn rộng'), neutral: t('môi tự nhiên'), round: t('môi tròn') }[m.lips] || ''} · ${{ close: t('hàm khép'), mid: t('hàm hé'), open: t('hàm mở rộng') }[m.jaw] || ''}</text></svg>`;
+      ${lines.map((l, i) => `<text x="100" y="${170 + i * 14}" text-anchor="middle" class="tl-ax">${esc(l)}</text>`).join('')}</svg>`;
   }
-  const placeVi = k => ({ lips: t('hai môi'), teeth: t('môi – răng'), 'tongue-teeth': t('lưỡi – răng'), ridge: t('lợi trên'), palate: t('vòm miệng'), back: t('cuống lưỡi'), throat: t('thanh hầu') })[k];
-  const mannerVi = k => ({ stop: t('âm tắc (bật hơi)'), fricative: t('âm xát'), affricate: t('âm tắc – xát'), nasal: t('âm mũi'), approximant: t('âm tiếp cận') })[k];
+  const placeVi = k => ({ lips: t('hai môi'), teeth: t('môi – răng'), 'tongue-teeth': t('lưỡi – răng'), ridge: t('lợi trên'), 'post-ridge': t('sau lợi'), palate: t('vòm miệng'), back: t('cuống lưỡi'), throat: t('thanh hầu'), 'lips-back': t('môi + ngạc mềm') })[k];
+  const mannerVi = (k, lat) => lat ? t('âm tiếp cận bên') : ({ stop: t('âm tắc'), fricative: t('âm xát'), affricate: t('âm tắc – xát'), nasal: t('âm mũi'), approximant: t('âm tiếp cận') })[k];
 
   function lesson(id) {
     const all = P(), i = all.findIndex(x => x.id === id), x = all[i];
@@ -66,7 +76,7 @@
       <div class="grid" style="grid-template-columns:minmax(0,1fr) 220px;align-items:center;margin:.7rem 0 1rem" id="pHead">
         <div class="card hero-main" style="min-height:100%">
           <div class="row nowrap"><div class="ipa-big">${esc(x.ipa)}</div><div><h1 style="margin:0;color:#fff">${esc(x.title)}</h1>
-            <div class="row" style="margin-top:.4rem">${m.voiced != null ? `<span class="chip" style="background:rgba(255,255,255,.2);color:#fff">${m.voiced ? t('hữu thanh (rung cổ)') : t('vô thanh (không rung)')}</span>` : ''}${m.long ? `<span class="chip" style="background:rgba(255,255,255,.2);color:#fff">${t('âm dài ː')}</span>` : ''}${m.place ? `<span class="chip" style="background:rgba(255,255,255,.2);color:#fff">${placeVi(m.place) || m.place}</span><span class="chip" style="background:rgba(255,255,255,.2);color:#fff">${mannerVi(m.manner) || m.manner || ''}</span>` : ''}</div></div></div>
+            <div class="row" style="margin-top:.4rem">${m.voiced != null ? `<span class="chip" style="background:rgba(255,255,255,.2);color:#fff">${m.voiced ? t('hữu thanh (rung cổ)') : t('vô thanh (không rung)')}</span>` : ''}${m.long && !m.to ? `<span class="chip" style="background:rgba(255,255,255,.2);color:#fff">${t('âm dài ː')}</span>` : ''}${m.to ? `<span class="chip" style="background:rgba(255,255,255,.2);color:#fff">${t('nguyên âm đôi')}</span>` : ''}${m.place ? `<span class="chip" style="background:rgba(255,255,255,.2);color:#fff">${placeVi(m.place) || m.place}</span><span class="chip" style="background:rgba(255,255,255,.2);color:#fff">${mannerVi(m.manner, m.lateral) || m.manner || ''}</span>${m.aspirated ? `<span class="chip" style="background:rgba(255,255,255,.2);color:#fff">${t('bật hơi đầu từ')}</span>` : ''}` : ''}</div></div></div>
           <p style="margin:.8rem 0 0;opacity:.95">${esc(x.how)}</p>
         </div>
         <div class="card" style="text-align:center">${mouthSvg(m) || `<div style="font-size:3.5rem">${x.emoji}</div>`}</div>
@@ -141,7 +151,7 @@
       const step = () => {
         if (r >= rounds.length) {
           const pct = Math.round(ok / rounds.length * 100);
-          box.innerHTML = `<div class="feedback ${pct >= 75 ? 'ok' : 'no'}" style="position:static"><b>${t('Nghe đúng {ok}/{n}', { ok, n: rounds.length })}</b> – ${pct >= 75 ? t('tai bạn đã phân biệt tốt!') : t('nghe chậm lại từng cặp và thử lần nữa.')} <button class="btn sm" id="startPairs2">↺ ${t('Chơi lại')}</button></div>`;
+          box.innerHTML = `<div class="feedback ${pct >= 75 ? 'ok' : 'no'}" style="position:static" data-lesson-done><b>${t('Nghe đúng {ok}/{n}', { ok, n: rounds.length })}</b> – ${pct >= 75 ? t('tai bạn đã phân biệt tốt!') : t('nghe chậm lại từng cặp và thử lần nữa.')} <button class="btn sm" id="startPairs2">↺ ${t('Chơi lại')}</button></div>`;
           App.reward({ quizzes: 1, pron: 1, xp: 5 + ok * 2 });
           $('#startPairs2').onclick = sp.onclick;
           Sfx.finish({ pct, xp: 5 + ok * 2, good: 75, el: box });

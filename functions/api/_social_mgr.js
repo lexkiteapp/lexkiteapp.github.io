@@ -6,9 +6,11 @@
  * KHÔNG cho (api_key_not_allowed, đo 22/10): connect/*, insights, comments, inbox, approvals, best-times, queue/slots, hashtag-groups,
  * caption-templates, accounts/{id}/check → kết nối kênh mở GrabCast (popup), số liệu lấy từ nguồn khác (web, nhập tay, YouTube khi có). */
 import { manifest, signed } from './admin-shorts.js';
+import { withInstall } from './_install_links.js';
+import { BIO_ONLY } from './_role_meta.js';
 import { field } from './_clip_logic.js';
 import { runModel } from './ai.js';
-import { normCfg, allowed, schedule } from './_distribution.js';
+import { normCfg, allowed, schedule, SOCIAL_DAY_MAX, LANG_TZ, langOfChannel, isMainLang, MAIN_DAY, NATIVE_DAY, gapOf } from './_distribution.js';
 
 // ---------------- Hàm thuần (test: scripts/test/social-mgr.mjs) ----------------
 export const STATES = ['idea', 'draft', 'review', 'approved', 'scheduled', 'published', 'failed'];
@@ -16,8 +18,8 @@ export const STATES = ['idea', 'draft', 'review', 'approved', 'scheduled', 'publ
 export const PLAT = {
   facebook_page: { cap: 30, used: 'reels_24h', capKey: 'reels_cap', kind: 'reel' },
   instagram: { cap: 100, used: 'posts_24h', capKey: 'posts_cap', kind: 'reel', cap2200: true },
-  tiktok: { cap: 15, kind: 'video', privateOnly: 'tiktok-audit' },
-  youtube: { cap: 6, kind: 'short', privateOnly: 'google-review' },
+  tiktok: { cap: 15, kind: 'video' }, // Direct Post của app GrabCast được duyệt 03/11/2026 → hết giới hạn SELF_ONLY
+  youtube: { cap: 6, kind: 'short' }, // GrabCast qua audit YouTube API (chủ báo 10/11/2026) → hết giới hạn private; chủ 10/11: tự duyệt tự đăng (ownerPolicy)
   threads: { cap: 250, kind: 'post' },
 };
 export const platOf = a => { const p = String((a && (a.platform || a.provider)) || '').toLowerCase(); return p === 'facebook' ? 'facebook_page' : p; };
@@ -71,14 +73,14 @@ export function validateCompose(d, plats) {
   return out.map(x => ({ lv: 'error', ...x }));
 }
 
-export const DEFAULT_RULES = { perDay: { facebook_page: 2, instagram: 2, tiktok: 2, youtube: 1, threads: 3 }, minGapH: 3, hours: [8, 12, 19], tz: 'America/New_York', tzBy: {}, dupDays: 30, days: 7, skipWeekend: false };
+export const DEFAULT_RULES = { perDay: { facebook_page: 2, instagram: 2, tiktok: 2, youtube: 2, threads: 2 }, minGapH: 4, hours: [12, 19, 20], tz: 'America/New_York', tzBy: {}, dupDays: 30, days: 7, skipWeekend: false };
 export function cleanRules(r) {
   r = r && typeof r === 'object' ? r : {}; const d = DEFAULT_RULES, perDay = {};
-  for (const p of Object.keys(PLAT)) perDay[p] = Math.max(0, Math.min(PLAT[p].cap, Math.round(+((r.perDay || {})[p] ?? d.perDay[p]) || 0)));
+  for (const p of Object.keys(PLAT)) perDay[p] = Math.max(0, Math.min(PLAT[p].cap, SOCIAL_DAY_MAX, Math.round(+((r.perDay || {})[p] ?? d.perDay[p]) || 0)));
   const tzOk = z => { try { new Intl.DateTimeFormat('en', { timeZone: z }); return true; } catch (e) { return false; } };
   const tzBy = {}; for (const [k, v] of Object.entries(r.tzBy || {})) if (/^[A-Za-z0-9_-]{1,40}$/.test(k) && typeof v === 'string' && tzOk(v)) tzBy[k] = v;
   const hours = [...new Set((Array.isArray(r.hours) ? r.hours : d.hours).map(Math.round).filter(h => h >= 0 && h <= 23))].sort((a, b) => a - b).slice(0, 12);
-  return { perDay, minGapH: Math.max(1, Math.min(24, +r.minGapH || d.minGapH)), hours: hours.length ? hours : d.hours, tz: tzOk(r.tz) ? r.tz : d.tz, tzBy,
+  return { perDay, minGapH: Math.max(1, Math.min(24, +r.minGapH || d.minGapH)), hours: hours.length && !(hours.join() === '8,12,19') ? hours : d.hours, tz: tzOk(r.tz) ? r.tz : d.tz, tzBy,
     cfgBy: Object.fromEntries(Object.entries(r.cfgBy || {}).filter(([k, v]) => /^[A-Za-z0-9_-]{1,40}$/.test(k) && v && typeof v === 'object').slice(0, 200).map(([k, v]) => [k, normCfg(v)])),
     dupDays: Math.max(1, Math.min(365, Math.round(+r.dupDays || d.dupDays))), days: Math.max(1, Math.min(31, Math.round(+r.days || d.days))), skipWeekend: !!r.skipWeekend };
 }
@@ -89,8 +91,9 @@ export function atTz(y, m, d, h, tz) { const want = Date.UTC(y, m - 1, d, h); le
  *  mỗi tài khoản GrabCast = 1 "kênh" cfg cùng dạng (daily_cap, min_gap_min, tz, windows, types/topics/cefr…), id "gc:<id>"; thêm lớp riêng của social:
  *  trần 24 h của nền tảng (FB Reels 30, IG 100…) và chống trùng clip/kênh trong dupDays. Trả { slots:[{clip, account_id, at}], skipped:[{clip, account_id, why}] }. */
 export function cfgFor(a, R) {
-  const id = String(a.id), over = (R.cfgBy || {})[id] || {};
-  return normCfg({ daily_cap: R.perDay[a.p] || 0, min_gap_min: R.minGapH * 60, tz: R.tzBy[id] || R.tz, windows: R.hours.map(h => ({ from: String(h).padStart(2, '0') + ':00', to: String(h).padStart(2, '0') + ':59' })), label: a.name || '', ...over });
+  const id = String(a.id), over = (R.cfgBy || {})[id] || {}, lang = langOfChannel(a.name || ''), cap = R.perDay[a.p] > 0 ? (isMainLang(lang) ? Math.min(MAIN_DAY.max, R.perDay[a.p]) : NATIVE_DAY) : 0; // trần theo loại kênh: chính 2–3 · bản ngữ 1 (một nguồn: _distribution.dayCapOf)
+  const hrs = cap >= 2 ? R.hours : R.hours.filter(h => h >= 18).concat(R.hours.some(h => h >= 18) ? [] : R.hours);
+  return normCfg({ daily_cap: cap, min_gap_min: gapOf(lang, R.minGapH * 60), tz: R.tzBy[id] || LANG_TZ[lang] || R.tz, windows: hrs.map(h => ({ from: String(h).padStart(2, '0') + ':00', to: String(h).padStart(2, '0') + ':59' })), label: a.name || '', ...over });
 }
 export function planQueue({ clips = [], accounts = [], taken = [], history = [], rules, now = Date.now() }) {
   const R = cleanRules(rules), slots = [], skipped = [], used = new Map();
@@ -182,12 +185,19 @@ async function approvedClips(env) {
   return m.items.filter(it => it && CLIP.test(String(it.id)) && q.has(it.id) && !(rv.get(it.id) || {}).deleted && !['rejected', 'paused'].includes((rv.get(it.id) || {}).state) && !it.rejected)
     .map(it => ({ id: it.id, title: it.title || it.lesson || it.id, description: it.description || '', hashtags: Array.isArray(it.hashtags) ? it.hashtags.slice(0, 10) : [], template: it.template || '', hook: field(it, 'hook'), cefr: field(it, 'diff') || it.cefr || '', duration: +it.duration || 0, created: it.created || '', video: it.video, cover: it.cover, _it: it }));
 }
-export const bodyFor = (clip, mediaId, accs, per = {}) => ({
-  title: str(clip.title, 100), caption: str([clip.description || clip.title, (clip.hashtags || []).map(h => '#' + String(h).replace(/^#/, '')).join(' ')].filter(Boolean).join('\n\n'), 2200), media_ids: [mediaId], timezone: 'America/New_York',
-  targets: accs.map(a => ({ account_id: a.id, kind: a.kind || (PLAT[a.p] || {}).kind || 'video', options: a.p === 'tiktok' ? { privacy_level: 'SELF_ONLY', allow_comment: true, allow_duet: false, allow_stitch: false, is_aigc: true } : a.p === 'youtube' ? { privacy_status: 'private', made_for_kids: false, contains_synthetic_media: true, category_id: '27' } : {}, ...(per[a.p] || {}) })),
+// Caption gốc (hashtag cuối, trần 2200). Kênh BIO_ONLY (IG/TikTok) giữ nguyên "link in bio", không dán link; kênh khác kèm link cài đo theo nền tảng (infra/install-links.json, docs/VIDEO.md), threads trần 500.
+const capBase = clip => str([clip.description || clip.title, (clip.hashtags || []).map(h => '#' + String(h).replace(/^#/, '')).join(' ')].filter(Boolean).join('\n\n'), 2200);
+const capOf = (clip, p) => BIO_ONLY.includes(p) ? capBase(clip) : withInstall(capBase(clip), p, clip.id, p === 'threads' ? 500 : 2200);
+export const bodyFor = (clip, mediaId, accs, per = {}, tz = 'America/New_York') => ({
+  title: str(clip.title, 100), caption: capBase(clip), media_ids: [mediaId], timezone: tz,
+  targets: accs.map(a => ({ account_id: a.id, kind: a.kind || (PLAT[a.p] || {}).kind || 'video', options: a.p === 'tiktok' ? { privacy_level: 'PUBLIC_TO_EVERYONE', allow_comment: true, allow_duet: false, allow_stitch: false, commercial_content: false, is_aigc: true } : a.p === 'youtube' ? { privacy_status: 'public', made_for_kids: false, contains_synthetic_media: true, category_id: '27' } : {}, caption_override: capOf(clip, a.p), ...(per[a.p] || {}) })),
 });
 export async function pushClip(env, clip, gc, origin) {
-  const cached = await getMeta(env.DB, 'media:' + clip.id, null); if (cached && cached.id) return cached.id;
+  const cached = await getMeta(env.DB, 'media:' + clip.id, null);
+  if (cached && cached.id) { // GrabCast xóa file 24 giờ sau khi bài xong (status expired) → chỉ dùng lại khi còn ready, không thì tải lại
+    const m = await gc('GET', 'media/' + cached.id), st = m.status < 400 && m.data ? String((m.data.media || m.data).status || 'ready') : '';
+    if (st === 'ready') return cached.id;
+  }
   const url = await signed(env, clip._it, 'video', 2 * 3600); if (!url) throw fail(409, 'clip-not-on-drive');
   const src = await fetch(new URL(url, origin).toString()); if (!src.ok || !src.body) throw fail(502, 'clip-fetch');
   const bytes = +src.headers.get('Content-Length') || 0; if (!bytes) throw fail(502, 'clip-size');
@@ -205,17 +215,28 @@ const rowOut = r => ({ ...r, accounts: JSON.parse(r.accounts || '[]'), plats: JS
 /** Đồng bộ 2 chiều với GrabCast (GrabCast giữ lịch & tự đăng nền; Lexkite là nguồn sự thật cho duyệt/lịch/luật):
  *  trạng thái → cột Scheduled/Published/Failed; giờ, chữ, kênh, link, lỗi phản chiếu từ GrabCast; sửa nội dung trên GrabCast sau khi duyệt
  *  → note 'changed-in-grabcast' (bài đã lên lịch: UI đề nghị hủy lịch & duyệt lại; bài chưa lên lịch: về In review). */
+/** Trạng thái bài GrabCast (backend/app/social, 04/11/2026) → cột bảng duyệt. partial = ít nhất 1 đích đã lên: KHÔNG phải lỗi, không tạo lại. needs_check = có thể đã lên: không bao giờ tự làm lại, để người xem. */
+export function boardStateOf(s, cur) {
+  s = String(s || '');
+  if (s === 'published' || s === 'partial') return 'published';
+  if (s === 'failed' || s === 'missed' || s === 'cancel_failed') return 'failed';
+  if (s === 'canceled' || s === 'deleted') return 'draft';
+  if (s === 'scheduled' || s === 'publishing') return 'scheduled';
+  return cur; // draft, awaiting_approval, needs_check, trạng thái mới: giữ cột, không đoán
+}
+export const noteOfStatus = s => (s === 'partial' ? 'partial' : s === 'needs_check' ? 'needs-check' : s === 'cancel_failed' ? 'cancel-failed' : null);
 export async function boardSync(db, posts) {
   const byPid = new Map(posts.map(p => [String(p.id), p])), rows = await all(db, "SELECT id, post_id, state, hash, want_at, note FROM soc_board WHERE post_id IS NOT NULL AND state NOT IN ('idea','draft','published')");
   for (const r of rows) {
     const p = byPid.get(String(r.post_id)); if (!p) continue; const s = String(p.status || ''), ts = p.targets || [];
-    let ns = /^published$/.test(s) ? 'published' : /fail|error|partial/.test(s) ? 'failed' : /cancel|deleted/.test(s) ? 'draft' : /schedul|publishing|processing/.test(s) ? 'scheduled' : r.state;
+    let ns = boardStateOf(s, r.state);
     if (ns === 'scheduled' && !r.hash) ns = r.state; // lên lịch ngoài Lexkite khi chưa duyệt → giữ cột cũ, note cảnh báo
-    let note = r.note;
-    if (r.hash && await contentHash(p) !== r.hash) { note = 'changed-in-grabcast'; if (ns === 'approved') ns = 'review'; }
+    let note = noteOfStatus(s) || (['partial', 'needs-check', 'cancel-failed'].includes(r.note) ? null : r.note);
+    if (noteOfStatus(s)) { /* giữ note trạng thái, không bị ghi đè bởi kiểm dấu băm */ }
+    else if (r.hash && await contentHash(p) !== r.hash) { note = 'changed-in-grabcast'; if (ns === 'approved') ns = 'review'; }
     else if (!r.hash && /schedul/.test(s)) note = 'scheduled-outside';
     else if (note === 'changed-in-grabcast' || note === 'scheduled-outside') note = null;
-    const links = JSON.stringify(ts.map(t => ({ a: String(t.account_id), p: t.platform || '', s: t.state || '', u: /^https:\/\//.test(String(t.permalink || '')) ? t.permalink : '', e: t.last_error_code || '' })));
+    const links = JSON.stringify(ts.map(t => ({ a: String(t.account_id), p: t.platform || '', s: t.state || '', u: /^https:\/\//.test(String(t.permalink || '')) ? t.permalink : '', e: t.last_error_code || '', m: String(t.last_error || '').slice(0, 160) })));
     const at = Date.parse(p.scheduled_at || '') || r.want_at;
     await run(db, `UPDATE soc_board SET state = ?, note = ?, links = ?, want_at = ?, caption = ?, title = COALESCE(?, title), accounts = ?, plats = ?, hash = CASE WHEN ? = 'review' THEN NULL ELSE hash END, updated = CASE WHEN state != ? OR COALESCE(note,'') != COALESCE(?, '') THEN ? ELSE updated END WHERE id = ?`,
       ns, note, links, at, str(p.caption, 2200), p.title || null, JSON.stringify(ts.map(t => String(t.account_id))), JSON.stringify([...new Set(ts.map(t => t.platform).filter(Boolean))]), ns, ns, note, Date.now(), r.id);
@@ -358,7 +379,11 @@ export const OPS = {
   },
   'GET metrics': async ({ db }) => {
     const rows = await all(db, 'SELECT * FROM soc_metrics ORDER BY at DESC LIMIT 2000');
-    return { rows, weights: await getMeta(db, 'weights', null), sync: await getMeta(db, 'metrics_sync', null) };
+    let vmeta = [], growth = [];
+    try { vmeta = await all(db, 'SELECT video_id, channel_id, clip, secs, publish_at, missing FROM yt_vmeta LIMIT 5000'); } catch (e) { /* chưa có số liệu YouTube */ }
+    try { growth = await all(db, "SELECT c.video_id, c.views - COALESCE(w.views, 0) AS d7, c.views - COALESCE(m.views, 0) AS d30 FROM yt_stats c LEFT JOIN yt_stats w ON w.video_id = c.video_id AND w.day = (SELECT MAX(day) FROM yt_stats WHERE day <= date(c.day, '-7 day')) LEFT JOIN yt_stats m ON m.video_id = c.video_id AND m.day = (SELECT MAX(day) FROM yt_stats WHERE day <= date(c.day, '-30 day')) WHERE c.day = (SELECT MAX(day) FROM yt_stats) LIMIT 5000"); } catch (e) { /* chưa có yt_stats */ }
+    let channels = []; try { channels = await all(db, 'SELECT channel_id, title FROM yt_channel'); } catch (e) { /* chưa kết nối YouTube */ }
+    return { rows, vmeta, growth, channels, alerts: await getMeta(db, 'ana_alerts', []), weights: await getMeta(db, 'weights', null), sync: await getMeta(db, 'metrics_sync', null) };
   },
   'POST metrics/import': async ({ db, b }) => { // nhập tay / CSV (Meta Business Suite, TikTok Studio) khi API không cho đọc số liệu
     const rows = Array.isArray(b.rows) ? b.rows.slice(0, 500) : []; let n = 0;
@@ -410,6 +435,31 @@ async function upMetric(db, m) {
   await run(db, `INSERT INTO soc_metrics (k, post_id, platform, account_id, clip, template, hook, cefr, views, likes, comments, saves, shares, watch_s, src, at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     ON CONFLICT(k) DO UPDATE SET views = excluded.views, likes = excluded.likes, comments = excluded.comments, saves = excluded.saves, shares = excluded.shares, watch_s = excluded.watch_s, template = excluded.template, hook = excluded.hook, cefr = excluded.cefr, src = excluded.src, at = excluded.at`,
   m.k, m.post_id, m.platform, m.account_id, m.clip, m.template, m.hook, m.cefr, m.views | 0, m.likes | 0, m.comments | 0, m.saves | 0, m.shares | 0, m.watch_s | 0, m.src, Date.now());
+}
+/** Cảnh báo phân tích (hàm thuần): kênh 0 view mới ≥ 3 ngày, video bị gỡ/hạn chế, quota ≥ 80 %. Hiện ở Quản trị › Phân tích; CI mở thêm issue cho coordinator. */
+export function analyticsAlerts({ channels = [], videos = [], zero3 = [], quota = null }, now = Date.now()) {
+  const A = [], name = id => (channels.find(c => c.channel_id === id) || {}).title || id;
+  for (const c of zero3) A.push({ k: 'yt-zero3:' + c, title: 'kênh 0 view mới 3 ngày', text: `Kênh ${name(c)} không có view mới trong ≥ 3 ngày dù có video đã đăng.`, at: now });
+  const gone = videos.filter(v => v.missing).map(v => v.video_id);
+  if (gone.length) A.push({ k: 'yt-gone', title: 'video bị gỡ/hạn chế', text: 'Video không còn đọc được trên YouTube (gỡ, riêng tư hoặc bị hạn chế): ' + gone.slice(0, 10).join(', '), at: now });
+  if (quota && quota.limit && quota.used >= quota.limit * 0.8) A.push({ k: 'yt-quota', title: 'quota sắp cạn', text: `Quota YouTube hôm nay ${quota.used}/${quota.limit} (≥ 80 %).`, at: now });
+  return A;
+}
+export async function saveAlerts(db, alerts) { await setMeta(db, 'ana_alerts', alerts.slice(0, 20)); return alerts; }
+/** YouTube (op stats): mỗi video → 1 dòng soc_metrics (platform youtube, account = kênh) + yt_vmeta (độ dài, giờ đăng, bị gỡ) cho bảng Phân tích; trọng số tính lại. */
+export async function ingestYouTube(db, videos, now = Date.now()) {
+  await run(db, 'CREATE TABLE IF NOT EXISTS yt_vmeta (video_id TEXT PRIMARY KEY, channel_id TEXT, clip TEXT, secs REAL, publish_at TEXT, missing INTEGER, seen INTEGER)');
+  let n = 0;
+  for (const v of videos || []) {
+    if (!v || !v.video_id) continue;
+    await run(db, 'INSERT INTO yt_vmeta (video_id, channel_id, clip, secs, publish_at, missing, seen) VALUES (?, ?, ?, ?, ?, ?, ?) ON CONFLICT(video_id) DO UPDATE SET channel_id = excluded.channel_id, clip = excluded.clip, secs = excluded.secs, publish_at = excluded.publish_at, missing = excluded.missing, seen = excluded.seen',
+      v.video_id, v.channel_id || '', v.clip || '', Number.isFinite(+v.secs) ? +v.secs : null, v.publish_at || null, v.missing ? 1 : 0, now);
+    if (v.missing) continue;
+    const bd = (v.clip && await one(db, 'SELECT template, hook, cefr FROM soc_board WHERE clip = ? LIMIT 1', v.clip)) || {};
+    await upMetric(db, { k: 'youtube:' + v.video_id, post_id: v.video_id, platform: 'youtube', account_id: v.channel_id || '', clip: v.clip || '', template: bd.template || '', hook: bd.hook || '', cefr: bd.cefr || '',
+      ...mapMetrics('youtube', { viewCount: v.views, likeCount: v.likes, commentCount: v.comments }), src: 'youtube' }); n++;
+  }
+  return { n, weights: await recompute(db) };
 }
 async function recompute(db) { const w = weightsFrom((await all(db, "SELECT * FROM soc_metrics WHERE platform != 'web'"))); w.at = Date.now(); await setMeta(db, 'weights', w); return w; }
 

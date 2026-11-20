@@ -1,0 +1,53 @@
+{
+ "ui": {
+  "ti": "Pronunciación del español",
+  "pk": "Elige un sonido para practicar",
+  "ex": "Escucha ejemplos",
+  "pp": "Pares mínimos",
+  "dc": "Dictado",
+  "sy": "Dilo tú",
+  "qp": "¿Qué palabra oyes?",
+  "qd": "Escribe lo que oyes",
+  "qs": "Toca el micrófono y di la palabra",
+  "mic": "Toca para hablar",
+  "hd": "Entendí: “{h}”",
+  "rt": "No te entendí. Inténtalo otra vez.",
+  "sk": "Omitir",
+  "nm": "Aquí no hay micrófono. Practica con pares o dictado.",
+  "tp": "Consejo"
+ },
+ "tp": {
+  "vow": {
+   "t": "Cinco vocales puras",
+   "x": "El español tiene solo cinco vocales, a, e, i, o, u, y cada una suena siempre igual: corta, clara y firme, sin deslizarse a un segundo sonido. Di “casa” y “solo” sin mover la boca de principio a fin."
+  },
+  "rr": {
+   "t": "La r simple y la rr vibrante",
+   "x": "Una r entre vocales es un toque rápido de la lengua: “pero”. Al inicio de palabra, o escrita rr, es vibrante múltiple: “rojo”, “perro”. Una letra cambia el significado: “pero” y “perro”."
+  },
+  "bv": {
+   "t": "b y v suenan igual",
+   "x": "Las letras b y v representan un solo sonido. Al inicio o tras m o n es un /b/ firme (“vaca”, “bola”). Entre vocales los labios apenas se tocan (“uva”, “lobo”). Qué letra escribir es cuestión de ortografía, no de sonido."
+  },
+  "seseo": {
+   "t": "c, z y s: un solo sonido",
+   "x": "En el español latinoamericano, c (ante e, i), z y s suenan igual, /s/: “cielo”, “zapato”, “casa”. No existe el sonido de la “z” de España. Por eso “casa” y “caza” suenan idéntico; el contexto da el sentido y la ortografía se aprende."
+  },
+  "stress": {
+   "t": "Acento y tilde",
+   "x": "El acento cae en la penúltima sílaba si la palabra termina en vocal, n o s; si no, en la última. La tilde rompe la regla y marca la vocal tónica: “papa” y “papá”, “canto” y “cantó”. El acento puede cambiar el significado."
+  },
+  "link": {
+   "t": "Unir las palabras",
+   "x": "El español fluye: la vocal final de una palabra se une con la vocal inicial de la siguiente, sin pausa. “la hora” suena como “lahora” y “mi amigo” como “miamigo”. No te detengas entre palabras."
+  },
+  "jg": {
+   "t": "j, g y gu",
+   "x": "j, y g ante e o i, es una /x/ soplada en el fondo de la garganta: “jarra”, “gente”. g ante a, o, u es una /g/ fuerte: “gato”. Para conservarla fuerte ante e o i se escribe gu sin pronunciar la u: “guerra”."
+  },
+  "hq": {
+   "t": "ñ, ll, h, ch, qu",
+   "x": "ñ suena como “ny”: “año”. ll e y suenan como una “y” suave: “pollo”. La h siempre es muda: “hola”, “hora”. qu suena /k/ y la u no se pronuncia: “queso”. ch como en “chico”."
+  }
+ }
+}

@@ -52,7 +52,7 @@ publishAt: 2026-12-04T07:36:00+09:00
 2. **품사의 분화 (동사 vs 명사)**: *affect*(동사: 영향을 주다)와 *effect*(명사: 효과/영향), *advise*(동사)와 *advice*(명사). 한국어에서는 '조언하다'와 '조언'처럼 어간이 같아 품사 전환에 따른 스펠링 변화를 놓치기 쉽습니다.
 3. **동작의 방향성 차이 (Directionality)**: *borrow*(외부에서 나에게로 빌려오기)와 *lend*(나에게서 외부로 빌려주기)처럼 대상의 이동 방향이 정반대인 동사의 혼선.
 
-이러한 단어들을 마스터하기 위해서는 단순 암기보다 실제 예문과 연어(Collocation) 속에서 학습해야 합니다. [Lexkite 온라인 사전](/#/dict/resilient)과 [영문법 연습실](/#/grammar)을 통해 문장 속 쓰임새를 직접 점검해 보세요. 또한 효과적인 어휘 확장을 위해 [영단어 암기법 완벽 가이드](/ko/blog/yeongdaneo-amgibeop/)와 [IELTS 필수 연어 정리](/ko/blog/ielts-collocation-yeongeo-yeoneo-chongjeongri/)를 참고하시기 바랍니다. 체계적인 어휘 정리는 [단어 라이브러리](/tu-vung/)에서 확인하실 수 있습니다.
+이러한 단어들을 마스터하기 위해서는 단순 암기보다 실제 예문과 연어(Collocation) 속에서 학습해야 합니다. [Lexkite 온라인 사전](/#/dict/resilient)과 [영문법 연습실](/#/grammar)을 통해 문장 속 쓰임새를 직접 점검해 보세요. 또한 효과적인 어휘 확장을 위해 [영단어 암기법 완벽 가이드](/ko/blog/yeongdaneo-amgibeop/)와 [IELTS 필수 연어 정리](/ko/blog/ielts-collocation-yeongeo-yeoneo-chongjeongri/)를 참고하시기 바랍니다. 체계적인 어휘 정리는 [단어 라이브러리](/en/vocabulary/)에서 확인하실 수 있습니다.
 
 ## 1. 동사와 명사로 헷갈리는 영단어 쌍
 
@@ -171,6 +171,8 @@ publishAt: 2026-12-04T07:36:00+09:00
 | **Historical** | 형용사 | 역사에 관한, 과거 기록에 기반한 |
 
 비즈니스 실무 영어 실력을 한 단계 더 끌어올리고 싶다면 [비즈니스 영어 이메일 작성법](/ko/blog/business-yeongeo-email-pyohyeon/)과 [회의 핵심 영어 표현 정리](/ko/blog/business-yeongeo-meeting-pyohyeon/)도 함께 살펴보세요.
+
+헷갈리는 단어 중 가장 자주 묻는 한 쌍은 [affect effect 차이](/ko/blog/affect-effect-chai-gubunbeop/) 글에서 예외와 한국인의 전형적인 오류까지 따로 정리했습니다.
 
 ## 확인 퀴즈 (실전 테스트)
 

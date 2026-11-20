@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite — Minimal Pair Drill: ship vs sheep</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,600,0,0" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              teal: '#0F3D3E',
+              'teal-deep': '#092526',
+              'teal-light': '#1A5354',
+              'mint': '#2DD4BF',
+              'coral': '#E11D48',
+              'coral-ledge': '#9F1239',
+              'amber': '#F59E0B',
+              'amber-dark': '#B45309',
+              'ink-dark': '#1C1003',
+              'cream': '#FFF8F4',
+              'cream-card': '#FFFFFF',
+              'cream-edge': '#EFE3D5',
+              'text-primary': '#141819',
+              'text-muted': '#5A6869',
+            }
+          },
+          boxShadow: {
+            'tactile-btn': '0 4px 0 0 #D1D5DB',
+            'tactile-card': '0 6px 0 0 #E5D6C5',
+            'tactile-option': '0 5px 0 0 #DFD0BD',
+            'tactile-active': '0 5px 0 0 #092526',
+            'tactile-coral': '0 4px 0 0 #9F1239',
+            'tactile-speaker': '0 6px 0 0 #092526',
+            'tactile-slow': '0 3px 0 0 #D6C7B5',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      background-color: #FFF8F4;
+      color: #141819;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+</head>
+<body class="bg-[#FBF7F1] flex justify-center items-start min-h-screen antialiased selection:bg-[#2DD4BF] selection:text-[#092526]">
+
+  <!-- Mobile Screen Frame: 390px fixed width, no device frame bezel -->
+  <main class="w-full max-w-[390px] min-h-screen bg-[#FBF7F1] flex flex-col justify-between relative px-4 pb-6 pt-3 mx-auto">
+    
+    <!-- Top Area: Fixed Focus Bar -->
+    <header class="w-full flex items-center justify-between gap-3 mb-2">
+      <!-- 44x44 px Close 'X' Button -->
+      <button type="button" aria-label="Close lesson" class="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-2xl bg-white border-2 border-[#E6DCCB] text-[#162124] hover:bg-[#F8F4EC] active:translate-y-0.5 shadow-[0_2px_0_0_#E5D6C5] transition-all">
+        <span class="material-symbols-rounded text-2xl font-bold">close</span>
+      </button>
+
+      <!-- Progress Track & Round Badge -->
+      <div class="flex-1 flex flex-col justify-center px-1">
+        <div class="flex items-center justify-between mb-1.5">
+          <span class="text-[12px] font-extrabold uppercase tracking-wider text-[#0F3D3E]">Minimal Pair Drill</span>
+          <span class="text-[12px] font-bold text-[#5A6869]">Round 3 of 8</span>
+        </div>
+        <!-- Slim Progress Bar -->
+        <div class="w-full h-2.5 bg-[#ECE4D7] rounded-full overflow-hidden p-[1px]">
+          <div class="h-full bg-[#0F3D3E] rounded-full w-[37.5%] transition-all duration-300"></div>
+        </div>
+      </div>
+
+      <!-- Level Pill -->
+      <div class="h-8 px-2.5 bg-[#F8F4EC] border border-[#BCE3DF] rounded-xl flex items-center justify-center shrink-0">
+        <span class="text-[11px] font-extrabold text-[#0F3D3E] tracking-tight">/ɪ/ vs /iː/</span>
+      </div>
+    </header>
+
+    <!-- Main Content Flow -->
+    <div class="flex-1 flex flex-col items-center justify-start w-full py-1">
+
+      <!-- Calm Centered Audio Hero Card -->
+      <section class="w-full bg-white rounded-3xl border-2 border-[#E6DCCB] p-5 shadow-[0_6px_0_0_#E5D6C5] flex flex-col items-center text-center mb-4 transition-all">
+        
+        <!-- Category & Audio Cue -->
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 bg-[#F8F4EC] border border-[#E2D5C3] rounded-full mb-3">
+          <span class="material-symbols-rounded text-[#0F3D3E] text-base">hearing</span>
+          <span class="text-[12px] font-extrabold text-[#0F3D3E] tracking-wide uppercase">Listen closely</span>
+        </div>
+
+        <!-- Big Play Button (Raised Tactile Disk, >= 44x44, 88x88px) -->
+        <div class="relative my-2">
+          <!-- Ambient pulse ring -->
+          <div class="absolute inset-0 rounded-full bg-[#0F3D3E]/10 animate-ping opacity-75"></div>
+          
+          <button type="button" aria-label="Play audio" class="relative w-[88px] h-[88px] min-w-[44px] min-h-[44px] rounded-full bg-[#0F3D3E] border-2 border-[#092526] text-white flex flex-col items-center justify-center shadow-[0_6px_0_0_#092526] hover:bg-[#1A5354] active:translate-y-1 active:shadow-[0_2px_0_0_#092526] transition-all group">
+            <span class="material-symbols-rounded text-4xl text-[#2DD4BF] group-hover:scale-105 transition-transform">volume_up</span>
+            <span class="text-[11px] font-extrabold uppercase tracking-widest text-white mt-0.5">Play</span>
+          </button>
+        </div>
+
+        <!-- Prompt Text -->
+        <h1 class="text-xl font-black text-[#162124] mt-3 mb-1 tracking-tight leading-snug">
+          Which word did you hear?
+        </h1>
+        <p class="text-[13px] font-semibold text-[#5A6869] leading-relaxed max-w-[270px]">
+          Tap the word that matches the vowel sound and length.
+        </p>
+
+        <!-- Quiet Replay Slowly Action Button -->
+        <div class="mt-4 pt-3 border-t border-[#E6DCCB] w-full flex justify-center">
+          <button type="button" class="min-h-[44px] px-4 py-2 rounded-2xl bg-[#FBF7F1] border-2 border-[#E6DCCB] text-[#0F3D3E] font-bold text-xs flex items-center justify-center gap-2 shadow-[0_3px_0_0_#D6C7B5] hover:bg-white active:translate-y-0.5 active:shadow-[0_1px_0_0_#D6C7B5] transition-all">
+            <span class="material-symbols-rounded text-lg text-[#F59E0B]">slow_motion_video</span>
+            <span>Replay slowly (0.75×)</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Two Large Answer Cards: Side-by-side with IPA (Neither selected yet) -->
+      <section class="w-full grid grid-cols-2 gap-3 mb-4" aria-label="Answer choices">
+        
+        <!-- Option A: ship -->
+        <button type="button" class="group min-h-[120px] bg-white border-2 border-[#E6DCCB] rounded-2xl p-3.5 flex flex-col items-center justify-between text-center shadow-[0_5px_0_0_#DFD0BD] hover:border-[#0F3D3E] hover:bg-[#FFFFFF] active:translate-y-1 active:shadow-[0_1px_0_0_#DFD0BD] transition-all relative">
+          <!-- Selection indicator placeholder / letter badge -->
+          <div class="w-7 h-7 rounded-full bg-[#F8F4EC] border border-[#E2D5C3] text-[#0F3D3E] font-extrabold text-xs flex items-center justify-center mb-1 group-hover:bg-[#0F3D3E] group-hover:text-white transition-colors">
+            A
+          </div>
+          
+          <div class="my-auto">
+            <span class="block text-2xl font-black text-[#162124] tracking-tight group-hover:text-[#0F3D3E] transition-colors">ship</span>
+            <span class="block text-[15px] font-bold text-[#0F3D3E] tracking-wide mt-0.5">/ʃɪp/</span>
+          </div>
+
+          <div class="mt-1 px-2 py-0.5 bg-[#F8F4EC] rounded-md text-[11px] font-semibold text-[#5A6869]">
+            Short vowel
+          </div>
+        </button>
+
+        <!-- Option B: sheep -->
+        <button type="button" class="group min-h-[120px] bg-white border-2 border-[#E6DCCB] rounded-2xl p-3.5 flex flex-col items-center justify-between text-center shadow-[0_5px_0_0_#DFD0BD] hover:border-[#0F3D3E] hover:bg-[#FFFFFF] active:translate-y-1 active:shadow-[0_1px_0_0_#DFD0BD] transition-all relative">
+          <!-- Selection indicator placeholder / letter badge -->
+          <div class="w-7 h-7 rounded-full bg-[#F8F4EC] border border-[#E2D5C3] text-[#0F3D3E] font-extrabold text-xs flex items-center justify-center mb-1 group-hover:bg-[#0F3D3E] group-hover:text-white transition-colors">
+            B
+          </div>
+          
+          <div class="my-auto">
+            <span class="block text-2xl font-black text-[#162124] tracking-tight group-hover:text-[#0F3D3E] transition-colors">sheep</span>
+            <span class="block text-[15px] font-bold text-[#0F3D3E] tracking-wide mt-0.5">/ʃiːp/</span>
+          </div>
+
+          <div class="mt-1 px-2 py-0.5 bg-[#F8F4EC] rounded-md text-[11px] font-semibold text-[#5A6869]">
+            Long vowel
+          </div>
+        </button>
+
+      </section>
+
+      <!-- Streak-free Calm Progress Dots Row -->
+      <div class="w-full flex items-center justify-center gap-1.5 py-1 mb-2" aria-label="Progress rounds">
+        <!-- Round 1: Completed -->
+        <div class="w-2.5 h-2.5 rounded-full bg-[#0F3D3E] flex items-center justify-center" title="Round 1 completed"></div>
+        <!-- Round 2: Completed -->
+        <div class="w-2.5 h-2.5 rounded-full bg-[#0F3D3E] flex items-center justify-center" title="Round 2 completed"></div>
+        <!-- Round 3: Current -->
+        <div class="w-3.5 h-3.5 rounded-full bg-[#2DD4BF] border-2 border-[#0F3D3E]" title="Current Round 3"></div>
+        <!-- Rounds 4 to 8: Remaining -->
+        <div class="w-2.5 h-2.5 rounded-full bg-[#E5D7C7]" title="Round 4"></div>
+        <div class="w-2.5 h-2.5 rounded-full bg-[#E5D7C7]" title="Round 5"></div>
+        <div class="w-2.5 h-2.5 rounded-full bg-[#E5D7C7]" title="Round 6"></div>
+        <div class="w-2.5 h-2.5 rounded-full bg-[#E5D7C7]" title="Round 7"></div>
+        <div class="w-2.5 h-2.5 rounded-full bg-[#E5D7C7]" title="Round 8"></div>
+      </div>
+
+      <!-- Empty Teacher Slot Placeholder (no drawn characters/people, ready for code overlay) -->
+      <div class="w-full border-2 border-dashed border-[#B8D5D2] rounded-2xl bg-[#FBF7F1] p-3 flex items-center justify-between gap-3 mb-2" id="teacher-slot">
+        <div class="w-10 h-10 rounded-xl bg-white border border-[#D2E7E5] flex items-center justify-center text-[#0F3D3E] shrink-0">
+          <span class="material-symbols-rounded text-xl">school</span>
+        </div>
+        <div class="flex-1 text-left">
+          <div class="text-[12px] font-extrabold uppercase tracking-wider text-[#0F3D3E]">teacher-slot</div>
+          <div class="text-[11px] font-semibold text-[#5A6869]">Coach Ama • Pronunciation cue</div>
+        </div>
+        <span class="text-[11px] font-bold text-[#0F3D3E] px-2 py-1 bg-white rounded-lg border border-[#D2E7E5]">Auto-sync</span>
+      </div>
+
+    </div>
+
+    <!-- Pinned Bottom Bar: Single Primary Button -->
+    <footer class="w-full pt-2">
+      <!-- Disabled-looking but completely legible Check Button (contrast >= 4.5:1) -->
+      <button type="button" disabled aria-disabled="true" class="w-full min-h-[52px] h-[52px] px-6 rounded-2xl bg-[#E2D8CD] text-[#554737] font-black text-base flex items-center justify-center gap-2 shadow-[0_4px_0_0_#C5B8AA] cursor-not-allowed transition-all uppercase tracking-wider select-none">
+        <span>Check</span>
+        <span class="material-symbols-rounded text-xl">check</span>
+      </button>
+
+      <!-- Reassuring Low-Pressure Hint (Accessible ink >= 4.5:1) -->
+      <p class="text-center text-[12px] font-bold text-[#5A6869] mt-2 tracking-tight">
+        No timer • Relax and train your ear at your own pace
+      </p>
+    </footer>
+
+  </main>
+</body>
+</html>

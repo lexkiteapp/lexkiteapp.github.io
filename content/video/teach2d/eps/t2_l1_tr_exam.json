@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_tr_exam",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Passed, not gave the exam!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I gave the exam yesterday.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I passed the exam yesterday.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Passed means you did well.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Passed! I studied hard and passed the test.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I gave the exam yesterday.",
+  "right": "I passed the exam yesterday.",
+  "strike": "gave",
+  "why": "Passed means you did well.",
+  "memory": "I passed the exam.",
+  "quiz": {
+   "stem": "I studied hard and ___ the test.",
+   "options": [
+    "gave",
+    "passed"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Sınavı “gave” değil, “passed”!",
+   "tip": "Türkçede “sınavı verdim” deriz ama İngilizcede “I passed the exam” denir.",
+   "caption": "“I gave the exam yesterday” mi diyorsun? 🙈 Sınavı geçtiysen İngilizcede “passed” denir. Doğrusu “I passed the exam yesterday.” Carlos’u dinle ve tekrar et! Lexkite uygulamasında daha çok pratik yap.",
+   "comment": "Cevap: “passed”. Sınavı geçtiysen passed de. Ücretsiz testle pratik yap: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Not “gave the exam”, but “passed”!",
+   "tip": "If you did well on a test, say “passed”: “I passed the exam.”",
+   "caption": "Do you say “I gave the exam yesterday”? 🙈 If you did well, English says “passed”. The right sentence is “I passed the exam yesterday.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Sınavı “gave” değil, “passed”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "tr",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Sınavı “gave” değil, “passed”!",
+  "keyword": "I passed the exam yesterday.",
+  "value": "Türkçede “sınavı verdim” deriz ama İngilizcede “I passed the exam” denir.",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "Sınavı “gave” değil, “passed”!",
+    "description": "Türkçede “sınavı verdim” deriz ama İngilizcede “I passed the exam” denir.\n\n“I gave the exam yesterday” mi diyorsun? 🙈 Sınavı geçtiysen İngilizcede “passed” denir. Doğrusu “I passed the exam yesterday.” Carlos’u dinle ve tekrar et! Lexkite uygulamasında daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "I passed the exam yesterday.",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“I gave the exam yesterday” mi diyorsun? 🙈 Sınavı geçtiysen İngilizcede “passed” denir. Doğrusu “I passed the exam yesterday.” Carlos’u dinle ve tekrar et! Lexkite uygulamasında daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Sınavı “gave” değil, “passed”!\n\nTürkçede “sınavı verdim” deriz ama İngilizcede “I passed the exam” denir.\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Sınavı “gave” değil, “passed”! Türkçede “sınavı verdim” deriz ama İngilizcede “I passed the exam” denir. #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “passed”. Sınavı geçtiysen passed de. Ücretsiz testle pratik yap: {link}",
+  "lang": "tr"
+ }
+}

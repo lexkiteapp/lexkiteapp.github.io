@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite - Travel Vocabulary</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-bright": "#edfcff",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary-fixed-variant": "#224d4e",
+            "tertiary-fixed-dim": "#77d6cf",
+            "on-tertiary": "#ffffff",
+            "on-surface": "#0c1e21",
+            "on-primary-fixed": "#3d0600",
+            "primary": "#b52705",
+            "secondary-fixed": "#beebeb",
+            "surface-container-low": "#e3f7fb",
+            "on-primary-container": "#5b0d00",
+            "background": "#edfcff",
+            "on-background": "#0c1e21",
+            "outline-variant": "#e3beb6",
+            "surface-dim": "#cadee1",
+            "secondary-container": "#beebeb",
+            "on-tertiary-fixed": "#00201e",
+            "inverse-on-surface": "#e1f4f8",
+            "on-error": "#ffffff",
+            "surface": "#edfcff",
+            "surface-container-highest": "#d2e6ea",
+            "tertiary": "#006a65",
+            "inverse-surface": "#223336",
+            "secondary": "#3b6566",
+            "on-primary-fixed-variant": "#8b1900",
+            "tertiary-fixed": "#93f3eb",
+            "surface-container": "#def1f5",
+            "on-primary": "#ffffff",
+            "surface-tint": "#b52705",
+            "outline": "#8f7069",
+            "on-secondary-container": "#426b6c",
+            "tertiary-container": "#3ea29b",
+            "surface-variant": "#d2e6ea",
+            "on-tertiary-fixed-variant": "#00504c",
+            "on-secondary-fixed": "#002020",
+            "inverse-primary": "#ffb4a3",
+            "primary-fixed-dim": "#ffb4a3",
+            "surface-container-high": "#d8ecf0",
+            "error-container": "#ffdad6",
+            "on-surface-variant": "#5b413b",
+            "on-error-container": "#93000a",
+            "on-secondary": "#ffffff",
+            "on-tertiary-container": "#003230",
+            "secondary-fixed-dim": "#a3cfcf",
+            "primary-container": "#ff5c38",
+            "primary-fixed": "#ffdad2",
+            "error": "#ba1a1a"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin-mobile": "1rem",
+            "space-md": "1rem",
+            "margin": "2rem",
+            "gutter": "1.25rem",
+            "space-sm": "0.5rem",
+            "space-lg": "1.5rem",
+            "space-xl": "2.5rem",
+            "gutter-mobile": "0.75rem",
+            "space-xs": "0.25rem"
+          },
+          "fontFamily": {
+            "body-sm": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Plus Jakarta Sans"],
+            "headline-xl-mobile": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "display-lg": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-xl": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "body-sm": ["13px", {"lineHeight": "20px", "letterSpacing": "0.005em", "fontWeight": "500"}],
+            "label-sm": ["10px", {"lineHeight": "14px", "letterSpacing": "0.06em", "fontWeight": "800"}],
+            "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "700"}],
+            "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "700"}],
+            "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+            "headline-xl-mobile": ["26px", {"lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+            "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+            "headline-sm": ["20px", {"lineHeight": "28px", "letterSpacing": "0", "fontWeight": "700"}],
+            "display-lg": ["44px", {"lineHeight": "52px", "letterSpacing": "-0.03em", "fontWeight": "800"}],
+            "body-lg": ["18px", {"lineHeight": "28px", "letterSpacing": "-0.005em", "fontWeight": "500"}],
+            "body-md": ["15px", {"lineHeight": "24px", "letterSpacing": "0", "fontWeight": "500"}],
+            "headline-xl": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      font-size: 20px;
+      line-height: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .material-symbols-outlined[data-weight="fill"] {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Physical 3px tactile ledge micro-behaviors */
+    .tactile-btn-primary {
+      box-shadow: 0 3px 0 0 #B8381D;
+      transition: transform 100ms ease, box-shadow 100ms ease;
+    }
+    .tactile-btn-primary:active {
+      transform: translateY(3px);
+      box-shadow: 0 0 0 0 #B8381D;
+    }
+    .tactile-chip-active {
+      box-shadow: 0 2px 0 0 #07191B;
+      transform: translateY(0);
+    }
+    .tactile-chip-inactive {
+      box-shadow: 0 2px 0 0 #D5CFC3;
+      transition: transform 100ms ease, box-shadow 100ms ease;
+    }
+    .tactile-chip-inactive:active {
+      transform: translateY(2px);
+      box-shadow: 0 0 0 0 #D5CFC3;
+    }
+    .tactile-audio-btn {
+      box-shadow: 0 2px 0 0 #D5CFC3;
+      transition: transform 80ms ease, box-shadow 80ms ease;
+    }
+    .tactile-audio-btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 0 0 0 #D5CFC3;
+    }
+    .card-ledge {
+      border-bottom: 2px solid #E0DAD0;
+    }
+    /* Hide scrollbars for clean chip carousels */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[#FAF8F5] text-on-surface antialiased font-body-md flex justify-center min-h-screen selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+<!-- Mobile Device Screen Container (390px viewport standard) -->
+<div class="w-full max-w-[390px] min-h-screen bg-[#FAF8F5] relative flex flex-col border-x border-[#E6E1D8] shadow-sm pb-28">
+<!-- TopAppBar Component (Rendered strictly as specified in Shared Components JSON) -->
+<header class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-space-md h-16 w-full max-w-[390px] mx-auto bg-surface-container-lowest border-b border-surface-container-highest">
+<!-- Leading Icon Button (min 44x44px touch target) -->
+<button aria-label="Go back" class="w-11 h-11 flex items-center justify-center rounded-lg text-on-surface hover:bg-surface-container-high active:translate-y-0.5 transition-transform duration-100" type="button">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<!-- Headline Anchor -->
+<div class="flex-1 px-space-sm text-center">
+<h1 class="font-headline-sm text-headline-sm font-bold text-on-surface tracking-tight">Travel</h1>
+</div>
+<!-- Trailing Icon Button (min 44x44px touch target) -->
+<button aria-label="More options" class="w-11 h-11 flex items-center justify-center rounded-lg text-on-surface hover:bg-surface-container-high active:translate-y-0.5 transition-transform duration-100" type="button">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</header>
+<!-- Main Content Canvas (Compensating 64px for docked top app bar) -->
+<main class="flex-1 px-4 pt-20 flex flex-col gap-5">
+<!-- Breadcrumbs & Category Pill -->
+<div class="flex items-center gap-2 pt-1">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant font-label-sm text-label-sm border border-[#0F3D3E]/10">
+<span class="material-symbols-outlined text-[13px]" data-icon="school">school</span>
+          IELTS &amp; TOEFL Vocab · CEFR B1
+        </span>
+</div>
+<!-- Topic Title & High-Level Metadata -->
+<div class="flex flex-col gap-1.5">
+<h2 class="font-headline-xl-mobile text-headline-xl-mobile font-extrabold text-[#0F3D3E] tracking-tight">
+          Travel &amp; Exploration
+        </h2>
+<div class="flex flex-wrap items-center gap-x-2 gap-y-1 text-[#2E4548] font-label-md text-label-md">
+<span class="inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-[#0F3D3E]" data-icon="menu_book">menu_book</span>
+            240 words
+          </span>
+<span class="text-[#8F7069]">·</span>
+<span>4 subtopics</span>
+<span class="text-[#8F7069]">·</span>
+<span class="px-2 py-0.5 rounded bg-[#FAF8F5] border border-[#E6E1D8] font-bold text-[#0F3D3E]">B1 Intermediate</span>
+</div>
+</div>
+<!-- Progress Stats Card with Planar Frame & Tactile Shelf -->
+<section class="bg-surface-container-lowest rounded-2xl p-4 border border-[#E6E1D8] card-ledge flex flex-col gap-3.5">
+<div class="flex items-center justify-between">
+<div>
+<p class="font-label-sm text-label-sm uppercase tracking-wider text-[#5B413B]">Topic Readiness</p>
+<p class="font-label-lg text-label-lg font-bold text-[#0F2124]">Overall Mastery: 42%</p>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-surface-container font-label-md text-label-md text-[#0F3D3E] font-bold border border-[#E6E1D8]">
+            102 of 240 words
+          </span>
+</div>
+<!-- Tactile Progress Bar -->
+<div class="w-full bg-[#E5E0D8] rounded-full h-3 p-0.5 overflow-hidden border border-[#D5CEC2]">
+<div class="bg-[#0F3D3E] h-full rounded-full transition-all duration-300" style="width: 42%;"></div>
+</div>
+<!-- Breakdown Stat Chips Grid -->
+<div class="grid grid-cols-3 gap-2 pt-0.5">
+<div class="flex flex-col items-center justify-center p-2 rounded-xl bg-[#FAF8F5] border border-[#E6E1D8]">
+<span class="font-label-sm text-label-sm text-[#5B413B]">NEW</span>
+<span class="font-label-lg text-label-lg font-extrabold text-[#0F2124]">48</span>
+</div>
+<div class="flex flex-col items-center justify-center p-2 rounded-xl bg-[#FAF8F5] border border-[#E6E1D8]">
+<span class="font-label-sm text-label-sm text-[#0F3D3E]">LEARNING</span>
+<span class="font-label-lg text-label-lg font-extrabold text-[#0F3D3E]">54</span>
+</div>
+<div class="flex flex-col items-center justify-center p-2 rounded-xl bg-[#FAF8F5] border border-[#E6E1D8]">
+<span class="font-label-sm text-label-sm text-[#006A65]">MASTERED</span>
+<span class="font-label-lg text-label-lg font-extrabold text-[#006A65]">138</span>
+</div>
+</div>
+</section>
+<!-- Teacher Slot Container (Empty Rounded Dashed Box Placeholder - Strictly No People) -->
+<section aria-label="Coach instruction slot" class="rounded-2xl border-2 border-dashed border-[#0F3D3E]/35 bg-[#FAF8F5] p-3.5 flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-[#0F3D3E] font-bold uppercase tracking-wider flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]" data-icon="tips_and_updates">tips_and_updates</span>
+            [teacher-slot] Ama - Vocab Coach
+          </span>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container text-[#2E4548] border border-[#E6E1D8]">Exam Tip</span>
+</div>
+<!-- Speech Bubble Accent -->
+<div class="relative bg-surface-container-lowest rounded-xl p-3 border border-[#E6E1D8] shadow-sm">
+<p class="font-body-sm text-body-sm text-[#0F2124] leading-relaxed">
+            "Focus on collocations like <span class="font-bold text-[#0F3D3E] underline decoration-[#0F3D3E]/30 decoration-2 underline-offset-2">‘book in advance’</span> and <span class="font-bold text-[#0F3D3E] underline decoration-[#0F3D3E]/30 decoration-2 underline-offset-2">‘board the flight’</span> for high test scores."
+          </p>
+</div>
+</section>
+<!-- Filter Chips Row (Min 44px touch targets) -->
+<nav aria-label="Word status filters" class="flex items-center gap-2 overflow-x-auto no-scrollbar py-1 -mx-4 px-4">
+<!-- All: Active -->
+<button class="shrink-0 h-11 px-4 rounded-xl bg-[#0F3D3E] text-white font-label-md text-label-md flex items-center justify-center gap-1.5 border border-[#0F3D3E] tactile-chip-active" type="button">
+<span>All</span>
+<span class="px-1.5 py-0.2 rounded-full bg-white/20 text-white font-bold text-[11px]">240</span>
+</button>
+<!-- New: Inactive -->
+<button class="shrink-0 h-11 px-4 rounded-xl bg-surface-container-lowest text-[#0F2124] font-label-md text-label-md flex items-center justify-center gap-1.5 border border-[#D5CEC2] tactile-chip-inactive" type="button">
+<span>New</span>
+<span class="px-1.5 py-0.2 rounded-full bg-surface-container text-[#5B413B] font-bold text-[11px]">48</span>
+</button>
+<!-- Learning: Inactive -->
+<button class="shrink-0 h-11 px-4 rounded-xl bg-surface-container-lowest text-[#0F2124] font-label-md text-label-md flex items-center justify-center gap-1.5 border border-[#D5CEC2] tactile-chip-inactive" type="button">
+<span>Learning</span>
+<span class="px-1.5 py-0.2 rounded-full bg-surface-container text-[#0F3D3E] font-bold text-[11px]">54</span>
+</button>
+<!-- Mastered: Inactive -->
+<button class="shrink-0 h-11 px-4 rounded-xl bg-surface-container-lowest text-[#0F2124] font-label-md text-label-md flex items-center justify-center gap-1.5 border border-[#D5CEC2] tactile-chip-inactive" type="button">
+<span>Mastered</span>
+<span class="px-1.5 py-0.2 rounded-full bg-surface-container text-[#006A65] font-bold text-[11px]">138</span>
+</button>
+</nav>
+<!-- Vocabulary Items Feed -->
+<section aria-label="Vocabulary list" class="flex flex-col gap-3.5 pt-1">
+<!-- Word Card 1: Itinerary -->
+<article class="bg-surface-container-lowest rounded-2xl p-4 border border-[#E6E1D8] card-ledge flex flex-col gap-3 transition-colors hover:border-[#D5CEC2]">
+<div class="flex items-start justify-between gap-3">
+<div class="flex flex-col">
+<div class="flex items-baseline gap-2">
+<h3 class="font-headline-sm text-headline-sm font-bold text-[#0F2124] tracking-tight">itinerary</h3>
+<span class="font-label-sm text-label-sm text-[#2E4548] font-semibold">noun</span>
+</div>
+<span class="font-body-sm text-body-sm text-[#5B413B] font-mono mt-0.5">/aɪˈtɪn.ə.rer.i/</span>
+</div>
+<!-- Header Controls: Audio & Mastery Indicator -->
+<div class="flex items-center gap-2">
+<!-- Mastery Dots: Learning (2 filled teal, 1 empty) -->
+<div class="flex items-center gap-1 px-2 py-1.5 rounded-lg bg-[#FAF8F5] border border-[#E6E1D8]" title="Learning: 2 of 3 steps">
+<span class="w-2.5 h-2.5 rounded-full bg-[#0F3D3E]"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#0F3D3E]"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#D5CEC2]"></span>
+</div>
+<!-- Audio Button: 44x44px Touch Target -->
+<button aria-label="Listen to pronunciation of itinerary" class="w-11 h-11 rounded-xl bg-surface-container flex items-center justify-center text-[#0F3D3E] border border-[#D5CEC2] tactile-audio-btn hover:bg-secondary-fixed" type="button">
+<span class="material-symbols-outlined" data-icon="volume_up">volume_up</span>
+</button>
+</div>
+</div>
+<p class="font-body-md text-body-md text-[#0F2124]">
+            A planned route or journey, including dates and destinations.
+          </p>
+<blockquote class="bg-[#FAF8F5] p-3 rounded-xl border-l-4 border-[#0F3D3E] text-[#2E4548] font-body-sm text-body-sm italic">
+            "Our travel agency provided a detailed 10-day tour itinerary."
+          </blockquote>
+<!-- Collocation Tag -->
+<div class="flex items-center pt-0.5">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-[#FAF8F5] border border-[#E6E1D8] font-label-sm text-label-sm text-[#0F3D3E] font-bold">
+<span class="material-symbols-outlined text-[14px]" data-icon="bookmark">bookmark</span>
+              Collocation: detailed itinerary
+            </span>
+</div>
+</article>
+<!-- Word Card 2: Accommodation -->
+<article class="bg-surface-container-lowest rounded-2xl p-4 border border-[#E6E1D8] card-ledge flex flex-col gap-3 transition-colors hover:border-[#D5CEC2]">
+<div class="flex items-start justify-between gap-3">
+<div class="flex flex-col">
+<div class="flex items-baseline gap-2">
+<h3 class="font-headline-sm text-headline-sm font-bold text-[#0F2124] tracking-tight">accommodation</h3>
+<span class="font-label-sm text-label-sm text-[#2E4548] font-semibold">noun</span>
+</div>
+<span class="font-body-sm text-body-sm text-[#5B413B] font-mono mt-0.5">/əˌkɑː.məˈdeɪ.ʃən/</span>
+</div>
+<div class="flex items-center gap-2">
+<!-- Mastery Dots: Mastered (3 filled teal) -->
+<div class="flex items-center gap-1 px-2 py-1.5 rounded-lg bg-[#FAF8F5] border border-[#E6E1D8]" title="Mastered: 3 of 3 steps">
+<span class="w-2.5 h-2.5 rounded-full bg-[#006A65]"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#006A65]"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#006A65]"></span>
+</div>
+<button aria-label="Listen to pronunciation of accommodation" class="w-11 h-11 rounded-xl bg-surface-container flex items-center justify-center text-[#0F3D3E] border border-[#D5CEC2] tactile-audio-btn hover:bg-secondary-fixed" type="button">
+<span class="material-symbols-outlined" data-icon="volume_up">volume_up</span>
+</button>
+</div>
+</div>
+<p class="font-body-md text-body-md text-[#0F2124]">
+            A place to live, work, or stay in while traveling.
+          </p>
+<blockquote class="bg-[#FAF8F5] p-3 rounded-xl border-l-4 border-[#006A65] text-[#2E4548] font-body-sm text-body-sm italic">
+            "Hotel accommodation is included in the conference package."
+          </blockquote>
+<div class="flex items-center pt-0.5">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-[#FAF8F5] border border-[#E6E1D8] font-label-sm text-label-sm text-[#0F3D3E] font-bold">
+<span class="material-symbols-outlined text-[14px]" data-icon="bookmark">bookmark</span>
+              Collocation: book accommodation
+            </span>
+</div>
+</article>
+<!-- Word Card 3: Departure -->
+<article class="bg-surface-container-lowest rounded-2xl p-4 border border-[#E6E1D8] card-ledge flex flex-col gap-3 transition-colors hover:border-[#D5CEC2]">
+<div class="flex items-start justify-between gap-3">
+<div class="flex flex-col">
+<div class="flex items-baseline gap-2">
+<h3 class="font-headline-sm text-headline-sm font-bold text-[#0F2124] tracking-tight">departure</h3>
+<span class="font-label-sm text-label-sm text-[#2E4548] font-semibold">noun</span>
+</div>
+<span class="font-body-sm text-body-sm text-[#5B413B] font-mono mt-0.5">/dɪˈpɑːr.tʃər/</span>
+</div>
+<div class="flex items-center gap-2">
+<!-- Mastery Dots: New / Started (1 filled, 2 empty) -->
+<div class="flex items-center gap-1 px-2 py-1.5 rounded-lg bg-[#FAF8F5] border border-[#E6E1D8]" title="New / Started: 1 of 3 steps">
+<span class="w-2.5 h-2.5 rounded-full bg-[#0F3D3E]"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#D5CEC2]"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#D5CEC2]"></span>
+</div>
+<button aria-label="Listen to pronunciation of departure" class="w-11 h-11 rounded-xl bg-surface-container flex items-center justify-center text-[#0F3D3E] border border-[#D5CEC2] tactile-audio-btn hover:bg-secondary-fixed" type="button">
+<span class="material-symbols-outlined" data-icon="volume_up">volume_up</span>
+</button>
+</div>
+</div>
+<p class="font-body-md text-body-md text-[#0F2124]">
+            The act of leaving, especially to start a journey.
+          </p>
+<blockquote class="bg-[#FAF8F5] p-3 rounded-xl border-l-4 border-[#0F3D3E] text-[#2E4548] font-body-sm text-body-sm italic">
+            "Passengers are advised to check in two hours before departure."
+          </blockquote>
+<div class="flex items-center pt-0.5">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-[#FAF8F5] border border-[#E6E1D8] font-label-sm text-label-sm text-[#0F3D3E] font-bold">
+<span class="material-symbols-outlined text-[14px]" data-icon="bookmark">bookmark</span>
+              Collocation: scheduled departure
+            </span>
+</div>
+</article>
+<!-- Word Card 4: Destination -->
+<article class="bg-surface-container-lowest rounded-2xl p-4 border border-[#E6E1D8] card-ledge flex flex-col gap-3 transition-colors hover:border-[#D5CEC2]">
+<div class="flex items-start justify-between gap-3">
+<div class="flex flex-col">
+<div class="flex items-baseline gap-2">
+<h3 class="font-headline-sm text-headline-sm font-bold text-[#0F2124] tracking-tight">destination</h3>
+<span class="font-label-sm text-label-sm text-[#2E4548] font-semibold">noun</span>
+</div>
+<span class="font-body-sm text-body-sm text-[#5B413B] font-mono mt-0.5">/ˌdes.təˈneɪ.ʃən/</span>
+</div>
+<div class="flex items-center gap-2">
+<!-- Mastery Dots: Mastered (3 filled teal) -->
+<div class="flex items-center gap-1 px-2 py-1.5 rounded-lg bg-[#FAF8F5] border border-[#E6E1D8]" title="Mastered: 3 of 3 steps">
+<span class="w-2.5 h-2.5 rounded-full bg-[#006A65]"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#006A65]"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#006A65]"></span>
+</div>
+<button aria-label="Listen to pronunciation of destination" class="w-11 h-11 rounded-xl bg-surface-container flex items-center justify-center text-[#0F3D3E] border border-[#D5CEC2] tactile-audio-btn hover:bg-secondary-fixed" type="button">
+<span class="material-symbols-outlined" data-icon="volume_up">volume_up</span>
+</button>
+</div>
+</div>
+<p class="font-body-md text-body-md text-[#0F2124]">
+            The place to which someone or something is going or being sent.
+          </p>
+<blockquote class="bg-[#FAF8F5] p-3 rounded-xl border-l-4 border-[#006A65] text-[#2E4548] font-body-sm text-body-sm italic">
+            "The Caribbean remains a premier vacation destination."
+          </blockquote>
+<div class="flex items-center pt-0.5">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-[#FAF8F5] border border-[#E6E1D8] font-label-sm text-label-sm text-[#0F3D3E] font-bold">
+<span class="material-symbols-outlined text-[14px]" data-icon="bookmark">bookmark</span>
+              Collocation: final destination
+            </span>
+</div>
+</article>
+<!-- Word Card 5: Commute -->
+<article class="bg-surface-container-lowest rounded-2xl p-4 border border-[#E6E1D8] card-ledge flex flex-col gap-3 transition-colors hover:border-[#D5CEC2]">
+<div class="flex items-start justify-between gap-3">
+<div class="flex flex-col">
+<div class="flex items-baseline gap-2">
+<h3 class="font-headline-sm text-headline-sm font-bold text-[#0F2124] tracking-tight">commute</h3>
+<span class="font-label-sm text-label-sm text-[#2E4548] font-semibold">verb / noun</span>
+</div>
+<span class="font-body-sm text-body-sm text-[#5B413B] font-mono mt-0.5">/kəˈmjuːt/</span>
+</div>
+<div class="flex items-center gap-2">
+<!-- Mastery Dots: Learning (2 filled teal, 1 empty) -->
+<div class="flex items-center gap-1 px-2 py-1.5 rounded-lg bg-[#FAF8F5] border border-[#E6E1D8]" title="Learning: 2 of 3 steps">
+<span class="w-2.5 h-2.5 rounded-full bg-[#0F3D3E]"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#0F3D3E]"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#D5CEC2]"></span>
+</div>
+<button aria-label="Listen to pronunciation of commute" class="w-11 h-11 rounded-xl bg-surface-container flex items-center justify-center text-[#0F3D3E] border border-[#D5CEC2] tactile-audio-btn hover:bg-secondary-fixed" type="button">
+<span class="material-symbols-outlined" data-icon="volume_up">volume_up</span>
+</button>
+</div>
+</div>
+<p class="font-body-md text-body-md text-[#0F2124]">
+            To travel regularly over some distance between home and work.
+          </p>
+<blockquote class="bg-[#FAF8F5] p-3 rounded-xl border-l-4 border-[#0F3D3E] text-[#2E4548] font-body-sm text-body-sm italic">
+            "She faces an hour-long daily commute on public transit."
+          </blockquote>
+<div class="flex items-center pt-0.5">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-[#FAF8F5] border border-[#E6E1D8] font-label-sm text-label-sm text-[#0F3D3E] font-bold">
+<span class="material-symbols-outlined text-[14px]" data-icon="bookmark">bookmark</span>
+              Collocation: daily commute
+            </span>
+</div>
+</article>
+</section>
+</main>
+<!-- Sticky Bottom Area (Elevated Planar Container with Tactile Coral Primary Action) -->
+<div class="fixed bottom-0 left-0 right-0 z-40 max-w-[390px] mx-auto bg-surface-container-lowest/95 backdrop-blur-md border-t border-[#E6E1D8] px-4 pt-3 pb-6 flex flex-col items-center gap-2">
+<!-- Full-Width Primary Coral Tactile Button (Min 48px height + 3px shelf) -->
+<button class="w-full h-12 rounded-xl bg-primary-container text-white font-label-lg text-label-lg tracking-wide border border-[#E04B28] tactile-btn-primary flex items-center justify-center gap-2" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="play_arrow">play_arrow</span>
+<span>Study 20 words</span>
+</button>
+<!-- Secondary Micro-text -->
+<p class="font-label-sm text-label-sm text-[#2E4548] flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-[#0F3D3E]" data-icon="schedule">schedule</span>
+<span>~8 min · Spaced repetition session</span>
+</p>
+</div>
+</div>
+</body></html>

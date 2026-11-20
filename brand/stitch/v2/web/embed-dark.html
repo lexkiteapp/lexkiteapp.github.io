@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite — Embed our Widget (Tactile Night)</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        'night-bg': '#0B171A',
+        'night-card': '#172427',
+        'night-card-raised': '#1E2F33',
+        'night-card-highest': '#23393E',
+        'night-border': '#2A4048',
+        'night-border-subtle': '#1B3138',
+        'night-ledge': '#081113',
+        'text-main': '#EEF6F7',
+        'text-muted': '#A3B9B7',
+        'text-subtle': '#A9BFC1',
+        'slate-mint': '#A9BFC1',
+        'teal-glow': '#2BA39A',
+        'teal-deep': '#1F7A75',
+        'teal-dark': '#0D3D3A',
+        'amber-glow': '#FFB054',
+        'coral-glow': '#F2553B',
+        'btn-ink': '#1B0B04'
+      },
+      fontFamily: {
+        sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif']
+      }
+    }
+  }
+}
+</script>
+<style>
+body {
+  background-color: #0B171A;
+  color: #EEF6F7;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+.tactile-card {
+  background: #172427;
+  border: 2px solid #2A4048;
+  border-radius: 20px;
+  box-shadow: 0 6px 0 #081113;
+}
+.tactile-card-raised {
+  background: #1E2F33;
+  border: 2px solid #2A4048;
+  border-radius: 16px;
+  box-shadow: 0 4px 0 #081113;
+}
+.tactile-btn-primary {
+  background: linear-gradient(180deg, #FF7B54 0%, #F2553B 100%);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 0 #9E2F1A, 0 8px 16px rgba(242, 85, 59, 0.25);
+  color: #1B0B04;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+.tactile-btn-primary:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 #9E2F1A;
+}
+.tactile-btn-secondary {
+  background: #1E2F33;
+  border: 2px solid #2A4048;
+  box-shadow: 0 4px 0 #081113;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+.tactile-btn-secondary:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #081113;
+}
+.tactile-pill-chip {
+  background: #172427;
+  border: 1.5px solid #2A4048;
+  box-shadow: 0 2px 0 #081113;
+}
+.badge-card {
+  background: #172427;
+  border: 2px solid #2A4048;
+  border-radius: 18px;
+  box-shadow: 0 5px 0 #081113;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+.badge-card:hover {
+  transform: translateY(-2px);
+  border-color: #2BA39A;
+}
+.code-box {
+  background: #081214;
+  border: 1.5px solid #2A4048;
+  border-radius: 12px;
+}
+</style>
+</head>
+<body class="min-h-screen flex flex-col bg-night-bg text-text-main selection:bg-teal-glow selection:text-night-bg">
+<!-- TOP NAVIGATION HEADER -->
+<header class="w-full bg-night-bg/95 backdrop-blur-md border-b-2 border-night-border sticky top-0 z-50">
+<div class="max-w-[1140px] mx-auto px-6 h-20 flex items-center justify-between">
+<!-- Logo -->
+<a class="flex items-center gap-3 group" href="#">
+<div class="w-10 h-10 rounded-xl bg-gradient-to-br from-teal-glow to-teal-deep flex items-center justify-center shadow-[0_3px_0_#12514D] group-hover:scale-105 transition-transform">
+<svg fill="none" height="22" viewbox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 2L20 10L12 22L4 10L12 2Z" fill="#FFF7EA"></path>
+<path d="M12 2V22" stroke="#2BA39A" stroke-width="2"></path>
+<path d="M4 10H20" stroke="#2BA39A" stroke-width="2"></path>
+</svg>
+</div>
+<span class="text-2xl font-black tracking-tight text-white">Lexkite</span>
+</a>
+<!-- Navigation links -->
+<nav class="hidden md:flex items-center gap-8 text-[15px] font-bold">
+<a class="text-text-muted hover:text-white transition-colors" href="#">Blog</a>
+<a class="text-text-muted hover:text-white transition-colors" href="#">Vocabulary</a>
+<a class="text-text-muted hover:text-white transition-colors" href="#">Samples</a>
+<a class="text-teal-glow relative pb-1 border-b-2 border-teal-glow" href="#">Embeds</a>
+</nav>
+<!-- Right Action Items -->
+<div class="flex items-center gap-4">
+<!-- Language selector pill -->
+<button class="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-night-card border border-night-border text-xs font-bold text-text-muted hover:text-white transition-colors shadow-[0_2px_0_#081113]">
+<span class="material-symbols-outlined text-base text-teal-glow">language</span>
+<span>EN</span>
+</button>
+<a class="text-sm font-bold text-text-muted hover:text-white px-2 transition-colors" href="#">Log in</a>
+<!-- Start free button with deep brown-black ink (#1B0B04) for >7:1 contrast -->
+<a class="tactile-btn-primary px-5 py-2.5 rounded-xl font-black text-sm text-[#1B0B04] flex items-center gap-1.5 shadow-[0_4px_0_#9E2F1A]" href="#">
+<span>Start free</span>
+</a>
+</div>
+</div>
+</header>
+<!-- MAIN CONTAINER -->
+<main class="flex-1 max-w-[1140px] w-full mx-auto px-6 py-12">
+<!-- HERO SECTION -->
+<div class="mb-12">
+<!-- Breadcrumb / pill -->
+<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-coral-glow/15 border border-coral-glow/30 text-xs font-black tracking-wider text-coral-glow uppercase mb-4 shadow-[0_2px_0_rgba(242,85,59,0.15)]">
+<span class="w-2 h-2 rounded-full bg-coral-glow"></span>
+<span>Free for educators &amp; bloggers</span>
+</div>
+<!-- Main Headline -->
+<h1 class="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white mb-4">
+        Embed our widget
+      </h1>
+<!-- Subtitle -->
+<p class="text-lg md:text-xl font-medium text-text-muted max-w-2xl leading-relaxed mb-6">
+        Free, zero-cookie interactive widgets for your English blog or study portal. Keep students engaged with tactile micro-quizzes and instant phonetics.
+      </p>
+<!-- Trust Badges -->
+<div class="flex flex-wrap items-center gap-3">
+<div class="tactile-pill-chip flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold text-text-main">
+<span class="material-symbols-outlined text-base text-teal-glow">verified_user</span>
+<span>Zero cookies</span>
+</div>
+<div class="tactile-pill-chip flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold text-text-main">
+<span class="material-symbols-outlined text-base text-teal-glow">visibility_off</span>
+<span>No tracking</span>
+</div>
+<div class="tactile-pill-chip flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold text-text-main">
+<span class="material-symbols-outlined text-base text-amber-glow">bolt</span>
+<span>Instant load (&lt;12ms)</span>
+</div>
+</div>
+</div>
+<!-- MAIN TWO-COLUMN WORKSPACE: LIVE PREVIEW & CUSTOMIZER -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-20">
+<!-- LEFT COLUMN: LIVE PREVIEW CONTAINER -->
+<div class="lg:col-span-7 flex flex-col items-center">
+<!-- Section label -->
+<div class="w-full flex items-center justify-between mb-3 text-xs font-bold text-text-subtle">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-teal-glow animate-pulse"></span>
+<span class="text-text-muted tracking-wide uppercase font-extrabold text-[11px]">Live Preview</span>
+</div>
+<span class="px-2.5 py-0.5 rounded bg-night-card-raised border border-night-border text-[#C4D7D9] text-[11px] font-bold">Width: 420px • Responsive</span>
+</div>
+<!-- EMBED PREVIEW CARD -->
+<div class="w-full max-w-[440px] tactile-card p-6 border-2 border-night-border bg-night-card relative shadow-[0_8px_0_#081113]">
+<!-- Inner Widget Container -->
+<div class="space-y-5">
+<!-- Widget Top Pill Bar -->
+<div class="flex items-center justify-between pb-1">
+<div class="flex items-center gap-2 px-3 py-1 rounded-full bg-night-card-raised border border-night-border text-xs font-bold text-text-muted">
+<span class="w-2 h-2 rounded-full bg-teal-glow"></span>
+<span>Word pair of the day</span>
+</div>
+<div class="flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-amber-glow/15 border border-amber-glow/30 text-amber-glow text-xs font-extrabold">
+<span class="material-symbols-outlined text-xs">star</span>
+<span>IELTS 7.5</span>
+</div>
+</div>
+<!-- Dual Headword Definition Tiles -->
+<div class="grid grid-cols-2 gap-3">
+<!-- Tile A: Affect -->
+<div class="tactile-card-raised p-4 bg-night-card-raised border-2 border-night-border">
+<div class="flex items-center justify-between mb-1.5">
+<span class="text-lg font-black text-white">affect</span>
+<button aria-label="Listen pronunciation" class="w-7 h-7 rounded-full bg-teal-glow/20 text-teal-glow flex items-center justify-center hover:bg-teal-glow hover:text-night-bg transition-colors">
+<span class="material-symbols-outlined text-sm">volume_up</span>
+</button>
+</div>
+<!-- High-contrast VERB badge: dark ink #003830 on saturated mint #45D7C6 (> 5:1 contrast) -->
+<div class="inline-block px-2.5 py-0.5 rounded-md bg-[#45D7C6] text-[#003830] text-[10px] font-black tracking-wider uppercase mb-2 shadow-[0_1px_2px_rgba(0,0,0,0.25)]">
+                  VERB
+                </div>
+<p class="text-xs font-medium text-text-muted leading-relaxed">
+                  To influence or produce a change in.
+                </p>
+</div>
+<!-- Tile B: Effect -->
+<div class="tactile-card-raised p-4 bg-night-card-raised border-2 border-night-border">
+<div class="flex items-center justify-between mb-1.5">
+<span class="text-lg font-black text-white">effect</span>
+<button aria-label="Listen pronunciation" class="w-7 h-7 rounded-full bg-teal-glow/20 text-teal-glow flex items-center justify-center hover:bg-teal-glow hover:text-night-bg transition-colors">
+<span class="material-symbols-outlined text-sm">volume_up</span>
+</button>
+</div>
+<!-- NOUN badge with strong contrast -->
+<div class="inline-block px-2.5 py-0.5 rounded-md bg-[#FFB054] text-[#3A2200] text-[10px] font-black tracking-wider uppercase mb-2 shadow-[0_1px_2px_rgba(0,0,0,0.25)]">
+                  NOUN
+                </div>
+<p class="text-xs font-medium text-text-muted leading-relaxed">
+                  The result or consequence of a cause.
+                </p>
+</div>
+</div>
+<!-- Quiz Question Box -->
+<div class="tactile-card-raised p-4 bg-night-card-raised border-2 border-night-border">
+<div class="flex items-center gap-1.5 mb-2">
+<span class="material-symbols-outlined text-sm text-[#FFB054]">help</span>
+<!-- Brightened crisp legible slate-mint #C4D7D9 (> 5.5:1 against #1E2F33) -->
+<span class="uppercase tracking-wider text-[11px] font-black text-[#C4D7D9]">Complete the sentence:</span>
+</div>
+<p class="text-sm font-semibold text-text-main leading-snug">
+                "The stormy weather will <span class="border-b-2 border-dashed border-teal-glow text-teal-glow px-1 font-bold">______</span> our morning flight."
+              </p>
+</div>
+<!-- Answer Options (Tactile Buttons) -->
+<div class="grid grid-cols-2 gap-3">
+<!-- Selected Correct Answer Option A -->
+<div class="relative flex items-center justify-between px-4 py-3.5 rounded-xl bg-teal-dark/70 border-2 border-teal-glow text-teal-glow font-bold shadow-[0_3px_0_#0D3D3A]">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-md bg-teal-glow text-night-bg flex items-center justify-center text-xs font-black">A</span>
+<span class="text-sm font-extrabold text-white">affect</span>
+</div>
+<span class="material-symbols-outlined text-teal-glow text-lg">check_circle</span>
+</div>
+<!-- Unselected Option B with high contrast choice letter B (#E8F5F5) -->
+<div class="relative flex items-center justify-between px-4 py-3.5 rounded-xl bg-night-card-raised border-2 border-night-border text-text-muted font-bold shadow-[0_3px_0_#081113]">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-md bg-[#172427] border border-night-border text-[#E8F5F5] flex items-center justify-center text-xs font-black">B</span>
+<span class="text-sm font-extrabold text-text-muted">effect</span>
+</div>
+<span class="w-4 h-4 rounded-full border-2 border-[#4E666D]"></span>
+</div>
+</div>
+<!-- Memory Hook / Rule banner -->
+<div class="p-3.5 rounded-xl bg-amber-glow/10 border border-amber-glow/30 flex items-start gap-2.5">
+<span class="material-symbols-outlined text-amber-glow text-lg shrink-0 mt-0.5">lightbulb</span>
+<p class="text-xs text-text-main leading-relaxed font-medium">
+<strong class="text-amber-glow font-extrabold">RAVEN Rule:</strong> Remember <strong class="text-white">A</strong>ffect is <strong class="text-white">V</strong>erb, <strong class="text-white">E</strong>ffect is <strong class="text-white">N</strong>oun.
+              </p>
+</div>
+<!-- Footer of Widget -->
+<div class="pt-2 flex items-center justify-between text-[11px] font-bold text-text-subtle border-t border-night-border/60">
+<span class="flex items-center gap-1.5 text-[#A9BFC1]">
+<span class="material-symbols-outlined text-sm text-teal-glow">layers</span>
+                Daily Vocabulary Series
+              </span>
+<span class="flex items-center gap-1 text-teal-glow font-extrabold">
+                Powered by Lexkite
+                <span class="material-symbols-outlined text-xs">north_east</span>
+</span>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN: WIDGET CUSTOMIZER -->
+<div class="lg:col-span-5 tactile-card p-7 bg-night-card border-2 border-night-border shadow-[0_8px_0_#081113]">
+<div class="flex items-center gap-2.5 mb-6 pb-4 border-b border-night-border">
+<span class="material-symbols-outlined text-teal-glow text-2xl">tune</span>
+<h2 class="text-xl font-black text-white">Widget Customizer</h2>
+</div>
+<div class="space-y-6">
+<!-- Width Preset -->
+<div>
+<label class="block text-xs font-black uppercase tracking-wider text-text-muted mb-2.5">Width Preset</label>
+<div class="grid grid-cols-3 gap-2">
+<button class="py-2.5 px-3 rounded-xl bg-night-card-raised border border-night-border text-xs font-bold text-text-muted hover:text-white transition-colors">
+                Small (320px)
+              </button>
+<!-- Medium (420px) active pill: crisp off-white #EEF6F7 on dark teal container (#0D3D3A) with 2px bright teal border #2BA39A (> 5.5:1) -->
+<button class="py-2.5 px-3 rounded-xl bg-[#0D3D3A] border-2 border-teal-glow text-xs font-black text-[#EEF6F7] shadow-[0_2px_0_#062220]">
+                Medium (420px)
+              </button>
+<button class="py-2.5 px-3 rounded-xl bg-night-card-raised border border-night-border text-xs font-bold text-text-muted hover:text-white transition-colors">
+                Wide (100%)
+              </button>
+</div>
+</div>
+<!-- Color Atmosphere -->
+<div>
+<label class="block text-xs font-black uppercase tracking-wider text-text-muted mb-2.5">Color Atmosphere</label>
+<div class="grid grid-cols-2 gap-2.5">
+<button class="py-2.5 px-3 rounded-xl bg-night-card-raised border border-night-border text-xs font-bold text-text-muted flex items-center justify-center gap-2 hover:text-white transition-colors">
+<span class="material-symbols-outlined text-sm">light_mode</span>
+<span>Light (Bright Day)</span>
+</button>
+<!-- Dark (Tactile Night) active pill: crisp off-white #EEF6F7 on active teal container (#0D3D3A) with 2px bright teal border (> 5.5:1) -->
+<button class="py-2.5 px-3 rounded-xl bg-[#0D3D3A] border-2 border-teal-glow text-xs font-black text-[#EEF6F7] flex items-center justify-center gap-2 shadow-[0_2px_0_#062220]">
+<span class="material-symbols-outlined text-sm text-teal-glow">dark_mode</span>
+<span>Dark (Tactile Night)</span>
+</button>
+</div>
+</div>
+<!-- Curriculum / Exam Focus -->
+<div>
+<label class="block text-xs font-black uppercase tracking-wider text-text-muted mb-2.5">Curriculum / Exam Focus</label>
+<div class="flex flex-wrap gap-2">
+<button class="px-4 py-2 rounded-xl bg-teal-glow text-[#002422] text-xs font-black shadow-[0_2px_0_#12514D]">
+                IELTS Academic
+              </button>
+<button class="px-4 py-2 rounded-xl bg-night-card-raised border border-night-border text-xs font-bold text-text-muted hover:text-white transition-colors">
+                TOEIC Business
+              </button>
+<button class="px-4 py-2 rounded-xl bg-night-card-raised border border-night-border text-xs font-bold text-text-muted hover:text-white transition-colors">
+                General English
+              </button>
+</div>
+</div>
+<!-- Embed Code Box -->
+<div class="pt-2">
+<div class="flex items-center justify-between mb-2">
+<span class="text-xs font-black uppercase tracking-wider text-[#EEF6F7] flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-teal-glow">code</span>
+                Copy Embed Snippet
+              </span>
+<!-- Brightened HTML iFrame header label to #B6CDCF (> 4.8:1) -->
+<span class="text-[11px] font-bold text-[#B6CDCF] uppercase tracking-wide">HTML iFrame</span>
+</div>
+<!-- Code snippet -->
+<div class="code-box p-4 font-mono text-[12px] leading-relaxed text-text-muted overflow-x-auto select-all">
+<span class="text-coral-glow">&lt;iframe</span> <span class="text-amber-glow">src=</span><span class="text-teal-glow">"https://lexkite.com/embed/word-pair?theme=dark&amp;focus=ielts"</span> <span class="text-amber-glow">width=</span><span class="text-teal-glow">"420"</span> <span class="text-amber-glow">height=</span><span class="text-teal-glow">"340"</span> <span class="text-amber-glow">frameborder=</span><span class="text-teal-glow">"0"</span> <span class="text-amber-glow">loading=</span><span class="text-teal-glow">"lazy"</span><span class="text-coral-glow">&gt;&lt;/iframe&gt;</span>
+</div>
+</div>
+<!-- Primary Copy CTA: deep brown-black ink text (#1B0B04) for >7:1 contrast -->
+<button class="w-full tactile-btn-primary py-3.5 rounded-xl font-black text-sm text-[#1B0B04] flex items-center justify-center gap-2 shadow-[0_4px_0_#9E2F1A]">
+<span class="material-symbols-outlined text-lg">content_copy</span>
+<span>Copy code to clipboard</span>
+</button>
+<!-- Compat note: brightened to legible slate-mint #A9BFC1 (> 4.8:1) -->
+<p class="text-center text-[11px] font-medium text-[#A9BFC1]">
+            Works seamlessly on WordPress, Webflow, Notion, Ghost &amp; Canvas LMS
+          </p>
+</div>
+</div>
+</div>
+<!-- VECTOR ASSETS: CEFR LEVEL BADGES -->
+<div class="pt-8 border-t-2 border-night-border">
+<!-- Section header -->
+<div class="mb-8">
+<div class="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-wider text-teal-glow mb-2">
+<span class="material-symbols-outlined text-sm">workspace_premium</span>
+<span>Vector Assets</span>
+</div>
+<h2 class="text-2xl md:text-3xl font-black text-white mb-2">CEFR Level Badges</h2>
+<p class="text-sm font-medium text-text-muted">
+          Lightweight vector badges for student blogs, course syllabi, and score profiles. Fully responsive, zero external stylesheets.
+        </p>
+</div>
+<!-- Grid of 6 Badges -->
+<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+<!-- Badge A1 -->
+<div class="badge-card p-5 flex flex-col items-center text-center">
+<div class="w-14 h-14 rounded-2xl bg-teal-glow/20 border-2 border-teal-glow flex items-center justify-center text-teal-glow font-black text-xl mb-3 shadow-[0_3px_0_#0E3B3A]">
+            A1
+          </div>
+<span class="font-extrabold text-sm text-white mb-0.5">Beginner</span>
+<!-- Subtitle brightened to #A9BFC1 (> 5:1) -->
+<span class="text-[11px] text-[#A9BFC1] font-medium mb-4">Basic Vocab • 500w</span>
+<button class="w-full py-1.5 px-2 rounded-lg bg-night-card-raised border border-night-border text-text-muted text-[11px] font-bold hover:text-white hover:border-teal-glow transition-all flex items-center justify-center gap-1 shadow-[0_2px_0_#081113]">
+<span class="material-symbols-outlined text-xs text-teal-glow">code</span>
+<span>Copy SVG</span>
+</button>
+</div>
+<!-- Badge A2 -->
+<div class="badge-card p-5 flex flex-col items-center text-center">
+<div class="w-14 h-14 rounded-2xl bg-emerald-500/20 border-2 border-emerald-400 flex items-center justify-center text-emerald-400 font-black text-xl mb-3 shadow-[0_3px_0_#064e3b]">
+            A2
+          </div>
+<span class="font-extrabold text-sm text-white mb-0.5">Elementary</span>
+<!-- Subtitle brightened to #A9BFC1 (> 5:1) -->
+<span class="text-[11px] text-[#A9BFC1] font-medium mb-4">Everyday Routine</span>
+<button class="w-full py-1.5 px-2 rounded-lg bg-night-card-raised border border-night-border text-text-muted text-[11px] font-bold hover:text-white hover:border-emerald-400 transition-all flex items-center justify-center gap-1 shadow-[0_2px_0_#081113]">
+<span class="material-symbols-outlined text-xs text-emerald-400">code</span>
+<span>Copy SVG</span>
+</button>
+</div>
+<!-- Badge B1 -->
+<div class="badge-card p-5 flex flex-col items-center text-center">
+<div class="w-14 h-14 rounded-2xl bg-sky-500/20 border-2 border-sky-400 flex items-center justify-center text-sky-400 font-black text-xl mb-3 shadow-[0_3px_0_#0c4a6e]">
+            B1
+          </div>
+<span class="font-extrabold text-sm text-white mb-0.5">Intermediate</span>
+<!-- Subtitle brightened to #A9BFC1 (> 5:1) -->
+<span class="text-[11px] text-[#A9BFC1] font-medium mb-4">IELTS 4.0–5.0</span>
+<button class="w-full py-1.5 px-2 rounded-lg bg-night-card-raised border border-night-border text-text-muted text-[11px] font-bold hover:text-white hover:border-sky-400 transition-all flex items-center justify-center gap-1 shadow-[0_2px_0_#081113]">
+<span class="material-symbols-outlined text-xs text-sky-400">code</span>
+<span>Copy SVG</span>
+</button>
+</div>
+<!-- Badge B2 (Most Popular Featured) -->
+<div class="badge-card p-5 flex flex-col items-center text-center relative border-2 border-amber-glow shadow-[0_6px_0_#92400e]">
+<div class="absolute -top-3 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-full bg-amber-glow text-night-bg text-[9px] font-black uppercase tracking-wider shadow-sm">
+            Most Popular
+          </div>
+<div class="w-14 h-14 rounded-2xl bg-amber-glow/20 border-2 border-amber-glow flex items-center justify-center text-amber-glow font-black text-xl mb-3 shadow-[0_3px_0_#78350f]">
+            B2
+          </div>
+<span class="font-extrabold text-sm text-white mb-0.5">Upper-Inter.</span>
+<!-- Subtitle brightened to #A9BFC1 (> 5:1) -->
+<span class="text-[11px] text-[#A9BFC1] font-bold mb-4">IELTS 5.5–6.5</span>
+<button class="w-full py-1.5 px-2 rounded-lg bg-amber-glow/20 border border-amber-glow/50 text-amber-glow text-[11px] font-black hover:bg-amber-glow hover:text-night-bg transition-all flex items-center justify-center gap-1 shadow-[0_2px_0_#78350f]">
+<span class="material-symbols-outlined text-xs">code</span>
+<span>Copy SVG</span>
+</button>
+</div>
+<!-- Badge C1 -->
+<div class="badge-card p-5 flex flex-col items-center text-center">
+<div class="w-14 h-14 rounded-2xl bg-coral-glow/20 border-2 border-coral-glow flex items-center justify-center text-coral-glow font-black text-xl mb-3 shadow-[0_3px_0_#7f1d1d]">
+            C1
+          </div>
+<span class="font-extrabold text-sm text-white mb-0.5">Advanced</span>
+<!-- Subtitle brightened to #A9BFC1 (> 5:1) -->
+<span class="text-[11px] text-[#A9BFC1] font-medium mb-4">IELTS 7.0–8.0</span>
+<button class="w-full py-1.5 px-2 rounded-lg bg-night-card-raised border border-night-border text-text-muted text-[11px] font-bold hover:text-white hover:border-coral-glow transition-all flex items-center justify-center gap-1 shadow-[0_2px_0_#081113]">
+<span class="material-symbols-outlined text-xs text-coral-glow">code</span>
+<span>Copy SVG</span>
+</button>
+</div>
+<!-- Badge C2 -->
+<div class="badge-card p-5 flex flex-col items-center text-center">
+<div class="w-14 h-14 rounded-2xl bg-fuchsia-500/20 border-2 border-fuchsia-400 flex items-center justify-center text-fuchsia-400 font-black text-xl mb-3 shadow-[0_3px_0_#701a75]">
+            C2
+          </div>
+<span class="font-extrabold text-sm text-white mb-0.5">Mastery</span>
+<!-- Subtitle brightened to #A9BFC1 (> 5:1) -->
+<span class="text-[11px] text-[#A9BFC1] font-medium mb-4">Native Fluency</span>
+<button class="w-full py-1.5 px-2 rounded-lg bg-night-card-raised border border-night-border text-text-muted text-[11px] font-bold hover:text-white hover:border-fuchsia-400 transition-all flex items-center justify-center gap-1 shadow-[0_2px_0_#081113]">
+<span class="material-symbols-outlined text-xs text-fuchsia-400">code</span>
+<span>Copy SVG</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- FOOTER -->
+<footer class="w-full bg-night-bg border-t-2 border-night-border py-12 mt-16">
+<div class="max-w-[1140px] mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
+<!-- Logo mini -->
+<div class="w-8 h-8 rounded-lg bg-gradient-to-br from-teal-glow to-teal-deep flex items-center justify-center shadow-[0_2px_0_#12514D]">
+<svg fill="none" height="18" viewbox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 2L20 10L12 22L4 10L12 2Z" fill="#FFF7EA"></path>
+</svg>
+</div>
+<div>
+<span class="font-black text-lg text-white">Lexkite</span>
+<p class="text-xs text-[#A9BFC1] mt-0.5">
+            © 2024 Lexkite Education Inc. Tactile learning tools for modern educators and bloggers.
+          </p>
+</div>
+</div>
+<!-- Links -->
+<div class="flex flex-wrap items-center justify-center gap-6 text-xs font-bold text-text-muted">
+<a class="hover:text-teal-glow transition-colors" href="#">Product</a>
+<a class="hover:text-teal-glow transition-colors" href="#">Embed Docs</a>
+<a class="hover:text-teal-glow transition-colors" href="#">Widget API</a>
+<a class="hover:text-teal-glow transition-colors" href="#">Blog</a>
+<a class="hover:text-teal-glow transition-colors" href="#">Vocabulary Packs</a>
+<a class="hover:text-teal-glow transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-teal-glow transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-teal-glow transition-colors" href="#">System Status</a>
+</div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Review Queue (Empty State - Bright Day)</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&amp;display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            surface: {
+              DEFAULT: '#fff8f5',
+              container: '#fff1e8',
+              card: '#ffffff',
+              border: '#e6d7cd',
+            },
+            teal: {
+              brand: '#136a63',
+              dark: '#0d4a45',
+              light: '#e1f8f3',
+              border: '#a3dfd8',
+            },
+            amber: {
+              gold: '#ff9800',
+              deep: '#e67e00',
+              ledge: '#b35900',
+            }
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined.fill-1 {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+    body {
+      background-color: #fff8f5;
+      color: #141f23;
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+    .tactile-btn {
+      transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .tactile-btn:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 0 var(--btn-ledge, #b35900) !important;
+    }
+    .card-ledge {
+      box-shadow: 0 3px 0 0 #ebd8cb;
+    }
+  </style>
+</head>
+<body class="bg-[#10191B] flex flex-col min-h-screen items-center text-[#E8F1F0]">
+<div class="w-full max-w-[390px] min-h-screen bg-[#10191B] flex flex-col relative pb-24 shadow-sm border-x border-[#1E2F33]">
+<!-- TOP HEADER -->
+<header class="px-4 pt-3 pb-3 flex items-center justify-between border-b border-[#1E2F33] bg-[#10191B] sticky top-0 z-30">
+<div class="flex items-center gap-2.5">
+<div class="w-10 h-10 rounded-full bg-[#1E2F33] border-2 border-[#2DD4BF] flex items-center justify-center text-[#2DD4BF] shadow-sm">
+<span class="material-symbols-outlined text-[22px]">school</span>
+</div>
+<div>
+<div class="text-[17px] font-extrabold tracking-tight text-[#E8F1F0] leading-none">IELTS Band 7.5</div>
+<div class="text-[11px] font-bold text-[#2DD4BF] mt-1 tracking-wide">Lexkite Memory Hub</div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<div class="flex items-center gap-1 bg-[#172427] border border-[#2A4045] px-2.5 py-1 rounded-full text-[#F59E0B] text-xs font-bold shadow-sm">
+<span class="material-symbols-outlined text-[17px] text-[#F59E0B] fill-1">local_fire_department</span>
+<span>0d</span>
+</div>
+<button aria-label="Settings &amp; Filters" class="w-11 h-11 rounded-full bg-[#1E2F33] border border-[#2A4045] flex items-center justify-center text-[#A9BDBB] active:translate-y-0.5 transition-all shadow-sm">
+<span class="material-symbols-outlined text-[19px]">tune</span>
+</button>
+</div>
+</header>
+<!-- MAIN SCROLLABLE CONTENT -->
+<main class="flex-1 px-4 pt-4 flex flex-col"><!-- PAGE TITLE & BADGE -->
+<div class="flex items-center justify-between mb-4">
+<div>
+<h1 class="text-[26px] font-extrabold text-[#E8F1F0] tracking-tight leading-tight">Review Queue</h1>
+<p class="text-xs font-semibold text-[#A9BDBB]">FSRS Spaced Repetition</p>
+</div>
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#172427] border border-[#2A4045] text-[#A9BDBB] text-xs font-bold">
+<span class="material-symbols-outlined text-[16px] text-[#2DD4BF]">check_circle</span>
+<span class="text-[#E8F1F0]">0 Due Today</span>
+</div>
+</div>
+<!-- COACH AMA / HABIT ADVISORY BANNER -->
+<section class="bg-[#172427] rounded-2xl p-3.5 mb-4 border border-[#1E2F33] shadow-[0_3px_0_0_#0E1A1D] flex items-center gap-3">
+<div class="w-11 h-11 rounded-xl bg-[#1E2F33] border-2 border-dashed border-[#2DD4BF] flex flex-col items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px] text-[#2DD4BF]">psychology</span>
+<span class="text-[7.5px] font-extrabold tracking-wider text-[#2DD4BF] uppercase -mt-0.5">Coach</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-1.5">
+<span class="text-xs font-bold text-[#2DD4BF]">Coach Carlos</span>
+<span class="w-1 h-1 rounded-full bg-[#2DD4BF]"></span>
+<span class="text-[10px] font-bold text-[#A9BDBB] uppercase tracking-wider">Memory Coach</span>
+</div>
+<p class="text-[12px] font-semibold text-[#E8F1F0] leading-snug mt-0.5">
+            "Your spaced repetition queue is all clear! Bookmark words during practice to build your custom retention curve."
+          </p>
+</div>
+</section>
+<!-- EMPTY STATE HERO CARD -->
+<section class="bg-[#172427] rounded-3xl p-6 border-2 border-[#1E2F33] shadow-[0_4px_0_0_#0E1A1D] text-center flex flex-col items-center my-auto">
+<!-- VECTOR ILLUSTRATION (DARK HARMONIZED) -->
+<div class="w-28 h-28 relative mb-3 flex items-center justify-center">
+<!-- Glow halos in teal and warm amber -->
+<div class="absolute inset-0 bg-[#2DD4BF]/10 rounded-full scale-100 border border-[#2DD4BF]/20"></div>
+<div class="absolute w-20 h-20 bg-[#F59E0B]/10 rounded-full -bottom-1 -right-1 border border-[#F59E0B]/20"></div>
+<!-- SVG Composition adapted for Tactile Night -->
+<svg class="w-20 h-20 relative z-10" fill="none" viewbox="0 0 88 88" xmlns="http://www.w3.org/2000/svg">
+<!-- Back Card -->
+<rect fill="#1E2F33" height="52" rx="10" stroke="#2A4045" stroke-width="2.5" transform="rotate(-7 18 16)" width="46" x="18" y="16"></rect>
+<line stroke="#B45309" stroke-linecap="round" stroke-width="2.5" x1="28" x2="48" y1="28" y2="25.5"></line>
+<line stroke="#3D565B" stroke-linecap="round" stroke-width="2" x1="29" x2="45" y1="36" y2="34"></line>
+<!-- Front Active Flashcard -->
+<rect fill="#132023" height="54" rx="12" stroke="#2DD4BF" stroke-width="2.5" width="48" x="24" y="20"></rect>
+<!-- Card content mock lines -->
+<rect fill="#2DD4BF" height="4" rx="2" width="22" x="32" y="30"></rect>
+<line stroke="#2A4045" stroke-linecap="round" stroke-width="2" x1="32" x2="60" y1="40" y2="40"></line>
+<line stroke="#2A4045" stroke-linecap="round" stroke-width="2" x1="32" x2="52" y1="46" y2="46"></line>
+<!-- Spaced Repetition Clock / Check Orb Badge -->
+<circle cx="62" cy="62" fill="#F59E0B" r="14" stroke="#10191B" stroke-width="2.5"></circle>
+<!-- Checkmark inside badge -->
+<path d="M57 62.5L60.5 66L67.5 58.5" stroke="#1A0D00" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+<!-- Sparkles & Stars -->
+<path d="M20 18L21.5 22L25.5 23.5L21.5 25L20 29L18.5 25L14.5 23.5L18.5 22L20 18Z" fill="#F59E0B"></path>
+<circle cx="68" cy="18" fill="#2DD4BF" r="3"></circle>
+<circle cx="16" cy="56" fill="#14B8A6" r="2"></circle>
+</svg>
+</div>
+<!-- HEADLINE & ONE-LINE EXPLANATION -->
+<h2 class="text-[20px] font-extrabold text-[#E8F1F0] tracking-tight mb-1.5">No cards due for review</h2>
+<p class="text-[13px] font-medium text-[#A9BDBB] leading-relaxed max-w-[270px] mb-6">
+          Words and tricky phrases you bookmark during daily drills will automatically appear here for spaced repetition.
+        </p>
+<!-- PRIMARY CTA BUTTON -->
+<button class="tactile-btn w-full bg-[#F59E0B] text-[#1A0D00] font-extrabold text-[15px] py-3.5 px-5 rounded-2xl border-2 border-[#10191B] shadow-[0_4px_0_0_#B45309] flex items-center justify-center gap-2 mb-3.5" style="--btn-ledge: #B45309;">
+<span class="material-symbols-outlined text-[20px]">explore</span>
+<span>Explore Word Sets &amp; Start</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+<!-- SECONDARY FAST ACTION -->
+<div class="grid grid-cols-2 gap-2.5 w-full"><button class="flex items-center justify-center gap-1.5 min-h-[44px] py-2.5 px-3 rounded-xl bg-[#1E2F33] border border-[#2A4045] text-xs font-bold text-[#E8F1F0] active:translate-y-0.5 transition-all shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-[#2DD4BF]">menu_book</span>
+<span>Browse Dictionary</span>
+</button>
+<button class="flex items-center justify-center gap-1.5 min-h-[44px] py-2.5 px-3 rounded-xl bg-[#1E2F33] border border-[#2A4045] text-xs font-bold text-[#E8F1F0] active:translate-y-0.5 transition-all shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-[#F59E0B]">bolt</span>
+<span>Speed Quiz (5m)</span>
+</button></div>
+</section>
+<!-- PRO-TIP FOOTER NOTE -->
+<div class="bg-[#172427] rounded-xl p-3 border border-[#78350F]/70 shadow-[0_2px_0_0_#0E1A1D] mt-4 mb-2 flex items-center gap-2.5">
+<div class="w-7 h-7 rounded-lg bg-[#1E2F33] border border-[#B45309]/50 flex items-center justify-center text-[#F59E0B] shrink-0">
+<span class="material-symbols-outlined text-[17px]">lightbulb</span>
+</div>
+<p class="text-[11px] font-semibold text-[#A9BDBB] leading-snug">
+<strong class="text-[#E8F1F0]">Pro-tip:</strong> Tap the bookmark or star icon on any word in Reading &amp; Listening to queue it for tomorrow's review.
+        </p>
+</div></main>
+<!-- CANONICAL BOTTOM NAVIGATION BAR -->
+<nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[390px] h-16 bg-[#10191B] border-t border-[#1E2F33] flex items-center justify-around px-2 z-40">
+<!-- 1. Today -->
+<a class="flex flex-col items-center justify-center w-14 h-full text-[#A9BDBB] hover:text-[#E8F1F0] transition-colors" href="#/today">
+<span class="material-symbols-outlined text-[22px]">calendar_today</span>
+<span class="text-[10px] font-bold mt-0.5">Today</span>
+</a>
+<!-- 2. Vocab (Active) -->
+<a class="flex flex-col items-center justify-center w-16 h-full text-[#1A0D00] relative" href="#/vocab">
+<div class="bg-[#F59E0B] border border-[#10191B] text-[#1A0D00] px-3.5 py-0.5 rounded-full flex flex-col items-center justify-center shadow-[0_2px_0_0_#B45309]">
+<span class="material-symbols-outlined text-[20px] fill-1">menu_book</span>
+</div>
+<span class="text-[10.5px] font-extrabold mt-0.5 text-[#E8F1F0]">Vocab</span>
+</a>
+<!-- 3. Skills -->
+<a class="flex flex-col items-center justify-center w-14 h-full text-[#A9BDBB] hover:text-[#E8F1F0] transition-colors" href="#/skills">
+<span class="material-symbols-outlined text-[22px]">psychology</span>
+<span class="text-[10px] font-bold mt-0.5">Skills</span>
+</a>
+<!-- 4. Tests -->
+<a class="flex flex-col items-center justify-center w-14 h-full text-[#A9BDBB] hover:text-[#E8F1F0] transition-colors" href="#/tests">
+<span class="material-symbols-outlined text-[22px]">assignment</span>
+<span class="text-[10px] font-bold mt-0.5">Tests</span>
+</a>
+<!-- 5. Me -->
+<a class="flex flex-col items-center justify-center w-14 h-full text-[#A9BDBB] hover:text-[#E8F1F0] transition-colors" href="#/me">
+<span class="material-symbols-outlined text-[22px]">person</span>
+<span class="text-[10px] font-bold mt-0.5">Me</span>
+</a>
+</nav>
+</div>
+</body>
+</html>

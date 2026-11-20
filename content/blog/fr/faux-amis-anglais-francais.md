@@ -77,7 +77,7 @@ Les adjectifs et adverbes colorent votre pensée. Se tromper d'adjectif peut tra
 - **Comprehensive vs Compréhensif** : *Comprehensive* signifie complet, exhaustif ou global (*A comprehensive guide to grammar*). Si vous parlez d'une personne indulgente et à l'écoute, employez *understanding*.
 - **Convenient vs Convenable** : *Convenient* veut dire pratique, commode ou qui arrange votre emploi du temps (*Is 2 PM convenient for you?*). Pour convenable, préférez *suitable* ou *appropriate*.
 
-Pour ancrer durablement ces distinctions dans votre mémoire à long terme, suivez notre protocole d'apprentissage décrit dans le guide [apprendre le vocabulaire anglais](/fr/blog/apprendre-vocabulaire-anglais/), qui détaille l'usage de la répétition espacée. Vous pouvez également enrichir votre panel avec nos [listes de vocabulaire thématiques](/tu-vung/) pour classer ces notions par domaines professionnels.
+Pour ancrer durablement ces distinctions dans votre mémoire à long terme, suivez notre protocole d'apprentissage décrit dans le guide [apprendre le vocabulaire anglais](/fr/blog/apprendre-vocabulaire-anglais/), qui détaille l'usage de la répétition espacée. Vous pouvez également enrichir votre panel avec nos [listes de vocabulaire thématiques](/en/vocabulary/) pour classer ces notions par domaines professionnels.
 
 ## Les faux amis spécifiques aux examens et à l'IELTS
 
@@ -106,3 +106,5 @@ La meilleure technique consiste à ne jamais mémoriser un faux ami seul avec sa
 Oui, particulièrement dans les épreuves de production écrite et orale. L'utilisation d'un faux ami modifie fréquemment la cohérence du propos (ce qui baisse la note de *Coherence and Cohesion*) ou démontre un manque de précision lexicale (pénalisant le critère *Lexical Resource*).
 
 > À lire aussi: [Phrases conditionnelles anglais : guide if clauses de 0 à 3](/fr/blog/phrases-conditionnelles-anglais-if-clauses/)
+
+Autre paire de mots qui piège souvent les francophones : [affect ou effect](/fr/blog/affect-ou-effect-difference-anglais/), un verbe et un nom qui se prononcent presque pareil.

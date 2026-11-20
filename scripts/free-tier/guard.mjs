@@ -7,7 +7,7 @@
 import fs from 'node:fs';
 import { pathToFileURL } from 'node:url';
 import { evaluate, markdown, r2Class } from './limits.mjs';
-import { query as intradayQuery, hourly, project, decide, writeIntraday, pauseWorkflows, STATE as ISTATE } from './intraday.mjs';
+import { query as intradayQuery, hourly, project, decide, writeIntraday, pauseWorkflows, r2Usage, r2Gate, R2_FREE, STATE as ISTATE } from './intraday.mjs';
 
 const DAY = 864e5, dayOf = t => new Date(t).toISOString().slice(0, 10);
 const D1_MAIN = '7ce39cd0-9333-4843-bd6f-5ccbefbde670'; // lexkite-sync (functions/api/capacity.js D1_DB_ID)
@@ -48,6 +48,21 @@ export function cfUsage({ a, y }, { second = false } = {}) {
     out.push({ key: 'r2_storage', value: bytes, note: `${(a.r2s || []).length} bucket` }, { key: 'r2_class_a', value: ops.a, note: 'từ đầu tháng' }, { key: 'r2_class_b', value: ops.b, note: 'từ đầu tháng' });
   }
   return out;
+}
+
+/** Cộng đồng: Durable Objects (hôm qua) + Realtime TURN (từ đầu tháng). Truy vấn RIÊNG để tên dataset lạ không làm hỏng cfGraphql. */
+export async function cfRealtime(tok, acct, now, fetcher = fetch) {
+  const y = dayOf(now - DAY), month = dayOf(now).slice(0, 8) + '01T00:00:00Z';
+  const query = `query { viewer { accounts(filter:{accountTag:"${acct}"}) {
+    dor: durableObjectsInvocationsAdaptiveGroups(limit:50, filter:{date:"${y}"}) { sum { requests } }
+    turn: callsTurnUsageAdaptiveGroups(limit:50, filter:{datetimeMinute_geq:"${month}"}) { sum { egressBytes ingressBytes } } } } }`;
+  const r = await fetcher('https://api.cloudflare.com/client/v4/graphql', { method: 'POST', headers: { Authorization: 'Bearer ' + tok, 'Content-Type': 'application/json' }, body: JSON.stringify({ query }) });
+  const j = await r.json().catch(() => ({}));
+  const a = (((j.data || {}).viewer || {}).accounts || [])[0];
+  if (!r.ok || !a) throw new Error(`graphql ${r.status} ${JSON.stringify(j.errors || '').slice(0, 200)}`);
+  const sum = (g, k) => (g || []).reduce((s, x) => s + (+x.sum[k] || 0), 0);
+  return [{ key: 'do_requests', value: sum(a.dor, 'requests'), note: `hôm qua ${y}` },
+    { key: 'turn_bytes', value: sum(a.turn, 'egressBytes') + sum(a.turn, 'ingressBytes'), note: 'từ đầu tháng' }];
 }
 
 /** Đếm build Pages từ đầu tháng (UTC). Commit có [CF-Pages-Skip] không build → không đếm; Direct Upload (wrangler, trigger ad_hoc) không dùng
@@ -114,6 +129,7 @@ async function main() {
   const tok = env.CF_ANALYTICS_TOKEN, acct = String(env.CF_ACCOUNT_ID || '').replace(/[^a-f0-9]/gi, '');
   if (tok && acct) {
     try { usage.push(...cfUsage(await cfGraphql(tok, acct, now))); } catch (e) { errors.push('Cloudflare GraphQL: ' + e.message); }
+    try { usage.push(...(await cfRealtime(tok, acct, now))); } catch (e) { skipped.push(`Durable Objects/TURN: ${e.message} (Cộng đồng chưa bật – đợt 3/5)`); }
     try { usage.push({ key: 'pages_builds', ...(await pagesBuilds(tok, acct, 'lexkite', now)) }); } catch (e) { skipped.push(`Pages build/tháng: ${e.message} (khoá cần thêm quyền "Cloudflare Pages: Read")`); }
   } else skipped.push('Cloudflare tài khoản chính: chưa có secret CF_ANALYTICS_TOKEN (Account Analytics: Read + Cloudflare Pages: Read) – docs/FREE-TIER.md §5');
   const tok2 = env.CF_ANALYTICS_TOKEN_2, acct2 = String(env.CF_ACCOUNT_2 || '').replace(/[^a-f0-9]/gi, '');
@@ -135,7 +151,7 @@ async function main() {
 }
 
 /** Bản trong ngày (mỗi giờ): 1 truy vấn GraphQL, ngoại suy, dừng workflow gọi prod ≥ 60 %, shed + issue ≥ 80 % – scripts/free-tier/intraday.mjs. */
-export async function intradayMain({ dry = false, now = Date.now(), env = process.env, fetcher = fetch, file = ISTATE } = {}) {
+export async function intradayMain({ dry = false, now = Date.now(), env = process.env, fetcher = fetch, file = ISTATE, fallback = null } = {}) {
   const tok = env.CF_ANALYTICS_TOKEN, acct = String(env.CF_ACCOUNT_ID || '').replace(/[^a-f0-9]/gi, '');
   if (!tok || !acct) { console.log('⏭ free-tier intraday: chưa có CF_ANALYTICS_TOKEN – bỏ qua'); return null; }
   const r = await fetcher('https://api.cloudflare.com/client/v4/graphql', { method: 'POST', headers: { Authorization: 'Bearer ' + tok, 'Content-Type': 'application/json' }, body: JSON.stringify({ query: intradayQuery(acct, now) }) });
@@ -149,17 +165,32 @@ export async function intradayMain({ dry = false, now = Date.now(), env = proces
   if (d.level === 'alert' && !ev.alerts.length) ev.alerts.push(ev.rows[0]); // giữ mức trong ngày (không hạ)
   const md = markdown(ev, { date: d.day }) + `\nMức trong ngày: **${d.level}** (${(d.pct * 100).toFixed(1)} %) · chế độ **${d.mode}**${d.pause ? ' · dừng: ' + PAUSE_NOTE : ''}\n`;
   console.log(md);
+  const pf = scripts['pages-functions'] || 0; // Pages Functions riêng (trang từ R2 thêm lượt) – cảnh báo sớm > 50 % trần ngày (docs/specs/words-off-pages.md)
+  if (pf > 50000) console.log(`::warning::Pages Functions hôm nay ${pf} lượt > 50 % trần 100.000 (trang từ R2 + /api): kiểm functions/[lang]/words, cân nhắc WORDS_R2=0`);
   if (d.level !== 'ok') console.log(`::warning::Workers + Functions hôm nay ${(d.pct * 100).toFixed(0)} % (thực tế ${p.total}, ngoại suy ${p.projected})`);
   if (env.GITHUB_STEP_SUMMARY) fs.appendFileSync(env.GITHUB_STEP_SUMMARY, md);
+  // Chốt $0 R2: ≥ 80 % hạn mức Free tháng → issue; ≥ 90 % → tên miền về Worker (nguồn GitHub) + đóng băng ghi R2 (state r2 = frozen)
+  const ru = r2Usage(a), rg = r2Gate(ru);
+  const r2md = `\nR2 tháng này: ${(ru.storage / 1024 ** 3).toFixed(2)} GB / 10 GB · Class A ${ru.a} / ${R2_FREE.a} · Class B ${ru.b} / ${R2_FREE.b} → **${rg.level}** (${(rg.pct * 100).toFixed(1)} % ${rg.key})${cur.r2 === 'frozen' ? ' · ĐÃ ĐÓNG BĂNG ghi R2' : ''}\n`;
+  console.log(r2md); if (env.GITHUB_STEP_SUMMARY) fs.appendFileSync(env.GITHUB_STEP_SUMMARY, r2md);
+  if (rg.level === 'warn') console.log(`::warning::R2 Class B ${(rg.parts.b * 100).toFixed(0)} % hạn mức tháng (≥ 50 %) – nhiều lượt trượt cache biên: kiểm cf-cache-status (GET phải HIT; HEAD luôn DYNAMIC) và Cache Rule lexkite_cdn_cache`);
+  if (rg.level === 'alert' || rg.level === 'fallback') { console.log(`::warning::R2 ${(rg.pct * 100).toFixed(0)} % hạn mức Free (${rg.key})`); ev.alerts.push({ key: 'r2_' + rg.key, label: `R2 ${rg.key} (tháng)`, pct: rg.pct, level: 'alert', action: rg.level === 'fallback' ? 'Đã về Worker + GitHub và ngừng ghi R2 (chốt $0). Gỡ tay sau khi dọn/đầu tháng: docs/FREE-TIER.md §R2.' : 'Dọn tệp mồ côi / giảm đọc trượt cache; tới 90 % guard tự về GitHub.' }); }
+  let r2 = cur.r2, r2err = '';
+  if (!dry && rg.level === 'fallback' && cur.r2 !== 'frozen') {
+    r2 = 'frozen';
+    try { await (fallback || (async () => (await import('../cdn/cutover.mjs')).rollbackAll()))(); console.log('R2 ≥ 90 % → media/audio về Worker + GitHub'); }
+    catch (e) { r2err = 'rollback R2 lỗi: ' + e.message; console.log('::error::' + r2err); }
+  }
   let paused = cur.paused || [];
   if (!dry) {
     if (env.GITHUB_TOKEN) paused = await pauseWorkflows(env.GITHUB_TOKEN, { pause: d.pause, already: paused }, fetcher);
     else if (!d.pause) paused = [];
-    const w = writeIntraday({ ...d, paused }, now, file);
+    const w = writeIntraday({ ...d, paused, r2 }, now, file);
     if (w.changed) { console.log(`trạng thái → ${d.mode}/${d.level}, dừng [${paused.join(', ')}]`); if (env.GITHUB_OUTPUT) fs.appendFileSync(env.GITHUB_OUTPUT, `state_changed=1\nmode_changed=${w.modeChanged ? 1 : 0}\n`); }
-    if (d.level === 'alert' && env.GITHUB_TOKEN) await issue(env.GITHUB_TOKEN, ev, md, fetcher, { keepOpen: true });
+    if ((d.level === 'alert' || rg.level === 'alert' || rg.level === 'fallback') && env.GITHUB_TOKEN) await issue(env.GITHUB_TOKEN, ev, md + r2md, fetcher, { keepOpen: true });
+    if (r2err) throw new Error(r2err);
   }
-  return { ...d, ...p, paused };
+  return { ...d, ...p, paused, r2: { ...rg, usage: ru, state: r2 } };
 }
 const PAUSE_NOTE = 'workflow nền gọi host prod (intraday.mjs PAUSE)';
 

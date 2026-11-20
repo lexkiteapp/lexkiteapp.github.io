@@ -4,7 +4,7 @@
 (function () {
   // CSS giao diện thi trên máy (chuyển từ style.css 25/10 – giữ khung app ≤377 KB gz); nạp 1 lần khi tải gói
   try { if (!document.getElementById('cbtCss')) { const st = document.createElement('style'); st.id = 'cbtCss'; st.textContent = `
-.cbt { display: flex; flex-direction: column; height: 100vh; background: var(--bg); }
+.cbt { display: flex; flex-direction: column; height: 100vh; height: 100dvh; background: var(--bg); }
 .cbt-top { display: flex; justify-content: space-between; align-items: center; gap: .6rem; padding: .55rem 1rem; background: var(--surface); border-bottom: 1px solid var(--line); flex-wrap: wrap; }
 .cbt-clock { font-weight: 800; font-variant-numeric: tabular-nums; padding: .3rem .7rem; border-radius: 10px; background: var(--surface-2); }
 .cbt-clock.warn { background: var(--again-soft); color: var(--again-text); }
@@ -127,8 +127,13 @@ mark.cbt-hl { background: #fde047; color: #111; cursor: pointer; border-radius: 
     let navFilter = 'all'; // 'all' | 'todo' | 'flag'
     let showPacingPop = false;
     const ans = {}, flag = {}, passHl = {};
+    // Đáp án + cờ được lưu từng thay đổi; đồng hồ = ExamClock (mốc thời gian) → tải lại trang/đổi tab vẫn đúng giờ, không mất bài
+    const RUN = 'lk.cbtRun.' + rs.map(r => r.id).join(','), CKEY = 'cbt.' + rs.map(r => r.id).join(',');
+    const persist = () => { try { localStorage.setItem(RUN, JSON.stringify({ ans, flag, at: Date.now() })); } catch (e) { /* bỏ qua */ } };
+    if (window.ExamClock && ExamClock.saved(CKEY) != null) { try { const x = JSON.parse(localStorage.getItem(RUN) || 'null'); if (x) { Object.assign(ans, x.ans || {}); Object.assign(flag, x.flag || {}); } } catch (e) { /* bỏ qua */ } }
+    else { try { localStorage.removeItem(RUN); } catch (e) { /* bỏ qua */ } }
     document.body.classList.add('bare', 'cbt-mode');
-    let tick = null;
+    let tick = null, xc = null;
 
     const onKey = e => {
       if (e.defaultPrevented || e.ctrlKey || e.metaKey || e.altKey) return;
@@ -137,7 +142,7 @@ mark.cbt-hl { background: #fde047; color: #111; cursor: pointer; border-radius: 
       if (/^(INPUT|TEXTAREA|SELECT)$/.test(tag) && e.target.type !== 'radio' && e.target.type !== 'checkbox') return;
       if (e.code === 'KeyF' || e.key === 'f' || e.key === 'F') {
         e.preventDefault();
-        flag[cur] = !flag[cur];
+        flag[cur] = !flag[cur]; persist();
         drawQs();
         drawNav();
       }
@@ -146,7 +151,7 @@ mark.cbt-hl { background: #fde047; color: #111; cursor: pointer; border-radius: 
     let onDocClick = null, onSelChange = null, selT = 0;
 
     App.cleanup = () => {
-      clearInterval(tick); clearTimeout(selT);
+      clearInterval(tick); clearTimeout(selT); if (xc) xc.stop();
       document.removeEventListener('keydown', onKey);
       if (onDocClick) document.removeEventListener('click', onDocClick);
       if (onSelChange) document.removeEventListener('selectionchange', onSelChange);
@@ -161,8 +166,8 @@ mark.cbt-hl { background: #fde047; color: #111; cursor: pointer; border-radius: 
           <div class="row nowrap"><img src="icons/icon.svg" alt="" style="width:28px;height:28px;border-radius:8px"><b>Lexkite</b><span class="tiny muted">IELTS Reading · ${t('Mô phỏng thi trên máy')}</span></div>
           <div class="row nowrap">
             <button class="cbt-pacing-chip on-track" id="pacingChip" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="pacingPop" title="${t('Ước tính nhịp độ làm bài (bấm để xem chi tiết)')}">${UI.icon('zap')} <span>${t('Đúng tiến độ (ước tính)')}</span></button>
-            <span class="cbt-clock" id="clock"></span>
-            <button class="btn sm" id="hideC" type="button">${t('Ẩn giờ')}</button>
+            ${window.ExamClock ? '<span id="xClock"></span>' : `<span class="cbt-clock" id="clock"></span>
+            <button class="btn sm" id="hideC" type="button">${t('Ẩn giờ')}</button>`}
             <button class="btn sm" id="fsDown" type="button" title="${t('Giảm cỡ chữ')}">A−</button>
             <button class="btn sm" id="fsUp" type="button" title="${t('Tăng cỡ chữ')}">A+</button>
             <button class="btn sm primary" id="submit" type="button">${t('Nộp bài')}</button>
@@ -221,7 +226,7 @@ mark.cbt-hl { background: #fde047; color: #111; cursor: pointer; border-radius: 
 
       $$('#qs input[type=radio]').forEach(inp => inp.onchange = () => {
         const i = +inp.name.slice(1);
-        ans[i] = inp.value;
+        ans[i] = inp.value; persist();
         cur = i;
         drawQs();
         drawNav();
@@ -230,7 +235,7 @@ mark.cbt-hl { background: #fde047; color: #111; cursor: pointer; border-radius: 
       $$('[data-flag]').forEach(b => b.onclick = (e) => {
         e.preventDefault();
         const i = +b.dataset.flag;
-        flag[i] = !flag[i];
+        flag[i] = !flag[i]; persist();
         drawQs();
         drawNav();
       });
@@ -354,14 +359,18 @@ mark.cbt-hl { background: #fde047; color: #111; cursor: pointer; border-radius: 
       updatePacing();
     };
 
-    drawPassage(); drawQs(); drawNav(); clock();
-    tick = setInterval(() => {
-      left--; clock();
-      if (left === 300) toast('⏰ ' + t('Còn 5 phút!'));
-      if (left <= 0) { clearInterval(tick); submit(true); }
-    }, 1000);
-
-    $('#hideC').onclick = () => { hideClock = !hideClock; $('#hideC').textContent = hideClock ? t('Hiện giờ') : t('Ẩn giờ'); clock(); };
+    drawPassage(); drawQs(); drawNav();
+    if (window.ExamClock) {
+      xc = ExamClock.mount($('#xClock'), { key: CKEY, secs: total, name: 'IELTS Reading', onTick: L => { left = L; updatePacing(); }, onEnd: () => { left = 0; submit(true); } });
+    } else {
+      clock();
+      tick = setInterval(() => {
+        left--; clock();
+        if (left === 300) toast('⏰ ' + t('Còn 5 phút!'));
+        if (left <= 0) { clearInterval(tick); submit(true); }
+      }, 1000);
+      $('#hideC').onclick = () => { hideClock = !hideClock; $('#hideC').textContent = hideClock ? t('Hiện giờ') : t('Ẩn giờ'); clock(); };
+    }
     $('#fsUp').onclick = () => { fs = Math.min(1.5, fs + .1); drawPassage(); drawQs(); };
     $('#fsDown').onclick = () => { fs = Math.max(.8, fs - .1); drawPassage(); drawQs(); };
 
@@ -500,7 +509,7 @@ mark.cbt-hl { background: #fde047; color: #111; cursor: pointer; border-radius: 
     async function submit(timeUp) {
       const missing = qs.length - Object.keys(ans).length;
       if (!timeUp && !confirm(missing ? t('Còn {n} câu chưa trả lời. Vẫn nộp bài?', { n: missing }) : t('Nộp bài và xem kết quả?'))) return;
-      clearInterval(tick); window.onbeforeunload = null;
+      clearInterval(tick); window.onbeforeunload = null; if (xc) xc.done(); try { localStorage.removeItem(RUN); } catch (e) { /* bỏ qua */ }
       let score = 0;
       const rows = qs.map((q, i) => {
         const right = String(q.answer), ok = ans[i] === right;
@@ -520,7 +529,7 @@ mark.cbt-hl { background: #fde047; color: #111; cursor: pointer; border-radius: 
         <div class="card" style="margin-top:1rem"><h3>${t('Đáp án & giải thích')}</h3>${rows.map(({ q, i, ok }) => `<div class="q-item"><b>${ok ? UI.icon('circle-check') : '❌'} ${i + 1}. ${esc(q.q)}</b>
           <div class="small">${t('Đáp án:')} <b style="color:var(--good-text)">${esc(q.type === 'tfng' ? q.answer : q.options[q.answer])}</b>${!ok ? ` · ${t('Bạn chọn:')} <span style="color:var(--again-text)">${esc(ans[i] == null ? t('(bỏ trống)') : q.type === 'tfng' ? ans[i] : q.options[+ans[i]])}</span>` : ''}</div>
           <div class="small muted">${UI.icon('lightbulb')} ${esc(q.explain)}</div></div>`).join('')}</div>
-        <div class="row center" style="margin-top:1rem"><a class="btn primary" href="#/cbt">${t('Làm đề khác')}</a>${rs.map(r => `<a class="btn" href="#/read/${r.id}">${UI.icon('book-open')} ${t('Học từ vựng bài “{title}”', { title: esc(r.title) })}</a>`).join('')}</div></div>`;
+        <div class="row center" style="margin-top:1rem"><a class="btn primary" href="#/cbt">${t('Làm đề khác')}</a>${pct >= 80 ? `<button type="button" class="btn" data-share="${pct}">📤 ${t('Khoe kết quả')}</button>` : ''}${rs.map(r => `<a class="btn" href="#/read/${r.id}">${UI.icon('book-open')} ${t('Học từ vựng bài “{title}”', { title: esc(r.title) })}</a>`).join('')}</div></div>`;
       document.body.classList.remove('bare');
     }
   }

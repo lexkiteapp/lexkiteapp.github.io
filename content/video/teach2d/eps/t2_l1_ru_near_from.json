@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ru_near_from",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Near from or near?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: My friend lives near from my house.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: My friend lives near my house.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Near needs no from.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "No word! The shop is near my school.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "My friend lives near from my house.",
+  "right": "My friend lives near my house.",
+  "strike": "from",
+  "why": "Near needs no from.",
+  "memory": "Near my house.",
+  "quiz": {
+   "stem": "The shop is near ___ my school.",
+   "options": [
+    "from",
+    "no word"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Near from — лишнее “from”",
+   "tip": "После “near” “from” не нужно: “My friend lives near my house.”",
+   "caption": "Ты тоже говоришь “My friend lives near from my house”? 😅 По-русски «недалеко от дома» — с «от», и хочется добавить “from”, но слово near уже значит «рядом». Правильно: “My friend lives near my house.” Послушай Аму и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “no word.” После near — сразу дом. Скажи вслух, кто живёт рядом с тобой: “… lives near my house.” Бесплатный тест для практики здесь: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#учуанглийский",
+    "#английскийдляначинающих",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Near from: one word too many",
+   "tip": "After “near”, do not add “from”: “My friend lives near my house.”",
+   "caption": "Do you also say “My friend lives near from my house”? 😅 In Russian you say “not far from” the house, so “from” sneaks in, but “near” works alone. Correct: “My friend lives near my house.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Near from — лишнее “from”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ru",
+ "est": {
+  "words": 49,
+  "seconds": 29.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Near from — лишнее “from”",
+  "keyword": "My friend lives near my house.",
+  "value": "После “near” “from” не нужно: “My friend lives near my house.”",
+  "hashtags": [
+   "#английскийязык",
+   "#учуанглийский",
+   "#английскийдляначинающих",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 43,
+  "platforms": {
+   "youtube": {
+    "title": "Near from — лишнее “from”",
+    "description": "После “near” “from” не нужно: “My friend lives near my house.”\n\nТы тоже говоришь “My friend lives near from my house”? 😅 По-русски «недалеко от дома» — с «от», и хочется добавить “from”, но слово near уже значит «рядом». Правильно: “My friend lives near my house.” Послушай Аму и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #учуанглийский #английскийдляначинающих #lexkite",
+    "tags": [
+     "My friend lives near my house.",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Ты тоже говоришь “My friend lives near from my house”? 😅 По-русски «недалеко от дома» — с «от», и хочется добавить “from”, но слово near уже значит «рядом». Правильно: “My friend lives near my house.” Послушай Аму и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Near from — лишнее “from”\n\nПосле “near” “from” не нужно: “My friend lives near my house.”\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#учуанглийский",
+     "#английскийдляначинающих",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Near from — лишнее “from” После “near” “from” не нужно: “My friend lives near my house.” #английскийязык #учуанглийский #английскийдляначинающих"
+   }
+  },
+  "first_comment": "Ответ: “no word.” После near — сразу дом. Скажи вслух, кто живёт рядом с тобой: “… lives near my house.” Бесплатный тест для практики здесь: {link}",
+  "lang": "ru"
+ }
+}

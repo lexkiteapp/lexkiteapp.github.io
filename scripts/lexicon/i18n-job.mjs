@@ -6,6 +6,7 @@
 //   "từ#loại" chỉ ghi cho từ có ≥ 2 từ loại trong kho (record#v…); khóa "từ" = nghĩa của mục thông dụng nhất. Bảng tay *.gloss.json luôn thắng.
 import fs from 'fs';
 import { ROOT, rd, wr } from './lib.mjs';
+import { FLAG } from '../lib/pack-gloss.mjs';
 const arg = (n, d) => { const i = process.argv.indexOf(n); return i > 0 ? process.argv[i + 1] : d; };
 const CALLS = +arg('--calls', 60), DRY = process.argv.includes('--dry'), BATCH = 25;
 const ORDER = ['ko', 'th', 'hi', 'zh', 'ja', 'ar', 'es', 'pt', 'fr', 'de', 'id', 'ru', 'tr'];
@@ -60,7 +61,7 @@ for (const lang of LANGS) {
     if (!out) { fails++; if (fails >= 3) break; continue; }
     for (const e of b) { const s = +out[e.k]; if (!(s >= 1 && s <= 5)) continue; for (const pk of packKeys(e)) if (pack[pk]) pack[pk][2] = s <= 3 ? 1 : 0; judged++; if (s <= 3) low++; }
   }
-  for (const [w, m] of Object.entries(hand)) pack[w] = [m, 1, 0]; // bảng tay thắng, tin cậy
+  for (const [w, m] of Object.entries(hand)) pack[w] = [m, FLAG.MANUAL, 0]; // bảng tay thắng, tin cậy (06/11: từng ghi cờ 1 → hạ 320 nghĩa tay ko, main đỏ pack-gloss)
   if (!DRY) wr(P, JSON.stringify(Object.fromEntries(Object.entries(pack).sort(([a], [b]) => (a < b ? -1 : 1)))));
   const v2 = entries.filter(e => { const k = packKeys(e)[0]; return k && pack[k] && pack[k][1] === 2; }).length;
   console.log(`${lang}: dịch theo nghĩa ${v2}/${entries.length} · đã duyệt ${entries.filter(e => { const k = packKeys(e)[0]; return pack[k] && pack[k][2] != null; }).length} · tin cậy thấp ${entries.filter(e => { const k = packKeys(e)[0]; return pack[k] && pack[k][2] === 1; }).length}`);

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_fr_to_learn",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "I came here to learn English.",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I came here for learn English.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I came here to learn English.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Before a verb, we say to.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "To! I study to get a job.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I came here for learn English.",
+  "right": "I came here to learn English.",
+  "strike": "for",
+  "why": "Before a verb, we say to.",
+  "memory": "Verb: to.",
+  "quiz": {
+   "stem": "I study English ___ get a better job.",
+   "options": [
+    "for",
+    "to"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "« Pour + verbe » : “to”",
+   "tip": "En français, on dit « pour apprendre ». En anglais, devant un verbe, on dit “to”, pas “for”.",
+   "caption": "Vous dites “I came here for learn English.” ? En français, on dit « pour apprendre ». En anglais, devant un verbe, on dit “to”, pas “for”. Dites plutôt “I came here to learn English.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.",
+   "comment": "Réponse : “I came here to learn English.” — En français, on dit « pour apprendre ». En anglais, devant un verbe, on dit “to”, pas “for”. À vous : dites la phrase à voix haute, puis écrivez une phrase de votre cru. Quiz gratuit : {link}",
+   "hashtags": [
+    "#apprendrelanglais",
+    "#anglaisfacile",
+    "#coursdanglais",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Verb? Say “to”!",
+   "tip": "French says « pour apprendre ». Before a verb, English says “to”, not “for”.",
+   "caption": "Do you say this? “I came here for learn English.” French says « pour apprendre ». Before a verb, English says “to”, not “for”. Say “I came here to learn English.” Listen to Carlos and repeat with him! More exercises in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "« Pour + verbe » : “to”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "fr",
+ "est": {
+  "words": 51,
+  "seconds": 30.5,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "« Pour + verbe » : “to”",
+  "keyword": "I came here to learn English.",
+  "value": "En français, on dit « pour apprendre ». En anglais, devant un verbe, on dit “to”, pas “for”.",
+  "hashtags": [
+   "#apprendrelanglais",
+   "#anglaisfacile",
+   "#coursdanglais",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 45,
+  "platforms": {
+   "youtube": {
+    "title": "« Pour + verbe » : “to”",
+    "description": "En français, on dit « pour apprendre ». En anglais, devant un verbe, on dit “to”, pas “for”.\n\nVous dites “I came here for learn English.” ? En français, on dit « pour apprendre ». En anglais, devant un verbe, on dit “to”, pas “for”. Dites plutôt “I came here to learn English.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "tags": [
+     "I came here to learn English.",
+     "learn english",
+     "fr"
+    ]
+   },
+   "facebook": {
+    "text": "Vous dites “I came here for learn English.” ? En français, on dit « pour apprendre ». En anglais, devant un verbe, on dit “to”, pas “for”. Dites plutôt “I came here to learn English.” — écoutez Carlos et répétez avec lui ! Plus d’exercices dans l’appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "« Pour + verbe » : “to”\n\nEn français, on dit « pour apprendre ». En anglais, devant un verbe, on dit “to”, pas “for”.\n\nlexkite.com",
+    "hashtags": [
+     "#apprendrelanglais",
+     "#anglaisfacile",
+     "#coursdanglais",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "« Pour + verbe » : “to” En français, on dit « pour apprendre ». En anglais, devant un verbe, on dit… #apprendrelanglais #anglaisfacile #coursdanglais"
+   }
+  },
+  "first_comment": "Réponse : “I came here to learn English.” — En français, on dit « pour apprendre ». En anglais, devant un verbe, on dit “to”, pas “for”. À vous : dites la phrase à voix haute, puis écrivez une phrase de votre cru. Quiz gratuit : {link}",
+  "lang": "fr"
+ }
+}

@@ -1,3 +1,2 @@
-/* UI tr – notices (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["tr"] = Object.assign(D["tr"] || {}, {"Đã đọc tất cả":"Tümünü okundu olarak işaretle","Chưa có thông báo mới":"Yeni bildirim yok","Thông báo quan trọng":"Önemli duyuru","Vừa xong":"Az önce","Chưa đọc":"Okunmamış","{n} chưa đọc":"{n} okunmamış"});
-})(typeof self !== 'undefined' ? self : this);
+/* SINH từ i18n/ui/tr/notices.js – đừng sửa tay (scripts/i18n-pack.mjs) */
+(function(g){const D=g.I18N_DICT=g.I18N_DICT||{};D.tr=Object.assign(D.tr||{},{_pffv:"Yeni bildirim yok",_lyra:"Okunmamış",_wyuq:"Son durumu görmek için dokunun.",_62kr:"{id} numaralı bildirimde yeni gelişme",_uu8l:"Bildirdiğiniz için teşekkürler. Yeni sürüm için uygulamayı yeniden yükleyin.",_tb6i:"Teşekkürler – Lexkite gelişmeleri burada paylaşacak.",_dlnl:"Önemli duyuru",_m4lx:"Az önce",_erjf:"Bildirimi gör",_ub36:"{n} okunmamış",_z2ii:"{id} numaralı bildirim alındı",_2tyo:"{id} numaralı bildirim çözüldü",_zwis:"Tümünü okundu olarak işaretle"});})(typeof self!=='undefined'?self:this);

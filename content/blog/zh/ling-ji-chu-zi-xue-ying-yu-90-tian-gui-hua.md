@@ -99,7 +99,7 @@ publishAt: 2026-12-02T07:40:00+08:00
   - 全面运用 [英语影子跟读法（Shadowing）](/zh/blog/ying-yu-shadowing-ying-zi-gen-du-fa/) 模仿原声音调与重音节拍。
   - 掌握 [英语条件状语从句if句型](/zh/blog/ying-yu-tiao-jian-zhuang-yu-cong-ju-if-clauses/)，自如表达假设与个人观点。
   - 尝试 [如何用英语思维不翻译](/zh/blog/ru-he-yong-ying-yu-si-wei-bu-fan-yi/) 的实操心法，看到身边事物直接用英文单词反应。
-  - 拓展阅读理解能力，可参考 [雅思阅读True False Not Given解题技巧](/zh/blog/ya-si-yue-du-true-false-not-given-jie-ti-ji-qiao/) 的信息定位逻辑，或在 [核心词库资料馆](/tu-vung/) 查漏补缺。
+  - 拓展阅读理解能力，可参考 [雅思阅读True False Not Given解题技巧](/zh/blog/ya-si-yue-du-true-false-not-given-jie-ti-ji-qiao/) 的信息定位逻辑，或在 [核心词库资料馆](/en/vocabulary/) 查漏补缺。
 
 ## 专为上班族定制的每日40分钟高效时间表
 
@@ -119,6 +119,8 @@ publishAt: 2026-12-02T07:40:00+08:00
 3. **掌握英语的重音节奏感**：汉语是声调语言、字字等长，而英语是重音节奏语言。实词（名词、动词、形容词）需要读得响亮饱满，虚词（冠词、介词、代词）要快速弱读滑过。
 
 若后续有求职或晋升需求，可在90天打牢根基后，进一步进阶学习 [英文简历制作模板](/zh/blog/ying-wen-jian-li-cv-resume-mo-ban/) 以及 [英语面试常见问题应对技巧](/zh/blog/ying-yu-mian-shi-chang-jian-wen-ti/)。
+
+完成基础阶段之后，如果想挑战一个有证书的目标，可以了解 [剑桥B2 First（FCE）考试题型详解](/zh/blog/jian-qiao-b2-first-fce-kao-shi-ti-xing/)。
 
 ## 90天后的自检清单：评估你的真实蜕变
 

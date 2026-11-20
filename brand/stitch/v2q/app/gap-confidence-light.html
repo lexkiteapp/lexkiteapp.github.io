@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=390, user-scalable=no, initial-scale=1.0" name="viewport"/>
+<title>Lexkite — Confidence Check (Bright Day Mobile)</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "secondary": "#ffb4a6",
+            "on-primary-fixed": "#00201e",
+            "surface-container-high": "#202c2f",
+            "background": "#091518",
+            "surface-tint": "#6bd8ce",
+            "surface-variant": "#2b373a",
+            "on-surface-variant": "#bcc9c7",
+            "outline-variant": "#3d4947",
+            "error-container": "#93000a",
+            "tertiary-fixed": "#ffdf9e",
+            "tertiary": "#f4bf40",
+            "on-primary": "#003733",
+            "inverse-on-surface": "#263236",
+            "surface-dim": "#091518",
+            "primary-container": "#2ba39a",
+            "surface-container": "#162125",
+            "on-tertiary": "#402e00",
+            "on-error-container": "#ffdad6",
+            "secondary-fixed": "#ffdad3",
+            "surface-container-highest": "#2b373a",
+            "on-secondary-fixed-variant": "#900f00",
+            "primary-fixed-dim": "#6bd8ce",
+            "on-surface": "#d8e5e9",
+            "tertiary-container": "#ba8b00",
+            "secondary-container": "#981201",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "on-secondary": "#660800",
+            "surface-bright": "#2f3b3e",
+            "on-background": "#d8e5e9",
+            "primary-fixed": "#88f5ea",
+            "primary": "#6bd8ce",
+            "surface-container-lowest": "#051013",
+            "surface": "#091518",
+            "secondary-fixed-dim": "#ffb4a6",
+            "on-primary-fixed-variant": "#00504b",
+            "error": "#ffb4ab",
+            "tertiary-fixed-dim": "#f4bf40",
+            "outline": "#879391",
+            "on-tertiary-container": "#392900",
+            "on-error": "#690005",
+            "on-primary-container": "#00322e",
+            "on-secondary-fixed": "#3f0300",
+            "inverse-surface": "#d8e5e9",
+            "surface-container-low": "#121d20",
+            "on-secondary-container": "#ffa493",
+            "inverse-primary": "#006a64",
+            "on-tertiary-fixed": "#261a00"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "space-lg": "24px",
+            "space-md": "16px",
+            "space-sm": "8px",
+            "gutter": "16px",
+            "margin": "16px",
+            "space-xl": "32px",
+            "space-xs": "4px"
+          },
+          fontFamily: {
+            label: ["Plus Jakarta Sans"],
+            display: ["Plus Jakarta Sans"],
+            title: ["Plus Jakarta Sans"],
+            body: ["Plus Jakarta Sans"]
+          },
+          fontSize: {
+            label: ["12px", { lineHeight: "16px", letterSpacing: "0.06em", fontWeight: "800" }],
+            display: ["32px", { lineHeight: "38px", fontWeight: "800" }],
+            title: ["22px", { lineHeight: "28px", fontWeight: "700" }],
+            body: ["16px", { lineHeight: "24px", fontWeight: "500" }]
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      line-height: 1;
+      display: inline-block;
+    }
+    .material-symbols-outlined[data-weight="fill"] {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Tactile Ledge Utilities */
+    .tactile-btn:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 0 #B53A22 !important;
+    }
+    .tactile-chip:active {
+      transform: translateY(2px);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-[#FFF7EA] text-[#0F3D3E] font-body text-body m-0 p-0 antialiased selection:bg-[#2BA39A]/20" style="width: 390px; min-height: 100vh; margin: 0 auto; overflow-x: hidden;">
+<!-- Fixed Top Header (56px) -->
+<header class="fixed top-0 left-0 right-0 z-50 h-[56px] bg-[#FFF7EA]/95 backdrop-blur-md px-4 flex items-center justify-between border-b border-[#EADEC8]/80 max-w-[390px] mx-auto">
+<!-- Left: Brand Emblem + Wordmark -->
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-[#2BA39A] shadow-[0_3px_0_0_#1E7B74] flex items-center justify-center transform -rotate-6">
+<svg class="w-5 h-5 text-white" fill="currentColor" viewbox="0 0 24 24">
+<polygon points="12,2 22,9 12,22 2,9"></polygon>
+<line stroke="#FFF7EA" stroke-dasharray="2,2" stroke-width="1.5" x1="12" x2="12" y1="2" y2="22"></line>
+</svg>
+</div>
+<span class="font-display text-[21px] font-extrabold tracking-tight text-[#0F3D3E]">Lexkite</span>
+</div>
+<!-- Right: Streak & XP Pills -->
+<div class="flex items-center gap-2">
+<!-- Streak Pill -->
+<div class="flex items-center gap-1 bg-[#FFFDF9] border border-[#EADEC8] shadow-[0_2.5px_0_0_#D8CFBC] rounded-full px-2.5 py-1">
+<span class="text-sm">🔥</span>
+<span class="font-label text-label text-[#8F3B00] font-extrabold tracking-tight">14</span>
+</div>
+<!-- XP Pill -->
+<div class="flex items-center gap-1 bg-[#FFFDF9] border border-[#EADEC8] shadow-[0_2.5px_0_0_#D8CFBC] rounded-full px-2.5 py-1">
+<span class="text-sm">⚡</span>
+<span class="font-label text-label text-[#8F5E00] font-extrabold tracking-tight">820</span>
+</div>
+</div>
+</header>
+<!-- Main Scrollable Canvas -->
+<main class="pt-[72px] pb-[88px] px-4 flex flex-col gap-4">
+<!-- Teacher Slot & Speech Bubble Row -->
+<div class="flex items-start gap-3 w-full">
+<!-- Teacher Slot footprint -->
+<div class="teacher-slot w-[96px] h-[92px] shrink-0 rounded-[16px] bg-[#E6F7F5] border-2 border-dashed border-[#2BA39A] flex flex-col items-center justify-center gap-1 text-[#2BA39A]">
+<span class="material-symbols-outlined text-[28px]" data-icon="school" data-weight="fill">school</span>
+<span class="font-label text-[10px] tracking-wider font-extrabold uppercase text-[#1B6F68]">TEACHER</span>
+</div>
+<!-- Speech Bubble -->
+<div class="relative flex-1 bg-[#FFFFFF] rounded-[16px] border border-[#EADEC8] shadow-[0_4px_0_0_#D8CFBC] p-3 flex flex-col justify-center min-h-[92px]">
+<!-- Triangle pointer arrow pointing left to teacher slot -->
+<div class="absolute -left-[9px] top-7 w-0 h-0 border-y-[7px] border-y-transparent border-r-[9px] border-r-[#EADEC8]"></div>
+<div class="absolute -left-[7px] top-7 w-0 h-0 border-y-[7px] border-y-transparent border-r-[8px] border-r-white"></div>
+<div class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#E6F7F5] border border-[#A5E3DE] w-fit mb-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-[#2BA39A]"></span>
+<span class="font-label text-[10px] text-[#00504B] font-extrabold tracking-wider uppercase">TEACHER CARLOS • IELTS COACH</span>
+</div>
+<p class="font-body text-[14px] leading-snug font-bold text-[#0F3D3E]">
+          “Honest answers help me help you.”
+        </p>
+</div>
+</div>
+<!-- Headline and Subtext Block -->
+<div class="mt-1">
+<h1 class="font-display text-[26px] leading-[30px] font-extrabold text-[#0F3D3E] tracking-tight">
+        How confident do you feel?
+      </h1>
+<p class="font-body text-[14px] leading-[20px] font-bold text-[#143638] mt-1">Rate each skill – we adjust your plan.</p>
+</div>
+<!-- Rating Cards Stack -->
+<div class="flex flex-col gap-3.5">
+<!-- 1. Listening -->
+<div class="bg-[#FFFFFF] rounded-[16px] border border-[#EADEC8] shadow-[0_4px_0_0_#D8CFBC] p-3.5 flex flex-col gap-3"><!-- Header row -->
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-full bg-[#E6F7F5] text-[#2BA39A] flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]" data-icon="headphones" data-weight="fill">headphones</span>
+</div>
+<div>
+<span class="font-title text-[17px] font-bold text-[#0F3D3E] block leading-tight">Listening</span>
+<span class="font-body text-[12px] font-bold text-[#143638]">Dialogues &amp; Lectures</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-md bg-[#E6F7F5] text-[#004D47] border border-[#A5E3DE] font-label text-[11px] font-extrabold">CONFIDENT</span>
+</div>
+<!-- Vector Rating Selector 1 to 5 -->
+<div class="grid grid-cols-5 gap-1.5">
+<button class="tactile-chip flex flex-col items-center justify-center py-1.5 rounded-xl border border-[#EADEC8] bg-[#FFFDF9] shadow-[0_2.5px_0_0_#D8CFBC] text-[#143638]" type="button">
+<svg class="w-6 h-6 text-[#143638]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M9 10h.01M15 10h.01M8.5 16.5c1-1.5 6-1.5 7 0"></path></svg>
+<span class="font-label text-[11px] font-bold mt-0.5 text-[#143638]">1</span>
+</button>
+<button class="tactile-chip flex flex-col items-center justify-center py-1.5 rounded-xl border border-[#EADEC8] bg-[#FFFDF9] shadow-[0_2.5px_0_0_#D8CFBC] text-[#143638]" type="button">
+<svg class="w-6 h-6 text-[#143638]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M9 10h.01M15 10h.01M9 15.5c1-.8 5-.8 6 0"></path></svg>
+<span class="font-label text-[11px] font-bold mt-0.5 text-[#143638]">2</span>
+</button>
+<button class="tactile-chip flex flex-col items-center justify-center py-1.5 rounded-xl border border-[#EADEC8] bg-[#FFFDF9] shadow-[0_2.5px_0_0_#D8CFBC] text-[#143638]" type="button">
+<svg class="w-6 h-6 text-[#143638]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><line x1="9" x2="15" y1="15" y2="15"></line><path d="M9 10h.01M15 10h.01"></path></svg>
+<span class="font-label text-[11px] font-bold mt-0.5 text-[#143638]">3</span>
+</button>
+<!-- 4 SELECTED -->
+<button class="tactile-chip relative flex flex-col items-center justify-center py-1.5 rounded-xl border-2 border-[#2BA39A] bg-[#E6F7F5] shadow-[0_2.5px_0_0_#1E7B74] text-[#00504B]" type="button">
+<div class="absolute -top-1.5 -right-1 w-4 h-4 rounded-full bg-[#2BA39A] text-white flex items-center justify-center shadow-xs">
+<span class="material-symbols-outlined text-[11px] font-bold" data-icon="check">check</span>
+</div>
+<svg class="w-6 h-6 text-[#00504B]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M9 10h.01M15 10h.01M9 14.5c.8 1.2 5.2 1.2 6 0"></path></svg>
+<span class="font-label text-[11px] font-extrabold mt-0.5 text-[#00504B]">4</span>
+</button>
+<button class="tactile-chip flex flex-col items-center justify-center py-1.5 rounded-xl border border-[#EADEC8] bg-[#FFFDF9] shadow-[0_2.5px_0_0_#D8CFBC] text-[#143638]" type="button">
+<svg class="w-6 h-6 text-[#143638]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M8 10h3M13 10h3M8.5 14c1 1.8 6 1.8 7 0"></path></svg>
+<span class="font-label text-[11px] font-bold mt-0.5 text-[#143638]">5</span>
+</button>
+</div></div>
+<!-- 2. Reading -->
+<div class="bg-[#FFFFFF] rounded-[16px] border border-[#EADEC8] shadow-[0_4px_0_0_#D8CFBC] p-3.5 flex flex-col gap-3"><!-- Header row -->
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-full bg-[#FFF3E0] text-[#D97706] flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]" data-icon="menu_book" data-weight="fill">menu_book</span>
+</div>
+<div>
+<span class="font-title text-[17px] font-bold text-[#0F3D3E] block leading-tight">Reading</span>
+<span class="font-body text-[12px] font-bold text-[#143638]">Speed &amp; Academic texts</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-md bg-[#FFF7ED] text-[#803500] border border-[#FFD0A0] font-label text-[11px] font-extrabold">FAIR</span>
+</div>
+<!-- Vector Rating Selector 1 to 5 -->
+<div class="grid grid-cols-5 gap-1.5">
+<button class="tactile-chip flex flex-col items-center justify-center py-1.5 rounded-xl border border-[#EADEC8] bg-[#FFFDF9] shadow-[0_2.5px_0_0_#D8CFBC] text-[#143638]" type="button">
+<svg class="w-6 h-6 text-[#143638]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M9 10h.01M15 10h.01M8.5 16.5c1-1.5 6-1.5 7 0"></path></svg>
+<span class="font-label text-[11px] font-bold mt-0.5 text-[#143638]">1</span>
+</button>
+<button class="tactile-chip flex flex-col items-center justify-center py-1.5 rounded-xl border border-[#EADEC8] bg-[#FFFDF9] shadow-[0_2.5px_0_0_#D8CFBC] text-[#143638]" type="button">
+<svg class="w-6 h-6 text-[#143638]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M9 10h.01M15 10h.01M9 15.5c1-.8 5-.8 6 0"></path></svg>
+<span class="font-label text-[11px] font-bold mt-0.5 text-[#143638]">2</span>
+</button>
+<!-- 3 SELECTED -->
+<button class="tactile-chip relative flex flex-col items-center justify-center py-1.5 rounded-xl border-2 border-[#2BA39A] bg-[#E6F7F5] shadow-[0_2.5px_0_0_#1E7B74] text-[#00504B]" type="button">
+<div class="absolute -top-1.5 -right-1 w-4 h-4 rounded-full bg-[#2BA39A] text-white flex items-center justify-center shadow-xs">
+<span class="material-symbols-outlined text-[11px] font-bold" data-icon="check">check</span>
+</div>
+<svg class="w-6 h-6 text-[#00504B]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><line x1="9" x2="15" y1="15" y2="15"></line><path d="M9 10h.01M15 10h.01"></path></svg>
+<span class="font-label text-[11px] font-extrabold mt-0.5 text-[#00504B]">3</span>
+</button>
+<button class="tactile-chip flex flex-col items-center justify-center py-1.5 rounded-xl border border-[#EADEC8] bg-[#FFFDF9] shadow-[0_2.5px_0_0_#D8CFBC] text-[#143638]" type="button">
+<svg class="w-6 h-6 text-[#143638]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M9 10h.01M15 10h.01M9 14.5c.8 1.2 5.2 1.2 6 0"></path></svg>
+<span class="font-label text-[11px] font-bold mt-0.5 text-[#143638]">4</span>
+</button>
+<button class="tactile-chip flex flex-col items-center justify-center py-1.5 rounded-xl border border-[#EADEC8] bg-[#FFFDF9] shadow-[0_2.5px_0_0_#D8CFBC] text-[#143638]" type="button">
+<svg class="w-6 h-6 text-[#143638]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M8 10h3M13 10h3M8.5 14c1 1.8 6 1.8 7 0"></path></svg>
+<span class="font-label text-[11px] font-bold mt-0.5 text-[#143638]">5</span>
+</button>
+</div></div>
+<!-- 3. Writing (Weakest Skill with Coral Outline) -->
+<div class="bg-[#FFFFFF] rounded-[16px] border-l-4 border-l-[#F2553B] border-y border-r border-[#EADEC8] shadow-[0_4px_0_0_#D8CFBC] p-3.5 flex flex-col gap-3"><!-- Header row -->
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-full bg-[#FEECE9] text-[#F2553B] flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]" data-icon="edit" data-weight="fill">edit</span>
+</div>
+<div>
+<span class="font-title text-[17px] font-bold text-[#0F3D3E] block leading-tight">Writing</span>
+<span class="font-body text-[12px] font-bold text-[#143638]">Task 1 &amp; Task 2 Essays</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-md bg-[#FEECE9] text-[#800A00] border border-[#FFB4A6] font-label text-[10px] font-extrabold whitespace-nowrap">● NEEDS FOCUS</span>
+</div>
+<!-- Vector Rating Selector 1 to 5 -->
+<div class="grid grid-cols-5 gap-1.5">
+<!-- 1 SELECTED with Coral Accent -->
+<button class="tactile-chip relative flex flex-col items-center justify-center py-1.5 rounded-xl border-2 border-[#F2553B] bg-[#FFF1EE] shadow-[0_2.5px_0_0_#B53A22] text-[#800A00]" type="button">
+<div class="absolute -top-1.5 -right-1 w-4 h-4 rounded-full bg-[#F2553B] text-white flex items-center justify-center shadow-xs">
+<span class="material-symbols-outlined text-[11px] font-bold" data-icon="check">check</span>
+</div>
+<svg class="w-6 h-6 text-[#800A00]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M9 10h.01M15 10h.01M8.5 16.5c1-1.5 6-1.5 7 0"></path></svg>
+<span class="font-label text-[11px] font-extrabold mt-0.5 text-[#800A00]">1</span>
+</button>
+<button class="tactile-chip flex flex-col items-center justify-center py-1.5 rounded-xl border border-[#EADEC8] bg-[#FFFDF9] shadow-[0_2.5px_0_0_#D8CFBC] text-[#143638]" type="button">
+<svg class="w-6 h-6 text-[#143638]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M9 10h.01M15 10h.01M9 15.5c1-.8 5-.8 6 0"></path></svg>
+<span class="font-label text-[11px] font-bold mt-0.5 text-[#143638]">2</span>
+</button>
+<button class="tactile-chip flex flex-col items-center justify-center py-1.5 rounded-xl border border-[#EADEC8] bg-[#FFFDF9] shadow-[0_2.5px_0_0_#D8CFBC] text-[#143638]" type="button">
+<svg class="w-6 h-6 text-[#143638]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><line x1="9" x2="15" y1="15" y2="15"></line><path d="M9 10h.01M15 10h.01"></path></svg>
+<span class="font-label text-[11px] font-bold mt-0.5 text-[#143638]">3</span>
+</button>
+<button class="tactile-chip flex flex-col items-center justify-center py-1.5 rounded-xl border border-[#EADEC8] bg-[#FFFDF9] shadow-[0_2.5px_0_0_#D8CFBC] text-[#143638]" type="button">
+<svg class="w-6 h-6 text-[#143638]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M9 10h.01M15 10h.01M9 14.5c.8 1.2 5.2 1.2 6 0"></path></svg>
+<span class="font-label text-[11px] font-bold mt-0.5 text-[#143638]">4</span>
+</button>
+<button class="tactile-chip flex flex-col items-center justify-center py-1.5 rounded-xl border border-[#EADEC8] bg-[#FFFDF9] shadow-[0_2.5px_0_0_#D8CFBC] text-[#143638]" type="button">
+<svg class="w-6 h-6 text-[#143638]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M8 10h3M13 10h3M8.5 14c1 1.8 6 1.8 7 0"></path></svg>
+<span class="font-label text-[11px] font-bold mt-0.5 text-[#143638]">5</span>
+</button>
+</div></div>
+<!-- 4. Speaking -->
+<div class="bg-[#FFFFFF] rounded-[16px] border border-[#EADEC8] shadow-[0_4px_0_0_#D8CFBC] p-3.5 flex flex-col gap-3"><!-- Header row -->
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-full bg-[#E6F7F5] text-[#2BA39A] flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]" data-icon="mic" data-weight="fill">mic</span>
+</div>
+<div>
+<span class="font-title text-[17px] font-bold text-[#0F3D3E] block leading-tight">Speaking</span>
+<span class="font-body text-[12px] font-bold text-[#143638]">Fluency &amp; Pronunciation</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-md bg-[#FFF7ED] text-[#803500] border border-[#FFD0A0] font-label text-[11px] font-extrabold">FAIR</span>
+</div>
+<!-- Vector Rating Selector 1 to 5 -->
+<div class="grid grid-cols-5 gap-1.5">
+<button class="tactile-chip flex flex-col items-center justify-center py-1.5 rounded-xl border border-[#EADEC8] bg-[#FFFDF9] shadow-[0_2.5px_0_0_#D8CFBC] text-[#143638]" type="button">
+<svg class="w-6 h-6 text-[#143638]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M9 10h.01M15 10h.01M8.5 16.5c1-1.5 6-1.5 7 0"></path></svg>
+<span class="font-label text-[11px] font-bold mt-0.5 text-[#143638]">1</span>
+</button>
+<button class="tactile-chip flex flex-col items-center justify-center py-1.5 rounded-xl border border-[#EADEC8] bg-[#FFFDF9] shadow-[0_2.5px_0_0_#D8CFBC] text-[#143638]" type="button">
+<svg class="w-6 h-6 text-[#143638]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M9 10h.01M15 10h.01M9 15.5c1-.8 5-.8 6 0"></path></svg>
+<span class="font-label text-[11px] font-bold mt-0.5 text-[#143638]">2</span>
+</button>
+<!-- 3 SELECTED -->
+<button class="tactile-chip relative flex flex-col items-center justify-center py-1.5 rounded-xl border-2 border-[#2BA39A] bg-[#E6F7F5] shadow-[0_2.5px_0_0_#1E7B74] text-[#00504B]" type="button">
+<div class="absolute -top-1.5 -right-1 w-4 h-4 rounded-full bg-[#2BA39A] text-white flex items-center justify-center shadow-xs">
+<span class="material-symbols-outlined text-[11px] font-bold" data-icon="check">check</span>
+</div>
+<svg class="w-6 h-6 text-[#00504B]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><line x1="9" x2="15" y1="15" y2="15"></line><path d="M9 10h.01M15 10h.01"></path></svg>
+<span class="font-label text-[11px] font-extrabold mt-0.5 text-[#00504B]">3</span>
+</button>
+<button class="tactile-chip flex flex-col items-center justify-center py-1.5 rounded-xl border border-[#EADEC8] bg-[#FFFDF9] shadow-[0_2.5px_0_0_#D8CFBC] text-[#143638]" type="button">
+<svg class="w-6 h-6 text-[#143638]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M9 10h.01M15 10h.01M9 14.5c.8 1.2 5.2 1.2 6 0"></path></svg>
+<span class="font-label text-[11px] font-bold mt-0.5 text-[#143638]">4</span>
+</button>
+<button class="tactile-chip flex flex-col items-center justify-center py-1.5 rounded-xl border border-[#EADEC8] bg-[#FFFDF9] shadow-[0_2.5px_0_0_#D8CFBC] text-[#143638]" type="button">
+<svg class="w-6 h-6 text-[#143638]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M8 10h3M13 10h3M8.5 14c1 1.8 6 1.8 7 0"></path></svg>
+<span class="font-label text-[11px] font-bold mt-0.5 text-[#143638]">5</span>
+</button>
+</div></div>
+</div>
+<!-- Weakest Skill Callout Card -->
+<div class="bg-[#E8F8F7] rounded-[16px] border-2 border-[#A5E3DE] shadow-[0_4px_0_0_#89CECA] p-3.5 flex items-start gap-3">
+<div class="w-10 h-10 rounded-xl bg-[#2BA39A] text-white flex items-center justify-center shrink-0 shadow-[0_2px_0_0_#1E7B74]">
+<span class="material-symbols-outlined text-[22px]" data-icon="tune">tune</span>
+</div>
+<div class="flex-1">
+<h4 class="font-title text-[15px] leading-tight font-bold text-[#0F3D3E]">
+          Your weakest: Writing
+        </h4>
+<p class="font-body text-[13px] leading-[18px] font-bold text-[#143638] mt-1">We added 2 writing tasks this week to boost cohesion and lexical range.</p>
+</div>
+</div>
+<!-- Primary CTA Section -->
+<div class="flex flex-col items-center gap-2 mt-2">
+<button class="tactile-btn w-full h-[56px] rounded-[16px] bg-gradient-to-r from-[#F2553B] to-[#FFB054] text-[#1B0B04] font-title text-[18px] font-extrabold flex items-center justify-center gap-2 border-t border-white/40 shadow-[0_6px_0_0_#B53A22] transition-transform cursor-pointer" type="button">
+<span>Save</span>
+<span class="text-xl">✓</span>
+</button>
+<span class="font-label text-[12px] font-bold text-[#143638] text-center tracking-normal">Takes effect immediately on your daily drill queue</span>
+</div>
+</main>
+<!-- Bottom Navigation Bar (Docked Fixed Bottom, 5 tabs: Today, Vocab, Skills, Tests, Me) -->
+<nav class="fixed bottom-0 left-0 right-0 z-50 h-16 bg-[#FFFDF9] border-t border-[#EADEC8] px-2 flex justify-around items-center max-w-[390px] mx-auto shadow-[0_-2px_10px_rgba(15,61,62,0.05)]"><!-- Today -->
+<a class="flex flex-col items-center justify-center text-[#143638] px-2 py-1 min-w-[56px]" href="#">
+<span class="material-symbols-outlined text-[22px]" data-icon="today">today</span>
+<span class="font-label text-[11px] font-extrabold mt-0.5">Today</span>
+</a>
+<!-- Vocab -->
+<a class="flex flex-col items-center justify-center text-[#143638] px-2 py-1 min-w-[56px]" href="#">
+<span class="material-symbols-outlined text-[22px]" data-icon="menu_book">menu_book</span>
+<span class="font-label text-[11px] font-extrabold mt-0.5">Vocab</span>
+</a>
+<!-- Skills -->
+<a class="flex flex-col items-center justify-center text-[#143638] px-2 py-1 min-w-[56px]" href="#">
+<span class="material-symbols-outlined text-[22px]" data-icon="psychology">psychology</span>
+<span class="font-label text-[11px] font-extrabold mt-0.5">Skills</span>
+</a>
+<!-- Tests -->
+<a class="flex flex-col items-center justify-center text-[#143638] px-2 py-1 min-w-[56px]" href="#">
+<span class="material-symbols-outlined text-[22px]" data-icon="quiz">quiz</span>
+<span class="font-label text-[11px] font-extrabold mt-0.5">Tests</span>
+</a>
+<!-- Me (ACTIVE) -->
+<a class="flex flex-col items-center justify-center bg-[#E6F7F5] text-[#2BA39A] rounded-xl px-3 py-1 border-2 border-[#2BA39A] shadow-[0_2px_0_0_#1E7B74] min-w-[56px]" href="#">
+<span class="material-symbols-outlined text-[22px]" data-icon="person" data-weight="fill">person</span>
+<span class="font-label text-[11px] font-extrabold mt-0.5 text-[#004D47]">Me</span>
+</a></nav>
+</body></html>

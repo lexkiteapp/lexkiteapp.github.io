@@ -165,6 +165,10 @@
           [
             "available|still|apartment|calling about",
             "Yes, it is."
+          ],
+          [
+            "ads?\\b|advert\\w*|rent|renting|room|saw|website|online|listing",
+            "Good, I can help."
           ]
         ]
       },
@@ -175,6 +179,10 @@
           [
             "utilities|included|water|electricity|internet",
             "Water is included, but not electricity."
+          ],
+          [
+            "expensive|cheap|high|lower|reasonable|pricey|negotiate",
+            "I understand."
           ]
         ]
       },
@@ -185,6 +193,10 @@
           [
             "deposit|lease|how long|contract",
             "One month's rent, and the lease is for one year."
+          ],
+          [
+            "pets?|dogs?|cats?|parking|furniture|furnished|garage|elevator|neighbors?",
+            "Good question. We can talk about it later."
           ]
         ]
       },

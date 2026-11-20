@@ -8,6 +8,7 @@
 ## 1. Chiến lược (chủ chốt)
 - **Định dạng CHÍNH = NEWS-ANCHOR**: 2 người dẫn trên phông xanh nói về 1 tình huống, nền ảnh tĩnh theo chủ đề. 0 credit, 0 token mỗi clip khi scale; sinh & dựng trên GitHub Actions.
 - **Chỉ tiếng Anh**, 1 bản cho mọi quốc gia (chỉ dịch chú thích bài đăng). **1 ý/clip**, nhiều ý khác nhau; ưu tiên khu vực app chưa có clip, CTA deep link về đúng tính năng trên lexkite.com.
+- **Link cài trong video** (nguồn duy nhất `infra/install-links.json`, không viết cứng link cửa hàng; hàm: `functions/api/_install_links.js`; test: `scripts/test/install-links.mjs`). Chữ/QR trong hình: chỉ trang cài ngắn `lexkite.com/get` (tự chuyển theo thiết bị: Android → Play, iPhone/iPad → App Store, máy tính → khu Cài của landing), không dán link cửa hàng dài. Mô tả/caption: `installLines(nền tảng, clip)` hoặc `withInstall(caption, nền tảng, clip, trần)`: YouTube, Facebook liệt kê từng cửa hàng có nguồn đo (Play `referrer=utm_*`, App Store `ct=`, Chrome `utm_*`); TikTok, Instagram, Threads một link ngắn `lexkite.com/get?src=<nền tảng>&c=<clip>`. Đã nối vào `socialMeta`, `bodyFor` (`caption_override` từng kênh), `publish-grabcast.mjs`, `yt-pack.mjs`, `cine/publish_pack.py`. Chỉ áp dụng khi dựng/đăng mới, không dựng lại video cũ. Video vẫn chỉ tiếng Anh.
 - **Diễn cảnh (scene-acting) TẠM DỪNG** (`gen_lessons.py` từ chối `--batch` khi PAUSED; mở lại `CINE_SCENE_RESUME=1`). **Nhà hàng + Priya bị LOẠI** (nhân vật không kiểu Mỹ + lỗi tư thế). Kho cảnh còn: cafe, airport, hotel (paused).
 - Nhân vật/giọng phải cảm giác Mỹ. Kênh luyện nghe dài: để sau (`docs/archive/LISTENING-CHANNEL-PLAN.md`).
 
@@ -109,3 +110,26 @@ Diễn cảnh (paused): `lesson5.py`, `qa5.py`, `gen_lessons.py`, … – `docs/
 - Nền: OCR (`bgqc.py`) + nhìn tay; không ghi "clock" trong prompt; mỗi nền phải có sàn đứng được; nhân vật mới = i2i TỪ ref cũ + cổng tay `ref_qc.py`.
 - Kling: 2 nhịp mặt phải ghi khe thời gian; khóa miệng khi im; dry-run phải chứa đoạn prompt vừa sửa; KHÔNG cộng nhẩm credit (dùng `CAP`/`CAPRE` từ ledger); "too many requests" (0 cr) = chờ gửi lại, không tính hỏng.
 - Kho nền rộng: cổng `bg_gates.py`; chi cho ĐỊA ĐIỂM MỚI, không biến thể thứ 4-5 của cùng địa điểm.
+
+## 9. Quản trị › Nội dung & Video – kiến trúc thông tin (05/11/2026)
+Kiểm kê live 05/11 (ảnh trước: ghi chú phiên `admin-cv-before/`). Vấn đề gốc: 5 mục làm song song cùng một việc, không theo luồng thật.
+- **Trùng**: chọn kênh YouTube/vai trò ở 3 chỗ (#dist Hệ thống, #video › Kênh & phân phối, bulk "Đổi kênh"); lịch ở 4 chỗ (#dist `plan_get`, #social Lịch GrabCast, Studio 7 ngày, hàng đợi social-mgr); duyệt ở 4 chỗ (hub To review, social-mgr board, Studio QA/script, auto-approve); bộ chọn clip ở 3 chỗ (hub thư viện ảo hoá, `lk/clips` ≤ 2000, GrabCast `storage/objects` ≤ 200); danh sách tài khoản GrabCast ở 4 chỗ.
+- **Không khớp số**: hub 125 clip (thẻ loại) nhưng "All 25" ở trạng thái (100 clip đã lưu trữ bị ẩn mà chip không nói); Drive có 153 master; #social Soạn bài "chưa có video" (đọc kho GrabCast, không phải kho Lexkite); Studio `video_jobs` không nối với khoá clip; hub QC "chưa có báo cáo" trong khi Studio có 1 job "Needs QA".
+- **Thiếu liên kết**: social/studio/dist/drive không trỏ về clip; từ một clip không thấy nó nằm Drive nào, embed bài nào, đã đăng kênh nào.
+- **Khoá nối** = `clip` (manifest `item.id`): `clip_review`, `yt_queue` (+`lesson`, `video_id`), `yt_plan`, `yt_pack` (+`file_id`, `drive_id`), `dist_social` (+`post_id`, `state`), `soc_board.clip`; Drive qua manifest `item.drive.{video,cover}.fileId`; lượt xem web `ext_events vid:<ev>:<clip>`.
+
+**Cấu trúc mới (theo luồng, mỗi việc một chỗ; tham chiếu YouTube Studio · Frame.io · Buffer):**
+| Bước | Mục (nav) | Sở hữu duy nhất |
+|---|---|---|
+| 1 | 🎞️ **Studio** (sản xuất) | job/kịch bản/dựng, QC dựng (chuyển từ hub "Sản xuất & QC" + "Kịch bản"), kho tài sản |
+| 2 | 🎬 **Trung tâm video** (hub) | tổng quan việc cần làm, duyệt, thư viện ảo hoá, lưu trữ, **ngăn Clip 360°** (Drive · bài học nhúng · kênh/bài đăng · hiệu quả) |
+| 3 | 🛰️ **Kênh & phân phối** | kết nối YouTube + vai trò kênh (chuyển từ hub "Kênh & phân phối"), luật định tuyến, lịch kế hoạch gộp, trạng thái nhúng bài học |
+| 4 | 📣 **Đăng & hiệu quả** (social) | soạn/duyệt bài, lịch GrabCast, hàng đợi, bài đăng, sức khoẻ tài khoản, số liệu, bình luận |
+| hạ tầng | 🗄️ Kho Drive (Hệ thống) | dung lượng, bản sao, duyệt file; nhận `?clip=` từ ngăn Clip 360° |
+- **Dải luồng** (`web/js/admin-flow.js`) đầu cả 4 mục: Studio → Thư viện → Phân phối → Đăng, mỗi bước 1 số thật (job đang làm/chờ QC · chờ duyệt · sẵn sàng cho bài học · đã lên lịch/đã đăng) + viên Drive (dùng/tổng, file 1 bản sao). Lỗi/đang tải/rỗng rõ ràng; bấm = sang mục.
+- Phần #dist › Social và panel kênh #social thuộc phiên social-channel-ui (PR base #704) – mục này chỉ thêm dải luồng + liên kết, không sửa khối đó.
+- PR: (1) tài liệu + dải luồng + thứ tự/tên nav + liên kết chéo; (2) Clip 360° (`admin-clips` op `detail`); (3) chuyển QC/Kịch bản → Studio, YouTube box → #dist Hệ thống (giữ đủ chức năng); (4) bỏ `prompt()/confirm()` ở Studio/Drive, ảnh visual-qa cho studio/social/drive; (5) `admin-clips` lọc phía máy chủ không nạp cả manifest mỗi truy vấn.
+
+## YouTube privacy: hai đường, hai luật (kiểm 15/11/2026)
+- **Upload trực tiếp qua YouTube API** (`functions/api/youtube.js`, hàng `yt_queue` status `queued`): `private` + `publishAt` (YouTube tự công khai đúng giờ); `unlisted` chỉ cho mẫu embed và luồng upload thủ công. Hàng `yt_queue` status `social` là sổ cái (không upload) và ghi `private` (`_social_auto.js`, test `scripts/test/dist-roles.mjs`).
+- **Đăng qua GrabCast** (`functions/api/_social_mgr.js` `bodyFor`): gửi `privacy_status: 'public'` + `scheduled_at = slot`; GrabCast tự đăng đúng giờ. Trong repo không có tùy chọn `publishAt`/private-rồi-chuyển-công-khai cho YouTube phía GrabCast, và GrabCast đã qua audit YouTube API (chủ báo 10/11: hết giới hạn private, tự duyệt tự đăng theo `ownerPolicy`). Vì vậy KHÔNG đổi `public` sang `private` (clip sẽ kẹt private); đổi chỉ khi GrabCast xác nhận có tùy chọn publish theo lịch.

@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_spread",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: spread.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means to reach or cause to reach a wider area or more people.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "The news spread quickly around the school.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "spread",
+  "ipa": "/spred/",
+  "mean": "to reach or cause to reach a wider area or more people",
+  "ex": "The news spread quickly around the school.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=spread",
+  "link": "https://lexkite.com/app/#/review?w=spread",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 46,
+  "seconds": 27.7,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "What does \"spread\" mean?",
+  "keyword": "spread",
+  "value": "Spread means to reach or cause to reach a wider area or more people.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=spread",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"spread\" mean?",
+    "description": "Spread means to reach or cause to reach a wider area or more people.\n\nReview your words, free: https://lexkite.com/app/#/review?w=spread\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "spread",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"spread\" mean?\n\nSpread means to reach or cause to reach a wider area or more people.\n\nReview your words, free: https://lexkite.com/app/#/review?w=spread"
+   },
+   "instagram": {
+    "caption": "What does \"spread\" mean?\n\nSpread means to reach or cause to reach a wider area or more people.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"spread\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means to reach or cause to reach a wider area or more people. Spread means to reach or cause to reach a wider area or more people. More practice like this (free): {link}"
+ }
+}

@@ -126,11 +126,15 @@ quiz: [
 
 स्मृति कौशल के पूरक मार्गदर्शन के लिए हमारा प्रमुख लेख [अंग्रेजी शब्द याद करने का तरीका](/hi/blog/english-words-yaad-karne-ka-tarika/) पढ़ें, समग्र पठन के लिए [अंग्रेजी कैसे सीखें](/hi/blog/angrezi-kaise-seekhe/) देखें, बोलने के अभ्यास के लिए [अंग्रेजी बोलना कैसे सीखें](/hi/blog/english-bolna-kaise-sikhe/) का अध्ययन करें, और व्याकरण के आधार के लिए [Prepositions in on at Rules in Hindi](/hi/blog/prepositions-in-on-at-rules-hindi/) को समझें।
 
-शब्दावली रणनीतियों और संपूर्ण कार्ड्स गाइड के लिए हमारे [शब्दावली अध्ययन और कार्ड्स गाइड](/tu-vung/) पेज पर जाएँ।
+शब्दावली रणनीतियों और संपूर्ण कार्ड्स गाइड के लिए हमारे [शब्दावली अध्ययन और कार्ड्स गाइड](/en/vocabulary/) पेज पर जाएँ।
 
 {{cta: /tu-vung/ | FSRS आधारित स्मार्ट वोकैबुलरी प्रणाली सक्रिय करें}}
 
 {{youtube: | Spaced Repetition and FSRS Vocabulary Guide in Hindi}}
+
+अंतराल वाली समीक्षा किसी सूची पर लगाना चाहें तो [Academic Word List क्या है](/hi/blog/academic-word-list-kya-hai/) की sublist-दर-sublist योजना आज़माइए।
+
+दोहराव का समय तय होने के बाद याद *कैसे* की जाए, यह [Active Recall क्या है](/hi/blog/active-recall-kya-hai-english-vocabulary/) में बताया गया है।
 
 ## अक्सर पूछे जाने वाले प्रश्न (FAQ)
 

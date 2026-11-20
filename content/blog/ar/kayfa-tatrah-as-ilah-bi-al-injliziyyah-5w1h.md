@@ -8,7 +8,7 @@ translationKey: cach-dat-cau-hoi-trong-tieng-anh
 category: ngu-phap
 tags: [qawaid, as-ilah, 5w1h, auxiliary-verbs]
 cover: grammar
-coverAlt: "Ngữ pháp IELTS: lộ trình chương, 12 thì (hiện tại đơn, tiếp diễn, hoàn thành…), cấp A1–B2, bài luyện tổng hợp"
+coverAlt: "قواعد IELTS في Lexkite: مسار الفصول والأزمنة الاثني عشر (المضارع البسيط والمستمر والتام…) والمستويات A1–B2 وتمارين شاملة"
 qualityScore: 95
 factChecked: 2026-10-15
 author: Lexkite
@@ -147,7 +147,7 @@ $$\text{أداة الاستفهام (Wh-Word)} + \text{الفعل المساعد
 
 تحقق من المفردات المناسبة للاستخدام في أسئلة العمل من خلال [قاموس Lexkite المتقدم](/#/dict/resilient).
 
-![قاموس ثنائي اللغة Lexkite: البحث عن كلمة resilient مع النسخ الصوتي الصوتي البريطاني/الأمريكي وجمل أمثلة](media:dict "التحقق من معاني الكلمات الإنجليزية واستخداماتها السياقية في القاموس الذكي")
+![قاموس Lexkite: البحث عن كلمة resilient مع النطق البريطاني/الأمريكي والمعنى وجمل الأمثلة والمتلازمات اللفظية والمرادفات](media:dict "التحقق من معاني الكلمات الإنجليزية واستخداماتها السياقية في القاموس الذكي")
 
 ## الأسئلة المذيلة (Tag Questions) لتوكيد المحادثة
 
@@ -181,7 +181,7 @@ $$\text{أداة الاستفهام (Wh-Word)} + \text{الفعل المساعد
 - **الاستماع المركز**: درب أذنك على سرعة الأسئلة مع [تقنية الاملاء dictation لغة انجليزية](/ar/blog/taqniyyat-al-imla-dictation-tahsin-al-istima/)
 - **استخدام القواميس الأحادية**: توقف عن الترجمة مع [كيفية استخدام القاموس انجليزي انجليزي](/ar/blog/kayfa-tastakhdim-qamus-injlizi-injlizi/)
 - **الجمل المعقدة للكتابة**: تعرف على [طريقة كتابة جمل معقدة complex sentences ايلتس](/ar/blog/al-jumal-al-muaqqadah-complex-sentences-ielts-writing/)
-- **أمثلة محادثات واقعية**: طالع حوارات الأسئلة والأجوبة في [نماذج المحادثات الإنجليزية اليومية](/samples/)
+- **أمثلة محادثات واقعية**: طالع حوارات الأسئلة والأجوبة في [نماذج المحادثات الإنجليزية اليومية](/en/samples/)
 
 {{youtube: | تكوين السؤال في اللغة الانجليزية شرح قواعد Yes No و 5W1H بالتفصيل}}
 

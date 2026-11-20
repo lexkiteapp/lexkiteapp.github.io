@@ -1,3 +1,2 @@
-/* UI ar – ideast (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ar"] = Object.assign(D["ar"] || {}, {"Đô thị":"المدن","Xã hội":"المجتمع","Tội phạm":"الجريمة","Văn hóa":"ملاحظة ثقافية","Kinh tế":"الاقتصاد","Gia đình & Trẻ em":"الأسرة والأطفال"});
-})(typeof self !== 'undefined' ? self : this);
+/* SINH từ i18n/ui/ar/ideast.js – đừng sửa tay (scripts/i18n-pack.mjs) */
+(function(g){const D=g.I18N_DICT=g.I18N_DICT||{};D.ar=Object.assign(D.ar||{},{_g5hg:"الأسرة والأطفال",_k8s4:"الاقتصاد",_tdut:"الجريمة",_bdb4:"ملاحظة ثقافية",_f9m:"المجتمع",_vw1g:"المدن"});})(typeof self!=='undefined'?self:this);

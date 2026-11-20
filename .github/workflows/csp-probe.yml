@@ -1,0 +1,38 @@
+# Dò nguồn vi phạm CSP (Report-Only) trên bản LIVE: tuyến chính + thư viện tải lười (transformers, Kokoro, pdf.js, rig/Call). Kết quả → artifact csp-probe + tóm tắt job.
+# Chạy tay: Actions → Run workflow. Dùng trước khi đổi CSP sang chặn thật (docs/AUDIT-2026-10.md); strict=true → đỏ nếu còn vi phạm.
+name: Dò vi phạm CSP (csp-probe)
+on:
+  workflow_dispatch:
+    inputs:
+      base_url: { description: 'URL gốc cần dò', required: false, default: 'https://lexkite.com', type: string }
+      strict: { description: 'Đỏ nếu còn vi phạm', required: false, default: false, type: boolean }
+permissions:
+  contents: read
+concurrency:
+  group: csp-probe
+  cancel-in-progress: true
+jobs:
+  probe:
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
+    timeout-minutes: 25
+    env:
+      LEXKITE_CI_HEADER: ${{ secrets.LEXKITE_CI_HEADER }}
+      LX_BASE: ${{ inputs.base_url || 'https://lexkite.com' }}
+      LX_STRICT: ${{ inputs.strict && '--strict' || '' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: ./.github/actions/playwright-cache
+        with: { browsers: '--with-deps chromium webkit' }
+      - name: Playwright
+        timeout-minutes: 10
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2
+          bash scripts/ci/pw-install.sh --with-deps chromium webkit
+      - name: Dò CSP
+        timeout-minutes: 15
+        run: node scripts/test/csp-probe.mjs "$LX_BASE" out/csp $LX_STRICT
+      - uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with: { name: csp-probe, path: out/csp, retention-days: 14 }

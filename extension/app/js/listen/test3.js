@@ -32,7 +32,7 @@ script: [
 { s: 'B', t: "I'd really like dinner included as well, so I can go up to two hundred and ninety dollars a week. That's my absolute limit, though." },
 { s: 'A', t: 'Two hundred and ninety. That gives us plenty of options.' },
 { pause: 1.5 },
-{ say: 'Before you hear the rest of the conversation, you have some time to look at questions 7 to 10.' }, { pause: 3 },
+{ say: g.LTI[3] }, { pause: 3 },
 { s: 'A', t: "OK, Callum, I've got two families who I think would suit you really well. The first are the Morrisons." },
 { s: 'A', t: "They live in Glenfield, which is a quiet suburb in the north of the city." },
 { s: 'B', t: 'How far is that from the institute?' },
@@ -56,7 +56,7 @@ script: [
 { s: 'A', t: 'My pleasure, Callum. Talk soon.' },
 ],
 groups: [
-{ type: 'form', title: 'Southern Cross Homestays – Student details', instr: 'Complete the form below. Write ONE WORD AND/OR A NUMBER for each answer.', limit: 2,
+{ type: 'form', title: 'Southern Cross Homestays – Student details', instr: g.LTI[1], limit: 2,
 items: [
 { n: 1, text: 'Name: Callum ___', a: ['Ashworth'], cue: 'A, S, H, W, O, R, T, H', explain: 'Callum đánh vần họ của mình: “A, S, H, W, O, R, T, H”, nên đáp án là Ashworth. Chú ý viết đúng từng chữ cái, đặc biệt cụm “SH” và “TH”.' },
 { n: 2, text: 'Arrival date: ___ February', a: ['23', '23rd', 'twenty-third', 'twenty third'], cue: "It's the 23rd now", explain: 'Bẫy đổi thông tin: ban đầu Callum nói “the 21st of February”, sau đó sửa lại “It\'s the 23rd now, not the 21st”. Đáp án là 23, không phải 21.' },
@@ -116,7 +116,7 @@ script: [
 { s: 'A', t: "Finally, a few people have asked what's different this year. Some of you may have heard the festival is longer, but it isn't – it's still two days." },
 { s: 'A', t: "Entry is free for under-sixteens, but then, it always has been. The big change is that, after all the rain last year, we've moved a lot of events indoors." },
 { pause: 1.5 },
-{ say: 'Now look at questions 15 to 20.' }, { pause: 3 },
+{ say: g.LTI[5] }, { pause: 3 },
 { s: 'A', t: "OK, let's look at where things are. If you take the map in your welcome pack, you'll see the festival is spread across the old town." },
 { s: 'A', t: "We'll start with robot football, which is always one of the most popular events. That's in the east marquee – the big white tent by the bridge." },
 { s: 'A', t: "Then there's telescope viewing. People often expect that to be on the riverside lawn, because it's so open." },
@@ -130,7 +130,7 @@ script: [
 { s: 'A', t: "Right, that's everything. Grab a coffee, find your partner, and I'll see you at your stations in fifteen minutes." },
 ],
 groups: [
-{ type: 'mcq', instr: 'Choose the correct letter, A, B or C.',
+{ type: 'mcq', instr: g.LTI[0],
 items: [
 { n: 11, q: 'What will each volunteer be given?', options: ['a cap and a T-shirt', 'a meal voucher', 'a parking permit'], a: 1, cue: 'a voucher for lunch', explain: 'Rosa nói “You\'ll also each receive a voucher for lunch” (voucher for lunch = meal voucher). A sai vì năm nay không phát mũ nữa: “this year it\'s just the T-shirt”; C sai vì “we can\'t offer” chỗ đỗ xe.' },
 { n: 12, q: 'On Saturday morning, volunteers will mainly be', options: ['checking visitors’ tickets.', 'giving out festival maps.', 'helping exhibitors prepare.'], a: 2, cue: 'helping exhibitors unpack and set up their stalls', explain: '“your main job is helping exhibitors unpack and set up their stalls” tương ứng với “helping exhibitors prepare”. A sai vì soát vé do “our security staff” làm; B sai vì bản đồ đến trưa thứ Bảy mới được giao.' },
@@ -214,7 +214,7 @@ script: [
 { s: 'C', t: "OK, that all makes sense. Thanks, Dr Halvorsen." },
 ],
 groups: [
-{ type: 'mcq', instr: 'Choose the correct letter, A, B or C.',
+{ type: 'mcq', instr: g.LTI[0],
 items: [
 { n: 21, q: 'Why did the students choose Fernvale Analytics for their case study?', options: ['A relative of Leo works there.', 'It is a very well-known company.', 'It made a lot of information available.'], a: 2, cue: 'the company published really detailed data', explain: 'Priya nói “the main thing was that the company published really detailed data” (published data = made information available). A sai vì Leo nói họ hàng làm ở đó “wasn\'t really the reason”; B không được nhắc đến.' },
 { n: 22, q: "What is the lecturer's concern about the way productivity was measured?", options: ['It ignored the quality of work.', 'It was too complicated.', 'It relied on staff opinions.'], a: 0, cue: 'nothing about how good the work was', explain: 'Giảng viên nói hệ thống chỉ đếm số việc hoàn thành “and nothing about how good the work was” (how good = quality). B và C sai vì ông khẳng định “It\'s not too complicated, and it isn\'t based on people\'s own opinions”.' },
@@ -292,7 +292,7 @@ script: [
 { s: 'A', t: "Next week, we'll look at how glass is being recycled, and why that is harder than it sounds." },
 ],
 groups: [
-{ type: 'note', title: 'Glass-making: history and science', instr: 'Complete the notes below. Write ONE WORD ONLY for each answer.', limit: 1,
+{ type: 'note', title: 'Glass-making: history and science', instr: g.LTI[2], limit: 1,
 items: [
 { n: 31, text: 'Main ingredient: silica, usually from ___', a: ['sand'], cue: 'is sand', explain: 'Giảng viên nói thành phần chính “is sand – or, more precisely, the silica in sand”. Đáp án là sand.' },
 { n: 32, text: 'Soda lowers the melting point; often obtained from burnt ___', a: ['seaweed'], cue: 'this soda came from burnt seaweed', explain: '“In many coastal regions, this soda came from burnt seaweed”. Đề lặp lại gần như nguyên văn cụm “burnt ___”, đáp án là seaweed.' },

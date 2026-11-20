@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_admire",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: admire.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means to feel respect or wonder toward someone.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "I admire her courage.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "admire",
+  "ipa": "/ədˈmaɪər/",
+  "mean": "to feel respect or wonder toward someone",
+  "ex": "I admire her courage.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=admire",
+  "link": "https://lexkite.com/app/#/review?w=admire",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 38,
+  "seconds": 23.7,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "What does \"admire\" mean?",
+  "keyword": "admire",
+  "value": "Admire means to feel respect or wonder toward someone.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=admire",
+  "script_words": 32,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"admire\" mean?",
+    "description": "Admire means to feel respect or wonder toward someone.\n\nReview your words, free: https://lexkite.com/app/#/review?w=admire\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "admire",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"admire\" mean?\n\nAdmire means to feel respect or wonder toward someone.\n\nReview your words, free: https://lexkite.com/app/#/review?w=admire"
+   },
+   "instagram": {
+    "caption": "What does \"admire\" mean?\n\nAdmire means to feel respect or wonder toward someone.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"admire\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means to feel respect or wonder toward someone. Admire means to feel respect or wonder toward someone. Practice it with a free quiz: {link}"
+ }
+}

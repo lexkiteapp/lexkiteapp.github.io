@@ -15,7 +15,7 @@
     return k;
   }
   const setKey = async k => { await Store.set('aiKey', k); if (bridge()) try { await bridge().call('aiKeySet', { aiKey: k }); } catch (e) { /* bỏ qua */ } };
-  const SYS = `You are a certified senior IELTS examiner. Assess strictly according to the official public IELTS band descriptors. Be accurate, not generous: short or off-topic answers must receive low bands. Write all comments, explanations and advice in Vietnamese (clear, encouraging, specific). Quote the learner's exact words when pointing out errors. Return ONLY valid JSON matching the requested schema.`;
+  const SYS = `You are a certified senior IELTS examiner. Assess strictly according to the official public IELTS band descriptors. Be accurate, not generous: short or off-topic answers must receive low bands. Write all comments, explanations and advice in Vietnamese (clear, encouraging, specific). Read the response sentence by sentence and find every grammatical error before scoring; quote the learner's exact words when pointing out errors. Never skip an error because there are many: each mistake gets its own errors item (e.g. "I am agree", "an unique", "traffic jams is", "knowledges", "discuss about", "depend of", "people thinks"); errors must never be empty when the text contains mistakes. Always write the comments in the language stated above. Write plain text inside the JSON strings (no markdown, no asterisks or bold). Return ONLY valid JSON matching the requested schema.`;
   const SCHEMA = kind => `JSON schema:
 {
   "overall": number (IELTS band, multiple of 0.5),
@@ -23,11 +23,19 @@
   "summary": string (Vietnamese, 2-3 sentences overall verdict),
   "strengths": [string] (Vietnamese, 2-4 items),
   "improvements": [string] (Vietnamese, 3-5 concrete actions),
-  "errors": [ { "quote": string (exact learner text), "fix": string (corrected English), "why": string (Vietnamese) } ] (up to 8 most important grammar/vocabulary errors),
+  "errors": [ { "quote": string (exact learner text, short: only the words that are wrong plus 1-3 words around them), "fix": string (the same words corrected), "why": string (Vietnamese) } ] (up to 12: list EVERY grammar error first – subject-verb agreement, verb form/tense, articles, plurals/countability, prepositions, word form, word order, conditionals – one item per error, then the most important vocabulary errors),
   "vocab": [ { "from": string, "to": string (more precise/academic alternative), "note": string (Vietnamese) } ] (up to 6),
   "${kind === 'speaking' ? 'sample' : 'rewrite'}": string (${kind === 'speaking' ? 'a natural band 8 answer to the last question, 80-140 words' : 'the learner\'s weakest paragraph rewritten at band 8, keeping their ideas'})
 }
 Criteria to use: ${kind === 'task1' ? 'Task Achievement, Coherence and Cohesion, Lexical Resource, Grammatical Range and Accuracy' : kind === 'task2' ? 'Task Response, Coherence and Cohesion, Lexical Resource, Grammatical Range and Accuracy' : 'Fluency and Coherence, Lexical Resource, Grammatical Range and Accuracy (Pronunciation cannot be assessed from a transcript: do not include it)'}.`;
+
+  // Lời giải theo NGÔN NGỮ NGƯỜI HỌC (15 ngôn ngữ, I18N.learnLang) – mọi lời nhắn (SYS/SCHEMA, AI.ask của toeic/toefl/fixer/assist…) viết mẫu "Vietnamese"
+  // → thay bằng tên tiếng Anh của ngôn ngữ người học ngay trước khi gửi máy chủ / khóa riêng (03/11: trước đây người học es/ja/ar… nhận lời giải tiếng Việt).
+  const learnName = () => { try { const L = I18N.learnLang(); return L === 'vi' ? 'Vietnamese' : ((I18N.LANGS[L] || ['English'])[0]); } catch (e) { return 'Vietnamese'; } };
+  const forLang = (p, n = learnName()) => (n === 'Vietnamese' ? p : String(p).replace(/\bVietnamese\b/g, n));
+  const gradeBody = (kind, task, text, extra = '') => kind === 'speaking'
+    ? `Assess this IELTS Speaking performance. The answers are an automatic speech-recognition transcript: capitalisation, punctuation and sentence boundaries come from the machine, not the speaker – ignore them completely, never list them as errors and never lower a band for them; judge only what was said (grammar, vocabulary, fluency, coherence, length and development of ideas), as a live examiner would. Questions and answers:\n${text}\n\n${SCHEMA(kind)}`
+    : `IELTS Writing ${kind === 'task1' ? 'Task 1 (Academic)' : 'Task 2'} question:\n"""${task}"""\n${extra ? `Data for Task 1:\n${extra}\n` : ''}\nCandidate's response (${(text.match(/[A-Za-z][A-Za-z'’-]*/g) || []).length} words):\n"""${text}"""\n\n${SCHEMA(kind)}`;
 
   // Tự dò danh sách mô hình Gemini hiện có (Google hay đổi/ngừng mô hình cũ) – lưu 3 ngày
   async function discover(key) {
@@ -122,12 +130,15 @@ Criteria to use: ${kind === 'task1' ? 'Task Achievement, Coherence and Cohesion,
 
   // AI miễn phí của Lexkite (máy chủ /api/ai): ai cũng chấm được, không cần tự lấy khóa – có hạn mức lượt/ngày
   const PROXY = /(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname) ? '/api/ai' : 'https://lexkite.com/api/ai';
-  async function callProxy(prompt) {
+  // Prompt do máy chủ chọn theo task: functions/api/_aitask.js SYS.grade = SYS trên (đổi cả hai; test ai-task.mjs)
+  async function callProxy(prompt, again) {
     const h = { 'Content-Type': 'application/json', 'X-Lexkite-Device': UI.dev() };
     try { if (window.Sync && Sync.user) h.Authorization = 'Bearer ' + await Sync.user.getIdToken(); } catch (e) { /* chưa đăng nhập: hạn mức khách */ }
+    if (!h.Authorization && UI.humanHdr) await UI.humanHdr(h, again);
     const ctrl = new AbortController(), to = setTimeout(() => ctrl.abort(), 60000);
-    let r; try { r = await fetch(PROXY, { method: 'POST', headers: h, signal: ctrl.signal, body: JSON.stringify({ prompt, sys: SYS }) }); } finally { clearTimeout(to); }
+    let r; try { r = await fetch(PROXY, { method: 'POST', headers: h, signal: ctrl.signal, body: JSON.stringify({ prompt: forLang(prompt), task: 'grade', lang: learnName() }) }); } finally { clearTimeout(to); }
     const j = await r.json().catch(() => ({}));
+    if (r.status === 403 && j.error === 'human' && !again) return callProxy(prompt, true);
     if (r.status === 429) throw Object.assign(new Error('PROXY_QUOTA'), { q: j });
     if (!r.ok || !j.out) throw new Error('FAILED');
     j.out._left = j.left; return j.out;
@@ -149,8 +160,8 @@ Criteria to use: ${kind === 'task1' ? 'Task Achievement, Coherence and Cohesion,
       const ctrl = new AbortController(); const t = setTimeout(() => ctrl.abort(), 60000);
       try {
         const r = await fetch(API(m, key), { method: 'POST', signal: ctrl.signal, headers: { 'Content-Type': 'application/json', 'x-goog-api-key': key }, body: JSON.stringify({
-          systemInstruction: { parts: [{ text: SYS }] },
-          contents: [{ role: 'user', parts: [{ text: prompt }] }],
+          systemInstruction: { parts: [{ text: forLang(SYS) }] },
+          contents: [{ role: 'user', parts: [{ text: forLang(prompt) }] }],
           generationConfig: { responseMimeType: 'application/json', temperature: 0.2, maxOutputTokens: 4096 },
         }) });
         clearTimeout(t);
@@ -171,12 +182,10 @@ Criteria to use: ${kind === 'task1' ? 'Task Achievement, Coherence and Cohesion,
 
   // kind: 'task1' | 'task2' | 'speaking'; task: đề bài (chuỗi); text: bài làm / bản chữ
   async function grade({ kind, task, text, extra = '' }) {
-    const id = kind + ':' + hash(task + '|' + text);
+    const id = kind + ':' + learnName() + ':' + hash(task + '|' + text); // đổi ngôn ngữ người học → chấm lại (lời giải đúng ngôn ngữ)
     const cache = await Store.get('aiCache', {});
     if (cache[id]) return cache[id];
-    const body = kind === 'speaking'
-      ? `Assess this IELTS Speaking performance (machine transcript, punctuation may be missing). Questions and answers:\n${text}\n\n${SCHEMA(kind)}`
-      : `IELTS Writing ${kind === 'task1' ? 'Task 1 (Academic)' : 'Task 2'} question:\n"""${task}"""\n${extra ? `Data for Task 1:\n${extra}\n` : ''}\nCandidate's response (${(text.match(/[A-Za-z][A-Za-z'’-]*/g) || []).length} words):\n"""${text}"""\n\n${SCHEMA(kind)}`;
+    const body = gradeBody(kind, task, text, extra);
     const res = (await localAI(kind, body, text)) || await call(body);
     const keys = Object.keys(cache); if (keys.length >= 20) delete cache[keys[0]];
     cache[id] = { ...res, at: Date.now() };
@@ -305,14 +314,14 @@ Criteria to use: ${kind === 'task1' ? 'Task Achievement, Coherence and Cohesion,
     const ns = await nanoStatus();
     const nano = ns === 'available' ? UI.icon('circle-check') + ' ' + t('Sẵn sàng') : ns === 'downloadable' || ns === 'downloading' ? `<button class="btn sm" id="aiNanoDl">⬇️ ${t('Tải về (~2 GB, 1 lần)')}</button>` : '— ' + t('Trình duyệt chưa hỗ trợ');
     // Các mức AI miễn phí người học đang có (luôn có ít nhất mức chấm nhanh) – cùng kiểu danh sách với trang Cài đặt
-    const r = (l, c, h = '') => `<div class="set-row"><div class="set-l"><span>${l}</span>${h ? `<small>${h}</small>` : ''}</div><div class="set-c">${c}</div></div>`;
+    const r = (l, c, h = '', f = '') => `<div class="set-row"><div class="set-l">${f ? `<label for="${f}">${l}</label>` : `<span>${l}</span>`}${h ? `<small>${h}</small>` : ''}</div><div class="set-c">${c}</div></div>`;
     return `<h3 class="set-h">🤖 ${t('Chấm bài bằng AI')}</h3><div class="set-list">
       ${r('🎁 ' + t('AI chấm Writing & Speaking miễn phí của Lexkite'), `<b class="good small">${UI.icon('circle-check')} ${t('Luôn có')}</b>`, t('3 lượt mỗi ngày, đăng nhập được 5 lượt – không cần khóa'))}
       ${r(UI.icon('zap') + ' ' + t('Chấm nhanh & ghi chú từ soạn sẵn'), `<b class="good small">${UI.icon('circle-check')} ${t('Luôn có')}</b>`)}
       ${hasLocal() ? r(UI.icon('lock') + ' ' + t('Dùng AI trên máy (miễn phí, riêng tư)'), `<input type="checkbox" id="aiLocalT" aria-label="${t('Dùng AI trên máy (miễn phí, riêng tư)')}" ${state.settings.aiLocal !== false ? 'checked' : ''}>`, t('Chạy trên máy của bạn – miễn phí, không gửi đi đâu')) : ''}
       ${r('💻 ' + t('AI có sẵn trong Chrome (trên máy, riêng tư)'), `<span class="small">${nano}</span>`, ns === 'downloadable' ? t('Nên dùng Wi-Fi – tải tiếp được nếu bị ngắt') : '')}
       ${r(UI.icon('sparkles') + ' ' + t('Gemini – chấm chi tiết như giám khảo'), `<span class="set-btns">${k ? `<span class="chip ok">✓ ${t('Đã có khóa {key}…', { key: esc(k.slice(0, 6)) })}</span>` : ''}<button type="button" class="btn sm" id="aiSet">${k ? t('Đổi khóa') : t('Thêm khóa')}</button>${k ? `<button type="button" class="btn sm ghost" id="aiDel">${t('Xóa khóa')}</button>` : ''}</span>`, t('Không bắt buộc – thêm khóa Gemini miễn phí của riêng bạn để chấm không giới hạn. Khóa chỉ lưu trên máy này.'))}
-      ${r(t('Mô hình'), `<select class="input" id="aiModel" aria-label="${t('Mô hình')}">${['', ...MODELS].map(m => `<option value="${m}" ${(state.settings.aiModel || '') === m ? 'selected' : ''}>${m || t('Tự động (khuyên dùng)')}</option>`).join('')}</select>`)}</div>`;
+      ${r(t('Mô hình'), `<select class="input" id="aiModel" aria-label="${t('Mô hình')}">${['', ...MODELS].map(m => `<option value="${m}" ${(state.settings.aiModel || '') === m ? 'selected' : ''}>${m || t('Tự động (khuyên dùng)')}</option>`).join('')}</select>`, '', 'aiModel')}</div>`; /* nhãn nhìn thấy gắn ô (qa-bot nolabel) */
   }
   function bindSettings(rerender) {
     const s = $('#aiSet'); if (s) s.onclick = () => keyDialog(rerender);
@@ -349,5 +358,5 @@ Return ONLY JSON: {"meaning": string (Vietnamese meaning in THIS context), "stru
       ${x.tip ? `<div class="small" style="margin-top:.35rem">${UI.icon('lightbulb')} ${esc(x.tip)}</div>` : ''}</div>`;
   }
 
-  window.AI = { localGrade, ask: p => call(p), askLocal, localOn, badge, nanoStatus, onNanoProgress: f => { nanoProgress = f; nanoOptIn = true; }, explain, renderExplain, errText: e => errText(e), getKey, grade, attach, keyDialog, settingsHtml, bindSettings };
+  window.AI = { _p: { SYS, SCHEMA, gradeBody, forLang }, localGrade, ask: p => call(p), askLocal, localOn, badge, nanoStatus, onNanoProgress: f => { nanoProgress = f; nanoOptIn = true; }, explain, renderExplain, errText: e => errText(e), getKey, grade, attach, keyDialog, settingsHtml, bindSettings };
 })();

@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite Weekly Digest Email Preview</title>
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Material Symbols Rounded -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              teal: '#0F3D3E',
+              'teal-dark': '#092526',
+              'teal-light': '#1C5B5D',
+              coral: '#FF5C38',
+              'coral-hover': '#EA4B27',
+              'coral-shadow': '#BF3719',
+              cream: '#FAF7F2',
+              'cream-card': '#FFFFFF',
+              'cream-alt': '#F4EFEA',
+              border: '#E3DDD4',
+              'border-subtle': '#ECE6DC',
+              text: '#192829',
+              'text-muted': '#4B5E60',
+              accent: '#E6F4F1'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      background-color: #EFE9E0;
+      color: #192829;
+    }
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .tactile-btn {
+      box-shadow: 0 4px 0 #BF3719;
+      transition: all 0.15s ease-out;
+    }
+    .tactile-btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 #BF3719;
+    }
+    .tactile-card {
+      box-shadow: 0 3px 0 #E0D9CE;
+    }
+  </style>
+</head>
+<body class="min-h-screen p-4 md:p-8 flex flex-col items-center justify-start">
+
+  <!-- Desktop Preview Toolbar / Context Header -->
+  <header class="w-full max-w-[960px] mb-6 flex flex-wrap items-center justify-between gap-4 bg-white/80 backdrop-blur-md px-6 py-4 rounded-2xl border border-brand-border shadow-sm">
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-xl bg-brand-teal text-white flex items-center justify-center font-extrabold text-xl shadow-sm">
+        L
+      </div>
+      <div>
+        <div class="flex items-center gap-2">
+          <h1 class="text-sm font-bold text-brand-text">Lexkite Email Delivery Preview</h1>
+          <span class="px-2 py-0.5 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-900 border border-emerald-300">Digest #42</span>
+        </div>
+        <p class="text-xs text-brand-text-muted">Subject: 📈 Your week in review: 84 words mastered &amp; 12-day streak</p>
+      </div>
+    </div>
+    <div class="flex items-center gap-3">
+      <div class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 bg-brand-cream-alt rounded-lg border border-brand-border text-xs text-brand-text font-medium">
+        <span class="material-symbols-rounded text-base text-brand-text-muted">devices</span>
+        <span>Container: 600px width</span>
+      </div>
+      <button class="min-h-[44px] min-w-[44px] px-4 py-2 rounded-xl bg-brand-teal text-white text-xs font-bold flex items-center gap-2 hover:bg-brand-teal-light transition-colors">
+        <span class="material-symbols-rounded text-sm">send</span>
+        <span>Send Test Email</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- 600px Wide Email Preview Canvas (Email Safe Table & Container Structure) -->
+  <main class="w-full max-w-[600px] bg-brand-cream border border-brand-border rounded-[24px] overflow-hidden shadow-xl" role="region" aria-label="Weekly Digest Email">
+    
+    <!-- Email Top Masthead -->
+    <div class="bg-brand-teal px-6 sm:px-8 pt-8 pb-7 text-white text-center border-b border-brand-teal-dark">
+      <div class="flex items-center justify-center gap-2.5 mb-3">
+        <div class="w-9 h-9 rounded-xl bg-brand-coral flex items-center justify-center text-white font-black text-xl shadow-md">
+          L
+        </div>
+        <span class="text-2xl font-extrabold tracking-tight text-white">Lexkite</span>
+      </div>
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-teal-light text-accent text-xs font-semibold tracking-wide border border-teal-600/40 uppercase mb-2">
+        <span class="material-symbols-rounded text-sm text-brand-coral">workspace_premium</span>
+        <span>IELTS &middot; TOEFL &middot; TOEIC Prep</span>
+      </div>
+      <h2 class="text-xl sm:text-2xl font-extrabold text-white mt-1 leading-snug">
+        Your Weekly Progress Report
+      </h2>
+      <p class="text-teal-100/90 text-sm mt-1 max-w-[420px] mx-auto leading-relaxed">
+        Consistent retrieval practice builds long-term memory. Here is how your English study shaped up this week.
+      </p>
+    </div>
+
+    <!-- Email Body Content -->
+    <div class="p-6 sm:p-8 space-y-6">
+
+      <!-- Teacher Slot Greeting Box -->
+      <section class="bg-brand-cream-card rounded-2xl p-5 border border-brand-border tactile-card flex flex-col sm:flex-row items-start sm:items-center gap-4">
+        <!-- Teacher Slot Placeholder -->
+        <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-brand-accent border-2 border-dashed border-brand-teal/40 flex flex-col items-center justify-center flex-shrink-0 text-center p-1.5 shadow-sm" aria-label="teacher-slot">
+          <span class="material-symbols-rounded text-brand-teal text-xl">psychology</span>
+          <span class="text-[10px] font-extrabold text-brand-teal uppercase tracking-tight mt-0.5">teacher-slot</span>
+        </div>
+        <div class="flex-1">
+          <div class="flex items-center gap-2 mb-1 flex-wrap">
+            <span class="text-xs font-bold uppercase tracking-wider text-brand-teal bg-teal-50 px-2 py-0.5 rounded border border-teal-200">Mentor Ama</span>
+            <span class="text-xs text-brand-text-muted">Weekly Reflection</span>
+          </div>
+          <p class="text-sm text-brand-text font-medium leading-relaxed italic">
+            &ldquo;You stayed exceptionally steady with academic collocations this week! 84 new items locked in gives you a major advantage in IELTS Writing Task 2.&rdquo;
+          </p>
+        </div>
+      </section>
+
+      <!-- "Your week" Stats Row -->
+      <section aria-labelledby="stats-heading">
+        <div class="flex items-center justify-between mb-3">
+          <h3 id="stats-heading" class="text-base font-extrabold text-brand-text uppercase tracking-wider text-xs flex items-center gap-2">
+            <span class="material-symbols-rounded text-brand-teal text-lg">calendar_month</span>
+            <span>Your week in numbers</span>
+          </h3>
+          <span class="text-xs text-brand-text-muted font-medium">May 12 – May 18</span>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          
+          <!-- Stat 1: Words -->
+          <div class="bg-brand-cream-card rounded-2xl p-4 border border-brand-border tactile-card text-center flex flex-col items-center justify-between min-h-[110px]">
+            <div class="w-9 h-9 rounded-xl bg-teal-50 text-brand-teal flex items-center justify-center mb-1">
+              <span class="material-symbols-rounded text-xl">menu_book</span>
+            </div>
+            <div>
+              <div class="text-2xl sm:text-3xl font-extrabold text-brand-text tracking-tight">84</div>
+              <div class="text-xs font-semibold text-brand-text-muted mt-0.5">Words mastered</div>
+            </div>
+          </div>
+
+          <!-- Stat 2: Minutes -->
+          <div class="bg-brand-cream-card rounded-2xl p-4 border border-brand-border tactile-card text-center flex flex-col items-center justify-between min-h-[110px]">
+            <div class="w-9 h-9 rounded-xl bg-orange-50 text-brand-coral flex items-center justify-center mb-1">
+              <span class="material-symbols-rounded text-xl">schedule</span>
+            </div>
+            <div>
+              <div class="text-2xl sm:text-3xl font-extrabold text-brand-text tracking-tight">126</div>
+              <div class="text-xs font-semibold text-brand-text-muted mt-0.5">Minutes studied</div>
+            </div>
+          </div>
+
+          <!-- Stat 3: Streak -->
+          <div class="bg-brand-cream-card rounded-2xl p-4 border border-brand-border tactile-card text-center flex flex-col items-center justify-between min-h-[110px]">
+            <div class="w-9 h-9 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center mb-1">
+              <span class="material-symbols-rounded text-xl">local_fire_department</span>
+            </div>
+            <div>
+              <div class="text-2xl sm:text-3xl font-extrabold text-brand-text tracking-tight">12</div>
+              <div class="text-xs font-semibold text-brand-text-muted mt-0.5">Day active streak</div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Top Mistakes List Section -->
+      <section aria-labelledby="mistakes-heading" class="bg-brand-cream-card rounded-2xl p-5 border border-brand-border tactile-card">
+        <div class="flex items-center justify-between mb-4 flex-wrap gap-2">
+          <div class="flex items-center gap-2">
+            <div class="w-7 h-7 rounded-lg bg-red-50 text-red-700 flex items-center justify-center">
+              <span class="material-symbols-rounded text-lg">error</span>
+            </div>
+            <h3 id="mistakes-heading" class="text-sm font-extrabold text-brand-text">
+              Top Mistakes to Polish
+            </h3>
+          </div>
+          <span class="text-xs font-semibold text-brand-text-muted bg-brand-cream-alt px-2.5 py-1 rounded-full border border-brand-border">
+            3 items pending review
+          </span>
+        </div>
+
+        <p class="text-xs text-brand-text-muted mb-4 leading-relaxed">
+          These items gave you trouble in recent timed drills. Tap either card in app to review spacing intervals.
+        </p>
+
+        <div class="space-y-3">
+          
+          <!-- Mistake Item 1 -->
+          <div class="p-3.5 rounded-xl bg-brand-cream-alt border border-brand-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+            <div class="space-y-1 flex-1">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="px-2 py-0.5 text-[11px] font-bold rounded bg-red-100 text-red-900 border border-red-200">Grammar &middot; Preposition</span>
+                <span class="text-xs text-brand-text-muted">IELTS Task 2</span>
+              </div>
+              <div class="text-sm font-bold text-brand-text flex items-center gap-2 flex-wrap pt-0.5">
+                <span class="line-through text-red-800 text-xs">insisted to postpone</span>
+                <span class="text-brand-text-muted text-xs">&rarr;</span>
+                <span class="text-emerald-900 font-extrabold bg-emerald-100/70 px-1.5 py-0.5 rounded text-xs">insisted on postponing</span>
+              </div>
+              <div class="text-xs text-brand-text-muted leading-tight">
+                Rule: <em>insist</em> requires the preposition <em>on</em> + gerund (-ing form).
+              </div>
+            </div>
+            <a href="#review-item" class="inline-flex items-center justify-center min-h-[44px] min-w-[44px] px-3 py-2 rounded-xl bg-white border border-brand-border text-xs font-bold text-brand-teal hover:bg-brand-cream transition-colors flex-shrink-0 self-stretch sm:self-auto text-center" aria-label="Review insisted on postponing">
+              <span class="material-symbols-rounded text-base mr-1">history_edu</span>
+              <span>Review</span>
+            </a>
+          </div>
+
+          <!-- Mistake Item 2 -->
+          <div class="p-3.5 rounded-xl bg-brand-cream-alt border border-brand-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+            <div class="space-y-1 flex-1">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="px-2 py-0.5 text-[11px] font-bold rounded bg-red-100 text-red-900 border border-red-200">Collocation</span>
+                <span class="text-xs text-brand-text-muted">Academic Lexis</span>
+              </div>
+              <div class="text-sm font-bold text-brand-text flex items-center gap-2 flex-wrap pt-0.5">
+                <span class="line-through text-red-800 text-xs">strong possibility</span>
+                <span class="text-brand-text-muted text-xs">&rarr;</span>
+                <span class="text-emerald-900 font-extrabold bg-emerald-100/70 px-1.5 py-0.5 rounded text-xs">high probability</span>
+              </div>
+              <div class="text-xs text-brand-text-muted leading-tight">
+                Pair <em>strong</em> with <em>chance/likelihood</em>; use <em>high</em> with <em>probability</em>.
+              </div>
+            </div>
+            <a href="#review-item" class="inline-flex items-center justify-center min-h-[44px] min-w-[44px] px-3 py-2 rounded-xl bg-white border border-brand-border text-xs font-bold text-brand-teal hover:bg-brand-cream transition-colors flex-shrink-0 self-stretch sm:self-auto text-center" aria-label="Review high probability">
+              <span class="material-symbols-rounded text-base mr-1">history_edu</span>
+              <span>Review</span>
+            </a>
+          </div>
+
+          <!-- Mistake Item 3 -->
+          <div class="p-3.5 rounded-xl bg-brand-cream-alt border border-brand-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+            <div class="space-y-1 flex-1">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="px-2 py-0.5 text-[11px] font-bold rounded bg-amber-100 text-amber-900 border border-amber-300">Pronunciation Stress</span>
+                <span class="text-xs text-brand-text-muted">Speaking Part 3</span>
+              </div>
+              <div class="text-sm font-bold text-brand-text flex items-center gap-2 flex-wrap pt-0.5">
+                <span class="text-brand-teal font-extrabold">pho-TOG-ra-phy</span>
+                <span class="text-xs text-brand-text-muted">/f&#601;&#712;t&#594;&#609;.r&#601;.fi/</span>
+              </div>
+              <div class="text-xs text-brand-text-muted leading-tight">
+                Stress shifts to 2nd syllable (unlike <em>PHO-to</em> on 1st syllable).
+              </div>
+            </div>
+            <a href="#review-item" class="inline-flex items-center justify-center min-h-[44px] min-w-[44px] px-3 py-2 rounded-xl bg-white border border-brand-border text-xs font-bold text-brand-teal hover:bg-brand-cream transition-colors flex-shrink-0 self-stretch sm:self-auto text-center" aria-label="Listen to photography pronunciation">
+              <span class="material-symbols-rounded text-base mr-1">volume_up</span>
+              <span>Listen</span>
+            </a>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Next Goal Card Section -->
+      <section aria-labelledby="goal-heading" class="bg-gradient-to-br from-brand-teal to-brand-teal-dark text-white rounded-2xl p-5 border border-brand-teal-dark shadow-md">
+        <div class="flex items-start justify-between gap-3 mb-3">
+          <div class="flex items-center gap-2.5">
+            <div class="w-8 h-8 rounded-xl bg-brand-teal-light text-white flex items-center justify-center border border-teal-500/30">
+              <span class="material-symbols-rounded text-lg text-emerald-300">flag</span>
+            </div>
+            <div>
+              <span class="text-[11px] font-bold uppercase tracking-wider text-teal-200">Recommended Milestone</span>
+              <h3 id="goal-heading" class="text-base font-extrabold text-white">Next Goal: Band 7.5 Academic Lexis</h3>
+            </div>
+          </div>
+          <span class="px-2.5 py-1 rounded-full bg-teal-800/80 text-teal-100 text-xs font-semibold border border-teal-600/40">Unit 4 of 6</span>
+        </div>
+
+        <p class="text-teal-100/90 text-xs sm:text-sm leading-relaxed mb-4">
+          You are <strong>16 cards away</strong> from completing Unit 4 (&ldquo;Work, Policy &amp; Global Trade&rdquo;). Complete tomorrow&rsquo;s 6-minute review sprint to maintain your 12-day active streak.
+        </p>
+
+        <!-- Progress Bar Component -->
+        <div class="space-y-1.5 bg-brand-teal-dark/50 p-3 rounded-xl border border-teal-700/40">
+          <div class="flex items-center justify-between text-xs text-teal-200 font-medium">
+            <span>Overall Unit Mastery</span>
+            <span class="font-bold text-white">72% (58 / 80 words)</span>
+          </div>
+          <div class="w-full h-2.5 bg-teal-950/80 rounded-full overflow-hidden p-0.5">
+            <div class="h-full bg-brand-coral rounded-full transition-all duration-300" style="width: 72%;"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Primary Action CTA Button: "Continue learning" -->
+      <div class="text-center pt-2">
+        <a href="#continue-learning" class="tactile-btn inline-flex items-center justify-center w-full min-h-[52px] px-8 py-3.5 rounded-2xl bg-brand-coral hover:bg-brand-coral-hover text-white text-base font-extrabold tracking-wide text-center uppercase shadow-md transition-transform" style="letter-spacing: 0.03em;">
+          <span>Continue learning</span>
+          <span class="material-symbols-rounded text-xl ml-2">arrow_forward</span>
+        </a>
+        <p class="text-xs text-brand-text-muted mt-2.5 font-medium flex items-center justify-center gap-1.5">
+          <span class="material-symbols-rounded text-sm text-brand-teal">bolt</span>
+          <span>Takes ~6 minutes &middot; Next review scheduled before 9:00 PM</span>
+        </p>
+      </div>
+
+      <!-- Quick Study Reminder Box (Internationalized / Resilient) -->
+      <div class="p-4 rounded-xl bg-teal-50/70 border border-teal-200/80 flex items-center gap-3">
+        <span class="material-symbols-rounded text-brand-teal text-xl flex-shrink-0">info</span>
+        <p class="text-xs text-brand-text leading-relaxed">
+          <strong>Tip for bilingual learners:</strong> Lexkite adapts to your selected target interface language. Labels and definitions expand naturally without clipping.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Email Footer: Unsubscribe & Preferences -->
+    <footer class="bg-brand-cream-alt px-6 sm:px-8 py-7 border-t border-brand-border text-center space-y-3">
+      <div class="flex items-center justify-center gap-2 mb-1">
+        <div class="w-6 h-6 rounded-lg bg-brand-teal text-white flex items-center justify-center font-bold text-xs">L</div>
+        <span class="text-sm font-bold text-brand-text">Lexkite Education</span>
+      </div>
+      
+      <p class="text-xs text-brand-text-muted max-w-[440px] mx-auto leading-relaxed">
+        You are receiving this digest because you are enrolled in Lexkite Spaced Repetition English Drills.
+      </p>
+
+      <!-- Footer Action Links with min 44x44px touch-safe clickable bounds -->
+      <div class="flex items-center justify-center flex-wrap gap-x-4 gap-y-2 pt-1 text-xs font-semibold">
+        <a href="#email-preferences" class="min-h-[44px] inline-flex items-center px-2 py-1 text-brand-teal hover:underline" aria-label="Notification Preferences">
+          Notification Preferences
+        </a>
+        <span class="text-brand-border hidden sm:inline">&bull;</span>
+        <a href="#app-link" class="min-h-[44px] inline-flex items-center px-2 py-1 text-brand-teal hover:underline" aria-label="Open Lexkite App">
+          Open Web App
+        </a>
+        <span class="text-brand-border hidden sm:inline">&bull;</span>
+        <a href="#help-center" class="min-h-[44px] inline-flex items-center px-2 py-1 text-brand-teal hover:underline" aria-label="Help and Support">
+          Support Center
+        </a>
+        <span class="text-brand-border hidden sm:inline">&bull;</span>
+        <a href="#unsubscribe" class="min-h-[44px] inline-flex items-center px-2 py-1 text-red-700 hover:underline" aria-label="Unsubscribe from Weekly Digest">
+          Unsubscribe
+        </a>
+      </div>
+
+      <div class="pt-2 border-t border-brand-border/60 text-[11px] text-brand-text-muted">
+        &copy; 2025 Lexkite Inc. &middot; 548 Market St, San Francisco, CA &middot; All rights reserved.
+      </div>
+    </footer>
+
+  </main>
+
+</body>
+</html>

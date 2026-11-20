@@ -146,6 +146,12 @@ Part 3で論理的かつ説得力のある回答を構築するための武器�
 
 {{youtube: | IELTS Speaking Part 2 Template & Strategy}}
 
+移住やワーホリのためにスピーキングを伸ばしたい方は、[IELTS 移住ガイド（カナダ・豪・英・NZの英語要件）](/ja/blog/ielts-ijuu-kanada-goshuu-eikoku-guide/)で国別の英語要件も確認しておくと、目標スコアを決めやすくなります。
+
+英国ビザのためにIELTS for UKVIを受ける方は、試験の仕組みを[IELTS UKVIとは](/ja/blog/ielts-ukvi-toha-chigai-moushikomi/)で確認してから、スピーキングの練習に入ると安心です。
+
+Part 2 の回答を Band 6 風と Band 7 風で並べて比べたい方は、[IELTS Speaking Band 7 回答例](/ja/blog/ielts-speaking-band7-kaitourei/)も参考にしてください。
+
 ## よくある質問（FAQ）
 
 ### Q1. トピックカードの質問項目をすべて答えきれなかったら減点されますか？

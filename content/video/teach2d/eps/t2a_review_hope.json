@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_hope",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: hope.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means to want something to happen and think that it may happen.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "I hope you have a wonderful holiday.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "hope",
+  "ipa": "/hoʊp/",
+  "mean": "to want something to happen and think that it may happen",
+  "ex": "I hope you have a wonderful holiday.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=hope",
+  "link": "https://lexkite.com/app/#/review?w=hope",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 45,
+  "seconds": 27.2,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "What does \"hope\" mean?",
+  "keyword": "hope",
+  "value": "Hope means to want something to happen and think that it may happen.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=hope",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"hope\" mean?",
+    "description": "Hope means to want something to happen and think that it may happen.\n\nReview your words, free: https://lexkite.com/app/#/review?w=hope\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "hope",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"hope\" mean?\n\nHope means to want something to happen and think that it may happen.\n\nReview your words, free: https://lexkite.com/app/#/review?w=hope"
+   },
+   "instagram": {
+    "caption": "What does \"hope\" mean?\n\nHope means to want something to happen and think that it may happen.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"hope\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means to want something to happen and think that it may happen. Hope means to want something to happen and think that it may happen. Practice it with a free quiz: {link}"
+ }
+}

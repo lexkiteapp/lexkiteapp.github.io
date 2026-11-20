@@ -175,9 +175,12 @@
   const show = async () => {
     await vimgP;
     const item = qi < queue.length ? queue[qi] : { w: await randomWord(), tag: 'lex' }; qi++;
+    lastItem = item;
     if (window.VImg && VImg.need) await VImg.need([item.w]);   // mảnh chỉ mục ảnh của từ này (vocab-img v3)
     render(build(item.w, await info(item.w), cards[keyOf(item.w)]), item.tag);
   };
+  let lastItem = null;
+  const reshow = async () => { if (lastItem) render(build(lastItem.w, await info(lastItem.w), cards[keyOf(lastItem.w)]), lastItem.tag); else await show(); };
   const next = () => show();
   const grade = async g => {
     if (!cur || !cur.saved) return;
@@ -204,7 +207,52 @@
     else if (k === 'n') next();
     else if (k === 'p') play(lastAcc, e.shiftKey);
   });
+  // ⏱️ Câu đố 10 s: 1 thẻ đến hạn, chọn nghĩa đúng trong 4 → chấm FSRS (đúng = Nhớ, sai = Quên; hết giờ/bỏ qua = không chấm) → về hàng thẻ.
+  // Tối đa 1 câu / 30 phút, luôn có "Bỏ qua", không đếm ngược bằng âm thanh/đỏ (không gây áp lực).
+  const runQuiz = async () => {
+    const Q = self.NtQuiz, last = (await chrome.storage.local.get('ntQz').catch(() => ({}))).ntQz;
+    if (!Q || !due.length || !Q.canShow(last, Date.now())) return false;
+    const mean = async w => Q.meaning(await info(w), cards[keyOf(w)], L);
+    let target = null;
+    for (const c of due.slice(0, 5)) { const m = await mean(c.word); if (m) { target = { word: c.word, meaning: m }; break; } }
+    if (!target) return false;
+    const pool = [];
+    for (const c of list.filter(x => x.word !== target.word).slice(0, 12)) { const m = await mean(c.word); if (m) pool.push({ word: c.word, meaning: m }); }
+    for (let i = 0; i < 3 && pool.length < 12; i++) { // thiếu mồi từ thẻ người dùng → lấy từ kho Lexkite (cùng ngôn ngữ hiển thị)
+      const m = await shard(LET[Math.floor(Math.random() * LET.length)]);
+      for (const k of Object.keys(m).filter(x => m[x].s && m[x].s.length).slice(0, 40)) pool.push({ word: m[k].w, meaning: Q.meaning(m[k], null, L) });
+    }
+    const qz = Q.build(target, pool);
+    if (!qz) return false;
+    chrome.storage.local.set({ ntQz: Date.now() }).catch(() => {});
+    $('#ntTag').textContent = '⏱️ ' + tx('ntQzTag');
+    $('#ntCard').innerHTML = `<div class="qz"><div class="qz-q">${esc(tx('ntQzQ'))}</div><h1 class="nt-word" dir="ltr" lang="en">${esc(qz.word)}</h1>
+      <div class="qz-bar" role="progressbar" aria-valuemin="0" aria-valuemax="${Q.SECONDS}" aria-valuenow="${Q.SECONDS}" aria-label="${esc(tx('ntQzTime', { s: Q.SECONDS }))}"><i></i></div>
+      <div class="qz-opts" role="group">${qz.choices.map((c, i) => `<button type="button" class="qz-o" data-i="${i}" title="${i + 1}"><kbd>${i + 1}</kbd><span${L === 'vi' ? '' : ' dir="ltr" lang="en"'}>${esc(c)}</span></button>`).join('')}</div>
+      <div class="qz-msg" id="ntQzMsg" role="status"></div><button type="button" class="nt-link qz-skip" id="ntQzSkip">${esc(tx('ntQzSkip'))}</button></div>`;
+    return new Promise(res => {
+      const root = $('#ntCard'), bar = root.querySelector('.qz-bar'), fill = bar.firstElementChild, opts = [...root.querySelectorAll('.qz-o')];
+      let done = false, left = Q.SECONDS, timer = 0;
+      const finish = (msg, graded) => {
+        if (done) return; done = true; clearInterval(timer); document.removeEventListener('keydown', onKey, true);
+        $('#ntQzMsg').textContent = msg; opts.forEach(o => (o.disabled = true));
+        opts[qz.answer].classList.add('ok');
+        if (graded != null) { Cards.patch(target.word, card => { card.srs = SRS.review(card.srs, graded); }).then(() => chrome.runtime.sendMessage({ type: 'triggerSync' }).catch(() => {})).catch(() => {}); }
+        setTimeout(() => res(true), graded == null ? 900 : 1100);
+      };
+      const pickO = i => { const ok = i === qz.answer; if (!ok) opts[i].classList.add('bad'); finish(ok ? '✓ ' + tx('ntQzRight') : tx('ntQzWrong'), ok ? 2 : 0); };
+      const onKey = e => { if (e.ctrlKey || e.metaKey || e.altKey) return; const n = +e.key; if (n >= 1 && n <= 4) { e.preventDefault(); e.stopPropagation(); pickO(n - 1); } else if (e.key === 'Escape') finish('', null); };
+      document.addEventListener('keydown', onKey, true);
+      opts.forEach((o, i) => (o.onclick = () => pickO(i)));
+      $('#ntQzSkip').onclick = () => finish('', null);
+      opts[0].focus({ preventScroll: true });
+      timer = setInterval(() => { left--; fill.style.width = (left / Q.SECONDS) * 100 + '%'; bar.setAttribute('aria-valuenow', left); if (left <= 0) finish(tx('ntQzTimeout'), null); }, 1000);
+      requestAnimationFrame(() => { fill.style.width = ((Q.SECONDS - 1) / Q.SECONDS) * 100 + '%'; });
+    });
+  };
   ring();
+  // Thẻ đầu vẽ NGAY (không chờ câu đố); câu đố (nếu đến hạn) phủ lên sau, xong thì vẽ lại đúng thẻ đó.
   await show();
   document.body.dataset.ntMs = Math.round(performance.now() - T0); // đo thời gian vẽ (ext-e2e kiểm < 100 ms)
+  try { if (await runQuiz()) await reshow(); } catch (e) { await reshow().catch(() => {}); /* câu đố lỗi → về hàng thẻ */ }
 })();

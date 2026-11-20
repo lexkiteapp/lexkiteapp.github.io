@@ -1,3 +1,4 @@
+# ci-policy: no-concurrency – chỉ chạy tay/gọi lại, mỗi lượt khác input; nhóm chung sẽ HUỶ lượt đang chờ = mất việc (docs/CI-RUNNERS.md)
 name: pron-eval
 # P0 spike for per-phoneme pronunciation scoring (docs/research/pron-phoneme-plan.md): export candidate wav2vec2-CTC phoneme models to ONNX,
 # quantise (q8, MatMul only), run scripts/pron/gop.mjs on speechocean762 (CC BY 4.0) + LibriSpeech test-clean (CC BY 4.0) via onnxruntime-node.
@@ -26,6 +27,7 @@ permissions: { contents: read, actions: read }
 jobs:
   plan:
     runs-on: ubuntu-latest
+    timeout-minutes: 15   # ci-policy 2/11 (mặc định GitHub 360 giữ runner nếu treo)
     outputs: { matrix: '${{ steps.p.outputs.matrix }}' }
     steps:
       - uses: actions/checkout@v4
@@ -83,7 +85,7 @@ jobs:
           python scripts/pron/export.py "${{ matrix.cand.repo }}" "models/${{ matrix.cand.id }}"
       - uses: actions/setup-node@v4
         with: { node-version: '22' }
-      - run: npm install --no-save --no-package-lock --ignore-scripts=false onnxruntime-node@1.20.1
+      - run: bash scripts/ci/npm-retry.sh install --no-save --no-package-lock --ignore-scripts=false onnxruntime-node@1.20.1
       - run: node scripts/pron/eval.mjs --cand "${{ matrix.cand.id }}" --dir "models/${{ matrix.cand.id }}" --data pron-data --quant "${{ inputs.quant }}" --out "reports/pron-eval-${{ matrix.cand.id }}.json"
       - uses: actions/upload-artifact@v4
         if: always()
@@ -92,6 +94,7 @@ jobs:
     needs: eval
     if: always() && needs.eval.result != 'skipped'
     runs-on: ubuntu-latest
+    timeout-minutes: 30   # ci-policy 2/11 (mặc định GitHub 360 giữ runner nếu treo)
     steps:
       - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4

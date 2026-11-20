@@ -1,3 +1,4 @@
+# ci-policy: no-concurrency – chỉ chạy tay/gọi lại, mỗi lượt khác input; nhóm chung sẽ HUỶ lượt đang chờ = mất việc (docs/CI-RUNNERS.md)
 # footage-reel: owner review of the footage banks (26/10/2026) – every clip plays 4 s AS GENERATED (no processing), labelled, one reel + contact sheet per bank.
 # 0 credits, artifact only. Banks: teachers, anchor (clips + green-screen kfull_pro), airport, cafe, hotel (restaurant excluded – owner 22/10).
 name: footage-reel
@@ -11,8 +12,13 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
+      - uses: actions/checkout@v4
+        with: { sparse-checkout: "scripts/ci\n.github/actions" }   # setup-ffmpeg + apt actions (and scripts/ci/apt-install.sh) only (the job needs no other repo file)
+      - uses: ./.github/actions/setup-ffmpeg
       - name: ffmpeg + font
-        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-dejavu-core >/dev/null
+        timeout-minutes: 12
+        uses: ./.github/actions/apt
+        with: { packages: fonts-dejavu-core }
       - name: Footage (clip folders only, sparse)
         env: { KEY: '${{ secrets.FOOTAGE_DEPLOY_KEY }}' }
         run: |

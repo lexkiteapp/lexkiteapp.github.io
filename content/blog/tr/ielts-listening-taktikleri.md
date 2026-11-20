@@ -67,7 +67,7 @@ Eğer yönerge "ONE WORD ONLY" diyorsa ve doğru cevap "red car" ise, sadece "ca
 
 ![IELTS deneme sınavı arayüzü](media:mock "Deneme sınavında dört beceriden birini ve denemeyi seçme, geçmiş sınavları görme")
 
-Sınav ortamını birebir deneyimlemek için [IELTS tam deneme](/#/mock) bölümünde süre kısıtı altında çalışarak gerçek sınav stresini önceden yönetebilirsiniz. Ayrıca sınav öncesinde temel kelime haznenizi genişletmek adına [İngilizce kelime ezberleme](/tr/blog/ingilizce-kelime-ezberleme/) yazımızı inceleyebilir ve [kelime listeleri](/tu-vung/) sayfamızdaki akademik sözcükleri çalışabilirsiniz.
+Sınav ortamını birebir deneyimlemek için [IELTS tam deneme](/#/mock) bölümünde süre kısıtı altında çalışarak gerçek sınav stresini önceden yönetebilirsiniz. Ayrıca sınav öncesinde temel kelime haznenizi genişletmek adına [İngilizce kelime ezberleme](/tr/blog/ingilizce-kelime-ezberleme/) yazımızı inceleyebilir ve [kelime listeleri](/en/vocabulary/) sayfamızdaki akademik sözcükleri çalışabilirsiniz.
 
 ## Bölümlere Göre Özel Çözüm Stratejileri
 
@@ -116,7 +116,7 @@ Sadece soru çözmek dinleme reflekslerinizi belirli bir seviyeye kadar gelişti
 
 Bu yöntem, İngilizcedeki bitişik konuşma (connected speech), ses düşmesi (elision) ve zayıf formları (weak forms) beyninizin otomatik olarak çözümlemesini sağlar.
 
-{{youtube: bGywZ6D_uX4 | IELTS Dinleme Testinde En Çok Karşılaşılan 10 Tuzak ve Çözüm Yöntemleri}}
+{{youtube: | IELTS Dinleme Testinde En Çok Karşılaşılan 10 Tuzak ve Çözüm Yöntemleri}}
 
 Ayrıca okuyun: [İngilizce If Clauses: Koşul Cümleleri Kuralları ve Örnekleri](/tr/blog/ingilizce-if-clauses-kosul-cumleleri-rehberi/) · [İngilizce Passive Voice: Edilgen Çatı Kuralları ve Zamanlar](/tr/blog/ingilizce-passive-voice-edilgen-cati-kurallari/) · [İngilizce Sunum Kalıpları: Profesyonel İfadeler ve İpuçları](/tr/blog/ingilizce-sunum-yapma-teknikleri-ve-kaliplari/)
 
@@ -137,6 +137,14 @@ A) 9:00
 B) 9:15  
 C) 9:30  
 *Doğru Cevap:* C (Konuşmacı "but" bağlacı ile fikir değiştirmiş ve asıl saati 9:30 olarak düzeltmiştir).
+
+Her soru tipinin kendi tuzağını ayrı ayrı görmek için [IELTS listening soru tipleri](/tr/blog/ielts-listening-soru-tipleri-cozum-yontemleri/) rehberine de göz atın.
+
+Dört becerinin genel puana nasıl dönüştüğünü [IELTS puanı nasıl hesaplanır](/tr/blog/ielts-puani-nasil-hesaplanir-band-skorlari/) yazısında inceleyebilirsiniz.
+
+Sınavı vize başvurusu için alacaksanız hangi sürümü seçmeniz gerektiğini [IELTS UKVI nedir](/tr/blog/ielts-ukvi-nedir-kimlere-gerekir/) rehberinde, rezervasyon adımlarıyla birlikte bulabilirsiniz.
+
+Listening çalışmasını haftalık bir düzene oturtmak için [4, 8 ve 12 haftalık IELTS hazırlık programı](/tr/blog/ielts-hazirlik-programi-4-8-12-haftalik/) yazısındaki ritmi kullanabilirsiniz. Hangi IELTS sürümünün göçmenlik başvurunda geçerli olduğunu da [göçmenlik için IELTS rehberinden](/tr/blog/gocmenlik-icin-ielts-general-academic-ukvi/) öğrenebilirsiniz.
 
 ## Sıkça Sorulan Sorular (SSS)
 

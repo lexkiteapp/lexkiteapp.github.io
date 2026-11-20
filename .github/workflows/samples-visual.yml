@@ -1,0 +1,69 @@
+# ci-policy: heavy-gate – việc nặng trên PR chờ npm test xanh (job `gate`, luật 11)
+# Cổng họ trang thư viện (docs/specs/samples-visual.md): dựng bài mẫu của base và PR (≈ 2 s, chỉ build-samples*), so từng trang không mất SEO,
+# rồi soi hình 390/1280 × sáng/tối (chữ cắt, tràn ngang, tương phản, dấu hiệu cuộn); xuất ảnh trước/sau ở artifact samples-visual-shots.
+name: Samples visual
+on:
+  pull_request:
+    paths: ['scripts/build-samples*.mjs', 'scripts/lib/samples-*.mjs', 'scripts/lib/site-layout.mjs', 'scripts/lib/seo-data.mjs', 'scripts/test/samples-*.mjs', 'content/seo-en/**', 'web/img/lib/**', '.github/workflows/samples-visual.yml']
+  push:
+    branches: [main]
+    paths: ['scripts/build-samples*.mjs', 'scripts/lib/samples-*.mjs', 'scripts/lib/site-layout.mjs', 'scripts/lib/seo-data.mjs', 'scripts/test/samples-*.mjs', 'content/seo-en/**', 'web/img/lib/**', '.github/workflows/samples-visual.yml']
+permissions:
+  contents: read
+concurrency: { group: 'samples-visual-${{ github.ref }}', cancel-in-progress: true }
+jobs:
+  # luật 11 (làn nhanh trước làn nặng, scripts/test/ci-policy.mjs): trên PR việc nặng chỉ chạy khi `npm test` đã XANH cùng sha (hoặc PR có nhãn `ready`) – đỏ/chưa xong thì mọi job dưới là skipped
+  # (không chiếm runner); npm-test.yml job `heavy` chạy lại lượt này ngay khi npm test xanh (scripts/ci/heavy-rerun.mjs). Lỗi API → mở cổng (không mất kiểm).
+  gate:
+    # luật 18 (CI làn nhanh, 16/11): PR chỉ chờ làn nhanh – việc nặng bỏ qua trên PR (skipped, không tốn máy), chạy SAU gộp trên push main; nhãn ready-heavy/ready = chạy nặng ngay trên PR
+    if: ${{ github.event_name != 'pull_request' || contains(github.event.pull_request.labels.*.name, 'ready-heavy') || contains(github.event.pull_request.labels.*.name, 'ready') }}
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
+    timeout-minutes: 3
+    permissions: { contents: read, checks: read }
+    outputs: { go: '${{ steps.g.outputs.go }}' }
+    steps:
+      - id: g
+        env: { GH_TOKEN: '${{ github.token }}', EV: '${{ github.event_name }}', SHA: '${{ github.event.pull_request.head.sha }}', REPO: '${{ github.repository }}', READY: '${{ contains(github.event.pull_request.labels.*.name, ''ready'') }}' }
+        run: |
+          go=true
+          if [ "$EV" = pull_request ] && [ "$READY" != true ]; then
+            n=$(gh api "repos/$REPO/commits/$SHA/check-runs?check_name=npm%20test&per_page=20" --jq '[.check_runs[] | select(.conclusion == "success")] | length' 2>/dev/null) || n=1
+            [ "${n:-1}" -ge 1 ] || go=false
+          fi
+          echo "go=$go" >> "$GITHUB_OUTPUT"; echo "npm test xanh cùng sha (hoặc nhãn ready) → go=$go"
+  samples-parity:
+    needs: gate
+    if: needs.gate.outputs.go == 'true'
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: ./.github/actions/gen-if-needed
+      - uses: ./.github/actions/no-prod
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Dựng bài mẫu của PR và của base
+        env: { BASE_SHA: '${{ github.event.pull_request.base.sha }}' }
+        run: |
+          build() { mkdir -p dist; printf '<urlset></urlset>' > dist/sitemap.xml; node scripts/build-samples.mjs | tail -1; node scripts/build-samples-en.mjs | tail -1; }
+          build
+          git worktree add -q ../base "$(git merge-base "$BASE_SHA" HEAD)"
+          ( cd ../base && build )
+      - name: SEO không mất (title, meta, canonical, hreflang, JSON-LD, link nội bộ, chữ hiển thị)
+        run: |
+          node scripts/test/samples-seo-parity.mjs --snapshot ../base/dist base.json
+          node scripts/test/samples-seo-parity.mjs --compare base.json dist
+      - uses: ./.github/actions/playwright-cache
+        with: { browsers: '--with-deps chromium' }
+      - name: Soi hình + ảnh trước/sau
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2 axe-core@4.10.2 >/dev/null
+          bash scripts/ci/pw-install.sh --with-deps chromium
+          for d in dist ../base/dist; do src=$(dirname "$d"); for a in img teach css fonts js icons; do ln -sfn "$(realpath "$src/web/$a")" "$d/$a"; done; done
+          (cd dist && python3 -m http.server 8080 >/dev/null 2>&1 &) ; (cd ../base/dist && python3 -m http.server 8081 >/dev/null 2>&1 &) ; sleep 1
+          node scripts/test/samples-visual.mjs http://localhost:8081 --shots out/shots/before || echo "(bản cũ có lỗi – chỉ lấy ảnh)"
+          node scripts/test/samples-visual.mjs http://localhost:8080 --shots out/shots/after
+      - uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with: { name: samples-visual-shots, path: out/shots, retention-days: 14, if-no-files-found: warn }

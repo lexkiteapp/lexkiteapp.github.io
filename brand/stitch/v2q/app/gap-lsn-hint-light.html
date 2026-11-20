@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lesson - Hint Modal</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "secondary-fixed-dim": "#ffb86c",
+            "on-error": "#ffffff",
+            "tertiary-container": "#b03224",
+            "secondary": "#895100",
+            "on-tertiary-fixed": "#410000",
+            "on-tertiary-container": "#ffd0c9",
+            "tertiary": "#8e190f",
+            "surface-variant": "#eae1d8",
+            "background": "#fff8f3",
+            "tertiary-fixed": "#ffdad4",
+            "surface-bright": "#fff8f3",
+            "error": "#ba1a1a",
+            "surface-container-lowest": "#ffffff",
+            "on-primary-fixed": "#00201e",
+            "on-primary-fixed-variant": "#00504c",
+            "secondary-container": "#fe9d19",
+            "primary": "#00514d",
+            "surface-tint": "#106a65",
+            "surface-dim": "#e2d8d0",
+            "inverse-on-surface": "#f9efe6",
+            "secondary-fixed": "#ffdcbc",
+            "surface-container-high": "#f0e7de",
+            "primary-fixed-dim": "#88d4cd",
+            "primary-fixed": "#a4f0e9",
+            "outline": "#6f7978",
+            "on-tertiary": "#ffffff",
+            "on-secondary-fixed-variant": "#683c00",
+            "on-error-container": "#93000a",
+            "on-primary-container": "#9ce9e2",
+            "inverse-primary": "#88d4cd",
+            "error-container": "#ffdad6",
+            "surface-container-low": "#fcf2e9",
+            "on-surface-variant": "#3f4947",
+            "on-secondary": "#ffffff",
+            "outline-variant": "#bec9c7",
+            "surface-container": "#f6ece4",
+            "inverse-surface": "#34302a",
+            "on-secondary-fixed": "#2c1600",
+            "on-secondary-container": "#663b00",
+            "on-primary": "#ffffff",
+            "surface-container-highest": "#eae1d8",
+            "primary-container": "#136b66",
+            "surface": "#fff8f3",
+            "on-surface": "#1f1b16",
+            "on-background": "#1f1b16",
+            "on-tertiary-fixed-variant": "#8c170e",
+            "tertiary-fixed-dim": "#ffb4a8"
+          },
+          borderRadius: {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          fontFamily: {
+            "label-sm": ["Plus Jakarta Sans"],
+            "headline-xl-mobile": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-xl": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"]
+          },
+          fontSize: {
+            "label-sm": ["12px", { lineHeight: "16px", letterSpacing: "0.6px", fontWeight: "800" }],
+            "headline-xl-mobile": ["30px", { lineHeight: "38px", fontWeight: "800" }],
+            "headline-sm": ["18px", { lineHeight: "24px", fontWeight: "700" }],
+            "body-lg": ["18px", { lineHeight: "26px", fontWeight: "500" }],
+            "label-md": ["14px", { lineHeight: "18px", letterSpacing: "0.4px", fontWeight: "700" }],
+            "headline-md": ["22px", { lineHeight: "28px", fontWeight: "700" }],
+            "body-md": ["16px", { lineHeight: "24px", fontWeight: "500" }],
+            "headline-lg": ["32px", { lineHeight: "40px", fontWeight: "800" }],
+            "body-sm": ["14px", { lineHeight: "20px", fontWeight: "500" }],
+            "headline-xl": ["40px", { lineHeight: "48px", fontWeight: "800" }],
+            "label-lg": ["16px", { lineHeight: "20px", letterSpacing: "0.2px", fontWeight: "700" }],
+            "headline-lg-mobile": ["24px", { lineHeight: "32px", fontWeight: "800" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined[data-weight="fill"] {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[#24211D] text-on-surface antialiased flex justify-center items-start min-h-screen">
+<main class="w-full max-w-[390px] min-h-screen relative flex flex-col justify-between overflow-hidden bg-[#2C2722]">
+<!-- TOP HEADER -->
+<header class="w-full px-4 pt-4 pb-2 z-10 flex items-center justify-between gap-3">
+<!-- Close Button with 44px hit area -->
+<button aria-label="Close lesson" class="w-11 h-11 rounded-full bg-[#3D3730] flex items-center justify-center text-white active:translate-y-[2px] transition-transform" type="button">
+<span class="material-symbols-outlined text-[22px]">close</span>
+</button>
+<!-- Progress Track -->
+<div class="flex-1 h-3.5 bg-[#423C35] rounded-full p-[2px] shadow-inner">
+<div class="h-full bg-primary-container rounded-full w-[45%] shadow-[0_2px_0_0_#0C4542]"></div>
+</div>
+<!-- Lives / Hearts Pill -->
+<div class="h-11 px-3.5 rounded-full bg-[#3D3730] flex items-center gap-1.5 shadow-[0_2px_0_0_#211E1A]">
+<span class="material-symbols-outlined text-[#FF5A43] text-[20px]" data-weight="fill">favorite</span>
+<span class="font-headline-sm text-headline-sm text-white font-extrabold leading-none">5</span>
+</div>
+</header>
+<!-- CRITICAL MODAL BACKDROP: Plain solid dim area with NO text, NO logo and NO UI behind the sheet -->
+<div aria-hidden="true" class="w-full flex-1 bg-[#2C2722]"></div>
+<!-- HINT - GRAMMAR CONCEPT BOTTOM SHEET -->
+<section class="w-full bg-surface-bright rounded-t-[2.25rem] border-t-2 border-outline-variant shadow-[0_-8px_30px_rgba(0,0,0,0.45)] z-20 flex flex-col pt-3 pb-6 px-4">
+<!-- Drag Handle -->
+<div class="w-12 h-1.5 bg-[#D1C2B4] rounded-full mx-auto mb-3"></div>
+<!-- Sheet Header -->
+<div class="flex items-center justify-between gap-3 pb-3 border-b-2 border-surface-container-high">
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 rounded-2xl bg-[#FEF3C7] border-2 border-[#F59E0B] flex items-center justify-center shadow-[0_3px_0_0_#D97706]">
+<span class="material-symbols-outlined text-[#78350F] text-[26px]" data-weight="fill">lightbulb</span>
+</div>
+<div>
+<div class="font-label-sm text-[11px] font-black tracking-widest text-[#00514D]">GRAMMAR CONCEPT</div>
+<h1 class="font-headline-md text-headline-md text-[#1F1B16] leading-tight">Hint</h1>
+</div>
+</div>
+<button aria-label="Close hint modal" class="w-11 h-11 rounded-full bg-surface-container hover:bg-surface-container-high border-2 border-outline-variant flex items-center justify-center text-[#1F1B16] active:translate-y-[2px] transition-transform" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Sheet Content Body -->
+<div class="flex flex-col gap-3.5 mt-3 max-h-[565px] overflow-y-auto pr-0.5">
+<!-- Teacher Cue Box (No text label inside the teacher icon slot) -->
+<div class="rounded-2xl border-2 border-dashed border-[#136B66] p-3.5 bg-[#F0F7F6]">
+<div class="flex items-start gap-3">
+<div class="w-11 h-11 shrink-0 rounded-2xl bg-white border-2 border-[#136B66] shadow-[0_3px_0_0_#0C4542] flex items-center justify-center">
+<span class="material-symbols-outlined text-[#136B66] text-[24px]">school</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-2 flex-wrap">
+<span class="font-label-sm text-[11px] font-black text-[#00514D] tracking-wide">TEACHER AMA</span>
+<span class="font-label-sm text-[10px] font-extrabold bg-[#FEF3C7] text-[#663B00] border border-[#FDE68A] px-2 py-0.5 rounded-full">IELTS COACH</span>
+</div>
+<p class="font-headline-sm text-[16px] text-[#1F1B16] font-extrabold mt-1">“Think: a specific point or a length?”</p>
+<p class="font-body-sm text-body-sm text-[#1F1B16] font-semibold mt-0.5">Look at the time expression right after the blank to choose the correct preposition.</p>
+</div>
+</div>
+</div>
+<!-- Core Rule Card -->
+<div class="rounded-2xl bg-surface-container-lowest border-2 border-[#E5DACB] p-3.5 shadow-[0_4px_0_0_#E2D7C7]">
+<p class="font-body-md text-body-md text-[#1F1B16] font-bold leading-relaxed">
+            Use <span class="bg-[#00514D] text-white px-2 py-0.5 rounded-full font-extrabold text-[13px] tracking-wide inline-block mx-0.5">since</span> with a starting point in time, and <span class="bg-secondary-container text-[#2C1600] px-2 py-0.5 rounded-full font-extrabold text-[13px] tracking-wide inline-block mx-0.5">for</span> with an amount of duration.
+          </p>
+</div>
+<!-- Comparison Columns -->
+<div class="grid grid-cols-2 gap-2.5">
+<!-- Left Column: SINCE -->
+<div class="rounded-2xl bg-[#EDF8F7] border-2 border-[#A2D8D2] p-3 shadow-[0_3px_0_0_#80C3BC] flex flex-col gap-2">
+<div class="flex items-center gap-1.5 pb-1.5 border-b border-[#B9E6E1]">
+<span class="w-2.5 h-2.5 rounded-full bg-[#00514D]"></span>
+<span class="font-label-sm text-[11px] font-black text-[#00514D] tracking-wider">SINCE + POINT</span>
+</div>
+<ul class="flex flex-col gap-1.5">
+<li class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-[#00514D]">schedule</span>
+<span class="font-label-md text-label-md text-[#1F1B16] font-extrabold">since 2019</span>
+</li>
+<li class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-[#00514D]">schedule</span>
+<span class="font-label-md text-label-md text-[#1F1B16] font-extrabold">since 8:00 AM</span>
+</li>
+<li class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-[#00514D]">schedule</span>
+<span class="font-label-md text-label-md text-[#1F1B16] font-extrabold">since Monday</span>
+</li>
+</ul>
+</div>
+<!-- Right Column: FOR -->
+<div class="rounded-2xl bg-[#FFF7ED] border-2 border-[#FED7AA] p-3 shadow-[0_3px_0_0_#FDBA74] flex flex-col gap-2">
+<div class="flex items-center gap-1.5 pb-1.5 border-b border-[#FFEDD5]">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-[11px] font-black text-secondary tracking-wider">FOR + LENGTH</span>
+</div>
+<ul class="flex flex-col gap-1.5">
+<li class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">hourglass_empty</span>
+<span class="font-label-md text-label-md text-[#1F1B16] font-extrabold">for 5 years</span>
+</li>
+<li class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">hourglass_empty</span>
+<span class="font-label-md text-label-md text-[#1F1B16] font-extrabold">for two hours</span>
+</li>
+<li class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">hourglass_empty</span>
+<span class="font-label-md text-label-md text-[#1F1B16] font-extrabold">for a long time</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- Example Target Sentence Card -->
+<div class="rounded-2xl bg-surface-container-lowest border-2 border-[#E5DACB] p-3.5 shadow-[0_4px_0_0_#E2D7C7]">
+<div class="flex items-center justify-between gap-2">
+<span class="font-label-sm text-[11px] font-black text-on-surface-variant tracking-wider">EXAMPLE APPLICATION</span>
+<span class="font-label-sm text-[10px] font-extrabold bg-[#E0F2FE] text-[#0369A1] border border-[#BAE6FD] px-2 py-0.5 rounded-full">TARGET SENTENCE</span>
+</div>
+<p class="font-headline-sm text-[17px] text-[#1F1B16] font-extrabold mt-2 leading-snug">
+            “She has lived here <span class="text-[#00514D] underline decoration-[#00514D] decoration-2 underline-offset-2">since</span> 2019.”
+          </p>
+<div class="flex items-start gap-1.5 mt-2 bg-[#F6ECE4] p-2 rounded-xl">
+<span class="material-symbols-outlined text-[18px] text-[#00514D] mt-0.5" data-weight="fill">check_circle</span>
+<p class="font-body-sm text-[13px] text-[#1F1B16] font-semibold leading-tight">
+<strong class="text-[#00514D]">2019</strong> is a specific calendar starting year, not a total count of elapsed years.
+            </p>
+</div>
+</div>
+<!-- Hint Cost Footnote -->
+<div class="flex items-center justify-center gap-1.5 py-1">
+<span class="material-symbols-outlined text-[18px] text-[#00514D]" data-weight="fill">verified_user</span>
+<span class="font-label-sm text-[12px] font-black text-[#00514D]">Reviewing hints never costs hearts</span>
+</div>
+<!-- Action CTAs -->
+<div class="flex flex-col gap-2 pt-1">
+<!-- Primary Tactile 3D Button -->
+<button class="w-full h-14 rounded-2xl bg-secondary-container hover:bg-[#E88E12] text-on-secondary-fixed font-headline-sm text-headline-sm flex items-center justify-center gap-2 border-2 border-[#C9790D] shadow-[0_4px_0_0_#9E5D04] active:translate-y-[3px] active:shadow-[0_1px_0_0_#9E5D04] transition-all" type="button">
+<span>Got it</span>
+<span class="material-symbols-outlined text-[22px]">check</span>
+</button>
+<!-- Secondary Dismiss Link -->
+<button class="w-full min-h-[44px] flex items-center justify-center font-label-md text-label-md text-on-surface-variant hover:text-[#1F1B16] font-bold py-1" type="button">
+            Back to question
+          </button>
+</div>
+</div>
+</section>
+</main>
+</body></html>

@@ -1,3 +1,2 @@
-/* UI zh – notices (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["zh"] = Object.assign(D["zh"] || {}, {"Đã đọc tất cả":"全部标为已读","Chưa có thông báo mới":"暂无新通知","Thông báo quan trọng":"重要通知","Vừa xong":"刚刚","Chưa đọc":"未读","{n} chưa đọc":"{n} 未读"});
-})(typeof self !== 'undefined' ? self : this);
+/* SINH từ i18n/ui/zh/notices.js – đừng sửa tay (scripts/i18n-pack.mjs) */
+(function(g){const D=g.I18N_DICT=g.I18N_DICT||{};D.zh=Object.assign(D.zh||{},{_pffv:"暂无新通知",_lyra:"未读",_wyuq:"点按查看最新状态。",_62kr:"反馈 {id} 有新进展",_uu8l:"感谢你的反馈。请重新加载应用以使用新版本。",_tb6i:"谢谢!Lexkite 会在这里告诉你进展。",_dlnl:"重要通知",_m4lx:"刚刚",_erjf:"查看反馈",_ub36:"{n} 未读",_z2ii:"已收到反馈 {id}",_2tyo:"反馈 {id} 已修复",_zwis:"全部标为已读"});})(typeof self!=='undefined'?self:this);

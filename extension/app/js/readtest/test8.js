@@ -17,7 +17,7 @@ paras: [
 ],
 groups: [
 { type: 'tfng',
-instr: 'Do the following statements agree with the information given in Reading Passage 1? Write TRUE if the statement agrees with the information, FALSE if the statement contradicts the information, NOT GIVEN if there is no information on this.',
+instr: g.RTI[1],
 items: [
 { n: 1, text: 'In the past, the value of coins depended partly on the metal from which they were made.', a: 'TRUE', cue: 'valued, at least in part, for the metal they contained' },
 { n: 2, text: "The certificates used in the 'flying money' system were commonly used to buy goods.", a: 'FALSE', cue: 'the certificates were not used to buy goods' },
@@ -27,7 +27,7 @@ items: [
 { n: 6, text: 'The Stockholm bank that issued the first European banknotes remained in business for several decades.', a: 'FALSE', cue: 'within a few years it had collapsed' },
 ] },
 { type: 'summary', title: 'Paper money in Europe',
-instr: 'Complete the summary below. Choose ONE WORD ONLY from the passage for each answer.', limit: 1,
+instr: g.RTI[19], limit: 1,
 items: [
 { n: 7, text: 'In seventeenth-century London, people who left their gold with ___ were given a written receipt, which was later used in payment.', a: ['goldsmiths'], cue: 'wealthy people often left their gold with goldsmiths for safekeeping' },
 { n: 8, text: 'In Sweden, the money used by the state took the form of heavy copper ___.', a: ['plates'], cue: 'the state had adopted large copper plates as money' },
@@ -35,7 +35,7 @@ items: [
 { n: 10, text: 'However, critics said it prevented governments from dealing effectively with economic ___.', a: ['crises'], cue: 'it made it difficult for governments to respond to economic crises' },
 ] },
 { type: 'match',
-instr: 'Reading Passage 1 has seven paragraphs, A–G. Which paragraph contains the following information? NB You may use any letter more than once.',
+instr: g.RTI[5],
 options: ['A', 'B', 'C', 'D', 'E', 'F', 'G'],
 items: [
 { n: 11, text: 'an explanation of how printing too much money caused prices to rise', a: 'D', cue: 'As the quantity of notes grew, each one bought less, and prices rose sharply' },
@@ -67,14 +67,14 @@ vocab: [
 paras: [
 { k: 'A', t: "Every autumn, billions of birds leave their breeding grounds and fly to the places where they will spend the winter, sometimes on another continent. Many travel at night and alone, and some young birds make the journey for the first time without any adult to follow. The bar-tailed godwit, a wading bird, has been tracked flying from Alaska to New Zealand, a distance of more than 11,000 kilometres, without once landing to rest or feed. Scientists who study these journeys usually divide the challenge into two parts. To travel in a chosen direction, a bird needs a compass. But a compass alone is not enough: to know which direction to choose, especially after being blown off course, it also needs something like a map, a sense of where it is in relation to its goal." },
 { k: 'B', t: "The first compass to be identified was the sun. In the 1950s, researchers placed caged starlings in a circular enclosure with windows and noticed that, during the migration season, the birds consistently hopped towards one side of the cage. When mirrors were used to shift the apparent position of the sun, the birds shifted their direction by the same angle. Because the sun moves across the sky during the day, using it as a compass requires an accurate internal clock, and birds whose daily rhythm had been artificially delayed by several hours made predictable errors. Night-flying species, it later emerged, use the stars instead. Young birds raised under the artificial sky of a planetarium learned to identify the point around which the stars appeared to rotate, and used it to find north, even when the patterns of the constellations had been altered." },
-{ k: 'C', t: "Yet birds kept in closed rooms with no view of the sky could still orient themselves correctly, which suggested that something else was involved. That something turned out to be the Earth's magnetic field. In experiments with European robins in the 1960s, researchers surrounded cages with electric coils that could change the direction of the field, and the birds changed their heading accordingly. The bird's magnetic compass, however, proved to be very different from the instrument used by human navigators. A ship's compass points to magnetic north. The birds, by contrast, appeared to ignore whether the field pointed north or south and instead responded to the angle at which the field lines dip towards the Earth's surface. What birds perceive, in other words, is not 'north' but 'towards the pole' or 'towards the equator'." },
-{ k: 'D', t: "How birds detect the field has been one of the most persistent puzzles in biology. One early theory proposed that tiny particles of magnetite, a magnetic iron mineral, acted like microscopic compass needles somewhere in the bird's body. In the early 2000s, clusters of iron-rich cells were reported in the upper beaks of pigeons, and for a time this seemed to settle the matter. Later work proved more disappointing. When a team led by Dr Clara Hoffmann examined the beaks of hundreds of pigeons in detail, they found that most of the iron-rich cells were in fact a type of immune cell, which collects iron for quite different reasons and is unlikely to sense magnetism. The magnetite idea has not been entirely abandoned, and some researchers think it may help birds to measure the strength of the field rather than its direction, but it no longer appears to explain the compass." },
+{ k: 'C', t: "Yet birds kept in closed rooms with no view of the sky could still orient themselves correctly, which suggested that something else was involved. That something turned out to be the Earth's magnetic field. In experiments with European robins in the 1960s, researchers surrounded cages with electric coils that could change the direction of the field, and the birds changed their heading accordingly. The bird's magnetic compass, however, proved to be very different from the instrument used by human navigators. A ship's compass points to magnetic north. The birds, by contrast, appeared to ignore whether the field pointed north or south and instead responded to the angle at which the field lines dip towards the Earth's surface." },
+{ k: 'D', t: "How birds detect the field has been one of the most persistent puzzles in biology. One early theory proposed that tiny particles of magnetite, a magnetic iron mineral, acted like microscopic compass needles somewhere in the bird's body. In the early 2000s, clusters of iron-rich cells were reported in the upper beaks of pigeons, and for a time this seemed to settle the matter. Later work proved more disappointing. When a team led by Dr Clara Hoffmann examined the beaks of hundreds of pigeons in detail, they found that most of the iron-rich cells were in fact a type of immune cell, which collects iron for quite different reasons and is unlikely to sense magnetism." },
 { k: 'E', t: "Attention has therefore shifted to the eye. According to the most widely supported explanation, the compass depends on a light-sensitive protein called cryptochrome, which is found in the retina. When light strikes this protein, it triggers a chemical reaction whose outcome is very slightly influenced by the orientation of the magnetic field, so that the bird might literally see the field as a pattern of light and shade laid over its normal vision. This idea is consistent with several observations: the magnetic compass works only when some light is present, and it stops working when the part of the brain that processes information from the eyes is damaged. The most striking evidence came by accident. Researchers at a German university found that robins kept in wooden huts on the campus could not orient themselves magnetically, but recovered the ability when the huts were lined with aluminium screens. The cause turned out to be weak electromagnetic noise from ordinary electronic equipment. Dr Paul Lindqvist, who was not involved in the study, describes this as the result that convinced many sceptics, since such weak noise should affect a chemical reaction in the eye but not a magnetic mineral. He cautions, however, that nobody has yet traced the full path of the signal from the retina to the brain." },
 { k: 'F', t: "The compass, however, is only half the story. The map sense remains far less well understood, and here the evidence points in several directions at once. Pigeons whose sense of smell has been blocked often have difficulty returning home from unfamiliar sites, and Dr Ana Ribeiro argues that they build a kind of map from the odours carried on the wind. A classic experiment with starlings suggests that experience is crucial. Thousands of birds were caught in the Netherlands during their autumn migration, transported several hundred kilometres to Switzerland and released. Adult birds corrected for the move and headed towards their usual wintering grounds. Young birds on their first migration, however, simply continued in their original direction and ended up far from where they should have been. According to Dr Mei Tanaka, this shows that young birds travel with a compass and an inherited instruction, such as 'fly south-west for a certain number of days', and develop a true map only after completing the journey at least once." },
 ],
 groups: [
 { type: 'match',
-instr: 'Reading Passage 2 has six paragraphs, A–F. Choose the correct heading for each paragraph from the list of headings below.',
+instr: g.RTI[9],
 options: [
 'i Where am I? A question still without a clear answer',
 'ii The physical cost of flying without a break',
@@ -95,7 +95,7 @@ items: [
 { n: 19, text: 'Paragraph F', a: 'i', cue: 'The map sense remains far less well understood' },
 ] },
 { type: 'match',
-instr: 'Look at the following statements (Questions 20–23) and the list of researchers below. Match each statement with the correct researcher, A–D.',
+instr: g.RTI[12],
 options: [
 'A Clara Hoffmann',
 'B Paul Lindqvist',
@@ -109,7 +109,7 @@ items: [
 { n: 23, text: 'One important part of how birds sense the magnetic field has still not been explained.', a: 'B', cue: 'nobody has yet traced the full path of the signal from the retina to the brain' },
 ] },
 { type: 'sentence',
-instr: 'Complete the sentences below. Choose NO MORE THAN TWO WORDS from the passage for each answer.', limit: 2,
+instr: g.RTI[8], limit: 2,
 items: [
 { n: 24, text: 'To use the sun as a compass, a bird must have an accurate ___.', a: ['internal clock'], cue: 'using it as a compass requires an accurate internal clock' },
 { n: 25, text: 'Young night-flying birds kept in a ___ learned to locate north from the rotation of the stars.', a: ['planetarium'], cue: 'Young birds raised under the artificial sky of a planetarium' },
@@ -148,7 +148,7 @@ paras: [
 { k: 'G', t: "What, then, should governments do? Some have offered generous subsidies to vertical farming companies on the grounds that they represent the future of food. I believe this is a mistake. Public money would be better spent on research, particularly into more efficient lighting and into crop varieties bred specifically for indoor conditions, since almost all existing varieties were developed for growing outdoors. Nor should we dismiss the technology because of a wave of bankruptcies; many industries that are now taken for granted, from railways to aviation, went through similar periods of collapse before they matured. The vertical farm is neither a solution to world hunger nor a passing fashion. It is a useful but expensive tool, and the sensible question is not whether it will replace the field, but where it can complement it." },
 ],
 groups: [
-{ type: 'mcq', instr: 'Choose the correct letter, A, B, C or D.',
+{ type: 'mcq', instr: g.RTI[3],
 items: [
 { n: 27, q: 'What is the writer’s main purpose in paragraph A?',
 options: ['to explain why investors lost interest in vertical farming', 'to suggest that both optimistic and pessimistic views of vertical farming are mistaken', 'to describe how the first vertical farms were developed', 'to compare the yields of different types of indoor crop'],
@@ -164,7 +164,7 @@ options: ['It is the main source of carbon emissions in the food system.', 'Its 
 a: 1, cue: 'may therefore have a larger carbon footprint than one carried hundreds of kilometres by lorry from a field' },
 ] },
 { type: 'ynng',
-instr: 'Do the following statements agree with the claims of the writer in Reading Passage 3? Write YES if the statement agrees with the claims of the writer, NO if the statement contradicts the claims of the writer, NOT GIVEN if it is impossible to say what the writer thinks about this.',
+instr: g.RTI[0],
 items: [
 { n: 31, text: 'LED lamps have now reached the limit of their possible efficiency.', a: 'NO', cue: 'further gains are possible' },
 { n: 32, text: 'Leafy greens are well suited to being grown in vertical farms.', a: 'YES', cue: 'Leafy greens and herbs suit the system well' },
@@ -185,7 +185,7 @@ options: [
 a: ['B', 'D'],
 cue: 'which reduces waste, and growers can choose varieties for their flavour' },
 { type: 'match',
-instr: 'Complete each sentence with the correct ending, A–F, below.',
+instr: g.RTI[17],
 options: [
 'A might reduce labour costs but would require further investment.',
 'B has already made indoor produce cheaper than field-grown produce.',

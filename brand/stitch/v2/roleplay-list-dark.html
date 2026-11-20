@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Role-play conversations - Lexkite (dark – dark-from-light.mjs)</title>
+<!-- Material Symbols Outlined & Rounded -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Nunito+Sans:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface": "#fdf9f3",
+            "inverse-surface": "#31302d",
+            "surface-variant": "#e6e2dc",
+            "on-surface": "#1c1c18",
+            "inverse-on-surface": "#f4f0ea",
+            "tertiary-fixed": "#ffdad3",
+            "on-secondary": "#ffffff",
+            "on-background": "#1c1c18",
+            "on-secondary-fixed-variant": "#00504b",
+            "primary": "#002627",
+            "on-surface-variant": "#404848",
+            "on-primary": "#ffffff",
+            "error-container": "#ffdad6",
+            "tertiary-container": "#720a00",
+            "primary-fixed": "#beebeb",
+            "on-primary-fixed-variant": "#224d4e",
+            "secondary-container": "#88f5ea",
+            "surface-bright": "#fdf9f3",
+            "error": "#ba1a1a",
+            "tertiary": "#4a0400",
+            "surface-container": "#f1ede7",
+            "primary-fixed-dim": "#a3cfcf",
+            "tertiary-fixed-dim": "#ffb4a6",
+            "on-tertiary": "#ffffff",
+            "surface-container-low": "#f7f3ed",
+            "secondary-fixed-dim": "#6bd8ce",
+            "on-secondary-container": "#00716a",
+            "surface-dim": "#dddad4",
+            "outline-variant": "#c0c8c8",
+            "outline": "#717978",
+            "secondary": "#006a64",
+            "surface-tint": "#3b6566",
+            "on-error-container": "#93000a",
+            "on-tertiary-fixed": "#3f0300",
+            "on-tertiary-fixed-variant": "#900f00",
+            "on-primary-fixed": "#002020",
+            "background": "#fdf9f3",
+            "surface-container-lowest": "#ffffff",
+            "inverse-primary": "#a3cfcf",
+            "secondary-fixed": "#88f5ea",
+            "surface-container-highest": "#e6e2dc",
+            "on-tertiary-container": "#ff765e",
+            "on-secondary-fixed": "#00201e",
+            "on-primary-container": "#7da8a8",
+            "surface-container-high": "#ebe8e2",
+            "primary-container": "#0f3d3e",
+            "on-error": "#ffffff"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "space-xl": "2.5rem",
+            "space-md": "1rem",
+            "space-lg": "1.5rem",
+            "margin": "2rem",
+            "gutter": "1.5rem"
+          },
+          fontFamily: {
+            "body-md": ["Plus Jakarta Sans", "Nunito Sans", "sans-serif"],
+            "label-sm": ["Plus Jakarta Sans", "Nunito Sans", "sans-serif"],
+            "headline-lg": ["Plus Jakarta Sans", "Nunito Sans", "sans-serif"],
+            "headline-md": ["Plus Jakarta Sans", "Nunito Sans", "sans-serif"],
+            "label-md": ["Plus Jakarta Sans", "Nunito Sans", "sans-serif"],
+            "headline-xl": ["Plus Jakarta Sans", "Nunito Sans", "sans-serif"],
+            "headline-sm": ["Plus Jakarta Sans", "Nunito Sans", "sans-serif"],
+            "body-sm": ["Plus Jakarta Sans", "Nunito Sans", "sans-serif"],
+            "body-lg": ["Plus Jakarta Sans", "Nunito Sans", "sans-serif"]
+          },
+          fontSize: {
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "600" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+            "label-md": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+            "headline-xl": ["40px", { "lineHeight": "48px", "fontWeight": "700" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 24px;
+      line-height: 1;
+      display: inline-block;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+      -webkit-font-smoothing: antialiased;
+    }
+    /* Tactile tactile button 3D bottom ledge */
+    .tactile-coral-btn {
+      background-color: #C94731;
+      box-shadow: 0 4px 0 #7D2C1E;
+      transition: all 0.1s ease-in-out;
+    }
+    .tactile-coral-btn:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 #0E1618;
+    }
+    .tactile-card {
+      box-shadow: 0 3px 0 #0E1618;
+      border: 2px solid #4A6870;
+    }
+    .tactile-card:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 #0E1618;
+    }
+    .tactile-pill-active {
+      box-shadow: 0 2px 0 #0E1618;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[#1D2F33] text-[#EAF2F2] antialiased font-body-md flex justify-center min-h-screen py-0 sm:py-6 selection:bg-[#1F4A4E]">
+<!-- Mobile Frame Container (390px Max Inner Screen) -->
+<main class="w-full max-w-[390px] bg-[#1D2F33] min-h-screen flex flex-col relative pb-28 sm:border sm:border-[#37525A]/40 sm:shadow-lg sm:rounded-[32px] overflow-hidden">
+<!-- Top Bar (Shared Components standard: Inner Screen linear flow with back action) -->
+<header class="flex justify-between items-center w-full px-4 h-14 bg-[#1D2F33] border-b border-[#37525A]/20 sticky top-0 z-30">
+<div class="flex items-center gap-2">
+<button aria-label="Go back" class="w-11 h-11 flex items-center justify-center rounded-full active:scale-95 text-[#5EEAD4] hover:bg-[#263A3F] transition-colors" type="button">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-headline-sm text-headline-sm font-bold text-[#EAF2F2] tracking-tight">Role-play conversations</h1>
+</div>
+<div class="flex items-center">
+<span class="font-label-md text-label-md text-[#EAF2F2] px-2 py-1 bg-[#263A3F] rounded-lg font-bold">EN • VN</span>
+</div>
+</header>
+<!-- Scrollable Content Canvas -->
+<div class="px-4 pt-3.5 space-y-5 flex-1 overflow-y-auto">
+<!-- Intro Card & Teacher Slot Badge -->
+<section class="bg-[#162528] rounded-2xl p-4 border-2 border-[#4A6870] shadow-sm relative overflow-hidden">
+<div class="flex items-start gap-3">
+<div class="w-11 h-11 rounded-xl bg-[#12514D] text-secondary-container flex items-center justify-center shrink-0 shadow-inner">
+<span class="material-symbols-outlined" data-icon="forum" style="font-variation-settings: 'FILL' 1;">forum</span>
+</div>
+<div class="flex-1 space-y-1.5">
+<div class="flex items-center justify-between gap-1 flex-wrap">
+<span class="font-headline-sm text-[16px] leading-[22px] font-bold text-[#5EEAD4]">Interactive Stage</span>
+<!-- Teacher/AI slot pill -->
+<div class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#263A3F] border border-[#37525A] text-[11px] font-bold text-[#5EEAD4]" data-slot="teacher-slot">
+<span class="w-2 h-2 rounded-full bg-[#12514D]"></span>
+<span>Ama (Teacher AI) active</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-[#EAF2F2] leading-relaxed">
+              Role-play with AI, from everyday situations to the workplace: speak or type, get scored and better phrasings.
+            </p>
+</div>
+</div>
+</section>
+<!-- CEFR Level Segmented Control (High-contrast, Min 44px touch targets) -->
+<nav aria-label="CEFR Levels" class="w-full">
+<div class="bg-[#263A3F] p-1 rounded-2xl flex items-center gap-1 border border-[#4A6870]">
+<!-- A1 -->
+<button class="flex-1 h-11 rounded-xl flex items-center justify-center text-center font-label-md text-label-md font-semibold text-[#EAF2F2] hover:text-[#5EEAD4] transition-all active:scale-95" type="button">
+<span>A1 / Beginner</span>
+</button>
+<!-- A2 (SELECTED State) -->
+<button class="flex-1 h-11 rounded-xl bg-[#12514D] text-white font-label-md text-label-md font-bold tactile-pill-active flex items-center justify-center text-center transition-all shadow-sm" type="button">
+<span>A2 / Elementary</span>
+</button>
+<!-- B1 -->
+<button class="flex-1 h-11 rounded-xl flex items-center justify-center text-center font-label-md text-label-md font-semibold text-[#EAF2F2] hover:text-[#5EEAD4] transition-all active:scale-95" type="button">
+<span>B1 / Intermediate</span>
+</button>
+</div>
+</nav>
+<!-- Section 1: Everyday situations -->
+<section class="space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<h2 class="font-headline-sm text-headline-sm font-bold text-[#5EEAD4]">Everyday situations</h2>
+<span class="px-2 py-0.5 rounded-full bg-[#263A3F] border border-[#4A6870] text-[#5EEAD4] font-label-sm text-label-sm font-bold">A1 – B1</span>
+</div>
+<span class="font-label-sm text-label-sm text-[#EAF2F2] font-semibold">4 scenarios</span>
+</div>
+<!-- Two-column grid -->
+<div class="grid grid-cols-2 gap-3.5">
+<!-- Card 1: Cafe -->
+<article class="tactile-card bg-[#162528] rounded-2xl p-3.5 flex flex-col justify-between min-h-[178px] transition-transform">
+<div>
+<div class="flex items-center justify-between mb-2">
+<span aria-label="Coffee cup" class="text-2xl" role="img">☕</span>
+<span class="px-2 py-0.5 rounded-md bg-[#263A3F] text-[11px] font-bold text-[#EAF2F2]">Daily life</span>
+</div>
+<h3 class="font-label-md text-[15px] font-bold text-[#EAF2F2] leading-snug">Ordering at a cafe</h3>
+<p class="font-body-sm text-[12px] text-[#EAF2F2] mt-0.5">Gọi món tại quán cà phê</p>
+</div>
+<div class="pt-3 border-t border-[#37525A]/40 flex items-center justify-between mt-2">
+<span class="font-label-sm text-[12px] font-bold text-[#5EEAD4] flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="sync">sync</span> 6 turns
+              </span>
+<button aria-label="Start Ordering at a cafe" class="w-11 h-11 rounded-xl bg-[#263A3F] flex items-center justify-center text-[#5EEAD4] font-bold hover:bg-[#1F4A4E] active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="play_arrow" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+</div>
+</article>
+<!-- Card 2: Directions -->
+<article class="tactile-card bg-[#162528] rounded-2xl p-3.5 flex flex-col justify-between min-h-[178px] transition-transform">
+<div>
+<div class="flex items-center justify-between mb-2">
+<span aria-label="World Map" class="text-2xl" role="img">🗺️</span>
+<span class="px-2 py-0.5 rounded-md bg-[#263A3F] text-[11px] font-bold text-[#EAF2F2]">Travel</span>
+</div>
+<h3 class="font-label-md text-[15px] font-bold text-[#EAF2F2] leading-snug">Asking for directions</h3>
+<p class="font-body-sm text-[12px] text-[#EAF2F2] mt-0.5">Hỏi đường đi</p>
+</div>
+<div class="pt-3 border-t border-[#37525A]/40 flex items-center justify-between mt-2">
+<span class="font-label-sm text-[12px] font-bold text-[#5EEAD4] flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="sync">sync</span> 6 turns
+              </span>
+<button aria-label="Start Asking for directions" class="w-11 h-11 rounded-xl bg-[#263A3F] flex items-center justify-center text-[#5EEAD4] font-bold hover:bg-[#1F4A4E] active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="play_arrow" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+</div>
+</article>
+<!-- Card 3: Hotel check-in -->
+<article class="tactile-card bg-[#162528] rounded-2xl p-3.5 flex flex-col justify-between min-h-[178px] transition-transform">
+<div>
+<div class="flex items-center justify-between mb-2">
+<span aria-label="Hotel" class="text-2xl" role="img">🏨</span>
+<span class="px-2 py-0.5 rounded-md bg-[#263A3F] text-[11px] font-bold text-[#EAF2F2]">Travel</span>
+</div>
+<h3 class="font-label-md text-[15px] font-bold text-[#EAF2F2] leading-snug">Hotel check-in</h3>
+<p class="font-body-sm text-[12px] text-[#EAF2F2] mt-0.5">Thủ tục nhận phòng</p>
+</div>
+<div class="pt-3 border-t border-[#37525A]/40 flex items-center justify-between mt-2">
+<span class="font-label-sm text-[12px] font-bold text-[#5EEAD4] flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="sync">sync</span> 7 turns
+              </span>
+<button aria-label="Start Hotel check-in" class="w-11 h-11 rounded-xl bg-[#263A3F] flex items-center justify-center text-[#5EEAD4] font-bold hover:bg-[#1F4A4E] active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="play_arrow" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+</div>
+</article>
+<!-- Card 4: Doctor -->
+<article class="tactile-card bg-[#162528] rounded-2xl p-3.5 flex flex-col justify-between min-h-[178px] transition-transform">
+<div>
+<div class="flex items-center justify-between mb-2">
+<span aria-label="Stethoscope" class="text-2xl" role="img">🩺</span>
+<span class="px-2 py-0.5 rounded-md bg-[#263A3F] text-[11px] font-bold text-[#EAF2F2]">Health</span>
+</div>
+<h3 class="font-label-md text-[15px] font-bold text-[#EAF2F2] leading-snug">Seeing a doctor</h3>
+<p class="font-body-sm text-[12px] text-[#EAF2F2] mt-0.5">Khám bệnh &amp; triệu chứng</p>
+</div>
+<div class="pt-3 border-t border-[#37525A]/40 flex items-center justify-between mt-2">
+<span class="font-label-sm text-[12px] font-bold text-[#5EEAD4] flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="sync">sync</span> 8 turns
+              </span>
+<button aria-label="Start Seeing a doctor" class="w-11 h-11 rounded-xl bg-[#263A3F] flex items-center justify-center text-[#5EEAD4] font-bold hover:bg-[#1F4A4E] active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="play_arrow" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+</div>
+</article>
+</div>
+</section>
+<!-- Section 2: Workplace -->
+<section class="space-y-3 pt-1">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<h2 class="font-headline-sm text-headline-sm font-bold text-[#5EEAD4]">Workplace</h2>
+<span class="px-2 py-0.5 rounded-full bg-[#263A3F] border border-[#4A6870] text-[#5EEAD4] font-label-sm text-label-sm font-bold">B1 – C1</span>
+</div>
+<span class="font-label-sm text-label-sm text-[#EAF2F2] font-semibold">2 scenarios</span>
+</div>
+<div class="space-y-3">
+<!-- Workplace Card 1: Overseas Boss -->
+<article class="tactile-card bg-[#162528] rounded-2xl p-4 flex items-center justify-between gap-3 transition-transform">
+<div class="flex items-start gap-3.5">
+<div class="w-12 h-12 rounded-xl bg-[#263A3F] flex items-center justify-center text-2xl shrink-0">
+<span aria-label="Briefcase" role="img">💼</span>
+</div>
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded-md bg-[#263A3F] text-[11px] font-bold text-[#EAF2F2]">Business</span>
+<span class="font-label-sm text-[12px] font-bold text-[#5EEAD4] flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]" data-icon="sync">sync</span> 8 turns
+                  </span>
+</div>
+<h3 class="font-headline-sm text-[16px] font-bold text-[#EAF2F2] leading-tight">Meeting with an overseas boss</h3>
+<p class="font-body-sm text-[13px] text-[#EAF2F2]">Họp với sếp nước ngoài</p>
+</div>
+</div>
+<button aria-label="Start role-play meeting with an overseas boss" class="w-11 h-11 shrink-0 rounded-xl bg-[#12514D] text-white flex items-center justify-center font-bold hover:bg-[#12514D] active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</article>
+<!-- Workplace Card 2: Salary Negotiation -->
+<article class="tactile-card bg-[#162528] rounded-2xl p-4 flex items-center justify-between gap-3 transition-transform">
+<div class="flex items-start gap-3.5">
+<div class="w-12 h-12 rounded-xl bg-[#263A3F] flex items-center justify-center text-2xl shrink-0">
+<span aria-label="Chart increasing" role="img">📈</span>
+</div>
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded-md bg-[#263A3F] text-[11px] font-bold text-[#EAF2F2]">Career</span>
+<span class="font-label-sm text-[12px] font-bold text-[#5EEAD4] flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]" data-icon="sync">sync</span> 9 turns
+                  </span>
+</div>
+<h3 class="font-headline-sm text-[16px] font-bold text-[#EAF2F2] leading-tight">Salary negotiation</h3>
+<p class="font-body-sm text-[13px] text-[#EAF2F2]">Đàm phán lương thưởng</p>
+</div>
+</div>
+<button aria-label="Start salary negotiation practice" class="w-11 h-11 shrink-0 rounded-xl bg-[#12514D] text-white flex items-center justify-center font-bold hover:bg-[#12514D] active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</article>
+</div>
+</section>
+<!-- Footer Informative Note -->
+<footer class="p-3.5 rounded-xl bg-[#263A3F] border border-[#4A6870] flex items-start gap-2.5">
+<span class="material-symbols-outlined text-[#5EEAD4] text-[20px] shrink-0 mt-0.5" data-icon="info">info</span>
+<p class="font-body-sm text-[12.5px] leading-relaxed text-[#EAF2F2]">
+          On-device AI (Chrome) or Lexkite free AI plays the role. When AI turns run out a scripted dialogue is used.
+        </p>
+</footer>
+</div>
+<!-- Pinned Floating Primary CTA Bar (Tactile Coral Button with bottom ledge) -->
+<div class="fixed sm:absolute bottom-0 left-0 right-0 p-4 bg-[#1D2F33]/95 backdrop-blur-sm border-t border-[#37525A]/30 z-40 max-w-[390px] mx-auto">
+<button class="tactile-coral-btn w-full h-12 rounded-xl text-white font-headline-sm text-[16px] font-bold flex items-center justify-center gap-2 active:scale-98 transition-all" type="button">
+<span>Quick practice (Random scenario)</span>
+<span class="material-symbols-outlined text-[20px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</main>
+<script>
+    // Lightweight tactile click handler for feedback
+    document.querySelectorAll('button').forEach(btn => {
+      btn.addEventListener('click', function() {
+        if (!this.classList.contains('active-tab')) {
+          this.style.opacity = '0.9';
+          setTimeout(() => this.style.opacity = '1', 120);
+        }
+      });
+    });
+  </script>
+</body></html>

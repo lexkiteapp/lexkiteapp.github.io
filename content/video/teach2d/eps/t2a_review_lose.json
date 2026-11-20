@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_lose",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: lose.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means to be unable to find something you once had.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "Don't lose your ticket, or you will have to buy another one.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "lose",
+  "ipa": "/luːz/",
+  "mean": "to be unable to find something you once had",
+  "ex": "Don't lose your ticket, or you will have to buy another one.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=lose",
+  "link": "https://lexkite.com/app/#/review?w=lose",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 48,
+  "seconds": 28.6,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "What does \"lose\" mean?",
+  "keyword": "lose",
+  "value": "Lose means to be unable to find something you once had.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=lose",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"lose\" mean?",
+    "description": "Lose means to be unable to find something you once had.\n\nReview your words, free: https://lexkite.com/app/#/review?w=lose\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "lose",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"lose\" mean?\n\nLose means to be unable to find something you once had.\n\nReview your words, free: https://lexkite.com/app/#/review?w=lose"
+   },
+   "instagram": {
+    "caption": "What does \"lose\" mean?\n\nLose means to be unable to find something you once had.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"lose\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means to be unable to find something you once had. Lose means to be unable to find something you once had. More practice like this (free): {link}"
+ }
+}

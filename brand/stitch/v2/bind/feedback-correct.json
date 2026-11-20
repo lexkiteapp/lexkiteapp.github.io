@@ -13,38 +13,39 @@
   "to music.\"": "d.qpost ? d.qpost + '\"' : ''"
  },
  "html": {
-  ":scope > main > div > div:nth-child(5) > div:nth-child(2) > div:nth-child(1)": "d.tlabel",
-  ":scope > main > div > div:nth-child(5) > div:nth-child(2) > div:nth-child(2) > span:nth-child(1)": "d.word",
-  ":scope > main > div > div:nth-child(5) > div:nth-child(2) > div:nth-child(2) > span:nth-child(2)": "d.ipa",
-  ":scope > main > div > div:nth-child(5) > div:nth-child(2) > p": "d.mean",
-  ":scope > main > div > div:nth-child(5) > div:nth-child(2) > div:nth-child(2) > div > button:nth-child(1) > span:nth-child(2)": "d.a1",
-  ":scope > main > div > div:nth-child(5) > div:nth-child(2) > div:nth-child(2) > div > button:nth-child(2) > span:nth-child(2)": "d.a2",
+  ":scope > main > div > div:nth-child(5) > div:nth-child(3) > div:nth-child(1)": "d.tlabel",
+  ":scope > main > div > div:nth-child(5) > div:nth-child(3) > div:nth-child(2) > span:nth-child(1)": "d.word",
+  ":scope > main > div > div:nth-child(5) > div:nth-child(3) > div:nth-child(2) > span:nth-child(2)": "d.ipa",
+  ":scope > main > div > div:nth-child(5) > div:nth-child(3) > p": "d.mean",
+  ":scope > main > div > div:nth-child(5) > div:nth-child(3) > div:nth-child(2) > div > button:nth-child(1) > span:nth-child(2)": "d.a1",
+  ":scope > main > div > div:nth-child(5) > div:nth-child(3) > div:nth-child(2) > div > button:nth-child(2) > span:nth-child(2)": "d.a2",
   ":scope > main > div > div:nth-child(4) > div:nth-child(1) > div:nth-child(1) > span": "e(d.qkind)",
-  ":scope > main > div > div:nth-child(4) > div:nth-child(1) > p > span": "e(d.qpick)"
+  ":scope > main > div > div:nth-child(4) > div:nth-child(1) > p > span": "e(d.qpick)",
+  ":scope > main > div > div:nth-child(5) > div:nth-child(2)": "d.extra"
  },
  "attr": {
   ":scope > main > div > div:nth-child(5) > div:nth-child(1)": {
    "role": "'status'"
   },
-  ":scope > main > div > div:nth-child(5) > div:nth-child(3) > button": {
+  ":scope > main > div > div:nth-child(5) > div:nth-child(4) > button": {
    "id": "'lsnWhy'",
    "type": "'button'"
   },
-  ":scope > main > div > div:nth-child(5) > div:nth-child(4) > button": {
+  ":scope > main > div > div:nth-child(5) > div:nth-child(5) > button": {
    "id": "'lsnNext'",
    "type": "'button'"
   },
   ":scope > main > div > div:nth-child(5) .material-symbols-outlined": {
    "aria-hidden": "'true'"
   },
-  ":scope > main > div > div:nth-child(5) > div:nth-child(2) > div:nth-child(2) > div > button:nth-child(1)": {
+  ":scope > main > div > div:nth-child(5) > div:nth-child(3) > div:nth-child(2) > div > button:nth-child(1)": {
    "type": "'button'",
    "data-speak": "d.say",
    "data-accent": "d.acc1",
    "data-url": "d.url1",
    "aria-label": "d.ar1"
   },
-  ":scope > main > div > div:nth-child(5) > div:nth-child(2) > div:nth-child(2) > div > button:nth-child(2)": {
+  ":scope > main > div > div:nth-child(5) > div:nth-child(3) > div:nth-child(2) > div > button:nth-child(2)": {
    "type": "'button'",
    "data-speak": "d.say",
    "data-accent": "d.acc2",
@@ -62,17 +63,16 @@
  },
  "addClass": {
   ":scope > main > div > div:nth-child(5) > div:nth-child(1) > div:nth-child(2)": "lsn-xpp",
-  ":scope > main > div > div:nth-child(5) > div:nth-child(2)": "lsn-dict",
-  ":scope > main > div > div:nth-child(5) > div:nth-child(3)": "lsn-whyrow",
+  ":scope > main > div > div:nth-child(5) > div:nth-child(3)": "lsn-dict",
+  ":scope > main > div > div:nth-child(5) > div:nth-child(4)": "lsn-whyrow",
   ":scope > main > div > div:nth-child(4) > div:nth-child(1) > p": "lsn-fqs",
   ":scope > main > div > div:nth-child(4) > div:nth-child(1) > div:nth-child(1) > button": "min-w-[44px] min-h-[44px] -m-[13px]"
  },
  "after": {
-  ":scope > main > div > div:nth-child(5) > div:nth-child(1)": "d.extra",
-  ":scope > main > div > div:nth-child(5) > div:nth-child(3)": "d.boxes"
+  ":scope > main > div > div:nth-child(5) > div:nth-child(4)": "d.boxes"
  },
  "cls": {
-  ":scope > main > div > div:nth-child(5) > div:nth-child(2) > div:nth-child(2) > div > button": {
+  ":scope > main > div > div:nth-child(5) > div:nth-child(3) > div:nth-child(2) > div > button": {
    "dk:text-[#2BA39A]": "'dk:text-[#4FD1C5]'"
   }
  },

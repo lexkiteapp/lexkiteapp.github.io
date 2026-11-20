@@ -94,8 +94,7 @@
 'Hồ sơ': 'Profile',
 'Đăng xuất khỏi Lexkite?': 'Sign out of Lexkite?',
 'Dữ liệu học vẫn ở lại trên máy này và đã được sao lưu trong tài khoản. Đăng nhập lại bất cứ lúc nào để đồng bộ tiếp.': 'Your study data stays on this device and is already backed up to your account. Sign in again anytime to keep syncing.',
-'Đăng nhập để khôi phục dữ liệu học của bạn.': 'Sign in to restore your study data.',
-'Học không cần tài khoản': 'Continue without an account',
+
 
 // ui.js
 'Cần cho phép dùng micro – bấm biểu tượng 🎙️/🔒 trên thanh địa chỉ và chọn “Cho phép”.': 'Microphone access needed – click the 🎙️/🔒 icon in the address bar and choose “Allow”.',
@@ -103,6 +102,7 @@
 'Không nghe thấy gì – bấm micro rồi đọc to, rõ ràng nhé.': 'Didn’t hear anything – tap the mic and speak loudly and clearly.',
 'Không tìm thấy micro – kiểm tra tai nghe/micro của máy.': 'No microphone found – check your headset or mic.',
 'Không kết nối được dịch vụ nhận dạng giọng nói (cần Internet).': 'Couldn’t reach the speech recognition service (internet required).',
+'Chưa chạy được nhận dạng giọng nói trên máy – kiểm tra Internet rồi bấm micro thử lại.': 'On-device speech recognition couldn’t start – check your internet, then tap the mic to try again.',
 'Trình duyệt không hỗ trợ nhận dạng giọng nói – hãy dùng Chrome hoặc Edge.': 'This browser doesn’t support speech recognition – please use Chrome or Edge.',
 'Micro đang bận – thử lại sau 1 giây.': 'Microphone is busy – try again in a second.',
 'Lỗi nhận dạng: {err}': 'Recognition error: {err}',
@@ -216,4 +216,5 @@
 'Không bắt buộc – Lexkite đã có AI miễn phí, không cần khóa. Thêm khóa Gemini miễn phí của riêng bạn nếu muốn dùng nhiều lượt hơn mức miễn phí mỗi ngày.': 'Optional – Lexkite already includes free AI, no key needed. Add your own free Gemini key only if you want more uses than the daily free limit.',
 'Thêm khóa Gemini riêng (không bắt buộc)': 'Add your own Gemini key (optional)',
 'Dịch máy': 'Machine translation',
+'Cần giúp không? Cứ thử nhé – sai cũng không sao, mình học từ đó.': 'Need a hand? Just give it a try – mistakes are how we learn.',
 }); })(typeof self !== 'undefined' ? self : this);

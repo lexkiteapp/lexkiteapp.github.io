@@ -171,6 +171,14 @@ Task 1에서 가장 점수 비중이 큰 핵심 단락입니다. 구체적인 �
 
 ---
 
+Task 1을 마친 뒤에는 [Band 7+ 4단락 에세이 템플릿](/ko/blog/ielts-writing-task-2-template-4danrak/)으로 Task 2의 구조도 점검해 보세요.
+
+막대 그래프 하나만 놓고 4단계로 리포트를 써 보고 싶다면 [아이엘츠 라이팅 task 1 막대 그래프 작성법](/ko/blog/ielts-writing-task-1-makdae-graph-model-answer/)에서 직접 만든 데이터와 모범 리포트를 확인해 보세요.
+
+보고서에 이유나 의견을 덧붙이는 실수를 비롯한 감점 패턴은 [아이엘츠 라이팅 실수 교정법](/ko/blog/ielts-writing-jaju-hanun-silsu-gyojeong/)에 채점 기준별로 정리했습니다.
+
+그림이 숫자가 아니라 순서를 보여 주는 문제라면 [IELTS 라이팅 Task 1 프로세스 쓰는 법](/ko/blog/ielts-writing-task-1-process-sseuneun-beop/)에서 수동태와 순서 표현을 따로 정리해 두었으니 함께 읽어 보세요.
+
 ## 자주 묻는 질문 (FAQ)
 
 ### Overview는 서론 바로 뒤와 글 마지막 중 어디에 쓰는 것이 좋나요?

@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite v2.1 Dark — Paraphrase</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "inverse-primary": "#88d4cd",
+            "surface-container-lowest": "#ffffff",
+            "outline-variant": "#bec9c7",
+            "on-primary-container": "#9ce9e2",
+            "on-tertiary-fixed": "#410000",
+            "on-secondary-fixed": "#2c1600",
+            "secondary": "#895100",
+            "primary-container": "#136b66",
+            "on-surface": "#1f1b16",
+            "inverse-surface": "#34302a",
+            "error-container": "#ffdad6",
+            "tertiary": "#8e190f",
+            "surface": "#fff8f3",
+            "on-background": "#1f1b16",
+            "on-secondary-fixed-variant": "#683c00",
+            "on-primary-fixed": "#00201e",
+            "on-error": "#ffffff",
+            "secondary-fixed": "#ffdcbc",
+            "on-primary": "#ffffff",
+            "background": "#fff8f3",
+            "secondary-container": "#fe9d19",
+            "on-secondary": "#ffffff",
+            "surface-container": "#f6ece4",
+            "surface-tint": "#106a65",
+            "primary-fixed": "#a4f0e9",
+            "primary": "#00514d",
+            "on-tertiary-container": "#ffd0c9",
+            "on-secondary-container": "#663b00",
+            "surface-dim": "#e2d8d0",
+            "primary-fixed-dim": "#88d4cd",
+            "secondary-fixed-dim": "#ffb86c",
+            "surface-container-highest": "#eae1d8",
+            "tertiary-fixed": "#ffdad4",
+            "surface-container-high": "#f0e7de",
+            "on-tertiary": "#ffffff",
+            "surface-bright": "#fff8f3",
+            "on-primary-fixed-variant": "#00504c",
+            "tertiary-fixed-dim": "#ffb4a8",
+            "error": "#ba1a1a",
+            "surface-variant": "#eae1d8",
+            "on-error-container": "#93000a",
+            "tertiary-container": "#b03224",
+            "outline": "#6f7978",
+            "on-tertiary-fixed-variant": "#8c170e",
+            "inverse-on-surface": "#f9efe6",
+            "surface-container-low": "#fcf2e9",
+            "on-surface-variant": "#3f4947"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-sm": "0.5rem",
+            "gutter-desktop": "1.5rem",
+            "space-lg": "1.5rem",
+            "margin-desktop": "2.5rem",
+            "margin": "1rem",
+            "space-xs": "0.25rem",
+            "space-md": "1rem",
+            "space-xl": "2rem",
+            "gutter": "1rem",
+            "margin-tablet": "1.5rem"
+          },
+          "fontFamily": {
+            "label-sm": ["Plus Jakarta Sans"],
+            "headline-xl-mobile": ["Plus Jakarta Sans"],
+            "headline-xl": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.6px", "fontWeight": "800" }],
+            "headline-xl-mobile": ["30px", { "lineHeight": "38px", "fontWeight": "800" }],
+            "headline-xl": ["40px", { "lineHeight": "48px", "fontWeight": "800" }],
+            "body-lg": ["18px", { "lineHeight": "26px", "fontWeight": "500" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "headline-md": ["22px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "label-md": ["14px", { "lineHeight": "18px", "letterSpacing": "0.4px", "fontWeight": "700" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "700" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "800" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "500" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "800" }],
+            "label-lg": ["16px", { "lineHeight": "20px", "letterSpacing": "0.2px", "fontWeight": "700" }]
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      line-height: 1;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[#0E191C] text-on-surface antialiased flex justify-center min-h-screen py-0 sm:py-6 selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+<!-- Mobile 390px Native Screen Container -->
+<main class="w-[390px] min-h-screen bg-[#0E191C] flex flex-col pb-10">
+<!-- Top App Bar with back navigation & headline -->
+<header class="bg-surface dark:bg-inverse-surface border-b-2 border-outline-variant dark:border-outline shadow-[0_4px_0_theme(colors.outline-variant)] dark:shadow-none flex justify-between items-center w-full px-5 py-3 max-w-[390px] mx-auto sticky top-0 z-40 bg-[#0E191C]/95 backdrop-blur-sm">
+<button aria-label="Go back" class="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full bg-surface-container-lowest text-primary border-2 border-outline-variant shadow-[0_3px_0_theme(colors.outline-variant)] hover:bg-surface-container active:translate-y-[2px] transition-transform duration-100" type="button">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<span class="text-headline-sm font-headline-sm text-primary dark:text-inverse-primary tracking-tight">Lexkite Bright Day</span>
+<button aria-label="Settings" class="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full bg-surface-container-lowest text-primary border-2 border-outline-variant shadow-[0_3px_0_theme(colors.outline-variant)] hover:bg-surface-container active:translate-y-[2px] transition-transform duration-100" type="button">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</header>
+<!-- Quiz Progress & Streak Ribbon -->
+<section class="px-4 pt-3 pb-2 flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="text-label-md font-label-md text-on-surface-variant font-bold">Question 4 of 10</span>
+<span class="text-label-sm font-label-sm text-primary font-bold bg-[#122023] px-2 py-0.5 rounded-full border border-primary/20">40%</span>
+</div>
+<!-- Floating Streak Flame Pill -->
+<div class="flex items-center gap-1 bg-[#122023] border-2 border-[#FE9D19] rounded-full px-3 py-1 shadow-[0_2px_0_#D97B00]">
+<span class="material-symbols-outlined text-[#FE9D19] text-sm" data-icon="local_fire_department" data-weight="fill" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="text-label-sm font-label-sm text-[#162124] font-extrabold tracking-wide">14 🔥</span>
+</div>
+</div>
+<!-- Resin 3D Progress Bar -->
+<div class="w-full h-3 bg-[#263A3F] rounded-full overflow-hidden p-[2px] border border-[#213438]">
+<div class="h-full bg-primary-container rounded-full relative w-[40%] shadow-[inset_0_1px_0_rgba(255,255,255,0.6)]">
+<div class="absolute inset-x-0 top-0 h-[40%] bg-[#162528]/40 rounded-full"></div>
+</div>
+</div>
+</section>
+<!-- Metadata Badges -->
+<section class="px-4 py-2 flex items-center gap-2">
+<span class="text-label-sm font-label-sm text-[#0C4542] bg-[#E2F1F0] border-2 border-[#136B66]/30 px-3 py-1 rounded-full uppercase tracking-wider">
+        SEMANTIC REPHRASING
+      </span>
+<span class="text-label-sm font-label-sm text-[#663B00] bg-secondary-fixed border-2 border-[#FE9D19] px-3 py-1 rounded-full uppercase tracking-wider font-extrabold">
+        C1 ADVANCED
+      </span>
+</section>
+<div class="px-4 space-y-4 pt-1">
+<!-- Source Premise Stimulus Card -->
+<article class="bg-surface-container-lowest rounded-xl border-2 border-[#EADEC8] shadow-[0_4px_0_#E2D7C7] p-4 flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-base" data-icon="menu_book">menu_book</span>
+<span class="text-label-sm font-label-sm text-primary tracking-widest uppercase font-extrabold">SOURCE PREMISE</span>
+</div>
+<!-- 44x44 Tap target audio speaker -->
+<button aria-label="Listen to sentence" class="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full bg-[#122023] border-2 border-[#EADEC8] text-primary shadow-[0_3px_0_#E2D7C7] hover:bg-surface-container active:translate-y-[2px] transition-transform" type="button">
+<span class="material-symbols-outlined text-lg" data-icon="volume_up">volume_up</span>
+</button>
+</div>
+<!-- Stimulus Recessed Well -->
+<div class="bg-[#122023] rounded-lg p-3.5 border border-[#EADEC8] flex flex-col gap-2">
+<p class="text-headline-md font-headline-md text-[#0F3D3E] leading-snug">
+            “The number of people working from home has 
+            <span class="underline decoration-[#FE9D19] decoration-[3px] underline-offset-4 font-extrabold text-[#00514D]">risen sharply</span>.”
+          </p>
+<div class="flex items-center gap-1.5 pt-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm text-[#895100]" data-icon="key">key</span>
+<span class="text-label-sm font-label-sm text-[#663B00] font-semibold">Target key: workplace dynamics + trend inflection</span>
+</div>
+</div>
+</article>
+<!-- Question Instruction Headline -->
+<div class="pt-1">
+<h2 class="text-headline-sm font-headline-sm text-[#0F3D3E] font-extrabold">
+          Choose the best paraphrase:
+        </h2>
+</div>
+<!-- Multiple Choice Options Stacking -->
+<div class="space-y-3">
+<!-- Option A: CORRECT STATE -->
+<div class="relative bg-[#0E191C] border-2 border-[#4FD1C5] rounded-xl p-4 shadow-[0_4px_0_#136B66] flex flex-col gap-2.5">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-start gap-3">
+<span class="w-8 h-8 rounded-full bg-[#136B66] text-white flex items-center justify-center font-extrabold text-sm shadow-[0_2px_0_#0C4542]">A</span>
+<p class="text-body-md font-body-md text-[#0F3D3E] font-bold pt-1 leading-snug">
+                More and more employees now work remotely.
+              </p>
+</div>
+<div class="w-8 h-8 rounded-full bg-[#4FD1C5] text-white flex items-center justify-center shrink-0 shadow-[0_2px_0_#136B66]">
+<span class="material-symbols-outlined text-lg" data-icon="check">check</span>
+</div>
+</div>
+<!-- Correct Badge -->
+<div class="self-start ml-11">
+<span class="inline-flex items-center gap-1 text-label-sm font-label-sm text-[#00514D] bg-[#D7EFEA] border border-[#4FD1C5] px-2.5 py-0.5 rounded-full font-extrabold">
+<span class="material-symbols-outlined text-xs" data-icon="verified" data-weight="fill" style="font-variation-settings: 'FILL' 1;">verified</span>
+              CORRECT PARAPHRASE
+            </span>
+</div>
+</div>
+<!-- Option B: Neutral State -->
+<div class="bg-surface-container-lowest border-2 border-[#EADEC8] rounded-xl p-4 shadow-[0_4px_0_#E2D7C7] flex items-center gap-3 active:translate-y-[2px] transition-transform">
+<span class="w-8 h-8 rounded-full bg-[#122023] text-on-surface border border-[#EADEC8] flex items-center justify-center font-bold text-sm shadow-[0_2px_0_#D6C7B2]">B</span>
+<p class="text-body-md font-body-md text-on-surface leading-snug">
+            People prefer travelling to office spaces rather than working at home.
+          </p>
+</div>
+<!-- Option C: INCORRECT STATE (YOUR ATTEMPT) -->
+<div class="relative bg-[#FFF4F2] border-2 border-[#F2553B] rounded-xl p-4 shadow-[0_4px_0_#D94834] flex flex-col gap-2.5">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-start gap-3">
+<span class="w-8 h-8 rounded-full bg-[#F2553B] text-white flex items-center justify-center font-extrabold text-sm shadow-[0_2px_0_#D94834]">C</span>
+<p class="text-body-md font-body-md text-[#8E190F] font-bold pt-1 leading-snug">
+                A growing number of workers have lost their jobs recently.
+              </p>
+</div>
+<div class="w-8 h-8 rounded-full bg-[#F2553B] text-white flex items-center justify-center shrink-0 shadow-[0_2px_0_#D94834]">
+<span class="material-symbols-outlined text-lg" data-icon="close">close</span>
+</div>
+</div>
+<!-- Incorrect Badge -->
+<div class="self-start ml-11">
+<span class="inline-flex items-center gap-1 text-label-sm font-label-sm text-[#BA1A1A] bg-[#FFDAD6] border border-[#F2553B] px-2.5 py-0.5 rounded-full font-extrabold">
+<span class="material-symbols-outlined text-xs" data-icon="error">error</span>
+              YOUR ATTEMPT (DISTRACTOR)
+            </span>
+</div>
+</div>
+<!-- Option D: Neutral State -->
+<div class="bg-surface-container-lowest border-2 border-[#EADEC8] rounded-xl p-4 shadow-[0_4px_0_#E2D7C7] flex items-center gap-3 active:translate-y-[2px] transition-transform">
+<span class="w-8 h-8 rounded-full bg-[#122023] text-on-surface border border-[#EADEC8] flex items-center justify-center font-bold text-sm shadow-[0_2px_0_#D6C7B2]">D</span>
+<p class="text-body-md font-body-md text-on-surface leading-snug">
+            Working from home has become slightly less popular over time.
+          </p>
+</div>
+</div>
+<!-- Equivalence Explanation Card -->
+<article class="bg-[#162528] rounded-xl border-2 border-[#EADEC8] shadow-[0_4px_0_#E2D7C7] p-4 flex flex-col gap-3">
+<div class="flex items-center justify-between border-b border-[#213438] pb-2.5">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#136B66]" data-icon="psychology">psychology</span>
+<span class="text-headline-sm font-headline-sm text-[#0F3D3E]">Semantic Equivalence</span>
+</div>
+<!-- Math formula badge -->
+<span class="bg-[#0F3D3E] text-[#A4F0E9] text-label-sm font-label-sm px-2.5 py-1 rounded-full font-mono font-extrabold shadow-[0_2px_0_#00201E]">
+            q ≈ p
+          </span>
+</div>
+<div class="space-y-2 text-body-sm font-body-sm leading-relaxed text-[#162124]">
+<p class="bg-[#122023] p-2.5 rounded-lg border-l-4 border-[#4FD1C5]">
+<strong class="text-[#00514D]">Equivalence Match:</strong> 
+            “risen sharply” equates directly to <em>“more and more”</em>, while “working from home” matches <em>“work remotely”</em>.
+          </p>
+<p class="bg-[#FFF4F2] p-2.5 rounded-lg border-l-4 border-[#F2553B] text-[#8E190F]">
+<strong class="text-[#BA1A1A]">Distractor Note:</strong> 
+            Distractor C shifts semantic scope toward unemployment (<em>“lost their jobs”</em>), which alters premise validity.
+          </p>
+</div>
+</article>
+<!-- Primary Action: Next Question Tactile Button -->
+<button class="w-full min-h-[52px] bg-secondary-container text-on-surface font-headline-sm rounded-full border-2 border-[#D97B00] shadow-[0_4px_0_#D97B00] active:translate-y-[3px] active:shadow-[0_1px_0_#D97B00] transition-all duration-100 flex items-center justify-center gap-2 hover:brightness-105" type="button">
+<span>Next question</span>
+<span class="material-symbols-outlined font-extrabold" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<!-- Compact Result Strip & Quick Session Controls -->
+<section class="bg-surface-container rounded-xl border-2 border-[#EADEC8] p-3.5 flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#895100]" data-icon="task_alt">task_alt</span>
+<span class="text-label-md font-label-md text-on-surface font-bold">Practice session status</span>
+</div>
+<span class="text-label-md font-label-md text-[#136B66] font-extrabold bg-[#162528] px-2 py-0.5 rounded-full border border-[#BEC9C7]">
+            8/10 correct (80%)
+          </span>
+</div>
+<!-- Secondary Progress Mini Meter -->
+<div class="w-full h-2 bg-[#263A3F] rounded-full overflow-hidden">
+<div class="h-full bg-[#4FD1C5] rounded-full w-[80%]"></div>
+</div>
+<div class="flex items-center gap-2 pt-1">
+<!-- Tactile secondary button -->
+<button class="flex-1 min-h-[44px] bg-[#162528] text-[#162124] text-label-md font-label-md rounded-full border-2 border-[#213438] shadow-[0_3px_0_#D6C7B2] active:translate-y-[2px] active:shadow-[0_1px_0_#D6C7B2] transition-transform flex items-center justify-center gap-1 hover:bg-[#0E191C]" type="button">
+<span class="material-symbols-outlined text-sm" data-icon="replay">replay</span>
+<span>Practice more</span>
+</button>
+<!-- Text button with >=44px tap target -->
+<button class="flex-1 min-h-[44px] text-primary hover:text-[#0C4542] text-label-md font-label-md font-bold rounded-full flex items-center justify-center gap-1 active:scale-[0.98] transition-transform underline decoration-[#bec9c7] underline-offset-4" type="button">
+<span class="material-symbols-outlined text-sm" data-icon="arrow_back">arrow_back</span>
+<span>Back to Reading</span>
+</button>
+</div>
+</section>
+</div>
+</main>
+</body></html>

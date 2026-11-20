@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Admin — Báo lỗi người dùng</title>
+<!-- Material Symbols Outlined font -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Plus Jakarta Sans font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-surface-variant": "#3f4947",
+            "error": "#ba1a1a",
+            "surface-container": "#ffead7",
+            "on-primary-fixed": "#00201e",
+            "secondary-fixed-dim": "#ffb3b6",
+            "on-tertiary-fixed-variant": "#653e00",
+            "surface-tint": "#106a65",
+            "on-secondary": "#ffffff",
+            "surface-container-low": "#fff1e6",
+            "primary-fixed-dim": "#88d4cd",
+            "surface": "#fff8f4",
+            "primary-fixed": "#a4f0e9",
+            "secondary-container": "#e21e49",
+            "primary-container": "#136b66",
+            "inverse-on-surface": "#ffeedf",
+            "secondary": "#ba0035",
+            "outline-variant": "#bec9c7",
+            "surface-variant": "#f8dec4",
+            "surface-dim": "#f0d6bc",
+            "on-primary-container": "#9ce9e2",
+            "primary": "#00514d",
+            "on-tertiary-fixed": "#2a1700",
+            "on-secondary-fixed-variant": "#920028",
+            "on-error": "#ffffff",
+            "tertiary-fixed": "#ffddb8",
+            "tertiary-container": "#875500",
+            "inverse-surface": "#3d2e1c",
+            "on-primary-fixed-variant": "#00504c",
+            "tertiary-fixed-dim": "#ffb95f",
+            "on-secondary-fixed": "#40000c",
+            "surface-bright": "#fff8f4",
+            "inverse-primary": "#88d4cd",
+            "background": "#fff8f4",
+            "on-secondary-container": "#fffbff",
+            "on-primary": "#ffffff",
+            "tertiary": "#674000",
+            "surface-container-high": "#fee4c9",
+            "surface-container-highest": "#f8dec4",
+            "on-tertiary-container": "#ffd4a2",
+            "outline": "#6f7978",
+            "error-container": "#ffdad6",
+            "surface-container-lowest": "#ffffff",
+            "secondary-fixed": "#ffdada",
+            "on-error-container": "#93000a",
+            "on-tertiary": "#ffffff",
+            "on-background": "#261909",
+            "on-surface": "#261909"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "space-md": "0.75rem",
+            "margin": "1rem",
+            "gutter": "1rem",
+            "space-xl": "2rem",
+            "space-lg": "1.25rem",
+            "space-sm": "0.5rem"
+          },
+          "fontFamily": {
+            "headline-md": ["Plus Jakarta Sans", "sans-serif"],
+            "headline-lg-mobile": ["Plus Jakarta Sans", "sans-serif"],
+            "body-sm": ["Plus Jakarta Sans", "sans-serif"],
+            "label-md": ["Plus Jakarta Sans", "sans-serif"],
+            "body-md": ["Plus Jakarta Sans", "sans-serif"],
+            "display-lg": ["Plus Jakarta Sans", "sans-serif"],
+            "label-sm": ["Plus Jakarta Sans", "sans-serif"],
+            "headline-lg": ["Plus Jakarta Sans", "sans-serif"],
+            "headline-sm": ["Plus Jakarta Sans", "sans-serif"],
+            "body-lg": ["Plus Jakarta Sans", "sans-serif"],
+            "label-lg": ["Plus Jakarta Sans", "sans-serif"]
+          },
+          "fontSize": {
+            "headline-md": ["20px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "30px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "display-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.03em", "fontWeight": "800" }],
+            "label-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "headline-lg": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-sm": ["17px", { "lineHeight": "22px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "label-lg": ["14px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "600" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-feature-settings: 'liga';
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    .tactile-card {
+      background: #ffffff;
+      border: 2px solid #e2d7c7;
+      box-shadow: 0 4px 0 0 #d8c6b0, 0 6px 12px -2px rgba(28, 16, 3, 0.05);
+    }
+    
+    .tactile-card-warm {
+      background: #fff1e6;
+      border: 2px solid #e2d7c7;
+      box-shadow: 0 4px 0 0 #d8c6b0, 0 6px 12px -2px rgba(28, 16, 3, 0.05);
+    }
+
+    .tactile-btn-primary {
+      background-color: #e11d48;
+      color: #ffffff;
+      border-bottom: 3px solid #be123c;
+      box-shadow: 0 3px 0 0 #be123c;
+      transition: all 0.15s ease;
+    }
+    .tactile-btn-primary:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 0 #be123c;
+    }
+
+    .tactile-btn-teal {
+      background-color: #136b66;
+      color: #ffffff;
+      border-bottom: 3px solid #0d5954;
+      box-shadow: 0 3px 0 0 #0d5954;
+      transition: all 0.15s ease;
+    }
+    .tactile-btn-teal:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 0 #0d5954;
+    }
+
+    .tactile-btn-secondary {
+      background-color: #ffffff;
+      color: #1c1003;
+      border: 2px solid #e2d7c7;
+      box-shadow: 0 3px 0 0 #d8c6b0;
+      transition: all 0.15s ease;
+    }
+    .tactile-btn-secondary:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 0 #d8c6b0;
+    }
+
+    .custom-scroll::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scroll::-webkit-scrollbar-track {
+      background: #fff8f4;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: #d8c6b0;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface antialiased font-body-md min-h-screen selection:bg-primary selection:text-white">
+<!-- Main Container constrained to 1280px desktop viewport without horizontal shift -->
+<div class="w-full max-w-[1280px] mx-auto min-h-screen flex bg-surface">
+<!-- SHARED COMPONENT: SideNavBar -->
+<aside class="w-64 shrink-0 bg-surface border-r border-outline-variant shadow-[0_2px_0_0_#D8C6B0] flex flex-col justify-between h-screen sticky top-0 p-space-md z-30">
+<!-- Sidebar Header & Primary Actions -->
+<div class="flex flex-col gap-space-lg">
+<!-- Brand identity -->
+<div class="flex items-center gap-3 px-2 py-1.5">
+<div class="w-10 h-10 rounded-lg bg-primary-container text-on-primary flex items-center justify-center border border-[#0d5954] shadow-sm">
+<span class="material-symbols-outlined text-2xl font-bold" data-icon="terminal">terminal</span>
+</div>
+<div class="flex flex-col">
+<span class="text-title-md font-title-md font-bold text-on-surface tracking-tight leading-snug">Lexkite Admin</span>
+<span class="font-label-sm text-label-sm text-[#475569] font-bold">Enterprise Control Plane</span>
+</div>
+</div>
+<!-- Sidebar CTA: Báo cáo mới -->
+<button class="w-full min-h-[44px] px-space-md py-2.5 rounded-lg tactile-btn-teal flex items-center justify-center gap-2 font-label-lg text-label-lg tracking-wide font-bold">
+<span class="material-symbols-outlined text-lg" data-icon="add_circle">add_circle</span>
+<span>Báo cáo mới</span>
+</button>
+<!-- Navigation items list -->
+<nav aria-label="Main Navigation" class="flex flex-col gap-1.5 mt-1">
+<!-- Item 1: Tổng quan -->
+<a class="flex items-center gap-space-xs px-space-md py-space-sm min-h-[44px] rounded-lg text-on-surface-variant font-body-md hover:bg-surface-container hover:text-on-surface transition-colors active:translate-y-0.5 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="ml-2 font-medium">Tổng quan</span>
+</a>
+<!-- Item 2: Người dùng -->
+<a class="flex items-center gap-space-xs px-space-md py-space-sm min-h-[44px] rounded-lg text-on-surface-variant font-body-md hover:bg-surface-container hover:text-on-surface transition-colors active:translate-y-0.5 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="ml-2 font-medium">Người dùng</span>
+</a>
+<!-- Item 3: Chất lượng (Báo lỗi) [ACTIVE TAB] -->
+<a aria-current="page" class="flex items-center gap-space-xs px-space-md py-space-sm min-h-[44px] rounded-lg bg-surface-container-high text-primary font-title-sm border-b-2 border-primary active:translate-y-0.5 duration-150 shadow-sm" href="#">
+<span class="material-symbols-outlined text-primary font-bold" data-icon="bug_report">bug_report</span>
+<span class="ml-2 font-bold text-primary">Chất lượng (Báo lỗi)</span>
+<span class="ml-auto bg-error text-white font-label-sm text-label-sm font-bold px-2 py-0.5 rounded-full">14</span>
+</a>
+<!-- Item 4: Nội dung & Video -->
+<a class="flex items-center gap-space-xs px-space-md py-space-sm min-h-[44px] rounded-lg text-on-surface-variant font-body-md hover:bg-surface-container hover:text-on-surface transition-colors active:translate-y-0.5 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="video_library">video_library</span>
+<span class="ml-2 font-medium">Nội dung &amp; Video</span>
+</a>
+<!-- Item 5: Hệ thống -->
+<a class="flex items-center gap-space-xs px-space-md py-space-sm min-h-[44px] rounded-lg text-on-surface-variant font-body-md hover:bg-surface-container hover:text-on-surface transition-colors active:translate-y-0.5 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="dns">dns</span>
+<span class="ml-2 font-medium">Hệ thống</span>
+</a>
+<!-- Item 6: Cài đặt -->
+<a class="flex items-center gap-space-xs px-space-md py-space-sm min-h-[44px] rounded-lg text-on-surface-variant font-body-md hover:bg-surface-container hover:text-on-surface transition-colors active:translate-y-0.5 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="ml-2 font-medium">Cài đặt</span>
+</a>
+</nav>
+</div>
+<!-- Footer navigation tabs -->
+<div class="flex flex-col gap-1 border-t border-[#e2d7c7] pt-space-md">
+<a class="flex items-center gap-space-xs px-space-md py-space-sm min-h-[44px] rounded-lg text-on-surface-variant font-body-md hover:bg-surface-container hover:text-on-surface transition-colors active:translate-y-0.5 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+<span class="ml-2 font-medium">Tài liệu kỹ thuật</span>
+</a>
+<a class="flex items-center gap-space-xs px-space-md py-space-sm min-h-[44px] rounded-lg text-[#ba0035] font-body-md hover:bg-[#ffe4e6] transition-colors active:translate-y-0.5 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="ml-2 font-bold">Đăng xuất</span>
+</a>
+</div>
+</aside>
+<!-- Main Workspace (Desktop Canvas) -->
+<div class="flex-1 flex flex-col min-w-0 bg-surface">
+<!-- SHARED COMPONENT: TopNavBar -->
+<header class="h-16 w-full bg-surface-container-lowest border-b border-outline-variant shadow-[0_1px_0_0_#D8C6B0] flex justify-between items-center px-space-lg sticky top-0 z-20">
+<!-- Breadcrumbs & Quick Search -->
+<div class="flex items-center gap-4 flex-1 max-w-xl">
+<!-- Strict Breadcrumbs with high contrast separators and expanded 44x44 targets -->
+<nav aria-label="Breadcrumb" class="flex items-center">
+<ol class="flex items-center space-x-1">
+<li>
+<a class="min-h-[44px] px-1 text-on-surface-variant hover:text-primary font-body-sm font-semibold inline-flex items-center" href="#">Trang chủ</a>
+</li>
+<li aria-hidden="true" class="inline-flex items-center text-[#334155] font-bold text-sm select-none">›</li>
+<li>
+<a class="min-h-[44px] min-w-[44px] px-2 text-on-surface-variant hover:text-primary font-body-sm font-semibold inline-flex items-center justify-center" href="#">Admin</a>
+</li>
+<li aria-hidden="true" class="inline-flex items-center text-[#334155] font-bold text-sm select-none">›</li>
+<li>
+<span class="text-primary font-title-sm font-bold px-1 inline-flex items-center min-h-[44px]">Báo lỗi người dùng</span>
+</li>
+</ol>
+</nav>
+<!-- Divider -->
+<div class="h-5 w-[1px] bg-[#bec9c7] hidden sm:block"></div>
+<!-- Search Inset Slot -->
+<div class="relative flex-1 max-w-xs">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-[#475569]">
+<span class="material-symbols-outlined text-lg" data-icon="search">search</span>
+</span>
+<input class="w-full min-h-[40px] pl-9 pr-3 py-1.5 bg-surface-container-lowest text-on-surface text-body-sm font-body-sm rounded-lg border border-[#e2d7c7] shadow-[inset_0_1px_3px_rgba(28,16,3,0.06)] focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 placeholder:text-[#475569]" placeholder="Tìm kiếm mã lỗi, URL, người dùng..." type="text"/>
+</div>
+</div>
+<!-- Trailing Actions (Language Toggle, Notifications, User) -->
+<div class="flex items-center gap-3">
+<!-- Tactile Dual-Segment Language Switcher (Strictly >=44x44px per item) -->
+<div aria-label="Chọn ngôn ngữ" class="inline-flex items-center bg-surface-container-low border border-[#e2d7c7] rounded-lg p-0.5 shadow-sm" role="group">
+<button class="min-w-[44px] min-h-[44px] inline-flex items-center justify-center font-label-md text-label-md font-bold rounded bg-primary text-white shadow-[0_1px_2px_rgba(0,0,0,0.15)] transition-all" type="button">
+              VI
+            </button>
+<span aria-hidden="true" class="text-[#334155] font-bold mx-0.5 select-none">|</span>
+<button class="min-w-[44px] min-h-[44px] inline-flex items-center justify-center font-label-md text-label-md font-bold rounded text-on-surface hover:text-primary transition-all" type="button">
+              EN
+            </button>
+</div>
+<!-- Notifications Icon Action Button with 44x44 hit state -->
+<button class="min-w-[44px] min-h-[44px] rounded-lg border border-[#e2d7c7] bg-white flex items-center justify-center text-on-surface hover:bg-surface-container-low transition-colors relative shadow-[0_2px_0_0_#d8c6b0] active:translate-y-0.5">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-error ring-2 ring-white"></span>
+</button>
+<!-- Help button -->
+<button class="min-w-[44px] min-h-[44px] rounded-lg border border-[#e2d7c7] bg-white flex items-center justify-center text-on-surface hover:bg-surface-container-low transition-colors shadow-[0_2px_0_0_#d8c6b0] active:translate-y-0.5">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+<!-- User Profile Badge -->
+<div class="flex items-center gap-2 pl-2 border-l border-[#e2d7c7]">
+<div class="w-10 h-10 rounded-full bg-[#136b66] text-white flex items-center justify-center font-label-lg font-bold border-2 border-white shadow-sm ring-1 ring-[#e2d7c7]">
+              AD
+            </div>
+</div>
+</div>
+</header>
+<!-- Main Content Scroll Area -->
+<main class="flex-1 p-space-lg flex flex-col gap-space-lg custom-scroll">
+<!-- Page Title & Operational Control Cluster -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div>
+<div class="flex items-center gap-3">
+<h1 class="font-headline-lg text-headline-lg text-[#1c1003] tracking-tight">Báo lỗi người dùng (Bug Reports)</h1>
+<span class="bg-[#ffe4e6] text-[#9f1239] border border-[#fecdd3] font-label-md text-label-md px-2.5 py-1 rounded-full font-bold">14 P0/P1 Cấp bách</span>
+</div>
+<p class="font-body-md text-body-md text-[#334155] font-medium mt-1">
+              Theo dõi, tái hiện và xử lý sự cố người dùng gửi về từ ứng dụng web &amp; di động
+            </p>
+</div>
+<div class="flex items-center gap-3">
+<button class="tactile-btn-secondary min-h-[44px] px-space-md py-2 rounded-lg flex items-center gap-2 font-label-md text-label-md font-bold">
+<span class="material-symbols-outlined text-lg" data-icon="filter_list">filter_list</span>
+<span>Bộ lọc nâng cao</span>
+</button>
+<button class="tactile-btn-teal min-h-[44px] px-space-md py-2 rounded-lg flex items-center gap-2 font-label-md text-label-md font-bold">
+<span class="material-symbols-outlined text-lg" data-icon="download">download</span>
+<span>Xuất báo cáo</span>
+</button>
+</div>
+</div>
+<!-- 4 Metric KPI Cards with Tactile Slab Geometry -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- KPI 1: Lỗi nghiêm trọng -->
+<div class="tactile-card rounded-xl p-4 flex flex-col justify-between">
+<div class="flex items-center justify-between text-[#9f1239]">
+<span class="font-label-md text-label-md font-bold uppercase tracking-wider text-[#9f1239]">Lỗi nghiêm trọng</span>
+<div class="w-8 h-8 rounded-lg bg-[#ffe4e6] flex items-center justify-center text-[#9f1239]">
+<span class="material-symbols-outlined text-lg font-bold" data-icon="warning">warning</span>
+</div>
+</div>
+<div class="my-2">
+<span class="font-display-lg text-display-lg text-[#9f1239] font-black">14</span>
+</div>
+<div class="flex items-center gap-1.5 font-label-md text-label-md text-[#334155] font-semibold pt-1 border-t border-[#fff4eb]">
+<span class="text-[#0d5954] font-bold bg-[#e6f4f3] px-1.5 py-0.5 rounded">-3 hôm nay</span>
+<span aria-hidden="true" class="text-[#475569] font-bold select-none">|</span>
+<span>P0/P1 cần xử lý ngay</span>
+</div>
+</div>
+<!-- KPI 2: Đang chờ xử lý -->
+<div class="tactile-card rounded-xl p-4 flex flex-col justify-between">
+<div class="flex items-center justify-between text-[#92400e]">
+<span class="font-label-md text-label-md font-bold uppercase tracking-wider text-[#92400e]">Đang chờ xử lý</span>
+<div class="w-8 h-8 rounded-lg bg-[#fef3c7] flex items-center justify-center text-[#92400e]">
+<span class="material-symbols-outlined text-lg font-bold" data-icon="pending_actions">pending_actions</span>
+</div>
+</div>
+<div class="my-2">
+<span class="font-display-lg text-display-lg text-[#1c1003] font-black">42</span>
+</div>
+<div class="flex items-center gap-1.5 font-label-md text-label-md text-[#334155] font-semibold pt-1 border-t border-[#fff4eb]">
+<span>Thời gian chờ trung bình</span>
+<span class="text-[#136b66] font-bold bg-surface-container px-1.5 py-0.5 rounded">3.2h</span>
+</div>
+</div>
+<!-- KPI 3: Đã khắc phục 24h -->
+<div class="tactile-card rounded-xl p-4 flex flex-col justify-between">
+<div class="flex items-center justify-between text-[#0d5954]">
+<span class="font-label-md text-label-md font-bold uppercase tracking-wider text-[#0d5954]">Đã khắc phục 24h</span>
+<div class="w-8 h-8 rounded-lg bg-[#e6f4f3] flex items-center justify-center text-[#0d5954]">
+<span class="material-symbols-outlined text-lg font-bold" data-icon="check_circle">check_circle</span>
+</div>
+</div>
+<div class="my-2">
+<span class="font-display-lg text-display-lg text-[#0d5954] font-black">89</span>
+</div>
+<div class="flex items-center gap-1.5 font-label-md text-label-md text-[#334155] font-semibold pt-1 border-t border-[#fff4eb]">
+<span class="text-[#0d5954] font-bold bg-[#e6f4f3] px-1.5 py-0.5 rounded">+12%</span>
+<span aria-hidden="true" class="text-[#475569] font-bold select-none">|</span>
+<span>So với hôm qua</span>
+</div>
+</div>
+<!-- KPI 4: Tỷ lệ phản hồi SLA -->
+<div class="tactile-card rounded-xl p-4 flex flex-col justify-between">
+<div class="flex items-center justify-between text-[#00514d]">
+<span class="font-label-md text-label-md font-bold uppercase tracking-wider text-[#00514d]">Tỷ lệ phản hồi</span>
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-[#00514d]">
+<span class="material-symbols-outlined text-lg font-bold" data-icon="speed">speed</span>
+</div>
+</div>
+<div class="my-2">
+<span class="font-display-lg text-display-lg text-[#00514d] font-black">98.4%</span>
+</div>
+<div class="flex items-center gap-1.5 font-label-md text-label-md text-[#334155] font-semibold pt-1 border-t border-[#fff4eb]">
+<span class="text-[#0d5954] font-bold">Mục tiêu SLA</span>
+<span aria-hidden="true" class="text-[#475569] font-bold select-none">|</span>
+<span class="font-bold text-[#134e4a]">&gt; 95% chuẩn</span>
+</div>
+</div>
+</div>
+<!-- Incident Density Filter Strip -->
+<div class="tactile-card rounded-xl p-3 flex flex-wrap items-center justify-between gap-3">
+<!-- Category Tabs -->
+<div class="flex items-center gap-1 overflow-x-auto">
+<button class="min-h-[44px] px-3.5 rounded-lg bg-surface-container text-primary font-label-md text-label-md font-bold border-b-2 border-primary shadow-sm flex items-center gap-1.5">
+<span>Tất cả</span>
+<span class="bg-primary text-white text-[11px] px-1.5 py-0.2 rounded-full">145</span>
+</button>
+<button class="min-h-[44px] px-3.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low font-label-md text-label-md font-semibold flex items-center gap-1.5 transition-colors">
+<span>Mới mở</span>
+<span class="bg-[#ffe4e6] text-[#9f1239] text-[11px] font-bold px-1.5 py-0.2 rounded-full">14</span>
+</button>
+<button class="min-h-[44px] px-3.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low font-label-md text-label-md font-semibold flex items-center gap-1.5 transition-colors">
+<span>Đang xem</span>
+<span class="bg-[#fef3c7] text-[#92400e] text-[11px] font-bold px-1.5 py-0.2 rounded-full">28</span>
+</button>
+<button class="min-h-[44px] px-3.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low font-label-md text-label-md font-semibold flex items-center gap-1.5 transition-colors">
+<span>Đã giải quyết</span>
+<span class="bg-[#e6f4f3] text-[#0d5954] text-[11px] font-bold px-1.5 py-0.2 rounded-full">103</span>
+</button>
+</div>
+<!-- Secondary Filters Dropdowns (Strict min-h-[44px] per interactive control) -->
+<div class="flex items-center gap-2 flex-wrap">
+<!-- Severity Filter -->
+<div class="relative">
+<select class="min-h-[44px] pl-3 pr-8 py-2 rounded-lg bg-white border border-[#e2d7c7] text-on-surface font-label-md text-label-md font-bold shadow-sm focus:outline-none focus:border-primary">
+<option>Mức độ: P0 - Critical</option>
+<option>Mức độ: P1 - High</option>
+<option>Mức độ: P2 - Medium</option>
+<option>Mức độ: P3 - Low</option>
+</select>
+</div>
+<!-- Platform Filter -->
+<div class="relative">
+<select class="min-h-[44px] pl-3 pr-8 py-2 rounded-lg bg-white border border-[#e2d7c7] text-on-surface font-label-md text-label-md font-bold shadow-sm focus:outline-none focus:border-primary">
+<option>Nền tảng: Web Chrome</option>
+<option>Nền tảng: iOS App</option>
+<option>Nền tảng: Android App</option>
+<option>Nền tảng: Safari Desktop</option>
+</select>
+</div>
+<!-- Status Filter -->
+<div class="relative">
+<select class="min-h-[44px] pl-3 pr-8 py-2 rounded-lg bg-white border border-[#e2d7c7] text-on-surface font-label-md text-label-md font-bold shadow-sm focus:outline-none focus:border-primary">
+<option>Trạng thái: Tất cả</option>
+<option>Đang chờ xác minh</option>
+<option>Đang tái hiện</option>
+<option>Chờ triển khai bản vá</option>
+</select>
+</div>
+</div>
+</div>
+<!-- 2-Column Split: Bug Reports Data Table & Detail Inspector Drawer -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg items-start">
+<!-- Left Column: Bug Reports Table (7 Columns of 12) -->
+<div class="xl:col-span-7 tactile-card rounded-xl overflow-hidden flex flex-col">
+<div class="px-4 py-3 bg-[#fff1e6] border-b border-[#e2d7c7] flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#136b66]" data-icon="bug_report">bug_report</span>
+<span class="font-headline-sm text-headline-sm text-[#1c1003]">Danh sách báo lỗi sự cố</span>
+</div>
+<span class="font-label-sm text-label-sm text-[#334155] font-bold">Hiển thị 4 trong 145 sự cố</span>
+</div>
+<!-- Data Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface border-b border-[#e2d7c7] text-[#334155] font-label-md text-label-md">
+<th class="py-3 px-3.5 font-bold">Mã lỗi</th>
+<th class="py-3 px-3.5 font-bold">Tiêu đề sự cố</th>
+<th class="py-3 px-3.5 font-bold">Người báo cáo</th>
+<th class="py-3 px-3.5 font-bold">Mức độ</th>
+<th class="py-3 px-3.5 font-bold">Trạng thái</th>
+<th class="py-3 px-3.5 font-bold text-right">Thao tác</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[#fff4eb] font-body-sm text-body-sm text-[#1c1003]">
+<!-- ROW 1 (Active/Selected Row #BUG-9482) -->
+<tr class="bg-[#fff8f4] hover:bg-surface-container/60 transition-colors border-l-4 border-l-primary">
+<td class="py-3 px-3.5 whitespace-nowrap">
+<span class="font-mono font-bold text-primary">#BUG-9482</span>
+<div class="text-[11px] text-[#475569] font-bold">10 phút trước</div>
+</td>
+<td class="py-3 px-3.5">
+<div class="font-bold text-[#1c1003] leading-snug line-clamp-1">Lỗi phát âm IPA /θ/ không tải audio</div>
+<div class="text-[#334155] text-[11px] font-medium flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-xs" data-icon="devices">devices</span>
+<span>Chrome 124 (macOS)</span>
+</div>
+</td>
+<td class="py-3 px-3.5 whitespace-nowrap">
+<div class="font-bold text-[#1c1003]">Minh Anh</div>
+<div class="text-[11px] text-[#334155] font-medium">minh.anh@email.com</div>
+</td>
+<td class="py-3 px-3.5 whitespace-nowrap">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-label-sm font-label-sm font-bold bg-[#ffe4e6] text-[#9f1239] border border-[#fecdd3]">
+                        P0 - CRIT
+                      </span>
+</td>
+<td class="py-3 px-3.5 whitespace-nowrap">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-label-sm font-label-sm font-bold bg-[#fef3c7] text-[#92400e] border border-[#fde68a]">
+                        Đang xem
+                      </span>
+</td>
+<td class="py-3 px-3.5 text-right whitespace-nowrap">
+<button class="min-w-[44px] min-h-[44px] inline-flex items-center justify-center rounded-lg border border-[#e2d7c7] bg-white text-primary hover:bg-[#136b66] hover:text-white transition-colors shadow-sm" title="Xem chi tiết">
+<span class="material-symbols-outlined text-lg" data-icon="visibility">visibility</span>
+</button>
+</td>
+</tr>
+<!-- ROW 2 (#BUG-9481) -->
+<tr class="hover:bg-surface-container/40 transition-colors">
+<td class="py-3 px-3.5 whitespace-nowrap">
+<span class="font-mono font-bold text-[#134e4a]">#BUG-9481</span>
+<div class="text-[11px] text-[#475569] font-bold">25 phút trước</div>
+</td>
+<td class="py-3 px-3.5">
+<div class="font-bold text-[#1c1003] leading-snug line-clamp-1">Không lưu tiến độ Dictation câu 4</div>
+<div class="text-[#334155] text-[11px] font-medium flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-xs" data-icon="phone_android">phone_android</span>
+<span>Android 14 (App)</span>
+</div>
+</td>
+<td class="py-3 px-3.5 whitespace-nowrap">
+<div class="font-bold text-[#1c1003]">Tuấn Kiệt</div>
+<div class="text-[11px] text-[#334155] font-medium">kiet.t@email.com</div>
+</td>
+<td class="py-3 px-3.5 whitespace-nowrap">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-label-sm font-label-sm font-bold bg-[#ffedd5] text-[#c2410c] border border-[#fed7aa]">
+                        P1 - HIGH
+                      </span>
+</td>
+<td class="py-3 px-3.5 whitespace-nowrap">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-label-sm font-label-sm font-bold bg-[#fee4c9] text-[#674000] border border-[#f8dec4]">
+                        Mới mở
+                      </span>
+</td>
+<td class="py-3 px-3.5 text-right whitespace-nowrap">
+<button class="min-w-[44px] min-h-[44px] inline-flex items-center justify-center rounded-lg border border-[#e2d7c7] bg-white text-[#1c1003] hover:bg-surface-container transition-colors shadow-sm" title="Xem chi tiết">
+<span class="material-symbols-outlined text-lg" data-icon="chevron_right">chevron_right</span>
+</button>
+</td>
+</tr>
+<!-- ROW 3 (#BUG-9480) -->
+<tr class="hover:bg-surface-container/40 transition-colors">
+<td class="py-3 px-3.5 whitespace-nowrap">
+<span class="font-mono font-bold text-[#134e4a]">#BUG-9480</span>
+<div class="text-[11px] text-[#475569] font-bold">1 giờ trước</div>
+</td>
+<td class="py-3 px-3.5">
+<div class="font-bold text-[#1c1003] leading-snug line-clamp-1">Thẻ ghi nhớ bị trắng màn hình khi lật</div>
+<div class="text-[#334155] text-[11px] font-medium flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-xs" data-icon="phone_iphone">phone_iphone</span>
+<span>iOS 17.4 (Safari)</span>
+</div>
+</td>
+<td class="py-3 px-3.5 whitespace-nowrap">
+<div class="font-bold text-[#1c1003]">Sarah Miller</div>
+<!-- High contrast NA text: strictly >=4.5:1 -->
+<div class="text-[11px] text-[#134e4a] font-bold">NA</div>
+</td>
+<td class="py-3 px-3.5 whitespace-nowrap">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-label-sm font-label-sm font-bold bg-[#fef3c7] text-[#92400e] border border-[#fde68a]">
+                        P2 - MED
+                      </span>
+</td>
+<td class="py-3 px-3.5 whitespace-nowrap">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-label-sm font-label-sm font-bold bg-[#e6f4f3] text-[#0d5954] border border-[#b2dfdb]">
+                        Đã giải quyết
+                      </span>
+</td>
+<td class="py-3 px-3.5 text-right whitespace-nowrap">
+<button class="min-w-[44px] min-h-[44px] inline-flex items-center justify-center rounded-lg border border-[#e2d7c7] bg-white text-[#1c1003] hover:bg-surface-container transition-colors shadow-sm" title="Xem chi tiết">
+<span class="material-symbols-outlined text-lg" data-icon="chevron_right">chevron_right</span>
+</button>
+</td>
+</tr>
+<!-- ROW 4 (#BUG-9479) -->
+<tr class="hover:bg-surface-container/40 transition-colors">
+<td class="py-3 px-3.5 whitespace-nowrap">
+<span class="font-mono font-bold text-[#134e4a]">#BUG-9479</span>
+<div class="text-[11px] text-[#475569] font-bold">3 giờ trước</div>
+</td>
+<td class="py-3 px-3.5">
+<div class="font-bold text-[#1c1003] leading-snug line-clamp-1">Lỗi font ký tự phiên âm tiếng Ả Rập</div>
+<div class="text-[#334155] text-[11px] font-medium flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-xs" data-icon="laptop_windows">laptop_windows</span>
+<span>Windows 11 (Edge)</span>
+</div>
+</td>
+<td class="py-3 px-3.5 whitespace-nowrap">
+<div class="font-bold text-[#1c1003]">Omar F.</div>
+<!-- High contrast NA text: strictly >=4.5:1 -->
+<div class="text-[11px] text-[#134e4a] font-bold">NA</div>
+</td>
+<td class="py-3 px-3.5 whitespace-nowrap">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-label-sm font-label-sm font-bold bg-surface-container text-[#653e00] border border-[#e2d7c7]">
+                        P3 - LOW
+                      </span>
+</td>
+<td class="py-3 px-3.5 whitespace-nowrap">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-label-sm font-label-sm font-bold bg-[#e6f4f3] text-[#0d5954] border border-[#b2dfdb]">
+                        Đã giải quyết
+                      </span>
+</td>
+<td class="py-3 px-3.5 text-right whitespace-nowrap">
+<button class="min-w-[44px] min-h-[44px] inline-flex items-center justify-center rounded-lg border border-[#e2d7c7] bg-white text-[#1c1003] hover:bg-surface-container transition-colors shadow-sm" title="Xem chi tiết">
+<span class="material-symbols-outlined text-lg" data-icon="chevron_right">chevron_right</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Pagination Footnote -->
+<div class="px-4 py-3 bg-surface border-t border-[#e2d7c7] flex items-center justify-between">
+<span class="text-body-sm font-body-sm text-[#334155] font-semibold">
+                Hiển thị trang 1 trên 15 trang
+              </span>
+<div class="flex items-center gap-1">
+<button class="min-w-[44px] min-h-[44px] inline-flex items-center justify-center rounded-lg border border-[#e2d7c7] bg-white text-[#334155] font-bold hover:bg-surface-container shadow-sm disabled:opacity-50">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="min-w-[44px] min-h-[44px] inline-flex items-center justify-center rounded-lg bg-primary text-white font-bold shadow-sm">
+                  1
+                </button>
+<button class="min-w-[44px] min-h-[44px] inline-flex items-center justify-center rounded-lg border border-[#e2d7c7] bg-white text-on-surface font-bold hover:bg-surface-container shadow-sm">
+                  2
+                </button>
+<button class="min-w-[44px] min-h-[44px] inline-flex items-center justify-center rounded-lg border border-[#e2d7c7] bg-white text-on-surface font-bold hover:bg-surface-container shadow-sm">
+                  3
+                </button>
+<button class="min-w-[44px] min-h-[44px] inline-flex items-center justify-center rounded-lg border border-[#e2d7c7] bg-white text-[#334155] font-bold hover:bg-surface-container shadow-sm">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Right Column: Detail Inspector Drawer (#BUG-9482) (5 Columns of 12) -->
+<div class="xl:col-span-5 tactile-card rounded-xl p-space-md flex flex-col gap-4">
+<!-- Inspector Header with Badge & Status -->
+<div class="flex items-start justify-between pb-3 border-b border-[#e2d7c7]">
+<div>
+<div class="flex items-center gap-2">
+<span class="bg-[#ffe4e6] text-[#9f1239] border border-[#fecdd3] font-mono text-label-md font-bold px-2 py-0.5 rounded">
+                    #BUG-9482
+                  </span>
+<span class="bg-[#fef3c7] text-[#92400e] border border-[#fde68a] text-label-sm font-label-sm font-bold px-2 py-0.5 rounded-full">
+                    Đang xem
+                  </span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-[#1c1003] mt-2 font-bold leading-snug">
+                  Lỗi phát âm IPA /θ/ không tải audio
+                </h3>
+</div>
+<!-- Close Inspector Affordance (44x44px target) -->
+<button class="min-w-[44px] min-h-[44px] inline-flex items-center justify-center rounded-lg text-[#334155] hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+</div>
+<!-- URL Gặp Lỗi Slot -->
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md font-bold text-[#334155] uppercase tracking-wider">URL gặp lỗi</label>
+<div class="flex items-center justify-between p-2.5 bg-surface-container-low rounded-lg border border-[#e2d7c7]">
+<div class="flex items-center gap-2 overflow-hidden text-body-sm font-mono text-[#00514d] font-semibold truncate">
+<span class="material-symbols-outlined text-base shrink-0" data-icon="link">link</span>
+<span class="truncate">lexkite.com/lesson/sound-lab/theta</span>
+</div>
+<button class="min-w-[44px] min-h-[44px] inline-flex items-center justify-center text-[#136b66] hover:bg-white rounded transition-colors" title="Mở đường dẫn mới">
+<span class="material-symbols-outlined text-lg" data-icon="open_in_new">open_in_new</span>
+</button>
+</div>
+</div>
+<!-- User Agent & Device Meta Group -->
+<div class="grid grid-cols-2 gap-2 text-body-sm">
+<div class="p-2.5 bg-white rounded-lg border border-[#e2d7c7] shadow-sm">
+<div class="text-[11px] font-bold text-[#334155] uppercase tracking-wider">Hệ điều hành</div>
+<div class="font-bold text-[#1c1003] mt-0.5 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-base text-[#136b66]" data-icon="laptop_mac">laptop_mac</span>
+                  macOS Sonoma 14.4
+                </div>
+</div>
+<div class="p-2.5 bg-white rounded-lg border border-[#e2d7c7] shadow-sm">
+<div class="text-[11px] font-bold text-[#334155] uppercase tracking-wider">Trình duyệt</div>
+<div class="font-bold text-[#1c1003] mt-0.5 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-base text-[#136b66]" data-icon="language">language</span>
+                  Chrome 124.0.6367
+                </div>
+</div>
+</div>
+<!-- Stack Trace & Console Box with content_copy button (min-w-[44px] min-h-[44px]) -->
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-base text-[#ba0035]" data-icon="error">error</span>
+<span class="font-label-md text-label-md font-bold text-[#1c1003]">Console Stack Trace &amp; Logs</span>
+</div>
+<!-- Explicit content_copy button with strict >=44x44px target -->
+<button class="min-w-[44px] min-h-[44px] inline-flex items-center justify-center px-3 gap-1.5 rounded-lg border border-[#e2d7c7] bg-white text-[#136b66] hover:bg-surface-container font-label-md text-label-md font-bold shadow-sm active:translate-y-0.5 transition-all" title="Sao chép nhật ký lỗi">
+<span class="material-symbols-outlined text-base" data-icon="content_copy">content_copy</span>
+<span>Sao chép</span>
+</button>
+</div>
+<!-- Recessed Dark Terminal Container -->
+<div class="p-3 bg-[#1c1003] text-[#f0d6bc] rounded-lg border border-[#3d2e1c] font-mono text-[12px] leading-relaxed shadow-[inset_0_2px_4px_rgba(0,0,0,0.5)] overflow-x-auto">
+<div class="text-[#ffb3b6] font-bold">[MediaStreamError] Uncaught (in promise)</div>
+<div class="text-[#ffdada] mt-0.5">GET https://cdn.lexkite.com/audio/ipa/theta_us.webm 404 (Not Found)</div>
+<div class="text-[#9ce9e2] mt-1 pl-2 border-l-2 border-[#136b66]">
+                  at Howl.loadSound (sound-controller.ts:142)<br/>
+                  at SoundLabPlayer.playPhoneme (player.vue:89)<br/>
+                  at dispatchClick (button-action.js:33)
+                </div>
+<div class="text-[#fde68a] mt-2 text-[11px]">Timestamp: 2024-05-18T09:42:11.802Z | Session: #SES-9821a</div>
+</div>
+</div>
+<!-- Action Controls Cluster -->
+<div class="pt-2 flex flex-col gap-2.5">
+<!-- Primary CTA: Coral Button with Tactile Ledge -->
+<button class="w-full min-h-[44px] px-4 py-2.5 rounded-lg tactile-btn-primary flex items-center justify-center gap-2 font-label-lg text-label-lg font-bold">
+<span class="material-symbols-outlined text-xl" data-icon="check_circle">check_circle</span>
+<span>Đánh dấu đã sửa</span>
+</button>
+<!-- Secondary Split Actions -->
+<div class="grid grid-cols-2 gap-2">
+<button class="tactile-btn-secondary min-h-[44px] px-3 py-2 rounded-lg flex items-center justify-center gap-1.5 font-label-md text-label-md font-bold">
+<span class="material-symbols-outlined text-base text-[#136b66]" data-icon="forward_to_inbox">forward_to_inbox</span>
+<span>Chuyển kỹ thuật</span>
+</button>
+<button class="tactile-btn-secondary min-h-[44px] px-3 py-2 rounded-lg flex items-center justify-center gap-1.5 font-label-md text-label-md font-bold">
+<span class="material-symbols-outlined text-base text-[#136b66]" data-icon="mail">mail</span>
+<span>Liên hệ user</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+</body></html>

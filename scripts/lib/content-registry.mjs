@@ -76,12 +76,27 @@ export function recordRelease({ name, version, root, files, commit, at }, file =
   return { skipped: false, entry: appendEntry({ type: 'release', at, name, version, root, files, commit }, file) };
 }
 
+// Bằng chứng ở bên thứ ba (3/11/2026 – docs/CONTENT-PROTECTION.md §4c): Software Heritage (swh), Zenodo (deposit), nhật ký nhãn hiệu (tm-use).
+// Chỉ ghi URL công khai của dịch vụ được công nhận + băm; không bao giờ ghi token/email.
+const EVIDENCE = {
+  swh: { url: /^https:\/\/archive\.softwareheritage\.org\//, need: ['origin', 'requestId', 'status'] },
+  deposit: { url: /^https:\/\/(sandbox\.)?zenodo\.org\/records?\/\d+/, need: ['doi', 'root', 'files', 'access'] },
+  'tm-use': { url: /^https:\/\//, need: ['mark', 'use', 'firstUse'] },
+};
+export function recordEvidence(type, data, file = REGISTRY) {
+  const spec = EVIDENCE[type]; if (!spec) throw new Error(`loại bằng chứng lạ: ${type}`);
+  if (!spec.url.test(data.url || '')) throw new Error(`${type}: URL không hợp lệ: ${data.url}`);
+  for (const k of spec.need) if (data[k] == null || data[k] === '') throw new Error(`${type}: thiếu ${k}`);
+  if (PRIVATE_RE.test(JSON.stringify(data))) throw new Error(`${type}: có dữ liệu riêng tư`);
+  return appendEntry({ type, ...data }, file);
+}
+
 // ---------- OpenTimestamps (bằng chứng tồn tại neo vào Bitcoin, miễn phí – docs/CONTENT-PROTECTION.md §4b) ----------
 // Mỗi mục sổ được đóng dấu: tệp đóng dấu = ĐÚNG dòng JSON của mục trong registry.jsonl (không có \n cuối), bằng chứng lưu
 // content/protection/ots/<hash của mục>.ots (~0,5–5 KB). Lịch công khai chỉ nhận sha256 của tệp – không gửi nội dung.
 // Mục sau nối chuỗi băm mục trước → dấu của 1 mục cũng chứng minh mọi mục trước nó đã tồn tại.
 export const OTS_DIR = 'content/protection/ots';
-export const OTS_TYPES = ['publish', 'release', 'dataset', 'archive'];
+export const OTS_TYPES = ['publish', 'release', 'dataset', 'archive', 'swh', 'deposit', 'tm-use'];
 export const otsPath = (e, dir = OTS_DIR) => `${dir}/${e.hash}.ots`;
 export function registryLines(file = REGISTRY) {
   if (!fs.existsSync(file)) return [];
@@ -91,7 +106,7 @@ export function registryLines(file = REGISTRY) {
 const PRIVATE_RE = /[\w.+-]+@[\w-]+\.[\w.-]+|secret|token|passw|api[_-]?key|bearer/i;
 export function stampable(e, line = JSON.stringify(e)) {
   if (!e || !OTS_TYPES.includes(e.type) || !/^[0-9a-f]{64}$/.test(e.hash || '')) return false;
-  if (e.url && !hostOk(e.url)) return false;
+  if (e.url && !hostOk(e.url) && !(EVIDENCE[e.type] && EVIDENCE[e.type].url.test(e.url))) return false;
   return !PRIVATE_RE.test(line);
 }
 // Mục chưa có bằng chứng .ots → [{ entry, line, proof }]

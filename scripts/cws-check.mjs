@@ -45,6 +45,9 @@ for (const f of files.filter(f => /\.(js|html)$/.test(f))) {
   const s = fs.readFileSync(f, 'utf8');
   if (remote.test(s)) errs.push(`${f}: tải mã từ xa (CWS cấm)`);
   if (!f.includes('/app/') && /\beval\(|new Function\(/.test(s)) errs.push(`${f}: eval/new Function`);
+  // MV3 CSP script-src 'self': script nội tuyến bị chặn (2/11: khối preload Stitch trong app/index.html lọt sang add-on → lỗi console mỗi lần mở app)
+  if (f.endsWith('.html')) for (const m of s.matchAll(/<script(\s[^>]*)?>([\s\S]*?)<\/script>/g)) if (!/\bsrc=/.test(m[1] || '') && !/type=["']?application\/(ld\+)?json/.test(m[1] || '') && m[2].trim()) errs.push(`${f}: script nội tuyến (MV3 CSP chặn) – bỏ trong scripts/build-extension.sh hoặc tách ra file .js`);
+  if (f.endsWith('.html') && /\son(click|load|error|submit|change|input)=["']/i.test(s)) errs.push(`${f}: thuộc tính sự kiện nội tuyến (MV3 CSP chặn)`);
 }
 for (const f of files.filter(f => f.endsWith('.js') && !f.includes('/app/'))) { // lỗi cú pháp = service worker/content script chết hoàn toàn
   try { execFileSync(process.execPath, ['--check', f], { stdio: 'pipe' }); } catch (e) { errs.push(`${f}: lỗi cú pháp – ${String(e.stderr || e.message).split('\n').find(l => /Error/.test(l)) || ''}`); }

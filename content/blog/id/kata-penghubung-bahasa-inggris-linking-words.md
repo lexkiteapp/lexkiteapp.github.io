@@ -142,6 +142,8 @@ Perhatikan perbandingan berikut untuk melihat bagaimana kata penghubung menyulap
 | **Contoh** | *To illustrate, For instance* | *For example, Such as* | *Like* |
 | **Kesimpulan** | *In conclusion, To summarize* | *In brief, Overall* | *All in all, In short* |
 
+Contoh pemakaian penghubung dalam esai setuju atau tidak setuju ada di [esai opini IELTS](/id/blog/esai-opini-ielts-setuju-atau-tidak-setuju/).
+
 ## Tips menghindari over-linking dalam penulisan esai
 
 Salah satu jebakan yang sering menimpa peserta ujian adalah penggunaan kata penghubung yang terlalu padat atau berlebihan (*over-linking*):
@@ -151,6 +153,6 @@ Salah satu jebakan yang sering menimpa peserta ujian adalah penggunaan kata peng
   *Contoh*: "The preliminary proposal, **however**, was met with substantial skepticism from municipal authorities."
 - **Utamakan kohesi alami lewat kata ganti dan repetisi terarah**: Terkadang, menggunakan kata ganti penunjuk (*this phenomenon*, *such initiatives*, *these challenges*) jauh lebih natural dalam menyambung dua kalimat daripada memasang kata hubung baru.
 
-Pelajari juga materi lanjutan kami mengenai [struktur kalimat kompleks di IELTS Writing Task 2](/id/blog/kalimat-kompleks-ielts-writing-task-2/) dan panduan [struktur writing task 2 ielts](/id/blog/struktur-writing-task-2-ielts/). Perluas pula perbendaharaan kata Anda lewat [cara paraphrase ielts writing](/id/blog/cara-paraphrase-ielts-writing-reading/) serta eksplorasi [collocation bahasa inggris untuk ielts](/id/blog/collocation-bahasa-inggris-untuk-ielts/) bersama bank kosakata [/tu-vung/](/tu-vung/).
+Pelajari juga materi lanjutan kami mengenai [struktur kalimat kompleks di IELTS Writing Task 2](/id/blog/kalimat-kompleks-ielts-writing-task-2/) dan panduan [struktur writing task 2 ielts](/id/blog/struktur-writing-task-2-ielts/). Perluas pula perbendaharaan kata Anda lewat [cara paraphrase ielts writing](/id/blog/cara-paraphrase-ielts-writing-reading/) serta eksplorasi [collocation bahasa inggris untuk ielts](/id/blog/collocation-bahasa-inggris-untuk-ielts/) bersama bank kosakata [/tu-vung/](/en/vocabulary/).
 
 Dengan latihan menulis yang konsisten dan penerapan kata penghubung secara cermat, esai bahasa Inggris Anda akan tampil meyakinkan, padat makna, dan siap meraih nilai tertinggi.

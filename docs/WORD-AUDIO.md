@@ -45,7 +45,7 @@ ice-cream, breakfast × 2 giọng = 48 (từ, giọng). Tỉ lệ đạt (Whispe
 - Khóa file: `fnv(giọng|từ|s3)` (`scripts/word-audio-strong.mjs` `WAV`). CDN đệm 1 năm → đổi cách tạo thì đổi hậu tố, không ghi đè khóa cũ.
   App (`web/js/ui.js`), add-on (`extension/newtab.js`) chỉ giữ hằng `WAV` – không có danh sách từ.
 - Trạng thái: `web/audio/w/s3.tsv` (`từ \t bf_emma \t af_heart`, `ok` hoặc lý do trượt) = danh sách dùng giọng máy, xem được;
-  `web/audio/w/index.txt` = từ có ≥ 1 giọng đạt (cờ "có file" cho Lex/newtab); `web/audio/w/s3-stats.json` = cộng dồn trước/sau.
+  `web/audio/w/index.txt` = từ đạt cả 2 giọng (cờ "có file" cho Lex/newtab); `web/audio/w/s3-stats.json` = cộng dồn trước/sau.
 - `word-audio.yml`: cron mỗi 4 giờ, 5 shard song song, mỗi shard ≤ 400 từ, tiếp tục được (từ chưa có kết quả cuối cho cả 2 giọng được làm lại).
   Vòng 1 = phương án đầu của `METHODS`; vòng 2 = các phương án còn lại cho (từ, giọng) trượt.
 - ci-triage không bao giờ "Re-run" lượt đã bị thay thế (có lượt mới hơn hoặc workflow/script/module đã đổi) – `supersededWhy` trong `scripts/ci/triage.mjs`.
@@ -91,4 +91,5 @@ ice-cream, breakfast × 2 giọng = 48 (từ, giọng). Tỉ lệ đạt (Whispe
 - `web/js/listen/audio-index.js` dạng nén Rice (`scripts/sentence-audio/keyset.mjs`, ≈ 18 bit/khóa; 2/11 dạng chuỗi 48,5k khóa = 207 KB gzip vượt ngân sách 160 KB/tệp). Đọc bằng `readIndex` (chạy tệp), không regex.
 - CI nghe tệp thẳng từ gốc Pages kho media (`asr_lib.ORIGINS`, khớp `workers/audio/index.js`), không qua Worker audio.lexkite.com: gói Free 100k lượt/ngày, 2/11 các lượt nghe làm hết hạn mức (lỗi 1027) cho cả người dùng.
 - `audio.yml`: ma trận shard động `scripts/ci/shards.mjs` = min(24, 40 − job đang chạy − 8, ⌈câu/500⌉) (chỉ job đang chạy, không đếm xếp hàng). Commit chỉ mục: `scripts/ci/commit-regen.sh` sinh lại trên main mới nhất thay vì rebase tệp 1 dòng (audio.yml + sentence-audio-asr.yml).
+- **Chỗ gọi** (3/11): `scripts/audio/tts-sites.mjs` quét mọi file đọc to (`UI.tts/speak/sayBtn`, `data-saysent`, `data-speak-text`, giáo viên `.say`, `speechSynthesis` trực tiếp) trong `web/js` + add-on; mỗi file phải khai trong `scripts/audio/tts-sites.json` (nhóm Kokoro và/hoặc `dynamic`: lý do). File đọc to mới chưa khai → `scripts/test/tts-sites.mjs` (npm test) đỏ. Lần quét đầu tìm thêm 2 nhóm tĩnh chưa đo: `ideas` (720 câu) + `say-native` (28). `audio-coverage.mjs` trước 3/11 chưa từng nằm trong `scripts/test/suite.txt` (cổng mù) – nay đã nối. `audio.yml` còn chạy khi nguồn corpus đổi trên main (push.paths; test khóa danh sách khớp `corpus.mjs`), không chỉ cron đêm.
 - Ngoài phạm vi: nghĩa tiếng mẹ đẻ ở Học rảnh tay (15 ngôn ngữ, Kokoro không có tiếng Việt) và câu động (AI, tra trang) – xem [TTS-AB](TTS-AB.md).

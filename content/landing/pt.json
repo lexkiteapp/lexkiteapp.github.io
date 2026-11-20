@@ -25,7 +25,7 @@
     ["🏁", "Prática para TOEFL, IELTS e TOEIC", "Os 12 tipos de tarefa do novo TOEFL iBT, simulados cronometrados de IELTS (4 habilidades) e TOEIC Listening & Reading, com nota estimada e explicação de cada resposta."],
     ["✍️", "Correção com IA de writing e speaking", "Escreva uma redação ou grave sua resposta e receba comentários pelos critérios da prova, com respostas-modelo para comparar. As correções com IA têm um limite diário justo."],
     ["🧩", "Extensão para Chrome", "Clique duas vezes em qualquer palavra de um site para ver o significado, selecione uma frase para traduzir e salve palavras das legendas do YouTube com o contexto."],
-    ["📐", "Gramática e pronúncia", "77 aulas visuais de gramática com 1.700 exercícios, os 44 sons do inglês e prática de fala avaliada por reconhecimento de voz."],
+    ["📐", "Gramática e pronúncia", "80 aulas visuais de gramática com 2.000 exercícios, os 44 sons do inglês e prática de fala avaliada por reconhecimento de voz."],
     ["🌐", "No seu idioma, em qualquer aparelho", "Interface e significados em português. Instale no celular como um app e continue revisando mesmo sem internet."]
   ],
   "stepsH": "Como funciona",
@@ -55,5 +55,6 @@
   "tm": "IELTS, TOEIC e TOEFL são marcas registradas de seus respectivos proprietários. O Lexkite é um produto independente, sem vínculo ou endosso dessas organizações.",
   "foot": "Lexkite – vocabulário e prática gratuita para IELTS, TOEIC e TOEFL. Conteúdo original, gratuito para quem aprende.",
   "suggest": ["Esta página está disponível em português.", "Ver em português", "Fechar"],
-  "ext": {"btn": "Adicionar ao Chrome – grátis", "h": "Consulte palavras em qualquer site", "p": "A extensão do Lexkite leva o dicionário a cada página que você lê. Clique duas vezes numa palavra para ver o significado, o IPA e o áudio, selecione uma frase para traduzi-la e salve palavras novas nos seus flashcards com a frase original.", "pts": ["Funciona no Chrome, Edge, Brave e Opera", "Toque em palavras nas legendas do YouTube", "Palavras salvas sincronizam com seus flashcards do Lexkite"], "alt": "Extensão do Lexkite: clique duplo em “resilience” num artigo mostra IPA, significados e exemplos"}
+  "ext": {"btn": "Adicionar ao Chrome – grátis", "h": "Consulte palavras em qualquer site", "p": "A extensão do Lexkite leva o dicionário a cada página que você lê. Clique duas vezes numa palavra para ver o significado, o IPA e o áudio, selecione uma frase para traduzi-la e salve palavras novas nos seus flashcards com a frase original.", "pts": ["Funciona no Chrome, Edge, Brave e Opera", "Toque em palavras nas legendas do YouTube", "Palavras salvas sincronizam com seus flashcards do Lexkite"], "alt": "Extensão do Lexkite: clique duplo em “resilience” num artigo mostra IPA, significados e exemplos"},
+  "install": {"h":"Instale o Lexkite","p":"Grátis no celular e no computador. Escolha onde aprender.","phone":"Está no computador? Abra {url} no celular para ir à loja certa.","hero":"Todas as formas de instalar"}
 }

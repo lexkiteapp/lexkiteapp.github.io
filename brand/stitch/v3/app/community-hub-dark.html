@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite — Community</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            surface: {
+              base: '#FFF7EA',
+              card: '#FFFFFF',
+              border: '#EADEC8',
+              ledge: '#D8CFBC',
+            },
+            teal: {
+              brand: '#2BA39A',
+              deep: '#1F7A75',
+              darker: '#0F3D3E',
+              ledge: '#12514D',
+              light: '#E2F7F5',
+            },
+            coral: {
+              main: '#F2553B',
+              ledge: '#B53A22',
+              light: '#FDEEEB',
+            },
+            amber: {
+              main: '#FFB054',
+              gold: '#FFC94A',
+              ledge: '#C97D20',
+              light: '#FFF5E6',
+            },
+            ink: {
+              primary: '#0F3D3E',
+              secondary: '#254D4E',
+              muted: '#4E6668',
+              dark: '#1B0B04',
+            }
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined-custom {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    /* Hide scrollbars but keep horizontal scroll functional */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    /* Tactile physics */
+    .tactile-btn {
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+    }
+    .tactile-btn:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 0 #B53A22 !important;
+    }
+    .tactile-card-btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 0 #D8CFBC !important;
+    }
+    .tactile-join-btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 0 #12514D !important;
+    }
+  </style>
+</head>
+<body class="bg-[#10191B] text-[#E8F1F0] font-sans antialiased min-h-screen flex justify-center selection:bg-[#36C5B9]/20">
+<!-- Main Mobile Container (Strict 390px native phone canvas) -->
+<main class="w-full max-w-[390px] min-h-screen bg-[#10191B] flex flex-col pb-8 relative shadow-xl overflow-x-hidden mx-auto">
+<!-- Top App Bar (Inner with Back and Safety Shield, min-h-[56px]) -->
+<header class="sticky top-0 z-30 bg-[#10191B]/95 backdrop-blur-md border-b-2 border-[#263D42] px-3 h-14 flex items-center justify-between">
+<button aria-label="Go back" class="min-w-[44px] min-h-[44px] w-11 h-11 flex items-center justify-center rounded-xl bg-[#172427] border-2 border-[#263D42] shadow-[0_2px_0_0_#111B1E] active:translate-y-0.5 active:shadow-none text-[#E8F1F0] transition-all" type="button">
+<span class="material-symbols-rounded text-xl text-[#E8F1F0]">arrow_back</span>
+</button>
+<div class="flex items-center gap-1.5">
+<h1 class="text-[19px] font-extrabold tracking-tight text-[#E8F1F0]">Community</h1>
+<span class="w-2 h-2 rounded-full bg-[#36C5B9] animate-pulse"></span>
+</div>
+<button aria-label="Community safety and moderation policy" class="min-w-[44px] min-h-[44px] w-11 h-11 flex items-center justify-center rounded-xl bg-[#172427] border-2 border-[#263D42] shadow-[0_2px_0_0_#111B1E] active:translate-y-0.5 active:shadow-none text-[#36C5B9] transition-all" title="Verified Safe Learning Space" type="button">
+<span class="material-symbols-rounded text-xl text-[#36C5B9]">verified_user</span>
+</button>
+</header>
+<!-- Main Scrollable Content Area -->
+<div class="px-4 pt-4 flex flex-col gap-5">
+<!-- SECTION 1: HERO CARD ("Learn together") -->
+<section aria-labelledby="hero-title" class="relative bg-[#172427] rounded-2xl border-2 border-[#263D42] p-4 shadow-[0_4px_0_0_#111B1E] overflow-hidden">
+<!-- Empty Teacher Slot in Top Right Corner -->
+<div class="absolute top-3.5 right-3.5 w-[56px] h-[64px] border-2 border-dashed border-[#36C5B9]/60 rounded-xl bg-[#1E2F33] flex flex-col items-center justify-center p-1 text-center" title="Teacher Guidance Slot">
+<span class="material-symbols-rounded text-[#36C5B9] text-lg">school</span>
+<span class="text-[8px] font-extrabold uppercase tracking-wider text-[#36C5B9] leading-tight mt-0.5">Teacher<br/>Slot</span>
+</div>
+<div class="pr-16">
+<div class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#1E2F33] border border-[#36C5B9]/40 mb-2">
+<span class="material-symbols-rounded text-[#36C5B9] text-xs">group</span>
+<span class="text-[11px] font-extrabold uppercase tracking-wider text-[#36C5B9]">Study Squads</span>
+</div>
+<h2 class="text-xl font-extrabold text-[#E8F1F0] tracking-tight leading-tight" id="hero-title">
+            Learn together
+          </h2>
+<p class="text-[13px] font-semibold text-[#A9BDBB] mt-1 leading-snug">
+            Small focused study rooms. Practice collocations &amp; mock speaking daily.
+          </p>
+</div>
+<!-- Live Learners Indicator + Circular Initial Avatars -->
+<div class="mt-4 pt-3 border-t-2 border-[#263D42] flex items-center justify-between">
+<div class="flex items-center">
+<!-- Avatar 1: Teal with Initial 'K' -->
+<div class="w-8 h-8 rounded-full bg-[#1F7A75] text-[#E8F1F0] flex items-center justify-center font-extrabold text-xs border-2 border-[#172427] shadow-sm ring-1 ring-[#263D42]">
+              K
+            </div>
+<!-- Avatar 2: Coral with Initial 'M' -->
+<div class="-ml-2 w-8 h-8 rounded-full bg-[#F2553B] text-white flex items-center justify-center font-extrabold text-xs border-2 border-[#172427] shadow-sm ring-1 ring-[#263D42]">
+              M
+            </div>
+<!-- Avatar 3: Amber with Initial 'L' -->
+<div class="-ml-2 w-8 h-8 rounded-full bg-[#FFB054] text-[#1B0B04] flex items-center justify-center font-extrabold text-xs border-2 border-[#172427] shadow-sm ring-1 ring-[#263D42]">
+              L
+            </div>
+<div class="-ml-2 w-8 h-8 rounded-full bg-[#1E2F33] text-[#36C5B9] flex items-center justify-center font-bold text-[10px] border-2 border-[#172427] shadow-sm">
+              +1k
+            </div>
+</div>
+<div class="flex items-center gap-1.5 text-right">
+<span class="w-2 h-2 rounded-full bg-[#2FBF71]"></span>
+<span class="text-[12px] font-bold text-[#E8F1F0]">
+<strong class="font-extrabold text-[#36C5B9]">1,240 learners</strong> practising now
+            </span>
+</div>
+</div>
+</section>
+<!-- SECTION 2: MY STUDY ROOMS (Horizontal Scrollable Cards) -->
+<section aria-labelledby="study-rooms-heading" class="flex flex-col gap-2.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-rounded text-[#36C5B9] text-lg">meeting_room</span>
+<h3 class="text-sm font-extrabold uppercase tracking-wider text-[#E8F1F0]" id="study-rooms-heading">
+              My study rooms
+            </h3>
+</div>
+<span class="text-[11px] font-bold text-[#A9BDBB] bg-[#172427] px-2 py-0.5 rounded-md border border-[#263D42]">2 Active</span>
+</div>
+<!-- Horizontal scroll wrapper -->
+<div class="flex gap-3 overflow-x-auto no-scrollbar -mx-4 px-4 pb-1">
+<!-- Room Card 1: IELTS Band 7 Sprint -->
+<article class="min-w-[240px] max-w-[250px] bg-[#172427] rounded-2xl border-2 border-[#263D42] p-3.5 shadow-[0_3px_0_0_#111B1E] flex flex-col justify-between shrink-0 relative">
+<!-- Unread notification indicator dot -->
+<div class="absolute top-3 right-3 flex items-center gap-1">
+<span class="w-2.5 h-2.5 rounded-full bg-[#F2553B] ring-2 ring-[#172427]" title="New activity in room"></span>
+</div>
+<div>
+<div class="flex items-center gap-1.5 mb-1.5">
+<span class="text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#1E2F33] text-[#36C5B9] border border-[#36C5B9]/30">
+                  IELTS Band 7
+                </span>
+<span class="flex items-center gap-0.5 text-[11px] font-extrabold text-[#F2553B]" title="Room study streak">
+<span class="material-symbols-rounded text-sm text-[#F2553B]">local_fire_department</span>
+                  6d
+                </span>
+</div>
+<h4 class="text-[15px] font-extrabold text-[#E8F1F0] leading-snug break-words">
+                Academic Task 2 Hub
+              </h4>
+<p class="text-[12px] font-medium text-[#A9BDBB] mt-0.5">
+                Daily cohesion &amp; essay drills
+              </p>
+</div>
+<div class="mt-3 pt-2.5 border-t border-[#263D42] flex items-center justify-between">
+<div class="flex items-center gap-1 text-[12px] font-bold text-[#E8F1F0]">
+<span class="material-symbols-rounded text-sm text-[#A9BDBB]">groups</span>
+<span>6 / 12 members</span>
+</div>
+<button class="min-h-[38px] px-3 py-1.5 rounded-xl bg-[#2BA39A] text-white text-[12px] font-extrabold shadow-[0_2px_0_0_#12514D] active:translate-y-0.5 active:shadow-none tactile-join-btn" type="button">
+                Enter
+              </button>
+</div>
+</article>
+<!-- Room Card 2: TOEIC 850 Vocab Sprint -->
+<article class="min-w-[240px] max-w-[250px] bg-[#172427] rounded-2xl border-2 border-[#263D42] p-3.5 shadow-[0_3px_0_0_#111B1E] flex flex-col justify-between shrink-0 relative">
+<div>
+<div class="flex items-center gap-1.5 mb-1.5">
+<span class="text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#1E2F33] text-[#FFB054] border border-[#FFB054]/40">
+                  TOEIC 850+
+                </span>
+<span class="flex items-center gap-0.5 text-[11px] font-extrabold text-[#F2553B]">
+<span class="material-symbols-rounded text-sm text-[#F2553B]">local_fire_department</span>
+                  12d
+                </span>
+</div>
+<h4 class="text-[15px] font-extrabold text-[#E8F1F0] leading-snug break-words">
+                Business Logistics Drill
+              </h4>
+<p class="text-[12px] font-medium text-[#A9BDBB] mt-0.5">
+                Part 5 grammar traps practice
+              </p>
+</div>
+<div class="mt-3 pt-2.5 border-t border-[#263D42] flex items-center justify-between">
+<div class="flex items-center gap-1 text-[12px] font-bold text-[#E8F1F0]">
+<span class="material-symbols-rounded text-sm text-[#A9BDBB]">groups</span>
+<span>8 / 12 members</span>
+</div>
+<button class="min-h-[38px] px-3 py-1.5 rounded-xl bg-[#2BA39A] text-white text-[12px] font-extrabold shadow-[0_2px_0_0_#12514D] active:translate-y-0.5 active:shadow-none tactile-join-btn" type="button">
+                Enter
+              </button>
+</div>
+</article>
+<!-- Room Card 3: Speaking Confidence Daily -->
+<article class="min-w-[240px] max-w-[250px] bg-[#172427] rounded-2xl border-2 border-[#263D42] p-3.5 shadow-[0_3px_0_0_#111B1E] flex flex-col justify-between shrink-0 relative">
+<!-- Unread notification indicator dot -->
+<div class="absolute top-3 right-3 flex items-center gap-1">
+<span class="w-2.5 h-2.5 rounded-full bg-[#36C5B9] ring-2 ring-[#172427]"></span>
+</div>
+<div>
+<div class="flex items-center gap-1.5 mb-1.5">
+<span class="text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#1E2F33] text-[#36C5B9] border border-[#36C5B9]/30">
+                  General C1
+                </span>
+<span class="flex items-center gap-0.5 text-[11px] font-extrabold text-[#F2553B]">
+<span class="material-symbols-rounded text-sm text-[#F2553B]">local_fire_department</span>
+                  4d
+                </span>
+</div>
+<h4 class="text-[15px] font-extrabold text-[#E8F1F0] leading-snug break-words">
+                Fluency Quick Rounds
+              </h4>
+<p class="text-[12px] font-medium text-[#A9BDBB] mt-0.5">
+                Idioms &amp; real-time tone
+              </p>
+</div>
+<div class="mt-3 pt-2.5 border-t border-[#263D42] flex items-center justify-between">
+<div class="flex items-center gap-1 text-[12px] font-bold text-[#E8F1F0]">
+<span class="material-symbols-rounded text-sm text-[#A9BDBB]">groups</span>
+<span>4 / 10 members</span>
+</div>
+<button class="min-h-[38px] px-3 py-1.5 rounded-xl bg-[#2BA39A] text-white text-[12px] font-extrabold shadow-[0_2px_0_0_#12514D] active:translate-y-0.5 active:shadow-none tactile-join-btn" type="button">
+                Enter
+              </button>
+</div>
+</article>
+</div>
+</section>
+<!-- SECTION 3: THIS WEEK'S GROUP CHALLENGE -->
+<section aria-labelledby="group-challenge-heading" class="bg-[#172427] rounded-2xl border-2 border-[#263D42] p-4 shadow-[0_3px_0_0_#111B1E]">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-rounded text-[#FFB054] text-xl">trophy</span>
+<h3 class="text-sm font-extrabold uppercase tracking-wider text-[#E8F1F0]" id="group-challenge-heading">
+              This week's group challenge
+            </h3>
+</div>
+<!-- Days left indicator -->
+<div class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#1E2F33] border border-[#FFB054]/50">
+<span class="material-symbols-rounded text-[#FFB054] text-xs">timer</span>
+<span class="text-[11px] font-extrabold text-[#FFB054]">3 days left</span>
+</div>
+</div>
+<div class="mt-3">
+<div class="flex items-baseline justify-between mb-1.5 flex-wrap gap-1">
+<h4 class="text-[15px] font-extrabold text-[#E8F1F0]">
+              Learn 300 words together
+            </h4>
+<span class="text-[13px] font-extrabold text-[#36C5B9]">
+              182 / 300 words
+            </span>
+</div>
+<!-- Chunky 3D-styled progress bar -->
+<div aria-valuemax="300" aria-valuemin="0" aria-valuenow="182" class="w-full h-4 bg-[#1E2F33] rounded-full border-2 border-[#263D42] overflow-hidden p-0.5 shadow-inner" role="progressbar">
+<div class="h-full bg-gradient-to-r from-[#2BA39A] to-[#2FBF71] rounded-full shadow-[0_1px_0_0_rgba(255,255,255,0.4)_inset]" style="width: 60.6%;"></div>
+</div>
+<!-- Helper subtext -->
+<div class="mt-2.5 flex items-center justify-between text-[12px] font-bold text-[#A9BDBB]">
+<span class="flex items-center gap-1 text-[#A9BDBB]">
+<span class="w-2 h-2 rounded-full bg-[#2FBF71]"></span>
+              Squad is on track (61% locked)
+            </span>
+<span class="text-[#F2553B] font-extrabold">+50 XP Squad Bonus</span>
+</div>
+</div>
+</section>
+<!-- SECTION 4: LIVE SPEAKING ROOMS (List by Topic) -->
+<section aria-labelledby="live-speaking-heading" class="flex flex-col gap-2.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-rounded text-[#F2553B] text-lg">mic</span>
+<h3 class="text-sm font-extrabold uppercase tracking-wider text-[#E8F1F0]" id="live-speaking-heading">
+              Live speaking rooms
+            </h3>
+</div>
+<span class="text-[11px] font-bold text-[#36C5B9] flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-[#F2553B] animate-ping"></span>
+            Live audio
+          </span>
+</div>
+<div class="flex flex-col gap-2.5">
+<!-- Room 1: Travel -->
+<div class="bg-[#172427] rounded-2xl border-2 border-[#263D42] p-3.5 shadow-[0_3px_0_0_#111B1E] flex items-center justify-between gap-3">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-10 h-10 rounded-xl bg-[#1E2F33] border-2 border-[#36C5B9]/40 flex items-center justify-center text-[#36C5B9] shrink-0">
+<span class="material-symbols-rounded text-xl">flight</span>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-1.5 flex-wrap">
+<h4 class="text-[14px] font-extrabold text-[#E8F1F0] truncate">Travel &amp; Airports</h4>
+<span class="text-[10px] font-extrabold uppercase px-1.5 py-0.5 rounded-md bg-[#1E2F33] text-[#FFB054] border border-[#FFB054]/50">
+                    B1
+                  </span>
+</div>
+<div class="flex items-center gap-1 text-[12px] font-bold text-[#A9BDBB] mt-0.5">
+<span class="material-symbols-rounded text-sm text-[#36C5B9]">volume_up</span>
+<span>2 / 4 speakers live</span>
+</div>
+</div>
+</div>
+<button aria-label="Join Travel &amp; Airports speaking room" class="min-w-[70px] min-h-[44px] px-3.5 py-2 rounded-xl bg-[#2BA39A] text-white text-[13px] font-extrabold shadow-[0_3px_0_0_#12514D] active:translate-y-0.5 active:shadow-none tactile-join-btn shrink-0 flex items-center justify-center gap-1" type="button">
+<span>Join</span>
+<span class="material-symbols-rounded text-sm">arrow_forward</span>
+</button>
+</div>
+<!-- Room 2: Job interview -->
+<div class="bg-[#172427] rounded-2xl border-2 border-[#263D42] p-3.5 shadow-[0_3px_0_0_#111B1E] flex items-center justify-between gap-3">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-10 h-10 rounded-xl bg-[#1E2F33] border-2 border-[#FFB054]/50 flex items-center justify-center text-[#FFB054] shrink-0">
+<span class="material-symbols-rounded text-xl">work</span>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-1.5 flex-wrap">
+<h4 class="text-[14px] font-extrabold text-[#E8F1F0] truncate">Job Interview Prep</h4>
+<span class="text-[10px] font-extrabold uppercase px-1.5 py-0.5 rounded-md bg-[#1E2F33] text-[#36C5B9] border border-[#36C5B9]/40">
+                    B2
+                  </span>
+</div>
+<div class="flex items-center gap-1 text-[12px] font-bold text-[#A9BDBB] mt-0.5">
+<span class="material-symbols-rounded text-sm text-[#36C5B9]">volume_up</span>
+<span>3 / 4 speakers live</span>
+</div>
+</div>
+</div>
+<button aria-label="Join Job Interview Prep speaking room" class="min-w-[70px] min-h-[44px] px-3.5 py-2 rounded-xl bg-[#2BA39A] text-white text-[13px] font-extrabold shadow-[0_3px_0_0_#12514D] active:translate-y-0.5 active:shadow-none tactile-join-btn shrink-0 flex items-center justify-center gap-1" type="button">
+<span>Join</span>
+<span class="material-symbols-rounded text-sm">arrow_forward</span>
+</button>
+</div>
+<!-- Room 3: Daily chat -->
+<div class="bg-[#172427] rounded-2xl border-2 border-[#263D42] p-3.5 shadow-[0_3px_0_0_#111B1E] flex items-center justify-between gap-3">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-10 h-10 rounded-xl bg-[#1E2F33] border-2 border-[#F2553B]/40 flex items-center justify-center text-[#F2553B] shrink-0">
+<span class="material-symbols-rounded text-xl">forum</span>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-1.5 flex-wrap">
+<h4 class="text-[14px] font-extrabold text-[#E8F1F0] truncate">Daily Coffee Chat</h4>
+<span class="text-[10px] font-extrabold uppercase px-1.5 py-0.5 rounded-md bg-[#1E2F33] text-[#FFB054] border border-[#FFB054]/50">
+                    B1
+                  </span>
+</div>
+<div class="flex items-center gap-1 text-[12px] font-bold text-[#A9BDBB] mt-0.5">
+<span class="material-symbols-rounded text-sm text-[#36C5B9]">volume_up</span>
+<span>2 / 4 speakers live</span>
+</div>
+</div>
+</div>
+<button aria-label="Join Daily Coffee Chat speaking room" class="min-w-[70px] min-h-[44px] px-3.5 py-2 rounded-xl bg-[#2BA39A] text-white text-[13px] font-extrabold shadow-[0_3px_0_0_#12514D] active:translate-y-0.5 active:shadow-none tactile-join-btn shrink-0 flex items-center justify-center gap-1" type="button">
+<span>Join</span>
+<span class="material-symbols-rounded text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</section>
+<!-- SECTION 5: WEEKLY ROOM RANKING (Top 3 Rooms) -->
+<section aria-labelledby="ranking-heading" class="bg-[#172427] rounded-2xl border-2 border-[#263D42] p-4 shadow-[0_3px_0_0_#111B1E]">
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-rounded text-[#36C5B9] text-lg">leaderboard</span>
+<h3 class="text-sm font-extrabold uppercase tracking-wider text-[#E8F1F0]" id="ranking-heading">
+              Weekly room ranking
+            </h3>
+</div>
+<span class="text-[11px] font-bold text-[#A9BDBB]">Top 3</span>
+</div>
+<ol class="flex flex-col gap-2">
+<!-- Rank 1: Gold Medal -->
+<li class="flex items-center justify-between p-2 rounded-xl bg-[#1E2F33] border border-[#FFB054]/50">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="w-6 h-6 rounded-full bg-[#FFB054] text-[#1B0B04] font-extrabold text-[12px] flex items-center justify-center shadow-sm shrink-0">
+                1
+              </span>
+<div class="min-w-0">
+<p class="text-[13px] font-extrabold text-[#E8F1F0] truncate">Band 8.0 Masterclass</p>
+<p class="text-[11px] font-bold text-[#A9BDBB]">1,840 collocations memorised</p>
+</div>
+</div>
+<span class="text-[12px] font-extrabold text-[#F2553B] shrink-0 ml-2">24d 🔥</span>
+</li>
+<!-- Rank 2: Silver -->
+<li class="flex items-center justify-between p-2 rounded-xl bg-[#1E2F33] border border-[#263D42]">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="w-6 h-6 rounded-full bg-[#263D42] text-[#E8F1F0] font-extrabold text-[12px] flex items-center justify-center shrink-0">
+                2
+              </span>
+<div class="min-w-0">
+<p class="text-[13px] font-extrabold text-[#E8F1F0] truncate">Daily Oxford 3000</p>
+<p class="text-[11px] font-bold text-[#A9BDBB]">1,420 words reviewed</p>
+</div>
+</div>
+<span class="text-[12px] font-extrabold text-[#F2553B] shrink-0 ml-2">18d 🔥</span>
+</li>
+<!-- Rank 3: Bronze -->
+<li class="flex items-center justify-between p-2 rounded-xl bg-[#1E2F33] border border-[#263D42]">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="w-6 h-6 rounded-full bg-[#263D42] text-[#E8F1F0] font-extrabold text-[12px] flex items-center justify-center shrink-0">
+                3
+              </span>
+<div class="min-w-0">
+<p class="text-[13px] font-extrabold text-[#E8F1F0] truncate">IELTS Speaking Duo</p>
+<p class="text-[11px] font-bold text-[#A9BDBB]">980 min spoken</p>
+</div>
+</div>
+<span class="text-[12px] font-extrabold text-[#F2553B] shrink-0 ml-2">14d 🔥</span>
+</li>
+</ol>
+</section>
+<!-- SECTION 6: PRIMARY ACTION BUTTON ("Find a room") -->
+<section class="pt-1">
+<button aria-label="Find a room to join or browse directory" class="w-full min-h-[56px] py-3.5 px-6 rounded-2xl bg-gradient-to-r from-[#F2553B] to-[#FFB054] text-[#1B0B04] text-[16px] font-extrabold tracking-wide uppercase shadow-[0_6px_0_0_#B53A22] active:translate-y-1 active:shadow-[0_2px_0_0_#B53A22] transition-all tactile-btn flex items-center justify-center gap-2" type="button">
+<span class="material-symbols-rounded text-2xl text-[#1B0B04]">search</span>
+<span>Find a room</span>
+</button>
+<p class="text-center text-[11px] font-bold text-[#A9BDBB] mt-2.5">
+          Zero lockouts • Free forever • Certified safe study environment
+        </p>
+</section>
+</div>
+</main>
+</body>
+</html>

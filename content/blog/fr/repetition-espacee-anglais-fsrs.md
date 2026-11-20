@@ -61,6 +61,8 @@ Dans cet article complet, nous explorons les fondements neurologiques de la cour
 ![Carte mémoire de révision de vocabulaire avec phonétique dans Lexkite](media:review)
 *Interface de révision par répétition espacée avec évaluation de la difficulté.*
 
+L'espacement décide du moment de la révision ; [le rappel actif](/fr/blog/rappel-actif-apprendre-vocabulaire-anglais/) décide de la manière. Les deux se complètent.
+
 ## La courbe de l'oubli d'Ebbinghaus : Pourquoi le bachotage échoue
 
 À la fin du XIXe siècle, le philosophe et psychologue allemand Hermann Ebbinghaus a conduit des séries d'expérimentations rigoureuses sur lui-même en mémorisant des suites de syllabes sans signification. Ses mesures ont révélé une régularité mathématique implacable : le taux de déperdition de l'information suit une courbe logarithmique descendante fulgurante.
@@ -124,7 +126,7 @@ Ne surchargez jamais une carte avec six synonymes, trois définitions contradict
 Regarder un mot anglais, lire sa traduction française et se dire « oui, je le savais » est un leurre cognitif bien connu : l'illusion de compétence (*Illusion of Knowing*). Seul l'effort conscient de formuler la réponse avant de retourner la carte déclenche la synthèse de nouvelles protéines synaptiques.
 
 ### 3. Toujours associer un contexte authentique
-Un mot isolé sans contexte ne possède aucune racine émotionnelle ou logique dans votre esprit. Associez chaque terme à une phrase d'exemple percutante ou à une situation de votre vie quotidienne. Vous pouvez parcourir notre [Liste de vocabulaire thématique](/tu-vung/) pour enrichir vos cartes d'exemples idiomatiques.
+Un mot isolé sans contexte ne possède aucune racine émotionnelle ou logique dans votre esprit. Associez chaque terme à une phrase d'exemple percutante ou à une situation de votre vie quotidienne. Vous pouvez parcourir notre [Liste de vocabulaire thématique](/en/vocabulary/) pour enrichir vos cartes d'exemples idiomatiques.
 
 ### 4. La franchise absolue lors de l'auto-évaluation
 Après avoir retourné votre carte, choisissez votre appréciation (*À revoir, Difficile, Bon, Facile*) avec une honnêteté totale. Hésiter plus de 4 secondes avant de trouver la réponse ne doit jamais être évalué comme « Facile ». Donnez à l'algorithme des données fiables pour qu'il protège votre mémoire.

@@ -1,0 +1,63 @@
+# ci-policy: heavy-gate – việc nặng trên PR chờ npm test xanh (job `gate`, luật 11)
+# Chứng minh `taps` (WebKit iPhone, tối) không còn đỏ-xanh ngẫu nhiên: chạy lại review-taps.mjs 20 lần, phải 20/20 xanh.
+# Gốc lỗi: sweep 15 ngôn ngữ chuyển trang khi fetch lex-index.json / packs/<lang>.json còn bay (+ lexkite.com bị abort) → WebKit "access control checks".
+name: Màn Ôn – ổn định ×20
+on:
+  workflow_dispatch:
+    inputs:
+      runs: { description: 'Số lần lặp mỗi shard', default: '5' }
+  pull_request:
+    paths: ['.github/workflows/review-taps-stability.yml']
+  push:
+    branches: [main]
+    paths: ['.github/workflows/review-taps-stability.yml']
+permissions:
+  contents: read
+concurrency:
+  group: review-taps-stability-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  # luật 11 (làn nhanh trước làn nặng, scripts/test/ci-policy.mjs): trên PR việc nặng chỉ chạy khi `npm test` đã XANH cùng sha (hoặc PR có nhãn `ready`) – đỏ/chưa xong thì mọi job dưới là skipped
+  # (không chiếm runner); npm-test.yml job `heavy` chạy lại lượt này ngay khi npm test xanh (scripts/ci/heavy-rerun.mjs). Lỗi API → mở cổng (không mất kiểm).
+  gate:
+    # luật 18 (CI làn nhanh, 16/11): PR chỉ chờ làn nhanh – việc nặng bỏ qua trên PR (skipped, không tốn máy), chạy SAU gộp trên push main; nhãn ready-heavy/ready = chạy nặng ngay trên PR
+    if: ${{ github.event_name != 'pull_request' || contains(github.event.pull_request.labels.*.name, 'ready-heavy') || contains(github.event.pull_request.labels.*.name, 'ready') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    permissions: { contents: read, checks: read }
+    outputs: { go: '${{ steps.g.outputs.go }}' }
+    steps:
+      - id: g
+        env: { GH_TOKEN: '${{ github.token }}', EV: '${{ github.event_name }}', SHA: '${{ github.event.pull_request.head.sha }}', REPO: '${{ github.repository }}', READY: '${{ contains(github.event.pull_request.labels.*.name, ''ready'') }}' }
+        run: |
+          go=true
+          if [ "$EV" = pull_request ] && [ "$READY" != true ]; then
+            n=$(gh api "repos/$REPO/commits/$SHA/check-runs?check_name=npm%20test&per_page=20" --jq '[.check_runs[] | select(.conclusion == "success")] | length' 2>/dev/null) || n=1
+            [ "${n:-1}" -ge 1 ] || go=false
+          fi
+          echo "go=$go" >> "$GITHUB_OUTPUT"; echo "npm test xanh cùng sha (hoặc nhãn ready) → go=$go"
+  repeat:
+    needs: gate
+    if: needs.gate.outputs.go == 'true'
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix: { shard: [1, 2, 3, 4] }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: ./.github/actions/playwright-cache
+        with: { browsers: '--with-deps chromium webkit' }
+      - run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2
+          bash scripts/ci/pw-install.sh --with-deps chromium webkit
+        timeout-minutes: 12
+      - name: Lặp review-taps
+        run: |
+          n=${{ inputs.runs || '5' }}; bad=0
+          for i in $(seq 1 "$n"); do
+            node scripts/test/review-taps.mjs web out/s$i > out.log 2>&1 && echo "run $i ✓" || { echo "run $i ✗"; grep '✗' out.log | head -5; bad=$((bad+1)); }
+          done
+          echo "shard ${{ matrix.shard }}: $((n-bad))/$n xanh"; [ "$bad" = 0 ]

@@ -396,7 +396,7 @@ add('toeic4', 'TOEIC 376–500', '📊', 'Thiết bị văn phòng, hợp đồn
 ['usage', '/ˈjuːsɪdʒ/', 'n', 'mức sử dụng, cách dùng', 'the amount or way something is used', 'Our office electricity usage dropped sharply last month.', 'data usage|energy usage', '', 'B2', '📊', '/ˈjuːsədʒ/'],
 ['windy', '/ˈwɪndi/', 'adj', 'nhiều gió', 'with a lot of wind', 'It is too windy to hold the event outside.', 'windy day|windy weather', '', 'A1', '🌬️'],
 ['automate', '/ˈɔːtəmeɪt/', 'v', 'tự động hóa', 'to make a process work by machines', 'We plan to automate the billing process to save time.', 'automate a process|fully automated', '', 'C1', '🤖'],
-['ferry', '/ˈferi/', 'n', 'phà', 'a boat that carries people and vehicles across water', 'We took the ferry to the island for the retreat.', 'car ferry|ferry terminal', '', 'B1', '⛴️'],
+['ferry', '/ˈferi/', 'n', 'phà', 'a boat that carries people and vehicles across water', 'We took the ferry from Brannoch Quay to the island for the retreat.', 'car ferry|ferry terminal', '', 'B1', '⛴️'],
 ['finalize', '/ˈfaɪnəlaɪz/', 'v', 'hoàn tất, chốt', 'to complete the last part of a plan or agreement', 'We will finalize the contract with the supplier next week.', 'finalize a deal|finalize plans', '', 'B2', '🏁'],
 ['incur', '/ɪnˈkɜː/', 'v', 'chịu, phải gánh (chi phí)', 'to cause yourself to have to pay something', 'Late payments will incur a fee of twenty dollars per month.', 'incur costs|incur expenses', '', 'C1', '💸', '/ɪnˈkɜːr/'],
 ['instruct', '/ɪnˈstrʌkt/', 'v', 'hướng dẫn; chỉ thị', 'to tell someone what to do', 'Staff were instructed to lock all doors at night.', 'instruct staff|as instructed', '', 'C1', '📢'],

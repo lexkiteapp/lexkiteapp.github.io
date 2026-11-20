@@ -25,7 +25,8 @@
 "respectively": "respectivamente",
 "diet": "dieta",
 "deterrent": "dissuasor",
-"well-being": "bem-estar"
+"well-being": "bem-estar",
+"consequent": "consequente, lógico"
 },
 "fr": {
 "pregnant": "enceinte",
@@ -39,7 +40,9 @@
 "respectively": "respectivement",
 "diet": "alimentation, régime",
 "deterrent": "moyen de dissuasion",
-"well-being": "bien-être"
+"well-being": "bien-être",
+"coherent": "cohérent, logique",
+"eventual": "final, qui survient à terme"
 },
 "de": {
 "pregnant": "schwanger",
@@ -81,7 +84,8 @@
 "respectively": "ตามลำดับ",
 "diet": "อาหารที่กิน, การควบคุมอาหาร",
 "deterrent": "สิ่งยับยั้ง",
-"well-being": "ความเป็นอยู่ที่ดี"
+"well-being": "ความเป็นอยู่ที่ดี",
+"simulate": "จำลอง, เลียนแบบ"
 },
 "zh": {
 "pregnant": "怀孕的",
@@ -227,7 +231,9 @@
 "perspective": "視点",
 "significant": "重要な、著しい",
 "substantial": "相当な",
-"implement": "実施する"
+"implement": "実施する",
+"discriminate": "区別する, 差別する",
+"enhance": "高める, 強化する"
 },
 "ko": {
 "pregnant": "임신한",

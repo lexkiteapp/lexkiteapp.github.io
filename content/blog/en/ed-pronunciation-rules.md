@@ -50,6 +50,8 @@ publishAt: 2026-12-06T12:39:00+05:30
 
 Mispronouncing *-ed* creates two kinds of problem. First, adding an extra syllable (*look-ed*, *stop-ed*) makes your speech sound slow and unnatural, and it can affect the rhythm of the whole sentence. Second, dropping the ending completely (*Yesterday I walk to work*) can make listeners think you made a grammar mistake, even when you know the rule. In IELTS Speaking, pronunciation is one of the four criteria, and clear endings also help the examiner hear your grammatical range.
 
+Related reading: [how to practice English pronunciation](/en/blog/how-to-practice-english-pronunciation/).
+
 The ending is also a listening problem: if you expect "walk-ed", you will not recognise the real /wɔːkt/ in fast speech. Our guide to [connected speech](/en/blog/connected-speech-in-english/) explains how endings blend with the next word.
 
 ## The three rules of ed pronunciation

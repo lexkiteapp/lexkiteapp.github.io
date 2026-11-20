@@ -7,14 +7,14 @@
 // Dùng: node scripts/test/shell-lazy.mjs   (chạy trong npm test, ngay sau size-budget)
 import fs from 'fs';
 import zlib from 'zlib';
+import { readBundles } from '../lib/bundles.mjs';
 import { gzSize, firstLoadFiles, swShell, eagerFiles } from '../lib/gz-canon.mjs';
 
 let fail = 0; const ok = (c, m) => { if (c) console.log('✓ shell-lazy: ' + m); else { fail++; console.error('✗ shell-lazy: ' + m); } };
 const rd = f => fs.readFileSync(f, 'utf8');
 const first = firstLoadFiles(), firstSrc = first.filter(u => /\.js$/.test(u)).map(u => rd('web' + u)).join('\n');
 const app = rd('web/js/app.js');
-const a = app.indexOf("const G = 'js/grammar/', BUNDLES = {"), b = app.indexOf('\n  };', a);
-const BUNDLES = new Function(app.slice(a, b + 4) + '; return BUNDLES;')();
+const BUNDLES = readBundles();
 const r0 = app.indexOf('const ROUTE_BUNDLE = {'), r1 = app.indexOf('};', r0);
 const ROUTE_BUNDLE = new Function(app.slice(r0, r1 + 2) + '; return ROUTE_BUNDLE;')();
 
@@ -23,6 +23,7 @@ const LAZY = [
   { file: 'js/phrases-model.js', bundle: 'writing', routes: ['model', 'models', 'phrases'] },
   { file: 'js/dict-page.js', bundle: 'dictp', routes: ['dict'] },
   { file: 'js/league.js', bundle: 'league', routes: ['league'] },
+  { file: 'js/stats-page.js', bundle: 'statsp', routes: ['stats'] }, // 06/11: Tiến độ & huy hiệu + thời điểm vàng/tuần này/cấp độ nhớ
 ];
 for (const L of LAZY) {
   ok(fs.existsSync('web/' + L.file), `${L.file} tồn tại`);
@@ -38,6 +39,7 @@ for (const L of LAZY) {
 for (const k of ['lemmaT', 'lemma', 'cleanText', 'phrasePop', 'savePhraseDialog', 'isPhrase', 'parseHash', 'extCta', 'bindCommon', 'guard'])
   ok(new RegExp(`App\\.${k} = `).test(firstSrc), `App.${k} định nghĩa ở khung (file lười dùng ngay khi nạp)`);
 ok(/inDeck, [^}]*masteryDots/.test(app) && /\breward, addWord, inDeck\b/.test(app), 'App có state/routes/view/inDeck/masteryDots/reward/addWord (dict-page.js lấy từ App)');
+ok(/masteryDots, view, avatarInner \}/.test(app) && /\bstreak\b[^}]*\bview\b/.test(app.slice(app.indexOf('const App = {'), app.indexOf('window.App = App'))), 'App có streak/view/avatarInner (stats-page.js lấy từ App)');
 
 // 3) thước đo tất định, cùng danh sách
 const sb = rd('scripts/test/size-budget.mjs'), ss = rd('scripts/test/shell-size.mjs');
@@ -49,6 +51,23 @@ const g1 = gzSize(sample);
 ok(g1 === gzSize(Buffer.from(sample)) && g1 === 14781, `gzip chuẩn cố định trên mọi máy (mẫu = ${g1} B, mong đợi 14781 B)`);
 ok(Math.abs(zlib.gzipSync(sample, { level: 9 }).length - g1) < g1 * 0.05, 'gzip chuẩn cùng cỡ zlib mức 9 (±5%) – vẫn là gzip thật');
 ok(eagerFiles().every(u => first.includes(u)) && swShell().every(u => first.includes(u)), 'mọi script/CSS nạp ngay của /app/ đều được đếm vào khung');
+
+// 4) Vẽ trước, kho từ sau (06/11, docs/PERF-SCROLL.md › Tải trang): Hôm nay/Ôn không chờ gói 'words' (~311 KB nén) trước lần vẽ đầu;
+//    gói nạp sau khi trang vẽ xong; các chỗ dùng kho ở 2 trang này phải có dự phòng khi kho chưa về.
+{
+  const pf = /const PAINT_FIRST = new Set\(\[([^\]]*)\]\), PAINT_LATE = new Set\(\[([^\]]*)\]\)/.exec(app) || [];
+  ok(/'home'/.test(pf[1] || '') && /'review'/.test(pf[1] || '') && /^'words'$/.test(pf[2] || ''), "PAINT_FIRST gồm home + review, PAINT_LATE = 'words'");
+  const rt = app.slice(app.indexOf('const b = [].concat(ROUTE_BUNDLE[name]'), app.indexOf('await App.need(...b)'));
+  ok(/const late = PAINT_FIRST\.has\(name\)/.test(rt) && /b\.splice\(0, b\.length, \.\.\.b\.filter\(x => !late\.includes\(x\)\)\)/.test(rt), "router bỏ 'words' khỏi danh sách chờ TRƯỚC await App.need(...b)");
+  const rd2 = app.slice(app.indexOf('const render = async () => {'), app.indexOf('App.route = route;'));
+  ok(rd2.indexOf('if (late.length) App.calm(() => App.need(...late)') > rd2.indexOf('await fn(arg, query)'), "gói 'words' nạp SAU khi trang vẽ (App.calm), không bỏ hẳn");
+  ok(/skelHome/.test(app) && /skelReview/.test(app), 'Hôm nay/Ôn vẫn có khung chờ (skeleton) khi gói còn lại tải lâu');
+  const st = rd('web/js/study.js');
+  ok(/const libNorm = \(\) => libN && \(?libN\.length === TOPICS\.length/.test(st) && /if \(window\.Distract\)/.test(st) && /!window\.Distract \|\| !Distract\.pickAsync/.test(st), 'Ôn: phương án nhiễu có dự phòng khi chưa có distract.js, kho tự làm mới khi TOPICS lớn thêm');
+  const ux = rd('web/js/ux1.js'), data = rd('web/js/data.js');
+  const ids = ((/ielts: \[([^\]]*)\]/.exec(ux.slice(ux.indexOf('const ORDER'))) || [])[1] || '').match(/'[a-z]+'/g) || [];
+  ok(ids.length >= 8 && ids.every(id => data.includes('T(' + id)), 'Hôm nay (ux1): mọi chặng của lộ trình lấy từ data.js (khung), không cần kho words: ' + ids.join(' '));
+}
 
 if (fail) { console.error(`✗ shell-lazy: ${fail} lỗi`); process.exit(1); }
 console.log('✓ shell-lazy: đạt');

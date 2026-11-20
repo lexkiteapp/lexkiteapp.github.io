@@ -24,6 +24,8 @@ Memahami pola bunyi dalam *connected speech* merupakan kunci utama untuk membuka
 
 Sebagian besar pembelajar mengawali perkenalan dengan bahasa Inggris lewat media teks tertulis. Di dalam memori kita, setiap kata tersimpan sebagai entitas terpisah: *want* /wɒnt/, *to* /tuː/. Namun, pada saat organ bicara manusia bekerja dalam tempo wajar, pita suara dan lidah berupaya menghemat pergerakan fisik. Daripada menghentikan aliran udara di antara setiap kata, bunyi akhir dan awal kata secara otomatis tersambung: *want to* berubah menjadi /ˈwɒnə/, *to* melemah menjadi /tə/, dan jeda antar-kata menghilang.
 
+Kalau ingin melanjutkan, lihat juga [panduan latihan pelafalan bahasa Inggris mandiri](/id/blog/cara-latihan-pelafalan-bahasa-inggris/).
+
 Selain itu, bahasa Inggris adalah bahasa dengan ritme berbasis tekanan suku kata (*stress-timed rhythm*). Ini berarti jarak waktu antara suku kata utama yang bertekanan (*stressed syllables*) cenderung konstan, memaksa kata-kata fungsi di antaranya (preposisi, konjungsi, kata ganti) menciut menjadi bentuk lemah (*weak forms*).
 
 ![Pustaka pelafalan Lexkite menampilkan simbol fonetik IPA untuk vokal dan konsonan](media:pron "Pustaka pelafalan Lexkite dengan simbol fonetik IPA membantu Anda menguasai tiap fonem sebelum merangkaikannya")
@@ -109,6 +111,8 @@ Anda dapat melatih penyambungan kata secara interaktif di [/#/speaking](/#/speak
 1. **Dikte Mikro (Micro-Dictation):** Dengarkan cuplikan audio pendek berdurasi 5–10 detik dari film atau podcast berbahasa Inggris. Tuliskan persis apa yang Anda dengar, lalu bandingkan dengan transkrip aslinya untuk melihat bunyi mana yang hilang atau menyambung.
 2. **Teknik Shadowing:** Dengarkan penutur asli mengucapkan satu klausa, lalu tirukan secara langsung dengan jeda kurang dari setengah detik, mengikuti naik-turun intonasi dan sambungan katanya.
 3. **Membaca Bersambung (Chunk Reading):** Beri tanda garis lengkung pada buku cerita atau artikel di antara konsonan akhir dan vokal awal (*read‿a‿book*). Baca teks tersebut dengan niat membunyikannya seolah-olah hanya ada satu kata panjang.
+
+Efeknya pada ujian dibahas di [jenis soal IELTS Listening](/id/blog/jenis-soal-ielts-listening/).
 
 ## Pertanyaan yang Sering Diajukan (FAQ)
 

@@ -26,6 +26,8 @@ IELTSリーディングテストにおいて、多くの日本人受験生が最
 
 誤りの選択肢が明白で極端な学校の定期テストとは異なり、IELTS Academicの長文は学術論文や信頼性の高い報道記事から抜粋されています。出題者は受験生の緻密な論理読解力を試すために設問を巧妙に設計しています。
 
+関連記事として[IELTSリーディングの時間配分](/ja/blog/ielts-reading-jikan-haibun-kotsu/)も参考になります。
+
 1. **True（本文と一致）：** 設問の主張を構成するすべての要素が、本文の意味と完全に合致しています。単語がそのまま使われることは極めて稀で、洗練された同義語や構文のパラフレーズ（言い換え）が用いられます。
 2. **False（本文と矛盾）：** 本文が設問と正反対の事実を述べているか、設問の成立を論理的に不可能にする証拠が存在します。証明可能な直接的矛盾が存在します。
 3. **Not Given（記載なし）：** 本文の情報だけでは判断を下せません。筆者がその広いテーマについて触れてはいても、設問で問われている具体的な因果関係や詳細については言及がありません。
@@ -86,6 +88,8 @@ FalseとNot Givenの境界線を体感するために、次の模擬テキスト
 1. **レベル別リーディング演習の継続:** Lexkiteの [リーディングライブラリ](/#/reading) で、設問と本文が左右に並んだ画面を活用し、根拠箇所にアンダーラインを引きながら解く訓練を重ねます。
 2. **間違いノートでの原因分析:** 不正解だった問題は自動的に [Mistake Log](/#/mistakes) に集約されます。語彙のパラフレーズを見落としたのか、限定詞の比較を誤ったのかを定期的に分析します。
 3. **総合的な読解力の補強:** [ielts collocation shizen na rengo eigo](/ja/blog/ielts-collocation-shizen-na-rengo-eigo/) で学術コロケーションの知識を蓄え、[eigo dictation yarikata listening](/ja/blog/eigo-dictation-yarikata-listening/) で精読力を鍛えます。語彙の定着には [bunsan gakushuu eitango anki fsrs](/ja/blog/bunsan-gakushuu-eitango-anki-fsrs/) を活用し、英英辞典の定義確認法として [eiei jisho tsukaikata osusume](/ja/blog/eiei-jisho-tsukaikata-osusume/) も併せてご参照ください。文法確認には当サイトの [/ngu-phap/](/ngu-phap/) ページをご参照ください。
+
+ほかの問題形式の解き方も知りたい人は、[IELTS リーディングの問題形式一覧](/ja/blog/ielts-reading-mondai-keishiki-ichiran/)で全形式を比べられます。
 
 ## よくある質問（FAQ）
 

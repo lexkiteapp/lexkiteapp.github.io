@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_clause",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: clause.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means a separate part of a contract or legal document.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "Read every clause of the contract carefully.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "clause",
+  "ipa": "/klɔːz/",
+  "mean": "a separate part of a contract or legal document",
+  "ex": "Read every clause of the contract carefully.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=clause",
+  "link": "https://lexkite.com/app/#/review?w=clause",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 43,
+  "seconds": 26.2,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"clause\" mean?",
+  "keyword": "clause",
+  "value": "Clause means a separate part of a contract or legal document.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=clause",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"clause\" mean?",
+    "description": "Clause means a separate part of a contract or legal document.\n\nReview your words, free: https://lexkite.com/app/#/review?w=clause\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "clause",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"clause\" mean?\n\nClause means a separate part of a contract or legal document.\n\nReview your words, free: https://lexkite.com/app/#/review?w=clause"
+   },
+   "instagram": {
+    "caption": "What does \"clause\" mean?\n\nClause means a separate part of a contract or legal document.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"clause\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means a separate part of a contract or legal document. Clause means a separate part of a contract or legal document. Try the full lesson and quiz here: {link}"
+ }
+}

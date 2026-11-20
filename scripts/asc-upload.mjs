@@ -16,6 +16,7 @@ import fs from 'fs';
 import path from 'path';
 import crypto from 'crypto';
 import { load as loadMetadata } from './store-metadata.mjs';
+import { ascKeyFromEnv, createAsc } from './lib/asc-api.mjs';
 
 const args = process.argv.slice(2);
 const flag = f => args.includes(f);
@@ -25,7 +26,8 @@ const ONLY = opt('--only', 'all');
 const SHOTS = opt('--shots', 'store/apple/screenshots');
 const L = JSON.parse(fs.readFileSync('store/apple/listing.json', 'utf8'));
 // Chữ từng ngôn ngữ: một file một ngôn ngữ trong store/metadata/ (nguồn duy nhất, chung với Google Play)
-L.locales = Object.fromEntries(Object.entries(loadMetadata()).map(([loc, d]) => [loc, d.apple]));
+// whatsNew (ghi chú phát hành, cùng trường với Play) chỉ ghi cho bản cập nhật – Apple không cho đặt "What's New" ở bản đầu tiên 1.0
+L.locales = Object.fromEntries(Object.entries(loadMetadata()).map(([loc, d]) => [loc, { ...d.apple, ...(L.version !== '1.0' ? { whatsNew: d.whatsNew } : {}) }]));
 const MD = 'store/apple/LISTING.md';
 
 // ---------- Kiểm tra offline ----------
@@ -93,42 +95,16 @@ function mdCheck(write) {
   return false;
 }
 
-// ---------- App Store Connect API ----------
-const API = 'https://api.appstoreconnect.apple.com';
-function key() {
-  const kid = process.env.ASC_KEY_ID, iss = process.env.ASC_ISSUER_ID;
-  let pem = process.env.ASC_KEY_P8 || (process.env.ASC_KEY_PATH && fs.readFileSync(process.env.ASC_KEY_PATH, 'utf8'));
-  if (!kid || !iss || !pem) return null;
-  return { kid, iss, pem };
-}
-let K = null, tok = null, tokExp = 0;
-function jwt() {
-  const now = Math.floor(Date.now() / 1000);
-  if (tok && now < tokExp - 60) return tok;
-  const b64 = o => Buffer.from(JSON.stringify(o)).toString('base64url');
-  const head = b64({ alg: 'ES256', kid: K.kid, typ: 'JWT' }), body = b64({ iss: K.iss, iat: now, exp: now + 1100, aud: 'appstoreconnect-v1' });
-  const sig = crypto.sign('sha256', Buffer.from(`${head}.${body}`), { key: K.pem, dsaEncoding: 'ieee-p1363' }).toString('base64url');
-  tokExp = now + 1100; tok = `${head}.${body}.${sig}`; return tok;
-}
-async function api(method, p, body) {
-  for (let attempt = 0; ; attempt++) {
-    const r = await fetch(API + p, { method, headers: { Authorization: `Bearer ${jwt()}`, 'Content-Type': 'application/json' }, body: body ? JSON.stringify(body) : undefined });
-    if (r.status === 429 && attempt < 4) { await new Promise(s => setTimeout(s, 3000 * (attempt + 1))); continue; }
-    const txt = await r.text();
-    if (!r.ok) {
-      let detail = txt.slice(0, 600); try { detail = JSON.parse(txt).errors.map(e => `${e.code}: ${e.detail || e.title}` + (e.meta?.associatedErrors ? ' ' + JSON.stringify(e.meta.associatedErrors).slice(0, 2500) : '')).join(' | '); } catch { /* giữ nguyên */ }
-      throw new Error(`${method} ${p.split('?')[0]} → ${r.status} ${detail}`);
-    }
-    return txt ? JSON.parse(txt) : {};
-  }
-}
+// ---------- App Store Connect API (client chung: scripts/lib/asc-api.mjs) ----------
+let K = null, C = null;
+const api = (method, p, body) => C.api(method, p, body);
 const get = p => api('GET', p);
 const changes = [], errors = [];
 // Ghi nhận 1 thay đổi; trả về true nếu được phép ghi thật (không phải dry-run)
 function plan(desc) { changes.push(desc); console.log(`  ${DRY ? '[dry-run]' : '✎'} ${desc}`); return !DRY; }
 async function write(desc, method, p, body) { return plan(desc) ? api(method, p, body) : null; }
 const diff = (cur, want) => Object.fromEntries(Object.entries(want).filter(([k, v]) => (cur?.[k] ?? '') !== v));
-const EDITABLE = ['PREPARE_FOR_SUBMISSION'];
+const EDITABLE = ['PREPARE_FOR_SUBMISSION', 'READY_FOR_REVIEW']; // READY_FOR_REVIEW = đã gắn vào submission nhưng chưa gửi: vẫn sửa được, chạy lại idempotent
 
 async function syncText(app, ver) {
   // Danh mục + tên/phụ đề/URL chính sách (appInfo đang sửa được)
@@ -154,7 +130,7 @@ async function syncText(app, ver) {
       let b = vl.find(x => x.attributes.locale === loc);
       // Tạo appInfoLocalization xong, Apple tự tạo appStoreVersionLocalization rỗng cùng ngôn ngữ → đọc lại rồi PATCH (tránh 409)
       if (!b && !a && !DRY) { vl.splice(0, vl.length, ...(await get(`/v1/appStoreVersions/${ver.id}/appStoreVersionLocalizations?limit=200`)).data); b = vl.find(x => x.attributes.locale === loc); }
-      const wantB = { description: v.description, keywords: v.keywords, promotionalText: v.promotionalText, supportUrl: v.supportUrl, marketingUrl: v.marketingUrl };
+      const wantB = { description: v.description, keywords: v.keywords, promotionalText: v.promotionalText, supportUrl: v.supportUrl, marketingUrl: v.marketingUrl , ...(v.whatsNew ? { whatsNew: v.whatsNew } : {}) };
       if (!b) {
         const r = await write(`${loc}: tạo appStoreVersionLocalization`, 'POST', '/v1/appStoreVersionLocalizations', { data: { type: 'appStoreVersionLocalizations', attributes: { locale: loc, ...wantB }, relationships: { appStoreVersion: { data: { type: 'appStoreVersions', id: ver.id } } } } });
         if (r) vl.push(r.data);
@@ -227,7 +203,7 @@ async function syncShots(vl) {
 const EU27 = ['AUT', 'BEL', 'BGR', 'HRV', 'CYP', 'CZE', 'DNK', 'EST', 'FIN', 'FRA', 'DEU', 'GRC', 'HUN', 'IRL', 'ITA', 'LVA', 'LTU', 'LUX', 'MLT', 'NLD', 'POL', 'PRT', 'ROU', 'SVK', 'SVN', 'ESP', 'SWE'];
 const manual = [];
 async function step(name, fn) { try { await fn(); } catch (e) { errors.push(`${name}: ${e.message}`); console.error(`  ✗ ${name}: ${e.message}`); } }
-async function all(p) { const out = [], inc = []; for (let next = p; next;) { const r = await get(next); out.push(...r.data); inc.push(...(r.included || [])); next = r.links?.next ? r.links.next.replace(API, '') : null; } return { data: out, included: inc }; }
+const all = p => C.all(p);
 async function syncReview(app, ver) {
   // 1) build: VALID mới nhất (hoặc ASC_BUILD) của đúng phiên bản → gắn vào appStoreVersion
   const want = (process.env.ASC_BUILD || '').trim();
@@ -330,16 +306,23 @@ async function main() {
     console.log(`✓ asc-check: ${Object.keys(L.locales).length} ngôn ngữ đúng giới hạn Apple, ${MD} khớp listing.json`);
     return;
   }
-  K = key();
+  K = ascKeyFromEnv();
   if (!K) {
     if (DRY) { console.log('ℹ dry-run offline (thiếu ASC_KEY_ID / ASC_ISSUER_ID / ASC_KEY_P8): listing hợp lệ; cần khóa để so với App Store Connect.'); return; }
     console.error('✗ thiếu ASC_KEY_ID / ASC_ISSUER_ID / ASC_KEY_P8 (hoặc ASC_KEY_PATH)'); process.exit(1);
   }
+  C = createAsc(K);
   const app = (await get(`/v1/apps/${L.appId}`)).data;
   if (app.attributes.bundleId !== L.bundleId) throw new Error(`app ${L.appId} có bundleId ${app.attributes.bundleId}, không phải ${L.bundleId}`);
   const vers = (await get(`/v1/apps/${app.id}/appStoreVersions?filter[platform]=IOS&filter[versionString]=${L.version}`)).data;
-  const ver = vers[0];
-  if (!ver) throw new Error(`chưa có bản iOS ${L.version} trên App Store Connect`);
+  let ver = vers[0];
+  if (!ver) {
+    // Bản cập nhật mới (vd 1.1): tạo appStoreVersion ở PREPARE_FOR_SUBMISSION, phát hành THỦ CÔNG (anh chủ bấm Release sau khi Apple duyệt)
+    if (L.version === '1.0') throw new Error(`chưa có bản iOS ${L.version} trên App Store Connect`);
+    const created = await write(`appStoreVersion: tạo ${L.version} (IOS, phát hành thủ công)`, 'POST', '/v1/appStoreVersions', { data: { type: 'appStoreVersions', attributes: { platform: 'IOS', versionString: L.version, releaseType: 'MANUAL', copyright: L.copyright }, relationships: { app: { data: { type: 'apps', id: app.id } } } } });
+    if (!created) { console.log(`ℹ dry-run: bản ${L.version} chưa có – sẽ được tạo khi chạy thật; các bước sau cần bản này`); return; }
+    ver = created.data;
+  }
   const state = ver.attributes.appVersionState || ver.attributes.appStoreState;
   console.log(`App ${app.attributes.name} (${app.attributes.bundleId}) · bản ${L.version}: ${state}${DRY ? ' · DRY-RUN' : ''}`);
   if (!EDITABLE.includes(state) && !(ver.attributes.appStoreState && EDITABLE.includes(ver.attributes.appStoreState))) throw new Error(`bản ${L.version} đang ${state} – script chỉ sửa khi PREPARE_FOR_SUBMISSION`);

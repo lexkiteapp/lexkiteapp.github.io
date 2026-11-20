@@ -178,6 +178,10 @@ publishAt: 2026-11-21T07:18:00+09:00
 
 {{youtube: | 영상 아이디어: 토플 Complete the Words – 5가지 단서로 지문 하나를 실시간으로 완성하기}}
 
+2026년 개편된 전체 구성이 궁금하다면 [2026 토플 개정 신유형 가이드](/ko/blog/toefl-2026-gaejeong-sin-hyeongsik-gaideu/)에서 태스크와 점수 체계를 한눈에 살펴보세요.
+
+철자와 품사 변형이 중요한 학술 단어는 [아카데믹 워드 리스트(AWL) 공부법](/ko/blog/awl-akademik-weodeu-riseuteu-gongbubeop/)으로 미리 정리해 두면 도움이 됩니다.
+
 ## 자주 묻는 질문 (FAQ)
 
 ### 토플 Complete the Words에서 한 글자만 틀려도 오답인가요?

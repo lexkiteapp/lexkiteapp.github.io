@@ -85,7 +85,7 @@ Part 3最大的忌讳是继续使用 *"For me, my mother told me that..."* 这�
 - 探讨利弊权衡（Pros and Cons）：*"While it undeniably stimulates economic prosperity, one cannot overlook the environmental toll it incurs."*
 - 提出因果推导（Cause and Effect）：从表层现象剖析背后的经济驱动、政策导向或文化变迁。
 
-在日常积累论述语料时，查阅[雅思高频话题词汇库](/tu-vung/)能够为你提供充足的论述弹药。这种多角度宏观思辨的逻辑框架与[雅思写作 task 2 模板](/zh/blog/ya-si-xie-zuo-task-2-mo-ban/)的核心论据推演高度共通，可以互为借鉴。如果你也在准备外企或跨国机构求职，口语中的结构化表达思维同样适用于[英文面试常见问题及STAR原则](/zh/blog/ying-yu-mian-shi-chang-jian-wen-ti/)。
+在日常积累论述语料时，查阅[雅思高频话题词汇库](/en/vocabulary/)能够为你提供充足的论述弹药。这种多角度宏观思辨的逻辑框架与[雅思写作 task 2 模板](/zh/blog/ya-si-xie-zuo-task-2-mo-ban/)的核心论据推演高度共通，可以互为借鉴。如果你也在准备外企或跨国机构求职，口语中的结构化表达思维同样适用于[英文面试常见问题及STAR原则](/zh/blog/ying-yu-mian-shi-chang-jian-wen-ti/)。
 
 ## 备考日常训练法：利用影子跟读与AI口语纠错
 
@@ -100,6 +100,12 @@ Part 3最大的忌讳是继续使用 *"For me, my mother told me that..."* 这�
 Part 3 讨论题的四步答题法和六类题型，详见 [雅思口语 Part 3 技巧](/zh/blog/ya-si-kou-yu-part-3-ji-qiao/)。
 
 {{cta: /#/practice/speak | 开启雅思口语模拟训练}}
+
+口语只是四项小分之一，想知道它怎样影响最终成绩，可以看[雅思总分怎么算](/zh/blog/ya-si-zong-fen-zen-me-suan/)里的进位例子。
+
+想看每个部分更具体的弱版与强版答案对照，可以读 [雅思口语7分答案范例](/zh/blog/ya-si-kou-yu-7-fen-da-an-fan-li/)。
+
+口语每周练几次、什么时候模考，可以参考[雅思备考时间表：4周、8周、12周计划](/zh/blog/ya-si-bei-kao-shi-jian-biao-4-zhou-8-zhou-12-zhou/)。
 
 ## 常见问题解答
 

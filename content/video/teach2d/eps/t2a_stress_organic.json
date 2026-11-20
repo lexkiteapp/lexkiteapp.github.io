@@ -1,0 +1,146 @@
+{
+ "id": "t2a_stress_organic",
+ "template": "stress",
+ "series": "Where's the Stress?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "pronunciation",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Where's the stress? Organ!",
+   "pause": 0.42
+  },
+  {
+   "id": "a",
+   "text": "Organ. Stress on the first part.",
+   "pause": 0.42
+  },
+  {
+   "id": "b",
+   "text": "Now say organic.",
+   "pause": 0.42
+  },
+  {
+   "id": "m",
+   "text": "The stress moves to the second part.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Say it with me: organic.",
+   "pause": 1.8,
+   "repeat": true
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Where's the stress?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "ans",
+   "text": "The second part. Organic.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "a": {
+   "word": "organ",
+   "syl": [
+    "or",
+    "gan"
+   ],
+   "stress": 0,
+   "say": "first",
+   "ipa": "/ˈɔːrɡən/"
+  },
+  "b": {
+   "word": "organic",
+   "syl": [
+    "or",
+    "ga",
+    "nic"
+   ],
+   "stress": 1,
+   "say": "second",
+   "ipa": "/ɔːrˈɡænɪk/"
+  },
+  "quiz": {
+   "options": [
+    "OR",
+    "GA"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "pronunciation",
+  "route": "#/pron/stress-shift",
+  "link": "https://lexkite.com/app/#/pron/stress-shift",
+  "say": "Check word stress"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Where's the stress?"
+ },
+ "est": {
+  "words": 45,
+  "seconds": 29.4,
+  "wpm": 92
+ },
+ "publish": {
+  "title": "Organ vs organic: where is the stress?",
+  "keyword": "organ organic stress",
+  "value": "Organ /ˈɔːrɡən/: stress on the 1st part. Organic /ɔːrˈɡænɪk/: the 2nd part.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#pronunciation",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/pron/stress-shift",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "Organ vs organic: where is the stress?",
+    "description": "Organ /ˈɔːrɡən/: stress on the 1st part. Organic /ɔːrˈɡænɪk/: the 2nd part.\n\nCheck word stress, free: https://lexkite.com/app/#/pron/stress-shift\n\nSeries: Where's the Stress? · Teacher: Carlos\n\n#learnenglish #englishtips #pronunciation #englishteacher",
+    "tags": [
+     "organ organic stress",
+     "Where's the Stress?",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Organ vs organic: where is the stress?\n\nOrgan /ˈɔːrɡən/: stress on the 1st part. Organic /ɔːrˈɡænɪk/: the 2nd part.\n\nCheck word stress, free: https://lexkite.com/app/#/pron/stress-shift"
+   },
+   "instagram": {
+    "caption": "Organ vs organic: where is the stress?\n\nOrgan /ˈɔːrɡən/: stress on the 1st part. Organic /ɔːrˈɡænɪk/: the 2nd part.\n\nCheck word stress: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#pronunciation",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Organ vs organic: where is the stress? #learnenglish #englishtips #pronunciation"
+   }
+  },
+  "first_comment": "Answer: The second part. Organic. Try the full lesson and quiz here: {link}"
+ }
+}

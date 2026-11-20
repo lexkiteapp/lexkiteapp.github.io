@@ -7,7 +7,7 @@
 <html lang="{$l}"><xsl:if test="$l='ar'"><xsl:attribute name="dir">rtl</xsl:attribute></xsl:if>
 <head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="robots" content="noindex"/>
 <title><xsl:value-of select="/rss/channel/title"/> · RSS</title>
-<link rel="icon" href="/icons/icon.svg?v=2" type="image/svg+xml"/>
+<link rel="icon" href="/icons/icon.svg?v=3" type="image/svg+xml"/>
 <style>
 :root{--bg:#f5f6fb;--surface:#fff;--text:#171827;--muted:#4e526b;--line:#e2e4ef;--primary:#CC3F1C;--accent:#0D6964;--ink:#0F3D3E}
 @media (prefers-color-scheme:dark){:root{--bg:#0f1117;--surface:#171a22;--text:#eceef5;--muted:#a3a8bd;--line:#2a2f3c;--primary:#FF8466;--accent:#5FD0C4;--ink:#5FD0C4}}
@@ -23,7 +23,7 @@ h1{font-size:1.7rem;margin:18px 0 4px}.desc{color:var(--muted);margin:0 0 18px}
 .go{color:var(--primary);font-weight:700;text-decoration:none}.back{display:inline-block;margin-top:18px;color:var(--accent);font-weight:700}
 </style></head>
 <body><main>
-<div class="top"><img src="/icons/icon.svg?v=2" alt=""/><b>lexkite</b></div>
+<div class="top"><img src="/icons/icon.svg?v=3" alt=""/><b>lexkite</b></div>
 <div class="note"><xsl:choose><xsl:when test="$l='vi'">Đây là nguồn tin RSS của blog. Dán địa chỉ trang này vào ứng dụng đọc tin (Feedly, Inoreader…) để nhận bài mới.</xsl:when><xsl:when test="$l='es'">Este es el feed RSS del blog. Pega esta URL en un lector de feeds (Feedly, Inoreader…) para recibir nuevos artículos.</xsl:when><xsl:when test="$l='pt'">Este é o feed RSS do blog. Cole este endereço num leitor de feeds (Feedly, Inoreader…) para receber novos artigos.</xsl:when><xsl:when test="$l='fr'">Ceci est le flux RSS du blog. Collez cette adresse dans un lecteur de flux (Feedly, Inoreader…) pour recevoir les nouveaux articles.</xsl:when><xsl:when test="$l='de'">Dies ist der RSS-Feed des Blogs. Füge diese Adresse in einen Feedreader (Feedly, Inoreader…) ein, um neue Beiträge zu erhalten.</xsl:when><xsl:when test="$l='id'">Ini adalah feed RSS blog. Tempel alamat halaman ini ke aplikasi pembaca feed (Feedly, Inoreader…) untuk menerima artikel baru.</xsl:when><xsl:when test="$l='th'">นี่คือฟีด RSS ของบล็อก วางที่อยู่หน้านี้ในแอปอ่านฟีด (Feedly, Inoreader…) เพื่อรับบทความใหม่</xsl:when><xsl:when test="$l='zh'">这是博客的 RSS 订阅源。将此页面地址粘贴到阅读器（Feedly、Inoreader…）即可接收新文章。</xsl:when><xsl:when test="$l='ja'">これはブログの RSS フィードです。このページの URL をフィードリーダー（Feedly、Inoreader など）に貼り付けると新着記事を受け取れます。</xsl:when><xsl:when test="$l='ko'">블로그 RSS 피드입니다. 이 페이지 주소를 피드 리더(Feedly, Inoreader 등)에 붙여 넣으면 새 글을 받아볼 수 있습니다.</xsl:when><xsl:when test="$l='hi'">यह ब्लॉग का RSS फ़ीड है। नए लेख पाने के लिए इस पेज का पता किसी फ़ीड रीडर (Feedly, Inoreader…) में चिपकाएँ।</xsl:when><xsl:when test="$l='ar'">هذه خلاصة RSS للمدونة. الصق عنوان هذه الصفحة في قارئ الخلاصات (Feedly وInoreader…) لتلقي المقالات الجديدة.</xsl:when><xsl:when test="$l='ru'">Это RSS-лента блога. Вставьте адрес этой страницы в RSS-ридер (Feedly, Inoreader…), чтобы получать новые статьи.</xsl:when><xsl:when test="$l='tr'">Bu, blogun RSS akışıdır. Yeni yazıları almak için bu sayfanın adresini bir akış okuyucusuna (Feedly, Inoreader…) yapıştırın.</xsl:when><xsl:otherwise>This is the blog RSS feed. Paste this page URL into a feed reader (Feedly, Inoreader…) to get new posts.</xsl:otherwise></xsl:choose><br/><code><xsl:value-of select="/rss/channel/atom:link[@rel='self']/@href"/></code></div>
 <h1><xsl:value-of select="/rss/channel/title"/></h1>
 <p class="desc"><xsl:value-of select="/rss/channel/description"/></p>

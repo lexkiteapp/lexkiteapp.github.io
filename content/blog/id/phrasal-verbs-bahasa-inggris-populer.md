@@ -147,3 +147,5 @@ Untuk menguasai kosakata ini secara permanen ke dalam memori jangka panjang, hin
 {{youtube: | Panduan memahami logika partikel phrasal verbs bahasa Inggris sehari-hari}}
 
 {{cta: /#/practice/learn | Mulai latihan phrasal verbs dengan Smart Learn di Lexkite}}
+
+Phrasal verb juga diuji di ujian sertifikat; lihat [format Cambridge B2 First](/id/blog/format-cambridge-b2-first-fce/) untuk jenis soalnya.

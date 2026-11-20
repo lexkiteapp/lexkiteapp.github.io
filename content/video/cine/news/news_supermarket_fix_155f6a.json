@@ -79,5 +79,17 @@
  "link": "https://lexkite.com/app/#/grammar",
  "cta": "Practice grammar free on lexkite.com",
  "est": 23.5,
- "end_alt": "n_155f6a_e2"
+ "end_alt": "n_155f6a_e2",
+ "publish": {
+  "title": "\"How much does it cost?\" Ask prices correctly",
+  "keyword": "asking prices",
+  "value": "Questions with does: \"How much does it cost?\"",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#speakenglish",
+   "#a1english"
+  ],
+  "first_comment": "For more than one thing, use do: \"How much do these cost?\" Practice asking prices free: {link}"
+ }
 }

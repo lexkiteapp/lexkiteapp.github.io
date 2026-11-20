@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_pt_actually",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Actually is a false friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Actually, I live in this city.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Currently, I live in this city.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Actually means in fact.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Currently!",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Actually, I live in this city.",
+  "right": "Currently, I live in this city.",
+  "strike": "Actually",
+  "why": "Actually means in fact.",
+  "memory": "Currently means these days.",
+  "quiz": {
+   "stem": "Which word means “at this time”?",
+   "options": [
+    "currently",
+    "actually"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“Actually” não é “atualmente”!",
+   "tip": "“Actually” quer dizer “na verdade”. “Atualmente” é “currently” ou “nowadays”.",
+   "caption": "Cuidado com este erro comum! 😬 Muita gente diz “Actually, I live in this city.” O certo é “Currently, I live in this city.” Cuidado: é um falso cognato clássico. Ouça a Ama e repita! Treine mais no app Lexkite.",
+   "comment": "Resposta: “currently”. Treine mais com um quiz grátis aqui: {link}",
+   "hashtags": [
+    "#inglesonline",
+    "#dicasdeingles",
+    "#aprenderingles",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Actually” is not “atualmente”!",
+   "tip": "“Actually” means “in fact”. For “these days”, use “currently” or “nowadays”.",
+   "caption": "Watch out for this common mistake! Many people say “Actually, I live in this city.” The right way is “Currently, I live in this city.” Careful: it is a classic false friend. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Actually” não é “atualmente”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "pt",
+ "est": {
+  "words": 42,
+  "seconds": 26.1,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "“Actually” não é “atualmente”!",
+  "keyword": "Currently, I live in this city.",
+  "value": "“Actually” quer dizer “na verdade”. “Atualmente” é “currently” ou “nowadays”.",
+  "hashtags": [
+   "#inglesonline",
+   "#dicasdeingles",
+   "#aprenderingles",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "“Actually” não é “atualmente”!",
+    "description": "“Actually” quer dizer “na verdade”. “Atualmente” é “currently” ou “nowadays”.\n\nCuidado com este erro comum! 😬 Muita gente diz “Actually, I live in this city.” O certo é “Currently, I live in this city.” Cuidado: é um falso cognato clássico. Ouça a Ama e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#inglesonline #dicasdeingles #aprenderingles #lexkite",
+    "tags": [
+     "Currently, I live in this city.",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "Cuidado com este erro comum! 😬 Muita gente diz “Actually, I live in this city.” O certo é “Currently, I live in this city.” Cuidado: é um falso cognato clássico. Ouça a Ama e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Actually” não é “atualmente”!\n\n“Actually” quer dizer “na verdade”. “Atualmente” é “currently” ou “nowadays”.\n\nlexkite.com",
+    "hashtags": [
+     "#inglesonline",
+     "#dicasdeingles",
+     "#aprenderingles",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Actually” não é “atualmente”! “Actually” quer dizer “na verdade”. “Atualmente” é “currently” ou “nowada… #inglesonline #dicasdeingles #aprenderingles"
+   }
+  },
+  "first_comment": "Resposta: “currently”. Treine mais com um quiz grátis aqui: {link}",
+  "lang": "pt"
+ }
+}

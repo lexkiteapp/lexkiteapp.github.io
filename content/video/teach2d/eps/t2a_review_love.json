@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_love",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: love.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means to care about and like someone very strongly.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "I love walking by the sea in the evening.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "love",
+  "ipa": "/lʌv/",
+  "mean": "to care about and like someone very strongly",
+  "ex": "I love walking by the sea in the evening.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=love",
+  "link": "https://lexkite.com/app/#/review?w=love",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 44,
+  "seconds": 26.7,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "What does \"love\" mean?",
+  "keyword": "love",
+  "value": "Love means to care about and like someone very strongly.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=love",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"love\" mean?",
+    "description": "Love means to care about and like someone very strongly.\n\nReview your words, free: https://lexkite.com/app/#/review?w=love\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "love",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"love\" mean?\n\nLove means to care about and like someone very strongly.\n\nReview your words, free: https://lexkite.com/app/#/review?w=love"
+   },
+   "instagram": {
+    "caption": "What does \"love\" mean?\n\nLove means to care about and like someone very strongly.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"love\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means to care about and like someone very strongly. Love means to care about and like someone very strongly. More practice like this (free): {link}"
+ }
+}

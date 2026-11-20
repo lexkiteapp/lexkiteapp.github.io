@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_thank",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: thank.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means to tell someone you are grateful to them.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "I want to thank you for your help.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "thank",
+  "ipa": "/θæŋk/",
+  "mean": "to tell someone you are grateful to them",
+  "ex": "I want to thank you for your help.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=thank",
+  "link": "https://lexkite.com/app/#/review?w=thank",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 43,
+  "seconds": 26.2,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"thank\" mean?",
+  "keyword": "thank",
+  "value": "Thank means to tell someone you are grateful to them.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=thank",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"thank\" mean?",
+    "description": "Thank means to tell someone you are grateful to them.\n\nReview your words, free: https://lexkite.com/app/#/review?w=thank\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "thank",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"thank\" mean?\n\nThank means to tell someone you are grateful to them.\n\nReview your words, free: https://lexkite.com/app/#/review?w=thank"
+   },
+   "instagram": {
+    "caption": "What does \"thank\" mean?\n\nThank means to tell someone you are grateful to them.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"thank\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means to tell someone you are grateful to them. Thank means to tell someone you are grateful to them. More practice like this (free): {link}"
+ }
+}

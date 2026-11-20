@@ -1,5 +1,5 @@
 /* 🎙️ Play & Speak M1 (cờ speak_pack, mặc định TẮT – docs/specs/play-and-speak.md): #/speak/<id> màn tình huống (Stitch pas-sit) · #/speak/<id>/drill "Nói theo 3 nhịp" (Stitch pas-drill).
- * Khung TỰ SINH web/js/st/v2/pas-{sit,drill}.js (bind brand/stitch/v2/bind/pas-*.json) – code chỉ dựng dữ liệu thật. Nội dung: content/situations/<id>.json → web/js/speak/data.js.
+ * Khung TỰ SINH web/js/st/v2/pas-{sit,drill}.js (bind brand/stitch/v2/bind/pas-*.json) – code chỉ dựng dữ liệu thật. Nội dung: content/situations/<id>.json → web/js/speak/data.js (mục lục) + s/<id>.js (gốc en) + s/<id>.<lang>.js (bản dịch 1 ngôn ngữ) – nạp khi mở, scripts/speak/build.mjs.
  * Chấm: Speak.score (web/js/speak/score.js, bọc UI.recognize, âm thanh không rời máy). Giáo viên: Ama/Carlos 2D CHỈ qua Chars.*.
  * Không mic (từ chối mic / không hỗ trợ / người học chọn): chạm chip theo đúng thứ tự, vẫn tính câu đã nói, tối đa ★ (§7). Tiến độ: localStorage lk.spk (trên máy).
  * Bật thử: localStorage lk.speak=1 (0 = tắt) hoặc config công khai speak_pack=true. */
@@ -15,7 +15,19 @@
   const prog = (st, id) => (st[id] = st[id] || { lines: {}, tasks: {} });
   const teach = (pose, alt) => window.Chars ? Chars.img('ama', { kind: 'still', pose, size: 120, alt: alt || '', cls: 'w-full h-full object-contain object-bottom' }) : '';
   const go = h => { location.hash = h; };
-  const sit = id => (window.SPK || {})[id];
+  // Tình huống tải lười: gốc (chỉ en) + bản dịch của ngôn ngữ đang dùng, ghép bằng SPK_fill (data.js). Lỗi mạng → null (không nhớ lỗi, lần sau thử lại)
+  const sitP = {}, ld = src => App.loadScript ? App.loadScript(src) : new Promise(r => { const e = document.createElement('script'); e.src = src; e.onload = e.onerror = () => r(); document.head.appendChild(e); }); // app.js cũ trong bộ đệm chưa có App.loadScript
+  const sit = id => {
+    const ix = (window.SPK_IDX || {})[id]; if (!ix) return Promise.resolve(undefined);
+    const lang = I18N.lang(), k = id + '.' + lang;
+    return sitP[k] || (sitP[k] = (async () => {
+      if (!(window.SPK_B || {})[id]) await ld(SPK_P[id]);
+      const b = (window.SPK_B || {})[id]; if (!b) return null;
+      if (lang === 'en' || !ix.l.split(' ').includes(lang)) return b;
+      if (!(window.SPK_T || {})[k]) await ld(((window.SPK_L || {})[id] || {})[lang]);
+      const a = (window.SPK_T || {})[k]; return a ? SPK_fill(b, a, lang) : null;
+    })().then(r => { if (r === null) delete sitP[k]; return r; }));
+  };
 
   // ---------- Màn tình huống ----------
   function situation(s) {
@@ -99,7 +111,8 @@
   routes.speak = async (arg, q) => {
     if (!App.speakOn()) { location.replace(location.pathname + location.search + '#/skills'); return; }
     await I18N.whenReady();
-    const [id, sub] = String(arg || '').split('/'), s = sit(id || 'cafe');
+    const [id, sub] = String(arg || '').split('/'), s = await sit(id || 'cafe');
+    if (s === null) { UI.toast(t('Không tải được – thử lại sau')); location.replace(location.pathname + location.search + '#/skills'); return; }
     if (!s) { location.replace(location.pathname + location.search + '#/speak/cafe'); return; }
     if (!id) { location.replace(location.pathname + location.search + '#/speak/' + s.id); return; }
     if (sub === 'drill') drill(s, q); else situation(s);

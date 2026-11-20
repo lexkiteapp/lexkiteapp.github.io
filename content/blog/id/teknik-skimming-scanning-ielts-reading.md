@@ -64,6 +64,8 @@ Artikel ini akan mengupas tuntas cara mengombinasikan skimming dan scanning seca
 
 Kesalahan paling fatal yang sering dilakukan pemula adalah mencoba memahami setiap kalimat secara merata dari paragraf pertama hingga terakhir. Penguji IELTS tidak menguji apakah Anda memahami 100% kosakata di dalam teks, melainkan menguji kemampuan Anda menyaring informasi yang relevan dengan cepat.
 
+Untuk pembahasan lebih lengkap, baca juga [strategi manajemen waktu IELTS Reading 60 menit](/id/blog/manajemen-waktu-ielts-reading-strategi-60-menit/).
+
 Dua senjata utama dalam **skimming dan scanning ielts reading** memiliki fungsi yang berbeda namun saling melengkapi dalam alur kerja pemecahan soal.
 
 ### 1. Skimming: Membangun Peta Mental Teks dalam 2 Menit
@@ -159,6 +161,8 @@ Mengembangkan refleks membaca cepat tidak bisa dicapai hanya dalam satu malam se
 3. **Latihan Berbatas Waktu (Speed Drills)**: Pilih artikel sains dari majalah seperti *National Geographic* atau *Nature*, lalu pasang pengatur waktu selama 3 menit. Tantang diri Anda untuk membaca sebanyak mungkin paragraf dan catat poin utamanya dalam 3 kalimat ringkas.
 4. **Analisis Kesalahan (Error Log)**: Jangan hanya mencocokkan kunci jawaban lalu melanjutkan ke tes berikutnya. Catatlah penyebab Anda salah: apakah karena terjebak parafrasa, melewatkan kata pembatas (*qualifiers* seperti *mostly*, *rarely*, *all*), atau kehabisan waktu.
 5. **Membangun Bank Kolokasi Akademik**: Catat kombinasi kata yang lazim muncul dalam artikel akademik agar saat scanning, mata Anda langsung mengenali kelompok kata (*chunks*) alih-alih kata per kata.
+
+Kalau ingin mengenal semua format soal sebelum berlatih, lihat [tipe soal IELTS Reading dan strategi tiap tugas](/id/blog/tipe-soal-ielts-reading-strategi/).
 
 ## Pertanyaan yang Sering Diajukan (FAQ)
 

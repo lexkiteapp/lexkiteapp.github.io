@@ -182,6 +182,8 @@ Aşağıdaki cümlelerde boş bırakılan yerlere gelebilecek en uygun zaman kip
 4. **A. encounters:** *Whenever* genel bir alışkanlık ve kural bildirir. Geniş zaman (Present Simple) ile 3. tekil şahıs takısı (*-s*) gereklidir.
 5. **B. will have completed:** *By next November* gelecekte bir mühlet belirler. O tarihe kadar modernizasyon projesinin tamamlanmış olacağını ifade ettiği için Future Perfect (*will have + V3*) doğrudur.
 
+Zamanları sınav koşullarında denemek için [TOEIC Part 5 dilbilgisi ve kelime taktikleri](/tr/blog/toeic-part-5-stratejileri-dilbilgisi-kelime/) iyi bir alıştırmadır.
+
 ## Sıkça Sorulan Sorular (FAQ)
 
 ### İngilizcedeki 12 zaman kipinin hepsini günlük hayatta aktif olarak kullanmak zorunda mıyım?

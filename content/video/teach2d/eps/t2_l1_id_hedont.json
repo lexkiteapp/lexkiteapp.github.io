@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_id_hedont",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "He doesn't like it!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: He don't like fish.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: He doesn't like fish.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "He, she: doesn't.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Doesn't! She doesn't like tea.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "He don't like fish.",
+  "right": "He doesn't like fish.",
+  "strike": "don't",
+  "why": "He, she: doesn't.",
+  "memory": "He doesn't.",
+  "quiz": {
+   "stem": "She ___ like tea.",
+   "options": [
+    "don't",
+    "doesn't"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“He don't”? Pakai “doesn't”",
+   "tip": "Bahasa Indonesia cukup pakai “tidak” untuk semua orang, tapi bahasa Inggris pakai doesn't setelah he dan she.",
+   "caption": "Pernah bilang begini? “He don't like fish.” 😅 Setelah he atau she, pakai doesn't: “He doesn't like fish.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.",
+   "comment": "Jawaban: “doesn't”. Bilang tiga hal yang temanmu tidak suka. Latihan gratis lainnya di sini: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#grammaringgris",
+    "#bahasainggris",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“He don't”? Use “doesn't”",
+   "tip": "Indonesian uses “tidak” for everyone, but English uses doesn't after he and she.",
+   "caption": "Ever say this? “He don't like fish.” 😅 After he or she, use doesn't: “He doesn't like fish.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“He don't”? Pakai “doesn't”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "id",
+ "est": {
+  "words": 40,
+  "seconds": 25.1,
+  "wpm": 95
+ },
+ "publish": {
+  "title": "“He don't”? Pakai “doesn't”",
+  "keyword": "He doesn't like fish.",
+  "value": "Bahasa Indonesia cukup pakai “tidak” untuk semua orang, tapi bahasa Inggris pakai doesn't setelah he dan she.",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#grammaringgris",
+   "#bahasainggris",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 34,
+  "platforms": {
+   "youtube": {
+    "title": "“He don't”? Pakai “doesn't”",
+    "description": "Bahasa Indonesia cukup pakai “tidak” untuk semua orang, tapi bahasa Inggris pakai doesn't setelah he dan she.\n\nPernah bilang begini? “He don't like fish.” 😅 Setelah he atau she, pakai doesn't: “He doesn't like fish.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#belajarbahasainggris #grammaringgris #bahasainggris #lexkite",
+    "tags": [
+     "He doesn't like fish.",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Pernah bilang begini? “He don't like fish.” 😅 Setelah he atau she, pakai doesn't: “He doesn't like fish.” Dengarkan Kak Carlos, lalu ulangi! Latihan lagi di app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“He don't”? Pakai “doesn't”\n\nBahasa Indonesia cukup pakai “tidak” untuk semua orang, tapi bahasa Inggris pakai doesn't setelah he dan she.\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#grammaringgris",
+     "#bahasainggris",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“He don't”? Pakai “doesn't” Bahasa Indonesia cukup pakai “tidak” untuk semua orang, tapi bahasa… #belajarbahasainggris #grammaringgris #bahasainggris"
+   }
+  },
+  "first_comment": "Jawaban: “doesn't”. Bilang tiga hal yang temanmu tidak suka. Latihan gratis lainnya di sini: {link}",
+  "lang": "id"
+ }
+}

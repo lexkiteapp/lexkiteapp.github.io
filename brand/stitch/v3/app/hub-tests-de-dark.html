@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+
+<html lang="de"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Prüfungszentrum</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary-fixed-dim": "#f5bf31",
+            "on-primary-fixed-variant": "#00504a",
+            "on-primary-fixed": "#00201d",
+            "surface-tint": "#126a63",
+            "primary-fixed-dim": "#88d4cb",
+            "outline": "#6f7977",
+            "tertiary": "#5b4300",
+            "primary": "#00504b",
+            "surface-dim": "#e6d7cd",
+            "on-background": "#211a14",
+            "on-tertiary": "#ffffff",
+            "secondary-container": "#fd9500",
+            "on-surface-variant": "#3f4947",
+            "inverse-surface": "#372f28",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "secondary": "#8c5000",
+            "surface-variant": "#efe0d6",
+            "on-error-container": "#93000a",
+            "inverse-primary": "#88d4cb",
+            "primary-container": "#136a63",
+            "tertiary-fixed": "#ffdf9b",
+            "surface-container-low": "#fff1e8",
+            "on-surface": "#211a14",
+            "on-error": "#ffffff",
+            "inverse-on-surface": "#fdeee3",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary-container": "#633700",
+            "surface": "#fff8f5",
+            "on-tertiary-container": "#ffd370",
+            "error-container": "#ffdad6",
+            "on-tertiary-fixed": "#251a00",
+            "surface-bright": "#fff8f5",
+            "outline-variant": "#bec9c6",
+            "secondary-fixed-dim": "#ffb872",
+            "surface-container": "#faebe1",
+            "on-secondary-fixed": "#2d1600",
+            "error": "#ba1a1a",
+            "on-primary": "#ffffff",
+            "surface-container-highest": "#efe0d6",
+            "on-secondary": "#ffffff",
+            "surface-container-high": "#f4e5db",
+            "on-secondary-fixed-variant": "#6a3b00",
+            "tertiary-container": "#785a00",
+            "on-primary-container": "#9be7de",
+            "secondary-fixed": "#ffdcbf",
+            "primary-fixed": "#a4f1e7",
+            "background": "#fff8f5"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin-lg": "3rem",
+            "margin": "1rem",
+            "gutter": "1rem",
+            "space-xl": "2.5rem",
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "gutter-md": "1.5rem",
+            "space-md": "1rem",
+            "margin-md": "2rem",
+            "gutter-lg": "2rem",
+            "space-lg": "1.5rem"
+          },
+          "fontFamily": {
+            "label-md": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "display-lg": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "label-md": ["14px", {"lineHeight": "18px", "letterSpacing": "0.03em", "fontWeight": "700"}],
+            "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+            "headline-lg-mobile": ["26px", {"lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "800"}],
+            "display-lg": ["44px", {"lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+            "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+            "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+            "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+            "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "800"}],
+            "label-lg": ["16px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "700"}],
+            "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+            "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "500"}],
+            "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "800"}]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined.fill-icon {
+      font-variation-settings: 'FILL' 1, 'wght' 700, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-[#10191B] text-[#E8F1F0] min-h-screen flex justify-center antialiased">
+<!-- Mobile Viewport Container (390px edge to edge) -->
+<main class="w-full max-w-[390px] min-h-screen bg-[#10191B] relative flex flex-col pb-28">
+<!-- Sticky Top Bar (Hub style: Lexkite kite logo, flame streak, XP score) -->
+<header class="sticky top-0 z-40 bg-[#10191B]/95 backdrop-blur-md px-space-md py-space-sm h-16 flex items-center justify-between border-b border-[#1E2F33] shadow-[0_4px_0_0_#0d1517]">
+<div class="flex items-center gap-space-sm min-h-[44px]">
+<div class="w-9 h-9 rounded-DEFAULT bg-[#134E4A] border border-[#2DD4BF]/40 flex items-center justify-center text-[#2DD4BF] shadow-[0_3px_0_0_#092624]">
+<span class="material-symbols-outlined text-[20px]" data-icon="school">school</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-[#5EEAD4] tracking-tight leading-none">Lexkite</span>
+<span class="font-label-sm text-label-sm text-[#A9BDBB] font-bold">Vorbereitungszentrum</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<div class="flex items-center gap-1 bg-[#1E2F33] border-2 border-[#2b3e42] px-2.5 py-1.5 rounded-full shadow-[0_3px_0_0_#0d1517] min-h-[38px]">
+<span class="material-symbols-outlined fill-icon text-[#FB923C] text-[18px]" data-icon="local_fire_department" data-weight="fill" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="font-label-md text-label-md text-[#E8F1F0] font-extrabold">14</span>
+</div>
+<div class="flex items-center gap-1 bg-[#1E2F33] border-2 border-[#2b3e42] px-2.5 py-1.5 rounded-full shadow-[0_3px_0_0_#0d1517] min-h-[38px]">
+<span class="material-symbols-outlined fill-icon text-[#FACC15] text-[18px]" data-icon="bolt" data-weight="fill" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<span class="font-label-md text-label-md text-[#FACC15] font-extrabold">820</span>
+</div>
+</div>
+</header>
+<!-- Main Scrollable Content -->
+<div class="px-space-md pt-space-md flex flex-col gap-space-lg">
+<!-- Title & Subtitle Area -->
+<section class="flex flex-col gap-1">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-[#5EEAD4] tracking-tight">Prüfungszentrum</h1>
+<p class="font-body-sm text-body-sm text-[#A9BDBB] leading-relaxed">Prüfungssimulation &amp; diagnostisches Üben</p>
+</section>
+<!-- Horizontal Exam Switcher Chips -->
+<section aria-label="Prüfungs-Auswahl" class="flex items-center gap-2 overflow-x-auto pb-1.5 no-scrollbar -mx-space-md px-space-md" role="tablist">
+<button aria-selected="true" class="whitespace-nowrap px-4 py-2.5 rounded-full bg-[#2DD4BF] text-[#0A2E2B] border-2 border-[#5EEAD4] shadow-[0_3px_0_0_#0f4f49] font-label-md text-label-md font-extrabold active:translate-y-[2px] active:shadow-none transition-transform min-h-[44px] flex items-center justify-center" role="tab">
+  IELTS Akademisch
+</button>
+<button aria-selected="false" class="whitespace-nowrap px-4 py-2.5 rounded-full bg-[#1E2F33] text-[#A9BDBB] border-2 border-[#2b3e42] shadow-[0_3px_0_0_#0d1517] font-label-md text-label-md active:translate-y-[2px] active:shadow-none transition-transform min-h-[44px] flex items-center justify-center hover:bg-[#25393e] hover:text-[#E8F1F0]" role="tab">
+  TOEIC
+</button>
+<button aria-selected="false" class="whitespace-nowrap px-4 py-2.5 rounded-full bg-[#1E2F33] text-[#A9BDBB] border-2 border-[#2b3e42] shadow-[0_3px_0_0_#0d1517] font-label-md text-label-md active:translate-y-[2px] active:shadow-none transition-transform min-h-[44px] flex items-center justify-center hover:bg-[#25393e] hover:text-[#E8F1F0]" role="tab">
+  TOEFL iBT
+</button>
+</section>
+<!-- Readiness Score Card -->
+<section class="bg-[#172427] border-2 border-[#223539] rounded-DEFAULT p-space-md shadow-[0_4px_0_0_#0d1517] flex flex-col gap-space-md">
+<div class="flex items-start justify-between gap-2">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-[#A9BDBB]">Geschätzter Vorbereitungsstand</span>
+<div class="flex items-baseline gap-2 mt-0.5">
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-[#2DD4BF] font-extrabold">Band 6,5</span>
+<span class="font-label-md text-label-md text-[#FB923C] font-bold">Ziel: 7,0</span>
+</div>
+</div>
+<div class="bg-[#1E2F33] border-2 border-[#2b3e42] px-2.5 py-1 rounded-full shadow-[0_2px_0_0_#0d1517] flex items-center gap-1 shrink-0">
+<span class="material-symbols-outlined text-[#2DD4BF] text-[16px]" data-icon="trending_up">trending_up</span>
+<span class="font-label-sm text-label-sm text-[#5EEAD4] font-bold">+0,5 benötigt</span>
+</div>
+</div>
+<!-- Gauge + Macro breakdown -->
+<div class="flex flex-col gap-2 bg-[#1E2F33] rounded-DEFAULT p-3 border-2 border-[#2b3e42]">
+<div class="flex justify-between items-center text-[#E8F1F0] font-label-md text-label-md">
+<span>Vorbereitungsindex</span>
+<span class="text-[#2DD4BF] font-extrabold text-body-md font-body-md">85%</span>
+</div>
+<div class="w-full h-4 bg-[#10191B] rounded-full overflow-hidden p-0.5 border border-[#2b3e42]">
+<div class="h-full bg-gradient-to-r from-[#14B8A6] to-[#2DD4BF] rounded-full shadow-[inset_0_1px_0_rgba(255,255,255,0.3)]" style="width: 85%;"></div>
+</div>
+<p class="font-body-sm text-body-sm text-[#A9BDBB] pt-1 leading-snug">
+  Zielband 7,0 in greifbarer Nähe • Noch 12 Tage bis zur prognostizierten Prüfungsreife
+</p>
+</div>
+<!-- 4 Skills Sub-breakdown Matrix -->
+<div class="grid grid-cols-2 gap-2 pt-1">
+<div class="flex items-center justify-between p-2.5 rounded-DEFAULT bg-[#1E2F33] border-2 border-[#2b3e42]">
+<span class="font-label-sm text-label-sm text-[#E8F1F0] pr-1">Hörverstehen</span>
+<span class="font-label-md text-label-md text-[#5EEAD4] bg-[#134E4A] px-2 py-0.5 rounded-md font-bold shrink-0">7,0</span>
+</div>
+<div class="flex items-center justify-between p-2.5 rounded-DEFAULT bg-[#1E2F33] border-2 border-[#2b3e42]">
+<span class="font-label-sm text-label-sm text-[#E8F1F0] pr-1">Leseverstehen</span>
+<span class="font-label-md text-label-md text-[#5EEAD4] bg-[#134E4A] px-2 py-0.5 rounded-md font-bold shrink-0">6,5</span>
+</div>
+<div class="flex items-center justify-between p-2.5 rounded-DEFAULT bg-[#1E2F33] border-2 border-[#2b3e42]">
+<span class="font-label-sm text-label-sm text-[#E8F1F0] pr-1">Schreiben</span>
+<span class="font-label-md text-label-md text-[#FB923C] bg-[#432311] px-2 py-0.5 rounded-md font-bold shrink-0">6,0</span>
+</div>
+<div class="flex items-center justify-between p-2.5 rounded-DEFAULT bg-[#1E2F33] border-2 border-[#2b3e42]">
+<span class="font-label-sm text-label-sm text-[#E8F1F0] pr-1">Sprechen</span>
+<span class="font-label-md text-label-md text-[#5EEAD4] bg-[#134E4A] px-2 py-0.5 rounded-md font-bold shrink-0">6,5</span>
+</div>
+</div>
+</section>
+<!-- Teacher Advice Slot -->
+<section class="flex items-start gap-3">
+<div aria-label="teacher-slot" class="w-12 h-12 rounded-DEFAULT border-2 border-dashed border-[#2DD4BF]/60 bg-[#172427] flex flex-col items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[#2DD4BF] text-[18px]" data-icon="school">school</span>
+<span class="text-[9px] font-extrabold text-[#2DD4BF] leading-tight tracking-tighter">coach</span>
+</div>
+<div class="relative bg-[#172427] border-2 border-[#223539] p-3 rounded-DEFAULT rounded-tl-sm shadow-[0_3px_0_0_#0d1517] flex-1">
+<div class="flex items-center gap-1 text-[#2DD4BF] font-label-sm text-label-sm mb-0.5">
+<span class="material-symbols-outlined text-[15px]" data-icon="tips_and_updates">tips_and_updates</span>
+<span class="font-bold">Fokus-Strategie</span>
+</div>
+<p class="font-body-sm text-body-sm text-[#E8F1F0] leading-snug">
+  Konzentrieren Sie sich auf Lesetext 3 und die Kohärenz in Schreibaufgabe 2, um den letzten Abstand von 0,5 Bandpunkten zu schließen.
+</p>
+</div>
+</section>
+<!-- Full Mock Exam Simulation Card -->
+<section class="bg-[#172427] border-2 border-[#223539] rounded-DEFAULT p-space-md shadow-[0_4px_0_0_#0d1517] flex flex-col gap-space-md relative overflow-hidden">
+<div class="flex justify-between items-start gap-2">
+<div class="flex flex-col gap-1">
+<span class="inline-flex items-center gap-1.5 font-label-sm text-label-sm text-[#5EEAD4] font-extrabold">
+<span class="w-2 h-2 rounded-full bg-[#FB923C] animate-pulse"></span>
+  Vollständige Prüfungssimulation
+</span>
+<h2 class="font-headline-sm text-headline-sm text-[#E8F1F0] leading-snug">Offizielle IELTS-Akademisch-Probeprüfung</h2>
+</div>
+<span class="bg-[#1E2F33] border border-[#2b3e42] font-label-sm text-label-sm text-[#A9BDBB] px-2.5 py-1 rounded-full text-center whitespace-nowrap shrink-0">
+  2 Std. 45 Min.
+</span>
+</div>
+<!-- Test modules pill layout -->
+<div class="grid grid-cols-2 gap-2">
+<div class="flex items-center gap-2 p-2 rounded-DEFAULT bg-[#1E2F33] border border-[#2b3e42]">
+<span class="material-symbols-outlined text-[#2DD4BF] text-[18px] shrink-0" data-icon="headphones">headphones</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm text-[#E8F1F0] leading-tight">Hörverstehen</span>
+<span class="text-[11px] text-[#A9BDBB] leading-tight mt-0.5">30 Min. • 40 Fragen</span>
+</div>
+</div>
+<div class="flex items-center gap-2 p-2 rounded-DEFAULT bg-[#1E2F33] border border-[#2b3e42]">
+<span class="material-symbols-outlined text-[#2DD4BF] text-[18px] shrink-0" data-icon="auto_stories">auto_stories</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm text-[#E8F1F0] leading-tight">Leseverstehen</span>
+<span class="text-[11px] text-[#A9BDBB] leading-tight mt-0.5">60 Min. • 3 Texte</span>
+</div>
+</div>
+<div class="flex items-center gap-2 p-2 rounded-DEFAULT bg-[#1E2F33] border border-[#2b3e42]">
+<span class="material-symbols-outlined text-[#2DD4BF] text-[18px] shrink-0" data-icon="edit_note">edit_note</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm text-[#E8F1F0] leading-tight">Schriftlicher Ausdruck</span>
+<span class="text-[11px] text-[#A9BDBB] leading-tight mt-0.5">60 Min. • 2 Aufgaben</span>
+</div>
+</div>
+<div class="flex items-center gap-2 p-2 rounded-DEFAULT bg-[#1E2F33] border border-[#2b3e42]">
+<span class="material-symbols-outlined text-[#2DD4BF] text-[18px] shrink-0" data-icon="record_voice_over">record_voice_over</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm text-[#E8F1F0] leading-tight">Mündlicher Ausdruck</span>
+<span class="text-[11px] text-[#A9BDBB] leading-tight mt-0.5">15 Min. • 3 Teile</span>
+</div>
+</div>
+</div>
+<!-- Chunky Warm Orange CTA Button with Dark Ink -->
+<button class="w-full min-h-[52px] bg-[#EA580C] hover:bg-[#F97316] border-2 border-[#C2410C] text-[#1A0F02] font-label-lg text-label-lg font-extrabold rounded-DEFAULT shadow-[0_4px_0_0_#9A3412] active:translate-y-[4px] active:shadow-none transition-transform flex items-center justify-center gap-2 px-space-md py-3 text-center">
+<span class="material-symbols-outlined fill-icon text-[20px] shrink-0 text-[#1A0F02]" data-icon="play_arrow" data-weight="fill" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+<span class="leading-snug">Vollständige Probeprüfung starten →</span>
+</button>
+</section>
+<!-- Quick Test Card -->
+<section class="bg-[#172427] border-2 border-[#223539] rounded-DEFAULT p-space-md shadow-[0_4px_0_0_#0d1517] flex flex-col gap-3">
+<div class="flex items-start justify-between gap-2">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-1.5 text-[#FB923C] font-label-sm text-label-sm font-bold">
+<span class="material-symbols-outlined text-[16px]" data-icon="timer">timer</span>
+<span>15-Minuten-Diagnose</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-[#E8F1F0]">Schnelle Kompetenz-Kalibrierung</h3>
+</div>
+<span class="bg-[#432311] border border-[#7C2D12] text-[#FB923C] font-label-sm text-label-sm px-2.5 py-1 rounded-full font-bold shrink-0">
+  +50 XP
+</span>
+</div>
+<p class="font-body-sm text-body-sm text-[#A9BDBB] leading-snug">
+  15 gemischte Prüfungsfragen zur Aktualisierung von Punkteprognose und Übungsserie
+</p>
+<!-- Secondary CTA button -->
+<button class="w-full min-h-[46px] bg-[#134E4A] hover:bg-[#165a55] border-2 border-[#2DD4BF]/50 text-[#5EEAD4] font-label-md text-label-md font-bold rounded-DEFAULT shadow-[0_4px_0_0_#092624] active:translate-y-[4px] active:shadow-none transition-transform flex items-center justify-center gap-2 px-space-md py-2.5 text-center mt-1">
+<span class="material-symbols-outlined text-[18px] shrink-0 text-[#2DD4BF]" data-icon="bolt">bolt</span>
+<span>⚡ Schnelltest starten (15 Min.)</span>
+</button>
+</section>
+<!-- CBT Practice Row (Computer-Based Test Simulator) -->
+<section class="bg-[#172427] border-2 border-[#223539] rounded-DEFAULT p-space-md shadow-[0_4px_0_0_#0d1517] flex items-center justify-between gap-3 active:translate-y-[2px] transition-transform cursor-pointer hover:bg-[#1b2b2f]">
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 rounded-DEFAULT bg-[#1E2F33] flex items-center justify-center text-[#2DD4BF] shrink-0 border border-[#2b3e42]">
+<span class="material-symbols-outlined text-[22px]" data-icon="desktop_windows">desktop_windows</span>
+</div>
+<div class="flex flex-col">
+<h4 class="font-label-lg text-label-lg text-[#E8F1F0] leading-tight">Offizieller CBT-Prüfungssimulator</h4>
+<p class="font-body-sm text-body-sm text-[#A9BDBB] leading-snug mt-0.5">Üben Sie mit geteiltem Bildschirm für Lesetexte im offiziellen Computer-Prüfungslayout</p>
+</div>
+</div>
+<div class="w-8 h-8 rounded-full bg-[#1E2F33] border border-[#2b3e42] flex items-center justify-center text-[#2DD4BF] shrink-0">
+<span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</section>
+<!-- Past Results List / Section -->
+<section class="flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-[#5EEAD4]">Letzte Probeprüfungs-Ergebnisse</h3>
+<span class="font-label-sm text-label-sm text-[#A9BDBB] shrink-0">Letzte 30 Tage</span>
+</div>
+<div class="flex flex-col gap-2">
+<!-- Item 1 -->
+<div class="flex items-center justify-between p-3 rounded-DEFAULT bg-[#172427] border-2 border-[#223539] shadow-[0_3px_0_0_#0d1517] min-h-[56px]">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-DEFAULT bg-[#134E4A] border border-[#2DD4BF]/40 flex items-center justify-center text-[#5EEAD4] font-extrabold text-sm shrink-0">
+  7,0
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-[#E8F1F0]">Akademische Probeprüfung #14</span>
+<span class="font-body-sm text-body-sm text-[#A9BDBB] text-[12px]">Gestern • Alle 4 Module</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-[#A9BDBB] text-[20px] shrink-0" data-icon="chevron_right">chevron_right</span>
+</div>
+<!-- Item 2 -->
+<div class="flex items-center justify-between p-3 rounded-DEFAULT bg-[#172427] border-2 border-[#223539] shadow-[0_3px_0_0_#0d1517] min-h-[56px]">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-DEFAULT bg-[#1E2F33] border border-[#2b3e42] flex items-center justify-center text-[#E8F1F0] font-extrabold text-sm shrink-0">
+  6,5
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-[#E8F1F0]">Akademische Probeprüfung #13</span>
+<span class="font-body-sm text-body-sm text-[#A9BDBB] text-[12px]">Vor 4 Tagen • Lesen &amp; Hören</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-[#A9BDBB] text-[20px] shrink-0" data-icon="chevron_right">chevron_right</span>
+</div>
+<!-- Item 3 -->
+<div class="flex items-center justify-between p-3 rounded-DEFAULT bg-[#172427] border-2 border-[#223539] shadow-[0_3px_0_0_#0d1517] min-h-[56px]">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-DEFAULT bg-[#1E2F33] border border-[#2b3e42] flex items-center justify-center text-[#E8F1F0] font-extrabold text-sm shrink-0">
+  6,5
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-[#E8F1F0]">Diagnose-Sprint #8</span>
+<span class="font-body-sm text-body-sm text-[#A9BDBB] text-[12px]">Vor 1 Woche • 15-Minuten-Check</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-[#A9BDBB] text-[20px] shrink-0" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+<!-- History Link -->
+<button class="w-full py-3 flex items-center justify-center gap-1.5 text-[#2DD4BF] hover:text-[#5EEAD4] font-label-md text-label-md hover:underline min-h-[44px]">
+<span>Ergebnisverlauf und Analysen anzeigen →</span>
+</button>
+</section>
+</div>
+<!-- Canonical Bottom Navigation Bar (5 tabs: Heute, Wortschatz, Fertigkeiten, Prüfungen [ACTIVE], Profil) -->
+<nav aria-label="Hauptnavigation" class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-space-sm py-space-xs h-20 bg-[#10191B] border-t border-[#1E2F33] shadow-[0_-4px_0_0_#0d1517]">
+<!-- Tab 1: Heute -->
+<a class="flex flex-col items-center justify-center text-[#A9BDBB] hover:text-[#E8F1F0] px-space-sm py-space-xs min-h-[44px] min-w-[56px] hover:bg-[#1E2F33]/40 rounded-DEFAULT transition-colors active:translate-y-[2px]" href="#today">
+<span class="material-symbols-outlined text-[24px]" data-icon="today">today</span>
+<span class="font-label-sm text-label-sm mt-0.5">Heute</span>
+</a>
+<!-- Tab 2: Wortschatz -->
+<a class="flex flex-col items-center justify-center text-[#A9BDBB] hover:text-[#E8F1F0] px-space-sm py-space-xs min-h-[44px] min-w-[56px] hover:bg-[#1E2F33]/40 rounded-DEFAULT transition-colors active:translate-y-[2px]" href="#vocab">
+<span class="material-symbols-outlined text-[24px]" data-icon="menu_book">menu_book</span>
+<span class="font-label-sm text-label-sm mt-0.5">Wortschatz</span>
+</a>
+<!-- Tab 3: Fertigkeiten -->
+<a class="flex flex-col items-center justify-center text-[#A9BDBB] hover:text-[#E8F1F0] px-space-sm py-space-xs min-h-[44px] min-w-[56px] hover:bg-[#1E2F33]/40 rounded-DEFAULT transition-colors active:translate-y-[2px]" href="#skills">
+<span class="material-symbols-outlined text-[24px]" data-icon="bolt">bolt</span>
+<span class="font-label-sm text-label-sm mt-0.5">Fertigkeiten</span>
+</a>
+<!-- Tab 4: Prüfungen (MANDATORY ACTIVE ITEM) -->
+<a aria-current="page" class="flex flex-col items-center justify-center bg-[#EA580C] text-[#1A0F02] border border-[#C2410C] rounded-DEFAULT px-space-md py-space-xs shadow-[0_3px_0_0_#9A3412] min-h-[48px] min-w-[64px] active:translate-y-[2px] transition-transform" href="#tests">
+<span class="material-symbols-outlined text-[24px] fill-icon text-[#1A0F02]" data-icon="assignment" data-weight="fill" style="font-variation-settings: 'FILL' 1;">assignment</span>
+<span class="font-label-sm text-label-sm font-extrabold mt-0.5 text-[#1A0F02]">Prüfungen</span>
+</a>
+<!-- Tab 5: Profil -->
+<a class="flex flex-col items-center justify-center text-[#A9BDBB] hover:text-[#E8F1F0] px-space-sm py-space-xs min-h-[44px] min-w-[56px] hover:bg-[#1E2F33]/40 rounded-DEFAULT transition-colors active:translate-y-[2px]" href="#profile">
+<span class="material-symbols-outlined text-[24px]" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm mt-0.5">Profil</span>
+</a>
+</nav>
+</main>
+</body></html>

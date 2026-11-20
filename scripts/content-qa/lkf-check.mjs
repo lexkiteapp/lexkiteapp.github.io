@@ -61,7 +61,7 @@ for (const s of SKILLS) for (const b of BASES) {
 
 // ---------- 2. Mục nội dung hiện có (khoá ổn định + cấp) ----------
 const C = loadContent();
-const vmFiles = (dir, re, name) => { const g = {}; for (const f of fs.readdirSync(P(dir)).filter(f => re.test(f)).sort((a, b) => (a.includes('-') - b.includes('-')) || (a < b ? -1 : 1)) /* calls.js gán mảng, calls-exam.js nối thêm – nạp đúng thứ tự app */) { try { new Function('self', 'window', rd(`${dir}/${f}`))(g, g); } catch (e) { E(`nạp ${dir}/${f}: ${e.message}`); } } return g[name] || []; };
+const vmFiles = (dirs, re, name) => { const g = {}; for (const dir of [].concat(dirs)) if (fs.existsSync(P(dir))) for (const f of fs.readdirSync(P(dir)).filter(f => re.test(f)).sort((a, b) => (a.includes('-') - b.includes('-')) || (a < b ? -1 : 1)) /* calls.js gán mảng, calls-exam.js nối thêm – nạp đúng thứ tự app */) { try { new Function('self', 'window', rd(`${dir}/${f}`))(g, g); } catch (e) { E(`nạp ${dir}/${f}: ${e.message}`); } } return g[name] || []; };
 const jsonDir = d => (ex(d) ? fs.readdirSync(P(d)).filter(f => f.endsWith('.json')).sort().map(f => JSON.parse(rd(`${d}/${f}`))) : []);
 const slug = s => String(s).toLowerCase().replace(/[^a-z0-9]+/g, '-').split('-').filter(Boolean).slice(0, 8).join('-');
 const TOEFL_B2 = new Set(['academic', 'talk', 'discussion']);
@@ -82,8 +82,8 @@ const items = { // nhóm → [{id, level, ...thuộc tính cho luật gợi ý}]
   ideas: (C.IDEAS || []).map(s => ({ id: s.topic, level: 'B2' })),
   story: (ex('content/lesson/stories.json') ? JSON.parse(rd('content/lesson/stories.json')).items : []).map(s => ({ id: s.id, level: s.cefr, kind: s.kind })),
   situation: jsonDir('content/situations').map(s => ({ id: s.id, level: s.cefr })),
-  call: vmFiles('web/js/call', /^calls.*\.js$/, 'CALLS').map(c => ({ id: c.id, level: c.lv, exam: c.exam || '' })),
-  roleplay: vmFiles('web/js/roleplay', /^data-.*\.js$/, 'ROLEPLAY').map(r => ({ id: r.id, level: Array.isArray(r.lv) ? r.lv[1] || r.lv[0] : 'B2' })), // công sở: mỗi lượt 3 bậc B1/B2/C1 → lấy giữa; đời sống: level [A1,A2,B1] → giữa
+  call: vmFiles(['web/js/call', 'web/cpack/call'], /^calls.*\.js$/, 'CALLS').map(c => ({ id: c.id, level: c.lv, exam: c.exam || '' })),
+  roleplay: vmFiles(['web/js/roleplay', 'web/cpack/roleplay'], /^data-.*\.js$/, 'ROLEPLAY').map(r => ({ id: r.id, level: Array.isArray(r.lv) ? r.lv[1] || r.lv[0] : 'B2' })), // công sở: mỗi lượt 3 bậc B1/B2/C1 → lấy giữa; đời sống: level [A1,A2,B1] → giữa
 };
 for (const [col, list] of Object.entries(items)) { const s = new Set(); for (const it of list) { if (s.has(it.id)) E(`${col}/${it.id}: khoá trùng – không gắn lo được`); s.add(it.id); } }
 
@@ -95,7 +95,7 @@ const RULES = {
   'ielts-listening': it => ({ 1: 'L.B1.03', 2: 'L.B1p.04', 3: 'L.B2.06', 4: ['L.B2.05', 'L.B2p.03'] })[it.part],
   'toeic-reading': it => ({ 5: 'R.B1.09', 6: 'R.B1p.05', 7: ['R.B1.04', 'R.B1p.06'] })[it.part],
   'toeic-listening': it => ({ 1: 'L.B1.11', 2: 'L.B1.12', 3: 'L.B1.09', 4: 'L.B1p.05' })[it.part],
-  'toeic-sw': it => ({ read: 'S.B1.11', respond: 'I.B1.08', info: 'I.B1p.05', opinion: 'S.B1.04', request: 'W.B1.09', essay: 'W.B1p.03', picture: 'S.A2.05', sentence: 'W.A2.02' })[it.task],
+  'toeic-sw': it => ({ read: 'S.B1.11', respond: 'I.B1.08', info: 'I.B1p.05', opinion: 'S.B1.04', request: 'W.B1.09', essay: 'W.B1p.03', picture: 'S.A2.05', sentence: 'W.A2.02', 'picture-sentence': 'W.A2.02' })[it.task],
   toefl: it => ({ cw: 'R.B1p.02', daily: 'R.B1.05', academic: 'R.B2.05', response: 'L.B1.12', conversation: 'L.B1.09', announcement: 'L.B1p.05', talk: 'L.B2.05',
     sentence: 'W.B1.01', email: 'W.B1.05', discussion: 'W.B1p.03', repeat: 'S.B1.12', interview: 'I.B1.08' })[it.task],
   'writing-model': it => ({ 1: 'W.B2.06', 2: 'W.B2.05', gt: 'W.B2.02' })[it.task],

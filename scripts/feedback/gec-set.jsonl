@@ -1,0 +1,420 @@
+{"id": "vi-001", "l1": "vi", "lvl": "A1", "q": "Where is your friend from?", "src": "he come from da nang", "cor": "he comes from da nang", "alt": [], "err": ["VERB:SVA"]}
+{"id": "vi-002", "l1": "vi", "lvl": "A2", "q": "What did you do last weekend?", "src": "i go to the beach with my family", "cor": "i went to the beach with my family", "alt": [], "err": ["VERB:TENSE"]}
+{"id": "vi-003", "l1": "vi", "lvl": "A2", "q": "What do you like to eat?", "src": "I like eat noodle soup.", "cor": "I like eating noodle soup.", "alt": ["I like to eat noodle soup."], "err": ["VERB:FORM"]}
+{"id": "vi-004", "l1": "vi", "lvl": "A1", "q": "What do you do?", "src": "i work in office near my house", "cor": "i work in an office near my house", "alt": [], "err": ["DET"]}
+{"id": "vi-005", "l1": "vi", "lvl": "B2", "q": "Would you like to live abroad?", "src": "i want to live in abroad one day", "cor": "i want to live abroad one day", "alt": [], "err": ["PREP"]}
+{"id": "vi-006", "l1": "vi", "lvl": "A2", "q": "Do you have any pets?", "src": "I have two cat at home.", "cor": "I have two cats at home.", "alt": [], "err": ["NOUN:NUM"]}
+{"id": "vi-007", "l1": "vi", "lvl": "B1", "q": "Why do you use the internet?", "src": "i use it to find informations for my study", "cor": "i use it to find information for my study", "alt": [], "err": ["NOUN:COUNT"]}
+{"id": "vi-008", "l1": "vi", "lvl": "A2", "q": "Do you drink coffee?", "src": "always i drink coffee in the morning", "cor": "i always drink coffee in the morning", "alt": [], "err": ["WO"]}
+{"id": "vi-009", "l1": "vi", "lvl": "B1", "q": "Tell me about your city.", "src": "my city is very crowd and noisy", "cor": "my city is very crowded and noisy", "alt": [], "err": ["ADJ:FORM"]}
+{"id": "vi-010", "l1": "vi", "lvl": "A2", "q": "Tell me about your mother.", "src": "My mother is a nurse and he works at a hospital.", "cor": "My mother is a nurse and she works at a hospital.", "alt": [], "err": ["PRON"]}
+{"id": "vi-011", "l1": "vi", "lvl": "A2", "q": "Can you swim?", "src": "yes i can to swim very well", "cor": "yes i can swim very well", "alt": [], "err": ["MODAL"]}
+{"id": "vi-012", "l1": "vi", "lvl": "B1", "q": "Do you agree with him?", "src": "i am agree with this idea", "cor": "i agree with this idea", "alt": [], "err": ["AUX"]}
+{"id": "vi-013", "l1": "vi", "lvl": "A2", "q": "Do you like spicy food?", "src": "no i no like spicy food", "cor": "no i don't like spicy food", "alt": ["no i do not like spicy food"], "err": ["NEG"]}
+{"id": "vi-014", "l1": "vi", "lvl": "A2", "q": "What do you do after dinner?", "src": "I make my homework after dinner.", "cor": "I do my homework after dinner.", "alt": [], "err": ["COLLOC"]}
+{"id": "vi-015", "l1": "vi", "lvl": "B1", "q": "Why are you learning English?", "src": "i study english for prepare for ielts", "cor": "i study english to prepare for ielts", "alt": [], "err": ["OTHER"]}
+{"id": "vi-016", "l1": "vi", "lvl": "B1", "q": "How long have you lived here?", "src": "i live here since five years", "cor": "i have lived here for five years", "alt": [], "err": ["VERB:TENSE", "PREP"]}
+{"id": "vi-017", "l1": "vi", "lvl": "A2", "q": "Where did you go on holiday?", "src": "yesterday i visit my grandmother house", "cor": "yesterday i visited my grandmother's house", "alt": [], "err": ["VERB:TENSE", "OTHER"]}
+{"id": "vi-018", "l1": "vi", "lvl": "A2", "q": "What does your sister do?", "src": "My sister is student at big university.", "cor": "My sister is a student at a big university.", "alt": [], "err": ["DET"]}
+{"id": "vi-019", "l1": "vi", "lvl": "B2", "q": "Did you enjoy the film?", "src": "it was boring and i didn't saw the end", "cor": "it was boring and i didn't see the end", "alt": [], "err": ["VERB:FORM"]}
+{"id": "vi-020", "l1": "vi", "lvl": "B1", "q": "How is the weather there?", "src": "the weather in hue is more hot than in hanoi", "cor": "the weather in hue is hotter than in hanoi", "alt": [], "err": ["ADJ:FORM"]}
+{"id": "vi-021", "l1": "vi", "lvl": "A2", "q": "Why were you late?", "src": "I was very tired this morning.", "cor": "I was very tired this morning.", "alt": [], "err": []}
+{"id": "vi-022", "l1": "vi", "lvl": "A2", "q": "Can you join us today?", "src": "sorry i can't go today", "cor": "sorry i can't go today", "alt": [], "err": []}
+{"id": "vi-023", "l1": "vi", "lvl": "B1", "q": "What do you think of his plan?", "src": "my friends agree with me about it", "cor": "my friends agree with me about it", "alt": [], "err": []}
+{"id": "vi-024", "l1": "vi", "lvl": "A2", "q": "Does your father drink coffee?", "src": "he doesn't like coffee very much", "cor": "he doesn't like coffee very much", "alt": [], "err": []}
+{"id": "vi-025", "l1": "vi", "lvl": "A1", "q": "What do you do?", "src": "I'm an engineer at a small company.", "cor": "I'm an engineer at a small company.", "alt": [], "err": []}
+{"id": "vi-026", "l1": "vi", "lvl": "A2", "q": "What did you do on Sunday?", "src": "I stayed home and cooked lunch for my family.", "cor": "I stayed home and cooked lunch for my family.", "alt": [], "err": []}
+{"id": "vi-027", "l1": "vi", "lvl": "B1", "q": "Do you read the news?", "src": "the news is always on my phone", "cor": "the news is always on my phone", "alt": [], "err": []}
+{"id": "vi-028", "l1": "vi", "lvl": "A2", "q": "What do you want to do?", "src": "i want to go home and sleep", "cor": "i want to go home and sleep", "alt": [], "err": []}
+{"id": "vi-029", "l1": "vi", "lvl": "C1", "q": "What do you like about your job?", "src": "I work with a great team and I learn something new every day.", "cor": "I work with a great team and I learn something new every day.", "alt": [], "err": []}
+{"id": "vi-030", "l1": "vi", "lvl": "A1", "q": "Where do you live?", "src": "I live in a small apartment near the river.", "cor": "I live in a small apartment near the river.", "alt": [], "err": []}
+{"id": "ar-001", "l1": "ar", "lvl": "A2", "q": "What does your brother do?", "src": "my brother work in a bank", "cor": "my brother works in a bank", "alt": [], "err": ["VERB:SVA"]}
+{"id": "ar-002", "l1": "ar", "lvl": "A2", "q": "What did you do yesterday?", "src": "yesterday i am go to the market with my mother", "cor": "yesterday i went to the market with my mother", "alt": [], "err": ["VERB:TENSE", "AUX"]}
+{"id": "ar-003", "l1": "ar", "lvl": "A2", "q": "Do you like sports?", "src": "Yes I like play football with my cousins.", "cor": "Yes I like playing football with my cousins.", "alt": ["Yes I like to play football with my cousins."], "err": ["VERB:FORM"]}
+{"id": "ar-004", "l1": "ar", "lvl": "A2", "q": "What does your father do?", "src": "he teacher in a big school", "cor": "he is a teacher in a big school", "alt": [], "err": ["AUX", "DET"]}
+{"id": "ar-005", "l1": "ar", "lvl": "B1", "q": "Do you enjoy music?", "src": "I love the music, especially the old songs.", "cor": "I love music, especially old songs.", "alt": [], "err": ["DET"]}
+{"id": "ar-006", "l1": "ar", "lvl": "A2", "q": "When did you arrive?", "src": "I arrived to Jeddah two days ago.", "cor": "I arrived in Jeddah two days ago.", "alt": [], "err": ["PREP"]}
+{"id": "ar-007", "l1": "ar", "lvl": "A1", "q": "Do you have friends here?", "src": "I have many friend in this city.", "cor": "I have many friends in this city.", "alt": [], "err": ["NOUN:NUM"]}
+{"id": "ar-008", "l1": "ar", "lvl": "B1", "q": "Why do you want to talk to a teacher?", "src": "I need some advices about my work.", "cor": "I need some advice about my work.", "alt": [], "err": ["NOUN:COUNT"]}
+{"id": "ar-009", "l1": "ar", "lvl": "A2", "q": "Do you have a car?", "src": "i have a car red", "cor": "i have a red car", "alt": [], "err": ["WO"]}
+{"id": "ar-010", "l1": "ar", "lvl": "B1", "q": "Who is the tallest in your family?", "src": "my brother is the most tall in my family", "cor": "my brother is the tallest in my family", "alt": [], "err": ["ADJ:FORM"]}
+{"id": "ar-011", "l1": "ar", "lvl": "A2", "q": "Tell me about your father.", "src": "my father he is a doctor", "cor": "my father is a doctor", "alt": [], "err": ["PRON"]}
+{"id": "ar-012", "l1": "ar", "lvl": "B1", "q": "What should I see in your city?", "src": "You should to visit the old market.", "cor": "You should visit the old market.", "alt": [], "err": ["MODAL"]}
+{"id": "ar-013", "l1": "ar", "lvl": "A2", "q": "Where do you work?", "src": "i am work in a hospital", "cor": "i work in a hospital", "alt": [], "err": ["AUX"]}
+{"id": "ar-014", "l1": "ar", "lvl": "A2", "q": "Do you have brothers?", "src": "i have not any brothers", "cor": "i don't have any brothers", "alt": ["i do not have any brothers"], "err": ["NEG"]}
+{"id": "ar-015", "l1": "ar", "lvl": "A2", "q": "What do you do when you come home?", "src": "i open the light and watch tv", "cor": "i turn on the light and watch tv", "alt": [], "err": ["COLLOC"]}
+{"id": "ar-016", "l1": "ar", "lvl": "B1", "q": "What are your plans for next year?", "src": "I want go to Mecca next year with my family.", "cor": "I want to go to Mecca next year with my family.", "alt": [], "err": ["OTHER"]}
+{"id": "ar-017", "l1": "ar", "lvl": "B1", "q": "Does your sister have children?", "src": "yes my sister have two sons", "cor": "yes my sister has two sons", "alt": [], "err": ["VERB:SVA"]}
+{"id": "ar-018", "l1": "ar", "lvl": "B1", "q": "Did you travel last year?", "src": "last year i travel to turkey with my wife", "cor": "last year i travelled to turkey with my wife", "alt": ["last year i traveled to turkey with my wife"], "err": ["VERB:TENSE"]}
+{"id": "ar-019", "l1": "ar", "lvl": "B2", "q": "How is life in Riyadh?", "src": "the life in riyadh is very expensive now", "cor": "life in riyadh is very expensive now", "alt": [], "err": ["DET"]}
+{"id": "ar-020", "l1": "ar", "lvl": "B2", "q": "Do people there help each other?", "src": "the people in my country is very kind", "cor": "the people in my country are very kind", "alt": [], "err": ["VERB:SVA"]}
+{"id": "ar-021", "l1": "ar", "lvl": "A1", "q": "How are you today?", "src": "I'm fine, thank you.", "cor": "I'm fine, thank you.", "alt": [], "err": []}
+{"id": "ar-022", "l1": "ar", "lvl": "A2", "q": "Can your brother come to the party?", "src": "sorry my brother can't go today", "cor": "sorry my brother can't go today", "alt": [], "err": []}
+{"id": "ar-023", "l1": "ar", "lvl": "B1", "q": "Did you meet your neighbours?", "src": "my neighbours and i went to the mosque yesterday", "cor": "my neighbours and i went to the mosque yesterday", "alt": [], "err": []}
+{"id": "ar-024", "l1": "ar", "lvl": "A2", "q": "Does she work on Fridays?", "src": "she doesn't work on friday", "cor": "she doesn't work on friday", "alt": [], "err": []}
+{"id": "ar-025", "l1": "ar", "lvl": "A2", "q": "Does your son go to school?", "src": "he has to wake up at six", "cor": "he has to wake up at six", "alt": [], "err": []}
+{"id": "ar-026", "l1": "ar", "lvl": "A1", "q": "Where do you live?", "src": "I live in Riyadh with my parents.", "cor": "I live in Riyadh with my parents.", "alt": [], "err": []}
+{"id": "ar-027", "l1": "ar", "lvl": "B1", "q": "How do you feel about the exam?", "src": "I am a little nervous but I studied a lot.", "cor": "I am a little nervous but I studied a lot.", "alt": [], "err": []}
+{"id": "ar-028", "l1": "ar", "lvl": "A2", "q": "What did you eat?", "src": "We ate rice and chicken for lunch.", "cor": "We ate rice and chicken for lunch.", "alt": [], "err": []}
+{"id": "ar-029", "l1": "ar", "lvl": "C1", "q": "What do you think of online learning?", "src": "I think it is useful, but I prefer a real classroom.", "cor": "I think it is useful, but I prefer a real classroom.", "alt": [], "err": []}
+{"id": "ar-030", "l1": "ar", "lvl": "A2", "q": "What do you want to do tonight?", "src": "I'd like to visit my grandmother tonight.", "cor": "I'd like to visit my grandmother tonight.", "alt": [], "err": []}
+{"id": "de-001", "l1": "de", "lvl": "B1", "q": "How long have you lived here?", "src": "i live here since three years", "cor": "i have lived here for three years", "alt": [], "err": ["VERB:TENSE", "PREP"]}
+{"id": "de-002", "l1": "de", "lvl": "B1", "q": "What are your plans for tomorrow?", "src": "i must tomorrow go to the doctor", "cor": "i must go to the doctor tomorrow", "alt": [], "err": ["WO"]}
+{"id": "de-003", "l1": "de", "lvl": "A2", "q": "What did you do last night?", "src": "last night i have watched a film", "cor": "last night i watched a film", "alt": [], "err": ["VERB:TENSE"]}
+{"id": "de-004", "l1": "de", "lvl": "B1", "q": "What did the receptionist tell you?", "src": "we got a lot of informations about the hotel", "cor": "we got a lot of information about the hotel", "alt": [], "err": ["NOUN:COUNT"]}
+{"id": "de-005", "l1": "de", "lvl": "B1", "q": "What subjects do you like?", "src": "I am very interested for history.", "cor": "I am very interested in history.", "alt": [], "err": ["PREP"]}
+{"id": "de-006", "l1": "de", "lvl": "A2", "q": "What does your father do?", "src": "My father is teacher at a school.", "cor": "My father is a teacher at a school.", "alt": [], "err": ["DET"]}
+{"id": "de-007", "l1": "de", "lvl": "A2", "q": "What is your plan for next week?", "src": "i will can visit you next week", "cor": "i will be able to visit you next week", "alt": [], "err": ["MODAL"]}
+{"id": "de-008", "l1": "de", "lvl": "B1", "q": "What do you do on holiday?", "src": "i enjoy to travel with my friends", "cor": "i enjoy travelling with my friends", "alt": ["i enjoy traveling with my friends"], "err": ["VERB:FORM"]}
+{"id": "de-009", "l1": "de", "lvl": "A2", "q": "Please ask me a question.", "src": "do you can help me with my homework", "cor": "can you help me with my homework", "alt": [], "err": ["AUX"]}
+{"id": "de-010", "l1": "de", "lvl": "A2", "q": "Is this book yours?", "src": "yes it is my", "cor": "yes it is mine", "alt": [], "err": ["PRON"]}
+{"id": "de-011", "l1": "de", "lvl": "B1", "q": "How was the film?", "src": "it was more good than the book", "cor": "it was better than the book", "alt": [], "err": ["ADJ:FORM"]}
+{"id": "de-012", "l1": "de", "lvl": "A2", "q": "What did you do at the station?", "src": "I made a photo of the big clock.", "cor": "I took a photo of the big clock.", "alt": [], "err": ["COLLOC"]}
+{"id": "de-013", "l1": "de", "lvl": "A2", "q": "Tell me about your family.", "src": "i have two sister and one brother", "cor": "i have two sisters and one brother", "alt": [], "err": ["NOUN:NUM"]}
+{"id": "de-014", "l1": "de", "lvl": "A2", "q": "Does your brother study?", "src": "Yes he study economics in cologne.", "cor": "Yes he studies economics in cologne.", "alt": [], "err": ["VERB:SVA"]}
+{"id": "de-015", "l1": "de", "lvl": "B2", "q": "Do you know the way?", "src": "i do not know where is the station", "cor": "i do not know where the station is", "alt": [], "err": ["WO"]}
+{"id": "de-016", "l1": "de", "lvl": "A2", "q": "How long have you been here?", "src": "i am here since monday and i like city", "cor": "i have been here since monday and i like the city", "alt": [], "err": ["VERB:TENSE", "DET"]}
+{"id": "de-017", "l1": "de", "lvl": "B1", "q": "Can we go out on Saturday?", "src": "it depends from the weather", "cor": "it depends on the weather", "alt": [], "err": ["PREP"]}
+{"id": "de-018", "l1": "de", "lvl": "A2", "q": "What did you buy at the station?", "src": "i became a coffee at the station", "cor": "i got a coffee at the station", "alt": [], "err": ["OTHER"]}
+{"id": "de-019", "l1": "de", "lvl": "B1", "q": "Do you play sports?", "src": "I don't have no time for sports.", "cor": "I don't have any time for sports.", "alt": ["I have no time for sports."], "err": ["NEG"]}
+{"id": "de-020", "l1": "de", "lvl": "B1", "q": "What do you need to improve?", "src": "I should to learn more vocabulary.", "cor": "I should learn more vocabulary.", "alt": [], "err": ["MODAL"]}
+{"id": "de-021", "l1": "de", "lvl": "A2", "q": "What do you think of this city?", "src": "I really like it, especially the parks.", "cor": "I really like it, especially the parks.", "alt": [], "err": []}
+{"id": "de-022", "l1": "de", "lvl": "A2", "q": "Can she come on Friday?", "src": "she can't go today but she can come on friday", "cor": "she can't go today but she can come on friday", "alt": [], "err": []}
+{"id": "de-023", "l1": "de", "lvl": "A2", "q": "Do you like your flat?", "src": "he doesn't like the noise but I do", "cor": "he doesn't like the noise but I do", "alt": [], "err": []}
+{"id": "de-024", "l1": "de", "lvl": "B1", "q": "What time did you finish?", "src": "my friends and I went home at ten", "cor": "my friends and I went home at ten", "alt": [], "err": []}
+{"id": "de-025", "l1": "de", "lvl": "A2", "q": "What are you doing next weekend?", "src": "I'd like to visit my grandparents.", "cor": "I'd like to visit my grandparents.", "alt": [], "err": []}
+{"id": "de-026", "l1": "de", "lvl": "A2", "q": "Where do you work?", "src": "I work at a hospital near the station.", "cor": "I work at a hospital near the station.", "alt": [], "err": []}
+{"id": "de-027", "l1": "de", "lvl": "B1", "q": "How long have you been in Germany?", "src": "I have lived in Germany for three years.", "cor": "I have lived in Germany for three years.", "alt": [], "err": []}
+{"id": "de-028", "l1": "de", "lvl": "B1", "q": "What's the news?", "src": "the news is good, i got the job", "cor": "the news is good, i got the job", "alt": [], "err": []}
+{"id": "de-029", "l1": "de", "lvl": "B2", "q": "What do you think of public transport?", "src": "It is cheap, but it is often late in winter.", "cor": "It is cheap, but it is often late in winter.", "alt": [], "err": []}
+{"id": "de-030", "l1": "de", "lvl": "A1", "q": "What do you study?", "src": "i am a student of biology", "cor": "i am a student of biology", "alt": [], "err": []}
+{"id": "es-001", "l1": "es", "lvl": "A1", "q": "How old are you?", "src": "i have twenty years", "cor": "i am twenty years old", "alt": ["i am twenty"], "err": ["OTHER"]}
+{"id": "es-002", "l1": "es", "lvl": "B1", "q": "Are people friendly there?", "src": "yes the people is very friendly", "cor": "yes the people are very friendly", "alt": [], "err": ["VERB:SVA"]}
+{"id": "es-003", "l1": "es", "lvl": "A2", "q": "What did you do for your birthday?", "src": "i made a party at my house", "cor": "i had a party at my house", "alt": ["i threw a party at my house"], "err": ["COLLOC"]}
+{"id": "es-004", "l1": "es", "lvl": "B1", "q": "Can we go to the beach on Saturday?", "src": "it depends of the weather", "cor": "it depends on the weather", "alt": [], "err": ["PREP"]}
+{"id": "es-005", "l1": "es", "lvl": "B1", "q": "What did you ask the teacher?", "src": "i asked her to explain me the problem", "cor": "i asked her to explain the problem to me", "alt": [], "err": ["WO"]}
+{"id": "es-006", "l1": "es", "lvl": "B1", "q": "What do you do for fun?", "src": "I love the football and the music.", "cor": "I love football and music.", "alt": [], "err": ["DET"]}
+{"id": "es-007", "l1": "es", "lvl": "B1", "q": "Is school hard?", "src": "my teacher gives us a lot of homeworks", "cor": "my teacher gives us a lot of homework", "alt": [], "err": ["NOUN:COUNT"]}
+{"id": "es-008", "l1": "es", "lvl": "A2", "q": "Do you listen to music?", "src": "I like to listen to rock song when I run.", "cor": "I like to listen to rock songs when I run.", "alt": [], "err": ["NOUN:NUM"]}
+{"id": "es-009", "l1": "es", "lvl": "B1", "q": "What did you think of the film?", "src": "the film was very bored", "cor": "the film was very boring", "alt": [], "err": ["ADJ:FORM"]}
+{"id": "es-010", "l1": "es", "lvl": "A2", "q": "What's the weather like?", "src": "is very hot today", "cor": "it is very hot today", "alt": [], "err": ["PRON"]}
+{"id": "es-011", "l1": "es", "lvl": "A2", "q": "I have a bad cough. What should I do?", "src": "you must to see a doctor", "cor": "you must see a doctor", "alt": [], "err": ["MODAL"]}
+{"id": "es-012", "l1": "es", "lvl": "B1", "q": "Do you agree with your sister?", "src": "i am agree with my sister", "cor": "i agree with my sister", "alt": [], "err": ["AUX"]}
+{"id": "es-013", "l1": "es", "lvl": "A2", "q": "Do you like cold weather?", "src": "no i no like the cold", "cor": "no i don't like the cold", "alt": [], "err": ["NEG"]}
+{"id": "es-014", "l1": "es", "lvl": "A2", "q": "What did you do yesterday?", "src": "yesterday i go to the gym and then i study", "cor": "yesterday i went to the gym and then i studied", "alt": [], "err": ["VERB:TENSE"]}
+{"id": "es-015", "l1": "es", "lvl": "B1", "q": "Are you excited about the trip?", "src": "yes i am looking forward to see you all", "cor": "yes i am looking forward to seeing you all", "alt": [], "err": ["VERB:FORM"]}
+{"id": "es-016", "l1": "es", "lvl": "B1", "q": "How long have you worked here?", "src": "i work here since march", "cor": "i have worked here since march", "alt": ["i have been working here since march"], "err": ["VERB:TENSE"]}
+{"id": "es-017", "l1": "es", "lvl": "A2", "q": "Why did you go to the supermarket?", "src": "I went to the supermarket for to buy bread.", "cor": "I went to the supermarket to buy bread.", "alt": [], "err": ["OTHER"]}
+{"id": "es-018", "l1": "es", "lvl": "B1", "q": "How was your exam?", "src": "yesterday i did a mistake in exam", "cor": "yesterday i made a mistake in the exam", "alt": [], "err": ["COLLOC", "DET"]}
+{"id": "es-019", "l1": "es", "lvl": "B1", "q": "Do you cook?", "src": "i cook very well the paella", "cor": "i cook the paella very well", "alt": ["i cook paella very well"], "err": ["WO"]}
+{"id": "es-020", "l1": "es", "lvl": "A2", "q": "Does she like it?", "src": "she don't like the food", "cor": "she doesn't like the food", "alt": ["she does not like the food"], "err": ["VERB:SVA"]}
+{"id": "es-021", "l1": "es", "lvl": "A2", "q": "What's your sister's job?", "src": "she has to work on saturdays", "cor": "she has to work on saturdays", "alt": [], "err": []}
+{"id": "es-022", "l1": "es", "lvl": "A1", "q": "How old are you?", "src": "I'm twenty years old.", "cor": "I'm twenty years old.", "alt": [], "err": []}
+{"id": "es-023", "l1": "es", "lvl": "A2", "q": "Is there a problem?", "src": "he doesn't want to go now", "cor": "he doesn't want to go now", "alt": [], "err": []}
+{"id": "es-024", "l1": "es", "lvl": "A2", "q": "Who did you go with?", "src": "my friends and I went to the beach", "cor": "my friends and I went to the beach", "alt": [], "err": []}
+{"id": "es-025", "l1": "es", "lvl": "B1", "q": "What do you think about the exam?", "src": "I think we made a lot of progress.", "cor": "I think we made a lot of progress.", "alt": [], "err": []}
+{"id": "es-026", "l1": "es", "lvl": "A2", "q": "Why are you in the kitchen?", "src": "i'll let him cook tonight", "cor": "i'll let him cook tonight", "alt": [], "err": []}
+{"id": "es-027", "l1": "es", "lvl": "A2", "q": "Are people kind in your town?", "src": "people are very kind in my town", "cor": "people are very kind in my town", "alt": [], "err": []}
+{"id": "es-028", "l1": "es", "lvl": "B1", "q": "Where do you work?", "src": "I work for a company that sells shoes.", "cor": "I work for a company that sells shoes.", "alt": [], "err": []}
+{"id": "es-029", "l1": "es", "lvl": "A2", "q": "What do you do on Sundays?", "src": "I usually visit my grandparents and eat lunch with them.", "cor": "I usually visit my grandparents and eat lunch with them.", "alt": [], "err": []}
+{"id": "es-030", "l1": "es", "lvl": "B2", "q": "Tell me about your English class.", "src": "The teacher gives us a lot of homework every week.", "cor": "The teacher gives us a lot of homework every week.", "alt": [], "err": []}
+{"id": "fr-001", "l1": "fr", "lvl": "B1", "q": "How long have you been married?", "src": "i am married since two years", "cor": "i have been married for two years", "alt": [], "err": ["VERB:TENSE", "PREP"]}
+{"id": "fr-002", "l1": "fr", "lvl": "A2", "q": "Do you agree?", "src": "Yes I am agree with you.", "cor": "Yes I agree with you.", "alt": [], "err": ["AUX"]}
+{"id": "fr-003", "l1": "fr", "lvl": "B1", "q": "Do you like your neighbours?", "src": "yes they are very sympathetic", "cor": "yes they are very nice", "alt": [], "err": ["OTHER"]}
+{"id": "fr-004", "l1": "fr", "lvl": "A2", "q": "What did you do last night?", "src": "i assisted at a concert last night", "cor": "i attended a concert last night", "alt": [], "err": ["COLLOC"]}
+{"id": "fr-005", "l1": "fr", "lvl": "B1", "q": "What is important to you?", "src": "the life is short so i travel a lot", "cor": "life is short so i travel a lot", "alt": [], "err": ["DET"]}
+{"id": "fr-006", "l1": "fr", "lvl": "A2", "q": "Does he play sports?", "src": "Yes he play tennis on sunday.", "cor": "Yes he plays tennis on sunday.", "alt": [], "err": ["VERB:SVA"]}
+{"id": "fr-007", "l1": "fr", "lvl": "B1", "q": "What did you do on holiday?", "src": "we visited the museum and we listened the guide", "cor": "we visited the museum and we listened to the guide", "alt": [], "err": ["PREP"]}
+{"id": "fr-008", "l1": "fr", "lvl": "B1", "q": "Did your teacher help you?", "src": "yes she gave me good advices", "cor": "yes she gave me good advice", "alt": [], "err": ["NOUN:COUNT"]}
+{"id": "fr-009", "l1": "fr", "lvl": "A2", "q": "Do you have children?", "src": "I have two child.", "cor": "I have two children.", "alt": [], "err": ["NOUN:NUM"]}
+{"id": "fr-010", "l1": "fr", "lvl": "A2", "q": "Do you like football?", "src": "i like very much football", "cor": "i like football very much", "alt": [], "err": ["WO"]}
+{"id": "fr-011", "l1": "fr", "lvl": "B1", "q": "Which is better, the bus or the train?", "src": "the train is more fast than the bus", "cor": "the train is faster than the bus", "alt": [], "err": ["ADJ:FORM"]}
+{"id": "fr-012", "l1": "fr", "lvl": "A2", "q": "What is the problem?", "src": "i lost my keys and i can't find him", "cor": "i lost my keys and i can't find them", "alt": [], "err": ["PRON"]}
+{"id": "fr-013", "l1": "fr", "lvl": "B1", "q": "Can you stay longer?", "src": "sorry i must to leave at six", "cor": "sorry i must leave at six", "alt": [], "err": ["MODAL"]}
+{"id": "fr-014", "l1": "fr", "lvl": "A2", "q": "Do you smoke?", "src": "no i smoke not", "cor": "no i don't smoke", "alt": [], "err": ["NEG"]}
+{"id": "fr-015", "l1": "fr", "lvl": "A2", "q": "What do you do after class?", "src": "i do a walk in the park", "cor": "i take a walk in the park", "alt": [], "err": ["COLLOC"]}
+{"id": "fr-016", "l1": "fr", "lvl": "B1", "q": "Is it hard to get up early?", "src": "yes i am not used to wake up early", "cor": "yes i am not used to waking up early", "alt": [], "err": ["VERB:FORM"]}
+{"id": "fr-017", "l1": "fr", "lvl": "A2", "q": "What did you do last weekend?", "src": "last weekend i have visited my cousin", "cor": "last weekend i visited my cousin", "alt": [], "err": ["VERB:TENSE"]}
+{"id": "fr-018", "l1": "fr", "lvl": "A2", "q": "When will you call me?", "src": "i will call you when i will arrive", "cor": "i will call you when i arrive", "alt": [], "err": ["VERB:TENSE"]}
+{"id": "fr-019", "l1": "fr", "lvl": "A2", "q": "Why are you here?", "src": "I come here for learn English.", "cor": "I come here to learn English.", "alt": [], "err": ["OTHER"]}
+{"id": "fr-020", "l1": "fr", "lvl": "B1", "q": "Can you come tomorrow?", "src": "sorry i do not can come tomorrow", "cor": "sorry i cannot come tomorrow", "alt": ["sorry i can not come tomorrow"], "err": ["AUX"]}
+{"id": "fr-021", "l1": "fr", "lvl": "A2", "q": "Are you free tomorrow?", "src": "yes I'm free after lunch", "cor": "yes I'm free after lunch", "alt": [], "err": []}
+{"id": "fr-022", "l1": "fr", "lvl": "A2", "q": "Is it possible for him to join?", "src": "he can't come but I can", "cor": "he can't come but I can", "alt": [], "err": []}
+{"id": "fr-023", "l1": "fr", "lvl": "B1", "q": "What is your opinion?", "src": "they agree with me about the price", "cor": "they agree with me about the price", "alt": [], "err": []}
+{"id": "fr-024", "l1": "fr", "lvl": "A2", "q": "Does your sister like it?", "src": "she doesn't like it very much", "cor": "she doesn't like it very much", "alt": [], "err": []}
+{"id": "fr-025", "l1": "fr", "lvl": "B1", "q": "How do you feel about cities?", "src": "I like cities but I prefer the countryside.", "cor": "I like cities but I prefer the countryside.", "alt": [], "err": []}
+{"id": "fr-026", "l1": "fr", "lvl": "A2", "q": "Where do you live?", "src": "I live with my parents near Lyon.", "cor": "I live with my parents near Lyon.", "alt": [], "err": []}
+{"id": "fr-027", "l1": "fr", "lvl": "A2", "q": "Do you like coffee?", "src": "I'd like a coffee, please.", "cor": "I'd like a coffee, please.", "alt": [], "err": []}
+{"id": "fr-028", "l1": "fr", "lvl": "B1", "q": "Does anyone help you?", "src": "he helps me cook dinner on weekdays", "cor": "he helps me cook dinner on weekdays", "alt": [], "err": []}
+{"id": "fr-029", "l1": "fr", "lvl": "B1", "q": "How long have you studied English?", "src": "I have studied English for six years.", "cor": "I have studied English for six years.", "alt": [], "err": []}
+{"id": "fr-030", "l1": "fr", "lvl": "A1", "q": "What is your job?", "src": "I am a nurse.", "cor": "I am a nurse.", "alt": [], "err": []}
+{"id": "hi-001", "l1": "hi", "lvl": "A2", "q": "Do you know him?", "src": "yes I am knowing him since childhood", "cor": "yes I have known him since childhood", "alt": [], "err": ["VERB:TENSE"]}
+{"id": "hi-002", "l1": "hi", "lvl": "B1", "q": "What did you do in the meeting?", "src": "We discussed about the budget.", "cor": "We discussed the budget.", "alt": [], "err": ["PREP"]}
+{"id": "hi-003", "l1": "hi", "lvl": "A2", "q": "Do you like this city?", "src": "yes i am liking it very much", "cor": "yes i like it very much", "alt": [], "err": ["VERB:TENSE"]}
+{"id": "hi-004", "l1": "hi", "lvl": "A2", "q": "Do you have a vehicle?", "src": "Yes I have car and a bike.", "cor": "Yes I have a car and a bike.", "alt": [], "err": ["DET"]}
+{"id": "hi-005", "l1": "hi", "lvl": "B1", "q": "What time did you get back?", "src": "i returned back home at eight", "cor": "i returned home at eight", "alt": ["i got back home at eight"], "err": ["OTHER"]}
+{"id": "hi-006", "l1": "hi", "lvl": "B1", "q": "Do you have much homework?", "src": "yes I have many homeworks this week", "cor": "yes I have a lot of homework this week", "alt": [], "err": ["NOUN:COUNT"]}
+{"id": "hi-007", "l1": "hi", "lvl": "A2", "q": "Do you drink tea?", "src": "i drink two cup of tea every day", "cor": "i drink two cups of tea every day", "alt": [], "err": ["NOUN:NUM"]}
+{"id": "hi-008", "l1": "hi", "lvl": "B1", "q": "What did you ask the waiter?", "src": "i asked him what was the price", "cor": "i asked him what the price was", "alt": [], "err": ["WO"]}
+{"id": "hi-009", "l1": "hi", "lvl": "B1", "q": "How is your room?", "src": "my room is more bigger than yours", "cor": "my room is bigger than yours", "alt": [], "err": ["ADJ:FORM"]}
+{"id": "hi-010", "l1": "hi", "lvl": "B1", "q": "Do you live with your family?", "src": "I and my sister live together.", "cor": "My sister and I live together.", "alt": [], "err": ["PRON"]}
+{"id": "hi-011", "l1": "hi", "lvl": "B1", "q": "Did you finish the work?", "src": "yes i could able to finish it", "cor": "yes i was able to finish it", "alt": [], "err": ["MODAL"]}
+{"id": "hi-012", "l1": "hi", "lvl": "A2", "q": "Your friend is late. What do you say?", "src": "why you are late", "cor": "why are you late", "alt": [], "err": ["AUX"]}
+{"id": "hi-013", "l1": "hi", "lvl": "A2", "q": "Do you follow cricket?", "src": "i don't know nothing about cricket", "cor": "i don't know anything about cricket", "alt": ["i know nothing about cricket"], "err": ["NEG"]}
+{"id": "hi-014", "l1": "hi", "lvl": "A2", "q": "What do you do when you get home?", "src": "I do my bath and then eat dinner.", "cor": "I take a bath and then eat dinner.", "alt": [], "err": ["COLLOC"]}
+{"id": "hi-015", "l1": "hi", "lvl": "B1", "q": "When can you reply?", "src": "I will revert back to you tomorrow.", "cor": "I will revert to you tomorrow.", "alt": ["I will get back to you tomorrow."], "err": ["OTHER"]}
+{"id": "hi-016", "l1": "hi", "lvl": "B1", "q": "How is your job?", "src": "i am working in a bank since 2019", "cor": "i have been working in a bank since 2019", "alt": [], "err": ["VERB:TENSE"]}
+{"id": "hi-017", "l1": "hi", "lvl": "A2", "q": "Does your father cook?", "src": "no he do not cook", "cor": "no he does not cook", "alt": [], "err": ["VERB:SVA"]}
+{"id": "hi-018", "l1": "hi", "lvl": "A2", "q": "What do you like?", "src": "i like to playing cricket", "cor": "i like to play cricket", "alt": ["i like playing cricket"], "err": ["VERB:FORM"]}
+{"id": "hi-019", "l1": "hi", "lvl": "A2", "q": "What happened at the station?", "src": "I reached to the station at six.", "cor": "I reached the station at six.", "alt": [], "err": ["PREP"]}
+{"id": "hi-020", "l1": "hi", "lvl": "B1", "q": "Tell me about your work.", "src": "I work in IT company with many employee.", "cor": "I work in an IT company with many employees.", "alt": [], "err": ["DET", "NOUN:NUM"]}
+{"id": "hi-021", "l1": "hi", "lvl": "A2", "q": "Do you want tea?", "src": "i want to go home first", "cor": "i want to go home first", "alt": [], "err": []}
+{"id": "hi-022", "l1": "hi", "lvl": "A1", "q": "What do you do?", "src": "I'm an accountant in a big firm.", "cor": "I'm an accountant in a big firm.", "alt": [], "err": []}
+{"id": "hi-023", "l1": "hi", "lvl": "A2", "q": "Can she join us?", "src": "she can't join today", "cor": "she can't join today", "alt": [], "err": []}
+{"id": "hi-024", "l1": "hi", "lvl": "B1", "q": "Why is he upset?", "src": "my boss made him redo the report", "cor": "my boss made him redo the report", "alt": [], "err": []}
+{"id": "hi-025", "l1": "hi", "lvl": "A2", "q": "Do you like Hindi films?", "src": "yes I do, I watch them every weekend", "cor": "yes I do, I watch them every weekend", "alt": [], "err": []}
+{"id": "hi-026", "l1": "hi", "lvl": "A2", "q": "How was the trip?", "src": "it was very long but I enjoyed it", "cor": "it was very long but I enjoyed it", "alt": [], "err": []}
+{"id": "hi-027", "l1": "hi", "lvl": "B1", "q": "Do you know her?", "src": "I have known her since college.", "cor": "I have known her since college.", "alt": [], "err": []}
+{"id": "hi-028", "l1": "hi", "lvl": "B1", "q": "How is your health?", "src": "I have a cold, but I am feeling better.", "cor": "I have a cold, but I am feeling better.", "alt": [], "err": []}
+{"id": "hi-029", "l1": "hi", "lvl": "C1", "q": "What do you think of social media?", "src": "It helps me stay in touch with friends, but it wastes time.", "cor": "It helps me stay in touch with friends, but it wastes time.", "alt": [], "err": []}
+{"id": "hi-030", "l1": "hi", "lvl": "A2", "q": "Did you cook?", "src": "yes my mother and I cooked dinner together", "cor": "yes my mother and I cooked dinner together", "alt": [], "err": []}
+{"id": "id-001", "l1": "id", "lvl": "A2", "q": "What did you do last weekend?", "src": "last weekend i visit my grandmother", "cor": "last weekend i visited my grandmother", "alt": [], "err": ["VERB:TENSE"]}
+{"id": "id-002", "l1": "id", "lvl": "A2", "q": "Do you have pets?", "src": "I have three cat and one bird.", "cor": "I have three cats and one bird.", "alt": [], "err": ["NOUN:NUM"]}
+{"id": "id-003", "l1": "id", "lvl": "A2", "q": "What do you do?", "src": "I am teacher in elementary school.", "cor": "I am a teacher in an elementary school.", "alt": [], "err": ["DET"]}
+{"id": "id-004", "l1": "id", "lvl": "A2", "q": "How is your sister?", "src": "she very busy this week", "cor": "she is very busy this week", "alt": [], "err": ["AUX"]}
+{"id": "id-005", "l1": "id", "lvl": "A2", "q": "Do you like music?", "src": "i very like music", "cor": "i like music very much", "alt": ["i really like music"], "err": ["WO"]}
+{"id": "id-006", "l1": "id", "lvl": "A2", "q": "How does your father go to work?", "src": "my father go to office by motorbike every day", "cor": "my father goes to office by motorbike every day", "alt": [], "err": ["VERB:SVA"]}
+{"id": "id-007", "l1": "id", "lvl": "B1", "q": "What are you interested in?", "src": "I am interested on cooking.", "cor": "I am interested in cooking.", "alt": [], "err": ["PREP"]}
+{"id": "id-008", "l1": "id", "lvl": "B1", "q": "Did you buy anything?", "src": "i bought a furnitures for my room", "cor": "i bought furniture for my room", "alt": [], "err": ["NOUN:COUNT"]}
+{"id": "id-009", "l1": "id", "lvl": "B1", "q": "How was the exam?", "src": "the exam was very difficulty", "cor": "the exam was very difficult", "alt": [], "err": ["ADJ:FORM"]}
+{"id": "id-010", "l1": "id", "lvl": "A2", "q": "Tell me about your mother.", "src": "my mother is cooking for we every day", "cor": "my mother is cooking for us every day", "alt": [], "err": ["PRON"]}
+{"id": "id-011", "l1": "id", "lvl": "A2", "q": "Can you speak English?", "src": "Yes I can speaking English a little.", "cor": "Yes I can speak English a little.", "alt": [], "err": ["MODAL"]}
+{"id": "id-012", "l1": "id", "lvl": "A2", "q": "Do you like durian?", "src": "i not like durian", "cor": "i don't like durian", "alt": [], "err": ["NEG"]}
+{"id": "id-013", "l1": "id", "lvl": "A2", "q": "What do you do every morning?", "src": "I make exercise every morning.", "cor": "I do exercise every morning.", "alt": [], "err": ["COLLOC"]}
+{"id": "id-014", "l1": "id", "lvl": "B1", "q": "What did your friend ask?", "src": "he asked me helping him", "cor": "he asked me to help him", "alt": [], "err": ["VERB:FORM"]}
+{"id": "id-015", "l1": "id", "lvl": "B1", "q": "Why do you study English?", "src": "i study english for get a better job", "cor": "i study english to get a better job", "alt": [], "err": ["OTHER"]}
+{"id": "id-016", "l1": "id", "lvl": "B1", "q": "What did you do yesterday?", "src": "yesterday i go to market and buy fish", "cor": "yesterday i went to the market and bought fish", "alt": [], "err": ["VERB:TENSE", "DET"]}
+{"id": "id-017", "l1": "id", "lvl": "B1", "q": "Where does your uncle work?", "src": "he is work at a hospital", "cor": "he works at a hospital", "alt": [], "err": ["AUX"]}
+{"id": "id-018", "l1": "id", "lvl": "B1", "q": "Describe your house.", "src": "my house is big very", "cor": "my house is very big", "alt": [], "err": ["WO"]}
+{"id": "id-019", "l1": "id", "lvl": "B1", "q": "Is Bali popular?", "src": "There are many tourist in Bali.", "cor": "There are many tourists in Bali.", "alt": [], "err": ["NOUN:NUM"]}
+{"id": "id-020", "l1": "id", "lvl": "B1", "q": "Where were you last night?", "src": "I arrived at Jakarta last night.", "cor": "I arrived in Jakarta last night.", "alt": [], "err": ["PREP"]}
+{"id": "id-021", "l1": "id", "lvl": "A1", "q": "How are you?", "src": "I'm fine, and you?", "cor": "I'm fine, and you?", "alt": [], "err": []}
+{"id": "id-022", "l1": "id", "lvl": "A2", "q": "Are you tired?", "src": "yes, i was very tired after the trip", "cor": "yes, i was very tired after the trip", "alt": [], "err": []}
+{"id": "id-023", "l1": "id", "lvl": "A2", "q": "Can he come with us?", "src": "he can't go with us today", "cor": "he can't go with us today", "alt": [], "err": []}
+{"id": "id-024", "l1": "id", "lvl": "A2", "q": "What did he say?", "src": "he doesn't know the answer", "cor": "he doesn't know the answer", "alt": [], "err": []}
+{"id": "id-025", "l1": "id", "lvl": "B1", "q": "What do you think of the plan?", "src": "I agree with them about the plan.", "cor": "I agree with them about the plan.", "alt": [], "err": []}
+{"id": "id-026", "l1": "id", "lvl": "A2", "q": "What do you want to eat?", "src": "i want to eat rice and fish", "cor": "i want to eat rice and fish", "alt": [], "err": []}
+{"id": "id-027", "l1": "id", "lvl": "B1", "q": "What is the most useful app for you?", "src": "I use a map app every day because I travel a lot.", "cor": "I use a map app every day because I travel a lot.", "alt": [], "err": []}
+{"id": "id-028", "l1": "id", "lvl": "A2", "q": "Where did you go?", "src": "We went to a small village near the mountain.", "cor": "We went to a small village near the mountain.", "alt": [], "err": []}
+{"id": "id-029", "l1": "id", "lvl": "C1", "q": "Do you save money?", "src": "I try to save some money every month for my future.", "cor": "I try to save some money every month for my future.", "alt": [], "err": []}
+{"id": "id-030", "l1": "id", "lvl": "A2", "q": "Do you have siblings?", "src": "I have two brothers and one sister.", "cor": "I have two brothers and one sister.", "alt": [], "err": []}
+{"id": "ja-001", "l1": "ja", "lvl": "A2", "q": "What do you do?", "src": "I work for company in tokyo", "cor": "I work for a company in tokyo", "alt": [], "err": ["DET"]}
+{"id": "ja-002", "l1": "ja", "lvl": "A2", "q": "Do you have hobbies?", "src": "I like to read book on the train.", "cor": "I like to read books on the train.", "alt": [], "err": ["NOUN:NUM"]}
+{"id": "ja-003", "l1": "ja", "lvl": "B1", "q": "How do you feel in class?", "src": "sometimes i am boring in class", "cor": "sometimes i am bored in class", "alt": [], "err": ["ADJ:FORM"]}
+{"id": "ja-004", "l1": "ja", "lvl": "B1", "q": "What are you good at?", "src": "I am good in cooking.", "cor": "I am good at cooking.", "alt": [], "err": ["PREP"]}
+{"id": "ja-005", "l1": "ja", "lvl": "A2", "q": "What did you do last weekend?", "src": "last sunday i visit a temple in kyoto", "cor": "last sunday i visited a temple in kyoto", "alt": [], "err": ["VERB:TENSE"]}
+{"id": "ja-006", "l1": "ja", "lvl": "B1", "q": "Do you play sports?", "src": "I play every Sunday tennis.", "cor": "I play tennis every Sunday.", "alt": [], "err": ["WO"]}
+{"id": "ja-007", "l1": "ja", "lvl": "A2", "q": "What did you do yesterday?", "src": "went to osaka yesterday", "cor": "i went to osaka yesterday", "alt": [], "err": ["PRON"]}
+{"id": "ja-008", "l1": "ja", "lvl": "A2", "q": "Where does your sister live?", "src": "my sister live in osaka", "cor": "my sister lives in osaka", "alt": [], "err": ["VERB:SVA"]}
+{"id": "ja-009", "l1": "ja", "lvl": "B1", "q": "What do you like about Japan?", "src": "I enjoy to walk in old towns.", "cor": "I enjoy walking in old towns.", "alt": [], "err": ["VERB:FORM"]}
+{"id": "ja-010", "l1": "ja", "lvl": "B1", "q": "What do you have in your lab?", "src": "we have many equipments in our lab", "cor": "we have a lot of equipment in our lab", "alt": [], "err": ["NOUN:COUNT"]}
+{"id": "ja-011", "l1": "ja", "lvl": "A2", "q": "Can you cook?", "src": "yes I can to cook japanese food", "cor": "yes I can cook japanese food", "alt": [], "err": ["MODAL"]}
+{"id": "ja-012", "l1": "ja", "lvl": "A2", "q": "Your friend is planning a trip. What do you ask?", "src": "where you want to go this summer", "cor": "where do you want to go this summer", "alt": [], "err": ["AUX"]}
+{"id": "ja-013", "l1": "ja", "lvl": "A2", "q": "Did you eat breakfast?", "src": "I didn't eat nothing this morning.", "cor": "I didn't eat anything this morning.", "alt": [], "err": ["NEG"]}
+{"id": "ja-014", "l1": "ja", "lvl": "A2", "q": "What did you do last night?", "src": "i looked tv until midnight", "cor": "i watched tv until midnight", "alt": [], "err": ["COLLOC"]}
+{"id": "ja-015", "l1": "ja", "lvl": "A2", "q": "Have you visited Kyoto?", "src": "yes i have been to there twice", "cor": "yes i have been there twice", "alt": [], "err": ["OTHER"]}
+{"id": "ja-016", "l1": "ja", "lvl": "B1", "q": "What do you carry in summer?", "src": "I always carry umbrella in rainy season.", "cor": "I always carry an umbrella in the rainy season.", "alt": [], "err": ["DET"]}
+{"id": "ja-017", "l1": "ja", "lvl": "B2", "q": "Are you worried?", "src": "i don't know what should i do", "cor": "i don't know what i should do", "alt": [], "err": ["WO"]}
+{"id": "ja-018", "l1": "ja", "lvl": "B1", "q": "Did you go out yesterday?", "src": "yesterday it rains so i stay home", "cor": "yesterday it rained so i stayed home", "alt": [], "err": ["VERB:TENSE"]}
+{"id": "ja-019", "l1": "ja", "lvl": "A2", "q": "What is your schedule on Mondays?", "src": "I take two class on Monday.", "cor": "I take two classes on Monday.", "alt": [], "err": ["NOUN:NUM"]}
+{"id": "ja-020", "l1": "ja", "lvl": "B1", "q": "Did you open the door?", "src": "I entered to the room quietly.", "cor": "I entered the room quietly.", "alt": [], "err": ["PREP"]}
+{"id": "ja-021", "l1": "ja", "lvl": "A2", "q": "What do you do?", "src": "I'm a university student.", "cor": "I'm a university student.", "alt": [], "err": []}
+{"id": "ja-022", "l1": "ja", "lvl": "B1", "q": "How was your trip?", "src": "my friends and I took a train to nagano", "cor": "my friends and I took a train to nagano", "alt": [], "err": []}
+{"id": "ja-023", "l1": "ja", "lvl": "A2", "q": "Do you like sushi?", "src": "i really like sushi", "cor": "i really like sushi", "alt": [], "err": []}
+{"id": "ja-024", "l1": "ja", "lvl": "A2", "q": "Can she come?", "src": "she can't go today because she has a test", "cor": "she can't go today because she has a test", "alt": [], "err": []}
+{"id": "ja-025", "l1": "ja", "lvl": "A2", "q": "What would you like to do?", "src": "I'd like to visit Kyoto again someday.", "cor": "I'd like to visit Kyoto again someday.", "alt": [], "err": []}
+{"id": "ja-026", "l1": "ja", "lvl": "B1", "q": "Is he a good teacher?", "src": "he helps me understand the grammar", "cor": "he helps me understand the grammar", "alt": [], "err": []}
+{"id": "ja-027", "l1": "ja", "lvl": "A2", "q": "Did he go to work?", "src": "yes he went but he didn't stay long", "cor": "yes he went but he didn't stay long", "alt": [], "err": []}
+{"id": "ja-028", "l1": "ja", "lvl": "B1", "q": "What do you do on rainy days?", "src": "I usually read a book at home.", "cor": "I usually read a book at home.", "alt": [], "err": []}
+{"id": "ja-029", "l1": "ja", "lvl": "C1", "q": "What are your strengths?", "src": "I am patient, and I try to listen to other people.", "cor": "I am patient, and I try to listen to other people.", "alt": [], "err": []}
+{"id": "ja-030", "l1": "ja", "lvl": "A1", "q": "Do you have pets?", "src": "I have a dog and two cats.", "cor": "I have a dog and two cats.", "alt": [], "err": []}
+{"id": "ko-001", "l1": "ko", "lvl": "A2", "q": "What do you do?", "src": "i am student at seoul university", "cor": "i am a student at seoul university", "alt": [], "err": ["DET"]}
+{"id": "ko-002", "l1": "ko", "lvl": "A2", "q": "What did you do when you were sick?", "src": "i ate medicine and slept all day", "cor": "i took medicine and slept all day", "alt": [], "err": ["COLLOC"]}
+{"id": "ko-003", "l1": "ko", "lvl": "A2", "q": "What did you buy?", "src": "I bought three apple at the market.", "cor": "I bought three apples at the market.", "alt": [], "err": ["NOUN:NUM"]}
+{"id": "ko-004", "l1": "ko", "lvl": "B1", "q": "Do you like Korean food?", "src": "i like very much kimchi", "cor": "i like kimchi very much", "alt": [], "err": ["WO"]}
+{"id": "ko-005", "l1": "ko", "lvl": "A2", "q": "Are you busy today?", "src": "have two meetings today", "cor": "i have two meetings today", "alt": [], "err": ["PRON"]}
+{"id": "ko-006", "l1": "ko", "lvl": "B1", "q": "What does your father do?", "src": "My father work in a trading company.", "cor": "My father works in a trading company.", "alt": [], "err": ["VERB:SVA"]}
+{"id": "ko-007", "l1": "ko", "lvl": "A2", "q": "Where do you live?", "src": "I live at Seoul near the river.", "cor": "I live in Seoul near the river.", "alt": [], "err": ["PREP"]}
+{"id": "ko-008", "l1": "ko", "lvl": "A2", "q": "What did you do last night?", "src": "last night i meet my friend and we eat chicken", "cor": "last night i met my friend and we ate chicken", "alt": [], "err": ["VERB:TENSE"]}
+{"id": "ko-009", "l1": "ko", "lvl": "B1", "q": "Why do you study English?", "src": "i am very interesting in english", "cor": "i am very interested in english", "alt": [], "err": ["ADJ:FORM"]}
+{"id": "ko-010", "l1": "ko", "lvl": "A2", "q": "What do you do in your free time?", "src": "I like watch movies at home.", "cor": "I like watching movies at home.", "alt": ["I like to watch movies at home."], "err": ["VERB:FORM"]}
+{"id": "ko-011", "l1": "ko", "lvl": "B1", "q": "Can you help me?", "src": "of course i can to help you", "cor": "of course i can help you", "alt": [], "err": ["MODAL"]}
+{"id": "ko-012", "l1": "ko", "lvl": "A2", "q": "Do you exercise?", "src": "i am not do exercise much", "cor": "i don't exercise much", "alt": [], "err": ["AUX"]}
+{"id": "ko-013", "l1": "ko", "lvl": "B1", "q": "Will he come to the party?", "src": "i think he doesn't will come", "cor": "i don't think he will come", "alt": [], "err": ["NEG"]}
+{"id": "ko-014", "l1": "ko", "lvl": "B1", "q": "Do you have a lot to do?", "src": "yes i have many works to do today", "cor": "yes i have a lot of work to do today", "alt": [], "err": ["NOUN:COUNT"]}
+{"id": "ko-015", "l1": "ko", "lvl": "B1", "q": "Why are you leaving early?", "src": "I will go see a doctor because I am pain.", "cor": "I will go see a doctor because I am in pain.", "alt": [], "err": ["OTHER"]}
+{"id": "ko-016", "l1": "ko", "lvl": "B1", "q": "What did you do yesterday?", "src": "yesterday i went to the library and study for exam", "cor": "yesterday i went to the library and studied for the exam", "alt": [], "err": ["VERB:TENSE", "DET"]}
+{"id": "ko-017", "l1": "ko", "lvl": "A2", "q": "Where are you?", "src": "i am waiting you at the station", "cor": "i am waiting for you at the station", "alt": [], "err": ["PREP"]}
+{"id": "ko-018", "l1": "ko", "lvl": "B2", "q": "Do you know the schedule?", "src": "i want to know when does the class start", "cor": "i want to know when the class starts", "alt": [], "err": ["WO"]}
+{"id": "ko-019", "l1": "ko", "lvl": "B1", "q": "How was the test?", "src": "i didn't studied enough so it was hard", "cor": "i didn't study enough so it was hard", "alt": [], "err": ["VERB:FORM"]}
+{"id": "ko-020", "l1": "ko", "lvl": "A2", "q": "Tell me about your teacher.", "src": "She is very kind person.", "cor": "She is a very kind person.", "alt": [], "err": ["DET"]}
+{"id": "ko-021", "l1": "ko", "lvl": "A1", "q": "Where are you from?", "src": "I'm from Busan, a port city.", "cor": "I'm from Busan, a port city.", "alt": [], "err": []}
+{"id": "ko-022", "l1": "ko", "lvl": "A2", "q": "Do you like winter?", "src": "yes, i like the snow, but i don't like the cold", "cor": "yes, i like the snow, but i don't like the cold", "alt": [], "err": []}
+{"id": "ko-023", "l1": "ko", "lvl": "A2", "q": "Can your friend come?", "src": "he can't go today, he has work", "cor": "he can't go today, he has work", "alt": [], "err": []}
+{"id": "ko-024", "l1": "ko", "lvl": "B1", "q": "What do you think of K-pop?", "src": "my friends and I listen to it a lot", "cor": "my friends and I listen to it a lot", "alt": [], "err": []}
+{"id": "ko-025", "l1": "ko", "lvl": "A2", "q": "Do you want to eat out?", "src": "i want to go to a restaurant near here", "cor": "i want to go to a restaurant near here", "alt": [], "err": []}
+{"id": "ko-026", "l1": "ko", "lvl": "A2", "q": "How was the weather?", "src": "It rained all day yesterday.", "cor": "It rained all day yesterday.", "alt": [], "err": []}
+{"id": "ko-027", "l1": "ko", "lvl": "B1", "q": "How do you study English?", "src": "I watch videos and practice speaking with my sister.", "cor": "I watch videos and practice speaking with my sister.", "alt": [], "err": []}
+{"id": "ko-028", "l1": "ko", "lvl": "B1", "q": "Do your teachers help you?", "src": "my teachers help me improve my writing", "cor": "my teachers help me improve my writing", "alt": [], "err": []}
+{"id": "ko-029", "l1": "ko", "lvl": "C1", "q": "What do you like about your city?", "src": "It has a lot of parks, and the subway is very convenient.", "cor": "It has a lot of parks, and the subway is very convenient.", "alt": [], "err": []}
+{"id": "ko-030", "l1": "ko", "lvl": "A2", "q": "What time do you wake up?", "src": "I wake up at seven and I have breakfast at home.", "cor": "I wake up at seven and I have breakfast at home.", "alt": [], "err": []}
+{"id": "pt-001", "l1": "pt", "lvl": "A1", "q": "How old are you?", "src": "i have twenty five years", "cor": "i am twenty five years old", "alt": [], "err": ["OTHER"]}
+{"id": "pt-002", "l1": "pt", "lvl": "A2", "q": "Where do you live?", "src": "I live in a flat that is near of the beach.", "cor": "I live in a flat that is near the beach.", "alt": [], "err": ["PREP"]}
+{"id": "pt-003", "l1": "pt", "lvl": "A2", "q": "Does your brother like winter?", "src": "he don't like the cold", "cor": "he doesn't like the cold", "alt": [], "err": ["VERB:SVA"]}
+{"id": "pt-004", "l1": "pt", "lvl": "A2", "q": "What did you do before bed?", "src": "i closed the light and went to bed", "cor": "i turned off the light and went to bed", "alt": [], "err": ["COLLOC"]}
+{"id": "pt-005", "l1": "pt", "lvl": "B1", "q": "What is important to you?", "src": "The money is not important for me.", "cor": "Money is not important for me.", "alt": [], "err": ["DET"]}
+{"id": "pt-006", "l1": "pt", "lvl": "A2", "q": "Do you have family nearby?", "src": "Yes I have three cousin in the city.", "cor": "Yes I have three cousins in the city.", "alt": [], "err": ["NOUN:NUM"]}
+{"id": "pt-007", "l1": "pt", "lvl": "B1", "q": "What did you buy?", "src": "i bought some new furnitures yesterday", "cor": "i bought some new furniture yesterday", "alt": [], "err": ["NOUN:COUNT"]}
+{"id": "pt-008", "l1": "pt", "lvl": "B1", "q": "Do you eat meat?", "src": "i eat sometimes meat", "cor": "i sometimes eat meat", "alt": [], "err": ["WO"]}
+{"id": "pt-009", "l1": "pt", "lvl": "B1", "q": "Which hotel is better?", "src": "this one is more cheap than that one", "cor": "this one is cheaper than that one", "alt": [], "err": ["ADJ:FORM"]}
+{"id": "pt-010", "l1": "pt", "lvl": "A2", "q": "Who went to the beach?", "src": "my sister and me went to the beach", "cor": "my sister and i went to the beach", "alt": [], "err": ["PRON"]}
+{"id": "pt-011", "l1": "pt", "lvl": "A2", "q": "It is cold today. What do you suggest?", "src": "you should to wear a coat today", "cor": "you should wear a coat today", "alt": [], "err": ["MODAL"]}
+{"id": "pt-012", "l1": "pt", "lvl": "A2", "q": "You meet a tourist. What do you ask?", "src": "you speak english here", "cor": "do you speak english here", "alt": [], "err": ["AUX"]}
+{"id": "pt-013", "l1": "pt", "lvl": "B1", "q": "Do people know about the plan?", "src": "Nobody doesn't know about it.", "cor": "Nobody knows about it.", "alt": [], "err": ["NEG"]}
+{"id": "pt-014", "l1": "pt", "lvl": "A2", "q": "What did you do yesterday?", "src": "yesterday i go to work and then i went home", "cor": "yesterday i went to work and then i went home", "alt": [], "err": ["VERB:TENSE"]}
+{"id": "pt-015", "l1": "pt", "lvl": "B1", "q": "What do you like doing?", "src": "i like go to the cinema on sundays", "cor": "i like going to the cinema on sundays", "alt": ["i like to go to the cinema on sundays"], "err": ["VERB:FORM"]}
+{"id": "pt-016", "l1": "pt", "lvl": "A2", "q": "Why are you here?", "src": "i came for study english", "cor": "i came to study english", "alt": [], "err": ["OTHER"]}
+{"id": "pt-017", "l1": "pt", "lvl": "B1", "q": "How do you go to work?", "src": "I go to work with the bus every day.", "cor": "I go to work by bus every day.", "alt": [], "err": ["PREP"]}
+{"id": "pt-018", "l1": "pt", "lvl": "B1", "q": "How long have you studied English?", "src": "i am studying english since last year", "cor": "i have been studying english since last year", "alt": ["i have studied english since last year"], "err": ["VERB:TENSE"]}
+{"id": "pt-019", "l1": "pt", "lvl": "B1", "q": "Tell me about your family.", "src": "he is doctor and his parents are teacher", "cor": "he is a doctor and his parents are teachers", "alt": [], "err": ["DET", "NOUN:NUM"]}
+{"id": "pt-020", "l1": "pt", "lvl": "A2", "q": "What are you doing for the holidays?", "src": "I will pass the holidays in Salvador.", "cor": "I will spend the holidays in Salvador.", "alt": [], "err": ["COLLOC"]}
+{"id": "pt-021", "l1": "pt", "lvl": "A2", "q": "Do you like the beach?", "src": "i'm happy when i go to the beach", "cor": "i'm happy when i go to the beach", "alt": [], "err": []}
+{"id": "pt-022", "l1": "pt", "lvl": "A2", "q": "Can you swim?", "src": "no, my brother can't swim either", "cor": "no, my brother can't swim either", "alt": [], "err": []}
+{"id": "pt-023", "l1": "pt", "lvl": "A2", "q": "Does she work?", "src": "she has to work on weekends", "cor": "she has to work on weekends", "alt": [], "err": []}
+{"id": "pt-024", "l1": "pt", "lvl": "B1", "q": "How do you get information?", "src": "information is everywhere these days", "cor": "information is everywhere these days", "alt": [], "err": []}
+{"id": "pt-025", "l1": "pt", "lvl": "A2", "q": "Did you play football?", "src": "yes, i played it every weekend as a child", "cor": "yes, i played it every weekend as a child", "alt": [], "err": []}
+{"id": "pt-026", "l1": "pt", "lvl": "B1", "q": "What would you like to do?", "src": "I'd like to travel to Canada next year.", "cor": "I'd like to travel to Canada next year.", "alt": [], "err": []}
+{"id": "pt-027", "l1": "pt", "lvl": "A1", "q": "What's your job?", "src": "I'm a dentist in a small clinic.", "cor": "I'm a dentist in a small clinic.", "alt": [], "err": []}
+{"id": "pt-028", "l1": "pt", "lvl": "B1", "q": "Did you finish the report?", "src": "not yet, but I will finish it tonight", "cor": "not yet, but I will finish it tonight", "alt": [], "err": []}
+{"id": "pt-029", "l1": "pt", "lvl": "B1", "q": "How do you relax?", "src": "I walk by the sea and listen to music.", "cor": "I walk by the sea and listen to music.", "alt": [], "err": []}
+{"id": "pt-030", "l1": "pt", "lvl": "B2", "q": "What do you think about learning online?", "src": "I think it is flexible, but I miss my classmates.", "cor": "I think it is flexible, but I miss my classmates.", "alt": [], "err": []}
+{"id": "ru-001", "l1": "ru", "lvl": "A2", "q": "What do you do?", "src": "i work as engineer in big company", "cor": "i work as an engineer in a big company", "alt": [], "err": ["DET"]}
+{"id": "ru-002", "l1": "ru", "lvl": "B1", "q": "How long have you lived here?", "src": "I live here for ten years.", "cor": "I have lived here for ten years.", "alt": [], "err": ["VERB:TENSE"]}
+{"id": "ru-003", "l1": "ru", "lvl": "A2", "q": "How do you get to work?", "src": "i go to work by foot", "cor": "i go to work on foot", "alt": [], "err": ["PREP"]}
+{"id": "ru-004", "l1": "ru", "lvl": "B1", "q": "What do you like about Moscow?", "src": "There are many beautiful park in Moscow.", "cor": "There are many beautiful parks in Moscow.", "alt": [], "err": ["NOUN:NUM"]}
+{"id": "ru-005", "l1": "ru", "lvl": "B1", "q": "Why was your trip hard?", "src": "i took too many luggages", "cor": "i took too much luggage", "alt": [], "err": ["NOUN:COUNT"]}
+{"id": "ru-006", "l1": "ru", "lvl": "B1", "q": "Do people know about the festival?", "src": "everybody know about it", "cor": "everybody knows about it", "alt": [], "err": ["VERB:SVA"]}
+{"id": "ru-007", "l1": "ru", "lvl": "B1", "q": "Do you like hiking?", "src": "i go often to the mountains", "cor": "i often go to the mountains", "alt": [], "err": ["WO"]}
+{"id": "ru-008", "l1": "ru", "lvl": "B1", "q": "Tell me about your city.", "src": "my city is the more beautiful one in the region", "cor": "my city is the most beautiful one in the region", "alt": [], "err": ["ADJ:FORM"]}
+{"id": "ru-009", "l1": "ru", "lvl": "A2", "q": "How do you start a conversation?", "src": "Let me introduce me.", "cor": "Let me introduce myself.", "alt": [], "err": ["PRON"]}
+{"id": "ru-010", "l1": "ru", "lvl": "B1", "q": "Are you busy tomorrow?", "src": "i have not to wake up early tomorrow", "cor": "i don't have to wake up early tomorrow", "alt": [], "err": ["MODAL"]}
+{"id": "ru-011", "l1": "ru", "lvl": "A2", "q": "Are you hungry?", "src": "yes i very hungry", "cor": "yes i am very hungry", "alt": [], "err": ["AUX"]}
+{"id": "ru-012", "l1": "ru", "lvl": "A2", "q": "Do you have any plans?", "src": "no i haven't plans for weekend", "cor": "no i don't have plans for the weekend", "alt": [], "err": ["NEG", "DET"]}
+{"id": "ru-013", "l1": "ru", "lvl": "A2", "q": "How do you stay fit?", "src": "I make sport every morning.", "cor": "I do sport every morning.", "alt": [], "err": ["COLLOC"]}
+{"id": "ru-014", "l1": "ru", "lvl": "B1", "q": "Will you write back soon?", "src": "yes i look forward to hear from you", "cor": "yes i look forward to hearing from you", "alt": [], "err": ["VERB:FORM"]}
+{"id": "ru-015", "l1": "ru", "lvl": "B1", "q": "Is this your first time in London?", "src": "I am here the first time.", "cor": "I am here for the first time.", "alt": [], "err": ["OTHER"]}
+{"id": "ru-016", "l1": "ru", "lvl": "B2", "q": "Why was the kitchen clean?", "src": "when i came home my mother cooked dinner already", "cor": "when i came home my mother had already cooked dinner", "alt": [], "err": ["VERB:TENSE"]}
+{"id": "ru-017", "l1": "ru", "lvl": "B1", "q": "Who are you waiting for?", "src": "I am waiting my friend at the station.", "cor": "I am waiting for my friend at the station.", "alt": [], "err": ["PREP"]}
+{"id": "ru-018", "l1": "ru", "lvl": "A2", "q": "What do you do on Sundays?", "src": "i usually go to cinema with my friends", "cor": "i usually go to the cinema with my friends", "alt": [], "err": ["DET"]}
+{"id": "ru-019", "l1": "ru", "lvl": "B2", "q": "What do you want me to do?", "src": "I want that you help me.", "cor": "I want you to help me.", "alt": [], "err": ["VERB:FORM"]}
+{"id": "ru-020", "l1": "ru", "lvl": "A1", "q": "Where do you work?", "src": "I work with a lot of foreigner.", "cor": "I work with a lot of foreigners.", "alt": [], "err": ["NOUN:NUM"]}
+{"id": "ru-021", "l1": "ru", "lvl": "A2", "q": "Do you have brothers?", "src": "I have two brothers", "cor": "I have two brothers", "alt": [], "err": []}
+{"id": "ru-022", "l1": "ru", "lvl": "A1", "q": "Where do you live?", "src": "I live in a flat in Moscow.", "cor": "I live in a flat in Moscow.", "alt": [], "err": []}
+{"id": "ru-023", "l1": "ru", "lvl": "A2", "q": "Can she go out?", "src": "she can't go out today", "cor": "she can't go out today", "alt": [], "err": []}
+{"id": "ru-024", "l1": "ru", "lvl": "A2", "q": "Did you like the film?", "src": "he didn't like it at all", "cor": "he didn't like it at all", "alt": [], "err": []}
+{"id": "ru-025", "l1": "ru", "lvl": "B1", "q": "Who cleaned the kitchen?", "src": "we made him do the dishes", "cor": "we made him do the dishes", "alt": [], "err": []}
+{"id": "ru-026", "l1": "ru", "lvl": "B1", "q": "What is your opinion?", "src": "they agree with me", "cor": "they agree with me", "alt": [], "err": []}
+{"id": "ru-027", "l1": "ru", "lvl": "B1", "q": "Are you worried?", "src": "no, the weather is good and i feel fine", "cor": "no, the weather is good and i feel fine", "alt": [], "err": []}
+{"id": "ru-028", "l1": "ru", "lvl": "A2", "q": "What do you do at weekends?", "src": "I like to go to the forest with my dog.", "cor": "I like to go to the forest with my dog.", "alt": [], "err": []}
+{"id": "ru-029", "l1": "ru", "lvl": "B2", "q": "What do you think about your job?", "src": "It is interesting, but I would like more free time.", "cor": "It is interesting, but I would like more free time.", "alt": [], "err": []}
+{"id": "ru-030", "l1": "ru", "lvl": "A2", "q": "Why are you in a hurry?", "src": "I'm late for the lesson.", "cor": "I'm late for the lesson.", "alt": [], "err": []}
+{"id": "th-001", "l1": "th", "lvl": "A2", "q": "What did you do yesterday?", "src": "yesterday i go shopping with my mother", "cor": "yesterday i went shopping with my mother", "alt": [], "err": ["VERB:TENSE"]}
+{"id": "th-002", "l1": "th", "lvl": "A2", "q": "What did you buy at the market?", "src": "I bought three shirt at the market.", "cor": "I bought three shirts at the market.", "alt": [], "err": ["NOUN:NUM"]}
+{"id": "th-003", "l1": "th", "lvl": "A2", "q": "What does your sister do?", "src": "My sister is nurse in hospital.", "cor": "My sister is a nurse in a hospital.", "alt": [], "err": ["DET"]}
+{"id": "th-004", "l1": "th", "lvl": "A2", "q": "Is the food good?", "src": "yes the food delicious", "cor": "yes the food is delicious", "alt": [], "err": ["AUX"]}
+{"id": "th-005", "l1": "th", "lvl": "A2", "q": "Who do you live with?", "src": "my boyfriend and me live together", "cor": "my boyfriend and i live together", "alt": [], "err": ["PRON"]}
+{"id": "th-006", "l1": "th", "lvl": "B1", "q": "What kind of food do you like?", "src": "i like food spicy", "cor": "i like spicy food", "alt": [], "err": ["WO"]}
+{"id": "th-007", "l1": "th", "lvl": "A2", "q": "Do you like animals?", "src": "I am afraid with dogs.", "cor": "I am afraid of dogs.", "alt": [], "err": ["PREP"]}
+{"id": "th-008", "l1": "th", "lvl": "B1", "q": "Are you looking forward to the trip?", "src": "i am very excite about the trip", "cor": "i am very excited about the trip", "alt": [], "err": ["ADJ:FORM"]}
+{"id": "th-009", "l1": "th", "lvl": "A2", "q": "Does she dance?", "src": "my friend like to dance", "cor": "my friend likes to dance", "alt": [], "err": ["VERB:SVA"]}
+{"id": "th-010", "l1": "th", "lvl": "B1", "q": "Did you go shopping?", "src": "i bought a lot of stuffs at the market", "cor": "i bought a lot of stuff at the market", "alt": [], "err": ["NOUN:COUNT"]}
+{"id": "th-011", "l1": "th", "lvl": "A2", "q": "Can you drive?", "src": "I can driving a motorbike.", "cor": "I can drive a motorbike.", "alt": [], "err": ["MODAL"]}
+{"id": "th-012", "l1": "th", "lvl": "A2", "q": "Do you eat meat?", "src": "i not eat meat", "cor": "i don't eat meat", "alt": [], "err": ["NEG"]}
+{"id": "th-013", "l1": "th", "lvl": "A2", "q": "What do you do when you are sick?", "src": "i drink medicine when i have a fever", "cor": "i take medicine when i have a fever", "alt": [], "err": ["COLLOC"]}
+{"id": "th-014", "l1": "th", "lvl": "B1", "q": "What do you like doing?", "src": "i like swim in the sea", "cor": "i like swimming in the sea", "alt": ["i like to swim in the sea"], "err": ["VERB:FORM"]}
+{"id": "th-015", "l1": "th", "lvl": "B1", "q": "Is Bangkok crowded?", "src": "have many people in bangkok", "cor": "there are many people in bangkok", "alt": [], "err": ["OTHER"]}
+{"id": "th-016", "l1": "th", "lvl": "B1", "q": "What did you do last week?", "src": "last week i visit temple near my house", "cor": "last week i visited a temple near my house", "alt": [], "err": ["VERB:TENSE", "DET"]}
+{"id": "th-017", "l1": "th", "lvl": "B1", "q": "Where is the market?", "src": "it is in front the school", "cor": "it is in front of the school", "alt": [], "err": ["PREP"]}
+{"id": "th-018", "l1": "th", "lvl": "B1", "q": "How long have you studied English?", "src": "i study english for two years", "cor": "i have studied english for two years", "alt": [], "err": ["VERB:TENSE"]}
+{"id": "th-019", "l1": "th", "lvl": "A2", "q": "What do you do at weekends?", "src": "I play the football every weekend.", "cor": "I play football every weekend.", "alt": [], "err": ["DET"]}
+{"id": "th-020", "l1": "th", "lvl": "B1", "q": "Have you been to Europe?", "src": "i have been never to europe", "cor": "i have never been to europe", "alt": [], "err": ["WO"]}
+{"id": "th-021", "l1": "th", "lvl": "A1", "q": "Do you like your school?", "src": "I like it a lot.", "cor": "I like it a lot.", "alt": [], "err": []}
+{"id": "th-022", "l1": "th", "lvl": "A2", "q": "Can your sister come?", "src": "he can't go out today because he is sick", "cor": "he can't go out today because he is sick", "alt": [], "err": []}
+{"id": "th-023", "l1": "th", "lvl": "A2", "q": "What does he do?", "src": "he doesn't work on sundays", "cor": "he doesn't work on sundays", "alt": [], "err": []}
+{"id": "th-024", "l1": "th", "lvl": "B1", "q": "What do you want to do?", "src": "i want to go to the market", "cor": "i want to go to the market", "alt": [], "err": []}
+{"id": "th-025", "l1": "th", "lvl": "A2", "q": "Do you have a brother?", "src": "I have a younger brother who studies in Chiang Mai.", "cor": "I have a younger brother who studies in Chiang Mai.", "alt": [], "err": []}
+{"id": "th-026", "l1": "th", "lvl": "B1", "q": "Do your parents agree?", "src": "yes my parents agree with my plan", "cor": "yes my parents agree with my plan", "alt": [], "err": []}
+{"id": "th-027", "l1": "th", "lvl": "A2", "q": "What did you eat?", "src": "We ate rice with fried fish.", "cor": "We ate rice with fried fish.", "alt": [], "err": []}
+{"id": "th-028", "l1": "th", "lvl": "B1", "q": "Do you sleep well?", "src": "I usually go to bed late, so I feel tired in the morning.", "cor": "I usually go to bed late, so I feel tired in the morning.", "alt": [], "err": []}
+{"id": "th-029", "l1": "th", "lvl": "B2", "q": "What do you do to learn English?", "src": "I listen to podcasts on the bus every day.", "cor": "I listen to podcasts on the bus every day.", "alt": [], "err": []}
+{"id": "th-030", "l1": "th", "lvl": "A2", "q": "How was your day?", "src": "i was very busy at work today", "cor": "i was very busy at work today", "alt": [], "err": []}
+{"id": "tr-001", "l1": "tr", "lvl": "A2", "q": "Do you think so?", "src": "yes i am agree with you", "cor": "yes i agree with you", "alt": [], "err": ["AUX"]}
+{"id": "tr-002", "l1": "tr", "lvl": "A2", "q": "What does your father do?", "src": "My father is engineer.", "cor": "My father is an engineer.", "alt": [], "err": ["DET"]}
+{"id": "tr-003", "l1": "tr", "lvl": "A2", "q": "What did you do yesterday?", "src": "i yesterday went to the market", "cor": "yesterday i went to the market", "alt": [], "err": ["WO"]}
+{"id": "tr-004", "l1": "tr", "lvl": "B1", "q": "Are you married?", "src": "I am married with a teacher.", "cor": "I am married to a teacher.", "alt": [], "err": ["PREP"]}
+{"id": "tr-005", "l1": "tr", "lvl": "A2", "q": "Is it easy to find a hospital?", "src": "there are two hospital near my house", "cor": "there are two hospitals near my house", "alt": [], "err": ["NOUN:NUM"]}
+{"id": "tr-006", "l1": "tr", "lvl": "B1", "q": "Did the guide help?", "src": "she gave me many information", "cor": "she gave me a lot of information", "alt": [], "err": ["NOUN:COUNT"]}
+{"id": "tr-007", "l1": "tr", "lvl": "A2", "q": "What did you do last night?", "src": "last night i eat dinner and watch a movie", "cor": "last night i ate dinner and watched a movie", "alt": [], "err": ["VERB:TENSE"]}
+{"id": "tr-008", "l1": "tr", "lvl": "A2", "q": "Does she have children?", "src": "She have three children.", "cor": "She has three children.", "alt": [], "err": ["VERB:SVA"]}
+{"id": "tr-009", "l1": "tr", "lvl": "B1", "q": "Who helped you?", "src": "my brother helped to me with my homework", "cor": "my brother helped me with my homework", "alt": [], "err": ["PRON"]}
+{"id": "tr-010", "l1": "tr", "lvl": "B1", "q": "Do I need to come?", "src": "you don't must come", "cor": "you don't have to come", "alt": [], "err": ["MODAL"]}
+{"id": "tr-011", "l1": "tr", "lvl": "B1", "q": "How was your day?", "src": "today was the most good day of my life", "cor": "today was the best day of my life", "alt": [], "err": ["ADJ:FORM"]}
+{"id": "tr-012", "l1": "tr", "lvl": "B1", "q": "Do you have any problems?", "src": "No there isn't no problem.", "cor": "No there isn't any problem.", "alt": [], "err": ["NEG"]}
+{"id": "tr-013", "l1": "tr", "lvl": "B1", "q": "How was your exam?", "src": "i did a big mistake in my exam", "cor": "i made a big mistake in my exam", "alt": [], "err": ["COLLOC"]}
+{"id": "tr-014", "l1": "tr", "lvl": "B1", "q": "Why did you go home early?", "src": "she let me to go early", "cor": "she let me go early", "alt": [], "err": ["VERB:FORM"]}
+{"id": "tr-015", "l1": "tr", "lvl": "A2", "q": "When did you arrive?", "src": "I came to here yesterday.", "cor": "I came here yesterday.", "alt": [], "err": ["OTHER"]}
+{"id": "tr-016", "l1": "tr", "lvl": "A2", "q": "What did you buy yesterday?", "src": "yesterday i buy new phone", "cor": "yesterday i bought a new phone", "alt": [], "err": ["VERB:TENSE", "DET"]}
+{"id": "tr-017", "l1": "tr", "lvl": "B1", "q": "What do you do while commuting?", "src": "I listen to music in the bus.", "cor": "I listen to music on the bus.", "alt": [], "err": ["PREP"]}
+{"id": "tr-018", "l1": "tr", "lvl": "B1", "q": "Is the boss there?", "src": "he not here today", "cor": "he is not here today", "alt": [], "err": ["AUX"]}
+{"id": "tr-019", "l1": "tr", "lvl": "B1", "q": "What is he doing?", "src": "tell me what are you doing", "cor": "tell me what you are doing", "alt": [], "err": ["WO"]}
+{"id": "tr-020", "l1": "tr", "lvl": "A2", "q": "What does your sister do?", "src": "my sister is the doctor", "cor": "my sister is a doctor", "alt": [], "err": ["DET"]}
+{"id": "tr-021", "l1": "tr", "lvl": "A2", "q": "Where is the bank?", "src": "it's next to the post office", "cor": "it's next to the post office", "alt": [], "err": []}
+{"id": "tr-022", "l1": "tr", "lvl": "A2", "q": "Do you want to leave?", "src": "i want to go home after the lesson", "cor": "i want to go home after the lesson", "alt": [], "err": []}
+{"id": "tr-023", "l1": "tr", "lvl": "A2", "q": "Is she coming?", "src": "no, she isn't coming today", "cor": "no, she isn't coming today", "alt": [], "err": []}
+{"id": "tr-024", "l1": "tr", "lvl": "B1", "q": "Can she do it?", "src": "she can't finish the report today", "cor": "she can't finish the report today", "alt": [], "err": []}
+{"id": "tr-025", "l1": "tr", "lvl": "B1", "q": "What do you do on holidays?", "src": "my friends and i go to the coast", "cor": "my friends and i go to the coast", "alt": [], "err": []}
+{"id": "tr-026", "l1": "tr", "lvl": "A1", "q": "Where do you work?", "src": "I'm a pharmacist in Ankara.", "cor": "I'm a pharmacist in Ankara.", "alt": [], "err": []}
+{"id": "tr-027", "l1": "tr", "lvl": "B1", "q": "How is your English?", "src": "it is better than last year, but i still make mistakes", "cor": "it is better than last year, but i still make mistakes", "alt": [], "err": []}
+{"id": "tr-028", "l1": "tr", "lvl": "B1", "q": "Why is he at home?", "src": "i let him go home early", "cor": "i let him go home early", "alt": [], "err": []}
+{"id": "tr-029", "l1": "tr", "lvl": "B2", "q": "What is the best thing about your city?", "src": "The people are friendly and the food is delicious.", "cor": "The people are friendly and the food is delicious.", "alt": [], "err": []}
+{"id": "tr-030", "l1": "tr", "lvl": "A2", "q": "Did you cook?", "src": "yes i cooked soup and salad.", "cor": "yes i cooked soup and salad.", "alt": [], "err": []}
+{"id": "zh-001", "l1": "zh", "lvl": "A2", "q": "Do you like tea?", "src": "i very like tea", "cor": "i like tea very much", "alt": ["i really like tea"], "err": ["WO"]}
+{"id": "zh-002", "l1": "zh", "lvl": "A2", "q": "What did you do yesterday?", "src": "yesterday i go to the park", "cor": "yesterday i went to the park", "alt": [], "err": ["VERB:TENSE"]}
+{"id": "zh-003", "l1": "zh", "lvl": "A2", "q": "What did you buy at the shop?", "src": "I bought two book yesterday.", "cor": "I bought two books yesterday.", "alt": [], "err": ["NOUN:NUM"]}
+{"id": "zh-004", "l1": "zh", "lvl": "A2", "q": "Do you have pets?", "src": "i have dog and cat", "cor": "i have a dog and a cat", "alt": [], "err": ["DET"]}
+{"id": "zh-005", "l1": "zh", "lvl": "B1", "q": "Is the new phone good?", "src": "Yes it is more better than the old one.", "cor": "Yes it is better than the old one.", "alt": [], "err": ["ADJ:FORM"]}
+{"id": "zh-006", "l1": "zh", "lvl": "B1", "q": "Do you like your job?", "src": "although it is difficult, but i like it", "cor": "although it is difficult, i like it", "alt": [], "err": ["OTHER"]}
+{"id": "zh-007", "l1": "zh", "lvl": "A2", "q": "Does your brother play sports?", "src": "my brother like basketball", "cor": "my brother likes basketball", "alt": [], "err": ["VERB:SVA"]}
+{"id": "zh-008", "l1": "zh", "lvl": "B1", "q": "What subjects are you good at?", "src": "I am good at English but bad on math.", "cor": "I am good at English but bad at math.", "alt": [], "err": ["PREP"]}
+{"id": "zh-009", "l1": "zh", "lvl": "A2", "q": "Your friend is on the phone. What do you ask?", "src": "what do you doing", "cor": "what are you doing", "alt": [], "err": ["AUX"]}
+{"id": "zh-010", "l1": "zh", "lvl": "A2", "q": "Do you go to school on Sundays?", "src": "i no go to school on sunday", "cor": "i don't go to school on sunday", "alt": [], "err": ["NEG"]}
+{"id": "zh-011", "l1": "zh", "lvl": "B1", "q": "What did your teacher do?", "src": "he gave me an advice", "cor": "he gave me some advice", "alt": ["he gave me advice"], "err": ["NOUN:COUNT"]}
+{"id": "zh-012", "l1": "zh", "lvl": "B1", "q": "Tell me about your sister.", "src": "My sister is very kind and he helps me a lot.", "cor": "My sister is very kind and she helps me a lot.", "alt": [], "err": ["PRON"]}
+{"id": "zh-013", "l1": "zh", "lvl": "B1", "q": "Can you help me later?", "src": "sure i will can help you at five", "cor": "sure i will be able to help you at five", "alt": [], "err": ["MODAL"]}
+{"id": "zh-014", "l1": "zh", "lvl": "B1", "q": "What are you thinking about?", "src": "I need to do a decision about my job.", "cor": "I need to make a decision about my job.", "alt": [], "err": ["COLLOC"]}
+{"id": "zh-015", "l1": "zh", "lvl": "A2", "q": "What did you do last weekend?", "src": "i didn't went anywhere", "cor": "i didn't go anywhere", "alt": [], "err": ["VERB:FORM"]}
+{"id": "zh-016", "l1": "zh", "lvl": "B1", "q": "Tell me about your trip.", "src": "last month i visit three city", "cor": "last month i visited three cities", "alt": [], "err": ["VERB:TENSE", "NOUN:NUM"]}
+{"id": "zh-017", "l1": "zh", "lvl": "B1", "q": "Do you know where he lives?", "src": "i don't know where does he live", "cor": "i don't know where he lives", "alt": [], "err": ["WO"]}
+{"id": "zh-018", "l1": "zh", "lvl": "B1", "q": "Where did you live last year?", "src": "I have lived in Beijing last year.", "cor": "I lived in Beijing last year.", "alt": [], "err": ["VERB:TENSE"]}
+{"id": "zh-019", "l1": "zh", "lvl": "A2", "q": "What is your favourite place?", "src": "my favourite place is library", "cor": "my favourite place is the library", "alt": [], "err": ["DET"]}
+{"id": "zh-020", "l1": "zh", "lvl": "B2", "q": "Why is English useful?", "src": "because english is useful, so i learn it", "cor": "because english is useful i learn it", "alt": ["english is useful so i learn it"], "err": ["OTHER"]}
+{"id": "zh-021", "l1": "zh", "lvl": "A1", "q": "What do you do?", "src": "I'm a teacher and I live in Chengdu.", "cor": "I'm a teacher and I live in Chengdu.", "alt": [], "err": []}
+{"id": "zh-022", "l1": "zh", "lvl": "A2", "q": "Do you like football?", "src": "yes i like it but i can't play well", "cor": "yes i like it but i can't play well", "alt": [], "err": []}
+{"id": "zh-023", "l1": "zh", "lvl": "A2", "q": "Is he at home?", "src": "he doesn't live here anymore", "cor": "he doesn't live here anymore", "alt": [], "err": []}
+{"id": "zh-024", "l1": "zh", "lvl": "B1", "q": "Are your parents strict?", "src": "my parents agree with most of my choices", "cor": "my parents agree with most of my choices", "alt": [], "err": []}
+{"id": "zh-025", "l1": "zh", "lvl": "B1", "q": "Who did you go with?", "src": "my friends and i went to the lake yesterday", "cor": "my friends and i went to the lake yesterday", "alt": [], "err": []}
+{"id": "zh-026", "l1": "zh", "lvl": "B1", "q": "Why was he tired?", "src": "he made me stay late", "cor": "he made me stay late", "alt": [], "err": []}
+{"id": "zh-027", "l1": "zh", "lvl": "A2", "q": "How was the exam?", "src": "it was very hard but i think i did well", "cor": "it was very hard but i think i did well", "alt": [], "err": []}
+{"id": "zh-028", "l1": "zh", "lvl": "B1", "q": "Do you cook at home?", "src": "I cook dinner for my family every day.", "cor": "I cook dinner for my family every day.", "alt": [], "err": []}
+{"id": "zh-029", "l1": "zh", "lvl": "B2", "q": "What do you think about cities?", "src": "I prefer small cities because life is slower.", "cor": "I prefer small cities because life is slower.", "alt": [], "err": []}
+{"id": "zh-030", "l1": "zh", "lvl": "A2", "q": "Where is the library?", "src": "It is on the second floor.", "cor": "It is on the second floor.", "alt": [], "err": []}

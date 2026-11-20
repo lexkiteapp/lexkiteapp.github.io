@@ -25,7 +25,7 @@
     ["🏁", "IELTS-, TOEFL- und TOEIC-Training", "Zeitgesteuerte Übungstests für IELTS (alle 4 Teile) und TOEIC Listening & Reading sowie alle 12 Aufgabentypen des neuen TOEFL iBT – mit geschätzter Punktzahl und Erklärung zu jeder Antwort."],
     ["✍️", "KI-Feedback zu Writing und Speaking", "Schreibe einen Essay oder nimm eine Antwort auf und erhalte Feedback nach den Prüfungskriterien, mit Musterantworten zum Vergleich. KI-Prüfungen haben ein faires Tageslimit."],
     ["🧩", "Chrome-Erweiterung", "Doppelklick auf ein Wort auf jeder Webseite zeigt die Bedeutung, markierte Sätze werden übersetzt, und Wörter aus YouTube-Untertiteln speicherst du samt Kontext."],
-    ["📐", "Grammatik und Aussprache", "77 anschauliche Grammatiklektionen mit 1.700 Übungen, alle 44 Laute des Englischen und Sprechübungen mit Spracherkennung."],
+    ["📐", "Grammatik und Aussprache", "80 anschauliche Grammatiklektionen mit 2.000 Übungen, alle 44 Laute des Englischen und Sprechübungen mit Spracherkennung."],
     ["🌐", "Auf Deutsch, auf jedem Gerät", "Oberfläche und Bedeutungen auf Deutsch. Installiere Lexkite wie eine App auf dem Handy und wiederhole auch offline."]
   ],
   "stepsH": "So funktioniert's",
@@ -55,5 +55,6 @@
   "tm": "IELTS, TOEIC und TOEFL sind Marken ihrer jeweiligen Inhaber. Lexkite ist ein unabhängiges Produkt und steht in keiner Verbindung zu ihnen.",
   "foot": "Lexkite – kostenloser Wortschatz und IELTS-, TOEIC-, TOEFL-Training. Eigene Lerninhalte, kostenlos für Lernende.",
   "suggest": ["Diese Seite gibt es auch auf Deutsch.", "Auf Deutsch ansehen", "Schließen"],
-  "ext": {"btn": "Zu Chrome hinzufügen – kostenlos", "h": "Wörter auf jeder Website nachschlagen", "p": "Die Lexkite-Erweiterung bringt das Wörterbuch auf jede Seite, die du liest. Doppelklicke auf ein Wort für Bedeutung, Lautschrift und Audio, markiere einen Satz, um ihn zu übersetzen, und speichere neue Wörter mit dem Originalsatz in deinen Karteikarten.", "pts": ["Läuft in Chrome, Edge, Brave und Opera", "Wörter in YouTube-Untertiteln antippen", "Gespeicherte Wörter synchronisieren mit deinen Lexkite-Karteikarten"], "alt": "Lexkite-Erweiterung: Doppelklick auf „resilience“ in einem Artikel zeigt Lautschrift, Bedeutungen und Beispiele"}
+  "ext": {"btn": "Zu Chrome hinzufügen – kostenlos", "h": "Wörter auf jeder Website nachschlagen", "p": "Die Lexkite-Erweiterung bringt das Wörterbuch auf jede Seite, die du liest. Doppelklicke auf ein Wort für Bedeutung, Lautschrift und Audio, markiere einen Satz, um ihn zu übersetzen, und speichere neue Wörter mit dem Originalsatz in deinen Karteikarten.", "pts": ["Läuft in Chrome, Edge, Brave und Opera", "Wörter in YouTube-Untertiteln antippen", "Gespeicherte Wörter synchronisieren mit deinen Lexkite-Karteikarten"], "alt": "Lexkite-Erweiterung: Doppelklick auf „resilience“ in einem Artikel zeigt Lautschrift, Bedeutungen und Beispiele"},
+  "install": {"h":"Lexkite installieren","p":"Kostenlos auf Handy und Computer. Wähle, wo du lernst.","phone":"Am Computer? Öffne {url} auf dem Handy, um zum richtigen Store zu gelangen.","hero":"Alle Installationswege"}
 }

@@ -8,7 +8,7 @@ translationKey: tu-vung-ielts-chu-de-cong-nghe-va-tri-tue-nhan-tao
 category: ielts
 tags: [ielts, mufradat, tiknuluja, ai]
 cover: read-article
-coverAlt: "Màn hình chế độ reading đọc song ngữ trên Lexkite với bản dịch đoạn văn và bài đọc"
+coverAlt: "نص القراءة The Growing Problem of Space Debris في Lexkite: كلمات مفتاحية ملونة، النقر للبحث والحفظ، قائمة الكلمات المفتاحية وأسئلة True/False/Not Given"
 qualityScore: 95
 factChecked: 2026-10-15
 author: Lexkite
@@ -111,7 +111,7 @@ publishAt: 2026-11-24T08:33:00+03:00
 
 تحقق من الاستخدامات وحروف الجر المصاحبة في [قاموس Lexkite المتقدم](/#/dict/resilient).
 
-![قاموس ثنائي اللغة Lexkite: البحث عن كلمة resilient مع النسخ الصوتي الصوتي البريطاني/الأمريكي وجمل أمثلة](media:dict "فحص مصطلحات التكنولوجيا والأمثلة الأكاديمية وحروف الجر في القاموس الذكي")
+![قاموس Lexkite: البحث عن كلمة resilient مع النطق البريطاني/الأمريكي والمعنى وجمل الأمثلة والمتلازمات اللفظية والمرادفات](media:dict "فحص مصطلحات التكنولوجيا والأمثلة الأكاديمية وحروف الجر في القاموس الذكي")
 
 ## 3. الأبعاد الأخلاقية والاجتماعية للتكنولوجيا
 
@@ -151,7 +151,7 @@ publishAt: 2026-11-24T08:33:00+03:00
 - **الاستماع للأكاديميين**: فك شفرة الكلام السريع في [تقنية الاملاء dictation لغة انجليزية](/ar/blog/taqniyyat-al-imla-dictation-tahsin-al-istima/)
 - **صياغة الأسئلة**: تعلم إدارة المقابلات في [تكوين السؤال في اللغة الانجليزية 5W1H](/ar/blog/kayfa-tatrah-as-ilah-bi-al-injliziyyah-5w1h/)
 - **مخارج الحروف ونطق المفردات**: اطلع على [جدول رموز IPA الانجليزية الكامل](/ar/blog/dalil-rumuz-al-sawtiyyah-ipa-al-injliziyyah/)
-- **نماذج مقالات وتحدث**: راجع نماذج باند 8 في [أرشيف النصوص والمحادثات الأكاديمية](/samples/)
+- **نماذج مقالات وتحدث**: راجع نماذج باند 8 في [أرشيف النصوص والمحادثات الأكاديمية](/en/samples/)
 
 {{youtube: | كلمات ايلتس عن التكنولوجيا والذكاء الاصطناعي مصطلحات أكاديمية Writing Task 2}}
 

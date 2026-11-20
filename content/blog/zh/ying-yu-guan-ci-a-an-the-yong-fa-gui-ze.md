@@ -158,6 +158,8 @@ publishAt: 2026-12-05T07:38:00+08:00
              └── 否（复数名词或不可数名词泛指） ➔ 【使用零冠词（Ø）】
 ```
 
+冠词也是剑桥 B2 First 开放式完形填空里的高频考点，题型介绍见 [剑桥B2 First（FCE）考试题型详解](/zh/blog/jian-qiao-b2-first-fce-kao-shi-ti-xing/)。
+
 ## 中国学习者高频冠词误区排行榜
 
 | 典型病句 | 错误根源剖析 | 正确地道表达 |
@@ -168,6 +170,6 @@ publishAt: 2026-12-05T07:38:00+08:00
 | *I love the apple.*（表示喜好） | 表达整体喜好应使用复数零冠词 | *I love apples.* |
 | *She has a headache.* | 表达正确（headache 属于可数病症）| *She has a headache.* |
 
-为了全方位打牢英语语法根基，建议大家进一步结合学习[现在完成时与一般过去时的差异对比](/zh/blog/xian-zai-wan-cheng-shi-he-yi-ban-guo-qu-shi/)、精进议论文逻辑框架的[连接词分类总结](/zh/blog/ying-yu-lian-jie-ci-linking-words-fen-lei-zong-jie/)、掌握条件假设句型的[条件状语从句指南](/zh/blog/ying-yu-tiao-jian-zhuang-yu-cong-ju-if-clauses/)，以及彻底摆脱介词困扰的[介词in on at用法解析](/zh/blog/ying-yu-jie-ci-in-on-at-yong-fa/)。扩充学术高分词汇可随时查阅[/tu-vung/](/tu-vung/)。
+为了全方位打牢英语语法根基，建议大家进一步结合学习[现在完成时与一般过去时的差异对比](/zh/blog/xian-zai-wan-cheng-shi-he-yi-ban-guo-qu-shi/)、精进议论文逻辑框架的[连接词分类总结](/zh/blog/ying-yu-lian-jie-ci-linking-words-fen-lei-zong-jie/)、掌握条件假设句型的[条件状语从句指南](/zh/blog/ying-yu-tiao-jian-zhuang-yu-cong-ju-if-clauses/)，以及彻底摆脱介词困扰的[介词in on at用法解析](/zh/blog/ying-yu-jie-ci-in-on-at-yong-fa/)。扩充学术高分词汇可随时查阅[/tu-vung/](/en/vocabulary/)。
 
 通过在日常阅读与写作中刻意应用“特定性”与“轮廓感”双层过滤器，你将彻底摆脱中式冠词思维，笔下的英文表达也会更加严谨、精确与地道。

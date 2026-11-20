@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_achieve",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: achieve.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means to succeed in doing something good, usually by working hard.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "You can achieve your goals if you work hard.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "achieve",
+  "ipa": "/əˈtʃiːv/",
+  "mean": "to succeed in doing something good, usually by working hard",
+  "ex": "You can achieve your goals if you work hard.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=achieve",
+  "link": "https://lexkite.com/app/#/review?w=achieve",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 46,
+  "seconds": 27.7,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "What does \"achieve\" mean?",
+  "keyword": "achieve",
+  "value": "Achieve means to succeed in doing something good, usually by working hard.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=achieve",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"achieve\" mean?",
+    "description": "Achieve means to succeed in doing something good, usually by working hard.\n\nReview your words, free: https://lexkite.com/app/#/review?w=achieve\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "achieve",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"achieve\" mean?\n\nAchieve means to succeed in doing something good, usually by working hard.\n\nReview your words, free: https://lexkite.com/app/#/review?w=achieve"
+   },
+   "instagram": {
+    "caption": "What does \"achieve\" mean?\n\nAchieve means to succeed in doing something good, usually by working hard.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"achieve\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means to succeed in doing something good, usually by working hard. Achieve means to succeed in doing something good, usually by working hard. Practice it with a free quiz: {link}"
+ }
+}

@@ -1,0 +1,137 @@
+{
+ "id": "m26",
+ "level": "C2",
+ "lo": "M.C2.04",
+ "activity": "simplify",
+ "title": "A blood pressure trial in plain English",
+ "scenario": "You write for a community health newsletter. A reader has asked about the abstract below. Rewrite it for the general public without losing accuracy or overselling the result.",
+ "source": {
+  "kind": "text",
+  "text": [
+   "In this randomised, double-blind, placebo-controlled trial, 1,240 adults aged 40 to 74 with stage 1 hypertension received either a fixed low-dose combination of two antihypertensive agents or a placebo for twelve weeks. The primary outcome was the change in mean systolic blood pressure from baseline.",
+   "At twelve weeks, mean systolic pressure fell by 9.4 mmHg more in the treatment group than in the placebo group (95% confidence interval 7.8 to 11.0). Dizziness was reported by 4.1% of participants receiving the combination and 1.8% of those receiving placebo; no serious adverse events were attributed to treatment.",
+   "The authors caution that the follow-up period was short, that adults aged 75 and over and people with chronic kidney disease were excluded, and that the findings should not be extended to those groups. Longer trials are needed to establish whether the reduction is maintained and whether it lowers the risk of heart attack and stroke."
+  ]
+ },
+ "task": {
+  "mode": "write",
+  "audience": "general readers of a community health newsletter",
+  "prompt": "Write a short article paragraph (100–155 words). Use everyday words, keep the numbers that matter and state the limits honestly.",
+  "min_words": 100,
+  "max_words": 155
+ },
+ "points": [
+  {
+   "id": "what",
+   "idea": "A low-dose pill combining two medicines was tested in adults with mildly raised blood pressure.",
+   "checks": [
+    [
+     "blood pressure"
+    ],
+    [
+     "two medicines",
+     "two drugs",
+     "combination",
+     "two-in-one",
+     "two different",
+     "combines two"
+    ]
+   ]
+  },
+  {
+   "id": "result",
+   "idea": "Blood pressure fell by about 9 points more than with a dummy pill.",
+   "checks": [
+    [
+     "about 9",
+     "9 points",
+     "9.4",
+     "nine"
+    ],
+    [
+     "dummy",
+     "placebo",
+     "inactive"
+    ]
+   ]
+  },
+  {
+   "id": "side",
+   "idea": "Dizziness was a little more common (about 4 in 100, against 2 in 100).",
+   "checks": [
+    [
+     "dizz"
+    ],
+    [
+     "4 in 100",
+     "4%",
+     "four in",
+     "4 out of",
+     "4 people in 100"
+    ]
+   ]
+  },
+  {
+   "id": "limits",
+   "idea": "Only 12 weeks; people over 75 and with kidney disease were not included.",
+   "checks": [
+    [
+     "12 weeks",
+     "twelve weeks",
+     "three months"
+    ],
+    [
+     "75"
+    ],
+    [
+     "kidney"
+    ]
+   ]
+  },
+  {
+   "id": "unknown",
+   "idea": "It is not yet known whether it prevents heart attacks or strokes, so talk to a doctor.",
+   "checks": [
+    [
+     "heart attack",
+     "stroke",
+     "long-term",
+     "longer"
+    ],
+    [
+     "not yet",
+     "isn't yet",
+     "still",
+     "unknown",
+     "need"
+    ]
+   ]
+  }
+ ],
+ "leave_out": [
+  {
+   "idea": "The confidence interval and technical units.",
+   "checks": [
+    [
+     "7.8",
+     "11.0",
+     "confidence",
+     "mmhg"
+    ]
+   ]
+  }
+ ],
+ "model": "A new study has tested a single low-dose pill that combines two blood pressure medicines. More than 1,200 adults with mildly raised blood pressure took either the pill or a dummy pill for twelve weeks. Those taking the real pill saw their top blood pressure reading fall by about 9 points more than the others. Dizziness was a little more common with the pill, affecting about 4 people in 100 compared with 2 in 100, and no serious side effects were linked to it. However, the study lasted only 12 weeks and did not include people over 75 or with kidney disease. It is also still unknown whether the pill reduces heart attacks and strokes, so please speak to your doctor before changing any treatment.",
+ "useful": [
+  "A new study has tested …",
+  "fall by about … more than …",
+  "compared with … in …",
+  "It is still unknown whether …",
+  "please speak to your doctor before …"
+ ],
+ "tips": [
+  "Convert statistics into frequencies (\"4 in 100\") rather than percentages with decimals. Most general readers grasp them faster.",
+  "Accuracy for lay readers means including the authors' limits (short time, excluded groups, missing outcomes). Dropping them oversells the result."
+ ],
+ "explain": "The paragraph must say what was tested, the size of the effect against a dummy pill, the side effect in frequencies, the limits of the study and what is still unknown. The confidence interval is for specialists and would not help this readership."
+}

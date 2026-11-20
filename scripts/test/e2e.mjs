@@ -8,7 +8,7 @@ const BASE = process.argv[2] || 'https://lexkite.com/app/';
 const LANGS = (process.argv[3] || 'vi,en,es,pt,fr,de,id,th,zh,ja,ko,hi,ar,ru,tr').split(',');
 const ROUTES = ['home', 'vocab', 'library', 'review', 'practice', 'practice/learn', 'path', 'stats', 'settings', 'me', 'skills', 'tests', 'phrases', 'models', 'grammar', 'pron',
   'listening', 'reading', 'speaking', 'write', 'task1', 'letters', 'toeic', 'toefl', 'contact', 'placement', 'dict/sustainable', 'topic/ngsl1', 'topic/office-email',
-  'model/t1-travel', 'handsfree', 'reflex', 'roleplay', 'roleplay/manager', 'call', 'call/coffee', 'courses', 'course/ielts-writing', 'paraphrase', 'mistakes', 'goal'];
+  'model/t1-travel', 'handsfree', 'reflex', 'roleplay', 'roleplay/manager', 'roleplay/ask-for-raise', 'pron/weak-forms', 'call', 'call/coffee', 'courses', 'course/ielts-writing', 'paraphrase', 'mistakes', 'mistakes?variant=1', 'goal'];
 const VI = /[ăđơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i;
 const VIEWS = { mobile: { viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true, deviceScaleFactor: 2 }, desktop: { viewport: { width: 1366, height: 860 } } };
 // Lỗi bỏ qua: do môi trường headless (âm thanh tự phát, quảng cáo/mạng ngoài), không phải lỗi app
@@ -21,7 +21,7 @@ const gtxOk = await fetch(new URL('/api/dictlookup?src=gtx&sl=vi&tl=en&dt=t&q=xi
 const t0 = Date.now(); let pages = 0, clicks = 0;
 for (const lang of LANGS) for (const [vn, vp] of Object.entries(VIEWS)) {
   if (vn === 'desktop' && !['vi', 'en', 'ar', 'ja'].includes(lang)) continue; // máy tính: 4 ngôn ngữ đại diện (LTR/RTL/CJK) – đủ bắt lỗi bố cục
-  const ctx = await browser.newContext({ ...vp, locale: lang });
+  const ctx = await browser.newContext({ bypassCSP: true, ...vp, locale: lang });
   const page = await ctx.newPage(); let route = 'boot';
   page.on('pageerror', e => add('js', lang, vn, route, e.message + ' @ ' + String(e.stack || '').split('\n').slice(1, 3).join(' ').trim().slice(0, 160)));
   page.on('console', m => { if (m.type() === 'error' && !BENIGN.test(m.text()) && !/Failed to load resource/.test(m.text())) add('console', lang, vn, route, m.text()); });

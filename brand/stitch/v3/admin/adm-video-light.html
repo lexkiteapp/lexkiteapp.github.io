@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+
+<html lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Quản trị — Trung tâm video (QC Fixed)</title>
+<!-- Google Fonts: Inter & Material Symbols Rounded -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              bg: '#f3fbf9',
+              dark: '#0f3d3e',
+              deep: '#114b47',
+              muted: '#406063',
+              border: '#d3dcda',
+              coral: '#e05a47',
+              coralHover: '#cc4b39',
+              coralLight: '#fdeee9',
+              tealLight: '#e4f5f1',
+              mint: '#10b981',
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<!-- BEGIN: Custom Stylesheet -->
+<style data-purpose="base-typography">
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #f3fbf9;
+      color: #0f3d3e;
+      -webkit-font-smoothing: antialiased;
+    }
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      line-height: 1;
+    }
+    .material-symbols-rounded.filled {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+<style data-purpose="scrollbar-and-helpers">
+    /* Subtle custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+  </style>
+<!-- END: Custom Stylesheet -->
+</head>
+<body class="min-h-screen flex antialiased selection:bg-teal-100 selection:text-teal-900">
+<!-- BEGIN: Sidebar -->
+<aside aria-label="Thanh điều hướng chính" class="w-64 bg-white border-r border-[#d3dcda] flex flex-col shrink-0 min-h-screen z-20">
+<!-- Brand Logo Area -->
+<div class="h-20 px-6 border-b border-[#d3dcda] flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-[#0f3d3e] text-white flex items-center justify-center font-bold text-xl shadow-sm">
+<span class="material-symbols-rounded text-2xl">auto_awesome</span>
+</div>
+<div>
+<h1 class="text-xl font-extrabold tracking-tight text-[#0f3d3e] leading-none">Lexkite</h1>
+<p class="text-xs font-semibold tracking-wider text-[#406063] uppercase mt-1">Admin Console</p>
+</div>
+</div>
+<!-- Navigation Menu Items -->
+<nav class="flex-1 px-3 py-6 space-y-1 overflow-y-auto">
+<div class="px-3 pb-2 text-[11px] font-bold uppercase tracking-wider text-[#406063]">Quản lý hệ thống</div>
+<!-- Nav Item: Tổng quan (min 44px tap target) -->
+<a class="min-h-[44px] min-w-[44px] inline-flex items-center w-full px-3 py-2.5 rounded-xl text-[#0f3d3e] hover:bg-[#e4f5f1] transition-colors font-semibold text-sm group" href="#tong-quan">
+<span class="material-symbols-rounded mr-3 text-[#406063] group-hover:text-[#0f3d3e]">dashboard</span>
+<span>Tổng quan</span>
+</a>
+<!-- Nav Item: Người dùng -->
+<a class="min-h-[44px] min-w-[44px] inline-flex items-center w-full px-3 py-2.5 rounded-xl text-[#0f3d3e] hover:bg-[#e4f5f1] transition-colors font-semibold text-sm group" href="#nguoi-dung">
+<span class="material-symbols-rounded mr-3 text-[#406063] group-hover:text-[#0f3d3e]">group</span>
+<span>Người dùng</span>
+</a>
+<!-- Nav Item: Chất lượng (QC) -->
+<a class="min-h-[44px] min-w-[44px] inline-flex items-center w-full px-3 py-2.5 rounded-xl text-[#0f3d3e] hover:bg-[#e4f5f1] transition-colors font-semibold text-sm group" href="#chat-luong">
+<span class="material-symbols-rounded mr-3 text-[#406063] group-hover:text-[#0f3d3e]">verified</span>
+<span>Chất lượng &amp; QC</span>
+</a>
+<div class="px-3 pt-5 pb-2 text-[11px] font-bold uppercase tracking-wider text-[#406063]">Sản xuất nội dung</div>
+<!-- Nav Item: Nội dung & Video (min 44px tap target) -->
+<a class="min-h-[44px] min-w-[44px] inline-flex items-center w-full px-3 py-2.5 rounded-xl text-[#0f3d3e] hover:bg-[#e4f5f1] transition-colors font-semibold text-sm group" href="#noi-dung">
+<span class="material-symbols-rounded mr-3 text-[#406063] group-hover:text-[#0f3d3e]">article</span>
+<span>Nội dung &amp; Video</span>
+</a>
+<!-- Nav Item: Kênh & phân phối -->
+<a class="min-h-[44px] min-w-[44px] inline-flex items-center w-full px-3 py-2.5 rounded-xl text-[#0f3d3e] hover:bg-[#e4f5f1] transition-colors font-semibold text-sm group" href="#phan-phoi">
+<span class="material-symbols-rounded mr-3 text-[#406063] group-hover:text-[#0f3d3e]">share</span>
+<span>Kênh &amp; Phân phối</span>
+</a>
+<!-- Nav Item: Video Studio -->
+<a class="min-h-[44px] min-w-[44px] inline-flex items-center w-full px-3 py-2.5 rounded-xl text-[#0f3d3e] hover:bg-[#e4f5f1] transition-colors font-semibold text-sm group" href="#studio">
+<span class="material-symbols-rounded mr-3 text-[#406063] group-hover:text-[#0f3d3e]">movie_creation</span>
+<span>Video Studio</span>
+</a>
+<!-- Nav Item: Trung tâm video (Active) -->
+<a aria-current="page" class="min-h-[44px] min-w-[44px] inline-flex items-center w-full px-3 py-2.5 rounded-xl bg-[#0f3d3e] text-white font-bold text-sm shadow-sm transition-colors" href="#trung-tam-video">
+<span class="material-symbols-rounded mr-3 text-[#10b981]">videocam</span>
+<span>Trung tâm video</span>
+<span class="ml-auto bg-[#e05a47] text-white text-[11px] font-bold px-2 py-0.5 rounded-full">16</span>
+</a>
+<div class="px-3 pt-5 pb-2 text-[11px] font-bold uppercase tracking-wider text-[#406063]">Thiết lập</div>
+<!-- Nav Item: Cài đặt -->
+<a class="min-h-[44px] min-w-[44px] inline-flex items-center w-full px-3 py-2.5 rounded-xl text-[#0f3d3e] hover:bg-[#e4f5f1] transition-colors font-semibold text-sm group" href="#cai-dat">
+<span class="material-symbols-rounded mr-3 text-[#406063] group-hover:text-[#0f3d3e]">tune</span>
+<span>Cài đặt hệ thống</span>
+</a>
+<!-- Nav Item: Trợ giúp -->
+<a class="min-h-[44px] min-w-[44px] inline-flex items-center w-full px-3 py-2.5 rounded-xl text-[#0f3d3e] hover:bg-[#e4f5f1] transition-colors font-semibold text-sm group" href="#tro-giup">
+<span class="material-symbols-rounded mr-3 text-[#406063] group-hover:text-[#0f3d3e]">help</span>
+<span>Trợ giúp &amp; Tài liệu</span>
+</a>
+</nav>
+<!-- Sidebar Footer / Logout -->
+<div class="p-4 border-t border-[#d3dcda]">
+<button class="min-h-[44px] min-w-[44px] w-full inline-flex items-center justify-start px-3 py-2 rounded-xl text-[#e05a47] hover:bg-[#fdeee9] font-bold text-sm transition-colors">
+<span class="material-symbols-rounded mr-3 text-[#e05a47]">logout</span>
+<span>Đăng xuất</span>
+</button>
+</div>
+</aside>
+<!-- END: Sidebar -->
+<!-- BEGIN: Main App Container -->
+<div class="flex-1 flex flex-col min-w-0 bg-[#f3fbf9]">
+<!-- BEGIN: Top Navigation Header -->
+<header class="h-20 bg-white border-b border-[#d3dcda] px-8 flex items-center justify-between sticky top-0 z-10 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+<!-- Breadcrumb Navigation with explicit 44px touch targets & contrast separator -->
+<nav aria-label="Breadcrumb" class="flex items-center">
+<a class="min-h-[44px] min-w-[44px] inline-flex items-center justify-center px-3 py-2 rounded-lg text-sm font-semibold text-[#406063] hover:text-[#0f3d3e] hover:bg-[#e4f5f1] transition-colors" href="#admin">
+          Admin
+        </a>
+<span aria-hidden="true" class="text-[#406063] font-black px-1 select-none">|</span>
+<a class="min-h-[44px] min-w-[44px] inline-flex items-center justify-center px-3 py-2 rounded-lg text-sm font-bold text-[#0f3d3e] hover:bg-[#e4f5f1] transition-colors" href="#trung-tam-video">
+          Trung tâm video
+        </a>
+</nav>
+<!-- Right Header Actions -->
+<div class="flex items-center gap-4">
+<!-- Search Input -->
+<div class="relative w-80">
+<span class="material-symbols-rounded absolute left-3.5 top-1/2 -translate-y-1/2 text-[#406063] text-xl">search</span>
+<input class="min-h-[44px] w-full bg-[#f3fbf9] border border-[#d3dcda] focus:border-[#0f3d3e] focus:ring-1 focus:ring-[#0f3d3e] rounded-xl pl-11 pr-4 text-xs font-medium text-[#0f3d3e] placeholder-[#406063]" placeholder="Tìm kiếm kịch bản, từ vựng... (Ctrl K)" type="search"/>
+</div>
+<!-- Language Switch with high-contrast separator (| at #406063) -->
+<div class="min-h-[44px] inline-flex items-center bg-[#f3fbf9] border border-[#d3dcda] rounded-xl px-2 py-1 text-xs font-bold text-[#0f3d3e]">
+<button class="min-h-[36px] min-w-[36px] inline-flex items-center justify-center rounded-lg bg-white shadow-xs text-[#0f3d3e] font-extrabold px-2">VI</button>
+<span aria-hidden="true" class="text-[#406063] font-bold px-2 select-none">|</span>
+<button class="min-h-[36px] min-w-[36px] inline-flex items-center justify-center rounded-lg text-[#406063] hover:text-[#0f3d3e] font-bold px-2">EN</button>
+</div>
+<!-- Notification Button -->
+<button class="min-h-[44px] min-w-[44px] relative inline-flex items-center justify-center rounded-xl bg-white border border-[#d3dcda] text-[#0f3d3e] hover:bg-[#f3fbf9] transition-colors" title="Thông báo">
+<span class="material-symbols-rounded">notifications</span>
+<span class="absolute top-2.5 right-2.5 w-2 h-2 rounded-full bg-[#e05a47]"></span>
+</button>
+<!-- User Profile Avatar Card -->
+<div class="min-h-[44px] inline-flex items-center gap-3 pl-2 border-l border-[#d3dcda]">
+<div class="w-10 h-10 rounded-full bg-[#0f3d3e] text-white flex items-center justify-center font-bold text-sm shadow-sm ring-2 ring-emerald-100">
+            HM
+          </div>
+<div class="hidden lg:block text-left">
+<div class="text-xs font-extrabold text-[#0f3d3e] leading-tight">Hoàng Minh</div>
+<div class="text-[11px] font-semibold text-[#406063]">Trưởng nhóm nội dung</div>
+</div>
+</div>
+</div>
+</header>
+<!-- END: Top Navigation Header -->
+<!-- BEGIN: Main Page Body -->
+<main class="flex-1 p-8 space-y-8 max-w-[1440px] w-full mx-auto">
+<!-- BEGIN: Hero / Main Action Bar -->
+<section aria-label="Tiêu đề &amp; Thao tác" class="flex flex-wrap items-center justify-between gap-4">
+<div>
+<div class="flex items-center gap-3">
+<h2 class="text-2xl font-black tracking-tight text-[#0f3d3e]">Trung tâm video</h2>
+<span class="bg-[#e4f5f1] text-[#0f3d3e] border border-[#a4ded4] text-xs font-bold px-3 py-1 rounded-full inline-flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-[#10b981] animate-pulse"></span>
+              16 video sẵn sàng
+            </span>
+</div>
+<p class="text-sm font-semibold text-[#406063] mt-1">Quản lý kịch bản, sản xuất giọng đọc Kokoro TTS &amp; xuất bản video ngắn đa nền tảng.</p>
+</div>
+<div class="flex items-center gap-3">
+<!-- Secondary Action: Sync -->
+<button class="min-h-[44px] min-w-[44px] inline-flex items-center justify-center gap-2 bg-white border border-[#d3dcda] hover:bg-[#e4f5f1] text-[#0f3d3e] text-sm font-bold px-4 py-2 rounded-xl transition-all shadow-xs">
+<span class="material-symbols-rounded text-lg text-[#114b47]">refresh</span>
+<span>Đồng bộ GrabCast</span>
+</button>
+<!-- Primary Action: Create Script -->
+<button class="min-h-[44px] min-w-[44px] inline-flex items-center justify-center gap-2 bg-[#e05a47] hover:bg-[#cc4b39] text-white text-sm font-bold px-5 py-2 rounded-xl transition-all shadow-sm">
+<span class="material-symbols-rounded text-xl">add</span>
+<span>Tạo kịch bản mới</span>
+</button>
+</div>
+</section>
+<!-- END: Hero / Main Action Bar -->
+<!-- BEGIN: Metric KPI Cards -->
+<section aria-label="Chỉ số hiệu suất" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+<!-- KPI 1 -->
+<article class="bg-white rounded-2xl p-5 border border-[#d3dcda] shadow-xs flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="text-xs font-bold text-[#406063] uppercase tracking-wider">Tổng số video</span>
+<span class="w-9 h-9 rounded-xl bg-[#e4f5f1] text-[#0f3d3e] flex items-center justify-center">
+<span class="material-symbols-rounded text-xl">video_library</span>
+</span>
+</div>
+<div class="mt-4">
+<div class="text-3xl font-black text-[#0f3d3e]">128</div>
+<div class="mt-1 flex items-center text-xs font-bold text-[#10b981]">
+<span class="material-symbols-rounded text-sm mr-1">trending_up</span>
+<span>Tăng 12% so với tháng trước</span>
+</div>
+</div>
+</article>
+<!-- KPI 2 -->
+<article class="bg-white rounded-2xl p-5 border border-[#d3dcda] shadow-xs flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="text-xs font-bold text-[#406063] uppercase tracking-wider">Chờ duyệt xuất bản</span>
+<span class="w-9 h-9 rounded-xl bg-[#fdeee9] text-[#e05a47] flex items-center justify-center">
+<span class="material-symbols-rounded text-xl">pending_actions</span>
+</span>
+</div>
+<div class="mt-4">
+<div class="text-3xl font-black text-[#0f3d3e]">3 <span class="text-base font-semibold text-[#406063]">kịch bản</span></div>
+<div class="mt-1 flex items-center text-xs font-bold text-[#e05a47]">
+<span class="material-symbols-rounded text-sm mr-1">priority_high</span>
+<span>2 cần xuất bản hôm nay</span>
+</div>
+</div>
+</article>
+<!-- KPI 3 -->
+<article class="bg-white rounded-2xl p-5 border border-[#d3dcda] shadow-xs flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="text-xs font-bold text-[#406063] uppercase tracking-wider">Tỷ lệ giữ chân 3s</span>
+<span class="w-9 h-9 rounded-xl bg-[#e4f5f1] text-[#0f3d3e] flex items-center justify-center">
+<span class="material-symbols-rounded text-xl">insights</span>
+</span>
+</div>
+<div class="mt-4">
+<div class="text-3xl font-black text-[#0f3d3e]">74.8%</div>
+<div class="mt-1 flex items-center text-xs font-bold text-[#10b981]">
+<span class="material-symbols-rounded text-sm mr-1">arrow_upward</span>
+<span>+4.2% so với chuẩn ngành</span>
+</div>
+</div>
+</article>
+<!-- KPI 4 -->
+<article class="bg-white rounded-2xl p-5 border border-[#d3dcda] shadow-xs flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="text-xs font-bold text-[#406063] uppercase tracking-wider">Tốc độ sinh giọng (Kokoro)</span>
+<span class="w-9 h-9 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center">
+<span class="material-symbols-rounded text-xl">graphic_eq</span>
+</span>
+</div>
+<div class="mt-4">
+<div class="text-3xl font-black text-[#0f3d3e]">1.05s <span class="text-xs font-semibold text-[#406063]">/ video</span></div>
+<div class="mt-1 flex items-center text-xs font-bold text-[#406063]">
+<span class="material-symbols-rounded text-sm mr-1 text-[#10b981]">check_circle</span>
+<span>Hệ thống hoạt động bình thường</span>
+</div>
+</div>
+</article>
+</section>
+<!-- END: Metric KPI Cards -->
+<!-- BEGIN: Review Queue & 9:16 Vertical Preview Feature -->
+<section aria-label="Video cần duyệt ưu tiên" class="bg-white border border-[#d3dcda] rounded-2xl p-6 shadow-xs">
+<div class="flex flex-col lg:flex-row gap-8 items-center">
+<!-- 9:16 Vertical Player Frame Mockup -->
+<div class="relative w-64 aspect-[9/16] bg-[#0f3d3e] rounded-2xl overflow-hidden shadow-lg border-4 border-slate-900 shrink-0 flex flex-col justify-between p-4 text-white">
+<!-- Video Overlay Top -->
+<div class="flex items-center justify-between z-10">
+<span class="bg-black/60 backdrop-blur-xs text-[11px] font-extrabold px-2.5 py-1 rounded-md text-emerald-300 flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> 1080×1920
+              </span>
+<span class="bg-black/60 backdrop-blur-xs text-[11px] font-bold px-2 py-1 rounded-md">0:28</span>
+</div>
+<!-- Visual Tutor / Center Graphic Simulation -->
+<div class="text-center my-auto z-10 space-y-2">
+<div class="w-20 h-20 mx-auto rounded-full bg-[#114b47] border-2 border-white/40 flex items-center justify-center shadow-inner">
+<span class="material-symbols-rounded text-4xl text-teal-200">face</span>
+</div>
+<div class="bg-black/70 backdrop-blur-sm p-2.5 rounded-xl border border-white/10">
+<p class="text-xs font-bold text-amber-300">"Make a decision"</p>
+<p class="text-[11px] text-slate-200 mt-0.5">Không dùng ❌ "Do a decision"</p>
+</div>
+</div>
+<!-- Video Overlay Bottom -->
+<div class="z-10 space-y-2">
+<div class="flex items-center gap-2">
+<span class="bg-[#e05a47] text-[10px] font-black uppercase px-2 py-0.5 rounded text-white">Carlos Tutor</span>
+<span class="text-[11px] font-medium text-slate-300">B2 Collocation</span>
+</div>
+<!-- Play simulation bar -->
+<div class="w-full bg-white/30 h-1.5 rounded-full overflow-hidden">
+<div class="bg-[#e05a47] h-full w-2/5"></div>
+</div>
+</div>
+<!-- Dark aesthetic gradient background -->
+<div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/80 pointer-events-none"></div>
+</div>
+<!-- Video Details and Approval Controls -->
+<div class="flex-1 space-y-5">
+<div class="flex flex-wrap items-center gap-2">
+<span class="bg-[#fdeee9] text-[#e05a47] font-black text-xs px-3 py-1 rounded-full uppercase tracking-wider">Ưu tiên xuất bản hôm nay</span>
+<span class="bg-[#e4f5f1] text-[#0f3d3e] font-extrabold text-xs px-3 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-rounded text-sm text-[#10b981]">graphic_eq</span> Kokoro TTS Sync: 100%
+              </span>
+</div>
+<div>
+<h3 class="text-xl font-black text-[#0f3d3e]">LXK-REEL-101: 5 cụm từ Collocations nâng cao</h3>
+<p class="text-sm font-semibold text-[#406063] mt-1.5 leading-relaxed">
+                Video bài giảng dạng dọc tối ưu cho thuật toán giữ chân người học TikTok &amp; YouTube Shorts. Phân tích cụm từ thông dụng hay nhầm lẫn cấp độ B2 Upper, kèm phụ đề song ngữ và mẫu âm sắc chuẩn Cambridge.
+              </p>
+</div>
+<!-- Metadata Grid -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-4 p-4 rounded-xl bg-[#f3fbf9] border border-[#d3dcda]">
+<div>
+<span class="block text-[11px] font-bold text-[#406063] uppercase">Giáo viên mô phỏng</span>
+<span class="text-sm font-extrabold text-[#0f3d3e] mt-0.5 block">Carlos (US English)</span>
+</div>
+<div>
+<span class="block text-[11px] font-bold text-[#406063] uppercase">Kênh mục tiêu</span>
+<span class="text-sm font-extrabold text-[#0f3d3e] mt-0.5 block">TikTok, Reels, Shorts</span>
+</div>
+<div>
+<span class="block text-[11px] font-bold text-[#406063] uppercase">Điểm QC Phát âm</span>
+<span class="text-sm font-extrabold text-[#10b981] mt-0.5 flex items-center gap-1">
+<span class="material-symbols-rounded text-base">verified</span> 9.4 (Hạng AAA)
+                </span>
+</div>
+<div>
+<span class="block text-[11px] font-bold text-[#406063] uppercase">Khung giờ đề xuất</span>
+<span class="text-sm font-extrabold text-[#0f3d3e] mt-0.5 block">Hôm nay, 18:30 GMT+7</span>
+</div>
+</div>
+<!-- Controls (Min 44px height) -->
+<div class="flex flex-wrap items-center gap-3 pt-2">
+<button class="min-h-[48px] min-w-[44px] inline-flex items-center justify-center gap-2 bg-[#e05a47] hover:bg-[#cc4b39] text-white font-extrabold text-sm px-6 py-2.5 rounded-xl shadow-sm transition-all">
+<span class="material-symbols-rounded text-xl">publish</span>
+<span>Duyệt xuất bản ngay</span>
+</button>
+<button class="min-h-[44px] min-w-[44px] inline-flex items-center justify-center gap-2 bg-white border border-[#d3dcda] hover:bg-[#e4f5f1] text-[#0f3d3e] font-bold text-sm px-5 py-2 rounded-xl transition-all">
+<span class="material-symbols-rounded text-lg text-[#406063]">edit_document</span>
+<span>Xem chi tiết &amp; Sửa kịch bản</span>
+</button>
+<button class="min-h-[44px] min-w-[44px] inline-flex items-center justify-center gap-2 bg-white border border-[#d3dcda] hover:bg-slate-100 text-[#406063] font-bold text-sm px-4 py-2 rounded-xl transition-all">
+<span class="material-symbols-rounded text-lg">play_arrow</span>
+<span>Nghe thử phát âm TTS</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Review Queue & 9:16 Vertical Preview Feature -->
+<!-- BEGIN: Detailed Video Management Table & Filters -->
+<section aria-label="Danh sách kịch bản" class="bg-white border border-[#d3dcda] rounded-2xl overflow-hidden shadow-xs">
+<!-- Table Toolbar: Tabs & Search Filter -->
+<div class="p-6 border-b border-[#d3dcda] space-y-4">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<!-- Segmented Tabs (≥ 44px tap targets) -->
+<div class="inline-flex p-1 bg-[#f3fbf9] border border-[#d3dcda] rounded-xl flex-wrap">
+<button class="min-h-[44px] min-w-[44px] px-4 py-2 rounded-lg bg-[#0f3d3e] text-white font-extrabold text-xs shadow-xs inline-flex items-center gap-2">
+<span>Tất cả</span>
+<span class="bg-[#114b47] text-white px-2 py-0.5 rounded-full text-[10px]">16</span>
+</button>
+<button class="min-h-[44px] min-w-[44px] px-4 py-2 rounded-lg text-[#406063] hover:text-[#0f3d3e] font-bold text-xs inline-flex items-center gap-2">
+<span>Đã lên lịch</span>
+<span class="bg-[#e4f5f1] text-[#0f3d3e] px-2 py-0.5 rounded-full text-[10px]">6</span>
+</button>
+<button class="min-h-[44px] min-w-[44px] px-4 py-2 rounded-lg text-[#406063] hover:text-[#0f3d3e] font-bold text-xs inline-flex items-center gap-2">
+<span>Đã đăng</span>
+<span class="bg-[#e4f5f1] text-[#0f3d3e] px-2 py-0.5 rounded-full text-[10px]">8</span>
+</button>
+<button class="min-h-[44px] min-w-[44px] px-4 py-2 rounded-lg text-[#406063] hover:text-[#0f3d3e] font-bold text-xs inline-flex items-center gap-2">
+<span>Bản nháp</span>
+<span class="bg-[#e4f5f1] text-[#0f3d3e] px-2 py-0.5 rounded-full text-[10px]">2</span>
+</button>
+</div>
+<!-- Filter Controls (≥ 44px min height) -->
+<div class="flex flex-wrap items-center gap-3">
+<select class="min-h-[44px] bg-[#f3fbf9] border border-[#d3dcda] rounded-xl text-xs font-bold text-[#0f3d3e] px-3 py-2 pr-8 focus:border-[#0f3d3e] focus:ring-0">
+<option>Tất cả mẫu video</option>
+<option>Shorts 9:16 (Vocab)</option>
+<option>Shorts 9:16 (Pronunciation)</option>
+<option>Grammar Hacks</option>
+</select>
+<select class="min-h-[44px] bg-[#f3fbf9] border border-[#d3dcda] rounded-xl text-xs font-bold text-[#0f3d3e] px-3 py-2 pr-8 focus:border-[#0f3d3e] focus:ring-0">
+<option>Tất cả trình độ</option>
+<option>A1 - Căn bản</option>
+<option>A2 - Sơ cấp</option>
+<option>B1 - Trung cấp</option>
+<option>B2 - Trung cao cấp</option>
+<option>C1 - Nâng cao</option>
+</select>
+</div>
+</div>
+</div>
+<!-- Table View -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse" id="video-scripts-table">
+<thead>
+<tr class="border-b border-[#d3dcda] bg-[#f3fbf9]/60 text-[11px] font-black uppercase text-[#406063] tracking-wider">
+<th class="py-3.5 px-4 w-28" scope="col">Mã ID</th>
+<th class="py-3.5 px-4" scope="col">Tiêu đề kịch bản</th>
+<th class="py-3.5 px-4" scope="col">Trình độ</th>
+<th class="py-3.5 px-4" scope="col">Giáo viên</th>
+<th class="py-3.5 px-4" scope="col">Kênh phân phối</th>
+<th class="py-3.5 px-4" scope="col">Điểm QC &amp; Âm</th>
+<th class="py-3.5 px-4" scope="col">Lịch / Ngày đăng</th>
+<th class="py-3.5 px-4" scope="col">Trạng thái</th>
+<th class="py-3.5 px-4 text-right" scope="col">Thao tác</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[#d3dcda] text-xs font-semibold text-[#0f3d3e]">
+<!-- Row 1: 5 cụm từ Collocations nâng cao -->
+<tr class="hover:bg-[#f3fbf9]/70 transition-colors">
+<td class="py-3 px-4 font-mono font-bold text-[#406063]">LXK-101</td>
+<td class="py-3 px-4">
+<a class="min-h-[44px] inline-flex items-center px-3 py-2 -mx-3 rounded-lg text-[#0f3d3e] hover:text-[#e05a47] font-bold transition-colors" href="#view-101">
+                    5 cụm từ Collocations nâng cao
+                  </a>
+</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center px-2.5 py-1 rounded-md bg-purple-100 text-purple-900 font-extrabold text-[11px]">B2 Upper</span>
+</td>
+<td class="py-3 px-4 font-medium">Carlos (US)</td>
+<td class="py-3 px-4">
+<span class="text-[#0f3d3e] font-medium">TikTok, Reels, Shorts</span>
+</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1 font-bold text-[#10b981]">
+<span class="material-symbols-rounded text-sm">verified</span> 9.4 (AAA)
+                  </span>
+</td>
+<td class="py-3 px-4 text-[#406063] font-medium">Hôm nay, 18:30</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-extrabold bg-blue-100 text-blue-900">
+<span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span> Đã lên lịch
+                  </span>
+</td>
+<td class="py-3 px-4 text-right space-x-1 whitespace-nowrap">
+<button class="min-h-[44px] min-w-[44px] inline-flex items-center justify-center p-2 rounded-lg text-[#0f3d3e] hover:bg-[#e4f5f1] transition-colors" title="Xem trước">
+<span class="material-symbols-rounded text-lg">visibility</span>
+</button>
+<button class="min-h-[44px] min-w-[44px] inline-flex items-center justify-center p-2 rounded-lg text-[#0f3d3e] hover:bg-[#e4f5f1] transition-colors" title="Chỉnh sửa">
+<span class="material-symbols-rounded text-lg">edit</span>
+</button>
+</td>
+</tr>
+<!-- Row 2: Phân biệt phát âm cực chuẩn -->
+<tr class="hover:bg-[#f3fbf9]/70 transition-colors">
+<td class="py-3 px-4 font-mono font-bold text-[#406063]">LXK-102</td>
+<td class="py-3 px-4">
+<a class="min-h-[44px] inline-flex items-center px-3 py-2 -mx-3 rounded-lg text-[#0f3d3e] hover:text-[#e05a47] font-bold transition-colors" href="#view-102">
+                    Phân biệt phát âm cực chuẩn
+                  </a>
+</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center px-2.5 py-1 rounded-md bg-emerald-100 text-emerald-900 font-extrabold text-[11px]">A2 Basic</span>
+</td>
+<td class="py-3 px-4 font-medium">Ama (UK)</td>
+<td class="py-3 px-4">
+<span class="text-[#0f3d3e] font-medium">TikTok, Shorts</span>
+</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1 font-bold text-[#10b981]">
+<span class="material-symbols-rounded text-sm">verified</span> 9.2 (AAA)
+                  </span>
+</td>
+<td class="py-3 px-4 text-[#406063] font-medium">Ngày mai, 09:00</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-extrabold bg-amber-100 text-amber-900">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-600"></span> Chờ duyệt
+                  </span>
+</td>
+<td class="py-3 px-4 text-right space-x-1 whitespace-nowrap">
+<button class="min-h-[44px] min-w-[44px] inline-flex items-center justify-center p-2 rounded-lg text-[#0f3d3e] hover:bg-[#e4f5f1] transition-colors" title="Xem trước">
+<span class="material-symbols-rounded text-lg">visibility</span>
+</button>
+<button class="min-h-[44px] min-w-[44px] inline-flex items-center justify-center p-2 rounded-lg text-[#0f3d3e] hover:bg-[#e4f5f1] transition-colors" title="Chỉnh sửa">
+<span class="material-symbols-rounded text-lg">edit</span>
+</button>
+</td>
+</tr>
+<!-- Row 3: Cách dùng cấu trúc Not only -->
+<tr class="hover:bg-[#f3fbf9]/70 transition-colors">
+<td class="py-3 px-4 font-mono font-bold text-[#406063]">LXK-103</td>
+<td class="py-3 px-4">
+<a class="min-h-[44px] inline-flex items-center px-3 py-2 -mx-3 rounded-lg text-[#0f3d3e] hover:text-[#e05a47] font-bold transition-colors" href="#view-103">
+                    Cách dùng cấu trúc Not only
+                  </a>
+</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center px-2.5 py-1 rounded-md bg-cyan-100 text-cyan-900 font-extrabold text-[11px]">B1 Intermediate</span>
+</td>
+<td class="py-3 px-4 font-medium">Carlos (US)</td>
+<td class="py-3 px-4">
+<span class="text-[#0f3d3e] font-medium">Reels</span>
+</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1 font-bold text-teal-800">
+<span class="material-symbols-rounded text-sm">check_circle</span> 8.9 (AA)
+                  </span>
+</td>
+<td class="py-3 px-4 text-[#406063] font-medium">24/10/2024</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-extrabold bg-indigo-100 text-indigo-900">
+<span class="w-1.5 h-1.5 rounded-full bg-indigo-600"></span> Đang dựng
+                  </span>
+</td>
+<td class="py-3 px-4 text-right space-x-1 whitespace-nowrap">
+<button class="min-h-[44px] min-w-[44px] inline-flex items-center justify-center p-2 rounded-lg text-[#0f3d3e] hover:bg-[#e4f5f1] transition-colors" title="Xem trước">
+<span class="material-symbols-rounded text-lg">visibility</span>
+</button>
+<button class="min-h-[44px] min-w-[44px] inline-flex items-center justify-center p-2 rounded-lg text-[#0f3d3e] hover:bg-[#e4f5f1] transition-colors" title="Chỉnh sửa">
+<span class="material-symbols-rounded text-lg">edit</span>
+</button>
+</td>
+</tr>
+<!-- Row 4: Luyện phản xạ 10 câu giao tiếp -->
+<tr class="hover:bg-[#f3fbf9]/70 transition-colors">
+<td class="py-3 px-4 font-mono font-bold text-[#406063]">LXK-104</td>
+<td class="py-3 px-4">
+<a class="min-h-[44px] inline-flex items-center px-3 py-2 -mx-3 rounded-lg text-[#0f3d3e] hover:text-[#e05a47] font-bold transition-colors" href="#view-104">
+                    Luyện phản xạ 10 câu giao tiếp
+                  </a>
+</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center px-2.5 py-1 rounded-md bg-teal-100 text-teal-900 font-extrabold text-[11px]">A1 Beginner</span>
+</td>
+<td class="py-3 px-4 font-medium">Ama (UK)</td>
+<td class="py-3 px-4">
+<span class="text-[#0f3d3e] font-medium">TikTok, Reels, Shorts</span>
+</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1 font-bold text-[#10b981]">
+<span class="material-symbols-rounded text-sm">verified</span> 9.6 (AAA)
+                  </span>
+</td>
+<td class="py-3 px-4 text-[#406063] font-medium">22/10/2024</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-extrabold bg-emerald-100 text-emerald-900">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span> Đã xuất bản
+                  </span>
+</td>
+<td class="py-3 px-4 text-right space-x-1 whitespace-nowrap">
+<button class="min-h-[44px] min-w-[44px] inline-flex items-center justify-center p-2 rounded-lg text-[#0f3d3e] hover:bg-[#e4f5f1] transition-colors" title="Xem trước">
+<span class="material-symbols-rounded text-lg">visibility</span>
+</button>
+<button class="min-h-[44px] min-w-[44px] inline-flex items-center justify-center p-2 rounded-lg text-[#0f3d3e] hover:bg-[#e4f5f1] transition-colors" title="Chỉnh sửa">
+<span class="material-symbols-rounded text-lg">edit</span>
+</button>
+</td>
+</tr>
+<!-- Row 5: Bộ 3 idioms miêu tả cảm xúc -->
+<tr class="hover:bg-[#f3fbf9]/70 transition-colors">
+<td class="py-3 px-4 font-mono font-bold text-[#406063]">LXK-105</td>
+<td class="py-3 px-4">
+<a class="min-h-[44px] inline-flex items-center px-3 py-2 -mx-3 rounded-lg text-[#0f3d3e] hover:text-[#e05a47] font-bold transition-colors" href="#view-105">
+                    Bộ 3 idioms miêu tả cảm xúc
+                  </a>
+</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center px-2.5 py-1 rounded-md bg-rose-100 text-rose-900 font-extrabold text-[11px]">C1 Advanced</span>
+</td>
+<td class="py-3 px-4 font-medium">Carlos (US)</td>
+<td class="py-3 px-4">
+<span class="text-[#0f3d3e] font-medium">YouTube Shorts</span>
+</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1 font-bold text-[#10b981]">
+<span class="material-symbols-rounded text-sm">verified</span> 9.1 (AAA)
+                  </span>
+</td>
+<td class="py-3 px-4 text-[#406063] font-medium">Bản nháp</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-extrabold bg-slate-100 text-slate-800">
+<span class="w-1.5 h-1.5 rounded-full bg-slate-500"></span> Bản nháp
+                  </span>
+</td>
+<td class="py-3 px-4 text-right space-x-1 whitespace-nowrap">
+<button class="min-h-[44px] min-w-[44px] inline-flex items-center justify-center p-2 rounded-lg text-[#0f3d3e] hover:bg-[#e4f5f1] transition-colors" title="Xem trước">
+<span class="material-symbols-rounded text-lg">visibility</span>
+</button>
+<button class="min-h-[44px] min-w-[44px] inline-flex items-center justify-center p-2 rounded-lg text-[#0f3d3e] hover:bg-[#e4f5f1] transition-colors" title="Chỉnh sửa">
+<span class="material-symbols-rounded text-lg">edit</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Footer / Pagination Controls (All >= 44x44px) -->
+<div class="p-4 border-t border-[#d3dcda] flex flex-col sm:flex-row items-center justify-between gap-4 bg-white">
+<div class="text-xs font-semibold text-[#406063]">
+            Hiển thị <span class="font-bold text-[#0f3d3e]">1 - 5</span> trên tổng số <span class="font-bold text-[#0f3d3e]">16</span> video
+          </div>
+<div class="flex items-center gap-1">
+<!-- Prev Button -->
+<button aria-label="Trang trước" class="min-w-[44px] min-h-[44px] inline-flex items-center justify-center rounded-xl border border-[#d3dcda] text-[#406063] hover:text-[#0f3d3e] hover:bg-[#f3fbf9] transition-colors font-bold">
+<span class="material-symbols-rounded text-lg">chevron_left</span>
+</button>
+<!-- Page 1 (Active) -->
+<button aria-current="page" class="min-w-[44px] min-h-[44px] inline-flex items-center justify-center rounded-xl bg-[#0f3d3e] text-white font-extrabold text-xs shadow-xs">
+              1
+            </button>
+<!-- Page 2 -->
+<button class="min-w-[44px] min-h-[44px] inline-flex items-center justify-center rounded-xl border border-[#d3dcda] text-[#0f3d3e] hover:bg-[#f3fbf9] transition-colors font-bold text-xs">
+              2
+            </button>
+<!-- Page 3 -->
+<button class="min-w-[44px] min-h-[44px] inline-flex items-center justify-center rounded-xl border border-[#d3dcda] text-[#0f3d3e] hover:bg-[#f3fbf9] transition-colors font-bold text-xs">
+              3
+            </button>
+<!-- Next Button -->
+<button aria-label="Trang kế tiếp" class="min-w-[44px] min-h-[44px] inline-flex items-center justify-center rounded-xl border border-[#d3dcda] text-[#406063] hover:text-[#0f3d3e] hover:bg-[#f3fbf9] transition-colors font-bold">
+<span class="material-symbols-rounded text-lg">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+<!-- END: Detailed Video Management Table & Filters -->
+</main>
+<!-- END: Main Page Body -->
+<!-- BEGIN: Main Footer -->
+<footer class="mt-auto border-t border-[#d3dcda] bg-white py-4 px-8 text-xs font-semibold text-[#406063] flex flex-col sm:flex-row items-center justify-between gap-2">
+<div>
+        Lexkite Language Intelligence Engine © 2024. Đã kiểm định chất lượng Machine-QC Round 10.
+      </div>
+<div class="flex items-center gap-4">
+<a class="hover:text-[#0f3d3e] transition-colors" href="#privacy">Chính sách bảo mật</a>
+<span>•</span>
+<a class="hover:text-[#0f3d3e] transition-colors" href="#terms">Điều khoản dịch vụ</a>
+<span>•</span>
+<span class="text-emerald-700 font-bold flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span> Kokoro Voice API: Hoạt động
+        </span>
+</div>
+</footer>
+<!-- END: Main Footer -->
+</div>
+<!-- END: Main App Container -->
+</body></html>

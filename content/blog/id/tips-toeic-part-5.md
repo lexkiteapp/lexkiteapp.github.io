@@ -54,6 +54,8 @@ Artikel ini membahas format Part 5, strategi tiga langkah, enam tipe soal yang p
 
 Bagian Reading TOEIC Listening & Reading terdiri dari 100 soal yang harus diselesaikan dalam **75 menit**, dibagi menjadi tiga part:
 
+Untuk pembahasan lebih lengkap, baca juga [rencana belajar mandiri TOEIC](/id/blog/rencana-belajar-mandiri-toeic-panduan/).
+
 - **Part 5 – Incomplete Sentences:** 30 soal (nomor 101–130). Satu kalimat dengan satu titik kosong dan empat pilihan.
 - **Part 6 – Text Completion:** 16 soal dalam empat teks pendek.
 - **Part 7 – Reading Comprehension:** 54 soal dari teks tunggal dan teks ganda/tiga.
@@ -185,6 +187,12 @@ Benar 5–6: kamu siap untuk Part 5 level 800+. Benar 3–4: fokus pada tipe soa
 {{cta: /app/#/toeic-r/tr1?part=5 | Latihan TOEIC Part 5 dengan timer}}
 
 {{youtube: | Ide video: 10 soal TOEIC Part 5 dalam 4 menit — cara menebak jenis soal dari pilihan jawaban}}
+
+Untuk melatih telinga di sisi Listening, mulai dari enam soal foto di [tips TOEIC Part 1 photographs](/id/blog/tips-toeic-part-1-photographs/).
+
+Gambaran lengkap seluruh tes ada di [format tes TOEIC](/id/blog/format-tes-toeic-listening-reading/).
+
+Setelah Part 2, lanjutkan ke bagian yang jumlah soalnya paling besar lewat [strategi TOEIC Listening Part 3 dan 4](/id/blog/strategi-toeic-listening-part-3-dan-4/).
 
 ## Pertanyaan yang sering diajukan
 

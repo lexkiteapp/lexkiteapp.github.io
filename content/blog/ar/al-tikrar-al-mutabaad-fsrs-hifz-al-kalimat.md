@@ -138,11 +138,13 @@ quiz: [
 
 لتعزيز مهارات التعلم المتكاملة، يمكنك مراجعة مقالنا حول [حفظ الكلمات الإنجليزية بطرق علمية](/ar/blog/hifz-al-kalimat-al-injliziya/)، واستكشاف [كيف أتعلم الإنجليزية ذاتياً من الصفر](/ar/blog/kayfa-ataallam-al-injliziya/)، وقراءة تقنيات الآيلتس في [استراتيجيات قراءة آيلتس skimming و scanning](/ar/blog/ielts-reading-skimming-scanning-istratijiyat/)، ودراسة [الأفعال المركبة في اللغة الإنجليزية](/ar/blog/al-afal-al-murakkaba/).
 
-وللاطلاع على قوائم المصطلحات المنظمة، تفضل بزيارة صفحة [دليل استراتيجيات حفظ المفردات](/tu-vung/).
+وللاطلاع على قوائم المصطلحات المنظمة، تفضل بزيارة صفحة [دليل استراتيجيات حفظ المفردات](/en/vocabulary/).
 
 {{cta: /tu-vung/ | تفعيل خوارزمية FSRS وحفظ المفردات للأبد}}
 
 {{youtube: | Spaced Repetition and FSRS Algorithm Guide for Vocabulary}}
+
+والتباعد يحدد متى تراجع، أما كيف تراجع فيشرحه [الاسترجاع النشط للمفردات](/ar/blog/al-istirjaa-al-nashit-lil-mufradat-al-injliziyyah/).
 
 ## الأسئلة الشائعة (FAQ)
 

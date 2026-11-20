@@ -2,7 +2,7 @@
    Phương án nhiễu tốt = cùng từ loại, cùng/gần trình độ CEFR, dài – ngắn tương đương đáp án, nghe "có lý" nhưng SAI:
    • không bao giờ là từ đồng nghĩa / cùng họ từ / nghĩa chồng lấn với đáp án (tránh 2 đáp án cùng đúng);
    • không trùng chữ hiển thị; • tất định theo seed (test lặp lại được, mỗi lượt học vẫn đổi phương án).
-   Tải lười cùng gói 'words' (app.js BUNDLES). Không gọi t() – hàm thuần, dùng được trong Node. */
+   Tải lười cùng gói 'words' (bundles.js BUNDLES). Không gọi t() – hàm thuần, dùng được trong Node. */
 (function (g) {
   const LV = { A1: 0, A2: 1, B1: 2, B2: 3, C1: 4, C2: 5 };
   const POS = { noun: 'n', verb: 'v', adjective: 'adj', adverb: 'adv', phrase: 'phr', idiom: 'phr', collocation: 'phr', phrasal: 'phr' };

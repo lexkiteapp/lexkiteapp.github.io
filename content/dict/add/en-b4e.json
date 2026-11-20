@@ -1,0 +1,752 @@
+{
+ "rack": {
+  "mis": [
+   {
+    "w": "She hung her jacket in the coat rack.",
+    "r": "She hung her jacket on the coat rack.",
+    "why": "Things hang or sit on a rack, so use 'on', not 'in'."
+   },
+   {
+    "w": "We need two more rack for the storeroom.",
+    "r": "We need two more racks for the storeroom.",
+    "why": "Rack is countable; add -s after a number or 'more'."
+   }
+  ],
+  "u": "A rack is an open frame, often with bars or slots, for holding or hanging things: a coat rack, a luggage rack on a train, a roof rack on a car, a wine rack. A shelf is a flat board fixed to a wall or cabinet, while a rack usually has a more specific job. Phrasal verbs rack up (accumulate) and rack your brains (think very hard) are also common."
+ },
+ "rainfall": {
+  "mis": [
+   {
+    "w": "The region gets little rainfalls in winter.",
+    "r": "The region gets little rainfall in winter.",
+    "why": "Rainfall is uncountable, so it has no plural form."
+   },
+   {
+    "w": "The rainfall in Hue is higher than Hanoi.",
+    "r": "The rainfall in Hue is higher than in Hanoi.",
+    "why": "Compare rainfall with rainfall: say 'than in Hanoi', not 'than Hanoi'."
+   }
+  ],
+  "u": "Rainfall is the amount of rain that falls in a place over a period of time, usually measured in millimetres. It is uncountable and typical of weather reports, farming and climate studies: annual rainfall, average rainfall. Describe it as high, low, heavy or light. Rain is the water falling at a moment, while precipitation is the wider scientific term that also includes snow and hail."
+ },
+ "receipt": {
+  "mis": [
+   {
+    "w": "Please show me your receipt of the payment.",
+    "r": "Please show me your receipt for the payment.",
+    "why": "A receipt is 'for' the thing paid; 'receipt of' means the act of receiving."
+   },
+   {
+    "w": "We will ship the goods in receipt of your payment.",
+    "r": "We will ship the goods on receipt of your payment.",
+    "why": "The fixed phrase is 'on receipt of', meaning as soon as something arrives."
+   }
+  ],
+  "u": "A receipt is a paper or email showing that you have paid. It also has a formal meaning, the act of receiving something: on receipt of the goods, to acknowledge receipt. The p is silent. An invoice asks you to pay, while a receipt confirms that you already have. Keep the receipt if you may need to return or claim back an item."
+ },
+ "rewrite": {
+  "mis": [
+   {
+    "w": "He rewrited the report last night.",
+    "r": "He rewrote the report last night.",
+    "why": "Rewrite is irregular: rewrite, rewrote, rewritten."
+   },
+   {
+    "w": "Please rewrite again the first paragraph.",
+    "r": "Please rewrite the first paragraph.",
+    "why": "The prefix re- already means again, so 'again' is redundant."
+   }
+  ],
+  "u": "Rewrite means to write something again, changing it to improve it. As a verb the stress is on the second syllable; the noun is stressed on the first: a quick rewrite. Verb forms are rewrote and rewritten. It is common for reports, scripts and software code. Revise suggests smaller corrections, while rewrite implies bigger changes. To rewrite history means to present the past differently."
+ },
+ "rug": {
+  "mis": [
+   {
+    "w": "We fitted a rug over the whole bedroom floor.",
+    "r": "We fitted a carpet over the whole bedroom floor.",
+    "why": "A rug is a small piece; covering a whole floor is a carpet."
+   },
+   {
+    "w": "The cat is sleeping in the rug.",
+    "r": "The cat is sleeping on the rug.",
+    "why": "A rug lies on the floor, so the preposition is 'on'."
+   }
+  ],
+  "u": "A rug is a small piece of thick fabric that covers part of a floor, often for decoration or warmth. A carpet is usually fitted wall to wall across the whole room. In American English an area rug is a common phrase in shops. The idiom sweep something under the rug means hide a problem; British speakers more often say under the carpet."
+ },
+ "safely": {
+  "mis": [
+   {
+    "w": "Please handle the equipment safe.",
+    "r": "Please handle the equipment safely.",
+    "why": "An adverb is needed to describe how you handle; use safely."
+   },
+   {
+    "w": "I hope you will arrive safety.",
+    "r": "I hope you will arrive safely.",
+    "why": "Safety is a noun; after the verb arrive use the adverb safely."
+   }
+  ],
+  "u": "Safely is the adverb of safe. It says that an action is done without harm or risk: arrive safely, drive safely, store chemicals safely. It also appears in confident statements such as 'I can safely say', which is slightly formal. Safely focuses on accidents and injury, while securely focuses on protection from theft or attack. It can come before a participle: safely stored."
+ },
+ "salary": {
+  "mis": [
+   {
+    "w": "My salary is very cheap.",
+    "r": "My salary is very low.",
+    "why": "A salary is described as high or low, not cheap or expensive."
+   },
+   {
+    "w": "She asked for an increase of salary.",
+    "r": "She asked for an increase in salary.",
+    "why": "After increase, the preposition is 'in'; 'of' gives the amount."
+   }
+  ],
+  "u": "A salary is a fixed payment from an employer, usually given monthly or yearly, for office or professional work. A wage is normally paid by the hour or week for manual or casual jobs. Job adverts say 'a salary of $60,000 a year'. Pay is the general word. Salaries are earned or received, and they are usually called high or low rather than big."
+ },
+ "scenery": {
+  "mis": [
+   {
+    "w": "Sapa has beautiful sceneries.",
+    "r": "Sapa has beautiful scenery.",
+    "why": "Scenery is uncountable and has no plural."
+   },
+   {
+    "w": "The scenery of the accident was terrible.",
+    "r": "The scene of the accident was terrible.",
+    "why": "Scene means the place where an event happened; scenery is natural views."
+   }
+  ],
+  "u": "Scenery means the natural features of a region, such as mountains, forests and the sea, seen as attractive. It is uncountable. It is not normally used for city buildings, where you say view or skyline. A scene is one view or event, and a landscape is a particular stretch of land. In theatre, scenery also means the painted background on stage. A change of scenery means a break somewhere new."
+ },
+ "shipment": {
+  "mis": [
+   {
+    "w": "A shipment from ten containers arrived at the port.",
+    "r": "A shipment of ten containers arrived at the port.",
+    "why": "Use 'of' to say what a shipment contains."
+   },
+   {
+    "w": "Free shipment on all orders over fifty dollars.",
+    "r": "Free shipping on all orders over fifty dollars.",
+    "why": "The delivery service or its cost is shipping, not shipment."
+   }
+  ],
+  "u": "A shipment is a quantity of goods sent together, or the act of sending them. Despite the word ship, it covers sea, air and road transport. It is countable: a shipment, three shipments. Shipping is the service or its cost, as in free shipping, and delivery is the moment goods reach the customer. Consignment is a more formal trade word. Typical verbs are dispatch, track, delay and receive."
+ },
+ "sidewalk": {
+  "mis": [
+   {
+    "w": "The children were playing in the sidewalk.",
+    "r": "The children were playing on the sidewalk.",
+    "why": "A sidewalk is a surface, so use 'on', not 'in'."
+   },
+   {
+    "w": "In Chicago, children should not ride bicycles on the pavement.",
+    "r": "In Chicago, children should not ride bicycles on the sidewalk.",
+    "why": "In American English the path beside a road is a sidewalk; pavement means the road surface."
+   }
+  ],
+  "u": "Sidewalk is the American word for the path beside a road where people walk. British English uses pavement, and Australians say footpath. Be careful: in the United States pavement means the hard surface of the road itself. Use on or along with it: on the sidewalk, along the sidewalk. In Vietnam, shops and food stalls often fill the sidewalk, so sidewalk vendor is a common phrase."
+ },
+ "silently": {
+  "mis": [
+   {
+    "w": "Please talk silently in the library.",
+    "r": "Please talk quietly in the library.",
+    "why": "Silently means with no sound at all; talking needs quietly."
+   },
+   {
+    "w": "He left the room silent.",
+    "r": "He left the room silently.",
+    "why": "Describing how he left needs the adverb silently."
+   }
+  ],
+  "u": "Silently means without making any sound: read silently, nod silently, wait silently. Quietly means making only a little noise, so you can talk quietly but not talk silently, because talking produces sound. Silent is the adjective and silently the adverb, formed by adding -ly. In exams and offices, 'work silently' suggests no sound at all, while 'work quietly' allows a soft noise."
+ },
+ "sleeve": {
+  "mis": [
+   {
+    "w": "He wore a shirt with short sleeve.",
+    "r": "He wore a shirt with short sleeves.",
+    "why": "A shirt has two arms, so the usual form is plural: sleeves."
+   },
+   {
+    "w": "I still have one more idea in my sleeve.",
+    "r": "I still have one more idea up my sleeve.",
+    "why": "The fixed idiom is 'up your sleeve', meaning a hidden plan."
+   }
+  ],
+  "u": "A sleeve is the part of a garment that covers the arm. Because most tops have two, the plural is common: short sleeves, a long-sleeved shirt. Roll up your sleeves means prepare to work hard, and have something up your sleeve means keep a secret plan. The word also names a protective cover, such as a record sleeve or a laptop sleeve."
+ },
+ "smoothly": {
+  "mis": [
+   {
+    "w": "Everything went smooth at the meeting.",
+    "r": "Everything went smoothly at the meeting.",
+    "why": "After the verb 'went' you need the adverb smoothly."
+   },
+   {
+    "w": "The surface of this road is smoothly.",
+    "r": "The surface of this road is smooth.",
+    "why": "After be, use the adjective smooth, not the adverb."
+   }
+  ],
+  "u": "Smoothly means without difficulty, interruption or sudden changes. It goes after verbs such as go, run, work and operate: the launch went smoothly, make sure the system runs smoothly. It also describes movement, such as a car gliding smoothly. After linking verbs like be, feel or look, use the adjective smooth. It is very common in project updates and business reports."
+ },
+ "specially": {
+  "mis": [
+   {
+    "w": "I like all fruit, specially mangoes.",
+    "r": "I like all fruit, especially mangoes.",
+    "why": "To single out one item, use especially, not specially."
+   },
+   {
+    "w": "The software is especially designed for hospitals.",
+    "r": "The software is specially designed for hospitals.",
+    "why": "For a particular purpose, use specially with a participle."
+   }
+  ],
+  "u": "Specially means for one particular purpose: specially designed software, specially trained staff. It usually comes before a past participle. Especially means to a high degree or picking out one example: especially important, especially in winter. In speech the two sounds overlap and Americans may use especially for both, but careful writers keep them apart. Special is the adjective."
+ },
+ "stack": {
+  "mis": [
+   {
+    "w": "There is a stack papers on my desk.",
+    "r": "There is a stack of papers on my desk.",
+    "why": "Stack is followed by 'of' before the thing stacked."
+   },
+   {
+    "w": "He stacked the boxes on top each other.",
+    "r": "He stacked the boxes on top of each other.",
+    "why": "The phrase is 'on top of each other'; 'of' cannot be dropped."
+   }
+  ],
+  "u": "A stack is a neat pile of things lying on top of each other: a stack of papers, a stack of plates. As a verb it means to arrange things in that way. In informal British English, stacks of means a lot of: stacks of work. In computing, a stack is a data structure, and a tech stack is the set of tools used to build a product. A pile is usually less tidy than a stack."
+ },
+ "stadium": {
+  "mis": [
+   {
+    "w": "Thousands of fans went to stadium on Sunday.",
+    "r": "Thousands of fans went to the stadium on Sunday.",
+    "why": "Stadium is countable, so a singular noun needs an article."
+   },
+   {
+    "w": "The stadium can contain forty thousand people.",
+    "r": "The stadium can hold forty thousand people.",
+    "why": "The natural verb for capacity is hold or seat, not contain."
+   }
+  ],
+  "u": "A stadium is a large structure, open or partly covered, with rows of seats around a field for sports or concerts. The plural is stadiums in everyday American use and stadia in formal or British writing. Say at the stadium for the event and in the stadium for being inside. Capacity is described with hold or seat. An arena is more often indoor, for basketball or ice hockey."
+ },
+ "stripe": {
+  "mis": [
+   {
+    "w": "She wore a stripe shirt to the interview.",
+    "r": "She wore a striped shirt to the interview.",
+    "why": "Before a noun use the adjective striped, not the noun stripe."
+   },
+   {
+    "w": "Cut the paper into narrow stripes.",
+    "r": "Cut the paper into narrow strips.",
+    "why": "A long narrow piece of material is a strip; a stripe is a coloured band."
+   }
+  ],
+  "u": "A stripe is a long narrow band of colour that differs from what surrounds it, as on a zebra, a flag or a shirt. Do not confuse it with strip, a long narrow piece of material: a strip of paper. The adjective is striped. Stripes also mark rank on military uniforms, which gives the idiom earn your stripes, meaning prove yourself through experience."
+ },
+ "subtract": {
+  "mis": [
+   {
+    "w": "Subtract five to twenty and you get fifteen.",
+    "r": "Subtract five from twenty and you get fifteen.",
+    "why": "The pattern is subtract A from B, not 'to'."
+   },
+   {
+    "w": "You need to subtraction the cost from your income.",
+    "r": "You need to subtract the cost from your income.",
+    "why": "After 'to' use the verb subtract; subtraction is a noun."
+   }
+  ],
+  "u": "Subtract means to take one number or amount away from another: subtract 3 from 10 to get 7. The noun is subtraction and the opposite is add. In accounting you subtract costs from revenue. Deduct is more formal and is used when money is taken off for a reason, such as tax or fees, while take away is the everyday phrase for children learning arithmetic."
+ },
+ "tech": {
+  "mis": [
+   {
+    "w": "The company invests heavily in new techs.",
+    "r": "The company invests heavily in new tech.",
+    "why": "Tech, like technology, is uncountable and has no plural."
+   },
+   {
+    "w": "She works for a techs company in Hanoi.",
+    "r": "She works for a tech company in Hanoi.",
+    "why": "A noun used as a modifier stays singular: tech company."
+   }
+  ],
+  "u": "Tech is an informal short form of technology, very common in business news and everyday talk: a tech company, tech support, the tech industry. It is uncountable and, as a modifier, never takes -s. In job adverts tech usually means the IT sector. In formal academic writing, use the full word technology. Tech-savvy describes someone who handles devices and software with confidence."
+ },
+ "tile": {
+  "mis": [
+   {
+    "w": "The bathroom is covered by tiles.",
+    "r": "The bathroom is covered with tiles.",
+    "why": "After covered, the material takes 'with'; 'by' names an agent."
+   },
+   {
+    "w": "We bought ten pieces of tiles.",
+    "r": "We bought ten tiles.",
+    "why": "Tile is countable, so count it directly; 'pieces of' is not needed."
+   }
+  ],
+  "u": "A tile is a thin flat square or rectangle of ceramic, stone or plastic used to cover floors, walls and roofs. It is countable: lay ten tiles. As a verb, tile means to cover a surface with them. Say be covered with tiles. British slang on the tiles means out enjoying a night of drinking. In games and apps, a tile can also be a playing piece or a screen block."
+ },
+ "tray": {
+  "mis": [
+   {
+    "w": "The waiter brought the drinks in a tray.",
+    "r": "The waiter brought the drinks on a tray.",
+    "why": "Things sit on a flat tray, so use 'on', not 'in'."
+   },
+   {
+    "w": "She put the cake in the oven on a baking plate.",
+    "r": "She put the cake in the oven on a baking tray.",
+    "why": "The oven item is called a baking tray, not a baking plate."
+   }
+  ],
+  "u": "A tray is a flat object with raised edges for carrying or holding things. Common types are a serving tray in a restaurant, a breakfast tray, a baking tray in the oven and a paper tray in a printer. Office workers also have an in-tray for incoming papers. Things are carried on a tray. A plate is what you eat from, and Americans often say baking sheet for a baking tray."
+ },
+ "vacuum": {
+  "mis": [
+   {
+    "w": "She vacuum the carpet every morning.",
+    "r": "She vacuums the carpet every morning.",
+    "why": "Third-person singular present needs -s: she vacuums."
+   },
+   {
+    "w": "Please vacuum cleaner the living room.",
+    "r": "Please vacuum the living room.",
+    "why": "Vacuum cleaner is a noun; as a verb, say just vacuum."
+   }
+  ],
+  "u": "Vacuum works as a verb meaning clean with a vacuum cleaner: vacuum the carpet, vacuumed, vacuuming. As a noun it means a space with no air, as in vacuum-packed food, or an empty gap, as in a power vacuum. British speakers often say hoover for the verb, after a brand name, and call a thermos a vacuum flask. The spelling has a double u."
+ },
+ "wisely": {
+  "mis": [
+   {
+    "w": "Please choose wise when you buy a laptop.",
+    "r": "Please choose wisely when you buy a laptop.",
+    "why": "Use the adverb wisely to describe how you choose."
+   },
+   {
+    "w": "Please spend wisely your travel budget.",
+    "r": "Please spend your travel budget wisely.",
+    "why": "Do not put an adverb between a verb and its object."
+   }
+  ],
+  "u": "Wisely means in a sensible way that shows good judgement, especially about money, time and risk: spend wisely, invest wisely, use your time wisely. It usually goes after the object, or before the main verb as a comment: he wisely kept quiet. Cleverly stresses skill at solving a problem, while wisely suggests long-term good sense. Wise is the adjective."
+ },
+ "wool": {
+  "mis": [
+   {
+    "w": "This sweater is made by wool.",
+    "r": "This sweater is made of wool.",
+    "why": "Material takes 'of' (or 'from'), not 'by'."
+   },
+   {
+    "w": "I bought two wools sweaters.",
+    "r": "I bought two wool sweaters.",
+    "why": "A noun modifier stays singular and wool is uncountable."
+   }
+  ],
+  "u": "Wool is the soft thick hair of sheep, and also the thread or cloth made from it. It is uncountable: a jacket made of wool, a wool sweater. The adjective woollen is British and woolen is American. Merino wool is valued for softness and warmth. Pull the wool over someone's eyes means to deceive them. In Britain cotton wool means what Americans call cotton balls."
+ },
+ "acute": {
+  "mis": [
+   {
+    "w": "He has a acute pain in his stomach.",
+    "r": "He has an acute pain in his stomach.",
+    "why": "Acute starts with a vowel sound, so the article is 'an'."
+   },
+   {
+    "w": "He suffers from acute back pain for ten years.",
+    "r": "He suffers from chronic back pain for ten years.",
+    "why": "Acute means sudden and short; long-lasting pain is chronic."
+   }
+  ],
+  "u": "Acute is a formal adjective with several meanings. In medicine it describes an illness or pain that starts suddenly and is severe, in contrast with chronic, which lasts a long time. It also means very serious, as in an acute shortage of water, or very sharp, as in an acute sense of smell. In geometry an acute angle is smaller than ninety degrees."
+ },
+ "algorithm": {
+  "mis": [
+   {
+    "w": "The algorithm solves the problem by five steps.",
+    "r": "The algorithm solves the problem in five steps.",
+    "why": "Use 'in' with a number of steps, not 'by'."
+   },
+   {
+    "w": "Social networks use algorithm to choose posts.",
+    "r": "Social networks use algorithms to choose posts.",
+    "why": "Algorithm is countable; use the plural for the general idea."
+   }
+  ],
+  "u": "An algorithm is a clear set of steps for solving a problem or doing a calculation, especially by computer. It is countable, so you write an algorithm or algorithms. Typical verbs are design, run, implement and optimise. People also say the algorithm for a platform's ranking rules, as in the feed algorithm. The stress falls on the first syllable and th sounds like the in the. It is not the same as logarithm."
+ },
+ "alloy": {
+  "mis": [
+   {
+    "w": "Bronze is an alloy from copper and tin.",
+    "r": "Bronze is an alloy of copper and tin.",
+    "why": "An alloy 'of' metals names its components."
+   },
+   {
+    "w": "Steel is alloy of iron and carbon.",
+    "r": "Steel is an alloy of iron and carbon.",
+    "why": "Alloy is countable, so a singular noun needs 'an'."
+   }
+  ],
+  "u": "An alloy is a metal made by melting and mixing two or more metals, or a metal with another element. Steel is iron with carbon, brass is copper with zinc and bronze is copper with tin. Alloys are chosen for strength, low weight or resistance to rust, so you see aluminum alloy frames and alloy wheels on cars. The pattern is an alloy of A and B. It is not a pure metal."
+ },
+ "anatomy": {
+  "mis": [
+   {
+    "w": "My uncle is an anatomy at a hospital.",
+    "r": "My uncle is an anatomist at a hospital.",
+    "why": "The person is an anatomist; anatomy is the subject."
+   },
+   {
+    "w": "Anatomy studies how organs work.",
+    "r": "Physiology studies how organs work.",
+    "why": "Anatomy covers structure; function belongs to physiology."
+   }
+  ],
+  "u": "Anatomy is the study of the structure of the bodies of humans, animals and plants, and also the structure itself: the anatomy of the human hand. It is normally uncountable. It is a standard first-year subject in medicine and biology. Physiology is different because it studies how the parts function. A specialist is an anatomist. Figuratively, the anatomy of a crisis means a detailed analysis of how it happened."
+ },
+ "array": {
+  "mis": [
+   {
+    "w": "The shop offers a wide array of product.",
+    "r": "The shop offers a wide array of products.",
+    "why": "After 'array of' use a plural noun."
+   },
+   {
+    "w": "There is a wide array in options.",
+    "r": "There is a wide array of options.",
+    "why": "The fixed pattern is 'an array of', not 'in'."
+   }
+  ],
+  "u": "An array is an impressive or large collection of things, usually presented in order: a dazzling array of colours, a wide array of choices. It is followed by of and a plural noun. This is more formal than a lot of or a bunch of. In computing an array is a list of values stored together and reached by position number. A solar array is a group of panels working together."
+ },
+ "batch": {
+  "mis": [
+   {
+    "w": "Each batches is tested before it leaves the plant.",
+    "r": "Each batch is tested before it leaves the plant.",
+    "why": "After each, use a singular noun and verb: each batch is."
+   },
+   {
+    "w": "The factory produces the pills by batch.",
+    "r": "The factory produces the pills in batches.",
+    "why": "The usual phrase is 'in batches', with a plural."
+   }
+  ],
+  "u": "A batch is a group of things produced, processed or handled together: a batch of cookies, a test batch, a batch number. Its plural is batches. Factories test and record products by batch for quality control, and batch processing in computing runs many jobs at once without human input. It can also be informal: a new batch of students arrived. Typical patterns are a batch of and in batches."
+ },
+ "beam": {
+  "mis": [
+   {
+    "w": "She beamed to me when I walked in.",
+    "r": "She beamed at me when I walked in.",
+    "why": "The verb beam takes 'at' when someone smiles at a person."
+   },
+   {
+    "w": "A beam of lights shone from the lighthouse.",
+    "r": "A beam of light shone from the lighthouse.",
+    "why": "Light is uncountable after 'beam of'."
+   }
+  ],
+  "u": "A beam is a long strong piece of wood, steel or concrete that supports a roof or floor. It is also a narrow stream of light or radiation: a beam of light, a laser beam, headlights on high beam. As a verb, beam means to smile broadly, with at: she beamed at the crowd. Girder usually means a large steel beam in a bridge or tall building."
+ },
+ "benign": {
+  "mis": [
+   {
+    "w": "The biopsy showed a benign cancer.",
+    "r": "The biopsy showed a benign tumor.",
+    "why": "Cancers are malignant by definition; a harmless growth is a benign tumor."
+   },
+   {
+    "w": "The old teacher gave us a benign.",
+    "r": "The old teacher gave us a benign smile.",
+    "why": "Benign is an adjective and needs a noun after it."
+   }
+  ],
+  "u": "Benign is a formal adjective. In medicine it means not cancerous and not a danger to life, as in a benign tumour, and its opposite is malignant. In general use it means kind, gentle or harmless: a benign smile, a benign climate. The stress is on the second syllable, and ign sounds like ine. For an ordinary kind person say kind, since benign sounds like a doctor's or writer's word."
+ },
+ "breakdown": {
+  "mis": [
+   {
+    "w": "My car had a break down on the highway.",
+    "r": "My car had a breakdown on the highway.",
+    "why": "The noun is one word: breakdown; the verb is break down."
+   },
+   {
+    "w": "Please send me a breakdown about the costs.",
+    "r": "Please send me a breakdown of the costs.",
+    "why": "A breakdown 'of' costs lists how a total is divided."
+   }
+  ],
+  "u": "As a noun, breakdown is written as one word and stressed on the first syllable. It means a failure of a machine or vehicle, the collapse of talks or a relationship, or a nervous breakdown. It also means a detailed list showing how a total is divided: a breakdown of costs. The verb is two words, break down: the car broke down. British English says breakdown van; Americans say tow truck."
+ },
+ "bribery": {
+  "mis": [
+   {
+    "w": "The officer received a bribery of five thousand dollars.",
+    "r": "The officer received a bribe of five thousand dollars.",
+    "why": "A payment is a bribe; bribery is the crime in general."
+   },
+   {
+    "w": "He bribed to the customs officer.",
+    "r": "He bribed the customs officer.",
+    "why": "Bribe is transitive and takes a direct object, without 'to'."
+   }
+  ],
+  "u": "Bribery is the crime of giving or accepting money or favours to influence someone in a position of power. It is an abstract uncountable noun: be charged with bribery, a bribery scandal. The payment itself is a bribe, which is countable: offer a bribe, take a bribe. The verb bribe takes a direct object, as in bribe an official. In news you often see bribery and corruption together."
+ },
+ "cache": {
+  "mis": [
+   {
+    "w": "Try clearing your browser cash.",
+    "r": "Try clearing your browser cache.",
+    "why": "In computing the word is cache, although it sounds like cash."
+   },
+   {
+    "w": "The police found a cache with weapons in the garage.",
+    "r": "The police found a cache of weapons in the garage.",
+    "why": "Use 'of' to say what a cache contains."
+   }
+  ],
+  "u": "Cache sounds exactly like cash. In computing it is temporary storage that lets pages and files load faster: browser cache, CPU cache. If a website shows old content, clearing the cache often fixes it. As a verb, cache data means to store it for quick reuse. Outside computing a cache is a hidden store of things, usually followed by of and a plural noun: a cache of weapons, a cache of documents."
+ },
+ "contagious": {
+  "mis": [
+   {
+    "w": "The flu is very contagion.",
+    "r": "The flu is very contagious.",
+    "why": "After 'very' use the adjective contagious; contagion is a noun."
+   },
+   {
+    "w": "Malaria is a contagious disease spread by mosquitoes.",
+    "r": "Malaria is an infectious disease spread by mosquitoes.",
+    "why": "Contagious means passed by contact between people; mosquito-borne is infectious."
+   }
+  ],
+  "u": "Contagious describes a disease passed from person to person by contact, such as chickenpox or flu. It also works figuratively: contagious laughter, contagious enthusiasm. Infectious is the wider medical term and includes diseases carried by insects, water or food, so malaria is infectious but not contagious. In daily speech people often swap them for colds. The noun is contagion."
+ },
+ "customs": {
+  "mis": [
+   {
+    "w": "I passed the custom at the airport quickly.",
+    "r": "I passed customs at the airport quickly.",
+    "why": "The border checkpoint is always customs, with -s and no article."
+   },
+   {
+    "w": "It is a local customs to take off your shoes.",
+    "r": "It is a local custom to take off your shoes.",
+    "why": "A single tradition is a custom; customs is plural."
+   }
+  ],
+  "u": "Customs is the government agency and checkpoint at airports and ports where luggage and goods are inspected and import duty is charged: go through customs, a customs officer. It is normally used without an article: at customs. The same plural form also means traditions, as in local customs, while one tradition is a custom. Do not confuse customs, the border control, with custom, a habit."
+ },
+ "decree": {
+  "mis": [
+   {
+    "w": "The government released a new decree on taxes.",
+    "r": "The government issued a new decree on taxes.",
+    "why": "Official documents are issued, not released."
+   },
+   {
+    "w": "The decree entered into force at 1 July.",
+    "r": "The decree entered into force on 1 July.",
+    "why": "Use 'on' with a specific date."
+   }
+  ],
+  "u": "A decree is an official order issued by a head of state or government that has the force of law, sometimes without a vote in parliament: a presidential decree, a royal decree. It is also a verb: the king decreed that taxes be cut. Typical verbs are issue, sign and revoke. It is a formal word. A law is passed by a legislature, while a decree comes from the executive."
+ },
+ "defendant": {
+  "mis": [
+   {
+    "w": "The defendant lawyer asked for more time.",
+    "r": "The defendant's lawyer asked for more time.",
+    "why": "Show the lawyer belongs to the defendant with 's."
+   },
+   {
+    "w": "The defendant is the person who sues the company.",
+    "r": "The plaintiff is the person who sues the company.",
+    "why": "The one who brings a civil case is the plaintiff; the defendant is sued."
+   }
+  ],
+  "u": "A defendant is the person or company accused of a crime or sued in a civil case. The opposite in a civil case is the plaintiff, called claimant in British English; in a criminal case the state prosecutes the defendant. The stress is on the second syllable. A defendant may plead guilty or not guilty and is acquitted or convicted. In British criminal reports, the accused is common."
+ },
+ "deployment": {
+  "mis": [
+   {
+    "w": "We will deployment the new version tonight.",
+    "r": "We will deploy the new version tonight.",
+    "why": "After 'will' you need the verb deploy, not the noun."
+   },
+   {
+    "w": "The team finished the deployment on production last night.",
+    "r": "The team finished the deployment to production last night.",
+    "why": "You deploy to an environment, so the noun takes 'to'."
+   }
+  ],
+  "u": "Deployment is the act of putting something into use or position. In IT it means releasing software to a live environment: an automated deployment, a deployment pipeline, a rollback after a failed deployment. In the military it means sending troops into position. The verb is deploy. Do not confuse it with development, which is writing the software. Say deploy to production or deployment to a server."
+ },
+ "disinfect": {
+  "mis": [
+   {
+    "w": "Disinfect the wound by alcohol first.",
+    "r": "Disinfect the wound with alcohol first.",
+    "why": "The cleaning substance is introduced by 'with'."
+   },
+   {
+    "w": "Please disinfectant the table after lunch.",
+    "r": "Please disinfect the table after lunch.",
+    "why": "Disinfectant is the product (noun); the verb is disinfect."
+   }
+  ],
+  "u": "Disinfect means to clean something with a chemical in order to kill germs: disinfect a wound, disinfect surfaces with bleach. The product is a disinfectant and the process is disinfection. Cleaning only removes dirt. Sterilize is stronger and kills all microbes, as with surgical tools, while sanitize lowers germs to a safe level and is common in American English for hands and tables."
+ },
+ "drilling": {
+  "mis": [
+   {
+    "w": "He is drilling a hole on the wall.",
+    "r": "He is drilling a hole in the wall.",
+    "why": "A hole goes into a surface, so use 'in'."
+   },
+   {
+    "w": "The company has a licence for drill oil at sea.",
+    "r": "The company has a licence for drilling oil at sea.",
+    "why": "After a preposition use the -ing form: for drilling."
+   }
+  ],
+  "u": "Drilling is making a hole with a rotating tool called a drill. It is used in machining, where holes are cut in steel or wood, and in the oil and gas industry: an offshore drilling rig. The usual patterns are drill a hole in something and drill for oil. Drilling cuts new holes, while grinding smooths a surface. The word also means repeated practice, as in military or language drills."
+ },
+ "enact": {
+  "mis": [
+   {
+    "w": "Parliament acted a new law last year.",
+    "r": "Parliament enacted a new law last year.",
+    "why": "To make a law, the verb is enact, not act."
+   },
+   {
+    "w": "The company enacted a new dress code for staff.",
+    "r": "The company introduced a new dress code for staff.",
+    "why": "Enact is for legislatures and governments; a company introduces rules."
+   }
+  ],
+  "u": "Enact is a formal verb meaning to make a proposal into law: parliament enacts legislation, a bill is enacted. The subject is a legislature or government. A company does not enact rules; it introduces or adopts them. Passive use is common: the law was enacted in 2019. The noun is enactment. Enact also means to act out a scene. To enforce is different: it means to make people obey a law."
+ },
+ "fitting": {
+  "mis": [
+   {
+    "w": "We bought new fittings of the bathroom.",
+    "r": "We bought new fittings for the bathroom.",
+    "why": "Use 'for' to say what the fittings are meant for."
+   },
+   {
+    "w": "The shop sells brass fitting in many sizes.",
+    "r": "The shop sells brass fittings in many sizes.",
+    "why": "Pipe parts are countable, so use the plural fittings."
+   }
+  ],
+  "u": "As a noun, a fitting is a small part that connects pipes or other components, such as a brass elbow or coupling. In British English fittings also means fixed equipment in a building, as in light fittings and bathroom fittings, and the legal phrase is fixtures and fittings. A fitting is also a session of trying clothes on at a tailor. As an adjective fitting means appropriate, as in a fitting tribute."
+ },
+ "fraud": {
+  "mis": [
+   {
+    "w": "He made fraud against the insurance company.",
+    "r": "He committed fraud against the insurance company.",
+    "why": "The verb that goes with fraud is commit, not make."
+   },
+   {
+    "w": "He used a fraud signature on the contract.",
+    "r": "He used a fraudulent signature on the contract.",
+    "why": "Before a noun use the adjective fraudulent, not fraud."
+   }
+  ],
+  "u": "Fraud is the crime of deceiving someone to get money or an advantage: tax fraud, insurance fraud, credit card fraud. As the general crime it is uncountable, as in be convicted of fraud. It is countable for a particular scheme, and a person who pretends to be someone else can be called a fraud. The adjective is fraudulent. Fraud needs deliberate lying, while scam is an informal word."
+ },
+ "grinding": {
+  "mis": [
+   {
+    "w": "Grinding makes a hole in the metal plate.",
+    "r": "Drilling makes a hole in the metal plate.",
+    "why": "Grinding smooths a surface; making holes is drilling."
+   },
+   {
+    "w": "The mechanic heard a grinded noise from the brakes.",
+    "r": "The mechanic heard a grinding noise from the brakes.",
+    "why": "Grind is irregular (ground); and as a describing word use grinding."
+   }
+  ],
+  "u": "Grinding is the machining process of removing a small amount of material with a rotating abrasive wheel to get a smooth, accurate surface: a grinding machine, surface grinding. It also means crushing something into powder, as with coffee, and an unpleasant scraping sound, as in a grinding noise from the brakes. Grinding poverty means severe, endless poverty. The verb is irregular: grind, ground, ground."
+ },
+ "grounding": {
+  "mis": [
+   {
+    "w": "A good grounding on grammar helps you write well.",
+    "r": "A good grounding in grammar helps you write well.",
+    "why": "The noun phrase is 'a grounding in' a subject."
+   },
+   {
+    "w": "We checked the groundings of the new factory.",
+    "r": "We checked the grounding of the new factory.",
+    "why": "In the electrical sense grounding is uncountable, so no plural."
+   }
+  ],
+  "u": "In electrical work, grounding means connecting equipment to the earth so that a fault current flows away safely instead of through a person: a grounding wire, a grounding rod. This is the American term; British English says earthing. A grounding in a subject means basic knowledge of it: a good grounding in maths. In the news, the grounding of aircraft means they are not allowed to fly."
+ },
+ "immunity": {
+  "mis": [
+   {
+    "w": "The vaccine gives immunity for the flu.",
+    "r": "The vaccine gives immunity to the flu.",
+    "why": "The disease you resist follows 'immunity to' or 'against'."
+   },
+   {
+    "w": "Vitamin C may strengthen your immune.",
+    "r": "Vitamin C may strengthen your immunity.",
+    "why": "Immune is an adjective; the noun is immunity."
+   }
+  ],
+  "u": "Immunity is the body's ability to resist an infection, gained by illness or vaccination: build immunity, herd immunity. It also means legal protection from prosecution or taxes: diplomatic immunity, immunity from prosecution. Say immunity to or against a disease, and immunity from prosecution. The adjective is immune, and the immune system is the set of organs and cells that defend the body."
+ },
+ "latency": {
+  "mis": [
+   {
+    "w": "The latency of this game is big.",
+    "r": "The latency of this game is high.",
+    "why": "Latency is described as high or low, not big."
+   },
+   {
+    "w": "We measure latency in Mbps.",
+    "r": "We measure latency in milliseconds.",
+    "why": "Latency is a time delay in ms; Mbps measures bandwidth."
+   }
+  ],
+  "u": "Latency is the delay between an action and the response in a system, such as the time data takes to cross a network. It is measured in milliseconds. Low latency matters for online games, video calls and trading. It is not the same as bandwidth, which is how much data moves per second. Say high or low latency, and reduce or cut latency. Latency is also the state of being hidden, as with a latent virus."
+ },
+ "lathe": {
+  "mis": [
+   {
+    "w": "He shaped the wooden leg with a lather.",
+    "r": "He shaped the wooden leg with a lathe.",
+    "why": "A lathe is the machine; lather means foam, so the spelling differs."
+   },
+   {
+    "w": "He made the table leg by a lathe.",
+    "r": "He made the table leg on a lathe.",
+    "why": "Work done at a machine uses 'on': on a lathe."
+   }
+  ],
+  "u": "A lathe is a machine tool that spins a piece of metal or wood while a cutting tool shapes it, which is how shafts, bolts and table legs are made. A CNC lathe is controlled by a computer. The work is done on a lathe, and the verb for it is turn. The operator is a lathe operator. The final e is silent and th sounds like the word the. Do not confuse it with lather, which is foam."
+ }
+}

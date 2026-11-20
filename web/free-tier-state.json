@@ -1,5 +1,8 @@
 {
- "mode": "shed",
- "since": "2026-11-02T02:27:23.390Z",
+ "mode": "normal",
+ "since": "2026-11-18T02:00:50.282Z",
+ "level": "ok",
+ "day": "2026-11-20",
+ "paused": [],
  "doc": "docs/FREE-TIER.md §3"
 }

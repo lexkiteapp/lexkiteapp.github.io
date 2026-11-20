@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_concentrate",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: concentrate.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means to give all your attention to a task.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "I can't concentrate with all this noise.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "concentrate",
+  "ipa": "/ˈkɑːnsəntreɪt/",
+  "mean": "to give all your attention to a task",
+  "ex": "I can't concentrate with all this noise.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=concentrate",
+  "link": "https://lexkite.com/app/#/review?w=concentrate",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 42,
+  "seconds": 25.7,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"concentrate\" mean?",
+  "keyword": "concentrate",
+  "value": "Concentrate means to give all your attention to a task.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=concentrate",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"concentrate\" mean?",
+    "description": "Concentrate means to give all your attention to a task.\n\nReview your words, free: https://lexkite.com/app/#/review?w=concentrate\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "concentrate",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"concentrate\" mean?\n\nConcentrate means to give all your attention to a task.\n\nReview your words, free: https://lexkite.com/app/#/review?w=concentrate"
+   },
+   "instagram": {
+    "caption": "What does \"concentrate\" mean?\n\nConcentrate means to give all your attention to a task.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"concentrate\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means to give all your attention to a task. Concentrate means to give all your attention to a task. Try the full lesson and quiz here: {link}"
+ }
+}

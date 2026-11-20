@@ -129,6 +129,10 @@ Lưu ý quan trọng: đừng cố nhồi ba bốn mệnh đề vào mọi câu.
 
 Khi đã quen câu phức, hãy đặt chúng vào đúng khung bài. Bài [cấu trúc IELTS Writing Task 2](/vi/blog/cau-truc-ielts-writing-task-2/) giúp bạn biết nên dùng loại câu nào ở mở bài, thân bài và kết bài.
 
+Muốn biết lỗi nào hay xuất hiện khi bạn bắt đầu viết câu phức, đọc [lỗi sai IELTS Writing thường gặp](/vi/blog/loi-sai-ielts-writing-thuong-gap/).
+
+Với dạng bài đồng ý hay phản đối, bạn có thể xem [cách viết IELTS opinion essay](/vi/blog/ielts-opinion-essay-dong-y-hay-phan-doi/) kèm bài mẫu có chú thích.
+
 ## Câu hỏi thường gặp
 
 ### Bao nhiêu câu phức trong một bài Task 2 là đủ?

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_de_how_much_time",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "How much time do you need?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: How much time need you?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: How much time do you need?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Questions need do before you.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Do you need! How much time do you need?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "How much time need you?",
+  "right": "How much time do you need?",
+  "strike": "need you",
+  "why": "Questions need do before you.",
+  "memory": "How much time do you need?",
+  "quiz": {
+   "stem": "How much time ___?",
+   "options": [
+    "do you need",
+    "need you"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "Fragen mit „do“ bilden!",
+   "tip": "Im Deutschen sagen wir „Wie viel Zeit brauchen Sie?“ Im Englischen braucht die Frage „do“ vor „you“.",
+   "caption": "Fragen Sie „How much time need you?“ ⏰ Falsch: “How much time need you?” Richtig: “How much time do you need?” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.",
+   "comment": "Lösung: “do you need”. Richtig heißt es: “How much time do you need?” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Questions need “do”!",
+   "tip": "German says “Wie viel Zeit brauchen Sie?” English needs “do” before “you.”",
+   "caption": "Questions need “do”! Wrong: “How much time need you?” Right: “How much time do you need?” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Fragen mit „do“ bilden!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "de",
+ "est": {
+  "words": 51,
+  "seconds": 30.5,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "Fragen mit „do“ bilden!",
+  "keyword": "How much time do you need?",
+  "value": "Im Deutschen sagen wir „Wie viel Zeit brauchen Sie?“ Im Englischen braucht die Frage „do“ vor „you“.",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 45,
+  "platforms": {
+   "youtube": {
+    "title": "Fragen mit „do“ bilden!",
+    "description": "Im Deutschen sagen wir „Wie viel Zeit brauchen Sie?“ Im Englischen braucht die Frage „do“ vor „you“.\n\nFragen Sie „How much time need you?“ ⏰ Falsch: “How much time need you?” Richtig: “How much time do you need?” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "How much time do you need?",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Fragen Sie „How much time need you?“ ⏰ Falsch: “How much time need you?” Richtig: “How much time do you need?” Hören Sie Carlos zu und sprechen Sie nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Fragen mit „do“ bilden!\n\nIm Deutschen sagen wir „Wie viel Zeit brauchen Sie?“ Im Englischen braucht die Frage „do“ vor „you“.\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Fragen mit „do“ bilden! Im Deutschen sagen wir „Wie viel Zeit brauchen Sie?“ Im Englischen braucht die… #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Lösung: “do you need”. Richtig heißt es: “How much time do you need?” Sagen Sie den Satz laut oder schreiben Sie einen eigenen Satz dazu. Üben Sie mit einem kostenlosen Quiz: {link}",
+  "lang": "de"
+ }
+}

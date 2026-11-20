@@ -21,6 +21,7 @@ concurrency: { group: library-build, cancel-in-progress: false }
 jobs:
   plan:
     runs-on: ubuntu-latest
+    timeout-minutes: 15   # ci-policy 2/11 (mặc định GitHub 360 giữ runner nếu treo)
     outputs: { ids: '${{ steps.p.outputs.ids }}', count: '${{ steps.p.outputs.count }}' }
     steps:
       - uses: actions/checkout@v4
@@ -49,8 +50,11 @@ jobs:
         with: { node-version: 22 }
       - uses: actions/setup-python@v5
         with: { python-version: '3.12' }
+      - uses: ./.github/actions/setup-ffmpeg
       - name: ffmpeg
-        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg libegl1 libgl1 libgles2 >/dev/null
+        timeout-minutes: 12
+        uses: ./.github/actions/apt
+        with: { packages: libegl1 libgl1 libgles2 }
       - name: Cache mô hình (rembg isnet-anime, MediaPipe)
         uses: actions/cache@v4
         with:
@@ -75,6 +79,7 @@ jobs:
     needs: [plan, build]
     if: always() && needs.plan.outputs.count != '0'
     runs-on: ubuntu-latest
+    timeout-minutes: 120   # ci-policy 2/11 (mặc định GitHub 360 giữ runner nếu treo)
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite - 7-Day Streak Celebration</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "background": "#10191B",
+            "surface": "#172427",
+            "surface-container": "#1E2F33",
+            "surface-container-low": "#132023",
+            "surface-container-high": "#22353A",
+            "surface-container-lowest": "#0D1517",
+            "surface-variant": "#2A4045",
+            "outline": "#405B61",
+            "outline-variant": "#2A4045",
+            "on-background": "#E8F1F0",
+            "on-surface": "#E8F1F0",
+            "on-surface-variant": "#A9BDBB",
+            "primary": "#2DD4BF",
+            "primary-container": "#144843",
+            "on-primary": "#003733",
+            "secondary": "#F59E0B",
+            "secondary-container": "#F59E0B",
+            "on-secondary-container": "#1A0D00",
+            "tertiary": "#4ED8C8",
+            "tertiary-container": "#24373B",
+            "tertiary-fixed": "#3E2E0A",
+            "on-tertiary-fixed": "#FCD34D"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter-md": "1.5rem",
+            "space-sm": "0.5rem",
+            "space-xs": "0.25rem",
+            "space-xl": "2.5rem",
+            "space-lg": "1.5rem",
+            "margin-lg": "3rem",
+            "gutter": "1rem",
+            "space-md": "1rem",
+            "margin": "1rem",
+            "gutter-lg": "2rem",
+            "margin-md": "2rem"
+          },
+          "fontFamily": {
+            "headline-sm": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "display-lg": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "500" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "800" }],
+            "display-lg": ["44px", { "lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "500" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+            "label-md": ["14px", { "lineHeight": "18px", "letterSpacing": "0.03em", "fontWeight": "700" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+            "label-lg": ["16px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "700" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 24px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    /* Tactile button mechanics */
+    .tactile-btn-primary {
+      box-shadow: 0 4px 0 #b45309;
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+    }
+    .tactile-btn-primary:active {
+      transform: translateY(4px);
+      box-shadow: 0 0 0 #b45309;
+    }
+    
+    .tactile-btn-secondary {
+      box-shadow: 0 4px 0 #132023;
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+    }
+    .tactile-btn-secondary:active {
+      transform: translateY(4px);
+      box-shadow: 0 0 0 #132023;
+    }
+
+    .tactile-card {
+      box-shadow: 0 6px 0 0 #0c1416;
+    }
+
+    .tactile-pill-chip {
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 2px 0 #1f1705;
+    }
+
+    .tactile-dot-active {
+      box-shadow: 0 2px 0 0 #b45309;
+    }
+
+    /* Subtle pulse animation for celebratory spark */
+    @keyframes flame-bounce {
+      0%, 100% { transform: scale(1) translateY(0); }
+      50% { transform: scale(1.04) translateY(-3px); }
+    }
+    .flame-animated {
+      animation: flame-bounce 2.2s ease-in-out infinite;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-[#10191B] text-[#E8F1F0] flex justify-center items-start min-h-screen p-0 m-0 antialiased selection:bg-teal-700">
+<!-- Mobile Canvas (390px portrait target) -->
+<div class="relative w-full max-w-[390px] min-h-screen bg-[#10191B] overflow-hidden flex flex-col justify-between">
+<!-- ==============================================
+         BACKGROUND CANVAS (Dimmed under modal dialog)
+         ============================================== -->
+<div class="absolute inset-0 bg-[#10191B] flex flex-col pointer-events-none select-none filter blur-[1px]">
+<!-- Background Header Mock -->
+<div class="h-16 px-space-md flex justify-between items-center bg-[#172427] border-b-2 border-[#2A4045]">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#2DD4BF]">arrow_back</span>
+<span class="font-headline-sm text-headline-sm text-[#2DD4BF]">Lexkite</span>
+</div>
+<div class="flex items-center gap-1 bg-[#1E2F33] px-3 py-1 rounded-full border border-[#2A4045]">
+<span class="material-symbols-outlined text-[#F59E0B]" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="font-label-md text-label-md text-[#E8F1F0]">7</span>
+</div>
+</div>
+<!-- Background Study Lesson Stimulus Mock -->
+<div class="p-space-md space-y-4">
+<div class="h-4 w-28 bg-[#2A4045] rounded-full"></div>
+<div class="h-20 bg-[#172427] rounded-2xl border-2 border-[#2A4045]"></div>
+<div class="space-y-2">
+<div class="h-14 bg-[#1E2F33] rounded-xl border-2 border-[#2A4045]"></div>
+<div class="h-14 bg-[#1E2F33] rounded-xl border-2 border-[#2A4045]"></div>
+<div class="h-14 bg-[#1E2F33] rounded-xl border-2 border-[#2A4045]"></div>
+</div>
+</div>
+</div>
+<!-- ==============================================
+         MODAL BACKDROP VEIL
+         ============================================== -->
+<div class="fixed inset-0 max-w-[390px] mx-auto bg-[#080d0e]/80 backdrop-blur-[3px] z-40 transition-opacity"></div>
+<!-- ==============================================
+         STREAK CELEBRATION MODAL DIALOG
+         ============================================== -->
+<div class="relative z-50 flex flex-col justify-center items-center min-h-screen px-4 py-6 w-full">
+<!-- Centered Tactile Modal Card -->
+<div class="w-full bg-[#172427] rounded-[24px] border-2 border-[#2A4045] tactile-card p-5 flex flex-col items-center text-center relative overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+<!-- Decorative subtle radial glow behind flame -->
+<div class="absolute top-8 w-44 h-44 rounded-full bg-[#F59E0B]/15 filter blur-2xl pointer-events-none -z-0"></div>
+<!-- 1. Milestone Tag Pill -->
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#2A2310] border border-[#B45309] tactile-pill-chip mb-4 z-10">
+<span class="material-symbols-outlined text-[16px] text-[#FCD34D] leading-none" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="font-label-sm text-label-sm text-[#FCD34D] tracking-wider uppercase">Streak Celebration</span>
+</div>
+<!-- 2. Large Glowing Flame Badge Anchor -->
+<div class="relative mb-3.5 z-10 flame-animated">
+<!-- Multi-layered tactile coin badge -->
+<div class="w-24 h-24 rounded-full bg-gradient-to-b from-[#FCD34D] to-[#F59E0B] p-1.5 shadow-[0_4px_0_0_#92400E] border-2 border-[#FEF3C7]/40 flex items-center justify-center">
+<div class="w-full h-full rounded-full bg-gradient-to-tr from-[#EA580C] via-[#F59E0B] to-[#FDE047] flex items-center justify-center relative shadow-inner">
+<!-- Internal Gloss Glint -->
+<div class="absolute top-1 left-2 right-2 h-4 rounded-full bg-white/40 blur-[0.5px]"></div>
+<!-- Core Flame Icon -->
+<span class="material-symbols-outlined text-[54px] text-[#1A0D00] drop-shadow-sm select-none" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+</div>
+</div>
+<!-- Sparkle badge floating -->
+<div class="absolute -top-1 -right-1 w-7 h-7 bg-[#1E2F33] rounded-full border border-[#2A4045] shadow-[0_2px_0_0_#0D1517] flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px] text-[#F59E0B]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<!-- 3. Headline & Supportive Copy -->
+<div class="space-y-1.5 mb-4 z-10 px-1">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-[#E8F1F0] tracking-tight">
+            7-day streak!
+          </h1>
+<p class="font-body-sm text-body-sm text-[#A9BDBB] max-w-[290px] mx-auto leading-relaxed">
+            You've practiced every day this week! Consistency is the fastest path to IELTS Band 7.5.
+          </p>
+</div>
+<!-- 4. Week Dots Matrix (7/7 Complete) -->
+<div class="w-full bg-[#1E2F33] rounded-2xl border-2 border-[#2A4045] p-3 mb-3.5 z-10">
+<div class="flex items-center justify-between gap-1">
+<!-- Day 1: Mon -->
+<div class="flex flex-col items-center gap-1.5 flex-1">
+<span class="font-label-sm text-[11px] text-[#A9BDBB] font-bold">M</span>
+<div class="w-8 h-8 rounded-full bg-[#F59E0B] text-[#1A0D00] border border-[#D97706] tactile-dot-active flex items-center justify-center">
+<span class="material-symbols-outlined text-[17px] text-[#1A0D00]" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+</div>
+<!-- Day 2: Tue -->
+<div class="flex flex-col items-center gap-1.5 flex-1">
+<span class="font-label-sm text-[11px] text-[#A9BDBB] font-bold">T</span>
+<div class="w-8 h-8 rounded-full bg-[#F59E0B] text-[#1A0D00] border border-[#D97706] tactile-dot-active flex items-center justify-center">
+<span class="material-symbols-outlined text-[17px] text-[#1A0D00]" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+</div>
+<!-- Day 3: Wed -->
+<div class="flex flex-col items-center gap-1.5 flex-1">
+<span class="font-label-sm text-[11px] text-[#A9BDBB] font-bold">W</span>
+<div class="w-8 h-8 rounded-full bg-[#F59E0B] text-[#1A0D00] border border-[#D97706] tactile-dot-active flex items-center justify-center">
+<span class="material-symbols-outlined text-[17px] text-[#1A0D00]" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+</div>
+<!-- Day 4: Thu -->
+<div class="flex flex-col items-center gap-1.5 flex-1">
+<span class="font-label-sm text-[11px] text-[#A9BDBB] font-bold">T</span>
+<div class="w-8 h-8 rounded-full bg-[#F59E0B] text-[#1A0D00] border border-[#D97706] tactile-dot-active flex items-center justify-center">
+<span class="material-symbols-outlined text-[17px] text-[#1A0D00]" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+</div>
+<!-- Day 5: Fri -->
+<div class="flex flex-col items-center gap-1.5 flex-1">
+<span class="font-label-sm text-[11px] text-[#A9BDBB] font-bold">F</span>
+<div class="w-8 h-8 rounded-full bg-[#F59E0B] text-[#1A0D00] border border-[#D97706] tactile-dot-active flex items-center justify-center">
+<span class="material-symbols-outlined text-[17px] text-[#1A0D00]" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+</div>
+<!-- Day 6: Sat -->
+<div class="flex flex-col items-center gap-1.5 flex-1">
+<span class="font-label-sm text-[11px] text-[#A9BDBB] font-bold">S</span>
+<div class="w-8 h-8 rounded-full bg-[#F59E0B] text-[#1A0D00] border border-[#D97706] tactile-dot-active flex items-center justify-center">
+<span class="material-symbols-outlined text-[17px] text-[#1A0D00]" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+</div>
+<!-- Day 7: Sun (Milestone Active Flame) -->
+<div class="flex flex-col items-center gap-1.5 flex-1">
+<span class="font-label-sm text-[11px] text-[#F59E0B] font-extrabold">S</span>
+<div class="w-8 h-8 rounded-full bg-[#FCD34D] border-2 border-[#F59E0B] text-[#1A0D00] shadow-[0_2px_0_0_#92400E] flex items-center justify-center scale-105">
+<span class="material-symbols-outlined text-[18px] text-[#1A0D00]" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+</div>
+</div>
+</div>
+<!-- Weekly Completion Sub-banner -->
+<div class="mt-2.5 pt-2 border-t border-[#2A4045] flex items-center justify-center gap-1.5">
+<span class="font-label-sm text-label-sm font-bold text-[#2DD4BF]">7 of 7 days completed</span>
+<span class="w-1 h-1 rounded-full bg-[#879391]" style="background-color: #8EE0D5;"></span>
+<span class="font-label-sm text-label-sm font-bold text-[#F59E0B]">Perfect week</span>
+</div>
+</div>
+<!-- 5. Reward Highlight Chip Bar -->
+<div class="w-full flex items-center justify-center gap-2 py-2 px-3 bg-[#1E2F33] rounded-xl border border-[#2A4045] mb-3 z-10 flex-wrap">
+<div class="flex items-center gap-1 text-[#F59E0B] font-label-md text-label-md">
+<span class="material-symbols-outlined text-[18px] text-[#F59E0B]" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<span>+50 XP</span>
+</div>
+<span class="text-xs" style="color: #8EE0D5;">•</span>
+<div class="flex items-center gap-1 text-[#2DD4BF] font-label-md text-label-md">
+<span class="material-symbols-outlined text-[18px] text-[#2DD4BF]" style="font-variation-settings: 'FILL' 1;">military_tech</span>
+<span>7-Day Badge Unlocked</span>
+</div>
+</div>
+<!-- 6. Streak Freeze Status Indicator Card -->
+<div class="w-full flex items-center justify-between px-3.5 py-2.5 bg-[#1E2F33] rounded-xl border-2 border-[#2A4045] shadow-[0_2px_0_0_#132023] mb-5 z-10 text-left">
+<div class="flex items-center gap-2.5">
+<div class="w-7 h-7 rounded-lg bg-[#142629] border border-[#2DD4BF]/40 flex items-center justify-center text-[#2DD4BF]">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">ac_unit</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-[13px] leading-tight text-[#E8F1F0] font-bold">Streak freeze active</span>
+<span class="font-body-sm text-[11px] text-[#A9BDBB]">Shields missed study days</span>
+</div>
+</div>
+<div class="px-2 py-0.5 rounded-full bg-[#143236] border border-[#2DD4BF] text-[#2DD4BF] font-label-sm text-[11px] whitespace-nowrap">
+            1 freeze left
+          </div>
+</div>
+<!-- 7. Tactile Action Cluster -->
+<div class="w-full space-y-2.5 z-10">
+<!-- Primary CTA Button (High-contrast deep brown-black ink on vivid tactile orange) -->
+<button class="tactile-btn-primary w-full h-[52px] bg-[#F59E0B] hover:bg-[#D97706] rounded-2xl border-2 border-[#D97706] flex items-center justify-center gap-2 cursor-pointer transition-colors group">
+<span class="font-label-lg text-label-lg font-extrabold text-[#1A0D00] tracking-wide">
+              Continue
+            </span>
+<span class="material-symbols-outlined text-[20px] text-[#1A0D00] font-bold transition-transform group-hover:translate-x-0.5">
+              arrow_forward
+            </span>
+</button>
+<!-- Secondary Tactile Share Button -->
+<button class="tactile-btn-secondary w-full h-[48px] bg-[#1E2F33] hover:bg-[#25393E] rounded-2xl border-2 border-[#2DD4BF] flex items-center justify-center gap-2 cursor-pointer transition-colors text-[#2DD4BF]">
+<span class="material-symbols-outlined text-[19px]">
+              share
+            </span>
+<span class="font-label-md text-label-md font-bold text-[#2DD4BF]">
+              Share streak
+            </span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</body></html>

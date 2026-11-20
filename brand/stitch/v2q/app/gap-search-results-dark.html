@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Lexkite — Search: deadline (Tactile Night Native Mobile)</title>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            night: {
+              page: '#091518',
+              card: '#10252B',
+              cardLedge: '#061013',
+              cardBorder: '#1E3D45',
+              surfaceAlt: '#142E36',
+              surfaceAltLedge: '#09181C',
+              textPrimary: '#F1F7F8',
+              textSecondary: '#A2BEC4',
+              textMuted: '#73959C',
+              tealAccent: '#2DD4BF',
+              tealDeep: '#136B66',
+              tealLedge: '#0B4340',
+              amberAccent: '#F59E0B',
+              amberLedge: '#9A3412',
+              dangerAccent: '#FB7185',
+              dangerDeep: '#881337',
+              inkBlack: '#1C1003'
+            }
+          },
+          boxShadow: {
+            'tactile-card': '0 4px 0 #061013',
+            'tactile-sm': '0 3px 0 #061013',
+            'tactile-btn': '0 4px 0 #9A3412',
+            'tactile-teal': '0 3px 0 #0B4340',
+            'tactile-tab': '0 3px 0 #0B4340'
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    body {
+      background-color: #091518;
+      color: #F1F7F8;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined.fill {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Hide scrollbars */
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    * {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+  </style>
+</head>
+<body class="bg-[#091518] text-[#F1F7F8] min-h-screen flex flex-col justify-between selection:bg-[#2DD4BF]/30">
+<!-- Mobile Viewport Container (Fixed width 390px native mobile, edge-to-edge content, zero outer device frame) -->
+<div class="w-full min-h-screen flex flex-col relative pb-28">
+<!-- Top App Bar -->
+<header class="w-full px-4 pt-3 pb-2 flex items-center justify-between sticky top-0 z-40 bg-[#091518]/95 backdrop-blur-md">
+<!-- Brand Logo & Dot -->
+<div class="flex items-center gap-2">
+<!-- Lexkite 4-facet diamond logo -->
+<svg class="w-6 h-6 shrink-0" fill="none" viewbox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
+<path d="M14 2L25 14H14V2Z" fill="#F59E0B"></path>
+<path d="M14 2L3 14H14V2Z" fill="#2DD4BF"></path>
+<path d="M14 26L3 14H14V26Z" fill="#0D5E58"></path>
+<path d="M14 26L25 14H14V26Z" fill="#EA580C"></path>
+<circle cx="14" cy="14" fill="#FFFFFF" opacity="0.9" r="2.5"></circle>
+</svg>
+<span class="text-[17px] font-black tracking-tight text-[#F1F7F8]">LEXKITE</span>
+<span class="w-2 h-2 rounded-full bg-[#F59E0B]"></span>
+</div>
+<!-- Header Action Badges (Streak & Lightning XP) -->
+<div class="flex items-center gap-2">
+<!-- Streak Chip -->
+<div class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#10252B] border border-[#1E3D45] shadow-[0_2px_0_#061013]">
+<span class="text-[13px] font-extrabold text-[#F1F7F8]">14</span>
+<span class="text-sm leading-none">🔥</span>
+</div>
+<!-- XP Chip -->
+<div class="flex items-center gap-1 px-3 py-1 rounded-full bg-[#10252B] border border-[#1E3D45] shadow-[0_2px_0_#061013]">
+<span class="text-[13px] font-extrabold text-[#F1F7F8]">420</span>
+<span class="text-[13px] leading-none text-[#F59E0B] font-black">⚡</span>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="px-4 pt-1 flex flex-col gap-4">
+<!-- Active Search Input Field -->
+<div class="w-full relative">
+<div class="flex items-center w-full h-[52px] px-4 rounded-2xl bg-[#10252B] border-2 border-[#2DD4BF] shadow-[0_3px_0_#0B4340] focus-within:ring-2 focus-within:ring-[#2DD4BF]/40 transition-all">
+<span class="material-symbols-outlined text-[#2DD4BF] text-[22px] mr-2.5">search</span>
+<input class="w-full bg-transparent text-[#F1F7F8] font-bold text-[17px] outline-none placeholder-[#73959C]" placeholder="Search word or topic..." readonly="" type="text" value="deadline"/>
+<button aria-label="Clear input" class="w-6 h-6 rounded-full bg-[#1E3D45] flex items-center justify-center text-[#A2BEC4] hover:text-[#F1F7F8] active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+</div>
+<!-- Coach Ama AI Notification Strip with Empty Teacher Slot -->
+<div class="w-full flex items-center gap-3">
+<!-- Empty Teacher Slot: .teacher-slot (dashed border, soft dark-teal tint, academic cap glyph) -->
+<div class="teacher-slot w-12 h-12 rounded-2xl border-2 border-dashed border-[#2DD4BF]/60 bg-[#10252B] flex items-center justify-center shrink-0 shadow-[0_2px_0_#061013]">
+<span class="material-symbols-outlined text-[#2DD4BF] text-[22px]">school</span>
+</div>
+<!-- Coach Ama speech bubble card -->
+<div class="flex-1 px-4 py-2.5 rounded-2xl bg-[#10252B] border border-[#1E3D45] shadow-[0_3px_0_#061013] flex flex-col justify-center">
+<div class="flex items-center justify-between mb-0.5">
+<span class="px-2 py-0.5 rounded-md bg-[#136B66] text-[#F1F7F8] text-[10px] font-black tracking-wider uppercase">COACH AMA</span>
+<span class="text-[11px] font-semibold text-[#2DD4BF]">Instant AI</span>
+</div>
+<div class="text-[14px] font-bold text-[#F1F7F8] flex items-center gap-1.5">
+<span>Found it in 4 places.</span>
+<span class="text-xs text-[#F59E0B]">✨</span>
+</div>
+</div>
+</div>
+<!-- SECTION 1: DICTIONARY EXACT MATCH -->
+<section class="flex flex-col gap-2">
+<div class="flex items-center justify-between px-1">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-[#2DD4BF]"></span>
+<h2 class="text-[12px] font-black tracking-wider text-[#A2BEC4] uppercase">DICTIONARY</h2>
+</div>
+<span class="px-2.5 py-0.5 rounded-full bg-[#136B66]/30 border border-[#2DD4BF]/40 text-[#2DD4BF] text-[11px] font-bold">Exact Match</span>
+</div>
+<!-- Dictionary Entry Card -->
+<div class="w-full p-4 rounded-3xl bg-[#10252B] border-2 border-[#1E3D45] shadow-[0_4px_0_#061013] flex flex-col gap-3 relative">
+<!-- Top Row: Headword, POS pill, and Audio button -->
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<h3 class="text-[26px] font-black tracking-tight text-[#F1F7F8] leading-tight">deadline</h3>
+<span class="px-2 py-0.5 rounded-full bg-[#136B66]/40 border border-[#2DD4BF]/50 text-[#2DD4BF] text-[12px] font-extrabold">n.</span>
+</div>
+<span class="text-[14px] font-medium text-[#A2BEC4] font-mono tracking-wide mt-0.5">/ˈded.laɪn/</span>
+</div>
+<!-- Audio Speaker Button -->
+<button aria-label="Listen pronunciation" class="w-11 h-11 rounded-2xl bg-[#136B66] border border-[#2DD4BF]/40 text-[#F1F7F8] shadow-[0_3px_0_#0B4340] flex items-center justify-center active:translate-y-0.5 active:shadow-none transition-all">
+<span class="material-symbols-outlined text-[22px]">volume_up</span>
+</button>
+</div>
+<!-- Definition Box (Sub-card in dark slate) -->
+<div class="w-full p-3.5 rounded-2xl bg-[#142E36] border border-[#1E3D45] text-[14px] leading-relaxed font-semibold text-[#F1F7F8]">
+            A point in time by which the work or examination report must be finished.
+          </div>
+<!-- Tags & Arrow Navigation row -->
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-2 flex-wrap">
+<span class="px-2.5 py-1 rounded-xl bg-[#F59E0B]/20 border border-[#F59E0B]/40 text-[#FBBF24] text-[12px] font-bold">
+                B2 · Work &amp; Careers
+              </span>
+<span class="px-2.5 py-1 rounded-xl bg-[#142E36] border border-[#1E3D45] text-[#A2BEC4] text-[12px] font-semibold">
+                IELTS / TOEIC High-yield
+              </span>
+</div>
+<span class="material-symbols-outlined text-[#2DD4BF] text-[20px]">chevron_right</span>
+</div>
+</div>
+</section>
+<!-- SECTION 2: IN YOUR DECK -->
+<section class="flex flex-col gap-2">
+<div class="flex items-center justify-between px-1">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-[#F59E0B]"></span>
+<h2 class="text-[12px] font-black tracking-wider text-[#A2BEC4] uppercase">IN YOUR DECK</h2>
+</div>
+<span class="text-[12px] font-semibold text-[#73959C]">1 flashcard active</span>
+</div>
+<!-- Deck Card -->
+<div class="w-full p-3.5 rounded-2xl bg-[#10252B] border-2 border-[#1E3D45] shadow-[0_4px_0_#061013] flex items-center justify-between active:translate-y-0.5 transition-all cursor-pointer">
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 rounded-2xl bg-[#F59E0B]/15 border border-[#F59E0B]/30 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[#F59E0B] text-[22px]">style</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="text-[15px] font-extrabold text-[#F1F7F8]">Work &amp; Career...</span>
+<span class="px-2 py-0.5 rounded-md bg-[#136B66]/30 border border-[#2DD4BF]/40 text-[#2DD4BF] text-[10px] font-black tracking-wide">SPACED CARD</span>
+</div>
+<span class="text-[12px] font-medium text-[#A2BEC4] mt-0.5">Mastery: Level 3 · Scheduled revi...</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-[#A2BEC4] text-[20px]">chevron_right</span>
+</div>
+</section>
+<!-- SECTION 3: LESSONS -->
+<section class="flex flex-col gap-2">
+<div class="flex items-center justify-between px-1">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-[#2DD4BF]"></span>
+<h2 class="text-[12px] font-black tracking-wider text-[#A2BEC4] uppercase">LESSONS</h2>
+</div>
+<span class="text-[12px] font-semibold text-[#73959C]">1 matched unit</span>
+</div>
+<!-- Lesson Unit Card -->
+<div class="w-full p-3.5 rounded-2xl bg-[#10252B] border-2 border-[#1E3D45] shadow-[0_4px_0_#061013] flex items-center justify-between active:translate-y-0.5 transition-all cursor-pointer">
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 rounded-2xl bg-[#142E36] border border-[#1E3D45] flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[#2DD4BF] text-[22px]">work</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded-md bg-[#136B66] text-[#F1F7F8] text-[10px] font-black tracking-wider">UNIT 6</span>
+<span class="text-[15px] font-extrabold text-[#F1F7F8]">Work &amp; careers</span>
+</div>
+<div class="flex items-center gap-2 mt-0.5">
+<span class="text-[12px] font-medium text-[#A2BEC4] truncate max-w-[170px]">Lesson 3: Office tasks, priorities ...</span>
+<span class="px-2 py-0.2 rounded-md bg-[#142E36] text-[#2DD4BF] text-[11px] font-bold shrink-0">8 words</span>
+</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-[#A2BEC4] text-[20px]">chevron_right</span>
+</div>
+</section>
+<!-- SECTION 4: PHRASES & COLLOCATIONS -->
+<section class="flex flex-col gap-2.5">
+<div class="flex items-center justify-between px-1">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-[#F59E0B]"></span>
+<h2 class="text-[12px] font-black tracking-wider text-[#A2BEC4] uppercase">PHRASES &amp; COLLOCATIONS</h2>
+</div>
+<span class="text-[12px] font-semibold text-[#73959C]">2 key collocations</span>
+</div>
+<!-- Collocation 1: meet a deadline -->
+<div class="w-full p-3.5 rounded-2xl bg-[#10252B] border-2 border-[#1E3D45] shadow-[0_4px_0_#061013] flex items-center justify-between active:translate-y-0.5 transition-all cursor-pointer">
+<div class="flex items-start gap-3">
+<div class="w-9 h-9 rounded-xl bg-[#136B66]/30 border border-[#2DD4BF]/40 flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[#2DD4BF] text-[20px]">check_circle</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[15px] font-black text-[#F1F7F8]">meet a deadline</span>
+<p class="text-[13px] font-medium text-[#A2BEC4] mt-0.5">
+                Finish on time · <span class="italic text-[#F1F7F8]">"We worked late to meet the deadline."</span>
+</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-[#A2BEC4] text-[20px] ml-2 shrink-0">chevron_right</span>
+</div>
+<!-- Collocation 2: miss a deadline -->
+<div class="w-full p-3.5 rounded-2xl bg-[#10252B] border-2 border-[#1E3D45] shadow-[0_4px_0_#061013] flex items-center justify-between active:translate-y-0.5 transition-all cursor-pointer">
+<div class="flex items-start gap-3">
+<div class="w-9 h-9 rounded-xl bg-[#881337]/30 border border-[#FB7185]/40 flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[#FB7185] text-[20px]">warning</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[15px] font-black text-[#F1F7F8]">miss a deadline</span>
+<p class="text-[13px] font-medium text-[#A2BEC4] mt-0.5">
+                Fail to finish by due time · <span class="text-[#FB7185] font-bold">Common examiner pitfall</span>
+</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-[#A2BEC4] text-[20px] ml-2 shrink-0">chevron_right</span>
+</div>
+</section>
+<!-- Primary Action CTA Button -->
+<div class="w-full pt-1 pb-2 flex flex-col items-center gap-1.5">
+<button class="w-full h-[54px] rounded-2xl bg-[#F59E0B] border-2 border-[#B45309] shadow-[0_4px_0_#9A3412] active:translate-y-1 active:shadow-none transition-all flex items-center justify-center gap-2">
+<!-- Deep brown-black label (#1C1003) on amber/orange button strictly enforced -->
+<span class="text-[16px] font-black text-[#1C1003] tracking-tight">Start 2–Minute Practice Sprint</span>
+<span class="material-symbols-outlined text-[#1C1003] text-[20px] font-bold">arrow_forward</span>
+</button>
+<span class="text-[12px] font-semibold text-[#A2BEC4] text-center">
+          +15 XP · Practice 'deadline' across 4 authentic questions
+        </span>
+</div>
+</main>
+<!-- Bottom Navigation Bar (Docked 5 tabs: Today, Vocab, Skills, Tests, Me; Vocab active) -->
+<nav class="fixed bottom-0 left-0 right-0 h-[68px] bg-[#10252B] border-t-2 border-[#1E3D45] flex items-center justify-around px-2 z-50">
+<!-- Tab 1: Today -->
+<button class="flex flex-col items-center justify-center py-1 px-3 text-[#A2BEC4] hover:text-[#F1F7F8] transition-colors">
+<span class="material-symbols-outlined text-[22px]">calendar_today</span>
+<span class="text-[11px] font-bold mt-0.5">Today</span>
+</button>
+<!-- Tab 2: Vocab (ACTIVE TAB - Styled as tactile rounded pill with dark-ink on amber/orange) -->
+<button class="flex flex-col items-center justify-center py-1.5 px-4 rounded-2xl bg-[#F59E0B] border border-[#B45309] shadow-[0_2px_0_#9A3412] active:translate-y-0.5 transition-all">
+<span class="material-symbols-outlined text-[22px] text-[#1C1003]">menu_book</span>
+<span class="text-[11px] font-black text-[#1C1003] mt-0.5">Vocab</span>
+</button>
+<!-- Tab 3: Skills -->
+<button class="flex flex-col items-center justify-center py-1 px-3 text-[#A2BEC4] hover:text-[#F1F7F8] transition-colors">
+<span class="material-symbols-outlined text-[22px]">psychology</span>
+<span class="text-[11px] font-bold mt-0.5">Skills</span>
+</button>
+<!-- Tab 4: Tests -->
+<button class="flex flex-col items-center justify-center py-1 px-3 text-[#A2BEC4] hover:text-[#F1F7F8] transition-colors">
+<span class="material-symbols-outlined text-[22px]">assignment</span>
+<span class="text-[11px] font-bold mt-0.5">Tests</span>
+</button>
+<!-- Tab 5: Me -->
+<button class="flex flex-col items-center justify-center py-1 px-3 text-[#A2BEC4] hover:text-[#F1F7F8] transition-colors">
+<span class="material-symbols-outlined text-[22px]">person</span>
+<span class="text-[11px] font-bold mt-0.5">Me</span>
+</button>
+</nav>
+</div>
+</body>
+</html>

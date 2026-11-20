@@ -5,6 +5,7 @@
 // (thường SAU các module defer, có khi sau cả DOMContentLoaded). Mọi t() chạy lúc nạp module / trước khi từ điển về
 // → trả về khóa tiếng Việt và bị giữ mãi. Quy tắc: t() chỉ gọi lúc vẽ (trong hàm), dữ liệu lưu giữ KHÓA (I18N.tk), không lưu chữ đã dịch.
 import { createRequire } from 'node:module';
+import { bundlesIn } from '../lib/bundles.mjs';
 import fs from 'node:fs'; import path from 'node:path'; import vm from 'node:vm';
 const require = createRequire(import.meta.url);
 const { JSDOM, VirtualConsole } = require('jsdom');
@@ -17,7 +18,7 @@ const VI = /[ăđơưạảấầẩẫậắằẳẵặẹẻẽếềểễ�
 const VI0 = VI, VIS = /[âêôăđơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i; // es/ja/ar…: â ê ô cũng là dấu hiệu tiếng Việt (“câu”, “nên”)
 const ROUTES = ['#/home', '#/me', '#/vocab', '#/library', '#/review', '#/practice', '#/path', '#/plan', '#/stats', '#/settings', '#/league', '#/goal',
   '#/skills', '#/tests', '#/mistakes', '#/grammar', '#/pron', '#/listening', '#/reading', '#/speaking', '#/write', '#/task1', '#/letters', '#/rtype',
-  '#/mock', '#/toeic', '#/toefl', '#/dict/sustainable', '#/topic/education', '#/topic/ngsl1', '#/resources', '#/placement', '#/usage', '#/usage/interested', '#/usage?c=pair', '#/home'];
+  '#/mock', '#/toeic', '#/toefl', '#/cambridge', '#/mediate', '#/mediate/m01', '#/cambridge/a2-t1', '#/cambridge/a2-t1?p=speaking', '#/dict/sustainable', '#/topic/education', '#/topic/ngsl1', '#/resources', '#/placement', '#/usage', '#/usage/interested', '#/usage?c=pair', '#/home'];
 const html = fs.readFileSync(path.join(WEB, 'app', 'index.html'), 'utf8').replace(/<!--hero-->[\s\S]*?<!--\/hero-->/, '');
 const scripts = [...html.matchAll(/<script(?: defer)? src="([^"]+)"><\/script>/g)].map(m => m[1]);
 const tick = (ms = 40) => new Promise(r => setTimeout(r, ms));
@@ -68,8 +69,7 @@ if (args.includes('--scan')) {
   for (const f of scripts) { run(f); if (/i18n\.js$/.test(f)) spy(); }
   // bundle tải lười (BUNDLES trong app.js) + mọi file js còn lại (thư viện từ, dữ liệu bài…) – lỗi nạp bỏ qua
   const loaded = new Set(scripts);
-  const src = fs.readFileSync(path.join(WEB, 'js/app.js'), 'utf8'), a = src.indexOf("const G = 'js/grammar/', BUNDLES = {"), b = src.indexOf('\n  };', a);
-  const lazy = [...new Set(Object.values(new Function(src.slice(a, b + 4) + '; return BUNDLES;')()).flat())];
+  const lazy = [...new Set(Object.values(bundlesIn(WEB)).flat())];
   const rest = []; const walk = d => { for (const f of fs.readdirSync(path.join(WEB, d)).sort()) { const p = d + '/' + f; if (fs.statSync(path.join(WEB, p)).isDirectory()) { if (!/^(i18n|vendor|notes)$/.test(f)) walk(p); } else if (/\.js$/.test(f) && !/^admin|^sw\.js$/.test(f)) rest.push(p); } };
   walk('js');
   for (const f of [...lazy, ...rest]) if (!loaded.has(f)) { loaded.add(f); run(f); }

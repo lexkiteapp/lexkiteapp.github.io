@@ -1,16 +1,15 @@
 # Zero-credit mouth swap + clean-up for one bank clip -> shot frames (BGR, 1080x1920, 24 fps)
 # Visemes come from Rhubarb JSON (run on CI). Sprites = aligned mouth crops harvested from the SAME clip (bank meta).
-import cv2, numpy as np, json, os
+import cv2, numpy as np, json, os, sys
 FPS = 24
 WM_CROP = (0, 0, 1080, 1916)           # watermark-free originals (urlWithoutWatermark): full frame; 1916-px clips -> 1920 (+0.2 %)
 def load_meta(d):
     m = json.load(open(f'{d}/mouth.json')); z = np.load(f'{d}/crops.npz')
     return m, np.load(f'{d}/track.npy'), z['crops'], z['roi']
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'lipsync'))
+import visemes as VIS   # MỘT bảng viseme + cách chọn hình với web (web/js/call/visemes.json; test chéo scripts/test/lipsync-cross.mjs)
 def cues_at(cues, t):
-    v = 'X'
-    for c in cues:
-        if c['start'] <= t + 1e-6: v = c['value']
-    return v
+    return VIS.shape_at(cues, t)
 class Mouth:
     def __init__(self, d):
         self.m, self.MS, self.C, roi = load_meta(d); self.rx0, self.ry0, self.rw, self.rh = [int(v) for v in roi]

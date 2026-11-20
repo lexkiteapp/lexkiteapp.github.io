@@ -286,6 +286,30 @@ export function altUntruths(alt, rec, lang) {
 }
 
 // ---------- Trần dung lượng + schema sổ ảnh ----------
+// SSIM thô (khối 8×8, ảnh xám 8 bit, cùng kích thước) – thước đo độ nhòe chữ trên ảnh chụp màn hình; 1 = giống hệt.
+export function ssimGray(a, b, w, h) {
+  const C1 = 6.5025, C2 = 58.5225; let sum = 0, n = 0;
+  for (let by = 0; by + 8 <= h; by += 8) for (let bx = 0; bx + 8 <= w; bx += 8) {
+    let sa = 0, sb = 0, saa = 0, sbb = 0, sab = 0;
+    for (let y = 0; y < 8; y++) for (let x = 0; x < 8; x++) { const i = (by + y) * w + bx + x, p = a[i], q = b[i]; sa += p; sb += q; saa += p * p; sbb += q * q; sab += p * q; }
+    const ma = sa / 64, mb = sb / 64, va = saa / 64 - ma * ma, vb = sbb / 64 - mb * mb, cov = sab / 64 - ma * mb;
+    sum += ((2 * ma * mb + C1) * (2 * cov + C2)) / ((ma * ma + mb * mb + C1) * (va + vb + C2)); n++;
+  }
+  return n ? sum / n : 1;
+}
+// Hạ chất lượng AVIF từng nấc tới khi ≤ trần, NHƯNG dừng khi SSIM < minScore (không đổi chữ nhòe lấy dung lượng). enc(q)→Buffer, score(buf)→SSIM.
+// ok=false khi chạm sàn chất lượng mà vẫn > trần → người gọi giảm kích thước hiển thị (không hạ q tiếp).
+export async function fitAvif(enc, budgetBytes, { score = async () => 1, minScore = 0, start = 55, step = 5, floor = 10 } = {}) {
+  let q = start, last = null;
+  for (;;) {
+    const buf = await enc(q), sc = await score(buf);
+    if (sc < minScore) return { buf: last ? last.buf : buf, q: last ? last.q : q, ok: false, score: last ? last.score : sc };
+    last = { buf, q, score: sc };
+    if (buf.length <= budgetBytes) return { ...last, ok: true };
+    if (q <= floor) return { ...last, ok: false };
+    q = Math.max(floor, q - step);
+  }
+}
 export function overBudget(bytes, budgetKB = 60) { // bytes: { "1440.avif": n, … } → các bản AVIF lớn nhất vượt trần
   const av = Object.entries(bytes || {}).filter(([k]) => k.endsWith('.avif')).map(([k, v]) => [parseInt(k, 10), v]).sort((a, b) => b[0] - a[0]);
   return av.length && av[0][1] > budgetKB * 1024 ? [`AVIF ${av[0][0]} px = ${(av[0][1] / 1024).toFixed(1)} KB > ${budgetKB} KB`] : [];
@@ -316,3 +340,10 @@ export function appRoutes(root = process.cwd()) {
   return (ROUTES = set);
 }
 export const routeName = r => String(r).replace(/^#\//, '').split(/[/?]/)[0];
+// Ảnh thẻ danh sách: chọn trong ảnh `media:` của bài (imgs = [{id, real, alt}]; MEDIA = sổ ảnh). Ưu tiên: chưa dùng trong lưới → ảnh ngang (1.3–2) → ảnh riêng @ → ít bài dùng chung.
+// Ảnh dọc/vuông vẫn nhận (CSS cắt khung 16:10 từ đầu ảnh); chỉ khi chưa render (không có trong sổ) mới bị bỏ.
+export function pickThumb(imgs, MEDIA, { used, imgUse = {} } = {}) {
+  const ok = imgs.filter(x => MEDIA[x.real]), land = x => { const r = MEDIA[x.real].w / MEDIA[x.real].h; return r >= 1.3 && r <= 2 ? 0 : 1; };
+  const key = x => [used?.has(x.real) ? 1 : 0, land(x), x.id.startsWith('@') ? 0 : 1, imgUse[x.id] || 0];
+  return ok.sort((a, b) => { const ka = key(a), kb = key(b); for (let i = 0; i < ka.length; i++) if (ka[i] !== kb[i]) return ka[i] - kb[i]; return 0; })[0] || null;
+}

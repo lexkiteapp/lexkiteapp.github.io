@@ -154,6 +154,8 @@ Gunakan strategi alokasi waktu berikut agar Anda tidak kehabisan waktu sebelum b
 - **Menit 3–17 (Penulisan)**: Tulis keempat paragraf dengan fokus pada perbandingan komparatif dan penggunaan variasi verba serta konjungsi.
 - **Menit 17–20 (Penyuntingan)**: Periksa kesesuaian tenses (terutama *past tense*), ejaan angka, dan ketepatan preposisi pengukuran.
 
+Untuk jenis grafik batang secara khusus, lihat contoh laporan lengkap dengan data karangan sendiri di [IELTS Writing Task 1 bar chart](/id/blog/contoh-ielts-writing-task-1-bar-chart/).
+
 ## Kesalahan fatal yang wajib dihindari
 
 | Kesalahan umum | Contoh keliru | Cara penulisan yang benar |
@@ -163,6 +165,8 @@ Gunakan strategi alokasi waktu berikut agar Anda tidak kehabisan waktu sebelum b
 | **Menyalin kata soal** | Menulis ulang kalimat petunjuk tanpa variasi | Gunakan teknik parafrase dengan kosakata akademik |
 | **Menyajikan angka tanpa komparasi** | *"A was 10. B was 20. C was 30."* | *"B was twice as high as A, whereas C formed the highest share."* |
 
-Untuk memperluas kesiapan Anda menghadapi ujian IELTS secara menyeluruh, pelajari teknik [parafrase dalam IELTS writing dan reading](/id/blog/cara-paraphrase-ielts-writing-reading/), pahami strategi penulisan esai pada [struktur writing task 2 ielts](/id/blog/struktur-writing-task-2-ielts/), kuasai penggunaan [kalimat kompleks di ielts writing](/id/blog/kalimat-kompleks-ielts-writing-task-2/), terapkan transisi halus dengan [kata penghubung linking words](/id/blog/kata-penghubung-bahasa-inggris-linking-words/), serta pahami pembentukan [kalimat pasif (passive voice)](/id/blog/kalimat-pasif-bahasa-inggris-passive-voice/) yang sangat relevan untuk laporan proses dan data objektif. Jangan lupa mengeksplorasi kosakata akademik pelengkap di repositori [/tu-vung/](/tu-vung/).
+Untuk memperluas kesiapan Anda menghadapi ujian IELTS secara menyeluruh, pelajari teknik [parafrase dalam IELTS writing dan reading](/id/blog/cara-paraphrase-ielts-writing-reading/), pahami strategi penulisan esai pada [struktur writing task 2 ielts](/id/blog/struktur-writing-task-2-ielts/), kuasai penggunaan [kalimat kompleks di ielts writing](/id/blog/kalimat-kompleks-ielts-writing-task-2/), terapkan transisi halus dengan [kata penghubung linking words](/id/blog/kata-penghubung-bahasa-inggris-linking-words/), serta pahami pembentukan [kalimat pasif (passive voice)](/id/blog/kalimat-pasif-bahasa-inggris-passive-voice/) yang sangat relevan untuk laporan proses dan data objektif. Jangan lupa mengeksplorasi kosakata akademik pelengkap di repositori [/tu-vung/](/en/vocabulary/).
 
 Dengan disiplin menerapkan kerangka 4 paragraf dan menguasai kosakata tren, Anda dapat menuntaskan laporan Task 1 secara efisien, akurat, dan percaya diri.
+
+Soal Task 1 tidak selalu berupa grafik; kalau diagramnya menunjukkan tahapan, pakai teknik di [IELTS Writing Task 1 process diagram](/id/blog/ielts-writing-task-1-process-diagram/).

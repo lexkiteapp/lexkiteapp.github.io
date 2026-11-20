@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Report a Problem (QC Fixed)</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "secondary-container": "#fd9500",
+            "on-error": "#ffffff",
+            "surface-container": "#faebe1",
+            "tertiary": "#5b4300",
+            "surface-variant": "#efe0d6",
+            "on-primary-fixed": "#00201d",
+            "tertiary-fixed-dim": "#f5bf31",
+            "surface-dim": "#e6d7cd",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary-container": "#633700",
+            "on-secondary": "#ffffff",
+            "primary": "#00504b",
+            "surface-tint": "#126a63",
+            "on-primary": "#ffffff",
+            "surface-bright": "#fff8f5",
+            "surface-container-high": "#f4e5db",
+            "primary-fixed-dim": "#88d4cb",
+            "on-primary-fixed-variant": "#00504a",
+            "surface-container-highest": "#efe0d6",
+            "error": "#ba1a1a",
+            "surface": "#fff8f5",
+            "inverse-primary": "#88d4cb",
+            "surface-container-low": "#fff1e8",
+            "error-container": "#ffdad6",
+            "primary-container": "#136a63",
+            "inverse-on-surface": "#fdeee3",
+            "on-background": "#211a14",
+            "on-tertiary": "#ffffff",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "on-secondary-fixed-variant": "#6a3b00",
+            "on-secondary-fixed": "#2d1600",
+            "background": "#fff8f5",
+            "tertiary-container": "#785a00",
+            "secondary-fixed": "#ffdcbf",
+            "secondary-fixed-dim": "#ffb872",
+            "outline": "#6f7977",
+            "on-tertiary-container": "#ffd370",
+            "primary-fixed": "#a4f1e7",
+            "secondary": "#8c5000",
+            "on-tertiary-fixed": "#251a00",
+            "on-surface-variant": "#3f4947",
+            "on-surface": "#211a14",
+            "on-error-container": "#93000a",
+            "tertiary-fixed": "#ffdf9b",
+            "inverse-surface": "#372f28",
+            "outline-variant": "#bec9c6",
+            "on-primary-container": "#9be7de"
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          boxShadow: {
+            'tactile-btn': '0 4px 0 0 #b84700',
+            'tactile-btn-active': '0 1px 0 0 #b84700',
+            'tactile-card': '0 3px 0 0 #e2c8b8',
+            'tactile-chip-active': '0 3px 0 0 #00201d',
+            'tactile-chip': '0 2px 0 0 #e2c8b8',
+            'top-bar': '0 2px 0 0 #eed9cc',
+            'tab-bar': '0 -3px 0 0 #eed9cc',
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .teacher-slot {
+      border: 2px dashed #00504b;
+      background-color: #e8f5f3;
+    }
+  </style>
+</head>
+<body class="bg-[#fff8f5] text-[#211a14] font-sans antialiased flex flex-col justify-between min-h-screen selection:bg-primary selection:text-white">
+<!-- Outer Mobile Container: 390px native mobile screen -->
+<div class="w-full max-w-[390px] mx-auto min-h-screen flex flex-col bg-[#fff8f5] relative pb-24">
+<!-- Header: Back button (>=44x44px), title "Report a Problem", status badge "EXAM MODE" / "Support SLA: <15m" -->
+<header class="sticky top-0 z-40 bg-[#fff8f5]/95 backdrop-blur-sm px-4 pt-3 pb-3 border-b-2 border-[#eed9cc] flex items-center justify-between shadow-top-bar">
+<div class="flex items-center gap-3">
+<button aria-label="Go back" class="min-w-[44px] min-h-[44px] w-11 h-11 rounded-2xl bg-white border-2 border-[#eed9cc] flex items-center justify-center text-primary shadow-tactile-chip active:translate-y-0.5 active:shadow-none transition-all" type="button">
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+</button>
+<div>
+<h1 class="text-[19px] font-extrabold text-[#211a14] tracking-tight leading-tight">Report a Problem</h1>
+<p class="text-[12px] font-bold text-[#00504b]">Help us polish Lexkite</p>
+</div>
+</div>
+<div class="flex items-center gap-1.5 px-2.5 py-1.5 bg-[#e6f4f2] border border-[#88d4cb] rounded-full shadow-sm">
+<span class="w-2 h-2 rounded-full bg-[#126a63] animate-pulse"></span>
+<span class="text-[10px] font-extrabold text-primary tracking-wide uppercase">Support SLA: &lt;15m</span>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 px-4 pt-4 pb-4 flex flex-col gap-4">
+<!-- Coach Carlos Proctor Banner -->
+<section class="bg-white rounded-[20px] p-3.5 border-2 border-[#eed9cc] shadow-tactile-card flex items-start gap-3">
+<!-- Mandatory empty teacher slot placeholder -->
+<div class="teacher-slot w-14 h-14 rounded-2xl flex-shrink-0 flex items-center justify-center" title="teacher-slot">
+<span class="text-[10px] font-extrabold text-primary uppercase tracking-wider text-center leading-none px-1">teacher<br/>slot</span>
+</div>
+<!-- Speech Bubble Context -->
+<div class="flex-1 pt-0.5">
+<div class="flex items-center flex-wrap gap-1.5 mb-1.5">
+<span class="text-[11px] font-extrabold text-primary uppercase tracking-wide">COACH CARLOS • CBT PROCTOR LEAD</span>
+<span class="text-[10px] font-bold bg-[#e6f4f2] text-primary px-1.5 py-0.5 rounded border border-[#88d4cb]/40">Session Monitor Active</span>
+</div>
+<p class="text-[12px] font-semibold text-[#3f4947] leading-snug">
+            "Encountered an irregular question prompt, render bug, or timing desync? File it directly below. Your drill state and test telemetry are preserved automatically."
+          </p>
+</div>
+</section>
+<!-- Issue Category Selection -->
+<section class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<label class="text-[13px] font-extrabold text-[#211a14] uppercase tracking-wider">
+            Issue Category <span class="text-[#ba1a1a]">*</span>
+</label>
+<span class="text-[12px] font-bold text-[#6f7977]">Select closest fit</span>
+</div>
+<!-- Category Grid: 4 options with valid Material Symbols icons, touch target >= 44x44px -->
+<div class="grid grid-cols-2 gap-2.5">
+<!-- Chip 1: Software Bug (Checked / Active) -->
+<button class="min-h-[48px] px-3 py-2 rounded-2xl bg-primary border-2 border-[#00201d] text-white shadow-tactile-chip-active flex items-center gap-2.5 justify-start text-left active:translate-y-0.5 active:shadow-none transition-all" type="button">
+<span class="material-symbols-outlined text-[22px] text-[#ffd370] flex-shrink-0">pest_control</span>
+<div class="flex flex-col min-w-0">
+<span class="text-[13px] font-extrabold leading-tight truncate">Software Bug</span>
+<span class="text-[11px] font-semibold text-[#88d4cb] leading-none truncate">Crash or error</span>
+</div>
+</button>
+<!-- Chip 2: Wrong Answer -->
+<button class="min-h-[48px] px-3 py-2 rounded-2xl bg-white border-2 border-[#eed9cc] text-[#211a14] shadow-tactile-chip flex items-center gap-2.5 justify-start text-left hover:bg-[#fff1e8] active:translate-y-0.5 active:shadow-none transition-all" type="button">
+<span class="material-symbols-outlined text-[22px] text-[#ba1a1a] flex-shrink-0">error</span>
+<div class="flex flex-col min-w-0">
+<span class="text-[13px] font-extrabold leading-tight truncate">Wrong Answer</span>
+<span class="text-[11px] font-semibold text-[#6f7977] leading-none truncate">Drill or rubric</span>
+</div>
+</button>
+<!-- Chip 3: Translation -->
+<button class="min-h-[48px] px-3 py-2 rounded-2xl bg-white border-2 border-[#eed9cc] text-[#211a14] shadow-tactile-chip flex items-center gap-2.5 justify-start text-left hover:bg-[#fff1e8] active:translate-y-0.5 active:shadow-none transition-all" type="button">
+<span class="material-symbols-outlined text-[22px] text-[#00504b] flex-shrink-0">translate</span>
+<div class="flex flex-col min-w-0">
+<span class="text-[13px] font-extrabold leading-tight truncate">Translation</span>
+<span class="text-[11px] font-semibold text-[#6f7977] leading-none truncate">UI or glossary</span>
+</div>
+</button>
+<!-- Chip 4: Idea / Suggestion -->
+<button class="min-h-[48px] px-3 py-2 rounded-2xl bg-white border-2 border-[#eed9cc] text-[#211a14] shadow-tactile-chip flex items-center gap-2.5 justify-start text-left hover:bg-[#fff1e8] active:translate-y-0.5 active:shadow-none transition-all" type="button">
+<span class="material-symbols-outlined text-[22px] text-[#785a00] flex-shrink-0">lightbulb</span>
+<div class="flex flex-col min-w-0">
+<span class="text-[13px] font-extrabold leading-tight truncate">Idea / Suggestion</span>
+<span class="text-[11px] font-semibold text-[#6f7977] leading-none truncate">Feature request</span>
+</div>
+</button>
+</div>
+</section>
+<!-- Problem Description Text Area with prefilled content -->
+<section class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<label class="text-[13px] font-extrabold text-[#211a14] uppercase tracking-wider" for="issue-description">
+            Detailed Description <span class="text-[#ba1a1a]">*</span>
+</label>
+<span class="text-[11px] font-extrabold text-[#3f4947]">158 / 1000</span>
+</div>
+<div class="relative bg-white rounded-[20px] border-2 border-[#eed9cc] focus-within:border-primary shadow-tactile-card transition-all p-3">
+<textarea class="w-full bg-transparent text-[13px] font-semibold text-[#211a14] placeholder-[#6f7977] resize-none focus:outline-none leading-relaxed" id="issue-description" rows="4">Split view highlights disappeared after clicking "Flag for Review" on passage paragraph 4. The audio player also experienced a 1.2s delay during section transition.</textarea>
+<!-- Context dump badge + Route change row -->
+<div class="pt-2 mt-2 border-t border-[#eed9cc] flex flex-col gap-2">
+<div class="flex items-center justify-between text-[11px] font-bold">
+<span class="flex items-center gap-1.5 text-[#3f4947]">
+<span class="material-symbols-outlined text-[16px] text-primary">navigation</span>
+                Current route: <span class="font-extrabold text-primary">#/drill/cbt-reading-14</span>
+</span>
+<button class="min-w-[44px] min-h-[44px] px-2 text-primary font-extrabold hover:underline flex items-center justify-center" type="button">
+                Change
+              </button>
+</div>
+<!-- Telemetry verification badge -->
+<div class="bg-[#fff1e8] rounded-xl px-2.5 py-1.5 border border-[#eed9cc] flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-[#00504b]">dataset</span>
+<span class="text-[10px] font-bold text-[#211a14] leading-tight">Context dump recorded (DOM Tree + IndexedDB drill snapshot)</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Attach Screenshot Row with toggle switch (>=44x44px) -->
+<section class="bg-white rounded-[20px] p-3 border-2 border-[#eed9cc] shadow-tactile-card flex items-center justify-between gap-3">
+<div class="flex items-center gap-2.5 min-w-0">
+<div class="w-11 h-11 rounded-2xl bg-[#e6f4f2] border-2 border-[#88d4cb]/40 flex items-center justify-center text-primary flex-shrink-0">
+<span class="material-symbols-outlined text-[22px]">add_a_photo</span>
+</div>
+<div class="min-w-0">
+<div class="text-[13px] font-extrabold text-[#211a14] leading-snug truncate">Attach Recent Screenshot</div>
+<div class="text-[11px] font-semibold text-[#6f7977] leading-tight">Auto-capture current drill display (recommended)</div>
+</div>
+</div>
+<!-- Custom Tactile Switch (touch target >= 44x44px) -->
+<label aria-label="Toggle screenshot attachment" class="relative inline-flex items-center cursor-pointer flex-shrink-0 min-w-[44px] min-h-[44px] justify-center">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-12 h-7 bg-[#bec9c6] peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[10.5px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all after:shadow-sm peer-checked:bg-primary"></div>
+</label>
+</section>
+<!-- Attached File Card with preview and remove buttons (>=44x44px) -->
+<div class="bg-[#fff1e8] rounded-2xl p-2.5 border-2 border-[#eed9cc] flex items-center justify-between gap-2">
+<div class="flex items-center gap-2.5 overflow-hidden">
+<div class="w-10 h-10 rounded-xl bg-white border border-[#eed9cc] flex items-center justify-center flex-shrink-0 text-primary">
+<span class="material-symbols-outlined text-[20px]">image</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="text-[12px] font-extrabold text-[#211a14] truncate">drill_reading_cbt_autosave.png</span>
+<span class="text-[11px] font-semibold text-[#3f4947] truncate">(390 x 844 px • 248 KB • Auto-attached)</span>
+</div>
+</div>
+<div class="flex items-center gap-1 flex-shrink-0">
+<button aria-label="Preview screenshot" class="min-w-[44px] min-h-[44px] rounded-xl hover:bg-white/80 text-primary flex items-center justify-center transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+<button aria-label="Remove screenshot" class="min-w-[44px] min-h-[44px] rounded-xl hover:bg-white/80 text-[#ba1a1a] flex items-center justify-center transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</div>
+<!-- Learner Contact & Verification -->
+<section class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<label class="text-[13px] font-extrabold text-[#211a14] uppercase tracking-wider" for="contact-email">
+            Learner Contact &amp; Verification
+          </label>
+<span class="text-[11px] font-extrabold text-primary bg-[#e6f4f2] px-2 py-0.5 rounded-full border border-[#88d4cb]/50 flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">verified</span> Auto-filled
+          </span>
+</div>
+<div class="relative bg-white rounded-[20px] border-2 border-[#eed9cc] focus-within:border-primary shadow-tactile-card transition-all flex items-center px-3.5 py-1 min-h-[48px]">
+<span class="material-symbols-outlined text-[20px] text-[#6f7977] mr-2.5 flex-shrink-0">mail</span>
+<input class="w-full bg-transparent text-[13px] font-extrabold text-[#211a14] focus:outline-none py-2" id="contact-email" placeholder="linh.prep@lexkite.learner.io" type="email" value="linh.prep@lexkite.learner.io"/>
+</div>
+<p class="text-[11px] font-semibold text-[#3f4947] leading-snug px-1">
+          Resolution status and mentor corrections will be piped directly to your student workspace notification drawer.
+        </p>
+</section>
+<!-- Primary Action CTA Button: Warm orange with deep brown-black ink text, tactile drop shadow ledge -->
+<section class="pt-2 flex flex-col gap-3">
+<button class="w-full min-h-[50px] px-5 py-3 rounded-[20px] bg-[#ff9800] hover:bg-[#f57c00] text-[#1a0d00] font-extrabold text-[15px] tracking-wide shadow-tactile-btn active:translate-y-1 active:shadow-tactile-btn-active flex items-center justify-center gap-2 transition-all" type="button">
+<span>SEND FEEDBACK &amp; REPORT</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+<!-- Privacy & SLA Note -->
+<p class="text-[11px] font-medium text-[#3f4947] text-center leading-relaxed px-2">
+<span class="material-symbols-outlined text-[14px] align-middle text-primary mr-0.5">lock</span>
+<strong>Privacy note:</strong> Diagnostic logs and device model info are transmitted securely. No personal chat history or microphone recordings are included.
+        </p>
+</section>
+</main>
+<!-- Canonical Lexkite Mobile Bottom Navigation Bar (5 tabs: Today, Vocab, Skills, Tests [active], Me; each >=44x44px) -->
+<nav class="fixed bottom-0 left-0 right-0 max-w-[390px] mx-auto z-50 bg-white border-t-2 border-[#eed9cc] shadow-tab-bar px-2 py-1.5 flex items-center justify-between">
+<!-- 1. Today -->
+<a class="flex-1 min-h-[44px] flex flex-col items-center justify-center gap-0.5 text-[#6f7977] hover:text-primary active:scale-95 transition-all" href="#/today">
+<span class="material-symbols-outlined text-[22px]">calendar_today</span>
+<span class="text-[11px] font-bold tracking-tight">Today</span>
+</a>
+<!-- 2. Vocab -->
+<a class="flex-1 min-h-[44px] flex flex-col items-center justify-center gap-0.5 text-[#6f7977] hover:text-primary active:scale-95 transition-all" href="#/vocab">
+<span class="material-symbols-outlined text-[22px]">menu_book</span>
+<span class="text-[11px] font-bold tracking-tight">Vocab</span>
+</a>
+<!-- 3. Skills -->
+<a class="flex-1 min-h-[44px] flex flex-col items-center justify-center gap-0.5 text-[#6f7977] hover:text-primary active:scale-95 transition-all" href="#/skills">
+<span class="material-symbols-outlined text-[22px]">psychology</span>
+<span class="text-[11px] font-bold tracking-tight">Skills</span>
+</a>
+<!-- 4. Tests (Active) -->
+<a class="flex-1 min-h-[44px] flex flex-col items-center justify-center gap-0.5 text-primary active:scale-95 transition-all" href="#/tests">
+<div class="px-3.5 py-1 bg-[#e6f4f2] rounded-full flex flex-col items-center justify-center border border-[#88d4cb]/60 shadow-sm">
+<span class="material-symbols-outlined text-[22px] text-primary font-bold">assignment</span>
+<span class="text-[11px] font-extrabold text-primary tracking-tight">Tests</span>
+</div>
+</a>
+<!-- 5. Me -->
+<a class="flex-1 min-h-[44px] flex flex-col items-center justify-center gap-0.5 text-[#6f7977] hover:text-primary active:scale-95 transition-all" href="#/me">
+<span class="material-symbols-outlined text-[22px]">person</span>
+<span class="text-[11px] font-bold tracking-tight">Me</span>
+</a>
+</nav>
+</div>
+</body></html>

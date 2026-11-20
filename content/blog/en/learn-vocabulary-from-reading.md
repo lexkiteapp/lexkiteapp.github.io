@@ -122,7 +122,7 @@ Even a good routine can go wrong. These are the traps learners fall into most of
 
 **Only recognizing, never producing.** Being able to read a word is not the same as being able to use it. Once a word feels familiar, try to recall it from its meaning, type it, or put it in a sentence about your own life.
 
-**Reading only things that are too hard.** If you need to look up every third word, reading turns into decoding and the context stops helping. Choose texts where you already know most of the words, so each new one has a clear sentence around it. Graded readers, news for learners and articles on topics you know well are all good choices. For core high-frequency words to build that base, browse the [English vocabulary pages](/tu-vung/).
+**Reading only things that are too hard.** If you need to look up every third word, reading turns into decoding and the context stops helping. Choose texts where you already know most of the words, so each new one has a clear sentence around it. Graded readers, news for learners and articles on topics you know well are all good choices. For core high-frequency words to build that base, browse the [English vocabulary pages](/en/vocabulary/).
 
 ## Do it in Lexkite
 
@@ -155,3 +155,5 @@ Save phrases whenever the word comes with a natural partner, like *meet a deadli
 ### What if the sentence I saved is very hard?
 
 Keep it if the word is useful, but add a simple meaning on the card. Over time the sentence will feel easier, which is also a nice way to see your progress.
+
+Word parts help you learn faster: see [prefixes and suffixes](/en/blog/prefixes-and-suffixes/).

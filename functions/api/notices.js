@@ -5,8 +5,10 @@
  *      { id: 'n_xxx', act: 'read' | 'click' }
  *      → ghi nhận đã đọc hoặc đã nhấp CTA vào D1 notice_reads.
  */
+import { shedRead } from './_d1guard.js';
 import { claims, limit } from './sync.js';
 import { once } from './_schema.js';
+import { readJSON, bodyFail } from './_body.js';
 
 const ORIGINS = /^(https:\/\/((www\.)?lexkite\.com|([a-z0-9-]+\.)?lexkite\.pages\.dev)|https?:\/\/localhost(:\d+)?|capacitor:\/\/localhost|chrome-extension:\/\/[a-z]{32})$/;
 const cors = req => {
@@ -71,6 +73,8 @@ export async function onRequestGet({ request, env }) {
   const ip = ipOf(request);
   const wait = await limit(`notices-get:${ip}`, 120, 60);
   if (wait) return json(request, 429, { error: 'too-fast', wait });
+  // D1 ≥ 85 % hạn mức ngày (_d1guard.js shedRead): thông báo không thiết yếu → danh sách rỗng 200 (app không báo lỗi), không đọc D1
+  if (shedRead(env, (st, d) => json(request, st, d))) return json(request, 200, { ok: true, notices: [], unread_count: 0, shed: 1 });
 
   const authHeader = (request.headers.get('Authorization') || '').replace(/^Bearer\s+/i, '');
   const who = authHeader ? await claims(authHeader).catch(() => null) : null;
@@ -160,9 +164,8 @@ export async function onRequestPost({ request, env }) {
   const who = authHeader ? await claims(authHeader).catch(() => null) : null;
   const uid = who && who.sub ? who.sub : null;
 
-  if (+(request.headers.get('Content-Length') || 0) > 1024) return json(request, 413, { error: 'too-large' });
   let b;
-  try { const raw = await request.text(); if (raw.length > 1024) return json(request, 413, { error: 'too-large' }); b = JSON.parse(raw); } catch (e) { return json(request, 400, { error: 'json' }); }
+  try { b = await readJSON(request, 1024); } catch (e) { const f = bodyFail(e); return json(request, f.status, { error: f.error }); }
   if (!b || typeof b !== 'object') return json(request, 400, { error: 'json' });
 
   const id = String(b.id || '').trim();
