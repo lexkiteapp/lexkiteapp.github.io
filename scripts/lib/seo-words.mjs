@@ -70,7 +70,8 @@ const R2_EXT = new Set(r2Langs()); // từ mở rộng chỉ vào ngôn ngữ �
 const setOf = {};
 for (const l of LANGS) {
   if (l === 'en' || l === 'vi') setOf[l] = ranked.filter(e => l === 'en' || e.vi);
-  else { const okG = e => { const g = gloss(l, e); return g && g[0] && g[0].toLowerCase() !== e.word.toLowerCase(); };
+// 20/11: từ ĐÃ có bài làm giàu (content/dict/enrich) ở lại tập trang dù vòng --refine của word-packs đổi nghĩa thành đúng chữ gốc (vd. tr 'norm' = 'norm', cognate thật) – không thì trang đang sống biến mất + dict-enrich đỏ cho MỌI PR (bot e324ece371)
+  else { const okG = e => { const g = gloss(l, e); return (g && g[0] && g[0].toLowerCase() !== e.word.toLowerCase()) || !!(ENR[l] && ENR[l][e.word.toLowerCase()]); };
     setOf[l] = [...mainRanked.filter(okG).slice(0, PRIORITY_LANGS.includes(l) ? N_PRIORITY : N_OTHER), ...(R2_EXT.has(l) ? extRanked.filter(okG) : [])]; }
 }
 // Trang mỏng → noindex: nghĩa bản địa là dịch máy thô (cờ 0) hoặc không có collocation/đồng nghĩa/cụm (chỉ 1 ví dụ)
