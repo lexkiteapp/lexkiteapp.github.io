@@ -8,7 +8,11 @@ const mk = (n, a, extra = {}) => Array.from({ length: n }, (_, i) => ({ id: i, q
   t(out.G1.posSkew === 100 && out.G2.posSkew === 0, 'auditBank: lệch vị trí (toàn A = 100 %, đều = 0 %)');
   t(out.G1.longestIsAnswerPct === 100 && out.G2.longestIsAnswerPct === 25, 'auditBank: đáp án dài nhất');
   t(out.AUD.duplicateQuestionPct === 0, 'auditBank: câu chỉ audio (đáp án A/B/C trần) không tính trùng');
-  t(sample(items).every(i => i.options.some(o => o.length > 1)), 'sample: bỏ câu chỉ audio'); }
+  t(sample(items).every(i => i.options.some(o => o.length > 1) || i.ctx), 'sample: bỏ câu chỉ audio không có kịch bản'); }
+{ const s = { script: [{ say: 'Part 2.' }, { say: 'Number 7.' }, { s: 'A', t: 'Where should I put these?' }, { s: 'B', t: 'A. In the closet.' }, { say: 'Number 8.' }, { s: 'A', t: 'Other.' }] };
+  const { items } = auditBank({ TL: [{ ...s, groups: [{ items: [{ n: 7, q: 'Mark your answer.', options: ['A', 'B', 'C'], a: 0, cue: 'closet', explain: 'ok' }] }] }] });
+  t(items[0].ctx.includes('Where should I put') && !items[0].ctx.includes('Other.') && items[0].ctx.includes('cue: closet'), 'contextOf: đoạn kịch bản đúng số câu + cue');
+  t(sample(items).length === 1, 'sample: câu chỉ audio CÓ kịch bản được chấm'); }
 { const items = [...mk(300, i => i % 4, {}).map(x => ({ ...x, group: 'X', level: 'B1' })), ...mk(100, i => i % 4).map(x => ({ ...x, group: 'Y', level: 'B2' }))];
   const a = sample(items, 100, 's'), b = sample(items, 100, 's'), c = sample(items, 100, 't');
   t(JSON.stringify(a.map(x => x.k)) === JSON.stringify(b.map(x => x.k)), 'sample: tất định theo hạt giống');

@@ -14,7 +14,8 @@ export const RUBRIC = 'Items are multiple-choice test questions (grammar, TOEIC,
   'Check: (1) exactly ONE option is defensible and it equals the key; (2) distractors are plausible but clearly wrong for a reason (no joke options, no duplicate meanings, no giveaway by length or grammar); ' +
   '(3) the explanation is correct, specific to THIS item (not a generic template) and says why the key is right; (4) English is natural and the level fits an exam of this type.';
 const h = s => createHash('sha1').update(s).digest('hex');
-const textual = i => i.q.trim().length >= 12 && i.options.some(o => o.trim().length > 1);
+// chấm được = có chữ để đọc: câu tự đủ nghĩa, hoặc có ngữ cảnh (kịch bản phần nghe "Number n." / đoạn bài đọc quanh chỗ trống / cue). Chỉ audio mà không có kịch bản → cần ASR (CI), đếm vào `needAsr`.
+const textual = i => !!i.ctx || (i.q.trim().length >= 12 && i.options.some(o => o.trim().length > 1));
 
 export function sample(items, total = 1500, seed = 'e0') {
   const by = {}; for (const i of items.filter(textual)) (by[i.group] ||= []).push(i);
@@ -26,7 +27,7 @@ export function sample(items, total = 1500, seed = 'e0') {
   }
   return out;
 }
-const view = i => ({ q: i.q, options: i.options, key: i.a, explain: i.explain.slice(0, 600), level: i.level });
+const view = i => ({ q: i.q, options: i.options, key: i.a, explain: i.explain.slice(0, 600), level: i.level, ...(i.ctx ? { context: i.ctx.slice(0, 1200), note: 'context = transcript/passage the item refers to; bare A/B/C options are the spoken choices in the transcript' } : {}) });
 
 export async function judge(items, AI, log = console.log) {
   const R = { sampled: items.length, judged: 0, pass: 0, low: [], nojudge: 0, byGroup: {} };
@@ -50,10 +51,10 @@ if (import.meta.url === pathToFileURL(process.argv[1]).href) {
   const A = process.argv.slice(2), ni = A.indexOf('--n'), total = ni >= 0 ? +A[ni + 1] : 1500;
   const { items } = auditBank(loadContent()), mine = sample(items, total);
   const audioOnly = items.length - items.filter(textual).length;
-  console.log(`kho ${items.length} câu · chữ chấm được ${items.length - audioOnly} · chỉ audio ${audioOnly} · mẫu ${mine.length}`);
+  console.log(`kho ${items.length} câu · chữ chấm được ${items.length - audioOnly} · thiếu chữ (cần ASR) ${audioOnly} · mẫu ${mine.length}`);
   if (A.includes('--dry')) process.exit(0);
   const AI = createPool({ budget: { lexai: 0, cf2: 0 }, prompt: req => ({ sys: JUDGE_SYS(RUBRIC), user: JSON.stringify(req.items), temp: 0.1 }) });
-  const R = await judge(mine, AI); R.audioOnly = audioOnly;
+  const R = await judge(mine, AI); R.needAsr = audioOnly;
   fs.mkdirSync('reports', { recursive: true }); fs.writeFileSync('reports/bank-judge.json', JSON.stringify(R, null, 1));
   if (R.sampled && !R.judged) { console.error('✗ có mẫu cần chấm mà 0 kết quả (hạ tầng AI?)'); process.exit(1); }
 }

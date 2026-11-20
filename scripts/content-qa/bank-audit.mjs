@@ -10,17 +10,37 @@ import { loadContent } from '../lib/content-load.mjs';
 
 const SKIP = new Set(['console', 'Date', 'Math', 'JSON', 'setTimeout', 'clearTimeout', 'localStorage', 'navigator', 'self', 'window', 't', 'GRAMMAR_CHECK', 'DistRules', 'KVoice', 'LKFile', 'LKQR', 'LkVideoRank', 'VBStruct', 'Lexis', 'IELTS_DATA']);
 const norm = s => String(s || '').toLowerCase().replace(/[^\p{L}\p{N} ]+/gu, ' ').replace(/\s+/g, ' ').trim();
+// Ngữ cảnh của câu không tự đủ nghĩa (chỉ audio / chỗ trống): đoạn kịch bản "Number n." của phần nghe, hoặc đoạn bài đọc quanh "(n)", + gợi ý `cue`.
+const lineOf = l => (l && (l.t || l.say)) || '';
+export function contextOf(v, anc) {
+  const parts = [];
+  for (let k = anc.length - 1; k >= 0; k--) {
+    const a = anc[k];
+    if (Array.isArray(a.script)) {
+      const ls = a.script.map(lineOf).filter(Boolean), at = v.n != null ? ls.findIndex(x => new RegExp(`^Number ${v.n}\\b`).test(x)) : -1;
+      if (at >= 0) { let end = ls.findIndex((x, i) => i > at && /^Number \d+\b/.test(x)); if (end < 0) end = ls.length; parts.push(ls.slice(at, end).join(' ').slice(0, 900)); }
+      else if (ls.join(' ').length <= 1500) parts.push(ls.join(' '));
+      break;
+    }
+    if (typeof a.text === 'string' && a.text.length > 40) {
+      const m = v.n != null ? a.text.indexOf(`(${v.n})`) : -1, from = m >= 0 ? Math.max(0, m - 450) : 0;
+      parts.push(a.text.slice(from, from + 900)); break;
+    }
+  }
+  if (v.cue) parts.push(`cue: ${v.cue}`);
+  return parts.join(' || ');
+}
 export function auditBank(C) {
 const groups = {}, items = [];
 const G = name => (groups[name] ||= { n: 0, pos: [0, 0, 0, 0, 0, 0], nOpt: {}, noExplain: 0, shortExplain: 0, explainNotMention: 0, longestIsAnswer: 0, dupOpts: 0, allAbove: 0, level: {}, kind: {}, q: new Map(), lead: new Map(), expl: new Map() });
 const seen = new WeakSet();
-function walk(v, path, lvl) {
+function walk(v, path, lvl, anc = []) {
   if (!v || typeof v !== 'object' || seen.has(v)) return; seen.add(v);
-  if (Array.isArray(v)) { for (const x of v) walk(x, path, lvl); return; }
+  if (Array.isArray(v)) { for (const x of v) walk(x, path, lvl, anc); return; }
   const level = String(v.level || v.cefr || lvl || '').toUpperCase() || '—';
   if (Array.isArray(v.options) && v.options.length >= 2 && (Number.isInteger(v.a) || Number.isInteger(v.answer))) {
     const g = G(path), a = Number.isInteger(v.a) ? v.a : v.answer, opts = v.options.map(String);
-    g.n++; items.push({ group: path, level, q: String(v.q || v.text || ''), options: opts, a, explain: Array.isArray(v.explain) ? v.explain.join(' ') : String(v.explain || v.why || v.exp || ''), id: v.id || v.n || '' });
+    g.n++; items.push({ group: path, level, q: String(v.q || v.text || ''), options: opts, a, explain: Array.isArray(v.explain) ? v.explain.join(' ') : String(v.explain || v.why || v.exp || ''), id: v.id || v.n || '', ctx: contextOf(v, anc) });
     g.pos[Math.min(a, 5)]++; g.nOpt[opts.length] = (g.nOpt[opts.length] || 0) + 1;
     g.level[level] = (g.level[level] || 0) + 1; const kind = v.kind || v.type || '—'; g.kind[kind] = (g.kind[kind] || 0) + 1;
     const lens = opts.map(o => o.length), mx = Math.max(...lens);
@@ -37,7 +57,7 @@ function walk(v, path, lvl) {
       const key = norm(ex); g.expl.set(key, (g.expl.get(key) || 0) + 1);
     }
   }
-  for (const [k, x] of Object.entries(v)) if (x && typeof x === 'object') walk(x, path, v.level || lvl);
+  for (const [k, x] of Object.entries(v)) if (x && typeof x === 'object') walk(x, path, v.level || lvl, [...anc, v]);
 }
 for (const [name, val] of Object.entries(C)) {
   if (SKIP.has(name) || !val || typeof val !== 'object') continue;
