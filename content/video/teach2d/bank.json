@@ -3907,6 +3907,51 @@
    ],
    "tries": 0
   },
+  "t2_l1_ja_alwaysam": {
+   "run": "44778159254",
+   "at": "2026-11-20T22:12Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "32de58519cc7a688",
+    "wide": "1b4064558aae0a06"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_ja_angrywith": {
+   "run": "44778159254",
+   "at": "2026-11-20T22:12Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "b1032bebbbccd227",
+    "wide": "ac7ea2c86021cb1a"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_ja_areyou": {
+   "run": "44778159254",
+   "at": "2026-11-20T22:12Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "0492d5ce3c253838",
+    "wide": "9ca684303c955c57"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
   "t2_l1_ja_arrived": {
    "run": "43250170409",
    "at": "2026-11-13T16:35Z",
@@ -3937,6 +3982,51 @@
    "state": "banked",
    "tries": 2
   },
+  "t2_l1_ja_becauseof": {
+   "run": "44778159254",
+   "at": "2026-11-20T22:12Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "36bf6fe53298afd5",
+    "wide": "b3b1b38694450e36"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_ja_betterthan": {
+   "run": "44778159254",
+   "at": "2026-11-20T22:12Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "893c8985669eeffa",
+    "wide": "f244980e57be68da"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_ja_bookbought": {
+   "run": "44778159254",
+   "at": "2026-11-20T22:12Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "86d7b84cb016a4ec",
+    "wide": "8368cdc13356eda7"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
   "t2_l1_ja_bored": {
    "run": "43129502972",
    "at": "2026-11-12T14:39Z",
@@ -3947,6 +4037,21 @@
    "sha": {
     "short": "8b1bc8dc0231b229",
     "wide": "b6c6494498b61361"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_ja_calledhim": {
+   "run": "44778159254",
+   "at": "2026-11-20T22:12Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "1ac1b06f0d00a4fd",
+    "wide": "8142012d06dab53b"
    },
    "why": [],
    "state": "banked",
@@ -3967,6 +4072,33 @@
    "state": "banked",
    "tries": 0
   },
+  "t2_l1_ja_caughtcold": {
+   "run": "44778159254",
+   "at": "2026-11-20T22:12Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "3b52bc8613bcfff9",
+    "wide": "1f47810bd8ea4c02"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_ja_cheated": {
+   "run": "44778159254",
+   "at": "2026-11-20T22:12Z",
+   "score": {},
+   "sha": {},
+   "why": [
+    "short: no render",
+    "wide: no render"
+   ],
+   "state": "failed",
+   "tries": 1
+  },
   "t2_l1_ja_children": {
    "run": "43250170409",
    "at": "2026-11-13T16:35Z",
@@ -3982,6 +4114,126 @@
    "state": "banked",
    "tries": 0
   },
+  "t2_l1_ja_complaint": {
+   "run": "44778159254",
+   "at": "2026-11-20T22:12Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "a226fc3e533f765c",
+    "wide": "6c1f755cb7de45d4"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_ja_didntgo": {
+   "run": "44778159254",
+   "at": "2026-11-20T22:12Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "793106a0fb57d020",
+    "wide": "0ac39b0cf3582f78"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_ja_didntlike": {
+   "run": "44778159254",
+   "at": "2026-11-20T22:12Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "01783a87a78512dd",
+    "wide": "43d4fb42b626f59f"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_ja_dontworry": {
+   "run": "44778159254",
+   "at": "2026-11-20T22:12Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "c0983736e08f29a4",
+    "wide": "be3726f91a9caf50"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_ja_eithercoffee": {
+   "run": "44778159254",
+   "at": "2026-11-20T22:12Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "9cae9451d439d05e",
+    "wide": "67840157cf67142a"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_ja_enjoyplay": {
+   "run": "44778159254",
+   "at": "2026-11-20T22:12Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "88c49922152c0600",
+    "wide": "f7e0f2983894ac3b"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_ja_enterroom": {
+   "run": "44778159254",
+   "at": "2026-11-20T22:12Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "69d1cb886e0db9d2",
+    "wide": "2dfd8f98fe2c719f"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_ja_everyoneis": {
+   "run": "44778159254",
+   "at": "2026-11-20T22:12Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "56ddfb78fbda3bdc",
+    "wide": "b1239136e99fdba8"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
   "t2_l1_ja_excited": {
    "run": "43250170409",
    "at": "2026-11-13T16:35Z",
@@ -3992,6 +4244,21 @@
    "sha": {
     "short": "b5e04798f75adff4",
     "wide": "2203a30b753f20c4"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_ja_explainit": {
+   "run": "44778159254",
+   "at": "2026-11-20T22:12Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "c5ffacf97bef4930",
+    "wide": "08e04b3d9cc43d2f"
    },
    "why": [],
    "state": "banked",
@@ -4022,6 +4289,66 @@
    "sha": {
     "short": "f73f876f79a78819",
     "wide": "7c0f6eb8cf41ab75"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_ja_forward": {
+   "run": "44778159254",
+   "at": "2026-11-20T22:12Z",
+   "score": {},
+   "sha": {},
+   "why": [
+    "short: no render",
+    "wide: no render"
+   ],
+   "state": "failed",
+   "tries": 1
+  },
+  "t2_l1_ja_friend": {
+   "run": "44778159254",
+   "at": "2026-11-20T22:12Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "9493effdd8ad4f74",
+    "wide": "0ea66470ee023970"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_ja_gasstand": {
+   "run": "44778159254",
+   "at": "2026-11-20T22:12Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "907737339934e4b6",
+    "wide": "fe0827ca8f3d613c"
+   },
+   "why": [],
+   "state": "banked",
+   "publish_block": [
+    "dup"
+   ],
+   "tries": 0
+  },
+  "t2_l1_ja_giveitme": {
+   "run": "44778159254",
+   "at": "2026-11-20T22:12Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "c8659e520826ab01",
+    "wide": "4c9a58bdf53164c1"
    },
    "why": [],
    "state": "banked",
