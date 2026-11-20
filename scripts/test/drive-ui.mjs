@@ -66,7 +66,7 @@ const dapi = async (op, b = {}) => {
 const L = (s, v) => (v ? s.replace(/\{(\w+)\}/g, (m, k) => (v[k] != null ? v[k] : m)) : s);
 const H = { esc: s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])), lang: () => 'vi' };
 const go = async hash => { w.history.replaceState(null, '', '/admin.html' + hash); A.render(main, dapi, L, H); await tick(10); };
-let confirmAns = true, promptAns = null; w.confirm = () => confirmAns; w.prompt = () => promptAns; w.alert = () => {};
+let confirmAns = true, promptAns = null; w.confirm = () => confirmAns; w.prompt = () => promptAns; w.alert = () => {};;Object.defineProperty(w,'LXDialog',{configurable:true,get:()=>({confirm:async m=>w.confirm(m),prompt:async(m,d)=>w.prompt(m,d),alert:async m=>w.alert(m)})}); // cầu nối: test vẫn giả hộp thoại bằng w.confirm/prompt/alert
 const last = op => calls.filter(c => c.op === op).pop();
 
 // ---------- Tổng quan ----------

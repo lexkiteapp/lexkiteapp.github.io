@@ -510,7 +510,7 @@
       const sk = e.target.closest && e.target.closest('a.skip-link[href="#view"]');
       if (sk) { const v = document.getElementById('view'); if (v) { e.preventDefault(); v.focus(); } return; }
       const c = e.target.closest && e.target.closest('[data-confirm]');
-      if (c && !confirm(c.dataset.confirm)) { e.preventDefault(); e.stopPropagation(); }
+      if (c && !c.__lkOk) { e.preventDefault(); e.stopPropagation(); LXDialog.confirm(c.dataset.confirm).then(ok => { if (ok) { c.__lkOk = true; try { c.click(); } finally { c.__lkOk = false; } } }); } // hộp thoại bất đồng bộ: chặn lần bấm đầu, đồng ý mới bấm lại
     }, true);
   }
   const pic = (c, cls = 'pic') => `<div class="${cls}">${c.image ? `<img src="${esc(c.image)}" alt="${esc(c.word)}" loading="lazy" referrerpolicy="no-referrer">${c.imageCredit ? `<a class="pcredit" href="${esc(/^https?:\/\//i.test(String(c.imageCredit.link || '')) ? c.imageCredit.link : '#')}" target="_blank" rel="noopener" title="${esc(c.imageCredit.text)}">ⓘ</a>` : ''}` : esc(c.emoji || '📘')}</div>`;
@@ -682,5 +682,5 @@
     return h;
   }
 
-  g.UI = { whisperModel, sayBtn, ipaOf, ipaTag, ipaHtml, pronHtml, accOrder, weakOf, WEAK, audioFor, fillIpa, icon, glyph, addIcons, paintIcons: paint, skel, skelPage, dev, human, humanHdr, quotaText, quota: j => { toast(quotaText(j), 6000); if (g.Ads && g.Ads.quota) g.Ads.quota(j); }, ctxBox, recUrl, clearRecs, $, $$, esc, shuffle, wordRegex, highlight, cloze, clozeAnswer, similarity, toast, modal, closeModal, xpFloat, speak, tts, ttsClean, stopSpeak, recognize, micParallel, MIC, stopRecognize, recErrorText, whisperWarm: p => whisper(p), voicesFor, pickVoice, splitSentences, pic, levelChip, posChip, posLabel, masteryDots, ring, download };
+  g.UI = { confirm: (m, o) => g.LXDialog.confirm(m, o), prompt: (m, d, o) => g.LXDialog.prompt(m, d, o), alert: (m, o) => g.LXDialog.alert(m, o), whisperModel, sayBtn, ipaOf, ipaTag, ipaHtml, pronHtml, accOrder, weakOf, WEAK, audioFor, fillIpa, icon, glyph, addIcons, paintIcons: paint, skel, skelPage, dev, human, humanHdr, quotaText, quota: j => { toast(quotaText(j), 6000); if (g.Ads && g.Ads.quota) g.Ads.quota(j); }, ctxBox, recUrl, clearRecs, $, $$, esc, shuffle, wordRegex, highlight, cloze, clozeAnswer, similarity, toast, modal, closeModal, xpFloat, speak, tts, ttsClean, stopSpeak, recognize, micParallel, MIC, stopRecognize, recErrorText, whisperWarm: p => whisper(p), voicesFor, pickVoice, splitSentences, pic, levelChip, posChip, posLabel, masteryDots, ring, download };
 })(typeof self !== 'undefined' ? self : this);
