@@ -8,8 +8,21 @@ import { alert } from './alert.mjs';
 const BASE = String(process.env.LEXKITE_API_BASE || 'https://lexkite.com').replace(/\/+$/, '');
 const op = ['status', 'preview'].includes(process.argv[2]) ? process.argv[2] : 'run', key = driveCliKey();
 if (!key) { console.log('⏭ chưa có LEXKITE_DRIVE_CLI_KEY – bỏ qua'); process.exit(0); }
+// THÔNG LƯỢNG (20/11): mỗi lượt máy chủ bị khóa 60 s (tránh 524) nên chỉ tạo ~2–3 bài; backlog 46 bài/34 kênh không hết. Lượt `run` lặp tối đa MAX_PASSES lần trong 1 job
+// (mỗi lượt = 1 request riêng ≤ 60 s; giới hạn máy chủ 6 request/10 phút/IP) cho tới khi hết việc (tạo + lên lịch = 0), gặp dừng/lỗi, hoặc quá ngân sách thời gian job.
+if (op === 'run' && !process.env.AUTO_PASS) {
+  const { spawnSync } = await import('node:child_process'), MAX_PASSES = 5, T0 = Date.now();
+  for (let i = 1; i <= MAX_PASSES; i++) {
+    const c = spawnSync(process.execPath, [process.argv[1], 'run'], { env: { ...process.env, AUTO_PASS: String(i) }, encoding: 'utf8', timeout: 150e3 });
+    process.stdout.write((i > 1 ? `── lượt ${i} ──\n` : '') + (c.stdout || '')); process.stderr.write(c.stderr || '');
+    if (c.status !== 0) process.exit(c.status || 1);
+    const m = /tạo (\d+) · lên lịch (\d+)/.exec(c.stdout || ''), did = m ? +m[1] + +m[2] : 0;
+    if (!did || /dừng:/.test(c.stdout || '') || /bỏ qua lượt/.test(c.stdout || '') || Date.now() - T0 > 5 * 60e3) break;
+  }
+  process.exit(0);
+}
 const text = JSON.stringify(op === 'preview' && process.argv[3] ? { op, clip: process.argv[3] } : { op });
-const r = await fetch(BASE + '/api/social-auto', { method: 'POST', headers: { 'Content-Type': 'application/json', ...driveSign(key, text) }, body: text, signal: AbortSignal.timeout(240e3) }).catch(e => ({ ok: false, status: 0, json: async () => ({ error: String(e.name || 'fetch') }) }));
+const r = await fetch(BASE + '/api/social-auto', { method: 'POST', headers: { 'Content-Type': 'application/json', ...driveSign(key, text) }, body: text, signal: AbortSignal.timeout(120e3) }).catch(e => ({ ok: false, status: 0, json: async () => ({ error: String(e.name || 'fetch') }) }));
 const j = await r.json().catch(() => ({}));
 if (r.status === 429) { console.log('⏭ bỏ qua lượt:', j.error || 429, j.pct != null ? j.pct + '%' : ''); process.exit(0); }
 if (!r.ok) { console.error('✗ social-auto', r.status, j.error || '', j.cause || ''); process.exit(1); }
