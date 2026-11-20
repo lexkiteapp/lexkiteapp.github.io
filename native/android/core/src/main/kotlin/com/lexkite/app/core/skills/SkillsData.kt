@@ -67,15 +67,15 @@ class SkillsContent(val listening: List<Part>, val readings: List<Reading>, val 
 /** Constants of the web code the ports must not retype (pack `consts`, generated from qengine.js BAND, kvoice.js POOL/NARRATOR, listening.js STOPW). Tests assert them against vectors/skills.json. */
 object SkillsConsts {
     @Volatile private var c: Installed? = null
-    private class Installed(val band: Map<String, List<Pair<Int, Double>>>, val narrator: String, val pools: Map<String, List<String>>, val stopwords: Set<String>)
+    private class Installed(val band: Map<String, List<Pair<Int, Double>>>, val narrator: String, val pools: Map<String, List<String>>, val stopwords: Set<String>, val highlightCommon: Set<String>)
     fun install(j: JsonObject) {
         val kv = j.go("kvoice")
         c = Installed(
             j.go("band")!!.mapValues { (_, rows) -> (rows as JsonArray).map { r -> (r as JsonArray).let { (it[0] as JsonPrimitive).content.toDouble().toInt() to (it[1] as JsonPrimitive).content.toDouble() } } },
-            kv.gs("narrator"), kv.go("pools")!!.mapValues { (_, v) -> (v as JsonArray).map { (it as JsonPrimitive).content } }, j.strs("stopwords").toSet())
+            kv.gs("narrator"), kv.go("pools")!!.mapValues { (_, v) -> (v as JsonArray).map { (it as JsonPrimitive).content } }, j.strs("stopwords").toSet(), j.strs("highlightCommon").toSet())
     }
     private fun get() = c ?: error("SkillsConsts: no content pack installed (the screens only open once SkillsContent.parse has run)")
-    val band get() = get().band; val narrator get() = get().narrator; val pools get() = get().pools; val stopwords get() = get().stopwords
+    val band get() = get().band; val narrator get() = get().narrator; val pools get() = get().pools; val stopwords get() = get().stopwords; val highlightCommon get() = get().highlightCommon
 }
 
 /** KVoice (web/js/listen/kvoice.js): one fixed Kokoro voice per speaker (pool by accent + gender, none reused inside a part), the narrator has its own. */

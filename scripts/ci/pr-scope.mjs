@@ -57,6 +57,28 @@ export function needed(files, need) {
   return String(need).split(',').map(s => s.trim()).filter(Boolean).some(k => c[k]);
 }
 
+/** Carry-over (16/11, điều phối – hàng chờ 185 job, 1 push "gộp main" = ~100 job nặng chạy lại): workflow có `paths:` lẽ ra như `push` – KHÔNG chạy lại khi push này (before→after) không đổi file nào kích nó.
+ *  Với `pull_request` GitHub tính paths trên TOÀN BỘ diff PR nên mỗi lần gộp main lại chạy hết. Bỏ qua CHỈ khi: (1) delta before→after biết đủ (< 1000 file, phân trang) và KHÔNG file nào khớp paths của workflow (file workflow tự nó luôn tính),
+ *  (2) lần chạy của head cũ (`before`) của CHÍNH workflow này đã xanh THẬT (có job ngoài `gate` đạt – không tính lượt gate-skip rỗng). Không đủ điều kiện/lỗi API → chạy như cũ. Hàm thuần (test: scripts/test/pr-scope-carry.mjs). */
+export const BIG_DELTA = 1000;   // compare phân trang tới 1000 tệp; hơn nữa = không biết đủ → chạy
+export function carryOver({ delta, paths, self = '', prevReal = false }) {
+  if (!prevReal) return { skip: false, why: 'head cũ chưa có lượt nặng xanh thật' };
+  if (!Array.isArray(delta) || !delta.length) return { skip: false, why: 'không rõ phần đổi của push' };
+  if (delta.length >= BIG_DELTA) return { skip: false, why: `phần đổi quá lớn (≥ ${BIG_DELTA} file)` };
+  const rel = relevantFiles(delta, paths, self);
+  return rel.length ? { skip: false, why: `${rel.length} file của push khớp workflow` } : { skip: true, why: `push chỉ đổi ${delta.length} file NGOÀI phạm vi workflow` };
+}
+const ZERO = /^0+$/;
+function ghJson(path) { return JSON.parse(execFileSync('gh', ['api', path], { encoding: 'utf8', maxBuffer: 1 << 26 })); }
+/** Lần chạy workflow `file` của head `sha` có xanh THẬT không (conclusion success + ≥ 1 job ngoài `gate` đạt)? Lỗi → false. */
+function prevRealSuccess(repo, file, sha) {
+  try {
+    const runs = ghJson(`repos/${repo}/actions/workflows/${file}/runs?head_sha=${sha}&per_page=10`).workflow_runs.filter(r => r.status === 'completed').sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+    if (!runs[0] || runs[0].conclusion !== 'success') return false;
+    return ghJson(`repos/${repo}/actions/runs/${runs[0].id}/jobs?per_page=100`).jobs.some(j => j.name !== 'gate' && j.conclusion === 'success');
+  } catch (e) { return false; }
+}
+
 async function main() {
   const a = process.argv.slice(2), arg = k => { const i = a.indexOf(k); return i >= 0 ? a[i + 1] : ''; };
   const need = arg('--need') || 'ui';
@@ -70,8 +92,21 @@ async function main() {
     } catch (e) { console.log('pr-scope: API lỗi → mở cổng', String(e.message).split('\n')[0]); files = []; }
   }
   const wf = arg('--workflow'), rel = wf ? relevantFiles(files, prPaths(fs.readFileSync(wf, 'utf8')), wf) : files;
-  const ok = needed(rel, need), c = classify(rel);
+  let ok = needed(rel, need); const c = classify(rel);
   console.log(`pr-scope: ${files.length} file (${rel.length} kích workflow) · ui=${c.ui} text=${c.text} content=${c.content} · cần [${need}] → ok=${ok}`);
+  // carry-over: --carry "<action>|<before>|<after>|<force>" (chỉ push `synchronize` có before hợp lệ, không có nhãn `ready`)
+  const [act, before, after, force] = (arg('--carry') || '').split('|');
+  if (ok && wf && act === 'synchronize' && before && !ZERO.test(before) && after && force !== 'true') {
+    try {
+      const repo = arg('--repo') || process.env.GITHUB_REPOSITORY;
+      // compare trả ≤ 100 file/trang → PHẢI phân trang (một lần gộp main thường ≥ 300 file); đọc quá 1000 → coi là không đủ (BIG_DELTA) → chạy
+      const pages = JSON.parse(execFileSync('gh', ['api', '--paginate', '--slurp', `repos/${repo}/compare/${before}...${after}?per_page=100`], { encoding: 'utf8', maxBuffer: 1 << 27 }));
+      const delta = pages.flatMap(pg => pg.files || []).map(f => f.filename);
+      const r = carryOver({ delta, paths: prPaths(fs.readFileSync(wf, 'utf8')), self: wf, prevReal: prevRealSuccess(repo, wf.split('/').pop(), before) });
+      console.log(`pr-scope carry-over: ${r.skip ? 'BỎ QUA lượt nặng' : 'chạy'} – ${r.why}`);
+      if (r.skip) ok = false;
+    } catch (e) { console.log('pr-scope carry-over: API lỗi → chạy', String(e.message).split('\n')[0]); }
+  }
   if (process.env.GITHUB_OUTPUT) fs.appendFileSync(process.env.GITHUB_OUTPUT, `ok=${ok}\n`);
 }
 if (import.meta.url === pathToFileURL(process.argv[1]).href) main();

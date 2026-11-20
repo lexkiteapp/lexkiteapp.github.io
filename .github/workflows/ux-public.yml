@@ -23,6 +23,8 @@ jobs:
         run: |
           npm ci --no-audit --no-fund && bash scripts/build-web.sh >/dev/null
           (cd dist && python3 -m http.server 8080 >/dev/null 2>&1 &) ; sleep 1
+      - uses: ./.github/actions/playwright-cache
+        with: { browsers: '--with-deps chromium' }
       - name: Playwright matrix
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2 axe-core@4.10.2
@@ -40,8 +42,8 @@ jobs:
           B="${{ github.event.inputs.base }}"; [ "$B" = dist ] && B=http://localhost:8080; mkdir -p ux-out/lh
           for p in "en/vocabulary/" "en/samples/" "en/speaking/" "app/?hl=en"; do
             k=$(echo "$p" | tr -c 'a-z0-9' '_')
-            for i in 1 2 3; do npx -y lighthouse@12.2.1 "$B/$p" --form-factor=mobile --only-categories=performance,accessibility,best-practices,seo --chrome-flags="--headless=new --no-sandbox" --output=json --output-path=/tmp/m$i.json --quiet || true; done
-            npx -y lighthouse@12.2.1 "$B/$p" --preset=desktop --only-categories=performance,accessibility,best-practices,seo --chrome-flags="--headless=new --no-sandbox" --output=json --output-path=/tmp/d.json --quiet || true
+            for i in 1 2 3; do npx -y lighthouse@12.2.1 "$B/$p" --form-factor=mobile --only-categories=performance,accessibility,best-practices,seo --chrome-flags="--headless=new --no-sandbox --disable-dev-shm-usage --disable-gpu" --output=json --output-path=/tmp/m$i.json --quiet || true; done
+            npx -y lighthouse@12.2.1 "$B/$p" --preset=desktop --only-categories=performance,accessibility,best-practices,seo --chrome-flags="--headless=new --no-sandbox --disable-dev-shm-usage --disable-gpu" --output=json --output-path=/tmp/d.json --quiet || true
             node -e "
               const fs=require('fs');const sum=f=>{const d=JSON.parse(fs.readFileSync(f)),a=d.audits;return{scores:Object.fromEntries(Object.entries(d.categories).map(([k,v])=>[k,Math.round(v.score*100)])),lcp:a['largest-contentful-paint'].displayValue,cls:a['cumulative-layout-shift'].displayValue,tbt:a['total-blocking-time'].displayValue,kb:Math.round(a['total-byte-weight'].numericValue/1024),fails:Object.values(a).filter(x=>x.score!==null&&x.score<0.9&&['binary','numeric','metricSavings'].includes(x.scoreDisplayMode)).map(x=>x.id).slice(0,20)}};
               const m=[1,2,3].map(i=>'/tmp/m'+i+'.json').filter(f=>fs.existsSync(f)).map(sum).sort((a,b)=>a.scores.performance-b.scores.performance);

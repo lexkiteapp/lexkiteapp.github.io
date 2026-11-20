@@ -4,7 +4,7 @@
 // Bản tiếng Anh: build-samples-en.mjs (chạy sau, tự gắn hreflang vi↔en).
 import fs from 'node:fs'; import { execFileSync } from 'node:child_process';
 import { clip, esc, ld, seoPage, sectionNav, filterBox, setCard, ctaBox, extBox, pwaBox, audioBtn, SEO_L, FIND_I18N } from './lib/site-layout.mjs';
-import { loadWriting, loadSpeaking, loadVocab, vocabMeta, relatedOf, relatedPron, loadGrammar, loadLetters, loadPron } from './lib/seo-data.mjs';
+import { loadWriting, loadSpeaking, loadVocab, vocabMeta, relatedOf, relatedKeep, isNewT2, isNewT1, relatedPron, loadGrammar, loadLetters, loadPron } from './lib/seo-data.mjs';
 import { embedWatermark } from '../content/protection/watermark.mjs';
 import { S as SU, parseDoc, docStats, mins, docHtml, sideHtml, stats, hero2, promptBox, phraseCards, saveBox, ctaKit, pager2, typeCls, toneCls, topicEmoji, topicCls, smpCard, group2, typeFilter, itemList, smpHead, smpTail } from './lib/samples-ui.mjs';
 import { art, typeArt, topicArt, toneArt, task1Art, vocabArt, unitArt, pronArt, t2Key, t1Key, catNav } from './lib/samples-visual.mjs';
@@ -58,7 +58,7 @@ ${ctaBox(`${APP}#/model/t2-${p.id}`, '✍️ Luyện viết đề này miễn ph
 <h2>Từ vựng & cụm từ hay (${gl.length})</h2>${phraseCards(gl)}${saveBox(`${APP}#/model/t2-${p.id}`, 'vi')}</div></div>
 ${ctaKit(`${APP}#/write/${p.id}`, 'Tự viết bài và được chấm điểm ngay', 'Viết bài', 'Đếm từ, gợi ý ý tưởng và chấm theo 4 tiêu chí IELTS.')}
 ${pager2(prev && [`/samples/${prev[0].id}`, short(prev[0].text, 90)], next && [`/samples/${next[0].id}`, short(next[0].text, 90)], 'vi')}
-${related(relatedOf(done, done[di], d => d[0].type === p.type, 4), t2Card)}
+${related(relatedKeep(done, done[di], d => d[0].type === p.type, isNewT2), t2Card)}
 ${extBox('vi', 'samples')}
 ${pwaBox('vi', 'samples')}</article>`;
   fs.writeFileSync(`dist/samples/${p.id}.html`, page(title, desc, `${SITE}samples/${p.id}`, body, `Band ${m.band}: ${short(p.text, 50)}`, undefined,
@@ -154,7 +154,7 @@ ${sectionNav('vi', '/tu-vung/')}
 ${filterBox('vi')}
 ${catNav(Object.entries(byG).map(([k, xs]) => [k, GROUP[k] || k, xs.length, '', vocabArt('', k)]), TP.length, 'vi', F[1], esc)}
 ${Object.entries(byG).map(([k, xs]) => group2(k, GROUP[k] || k, `${xs.length} ${L.sets}`, xs.map(vCard), '', vocabArt('', k))).join('\n')}</div>`));
-  addSm([`${SITE}tu-vung/`, ...TP.map(x => `${SITE}tu-vung/${x.id}`)], 'web/js/data.js', 'web/js/lib');
+  addSm([`${SITE}tu-vung/`, ...TP.map(x => `${SITE}tu-vung/${x.id}`)], 'web/js/data.js', 'web/js/lib', 'web/cpack/lib');
   console.log(`✓ SEO: ${TP.length} trang bộ từ vựng + mục lục`);
 }
 

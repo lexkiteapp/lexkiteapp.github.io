@@ -28,7 +28,7 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 - Phiên chính = người DUY NHẤT ship. Agent phụ không commit/push trừ khi được giao rõ; chỉ `git add` đúng file của luồng mình (quy tắc vàng: `COORDINATION.md`).
 - Phiên/agent: ≤ 2 phiên làm việc, tự thu gọn phiên dài, xoay agent con, lưu trữ phiên xong – `TOKEN-RULES.md` §9.
 - Duyệt hình (chủ 2/11, thay luật 28/10): giao diện = điều phối + QC CI đạt (npm test, visual-qa, qa-bot, frame/contrast/exit-guard/overlap, axe, new-ui-qa) → gộp; chủ báo lỗi sau; game-feel vẫn ≥ 95 (`GAME-FEEL.md`). Tiêu credit (Kling…) vẫn cần chủ OK (`CREDIT-RULES.md`).
-- Vùng file: `docs/COORDINATION.md` (cuối file). `web/js/app.js` chỉ thêm 2 dòng BUNDLES/ROUTE_BUNDLE khi được duyệt.
+- Vùng file: `docs/COORDINATION.md` (cuối file). Gói lười đăng ký ở `web/js/bundles.js`, KHÔNG app.js (khung sát trần).
 - Antigravity nhận/trả việc qua `docs/agents/BOARD.md`; phiên chính nghiệm thu (diff, test, chạy thật, soi alt) rồi cherry-pick/gộp TAY (không merge nhánh cũ – xem §8).
 - Báo cáo của agent khác chỉ là báo cáo → tự kiểm (diff, test, live). Dừng thật: `stop_session`. Hết hạn mức giữa chừng: nhắn agent làm tiếp, không chạy lại từ đầu.
 - Grep tính năng cũ trong `web/js` trước khi viết mới (Streak Freeze từng bị viết trùng).
@@ -53,9 +53,10 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 ## 2b. Chống xung đột PR (chi tiết: `docs/specs/merge-queue.md`)
 - Nguồn dịch `i18n/ui` + registry (`REGISTRIES` ở `scripts/lib/fmt-registry.mjs`): mỗi mục một dòng, sắp xếp – `node scripts/fmt-stable.mjs` (prepush chạy).
 - Không sửa tay tệp sinh (`web/js/i18n/<lang>`, `extension/app`, `st-*.css`, CODEMAP) hay `i18n-fixed.json`/trang pháp lý: PR dirty → bot `pr-unconflict` hoặc `node scripts/ci/regen-conflicts.mjs` (`docs/specs/merge-queue.md`). Gác: `fmt-stable.mjs`, `gen-guard.mjs`.
+- **Watcher merge chuẩn (17/11)**: `node scripts/ci/prwatch.mjs 1551@<sha> 1552 [--every 150] [--max-min 180] [--keep-on-red] [--dry]` – squash-merge khi COMMIT STATUS `required-gate` xanh + mergeable sạch; `PR@sha` chờ head khớp; đỏ → thoát 2, hết giờ → 3. Không tự viết watcher riêng (17/11: đọc gate như check-run → "none" 3 giờ).
 
 ## 3. Ngân sách dung lượng
-- Khung app (SHELL ∪ file nạp ngay của /app/) ≤ 374 KB gz chuẩn (`scripts/lib/gz-canon.mjs`, máy = CI; không nâng) → tính năng mới tải lười; khóa: `shell-lazy.mjs`. Từng module + Δ so với main: `node scripts/test/shell-size.mjs` (tóm tắt CI npm test); khóa i18n chỉ trang lười dùng → `--move` sang `en/lazyui.js` (gói i18nl). `web/js` ≤ `totalJs` trong `scripts/test/budget.json` (không tính `admin-*.js` và nguồn dựng en.js – `scripts/lib/js-budget.mjs`).
+- Khung app (SHELL ∪ file nạp ngay của /app/) ≤ 374 KB gz chuẩn (`scripts/lib/gz-canon.mjs`; không nâng) → tính năng mới lười; khóa: `shell-lazy.mjs`. Trần chỉ đi xuống: thêm byte phải gọt bằng nhau; ý dài → CSS-NOTES.md. Từng module: `node scripts/test/shell-size.mjs`; khóa i18n chỉ trang lười → `--move` sang `en/lazyui.js`. `web/js` ≤ `totalJs` trong `scripts/test/budget.json` (trừ `admin-*.js`, nguồn dựng en.js – `scripts/lib/js-budget.mjs`).
 - `web/js/i18n/<lang>.js` ≤ 160 KB gz/ngôn ngữ; không thêm file vào `allowBig`.
 - `scripts/test/size-budget.mjs`; ngưỡng `visual-qa.budget.json` chỉ được GIẢM.
 
@@ -114,10 +115,7 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 Lịch sử đầy đủ (bài học 17–26/10, Kling, chroma key, kho, video, D1, điều phối): `docs/archive/METHODS-HISTORY.md`.
 
 ## Bài học hạ tầng – luật cô đọng (video/footage: `docs/VIDEO.md` §9; toàn văn: `docs/archive/METHODS-HISTORY.md` § "Chuyển từ METHODS 26/10")
-- CI giọng: runner mới không có ffmpeg → `apt-get install ffmpeg`; ghim faster-whisper 1.0.3.
-- D1: việc nền qua `_d1guard.js` (429 `quota-guard` ≥ 50 %), truy vấn theo khoá (EXPLAIN chặn quét bảng), không thăm dò API bằng vòng lặp; dữ liệu nội bộ ở D1 `lexkite-internal` (tài khoản CF thứ 2).
-- Mọi việc nền khai báo `infra/jobs.json` + lease (fail-closed); neuron Workers AI tài khoản chính dành cho người dùng, nền dùng tài khoản 2.
-- CI đỏ: `ci-triage.yml` quét 10 phút; job gọi API bọc `quota-skip.mjs`; workflow mới qua `ci-policy.mjs`.
+- CI giọng, D1 quota-guard, `infra/jobs.json` + lease, `ci-triage.yml`: toàn văn ở `docs/archive/METHODS-HISTORY.md` § "Bài học hạ tầng – 4 luật chuyển từ METHODS 18/11".
 
 ## Làm đúng 1 lần (anh chủ 24/10 – không sửa đi sửa lại)
 Mọi việc mới (tính năng, pipeline, job nền, nội dung hàng loạt) đi qua 5 bước, ghi ngắn trong brief/PR:

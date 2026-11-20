@@ -1,0 +1,141 @@
+{
+ "id": "t2a_rule_silentally_1",
+ "template": "rule",
+ "series": "Spell to Sound",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "pronunciation",
+ "lines": [
+  {
+   "id": "h",
+   "text": "The A is silent!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "In i c a l l y, the A is silent.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Specifically.",
+   "pause": 0.25,
+   "speed": 0.6
+  },
+  {
+   "id": "v0",
+   "text": "Specifically.",
+   "pause": 0.3
+  },
+  {
+   "id": "p",
+   "text": "Repeat after me!",
+   "pause": 1.6
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which letter is silent in specifically?",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "A! The A is silent.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "rule": "silent-ally",
+  "title": "-ically",
+  "target": "/kli/",
+  "letter": "a",
+  "say": "In i c a l l y, the A is silent.",
+  "words": [
+   {
+    "w": "specifically",
+    "ipa": "/spəˈsɪfɪkli/",
+    "silent": [
+     8,
+     9
+    ],
+    "letter": "a",
+    "mean": "In a well-defined or clear manner.",
+    "em": "🎯"
+   }
+  ],
+  "quiz": {
+   "stem": "Which letter is silent in specifically?",
+   "options": [
+    "S",
+    "A"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "pronunciation",
+  "route": "#/pron/specifically",
+  "link": "https://lexkite.com/app/#/pron/specifically",
+  "say": "Practise this sound"
+ },
+ "hook": {
+  "line": "h",
+  "text": "The A is silent"
+ },
+ "src": {
+  "rule": "silent-ally"
+ },
+ "est": {
+  "words": 39,
+  "seconds": 25.1,
+  "wpm": 93
+ },
+ "publish": {
+  "title": "The A is silent!",
+  "keyword": "Spell to Sound",
+  "value": "In i c a l l y, the A is silent.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#pronunciation",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/pron/specifically",
+  "script_words": 30,
+  "platforms": {
+   "youtube": {
+    "title": "The A is silent!",
+    "description": "In i c a l l y, the A is silent.\n\nPractise this sound, free: https://lexkite.com/app/#/pron/specifically\n\nSeries: Spell to Sound · Teacher: Ama\n\n#learnenglish #englishtips #pronunciation #englishteacher",
+    "tags": [
+     "Spell to Sound",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "The A is silent!\n\nIn i c a l l y, the A is silent.\n\nPractise this sound, free: https://lexkite.com/app/#/pron/specifically"
+   },
+   "instagram": {
+    "caption": "The A is silent!\n\nIn i c a l l y, the A is silent.\n\nPractise this sound: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#pronunciation",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "The A is silent! #learnenglish #englishtips #pronunciation"
+   }
+  },
+  "first_comment": "Answer: A! The A is silent. In i c a l l y, the A is silent. Try the full lesson and quiz here: {link}"
+ }
+}

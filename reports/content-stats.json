@@ -1,19 +1,19 @@
 {
  "IELTS Listening": {
-  "Part 1": 100,
-  "Part 2": 100,
-  "Part 3": 100,
-  "Part 4": 100
+  "Part 1": 200,
+  "Part 2": 200,
+  "Part 3": 200,
+  "Part 4": 200
  },
  "IELTS Reading GT": {
-  "Passage 1": 70,
-  "Passage 2": 65,
-  "Passage 3": 65
+  "Passage 1": 96,
+  "Passage 2": 91,
+  "Passage 3": 93
  },
  "IELTS Reading AC": {
-  "Passage 1": 130,
-  "Passage 2": 130,
-  "Passage 3": 140
+  "Passage 1": 156,
+  "Passage 2": 156,
+  "Passage 3": 168
  },
  "TOEIC Reading": {
   "Part 5": 300,
@@ -48,13 +48,13 @@
   "talk": 159
  },
  "TOEFL Writing": {
-  "sentence": 100,
-  "email": 30,
-  "discussion": 30
+  "sentence": 140,
+  "email": 36,
+  "discussion": 36
  },
  "TOEFL Speaking": {
-  "repeat": 175,
-  "interview": 96
+  "repeat": 196,
+  "interview": 100
  },
  "Ngữ pháp – trắc nghiệm": {
   "A2": 168,
@@ -75,9 +75,10 @@
  "Bài đọc ngắn": {
   "B1": 75,
   "B2": 75,
-  "C1": 70,
-  "A2": 65,
-  "A1": 128
+  "C1": 80,
+  "A2": 80,
+  "A1": 128,
+  "C2": 85
  },
  "Từ vựng (mục)": {
   "B2": 2948,

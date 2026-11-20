@@ -1,0 +1,163 @@
+{
+ "id": "t2a_rule_silenth_1",
+ "template": "rule",
+ "series": "Spell to Sound",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "pronunciation",
+ "lines": [
+  {
+   "id": "h",
+   "text": "The H is silent!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "Here the H is silent. Start with the next sound.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Hour.",
+   "pause": 0.25,
+   "speed": 0.6
+  },
+  {
+   "id": "v0",
+   "text": "Hour.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Honest.",
+   "pause": 0.25,
+   "speed": 0.6
+  },
+  {
+   "id": "v1",
+   "text": "Honest.",
+   "pause": 0.3
+  },
+  {
+   "id": "p",
+   "text": "Repeat after me!",
+   "pause": 2.4
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which letter is silent in honest?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "H! The H is silent.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "rule": "silent-h",
+  "title": "silent h",
+  "target": "the next sound",
+  "letter": "h",
+  "say": "Here the H is silent. Start with the next sound.",
+  "words": [
+   {
+    "w": "hour",
+    "ipa": "/ˈaʊər/",
+    "silent": [
+     0,
+     1
+    ],
+    "letter": "h",
+    "mean": "60 minutes.",
+    "em": "⏰"
+   },
+   {
+    "w": "honest",
+    "ipa": "/ˈɑːnəst/",
+    "silent": [
+     0,
+     1
+    ],
+    "letter": "h",
+    "mean": "Always telling the truth.",
+    "em": "😇"
+   }
+  ],
+  "quiz": {
+   "stem": "Which letter is silent in honest?",
+   "options": [
+    "O",
+    "H"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "pronunciation",
+  "route": "#/pron/hour",
+  "link": "https://lexkite.com/app/#/pron/hour",
+  "say": "Practise this sound"
+ },
+ "hook": {
+  "line": "h",
+  "text": "The H is silent"
+ },
+ "src": {
+  "rule": "silent-h"
+ },
+ "est": {
+  "words": 40,
+  "seconds": 27.1,
+  "wpm": 88
+ },
+ "publish": {
+  "title": "The H is silent!",
+  "keyword": "Spell to Sound",
+  "value": "Here the H is silent. Start with the next sound.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#pronunciation",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/pron/hour",
+  "script_words": 31,
+  "platforms": {
+   "youtube": {
+    "title": "The H is silent!",
+    "description": "Here the H is silent. Start with the next sound.\n\nPractise this sound, free: https://lexkite.com/app/#/pron/hour\n\nSeries: Spell to Sound · Teacher: Ama\n\n#learnenglish #englishtips #pronunciation #englishteacher",
+    "tags": [
+     "Spell to Sound",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "The H is silent!\n\nHere the H is silent. Start with the next sound.\n\nPractise this sound, free: https://lexkite.com/app/#/pron/hour"
+   },
+   "instagram": {
+    "caption": "The H is silent!\n\nHere the H is silent. Start with the next sound.\n\nPractise this sound: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#pronunciation",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "The H is silent! #learnenglish #englishtips #pronunciation"
+   }
+  },
+  "first_comment": "Answer: H! The H is silent. Here the H is silent. Start with the next sound. Try the full lesson and quiz here: {link}"
+ }
+}

@@ -2,7 +2,7 @@
 // + hreflang vi ↔ en giữa 2 bản. Chạy sau build-samples.mjs. Giao diện chung: scripts/lib/site-layout.mjs.
 import fs from 'node:fs'; import vm from 'node:vm'; import { execFileSync } from 'node:child_process';
 import { clip, esc, ld, seoPage, sectionNav, filterBox, setCard, ctaBox, extBox, pwaBox, audioBtn, SEO_L, FIND_I18N } from './lib/site-layout.mjs';
-import { loadWriting, loadSpeaking, loadVocab, vocabMeta, relatedOf, relatedPron, loadGrammar, loadLetters, loadTask1, loadPron } from './lib/seo-data.mjs';
+import { loadWriting, loadSpeaking, loadVocab, vocabMeta, relatedOf, relatedKeep, isNewT2, isNewT1, relatedPron, loadGrammar, loadLetters, loadTask1, loadPron } from './lib/seo-data.mjs';
 import { lastmodStore } from './lib/lastmod.mjs';
 import { embedWatermark } from '../content/protection/watermark.mjs';
 import { S as SU, parseDoc, docStats, mins, docHtml, sideHtml, stats, hero2, promptBox, phraseCards, saveBox, ctaKit, pager2, typeCls, toneCls, topicEmoji, topicCls, smpCard, group2, typeFilter, itemList, smpHead, smpTail } from './lib/samples-ui.mjs';
@@ -62,7 +62,7 @@ ${ctaBox(`${APP}/model/t2-${p.id}`, '✍️ Practise this question free on Lexki
 <h2>Useful phrases (${gl.length})</h2>${phraseCards(gl.map(e => [e]))}${saveBox(`${APP}/model/t2-${p.id}`, 'en')}</div></div>
 ${ctaKit(`${APP}/write/${p.id}`, 'Write your own answer and get instant feedback', 'Start writing', 'Word count, idea prompts and scoring on the 4 IELTS criteria.')}
 ${pager2(prev && [`/en/samples/${prev[0].id}`, short(prev[0].text, 90)], next && [`/en/samples/${next[0].id}`, short(next[0].text, 90)], 'en')}
-${related(relatedOf(done, done[di], d => d[0].type === p.type, 4), t2Card)}
+${related(relatedKeep(done, done[di], d => d[0].type === p.type, isNewT2), t2Card)}
 ${extBox('en', 'samples')}
 ${pwaBox('en', 'samples')}</article>${smpTail('en')}`, `Band ${m.band}: ${short(p.text, 50)}`,
       { lr: { learningResourceType: 'Sample essay', wordCount: m.words, timeRequired: `PT${mins(m.words)}M`, teaches: `IELTS Writing Task 2 – ${p.type}`, assesses: `IELTS Band ${m.band}` } }));
@@ -123,7 +123,7 @@ ${group2('all', 'Topics', `${made.length} ${L.items}`, made.map(spCard), '', 'v-
 
 // ---- Vocabulary ----
 {
-  lm = gitDate('web/js/data.js', 'web/js/lib', 'web/js/i18n/en.js');
+  lm = gitDate('web/js/data.js', 'web/js/lib', 'web/cpack/lib', 'web/js/i18n/en.js');
   const { TOPICS: TP, audioKey } = loadVocab();
   const G = { topics: 'IELTS Vocabulary by Topic', writing: 'IELTS Writing Vocabulary', speaking: 'IELTS Speaking Vocabulary', awl: 'Academic Word List (AWL)', core: 'Core Vocabulary (NGSL)', toeic: 'TOEIC Vocabulary', domain: 'Vocabulary for Specific Fields', exam: 'Vocabulary by Exam' };
   const c = { self: {}, window: {} }; c.self = c.window = c; vm.createContext(c); vm.runInContext(fs.readFileSync('web/js/i18n/en.js', 'utf8'), c);
@@ -285,7 +285,7 @@ ${x.overview ? `<h2>Overview sentence</h2><p>${esc(x.overview)}</p>` : ''}
 <h2>Key vocabulary (${gl.length})</h2>${phraseCards(gl)}${saveBox(`${APP}/model/t1-${x.id}`, 'en')}</div></div>
 ${ctaKit(`${APP}/task1/${x.id}`, 'Write your own answer to this task', 'Start writing', 'Word count, timer and instant feedback on your report.')}
 ${pager2(prev && [`/en/ielts-writing/task-1/${prev[0].id}`, short(prev[0].title, 90)], next && [`/en/ielts-writing/task-1/${next[0].id}`, short(next[0].title, 90)], 'en')}
-${related(relatedOf(made, made[di], d => d[0].type === x.type, 4), c1)}
+${related(relatedKeep(made, made[di], d => d[0].type === x.type, isNewT1), c1)}
 ${extBox('en', 'samples')}</article>${smpTail('en')}`;
     outL(`en/ielts-writing/task-1/${x.id}`, '-', page(uniqT(`IELTS Writing Task 1 ${ty} Band ${m.band} Sample: ${short(x.title.replace(/^The [a-z ]+? (shows?|illustrates?|compares?|gives?) /i, ''), 60)}`, `IELTS Task 1 ${ty} model answer: ${x.id}`), `Band ${m.band} IELTS Academic Writing Task 1 ${ty.toLowerCase()} model answer (${m.words} words) with the data, an overview sentence and ${gl.length} key phrases: ${short(x.title, 80)}`, `en/ielts-writing/task-1/${x.id}`, '-', body, short(x.title, 60),
       { lr: { learningResourceType: 'Sample answer', wordCount: m.words, teaches: `IELTS Academic Writing Task 1 – ${ty}`, assesses: `IELTS Band ${m.band}` } }), 'ielts-writing', true);

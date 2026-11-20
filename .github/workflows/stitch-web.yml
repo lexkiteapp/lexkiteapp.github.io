@@ -47,6 +47,8 @@ jobs:
           node scripts/build-stitch-css.mjs --check
       - name: Build dist (như Cloudflare Pages)
         run: bash scripts/build-web.sh >/dev/null
+      - uses: ./.github/actions/playwright-cache
+        with: { browsers: '--with-deps chromium' }
       - name: So với mẫu Stitch + axe + chạm + CLS
         run: |
           bash scripts/ci/pw-install.sh --with-deps chromium
@@ -63,7 +65,7 @@ jobs:
           for p in "en/" "en/samples/p27.html" "en/speaking/thoi-tiet-cac-mua.html" "en/blog/academic-word-list/" "en/blog/"; do
             k=$(echo "$p" | tr -c 'a-z0-9' '_'); live=$(echo "$p" | sed 's/\.html$//')
             for s in loc live; do u="http://localhost:8080/$p"; [ $s = live ] && u="https://lexkite.com/$live"
-              for i in 1 2 3; do npx -y lighthouse@12.2.1 "$u" --form-factor=mobile --only-categories=performance,accessibility,best-practices,seo --chrome-flags="--headless=new --no-sandbox" --output=json --output-path=/tmp/$s$i.json --quiet || true; done; done
+              for i in 1 2 3; do npx -y lighthouse@12.2.1 "$u" --form-factor=mobile --only-categories=performance,accessibility,best-practices,seo --chrome-flags="--headless=new --no-sandbox --disable-dev-shm-usage --disable-gpu" --output=json --output-path=/tmp/$s$i.json --quiet || true; done; done
             node -e "
               const fs=require('fs'),sc=s=>[1,2,3].map(i=>'/tmp/'+s+i+'.json').filter(f=>fs.existsSync(f)).map(f=>JSON.parse(fs.readFileSync(f))).map(d=>({...Object.fromEntries(Object.entries(d.categories).map(([k,v])=>[k,Math.round(v.score*100)])),a11yFail:d.categories.accessibility.auditRefs.filter(r=>r.weight&&d.audits[r.id].score===0).map(r=>r.id)})).sort((a,b)=>a.performance-b.performance)[1]||null;
               const L=sc('loc'),R=sc('live');fs.writeFileSync('out/stitch-web/lh/$k.json',JSON.stringify({loc:L,live:R}));console.log('$p',JSON.stringify({loc:L,live:R}));

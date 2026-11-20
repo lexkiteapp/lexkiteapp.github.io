@@ -31,15 +31,17 @@
     if (!s.examTarget && s.goal && s.goal.exam === e) s.examTarget = App.goalLabel(s.goal); if (!s.examTarget && s.targets && s.targets[e]) s.examTarget = s.targets[e]; alignTrack(s, e); };
   // </exam-target>
   App.setExam = async e => { if (!EXAMS[e]) return; const s0 = state.settings; App.moveExamTarget(s0, App.exam(), e); s0.exam = e; alignTrack(s0, e); await App.saveSettings(); if (window.Sync) Sync.schedule(); App.updateExamChip(); toast(EXAMS[e].name); App.route(); };
-  App.updateExamChip = () => { App.fixExamTarget(); const b = document.getElementById('examChip'); if (!b) return; const x = EXAMS[App.exam()]; b.innerHTML = `<span aria-hidden="true">${UI.icon(x.ic)}</span> ${esc(x.short)} <span class="chev" aria-hidden="true">▾</span>`; b.title = t('Kỳ thi của bạn') + ': ' + x.name; };
+  App.updateExamChip = () => { App.fixExamTarget(); const b = document.getElementById('examChip'); if (!b) return; const x = EXAMS[App.exam()]; b.innerHTML = `<span class="tl-f tl-flag" aria-hidden="true">${Target.table(Target.cur()).em}</span><span aria-hidden="true">${UI.icon(x.ic)}</span> ${esc(x.short)} <span class="chev" aria-hidden="true">▾</span>`; b.title = t('Kỳ thi của bạn') + ': ' + x.name;
+    const tb = document.getElementById('tlBtn'); if (tb) tb.title = tb.ariaLabel = t('Ngôn ngữ đang học'); document.querySelectorAll('.tl-flag').forEach(f => f.textContent = Target.table(Target.cur()).em); };
   App.examPicker = () => {
     const cur = App.exam();
     UI.modal(`<h2 style="margin-top:0">${t('Bạn đang luyện kỳ thi nào?')}</h2><p class="muted small">${t('Nội dung Kỹ năng, Thi thử và kế hoạch hôm nay sẽ theo kỳ thi này. Đổi kỳ thi không xóa dữ liệu.')}</p>
-      <div class="exam-list">${Object.entries(EXAMS).map(([k, x]) => `<button type="button" class="exam-opt ${k === cur ? 'on' : ''}" data-exam="${k}"><span class="em" aria-hidden="true">${UI.icon(x.ic)}</span><span><b>${esc(x.name)}</b><small>${esc(EXAM_DESC()[k])}</small></span>${k === cur ? '<span class="tick" aria-hidden="true">✓</span>' : ''}</button>`).join('')}</div>`);
+      <div class="exam-list">${Object.entries(EXAMS).map(([k, x]) => `<button type="button" class="exam-opt ${k === cur ? 'on' : ''}" data-exam="${k}"><span class="em" aria-hidden="true">${UI.icon(x.ic)}</span><span><b>${esc(x.name)}</b><small>${esc(EXAM_DESC()[k])}</small></span>${k === cur ? '<span class="tick" aria-hidden="true">✓</span>' : ''}</button>`).join('')}</div><div id="tlPick"></div>`);
+    if (window.Target && Target.enabled()) App.need('settings').then(() => App.tlPick());   // bộ chọn ngôn ngữ đích nằm ở settings.js (tải lười)
     $$('.exam-opt').forEach(b => b.onclick = () => { UI.closeModal(); if (b.dataset.exam !== cur) App.setExam(b.dataset.exam); });
   };
   const EXAM_DESC = () => ({ ielts: t('Du học, định cư – 4 kỹ năng, band 0–9'), ieltsgt: t('Định cư, làm việc – viết thư ở Task 1'), toeic: t('Công sở – Nghe & Đọc, 10–990 điểm'), toefl: t('Du học Mỹ – bản 2026, band 1–6'), general: t('Giao tiếp & nền tảng, chưa thi chứng chỉ') });
-  document.addEventListener('click', e => { if (e.target.closest && e.target.closest('#examChip')) App.examPicker(); });
+  document.addEventListener('click', e => { if (e.target.closest && e.target.closest('#examChip')) App.examPicker(); else if (e.target.closest && e.target.closest('#tlBtn')) App.need('settings').then(() => App.tlMenu()); });
 
   // ---------- Khối dựng dùng chung ----------
   const card = (href, ic, title, desc, meta = '') => `<a class="card hover hub-card" href="${href}"><span class="hub-ic" aria-hidden="true">${ic}</span><span class="hub-tx"><b>${title}</b><small>${desc}</small></span>${meta ? `<span class="hub-meta">${meta}</span>` : ''}</a>`;

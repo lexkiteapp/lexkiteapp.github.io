@@ -169,6 +169,16 @@ export function violations(file, src) {
   // 10) (06/11 – stitch-web đỏ vì `timeout 600 npx playwright install --with-deps` treo apt hết 600 s, #780): cài Playwright qua scripts/ci/pw-install.sh
   //     (mỗi lượt ≤ 4 phút, thử lại 3 lượt, giết apt treo) – một lượt treo không còn làm đỏ job. Trừ mobile-qa.yml (nội dung bị mqa-parity khoá) và vòng thử lại tự viết.
   if (!/(^|\/)mobile-qa\.yml$/.test(file)) String(src).split('\n').forEach((l, n) => { if (!/^\s*#/.test(l) && /npx\s+(?:--yes\s+)?playwright(?:@[\w.]+)?\s+install\b/.test(l) && !/\bif timeout \d+ npx/.test(l)) out.push(`${file}:${n + 1}: cài Playwright trần – dùng \`bash scripts/ci/pw-install.sh [--with-deps] <trình duyệt>\` (trần + thử lại, luật 10)`); });
+  // pw-cache (17/11 – `playwright install --with-deps webkit` treo mirror apt + `npm i playwright` hết 12 phút làm đỏ ≥6 PR): mỗi lần gọi pw-install.sh phải có
+  //     MỘT bước `uses: ./.github/actions/playwright-cache` (cache trình duyệt + .deb apt + npm) đứng trước – cài trình duyệt chỉ đi qua action chung.
+  { const code = String(src).replace(/^\s*#.*$/gm, ''), calls = (code.match(/scripts\/ci\/pw-install\.sh/g) || []).length, uses = (code.match(/uses:\s*\.\/\.github\/actions\/playwright-cache\b/g) || []).length;
+    if (calls > uses) out.push(`${file}: ${calls} lần gọi pw-install.sh nhưng chỉ ${uses} bước \`uses: ./.github/actions/playwright-cache\` – thêm bước cache TRƯỚC mỗi lần cài (luật pw-cache)`); }
+  // action cục bộ (`uses: ./.github/actions/…`) cần mã trên đĩa: (17/11 – report-shots `bench` đỏ "Can't find action.yml" vì checkout thưa không có .github/actions) →
+  //     trong MỖI job, trước bước dùng action cục bộ phải có actions/checkout, và nếu checkout thưa thì danh sách phải gồm `.github/actions` (hoặc `.github`).
+  for (const j of jobs(src)) { const t = j.text, u = t.search(/^\s*-?\s*uses:\s*\.\/\.github\/actions\//m); if (u < 0) continue;
+    const before = t.slice(0, u), cks = [...before.matchAll(/uses:\s*actions\/checkout@[^\n]*\n?([^\n]*)/g)];
+    if (!cks.length) out.push(`${file}: job "${j.id}" dùng action cục bộ trước khi có actions/checkout (không tìm thấy action.yml trên runner)`);
+    else { const last = cks[cks.length - 1][0]; if (/sparse-checkout/.test(last) && !/\.github(\/actions)?(\\n|["'\s\n,}]|$)/.test(last)) out.push(`${file}: job "${j.id}" checkout thưa thiếu .github/actions nhưng dùng action cục bộ`); } }
   for (const st of installSteps(src)) if (!st.bounded) out.push(`${file}:${st.start + 1}: bước cài Playwright/apt không giới hạn thời gian – bước chỉ cài: thêm timeout-minutes; bước còn việc khác: bọc lệnh cài bằng \`timeout 600 …\` (luật 9)`);
   String(src).split('\n').forEach((l, n) => { if (!/^\s*#/.test(l) && SIGN_AUTO.test(l)) out.push(`${file}:${n + 1}: ký iOS Automatic/-allowProvisioningUpdates trên CI – mỗi máy CI tạo 1 chứng chỉ mới → đầy hạn mức; ký Manual qua scripts/native/ios-sign.sh (luật 13)`); });
   return out;
@@ -262,6 +272,14 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
     ok(v10('      - timeout-minutes: 12\n        run: timeout 600 npx playwright install --with-deps chromium\n') === 1, 'luật 10: cài Playwright trần (kể cả bọc timeout) → lỗi');
     ok(v10('      - timeout-minutes: 14\n        run: bash scripts/ci/pw-install.sh --with-deps chromium\n') === 0, 'luật 10: qua pw-install.sh → đạt');
     ok(v10('      - run: |\n          for i in 1 2 3; do\n            if timeout 240 npx playwright install chromium; then break; fi\n          done\n') === 0, 'luật 10: vòng thử lại tự viết → đạt');
+    const v17 = st => violations('i.yml', job(st)).filter(x => /luật pw-cache/.test(x)).length;
+    ok(v17('      - run: bash scripts/ci/pw-install.sh --with-deps webkit\n') === 1, 'luật pw-cache: pw-install.sh không kèm action playwright-cache → lỗi');
+    ok(v17("      - uses: ./.github/actions/playwright-cache\n        with: { browsers: webkit }\n      - run: bash scripts/ci/pw-install.sh --with-deps webkit\n") === 0, 'luật pw-cache: có action playwright-cache trước → đạt');
+    ok(v17('      - run: |\n          # bash scripts/ci/pw-install.sh chromium\n          node a.mjs\n') === 0, 'luật pw-cache: dòng chú thích không tính');
+    const vl = st => violations('i.yml', job(st)).filter(x => /action cục bộ/.test(x)).length;
+    ok(vl('      - uses: ./.github/actions/apt\n        with: { packages: x }\n') === 1, 'action cục bộ: dùng trước khi checkout → lỗi');
+    ok(vl('      - uses: actions/checkout@v4\n        with: { sparse-checkout: scripts }\n      - uses: ./.github/actions/apt\n') === 1, 'action cục bộ: checkout thưa thiếu .github/actions → lỗi');
+    ok(vl('      - uses: actions/checkout@v4\n        with: { sparse-checkout: "scripts\\n.github/actions" }\n      - uses: ./.github/actions/apt\n') === 0 && vl('      - uses: actions/checkout@v4\n      - uses: ./.github/actions/apt\n') === 0, 'action cục bộ: checkout đủ → đạt');
     ok(!violations('mobile-qa.yml', job('      - timeout-minutes: 12\n        run: npx playwright install chromium\n')).some(x => /luật 10/.test(x)), 'luật 10: mobile-qa.yml được miễn');
   }
   { const hv = "# ci-policy: heavy-gate – x\n" + base.replace("  push:\n    branches: [main]\n    paths: ['a/**']", "  pull_request:\n    paths: ['a/**']").replace('concurrency: { group: x }', 'concurrency: { group: x, cancel-in-progress: true }');
@@ -319,7 +337,7 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
     for (const [w, need] of Object.entries(SCOPED)) {
       const src = (srcs.find(([f]) => f === w + '.yml') || [])[1] || '', g = jobs(src).find(j => j.id === 'gate');
       ok(!!g, `luật 16: ${w}.yml thiếu job gate`); if (!g) continue;
-      ok(g.text.includes(`node scripts/ci/pr-scope.mjs --repo "$REPO" --pr "$PR" --workflow .github/workflows/${w}.yml --need ${need}\n`) && g.text.includes(`scripts/ci/pr-scope.mjs .github/workflows/${w}.yml; do gh api`) && !/actions\/checkout@/.test(g.text), `luật 16: ${w}.yml gate phải chạy pr-scope.mjs --workflow … --need ${need}, lấy file qua API (không checkout: no-prod-hosts/luật 14)`);
+      ok(g.text.includes(`node scripts/ci/pr-scope.mjs --repo "$REPO" --pr "$PR" --workflow .github/workflows/${w}.yml --need ${need} --carry "${'$'}{{ github.event.action }}|${'$'}{{ github.event.before }}|${'$'}{{ github.event.pull_request.head.sha }}|${'$'}{{ contains(github.event.pull_request.labels.*.name, 'ready') }}"\n`) && g.text.includes(`scripts/ci/pr-scope.mjs .github/workflows/${w}.yml; do gh api`) && !/actions\/checkout@/.test(g.text), `luật 16: ${w}.yml gate phải chạy pr-scope.mjs --workflow … --need ${need} --carry …(carry-over: push không đổi file kích workflow + head cũ xanh thật → bỏ qua lượt nặng), lấy file qua API (không checkout: no-prod-hosts/luật 14)`);
       ok(/outputs:\s*\{\s*go:[^\n]*steps\.g\.outputs\.go == ''true''[^\n]*steps\.s\.outputs\.ok != ''false''/.test(g.text), `luật 16: ${w}.yml output go phải gộp steps.s.outputs.ok != 'false' (lỗi API → mở cổng, không mất kiểm)`);
       ok(/id: s\n\s+if: github\.event_name == 'pull_request'\n\s+continue-on-error: true/.test(g.text), `luật 16: ${w}.yml bước scope chỉ chạy trên PR và continue-on-error (không làm đỏ gate)`);
       ok(/pull-requests: read/.test(g.text), `luật 16: ${w}.yml gate cần pull-requests: read để đọc danh sách file PR`);

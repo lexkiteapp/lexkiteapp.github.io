@@ -1,4 +1,5 @@
 /* Autopilot social (chạy nền, máy owner tắt vẫn chạy) – docs/DISTRIBUTION.md §6.
+ * Lỗi tạm thời của nền tảng (lỗi nội bộ/5xx/timeout): tự thử lại ≤ 3 lần (backoff 30 phút → 2 giờ → 6 giờ, cùng post_id), chỉ cảnh báo khi vẫn hỏng; spam_risk/validation không bao giờ tự thử lại.
  * Mỗi lượt (cron CI .github/workflows/social-auto.yml → POST /api/social-auto, ký HMAC; hoặc nút "Chạy ngay" trong Quản trị):
  *   1. (≥ sync_h giờ một lần) GET accounts + GET posts → ext_sync + boardSync (trạng thái Scheduled/Published/Failed) → dist_social 'published'.
  *   2. social_due (dist_social theo slot_ms, cửa sổ [now + lead, now + lookahead]) ≤ max_per_run bài, chỉ nền tảng đang bật (mặc định FB + IG).
@@ -10,8 +11,8 @@
 import { setupMgr, boardSync, contentHash, pushClip, bodyFor, PLAT, platOf, healthOf, validateCompose, boardStateOf } from './_social_mgr.js';
 import { setupDist, DIST, clipOf, socialSetup, socialChannels } from './distribution.js';
 import { previewClip, pickPreviewClip, PREVIEW_CLIP_RE } from './_social_preview.js';
-import { foreignAccount, pausedAccount, extAccount } from './_distribution.js';
-import { setup as ytSetup } from './youtube.js';
+import { foreignAccount, pausedAccount, extAccount, localDate, LANG_TZ, langOfChannel, dayCapOf, gapOf } from './_distribution.js';
+import { setup as ytSetup, chanCfg } from './youtube.js';
 import { field } from './_clip_logic.js';
 import { gcClient, gcConfigured } from './_grabcast.js';
 import { manifest, signed } from './admin-shorts.js';
@@ -26,7 +27,7 @@ import { metaChannels, tokenOf, refreshIg, igNeedsRefresh, markToken, setToken, 
 // ---------------- Hàm thuần (test: scripts/test/social-auto.mjs) ----------------
 export const AUTO_PLATS = ['facebook_page', 'instagram', 'tiktok', 'youtube', 'threads'];
 /** on = kill switch (TẮT → không gọi GrabCast gì cả) · auto_approve mặc định TẮT · TikTok BẬT (Direct Post duyệt 03/11/2026) · YouTube qua GrabCast tự bật khi workspace có kênh YouTube ok (yt_gc_auto; GrabCast qua audit YouTube 10/11/2026), plats.youtube = đường API trực tiếp. plan_daily BẬT: lịch tự xếp mỗi ngày (chỉ D1, không đăng gì khi chưa duyệt). */
-export const AUTO_DEFAULT = { on: true, auto_approve: false, auto_queue: false, manual_first: 1, plats: { facebook_page: true, instagram: true, tiktok: true, youtube: false, threads: false }, max_per_run: 3, lookahead_h: 30, lead_min: 20, sync_h: 3, daily_calls: 60, plan_daily: true, provider: 'auto', meta_daily: 80, meta_map: {}, yt_gc_auto: true, fc: FC_DEFAULT };
+export const AUTO_DEFAULT = { on: true, auto_approve: false, auto_queue: false, manual_first: 1, plats: { facebook_page: true, instagram: true, tiktok: true, youtube: false, threads: false }, max_per_run: 8, lookahead_h: 30, lead_min: 20, sync_h: 3, daily_calls: 480, plan_daily: true, provider: 'auto', meta_daily: 80, meta_map: {}, yt_gc_auto: true, fc: FC_DEFAULT };
 export const PROVIDERS = ['auto', 'grabcast', 'meta'];
 /** Chủ 10/11 + 16/11/2026: "tự duyệt tự đăng luôn … lên lịch sẵn" – fanpage 4–5 ngày không có video vì autopub chỉ bật YouTube: FB/IG/TikTok tạo bài nháp ở GrabCast rồi chờ duyệt mãi (log 16/11: tạo 3 · lên lịch 0 · chờ duyệt 3).
  *  Áp MỘT lần lên cấu hình đang lưu (policy khác POLICY): bỏ duyệt tay bài đầu, tự vào hàng, tự duyệt, autopub BẬT cho FB + IG + TikTok + YouTube (cổng QC/policy ở autoQueue/approve giữ nguyên). Sau đó cấu hình mang policy → anh đổi gì ở Quản trị thì giữ nguyên. Công tắc khẩn `on` không đụng. */
@@ -38,8 +39,8 @@ export function cleanAuto(a) {
   a = a && typeof a === 'object' ? a : {}; const d = AUTO_DEFAULT, pl = a.plats && typeof a.plats === 'object' ? a.plats : {};
   return { on: a.on == null ? d.on : !!a.on, auto_approve: !!a.auto_approve, auto_queue: !!a.auto_queue, manual_first: clamp(a.manual_first, 0, 50, d.manual_first), policy: a.policy === POLICY ? POLICY : undefined, autopub: Object.fromEntries(AUTO_PLATS.map(p => [p, !!a.autopub && a.autopub[p] === true])),
     plats: Object.fromEntries(AUTO_PLATS.map(p => [p, pl[p] == null ? d.plats[p] : !!pl[p]])),
-    max_per_run: clamp(a.max_per_run, 1, 5, d.max_per_run), lookahead_h: clamp(a.lookahead_h, 2, 72, d.lookahead_h), lead_min: clamp(a.lead_min, 10, 180, d.lead_min),
-    sync_h: clamp(a.sync_h, 3, 24, d.sync_h), daily_calls: clamp(a.daily_calls, 10, 120, d.daily_calls), plan_daily: a.plan_daily == null ? d.plan_daily : !!a.plan_daily,
+    max_per_run: clamp(a.max_per_run, 1, 8, d.max_per_run), lookahead_h: clamp(a.lookahead_h, 2, 72, d.lookahead_h), lead_min: clamp(a.lead_min, 10, 180, d.lead_min),
+    sync_h: clamp(a.sync_h, 3, 24, d.sync_h), daily_calls: clamp(a.daily_calls, 10, 600, d.daily_calls), plan_daily: a.plan_daily == null ? d.plan_daily : !!a.plan_daily,
     yt_gc_auto: a.yt_gc_auto == null ? d.yt_gc_auto : !!a.yt_gc_auto, fc: cleanFc(a.fc), // bình luận đầu mang link (§6c): bật, ≤ per_ch_day/kênh/ngày, ≤ max_tries lần thử
     provider: PROVIDERS.includes(a.provider) ? a.provider : d.provider, meta_daily: clamp(a.meta_daily, 20, 200, d.meta_daily),
     meta_map: Object.fromEntries(['facebook_page', 'instagram'].filter(p => a.meta_map && /^gc-[a-z_]+-[A-Za-z0-9_-]{1,40}$/.test(String(a.meta_map[p] || ''))).map(p => [p, String(a.meta_map[p])])) };
@@ -66,6 +67,30 @@ export const canAutoApprove = (cfg, p, manual) => !!cfg.auto_approve && !!cfg.au
 export function pickDue(rows, cfg, now) {
   const lo = now + cfg.lead_min * 60e3, hi = now + cfg.lookahead_h * 36e5;
   return (rows || []).filter(r => cfg.plats[r.platform] && r.account_id && r.slot_ms >= lo && r.slot_ms <= hi).sort((a, b) => a.slot_ms - b.slot_ms);
+}
+/** Trần bài/kênh/ngày THEO LOẠI KÊNH (chủ 18/11): kênh chính (tiếng Anh) 2–3, giãn ≥ 4 giờ; kênh bản ngữ 1 – đọc từ cấu hình kênh (dayCapOf/gapOf, một nguồn), múi giờ kênh.
+ *  Bài ĐÃ đăng/gửi GrabCast giữ nguyên; bài 'planned' vượt trần → dời sang ngày trống gần nhất của CHÍNH kênh đó (giữ giờ trong ngày, cách bài khác ≥ gap, không xóa clip).
+ *  Trả số bài đã dời. Chỉ D1, 0 lượt GrabCast. capOver: chỉ test. */
+export async function rebalanceDays(db, now, capOver = 0, horizonDays = 120) {
+  const rows = await all(db, 'SELECT s.clip, s.channel_id, s.slot_ms, s.state, e.title FROM dist_social s LEFT JOIN dist_ext e ON e.channel_id = s.channel_id WHERE s.slot_ms > ? AND s.slot_ms IS NOT NULL ORDER BY s.slot_ms', now - 36e5 * 36);
+  const by = new Map(); for (const r of rows) (by.get(r.channel_id) || by.set(r.channel_id, []).get(r.channel_id)).push(r);
+  let moved = 0;
+  for (const [ch, list] of by) {
+    const x = (await chanCfg(db, ch).catch(() => ({ cfg: {} }))).cfg, auto = langOfChannel(list[0].title || ''), lang = (x.lang || auto || '').toLowerCase();
+    const cap = capOver || dayCapOf(lang, x.daily_cap), gap = capOver ? 0 : gapOf(lang, x.min_gap_min) * 6e4, tz = (x.tz && x.tz !== 'America/New_York' ? x.tz : LANG_TZ[lang || 'en']) || 'America/New_York';
+    const day = ms => localDate(ms, tz), cnt = {}, times = list.filter(r => r.state !== 'planned').map(r => r.slot_ms), fixed = r => r.state !== 'planned'; // đã gửi/đăng/lỗi: không đụng
+    for (const r of list) if (fixed(r)) cnt[day(r.slot_ms)] = (cnt[day(r.slot_ms)] || 0) + 1;
+    for (const r of list) {
+      if (fixed(r) || r.slot_ms < now) continue;
+      const d = day(r.slot_ms), clash = ms => times.some(t => Math.abs(t - ms) < gap);
+      if ((cnt[d] || 0) < cap && !clash(r.slot_ms)) { cnt[d] = (cnt[d] || 0) + 1; times.push(r.slot_ms); continue; }
+      let ms = r.slot_ms, k = 0; do { ms += 864e5; k++; } while (k <= horizonDays && ((cnt[day(ms)] || 0) >= cap || clash(ms)));
+      if (k > horizonDays) continue;
+      await run(db, "UPDATE dist_social SET slot_ms = ?, updated = ? WHERE clip = ? AND channel_id = ? AND state = 'planned'", ms, now, r.clip, r.channel_id);
+      times.push(ms); cnt[day(ms)] = (cnt[day(ms)] || 0) + 1; moved++;
+    }
+  }
+  return moved;
 }
 const hex = async s => [...new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(s)))].map(b => b.toString(16).padStart(2, '0')).join('');
 /** Idempotency-Key ổn định theo clip + kênh + bước ('c' tạo bài · 's' lên lịch) – chạy lại/CI trùng lượt không tạo bài thứ 2. */
@@ -161,10 +186,35 @@ export function pushAlert(st, k, text, now) {
 }
 
 // ---------------- D1 ----------------
+/** Sổ cái đăng (chủ 19/11: "3 video liên tiếp trong 3 giờ"): MỘT câu INSERT nguyên tử – chỉ ghi khi kênh KHÔNG có bài khác trong ±LEDGER_GAP_MS. Gọi TRƯỚC khi lên lịch/đăng;
+ *  bài bù sau sự cố (slot đã qua, đều quy về "ngay bây giờ") nhờ đó cách nhau ≥ 4 giờ thay vì dồn một lúc. Cùng clip + kênh gọi lại = idempotent (true). Bị chặn → bài để lượt sau (cron 2 giờ). */
+export const LEDGER_GAP_MS = 4 * 36e5;
+/** Ngày theo giờ VN (UTC+7) – chủ 16/11: "1 video/kênh/ngày" (HARD). Chỉ HẠ được trần này, không nâng khi chưa có chủ OK. */
+export const ledgerDay = ms => new Date(ms + 7 * 36e5).toISOString().slice(0, 10);
+export async function claimLedger(db, channel_id, clip, at_ms, now = Date.now()) {
+  const g = LEDGER_GAP_MS, day = ledgerDay(at_ms);
+  await run(db, 'INSERT INTO soc_ledger (channel_id, clip, at_ms, day, created) SELECT ?, ?, ?, ?, ? WHERE NOT EXISTS (SELECT 1 FROM soc_ledger WHERE channel_id = ? AND clip != ? AND ((at_ms > ? AND at_ms < ?) OR day = ?)) ON CONFLICT(channel_id, clip) DO NOTHING', channel_id, clip, at_ms, day, now, channel_id, clip, at_ms - g, at_ms + g, day);
+  return !!(await one(db, 'SELECT 1 AS x FROM soc_ledger WHERE channel_id = ? AND clip = ?', channel_id, clip));
+}
+export const releaseLedger = (db, channel_id, clip) => run(db, 'DELETE FROM soc_ledger WHERE channel_id = ? AND clip = ?', channel_id, clip).catch(() => {});
+/** Máy gác (pure): rows [{channel_id, at_ms}] → kênh có 2 bài cách nhau < gapMs (và, nếu perDay, > perDay bài/ngày theo tz). Dùng cho health + test CI. */
+export function postingViolations(rows, { gapMs = LEDGER_GAP_MS, perDay = 0, dayOf = ledgerDay } = {}) {
+  const by = {}; for (const r of rows || []) (by[r.channel_id] = by[r.channel_id] || []).push(+r.at_ms);
+  const out = [];
+  for (const [ch, a] of Object.entries(by)) {
+    a.sort((x, y) => x - y);
+    for (let i = 1; i < a.length; i++) if (a[i] - a[i - 1] < gapMs) out.push({ channel_id: ch, why: 'gap', at: a[i] });
+    if (perDay) { const d = {}; for (const ms of a) d[dayOf(ms)] = (d[dayOf(ms)] || 0) + 1; for (const [k, n] of Object.entries(d)) if (n > perDay) out.push({ channel_id: ch, why: 'per-day', day: k, n }); }
+  }
+  return out;
+}
 /** Khóa chống trùng theo clip + kênh (PK) – ai (grabcast|meta) đã/đang đăng bài này, id bên Meta, container IG, permalink, việc hủy GrabCast còn treo. */
 export async function setupLock(db, env) {
-  await once(db, 'soc-lock', 2, () => db.batch([
+  await once(db, 'soc-lock', 3, () => db.batch([
     db.prepare('CREATE TABLE IF NOT EXISTS soc_lock (clip TEXT NOT NULL, channel_id TEXT NOT NULL, platform TEXT, provider TEXT NOT NULL, state TEXT NOT NULL, slot_ms INTEGER, gc_post TEXT, gc_cancel TEXT, meta_id TEXT, container TEXT, permalink TEXT, err TEXT, created INTEGER, updated INTEGER, PRIMARY KEY (clip, channel_id))'),
+    db.prepare('CREATE TABLE IF NOT EXISTS soc_ledger (channel_id TEXT NOT NULL, clip TEXT NOT NULL, at_ms INTEGER NOT NULL, day TEXT, created INTEGER, PRIMARY KEY (channel_id, clip))'), // sổ cái đăng theo kênh: ghi NGUYÊN TỬ trước khi lên lịch/đăng
+    db.prepare('CREATE INDEX IF NOT EXISTS soc_ledger_at ON soc_ledger (channel_id, at_ms)'),
+    db.prepare('CREATE INDEX IF NOT EXISTS soc_ledger_day ON soc_ledger (channel_id, day)'),
     db.prepare('CREATE INDEX IF NOT EXISTS soc_lock_cancel ON soc_lock (gc_cancel)'), // hồi phục GrabCast: chỉ đọc các bài còn treo hủy
     db.prepare('CREATE TABLE IF NOT EXISTS soc_tokens (channel_id TEXT PRIMARY KEY, kind TEXT NOT NULL, target_id TEXT NOT NULL, name TEXT, enc TEXT NOT NULL, last4 TEXT, expires_at INTEGER, refreshed_at INTEGER, status TEXT, err TEXT, updated INTEGER)'), // token Meta theo kênh (mã hóa) – functions/api/_meta_tokens.js
   ]), { env });
@@ -186,6 +236,7 @@ const setLock = (db, clip, ch, f) => { const k = Object.keys(f); return run(db, 
 /** Trạng thái cho thẻ Quản trị. */
 export async function autoStatus(env, now = Date.now()) {
   const db = env.DB; await setupMgr(db); await setupDist(db); await setupLock(db, env);
+  T0 = Date.now();
   const cfg = await loadAuto(db), st = await getMeta(db, 'auto_state', {});
   const up = await all(db, 'SELECT s.clip, s.channel_id, s.platform, s.slot_ms, s.state, s.post_id, s.err, e.title AS channel FROM dist_social s LEFT JOIN dist_ext e ON e.channel_id = s.channel_id WHERE s.slot_ms BETWEEN ? AND ? ORDER BY s.slot_ms LIMIT 40', now - 6 * 36e5, now + 72 * 36e5);
   const ids = await Promise.all(up.map(r => boardId(r.clip, r.channel_id)));
@@ -205,16 +256,27 @@ export async function autoStatus(env, now = Date.now()) {
     upcoming: up.map((r, i) => { const b = bs.get(ids[i]) || {}, l = ls.get(r.clip + '|' + r.channel_id) || {}; return { ...r, board_id: ids[i], board: b.state || null, note: b.note || null, provider: l.provider || null, permalink: l.permalink || null, lock: l.state || null }; }), now };
 }
 
-/** Bài autopilot GrabCast báo lỗi khi đăng → dist_social 'failed' + cảnh báo. KHÔNG tự thử lại: TikTok phạt spam_risk nếu đăng lại liên tiếp, người xem rồi bấm Thử lại. */
-async function mirrorFailed(db, st, since, now) {
-  let n = 0;
-  for (const r of await all(db, "SELECT clip, accounts, plats, links, post_id FROM soc_board WHERE state = 'failed' AND by_who = ? AND updated > ? LIMIT 50", AUTO_WHO, since)) {
+/** Lỗi TẠM THỜI của nền tảng (lỗi nội bộ / 5xx / quá thời gian / tạm không khả dụng) → tự thử lại. Lỗi nội dung, quyền, riêng tư, spam_risk, trùng… KHÔNG bao giờ tự thử lại (TikTok phạt spam_risk). */
+export const isTransientErr = code => { const c = String(code || ''); return !/spam|valid|privat|permission|scope|auth|token|forbidden|duplicate|policy|copyright|unsupported|too_?long|invalid|not_?found|quota|limit/i.test(c) && /internal|server_?error|(?:^|\D)5\d\d(?:\D|$)|timeout|timed.?out|temporar|unavailable|upstream|bad_?gateway|n[ộo]i b[ộo]/i.test(c); };
+export const TIME_BUDGET_MS = 60e3; // Cloudflare cắt ở ~100 s (524) → dừng nhận bài mới sớm, phần còn lại để lượt sau
+let T0 = Date.now(); const outOfTime = () => Date.now() - T0 > TIME_BUDGET_MS;
+export const RETRY_MAX = 3, RETRY_BACKOFF_MIN = [30, 120, 360]; // tối đa 3 lần/bài, cách nhau 30 phút → 2 giờ → 6 giờ (cron 2 giờ/lượt nên thực tế ≥ 1 lượt giữa các lần)
+/** Bài autopilot GrabCast báo lỗi khi đăng → lỗi tạm thời: tự thử lại (retry ≤ RETRY_MAX, backoff, cùng post_id nên không đăng trùng); còn lại / hết lượt thử → dist_social 'failed' + cảnh báo. */
+export async function mirrorFailed(db, st, since, now, retry) {
+  let n = 0, tried = 0; const rts = st.retry = st.retry || {};
+  for (const [k, v] of Object.entries(rts)) if (!v || now - v.at > 7 * 864e5) delete rts[k];
+  for (const r of await all(db, "SELECT clip, accounts, plats, links, post_id FROM soc_board WHERE state = 'failed' AND by_who = ? AND updated > ? LIMIT 50", AUTO_WHO, retry ? Math.min(since, now - 864e5) : since)) {
     let a = [], p = [], ls = []; try { a = JSON.parse(r.accounts || '[]'); p = JSON.parse(r.plats || '[]'); ls = JSON.parse(r.links || '[]'); } catch (e) { continue; }
     if (a.length !== 1 || !r.clip) continue;
-    const ch = `gc-${platOf({ platform: p[0] || '' })}-${a[0]}`, code = String((ls.find(x => x && x.e) || {}).e || 'failed').slice(0, 60);
+    const ch = `gc-${platOf({ platform: p[0] || '' })}-${a[0]}`, code = String((ls.find(x => x && x.e) || {}).e || 'failed').slice(0, 60); const msg = String((ls.find(x => x && x.e) || {}).m || '').slice(0, 160); // TikTok: mã media_rejected nhưng nội dung "internal error, retry in a few minutes" → phân loại theo cả mã lẫn nội dung
+    const rt = rts[r.post_id] || { n: 0, at: 0 };
+    if (r.post_id && (isTransientErr(code) || (isTransientErr(msg) && !/spam|policy|copyright|privat/i.test(code))) && rt.n < RETRY_MAX) { // lỗi tạm thời: chưa đánh dấu failed, chưa báo người
+      if (retry && tried < 4 && now - rt.at >= RETRY_BACKOFF_MIN[rt.n] * 60e3) { tried++; rts[r.post_id] = { n: rt.n + 1, at: now, code }; try { await retry(r.post_id, rt.n + 1); } catch (e) { if (e && e.status) break; } }
+      continue;
+    }
     const res = await run(db, "UPDATE dist_social SET state = 'failed', err = ?, updated = ? WHERE clip = ? AND channel_id = ? AND state = 'pushed'", code, Date.now(), r.clip, ch);
     const hint = code === 'validation_failed' && /tiktok/.test(ch) ? ' Thường do tài khoản TikTok đang Riêng tư: chuyển sang Công khai trong app TikTok.' : '';
-    if (res && res.meta && res.meta.changes) { n++; pushAlert(st, `post-failed:${r.clip}|${ch}`, `Lexkite autopilot: bài ${r.clip} đăng lỗi ở ${ch} (${code}).${hint} Không tự thử lại – xem ở Quản trị › Hàng đợi rồi bấm Thử lại.`, now); }
+    if (res && res.meta && res.meta.changes) { n++; pushAlert(st, `post-failed:${r.clip}|${ch}`, `Lexkite autopilot: bài ${r.clip} đăng lỗi ở ${ch} (${code}).${hint} ${rt.n ? `Đã tự thử lại ${rt.n} lần vẫn lỗi. ` : ''}Không tự thử lại thêm – xem ở Quản trị › Hàng đợi rồi bấm Thử lại.`, now); }
   }
   for (const r of await all(db, "SELECT clip, accounts, plats FROM soc_board WHERE note = 'needs-check' AND by_who = ? AND updated > ? LIMIT 20", AUTO_WHO, since)) { // có thể đã lên kênh: báo người, tuyệt đối không đăng lại
     let a = [], p = []; try { a = JSON.parse(r.accounts || '[]'); p = JSON.parse(r.plats || '[]'); } catch (e) { continue; }
@@ -245,12 +307,14 @@ export async function chainHealth(db, cfg, now) {
   const plats = AUTO_PLATS.filter(p => cfg.plats[p]), qs = plats.map(() => '?').join(',');
   return { channels: plats.length ? await has(`SELECT 1 AS x FROM dist_ext WHERE platform IN (${qs}) AND status = 'ok' LIMIT 1`, ...plats) : false,
     approved: await has("SELECT 1 AS x FROM yt_queue WHERE status IN ('manual', 'queued', 'uploading', 'done', 'failed', 'social') LIMIT 1"),
-    planned: await has('SELECT 1 AS x FROM dist_social WHERE slot_ms > ? LIMIT 1', now) };
+    planned: await has('SELECT 1 AS x FROM dist_social WHERE slot_ms > ? LIMIT 1', now),
+    bursts: postingViolations(await all(db, "SELECT channel_id, slot_ms AS at_ms FROM dist_social WHERE state IN ('pushed', 'published') AND slot_ms BETWEEN ? AND ? LIMIT 400", now - 48 * 36e5, now).catch(() => []), { perDay: 1 }).length };
 }
 export function healthAlerts(h, st, now) {
   if (!h.channels) pushAlert(st, 'no-channels', 'Lexkite autopilot: workspace GrabCast chưa có kênh nào đang bật nên KHÔNG đăng được bài. Nối kênh Lexkite trên grabcast.click (khóa API không làm được bước này).', now);
   if (!h.approved) pushAlert(st, 'no-approved', 'Lexkite autopilot: hàng đợi không có clip đã duyệt nên KHÔNG có gì để lên lịch. Duyệt clip ở Quản trị › Video.', now);
   if (h.newest_days != null && h.newest_days > 7) pushAlert(st, 'no-new-clips', `Lexkite autopilot: ${h.newest_days} ngày chưa có clip mới trong kho – xem news-auto, video-auto và cine-render (lịch tự động có thể đang tắt).`, now);
+  if (h.bursts > 0) pushAlert(st, 'post-burst', `Lexkite autopilot: ${h.bursts} vi phạm (2 bài cùng kênh cách < 4 giờ hoặc > 1 bài/ngày) trong 48 giờ qua – kiểm tra sổ cái soc_ledger và lịch (Quản trị › Hàng đợi).`, now);
   if (h.manifest === 'bundle') pushAlert(st, 'manifest-stale', 'Lexkite autopilot: không đọc được manifest trên Kho Drive, đang dùng bản đóng gói cũ – xem drive-shorts và Quản trị › Kho Drive.', now);
   if (h.channels && h.approved && !h.planned) pushAlert(st, 'nothing-planned', 'Lexkite autopilot: có kênh và clip đã duyệt nhưng không có bài nào trong lịch sắp tới – xem luật định tuyến ở Quản trị › Kênh & phân phối.', now);
 }
@@ -272,6 +336,7 @@ export const metaLeft = (st, cfg, now) => Math.max(0, cfg.meta_daily - (((st.met
 export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = fetch, origin = 'https://lexkite.com/api/social-auto', force_sync = false, sleep = ms => new Promise(r => setTimeout(r, ms)) } = {}) {
   const db = env.DB; await setupMgr(db); await setupDist(db); await setupLock(db, env);
   const cfg = await loadAuto(db), st = await getMeta(db, 'auto_state', {});
+  const dayCap = +env.SOCIAL_DAY_CAP || 0; // chỉ test đặt biến này; production: trần theo loại kênh (cấu hình kênh)
   const rec = { at: now, src, due: 0, created: 0, scheduled: 0, review: 0, skipped: [], calls: 0, stop: null, synced: null, provider: null, meta: { calls: 0, posted: 0, scheduled: 0, containers: 0, stop: null }, alerts: [], fc: { attached: 0, posted: 0, skipped: [] } };
   const save = async () => {
     const today = dayOf(now), calls = st.calls && st.calls.day === today ? +st.calls.n || 0 : 0;
@@ -284,7 +349,7 @@ export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = f
   };
   if (!cfg.on) { rec.stop = 'off'; return save(); }
   { const yc = await all(db, "SELECT channel_id FROM dist_ext WHERE platform = 'youtube' AND status = 'ok' LIMIT 5").catch(() => []); if (ytViaGc(cfg, yc)) { Object.assign(cfg, effPlats(cfg, yc)); rec.yt_via_gc = 1; } }
-  const planNow = async () => { try { await ytSetup(db); await run(db, "DELETE FROM dist_social WHERE state = 'planned' AND source = 'auto' AND slot_ms BETWEEN ? AND ?", now - 90 * 864e5, now - MAX_LATE_MS); const p = await DIST.plan_run(db, {}, env); st.last_plan = now; rec.planned = (p && p.social) || 0; } catch (e) { rec.skipped.push({ why: 'plan-error', err: String(e && e.message).slice(0, 120) }); } }; // chỉ D1, 0 lượt GrabCast. Slot đã lỡ quá 12 giờ (GrabCast sập, lịch CI trễ) → xóa để xếp lại, không kẹt 'planned' mãi
+  const planNow = async () => { try { await ytSetup(db); await run(db, "DELETE FROM dist_social WHERE state = 'planned' AND source = 'auto' AND slot_ms BETWEEN ? AND ?", now - 90 * 864e5, now - MAX_LATE_MS); rec.rebalanced = (rec.rebalanced || 0) + await rebalanceDays(db, now, dayCap); const p = await DIST.plan_run(db, {}, env); rec.rebalanced += await rebalanceDays(db, now, dayCap); st.last_plan = now; rec.planned = (p && p.social) || 0; } catch (e) { rec.skipped.push({ why: 'plan-error', err: String(e && e.message).slice(0, 120) }); } }; // chỉ D1, 0 lượt GrabCast. Slot đã lỡ quá 12 giờ (GrabCast sập, lịch CI trễ) → xóa để xếp lại, không kẹt 'planned' mãi
   const queuedNew = await ytSetup(db).then(() => autoQueue(env, db, cfg, now)).catch(() => { rec.skipped.push({ why: 'auto-queue-error' }); return 0; }); rec.auto_queued = queuedNew;
   if (cfg.plan_daily && (queuedNew || now - (+st.last_plan || 0) > 20 * 36e5)) await planNow();
 
@@ -400,11 +465,12 @@ export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = f
       const pr = await call('GET', 'posts', null, { limit: 100 });
       if (pr.status < 400) await boardSync(db, (pr.data && pr.data.posts) || []);
       const pub = await mirrorPublished(db, (+(st.last_sync && st.last_sync.at) || 0) - 36e5);
-      const syncSince = (+(st.last_sync && st.last_sync.at) || 0) - 36e5; await mirrorFailed(db, st, syncSince, now);
+      const syncSince = (+(st.last_sync && st.last_sync.at) || 0) - 36e5; await mirrorFailed(db, st, syncSince, now, async (pid, i) => { try { await call('POST', `posts/${pid}/retry`, {}, null, await idemKey(pid, 'retry', 'r' + i)); } catch (e) { if (e && (e.status === 409 || e.status === 422)) return; throw e; } });
       st.last_sync = { at: now, posts: ((pr.data && pr.data.posts) || []).length, published: pub, channels: accs.length }; rec.synced = st.last_sync;
       if (accs.length > hadCh) { const q = await autoQueue(env, db, cfg, now).catch(() => 0); rec.auto_queued = (rec.auto_queued || 0) + q; if (cfg.plan_daily) await planNow(); } // vừa nối kênh mới → duyệt clip đạt QC + xếp lịch ngay, không đợi hôm sau
     }
-    // 2) Bài đến hạn
+    // 2) Bài đến hạn (trước đó: trần cứng 1 bài/kênh/ngày – dời bài dư sang ngày trống của kênh)
+    try { rec.rebalanced = (rec.rebalanced || 0) + await rebalanceDays(db, now, dayCap); } catch (e) { rec.skipped.push({ why: 'rebalance-error', err: String(e && e.message).slice(0, 120) }); }
     const due = pickDue((await DIST.social_due(db, { from: now + cfg.lead_min * 60e3, to: now + cfg.lookahead_h * 36e5 }, env)).rows, cfg, now).filter(r => !skipPlats.includes(r.platform));
     rec.due = due.length;
     const manual = cfg.auto_approve ? await manualCounts(db) : {}, manualFc = cfg.auto_approve ? await manualCounts(db, { fc: true }) : {};
@@ -426,7 +492,7 @@ export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = f
     }
     const clips = due.length ? await clipsFor(env, due.slice(0, cfg.max_per_run * 2).map(r => r.clip)) : new Map();
     for (const r of due) {
-      if (done >= cfg.max_per_run) break;
+      if (done >= cfg.max_per_run || outOfTime()) break;
       if (((st.fails || {})[r.clip + '|' + r.channel_id] || {}).n >= MAX_TRIES) { rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'gave-up' }); continue; } // lỗi lặp lại → chờ người xem (không đốt lượt GrabCast)
       const lk = await lockOf(db, r.clip, r.channel_id); if (lk && lk.provider === 'meta') { rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'meta' }); continue; } // Meta đã nhận bài này
       const bid = await boardId(r.clip, r.channel_id), ex = await one(db, 'SELECT id, post_id, state, fc FROM soc_board WHERE id = ?', bid);
@@ -537,7 +603,7 @@ export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = f
     const clips = mine.length ? await clipsFor(env, mine.slice(0, 20).map(r => r.clip)) : new Map();
     let acts = 0;
     for (const r of mine) {
-      if (acts >= cfg.max_per_run) break;
+      if (acts >= cfg.max_per_run || outOfTime()) break;
       if (dead.has(r.channel_id) || (br[r.channel_id] && br[r.channel_id].until > now)) { rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'meta-channel-paused' }); continue; }
       const fk = 'm|' + r.clip + '|' + r.channel_id; if (((st.fails || {})[fk] || {}).n >= MAX_TRIES) { rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'meta-gave-up' }); continue; }
       const mfail = async (why, code) => { const f = (st.fails = st.fails || {})[fk] || { n: 0 }; st.fails[fk] = { n: f.n + 1, at: now, why: why + ':' + code }; await setLock(db, r.clip, r.channel_id, { err: (why + ':' + code).slice(0, 120) }); await DIST.social_ack(db, { clip: r.clip, channel_id: r.channel_id, state: 'failed', err: ('meta-' + why + ':' + code).slice(0, 120) }); rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'meta-' + why }); };
@@ -594,6 +660,7 @@ export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = f
       const step = metaStep({ platform: r.platform, slot_ms: r.slot_ms, lock, gcScheduledUnreachable: gcSchedUnreach }, now);
       if (step === 'done' || step === 'wait') { if (step === 'wait') rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'meta-wait' }); continue; }
       if (step === 'too-late') { await setLock(db, r.clip, r.channel_id, { state: 'skipped', err: 'too-late' }); rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'too-late' }); continue; }
+      if (['fb', 'ig-container'].includes(step) && !(await claimLedger(db, r.channel_id, r.clip, Math.max(r.slot_ms, now)))) { rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'ledger-gap' }); continue; } // bài trễ không dồn một lúc
       const C = await chan(r.channel_id).catch(e => { if (e.metaStop && e.ch) { dead.add(e.ch); return null; } throw e; });
       if (!C) { rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'meta-channel-paused' }); continue; }
       const mc = C.mc, mErr = C.err, tgt = C.m.target_id;
@@ -688,6 +755,7 @@ async function approveAndSchedule(db, call, bid, pid, r, rec) {
   const g = await call('GET', 'posts/' + pid); if (g.status >= 400) { rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'get-' + (g.code || g.status) }); return; }
   const at = new Date(r.slot_ms).toISOString(), chk = await call('POST', 'validate', { post_id: pid, scheduled_at: at }); // 200 cả khi có lỗi; warning không chặn. Không gọi TikTok: đạt vẫn có thể failed lúc đăng
   if (chk.status >= 400 || (chk.data && chk.data.ok === false)) { const why = 'validate:' + (chk.status >= 400 ? (chk.code || chk.status) : (problemCodes(chk.data.targets) || 'not-ok')); await run(db, 'UPDATE soc_board SET err = ?, updated = ? WHERE id = ?', why.slice(0, 200), Date.now(), bid); rec.skipped.push({ clip: r.clip, ch: r.channel_id, why }); return; }
+  if (!(await claimLedger(db, r.channel_id, r.clip, r.slot_ms))) { rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'ledger-gap' }); return; } // ≥ 4 giờ giữa 2 bài cùng kênh; bị chặn thì lượt sau thử lại
   const hash = await contentHash(g.data), t = Date.now();
   await run(db, "UPDATE soc_board SET state = 'approved', hash = ?, approved_by = ?, approved_at = ?, err = NULL, updated = ? WHERE id = ?", hash, AUTO_WHO, t, t, bid);
   let s; try { s = await call('POST', `posts/${pid}/schedule`, { scheduled_at: at, consent: true }); } // schedule không dùng Idempotency-Key: gọi lặp chỉ nhận 409 not_draft, không tạo bản thứ 2
@@ -699,7 +767,7 @@ async function approveAndSchedule(db, call, bid, pid, r, rec) {
     if (e.status === 504) throw e; // hết giờ chờ và bài chưa rời nháp: GrabCast chậm thật, giữ cầu dao như cũ
     await run(db, 'UPDATE soc_board SET err = ?, updated = ? WHERE id = ?', (e.code + ':' + cs).slice(0, 200), Date.now(), bid); rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'conflict-' + (cs || c.status) }); return;
   }
-  if (s.status >= 400) { await run(db, 'UPDATE soc_board SET err = ?, updated = ? WHERE id = ?', String(s.code || s.status).slice(0, 200), Date.now(), bid); rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'schedule-' + (s.code || s.status) }); return; }
+  if (s.status >= 400) { await releaseLedger(db, r.channel_id, r.clip); await run(db, 'UPDATE soc_board SET err = ?, updated = ? WHERE id = ?', String(s.code || s.status).slice(0, 200), Date.now(), bid); rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'schedule-' + (s.code || s.status) }); return; }
   await run(db, "UPDATE soc_board SET state = 'scheduled', want_at = ?, updated = ? WHERE id = ?", r.slot_ms, Date.now(), bid);
   rec.scheduled++;
 }

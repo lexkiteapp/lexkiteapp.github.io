@@ -11,7 +11,7 @@ cover: toeic
 coverAlt: "مركز TOEIC في Lexkite مع اختبارات تجريبية وتدريب حسب الجزء"
 factChecked: 2026-11-16
 author: Lexkite
-publishAt:
+publishAt: 2027-01-19T19:25:00+03:00
 qualityScore: 92
 status: ready
 coverArt: {mood: think, icon: ear}

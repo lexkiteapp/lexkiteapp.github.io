@@ -278,7 +278,7 @@ const RV = T1.vectorJson, RD = T1.rigJson;
   {
     const zlib = await import('node:zlib'), K1 = await SP.speakPack(), K2 = await SP.speakPack(), S1 = await SP.speakStarter(), PK = JSON.parse(K1), ST = JSON.parse(S1), gz = zlib.gzipSync(K1, { level: 9 }).length, bp = [];
     ok(K1 === K2 && same(SP.SPEAK_PACK_PATH, K1), 'speak-pack.json: two runs identical and equal to the committed file (else: node scripts/native/gen.mjs)');
-    ok(Buffer.byteLength(K1) < 700 * 1024 && gz < 250 * 1024, `speak-pack.json size: ${(Buffer.byteLength(K1) / 1024) | 0} KB raw (< 700) / ${(gz / 1024) | 0} KB gzip (< 250); not in the extension or app shell, no audio`);
+    ok(Buffer.byteLength(K1) < 900 * 1024 && gz < 320 * 1024, `speak-pack.json size: ${(Buffer.byteLength(K1) / 1024) | 0} KB raw (< 900) / ${(gz / 1024) | 0} KB gzip (< 320); not in the extension or app shell, no audio`);
     ok(S1 === (await SP.speakStarter()) && same(SP.SPEAK_STARTER_PATH, S1) && same('native/ios/LexkiteKit/Sources/LKStore/Resources/speak-content.json', S1) && Buffer.byteLength(S1) < 128 * 1024, `speak-starter.json: deterministic, equal to the committed copies (shared + iOS resource), ${(Buffer.byteLength(S1) / 1024) | 0} KB < 128`);
     if (!/^[0-9a-f]{12}$/.test(PK.v) || PK.schema !== 1) bp.push('v/schema');
     if (PK.speaking.bank.length < 30 || Object.keys(PK.speaking.samples).length < 300 || Object.keys(PK.speaking.parts).join() !== 'p1,p2,p3' || !PK.speaking.fillers.includes('you know')) bp.push('speaking');

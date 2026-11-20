@@ -9,7 +9,7 @@ tags: [ielts, band-score, scoring, strategy]
 keyword: "ielts band score कैसे निकालें"
 cover: mock
 coverAlt: "Lexkite का IELTS मॉक टेस्ट सेटअप: Listening, Reading, Writing और Speaking चारों स्किल चुनने की स्क्रीन"
-publishAt:
+publishAt: 2027-01-09T20:33:00+05:30
 factChecked: 2026-11-16
 author: Lexkite
 status: ready

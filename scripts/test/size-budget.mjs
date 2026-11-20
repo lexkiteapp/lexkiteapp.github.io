@@ -8,6 +8,7 @@
 // Dùng: node scripts/test/size-budget.mjs [--update]
 import fs from 'fs';
 import path from 'path';
+import { readBundles } from '../lib/bundles.mjs';
 import { gzSize, firstLoadFiles, swShell } from '../lib/gz-canon.mjs'; // gzip chuẩn (pako = zlib gốc): cùng số trên máy & CI
 import { execFileSync } from 'child_process';
 import { lowHeadroom } from '../lib/headroom.mjs';
@@ -23,6 +24,12 @@ if (!swShell().includes('/app/index.html')) errs.push('SHELL trong web/sw.js thi
 const LAND_GZ = budget.landingGz || 16384; let landMax = 0;
 for (const f of ['web/index.html', ...fs.readdirSync('web').filter(d => /^[a-z]{2}$/.test(d) && fs.existsSync(`web/${d}/index.html`)).map(d => `web/${d}/index.html`)]) { const g = gz(f); landMax = Math.max(landMax, g); if (g > LAND_GZ) errs.push(`Trang giới thiệu ${f} ${kb(g)} gzip > ${kb(LAND_GZ)}`); }
 if (shellGz > budget.shellGz) errs.push(`Khung app ${kb(shellGz)} gzip > ngân sách ${kb(budget.shellGz)} – chuyển dữ liệu sang tải lười (App lazy) thay vì nạp lúc mở app; xem từng module: node scripts/test/shell-size.mjs`);
+// 1c) Trần khung CHỈ ĐI XUỐNG: PR không được nâng budget.shellGz so với nhánh gốc (thêm byte vào khung ⇒ phải gọt bằng nhau, vd chú thích/CSS chết trong web/css/style.css)
+for (const base of [process.env.SHELL_BASE, 'origin/main', 'real/main'].filter(Boolean)) {
+  let b; try { b = JSON.parse(execFileSync('git', ['show', `${base}:${B}`], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] })); } catch (e) { continue; }
+  if (b.shellGz && budget.shellGz > b.shellGz) errs.push(`budget.shellGz ${budget.shellGz} > ${b.shellGz} của ${base} – trần khung không được nâng; gọt byte khỏi khung (PR thêm vào khung phải gọt bằng nhau)`);
+  break;
+}
 // 2) + 3) File JS
 const LB = learnerBytes('.'), total = LB.learner, big = []; // 5/11: nền + gói ngôn ngữ LỚN NHẤT (người học thật tải)
 const walk = d => { for (const e of fs.readdirSync(d, { withFileTypes: true })) { const p = path.join(d, e.name); if (e.isDirectory()) walk(p); else if (p.endsWith('.js')) {
@@ -38,14 +45,15 @@ if (LB.total > budget.totalAll) errs.push(`Tổng cả kho web/js ${LB.total} B 
 // 3b) Trần chỉ đi xuống: tổng thực tế thấp hơn trần ≥ 200 KB → ĐỎ, nhắc hạ trần (nâng tạm 3/11 cho #284, về ≤ 19,97 MB sau tái cấu trúc i18n)
 const SLACK = 200 * 1024;
 if (budget.totalJs - total >= SLACK) errs.push(`Tổng web/js ${total} B thấp hơn trần ${budget.totalJs} B ≥ 200 KB – hạ "totalJs" trong ${B} về ≤ ${total + 50000} (trần chỉ đi xuống)`);
-// 3c) Tải lần đầu theo route (người dùng thật, gzip chuẩn): JS gói + CSS gói (app.js BUNDLES/BCSS) không vượt mốc main – chỉ số chính, tổng trên đĩa là phụ
+// 3c) Tải lần đầu theo route (người dùng thật, gzip chuẩn): JS gói + CSS gói (web/js/bundles.js + app.js BCSS) không vượt mốc main – chỉ số chính, tổng trên đĩa là phụ
 const APP = fs.readFileSync('web/js/app.js', 'utf8');
-const list = (obj, k) => { const m = APP.match(new RegExp(`\\b${obj} = \\{[\\s\\S]*?\\b${k}: *(\\[[^\\]]*\\])`)); return m ? [...m[1].matchAll(/'([^']+)'/g)].map(x => x[1]) : null; };
+const BUNDLES = readBundles(); // đăng ký gói tải lười: web/js/bundles.js (ngoài khung)
+const list = (obj, k) => { if (obj === 'BUNDLES') return BUNDLES[k] || null; const m = APP.match(new RegExp(`\\b${obj} = \\{[\\s\\S]*?\\b${k}: *(\\[[^\\]]*\\])`)); return m ? [...m[1].matchAll(/'([^']+)'/g)].map(x => x[1]) : null; };
 const routes = [];
 for (const [k, cap] of Object.entries(budget.routeGz || {})) {
   if (k.startsWith('_')) continue;
   const js = list('BUNDLES', k), css = list('BCSS', k);
-  if (!js) { errs.push(`routeGz.${k}: không thấy gói "${k}" trong BUNDLES (web/js/app.js)`); continue; }
+  if (!js) { errs.push(`routeGz.${k}: không thấy gói "${k}" trong BUNDLES (web/js/bundles.js)`); continue; }
   const miss = [...js, ...(css || [])].filter(u => !fs.existsSync(path.join('web', u)));
   if (miss.length) errs.push(`routeGz.${k}: tệp gói không tồn tại: ${miss.join(', ')}`);
   const n = [...js, ...(css || [])].filter(u => fs.existsSync(path.join('web', u))).reduce((a, u) => a + gz(path.join('web', u)), 0);
