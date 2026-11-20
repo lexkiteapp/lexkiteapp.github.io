@@ -92,7 +92,7 @@
     };
     const draw = focusId => {
       const fo = focusId && document.getElementById(focusId), caret = fo && fo.id === 'filterQ' ? [fo.selectionStart, fo.selectionEnd] : null;
-      const root = ST2.mount(view, 'deck', data(), 'train'), $r = s => root.querySelector(s), $$r = s => [...root.querySelectorAll(s)];
+      const root = ST2.mount(view, 'deck', data(), 'vocab'), $r = s => root.querySelector(s), $$r = s => [...root.querySelectorAll(s)];
       const shH = root.querySelector(':scope > header'); if (shH) shH.remove(); // mẫu Sổ từ có đầu trang riêng (quay lại · tiêu đề · tìm · thanh % thuộc) → bỏ đầu trang chung của shell (cố định, che đầu trang Stitch); thanh tab dưới giữ
       const qi = $r('#filterQ');
       qi.oninput = () => { q = qi.value; draw('filterQ'); };
