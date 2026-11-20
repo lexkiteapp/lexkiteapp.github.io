@@ -791,11 +791,11 @@
       },
       ":scope > span:nth-child(2)": {
        "lt:text-[#7E9698]": "'lt:text-[#4E6668]'",
-       "dk:text-[#728D91]": "'dk:text-[#A9BFC1]'"
+       "dk:text-[#728D91]": "'dk:text-[#A3B9B7]'"
       },
       ":scope > span:nth-child(3)": {
        "lt:text-[#A9BFC1]": "'lt:text-[#4E6668]'",
-       "dk:text-[#728D91]": "'dk:text-[#A9BFC1]'"
+       "dk:text-[#728D91]": "'dk:text-[#A3B9B7]'"
       }
      }
     }
@@ -893,7 +893,7 @@
  },
  "recolor": {
   "lt:text-[#7E9698]": "lt:text-[#5A7175]",
-  "dk:text-[#728D91]": "dk:text-[#A9BFC1]",
+  "dk:text-[#728D91]": "dk:text-[#A3B9B7]",
   "lt:text-[#1D9250]": "lt:text-[#14753F]"
  }
 }
