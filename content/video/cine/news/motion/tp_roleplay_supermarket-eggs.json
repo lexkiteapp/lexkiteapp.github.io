@@ -40,13 +40,13 @@
   },
   {
    "id": "s0",
-   "text": "At the supermarket.",
+   "text": "In the supermarket.",
    "gap": 0.7
   },
   {
    "id": "s1",
    "text": "Looking for something? I can help.",
-   "gap": 0.7
+   "gap": 0.55
   },
   {
    "id": "s2",
@@ -55,7 +55,7 @@
   },
   {
    "id": "s3",
-   "text": "They're in aisle five, next to the milk.",
+   "text": "Aisle five, next to the milk.",
    "gap": 0.7
   },
   {
