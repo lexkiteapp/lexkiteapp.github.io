@@ -15,7 +15,7 @@
  *   vimg     scripts/native/gen-vimg.mjs: web/js/vocab-img.js (VImg v3 head + shards) → vectors/vimg.json (lesson pic images)
  *   audio    scripts/native/gen-audio.mjs: web/js/audio.js + CDN/word-key/ttsClean lines of web/js/ui.js + listen/kvoice.js → vectors/audio.json
  *   skills   scripts/native/gen-skills.mjs: web/js/{listening,reading,qengine,qtips,lexis,listen/kvoice,plan}.js + listen/readings data → vectors/skills.json (M4: parity P06 listening & reading screens; P07/P09 extend)
- *   skillspack scripts/native/gen-skills.mjs skillsPack(): complete LISTENING (10×4) + READINGS (57) + lexis + band/voice/stopword consts → web/data/skills-pack.json (https://lexkite.com/data/skills-pack.json)
+ *   skillspack scripts/native/gen-skills.mjs skillsPack(): complete LISTENING (10×4) + READINGS A1–B2 + lexis + band/voice/stopword consts → web/data/skills-pack.json  (https://lexkite.com/data/skills-pack.json) + C1–C2 readings → web/data/skills-pack-adv.json (https://lexkite.com/data/skills-pack-adv.json)
  *   speak    scripts/native/gen-speak.mjs: web/js/{speak/*,speaking,pron,pron/*,say,reflex,rtype,roleplay,handsfree}.js → vectors/speak.json (M4: parity P07 speaking & pronunciation) + web/data/speak-pack.json (https://lexkite.com/data/speak-pack.json) + content-pack/speak-starter.json
  *   write    scripts/native/gen-write.mjs: web/js/{write,task1,lexis,qtips,criteria}.js → vectors/write.json (M4: parity P09 #/write #/task1 #/qstats #/criteria) + web/data/write-pack.json (https://lexkite.com/data/write-pack.json)
  *   call     scripts/native/gen-call.mjs: web/js/{call,call/engine,call/calls*,pron/pairs}.js → vectors/call.json (M4: parity P08 Call Ama/Carlos #/call) + web/data/call-pack.json (https://lexkite.com/data/call-pack.json) + content-pack/call-starter.json
@@ -296,7 +296,7 @@ const { lessonVectors } = await import('./gen-lesson.mjs');
 put(`${SHARED}/vectors/lesson.json`, lessonVectors());
 const { audioVectors } = await import('./gen-audio.mjs');
 put(`${SHARED}/vectors/audio.json`, audioVectors());
-{ const { skillsPack, PACK_PATH } = await import('./gen-skills.mjs'); put(PACK_PATH, await skillsPack());
+{ const { skillsPack, PACK_PATH, skillsPackAdv, PACK_ADV_PATH } = await import('./gen-skills.mjs'); put(PACK_PATH, await skillsPack()); put(PACK_ADV_PATH, await skillsPackAdv());
   const st = await (await import('./gen-skills.mjs')).skillsStarter(); put((await import('./gen-skills.mjs')).STARTER_PATH, st); put(`${IOS}/Sources/LKStore/Resources/skills-content.json`, st); }   // M4: full listening+reading content, served as https://lexkite.com/data/skills-pack.json (not in the extension / app shell: only web/js,css,cpack… are copied)
 const { vocabVectors, verbsTables } = await import('./gen-vocab.mjs');
 for (const p of [SHARED, `${IOS}/Sources/LKDesign/Resources`]) put(`${p}/verbs.json`, verbsTables());   // M3 verb tables of verbs-core.js
