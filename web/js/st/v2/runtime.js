@@ -61,7 +61,7 @@
     const chip = (k, href, id, val, lab, icon) => `<a class="hb-c" href="${esc(href)}" aria-label="${esc(lab + ': ' + val)}" data-hdr="${k}"><span>${icon || ic(id)}<b>${esc(val)}</b></span></a>`;
     const av = u && u.photoURL ? `<img src="${esc(u.photoURL)}" alt="" referrerpolicy="no-referrer">` : nm ? esc((nm.trim()[0] || 'L').toUpperCase()) : ic('user');
     return `<header class="hb"><div class="hb-r"><a class="hb-b hb-logo" href="#/home" aria-label="Lexkite"><img src="icons/icon.svg?v=3" width="32" height="32" alt=""></a>`
-      + `<button type="button" class="hb-s" data-act="search" aria-label="${esc(t('Tra từ'))}"><span>${ic('search')}<em class="hb-t">${esc(t('Tra từ…'))}</em></span></button>`
+      + `<button type="button" class="hb-s" data-act="search" title="${esc(t('Tra từ'))}" aria-label="${esc(t('Tra từ'))}"><span>${ic('search')}<em class="hb-t">${esc(t('Tra từ…'))}</em></span></button>`
       + `<button type="button" class="hb-b" data-act="notif" aria-label="${esc(t('Thông báo'))}">${ic('bell')}<span data-notif-badge class="hidden"></span></button>`
       + `<button type="button" class="hb-b" data-act="lang" aria-haspopup="dialog" aria-label="${esc(t('Chọn ngôn ngữ giao diện') + ' (' + L + ')')}">${ic('globe')}</button>`
       + `<a class="hb-b hb-av" href="#/me" aria-label="${esc(t('Tài khoản'))}"><i>${av}</i></a></div>`
