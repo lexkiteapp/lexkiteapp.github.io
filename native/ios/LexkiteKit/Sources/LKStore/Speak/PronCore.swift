@@ -311,6 +311,8 @@ public struct PronMouthShape: Equatable, Sendable {
     public var outer: [Double], inner: [Double], tongue: [Double]
     /// Vietnamese keys of the caption "môi … · hàm …"
     public var lipsKey: String, jawKey: String
+    /// the end point of a diphthong ("→ môi … · hàm …"), nil for a single vowel
+    public var toLipsKey: String?, toJawKey: String?
 }
 
 public enum PronLessonRules {
@@ -322,17 +324,22 @@ public enum PronLessonRules {
     /// the sound effect of a scored attempt: ≥ 85 correct, < 65 wrong
     public static func sound(_ score: Int) -> String? { score >= 85 ? "correct" : (score < 65 ? "wrong" : nil) }
 
-    /// the diagram numbers (web `mouthSvg`): lip width, jaw opening, tongue position
+    static let lipsKeys = ["spread": "môi hơi kéo sang hai bên", "neutral": "môi tự nhiên", "round": "môi tròn"]
+    static let jawKeys = ["close": "hàm gần khép", "near-close": "hàm hé", "mid": "hàm mở vừa", "open-mid": "hàm mở khá rộng", "open": "hàm mở rộng"]
+
+    /// the diagram numbers (web `mouthSvg`): lip width, jaw opening, tongue position; `to` = end point of a diphthong (caption only)
     public static func mouth(_ m: JSON) -> PronMouthShape? {
-        guard !m.s("lips").isEmpty else { return nil }
-        let jaw = m.s("jaw"), lips = m.s("lips"), tongue = m.s("tongue")
-        let open: Double = ["close": 6, "mid": 16, "open": 28][jaw] ?? 14
+        guard !m.s("lips").isEmpty, !m.s("jaw").isEmpty else { return nil }
+        let jaw = m.s("jaw"), lips = m.s("lips"), back = m.s("back")
+        let open: Double = ["close": 4, "near-close": 8, "mid": 14, "open-mid": 20, "open": 28][jaw] ?? 14
         let wide: Double = ["spread": 70, "neutral": 56, "round": 34][lips] ?? 56
-        let tx: Double = ["front": 92, "central": 100, "back": 112][tongue] ?? 100
-        let ty: Double = 108 - (["close": 14, "mid": 8, "open": 2][jaw] ?? 8)
+        let tx: Double = ["front": 90, "near-front": 94, "central": 100, "near-back": 106, "back": 110][back] ?? 100
+        let ty: Double = 108 - (["close": 14, "near-close": 12, "mid": 8, "open-mid": 5, "open": 2][jaw] ?? 8)
+        let to = m["to"] ?? .null
+        let hasTo = !to.s("lips").isEmpty && !to.s("jaw").isEmpty
         return PronMouthShape(outer: [100, 98, wide / 2 + 10, open / 2 + 12], inner: [100, 98, wide / 2, open / 2 + 2], tongue: [tx, ty + open / 3, 18, 6],
-                              lipsKey: ["spread": "môi dàn rộng", "neutral": "môi tự nhiên", "round": "môi tròn"][lips] ?? "",
-                              jawKey: ["close": "hàm khép", "mid": "hàm hé", "open": "hàm mở rộng"][jaw] ?? "")
+                              lipsKey: lipsKeys[lips] ?? "", jawKey: jawKeys[jaw] ?? "",
+                              toLipsKey: hasTo ? lipsKeys[to.s("lips")] : nil, toJawKey: hasTo ? jawKeys[to.s("jaw")] : nil)
     }
     static let places = ["lips": "hai môi", "teeth": "môi – răng", "tongue-teeth": "lưỡi – răng", "ridge": "lợi trên", "palate": "vòm miệng", "back": "cuống lưỡi", "throat": "thanh hầu"]
     static let manners = ["stop": "âm tắc (bật hơi)", "fricative": "âm xát", "affricate": "âm tắc – xát", "nasal": "âm mũi", "approximant": "âm tiếp cận"]
