@@ -113,10 +113,10 @@
     skillsv2: ['js/st/v2/skills.js', 'js/skills-hub.js'], // 🎯 tab Kỹ năng (Stitch v2), ngoài khung app
     // 🧩 Bài học trộn bài tập nhỏ (cờ lesson_mix, docs/LESSON-ENGINE.md) · gold bank cho "Giải thích"
     // 🧩 Stitch v2.1 nhóm B (cờ ux1): mỗi màn 1 gói lười nạp SAU gói dữ liệu của route (ROUTE_UX1 ở app.js) – không phình gói ux1; bao routes.<màn> sẵn có
-    utopic: ['cpack/st2/topic.js', 'cpack/ux1/topic.js'],
-    udeck: ['cpack/st2/deck.js', 'cpack/ux1/deck.js'],
-    umist: ['cpack/st2/mistakes.js', 'cpack/ux1/mistakes.js'],
-    ustat: ['cpack/st2/stats.js', 'cpack/ux1/stats.js'],
+    utopic: ['js/i18n/en/ux1b.js', 'js/i18n/en/v2b.js', 'cpack/st2/topic.js', 'cpack/ux1/topic.js'],
+    udeck: ['js/i18n/en/ux1b.js', 'js/i18n/en/v2b.js', 'cpack/st2/deck.js', 'cpack/ux1/deck.js'],
+    umist: ['js/i18n/en/ux1b.js', 'js/i18n/en/v2b.js', 'cpack/st2/mistakes.js', 'cpack/ux1/mistakes.js'],
+    ustat: ['js/i18n/en/ux1b.js', 'js/i18n/en/v2b.js', 'cpack/st2/stats.js', 'cpack/ux1/stats.js'],
     ux1: ['js/i18n/en/ux1.js', 'js/say-text.js', 'js/i18n/en/v2.js', 'js/st/common.js', 'js/st/home.js', 'js/st/v2/runtime.js', 'js/st/v2/shell.js', 'js/path-trail.js', 'js/st/v2/path.js', 'js/st/v2/review.js', 'js/st/v2/practice.js', 'js/st/v2/leagues.js', 'js/st/v2/me.js', 'js/st/v2/streak.js', 'js/st/v2/exam-readiness.js', 'js/st/v2/today.js', 'js/st/v2/today-new.js', 'js/st/v2/today-desk.js', 'js/st/v2/today-rail.js', 'js/ux1.js', 'js/ux1-me.js'],
     lesson: ['js/i18n/en/lesson.js', 'js/i18n/en/v2.js', 'js/st/common.js', 'js/st/lesson.js', 'js/st/v2/runtime.js', 'js/st/v2/lesson-question.js', 'js/st/v2/feedback-correct.js', 'js/st/v2/feedback-wrong.js', 'js/st/v2/lesson-complete.js', 'js/st/v2/story-duo.js', 'js/listen/kvoice.js', 'js/lesson/engine.js', 'js/i18n/en/arrange.js', 'js/word-arrange.js', 'js/lesson/teacher.js', 'cpack/lesson/stories.js', 'cpack/lesson/path-nodes.js', 'js/lesson/ui.js'],
     lgold: ['cpack/lesson/gold.js'],

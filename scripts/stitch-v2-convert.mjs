@@ -13,9 +13,9 @@ const SRC = WEB ? 'brand/stitch/web' : 'brand/stitch/v2', OUT = WEB ? 'brand/sti
 const ALL = fs.readdirSync(path.join(SRC, 'bind')).filter(f => f.endsWith('.json')).map(f => f.slice(0, -5));
 const ONLY = A.filter(a => !a.startsWith('--')), SCREENS = ALL; // luôn chạy MỌI màn (nhanh) để en/v2.js đủ khóa; chỉ GHI file màn được nêu (ONLY)
 const CPK = new Set(['topic', 'deck', 'mistakes', 'stats']); // nhóm B (cờ ux1): khung lười ra web/cpack/st2 để không tính vào byte người học (totalJs) – bundles.js nạp 'cpack/st2/<màn>.js'
-const errs = [], enMap = {};
+const errs = [], enMap = {}, enMapB = {}; // enMapB: khóa của 4 màn lười (CPK) → en/v2b.js, nạp cùng gói lười (không vào gói ux1 tải lần đầu)
 // Khóa dịch đã có ở các nhóm EN khác: trùng nghĩa → dùng lại (không ghi lại), khác nghĩa → ĐỎ (không được đổi nghĩa chữ ở chỗ khác của app)
-const EN_HAVE = {}; for (const f of fs.readdirSync('web/js/i18n/en').filter(f => f.endsWith('.js') && f !== 'v2.js' && f !== 'v2web.js')) for (const m of fs.readFileSync('web/js/i18n/en/' + f, 'utf8').matchAll(/^\s*(["'])((?:\\.|(?!\1).)*)\1\s*:\s*(["'])((?:\\.|(?!\3).)*)\3/gm)) EN_HAVE[m[2]] = [m[4], f];
+const EN_HAVE = {}; for (const f of fs.readdirSync('web/js/i18n/en').filter(f => f.endsWith('.js') && f !== 'v2.js' && f !== 'v2b.js' && f !== 'v2web.js')) for (const m of fs.readFileSync('web/js/i18n/en/' + f, 'utf8').matchAll(/^\s*(["'])((?:\\.|(?!\1).)*)\1\s*:\s*(["'])((?:\\.|(?!\3).)*)\3/gm)) EN_HAVE[m[2]] = [m[4], f];
 
 // ---- tailwind.config riêng của file → bảng tra tên → giá trị ----
 function cfgOf(html, f) { const m = html.match(/tailwind\.config\s*=\s*(\{[\s\S]*?\})\s*;?\s*<\/script>/); if (!m) return {};
@@ -106,7 +106,7 @@ function emit(root, bind, k) {
   const M = [], mark = expr => { M.push(expr); return `\u0001${M.length - 1}\u0002`; }, q = s => JSON.stringify(s);
   const tr = (s, where) => { const key = bind.i18n?.[s.trim()]; if (key == null) { errs.push(`${k}: thiếu khóa dịch ${where}: ${q(s.trim())}`); return mark(`e(${q(s.trim())})`); }
     const have = EN_HAVE[key]; if (have && have[0].toLowerCase() !== s.trim().toLowerCase()) errs.push(`${k}: khóa ${q(key)} đã có nghĩa ${q(have[0])} (${have[1]}) ≠ ${q(s.trim())} → chọn khóa khác`);
-    else if (!have) enMap[key] = s.trim(); return mark(`e(t(${q(key)}))`); };
+    else if (!have) (CPK.has(k) ? enMapB : enMap)[key] = s.trim(); return mark(`e(t(${q(key)}))`); };
   // bộ chọn: CSS thường, thêm hậu tố " << n" = tổ tiên thứ n của phần tử khớp (bọc hàng/khung quanh nút có aria-label)
   const QA = (scope, sel) => { const m = sel.match(/^(.*?)\s*<<\s*(\d+)$/), base = m ? m[1] : sel; let r = base === ':scope' ? [scope] : [...scope.querySelectorAll(base)];
     if (m) r = r.map(e => { for (let n = +m[2]; n-- && e;) e = e.parentElement; return e; }).filter(Boolean); if (!r.length) errs.push(`${k}: bộ chọn không khớp: ${sel}`); return r; };
@@ -188,7 +188,7 @@ for (const k of SCREENS) { const bind = JSON.parse(fs.readFileSync(path.join(SRC
   if (!fs.existsSync(f('light')) || !fs.existsSync(f('dark'))) { errs.push(`${k}: thiếu file Stitch`); continue; }
   const hl = fs.readFileSync(f('light'), 'utf8'), hd = fs.readFileSync(f('dark'), 'utf8');
   // keys {khóa Việt: chữ EN}: chữ do generator dựng lúc build (tr(lang)(khóa) trong scripts/lib/st-web.mjs) – không nằm trong mẫu nhưng đi cùng pipeline v2web 15 ngôn ngữ
-  for (const [kk, v] of Object.entries(bind.keys || {})) { const have = EN_HAVE[kk]; if (have && have[0] !== v) errs.push(`${k}: khóa ${JSON.stringify(kk)} đã có nghĩa ${JSON.stringify(have[0])} (${have[1]}) ≠ ${JSON.stringify(v)}`); else if (!have) enMap[kk] = v; }
+  for (const [kk, v] of Object.entries(bind.keys || {})) { const have = EN_HAVE[kk]; if (have && have[0] !== v) errs.push(`${k}: khóa ${JSON.stringify(kk)} đã có nghĩa ${JSON.stringify(have[0])} (${have[1]}) ≠ ${JSON.stringify(v)}`); else if (!have) (CPK.has(k) ? enMapB : enMap)[kk] = v; }
   const L = new JSDOM(hl, { virtualConsole: VC }).window.document, D = new JSDOM(hd, { virtualConsole: VC }).window.document, RL = resolver(cfgOf(hl, k + '-light'), bind.pageCss), RD = resolver(cfgOf(hd, k + '-dark'), bind.pageCss);
   if (bind.styles) { RL.sty = stylesOf(hl, k + '-light'); RD.sty = stylesOf(hd, k + '-dark'); }
   if (bind.swap) RL.swap = RD.swap = bind.swap;
@@ -226,6 +226,7 @@ for (const k of SCREENS) { const bind = JSON.parse(fs.readFileSync(path.join(SRC
   const out = path.join(!WEB && CPK.has(k) ? 'web/cpack/st2' : OUT, k + '.js');
   if (CHECK) { if (!fs.existsSync(out) || fs.readFileSync(out, 'utf8') !== js) errs.push(`${k}: ${out} trôi so với Stitch/bind (chạy lại bộ chuyển)`); }
   else if (!ONLY.length || ONLY.includes(k)) { fs.mkdirSync(OUT, { recursive: true }); fs.writeFileSync(out, js); console.log(`✓ ${k}: ${(js.length / 1024).toFixed(1)} KB`); } }
-{ const en = `/* English UI – ${WEB ? 'v2web (trang web Stitch' : 'v2 (màn Stitch v2'}: TỰ SINH bởi scripts/stitch-v2-convert.mjs, khóa Việt → chữ Stitch; lazy group, LAZY in scripts/build-i18n.sh) */\n(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D.en = Object.assign(D.en || {}, {\n${Object.entries(enMap).sort().map(([k, v]) => `  ${JSON.stringify(k)}: ${JSON.stringify(v)},`).join('\n')}\n}); })(typeof self !== 'undefined' ? self : this);\n`;
-  if (CHECK) { if (!fs.existsSync(EN) || fs.readFileSync(EN, 'utf8') !== en) errs.push(`${EN} trôi`); } else if (!A.includes('--dump')) fs.writeFileSync(EN, en); } // --dump chỉ in sơ đồ: KHÔNG ghi en/v2.js (bỏ qua màn → mất khóa các màn khác)
+for (const [F, M, nm] of WEB ? [[EN, enMap, 'v2web (trang web Stitch']] : [[EN, enMap, 'v2 (màn Stitch v2'], ['web/js/i18n/en/v2b.js', Object.fromEntries(Object.entries(enMapB).filter(([k]) => !(k in enMap))), 'v2b (4 màn Stitch lười: topic/deck/mistakes/stats']]) {
+  const en = `/* English UI – ${nm}: TỰ SINH bởi scripts/stitch-v2-convert.mjs, khóa Việt → chữ Stitch; lazy group, LAZY in scripts/build-i18n.sh) */\n(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D.en = Object.assign(D.en || {}, {\n${Object.entries(M).sort().map(([k, v]) => `  ${JSON.stringify(k)}: ${JSON.stringify(v)},`).join('\n')}\n}); })(typeof self !== 'undefined' ? self : this);\n`;
+  if (CHECK) { if (!fs.existsSync(F) || fs.readFileSync(F, 'utf8') !== en) errs.push(`${F} trôi`); } else if (!A.includes('--dump')) fs.writeFileSync(F, en); } // --dump chỉ in sơ đồ: KHÔNG ghi en/v2.js (bỏ qua màn → mất khóa các màn khác)
 if (errs.length) { console.error('✗ stitch-v2-convert:\n  ' + errs.join('\n  ')); process.exit(1); }
