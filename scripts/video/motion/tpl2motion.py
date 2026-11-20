@@ -39,11 +39,22 @@ HOOK_CARD = {  # key -> (Ama one line <= 12 chars, Carlos up to 2 lines); None k
 # spoken-line fixes where the voice or ASR (not the lesson) is the problem: Kokoro/Whisper cannot say or hear the line as written (qc_v9 asr_match). Facts unchanged.
 SPOKEN = {'confusing_pair:affect-effect': {'s1': 'Effect is the noun, meaning the result: bad sleep.'},
           'irregular_verb:go-went': {'h': 'What is the past of go?'}, 'polite_request:could-i-get': {'h': 'Is saying give me polite?'},
-          'quiz_ab:an-hour': {'q': 'Which sentence is correct?'}, 'spot_the_mistake:how-much-cost': {'h': 'Find the mistake.'}, 'three_words:rain': {'h': 'Three better words for rain.'}}
+          'quiz_ab:an-hour': {'q': 'Which sentence is correct?'}, 'spot_the_mistake:how-much-cost': {'h': 'Find the mistake.'}, 'three_words:rain': {'h': 'Three better words for rain.'},
+          # roleplay scene setters: Whisper hears "At the ..." as "Is that the ..." / "Egg class" -> "In ..." (same fact); fewer words where the talk ran over 130 wpm; no "they're" (Kokoro stresses it wrong)
+          'roleplay:cafe-for-here': {'s0': 'In the cafe.'}, 'roleplay:classroom-say-again': {'s0': 'In class.'},
+          'roleplay:clinic-appointment': {'s0': 'In the clinic.', 's2': "Hi, I'd like an appointment, please. I have a sore throat."},
+          'roleplay:hotel-check-in': {'s0': 'In the hotel.'}, 'roleplay:interview-about-yourself': {'s0': 'In a job interview.', 's2': "I'm a designer. I've built shopping apps for three years, and I'd love to grow here.", 'tip': "Tip: present, past, future. Who you are, what you've done, what's next."},
+          'roleplay:supermarket-eggs': {'s0': 'In the supermarket.', 's3': 'Aisle five, next to the milk.'},
+          'phrasal_verb:push-back': {'s1': 'Oh! Push back means move it later.'},
+          'word_of_the_day:procrastinate': {'tip': "Tip: it comes from old Latin. Cras means tomorrow, so don't push it to tomorrow!"}}
+# per-line pause (s) where the measured silence ran over the 1.05 s no-padding gate
+GAPS = {'roleplay:interview-about-yourself': {'s0': 0.55}, 'roleplay:supermarket-eggs': {'s1': 0.55}, 'upgrade_your_english:exhausted': {'sh': 0.5}}
 NUMW = {str(i): w for i, w in enumerate('zero one two three four five six seven eight nine ten'.split())}
 def speak(sp, key):
     for l in sp['lines']:
         if l['id'] in SPOKEN.get(key, {}): l['text'] = SPOKEN[key][l['id']]
+        if l['id'] in GAPS.get(key, {}): l['gap'] = GAPS[key][l['id']]
+        if l.get('text') and len(l['text'].split()) == 1 and l['text'][-1] not in '.?!:': l['text'] += '.'   # a one-word caption page must be the end of a sentence (qc caption_script)
         if l.get('text'): l['text'] = re.sub(r'\b(10|[0-9])\b(?![.:]\d)', lambda m: NUMW[m.group(1)], l['text'])
     return sp
 def steps_spec(tpl, slug, v):
@@ -65,10 +76,12 @@ def diffpair(a, b, n=11):   # the pills show what differs (+ one neighbouring wo
     return [' '.join(ca), ' '.join(cb)]
 def quiz(tpl, slug, v):
     r = row(tpl, slug, v); a, b = v['optionA'], v['optionB']; right = 0 if v['answer'].strip().lower().startswith("it's a") or v['answer'].strip().lower().startswith('a,') else 1
-    pa, pb = diffpair(a, b); o = f"A: {pa}? Or B: {pb}?"; ot = o.split(); ia, ib = ot.index('A:') + 1, ot.index('B:') + 1
+    pa, pb = diffpair(a, b); ma, mb = diffpair(a, b, 0); o = f"A: {pa}? Or B: {pb}?"; ot = o.split(); ia, ib = ot.index('A:') + 1, ot.index('B:') + 1
+    if any(len(t.strip('.?!')) == 1 for t in (pa + ' ' + pb).split()):   # a one-letter option ("a") is lost next to the spoken letters A/B (Whisper: wer .71) -> read the options plain
+        o = f"{pa}? Or {pb}?"; ia, ib = 0, len(pa.split()) + 1
     lines = [BM.line('h', 'Quick quiz!'), BM.line('q', v['question']), BM.line('o', o), dict(id='_count', beat='count', dur=3.0), BM.line('a', v['answer']), BM.line('w', f"Tip: {v['tip']}")]
     top = [BM.hookcard('Quick quiz'), dict(id='q', at=['q', 0], rows=[BM.chip('A or B?', 'teal', ring='_count'), BM.ln(v['question'])], xp=[dict(at=['a', 0], n=10)]), dict(id='note', at=['w', 0], tone='coral', rows=[BM.chip('Tip', 'coral'), BM.ln(BM.fit(v['tip']))])]
-    sp = BM.base(tpl, r, tpl, lines, dict(top=top, col=[dict(t='opts', id='opts', opts=[pa, pb], cues=[['o', ia], ['o', ib]], reveal=['a', 0], right=right)]), 'Quick quiz!', 'drill'); sp['id'] = 'mo_' + r['id']; return speak(sp, f"{tpl.replace(chr(45), chr(95))}:{slug}")
+    sp = BM.base(tpl, r, tpl, lines, dict(top=top, col=[dict(t='opts', id='opts', opts=[pa, pb], optsmin=[ma, mb], cues=[['o', ia], ['o', ib]], reveal=['a', 0], right=right)]), 'Quick quiz!', 'drill'); sp['id'] = 'mo_' + r['id']; return speak(sp, f"{tpl.replace(chr(45), chr(95))}:{slug}")
 def window(runs, si, n=13):   # keep the struck run and as many neighbouring words as fit one hook line
     pre = ''.join(x[0] for x in runs[:si]).split(); mid = runs[si][0]; post = ''.join(x[0] for x in runs[si + 1:]).split(); a, b = [], []
     while True:
