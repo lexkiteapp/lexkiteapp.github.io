@@ -63,6 +63,8 @@ final class SkillsContext {
 @MainActor
 enum SkillsContentStore {
     static let path = "data/skills-pack.json"
+    /// the C1–C2 readings: https://lexkite.com/data/skills-pack-adv.json (`{v, schema, readings[]}`), same fetch/cache as the core pack; optional – failure is ignored
+    static let advPath = "data/skills-pack-adv.json"
     private(set) static var current: SkillsData = SkillsData.bundled() ?? SkillsData()
     private(set) static var lexis = Lexis(current.lexis)
     private static var fetched = false
@@ -79,6 +81,20 @@ enum SkillsContentStore {
         guard let text = await source.text(path), let d = decode(text) else { fetched = false; return }
         current = d
         if !d.lexis.awl.isEmpty { lexis = Lexis(d.lexis) }
+        await refreshAdv(source: source)   // after the core: never blocks it
+    }
+    /// the advanced readings of the adv pack decoded to passages (empty on a malformed pack)
+    static func decodeAdv(_ text: String) -> [JSON] { (try? JSON.parse(text)).map { $0.list("readings") } ?? [] }
+    /// merge the adv passages into `current` (ids already present are kept once)
+    static func merge(_ extra: [JSON], into d: SkillsData) -> SkillsData {
+        var out = d; let have = Set(d.readings.map { $0.s("id") })
+        out.readings += extra.filter { !have.contains($0.s("id")) }
+        return out
+    }
+    static func refreshAdv(source: LessonTextSource) async {
+        guard let text = await source.text(advPath) else { return }
+        let extra = decodeAdv(text)
+        if !extra.isEmpty { current = merge(extra, into: current) }
     }
 }
 

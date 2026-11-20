@@ -20,7 +20,7 @@ import { FIXED } from './lib/learn-samples.mjs';
 
 const arg = (k, d) => { const i = process.argv.indexOf('--' + k); return i > 0 ? process.argv[i + 1] : d; };
 const ROOT = arg('root', 'dist'), OUT = path.resolve(arg('out', 'out/frame-consistency')), ONLY = arg('only', '');
-const SPEC = { top: 56, tab: 64, hit: 44, tabs: ['home', 'vocab', 'skills', 'tests', 'me'] };
+const SPEC = { top: 56, hubTop: 51, tab: 64, hit: 44, tabs: ['home', 'vocab', 'skills', 'tests', 'me'] };
 const VAR = JSON.parse(fs.readFileSync(new URL('./frame-variants.json', import.meta.url), 'utf8'));
 fs.mkdirSync(OUT, { recursive: true });
 const sleep = ms => new Promise(r => setTimeout(r, ms));
@@ -33,7 +33,7 @@ const probe = (SPEC) => {
   const vis = el => { if (!el) return false; const r = el.getBoundingClientRect(), cs = getComputedStyle(el); return r.width > 0 && r.height > 0 && cs.visibility !== 'hidden' && cs.display !== 'none' && +cs.opacity !== 0 && !el.closest('[hidden]'); };
   const px = v => Math.round(parseFloat(v) || 0);
   const sel = el => el ? el.tagName.toLowerCase() + (el.id ? '#' + el.id : '') + [...el.classList].slice(0, 3).map(c => '.' + c).join('') : '';
-  const iconOf = el => { const u = el && el.querySelector('svg:not(.msv) use'); return u ? (u.getAttribute('href') || u.getAttribute('xlink:href') || '').replace(/^.*#/, '') : (el && el.querySelector('svg:not(.msv), img') ? 'inline' : ''); };
+  const iconOf = el => { const u = el && el.querySelector('svg:not(.msv) use'); return u ? (u.getAttribute('href') || u.getAttribute('xlink:href') || '').replace(/^.*#/, '') : (el && el.querySelector('.st-fl') ? 'i-flame' : el && el.querySelector('svg:not(.msv), img') ? 'inline' : ''); }; // .st-fl = ngọn lửa chuỗi động (ST2.flame) = cùng khái niệm i-flame
   const vw = innerWidth, view = document.querySelector('#view');
   const hash = location.hash, name = (/^#\/([^/?]*)/.exec(hash) || [])[1] || 'home', argv = (/^#\/[^/?]*\/([^?]*)/.exec(hash) || [])[1] || '';
   const [navTab] = window.App && App.navOf ? App.navOf(name, argv && decodeURIComponent(argv)) : [null];
@@ -52,7 +52,7 @@ const probe = (SPEC) => {
   const active = bOn ? [...bnav.querySelectorAll('a.active')].map(a => a.dataset.tab) : [];
   const side = vis(document.querySelector('#nav'));
   // khung nội dung
-  const first = view && [...view.children].find(vis);
+  const first = view && [...view.children].find(e => vis(e) && !e.matches('header.hb')); // thanh hub chung (header.hb) là thanh trên, không phải khung nội dung
   const fr = first && first.getBoundingClientRect(), vcs = view && getComputedStyle(view), fcs = first && getComputedStyle(first);
   const vr = view && view.getBoundingClientRect();
   // tiêu đề
@@ -93,7 +93,7 @@ const probe = (SPEC) => {
   return {
     hash, name, navTab, vw, theme: document.documentElement.dataset.theme || 'auto',
     body: [...document.body.classList].filter(c => /^(focus|lk-learn|modal-open)$/.test(c)),
-    top: bar ? { el: sel(bar), global: bar === gtop, h: Math.round(br.height), y: Math.round(br.top), pos: getComputedStyle(bar).position } : null,
+    top: bar ? { el: sel(bar), global: bar === gtop || bar.classList.contains('hb'), hub: bar.classList.contains('hb'), h: Math.round(br.height - (bar.classList.contains('hb') && bar.querySelector('.hb-r2') ? bar.querySelector('.hb-r2').getBoundingClientRect().height + (parseFloat(getComputedStyle(bar.querySelector('.hb-r2')).marginTop) || 0) : 0)), y: Math.round(br.top), pos: getComputedStyle(bar).position } : null, // thanh hub chung (header.hb): đo hàng 1 (không tính hàng 4 viên số)
     back: back ? { el: sel(back), w: Math.round(bkr.width), h: Math.round(bkr.height), href: back.getAttribute('href') || '', exit: back.matches('[data-exit]') } : null,
     bnav: bOn ? { h: Math.round(bnav.getBoundingClientRect().height), tabs, active } : null, side,
     frame: view ? { maxW: vcs.maxWidth, padL: px(vcs.paddingLeft), padR: px(vcs.paddingRight), left: Math.round(fr ? fr.left - vr.left : 0), right: Math.round(fr ? vr.right - fr.right : 0), w: Math.round(fr ? fr.width : 0), firstMaxW: fcs ? fcs.maxWidth : '' } : null,
@@ -104,10 +104,10 @@ const probe = (SPEC) => {
 
 // ---------- chạy ----------
 const browser = await chromium.launch();
-const mk = async (w, theme) => {
+const mk = async (w, theme, ux1 = '0') => {
   const ctx = await browser.newContext({ viewport: { width: w, height: w < 600 ? 844 : 900 }, deviceScaleFactor: 1, isMobile: w < 600, hasTouch: w < 600, locale: 'en-US', serviceWorkers: 'block', colorScheme: theme });
   await noProd(ctx);
-  await ctx.addInitScript(th => { try { localStorage.setItem('sbx.settings', JSON.stringify({ onboarded: true, theme: th })); localStorage.setItem('lk.ux1', '0'); localStorage.setItem('lk.ub', '99'); } catch { /* */ } }, theme);
+  await ctx.addInitScript(([th, u]) => { try { localStorage.setItem('sbx.settings', JSON.stringify({ onboarded: true, theme: th })); localStorage.setItem('lk.ux1', u); localStorage.setItem('lk.ub', '99'); } catch { /* */ } }, [theme, ux1]);
   const page = await ctx.newPage(); const errs = [];
   page.on('pageerror', e => errs.push(String(e.message).slice(0, 120)));
   await page.goto(`${O}/app/?sandbox=1&hl=en#/home`, { waitUntil: 'load', timeout: 60000 });
@@ -146,6 +146,11 @@ const runCombo = async (P) => {
 };
 const combos = [P0, await mk(390, 'dark'), await mk(1280, 'light'), await mk(1280, 'dark')];
 await Promise.all(combos.map(runCombo));
+// Cờ ux1 BẬT: cả 5 tab hub phải dùng CÙNG MỘT thanh hub chung (header.hb, hàng 1 = SPEC.hubTop, sát đỉnh) – một biến thể hub duy nhất (docs/DESIGN-SYSTEM.md §5d)
+const PU = await mk(390, 'light', '1');
+for (const r of ['home', 'vocab', 'skills', 'tests', 'me']) { await go(PU, target(r)); let m; try { m = await PU.page.evaluate(probe, SPEC); } catch (e) { m = { error: String(e.message).slice(0, 120) }; }
+  const t = m.top; if (!t || !t.hub) D(r, 'ux1', 'hub.same-bar', t ? t.el : 'không có', 'header.hb');
+  else { if (t.h !== SPEC.hubTop) D(r, 'ux1', 'hub.same-bar.h', t.h, SPEC.hubTop); if (t.y > 1) D(r, 'ux1', 'hub.same-bar.y', t.y, 0); } }
 
 // ---------- chấm ----------
 const dev = []; // { route, combo, prop, got, want }
@@ -171,7 +176,7 @@ for (const r of ROUTES) { const v = VAR.routes[r]?.variant; if (!v) continue;
     // thanh trên
     if (!m.top) D(r, k, 'topbar', 'không có', 'có thanh trên');
     else {
-      if (w === 390 && m.top.h !== SPEC.top) D(r, k, 'topbar.h', m.top.h, SPEC.top);
+      if (w === 390 && m.top.h !== (m.top.hub ? SPEC.hubTop : SPEC.top)) D(r, k, 'topbar.h', m.top.h, m.top.hub ? SPEC.hubTop : SPEC.top);
       if (m.top.global !== (v !== 'focus')) D(r, k, 'topbar.variant', m.top.el, v === 'focus' ? 'thanh riêng của màn học (không header.topbar chung)' : 'header.topbar');
       if (m.top.y > 1) D(r, k, 'topbar.y', m.top.y, 0);
     }
@@ -244,5 +249,6 @@ console.log(`ratchet: hiện ${dev.length} lệch / baseline ${known.total}`);
 if (worse.length) console.log('✗ lệch MỚI hoặc tăng (sửa gốc, không nâng baseline):\n  ' + worse.slice(0, 80).join('\n  '));
 if (better.length) console.log('✗ đã giảm – hạ baseline: node scripts/test/frame-consistency.mjs --write-known rồi commit known.json:\n  ' + better.slice(0, 80).join('\n  '));
 if (!worse.length && !better.length) console.log('✓ frame-consistency khớp baseline');
+for (const l of [`tổng ${dev.length} / baseline ${known.total}`, ...worse.map(x => 'MỚI ' + x), ...better.map(x => 'GIẢM ' + x)].slice(0, 60)) console.log(`::error title=frame-consistency::${l.replace(/[\r\n%]/g, ' ')}`); // đọc được qua API annotations
 fs.writeFileSync(OUT + '/known-now.json', JSON.stringify({ total: dev.length, keys: sorted(cur) }));
 process.exit(worse.length || better.length ? 1 : 0);

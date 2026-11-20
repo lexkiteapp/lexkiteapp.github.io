@@ -5,7 +5,7 @@
   g.LK_BUNDLES = {
     demo: ['js/app-demo.js'],
     mvar: ['js/mistake-variant.js'], // Mini-test biến thể từ Sổ lỗi sai (#/mistakes?variant=1 + gợi ý trên Hôm nay)
-    grammar: ['js/i18n/en/arrange.js', 'js/word-arrange.js', 'js/structures.js', ...['tenses', 'verbs', 'sentences', 'foundation', 'cpack/grammar/starter.js', 'cpack/grammar/lazy-a1.js', 'cpack/grammar/academic.js', 'cpack/grammar/lazy-c2.js', 'chapters', 'cpack/grammar/book2.js', 'drills-a', 'drills-b', 'cpack/grammar/drills-c.js', 'cpack/grammar/drills-own.js', 'bank-gen', 'check'].map(f => f.startsWith('cpack/') ? f : G + f + '.js'), 'js/grammar.js'],
+    grammar: ['js/i18n/en/arrange.js', 'js/word-arrange.js', 'js/structures.js', ...['tenses', 'verbs', 'sentences', 'foundation', 'cpack/grammar/starter.js', 'cpack/grammar/lazy-a1.js', 'cpack/grammar/academic.js', 'cpack/grammar/lazy-c2.js', 'chapters', 'cpack/grammar/book2.js', 'drills-a', 'drills-b', 'cpack/grammar/drills-c.js', 'cpack/grammar/drills-own.js', 'bank-gen', 'cpack/grammar/check.js'].map(f => f.startsWith('cpack/') ? f : G + f + '.js'), 'js/grammar.js'],
     // 12 bài A1 / 10 bài C2 (~29 KB nén mỗi gói): chỉ tải khi mở bài của cấp đó; gói 'grammar' mang mục lục gọn lazy-a1/c2.js (scripts/grammar/build-lazy-idx.mjs)
     grammarA1: ['cpack/grammar/starter2.js'],
     grammarC2: ['cpack/grammar/mastery.js'],
@@ -62,7 +62,7 @@
     remind: ['js/i18n/en/remind.js', 'js/remind.js'],
     mail: ['cpack/mail-app/mail.js'], // email nhắc học (remind.js mailSync)
     install: ['js/i18n/en/install.js', 'js/install-sheet.js'], // 📲 mời cài app ở khoảnh khắc giá trị (docs/INSTALL-GROWTH.md)
-    settings: ['js/settings.js'],
+    settings: ['js/i18n/en/v2.js', 'js/st/v2/runtime.js', 'js/st/v2/settings.js', 'js/settings.js'], // ⚙️ khung Stitch v2 (mục lục nhóm hàng) + trang Cài đặt
     // 🔥 lớp giữ thói quen – luôn nạp cùng gói 'streak' (mỗi file chỉ thuộc 1 gói) struct: ['js/structures.js'], // 🧩 nhận diện cấu trúc (tải lười, ra khỏi khung app 20/10)
     streak: ['js/streak-ui.js'],
     ret: ['js/i18n/en/ret.js', 'js/retention.js'],
@@ -100,6 +100,7 @@
     xport: ['js/export.js'],
     file: ['js/lib/save-file.js'],
     lsw: ['js/lang-menu.js'],
+    tlpick: ['js/i18n/en/tlui.js', 'cpack/tl-app/tl-pick.js'],
     quick: ['js/i18n/en/quick.js', 'js/quick.js'],
     pgames: ['js/i18n/en/rhythm.js', 'js/study-games.js', 'js/pron/coach.js', 'cpack/play-app/play-blitz.js', 'cpack/play-app/play-rhythm.js'], // ⚡ Thử thách 60 giây (docs/specs/play-learn.md)
     rmodes: ['js/i18n/en/rmodes.js', 'js/study-modes.js'], // 🔁 Ôn tập đa chế độ (Gõ phản xạ · Nghe chọn nghĩa) + ✍️ thẻ "Câu của bạn" [P2-1.2/P2-1.1-UI]
@@ -115,6 +116,7 @@
     lesson: ['js/i18n/en/lesson.js', 'js/i18n/en/v2.js', 'js/st/common.js', 'js/st/lesson.js', 'js/st/v2/runtime.js', 'js/st/v2/lesson-question.js', 'js/st/v2/feedback-correct.js', 'js/st/v2/feedback-wrong.js', 'js/st/v2/lesson-complete.js', 'js/st/v2/story-duo.js', 'js/listen/kvoice.js', 'js/lesson/engine.js', 'js/i18n/en/arrange.js', 'js/word-arrange.js', 'js/lesson/teacher.js', 'cpack/lesson/stories.js', 'cpack/lesson/path-nodes.js', 'js/lesson/ui.js'],
     lgold: ['cpack/lesson/gold.js'],
     dayv2: ['js/i18n/en/v2.js', 'js/st/v2/runtime.js', 'js/st/v2/day.js', 'js/characters.js'], // 📅 Khung Stitch v2 của trang buổi học #/day/N (path-day.js page)
+    libv2: ['js/i18n/en/v2.js', 'js/st/v2/runtime.js', 'js/st/v2/library.js', 'js/ux1-lib.js'], // 📚 Thư viện (khung Stitch v2 sau cờ ux1; bọc routes.library)
     vhub: ['js/st/v2/vocab-hub.js', 'js/vocab-hub.js'], // 📚 Tab Từ vựng
     ghub: ['js/i18n/en/v2.js', 'js/st/v2/runtime.js', 'js/st/v2/grammar.js'], // 📐 Hub Ngữ pháp (khung Stitch v2 grammar; mã dựng dữ liệu nằm trong gói grammar)
     confidence: ['js/i18n/en/confidence.js', 'cpack/confidence/data.js', 'js/speech-session.js', 'js/confidence.js'], // 🔥 Nhịp buổi học: chuỗi đúng liền, lỗi chính tả nhỏ, Giải thích, thẻ số liệu cuối lượt, tạm tắt nghe/nói, chế độ khó

@@ -4,6 +4,7 @@
 // Cổng (chỉ siết): mọi thiếu sót phải nằm trong scripts/test/nav-sweep.known.json; thiếu sót MỚI → đỏ; mục known đã hết thiếu → đỏ (xoá khỏi known).
 // Dùng: node scripts/test/nav-sweep.mjs [--root dist | --base URL] [--out out/nav-sweep] [--steps 40] [--write-known]
 import { chromium, devices } from 'playwright';
+import { autoLXD } from './lib/lxd-auto.mjs';
 import { noProd } from './lib/no-prod.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -89,7 +90,7 @@ const focusSkip = () => { const el = [...document.querySelectorAll('#lsnNoL, #ls
 
 const rows = [], found = {};
 for (const [r, hash] of samples) {
-  const page = await ctx.newPage(); page.on('dialog', d => d.accept());
+  const page = await ctx.newPage(); page.on('dialog', d => d.accept()); await autoLXD(page);
   const m = { route: r, hash, exit: false, prog: false, enter: false, skip: false, end: false, next: false, steps: 0, dead: '' };
   try {
     await page.goto(appUrl('/home'), { waitUntil: 'load', timeout: 45000 }); await ready(page); await go(page, hash);

@@ -192,9 +192,16 @@ export function pushAlert(st, k, text, now) {
 export const LEDGER_GAP_MS = 4 * 36e5;
 /** Ngày theo giờ VN (UTC+7) – chủ 16/11: "1 video/kênh/ngày" (HARD). Chỉ HẠ được trần này, không nâng khi chưa có chủ OK. */
 export const ledgerDay = ms => new Date(ms + 7 * 36e5).toISOString().slice(0, 10);
-export async function claimLedger(db, channel_id, clip, at_ms, now = Date.now()) {
-  const g = LEDGER_GAP_MS, day = ledgerDay(at_ms);
-  await run(db, 'INSERT INTO soc_ledger (channel_id, clip, at_ms, day, created) SELECT ?, ?, ?, ?, ? WHERE NOT EXISTS (SELECT 1 FROM soc_ledger WHERE channel_id = ? AND clip != ? AND ((at_ms > ? AND at_ms < ?) OR day = ?)) ON CONFLICT(channel_id, clip) DO NOTHING', channel_id, clip, at_ms, day, now, channel_id, clip, at_ms - g, at_ms + g, day);
+/** Luật sổ cái của kênh: trần/ngày + giãn cách + múi giờ – MỘT nguồn với rebalanceDays (dayCapOf/gapOf/LANG_TZ): kênh chính 2–3/ngày ≥ 4 giờ, kênh bản ngữ 1/ngày. Lỗi đọc cấu hình → 1/ngày (an toàn). */
+export async function ledgerRule(db, channel_id) {
+  try {
+    const t = await one(db, 'SELECT title FROM dist_ext WHERE channel_id = ?', channel_id), x = (await chanCfg(db, channel_id).catch(() => ({ cfg: {} }))).cfg || {}, lang = (x.lang || langOfChannel((t && t.title) || '') || '').toLowerCase();
+    return { cap: Math.max(1, dayCapOf(lang, x.daily_cap)), gap: Math.max(LEDGER_GAP_MS, gapOf(lang, x.min_gap_min) * 6e4), tz: (x.tz && x.tz !== 'America/New_York' ? x.tz : LANG_TZ[lang || 'en']) || 'America/New_York' };
+  } catch (e) { return { cap: 1, gap: LEDGER_GAP_MS, tz: 'Asia/Ho_Chi_Minh' }; }
+}
+export async function claimLedger(db, channel_id, clip, at_ms, now = Date.now(), rule = null) {
+  const r = rule || { cap: 1, gap: LEDGER_GAP_MS, tz: 'Asia/Ho_Chi_Minh' }, day = r.tz === 'Asia/Ho_Chi_Minh' ? ledgerDay(at_ms) : localDate(at_ms, r.tz);
+  await run(db, 'INSERT INTO soc_ledger (channel_id, clip, at_ms, day, created) SELECT ?, ?, ?, ?, ? WHERE NOT EXISTS (SELECT 1 FROM soc_ledger WHERE channel_id = ? AND clip != ? AND at_ms > ? AND at_ms < ?) AND (SELECT COUNT(*) FROM soc_ledger WHERE channel_id = ? AND clip != ? AND day = ?) < ? ON CONFLICT(channel_id, clip) DO NOTHING', channel_id, clip, at_ms, day, now, channel_id, clip, at_ms - r.gap, at_ms + r.gap, channel_id, clip, day, r.cap);
   return !!(await one(db, 'SELECT 1 AS x FROM soc_ledger WHERE channel_id = ? AND clip = ?', channel_id, clip));
 }
 export const releaseLedger = (db, channel_id, clip) => run(db, 'DELETE FROM soc_ledger WHERE channel_id = ? AND clip = ?', channel_id, clip).catch(() => {});
@@ -301,6 +308,17 @@ export async function autoQueue(env, db, cfg, now, max = 30) {
     n += (r && r.meta && r.meta.changes) || 0;
   }
   return n;
+}
+/** Máy gác tự lấp (20/11, social-coverage đỏ 3 ngày không ai chạm): duyệt thêm clip QC-pass từ kho (≤ 150, gấp 5 lượt thường) + xếp lịch + dồn ngày – chỉ D1, 0 lượt GrabCast.
+ *  → { queued, planned, rebalanced, skipped:{lý do:n} } (skipped no-channel/no-slot/duplicate cho biết ngôn ngữ nào HẾT clip bản ngữ → cần dựng thêm). */
+export async function autoFill(env, now = Date.now()) {
+  const db = env.DB; await setupMgr(db); await setupDist(db); await setupLock(db, env); await ytSetup(db); T0 = Date.now();
+  const cfg = await loadAuto(db), out = { queued: 0, planned: 0, rebalanced: 0, skipped: {} };
+  if (!cfg.on) return { ...out, off: true };
+  out.queued = await autoQueue(env, db, cfg, now, 150).catch(() => 0);
+  const p = await DIST.plan_run(db, {}, env); out.planned = (p && p.social) || 0; for (const x of (p && p.skipped) || []) out.skipped[x.why] = (out.skipped[x.why] || 0) + 1;
+  out.rebalanced = await rebalanceDays(db, now, 0, 120, outOfTime).catch(() => 0);
+  return out;
 }
 /** Sức khỏe cả chuỗi (CI xanh mà không đăng được gì là mù): kênh đã nối? có clip đã duyệt? có lịch sắp tới? → cảnh báo + rec.health. Chỉ đọc theo khóa/chỉ mục, LIMIT 1. */
 export async function chainHealth(db, cfg, now) {
@@ -662,7 +680,7 @@ export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = f
       const step = metaStep({ platform: r.platform, slot_ms: r.slot_ms, lock, gcScheduledUnreachable: gcSchedUnreach }, now);
       if (step === 'done' || step === 'wait') { if (step === 'wait') rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'meta-wait' }); continue; }
       if (step === 'too-late') { await setLock(db, r.clip, r.channel_id, { state: 'skipped', err: 'too-late' }); rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'too-late' }); continue; }
-      if (['fb', 'ig-container'].includes(step) && !(await claimLedger(db, r.channel_id, r.clip, Math.max(r.slot_ms, now)))) { rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'ledger-gap' }); continue; } // bài trễ không dồn một lúc
+      if (['fb', 'ig-container'].includes(step) && !(await claimLedger(db, r.channel_id, r.clip, Math.max(r.slot_ms, now), now, await ledgerRule(db, r.channel_id)))) { rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'ledger-gap' }); continue; } // bài trễ không dồn một lúc
       const C = await chan(r.channel_id).catch(e => { if (e.metaStop && e.ch) { dead.add(e.ch); return null; } throw e; });
       if (!C) { rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'meta-channel-paused' }); continue; }
       const mc = C.mc, mErr = C.err, tgt = C.m.target_id;
@@ -757,7 +775,7 @@ async function approveAndSchedule(db, call, bid, pid, r, rec) {
   const g = await call('GET', 'posts/' + pid); if (g.status >= 400) { rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'get-' + (g.code || g.status) }); return; }
   const at = new Date(r.slot_ms).toISOString(), chk = await call('POST', 'validate', { post_id: pid, scheduled_at: at }); // 200 cả khi có lỗi; warning không chặn. Không gọi TikTok: đạt vẫn có thể failed lúc đăng
   if (chk.status >= 400 || (chk.data && chk.data.ok === false)) { const why = 'validate:' + (chk.status >= 400 ? (chk.code || chk.status) : (problemCodes(chk.data.targets) || 'not-ok')); await run(db, 'UPDATE soc_board SET err = ?, updated = ? WHERE id = ?', why.slice(0, 200), Date.now(), bid); rec.skipped.push({ clip: r.clip, ch: r.channel_id, why }); return; }
-  if (!(await claimLedger(db, r.channel_id, r.clip, r.slot_ms))) { rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'ledger-gap' }); return; } // ≥ 4 giờ giữa 2 bài cùng kênh; bị chặn thì lượt sau thử lại
+  if (!(await claimLedger(db, r.channel_id, r.clip, r.slot_ms, Date.now(), await ledgerRule(db, r.channel_id)))) { rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'ledger-gap' }); return; } // ≥ 4 giờ giữa 2 bài cùng kênh; bị chặn thì lượt sau thử lại
   const hash = await contentHash(g.data), t = Date.now();
   await run(db, "UPDATE soc_board SET state = 'approved', hash = ?, approved_by = ?, approved_at = ?, err = NULL, updated = ? WHERE id = ?", hash, AUTO_WHO, t, t, bid);
   let s; try { s = await call('POST', `posts/${pid}/schedule`, { scheduled_at: at, consent: true }); } // schedule không dùng Idempotency-Key: gọi lặp chỉ nhận 409 not_draft, không tạo bản thứ 2

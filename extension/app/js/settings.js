@@ -1,25 +1,11 @@
-/* Trang Cài đặt (tải lười · mục lục + trang con: SET_CSS bên dưới – tách khỏi khung app 23/10): giao diện, mục tiêu, âm thanh, nhắc học, dữ liệu. */
+/* Trang Cài đặt (tải lười · mục lục + trang con: SET_CSS bên dưới – tách khỏi khung app 23/10): giao diện, mục tiêu, âm thanh, nhắc học, dữ liệu. @icons palette track_changes volume_up alarm cloud admin_panel_settings smart_toy extension database info chevron_right arrow_back */
 (function () {
   /*icons*/UI.addIcons('<symbol id="i-palette" viewBox="0 0 24 24"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></symbol><symbol id="i-bot" viewBox="0 0 24 24"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></symbol><symbol id="i-database" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></symbol>');/*/icons*/
   const { Store, SRS, todayKey } = Core;
   // 🎨 CSS riêng trang Cài đặt (mục lục + trang con) – nạp cùng gói lười, không vào khung app (DESIGN-SYSTEM §6)
-  try { if (!document.getElementById('setCss')) { const st = document.createElement('style'); st.id = 'setCss'; st.textContent = `.set-head{flex-direction:column;align-items:flex-start;gap:.15rem;margin-bottom:var(--sp-3,12px)}
-.set-head h1{margin:0}
-.set-back{margin:0}.set-back a{display:inline-flex;align-items:center;gap:.3rem;min-height:44px;min-width:44px;padding:0 .5rem 0 0;font-weight:700;color:var(--heading);text-decoration:none}
-.set-back a>span{font-size:1.6em;line-height:1}
-.set-idx{display:grid;gap:var(--sp-4,16px);margin-bottom:var(--sp-6,24px)}
-.set-idx #setIdxAdm:empty{display:none}
-.set-grp{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius,16px);box-shadow:0 3px 0 0 var(--line);overflow:hidden}
-.set-go{display:flex;align-items:center;gap:.75rem;min-height:56px;padding:.5rem 1rem;color:var(--text);text-decoration:none;border-top:1px solid var(--line);transition:background .15s}
-.set-go:first-child{border-top:0}
-.set-go:hover{background:var(--surface-2)}.set-go:active{background:var(--surface-3)}
-.set-go:focus-visible{outline:3px solid var(--primary);outline-offset:-3px}
-.set-ic{flex:none;display:grid;place-items:center;width:36px;height:36px;border-radius:12px;background:var(--surface-2);color:var(--heading)}
-.set-ic .i{width:20px;height:20px}
-.set-go-l{flex:1 1 auto;min-width:0;font-weight:600;overflow-wrap:anywhere}
-.set-go-v{flex:0 1 auto;max-width:45%;color:var(--muted);font-size:.9rem;text-align:end;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.set-chev{flex:none;color:var(--muted);font-size:1.4rem;line-height:1}
-[dir=rtl] .set-chev{transform:scaleX(-1)}[dir=rtl] .set-back a>span{transform:scaleX(-1)}
+  try { if (!document.getElementById('setCss')) { const st = document.createElement('style'); st.id = 'setCss'; st.textContent = `.set-wrap.idx{display:none}
+.v2s-settings>.v2{font-family:inherit}.v2s-settings [data-go]{color:inherit;text-decoration:none}[dir=rtl] .v2s-settings [data-grp]>div>div:nth-child(2)>span:nth-child(2),[dir=rtl] .v2s-settings>.v2 header button>span{transform:scaleX(-1)}
+.v2s-settings [data-grp] .w-8{background:var(--surface-2)!important;color:var(--heading)!important}
 .set-wrap.idx>.set-sec{display:none}
 .set-wrap.one>.set-sec:not([data-on]){display:none}
 .set-wrap.one>.set-sec>.set-h{display:none}
@@ -28,6 +14,7 @@
 @media (prefers-reduced-motion:reduce){.set-go{transition:none}}`; document.head.appendChild(st); } } catch (e) { /* bỏ qua */ }
   const { $, $$, esc, toast, download, speak } = UI;
   const App = window.App;
+  let ADM = false; // quản trị viên (máy chủ xác nhận) → mục lục có thêm hàng Quản trị hệ thống
   const { state, view, routes, load, updateChrome, saveSettings } = App;
   const { applyTheme, importData, ankiAll, extCta } = App.settingsDeps;
   const R = window.Remind; // ⏰ js/remind.js (gói 'remind' nạp cùng trang Cài đặt – docs/REMINDERS.md)
@@ -86,23 +73,22 @@
     const u = state.user, LN = I18N.LANGS && I18N.LANGS[I18N.lang()] ? I18N.LANGS[I18N.lang()][1] : I18N.lang();
     const TH = { auto: t('Tự động'), light: t('Sáng'), dark: t('Tối') };
     const SUBT = { account: t('Tài khoản'), admin: t('Quản trị hệ thống'), look: t('Giao diện'), study: t('Mục tiêu học'), sound: t('Âm thanh & phát âm'), remind: t('Nhắc học hằng ngày'), ai: 'AI', ext: t('Add-on từ điển cho Chrome'), data: t('Dữ liệu'), help: t('Pháp lý & hỗ trợ') };
-    const go = (id, ic, label, val = '') => `<a class="set-go" href="#/settings/${id}" data-go="${id}"><span class="set-ic" aria-hidden="true">${ic}</span><span class="set-go-l">${label}</span>${val ? `<span class="set-go-v" title="${esc(val)}">${esc(val)}</span>` : ''}<span class="set-chev" aria-hidden="true">›</span></a>`;
-    const grp = rows => `<div class="set-grp">${rows.join('')}</div>`;
-    const idx = `<div class="set-idx" id="setIdx">
-      ${grp([go('account', UI.icon('cloud'), t('Tài khoản'), u ? (u.displayName || u.email || '') : t('Đăng nhập'))])}
-      <div id="setIdxAdm"></div>
-      ${grp([go('look', UI.icon('palette'), t('Giao diện'), LN + ' · ' + (TH[s.theme] || TH.auto)),
-        go('study', UI.icon('target'), t('Mục tiêu học'), t('{n} từ mới/ngày', { n: s.dailyNew })),
-        go('sound', UI.icon('volume-2'), t('Âm thanh'), (s.accent === 'en-US' ? 'US' : 'UK') + ' · ' + (s.ttsRate || 0.92).toFixed(2) + '×'),
-        go('remind', UI.icon('alarm-clock'), t('Nhắc học'), s.reminderOn ? (s.reminderAuto !== false ? t('Tự động') : s.reminderTime) : t('Tắt'))])}
-      ${grp([go('ai', UI.icon('bot'), 'AI'), ...(Store.isExtension ? [] : [go('ext', UI.icon('puzzle'), t('Add-on từ điển cho Chrome'))]), go('data', UI.icon('database'), t('Dữ liệu'))])}
-      ${grp([go('help', UI.icon('info'), t('Pháp lý & hỗ trợ'))])}
-    </div>`;
+    // Mục lục = nhóm hàng của khung Stitch v2 (brand/stitch/v2/settings-*.html, bind/settings.json): icon · nhãn · giá trị · chevron, hàng là liên kết tới trang con
+    const go = (id, ic, label, val = '') => ({ k: id, icon: ic, label, value: val, href: '#/settings/' + id, chev: 'chevron_right' });
+    const grp = (k, rows) => ({ k, rows: rows.flatMap((r, i) => (i ? [{ v: 'hr' }, r] : [r])).map((r, i) => (r.v ? r : Object.assign(r, { v: ['n1', 'n2', 'n3'][(i / 2) % 3] }))) });
+    const groups = [
+      grp('account', [go('account', 'cloud', t('Tài khoản'), u ? (u.displayName || u.email || '') : t('Đăng nhập'))]),
+      ...(ADM ? [grp('admin', [go('admin', 'admin_panel_settings', t('Quản trị hệ thống'), t('Chỉ quản trị viên'))])] : []),
+      grp('prefs', [go('look', 'palette', t('Giao diện'), LN + ' · ' + (TH[s.theme] || TH.auto)),
+        go('study', 'track_changes', t('Mục tiêu học'), t('{n} từ mới/ngày', { n: s.dailyNew })),
+        go('sound', 'volume_up', t('Âm thanh'), (s.accent === 'en-US' ? 'US' : 'UK') + ' · ' + (s.ttsRate || 0.92).toFixed(2) + '×'),
+        go('remind', 'alarm', t('Nhắc học'), s.reminderOn ? (s.reminderAuto !== false ? t('Tự động') : s.reminderTime) : t('Tắt'))]),
+      grp('more', [go('ai', 'smart_toy', 'AI'), ...(Store.isExtension ? [] : [go('ext', 'extension', t('Add-on từ điển cho Chrome'))]), go('data', 'database', t('Dữ liệu'))]),
+      grp('help', [go('help', 'info', t('Pháp lý & hỗ trợ'))]),
+    ];
     const back = open ? ['#/settings', t('Cài đặt')] : ['#/me', t('Tôi')];
-    view.innerHTML = `
+    const sections = `
       <div class="set-wrap ${open ? 'one' : 'idx'}" data-open="${open}">
-      <div class="page-head set-head"><nav class="crumb set-back" aria-label="${t('Đường dẫn')}"><a href="${back[0]}" data-back=""><span aria-hidden="true">‹</span> ${back[1]}</a></nav><div><h1>${open ? SUBT[open] : t('Cài đặt')}</h1></div></div>
-      ${open ? '' : idx}
       <section class="set-sec" id="set-account"><div class="card stack" id="syncBox"></div><div id="leagueSetBox" style="margin-top:.75rem"></div></section>
       <section class="set-sec" id="set-admin" hidden><h3 class="set-h">${UI.icon('shield')}${t('Quản trị hệ thống')}<span class="chip ok" style="margin-left:.5rem;font-size:.7rem">${t('Chỉ quản trị viên')}</span></h3><div class="adm-tiles">${adminTiles()}</div></section>
       ${sec('look', UI.icon('palette') + t('Giao diện'),
@@ -157,12 +143,16 @@
       )}
       ${sec('help', UI.icon('info') + t('Pháp lý & hỗ trợ'), row(t('Pháp lý & hỗ trợ'), `<span class="set-btns"><a class="btn sm" href="${App.legalUrl('privacy')}">${t('Chính sách quyền riêng tư')}</a><a class="btn sm" href="${App.legalUrl('terms')}">${t('Điều khoản sử dụng')}</a><a class="btn sm" href="#/contact">${t('Liên hệ')}</a><a class="btn sm" id="sBlog" href="${App.blogHref(0)}"${xt}>${UI.icon('newspaper')} ${t('Blog')}</a><a class="btn sm" href="${App.aboutUrl()}"${xt}>${t('Trang giới thiệu')}</a></span>`))}
       </div>`;
+    // 🎨 Khung Stitch v2 (web/js/st/v2/settings.js, tự sinh): Back + tiêu đề + nhóm hàng mục lục; trang con = groups rỗng + các nhóm điều khiển cũ chèn cuối khung
+    const root = ST2.mount(view, 'settings', { title: open ? SUBT[open] : t('Cài đặt'), backL: t('Quay lại') + ' · ' + back[1], backHref: back[0], groups: open ? [] : groups }, null);
+    document.body.classList.remove('st', 'v2on'); // khung "inner": giữ thanh trên + 5 tab + lề #view chung của app (cùng cách Hub Ngữ pháp)
+    root.querySelector(':scope > main > div').insertAdjacentHTML('beforeend', sections);
     if (open) { const os = $('#set-' + open); if (os) { os.setAttribute('data-on', ''); } }
     extCta();
     const ap = $('#sAdPriv'); if (ap) ap.onclick = () => (window.AdsRun && AdsRun.privacy ? AdsRun.privacy() : Promise.resolve(false)).then(ok => { if (!ok) toast(t('Phần quảng cáo chưa tải xong – thử lại sau vài giây.')); });
     App.blogLive().then(on => { const a = $('#sBlog'); if (a) a.href = App.blogHref(on); });
     // Mục quản trị: chỉ hiện sau khi máy chủ xác nhận quyền (thêm nút nhảy nhanh vào thanh mục lục)
-    App.isAdmin().then(ok => { const sec = $('#set-admin'); if (!ok || !sec) return; sec.hidden = false; const ia = $('#setIdxAdm'); if (ia && !ia.firstChild) ia.innerHTML = grp([go('admin', UI.icon('shield'), t('Quản trị hệ thống'), t('Chỉ quản trị viên'))]); });
+    App.isAdmin().then(ok => { const sec = $('#set-admin'); if (!ok || !sec) return; sec.hidden = false; if (!ADM && !open) { ADM = true; routes.settings(); } else ADM = true; });
 
     const save = async o => { await saveSettings(o); Core.sfxOff = !s.sfx; updateChrome(); if (window.Sync) Sync.schedule(); };
     $('#sRemAuto').onchange = e => { s.reminderAuto = e.target.checked; if (s.reminderAuto && R) { const st = R.hm(R.pickTime(state.stats, s)); s.reminderTime = st; $('#sTime').value = st; } save(); };
@@ -235,7 +225,7 @@
     $('#sAnkiIn').onclick = () => App.anki('import');
     $('#sImport').onchange = importData;
     $('#sReset').onclick = async () => {
-      if (!confirm(t('Xóa toàn bộ flashcard, tiến độ, XP và thống kê trên thiết bị này? Không thể hoàn tác.'))) return;
+      if (!await LXDialog.confirm(t('Xóa toàn bộ flashcard, tiến độ, XP và thống kê trên thiết bị này? Không thể hoàn tác.'))) return;
       await Store.set('cards', {}); await Store.set('stats', { days: {}, newToday: { day: '', n: 0 } }); await Store.set('game', null);
       if (window.Sync && Sync.afterLocalReset) await Sync.afterLocalReset().catch(() => {});
       await load(); toast(t('Đã xóa dữ liệu')); routes.settings();
@@ -253,7 +243,7 @@
       </div></div>`;
       const btn = $('#btnLeaveLeague');
       if (btn) btn.onclick = async () => {
-        if (!confirm(t('Rời bảng xếp hạng tuần này? Điểm XP tuần này sẽ bị xóa khỏi giải đấu.'))) return;
+        if (!await LXDialog.confirm(t('Rời bảng xếp hạng tuần này? Điểm XP tuần này sẽ bị xóa khỏi giải đấu.'))) return;
         try {
           await Sync.league('leave');
           toast(t('Đã rời bảng xếp hạng tuần'));

@@ -224,7 +224,7 @@
       $('#rpBulk').innerHTML = `<div class="u-bulk rp-bulk"><div class="u-bulk-n"><b>${T('{n} đã chọn', { n: ids.length })}</b><button type="button" class="linkbtn" id="rpAll">${T('Chọn tất cả')}</button></div><div class="u-bulk-acts"><button type="button" class="btn sm" data-b="fix">${T('Đã sửa')}</button><button type="button" class="btn sm" data-b="thanks">${T('Cảm ơn')}</button><button type="button" class="btn sm" data-b="prog">${T('Đang xử lý')}</button><button type="button" class="btn sm" data-b="wontfix">${T('Không sửa')}</button>${ids.length > 1 ? `<span class="rp-mg"><select id="rpInto" aria-label="${T('Gộp {n} mục đã chọn vào…', { n: ids.length })}">${ids.map(i => `<option>${esc(i)}</option>`).join('')}</select><button type="button" class="btn sm" id="rpMg">${T('Gộp')}</button></span>` : ''}</div><button type="button" class="btn sm" id="rpClr">${T('Bỏ chọn')}</button></div>`;
       $('#rpClr').onclick = () => { sel.clear(); paint(); }; $('#rpAll').onclick = () => { rows.forEach(r => sel.add(r.tid)); paint(); };
       $('#rpBulk').querySelectorAll('[data-b]').forEach(b => b.onclick = () => doAct(b.dataset.b, [...sel]));
-      const mg = $('#rpMg'); if (mg) mg.onclick = async () => { const into = $('#rpInto').value, from = ids.filter(i => i !== into); if (!confirm(T('Gộp {a} vào {b}? Người báo (nếu đồng ý nhận thư) sẽ được báo là trùng lặp.', { a: from.join(', '), b: into }))) return; try { await api('merge', { ids: from, into }); sel.clear(); load(); } catch (e) { alert(T('Lỗi: {e}', { e: e.message })); } };
+      const mg = $('#rpMg'); if (mg) mg.onclick = async () => { const into = $('#rpInto').value, from = ids.filter(i => i !== into); if (!await LXDialog.confirm(T('Gộp {a} vào {b}? Người báo (nếu đồng ý nhận thư) sẽ được báo là trùng lặp.', { a: from.join(', '), b: into }))) return; try { await api('merge', { ids: from, into }); sel.clear(); load(); } catch (e) { LXDialog.alert(T('Lỗi: {e}', { e: e.message })); } };
     };
     const paint = () => {
       const anyF = filterN() || F.q;
@@ -262,11 +262,11 @@
     let tq; $('#rpQ').oninput = () => { clearTimeout(tq); tq = setTimeout(() => { F.q = $('#rpQ').value.trim(); load(); }, 300); };
     $('#rpCty').onchange = e => { F.country = e.target.value; load(); }; $('#rpArea').onchange = e => { F.area = e.target.value; load(); }; $('#rpCat').onchange = e => { F.cat = e.target.value; load(); }; $('#rpPlat').onchange = e => { F.plat = e.target.value; load(); };
     $('#rpSort').onchange = e => { F.sort = e.target.value; load(); }; $('#rpSb').onchange = e => { F.sandbox = e.target.checked ? 1 : 0; load(); }; $('#rpRe').onclick = () => { closePops(); load(); };
-    $('#rpCsv').onclick = async () => { try { const j = await api('export', { ...F, status: F.spam ? '' : F.status }); const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob(['﻿' + j.csv], { type: 'text/csv;charset=utf-8' })); a.download = `lexkite-reports-${new Date().toISOString().slice(0, 10)}.csv`; document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 5000); } catch (e) { alert(T('Lỗi: {e}', { e: e.message })); } };
+    $('#rpCsv').onclick = async () => { try { const j = await api('export', { ...F, status: F.spam ? '' : F.status }); const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob(['﻿' + j.csv], { type: 'text/csv;charset=utf-8' })); a.download = `lexkite-reports-${new Date().toISOString().slice(0, 10)}.csv`; document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 5000); } catch (e) { LXDialog.alert(T('Lỗi: {e}', { e: e.message })); } };
     api('cfg').then(c => { if (!root.isConnected) return; $('#rpMode').value = c.notify; if (c.eta) { $('#rpE1').value = c.eta.serious; $('#rpE2').value = c.eta.normal; $('#rpE3').value = c.eta.content; } }).catch(() => {});
-    $('#rpEs').onclick = async () => { try { await api('cfg', { eta: { serious: +$('#rpE1').value, normal: +$('#rpE2').value, content: +$('#rpE3').value } }); $('#rpEs').textContent = T('✓ Đã lưu'); } catch (e) { alert(T('Lỗi: {e}', { e: e.message })); } };
+    $('#rpEs').onclick = async () => { try { await api('cfg', { eta: { serious: +$('#rpE1').value, normal: +$('#rpE2').value, content: +$('#rpE3').value } }); $('#rpEs').textContent = T('✓ Đã lưu'); } catch (e) { LXDialog.alert(T('Lỗi: {e}', { e: e.message })); } };
     $('#rpSev').onchange = e => { F.sev = e.target.value; load(); };
-    $('#rpMode').onchange = async e => { try { await api('cfg', { notify: e.target.value }); } catch (x) { alert(T('Lỗi: {e}', { e: x.message })); } };
+    $('#rpMode').onchange = async e => { try { await api('cfg', { notify: e.target.value }); } catch (x) { LXDialog.alert(T('Lỗi: {e}', { e: x.message })); } };
 
     // ---------- Phím tắt ----------
     function help() {
@@ -354,7 +354,7 @@
       q('#rpX').onclick = () => { closeDr(); if (inline) drGen++; };
       q('#rpRt').onclick = () => run('retriage', {});
       const cc = q('#rpCc'); if (cc) cc.onclick = () => run('claude', {});
-      box.querySelectorAll('[data-idea]').forEach(b => b.onclick = () => { if (b.dataset.idea === 'approve' && !confirm(T('Duyệt đề xuất này? Sẽ tạo Issue "feature-approved" (xếp sau mọi lỗi đang mở).'))) return; run('idea', { decision: b.dataset.idea, reply: q('#rpReply').value.trim() || undefined }); });
+      box.querySelectorAll('[data-idea]').forEach(b => b.onclick = async () => { if (b.dataset.idea === 'approve' && !await LXDialog.confirm(T('Duyệt đề xuất này? Sẽ tạo Issue "feature-approved" (xếp sau mọi lỗi đang mở).'))) return; run('idea', { decision: b.dataset.idea, reply: q('#rpReply').value.trim() || undefined }); });
       box.querySelectorAll('[data-set]').forEach(b => b.onclick = () => { if (b.dataset.set === 'dup') return run('set', { status: 'dup' }); enqueue([r.tid], { status: b.dataset.set }); });
       // Mẫu: điền chữ đúng ngôn ngữ người báo vào ô (sửa được trước khi gửi); người soạn đọc được bản tiếng Việt ngay dưới. Gửi kèm trạng thái đi cùng mẫu.
       let picked = '', pickedText = '';
@@ -381,7 +381,7 @@
       q('#rpNoteB').onclick = () => run('set', { note: q('#rpNote').value.trim() }, false);
       q('#rpAsg').onchange = e => run('set', { asg: e.target.value }, false);
       q('#rpSpam').onclick = () => run('spam', { spam: !r.spam });
-      q('#rpMg2').onclick = async () => { const into = q('#rpInto2').value.trim().toUpperCase(); if (!/^LX-\d+$/.test(into)) return; if (!confirm(T('Gộp {a} vào {b}? Người báo (nếu đồng ý nhận thư) sẽ được báo là trùng lặp.', { a: r.tid, b: into }))) return; try { await api('merge', { ids: [r.tid], into }); load(); drawer(r.tid); } catch (e) { msg(T('Lỗi: {e}', { e: e.message }), false); } };
+      q('#rpMg2').onclick = async () => { const into = q('#rpInto2').value.trim().toUpperCase(); if (!/^LX-\d+$/.test(into)) return; if (!await LXDialog.confirm(T('Gộp {a} vào {b}? Người báo (nếu đồng ý nhận thư) sẽ được báo là trùng lặp.', { a: r.tid, b: into }))) return; try { await api('merge', { ids: [r.tid], into }); load(); drawer(r.tid); } catch (e) { msg(T('Lỗi: {e}', { e: e.message }), false); } };
       const sb = q('#rpShot'); if (sb) sb.onclick = async () => { sb.disabled = true; try { const j = await api('shot', { id: r.tid }), src = /^\/api\/report-shot\?id=\d+&e=\d+&s=[0-9a-f]{32}$/.test(j.url || '') ? j.url : /^data:image\/(jpeg|webp|png);base64,/.test(j.data || '') ? j.data : ''; if (src) { const img = new Image(); img.alt = T('Ảnh chụp màn hình'); img.referrerPolicy = 'no-referrer'; img.src = src; sb.replaceWith(img); } /* R2: URL ký 5 phút · D1 cũ: data URL */ } catch (e) { msg(T('Lỗi: {e}', { e: e.message }), false); sb.disabled = false; } };
       if (opt.reply) ta.focus();
       else if (opt.focus && !inline) (box.querySelector('#rpX') || box).focus();

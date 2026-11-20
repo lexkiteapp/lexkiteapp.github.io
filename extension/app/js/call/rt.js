@@ -18,7 +18,7 @@
   function session() {
     let stream = null, ac = null, src = null, an = null, iv = 0, sil = null, startP = null, dead = false, last = {};
     const subs = new Set(), en = g.CallEP.energy();
-    const emit = (p, from) => { if (from !== marks.src) return; const t = performance.now(); for (const s of [...subs]) s(p, t); };
+    const emit = (p, from) => { if (from !== marks.src) return; const t = performance.now(); if (g.__callRtTrace) { (marks.fr || (marks.fr = [])).push([t, p]); if (marks.fr.length > 400) marks.fr.shift(); } for (const s of [...subs]) s(p, t); }; // __callRtTrace: chỉ bật khi đo trên CI (scripts/test/call-rt-e2e.mjs) → vết xác suất từng khung để tìm độ trễ nói chen; tắt = không tốn gì
     async function start() {
       if (startP) return startP;
       startP = (async () => {

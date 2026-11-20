@@ -1,0 +1,131 @@
+{
+ "id": "t2a_band_jobs_1",
+ "template": "band",
+ "series": "Band 5 to 9",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "speaking",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Band five to nine!",
+   "pause": 0.3
+  },
+  {
+   "id": "s5",
+   "text": "A good job is important.",
+   "pause": 0.3
+  },
+  {
+   "id": "s7",
+   "text": "A rewarding job gives people a sense of purpose.",
+   "pause": 0.3
+  },
+  {
+   "id": "w7",
+   "text": "A more exact word.",
+   "pause": 0.3
+  },
+  {
+   "id": "s9",
+   "text": "A rewarding job matters less for its salary than for the purpose it provides.",
+   "pause": 0.3
+  },
+  {
+   "id": "w9",
+   "text": "A longer, richer structure.",
+   "pause": 0.3
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "topic": "jobs",
+  "skill": "speaking",
+  "steps": [
+   {
+    "band": 5,
+    "text": "A good job is important."
+   },
+   {
+    "band": 7,
+    "text": "A rewarding job gives people a sense of purpose.",
+    "mark": "A rewarding job",
+    "why": "precise",
+    "crit": "Lexical Resource"
+   },
+   {
+    "band": 9,
+    "text": "A rewarding job matters less for its salary than for the purpose it provides.",
+    "mark": "less for its salary than for the purpose it provides",
+    "why": "complex",
+    "crit": "Grammatical Range"
+   }
+  ]
+ },
+ "cta": {
+  "area": "speaking",
+  "route": "#/speaking",
+  "link": "https://lexkite.com/app/#/speaking",
+  "say": "Practise IELTS speaking"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Band five to nine"
+ },
+ "src": {
+  "band": "jobs"
+ },
+ "est": {
+  "words": 46,
+  "seconds": 24.8,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "IELTS band 5 to 9: Jobs",
+  "keyword": "ielts band 9",
+  "value": "Jobs, three ways. Band 5: A good job is important. Band 7: A rewarding job gives people a sense of purpose. Band 9: A rewarding job matters less for its salary than for the purpose it provides.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#ielts",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/speaking",
+  "script_words": 45,
+  "platforms": {
+   "youtube": {
+    "title": "IELTS band 5 to 9: Jobs",
+    "description": "Jobs, three ways. Band 5: A good job is important. Band 7: A rewarding job gives people a sense of purpose. Band 9: A rewarding job matters less for its salary than for the purpose it provides.\n\nPractise IELTS speaking, free: https://lexkite.com/app/#/speaking\n\nSeries: Band 5 to 9 · Teacher: Ama\n\n#learnenglish #englishtips #ielts #englishteacher",
+    "tags": [
+     "ielts band 9",
+     "Band 5 to 9",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "IELTS band 5 to 9: Jobs\n\nJobs, three ways. Band 5: A good job is important. Band 7: A rewarding job gives people a sense of purpose. Band 9: A rewarding job matters less for its salary than for the purpose it provides.\n\nPractise IELTS speaking, free: https://lexkite.com/app/#/speaking"
+   },
+   "instagram": {
+    "caption": "IELTS band 5 to 9: Jobs\n\nJobs, three ways. Band 5: A good job is important. Band 7: A rewarding job gives people a sense of purpose. Band 9: A rewarding job matters less for its salary than for the purpose it provides.\n\nPractise IELTS speaking: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#ielts",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "IELTS band 5 to 9: Jobs #learnenglish #englishtips #ielts"
+   }
+  },
+  "first_comment": "Did you get it? Jobs, three ways. Band 5: A good job is important. Band 7: A rewarding job gives people a sense of purpose. Band 9: A rewarding job matters less for its salary than for the purpose it provides. More practice like this (free): {link}"
+ }
+}

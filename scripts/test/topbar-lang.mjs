@@ -95,4 +95,5 @@ rows.sort((a, b) => a.w - b.w || a.lang.localeCompare(b.lang) || a.r.localeCompa
 const md = [`### ${LABEL}: ${fails.length ? fails.length + ' lỗi' : 'đạt'} (${rows.length} lượt đo)`, '', '| px | ngôn ngữ | giao diện | trang | số nút | mép viên (x; đầu trang điện thoại: cách mép) | mép nội dung | hở trái/phải cột | tiêu đề cách thanh | cao | rộng các viên | tràn |', '|---|---|---|---|---|---|---|---|---|---|---|---|', ...rows.map(x => `| ${x.w} | ${x.lang} | ${x.th} | ${x.r}${x.fresh ? ' (mới)' : ''} | ${x.n} ${x.ids} | ${f(x.side)} | ${f(x.gutter)} | ${x.gaps} | ${f(x.head)} | ${x.hs} | ${x.ws} | ${x.over} |`), '', ...fails.map(x => '- ✗ ' + x)].join('\n');
 fs.writeFileSync(`${OUT}/${LABEL}.md`, md + '\n'); fs.writeFileSync(`${OUT}/${LABEL}.json`, JSON.stringify({ rows, fails }, null, 1));
 console.log(md.split('\n').filter(l => !l.startsWith('|')).join('\n'));
+if (!REPORT) for (const x of fails.slice(0, 12)) console.log(`::error title=topbar-lang::${x.replace(/[\r\n%]/g, ' ').slice(0, 400)}`); // đọc được qua API annotations
 if (fails.length && !REPORT) process.exit(1);
