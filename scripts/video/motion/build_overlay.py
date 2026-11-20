@@ -347,7 +347,7 @@ def _col(c, y0):   # a rules column that is too tall for the room above the capt
             except Tall:
                 del NODES[n0:], CUES[c0:], IPA[i0:]; break
             except AssertionError as e:
-                if COLPAD[0] > 22 and 'word wider than the card' in str(e.args): del NODES[n0:], CUES[c0:], IPA[i0:]; COLPAD[0] = 22; continue
+                if COLPAD[0] > 14 and 'word wider than the card' in str(e.args): del NODES[n0:], CUES[c0:], IPA[i0:]; COLPAD[0] = 22 if COLPAD[0] > 22 else 14; continue
                 raise
     raise AssertionError((c['id'], 'rules column does not fit even without detail'))
 def _col1(c, y0, lvl=0, hh=640):

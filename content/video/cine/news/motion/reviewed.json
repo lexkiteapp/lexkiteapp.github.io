@@ -1391,7 +1391,7 @@
     "s1": "Hello! Welcome to the clinic.",
     "s2": "Hi, I'd like an appointment, please.",
     "s3": "Sure. Tomorrow at nine works. See you then!",
-    "tip": "Tip: say I'd like to, then why you need the doctor.",
+    "tip": "Tip: say I'd like to, then your reason.",
     "sh": "Send this to a friend who's learning English!",
     "c": "Save this, and practice free on lexkite.com."
    }
@@ -1536,7 +1536,7 @@
    "reviewer": "content/video/templates example vars (reviewed) via tpl2motion.py 15/11/2026",
    "script": {
     "h": "No bandwidth.",
-    "s0": "Oh, bandwidth, like the Wi-Fi?",
+    "s0": "How is the Wi-Fi bandwidth?",
     "s1": "bandwidth means time and energy to take on more work.",
     "s2": "Do you have the bandwidth to help on Friday?",
     "tip": "Tip: no bandwidth is a polite way to say I'm too busy.",
