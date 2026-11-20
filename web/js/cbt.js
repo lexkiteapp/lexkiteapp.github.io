@@ -400,11 +400,11 @@ mark.cbt-hl { background: #fde047; color: #111; cursor: pointer; border-radius: 
     onSelChange = () => { clearTimeout(selT); selT = setTimeout(() => { const s = getSelection(); if (s && !s.isCollapsed) showForSel(); }, 350); };
     document.addEventListener('selectionchange', onSelChange);
 
-    $('.cbt-body').addEventListener('click', e => {
+    $('.cbt-body').addEventListener('click', async e => {
       const badge = e.target.closest('.cbt-note-badge');
       if (badge) {
         const curNote = badge.dataset.note || '';
-        const newNote = prompt(t('Ghi chú'), curNote);
+        const newNote = await LXDialog.prompt(t('Ghi chú'), curNote);
         if (newNote === null) return;
         if (!newNote.trim()) badge.remove();
         else {
@@ -427,7 +427,7 @@ mark.cbt-hl { background: #fde047; color: #111; cursor: pointer; border-radius: 
     });
 
     hlBar.addEventListener('pointerdown', e => e.preventDefault()); // giữ vùng bôi đen khi bấm nút (iOS)
-    hlBar.onclick = e => {
+    hlBar.onclick = async e => {
       const dot = e.target.closest('.cbt-hl-dot');
       const act = e.target.closest('[data-act]');
       const color = dot ? dot.dataset.c : null;
@@ -453,9 +453,9 @@ mark.cbt-hl { background: #fde047; color: #111; cursor: pointer; border-radius: 
         } catch (err) { toast(t('Hãy bôi đen trong một đoạn văn')); }
         sel.removeAllRanges(); hlBar.hidden = true;
       } else if (action === 'note') {
-        const sel = getSelection();
+        const sel = getSelection(), selRange = !activeMark && sel.rangeCount ? sel.getRangeAt(0).cloneRange() : null; // hộp nhập lấy mất vùng chọn → giữ bản sao trước khi hỏi
         const curText = activeMark ? (activeMark.nextElementSibling?.classList.contains('cbt-note-badge') ? activeMark.nextElementSibling.dataset.note : '') : '';
-        const note = prompt(t('Nhập ghi chú của bạn:'), curText);
+        const note = await LXDialog.prompt(t('Nhập ghi chú của bạn:'), curText);
         if (note && note.trim()) {
           const clean = note.trim();
           if (activeMark) {
@@ -467,8 +467,8 @@ mark.cbt-hl { background: #fde047; color: #111; cursor: pointer; border-radius: 
               span.className = 'cbt-note-badge'; span.textContent = '📝'; span.dataset.note = clean; span.title = t('Ghi chú: {n}', { n: clean });
               activeMark.after(span);
             }
-          } else if (sel.rangeCount) {
-            const range = sel.getRangeAt(0);
+          } else if (selRange) {
+            const range = selRange;
             try {
               const m = document.createElement('mark');
               m.className = 'cbt-hl cbt-hl-y'; m.dataset.c = 'y'; m.title = t('Bỏ tô sáng');
@@ -508,7 +508,7 @@ mark.cbt-hl { background: #fde047; color: #111; cursor: pointer; border-radius: 
     $('#submit').onclick = () => submit(false);
     async function submit(timeUp) {
       const missing = qs.length - Object.keys(ans).length;
-      if (!timeUp && !confirm(missing ? t('Còn {n} câu chưa trả lời. Vẫn nộp bài?', { n: missing }) : t('Nộp bài và xem kết quả?'))) return;
+      if (!timeUp && !await LXDialog.confirm(missing ? t('Còn {n} câu chưa trả lời. Vẫn nộp bài?', { n: missing }) : t('Nộp bài và xem kết quả?'))) return;
       clearInterval(tick); window.onbeforeunload = null; if (xc) xc.done(); try { localStorage.removeItem(RUN); } catch (e) { /* bỏ qua */ }
       let score = 0;
       const rows = qs.map((q, i) => {

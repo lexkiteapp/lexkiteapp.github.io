@@ -137,14 +137,14 @@ const syncJs = () => window.AdminSync ? Promise.resolve() : new Promise(y => { c
       box.querySelectorAll('[data-id]').forEach(c => c.onchange = () => { c.checked ? sel.add(c.dataset.id) : sel.delete(c.dataset.id); paintSel(); });
       if ($('#kkAll')) $('#kkAll').onchange = e => { box.querySelectorAll('[data-id]').forEach(c => { c.checked = e.target.checked; c.checked ? sel.add(c.dataset.id) : sel.delete(c.dataset.id); }); paintSel(); };
       box.querySelectorAll('[data-one]').forEach(b => b.onclick = () => busy(b, async () => { await kapi('test', { ids: [b.dataset.one] }); note = S('✓ Đã kiểm {n} khóa', { n: 1 }); }));
-      box.querySelectorAll('[data-edit]').forEach(b => b.onclick = () => { const r = D.rows.find(x => x.id === b.dataset.edit); if (!r) return; const label = prompt(S('Nhãn mới:'), r.label); if (label == null) return; const notes = prompt(S('Ghi chú:'), r.notes || ''); if (notes == null) return; busy(b, async () => { await kapi('set', { ids: [r.id], label, notes }); note = S('✓ Đã cập nhật'); }); });
-      box.querySelectorAll('[data-b]').forEach(b => b.onclick = () => {
+      box.querySelectorAll('[data-edit]').forEach(b => b.onclick = async () => { const r = D.rows.find(x => x.id === b.dataset.edit); if (!r) return; const label = await LXDialog.prompt(S('Nhãn mới:'), r.label); if (label == null) return; const notes = await LXDialog.prompt(S('Ghi chú:'), r.notes || ''); if (notes == null) return; busy(b, async () => { await kapi('set', { ids: [r.id], label, notes }); note = S('✓ Đã cập nhật'); }); });
+      box.querySelectorAll('[data-b]').forEach(b => b.onclick = async () => {
         const ids = [...sel]; if (!ids.length) return;
         const k = b.dataset.b;
         if (k === 'test') return busy(b, async () => { const r = await kapi('test', { ids }); note = S('✓ Đã kiểm {n} khóa', { n: r.results.length }); });
         if (k === 'on' || k === 'off') return busy(b, async () => { await kapi('set', { ids, enabled: k === 'on' }); note = S('✓ Đã cập nhật'); });
-        if (k === 'weight') { const w = prompt(S('Trọng số mới (0–1000, 0 = không dùng):'), '100'); if (w == null || !/^\d{1,4}$/.test(w.trim()) || +w > 1000) return; return busy(b, async () => { await kapi('set', { ids, weight: +w }); note = S('✓ Đã cập nhật'); }); }
-        if (k === 'del') { if (prompt(S('Xóa vĩnh viễn {n} khóa? Khóa trong biến env không xóa được (chỉ tắt).\nGõ DELETE để xác nhận:', { n: ids.length })) !== 'DELETE') { note = S('Chưa xóa gì.'); return draw(); } return busy(b, async () => { const r = await kapi('delete', { ids, confirm: 'DELETE' }); sel = new Set(); note = S('✓ Đã xóa {n}', { n: r.deleted.length }) + (r.skipped.length ? ' · ' + S('bỏ qua {n}', { n: r.skipped.length }) : ''); }); }
+        if (k === 'weight') { const w = await LXDialog.prompt(S('Trọng số mới (0–1000, 0 = không dùng):'), '100'); if (w == null || !/^\d{1,4}$/.test(w.trim()) || +w > 1000) return; return busy(b, async () => { await kapi('set', { ids, weight: +w }); note = S('✓ Đã cập nhật'); }); }
+        if (k === 'del') { if (await LXDialog.prompt(S('Xóa vĩnh viễn {n} khóa? Khóa trong biến env không xóa được (chỉ tắt).\nGõ DELETE để xác nhận:', { n: ids.length })) !== 'DELETE') { note = S('Chưa xóa gì.'); return draw(); } return busy(b, async () => { const r = await kapi('delete', { ids, confirm: 'DELETE' }); sel = new Set(); note = S('✓ Đã xóa {n}', { n: r.deleted.length }) + (r.skipped.length ? ' · ' + S('bỏ qua {n}', { n: r.skipped.length }) : ''); }); }
       });
       // Thêm khóa: che ô, xem trước số lượng theo nhà cung cấp (không hiện giá trị), lưu xong xóa ô ngay
       const form = $('#kkAdd');

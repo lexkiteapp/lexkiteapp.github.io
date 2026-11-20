@@ -58,9 +58,25 @@ jobs:
         run: |
           git fetch -q --tags
           node scripts/ops/smoke.mjs --wait --sha "$(git rev-parse "$SHA")"
+  # luật 18 (16/11, chủ OK): PR chỉ chờ làn nhanh; việc NẶNG (E2E, Mobile/Visual QA, golden, scroll-perf, native…) chạy sau gộp trên push main.
+  # Job này chờ các lượt nặng của commit: xanh → mark/OTA; đỏ → tự mở PR revert đúng commit đó (scripts/ci/heavy-main.mjs); bị huỷ do commit mới hơn → bỏ qua lượt này.
+  heavy-main:
+    needs: tag
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    permissions: { contents: write, actions: read, pull-requests: write }
+    outputs: { state: '${{ steps.h.outputs.state }}' }
+    steps:
+      - uses: actions/checkout@v4
+        with: { ssh-key: '${{ secrets.BOT_DEPLOY_KEY }}', fetch-depth: 0 }   # đẩy nhánh revert qua khoá deploy → CI của PR revert chạy (token workflow thì không kích CI)
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - id: h
+        env: { GITHUB_TOKEN: '${{ github.token }}', GITHUB_REPOSITORY: '${{ github.repository }}' }
+        run: node scripts/ci/heavy-main.mjs --sha "$SHA"
   mark:
-    needs: [gate, smoke]
-    if: ${{ success() && needs.smoke.outputs.verified != 'false' }}
+    needs: [gate, smoke, heavy-main]
+    if: ${{ success() && needs.smoke.outputs.verified != 'false' && contains('green none', needs.heavy-main.outputs.state) }}
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
@@ -102,8 +118,8 @@ jobs:
         env: { GITHUB_TOKEN: '${{ github.token }}' }
   # Bản web OTA cho app Android/iOS (docs/OTA.md): CHỈ sau khi gate (npm test) + smoke xanh. Cần secret OTA_SIGNING_KEY (node scripts/ota/keygen.mjs); chưa có → bỏ qua, không đỏ.
   ota:
-    needs: [gate, smoke]
-    if: ${{ success() && needs.smoke.outputs.verified != 'false' }}
+    needs: [gate, smoke, heavy-main]
+    if: ${{ success() && needs.smoke.outputs.verified != 'false' && contains('green none', needs.heavy-main.outputs.state) }}
     runs-on: ubuntu-latest
     timeout-minutes: 30
     env: { OTA_SIGNING_KEY: '${{ secrets.OTA_SIGNING_KEY }}', GH_TOKEN: '${{ github.token }}' }

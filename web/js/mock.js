@@ -142,7 +142,7 @@
       intro('listening', `<p class="muted">${t('Test {n} · 4 phần · 40 câu. Mỗi phần có 30 giây đọc câu hỏi, sau đó nghe <b>một lần</b>. Đáp án được lưu khi chuyển phần.', { n: M.lt })}</p>`, () => part(0));
       function part(k) {
         const p = parts[k];
-        view.innerHTML = `${bar('Listening', `<span class="mk-clock" id="mkClock" role="timer" aria-live="off">00:30</span>`)}
+        view.innerHTML = `${bar(t('Nghe hiểu'), `<span class="mk-clock" id="mkClock" role="timer" aria-live="off">00:30</span>`)}
           <div class="card lplayer"><b id="mkState">⏳ ${t('Đọc câu hỏi Part {n}', { n: p.part })}</b><button class="btn sm ghost" id="mkSkip">${t('Nghe ngay')}</button><span class="lnow small muted" id="lNow"></span></div>
           <div class="card" id="lQs"><div class="tiny muted">Part ${p.part} · ${t('Câu {a}–{b}', { a: App.listening.qNums(p)[0], b: App.listening.qNums(p).slice(-1)[0] })}</div>${QE.questionsHtml(p)}
           <div class="row" style="margin-top:1rem"><button class="btn primary" id="mkNext" aria-describedby="mkNextWhy" disabled>${k < parts.length - 1 ? t('Sang phần tiếp') + ' →' : t('Kết thúc Listening') + ' →'}</button><p class="next-why" id="mkNextWhy">${t('Nghe hết phần này để mở nút tiếp')}</p></div></div>`;
@@ -159,8 +159,8 @@
         };
         countdown(30, '#mkClock', start);
         $('#mkSkip').onclick = start;
-        $('#mkNext').onclick = () => {
-          if (M.player && M.player.playing && !confirm(t('Phần nghe chưa phát xong. Vẫn chuyển tiếp?'))) return;
+        $('#mkNext').onclick = async () => {
+          if (M.player && M.player.playing && !await LXDialog.confirm(t('Phần nghe chưa phát xong. Vẫn chuyển tiếp?'))) return;
           Object.assign(res, Object.fromEntries(Object.entries(QE.collect(p, $('#lQs'))).map(([n, r]) => [n, { ...r, ref: p.id }])));
           if (k < parts.length - 1) { clearAll(); part(k + 1); window.scrollTo({ top: 0 }); }
           else { if (window.QT) QT.record('il', res); const raw = Object.values(res).filter(r => r.ok).length; M.bands.listening = QE.bandOf(raw, 'listening'); M.detail.listening = { raw, res }; next(); }
@@ -174,7 +174,7 @@
       intro('reading', `<p class="muted">${t('3 bài đọc · 40 câu · <b>60 phút</b>. Chuyển qua lại giữa các bài bằng thanh phía dưới. Bôi đen chữ rồi bấm “Tô sáng” để đánh dấu.')}</p>`, start);
       function start() {
         let cur = 0;
-        view.innerHTML = `${bar('Reading', window.ExamClock ? '<span id="mkClock"></span>' : `<span class="mk-clock" id="mkClock" role="timer" aria-live="off">60:00</span>`)}
+        view.innerHTML = `${bar(t('Đọc hiểu'), window.ExamClock ? '<span id="mkClock"></span>' : `<span class="mk-clock" id="mkClock" role="timer" aria-live="off">60:00</span>`)}
           <div class="mk-read">
             <div class="card mk-pass" id="mkPass"></div>
             <div class="card mk-qs" id="mkQs">${tst.passages.map((p, k) => `<div class="mk-qp" data-p="${k}" ${k ? 'hidden' : ''}><div class="tiny muted">Reading Passage ${p.n} · ${t('Câu {a}–{b}', { a: QE.numsOf(p)[0], b: QE.numsOf(p).slice(-1)[0] })}</div>${QE.questionsHtml(p)}</div>`).join('')}</div>
@@ -211,7 +211,7 @@
         const saveAns = () => { try { localStorage.setItem(rKey, JSON.stringify(fields().map(i => (i.type === 'radio' || i.type === 'checkbox' ? (i.checked ? 1 : 0) : i.value)))); } catch (e) { /* bỏ qua */ } };
         $('#mkQs').addEventListener('change', saveAns); $('#mkQs').addEventListener('input', saveAns);
         clockOf('reading', (window.ExamClock ? ExamClock.STD.ielts.reading : 60) * 60, () => { toast(t('Hết giờ Reading – bài đã được tự nộp')); submit(); });
-        $('#mkSubmit').onclick = () => { const empty = $$('#mkQs input.gap').filter(x => !x.value.trim()).length; if (confirm(empty ? t('Còn ô trống. Nộp bài Reading?') : t('Nộp bài Reading?'))) submit(); };
+        $('#mkSubmit').onclick = async () => { const empty = $$('#mkQs input.gap').filter(x => !x.value.trim()).length; if (await LXDialog.confirm(empty ? t('Còn ô trống. Nộp bài Reading?') : t('Nộp bài Reading?'))) submit(); };
       }
     }
 
@@ -222,7 +222,7 @@
       const d = pick(App.task1.SETS), p = pick(window.WRITE_PROMPTS || []);
       intro('writing', `<p class="muted">${t('<b>60 phút</b> cho cả 2 task. Task 1 ≥150 từ (nên dành 20 phút), Task 2 ≥250 từ (40 phút). Task 2 chiếm 2/3 điểm Writing.')}</p>`, start);
       function start() {
-        view.innerHTML = `${bar('Writing', window.ExamClock ? '<span id="mkClock"></span>' : `<span class="mk-clock" id="mkClock" role="timer" aria-live="off">60:00</span>`)}
+        view.innerHTML = `${bar(t('Viết'), window.ExamClock ? '<span id="mkClock"></span>' : `<span class="mk-clock" id="mkClock" role="timer" aria-live="off">60:00</span>`)}
           <div class="tabs" style="display:inline-flex;margin-bottom:.8rem" id="mkTabs"><button class="on" data-t="1">Task 1 · ${t('{n} từ', { n: '<span id="w1">0</span>' })}</button><button data-t="2">Task 2 · ${t('{n} từ', { n: '<span id="w2">0</span>' })}</button></div>
           <div class="mk-write" data-task="1"><div class="card"><b>Writing Task 1${gl ? ' · General' : ''}</b>${gl ? `<p>${esc(gl.situation)}</p><p class="small" style="margin:.2rem 0">Write a letter to ${esc(gl.to || 'the person')}. In your letter:</p><ul style="margin:.2rem 0;padding-left:1.2rem">${gl.bullets.map(x => `<li>${esc(x)}</li>`).join('')}</ul><p class="small muted">Write at least 150 words. You do NOT need to write any addresses. Begin your letter as follows: <b>${esc(gl.open)}</b></p>` : `<p class="small">${esc(d.title)} Summarise the information by selecting and reporting the main features, and make comparisons where relevant.</p><div class="t1chart">${App.task1.draw(d)}</div>`}</div>
             <div class="card"><textarea class="input mk-ta" id="t1" placeholder="${t('Viết ít nhất 150 từ…')}" spellcheck="false"></textarea></div></div>
@@ -247,7 +247,7 @@
           next();
         };
         clockOf('writing', (window.ExamClock ? ExamClock.STD.ielts.writing : 60) * 60, () => { toast(t('Hết giờ Writing – bài đã được tự nộp')); submit(); });
-        $('#mkSubmit').onclick = () => { if (confirm(t('Nộp bài Writing?'))) submit(); };
+        $('#mkSubmit').onclick = async () => { if (await LXDialog.confirm(t('Nộp bài Writing?'))) submit(); };
       }
     }
 
@@ -269,7 +269,7 @@
       function ask(k) {
         if (k >= Q.length) { const sc = scoreSpeaking(answers); M.bands.speaking = sc.band || null; M.detail.speaking = { sc, answers }; return next(); }
         const q = Q[k], max = q.part === 2 ? 120 : q.part === 1 ? 45 : 75;
-        view.innerHTML = `${bar('Speaking', `<span class="mk-clock" id="mkClock" role="timer" aria-live="off"></span>`)}
+        view.innerHTML = `${bar(t('Nói'), `<span class="mk-clock" id="mkClock" role="timer" aria-live="off"></span>`)}
           <div class="study-wrap"><div class="card"><div class="tiny muted">Part ${q.part} · ${t('câu {i}/{n}', { i: k + 1, n: Q.length })}</div>
             <div class="mk-examiner">👩‍🏫 <span>${q.part === 2 ? 'Now I\'d like you to talk about a topic for one to two minutes. You have one minute to prepare.' : esc(q.q)}</span></div>
             ${q.part === 2 ? `<div class="mk-cue"><b>${esc(q.q)}</b><div class="small">You should say:</div><ul class="small">${q.points.map(x => `<li>${esc(x)}</li>`).join('')}</ul></div><textarea class="input" rows="3" placeholder="${t('Ghi chú nhanh trong 1 phút chuẩn bị (không bắt buộc)')}"></textarea>` : ''}

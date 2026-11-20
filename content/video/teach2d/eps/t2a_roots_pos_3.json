@@ -1,0 +1,177 @@
+{
+ "id": "t2a_roots_pos_3",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, two words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "The root is Pos! Positive, propose.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Pos is Latin for put.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Positive: put firmly, so sure or good.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Propose: forward plus put.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means forward plus put?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Propose! Forward plus put.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "POS",
+  "rid": "pos",
+  "say": "put",
+  "src": "ponere",
+  "src_lang": "Latin",
+  "src_mean": "to put, to place",
+  "words": [
+   {
+    "w": "positive",
+    "ipa": "/ˈpɑːzətɪv/",
+    "mean": "put firmly, so sure or good",
+    "seg": "pos|-itive",
+    "parts": [
+     [
+      "pos",
+      "root"
+     ],
+     [
+      "itive",
+      "suf"
+     ]
+    ],
+    "pre": null,
+    "pm": null,
+    "pms": null,
+    "ex": "She always has a positive attitude.",
+    "em": "➕"
+   },
+   {
+    "w": "propose",
+    "ipa": "/prəˈpoʊz/",
+    "mean": "put forward an idea",
+    "seg": "pro-|pos|-e",
+    "parts": [
+     [
+      "pro",
+      "pre"
+     ],
+     [
+      "pos",
+      "root"
+     ],
+     [
+      "e",
+      "suf"
+     ]
+    ],
+    "pre": "pro",
+    "pm": "forward",
+    "pms": "forward",
+    "ex": "I propose that we meet again next week.",
+    "em": "💡"
+   }
+  ],
+  "quiz": {
+   "stem": "forward plus put",
+   "options": [
+    "positive",
+    "propose"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/positive",
+  "link": "https://lexkite.com/app/#/dict/positive",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, two words"
+ },
+ "src": {
+  "root": "pos"
+ },
+ "est": {
+  "words": 46,
+  "seconds": 27.5,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "Pos root: positive and propose",
+  "keyword": "pos root",
+  "value": "Pos comes from Latin \"ponere\" (to put, to place). Words: positive and propose. propose = pro + pos.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/positive",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "Pos root: positive and propose",
+    "description": "Pos comes from Latin \"ponere\" (to put, to place). Words: positive and propose. propose = pro + pos.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/positive\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "pos root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Pos root: positive and propose\n\nPos comes from Latin \"ponere\" (to put, to place). Words: positive and propose. propose = pro + pos.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/positive"
+   },
+   "instagram": {
+    "caption": "Pos root: positive and propose\n\nPos comes from Latin \"ponere\" (to put, to place). Words: positive and propose. propose = pro + pos.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Pos root: positive and propose #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? Propose! Forward plus put. Pos comes from Latin \"ponere\" (to put, to place). Words: positive and propose. propose = pro + pos. More practice like this (free): {link}"
+ }
+}

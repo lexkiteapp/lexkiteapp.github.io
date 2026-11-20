@@ -5,7 +5,7 @@
   g.LK_BUNDLES = {
     demo: ['js/app-demo.js'],
     mvar: ['js/mistake-variant.js'], // Mini-test biến thể từ Sổ lỗi sai (#/mistakes?variant=1 + gợi ý trên Hôm nay)
-    grammar: ['js/i18n/en/arrange.js', 'js/word-arrange.js', 'js/structures.js', ...['tenses', 'verbs', 'sentences', 'foundation', 'cpack/grammar/starter.js', 'cpack/grammar/lazy-a1.js', 'cpack/grammar/academic.js', 'cpack/grammar/lazy-c2.js', 'chapters', 'cpack/grammar/book2.js', 'drills-a', 'drills-b', 'cpack/grammar/drills-c.js', 'cpack/grammar/drills-own.js', 'bank-gen', 'check'].map(f => f.startsWith('cpack/') ? f : G + f + '.js'), 'js/grammar.js'],
+    grammar: ['js/i18n/en/arrange.js', 'js/word-arrange.js', 'js/structures.js', ...['tenses', 'verbs', 'sentences', 'foundation', 'cpack/grammar/starter.js', 'cpack/grammar/lazy-a1.js', 'cpack/grammar/academic.js', 'cpack/grammar/lazy-c2.js', 'chapters', 'cpack/grammar/book2.js', 'drills-a', 'drills-b', 'cpack/grammar/drills-c.js', 'cpack/grammar/drills-own.js', 'bank-gen', 'cpack/grammar/check.js'].map(f => f.startsWith('cpack/') ? f : G + f + '.js'), 'js/grammar.js'],
     // 12 bài A1 / 10 bài C2 (~29 KB nén mỗi gói): chỉ tải khi mở bài của cấp đó; gói 'grammar' mang mục lục gọn lazy-a1/c2.js (scripts/grammar/build-lazy-idx.mjs)
     grammarA1: ['cpack/grammar/starter2.js'],
     grammarC2: ['cpack/grammar/mastery.js'],
@@ -13,7 +13,7 @@
     pron: ['js/i18n/en/pron.js', 'cpack/pron/sounds.js', 'cpack/pron/skills.js', 'js/pron/pairs.js', 'js/pron/sayit.js', 'js/pron/coach.js', 'js/pron/rhythm.js', 'js/st/v2/runtime.js', 'js/st/v2/pron-hub.js', 'js/pron.js'],
     shadow: ['js/speak/score.js', 'js/pron/shadow.js'], // Nói đuổi liên tục (nút trong pron/rhythm.js)
     words: ['js/lib/topics-more.js', 'js/lib/skills.js', 'js/lib/awl.js', 'js/lib/ngsl.js', 'js/lib/ngsl2.js', 'js/lib/office.js', 'js/distract.js'], // 4 kho từ (~145 KB nén) – không chặn trang đầu, tải khi cần/lúc rảnh
-    readings: ['js/reading.js', 'js/readings.js', 'cpack/readings/more.js', 'js/choice-kit.js', 'js/exam-clock.js', 'js/cbt.js', 'js/method.js'], // 30 bài đọc – chỉ tải khi cần (trang chủ tự điền mục "Bài đọc hôm nay")
+    readings: ['js/reading.js', 'js/readings.js', 'cpack/readings/more.js', 'cpack/readings/hl.js', 'js/choice-kit.js', 'js/exam-clock.js', 'js/cbt.js', 'js/method.js'], // 30 bài đọc – chỉ tải khi cần (trang chủ tự điền mục "Bài đọc hôm nay")
     l1: ['cpack/grammar-l1/ar.js', 'cpack/grammar-l1/de.js', 'cpack/grammar-l1/es.js', 'cpack/grammar-l1/fr.js', 'cpack/grammar-l1/hi.js', 'cpack/grammar-l1/id.js', 'cpack/grammar-l1/ja.js', 'cpack/grammar-l1/ko.js', 'cpack/grammar-l1/pt.js', 'cpack/grammar-l1/ru.js', 'cpack/grammar-l1/th.js', 'cpack/grammar-l1/tr.js', 'cpack/grammar-l1/vi.js', 'cpack/grammar-l1/zh.js'], // ghi chú "vì sao sai" theo tiếng mẹ đẻ – grammar.js nạp đúng 1 gói theo ngôn ngữ giao diện (L1_PACK), KHÔNG prefetch cả 14
     klocal: ['js/klocal.js'], // Kokoro trên máy cho chữ chưa có file dựng sẵn (docs/specs/kokoro-on-device.md) – tự quyết có nạp mô hình hay không
     voice: ['js/listen/kvoice.js', 'js/listen/audio-index.js'], // danh mục giọng Kokoro: mọi lần phát âm từ/câu dùng giọng chất lượng cao nếu có
@@ -35,7 +35,7 @@
     mock: ['js/choice-kit.js', 'js/qengine.js', 'js/i18n/en/qtips.js', 'js/qtips.js', 'js/readtest/_i.js', 'js/readtest/test1.js', 'js/readtest/test2.js', 'js/readtest/test3.js', 'js/readtest/test4.js', 'js/readtest/test5.js', 'js/readtest/test6.js', 'js/readtest/test7.js', 'js/readtest/test8.js', 'js/readtest/test9.js', 'js/readtest/test10.js', 'js/readtest/explain-a.js', 'js/readtest/explain-b.js', 'js/readtest/explain-c.js', 'js/readtest/explain-d.js', 'js/readtest/explain-e.js', 'js/readtest/explain-f.js', 'js/readtest/explain-g.js', 'js/readtest/gt1.js', 'js/readtest/gt2.js', 'js/readtest/explain-gt.js', 'cpack/readtest/gt3.js', 'cpack/readtest/gt6.js', 'cpack/readtest/rt11.js', 'cpack/readtest/rt12.js', 'js/mock.js', 'js/rtype.js', 'js/speech-session.js'],
     dist: ['js/distract.js'],
     lcard: ['js/i18n/en/lcardui.js', 'cpack/lesson/why.js', 'cpack/lesson/card.js'],
-    tsl: ['js/lib/tsl-a.js', 'js/lib/tsl-b.js', 'js/lib/domain-a.js', 'js/lib/domain-b.js', 'js/lib/exam-vocab.js', 'js/lib/exam-vocab2.js', 'js/lib/exam-vocab3.js', 'js/lib/nawl.js', 'js/lib/bsl.js'],
+    tsl: ['js/lib/tsl-a.js', 'js/lib/tsl-b.js', 'cpack/lib/domain-a.js', 'cpack/lib/domain-b.js', 'cpack/lib/exam-vocab.js', 'cpack/lib/exam-vocab2.js', 'cpack/lib/exam-vocab3.js', 'js/lib/nawl.js', 'js/lib/bsl.js'],
     speak: ['js/i18n/en/speakt.js', 'js/listen/kvoice.js', 'js/listen/audio-index.js', 'cpack/speak/samples.js', 'cpack/speak/samples2.js', 'cpack/speak/more2.js', 'cpack/speak/more3.js', 'cpack/speak/more4.js', 'js/speak/more.js', 'js/speech-session.js', 'js/speaking.js'],
     qstats: ['js/qengine.js', 'js/i18n/en/qtips.js', 'js/qtips.js', 'cpack/qstats/week.js'],
     pbook: ['cpack/framework/functions.js', 'cpack/framework/phrase-book.js'], // 🗣️ Sổ mẫu câu theo chức năng: nạp khi mở mục trong #/phrases lần đầu (scripts/framework/build-functions.mjs)
@@ -100,6 +100,7 @@
     xport: ['js/export.js'],
     file: ['js/lib/save-file.js'],
     lsw: ['js/lang-menu.js'],
+    tlpick: ['js/i18n/en/tlui.js', 'cpack/tl-app/tl-pick.js'],
     quick: ['js/i18n/en/quick.js', 'js/quick.js'],
     pgames: ['js/i18n/en/rhythm.js', 'js/study-games.js', 'js/pron/coach.js', 'cpack/play-app/play-blitz.js', 'cpack/play-app/play-rhythm.js'], // ⚡ Thử thách 60 giây (docs/specs/play-learn.md)
     rmodes: ['js/i18n/en/rmodes.js', 'js/study-modes.js'], // 🔁 Ôn tập đa chế độ (Gõ phản xạ · Nghe chọn nghĩa) + ✍️ thẻ "Câu của bạn" [P2-1.2/P2-1.1-UI]
@@ -115,6 +116,7 @@
     lesson: ['js/i18n/en/lesson.js', 'js/i18n/en/v2.js', 'js/st/common.js', 'js/st/lesson.js', 'js/st/v2/runtime.js', 'js/st/v2/lesson-question.js', 'js/st/v2/feedback-correct.js', 'js/st/v2/feedback-wrong.js', 'js/st/v2/lesson-complete.js', 'js/st/v2/story-duo.js', 'js/listen/kvoice.js', 'js/lesson/engine.js', 'js/i18n/en/arrange.js', 'js/word-arrange.js', 'js/lesson/teacher.js', 'cpack/lesson/stories.js', 'cpack/lesson/path-nodes.js', 'js/lesson/ui.js'],
     lgold: ['cpack/lesson/gold.js'],
     dayv2: ['js/i18n/en/v2.js', 'js/st/v2/runtime.js', 'js/st/v2/day.js', 'js/characters.js'], // 📅 Khung Stitch v2 của trang buổi học #/day/N (path-day.js page)
+    libv2: ['js/i18n/en/v2.js', 'js/st/v2/runtime.js', 'js/st/v2/library.js', 'js/ux1-lib.js'], // 📚 Thư viện (khung Stitch v2 sau cờ ux1; bọc routes.library)
     vhub: ['js/st/v2/vocab-hub.js', 'js/vocab-hub.js'], // 📚 Tab Từ vựng
     ghub: ['js/i18n/en/v2.js', 'js/st/v2/runtime.js', 'js/st/v2/grammar.js'], // 📐 Hub Ngữ pháp (khung Stitch v2 grammar; mã dựng dữ liệu nằm trong gói grammar)
     confidence: ['js/i18n/en/confidence.js', 'cpack/confidence/data.js', 'js/speech-session.js', 'js/confidence.js'], // 🔥 Nhịp buổi học: chuỗi đúng liền, lỗi chính tả nhỏ, Giải thích, thẻ số liệu cuối lượt, tạm tắt nghe/nói, chế độ khó

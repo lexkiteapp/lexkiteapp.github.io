@@ -1,0 +1,199 @@
+{
+ "id": "t2a_roots_ject_1",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, three words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "The root is Ject! Reject, project, inject.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Ject is Latin for throw.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Reject: back plus throw.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Project: forward plus throw.",
+   "pause": 0.3
+  },
+  {
+   "id": "w2",
+   "text": "Inject: into plus throw.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means into plus throw?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Inject! Into plus throw.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "JECT",
+  "rid": "ject",
+  "say": "throw",
+  "src": "jacere",
+  "src_lang": "Latin",
+  "src_mean": "to throw",
+  "words": [
+   {
+    "w": "reject",
+    "ipa": "/rɪˈdʒekt/",
+    "mean": "throw back",
+    "seg": "re-|ject",
+    "parts": [
+     [
+      "re",
+      "pre"
+     ],
+     [
+      "ject",
+      "root"
+     ]
+    ],
+    "pre": "re",
+    "pm": "back or again",
+    "pms": "back",
+    "ex": "The company rejected my first application.",
+    "em": "🙅"
+   },
+   {
+    "w": "project",
+    "ipa": "/ˈprɑːdʒekt/",
+    "mean": "throw forward",
+    "seg": "pro-|ject",
+    "parts": [
+     [
+      "pro",
+      "pre"
+     ],
+     [
+      "ject",
+      "root"
+     ]
+    ],
+    "pre": "pro",
+    "pm": "forward",
+    "pms": "forward",
+    "ex": "Our group project is about renewable energy.",
+    "em": "📋"
+   },
+   {
+    "w": "inject",
+    "ipa": "/ɪnˈdʒekt/",
+    "mean": "throw into",
+    "seg": "in-|ject",
+    "parts": [
+     [
+      "in",
+      "pre"
+     ],
+     [
+      "ject",
+      "root"
+     ]
+    ],
+    "pre": "in",
+    "pm": "into",
+    "pms": "into",
+    "ex": "The nurse injected the vaccine into my arm.",
+    "em": ""
+   }
+  ],
+  "quiz": {
+   "stem": "into plus throw",
+   "options": [
+    "reject",
+    "inject"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/reject",
+  "link": "https://lexkite.com/app/#/dict/reject",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, three words"
+ },
+ "src": {
+  "root": "ject"
+ },
+ "est": {
+  "words": 48,
+  "seconds": 28.8,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "Ject root: reject, project and inject",
+  "keyword": "ject root",
+  "value": "Ject comes from Latin \"jacere\" (to throw). Words: reject, project and inject. reject = re + ject; project = pro + ject; inject = in + ject.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/reject",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "Ject root: reject, project and inject",
+    "description": "Ject comes from Latin \"jacere\" (to throw). Words: reject, project and inject. reject = re + ject; project = pro + ject; inject = in + ject.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/reject\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "ject root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Ject root: reject, project and inject\n\nJect comes from Latin \"jacere\" (to throw). Words: reject, project and inject. reject = re + ject; project = pro + ject; inject = in + ject.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/reject"
+   },
+   "instagram": {
+    "caption": "Ject root: reject, project and inject\n\nJect comes from Latin \"jacere\" (to throw). Words: reject, project and inject. reject = re + ject; project = pro + ject; inject = in + ject.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Ject root: reject, project and inject #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: Inject! Into plus throw. Ject comes from Latin \"jacere\" (to throw). Words: reject, project and inject. reject = re + ject; project = pro + ject; inject = in + ject. Try the full lesson and quiz here: {link}"
+ }
+}

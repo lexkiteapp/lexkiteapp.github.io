@@ -1,0 +1,181 @@
+{
+ "id": "t2a_roots_ject_3",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, two words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "The root is Ject! Projector, injection.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Ject is Latin for throw.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Projector: forward plus throw.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Injection: into plus throw.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means into plus throw?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Injection! Into plus throw.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "JECT",
+  "rid": "ject",
+  "say": "throw",
+  "src": "jacere",
+  "src_lang": "Latin",
+  "src_mean": "to throw",
+  "words": [
+   {
+    "w": "projector",
+    "ipa": "/prəˈdʒektər/",
+    "mean": "a machine that throws light forward",
+    "seg": "pro-|ject|-or",
+    "parts": [
+     [
+      "pro",
+      "pre"
+     ],
+     [
+      "ject",
+      "root"
+     ],
+     [
+      "or",
+      "suf"
+     ]
+    ],
+    "pre": "pro",
+    "pm": "forward",
+    "pms": "forward",
+    "ex": "The projector in Room B isn't working, so we've moved to Room C.",
+    "em": "📽️"
+   },
+   {
+    "w": "injection",
+    "ipa": "/ɪnˈdʒekʃn/",
+    "mean": "a throwing in with a needle",
+    "seg": "in-|ject|-ion",
+    "parts": [
+     [
+      "in",
+      "pre"
+     ],
+     [
+      "ject",
+      "root"
+     ],
+     [
+      "ion",
+      "suf"
+     ]
+    ],
+    "pre": "in",
+    "pm": "into",
+    "pms": "into",
+    "ex": "The nurse gave him an injection for the pain.",
+    "em": "💉"
+   }
+  ],
+  "quiz": {
+   "stem": "into plus throw",
+   "options": [
+    "projector",
+    "injection"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/projector",
+  "link": "https://lexkite.com/app/#/dict/projector",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, two words"
+ },
+ "src": {
+  "root": "ject"
+ },
+ "est": {
+  "words": 43,
+  "seconds": 26.0,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Ject root: projector and injection",
+  "keyword": "ject root",
+  "value": "Ject comes from Latin \"jacere\" (to throw). Words: projector and injection. projector = pro + ject; injection = in + ject.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/projector",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "Ject root: projector and injection",
+    "description": "Ject comes from Latin \"jacere\" (to throw). Words: projector and injection. projector = pro + ject; injection = in + ject.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/projector\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "ject root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Ject root: projector and injection\n\nJect comes from Latin \"jacere\" (to throw). Words: projector and injection. projector = pro + ject; injection = in + ject.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/projector"
+   },
+   "instagram": {
+    "caption": "Ject root: projector and injection\n\nJect comes from Latin \"jacere\" (to throw). Words: projector and injection. projector = pro + ject; injection = in + ject.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Ject root: projector and injection #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? Injection! Into plus throw. Ject comes from Latin \"jacere\" (to throw). Words: projector and injection. projector = pro + ject; injection = in + ject. More practice like this (free): {link}"
+ }
+}

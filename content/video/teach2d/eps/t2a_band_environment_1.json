@@ -1,0 +1,131 @@
+{
+ "id": "t2a_band_environment_1",
+ "template": "band",
+ "series": "Band 5 to 9",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "writing-ielts",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Band five to nine!",
+   "pause": 0.3
+  },
+  {
+   "id": "s5",
+   "text": "We must protect the environment.",
+   "pause": 0.3
+  },
+  {
+   "id": "s7",
+   "text": "Governments should take action to protect the planet.",
+   "pause": 0.3
+  },
+  {
+   "id": "w7",
+   "text": "Words that go together naturally.",
+   "pause": 0.3
+  },
+  {
+   "id": "s9",
+   "text": "Governments must act now, otherwise future generations will pay.",
+   "pause": 0.3
+  },
+  {
+   "id": "w9",
+   "text": "A linking word adds logic.",
+   "pause": 0.3
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "topic": "environment",
+  "skill": "writing",
+  "steps": [
+   {
+    "band": 5,
+    "text": "We must protect the environment."
+   },
+   {
+    "band": 7,
+    "text": "Governments should take action to protect the planet.",
+    "mark": "take action",
+    "why": "collocation",
+    "crit": "Lexical Resource"
+   },
+   {
+    "band": 9,
+    "text": "Governments must act now, otherwise future generations will pay.",
+    "mark": "otherwise future generations will pay",
+    "why": "link",
+    "crit": "Coherence & Cohesion"
+   }
+  ]
+ },
+ "cta": {
+  "area": "writing-ielts",
+  "route": "#/write",
+  "link": "https://lexkite.com/app/#/write",
+  "say": "Try an IELTS model answer"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Band five to nine"
+ },
+ "src": {
+  "band": "environment"
+ },
+ "est": {
+  "words": 42,
+  "seconds": 22.8,
+  "wpm": 110
+ },
+ "publish": {
+  "title": "IELTS band 5 to 9: Environment",
+  "keyword": "ielts band 9",
+  "value": "Environment, three ways. Band 5: We must protect the environment. Band 7: Governments should take action to protect the planet. Band 9: Governments must act now, otherwise future generations will pay.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#ielts",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/write",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "IELTS band 5 to 9: Environment",
+    "description": "Environment, three ways. Band 5: We must protect the environment. Band 7: Governments should take action to protect the planet. Band 9: Governments must act now, otherwise future generations will pay.\n\nTry an IELTS model answer, free: https://lexkite.com/app/#/write\n\nSeries: Band 5 to 9 · Teacher: Carlos\n\n#learnenglish #englishtips #ielts #englishteacher",
+    "tags": [
+     "ielts band 9",
+     "Band 5 to 9",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "IELTS band 5 to 9: Environment\n\nEnvironment, three ways. Band 5: We must protect the environment. Band 7: Governments should take action to protect the planet. Band 9: Governments must act now, otherwise future generations will pay.\n\nTry an IELTS model answer, free: https://lexkite.com/app/#/write"
+   },
+   "instagram": {
+    "caption": "IELTS band 5 to 9: Environment\n\nEnvironment, three ways. Band 5: We must protect the environment. Band 7: Governments should take action to protect the planet. Band 9: Governments must act now, otherwise future generations will pay.\n\nTry an IELTS model answer: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#ielts",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "IELTS band 5 to 9: Environment #learnenglish #englishtips #ielts"
+   }
+  },
+  "first_comment": "Answer: Environment, three ways. Band 5: We must protect the environment. Band 7: Governments should take action to protect the planet. Band 9: Governments must act now, otherwise future generations will pay. Try the full lesson and quiz here: {link}"
+ }
+}

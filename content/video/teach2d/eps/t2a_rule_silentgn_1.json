@@ -1,0 +1,163 @@
+{
+ "id": "t2a_rule_silentgn_1",
+ "template": "rule",
+ "series": "Spell to Sound",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "pronunciation",
+ "lines": [
+  {
+   "id": "h",
+   "text": "The G is silent!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "In g n, the G is silent. Say N.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Design.",
+   "pause": 0.25,
+   "speed": 0.6
+  },
+  {
+   "id": "v0",
+   "text": "Design.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Foreign.",
+   "pause": 0.25,
+   "speed": 0.6
+  },
+  {
+   "id": "v1",
+   "text": "Foreign.",
+   "pause": 0.3
+  },
+  {
+   "id": "p",
+   "text": "Repeat after me!",
+   "pause": 2.4
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which letter is silent in foreign?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "G! The G is silent.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "rule": "silent-gn",
+  "title": "gn",
+  "target": "/n/",
+  "letter": "g",
+  "say": "In g n, the G is silent. Say N.",
+  "words": [
+   {
+    "w": "design",
+    "ipa": "/dɪˈzaɪn/",
+    "silent": [
+     4,
+     5
+    ],
+    "letter": "g",
+    "mean": "The way something is planned and made, including how it looks and works.",
+    "em": "📐"
+   },
+   {
+    "w": "foreign",
+    "ipa": "/ˈfɔːrən/",
+    "silent": [
+     5,
+     6
+    ],
+    "letter": "g",
+    "mean": "Being of a different place or country.",
+    "em": "🌏"
+   }
+  ],
+  "quiz": {
+   "stem": "Which letter is silent in foreign?",
+   "options": [
+    "G",
+    "F"
+   ],
+   "answer": 0
+  }
+ },
+ "cta": {
+  "area": "pronunciation",
+  "route": "#/pron/design",
+  "link": "https://lexkite.com/app/#/pron/design",
+  "say": "Practise this sound"
+ },
+ "hook": {
+  "line": "h",
+  "text": "The G is silent"
+ },
+ "src": {
+  "rule": "silent-gn"
+ },
+ "est": {
+  "words": 39,
+  "seconds": 26.7,
+  "wpm": 88
+ },
+ "publish": {
+  "title": "The G is silent!",
+  "keyword": "Spell to Sound",
+  "value": "In g n, the G is silent. Say N.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#pronunciation",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/pron/design",
+  "script_words": 30,
+  "platforms": {
+   "youtube": {
+    "title": "The G is silent!",
+    "description": "In g n, the G is silent. Say N.\n\nPractise this sound, free: https://lexkite.com/app/#/pron/design\n\nSeries: Spell to Sound · Teacher: Carlos\n\n#learnenglish #englishtips #pronunciation #englishteacher",
+    "tags": [
+     "Spell to Sound",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "The G is silent!\n\nIn g n, the G is silent. Say N.\n\nPractise this sound, free: https://lexkite.com/app/#/pron/design"
+   },
+   "instagram": {
+    "caption": "The G is silent!\n\nIn g n, the G is silent. Say N.\n\nPractise this sound: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#pronunciation",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "The G is silent! #learnenglish #englishtips #pronunciation"
+   }
+  },
+  "first_comment": "Quiz answer: G! The G is silent. In g n, the G is silent. Say N. Practice it with a free quiz: {link}"
+ }
+}

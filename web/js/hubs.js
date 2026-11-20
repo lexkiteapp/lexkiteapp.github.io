@@ -315,7 +315,7 @@ ${window.Sync && Sync.renderBox ? `<section class="card me-acct" id="meAcct" ari
   const SKILL_OF = { listening: 'listening', listen: 'listening', dictation: 'listening', watch: 'listening', reading: 'reading', read: 'reading', rtype: 'reading', cbt: 'reading', 'toeic-r': 'reading', write: 'writing', task1: 'writing', letters: 'writing', ideas: 'writing', model: 'writing', models: 'writing', speaking: 'speaking', roleplay: 'speaking', call: 'speaking', fix: 'writing', mediate: 'writing' };
   const TOEFL_SK = { cw: 'reading', daily: 'reading', academic: 'reading', response: 'listening', conversation: 'listening', announcement: 'listening', talk: 'listening', sentence: 'writing', email: 'writing', discussion: 'writing', repeat: 'speaking', interview: 'speaking' };
   App.navOf = (name, arg) => {
-    if (!name || name === 'home') return ['home', 'home'];
+    if (!name || name === 'home' || name === 'tlprep') return ['home', 'home'];
     if (['vocab', 'review', 'path', 'library', 'topic', 'deck', 'phrases', 'dict', 'verb', 'usage'].includes(name)) return ['vocab', name === 'topic' ? 'library' : name === 'verb' || name === 'usage' ? 'dict' : name];
     if (name === 'day') return ['vocab', 'path'];
     if (name === 'practice') return arg === 'speak' ? ['skills', 'pron'] : ['vocab', 'practice'];

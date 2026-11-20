@@ -1,0 +1,173 @@
+{
+ "id": "t2a_roots_spir_1",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, two words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "The root is Spir! Inspire, spirit.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Spir is Latin for breathe.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Inspire: into plus breathe.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Spirit: the breath of life.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means into plus breathe?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Inspire! Into plus breathe.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "SPIR",
+  "rid": "spir",
+  "say": "breathe",
+  "src": "spirare",
+  "src_lang": "Latin",
+  "src_mean": "to breathe",
+  "words": [
+   {
+    "w": "inspire",
+    "ipa": "/ɪnˈspaɪr/",
+    "mean": "breathe into",
+    "seg": "in-|spire",
+    "parts": [
+     [
+      "in",
+      "pre"
+     ],
+     [
+      "spire",
+      "root"
+     ]
+    ],
+    "pre": "in",
+    "pm": "into",
+    "pms": "into",
+    "ex": "Her story inspired many young women.",
+    "em": "✨"
+   },
+   {
+    "w": "spirit",
+    "ipa": "/ˈspɪrət/",
+    "mean": "the breath of life",
+    "seg": "spir|-it",
+    "parts": [
+     [
+      "spir",
+      "root"
+     ],
+     [
+      "it",
+      "suf"
+     ]
+    ],
+    "pre": null,
+    "pm": null,
+    "pms": null,
+    "ex": "The team showed great spirit in the final match.",
+    "em": "✨"
+   }
+  ],
+  "quiz": {
+   "stem": "into plus breathe",
+   "options": [
+    "spirit",
+    "inspire"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/inspire",
+  "link": "https://lexkite.com/app/#/dict/inspire",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, two words"
+ },
+ "src": {
+  "root": "spir"
+ },
+ "est": {
+  "words": 44,
+  "seconds": 26.5,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "Spir root: inspire and spirit",
+  "keyword": "spir root",
+  "value": "Spir comes from Latin \"spirare\" (to breathe). Words: inspire and spirit. inspire = in + spire.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/inspire",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "Spir root: inspire and spirit",
+    "description": "Spir comes from Latin \"spirare\" (to breathe). Words: inspire and spirit. inspire = in + spire.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/inspire\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "spir root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Spir root: inspire and spirit\n\nSpir comes from Latin \"spirare\" (to breathe). Words: inspire and spirit. inspire = in + spire.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/inspire"
+   },
+   "instagram": {
+    "caption": "Spir root: inspire and spirit\n\nSpir comes from Latin \"spirare\" (to breathe). Words: inspire and spirit. inspire = in + spire.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Spir root: inspire and spirit #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: Inspire! Into plus breathe. Spir comes from Latin \"spirare\" (to breathe). Words: inspire and spirit. inspire = in + spire. Try the full lesson and quiz here: {link}"
+ }
+}

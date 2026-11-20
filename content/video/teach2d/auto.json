@@ -9582,6 +9582,4208 @@
     "strike": "ought go",
     "answer_say": "Ought to! You ought to see a doctor."
    }
+  },
+  {
+   "id": "t2a_rule_silentkn_1",
+   "template": "rule",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "silent-kn:know/knee",
+   "hash": "892ada8799d2",
+   "heads": [
+    "rule:silent-kn:know",
+    "rule:silent-kn:knee"
+   ],
+   "taught": [
+    "know",
+    "knee",
+    "kn",
+    "gh"
+   ],
+   "in": {
+    "rule": "silent-kn",
+    "words": [
+     "know",
+     "knee"
+    ]
+   }
+  },
+  {
+   "id": "t2a_rule_silentwr_1",
+   "template": "rule",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "silent-wr:write/wrong",
+   "hash": "dae1843a08bd",
+   "heads": [
+    "rule:silent-wr:write",
+    "rule:silent-wr:wrong"
+   ],
+   "taught": [
+    "write",
+    "wrong",
+    "wr",
+    "gh"
+   ],
+   "in": {
+    "rule": "silent-wr",
+    "words": [
+     "write",
+     "wrong"
+    ]
+   }
+  },
+  {
+   "id": "t2a_rule_silentmb_1",
+   "template": "rule",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "silent-mb:climb/comb",
+   "hash": "2eceec1b97f7",
+   "heads": [
+    "rule:silent-mb:climb",
+    "rule:silent-mb:comb"
+   ],
+   "taught": [
+    "climb",
+    "comb",
+    "mb",
+    "gh"
+   ],
+   "in": {
+    "rule": "silent-mb",
+    "words": [
+     "climb",
+     "comb"
+    ]
+   }
+  },
+  {
+   "id": "t2a_rule_silentgn_1",
+   "template": "rule",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "silent-gn:design/foreign",
+   "hash": "da18c1f23892",
+   "heads": [
+    "rule:silent-gn:design",
+    "rule:silent-gn:foreign"
+   ],
+   "taught": [
+    "design",
+    "foreign",
+    "gn",
+    "gh"
+   ],
+   "in": {
+    "rule": "silent-gn",
+    "words": [
+     "design",
+     "foreign"
+    ]
+   }
+  },
+  {
+   "id": "t2a_rule_silentps_1",
+   "template": "rule",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "silent-ps:psychological",
+   "hash": "65dbb05cbbb3",
+   "heads": [
+    "rule:silent-ps:psychological"
+   ],
+   "taught": [
+    "psychological",
+    "ps",
+    "gh"
+   ],
+   "in": {
+    "rule": "silent-ps",
+    "words": [
+     "psychological"
+    ],
+    "tight": 1
+   }
+  },
+  {
+   "id": "t2a_rule_silentght_1",
+   "template": "rule",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "silent-ght:flight/light",
+   "hash": "7ec22c0ad16c",
+   "heads": [
+    "rule:silent-ght:flight",
+    "rule:silent-ght:light"
+   ],
+   "taught": [
+    "flight",
+    "light",
+    "ght",
+    "gh"
+   ],
+   "in": {
+    "rule": "silent-ght",
+    "words": [
+     "flight",
+     "light"
+    ]
+   }
+  },
+  {
+   "id": "t2a_rule_silenth_1",
+   "template": "rule",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "silent-h:hour/honest",
+   "hash": "a9453143566b",
+   "heads": [
+    "rule:silent-h:hour",
+    "rule:silent-h:honest"
+   ],
+   "taught": [
+    "hour",
+    "honest",
+    "h",
+    "gh"
+   ],
+   "in": {
+    "rule": "silent-h",
+    "words": [
+     "hour",
+     "honest"
+    ]
+   }
+  },
+  {
+   "id": "t2a_rule_silentl_1",
+   "template": "rule",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "silent-l:half/talk",
+   "hash": "553822809a35",
+   "heads": [
+    "rule:silent-l:half",
+    "rule:silent-l:talk"
+   ],
+   "taught": [
+    "half",
+    "talk",
+    "l",
+    "gh"
+   ],
+   "in": {
+    "rule": "silent-l",
+    "words": [
+     "half",
+     "talk"
+    ]
+   }
+  },
+  {
+   "id": "t2a_rule_silentbt_1",
+   "template": "rule",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "silent-bt:doubt/debt",
+   "hash": "3fc3a644d1c1",
+   "heads": [
+    "rule:silent-bt:doubt",
+    "rule:silent-bt:debt"
+   ],
+   "taught": [
+    "doubt",
+    "debt",
+    "bt",
+    "gh"
+   ],
+   "in": {
+    "rule": "silent-bt",
+    "words": [
+     "doubt",
+     "debt"
+    ]
+   }
+  },
+  {
+   "id": "t2a_rule_silentt_1",
+   "template": "rule",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "silent-t:listen",
+   "hash": "39ac1520fc0f",
+   "heads": [
+    "rule:silent-t:listen"
+   ],
+   "taught": [
+    "listen",
+    "t",
+    "gh"
+   ],
+   "in": {
+    "rule": "silent-t",
+    "words": [
+     "listen"
+    ],
+    "tight": 1
+   }
+  },
+  {
+   "id": "t2a_rule_silentigh_1",
+   "template": "rule",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "silent-igh:high/thigh",
+   "hash": "5120f342ed55",
+   "heads": [
+    "rule:silent-igh:high",
+    "rule:silent-igh:thigh"
+   ],
+   "taught": [
+    "high",
+    "thigh",
+    "igh",
+    "gh"
+   ],
+   "in": {
+    "rule": "silent-igh",
+    "words": [
+     "high",
+     "thigh"
+    ],
+    "tight": 1
+   }
+  },
+  {
+   "id": "t2a_rule_silenteigh_1",
+   "template": "rule",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "silent-eigh:height/neighbor",
+   "hash": "753459876f97",
+   "heads": [
+    "rule:silent-eigh:height",
+    "rule:silent-eigh:neighbor"
+   ],
+   "taught": [
+    "height",
+    "neighbor",
+    "eigh",
+    "gh"
+   ],
+   "in": {
+    "rule": "silent-eigh",
+    "words": [
+     "height",
+     "neighbor"
+    ],
+    "tight": 1
+   }
+  },
+  {
+   "id": "t2a_rule_silentough_1",
+   "template": "rule",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "silent-ough:through",
+   "hash": "3cbdc59d104b",
+   "heads": [
+    "rule:silent-ough:through"
+   ],
+   "taught": [
+    "through",
+    "ough",
+    "gh"
+   ],
+   "in": {
+    "rule": "silent-ough",
+    "words": [
+     "through"
+    ],
+    "tight": 1
+   }
+  },
+  {
+   "id": "t2a_rule_silentwh_1",
+   "template": "rule",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "silent-wh:who/whole",
+   "hash": "9509d4da6978",
+   "heads": [
+    "rule:silent-wh:who",
+    "rule:silent-wh:whole"
+   ],
+   "taught": [
+    "who",
+    "whole",
+    "wh",
+    "gh"
+   ],
+   "in": {
+    "rule": "silent-wh",
+    "words": [
+     "who",
+     "whole"
+    ],
+    "tight": 1
+   }
+  },
+  {
+   "id": "t2a_rule_silentmn_1",
+   "template": "rule",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "silent-mn:autumn/column",
+   "hash": "ef9783ed1a50",
+   "heads": [
+    "rule:silent-mn:autumn",
+    "rule:silent-mn:column"
+   ],
+   "taught": [
+    "autumn",
+    "column",
+    "mn",
+    "gh"
+   ],
+   "in": {
+    "rule": "silent-mn",
+    "words": [
+     "autumn",
+     "column"
+    ],
+    "tight": 1
+   }
+  },
+  {
+   "id": "t2a_rule_silentsc_1",
+   "template": "rule",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "silent-sc:science/scientist",
+   "hash": "553cef0c5f53",
+   "heads": [
+    "rule:silent-sc:science",
+    "rule:silent-sc:scientist"
+   ],
+   "taught": [
+    "science",
+    "scientist",
+    "sc",
+    "gh"
+   ],
+   "in": {
+    "rule": "silent-sc",
+    "words": [
+     "science",
+     "scientist"
+    ]
+   }
+  },
+  {
+   "id": "t2a_rule_silentgu_1",
+   "template": "rule",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "silent-gu:build/guess",
+   "hash": "d21e2728e61d",
+   "heads": [
+    "rule:silent-gu:build",
+    "rule:silent-gu:guess"
+   ],
+   "taught": [
+    "build",
+    "guess",
+    "gu",
+    "gh"
+   ],
+   "in": {
+    "rule": "silent-gu",
+    "words": [
+     "build",
+     "guess"
+    ]
+   }
+  },
+  {
+   "id": "t2a_rule_silenthex_1",
+   "template": "rule",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "silent-hex:exhibition",
+   "hash": "806bb1fd27b1",
+   "heads": [
+    "rule:silent-hex:exhibition"
+   ],
+   "taught": [
+    "exhibition",
+    "hex",
+    "gh"
+   ],
+   "in": {
+    "rule": "silent-hex",
+    "words": [
+     "exhibition"
+    ],
+    "tight": 1
+   }
+  },
+  {
+   "id": "t2a_rule_silentrh_1",
+   "template": "rule",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "silent-rh:rhinoceros/rhythm",
+   "hash": "3332f1265c6c",
+   "heads": [
+    "rule:silent-rh:rhinoceros",
+    "rule:silent-rh:rhythm"
+   ],
+   "taught": [
+    "rhinoceros",
+    "rhythm",
+    "rh",
+    "gh"
+   ],
+   "in": {
+    "rule": "silent-rh",
+    "words": [
+     "rhinoceros",
+     "rhythm"
+    ]
+   }
+  },
+  {
+   "id": "t2a_rule_silentould_1",
+   "template": "rule",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "silent-ould:could/should",
+   "hash": "2230e920d66f",
+   "heads": [
+    "rule:silent-ould:could",
+    "rule:silent-ould:should"
+   ],
+   "taught": [
+    "could",
+    "should",
+    "ould",
+    "gh"
+   ],
+   "in": {
+    "rule": "silent-ould",
+    "words": [
+     "could",
+     "should"
+    ]
+   }
+  },
+  {
+   "id": "t2a_rule_silentchk_1",
+   "template": "rule",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "silent-chk:school/character",
+   "hash": "2ad1d28488cc",
+   "heads": [
+    "rule:silent-chk:school",
+    "rule:silent-chk:character"
+   ],
+   "taught": [
+    "school",
+    "character",
+    "chk",
+    "gh"
+   ],
+   "in": {
+    "rule": "silent-chk",
+    "words": [
+     "school",
+     "character"
+    ]
+   }
+  },
+  {
+   "id": "t2a_rule_silentgue_1",
+   "template": "rule",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "silent-gue:colleague/tongue",
+   "hash": "67890731e202",
+   "heads": [
+    "rule:silent-gue:colleague",
+    "rule:silent-gue:tongue"
+   ],
+   "taught": [
+    "colleague",
+    "tongue",
+    "gue",
+    "gh"
+   ],
+   "in": {
+    "rule": "silent-gue",
+    "words": [
+     "colleague",
+     "tongue"
+    ],
+    "tight": 1
+   }
+  },
+  {
+   "id": "t2a_rule_silentque_1",
+   "template": "rule",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "silent-que:mosque",
+   "hash": "69e9c9a70bd9",
+   "heads": [
+    "rule:silent-que:mosque"
+   ],
+   "taught": [
+    "mosque",
+    "que",
+    "gh"
+   ],
+   "in": {
+    "rule": "silent-que",
+    "words": [
+     "mosque"
+    ],
+    "tight": 1
+   }
+  },
+  {
+   "id": "t2a_rule_silente_1",
+   "template": "rule",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "silent-e:above/advice",
+   "hash": "cf603d6dd8ed",
+   "heads": [
+    "rule:silent-e:above",
+    "rule:silent-e:advice"
+   ],
+   "taught": [
+    "above",
+    "advice",
+    "e",
+    "gh"
+   ],
+   "in": {
+    "rule": "silent-e",
+    "words": [
+     "above",
+     "advice"
+    ]
+   }
+  },
+  {
+   "id": "t2a_rule_silentisl_1",
+   "template": "rule",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "silent-isl:island/aisle",
+   "hash": "f7855cf4bc74",
+   "heads": [
+    "rule:silent-isl:island",
+    "rule:silent-isl:aisle"
+   ],
+   "taught": [
+    "island",
+    "aisle",
+    "isl",
+    "gh"
+   ],
+   "in": {
+    "rule": "silent-isl",
+    "words": [
+     "island",
+     "aisle"
+    ]
+   }
+  },
+  {
+   "id": "t2a_rule_silentver_1",
+   "template": "rule",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "silent-ver:everybody",
+   "hash": "2c5f868c4a06",
+   "heads": [
+    "rule:silent-ver:everybody"
+   ],
+   "taught": [
+    "everybody",
+    "ver",
+    "gh"
+   ],
+   "in": {
+    "rule": "silent-ver",
+    "words": [
+     "everybody"
+    ],
+    "tight": 1
+   }
+  },
+  {
+   "id": "t2a_rule_silentely_1",
+   "template": "rule",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "silent-ely:lonely",
+   "hash": "87e617fc0817",
+   "heads": [
+    "rule:silent-ely:lonely"
+   ],
+   "taught": [
+    "lonely",
+    "ely",
+    "gh"
+   ],
+   "in": {
+    "rule": "silent-ely",
+    "words": [
+     "lonely"
+    ],
+    "tight": 1
+   }
+  },
+  {
+   "id": "t2a_rule_silentement_1",
+   "template": "rule",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "silent-ement:statement",
+   "hash": "31f0478858b4",
+   "heads": [
+    "rule:silent-ement:statement"
+   ],
+   "taught": [
+    "statement",
+    "ement",
+    "gh"
+   ],
+   "in": {
+    "rule": "silent-ement",
+    "words": [
+     "statement"
+    ],
+    "tight": 1
+   }
+  },
+  {
+   "id": "t2a_rule_silentng_1",
+   "template": "rule",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "silent-ng:anything/bring",
+   "hash": "7ce3a68a8ebc",
+   "heads": [
+    "rule:silent-ng:anything",
+    "rule:silent-ng:bring"
+   ],
+   "taught": [
+    "anything",
+    "bring",
+    "ng",
+    "gh"
+   ],
+   "in": {
+    "rule": "silent-ng",
+    "words": [
+     "anything",
+     "bring"
+    ]
+   }
+  },
+  {
+   "id": "t2a_rule_silentkn_2",
+   "template": "rule",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "silent-kn:knowledge/knit",
+   "hash": "4cbcaa54445f",
+   "heads": [
+    "rule:silent-kn:knowledge",
+    "rule:silent-kn:knit"
+   ],
+   "taught": [
+    "knowledge",
+    "knit",
+    "kn",
+    "gh"
+   ],
+   "in": {
+    "rule": "silent-kn",
+    "words": [
+     "knowledge",
+     "knit"
+    ]
+   }
+  },
+  {
+   "id": "t2a_rule_silentally_1",
+   "template": "rule",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "pronunciation",
+   "point": "silent-ally:specifically",
+   "hash": "be2ad0327853",
+   "heads": [
+    "rule:silent-ally:specifically"
+   ],
+   "taught": [
+    "specifically",
+    "ally",
+    "gh"
+   ],
+   "in": {
+    "rule": "silent-ally",
+    "words": [
+     "specifically"
+    ],
+    "tight": 1
+   }
+  },
+  {
+   "id": "t2a_roots_pos_1",
+   "template": "roots",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "pos:position/deposit",
+   "hash": "76c7565bfd39",
+   "heads": [
+    "root:pos:position",
+    "root:pos:deposit"
+   ],
+   "taught": [
+    "position",
+    "deposit",
+    "pos",
+    "latin"
+   ],
+   "in": {
+    "root": "pos",
+    "words": [
+     "position",
+     "deposit"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_cept_1",
+   "template": "roots",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "cept:accept/concept/except",
+   "hash": "27bfd137ab7a",
+   "heads": [
+    "root:cept:accept",
+    "root:cept:concept",
+    "root:cept:except"
+   ],
+   "taught": [
+    "accept",
+    "concept",
+    "except",
+    "cept",
+    "latin"
+   ],
+   "in": {
+    "root": "cept",
+    "words": [
+     "accept",
+     "concept",
+     "except"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_port_1",
+   "template": "roots",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "port:transport/import",
+   "hash": "b6a7d3412c32",
+   "heads": [
+    "root:port:transport",
+    "root:port:import"
+   ],
+   "taught": [
+    "transport",
+    "import",
+    "port",
+    "latin"
+   ],
+   "in": {
+    "root": "port",
+    "words": [
+     "transport",
+     "import"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_ject_1",
+   "template": "roots",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "ject:reject/project/inject",
+   "hash": "b124bc5344f3",
+   "heads": [
+    "root:ject:reject",
+    "root:ject:project",
+    "root:ject:inject"
+   ],
+   "taught": [
+    "reject",
+    "project",
+    "inject",
+    "ject",
+    "latin"
+   ],
+   "in": {
+    "root": "ject",
+    "words": [
+     "reject",
+     "project",
+     "inject"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_mit_1",
+   "template": "roots",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "mit:permit/admit/submit",
+   "hash": "6c8959f5555f",
+   "heads": [
+    "root:mit:permit",
+    "root:mit:admit",
+    "root:mit:submit"
+   ],
+   "taught": [
+    "permit",
+    "admit",
+    "submit",
+    "mit",
+    "latin"
+   ],
+   "in": {
+    "root": "mit",
+    "words": [
+     "permit",
+     "admit",
+     "submit"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_dict_1",
+   "template": "roots",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "dict:predict/dictate",
+   "hash": "29977fdd5050",
+   "heads": [
+    "root:dict:predict",
+    "root:dict:dictate"
+   ],
+   "taught": [
+    "predict",
+    "dictate",
+    "dict",
+    "latin"
+   ],
+   "in": {
+    "root": "dict",
+    "words": [
+     "predict",
+     "dictate"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_duc_1",
+   "template": "roots",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "duc:introduce/produce/reduce",
+   "hash": "9cf68f6688a2",
+   "heads": [
+    "root:duc:introduce",
+    "root:duc:produce",
+    "root:duc:reduce"
+   ],
+   "taught": [
+    "introduce",
+    "produce",
+    "reduce",
+    "duc",
+    "latin"
+   ],
+   "in": {
+    "root": "duc",
+    "words": [
+     "introduce",
+     "produce",
+     "reduce"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_spect_1",
+   "template": "roots",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "spect:inspect/respect/expect",
+   "hash": "9468c6e404ea",
+   "heads": [
+    "root:spect:inspect",
+    "root:spect:respect",
+    "root:spect:expect"
+   ],
+   "taught": [
+    "inspect",
+    "respect",
+    "expect",
+    "spect",
+    "latin"
+   ],
+   "in": {
+    "root": "spect",
+    "words": [
+     "inspect",
+     "respect",
+     "expect"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_scrib_1",
+   "template": "roots",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "scrib:describe/prescribe/subscribe",
+   "hash": "441d8b467e4f",
+   "heads": [
+    "root:scrib:describe",
+    "root:scrib:prescribe",
+    "root:scrib:subscribe"
+   ],
+   "taught": [
+    "describe",
+    "prescribe",
+    "subscribe",
+    "scrib",
+    "latin"
+   ],
+   "in": {
+    "root": "scrib",
+    "words": [
+     "describe",
+     "prescribe",
+     "subscribe"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_tract_1",
+   "template": "roots",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "tract:attract/distract/extract",
+   "hash": "4fff34928a7e",
+   "heads": [
+    "root:tract:attract",
+    "root:tract:distract",
+    "root:tract:extract"
+   ],
+   "taught": [
+    "attract",
+    "distract",
+    "extract",
+    "tract",
+    "latin"
+   ],
+   "in": {
+    "root": "tract",
+    "words": [
+     "attract",
+     "distract",
+     "extract"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_fer_1",
+   "template": "roots",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "fer:transfer/refer",
+   "hash": "54488dd55d77",
+   "heads": [
+    "root:fer:transfer",
+    "root:fer:refer"
+   ],
+   "taught": [
+    "transfer",
+    "refer",
+    "fer",
+    "latin"
+   ],
+   "in": {
+    "root": "fer",
+    "words": [
+     "transfer",
+     "refer"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_vert_1",
+   "template": "roots",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "vert:convert/reverse",
+   "hash": "0126c7483475",
+   "heads": [
+    "root:vert:convert",
+    "root:vert:reverse"
+   ],
+   "taught": [
+    "convert",
+    "reverse",
+    "vert",
+    "latin"
+   ],
+   "in": {
+    "root": "vert",
+    "words": [
+     "convert",
+     "reverse"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_pend_1",
+   "template": "roots",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "pend:depend/suspend/expense",
+   "hash": "602932ddc0ca",
+   "heads": [
+    "root:pend:depend",
+    "root:pend:suspend",
+    "root:pend:expense"
+   ],
+   "taught": [
+    "depend",
+    "suspend",
+    "expense",
+    "pend",
+    "latin"
+   ],
+   "in": {
+    "root": "pend",
+    "words": [
+     "depend",
+     "suspend",
+     "expense"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_struct_1",
+   "template": "roots",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "struct:construct/instruct",
+   "hash": "f3843c53395f",
+   "heads": [
+    "root:struct:construct",
+    "root:struct:instruct"
+   ],
+   "taught": [
+    "construct",
+    "instruct",
+    "struct",
+    "latin"
+   ],
+   "in": {
+    "root": "struct",
+    "words": [
+     "construct",
+     "instruct"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_form_1",
+   "template": "roots",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "form:inform/perform/reform",
+   "hash": "985c7dc6e1b7",
+   "heads": [
+    "root:form:inform",
+    "root:form:perform",
+    "root:form:reform"
+   ],
+   "taught": [
+    "inform",
+    "perform",
+    "reform",
+    "form",
+    "latin"
+   ],
+   "in": {
+    "root": "form",
+    "words": [
+     "inform",
+     "perform",
+     "reform"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_press_1",
+   "template": "roots",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "press:express/impress/depress",
+   "hash": "70f755dae639",
+   "heads": [
+    "root:press:express",
+    "root:press:impress",
+    "root:press:depress"
+   ],
+   "taught": [
+    "express",
+    "impress",
+    "depress",
+    "press",
+    "latin"
+   ],
+   "in": {
+    "root": "press",
+    "words": [
+     "express",
+     "impress",
+     "depress"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_cede_1",
+   "template": "roots",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "cede:proceed/succeed/exceed",
+   "hash": "c7aced881598",
+   "heads": [
+    "root:cede:proceed",
+    "root:cede:succeed",
+    "root:cede:exceed"
+   ],
+   "taught": [
+    "proceed",
+    "succeed",
+    "exceed",
+    "cede",
+    "latin"
+   ],
+   "in": {
+    "root": "cede",
+    "words": [
+     "proceed",
+     "succeed",
+     "exceed"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_gress_1",
+   "template": "roots",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "gress:progress/aggressive",
+   "hash": "a5f532051348",
+   "heads": [
+    "root:gress:progress",
+    "root:gress:aggressive"
+   ],
+   "taught": [
+    "progress",
+    "aggressive",
+    "gress",
+    "latin"
+   ],
+   "in": {
+    "root": "gress",
+    "words": [
+     "progress",
+     "aggressive"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_vis_1",
+   "template": "roots",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "vis:visible/vision",
+   "hash": "8f30597b2c5c",
+   "heads": [
+    "root:vis:visible",
+    "root:vis:vision"
+   ],
+   "taught": [
+    "visible",
+    "vision",
+    "vis",
+    "latin"
+   ],
+   "in": {
+    "root": "vis",
+    "words": [
+     "visible",
+     "vision"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_aud_1",
+   "template": "roots",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "aud:audience/audio",
+   "hash": "9c1b08f145b7",
+   "heads": [
+    "root:aud:audience",
+    "root:aud:audio"
+   ],
+   "taught": [
+    "audience",
+    "audio",
+    "aud",
+    "latin"
+   ],
+   "in": {
+    "root": "aud",
+    "words": [
+     "audience",
+     "audio"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_vent_1",
+   "template": "roots",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "vent:event/prevent/invent",
+   "hash": "f1ee2873b2ff",
+   "heads": [
+    "root:vent:event",
+    "root:vent:prevent",
+    "root:vent:invent"
+   ],
+   "taught": [
+    "event",
+    "prevent",
+    "invent",
+    "vent",
+    "latin"
+   ],
+   "in": {
+    "root": "vent",
+    "words": [
+     "event",
+     "prevent",
+     "invent"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_sens_1",
+   "template": "roots",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "sens:sense/sensitive",
+   "hash": "53ed73743522",
+   "heads": [
+    "root:sens:sense",
+    "root:sens:sensitive"
+   ],
+   "taught": [
+    "sense",
+    "sensitive",
+    "sens",
+    "latin"
+   ],
+   "in": {
+    "root": "sens",
+    "words": [
+     "sense",
+     "sensitive"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_tend_1",
+   "template": "roots",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "tend:intend/attend/extend",
+   "hash": "4af2c51567dc",
+   "heads": [
+    "root:tend:intend",
+    "root:tend:attend",
+    "root:tend:extend"
+   ],
+   "taught": [
+    "intend",
+    "attend",
+    "extend",
+    "tend",
+    "latin"
+   ],
+   "in": {
+    "root": "tend",
+    "words": [
+     "intend",
+     "attend",
+     "extend"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_tain_1",
+   "template": "roots",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "tain:contain/obtain/retain",
+   "hash": "03b6279b1b15",
+   "heads": [
+    "root:tain:contain",
+    "root:tain:obtain",
+    "root:tain:retain"
+   ],
+   "taught": [
+    "contain",
+    "obtain",
+    "retain",
+    "tain",
+    "latin"
+   ],
+   "in": {
+    "root": "tain",
+    "words": [
+     "contain",
+     "obtain",
+     "retain"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_cur_1",
+   "template": "roots",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "cur:current/occur/recur",
+   "hash": "3bc682ef8ea8",
+   "heads": [
+    "root:cur:current",
+    "root:cur:occur",
+    "root:cur:recur"
+   ],
+   "taught": [
+    "current",
+    "occur",
+    "recur",
+    "cur",
+    "latin"
+   ],
+   "in": {
+    "root": "cur",
+    "words": [
+     "current",
+     "occur",
+     "recur"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_fact_1",
+   "template": "roots",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "fact:effect/factory",
+   "hash": "3c7f31da64c2",
+   "heads": [
+    "root:fact:effect",
+    "root:fact:factory"
+   ],
+   "taught": [
+    "effect",
+    "factory",
+    "fact",
+    "latin"
+   ],
+   "in": {
+    "root": "fact",
+    "words": [
+     "effect",
+     "factory"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_mov_1",
+   "template": "roots",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "mov:remove/motion",
+   "hash": "e1a39f983e1c",
+   "heads": [
+    "root:mov:remove",
+    "root:mov:motion"
+   ],
+   "taught": [
+    "remove",
+    "motion",
+    "mov",
+    "latin"
+   ],
+   "in": {
+    "root": "mov",
+    "words": [
+     "remove",
+     "motion"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_man_1",
+   "template": "roots",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "man:manual/manage",
+   "hash": "42fff23e08bd",
+   "heads": [
+    "root:man:manual",
+    "root:man:manage"
+   ],
+   "taught": [
+    "manual",
+    "manage",
+    "man",
+    "latin"
+   ],
+   "in": {
+    "root": "man",
+    "words": [
+     "manual",
+     "manage"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_sign_1",
+   "template": "roots",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "sign:signal/signature",
+   "hash": "4134496188a6",
+   "heads": [
+    "root:sign:signal",
+    "root:sign:signature"
+   ],
+   "taught": [
+    "signal",
+    "signature",
+    "sign",
+    "latin"
+   ],
+   "in": {
+    "root": "sign",
+    "words": [
+     "signal",
+     "signature"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_rupt_1",
+   "template": "roots",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "rupt:interrupt/corrupt",
+   "hash": "870cfebce815",
+   "heads": [
+    "root:rupt:interrupt",
+    "root:rupt:corrupt"
+   ],
+   "taught": [
+    "interrupt",
+    "corrupt",
+    "rupt",
+    "latin"
+   ],
+   "in": {
+    "root": "rupt",
+    "words": [
+     "interrupt",
+     "corrupt"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_flect_1",
+   "template": "roots",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "flect:reflect/flexible/reflex",
+   "hash": "951b0cb33270",
+   "heads": [
+    "root:flect:reflect",
+    "root:flect:flexible",
+    "root:flect:reflex"
+   ],
+   "taught": [
+    "reflect",
+    "flexible",
+    "reflex",
+    "flect",
+    "latin"
+   ],
+   "in": {
+    "root": "flect",
+    "words": [
+     "reflect",
+     "flexible",
+     "reflex"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_cide_1",
+   "template": "roots",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "cide:decide/decision",
+   "hash": "6126eaa4813d",
+   "heads": [
+    "root:cide:decide",
+    "root:cide:decision"
+   ],
+   "taught": [
+    "decide",
+    "decision",
+    "cide",
+    "latin"
+   ],
+   "in": {
+    "root": "cide",
+    "words": [
+     "decide",
+     "decision"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_spir_1",
+   "template": "roots",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "spir:inspire/spirit",
+   "hash": "ca2d307e3c66",
+   "heads": [
+    "root:spir:inspire",
+    "root:spir:spirit"
+   ],
+   "taught": [
+    "inspire",
+    "spirit",
+    "spir",
+    "latin"
+   ],
+   "in": {
+    "root": "spir",
+    "words": [
+     "inspire",
+     "spirit"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_vac_1",
+   "template": "roots",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "vac:vacation/vacuum",
+   "hash": "b307e3dab453",
+   "heads": [
+    "root:vac:vacation",
+    "root:vac:vacuum"
+   ],
+   "taught": [
+    "vacation",
+    "vacuum",
+    "vac",
+    "latin"
+   ],
+   "in": {
+    "root": "vac",
+    "words": [
+     "vacation",
+     "vacuum"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_jus_1",
+   "template": "roots",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "jus:judge/justice",
+   "hash": "19b96c39f5ef",
+   "heads": [
+    "root:jus:judge",
+    "root:jus:justice"
+   ],
+   "taught": [
+    "judge",
+    "justice",
+    "jus",
+    "latin"
+   ],
+   "in": {
+    "root": "jus",
+    "words": [
+     "judge",
+     "justice"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_stat_1",
+   "template": "roots",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "stat:station/stable",
+   "hash": "4fb648529a43",
+   "heads": [
+    "root:stat:station",
+    "root:stat:stable"
+   ],
+   "taught": [
+    "station",
+    "stable",
+    "stat",
+    "latin"
+   ],
+   "in": {
+    "root": "stat",
+    "words": [
+     "station",
+     "stable"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_volv_1",
+   "template": "roots",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "volv:evolve/involve",
+   "hash": "bae2b535fe99",
+   "heads": [
+    "root:volv:evolve",
+    "root:volv:involve"
+   ],
+   "taught": [
+    "evolve",
+    "involve",
+    "volv",
+    "latin"
+   ],
+   "in": {
+    "root": "volv",
+    "words": [
+     "evolve",
+     "involve"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_pos_2",
+   "template": "roots",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "pos:compose/expose",
+   "hash": "383de1896efc",
+   "heads": [
+    "root:pos:compose",
+    "root:pos:expose"
+   ],
+   "taught": [
+    "compose",
+    "expose",
+    "pos",
+    "latin"
+   ],
+   "in": {
+    "root": "pos",
+    "words": [
+     "compose",
+     "expose"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_cept_2",
+   "template": "roots",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "cept:receive/perceive/deceive",
+   "hash": "bb7047778a24",
+   "heads": [
+    "root:cept:receive",
+    "root:cept:perceive",
+    "root:cept:deceive"
+   ],
+   "taught": [
+    "receive",
+    "perceive",
+    "deceive",
+    "cept",
+    "latin"
+   ],
+   "in": {
+    "root": "cept",
+    "words": [
+     "receive",
+     "perceive",
+     "deceive"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_port_2",
+   "template": "roots",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "port:support/report",
+   "hash": "562c8b9be45d",
+   "heads": [
+    "root:port:support",
+    "root:port:report"
+   ],
+   "taught": [
+    "support",
+    "report",
+    "port",
+    "latin"
+   ],
+   "in": {
+    "root": "port",
+    "words": [
+     "support",
+     "report"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_ject_2",
+   "template": "roots",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "ject:object/subject",
+   "hash": "4f13c4fca47b",
+   "heads": [
+    "root:ject:object",
+    "root:ject:subject"
+   ],
+   "taught": [
+    "object",
+    "subject",
+    "ject",
+    "latin"
+   ],
+   "in": {
+    "root": "ject",
+    "words": [
+     "object",
+     "subject"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_mit_2",
+   "template": "roots",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "mit:commit/transmit/emit",
+   "hash": "9e453aec681d",
+   "heads": [
+    "root:mit:commit",
+    "root:mit:transmit",
+    "root:mit:emit"
+   ],
+   "taught": [
+    "commit",
+    "transmit",
+    "emit",
+    "mit",
+    "latin"
+   ],
+   "in": {
+    "root": "mit",
+    "words": [
+     "commit",
+     "transmit",
+     "emit"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_dict_2",
+   "template": "roots",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "dict:contradict/indicate",
+   "hash": "1d62d6e382d3",
+   "heads": [
+    "root:dict:contradict",
+    "root:dict:indicate"
+   ],
+   "taught": [
+    "contradict",
+    "indicate",
+    "dict",
+    "latin"
+   ],
+   "in": {
+    "root": "dict",
+    "words": [
+     "contradict",
+     "indicate"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_duc_2",
+   "template": "roots",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "duc:conduct/product/deduce",
+   "hash": "290d165f8366",
+   "heads": [
+    "root:duc:conduct",
+    "root:duc:product",
+    "root:duc:deduce"
+   ],
+   "taught": [
+    "conduct",
+    "product",
+    "deduce",
+    "duc",
+    "latin"
+   ],
+   "in": {
+    "root": "duc",
+    "words": [
+     "conduct",
+     "product",
+     "deduce"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_spect_2",
+   "template": "roots",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "spect:suspect/prospect",
+   "hash": "aa5a103ced96",
+   "heads": [
+    "root:spect:suspect",
+    "root:spect:prospect"
+   ],
+   "taught": [
+    "suspect",
+    "prospect",
+    "spect",
+    "latin"
+   ],
+   "in": {
+    "root": "spect",
+    "words": [
+     "suspect",
+     "prospect"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_scrib_2",
+   "template": "roots",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "scrib:script/transcript",
+   "hash": "f79f7c0624f4",
+   "heads": [
+    "root:scrib:script",
+    "root:scrib:transcript"
+   ],
+   "taught": [
+    "script",
+    "transcript",
+    "scrib",
+    "latin"
+   ],
+   "in": {
+    "root": "scrib",
+    "words": [
+     "script",
+     "transcript"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_tract_2",
+   "template": "roots",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "tract:contract/subtract",
+   "hash": "5db03aa9b72e",
+   "heads": [
+    "root:tract:contract",
+    "root:tract:subtract"
+   ],
+   "taught": [
+    "contract",
+    "subtract",
+    "tract",
+    "latin"
+   ],
+   "in": {
+    "root": "tract",
+    "words": [
+     "contract",
+     "subtract"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_fer_2",
+   "template": "roots",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "fer:offer/suffer",
+   "hash": "18d945b9646b",
+   "heads": [
+    "root:fer:offer",
+    "root:fer:suffer"
+   ],
+   "taught": [
+    "offer",
+    "suffer",
+    "fer",
+    "latin"
+   ],
+   "in": {
+    "root": "fer",
+    "words": [
+     "offer",
+     "suffer"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_vert_2",
+   "template": "roots",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "vert:invert/version",
+   "hash": "5ff43bacc8f3",
+   "heads": [
+    "root:vert:invert",
+    "root:vert:version"
+   ],
+   "taught": [
+    "invert",
+    "version",
+    "vert",
+    "latin"
+   ],
+   "in": {
+    "root": "vert",
+    "words": [
+     "invert",
+     "version"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_pend_2",
+   "template": "roots",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "pend:pension/append",
+   "hash": "8578abcdb6bb",
+   "heads": [
+    "root:pend:pension",
+    "root:pend:append"
+   ],
+   "taught": [
+    "pension",
+    "append",
+    "pend",
+    "latin"
+   ],
+   "in": {
+    "root": "pend",
+    "words": [
+     "pension",
+     "append"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_struct_2",
+   "template": "roots",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "struct:destruction/construction",
+   "hash": "e94c30fea1c1",
+   "heads": [
+    "root:struct:destruction",
+    "root:struct:construction"
+   ],
+   "taught": [
+    "destruction",
+    "construction",
+    "struct",
+    "latin"
+   ],
+   "in": {
+    "root": "struct",
+    "words": [
+     "destruction",
+     "construction"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_form_2",
+   "template": "roots",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "form:transform/uniform",
+   "hash": "4263b27adb2f",
+   "heads": [
+    "root:form:transform",
+    "root:form:uniform"
+   ],
+   "taught": [
+    "transform",
+    "uniform",
+    "form",
+    "latin"
+   ],
+   "in": {
+    "root": "form",
+    "words": [
+     "transform",
+     "uniform"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_press_2",
+   "template": "roots",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "press:suppress/pressure",
+   "hash": "f193bd300dd1",
+   "heads": [
+    "root:press:suppress",
+    "root:press:pressure"
+   ],
+   "taught": [
+    "suppress",
+    "pressure",
+    "press",
+    "latin"
+   ],
+   "in": {
+    "root": "press",
+    "words": [
+     "suppress",
+     "pressure"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_cede_2",
+   "template": "roots",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "cede:precede/concede",
+   "hash": "8974119ded84",
+   "heads": [
+    "root:cede:precede",
+    "root:cede:concede"
+   ],
+   "taught": [
+    "precede",
+    "concede",
+    "cede",
+    "latin"
+   ],
+   "in": {
+    "root": "cede",
+    "words": [
+     "precede",
+     "concede"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_gress_2",
+   "template": "roots",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "gress:graduate/grade/upgrade",
+   "hash": "154de8d0e8a8",
+   "heads": [
+    "root:gress:graduate",
+    "root:gress:grade",
+    "root:gress:upgrade"
+   ],
+   "taught": [
+    "graduate",
+    "grade",
+    "upgrade",
+    "gress",
+    "latin"
+   ],
+   "in": {
+    "root": "gress",
+    "words": [
+     "graduate",
+     "grade",
+     "upgrade"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_vis_2",
+   "template": "roots",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "vis:evidence/provide/revise",
+   "hash": "d5b61c58cd98",
+   "heads": [
+    "root:vis:evidence",
+    "root:vis:provide",
+    "root:vis:revise"
+   ],
+   "taught": [
+    "evidence",
+    "provide",
+    "revise",
+    "vis",
+    "latin"
+   ],
+   "in": {
+    "root": "vis",
+    "words": [
+     "evidence",
+     "provide",
+     "revise"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_vent_2",
+   "template": "roots",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "vent:adventure/convention",
+   "hash": "cb4ba5537148",
+   "heads": [
+    "root:vent:adventure",
+    "root:vent:convention"
+   ],
+   "taught": [
+    "adventure",
+    "convention",
+    "vent",
+    "latin"
+   ],
+   "in": {
+    "root": "vent",
+    "words": [
+     "adventure",
+     "convention"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_sens_2",
+   "template": "roots",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "sens:consent/sentiment",
+   "hash": "69f92f24ce02",
+   "heads": [
+    "root:sens:consent",
+    "root:sens:sentiment"
+   ],
+   "taught": [
+    "consent",
+    "sentiment",
+    "sens",
+    "latin"
+   ],
+   "in": {
+    "root": "sens",
+    "words": [
+     "consent",
+     "sentiment"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_tend_2",
+   "template": "roots",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "tend:pretend/tension",
+   "hash": "7b727c86f6c7",
+   "heads": [
+    "root:tend:pretend",
+    "root:tend:tension"
+   ],
+   "taught": [
+    "pretend",
+    "tension",
+    "tend",
+    "latin"
+   ],
+   "in": {
+    "root": "tend",
+    "words": [
+     "pretend",
+     "tension"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_tain_2",
+   "template": "roots",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "tain:sustain/entertain",
+   "hash": "a921809d7cea",
+   "heads": [
+    "root:tain:sustain",
+    "root:tain:entertain"
+   ],
+   "taught": [
+    "sustain",
+    "entertain",
+    "tain",
+    "latin"
+   ],
+   "in": {
+    "root": "tain",
+    "words": [
+     "sustain",
+     "entertain"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_cur_2",
+   "template": "roots",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "cur:course/excursion",
+   "hash": "9d2057551116",
+   "heads": [
+    "root:cur:course",
+    "root:cur:excursion"
+   ],
+   "taught": [
+    "course",
+    "excursion",
+    "cur",
+    "latin"
+   ],
+   "in": {
+    "root": "cur",
+    "words": [
+     "course",
+     "excursion"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_fact_2",
+   "template": "roots",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "fact:affect/defect",
+   "hash": "a65dabd861e1",
+   "heads": [
+    "root:fact:affect",
+    "root:fact:defect"
+   ],
+   "taught": [
+    "affect",
+    "defect",
+    "fact",
+    "latin"
+   ],
+   "in": {
+    "root": "fact",
+    "words": [
+     "affect",
+     "defect"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_mov_2",
+   "template": "roots",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "mov:promote/motive",
+   "hash": "8b56d0a57285",
+   "heads": [
+    "root:mov:promote",
+    "root:mov:motive"
+   ],
+   "taught": [
+    "promote",
+    "motive",
+    "mov",
+    "latin"
+   ],
+   "in": {
+    "root": "mov",
+    "words": [
+     "promote",
+     "motive"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_man_2",
+   "template": "roots",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "man:command/demand",
+   "hash": "8d7c00098d98",
+   "heads": [
+    "root:man:command",
+    "root:man:demand"
+   ],
+   "taught": [
+    "command",
+    "demand",
+    "man",
+    "latin"
+   ],
+   "in": {
+    "root": "man",
+    "words": [
+     "command",
+     "demand"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_sign_2",
+   "template": "roots",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "sign:assign/significant",
+   "hash": "e346cb5d4221",
+   "heads": [
+    "root:sign:assign",
+    "root:sign:significant"
+   ],
+   "taught": [
+    "assign",
+    "significant",
+    "sign",
+    "latin"
+   ],
+   "in": {
+    "root": "sign",
+    "words": [
+     "assign",
+     "significant"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_rupt_2",
+   "template": "roots",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "rupt:disrupt/eruption",
+   "hash": "6b27ff131749",
+   "heads": [
+    "root:rupt:disrupt",
+    "root:rupt:eruption"
+   ],
+   "taught": [
+    "disrupt",
+    "eruption",
+    "rupt",
+    "latin"
+   ],
+   "in": {
+    "root": "rupt",
+    "words": [
+     "disrupt",
+     "eruption"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_flect_2",
+   "template": "roots",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "flect:deflect/reflection",
+   "hash": "496c454bacf2",
+   "heads": [
+    "root:flect:deflect",
+    "root:flect:reflection"
+   ],
+   "taught": [
+    "deflect",
+    "reflection",
+    "flect",
+    "latin"
+   ],
+   "in": {
+    "root": "flect",
+    "words": [
+     "deflect",
+     "reflection"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_spir_2",
+   "template": "roots",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "spir:expire/inspiration",
+   "hash": "b59d935e3b39",
+   "heads": [
+    "root:spir:expire",
+    "root:spir:inspiration"
+   ],
+   "taught": [
+    "expire",
+    "inspiration",
+    "spir",
+    "latin"
+   ],
+   "in": {
+    "root": "spir",
+    "words": [
+     "expire",
+     "inspiration"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_vac_2",
+   "template": "roots",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "vac:evacuate/vacancy",
+   "hash": "c836ff641042",
+   "heads": [
+    "root:vac:evacuate",
+    "root:vac:vacancy"
+   ],
+   "taught": [
+    "evacuate",
+    "vacancy",
+    "vac",
+    "latin"
+   ],
+   "in": {
+    "root": "vac",
+    "words": [
+     "evacuate",
+     "vacancy"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_stat_2",
+   "template": "roots",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "stat:institute/establish",
+   "hash": "63f33c819d21",
+   "heads": [
+    "root:stat:institute",
+    "root:stat:establish"
+   ],
+   "taught": [
+    "institute",
+    "establish",
+    "stat",
+    "latin"
+   ],
+   "in": {
+    "root": "stat",
+    "words": [
+     "institute",
+     "establish"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_volv_2",
+   "template": "roots",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "volv:evolution/volume",
+   "hash": "21e301440600",
+   "heads": [
+    "root:volv:evolution",
+    "root:volv:volume"
+   ],
+   "taught": [
+    "evolution",
+    "volume",
+    "volv",
+    "latin"
+   ],
+   "in": {
+    "root": "volv",
+    "words": [
+     "evolution",
+     "volume"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_pos_3",
+   "template": "roots",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "pos:positive/propose",
+   "hash": "8c22b7a9a5ef",
+   "heads": [
+    "root:pos:positive",
+    "root:pos:propose"
+   ],
+   "taught": [
+    "positive",
+    "propose",
+    "pos",
+    "latin"
+   ],
+   "in": {
+    "root": "pos",
+    "words": [
+     "positive",
+     "propose"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_cept_3",
+   "template": "roots",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "cept:intercept/reception",
+   "hash": "610b049f5764",
+   "heads": [
+    "root:cept:intercept",
+    "root:cept:reception"
+   ],
+   "taught": [
+    "intercept",
+    "reception",
+    "cept",
+    "latin"
+   ],
+   "in": {
+    "root": "cept",
+    "words": [
+     "intercept",
+     "reception"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_ject_3",
+   "template": "roots",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "ject:projector/injection",
+   "hash": "8ecab163e238",
+   "heads": [
+    "root:ject:projector",
+    "root:ject:injection"
+   ],
+   "taught": [
+    "projector",
+    "injection",
+    "ject",
+    "latin"
+   ],
+   "in": {
+    "root": "ject",
+    "words": [
+     "projector",
+     "injection"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_mit_3",
+   "template": "roots",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "mit:omit/mission",
+   "hash": "3ab0c033e954",
+   "heads": [
+    "root:mit:omit",
+    "root:mit:mission"
+   ],
+   "taught": [
+    "omit",
+    "mission",
+    "mit",
+    "latin"
+   ],
+   "in": {
+    "root": "mit",
+    "words": [
+     "omit",
+     "mission"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_duc_3",
+   "template": "roots",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "duc:induce/education",
+   "hash": "69199494d5e0",
+   "heads": [
+    "root:duc:induce",
+    "root:duc:education"
+   ],
+   "taught": [
+    "induce",
+    "education",
+    "duc",
+    "latin"
+   ],
+   "in": {
+    "root": "duc",
+    "words": [
+     "induce",
+     "education"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_spect_3",
+   "template": "roots",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "spect:spectator/perspective",
+   "hash": "25f3fb766d71",
+   "heads": [
+    "root:spect:spectator",
+    "root:spect:perspective"
+   ],
+   "taught": [
+    "spectator",
+    "perspective",
+    "spect",
+    "latin"
+   ],
+   "in": {
+    "root": "spect",
+    "words": [
+     "spectator",
+     "perspective"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_scrib_3",
+   "template": "roots",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "scrib:description/subscription",
+   "hash": "6c1f066a43aa",
+   "heads": [
+    "root:scrib:description",
+    "root:scrib:subscription"
+   ],
+   "taught": [
+    "description",
+    "subscription",
+    "scrib",
+    "latin"
+   ],
+   "in": {
+    "root": "scrib",
+    "words": [
+     "description",
+     "subscription"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_tract_3",
+   "template": "roots",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "tract:abstract/attraction",
+   "hash": "3518a823f2ee",
+   "heads": [
+    "root:tract:abstract",
+    "root:tract:attraction"
+   ],
+   "taught": [
+    "abstract",
+    "attraction",
+    "tract",
+    "latin"
+   ],
+   "in": {
+    "root": "tract",
+    "words": [
+     "abstract",
+     "attraction"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_vert_3",
+   "template": "roots",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "vert:advertise/introvert",
+   "hash": "532957c135f5",
+   "heads": [
+    "root:vert:advertise",
+    "root:vert:introvert"
+   ],
+   "taught": [
+    "advertise",
+    "introvert",
+    "vert",
+    "latin"
+   ],
+   "in": {
+    "root": "vert",
+    "words": [
+     "advertise",
+     "introvert"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_struct_3",
+   "template": "roots",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "struct:instruction/instrument",
+   "hash": "570d1a4a13dc",
+   "heads": [
+    "root:struct:instruction",
+    "root:struct:instrument"
+   ],
+   "taught": [
+    "instruction",
+    "instrument",
+    "struct",
+    "latin"
+   ],
+   "in": {
+    "root": "struct",
+    "words": [
+     "instruction",
+     "instrument"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_press_3",
+   "template": "roots",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "press:impression/expression",
+   "hash": "3c4983e57aaf",
+   "heads": [
+    "root:press:impression",
+    "root:press:expression"
+   ],
+   "taught": [
+    "impression",
+    "expression",
+    "press",
+    "latin"
+   ],
+   "in": {
+    "root": "press",
+    "words": [
+     "impression",
+     "expression"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_cede_3",
+   "template": "roots",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "cede:access/success",
+   "hash": "e10786867cec",
+   "heads": [
+    "root:cede:access",
+    "root:cede:success"
+   ],
+   "taught": [
+    "access",
+    "success",
+    "cede",
+    "latin"
+   ],
+   "in": {
+    "root": "cede",
+    "words": [
+     "access",
+     "success"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_graph_3",
+   "template": "roots",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "graph:telegraph/graph",
+   "hash": "45be4cf89758",
+   "heads": [
+    "root:graph:telegraph",
+    "root:graph:graph"
+   ],
+   "taught": [
+    "telegraph",
+    "graph",
+    "graph",
+    "greek"
+   ],
+   "in": {
+    "root": "graph",
+    "words": [
+     "telegraph",
+     "graph"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_vis_3",
+   "template": "roots",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "vis:supervise/television",
+   "hash": "441a4cc1f4d1",
+   "heads": [
+    "root:vis:supervise",
+    "root:vis:television"
+   ],
+   "taught": [
+    "supervise",
+    "television",
+    "vis",
+    "latin"
+   ],
+   "in": {
+    "root": "vis",
+    "words": [
+     "supervise",
+     "television"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_vent_3",
+   "template": "roots",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "vent:intervene/revenue",
+   "hash": "09326b7703f9",
+   "heads": [
+    "root:vent:intervene",
+    "root:vent:revenue"
+   ],
+   "taught": [
+    "intervene",
+    "revenue",
+    "vent",
+    "latin"
+   ],
+   "in": {
+    "root": "vent",
+    "words": [
+     "intervene",
+     "revenue"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_sens_3",
+   "template": "roots",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "sens:sensation/nonsense",
+   "hash": "7f4de51a642a",
+   "heads": [
+    "root:sens:sensation",
+    "root:sens:nonsense"
+   ],
+   "taught": [
+    "sensation",
+    "nonsense",
+    "sens",
+    "latin"
+   ],
+   "in": {
+    "root": "sens",
+    "words": [
+     "sensation",
+     "nonsense"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_tend_3",
+   "template": "roots",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "tend:intense/extent",
+   "hash": "9ec6a8019253",
+   "heads": [
+    "root:tend:intense",
+    "root:tend:extent"
+   ],
+   "taught": [
+    "intense",
+    "extent",
+    "tend",
+    "latin"
+   ],
+   "in": {
+    "root": "tend",
+    "words": [
+     "intense",
+     "extent"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_tain_3",
+   "template": "roots",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "tain:container/tenant",
+   "hash": "e8d2670f657d",
+   "heads": [
+    "root:tain:container",
+    "root:tain:tenant"
+   ],
+   "taught": [
+    "container",
+    "tenant",
+    "tain",
+    "latin"
+   ],
+   "in": {
+    "root": "tain",
+    "words": [
+     "container",
+     "tenant"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_cur_3",
+   "template": "roots",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "cur:currency/incur",
+   "hash": "d02955967741",
+   "heads": [
+    "root:cur:currency",
+    "root:cur:incur"
+   ],
+   "taught": [
+    "currency",
+    "incur",
+    "cur",
+    "latin"
+   ],
+   "in": {
+    "root": "cur",
+    "words": [
+     "currency",
+     "incur"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_sign_3",
+   "template": "roots",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "sign:designate/sign",
+   "hash": "5622462ee99f",
+   "heads": [
+    "root:sign:designate",
+    "root:sign:sign"
+   ],
+   "taught": [
+    "designate",
+    "sign",
+    "sign",
+    "latin"
+   ],
+   "in": {
+    "root": "sign",
+    "words": [
+     "designate",
+     "sign"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_stat_3",
+   "template": "roots",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "stat:substance/circumstance",
+   "hash": "7adfdb6d7388",
+   "heads": [
+    "root:stat:substance",
+    "root:stat:circumstance"
+   ],
+   "taught": [
+    "substance",
+    "circumstance",
+    "stat",
+    "latin"
+   ],
+   "in": {
+    "root": "stat",
+    "words": [
+     "substance",
+     "circumstance"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_mit_4",
+   "template": "roots",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "mit:dismiss/promise",
+   "hash": "81e9f06a844c",
+   "heads": [
+    "root:mit:dismiss",
+    "root:mit:promise"
+   ],
+   "taught": [
+    "dismiss",
+    "promise",
+    "mit",
+    "latin"
+   ],
+   "in": {
+    "root": "mit",
+    "words": [
+     "dismiss",
+     "promise"
+    ]
+   }
+  },
+  {
+   "id": "t2a_roots_log_1",
+   "template": "roots",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "log:biology/psychology",
+   "hash": "b45eff64a427",
+   "heads": [
+    "root:log:biology",
+    "root:log:psychology"
+   ],
+   "taught": [
+    "biology",
+    "psychology",
+    "log",
+    "greek"
+   ],
+   "in": {
+    "root": "log",
+    "words": [
+     "biology",
+     "psychology"
+    ],
+    "tight": 1
+   }
+  },
+  {
+   "id": "t2a_roots_graph_1",
+   "template": "roots",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "graph:photograph/paragraph",
+   "hash": "43d3d0eaaf33",
+   "heads": [
+    "root:graph:photograph",
+    "root:graph:paragraph"
+   ],
+   "taught": [
+    "photograph",
+    "paragraph",
+    "graph",
+    "greek"
+   ],
+   "in": {
+    "root": "graph",
+    "words": [
+     "photograph",
+     "paragraph"
+    ],
+    "tight": 1
+   }
+  },
+  {
+   "id": "t2a_roots_lect_1",
+   "template": "roots",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "lect:collect/select",
+   "hash": "c408626073e5",
+   "heads": [
+    "root:lect:collect",
+    "root:lect:select"
+   ],
+   "taught": [
+    "collect",
+    "select",
+    "lect",
+    "latin"
+   ],
+   "in": {
+    "root": "lect",
+    "words": [
+     "collect",
+     "select"
+    ],
+    "tight": 1
+   }
+  },
+  {
+   "id": "t2a_roots_log_2",
+   "template": "roots",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "log:logic/technology",
+   "hash": "a8928c724dd8",
+   "heads": [
+    "root:log:logic",
+    "root:log:technology"
+   ],
+   "taught": [
+    "logic",
+    "technology",
+    "log",
+    "greek"
+   ],
+   "in": {
+    "root": "log",
+    "words": [
+     "logic",
+     "technology"
+    ],
+    "tight": 1
+   }
+  },
+  {
+   "id": "t2a_roots_graph_2",
+   "template": "roots",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "graph:geography/biography",
+   "hash": "93427fd130f1",
+   "heads": [
+    "root:graph:geography",
+    "root:graph:biography"
+   ],
+   "taught": [
+    "geography",
+    "biography",
+    "graph",
+    "greek"
+   ],
+   "in": {
+    "root": "graph",
+    "words": [
+     "geography",
+     "biography"
+    ],
+    "tight": 1
+   }
+  },
+  {
+   "id": "t2a_roots_cide_2",
+   "template": "roots",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "cide:concise/incision",
+   "hash": "d23d0d04b780",
+   "heads": [
+    "root:cide:concise",
+    "root:cide:incision"
+   ],
+   "taught": [
+    "concise",
+    "incision",
+    "cide",
+    "latin"
+   ],
+   "in": {
+    "root": "cide",
+    "words": [
+     "concise",
+     "incision"
+    ],
+    "tight": 1
+   }
+  },
+  {
+   "id": "t2a_roots_jus_2",
+   "template": "roots",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "jus:injury/justify",
+   "hash": "e760cc3afd8d",
+   "heads": [
+    "root:jus:injury",
+    "root:jus:justify"
+   ],
+   "taught": [
+    "injury",
+    "justify",
+    "jus",
+    "latin"
+   ],
+   "in": {
+    "root": "jus",
+    "words": [
+     "injury",
+     "justify"
+    ],
+    "tight": 1
+   }
+  },
+  {
+   "id": "t2a_roots_fact_3",
+   "template": "roots",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "fact:infect/efficient",
+   "hash": "e560874a8a7c",
+   "heads": [
+    "root:fact:infect",
+    "root:fact:efficient"
+   ],
+   "taught": [
+    "infect",
+    "efficient",
+    "fact",
+    "latin"
+   ],
+   "in": {
+    "root": "fact",
+    "words": [
+     "infect",
+     "efficient"
+    ],
+    "tight": 1
+   }
+  },
+  {
+   "id": "t2a_roots_man_3",
+   "template": "roots",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "man:mandate/manuscript",
+   "hash": "211abc6e038a",
+   "heads": [
+    "root:man:mandate",
+    "root:man:manuscript"
+   ],
+   "taught": [
+    "mandate",
+    "manuscript",
+    "man",
+    "latin"
+   ],
+   "in": {
+    "root": "man",
+    "words": [
+     "mandate",
+     "manuscript"
+    ],
+    "tight": 1
+   }
+  },
+  {
+   "id": "t2a_roots_jus_3",
+   "template": "roots",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "jus:adjust/judgment",
+   "hash": "354c99d6049d",
+   "heads": [
+    "root:jus:adjust",
+    "root:jus:judgment"
+   ],
+   "taught": [
+    "adjust",
+    "judgment",
+    "jus",
+    "latin"
+   ],
+   "in": {
+    "root": "jus",
+    "words": [
+     "adjust",
+     "judgment"
+    ],
+    "tight": 1
+   }
+  },
+  {
+   "id": "t2a_roots_aud_2",
+   "template": "roots",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "aud:auditorium/audit",
+   "hash": "9af1148c33af",
+   "heads": [
+    "root:aud:auditorium",
+    "root:aud:audit"
+   ],
+   "taught": [
+    "auditorium",
+    "audit",
+    "aud",
+    "latin"
+   ],
+   "in": {
+    "root": "aud",
+    "words": [
+     "auditorium",
+     "audit"
+    ],
+    "tight": 1
+   }
+  },
+  {
+   "id": "t2a_roots_port_3",
+   "template": "roots",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "port:portable/important",
+   "hash": "684bd5db853b",
+   "heads": [
+    "root:port:portable",
+    "root:port:important"
+   ],
+   "taught": [
+    "portable",
+    "important",
+    "port",
+    "latin"
+   ],
+   "in": {
+    "root": "port",
+    "words": [
+     "portable",
+     "important"
+    ],
+    "tight": 1
+   }
+  },
+  {
+   "id": "t2a_roots_fer_3",
+   "template": "roots",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "fer:infer/conference",
+   "hash": "afd94f34789b",
+   "heads": [
+    "root:fer:infer",
+    "root:fer:conference"
+   ],
+   "taught": [
+    "infer",
+    "conference",
+    "fer",
+    "latin"
+   ],
+   "in": {
+    "root": "fer",
+    "words": [
+     "infer",
+     "conference"
+    ],
+    "tight": 1
+   }
+  },
+  {
+   "id": "t2a_roots_form_3",
+   "template": "roots",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "form:formula/information",
+   "hash": "4ce3c5f903cb",
+   "heads": [
+    "root:form:formula",
+    "root:form:information"
+   ],
+   "taught": [
+    "formula",
+    "information",
+    "form",
+    "latin"
+   ],
+   "in": {
+    "root": "form",
+    "words": [
+     "formula",
+     "information"
+    ],
+    "tight": 1
+   }
+  },
+  {
+   "id": "t2a_roots_mov_3",
+   "template": "roots",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "mov:mobile/motivate",
+   "hash": "fac3e0069dd4",
+   "heads": [
+    "root:mov:mobile",
+    "root:mov:motivate"
+   ],
+   "taught": [
+    "mobile",
+    "motivate",
+    "mov",
+    "latin"
+   ],
+   "in": {
+    "root": "mov",
+    "words": [
+     "mobile",
+     "motivate"
+    ],
+    "tight": 1
+   }
+  },
+  {
+   "id": "t2a_roots_lect_2",
+   "template": "roots",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "dictionary",
+   "point": "lect:legend/neglect",
+   "hash": "801d0e5797d6",
+   "heads": [
+    "root:lect:legend",
+    "root:lect:neglect"
+   ],
+   "taught": [
+    "legend",
+    "neglect",
+    "lect",
+    "latin"
+   ],
+   "in": {
+    "root": "lect",
+    "words": [
+     "legend",
+     "neglect"
+    ],
+    "tight": 1
+   }
+  },
+  {
+   "id": "t2a_band_technology_1",
+   "template": "band",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "writing-ielts",
+   "point": "band:technology",
+   "hash": "46b5b9bbe386",
+   "heads": [
+    "band:technology"
+   ],
+   "taught": [
+    "Technology",
+    "is",
+    "beneficial",
+    "because",
+    "it",
+    "eases",
+    "communication",
+    "Technology",
+    "transforms",
+    "communication",
+    "though",
+    "it",
+    "can",
+    "weaken",
+    "personal",
+    "ties"
+   ],
+   "in": {
+    "topic": "technology"
+   }
+  },
+  {
+   "id": "t2a_band_health_1",
+   "template": "band",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "writing-ielts",
+   "point": "band:health",
+   "hash": "1daeff0c720b",
+   "heads": [
+    "band:health"
+   ],
+   "taught": [
+    "Regular",
+    "exercise",
+    "improves",
+    "physical",
+    "and",
+    "mental",
+    "health",
+    "Exercise",
+    "strengthens",
+    "the",
+    "body",
+    "and",
+    "equally",
+    "steadies",
+    "the",
+    "mind"
+   ],
+   "in": {
+    "topic": "health"
+   }
+  },
+  {
+   "id": "t2a_band_cities_1",
+   "template": "band",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "writing-ielts",
+   "point": "band:cities",
+   "hash": "37b3e88e808a",
+   "heads": [
+    "band:cities"
+   ],
+   "taught": [
+    "Large",
+    "cities",
+    "face",
+    "serious",
+    "problems",
+    "such",
+    "as",
+    "pollution",
+    "Large",
+    "cities",
+    "face",
+    "serious",
+    "problems",
+    "yet",
+    "they",
+    "remain",
+    "hubs",
+    "of",
+    "opportunity"
+   ],
+   "in": {
+    "topic": "cities"
+   }
+  },
+  {
+   "id": "t2a_band_money_1",
+   "template": "band",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "speaking",
+   "point": "band:money",
+   "hash": "13d0b18b0085",
+   "heads": [
+    "band:money"
+   ],
+   "taught": [
+    "I",
+    "believe",
+    "money",
+    "matters",
+    "because",
+    "it",
+    "gives",
+    "people",
+    "security",
+    "Money",
+    "matters",
+    "though",
+    "it",
+    "rarely",
+    "buys",
+    "lasting",
+    "satisfaction"
+   ],
+   "in": {
+    "topic": "money"
+   }
+  },
+  {
+   "id": "t2a_band_travel_1",
+   "template": "band",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "speaking",
+   "point": "band:travel",
+   "hash": "bf136a7c864f",
+   "heads": [
+    "band:travel"
+   ],
+   "taught": [
+    "Travelling",
+    "is",
+    "enjoyable",
+    "and",
+    "broadens",
+    "your",
+    "horizons",
+    "Travel",
+    "broadens",
+    "the",
+    "mind",
+    "precisely",
+    "because",
+    "it",
+    "unsettles",
+    "assumptions"
+   ],
+   "in": {
+    "topic": "travel"
+   }
+  },
+  {
+   "id": "t2a_band_environment_1",
+   "template": "band",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "writing-ielts",
+   "point": "band:environment",
+   "hash": "79b2a629e548",
+   "heads": [
+    "band:environment"
+   ],
+   "taught": [
+    "Governments",
+    "should",
+    "take",
+    "action",
+    "to",
+    "protect",
+    "the",
+    "planet",
+    "Governments",
+    "must",
+    "act",
+    "now",
+    "otherwise",
+    "future",
+    "generations",
+    "will",
+    "pay"
+   ],
+   "in": {
+    "topic": "environment"
+   }
+  },
+  {
+   "id": "t2a_band_jobs_1",
+   "template": "band",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "speaking",
+   "point": "band:jobs",
+   "hash": "c9697074929d",
+   "heads": [
+    "band:jobs"
+   ],
+   "taught": [
+    "A",
+    "rewarding",
+    "job",
+    "gives",
+    "people",
+    "a",
+    "sense",
+    "of",
+    "purpose",
+    "A",
+    "rewarding",
+    "job",
+    "matters",
+    "less",
+    "for",
+    "its",
+    "salary",
+    "than",
+    "for",
+    "the",
+    "purpose",
+    "it",
+    "provides"
+   ],
+   "in": {
+    "topic": "jobs"
+   }
+  },
+  {
+   "id": "t2a_band_food_1",
+   "template": "band",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "writing-ielts",
+   "point": "band:food",
+   "hash": "b21579df5c89",
+   "heads": [
+    "band:food"
+   ],
+   "taught": [
+    "Fast",
+    "food",
+    "is",
+    "harmful",
+    "because",
+    "it",
+    "contains",
+    "too",
+    "much",
+    "sugar",
+    "Fast",
+    "food",
+    "is",
+    "harmful",
+    "but",
+    "banning",
+    "it",
+    "would",
+    "be",
+    "an",
+    "overreaction"
+   ],
+   "in": {
+    "topic": "food"
+   }
+  },
+  {
+   "id": "t2a_band_socialmedia_1",
+   "template": "band",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "writing-ielts",
+   "point": "band:social-media",
+   "hash": "033862b4a053",
+   "heads": [
+    "band:social-media"
+   ],
+   "taught": [
+    "Social",
+    "media",
+    "is",
+    "an",
+    "essential",
+    "part",
+    "of",
+    "daily",
+    "life",
+    "Social",
+    "media",
+    "is",
+    "so",
+    "essential",
+    "that",
+    "few",
+    "imagine",
+    "life",
+    "without",
+    "it"
+   ],
+   "in": {
+    "topic": "social-media"
+   }
+  },
+  {
+   "id": "t2a_band_climate_1",
+   "template": "band",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "writing-ielts",
+   "point": "band:climate",
+   "hash": "4cc8e8291fc9",
+   "heads": [
+    "band:climate"
+   ],
+   "taught": [
+    "Climate",
+    "change",
+    "is",
+    "a",
+    "pressing",
+    "issue",
+    "that",
+    "affects",
+    "everyone",
+    "Climate",
+    "change",
+    "is",
+    "a",
+    "pressing",
+    "issue",
+    "whose",
+    "consequences",
+    "no",
+    "country",
+    "can",
+    "escape"
+   ],
+   "in": {
+    "topic": "climate"
+   }
+  },
+  {
+   "id": "t2a_band_teamwork_1",
+   "template": "band",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "speaking",
+   "point": "band:teamwork",
+   "hash": "5afdb50bb622",
+   "heads": [
+    "band:teamwork"
+   ],
+   "taught": [
+    "Working",
+    "in",
+    "a",
+    "team",
+    "is",
+    "advantageous",
+    "because",
+    "ideas",
+    "are",
+    "shared",
+    "Teamwork",
+    "pays",
+    "off",
+    "when",
+    "people",
+    "combine",
+    "their",
+    "strengths",
+    "rather",
+    "than",
+    "compete"
+   ],
+   "in": {
+    "topic": "teamwork"
+   }
+  },
+  {
+   "id": "t2a_band_sleep_1",
+   "template": "band",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "speaking",
+   "point": "band:sleep",
+   "hash": "ce6a15d137fe",
+   "heads": [
+    "band:sleep"
+   ],
+   "taught": [
+    "Adequate",
+    "sleep",
+    "is",
+    "vital",
+    "for",
+    "students",
+    "concentration",
+    "Adequate",
+    "sleep",
+    "is",
+    "vital",
+    "since",
+    "tired",
+    "students",
+    "rarely",
+    "concentrate",
+    "or",
+    "remember",
+    "much"
+   ],
+   "in": {
+    "topic": "sleep"
+   }
+  },
+  {
+   "id": "t2a_band_reading_1",
+   "template": "band",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "speaking",
+   "point": "band:reading",
+   "hash": "9fb072abc5f0",
+   "heads": [
+    "band:reading"
+   ],
+   "taught": [
+    "Reading",
+    "is",
+    "rewarding",
+    "because",
+    "it",
+    "expands",
+    "your",
+    "vocabulary",
+    "Reading",
+    "widely",
+    "expands",
+    "vocabulary",
+    "and",
+    "sharpens",
+    "thinking"
+   ],
+   "in": {
+    "topic": "reading"
+   }
+  },
+  {
+   "id": "t2a_band_traffic_1",
+   "template": "band",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "writing-ielts",
+   "point": "band:traffic",
+   "hash": "7a45afed3a23",
+   "heads": [
+    "band:traffic"
+   ],
+   "taught": [
+    "Heavy",
+    "traffic",
+    "is",
+    "a",
+    "major",
+    "cause",
+    "of",
+    "pollution",
+    "Heavy",
+    "traffic",
+    "causes",
+    "pollution",
+    "so",
+    "public",
+    "transport",
+    "deserves",
+    "investment"
+   ],
+   "in": {
+    "topic": "traffic"
+   }
   }
  ]
 }

@@ -1,0 +1,173 @@
+{
+ "id": "t2a_roots_vert_2",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, two words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "The root is Vert! Invert, version.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Vert is Latin for turn.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Invert: into plus turn.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Version: a turn, one form of a thing.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means into plus turn?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Invert! Into plus turn.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "VERT",
+  "rid": "vert",
+  "say": "turn",
+  "src": "vertere",
+  "src_lang": "Latin",
+  "src_mean": "to turn",
+  "words": [
+   {
+    "w": "invert",
+    "ipa": "/ɪnˈvɜːrt/",
+    "mean": "turn inside out",
+    "seg": "in-|vert",
+    "parts": [
+     [
+      "in",
+      "pre"
+     ],
+     [
+      "vert",
+      "root"
+     ]
+    ],
+    "pre": "in",
+    "pm": "into",
+    "pms": "into",
+    "ex": "Invert the cake onto a plate once it has cooled.",
+    "em": ""
+   },
+   {
+    "w": "version",
+    "ipa": "/ˈvɜːrʒn/",
+    "mean": "a turn, one form of a thing",
+    "seg": "vers|-ion",
+    "parts": [
+     [
+      "vers",
+      "root"
+     ],
+     [
+      "ion",
+      "suf"
+     ]
+    ],
+    "pre": null,
+    "pm": null,
+    "pms": null,
+    "ex": "The new version of the app is much faster.",
+    "em": "🔢"
+   }
+  ],
+  "quiz": {
+   "stem": "into plus turn",
+   "options": [
+    "version",
+    "invert"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/invert",
+  "link": "https://lexkite.com/app/#/dict/invert",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, two words"
+ },
+ "src": {
+  "root": "vert"
+ },
+ "est": {
+  "words": 47,
+  "seconds": 28.0,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "Vert root: invert and version",
+  "keyword": "vert root",
+  "value": "Vert comes from Latin \"vertere\" (to turn). Words: invert and version. invert = in + vert.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/invert",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "Vert root: invert and version",
+    "description": "Vert comes from Latin \"vertere\" (to turn). Words: invert and version. invert = in + vert.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/invert\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "vert root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Vert root: invert and version\n\nVert comes from Latin \"vertere\" (to turn). Words: invert and version. invert = in + vert.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/invert"
+   },
+   "instagram": {
+    "caption": "Vert root: invert and version\n\nVert comes from Latin \"vertere\" (to turn). Words: invert and version. invert = in + vert.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Vert root: invert and version #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: Invert! Into plus turn. Vert comes from Latin \"vertere\" (to turn). Words: invert and version. invert = in + vert. Practice it with a free quiz: {link}"
+ }
+}

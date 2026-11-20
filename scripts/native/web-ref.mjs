@@ -21,7 +21,7 @@ export const DOC_KEYS = ['cards', 'deleted', 'stats', 'game', 'settings', 'setti
  * slim()/fat() depend on IELTS_DATA.INDEX: a card whose word is in these packs travels as L:1 without its library fields. */
 export const LEX_FILES = (() => {
   const app = src('web/js/bundles.js'), list = k => { const m = app.match(new RegExp(`\\b${k}: (\\[[^\\]]+\\])`)); if (!m) throw new Error('web-ref: App.need pack "' + k + '" not found in web/js/bundles.js'); return JSON.parse(m[1].replace(/'/g, '"')); };
-  return [...list('words'), ...list('tsl')].filter(f => f.startsWith('js/lib/')).map(f => 'web/' + f);
+  return [...list('words'), ...list('tsl')].filter(f => f.startsWith('js/lib/') || f.startsWith('cpack/lib/')).map(f => 'web/' + f);
 })();
 const noop = () => {};
 const tick = () => new Promise(r => setImmediate(r));
@@ -60,7 +60,7 @@ export async function webClient(opts = {}) {
     setTimeout: (fn, ms) => { if (ms === 1200 && !initT) { initT = fn; return 1; } return 0; }, clearTimeout: noop, setInterval: () => 0, clearInterval: noop, requestAnimationFrame: noop, scrollTo: noop, scrollY: 0,
     addEventListener: (ev, fn) => { (listeners[ev] ||= []).push(fn); }, removeEventListener: (ev, fn) => { listeners[ev] = (listeners[ev] || []).filter(f => f !== fn); },
     document: { hidden: false, addEventListener: noop, removeEventListener: noop, body: { contains: () => false }, querySelector: () => null, createElement: () => ({}), head: { appendChild: noop } },
-    t: s => s, I18N: { lang: () => 'vi' }, confirm: () => true,
+    t: s => s, I18N: { lang: () => 'vi' }, confirm: () => true, LXDialog: { confirm: async () => true, prompt: async () => null, alert() {} },
     UI: { $: () => null, esc: s => String(s), toast: noop, icon: () => '', modal: () => null, closeModal: noop },
     App: { state: {}, updateChrome: noop, load: async () => {}, route: noop, need: async () => {} },
     FIREBASE_CONFIG: { apiKey: 'test-only' }, LK_SYNC: { drive: true },

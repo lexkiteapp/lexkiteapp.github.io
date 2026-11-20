@@ -1,0 +1,173 @@
+{
+ "id": "t2a_roots_vert_1",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, two words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "The root is Vert! Convert, reverse.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Vert is Latin for turn.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Convert: together plus turn.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Reverse: back plus turn.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means back plus turn?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Reverse! Back plus turn.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "VERT",
+  "rid": "vert",
+  "say": "turn",
+  "src": "vertere",
+  "src_lang": "Latin",
+  "src_mean": "to turn",
+  "words": [
+   {
+    "w": "convert",
+    "ipa": "/kənˈvɜːrt/",
+    "mean": "turn completely, change",
+    "seg": "con-|vert",
+    "parts": [
+     [
+      "con",
+      "pre"
+     ],
+     [
+      "vert",
+      "root"
+     ]
+    ],
+    "pre": "con",
+    "pm": "together",
+    "pms": "together",
+    "ex": "We converted the garage into a small office.",
+    "em": "🔄"
+   },
+   {
+    "w": "reverse",
+    "ipa": "/rɪˈvɜːrs/",
+    "mean": "turn back",
+    "seg": "re-|verse",
+    "parts": [
+     [
+      "re",
+      "pre"
+     ],
+     [
+      "verse",
+      "root"
+     ]
+    ],
+    "pre": "re",
+    "pm": "back or again",
+    "pms": "back",
+    "ex": "The driver reversed the car into the parking space.",
+    "em": "🔄"
+   }
+  ],
+  "quiz": {
+   "stem": "back plus turn",
+   "options": [
+    "convert",
+    "reverse"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/convert",
+  "link": "https://lexkite.com/app/#/dict/convert",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, two words"
+ },
+ "src": {
+  "root": "vert"
+ },
+ "est": {
+  "words": 43,
+  "seconds": 26.0,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Vert root: convert and reverse",
+  "keyword": "vert root",
+  "value": "Vert comes from Latin \"vertere\" (to turn). Words: convert and reverse. convert = con + vert; reverse = re + verse.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/convert",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "Vert root: convert and reverse",
+    "description": "Vert comes from Latin \"vertere\" (to turn). Words: convert and reverse. convert = con + vert; reverse = re + verse.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/convert\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "vert root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Vert root: convert and reverse\n\nVert comes from Latin \"vertere\" (to turn). Words: convert and reverse. convert = con + vert; reverse = re + verse.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/convert"
+   },
+   "instagram": {
+    "caption": "Vert root: convert and reverse\n\nVert comes from Latin \"vertere\" (to turn). Words: convert and reverse. convert = con + vert; reverse = re + verse.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Vert root: convert and reverse #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: Reverse! Back plus turn. Vert comes from Latin \"vertere\" (to turn). Words: convert and reverse. convert = con + vert; reverse = re + verse. Try the full lesson and quiz here: {link}"
+ }
+}

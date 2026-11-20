@@ -11,6 +11,7 @@ import fs from 'node:fs';
 import { execFileSync, spawnSync } from 'node:child_process';
 import { loadContent } from './lib/content-load.mjs';
 import { loadAllPlus, key } from './lexicon/lib.mjs';
+import { auditBank } from './content-qa/bank-audit.mjs';
 
 const ARG = process.argv.slice(2), BUDGET = 'content/pipeline/score.budget.json', OUT = 'content/pipeline/SCORE.md';
 const rd = p => fs.readFileSync(p, 'utf8'), ex = p => fs.existsSync(p);
@@ -74,6 +75,11 @@ const VSTD = 20000; // kho đích 20k từ#loại (docs/CONTENT-WORLD-PLAN.md §
 // Chuẩn đề thi "đủ format + nhiều đề hoàn chỉnh" (≈ 20 đề IELTS, 10 TOEIC/TOEFL) – cố định, độc lập với targets.json
 const EXAM_STD = { 'IELTS Listening': 800, 'IELTS Reading AC': 800, 'IELTS Reading GT': 400, 'IELTS Writing Task 2': 200, 'IELTS Writing Task 1 Academic': 80,
   'TOEIC Listening': 1000, 'TOEIC Reading': 1000, 'TOEIC Speaking & Writing': 190, 'TOEFL Reading': 500, 'TOEFL Listening': 400, 'TOEFL Writing': 200, 'TOEFL Speaking': 300 };
+// ---------- Chất lượng đề (CONTENT-WORLD-PLAN §7, E0): chỉ số tất định của kho trắc nghiệm; qua giám khảo LLM = content/pipeline/bank-judge.json (CI bank-judge.yml) ----------
+const BA = auditBank(C).out, BN = Object.values(BA).reduce((a, x) => a + x.items, 0) || 1;
+const bavg = f => Object.values(BA).reduce((a, x) => a + x[f] * x.items, 0) / BN; // trung bình theo số câu
+const BJ = ex('content/pipeline/bank-judge.json') ? JSON.parse(rd('content/pipeline/bank-judge.json')) : null;
+const pen = (v, free, k) => Math.max(0, 100 - Math.max(0, v - free) * k); // ≤ free % = 100 điểm, mỗi % vượt trừ k điểm
 const AREAS = {
   vocab: { name: 'Kho từ', err: ERR.vocab, items: n('Từ vựng (mục)'), gate: lexOk, parts: [
     ['từ#loại duy nhất', NV, VSTD, 25], ['IPA·nghĩa·định nghĩa·ví dụ·CEFR', (has(1) + has(3) + has(4) + has(5) + has(8)) / 5 * NV, NV, 20],
@@ -98,6 +104,11 @@ const AREAS = {
   exam: { name: 'Đề thi', err: ERR.exam, parts: [
     ...Object.entries(EXAM_STD).map(([k, t]) => [k, S[k] ? n(k) : +T[k]?.have || 0, t, 5]), // loại chưa đếm trong content-check: số đếm tay ở targets.json (như content-queue)
     ...['a2', 'b1', 'b2', 'c1', 'c2'].map(l => [`Cambridge ${l.toUpperCase()}`, (C.CAMBRIDGE || []).filter(x => x.level === l && x.id === `${l}-t${x.n}`).length, 6, 8, 1])] }, // Cambridge: đề nạp được qua content-load (không đếm file rác); exam-format-check chặn đề lệch spec
+  quality: { name: 'Chất lượng đề', err: 0, items: BN, parts: [
+    ['đáp án cân bằng vị trí (lệch ≤ 3 %)', pen(bavg('posSkew'), 3, 5), 100, 15], ['đáp án đúng không lộ qua độ dài (≤ 10 %)', pen(bavg('longestIsAnswerPct'), 10, 2.5), 100, 20],
+    ['lời giải riêng từng câu (rập khuôn ≤ 2 %)', pen(bavg('templatedExplainPct') + bavg('duplicateExplainPct'), 2, 5), 100, 15],
+    ['không trùng câu / đáp án nhiễu trùng', pen(bavg('duplicateQuestionPct') + bavg('dupOptionPct') * 2, 0, 5), 100, 15],
+    ['qua giám khảo LLM (mẫu ≥ 1.500)', BJ?.passPct || 0, 100, 35, 1]] },
   // Chuẩn: ~600 mục tiêu (6 kỹ năng × 6 cấp × ≥ 15), mọi nội dung có lo; "mục tiêu có nội dung" đo khoảng trống thật (vd trung gian, A1, C2) – chỉ tăng khi thêm bài
   lkf: { name: 'Khung Can-do', err: LK.errors, items: LK.total.items, gate: lkfRun.status === 0, parts: [
     ['mục tiêu LKF tự soạn', LK.objectives, 600, 25], ['ô kỹ năng × cấp đủ ≥ 15', LK.cellsOk, 36, 15],

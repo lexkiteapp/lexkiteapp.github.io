@@ -1,0 +1,173 @@
+{
+ "id": "t2a_roots_rupt_1",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, two words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "The root is Rupt! Interrupt, corrupt.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Rupt is Latin for break.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Interrupt: between plus break.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Corrupt: together plus break.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means together plus break?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Corrupt! Together plus break.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "RUPT",
+  "rid": "rupt",
+  "say": "break",
+  "src": "rumpere",
+  "src_lang": "Latin",
+  "src_mean": "to break",
+  "words": [
+   {
+    "w": "interrupt",
+    "ipa": "/ˌɪntəˈrʌpt/",
+    "mean": "break between",
+    "seg": "inter-|rupt",
+    "parts": [
+     [
+      "inter",
+      "pre"
+     ],
+     [
+      "rupt",
+      "root"
+     ]
+    ],
+    "pre": "inter",
+    "pm": "between",
+    "pms": "between",
+    "ex": "Sorry to interrupt, but your client is here.",
+    "em": "✋"
+   },
+   {
+    "w": "corrupt",
+    "ipa": "/kəˈrʌpt/",
+    "mean": "break completely",
+    "seg": "cor-|rupt",
+    "parts": [
+     [
+      "cor",
+      "pre"
+     ],
+     [
+      "rupt",
+      "root"
+     ]
+    ],
+    "pre": "cor",
+    "pm": "together",
+    "pms": "together",
+    "ex": "The corrupt official was removed from his job.",
+    "em": ""
+   }
+  ],
+  "quiz": {
+   "stem": "together plus break",
+   "options": [
+    "interrupt",
+    "corrupt"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/interrupt",
+  "link": "https://lexkite.com/app/#/dict/interrupt",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, two words"
+ },
+ "src": {
+  "root": "rupt"
+ },
+ "est": {
+  "words": 43,
+  "seconds": 26.0,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Rupt root: interrupt and corrupt",
+  "keyword": "rupt root",
+  "value": "Rupt comes from Latin \"rumpere\" (to break). Words: interrupt and corrupt. interrupt = inter + rupt; corrupt = cor + rupt.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/interrupt",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "Rupt root: interrupt and corrupt",
+    "description": "Rupt comes from Latin \"rumpere\" (to break). Words: interrupt and corrupt. interrupt = inter + rupt; corrupt = cor + rupt.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/interrupt\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "rupt root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Rupt root: interrupt and corrupt\n\nRupt comes from Latin \"rumpere\" (to break). Words: interrupt and corrupt. interrupt = inter + rupt; corrupt = cor + rupt.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/interrupt"
+   },
+   "instagram": {
+    "caption": "Rupt root: interrupt and corrupt\n\nRupt comes from Latin \"rumpere\" (to break). Words: interrupt and corrupt. interrupt = inter + rupt; corrupt = cor + rupt.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Rupt root: interrupt and corrupt #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: Corrupt! Together plus break. Rupt comes from Latin \"rumpere\" (to break). Words: interrupt and corrupt. interrupt = inter + rupt; corrupt = cor + rupt. Practice it with a free quiz: {link}"
+ }
+}

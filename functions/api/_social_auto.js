@@ -11,8 +11,8 @@
 import { setupMgr, boardSync, contentHash, pushClip, bodyFor, PLAT, platOf, healthOf, validateCompose, boardStateOf } from './_social_mgr.js';
 import { setupDist, DIST, clipOf, socialSetup, socialChannels } from './distribution.js';
 import { previewClip, pickPreviewClip, PREVIEW_CLIP_RE } from './_social_preview.js';
-import { foreignAccount, pausedAccount, extAccount } from './_distribution.js';
-import { setup as ytSetup } from './youtube.js';
+import { foreignAccount, pausedAccount, extAccount, localDate, LANG_TZ, langOfChannel, dayCapOf, gapOf } from './_distribution.js';
+import { setup as ytSetup, chanCfg } from './youtube.js';
 import { field } from './_clip_logic.js';
 import { gcClient, gcConfigured } from './_grabcast.js';
 import { manifest, signed } from './admin-shorts.js';
@@ -67,6 +67,31 @@ export const canAutoApprove = (cfg, p, manual) => !!cfg.auto_approve && !!cfg.au
 export function pickDue(rows, cfg, now) {
   const lo = now + cfg.lead_min * 60e3, hi = now + cfg.lookahead_h * 36e5;
   return (rows || []).filter(r => cfg.plats[r.platform] && r.account_id && r.slot_ms >= lo && r.slot_ms <= hi).sort((a, b) => a.slot_ms - b.slot_ms);
+}
+/** Trần bài/kênh/ngày THEO LOẠI KÊNH (chủ 18/11): kênh chính (tiếng Anh) 2–3, giãn ≥ 4 giờ; kênh bản ngữ 1 – đọc từ cấu hình kênh (dayCapOf/gapOf, một nguồn), múi giờ kênh.
+ *  Bài ĐÃ đăng/gửi GrabCast giữ nguyên; bài 'planned' vượt trần → dời sang ngày trống gần nhất của CHÍNH kênh đó (giữ giờ trong ngày, cách bài khác ≥ gap, không xóa clip).
+ *  Trả số bài đã dời. Chỉ D1, 0 lượt GrabCast. capOver: chỉ test. */
+export async function rebalanceDays(db, now, capOver = 0, horizonDays = 120, stop = () => false) {
+  const rows = await all(db, 'SELECT s.clip, s.channel_id, s.slot_ms, s.state, e.title FROM dist_social s LEFT JOIN dist_ext e ON e.channel_id = s.channel_id WHERE s.slot_ms > ? AND s.slot_ms IS NOT NULL ORDER BY s.slot_ms', now - 36e5 * 36);
+  const by = new Map(); for (const r of rows) (by.get(r.channel_id) || by.set(r.channel_id, []).get(r.channel_id)).push(r);
+  let moved = 0;
+  for (const [ch, list] of by) {
+    if (stop()) break; // hết ngân sách thời gian lượt: phần còn lại để lượt sau (không 524)
+    const x = (await chanCfg(db, ch).catch(() => ({ cfg: {} }))).cfg, auto = langOfChannel(list[0].title || ''), lang = (x.lang || auto || '').toLowerCase();
+    const cap = capOver || dayCapOf(lang, x.daily_cap), gap = capOver ? 0 : gapOf(lang, x.min_gap_min) * 6e4, tz = (x.tz && x.tz !== 'America/New_York' ? x.tz : LANG_TZ[lang || 'en']) || 'America/New_York';
+    const day = ms => localDate(ms, tz), cnt = {}, times = list.filter(r => r.state !== 'planned').map(r => r.slot_ms), fixed = r => r.state !== 'planned'; // đã gửi/đăng/lỗi: không đụng
+    for (const r of list) if (fixed(r)) cnt[day(r.slot_ms)] = (cnt[day(r.slot_ms)] || 0) + 1;
+    for (const r of list) {
+      if (fixed(r) || r.slot_ms < now) continue;
+      const d = day(r.slot_ms), clash = ms => times.some(t => Math.abs(t - ms) < gap);
+      if ((cnt[d] || 0) < cap && !clash(r.slot_ms)) { cnt[d] = (cnt[d] || 0) + 1; times.push(r.slot_ms); continue; }
+      let ms = r.slot_ms, k = 0; do { ms += 864e5; k++; } while (k <= horizonDays && ((cnt[day(ms)] || 0) >= cap || clash(ms)));
+      if (k > horizonDays) continue;
+      await run(db, "UPDATE dist_social SET slot_ms = ?, updated = ? WHERE clip = ? AND channel_id = ? AND state = 'planned'", ms, now, r.clip, r.channel_id);
+      times.push(ms); cnt[day(ms)] = (cnt[day(ms)] || 0) + 1; moved++;
+    }
+  }
+  return moved;
 }
 const hex = async s => [...new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(s)))].map(b => b.toString(16).padStart(2, '0')).join('');
 /** Idempotency-Key ổn định theo clip + kênh + bước ('c' tạo bài · 's' lên lịch) – chạy lại/CI trùng lượt không tạo bài thứ 2. */
@@ -167,9 +192,16 @@ export function pushAlert(st, k, text, now) {
 export const LEDGER_GAP_MS = 4 * 36e5;
 /** Ngày theo giờ VN (UTC+7) – chủ 16/11: "1 video/kênh/ngày" (HARD). Chỉ HẠ được trần này, không nâng khi chưa có chủ OK. */
 export const ledgerDay = ms => new Date(ms + 7 * 36e5).toISOString().slice(0, 10);
-export async function claimLedger(db, channel_id, clip, at_ms, now = Date.now()) {
-  const g = LEDGER_GAP_MS, day = ledgerDay(at_ms);
-  await run(db, 'INSERT INTO soc_ledger (channel_id, clip, at_ms, day, created) SELECT ?, ?, ?, ?, ? WHERE NOT EXISTS (SELECT 1 FROM soc_ledger WHERE channel_id = ? AND clip != ? AND ((at_ms > ? AND at_ms < ?) OR day = ?)) ON CONFLICT(channel_id, clip) DO NOTHING', channel_id, clip, at_ms, day, now, channel_id, clip, at_ms - g, at_ms + g, day);
+/** Luật sổ cái của kênh: trần/ngày + giãn cách + múi giờ – MỘT nguồn với rebalanceDays (dayCapOf/gapOf/LANG_TZ): kênh chính 2–3/ngày ≥ 4 giờ, kênh bản ngữ 1/ngày. Lỗi đọc cấu hình → 1/ngày (an toàn). */
+export async function ledgerRule(db, channel_id) {
+  try {
+    const t = await one(db, 'SELECT title FROM dist_ext WHERE channel_id = ?', channel_id), x = (await chanCfg(db, channel_id).catch(() => ({ cfg: {} }))).cfg || {}, lang = (x.lang || langOfChannel((t && t.title) || '') || '').toLowerCase();
+    return { cap: Math.max(1, dayCapOf(lang, x.daily_cap)), gap: Math.max(LEDGER_GAP_MS, gapOf(lang, x.min_gap_min) * 6e4), tz: (x.tz && x.tz !== 'America/New_York' ? x.tz : LANG_TZ[lang || 'en']) || 'America/New_York' };
+  } catch (e) { return { cap: 1, gap: LEDGER_GAP_MS, tz: 'Asia/Ho_Chi_Minh' }; }
+}
+export async function claimLedger(db, channel_id, clip, at_ms, now = Date.now(), rule = null) {
+  const r = rule || { cap: 1, gap: LEDGER_GAP_MS, tz: 'Asia/Ho_Chi_Minh' }, day = r.tz === 'Asia/Ho_Chi_Minh' ? ledgerDay(at_ms) : localDate(at_ms, r.tz);
+  await run(db, 'INSERT INTO soc_ledger (channel_id, clip, at_ms, day, created) SELECT ?, ?, ?, ?, ? WHERE NOT EXISTS (SELECT 1 FROM soc_ledger WHERE channel_id = ? AND clip != ? AND at_ms > ? AND at_ms < ?) AND (SELECT COUNT(*) FROM soc_ledger WHERE channel_id = ? AND clip != ? AND day = ?) < ? ON CONFLICT(channel_id, clip) DO NOTHING', channel_id, clip, at_ms, day, now, channel_id, clip, at_ms - r.gap, at_ms + r.gap, channel_id, clip, day, r.cap);
   return !!(await one(db, 'SELECT 1 AS x FROM soc_ledger WHERE channel_id = ? AND clip = ?', channel_id, clip));
 }
 export const releaseLedger = (db, channel_id, clip) => run(db, 'DELETE FROM soc_ledger WHERE channel_id = ? AND clip = ?', channel_id, clip).catch(() => {});
@@ -277,6 +309,17 @@ export async function autoQueue(env, db, cfg, now, max = 30) {
   }
   return n;
 }
+/** Máy gác tự lấp (20/11, social-coverage đỏ 3 ngày không ai chạm): duyệt thêm clip QC-pass từ kho (≤ 150, gấp 5 lượt thường) + xếp lịch + dồn ngày – chỉ D1, 0 lượt GrabCast.
+ *  → { queued, planned, rebalanced, skipped:{lý do:n} } (skipped no-channel/no-slot/duplicate cho biết ngôn ngữ nào HẾT clip bản ngữ → cần dựng thêm). */
+export async function autoFill(env, now = Date.now()) {
+  const db = env.DB; await setupMgr(db); await setupDist(db); await setupLock(db, env); await ytSetup(db); T0 = Date.now();
+  const cfg = await loadAuto(db), out = { queued: 0, planned: 0, rebalanced: 0, skipped: {} };
+  if (!cfg.on) return { ...out, off: true };
+  out.queued = await autoQueue(env, db, cfg, now, 150).catch(() => 0);
+  const p = await DIST.plan_run(db, {}, env); out.planned = (p && p.social) || 0; for (const x of (p && p.skipped) || []) out.skipped[x.why] = (out.skipped[x.why] || 0) + 1;
+  out.rebalanced = await rebalanceDays(db, now, 0, 120, outOfTime).catch(() => 0);
+  return out;
+}
 /** Sức khỏe cả chuỗi (CI xanh mà không đăng được gì là mù): kênh đã nối? có clip đã duyệt? có lịch sắp tới? → cảnh báo + rec.health. Chỉ đọc theo khóa/chỉ mục, LIMIT 1. */
 export async function chainHealth(db, cfg, now) {
   const has = async (sql, ...a) => !!(await one(db, sql, ...a).catch(() => null));
@@ -311,7 +354,9 @@ export const metaLeft = (st, cfg, now) => Math.max(0, cfg.meta_daily - (((st.met
 /** Một lượt autopilot. → bản ghi lượt (cũng lưu ở soc_meta 'auto_state'.last_run). */
 export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = fetch, origin = 'https://lexkite.com/api/social-auto', force_sync = false, sleep = ms => new Promise(r => setTimeout(r, ms)) } = {}) {
   const db = env.DB; await setupMgr(db); await setupDist(db); await setupLock(db, env);
+  T0 = Date.now(); // ĐỒNG HỒ NGÂN SÁCH THỜI GIAN MỖI LƯỢT: trước đây chỉ autoStatus đặt T0 → isolate sống >60 giây thì outOfTime() luôn true, mọi vòng đăng dừng ngay (24h không bài nào, 19–20/11)
   const cfg = await loadAuto(db), st = await getMeta(db, 'auto_state', {});
+  const dayCap = +env.SOCIAL_DAY_CAP || 0; // chỉ test đặt biến này; production: trần theo loại kênh (cấu hình kênh)
   const rec = { at: now, src, due: 0, created: 0, scheduled: 0, review: 0, skipped: [], calls: 0, stop: null, synced: null, provider: null, meta: { calls: 0, posted: 0, scheduled: 0, containers: 0, stop: null }, alerts: [], fc: { attached: 0, posted: 0, skipped: [] } };
   const save = async () => {
     const today = dayOf(now), calls = st.calls && st.calls.day === today ? +st.calls.n || 0 : 0;
@@ -324,9 +369,9 @@ export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = f
   };
   if (!cfg.on) { rec.stop = 'off'; return save(); }
   { const yc = await all(db, "SELECT channel_id FROM dist_ext WHERE platform = 'youtube' AND status = 'ok' LIMIT 5").catch(() => []); if (ytViaGc(cfg, yc)) { Object.assign(cfg, effPlats(cfg, yc)); rec.yt_via_gc = 1; } }
-  const planNow = async () => { try { await ytSetup(db); await run(db, "DELETE FROM dist_social WHERE state = 'planned' AND source = 'auto' AND slot_ms BETWEEN ? AND ?", now - 90 * 864e5, now - MAX_LATE_MS); const p = await DIST.plan_run(db, {}, env); st.last_plan = now; rec.planned = (p && p.social) || 0; } catch (e) { rec.skipped.push({ why: 'plan-error', err: String(e && e.message).slice(0, 120) }); } }; // chỉ D1, 0 lượt GrabCast. Slot đã lỡ quá 12 giờ (GrabCast sập, lịch CI trễ) → xóa để xếp lại, không kẹt 'planned' mãi
+  const planNow = async () => { try { await ytSetup(db); await run(db, "DELETE FROM dist_social WHERE state = 'planned' AND source = 'auto' AND slot_ms BETWEEN ? AND ?", now - 90 * 864e5, now - MAX_LATE_MS); rec.rebalanced = (rec.rebalanced || 0) + await rebalanceDays(db, now, dayCap, 120, outOfTime); const p = await DIST.plan_run(db, {}, env); rec.rebalanced += await rebalanceDays(db, now, dayCap, 120, outOfTime); st.last_plan = now; rec.planned = (p && p.social) || 0; } catch (e) { rec.skipped.push({ why: 'plan-error', err: String(e && e.message).slice(0, 120) }); } }; // chỉ D1, 0 lượt GrabCast. Slot đã lỡ quá 12 giờ (GrabCast sập, lịch CI trễ) → xóa để xếp lại, không kẹt 'planned' mãi
   const queuedNew = await ytSetup(db).then(() => autoQueue(env, db, cfg, now)).catch(() => { rec.skipped.push({ why: 'auto-queue-error' }); return 0; }); rec.auto_queued = queuedNew;
-  if (cfg.plan_daily && (queuedNew || now - (+st.last_plan || 0) > 20 * 36e5)) await planNow();
+  if (cfg.plan_daily && !outOfTime() && (queuedNew || now - (+st.last_plan || 0) > 20 * 36e5)) await planNow();
 
   /** Bình luận đầu qua GrabCast (§6c): nội dung sản xuất + link đếm click; gắn vào target options.first_comment (1 lệnh tạo bài – không có lệnh thứ 2 nên không thể đăng trùng,
    *  nội dung nằm trong dấu băm duyệt). Chỉ khi: công tắc fc bật · kênh GrabCast báo capabilities.first_comment · còn hạn mức kênh/ngày. → { text, why } */
@@ -444,7 +489,8 @@ export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = f
       st.last_sync = { at: now, posts: ((pr.data && pr.data.posts) || []).length, published: pub, channels: accs.length }; rec.synced = st.last_sync;
       if (accs.length > hadCh) { const q = await autoQueue(env, db, cfg, now).catch(() => 0); rec.auto_queued = (rec.auto_queued || 0) + q; if (cfg.plan_daily) await planNow(); } // vừa nối kênh mới → duyệt clip đạt QC + xếp lịch ngay, không đợi hôm sau
     }
-    // 2) Bài đến hạn
+    // 2) Bài đến hạn (trước đó: trần cứng 1 bài/kênh/ngày – dời bài dư sang ngày trống của kênh)
+    try { rec.rebalanced = (rec.rebalanced || 0) + await rebalanceDays(db, now, dayCap, 120, outOfTime); } catch (e) { rec.skipped.push({ why: 'rebalance-error', err: String(e && e.message).slice(0, 120) }); }
     const due = pickDue((await DIST.social_due(db, { from: now + cfg.lead_min * 60e3, to: now + cfg.lookahead_h * 36e5 }, env)).rows, cfg, now).filter(r => !skipPlats.includes(r.platform));
     rec.due = due.length;
     const manual = cfg.auto_approve ? await manualCounts(db) : {}, manualFc = cfg.auto_approve ? await manualCounts(db, { fc: true }) : {};
@@ -634,7 +680,7 @@ export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = f
       const step = metaStep({ platform: r.platform, slot_ms: r.slot_ms, lock, gcScheduledUnreachable: gcSchedUnreach }, now);
       if (step === 'done' || step === 'wait') { if (step === 'wait') rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'meta-wait' }); continue; }
       if (step === 'too-late') { await setLock(db, r.clip, r.channel_id, { state: 'skipped', err: 'too-late' }); rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'too-late' }); continue; }
-      if (['fb', 'ig-container'].includes(step) && !(await claimLedger(db, r.channel_id, r.clip, Math.max(r.slot_ms, now)))) { rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'ledger-gap' }); continue; } // bài trễ không dồn một lúc
+      if (['fb', 'ig-container'].includes(step) && !(await claimLedger(db, r.channel_id, r.clip, Math.max(r.slot_ms, now), now, await ledgerRule(db, r.channel_id)))) { rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'ledger-gap' }); continue; } // bài trễ không dồn một lúc
       const C = await chan(r.channel_id).catch(e => { if (e.metaStop && e.ch) { dead.add(e.ch); return null; } throw e; });
       if (!C) { rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'meta-channel-paused' }); continue; }
       const mc = C.mc, mErr = C.err, tgt = C.m.target_id;
@@ -729,7 +775,7 @@ async function approveAndSchedule(db, call, bid, pid, r, rec) {
   const g = await call('GET', 'posts/' + pid); if (g.status >= 400) { rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'get-' + (g.code || g.status) }); return; }
   const at = new Date(r.slot_ms).toISOString(), chk = await call('POST', 'validate', { post_id: pid, scheduled_at: at }); // 200 cả khi có lỗi; warning không chặn. Không gọi TikTok: đạt vẫn có thể failed lúc đăng
   if (chk.status >= 400 || (chk.data && chk.data.ok === false)) { const why = 'validate:' + (chk.status >= 400 ? (chk.code || chk.status) : (problemCodes(chk.data.targets) || 'not-ok')); await run(db, 'UPDATE soc_board SET err = ?, updated = ? WHERE id = ?', why.slice(0, 200), Date.now(), bid); rec.skipped.push({ clip: r.clip, ch: r.channel_id, why }); return; }
-  if (!(await claimLedger(db, r.channel_id, r.clip, r.slot_ms))) { rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'ledger-gap' }); return; } // ≥ 4 giờ giữa 2 bài cùng kênh; bị chặn thì lượt sau thử lại
+  if (!(await claimLedger(db, r.channel_id, r.clip, r.slot_ms, Date.now(), await ledgerRule(db, r.channel_id)))) { rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'ledger-gap' }); return; } // ≥ 4 giờ giữa 2 bài cùng kênh; bị chặn thì lượt sau thử lại
   const hash = await contentHash(g.data), t = Date.now();
   await run(db, "UPDATE soc_board SET state = 'approved', hash = ?, approved_by = ?, approved_at = ?, err = NULL, updated = ? WHERE id = ?", hash, AUTO_WHO, t, t, bid);
   let s; try { s = await call('POST', `posts/${pid}/schedule`, { scheduled_at: at, consent: true }); } // schedule không dùng Idempotency-Key: gọi lặp chỉ nhận 409 not_draft, không tạo bản thứ 2

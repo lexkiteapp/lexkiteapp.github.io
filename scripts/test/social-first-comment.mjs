@@ -111,7 +111,7 @@ globalThis.fetch = async (url, init = {}) => {
   m = /^posts\/([^/]+)\/schedule$/.exec(p); if (m) { if (GC.posts[m[1]].status !== 'draft') return J({ error: 'not_draft' }, 409); Object.assign(GC.posts[m[1]], { status: 'scheduled', scheduled_at: JSON.parse(init.body).scheduled_at }); return J({ post: GC.posts[m[1]] }); }
   return J({});
 };
-const ENV = { DB, GRABCAST_API_KEY: 'gk_live_SECRET_auto_123456', SHORTS_READ_TOKEN: 'ro', LEXKITE_DRIVE_CLI_KEY: 'cli-key-for-tests-0123456789abcdef' };
+const ENV = { DB, SOCIAL_DAY_CAP: '9', GRABCAST_API_KEY: 'gk_live_SECRET_auto_123456', SHORTS_READ_TOKEN: 'ro', LEXKITE_DRIVE_CLI_KEY: 'cli-key-for-tests-0123456789abcdef' };
 await MGR.setupMgr(DB);
 sql.exec('CREATE TABLE yt_queue (clip TEXT PRIMARY KEY, lesson TEXT, status TEXT, privacy TEXT, publish_at TEXT, approved_by TEXT, approved_at INTEGER, video_id TEXT, upload_url TEXT, session_at INTEGER, attempts INTEGER DEFAULT 0, err TEXT, updated INTEGER, thumb INTEGER, title TEXT, channel_id TEXT); CREATE TABLE clip_review (clip TEXT PRIMARY KEY, state TEXT, deleted INTEGER, web INTEGER)');
 for (const c of [CA, CB, CC]) sql.prepare("INSERT INTO yt_queue (clip, status) VALUES (?, 'manual')").run(c);

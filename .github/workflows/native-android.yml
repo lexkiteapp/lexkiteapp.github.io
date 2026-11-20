@@ -28,6 +28,12 @@ jobs:
         run: node scripts/native/gen.mjs --check
       - uses: actions/setup-java@v4
         with: { distribution: temurin, java-version: 21 }
+      # 20/11 (#1543: 14/185 test đỏ 'Failed to fetch maven artifact org.robolectric:android-all-instrumented' – lỗi tải mạng, không phải mã): Robolectric tải android-all (~100 MB) từ Maven Central MỖI lượt → cache ~/.m2/repository/org/robolectric (chỉ lưu khi job xanh); báo cáo Gradle đã nằm trong artifact native-android-snapshots (build/reports/tests).
+      - uses: actions/cache@v4
+        with:
+          path: ~/.m2/repository/org/robolectric
+          key: robolectric-${{ runner.os }}-${{ hashFiles('native/android/**/*.gradle*', 'native/android/gradle/libs.versions.toml') }}
+          restore-keys: robolectric-${{ runner.os }}-
       - uses: gradle/actions/setup-gradle@v4
         with: { gradle-version: '8.14.3' }
       - name: Test (chuẩn + snapshot)

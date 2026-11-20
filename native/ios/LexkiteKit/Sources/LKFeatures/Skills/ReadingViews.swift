@@ -333,12 +333,13 @@ struct ReaderView: View {
         VStack(alignment: .leading, spacing: LKSpacing.spaceXs) {
             Text(t(.skillReadToSang)).studyText(LKType.labelBadge, LKColor.onSurfaceVariant)
             FlowLayout {
-                ForEach(ReadingRules.highlightKeys, id: \.self) { k in
+                let painted = model.page.painted(on: Set(ReadingRules.highlightKeys.filter(model.isOn)))
+                ForEach(ReadingRules.highlightKeys.filter(model.page.available), id: \.self) { k in
                     let on = model.isOn(k)
                     Button { Task { await model.toggle(k) } } label: {
                         HStack(spacing: 4) {
                             Image(systemName: on ? "checkmark.circle.fill" : "circle").accessibilityHidden(true)
-                            Text(verbatim: Self.chipLabel(k, t) + " " + String(model.page.counts[k] ?? 0)).fixedSize(horizontal: false, vertical: true)
+                            Text(verbatim: Self.chipLabel(k, t) + " " + String(painted[k] ?? 0)).fixedSize(horizontal: false, vertical: true)
                         }
                         .studyText(LKType.labelMetric, on ? LKColor.onSecondary : LKColor.onSurface)
                         .padding(.horizontal, LKSpacing.spaceSm).frame(minHeight: 44)

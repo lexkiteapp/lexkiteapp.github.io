@@ -6,7 +6,7 @@ function fakeDb(rows) {
   const db = { trips: 0, batches: 0, prepare(sql) { const st = { sql, bind() { return st; }, async all() { db.trips++; return { results: /yt_chan_cfg/.test(sql) ? rows : [] }; }, async first() { db.trips++; return null; }, async run() { db.trips++; return {}; } }; return st; }, async batch(list) { db.trips++; db.batches++; return list.map(() => ({ results: [] })); } };
   return db;
 }
-const rows = Array.from({ length: 30 }, (_, i) => ({ channel_id: 'UC' + i, cfg: JSON.stringify({ daily_cap: 1 }), paused_reason: i === 3 ? 'forbidden' : '' }));
+const rows = Array.from({ length: 30 }, (_, i) => ({ channel_id: 'UC' + i, cfg: JSON.stringify({ daily_cap: 1, lang: 'vi' }), paused_reason: i === 3 ? 'forbidden' : '' }));
 const db = fakeDb(rows), m = await chanCfgs(db);
 ok(db.trips === 1, 'all 30 channel configs read in ONE round trip (got ' + db.trips + ')');
 ok(m.size === 30 && m.get('UC3').paused_reason === 'forbidden' && m.get('UC0').cfg.daily_cap === 1, 'configs parsed and normalised per channel');

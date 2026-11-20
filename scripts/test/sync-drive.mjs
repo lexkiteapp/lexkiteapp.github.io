@@ -100,7 +100,7 @@ async function device(uid, disk, { drive: on = true, cfg = {} } = {}) {
   w.UI = { icon: n => `<svg data-i="${n}"></svg>`, addIcons: () => {}, glyph: e => e, $: s => w.document.querySelector(s), esc: s => String(s), toast: () => {}, modal: () => w.document.getElementById('modalBox'), closeModal: () => {} };
   w.App = { state: { cards: {} }, updateChrome: () => {}, load: async () => {}, route: () => {}, need: async () => {} };
   w.FIREBASE_CONFIG = { apiKey: 'test' };
-  w.confirm = () => true; w.scrollTo = () => {};
+  w.confirm = () => true; w.scrollTo = () => {};;Object.defineProperty(w,'LXDialog',{configurable:true,get:()=>({confirm:async m=>w.confirm(m),prompt:async(m,d)=>w.prompt(m,d),alert:async m=>w.alert(m)})}); // cầu nối: test vẫn giả hộp thoại bằng w.confirm/prompt/alert
   let authCb = null; const token = await idTok(uid);
   const stat = { popups: [], scopes: [] };
   const user = { uid, email: uid + '@x.y', displayName: uid, providerData: [{ providerId: 'google.com' }], getIdToken: async () => token,

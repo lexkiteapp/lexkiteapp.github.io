@@ -246,7 +246,7 @@
     $('#lQs').addEventListener('input', syncProg); $('#lQs').addEventListener('change', syncProg);
     $('#lSubmit').onclick = async () => {
       if (submitted) return;
-      if (player.playing && exam && !confirm(t('Bài nghe chưa phát xong. Vẫn nộp bài?'))) return;
+      if (player.playing && exam && !await LXDialog.confirm(t('Bài nghe chưa phát xong. Vẫn nộp bài?'))) return;
       submitted = true; player.stop();
       const res = collect(p, $('#lQs')); lastRes = res;
       const nums = Object.keys(res).map(Number).sort((a, b) => a - b);
@@ -320,8 +320,8 @@
         setTimeout(() => { const b = $('#tNext'); if (b) { b.disabled = false; $('#tNextWhy')?.remove(); } }, 20000); // cho phép đi tiếp nếu giọng đọc lỗi
       };
       $('#tSkip').onclick = start;
-      $('#tNext').onclick = () => {
-        if (player && player.playing && !confirm(t('Phần nghe chưa phát xong. Vẫn chuyển tiếp?'))) return;
+      $('#tNext').onclick = async () => {
+        if (player && player.playing && !await LXDialog.confirm(t('Phần nghe chưa phát xong. Vẫn chuyển tiếp?'))) return;
         if (player) player.stop();
         Object.assign(results, Object.fromEntries(Object.entries(collect(p, $('#lQs'))).map(([q, r]) => [q, { ...r, pid: p.id }])));
         if (k < parts.length - 1) { part(k + 1); window.scrollTo({ top: 0 }); } else finish();
@@ -386,9 +386,9 @@
       const l = lines[k], words = toks(l.t);
       const H = mode === 'full' ? null : holes(words, mode === 'hard' ? 0.65 : 0.35);
       const body = mode === 'full' ? `<textarea id="dIn" rows="3" class="dict-in" placeholder="${t('Gõ lại cả câu bạn nghe được… (Enter để kiểm tra)')}" spellcheck="false"></textarea>`
-        : `<div class="dict-line">${words.map((w, i) => { if (!H.has(i)) return `<span>${esc(w)}</span>`; const m = w.match(/^([^A-Za-z0-9]*)(.*?)([^A-Za-z0-9%']*)$/); return `${esc(m[1])}<input class="dict-h" data-i="${i}" size="${Math.max(3, m[2].length)}" autocomplete="off" spellcheck="false" autocapitalize="off">${esc(m[3])}`; }).join(' ')}</div>`;
+        : `<div class="dict-line">${words.map((w, i) => { if (!H.has(i)) return `<span>${esc(w)}</span>`; const m = w.match(/^([^A-Za-z0-9]*)(.*?)([^A-Za-z0-9%']*)$/); return `${esc(m[1])}<input class="dict-h" data-i="${i}" placeholder="…" aria-label="${t('Điền từ còn thiếu')}" size="${Math.max(3, m[2].length)}" autocomplete="off" spellcheck="false" autocapitalize="off">${esc(m[3])}`; }).join(' ')}</div>`;
       view.innerHTML = `<div class="study-wrap"><div class="study-top"><a class="icon-btn" href="#/listening">✕</a><div class="progress"><i style="width:${k / lines.length * 100}%"></i></div><span class="small muted">${k + 1}/${lines.length}</span></div>
-        <div class="card q-card"><div class="row between"><span class="tiny muted">${UI.icon('keyboard')} ${t('Chép chính tả')} · ${esc(p.title)} · ${esc((p.speakers[l.s] || {}).name || '')}</span>
+        <div class="card q-card"><div class="row between"><label class="tiny muted" for="dMode">${UI.icon('keyboard')} ${t('Chép chính tả')} · ${esc(p.title)} · ${esc((p.speakers[l.s] || {}).name || '')}</label>
           <select class="input" id="dMode" style="width:auto;padding:.3rem .5rem;font-size:.85rem"><option value="mid" ${mode === 'mid' ? 'selected' : ''}>${t('Điền từ (trung bình)')}</option><option value="hard" ${mode === 'hard' ? 'selected' : ''}>${t('Điền từ (khó)')}</option><option value="full" ${mode === 'full' ? 'selected' : ''}>${t('Chép cả câu')}</option></select></div>
           <div class="row center" style="margin:1rem 0"><button class="btn" id="dPrev" title="${t('Câu trước')} (Shift+←)">‹ ${t('Câu trước')}</button><button class="btn primary lg" id="dPlay" title="${t('Nghe lại')} (\\)">🔊 ${t('Nghe')}</button><button class="btn" id="dSlow">🐢</button><button class="btn" id="dNext" title="${t('Câu sau')} (Shift+→)">${t('Câu sau')} ›</button></div>
           ${body}
