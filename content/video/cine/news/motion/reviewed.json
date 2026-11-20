@@ -10,7 +10,7 @@
    "script": {
     "h": "Fill the blank.",
     "q": "Please concentrate blank the lesson.",
-    "o": "on, or in?",
+    "o": "Is it on, or in?",
     "a": "on! Concentrate takes on.",
     "w": "Focus on works the same way!",
     "sh": "Send this to a friend who's learning English!",
@@ -1371,9 +1371,9 @@
    "script": {
     "h": "Wait… what did she say?",
     "s0": "In class.",
-    "s1": "For homework, read pages forty to fifty-two.",
+    "s1": "For homework, read the next chapter.",
     "s2": "Sorry, could you say that again, please?",
-    "s3": "Of course! Pages forty to fifty-two.",
+    "s3": "Of course! The next chapter.",
     "tip": "Tip: add please. Teachers are happy to repeat.",
     "sh": "Send this to a friend who's learning English!",
     "c": "Save this, and practice free on lexkite.com."
@@ -1389,7 +1389,7 @@
     "h": "Um… how do I book?",
     "s0": "In the clinic.",
     "s1": "Hello! Welcome to the clinic.",
-    "s2": "Hi, I'd like an appointment, please. I have a sore throat.",
+    "s2": "Hi, I'd like an appointment, please.",
     "s3": "Sure. Tomorrow at nine works. See you then!",
     "tip": "Tip: say I'd like to, then why you need the doctor.",
     "sh": "Send this to a friend who's learning English!",
@@ -1536,7 +1536,7 @@
    "reviewer": "content/video/templates example vars (reviewed) via tpl2motion.py 15/11/2026",
    "script": {
     "h": "No bandwidth.",
-    "s0": "Bandwidth? Like the Wi-Fi?",
+    "s0": "Oh, bandwidth, like the Wi-Fi?",
     "s1": "bandwidth means time and energy to take on more work.",
     "s2": "Do you have the bandwidth to help on Friday?",
     "tip": "Tip: no bandwidth is a polite way to say I'm too busy.",

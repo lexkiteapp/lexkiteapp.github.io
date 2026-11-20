@@ -41,14 +41,14 @@ SPOKEN = {'confusing_pair:affect-effect': {'s1': 'Effect is the noun, meaning th
           'irregular_verb:go-went': {'h': 'What is the past of go?'}, 'polite_request:could-i-get': {'h': 'Is saying give me polite?'},
           'quiz_ab:an-hour': {'q': 'Which sentence is correct?'}, 'spot_the_mistake:how-much-cost': {'h': 'Find the mistake.'}, 'three_words:rain': {'h': 'Three better words for rain.'},
           # roleplay scene setters: Whisper hears "At the ..." as "Is that the ..." / "Egg class" -> "In ..." (same fact); fewer words where the talk ran over 130 wpm; no "they're" (Kokoro stresses it wrong)
-          'roleplay:cafe-for-here': {'s0': 'In the cafe.'}, 'roleplay:classroom-say-again': {'s0': 'In class.'},
-          'roleplay:clinic-appointment': {'s0': 'In the clinic.', 's2': "Hi, I'd like an appointment, please. I have a sore throat."},
+          'roleplay:cafe-for-here': {'s0': 'In the cafe.'}, 'roleplay:classroom-say-again': {'s0': 'In class.', 's1': 'For homework, read the next chapter.', 's3': 'Of course! The next chapter.'},
+          'roleplay:clinic-appointment': {'s0': 'In the clinic.', 's2': "Hi, I'd like an appointment, please."},
           'roleplay:hotel-check-in': {'s0': 'In the hotel.'}, 'roleplay:interview-about-yourself': {'s0': 'In a job interview.', 's2': "I'm a designer. I've built shopping apps for three years, and I'd love to grow here.", 'tip': "Tip: present, past, future. Who you are, what you've done, what's next."},
           'roleplay:supermarket-eggs': {'s0': 'In the supermarket.', 's3': 'Aisle five, next to the milk.'},
           'phrasal_verb:push-back': {'s1': 'Oh! Push back means move it later.'},
-          'word_of_the_day:procrastinate': {'tip': "Tip: it comes from old Latin. Cras means tomorrow, so don't push it to tomorrow!"}}
+          'word_of_the_day:bandwidth': {'s0': 'Oh, bandwidth, like the Wi-Fi?'}, 'word_of_the_day:procrastinate': {'tip': "Tip: it comes from old Latin. Cras means tomorrow, so don't push it to tomorrow!"}}
 # per-line pause (s) where the measured silence ran over the 1.05 s no-padding gate
-GAPS = {'roleplay:interview-about-yourself': {'s0': 0.55}, 'roleplay:supermarket-eggs': {'s1': 0.55}, 'upgrade_your_english:exhausted': {'sh': 0.5}}
+GAPS = {'roleplay:hotel-check-in': {'s2': 0.5, 'tip': 0.5}, 'roleplay:interview-about-yourself': {'s0': 0.55}, 'roleplay:supermarket-eggs': {'s1': 0.55}, 'upgrade_your_english:exhausted': {'sh': 0.5}}
 NUMW = {str(i): w for i, w in enumerate('zero one two three four five six seven eight nine ten'.split())}
 def speak(sp, key):
     for l in sp['lines']:

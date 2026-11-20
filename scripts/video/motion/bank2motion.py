@@ -69,7 +69,9 @@ def tf(r):
 def gap(r):
     qz = r['quiz']; opts = qz['options'][:3]; ans = qz['answer']; q = qz['q']; parts = q.split('___')
     if len(parts) != 2: return None
-    o = ', or '.join(opts) + '?'; ot = o.split(); idx = [0]; j = 0
+    o = ', or '.join(opts) + '?'; pre = 0
+    if any(len(x.strip()) <= 3 for x in opts): o = 'Is it ' + o; pre = 2   # a one-word option like "on" is misheard as "son" with no lead-in
+    ot = o.split(); idx = [pre]; j = pre
     for x in opts[:-1]: j += len(x.split()); idx.append(j + 1)   # word after each ", or"
     idx = [min(i, len(ot) - 1) for i in idx[:len(opts)]]
     lines = [line('h', 'Fill the blank.'), line('q', q.replace('___', 'blank')), line('o', o), dict(id='_count', beat='count', dur=3.0), line('a', f"{opts[ans]}! {qz.get('explain') or r['why']}"), line('w', r['aha'])]
@@ -113,8 +115,8 @@ def recall(r):
     i1, i2 = ops[0][1], max(ops[0][2], ops[0][1] + 1); i2 = min(i2, len(ra)); key = ' '.join(ra[i1:i2]); pre, post = ' '.join(ra[:i1]), ' '.join(ra[i2:])
     lines = [line('h', 'Say it before I do.'), line('q', f"How do you say this correctly? Many learners say: {wrong}"), dict(id='_count', beat='count', dur=3.0), line('a', f"{right} {r['why']}"), line('w', r['aha'])]
     runs = [[pre + ' ' if pre else ' '], ['_____', 'muted'], [' ' + post if post else ' ']]
-    top = [hookcard('Your turn'), dict(id='q', at=['q', 0], rows=[chip('Say it right', 'teal', ring='_count'), ln('Fix: ' + short(wrong, 40)), dict(t='line', runs=runs, slot=dict(run=1, word=key))], reveal=['a', 0], xp=[dict(at=['a', 0], n=10)])]
-    return base('recall', r, 'recall', lines, dict(top=top, col=[dict(t='card', id='better', at=['a', 0], tone='green', rows=[chip('Better', 'green'), ln([[right, 'green']]), dict(t='sub', runs=[[short(r['why'], 60)]])])]), 'Say it before I do.', 'mistake')
+    top = [hookcard('Your turn'), dict(id='q', at=['q', 0], rows=[chip('Say it right', 'teal', ring='_count'), *([ln('Fix: ' + short(wrong, 40))] if len(wrong) <= 34 else []), dict(t='line', runs=runs, slot=dict(run=1, word=key))], reveal=['a', 0], xp=[dict(at=['a', 0], n=10)])]
+    return base('recall', r, 'recall', lines, dict(top=top, col=[dict(t='card', id='better', at=['a', 0], tone='green', rows=[chip('Better', 'green'), ln([[right, 'green']]), *([dict(t='sub', runs=[[short(r['why'], 60)]])] if len(right) <= 34 else [])])]), 'Say it before I do.', 'mistake')
 def spot(r):
     runs, si = NM.wrong_runs(r['wrong'], r['right']); lines = [line('h', hook_of(r)), line('q', f"Spot the mistake. {r['wrong']}"), dict(id='_count', beat='count', dur=3.0), line('a', f"The mistake! {r['why']}"), line('b', f"Say: {r['right']}"), line('w', r['aha'])]
     top = [dict(id='hook', hook=True, rows=[chip('Spot the mistake', 'coral', ring='_count'), dict(t='line', hook=True, runs=runs)], strike=[dict(line=0, run=si, at=['a', 0])])]

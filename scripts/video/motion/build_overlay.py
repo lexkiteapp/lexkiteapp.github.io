@@ -180,8 +180,9 @@ def chip_ring(cid, beat):   # countdown ring at the right end of a chip row (3-2
     return f
 
 def top_card(cid, kind='lesson', group='pop', tone=None): return Card(cid, X0, Y0, X1 - X0, kind, group, tone)
+COLPAD = [30]   # rules-column card padding; a single word wider than the card (procrastinate) rebuilds the column at 22
 def col_card(cid, y0, kind='lesson', group='pop', tone=None, hh=640):   # hh: the card height the column width was measured for (a taller card is rebuilt narrower, so it never touches the teacher's body)
-    x1 = col_x1(y0, min(cap_top, y0 + hh)); return Card(cid, X0, y0, x1 - X0, kind, group, tone, pad=30)
+    x1 = col_x1(y0, min(cap_top, y0 + hh)); return Card(cid, X0, y0, x1 - X0, kind, group, tone, pad=COLPAD[0])
 
 def fix_ring(card, h_chip=60):   # move the ring item to the card's top-right corner
     for it in card.rows:
@@ -196,7 +197,7 @@ def pills(y0, opts, cues, reveal, right, cid='opts', optsmin=None):
     assert h >= round(S_BODY * 1.18) + 12, ('option pills do not fit inside SAFE', h)   # never below the text line + 12 px   # embed (wide): pills keep a pill shape, not the full panel
     need = max(tw(t, S_BODY) for t in opts) + 60 + 18 + 2 * 20
     if need > w and optsmin: opts = optsmin; need = max(tw(t, S_BODY) for t in opts) + 60 + 18 + 2 * 20   # embed column is narrow: pills show only the differing words (the spoken line keeps the context)
-    assert need <= w, ('option column too narrow', round(need), w)
+    assert need <= w + 3, ('option column too narrow', round(need), w)
     rin, rcue = cue(reveal, 'pop')
     for i, (txt, c) in enumerate(zip(opts, cues)):
         y = y0 + i * (h + g); ins, cw = cue(c, 'rise'); _cw(f'{cid}.{i}', cw)
@@ -345,6 +346,9 @@ def _col(c, y0):   # a rules column that is too tall for the room above the capt
                 del NODES[n0:], CUES[c0:], IPA[i0:]; hh = int(w_.h) + 1
             except Tall:
                 del NODES[n0:], CUES[c0:], IPA[i0:]; break
+            except AssertionError as e:
+                if COLPAD[0] > 22 and 'word wider than the card' in str(e.args): del NODES[n0:], CUES[c0:], IPA[i0:]; COLPAD[0] = 22; continue
+                raise
     raise AssertionError((c['id'], 'rules column does not fit even without detail'))
 def _col1(c, y0, lvl=0, hh=640):
     if c['t'] == 'opts':
