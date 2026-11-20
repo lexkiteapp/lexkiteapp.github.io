@@ -20,7 +20,7 @@ export function decide(pr, gate, want) {
     return { act: 'merge', why: 'required-gate xanh' };
   }
   if (st === 'failure' || st === 'error') return { act: 'red', why: `required-gate ${st}: ${(gate.description || '').slice(0, 110)}` };
-  return { act: 'wait', why: `required-gate ${st}` };
+  return { act: 'wait', why: `required-gate ${st}${gate?.description && /khung merge/i.test(gate.description) ? ' – ' + gate.description.slice(0, 90) : ''}` };
 }
 /** Đọc required-gate từ commit status (thuần theo dữ liệu /status). */
 export function gateOf(combined) { return (combined?.statuses || []).find(s => s.context === 'required-gate') || null; }
@@ -47,7 +47,7 @@ async function main() {
     const nxt = []; red = false;
     for (const { n, want } of pending) {
       let pr, gate = null;
-      try { const r = await gh(`/pulls/${n}`); if (r.status >= 400) throw 0; pr = r.body; if (!pr.merged && pr.state !== 'closed') gate = gateOf((await gh(`/commits/${pr.head.sha}/status`)).body); } catch { nxt.push({ n, want }); continue; }
+      try { const r = await gh(`/pulls/${n}`); if (r.status >= 400) throw 0; pr = r.body; if (!pr.merged && pr.state !== 'closed') gate = gateOf((await gh(`/commits/${pr.head.sha}/status`)).body); } catch (e) { console.error(`${new Date().toISOString().slice(11, 16)} #${n} lỗi API: ${e?.cause?.code || e?.message || e}`); nxt.push({ n, want }); continue; }
       const d = decide(pr, gate, want);
       if (d.act === 'done') { log(n, d.why); continue; }
       if (d.act === 'merge') {
