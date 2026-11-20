@@ -94,7 +94,7 @@
 
   routes.score = App.guard(async function (arg) {
     const view = $('#view'), id = idOk(arg) ? arg : '', title = T('Thử thách nói 30 giây');
-    const box = frame(view, title); let chal = null, pid = Math.floor(Math.random() * PROMPTS.length);
+    const box = frame(view, title); let chal = null, pid = Math.floor(Date.now() / 864e5) % PROMPTS.length;  // đoạn của ngày (cả nhà cùng một đoạn; trang ổn định cho test đua route)
     if (id) { try { const r = await App.W(fetch('/api/challenge?id=' + id)); if (r.ok) { chal = await r.json(); pid = chal.pid; } } catch (e) { /* link hỏng → bài mới */ } }
     ev(chal ? 'cstart' : 'view'); intro(box, pid, chal, id);
   });
