@@ -6636,6 +6636,21 @@
    "state": "failed",
    "tries": 1
   },
+  "t2_l1_ru_afraid_of": {
+   "run": "44778168773",
+   "at": "2026-11-20T22:23Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "8676e24c1b92da62",
+    "wide": "e29addd18f36df31"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
   "t2_l1_ru_agree": {
    "run": "43250175181",
    "at": "2026-11-13T16:01Z",
@@ -6646,6 +6661,96 @@
    "sha": {
     "short": "c45bedae76fb53d4",
     "wide": "fd36dc8ac234f523"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_ru_always_place": {
+   "run": "44778168773",
+   "at": "2026-11-20T22:23Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "d175dce504b678d2",
+    "wide": "4bed0291140dc26f"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_ru_am_agree": {
+   "run": "44778168773",
+   "at": "2026-11-20T22:23Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "c20ba2ebf551b23f",
+    "wide": "b3c49946fbfd64e4"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_ru_an_advice": {
+   "run": "44778168773",
+   "at": "2026-11-20T22:23Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "3966ea2503e89637",
+    "wide": "aa6ac795ac6ad332"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_ru_angry_with": {
+   "run": "44778168773",
+   "at": "2026-11-20T22:23Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "54fa08a5392c6e13",
+    "wide": "c9225d0d8ea3a5c2"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_ru_answer_q": {
+   "run": "44778168773",
+   "at": "2026-11-20T22:23Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "69e48938e207f4e6",
+    "wide": "aff1bbb1281cd429"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_ru_arrive_in": {
+   "run": "44778168773",
+   "at": "2026-11-20T22:23Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "dbf680bb7df4397d",
+    "wide": "853cf74844bd0be7"
    },
    "why": [],
    "state": "banked",
@@ -6666,6 +6771,18 @@
    "state": "banked",
    "tries": 0
   },
+  "t2_l1_ru_ask_for": {
+   "run": "44778168773",
+   "at": "2026-11-20T22:23Z",
+   "score": {},
+   "sha": {},
+   "why": [
+    "short: no render",
+    "wide: no render"
+   ],
+   "state": "failed",
+   "tries": 1
+  },
   "t2_l1_ru_atwork": {
    "run": "43250175181",
    "at": "2026-11-13T16:01Z",
@@ -6676,6 +6793,36 @@
    "sha": {
     "short": "4b4a977636871f7f",
     "wide": "36760325979ef5a8"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_ru_backshift": {
+   "run": "44778168773",
+   "at": "2026-11-20T22:23Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "6b134ffb14ad3d0f",
+    "wide": "ff6dbd4bf83c335c"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_ru_be_careful": {
+   "run": "44778168773",
+   "at": "2026-11-20T22:23Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "93a292db3ced1874",
+    "wide": "807eabe483013a4f"
    },
    "why": [],
    "state": "banked",
@@ -6696,6 +6843,18 @@
    "state": "failed",
    "tries": 1
   },
+  "t2_l1_ru_born_year": {
+   "run": "44778168773",
+   "at": "2026-11-20T22:23Z",
+   "score": {},
+   "sha": {},
+   "why": [
+    "short: no render",
+    "wide: no render"
+   ],
+   "state": "failed",
+   "tries": 1
+  },
   "t2_l1_ru_canto": {
    "run": "43250175181",
    "at": "2026-11-13T16:01Z",
@@ -6711,6 +6870,93 @@
    "state": "banked",
    "tries": 0
   },
+  "t2_l1_ru_care_of": {
+   "run": "44778168773",
+   "at": "2026-11-20T22:23Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "68b7355205f12bb0",
+    "wide": "9bb8cc8f25962afe"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_ru_cold_outside": {
+   "run": "44778168773",
+   "at": "2026-11-20T22:23Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "45aea86526afe249",
+    "wide": "959834f92a87d64d"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_ru_coldit": {
+   "run": "44778168773",
+   "at": "2026-11-20T22:23Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "5c5aadcf17144fdf",
+    "wide": "e14f8b422c3a43be"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_ru_congrats_on": {
+   "run": "44778168773",
+   "at": "2026-11-20T22:23Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "64c2d71541363b37",
+    "wide": "0b2546645b91e2b4"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_ru_date_order": {
+   "run": "44778168773",
+   "at": "2026-11-20T22:23Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "ce026f3b6d0bb0e2",
+    "wide": "820184d938adc324"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_ru_decimal_dot": {
+   "run": "44778168773",
+   "at": "2026-11-20T22:23Z",
+   "score": {},
+   "sha": {},
+   "why": [
+    "short: no render",
+    "wide: no render"
+   ],
+   "state": "failed",
+   "tries": 1
+  },
   "t2_l1_ru_depend": {
    "run": "43250175181",
    "at": "2026-11-13T16:01Z",
@@ -6722,6 +6968,66 @@
    ],
    "state": "failed",
    "tries": 1
+  },
+  "t2_l1_ru_do_homework": {
+   "run": "44778168773",
+   "at": "2026-11-20T22:23Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "0172744c85af5610",
+    "wide": "aab14ec9b8e603ab"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_ru_during_for": {
+   "run": "44778168773",
+   "at": "2026-11-20T22:23Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "7a45b39f8e982c50",
+    "wide": "bb8e2109fd92466a"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_ru_enter_room": {
+   "run": "44778168773",
+   "at": "2026-11-20T22:23Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "bd4e334b522d08bc",
+    "wide": "7f2ce3355b3b4bfc"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_ru_everybody_is": {
+   "run": "44778168773",
+   "at": "2026-11-20T22:23Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "d3633f533729d6f5",
+    "wide": "00cb88bb9d1f7e6a"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
   },
   "t2_l1_ru_explain": {
    "run": "43250175181",
@@ -6752,6 +7058,24 @@
    ],
    "state": "failed",
    "tries": 1
+  },
+  "t2_l1_ru_fiveofus": {
+   "run": "44778168773",
+   "at": "2026-11-20T22:23Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "1f93a89ac10ea01b",
+    "wide": "c09d95a99fd598ac"
+   },
+   "why": [],
+   "state": "banked",
+   "publish_block": [
+    "dup"
+   ],
+   "tries": 0
   },
   "t2_l1_ru_ifwill": {
    "run": "43250175181",
