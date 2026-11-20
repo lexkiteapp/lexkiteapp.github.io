@@ -118,6 +118,9 @@ for (const f of files.filter(f => /^scripts\/test\/[^/]+\.(m?js|cjs)$/.test(f)).
   const best = Object.entries(cnt).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))[0];
   tests.push({ test: path.basename(f).replace(/\.(m?js|cjs)$/, ''), file: f, area: best ? best[0] : '(không rõ)', targets: [...targets].sort().slice(0, 12) });
 }
+// Nén tên test theo tiền tố (trước dấu '-' đầu): nhóm ≥ 4 tên cùng tiền tố → `p-{a,b,c}` (không mất tên; scripts/test/codemap-budget.mjs bung lại để kiểm).
+const braceNames = ns => { const g = {}, out = []; for (const n of ns) { const i = n.indexOf('-'); if (i > 0) (g[n.slice(0, i)] ||= []).push(n.slice(i + 1)); else out.push(n); }
+  for (const [p, xs] of Object.entries(g)) if (xs.length >= 4) out.push(`${p}-{${xs.join(',')}}`); else for (const x of xs) out.push(`${p}-${x}`); return out; };
 const testsByArea = {}; for (const t of tests) (testsByArea[t.area] ||= []).push(t.test);
 
 // ---------- 7. khu vực & "sửa ở đâu" ----------
@@ -187,7 +190,7 @@ const byTrig = {}; for (const w of workflows) (byTrig[w.triggers.join(',') || '?
 for (const [t, ws] of Object.entries(byTrig).sort((a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0])))
   out.push(`- [${t}] ` + ws.map(w => `${wfName(w)}${(d => d && d !== w.name && d !== wfName(w) ? ': ' + brief(d) : '')(w.desc.replace(new RegExp('^' + wfName(w).replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ':\\s*'), ''))}`).join(' · '));
 out.push('', `## Test (${tests.length}) → vùng phủ (file đích chi tiết: json \`tests\`)`);
-for (const [a, ts] of Object.entries(testsByArea).sort((x, y) => y[1].length - x[1].length || x[0].localeCompare(y[0]))) out.push(`- \`${a}\`: ${ts.join(' ')}`);
+for (const [a, ts] of Object.entries(testsByArea).sort((x, y) => y[1].length - x[1].length || x[0].localeCompare(y[0]))) out.push(`- \`${a}\`: ${braceNames(ts).join(' ')}`);
 const fixed = Buffer.byteLength(out.join('\n'));
 // Mô-đun: lấp phần ngân sách còn lại, ưu tiên theo mức nối (dependents) rồi số export; json giữ tất cả.
 const room = CAP - SLACK - fixed;
