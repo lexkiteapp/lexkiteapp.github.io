@@ -6,7 +6,7 @@
     /* ================= PART 5 ================= */
     { part: 5, title: 'Incomplete Sentences', instr: g.TQR[2],
       groups: [ { type: 'mcq', instr: '', items: [
-        { n: 101, q: 'The finance team will submit the revised budget ------- the end of the week.', options: ['until', 'during', 'by', 'among'], a: 2, cue: 'the end of the week', lv: 'B1',
+        { n: 101, q: 'The finance team will submit the revised budget ------- the end of the week.', options: ['by', 'during', 'until', 'among'], a: 0, cue: 'the end of the week', lv: 'B1',
           explain: 'Cần giới từ chỉ hạn chót: "by + mốc thời gian" = chậm nhất vào lúc đó, đi với động từ "submit" (nộp). "until" dùng cho hành động kéo dài đến mốc đó; "during" đi với khoảng thời gian, không đi với "the end of"; "among" nghĩa là "giữa nhiều người/vật".' },
         { n: 102, q: 'Ms. Koval was ------- to the position of regional director last month.', options: ['promoting', 'promoted', 'promotion', 'promotes'], a: 1, cue: 'was ------- to the position', lv: 'B1',
           explain: 'Sau "was" và có "to the position of" → cần phân từ quá khứ để tạo câu bị động "was promoted to" (được thăng chức lên). "promoting" là V-ing; "promotion" là danh từ; "promotes" là động từ chia số ít, không đứng sau "was".' },
@@ -14,7 +14,7 @@
           explain: 'Sau mạo từ "The" và trước "of" cần danh từ làm chủ ngữ → "implementation" (việc triển khai). "implement" (dụng cụ/thi hành), "implemented" (phân từ) và "implementable" (tính từ) không làm chủ ngữ phù hợp trong cấu trúc "The ... of ...".' },
         { n: 104, q: 'Each of the shipments ------- inspected before it leaves the warehouse.', options: ['are', 'were', 'have', 'is'], a: 3, cue: 'Each of the shipments', lv: 'B1',
           explain: 'Chủ ngữ thật là "Each" (số ít), dù đứng trước "of the shipments" số nhiều → động từ số ít "is" (bị động "is inspected"). "are" và "were" chia số nhiều; "have" cần phân từ chứ không đi với "inspected" bị động.' },
-        { n: 105, q: 'The manager asked Ms. Ibarra and ------- to present the quarterly results to the board.', options: ['I', 'my', 'mine', 'me'], a: 3, cue: 'asked Ms. Ibarra and', lv: 'B2',
+        { n: 105, q: 'The manager asked Ms. Ibarra and ------- to present the quarterly results to the board.', options: ['I', 'me', 'mine', 'my'], a: 1, cue: 'asked Ms. Ibarra and', lv: 'B2',
           explain: '"Ms. Ibarra and ------- " là tân ngữ của "asked" nên cần đại từ tân ngữ → "me". "I" là đại từ chủ ngữ; "my" là tính từ sở hữu, cần danh từ theo sau; "mine" là đại từ sở hữu, không hợp nghĩa.' },
         { n: 106, q: 'Customers may return items within 30 days ------- they have kept the receipt.', options: ['in spite of', 'because of', 'as long as', 'as well as'], a: 2, cue: 'they have kept the receipt', lv: 'B2',
           explain: 'Cần liên từ điều kiện đứng trước mệnh đề "they have kept the receipt" → "as long as" (miễn là). "in spite of" và "because of" là giới từ, đi với danh từ; "as well as" (cũng như) không tạo ra điều kiện.' },
@@ -22,9 +22,9 @@
           explain: '"By the time + hiện tại (opens)" chỉ mốc tương lai → mệnh đề chính dùng tương lai hoàn thành "will have completed" (đã hoàn tất trước mốc đó). "completes" và "completed" sai thì với mốc tương lai; "completing" không đứng một mình làm động từ chính.' },
         { n: 108, q: 'The bank\'s headquarters is ------- walking distance of the central train station.', options: ['among', 'within', 'between', 'along'], a: 1, cue: '------- walking distance', lv: 'B2',
           explain: 'Cụm cố định "within walking distance of" = trong tầm đi bộ tới. "among", "between" và "along" không tạo thành cụm này.' },
-        { n: 109, q: 'The software update was ------- installed on all devices overnight.', options: ['successful', 'successfully', 'success', 'succeed'], a: 1, cue: 'was ------- installed', lv: 'B1',
+        { n: 109, q: 'The software update was ------- installed on all devices overnight.', options: ['successfully', 'successful', 'success', 'succeed'], a: 0, cue: 'was ------- installed', lv: 'B1',
           explain: 'Giữa "was" và phân từ "installed" cần trạng từ bổ nghĩa → "successfully" (một cách thành công). "successful" là tính từ; "success" là danh từ; "succeed" là động từ.' },
-        { n: 110, q: 'Neither the supervisor nor the technicians ------- aware of the schedule change.', options: ['were', 'was', 'is', 'has been'], a: 0, cue: 'Neither the supervisor nor the technicians', lv: 'C1',
+        { n: 110, q: 'Neither the supervisor nor the technicians ------- aware of the schedule change.', options: ['is', 'was', 'were', 'has been'], a: 2, cue: 'Neither the supervisor nor the technicians', lv: 'C1',
           explain: 'Với "neither ... nor ...", động từ chia theo danh từ gần nhất: "the technicians" (số nhiều) → "were". "was", "is" và "has been" đều là dạng số ít nên sai hòa hợp chủ vị.' },
         { n: 111, q: 'Ms. Ferreira\'s presentation was so ------- that several clients asked for a copy of the slides.', options: ['inform', 'informative', 'information', 'informatively'], a: 1, cue: 'was so -------', lv: 'B1',
           explain: 'Sau "was so" cần tính từ làm vị ngữ → "informative" (nhiều thông tin, bổ ích). "inform" là động từ; "information" là danh từ; "informatively" là trạng từ.' },
@@ -48,7 +48,7 @@
           explain: 'Cần tính từ dạng phân từ quá khứ mang nghĩa bị động → "damaged shipment" (lô hàng bị hư hại). "damaging" mang nghĩa chủ động (gây hại); "damage" và "damages" là danh từ.' },
         { n: 121, q: 'The hotel manager apologized for the ------- and offered the guests a complimentary breakfast.', options: ['invention', 'inconvenience', 'conclusion', 'permission'], a: 1, cue: 'apologized for the -------', lv: 'B1',
           explain: 'Người ta xin lỗi vì sự bất tiện → "inconvenience" (sự phiền toái), hợp với việc tặng bữa sáng miễn phí để bù đắp. "invention" (phát minh), "conclusion" (kết luận) và "permission" (sự cho phép) không hợp nghĩa sau "apologized for".' },
-        { n: 122, q: 'Interested applicants should ------- a copy of their résumé to the human resources office.', options: ['admit', 'commit', 'submit', 'permit'], a: 2, cue: 'a copy of their résumé', lv: 'B1',
+        { n: 122, q: 'Interested applicants should ------- a copy of their résumé to the human resources office.', options: ['admit', 'commit', 'permit', 'submit'], a: 3, cue: 'a copy of their résumé', lv: 'B1',
           explain: '"submit a copy of résumé" = nộp bản sao sơ yếu lý lịch. "admit" (thừa nhận), "commit" (cam kết) và "permit" (cho phép) không đi với tân ngữ "a copy" theo nghĩa này.' },
         { n: 123, q: 'The company\'s profits have increased ------- over the past three years.', options: ['closely', 'steadily', 'narrowly', 'densely'], a: 1, cue: 'over the past three years', lv: 'B2',
           explain: '"increase steadily" = tăng đều đặn, hợp với "over the past three years". "closely" (sát sao), "narrowly" (suýt soát) và "densely" (dày đặc) không kết hợp tự nhiên với "increased".' },
@@ -56,7 +56,7 @@
           explain: 'Cụm "comply with" = tuân thủ → "comply with the safety regulations". "arrive" đi với "at/in", "depend" đi với "on", "attend" không đi với "with" và không hợp nghĩa.' },
         { n: 125, q: 'The warranty ------- defects in materials and workmanship for two years.', options: ['holds', 'takes', 'covers', 'wraps'], a: 2, cue: 'The warranty -------', lv: 'B2',
           explain: 'Về bảo hành, "cover" = bao gồm/bảo vệ → "covers defects" (bảo hành các lỗi). "holds", "takes" và "wraps" không dùng với "warranty" theo nghĩa này.' },
-        { n: 126, q: 'The airline has ------- its baggage policy to allow one free checked bag on all routes.', options: ['revived', 'revised', 'reserved', 'refused'], a: 1, cue: 'its baggage policy', lv: 'B2',
+        { n: 126, q: 'The airline has ------- its baggage policy to allow one free checked bag on all routes.', options: ['revised', 'revived', 'reserved', 'refused'], a: 0, cue: 'its baggage policy', lv: 'B2',
           explain: '"revise a policy" = sửa đổi chính sách, hợp với việc nay cho phép một hành lý ký gửi miễn phí. "revived" (làm sống lại), "reserved" (đặt trước) và "refused" (từ chối) không hợp nghĩa.' },
         { n: 127, q: 'Because of heavy snow, the ------- of the new product line has been postponed until March.', options: ['launch', 'range', 'track', 'spare'], a: 0, cue: 'has been postponed until March', lv: 'B2',
           explain: '"launch of a product line" = việc tung ra dòng sản phẩm; chỉ sự kiện như vậy mới bị hoãn đến tháng Ba → "launch". "range", "track" và "spare" không tạo thành danh từ hợp nghĩa với "has been postponed".' },
@@ -64,7 +64,7 @@
           explain: 'Nhờ kiểm tra hóa đơn để báo nếu có thông tin sai → "verify" (xác minh, kiểm tra). "persuade" (thuyết phục) cần tân ngữ chỉ người; "testify" (làm chứng) và "qualify" (đủ tiêu chuẩn) không hợp nghĩa.' },
         { n: 129, q: 'The landlord agreed to ------- the lease for another year.', options: ['repeat', 'renew', 'resume', 'rebuild'], a: 1, cue: 'the lease for another year', lv: 'B2',
           explain: '"renew a lease" = gia hạn hợp đồng thuê. "repeat" (lặp lại), "resume" (tiếp tục lại) và "rebuild" (xây lại) không đi với "lease".' },
-        { n: 130, q: 'The merger is ------- upon approval from the regulators.', options: ['dependable', 'relevant', 'adjacent', 'contingent'], a: 3, cue: 'upon approval from the regulators', lv: 'C1',
+        { n: 130, q: 'The merger is ------- upon approval from the regulators.', options: ['dependable', 'relevant', 'contingent', 'adjacent'], a: 2, cue: 'upon approval from the regulators', lv: 'C1',
           explain: 'Cụm "contingent upon" = tùy thuộc vào/phụ thuộc vào → vụ sáp nhập tùy thuộc vào việc cơ quan quản lý chấp thuận. "dependable" (đáng tin cậy), "relevant" (liên quan) và "adjacent" (liền kề) không đi với "upon".' }
       ] } ] },
 
@@ -89,7 +89,7 @@ If you -----(133)----- locked out of your account, please contact the IT Help De
               explain: 'Câu sau nói cổng thông tin sẽ báo ngay nếu mật khẩu "does not meet these requirements" → câu trống phải nêu thêm một quy tắc/yêu cầu: "Passwords that repeat any of your last five choices will also be rejected" (mật khẩu trùng 5 lần gần nhất cũng bị từ chối). Các câu về giờ làm việc, sao lưu tệp và văn phòng mới không liên quan đến yêu cầu mật khẩu.' },
             { n: 133, q: '(133)', options: ['will be', 'are', 'would be', 'being'], a: 1, cue: 'If you', lv: 'B1',
               explain: 'Câu điều kiện loại 1 diễn tả tình huống có thể xảy ra: mệnh đề "If" dùng hiện tại đơn → "are locked out". "will be" và "would be" không dùng trong mệnh đề "If" ở loại 1; "being" không đủ làm động từ chính.' },
-            { n: 134, q: '(134)', options: ['ever', 'always', 'once', 'never'], a: 3, cue: 'under any circumstances', lv: 'B2',
+            { n: 134, q: '(134)', options: ['never', 'always', 'once', 'ever'], a: 0, cue: 'under any circumstances', lv: 'B2',
               explain: 'Nghĩa cả đoạn là nhân viên Help Desk sẽ không bao giờ hỏi mật khẩu "under any circumstances" → "never". "ever" cần có từ phủ định khác đi kèm; "always" (luôn luôn) và "once" (một lần) trái nghĩa với yêu cầu bảo mật này.' }
           ] } ] },
         { title: 'Memo', lv: 'B2', text:
@@ -129,7 +129,7 @@ Quantities are limited, so we encourage you to visit early. All sale items are a
               explain: 'Khách mua từ 100 đô sẽ "receive" (nhận) một gói hạt giống miễn phí. "spend" (tiêu), "earn" (kiếm được) và "raise" (nâng lên) không hợp nghĩa với tân ngữ "a free packet".' },
             { n: 141, q: '(141)', options: ['Our garden center will close at 6:00 P.M. on Sundays.', 'The seeds grow best in full sun and well-drained soil.', 'Corvane was founded in Dunmere more than forty years ago.', 'Members of our rewards program can save even more.'], a: 3, cue: 'Simply show your Corvane Rewards card at the register', lv: 'C1',
               explain: 'Câu sau hướng dẫn "Simply show your Corvane Rewards card" để nhận điểm gấp đôi → câu trống phải nói đến thành viên chương trình tích điểm: "Members of our rewards program can save even more". Giờ đóng cửa, cách trồng hạt giống và lịch sử cửa hàng không dẫn đến câu sau.' },
-            { n: 142, q: '(142)', options: ['because', 'although', 'unless', 'as if'], a: 2, cue: 'All sale items are available in stores only', lv: 'B2',
+            { n: 142, q: '(142)', options: ['unless', 'although', 'because', 'as if'], a: 0, cue: 'All sale items are available in stores only', lv: 'B2',
               explain: 'Hàng giảm giá chỉ bán tại cửa hàng, trừ khi có ký hiệu "Also Online" → "unless" (trừ khi). "because" (bởi vì), "although" (mặc dù) và "as if" (như thể) không tạo ra ngoại lệ đúng nghĩa.' }
           ] } ] },
         { title: 'Letter', lv: 'B2', text:
@@ -147,7 +147,7 @@ You will also be assigned a personal banker, Ms. Yolanda Cruz, who -----(144)---
               explain: '"who" thay cho "Ms. Yolanda Cruz" (số ít, hiện tại) → động từ chia ngôi thứ ba số ít "assists" (hỗ trợ). "assist" sai hòa hợp chủ vị; "assisting" và "to assist" không làm động từ chính của mệnh đề quan hệ.' },
             { n: 145, q: '(145)', options: ['arrived', 'touched', 'reached', 'joined'], a: 2, cue: 'can be -----(145)----- directly at 555-0148', lv: 'B2',
               explain: '"be reached at + số điện thoại" = có thể liên lạc theo số đó → "reached". "arrived" (đã đến), "touched" (chạm) và "joined" (tham gia) không hợp nghĩa với "directly at 555-0148".' },
-            { n: 146, q: '(146)', options: ['among', 'between', 'during', 'until'], a: 1, cue: 'on weekdays', lv: 'B1',
+            { n: 146, q: '(146)', options: ['among', 'until', 'during', 'between'], a: 3, cue: 'on weekdays', lv: 'B1',
               explain: 'Có "and" sau chỗ trống → cấu trúc "between ... and ..." (từ 8:30 đến 5:30). "among" dùng với ba đối tượng trở lên; "during" và "until" không đi với "and".' }
           ] } ] }
       ] },
@@ -177,9 +177,9 @@ During this time, some noise and a mild odor from the floor sealant may be notic
 
 The elevator and stairs will remain open, but we ask guests to use caution near the work area. Complimentary coffee and pastries will be served in the lobby from 9:00 A.M. to 11:00 A.M. on all three mornings. We thank you for your patience.`,
           groups: [ { type: 'mcq', instr: 'Questions 149-150 refer to the following notice.', items: [
-            { n: 149, q: 'According to the notice, why might some guests ask to change rooms?', options: ['To avoid noise from the work', 'To use a different elevator', 'To receive a lower rate', 'To be closer to the lobby'], a: 0, cue: 'prefer a quieter environment', lv: 'B1',
+            { n: 149, q: 'According to the notice, why might some guests ask to change rooms?', options: ['To use a different elevator', 'To avoid noise from the work', 'To receive a lower rate', 'To be closer to the lobby'], a: 1, cue: 'prefer a quieter environment', lv: 'B1',
               explain: 'Khách tầng hai "who prefer a quieter environment" (thích yên tĩnh hơn) có thể xin phòng tầng ba → để tránh tiếng ồn do thi công. Thông báo không nói về thang máy khác, giá phòng thấp hơn hay gần sảnh.' },
-            { n: 150, q: 'What is NOT indicated about the floor work?', options: ['It will begin on a Monday.', 'It will be done during the daytime.', 'It may produce a noticeable smell.', 'It will require the elevator to be closed.'], a: 3, cue: 'The elevator and stairs will remain open', lv: 'B2',
+            { n: 150, q: 'What is NOT indicated about the floor work?', options: ['It will begin on a Monday.', 'It will be done during the daytime.', 'It will require the elevator to be closed.', 'It may produce a noticeable smell.'], a: 2, cue: 'The elevator and stairs will remain open', lv: 'B2',
               explain: '"The elevator and stairs will remain open" (thang máy và cầu thang vẫn mở) → việc thi công không đòi hỏi đóng thang máy, nên đây là điều KHÔNG đúng. Các ý còn lại đều đúng: bắt đầu thứ Hai 2/6, làm từ 9 giờ sáng đến 3 giờ chiều, và có thể có "mild odor" (mùi nhẹ).' }
           ] } ] },
         { title: 'Advertisement', lv: 'B1', text:
@@ -219,7 +219,7 @@ Delphine Arceneaux`,
           groups: [ { type: 'mcq', instr: 'Questions 153-155 refer to the following e-mail.', items: [
             { n: 153, q: 'Why did Ms. Arceneaux write to Mr. Brandt?', options: ['To report progress on a problem he raised', 'To announce a price change', 'To invite him to a training session', 'To ask him to renew his subscription'], a: 0, cue: 'Thank you for contacting Quillfeather Software about the sync error', lv: 'B1',
               explain: 'Cô Arceneaux cảm ơn ông đã liên hệ về lỗi đồng bộ ("the sync error") rồi báo kỹ sư đã tái hiện lỗi và lịch sửa → cập nhật tiến độ xử lý vấn đề ông nêu. E-mail không nói gì về giá, buổi đào tạo hay gia hạn đăng ký.' },
-            { n: 154, q: 'What does Ms. Arceneaux recommend that Mr. Brandt do for now?', options: ['Delete his earlier file versions', 'Install version 6.3 right away', 'Turn off an automatic feature', 'Reinstall the software'], a: 2, cue: 'turn off automatic sync and save your changes manually', lv: 'B2',
+            { n: 154, q: 'What does Ms. Arceneaux recommend that Mr. Brandt do for now?', options: ['Delete his earlier file versions', 'Install version 6.3 right away', 'Reinstall the software', 'Turn off an automatic feature'], a: 3, cue: 'turn off automatic sync and save your changes manually', lv: 'B2',
               explain: 'Cô khuyên "turn off automatic sync and save your changes manually" → tắt tính năng tự động đồng bộ. Cô còn bật sao lưu để không mất bản cũ nên không cần xóa chúng; bản 6.3 chưa phát hành; không có đề nghị cài lại phần mềm.' },
             { n: 155, q: 'The word "reproduced" in the e-mail is closest in meaning to', options: ['recreated', 'photocopied', 'bred', 'quoted'], a: 0, cue: 'Our engineers have reproduced the problem', lv: 'C1',
               explain: '"reproduced the problem" = làm cho lỗi xảy ra lại để nghiên cứu → "recreated" (tái tạo). "photocopied" (sao chụp), "bred" (gây giống) và "quoted" (trích dẫn) không hợp nghĩa với "the problem".' }
@@ -260,11 +260,11 @@ Total due | $633.60
 Pay by August 24 and deduct $20.00 from the total.
 A late fee of 1.5 percent per month applies to balances unpaid after the due date. To dispute any charge, contact our billing department within seven days of the invoice date.`,
           groups: [ { type: 'mcq', instr: 'Questions 159-161 refer to the following invoice.', items: [
-            { n: 159, q: 'How much will Calloway Bicycle Works owe if it pays on August 22?', options: ['$633.60', '$613.60', '$653.60', '$510.00'], a: 1, cue: 'Pay by August 24 and deduct $20.00 from the total.', lv: 'B2',
+            { n: 159, q: 'How much will Calloway Bicycle Works owe if it pays on August 22?', options: ['$633.60', '$510.00', '$653.60', '$613.60'], a: 3, cue: 'Pay by August 24 and deduct $20.00 from the total.', lv: 'B2',
               explain: 'Thanh toán ngày 22/8 là trước hạn 24/8 nên được "deduct $20.00 from the total" (trừ 20 đô khỏi tổng): 633,60 − 20 = 613,60 đô. 633,60 đô là số tiền nếu không được giảm; 653,60 đô là cộng thêm sai; 510,00 đô chỉ là phí vận chuyển, chưa tính các khoản khác.' },
-            { n: 160, q: 'Which service is NOT included on the invoice?', options: ['Document preparation', 'Short-term storage', 'Insurance coverage', 'A fuel charge'], a: 2, cue: 'Temporary storage (6 pallets x 2 days x $4.00)', lv: 'B2',
+            { n: 160, q: 'Which service is NOT included on the invoice?', options: ['Insurance coverage', 'Short-term storage', 'Document preparation', 'A fuel charge'], a: 0, cue: 'Temporary storage (6 pallets x 2 days x $4.00)', lv: 'B2',
               explain: 'Hóa đơn gồm: vận chuyển pallet, phụ phí nhiên liệu, giấy tờ hải quan (= chuẩn bị tài liệu) và lưu kho tạm thời ("Temporary storage" = short-term storage). Không có khoản nào về bảo hiểm hàng hóa nên "Insurance coverage" là đáp án.' },
-            { n: 161, q: 'The word "dispute" in the invoice is closest in meaning to', options: ['challenge', 'settle', 'delay', 'explain'], a: 0, cue: 'To dispute any charge', lv: 'C1',
+            { n: 161, q: 'The word "dispute" in the invoice is closest in meaning to', options: ['settle', 'challenge', 'delay', 'explain'], a: 1, cue: 'To dispute any charge', lv: 'C1',
               explain: '"dispute any charge" = phản đối/khiếu nại một khoản phí → "challenge" (thách thức, đặt vấn đề). "settle" (thanh toán xong) trái ngược với khiếu nại; "delay" (trì hoãn) và "explain" (giải thích) không đúng nghĩa.' }
           ] } ] },
         { title: 'Online chat discussion', lv: 'B1', text:
@@ -278,7 +278,7 @@ Hendrik Sorensen [10:22 A.M.]: Then please put her account on hold so she doesn'
 Dina Marchetti [10:23 A.M.]: I'll call her back and explain.
 Kwabena Asante [10:24 A.M.]: Thanks, Dina. I'll send you the corrected claim number once it's filed.`,
           groups: [ { type: 'mcq', instr: 'Questions 162-164 refer to the following online chat discussion.', items: [
-            { n: 162, q: 'Why was Ms. Lindqvist charged $180?', options: ['A visit was recorded under the wrong category.', 'Her insurance had expired.', 'She missed an appointment.', 'She requested an extra test.'], a: 0, cue: 'The visit was coded as diagnostic rather than preventive', lv: 'B1',
+            { n: 162, q: 'Why was Ms. Lindqvist charged $180?', options: ['She requested an extra test.', 'Her insurance had expired.', 'She missed an appointment.', 'A visit was recorded under the wrong category.'], a: 3, cue: 'The visit was coded as diagnostic rather than preventive', lv: 'B1',
               explain: 'Ông Asante tìm ra buổi khám bị ghi là "diagnostic rather than preventive" (chẩn đoán thay vì phòng ngừa) nên bà phải trả phần khấu trừ → ghi sai loại khám. Không có thông tin về bảo hiểm hết hạn, lỡ hẹn hay xét nghiệm thêm.' },
             { n: 163, q: 'What does Mr. Sorensen ask Mr. Asante to do?', options: ['Contact the insurer by telephone', 'Refund the patient immediately', 'Review all annual physical charges', 'Prevent a payment reminder from being sent to a patient'], a: 3, cue: 'put her account on hold so she doesn\'t get a reminder', lv: 'B2',
               explain: 'Ông Sorensen yêu cầu "put her account on hold so she doesn\'t get a reminder" (tạm khóa tài khoản để bà không nhận nhắc nợ) → ngăn gửi thư nhắc thanh toán. Ông không bảo gọi hãng bảo hiểm, hoàn tiền ngay hay rà soát mọi hóa đơn khám định kỳ.' },
@@ -330,9 +330,9 @@ A training session on the new process will be held on January 29 at 2:00 P.M. in
           groups: [ { type: 'mcq', instr: 'Questions 168-171 refer to the following memo.', items: [
             { n: 168, q: 'What is the purpose of the memo?', options: ['To recruit interviewers for a skills test', 'To report the results of a candidate survey', 'To introduce a new human resources director', 'To announce a new hiring procedure'], a: 3, cue: 'all hiring for positions at the Wexham office will follow a revised interview process', lv: 'B1',
               explain: 'Memo thông báo từ 3/2 mọi đợt tuyển dụng tại văn phòng Wexham theo quy trình phỏng vấn sửa đổi → công bố quy trình tuyển dụng mới. Không có việc tuyển người phỏng vấn, báo cáo khảo sát hay giới thiệu giám đốc nhân sự mới.' },
-            { n: 169, q: 'What are managers asked to do before each candidate visit?', options: ['Complete an online scoring sheet', 'Attend a training session', 'Send the candidate a written update', 'Submit questions for an exercise'], a: 3, cue: 'send their questions for the skills exercise to Human Resources at least five working days before each visit', lv: 'B2',
+            { n: 169, q: 'What are managers asked to do before each candidate visit?', options: ['Submit questions for an exercise', 'Attend a training session', 'Send the candidate a written update', 'Complete an online scoring sheet'], a: 0, cue: 'send their questions for the skills exercise to Human Resources at least five working days before each visit', lv: 'B2',
               explain: 'Quản lý phải gửi câu hỏi cho bài tập kỹ năng cho phòng nhân sự trước mỗi buổi ít nhất 5 ngày làm việc. Phiếu chấm điểm phải nộp trong 24 giờ SAU buổi phỏng vấn; thư cập nhật gửi sau buổi gặp; buổi tập huấn tổ chức ngày 29/1, không phải trước từng buổi.' },
-            { n: 170, q: 'What is suggested about the previous interview process?', options: ['It required candidates to make more than one trip.', 'It did not involve the hiring manager.', 'It was used only at the Wexham office.', 'It included no scoring of candidates.'], a: 0, cue: 'instead of three separate interviews', lv: 'C1',
+            { n: 170, q: 'What is suggested about the previous interview process?', options: ['It was used only at the Wexham office.', 'It did not involve the hiring manager.', 'It required candidates to make more than one trip.', 'It included no scoring of candidates.'], a: 2, cue: 'instead of three separate interviews', lv: 'C1',
               explain: 'Quy trình mới chỉ cần một buổi nửa ngày "instead of three separate interviews" (thay cho ba buổi phỏng vấn riêng) → trước đây ứng viên phải đến nhiều lần. Memo không nói trước đây không có quản lý tuyển dụng, chỉ áp dụng ở Wexham hay không có chấm điểm.' },
             { n: 171, q: 'In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong? "Previously, some candidates waited as long as three weeks to hear anything after their visit."', options: ['[1]', '[2]', '[3]', '[4]'], a: 3, cue: 'We will also begin sending every candidate a written update within three business days', lv: 'B2',
               explain: 'Câu cần chèn ("Previously ...") đối chiếu quá khứ với thay đổi mới, nên đứng ngay sau cam kết gửi thư cập nhật trong 3 ngày làm việc → vị trí [4]. Các vị trí [1], [2] và [3] nói về quy trình chung, nội dung buổi phỏng vấn và chấm điểm, không có chỗ để so sánh thời gian chờ.' }
@@ -353,7 +353,7 @@ Festival director Pilar Nakamura said that volunteers are still needed. "We have
               explain: 'Ban tổ chức "expect the largest crowds in the event\'s history" (dự kiến đông kỷ lục) → lượng khách có thể cao nhất từ trước đến nay. Lễ hội có gián đoạn hai năm nên không diễn ra liên tục; hội thảo thu phí 15 đô; lễ hội diễn ra ở Mistral Bay, chỉ khách được khuyên ở các thị trấn lân cận.' },
             { n: 173, q: 'What is indicated about the workshops?', options: ['Participants must book places ahead of time.', 'They are free of charge.', 'They are held on Friday evening.', 'They teach visitors to cook local dishes.'], a: 0, cue: 'must be reserved in advance', lv: 'B2',
               explain: 'Vé hội thảo phải "reserved in advance" (đặt trước) và giá 15 đô, không miễn phí. Chỉ cuộc diễu hành đèn lồng diễn ra tối thứ Sáu, và hội thảo dạy làm đèn lồng giấy chứ không dạy nấu ăn.' },
-            { n: 174, q: 'The word "guide" in the article is closest in meaning to', options: ['direct', 'teach', 'publish', 'follow'], a: 0, cue: 'could use another fifty people to help guide visitors', lv: 'B2',
+            { n: 174, q: 'The word "guide" in the article is closest in meaning to', options: ['teach', 'direct', 'publish', 'follow'], a: 1, cue: 'could use another fifty people to help guide visitors', lv: 'B2',
               explain: '"help guide visitors" = giúp hướng dẫn, chỉ đường cho khách → "direct" (chỉ dẫn). "teach" (dạy), "publish" (xuất bản) và "follow" (đi theo) không đúng nghĩa trong ngữ cảnh tình nguyện viên hỗ trợ đám đông.' },
             { n: 175, q: 'In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong? "Advance ticket sales are already 40 percent higher than at this point two years ago."', options: ['[1]', '[2]', '[3]', '[4]'], a: 0, cue: 'organizers expect the largest crowds in the event\'s history', lv: 'C1',
               explain: 'Câu cần chèn đưa bằng chứng cho dự đoán "expect the largest crowds" → vị trí [1], ngay sau câu đó. [2] và [3] nói về chương trình và nơi ở; [4] nói về tình nguyện viên nên không phù hợp với dữ liệu bán vé.' }
@@ -424,7 +424,7 @@ Thank you for your kind review. I am sorry that the projector problem disrupted 
           groups: [ { type: 'mcq', instr: 'Questions 181-185 refer to the following Web page, online review, and e-mail.', items: [
             { n: 181, q: 'Which package did Ms. Ortega\'s firm most likely book?', options: ['The Premier Package', 'The Executive Package', 'The Celebration Package', 'A customized package'], a: 0, cue: 'the lunch was excellent', lv: 'B2',
               explain: 'Công ty cô Ortega khen "the lunch was excellent" (bữa trưa tuyệt vời) trong một ngày họp → gói có bữa trưa là Premier ($68). Gói Executive chỉ có cà phê sáng; gói Celebration có bữa tối và nhạc sống; bài đánh giá không nhắc đến gói tùy chỉnh.' },
-            { n: 182, q: 'How much did the firm most likely pay per person?', options: ['$61.20', '$45.00', '$68.00', '$82.80'], a: 0, cue: 'Groups of 20 or more receive 10 percent off.', lv: 'C1',
+            { n: 182, q: 'How much did the firm most likely pay per person?', options: ['$68.00', '$45.00', '$61.20', '$82.80'], a: 2, cue: 'Groups of 20 or more receive 10 percent off.', lv: 'C1',
               explain: 'Gói Premier giá 68 đô; nhóm 25 người (từ 20 trở lên) được giảm 10% → 68 × 0,9 = 61,20 đô. 45 đô là giá gói Executive; 68 đô là giá chưa giảm; 82,80 đô là giá gói Celebration sau giảm, không phải gói họ chọn.' },
             { n: 183, q: 'The word "disrupted" in the e-mail is closest in meaning to', options: ['interrupted', 'canceled', 'postponed', 'criticized'], a: 0, cue: 'the projector problem disrupted your session', lv: 'B2',
               explain: '"disrupted your session" = làm gián đoạn buổi họp (bóng đèn máy chiếu hỏng và mất 20 phút để thay) → "interrupted". Buổi họp không bị hủy ("canceled"), hoãn ("postponed") hay bị chỉ trích ("criticized").' },
@@ -465,13 +465,13 @@ Dear Mr. Ngata,
 
 Thank you for applying. We would like to invite you to interview on Tuesday, November 4, at 3:30 P.M. at our Dunmore warehouse. Please bring two references. You will also be asked to take a short test using our inventory software.`,
           groups: [ { type: 'mcq', instr: 'Questions 186-190 refer to the following job posting and e-mails.', items: [
-            { n: 186, q: 'What is indicated about the Inventory Coordinator position?', options: ['It involves supervising other employees.', 'It is a part-time position.', 'It requires a college degree.', 'It is based at a hospital.'], a: 0, cue: 'supervise a team of four warehouse associates', lv: 'B1',
+            { n: 186, q: 'What is indicated about the Inventory Coordinator position?', options: ['It is a part-time position.', 'It involves supervising other employees.', 'It requires a college degree.', 'It is based at a hospital.'], a: 1, cue: 'supervise a team of four warehouse associates', lv: 'B1',
               explain: 'Mô tả công việc có "supervise a team of four warehouse associates" (giám sát đội bốn nhân viên kho) → vị trí có quản lý người khác. Tin không nói đây là việc bán thời gian, đòi bằng đại học, và vị trí đặt tại kho Dunmore chứ không phải bệnh viện.' },
             { n: 187, q: 'What requirement does Mr. Ngata say he does not currently meet?', options: ['Experience in logistics', 'Skill with inventory software', 'A forklift certificate', 'Experience leading a team'], a: 2, cue: 'I do not currently hold a forklift certificate', lv: 'B1',
               explain: 'Ông Ngata viết "I do not currently hold a forklift certificate" (hiện chưa có chứng chỉ xe nâng) → yêu cầu ông chưa đáp ứng. Ông đã có 4 năm kinh nghiệm, dùng hệ thống Stockwise và đang dẫn dắt một nhóm.' },
             { n: 188, q: 'What is suggested about Mr. Ngata?', options: ['He currently works at Seabright Medical Supply.', 'He has more experience than the minimum required.', 'He applied after the deadline.', 'He earns less than $52,000.'], a: 1, cue: 'at least three years of warehouse or logistics experience', lv: 'C1',
               explain: 'Tin tuyển dụng yêu cầu "at least three years" kinh nghiệm, còn ông Ngata đã làm "the past four years" → vượt mức tối thiểu. Ông làm ở Pinecrest Distribution; ông nộp ngày 24/10, trước hạn 31/10; thu nhập hiện tại của ông không được nêu.' },
-            { n: 189, q: 'In the application e-mail, the word "hold" is closest in meaning to', options: ['carry', 'contain', 'possess', 'grasp'], a: 2, cue: 'I do not currently hold a forklift certificate', lv: 'C1',
+            { n: 189, q: 'In the application e-mail, the word "hold" is closest in meaning to', options: ['possess', 'contain', 'carry', 'grasp'], a: 0, cue: 'I do not currently hold a forklift certificate', lv: 'C1',
               explain: '"hold a certificate" = có chứng chỉ → "possess" (sở hữu). "carry" (mang), "contain" (chứa đựng) và "grasp" (nắm chặt) chỉ mang nghĩa vật lý, không hợp với "certificate".' },
             { n: 190, q: 'What will Mr. Ngata be asked to do on November 4?', options: ['Operate a forklift', 'Supervise warehouse associates', 'Submit a cover letter', 'Demonstrate his skills with a software program'], a: 3, cue: 'You will also be asked to take a short test using our inventory software.', lv: 'B2',
               explain: 'Cô Beck viết "take a short test using our inventory software" (làm bài kiểm tra ngắn bằng phần mềm quản lý kho) → thể hiện kỹ năng dùng phần mềm. Không nhắc đến lái xe nâng hay giám sát nhân viên; hồ sơ và thư xin việc ông đã gửi kèm e-mail.' }
@@ -506,9 +506,9 @@ Yvonne Castellanos`,
               explain: 'Phí rút tiền ATM ngoài mạng sẽ là "$2.50 each (was $3.00)" → giảm từ 3 xuống 2,5 đô. Thông báo không nói về việc miễn phí, chỉ rút tại chi nhánh hay giới hạn hằng tháng.' },
             { n: 193, q: 'Why will Ms. Castellanos most likely NOT have to pay the maintenance fee?', options: ['Her balance stays above $1,500.', 'She has switched to electronic statements.', 'She uses only in-network ATMs.', 'She has a regular direct deposit of at least $500.'], a: 3, cue: 'or set up a direct deposit of at least $500 per month', lv: 'B2',
               explain: 'Phí được miễn nếu có chuyển khoản lương hằng tháng từ 500 đô; cô Castellanos nhận 2.100 đô qua "direct deposit" → đủ điều kiện. Số dư của cô chỉ khoảng 900 đô, dưới 1.500; cô vẫn nhận bản sao kê giấy; phí ATM không liên quan đến miễn phí duy trì tài khoản.' },
-            { n: 194, q: 'The word "waived" in the notice is closest in meaning to', options: ['delayed', 'canceled', 'reduced', 'recorded'], a: 1, cue: 'The fee is waived if you keep a minimum daily balance', lv: 'C1',
+            { n: 194, q: 'The word "waived" in the notice is closest in meaning to', options: ['canceled', 'delayed', 'reduced', 'recorded'], a: 0, cue: 'The fee is waived if you keep a minimum daily balance', lv: 'C1',
               explain: '"The fee is waived if ..." = khoản phí được bỏ/miễn khi đủ điều kiện → "canceled" (hủy bỏ). "delayed" (trì hoãn), "reduced" (giảm bớt, chưa miễn hết) và "recorded" (ghi lại) không đúng nghĩa.' },
-            { n: 195, q: 'What could Ms. Castellanos do to avoid the new paper statement fee?', options: ['Visit a branch on January 1', 'Increase her minimum daily balance', 'Call the bank on December 15', 'Switch to electronic statements by December 15'], a: 3, cue: 'Customers who switch to electronic statements before December 15 will not be charged.', lv: 'B2',
+            { n: 195, q: 'What could Ms. Castellanos do to avoid the new paper statement fee?', options: ['Visit a branch on January 1', 'Increase her minimum daily balance', 'Switch to electronic statements by December 15', 'Call the bank on December 15'], a: 2, cue: 'Customers who switch to electronic statements before December 15 will not be charged.', lv: 'B2',
               explain: 'Thông báo nói khách chuyển sang sao kê điện tử trước 15/12 sẽ không bị tính phí; e-mail gửi ngày 2/12 nên cô còn kịp. Đến chi nhánh ngày 1/1, tăng số dư tối thiểu (chỉ liên quan phí duy trì) hay gọi điện đúng ngày 15/12 không giúp tránh phí này.' }
           ] } ] },
         { title: 'Web page, E-mails', lv: 'B2', text:
@@ -546,9 +546,9 @@ Thank you for your interest. The pet fee is not refundable. I can show you the a
           groups: [ { type: 'mcq', instr: 'Questions 196-200 refer to the following Web page and e-mails.', items: [
             { n: 196, q: 'What is indicated about the apartments at Maple Court?', options: ['Each one comes with a parking space.', 'They are all furnished.', 'Their rent includes utilities.', 'They are available only to families.'], a: 0, cue: 'All units include in-unit laundry and a covered parking space.', lv: 'B1',
               explain: 'Tin cho thuê nêu "All units include in-unit laundry and a covered parking space" → mỗi căn đều có chỗ đỗ xe có mái che. Tin cho biết rõ tiền điện nước không bao gồm ("Utilities are not included"); không nói có nội thất hay chỉ cho gia đình thuê.' },
-            { n: 197, q: 'Why does Ms. Johansson ask about a Saturday visit?', options: ['She works on weekdays.', 'The apartment is closed during the week.', 'Her partner lives out of town.', 'She wants to move in on a weekend.'], a: 0, cue: 'because we both work during the week', lv: 'B2',
+            { n: 197, q: 'Why does Ms. Johansson ask about a Saturday visit?', options: ['The apartment is closed during the week.', 'She works on weekdays.', 'Her partner lives out of town.', 'She wants to move in on a weekend.'], a: 1, cue: 'because we both work during the week', lv: 'B2',
               explain: 'Cô viết "because we both work during the week" (cả hai đều đi làm trong tuần) nên muốn xem nhà vào thứ Bảy. Tin nói căn hộ mở tham quan các ngày trong tuần; không có chi tiết về việc bạn đời ở xa hay chuyển vào cuối tuần.' },
-            { n: 198, q: 'What is suggested about Ms. Johansson\'s dog?', options: ['It must stay in a separate area.', 'It qualifies under the building\'s weight limit.', 'It is too young to be registered.', 'It needs a monthly pet permit.'], a: 1, cue: 'Pets under 20 kilograms are welcome', lv: 'C1',
+            { n: 198, q: 'What is suggested about Ms. Johansson\'s dog?', options: ['It must stay in a separate area.', 'It is too young to be registered.', 'It qualifies under the building\'s weight limit.', 'It needs a monthly pet permit.'], a: 2, cue: 'Pets under 20 kilograms are welcome', lv: 'C1',
               explain: 'Chó của cô nặng 15 kg ("a 15-kilogram terrier"), dưới giới hạn "under 20 kilograms" trong tin cho thuê → đủ điều kiện nuôi. Không có thông tin về khu vực riêng, đăng ký theo tuổi hay giấy phép hằng tháng (chỉ có phí một lần $300).' },
             { n: 199, q: 'In the second e-mail, the word "process" is closest in meaning to', options: ['handle', 'improve', 'produce', 'prepare'], a: 0, cue: 'we can process it by Monday', lv: 'B2',
               explain: '"process it" = xử lý đơn thuê → "handle" (giải quyết, xử lý). "improve" (cải thiện), "produce" (sản xuất) và "prepare" (chuẩn bị) không đúng nghĩa khi nói về hồ sơ đăng ký.' },

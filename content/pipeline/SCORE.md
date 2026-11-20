@@ -2,16 +2,16 @@
 
 Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipeline/score.budget.json` · kế hoạch `docs/CONTENT-WORLD-PLAN.md` §3.5. Điểm = độ phủ so với chuẩn × tỉ lệ qua cổng.
 
-**Tổng: 76.7 / 100**
+**Tổng: 77.5 / 100**
 
 | Mảng | Điểm | Sàn | Độ phủ | Qua cổng | Lỗi |
 |---|---|---|---|---|---|
-| Kho từ | **59.2** | 59.2 | 59.2% | 100% | 0 |
+| Kho từ | **59.3** | 59.2 | 59.3% | 100% | 0 |
 | Ngữ pháp | **72.8** | 72.8 | 72.8% | 100% | 0 |
 | Giao tiếp | **89.7** | 89.7 | 89.7% | 100% | 0 |
 | 4 kỹ năng | **97.6** | 97.6 | 97.6% | 100% | 0 |
 | Đề thi | **66.6** | 66.6 | 66.6% | 100% | 0 |
-| Chất lượng đề | **46.9** | 46.9 | 46.9% | 100% | 0 |
+| Chất lượng đề | **54.2** | 46.9 | 54.2% | 100% | 0 |
 | Khung Can-do | **82.6** | 82.6 | 82.6% | 100% | 0 |
 | Dễ học – dễ nhớ | **91.8** | 91.8 | 91.8% | 100% | 0 |
 | i18n | **82.8** | 82.8 | 82.8% | 100% | 0 |
@@ -20,14 +20,14 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 
 | Thành phần | Có / chuẩn | % | Trọng số |
 |---|---|---|---|
-| từ#loại duy nhất | 10287 / 20000 | 51% | 25 |
-| IPA·nghĩa·định nghĩa·ví dụ·CEFR | 10287 / 10287 | 100% | 20 |
-| collocation | 5019 / 20000 | 25% | 12 |
-| đồng nghĩa | 3106 / 20000 | 16% | 8 |
-| IPA Mỹ | 6884 / 20000 | 34% | 5 |
+| từ#loại duy nhất | 10318 / 20000 | 52% | 25 |
+| IPA·nghĩa·định nghĩa·ví dụ·CEFR | 10318 / 10318 | 100% | 20 |
+| collocation | 5029 / 20000 | 25% | 12 |
+| đồng nghĩa | 3123 / 20000 | 16% | 8 |
+| IPA Mỹ | 6898 / 20000 | 34% | 5 |
 | ảnh theo nghĩa | 8044 / 20000 | 40% | 15 |
-| C2 | 1022 / 1000 | 100% | 10 |
-| A1 | 869 / 1000 | 87% | 5 |
+| C2 | 1027 / 1000 | 100% | 10 |
+| A1 | 871 / 1000 | 87% | 5 |
 
 ## Ngữ pháp
 
@@ -97,7 +97,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 
 | Thành phần | Có / chuẩn | % | Trọng số |
 |---|---|---|---|
-| đáp án cân bằng vị trí (lệch ≤ 3 %) | 50.9 / 100 | 51% | 15 |
+| đáp án cân bằng vị trí (lệch ≤ 3 %) | 100 / 100 | 100% | 15 |
 | đáp án đúng không lộ qua độ dài (≤ 10 %) | 61.3 / 100 | 61% | 20 |
 | lời giải riêng từng câu (rập khuôn ≤ 2 %) | 85 / 100 | 85% | 15 |
 | không trùng câu / đáp án nhiễu trùng | 94.7 / 100 | 95% | 15 |
@@ -109,7 +109,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 |---|---|---|---|
 | mục tiêu LKF tự soạn | 585 / 600 | 98% | 25 |
 | ô kỹ năng × cấp đủ ≥ 15 | 36 / 36 | 100% | 15 |
-| nội dung có lo hợp lệ | 11667 / 11667 | 100% | 35 |
+| nội dung có lo hợp lệ | 11698 / 11698 | 100% | 35 |
 | mục tiêu đã có nội dung luyện | 197 / 600 | 33% | 25 |
 
 ## Dễ học – dễ nhớ

@@ -10,11 +10,11 @@
         n: 1, type: "mcq", instr: "For each question, choose the correct answer.",
         items: [
           { n: 1, kind: "notice", text: "BUS STATION CAFÉ\nStudents get a free drink with any meal.\nPlease show your student card at the till.", q: "What does the notice say?", options: ["Students can have a free drink with a meal.", "Students pay less for all the food.", "Only students can eat in the café."], a: 0, cue: "Students get a free drink with any meal", explain: "The drink is free when a student buys a meal. The notice does not say that the food is cheaper or that other people cannot eat there." },
-          { n: 2, kind: "message", text: "Dan – I can't come to football tonight. My throat hurts and Mum says I must stay in bed. Can you tell Coach? Josh", q: "Why can't Josh play football tonight?", options: ["He is ill.", "He has lost his boots.", "He has to do his homework."], a: 0, cue: "My throat hurts and Mum says I must stay in bed", explain: "A sore throat and staying in bed mean that Josh is ill. He does not talk about boots or homework." },
-          { n: 3, kind: "sign", text: "SHOE SHOP\nSALE – all boots half price until Saturday.\nTrainers are not in the sale.", q: "What can you buy at a lower price?", options: ["boots", "trainers", "all kinds of shoes"], a: 0, cue: "all boots half price until Saturday", explain: "Only boots are in the sale. The sign says that trainers are not, so 'all kinds of shoes' is wrong." },
+          { n: 2, kind: "message", text: "Dan – I can't come to football tonight. My throat hurts and Mum says I must stay in bed. Can you tell Coach? Josh", q: "Why can't Josh play football tonight?", options: ["He has lost his boots.", "He is ill.", "He has to do his homework."], a: 1, cue: "My throat hurts and Mum says I must stay in bed", explain: "A sore throat and staying in bed mean that Josh is ill. He does not talk about boots or homework." },
+          { n: 3, kind: "sign", text: "SHOE SHOP\nSALE – all boots half price until Saturday.\nTrainers are not in the sale.", q: "What can you buy at a lower price?", options: ["all kinds of shoes", "trainers", "boots"], a: 2, cue: "all boots half price until Saturday", explain: "Only boots are in the sale. The sign says that trainers are not, so 'all kinds of shoes' is wrong." },
           { n: 4, kind: "email", text: "Hi Nina,\nThe school trip to the mountains is on Wednesday, not Tuesday. Please bring a coat because it will be cold. We will come back at five o'clock.\nMr Ford", q: "What does Mr Ford ask Nina to do?", options: ["bring warm clothes", "bring some food", "come to school on Tuesday"], a: 0, cue: "Please bring a coat because it will be cold", explain: "A coat is a warm piece of clothing. The trip is on Wednesday, so Nina does not come on Tuesday." },
           { n: 5, kind: "notice", text: "FESTIVAL OF LIGHTS\nSaturday, 6 p.m., Market Square\nFree entry. Lanterns cost £2 – buy them from the stall by the fountain.", q: "What do you have to pay for?", options: ["a ticket for the festival", "a lantern", "a place in the square"], a: 1, cue: "Lanterns cost £2", explain: "The festival is free, but lanterns cost £2. The notice does not talk about paying for a place." },
-          { n: 6, kind: "message", text: "Anna – I've booked the hotel in Rome. Can you pay for the flights? Tell me when you've done it. Kate", q: "What is Anna going to do?", options: ["pay for the flights", "book the hotel", "meet Kate at the airport"], a: 0, cue: "Can you pay for the flights?", explain: "Kate has already booked the hotel. She asks Anna to pay for the flights." },
+          { n: 6, kind: "message", text: "Anna – I've booked the hotel in Rome. Can you pay for the flights? Tell me when you've done it. Kate", q: "What is Anna going to do?", options: ["meet Kate at the airport", "book the hotel", "pay for the flights"], a: 2, cue: "Can you pay for the flights?", explain: "Kate has already booked the hotel. She asks Anna to pay for the flights." },
         ],
       },
       {
@@ -56,12 +56,12 @@
         title: "Staying healthy",
         text: "Doctors say that we should do some exercise at (19) three times a week. You do not need to go to a gym. Walking to school or to the shops is a good way to (20) fit. It is also important to drink enough water, especially when the weather is hot. Many people forget to eat breakfast, but a good breakfast (21) you energy for the morning. Sleep is important, too. Most teenagers need about nine hours (22) night. If you (23) tired in the day, try to go to bed earlier and switch off your phone an hour (24) you sleep.",
         items: [
-          { n: 19, options: ["least", "most", "last"], a: 0, cue: "at … three times a week", explain: "'At least' means 'not fewer than'. 'At most' would mean the opposite." },
+          { n: 19, options: ["last", "most", "least"], a: 2, cue: "at … three times a week", explain: "'At least' means 'not fewer than'. 'At most' would mean the opposite." },
           { n: 20, options: ["keep", "hold", "take"], a: 0, cue: "a good way to … fit", explain: "'Keep fit' is a fixed phrase. We do not say 'hold fit' or 'take fit'." },
-          { n: 21, options: ["gives", "makes", "takes"], a: 0, cue: "a good breakfast … you energy", explain: "We 'give' someone energy. 'Makes you energy' is not correct English." },
-          { n: 22, options: ["a", "of", "in"], a: 0, cue: "about nine hours … night", explain: "'Nine hours a night' means every night. 'Of night' and 'in night' are not used here." },
+          { n: 21, options: ["makes", "gives", "takes"], a: 1, cue: "a good breakfast … you energy", explain: "We 'give' someone energy. 'Makes you energy' is not correct English." },
+          { n: 22, options: ["in", "of", "a"], a: 2, cue: "about nine hours … night", explain: "'Nine hours a night' means every night. 'Of night' and 'in night' are not used here." },
           { n: 23, options: ["feel", "do", "have"], a: 0, cue: "If you … tired in the day", explain: "We say 'feel tired'. 'Do tired' and 'have tired' are wrong." },
-          { n: 24, options: ["before", "after", "while"], a: 0, cue: "switch off your phone an hour … you sleep", explain: "You switch the phone off first, and then you sleep, so 'before' is right. 'After' would give the opposite order." },
+          { n: 24, options: ["after", "before", "while"], a: 1, cue: "switch off your phone an hour … you sleep", explain: "You switch the phone off first, and then you sleep, so 'before' is right. 'After' would give the opposite order." },
         ],
       },
       {
@@ -144,8 +144,8 @@
             items: [
               { n: 11, q: "Where did Ruby stay?", options: ["in a tent", "in a small hotel", "in her cousin's house"], a: 2, cue: "We stayed in my cousin's house", explain: "She thought they would camp, but they stayed in her cousin's house." },
               { n: 12, q: "How did Ruby's family travel to the village?", options: ["by car", "by train and bus", "by plane"], a: 1, cue: "we took the train and then a bus", explain: "Her dad does not like driving on mountain roads, so they went by train and bus." },
-              { n: 13, q: "What did Ruby like best?", options: ["the food", "the lake", "the village shops"], a: 1, cue: "I loved the lake most", explain: "The food was great, but she loved the lake most." },
-              { n: 14, q: "What was the problem on the holiday?", options: ["The weather was bad.", "Her brother lost something.", "The journey was too long."], a: 1, cue: "my brother lost his camera", explain: "The weather was mostly good. Her brother lost his camera on the second day." },
+              { n: 13, q: "What did Ruby like best?", options: ["the lake", "the food", "the village shops"], a: 0, cue: "I loved the lake most", explain: "The food was great, but she loved the lake most." },
+              { n: 14, q: "What was the problem on the holiday?", options: ["The weather was bad.", "The journey was too long.", "Her brother lost something."], a: 2, cue: "my brother lost his camera", explain: "The weather was mostly good. Her brother lost his camera on the second day." },
               { n: 15, q: "What will Ruby's family do next summer?", options: ["go to the mountains again", "visit her cousin again", "go to the seaside"], a: 2, cue: "next summer my parents want to try the seaside", explain: "She says 'maybe' about going back. Next summer her parents want to try the seaside." },
             ] },
         ],
@@ -167,7 +167,7 @@
             items: [{ n: 19, q: "Where will they meet?", options: ["in the café", "at the bus stop", "outside the bookshop"], a: 2, cue: "Let's meet outside the bookshop instead", explain: "The café is closed and the bus stop is too far from the shops. They choose the bookshop." }] },
           { speakers: { W: { name: "Announcer", accent: "en-GB", gender: "f" } },
             script: [{ say: "Twenty. You will hear an announcement at a station. Which platform does the train leave from?" }, { s: "W", t: "Attention, please. The train to Oxford will leave from platform five, not platform three as we said before. Please do not go to platform two." }],
-            items: [{ n: 20, q: "Which platform does the train to Oxford leave from?", options: ["platform 2", "platform 3", "platform 5"], a: 2, cue: "will leave from platform five", explain: "The new platform is five. Platform three was the old information, and platform two is wrong." }] },
+            items: [{ n: 20, q: "Which platform does the train to Oxford leave from?", options: ["platform 5", "platform 3", "platform 2"], a: 0, cue: "will leave from platform five", explain: "The new platform is five. Platform three was the old information, and platform two is wrong." }] },
         ],
       },
       {

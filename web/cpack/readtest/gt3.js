@@ -624,8 +624,8 @@ items: [
 { type: 'mcq', instr: g.RTI[3],
 items: [
 { n: 40, q: 'According to paragraph G, what was one lasting effect of the natural ice trade?',
-options: ['It made electric refrigerators cheaper to produce.', 'It led to cleaner ponds and rivers in cities.', 'It created an expectation of cold food and drink.', 'It is still an important industry in some countries.'],
-a: 2, cue: 'It created the expectation of cold food and drink' },
+options: ['It created an expectation of cold food and drink.', 'It led to cleaner ponds and rivers in cities.', 'It made electric refrigerators cheaper to produce.', 'It is still an important industry in some countries.'],
+a: 0, cue: 'It created the expectation of cold food and drink' },
 ] },
 ],
 vocab: [

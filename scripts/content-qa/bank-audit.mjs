@@ -41,7 +41,7 @@ function walk(v, path, lvl, anc = []) {
   if (Array.isArray(v.options) && v.options.length >= 2 && (Number.isInteger(v.a) || Number.isInteger(v.answer))) {
     const g = G(path), a = Number.isInteger(v.a) ? v.a : v.answer, opts = v.options.map(String);
     g.n++; items.push({ group: path, level, q: String(v.q || v.text || ''), options: opts, a, explain: Array.isArray(v.explain) ? v.explain.join(' ') : String(v.explain || v.why || v.exp || ''), id: v.id || v.n || '', ctx: contextOf(v, anc) });
-    g.pos[Math.min(a, 5)]++; g.nOpt[opts.length] = (g.nOpt[opts.length] || 0) + 1;
+    g.pos[Math.min(a, 5)]++; ((g.posN ||= {})[opts.length] ||= new Array(opts.length).fill(0))[Math.min(a, opts.length - 1)]++; g.nOpt[opts.length] = (g.nOpt[opts.length] || 0) + 1;
     g.level[level] = (g.level[level] || 0) + 1; const kind = v.kind || v.type || '—'; g.kind[kind] = (g.kind[kind] || 0) + 1;
     const lens = opts.map(o => o.length), mx = Math.max(...lens);
     if (lens[a] === mx && lens.filter(l => l === mx).length === 1 && opts.length > 2 && mx - Math.max(...lens.filter((_, i) => i !== a)) >= 4) g.longestIsAnswer++;
@@ -70,8 +70,9 @@ for (const [name, g] of Object.entries(groups)) {
   const dupQ = [...g.q.values()].filter(x => x > 1).reduce((a, x) => a + x - 1, 0);
   const templated = [...g.lead.values()].filter(x => x >= 8).reduce((a, x) => a + x, 0);
   const dupExpl = [...g.expl.values()].filter(x => x > 1).reduce((a, x) => a + x - 1, 0);
-  const posMax = Math.max(...g.pos.slice(0, 4)), posMin = Math.min(...g.pos.slice(0, 4));
-  out[name] = { items: g.n, levels: g.level, kinds: g.kind, answerPos: g.pos.slice(0, 4).map(x => pc(x, g.n)), posSkew: pc(posMax - posMin, g.n),
+  // lệch vị trí tính RIÊNG theo số phương án (câu 3 phương án không có ô D), rồi lấy trung bình theo số câu
+  const posSkewPct = Object.values(g.posN || {}).reduce((t, c) => t + (Math.max(...c) - Math.min(...c)), 0);
+  out[name] = { items: g.n, levels: g.level, kinds: g.kind, answerPos: g.pos.slice(0, 4).map(x => pc(x, g.n)), posSkew: pc(posSkewPct, g.n),
     noExplainPct: pc(g.noExplain, g.n), shortExplainPct: pc(g.shortExplain, g.n), explainNotMentionAnsPct: pc(g.explainNotMention, g.n),
     templatedExplainPct: pc(templated, g.n), duplicateExplainPct: pc(dupExpl, g.n), duplicateQuestionPct: pc(dupQ, g.n),
     longestIsAnswerPct: pc(g.longestIsAnswer, g.n), dupOptionPct: pc(g.dupOpts, g.n), allAbovePct: pc(g.allAbove, g.n) };

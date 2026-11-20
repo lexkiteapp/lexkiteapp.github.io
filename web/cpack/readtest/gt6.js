@@ -163,8 +163,8 @@ items: [
 { type: 'mcq', instr: g.RTI[3],
 items: [
 { n: 39, q: 'What effect did the new stamps have on the post, according to paragraph D?',
-options: ['Use of the postal service declined at first.', 'Demand for the postal service grew quickly.', 'Public complaints forced the stamps to be withdrawn.', 'Deliveries became noticeably faster.'],
-a: 1, cue: 'the number of letters posted had more than doubled' },
+options: ['Use of the postal service declined at first.', 'Deliveries became noticeably faster.', 'Public complaints forced the stamps to be withdrawn.', 'Demand for the postal service grew quickly.'],
+a: 3, cue: 'the number of letters posted had more than doubled' },
 { n: 40, q: 'What point does the writer make about some small countries in paragraph F?',
 options: ['They discouraged people from collecting stamps.', 'They earned money from stamps that were never used for posting.', 'They deliberately copied the mistakes of larger countries.', 'They gave up carrying letters in order to print more stamps.'],
 a: 1, cue: 'earning a useful income without having to carry a single letter' },
@@ -342,8 +342,8 @@ items: [
 { type: 'mcq', instr: g.RTI[3],
 items: [
 { n: 39, q: 'According to paragraph C, why did bedtimes move later?',
-options: ['Candles became much cheaper to buy.', 'Artificial light made the evenings longer and more productive.', 'Doctors began to recommend longer sleep.', 'Winter nights became shorter than before.'],
-a: 1, cue: 'evenings became longer and more productive' },
+options: ['Artificial light made the evenings longer and more productive.', 'Candles became much cheaper to buy.', 'Doctors began to recommend longer sleep.', 'Winter nights became shorter than before.'],
+a: 0, cue: 'evenings became longer and more productive' },
 { n: 40, q: 'What is the writer\'s main purpose in paragraph G?',
 options: ['to criticise the work of sleep therapists', 'to prove that the historical theory is correct', 'to recommend a balanced and more relaxed attitude to sleep', 'to argue that nobody needs eight hours of rest'],
 a: 2, cue: 'people would benefit from a more relaxed attitude towards sleep' },
