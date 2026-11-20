@@ -277,6 +277,7 @@ App.pathnPack = { es: 'cpack/lesson/pn-es.js', pt: 'cpack/lesson/pn-pt.js', fr: 
 App.cpackI18n = { criteria: { es: 'cpack/i18n/criteria-es.js', pt: 'cpack/i18n/criteria-pt.js', fr: 'cpack/i18n/criteria-fr.js', de: 'cpack/i18n/criteria-de.js', id: 'cpack/i18n/criteria-id.js', th: 'cpack/i18n/criteria-th.js', zh: 'cpack/i18n/criteria-zh.js', ja: 'cpack/i18n/criteria-ja.js', ko: 'cpack/i18n/criteria-ko.js', hi: 'cpack/i18n/criteria-hi.js', ar: 'cpack/i18n/criteria-ar.js', ru: 'cpack/i18n/criteria-ru.js', tr: 'cpack/i18n/criteria-tr.js' }, confidence: { es: 'cpack/i18n/confidence-es.js', pt: 'cpack/i18n/confidence-pt.js', fr: 'cpack/i18n/confidence-fr.js', de: 'cpack/i18n/confidence-de.js', id: 'cpack/i18n/confidence-id.js', th: 'cpack/i18n/confidence-th.js', zh: 'cpack/i18n/confidence-zh.js', ja: 'cpack/i18n/confidence-ja.js', ko: 'cpack/i18n/confidence-ko.js', hi: 'cpack/i18n/confidence-hi.js', ar: 'cpack/i18n/confidence-ar.js', ru: 'cpack/i18n/confidence-ru.js', tr: 'cpack/i18n/confidence-tr.js' } }; // bản dịch nhóm criteria/confidence nằm ở web/cpack (scripts/lib/i18n-pack.mjs CPACK_I18N); build-cpack chỉ băm đường dẫn viết đủ chữ
 App.cpackI18n.rhythm = { es: 'cpack/i18n/rhythm-es.js', pt: 'cpack/i18n/rhythm-pt.js', fr: 'cpack/i18n/rhythm-fr.js', de: 'cpack/i18n/rhythm-de.js', id: 'cpack/i18n/rhythm-id.js', th: 'cpack/i18n/rhythm-th.js', zh: 'cpack/i18n/rhythm-zh.js', ja: 'cpack/i18n/rhythm-ja.js', ko: 'cpack/i18n/rhythm-ko.js', hi: 'cpack/i18n/rhythm-hi.js', ar: 'cpack/i18n/rhythm-ar.js', ru: 'cpack/i18n/rhythm-ru.js', tr: 'cpack/i18n/rhythm-tr.js' }; // game Nhịp điệu (cpack/i18n/rhythm-<lang>.js, tải theo route)
 App.cpackI18n.qtips = { es: 'cpack/i18n/qtips-es.js', pt: 'cpack/i18n/qtips-pt.js', fr: 'cpack/i18n/qtips-fr.js', de: 'cpack/i18n/qtips-de.js', id: 'cpack/i18n/qtips-id.js', th: 'cpack/i18n/qtips-th.js', zh: 'cpack/i18n/qtips-zh.js', ja: 'cpack/i18n/qtips-ja.js', ko: 'cpack/i18n/qtips-ko.js', hi: 'cpack/i18n/qtips-hi.js', ar: 'cpack/i18n/qtips-ar.js', ru: 'cpack/i18n/qtips-ru.js', tr: 'cpack/i18n/qtips-tr.js' }; // mẹo làm bài thi (cpack/i18n/qtips-<lang>.js, tải cùng gói màn thi/nghe/đọc; dời khỏi web/js để nhường chỗ ngân sách người học)
+App.cpackI18n.tlui = { es: 'cpack/i18n/tlui-es.js', pt: 'cpack/i18n/tlui-pt.js', fr: 'cpack/i18n/tlui-fr.js', de: 'cpack/i18n/tlui-de.js', id: 'cpack/i18n/tlui-id.js', th: 'cpack/i18n/tlui-th.js', zh: 'cpack/i18n/tlui-zh.js', ja: 'cpack/i18n/tlui-ja.js', ko: 'cpack/i18n/tlui-ko.js', ru: 'cpack/i18n/tlui-ru.js', tr: 'cpack/i18n/tlui-tr.js', ar: 'cpack/i18n/tlui-ar.js', hi: 'cpack/i18n/tlui-hi.js' };
 App.cpackI18n.lcardui = { es: 'cpack/i18n/lcardui-es.js', pt: 'cpack/i18n/lcardui-pt.js', fr: 'cpack/i18n/lcardui-fr.js', de: 'cpack/i18n/lcardui-de.js', id: 'cpack/i18n/lcardui-id.js', th: 'cpack/i18n/lcardui-th.js', zh: 'cpack/i18n/lcardui-zh.js', ja: 'cpack/i18n/lcardui-ja.js', ko: 'cpack/i18n/lcardui-ko.js', hi: 'cpack/i18n/lcardui-hi.js', ar: 'cpack/i18n/lcardui-ar.js', ru: 'cpack/i18n/lcardui-ru.js', tr: 'cpack/i18n/lcardui-tr.js' }; // mẹo làm bài thi (cpack/i18n/lcardui-<lang>.js, tải cùng gói màn thi/nghe/đọc; dời khỏi web/js để nhường chỗ ngân sách người học)
 App.esGx = { en: 'cpack/es/gx-en.js', vi: 'cpack/es/gx-vi.js', es: 'cpack/es/gx-es.js', pt: 'cpack/es/gx-pt.js', fr: 'cpack/es/gx-fr.js', de: 'cpack/es/gx-de.js', id: 'cpack/es/gx-id.js', th: 'cpack/es/gx-th.js', zh: 'cpack/es/gx-zh.js', ja: 'cpack/es/gx-ja.js', ko: 'cpack/es/gx-ko.js', hi: 'cpack/es/gx-hi.js', ar: 'cpack/es/gx-ar.js', ru: 'cpack/es/gx-ru.js', tr: 'cpack/es/gx-tr.js' }; // giải thích ngữ pháp TBN theo ngôn ngữ người học, tải lười 1 gói (js/espr.js)
 App.esX = { lv: { A1: 'cpack/es/x-A1.js', A2: 'cpack/es/x-A2.js', B1: 'cpack/es/x-B1.js' }, ui: { en: 'cpack/es/x-ui-en.js', vi: 'cpack/es/x-ui-vi.js', es: 'cpack/es/x-ui-es.js', pt: 'cpack/es/x-ui-pt.js', fr: 'cpack/es/x-ui-fr.js', de: 'cpack/es/x-ui-de.js', id: 'cpack/es/x-ui-id.js', th: 'cpack/es/x-ui-th.js', zh: 'cpack/es/x-ui-zh.js', ja: 'cpack/es/x-ui-ja.js', ko: 'cpack/es/x-ui-ko.js', hi: 'cpack/es/x-ui-hi.js', ar: 'cpack/es/x-ui-ar.js', ru: 'cpack/es/x-ui-ru.js', tr: 'cpack/es/x-ui-tr.js' } }; // luyện định dạng DELE/SIELE W5 (cpack/es-app/exam-ui.js): đề theo cấp + nhãn theo ngôn ngữ người học, tải lười
@@ -339,6 +340,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
     streak: ['streak', 'ret'],
     style: 'quick',
     task1: 'writing',
+    tlprep: 'tlpick',
     toefl: ['listening', 'toefl'],
     'toefl-p': ['listening', 'toefl'],
     toeic: ['tsl', 'listening', 'toeic'],
@@ -404,6 +406,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
     readings: 'css/exam.css',
     say: ['css/st-v2-say-front.css', 'css/st-v2-say-back.css'],
     settings: 'css/adm.css',
+    tlpick: ['css/tl-pick.css'],
     toefl: 'css/exam.css',
     toeic: 'css/exam.css',
     ux1: ['css/st-home.css', 'css/st-v2-ux1-pre.css', 'css/st-v2-path.css', 'css/st-v2-today.css'] /* Home lần đầu chỉ Lộ trình + Hôm nay; màn khác tải theo màn (st/v2/runtime.js LZ) */,
@@ -535,6 +538,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
     scope.ac.abort(); scope = { id: my, ac: new AbortController() };
     if (!state.game) { await dataReadyP; if (my !== routeSeq) return; }
     const { name, arg, query } = parseHash();
+    const tlr = window.Target && Target.routeFor(name); if (tlr) { location.replace(tlr); return; }
     if (name === 'welcome' && welcomeGate(arg)) return; // đã có dữ liệu → thay bằng trang đúng, không tải gói trang giới thiệu
     const STUDY = /^#\/(practice\/|review)/;
     if (STUDY.test(location.hash) && curHash && !STUDY.test(curHash)) backHash = /^#\/welcome/.test(curHash) ? '#/home' : curHash;
@@ -682,6 +686,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
   App.vimg = (word, pos, gloss, w, ex) => (window.VImg ? VImg.slot(word, pos, gloss, w, ex) : ''); // w = vai (card|back|quiz|dict|words) hoặc px; ex = câu ví dụ (ảnh cảnh)
   // Màn đầu (chào/trang chủ, lần tải lạnh): hoãn nạp module+chỉ mục ảnh tới lúc rảnh – chạy lúc khởi động nó chặn luồng chính ~100 ms (TBT mobile). Màn khác (học/ôn/tra từ): nạp ngay như cũ để thẻ đầu đã có ảnh.
   /^#?\/?(welcome|home)?\/?(\?|$)/.test(location.hash) ? idle(() => App.vimgReady()) : App.vimgReady();
+  if (window.Target && Target.LANGS.length > 1) idle(() => App.need('tlpick').then(() => window.TLPick && TLPick.boot()).catch(() => {}));
   // thẻ ngôn ngữ đích khác: chỉ ảnh có khóa tiếng Anh từ#loại khớp ĐÚNG nghĩa (trường img, content/target/<tl>/) – không có → không ảnh
   App.imgKey = c => (c.tl ? String(c.img || '').split('#') : [c.word, c.pos]); // [từ, loại] để gọi App.vimg; thẻ tl không có img → người gọi bỏ ảnh
   // Khối "Hiểu sâu": HTML đã dựng nhớ theo từ → lần vẽ lại (từ điển: bản nhanh → bản đủ) vẽ luôn trong cùng lần, không chèn muộn đẩy nội dung bên dưới (CLS 0,66 #/dict @360)
