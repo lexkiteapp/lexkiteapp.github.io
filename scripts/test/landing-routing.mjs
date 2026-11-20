@@ -79,7 +79,7 @@ for (const l of LANGS) {
   ok([...html.replace(/<noscript>[\s\S]*?<\/noscript>/g, '').matchAll(/<link\b[^>]*rel="stylesheet"[^>]*>/g)].every(([t]) => /\smedia="print"/.test(t) && /\sdata-swap[\s>]/.test(t)), `${f}: không có stylesheet chặn hiển thị (chỉ media="print" data-swap + bản <noscript>)`);
   ok(head.includes(`<link rel="canonical" href="${expectHref(l)}">`), `${f}: canonical tự trỏ`);
   const alts = [...head.matchAll(/<link rel="alternate" hreflang="([a-z-]+)" href="([^"]+)">/g)];
-  ok(alts.length === 16 && LANGS.every(x => alts.some(a => a[1] === x && a[2] === expectHref(x))) && alts.some(a => a[1] === 'x-default' && a[2] === 'https://lexkite.com/'), `${f}: cần 15 hreflang + x-default (/en/)`);
+  ok(alts.length === 16 && LANGS.every(x => alts.some(a => a[1] === x && a[2] === expectHref(x))) && alts.some(a => a[1] === 'x-default' && a[2] === expectHref('en')), `${f}: cần 15 hreflang + x-default (/en/)`);
   ok(!/name="robots" content="[^"]*noindex/.test(head), `${f}: trang giới thiệu phải index được`);
   const t = (head.match(/<title>([^<]+)<\/title>/) || [])[1] || '', d = (head.match(/<meta name="description" content="([^"]+)"/) || [])[1] || '';
   const w = x => [...x].reduce((a, c) => a + (/[\u3000-\u9fff\uac00-\ud7af\uff00-\uffef]/.test(c) ? 2 : 1), 0); // chữ CJK rộng gấp đôi trên kết quả tìm kiếm
