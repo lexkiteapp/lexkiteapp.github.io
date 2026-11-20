@@ -1475,7 +1475,11 @@ html[data-has-learn] .lk-rep:not(.in-side),html[data-has-grade] .lk-rep:not(.in-
 .v2 nav a[data-tab]:active .st-ti { transform: scale(.88); }
 @media (prefers-reduced-motion: reduce) { .st-ti { transition: none; } .v2 nav a[data-tab]:active .st-ti { transform: none; } }
 /* icon-flash: chữ ligature chưa có phông →… CSS-NOTES §44 */
-html.ic-wait-o .material-symbols-outlined,html.ic-wait-r .material-symbols-rounded{color:transparent!important;display:inline-block;max-width:1em;overflow:hidden;white-space:nowrap}
+html.ic-wait-o .material-symbols-outlined:not([data-ms]),html.ic-wait-r .material-symbols-rounded:not([data-ms]){color:transparent!important;display:inline-block;max-width:1em;overflow:hidden;white-space:nowrap}
+
+[class*=material-symbols][data-ms]{font-family:serif!important;font-size-adjust:0;-webkit-text-fill-color:transparent}
+[class*=material-symbols][data-ms]:not(.absolute,.fixed,.sticky){position:relative}
+.msv{position:absolute;inset:0;width:100%;height:100%;fill:currentColor;pointer-events:none}
 
 /* kiểm toán 18/11 (lesson-perf): cờ data-has-* do ui.js đặt thay cho :has() gốc html/body – mỗi lần DOM đổi, :has() gốc buộc tính lại style cả cây (~25 % thời gian luồng chính của 1 bài học ở CPU 4×) */
 /* P0 kiểm toán 18/11: hàng nút chép chính tả ở 390 px – Câu trước/Câu sau chia đều dòng sau (nút Nghe chiếm cả dòng ở lazy-ui.css) */
