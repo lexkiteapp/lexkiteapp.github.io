@@ -17,9 +17,11 @@ const bytes = Buffer.byteLength(md);
 if (bytes > CAP - SLACK) errs.push(`CODEMAP.md ${bytes} B > ${CAP - SLACK} (CAP − SLACK)`);
 for (const h of ['## Khu vực', '## Sửa ở đâu', '## God nodes', '## Routes', '## Workflows', '## Test', '## Mô-đun JS chính'])
   if (!md.includes(h)) errs.push(`thiếu mục "${h}"`);
+const tsec = (md.match(/## Test[\s\S]*?(?=\n## |$)/) || [''])[0];   // tên test có thể nén `p-{a,b}` (scripts/codemap.mjs braceNames) → bung lại trước khi so
+const testNames = new Set(tsec.split(/[\s`:]+/).flatMap(tok => { const m = tok.match(/^([\w.]+)-\{([^}]+)\}$/); return m ? m[2].split(',').map(x => m[1] + '-' + x) : [tok]; }));
 const has = name => new RegExp('(^|[\\s`(\\[,·])' + name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '(?=[\\s:`),·]|$)', 'm').test(md);
 for (const w of g.workflows) { const n = w.file.replace(/\.ya?ml$/, ''); if (!has(n)) errs.push(`workflow ${n} không có trong bản đồ`); }
-for (const t of g.tests) if (!has(t.test)) errs.push(`test ${t.test} không có trong bản đồ`);
+for (const t of g.tests) if (!testNames.has(t.test) && !has(t.test)) errs.push(`test ${t.test} không có trong bản đồ`);
 for (const k of Object.keys(g.routes)) if (!has(k.slice(2))) errs.push(`route ${k} không có trong bản đồ`);
 const mod = md.slice(md.indexOf('## Mô-đun JS chính'));
 const nMod = +(mod.match(/\((\d+)\//) || [, 0])[1];

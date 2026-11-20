@@ -1,0 +1,131 @@
+{
+ "id": "t2a_band_cities_1",
+ "template": "band",
+ "series": "Band 5 to 9",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "writing-ielts",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Band five to nine!",
+   "pause": 0.3
+  },
+  {
+   "id": "s5",
+   "text": "Big cities have many problems.",
+   "pause": 0.3
+  },
+  {
+   "id": "s7",
+   "text": "Large cities face serious problems such as pollution.",
+   "pause": 0.3
+  },
+  {
+   "id": "w7",
+   "text": "Words that go together naturally.",
+   "pause": 0.3
+  },
+  {
+   "id": "s9",
+   "text": "Large cities face serious problems, yet they remain hubs of opportunity.",
+   "pause": 0.3
+  },
+  {
+   "id": "w9",
+   "text": "It weighs both sides.",
+   "pause": 0.3
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "topic": "cities",
+  "skill": "writing",
+  "steps": [
+   {
+    "band": 5,
+    "text": "Big cities have many problems."
+   },
+   {
+    "band": 7,
+    "text": "Large cities face serious problems such as pollution.",
+    "mark": "face serious problems",
+    "why": "collocation",
+    "crit": "Lexical Resource"
+   },
+   {
+    "band": 9,
+    "text": "Large cities face serious problems, yet they remain hubs of opportunity.",
+    "mark": "yet they remain hubs of opportunity",
+    "why": "balance",
+    "crit": "Task Response"
+   }
+  ]
+ },
+ "cta": {
+  "area": "writing-ielts",
+  "route": "#/write",
+  "link": "https://lexkite.com/app/#/write",
+  "say": "Try an IELTS model answer"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Band five to nine"
+ },
+ "src": {
+  "band": "cities"
+ },
+ "est": {
+  "words": 43,
+  "seconds": 23.3,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "IELTS band 5 to 9: Cities",
+  "keyword": "ielts band 9",
+  "value": "Cities, three ways. Band 5: Big cities have many problems. Band 7: Large cities face serious problems such as pollution. Band 9: Large cities face serious problems, yet they remain hubs of opportunity.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#ielts",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/write",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "IELTS band 5 to 9: Cities",
+    "description": "Cities, three ways. Band 5: Big cities have many problems. Band 7: Large cities face serious problems such as pollution. Band 9: Large cities face serious problems, yet they remain hubs of opportunity.\n\nTry an IELTS model answer, free: https://lexkite.com/app/#/write\n\nSeries: Band 5 to 9 · Teacher: Ama\n\n#learnenglish #englishtips #ielts #englishteacher",
+    "tags": [
+     "ielts band 9",
+     "Band 5 to 9",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "IELTS band 5 to 9: Cities\n\nCities, three ways. Band 5: Big cities have many problems. Band 7: Large cities face serious problems such as pollution. Band 9: Large cities face serious problems, yet they remain hubs of opportunity.\n\nTry an IELTS model answer, free: https://lexkite.com/app/#/write"
+   },
+   "instagram": {
+    "caption": "IELTS band 5 to 9: Cities\n\nCities, three ways. Band 5: Big cities have many problems. Band 7: Large cities face serious problems such as pollution. Band 9: Large cities face serious problems, yet they remain hubs of opportunity.\n\nTry an IELTS model answer: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#ielts",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "IELTS band 5 to 9: Cities #learnenglish #englishtips #ielts"
+   }
+  },
+  "first_comment": "Answer: Cities, three ways. Band 5: Big cities have many problems. Band 7: Large cities face serious problems such as pollution. Band 9: Large cities face serious problems, yet they remain hubs of opportunity. Try the full lesson and quiz here: {link}"
+ }
+}

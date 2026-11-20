@@ -1,0 +1,131 @@
+{
+ "id": "t2a_band_socialmedia_1",
+ "template": "band",
+ "series": "Band 5 to 9",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "writing-ielts",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Band five to nine!",
+   "pause": 0.3
+  },
+  {
+   "id": "s5",
+   "text": "Many people use social media.",
+   "pause": 0.3
+  },
+  {
+   "id": "s7",
+   "text": "Social media is an essential part of daily life.",
+   "pause": 0.3
+  },
+  {
+   "id": "w7",
+   "text": "Words that go together naturally.",
+   "pause": 0.3
+  },
+  {
+   "id": "s9",
+   "text": "Social media is so essential that few imagine life without it.",
+   "pause": 0.3
+  },
+  {
+   "id": "w9",
+   "text": "A longer, richer structure.",
+   "pause": 0.3
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "topic": "social-media",
+  "skill": "writing",
+  "steps": [
+   {
+    "band": 5,
+    "text": "Many people use social media."
+   },
+   {
+    "band": 7,
+    "text": "Social media is an essential part of daily life.",
+    "mark": "an essential part of daily life",
+    "why": "collocation",
+    "crit": "Lexical Resource"
+   },
+   {
+    "band": 9,
+    "text": "Social media is so essential that few imagine life without it.",
+    "mark": "so essential that few imagine life without it",
+    "why": "complex",
+    "crit": "Grammatical Range"
+   }
+  ]
+ },
+ "cta": {
+  "area": "writing-ielts",
+  "route": "#/write",
+  "link": "https://lexkite.com/app/#/write",
+  "say": "Try an IELTS model answer"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Band five to nine"
+ },
+ "src": {
+  "band": "social-media"
+ },
+ "est": {
+  "words": 44,
+  "seconds": 23.8,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "IELTS band 5 to 9: Social media",
+  "keyword": "ielts band 9",
+  "value": "Social media, three ways. Band 5: Many people use social media. Band 7: Social media is an essential part of daily life. Band 9: Social media is so essential that few imagine life without it.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#ielts",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/write",
+  "script_words": 43,
+  "platforms": {
+   "youtube": {
+    "title": "IELTS band 5 to 9: Social media",
+    "description": "Social media, three ways. Band 5: Many people use social media. Band 7: Social media is an essential part of daily life. Band 9: Social media is so essential that few imagine life without it.\n\nTry an IELTS model answer, free: https://lexkite.com/app/#/write\n\nSeries: Band 5 to 9 · Teacher: Ama\n\n#learnenglish #englishtips #ielts #englishteacher",
+    "tags": [
+     "ielts band 9",
+     "Band 5 to 9",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "IELTS band 5 to 9: Social media\n\nSocial media, three ways. Band 5: Many people use social media. Band 7: Social media is an essential part of daily life. Band 9: Social media is so essential that few imagine life without it.\n\nTry an IELTS model answer, free: https://lexkite.com/app/#/write"
+   },
+   "instagram": {
+    "caption": "IELTS band 5 to 9: Social media\n\nSocial media, three ways. Band 5: Many people use social media. Band 7: Social media is an essential part of daily life. Band 9: Social media is so essential that few imagine life without it.\n\nTry an IELTS model answer: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#ielts",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "IELTS band 5 to 9: Social media #learnenglish #englishtips #ielts"
+   }
+  },
+  "first_comment": "Did you get it? Social media, three ways. Band 5: Many people use social media. Band 7: Social media is an essential part of daily life. Band 9: Social media is so essential that few imagine life without it. More practice like this (free): {link}"
+ }
+}
