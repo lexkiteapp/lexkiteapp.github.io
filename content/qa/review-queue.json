@@ -1347066,6 +1347066,1458 @@
     "qa": {},
     "senseLock": "wiktionary-1"
    }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "syringe#n",
+   "batch": "20261120-r261",
+   "why": [
+    "dịch vi: phương án Wiktionary bị AI họ khác phản bác (ủng hộ ≤ phản bác)"
+   ],
+   "at": "2026-11-20",
+   "data": {
+    "w": "syringe",
+    "pos": "n",
+    "ipa": "/ˈsɪrɪn(d)ʒ/",
+    "ipaUS": "/ˈsɪrɪndʒ/",
+    "def": "a medical instrument used to inject or withdraw liquids",
+    "ex": [
+     "The syringe has many non-medical applications.",
+     "The syringe is pulling the air out."
+    ],
+    "col": [
+     "hypodermic syringe"
+    ],
+    "syn": [],
+    "level": "C1",
+    "cefrF": "C1",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 3.27,
+    "emoji": "",
+    "topic": "health",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:syringe.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "gemini-3.6-flash",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "freq",
+     "ex": [
+      "wikipedia:ew147923.10",
+      "tatoeba:9970502"
+     ],
+     "tr": {
+      "es": "wiktionary+ai",
+      "pt": "wiktionary+omw+ai",
+      "de": "wiktionary+ai",
+      "ja": "wiktionary+omw+ai",
+      "tr": "wiktionary+ai"
+     },
+     "trSense": "a device used for injecting or drawing fluids through a membrane",
+     "col": "wordnet/tatoeba",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 · Wikidata CC0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "senseLock": "wiktionary-1"
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "scrumptious#adj",
+   "batch": "20261120-r261",
+   "why": [
+    "dịch vi: phương án Wiktionary bị AI họ khác phản bác (ủng hộ ≤ phản bác)"
+   ],
+   "at": "2026-11-20",
+   "data": {
+    "w": "scrumptious",
+    "pos": "adj",
+    "ipa": "/ˈskrʌm(p)ʃəs/",
+    "ipaUS": "/ˈskrəm(p)ʃəs/",
+    "def": "extremely tasty and delicious",
+    "ex": [
+     "What a scrumptious treat!",
+     "Ella baked a scrumptious pie."
+    ],
+    "col": [],
+    "syn": [
+     "delicious",
+     "luscious",
+     "pleasant-tasting"
+    ],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 2.65,
+    "emoji": "",
+    "topic": "food",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:delectable.s.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "wiktionary",
+     "ipaUK": "wiktionary",
+     "cefr": "freq",
+     "ex": [
+      "wiktionary",
+      "tatoeba:12082777"
+     ],
+     "tr": {
+      "es": "omw+ai",
+      "pt": "omw+ai",
+      "fr": "wiktionary+omw+ai",
+      "id": "omw+ai",
+      "zh": "omw+ai"
+     },
+     "trSense": "of food: delectable, delicious — see also delectable, delicious",
+     "col": "",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 · Wikidata CC0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "senseLock": "wiktionary-1"
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "herbage#n",
+   "batch": "20261120-r261",
+   "why": [
+    "ví dụ: không đủ 2 câu NGƯỜI VIẾT đúng nghĩa khoá (Tatoeba/Wiktionary/WordNet, trắc nghiệm nghĩa 3 giám khảo)",
+    "dịch vi: phương án Wiktionary bị AI họ khác phản bác (ủng hộ ≤ phản bác)"
+   ],
+   "at": "2026-11-20",
+   "data": {
+    "w": "herbage",
+    "pos": "n",
+    "ipa": "/ˈhəːbɪdʒ/",
+    "ipaUS": "/ˈ(h)əbɪdʒ/",
+    "def": "herbs growing together, especially in a pasture",
+    "ex": [
+     "The natural diet for the horse is low quality herbage."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 1.83,
+    "emoji": "",
+    "topic": "environment",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:herbage.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "wiktionary",
+     "ipaUK": "wiktionary",
+     "cefr": "freq",
+     "ex": [
+      "wikibooks:wb284853.2"
+     ],
+     "tr": {
+      "es": "wiktionary+omw+ai",
+      "pt": "wiktionary+ai",
+      "fr": "wiktionary+ai",
+      "ja": "omw+ai"
+     },
+     "trSense": "herbs collectively",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 · Wikidata CC0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "senseLock": "wiktionary-1"
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "geostationary#adj",
+   "batch": "20261120-r259",
+   "why": [
+    "soát mẫu AI 1/3: ex: 'Low cost transfer variant geostationary satellite platform' is ungrammatical and unnatural"
+   ],
+   "at": "2026-11-20",
+   "data": {
+    "w": "geostationary",
+    "pos": "adj",
+    "ipa": "/ˌdʒiːəʊˈsteɪʃənəri/",
+    "ipaUS": "/ˌdʒiːoʊˈsteɪʃənəri/",
+    "def": "remaining over the same spot on Earth",
+    "ex": [
+     "Low cost transfer variant geostationary satellite platform.",
+     "Many communications satellites are put in geostationary orbits."
+    ],
+    "col": [
+     "geostationary orbit",
+     "geostationary satellites"
+    ],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "trBad": {
+     "de": [
+      "geostationär"
+     ],
+     "id": [
+      "geostasioner"
+     ]
+    },
+    "z": 2.4,
+    "emoji": "",
+    "topic": "space",
+    "vi": "địa tĩnh",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:geostationary.s.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "ukToUs",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "ex": [
+      "commonvoice:cv2.899660",
+      "wikibooks:wb243714.18"
+     ],
+     "tr": {
+      "vi": "wiktionary",
+      "pt": "omw+ai",
+      "fr": "wiktionary+ai",
+      "de": "wiktionary+ai",
+      "id": "wiktionary+ai",
+      "ru": "wiktionary+ai"
+     },
+     "trSense": "fixed distance orbit",
+     "col": "wordnet/tatoeba",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 · Wikidata CC0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1",
+     "ipaFix": [
+      "Mỹ ∅ → /ˌdʒiːoʊˈsteɪʃənəri/ (ukToUs)"
+     ]
+    },
+    "qa": {
+     "n": 3,
+     "j": {
+      "gpt-oss:openai/gpt-oss-120b": 5,
+      "qwen:qwen/qwen3.8-27b": 5,
+      "llama:llama-3.3-70b-instruct-fp8-fast": 5
+     },
+     "f": [],
+     "tr": {
+      "es": [],
+      "pt": [
+       5,
+       5,
+       5
+      ],
+      "fr": [
+       5,
+       5,
+       5
+      ],
+      "de": [
+       5,
+       5,
+       5
+      ],
+      "id": [
+       5,
+       5,
+       5
+      ],
+      "th": [],
+      "zh": [],
+      "ja": [],
+      "ko": [],
+      "hi": [],
+      "ar": [],
+      "ru": [
+       5,
+       5,
+       5
+      ],
+      "tr": []
+     },
+     "bt": 0,
+     "viBtw": [
+      "geostationary",
+      "geostationary",
+      "địa tĩnh"
+     ],
+     "viLem": [],
+     "sense": [
+      "yes",
+      "yes",
+      "yes"
+     ],
+     "cefrJ": [
+      "C1",
+      "C2",
+      "C2"
+     ],
+     "bad": {},
+     "wsd": {
+      "ex": [
+       true,
+       true
+      ],
+      "vi": true,
+      "tr": {
+       "pt": true,
+       "fr": true,
+       "de": true,
+       "id": true,
+       "ru": true
+      }
+     },
+     "viSrc": [
+      "wk",
+      "a",
+      "b"
+     ],
+     "trDrop": {
+      "es": "rỗng",
+      "pt": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "fr": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "de": "cần 2 nguồn độc lập (Wiktionary / OMW / AI), từ không có thật (wordfreq: geostationär)",
+      "id": "cần 2 nguồn độc lập (Wiktionary / OMW / AI), từ không có thật (wordfreq: geostasioner)",
+      "th": "rỗng",
+      "zh": "rỗng",
+      "ja": "rỗng",
+      "ko": "rỗng",
+      "hi": "rỗng",
+      "ar": "rỗng",
+      "ru": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "tr": "rỗng"
+     },
+     "trKeep": []
+    },
+    "senseLock": "wiktionary-1",
+    "tp": [
+     "space.d"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "goaltender#n",
+   "batch": "20261120-r259",
+   "why": [
+    "soát mẫu AI 1/3: level: C2 is implausible for a common sports term; B2 is more appropriate."
+   ],
+   "at": "2026-11-20",
+   "data": {
+    "w": "goaltender",
+    "pos": "n",
+    "ipa": "/ˈɡəʊltendə/",
+    "ipaUS": "/ˈɡoʊltendər/",
+    "def": "a player who tries to stop the other team from scoring by guarding the goal",
+    "ex": [
+     "No goaltender has ever won the award.",
+     "Goaltenders are not allowed to be captains during games."
+    ],
+    "col": [],
+    "syn": [
+     "goalkeeper",
+     "goalie"
+    ],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "z": 2.98,
+    "emoji": "",
+    "topic": "sport",
+    "vi": "thủ môn",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:goalkeeper.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "ukToUs",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "ex": [
+      "wikipedia:ew269778.3",
+      "simplewiki:sw215274.3"
+     ],
+     "tr": {
+      "vi": "wiktionary-vi",
+      "es": "omw+ai",
+      "pt": "omw+ai",
+      "fr": "omw+ai",
+      "th": "omw+ai",
+      "zh": "omw+ai",
+      "ja": "omw+ai"
+     },
+     "trSense": "",
+     "col": "",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 · Wikidata CC0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1",
+     "ipaFix": [
+      "Mỹ ∅ → /ˈɡoʊltendər/ (ukToUs)"
+     ]
+    },
+    "qa": {
+     "n": 3,
+     "j": {
+      "qwen:qwen/qwen3.8-27b": 5,
+      "gpt-oss:gpt-oss-120b": 5,
+      "llama:llama-3.3-70b-instruct-fp8-fast": 5
+     },
+     "f": [],
+     "tr": {
+      "es": [
+       5,
+       5,
+       5
+      ],
+      "pt": [
+       5,
+       5,
+       5
+      ],
+      "fr": [
+       5,
+       5,
+       5
+      ],
+      "de": [],
+      "id": [],
+      "th": [
+       5,
+       5,
+       5
+      ],
+      "zh": [
+       5,
+       5,
+       5
+      ],
+      "ja": [
+       5,
+       5,
+       5
+      ],
+      "ko": [],
+      "hi": [],
+      "ar": [],
+      "ru": [],
+      "tr": []
+     },
+     "bt": 0,
+     "viBtw": [
+      "goalkeeper",
+      "goaltender",
+      "goaltender"
+     ],
+     "viLem": [
+      "goalkeeper",
+      "goalie",
+      "netkeeper",
+      "netminder"
+     ],
+     "sense": [
+      "yes",
+      "yes",
+      "yes"
+     ],
+     "cefrJ": [
+      "C1",
+      "C2",
+      "C2"
+     ],
+     "bad": {},
+     "wsd": {
+      "ex": [
+       true,
+       true
+      ],
+      "vi": true,
+      "tr": {
+       "es": true,
+       "pt": true,
+       "fr": true,
+       "th": true,
+       "zh": true,
+       "ja": true
+      }
+     },
+     "viSrc": [
+      "wv",
+      "a",
+      "b",
+      "c"
+     ],
+     "trDrop": {
+      "es": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "pt": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "fr": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "de": "rỗng",
+      "id": "rỗng",
+      "th": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "zh": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "ja": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "ko": "rỗng",
+      "hi": "rỗng",
+      "ar": "rỗng",
+      "ru": "rỗng",
+      "tr": "rỗng"
+     },
+     "trKeep": []
+    },
+    "senseLock": "wiktionary-1",
+    "tp": [
+     "sport.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "radiometer#n",
+   "batch": "20261120-r259",
+   "why": [
+    "soát mẫu: soát AI 2/3: def: includes non‑radiant sound, inaccurate · ex: examples describe measuring gases, not radiant energy · def: includes 'sound' which is not radiant energy in the context of this instrument (radiometers measure electromagnetic radiation like light/heat, not acoustic sound)"
+   ],
+   "at": "2026-11-20",
+   "data": {
+    "w": "radiometer",
+    "pos": "n",
+    "ipa": "/ˌreɪdɪˈɒmɪtə/",
+    "ipaUS": "/ˌreɪdɪˈɑːmɪtər/",
+    "def": "a device that detects and measures radiant energy, such as light or sound",
+    "ex": [
+     "The radiometer measures water vapor and ozone.",
+     "So, set up a radiometer in an almost dark room."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "trBad": {
+     "id": [
+      "radiometer",
+      "radiometer"
+     ]
+    },
+    "z": 2.09,
+    "emoji": "",
+    "topic": "technology",
+    "vi": "cái đo bức xạ",
+    "note_vi": "",
+    "m": {
+     "fr": "radiomètre"
+    },
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:radiometer.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "ukToUs",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "ex": [
+      "commonvoice:cv2.449865",
+      "wikiversity:wvs74629.67"
+     ],
+     "tr": {
+      "vi": "wiktionary-vi",
+      "pt": "omw+ai",
+      "fr": "wiktionary+omw+ai",
+      "id": "wiktionary+ai",
+      "zh": "wiktionary+ai",
+      "ru": "wiktionary+ai"
+     },
+     "trSense": "device that measures radiant energy",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 · Wikidata CC0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1",
+     "ipaFix": [
+      "Mỹ ∅ → /ˌreɪdɪˈɑːmɪtər/ (ukToUs)"
+     ]
+    },
+    "qa": {
+     "n": 3,
+     "j": {
+      "gpt-oss:openai/gpt-oss-120b": 5,
+      "qwen:qwen/qwen3.8-27b": 5,
+      "llama:llama-3.3-70b-instruct-fp8-fast": 5
+     },
+     "f": [],
+     "tr": {
+      "es": [],
+      "pt": [
+       5,
+       5,
+       5
+      ],
+      "fr": [
+       5,
+       5,
+       5
+      ],
+      "de": [],
+      "id": [
+       5,
+       5,
+       5
+      ],
+      "th": [],
+      "zh": [
+       5,
+       5,
+       5
+      ],
+      "ja": [],
+      "ko": [],
+      "hi": [],
+      "ar": [],
+      "ru": [
+       5,
+       5,
+       5
+      ],
+      "tr": []
+     },
+     "bt": 0.08,
+     "viBtw": [
+      "radiation measuring device",
+      "radiometer; radiation measuring device",
+      "radiation meter"
+     ],
+     "viLem": [],
+     "sense": [
+      "yes",
+      "yes",
+      "yes"
+     ],
+     "cefrJ": [
+      "C2",
+      "C2",
+      "C2"
+     ],
+     "bad": {},
+     "wsd": {
+      "ex": [
+       true,
+       true
+      ],
+      "vi": true,
+      "tr": {
+       "pt": true,
+       "fr": true,
+       "id": true,
+       "zh": true,
+       "ru": true
+      }
+     },
+     "viSrc": [
+      "wv",
+      "a",
+      "gpl"
+     ],
+     "trDrop": {
+      "es": "rỗng",
+      "pt": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "de": "rỗng",
+      "id": "cần 2 nguồn độc lập (Wiktionary / OMW / AI), từ không có thật (wordfreq: radiometer, radiometer)",
+      "th": "rỗng",
+      "zh": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "ja": "rỗng",
+      "ko": "rỗng",
+      "hi": "rỗng",
+      "ar": "rỗng",
+      "ru": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "tr": "rỗng"
+     },
+     "trKeep": [
+      "fr"
+     ]
+    },
+    "senseLock": "wiktionary-1",
+    "tp": [
+     "technology.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "dilator#n",
+   "batch": "20261120-r260",
+   "why": [
+    "soát mẫu AI 1/3: def: includes incorrect reference to nerve"
+   ],
+   "at": "2026-11-20",
+   "data": {
+    "w": "dilator",
+    "pos": "n",
+    "ipa": "/daɪˈleɪtə/",
+    "ipaUS": "/daɪˈleɪtər/",
+    "def": "A nerve or muscle that makes a body part widen.",
+    "ex": [
+     "The vascular iris has a strong dilator muscle.",
+     "Both pumps are powered by substantial dilator muscles in the head."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "z": 1.96,
+    "emoji": "",
+    "topic": "health",
+    "vi": "cơ giãn",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:dilator.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "ukToUs",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "ex": [
+      "wikipedia:ew60261.29",
+      "wikipedia:ew207600.10"
+     ],
+     "tr": {
+      "vi": "wiktionary-vi"
+     },
+     "trSense": "",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 · Wikidata CC0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1",
+     "ipaFix": [
+      "Mỹ ∅ → /daɪˈleɪtər/ (ukToUs)"
+     ]
+    },
+    "qa": {
+     "n": 3,
+     "j": {
+      "gpt-oss:openai/gpt-oss-120b": 5,
+      "qwen:qwen/qwen3.8-27b": 5,
+      "llama:llama-3.3-70b-instruct-fp8-fast": 5
+     },
+     "f": [],
+     "tr": {
+      "es": [],
+      "pt": [],
+      "fr": [],
+      "de": [],
+      "id": [],
+      "th": [],
+      "zh": [],
+      "ja": [],
+      "ko": [],
+      "hi": [],
+      "ar": [],
+      "ru": [],
+      "tr": []
+     },
+     "bt": 0,
+     "viBtw": [
+      "dilator muscle",
+      "dilator muscle",
+      "dilator; muscle that dilates"
+     ],
+     "viLem": [],
+     "sense": [
+      "yes",
+      "yes",
+      "yes"
+     ],
+     "cefrJ": [
+      "C1",
+      "C2",
+      "C1"
+     ],
+     "bad": {},
+     "wsd": {
+      "ex": [
+       true,
+       true
+      ],
+      "vi": true,
+      "tr": {}
+     },
+     "viSrc": [
+      "wv",
+      "a",
+      "b",
+      "c",
+      "gpl"
+     ],
+     "trDrop": {
+      "es": "rỗng",
+      "pt": "rỗng",
+      "fr": "rỗng",
+      "de": "rỗng",
+      "id": "rỗng",
+      "th": "rỗng",
+      "zh": "rỗng",
+      "ja": "rỗng",
+      "ko": "rỗng",
+      "hi": "rỗng",
+      "ar": "rỗng",
+      "ru": "rỗng",
+      "tr": "rỗng"
+     },
+     "trKeep": []
+    },
+    "senseLock": "wiktionary-1",
+    "tp": [
+     "health.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "lexicographical#adj",
+   "batch": "20261120-r260",
+   "why": [
+    "soát mẫu AI 1/3: vi: 'từ điển học' is a noun (lexicography), not an adjective ('(thuộc) từ điển học')"
+   ],
+   "at": "2026-11-20",
+   "data": {
+    "w": "lexicographical",
+    "pos": "adj",
+    "ipa": "/ˌleksɪkəˈɡræfɪkəl/",
+    "ipaUS": "/ˌleksɪkəˈɡræfɪkəl/",
+    "def": "relating to the making of dictionaries",
+    "ex": [
+     "Tones are noted solely in lexicographical works.",
+     "Another possible ordering on is the lexicographical order."
+    ],
+    "col": [
+     "lexicographical order"
+    ],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "z": 1.68,
+    "emoji": "",
+    "topic": "language",
+    "vi": "từ điển học",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:lexicographic.a.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "ukToUs",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "ex": [
+      "wikipedia:ew8771.2",
+      "commonvoice:cv2.866986"
+     ],
+     "tr": {
+      "vi": "wiktionary-vi",
+      "es": "omw+ai",
+      "fr": "omw+ai"
+     },
+     "trSense": "",
+     "col": "wordnet/tatoeba",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 · Wikidata CC0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1",
+     "ipaFix": [
+      "Mỹ ∅ → /ˌleksɪkəˈɡræfɪkəl/ (ukToUs)"
+     ]
+    },
+    "qa": {
+     "n": 3,
+     "j": {
+      "gpt-oss:openai/gpt-oss-120b": 5,
+      "qwen:qwen/qwen3.8-27b": 5,
+      "llama:llama-3.3-70b-instruct-fp8-fast": 5
+     },
+     "f": [],
+     "tr": {
+      "es": [
+       5,
+       5,
+       5
+      ],
+      "pt": [],
+      "fr": [
+       5,
+       5,
+       5
+      ],
+      "de": [],
+      "id": [],
+      "th": [],
+      "zh": [],
+      "ja": [],
+      "ko": [],
+      "hi": [],
+      "ar": [],
+      "ru": [],
+      "tr": []
+     },
+     "bt": 0,
+     "viBtw": [
+      "lexicography",
+      "lexicographical; relating to lexicography",
+      "lexicographical"
+     ],
+     "viLem": [
+      "lexicographic"
+     ],
+     "sense": [
+      "yes",
+      "yes",
+      "yes"
+     ],
+     "cefrJ": [
+      "C1",
+      "C2",
+      "C2"
+     ],
+     "bad": {},
+     "wsd": {
+      "ex": [
+       true,
+       true
+      ],
+      "vi": true,
+      "tr": {
+       "es": true,
+       "fr": true
+      }
+     },
+     "viSrc": [
+      "wv",
+      "a",
+      "gpl"
+     ],
+     "trDrop": {
+      "es": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "pt": "rỗng",
+      "fr": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "de": "rỗng",
+      "id": "rỗng",
+      "th": "rỗng",
+      "zh": "rỗng",
+      "ja": "rỗng",
+      "ko": "rỗng",
+      "hi": "rỗng",
+      "ar": "rỗng",
+      "ru": "rỗng",
+      "tr": "rỗng"
+     },
+     "trKeep": []
+    },
+    "senseLock": "wiktionary-1",
+    "tp": [
+     "language.d"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "catabolism#n",
+   "batch": "20261120-r260",
+   "why": [
+    "soát mẫu AI 1/3: vi: incorrect Vietnamese term for catabolism"
+   ],
+   "at": "2026-11-20",
+   "data": {
+    "w": "catabolism",
+    "pos": "n",
+    "ipa": "/ˈkætəˌbəʊlɪzəm/",
+    "ipaUS": "/ˈkætəˌboʊlɪzəm/",
+    "def": "the breakdown of complex substances into simpler ones, releasing energy",
+    "ex": [
+     "Protein degradation differs from protein catabolism.",
+     "There are many signals that control catabolism."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "trBad": {
+     "tr": [
+      "katabolizma"
+     ]
+    },
+    "z": 2.05,
+    "emoji": "",
+    "topic": "science",
+    "vi": "sự dị hoá",
+    "note_vi": "",
+    "m": {
+     "pt": "catabolismo",
+     "fr": "catabolisme",
+     "id": "katabolisme"
+    },
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:catabolism.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "ukToUs",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "ex": [
+      "wikipedia:ew214570.4",
+      "wikipedia:ew214571.5"
+     ],
+     "tr": {
+      "vi": "wiktionary-vi",
+      "es": "wiktionary+ai",
+      "pt": "wiktionary+omw+ai",
+      "fr": "wiktionary+omw+ai",
+      "de": "wiktionary+ai",
+      "id": "wiktionary+omw+ai",
+      "zh": "omw+ai",
+      "ja": "omw+ai",
+      "ru": "wiktionary+ai",
+      "tr": "wiktionary+ai"
+     },
+     "trSense": "destructive metabolism",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 · Wikidata CC0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1",
+     "ipaFix": [
+      "Mỹ ∅ → /ˈkætəˌboʊlɪzəm/ (ukToUs)"
+     ]
+    },
+    "qa": {
+     "n": 3,
+     "j": {
+      "gpt-oss:openai/gpt-oss-120b": 5,
+      "qwen:qwen/qwen3.8-27b": 5,
+      "llama:llama-3.3-70b-instruct-fp8-fast": 5
+     },
+     "f": [],
+     "tr": {
+      "es": [
+       5,
+       5,
+       5
+      ],
+      "pt": [
+       5,
+       5,
+       5
+      ],
+      "fr": [
+       5,
+       5,
+       5
+      ],
+      "de": [
+       5,
+       5,
+       5
+      ],
+      "id": [
+       5,
+       5,
+       5
+      ],
+      "th": [],
+      "zh": [
+       5,
+       5,
+       5
+      ],
+      "ja": [
+       5,
+       5,
+       5
+      ],
+      "ko": [],
+      "hi": [],
+      "ar": [],
+      "ru": [
+       5,
+       5,
+       5
+      ],
+      "tr": [
+       5,
+       5,
+       5
+      ]
+     },
+     "bt": 0.23,
+     "viBtw": [
+      "catabolism; breakdown metabolism",
+      "catabolism",
+      "catabolism"
+     ],
+     "viLem": [
+      "katabolism",
+      "dissimilation",
+      "destructive metabolism"
+     ],
+     "sense": [
+      "yes",
+      "yes",
+      "yes"
+     ],
+     "cefrJ": [
+      "C1",
+      "C2",
+      "C1"
+     ],
+     "bad": {},
+     "wsd": {
+      "ex": [
+       true,
+       true
+      ],
+      "vi": true,
+      "tr": {
+       "es": true,
+       "pt": true,
+       "fr": true,
+       "de": true,
+       "id": true,
+       "zh": true,
+       "ja": true,
+       "ru": true,
+       "tr": true
+      }
+     },
+     "viSrc": [
+      "wv",
+      "b",
+      "c",
+      "gpl"
+     ],
+     "trDrop": {
+      "es": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "de": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "th": "rỗng",
+      "zh": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "ja": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "ko": "rỗng",
+      "hi": "rỗng",
+      "ar": "rỗng",
+      "ru": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "tr": "cần 2 nguồn độc lập (Wiktionary / OMW / AI), từ không có thật (wordfreq: katabolizma)"
+     },
+     "trKeep": [
+      "pt",
+      "fr",
+      "id"
+     ]
+    },
+    "senseLock": "wiktionary-1",
+    "tp": [
+     "science.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "transonic#adj",
+   "batch": "20261120-r260",
+   "why": [
+    "soát mẫu AI 1/3: sense: WordNet synset does not correspond to the specific transonic meaning"
+   ],
+   "at": "2026-11-20",
+   "data": {
+    "w": "transonic",
+    "pos": "adj",
+    "ipa": "/trænˈsɒnɪk/",
+    "ipaUS": "/trænˈsɑːnɪk/",
+    "def": "at a speed just below or just above the speed of sound",
+    "ex": [
+     "Severe instability can occur at transonic speeds.",
+     "When the aircraft speed is high enough, the tips reach transonic speeds."
+    ],
+    "col": [],
+    "syn": [
+     "sonic"
+    ],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "z": 1.95,
+    "emoji": "",
+    "topic": "science",
+    "vi": "cận âm",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:sonic.a.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "ukToUs",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "ex": [
+      "commonvoice:cv2.218979",
+      "wikipedia:ew166072.4"
+     ],
+     "tr": {
+      "vi": "wiktionary-vi"
+     },
+     "trSense": "",
+     "col": "",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 · Wikidata CC0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1",
+     "ipaFix": [
+      "Mỹ ∅ → /trænˈsɑːnɪk/ (ukToUs)"
+     ]
+    },
+    "qa": {
+     "n": 3,
+     "j": {
+      "gpt-oss:openai/gpt-oss-120b": 5,
+      "qwen:qwen/qwen3.8-27b": 5,
+      "llama:llama-3.3-70b-instruct-fp8-fast": 5
+     },
+     "f": [],
+     "tr": {
+      "es": [],
+      "pt": [],
+      "fr": [],
+      "de": [],
+      "id": [],
+      "th": [],
+      "zh": [],
+      "ja": [],
+      "ko": [],
+      "hi": [],
+      "ar": [],
+      "ru": [],
+      "tr": []
+     },
+     "bt": 0,
+     "viBtw": [
+      "near-sound speed",
+      "transonic; near-sonic",
+      "transonic"
+     ],
+     "viLem": [
+      "sonic"
+     ],
+     "sense": [
+      "yes",
+      "yes",
+      "yes"
+     ],
+     "cefrJ": [
+      "C1",
+      "C2",
+      "C2"
+     ],
+     "bad": {},
+     "wsd": {
+      "ex": [
+       true,
+       true
+      ],
+      "vi": true,
+      "tr": {}
+     },
+     "viSrc": [
+      "wv",
+      "a",
+      "b"
+     ],
+     "trDrop": {
+      "es": "rỗng",
+      "pt": "rỗng",
+      "fr": "rỗng",
+      "de": "rỗng",
+      "id": "rỗng",
+      "th": "rỗng",
+      "zh": "rỗng",
+      "ja": "rỗng",
+      "ko": "rỗng",
+      "hi": "rỗng",
+      "ar": "rỗng",
+      "ru": "rỗng",
+      "tr": "rỗng"
+     },
+     "trKeep": []
+    },
+    "senseLock": "wiktionary-1",
+    "tp": [
+     "science.d"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "electromagnetics#n",
+   "batch": "20261120-r260",
+   "why": [
+    "soát mẫu AI 1/3: ex: 'For more details, see Computational electromagnetics.' is a meta/encyclopedic reference, not a natural illustrative sentence"
+   ],
+   "at": "2026-11-20",
+   "data": {
+    "w": "electromagnetics",
+    "pos": "n",
+    "ipa": "/ɪˌlektrəʊməɡˈnetɪks/",
+    "ipaUS": "/ɪˌlektroʊməɡˈnetɪks/",
+    "def": "the study of electricity and magnetism together",
+    "ex": [
+     "For more details, see Computational electromagnetics.",
+     "Sometimes computational electromagnetics simulations are used to test virtual models."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "z": 1.98,
+    "emoji": "",
+    "topic": "science",
+    "vi": "điện từ học",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:electromagnetism.n.02",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "ukToUs",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "ex": [
+      "wikipedia:ew19737.19",
+      "wikipedia:ew41093.6"
+     ],
+     "tr": {
+      "vi": "wiktionary-vi",
+      "fr": "omw+ai"
+     },
+     "trSense": "",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 · Wikidata CC0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1",
+     "ipaFix": [
+      "Mỹ ∅ → /ɪˌlektroʊməɡˈnetɪks/ (ukToUs)"
+     ]
+    },
+    "qa": {
+     "n": 3,
+     "j": {
+      "gpt-oss:openai/gpt-oss-120b": 5,
+      "qwen:qwen/qwen3.8-27b": 5,
+      "llama:llama-3.3-70b-instruct-fp8-fast": 5
+     },
+     "f": [],
+     "tr": {
+      "es": [],
+      "pt": [],
+      "fr": [
+       5,
+       5,
+       5
+      ],
+      "de": [],
+      "id": [],
+      "th": [],
+      "zh": [],
+      "ja": [],
+      "ko": [],
+      "hi": [],
+      "ar": [],
+      "ru": [],
+      "tr": []
+     },
+     "bt": 0,
+     "viBtw": [
+      "electromagnetics",
+      "electromagnetism",
+      "electromagnetism; electromagnetics"
+     ],
+     "viLem": [
+      "electromagnetism"
+     ],
+     "sense": [
+      "yes",
+      "yes",
+      "yes"
+     ],
+     "cefrJ": [
+      "C2",
+      "C2",
+      "C1"
+     ],
+     "bad": {},
+     "wsd": {
+      "ex": [
+       true,
+       true
+      ],
+      "vi": true,
+      "tr": {
+       "fr": true
+      }
+     },
+     "viSrc": [
+      "wv",
+      "a",
+      "b",
+      "c"
+     ],
+     "trDrop": {
+      "es": "rỗng",
+      "pt": "rỗng",
+      "fr": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "de": "rỗng",
+      "id": "rỗng",
+      "th": "rỗng",
+      "zh": "rỗng",
+      "ja": "rỗng",
+      "ko": "rỗng",
+      "hi": "rỗng",
+      "ar": "rỗng",
+      "ru": "rỗng",
+      "tr": "rỗng"
+     },
+     "trKeep": []
+    },
+    "senseLock": "wiktionary-1",
+    "tp": [
+     "science.n"
+    ]
+   }
   }
  ]
 }
