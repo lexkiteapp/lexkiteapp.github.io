@@ -93,7 +93,6 @@
   "austral#n",
   "automaker#n",
   "avionics#n",
-  "avocation#n",
   "awesome#adj",
   "awful#adv",
   "awry#adj",
@@ -540,7 +539,6 @@
   "gossipy#adj",
   "goy#n",
   "granddad#n",
-  "granddaddy#n",
   "granola#n",
   "grassroots#adj",
   "gravelly#adj",
@@ -680,7 +678,6 @@
   "jab#v",
   "jailer#n",
   "jailhouse#n",
-  "jakes#n",
   "jambalaya#n",
   "jibe#n",
   "jihadi#adj",
@@ -818,7 +815,6 @@
   "miniscule#adj",
   "minister#v",
   "minter#n",
-  "mishmash#n",
   "mismatch#n",
   "mistrust#v",
   "miter#v",
@@ -954,7 +950,6 @@
   "orthodontics#n",
   "otherworldly#adj",
   "outbid#v",
-  "outsized#adj",
   "outspoken#adj",
   "outtake#n",
   "outwards#adv",
@@ -1560,6 +1555,9 @@
   "carriageway#n",
   "potentiometer#n",
   "scrumptious#adj",
-  "zooplankton#n"
+  "zooplankton#n",
+  "clothesline#n",
+  "cognate#adj",
+  "primogeniture#n"
  ]
 }
