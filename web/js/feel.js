@@ -69,11 +69,11 @@
     // XP đếm lên (ví dụ +12 → 1 240 → 1 252). Trình đọc màn hình chỉ nghe số cuối (aria-live không đổi liên tục).
     count(el, to, o = {}) {
       if (!el) return Promise.resolve();
-      const from = o.from == null ? parseFloat(String(el.textContent).replace(/[^\d.-]/g, '')) || 0 : o.from, ms = o.ms || 700, pre = o.prefix || '', end = () => { el.textContent = pre + fmt(to); };
+      const from = o.from == null ? parseFloat(String(el.textContent).replace(/[^\d.-]/g, '')) || 0 : o.from, ms = o.ms || 700, pre = o.prefix || '', suf = o.suffix || '', end = () => { el.textContent = pre + fmt(to) + suf; };
       if (rm() || from === to) { end(); return Promise.resolve(); }
       el.setAttribute('aria-hidden', 'true'); const t0 = performance.now();
       return new Promise(res => {
-        const step = now => { const p = Math.min(1, (now - t0) / ms), e = 1 - Math.pow(1 - p, 3); el.textContent = pre + fmt(from + (to - from) * e); if (p < 1) requestAnimationFrame(step); else { end(); el.removeAttribute('aria-hidden'); if (o.pop !== false) anim(el, [{ transform: 'scale(1)' }, { transform: 'scale(1.15)' }, { transform: 'scale(1)' }], { duration: 180, easing: EASE }); res(); } };
+        const step = now => { const p = Math.min(1, (now - t0) / ms), e = 1 - Math.pow(1 - p, 3); el.textContent = pre + fmt(from + (to - from) * e) + suf; if (p < 1) requestAnimationFrame(step); else { end(); el.removeAttribute('aria-hidden'); if (o.pop !== false) anim(el, [{ transform: 'scale(1)' }, { transform: 'scale(1.15)' }, { transform: 'scale(1)' }], { duration: 180, easing: EASE }); res(); } };
         requestAnimationFrame(step);
       });
     },

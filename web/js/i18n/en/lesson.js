@@ -2,11 +2,12 @@
 (function (g) {
 const D = g.I18N_DICT = g.I18N_DICT || {};
 D.en = Object.assign(D.en || {}, {
-'Đã ghép': 'Matched',
-'Chưa phải': 'Not this one',
-'{a}/{b} cặp': '{a}/{b} pairs',
-'Từ vựng': 'Vocabulary',
-'Ngữ pháp': 'Grammar',
+'Không nghe được': "Can't listen",
+'Không nói được': "Can't speak",
+'Còn {n} từ': '{n} words left',
+'Combo tốt nhất': 'Best combo',
+'Chuỗi hiện tại': 'Current streak',
+'Chạm để nghe': 'Tap to listen',
 'Bài học trộn đang thử nghiệm, sắp ra mắt.': 'Mixed lessons are in testing and coming soon.',
 'Quay về trang chủ': 'Back to home',
 'Tiến độ bài học': 'Lesson progress',
