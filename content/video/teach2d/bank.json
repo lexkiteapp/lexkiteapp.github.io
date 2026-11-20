@@ -3051,6 +3051,51 @@
    "state": "banked",
    "tries": 0
   },
+  "t2_l1_ko_althoughbut": {
+   "run": "44729181488",
+   "at": "2026-11-20T16:34Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "28cf0440215cc598",
+    "wide": "94ddec9941c54259"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_ko_arentyou": {
+   "run": "44729181488",
+   "at": "2026-11-20T16:34Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "84c96106ffb7c4bb",
+    "wide": "2e31f364ad6c9e03"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_ko_arrive": {
+   "run": "44729181488",
+   "at": "2026-11-20T16:34Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "f457e3c1781ada58",
+    "wide": "a8750a7782d6525a"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
   "t2_l1_ko_ate": {
    "run": "43250170409",
    "at": "2026-11-13T16:35Z",
@@ -3061,6 +3106,36 @@
    "sha": {
     "short": "747e36d3f3166f30",
     "wide": "25696c520e242f3a"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_ko_callyou": {
+   "run": "44729181488",
+   "at": "2026-11-20T16:34Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "87ff24e50e8e46f6",
+    "wide": "206059c21c607e47"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_ko_cantswim": {
+   "run": "44729181488",
+   "at": "2026-11-20T16:34Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "0989d7a40ac8bfb7",
+    "wide": "33a8c7c2b91a2331"
    },
    "why": [],
    "state": "banked",
@@ -3083,6 +3158,81 @@
     "dup"
    ],
    "tries": 0
+  },
+  "t2_l1_ko_checkfile": {
+   "run": "44729181488",
+   "at": "2026-11-20T16:34Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "ea4269b0ca2729ae",
+    "wide": "1669b0e5d43aa449"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_ko_closethedoor": {
+   "run": "44729181488",
+   "at": "2026-11-20T16:34Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "6c2837cb3d4e2aa0",
+    "wide": "03951bd0f26a0e59"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_ko_coffee": {
+   "run": "44729181488",
+   "at": "2026-11-20T16:34Z",
+   "score": {
+    "wide": 100.0
+   },
+   "sha": {
+    "wide": "6c70940f5c84666c"
+   },
+   "why": [
+    "short: no render"
+   ],
+   "state": "failed",
+   "tries": 1
+  },
+  "t2_l1_ko_costs": {
+   "run": "44729181488",
+   "at": "2026-11-20T16:34Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "9052165c20b62a1d",
+    "wide": "9e51cb3dbf693a07"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_ko_dateorder": {
+   "run": "44729181488",
+   "at": "2026-11-20T16:34Z",
+   "score": {
+    "wide": 100.0
+   },
+   "sha": {
+    "wide": "8988063358ed01d9"
+   },
+   "why": [
+    "short: no render"
+   ],
+   "state": "failed",
+   "tries": 1
   },
   "t2_l1_ko_depend": {
    "run": "43250170409",
@@ -3114,6 +3264,21 @@
    "state": "banked",
    "tries": 0
   },
+  "t2_l1_ko_differentfrom": {
+   "run": "44729181488",
+   "at": "2026-11-20T16:34Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "051eb3321cdff814",
+    "wide": "9a12358f9c73ec07"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
   "t2_l1_ko_discuss": {
    "run": "43250170409",
    "at": "2026-11-13T16:35Z",
@@ -3132,6 +3297,21 @@
    ],
    "tries": 0
   },
+  "t2_l1_ko_doctorali": {
+   "run": "44729181488",
+   "at": "2026-11-20T16:34Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "79b27bc988c4530a",
+    "wide": "ab8133d1ea791c0e"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
   "t2_l1_ko_donot": {
    "run": "43250170409",
    "at": "2026-11-13T16:35Z",
@@ -3142,6 +3322,51 @@
    "sha": {
     "short": "59dc6cc1e3cf51e5",
     "wide": "9935d956355d5b2a"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_ko_dress": {
+   "run": "44729181488",
+   "at": "2026-11-20T16:34Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "85656f326353859a",
+    "wide": "67b0e9a6d98bea32"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_ko_driveacar": {
+   "run": "44729181488",
+   "at": "2026-11-20T16:34Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "a6d1a97b57e042e9",
+    "wide": "9c9abe8efdd5a72d"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_ko_energy": {
+   "run": "44729181488",
+   "at": "2026-11-20T16:34Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "4db633d547b46214",
+    "wide": "fde2379f75c16cbd"
    },
    "why": [],
    "state": "banked",
@@ -3162,17 +3387,80 @@
    "state": "banked",
    "tries": 0
   },
+  "t2_l1_ko_everyone": {
+   "run": "44729181488",
+   "at": "2026-11-20T16:34Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "6817242ac60dbda3",
+    "wide": "f50cfc7f829de281"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
   "t2_l1_ko_explain": {
-   "run": "43250170409",
-   "at": "2026-11-13T16:35Z",
-   "score": {},
-   "sha": {},
-   "why": [
-    "short: no render",
-    "wide: no render"
-   ],
-   "state": "failed",
+   "run": "44729181488",
+   "at": "2026-11-20T16:34Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "1ea441433749c59d",
+    "wide": "51246cdfd5b8d903"
+   },
+   "why": [],
+   "state": "banked",
    "tries": 1
+  },
+  "t2_l1_ko_fan": {
+   "run": "44729181488",
+   "at": "2026-11-20T16:34Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "89b59c333569535f",
+    "wide": "0154c702369fc2b1"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_ko_fighting": {
+   "run": "44729181488",
+   "at": "2026-11-20T16:34Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "22bef54f8e6097e0",
+    "wide": "eaaffc01bc6b8ed2"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_ko_friendandi": {
+   "run": "44729181488",
+   "at": "2026-11-20T16:34Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "2e4782450db92c4d",
+    "wide": "5350b2eb8bba7ee5"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
   },
   "t2_l1_ko_goodat": {
    "run": "43250170409",
