@@ -97,12 +97,6 @@
       "True or",
       "white"
      ]
-    ],
-    [
-     [
-      "false?",
-      "yellow"
-     ]
     ]
    ],
    "align": "l"
@@ -138,15 +132,6 @@
       "runs": [
        [
         "True or"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "false?"
        ]
       ]
      }
@@ -233,7 +218,7 @@
     "right": 1
    }
   ],
-  "hook_text": "True or false?",
+  "hook_text": "True or",
   "end_line": "c"
  },
  "embed": {

@@ -92,12 +92,6 @@
       "Which is",
       "white"
      ]
-    ],
-    [
-     [
-      "correct?",
-      "yellow"
-     ]
     ]
    ],
    "align": "l"
@@ -133,15 +127,6 @@
       "runs": [
        [
         "Which is"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "correct?"
        ]
       ]
      }
@@ -236,7 +221,7 @@
     ]
    }
   ],
-  "hook_text": "Which is correct?",
+  "hook_text": "Which is",
   "end_line": "c"
  },
  "embed": {

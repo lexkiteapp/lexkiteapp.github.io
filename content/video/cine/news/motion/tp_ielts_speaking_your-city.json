@@ -55,7 +55,7 @@
   },
   {
    "id": "tip",
-   "text": "Tip: answer, reason, example. Two or three sentences is enough for Part 1.",
+   "text": "Tip: answer, reason, example. Two or three sentences is enough for Part one.",
    "gap": 0.7
   },
   {
@@ -92,12 +92,6 @@
       "Do you like",
       "white"
      ]
-    ],
-    [
-     [
-      "your city?",
-      "yellow"
-     ]
     ]
    ],
    "align": "l"
@@ -133,15 +127,6 @@
       "runs": [
        [
         "Do you like"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "your city?"
        ]
       ]
      }
@@ -236,7 +221,7 @@
     ]
    }
   ],
-  "hook_text": "Do you like your city?",
+  "hook_text": "Do you like",
   "end_line": "c"
  },
  "embed": {

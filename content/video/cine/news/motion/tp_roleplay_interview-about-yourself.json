@@ -97,12 +97,6 @@
       "Talk about…",
       "white"
      ]
-    ],
-    [
-     [
-      "myself?",
-      "yellow"
-     ]
     ]
    ],
    "align": "l"
@@ -138,15 +132,6 @@
       "runs": [
        [
         "Talk about…"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "myself?"
        ]
       ]
      }
@@ -268,7 +253,7 @@
     ]
    }
   ],
-  "hook_text": "Talk about… myself?",
+  "hook_text": "Talk about…",
   "end_line": "c"
  },
  "embed": {

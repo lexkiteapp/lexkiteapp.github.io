@@ -92,12 +92,6 @@
       "Let's push",
       "white"
      ]
-    ],
-    [
-     [
-      "it back.",
-      "yellow"
-     ]
     ]
    ],
    "align": "l"
@@ -133,15 +127,6 @@
       "runs": [
        [
         "Let's push"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "it back."
        ]
       ]
      }
@@ -263,7 +248,7 @@
     ]
    }
   ],
-  "hook_text": "Let's push it back.",
+  "hook_text": "Let's push",
   "end_line": "c"
  },
  "embed": {

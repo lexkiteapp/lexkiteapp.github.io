@@ -97,12 +97,6 @@
       "Guess before",
       "white"
      ]
-    ],
-    [
-     [
-      "I tell you",
-      "yellow"
-     ]
     ]
    ],
    "align": "l"
@@ -138,15 +132,6 @@
       "runs": [
        [
         "Guess before"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "I tell you"
        ]
       ]
      }
@@ -241,7 +226,7 @@
     ]
    }
   ],
-  "hook_text": "Guess before I tell you",
+  "hook_text": "Guess before",
   "end_line": "c"
  },
  "embed": {

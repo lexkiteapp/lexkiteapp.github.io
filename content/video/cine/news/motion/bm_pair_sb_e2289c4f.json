@@ -92,12 +92,6 @@
       "Stop mixing",
       "white"
      ]
-    ],
-    [
-     [
-      "up quality",
-      "yellow"
-     ]
     ]
    ],
    "align": "l"
@@ -133,15 +127,6 @@
       "runs": [
        [
         "Stop mixing"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "up quality"
        ]
       ]
      }
@@ -236,7 +221,7 @@
     ]
    }
   ],
-  "hook_text": "Stop mixing up quality",
+  "hook_text": "Stop mixing",
   "end_line": "c"
  },
  "embed": {

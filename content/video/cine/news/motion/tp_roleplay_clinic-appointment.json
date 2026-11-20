@@ -94,14 +94,8 @@
    "rows": [
     [
      [
-      "Um… how do I",
+      "Um… how do",
       "white"
-     ]
-    ],
-    [
-     [
-      "book?",
-      "yellow"
      ]
     ]
    ],
@@ -137,16 +131,7 @@
       "hook": true,
       "runs": [
        [
-        "Um… how do I"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "book?"
+        "Um… how do"
        ]
       ]
      }
@@ -268,7 +253,7 @@
     ]
    }
   ],
-  "hook_text": "Um… how do I book?",
+  "hook_text": "Um… how do",
   "end_line": "c"
  },
  "embed": {

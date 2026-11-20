@@ -97,12 +97,6 @@
       "Um… what do",
       "white"
      ]
-    ],
-    [
-     [
-      "I say?",
-      "yellow"
-     ]
     ]
    ],
    "align": "l"
@@ -138,15 +132,6 @@
       "runs": [
        [
         "Um… what do"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "I say?"
        ]
       ]
      }
@@ -268,7 +253,7 @@
     ]
    }
   ],
-  "hook_text": "Um… what do I say?",
+  "hook_text": "Um… what do",
   "end_line": "c"
  },
  "embed": {

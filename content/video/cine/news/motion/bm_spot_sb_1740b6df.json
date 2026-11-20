@@ -97,12 +97,6 @@
       "Remember me",
       "white"
      ]
-    ],
-    [
-     [
-      "to call her.",
-      "yellow"
-     ]
     ]
    ],
    "align": "l"
@@ -139,15 +133,6 @@
       "runs": [
        [
         "Remember me"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "to call her."
        ]
       ]
      }
@@ -191,7 +176,7 @@
     ]
    }
   ],
-  "hook_text": "Remember me to call her.",
+  "hook_text": "Remember me",
   "end_line": "c"
  },
  "embed": {

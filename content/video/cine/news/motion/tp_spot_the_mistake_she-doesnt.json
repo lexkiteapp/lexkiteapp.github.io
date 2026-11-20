@@ -132,7 +132,11 @@
       "hook": true,
       "runs": [
        [
-        "She don't"
+        "She "
+       ],
+       [
+        "don't",
+        "ink"
        ]
       ]
      }

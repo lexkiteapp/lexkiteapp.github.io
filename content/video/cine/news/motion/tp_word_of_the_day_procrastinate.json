@@ -92,12 +92,6 @@
       "Wait,",
       "white"
      ]
-    ],
-    [
-     [
-      "procrastinate?",
-      "yellow"
-     ]
     ]
    ],
    "align": "l"
@@ -133,15 +127,6 @@
       "runs": [
        [
         "Wait,"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "procrastinate?"
        ]
       ]
      }
@@ -186,7 +171,7 @@
       "lines": [
        [
         [
-         "to keep putting things off",
+         "to keep putting",
          "muted"
         ]
        ]
@@ -236,7 +221,7 @@
     ]
    }
   ],
-  "hook_text": "Wait, procrastinate?",
+  "hook_text": "Wait,",
   "end_line": "c"
  },
  "embed": {

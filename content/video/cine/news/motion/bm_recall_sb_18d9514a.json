@@ -92,12 +92,6 @@
       "Say it",
       "white"
      ]
-    ],
-    [
-     [
-      "before I do.",
-      "yellow"
-     ]
     ]
    ],
    "align": "l"
@@ -133,15 +127,6 @@
       "runs": [
        [
         "Say it"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "before I do."
        ]
       ]
      }
@@ -238,7 +223,7 @@
     ]
    }
   ],
-  "hook_text": "Say it before I do.",
+  "hook_text": "Say it",
   "end_line": "c"
  },
  "embed": {

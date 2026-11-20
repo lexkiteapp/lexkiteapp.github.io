@@ -51,7 +51,7 @@
   },
   "mo_bm_gap_sb_44c4f197": {
    "template": "gap",
-   "hook": "Fill the blank.",
+   "hook": "Fill the",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "gold bank row (reviewed) via bank2motion.py 15/11/2026",
@@ -67,7 +67,7 @@
   },
   "mo_bm_native_sb_001209da": {
    "template": "native",
-   "hook": "Natives never say",
+   "hook": "Natives",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "gold bank row (reviewed) via bank2motion.py 15/11/2026",
@@ -83,7 +83,7 @@
   },
   "mo_bm_native_sb_0031f98c": {
    "template": "native",
-   "hook": "Guess before I tell you",
+   "hook": "Guess before",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "gold bank row (reviewed) via bank2motion.py 15/11/2026",
@@ -99,7 +99,7 @@
   },
   "mo_bm_native_sb_00ac2cbe": {
    "template": "native",
-   "hook": "90% get this wrong",
+   "hook": "90% get this",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "gold bank row (reviewed) via bank2motion.py 15/11/2026",
@@ -147,7 +147,7 @@
   },
   "mo_bm_pair_sb_3aca1292": {
    "template": "pair",
-   "hook": "Which is correct?",
+   "hook": "Which is",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "gold bank row (reviewed) via bank2motion.py 15/11/2026",
@@ -179,7 +179,7 @@
   },
   "mo_bm_pair_sb_e2289c4f": {
    "template": "pair",
-   "hook": "Stop mixing up quality",
+   "hook": "Stop mixing",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "gold bank row (reviewed) via bank2motion.py 15/11/2026",
@@ -229,7 +229,7 @@
   },
   "mo_bm_pattern_sb_05671f6f": {
    "template": "pattern",
-   "hook": "Guess before I tell you",
+   "hook": "Guess before",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "gold bank row (reviewed) via bank2motion.py 15/11/2026",
@@ -263,7 +263,7 @@
   },
   "mo_bm_phrasal_sb_0994b0f5": {
    "template": "phrasal",
-   "hook": "Say this instead",
+   "hook": "Say this",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "gold bank row (reviewed) via bank2motion.py 15/11/2026",
@@ -280,7 +280,7 @@
   },
   "mo_bm_phrasal_sb_22459a38": {
    "template": "phrasal",
-   "hook": "Say this instead",
+   "hook": "Say this",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "gold bank row (reviewed) via bank2motion.py 15/11/2026",
@@ -331,7 +331,7 @@
   },
   "mo_bm_recall_sb_18d9514a": {
    "template": "recall",
-   "hook": "Say it before I do.",
+   "hook": "Say it",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "gold bank row (reviewed) via bank2motion.py 15/11/2026",
@@ -361,7 +361,7 @@
   },
   "mo_bm_recall_sb_9f45e757": {
    "template": "recall",
-   "hook": "Say it before I do.",
+   "hook": "Say it",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "gold bank row (reviewed) via bank2motion.py 15/11/2026",
@@ -376,7 +376,7 @@
   },
   "mo_bm_recall_sb_d11da4f4": {
    "template": "recall",
-   "hook": "Say it before I do.",
+   "hook": "Say it",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "gold bank row (reviewed) via bank2motion.py 15/11/2026",
@@ -407,7 +407,7 @@
   },
   "mo_bm_spot_sb_1740b6df": {
    "template": "spot",
-   "hook": "Remember me to call her.",
+   "hook": "Remember me",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "gold bank row (reviewed) via bank2motion.py 15/11/2026",
@@ -439,7 +439,7 @@
   },
   "mo_bm_spot_sb_ff26f6aa": {
    "template": "spot",
-   "hook": "Water is a luxury.",
+   "hook": "Water is",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "gold bank row (reviewed) via bank2motion.py 15/11/2026",
@@ -455,7 +455,7 @@
   },
   "mo_bm_tf_sb_040ec72a": {
    "template": "tf",
-   "hook": "True or false?",
+   "hook": "True or",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "gold bank row (reviewed) via bank2motion.py 15/11/2026",
@@ -503,7 +503,7 @@
   },
   "mo_bm_tf_sb_52fcf41b": {
    "template": "tf",
-   "hook": "True or false?",
+   "hook": "True or",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "gold bank row (reviewed) via bank2motion.py 15/11/2026",
@@ -1164,7 +1164,7 @@
    "script": {
     "h": "I mix them up in every essay.",
     "s0": "Affect is the verb: stress can affect your sleep.",
-    "s1": "Effect is the noun: the effect of stress is bad sleep.",
+    "s1": "Effect is the noun, meaning the result: bad sleep.",
     "tip": "Tip: think RAVEN. Remember, affect is a verb, effect is a noun.",
     "sh": "Send this to a friend who's learning English!",
     "c": "Save this, and practice free on lexkite.com."
@@ -1204,7 +1204,7 @@
   },
   "mo_tp_ielts_speaking_your-city": {
    "template": "ielts-speaking",
-   "hook": "Do you like your city?",
+   "hook": "Do you like",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "content/video/templates example vars (reviewed) via tpl2motion.py 15/11/2026",
@@ -1213,7 +1213,7 @@
     "s0": "A weak answer: I said, yes. Then… silence. Oops.",
     "s1": "A better answer: I really do, because there's always something going on, like the night markets.",
     "s2": "So: a short answer, a reason with because, and one detail.",
-    "tip": "Tip: answer, reason, example. Two or three sentences is enough for Part 1.",
+    "tip": "Tip: answer, reason, example. Two or three sentences is enough for Part one.",
     "sh": "Send this to a friend who's learning English!",
     "c": "Save this, and practice free on lexkite.com."
    }
@@ -1226,7 +1226,7 @@
    "reviewer": "content/video/templates example vars (reviewed) via tpl2motion.py 15/11/2026",
    "script": {
     "h": "Wait, \"I think\" again?",
-    "s0": "Task 2",
+    "s0": "Task two",
     "s1": "My essay says: In my opinion, I think phones are bad. Is that okay?",
     "s2": "I firmly believe that schools should limit phone use.",
     "s3": "That gives your opinion twice. Use one strong phrase: I firmly believe that.",
@@ -1242,7 +1242,7 @@
    "script_reviewed": true,
    "reviewer": "content/video/templates example vars (reviewed) via tpl2motion.py 15/11/2026",
    "script": {
-    "h": "goed?",
+    "h": "What is the past of go?",
     "s0": "Yesterday I blank to the gym.",
     "s1": "go, went, gone",
     "s2": "Yes! I went to the gym, then I went straight to bed.",
@@ -1253,7 +1253,7 @@
   },
   "mo_tp_phrasal_verb_push-back": {
    "template": "phrasal-verb",
-   "hook": "Let's push it back.",
+   "hook": "Let's push",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "content/video/templates example vars (reviewed) via tpl2motion.py 15/11/2026",
@@ -1290,7 +1290,7 @@
    "script_reviewed": true,
    "reviewer": "content/video/templates example vars (reviewed) via tpl2motion.py 15/11/2026",
    "script": {
-    "h": "Is \"give me\" rude?",
+    "h": "Is saying give me polite?",
     "s0": "Direct: Give me a latte.. It sounds a bit bossy. Could I get is friendly and still simple.",
     "s1": "Polite: Could I get a latte, please?",
     "tip": "Tip: add please at the end. It makes almost any request softer.",
@@ -1364,7 +1364,7 @@
   },
   "mo_tp_roleplay_classroom-say-again": {
    "template": "roleplay",
-   "hook": "Wait… what did she say?",
+   "hook": "Wait… what",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "content/video/templates example vars (reviewed) via tpl2motion.py 15/11/2026",
@@ -1381,7 +1381,7 @@
   },
   "mo_tp_roleplay_clinic-appointment": {
    "template": "roleplay",
-   "hook": "Um… how do I book?",
+   "hook": "Um… how do",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "content/video/templates example vars (reviewed) via tpl2motion.py 15/11/2026",
@@ -1398,7 +1398,7 @@
   },
   "mo_tp_roleplay_hotel-check-in": {
    "template": "roleplay",
-   "hook": "Um… what do I say?",
+   "hook": "Um… what do",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "content/video/templates example vars (reviewed) via tpl2motion.py 15/11/2026",
@@ -1415,7 +1415,7 @@
   },
   "mo_tp_roleplay_interview-about-yourself": {
    "template": "roleplay",
-   "hook": "Talk about… myself?",
+   "hook": "Talk about…",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "content/video/templates example vars (reviewed) via tpl2motion.py 15/11/2026",
@@ -1449,7 +1449,7 @@
   },
   "mo_tp_roleplay_supermarket-eggs": {
    "template": "roleplay",
-   "hook": "Where are eggs?",
+   "hook": "Where are",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "content/video/templates example vars (reviewed) via tpl2motion.py 15/11/2026",
@@ -1466,7 +1466,7 @@
   },
   "mo_tp_spot_the_mistake_how-much-cost": {
    "template": "spot-the-mistake",
-   "hook": "How much cost this?",
+   "hook": "cost this?",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "content/video/templates example vars (reviewed) via tpl2motion.py 15/11/2026",
@@ -1498,7 +1498,7 @@
   },
   "mo_tp_three_words_rain": {
    "template": "three-words",
-   "hook": "Wait, only \"rainy\"?",
+   "hook": "Wait, only",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "content/video/templates example vars (reviewed) via tpl2motion.py 15/11/2026",
@@ -1546,7 +1546,7 @@
   },
   "mo_tp_word_of_the_day_procrastinate": {
    "template": "word-of-the-day",
-   "hook": "Wait, procrastinate?",
+   "hook": "Wait,",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "content/video/templates example vars (reviewed) via tpl2motion.py 15/11/2026",

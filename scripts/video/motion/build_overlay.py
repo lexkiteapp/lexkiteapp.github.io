@@ -125,7 +125,10 @@ class Card:
         if extra: it += extra(h)
         s.add(h, it); s.text.append(text.upper()); s.m.append(['card', S_CHIP * CAP_J]); s.px.append(S_CHIP)
     def line(s, runs, size, mtype='body', ipa=False, slot=None, align='l'):
-        txt = ''.join(r[0] for r in runs); w = tw(txt, size, ipa); lh = round(size * 1.18)
+        txt = ''.join(r[0] for r in runs)
+        if mtype in ('card', 'body') and not slot and not ipa:   # a single word wider than the card (narrow rules column) steps the size down instead of wrapping forever; never below 38 px (qc min_text_px)
+            while size > 38 and max((tw(x, size) for x in txt.split()), default=0) > s.inner(): size -= 2
+        w = tw(txt, size, ipa); lh = round(size * 1.18)
         if w > s.inner() + 1 and mtype in ('card', 'body') and not slot:   # lines that overflow wrap word by word (colour runs kept); a line that fits is left exactly as the spec laid it out (hook lines are always laid out by the spec)
             out = []; cur = []
             for a_, c_ in runs:
@@ -134,6 +137,7 @@ class Card:
                     if cur and tw(''.join(x[0] for x in cur) + tok, size, ipa) > s.inner(): out.append(cur); cur = [[tok.lstrip(), c_]]
                     else: cur.append([tok, c_])
             out.append(cur); allit = []
+            assert len(out) > 1, (s.id, 'word wider than the card', txt, round(w), round(s.inner()))
             for ln in out: allit += [x for x in s.line([[a_, c_] for a_, c_ in ln if a_], size, mtype, ipa, None, align) if x['type'] == 'text']
             return allit   # every wrapped line (a cue set by the caller applies to all of them)
         assert w <= s.inner() + 1, (s.id, 'line too wide', txt, round(w), round(s.inner()))
@@ -315,7 +319,25 @@ def _bar(b, y0, x0=None):
     cn = cd.place(ins=ins); CARDS[b['id']]['text'] += ' / band ' + str(b['target'])
     return cn
 
-def _col(c, y0):
+class Tall(Exception): pass
+def _cut1(runs, size, w):   # one line of the runs: whole words that fit the width (colour runs kept)
+    out = []; cur = ''
+    for a_, c_ in runs:
+        keep = ''
+        for k_, wd in enumerate(a_.split(' ')):
+            tok = (' ' if (k_ or keep) else '') + wd
+            if tw(cur + keep + tok, size) > w: return out + ([[keep, c_]] if keep else [])
+            keep += tok
+        out.append([keep, c_]); cur += keep
+    return out
+def _col(c, y0):   # a rules column that is too tall for the room above the captions drops detail step by step (full -> one line per tile -> tag + example), never overflows
+    for lvl in (0, 1, 2):
+        n0, c0, i0 = len(NODES), len(CUES), len(IPA)
+        try: return _col1(c, y0, lvl)
+        except Tall:
+            del NODES[n0:], CUES[c0:], IPA[i0:]
+    raise AssertionError((c['id'], 'rules column does not fit even without detail'))
+def _col1(c, y0, lvl=0):
     if c['t'] == 'opts':
         ps, _ = pills(y0, c['opts'], c['cues'], c['reveal'], c['right'], c['id']); return ps[0]
     cd = col_card(c['id'], y0, 'lesson', 'pop', c.get('tone'))
@@ -334,7 +356,7 @@ def _col(c, y0):
         elif r['t'] == 'tile':   # rule tile: tone pill + meaning (+ example appearing on its own word)
             hp = 58; n0 = len(cd.rows); it = [dict(type='chip', box=[cd.pad, 0, cd.pad + tw(r['tag'], S_SUB, ls=0.04) + 44, hp], text=r['tag'], tone=r['tone'], size=S_SUB)]
             cd.custom(hp, it, text=r['tag'], m=['card', S_SUB * CAP_J], px=S_SUB, gap=GAP if not n0 else 34)
-            for ln in r['lines']: cd.line(runs_of(ln), S_SUB, 'card')
+            for ln in ([] if lvl >= 2 else r['lines']): cd.line(_cut1(runs_of(ln), S_SUB, cd.inner()) if lvl else runs_of(ln), S_SUB, 'card')
             if r.get('at') and r['at'] != c['at']:   # a later tile appears on its own spoken word
                 ins_, cw_ = cue(r['at'], 'rise'); _cw(f"{c['id']}.tile{n0}", cw_)
                 for k_, x in enumerate(cd.rows[n0:]): x['in'] = ins_; x['id'] = x.get('id') or f"{c['id']}.tile{n0}" + ('' if not k_ else f'.{k_}')
@@ -344,6 +366,7 @@ def _col(c, y0):
                 _cw(items[0]['id'], cw_)
     ins, cw = cue(c['at'], 'rise'); _cw(c['id'], cw)
     if c.get('ipa'): IPA.append(dict(pop=c['id'], **c['ipa']))
+    if lvl < 2 and y0 + cd.height() > cap_top and c['t'] == 'card' and any(r['t'] == 'tile' for r in c['rows']): raise Tall()
     cn = cd.place(ins=ins)
     for n in NODES:
         if n.get('parent') == c['id'] and n['type'] == 'dot' and n.get('hit'):

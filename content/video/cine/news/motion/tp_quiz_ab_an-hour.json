@@ -198,8 +198,8 @@
     "t": "opts",
     "id": "opts",
     "opts": [
-     "I waited a hour.",
-     "I waited an hour."
+     "a hour",
+     "an hour"
     ],
     "cues": [
      [

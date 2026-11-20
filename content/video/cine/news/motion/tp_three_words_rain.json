@@ -92,12 +92,6 @@
       "Wait, only",
       "white"
      ]
-    ],
-    [
-     [
-      "\"rainy\"?",
-      "yellow"
-     ]
     ]
    ],
    "align": "l"
@@ -133,15 +127,6 @@
       "runs": [
        [
         "Wait, only"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "\"rainy\"?"
        ]
       ]
      }
@@ -213,7 +198,7 @@
       "lines": [
        [
         [
-         "A short rain that stops fast.",
+         "A short rain",
          "muted"
         ]
        ]
@@ -240,7 +225,7 @@
       "lines": [
        [
         [
-         "Very heavy rain, so grab an umbrella.",
+         "Very heavy rain",
          "muted"
         ]
        ]
@@ -263,7 +248,7 @@
     ]
    }
   ],
-  "hook_text": "Wait, only \"rainy\"?",
+  "hook_text": "Wait, only",
   "end_line": "c"
  },
  "embed": {

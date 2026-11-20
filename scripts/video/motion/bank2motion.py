@@ -47,8 +47,10 @@ def hook2(t, rows=2, n=12):   # the hook card is chip + at most 2 hook lines (a 
 def base(kind, r, tpl, lines, motion, hook_text, base_kind):
     k = NM.BASE[base_kind]; v = h(r['id'] + tpl, 12); teacher = ('ama', 'carlos')[v % 2]; src = NM.BASE['mistake' if teacher == 'ama' else 'drill']
     if isinstance(hook_text, tuple): hook_text = hook_text[0 if teacher == 'ama' else 1]   # (ama one-liner, carlos text)
-    hook_text = hook2(hook_text, 1 if teacher == 'ama' else 2)   # Ama's plate leaves 401 px above her head: chip + 1 hook line; Carlos's 430 px: chip + 2 lines
-    hl, pr = NM.hook_parts(hook_text)
+    keep = isinstance(hook_text, dict)   # spot-the-mistake: the hook rows are already laid out (struck run), keep them
+    if keep: hl, pr = motion['top'][0]['rows'][1:], [[[hook_text['text'], 'white']]]; hook_text = hook_text['text']
+    else: hook_text = hook2(hook_text, 1)   # the free band above the head is 401-430 px depending on the clip: chip + 1 hook line always fits (2 lines = 414 px did not on every Carlos clip)
+    if not keep: hl, pr = NM.hook_parts(hook_text)
     motion['top'][0]['rows'] = [motion['top'][0]['rows'][0]] + hl
     ac, act = [('navy2', 'mint'), ('navy2', 'yellow'), ('navy', 'mint'), ('navy', 'yellow')][v // 3 % 4], None
     return dict(id=f"mo_bm_{tpl}_{r['id']}", template=tpl, title=f"Motion {tpl} – {r['point'][:70]} ({r['id']})", teacher=teacher, clips=src['clips'], listen=src['listen'], set=src['set'], layout=src['layout'], host_fx=src['host_fx'], speed=src['speed'], accent=ac[0], active=ac[1], display=src['display'], motif=src['motif'],

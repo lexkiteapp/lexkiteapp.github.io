@@ -5,6 +5,7 @@ word; vars come from the reviewed examples untouched. quiz-ab -> A/B pills (dril
   tpl2motion.py [--check]   -> content/video/cine/news/motion/tp_<template>_<slug>.json (+ verdicts in reviewed.json)"""
 import glob, json, os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import re
 import news2motion as NM, bank2motion as BM
 ROOT, OUT = NM.ROOT, NM.OUT
 def S(tag, tone, say, card=None, sub=None): return dict(tag=tag, tone=tone, say=say, card=card, sub=sub)
@@ -34,24 +35,53 @@ HOOK_CARD = {  # key -> (Ama one line <= 12 chars, Carlos up to 2 lines); None k
     'roleplay:cafe-for-here': ('For here?', 'For here or… to go?'), 'roleplay:reception-check-in': ('Where to go?', 'Where do I go?'),
     'roleplay:supermarket-eggs': ('Eggs?', 'Where are eggs?'), 'spot_the_mistake:she-doesnt': ("She don't?", "She don't like coffee"),
     'upgrade_your_english:exhausted': ('Very tired?', 'Not "very tired"'), 'word_of_the_day:bandwidth': ('Bandwidth?', 'No bandwidth.')}
+# the rules column is ~250 px wide: a tile line is 2 wrapped lines of <= ~11 chars (3 tiles must fit above the caption plate)
+# spoken-line fixes where the voice or ASR (not the lesson) is the problem: Kokoro/Whisper cannot say or hear the line as written (qc_v9 asr_match). Facts unchanged.
+SPOKEN = {'confusing_pair:affect-effect': {'s1': 'Effect is the noun, meaning the result: bad sleep.'},
+          'irregular_verb:go-went': {'h': 'What is the past of go?'}, 'polite_request:could-i-get': {'h': 'Is saying give me polite?'}}
+NUMW = {str(i): w for i, w in enumerate('zero one two three four five six seven eight nine ten'.split())}
+def speak(sp, key):
+    for l in sp['lines']:
+        if l['id'] in SPOKEN.get(key, {}): l['text'] = SPOKEN[key][l['id']]
+        if l.get('text'): l['text'] = re.sub(r'\b(10|[0-9])\b(?![.:]\d)', lambda m: NUMW[m.group(1)], l['text'])
+    return sp
 def steps_spec(tpl, slug, v):
     hook, steps, tip, label = STEPS[tpl](v); card = HOOK_CARD.get(f"{tpl.replace(chr(45), chr(95))}:{slug}") or hook; r = row(tpl, slug, v); lines = [BM.line('h', hook)]; tiles = []
     for i, s in enumerate(steps):
         lines.append(BM.line(f's{i}', s['say']))
-        if s['tag']: tiles.append(dict(t='tile', tag=s['tag'], tone=s['tone'], lines=[[[BM.short(s['sub'], 46) if s['sub'] else ' ', 'muted']]], ex=[[BM.short(s['card'], 46), s['tone']]], ex_at=[f's{i}', 0], at=[f's{i}', 0]))
+        if s['tag']: tiles.append(dict(t='tile', tag=s['tag'], tone=s['tone'], lines=[[[BM.fit(s['sub'], 18) if s['sub'] else ' ', 'muted']]], ex=[[BM.short(s['card'], 46), s['tone']]], ex_at=[f's{i}', 0], at=[f's{i}', 0]))
     lines.append(BM.line('tip', f'Tip: {tip}'))
     top = [BM.hookcard(label), dict(id='sum', at=['tip', 0], rows=[BM.chip('Tip', 'gold'), BM.ln(BM.fit(tip))])]
-    first = tiles[0]['at']; sp = BM.base(tpl, r, tpl, lines, dict(top=top, col=[dict(t='card', id='rules', at=first, rows=tiles[:3])]), card, 'tip'); sp['id'] = 'mo_' + r['id']; sp['uses']['template'] = tpl; return sp
+    first = tiles[0]['at']; sp = BM.base(tpl, r, tpl, lines, dict(top=top, col=[dict(t='card', id='rules', at=first, rows=tiles[:3])]), card, 'tip'); sp['id'] = 'mo_' + r['id']; sp['uses']['template'] = tpl; return speak(sp, f"{tpl.replace(chr(45), chr(95))}:{slug}")
+def diffpair(a, b, n=11):   # the pills show what differs (+ one neighbouring word), not the whole sentence: the option column is ~400 px of text (about 10 chars at the body size)
+    ta, tb = a.rstrip('.?!').split(), b.rstrip('.?!').split(); p = 0
+    while p < min(len(ta), len(tb)) - 1 and ta[p] == tb[p]: p += 1
+    q = 0
+    while q < min(len(ta), len(tb)) - 1 - p and ta[-1 - q] == tb[-1 - q]: q += 1
+    ca, cb = ta[p:len(ta) - q], tb[p:len(tb) - q]
+    if q and len(' '.join(ca + [ta[len(ta) - q]])) <= n and len(' '.join(cb + [tb[len(tb) - q]])) <= n: ca, cb = ca + [ta[len(ta) - q]], cb + [tb[len(tb) - q]]
+    elif p and len(' '.join([ta[p - 1]] + ca)) <= n and len(' '.join([tb[p - 1]] + cb)) <= n: ca, cb = [ta[p - 1]] + ca, [tb[p - 1]] + cb
+    return [' '.join(ca), ' '.join(cb)]
 def quiz(tpl, slug, v):
     r = row(tpl, slug, v); a, b = v['optionA'], v['optionB']; right = 0 if v['answer'].strip().lower().startswith("it's a") or v['answer'].strip().lower().startswith('a,') else 1
     o = f"A: {a.rstrip('.')}? Or B: {b.rstrip('.')}?"; ot = o.split(); ia, ib = ot.index('A:') + 1, ot.index('B:') + 1
     lines = [BM.line('h', 'Quick quiz!'), BM.line('q', v['question']), BM.line('o', o), dict(id='_count', beat='count', dur=3.0), BM.line('a', v['answer']), BM.line('w', f"Tip: {v['tip']}")]
     top = [BM.hookcard('Quick quiz'), dict(id='q', at=['q', 0], rows=[BM.chip('A or B?', 'teal', ring='_count'), BM.ln(v['question'])], xp=[dict(at=['a', 0], n=10)]), dict(id='note', at=['w', 0], tone='coral', rows=[BM.chip('Tip', 'coral'), BM.ln(BM.fit(v['tip']))])]
-    sp = BM.base(tpl, r, tpl, lines, dict(top=top, col=[dict(t='opts', id='opts', opts=[BM.short(a, 30), BM.short(b, 30)], cues=[['o', ia], ['o', ib]], reveal=['a', 0], right=right)]), 'Quick quiz!', 'drill'); sp['id'] = 'mo_' + r['id']; return sp
+    sp = BM.base(tpl, r, tpl, lines, dict(top=top, col=[dict(t='opts', id='opts', opts=diffpair(a, b), cues=[['o', ia], ['o', ib]], reveal=['a', 0], right=right)]), 'Quick quiz!', 'drill'); sp['id'] = 'mo_' + r['id']; return sp
+def window(runs, si, n=13):   # keep the struck run and as many neighbouring words as fit one hook line
+    pre = ''.join(x[0] for x in runs[:si]).split(); mid = runs[si][0]; post = ''.join(x[0] for x in runs[si + 1:]).split(); a, b = [], []
+    while True:
+        cur = len(' '.join(a + [mid] + b))
+        if pre[:len(pre) - len(a)] and cur + 1 + len(pre[len(pre) - len(a) - 1]) <= n: a.insert(0, pre[len(pre) - len(a) - 1]); continue
+        if post[len(b):] and cur + 1 + len(post[len(b)]) <= n: b.append(post[len(b)]); continue
+        break
+    out = ([[' '.join(a) + ' ']] if a else []) + [[mid, 'ink']] + ([[' ' + ' '.join(b)]] if b else [])
+    return out, len(out) - 1 - (1 if b else 0)
 def spot(tpl, slug, v):
     r = row(tpl, slug, v); runs, si = NM.wrong_runs(v['wrong'], v['right']); lines = [BM.line('h', 'Spot the mistake.'), BM.line('q', v['wrong']), dict(id='_count', beat='count', dur=3.0), BM.line('a', v['fix']), BM.line('b', f"Say: {v['right']}"), BM.line('w', f"Tip: {v['tip']}")]
+    runs, si = window(runs, si)   # one hook line (<= 13 chars) around the struck word
     top = [dict(id='hook', hook=True, rows=[BM.chip('Spot the mistake', 'coral', ring='_count'), dict(t='line', hook=True, runs=runs)], strike=[dict(line=0, run=si, at=['a', 0])])]
-    sp = BM.base(tpl, r, tpl, lines, dict(top=top, col=[dict(t='card', id='better', at=['b', 0], tone='green', rows=[BM.chip('Better', 'green'), BM.ln([[v['right'], 'green']])])]), v['wrong'], 'mistake'); sp['id'] = 'mo_' + r['id']; return sp
+    sp = BM.base(tpl, r, tpl, lines, dict(top=top, col=[dict(t='card', id='better', at=['b', 0], tone='green', rows=[BM.chip('Better', 'green'), BM.ln([[v['right'], 'green']])])]), dict(text=''.join(x[0] for x in runs)), 'mistake'); sp['id'] = 'mo_' + r['id']; return sp
 def build():
     specs = {}
     for f in sorted(glob.glob(f'{ROOT}/content/video/templates/examples/*.vars.json')):

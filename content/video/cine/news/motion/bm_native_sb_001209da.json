@@ -92,12 +92,6 @@
       "Natives",
       "white"
      ]
-    ],
-    [
-     [
-      "never say",
-      "yellow"
-     ]
     ]
    ],
    "align": "l"
@@ -133,15 +127,6 @@
       "runs": [
        [
         "Natives"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "never say"
        ]
       ]
      }
@@ -236,7 +221,7 @@
     ]
    }
   ],
-  "hook_text": "Natives never say",
+  "hook_text": "Natives",
   "end_line": "c"
  },
  "embed": {

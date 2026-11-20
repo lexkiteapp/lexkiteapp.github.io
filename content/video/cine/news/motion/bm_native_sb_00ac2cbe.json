@@ -92,12 +92,6 @@
       "90% get this",
       "white"
      ]
-    ],
-    [
-     [
-      "wrong",
-      "yellow"
-     ]
     ]
    ],
    "align": "l"
@@ -133,15 +127,6 @@
       "runs": [
        [
         "90% get this"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "wrong"
        ]
       ]
      }
@@ -236,7 +221,7 @@
     ]
    }
   ],
-  "hook_text": "90% get this wrong",
+  "hook_text": "90% get this",
   "end_line": "c"
  },
  "embed": {

@@ -94,14 +94,8 @@
    "rows": [
     [
      [
-      "How much",
-      "white"
-     ]
-    ],
-    [
-     [
       "cost this?",
-      "yellow"
+      "white"
      ]
     ]
    ],
@@ -138,16 +132,8 @@
       "hook": true,
       "runs": [
        [
-        "How much"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "cost this?"
+        "cost this?",
+        "ink"
        ]
       ]
      }
@@ -155,7 +141,7 @@
     "strike": [
      {
       "line": 0,
-      "run": 1,
+      "run": 0,
       "at": [
        "a",
        0
@@ -191,7 +177,7 @@
     ]
    }
   ],
-  "hook_text": "How much cost this?",
+  "hook_text": "cost this?",
   "end_line": "c"
  },
  "embed": {

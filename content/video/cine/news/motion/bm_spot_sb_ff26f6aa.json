@@ -94,14 +94,8 @@
    "rows": [
     [
      [
-      "Water is a",
+      "Water is",
       "white"
-     ]
-    ],
-    [
-     [
-      "luxury.",
-      "yellow"
      ]
     ]
    ],
@@ -138,16 +132,7 @@
       "hook": true,
       "runs": [
        [
-        "Water is a"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "luxury."
+        "Water is"
        ]
       ]
      }
@@ -191,7 +176,7 @@
     ]
    }
   ],
-  "hook_text": "Water is a luxury.",
+  "hook_text": "Water is",
   "end_line": "c"
  },
  "embed": {

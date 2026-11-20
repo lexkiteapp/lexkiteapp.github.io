@@ -97,12 +97,6 @@
       "Where are",
       "white"
      ]
-    ],
-    [
-     [
-      "eggs?",
-      "yellow"
-     ]
     ]
    ],
    "align": "l"
@@ -138,15 +132,6 @@
       "runs": [
        [
         "Where are"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "eggs?"
        ]
       ]
      }
@@ -268,7 +253,7 @@
     ]
    }
   ],
-  "hook_text": "Where are eggs?",
+  "hook_text": "Where are",
   "end_line": "c"
  },
  "embed": {

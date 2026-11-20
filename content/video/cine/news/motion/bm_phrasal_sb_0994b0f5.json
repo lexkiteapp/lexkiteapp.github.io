@@ -97,12 +97,6 @@
       "Say this",
       "white"
      ]
-    ],
-    [
-     [
-      "instead",
-      "yellow"
-     ]
     ]
    ],
    "align": "l"
@@ -138,15 +132,6 @@
       "runs": [
        [
         "Say this"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "instead"
        ]
       ]
      }
@@ -249,7 +234,7 @@
     ]
    }
   ],
-  "hook_text": "Say this instead",
+  "hook_text": "Say this",
   "end_line": "c"
  },
  "embed": {
