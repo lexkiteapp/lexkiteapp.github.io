@@ -27,6 +27,7 @@ const V2DATA = {
   'feedback-wrong': ['web/js/lesson/ui.js'],
   'lesson-complete': ['web/js/lesson/ui.js'],
   'lesson-question': ['web/js/lesson/ui.js'],
+  library: ['web/js/ux1-lib.js'],
   me: ['web/js/ux1-me.js'],
   'onb-goal': ['web/js/onboard.js'],
   'onb-lang': ['web/js/onboard.js'],

@@ -6,6 +6,7 @@
 //    Đang làm dở → hộp hỏi "Tiếp tục học" (ở lại, màn còn nguyên) / "Thoát" (rời màn).
 // Dùng: node scripts/test/exit-sweep.mjs [--root dist | --base URL] [--out out/exit-sweep] [--themes light,dark]
 import { chromium, devices } from 'playwright';
+import { autoLXD } from './lib/lxd-auto.mjs';
 import { noProd } from './lib/no-prod.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -81,7 +82,7 @@ for (const theme of THEMES) {
   const ctx = await ctxOf(theme);
   for (const [r, hash] of samples) {
     const where = `${r} ${theme} (${hash})`, page = await ctx.newPage();
-    page.on('dialog', d => d.accept());
+    page.on('dialog', d => d.accept()); await autoLXD(page);
     try {
       await boot(page, '/home'); await goLearn(page, hash);
       const btn = await page.evaluate(() => {
@@ -102,7 +103,7 @@ for (const theme of THEMES) {
       if (ratio < 3) fail(where, `tương phản nút ${ratio.toFixed(2)} < 3:1`);
       if (theme === THEMES[0]) { // ảnh trước/sau cho trang Duyệt hình: sau = cờ lk.exitbar, trước = như bản đang chạy
         await page.screenshot({ path: `${OUT}/shots/${r}-after.png`, scale: 'css' });
-        const pb = await ctxBefore.newPage(); pb.on('dialog', d => d.accept());
+        const pb = await ctxBefore.newPage(); pb.on('dialog', d => d.accept()); await autoLXD(pb);
         try { await boot(pb, '/home'); await go(pb, hash); await pb.screenshot({ path: `${OUT}/shots/${r}-before.png`, scale: 'css' }); } catch { /* chỉ là ảnh */ } finally { await pb.close(); }
       }
       // a) bấm nút (chưa làm gì → thoát ngay)
@@ -138,7 +139,7 @@ for (const W of [768, 1440]) {
   await ctx.addInitScript(th => { try { localStorage.setItem('sbx.settings', JSON.stringify({ onboarded: true, theme: th })); localStorage.setItem('lk.exitbar', '1'); } catch { /* */ } }, THEMES[0]);
   for (const [r, hash] of samples) {
     const where = `${r} @${W} (${hash})`, page = await ctx.newPage();
-    page.on('dialog', d => d.accept());
+    page.on('dialog', d => d.accept()); await autoLXD(page);
     try {
       await boot(page, '/home'); await goLearn(page, hash); await page.mouse.move(W - 2, 898);
       const b = await page.evaluate(() => { const x = document.querySelector('#view [data-exit]'); if (!x) return null; const rc = x.getBoundingClientRect(); return { w: rc.width, h: rc.height, x: rc.left, y: rc.top, grown: x.dataset.lkGrow != null, sel: x.tagName.toLowerCase() + '.' + [...x.classList].join('.') }; });
@@ -153,7 +154,7 @@ for (const W of [768, 1440]) {
         const shotOf = pg => pg.screenshot({ clip, animations: 'disabled', caret: 'hide' });
         const geo = pg => pg.evaluate(() => { const out = []; let e = document.querySelector('#view [data-exit]'); const f = e.querySelector(':scope > .lk-face'); out.push('hiện ' + (q => [q.x, q.y, q.width, q.height].join(','))((f || e).getBoundingClientRect())); for (let k = 0; e && k < 7; k++, e = e.parentElement) { const q = e.getBoundingClientRect(); out.push(e.tagName.toLowerCase() + '.' + [...e.classList].filter(c => !/^lk-(grow|hit44)$/.test(c)).join('.') + ' ' + (k ? [q.x, q.y, q.width].join(',') : '')); } return out; });
         const A = await shotOf(page), gA = await geo(page); await sleep(400); const A2 = await shotOf(page);
-        const pb = await ctx.newPage(); pb.on('dialog', d => d.accept());
+        const pb = await ctx.newPage(); pb.on('dialog', d => d.accept()); await autoLXD(pb);
         try {
           await boot(pb, '/home'); await pb.evaluate(() => ExitGuard._noGrow(true)); await go(pb, hash); await pb.mouse.move(W - 2, 898);
           const B = await shotOf(pb), gB = await geo(pb), same = gA.every((g, k) => g === gB[k]);

@@ -232,7 +232,7 @@ ok(S.provider.mode === 'grabcast' && S.meta.configured && S.meta.tokens.some(t =
   const card = code.slice(code.indexOf('async function autoCard'), code.indexOf('async function queue('));
   const maps = [...card.matchAll(/(?:PW|MODES|TW) = \{([^}]+)\}/g)].flatMap(m => [...m[1].matchAll(/: '([^']+)'/g)].map(x => x[1]));
   ok(maps.length >= 10 && maps.every(k => k in EN), 'lý do failover + chế độ: đủ tiếng Anh – thiếu: ' + maps.filter(k => !(k in EN)).join(' | '));
-  let confAns = () => true, calls = []; w.confirm = m => confAns(m);
+  let confAns = () => true, calls = []; w.confirm = m => confAns(m);;Object.defineProperty(w,'LXDialog',{configurable:true,get:()=>({confirm:async m=>w.confirm(m),prompt:async(m,d)=>w.prompt(m,d),alert:async m=>w.alert(m)})}); // cầu nối: test vẫn giả hộp thoại bằng w.confirm/prompt/alert
   const AS = JSON.parse(JSON.stringify(S)); AS.provider = { cur: 'meta', why: 'db_budget_guard', since: now, mode: 'auto' }; AS.cfg.provider = 'auto';
   AS.upcoming = [{ clip: CB, channel_id: 'gc-facebook_page-2', platform: 'facebook_page', slot_ms: now + H, state: 'planned', board: 'review', board_id: 'b_apX1', provider: null }, { clip: CA, channel_id: 'gc-facebook_page-2', platform: 'facebook_page', slot_ms: now, state: 'published', board: 'published', board_id: 'b_apX2', provider: 'meta', permalink: 'https://www.facebook.com/reel/900001' }];
   const sapi = async (m, p, b) => { calls.push([p, b]); if (p === 'lk/auto') return JSON.parse(JSON.stringify(AS)); if (p === 'lk/auto/provider') return { cfg: A.cleanAuto({ ...AS.cfg, provider: b.mode }) }; if (p === 'lk/auto/save') return { cfg: A.cleanAuto(b.cfg) }; if (p === 'lk/rules') return { rules: MGR.cleanRules({}) }; return { ok: true, state: 'approved' }; };

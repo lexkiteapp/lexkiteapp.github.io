@@ -77,7 +77,7 @@ export async function mk(o = {}) {
   const E = mkEnv({ hash: o.hash || '#/listening', lang: o.lang, learnLang: o.learnLang, meanLang: o.meanLang, ls: o.ls,
     ui: { icon: () => '', splitSentences: SPLIT, voicesFor: acc => (voiceObjs[acc] ||= ((o.voices || {})[acc] || []).map(name => ({ name }))), levelChip: () => '', posChip: () => '', ipaHtml: () => '',
       speak: (w, accent) => { calls.speak.push({ word: w, accent }); }, ctxBox: (s, w) => { calls.ctx.push({ sentence: s, word: w }); return ''; }, tts: (text, accent, x, opts) => { calls.tts.push({ text, accent, cb: !!opts }); if (opts) calls.ttsOpts = opts; }, ...(o.ui || {}) } });
-  const sb = E.sb; sb.CSS = { escape: s => String(s) }; sb.confetti = n => { (sb._conf ||= []).push(n); }; sb.innerWidth = 1200; sb.confirm = o.confirm || (() => true);
+  const sb = E.sb; sb.CSS = { escape: s => String(s) }; sb.confetti = n => { (sb._conf ||= []).push(n); }; sb.innerWidth = 1200; sb.confirm = o.confirm || (() => true); sb.LXDialog = { confirm: async m => sb.confirm(m), prompt: async () => null, alert() {} }; // web dùng LXDialog (Promise) thay confirm gốc
   sb.document.body.contains = () => true;
   const ctl = platform(sb, o);
   vm.runInContext(`(function (g) { ${CDN_SRC}\n })(self)`, sb, { filename: 'web/js/ui.js#audioUrl' });
