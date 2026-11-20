@@ -2,7 +2,7 @@
 
 Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipeline/score.budget.json` · kế hoạch `docs/CONTENT-WORLD-PLAN.md` §3.5. Điểm = độ phủ so với chuẩn × tỉ lệ qua cổng.
 
-**Tổng: 80.1 / 100**
+**Tổng: 80.4 / 100**
 
 | Mảng | Điểm | Sàn | Độ phủ | Qua cổng | Lỗi |
 |---|---|---|---|---|---|
@@ -13,7 +13,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | Đề thi | **66.6** | 31.7 | 66.6% | 100% | 0 |
 | Khung Can-do | **82.5** | 81.3 | 82.5% | 100% | 0 |
 | Dễ học – dễ nhớ | **91.8** | 91.7 | 91.8% | 100% | 0 |
-| i18n | **81** | 62.7 | 81% | 100% | 0 |
+| i18n | **82.8** | 62.7 | 82.8% | 100% | 0 |
 
 ## Kho từ
 
@@ -24,7 +24,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | collocation | 5019 / 20000 | 25% | 12 |
 | đồng nghĩa | 3106 / 20000 | 16% | 8 |
 | IPA Mỹ | 6884 / 20000 | 34% | 5 |
-| ảnh theo nghĩa | 8026 / 20000 | 40% | 15 |
+| ảnh theo nghĩa | 8044 / 20000 | 40% | 15 |
 | C2 | 1022 / 1000 | 100% | 10 |
 | A1 | 869 / 1000 | 87% | 5 |
 
@@ -116,5 +116,5 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 |---|---|---|---|
 | ngôn ngữ đạt i18n-qa | 13 / 13 | 100% | 45 |
 | nhãn ngắn dịch tay | 12.3 / 13 | 95% | 10 |
-| gói nghĩa từ theo ngôn ngữ | 5.3 / 13 | 41% | 20 |
+| gói nghĩa từ theo ngôn ngữ | 6.5 / 13 | 50% | 20 |
 | điểm bản xứ (native-score/5) (chưa làm) | 3.7 / 5 | 74% | 25 |

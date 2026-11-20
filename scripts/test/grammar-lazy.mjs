@@ -3,10 +3,11 @@
 // mở bài (kể cả link thẳng #/grammar/<id> lúc khởi động nguội) chờ gói cấp đó rồi thay bài rút gọn theo id – không trùng, nạp lại không nhân đôi.
 import fs from 'node:fs'; import vm from 'node:vm'; import path from 'node:path'; import assert from 'node:assert/strict';
 import { LAZY, lessonsOf, render } from '../grammar/build-lazy-idx.mjs';
+import { bundlesIn } from '../lib/bundles.mjs';
 import { loadContent, ROOT } from '../lib/content-load.mjs';
 const W = p => path.join(ROOT, 'web', p), read = p => fs.readFileSync(W(p), 'utf8');
 const app = read('js/app.js'), cut = (from, to) => { const a = app.indexOf(from), b = app.indexOf(to, a); return new Function(`${app.slice(a, b + to.length)}; return ${from.match(/(\w+) = \{$/)[1]};`)(); };
-const BUNDLES = cut("const G = 'js/grammar/', BUNDLES = {", '\n  };'), ROUTE_BUNDLE = cut('const ROUTE_BUNDLE = {', '};');
+const BUNDLES = bundlesIn(W('')), ROUTE_BUNDLE = cut('const ROUTE_BUNDLE = {', '};');
 
 // 1. Gói: 'grammar' không chứa file nặng; hai gói lười đúng 1 file nguồn, không gắn vào route nào (chỉ grammar.js gọi khi cần)
 for (const L of LAZY) {

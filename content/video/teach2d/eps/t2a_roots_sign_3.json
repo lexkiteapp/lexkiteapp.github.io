@@ -1,0 +1,173 @@
+{
+ "id": "t2a_roots_sign_3",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, two words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "The root is Sign! Designate, sign.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Sign is Latin for mark.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Designate: down plus mark.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Sign: a mark that means something.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means down plus mark?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Designate! Down plus mark.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "SIGN",
+  "rid": "sign",
+  "say": "mark",
+  "src": "signum",
+  "src_lang": "Latin",
+  "src_mean": "mark, sign",
+  "words": [
+   {
+    "w": "designate",
+    "ipa": "/ˈdezəɡneɪt/",
+    "mean": "mark out for a role",
+    "seg": "de-|sign|-ate",
+    "parts": [
+     [
+      "de",
+      "pre"
+     ],
+     [
+      "sign",
+      "root"
+     ],
+     [
+      "ate",
+      "suf"
+     ]
+    ],
+    "pre": "de",
+    "pm": "down or away",
+    "pms": "down",
+    "ex": "Smoking is allowed only in designated areas outside the main building.",
+    "em": "📍"
+   },
+   {
+    "w": "sign",
+    "ipa": "/saɪn/",
+    "mean": "a mark that means something",
+    "seg": "sign",
+    "parts": [
+     [
+      "sign",
+      "root"
+     ]
+    ],
+    "pre": null,
+    "pm": null,
+    "pms": null,
+    "ex": "The sign says no parking after six o'clock.",
+    "em": "🪧"
+   }
+  ],
+  "quiz": {
+   "stem": "down plus mark",
+   "options": [
+    "sign",
+    "designate"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/designate",
+  "link": "https://lexkite.com/app/#/dict/designate",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, two words"
+ },
+ "src": {
+  "root": "sign"
+ },
+ "est": {
+  "words": 45,
+  "seconds": 27.0,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "Sign root: designate and sign",
+  "keyword": "sign root",
+  "value": "Sign comes from Latin \"signum\" (mark, sign). Words: designate and sign. designate = de + sign.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/designate",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "Sign root: designate and sign",
+    "description": "Sign comes from Latin \"signum\" (mark, sign). Words: designate and sign. designate = de + sign.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/designate\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "sign root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Sign root: designate and sign\n\nSign comes from Latin \"signum\" (mark, sign). Words: designate and sign. designate = de + sign.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/designate"
+   },
+   "instagram": {
+    "caption": "Sign root: designate and sign\n\nSign comes from Latin \"signum\" (mark, sign). Words: designate and sign. designate = de + sign.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Sign root: designate and sign #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: Designate! Down plus mark. Sign comes from Latin \"signum\" (mark, sign). Words: designate and sign. designate = de + sign. Practice it with a free quiz: {link}"
+ }
+}

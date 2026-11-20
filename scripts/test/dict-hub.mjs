@@ -3,7 +3,7 @@
 //   khung chung (Back ≥44 về #/vocab, bỏ st+v2on), gói + CSS nạp đúng, CSS ≤ 10 KB gz. Phần kết quả (đầu mục từ, thẻ lưu ngữ cảnh…) còn khung cũ: dict-entry-layout (CI) kiểm.
 import fs from 'node:fs'; import vm from 'node:vm'; import zlib from 'node:zlib'; import assert from 'node:assert/strict';
 const rd = f => fs.readFileSync(f, 'utf8'), app = rd('web/js/app.js');
-assert.match(app, /dictp: \['js\/i18n\/en\/v2\.js', 'js\/st\/v2\/runtime\.js', 'js\/st\/v2\/dict\.js', 'js\/dict-page\.js'\]/, 'gói dictp nạp runtime + khung dict trước dict-page.js');
+assert.match(rd('web/js/bundles.js'), /dictp: \['js\/i18n\/en\/v2\.js', 'js\/st\/v2\/runtime\.js', 'js\/st\/v2\/dict\.js', 'js\/dict-page\.js'\]/, 'gói dictp nạp runtime + khung dict trước dict-page.js');
 assert.match(app, /dictp: 'css\/st-v2-dict\.css'/, 'CSS màn nạp cùng gói'); assert.match(rd('scripts/build-stitch-css.mjs'), /dict: \['web\/js\/dict-page\.js'\]/);
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const run = async recent => {

@@ -22877,7 +22877,7 @@
   },
   "t2_l1_fr_internship": {
    "template": "l1",
-   "hook": "« Stage » ≠ “stage”",
+   "hook": "« Stage » : un faux ami !",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs",
@@ -32749,6 +32749,3571 @@
     "q": "Quick quiz! Which one fits?",
     "a": "Don't have! I don't have a car.",
     "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_rule_silentkn_1": {
+   "template": "rule",
+   "hook": "The K is silent",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --rule-eps gates v1 (words in rules-words.json · every word live in the audited bank with a US IPA that PROVES the rule (rules.py) · family-safe · level <= B1 NGSL except the taught words · hook true · no duplicate lesson)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "892ada8799d2",
+   "script": {
+    "h": "The K is silent!",
+    "r": "In k n, the K is silent. Say N.",
+    "w0": "Know.",
+    "v0": "Know. Say: know.",
+    "w1": "Knee.",
+    "v1": "Knee.",
+    "p": "Repeat after me!",
+    "q": "Quick quiz! Which letter is silent in knee?",
+    "a": "K! The K is silent.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_rule_silentwr_1": {
+   "template": "rule",
+   "hook": "The W is silent",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --rule-eps gates v1 (words in rules-words.json · every word live in the audited bank with a US IPA that PROVES the rule (rules.py) · family-safe · level <= B1 NGSL except the taught words · hook true · no duplicate lesson)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "dae1843a08bd",
+   "script": {
+    "h": "The W is silent!",
+    "r": "In w r, the W is silent. Say R.",
+    "w0": "Write.",
+    "v0": "Write. Say: write.",
+    "w1": "Wrong.",
+    "v1": "Wrong.",
+    "p": "Repeat after me!",
+    "q": "Quick quiz! Which letter is silent in wrong?",
+    "a": "W! The W is silent.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_rule_silentmb_1": {
+   "template": "rule",
+   "hook": "The B is silent",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --rule-eps gates v1 (words in rules-words.json · every word live in the audited bank with a US IPA that PROVES the rule (rules.py) · family-safe · level <= B1 NGSL except the taught words · hook true · no duplicate lesson)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "2eceec1b97f7",
+   "script": {
+    "h": "The B is silent!",
+    "r": "At the end, m b, the B is silent. Say M.",
+    "w0": "Climb.",
+    "v0": "Climb.",
+    "w1": "Comb.",
+    "v1": "Comb.",
+    "p": "Repeat after me!",
+    "q": "Quick quiz! Which letter is silent in comb?",
+    "a": "B! The B is silent.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_rule_silentgn_1": {
+   "template": "rule",
+   "hook": "The G is silent",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --rule-eps gates v1 (words in rules-words.json · every word live in the audited bank with a US IPA that PROVES the rule (rules.py) · family-safe · level <= B1 NGSL except the taught words · hook true · no duplicate lesson)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "da18c1f23892",
+   "script": {
+    "h": "The G is silent!",
+    "r": "In g n, the G is silent. Say N.",
+    "w0": "Design.",
+    "v0": "Design.",
+    "w1": "Foreign.",
+    "v1": "Foreign.",
+    "p": "Repeat after me!",
+    "q": "Quick quiz! Which letter is silent in foreign?",
+    "a": "G! The G is silent.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_rule_silentps_1": {
+   "template": "rule",
+   "hook": "The P is silent",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --rule-eps gates v1 (words in rules-words.json · every word live in the audited bank with a US IPA that PROVES the rule (rules.py) · family-safe · level <= B1 NGSL except the taught words · hook true · no duplicate lesson)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "65dbb05cbbb3",
+   "script": {
+    "h": "The P is silent!",
+    "r": "At the start, p s, the P is silent. Say S.",
+    "w0": "Psychological.",
+    "v0": "Psychological.",
+    "p": "Repeat after me!",
+    "q": "Quick quiz! Which letter is silent in psychological?",
+    "a": "P! The P is silent.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_rule_silentght_1": {
+   "template": "rule",
+   "hook": "The G H is silent",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --rule-eps gates v1 (words in rules-words.json · every word live in the audited bank with a US IPA that PROVES the rule (rules.py) · family-safe · level <= B1 NGSL except the taught words · hook true · no duplicate lesson)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "7ec22c0ad16c",
+   "script": {
+    "h": "The G H is silent!",
+    "r": "In g h t, the G H is silent. Say T.",
+    "w0": "Flight.",
+    "v0": "Flight.",
+    "w1": "Light.",
+    "v1": "Light.",
+    "p": "Repeat after me!",
+    "q": "Quick quiz! Which letter is silent in light?",
+    "a": "G H! The G H is silent.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_rule_silenth_1": {
+   "template": "rule",
+   "hook": "The H is silent",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --rule-eps gates v1 (words in rules-words.json · every word live in the audited bank with a US IPA that PROVES the rule (rules.py) · family-safe · level <= B1 NGSL except the taught words · hook true · no duplicate lesson)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "a9453143566b",
+   "script": {
+    "h": "The H is silent!",
+    "r": "Here the H is silent. Start with the next sound.",
+    "w0": "Hour.",
+    "v0": "Hour.",
+    "w1": "Honest.",
+    "v1": "Honest.",
+    "p": "Repeat after me!",
+    "q": "Quick quiz! Which letter is silent in honest?",
+    "a": "H! The H is silent.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_rule_silentl_1": {
+   "template": "rule",
+   "hook": "The L is silent",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --rule-eps gates v1 (words in rules-words.json · every word live in the audited bank with a US IPA that PROVES the rule (rules.py) · family-safe · level <= B1 NGSL except the taught words · hook true · no duplicate lesson)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "553822809a35",
+   "script": {
+    "h": "The L is silent!",
+    "r": "In a l k and a l m, the L is silent.",
+    "w0": "Half.",
+    "v0": "Half.",
+    "w1": "Talk.",
+    "v1": "Talk.",
+    "p": "Repeat after me!",
+    "q": "Quick quiz! Which letter is silent in talk?",
+    "a": "L! The L is silent.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_rule_silentbt_1": {
+   "template": "rule",
+   "hook": "The B is silent",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --rule-eps gates v1 (words in rules-words.json · every word live in the audited bank with a US IPA that PROVES the rule (rules.py) · family-safe · level <= B1 NGSL except the taught words · hook true · no duplicate lesson)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "3fc3a644d1c1",
+   "script": {
+    "h": "The B is silent!",
+    "r": "Before t, the B is silent. Say T.",
+    "w0": "Doubt.",
+    "v0": "Doubt.",
+    "w1": "Debt.",
+    "v1": "Debt.",
+    "p": "Repeat after me!",
+    "q": "Quick quiz! Which letter is silent in debt?",
+    "a": "B! The B is silent.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_rule_silentt_1": {
+   "template": "rule",
+   "hook": "The T is silent",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --rule-eps gates v1 (words in rules-words.json · every word live in the audited bank with a US IPA that PROVES the rule (rules.py) · family-safe · level <= B1 NGSL except the taught words · hook true · no duplicate lesson)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "39ac1520fc0f",
+   "script": {
+    "h": "The T is silent!",
+    "r": "In s t l e and s t e n, the T is silent.",
+    "w0": "Listen.",
+    "v0": "Listen.",
+    "p": "Repeat after me!",
+    "q": "Quick quiz! Which letter is silent in listen?",
+    "a": "T! The T is silent.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_rule_silentigh_1": {
+   "template": "rule",
+   "hook": "The G H is silent",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --rule-eps gates v1 (words in rules-words.json · every word live in the audited bank with a US IPA that PROVES the rule (rules.py) · family-safe · level <= B1 NGSL except the taught words · hook true · no duplicate lesson)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "5120f342ed55",
+   "script": {
+    "h": "The G H is silent!",
+    "r": "In i g h, the G H is silent. Say eye.",
+    "w0": "High.",
+    "v0": "High. Say: high.",
+    "w1": "Thigh.",
+    "v1": "Thigh.",
+    "p": "Repeat after me!",
+    "q": "Quick quiz! Which letter is silent in thigh?",
+    "a": "G H! The G H is silent.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_rule_silenteigh_1": {
+   "template": "rule",
+   "hook": "The G H is silent",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --rule-eps gates v1 (words in rules-words.json · every word live in the audited bank with a US IPA that PROVES the rule (rules.py) · family-safe · level <= B1 NGSL except the taught words · hook true · no duplicate lesson)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "753459876f97",
+   "script": {
+    "h": "The G H is silent!",
+    "r": "In e i g h, the G H is silent. Say A.",
+    "w0": "Height.",
+    "v0": "Height.",
+    "w1": "Neighbor.",
+    "v1": "Neighbor.",
+    "p": "Repeat after me!",
+    "q": "Quick quiz! Which letter is silent in neighbor?",
+    "a": "G H! The G H is silent.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_rule_silentough_1": {
+   "template": "rule",
+   "hook": "The G H is silent",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --rule-eps gates v1 (words in rules-words.json · every word live in the audited bank with a US IPA that PROVES the rule (rules.py) · family-safe · level <= B1 NGSL except the taught words · hook true · no duplicate lesson)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "3cbdc59d104b",
+   "script": {
+    "h": "The G H is silent!",
+    "r": "In o u g h, the G H can be silent. Do not say it.",
+    "w0": "Through.",
+    "v0": "Through.",
+    "p": "Repeat after me!",
+    "q": "Quick quiz! Which letter is silent in through?",
+    "a": "G H! The G H is silent.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_rule_silentwh_1": {
+   "template": "rule",
+   "hook": "The W is silent",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --rule-eps gates v1 (words in rules-words.json · every word live in the audited bank with a US IPA that PROVES the rule (rules.py) · family-safe · level <= B1 NGSL except the taught words · hook true · no duplicate lesson)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "9509d4da6978",
+   "script": {
+    "h": "The W is silent!",
+    "r": "In w h o, the W is silent. Say H.",
+    "w0": "Who.",
+    "v0": "Who.",
+    "w1": "Whole.",
+    "v1": "Whole. Say: whole.",
+    "p": "Repeat after me!",
+    "q": "Quick quiz! Which letter is silent in whole?",
+    "a": "W! The W is silent.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_rule_silentmn_1": {
+   "template": "rule",
+   "hook": "The N is silent",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --rule-eps gates v1 (words in rules-words.json · every word live in the audited bank with a US IPA that PROVES the rule (rules.py) · family-safe · level <= B1 NGSL except the taught words · hook true · no duplicate lesson)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "ef9783ed1a50",
+   "script": {
+    "h": "The N is silent!",
+    "r": "At the end, m n, the N is silent. Say M.",
+    "w0": "Autumn.",
+    "v0": "Autumn.",
+    "w1": "Column.",
+    "v1": "Column.",
+    "p": "Repeat after me!",
+    "q": "Quick quiz! Which letter is silent in column?",
+    "a": "N! The N is silent.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_rule_silentsc_1": {
+   "template": "rule",
+   "hook": "The C is silent",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --rule-eps gates v1 (words in rules-words.json · every word live in the audited bank with a US IPA that PROVES the rule (rules.py) · family-safe · level <= B1 NGSL except the taught words · hook true · no duplicate lesson)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "553cef0c5f53",
+   "script": {
+    "h": "The C is silent!",
+    "r": "In s c e, the C is silent. Say S.",
+    "w0": "Science.",
+    "v0": "Science.",
+    "w1": "Scientist.",
+    "v1": "Scientist.",
+    "p": "Repeat after me!",
+    "q": "Quick quiz! Which letter is silent in scientist?",
+    "a": "C! The C is silent.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_rule_silentgu_1": {
+   "template": "rule",
+   "hook": "The U is silent",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --rule-eps gates v1 (words in rules-words.json · every word live in the audited bank with a US IPA that PROVES the rule (rules.py) · family-safe · level <= B1 NGSL except the taught words · hook true · no duplicate lesson)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "d21e2728e61d",
+   "script": {
+    "h": "The U is silent!",
+    "r": "In g u, the U is silent. Say G.",
+    "w0": "Build.",
+    "v0": "Build.",
+    "w1": "Guess.",
+    "v1": "Guess.",
+    "p": "Repeat after me!",
+    "q": "Quick quiz! Which letter is silent in guess?",
+    "a": "U! The U is silent.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_rule_silenthex_1": {
+   "template": "rule",
+   "hook": "The H is silent",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --rule-eps gates v1 (words in rules-words.json · every word live in the audited bank with a US IPA that PROVES the rule (rules.py) · family-safe · level <= B1 NGSL except the taught words · hook true · no duplicate lesson)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "806bb1fd27b1",
+   "script": {
+    "h": "The H is silent!",
+    "r": "In e x h, the H is silent. Say Z.",
+    "w0": "Exhibition.",
+    "v0": "Exhibition.",
+    "p": "Repeat after me!",
+    "q": "Quick quiz! Which letter is silent in exhibition?",
+    "a": "H! The H is silent.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_rule_silentrh_1": {
+   "template": "rule",
+   "hook": "The H is silent",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --rule-eps gates v1 (words in rules-words.json · every word live in the audited bank with a US IPA that PROVES the rule (rules.py) · family-safe · level <= B1 NGSL except the taught words · hook true · no duplicate lesson)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "3332f1265c6c",
+   "script": {
+    "h": "The H is silent!",
+    "r": "In r h, the H is silent. Say R.",
+    "w0": "Rhinoceros.",
+    "v0": "Rhinoceros.",
+    "w1": "Rhythm.",
+    "v1": "Rhythm.",
+    "p": "Repeat after me!",
+    "q": "Quick quiz! Which letter is silent in rhythm?",
+    "a": "H! The H is silent.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_rule_silentould_1": {
+   "template": "rule",
+   "hook": "The L is silent",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --rule-eps gates v1 (words in rules-words.json · every word live in the audited bank with a US IPA that PROVES the rule (rules.py) · family-safe · level <= B1 NGSL except the taught words · hook true · no duplicate lesson)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "2230e920d66f",
+   "script": {
+    "h": "The L is silent!",
+    "r": "In o u l d, the L is silent.",
+    "w0": "Could.",
+    "v0": "Could.",
+    "w1": "Should.",
+    "v1": "Should.",
+    "p": "Repeat after me!",
+    "q": "Quick quiz! Which letter is silent in should?",
+    "a": "L! The L is silent.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_rule_silentchk_1": {
+   "template": "rule",
+   "hook": "The H is silent",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --rule-eps gates v1 (words in rules-words.json · every word live in the audited bank with a US IPA that PROVES the rule (rules.py) · family-safe · level <= B1 NGSL except the taught words · hook true · no duplicate lesson)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "2ad1d28488cc",
+   "script": {
+    "h": "The H is silent!",
+    "r": "Here c h says K. The H is silent.",
+    "w0": "School.",
+    "v0": "School.",
+    "w1": "Character.",
+    "v1": "Character.",
+    "p": "Repeat after me!",
+    "q": "Quick quiz! Which letter is silent in character?",
+    "a": "H! The H is silent.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_rule_silentgue_1": {
+   "template": "rule",
+   "hook": "The U E is silent",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --rule-eps gates v1 (words in rules-words.json · every word live in the audited bank with a US IPA that PROVES the rule (rules.py) · family-safe · level <= B1 NGSL except the taught words · hook true · no duplicate lesson)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "67890731e202",
+   "script": {
+    "h": "The U E is silent!",
+    "r": "At the end, g u e, the U E is silent.",
+    "w0": "Colleague.",
+    "v0": "Colleague.",
+    "w1": "Tongue.",
+    "v1": "Tongue.",
+    "p": "Repeat after me!",
+    "q": "Quick quiz! Which letter is silent in tongue?",
+    "a": "U E! The U E is silent.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_rule_silentque_1": {
+   "template": "rule",
+   "hook": "The U E is silent",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --rule-eps gates v1 (words in rules-words.json · every word live in the audited bank with a US IPA that PROVES the rule (rules.py) · family-safe · level <= B1 NGSL except the taught words · hook true · no duplicate lesson)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "69e9c9a70bd9",
+   "script": {
+    "h": "The U E is silent!",
+    "r": "At the end, q u e, the U E is silent. Say K.",
+    "w0": "Mosque.",
+    "v0": "Mosque.",
+    "p": "Repeat after me!",
+    "q": "Quick quiz! Which letter is silent in mosque?",
+    "a": "U E! The U E is silent.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_rule_silente_1": {
+   "template": "rule",
+   "hook": "The E is silent",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --rule-eps gates v1 (words in rules-words.json · every word live in the audited bank with a US IPA that PROVES the rule (rules.py) · family-safe · level <= B1 NGSL except the taught words · hook true · no duplicate lesson)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "cf603d6dd8ed",
+   "script": {
+    "h": "The E is silent!",
+    "r": "At the end, the E is silent.",
+    "w0": "Above.",
+    "v0": "Above.",
+    "w1": "Advice.",
+    "v1": "Advice.",
+    "p": "Repeat after me!",
+    "q": "Quick quiz! Which letter is silent in advice?",
+    "a": "E! The E is silent.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_rule_silentisl_1": {
+   "template": "rule",
+   "hook": "The S is silent",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --rule-eps gates v1 (words in rules-words.json · every word live in the audited bank with a US IPA that PROVES the rule (rules.py) · family-safe · level <= B1 NGSL except the taught words · hook true · no duplicate lesson)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "f7855cf4bc74",
+   "script": {
+    "h": "The S is silent!",
+    "r": "In i s l, the S is silent.",
+    "w0": "Island.",
+    "v0": "Island.",
+    "w1": "Aisle.",
+    "v1": "Aisle.",
+    "p": "Repeat after me!",
+    "q": "Quick quiz! Which letter is silent in aisle?",
+    "a": "S! The S is silent.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_rule_silentver_1": {
+   "template": "rule",
+   "hook": "The E is silent",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --rule-eps gates v1 (words in rules-words.json · every word live in the audited bank with a US IPA that PROVES the rule (rules.py) · family-safe · level <= B1 NGSL except the taught words · hook true · no duplicate lesson)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "2c5f868c4a06",
+   "script": {
+    "h": "The E is silent!",
+    "r": "In v e r, the E is often silent.",
+    "w0": "Everybody.",
+    "v0": "Everybody.",
+    "p": "Repeat after me!",
+    "q": "Quick quiz! Which letter is silent in everybody?",
+    "a": "E! The E is silent.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_rule_silentely_1": {
+   "template": "rule",
+   "hook": "The E is silent",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --rule-eps gates v1 (words in rules-words.json · every word live in the audited bank with a US IPA that PROVES the rule (rules.py) · family-safe · level <= B1 NGSL except the taught words · hook true · no duplicate lesson)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "87e617fc0817",
+   "script": {
+    "h": "The E is silent!",
+    "r": "In e l y, the E is silent.",
+    "w0": "Lonely.",
+    "v0": "Lonely.",
+    "p": "Repeat after me!",
+    "q": "Quick quiz! Which letter is silent in lonely?",
+    "a": "E! The E is silent.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_rule_silentement_1": {
+   "template": "rule",
+   "hook": "The E is silent",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --rule-eps gates v1 (words in rules-words.json · every word live in the audited bank with a US IPA that PROVES the rule (rules.py) · family-safe · level <= B1 NGSL except the taught words · hook true · no duplicate lesson)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "31f0478858b4",
+   "script": {
+    "h": "The E is silent!",
+    "r": "In e m e n t, the first E is silent.",
+    "w0": "Statement.",
+    "v0": "Statement.",
+    "p": "Repeat after me!",
+    "q": "Quick quiz! Which letter is silent in statement?",
+    "a": "E! The E is silent.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_rule_silentng_1": {
+   "template": "rule",
+   "hook": "The G is silent",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --rule-eps gates v1 (words in rules-words.json · every word live in the audited bank with a US IPA that PROVES the rule (rules.py) · family-safe · level <= B1 NGSL except the taught words · hook true · no duplicate lesson)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "7ce3a68a8ebc",
+   "script": {
+    "h": "The G is silent!",
+    "r": "At the end, n g is one sound. Do not say G.",
+    "w0": "Anything.",
+    "v0": "Anything.",
+    "w1": "Bring.",
+    "v1": "Bring.",
+    "p": "Repeat after me!",
+    "q": "Quick quiz! Which letter is silent in bring?",
+    "a": "G! The G is silent.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_rule_silentkn_2": {
+   "template": "rule",
+   "hook": "The K is silent",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --rule-eps gates v1 (words in rules-words.json · every word live in the audited bank with a US IPA that PROVES the rule (rules.py) · family-safe · level <= B1 NGSL except the taught words · hook true · no duplicate lesson)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "4cbcaa54445f",
+   "script": {
+    "h": "The K is silent!",
+    "r": "In k n, the K is silent. Say N.",
+    "w0": "Knowledge.",
+    "v0": "Knowledge.",
+    "w1": "Knit.",
+    "v1": "Knit.",
+    "p": "Repeat after me!",
+    "q": "Quick quiz! Which letter is silent in knit?",
+    "a": "K! The K is silent.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_rule_silentally_1": {
+   "template": "rule",
+   "hook": "The A is silent",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --rule-eps gates v1 (words in rules-words.json · every word live in the audited bank with a US IPA that PROVES the rule (rules.py) · family-safe · level <= B1 NGSL except the taught words · hook true · no duplicate lesson)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "be2ad0327853",
+   "script": {
+    "h": "The A is silent!",
+    "r": "In i c a l l y, the A is silent.",
+    "w0": "Specifically.",
+    "v0": "Specifically.",
+    "p": "Repeat after me!",
+    "q": "Quick quiz! Which letter is silent in specifically?",
+    "a": "A! The A is silent.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_pos_1": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "76c7565bfd39",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Pos! Position, deposit.",
+    "k": "Did you know? Pos is Latin for put.",
+    "w0": "Position: a place where something is.",
+    "w1": "Deposit: down plus put.",
+    "q": "Quick quiz! Which means down plus put?",
+    "a": "Deposit! Down plus put.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_cept_1": {
+   "template": "roots",
+   "hook": "One root, three words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "27bfd137ab7a",
+   "script": {
+    "h": "One root, three words!",
+    "r": "The root is Cept! Accept, concept, except.",
+    "k": "Did you know? Cept is Latin for take.",
+    "w0": "Accept: toward plus take.",
+    "w1": "Concept: together plus take.",
+    "w2": "Except: out plus take.",
+    "q": "Quick quiz! Which means out plus take?",
+    "a": "Except! Out plus take.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_port_1": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "b6a7d3412c32",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Port! Transport, import.",
+    "k": "Did you know? Port is Latin for carry.",
+    "w0": "Transport: across plus carry.",
+    "w1": "Import: into plus carry.",
+    "q": "Quick quiz! Which means into plus carry?",
+    "a": "Import! Into plus carry.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_ject_1": {
+   "template": "roots",
+   "hook": "One root, three words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "b124bc5344f3",
+   "script": {
+    "h": "One root, three words!",
+    "r": "The root is Ject! Reject, project, inject.",
+    "k": "Did you know? Ject is Latin for throw.",
+    "w0": "Reject: back plus throw.",
+    "w1": "Project: forward plus throw.",
+    "w2": "Inject: into plus throw.",
+    "q": "Quick quiz! Which means into plus throw?",
+    "a": "Inject! Into plus throw.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_mit_1": {
+   "template": "roots",
+   "hook": "One root, three words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "6c8959f5555f",
+   "script": {
+    "h": "One root, three words!",
+    "r": "The root is Mit! Permit, admit, submit.",
+    "k": "Did you know? Mit is Latin for send.",
+    "w0": "Permit: through plus send.",
+    "w1": "Admit: toward plus send.",
+    "w2": "Submit: under plus send.",
+    "q": "Quick quiz! Which means under plus send?",
+    "a": "Submit! Under plus send.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_dict_1": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "29977fdd5050",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Dict! Predict, dictate.",
+    "k": "Did you know? Dict is Latin for say.",
+    "w0": "Predict: before plus say.",
+    "w1": "Dictate: say words for someone to write down.",
+    "q": "Quick quiz! Which means before plus say?",
+    "a": "Predict! Before plus say.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_duc_1": {
+   "template": "roots",
+   "hook": "One root, three words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "9cf68f6688a2",
+   "script": {
+    "h": "One root, three words!",
+    "r": "The root is Duc! Introduce, produce, reduce.",
+    "k": "Did you know? Duc is Latin for lead.",
+    "w0": "Introduce: inside plus lead.",
+    "w1": "Produce: forward plus lead.",
+    "w2": "Reduce: back plus lead.",
+    "q": "Quick quiz! Which means back plus lead?",
+    "a": "Reduce! Back plus lead.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_spect_1": {
+   "template": "roots",
+   "hook": "One root, three words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "9468c6e404ea",
+   "script": {
+    "h": "One root, three words!",
+    "r": "The root is Spect! Inspect, respect, expect.",
+    "k": "Did you know? Spect is Latin for look.",
+    "w0": "Inspect: into plus look.",
+    "w1": "Respect: back plus look.",
+    "w2": "Expect: out plus look.",
+    "q": "Quick quiz! Which means out plus look?",
+    "a": "Expect! Out plus look.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_scrib_1": {
+   "template": "roots",
+   "hook": "One root, three words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "441d8b467e4f",
+   "script": {
+    "h": "One root, three words!",
+    "r": "The root is Scrib! Describe, prescribe, subscribe.",
+    "k": "Did you know? Scrib is Latin for write.",
+    "w0": "Describe: down plus write.",
+    "w1": "Prescribe: before plus write.",
+    "w2": "Subscribe: under plus write.",
+    "q": "Quick quiz! Which means under plus write?",
+    "a": "Subscribe! Under plus write.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_tract_1": {
+   "template": "roots",
+   "hook": "One root, three words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "4fff34928a7e",
+   "script": {
+    "h": "One root, three words!",
+    "r": "The root is Tract! Attract, distract, extract.",
+    "k": "Did you know? Tract is Latin for pull.",
+    "w0": "Attract: toward plus pull.",
+    "w1": "Distract: apart plus pull.",
+    "w2": "Extract: out plus pull.",
+    "q": "Quick quiz! Which means out plus pull?",
+    "a": "Extract! Out plus pull.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_fer_1": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "54488dd55d77",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Fer! Transfer, refer.",
+    "k": "Did you know? Fer is Latin for carry.",
+    "w0": "Transfer: across plus carry.",
+    "w1": "Refer: back plus carry.",
+    "q": "Quick quiz! Which means back plus carry?",
+    "a": "Refer! Back plus carry.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_vert_1": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "0126c7483475",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Vert! Convert, reverse.",
+    "k": "Did you know? Vert is Latin for turn.",
+    "w0": "Convert: together plus turn.",
+    "w1": "Reverse: back plus turn.",
+    "q": "Quick quiz! Which means back plus turn?",
+    "a": "Reverse! Back plus turn.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_pend_1": {
+   "template": "roots",
+   "hook": "One root, three words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "602932ddc0ca",
+   "script": {
+    "h": "One root, three words!",
+    "r": "The root is Pend! Depend, suspend, expense.",
+    "k": "Did you know? Pend is Latin for hang.",
+    "w0": "Depend: down plus hang.",
+    "w1": "Suspend: up from under plus hang.",
+    "w2": "Expense: out plus hang.",
+    "q": "Quick quiz! Which means out plus hang?",
+    "a": "Expense! Out plus hang.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_struct_1": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "f3843c53395f",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Struct! Construct, instruct.",
+    "k": "Did you know? Struct is Latin for build.",
+    "w0": "Construct: together plus build.",
+    "w1": "Instruct: into plus build.",
+    "q": "Quick quiz! Which means into plus build?",
+    "a": "Instruct! Into plus build.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_form_1": {
+   "template": "roots",
+   "hook": "One root, three words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "985c7dc6e1b7",
+   "script": {
+    "h": "One root, three words!",
+    "r": "The root is Form! Inform, perform, reform.",
+    "k": "Did you know? Form is Latin for shape.",
+    "w0": "Inform: into plus shape.",
+    "w1": "Perform: through plus shape.",
+    "w2": "Reform: back plus shape.",
+    "q": "Quick quiz! Which means back plus shape?",
+    "a": "Reform! Back plus shape.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_press_1": {
+   "template": "roots",
+   "hook": "One root, three words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "70f755dae639",
+   "script": {
+    "h": "One root, three words!",
+    "r": "The root is Press! Express, impress, depress.",
+    "k": "Did you know? Press is Latin for press.",
+    "w0": "Express: out plus press.",
+    "w1": "Impress: into plus press.",
+    "w2": "Depress: down plus press.",
+    "q": "Quick quiz! Which means down plus press?",
+    "a": "Depress! Down plus press.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_cede_1": {
+   "template": "roots",
+   "hook": "One root, three words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "c7aced881598",
+   "script": {
+    "h": "One root, three words!",
+    "r": "The root is Cede! Proceed, succeed, exceed.",
+    "k": "Did you know? Cede is Latin for go.",
+    "w0": "Proceed: forward plus go.",
+    "w1": "Succeed: up after plus go.",
+    "w2": "Exceed: out plus go.",
+    "q": "Quick quiz! Which means out plus go?",
+    "a": "Exceed! Out plus go.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_gress_1": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "a5f532051348",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Gress! Progress, aggressive.",
+    "k": "Did you know? Gress is Latin for step.",
+    "w0": "Progress: forward plus step.",
+    "w1": "Aggressive: toward plus step.",
+    "q": "Quick quiz! Which means toward plus step?",
+    "a": "Aggressive! Toward plus step.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_vis_1": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "8f30597b2c5c",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Vis! Visible, vision.",
+    "k": "Did you know? Vis is Latin for see.",
+    "w0": "Visible: able to be seen.",
+    "w1": "Vision: the power to see.",
+    "q": "Quick quiz! Which means the power to see?",
+    "a": "Vision! It means the power to see.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_aud_1": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "9c1b08f145b7",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Aud! Audience, audio.",
+    "k": "Did you know? Aud is Latin for hear.",
+    "w0": "Audience: people who hear.",
+    "w1": "Audio: sound you hear.",
+    "q": "Quick quiz! Which means sound you hear?",
+    "a": "Audio! It means sound you hear.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_vent_1": {
+   "template": "roots",
+   "hook": "One root, three words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "f1ee2873b2ff",
+   "script": {
+    "h": "One root, three words!",
+    "r": "The root is Vent! Event, prevent, invent.",
+    "k": "Did you know? Vent is Latin for come.",
+    "w0": "Event: out plus come.",
+    "w1": "Prevent: before plus come.",
+    "w2": "Invent: into plus come.",
+    "q": "Quick quiz! Which means into plus come?",
+    "a": "Invent! Into plus come.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_sens_1": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "53ed73743522",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Sens! Sense, sensitive.",
+    "k": "Did you know? Sens is Latin for feel.",
+    "w0": "Sense: the power to feel.",
+    "w1": "Sensitive: quick to feel.",
+    "q": "Quick quiz! Which means quick to feel?",
+    "a": "Sensitive! It means quick to feel.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_tend_1": {
+   "template": "roots",
+   "hook": "One root, three words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "4af2c51567dc",
+   "script": {
+    "h": "One root, three words!",
+    "r": "The root is Tend! Intend, attend, extend.",
+    "k": "Did you know? Tend is Latin for stretch.",
+    "w0": "Intend: into plus stretch.",
+    "w1": "Attend: toward plus stretch.",
+    "w2": "Extend: out plus stretch.",
+    "q": "Quick quiz! Which means out plus stretch?",
+    "a": "Extend! Out plus stretch.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_tain_1": {
+   "template": "roots",
+   "hook": "One root, three words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "03b6279b1b15",
+   "script": {
+    "h": "One root, three words!",
+    "r": "The root is Tain! Contain, obtain, retain.",
+    "k": "Did you know? Tain is Latin for hold.",
+    "w0": "Contain: together plus hold.",
+    "w1": "Obtain: against plus hold.",
+    "w2": "Retain: back plus hold.",
+    "q": "Quick quiz! Which means back plus hold?",
+    "a": "Retain! Back plus hold.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_cur_1": {
+   "template": "roots",
+   "hook": "One root, three words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "3bc682ef8ea8",
+   "script": {
+    "h": "One root, three words!",
+    "r": "The root is Cur! Current, occur, recur.",
+    "k": "Did you know? Cur is Latin for run.",
+    "w0": "Current: running, now.",
+    "w1": "Occur: toward plus run.",
+    "w2": "Recur: back plus run.",
+    "q": "Quick quiz! Which means back plus run?",
+    "a": "Recur! Back plus run.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_fact_1": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "3c7f31da64c2",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Fact! Effect, factory.",
+    "k": "Did you know? Fact is Latin for make or do.",
+    "w0": "Effect: out plus make or do.",
+    "w1": "Factory: a place where things are made.",
+    "q": "Quick quiz! Which means out plus make or do?",
+    "a": "Effect! Out plus make or do.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_mov_1": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "e1a39f983e1c",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Mov! Remove, motion.",
+    "k": "Did you know? Mov is Latin for move.",
+    "w0": "Remove: back plus move.",
+    "w1": "Motion: the act of moving.",
+    "q": "Quick quiz! Which means back plus move?",
+    "a": "Remove! Back plus move.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_man_1": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "42fff23e08bd",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Man! Manual, manage.",
+    "k": "Did you know? Man is Latin for hand.",
+    "w0": "Manual: made with the hands.",
+    "w1": "Manage: handle with your hands.",
+    "q": "Quick quiz! Which means handle with your hands?",
+    "a": "Manage! It means handle with your hands.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_sign_1": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "4134496188a6",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Sign! Signal, signature.",
+    "k": "Did you know? Sign is Latin for mark.",
+    "w0": "Signal: a mark that tells you something.",
+    "w1": "Signature: your own mark.",
+    "q": "Quick quiz! Which means your own mark?",
+    "a": "Signature! It means your own mark.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_rupt_1": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "870cfebce815",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Rupt! Interrupt, corrupt.",
+    "k": "Did you know? Rupt is Latin for break.",
+    "w0": "Interrupt: between plus break.",
+    "w1": "Corrupt: together plus break.",
+    "q": "Quick quiz! Which means together plus break?",
+    "a": "Corrupt! Together plus break.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_flect_1": {
+   "template": "roots",
+   "hook": "One root, three words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "951b0cb33270",
+   "script": {
+    "h": "One root, three words!",
+    "r": "The root is Flect! Reflect, flexible, reflex.",
+    "k": "Did you know? Flect is Latin for bend.",
+    "w0": "Reflect: back plus bend.",
+    "w1": "Flexible: able to bend.",
+    "w2": "Reflex: back plus bend.",
+    "q": "Quick quiz! Which means back plus bend?",
+    "a": "Reflex! Back plus bend.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_cide_1": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "6126eaa4813d",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Cide! Decide, decision.",
+    "k": "Did you know? Cide is Latin for cut or kill.",
+    "w0": "Decide: off plus cut or kill.",
+    "w1": "Decision: off plus cut or kill.",
+    "q": "Quick quiz! Which means off plus cut or kill?",
+    "a": "Decision! Off plus cut or kill.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_spir_1": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "ca2d307e3c66",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Spir! Inspire, spirit.",
+    "k": "Did you know? Spir is Latin for breathe.",
+    "w0": "Inspire: into plus breathe.",
+    "w1": "Spirit: the breath of life.",
+    "q": "Quick quiz! Which means into plus breathe?",
+    "a": "Inspire! Into plus breathe.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_vac_1": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "b307e3dab453",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Vac! Vacation, vacuum.",
+    "k": "Did you know? Vac is Latin for empty.",
+    "w0": "Vacation: a time of empty days.",
+    "w1": "Vacuum: an empty space.",
+    "q": "Quick quiz! Which means an empty space?",
+    "a": "Vacuum! It means an empty space.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_jus_1": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "19b96c39f5ef",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Jus! Judge, justice.",
+    "k": "Did you know? Jus is Latin for law or right.",
+    "w0": "Judge: a person who speaks the law.",
+    "w1": "Justice: what is right by law.",
+    "q": "Quick quiz! Which means what is right by law?",
+    "a": "Justice! It means what is right by law.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_stat_1": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "4fb648529a43",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Stat! Station, stable.",
+    "k": "Did you know? Stat is Latin for stand.",
+    "w0": "Station: a place where you stand.",
+    "w1": "Stable: able to stand firm.",
+    "q": "Quick quiz! Which means able to stand firm?",
+    "a": "Stable! It means able to stand firm.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_volv_1": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "bae2b535fe99",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Volv! Evolve, involve.",
+    "k": "Did you know? Volv is Latin for roll.",
+    "w0": "Evolve: out plus roll.",
+    "w1": "Involve: into plus roll.",
+    "q": "Quick quiz! Which means into plus roll?",
+    "a": "Involve! Into plus roll.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_pos_2": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "383de1896efc",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Pos! Compose, expose.",
+    "k": "Did you know? Pos is Latin for put.",
+    "w0": "Compose: together plus put.",
+    "w1": "Expose: out plus put.",
+    "q": "Quick quiz! Which means out plus put?",
+    "a": "Expose! Out plus put.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_cept_2": {
+   "template": "roots",
+   "hook": "One root, three words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "bb7047778a24",
+   "script": {
+    "h": "One root, three words!",
+    "r": "The root is Cept! Receive, perceive, deceive.",
+    "k": "Did you know? Cept is Latin for take.",
+    "w0": "Receive: back plus take.",
+    "w1": "Perceive: through plus take.",
+    "w2": "Deceive: down plus take.",
+    "q": "Quick quiz! Which means down plus take?",
+    "a": "Deceive! Down plus take.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_port_2": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "562c8b9be45d",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Port! Support, report.",
+    "k": "Did you know? Port is Latin for carry.",
+    "w0": "Support: under plus carry.",
+    "w1": "Report: back plus carry.",
+    "q": "Quick quiz! Which means back plus carry?",
+    "a": "Report! Back plus carry.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_ject_2": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "4f13c4fca47b",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Ject! Object, subject.",
+    "k": "Did you know? Ject is Latin for throw.",
+    "w0": "Object: against plus throw.",
+    "w1": "Subject: under plus throw.",
+    "q": "Quick quiz! Which means under plus throw?",
+    "a": "Subject! Under plus throw.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_mit_2": {
+   "template": "roots",
+   "hook": "One root, three words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "9e453aec681d",
+   "script": {
+    "h": "One root, three words!",
+    "r": "The root is Mit! Commit, transmit, emit.",
+    "k": "Did you know? Mit is Latin for send.",
+    "w0": "Commit: together plus send.",
+    "w1": "Transmit: across plus send.",
+    "w2": "Emit: out plus send.",
+    "q": "Quick quiz! Which means out plus send?",
+    "a": "Emit! Out plus send.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_dict_2": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "1d62d6e382d3",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Dict! Contradict, indicate.",
+    "k": "Did you know? Dict is Latin for say.",
+    "w0": "Contradict: against plus say.",
+    "w1": "Indicate: into plus say.",
+    "q": "Quick quiz! Which means into plus say?",
+    "a": "Indicate! Into plus say.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_duc_2": {
+   "template": "roots",
+   "hook": "One root, three words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "290d165f8366",
+   "script": {
+    "h": "One root, three words!",
+    "r": "The root is Duc! Conduct, product, deduce.",
+    "k": "Did you know? Duc is Latin for lead.",
+    "w0": "Conduct: together plus lead.",
+    "w1": "Product: forward plus lead.",
+    "w2": "Deduce: down plus lead.",
+    "q": "Quick quiz! Which means down plus lead?",
+    "a": "Deduce! Down plus lead.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_spect_2": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "aa5a103ced96",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Spect! Suspect, prospect.",
+    "k": "Did you know? Spect is Latin for look.",
+    "w0": "Suspect: up from under plus look.",
+    "w1": "Prospect: forward plus look.",
+    "q": "Quick quiz! Which means forward plus look?",
+    "a": "Prospect! Forward plus look.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_scrib_2": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "f79f7c0624f4",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Scrib! Script, transcript.",
+    "k": "Did you know? Scrib is Latin for write.",
+    "w0": "Script: the written text.",
+    "w1": "Transcript: across plus write.",
+    "q": "Quick quiz! Which means across plus write?",
+    "a": "Transcript! Across plus write.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_tract_2": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "5db03aa9b72e",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Tract! Contract, subtract.",
+    "k": "Did you know? Tract is Latin for pull.",
+    "w0": "Contract: together plus pull.",
+    "w1": "Subtract: under plus pull.",
+    "q": "Quick quiz! Which means under plus pull?",
+    "a": "Subtract! Under plus pull.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_fer_2": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "18d945b9646b",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Fer! Offer, suffer.",
+    "k": "Did you know? Fer is Latin for carry.",
+    "w0": "Offer: toward plus carry.",
+    "w1": "Suffer: from under plus carry.",
+    "q": "Quick quiz! Which means from under plus carry?",
+    "a": "Suffer! From under plus carry.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_vert_2": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "5ff43bacc8f3",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Vert! Invert, version.",
+    "k": "Did you know? Vert is Latin for turn.",
+    "w0": "Invert: into plus turn.",
+    "w1": "Version: a turn, one form of a thing.",
+    "q": "Quick quiz! Which means into plus turn?",
+    "a": "Invert! Into plus turn.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_pend_2": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "8578abcdb6bb",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Pend! Pension, append.",
+    "k": "Did you know? Pend is Latin for hang.",
+    "w0": "Pension: a payment, once weighed out.",
+    "w1": "Append: toward plus hang.",
+    "q": "Quick quiz! Which means toward plus hang?",
+    "a": "Append! Toward plus hang.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_struct_2": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "e94c30fea1c1",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Struct! Destruction, construction.",
+    "k": "Did you know? Struct is Latin for build.",
+    "w0": "Destruction: down plus build.",
+    "w1": "Construction: together plus build.",
+    "q": "Quick quiz! Which means together plus build?",
+    "a": "Construction! Together plus build.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_form_2": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "4263b27adb2f",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Form! Transform, uniform.",
+    "k": "Did you know? Form is Latin for shape.",
+    "w0": "Transform: across plus shape.",
+    "w1": "Uniform: one plus shape.",
+    "q": "Quick quiz! Which means one plus shape?",
+    "a": "Uniform! One plus shape.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_press_2": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "f193bd300dd1",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Press! Suppress, pressure.",
+    "k": "Did you know? Press is Latin for press.",
+    "w0": "Suppress: under plus press.",
+    "w1": "Pressure: a pressing force.",
+    "q": "Quick quiz! Which means under plus press?",
+    "a": "Suppress! Under plus press.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_cede_2": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "8974119ded84",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Cede! Precede, concede.",
+    "k": "Did you know? Cede is Latin for go.",
+    "w0": "Precede: before plus go.",
+    "w1": "Concede: together plus go.",
+    "q": "Quick quiz! Which means together plus go?",
+    "a": "Concede! Together plus go.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_gress_2": {
+   "template": "roots",
+   "hook": "One root, three words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "154de8d0e8a8",
+   "script": {
+    "h": "One root, three words!",
+    "r": "The root is Gress! Graduate, grade, upgrade.",
+    "k": "Did you know? Gress is Latin for step.",
+    "w0": "Graduate: step up to a degree.",
+    "w1": "Grade: a step in a scale.",
+    "w2": "Upgrade: up plus step.",
+    "q": "Quick quiz! Which means up plus step?",
+    "a": "Upgrade! Up plus step.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_vis_2": {
+   "template": "roots",
+   "hook": "One root, three words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "d5b61c58cd98",
+   "script": {
+    "h": "One root, three words!",
+    "r": "The root is Vis! Evidence, provide, revise.",
+    "k": "Did you know? Vis is Latin for see.",
+    "w0": "Evidence: out plus see.",
+    "w1": "Provide: forward plus see.",
+    "w2": "Revise: back plus see.",
+    "q": "Quick quiz! Which means back plus see?",
+    "a": "Revise! Back plus see.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_vent_2": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "cb4ba5537148",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Vent! Adventure, convention.",
+    "k": "Did you know? Vent is Latin for come.",
+    "w0": "Adventure: toward plus come.",
+    "w1": "Convention: together plus come.",
+    "q": "Quick quiz! Which means together plus come?",
+    "a": "Convention! Together plus come.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_sens_2": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "69f92f24ce02",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Sens! Consent, sentiment.",
+    "k": "Did you know? Sens is Latin for feel.",
+    "w0": "Consent: together plus feel.",
+    "w1": "Sentiment: a feeling or opinion.",
+    "q": "Quick quiz! Which means together plus feel?",
+    "a": "Consent! Together plus feel.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_tend_2": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "7b727c86f6c7",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Tend! Pretend, tension.",
+    "k": "Did you know? Tend is Latin for stretch.",
+    "w0": "Pretend: before plus stretch.",
+    "w1": "Tension: a stretched feeling.",
+    "q": "Quick quiz! Which means before plus stretch?",
+    "a": "Pretend! Before plus stretch.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_tain_2": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "a921809d7cea",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Tain! Sustain, entertain.",
+    "k": "Did you know? Tain is Latin for hold.",
+    "w0": "Sustain: up from under plus hold.",
+    "w1": "Entertain: between plus hold.",
+    "q": "Quick quiz! Which means between plus hold?",
+    "a": "Entertain! Between plus hold.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_cur_2": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "9d2057551116",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Cur! Course, excursion.",
+    "k": "Did you know? Cur is Latin for run.",
+    "w0": "Course: a path you run.",
+    "w1": "Excursion: out plus run.",
+    "q": "Quick quiz! Which means out plus run?",
+    "a": "Excursion! Out plus run.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_fact_2": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "a65dabd861e1",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Fact! Affect, defect.",
+    "k": "Did you know? Fact is Latin for make or do.",
+    "w0": "Affect: toward plus make or do.",
+    "w1": "Defect: down plus make or do.",
+    "q": "Quick quiz! Which means down plus make or do?",
+    "a": "Defect! Down plus make or do.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_mov_2": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "8b56d0a57285",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Mov! Promote, motive.",
+    "k": "Did you know? Mov is Latin for move.",
+    "w0": "Promote: forward plus move.",
+    "w1": "Motive: a reason that moves you.",
+    "q": "Quick quiz! Which means forward plus move?",
+    "a": "Promote! Forward plus move.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_man_2": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "8d7c00098d98",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Man! Command, demand.",
+    "k": "Did you know? Man is Latin for hand.",
+    "w0": "Command: together plus hand.",
+    "w1": "Demand: down plus hand.",
+    "q": "Quick quiz! Which means down plus hand?",
+    "a": "Demand! Down plus hand.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_sign_2": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "e346cb5d4221",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Sign! Assign, significant.",
+    "k": "Did you know? Sign is Latin for mark.",
+    "w0": "Assign: toward plus mark.",
+    "w1": "Significant: making a mark, important.",
+    "q": "Quick quiz! Which means toward plus mark?",
+    "a": "Assign! Toward plus mark.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_rupt_2": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "6b27ff131749",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Rupt! Disrupt, eruption.",
+    "k": "Did you know? Rupt is Latin for break.",
+    "w0": "Disrupt: apart plus break.",
+    "w1": "Eruption: out plus break.",
+    "q": "Quick quiz! Which means out plus break?",
+    "a": "Eruption! Out plus break.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_flect_2": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "496c454bacf2",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Flect! Deflect, reflection.",
+    "k": "Did you know? Flect is Latin for bend.",
+    "w0": "Deflect: down plus bend.",
+    "w1": "Reflection: back plus bend.",
+    "q": "Quick quiz! Which means back plus bend?",
+    "a": "Reflection! Back plus bend.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_spir_2": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "b59d935e3b39",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Spir! Expire, inspiration.",
+    "k": "Did you know? Spir is Latin for breathe.",
+    "w0": "Expire: out plus breathe.",
+    "w1": "Inspiration: into plus breathe.",
+    "q": "Quick quiz! Which means into plus breathe?",
+    "a": "Inspiration! Into plus breathe.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_vac_2": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "c836ff641042",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Vac! Evacuate, vacancy.",
+    "k": "Did you know? Vac is Latin for empty.",
+    "w0": "Evacuate: out plus empty.",
+    "w1": "Vacancy: an empty room or job.",
+    "q": "Quick quiz! Which means out plus empty?",
+    "a": "Evacuate! Out plus empty.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_stat_2": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "63f33c819d21",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Stat! Institute, establish.",
+    "k": "Did you know? Stat is Latin for stand.",
+    "w0": "Institute: into plus stand.",
+    "w1": "Establish: out plus stand.",
+    "q": "Quick quiz! Which means out plus stand?",
+    "a": "Establish! Out plus stand.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_volv_2": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "21e301440600",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Volv! Evolution, volume.",
+    "k": "Did you know? Volv is Latin for roll.",
+    "w0": "Evolution: out plus roll.",
+    "w1": "Volume: a roll, or a book.",
+    "q": "Quick quiz! Which means out plus roll?",
+    "a": "Evolution! Out plus roll.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_pos_3": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "8c22b7a9a5ef",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Pos! Positive, propose.",
+    "k": "Did you know? Pos is Latin for put.",
+    "w0": "Positive: put firmly, so sure or good.",
+    "w1": "Propose: forward plus put.",
+    "q": "Quick quiz! Which means forward plus put?",
+    "a": "Propose! Forward plus put.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_cept_3": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "610b049f5764",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Cept! Intercept, reception.",
+    "k": "Did you know? Cept is Latin for take.",
+    "w0": "Intercept: between plus take.",
+    "w1": "Reception: back plus take.",
+    "q": "Quick quiz! Which means back plus take?",
+    "a": "Reception! Back plus take.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_ject_3": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "8ecab163e238",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Ject! Projector, injection.",
+    "k": "Did you know? Ject is Latin for throw.",
+    "w0": "Projector: forward plus throw.",
+    "w1": "Injection: into plus throw.",
+    "q": "Quick quiz! Which means into plus throw?",
+    "a": "Injection! Into plus throw.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_mit_3": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "3ab0c033e954",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Mit! Omit, mission.",
+    "k": "Did you know? Mit is Latin for send.",
+    "w0": "Omit: against plus send.",
+    "w1": "Mission: a task you are sent on.",
+    "q": "Quick quiz! Which means against plus send?",
+    "a": "Omit! Against plus send.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_duc_3": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "69199494d5e0",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Duc! Induce, education.",
+    "k": "Did you know? Duc is Latin for lead.",
+    "w0": "Induce: into plus lead.",
+    "w1": "Education: out plus lead.",
+    "q": "Quick quiz! Which means out plus lead?",
+    "a": "Education! Out plus lead.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_spect_3": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "25f3fb766d71",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Spect! Spectator, perspective.",
+    "k": "Did you know? Spect is Latin for look.",
+    "w0": "Spectator: a person who looks on.",
+    "w1": "Perspective: through plus look.",
+    "q": "Quick quiz! Which means through plus look?",
+    "a": "Perspective! Through plus look.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_scrib_3": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "6c1f066a43aa",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Scrib! Description, subscription.",
+    "k": "Did you know? Scrib is Latin for write.",
+    "w0": "Description: down plus write.",
+    "w1": "Subscription: under plus write.",
+    "q": "Quick quiz! Which means under plus write?",
+    "a": "Subscription! Under plus write.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_tract_3": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "3518a823f2ee",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Tract! Abstract, attraction.",
+    "k": "Did you know? Tract is Latin for pull.",
+    "w0": "Abstract: away plus pull.",
+    "w1": "Attraction: toward plus pull.",
+    "q": "Quick quiz! Which means toward plus pull?",
+    "a": "Attraction! Toward plus pull.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_vert_3": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "532957c135f5",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Vert! Advertise, introvert.",
+    "k": "Did you know? Vert is Latin for turn.",
+    "w0": "Advertise: toward plus turn.",
+    "w1": "Introvert: inside plus turn.",
+    "q": "Quick quiz! Which means inside plus turn?",
+    "a": "Introvert! Inside plus turn.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_struct_3": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "570d1a4a13dc",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Struct! Instruction, instrument.",
+    "k": "Did you know? Struct is Latin for build.",
+    "w0": "Instruction: into plus build.",
+    "w1": "Instrument: into plus build.",
+    "q": "Quick quiz! Which means into plus build?",
+    "a": "Instrument! Into plus build.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_press_3": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "3c4983e57aaf",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Press! Impression, expression.",
+    "k": "Did you know? Press is Latin for press.",
+    "w0": "Impression: into plus press.",
+    "w1": "Expression: out plus press.",
+    "q": "Quick quiz! Which means out plus press?",
+    "a": "Expression! Out plus press.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_cede_3": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "e10786867cec",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Cede! Access, success.",
+    "k": "Did you know? Cede is Latin for go.",
+    "w0": "Access: toward plus go.",
+    "w1": "Success: up after plus go.",
+    "q": "Quick quiz! Which means up after plus go?",
+    "a": "Success! Up after plus go.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_graph_3": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "45be4cf89758",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Graph! Telegraph, graph.",
+    "k": "Did you know? Graph is Greek for write or draw.",
+    "w0": "Telegraph: far plus write or draw.",
+    "w1": "Graph: a drawing of data.",
+    "q": "Quick quiz! Which means far plus write or draw?",
+    "a": "Telegraph! Far plus write or draw.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_vis_3": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "441a4cc1f4d1",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Vis! Supervise, television.",
+    "k": "Did you know? Vis is Latin for see.",
+    "w0": "Supervise: above plus see.",
+    "w1": "Television: far plus see.",
+    "q": "Quick quiz! Which means far plus see?",
+    "a": "Television! Far plus see.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_vent_3": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "09326b7703f9",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Vent! Intervene, revenue.",
+    "k": "Did you know? Vent is Latin for come.",
+    "w0": "Intervene: between plus come.",
+    "w1": "Revenue: back plus come.",
+    "q": "Quick quiz! Which means back plus come?",
+    "a": "Revenue! Back plus come.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_sens_3": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "7f4de51a642a",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Sens! Sensation, nonsense.",
+    "k": "Did you know? Sens is Latin for feel.",
+    "w0": "Sensation: a feeling in the body.",
+    "w1": "Nonsense: not plus feel.",
+    "q": "Quick quiz! Which means not plus feel?",
+    "a": "Nonsense! Not plus feel.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_tend_3": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "9ec6a8019253",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Tend! Intense, extent.",
+    "k": "Did you know? Tend is Latin for stretch.",
+    "w0": "Intense: into plus stretch.",
+    "w1": "Extent: out plus stretch.",
+    "q": "Quick quiz! Which means out plus stretch?",
+    "a": "Extent! Out plus stretch.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_tain_3": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "e8d2670f657d",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Tain! Container, tenant.",
+    "k": "Did you know? Tain is Latin for hold.",
+    "w0": "Container: together plus hold.",
+    "w1": "Tenant: a person who holds a home.",
+    "q": "Quick quiz! Which means together plus hold?",
+    "a": "Container! Together plus hold.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_cur_3": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "d02955967741",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Cur! Currency, incur.",
+    "k": "Did you know? Cur is Latin for run.",
+    "w0": "Currency: money that runs from hand to hand.",
+    "w1": "Incur: into plus run.",
+    "q": "Quick quiz! Which means into plus run?",
+    "a": "Incur! Into plus run.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_sign_3": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "5622462ee99f",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Sign! Designate, sign.",
+    "k": "Did you know? Sign is Latin for mark.",
+    "w0": "Designate: down plus mark.",
+    "w1": "Sign: a mark that means something.",
+    "q": "Quick quiz! Which means down plus mark?",
+    "a": "Designate! Down plus mark.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_stat_3": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "7adfdb6d7388",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Stat! Substance, circumstance.",
+    "k": "Did you know? Stat is Latin for stand.",
+    "w0": "Substance: under plus stand.",
+    "w1": "Circumstance: around plus stand.",
+    "q": "Quick quiz! Which means around plus stand?",
+    "a": "Circumstance! Around plus stand.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_mit_4": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "81e9f06a844c",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Mit! Dismiss, promise.",
+    "k": "Did you know? Mit is Latin for send.",
+    "w0": "Dismiss: apart plus send.",
+    "w1": "Promise: forward plus send.",
+    "q": "Quick quiz! Which means forward plus send?",
+    "a": "Promise! Forward plus send.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_log_1": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "b45eff64a427",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Log! Biology, psychology.",
+    "k": "Log is Greek for word or study.",
+    "w0": "Biology: life plus word.",
+    "w1": "Psychology: mind plus word.",
+    "q": "Quick quiz! Which means mind plus word?",
+    "a": "Psychology! Mind plus word.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_graph_1": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "43d3d0eaaf33",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Graph! Photograph, paragraph.",
+    "k": "Graph is Greek for write or draw.",
+    "w0": "Photograph: light plus write.",
+    "w1": "Paragraph: beside plus write.",
+    "q": "Quick quiz! Which means beside plus write?",
+    "a": "Paragraph! Beside plus write.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_lect_1": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "c408626073e5",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Lect! Collect, select.",
+    "k": "Lect is Latin for gather or choose.",
+    "w0": "Collect: together plus gather.",
+    "w1": "Select: apart plus gather.",
+    "q": "Quick quiz! Which means apart plus gather?",
+    "a": "Select! Apart plus gather.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_log_2": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "a8928c724dd8",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Log! Logic, technology.",
+    "k": "Log is Greek for word or study.",
+    "w0": "Logic: the study of right reason.",
+    "w1": "Technology: skill plus word.",
+    "q": "Quick quiz! Which means skill plus word?",
+    "a": "Technology! Skill plus word.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_graph_2": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "93427fd130f1",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Graph! Geography, biography.",
+    "k": "Graph is Greek for write or draw.",
+    "w0": "Geography: earth plus write.",
+    "w1": "Biography: life plus write.",
+    "q": "Quick quiz! Which means life plus write?",
+    "a": "Biography! Life plus write.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_cide_2": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "d23d0d04b780",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Cide! Concise, incision.",
+    "k": "Cide is Latin for cut or kill.",
+    "w0": "Concise: together plus cut.",
+    "w1": "Incision: into plus cut.",
+    "q": "Quick quiz! Which means into plus cut?",
+    "a": "Incision! Into plus cut.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_jus_2": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "e760cc3afd8d",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Jus! Injury, justify.",
+    "k": "Jus is Latin for law or right.",
+    "w0": "Injury: into plus law.",
+    "w1": "Justify: show it is right.",
+    "q": "Quick quiz! Which means into plus law?",
+    "a": "Injury! Into plus law.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_fact_3": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "e560874a8a7c",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Fact! Infect, efficient.",
+    "k": "Fact is Latin for make or do.",
+    "w0": "Infect: into plus make.",
+    "w1": "Efficient: out plus make.",
+    "q": "Quick quiz! Which means out plus make?",
+    "a": "Efficient! Out plus make.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_man_3": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "211abc6e038a",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Man! Mandate, manuscript.",
+    "k": "Man is Latin for hand.",
+    "w0": "Mandate: something put in hand, an order.",
+    "w1": "Manuscript: written by hand.",
+    "q": "Quick quiz! Which means written by hand?",
+    "a": "Manuscript! It means written by hand.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_jus_3": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "354c99d6049d",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Jus! Adjust, judgment.",
+    "k": "Jus is Latin for law or right.",
+    "w0": "Adjust: toward plus law.",
+    "w1": "Judgment: a decision by law.",
+    "q": "Quick quiz! Which means toward plus law?",
+    "a": "Adjust! Toward plus law.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_aud_2": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "9af1148c33af",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Aud! Auditorium, audit.",
+    "k": "Aud is Latin for hear.",
+    "w0": "Auditorium: a place for hearing.",
+    "w1": "Audit: a hearing of accounts.",
+    "q": "Quick quiz! Which means a hearing of accounts?",
+    "a": "Audit! It means a hearing of accounts.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_port_3": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "684bd5db853b",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Port! Portable, important.",
+    "k": "Port is Latin for carry.",
+    "w0": "Portable: able to be carried.",
+    "w1": "Important: into plus carry.",
+    "q": "Quick quiz! Which means into plus carry?",
+    "a": "Important! Into plus carry.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_fer_3": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "afd94f34789b",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Fer! Infer, conference.",
+    "k": "Fer is Latin for carry.",
+    "w0": "Infer: into plus carry.",
+    "w1": "Conference: together plus carry.",
+    "q": "Quick quiz! Which means together plus carry?",
+    "a": "Conference! Together plus carry.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_form_3": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "4ce3c5f903cb",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Form! Formula, information.",
+    "k": "Form is Latin for shape.",
+    "w0": "Formula: a small shape, a set pattern.",
+    "w1": "Information: into plus shape.",
+    "q": "Quick quiz! Which means into plus shape?",
+    "a": "Information! Into plus shape.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_mov_3": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "fac3e0069dd4",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Mov! Mobile, motivate.",
+    "k": "Mov is Latin for move.",
+    "w0": "Mobile: able to move.",
+    "w1": "Motivate: give a reason to move.",
+    "q": "Quick quiz! Which means give a reason to move?",
+    "a": "Motivate! It means give a reason to move.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_roots_lect_2": {
+   "template": "roots",
+   "hook": "One root, two words",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "801d0e5797d6",
+   "script": {
+    "h": "One root, two words!",
+    "r": "The root is Lect! Legend, neglect.",
+    "k": "Lect is Latin for gather or choose.",
+    "w0": "Legend: a story to be read.",
+    "w1": "Neglect: not plus gather.",
+    "q": "Quick quiz! Which means not plus gather?",
+    "a": "Neglect! Not plus gather.",
     "c": "Save this. Free on lexkite.com."
    }
   }

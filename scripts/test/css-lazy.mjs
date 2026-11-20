@@ -7,6 +7,7 @@
 // dùng lớp đó → phải trả luật về style.css, kẻo vẽ thiếu kiểu trước khi gói lười nạp); 3) lazy-ui.css không nạp ngay, need1 nạp nó.
 // Dùng: node scripts/test/css-lazy.mjs [--move]
 import { isMain } from '../lib/is-main.mjs';
+import { readBundles } from '../lib/bundles.mjs';
 import fs from 'fs';
 import path from 'path';
 import { firstLoadFiles, gzSize } from '../lib/gz-canon.mjs';
@@ -16,8 +17,7 @@ const rd = f => fs.readFileSync(f, 'utf8');
 const walk = (d, o = []) => { for (const e of fs.readdirSync(d, { withFileTypes: true })) { const p = path.join(d, e.name); if (e.isDirectory()) { if (!/node_modules|vendor/.test(p)) walk(p, o); } else if (/\.(js|mjs|html|json|svg)$/.test(p)) o.push(p); } return o; };
 
 export function lazyModel() {
-  const app = rd('web/js/app.js'), a0 = app.indexOf("const G = 'js/grammar/', BUNDLES = {"), a1 = app.indexOf('\n  };', a0);
-  const BUNDLES = new Function(app.slice(a0, a1 + 4) + '; return BUNDLES;')();
+  const BUNDLES = readBundles();
   const ux1 = new Set(BUNDLES.ux1 || []);
   const lazy = new Set(Object.entries(BUNDLES).flatMap(([k, v]) => /^(ux1|i18nx|i18nl)$/.test(k) ? [] : v).filter(f => !ux1.has(f) && !f.startsWith('js/i18n/')).map(f => 'web/' + f));
   for (const u of firstLoadFiles()) lazy.delete('web' + u);

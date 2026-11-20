@@ -28,7 +28,7 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 - Phiên chính = người DUY NHẤT ship. Agent phụ không commit/push trừ khi được giao rõ; chỉ `git add` đúng file của luồng mình (quy tắc vàng: `COORDINATION.md`).
 - Phiên/agent: ≤ 2 phiên làm việc, tự thu gọn phiên dài, xoay agent con, lưu trữ phiên xong – `TOKEN-RULES.md` §9.
 - Duyệt hình (chủ 2/11, thay luật 28/10): giao diện = điều phối + QC CI đạt (npm test, visual-qa, qa-bot, frame/contrast/exit-guard/overlap, axe, new-ui-qa) → gộp; chủ báo lỗi sau; game-feel vẫn ≥ 95 (`GAME-FEEL.md`). Tiêu credit (Kling…) vẫn cần chủ OK (`CREDIT-RULES.md`).
-- Vùng file: `docs/COORDINATION.md` (cuối file). `web/js/app.js` chỉ thêm 2 dòng BUNDLES/ROUTE_BUNDLE khi được duyệt.
+- Vùng file: `docs/COORDINATION.md` (cuối file). Gói lười đăng ký ở `web/js/bundles.js`, KHÔNG app.js (khung sát trần).
 - Antigravity nhận/trả việc qua `docs/agents/BOARD.md`; phiên chính nghiệm thu (diff, test, chạy thật, soi alt) rồi cherry-pick/gộp TAY (không merge nhánh cũ – xem §8).
 - Báo cáo của agent khác chỉ là báo cáo → tự kiểm (diff, test, live). Dừng thật: `stop_session`. Hết hạn mức giữa chừng: nhắn agent làm tiếp, không chạy lại từ đầu.
 - Grep tính năng cũ trong `web/js` trước khi viết mới (Streak Freeze từng bị viết trùng).

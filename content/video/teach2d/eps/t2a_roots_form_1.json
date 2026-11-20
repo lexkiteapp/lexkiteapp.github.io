@@ -1,0 +1,199 @@
+{
+ "id": "t2a_roots_form_1",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, three words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "The root is Form! Inform, perform, reform.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Form is Latin for shape.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Inform: into plus shape.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Perform: through plus shape.",
+   "pause": 0.3
+  },
+  {
+   "id": "w2",
+   "text": "Reform: back plus shape.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means back plus shape?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Reform! Back plus shape.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "FORM",
+  "rid": "form",
+  "say": "shape",
+  "src": "forma",
+  "src_lang": "Latin",
+  "src_mean": "shape, form",
+  "words": [
+   {
+    "w": "inform",
+    "ipa": "/ɪnˈfɔːrm/",
+    "mean": "give shape to an idea",
+    "seg": "in-|form",
+    "parts": [
+     [
+      "in",
+      "pre"
+     ],
+     [
+      "form",
+      "root"
+     ]
+    ],
+    "pre": "in",
+    "pm": "into",
+    "pms": "into",
+    "ex": "Please inform us if you change your address.",
+    "em": "📢"
+   },
+   {
+    "w": "perform",
+    "ipa": "/pərˈfɔːrm/",
+    "mean": "carry a shape through, do",
+    "seg": "per-|form",
+    "parts": [
+     [
+      "per",
+      "pre"
+     ],
+     [
+      "form",
+      "root"
+     ]
+    ],
+    "pre": "per",
+    "pm": "through",
+    "pms": "through",
+    "ex": "The students will perform a play at the end of term.",
+    "em": "🎭"
+   },
+   {
+    "w": "reform",
+    "ipa": "/rəˈfɔːrm/",
+    "mean": "shape again",
+    "seg": "re-|form",
+    "parts": [
+     [
+      "re",
+      "pre"
+     ],
+     [
+      "form",
+      "root"
+     ]
+    ],
+    "pre": "re",
+    "pm": "back or again",
+    "pms": "back",
+    "ex": "The government announced a reform of the tax system.",
+    "em": "🔧"
+   }
+  ],
+  "quiz": {
+   "stem": "back plus shape",
+   "options": [
+    "inform",
+    "reform"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/inform",
+  "link": "https://lexkite.com/app/#/dict/inform",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, three words"
+ },
+ "src": {
+  "root": "form"
+ },
+ "est": {
+  "words": 48,
+  "seconds": 28.8,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "Form root: inform, perform and reform",
+  "keyword": "form root",
+  "value": "Form comes from Latin \"forma\" (shape, form). Words: inform, perform and reform. inform = in + form; perform = per + form; reform = re + form.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/inform",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "Form root: inform, perform and reform",
+    "description": "Form comes from Latin \"forma\" (shape, form). Words: inform, perform and reform. inform = in + form; perform = per + form; reform = re + form.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/inform\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "form root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Form root: inform, perform and reform\n\nForm comes from Latin \"forma\" (shape, form). Words: inform, perform and reform. inform = in + form; perform = per + form; reform = re + form.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/inform"
+   },
+   "instagram": {
+    "caption": "Form root: inform, perform and reform\n\nForm comes from Latin \"forma\" (shape, form). Words: inform, perform and reform. inform = in + form; perform = per + form; reform = re + form.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Form root: inform, perform and reform #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? Reform! Back plus shape. Form comes from Latin \"forma\" (shape, form). Words: inform, perform and reform. inform = in + form; perform = per + form; reform = re + form. More practice like this (free): {link}"
+ }
+}

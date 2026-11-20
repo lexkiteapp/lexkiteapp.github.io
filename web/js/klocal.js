@@ -10,13 +10,15 @@
   const RTF_MAX = 0.6, FREE_MIN = 300 * 2 ** 20, MODEL_MB = 92, CACHES = ['transformers-cache', 'kokoro-voices', 'lk-kl-audio'], IDLE_MS = 10 * 60e3, GEN_TIMEOUT = 8000, WARM_TIMEOUT = 30000, PROBE_DAYS = 30, LRU = 300, AUDIO_CACHE = 'lk-kl-audio';
   const P = {
     // Cấp máy: 'wasm' | 'off'. e = { ios, mem, cores, probe, user, iosFlag }
-    tier(e) {
-      if (e.user === 'off') return 'off';
-      if (e.probe && e.probe.v === VER && e.probe.off && Date.now() - e.probe.at < PROBE_DAYS * 864e5) return 'off';
-      if (e.ios && !e.iosFlag) return 'off';
-      if (e.mem != null && e.mem < 4) return 'off';
-      if (e.cores != null && e.cores < 4) return 'off';
-      return 'wasm';
+    tier(e) { return P.offWhy(e) ? 'off' : 'wasm'; },
+    // Vì sao máy bị 'off' ('' = không off): user | probe | ios | mem | cores – để đo từng nhóm trong số đếm giọng máy (LX-1004)
+    offWhy(e) {
+      if (e.user === 'off') return 'user';
+      if (e.probe && e.probe.v === VER && e.probe.off && Date.now() - e.probe.at < PROBE_DAYS * 864e5) return 'probe';
+      if (e.ios && !e.iosFlag) return 'ios';
+      if (e.mem != null && e.mem < 4) return 'mem';
+      if (e.cores != null && e.cores < 4) return 'cores';
+      return '';
     },
     // Công tắc từ xa: kl '0' tắt khẩn · '1' bật hết · kl_pct (có đặt) = canary theo nhóm máy b (0–99). Không có cấu hình → BẬT
     // (chủ 5/11: một giọng Kokoro mọi nơi; mặc định tắt khiến 100 % chữ động ra giọng máy – sửa gốc, cấp máy vẫn chặn máy yếu)
@@ -160,6 +162,7 @@
   }
   g.KLocal = {
     ready: () => state === 'ready' && !!worker,
+    offWhy: () => !P.remote(cfg(), bucket()) ? 'remote' : P.offWhy(env()) || (state === 'off' ? 'state' : ''), // nhãn con của lý do 'off' (chỉ để đếm)
     allowed: () => state !== 'off' && allowed(), // false = máy/nền tảng/công tắc không cho Kokoro trên máy (đếm lý do 'off')
     state: () => state,
     want: reason => { if (state === 'ready' && !worker) state = 'idle'; if (state === 'idle') start(reason); },

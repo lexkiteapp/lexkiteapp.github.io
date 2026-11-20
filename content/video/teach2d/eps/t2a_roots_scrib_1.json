@@ -1,0 +1,199 @@
+{
+ "id": "t2a_roots_scrib_1",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, three words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "The root is Scrib! Describe, prescribe, subscribe.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Scrib is Latin for write.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Describe: down plus write.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Prescribe: before plus write.",
+   "pause": 0.3
+  },
+  {
+   "id": "w2",
+   "text": "Subscribe: under plus write.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means under plus write?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Subscribe! Under plus write.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "SCRIB",
+  "rid": "scrib",
+  "say": "write",
+  "src": "scribere",
+  "src_lang": "Latin",
+  "src_mean": "to write",
+  "words": [
+   {
+    "w": "describe",
+    "ipa": "/dɪˈskraɪb/",
+    "mean": "write down how it looks",
+    "seg": "de-|scribe",
+    "parts": [
+     [
+      "de",
+      "pre"
+     ],
+     [
+      "scribe",
+      "root"
+     ]
+    ],
+    "pre": "de",
+    "pm": "down or away",
+    "pms": "down",
+    "ex": "Can you describe the man you saw?",
+    "em": "📝"
+   },
+   {
+    "w": "prescribe",
+    "ipa": "/prəˈskraɪb/",
+    "mean": "write before, as a doctor does",
+    "seg": "pre-|scribe",
+    "parts": [
+     [
+      "pre",
+      "pre"
+     ],
+     [
+      "scribe",
+      "root"
+     ]
+    ],
+    "pre": "pre",
+    "pm": "before",
+    "pms": "before",
+    "ex": "The doctor prescribed antibiotics for my throat infection last week.",
+    "em": "💊"
+   },
+   {
+    "w": "subscribe",
+    "ipa": "/səbˈskraɪb/",
+    "mean": "write your name under",
+    "seg": "sub-|scribe",
+    "parts": [
+     [
+      "sub",
+      "pre"
+     ],
+     [
+      "scribe",
+      "root"
+     ]
+    ],
+    "pre": "sub",
+    "pm": "under",
+    "pms": "under",
+    "ex": "Our department subscribes to several business magazines and newspapers.",
+    "em": "📩"
+   }
+  ],
+  "quiz": {
+   "stem": "under plus write",
+   "options": [
+    "describe",
+    "subscribe"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/describe",
+  "link": "https://lexkite.com/app/#/dict/describe",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, three words"
+ },
+ "src": {
+  "root": "scrib"
+ },
+ "est": {
+  "words": 48,
+  "seconds": 28.8,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "Scrib root: describe, prescribe and subscribe",
+  "keyword": "scrib root",
+  "value": "Scrib comes from Latin \"scribere\" (to write). Words: describe, prescribe and subscribe. describe = de + scribe; prescribe = pre + scribe; subscribe = sub + scribe.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/describe",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "Scrib root: describe, prescribe and subscribe",
+    "description": "Scrib comes from Latin \"scribere\" (to write). Words: describe, prescribe and subscribe. describe = de + scribe; prescribe = pre + scribe; subscribe = sub + scribe.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/describe\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "scrib root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Scrib root: describe, prescribe and subscribe\n\nScrib comes from Latin \"scribere\" (to write). Words: describe, prescribe and subscribe. describe = de + scribe; prescribe = pre + scribe; subscribe = sub + scribe.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/describe"
+   },
+   "instagram": {
+    "caption": "Scrib root: describe, prescribe and subscribe\n\nScrib comes from Latin \"scribere\" (to write). Words: describe, prescribe and subscribe. describe = de + scribe; prescribe = pre + scribe; subscribe = sub + scribe.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Scrib root: describe, prescribe and subscribe #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: Subscribe! Under plus write. Scrib comes from Latin \"scribere\" (to write). Words: describe, prescribe and subscribe. describe = de + scribe; prescribe = pre + scribe; subscribe = sub + scribe. Practice it with a free quiz: {link}"
+ }
+}

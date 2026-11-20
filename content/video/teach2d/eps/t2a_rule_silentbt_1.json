@@ -1,0 +1,163 @@
+{
+ "id": "t2a_rule_silentbt_1",
+ "template": "rule",
+ "series": "Spell to Sound",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "pronunciation",
+ "lines": [
+  {
+   "id": "h",
+   "text": "The B is silent!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "Before t, the B is silent. Say T.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Doubt.",
+   "pause": 0.25,
+   "speed": 0.6
+  },
+  {
+   "id": "v0",
+   "text": "Doubt.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Debt.",
+   "pause": 0.25,
+   "speed": 0.6
+  },
+  {
+   "id": "v1",
+   "text": "Debt.",
+   "pause": 0.3
+  },
+  {
+   "id": "p",
+   "text": "Repeat after me!",
+   "pause": 2.4
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which letter is silent in debt?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "B! The B is silent.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "rule": "silent-bt",
+  "title": "-bt",
+  "target": "/t/",
+  "letter": "b",
+  "say": "Before t, the B is silent. Say T.",
+  "words": [
+   {
+    "w": "doubt",
+    "ipa": "/daʊt/",
+    "silent": [
+     3,
+     4
+    ],
+    "letter": "b",
+    "mean": "Not being sure of something.",
+    "em": "🤨"
+   },
+   {
+    "w": "debt",
+    "ipa": "/det/",
+    "silent": [
+     2,
+     3
+    ],
+    "letter": "b",
+    "mean": "the sum of money owed to somebody that is not yet paid",
+    "em": "💳"
+   }
+  ],
+  "quiz": {
+   "stem": "Which letter is silent in debt?",
+   "options": [
+    "D",
+    "B"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "pronunciation",
+  "route": "#/pron/doubt",
+  "link": "https://lexkite.com/app/#/pron/doubt",
+  "say": "Practise this sound"
+ },
+ "hook": {
+  "line": "h",
+  "text": "The B is silent"
+ },
+ "src": {
+  "rule": "silent-bt"
+ },
+ "est": {
+  "words": 38,
+  "seconds": 26.2,
+  "wpm": 87
+ },
+ "publish": {
+  "title": "The B is silent!",
+  "keyword": "Spell to Sound",
+  "value": "Before t, the B is silent. Say T.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#pronunciation",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/pron/doubt",
+  "script_words": 29,
+  "platforms": {
+   "youtube": {
+    "title": "The B is silent!",
+    "description": "Before t, the B is silent. Say T.\n\nPractise this sound, free: https://lexkite.com/app/#/pron/doubt\n\nSeries: Spell to Sound · Teacher: Ama\n\n#learnenglish #englishtips #pronunciation #englishteacher",
+    "tags": [
+     "Spell to Sound",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "The B is silent!\n\nBefore t, the B is silent. Say T.\n\nPractise this sound, free: https://lexkite.com/app/#/pron/doubt"
+   },
+   "instagram": {
+    "caption": "The B is silent!\n\nBefore t, the B is silent. Say T.\n\nPractise this sound: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#pronunciation",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "The B is silent! #learnenglish #englishtips #pronunciation"
+   }
+  },
+  "first_comment": "Did you get it? B! The B is silent. Before t, the B is silent. Say T. More practice like this (free): {link}"
+ }
+}

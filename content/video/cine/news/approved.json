@@ -606,6 +606,28 @@
    "note": "no banked clip with QC>=90 yet (bank.json)"
   },
   {
+   "id": "roots",
+   "engine": "teach2d",
+   "status": "approved",
+   "spec": "content/video/teach2d/eps/*.json",
+   "sample": "https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/44535409178 (vis_1, spir_2, struct_3 short+wide)",
+   "qc": 100,
+   "approved": "2026-11-20",
+   "by": "coordinator (CI gates: 3/3 bank, 16/16 gates, QC 100 short+wide)",
+   "note": "Word Roots (Goc tu), 109 lessons"
+  },
+  {
+   "id": "rule",
+   "engine": "teach2d",
+   "status": "approved",
+   "spec": "content/video/teach2d/eps/*.json",
+   "sample": "https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/44482970761 (wr short+wide) + 44469710275 (kn, mb)",
+   "qc": 100,
+   "approved": "2026-11-19",
+   "by": "coordinator (CI gates: 6 clips mb/kn/wr short+wide QC 100 incl. platform_zones + dead_band)",
+   "note": "Spell to Sound (docs/specs/spell-sound.md)"
+  },
+  {
    "id": "drill",
    "engine": "motion",
    "status": "approved",
