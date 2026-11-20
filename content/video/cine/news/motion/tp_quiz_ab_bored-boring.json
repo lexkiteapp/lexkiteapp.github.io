@@ -45,7 +45,7 @@
   },
   {
    "id": "o",
-   "text": "A: I'm boring in class? Or B: I'm bored in class?",
+   "text": "A: boring in? Or B: bored in?",
    "gap": 0.7
   },
   {
@@ -208,7 +208,7 @@
      ],
      [
       "o",
-      7
+      5
      ]
     ],
     "reveal": [
