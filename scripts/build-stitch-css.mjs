@@ -40,6 +40,7 @@ const V2DATA = {
   review: ['web/js/ux1.js'],
   'say-back': ['web/js/say.js'],
   'say-front': ['web/js/say.js'],
+  settings: ['web/js/settings.js'],
   skills: ['web/js/skills-hub.js'],
   'story-duo': ['web/js/lesson/ui.js'],
   streak: ['web/js/retention.js'],
