@@ -163,8 +163,7 @@
   ":scope > main > div > section:nth-child(2)": "rtl:flex-row-reverse"
  },
  "remove": [
-  ":scope > main > nav",
-  ":scope > [data-ref-only]"
+  ":scope > main > nav"
  ],
  "repeat": [
   {

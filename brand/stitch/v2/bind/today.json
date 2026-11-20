@@ -273,7 +273,8 @@
  },
  "remove": [
   ":scope > main > nav",
-  "header button[aria-label^=\"Target Language\"], header button[aria-label^=\"Learning Language\"]"
+  "header button[aria-label^=\"Target Language\"], header button[aria-label^=\"Learning Language\"]",
+  ":scope > [data-ref-only]"
  ],
  "repeat": [
   {
