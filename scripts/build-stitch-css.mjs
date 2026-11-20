@@ -15,10 +15,11 @@ const TOK = JSON.parse(fs.readFileSync('brand/stitch/tokens.dtcg.json', 'utf8'))
 const GROUPS = { home: ['web/js/st/common.js', 'web/js/st/home.js'], lesson: ['web/js/st/common.js', 'web/js/st/lesson.js'], goal: ['web/js/st/common.js', 'web/js/st/goal.js'] };
 // Màn Stitch v2 (khung TỰ SINH bởi scripts/stitch-v2-convert.mjs – web/js/st/v2/<màn>.js): mỗi màn 1 nhóm = vỏ chung + khung màn + file gắn dữ liệu.
 //   Cấu hình Tailwind MẶC ĐỊNH thuần (như Stitch): tên màu/cỡ chữ/bo góc của Stitch đã được bộ chuyển đổi ra giá trị thật.
-const V2 = fs.existsSync('web/js/st/v2') ? fs.readdirSync('web/js/st/v2').filter(f => f.endsWith('.js') && !/^(shell|runtime)\.js$/.test(f)).map(f => f.slice(0, -3)) : [];
+const CP2 = 'web/cpack/st2', v2file = k => fs.existsSync(`${CP2}/${k}.js`) ? `${CP2}/${k}.js` : `web/js/st/v2/${k}.js`; // nhóm B lười ở web/cpack/st2 (stitch-v2-convert CPK)
+const V2 = [...(fs.existsSync(CP2) ? fs.readdirSync(CP2).filter(f => f.endsWith('.js')).map(f => f.slice(0, -3)) : []), ...(fs.existsSync('web/js/st/v2') ? fs.readdirSync('web/js/st/v2').filter(f => f.endsWith('.js') && !/^(shell|runtime)\.js$/.test(f)).map(f => f.slice(0, -3)) : [])];
 const V2DATA = {
   day: ['web/js/path-day.js'],
-  deck: ['web/js/ux1-deck.js'],
+  deck: ['web/cpack/ux1/deck.js'],
   dict: ['web/js/dict-page.js'],
   'exam-readiness': ['web/js/goal.js'],
   'feedback-correct': ['web/js/lesson/ui.js'],
@@ -27,7 +28,7 @@ const V2DATA = {
   'lesson-question': ['web/js/lesson/ui.js'],
   library: ['web/js/ux1-lib.js'],
   me: ['web/js/ux1-me.js'],
-  mistakes: ['web/js/ux1-mistakes.js'],
+  mistakes: ['web/cpack/ux1/mistakes.js'],
   'onb-goal': ['web/js/onboard.js'],
   'onb-lang': ['web/js/onboard.js'],
   'onb-level': ['web/js/onboard.js'],
@@ -44,7 +45,7 @@ const V2DATA = {
   'say-front': ['web/js/say.js'],
   settings: ['web/js/settings.js'],
   skills: ['web/js/skills-hub.js'],
-  stats: ['web/js/ux1-stats.js'],
+  stats: ['web/cpack/ux1/stats.js'],
   'story-duo': ['web/js/lesson/ui.js'],
   streak: ['web/js/retention.js'],
   'teacher-call': ['web/js/call.js'],
@@ -52,12 +53,12 @@ const V2DATA = {
   'today-desk': ['web/js/ux1.js'],
   'today-new': ['web/js/ux1.js'],
   'today-rail': ['web/js/ux1.js'],
-  topic: ['web/js/ux1-topic.js'],
+  topic: ['web/cpack/ux1/topic.js'],
   'vocab-hub': ['web/js/vocab-hub.js'],
   welcome: ['web/js/welcome.js'],
   'welcome-desk': ['web/js/welcome.js'],
 }; // file JS dựng dữ liệu d cho khung (class viết nguyên văn trong đó cũng được biên dịch)
-for (const k of V2) GROUPS['v2-' + k] = ['web/js/st/v2/runtime.js', 'web/js/st/v2/shell.js', `web/js/st/v2/${k}.js`, ...(V2DATA[k] || [])].filter(f => fs.existsSync(f));
+for (const k of V2) GROUPS['v2-' + k] = ['web/js/st/v2/runtime.js', 'web/js/st/v2/shell.js', v2file(k), ...(V2DATA[k] || [])].filter(f => fs.existsSync(f));
 GROUPS['v2-irregular'] = ['web/js/st/v2/runtime.js', 'web/js/st/v2/shell.js', 'web/cpack/irregular/table.js']; // 🔤 Động từ bất quy tắc: giao diện port tay từ Stitch brand/stitch/v2/irv-*
 GROUPS['v2-irregular-drill'] = ['web/js/st/v2/runtime.js', 'web/js/st/v2/shell.js', 'web/cpack/irregular/drill.js'];
 // Trang web tĩnh Stitch (lexkite.com – khung TỰ SINH brand/stitch/web/gen/<trang>.js – chỉ dùng lúc build, không triển khai trong web/ (size-budget), `stitch-v2-convert.mjs --web`): mỗi trang 1 nhóm w-<trang>, CSS được generator NHÚNG vào <style> (scripts/lib/st-web.mjs).

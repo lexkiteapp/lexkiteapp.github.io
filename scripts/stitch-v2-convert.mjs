@@ -12,6 +12,7 @@ const A = process.argv.slice(2), WEB = A.includes('--web'), CHECK = A.includes('
 const SRC = WEB ? 'brand/stitch/web' : 'brand/stitch/v2', OUT = WEB ? 'brand/stitch/web/gen' : 'web/js/st/v2', EN = WEB ? 'web/js/i18n/en/v2web.js' : 'web/js/i18n/en/v2.js';
 const ALL = fs.readdirSync(path.join(SRC, 'bind')).filter(f => f.endsWith('.json')).map(f => f.slice(0, -5));
 const ONLY = A.filter(a => !a.startsWith('--')), SCREENS = ALL; // luôn chạy MỌI màn (nhanh) để en/v2.js đủ khóa; chỉ GHI file màn được nêu (ONLY)
+const CPK = new Set(['topic', 'deck', 'mistakes', 'stats']); // nhóm B (cờ ux1): khung lười ra web/cpack/st2 để không tính vào byte người học (totalJs) – bundles.js nạp 'cpack/st2/<màn>.js'
 const errs = [], enMap = {};
 // Khóa dịch đã có ở các nhóm EN khác: trùng nghĩa → dùng lại (không ghi lại), khác nghĩa → ĐỎ (không được đổi nghĩa chữ ở chỗ khác của app)
 const EN_HAVE = {}; for (const f of fs.readdirSync('web/js/i18n/en').filter(f => f.endsWith('.js') && f !== 'v2.js' && f !== 'v2web.js')) for (const m of fs.readFileSync('web/js/i18n/en/' + f, 'utf8').matchAll(/^\s*(["'])((?:\\.|(?!\1).)*)\1\s*:\s*(["'])((?:\\.|(?!\3).)*)\3/gm)) EN_HAVE[m[2]] = [m[4], f];
@@ -202,9 +203,10 @@ for (const k of SCREENS) { const bind = JSON.parse(fs.readFileSync(path.join(SRC
       console.log(`${'  '.repeat(d)}${path} <${e.tagName.toLowerCase()}> ${cls}${al ? ` [${al}]` : ''}${tx ? ` "${tx.slice(0, 40)}"` : ''}`); [...e.children].forEach((c, i) => walk(c, d + 1, `${path}>${i + 1}`)); };
     walk(root, 0, '·'); continue; }
   const o = emit(root, bind, k);
-  if (bind.recolor) for (const [f, to] of Object.entries(bind.recolor)) { // recolor {class mẫu: class thay}: đổi màu ĐỒNG LOẠT cả màn (sau cls) để đạt tương phản AA – chỉ màn khai báo; class không có trong khung = lỗi
-    const re = new RegExp(`(?<=[\\s"'])${f.replace(/[.*+?^${}()|[\]\\/]/g, '\\$&')}(?=[\\s"'])`, 'g'); let n = 0;
-    for (const key of ['header', 'main', 'nav']) o[key] = o[key].replace(re, () => (n++, to)); o.parts = o.parts.map(([nm, h]) => [nm, h.replace(re, () => (n++, to))]);
+  if (bind.recolor && bind.src) for (const [f, to] of Object.entries(bind.recolor)) { // recolor {class mẫu: class thay}: đổi màu ĐỒNG LOẠT cả màn (sau cls) để đạt tương phản AA – chỉ màn khai báo; class không có trong khung = lỗi
+    const re = new RegExp(`(?<=[\\s"'\u0005])${f.replace(/[.*+?^${}()|[\]\\/]/g, '\\$&')}(?=[\\s"'\u0006])`, 'g'); let n = 0; // token class của emit() nằm giữa \u0005…\u0006: bản thay nhiều class tách thành nhiều token
+    const sub = (m, off, str) => (n++, str[off - 1] === '\u0005' ? to.split(' ').join('\u0006 \u0005') : to);
+    for (const key of ['header', 'main', 'nav']) o[key] = o[key].replace(re, sub); o.parts = o.parts.map(([nm, h]) => [nm, h.replace(re, sub)]);
     if (!n) errs.push(`${k}: recolor – không có class ${f} trong khung`); }
   if (WEB) { const cs = `/* TỰ SINH bởi scripts/stitch-v2-convert.mjs --web từ <style> của ${SRC}/${k}-light|dark.html – KHÔNG sửa tay. */\n` + webCss(hl, hd), cf = path.join(OUT, k + '.css');
     if (CHECK) { if (!fs.existsSync(cf) || fs.readFileSync(cf, 'utf8') !== cs) errs.push(`${cf} trôi`); } else if (!ONLY.length || ONLY.includes(k)) { fs.mkdirSync(OUT, { recursive: true }); fs.writeFileSync(cf, cs); } }
@@ -221,7 +223,7 @@ for (const k of SCREENS) { const bind = JSON.parse(fs.readFileSync(path.join(SRC
   const recolor = colorMap(bind), code = recolor(`(self.ST2 || (self.ST2 = {}))[${JSON.stringify(k)}] = (d, t = self.t || (s => s), e = self.ST ? ST.esc : (s => String(s))) => ({ root: ${JSON.stringify(o.root)},\n header: ${o.header},\n main: ${o.main},\n nav: ${o.nav}${WEB ? `,\n footer: ${o.footer}` : ''}${o.parts.map(([n, h]) => `,\n ${n}: ${h}`).join('')} });\n` +
     (o.protos.length ? `(self.ST2.P || (self.ST2.P = {}))[${JSON.stringify(k)}] = (t = self.t || (s => s), e = self.ST ? ST.esc : (s => String(s))) => ({\n${o.protos.map(([n, h]) => ` ${JSON.stringify(n)}: d => ${h}`).join(',\n')} });\n` : '')), sk = shrink(code);
   const js = `/* TỰ SINH bởi scripts/stitch-v2-convert.mjs từ ${SRC}/${k}-light|dark.html + bind/${k}.json – KHÔNG sửa tay (sửa bind map rồi chạy lại). */\n` + (sk.head ? `{ ${sk.head}\n${sk.body}}\n` : sk.body);
-  const out = path.join(OUT, k + '.js');
+  const out = path.join(!WEB && CPK.has(k) ? 'web/cpack/st2' : OUT, k + '.js');
   if (CHECK) { if (!fs.existsSync(out) || fs.readFileSync(out, 'utf8') !== js) errs.push(`${k}: ${out} trôi so với Stitch/bind (chạy lại bộ chuyển)`); }
   else if (!ONLY.length || ONLY.includes(k)) { fs.mkdirSync(OUT, { recursive: true }); fs.writeFileSync(out, js); console.log(`✓ ${k}: ${(js.length / 1024).toFixed(1)} KB`); } }
 { const en = `/* English UI – ${WEB ? 'v2web (trang web Stitch' : 'v2 (màn Stitch v2'}: TỰ SINH bởi scripts/stitch-v2-convert.mjs, khóa Việt → chữ Stitch; lazy group, LAZY in scripts/build-i18n.sh) */\n(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D.en = Object.assign(D.en || {}, {\n${Object.entries(enMap).sort().map(([k, v]) => `  ${JSON.stringify(k)}: ${JSON.stringify(v)},`).join('\n')}\n}); })(typeof self !== 'undefined' ? self : this);\n`;
