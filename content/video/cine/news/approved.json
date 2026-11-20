@@ -517,30 +517,46 @@
   {
    "id": "call",
    "engine": "teach2d",
-   "status": "draft",
+   "status": "approved",
    "spec": "content/video/teach2d/eps/*.json",
-   "note": "no banked clip with QC>=90 yet (bank.json)"
+   "note": "no banked clip with QC>=90 yet (bank.json)",
+   "sample": "https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/44491319374 (tv-t2_*-short/wide artifacts)",
+   "qc": 100.0,
+   "approved": "2026-11-19",
+   "by": "auto: teach-video pilot 19/11, short+wide 15/15 gates (self-approve >=90)"
   },
   {
    "id": "dictation",
    "engine": "teach2d",
-   "status": "draft",
+   "status": "approved",
    "spec": "content/video/teach2d/eps/*.json",
-   "note": "no banked clip with QC>=90 yet (bank.json)"
+   "note": "no banked clip with QC>=90 yet (bank.json)",
+   "sample": "https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/44491319374 (tv-t2_*-short/wide artifacts)",
+   "qc": 100.0,
+   "approved": "2026-11-19",
+   "by": "auto: teach-video pilot 19/11, short+wide 15/15 gates (self-approve >=90)"
   },
   {
    "id": "grammar",
    "engine": "teach2d",
-   "status": "draft",
+   "status": "approved",
    "spec": "content/video/teach2d/eps/*.json",
-   "note": "no banked clip with QC>=90 yet (bank.json)"
+   "note": "no banked clip with QC>=90 yet (bank.json)",
+   "sample": "https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/44491319374 (tv-t2_*-short/wide artifacts)",
+   "qc": 100.0,
+   "approved": "2026-11-19",
+   "by": "auto: teach-video pilot 19/11, short+wide 15/15 gates (self-approve >=90)"
   },
   {
    "id": "guess",
    "engine": "teach2d",
-   "status": "draft",
+   "status": "approved",
    "spec": "content/video/teach2d/eps/*.json",
-   "note": "no banked clip with QC>=90 yet (bank.json)"
+   "note": "no banked clip with QC>=90 yet (bank.json)",
+   "sample": "https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/44491319374 (tv-t2_*-short/wide artifacts)",
+   "qc": 100.0,
+   "approved": "2026-11-19",
+   "by": "auto: teach-video pilot 19/11, short+wide 15/15 gates (self-approve >=90)"
   },
   {
    "id": "level",
@@ -552,58 +568,90 @@
   {
    "id": "mistake",
    "engine": "teach2d",
-   "status": "draft",
+   "status": "approved",
    "spec": "content/video/teach2d/eps/*.json",
-   "note": "no banked clip with QC>=90 yet (bank.json)"
+   "note": "bank.json: 1 banked, QC 100.0 short+wide",
+   "sample": "content/video/teach2d/bank.json (artifact tv-bank-44262329940, 90 days)",
+   "qc": 100.0,
+   "approved": "2026-11-19",
+   "by": "auto: bank.py gate (short+wide >= 90, all qc.py gates)"
   },
   {
    "id": "native",
    "engine": "teach2d",
-   "status": "draft",
+   "status": "approved",
    "spec": "content/video/teach2d/eps/*.json",
-   "note": "no banked clip with QC>=90 yet (bank.json)"
+   "note": "bank.json: 1 banked, QC 100.0 short+wide",
+   "sample": "content/video/teach2d/bank.json (artifact tv-bank-44262329940, 90 days)",
+   "qc": 100.0,
+   "approved": "2026-11-19",
+   "by": "auto: bank.py gate (short+wide >= 90, all qc.py gates)"
   },
   {
    "id": "pair",
    "engine": "teach2d",
-   "status": "draft",
+   "status": "approved",
    "spec": "content/video/teach2d/eps/*.json",
-   "note": "no banked clip with QC>=90 yet (bank.json)"
+   "note": "no banked clip with QC>=90 yet (bank.json)",
+   "sample": "https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/44491319374 (tv-t2_*-short/wide artifacts)",
+   "qc": 100.0,
+   "approved": "2026-11-19",
+   "by": "auto: teach-video pilot 19/11, short+wide 15/15 gates (self-approve >=90)"
   },
   {
    "id": "pattern",
    "engine": "teach2d",
-   "status": "draft",
+   "status": "approved",
    "spec": "content/video/teach2d/eps/*.json",
-   "note": "no banked clip with QC>=90 yet (bank.json)"
+   "note": "no banked clip with QC>=90 yet (bank.json)",
+   "sample": "https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/44491319374 (tv-t2_*-short/wide artifacts)",
+   "qc": 100.0,
+   "approved": "2026-11-19",
+   "by": "auto: teach-video pilot 19/11, short+wide 15/15 gates (self-approve >=90)"
   },
   {
    "id": "phrasal",
    "engine": "teach2d",
-   "status": "draft",
+   "status": "approved",
    "spec": "content/video/teach2d/eps/*.json",
-   "note": "no banked clip with QC>=90 yet (bank.json)"
+   "note": "no banked clip with QC>=90 yet (bank.json)",
+   "sample": "https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/44491319374 (tv-t2_*-short/wide artifacts)",
+   "qc": 100.0,
+   "approved": "2026-11-19",
+   "by": "auto: teach-video pilot 19/11, short+wide 15/15 gates (self-approve >=90)"
   },
   {
    "id": "prep",
    "engine": "teach2d",
-   "status": "draft",
+   "status": "approved",
    "spec": "content/video/teach2d/eps/*.json",
-   "note": "no banked clip with QC>=90 yet (bank.json)"
+   "note": "no banked clip with QC>=90 yet (bank.json)",
+   "sample": "https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/44491319374 (tv-t2_*-short/wide artifacts)",
+   "qc": 100.0,
+   "approved": "2026-11-19",
+   "by": "auto: teach-video pilot 19/11, short+wide 15/15 gates (self-approve >=90)"
   },
   {
    "id": "react",
    "engine": "teach2d",
-   "status": "draft",
+   "status": "approved",
    "spec": "content/video/teach2d/eps/*.json",
-   "note": "no banked clip with QC>=90 yet (bank.json)"
+   "note": "bank.json: 2 banked, QC 100.0 short+wide",
+   "sample": "content/video/teach2d/bank.json (artifact tv-bank-44262329940, 90 days)",
+   "qc": 100.0,
+   "approved": "2026-11-19",
+   "by": "auto: bank.py gate (short+wide >= 90, all qc.py gates)"
   },
   {
    "id": "toeic",
    "engine": "teach2d",
-   "status": "draft",
+   "status": "approved",
    "spec": "content/video/teach2d/eps/*.json",
-   "note": "no banked clip with QC>=90 yet (bank.json)"
+   "note": "no banked clip with QC>=90 yet (bank.json)",
+   "sample": "https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/44491319374 (tv-t2_*-short/wide artifacts)",
+   "qc": 100.0,
+   "approved": "2026-11-19",
+   "by": "auto: teach-video pilot 19/11, short+wide 15/15 gates (self-approve >=90)"
   },
   {
    "id": "roots",
@@ -615,6 +663,13 @@
    "approved": "2026-11-20",
    "by": "coordinator (CI gates: 3/3 bank, 16/16 gates, QC 100 short+wide)",
    "note": "Word Roots (Goc tu), 109 lessons"
+  },
+  {
+   "id": "band",
+   "engine": "teach2d",
+   "status": "draft",
+   "spec": "content/video/teach2d/eps/*.json",
+   "note": "Band 5 to 9 (docs/specs/band-upgrade.md), 20/11: no banked clip with QC>=90 yet (bank.json) - the coordinator flips this to approved when the first short + wide pass every qc.py gate"
   },
   {
    "id": "rule",

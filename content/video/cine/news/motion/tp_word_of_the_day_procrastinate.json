@@ -24,9 +24,9 @@
  },
  "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
  "cta": {
-  "area": "word-of-the-day",
-  "link": "https://lexkite.com/app/",
-  "say": "Practice free on lexkite.com"
+  "area": "dictionary",
+  "link": "https://lexkite.com/app/#/dict",
+  "say": "Practice it free"
  },
  "series": {
   "name": "Word Of The Day",
@@ -54,7 +54,7 @@
    "gap": 0.7
   },
   {
-   "id": "t",
+   "id": "tip",
    "text": "Tip: it comes from Latin. Cras means tomorrow, so don't push it to tomorrow!",
    "gap": 0.7
   },
@@ -91,12 +91,6 @@
      [
       "Wait,",
       "white"
-     ]
-    ],
-    [
-     [
-      "procrastinate?",
-      "yellow"
      ]
     ]
    ],
@@ -135,22 +129,13 @@
         "Wait,"
        ]
       ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "procrastinate?"
-       ]
-      ]
      }
     ]
    },
    {
     "id": "sum",
     "at": [
-     "t",
+     "tip",
      0
     ],
     "rows": [
@@ -163,7 +148,7 @@
       "t": "line",
       "runs": [
        [
-        "it comes from Latin. Cras means tomorrow, so don't"
+        "it comes from Latin."
        ]
       ]
      }
@@ -186,7 +171,7 @@
       "lines": [
        [
         [
-         "to keep putting things off",
+         "to keep putting",
          "muted"
         ]
        ]
@@ -236,7 +221,7 @@
     ]
    }
   ],
-  "hook_text": "Wait, procrastinate?",
+  "hook_text": "Wait,",
   "end_line": "c"
  },
  "embed": {

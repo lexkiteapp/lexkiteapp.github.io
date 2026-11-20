@@ -14,7 +14,7 @@ concurrency: { group: google-translate, cancel-in-progress: false }  # dùng chu
 jobs:
   packs:
     runs-on: ubuntu-latest
-    timeout-minutes: 150
+    timeout-minutes: 170
     steps:
       - uses: actions/checkout@v4
         with: { ssh-key: "${{ github.ref == 'refs/heads/main' && secrets.BOT_DEPLOY_KEY || '' }}" }   # chỉ main cầm khoá deploy (ruleset) – docs/CI-RUNNERS.md › required-gate
@@ -22,7 +22,13 @@ jobs:
         with: { node-version: 22 }
       - name: Dịch & tinh chỉnh
         run: |
-          for l in $(grep -v '^#' scripts/i18n-langs.txt); do node scripts/gen-word-packs.mjs "$l" --refine 450 || echo "lỗi $l"; done
+          # 20/11: cả vòng ~2h15 sát trần job (150') → hôm chậm bị cancelled TRƯỚC bước lưu, mất trọn lượt (wordlists bị chặn theo). Nay: ngân sách 120', mỗi ngôn ngữ ≤25', xoay ngôn ngữ bắt đầu theo ngày → bước lưu luôn chạy, ngôn ngữ còn lại làm lượt sau.
+          read -ra langs <<< "$(grep -v '^#' scripts/i18n-langs.txt | tr '\n' ' ')"; n=${#langs[@]}; off=$(( 10#$(date +%j) % n ))
+          for i in $(seq 0 $((n-1))); do
+            [ "$SECONDS" -ge 7200 ] && { echo "::warning::hết ngân sách 120 phút – ngôn ngữ còn lại chạy lượt sau"; break; }
+            l=${langs[$(( (i + off) % n ))]}
+            timeout 1500 node scripts/gen-word-packs.mjs "$l" --refine 450 || echo "::warning::lỗi/quá giờ $l"
+          done
       - name: Đối chiếu ngược (mẫu 40 từ/ngôn ngữ) – báo mục nghi sai vào job summary, không chặn lưu
         continue-on-error: true
         run: node scripts/pack-backcheck.mjs all --sample 40 --max-bad 15

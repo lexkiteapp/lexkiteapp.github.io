@@ -233,3 +233,26 @@ module docstring (per-state text/fill pairs + glyph boxes, card fill measured on
 `overlay_contrast` (≥ 3:1 every state + on the frame), `overlay_layout` (no overlap / outside the card; on screen inside SAFE, never on a caption
 or pop), `overlay_ipa` (IPA == audited bank US cell for the exact token shown, stress dot == IPA mark). Unit test `scripts/test/overlay-gates.mjs`.
 Measured v14 board zones: Carlos 751×506, Ama 750×391 (region [86,266,836|837,657|772]).
+
+## 17. Kiểm kê MỌI họ template + bộ xoay vòng (19/11/2026)
+> Nguồn duy nhất vẫn là `content/video/cine/news/approved.json` (sổ duyệt). Mẫu đạt QC ≥ 90 trên CI = tự duyệt (`approved_templates.py sync-bank` cho Teach2D; `approve` cho Motion sau lượt `video-motion`). Số liệu lấy từ CI thật 19/11, không từ trí nhớ.
+
+| họ | dạng nội dung hợp | engine / workflow | lần render gần nhất | QC | trạng thái | trong lịch hằng ngày? |
+|---|---|---|---|---|---|---|
+| **Teach2D** `l1` (lỗi theo tiếng mẹ đẻ, 14 ngôn ngữ) | sửa lỗi + mẹo bản địa | Remotion + TeacherRig 2D · `teach-video` | 13/11–18/11 | 100 (216 tập banked) | đang dùng, **chiếm 88 % kho** | có |
+| Teach2D `review` · `stress` · `usuk` · `verbs` | từ vựng · trọng âm · Mỹ/Anh · động từ BQT | như trên | 08/11–18/11 | 100 (9 · 8 · 7 · 2 banked) | đang dùng | có |
+| Teach2D `mistake` · `native` · `react` | sửa lỗi · cách nói bản xứ · phản xạ | như trên | 18/11 | 100 | **tự duyệt 19/11** (bank đạt từ 18/11 nhưng sổ vẫn `draft` → bị chặn `template:draft`) | có, từ nay |
+| Teach2D `call` `dictation` `grammar` `guess` `level` `pair` `pattern` `phrasal` `prep` `toeic` | gọi điện · chính tả · ngữ pháp · đoán từ · xếp trình độ · cặp từ · mẫu câu · cụm động từ · giới từ · TOEIC | như trên | pilot 19/11 (run tpl-audit-1) | xem bảng sau | xem bảng sau | chỉ khi đạt |
+| Teach2D `rule` (Spell→Sound), `roots` (Gốc từ) | luật chữ câm · gốc từ | như trên | nhánh PR 1617 / 1524 | 100 (6 clip `rule`) / chưa render | nhánh đang mở | sau merge |
+| Motion tay (`templates-motion/` 4) | quiz · sửa lỗi · mẹo · thử trình độ | Stitch Tactile Night + Remotion 60 fps · `video-motion` | 19/11 | `drill` 100 / 42 cổng; 3 mẫu còn lại: xem bảng sau | `drill` đã duyệt | chưa (chưa có bộ sinh hàng loạt) |
+| Motion sinh từ 15 template nội dung (`tp_*`, 26 spec / 15 loại) | collocation · cặp dễ nhầm · idiom · IELTS · động từ BQT · phrasal · lịch sự · phát âm · quiz · roleplay · soi lỗi · 3 từ · nâng cấp · từ trong ngày | `tpl2motion.py` → `video-motion` | 15/11 lỗi cả lượt; 19/11 chạy lại | xem bảng sau | `draft` | chưa |
+| Motion sinh từ ngân hàng (`bm_*`, 8 loại) và tin (`news_*`, 34) | gap · native · pair · pattern · phrasal · recall · spot · tf; tình huống news | `bank2motion.py` / `news2motion.py` | 19/11 (1 mẫu/loại) | xem bảng sau | `draft` | chưa |
+| `content/video/templates/` 15 (renderer `template.mjs`, `auto.mjs`, `video-auto` hằng ngày) | cùng 15 loại | Studio/GrabCast · `video.yml` | 18/10 (3 lượt, 1 xanh) | – | **đã bỏ** (render_v5 retired) – nội dung đã chuyển sang Motion `tp_*` | không (video-auto chỉ bỏ qua khi `video.yml` tắt) |
+| `templates-v1` (9) · `templates-v2` (10) · `cine/news` PIL · `tpl1b` · pilot v5–v9 · `video-series` | pilot Studio/3D/bảng trắng | PIL, render_v9 plate 3D | 24–28/10 | – | **retired** (sổ ghi lý do, không xoá) | không |
+
+**Vì sao đơn điệu (số đo):** kho đã banked 245 tập, 216 (88 %) là `l1`; trước hôm nay chỉ 5/16 mẫu Teach2D được duyệt trong sổ dù 3 mẫu khác (`mistake`, `native`, `react`) đã đạt QC 100 → bị chặn `template:draft`; 26 mẫu Motion chưa từng được duyệt. Bộ lịch cũ chỉ cấm "cùng mẫu liền kề" nên `l1` vẫn chiếm ~90 % lượt.
+
+### Bộ xoay vòng (`functions/api/_distribution.js` · `pickTemplate`, test `scripts/test/distribution.mjs`)
+- Cửa sổ `TPL_WINDOW = 4`: một mẫu không được xuất hiện lại trong 4 bài gần nhất của kênh khi còn mẫu khác đang chờ; hết mẫu mới thì lấy mẫu dùng lâu nhất; bằng nhau thì mẫu ít dùng nhất; còn bằng thì theo thứ tự hàng đợi.
+- Hệ quả: một mẫu tràn kho (216 `l1`) chỉ chiếm tối đa 1/5 lượt khi các mẫu khác còn; mọi mẫu `approved` (Teach2D + Motion) cùng vào một hàng, không phân biệt engine. Test: 20 `l1` + 5 mẫu khác → 6 bài đầu là 6 mẫu khác nhau.
+- Chỉ mẫu `approved` vào hàng (`autopub_gate` lý do `template:<status>`); mẫu mới đạt ≥ 90 tự vào xoay vòng khi sổ cập nhật.

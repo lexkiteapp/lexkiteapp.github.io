@@ -24,9 +24,9 @@
  },
  "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
  "cta": {
-  "area": "three-words",
-  "link": "https://lexkite.com/app/",
-  "say": "Practice free on lexkite.com"
+  "area": "dictionary",
+  "link": "https://lexkite.com/app/#/dict",
+  "say": "Practice it free"
  },
  "series": {
   "name": "Three Words",
@@ -54,7 +54,7 @@
    "gap": 0.7
   },
   {
-   "id": "t",
+   "id": "tip",
    "text": "Tip: Next time, skip rainy.",
    "gap": 0.7
   },
@@ -91,12 +91,6 @@
      [
       "Wait, only",
       "white"
-     ]
-    ],
-    [
-     [
-      "\"rainy\"?",
-      "yellow"
      ]
     ]
    ],
@@ -135,22 +129,13 @@
         "Wait, only"
        ]
       ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "\"rainy\"?"
-       ]
-      ]
      }
     ]
    },
    {
     "id": "sum",
     "at": [
-     "t",
+     "tip",
      0
     ],
     "rows": [
@@ -213,7 +198,7 @@
       "lines": [
        [
         [
-         "A short rain that stops fast.",
+         "A short rain",
          "muted"
         ]
        ]
@@ -240,7 +225,7 @@
       "lines": [
        [
         [
-         "Very heavy rain, so grab an umbrella.",
+         "Very heavy rain",
          "muted"
         ]
        ]
@@ -263,7 +248,7 @@
     ]
    }
   ],
-  "hook_text": "Wait, only \"rainy\"?",
+  "hook_text": "Wait, only",
   "end_line": "c"
  },
  "embed": {

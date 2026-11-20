@@ -1,0 +1,40 @@
+# ci-policy: fast-lane – chạy tay + khi đổi chính script/workflow chụp (đường dẫn hẹp)
+# Chụp mọi màn chính (375/1440 × sáng/tối), ghép tờ lưới theo khu vực, máy chấm từng ô, ra report.md + flagged/ (docs/audit/ui-audit-1911.md). Artifact 5 ngày, không commit ảnh.
+name: UI audit shots
+on:
+  workflow_dispatch:
+    inputs:
+      lang: { description: 'Ngôn ngữ giao diện', required: false, default: 'en' }
+  pull_request:
+    paths: ['scripts/test/ui-audit-shots.mjs', 'scripts/test/lib/ui-audit-rules.mjs', '.github/workflows/ui-audit-shots.yml']
+permissions:
+  contents: read
+concurrency:
+  group: ui-audit-shots-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  shots:
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/no-prod
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: ./.github/actions/playwright-cache
+        with: { browsers: '--with-deps chromium' }
+      - name: Chụp
+        env: { LANG_IN: "${{ github.event.inputs.lang || 'en' }}" }
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2
+          bash scripts/ci/pw-install.sh --with-deps chromium
+          (cd web && python3 -m http.server 8080 >/dev/null 2>&1 &) ; sleep 1
+          node scripts/test/ui-audit-shots.mjs http://localhost:8080 uiaudit-out "$LANG_IN"
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: { name: ui-audit-shots, path: uiaudit-out, retention-days: 5 }
+      - name: Tóm tắt (job summary)
+        if: always()
+        run: |
+          [ -f uiaudit-out/summary.txt ] || exit 0
+          cat uiaudit-out/summary.txt >> "$GITHUB_STEP_SUMMARY"

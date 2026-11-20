@@ -24,9 +24,9 @@
  },
  "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
  "cta": {
-  "area": "stop-saying",
-  "link": "https://lexkite.com/app/",
-  "say": "Practice free on lexkite.com"
+  "area": "grammar-check",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Practice it free"
  },
  "series": {
   "name": "Work",
@@ -97,18 +97,6 @@
       "I work here",
       "white"
      ]
-    ],
-    [
-     [
-      "since three",
-      "yellow"
-     ]
-    ],
-    [
-     [
-      "years.",
-      "yellow"
-     ]
     ]
    ],
    "align": "l"
@@ -145,24 +133,6 @@
       "runs": [
        [
         "I work here"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "since three"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "years."
        ]
       ]
      }
@@ -206,7 +176,7 @@
     ]
    }
   ],
-  "hook_text": "I work here since three years.",
+  "hook_text": "I work here",
   "end_line": "c"
  },
  "embed": {

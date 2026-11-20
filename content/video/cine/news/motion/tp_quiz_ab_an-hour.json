@@ -24,9 +24,9 @@
  },
  "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
  "cta": {
-  "area": "quiz-ab",
-  "link": "https://lexkite.com/app/",
-  "say": "Practice free on lexkite.com"
+  "area": "grammar",
+  "link": "https://lexkite.com/app/#/grammar",
+  "say": "Practice it free"
  },
  "series": {
   "name": "Quiz Ab",
@@ -186,7 +186,7 @@
       "t": "line",
       "runs": [
        [
-        "listen to the first sound, not the first letter."
+        "listen to the first sound"
        ]
       ]
      }
@@ -198,8 +198,8 @@
     "t": "opts",
     "id": "opts",
     "opts": [
-     "I waited a hour.",
-     "I waited an hour."
+     "a hour",
+     "an hour"
     ],
     "cues": [
      [

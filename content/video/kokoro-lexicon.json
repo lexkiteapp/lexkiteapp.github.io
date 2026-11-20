@@ -35,6 +35,16 @@
    "ph": "mˈɛɹid",
    "ipa": "/ˈmerid/",
    "why": "past tense of marry – same General American /ˈmerid/ (Merriam-Webster, Cambridge US)"
+  },
+  "casual": {
+   "ph": "kˈæʒəwl",
+   "ipa": "/ˈkæʒəwl/",
+   "why": "espeak says kˈæʒuːəl (long uː); CMUdict K AE1 ZH AH0 W AH0 L = /ˈkæʒəwl/ (Merriam-Webster \\\\ˈka-zhə-wəl\\\\, Cambridge US)"
+  },
+  "opinion": {
+   "ph": "əpˈɪnjən",
+   "ipa": "/əˈpɪnjən/",
+   "why": "espeak says əpˈɪniən (i-ən); CMUdict AH0 P IH1 N Y AH0 N = /əˈpɪnjən/ (Merriam-Webster \\\\ə-ˈpin-yən\\\\, Cambridge US)"
   }
  }
 }

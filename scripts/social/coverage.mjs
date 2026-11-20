@@ -21,16 +21,23 @@ if (process.argv[1] && /(^|[\\/])coverage\.mjs$/.test(process.argv[1])) {
   if (!key) { console.log('⏭ chưa có LEXKITE_DRIVE_CLI_KEY – bỏ qua'); process.exit(0); }
   const text = JSON.stringify({ op: 'coverage' });
   const r = await fetch(BASE + '/api/social-auto', { method: 'POST', headers: { 'Content-Type': 'application/json', ...driveSign(key, text) }, body: text, signal: AbortSignal.timeout(60e3) }).catch(() => null);
-  const j = r ? await r.json().catch(() => ({})) : {};
+  let fillNote = null; const j = r ? await r.json().catch(() => ({})) : {};
   if (r && r.status === 429) { console.log('⏭ bỏ qua:', j.error || 429); process.exit(0); }
   if (!r || !r.ok) { console.error('✗ coverage', r ? r.status : 'fetch', j.error || ''); process.exit(1); }
-  const { bad, miss, idle, text: out, table } = report(j); console.log(out);
+  let jj = j; // máy gác tự lấp: có ngày trống gần → autofill (duyệt thêm + xếp lịch) rồi ĐO LẠI; chỉ báo đỏ phần mà kho clip thật sự không đủ
+  if (near(j).length) {
+    const ft = JSON.stringify({ op: 'autofill' }), fr = await fetch(BASE + '/api/social-auto', { method: 'POST', headers: { 'Content-Type': 'application/json', ...driveSign(key, ft) }, body: ft, signal: AbortSignal.timeout(90e3) }).catch(() => null), fj = fr ? await fr.json().catch(() => ({})) : {};
+    console.log('autofill:', fr ? fr.status : 'fetch-fail', JSON.stringify(fj).slice(0, 400)); fillNote = fj;
+    const t2 = JSON.stringify({ op: 'coverage' }), r2 = await fetch(BASE + '/api/social-auto', { method: 'POST', headers: { 'Content-Type': 'application/json', ...driveSign(key, t2) }, body: t2, signal: AbortSignal.timeout(60e3) }).catch(() => null);
+    if (r2 && r2.ok) { const j2 = await r2.json().catch(() => null); if (j2 && j2.rows) jj = j2; }
+  }
+  const { bad, miss, idle, text: out, table } = report(jj); console.log(out);
   if (process.env.GITHUB_STEP_SUMMARY) (await import('node:fs')).appendFileSync(process.env.GITHUB_STEP_SUMMARY, '### Lịch đăng 30 ngày\n```\n' + out + '\n```\n');
   if (process.env.WEEKLY === '1' || new Date().getUTCDay() === 1) await alert({ k: 'coverage-weekly', text: 'Bảng phủ lịch theo trang (mỗi tuần):\n\n' + table, at: Date.now() });
   if (idle.length) await alert({ k: 'channel-idle-24h', text: `${idle.length} kênh không có bài nào trong 24 giờ qua (đẩy/đăng): ` + idle.map(r => `${r.platform} · ${r.title}`).join('; ') + '\n\nKiểm: Quản trị › Video & Social › Hàng đợi (bài nháp chờ duyệt?), autopub từng nền tảng, kênh GrabCast/Meta đã nối?', at: Date.now() });
   if (bad.length || miss.length) await alert({ k: 'coverage-gap', text: out + '\n\nLấp: plan_run từ kho clip (Quản trị › Video & Social › Phân phối) hoặc thêm clip bản ngữ cho trang ngôn ngữ.', at: Date.now() });
-  const nr = near(j);
-  if (nr.length) { const m = matrix(j, nr); console.error(`✗ ${nr.length} kênh có ngày TRỐNG trong ${NEAR_DAYS} ngày tới (luật 1 video/kênh/ngày):\n` + m); if (process.env.GITHUB_STEP_SUMMARY) (await import('node:fs')).appendFileSync(process.env.GITHUB_STEP_SUMMARY, `### ✗ Ngày trống ${NEAR_DAYS} ngày tới\n` + m + '\n'); await alert({ k: 'coverage-near', text: `✗ ${nr.length} kênh có ngày trống trong ${NEAR_DAYS} ngày tới:\n\n` + m, at: Date.now() }); }
+  const nr = near(jj);
+  if (nr.length) { const m = matrix(jj, nr); console.error(`✗ ${nr.length} kênh có ngày TRỐNG trong ${NEAR_DAYS} ngày tới (luật 1 video/kênh/ngày):\n` + m); if (process.env.GITHUB_STEP_SUMMARY) (await import('node:fs')).appendFileSync(process.env.GITHUB_STEP_SUMMARY, `### ✗ Ngày trống ${NEAR_DAYS} ngày tới\n` + m + '\n'); await alert({ k: 'coverage-near', text: `✗ ${nr.length} kênh có ngày trống trong ${NEAR_DAYS} ngày tới SAU khi tự lấp (${JSON.stringify(fillNote && fillNote.skipped || {})}) – kho clip bản ngữ không đủ, cần dựng thêm:\n\n` + m, at: Date.now() }); }
   if (idle.length) console.error(`✗ ${idle.length} kênh không có bài trong 24 giờ qua`);
   if (nr.length || idle.length) process.exit(1);
 }

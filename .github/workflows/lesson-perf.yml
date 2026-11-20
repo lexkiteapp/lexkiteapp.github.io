@@ -1,0 +1,51 @@
+# ⚡ Đo trọn 1 bài học trên máy yếu giả lập (CPU 4×/6× đã hiệu chuẩn, 4G chậm, 390 px): chạm→khung vẽ, long task lúc chuyển câu, FPS, GC, giải mã ảnh, layout ép – scripts/test/lesson-perf.mjs
+# Chạy tay hoặc đẩy nhánh lesson-perf-*; kết quả ở tóm tắt job + artifact lesson-perf-<N>x. Hermetic: dist cục bộ, 0 lượt chạm prod.
+# ci-policy: matrix – mỗi luồng × cỡ × hệ số phải tách runner (đo FPS/độ trễ chung một máy làm số đo nhiễu)
+name: Lesson perf
+on:
+  push:
+    branches: ['lesson-perf-*']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  measure:
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { flow: lesson, width: 390, rate: 4, dev: 1, variant: base }
+          - { flow: review, width: 360, rate: 4, dev: 1, variant: base }
+          - { flow: practice, width: 390, rate: 4, dev: 1, variant: base }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - name: Dựng dist
+        run: |
+          npm ci --no-audit --no-fund
+          bash scripts/build-web.sh >/dev/null
+      - uses: ./.github/actions/playwright-cache
+        with: { browsers: chromium }
+      - name: Cài Playwright
+        timeout-minutes: 14
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.50.1
+          bash scripts/ci/pw-install.sh --with-deps chromium
+      - name: Bản chưa rút gọn (tên hàm + dòng mã trong hồ sơ)
+        if: matrix.dev
+        run: |
+          rm -rf dist-dev && cp -R web dist-dev && rm -rf dist-dev/audio
+          node scripts/app-loader.mjs dist-dev/app/index.html
+      - name: Chặn lexkite.com (0 lượt chạm prod)
+        run: echo "127.0.0.1 lexkite.com www.lexkite.com audio.lexkite.com media.lexkite.com" | sudo tee -a /etc/hosts >/dev/null
+      - name: Đo ${{ matrix.flow }} ${{ matrix.width }}px ${{ matrix.rate }}×
+        run: node scripts/test/lesson-perf.mjs --root ${{ matrix.dev && 'dist-dev' || 'dist' }} --tag '${{ matrix.dev && '-dev' || '' }}-${{ matrix.variant }}' --variant '${{ matrix.variant }}' --rate ${{ matrix.rate }} --width ${{ matrix.width }} --flow ${{ matrix.flow }} --out lp-out
+      - uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with: { name: "lesson-perf-${{ matrix.flow }}-${{ matrix.width }}-${{ matrix.rate }}x${{ matrix.dev && '-dev' || '' }}-${{ matrix.variant }}", path: lp-out, retention-days: 14 }

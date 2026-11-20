@@ -42,6 +42,7 @@ const V2DATA = {
   review: ['web/js/ux1.js'],
   'say-back': ['web/js/say.js'],
   'say-front': ['web/js/say.js'],
+  settings: ['web/js/settings.js'],
   skills: ['web/js/skills-hub.js'],
   stats: ['web/js/ux1-stats.js'],
   'story-duo': ['web/js/lesson/ui.js'],
@@ -74,7 +75,7 @@ const OUT = g => `web/css/st-${g}.css`;
 // Gói nhiều màn nạp CÙNG LÚC (BCSS trong app.js): tiền tố PRE chung (token, font, vỏ, reset ≈ 3,5 KB gz) tách ra 1 file nạp 1 lần thay vì lặp trong từng file màn.
 // Tiền tố chung (token/font/vỏ, ~3,6 KB gz) cho các nhóm luôn nạp CÙNG NHAU (app.js BCSS) → nạp 1 lần thay vì lặp trong từng file.
 //   v2-ux1-pre: gói ux1 (Home/Hôm nay, Lộ trình, Ôn, Luyện, Giải đấu, Tôi, Chuỗi, Sẵn sàng thi) nạp 11 file v2 cùng lúc (3/11: lặp 11 × tiền tố → Today vượt 10 KB)
-const SHARED = { 'v2-onb-pre': ['v2-onb-goal', 'v2-onb-lang', 'v2-onb-level', 'v2-onb-target', 'v2-onb-pace', 'v2-onb-ready'], 'v2-speak-pre': ['v2-pas-drill', 'v2-pas-sit'], 'v2-ux1-pre': ['v2-path', 'v2-review', 'v2-practice', 'v2-skills', 'v2-leagues', 'v2-me', 'v2-streak', 'v2-exam-readiness', 'v2-today', 'v2-today-new', 'v2-today-desk', 'v2-today-rail', 'v2-library', 'v2-topic', 'v2-deck', 'v2-mistakes', 'v2-stats'] }, NOPRE = new Set(Object.values(SHARED).flat());
+const SHARED = { 'v2-onb-pre': ['v2-onb-goal', 'v2-onb-lang', 'v2-onb-level', 'v2-onb-target', 'v2-onb-pace', 'v2-onb-ready'], 'v2-speak-pre': ['v2-pas-drill', 'v2-pas-sit'], 'v2-ux1-pre': ['v2-path', 'v2-review', 'v2-practice', 'v2-skills', 'v2-leagues', 'v2-me', 'v2-streak', 'v2-exam-readiness', 'v2-today', 'v2-today-new', 'v2-today-desk', 'v2-today-rail', 'v2-topic', 'v2-deck', 'v2-mistakes', 'v2-stats'] }, NOPRE = new Set(Object.values(SHARED).flat());
 
 const rgb = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16)).join(' ');
 const C = Object.entries(TOK.color);

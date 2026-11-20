@@ -111,7 +111,7 @@ console.log('✓ xóa tài khoản: dọn lớp học (học sinh + giáo viên)
   w.Sync = { user: as('tch'), can: true, signIn: () => {} };
   const calls = [];
   w.fetch = async (url, o) => { const body = JSON.parse(o.body), uid = o.headers.Authorization.slice(7); calls.push([uid, body.op]); assert.equal(url, '/api/class'); const [status, data] = await run(DB, uid, body, Date.now()); return { ok: status < 400, status, json: async () => data }; };
-  w.confirm = () => true;
+  w.confirm = () => true;;Object.defineProperty(w,'LXDialog',{configurable:true,get:()=>({confirm:async m=>w.confirm(m),prompt:async(m,d)=>w.prompt(m,d),alert:async m=>w.alert(m)})}); // cầu nối: test vẫn giả hộp thoại bằng w.confirm/prompt/alert
   w.eval(fs.readFileSync('web/js/classroom.js', 'utf8'));
   const until = async (f, ms = 4000) => { const t0 = Date.now(); while (!f()) { if (Date.now() - t0 > ms) throw new Error('timeout: ' + f); await new Promise(r => setTimeout(r, 20)); } };
   const go = async h => { w.location.hash = h; const [, name, ...rest] = h.split('?')[0].split('/'); await w.App.routes[name](rest.join('/'), new w.URLSearchParams(h.split('?')[1] || '')); };
