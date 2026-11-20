@@ -71,11 +71,12 @@ export function pickDue(rows, cfg, now) {
 /** Trần bài/kênh/ngày THEO LOẠI KÊNH (chủ 18/11): kênh chính (tiếng Anh) 2–3, giãn ≥ 4 giờ; kênh bản ngữ 1 – đọc từ cấu hình kênh (dayCapOf/gapOf, một nguồn), múi giờ kênh.
  *  Bài ĐÃ đăng/gửi GrabCast giữ nguyên; bài 'planned' vượt trần → dời sang ngày trống gần nhất của CHÍNH kênh đó (giữ giờ trong ngày, cách bài khác ≥ gap, không xóa clip).
  *  Trả số bài đã dời. Chỉ D1, 0 lượt GrabCast. capOver: chỉ test. */
-export async function rebalanceDays(db, now, capOver = 0, horizonDays = 120) {
+export async function rebalanceDays(db, now, capOver = 0, horizonDays = 120, stop = () => false) {
   const rows = await all(db, 'SELECT s.clip, s.channel_id, s.slot_ms, s.state, e.title FROM dist_social s LEFT JOIN dist_ext e ON e.channel_id = s.channel_id WHERE s.slot_ms > ? AND s.slot_ms IS NOT NULL ORDER BY s.slot_ms', now - 36e5 * 36);
   const by = new Map(); for (const r of rows) (by.get(r.channel_id) || by.set(r.channel_id, []).get(r.channel_id)).push(r);
   let moved = 0;
   for (const [ch, list] of by) {
+    if (stop()) break; // hết ngân sách thời gian lượt: phần còn lại để lượt sau (không 524)
     const x = (await chanCfg(db, ch).catch(() => ({ cfg: {} }))).cfg, auto = langOfChannel(list[0].title || ''), lang = (x.lang || auto || '').toLowerCase();
     const cap = capOver || dayCapOf(lang, x.daily_cap), gap = capOver ? 0 : gapOf(lang, x.min_gap_min) * 6e4, tz = (x.tz && x.tz !== 'America/New_York' ? x.tz : LANG_TZ[lang || 'en']) || 'America/New_York';
     const day = ms => localDate(ms, tz), cnt = {}, times = list.filter(r => r.state !== 'planned').map(r => r.slot_ms), fixed = r => r.state !== 'planned'; // đã gửi/đăng/lỗi: không đụng
@@ -335,6 +336,7 @@ export const metaLeft = (st, cfg, now) => Math.max(0, cfg.meta_daily - (((st.met
 /** Một lượt autopilot. → bản ghi lượt (cũng lưu ở soc_meta 'auto_state'.last_run). */
 export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = fetch, origin = 'https://lexkite.com/api/social-auto', force_sync = false, sleep = ms => new Promise(r => setTimeout(r, ms)) } = {}) {
   const db = env.DB; await setupMgr(db); await setupDist(db); await setupLock(db, env);
+  T0 = Date.now(); // ĐỒNG HỒ NGÂN SÁCH THỜI GIAN MỖI LƯỢT: trước đây chỉ autoStatus đặt T0 → isolate sống >60 giây thì outOfTime() luôn true, mọi vòng đăng dừng ngay (24h không bài nào, 19–20/11)
   const cfg = await loadAuto(db), st = await getMeta(db, 'auto_state', {});
   const dayCap = +env.SOCIAL_DAY_CAP || 0; // chỉ test đặt biến này; production: trần theo loại kênh (cấu hình kênh)
   const rec = { at: now, src, due: 0, created: 0, scheduled: 0, review: 0, skipped: [], calls: 0, stop: null, synced: null, provider: null, meta: { calls: 0, posted: 0, scheduled: 0, containers: 0, stop: null }, alerts: [], fc: { attached: 0, posted: 0, skipped: [] } };
@@ -349,9 +351,9 @@ export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = f
   };
   if (!cfg.on) { rec.stop = 'off'; return save(); }
   { const yc = await all(db, "SELECT channel_id FROM dist_ext WHERE platform = 'youtube' AND status = 'ok' LIMIT 5").catch(() => []); if (ytViaGc(cfg, yc)) { Object.assign(cfg, effPlats(cfg, yc)); rec.yt_via_gc = 1; } }
-  const planNow = async () => { try { await ytSetup(db); await run(db, "DELETE FROM dist_social WHERE state = 'planned' AND source = 'auto' AND slot_ms BETWEEN ? AND ?", now - 90 * 864e5, now - MAX_LATE_MS); rec.rebalanced = (rec.rebalanced || 0) + await rebalanceDays(db, now, dayCap); const p = await DIST.plan_run(db, {}, env); rec.rebalanced += await rebalanceDays(db, now, dayCap); st.last_plan = now; rec.planned = (p && p.social) || 0; } catch (e) { rec.skipped.push({ why: 'plan-error', err: String(e && e.message).slice(0, 120) }); } }; // chỉ D1, 0 lượt GrabCast. Slot đã lỡ quá 12 giờ (GrabCast sập, lịch CI trễ) → xóa để xếp lại, không kẹt 'planned' mãi
+  const planNow = async () => { try { await ytSetup(db); await run(db, "DELETE FROM dist_social WHERE state = 'planned' AND source = 'auto' AND slot_ms BETWEEN ? AND ?", now - 90 * 864e5, now - MAX_LATE_MS); rec.rebalanced = (rec.rebalanced || 0) + await rebalanceDays(db, now, dayCap, 120, outOfTime); const p = await DIST.plan_run(db, {}, env); rec.rebalanced += await rebalanceDays(db, now, dayCap, 120, outOfTime); st.last_plan = now; rec.planned = (p && p.social) || 0; } catch (e) { rec.skipped.push({ why: 'plan-error', err: String(e && e.message).slice(0, 120) }); } }; // chỉ D1, 0 lượt GrabCast. Slot đã lỡ quá 12 giờ (GrabCast sập, lịch CI trễ) → xóa để xếp lại, không kẹt 'planned' mãi
   const queuedNew = await ytSetup(db).then(() => autoQueue(env, db, cfg, now)).catch(() => { rec.skipped.push({ why: 'auto-queue-error' }); return 0; }); rec.auto_queued = queuedNew;
-  if (cfg.plan_daily && (queuedNew || now - (+st.last_plan || 0) > 20 * 36e5)) await planNow();
+  if (cfg.plan_daily && !outOfTime() && (queuedNew || now - (+st.last_plan || 0) > 20 * 36e5)) await planNow();
 
   /** Bình luận đầu qua GrabCast (§6c): nội dung sản xuất + link đếm click; gắn vào target options.first_comment (1 lệnh tạo bài – không có lệnh thứ 2 nên không thể đăng trùng,
    *  nội dung nằm trong dấu băm duyệt). Chỉ khi: công tắc fc bật · kênh GrabCast báo capabilities.first_comment · còn hạn mức kênh/ngày. → { text, why } */
@@ -470,7 +472,7 @@ export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = f
       if (accs.length > hadCh) { const q = await autoQueue(env, db, cfg, now).catch(() => 0); rec.auto_queued = (rec.auto_queued || 0) + q; if (cfg.plan_daily) await planNow(); } // vừa nối kênh mới → duyệt clip đạt QC + xếp lịch ngay, không đợi hôm sau
     }
     // 2) Bài đến hạn (trước đó: trần cứng 1 bài/kênh/ngày – dời bài dư sang ngày trống của kênh)
-    try { rec.rebalanced = (rec.rebalanced || 0) + await rebalanceDays(db, now, dayCap); } catch (e) { rec.skipped.push({ why: 'rebalance-error', err: String(e && e.message).slice(0, 120) }); }
+    try { rec.rebalanced = (rec.rebalanced || 0) + await rebalanceDays(db, now, dayCap, 120, outOfTime); } catch (e) { rec.skipped.push({ why: 'rebalance-error', err: String(e && e.message).slice(0, 120) }); }
     const due = pickDue((await DIST.social_due(db, { from: now + cfg.lead_min * 60e3, to: now + cfg.lookahead_h * 36e5 }, env)).rows, cfg, now).filter(r => !skipPlats.includes(r.platform));
     rec.due = due.length;
     const manual = cfg.auto_approve ? await manualCounts(db) : {}, manualFc = cfg.auto_approve ? await manualCounts(db, { fc: true }) : {};
