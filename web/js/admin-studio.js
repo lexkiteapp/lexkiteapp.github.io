@@ -83,9 +83,9 @@
         <div class="stu-grid"><section class="card">${assets(as && as.assets)}</section><section class="card" id="stuSetBox" hidden></section></div>`;
       const msg = (t, bad) => { const m = box.querySelector('#stuMsg'); m.textContent = t; m.className = 'small stu-msg ' + (bad ? 'stu-bad' : 'stu-ok'); };
       box.querySelector('#stuReload').onclick = reload;
-      box.querySelector('#stuNew').onclick = async () => { const t = prompt(S('Chủ đề video (vd: Đừng nói "I\'m agree"):')); if (!t || !t.trim()) return; try { const r = await stapi('create', { topic: t.trim(), format: confirm(S('Bài dài (YouTube 16:9)?')) ? 'lesson' : 'short', lang: 'en' }); reload(); setTimeout(() => detail(r.job.id), 300); } catch (e) { msg(errMsg(e), 1); } };
+      box.querySelector('#stuNew').onclick = async () => { const t = await LXDialog.prompt(S('Chủ đề video (vd: Đừng nói "I\'m agree"):')); if (!t || !t.trim()) return; try { const r = await stapi('create', { topic: t.trim(), format: await LXDialog.confirm(S('Bài dài (YouTube 16:9)?')) ? 'lesson' : 'short', lang: 'en' }); reload(); setTimeout(() => detail(r.job.id), 300); } catch (e) { msg(errMsg(e), 1); } };
       box.querySelector('#stuQueue').onclick = async () => { try { const r = await stapi('createFromQueue', { n: 3 }); msg(S('Đã tạo {n} job · còn {l} chủ đề', { n: r.jobs.length, l: r.left })); setTimeout(reload, 900); } catch (e) { msg(errMsg(e), 1); } };
-      box.querySelector('#stuAuto').onchange = async e => { const on = e.target.checked; if (on && !confirm(S('Bật chế độ tự động? Kịch bản AI hợp lệ sẽ tự dựng; video QA ≥ 90 tự lên lịch đăng công khai (sau {n} video duyệt tay).', { n: st.manualFirst }))) { e.target.checked = false; return; } try { await stapi('settingsSet', { settings: { auto: on } }); reload(); } catch (x) { e.target.checked = !on; msg(errMsg(x), 1); } };
+      box.querySelector('#stuAuto').onchange = async e => { const on = e.target.checked; if (on && !await LXDialog.confirm(S('Bật chế độ tự động? Kịch bản AI hợp lệ sẽ tự dựng; video QA ≥ 90 tự lên lịch đăng công khai (sau {n} video duyệt tay).', { n: st.manualFirst }))) { e.target.checked = false; return; } try { await stapi('settingsSet', { settings: { auto: on } }); reload(); } catch (x) { e.target.checked = !on; msg(errMsg(x), 1); } };
       box.querySelector('#stuSet').onclick = () => settings(st);
       box.querySelector('.stu-board').onclick = e => { const b = e.target.closest('[data-id]'); if (b) detail(b.dataset.id); };
     }).catch(e => { if (my === gen) box.innerHTML = `<p class="small stu-bad">✗ ${esc(errMsg(e))}</p>`; });
@@ -160,17 +160,17 @@
       $('#dx').onclick = () => d.close();
       if ($('#dadd')) $('#dadd').onclick = () => $('#dl').insertAdjacentHTML('beforeend', lineRow({ who: 'mia', beat: 'situation', text: '' }, d.querySelectorAll('#dl tr').length));
       $('#dl').onclick = e => { const b = e.target.closest('[data-del]'); if (b) b.closest('tr').remove(); };
-      if ($('#dgen')) $('#dgen').onclick = () => run('#dm1', async () => { out('#dm1', S('Đang tải…')); const x = await stapi('scriptGen', { id }); if (!x.ai) alert(S('AI chưa sẵn sàng – đã tạo khung mẫu, hãy sửa tay.')); });
+      if ($('#dgen')) $('#dgen').onclick = () => run('#dm1', async () => { out('#dm1', S('Đang tải…')); const x = await stapi('scriptGen', { id }); if (!x.ai) LXDialog.alert(S('AI chưa sẵn sàng – đã tạo khung mẫu, hãy sửa tay.')); });
       if ($('#dsave')) $('#dsave').onclick = () => run('#dm1', () => stapi('scriptSave', { id, script: collect() }));
       if ($('#dok')) $('#dok').onclick = () => run('#dm1', async () => { if (editable && can('script')) await stapi('scriptSave', { id, script: collect() }); await stapi('scriptApprove', { id }); });
-      if ($('#drender')) $('#drender').onclick = () => { if (confirm(S('Chạy GitHub Actions video.yml để dựng job này?'))) run('#dm2', () => stapi('render', { id })); };
+      if ($('#drender')) $('#drender').onclick = async () => { if (await LXDialog.confirm(S('Chạy GitHub Actions video.yml để dựng job này?'))) run('#dm2', () => stapi('render', { id })); };
       if ($('#dqa')) $('#dqa').onclick = () => run('#dm3', () => stapi('qaSet', { id, scores: Object.fromEntries([...d.querySelectorAll('[data-qk]')].map(i => [i.dataset.qk, i.value === '' ? null : +i.value])) }));
       d.querySelectorAll('[data-at]').forEach(b => b.onclick = () => { const t = new Date(+b.dataset.at); $('#dat').value = new Date(+t - t.getTimezoneOffset() * 6e4).toISOString().slice(0, 16); });
       const atVal = () => ($('#dat') && $('#dat').value ? new Date($('#dat').value).toISOString() : undefined);
-      if ($('#dpub')) $('#dpub').onclick = () => { const at = atVal(); if (confirm(S('Tải lên GrabCast, tạo bài và lên lịch lúc {d}?', { d: at ? nyWhen(at) : S('khung trống kế tiếp') }))) run('#dm4', () => stapi('publish', { id, at, confirm: true })); };
-      if ($('#dsch')) $('#dsch').onclick = () => { const at = atVal(); if (confirm(S('Tải lên GrabCast, tạo bài và lên lịch lúc {d}?', { d: at ? nyWhen(at) : S('khung trống kế tiếp') }))) run('#dm4', () => stapi('schedule', { id, at })); };
-      if ($('#dunsch')) $('#dunsch').onclick = () => { if (confirm(S('Hủy lịch bài này? Bài trở về "Đã tải lên".'))) run('#dm4', () => stapi('unschedule', { id })); };
-      if ($('#ddel')) $('#ddel').onclick = async () => { if (confirm(S('Xóa job này?'))) { try { await stapi('jobDelete', { id }); d.close(); } catch (e) { alert(errMsg(e)); } } };
+      if ($('#dpub')) $('#dpub').onclick = async () => { const at = atVal(); if (await LXDialog.confirm(S('Tải lên GrabCast, tạo bài và lên lịch lúc {d}?', { d: at ? nyWhen(at) : S('khung trống kế tiếp') }))) run('#dm4', () => stapi('publish', { id, at, confirm: true })); };
+      if ($('#dsch')) $('#dsch').onclick = async () => { const at = atVal(); if (await LXDialog.confirm(S('Tải lên GrabCast, tạo bài và lên lịch lúc {d}?', { d: at ? nyWhen(at) : S('khung trống kế tiếp') }))) run('#dm4', () => stapi('schedule', { id, at })); };
+      if ($('#dunsch')) $('#dunsch').onclick = async () => { if (await LXDialog.confirm(S('Hủy lịch bài này? Bài trở về "Đã tải lên".'))) run('#dm4', () => stapi('unschedule', { id })); };
+      if ($('#ddel')) $('#ddel').onclick = async () => { if (await LXDialog.confirm(S('Xóa job này?'))) { try { await stapi('jobDelete', { id }); d.close(); } catch (e) { LXDialog.alert(errMsg(e)); } } };
     }
   }
   window.AdminStudio = { render };

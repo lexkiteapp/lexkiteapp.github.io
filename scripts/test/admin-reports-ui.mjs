@@ -14,7 +14,7 @@ const mk = (i, x = {}) => ({ tid: 'LX-' + i, status: 'new', sev: 'P1', cat: 'bug
 function setup({ wide = false, list = [mk(1001), mk(1002), mk(1003), mk(1004, { cat: 'idea' })] } = {}) {
   const dom = new JSDOM('<!doctype html><html><head></head><body><main id="m"></main></body></html>', { url: 'https://lk.test/admin.html#reports', runScripts: 'outside-only', pretendToBeVisual: true });
   const w = dom.window, d = w.document, calls = [];
-  w.console.error = () => {}; w.alert = () => {}; w.confirm = () => true;
+  w.console.error = () => {}; w.alert = () => {}; w.confirm = () => true;;Object.defineProperty(w,'LXDialog',{configurable:true,get:()=>({confirm:async m=>w.confirm(m),prompt:async(m,d)=>w.prompt(m,d),alert:async m=>w.alert(m)})}); // cầu nối: test vẫn giả hộp thoại bằng w.confirm/prompt/alert
   if (wide) w.matchMedia = () => ({ matches: true, addEventListener() {}, removeEventListener() {} });
   w.firebase = { auth: () => ({ currentUser: { getIdToken: async () => 'tok' } }) };
   const st = { rows: list, fail: false };

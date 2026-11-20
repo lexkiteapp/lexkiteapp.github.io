@@ -485,7 +485,7 @@
       if (idleMin > 0 && Date.now() - lastAct >= idleMin * 60000) {
         clearInterval(idleTimer); idleTimer = null;
         try { await auth.signOut(); } catch (e) { /* bỏ qua */ }
-        alert(L('Đã tự động đăng xuất do không thao tác trong {n} phút.', { n: idleMin }));
+        LXDialog.alert(L('Đã tự động đăng xuất do không thao tác trong {n} phút.', { n: idleMin }));
         location.reload();
       }
     }, 15000);
