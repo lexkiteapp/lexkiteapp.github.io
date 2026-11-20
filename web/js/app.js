@@ -600,8 +600,10 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
     };
     // Không dùng View Transitions (Chrome vẽ lệch ảnh trang cũ khi Quay lại).
     // Chỉ hiệu ứng mờ-trồi nhẹ bằng CSS trên #view – mượt, không bao giờ vẽ sai.
-    view.style.animation = 'none'; void view.offsetWidth; view.style.animation = '';
+    // khởi động lại hiệu ứng mờ-trồi KHÔNG ép layout đồng bộ (void offsetWidth = tính lại bố cục cả trang cũ ở mỗi lần đổi route): bỏ animation, vẽ, trả animation ở khung kế
+    view.style.animation = 'none';
     render();
+    requestAnimationFrame(() => { view.style.animation = ''; });
   }
   App.route = route;
   // Đổi trang (SPA) cho trình đọc màn hình: tiêu đề tab theo h1 của trang + đưa focus về vùng nội dung khi bấm từ thanh điều hướng
