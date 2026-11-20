@@ -6,6 +6,9 @@ on:
   workflow_dispatch:
     inputs:
       base_url: { description: 'đo bản đã chạy (vd. https://lexkite.com) thay vì dựng dist; trống = dựng dist của nhánh', default: '' }
+  push:
+    branches: [main]
+    paths: ['web/css/**', 'web/fonts/**', 'web/app/index.html', 'web/js/ms-*.js', 'web/js/st/**', 'web/js/ui.js', 'scripts/build-ms-icons.py', 'scripts/test/icon-blank.mjs']
   pull_request:
     paths: ['web/css/**', 'web/fonts/**', 'web/app/index.html', 'web/js/ms-*.js', 'web/js/st/**', 'web/js/ui.js', 'scripts/build-ms-icons.py', 'scripts/test/icon-blank.mjs', 'scripts/test/ms-icons.mjs', '.github/workflows/icon-blank.yml']
 permissions: { contents: read }
@@ -16,6 +19,7 @@ jobs:
   # luật 11 (làn nhanh trước làn nặng, scripts/test/ci-policy.mjs): trên PR việc nặng chỉ chạy khi `npm test` đã XANH cùng sha (hoặc PR có nhãn `ready`) – đỏ/chưa xong thì mọi job dưới là skipped
   # (không chiếm runner); npm-test.yml job `heavy` chạy lại lượt này ngay khi npm test xanh (scripts/ci/heavy-rerun.mjs). Lỗi API → mở cổng (không mất kiểm).
   gate:
+    if: ${{ github.event_name != 'pull_request' || contains(github.event.pull_request.labels.*.name, 'ready-heavy') || contains(github.event.pull_request.labels.*.name, 'ready') }}
     runs-on: ubuntu-latest
     timeout-minutes: 3
     permissions: { contents: read, checks: read }
