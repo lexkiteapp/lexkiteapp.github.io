@@ -57,6 +57,11 @@ jobs:
         if: ${{ !cancelled() }}
         timeout-minutes: 8
         run: node scripts/test/live-lesson-lang.mjs "$BASE" out/post-deploy/lesson-lang
+      - name: Khóa Español live × 15 ngôn ngữ giao diện (live-es-course.mjs – lộ trình/phát âm/thi thử: không lỗi JS, không chữ Việt, không undefined, không ảnh-âm thanh 4xx)
+        id: escourse
+        if: ${{ !cancelled() }}
+        timeout-minutes: 12
+        run: node scripts/test/live-es-course.mjs "$BASE" out/post-deploy/es-course
       - name: Cổng CSP (csp-probe.mjs --strict, tuyến chính + thư viện lười, Chromium + WebKit, có đối chứng new Function)
         id: csp
         if: ${{ !cancelled() }}
