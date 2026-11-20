@@ -889,16 +889,43 @@
    "tries": 0
   },
   "t2_l1_es_adj_order": {
-   "run": "43250165019",
-   "at": "2026-11-13T16:19Z",
+   "run": "44729177263",
+   "at": "2026-11-20T16:32Z",
    "score": {
+    "short": 100.0,
     "wide": 100.0
    },
    "sha": {
-    "wide": "0561bee4b9fc313f"
+    "short": "98dec7c988579040",
+    "wide": "fb51064e14bc0ade"
    },
+   "why": [],
+   "state": "banked",
+   "tries": 1
+  },
+  "t2_l1_es_adj_plural": {
+   "run": "44729177263",
+   "at": "2026-11-20T16:32Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "60df60f743015fbd",
+    "wide": "b9a9c515bc068ecb"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_es_after_eating": {
+   "run": "44729177263",
+   "at": "2026-11-20T16:32Z",
+   "score": {},
+   "sha": {},
    "why": [
-    "short: no render"
+    "short: no render",
+    "wide: no render"
    ],
    "state": "failed",
    "tries": 1
@@ -913,6 +940,21 @@
    "sha": {
     "short": "3e1de832bc78dde9",
     "wide": "7e9cd5c6448d4b6c"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_es_am_writing": {
+   "run": "44729177263",
+   "at": "2026-11-20T16:32Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "e4f4a3e809b046c9",
+    "wide": "e7df71ba5af27f48"
    },
    "why": [],
    "state": "banked",
@@ -933,6 +975,51 @@
    "state": "banked",
    "tries": 0
   },
+  "t2_l1_es_appointment": {
+   "run": "44729177263",
+   "at": "2026-11-20T16:32Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "187ba945a392f156",
+    "wide": "204360ac2a9f4c5f"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_es_arrive_at": {
+   "run": "44729177263",
+   "at": "2026-11-20T16:32Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "f78721f94b356408",
+    "wide": "8ea3545c13a5effb"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_es_as_tall_as": {
+   "run": "44729177263",
+   "at": "2026-11-20T16:32Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "6897f8635b14cd66",
+    "wide": "5b853234c0ae7a14"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
   "t2_l1_es_attend": {
    "run": "43250165019",
    "at": "2026-11-13T16:19Z",
@@ -948,9 +1035,39 @@
    "state": "banked",
    "tries": 0
   },
-  "t2_l1_es_can_q": {
-   "run": "43250165019",
-   "at": "2026-11-13T16:19Z",
+  "t2_l1_es_be_right": {
+   "run": "44729177263",
+   "at": "2026-11-20T16:32Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "3bbdecca88446747",
+    "wide": "c4c29587ea628c33"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_es_big_success": {
+   "run": "44729177263",
+   "at": "2026-11-20T16:32Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "fb7901076dc5afde",
+    "wide": "ed66d8600ae9f774"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_es_bored": {
+   "run": "44729177263",
+   "at": "2026-11-20T16:32Z",
    "score": {},
    "sha": {},
    "why": [
@@ -959,6 +1076,102 @@
    ],
    "state": "failed",
    "tries": 1
+  },
+  "t2_l1_es_buy_coffee": {
+   "run": "44729177263",
+   "at": "2026-11-20T16:32Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "01e07320e34cb8b6",
+    "wide": "ef3028e43a54f73b"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_es_by_bus": {
+   "run": "44729177263",
+   "at": "2026-11-20T16:32Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "2f47a1aab2c72b76",
+    "wide": "7b3e515499326159"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_es_can_q": {
+   "run": "44729177263",
+   "at": "2026-11-20T16:32Z",
+   "score": {},
+   "sha": {},
+   "why": [
+    "short: no render",
+    "wide: no render"
+   ],
+   "state": "failed",
+   "tries": 2
+  },
+  "t2_l1_es_cannot_stand": {
+   "run": "44729177263",
+   "at": "2026-11-20T16:32Z",
+   "score": {},
+   "sha": {},
+   "why": [
+    "short: no render",
+    "wide: no render"
+   ],
+   "state": "failed",
+   "tries": 1
+  },
+  "t2_l1_es_coffee": {
+   "run": "44729177263",
+   "at": "2026-11-20T16:32Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "446e5076525ff463",
+    "wide": "6c33ae9cc948737f"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_es_decimal_dot": {
+   "run": "44729177263",
+   "at": "2026-11-20T16:32Z",
+   "score": {},
+   "sha": {},
+   "why": [
+    "short: no render",
+    "wide: no render"
+   ],
+   "state": "failed",
+   "tries": 1
+  },
+  "t2_l1_es_decision": {
+   "run": "44729177263",
+   "at": "2026-11-20T16:32Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "db3285aed8f34ada",
+    "wide": "ea6c3d43a9c7119b"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
   },
   "t2_l1_es_depend": {
    "run": "43250165019",
@@ -975,6 +1188,21 @@
    "state": "banked",
    "tries": 0
   },
+  "t2_l1_es_despite_of": {
+   "run": "44729177263",
+   "at": "2026-11-20T16:32Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "76bf88bcdf7b4291",
+    "wide": "b1e99ce6b88d2a5c"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
   "t2_l1_es_do_homework": {
    "run": "43250165019",
    "at": "2026-11-13T16:19Z",
@@ -985,6 +1213,36 @@
    "sha": {
     "short": "14dafbb905022992",
     "wide": "9ecbab89589e5a0b"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_es_dream_about": {
+   "run": "44729177263",
+   "at": "2026-11-20T16:32Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "914bd08ba4db1cf0",
+    "wide": "1b289064f9d6dbfd"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_es_enter_room": {
+   "run": "44729177263",
+   "at": "2026-11-20T16:32Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "83c94a5844ec0ce2",
+    "wide": "de11725407245969"
    },
    "why": [],
    "state": "banked",
