@@ -40,7 +40,7 @@
   const ic = id => `<svg class="i" aria-hidden="true" focusable="false"><use href="#i-${id}"/></svg>`;
   S.hubCss = () => { if (document.getElementById('stHbCss')) return; const s = document.createElement('style'); s.id = 'stHbCss';
     s.textContent = `.hb{position:sticky;top:0;z-index:40;width:100%;box-sizing:border-box;padding:env(safe-area-inset-top,0px) 16px 6px;background:color-mix(in srgb,var(--bg) 94%,transparent);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);color:var(--text)}
-.hb-r{display:flex;align-items:center;gap:4px}.hb-r2{margin-top:2px;gap:6px}
+.hb-r{display:flex;align-items:center;gap:4px;height:44px}.hb-r2{margin-top:2px;gap:6px}
 .hb-b{flex:none;position:relative;display:flex;align-items:center;justify-content:center;width:44px;height:44px;margin:0;padding:0;border:0;background:none;color:var(--heading);font:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}
 .hb-b .i{width:22px;height:22px}.hb-logo img{width:32px;height:32px;border-radius:9px;display:block}
 .hb-s{flex:1;min-width:0;display:flex;align-items:center;gap:8px;height:44px;margin:0;padding:0 14px;border:0;background:none;color:var(--muted);font:inherit;font-size:14px;cursor:pointer;text-align:start}

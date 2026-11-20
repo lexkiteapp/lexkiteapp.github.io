@@ -295,6 +295,7 @@
         try { localStorage.setItem('lk.ux1', '1'); } catch (e) { /* thanh hub chung chỉ có khi cờ ux1 BẬT (DESIGN-SYSTEM §5d, như hub-bar.mjs/frame-consistency): app trong Simulator offline không lấy được ux1_pct từ xa → bật cờ như Playwright */ }
         await host('appearance', { mode: s.th }); await sleep(1200);
         await visit(s.r, 'hub ' + s.th + ' ' + s.r, { wait: 9000 });
+        try { localStorage.setItem('lk.ota.nag', String(Date.now())); document.querySelectorAll('body > [role="dialog"][aria-modal="true"]').forEach(o => { const bt = o.querySelector('button'); if (bt) bt.click(); }); } catch (e) { /* hộp 'Có bản mới' của OTA (store có bản mới hơn bản CI) phủ cả thanh hub – không phải lỗi bố cục: bấm Để sau trước khi đo */ }
         await sleep(600); for (const m of hubMeasure(s.r)) add('hubbar', '[' + s.th + '/' + s.r + '] ' + m);
         return;
       }
