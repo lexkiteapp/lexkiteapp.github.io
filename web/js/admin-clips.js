@@ -164,7 +164,7 @@
     $('#cl-fx').onclick = () => { $('#cl-dr').hidden = true; $('#cl-fb').setAttribute('aria-expanded', 'false'); };
     $('#cl-dg').onchange = e => { const k = e.target.dataset.f; if (!k) return; const v = e.target.type === 'checkbox' ? e.target.checked : e.target.value; if (v === '' || v === false) delete f[k]; else f[k] = NUM.has(k) ? +v : v; reload(); };
     $('#cl-clr').onclick = () => { f = f.section ? { section: f.section } : {}; reload(); drawer(); };
-    $('#cl-svs').onclick = () => { const name = (prompt(V('Tên chế độ xem')) || '').trim().slice(0, 40); if (!name) return; const views = SV.filter(v => v.name !== name); views.push({ name, q: pure.toQuery(f) }); svSave(views.slice(-20)); drawer(); };
+    $('#cl-svs').onclick = async () => { const name = (await LXDialog.prompt(V('Tên chế độ xem')) || '').trim().slice(0, 40); if (!name) return; const views = SV.filter(v => v.name !== name); views.push({ name, q: pure.toQuery(f) }); svSave(views.slice(-20)); drawer(); };
     $('#cl-sv').onchange = e => { const v = SV[+e.target.value]; if (!v) return; f = pure.fromQuery(v.q); if (!SECS.includes(f.section || '')) f.section = ctx.section != null ? ctx.section : SECS[0]; if (!f.section) delete f.section; reload(); drawer(); };
     inn.addEventListener('click', e => {
       const g = e.target.closest('[data-g]'); if (g) { const k = g.dataset.g; collapsed.has(k) ? collapsed.delete(k) : collapsed.add(k); relayout(); return; }
@@ -199,15 +199,15 @@
           : a === 'delete' ? `<label><input type="checkbox" id="p-hard"> ${esc(V('Xóa hẳn (bỏ cả công thức)'))}</label>` : '';
       };
       act.onchange = prm; prm();
-      $('#cl-go').onclick = () => {
+      $('#cl-go').onclick = async () => {
         const a = act.value; if (!a) return; const p = {};
         if (a === 'reject') { p.reason = ($('#p-reason').value || '').trim(); if (!p.reason) return toast(V('Cần nhập lý do loại.')); }
         if (a === 'reschedule') { Object.assign(p, { start: $('#p-start').value, days: +$('#p-days').value, from: $('#p-from').value, to: $('#p-to').value }); if (!p.start || !(p.days >= 1) || !p.from || !p.to || p.to < p.from) return toast(V('Lịch không hợp lệ.')); }
         if (a === 'channel') p.channel_id = $('#p-ch').value;
         if (a === 'delete') p.hard = $('#p-hard').checked;
         const n2 = sel.count(S.total), label = V((ACT.find(x => x[0] === a) || [0, a])[1]);
-        if (a === 'delete' && p.hard) { const want = 'DELETE ' + n2, got = prompt(V('Xóa hẳn {n} video: file trên Kho Drive vào thùng rác và bỏ công thức – không hoàn tác. Gõ "{w}" để xác nhận.', { n: num(n2), w: want })); if (got !== want) return toast(V('Chưa xác nhận – không xóa.')); Object.assign(p, { confirm: want, total: n2 }); }
-        if (!confirm(a === 'delete' ? V('Thao tác nguy hiểm: xóa {n} video. Tiếp tục?', { n: num(n2) }) : V('{a} cho {n} video?', { a: label, n: num(n2) }))) return;
+        if (a === 'delete' && p.hard) { const want = 'DELETE ' + n2, got = await LXDialog.prompt(V('Xóa hẳn {n} video: file trên Kho Drive vào thùng rác và bỏ công thức – không hoàn tác. Gõ "{w}" để xác nhận.', { n: num(n2), w: want })); if (got !== want) return toast(V('Chưa xác nhận – không xóa.')); Object.assign(p, { confirm: want, total: n2 }); }
+        if (!await LXDialog.confirm(a === 'delete' ? V('Thao tác nguy hiểm: xóa {n} video. Tiếp tục?', { n: num(n2) }) : V('{a} cho {n} video?', { a: label, n: num(n2) }))) return;
         exec({ action: a, params: p, ids: null, pos: 0 });
       };
     }

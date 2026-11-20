@@ -49,7 +49,7 @@ async function device(uid, disk) {
   w.UI = { icon: (n, cls) => `<svg class="i${cls ? ' ' + cls : ''}" aria-hidden="true"><use href="#i-${n}"/></svg>`, addIcons: () => {}, glyph: e => e, $: s => w.document.querySelector(s), esc: s => String(s), toast: () => {}, modal: () => w.document.getElementById('modalBox'), closeModal: () => {} };
   w.App = { state: { cards: {} }, updateChrome: () => {}, load: async () => {}, route: () => {}, need: async () => {} };
   w.FIREBASE_CONFIG = { apiKey: 'test' };
-  w.confirm = () => true; w.scrollTo = () => {};
+  w.confirm = () => true; w.scrollTo = () => {};;Object.defineProperty(w,'LXDialog',{configurable:true,get:()=>({confirm:async m=>w.confirm(m),prompt:async(m,d)=>w.prompt(m,d),alert:async m=>w.alert(m)})}); // cầu nối: test vẫn giả hộp thoại bằng w.confirm/prompt/alert
   let authCb = null; const token = await tok(uid);
   const auth = { onAuthStateChanged: cb => { authCb = cb; cb(null); }, signInWithPopup: async () => {}, signOut: async () => authCb && authCb(null) };
   w.firebase = { initializeApp: () => ({}), auth: Object.assign(() => auth, { GoogleAuthProvider: class { setCustomParameters() {} } }) };

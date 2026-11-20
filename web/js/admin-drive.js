@@ -230,7 +230,7 @@ const syncJs = () => window.AdminSync ? Promise.resolve() : new Promise(y => { c
           : ready ? `<div class="card" style="margin-top:1rem"><p class="small muted">${S('Chưa nối Drive nào. Bấm "Kết nối Google Drive" và đăng nhập tài khoản Google muốn dùng.')}</p></div>` : ''}`;
       const $ = s => host.querySelector(s);
       $('#drvReload').onclick = reload;
-      const cb = $('#drvConnect'); if (cb) cb.onclick = async () => { cb.disabled = true; cb.textContent = S('Đang mở Google…'); try { const r = await dapi('connect'); location.href = r.url; } catch (e) { cb.disabled = false; cb.textContent = S(d.drives.length ? '➕ Thêm Drive' : '➕ Kết nối Google Drive'); alert(errTxt(e)); } };
+      const cb = $('#drvConnect'); if (cb) cb.onclick = async () => { cb.disabled = true; cb.textContent = S('Đang mở Google…'); try { const r = await dapi('connect'); location.href = r.url; } catch (e) { cb.disabled = false; cb.textContent = S(d.drives.length ? '➕ Thêm Drive' : '➕ Kết nối Google Drive'); LXDialog.alert(errTxt(e)); } };
       host.querySelectorAll('[data-copy]').forEach(b => { b.onclick = () => { try { navigator.clipboard.writeText(b.dataset.copy); b.textContent = S('✓ Đã chép'); } catch (e) { /* bỏ qua */ } }; });
       host.querySelectorAll('[data-ds]').forEach(b => { b.onclick = () => { P.ds = b.dataset.ds === 'all' ? '' : b.dataset.ds; save(); overview(host, ready, c); }; });
       const dq = $('#drvDq'); if (dq) { let t = 0; dq.oninput = () => { clearTimeout(t); t = setTimeout(() => { P.dq = dq.value.trim(); save(); overview(host, ready, c); const n = host.querySelector('#drvDq'); n.focus(); n.setSelectionRange(n.value.length, n.value.length); }, 300); }; }
@@ -248,7 +248,7 @@ const syncJs = () => window.AdminSync ? Promise.resolve() : new Promise(y => { c
           const r = await dapi('rebalance');
           if (!r.plan.length) { pool.innerHTML = `<p class="small">${S('✓ Các Drive đã cân bằng (chênh ≤ 10 %)')}</p>`; return; }
           pool.innerHTML = `<p class="small"><b>${esc(S('Kế hoạch: chuyển {n} file · {b}', { n: r.plan.length, b: GB(r.bytes) }))}</b> (${S('chạy thử – chưa đổi gì')})</p><div class="drv-tw"><table class="drv-t"><tr><th>${S('File')}</th><th>${S('Dung lượng')}</th><th>${S('Từ')}</th><th>${S('Sang')}</th></tr>${r.plan.slice(0, 30).map(x => `<tr><td class="n">${esc(x.name)}</td><td>${GB(x.size)}</td><td>#${x.from} (${Math.round((r.before[x.from] || 0) * 100)}%)</td><td>#${x.to} (${Math.round((r.before[x.to] || 0) * 100)}%)</td></tr>`).join('')}</table></div><p class="tiny muted">${S('Áp dụng: chép sang Drive tỉ lệ thấp, kiểm md5, rồi chuyển bản cũ vào thùng rác (dung lượng giải phóng khi dọn thùng rác).')}</p><button class="btn primary sm" data-apply>${S('Áp dụng')}</button>`;
-          pool.querySelector('[data-apply]').onclick = async () => { if (!confirm(S('Chép {n} file sang Drive khác rồi chuyển bản cũ vào thùng rác?', { n: r.plan.length }))) return; try { const x = await dapi('rebalance', { apply: true }); toast(S('✓ Đã chuyển {n} file · còn {m}', { n: x.done.length, m: x.remaining })); } catch (e) { toast(errTxt(e)); } };
+          pool.querySelector('[data-apply]').onclick = async () => { if (!await LXDialog.confirm(S('Chép {n} file sang Drive khác rồi chuyển bản cũ vào thùng rác?', { n: r.plan.length }))) return; try { const x = await dapi('rebalance', { apply: true }); toast(S('✓ Đã chuyển {n} file · còn {m}', { n: x.done.length, m: x.remaining })); } catch (e) { toast(errTxt(e)); } };
         } catch (e) { pool.innerHTML = `<p class="small">${esc(errTxt(e))}</p>`; }
       };
       const rp = $('#drvRepair'); if (rp) rp.onclick = async () => {
@@ -275,12 +275,12 @@ const syncJs = () => window.AdminSync ? Promise.resolve() : new Promise(y => { c
             if (a === 'reconnect') { b.disabled = true; try { const r = await dapi('connect', { reconnect_id: id }); location.href = r.url; } catch (e) { b.disabled = false; msg.textContent = errTxt(e); } return; }
             if (a === 'weight') return act(() => dapi('set_weight', { id, weight: +el.querySelector('[data-w]').value }), S('✓ Đã lưu'));
             if (a === 'quota') return act(() => dapi('refresh_quota', { id }), S('✓ Đã cập nhật'));
-            if (a === 'drain') { if (confirm(S('Rút Drive {e}? Drive sẽ không nhận file mới (file cũ vẫn giữ, vẫn tải được).', { e: x.email }))) act(() => dapi('drain', { id }), S('✓ Đã lưu')); return; }
+            if (a === 'drain') { if (await LXDialog.confirm(S('Rút Drive {e}? Drive sẽ không nhận file mới (file cũ vẫn giữ, vẫn tải được).', { e: x.email }))) act(() => dapi('drain', { id }), S('✓ Đã lưu')); return; }
             if (a === 'resume') return act(() => dapi('drain', { id, on: false }), S('✓ Đã lưu'));
             if (a === 'disconnect') {
-              const t = prompt(S('Ngắt kết nối {e}?\nLexkite thu hồi quyền ở Google và xóa bản ghi {n} file khỏi danh sách (file trong Drive của bạn KHÔNG bị xóa).\nGõ lại email để xác nhận:', { e: x.email, n: x.files }));
+              const t = await LXDialog.prompt(S('Ngắt kết nối {e}?\nLexkite thu hồi quyền ở Google và xóa bản ghi {n} file khỏi danh sách (file trong Drive của bạn KHÔNG bị xóa).\nGõ lại email để xác nhận:', { e: x.email, n: x.files }));
               if (t == null) return;
-              if (t.trim().toLowerCase() !== x.email.toLowerCase()) { alert(S('Email không khớp – chưa ngắt gì.')); return; }
+              if (t.trim().toLowerCase() !== x.email.toLowerCase()) { LXDialog.alert(S('Email không khớp – chưa ngắt gì.')); return; }
               act(() => dapi('disconnect', { id }), S('✓ Đã ngắt kết nối'));
             }
           };
@@ -370,10 +370,10 @@ const syncJs = () => window.AdminSync ? Promise.resolve() : new Promise(y => { c
       async function download(it) { try { const r = await dapi('preview', { drive_id: drive.id, file_id: it.id }); const a = document.createElement('a'); a.href = r.url; a.download = it.name; document.body.appendChild(a); a.click(); a.remove(); } catch (e) { toast(errTxt(e)); } }
       const doTrash = async ids => { try { const r = await dapi('trash', { drive_id: drive.id, file_ids: ids }); toast(S('✓ Đã chuyển {n} mục vào thùng rác', { n: r.done.length }) + (r.failed.length ? ' · ' + S('{n} lỗi', { n: r.failed.length }) : ''), r.done.length ? async () => { await dapi('restore', { drive_id: drive.id, file_ids: r.done }); load(); } : null); load(); } catch (e) { toast(errTxt(e)); } };
       const doRestore = async ids => { try { const r = await dapi('restore', { drive_id: drive.id, file_ids: ids }); toast(S('✓ Đã khôi phục {n} mục', { n: r.done.length })); load(); } catch (e) { toast(errTxt(e)); } };
-      const typed = msg => { const t = prompt(msg + '\n\n' + S('Gõ DELETE để xác nhận:')); return t != null && t.trim() === 'DELETE'; };
-      const doDelete = async ids => { if (!typed(S('Xóa VĨNH VIỄN {n} mục? Không thể khôi phục.', { n: ids.length }))) return; try { const r = await dapi('delete', { drive_id: drive.id, file_ids: ids, confirm: 'DELETE' }); toast(S('✓ Đã xóa vĩnh viễn {n} mục · giải phóng {b}', { n: r.done.length, b: GB(r.bytes) })); load(); } catch (e) { if (e.message !== 'reauth') toast(errTxt(e)); } };
-      const emptyTrash = async () => { if (!typed(S('Dọn sạch thùng rác của kho Lexkite trên {e}? File bị xóa vĩnh viễn.', { e: drive.email }))) return; try { const r = await dapi('empty_trash', { drive_id: drive.id, confirm: 'DELETE' }); toast(S('✓ Đã xóa vĩnh viễn {n} mục · giải phóng {b}', { n: r.done.length, b: GB(r.bytes) }) + (r.remaining ? ' · ' + S('còn {n}', { n: r.remaining }) : '')); load(); } catch (e) { if (e.message !== 'reauth') toast(errTxt(e)); } };
-      async function rename(it) { const n = prompt(S('Tên mới:'), it.name); if (!n || n === it.name) return; try { await dapi('rename', { drive_id: drive.id, file_id: it.id, name: n }); toast(S('✓ Đã đổi tên')); load(); } catch (e) { toast(errTxt(e)); } }
+      const typed = async msg => { const t = await LXDialog.prompt(msg + '\n\n' + S('Gõ DELETE để xác nhận:')); return t != null && t.trim() === 'DELETE'; };
+      const doDelete = async ids => { if (!await typed(S('Xóa VĨNH VIỄN {n} mục? Không thể khôi phục.', { n: ids.length }))) return; try { const r = await dapi('delete', { drive_id: drive.id, file_ids: ids, confirm: 'DELETE' }); toast(S('✓ Đã xóa vĩnh viễn {n} mục · giải phóng {b}', { n: r.done.length, b: GB(r.bytes) })); load(); } catch (e) { if (e.message !== 'reauth') toast(errTxt(e)); } };
+      const emptyTrash = async () => { if (!await typed(S('Dọn sạch thùng rác của kho Lexkite trên {e}? File bị xóa vĩnh viễn.', { e: drive.email }))) return; try { const r = await dapi('empty_trash', { drive_id: drive.id, confirm: 'DELETE' }); toast(S('✓ Đã xóa vĩnh viễn {n} mục · giải phóng {b}', { n: r.done.length, b: GB(r.bytes) }) + (r.remaining ? ' · ' + S('còn {n}', { n: r.remaining }) : '')); load(); } catch (e) { if (e.message !== 'reauth') toast(errTxt(e)); } };
+      async function rename(it) { const n = await LXDialog.prompt(S('Tên mới:'), it.name); if (!n || n === it.name) return; try { await dapi('rename', { drive_id: drive.id, file_id: it.id, name: n }); toast(S('✓ Đã đổi tên')); load(); } catch (e) { toast(errTxt(e)); } }
       async function move(ids) {
         let cur = null;
         const m = modal(`<h3 style="margin:.2rem 2rem .6rem 0">${esc(S('Chuyển {n} mục tới…', { n: ids.length }))}</h3><nav class="drv-crumbs" data-c></nav><div data-l style="max-height:50vh;overflow:auto"></div><div class="drv-bar" style="margin-top:.6rem"><button class="btn primary sm" data-go>${S('Chuyển vào đây')}</button></div>`);
@@ -448,7 +448,7 @@ const syncJs = () => window.AdminSync ? Promise.resolve() : new Promise(y => { c
       sum();
       res.querySelector('[data-apply]').onclick = async () => {
         const ids = [...res.querySelectorAll('input[data-id]')].filter(i => i.checked).map(i => i.dataset.id);
-        if (!ids.length || !confirm(S('Chuyển {n} file vào thùng rác của Google Drive? Khôi phục được trong 30 ngày.', { n: ids.length }))) return;
+        if (!ids.length || !await LXDialog.confirm(S('Chuyển {n} file vào thùng rác của Google Drive? Khôi phục được trong 30 ngày.', { n: ids.length }))) return;
         try {
           let done = [], failed = 0;
           for (let i = 0; i < ids.length; i += 200) { const x = await dapi('cleanup_apply', { drive_id: drive.id, file_ids: ids.slice(i, i + 200) }); done = done.concat(x.undo || []); failed += x.failed.length; }

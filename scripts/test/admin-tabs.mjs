@@ -32,7 +32,7 @@ const dom = new JSDOM(html, { url: 'https://lexkite.com/admin.html#overview', ru
 const w = dom.window, d = w.document, $ = s => d.querySelector(s), $$ = s => [...d.querySelectorAll(s)];
 w.localStorage.setItem('lk.admLang', 'vi');
 w.HTMLElement.prototype.scrollIntoView = () => {}; w.scrollTo = () => {}; w.matchMedia = () => ({ matches: false, addEventListener() {}, removeEventListener() {} });
-w.alert = m => errs.push('alert(): ' + m); w.confirm = () => false; w.prompt = () => null; // hộp thoại gốc lúc vẽ = lỗi (R6)
+w.alert = m => errs.push('alert(): ' + m); w.confirm = () => false; w.prompt = () => null; // hộp thoại gốc lúc vẽ = lỗi (R6);Object.defineProperty(w,'LXDialog',{configurable:true,get:()=>({confirm:async m=>w.confirm(m),prompt:async(m,d)=>w.prompt(m,d),alert:async m=>w.alert(m)})}); // cầu nối: test vẫn giả hộp thoại bằng w.confirm/prompt/alert
 w.HTMLCanvasElement.prototype.getContext = () => null;
 w.IntersectionObserver = class { observe() {} unobserve() {} disconnect() {} };
 w.ResizeObserver = class { observe() {} unobserve() {} disconnect() {} };

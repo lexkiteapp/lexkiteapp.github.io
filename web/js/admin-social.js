@@ -432,15 +432,15 @@
       $('#cmFc').oninput = e => { C.fc = e.target.value; C.srv = {}; refresh(); };
       $('#cmLink').oninput = e => { C.link = e.target.value; };
       $('#cmAcc').onchange = () => { C.acc = [...box.querySelectorAll('#cmAcc input:checked')].map(i => i.value); C.srv = {}; paintPT(); refresh(); };
-      $('#cmTpl').onchange = e => { const t = e.target.value !== '' && LS.get('tpl', [])[+e.target.value]; if (!t) return; if (C.cap.trim() && C.cap !== t.body && !confirm(S('Thay caption hiện tại bằng mẫu “{n}”?', { n: t.name }))) { e.target.value = ''; return; } C.cap = t.body; $('#cmCap').value = t.body; C.srv = {}; refresh(); };
-      $('#cmTplSave').onclick = () => { if (!C.cap.trim()) return msg(S('Nhập caption.'), false); const n = (prompt(S('Tên mẫu caption:')) || '').trim().slice(0, 60); if (!n) return; LS.set('tpl', [...LS.get('tpl', []).filter(x => x.name !== n), { name: n, body: C.cap }].slice(-50)); paintTpl(); };
-      $('#cmTplDel').onclick = () => { const l = LS.get('tpl', []), v = $('#cmTpl').value, i = v === '' ? -1 : +v; if (!l[i]) return msg(S('Chọn một mẫu caption trước.'), false); if (!confirm(S('Xóa mẫu “{n}”?', { n: l[i].name }))) return; l.splice(i, 1); LS.set('tpl', l); paintTpl(); };
-      $('#cmTags').onclick = e => {
+      $('#cmTpl').onchange = async e => { const t = e.target.value !== '' && LS.get('tpl', [])[+e.target.value]; if (!t) return; if (C.cap.trim() && C.cap !== t.body && !await LXDialog.confirm(S('Thay caption hiện tại bằng mẫu “{n}”?', { n: t.name }))) { e.target.value = ''; return; } C.cap = t.body; $('#cmCap').value = t.body; C.srv = {}; refresh(); };
+      $('#cmTplSave').onclick = async () => { if (!C.cap.trim()) return msg(S('Nhập caption.'), false); const n = (await LXDialog.prompt(S('Tên mẫu caption:')) || '').trim().slice(0, 60); if (!n) return; LS.set('tpl', [...LS.get('tpl', []).filter(x => x.name !== n), { name: n, body: C.cap }].slice(-50)); paintTpl(); };
+      $('#cmTplDel').onclick = async () => { const l = LS.get('tpl', []), v = $('#cmTpl').value, i = v === '' ? -1 : +v; if (!l[i]) return msg(S('Chọn một mẫu caption trước.'), false); if (!await LXDialog.confirm(S('Xóa mẫu “{n}”?', { n: l[i].name }))) return; l.splice(i, 1); LS.set('tpl', l); paintTpl(); };
+      $('#cmTags').onclick = async e => {
         const a = e.target.closest('[data-tag]'), x = e.target.closest('[data-tagdel]'), sets = tagSets();
         if (a) { const s = sets[+a.dataset.tag]; if (!s) return; const have = new Set(tagsIn(C.cap).map(t => t.trim().toLowerCase())), add = s.tags.map(t => '#' + t).filter(t => !have.has(t.toLowerCase())); if (add.length) { C.cap = C.cap.replace(/\s*$/, '') + (C.cap.trim() ? '\n\n' : '') + add.join(' '); $('#cmCap').value = C.cap; refresh(); } }
-        if (x) { const s = sets[+x.dataset.tagdel]; if (s && confirm(S('Xóa bộ hashtag “{n}”?', { n: s.name }))) { sets.splice(+x.dataset.tagdel, 1); LS.set('tags', sets); paintTags(); } }
+        if (x) { const s = sets[+x.dataset.tagdel]; if (s && await LXDialog.confirm(S('Xóa bộ hashtag “{n}”?', { n: s.name }))) { sets.splice(+x.dataset.tagdel, 1); LS.set('tags', sets); paintTags(); } }
       };
-      $('#cmTagSave').onclick = () => { const t = [...new Set(tagsIn(C.cap).map(x => x.trim().slice(1)))]; if (!t.length) return msg(S('Caption chưa có hashtag nào.'), false); const n = (prompt(S('Tên bộ hashtag:')) || '').trim().slice(0, 40); if (!n) return; LS.set('tags', [...tagSets().filter(x => x.name !== n), { name: n, tags: t.slice(0, 30) }].slice(-30)); paintTags(); };
+      $('#cmTagSave').onclick = async () => { const t = [...new Set(tagsIn(C.cap).map(x => x.trim().slice(1)))]; if (!t.length) return msg(S('Caption chưa có hashtag nào.'), false); const n = (await LXDialog.prompt(S('Tên bộ hashtag:')) || '').trim().slice(0, 40); if (!n) return; LS.set('tags', [...tagSets().filter(x => x.name !== n), { name: n, tags: t.slice(0, 30) }].slice(-30)); paintTags(); };
       const pt = $('#cmPT');
       pt.onclick = e => { const x = e.target.closest('[data-p]'); if (x) { C.pt = x.dataset.p; paintPT(); } };
       pt.onkeydown = e => { const ps = selPlats(), d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0; if (!d || !ps.length) return; e.preventDefault(); C.pt = ps[(ps.indexOf(C.pt) + d + ps.length) % ps.length]; paintPT(); const f = pt.querySelector('[aria-selected=true]'); if (f) f.focus(); };
@@ -612,9 +612,9 @@
       if (mode === 'sched') { at = C.at ? new Date(C.at) : null; if (!at || isNaN(at)) return msg(S('Chọn giờ trước.'), false); if (+at < Date.now() + 6e4) return msg(S('Giờ đăng phải ở tương lai.'), false); }
       const n = C.acc.length, src = C.src.id ? (C.src.type === 'lk' ? String(C.src.id) : 'o:' + C.src.id) : '';
       if (mode !== 'val') {
-        const dup = dupOf(D.posts, { src, acc: C.acc, cap: C.cap }); if (dup && !confirm(S('Có vẻ trùng bài “{t}” ({s}) trên cùng kênh. Vẫn tạo bài mới?', { t: titleOf(dup).slice(0, 60), s: S(GLBL[GROUP(pick(dup, 'status', 'state'))][1]) }))) return;
+        const dup = dupOf(D.posts, { src, acc: C.acc, cap: C.cap }); if (dup && !await LXDialog.confirm(S('Có vẻ trùng bài “{t}” ({s}) trên cùng kênh. Vẫn tạo bài mới?', { t: titleOf(dup).slice(0, 60), s: S(GLBL[GROUP(pick(dup, 'status', 'state'))][1]) }))) return;
         const q = mode === 'draft' ? S('Tạo bài nháp trên {n} kênh?', { n }) : mode === 'sched' ? S('Tạo bài nháp trên {n} kênh và gửi duyệt (lên lịch {d} sau khi duyệt)?', { n, d: both(at) }) : S('Tạo bài nháp trên {n} kênh và gửi duyệt (đăng ngay sau khi duyệt)?', { n });
-        if (!confirm(q)) return;
+        if (!await LXDialog.confirm(q)) return;
       }
       busy(true);
       try {
@@ -706,9 +706,9 @@
       const p = (cal.posts || []).find(x => String(x.id) === String(pid)) || D.posts.find(x => String(x.id) === String(pid)); if (!p) return;
       const old = postTime(p), q = old ? nyParts(new Date(old)) : { hour: '12', minute: '00' }, at = hr && hr !== 'x' ? atNY(k, +hr) : atNY(k, +q.hour % 24, +q.minute);
       if (old && Math.abs(+at - +new Date(old)) < 6e4) return;
-      if (+at < Date.now() + 6e4) return alert(S('Giờ đăng phải ở tương lai.'));
-      if (!confirm(S('Dời bài “{t}” sang {d}?', { t: titleOf(p).slice(0, 60), d: both(at) }))) return;
-      try { await reschedule(p, at); } catch (e) { alert(S('✗ {e}', { e: errText(e) })); }
+      if (+at < Date.now() + 6e4) return LXDialog.alert(S('Giờ đăng phải ở tương lai.'));
+      if (!await LXDialog.confirm(S('Dời bài “{t}” sang {d}?', { t: titleOf(p).slice(0, 60), d: both(at) }))) return;
+      try { await reschedule(p, at); } catch (e) { LXDialog.alert(S('✗ {e}', { e: errText(e) })); }
       cal.posts = null; if (alive()) loadCal();
     }
 
@@ -748,7 +748,7 @@
     async function bulkRun() {
       const plan = B.plan; if (!plan || !plan.length) return; const ps = [...new Set(B.acc.map(id => platKey(accPlat(accById(id) || {}))))];
       if (ps.includes('tiktok') && !B.tt) return bmsg(S('Chọn quyền riêng tư TikTok (bắt buộc).'), false);
-      if (!confirm(S('Tạo {n} bài nháp trên {k} kênh theo kế hoạch và gửi duyệt? Sau khi duyệt, GrabCast tự đăng đúng giờ.', { n: plan.length, k: B.acc.length }))) return;
+      if (!await LXDialog.confirm(S('Tạo {n} bài nháp trên {k} kênh theo kế hoạch và gửi duyệt? Sau khi duyệt, GrabCast tự đăng đúng giờ.', { n: plan.length, k: B.acc.length }))) return;
       const gb = $('#bkGo'), pb = $('#bkPlan'); gb.disabled = pb.disabled = true; let ok = 0;
       const per = { youtube: { ...C.per.youtube, cap: '', privacy: B.yt }, tiktok: { ...C.per.tiktok, cap: '', privacy: B.tt }, instagram: { feed: true }, facebook_page: {}, threads: {} };
       const setSt = (i, t) => { plan[i].st = t; const c = box.querySelector(`#bkOut tr[data-row="${i}"] .st`); if (c) c.textContent = t; };
@@ -823,14 +823,14 @@
       d.addEventListener('click', async e => {
         const btn = e.target.closest('[data-act]'); if (!btn) return; const a = btn.dataset.act, t = titleOf(p).slice(0, 60), pid = encodeURIComponent(String(p.id));
         try {
-          if (a === 'schedule' || a === 'reschedule') { const at = await pickTime(); if (!at || !confirm(S('Lên lịch bài “{t}” lúc {d}?', { t, d: both(at) }))) return; btn.disabled = true; if (a === 'reschedule') await reschedule(p, at); else await sapi('POST', `posts/${pid}/schedule`, { scheduled_at: at.toISOString(), consent: true }); }
-          else if (a === 'publish') { if (!confirm(S('Đăng ngay bài “{t}” lên {p}? Bài sẽ công khai ngay.', { t, p: platsOf(p).map(pname).join(', ') || '?' }))) return; btn.disabled = true; await sapi('POST', `posts/${pid}/publish-now`, { consent: true }); }
-          else if (a === 'unschedule') { if (!confirm(S('Hủy lịch bài “{t}”? Bài trở về nháp.', { t }))) return; btn.disabled = true; await sapi('POST', `posts/${pid}/unschedule`, {}); }
-          else if (a === 'cancel') { if (!confirm(S('Hủy bài “{t}”? Bài sẽ không được đăng.', { t }))) return; btn.disabled = true; await sapi('POST', `posts/${pid}/cancel`, {}); }
-          else if (a === 'retry') { if (!confirm(S('Thử đăng lại bài “{t}”?', { t }))) return; btn.disabled = true;
-            try { await sapi('POST', `posts/${pid}/retry`, { consent: true }); } catch (er) { if (er && er.code === 'confirm_required' && confirm(S('Có thể gửi lại video lên TikTok lần nữa. Bạn đã kiểm tra trên TikTok và chắc chắn bài chưa lên?'))) await sapi('POST', `posts/${pid}/retry`, { consent: true, confirm: true }); else throw er; } }
+          if (a === 'schedule' || a === 'reschedule') { const at = await pickTime(); if (!at || !await LXDialog.confirm(S('Lên lịch bài “{t}” lúc {d}?', { t, d: both(at) }))) return; btn.disabled = true; if (a === 'reschedule') await reschedule(p, at); else await sapi('POST', `posts/${pid}/schedule`, { scheduled_at: at.toISOString(), consent: true }); }
+          else if (a === 'publish') { if (!await LXDialog.confirm(S('Đăng ngay bài “{t}” lên {p}? Bài sẽ công khai ngay.', { t, p: platsOf(p).map(pname).join(', ') || '?' }))) return; btn.disabled = true; await sapi('POST', `posts/${pid}/publish-now`, { consent: true }); }
+          else if (a === 'unschedule') { if (!await LXDialog.confirm(S('Hủy lịch bài “{t}”? Bài trở về nháp.', { t }))) return; btn.disabled = true; await sapi('POST', `posts/${pid}/unschedule`, {}); }
+          else if (a === 'cancel') { if (!await LXDialog.confirm(S('Hủy bài “{t}”? Bài sẽ không được đăng.', { t }))) return; btn.disabled = true; await sapi('POST', `posts/${pid}/cancel`, {}); }
+          else if (a === 'retry') { if (!await LXDialog.confirm(S('Thử đăng lại bài “{t}”?', { t }))) return; btn.disabled = true;
+            try { await sapi('POST', `posts/${pid}/retry`, { consent: true }); } catch (er) { if (er && er.code === 'confirm_required' && await LXDialog.confirm(S('Có thể gửi lại video lên TikTok lần nữa. Bạn đã kiểm tra trên TikTok và chắc chắn bài chưa lên?'))) await sapi('POST', `posts/${pid}/retry`, { consent: true, confirm: true }); else throw er; } }
           btn.textContent = S('✓ Xong'); cal.posts = null; await loadP(); if (alive()) { if (tab === 'posts') { paintChips(); paintList(); } else if (tab === 'calendar') loadCal(); }
-        } catch (er) { btn.disabled = false; alert(S('✗ {e}', { e: errText(er) })); }
+        } catch (er) { btn.disabled = false; LXDialog.alert(S('✗ {e}', { e: errText(er) })); }
       });
       paintD(); loadP();
       return { d, shut };

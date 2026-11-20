@@ -1292,7 +1292,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
     };
     $('#eReset').onclick = async () => { c.srs = SRS.newState(); await Cards.update(c); closeModal(); updateChrome(); toast(t('Thẻ sẽ được học lại như từ mới')); after && after(); };
     $('#eDel').onclick = async () => {
-      if (!confirm(t('Xóa “{w}” khỏi sổ từ?', { w: c.word }))) return;
+      if (!await LXDialog.confirm(t('Xóa “{w}” khỏi sổ từ?', { w: c.word }))) return;
       await Cards.remove(c.word); delete state.cards[c.word.toLowerCase()]; closeModal(); updateChrome(); if (window.Sync) Sync.schedule(); routes.deck(new URLSearchParams());
     };
   }

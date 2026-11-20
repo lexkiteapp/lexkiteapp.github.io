@@ -357,14 +357,14 @@
           container.querySelectorAll('[data-revoke]').forEach(btn => {
             btn.onclick = async () => {
               const id = btn.dataset.revoke;
-              if (confirm(L('Bạn có chắc chắn muốn thu hồi thông báo này? Người học sẽ không còn thấy thông báo nữa.'))) {
+              if (await LXDialog.confirm(L('Bạn có chắc chắn muốn thu hồi thông báo này? Người học sẽ không còn thấy thông báo nữa.'))) {
                 btn.disabled = true;
                 btn.textContent = L('Đang thu hồi…');
                 try {
                   await api('noticeRevoke', { id });
                   await loadData();
                 } catch (e) {
-                  alert(L('Lỗi: {e}', { e: e.message }));
+                  LXDialog.alert(L('Lỗi: {e}', { e: e.message }));
                   btn.disabled = false;
                   btn.textContent = L('Thu hồi');
                 }

@@ -261,14 +261,14 @@
       try {
         if (a === 'approve') {
           const n = (it.accounts || []).length;
-          if (it.mode !== 'now' && (!it.want_at || it.want_at < Date.now() + 6e4)) { if (!confirm(M('Chuyển “{t}” sang {s}?', { t, s: M('✅ Đã duyệt') }))) return; await ctx.sapi('POST', 'lk/board/approve', { id, publish: false }); msg(M('Giờ đăng chưa chọn hoặc đã qua – mở bài ở tab Bài đăng để chọn giờ.'), null); }
-          else { if (!confirm(it.mode === 'now' ? M('Duyệt bài “{t}” và ĐĂNG NGAY lên {n} kênh? Bài sẽ công khai ngay.', { t, n }) : M('Duyệt bài “{t}” và lên lịch đăng lên {n} kênh lúc {d}? GrabCast sẽ tự đăng đúng giờ.', { t, n, d: ctx.both(it.want_at) }))) return;
+          if (it.mode !== 'now' && (!it.want_at || it.want_at < Date.now() + 6e4)) { if (!await LXDialog.confirm(M('Chuyển “{t}” sang {s}?', { t, s: M('✅ Đã duyệt') }))) return; await ctx.sapi('POST', 'lk/board/approve', { id, publish: false }); msg(M('Giờ đăng chưa chọn hoặc đã qua – mở bài ở tab Bài đăng để chọn giờ.'), null); }
+          else { if (!await LXDialog.confirm(it.mode === 'now' ? M('Duyệt bài “{t}” và ĐĂNG NGAY lên {n} kênh? Bài sẽ công khai ngay.', { t, n }) : M('Duyệt bài “{t}” và lên lịch đăng lên {n} kênh lúc {d}? GrabCast sẽ tự đăng đúng giờ.', { t, n, d: ctx.both(it.want_at) }))) return;
             const r = await ctx.sapi('POST', 'lk/board/approve', { id }, { idem: 'apv-' + id.slice(2) + '-' + (it.want_at || 0) }); msg(r.error ? err({ code: r.error }) : M('✓ Xong'), !r.error); }
-        } else if (a === 'draft' || a === 'review' || a === 'idea') { if (!confirm(M('Chuyển “{t}” sang {s}?', { t, s: M((COLS.find(c => c[0] === a) || [])[1]) }))) return; await ctx.sapi('POST', 'lk/board/move', { id, state: a }); }
-        else if (a === 'dup') { if (!confirm(M('Nhân bản “{t}” thành bài nháp mới (phải duyệt lại)?', { t }))) return; await ctx.sapi('POST', 'lk/board/duplicate', { id }, { idem: 'dup-' + id.slice(2) + '-' + Date.now().toString(36) }); msg(M('✓ Xong'), true); }
-        else if (a === 'time') { const v = prompt(M('Giờ đăng (giờ máy bạn), dạng 2026-10-30 19:00'), it.want_at ? new Date(it.want_at - new Date().getTimezoneOffset() * 6e4).toISOString().slice(0, 16).replace('T', ' ') : ''); if (!v) return; const at = new Date(v.trim().replace(' ', 'T')); if (isNaN(at)) return msg(M('Giờ không hợp lệ.'), false); await ctx.sapi('POST', 'lk/board/time', { id, at: +at }); }
-        else if (a === 'link') { const u = location.origin + location.pathname + '#social/board/' + id; try { await navigator.clipboard.writeText(u); msg(M('✓ Đã chép link duyệt (chỉ quản trị viên mở được): {u}', { u }), true); } catch (e) { prompt(M('Chép link duyệt'), u); } return; }
-        else if (a === 'del') { if (!confirm(M('Xóa mục “{t}” khỏi bảng?', { t }))) return; await ctx.sapi('POST', 'lk/board/delete', { id }); }
+        } else if (a === 'draft' || a === 'review' || a === 'idea') { if (!await LXDialog.confirm(M('Chuyển “{t}” sang {s}?', { t, s: M((COLS.find(c => c[0] === a) || [])[1]) }))) return; await ctx.sapi('POST', 'lk/board/move', { id, state: a }); }
+        else if (a === 'dup') { if (!await LXDialog.confirm(M('Nhân bản “{t}” thành bài nháp mới (phải duyệt lại)?', { t }))) return; await ctx.sapi('POST', 'lk/board/duplicate', { id }, { idem: 'dup-' + id.slice(2) + '-' + Date.now().toString(36) }); msg(M('✓ Xong'), true); }
+        else if (a === 'time') { const v = await LXDialog.prompt(M('Giờ đăng (giờ máy bạn), dạng 2026-10-30 19:00'), it.want_at ? new Date(it.want_at - new Date().getTimezoneOffset() * 6e4).toISOString().slice(0, 16).replace('T', ' ') : ''); if (!v) return; const at = new Date(v.trim().replace(' ', 'T')); if (isNaN(at)) return msg(M('Giờ không hợp lệ.'), false); await ctx.sapi('POST', 'lk/board/time', { id, at: +at }); }
+        else if (a === 'link') { const u = location.origin + location.pathname + '#social/board/' + id; try { await navigator.clipboard.writeText(u); msg(M('✓ Đã chép link duyệt (chỉ quản trị viên mở được): {u}', { u }), true); } catch (e) { await LXDialog.prompt(M('Chép link duyệt'), u); } return; }
+        else if (a === 'del') { if (!await LXDialog.confirm(M('Xóa mục “{t}” khỏi bảng?', { t }))) return; await ctx.sapi('POST', 'lk/board/delete', { id }); }
         await load(); ctx.reloadPosts && ctx.reloadPosts();
       } catch (e) { msg(err(e), false); await load(); }
     }
@@ -364,16 +364,16 @@
       const $ = s => box.querySelector(s);
       $('#apSave').onclick = async () => {
         const cfg = { on: $('#apOn').checked, auto_approve: $('#apAA').checked, manual_first: Math.max(0, +$('#apN').value || 0), fc: { ...(A.cfg.fc || {}), on: !!($('#apFc') && $('#apFc').checked), per_ch_day: +(($('#apFcN') || {}).value) || 6 }, plats: Object.fromEntries([...box.querySelectorAll('[data-ap]')].map(i => [i.dataset.ap, i.checked])) };
-        if (cfg.auto_approve && !A.cfg.auto_approve && !confirm(M('Bật tự động duyệt? Bài autopilot sẽ được lên lịch công khai không cần anh duyệt – chỉ cho nền tảng đã có đủ bài duyệt tay.'))) return;
+        if (cfg.auto_approve && !A.cfg.auto_approve && !await LXDialog.confirm(M('Bật tự động duyệt? Bài autopilot sẽ được lên lịch công khai không cần anh duyệt – chỉ cho nền tảng đã có đủ bài duyệt tay.'))) return;
         try { A.cfg = (await ctx.sapi('POST', 'lk/auto/save', { cfg })).cfg; paint(); msg(M('✓ Đã lưu cài đặt'), true); } catch (e) { msg(err(e), false); }
       };
       $('#apRun').onclick = async () => {
-        if (!confirm(M('Chạy 1 lượt autopilot ngay (tính vào ngân sách GrabCast hôm nay)?'))) return;
+        if (!await LXDialog.confirm(M('Chạy 1 lượt autopilot ngay (tính vào ngân sách GrabCast hôm nay)?'))) return;
         $('#apRun').disabled = true; msg(M('Đang tải…'));
         try { const r = (await ctx.sapi('POST', 'lk/auto/run', {})).run || {}; await load(); msg(M('Xong: tạo {c} · lên lịch {s} · chờ duyệt {r} · {n} lượt GrabCast', { c: r.created || 0, s: r.scheduled || 0, r: r.review || 0, n: r.calls || 0 }), !r.stop); } catch (e) { msg(err(e), false); const b = $('#apRun'); if (b) b.disabled = false; }
       };
       $('#apProv').onclick = async () => {
-        const m = $('#apMode').value; if (!confirm(M('Chuyển đường đăng FB/IG sang “{m}”?', { m: M(MODES[m]) }))) return;
+        const m = $('#apMode').value; if (!await LXDialog.confirm(M('Chuyển đường đăng FB/IG sang “{m}”?', { m: M(MODES[m]) }))) return;
         try { A.cfg = (await ctx.sapi('POST', 'lk/auto/provider', { mode: m })).cfg; await load(); msg(M('✓ Đã chuyển đường đăng'), true); } catch (e) { msg(err(e), false); }
       };
       $('#apTkSave').onclick = async () => {
@@ -388,8 +388,8 @@
         const k = bt.dataset.sec, inp = box.querySelector('#apSec-' + k), v = inp.value.trim(); if (!v) return;
         try { const o = await ctx.sapi('POST', 'lk/auto/app', { kind: k, secret: v }); inp.value = ''; await load(); msg(M('✓ Đã lưu App Secret {k} (…{l})', { k: k === 'ig' ? 'Instagram' : 'Facebook', l: o.last4 }), true); } catch (e) { inp.value = ''; msg(err(e), false); }
       }; });
-      box.querySelectorAll('[data-tdel]').forEach(bt => { bt.onclick = async () => { if (!confirm(M('Xóa token Meta của kênh {c}?', { c: bt.dataset.tdel }))) return; try { await ctx.sapi('POST', 'lk/auto/token/del', { channel_id: bt.dataset.tdel }); await load(); } catch (e) { msg(err(e), false); } }; });
-      box.querySelectorAll('[data-apv]').forEach(bt => { bt.onclick = async () => { if (!confirm(M('Duyệt bài này để đăng qua Meta đúng giờ đã xếp?'))) return; try { await ctx.sapi('POST', 'lk/auto/approve', { id: bt.dataset.apv }); await load(); msg(M('✓ Xong'), true); } catch (e) { msg(err(e), false); } }; });
+      box.querySelectorAll('[data-tdel]').forEach(bt => { bt.onclick = async () => { if (!await LXDialog.confirm(M('Xóa token Meta của kênh {c}?', { c: bt.dataset.tdel }))) return; try { await ctx.sapi('POST', 'lk/auto/token/del', { channel_id: bt.dataset.tdel }); await load(); } catch (e) { msg(err(e), false); } }; });
+      box.querySelectorAll('[data-apv]').forEach(bt => { bt.onclick = async () => { if (!await LXDialog.confirm(M('Duyệt bài này để đăng qua Meta đúng giờ đã xếp?'))) return; try { await ctx.sapi('POST', 'lk/auto/approve', { id: bt.dataset.apv }); await load(); msg(M('✓ Xong'), true); } catch (e) { msg(err(e), false); } }; });
       const rs = $('#apReset'); if (rs) rs.onclick = async () => { try { await ctx.sapi('POST', 'lk/auto/reset', {}); await load(); } catch (e) { msg(err(e), false); } };
       box.querySelectorAll('[data-gob]').forEach(bt => { bt.onclick = () => goBoard(bt.dataset.gob); });
       box.querySelectorAll('[data-pv]').forEach(bt => { bt.onclick = () => openPv(bt.dataset.pv); });
@@ -483,13 +483,13 @@
     if (S.chMsg) host.querySelector('#chM').className = 'small ' + (S.chMsg[1] === true ? 'ok-t' : S.chMsg[1] === false ? 'bad-t' : 'muted');
     const $ = q => host.querySelector(q), msg = (t, k) => { S.chMsg = [t, k]; const m = $('#chM'); if (m) { m.textContent = t; m.className = 'small ' + (k === true ? 'ok-t' : k === false ? 'bad-t' : 'muted'); } };
     const pauseAll = async ask => {
-      if (ask && !confirm(M(PAUSE_Q))) return;
+      if (ask && !await LXDialog.confirm(M(PAUSE_Q))) return;
       msg(M('Đang tải…')); try { S.pauseRes = await ctx.sapi('POST', 'lk/auto/pause_all', {}); S.chMsg = null; await S.load(); } catch (e) { msg(err(e), false); }
     };
     if ($('#chPause')) $('#chPause').onclick = () => pauseAll(true);
     if ($('#chMore')) $('#chMore').onclick = () => pauseAll(true);
     if ($('#chResume')) $('#chResume').onclick = async () => {
-      if (!confirm(M('Chạy lại autopilot? Lượt nền kế tiếp (mỗi 2 giờ) sẽ lấy bài đến hạn. Bài đã gỡ lịch nằm ở cột Chờ duyệt – anh duyệt lại để đăng.'))) return;
+      if (!await LXDialog.confirm(M('Chạy lại autopilot? Lượt nền kế tiếp (mỗi 2 giờ) sẽ lấy bài đến hạn. Bài đã gỡ lịch nằm ở cột Chờ duyệt – anh duyệt lại để đăng.'))) return;
       try { await ctx.sapi('POST', 'lk/auto/save', { cfg: { on: true } }); S.pauseRes = null; S.chMsg = [M('✓ Autopilot đã chạy lại.'), true]; await S.load(); } catch (e) { msg(err(e), false); }
     };
     const yta = $('#chYtAuto'); if (yta) yta.onchange = async () => { try { await ctx.sapi('POST', 'lk/auto/save', { cfg: { yt_gc_auto: yta.checked } }); S.chMsg = [M('✓ Đã lưu cài đặt'), true]; await S.load(); } catch (e) { yta.checked = !yta.checked; msg(err(e), false); } };
@@ -583,7 +583,7 @@
       d.querySelector('form').onsubmit = ev => { ev.preventDefault(); const g = parseQueueCsv(d.querySelector('#qTx').value); shut(); plan = { groups: g.map(x => ({ ...x, st: '' })), clips: {} }; const go = $('#smgGo'); go.disabled = !g.length; go.textContent = M('Tạo {n} bài nháp & gửi duyệt', { n: g.length }); paintPlan(); };
     };
     $('#smgGo').onclick = async () => {
-      if (!plan || !plan.groups.length || !confirm(M('Tạo {n} bài nháp trên GrabCast (đẩy video lên kho GrabCast) và đưa vào cột Chờ duyệt?', { n: plan.groups.length }))) return;
+      if (!plan || !plan.groups.length || !await LXDialog.confirm(M('Tạo {n} bài nháp trên GrabCast (đẩy video lên kho GrabCast) và đưa vào cột Chờ duyệt?', { n: plan.groups.length }))) return;
       const go = $('#smgGo'); go.disabled = true; let ok = 0; const idem = 'q' + uid().slice(0, 20);
       for (let i = 0; i < plan.groups.length; i++) { // 1 nhóm/lượt (mỗi lượt đẩy video lớn) – bảng cập nhật dần
         const g = plan.groups[i]; g.st = '⏳'; paintPlan();
@@ -729,10 +729,10 @@
       const b = e.target.closest('[data-s],[data-del],[data-save]'); if (!b) return; const accs = (ctx.D.accounts || []);
       if (b.dataset.s) { const s = b.dataset.s, ids = s === '@fb' ? accs.filter(a => a.platform === 'facebook_page') : s === '@ig' ? accs.filter(a => a.platform === 'instagram') : s === '@all' ? accs : null; set(ids ? ids.map(a => String(a.id)) : ((sets.find(x => x.name === s) || {}).ids || []).filter(id => ctx.accById(id))); return; }
       try {
-        if (b.dataset.del) { if (!confirm(M('Xóa bộ “{n}”?', { n: b.dataset.del }))) return; await ctx.sapi('POST', 'lk/sets/delete', { name: b.dataset.del }); }
-        else { const ids = get(); if (!ids.length) return alert(M('Chọn kênh trước.')); const n = (prompt(M('Tên bộ kênh:')) || '').trim(); if (!n) return; await ctx.sapi('POST', 'lk/sets/save', { name: n.slice(0, 60), ids }); }
+        if (b.dataset.del) { if (!await LXDialog.confirm(M('Xóa bộ “{n}”?', { n: b.dataset.del }))) return; await ctx.sapi('POST', 'lk/sets/delete', { name: b.dataset.del }); }
+        else { const ids = get(); if (!ids.length) return LXDialog.alert(M('Chọn kênh trước.')); const n = (await LXDialog.prompt(M('Tên bộ kênh:')) || '').trim(); if (!n) return; await ctx.sapi('POST', 'lk/sets/save', { name: n.slice(0, 60), ids }); }
         sets = (await ctx.sapi('GET', 'lk/sets')).sets || []; paint();
-      } catch (e2) { alert(err(e2)); }
+      } catch (e2) { LXDialog.alert(err(e2)); }
     };
     paint(); ctx.sapi('GET', 'lk/sets').then(r => { sets = r.sets || []; if (el.isConnected) paint(); }).catch(() => {});
   }
