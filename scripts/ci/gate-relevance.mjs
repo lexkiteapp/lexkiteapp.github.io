@@ -28,6 +28,9 @@ export function prFilter(src = '') {
   return { pr: true, paths: listOf(block, 'paths'), ignore: listOf(block, 'paths-ignore') };
 }
 
+/** Luật 18: workflow nặng có job `gate` bỏ qua trên PR (trừ nhãn ready-heavy/ready) → với PR KHÔNG nhãn, đổi workflow đó không làm đổi kết quả PR (20/11: ~40 workflow vá luật 18 làm mọi PR UI "gộp lại main" 4 lần, #1626/#1547 đói CI). */
+export const skipsOnPr = (src = '') => /^    if:[^\n]*github\.event_name != 'pull_request'[^\n]*'ready-heavy'[^\n]*'ready'/m.test(src);
+
 /** Workflow (bản main) sẽ chạy cho PR có các tệp prFiles không? */
 export function workflowMatches(src, prFiles) {
   const f = prFilter(src); if (!f.pr) return false;
