@@ -100,6 +100,8 @@ ok(!prCapable('name: a\non:\n  workflow_run:\n    workflows: [b]\njobs: {}\n'), 
   ok(evaluate({ workflowRuns: [wr2('wip-guard', 'startup_failure', 7)] }).state === 'pending', 'chỉ có wip-guard hỏng, chưa có check thật nào → vẫn CHỜ, không xanh');
   ok(evaluate({ checkRuns: base, workflowRuns: [wr2('gate-impact', 'cancelled', 7), wr2('npm test', 'success', 8)] }).state === 'success', 'gate-impact cancelled (concurrency) = tư vấn → không đỏ');
   ok(evaluate({ checkRuns: base, workflowRuns: [wr2('gate-impact', 'failure', 7), wr2('npm test', 'success', 8)] }).state === 'failure', 'gate-impact failure thật vẫn đỏ');
+  ok(evaluate({ checkRuns: base, workflowRuns: [wr2('stitch-diff', 'success', 7), { ...wr2('stitch-diff', 'cancelled', 7), id: 9, run_number: 2 }, wr2('npm test', 'success', 8)] }).state === 'success', 'lượt huỷ mới hơn không che lượt xanh cùng head (20/11)');
+  ok(evaluate({ checkRuns: base, workflowRuns: [wr2('stitch-diff', 'failure', 7), { ...wr2('stitch-diff', 'cancelled', 7), id: 9, run_number: 2 }, wr2('npm test', 'success', 8)] }).state === 'failure', 'lượt huỷ mới hơn không che lượt ĐỎ thật cùng head');
 }
 
 // ---------- 3) workflow: bộ canh lịch, không quay lại ~20 runner/commit (3/11) ----------

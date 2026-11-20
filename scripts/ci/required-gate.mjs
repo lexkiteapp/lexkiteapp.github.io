@@ -45,7 +45,11 @@ export function evaluate({ checkRuns = [], statuses = [], workflowRuns = [] } = 
   for (const r of workflowRuns) {
     if (r.path === SELF_PATH || (r.path || '').startsWith(SELF_PATH + '@')) continue;
     const k = r.workflow_id ?? r.name, prev = wr.get(k);
-    if (!prev || (r.run_number || 0) > (prev.run_number || 0) || ((r.run_number || 0) === (prev.run_number || 0) && (r.id || 0) > (prev.id || 0))) wr.set(k, r);
+    // 20/11: lượt 'cancelled' (concurrency nhường lượt, vd. sự kiện labeled huỷ lượt cùng head) KHÔNG che lượt thật của cùng workflow trên cùng head:
+    // luôn ưu tiên lượt mới nhất KHÔNG bị huỷ; chỉ khi mọi lượt đều bị huỷ mới dùng lượt huỷ mới nhất (rồi chạy lại ≤ MAX_AUTO_RERUN).
+    const newer = (a, b) => (a.run_number || 0) > (b.run_number || 0) || ((a.run_number || 0) === (b.run_number || 0) && (a.id || 0) > (b.id || 0));
+    const canc = x => x.conclusion === 'cancelled';
+    if (!prev || (canc(prev) === canc(r) ? newer(r, prev) : canc(prev))) wr.set(k, r);
   }
   // 16/11 (điều phối): GitHub brownout `pull_request_target` (16:00–18:00 UTC) → wip-guard startup_failure trên mọi PR mở lúc đó, KHÔNG chạy lại được (rerun 403, chỉ chạy khi PR mở/mở lại) → gate đỏ oan cả PR xanh.
   // wip-guard chỉ gắn nhãn `frozen` (cảnh báo WIP), KHÔNG chấm mã PR → startup_failure của nó là lỗi hạ tầng: bỏ qua (neutral) và ghi vào `infra`, không chặn PR. Lỗi thật của wip-guard (failure) vẫn đỏ.
