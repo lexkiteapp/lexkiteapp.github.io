@@ -102,6 +102,7 @@
     const d = await build(); lastMore = d.more; const y = window.scrollY, ae = document.activeElement && document.activeElement.getAttribute && document.activeElement.getAttribute('data-act');
     const root = ST2.mount(view, 'me', d, 'me');
     d.late.then(ch => { if (ch && /^#\/me(\?|$)/.test(location.hash) && view.querySelector('.v2s-me')) me(); }, () => {}); // đáp án mạng về sau: chỉ vẽ lại khi vẫn ở trang Tôi
+    if (window.Target && Target.LANGS.length > 1) App.need('tlpick').then(() => window.TLPick && (TLPick.head(root), TLPick.card(root))).catch(() => {}); // cờ + thẻ "Khóa học khác"
     if (App.getApp) App.getApp(view);
     // Chưa đăng nhập: icon logout → login (đổi trong JS nên phải khai @icons login để có trong msym.woff2, nếu không chữ "login" hiện ra bị cắt – stitch-diff 06/11)
     if (!state.user) root.querySelectorAll('[data-act="out"] .material-symbols-outlined, [data-act="out"] .material-symbols-rounded').forEach(ic => { if (ic.textContent.trim() === 'logout') ic.textContent = 'login'; });

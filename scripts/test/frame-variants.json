@@ -75,6 +75,7 @@
   "outcome": {"variant": "inner", "surface": ["placement"]},
   "irregular": {"variant": "inner", "surface": ["verbs"]},
   "verb": {"variant": "inner", "surface": ["verbs"]},
+  "tlprep": {"variant": "inner", "surface": ["courses"]},
   "vocab": {"variant": "hub", "surface": ["hub-vocab"]},
   "watch": {"variant": "inner", "surface": ["listening"]},
   "welcome": {"variant": "focus", "surface": ["welcome"]},
