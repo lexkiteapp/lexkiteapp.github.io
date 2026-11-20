@@ -22,7 +22,7 @@ class SpeakSample(j: JsonObject) { val a = j.gs("a"); val vocab: List<Pair<Strin
 class SpeakPart(j: JsonObject) { val name = j.gs("name"); val lo = j.ga("target").getOrNull(0).num().toInt(); val hi = j.ga("target").getOrNull(1).num().toInt(); val prep = if (j["prep"] != null) j.gn("prep").toInt() else 0; val desc = j.gs("desc") }
 
 /** The mouth description of a vowel / the place + manner of a consonant. */
-class MouthSpec(j: JsonObject) { val lips = j.gs("lips"); val jaw = j.gs("jaw"); val tongue = j.gs("tongue"); val place = j.gs("place"); val manner = j.gs("manner")
+class MouthSpec(j: JsonObject) { val lips = j.gs("lips"); val jaw = j.gs("jaw"); val tongue = j.gs("tongue"); val back = j.gs("back"); val to: MouthSpec? = (j["to"] as? JsonObject)?.let { MouthSpec(it) }; val place = j.gs("place"); val manner = j.gs("manner")
     val voiced: Boolean? = (j["voiced"] as? kotlinx.serialization.json.JsonPrimitive)?.content?.let { it == "true" }
     val long: Boolean = (j["long"] as? kotlinx.serialization.json.JsonPrimitive)?.content == "true"
     val hasShape get() = lips.isNotEmpty() }
