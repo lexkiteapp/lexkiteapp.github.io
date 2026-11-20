@@ -36316,6 +36316,342 @@
     "a": "Neglect! Not plus gather.",
     "c": "Save this. Free on lexkite.com."
    }
+  },
+  "t2a_band_technology_1": {
+   "template": "band",
+   "hook": "Band five to nine",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --band-eps gates v1 (bands.json sentences == the row · mark inside its sentence · known reason · <= 14 words a sentence · spoken frame level <= B1 NGSL except the taught upgrade words · hook true · no duplicate topic)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "46b5b9bbe386",
+   "script": {
+    "h": "Band five to nine!",
+    "s5": "Technology is good for people.",
+    "s7": "Technology is beneficial because it eases communication.",
+    "w7": "A more exact word.",
+    "s9": "Technology transforms communication, though it can weaken personal ties.",
+    "w9": "It weighs both sides.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_band_health_1": {
+   "template": "band",
+   "hook": "Band five to nine",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --band-eps gates v1 (bands.json sentences == the row · mark inside its sentence · known reason · <= 14 words a sentence · spoken frame level <= B1 NGSL except the taught upgrade words · hook true · no duplicate topic)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "1daeff0c720b",
+   "script": {
+    "h": "Band five to nine!",
+    "s5": "Exercise is good for your health.",
+    "s7": "Regular exercise improves physical and mental health.",
+    "w7": "Words that go together naturally.",
+    "s9": "Exercise strengthens the body and, equally, steadies the mind.",
+    "w9": "A longer, richer structure.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_band_cities_1": {
+   "template": "band",
+   "hook": "Band five to nine",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --band-eps gates v1 (bands.json sentences == the row · mark inside its sentence · known reason · <= 14 words a sentence · spoken frame level <= B1 NGSL except the taught upgrade words · hook true · no duplicate topic)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "37b3e88e808a",
+   "script": {
+    "h": "Band five to nine!",
+    "s5": "Big cities have many problems.",
+    "s7": "Large cities face serious problems such as pollution.",
+    "w7": "Words that go together naturally.",
+    "s9": "Large cities face serious problems, yet they remain hubs of opportunity.",
+    "w9": "It weighs both sides.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_band_money_1": {
+   "template": "band",
+   "hook": "Band five to nine",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --band-eps gates v1 (bands.json sentences == the row · mark inside its sentence · known reason · <= 14 words a sentence · spoken frame level <= B1 NGSL except the taught upgrade words · hook true · no duplicate topic)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "13d0b18b0085",
+   "script": {
+    "h": "Band five to nine!",
+    "s5": "I think money is very important.",
+    "s7": "I believe money matters because it gives people security.",
+    "w7": "A more exact word.",
+    "s9": "Money matters, though it rarely buys lasting satisfaction.",
+    "w9": "Exact meaning, natural flow.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_band_travel_1": {
+   "template": "band",
+   "hook": "Band five to nine",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --band-eps gates v1 (bands.json sentences == the row · mark inside its sentence · known reason · <= 14 words a sentence · spoken frame level <= B1 NGSL except the taught upgrade words · hook true · no duplicate topic)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "bf136a7c864f",
+   "script": {
+    "h": "Band five to nine!",
+    "s5": "Travel is fun and you learn things.",
+    "s7": "Travelling is enjoyable and broadens your horizons.",
+    "w7": "Words that go together naturally.",
+    "s9": "Travel broadens the mind precisely because it unsettles assumptions.",
+    "w9": "Exact meaning, natural flow.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_band_environment_1": {
+   "template": "band",
+   "hook": "Band five to nine",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --band-eps gates v1 (bands.json sentences == the row · mark inside its sentence · known reason · <= 14 words a sentence · spoken frame level <= B1 NGSL except the taught upgrade words · hook true · no duplicate topic)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "79b2a629e548",
+   "script": {
+    "h": "Band five to nine!",
+    "s5": "We must protect the environment.",
+    "s7": "Governments should take action to protect the planet.",
+    "w7": "Words that go together naturally.",
+    "s9": "Governments must act now, otherwise future generations will pay.",
+    "w9": "A linking word adds logic.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_band_jobs_1": {
+   "template": "band",
+   "hook": "Band five to nine",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --band-eps gates v1 (bands.json sentences == the row · mark inside its sentence · known reason · <= 14 words a sentence · spoken frame level <= B1 NGSL except the taught upgrade words · hook true · no duplicate topic)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "c9697074929d",
+   "script": {
+    "h": "Band five to nine!",
+    "s5": "A good job is important.",
+    "s7": "A rewarding job gives people a sense of purpose.",
+    "w7": "A more exact word.",
+    "s9": "A rewarding job matters less for its salary than for the purpose it provides.",
+    "w9": "A longer, richer structure.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_band_food_1": {
+   "template": "band",
+   "hook": "Band five to nine",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --band-eps gates v1 (bands.json sentences == the row · mark inside its sentence · known reason · <= 14 words a sentence · spoken frame level <= B1 NGSL except the taught upgrade words · hook true · no duplicate topic)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "b21579df5c89",
+   "script": {
+    "h": "Band five to nine!",
+    "s5": "Fast food is bad for health.",
+    "s7": "Fast food is harmful because it contains too much sugar.",
+    "w7": "A more exact word.",
+    "s9": "Fast food is harmful, but banning it would be an overreaction.",
+    "w9": "It weighs both sides.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_band_socialmedia_1": {
+   "template": "band",
+   "hook": "Band five to nine",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --band-eps gates v1 (bands.json sentences == the row · mark inside its sentence · known reason · <= 14 words a sentence · spoken frame level <= B1 NGSL except the taught upgrade words · hook true · no duplicate topic)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "033862b4a053",
+   "script": {
+    "h": "Band five to nine!",
+    "s5": "Many people use social media.",
+    "s7": "Social media is an essential part of daily life.",
+    "w7": "Words that go together naturally.",
+    "s9": "Social media is so essential that few imagine life without it.",
+    "w9": "A longer, richer structure.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_band_climate_1": {
+   "template": "band",
+   "hook": "Band five to nine",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --band-eps gates v1 (bands.json sentences == the row · mark inside its sentence · known reason · <= 14 words a sentence · spoken frame level <= B1 NGSL except the taught upgrade words · hook true · no duplicate topic)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "4cc8e8291fc9",
+   "script": {
+    "h": "Band five to nine!",
+    "s5": "Climate change is a big problem.",
+    "s7": "Climate change is a pressing issue that affects everyone.",
+    "w7": "Words that go together naturally.",
+    "s9": "Climate change is a pressing issue whose consequences no country can escape.",
+    "w9": "A longer, richer structure.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_band_teamwork_1": {
+   "template": "band",
+   "hook": "Band five to nine",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --band-eps gates v1 (bands.json sentences == the row · mark inside its sentence · known reason · <= 14 words a sentence · spoken frame level <= B1 NGSL except the taught upgrade words · hook true · no duplicate topic)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "5afdb50bb622",
+   "script": {
+    "h": "Band five to nine!",
+    "s5": "Working in a team is good.",
+    "s7": "Working in a team is advantageous because ideas are shared.",
+    "w7": "A more exact word.",
+    "s9": "Teamwork pays off when people combine their strengths rather than compete.",
+    "w9": "Exact meaning, natural flow.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_band_sleep_1": {
+   "template": "band",
+   "hook": "Band five to nine",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --band-eps gates v1 (bands.json sentences == the row · mark inside its sentence · known reason · <= 14 words a sentence · spoken frame level <= B1 NGSL except the taught upgrade words · hook true · no duplicate topic)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "ce6a15d137fe",
+   "script": {
+    "h": "Band five to nine!",
+    "s5": "Sleep is very important for students.",
+    "s7": "Adequate sleep is vital for students’ concentration.",
+    "w7": "A more exact word.",
+    "s9": "Adequate sleep is vital, since tired students rarely concentrate or remember much.",
+    "w9": "A linking word adds logic.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_band_reading_1": {
+   "template": "band",
+   "hook": "Band five to nine",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --band-eps gates v1 (bands.json sentences == the row · mark inside its sentence · known reason · <= 14 words a sentence · spoken frame level <= B1 NGSL except the taught upgrade words · hook true · no duplicate topic)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "9fb072abc5f0",
+   "script": {
+    "h": "Band five to nine!",
+    "s5": "Reading books is useful.",
+    "s7": "Reading is rewarding because it expands your vocabulary.",
+    "w7": "A more exact word.",
+    "s9": "Reading widely expands vocabulary and sharpens thinking.",
+    "w9": "Words that go together naturally.",
+    "c": "Save this. Free on lexkite.com."
+   }
+  },
+  "t2a_band_traffic_1": {
+   "template": "band",
+   "hook": "Band five to nine",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py --band-eps gates v1 (bands.json sentences == the row · mark inside its sentence · known reason · <= 14 words a sentence · spoken frame level <= B1 NGSL except the taught upgrade words · hook true · no duplicate topic)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "7a45afed3a23",
+   "script": {
+    "h": "Band five to nine!",
+    "s5": "Cities have too many cars.",
+    "s7": "Heavy traffic is a major cause of pollution.",
+    "w7": "Words that go together naturally.",
+    "s9": "Heavy traffic causes pollution, so public transport deserves investment.",
+    "w9": "A linking word adds logic.",
+    "c": "Save this. Free on lexkite.com."
+   }
   }
  }
 }

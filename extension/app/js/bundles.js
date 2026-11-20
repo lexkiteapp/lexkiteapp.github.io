@@ -62,7 +62,7 @@
     remind: ['js/i18n/en/remind.js', 'js/remind.js'],
     mail: ['cpack/mail-app/mail.js'], // email nhắc học (remind.js mailSync)
     install: ['js/i18n/en/install.js', 'js/install-sheet.js'], // 📲 mời cài app ở khoảnh khắc giá trị (docs/INSTALL-GROWTH.md)
-    settings: ['js/settings.js'],
+    settings: ['js/i18n/en/v2.js', 'js/st/v2/runtime.js', 'js/st/v2/settings.js', 'js/settings.js'], // ⚙️ khung Stitch v2 (mục lục nhóm hàng) + trang Cài đặt
     // 🔥 lớp giữ thói quen – luôn nạp cùng gói 'streak' (mỗi file chỉ thuộc 1 gói) struct: ['js/structures.js'], // 🧩 nhận diện cấu trúc (tải lười, ra khỏi khung app 20/10)
     streak: ['js/streak-ui.js'],
     ret: ['js/i18n/en/ret.js', 'js/retention.js'],

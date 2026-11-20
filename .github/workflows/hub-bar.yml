@@ -1,0 +1,130 @@
+# ci-policy: heavy-gate – việc nặng trên PR chờ npm test xanh (job `gate`, luật 11)
+# 🧭 Thanh trên hub thống nhất 5 tab trên điện thoại (docs/DESIGN-SYSTEM.md §5d): WebKit iPhone + Chromium, sáng/tối, 360/390 px. Hermetic, 0 lượt chạm prod. Ảnh từng màn ở artifact hub-bar.
+name: Hub bar guard
+on:
+  push:
+    branches: [main]
+    paths: ['web/app/index.html', 'web/css/style.css', 'web/css/lazy-ui.css', 'web/css/st-*', 'web/js/st/v2/**', 'web/js/ux1*.js', 'web/js/app.js', 'web/js/lang-menu.js', 'web/js/hubs.js', 'brand/stitch/v2/bind/today*', 'scripts/build-stitch-css.mjs', 'web/js/hubs.js', 'web/js/st/common.js', 'scripts/test/hub-bar.mjs', 'scripts/test/ios-e2e/**', 'mobile/**', '.github/workflows/hub-bar.yml']
+  pull_request:
+    paths: ['web/app/index.html', 'web/css/style.css', 'web/css/lazy-ui.css', 'web/css/st-*', 'web/js/st/v2/**', 'web/js/ux1*.js', 'web/js/app.js', 'web/js/lang-menu.js', 'web/js/hubs.js', 'brand/stitch/v2/bind/today*', 'scripts/build-stitch-css.mjs', 'web/js/hubs.js', 'web/js/st/common.js', 'scripts/test/hub-bar.mjs', 'scripts/test/ios-e2e/**', 'mobile/**', '.github/workflows/hub-bar.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: hub-bar-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  # luật 11 (làn nhanh trước làn nặng, scripts/test/ci-policy.mjs): trên PR việc nặng chỉ chạy khi `npm test` đã XANH cùng sha (hoặc PR có nhãn `ready`) – đỏ/chưa xong thì mọi job dưới là skipped
+  # (không chiếm runner); npm-test.yml job `heavy` chạy lại lượt này ngay khi npm test xanh (scripts/ci/heavy-rerun.mjs). Lỗi API → mở cổng (không mất kiểm).
+  gate:
+    if: ${{ github.event_name != 'pull_request' || contains(github.event.pull_request.labels.*.name, 'ready-heavy') || contains(github.event.pull_request.labels.*.name, 'ready') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    permissions: { contents: read, checks: read }
+    outputs: { go: '${{ steps.g.outputs.go }}' }
+    steps:
+      - id: g
+        env: { GH_TOKEN: '${{ github.token }}', EV: '${{ github.event_name }}', SHA: '${{ github.event.pull_request.head.sha }}', REPO: '${{ github.repository }}', READY: '${{ contains(github.event.pull_request.labels.*.name, ''ready'') }}' }
+        run: |
+          go=true
+          if [ "$EV" = pull_request ] && [ "$READY" != true ]; then
+            n=$(gh api "repos/$REPO/commits/$SHA/check-runs?check_name=npm%20test&per_page=20" --jq '[.check_runs[] | select(.conclusion == "success")] | length' 2>/dev/null) || n=1
+            [ "${n:-1}" -ge 1 ] || go=false
+          fi
+          echo "go=$go" >> "$GITHUB_OUTPUT"; echo "npm test xanh cùng sha (hoặc nhãn ready) → go=$go"
+  hubbar:
+    needs: gate
+    if: needs.gate.outputs.go == 'true'
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/gen-if-needed   # luật 18
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: ./.github/actions/playwright-cache
+        with: { browsers: '--with-deps chromium webkit' }
+      - name: Cài trình duyệt
+        timeout-minutes: 14
+        run: |
+          npm i --no-save --no-audit --no-fund --ignore-scripts playwright@1.50.1
+          bash scripts/ci/pw-install.sh --with-deps chromium webkit
+      - uses: ./.github/actions/apt
+        with: { packages: fonts-noto-color-emoji fonts-noto-core }
+      - name: Đo thanh hub (5 tab)
+        run: node scripts/test/hub-bar.mjs web out/hub-bar
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: hub-bar, path: out/hub-bar, retention-days: 14 }
+  # iPhone THẬT trong Simulator (Capacitor, WKWebView + safe-area px thật): 5 tab × sáng/tối, đo thanh hub nằm dưới thanh trạng thái, một thanh, không icon rỗng, nhãn tab một kiểu + chụp ảnh.
+  ios-build:
+    needs: gate
+    if: needs.gate.outputs.go == 'true'
+    runs-on: macos-15
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Chọn Xcode 26
+        run: |
+          X=$(ls -d /Applications/Xcode_26*.app 2>/dev/null | sort -V | tail -1)
+          [ -n "$X" ] && sudo xcode-select -s "$X/Contents/Developer"; xcodebuild -version
+      - uses: actions/cache@v4
+        with:
+          path: ~/.npm/_libvips
+          key: sharp-libvips-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('mobile/package-lock.json') }}
+      - name: Build web → cap sync → chèn harness (chế độ hubbar)
+        env: { E2E_MODE: hubbar }
+        run: |
+          bash scripts/ci/npm-retry.sh ci --prefix mobile --no-audit --no-fund
+          ./scripts/build-mobile.sh
+          bash scripts/test/ios-e2e/inject.sh
+      - name: xcodebuild (iphonesimulator, không ký)
+        working-directory: mobile/ios/App
+        run: |
+          set -o pipefail
+          xcodebuild -project App.xcodeproj -scheme App -configuration Debug -sdk iphonesimulator \
+            -destination 'generic/platform=iOS Simulator' -derivedDataPath build \
+            CODE_SIGNING_ALLOWED=NO build | tail -30
+          cd build/Build/Products/Debug-iphonesimulator && zip -qry "$GITHUB_WORKSPACE/app-hubbar.zip" App.app
+      - uses: actions/upload-artifact@v4
+        with: { name: app-hubbar, path: app-hubbar.zip, retention-days: 3 }
+  ios-test:
+    needs: [gate, ios-build]
+    if: needs.gate.outputs.go == 'true'
+    runs-on: macos-15
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { tag: iphone, device: 'iPhone 1' }
+          - { tag: se, device: 'iPhone SE' }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/gen-if-needed   # luật 18
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Chọn Xcode 26
+        run: |
+          X=$(ls -d /Applications/Xcode_26*.app 2>/dev/null | sort -V | tail -1)
+          [ -n "$X" ] && sudo xcode-select -s "$X/Contents/Developer"
+      - uses: actions/download-artifact@v4
+        with: { name: app-hubbar }
+      - name: Chạy kịch bản ${{ matrix.tag }}
+        run: |
+          unzip -q app-hubbar.zip -d "$RUNNER_TEMP/app"
+          node scripts/test/ios-e2e/driver.mjs --app "$RUNNER_TEMP/app/App.app" --device '${{ matrix.device }}' --tag ${{ matrix.tag }} --out e2e-out --minutes 25 --minsteps 8
+      - name: Cổng — lỗi thanh hub / icon rỗng / safe-area
+        run: |
+          node -e "
+          const r=JSON.parse(require('fs').readFileSync('e2e-out/${{ matrix.tag }}/results.json','utf8'));
+          const bad=r.events.filter(e=>e.type==='step').flatMap(e=>(e.issues||[]).filter(i=>i.kind==='hubbar').map(i=>i.msg));
+          const safe=r.events.filter(e=>e.type==='info'&&e.key==='hubbar').map(e=>e.route+'='+e.safe);
+          console.log('safe-area-inset-top:',safe.join(' '));
+          if(!safe.length) bad.push('không đo được tab nào (kịch bản không chạy tới bước hub)');
+          bad.forEach(m=>console.error('✗',m)); console.log(bad.length?bad.length+' lỗi':'đạt'); process.exit(bad.length?1:0);"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: 'hub-bar-ios-${{ matrix.tag }}', path: e2e-out/, retention-days: 14 }

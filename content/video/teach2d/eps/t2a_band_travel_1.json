@@ -1,0 +1,131 @@
+{
+ "id": "t2a_band_travel_1",
+ "template": "band",
+ "series": "Band 5 to 9",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "speaking",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Band five to nine!",
+   "pause": 0.3
+  },
+  {
+   "id": "s5",
+   "text": "Travel is fun and you learn things.",
+   "pause": 0.3
+  },
+  {
+   "id": "s7",
+   "text": "Travelling is enjoyable and broadens your horizons.",
+   "pause": 0.3
+  },
+  {
+   "id": "w7",
+   "text": "Words that go together naturally.",
+   "pause": 0.3
+  },
+  {
+   "id": "s9",
+   "text": "Travel broadens the mind precisely because it unsettles assumptions.",
+   "pause": 0.3
+  },
+  {
+   "id": "w9",
+   "text": "Exact meaning, natural flow.",
+   "pause": 0.3
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "topic": "travel",
+  "skill": "speaking",
+  "steps": [
+   {
+    "band": 5,
+    "text": "Travel is fun and you learn things."
+   },
+   {
+    "band": 7,
+    "text": "Travelling is enjoyable and broadens your horizons.",
+    "mark": "broadens your horizons",
+    "why": "collocation",
+    "crit": "Lexical Resource"
+   },
+   {
+    "band": 9,
+    "text": "Travel broadens the mind precisely because it unsettles assumptions.",
+    "mark": "precisely because it unsettles assumptions",
+    "why": "nuance",
+    "crit": "Lexical Resource"
+   }
+  ]
+ },
+ "cta": {
+  "area": "speaking",
+  "route": "#/speaking",
+  "link": "https://lexkite.com/app/#/speaking",
+  "say": "Practise IELTS speaking"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Band five to nine"
+ },
+ "src": {
+  "band": "travel"
+ },
+ "est": {
+  "words": 42,
+  "seconds": 22.8,
+  "wpm": 110
+ },
+ "publish": {
+  "title": "IELTS band 5 to 9: Travel",
+  "keyword": "ielts band 9",
+  "value": "Travel, three ways. Band 5: Travel is fun and you learn things. Band 7: Travelling is enjoyable and broadens your horizons. Band 9: Travel broadens the mind precisely because it unsettles assumptions.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#ielts",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/speaking",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "IELTS band 5 to 9: Travel",
+    "description": "Travel, three ways. Band 5: Travel is fun and you learn things. Band 7: Travelling is enjoyable and broadens your horizons. Band 9: Travel broadens the mind precisely because it unsettles assumptions.\n\nPractise IELTS speaking, free: https://lexkite.com/app/#/speaking\n\nSeries: Band 5 to 9 · Teacher: Ama\n\n#learnenglish #englishtips #ielts #englishteacher",
+    "tags": [
+     "ielts band 9",
+     "Band 5 to 9",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "IELTS band 5 to 9: Travel\n\nTravel, three ways. Band 5: Travel is fun and you learn things. Band 7: Travelling is enjoyable and broadens your horizons. Band 9: Travel broadens the mind precisely because it unsettles assumptions.\n\nPractise IELTS speaking, free: https://lexkite.com/app/#/speaking"
+   },
+   "instagram": {
+    "caption": "IELTS band 5 to 9: Travel\n\nTravel, three ways. Band 5: Travel is fun and you learn things. Band 7: Travelling is enjoyable and broadens your horizons. Band 9: Travel broadens the mind precisely because it unsettles assumptions.\n\nPractise IELTS speaking: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#ielts",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "IELTS band 5 to 9: Travel #learnenglish #englishtips #ielts"
+   }
+  },
+  "first_comment": "Quiz answer: Travel, three ways. Band 5: Travel is fun and you learn things. Band 7: Travelling is enjoyable and broadens your horizons. Band 9: Travel broadens the mind precisely because it unsettles assumptions. Practice it with a free quiz: {link}"
+ }
+}

@@ -3,7 +3,7 @@
 Motion set, not the old PIL overlay. Mapping: ab -> drill (Carlos) | fix -> mistake (Ama) | three, ways, pov -> tip (Ama).
   news2motion.py            write content/video/cine/news/motion/<news id>.json + reviewed.json (hook/script verdicts, machine-built from the reviewed news bank text)
   news2motion.py --check    exit 1 when a spec is stale (regenerated differently) - run in ci
-Spoken text = the reviewed news lines (no engagement bait, scripts/cine/no_bait.py); CTA = "Practice free on lexkite.com"."""
+Spoken text = the reviewed news lines (no engagement bait, scripts/cine/no_bait.py); CTA = "Practice it free"."""
 import difflib, glob, json, os, re, sys
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..')); N = f'{ROOT}/content/video/cine/news'; OUT = f'{N}/motion'
 L = {l['id']: l['text'] for l in json.load(open(f'{N}/lines.json'))['lines']}
@@ -34,7 +34,7 @@ def base(kind, s, lines, motion):
     motion['top'][0]['rows'] = [motion['top'][0]['rows'][0]] + (hl if kind != 'mistake' else motion['top'][0]['rows'][1:])
     pops = [dict(b['pops'][0], rows=pr if kind != 'mistake' else [[[mot_wrong(s), 'white']]], to=['h', -1, 'e', 0.25]), dict(b['pops'][1], **{'from': [end, 0, 's', -0.05]})]
     return dict(id='mo_' + s['id'], template=kind, title=f"News Motion – {s['point']} ({s['id']})", teacher=b['teacher'], clips=b['clips'], listen=b['listen'], set=b['set'], layout=b['layout'], host_fx=b['host_fx'], speed=b['speed'], accent=b['accent'], active=b['active'], display=b['display'], motif=b['motif'],
-                cta=dict(area=s['area'], link=s['link'], say='Practice free on lexkite.com'), series=dict(name=ser[0].title(), ep=1), lines=lines, pops=pops, motion=dict(motion, hook_text=mot_wrong(s) if kind == 'mistake' else s['hook']['card'], end_line=end), embed=dict(drop=['sh', 'c'], end=dict(id='n', text="Next, let's practice more together.")))
+                cta=dict(area=s['area'], link=s['link'], say='Practice it free'), series=dict(name=ser[0].title(), ep=1), lines=lines, pops=pops, motion=dict(motion, hook_text=mot_wrong(s) if kind == 'mistake' else s['hook']['card'], end_line=end), embed=dict(drop=['sh', 'c'], end=dict(id='n', text="Next, let's practice more together.")))
 def mot_wrong(s): return next(b['card']['text'] for b in s['beats'] if b.get('card') and b['card']['kind'] == 'x')
 def beats(s): return [b for b in s['beats'] if not INTRO.match(L[b['line']])]
 def tail(lines_): return lines_ + [dict(id='sh', text=SHARE, gap=0.7), dict(id='c', text=CTA, gap=0.6)]

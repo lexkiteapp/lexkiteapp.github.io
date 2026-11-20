@@ -18,31 +18,22 @@ if (bytes > CAP - SLACK) errs.push(`CODEMAP.md ${bytes} B > ${CAP - SLACK} (CAP 
 for (const h of ['## Khu vực', '## Sửa ở đâu', '## God nodes', '## Routes', '## Workflows', '## Test', '## Mô-đun JS chính'])
   if (!md.includes(h)) errs.push(`thiếu mục "${h}"`);
 const has = name => new RegExp('(^|[\\s`(\\[,·])' + name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '(?=[\\s:`),·]|$)', 'm').test(md);
-for (const w of g.workflows) { const n = w.file.replace(/\.ya?ml$/, ''); if (!has(n)) errs.push(`workflow ${n} không có trong bản đồ`); }
-for (const t of g.tests) if (!has(t.test)) errs.push(`test ${t.test} không có trong bản đồ`);
+// Tên workflow/test KHÔNG còn in trong CODEMAP.md (chỉ số đếm) – nguồn đầy đủ là docs/codemap.json: mọi workflow/test trên đĩa phải có trong json (không mất tên nào).
+const gw = new Set(g.workflows.map(w => w.file)), gt = new Set(g.tests.map(t => t.test));
+for (const f of fs.readdirSync(path.join(ROOT, '.github/workflows')).filter(f => /\.ya?ml$/.test(f))) if (!gw.has(f)) errs.push(`workflow ${f} không có trong codemap.json`);
+for (const f of fs.readdirSync(path.join(ROOT, 'scripts/test')).filter(f => /\.(m?js|cjs)$/.test(f))) if (!gt.has(f.replace(/\.(m?js|cjs)$/, ''))) errs.push(`test ${f} không có trong codemap.json`);
+for (const w of g.workflows) if (!w.desc && !w.name) errs.push(`workflow ${w.file}: json thiếu mô tả`);
+{ const fx = Buffer.byteLength(md.slice(0, md.indexOf('\n\n## Mô-đun JS chính'))); if (fx > CAP * 0.7) errs.push(`phần cố định ${fx} B > 70 % trần ${CAP} (${CAP * 0.7} B) – mục Mô-đun sẽ rỗng khi thêm workflow/test`); }
 for (const k of Object.keys(g.routes)) if (!has(k.slice(2))) errs.push(`route ${k} không có trong bản đồ`);
 const mod = md.slice(md.indexOf('## Mô-đun JS chính'));
 const nMod = +(mod.match(/\((\d+)\//) || [, 0])[1];
 if (nMod < 1) errs.push('mục Mô-đun rỗng – phần cố định đã chiếm hết ngân sách');
 for (const gd of g.god) { const d = path.posix.dirname(gd.path), b = path.posix.basename(gd.path);
   for (const l of mod.split('\n')) if (l.startsWith(`- \`${d}/\` `) && new RegExp('(^|· |` )' + b.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '[: ]').test(l.slice(d.length + 5))) errs.push(`god node ${gd.path} lặp lại trong mục Mô-đun`); }
-// mô tả workflow: bản đồ cắt theo TỪ ≤ WF_DESC + '…', json giữ NGUYÊN văn (không mất nội dung)
-{ const WF = +src.match(/const WF_DESC = (\d+)/)[1], wsec = md.slice(md.indexOf('## Workflows'), md.indexOf('## Test')); let cut = 0;
-  for (const w of g.workflows) {
-    const n = w.file.replace(/\.ya?ml$/, ''), m = wsec.match(new RegExp('(?:\\] |· )' + n.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ': (.+?)(?= · (?:[\\w.-]+)(?::| ·|$)|$)', 'm'));
-    if (!m) continue; const t = m[1], full = w.desc.replace(new RegExp('^' + n.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ':\\s*'), '');
-    if (!t.endsWith('…')) { if (t !== full) errs.push(`workflow ${n}: mô tả trong bản đồ ≠ json mà không có "…"`); continue; }
-    cut++; const head = t.slice(0, -1);
-    if (head.length > WF) errs.push(`workflow ${n}: mô tả ${head.length} ký tự > ${WF}`);
-    if (!full.startsWith(head) || full.length <= head.length || /[\p{L}\p{N}]/u.test(full[head.length]) && /[\p{L}\p{N}]/u.test(head.slice(-1))) errs.push(`workflow ${n}: cắt giữa từ hoặc không phải đầu của mô tả json ("${head}")`);
-  }
-  if (!cut) errs.push('không mô tả workflow nào bị cắt – kiểm lại phép so (cổng không chạy)'); }
 // báo TRƯỚC khi phần cố định (mọi mục trừ Mô-đun) chiếm > 90 % trần → còn thời gian làm gọn, không đỏ bất ngờ ở PR sau
 { const fixedB = Buffer.byteLength(md.slice(0, md.indexOf('\n\n## Mô-đun JS chính')));
   if (fixedB > CAP * 0.9) { const msg = `codemap: phần cố định ${fixedB} B > 90 % trần ${CAP} – làm gọn mục cố định trước khi mục Mô-đun rỗng (đỏ)`; console.warn('⚠ ' + msg); if (process.env.GITHUB_ACTIONS) console.log('::warning::' + msg); }
   else console.log(`ℹ codemap: phần cố định ${fixedB} B = ${(fixedB / CAP * 100).toFixed(1)} % trần`); }
-const trig = [...md.matchAll(/^- \[([^\]]+)\] /gm)].map(m => m[1]);
-if (new Set(trig).size !== trig.length) errs.push('bộ trigger workflow bị in lặp');
 fs.rmSync(dir, { recursive: true, force: true });
 if (errs.length) { console.error('✗ codemap-budget:\n  ' + errs.join('\n  ')); process.exit(1); }
 console.log(`✓ codemap-budget: ${bytes} B ≤ ${CAP - SLACK} (trần ${CAP}), ${g.workflows.length} workflow, ${Object.keys(g.routes).length} route, ${g.tests.length} test, ${nMod} mô-đun`);

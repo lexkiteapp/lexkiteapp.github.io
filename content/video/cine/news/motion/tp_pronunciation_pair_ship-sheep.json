@@ -24,9 +24,9 @@
  },
  "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
  "cta": {
-  "area": "pronunciation-pair",
-  "link": "https://lexkite.com/app/",
-  "say": "Practice free on lexkite.com"
+  "area": "pronunciation",
+  "link": "https://lexkite.com/app/#/pron",
+  "say": "Practice it free"
  },
  "series": {
   "name": "Pronunciation Pair",
@@ -49,7 +49,7 @@
    "gap": 0.7
   },
   {
-   "id": "t",
+   "id": "tip",
    "text": "Tip: smile for sheep, relax for ship.",
    "gap": 0.7
   },
@@ -84,32 +84,8 @@
    "rows": [
     [
      [
-      "So I just",
+      "Ship/sheep?",
       "white"
-     ]
-    ],
-    [
-     [
-      "told",
-      "yellow"
-     ]
-    ],
-    [
-     [
-      "everyone I'm",
-      "yellow"
-     ]
-    ],
-    [
-     [
-      "traveling by",
-      "yellow"
-     ]
-    ],
-    [
-     [
-      "sheep?",
-      "yellow"
      ]
     ]
    ],
@@ -145,43 +121,7 @@
       "hook": true,
       "runs": [
        [
-        "So I just"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "told"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "everyone I'm"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "traveling by"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "sheep?"
+        "Ship/sheep?"
        ]
       ]
      }
@@ -190,7 +130,7 @@
    {
     "id": "sum",
     "at": [
-     "t",
+     "tip",
      0
     ],
     "rows": [
@@ -276,7 +216,7 @@
     ]
    }
   ],
-  "hook_text": "So I just told everyone I'm traveling by sheep?",
+  "hook_text": "Ship/sheep?",
   "end_line": "c"
  },
  "embed": {
