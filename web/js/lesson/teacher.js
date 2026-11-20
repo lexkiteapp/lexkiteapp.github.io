@@ -122,7 +122,7 @@
     // bong bóng của sân khấu (stage): lời đang nói; o.show = chữ hiện thay lời (vd. '🔊 · · ·' khi câu là đáp án), false = giữ nguyên bong bóng
     const sg = el.parentElement && el.parentElement.classList.contains('tstage') ? el.parentElement : null, bub = sg && sg.querySelector('.tstage-bub'), btx = bub && bub.firstChild;
     if (sg) sg.dataset.who = who;
-    const line = s => { if (!bub) return null; const v = String(s == null ? '' : s); if (btx.textContent === v && !bub.hidden) return btx; btx.textContent = v; bub.hidden = !/[\p{L}\p{N}]/u.test(v); bub.classList.remove('in'); void bub.offsetWidth; bub.classList.add('in'); return btx; };
+    const line = s => { if (!bub) return null; const v = String(s == null ? '' : s); if (btx.textContent === v && !bub.hidden) return btx; btx.textContent = v; bub.hidden = !v; bub.classList.remove('in'); void bub.offsetWidth; bub.classList.add('in'); return btx; };
     const api = {
       who,
       lip: () => (fc ? fc.stats : null), // số khung mặt vẽ (test e2e đo fps)

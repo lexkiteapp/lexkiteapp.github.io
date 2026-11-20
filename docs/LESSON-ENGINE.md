@@ -162,9 +162,3 @@ Xem artifact `lipsync-lab` của run CI mới nhất (report.md, metrics.json, v
 - Hạ cấp: saveData / giảm chuyển động / không WebGL / thiếu tài sản → poster.webp (alpha) tĩnh. Tài sản: chỉ qua Chars (poster, clip talk/listen, đầu trơn).
 - 🙂 Mặt VẼ khớp miệng (cờ lk.lipsync, chỉ Call: mount(el, who, { lip: true }), docs/LESSON-ENGINE.md §Khớp miệng): đầu trơn + mắt/mi/mày/ria/miệng vector (LipFace) vẽ lại mỗi khung theo
 - audio.currentTime. Có mốc CI (web/js/call/cues.js + <khóa>-ls.mp3) → "pre"; không có → LipSync.live() theo năng lượng tiếng. Thiếu gì → vòng clip như cũ → poster.
-
-## Khung bài tập "top-1" (19/11, test `scripts/test/lesson-top1.mjs`)
-- Kết quả đúng/sai = thanh cố định đáy (≤ 35 % màn, Tiếp tục dính đáy); đáp án hiện MỘT lần tại chỗ (viên trong câu / thẻ đáp án / ô nhập khóa + tô màu); Ama khen trong bong bóng (`teacher.line` ẩn bong bóng khi không có chữ, `say()` không đặt "🔊 · · ·"), bảng chỉ trạng thái + XP + combo; UK = US → 1 loa 1 IPA; "Vì sao?" mở thẻ Giải thích + Tăng điểm.
-- Nút chân: Không nghe/nói được · Gợi ý (−1 XP: bỏ 1 đáp án / đặt từ kế / chữ đầu) · Bỏ qua; nhãn dạng bài = câu đang hiện (`bar(cur)`); phím 1–4 chọn, Enter kiểm tra/tiếp tục; xếp câu có ô chờ đủ số từ, "Còn N từ".
-- Đề: `E.build({ near, level })` (đường mới; thiếu cả hai = đường cũ, native vectors giữ nguyên) – nhiễu cùng loại từ + cùng dạng -ing/-ed/-s + cùng chặng (`near`), pool KHÔNG lẫn STARTER khi kho đủ; `sentenceOf(level)` chọn câu theo trình độ = min(mục tiêu, trình độ + 1) (`E.sentLevel`).
-- Màn kết: 4 ô XP · COMBO · Nhớ ngay · Thời gian một hàng; Ama cạnh lời khen; từ đã học = chip chạm nghe + Ôn lại; nút chính dính đáy; thẻ chuỗi tách "Chuỗi hiện tại" (liền) khỏi "Tuần này" (`E.weekDots`/`E.runOf`).
