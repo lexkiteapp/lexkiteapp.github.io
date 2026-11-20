@@ -46,7 +46,7 @@ g.TQR = [
           explain: 'Bổ nghĩa cho so sánh hơn (easier ... than) dùng "much/far/a lot". "very, too, so" không đứng trước tính từ so sánh hơn.' },
         { n: 108, q: 'Customers who wish to return a product ------- present the original receipt.', options: ['may be', 'having', 'to', 'must'], a: 3, cue: 'Customers who wish to return',
           explain: 'Chủ ngữ "Customers who wish to return a product" cần động từ chính: động từ khuyết thiếu "must" + V nguyên mẫu "present". "may be present" sai nghĩa; "having/to" không làm động từ chính.' },
-        { n: 109, q: '------- the weather was poor, the outdoor product launch drew a large crowd.', options: ['Although', 'Because', 'However', 'Despite'], a: 0, cue: 'the weather was poor',
+        { n: 109, q: '------- the weather was poor, the outdoor product launch drew a large crowd.', options: ['Despite', 'Because', 'However', 'Although'], a: 3, cue: 'the weather was poor',
           explain: 'Hai vế tương phản (thời tiết xấu nhưng vẫn đông người) và theo sau là mệnh đề → liên từ "Although". "Despite" + danh từ/V-ing; "However" là trạng từ nối, không nối 2 mệnh đề kiểu này; "Because" sai nghĩa.' },
         { n: 110, q: 'Hollis Bank offers ------- interest rates to customers who open a savings account online.', options: ['competitive', 'competing', 'competition', 'compete'], a: 0, cue: 'interest rates',
           explain: 'Trước danh từ "interest rates" cần tính từ; "competitive interest rates" = lãi suất cạnh tranh (cụm cố định). "competing" = đang cạnh tranh nhau, không hợp nghĩa.' },
@@ -54,7 +54,7 @@ g.TQR = [
           explain: '"review the proposal" = xem xét đề xuất. "inform" cần tân ngữ là người; "arrive" và "respond" là nội động từ (respond to), không đi trực tiếp với tân ngữ.' },
         { n: 112, q: 'Employees ------- parking permits have expired should contact building security.', options: ['who', 'whose', 'which', 'whom'], a: 1, cue: 'parking permits have expired',
           explain: 'Sau chỗ trống là danh từ "parking permits" thuộc về "Employees" → đại từ quan hệ sở hữu "whose". "who/which/whom" không đứng ngay trước danh từ để chỉ sở hữu.' },
-        { n: 113, q: 'By the time the auditors arrived, the accounting staff ------- all the necessary documents.', options: ['prepares', 'will prepare', 'had prepared', 'is preparing'], a: 2, cue: 'By the time the auditors arrived',
+        { n: 113, q: 'By the time the auditors arrived, the accounting staff ------- all the necessary documents.', options: ['prepares', 'had prepared', 'will prepare', 'is preparing'], a: 1, cue: 'By the time the auditors arrived',
           explain: '"By the time + quá khứ đơn" → hành động xảy ra trước đó dùng quá khứ hoàn thành "had prepared".' },
         { n: 114, q: 'Due to ------- demand, Pinecrest Bakery has extended its weekend hours.', options: ['increase', 'increasingly', 'increases', 'increased'], a: 3, cue: 'demand',
           explain: 'Trước danh từ "demand" cần tính từ: "increased demand" = nhu cầu tăng. "increasingly" là trạng từ; "increase/increases" là danh từ/động từ.' },
@@ -62,7 +62,7 @@ g.TQR = [
           explain: 'Cặp cố định "between ... and ..." (giữa ... và ...). "from" phải đi với "to/until".' },
         { n: 116, q: 'The technicians worked ------- to restore the network before the morning shift began.', options: ['quick', 'quicker', 'quickly', 'quickness'], a: 2, cue: 'worked',
           explain: 'Bổ nghĩa cho động từ "worked" cần trạng từ "quickly". "quick/quicker" là tính từ, "quickness" là danh từ.' },
-        { n: 117, q: 'Applicants for the position should have at least three years of ------- in project management.', options: ['experiment', 'experience', 'expertly', 'expectation'], a: 1, cue: 'three years of',
+        { n: 117, q: 'Applicants for the position should have at least three years of ------- in project management.', options: ['experience', 'experiment', 'expertly', 'expectation'], a: 0, cue: 'three years of',
           explain: '"years of experience" = số năm kinh nghiệm. "experiment" = thí nghiệm, "expectation" = sự mong đợi (sai nghĩa); "expertly" là trạng từ.' },
         { n: 118, q: 'The annual employee awards dinner ------- at the Quillmere Riverside Hotel last Saturday.', options: ['holds', 'is holding', 'will be held', 'was held'], a: 3, cue: 'last Saturday',
           explain: 'Bữa tiệc "được tổ chức" (bị động) và "last Saturday" là quá khứ → "was held". "will be held" sai thì; "holds/is holding" là chủ động.' },
@@ -70,7 +70,7 @@ g.TQR = [
           explain: '"by + đại từ phản thân" = tự mình (không ai giúp): "by themselves". Các dạng khác không dùng trong cụm này.' },
         { n: 120, q: 'Participants may register for the workshop either online ------- by phone.', options: ['and', 'nor', 'or', 'but'], a: 2, cue: 'either online',
           explain: 'Cặp liên từ "either ... or ..." (hoặc ... hoặc ...). "nor" đi với "neither".' },
-        { n: 121, q: 'Ferro Motors has ------- a recall of 2,000 vehicles because of a faulty brake sensor.', options: ['issued', 'emerged', 'arrived', 'occurred'], a: 0, cue: 'a recall of 2,000 vehicles',
+        { n: 121, q: 'Ferro Motors has ------- a recall of 2,000 vehicles because of a faulty brake sensor.', options: ['arrived', 'emerged', 'issued', 'occurred'], a: 2, cue: 'a recall of 2,000 vehicles',
           explain: '"issue a recall" = ban hành lệnh thu hồi sản phẩm (collocation). "arrived/emerged/occurred" là nội động từ, không có tân ngữ.' },
         { n: 122, q: "The company's rapid ------- into Southeast Asian markets surprised many analysts.", options: ['expansion', 'expand', 'expansive', 'expanded'], a: 0, cue: "The company's rapid",
           explain: 'Sau sở hữu cách + tính từ "rapid" cần danh từ làm chủ ngữ → "expansion" (sự mở rộng).' },
@@ -78,7 +78,7 @@ g.TQR = [
           explain: '"be contingent on" = phụ thuộc vào (điều kiện). "eligible for", "accountable for/to", "capable of" đi với giới từ khác và sai nghĩa.' },
         { n: 124, q: 'Mr. Varga is responsible for ------- the shipment schedules with overseas suppliers.', options: ['coordinate', 'coordinating', 'coordinated', 'coordinator'], a: 1, cue: 'is responsible for',
           explain: 'Sau giới từ "for" dùng V-ing, và còn tân ngữ "the shipment schedules" phía sau → "coordinating". "coordinator" là danh từ, không có tân ngữ theo sau.' },
-        { n: 125, q: 'Because the original venue was unavailable, the seminar has been ------- to the Lakeside Convention Center.', options: ['relieved', 'reserved', 'relocated', 'replied'], a: 2, cue: 'to the Lakeside Convention Center',
+        { n: 125, q: 'Because the original venue was unavailable, the seminar has been ------- to the Lakeside Convention Center.', options: ['relieved', 'relocated', 'reserved', 'replied'], a: 1, cue: 'to the Lakeside Convention Center',
           explain: 'Địa điểm cũ không dùng được → hội thảo "được chuyển" (relocated to) sang nơi khác. "relieved" = được giải tỏa, "reserved" = được đặt trước, "replied" không dùng bị động.' },
         { n: 126, q: '------- the renovation is complete, the lobby will remain closed to the public.', options: ['Whereas', 'Unless', 'Until', 'Even'], a: 2, cue: 'the lobby will remain closed',
           explain: '"remain closed until ..." = vẫn đóng cửa CHO ĐẾN KHI việc sửa xong. "Unless" (trừ khi) và "Whereas" (trong khi đó) sai nghĩa; "Even" không phải liên từ.' },
@@ -86,7 +86,7 @@ g.TQR = [
           explain: '"Of all ..." + "the" → so sánh nhất "strongest". "stronger" dùng khi so sánh 2 đối tượng.' },
         { n: 128, q: 'To ------- delays at the border, all shipping documents should be completed in advance.', options: ['acquire', 'proceed', 'prolong', 'avoid'], a: 3, cue: 'delays at the border',
           explain: 'Hoàn tất giấy tờ trước để TRÁNH chậm trễ → "avoid delays". "prolong" = kéo dài (ngược nghĩa), "acquire" = có được, "proceed" là nội động từ.' },
-        { n: 129, q: '------- had the new policy been announced than employees began submitting questions to HR.', options: ['Rarely', 'No sooner', 'Hardly', 'Not only'], a: 1, cue: 'than employees began',
+        { n: 129, q: '------- had the new policy been announced than employees began submitting questions to HR.', options: ['Rarely', 'Hardly', 'No sooner', 'Not only'], a: 2, cue: 'than employees began',
           explain: 'Cấu trúc đảo ngữ "No sooner had S + V3 ... than ..." (vừa mới ... thì ...). "Hardly" đi với "when", không đi với "than".' },
         { n: 130, q: 'The safety inspector recommended that the factory ------- its ventilation system immediately.', options: ['upgrades', 'upgrade', 'upgraded', 'will upgrade'], a: 1, cue: 'recommended that',
           explain: 'Sau "recommend that" dùng thể giả định: S + V nguyên mẫu (không chia) → "upgrade".' }
@@ -129,7 +129,7 @@ For a limited time, businesses that order ten or more desks will receive a 15 pe
 
 Visit any Corvana showroom to try our products for yourself.`,
           groups: [ { type: 'mcq', instr: g.TQR[16], items: [
-            { n: 135, q: '(135)', options: ['combine', 'combination', 'combining', 'combined'], a: 0, cue: 'we design desks and chairs that',
+            { n: 135, q: '(135)', options: ['combination', 'combine', 'combining', 'combined'], a: 1, cue: 'we design desks and chairs that',
               explain: 'Mệnh đề quan hệ "that ..." cần động từ chia theo chủ ngữ số nhiều "desks and chairs", thì hiện tại → "combine".' },
             { n: 136, q: '(136)', options: ['allows', 'allowed', 'to allow', 'allowing'], a: 3, cue: 'at the touch of a button',
               explain: 'Sau dấu phẩy, mệnh đề rút gọn chủ động chỉ kết quả: "..., allowing employees to ..." (giúp nhân viên ...). "allows" thiếu chủ ngữ/liên từ; "allowed" mang nghĩa bị động.' },
@@ -166,7 +166,7 @@ All team members are required to attend a training session -----(144)----- they 
 
 If you have any questions, please contact Ms. Ingrid Sauer, who will -----(146)----- the transition.`,
           groups: [ { type: 'mcq', instr: 'Questions 143-146 refer to the following memo.', items: [
-            { n: 143, q: '(143)', options: ['efficient', 'efficiently', 'efficiency', 'efficiencies'], a: 1, cue: 'respond to customer inquiries more',
+            { n: 143, q: '(143)', options: ['efficiently', 'efficient', 'efficiency', 'efficiencies'], a: 0, cue: 'respond to customer inquiries more',
               explain: '"more + trạng từ" bổ nghĩa cho động từ "respond" → "more efficiently" (hiệu quả hơn).' },
             { n: 144, q: '(144)', options: ['so that', 'whereas', 'before', 'despite'], a: 2, cue: 'they begin using the system',
               explain: 'Phải dự đào tạo TRƯỚC KHI bắt đầu dùng hệ thống → "before". "despite" không đi với mệnh đề; "so that", "whereas" sai nghĩa.' },
@@ -266,7 +266,7 @@ Questions may be directed to Ahmed Farouk, Building Manager, at extension 201.`,
               explain: 'Nếu không có ai, gửi chìa khóa ở quầy bảo vệ trước 17h ngày 21/10 → gửi chìa khóa trước.' },
             { n: 160, q: 'What is indicated about the fire alarm test?', options: ['It will last about an hour.', 'It will take place in the morning.', 'Tenants may remain inside the building.', 'It is held every month.'], a: 2, cue: 'Tenants do NOT need to leave the building',
               explain: 'Người thuê KHÔNG cần rời tòa nhà → được ở lại bên trong. Còi kêu khoảng 10 phút, lúc 14h (buổi chiều).' },
-            { n: 161, q: 'What will happen to suites that fail the inspection?', options: ['They will be closed for 30 days.', 'They will be given a list of required repairs.', 'They will be charged a fine.', 'Their keys will not be returned.'], a: 1, cue: 'a written report listing the items that must be corrected',
+            { n: 161, q: 'What will happen to suites that fail the inspection?', options: ['They will be given a list of required repairs.', 'They will be closed for 30 days.', 'They will be charged a fine.', 'Their keys will not be returned.'], a: 0, cue: 'a written report listing the items that must be corrected',
               explain: 'Văn phòng không đạt sẽ nhận báo cáo liệt kê các hạng mục phải khắc phục trong 30 ngày. "30 days" là hạn sửa chữa, không phải đóng cửa.' }
           ] } ] },
         { title: 'Article', text:
@@ -382,15 +382,15 @@ Thank you,
 Farah Haddad
 Operations Manager, Bluewater Travel`,
           groups: [ { type: 'mcq', instr: 'Questions 176-180 refer to the following schedule and e-mail.', items: [
-            { n: 176, q: 'What is true about all of the workshops?', options: ['They include a meal.', 'They take place in October.', 'They cost the same amount.', 'They are taught by the same instructor.'], a: 0, cue: 'include lunch',
+            { n: 176, q: 'What is true about all of the workshops?', options: ['They are taught by the same instructor.', 'They take place in October.', 'They cost the same amount.', 'They include a meal.'], a: 3, cue: 'include lunch',
               explain: 'Mọi workshop đều "include lunch" (có bữa trưa = a meal). Giảng viên, ngày và học phí khác nhau.' },
-            { n: 177, q: 'Which workshop has Ms. Haddad already attended?', options: ['Leading Remote Teams', 'Negotiation Skills for Managers', 'Effective Business Writing', 'Budgeting for Small Businesses'], a: 2, cue: 'the workshop led by Mr. Adeyemi',
+            { n: 177, q: 'Which workshop has Ms. Haddad already attended?', options: ['Effective Business Writing', 'Negotiation Skills for Managers', 'Leading Remote Teams', 'Budgeting for Small Businesses'], a: 0, cue: 'the workshop led by Mr. Adeyemi',
               explain: 'Câu hỏi kết hợp 2 bài: email nói đã học lớp của Mr. Adeyemi; lịch cho thấy Samuel Adeyemi dạy "Effective Business Writing".' },
             { n: 178, q: 'How much will Ms. Haddad most likely pay for the October 5 workshop before any refund is applied?', options: ['$144', '$180', '$200', '$162'], a: 1, cue: 'receive a 10% discount',
               explain: 'Lớp 5/10 (Leading Remote Teams) giá $200; cô là thành viên Alumni Network nên giảm 10% → $200 − $20 = $180.' },
             { n: 179, q: 'Why does Ms. Haddad want to cancel a registration?', options: ['She is changing jobs.', 'She thinks the fee is too high.', 'She has a conflict with a business event.', 'The workshop has been canceled.'], a: 2, cue: 'attending a trade fair in Osaka',
               explain: 'Cô hủy lớp ngân sách vì tuần đó đi hội chợ thương mại ở Osaka → trùng lịch với sự kiện công việc.' },
-            { n: 180, q: "What is suggested about Ms. Haddad's cancellation?", options: ["It meets the institute's deadline for a full refund.", 'It will not be refunded because of the policy.', 'It is for the September 21 workshop.', 'It was sent directly to Ms. Petrenko.'], a: 0, cue: 'at least seven days before a workshop',
+            { n: 180, q: "What is suggested about Ms. Haddad's cancellation?", options: ['It will not be refunded because of the policy.', "It meets the institute's deadline for a full refund.", 'It is for the September 21 workshop.', 'It was sent directly to Ms. Petrenko.'], a: 1, cue: 'at least seven days before a workshop',
               explain: 'Email gửi ngày 30/9, lớp Budgeting diễn ra 12/10 (trước 12 ngày) → thỏa điều kiện hủy trước ít nhất 7 ngày để được hoàn tiền đầy đủ.' }
           ] } ] },
         { title: 'Web page and Online review', text:
@@ -421,9 +421,9 @@ The space was spotless, and the natural light from the large windows was excelle
               explain: 'Kết hợp hai văn bản: nhóm cần bếp → Studio C (trang web: "with kitchen set"); thuê nửa ngày $440 + thêm 1 giờ theo giá giờ $120 = $560. $800 là giá cả ngày mà quản lý đã không tính.' },
             { n: 183, q: "What is suggested about Ms. Benavides' team?", options: ['They canceled a booking at short notice.', 'They did not receive free use of the dressing room.', 'They rented camera equipment from the studio.', 'They photographed clothing for a catalog.'], a: 1, cue: 'Bookings of a full day or more receive free use of our dressing room',
               explain: 'Kết hợp hai văn bản: trang web cho dùng phòng thay đồ miễn phí khi thuê "a full day or more", còn bài đánh giá cho biết nhóm chỉ thuê nửa ngày (cộng thêm 1 giờ) → không được miễn phí phòng thay đồ. Thiết bị máy ảnh cho thuê đã hết nên họ không thuê được.' },
-            { n: 184, q: 'In the online review, the word "ran" in paragraph 1 is closest in meaning to', options: ['continued', 'hurried', 'operated', 'managed'], a: 0, cue: 'the session ran long',
+            { n: 184, q: 'In the online review, the word "ran" in paragraph 1 is closest in meaning to', options: ['operated', 'hurried', 'continued', 'managed'], a: 2, cue: 'the session ran long',
               explain: '"the session ran long" = buổi chụp kéo dài hơn dự kiến → "continued". "operated/managed" (vận hành, quản lý) và "hurried" (chạy vội) là các nghĩa khác của "run", không hợp ngữ cảnh thời gian.' },
-            { n: 185, q: 'What problem does Ms. Benavides mention?', options: ['The windows let in too little light.', 'The studio was not clean.', 'The manager was unhelpful.', 'There was not enough parking.'], a: 3, cue: 'parking is limited',
+            { n: 185, q: 'What problem does Ms. Benavides mention?', options: ['There was not enough parking.', 'The studio was not clean.', 'The manager was unhelpful.', 'The windows let in too little light.'], a: 0, cue: 'parking is limited',
               explain: '"parking is limited" – chỗ đỗ xe hạn chế, trợ lý phải đỗ xa vài dãy nhà. Ngược lại, phòng "spotless" (sạch bóng), ánh sáng tự nhiên tốt và quản lý rất nhiệt tình.' }
           ] } ] },
         { title: 'Order form, Invoice and E-mail', text:
@@ -591,7 +591,7 @@ Total paid | $291.00`,
               explain: 'Kết hợp ba văn bản: thuê 2 ngày, mỗi ngày miễn phí 150 km (trang web) → 300 km; biên lai tính thêm 60 km → tổng 360 km, khớp với e-mail (đi về 90 km × 2 = 180 km mỗi ngày × 2 ngày).' },
             { n: 199, q: 'In the e-mail, the word "regular" in paragraph 1 is closest in meaning to', options: ['usual', 'balanced', 'frequent', 'standard-sized'], a: 0, cue: 'Our regular van is being repaired',
               explain: '"Our regular van" = chiếc xe tải công ty vẫn thường dùng → "usual". "frequent" (thường xuyên xảy ra), "balanced" (cân đối) hay "standard-sized" (cỡ tiêu chuẩn) không hợp với ngữ cảnh.' },
-            { n: 200, q: 'What is suggested about Mr. Volkov?', options: ['He owns Saffron & Salt Catering.', 'He drove the van only on July 19.', 'He returned the van before noon.', 'He rented a second vehicle.'], a: 1, cue: 'Additional driver (1 day)',
+            { n: 200, q: 'What is suggested about Mr. Volkov?', options: ['He drove the van only on July 19.', 'He owns Saffron & Salt Catering.', 'He returned the van before noon.', 'He rented a second vehicle.'], a: 0, cue: 'Additional driver (1 day)',
               explain: 'Kết hợp hai văn bản: e-mail cho biết Mr. Volkov lái xe "on the second day" (19/7), và biên lai chỉ tính "Additional driver (1 day)" → ông chỉ lái ngày 19/7. Xe được trả lúc 8:40 tối, và e-mail cho thấy ông là bếp trưởng, không phải chủ công ty.' }
           ] } ] }
       ] }

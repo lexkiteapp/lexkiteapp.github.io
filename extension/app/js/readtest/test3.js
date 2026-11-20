@@ -98,8 +98,8 @@ items: [
 instr: "Choose the correct letter, A, B, C or D.",
 items: [
 { n: 20, q: "What did each organisation in the Northbridge trial agree to do?",
-options: ["cut working time without lowering pay", "reduce salaries in line with the shorter hours", "hire extra staff for a period of six months", "share its productivity data with other companies"],
-a: 0, cue: "reduce working hours by around 20 per cent for six months while maintaining salaries" },
+options: ["reduce salaries in line with the shorter hours", "cut working time without lowering pay", "hire extra staff for a period of six months", "share its productivity data with other companies"],
+a: 1, cue: "reduce working hours by around 20 per cent for six months while maintaining salaries" },
 { n: 21, q: "How did Halvard Logistics introduce the shorter week?",
 options: ["It closed every Friday from the beginning of the trial.", "It allowed staff to choose which day they took off.", "It shortened each working day before giving a whole day off.", "It kept its doors open by staggering staff days off."],
 a: 2, cue: "cutting thirty minutes a day for the first two months before moving to a full extra day off" },

@@ -6,7 +6,7 @@
     /* ================= PART 5 ================= */
     { part: 5, title: 'Incomplete Sentences', instr: g.TQR[2],
       groups: [ { type: 'mcq', instr: '', items: [
-        { n: 101, q: 'Dr. Alvarez reviewed the clinical data ------- before approving the final report.', options: ['careful', 'carefulness', 'care', 'carefully'], a: 3, cue: 'reviewed the clinical data',
+        { n: 101, q: 'Dr. Alvarez reviewed the clinical data ------- before approving the final report.', options: ['careful', 'carefully', 'care', 'carefulness'], a: 1, cue: 'reviewed the clinical data',
           explain: 'Cần trạng từ bổ nghĩa cho động từ "reviewed" → "carefully" (một cách cẩn thận). "careful" là tính từ, "care/carefulness" là danh từ.' },
         { n: 102, q: 'Silverline Airways ------- three new routes to Southeast Asia last quarter.', options: ['launches', 'will launch', 'launched', 'is launching'], a: 2, cue: 'last quarter',
           explain: '"last quarter" (quý trước) chỉ quá khứ → quá khứ đơn "launched".' },
@@ -14,7 +14,7 @@
           explain: 'Cụm "forward something TO somebody" = chuyển cái gì đến ai → "to".' },
         { n: 104, q: 'The conference organizers thanked ------- volunteers for their hard work during the three-day event.', options: ['they', 'them', 'themselves', 'their'], a: 3, cue: 'volunteers',
           explain: 'Trước danh từ "volunteers" cần tính từ sở hữu → "their". "they/them/themselves" không đứng trước danh từ.' },
-        { n: 105, q: 'The quarterly sales figures will be ------- to all regional managers on Friday.', options: ['distributing', 'distributed', 'distribute', 'distribution'], a: 1, cue: 'will be',
+        { n: 105, q: 'The quarterly sales figures will be ------- to all regional managers on Friday.', options: ['distributed', 'distributing', 'distribute', 'distribution'], a: 0, cue: 'will be',
           explain: 'Sau "will be" và có tân ngữ gián tiếp "to all regional managers" → bị động "will be distributed" (sẽ được phân phát).' },
         { n: 106, q: 'Orders placed after 3:00 P.M. will not be processed ------- the following business day.', options: ['since', 'until', 'by', 'within'], a: 1, cue: 'will not be processed',
           explain: '"not ... until" = mãi đến ... mới. Đơn đặt sau 15h sẽ không được xử lý cho đến ngày làm việc kế tiếp. "by" chỉ hạn chót, "since" đi với hoàn thành.' },
@@ -30,13 +30,13 @@
           explain: '"compare the costs" = so sánh chi phí của hai đề xuất. "agree, depend, belong" là nội động từ, cần giới từ (agree on, depend on, belong to).' },
         { n: 112, q: 'The museum\'s new wing, ------- opened in May, features works by local sculptors.', options: ['who', 'which', 'what', 'where'], a: 1, cue: 'The museum\'s new wing,',
           explain: 'Mệnh đề quan hệ không xác định (có dấu phẩy) bổ nghĩa cho vật "new wing" và làm chủ ngữ → "which". "what" không dùng sau danh từ; "where" cần mệnh đề đủ chủ ngữ.' },
-        { n: 113, q: 'Ms. Haverford ------- at Tresco Engineering for twelve years when she was promoted to vice president.', options: ['had worked', 'has worked', 'is working', 'works'], a: 0, cue: 'when she was promoted',
+        { n: 113, q: 'Ms. Haverford ------- at Tresco Engineering for twelve years when she was promoted to vice president.', options: ['works', 'has worked', 'is working', 'had worked'], a: 3, cue: 'when she was promoted',
           explain: 'Hành động kéo dài đến một thời điểm trong quá khứ ("when she was promoted") → quá khứ hoàn thành "had worked".' },
         { n: 114, q: 'The training manual provides ------- instructions for setting up the new payroll software.', options: ['detail', 'detailed', 'detailing', 'details'], a: 1, cue: 'instructions',
           explain: 'Trước danh từ "instructions" cần tính từ → "detailed instructions" (hướng dẫn chi tiết).' },
         { n: 115, q: 'All employees must wear their identification badges ------- they are inside the factory.', options: ['whereas', 'so that', 'whenever', 'unless'], a: 2, cue: 'they are inside the factory',
           explain: '"whenever" = bất cứ khi nào: phải đeo thẻ bất cứ khi nào ở trong nhà máy. "unless" (trừ khi) và "whereas" (trong khi đó) sai nghĩa.' },
-        { n: 116, q: 'Customers can track the ------- of their packages by entering the order number on our Web site.', options: ['status', 'stature', 'statement', 'statue'], a: 0, cue: 'track the',
+        { n: 116, q: 'Customers can track the ------- of their packages by entering the order number on our Web site.', options: ['statement', 'stature', 'status', 'statue'], a: 2, cue: 'track the',
           explain: '"track the status of packages" = theo dõi tình trạng gói hàng. Các từ còn lại có hình thức giống nhưng sai nghĩa.' },
         { n: 117, q: 'The new branch manager is known for ------- quickly to customer complaints.', options: ['respond', 'responds', 'responded', 'responding'], a: 3, cue: 'is known for',
           explain: 'Sau giới từ "for" cần V-ing → "responding".' },
@@ -46,15 +46,15 @@
           explain: 'Cần trạng từ bổ nghĩa cho cụm "ahead of schedule" → "slightly" (hơi, một chút).' },
         { n: 120, q: 'Dunmore Textiles has decided to ------- its production to a larger facility outside the city.', options: ['remain', 'reside', 'rely', 'relocate'], a: 3, cue: 'its production to a larger facility',
           explain: '"relocate something to ..." = di dời cái gì đến nơi khác. "remain, reside, rely" không có tân ngữ trực tiếp theo nghĩa này.' },
-        { n: 121, q: 'Only ------- who have completed the safety course may operate the forklifts.', options: ['that', 'this', 'those', 'these'], a: 2, cue: 'who have completed the safety course',
+        { n: 121, q: 'Only ------- who have completed the safety course may operate the forklifts.', options: ['that', 'those', 'this', 'these'], a: 1, cue: 'who have completed the safety course',
           explain: '"those who ..." = những người mà ... Đại từ "those" đứng trước mệnh đề quan hệ chỉ người.' },
         { n: 122, q: 'The hotel\'s rooftop restaurant is ------- for its views of the harbor.', options: ['renowning', 'renowned', 'renown', 'renownedly'], a: 1, cue: 'for its views of the harbor',
           explain: '"be renowned for" = nổi tiếng về. Cần tính từ sau "is".' },
         { n: 123, q: 'The marketing proposal was well received; -------, the budget will need to be reduced.', options: ['therefore', 'similarly', 'however', 'for example'], a: 2, cue: 'was well received',
           explain: 'Hai vế tương phản (được đón nhận tốt NHƯNG phải giảm ngân sách) → "however".' },
-        { n: 124, q: 'Ms. Ito asked that the meeting minutes be sent to ------- by the end of the day.', options: ['her', 'she', 'hers', 'herself'], a: 0, cue: 'be sent to',
+        { n: 124, q: 'Ms. Ito asked that the meeting minutes be sent to ------- by the end of the day.', options: ['she', 'her', 'hers', 'herself'], a: 1, cue: 'be sent to',
           explain: 'Sau giới từ "to" cần đại từ tân ngữ → "her". "herself" chỉ dùng khi chủ ngữ và tân ngữ của cùng một mệnh đề trùng nhau.' },
-        { n: 125, q: 'The contract will be renewed automatically ------- either party provides written notice of cancellation.', options: ['during', 'despite', 'whether', 'unless'], a: 3, cue: 'provides written notice of cancellation',
+        { n: 125, q: 'The contract will be renewed automatically ------- either party provides written notice of cancellation.', options: ['unless', 'despite', 'whether', 'during'], a: 0, cue: 'provides written notice of cancellation',
           explain: '"unless" = trừ khi: hợp đồng tự gia hạn TRỪ KHI một bên gửi thông báo hủy. "despite/during" + danh từ; "whether" sai nghĩa.' },
         { n: 126, q: 'Several staff members have volunteered to ------- the visiting delegation around the plant.', options: ['show', 'tell', 'speak', 'say'], a: 0, cue: 'the visiting delegation around the plant',
           explain: '"show somebody around a place" = dẫn ai đi tham quan nơi nào. Các động từ còn lại không đi với cấu trúc này.' },
@@ -62,7 +62,7 @@
           explain: 'So sánh kép "The more ..., the more ..." (càng ... càng ...).' },
         { n: 128, q: 'Please refer to the attached document for a ------- list of participating hotels.', options: ['comprehend', 'comprehensively', 'comprehension', 'comprehensive'], a: 3, cue: 'list of participating hotels',
           explain: 'Trước danh từ "list" cần tính từ → "comprehensive list" (danh sách đầy đủ).' },
-        { n: 129, q: 'Under no circumstances ------- confidential client files be removed from the office.', options: ['do', 'should', 'have', 'are'], a: 1, cue: 'Under no circumstances',
+        { n: 129, q: 'Under no circumstances ------- confidential client files be removed from the office.', options: ['should', 'do', 'have', 'are'], a: 0, cue: 'Under no circumstances',
           explain: 'Đảo ngữ sau "Under no circumstances": trợ động từ đứng trước chủ ngữ; động từ "be removed" ở dạng nguyên mẫu → cần động từ khuyết thiếu "should".' },
         { n: 130, q: 'Had the supplier delivered the parts on time, the assembly line ------- for two days.', options: ['would not stop', 'did not stop', 'will not have stopped', 'would not have stopped'], a: 3, cue: 'Had the supplier delivered',
           explain: 'Câu điều kiện loại 3 đảo ngữ ("Had + S + V3") → mệnh đề chính "would have + V3": "would not have stopped".' }
@@ -84,7 +84,7 @@ Weekend hours will remain the same. We look forward to -----(134)----- you at th
               explain: 'Mở cửa sớm hơn (8h thay vì 9h30) → giờ mở cửa được KÉO DÀI → "extend". "shorten" ngược nghĩa.' },
             { n: 132, q: '(132)', options: ['They will be available at the information desk to assist visitors.', 'The library was founded more than a century ago.', 'Overdue fines will be doubled next year.', 'The parking lot will be closed for repaving.'], a: 0, cue: 'we have hired two additional staff members',
               explain: 'Câu trước nói thuê thêm hai nhân viên; câu (A) dùng "They" chỉ hai nhân viên này và nêu nhiệm vụ của họ → liền mạch. Các câu khác lạc đề.' },
-            { n: 133, q: '(133)', options: ['upgrade', 'upgrading', 'upgraded', 'upgrades'], a: 2, cue: 'have been',
+            { n: 133, q: '(133)', options: ['upgrade', 'upgrading', 'upgrades', 'upgraded'], a: 3, cue: 'have been',
               explain: '"have been + V3" → bị động hiện tại hoàn thành: máy đã được nâng cấp → "upgraded".' },
             { n: 134, q: '(134)', options: ['see', 'seen', 'seeing', 'saw'], a: 2, cue: 'We look forward to',
               explain: '"look forward to + V-ing" ("to" là giới từ) → "seeing".' }
@@ -125,7 +125,7 @@ Orders placed before noon are delivered the same day within Da Lat and the next 
           groups: [ { type: 'mcq', instr: g.TQR[6], items: [
             { n: 139, q: '(139)', options: ['exclusively', 'exclusive', 'exclusion', 'excluding'], a: 0, cue: 'had sold its roses and lilies',
               explain: 'Cần trạng từ bổ nghĩa cho động từ "had sold" → "exclusively" (chỉ, độc quyền) bán cho nhà bán buôn và khách sạn.' },
-            { n: 140, q: '(140)', options: ['possibility', 'possible', 'possibly', 'possibilities'], a: 1, cue: 'The online store makes that',
+            { n: 140, q: '(140)', options: ['possibility', 'possibly', 'possible', 'possibilities'], a: 2, cue: 'The online store makes that',
               explain: 'Cấu trúc "make + tân ngữ + tính từ" → "makes that possible" (biến điều đó thành có thể).' },
             { n: 141, q: '(141)', options: ['Roses grow best in warm, dry climates.', 'Ms. Pham joined the company last month.', 'Hotels in the area are fully booked during the festival.', 'Each bouquet is packed in a special box that keeps the flowers fresh for up to 48 hours.'], a: 3, cue: 'the next day to Ho Chi Minh City',
               explain: 'Đoạn nói về giao hàng (cả giao hàng xa tới TP.HCM); câu (D) giải thích cách giữ hoa tươi khi vận chuyển → hợp mạch nhất.' },
@@ -150,13 +150,13 @@ Sincerely,
 Gareth Lowell
 Property Manager`,
           groups: [ { type: 'mcq', instr: g.TQR[13], items: [
-            { n: 143, q: '(143)', options: ['finishing', 'finish', 'finished', 'finishes'], a: 1, cue: 'is scheduled to',
+            { n: 143, q: '(143)', options: ['finish', 'finishing', 'finished', 'finishes'], a: 0, cue: 'is scheduled to',
               explain: '"be scheduled to + V nguyên mẫu" → "finish".' },
             { n: 144, q: '(144)', options: ['The rent will increase on January 1.', 'Both wings are connected by a hallway on every floor.', 'The swimming pool is open until 10 P.M.', 'New residents must register their vehicles.'], a: 1, cue: 'use the elevators in the west wing',
               explain: 'Câu trước yêu cầu cư dân cánh đông dùng thang máy cánh tây; câu (B) giải thích hai cánh được nối bằng hành lang ở mỗi tầng → hợp lý nhất.' },
-            { n: 145, q: '(145)', options: ['specialize', 'special', 'especially', 'specialty'], a: 2, cue: 'for residents on the upper floors',
+            { n: 145, q: '(145)', options: ['especially', 'special', 'specialize', 'specialty'], a: 0, cue: 'for residents on the upper floors',
               explain: '"especially for ..." = đặc biệt là đối với. Cần trạng từ đứng trước cụm giới từ.' },
-            { n: 146, q: '(146)', options: ['permission', 'directions', 'refunds', 'assistance'], a: 3, cue: 'need help carrying heavy items',
+            { n: 146, q: '(146)', options: ['permission', 'assistance', 'refunds', 'directions'], a: 1, cue: 'need help carrying heavy items',
               explain: 'Cần giúp mang đồ nặng → liên hệ để yêu cầu "assistance" (sự hỗ trợ).' }
           ] } ] }
       ] },
@@ -217,7 +217,7 @@ We offer a competitive salary, health insurance, and two free tours per year for
 
 To apply, send a résumé and a short statement explaining why you are interested in the position to careers@lanternpath.vn by May 15. Interviews will be held in Hoi An during the last week of May.`,
           groups: [ { type: 'mcq', instr: 'Questions 151-153 refer to the following job advertisement.', items: [
-            { n: 151, q: 'What is NOT listed as a duty of the tour coordinator?', options: ['Booking hotels', 'Contacting local guides', 'Answering customer questions', 'Leading tours personally'], a: 3, cue: 'communicate with local guides',
+            { n: 151, q: 'What is NOT listed as a duty of the tour coordinator?', options: ['Booking hotels', 'Leading tours personally', 'Answering customer questions', 'Contacting local guides'], a: 1, cue: 'communicate with local guides',
               explain: 'Nhiệm vụ: sắp xếp phương tiện/chỗ ở, liên lạc với hướng dẫn viên địa phương, trả lời khách. KHÔNG có việc tự mình dẫn tour.' },
             { n: 152, q: 'What is a preferred but not required qualification?', options: ['Experience in hospitality', 'Ability to work on weekends', 'Knowledge of an Asian language other than Vietnamese', 'A university degree in tourism'], a: 2, cue: 'knowledge of Korean or Japanese is a plus',
               explain: '"is a plus" = là điểm cộng (ưu tiên, không bắt buộc) → biết tiếng Hàn hoặc Nhật.' },
@@ -250,7 +250,7 @@ Yusuf Demir`,
               explain: 'Mật khẩu hết hạn và người dùng không đăng nhập được cho đến khi liên hệ bộ phận hỗ trợ IT.' },
             { n: 156, q: 'Which of the following passwords would be accepted?', options: ['A ten-character password with a number and a symbol', 'A twelve-character password with no symbols', 'A password used three months ago', 'A fourteen-character password with a number and a symbol'], a: 3, cue: 'at least twelve characters, including at least one number and one symbol',
               explain: 'Cần ≥ 12 ký tự, có ít nhất 1 số và 1 ký hiệu, không trùng 5 mật khẩu gần nhất → chỉ (D) hợp lệ.' },
-            { n: 157, q: 'In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong? "Then click \'Change Password\' and follow the instructions on the screen."', options: ['[3]', '[2]', '[1]', '[4]'], a: 0, cue: 'select "Account Settings."',
+            { n: 157, q: 'In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong? "Then click \'Change Password\' and follow the instructions on the screen."', options: ['[1]', '[2]', '[3]', '[4]'], a: 2, cue: 'select "Account Settings."',
               explain: '"Then click ..." là bước tiếp theo sau khi đăng nhập và chọn "Account Settings" → vị trí [3].' }
           ] } ] },
         { title: 'Article', text:
@@ -303,7 +303,7 @@ Customers with an affected kettle may return it to any Halvorsen retail store fo
 
 We apologize for the inconvenience and thank you for your understanding.`,
           groups: [ { type: 'mcq', instr: 'Questions 165-166 refer to the following notice.', items: [
-            { n: 165, q: g.TQR[19], options: ['To warn customers about a possible problem with a product', 'To announce the launch of a new kettle model', 'To explain how to clean an electric appliance', 'To advertise a seasonal discount on kitchenware'], a: 0, cue: 'the switch may fail to turn off automatically after the water boils',
+            { n: 165, q: g.TQR[19], options: ['To announce the launch of a new kettle model', 'To warn customers about a possible problem with a product', 'To explain how to clean an electric appliance', 'To advertise a seasonal discount on kitchenware'], a: 1, cue: 'the switch may fail to turn off automatically after the water boils',
               explain: 'Thông báo nói một số ấm đun "may fail to turn off automatically" (có thể không tự ngắt sau khi nước sôi) và đề nghị ngừng sử dụng → cảnh báo lỗi sản phẩm. Không hề giới thiệu mẫu mới, hướng dẫn vệ sinh hay khuyến mãi.' },
             { n: 166, q: 'What is NOT mentioned as an option for customers with an affected kettle?', options: ['Returning it to a store for a refund', 'Requesting a replacement online', 'Receiving a new kettle by mail at no charge', 'Having it repaired by a technician'], a: 3, cue: 'may return it to any Halvorsen retail store for a full refund',
               explain: 'Khách có thể "return it to any Halvorsen retail store for a full refund" (trả lại cửa hàng để hoàn tiền) hoặc điền form trực tuyến để nhận ấm thay thế gửi miễn phí. Thông báo KHÔNG nhắc đến việc nhờ kỹ thuật viên sửa chữa.' }
@@ -338,7 +338,7 @@ Kwame Asante [10:13 A.M.]: I can draft an e-mail to those customers this morning
 Leticia Ferraz [10:15 A.M.]: A free shipping code would be a nice gesture. Kwame, please send me the draft before it goes out.
 Kwame Asante [10:16 A.M.]: Sure thing. You'll have it by noon.`,
           groups: [ { type: 'mcq', instr: g.TQR[9], items: [
-            { n: 169, q: 'What problem are the writers discussing?', options: ['A bookstore has canceled a launch event.', 'A printing company cannot deliver an order on time.', 'An author is unable to attend an event.', 'Some books were printed with errors.'], a: 1, cue: 'Their main press broke down',
+            { n: 169, q: 'What problem are the writers discussing?', options: ['A printing company cannot deliver an order on time.', 'A bookstore has canceled a launch event.', 'An author is unable to attend an event.', 'Some books were printed with errors.'], a: 0, cue: 'Their main press broke down',
               explain: '"Their main press broke down" (máy in chính bị hỏng) nên 2.000 cuốn sẽ trễ đến thứ Sáu tuần sau → nhà in không giao đúng hạn. Sự kiện ra mắt vẫn diễn ra, không có chuyện tác giả vắng mặt hay sách in lỗi.' },
             { n: 170, q: 'At 10:09 A.M., what does Mr. Mehta most likely mean when he writes, "Good point"?', options: ['He thinks the event should be moved to a larger venue.', 'He wants Pellham Books to order more copies.', 'He plans to cancel all of the online orders.', 'He agrees that the smaller print run will meet the immediate need.'], a: 3, cue: 'Pellham only ordered 250 copies for the event, so 300 would cover it',
               explain: 'Ngay trước đó Ms. Lindgren nói Pellham chỉ đặt 250 cuốn nên 300 cuốn "would cover it" (là đủ), đơn online có thể chờ. "Good point" = ý hay đấy → anh đồng ý rằng lô in nhỏ đủ đáp ứng nhu cầu trước mắt. Không ai đề nghị đổi địa điểm, đặt thêm hay hủy đơn.' },
@@ -357,13 +357,13 @@ The project was partly funded by a regional grant program that supports business
 
 Mr. Esposito said the company is now considering adding battery storage so that power generated during the day can be used for night shifts. —[4]— A decision is expected later this year.`,
           groups: [ { type: 'mcq', instr: g.TQR[7], items: [
-            { n: 172, q: g.TQR[3], options: ["A company's use of renewable energy at its facilities", 'A shortage of warehouse space', 'A rise in electricity prices', 'The construction of a new harbor'], a: 0, cue: 'has completed the installation of solar panels on the roofs of its three warehouses',
+            { n: 172, q: g.TQR[3], options: ['The construction of a new harbor', 'A shortage of warehouse space', 'A rise in electricity prices', "A company's use of renewable energy at its facilities"], a: 3, cue: 'has completed the installation of solar panels on the roofs of its three warehouses',
               explain: 'Bài viết nói Tavera Freight "has completed the installation of solar panels" trên mái ba nhà kho → công ty dùng năng lượng tái tạo tại cơ sở của mình. Không nói về xây cảng, thiếu kho hay giá điện tăng.' },
             { n: 173, q: 'What is indicated about the solar panels?', options: ['They were manufactured by Tavera Freight.', "They are expected to meet more than half of the sites' power needs.", 'They took seven years to install.', 'They will be used to charge delivery trucks.'], a: 1, cue: 'supply roughly 60 percent of the electricity used at the sites',
               explain: '"supply roughly 60 percent of the electricity" = cung cấp khoảng 60% lượng điện → hơn một nửa nhu cầu. "Seven years" là thời gian hoàn vốn, không phải thời gian lắp đặt; bài không nói công ty tự sản xuất tấm pin hay sạc xe tải.' },
             { n: 174, q: 'What is NOT mentioned about the project?', options: ['How long it will take to recover its cost', 'Where some of its funding came from', 'Which company installed the panels', 'A possible future addition to it'], a: 2, cue: 'recover the cost of the project within seven years',
               explain: 'Bài có nêu thời gian hoàn vốn ("recover the cost ... within seven years"), nguồn tài trợ (chương trình trợ cấp vùng) và khả năng bổ sung pin lưu trữ. Bài KHÔNG cho biết công ty nào lắp đặt tấm pin.' },
-            { n: 175, q: 'In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong? "Such grants are available to companies of any size in the region."', options: ['[3]', '[2]', '[1]', '[4]'], a: 0, cue: 'supports businesses switching to renewable energy.',
+            { n: 175, q: 'In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong? "Such grants are available to companies of any size in the region."', options: ['[1]', '[2]', '[3]', '[4]'], a: 2, cue: 'supports businesses switching to renewable energy.',
               explain: '"Such grants" (những khoản trợ cấp như vậy) phải đứng sau câu nhắc đến "a regional grant program that supports businesses switching to renewable energy" → vị trí [3]. Các vị trí khác chưa hề nói đến trợ cấp.' }
           ] } ] },
         { title: 'Web page and E-mail', text:
@@ -430,7 +430,7 @@ Thursday, June 13 | 1:00 P.M.–5:00 P.M. | Marcus Bell | 3
 Monday, June 17 | 8:00 A.M.–12:00 P.M. | Aiko Tanaka | 5
 Wednesday, June 26 | 1:00 P.M.–5:00 P.M. | Aiko Tanaka | 6`,
           groups: [ { type: 'mcq', instr: 'Questions 181-185 refer to the following memo and schedule.', items: [
-            { n: 181, q: g.TQR[11], options: ['To introduce a new safety coordinator', 'To announce a required training course', 'To report an accident in the warehouse', 'To explain changes to shift schedules'], a: 1, cue: 'must complete a recertification course this month',
+            { n: 181, q: g.TQR[11], options: ['To announce a required training course', 'To introduce a new safety coordinator', 'To report an accident in the warehouse', 'To explain changes to shift schedules'], a: 0, cue: 'must complete a recertification course this month',
               explain: 'Memo yêu cầu mọi nhân viên lái xe nâng "must complete a recertification course this month" (phải hoàn thành khóa cấp lại chứng nhận trong tháng) → thông báo khóa đào tạo bắt buộc. Không có tai nạn, nhân sự mới hay thay đổi ca làm.' },
             { n: 182, q: 'In the memo, the word "exempt" in paragraph 3, line 1, is closest in meaning to', options: ['released', 'excused', 'prepared', 'promoted'], a: 1, cue: 'are exempt but must submit a copy of their certificate',
               explain: '"are exempt" ở đây = được miễn (không phải học lại khóa) → "excused". "released" (được thả, phát hành), "prepared" (đã chuẩn bị), "promoted" (được thăng chức) không hợp nghĩa.' },
@@ -480,9 +480,9 @@ My only complaint concerns breakfast. The restaurant was so crowded on my first 
               explain: 'Ngay đoạn 1 của email: "We are pleased to confirm your reservation" → xác nhận đặt phòng. Chương trình Blue Anchor chỉ được nhắc như quyền lợi của khách, không phải mục đích chính; không có nâng hạng phòng hay yêu cầu đặt cọc.' },
             { n: 187, q: 'In the e-mail, the word "arrange" in paragraph 2 is closest in meaning to', options: ['decorate', 'organize', 'adjust', 'sort'], a: 1, cue: 'To arrange one',
               explain: '"To arrange one" (one = an airport transfer) = sắp xếp/đặt một chuyến đưa đón → "organize". "decorate" (trang trí), "sort" (phân loại), "adjust" (điều chỉnh) không hợp ngữ cảnh đặt dịch vụ.' },
-            { n: 188, q: 'What is probably true about Mr. Lindqvist?', options: ['He changed his departure date.', 'He paid for a taxi from the airport.', 'He sent his flight details to the hotel in advance.', 'He stayed at the hotel for four nights.'], a: 2, cue: 'The driver who collected me from the airport was waiting',
+            { n: 188, q: 'What is probably true about Mr. Lindqvist?', options: ['He sent his flight details to the hotel in advance.', 'He paid for a taxi from the airport.', 'He changed his departure date.', 'He stayed at the hotel for four nights.'], a: 0, cue: 'The driver who collected me from the airport was waiting',
               explain: 'Email: muốn được đưa đón miễn phí thì phải gửi "flight details at least 48 hours before arrival"; bài đánh giá: "The driver who collected me from the airport was waiting" → ông đã gửi thông tin chuyến bay trước. Vì có xe đón nên không phải đi taxi; ông ở đúng ba đêm và rời đi 22/5 như dự kiến.' },
-            { n: 189, q: 'Why did Mr. Lindqvist have to wait for breakfast?', options: ['The restaurant opened late.', 'He arrived before breakfast was served.', 'His room did not include breakfast.', 'Many other guests were eating at the same time.'], a: 3, cue: 'a large tour group was staying at the hotel',
+            { n: 189, q: 'Why did Mr. Lindqvist have to wait for breakfast?', options: ['The restaurant opened late.', 'He arrived before breakfast was served.', 'Many other guests were eating at the same time.', 'His room did not include breakfast.'], a: 2, cue: 'a large tour group was staying at the hotel',
               explain: 'Bài đánh giá: nhà hàng "so crowded" vì "a large tour group was staying at the hotel" → nhiều khách ăn cùng lúc. Email cho biết bữa sáng đã bao gồm trong giá phòng; không có thông tin nhà hàng mở cửa muộn.' },
             { n: 190, q: "What is suggested about Mr. Lindqvist's last day in Sydney?", options: ['He gave a product demonstration that day.', 'He missed his flight.', 'He met distributors in the morning.', 'He used a benefit available to loyalty program members.'], a: 3, cue: 'keep my room until the afternoon',
               explain: 'Bài đánh giá: ngày cuối ông được "keep my room until the afternoon"; email cho biết "Late checkout until 2:00 P.M." là quyền lợi dành cho thành viên → ông đã dùng ưu đãi thành viên. Theo lịch trình, buổi giới thiệu sản phẩm là 21/5 và gặp nhà phân phối là 20/5, không phải ngày cuối (22/5).' }
@@ -532,7 +532,7 @@ Customer Accounts`,
               explain: 'Kết hợp ba văn bản: phiếu đặt hàng xin thêm hai cây cọ cao khoảng 2 mét; bảng giá ghi cây lớn trên 1,5 mét "available only with the Premium plan"; email nói các cây này chỉ có ở gói cao hơn → gói Premium. Standard là gói cô đang chọn.' },
             { n: 192, q: 'If Ms. Zhou keeps her current plan, how much will she pay for the first year of the agreement?', options: ['$1,600', '$1,760', '$1,920', '$3,190'], a: 1, cue: 'Customers who sign a twelve-month agreement receive one month free',
               explain: 'Kết hợp hai văn bản: phiếu đặt hàng chọn gói Standard ($160/tháng) với hợp đồng 12 tháng; bảng giá cho biết hợp đồng 12 tháng được "one month free" → trả 11 tháng × $160 = $1,760. $1,920 là giá đủ 12 tháng; $3,190 là 11 tháng gói Premium.' },
-            { n: 193, q: 'What is suggested about Leafline Office Plants?', options: ['It changes its delivery schedule at certain times of the year.', 'It charges extra for decorative pots.', 'It replaces unhealthy plants for a small fee.', 'It has recently moved to Ridgeway Avenue.'], a: 0, cue: 'does not work on Mondays in September because of our seasonal stock deliveries',
+            { n: 193, q: 'What is suggested about Leafline Office Plants?', options: ['It charges extra for decorative pots.', 'It changes its delivery schedule at certain times of the year.', 'It replaces unhealthy plants for a small fee.', 'It has recently moved to Ridgeway Avenue.'], a: 1, cue: 'does not work on Mondays in September because of our seasonal stock deliveries',
               explain: 'Email cho biết đội giao hàng "does not work on Mondays in September" vì nhận hàng theo mùa → lịch giao hàng thay đổi vào một số thời điểm trong năm. Chậu trang trí và thay cây yếu đều miễn phí; Ridgeway Avenue là địa chỉ của khách hàng.' },
             { n: 194, q: 'In the e-mail, the word "suit" in paragraph 1, line 5, is closest in meaning to', options: ['dress', 'request', 'follow', 'fit'], a: 3, cue: 'that would suit the space under your current plan',
               explain: '"plants that would suit the space" = cây phù hợp với không gian → "fit". Nghĩa "bộ com-lê, mặc đồ" ("dress") hay "request", "follow" không hợp ngữ cảnh.' },
@@ -584,15 +584,15 @@ Total paid ..................................... $2,151
 
 Note: Departure from Pier 4, Old Town. Boarding begins 30 minutes before departure. Step-free boarding ramp available.`,
           groups: [ { type: 'mcq', instr: 'Questions 196-200 refer to the following brochure, e-mail, and receipt.', items: [
-            { n: 196, q: 'What is indicated about Kingfisher River Cruises?', options: ['It operates boats on several rivers.', 'It works with another company to provide food.', 'It requires a minimum of 30 guests per charter.', 'It offers discounts on catering.'], a: 1, cue: 'Catering can be arranged through our partner, Saltmarsh Kitchen',
+            { n: 196, q: 'What is indicated about Kingfisher River Cruises?', options: ['It operates boats on several rivers.', 'It offers discounts on catering.', 'It requires a minimum of 30 guests per charter.', 'It works with another company to provide food.'], a: 3, cue: 'Catering can be arranged through our partner, Saltmarsh Kitchen',
               explain: 'Tờ quảng cáo ghi "Catering can be arranged through our partner, Saltmarsh Kitchen" → hợp tác với công ty khác để cung cấp đồ ăn. Giảm giá chỉ áp dụng cho tiền thuê thuyền ("catering not included"); mức tối thiểu là 3 giờ, không phải 30 khách.' },
-            { n: 197, q: 'In the e-mail, the word "provided" in paragraph 1, line 2, is closest in meaning to', options: ['predicted', 'allowed', 'supplied', 'returned'], a: 2, cue: 'we would like dinner to be provided for everyone',
+            { n: 197, q: 'In the e-mail, the word "provided" in paragraph 1, line 2, is closest in meaning to', options: ['supplied', 'allowed', 'predicted', 'returned'], a: 0, cue: 'we would like dinner to be provided for everyone',
               explain: '"dinner to be provided for everyone" = bữa tối được cung cấp cho mọi người → "supplied". Nghĩa "provided (that)" = với điều kiện, hay "allowed" (cho phép) không hợp; "predicted", "returned" sai nghĩa.' },
             { n: 198, q: 'Why was the Osprey most likely chosen for the Solis Analytics event?', options: ['It is the least expensive boat.', 'It is the only boat with a step-free ramp.', 'It can hold all of the expected guests.', 'It departs from a pier near Linwood.'], a: 2, cue: 'We expect about 45 employees',
               explain: 'Kết hợp ba văn bản: email dự kiến khoảng 45 nhân viên; tờ quảng cáo cho biết Heron chỉ chở 30 khách, Osprey chở 60 khách; biên lai ghi thuê Osprey → chọn vì chứa đủ số khách. Heron rẻ hơn nhưng quá nhỏ; mọi chuyến đều khởi hành từ Pier 4 ở Old Town.' },
             { n: 199, q: "What is suggested about Ms. Duarte's request to be picked up closer to her office?", options: ['It was approved for an additional fee.', 'It could not be accommodated.', 'It was forwarded to Saltmarsh Kitchen.', 'It caused the event date to change.'], a: 1, cue: 'Note: Departure from Pier 4, Old Town.',
               explain: 'Kết hợp ba văn bản: email xin đón gần Linwood; tờ quảng cáo nói "All charters depart from Pier 4 in the Old Town district"; biên lai vẫn ghi khởi hành từ Pier 4, Old Town và không có phí đón thêm → yêu cầu không được đáp ứng. Ngày sự kiện vẫn là 20/6.' },
-            { n: 200, q: 'At what time can the Solis Analytics guests begin boarding on June 20?', options: ['5:30 P.M.', '5:00 P.M.', '6:00 P.M.', '6:30 P.M.'], a: 0, cue: 'Boarding begins 30 minutes before departure',
+            { n: 200, q: 'At what time can the Solis Analytics guests begin boarding on June 20?', options: ['5:00 P.M.', '5:30 P.M.', '6:00 P.M.', '6:30 P.M.'], a: 1, cue: 'Boarding begins 30 minutes before departure',
               explain: 'Kết hợp hai văn bản: email cho biết chuyến đi bắt đầu lúc 6:00 P.M.; biên lai ghi "Boarding begins 30 minutes before departure" (bắt đầu lên tàu 30 phút trước giờ khởi hành) → 5:30 P.M. 6:00 P.M. là giờ khởi hành.' }
           ] } ] }
       ] }
