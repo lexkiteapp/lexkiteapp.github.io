@@ -52,3 +52,5 @@ pron-hub-light / pron-hub-dark (Thư viện phát âm #/pron – mẫu v2.1 từ
 dict-light / dict-dark (Từ điển #/dict – mẫu v2.1 từ Native M4 #979, không có id Stitch riêng; word-card/listen-word-popup chưa port)
 library-light 912dd5e303a64841bc15d8f324cc55bb (Lexkite v2.1 Light — Vocabulary Library r2; c2e3da6a rejected: fixed device frame)
 library-dark 8a6bfda409454500b1de5fc312fa645a (Lexkite v2.1 Dark — Vocabulary Library)
+today-light/dark: nút cờ 🇬🇧 (Target Language) ghép từ Stitch edit 20/11 (key3 màn 161ef34e/30b0c1ef → bản sửa ea97dccc/9d7e5e26); phần còn lại giữ nguyên bản chủ duyệt
+me-light/dark: nút cờ 🇬🇧 trong hàng Language = HTML nút do Stitch vẽ ở today (ea97dccc/9d7e5e26, 20/11), ghép vào bản me đã duyệt (Stitch edit me trên key1 không áp dụng được; key2–5 không chứa màn me)

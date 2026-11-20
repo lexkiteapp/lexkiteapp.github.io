@@ -168,6 +168,9 @@
          }
         },
         "n2": {
+         "remove": [
+          ":scope > div:nth-child(1) > button"
+         ],
          "html": {
           ":scope > div:nth-child(1) > div:nth-child(1) > span": "w.icon",
           ":scope > div:nth-child(1) > span": "'<' + (w.act ? 'button type=\"button\" data-act=\"' + e(w.act) + '\"' : 'a href=\"' + e(w.href) + '\"' + (w.ext ? ' target=\"_blank\" rel=\"noopener\"' : '') + (w.hook || '')) + ' class=\"text-start inline-flex items-center min-h-[44px] after:absolute after:inset-0 after:content-[\\'\\']\">' + e(w.label) + '</' + (w.act ? 'button' : 'a') + '>'",
