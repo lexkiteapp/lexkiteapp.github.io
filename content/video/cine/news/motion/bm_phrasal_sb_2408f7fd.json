@@ -24,9 +24,9 @@
  },
  "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
  "cta": {
-  "area": "idiom-phrasal",
-  "link": "https://lexkite.com/app/",
-  "say": "Practice free on lexkite.com"
+  "area": "phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Practice it free"
  },
  "series": {
   "name": "Social",
@@ -97,24 +97,6 @@
       "Natives",
       "white"
      ]
-    ],
-    [
-     [
-      "never say",
-      "yellow"
-     ]
-    ],
-    [
-     [
-      "'play",
-      "yellow"
-     ]
-    ],
-    [
-     [
-      "together",
-      "yellow"
-     ]
     ]
    ],
    "align": "l"
@@ -150,33 +132,6 @@
       "runs": [
        [
         "Natives"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "never say"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "'play"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "together"
        ]
       ]
      }
@@ -279,7 +234,7 @@
     ]
    }
   ],
-  "hook_text": "Natives never say 'play together",
+  "hook_text": "Natives",
   "end_line": "c"
  },
  "embed": {

@@ -147,15 +147,28 @@ const norm = t => String(t || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim
  * skips a clip whose title/cover already exists on the channel, avoids the same template back-to-back (reorders when possible).
  * → { slots: [{id, ms}], skipped: [{id, why}] }
  */
+/** Template rotation (owner 19/11: every channel must see many video kinds, not one flood). A template may not reappear within the last TPL_WINDOW posts of the channel while another
+ *  template is waiting; when every waiting template is "recent", take the one used longest ago; among equally old ones the least used overall wins. Ties → queue order. One template
+ *  flooding the pool (e.g. 216 `l1` vs 30 others) can then take at most 1 of every TPL_WINDOW + 1 slots while the others last. Returns the queue index to place next. */
+export const TPL_WINDOW = 4;
+export function pickTemplate(queue, recent, used = {}) {
+  let best = 0, key = null;   // key = [age (older = better, capped at the window), -times used (fewer = better)]; ties keep queue order
+  for (let i = 0; i < queue.length; i++) {
+    const t = queue[i].template || '', at = recent.lastIndexOf(t), age = at < 0 ? Infinity : recent.length - 1 - at, k = [Math.min(age, TPL_WINDOW), -(used[t] || 0)];
+    if (!key || k[0] > key[0] || (k[0] === key[0] && k[1] > key[1])) { best = i; key = k; }
+  }
+  return best;
+}
 /** Chủ 10/11/2026: lên lịch sẵn vài tháng khi có nhiều clip – vẫn giữ daily_cap + min_gap từng kênh nên không dồn bài vào một ngày. */
 export const PLAN_DAYS = 120;
 export function schedule({ clips, cfg, existing = [], now = Date.now(), horizonDays = PLAN_DAYS, jitterMin = 20, rand = hash }) {
   const gap = cfg.min_gap_min * MIN, taken = existing.map(e => e.ms).sort((a, b) => a - b), perDay = {}, titles = new Set(existing.map(e => norm(e.title)).filter(Boolean)), covers = new Set(existing.map(e => e.cover).filter(Boolean));
   for (const ms of taken) { const d = localDate(ms, cfg.tz); perDay[d] = (perDay[d] || 0) + 1; }
-  let lastTpl = (existing.slice().sort((a, b) => a.ms - b.ms).pop() || {}).template || '';
+  const used = {}; for (const e of existing) used[e.template || ''] = (used[e.template || ''] || 0) + 1;
+  const recent = existing.slice().sort((a, b) => a.ms - b.ms).slice(-TPL_WINDOW).map(e => e.template || '');   // last templates on this channel, oldest first
   const out = { slots: [], skipped: [] }, queue = clips.slice(), start = localDate(now + 15 * MIN, cfg.tz);
   while (queue.length) {
-    let i = queue.findIndex(c => c.template !== lastTpl); if (i < 0) i = 0; const c = queue.splice(i, 1)[0];
+    const c = queue.splice(pickTemplate(queue, recent, used), 1)[0];
     if ((norm(c.title) && titles.has(norm(c.title))) || (c.cover && covers.has(c.cover))) { out.skipped.push({ id: c.id, why: 'duplicate' }); continue; }
     let placed = null; const earliest = Math.max(now + 15 * MIN, out.slots.length ? out.slots[out.slots.length - 1].ms + gap : 0); // monotone inside one batch → template order = time order
     for (let dd = 0; dd <= horizonDays && placed == null; dd++) {
@@ -170,7 +183,7 @@ export function schedule({ clips, cfg, existing = [], now = Date.now(), horizonD
     }
     if (placed == null) { out.skipped.push({ id: c.id, why: 'no-slot' }); continue; }
     taken.push(placed); taken.sort((a, b) => a - b); const d = localDate(placed, cfg.tz); perDay[d] = (perDay[d] || 0) + 1;
-    if (norm(c.title)) titles.add(norm(c.title)); if (c.cover) covers.add(c.cover); lastTpl = c.template;
+    if (norm(c.title)) titles.add(norm(c.title)); if (c.cover) covers.add(c.cover); used[c.template || ''] = (used[c.template || ''] || 0) + 1; recent.push(c.template || ''); if (recent.length > TPL_WINDOW) recent.shift();
     out.slots.push({ id: c.id, ms: placed });
   }
   return out;

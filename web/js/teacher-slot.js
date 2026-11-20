@@ -15,6 +15,11 @@ img.tslot-img{aspect-ratio:1108/960}
 .tslot-ledge{position:absolute;left:2%;right:2%;bottom:0;height:calc(var(--h)*.16);border-radius:999px 999px calc(var(--h)*.06) calc(var(--h)*.06);background:var(--surface-2);box-shadow:inset 0 1px 0 rgb(255 255 255/.10),inset 0 calc(var(--h)*.02) calc(var(--h)*.03) rgb(0 0 0/.10),0 calc(var(--h)*.03) 0 var(--ledge)}
 [data-ground="0"] .tslot-ledge{background:var(--bg);box-shadow:none}
 .tslot-hip{--fb:calc(var(--h)*-.125)}.tslot-hip .tslot-ledge{height:calc(var(--h)*.1)}
+.tslot-fade .tslot-fig{-webkit-mask-image:linear-gradient(to top,transparent calc(var(--h)*.03),rgb(0 0 0/.55) calc(var(--h)*.15),#000 calc(var(--h)*.34));mask-image:linear-gradient(to top,transparent calc(var(--h)*.03),rgb(0 0 0/.55) calc(var(--h)*.15),#000 calc(var(--h)*.34))}
+.tslot-shadow{position:absolute;left:16%;right:16%;bottom:calc(var(--h)*-.04);height:calc(var(--h)*.1);border-radius:50%;background:radial-gradient(closest-side,rgb(15 40 42/.22),rgb(15 40 42/.09) 55%,rgb(15 40 42/0))}
+:root[data-theme="dark"] .tslot-shadow{background:radial-gradient(closest-side,rgb(0 0 0/.5),rgb(0 0 0/.2) 55%,rgb(0 0 0/0))}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tslot-shadow{background:radial-gradient(closest-side,rgb(0 0 0/.5),rgb(0 0 0/.2) 55%,rgb(0 0 0/0))}}
+@supports not ((-webkit-mask-image:linear-gradient(#000,#000)) or (mask-image:linear-gradient(#000,#000))){.tslot-fade .tslot-fig::after{content:"";position:absolute;left:0;right:0;bottom:0;height:calc(var(--h)*.34);background:linear-gradient(to top,var(--bg) calc(var(--h)*.03),transparent)}}
 :root[data-theme="dark"] .tslot-img{filter:brightness(.95) saturate(.96)}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tslot-img{filter:brightness(.95) saturate(.96)}}
 @media (prefers-reduced-motion:no-preference){img.tslot-img{animation:tslot-in .18s ease-out both,tslot-breathe 4.2s ease-in-out .2s infinite}.tslot-flip .tslot-img{animation:tslot-in .18s ease-out both}}
@@ -31,13 +36,13 @@ img.tslot-img{aspect-ratio:1108/960}
   // HIP = hàng ảnh (/960) của hông, hip:true đặt mép bệ đúng hàng này (docs/CHARACTERS.md §Hình học)
   g.TeacherSlot = { SIZES, css, HIP: 780 };
   const C = g.Chars; if (!C) return;
-  // Chars.slot(who, {pose, size:'xs'|'s'|'m'|'l'|'xl', hip:true = lộ tới hông (bệ mỏng, xem HIP), cls, flip, lazy, alt, clip:true = clip tư thế phát 1 lần (ảnh tĩnh dưới đến khung đầu; giảm chuyển động/tiết kiệm dữ liệu → ảnh tĩnh), loop:true|ms = lặp cử chỉ, nghỉ 6 s, idle:true = vòng nghỉ mắt mở (Chars.idle, happy, lặp liền), ground:false = bệ cùng màu nền trang, style = CSS nội dòng (vd. lề), không đổi hình học})
+  // Chars.slot(who, {pose, size:'xs'|'s'|'m'|'l'|'xl', ground:'fade' = tùy chọn không bệ (thân mờ dần vào nền + bóng tiếp đất elip; chỗ đứng trên nền trống – port #546, mặc định vẫn là bệ), hip:true = lộ tới hông (bệ mỏng, xem HIP), cls, flip, lazy, alt, clip:true = clip tư thế phát 1 lần (ảnh tĩnh dưới đến khung đầu; giảm chuyển động/tiết kiệm dữ liệu → ảnh tĩnh), loop:true|ms = lặp cử chỉ, nghỉ 6 s, idle:true = vòng nghỉ mắt mở (Chars.idle, happy, lặp liền), ground:false = bệ cùng màu nền trang, style = CSS nội dòng (vd. lề), không đổi hình học})
   C.slot = (w, o = {}) => {
     css();
     const idle = !!(o.idle && C.idle), sz = SIZES[o.size] ? o.size : 'm', pose = C.poses.includes(o.pose) ? o.pose : idle ? 'happy' : 'talk';
     const I = idle ? C.idle(w) : null, clip = I ? I.mp4 : o.clip ? C.clip(w, pose) : '';
     const im = C.img(w, { kind: 'still', pose, cls: 'tslot-img', alt: o.alt || '', size: SIZES[sz], lazy: o.lazy !== false });
     if (clip && !pend && g.document) pend = setTimeout(hydrate, 0); // HTML chèn xong mới gắn clip
-    return `<span class="tslot tslot-${sz}${o.hip ? ' tslot-hip' : ''}${o.flip ? ' tslot-flip' : ''}${o.cls ? ' ' + o.cls : ''}" data-teacher="${C.id(w)}" data-pose="${pose}"${o.ground === false ? ' data-ground="0"' : ''}${clip ? ` data-clip="${clip}"` : ''}${I ? ` data-webm="${I.webm}" data-loop="0"` : o.clip && o.loop ? ` data-loop="${o.loop === true ? 6000 : +o.loop}"` : ''}${o.style ? ` style="${o.style}"` : ''}${o.alt ? '' : ' aria-hidden="true"'}><span class="tslot-fig">${im}</span><i class="tslot-ledge"></i></span>`;
+    return `<span class="tslot tslot-${sz}${o.ground === 'fade' ? ' tslot-fade' : o.hip ? ' tslot-hip' : ''}${o.flip ? ' tslot-flip' : ''}${o.cls ? ' ' + o.cls : ''}" data-teacher="${C.id(w)}" data-pose="${pose}"${o.ground === false ? ' data-ground="0"' : ''}${clip ? ` data-clip="${clip}"` : ''}${I ? ` data-webm="${I.webm}" data-loop="0"` : o.clip && o.loop ? ` data-loop="${o.loop === true ? 6000 : +o.loop}"` : ''}${o.style ? ` style="${o.style}"` : ''}${o.alt ? '' : ' aria-hidden="true"'}>${o.ground === 'fade' ? '<i class="tslot-shadow"></i>' : ''}<span class="tslot-fig">${im}</span>${o.ground === 'fade' ? '' : '<i class="tslot-ledge"></i>'}</span>`;
   };
 })(self);

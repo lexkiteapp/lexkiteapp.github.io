@@ -25,8 +25,8 @@
  "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
  "cta": {
   "area": "roleplay",
-  "link": "https://lexkite.com/app/",
-  "say": "Practice free on lexkite.com"
+  "link": "https://lexkite.com/app/#/roleplay",
+  "say": "Practice it free"
  },
  "series": {
   "name": "Roleplay",
@@ -59,7 +59,7 @@
    "gap": 0.7
   },
   {
-   "id": "t",
+   "id": "tip",
    "text": "Tip: excuse me, where can I find… works in any store.",
    "gap": 0.7
   },
@@ -94,20 +94,8 @@
    "rows": [
     [
      [
-      "Wait, where",
+      "Where are",
       "white"
-     ]
-    ],
-    [
-     [
-      "are the",
-      "yellow"
-     ]
-    ],
-    [
-     [
-      "eggs?",
-      "yellow"
      ]
     ]
    ],
@@ -143,25 +131,7 @@
       "hook": true,
       "runs": [
        [
-        "Wait, where"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "are the"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "eggs?"
+        "Where are"
        ]
       ]
      }
@@ -170,7 +140,7 @@
    {
     "id": "sum",
     "at": [
-     "t",
+     "tip",
      0
     ],
     "rows": [
@@ -183,7 +153,7 @@
       "t": "line",
       "runs": [
        [
-        "excuse me, where can I find… works in any store."
+        "excuse me"
        ]
       ]
      }
@@ -283,7 +253,7 @@
     ]
    }
   ],
-  "hook_text": "Wait, where are the eggs?",
+  "hook_text": "Where are",
   "end_line": "c"
  },
  "embed": {

@@ -20,7 +20,7 @@ const tests = args.length ? args.map(Number) : Array.from({ length: 20 }, (_, i)
 
 /** Lấy các câu Part 1 có ảnh từ web/js/toeic/listening<n>.js. */
 export function part1Items(n) {
-  const f = path.join(ROOT, `web/js/toeic/listening${n}.js`);
+  const f = ['web/js', 'web/cpack'].map(r => path.join(ROOT, `${r}/toeic/listening${n}.js`)).find(x => fs.existsSync(x)) || path.join(ROOT, `web/js/toeic/listening${n}.js`);   // đề 5+ ở web/cpack (dời lười 17/11)
   if (!fs.existsSync(f)) return [];
   const g = {}; vm.runInNewContext(fs.readFileSync(f, 'utf8'), { window: g, self: g, globalThis: g });
   return ((g.TOEIC || {}).listening || []).filter(p => p.part === 1)

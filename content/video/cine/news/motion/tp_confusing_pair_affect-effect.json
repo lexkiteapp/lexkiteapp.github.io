@@ -24,9 +24,9 @@
  },
  "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
  "cta": {
-  "area": "confusing-pair",
-  "link": "https://lexkite.com/app/",
-  "say": "Practice free on lexkite.com"
+  "area": "word-usage",
+  "link": "https://lexkite.com/app/#/usage?c=pair",
+  "say": "Practice it free"
  },
  "series": {
   "name": "Confusing Pair",
@@ -45,11 +45,11 @@
   },
   {
    "id": "s1",
-   "text": "Effect is the noun: the effect of stress is bad sleep.",
+   "text": "Effect is the noun, meaning the result: bad sleep.",
    "gap": 0.7
   },
   {
-   "id": "t",
+   "id": "tip",
    "text": "Tip: think RAVEN. Remember, affect is a verb, effect is a noun.",
    "gap": 0.7
   },
@@ -84,20 +84,8 @@
    "rows": [
     [
      [
-      "I mix them",
+      "Mix them up?",
       "white"
-     ]
-    ],
-    [
-     [
-      "up in every",
-      "yellow"
-     ]
-    ],
-    [
-     [
-      "essay.",
-      "yellow"
      ]
     ]
    ],
@@ -133,25 +121,7 @@
       "hook": true,
       "runs": [
        [
-        "I mix them"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "up in every"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "essay."
+        "Mix them up?"
        ]
       ]
      }
@@ -160,7 +130,7 @@
    {
     "id": "sum",
     "at": [
-     "t",
+     "tip",
      0
     ],
     "rows": [
@@ -173,7 +143,7 @@
       "t": "line",
       "runs": [
        [
-        "think RAVEN. Remember, affect is a verb, effect is"
+        "think RAVEN."
        ]
       ]
      }
@@ -246,7 +216,7 @@
     ]
    }
   ],
-  "hook_text": "I mix them up in every essay.",
+  "hook_text": "Mix them up?",
   "end_line": "c"
  },
  "embed": {

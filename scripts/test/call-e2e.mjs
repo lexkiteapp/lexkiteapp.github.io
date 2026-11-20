@@ -86,6 +86,8 @@ async function open(o = {}) {
   await ctx.route('https://lexkite.com/blog-langs.json', r => r.fulfill({ status: 200, contentType: 'application/json', headers: { 'Access-Control-Allow-Origin': '*' }, body: '["en","vi"]' }));
   await ctx.route('https://lexkite.com/api/**', r => r.request().method() === 'OPTIONS' ? r.fulfill({ status: 204, headers: { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': '*' } })
     : r.fulfill({ status: 200, contentType: 'application/json', headers: { 'Access-Control-Allow-Origin': '*' }, body: JSON.stringify({ ok: true, notices: [], unread_count: 0 }) }));
+  // dịch thử của từ điển (dictionary.js) gọi mymemory thật: bị giới hạn tốc độ → trả không có CORS → console đỏ giả. Chặn bằng đáp án giả, CI không chạm dịch vụ ngoài.
+  await ctx.route('https://api.mymemory.translated.net/**', r => r.fulfill({ status: 200, contentType: 'application/json', headers: { 'Access-Control-Allow-Origin': '*' }, body: JSON.stringify({ responseData: { translatedText: '' }, responseStatus: 200 }) }));
   const page = await ctx.newPage(), errs = [];
   page.on('pageerror', e => errs.push('pageerror: ' + e.message));
   page.on('console', m => { if (m.type() === 'error' && !/Failed to load resource|favicon|googletagmanager|speechSynthesis|net::ERR/i.test(m.text())) errs.push('console: ' + m.text()); });

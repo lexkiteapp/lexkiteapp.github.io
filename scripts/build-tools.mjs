@@ -27,7 +27,7 @@ export function publishBank(items) {
 // TOEIC Part 5 của app (7 đề × 30 câu, tự soạn) + lời giải theo ngôn ngữ (vi = gốc; khác = bản dịch app đang dùng, thiếu → bỏ câu đó ở ngôn ngữ đó)
 export function loadToeic5() {
   const ctx = { self: {} };
-  for (const f of fs.readdirSync('web/js/toeic').filter(f => /^reading\d+\.js$/.test(f)).sort()) vm.runInNewContext(fs.readFileSync('web/js/toeic/' + f, 'utf8'), ctx);
+  for (const d of ['web/js/toeic', 'web/cpack/toeic']) for (const f of fs.readdirSync(d).filter(f => /^reading\d+\.js$/.test(f)).sort((a, b) => a.replace(/\D/g, '') - b.replace(/\D/g, ''))) vm.runInNewContext(fs.readFileSync(d + '/' + f, 'utf8'), ctx);   // đề 1–4 ở web/js, 5+ ở web/cpack (dời lười 17/11)
   return ctx.self.TOEIC.reading.flatMap(t => t.parts.filter(p => p.part === 5).flatMap(p => p.groups.flatMap(g => g.items.map(i => ({ id: `${t.id}-${i.n}`, q: i.q, o: i.options, a: i.a, x: i.explain })))));
 }
 const toeicFor = (lang, items) => {
@@ -100,7 +100,7 @@ export function build() {
   const bank = publishBank(J('content/tools/cefr-bank.json').items), t5 = loadToeic5();
   fs.mkdirSync(path.join(D, 'data/tools'), { recursive: true });
   fs.writeFileSync(path.join(D, 'data/tools/cefr-bank.json'), JSON.stringify({ v: 1, items: bank }));
-  const lmTest = gitDate('content/tools', 'scripts/build-tools.mjs', 'web/js/tools'), lmToeic = gitDate('web/js/toeic', 'web/i18n/explain', 'content/tools/i18n', 'scripts/build-tools.mjs');
+  const lmTest = gitDate('content/tools', 'scripts/build-tools.mjs', 'web/js/tools'), lmToeic = gitDate('web/js/toeic', 'web/cpack/toeic', 'web/i18n/explain', 'content/tools/i18n', 'scripts/build-tools.mjs');
   let n = 0;
   for (const lang of LANGS) {
     const t = S[lang], s = toolStrings(lang), T = s.test, home = [t.home, landingHref(lang)], pT = toolPath(lang, 'test');

@@ -505,11 +505,11 @@
     try { if (navigator.vibrate && (state.settings || {}).sfx !== false && !matchMedia('(prefers-reduced-motion: reduce)').matches) navigator.vibrate(ok ? 12 : [18, 40, 18]); } catch (e) { /* bỏ qua */ }
     try { if (window.Sfx) { if (ok && combo >= 3 && combo % 3 === 0 && Sfx.combo) Sfx.combo(combo); else (ok ? Sfx.correct : Sfx.wrong)(); } } catch (e) { /* bỏ qua */ }
     const el = $('#lsnTch'), pop = $('#lsnEmo');
-    if (el) { el.classList.remove('nod', 'shake'); void el.offsetWidth; el.classList.add(ok ? 'nod' : 'shake'); }
-    if (pop) { pop.textContent = ok ? (combo >= 3 ? '🔥' : '✓') : '↺'; pop.classList.remove('on'); void pop.offsetWidth; pop.classList.add('on'); } // ký hiệu, KHÔNG emoji nhân vật
+    if (el) { el.classList.remove('nod', 'shake'); requestAnimationFrame(() => el.classList.add(ok ? 'nod' : 'shake')); } // khởi động lại animation ở khung kế, không ép layout ngay trong lượt chạm
+    if (pop) { pop.textContent = ok ? (combo >= 3 ? '🔥' : '✓') : '↺'; pop.classList.remove('on'); requestAnimationFrame(() => pop.classList.add('on')); } // ký hiệu, KHÔNG emoji nhân vật (luật: chỉ Ama/Carlos bank v2)
     const lines = ok ? OK_LINES : NO_LINES;
     if (L.teacher) L.teacher.say(lines[(L.sess.n + (combo || 0)) % lines.length], { rate: 1, voice: VOICE(L.who) });
-    const b = $('.lsn-bar'); if (b && ok) { b.classList.remove('glow'); void b.offsetWidth; b.classList.add('glow'); }
+    const b = $('.lsn-bar'); if (b && ok) { b.classList.remove('glow'); requestAnimationFrame(() => b.classList.add('glow')); }
   }
 
   // Dải chip đầu tấm phản hồi (Tactile): đúng/sai + XP câu này + chuỗi ngày (không có "tim/mạng" – luật chủ app)

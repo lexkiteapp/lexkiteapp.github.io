@@ -118,9 +118,6 @@ for (const f of files.filter(f => /^scripts\/test\/[^/]+\.(m?js|cjs)$/.test(f)).
   const best = Object.entries(cnt).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))[0];
   tests.push({ test: path.basename(f).replace(/\.(m?js|cjs)$/, ''), file: f, area: best ? best[0] : '(không rõ)', targets: [...targets].sort().slice(0, 12) });
 }
-// Nén tên test theo tiền tố (trước dấu '-' đầu): nhóm ≥ 4 tên cùng tiền tố → `p-{a,b,c}` (không mất tên; scripts/test/codemap-budget.mjs bung lại để kiểm).
-const braceNames = ns => { const g = {}, out = []; for (const n of ns) { const i = n.indexOf('-'); if (i > 0) (g[n.slice(0, i)] ||= []).push(n.slice(i + 1)); else out.push(n); }
-  for (const [p, xs] of Object.entries(g)) if (xs.length >= 4) out.push(`${p}-{${xs.join(',')}}`); else for (const x of xs) out.push(`${p}-${x}`); return out; };
 const testsByArea = {}; for (const t of tests) (testsByArea[t.area] ||= []).push(t.test);
 
 // ---------- 7. khu vực & "sửa ở đâu" ----------
@@ -182,15 +179,14 @@ out.push('', `## Routes \`#/…\` → file xử lý (${routeList.length})`);
 const byFile = {}; for (const [r, fs_] of routeList) for (const f of fs_) (byFile[f] ||= []).push(r.slice(2));
 for (const [f, rs] of Object.entries(byFile).sort()) out.push(`- \`${short(f, 'web/js/')}\`: ${rs.join(' ')}`);
 // Gộp theo bộ trigger (mỗi bộ in 1 lần) thay vì lặp [trigger] trên từng dòng.
-out.push('', `## Workflows (${workflows.length}) theo trigger: tên: việc kiểm/làm`);
-const WF_DESC = 8, wfName = w => w.file.replace(/\.ya?ml$/, '');
-// mô tả workflow: cắt theo TỪ ≤ WF_DESC ký tự + '…' (điều phối 05/11: 40→32; 07/11: 32→20 vì mục Mô-đun rỗng ở 23,8 KB, 20→14 khi phần cố định 21,4 KB chỉ chừa 2,4 KB < MIN_MOD; 17/11: 14→8 + chỉ '…' khi từ đầu dài hơn vì mọi PR thêm workflow đẩy phần cố định 23,5 KB qua trần (đỏ codemap-budget); trần 25 KB giữ nguyên) – bản đầy đủ ở json workflows[].desc (cổng codemap-budget)
-const brief = d => d.length > WF_DESC ? d.slice(0, WF_DESC).replace(/\S*$/, m => /\s/.test(d[WF_DESC]) ? m : '').replace(/[:;,(\s]+$/, '') + '…' : d; // từ đầu dài hơn WF_DESC → chỉ '…' (không cắt giữa từ)
+// Workflow/test: bản đồ chỉ ghi SỐ ĐẾM theo trigger / vùng; MỌI tên + mô tả đầy đủ nằm ở docs/codemap.json (`workflows`, `tests`) – scripts/test/codemap-budget.mjs đòi json đủ tên và phần cố định ≤ 70 % trần.
 const byTrig = {}; for (const w of workflows) (byTrig[w.triggers.join(',') || '?'] ||= []).push(w);
-for (const [t, ws] of Object.entries(byTrig).sort((a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0])))
-  out.push(`- [${t}] ` + ws.map(w => `${wfName(w)}${(d => d && d !== w.name && d !== wfName(w) ? ': ' + brief(d) : '')(w.desc.replace(new RegExp('^' + wfName(w).replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ':\\s*'), ''))}`).join(' · '));
-out.push('', `## Test (${tests.length}) → vùng phủ (file đích chi tiết: json \`tests\`)`);
-for (const [a, ts] of Object.entries(testsByArea).sort((x, y) => y[1].length - x[1].length || x[0].localeCompare(y[0]))) out.push(`- \`${a}\`: ${braceNames(ts).join(' ')}`);
+out.push('', `## Workflows (${workflows.length}) theo trigger – tên + mô tả đủ: json \`workflows\``);
+out.push('Tra: `node -e "const g=require(\'./docs/codemap.json\');console.log(g.workflows.filter(w=>/regex/.test(w.file)).map(w=>w.file+\' [\'+w.triggers+\'] \'+w.desc).join(\'\\n\'))"`');
+out.push(Object.entries(byTrig).sort((a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0])).map(([t, ws]) => `[${t}] ${ws.length}`).join(' · '));
+out.push('', `## Test (${tests.length}) → vùng phủ – tên + file đích đủ: json \`tests\``);
+out.push('Tra: `node -e "const g=require(\'./docs/codemap.json\');console.log(g.tests.filter(t=>/regex|vùng/.test(t.test+t.area)).map(t=>t.file+\' → \'+t.targets).join(\'\\n\'))"`');
+out.push(Object.entries(testsByArea).sort((x, y) => y[1].length - x[1].length || x[0].localeCompare(y[0])).map(([a, ts]) => `\`${a}\` ${ts.length}`).join(' · '));
 const fixed = Buffer.byteLength(out.join('\n'));
 // Mô-đun: lấp phần ngân sách còn lại, ưu tiên theo mức nối (dependents) rồi số export; json giữ tất cả.
 const room = CAP - SLACK - fixed;

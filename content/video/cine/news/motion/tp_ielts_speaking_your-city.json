@@ -24,9 +24,9 @@
  },
  "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
  "cta": {
-  "area": "ielts-speaking",
-  "link": "https://lexkite.com/app/",
-  "say": "Practice free on lexkite.com"
+  "area": "ielts",
+  "link": "https://lexkite.com/app/#/mock",
+  "say": "Practice it free"
  },
  "series": {
   "name": "Ielts Speaking",
@@ -54,8 +54,8 @@
    "gap": 0.7
   },
   {
-   "id": "t",
-   "text": "Tip: answer, reason, example. Two or three sentences is enough for Part 1.",
+   "id": "tip",
+   "text": "Tip: answer, reason, example. Two or three sentences is enough for Part one.",
    "gap": 0.7
   },
   {
@@ -91,12 +91,6 @@
      [
       "Do you like",
       "white"
-     ]
-    ],
-    [
-     [
-      "your city?",
-      "yellow"
      ]
     ]
    ],
@@ -135,22 +129,13 @@
         "Do you like"
        ]
       ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "your city?"
-       ]
-      ]
      }
     ]
    },
    {
     "id": "sum",
     "at": [
-     "t",
+     "tip",
      0
     ],
     "rows": [
@@ -163,7 +148,7 @@
       "t": "line",
       "runs": [
        [
-        "answer, reason, example. Two or three sentences is"
+        "answer, reason, example."
        ]
       ]
      }
@@ -236,7 +221,7 @@
     ]
    }
   ],
-  "hook_text": "Do you like your city?",
+  "hook_text": "Do you like",
   "end_line": "c"
  },
  "embed": {
