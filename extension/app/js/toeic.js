@@ -162,7 +162,7 @@
       let left = restore && restore.left > 0 ? restore.left : mins * 60; const tick = () => { left--; if (left % 15 === 0) keep(); const c = $('#tClock'); if (c) { c.textContent = `${String(Math.floor(left / 60)).padStart(2, '0')}:${String(left % 60).padStart(2, '0')}`; c.classList.toggle('warn', left < 300); } if (left <= 0) submit(); };
       if (!window.ExamClock) { tick(); timer = setInterval(tick, 1000); }
       const submit = () => { clearInterval(timer); if (clk) { clk.done(); clk = null; } units.forEach((u, k) => { const r = QE.collect({ groups: u.groups }, $(`.toeic-u[data-u="${k}"]`)); Object.values(r).forEach(x => { x.part = u.part; }); Object.keys(r).forEach(q => { { const i0 = u.groups.flatMap(g => g.items || []).find(i => i.n === +q) || {}; r[q].explain = QE.exT(i0.explain, i0._mv); } }); Object.assign(res.R, r); }); finish(); };
-      $('#tSub').onclick = () => { const miss = nums.filter(q => !answered(q)).length; if (confirm(miss ? t('Còn {n} câu chưa làm. Vẫn nộp bài?', { n: miss }) : t('Nộp bài Reading?'))) submit(); };
+      $('#tSub').onclick = async () => { const miss = nums.filter(q => !answered(q)).length; if (await LXDialog.confirm(miss ? t('Còn {n} câu chưa làm. Vẫn nộp bài?', { n: miss }) : t('Nộp bài Reading?'))) submit(); };
       if (window.ExamClock) {
         if (!restore) ExamClock.clear(KR);
         clk = ExamClock.mount($('#tClock'), { key: KR, secs: mins * 60, left: restore && restore.left, name: 'TOEIC Reading', onTick: L => { left = L; }, onEnd: () => { clk = null; left = 0; toast(t('Hết giờ Reading – bài đã được tự nộp')); submit(); } });

@@ -262,7 +262,7 @@
         const okB = e.target.closest('[data-ok]'), rejB = e.target.closest('[data-rej]'); if (!okB && !rejB) return;
         if (!h.capi) { if (okB) approve([it.id]).then(ok => { if (ok) done(li, V('Đã duyệt – gói đăng sẽ sẵn sàng trong vài phút.')); }); return; }
         const params = { offset: 0, total: 1 };
-        if (rejB) { const why = (prompt(V('Lý do loại')) || '').trim().slice(0, 200); if (!why) return; params.reason = why; }
+        if (rejB) { const why = (await LXDialog.prompt(V('Lý do loại')) || '').trim().slice(0, 200); if (!why) return; params.reason = why; }
         (okB || rejB).disabled = true;
         try { const r = await h.capi('bulk', { action: okB ? 'approve' : 'reject', ids: [it.id], params }), x = (r.results || [])[0] || {};
           if (x.ok === false) { (okB || rejB).disabled = false; return toast(V('Không thực hiện được: {e}', { e: x.why || '?' })); }
@@ -371,7 +371,7 @@
     async function ytBox(el) {
       if (!h.yapi || !el) return;
       let back = '';
-      try { back = new URLSearchParams(location.search).get('yt') || ''; if (back) { if (back === 'ok') toast(V('Đã kết nối YouTube.')); else { const why = { scope: 'Chưa tick ô cho phép xem YouTube ở màn hình Google – bấm Kết nối lại và tick ô quyền.', denied: 'Đã bấm Hủy/Back to safety ở màn hình Google.', 'api-accessNotConfigured': 'YouTube Data API chưa bật trong dự án Google Cloud – bật rồi kết nối lại.', 'no-channel': 'Tài khoản/kênh đã chọn chưa có kênh YouTube – chọn đúng kênh ở bước chọn kênh.', 'no-refresh': 'Google không cấp quyền dài hạn – vào myaccount.google.com/permissions gỡ Lexkite rồi kết nối lại.', 'bad-state': 'Phiên kết nối hết hạn hoặc mở ở trình duyệt khác – bấm Kết nối lại trên cùng trình duyệt.' }[back] || ''; alert(V('Kết nối YouTube lỗi: {e}', { e: back }) + (why ? '\n' + V(why) : '')); } history.replaceState(null, '', location.pathname + '#video/channels'); } } catch (e) { /* bỏ qua */ }
+      try { back = new URLSearchParams(location.search).get('yt') || ''; if (back) { if (back === 'ok') toast(V('Đã kết nối YouTube.')); else { const why = { scope: 'Chưa tick ô cho phép xem YouTube ở màn hình Google – bấm Kết nối lại và tick ô quyền.', denied: 'Đã bấm Hủy/Back to safety ở màn hình Google.', 'api-accessNotConfigured': 'YouTube Data API chưa bật trong dự án Google Cloud – bật rồi kết nối lại.', 'no-channel': 'Tài khoản/kênh đã chọn chưa có kênh YouTube – chọn đúng kênh ở bước chọn kênh.', 'no-refresh': 'Google không cấp quyền dài hạn – vào myaccount.google.com/permissions gỡ Lexkite rồi kết nối lại.', 'bad-state': 'Phiên kết nối hết hạn hoặc mở ở trình duyệt khác – bấm Kết nối lại trên cùng trình duyệt.' }[back] || ''; LXDialog.alert(V('Kết nối YouTube lỗi: {e}', { e: back }) + (why ? '\n' + V(why) : '')); } history.replaceState(null, '', location.pathname + '#video/channels'); } } catch (e) { /* bỏ qua */ }
       try { [yt.st, yt.q] = await Promise.all([h.yapi('status'), h.yapi('queue').then(r => Object.fromEntries((r.rows || []).map(x => [x.clip, x])))]); } catch (e) { el.innerHTML = `<div class="err-box" role="alert">${esc(V('Kết nối YouTube lỗi: {e}', { e: e.code || e.message }))}</div>`; return; }
       if (back === 'ok' && yt.st.channel && yt.st.channel.status === 'ok') { try { toast(V('Đang đồng bộ kênh lần đầu…')); await h.yapi('sync'); yt.st = await h.yapi('status'); } catch (e) { /* đồng bộ sau */ } } // vừa kết nối → tự đồng bộ 1 lần
       if (!el.isConnected) return;
@@ -446,9 +446,9 @@
       el.querySelector('#yt-con').onclick = con; el.querySelectorAll('[data-connect]').forEach(b => { b.onclick = con; });
       el.querySelectorAll('.vid-av img, .vx-yth img').forEach(i => { i.onerror = () => i.remove(); });
       el.querySelectorAll('input[name=yt-ch]').forEach(r => { r.onchange = async () => { try { await h.yapi('setdefault', { channel_id: r.value }); toast(V('Đã chọn kênh mặc định.')); } catch (x) { toast(V('Kết nối YouTube lỗi: {e}', { e: x.code || x.message })); } ytBox(el); }; });
-      el.querySelectorAll('[data-off]').forEach(bt => { bt.onclick = async () => { const x = chl.find(k => k.channel_id === bt.dataset.off) || {}; if (!confirm(V('Ngắt kết nối kênh {c}? Token sẽ bị thu hồi và xóa.', { c: x.title || x.channel_id }))) return; bt.disabled = true; try { await h.yapi('disconnect', { channel_id: bt.dataset.off }); toast(V('Đã ngắt kết nối kênh.')); } catch (e2) { toast(e2.code === 'reauth' ? V('Thao tác nhạy cảm: đăng xuất rồi đăng nhập lại, sau đó thử lại.') : V('Kết nối YouTube lỗi: {e}', { e: e2.code || e2.message })); } ytBox(el); }; });
+      el.querySelectorAll('[data-off]').forEach(bt => { bt.onclick = async () => { const x = chl.find(k => k.channel_id === bt.dataset.off) || {}; if (!await LXDialog.confirm(V('Ngắt kết nối kênh {c}? Token sẽ bị thu hồi và xóa.', { c: x.title || x.channel_id }))) return; bt.disabled = true; try { await h.yapi('disconnect', { channel_id: bt.dataset.off }); toast(V('Đã ngắt kết nối kênh.')); } catch (e2) { toast(e2.code === 'reauth' ? V('Thao tác nhạy cảm: đăng xuất rồi đăng nhập lại, sau đó thử lại.') : V('Kết nối YouTube lỗi: {e}', { e: e2.code || e2.message })); } ytBox(el); }; });
       el.querySelectorAll('[data-role]').forEach(bt => { bt.onclick = async () => { const d = dch(bt.dataset.role), x = chl.find(k => k.channel_id === bt.dataset.role) || {}, to = bt.dataset.to; if (!d) return;
-        if (!confirm(to === 'embed' ? V('Đặt kênh {c} làm kênh nhúng? Video mới cho bài học (unlisted) sẽ xoay vòng sang kênh này.', { c: x.title || x.channel_id }) : V('Chuyển kênh {c} sang social? Bài học sẽ không nhúng video từ kênh này nữa (dùng kênh nhúng khác hoặc bản tự lưu trữ).', { c: x.title || x.channel_id }))) return;
+        if (!await LXDialog.confirm(to === 'embed' ? V('Đặt kênh {c} làm kênh nhúng? Video mới cho bài học (unlisted) sẽ xoay vòng sang kênh này.', { c: x.title || x.channel_id }) : V('Chuyển kênh {c} sang social? Bài học sẽ không nhúng video từ kênh này nữa (dùng kênh nhúng khác hoặc bản tự lưu trữ).', { c: x.title || x.channel_id }))) return;
         bt.disabled = true; try { await h.distapi('cfg_set', { channel_id: d.channel_id, cfg: { ...d.cfg, role: to } }); toast(V('Đã đổi vai trò kênh.')); } catch (e) { toast(V('Không thực hiện được: {e}', { e: e.code || e.message })); } ytBox(el); }; });
       const doSync = async (bt, id) => { bt.disabled = true; try { const r = await h.yapi('sync', { channel_id: id }); toast(V('Đồng bộ xong: {k} khớp · {l} mới lên · {i} vấn đề', { k: r.matched, l: (r.live || []).length, i: (r.issues || []).length })); } catch (x) { toast(V('Kết nối YouTube lỗi: {e}', { e: x.code || x.message })); } ytBox(el); };
       const sb = el.querySelector('#yt-sync'); if (sb) sb.onclick = () => doSync(sb, undefined);
@@ -457,7 +457,7 @@
         try { const k = await h.yapi('link', { id: clip, url: li.dataset.vid }); toast(k.err ? V(ISSUE[k.err] || k.err) : V('Đã gắn video – trang bài học sẽ nhúng YouTube.')); } catch (e) { toast(V('Link không hợp lệ: {e}', { e: e.code || e.message })); } ytBox(el); }; });
       const pv = el.querySelector('#yt-pv'); if (pv) pv.onchange = e => h.yapi('settings', { privacy: e.target.value }).catch(() => {});
       el.querySelector('#yt-mode').onchange = async e => {
-        if (e.target.value === 'api' && !confirm(V('Chỉ bật khi Google đã duyệt kiểm định API – nếu chưa, video tải bằng API bị khóa ở chế độ riêng tư. Tiếp tục?'))) { e.target.value = 'manual'; return; }
+        if (e.target.value === 'api' && !await LXDialog.confirm(V('Chỉ bật khi Google đã duyệt kiểm định API – nếu chưa, video tải bằng API bị khóa ở chế độ riêng tư. Tiếp tục?'))) { e.target.value = 'manual'; return; }
         try { await h.yapi('settings', { mode: e.target.value }); } catch (x) { /* bỏ qua */ } ytBox(el);
       };
       if (man) packCards(el.querySelector('#vid-ytp'), s, P, packs, G ? laneOf : null);
@@ -506,7 +506,7 @@
       if (!yt.st) await getYt();
       const set = (yt.st || {}).settings || {}, man = set.mode !== 'api', cb = document.getElementById('yt-cal');
       const pv = (document.getElementById('yt-pv') || {}).value || set.privacy || 'private', cal = (cb ? cb.checked : true) && pv === 'private';
-      if (!confirm(man ? V('Duyệt {n} video: tạo gói đăng tay (Unlisted) trên Kho Drive?', { n: ids.length }) : V('Duyệt {n} video lên YouTube ở chế độ {p}{s}? Không bao giờ công khai ngay.', { n: ids.length, p: pv, s: cal ? V(' (công khai theo lịch đăng)') : '' }))) return false;
+      if (!await LXDialog.confirm(man ? V('Duyệt {n} video: tạo gói đăng tay (Unlisted) trên Kho Drive?', { n: ids.length }) : V('Duyệt {n} video lên YouTube ở chế độ {p}{s}? Không bao giờ công khai ngay.', { n: ids.length, p: pv, s: cal ? V(' (công khai theo lịch đăng)') : '' }))) return false;
       try { const r = await h.yapi('approve', { ids, privacy: pv, schedule: cal ? 'calendar' : 'none' }); toast(V(man ? 'Đã duyệt {a} video – gói đăng sẽ sẵn sàng trong vài phút · bỏ qua {b}' : 'Đã xếp {a} video · bỏ qua {b}', { a: r.queued.length, b: r.skipped.length })); delete C.yt; delete C.cnt; const yb = document.getElementById('vid-yt'); if (yb) ytBox(yb); return true; }
       catch (e) { toast(V('Kết nối YouTube lỗi: {e}', { e: e.code || e.message })); return false; }
     }
