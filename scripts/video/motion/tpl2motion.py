@@ -38,7 +38,8 @@ HOOK_CARD = {  # key -> (Ama one line <= 12 chars, Carlos up to 2 lines); None k
 # the rules column is ~250 px wide: a tile line is 2 wrapped lines of <= ~11 chars (3 tiles must fit above the caption plate)
 # spoken-line fixes where the voice or ASR (not the lesson) is the problem: Kokoro/Whisper cannot say or hear the line as written (qc_v9 asr_match). Facts unchanged.
 SPOKEN = {'confusing_pair:affect-effect': {'s1': 'Effect is the noun, meaning the result: bad sleep.'},
-          'irregular_verb:go-went': {'h': 'What is the past of go?'}, 'polite_request:could-i-get': {'h': 'Is saying give me polite?'}}
+          'irregular_verb:go-went': {'h': 'What is the past of go?'}, 'polite_request:could-i-get': {'h': 'Is saying give me polite?'},
+          'quiz_ab:an-hour': {'q': 'Which sentence is correct?'}, 'spot_the_mistake:how-much-cost': {'h': 'Find the mistake.'}, 'three_words:rain': {'h': 'Three better words for rain.'}}
 NUMW = {str(i): w for i, w in enumerate('zero one two three four five six seven eight nine ten'.split())}
 def speak(sp, key):
     for l in sp['lines']:
@@ -64,10 +65,10 @@ def diffpair(a, b, n=11):   # the pills show what differs (+ one neighbouring wo
     return [' '.join(ca), ' '.join(cb)]
 def quiz(tpl, slug, v):
     r = row(tpl, slug, v); a, b = v['optionA'], v['optionB']; right = 0 if v['answer'].strip().lower().startswith("it's a") or v['answer'].strip().lower().startswith('a,') else 1
-    o = f"A: {a.rstrip('.')}? Or B: {b.rstrip('.')}?"; ot = o.split(); ia, ib = ot.index('A:') + 1, ot.index('B:') + 1
+    pa, pb = diffpair(a, b); o = f"A: {pa}? Or B: {pb}?"; ot = o.split(); ia, ib = ot.index('A:') + 1, ot.index('B:') + 1
     lines = [BM.line('h', 'Quick quiz!'), BM.line('q', v['question']), BM.line('o', o), dict(id='_count', beat='count', dur=3.0), BM.line('a', v['answer']), BM.line('w', f"Tip: {v['tip']}")]
     top = [BM.hookcard('Quick quiz'), dict(id='q', at=['q', 0], rows=[BM.chip('A or B?', 'teal', ring='_count'), BM.ln(v['question'])], xp=[dict(at=['a', 0], n=10)]), dict(id='note', at=['w', 0], tone='coral', rows=[BM.chip('Tip', 'coral'), BM.ln(BM.fit(v['tip']))])]
-    sp = BM.base(tpl, r, tpl, lines, dict(top=top, col=[dict(t='opts', id='opts', opts=diffpair(a, b), cues=[['o', ia], ['o', ib]], reveal=['a', 0], right=right)]), 'Quick quiz!', 'drill'); sp['id'] = 'mo_' + r['id']; return sp
+    sp = BM.base(tpl, r, tpl, lines, dict(top=top, col=[dict(t='opts', id='opts', opts=[pa, pb], cues=[['o', ia], ['o', ib]], reveal=['a', 0], right=right)]), 'Quick quiz!', 'drill'); sp['id'] = 'mo_' + r['id']; return speak(sp, f"{tpl.replace(chr(45), chr(95))}:{slug}")
 def window(runs, si, n=13):   # keep the struck run and as many neighbouring words as fit one hook line
     pre = ''.join(x[0] for x in runs[:si]).split(); mid = runs[si][0]; post = ''.join(x[0] for x in runs[si + 1:]).split(); a, b = [], []
     while True:
@@ -81,7 +82,7 @@ def spot(tpl, slug, v):
     r = row(tpl, slug, v); runs, si = NM.wrong_runs(v['wrong'], v['right']); lines = [BM.line('h', 'Spot the mistake.'), BM.line('q', v['wrong']), dict(id='_count', beat='count', dur=3.0), BM.line('a', v['fix']), BM.line('b', f"Say: {v['right']}"), BM.line('w', f"Tip: {v['tip']}")]
     runs, si = window(runs, si)   # one hook line (<= 13 chars) around the struck word
     top = [dict(id='hook', hook=True, rows=[BM.chip('Spot the mistake', 'coral', ring='_count'), dict(t='line', hook=True, runs=runs)], strike=[dict(line=0, run=si, at=['a', 0])])]
-    sp = BM.base(tpl, r, tpl, lines, dict(top=top, col=[dict(t='card', id='better', at=['b', 0], tone='green', rows=[BM.chip('Better', 'green'), BM.ln([[v['right'], 'green']])])]), dict(text=''.join(x[0] for x in runs)), 'mistake'); sp['id'] = 'mo_' + r['id']; return sp
+    sp = BM.base(tpl, r, tpl, lines, dict(top=top, col=[dict(t='card', id='better', at=['b', 0], tone='green', rows=[BM.chip('Better', 'green'), BM.ln([[v['right'], 'green']])])]), dict(text=''.join(x[0] for x in runs)), 'mistake'); sp['id'] = 'mo_' + r['id']; return speak(sp, f"{tpl.replace(chr(45), chr(95))}:{slug}")
 def build():
     specs = {}
     for f in sorted(glob.glob(f'{ROOT}/content/video/templates/examples/*.vars.json')):

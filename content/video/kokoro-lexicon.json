@@ -45,6 +45,11 @@
    "ph": "əpˈɪnjən",
    "ipa": "/əˈpɪnjən/",
    "why": "espeak says əpˈɪniən (i-ən); CMUdict AH0 P IH1 N Y AH0 N = /əˈpɪnjən/ (Merriam-Webster \\\\ə-ˈpin-yən\\\\, Cambridge US)"
+  },
+  "conclusion": {
+   "ph": "kənklˈuːʒn",
+   "ipa": "/kənˈkluːʒn/",
+   "why": "espeak says kəŋklˈuːʒən (ŋ, extra schwa); CMUdict K AH0 N K L UW1 ZH AH0 N = /kənˈkluːʒn/ (Merriam-Webster \\\\kən-ˈklü-zhən\\\\, Cambridge US)"
   }
  }
 }
