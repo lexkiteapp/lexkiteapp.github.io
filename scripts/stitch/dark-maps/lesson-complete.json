@@ -7,7 +7,7 @@
   "shadow-[0_3px_0_0_#D8CFBC]": "shadow-[0_3px_0_0_#051013]", "shadow-[0_4px_0_0_#D8CFBC]": "shadow-[0_4px_0_0_#051013]", "shadow-[0_1.5px_0_0_#D8CFBC]": "shadow-[0_1.5px_0_0_#051013]",
   "text-[#0F3D3E]": "text-[#D8E5E9]", "text-[#5A6D6C]": "text-[#BCC9C7]", "text-[#145652]": "text-[#6BD8CE]", "text-[#12514D]": "text-[#6BD8CE]",
   "bg-[#FBF7F1]": "bg-[#121D20]", "bg-[#F1FAF8]": "bg-[#0F2A2B]", "border-[#1F7A75]": "border-[#2BA39A]", "text-[#1F7A75]": "text-[#6BD8CE]",
-  "bg-[#FFEAE5]": "bg-[#3A1D18]", "bg-[#EADEC8]": "bg-[#2B373A]", "bg-[#B6A68D]": "bg-[#879391]", "text-[#879391]": "text-[#879391]",
+  "bg-[#FFEAE5]": "bg-[#3A1D18]", "bg-[#EADEC8]": "bg-[#2B373A]", "bg-[#B6A68D]": "bg-[#879391]", "text-[#879391]": "text-[#879391]", "text-[#B03718]": "text-[#FF8466]", "text-[#45555A]": "text-[#A3B9B7]",
   "bg-[#E3F8F5]": "bg-[#0F2A2B]", "hover:bg-black/5": "hover:bg-white/5", "active:bg-black/10": "active:bg-white/10"
  }
 }
