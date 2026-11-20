@@ -4,11 +4,11 @@
   const TABLE = {
     en: { em: '🇬🇧', name: 'English', speech: null, rec: null, prefix: 'en', kokoro: { 'en-GB': 'bf_emma', 'en-US': 'af_heart' }, voices: {} /* = Chars.voice() như cũ */, wordFiles: true },
     pt: { em: '🇧🇷', name: 'Português', speech: 'pt-BR', rec: 'pt-BR', fallback: [], prefix: 'pt', kokoro: { 'pt-BR': 'pf_dora' }, voices: { ama: 'pf_dora', carlos: 'pm_alex' }, wordFiles: false,
-      flag: 'pt_pilot', ls: 'lk.pt', label: 'Português (beta)' },
-    es: { em: '🇪🇸', name: 'Español', home: '#/practice/esd', speech: 'es-419', rec: 'es-MX' /* Web Speech nhận giọng chưa có es-419 ổn định → es-MX (chuẩn trung tính gần nhất) */, fallback: ['es-MX', 'es-US'], prefix: 'es', kokoro: { 'es-419': 'ef_dora', 'es-MX': 'ef_dora', 'es-US': 'ef_dora' }, voices: { ama: 'ef_dora', carlos: 'em_alex' }, wordFiles: false,
+      ready: false, home: '#/tlprep/pt', flag: 'pt_pilot', ls: 'lk.pt', label: 'Português (beta)' },
+    es: { em: '🇪🇸', name: 'Español', home: '#/practice/esd', routes: { vocab: '#/practice/es', skills: '#/practice/esp', tests: '#/practice/esx' }, speech: 'es-419', rec: 'es-MX' /* Web Speech nhận giọng chưa có es-419 ổn định → es-MX (chuẩn trung tính gần nhất) */, fallback: ['es-MX', 'es-US'], prefix: 'es', kokoro: { 'es-419': 'ef_dora', 'es-MX': 'ef_dora', 'es-US': 'ef_dora' }, voices: { ama: 'ef_dora', carlos: 'em_alex' }, wordFiles: false,
       flag: 'es_course', pct: 'es_course_pct', kill: 'es_kill', ls: 'lk.es', label: 'Español (beta)' },
     fr: { em: '🇫🇷', name: 'Français', speech: 'fr-FR', rec: 'fr-FR', fallback: ['fr-CA', 'fr-BE'], prefix: 'fr', kokoro: { 'fr-FR': 'ff_siwis', 'fr-CA': 'ff_siwis', 'fr-BE': 'ff_siwis' }, voices: { ama: 'ff_siwis', carlos: 'ff_siwis' }, wordFiles: false,
-      flag: 'fr_course', pct: 'fr_course_pct', kill: 'fr_kill', ls: 'lk.fr', label: 'Français (bêta)' },
+      ready: false, home: '#/tlprep/fr', flag: 'fr_course', pct: 'fr_course_pct', kill: 'fr_kill', ls: 'lk.fr', label: 'Français (bêta)' },
   };
   const LANGS = Object.keys(TABLE), KEY = 'lk.tl';
   const ls = (k, v) => { try { if (v === undefined) return g.localStorage ? g.localStorage.getItem(k) : null; if (v === null) g.localStorage.removeItem(k); else g.localStorage.setItem(k, v); } catch (e) { /* chế độ riêng tư */ } return null; };
@@ -25,8 +25,9 @@
     return n > 0 && bucket() < Math.min(100, n);
   }
   const enabled = tl => (tl ? on(tl) : LANGS.some(on));
-  const avail = () => LANGS.filter(k => k === 'en' || on(k)); // ngôn ngữ chọn được lúc này
-  const cur = () => { const v = ls(KEY); return v && v !== 'en' && TABLE[v] && on(v) ? v : 'en'; };
+  const usable = k => on(k) && (TABLE[k].ready !== false || ls('lk.adm') === '1'); // ready:false: chỉ quản trị chọn được
+  const avail = () => LANGS.filter(k => k === 'en' || usable(k)); // ngôn ngữ chọn được lúc này
+  const cur = () => { const v = ls(KEY); return v && v !== 'en' && TABLE[v] && usable(v) ? v : 'en'; };
   function set(tl) {
     tl = TABLE[tl] ? tl : 'en';
     ls(KEY, tl === 'en' ? null : tl);
@@ -35,6 +36,9 @@
   }
   const table = tl => TABLE[tl] || TABLE.en;
   const homeOf = tl => table(tl).home || ''; // trang chủ riêng của ngôn ngữ đích ('' = dùng Hôm nay chung)
+  // màn chỉ có tiếng Anh → màn của ngôn ngữ đang học (chưa ánh xạ → trang chủ nó, không về en); '' = giữ nguyên
+  const EN_ONLY = /^(vocab|skills|skill|tests|toeic|ielts|mock|path|library|deck|grammar|lesson|listen|read|write|speaking|today)$/;
+  const routeFor = name => { const tl = cur(); if (tl === 'en' || !EN_ONLY.test(name || '')) return ''; const r = table(tl); return (r.routes && r.routes[name]) || r.home || ''; };
   const isEn = accent => !accent || /^en(-|$)/i.test(String(accent));
   // accent dùng cho thẻ của ngôn ngữ đích hiện tại: 'en' → đúng accent tiếng Anh trong Cài đặt (như cũ)
   const accent = (enAccent, tl) => table(tl || cur()).speech || enAccent;
@@ -56,5 +60,5 @@
   const chip = (tl, tinh) => { tl = tl || cur(); if (tl === 'en' || !TABLE[tl]) return ''; const r = TABLE[tl], tt = esc(typeof g.t === 'function' ? g.t('Ngôn ngữ đang học') : 'Ngôn ngữ đang học');
     const el = tinh ? 'span' : 'a', h = tinh ? '' : ' href="#/settings"';
     return `<${el} class="chip tl-chip"${h} data-tl="${tl}" aria-label="${tt}: ${esc(r.name)}"><span aria-hidden="true">${r.em}</span> <span translate="no" lang="${tl}">${esc(r.name)}</span></${el}>`; };
-  g.Target = { homeOf, chip, LANGS, TABLE, enabled, avail, speechLangs, cur, set, table, isEn, accent, speechLang, recLang, tlOfAccent, prefixFor, kokoroVoice, wordVoice, teacherVoice, ofCard };
+  g.Target = { homeOf, routeFor, chip, LANGS, TABLE, enabled, avail, speechLangs, cur, set, table, isEn, accent, speechLang, recLang, tlOfAccent, prefixFor, kokoroVoice, wordVoice, teacherVoice, ofCard };
 })(typeof self !== 'undefined' ? self : this);
