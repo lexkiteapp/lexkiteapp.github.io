@@ -38,7 +38,9 @@ function contrast(png, boxes) { const p = PNG.sync.read(fs.readFileSync(png)), b
     const need = b.large ? 3 : 4.5; if (w < need - 0.05) bad.push(`"${b.t}" ${w.toFixed(2)}<${need}`); }
   return bad; }
 for (const s of ORDER) for (const m of ['dark', 'light']) { const f = path.join(SRC, `${s}-${m}.html`); if (!fs.existsSync(f)) continue;
-  const p = await ctx.newPage(); await p.goto('file://' + path.resolve(f), { waitUntil: 'networkidle' }).catch(() => {});
+  // MỘT đường vẽ với app (gốc trôi vài px mỗi khối): ref KHÔNG dùng preflight của Tailwind CDN mà dùng đúng nền của app (web/css/style.css: body 15.5px/1.6, p/h1–h4 có lề…) – như DOM sinh ra trong app (khung biên dịch không có preflight, CSS biên dịch xem docs/DESIGN-SYSTEM.md Stitch). Bản vẽ tạm cạnh file mẫu, xoá sau khi vẽ.
+  const tmp = f.replace(/\.html$/, '.render-tmp.html'); fs.writeFileSync(tmp, fs.readFileSync(f, 'utf8').replace(/tailwind\.config\s*=\s*\{/, 'tailwind.config = { corePlugins: { preflight: false },').replace(/<head[^>]*>/i, m => m + `<link rel="stylesheet" href="file://${path.resolve('web/css/style.css')}">`));
+  const p = await ctx.newPage(); await p.goto('file://' + path.resolve(tmp), { waitUntil: 'networkidle' }).catch(() => {}); fs.rmSync(tmp, { force: true });
   await p.addStyleTag({ content: STILL + BRAND_CSS + `:root{--text:${/-dark\.html$/.test(f) ? '#F3F8F8' : '#102225'}}` });
   await p.evaluate(async src => { for (const i of document.querySelectorAll('img.logo')) { i.src = src; await i.decode().catch(() => {}); } }, BRAND_ICON);
   // Lỗi xuất của Stitch (feedback-correct-dark): class material-symbols-outlined nhưng chỉ nạp font Rounded → dùng Rounded (app cũng tự host Rounded)
