@@ -9,6 +9,13 @@ ok(audit({ ...clean, docW: 380 }).length === 0, 'lệch ≤8px (thanh cuộn) kh
 ok(rules({ textLen: 5 }).includes('empty:high'), 'màn trống → cao');
 ok(rules({ errs: ['x is not defined'] }).includes('js:high'), 'lỗi JS → cao');
 ok(rules({ covered: [{ text: 'Free', el: 'p', by: 'button.cta' }] }).includes('covered:high'), 'chữ bị che → cao');
+const cv = (side, pos, extra) => rules({ vh: 800, docH: 2400, ...extra, covered: [{ text: 'Buy', el: 'b', by: 'nav#bnav', side, pos }] }).includes('covered:high');
+ok(!cv('bottom', 'top'), 'chữ dưới thanh dưới lúc ở đầu trang (cuộn tới được) → không báo');
+ok(!cv('top', 'bottom'), 'chữ dưới thanh trên lúc ở cuối trang (cuộn lên được) → không báo');
+ok(cv('bottom', 'bottom'), 'chữ/CTA vẫn bị thanh dưới che ở CUỐI trang → cao');
+ok(cv('top', 'top'), 'chữ bị thanh trên che ở ĐẦU trang → cao');
+ok(cv('bottom', 'top', { docH: 700 }), 'trang ngắn không cuộn: bị thanh dưới che → cao');
+ok(cv(null, 'top'), 'bị phần tử không dính che → cao');
 ok(rules({ contrast: [{ ratio: 3.2, big: false, text: 'x' }] }).includes('contrast:medium'), 'tương phản 3.2 chữ thường → trung');
 ok(!rules({ contrast: [{ ratio: 3.2, big: true, text: 'x' }] }).some(r => r.startsWith('contrast')), 'chữ lớn 3.2 đạt (ngưỡng 3)');
 ok(rules({ primaryInFold: false }).includes('cta-fold:medium'), 'nút chính ngoài màn đầu → trung');
