@@ -655,7 +655,7 @@
       mapL: t('Bản đồ bài học'),
       title: L.title,
       chip: L.endChip || L.title,
-      kick: t('Chính xác') + ' ' + s.accuracy + '%',
+      acc: s.accuracy + '%',
       xpL: '+' + xp + ' XP',
       combo: String(s.best),
       first: got + '/' + w.length,

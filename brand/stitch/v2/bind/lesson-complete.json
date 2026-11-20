@@ -10,7 +10,7 @@
   "overflow-hidden": ""
  },
  "text": {
-  "Flawless Session": "d.kick",
+  "Flawless Session": "t('Chính xác') + ' ' + d.acc",
   "Everyday English · Lesson 3/12": "d.chip",
   "+25 XP": "d.xpL",
   "12": "d.combo",

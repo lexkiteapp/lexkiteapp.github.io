@@ -127,7 +127,7 @@
     const n = o.n, acc = Math.round(o.ok / n * 100), xp = 10 + o.ok * 2 + (o.ok === n ? 5 : 0);
     try { await App.reward({ quizzes: 1, perfect: o.ok === n ? 1 : 0, xp }); } catch (e) { /* bỏ qua */ }
     const run = App.streak ? App.streak() : 0;
-    const d = { close: '#/practice', mapL: t('Làm lại'), title: o.title || t('Luyện tiếng Tây Ban Nha'), chip: o.chip, kick: t('Chính xác') + ' ' + acc + '%', xpL: '+' + xp + ' XP', combo: String(o.best), first: o.first + '/' + n, mins: '', nwords: '', streakT: t('Chuỗi hiện tại') + ': ' + run, weekN: '', streak: String(run),
+    const d = { close: '#/practice', mapL: t('Làm lại'), title: o.title || t('Luyện tiếng Tây Ban Nha'), chip: o.chip, acc: acc + '%', xpL: '+' + xp + ' XP', combo: String(o.best), first: o.first + '/' + n, mins: '', nwords: '', streakT: t('Chuỗi hiện tại') + ': ' + run, weekN: '', streak: String(run),
       off1: Math.round(201.06 * (1 - acc / 100) * 100) / 100, off2: Math.round(144.51 * (1 - o.first / Math.max(1, n)) * 100) / 100,
       sub: acc >= 80 ? t('Tuyệt vời!') : t('Làm tốt lắm, cứ tiếp tục nhé!'), learned: ' ', more: '', wl: [],
       rev: o.rev, revHref: o.revHref, revIcon: 'arrow_forward' };
