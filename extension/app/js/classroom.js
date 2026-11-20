@@ -169,7 +169,7 @@
         <div class="cr-list">${c.tasks.map(x => { const i = info(x.ref), p = P(x.id), late = x.due && !p && x.due < Date.now(); return `<div class="cr-item" style="border-top:1px solid var(--line);padding-top:.6rem"><div class="row nowrap" style="gap:.6rem"><span class="em" aria-hidden="true">${i.em}</span><div><b>${esc(i.title)}</b><div class="tiny muted">${esc(i.sub)}${x.due ? ` · <span${late ? ' style="color:var(--again,#e5502f)"' : ''}>${t('Hạn {d}', { d: day(x.due) })}</span>` : ''}</div></div></div>
           <div class="row nowrap" style="gap:.5rem">${p ? `<span class="cr-pct ${pctCls(p.best)}" title="${esc(t('Điểm cao nhất'))}">✓ ${p.best}%</span>` : `<span class="tiny muted">${t('Chưa làm')}</span>`}<a class="btn sm ${p ? '' : 'primary'}" href="${i.href}">${p ? t('Làm lại') : t('Làm bài')}</a></div></div>`; }).join('') || `<p class="muted">${t('Giáo viên chưa giao bài nào.')}</p>`}</div></div>
       <button class="btn ghost sm" id="crLeave" style="margin-top:1rem">${t('Rời lớp')}</button>`;
-    $('#crLeave').onclick = async () => { if (!confirm(t('Rời lớp này? Kết quả của bạn trong lớp sẽ bị xóa.'))) return; try { await call('leave', { cls: c.id }); mineCache = null; location.hash = '#/class'; } catch (e) { fail(e); } };
+    $('#crLeave').onclick = async () => { if (!await LXDialog.confirm(t('Rời lớp này? Kết quả của bạn trong lớp sẽ bị xóa.'))) return; try { await call('leave', { cls: c.id }); mineCache = null; location.hash = '#/class'; } catch (e) { fail(e); } };
   }
 
   // ---------- Giáo viên: mời, giao bài, tiến độ ----------
@@ -195,13 +195,13 @@
       </div>
       <div class="row wrap" style="gap:.5rem;margin-top:1rem"><button class="btn ghost sm" id="crRename">${UI.icon('pencil')} ${t('Đổi tên lớp')}</button><button class="btn ghost sm" id="crDel" style="color:var(--again,#e5502f)">🗑 ${t('Xóa lớp')}</button></div>`;
     const again = () => teacher(id);
-    $('#crCopy').onclick = async () => { try { await navigator.clipboard.writeText(url); toast('✅ ' + t('Đã sao chép')); } catch (e) { prompt(t('Sao chép link'), url); } };
-    $('#crCodeNew').onclick = async () => { if (!confirm(t('Tạo mã mới? Mã cũ sẽ không dùng được nữa (học sinh đã vào lớp không bị ảnh hưởng).'))) return; try { await call('newcode', { cls: id }); again(); } catch (e) { fail(e); } };
+    $('#crCopy').onclick = async () => { try { await navigator.clipboard.writeText(url); toast('✅ ' + t('Đã sao chép')); } catch (e) { await LXDialog.prompt(t('Sao chép link'), url); } };
+    $('#crCodeNew').onclick = async () => { if (!await LXDialog.confirm(t('Tạo mã mới? Mã cũ sẽ không dùng được nữa (học sinh đã vào lớp không bị ảnh hưởng).'))) return; try { await call('newcode', { cls: id }); again(); } catch (e) { fail(e); } };
     $('#crAdd').onclick = () => picker(c, R.tasks.map(x => x.ref), again);
-    $$('[data-un]').forEach(b => { b.onclick = async () => { if (!confirm(t('Gỡ bài này? Kết quả của học sinh cho bài này sẽ bị xóa.'))) return; try { await call('unassign', { cls: id, task: b.dataset.un }); again(); } catch (e) { fail(e); } }; });
-    $$('[data-kick]').forEach(b => { b.onclick = async () => { if (!confirm(t('Xóa {name} khỏi lớp? Kết quả của học sinh này sẽ bị xóa.', { name: b.dataset.nm }))) return; try { await call('kick', { cls: id, uid: b.dataset.kick }); again(); } catch (e) { fail(e); } }; });
-    $('#crRename').onclick = async () => { const n = prompt(t('Tên lớp mới'), c.name); if (!n || n === c.name) return; try { await call('rename', { cls: id, name: n }); mineCache = null; again(); } catch (e) { fail(e); } };
-    $('#crDel').onclick = async () => { if (!confirm(t('Xóa hẳn lớp {name}? Học sinh, bài giao và kết quả sẽ bị xóa vĩnh viễn.', { name: c.name }))) return; try { await call('delete', { cls: id }); mineCache = null; location.hash = '#/class'; } catch (e) { fail(e); } };
+    $$('[data-un]').forEach(b => { b.onclick = async () => { if (!await LXDialog.confirm(t('Gỡ bài này? Kết quả của học sinh cho bài này sẽ bị xóa.'))) return; try { await call('unassign', { cls: id, task: b.dataset.un }); again(); } catch (e) { fail(e); } }; });
+    $$('[data-kick]').forEach(b => { b.onclick = async () => { if (!await LXDialog.confirm(t('Xóa {name} khỏi lớp? Kết quả của học sinh này sẽ bị xóa.', { name: b.dataset.nm }))) return; try { await call('kick', { cls: id, uid: b.dataset.kick }); again(); } catch (e) { fail(e); } }; });
+    $('#crRename').onclick = async () => { const n = await LXDialog.prompt(t('Tên lớp mới'), c.name); if (!n || n === c.name) return; try { await call('rename', { cls: id, name: n }); mineCache = null; again(); } catch (e) { fail(e); } };
+    $('#crDel').onclick = async () => { if (!await LXDialog.confirm(t('Xóa hẳn lớp {name}? Học sinh, bài giao và kết quả sẽ bị xóa vĩnh viễn.', { name: c.name }))) return; try { await call('delete', { cls: id }); mineCache = null; location.hash = '#/class'; } catch (e) { fail(e); } };
     const csv = $('#crCsv');
     if (csv) csv.onclick = () => {
       const q = v => `"${String(v).replace(/"/g, '""')}"`;

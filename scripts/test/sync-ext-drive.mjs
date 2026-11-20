@@ -94,7 +94,7 @@ async function device(uid, disk, { drive: on = true, cfg = {}, ext = null } = {}
   w.UI = { icon: n => `<svg data-i="${n}"></svg>`, addIcons: () => {}, glyph: e => e, $: s => w.document.querySelector(s), esc: s => String(s), toast: () => {}, modal: () => w.document.body, closeModal: () => {} };
   w.App = { state: { cards: {} }, updateChrome: () => {}, load: async () => {}, route: () => {}, need: async () => {} };
   w.FIREBASE_CONFIG = { apiKey: 'test' };
-  w.confirm = () => true; w.scrollTo = () => {};
+  w.confirm = () => true; w.scrollTo = () => {};;Object.defineProperty(w,'LXDialog',{configurable:true,get:()=>({confirm:async m=>w.confirm(m),prompt:async(m,d)=>w.prompt(m,d),alert:async m=>w.alert(m)})}); // cầu nối: test vẫn giả hộp thoại bằng w.confirm/prompt/alert
   let authCb = null; const token = await idTok(uid);
   const user = { uid, email: uid + '@x.y', displayName: uid, providerData: [{ providerId: 'google.com' }], getIdToken: async () => token, reauthenticateWithPopup: async () => ({ user, credential: { accessToken: grant(uid) } }) };
   const auth = { currentUser: null, onAuthStateChanged: cb => { authCb = cb; cb(null); }, getRedirectResult: async () => null,

@@ -52,6 +52,7 @@ function device(srv, opt = {}) {
     I18N: { lang: () => 'vi' }, IELTS_DATA: { INDEX: {} }, FIREBASE_CONFIG: { apiKey: 'test' }, LK_SYNC: { mode: 'auto', drive: false },
     scrollY: 0, scrollTo() {}, requestAnimationFrame: f => f(),
   };
+  sb.LXDialog = { confirm: async m => sb.confirm(m) }; // web dùng LXDialog (Promise) thay confirm gốc
   sb.self = sb; sb.window = sb; sb.globalThis = sb; vm.createContext(sb);
   vm.runInContext(CORE, sb);
   sb.Game = { get: async () => sb.Core.Store.get('game', null) };

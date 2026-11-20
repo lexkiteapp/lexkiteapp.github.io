@@ -4,6 +4,7 @@
 > Test `scripts/test/docs-budget.mjs` (chạy trong `npm test`) FAIL nếu tài liệu thiếu ở đây hoặc vượt ngân sách dung lượng. Thêm doc mới = thêm 1 dòng vào đây.
 
 ## Tài liệu hiện hành (docs/)
+- [audit/ui-audit-1911.md](audit/ui-audit-1911.md) — Kết quả rà giao diện app 19/11 (bảng màn–lỗi–mức); đọc khi: sửa UI hoặc cần biết lỗi đã biết
 - [CSS-NOTES.md](CSS-NOTES.md) — Chú thích dài của web/css/style.css (neo theo selector, §n) chuyển ra khỏi khung app; đọc khi sửa khối CSS có dấu `CSS-NOTES §n`
 - [ADMIN-SECURITY.md](ADMIN-SECURITY.md) — Các lớp bảo vệ trang /admin: adminGate ở API (Origin, rate-limit, Firebase token + email_verified + ADMIN_EMAILS), cổng whoami ở trình duyệt; đọc khi: sửa trang/API quản trị hoặc bật Cloudflare Access
 - [HUMAN.md](HUMAN.md) — Người thật (Turnstile, vé 12 h /api/human), prompt cố định /api/ai theo task, giới hạn body, ghim OIDC, cờ AI_HUMAN_ENFORCE; đọc khi sửa /api/ai, contact, report, lexai
@@ -183,3 +184,5 @@
 - [research/latent-bugs-1611.md](research/latent-bugs-1611.md) — Soát lỗi tiềm ẩn trên main 16/11 (6 vùng, kiểm lại độc lập, nhóm theo chủ vùng, 2 P0 + 6 P1); đọc khi: nhận việc sửa lỗi trong vùng của mình
 
 - [specs/top1-upgrade-plan.md](specs/top1-upgrade-plan.md) — Kế hoạch lên top 1 từ kiểm toán CI 18/11 (so Duolingo/Speak/ELSA/Cake theo hành trình; UI/UX, nội dung, tính năng; thước đo, thứ tự); đọc khi: chọn việc nâng chất lượng, vẽ màn Stitch mới
+- [specs/stitch-v2-group-b.md](specs/stitch-v2-group-b.md) — Port 5 màn Stitch v2 nhóm B (Thư viện, Bộ từ, Chủ đề, Sổ lỗi sai, Tiến độ) từ #247, mỗi màn một PR; đọc khi làm màn nhóm B
+

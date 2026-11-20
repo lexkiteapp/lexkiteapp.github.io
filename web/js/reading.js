@@ -176,7 +176,7 @@
       answers[item.dataset.q] = b.dataset.v;
     }));
     $('#check').onclick = async () => {
-      if (Object.keys(answers).length < r.questions.length && !confirm(t('Bạn chưa trả lời hết. Vẫn chấm điểm?'))) return;
+      if (Object.keys(answers).length < r.questions.length && !await LXDialog.confirm(t('Bạn chưa trả lời hết. Vẫn chấm điểm?'))) return;
       let score = 0;
       r.questions.forEach((q, i) => {
         const item = $(`.q-item[data-q="${i}"]`);

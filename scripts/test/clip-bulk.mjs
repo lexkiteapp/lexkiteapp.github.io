@@ -58,7 +58,7 @@ ok(!L.spreadSlot(0, 3, { start: 'x', days: 3 }) && !L.spreadSlot(0, 3, { start: 
 // ---- mounted UI on a 5 000-clip fixture (jsdom: logic, DOM budget, bulk batching/resume) ----
 {
   const d2 = new JSDOM('<!doctype html><body><div id="h"></div></body>', { url: 'https://lexkite.com/admin.html?section=pending#video', runScripts: 'outside-only', pretendToBeVisual: true }), w = d2.window, calls = [];
-  w.eval(fs.readFileSync('web/js/admin-clips.js', 'utf8')); w.confirm = () => true; w.prompt = () => 'v';
+  w.eval(fs.readFileSync('web/js/admin-clips.js', 'utf8')); w.confirm = () => true; w.prompt = () => 'v';;Object.defineProperty(w,'LXDialog',{configurable:true,get:()=>({confirm:async m=>w.confirm(m),prompt:async(m,d)=>w.prompt(m,d),alert:async m=>w.alert(m)})}); // cầu nối: test vẫn giả hộp thoại bằng w.confirm/prompt/alert
   const all = Array.from({ length: 5000 }, (_, i) => ({ id: 'clip-' + String(i).padStart(4, '0'), title: 'Clip ' + i, scene: 'cafe', template: i % 2 ? 'choose' : 'listen', created: '2026-10-21T00:00:00Z', qa: { status: 'pass', ok: 40, fail: 0 }, cover_url: null, _v: {} }));
   const capi = async (op, b) => { calls.push([op, b]);
     if (op === 'query') { const rows = all.filter(x => !b.filter.q || x.title.includes(b.filter.q)); const at = b.cursor || 0; return { rows: rows.slice(at, at + b.limit), total: rows.length, next: at + b.limit < rows.length ? at + b.limit : null, counts: { pending: rows.length, approved: 0, live: 0, fail: 0, archive: 0 }, facets: { template: ['choose', 'listen'] } }; }
