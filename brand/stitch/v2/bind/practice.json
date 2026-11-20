@@ -81,7 +81,7 @@
    "bind": {
     "c1": {
      "html": {
-      ":scope > div:nth-child(2) > h4": "'<a href=\"' + e(r.href) + '\" class=\"after:absolute after:inset-0 after:content-[\\'\\']\">' + e(r.title) + '</a>'",
+      ":scope > div:nth-child(2) > h4": "'<a href=\"' + e(r.href) + '\" class=\"text-inherit after:absolute after:inset-0 after:content-[\\'\\']\">' + e(r.title) + '</a>'",
       ":scope > div:nth-child(2) > div > p": "e(r.sub)",
       ":scope > div:nth-child(1) > span": "e(r.badge)",
       ":scope > div:nth-child(1) > div > span.material-symbols-rounded": "r.icon"
@@ -101,7 +101,7 @@
     },
     "c2": {
      "html": {
-      ":scope > div:nth-child(2) > h4": "'<a href=\"' + e(r.href) + '\" class=\"after:absolute after:inset-0 after:content-[\\'\\']\">' + e(r.title) + '</a>'",
+      ":scope > div:nth-child(2) > h4": "'<a href=\"' + e(r.href) + '\" class=\"text-inherit after:absolute after:inset-0 after:content-[\\'\\']\">' + e(r.title) + '</a>'",
       ":scope > div:nth-child(2) > div > p": "e(r.sub)",
       ":scope > div:nth-child(1) > span": "e(r.badge)",
       ":scope > div:nth-child(1) > div > span.material-symbols-rounded": "r.icon"
@@ -121,7 +121,7 @@
     },
     "c3": {
      "html": {
-      ":scope > div:nth-child(2) > h4": "'<a href=\"' + e(r.href) + '\" class=\"after:absolute after:inset-0 after:content-[\\'\\']\">' + e(r.title) + '</a>'",
+      ":scope > div:nth-child(2) > h4": "'<a href=\"' + e(r.href) + '\" class=\"text-inherit after:absolute after:inset-0 after:content-[\\'\\']\">' + e(r.title) + '</a>'",
       ":scope > div:nth-child(2) > div > p": "e(r.sub)",
       ":scope > div:nth-child(1) > span": "e(r.badge)",
       ":scope > div:nth-child(1) > div > span.material-symbols-rounded": "r.icon"
@@ -141,7 +141,7 @@
     },
     "c4": {
      "html": {
-      ":scope > div:nth-child(2) > h4": "'<a href=\"' + e(r.href) + '\" class=\"after:absolute after:inset-0 after:content-[\\'\\']\">' + e(r.title) + '</a>'",
+      ":scope > div:nth-child(2) > h4": "'<a href=\"' + e(r.href) + '\" class=\"text-inherit after:absolute after:inset-0 after:content-[\\'\\']\">' + e(r.title) + '</a>'",
       ":scope > div:nth-child(2) > div > p": "e(r.sub)",
       ":scope > div:nth-child(1) > span": "e(r.badge)",
       ":scope > div:nth-child(1) > div > span.material-symbols-rounded": "r.icon"
@@ -161,7 +161,7 @@
     },
     "c5": {
      "html": {
-      ":scope > div:nth-child(2) > h4": "'<a href=\"' + e(r.href) + '\" class=\"after:absolute after:inset-0 after:content-[\\'\\']\">' + e(r.title) + '</a>'",
+      ":scope > div:nth-child(2) > h4": "'<a href=\"' + e(r.href) + '\" class=\"text-inherit after:absolute after:inset-0 after:content-[\\'\\']\">' + e(r.title) + '</a>'",
       ":scope > div:nth-child(2) > div > p": "e(r.sub)",
       ":scope > div:nth-child(1) > span": "e(r.badge)",
       ":scope > div:nth-child(1) > div > span.material-symbols-rounded": "r.icon"
@@ -181,7 +181,7 @@
     },
     "c6": {
      "html": {
-      ":scope > div:nth-child(2) > h4": "'<a href=\"' + e(r.href) + '\" class=\"after:absolute after:inset-0 after:content-[\\'\\']\">' + e(r.title) + '</a>'",
+      ":scope > div:nth-child(2) > h4": "'<a href=\"' + e(r.href) + '\" class=\"text-inherit after:absolute after:inset-0 after:content-[\\'\\']\">' + e(r.title) + '</a>'",
       ":scope > div:nth-child(2) > div > p": "e(r.sub)",
       ":scope > div:nth-child(1) > span": "e(r.badge)",
       ":scope > div:nth-child(1) > div > span.material-symbols-rounded": "r.icon"
@@ -201,7 +201,7 @@
     },
     "c7": {
      "html": {
-      ":scope > div:nth-child(2) > h4": "'<a href=\"' + e(r.href) + '\" class=\"after:absolute after:inset-0 after:content-[\\'\\']\">' + e(r.title) + '</a>'",
+      ":scope > div:nth-child(2) > h4": "'<a href=\"' + e(r.href) + '\" class=\"text-inherit after:absolute after:inset-0 after:content-[\\'\\']\">' + e(r.title) + '</a>'",
       ":scope > div:nth-child(2) > div > p": "e(r.sub)",
       ":scope > div:nth-child(1) > span": "e(r.badge)",
       ":scope > div:nth-child(1) > div > span.material-symbols-rounded": "r.icon"
@@ -221,7 +221,7 @@
     },
     "c8": {
      "html": {
-      ":scope > div:nth-child(2) > h4": "'<a href=\"' + e(r.href) + '\" class=\"after:absolute after:inset-0 after:content-[\\'\\']\">' + e(r.title) + '</a>'",
+      ":scope > div:nth-child(2) > h4": "'<a href=\"' + e(r.href) + '\" class=\"text-inherit after:absolute after:inset-0 after:content-[\\'\\']\">' + e(r.title) + '</a>'",
       ":scope > div:nth-child(2) > div > p": "e(r.sub)",
       ":scope > div:nth-child(1) > span": "e(r.badge)",
       ":scope > div:nth-child(1) > div > span.material-symbols-rounded": "r.icon"
