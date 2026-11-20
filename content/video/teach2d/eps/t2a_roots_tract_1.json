@@ -1,0 +1,199 @@
+{
+ "id": "t2a_roots_tract_1",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, three words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "The root is Tract! Attract, distract, extract.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Tract is Latin for pull.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Attract: toward plus pull.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Distract: apart plus pull.",
+   "pause": 0.3
+  },
+  {
+   "id": "w2",
+   "text": "Extract: out plus pull.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means out plus pull?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Extract! Out plus pull.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "TRACT",
+  "rid": "tract",
+  "say": "pull",
+  "src": "trahere",
+  "src_lang": "Latin",
+  "src_mean": "to pull, to drag",
+  "words": [
+   {
+    "w": "attract",
+    "ipa": "/əˈtrækt/",
+    "mean": "pull toward",
+    "seg": "at-|tract",
+    "parts": [
+     [
+      "at",
+      "pre"
+     ],
+     [
+      "tract",
+      "root"
+     ]
+    ],
+    "pre": "at",
+    "pm": "toward",
+    "pms": "toward",
+    "ex": "The festival attracts thousands of visitors every year.",
+    "em": "🧲"
+   },
+   {
+    "w": "distract",
+    "ipa": "/dɪˈstrækt/",
+    "mean": "pull apart your attention",
+    "seg": "dis-|tract",
+    "parts": [
+     [
+      "dis",
+      "pre"
+     ],
+     [
+      "tract",
+      "root"
+     ]
+    ],
+    "pre": "dis",
+    "pm": "apart",
+    "pms": "apart",
+    "ex": "Loud music in the office distracts people from their work.",
+    "em": "📵"
+   },
+   {
+    "w": "extract",
+    "ipa": "/ɪkˈstrækt/",
+    "mean": "pull out",
+    "seg": "ex-|tract",
+    "parts": [
+     [
+      "ex",
+      "pre"
+     ],
+     [
+      "tract",
+      "root"
+     ]
+    ],
+    "pre": "ex",
+    "pm": "out",
+    "pms": "out",
+    "ex": "This oil is extracted from coconuts.",
+    "em": "🧪"
+   }
+  ],
+  "quiz": {
+   "stem": "out plus pull",
+   "options": [
+    "attract",
+    "extract"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/attract",
+  "link": "https://lexkite.com/app/#/dict/attract",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, three words"
+ },
+ "src": {
+  "root": "tract"
+ },
+ "est": {
+  "words": 48,
+  "seconds": 28.8,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "Tract root: attract, distract and extract",
+  "keyword": "tract root",
+  "value": "Tract comes from Latin \"trahere\" (to pull, to drag). Words: attract, distract and extract. attract = at + tract; distract = dis + tract; extract = ex + tract.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/attract",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "Tract root: attract, distract and extract",
+    "description": "Tract comes from Latin \"trahere\" (to pull, to drag). Words: attract, distract and extract. attract = at + tract; distract = dis + tract; extract = ex + tract.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/attract\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "tract root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Tract root: attract, distract and extract\n\nTract comes from Latin \"trahere\" (to pull, to drag). Words: attract, distract and extract. attract = at + tract; distract = dis + tract; extract = ex + tract.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/attract"
+   },
+   "instagram": {
+    "caption": "Tract root: attract, distract and extract\n\nTract comes from Latin \"trahere\" (to pull, to drag). Words: attract, distract and extract. attract = at + tract; distract = dis + tract; extract = ex + tract.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Tract root: attract, distract and extract #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: Extract! Out plus pull. Tract comes from Latin \"trahere\" (to pull, to drag). Words: attract, distract and extract. attract = at + tract; distract = dis + tract; extract = ex + tract. Try the full lesson and quiz here: {link}"
+ }
+}

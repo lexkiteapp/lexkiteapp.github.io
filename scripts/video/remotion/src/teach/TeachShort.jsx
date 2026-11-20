@@ -156,6 +156,7 @@ function Body({ n, t, w, h, T }) {
       return <div style={{ position: 'absolute', left: 0, top: 0, height: h, width: w * p, background: '#F2553B', borderRadius: h / 2 }} />; }
     case 'dot': { const [cur, , m] = state(n, t), on = cur === 'hit' ? m : 0;
       return <div style={{ width: w, height: h, borderRadius: '50%', background: n.big ? mixc(T.dot_off, T.dot_on, on) : T.dot_off, boxShadow: n.big && on ? `0 0 ${16 * on}px ${T.dot_on}` : 'none' }} />; }
+    case 'backdrop':
     case 'img': return <Img src={staticFile(n.src)} style={{ width: w, height: h, borderRadius: n.radius, display: 'block' }} />;
     case 'cta':
       return <div style={{ width: w, height: h, boxSizing: 'border-box', borderRadius: 28, background: `linear-gradient(90deg,${T.cta_a},${T.cta_b})`, borderBottom: `6px solid ${T.cta_ledge}`,
@@ -185,7 +186,7 @@ const BLOBS = [
   [[-0.3, 0.12, 0.95], [0.5, -0.1, 0.7], [0.3, -0.12, 0.9, 'b']],   // 3 = tint left-high, cool corner top-right
 ];
 const Canvas = ({ T, w, h, tint, v = 0 }) => (   // Stitch Kit canvas: flat tokens, static soft blobs (no moving background, no blur on the teacher)
-  <AbsoluteFill style={{ background: `linear-gradient(180deg, ${T.bg} 0%, ${T.bg2} 100%)` }}>
+  <AbsoluteFill style={{ background: `${T.sheen ? T.sheen + ', ' : ''}linear-gradient(180deg, ${T.bg} 0%, ${T.bg2} 100%)` }}>   {/* theme.json sheen: left-to-right light falloff, so no canvas row is a flat fill (qc dead_band) */}
     {(BLOBS[v] || BLOBS[0]).map(([x, y, s, b], i) => (
       <div key={i} style={{ position: 'absolute', left: w * x, [b ? 'bottom' : 'top']: h * y, width: w * s, height: w * s, borderRadius: '50%',
         background: `radial-gradient(circle, ${[tint || T.blobA, T.blobB, T.blobC][i]} 0%, transparent ${i === 2 ? 70 : 68}%)` }} />))}

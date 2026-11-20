@@ -42,12 +42,14 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
   else if (arg('shard')) { const [i, n] = arg('shard').split('/').map(Number); cmds = lanes(cmds, n, readWeights()).shards[i - 1].cmds; console.log(`shard ${i}/${n}: ${cmds.length} lệnh`); }
   if (process.argv.includes('--list')) { cmds.forEach((c, i) => console.log(`${i + 1}\t${c}`)); process.exit(0); }
   if (needsJsdom(cmds)) { const je = await jsdomError(); if (je) { console.error(`::error file=package.json,title=${esc('jsdom không nạp được')}::npm ci chưa đủ hoặc Node không khớp (CI dùng Node 22): ${esc(je)}`); process.exit(1); } }
+  // Đầu ra test có thể hàng MB (jsdom "Not implemented"…): process.stdout.write đồng bộ vào pipe không chặn của runner CI có thể ném EAGAIN → run-suite chết (exit 1) mà mất cả dòng "✗ [n/N]" (content-factory/collect 15–18/11). Ghi bằng fs.writeSync, EAGAIN thì thử lại.
+  const put = (fd, text) => { const b = Buffer.from(text); let o = 0; while (o < b.length) { try { o += fs.writeSync(fd, b, o); } catch (e) { if (e.code !== 'EAGAIN') throw e; Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, 5); } } };
   const from = Math.max(1, Number(arg('from')) || 1), t0 = Date.now(), times = [];
   for (let i = from - 1; i < cmds.length; i++) {
     const c = cmds[i], t = Date.now();
     console.log(`\n▶ [${i + 1}/${cmds.length}] ${c}`);
     const r = spawnSync(c, { cwd: ROOT, shell: '/bin/sh', stdio: ['inherit', 'pipe', 'pipe'], env: process.env, encoding: 'utf8', maxBuffer: 1 << 28 });
-    process.stdout.write(r.stdout || ''); process.stderr.write(r.stderr || '');
+    put(1, r.stdout || ''); put(2, r.stderr || '');
     const s = (Date.now() - t) / 1000; times.push([s, c]);
     if (r.status !== 0) {
       annotate(c, ((r.stderr || '') + '\n' + (r.stdout || '')).slice(-TAIL_MAX), r.status ?? r.signal);

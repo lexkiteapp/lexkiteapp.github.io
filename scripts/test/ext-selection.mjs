@@ -288,9 +288,9 @@ ok(fetches.some(f => /mymemory.*langpair=vi(\||%7C)en/.test(f.url)), 'MyMemory g
 // ---------- 3) Tên cấu trúc câu (🧩) trong bảng Dịch theo ngôn ngữ giao diện – hồi quy run 40152310424 ----------
 // 22ca39d tách nhóm structs ra khỏi <lang>.js (gói i18nx) → uiDict của service worker chỉ đọc <lang>.js → tên cấu trúc hiện tiếng Việt.
 {
-  const appI18nx = (rd('web/js/app.js').match(/i18nx: \[([^\]]*)\]/) || [])[1] || '';
+  const appI18nx = (rd('web/js/bundles.js').match(/i18nx: \[([^\]]*)\]/) || [])[1] || '';
   const bgI18nx = (rd('extension/background.js').match(/const I18NX = \[([^\]]*)\]/) || [])[1] || '';
-  ok(appI18nx && appI18nx.replace(/\s/g, '') === bgI18nx.replace(/\s/g, ''), `background.js I18NX = BUNDLES.i18nx của web/js/app.js (${bgI18nx} | ${appI18nx})`);
+  ok(appI18nx && appI18nx.replace(/\s/g, '') === bgI18nx.replace(/\s/g, ''), `background.js I18NX = BUNDLES.i18nx của web/js/bundles.js (${bgI18nx} | ${appI18nx})`);
   route = url => { const m = url.match(/^chrome-extension:\/\/abc\/(app\/js\/i18n\/[\w/-]+\.js)$/); if (!m) return null; const f = new URL('../../extension/' + m[1], import.meta.url); return fs.existsSync(f) ? { ok: true, status: 200, text: async () => fs.readFileSync(f, 'utf8') } : resp(404, null); };
   const SENT = 'Although it rained, we went out and the number of people has increased.';
   const xd = (dict, k) => dict[hk(k)] || dict[k]; // như xd() của add-on: gói ngôn ngữ khóa băm, nền en khóa nguyên câu (scripts/lib/i18n-pack.mjs)

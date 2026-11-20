@@ -23,6 +23,7 @@ const BAD = new Set(['failure', 'timed_out', 'cancelled', 'startup_failure', 'st
 // 15/11: 'cancelled' KHÔNG phải lỗi thật – concurrency (cancel-in-progress) / runner mất huỷ lượt chạy mà không có lượt mới hơn cùng sha. Trước đây gate đỏ oan (#1340, #1324…).
 // Lượt workflow mới nhất của sha bị huỷ → CHỜ + bộ canh tự chạy lại (≤ MAX_AUTO_RERUN lần); quá số lần đó mới tính đỏ. Lỗi thật (failure/timed_out…) vẫn đỏ ngay.
 export const MAX_AUTO_RERUN = 4;   // 16/11: 2 → 4 (huỷ do concurrency nhường lượt nhiều lần liền); quá 4 lần vẫn huỷ = vòng lặp thật → đỏ
+export const ADVISORY_CANCEL = new Set(['gate-impact']);   // 19/11: workflow chỉ comment tư vấn, nhóm concurrency toàn cục (#1592) thay lượt chờ cũ bằng 'cancelled' → KHÔNG tính đỏ/không chạy lại
 export const INFRA_STARTUP = new Set(['wip-guard']);   // workflow chỉ gác/gắn nhãn (không chấm mã PR): startup_failure = lỗi hạ tầng GitHub, không phải lỗi PR
 
 /** Hàm thuần: { checkRuns, statuses, workflowRuns } (dạng REST API) → { state, description, failed, pending, total }. */
@@ -52,7 +53,8 @@ export function evaluate({ checkRuns = [], statuses = [], workflowRuns = [] } = 
   for (const r of wr.values()) {
     const isInfra = INFRA_STARTUP.has(r.name) && r.conclusion === 'startup_failure';
     if (isInfra) infra.push(r.name);
-    items.push({ name: 'workflow: ' + r.name, status: r.status, conclusion: isInfra ? 'neutral' : r.conclusion, runId: r.id, attempt: r.run_attempt });
+    const advCancel = ADVISORY_CANCEL.has(r.name) && r.conclusion === 'cancelled';
+    items.push({ name: 'workflow: ' + r.name, status: r.status, conclusion: (isInfra || advCancel) ? 'neutral' : r.conclusion, runId: r.id, attempt: r.run_attempt });
   }
   // commit status: mới nhất theo context, bỏ chính mình
   const st = new Map();
@@ -102,6 +104,7 @@ export const GATE_WORKFLOW = /^\.github\/workflows\//;
 // 16/11 (điều phối, #1397 rebase 3 lần 28/28 xanh vẫn kẹt): required-gate.mjs bỏ khỏi danh sách (nó tự chấm bằng bản main mới nhất, không làm đổi kết quả check của PR).
 export const GATE_ANY = [/^scripts\/i18n-qa\.mjs$/, /^scripts\/lib\/[^/]*rules[^/]*\.mjs$/];
 export const GATE_CHANGED = [/^scripts\/test\//];
+export const SUITE = 'scripts/test/suite.txt';
 /** Hàm thuần: files = [{ filename, status }] main đã đổi kể từ merge-base của PR → tệp cổng đã đổi VÀ có thể đổi kết quả PR này.
  *  prFiles = tệp PR đổi (null = chưa biết → tính hết); srcs = { tên tệp: nguồn bản main } đã tải sẵn (thiếu → giữ cách cũ: test/luật tính, workflow chỉ tính khi PR cũng sửa nó).
  *  Liên quan = PR cũng sửa đúng tệp đó · workflow có `pull_request.paths` khớp tệp PR · test/luật nhắc tới tệp PR (lib/gate-relevance.mjs). Tệp bị xoá không làm PR đỏ → bỏ qua. */
@@ -114,6 +117,8 @@ export const gateDrift = (files = [], prFiles = null, srcs = {}) => files.filter
   }
   if (!(GATE_ANY.some(r => r.test(n)) || (GATE_CHANGED.some(r => r.test(n)) && f.status !== 'added')) || f.status === 'removed') return false;
   if (!prFiles || prFiles.includes(n)) return true;
+  // 18/11 (điều phối: #1587 đổi ads-demo-android.mjs → ~170 run chạy lại ở 12Z): test cấp trên cùng KHÔNG nằm trong suite.txt chỉ chạy bởi workflow riêng của nó (ads-demo.yml…, lượt PR của workflow đó luôn dùng main mới nhất) → không làm đổi kết quả PR khác.
+  if (/^scripts\/test\/[^/]+\.mjs$/.test(n) && typeof srcs[SUITE] === 'string' && !srcs[SUITE].split('\n').some(l => l.includes(n))) return false;
   // 16/11 (điều phối): suite.txt = DANH SÁCH test, đổi mỗi khi thêm/bớt test → chỉ bắt PR khi PR đụng ĐÚNG một test có trong danh sách (khớp nguyên đường dẫn), không phải mọi PR chạm scripts/test
   if (n === 'scripts/test/suite.txt' && typeof srcs[n] === 'string') { const listed = new Set(srcs[n].split('\n').flatMap(l => l.match(/scripts\/test\/[\w./-]+/g) || [])); return prFiles.some(f => listed.has(f)); }
   return typeof srcs[n] !== 'string' || readsAny(srcs[n], prFiles);
@@ -236,7 +241,7 @@ export function api(token, repo, fetchImpl = globalThis.fetch) {
       const c = await cmp(`${mb}...main`), all = c.truncated ? [...c.files, { filename: '.github/workflows/(>300 tệp đổi)', status: 'modified' }] : c.files;
       const cand = all.filter(f => f.status !== 'removed' && (GATE_WORKFLOW.test(f.filename) || GATE_ANY.some(r => r.test(f.filename)) || (GATE_CHANGED.some(r => r.test(f.filename)) && f.status !== 'added')) && !(prFiles || []).includes(f.filename) && !/\(>300/.test(f.filename)).slice(0, 40);
       const srcs = {};
-      await Promise.all(cand.map(async f => { try { const r = await call(`/contents/${f.filename.split('/').map(encodeURIComponent).join('/')}?ref=main`); if (r && r.encoding === 'base64' && typeof r.content === 'string') srcs[f.filename] = Buffer.from(r.content, 'base64').toString('utf8'); } catch {} }));
+      await Promise.all([...cand, ...(cand.some(f => /^scripts\/test\/[^/]+\.mjs$/.test(f.filename)) && !cand.some(f => f.filename === SUITE) ? [{ filename: SUITE }] : [])].map(async f => { try { const r = await call(`/contents/${f.filename.split('/').map(encodeURIComponent).join('/')}?ref=main`); if (r && r.encoding === 'base64' && typeof r.content === 'string') srcs[f.filename] = Buffer.from(r.content, 'base64').toString('utf8'); } catch {} }));
       return gateDrift(all, prFiles, srcs);
     },
     // gate-retest (docs/CI-RUNNERS.md): drift toàn là test trong suite → chạy THẬT các test đó (bản main) trên đầu PR bằng workflow nhẹ thay vì bắt gộp main (~100 job). Trả { clear } | { wait, note } | {} (= cách cũ).

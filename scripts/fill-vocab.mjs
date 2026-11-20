@@ -5,6 +5,7 @@
 // Ví dụ chỉ tự điền cho từ thông dụng (NGSL): từ chuyên ngành/chủ đề cần câu đúng ngữ cảnh → biên soạn tay. Chỉ sửa đúng ô trống trên dòng đó; mục không tìm được nguồn đạt chuẩn để trống (content-check báo cảnh báo).
 import fs from 'node:fs'; import path from 'node:path';
 import { loadContent, ROOT } from './lib/content-load.mjs';
+import { lexFiles } from './lib/lex-files.mjs';
 const A = process.argv.slice(2), mi = A.indexOf('--max'), MAX = mi >= 0 ? +A[mi + 1] : 1500, NET = !A.includes('--no-net');
 const mm = A.indexOf('--minutes'), DEADLINE = Date.now() + (mm >= 0 ? +A[mm + 1] : 1e6) * 60000; // ngân sách thời gian (CI): hết giờ thì dừng tra, vẫn ghi phần đã có
 const CP = path.join(ROOT, 'content/wordlists/fill.cache.json');
@@ -25,7 +26,7 @@ const exOK = (w, s) => !!s && /^[A-Z"'][\x20-\x7E’‘“”]+[.!?]["”]?$/.te
 const C = loadContent(), have = { ipa: new Map(), ex: new Map() };
 for (const t of C.IELTS_DATA.TOPICS) for (const w of t.words) { const k = w.word.toLowerCase(); if (w.ipa && !have.ipa.has(k)) have.ipa.set(k, w.ipa); }
 for (const f of ['nawl', 'bsl']) { const p = path.join(ROOT, `content/wordlists/${f}.cache.json`); if (fs.existsSync(p)) for (const [k, v] of Object.entries(JSON.parse(fs.readFileSync(p, 'utf8')))) if (v.ipa && !have.ipa.has(k)) have.ipa.set(k, fixIPA(v.ipa)); }
-const FILES = ['web/js/data.js', ...fs.readdirSync(path.join(ROOT, 'web/js/lib')).filter(f => f.endsWith('.js') && !/^(notes|paraphrase|nawl|bsl)/.test(f)).map(f => 'web/js/lib/' + f)];
+const FILES = ['web/js/data.js', ...lexFiles(f => !/^(notes|paraphrase|nawl|bsl)/.test(f))];
 const parse = line => { try { return new Function('return ' + line.trim().replace(/,\s*$/, ''))(); } catch (e) { return null; } };
 const q = s => "'" + String(s).replace(/\\/g, '\\\\').replace(/'/g, "\\'") + "'";
 const ROW = /^(\s*)(\['.*\])(,?\s*)$/;

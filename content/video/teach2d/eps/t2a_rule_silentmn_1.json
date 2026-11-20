@@ -1,0 +1,163 @@
+{
+ "id": "t2a_rule_silentmn_1",
+ "template": "rule",
+ "series": "Spell to Sound",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "pronunciation",
+ "lines": [
+  {
+   "id": "h",
+   "text": "The N is silent!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "At the end, m n, the N is silent. Say M.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Autumn.",
+   "pause": 0.25,
+   "speed": 0.6
+  },
+  {
+   "id": "v0",
+   "text": "Autumn.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Column.",
+   "pause": 0.25,
+   "speed": 0.6
+  },
+  {
+   "id": "v1",
+   "text": "Column.",
+   "pause": 0.3
+  },
+  {
+   "id": "p",
+   "text": "Repeat after me!",
+   "pause": 1.6
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which letter is silent in column?",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "N! The N is silent.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "rule": "silent-mn",
+  "title": "-mn",
+  "target": "/m/",
+  "letter": "n",
+  "say": "At the end, m n, the N is silent. Say M.",
+  "words": [
+   {
+    "w": "autumn",
+    "ipa": "/ˈɔːtəm/",
+    "silent": [
+     5,
+     6
+    ],
+    "letter": "n",
+    "mean": "Season when the weather is getting colder, between summer and winter.",
+    "em": "🍂"
+   },
+   {
+    "w": "column",
+    "ipa": "/ˈkɑːləm/",
+    "silent": [
+     5,
+     6
+    ],
+    "letter": "n",
+    "mean": "a tall stone post",
+    "em": "🏛️"
+   }
+  ],
+  "quiz": {
+   "stem": "Which letter is silent in column?",
+   "options": [
+    "C",
+    "N"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "pronunciation",
+  "route": "#/pron/autumn",
+  "link": "https://lexkite.com/app/#/pron/autumn",
+  "say": "Practise this sound"
+ },
+ "hook": {
+  "line": "h",
+  "text": "The N is silent"
+ },
+ "src": {
+  "rule": "silent-mn"
+ },
+ "est": {
+  "words": 41,
+  "seconds": 26.6,
+  "wpm": 92
+ },
+ "publish": {
+  "title": "The N is silent!",
+  "keyword": "Spell to Sound",
+  "value": "At the end, m n, the N is silent. Say M.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#pronunciation",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/pron/autumn",
+  "script_words": 32,
+  "platforms": {
+   "youtube": {
+    "title": "The N is silent!",
+    "description": "At the end, m n, the N is silent. Say M.\n\nPractise this sound, free: https://lexkite.com/app/#/pron/autumn\n\nSeries: Spell to Sound · Teacher: Ama\n\n#learnenglish #englishtips #pronunciation #englishteacher",
+    "tags": [
+     "Spell to Sound",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "The N is silent!\n\nAt the end, m n, the N is silent. Say M.\n\nPractise this sound, free: https://lexkite.com/app/#/pron/autumn"
+   },
+   "instagram": {
+    "caption": "The N is silent!\n\nAt the end, m n, the N is silent. Say M.\n\nPractise this sound: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#pronunciation",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "The N is silent! #learnenglish #englishtips #pronunciation"
+   }
+  },
+  "first_comment": "Quiz answer: N! The N is silent. At the end, m n, the N is silent. Say M. Practice it with a free quiz: {link}"
+ }
+}

@@ -43,15 +43,24 @@ if todo:
         for l in redo: print(f"  {l['id']} span {span(l['id']):.2f} s for {len(l['text'])} chars")
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); from whisper_det import load, DECODE, load_audio, snap_onsets   # same words + times on every runner (asr_match)
 M = load('base.en'); norm = lambda x: re.sub(r"[^a-z0-9']", '', x.lower())
+def padded(path, short=1.2, pad=0.3):   # a one-word clip (0.6 s, 0.05 s lead-in) makes whisper guess ("Know." -> "Now.", invents "So"): give it the lead-in/tail a longer line has, then shift the times back
+    import numpy as np
+    a = load_audio(path)
+    if len(a) / 16000 >= short: return path, 0.0
+    z = np.zeros(int(pad * 16000), dtype=a.dtype); return np.concatenate([z, a, z]), pad
+def shift(ws, pad):
+    import types
+    return ws if not pad else [types.SimpleNamespace(word=w.word, start=max(0.0, w.start - pad), end=max(0.0, w.end - pad), probability=w.probability) for w in ws]
 for l in base['lines']:
     if l['id'] not in need or os.path.exists(f'{V}/{l["id"]}.words.json'): continue
-    toks = l['text'].split(); segs, _ = M.transcribe(f'{V}/{l["id"]}.wav', language='en', word_timestamps=True, initial_prompt=l['text'], **DECODE)
-    hw = [w for s in segs for w in s.words]; a, b = [norm(x) for x in toks], [norm(w.word) for w in hw]
+    toks = l['text'].split(); src, PAD = padded(f'{V}/{l["id"]}.wav')
+    segs, _ = M.transcribe(src, language='en', word_timestamps=True, initial_prompt=l['text'], **DECODE)
+    hw = shift([w for s in segs for w in s.words], PAD); a, b = [norm(x) for x in toks], [norm(w.word) for w in hw]
     if sum(x in b for x in a) < 0.9 * len(a):   # base.en prompted with the exact script can return NOTHING for a short clip ("I'll look into it.", heard 0.0 x3) -> one unprompted retry, keep the better match
-        s2, _ = M.transcribe(f'{V}/{l["id"]}.wav', language='en', word_timestamps=True, condition_on_previous_text=False, **DECODE); hw2 = [w for s in s2 for w in s.words]; b2 = [norm(w.word) for w in hw2]
+        s2, _ = M.transcribe(src, language='en', word_timestamps=True, condition_on_previous_text=False, **DECODE); hw2 = shift([w for s in s2 for w in s.words], PAD); b2 = [norm(w.word) for w in hw2]
         if sum(x in b2 for x in a) > sum(x in b for x in a): hw, b = hw2, b2
-    asr, _ = M.transcribe(f'{V}/{l["id"]}.wav', language='en', word_timestamps=True, beam_size=5, condition_on_previous_text=False, **DECODE)   # ASR back-check: NO script prompt (the prompt hides mispronunciations) -> qc_v9 asr_match
-    aw = [dict(w=w.word.strip(), s=round(w.start, 3), e=round(w.end, 3), p=round(w.probability, 3)) for s_ in asr for w in s_.words]
+    asr, _ = M.transcribe(src, language='en', word_timestamps=True, beam_size=5, condition_on_previous_text=False, **DECODE)   # ASR back-check: NO script prompt (the prompt hides mispronunciations) -> qc_v9 asr_match
+    aw = [dict(w=w.word.strip(), s=round(w.start, 3), e=round(w.end, 3), p=round(w.probability, 3)) for w in shift([w for s_ in asr for w in s_.words], PAD)]
     T = [None] * len(toks)
     for blk in difflib.SequenceMatcher(None, a, b, autojunk=False).get_matching_blocks():
         for k in range(blk.size): T[blk.a + k] = (hw[blk.b + k].start, hw[blk.b + k].end)

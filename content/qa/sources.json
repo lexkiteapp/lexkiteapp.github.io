@@ -24,6 +24,7 @@
    "id": "vocab",
    "paths": [
     "web/js/lib",
+    "web/cpack/lib",
     "content/lexicon",
     "content/wordlists"
    ],

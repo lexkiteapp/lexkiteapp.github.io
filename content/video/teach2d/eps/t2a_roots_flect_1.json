@@ -1,0 +1,199 @@
+{
+ "id": "t2a_roots_flect_1",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, three words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "The root is Flect! Reflect, flexible, reflex.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Flect is Latin for bend.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Reflect: back plus bend.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Flexible: able to bend.",
+   "pause": 0.3
+  },
+  {
+   "id": "w2",
+   "text": "Reflex: back plus bend.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means back plus bend?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Reflex! Back plus bend.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "FLECT",
+  "rid": "flect",
+  "say": "bend",
+  "src": "flectere",
+  "src_lang": "Latin",
+  "src_mean": "to bend",
+  "words": [
+   {
+    "w": "reflect",
+    "ipa": "/rɪˈflekt/",
+    "mean": "bend back",
+    "seg": "re-|flect",
+    "parts": [
+     [
+      "re",
+      "pre"
+     ],
+     [
+      "flect",
+      "root"
+     ]
+    ],
+    "pre": "re",
+    "pm": "back or again",
+    "pms": "back",
+    "ex": "The lake reflected the mountains like a mirror.",
+    "em": "🪞"
+   },
+   {
+    "w": "flexible",
+    "ipa": "/ˈfleksəbl/",
+    "mean": "able to bend",
+    "seg": "flex|-ible",
+    "parts": [
+     [
+      "flex",
+      "root"
+     ],
+     [
+      "ible",
+      "suf"
+     ]
+    ],
+    "pre": null,
+    "pm": null,
+    "pms": null,
+    "ex": "My job has flexible working hours.",
+    "em": "🤸"
+   },
+   {
+    "w": "reflex",
+    "ipa": "/ˈriːfleks/",
+    "mean": "a body bend back",
+    "seg": "re-|flex",
+    "parts": [
+     [
+      "re",
+      "pre"
+     ],
+     [
+      "flex",
+      "root"
+     ]
+    ],
+    "pre": "re",
+    "pm": "back or again",
+    "pms": "back",
+    "ex": "The boy has good reflexes.",
+    "em": ""
+   }
+  ],
+  "quiz": {
+   "stem": "back plus bend",
+   "options": [
+    "reflect",
+    "reflex"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/reflect",
+  "link": "https://lexkite.com/app/#/dict/reflect",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, three words"
+ },
+ "src": {
+  "root": "flect"
+ },
+ "est": {
+  "words": 48,
+  "seconds": 28.8,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "Flect root: reflect, flexible and reflex",
+  "keyword": "flect root",
+  "value": "Flect comes from Latin \"flectere\" (to bend). Words: reflect, flexible and reflex. reflect = re + flect; reflex = re + flex.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/reflect",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "Flect root: reflect, flexible and reflex",
+    "description": "Flect comes from Latin \"flectere\" (to bend). Words: reflect, flexible and reflex. reflect = re + flect; reflex = re + flex.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/reflect\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "flect root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Flect root: reflect, flexible and reflex\n\nFlect comes from Latin \"flectere\" (to bend). Words: reflect, flexible and reflex. reflect = re + flect; reflex = re + flex.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/reflect"
+   },
+   "instagram": {
+    "caption": "Flect root: reflect, flexible and reflex\n\nFlect comes from Latin \"flectere\" (to bend). Words: reflect, flexible and reflex. reflect = re + flect; reflex = re + flex.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Flect root: reflect, flexible and reflex #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? Reflex! Back plus bend. Flect comes from Latin \"flectere\" (to bend). Words: reflect, flexible and reflex. reflect = re + flect; reflex = re + flex. More practice like this (free): {link}"
+ }
+}

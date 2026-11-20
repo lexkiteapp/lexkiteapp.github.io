@@ -111,7 +111,7 @@ globalThis.fetch = async (url, init = {}) => {
   m = /^posts\/([^/]+)\/schedule$/.exec(p); if (m) { if (GC.posts[m[1]].status !== 'draft') return J({ error: 'not_draft' }, 409); Object.assign(GC.posts[m[1]], { status: 'scheduled', scheduled_at: JSON.parse(init.body).scheduled_at }); return J({ post: GC.posts[m[1]] }); }
   return J({});
 };
-const ENV = { DB, GRABCAST_API_KEY: 'gk_live_SECRET_auto_123456', SHORTS_READ_TOKEN: 'ro', LEXKITE_DRIVE_CLI_KEY: 'cli-key-for-tests-0123456789abcdef' };
+const ENV = { DB, SOCIAL_DAY_CAP: '9', GRABCAST_API_KEY: 'gk_live_SECRET_auto_123456', SHORTS_READ_TOKEN: 'ro', LEXKITE_DRIVE_CLI_KEY: 'cli-key-for-tests-0123456789abcdef' };
 await MGR.setupMgr(DB);
 sql.exec('CREATE TABLE yt_queue (clip TEXT PRIMARY KEY, lesson TEXT, status TEXT, privacy TEXT, publish_at TEXT, approved_by TEXT, approved_at INTEGER, video_id TEXT, upload_url TEXT, session_at INTEGER, attempts INTEGER DEFAULT 0, err TEXT, updated INTEGER, thumb INTEGER, title TEXT, channel_id TEXT); CREATE TABLE clip_review (clip TEXT PRIMARY KEY, state TEXT, deleted INTEGER, web INTEGER)');
 for (const c of [CA, CB, CC]) sql.prepare("INSERT INTO yt_queue (clip, status) VALUES (?, 'manual')").run(c);
@@ -138,7 +138,7 @@ ok(h1 !== h2, 'bình luận đầu nằm trong dấu băm duyệt: sửa bình l
 // tự duyệt: đã có 1 bài FB duyệt tay KHÔNG bình luận → bài CÓ bình luận vẫn chờ duyệt tay (bài đầu mỗi nền tảng)
 sql.prepare("INSERT INTO soc_board (id, post_id, clip, accounts, plats, state, approved_by, approved_at, created, updated, by_who) VALUES ('b_old', 'p_old', 'old', '[\"2\"]', '[\"facebook_page\"]', 'published', 'boss@lexkite.com', ?, ?, ?, 'boss@lexkite.com')").run(now, now, now);
 setCfg({ auto_approve: true, autopub: { facebook_page: true, instagram: true, tiktok: true, youtube: true, threads: true }, manual_first: 1 });
-due(CB, 'gc-facebook_page-2', 6); due(CB, 'gc-facebook_page-5', 7);
+due(CB, 'gc-facebook_page-2', 6); due(CB, 'gc-facebook_page-5', 30); // +30h: kênh 5 đã có bài CA ở +5h – sổ cái 1 bài/kênh/ngày buộc khác ngày
 calls = []; r = await A.runAuto(ENV, { now: now + 60e3 });
 const pb = post(CB, 2), pb5 = post(CB, 5);
 ok(pb && pb.status === 'draft' && pb.targets[0].options.first_comment && pb5 && pb5.status === 'scheduled', `tự duyệt: bài FB có bình luận chờ duyệt TAY (chưa có bài có bình luận nào duyệt tay); bài không bình luận tự lên lịch (FB ${pb && pb.status}, FB5 ${pb5 && pb5.status})`);
