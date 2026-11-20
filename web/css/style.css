@@ -1475,7 +1475,7 @@ body:has(.learn-bar,.grade-bar,.sheet-up,.sel-bar,.install-nudge,#modal:not([hid
 .v2 nav a[data-tab]:active .st-ti { transform: scale(.88); }
 @media (prefers-reduced-motion: reduce) { .st-ti { transition: none; } .v2 nav a[data-tab]:active .st-ti { transform: none; } }
 /* icon-flash: chữ ligature chưa có phông →… CSS-NOTES §44 */
-html.ic-wait-o .material-symbols-outlined,html.ic-wait-r .material-symbols-rounded{color:transparent!important;display:inline-block;max-width:1em;overflow:hidden;white-space:nowrap}
+html.ic-wait-o .material-symbols-outlined:not([data-ms]),html.ic-wait-r .material-symbols-rounded:not([data-ms]){color:transparent!important;display:inline-block;max-width:1em;overflow:hidden;white-space:nowrap}
 
 [class*=material-symbols][data-ms]{font-family:serif!important;font-size-adjust:0;-webkit-text-fill-color:transparent}
 [class*=material-symbols][data-ms]:not(.absolute,.fixed,.sticky){position:relative}
