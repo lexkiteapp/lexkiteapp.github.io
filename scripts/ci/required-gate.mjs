@@ -375,6 +375,10 @@ export async function run(argv, env = process.env, A = null, log = console.log, 
       for (const sha of dirty) try {
         const at = clock.now(), s = seen.get(sha);
         if (why.get(sha) === 'stale' || why.get(sha) === 'rerun') log(`gate-${why.get(sha)}: PR #${prs.find(p => p.head.sha === sha)?.number} tự đánh giá lại`);
+        // 20/11 (#1664 kẹt "Chờ 2/18: npm test" dù npm test xong 14 s sau lần đánh giá): chữ ký thăm dò phải lấy TRƯỚC khi đọc dữ liệu đánh giá.
+        // Trước đây sha mới (không có trong probes) bị thăm dò SAU gather → check xong giữa hai lệnh làm chữ ký mới khớp chữ ký đã lưu → không bao giờ thấy thay đổi
+        // (chỉ lưới 'stale' 5 phút cứu). Lấy trước: chữ ký cũ ≠ chữ ký hiện tại ở vòng sau → đánh giá lại ngay.
+        let pre = probes.get(sha) || null; if (!pre && A.probe) try { pre = await A.probe(sha); } catch { /* lần sau */ }
         let res = await withDrift(evaluate(await A.gather(sha)), sha), recheckAt = 0;
         if (res.state === 'success' && at - born.get(sha) < YOUNG) { recheckAt = born.get(sha) + YOUNG; res = { ...res, state: 'pending', description: 'Chờ workflow khởi động trên commit mới' }; }
         if (!s || s.state !== res.state || s.desc !== res.description) {
@@ -384,7 +388,7 @@ export async function run(argv, env = process.env, A = null, log = console.log, 
         }
         if (!dry) await rerunCancelled(A, res, reran, log);
         const attempts = {}; for (const r of runs) if (r.head_sha === sha) attempts[r.id] = r.run_attempt || 1;
-        let sig = null; if (A.probe && (res.state === 'pending' || res.state === 'failure')) try { sig = (probes.get(sha) || await A.probe(sha)).sig; } catch { /* lần sau */ }
+        let sig = null; if (A.probe && (res.state === 'pending' || res.state === 'failure')) try { sig = (pre || await A.probe(sha)).sig; } catch { /* lần sau */ }
         seen.set(sha, { at: at - 5e3, state: res.state, desc: res.description, recheckAt, attempts, sig });   // lùi 5 s: lượt xong sát lúc đọc vẫn được thấy ở vòng sau
       } catch (e) { log(`::warning::đánh giá ${sha.slice(0, 8)} lỗi API – giữ nguyên, thử lại vòng sau: ${e.message}`); }
       for (const k of seen.keys()) if (!shas.includes(k)) seen.delete(k), born.delete(k);   // PR đã gộp/đóng/đẩy commit mới
