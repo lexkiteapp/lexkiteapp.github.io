@@ -23,4 +23,10 @@ ok(await A.claimLedger(DB, 'ch3', 'p', d0), 'ngày 20: bài đầu');
 ok(!(await A.claimLedger(DB, 'ch3', 'q', d0 + 8 * H)), 'ngày 20: bài 2 cách 8 giờ vẫn bị chặn (1/ngày)');
 ok(await A.claimLedger(DB, 'ch3', 'q', d0 + 24 * H), 'hoãn sang ngày 21 thì được (không bị bỏ)');
 ok(await A.claimLedger(DB, 'ch4', 'p', d0), 'kênh khác cùng ngày độc lập');
+// kênh chính: trần 2/ngày, giãn ≥ 4 giờ (rule của kênh)
+const R2 = { cap: 2, gap: 4 * H, tz: 'Asia/Ho_Chi_Minh' }, d5 = Date.UTC(2026, 10, 22, 0, 0, 0);
+ok(await A.claimLedger(DB, 'ch5', 'a', d5, d5, R2), 'kênh chính: bài 1');
+ok(!(await A.claimLedger(DB, 'ch5', 'b', d5 + 2 * H, d5, R2)), 'kênh chính: cách 2 giờ vẫn bị chặn');
+ok(await A.claimLedger(DB, 'ch5', 'b', d5 + 5 * H, d5, R2), 'kênh chính: bài 2 cách 5 giờ cùng ngày được');
+ok(!(await A.claimLedger(DB, 'ch5', 'c', d5 + 10 * H, d5, R2)), 'kênh chính: bài 3 cùng ngày bị chặn (trần 2)');
 console.log(fails ? `social-ledger: ${fails} lỗi` : 'social-ledger OK'); process.exit(fails ? 1 : 0);
