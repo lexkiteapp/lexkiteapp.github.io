@@ -40,12 +40,12 @@
   },
   {
    "id": "q",
-   "text": "A hour or an hour?",
+   "text": "Which sentence is correct?",
    "gap": 0.7
   },
   {
    "id": "o",
-   "text": "A: I waited a hour? Or B: I waited an hour?",
+   "text": "A: a hour? Or B: an hour?",
    "gap": 0.7
   },
   {
@@ -208,7 +208,7 @@
      ],
      [
       "o",
-      7
+      5
      ]
     ],
     "reveal": [
