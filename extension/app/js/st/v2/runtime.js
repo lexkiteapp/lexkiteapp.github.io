@@ -33,17 +33,59 @@
     App.loadCss('css/st-v2-' + k + '.css').then(() => { cssOk[k] = 1; if (w) w.style.visibility = ''; }); };
   let idle = false; const rest = () => { if (idle || (App.lean && App.lean())) return; idle = true; (self.requestIdleCallback || (f => setTimeout(f, 1200)))(() => LZ.forEach(x => css(x)), { timeout: 8000 }); };
   S.css = css;
+
+  // 🧭 MỘT thanh trên "hub" cho điện thoại (< 1024 px), mọi tab: hàng 1 = logo · tra từ · chuông · 🌐 · avatar; hàng 2 = 4 viên số (kỳ thi · chuỗi · XP · mục tiêu; icon + số, chia đều, không tràn).
+  // Viên số GIỮ nguyên link/nhãn (data-hdr) như đầu trang Stitch cũ (test review-taps/ux1). Máy tính: ẩn (thanh trên + cột phải của app lo). Avatar: ảnh nếu có, không thì chữ cái.
+  const esc = v => String(v == null ? '' : v).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const ic = id => `<svg class="i" aria-hidden="true" focusable="false"><use href="#i-${id}"/></svg>`;
+  S.hubCss = () => { if (document.getElementById('stHbCss')) return; const s = document.createElement('style'); s.id = 'stHbCss';
+    s.textContent = `.hb{position:sticky;top:0;z-index:40;width:100%;box-sizing:border-box;padding:env(safe-area-inset-top,0px) 16px 6px;background:color-mix(in srgb,var(--bg) 94%,transparent);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);color:var(--text)}
+.hb-r{display:flex;align-items:center;gap:4px}.hb-r2{margin-top:2px;gap:6px}
+.hb-b{flex:none;position:relative;display:flex;align-items:center;justify-content:center;width:44px;height:44px;margin:0;padding:0;border:0;background:none;color:var(--heading);font:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.hb-b .i{width:22px;height:22px}.hb-logo img{width:32px;height:32px;border-radius:9px;display:block}
+.hb-s{flex:1;min-width:0;display:flex;align-items:center;gap:8px;height:44px;margin:0;padding:0 14px;border:0;background:none;color:var(--muted);font:inherit;font-size:14px;cursor:pointer;text-align:start}
+.hb-s span{flex:1;min-width:0;height:36px;display:flex;align-items:center;gap:8px;padding:0 14px;border-radius:999px;background:var(--surface-2);border:1px solid var(--line-2);overflow:hidden;white-space:nowrap}.hb-s .i{width:18px;height:18px}
+.hb-av i{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:999px;background:var(--primary);color:#fff;font:800 15px/1 inherit;font-style:normal;overflow:hidden;box-shadow:0 0 0 3px var(--surface-2)}.hb-av img{width:100%;height:100%;object-fit:cover;display:block}.hb-av .i{width:20px;height:20px;color:#fff}
+.hb-c{flex:1 1 0;min-width:0;display:flex;align-items:center;justify-content:center;min-height:44px;color:var(--text);text-decoration:none;-webkit-tap-highlight-color:transparent}
+.hb-c>span{max-width:100%;box-sizing:border-box;display:flex;align-items:center;justify-content:center;gap:6px;height:32px;padding:0 10px;border-radius:999px;background:var(--surface-2);border:1px solid var(--line-2);font-size:12px;line-height:14px;font-weight:800;letter-spacing:.02em;white-space:nowrap}
+.hb-c .i{width:16px;height:16px;color:var(--heading)}.hb-c .st-fl{flex:none}.hb-c b{font-weight:800;overflow:hidden;text-overflow:ellipsis}
+.hb .notif-dot{position:absolute;top:6px;inset-inline-end:6px}.hb .hidden{display:none}
+@media (max-width:359px){.hb-c>span{padding:0 6px;gap:4px}}
+@media (min-width:1024px){.hb{display:none!important}}
+@media (max-width:1023px){#view>.hb{margin:-1rem -1rem 12px;width:auto}}
+@media (max-width:1023px){.v2s-vocab-hub main>.hb{width:100vw;max-width:100vw;margin-inline:calc(50% - 50vw)}}
+@media (max-width:1023px){.hb~header{display:none!important}.hb~main.pt-14{padding-top:8px!important}body.hb-on .topbar{display:none!important}body.hb-on.v2-gs .topbar{display:flex!important;position:fixed;inset:0 0 auto;z-index:60;padding:.5rem .75rem}body.hb-on.v2-gs .topbar>:not(.gsearch){display:none}body.hb-on.v2-gs .gsearch{max-width:none}}`;
+    document.head.appendChild(s); };
+  S.hubbar = (d, chips = true) => { S.hubCss(); const h = d.hdr || S.hdr(), u = (self.App && App.state && App.state.user) || null, nm = (u && (u.displayName || u.email)) || '', L = (self.I18N && I18N.lang ? I18N.lang() : 'vi').toUpperCase();
+    const chip = (k, href, id, val, lab, icon) => `<a class="hb-c" href="${esc(href)}" aria-label="${esc(lab + ': ' + val)}" data-hdr="${k}"><span>${icon || ic(id)}<b>${esc(val)}</b></span></a>`;
+    const av = u && u.photoURL ? `<img src="${esc(u.photoURL)}" alt="" referrerpolicy="no-referrer">` : nm ? esc((nm.trim()[0] || 'L').toUpperCase()) : ic('user');
+    return `<header class="hb"><div class="hb-r"><a class="hb-b hb-logo" href="#/home" aria-label="Lexkite"><img src="icons/icon.svg?v=3" width="32" height="32" alt=""></a>`
+      + `<button type="button" class="hb-s" data-act="search" aria-label="${esc(t('Tra từ'))}"><span>${ic('search')}${esc(t('Tra từ…'))}</span></button>`
+      + `<button type="button" class="hb-b" data-act="notif" aria-label="${esc(t('Thông báo'))}">${ic('bell')}<span data-notif-badge class="hidden"></span></button>`
+      + `<button type="button" class="hb-b" data-act="lang" aria-haspopup="dialog" aria-label="${esc(t('Chọn ngôn ngữ giao diện') + ' (' + L + ')')}">${ic('globe')}</button>`
+      + `<a class="hb-b hb-av" href="#/me" aria-label="${esc(t('Tài khoản'))}"><i>${av}</i></a></div>`
+      + (chips ? `<div class="hb-r hb-r2">${chip('exam', '#/goal', 'graduation-cap', h.exam, t('Mức sẵn sàng thi'))}${chip('streak', '#/streak', '', h.streak, t('Chuỗi ngày học'), S.flame(S.flameState(h.streak), 18))}${chip('xp', '#/league', 'zap', h.xp, t('Tổng XP'))}${chip('goal', '#/stats', 'goal', h.goal, t('Mục tiêu hôm nay'))}</div>` : '') + `</header>`; };
+  // Nối nút cho màn KHÔNG tự nối (Hôm nay/Hôm nay-mới đã gọi Ux1.headBtns + langBtn trong ux1.js): tra từ · chuông · tài khoản qua Ux1.headBtns, 🌐 mở bộ chọn ngôn ngữ chung.
+  S.hubWire = root => { const h = root.querySelector('.hb'); if (!h) return; if (window.Ux1 && Ux1.headBtns) Ux1.headBtns(h); else h.querySelectorAll('[data-act="search"]').forEach(b => b.addEventListener('click', () => { location.hash = '#/dict'; }));
+    h.querySelectorAll('[data-act="lang"]').forEach(b => b.addEventListener('click', e => { e.preventDefault(); UI.modal(`<div class="ux1-lang"><h2>${t('Chọn ngôn ngữ giao diện')}</h2><p>${App.langPicker ? App.langPicker() : ''}</p></div>`); })); };
+  // Trang cũ (Thi): gắn thanh hub vào đầu #view + ẩn thanh trên cũ
+  S.hubPage = v => { document.body.classList.add('hb-on'); v.insertAdjacentHTML('afterbegin', S.hubbar({ hdr: S.hdr() })); S.hubWire(v); if (self.App && App.onCleanup) App.onCleanup(() => document.body.classList.remove('hb-on')); };
+  const HUBK = ['today', 'today-new', 'vocab-hub'];
   let bound = false;
   S.mount = (view, k, d, tab) => {
     if (!S[k]) throw new Error('ST2: thiếu khung ' + k);
     d = Object.assign({ hdr: S.hdr(), tabs: S.tabs(tab) }, d);
     const o = S[k](d), sh = tab && S.shell ? S.shell(d) : { header: '', nav: '' };
-    document.body.classList.add('st', 'v2on');
-    view.innerHTML = `<div class="v2s-${k}"><div class="${o.root}">${o.header || sh.header}${o.main}${o.nav || sh.nav}</div></div>`; // v2s-<màn>: phạm vi CSS của màn (build-stitch-css important)
+    let hd = o.header || sh.header, mn = o.main; const inMain = HUBK.includes(k), hub = inMain || !!tab;
+    // Hôm nay đã có thẻ 4 số ngay dưới: thanh hub chỉ hàng 1 (không lặp)
+    if (hub) { const hb = S.hubbar(d, k !== 'today' && k !== 'today-new'); if (inMain) mn = /<header[\s\S]*?<\/header>/.test(mn) ? mn.replace(/<header[\s\S]*?<\/header>/, () => hb) : mn.replace(/<main[^>]*>/, m => m + hb); else hd = hb + hd; }
+    document.body.classList.add('st', 'v2on'); document.body.classList.toggle('hb-on', k === 'vocab-hub'); // Từ vựng gỡ v2on (lề #view chung) → tự ẩn thanh trên cũ bằng hb-on
+    view.innerHTML = `<div class="v2s-${k}"><div class="${o.root}">${hd}${mn}${o.nav || sh.nav}</div></div>`; // v2s-<màn>: phạm vi CSS của màn (build-stitch-css important)
     if (!bound) { bound = true; document.addEventListener('click', e => { const b = e.target.closest && e.target.closest('.v2 [data-href], .v2s-today-rail [data-href]'); if (b && b.getAttribute('data-href') && b.getAttribute('aria-disabled') !== 'true') { e.preventDefault(); location.hash = b.getAttribute('data-href'); } }); }
     css(k, view.firstElementChild); if (k === 'path' || k === 'today') rest();
     if (view.querySelector('.st-fl')) S.flameCss();
-    App.onCleanup && App.onCleanup(() => document.body.classList.remove('st', 'v2on'));
+    if (hub && k !== 'today' && k !== 'today-new') S.hubWire(view);
+    App.onCleanup && App.onCleanup(() => document.body.classList.remove('st', 'v2on', 'hb-on'));
     return view.firstElementChild.firstElementChild;
   };
 })();
