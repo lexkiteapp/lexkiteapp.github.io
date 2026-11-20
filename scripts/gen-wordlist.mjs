@@ -6,6 +6,7 @@
 import fs from 'fs';
 import { normUK } from './lexicon/ipa.mjs'; // IPA Anh chuẩn của app: bỏ (r) tùy chọn, đúng quy ước build-lexicon
 import { has as hasForm } from './lib/irregular.mjs';
+import { lexFiles } from './lib/lex-files.mjs';
 const R = new URL('../', import.meta.url), rd = p => fs.readFileSync(new URL(p, R), 'utf8');
 const ID = process.argv[2], mi = process.argv.indexOf('--max'), MAX = mi > 0 ? +process.argv[mi + 1] : 400;
 const LISTS = {
@@ -32,7 +33,7 @@ const SRC = csv.map(parseRow).map(c => (ID === 'nawl' ? { word: c[0], def: c[1],
 globalThis.t = s => s;
 const g = {};
 new Function('self', rd('web/js/data.js'))(g);
-for (const f of fs.readdirSync(new URL('web/js/lib/', R))) if (/\.js$/.test(f) && !/^notes/.test(f) && f !== ID + '.js') { try { new Function('self', rd('web/js/lib/' + f))(g); } catch (e) { /* bỏ qua */ } }
+for (const p of lexFiles(f => !/^notes/.test(f) && f !== ID + '.js')) { try { new Function('self', rd(p))(g); } catch (e) { /* bỏ qua */ } }
 const HAVE = new Set(); g.IELTS_DATA.TOPICS.forEach(tp => tp.words.forEach(w => HAVE.add(w.word.toLowerCase())));
 const LIST = SRC.filter(x => !HAVE.has(x.word.toLowerCase()));
 console.log(`${ID}: ${SRC.length} từ nguồn, ${LIST.length} từ mới chưa có trong app`);

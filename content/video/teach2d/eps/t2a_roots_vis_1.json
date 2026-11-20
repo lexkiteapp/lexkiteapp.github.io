@@ -1,0 +1,173 @@
+{
+ "id": "t2a_roots_vis_1",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, two words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "The root is Vis! Visible, vision.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Vis is Latin for see.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Visible: able to be seen.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Vision: the power to see.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means the power to see?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Vision! It means the power to see.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "VIS",
+  "rid": "vis",
+  "say": "see",
+  "src": "videre",
+  "src_lang": "Latin",
+  "src_mean": "to see",
+  "words": [
+   {
+    "w": "visible",
+    "ipa": "/ˈvɪzəbl/",
+    "mean": "able to be seen",
+    "seg": "vis|-ible",
+    "parts": [
+     [
+      "vis",
+      "root"
+     ],
+     [
+      "ible",
+      "suf"
+     ]
+    ],
+    "pre": null,
+    "pm": null,
+    "pms": null,
+    "ex": "The mountains are visible from the hotel.",
+    "em": "👁️"
+   },
+   {
+    "w": "vision",
+    "ipa": "/ˈvɪʒn/",
+    "mean": "the power to see",
+    "seg": "vis|-ion",
+    "parts": [
+     [
+      "vis",
+      "root"
+     ],
+     [
+      "ion",
+      "suf"
+     ]
+    ],
+    "pre": null,
+    "pm": null,
+    "pms": null,
+    "ex": "The company has a clear vision for the future.",
+    "em": "🔭"
+   }
+  ],
+  "quiz": {
+   "stem": "the power to see",
+   "options": [
+    "visible",
+    "vision"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/visible",
+  "link": "https://lexkite.com/app/#/dict/visible",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, two words"
+ },
+ "src": {
+  "root": "vis"
+ },
+ "est": {
+  "words": 49,
+  "seconds": 29.0,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "Vis root: visible and vision",
+  "keyword": "vis root",
+  "value": "Vis comes from Latin \"videre\" (to see). Words: visible and vision.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/visible",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "Vis root: visible and vision",
+    "description": "Vis comes from Latin \"videre\" (to see). Words: visible and vision.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/visible\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "vis root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Vis root: visible and vision\n\nVis comes from Latin \"videre\" (to see). Words: visible and vision.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/visible"
+   },
+   "instagram": {
+    "caption": "Vis root: visible and vision\n\nVis comes from Latin \"videre\" (to see). Words: visible and vision.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Vis root: visible and vision #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: Vision! It means the power to see. Vis comes from Latin \"videre\" (to see). Words: visible and vision. Try the full lesson and quiz here: {link}"
+ }
+}

@@ -1,0 +1,173 @@
+{
+ "id": "t2a_roots_mov_2",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, two words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "The root is Mov! Promote, motive.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Mov is Latin for move.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Promote: forward plus move.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Motive: a reason that moves you.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means forward plus move?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Promote! Forward plus move.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "MOV",
+  "rid": "mov",
+  "say": "move",
+  "src": "movere",
+  "src_lang": "Latin",
+  "src_mean": "to move",
+  "words": [
+   {
+    "w": "promote",
+    "ipa": "/prəˈmoʊt/",
+    "mean": "move forward",
+    "seg": "pro-|mote",
+    "parts": [
+     [
+      "pro",
+      "pre"
+     ],
+     [
+      "mote",
+      "root"
+     ]
+    ],
+    "pre": "pro",
+    "pm": "forward",
+    "pms": "forward",
+    "ex": "The campaign aims to promote healthy eating.",
+    "em": "📣"
+   },
+   {
+    "w": "motive",
+    "ipa": "/ˈmoʊtɪv/",
+    "mean": "a reason that moves you",
+    "seg": "mot|-ive",
+    "parts": [
+     [
+      "mot",
+      "root"
+     ],
+     [
+      "ive",
+      "suf"
+     ]
+    ],
+    "pre": null,
+    "pm": null,
+    "pms": null,
+    "ex": "Profit is the main motive for most businesses.",
+    "em": "🎯"
+   }
+  ],
+  "quiz": {
+   "stem": "forward plus move",
+   "options": [
+    "motive",
+    "promote"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/promote",
+  "link": "https://lexkite.com/app/#/dict/promote",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, two words"
+ },
+ "src": {
+  "root": "mov"
+ },
+ "est": {
+  "words": 45,
+  "seconds": 27.0,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "Mov root: promote and motive",
+  "keyword": "mov root",
+  "value": "Mov comes from Latin \"movere\" (to move). Words: promote and motive. promote = pro + mote.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/promote",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "Mov root: promote and motive",
+    "description": "Mov comes from Latin \"movere\" (to move). Words: promote and motive. promote = pro + mote.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/promote\n\nSeries: Word Roots · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "mov root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Mov root: promote and motive\n\nMov comes from Latin \"movere\" (to move). Words: promote and motive. promote = pro + mote.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/promote"
+   },
+   "instagram": {
+    "caption": "Mov root: promote and motive\n\nMov comes from Latin \"movere\" (to move). Words: promote and motive. promote = pro + mote.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Mov root: promote and motive #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: Promote! Forward plus move. Mov comes from Latin \"movere\" (to move). Words: promote and motive. promote = pro + mote. Practice it with a free quiz: {link}"
+ }
+}

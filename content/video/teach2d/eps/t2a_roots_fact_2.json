@@ -1,0 +1,173 @@
+{
+ "id": "t2a_roots_fact_2",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, two words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "The root is Fact! Affect, defect.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Fact is Latin for make or do.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Affect: toward plus make or do.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Defect: down plus make or do.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means down plus make or do?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Defect! Down plus make or do.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "FACT",
+  "rid": "fact",
+  "say": "make or do",
+  "src": "facere",
+  "src_lang": "Latin",
+  "src_mean": "to make, to do",
+  "words": [
+   {
+    "w": "affect",
+    "ipa": "/əˈfekt/",
+    "mean": "make toward, to change",
+    "seg": "af-|fect",
+    "parts": [
+     [
+      "af",
+      "pre"
+     ],
+     [
+      "fect",
+      "root"
+     ]
+    ],
+    "pre": "af",
+    "pm": "toward",
+    "pms": "toward",
+    "ex": "Lack of sleep can affect your concentration.",
+    "em": "💥"
+   },
+   {
+    "w": "defect",
+    "ipa": "/ˈdiːfekt/",
+    "mean": "a making that fell away",
+    "seg": "de-|fect",
+    "parts": [
+     [
+      "de",
+      "pre"
+     ],
+     [
+      "fect",
+      "root"
+     ]
+    ],
+    "pre": "de",
+    "pm": "down or away",
+    "pms": "down",
+    "ex": "Inspectors found a defect in the wiring of several units.",
+    "em": "🐞"
+   }
+  ],
+  "quiz": {
+   "stem": "down plus make or do",
+   "options": [
+    "affect",
+    "defect"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/affect",
+  "link": "https://lexkite.com/app/#/dict/affect",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, two words"
+ },
+ "src": {
+  "root": "fact"
+ },
+ "est": {
+  "words": 53,
+  "seconds": 30.9,
+  "wpm": 103
+ },
+ "publish": {
+  "title": "Fact root: affect and defect",
+  "keyword": "fact root",
+  "value": "Fact comes from Latin \"facere\" (to make, to do). Words: affect and defect. affect = af + fect; defect = de + fect.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/affect",
+  "script_words": 43,
+  "platforms": {
+   "youtube": {
+    "title": "Fact root: affect and defect",
+    "description": "Fact comes from Latin \"facere\" (to make, to do). Words: affect and defect. affect = af + fect; defect = de + fect.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/affect\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "fact root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Fact root: affect and defect\n\nFact comes from Latin \"facere\" (to make, to do). Words: affect and defect. affect = af + fect; defect = de + fect.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/affect"
+   },
+   "instagram": {
+    "caption": "Fact root: affect and defect\n\nFact comes from Latin \"facere\" (to make, to do). Words: affect and defect. affect = af + fect; defect = de + fect.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Fact root: affect and defect #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? Defect! Down plus make or do. Fact comes from Latin \"facere\" (to make, to do). Words: affect and defect. affect = af + fect; defect = de + fect. More practice like this (free): {link}"
+ }
+}

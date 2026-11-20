@@ -61,7 +61,7 @@ jobs:
           fail=0
           for p in en/about/ vi/about/editorial-policy/ en/about/editorial-team/ en/research/confused-words/ ja/research/confused-words/ ar/research/confused-words/ en/embed/; do
             id=$(echo "$p" | tr '/' '_')
-            for i in 1 2 3; do npx -y lighthouse@12.2.1 "http://localhost:8080/$p" --form-factor=mobile --only-categories=performance,accessibility,best-practices,seo --chrome-flags="--headless=new --no-sandbox" --output=json --output-path="reports/authority/$id-$i.json" --quiet || true; done
+            for i in 1 2 3; do npx -y lighthouse@12.2.1 "http://localhost:8080/$p" --form-factor=mobile --only-categories=performance,accessibility,best-practices,seo --chrome-flags="--headless=new --no-sandbox --disable-dev-shm-usage --disable-gpu" --output=json --output-path="reports/authority/$id-$i.json" --quiet || true; done
             node -e "
               const fs=require('fs');const runs=[1,2,3].map(i=>'reports/authority/$id-'+i+'.json').filter(f=>fs.existsSync(f)).map(f=>require('./'+f));
               if(!runs.length){console.log('✗ lighthouse lỗi $p');process.exit(1)}
