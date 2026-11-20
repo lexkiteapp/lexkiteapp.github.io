@@ -366,15 +366,16 @@ fun ReaderScreen(ui: ReaderUi, a: ReaderActions) {
         Flow { Tag(r.level); Tag("${r.emoji} ${r.topic}"); GhostButton("🔊 " + t(if (ui.playing) L10nKey.skillReadDungDoc else L10nKey.skillReadNgheCaBai), a.readAloud) }
         Body(r.title, style = LKType.headlineMd); Muted(ui.summary)
         Muted(t(L10nKey.skillReadToSang))
-        Flow { for ((k, key) in listOf("kw" to L10nKey.skillReadTuKhoa, "awl" to L10nKey.skillReadHocThuatAwl, "link" to L10nKey.skillReadTuNoiCum, "mine" to L10nKey.skillReadTuCuaToi)) Chip(t(key) + " ${ui.passage.counts[k]}", k in ui.on, { a.toggle(k) }) }
+        val painted = Reader.painted(ui.passage, ui.on)
+        Flow { for ((k, key) in listOf("kw" to L10nKey.skillReadTuKhoa, "awl" to L10nKey.skillReadHocThuatAwl, "link" to L10nKey.skillReadTuNoiCum, "mine" to L10nKey.skillReadTuCuaToi)) if (Reader.available(ui.passage, k)) Chip(t(key) + " ${painted[k] ?: 0}", k in ui.on, { a.toggle(k) }) }
         LKCard(fill = c.surfaceContainerHighest) {
             for ((pi, para) in ui.passage.paras.withIndex()) EnLtr {
                 TokenText(para.mapIndexed { si, s -> TokSent(s, ui.passage.sentenceText(s).replace(Regex("\\s+"), " ").trim(), hot = ui.passage.paras.take(pi).sumOf { it.size } + si == ui.reading) },
                     LKType.bodyLg.toCompose().copy(color = c.onSurface),
-                    { tk -> val cls = tk.cls.split(' ').filter { it in ui.on }
-                        androidx.compose.ui.text.SpanStyle(color = if ("awl" in cls) c.secondary else c.onSurface,
-                            background = when { ui.active == tk.w -> c.secondaryContainer; "kw" in cls -> c.tertiaryContainer.copy(alpha = 0.55f); cls.isNotEmpty() && "mine" !in cls -> c.tertiaryContainer.copy(alpha = 0.25f); "mine" in cls -> c.surfaceContainerHighest; else -> androidx.compose.ui.graphics.Color.Unspecified },
-                            textDecoration = if ("link" in cls || "col" in cls) androidx.compose.ui.text.style.TextDecoration.Underline else null) },
+                    { tk -> val lay = Reader.layerOf(tk, ui.on) // one style per word, same rule as the web
+                        androidx.compose.ui.text.SpanStyle(color = if (lay == "awl") c.secondary else c.onSurface,
+                            background = when { ui.active == tk.w -> c.secondaryContainer; lay == "kw" -> c.tertiaryContainer.copy(alpha = 0.55f); lay == "mine" -> c.surfaceContainerHighest; lay != null -> c.tertiaryContainer.copy(alpha = 0.25f); else -> androidx.compose.ui.graphics.Color.Unspecified },
+                            textDecoration = if (lay == "link") androidx.compose.ui.text.style.TextDecoration.Underline else null) },
                     c.secondaryContainer, { tk, snt -> a.word(tk.w, snt) }) }
             Muted(t(L10nKey.skillReadChamVaoTuDe))
         }

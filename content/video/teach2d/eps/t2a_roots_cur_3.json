@@ -1,0 +1,173 @@
+{
+ "id": "t2a_roots_cur_3",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, two words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "The root is Cur! Currency, incur.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Cur is Latin for run.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Currency: money that runs from hand to hand.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Incur: into plus run.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means into plus run?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Incur! Into plus run.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "CUR",
+  "rid": "cur",
+  "say": "run",
+  "src": "currere",
+  "src_lang": "Latin",
+  "src_mean": "to run",
+  "words": [
+   {
+    "w": "currency",
+    "ipa": "/ˈkɜːrənsi/",
+    "mean": "money that runs from hand to hand",
+    "seg": "curr|-ency",
+    "parts": [
+     [
+      "curr",
+      "root"
+     ],
+     [
+      "ency",
+      "suf"
+     ]
+    ],
+    "pre": null,
+    "pm": null,
+    "pms": null,
+    "ex": "The local currency is the dong.",
+    "em": "💱"
+   },
+   {
+    "w": "incur",
+    "ipa": "/ɪnˈkɜːr/",
+    "mean": "run into, to bring on",
+    "seg": "in-|cur",
+    "parts": [
+     [
+      "in",
+      "pre"
+     ],
+     [
+      "cur",
+      "root"
+     ]
+    ],
+    "pre": "in",
+    "pm": "into",
+    "pms": "into",
+    "ex": "Late payments will incur a fee of twenty dollars per month.",
+    "em": "💸"
+   }
+  ],
+  "quiz": {
+   "stem": "into plus run",
+   "options": [
+    "currency",
+    "incur"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/currency",
+  "link": "https://lexkite.com/app/#/dict/currency",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, two words"
+ },
+ "src": {
+  "root": "cur"
+ },
+ "est": {
+  "words": 47,
+  "seconds": 28.0,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "Cur root: currency and incur",
+  "keyword": "cur root",
+  "value": "Cur comes from Latin \"currere\" (to run). Words: currency and incur. incur = in + cur.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/currency",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "Cur root: currency and incur",
+    "description": "Cur comes from Latin \"currere\" (to run). Words: currency and incur. incur = in + cur.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/currency\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "cur root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Cur root: currency and incur\n\nCur comes from Latin \"currere\" (to run). Words: currency and incur. incur = in + cur.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/currency"
+   },
+   "instagram": {
+    "caption": "Cur root: currency and incur\n\nCur comes from Latin \"currere\" (to run). Words: currency and incur. incur = in + cur.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Cur root: currency and incur #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: Incur! Into plus run. Cur comes from Latin \"currere\" (to run). Words: currency and incur. incur = in + cur. Try the full lesson and quiz here: {link}"
+ }
+}

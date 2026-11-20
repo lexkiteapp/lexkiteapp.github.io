@@ -11,7 +11,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | Giao tiếp | **89.7** | 68.3 | 89.7% | 100% | 0 |
 | 4 kỹ năng | **97.6** | 62.9 | 97.6% | 100% | 0 |
 | Đề thi | **66.6** | 31.7 | 66.6% | 100% | 0 |
-| Khung Can-do | **82.5** | 81.3 | 82.5% | 100% | 0 |
+| Khung Can-do | **82.6** | 81.3 | 82.6% | 100% | 0 |
 | Dễ học – dễ nhớ | **91.8** | 91.7 | 91.8% | 100% | 0 |
 | i18n | **82.8** | 62.7 | 82.8% | 100% | 0 |
 
@@ -24,7 +24,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | collocation | 5019 / 20000 | 25% | 12 |
 | đồng nghĩa | 3106 / 20000 | 16% | 8 |
 | IPA Mỹ | 6884 / 20000 | 34% | 5 |
-| ảnh theo nghĩa | 8035 / 20000 | 40% | 15 |
+| ảnh theo nghĩa | 8044 / 20000 | 40% | 15 |
 | C2 | 1022 / 1000 | 100% | 10 |
 | A1 | 869 / 1000 | 87% | 5 |
 
@@ -58,13 +58,13 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | Thành phần | Có / chuẩn | % | Trọng số |
 |---|---|---|---|
 | Nghe: bộ bài | 80 / 80 | 100% | 15 |
-| Đọc: bài | 618 / 600 | 100% | 15 |
+| Đọc: bài | 708 / 600 | 100% | 15 |
 | Đọc ngắn A1 (chưa làm) | 128 / 80 | 100% | 3 |
 | Đọc ngắn A2 | 80 / 80 | 100% | 3 |
 | Đọc ngắn B1 | 75 / 80 | 94% | 3 |
 | Đọc ngắn B2 | 75 / 80 | 94% | 3 |
 | Đọc ngắn C1 | 80 / 80 | 100% | 3 |
-| Đọc ngắn C2 (chưa làm) | 85 / 80 | 100% | 3 |
+| Đọc ngắn C2 (chưa làm) | 165 / 80 | 100% | 3 |
 | Nói: chủ đề | 70 / 60 | 100% | 10 |
 | Nói: câu trả lời mẫu | 680 / 600 | 100% | 10 |
 | Viết: bài mẫu | 354 / 400 | 89% | 18 |
@@ -98,8 +98,8 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 |---|---|---|---|
 | mục tiêu LKF tự soạn | 585 / 600 | 98% | 25 |
 | ô kỹ năng × cấp đủ ≥ 15 | 36 / 36 | 100% | 15 |
-| nội dung có lo hợp lệ | 11657 / 11657 | 100% | 35 |
-| mục tiêu đã có nội dung luyện | 194 / 600 | 32% | 25 |
+| nội dung có lo hợp lệ | 11667 / 11667 | 100% | 35 |
+| mục tiêu đã có nội dung luyện | 197 / 600 | 33% | 25 |
 
 ## Dễ học – dễ nhớ
 
@@ -108,7 +108,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | Ngữ pháp | 96.9 / 100 | 97% | 25 |
 | Bài lộ trình | 100 / 100 | 100% | 25 |
 | Bộ từ | 74.2 / 100 | 74% | 25 |
-| Kỹ năng | 96.2 / 100 | 96% | 25 |
+| Kỹ năng | 96.1 / 100 | 96% | 25 |
 
 ## i18n
 

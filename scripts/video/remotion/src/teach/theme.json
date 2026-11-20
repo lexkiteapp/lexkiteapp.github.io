@@ -1,6 +1,7 @@
 {
  "_note": "Teach2D colour tokens = Stitch design systems 'Lexkite Kit' (dark A Tactile Night, assets/1b7a8a3d3d52404bb332d9ba3f783547) and 'Bright Day Tactile' (light B, assets/72d685ef743a4ae7a36bd67dd84b15db). ONE source for Remotion (TeachShort.jsx) and the QC contrast gate (qc.py). 'dusk' = brighter teal dark for social feeds (owner 29/10: 'màu hơi tối') – same components, only colours.",
  "dark": {
+    "sheen": "linear-gradient(105deg, rgba(255,255,255,0.14) 0%, rgba(255,255,255,0) 50%, rgba(0,0,0,0.16) 100%)",
   "bg": "#091518",
   "bg2": "#0E2226",
   "blobA": "rgba(43,163,154,0.20)",
@@ -52,6 +53,7 @@
   "onhl": "#FFE08A"
  },
  "light": {
+    "sheen": "linear-gradient(105deg, rgba(255,255,255,0.14) 0%, rgba(255,255,255,0) 50%, rgba(13,105,100,0.12) 100%)",
   "bg": "#F6F8F7",
   "bg2": "#E3F1EE",
   "blobA": "rgba(13,105,100,0.14)",
@@ -103,6 +105,7 @@
   "onhl": "#FFE08A"
  },
  "dusk": {
+    "sheen": "linear-gradient(105deg, rgba(255,255,255,0.14) 0%, rgba(255,255,255,0) 50%, rgba(0,0,0,0.16) 100%)",
   "bg": "#15434A",
   "bg2": "#1F5A61",
   "blobA": "rgba(107,216,206,0.26)",
@@ -153,5 +156,5 @@
   "bubble_good_edge": "#5FC7BC",
   "onhl": "#FFE08A"
  },
- "tints": {"usuk": "rgba(107,216,206,0.30)", "verbs": "rgba(255,201,74,0.26)", "stress": "rgba(255,143,117,0.26)", "mistake": "rgba(242,85,59,0.22)", "l1": "rgba(242,85,59,0.22)", "phrasal": "rgba(91,214,143,0.24)", "pair": "rgba(107,216,206,0.26)", "prep": "rgba(255,201,74,0.24)", "pattern": "rgba(95,217,204,0.28)", "native": "rgba(91,214,143,0.24)", "guess": "rgba(255,143,117,0.24)", "level": "rgba(255,201,74,0.30)", "grammar": "rgba(110,180,255,0.24)", "dictation": "rgba(178,150,255,0.24)", "toeic": "rgba(250,140,22,0.22)", "review": "rgba(91,214,143,0.26)", "call": "rgba(90,200,250,0.26)", "react": "rgba(251,113,133,0.22)"}
+ "tints": {"usuk": "rgba(107,216,206,0.30)", "verbs": "rgba(255,201,74,0.26)", "stress": "rgba(255,143,117,0.26)", "mistake": "rgba(242,85,59,0.22)", "l1": "rgba(242,85,59,0.22)", "phrasal": "rgba(91,214,143,0.24)", "pair": "rgba(107,216,206,0.26)", "prep": "rgba(255,201,74,0.24)", "pattern": "rgba(95,217,204,0.28)", "native": "rgba(91,214,143,0.24)", "guess": "rgba(255,143,117,0.24)", "level": "rgba(255,201,74,0.30)", "grammar": "rgba(110,180,255,0.24)", "dictation": "rgba(178,150,255,0.24)", "toeic": "rgba(250,140,22,0.22)", "review": "rgba(91,214,143,0.26)", "call": "rgba(90,200,250,0.26)", "react": "rgba(251,113,133,0.22)", "roots": "rgba(170,230,120,0.24)", "rule": "rgba(255,224,138,0.28)"}
 }

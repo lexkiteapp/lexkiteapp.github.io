@@ -127,7 +127,7 @@ fun PronHubScreen(ui: PronHubUi, done: Map<String, Int>, a: PronHubActions) {
 /** The mouth figure: ellipses of the outer lip, inner mouth and tongue (numbers of the web SVG), drawn with the Kit tokens of the current theme (legible in light and dark). */
 @Composable
 fun MouthFigure(m: PronPage.Mouth, modifier: Modifier = Modifier) {
-    val l = LocalLKColors.current; val cap = m.caption.map { trs(it) }.joinToString(" · ")
+    val l = LocalLKColors.current; val cap = m.caption.map { trs(it) }.joinToString(" · ") + (if (m.captionTo.isEmpty()) "" else "\n→ " + m.captionTo.map { trs(it) }.joinToString(" · "))
     Column(modifier, horizontalAlignment = Alignment.CenterHorizontally) {
         Canvas(Modifier.size(width = 200.dp, height = 160.dp).semantics { contentDescription = cap }) {
             val k = size.width / 200f

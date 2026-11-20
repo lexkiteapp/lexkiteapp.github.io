@@ -41,29 +41,36 @@
   }
 
   // Toast dùng chung mọi màn: (1) hộp thoại #modal đang mở → xếp hàng, hiện lần lượt sau khi đóng (không chồng lên modal, không che nút);
-  // (2) né vùng nút/thanh cố định ở đáy (thanh điều hướng, "Tiếp tục", nút chính sát đáy) → đặt ngay phía trên; vị trí CSS gốc đã tính safe-area.
+  // (2) né nút/thanh cố định ở đáy → đặt ngay phía trên (CSS gốc đã tính safe-area)
   const toastQ = [];
   const modalOpen = () => { const m = document.getElementById('modal'); return !!(m && !m.hidden); };
   const AVOID = '.bottom-nav, .learn-bar, .sheet, .install-nudge, [data-toast-avoid], header button, header a, .topbar button, .topbar a, #view button, #view a.btn, #view a.chip, #view [role="button"], #view .option';
-  // Chọn chỗ đặt toast không đè vật cản: vị trí CSS gốc → ngay trên từng vật cản ở nửa dưới màn (≤ 55 %) → mép trên (dưới tai thỏ); hết chỗ thì giữ gốc
+  // Chỗ đặt toast không đè vật cản: gốc CSS → ngay trên vật cản (≤ 55 % màn) → mép trên → khoảng hở bất kỳ → hoãn
   function toastLift(t) {
-    t.style.removeProperty('--ty'); delete t.dataset.at; const H = g.innerHeight || document.documentElement.clientHeight || 0, W = g.innerWidth || document.documentElement.clientWidth || 0; if (!H) return;
+    t.style.removeProperty('--ty'); delete t.dataset.at; const H = g.innerHeight || document.documentElement.clientHeight || 0, W = g.innerWidth || document.documentElement.clientWidth || 0; if (!H) return true;
     const tr = t.getBoundingClientRect(), h = tr.height || 48, tw = Math.min(tr.width || W, W), x0 = (W - tw) / 2, x1 = x0 + tw;
     const base = tr.height ? H - tr.bottom + (t.classList.contains('show') ? 0 : 20) : 28; // chưa .show: translateY(20px)
     const obs = [...document.querySelectorAll(AVOID)].map(el => el.getBoundingClientRect()).filter(r => r.height && r.width && r.top < H && r.bottom > 0 && (!W || (r.left < x1 && r.right > x0)));
     const free = (top, bot) => !obs.some(r => r.top < bot && r.bottom > top);
-    if (free(H - base - h, H - base)) return;
+    if (free(H - base - h, H - base)) return true;
     const cands = obs.filter(r => r.top > H * .45).map(r => H - r.top + 10).filter(b => b > base && b <= H * .55).sort((a, b) => a - b);
-    // Dời bằng transform (--ty, style.css .toast): đổi chỗ khi toast ĐANG HIỆN (màn vẽ lại) không tính là layout shift (CLS 0,26 @360)
+    // dời bằng transform (--ty) → 0 CLS
     const at = b => { t.dataset.at = b; t.style.setProperty('--ty', (base - b) + 'px'); };
-    for (const b of cands) if (free(H - b - h, H - b)) { at(b); return; }
+    for (const b of cands) if (free(H - b - h, H - b)) { at(b); return true; }
     const top = 12;
     if (free(top, top + h)) { t.dataset.at = 'top'; t.style.setProperty('--ty', 'calc(' + top + 'px + env(safe-area-inset-top, 0px) - ' + (H - base - h) + 'px)'); return; }
-    if (cands.length) at(cands[cands.length - 1]);
+    // khoảng hở bất kỳ giữa các vật cản; không có → false = hoãn, KHÔNG đè nút
+    for (const b of obs.flatMap(r => [H - r.top + 10, H - r.bottom - h - 10]).filter(b => b >= 8 && b <= H - h - 12).sort((a, b) => Math.abs(a - base) - Math.abs(b - base))) if (free(H - b - h, H - b)) { at(b); return true; }
+    return false;
+  }
+  // hoãn: thử lại mỗi 1,2 s, bỏ sau 30 s
+  function toastDefer(e) {
+    e.at = e.at || Date.now(); toast._last = null; if (!toastQ.some(q => q[0] === e[0])) toastQ.push(e);
+    toast._di = toast._di || setInterval(() => { const t = $('#toast'); while (toastQ[0] && Date.now() - toastQ[0].at > 3e4) toastQ.shift(); if (!toastQ.length) toast._di = clearInterval(toast._di); else if (t && !t._msg && !toast._sw && !modalOpen()) toastShow(...toastQ.shift()); }, 1200);
   }
   function toastShow(msg, ms, o) {
     const t = $('#toast'); if (!t) return;
-    if (t.classList.contains('show') || toast._sw) { // đổi chữ tại chỗ khi đang hiện = hộp đổi cỡ (CLS @#/dict) → mờ hết rồi mới đổi, dồn nhiều câu giữ câu cuối
+    if (t.classList.contains('show') || toast._sw || toast._fd) { // đổi chữ khi đang hiện/đang mờ dần (_fd) → mờ rồi mới đổi (0 CLS), dồn câu giữ câu cuối
       toast._sa = t._msg = [msg, ms, o]; clearTimeout(toast._t);
       if (!toast._sw) { t.classList.remove('show', 'act'); toast._sw = setTimeout(() => { toast._sw = 0; const a = toast._sa; if (a && t._msg === a) { t._msg = null; toastShow(...a); } }, 230); }
       return;
@@ -72,21 +79,23 @@
     // chỉ toast có nút hành động mới nhận chạm (.act)
     t.classList.toggle('act', !!(o && o.action));
     if (o && o.action) { const b = document.createElement('button'); b.type = 'button'; b.className = 'toast-act'; b.textContent = o.action; b.onclick = () => { if (!t._msg || t._msg[2] !== o) return; toastHide(t); try { o.onAction && o.onAction(); } catch (e) { /* bỏ qua */ } }; t.append(' ', b); }
-    toastLift(t); t.classList.add('show');
-    // màn vẽ lại khi toast đang hiện → đặt lại chỗ để không đè nút mới
-    const v = document.getElementById('view'); if (v && g.MutationObserver && !toast._mo) { let q = 0; toast._mo = new MutationObserver(() => { if (q) return; q = 1; (g.requestAnimationFrame || setTimeout)(() => { q = 0; if (t._msg) toastLift(t); }); }); toast._mo.observe(v, { childList: true, subtree: true }); }
+    if (!toastLift(t)) { t.textContent = ''; t._msg = null; t.classList.remove('act'); toastDefer([msg, ms, o]); return; }
+    t.classList.add('show');
+    // màn vẽ lại → đặt lại chỗ, hết chỗ thì hoãn
+    const v = document.getElementById('view'); if (v && g.MutationObserver && !toast._mo) { let q = 0; toast._mo = new MutationObserver(() => { if (q) return; q = 1; (g.requestAnimationFrame || setTimeout)(() => { q = 0; if (t._msg && !toastLift(t)) { const m = t._msg; toastHide(t); toastDefer(m); } }); }); toast._mo.observe(v, { childList: true, subtree: true }); }
     toastTimer(t, ms);
   }
+  // sau khi gỡ .show toast còn mờ dần 0,2 s (style.css .toast transition) → cờ _fd 230 ms: toastShow chờ hết mờ rồi mới đổi chữ (như đường _sw)
+  const fading = () => { clearTimeout(toast._fd); toast._fd = setTimeout(() => { toast._fd = 0; }, 230); };
   const toastTimer = (t, ms) => { clearTimeout(toast._t); toast._t = setTimeout(() => toastHide(t), ms); };
   function toastHide(t) {
-    clearTimeout(toast._t); t.classList.remove('show', 'act'); t._msg = null; if (toast._mo) { toast._mo.disconnect(); toast._mo = null; }
+    clearTimeout(toast._t); t.classList.remove('show', 'act'); t._msg = null; fading(); if (toast._mo) { toast._mo.disconnect(); toast._mo = null; }
     if (toastQ.length && !modalOpen()) toastShow(...toastQ.shift());
   }
-  /** UI.toast(msg, ms?, { action, onAction }?) – MỘT toast mỗi lúc, tự ẩn, không chặn thao tác (trừ nút hành động), aria-live polite.
-   *  Cùng câu đang hiện → chỉ gia hạn (không nháy lại); cùng câu vừa ẩn < 3 s → bỏ (mạng chập chờn không xả hàng loạt toast). */
+  /** UI.toast(msg, ms?, { action, onAction }?) – MỘT toast mỗi lúc, tự ẩn, aria-live polite; cùng câu → chỉ gia hạn; cùng câu vừa ẩn < 3 s → bỏ. */
   function toast(msg, ms = 2400, o) {
     if (ms && typeof ms === 'object') { o = ms; ms = 2400; }
-    msg = String(msg); ms = Math.max(ms, Math.min(7000, 1400 + msg.length * 55)); // đủ thời gian đọc theo độ dài (WCAG 2.2.1): câu dài không biến mất giữa chừng
+    msg = String(msg); ms = Math.max(ms, Math.min(7000, 1400 + msg.length * 55)); // đủ thời gian đọc (WCAG 2.2.1)
     if (o && o.action) ms = Math.max(ms, 6000); // có nút → đủ lâu để kịp chạm
     if (modalOpen()) { if (!toastQ.some(q => q[0] === msg)) toastQ.push([msg, ms, o]); return; }
     const t = $('#toast'), L = toast._last;
@@ -94,16 +103,16 @@
     if (t && !t._msg && L && L[0] === msg && Date.now() - L[1] < 3000) return;
     toastShow(msg, ms, o);
   }
-  // Theo dõi #modal: mở ra khi toast đang hiện → cất toast vào hàng; đóng lại → hiện hàng chờ (mọi cách đóng: closeModal, gán hidden trực tiếp…)
+  // Theo dõi #modal: mở khi toast đang hiện → cất vào hàng; đóng → hiện lại
   function watchModal() {
     const m = document.getElementById('modal'); if (!m || !g.MutationObserver) return;
     new MutationObserver(() => {
       const t = $('#toast'); if (!t) return;
-      if (!m.hidden) { if (t._msg) { toastQ.unshift(t._msg); t._msg = null; clearTimeout(toast._t); t.classList.remove('show', 'act'); if (toast._mo) { toast._mo.disconnect(); toast._mo = null; } } }
+      if (!m.hidden) { if (t._msg) { toastQ.unshift(t._msg); t._msg = null; clearTimeout(toast._t); t.classList.remove('show', 'act'); fading(); if (toast._mo) { toast._mo.disconnect(); toast._mo = null; } } }
       else if (toastQ.length && !t._msg) setTimeout(() => { if (!modalOpen() && toastQ.length && !t._msg) toastShow(...toastQ.shift()); }, 250);
     }).observe(m, { attributes: true, attributeFilter: ['hidden'] });
   }
-  // Toast có nút: con trỏ/focus đang ở trên → không tự ẩn giữa chừng (WCAG 2.2.1), rời ra → đếm lại từ đầu
+  // Toast có nút: con trỏ/focus ở trên → không tự ẩn (WCAG 2.2.1)
   function watchToast() { const t = $('#toast'); if (!t) return; const hold = () => { if (t._msg && t._msg[2] && t._msg[2].action) clearTimeout(toast._t); }, go = () => { if (t._msg && t._msg[2] && t._msg[2].action) toastTimer(t, t._msg[1]); }; t.addEventListener('pointerenter', hold); t.addEventListener('focusin', hold); t.addEventListener('pointerleave', go); t.addEventListener('focusout', go); }
   const onReady = f => (document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', f) : f());
   if (document.getElementById('modal')) watchModal(); else document.addEventListener('DOMContentLoaded', watchModal);

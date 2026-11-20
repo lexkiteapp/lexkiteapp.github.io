@@ -380,7 +380,7 @@ html:has(.grade-bar) { scroll-padding-bottom: 6.5rem; }
 .passage { font-size: 1.08rem; line-height: 1.85; }
 .passage p { margin: 0 0 1.1rem; }
 .passage .tw { cursor: pointer; border-radius: 4px; transition: background .1s; }
-@media (hover: hover) { .passage .tw:hover { background: var(--primary-soft); } }
+@media (hover: hover) { .passage .tw:hover { background: var(--surface-3); } }
 .passage .tw.active { background: var(--gold-soft); outline: 2px solid var(--gold); }
 .pop { position: absolute; z-index: 40; width: min(360px, calc(100vw - 24px)); background: var(--surface); border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow-lg); padding: 1rem; animation: fade .15s; }
 .q-item { padding: 1rem 0; border-top: 1px solid var(--line); }
@@ -526,12 +526,10 @@ body.bare .view { padding-top: 2rem; }
 .unit-steps { margin-top: .9rem; }
 .unit-step { color: var(--text); padding: .8rem 1rem; }
 .unit-step.next { border: 2px solid color-mix(in srgb, var(--primary) 55%, transparent); background: var(--primary-soft); }
-.passage .sent.reading { background: var(--primary-soft); border-radius: 6px; box-shadow: 0 0 0 3px var(--primary-soft); }
+.passage .sent.reading { background: var(--surface-3); border-radius: 6px; box-shadow: 0 0 0 3px var(--surface-3); }
 
 /* ---------- Tô sáng chuyên nghiệp (bài đọc & phòng viết) ---------- */
 .passage .tw { padding: 0 1px; }
-.passage.hl-kw .tw.kw { background: linear-gradient(transparent 58%, rgba(245,158,11,.45) 58%); font-weight: 700; }
-.passage .tw.kw { border-bottom: 0; }
 
 /* Mất mạng */
 body.offline .topbar::after { content: "📴 Ngoại tuyến"; position: absolute; left: 50%; top: 100%; transform: translateX(-50%); background: var(--hard); color: #fff; font-size: .72rem; font-weight: 700; padding: .15rem .6rem; border-radius: 0 0 8px 8px; }
@@ -1477,4 +1475,10 @@ body:has(.learn-bar,.grade-bar,.sheet-up,.sel-bar,.install-nudge,#modal:not([hid
 .v2 nav a[data-tab]:active .st-ti { transform: scale(.88); }
 @media (prefers-reduced-motion: reduce) { .st-ti { transition: none; } .v2 nav a[data-tab]:active .st-ti { transform: none; } }
 /* icon-flash: chữ ligature chưa có phông →… CSS-NOTES §44 */
-html.ic-wait-o .material-symbols-outlined,html.ic-wait-r .material-symbols-rounded{color:transparent!important;display:inline-block;max-width:1em;overflow:hidden;white-space:nowrap}
+html.ic-wait-o .material-symbols-outlined:not([data-ms]),html.ic-wait-r .material-symbols-rounded:not([data-ms]){color:transparent!important;display:inline-block;max-width:1em;overflow:hidden;white-space:nowrap}
+
+[class*=material-symbols][data-ms]{font-family:serif!important;font-size-adjust:0;-webkit-text-fill-color:transparent}
+[class*=material-symbols][data-ms]:not(.absolute,.fixed,.sticky){position:relative}
+.msv{position:absolute;inset:0;width:100%;height:100%;fill:currentColor;pointer-events:none}
+/* P0 kiểm toán 18/11: hàng nút chép chính tả ở 390 px – Câu trước/Câu sau chia đều dòng sau (nút Nghe chiếm cả dòng ở lazy-ui.css) */
+@media (max-width: 480px) { .q-card .row.center #dPrev, .q-card .row.center #dNext { flex: 1 1 0; min-width: 0; } }

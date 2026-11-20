@@ -1,0 +1,177 @@
+{
+ "id": "t2a_roots_form_3",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, two words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "The root is Form! Formula, information.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Form is Latin for shape.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Formula: a small shape, a set pattern.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Information: into plus shape.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means into plus shape?",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Information! Into plus shape.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "FORM",
+  "rid": "form",
+  "say": "shape",
+  "src": "forma",
+  "src_lang": "Latin",
+  "src_mean": "shape, form",
+  "words": [
+   {
+    "w": "formula",
+    "ipa": "/ˈfɔːrmjələ/",
+    "mean": "a small shape, a set pattern",
+    "seg": "form|-ula",
+    "parts": [
+     [
+      "form",
+      "root"
+     ],
+     [
+      "ula",
+      "suf"
+     ]
+    ],
+    "pre": null,
+    "pm": null,
+    "pms": null,
+    "ex": "Learn the formula for the area of a circle.",
+    "em": "🧮"
+   },
+   {
+    "w": "information",
+    "ipa": "/ˌɪnfərˈmeɪʃn/",
+    "mean": "facts that shape the mind",
+    "seg": "in-|form|-ation",
+    "parts": [
+     [
+      "in",
+      "pre"
+     ],
+     [
+      "form",
+      "root"
+     ],
+     [
+      "ation",
+      "suf"
+     ]
+    ],
+    "pre": "in",
+    "pm": "into",
+    "pms": "into",
+    "ex": "You can find more information on our website.",
+    "em": "ℹ️"
+   }
+  ],
+  "quiz": {
+   "stem": "into plus shape",
+   "options": [
+    "formula",
+    "information"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/formula",
+  "link": "https://lexkite.com/app/#/dict/formula",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, two words"
+ },
+ "src": {
+  "root": "form"
+ },
+ "est": {
+  "words": 43,
+  "seconds": 25.8,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "Form root: formula and information",
+  "keyword": "form root",
+  "value": "Form comes from Latin \"forma\" (shape, form). Words: formula and information. information = in + form.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/formula",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "Form root: formula and information",
+    "description": "Form comes from Latin \"forma\" (shape, form). Words: formula and information. information = in + form.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/formula\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "form root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Form root: formula and information\n\nForm comes from Latin \"forma\" (shape, form). Words: formula and information. information = in + form.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/formula"
+   },
+   "instagram": {
+    "caption": "Form root: formula and information\n\nForm comes from Latin \"forma\" (shape, form). Words: formula and information. information = in + form.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Form root: formula and information #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: Information! Into plus shape. Form comes from Latin \"forma\" (shape, form). Words: formula and information. information = in + form. Practice it with a free quiz: {link}"
+ }
+}
