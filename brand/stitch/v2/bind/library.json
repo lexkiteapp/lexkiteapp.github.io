@@ -1,0 +1,451 @@
+{
+ "_doc": "Thư viện (#/library, cờ ux1) – d do web/js/app.js libV2() dựng từ TOPICS/GROUPS/state.cards thật. Đầu trang Stitch giữ (quay lại #/train, chuỗi/XP thật, ô lọc #libQ, Anki xuất/nhập #libAnkiOut/#libAnkiIn); tab nhóm #libTabs (data-g, .on) + CEFR [data-lvf]; mỗi lần đổi tab/lọc dựng lại khung (giữ con trỏ ô lọc). Thẻ nổi bật = bộ đang học dở nhiều nhất (hoặc bộ đầu của nhóm theo kỳ thi) – dữ liệu thật, A/B chủ. 'Tạo bộ của bạn' → Nhập từ Anki (tính năng thật). Thanh tab dưới = shell (tab Luyện).",
+ "remove": [
+  ":scope > nav"
+ ],
+ "i18n": {
+  "Vocabulary library": "Thư viện từ vựng",
+  "Go back": "Trở về trang trước",
+  "export": "Xuất",
+  "CEFR:": "CEFR:",
+  "Study": "Học bộ này",
+  "Create your own set": "Tạo bộ từ của bạn",
+  "Export Anki deck (.apkg)": "Xuất bộ thẻ Anki (.apkg)",
+  "Import Anki deck": "Nhập bộ thẻ Anki"
+ },
+ "attr": {
+  ":scope > header > div > div:nth-child(1) > div:nth-child(1) > button": {
+   "data-href": "'#/train'"
+  },
+  ":scope > header > div > div:nth-child(2) > div > input": {
+   "id": "'libQ'",
+   "placeholder": "d.qPh",
+   "value": "d.q",
+   "aria-label": "d.qPh"
+  },
+  ":scope > header > div > div:nth-child(2) > button:nth-child(2)": {
+   "id": "'libAnkiOut'",
+   "aria-label": "d.ankiOut"
+  },
+  ":scope > header > div > div:nth-child(2) > button:nth-child(3)": {
+   "id": "'libAnkiIn'",
+   "aria-label": "d.ankiIn"
+  },
+  ":scope > header > div > div:nth-child(3)": {
+   "id": "'libTabs'",
+   "role": "'group'",
+   "aria-label": "d.groupsL"
+  },
+  ":scope > header > div > div:nth-child(4)": {
+   "role": "'group'",
+   "aria-label": "d.lvL"
+  },
+  ":scope > main > div:nth-child(1)": {
+   "style": "d.feat ? '' : 'display:none'"
+  },
+  ":scope > main > div:nth-child(1) > button": {
+   "data-href": "d.feat ? d.feat.href : ''"
+  },
+  ":scope > main > div:last-child > button": {
+   "id": "'libNewSet'",
+   "type": "'button'"
+  }
+ },
+ "html": {
+  ":scope > header > div > div:nth-child(1) > div:nth-child(1) > div > p > span:nth-child(1)": "e(d.words)",
+  ":scope > header > div > div:nth-child(1) > div:nth-child(1) > div > p > span:nth-child(3)": "e(d.sets)",
+  ":scope > header > div > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > span:nth-child(2)": "e(d.hdr.streak)",
+  ":scope > header > div > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > span:nth-child(2)": "e(d.hdr.xp)",
+  ":scope > main > div:nth-child(1) > div > div > span:nth-child(1)": "e(d.featL)",
+  ":scope > main > div:nth-child(1) > div > div > span:nth-child(2)": "e(d.feat ? d.feat.group : '')",
+  ":scope > main > div:nth-child(1) > div > h2": "e(d.feat ? d.feat.name : '')",
+  ":scope > main > div:nth-child(1) > div > p": "e(d.feat ? d.feat.desc : '')",
+  ":scope > main > div:last-child > div > div:nth-child(2) > p": "e(d.newSetSub)",
+  ":scope > main > div:last-child > button": "e(t('Nhập từ Anki'))"
+ },
+ "after": {
+  ":scope > main > div:first-child": "d.empty"
+ },
+ "repeat": [
+  {
+   "list": "d.tabsG",
+   "as": "r",
+   "samples": ":scope > header > div > div:nth-child(3) > button",
+   "pick": "r.on ? 'on' : r.g === 'mine' ? 'mine' : 'off'",
+   "variants": {
+    "on": ":scope > header > div > div:nth-child(3) > button:nth-child(1)",
+    "off": ":scope > header > div > div:nth-child(3) > button:nth-child(2)",
+    "mine": ":scope > header > div > div:nth-child(3) > button:nth-child(6)"
+   },
+   "bind": {
+    "on": {
+     "addClass": {
+      ":scope": "on"
+     },
+     "attr": {
+      ":scope": {
+       "data-g": "r.g",
+       "aria-pressed": "'true'",
+       "type": "'button'"
+      },
+      ":scope > span": {
+       "style": "r.icon ? '' : 'display:none'"
+      }
+     },
+     "html": {
+      ":scope > span": "e(r.icon)"
+     },
+     "text": {
+      "All sets": "r.label"
+     }
+    },
+    "off": {
+     "attr": {
+      ":scope": {
+       "data-g": "r.g",
+       "aria-pressed": "'false'",
+       "type": "'button'"
+      }
+     },
+     "html": {
+      ":scope > span": "e(r.label)"
+     }
+    },
+    "mine": {
+     "attr": {
+      ":scope": {
+       "data-g": "r.g",
+       "aria-pressed": "'false'",
+       "type": "'button'"
+      },
+      ":scope > span:nth-child(3)": {
+       "style": "r.n ? '' : 'display:none'"
+      }
+     },
+     "html": {
+      ":scope > span:nth-child(2)": "e(r.label)",
+      ":scope > span:nth-child(3)": "e(r.n)"
+     }
+    }
+   }
+  },
+  {
+   "list": "d.lvs",
+   "as": "r",
+   "samples": ":scope > header > div > div:nth-child(4) > button",
+   "pick": "r.on ? 'on' : 'off'",
+   "variants": {
+    "on": ":scope > header > div > div:nth-child(4) > button:nth-child(2)",
+    "off": ":scope > header > div > div:nth-child(4) > button:nth-child(3)"
+   },
+   "bind": {
+    "on": {
+     "addClass": {
+      ":scope": "on"
+     },
+     "attr": {
+      ":scope": {
+       "data-lvf": "r.l",
+       "aria-pressed": "'true'",
+       "type": "'button'"
+      }
+     },
+     "html": {
+      ":scope": "e(r.label)"
+     }
+    },
+    "off": {
+     "attr": {
+      ":scope": {
+       "data-lvf": "r.l",
+       "aria-pressed": "'false'",
+       "type": "'button'"
+      }
+     },
+     "html": {
+      ":scope": "e(r.label)"
+     }
+    }
+   }
+  },
+  {
+   "list": "d.secs",
+   "as": "s",
+   "samples": ":scope > main > section",
+   "pick": "s.v",
+   "variants": {
+    "teal": ":scope > main > section:nth-child(2)",
+    "amber": ":scope > main > section:nth-child(3)"
+   },
+   "bind": {
+    "teal": {
+     "html": {
+      ":scope > div:nth-child(1) > div > div:nth-child(1) > span": "e(s.icon)",
+      ":scope > div:nth-child(1) > div > div:nth-child(2) > h2": "e(s.name)",
+      ":scope > div:nth-child(1) > div > div:nth-child(2) > span": "e(s.desc)",
+      ":scope > div:nth-child(1) > span": "e(s.count)",
+      ":scope > div:nth-child(3) > a > span:nth-child(1)": "e(s.more)"
+     },
+     "attr": {
+      ":scope > div:nth-child(3)": {
+       "style": "s.cut ? '' : 'display:none'"
+      },
+      ":scope > div:nth-child(3) > a": {
+       "href": "'#/library?g=' + s.g",
+       "data-go-g": "s.g"
+      }
+     },
+     "repeat": [
+      {
+       "list": "s.cards",
+       "as": "c",
+       "samples": ":scope > div:nth-child(2) > div",
+       "pick": "c.v === 'zero' ? 'teal' : c.v",
+       "variants": {
+        "teal": ":scope > div:nth-child(2) > div:nth-child(1)",
+        "amber": ":scope > div:nth-child(2) > div:nth-child(2)",
+        "coral": ":scope > div:nth-child(2) > div:nth-child(5)",
+        "done": ":scope > div:nth-child(2) > div:nth-child(4)"
+       },
+       "bind": {
+        "teal": {
+         "tag": {
+          ":scope": {
+           "to": "a"
+          }
+         },
+         "attr": {
+          ":scope": {
+           "href": "c.href",
+           "aria-label": "c.al"
+          },
+          ":scope > div:nth-child(1) > div:nth-child(2) > svg > path:nth-child(2)": {
+           "stroke-dasharray": "c.pct + ', 100'"
+          }
+         },
+         "html": {
+          ":scope > div:nth-child(1) > div:nth-child(1)": "e(c.emoji)",
+          ":scope > div:nth-child(1) > div:nth-child(2) > span": "e(c.pct + '%')",
+          ":scope > div:nth-child(2) > h3": "e(c.name)",
+          ":scope > div:nth-child(2) > p": "e(c.desc)",
+          ":scope > div:nth-child(3) > span:nth-child(1)": "e(c.words)",
+          ":scope > div:nth-child(3) > span:nth-child(2)": "e(c.added)"
+         }
+        },
+        "amber": {
+         "tag": {
+          ":scope": {
+           "to": "a"
+          }
+         },
+         "attr": {
+          ":scope": {
+           "href": "c.href",
+           "aria-label": "c.al"
+          },
+          ":scope > div:nth-child(1) > div:nth-child(2) > svg > path:nth-child(2)": {
+           "stroke-dasharray": "c.pct + ', 100'"
+          }
+         },
+         "html": {
+          ":scope > div:nth-child(1) > div:nth-child(1)": "e(c.emoji)",
+          ":scope > div:nth-child(1) > div:nth-child(2) > span": "e(c.pct + '%')",
+          ":scope > div:nth-child(2) > h3": "e(c.name)",
+          ":scope > div:nth-child(2) > p": "e(c.desc)",
+          ":scope > div:nth-child(3) > span:nth-child(1)": "e(c.words)",
+          ":scope > div:nth-child(3) > span:nth-child(2)": "e(c.added)"
+         }
+        },
+        "coral": {
+         "tag": {
+          ":scope": {
+           "to": "a"
+          }
+         },
+         "attr": {
+          ":scope": {
+           "href": "c.href",
+           "aria-label": "c.al"
+          },
+          ":scope > div:nth-child(1) > div:nth-child(2) > svg > path:nth-child(2)": {
+           "stroke-dasharray": "c.pct + ', 100'"
+          }
+         },
+         "html": {
+          ":scope > div:nth-child(1) > div:nth-child(1)": "e(c.emoji)",
+          ":scope > div:nth-child(1) > div:nth-child(2) > span": "e(c.pct + '%')",
+          ":scope > div:nth-child(2) > h3": "e(c.name)",
+          ":scope > div:nth-child(2) > p": "e(c.desc)",
+          ":scope > div:nth-child(3) > span:nth-child(1)": "e(c.words)",
+          ":scope > div:nth-child(3) > span:nth-child(2)": "e(c.added)"
+         }
+        },
+        "done": {
+         "tag": {
+          ":scope": {
+           "to": "a"
+          }
+         },
+         "attr": {
+          ":scope": {
+           "href": "c.href",
+           "aria-label": "c.al"
+          }
+         },
+         "html": {
+          ":scope > div:nth-child(1) > div:nth-child(1)": "e(c.emoji)",
+          ":scope > div:nth-child(2) > h3": "e(c.name)",
+          ":scope > div:nth-child(2) > p": "e(c.desc)",
+          ":scope > div:nth-child(3) > span:nth-child(1)": "e(c.words)",
+          ":scope > div:nth-child(3) > span:nth-child(2)": "e(c.added)"
+         }
+        }
+       }
+      }
+     ]
+    },
+    "amber": {
+     "html": {
+      ":scope > div:nth-child(1) > div > div:nth-child(1) > span": "e(s.icon)",
+      ":scope > div:nth-child(1) > div > div:nth-child(2) > h2": "e(s.name)",
+      ":scope > div:nth-child(1) > div > div:nth-child(2) > span": "e(s.desc)",
+      ":scope > div:nth-child(1) > span": "e(s.count)",
+      ":scope > div:nth-child(3) > a > span:nth-child(1)": "e(s.more)"
+     },
+     "attr": {
+      ":scope > div:nth-child(3)": {
+       "style": "s.cut ? '' : 'display:none'"
+      },
+      ":scope > div:nth-child(3) > a": {
+       "href": "'#/library?g=' + s.g",
+       "data-go-g": "s.g"
+      }
+     },
+     "repeat": [
+      {
+       "list": "s.cards",
+       "as": "c",
+       "samples": ":scope > div:nth-child(2) > div",
+       "pick": "c.v === 'done' ? 'teal' : c.v",
+       "variants": {
+        "amber": ":scope > div:nth-child(2) > div:nth-child(1)",
+        "teal": ":scope > div:nth-child(2) > div:nth-child(2)",
+        "coral": ":scope > div:nth-child(2) > div:nth-child(3)",
+        "zero": ":scope > div:nth-child(2) > div:nth-child(4)"
+       },
+       "bind": {
+        "teal": {
+         "tag": {
+          ":scope": {
+           "to": "a"
+          }
+         },
+         "attr": {
+          ":scope": {
+           "href": "c.href",
+           "aria-label": "c.al"
+          },
+          ":scope > div:nth-child(1) > div:nth-child(2) > svg > path:nth-child(2)": {
+           "stroke-dasharray": "c.pct + ', 100'"
+          }
+         },
+         "html": {
+          ":scope > div:nth-child(1) > div:nth-child(1)": "e(c.emoji)",
+          ":scope > div:nth-child(1) > div:nth-child(2) > span": "e(c.pct + '%')",
+          ":scope > div:nth-child(2) > h3": "e(c.name)",
+          ":scope > div:nth-child(2) > p": "e(c.desc)",
+          ":scope > div:nth-child(3) > span:nth-child(1)": "e(c.words)",
+          ":scope > div:nth-child(3) > span:nth-child(2)": "e(c.added)"
+         }
+        },
+        "amber": {
+         "tag": {
+          ":scope": {
+           "to": "a"
+          }
+         },
+         "attr": {
+          ":scope": {
+           "href": "c.href",
+           "aria-label": "c.al"
+          },
+          ":scope > div:nth-child(1) > div:nth-child(2) > svg > path:nth-child(2)": {
+           "stroke-dasharray": "c.pct + ', 100'"
+          }
+         },
+         "html": {
+          ":scope > div:nth-child(1) > div:nth-child(1)": "e(c.emoji)",
+          ":scope > div:nth-child(1) > div:nth-child(2) > span": "e(c.pct + '%')",
+          ":scope > div:nth-child(2) > h3": "e(c.name)",
+          ":scope > div:nth-child(2) > p": "e(c.desc)",
+          ":scope > div:nth-child(3) > span:nth-child(1)": "e(c.words)",
+          ":scope > div:nth-child(3) > span:nth-child(2)": "e(c.added)"
+         }
+        },
+        "coral": {
+         "tag": {
+          ":scope": {
+           "to": "a"
+          }
+         },
+         "attr": {
+          ":scope": {
+           "href": "c.href",
+           "aria-label": "c.al"
+          },
+          ":scope > div:nth-child(1) > div:nth-child(2) > svg > path:nth-child(2)": {
+           "stroke-dasharray": "c.pct + ', 100'"
+          }
+         },
+         "html": {
+          ":scope > div:nth-child(1) > div:nth-child(1)": "e(c.emoji)",
+          ":scope > div:nth-child(1) > div:nth-child(2) > span": "e(c.pct + '%')",
+          ":scope > div:nth-child(2) > h3": "e(c.name)",
+          ":scope > div:nth-child(2) > p": "e(c.desc)",
+          ":scope > div:nth-child(3) > span:nth-child(1)": "e(c.words)",
+          ":scope > div:nth-child(3) > span:nth-child(2)": "e(c.added)"
+         }
+        },
+        "zero": {
+         "tag": {
+          ":scope": {
+           "to": "a"
+          }
+         },
+         "attr": {
+          ":scope": {
+           "href": "c.href",
+           "aria-label": "c.al"
+          }
+         },
+         "html": {
+          ":scope > div:nth-child(1) > div:nth-child(1)": "e(c.emoji)",
+          ":scope > div:nth-child(1) > div:nth-child(2) > span": "e(c.pct + '%')",
+          ":scope > div:nth-child(2) > h3": "e(c.name)",
+          ":scope > div:nth-child(2) > p": "e(c.desc)",
+          ":scope > div:nth-child(3) > span:nth-child(1)": "e(c.words)",
+          ":scope > div:nth-child(3) > span:nth-child(2)": "e(c.added)"
+         }
+        }
+       }
+      }
+     ]
+    }
+   }
+  }
+ ],
+ "text": {
+  "in": "t('Nhập')",
+  "Anki": "'Anki'"
+ },
+ "recolor": {
+  "dk:text-[#2BA39A]": "dk:text-[#6BD8CE]",
+  "lt:text-[#829A9C]": "lt:text-[#556B6D]",
+  "text-[#F2553B]": "lt:text-[#B53A22] dk:text-[#FF8A73]",
+  "lt:bg-[#F2553B]": "lt:bg-[#C8432B]",
+  "text-[#FFB054]": "lt:text-[#8A5A00] dk:text-[#FFB054]",
+  "bg-[#F2553B]": "bg-[#B53A22]",
+  "lt:text-[#526E71]": "lt:text-[#465F62]"
+ },
+ "_contrast": "recolor: màu chữ nhỏ đạt WCAG AA (axe CI 31/10) bằng sắc có sẵn trong hệ (như me.json): teal tối #6BD8CE, xám sáng #556B6D, san hô #B53A22/#FF8A73 (nền chữ trắng #C8432B/#B53A22), vàng #8A5A00, xanh lá #14753F. | AA (31/10): phụ đề bản sáng #526E71→#465F62 (≥5.5 trên nền kem đậm nhất)."
+}

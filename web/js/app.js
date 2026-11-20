@@ -407,6 +407,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
     toefl: 'css/exam.css',
     toeic: 'css/exam.css',
     ux1: ['css/st-home.css', 'css/st-v2-ux1-pre.css', 'css/st-v2-path.css', 'css/st-v2-today.css'] /* Home lần đầu chỉ Lộ trình + Hôm nay; màn khác tải theo màn (st/v2/runtime.js LZ) */,
+    libv2: 'css/st-v2-library.css',
     vhub: 'css/st-v2-vocab-hub.css',
     watch: 'css/watch.css',
     welcome: self.matchMedia && matchMedia('(min-width:1024px)').matches ? 'css/st-v2-welcome-desk.css' : 'css/st-v2-welcome.css',
@@ -545,6 +546,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
     // Vẽ trước, kho từ sau: Hôm nay/Ôn vẽ bằng dữ liệu cơ bản (data.js + thẻ của người học); gói 'words' (~311 KB nén) nạp sau lần vẽ đầu – LCP khách cũ 5,4 → docs/PERF-SCROLL.md › Tải trang
     const late = PAINT_FIRST.has(name) ? b.filter(x => PAINT_LATE.has(x) && !App.loaded(x)) : [];
     if (late.length) b.splice(0, b.length, ...b.filter(x => !late.includes(x)));
+    if (ux1 && name === 'library') b.push('libv2'); // Thư viện Stitch v2 (ux1-lib.js bọc routes.library, chỉ khi cờ ux1)
     if (ux1) b.unshift('ux1'); // 🧭 cờ ux1: 5 tab + bản đồ – gói nạp trước mọi trang (lần sau tức thì)
     // Khung màn đặt NGAY lúc chạm: docs/PERF-SCROLL.md
     const reviewHub = ux1 && name === 'review' && query.get('hub') === '1';

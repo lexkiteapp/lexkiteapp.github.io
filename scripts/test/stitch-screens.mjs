@@ -50,6 +50,7 @@ export const SCREENS = {
   'onb-ready': 'welcome/setup?s=ready',
   'onb-target': 'welcome/setup?s=target',
   practice: 'train',
+  library: 'library?g=all',
   'pron-hub': 'pron',
   readiness: 'goal',
   review: 'review?hub=1',

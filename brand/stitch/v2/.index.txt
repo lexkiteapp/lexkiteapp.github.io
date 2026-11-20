@@ -50,3 +50,5 @@ day-light ef162f57c7994f17a3076d9a2a401b62 / day-dark e30cad6cb35e4c00b76aa66056
 grammar-light 9e62a2e8 / grammar-dark e5fec5b8 (Hub Ngữ pháp #/grammar – mẫu v2 theo cấu trúc app (tiến độ, chip IELTS/TOEIC, chương, đề tổng hợp), brand/stitch/v2/grammar-*.html; id = bản gốc v3 brand/stitch/v3/app/grammar)
 pron-hub-light / pron-hub-dark (Thư viện phát âm #/pron – mẫu v2.1 từ Native M4 #979; không có id Stitch riêng (v3 gốc: pron efe7f984… / 30018c66… ở v3/app, cùng bố cục); sound/pairs/rhythm/result chưa port)
 dict-light / dict-dark (Từ điển #/dict – mẫu v2.1 từ Native M4 #979, không có id Stitch riêng; word-card/listen-word-popup chưa port)
+library-light 912dd5e303a64841bc15d8f324cc55bb (Lexkite v2.1 Light — Vocabulary Library r2; c2e3da6a rejected: fixed device frame)
+library-dark 8a6bfda409454500b1de5fc312fa645a (Lexkite v2.1 Dark — Vocabulary Library)
