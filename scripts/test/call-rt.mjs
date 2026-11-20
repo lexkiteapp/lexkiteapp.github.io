@@ -28,6 +28,19 @@ const run = (ep, seq, hints = {}) => { let t = 0; const ev = []; for (const [p, 
 // 6. nói chen: tiếng vọng nhỏ (0,6) không kích hoạt, tiếng thật > 0,8 → 'start' trong ≤ 3 khung (≈ 96 ms ≪ 200 ms), chỉ 1 lần
 { const ev = run(EP.create({ mode: 'barge' }), [[0.6, 1000], [0.95, 600], [0.1, 300], [0.95, 300]]);
   ok(ev.length === 1 && ev[0][0] === 'start' && ev[0][1] - 1024 <= 3 * F, 'barge: ' + JSON.stringify(ev)); }
+// 6b. nói chen – vết khung THẬT từ CI (call-rt 16/11, runner EPYC): xác suất Silero dao động giữa chừng dù giọng vẫn còn → bộ đếm rò (khung ≥ 0,5 +1, < 0,5 −1) + ≥ 1 khung > 0,8
+//     (luật cũ "3 khung liền > 0,8" hush ở 220–295 ms; hysteresis 1 lần vẫn bị khung 0,49 cắt). Giá trị = chỉ số khung (×32 ms) lúc 'start'.
+{ const seq = p => p.map(x => [x, F]); const at = (ps) => { const ev = run(EP.create({ mode: 'barge' }), seq(ps)); return ev.length ? ev[0][1] / F : -1; };
+  ok(at([0, 0.57, 0.69, 0.97, 0.79, 0.79, 0.85, 1, 1]) === 3, 'barge mẫu 251 ms (57→69→97): hush ở khung 3, không đợi 3 khung > 0,8 liền');
+  ok(at([0, 0.12, 0.6, 0.87, 0.72, 0.77, 0.59, 0.95, 1, 1]) === 4, 'barge mẫu 293 ms (60→87→72): hush ở khung 4');
+  ok(at([0, 0, 0, 0.35, 0.59, 0.92, 0.54, 0.49, 0.55, 1, 1, 1]) === 6, 'barge mẫu 295 ms (35→59→92→54→49→55→100): khung 0,49 KHÔNG đặt đếm về 0 → hush ở khung 6 (≈135 ms), không phải 295 ms');
+  ok(at([0, 0.38, 0.75, 0.7, 0.85, 0.88, 0.98, 1]) === 4, 'barge mẫu 219 ms (tăng chậm 38→75→70→85): hush ở khung 4 (≈148 ms)');
+  ok(at([0, 0.96, 1, 1]) === 3, 'barge giọng rõ: vẫn đúng 3 khung (≈ 96 ms)');
+  ok(at([0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6]) === -1, 'barge: tiếng vọng/nền 0,6 kéo dài KHÔNG bao giờ kích (không có khung > 0,8)');
+  ok(at([0.7, 0.75, 0.79, 0.78, 0.7, 0.75, 0.79, 0.78]) === -1, 'barge: nền 0,7–0,79 sát nhưng không có khung > 0,8 → KHÔNG kích');
+  ok(at([0.9, 0.3, 0.9, 0.3, 0.9, 0.3, 0.9, 0.3]) === -1, 'barge: xung lẻ > 0,8 xen khung thấp (1,0,1,0…) KHÔNG lên được 3 → không kích');
+  ok(at([0.9, 0.3, 0.2, 0.1, 0.9, 0.3, 0.2, 0.1]) === -1, 'barge: các xung rời nhau (cách ≥ 2 khung thấp) → không kích');
+  ok(at([0.9, 0.5, 0.5]) === 2, 'barge: biên – 0,9 rồi hai khung đúng 0,5 vẫn đếm đủ 3'); }
 // 7. tiếng lách cách 1–2 khung không phải lời
 { ok(run(EP.create({ mode: 'turn' }), [[0.9, 64], [0.05, 500], [0.9, 32], [0.05, 500]]).length === 0, 'nháy ngắn bị bỏ'); }
 // 8. năng lượng dự phòng: nền ồn ổn định → p≈0; tiếng to gấp 8 lần → p≈1; nền ồn tăng chậm không thành lời

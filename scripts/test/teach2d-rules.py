@@ -36,7 +36,7 @@ for b in bad: print('::error::' + b)
 
 # ── layouts: rule has ONE layout (corner); no layout variant may be asked for (CI run 44448299949: props_lay_side.json never written) ──
 _b = open(f'{ROOT}/scripts/video/teach2d/build.py', encoding='utf8').read(); _w = open(f'{ROOT}/.github/workflows/teach-video.yml', encoding='utf8').read()
-assert "if EP['template'] == 'rule': o.layout = 'corner'" in _b, 'build.py must force the corner layout for rule'
+assert "if EP['template'] in ('rule', 'band'): o.layout = 'corner'" in _b, 'build.py must force the corner layout for rule and band'
 assert "$RULE = False ]; then for L in corner side bubble" in _w and '[ -f "$R/props_lay_$L.json" ] || continue' in _w, 'workflow must skip layout variants for rule and never still a missing props file'
 # ── caption_sync: a homophone / silent-letter twin whisper writes instead of the script word counts as heard (not by threshold) ──
 sys.path.insert(0, f'{ROOT}/scripts/video/teach2d'); import pace
