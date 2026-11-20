@@ -107,6 +107,7 @@ node scripts/test/ext-orphan.mjs
 node scripts/test/social-proxy.mjs
 node scripts/test/social-ui.mjs
 node scripts/test/social-mgr.mjs
+node scripts/test/ad-export.mjs
 node scripts/test/social-auto.mjs
 node scripts/test/social-coverage.mjs
 node scripts/test/yt-fill.mjs
@@ -245,6 +246,7 @@ node scripts/test/headers.mjs
 node scripts/test/static-routes.mjs
 node scripts/test/words-r2-fn.mjs
 node scripts/test/cf-words-cache.mjs
+node scripts/test/ci-wait-budget.mjs
 node scripts/test/layout-guards.mjs
 node scripts/test/home-logic.mjs
 node scripts/test/vocab-hub.mjs
