@@ -3,6 +3,7 @@
 // Hermetic: dist cục bộ, /api/* giả lập trong tiến trình, host ngoài = rỗng, ?sandbox=1 hoặc tài khoản Firebase GIẢ → 0 lượt chạm prod, 0 tài khoản thật. Chỉ chạy trên CI (docs/QUALITY-SWEEP.md).
 // Dùng: node scripts/test/journey-matrix.mjs --root dist --shard phone|desktop|edge|all [--only <regex tên kịch bản>] [--out jm-out] [--workers 3]
 import { chromium, devices } from 'playwright';
+import { autoLXD } from './lib/lxd-auto.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { serve } from '../quality/serve.mjs';
@@ -67,6 +68,7 @@ async function scenario(name, { dev = 'm390', theme = 'light', lang = 'vi', seed
   const page = await ctx.newPage(), errs = [], dialogs = [];
   let dialogMode = 'accept';
   page.on('dialog', d => { dialogs.push(d.message()); return d[dialogMode]().catch(() => {}); });
+  await autoLXD(page, { mode: () => dialogMode, onMsg: m => dialogs.push(m) }); // hộp LXDialog trong app (không phải hộp gốc)
   page.on('pageerror', e => errs.push('pageerror: ' + String(e.message).slice(0, 160) + ' @ ' + String(e.stack || '').split('\n').slice(1, 3).map(x => x.trim().replace(/https?:\/\/[^/]+/, '')).join(' < ').slice(0, 200)));
   page.on('console', m => { if (m.type() === 'error' && !NET_NOISE.test(m.text())) errs.push('console: ' + m.text().slice(0, 220)); });
   const fail = m => { if (!fails.includes(m)) { fails.push(m); console.log(`  ✗ [${tag}] ${m}`); } };

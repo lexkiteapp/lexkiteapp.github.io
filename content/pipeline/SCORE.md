@@ -2,18 +2,19 @@
 
 Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipeline/score.budget.json` · kế hoạch `docs/CONTENT-WORLD-PLAN.md` §3.5. Điểm = độ phủ so với chuẩn × tỉ lệ qua cổng.
 
-**Tổng: 80.4 / 100**
+**Tổng: 76.7 / 100**
 
 | Mảng | Điểm | Sàn | Độ phủ | Qua cổng | Lỗi |
 |---|---|---|---|---|---|
-| Kho từ | **59.2** | 58.5 | 59.2% | 100% | 0 |
+| Kho từ | **59.2** | 59.2 | 59.2% | 100% | 0 |
 | Ngữ pháp | **72.8** | 72.8 | 72.8% | 100% | 0 |
-| Giao tiếp | **89.7** | 68.3 | 89.7% | 100% | 0 |
-| 4 kỹ năng | **97.6** | 62.9 | 97.6% | 100% | 0 |
-| Đề thi | **66.6** | 31.7 | 66.6% | 100% | 0 |
-| Khung Can-do | **82.6** | 81.3 | 82.6% | 100% | 0 |
-| Dễ học – dễ nhớ | **91.8** | 91.7 | 91.8% | 100% | 0 |
-| i18n | **82.8** | 62.7 | 82.8% | 100% | 0 |
+| Giao tiếp | **89.7** | 89.7 | 89.7% | 100% | 0 |
+| 4 kỹ năng | **97.6** | 97.6 | 97.6% | 100% | 0 |
+| Đề thi | **66.6** | 66.6 | 66.6% | 100% | 0 |
+| Chất lượng đề | **46.9** | 46.9 | 46.9% | 100% | 0 |
+| Khung Can-do | **82.6** | 82.6 | 82.6% | 100% | 0 |
+| Dễ học – dễ nhớ | **91.8** | 91.8 | 91.8% | 100% | 0 |
+| i18n | **82.8** | 82.8 | 82.8% | 100% | 0 |
 
 ## Kho từ
 
@@ -91,6 +92,16 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | Cambridge B2 (chưa làm) | 3 / 6 | 50% | 8 |
 | Cambridge C1 (chưa làm) | 2 / 6 | 33% | 8 |
 | Cambridge C2 (chưa làm) | 2 / 6 | 33% | 8 |
+
+## Chất lượng đề
+
+| Thành phần | Có / chuẩn | % | Trọng số |
+|---|---|---|---|
+| đáp án cân bằng vị trí (lệch ≤ 3 %) | 50.9 / 100 | 51% | 15 |
+| đáp án đúng không lộ qua độ dài (≤ 10 %) | 61.3 / 100 | 61% | 20 |
+| lời giải riêng từng câu (rập khuôn ≤ 2 %) | 85 / 100 | 85% | 15 |
+| không trùng câu / đáp án nhiễu trùng | 94.7 / 100 | 95% | 15 |
+| qua giám khảo LLM (mẫu ≥ 1.500) (chưa làm) | 0 / 100 | 0% | 35 |
 
 ## Khung Can-do
 

@@ -246,7 +246,7 @@
     $('#lQs').addEventListener('input', syncProg); $('#lQs').addEventListener('change', syncProg);
     $('#lSubmit').onclick = async () => {
       if (submitted) return;
-      if (player.playing && exam && !confirm(t('Bài nghe chưa phát xong. Vẫn nộp bài?'))) return;
+      if (player.playing && exam && !await LXDialog.confirm(t('Bài nghe chưa phát xong. Vẫn nộp bài?'))) return;
       submitted = true; player.stop();
       const res = collect(p, $('#lQs')); lastRes = res;
       const nums = Object.keys(res).map(Number).sort((a, b) => a - b);
@@ -320,8 +320,8 @@
         setTimeout(() => { const b = $('#tNext'); if (b) { b.disabled = false; $('#tNextWhy')?.remove(); } }, 20000); // cho phép đi tiếp nếu giọng đọc lỗi
       };
       $('#tSkip').onclick = start;
-      $('#tNext').onclick = () => {
-        if (player && player.playing && !confirm(t('Phần nghe chưa phát xong. Vẫn chuyển tiếp?'))) return;
+      $('#tNext').onclick = async () => {
+        if (player && player.playing && !await LXDialog.confirm(t('Phần nghe chưa phát xong. Vẫn chuyển tiếp?'))) return;
         if (player) player.stop();
         Object.assign(results, Object.fromEntries(Object.entries(collect(p, $('#lQs'))).map(([q, r]) => [q, { ...r, pid: p.id }])));
         if (k < parts.length - 1) { part(k + 1); window.scrollTo({ top: 0 }); } else finish();
