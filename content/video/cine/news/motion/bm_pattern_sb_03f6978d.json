@@ -97,12 +97,6 @@
       "Stop saying",
       "white"
      ]
-    ],
-    [
-     [
-      "'lead for",
-      "yellow"
-     ]
     ]
    ],
    "align": "l"
@@ -138,15 +132,6 @@
       "runs": [
        [
         "Stop saying"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "'lead for"
        ]
       ]
      }
@@ -241,7 +226,7 @@
     ]
    }
   ],
-  "hook_text": "Stop saying 'lead for",
+  "hook_text": "Stop saying",
   "end_line": "c"
  },
  "embed": {

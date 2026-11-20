@@ -84,14 +84,8 @@
    "rows": [
     [
      [
-      "Affect or",
+      "Mix them up?",
       "white"
-     ]
-    ],
-    [
-     [
-      "effect?",
-      "yellow"
      ]
     ]
    ],
@@ -127,16 +121,7 @@
       "hook": true,
       "runs": [
        [
-        "Affect or"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "effect?"
+        "Mix them up?"
        ]
       ]
      }
@@ -231,7 +216,7 @@
     ]
    }
   ],
-  "hook_text": "Affect or effect?",
+  "hook_text": "Mix them up?",
   "end_line": "c"
  },
  "embed": {

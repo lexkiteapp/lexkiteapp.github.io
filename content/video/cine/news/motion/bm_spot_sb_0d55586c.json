@@ -97,18 +97,6 @@
       "I eat diet",
       "white"
      ]
-    ],
-    [
-     [
-      "to lose",
-      "yellow"
-     ]
-    ],
-    [
-     [
-      "weight.",
-      "yellow"
-     ]
     ]
    ],
    "align": "l"
@@ -145,24 +133,6 @@
       "runs": [
        [
         "I eat diet"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "to lose"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "weight."
        ]
       ]
      }
@@ -206,7 +176,7 @@
     ]
    }
   ],
-  "hook_text": "I eat diet to lose weight.",
+  "hook_text": "I eat diet",
   "end_line": "c"
  },
  "embed": {

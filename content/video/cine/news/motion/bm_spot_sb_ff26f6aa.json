@@ -100,13 +100,7 @@
     ],
     [
      [
-      "luxury. I",
-      "yellow"
-     ]
-    ],
-    [
-     [
-      "need it.",
+      "luxury.",
       "yellow"
      ]
     ]
@@ -153,16 +147,7 @@
       "hook": true,
       "runs": [
        [
-        "luxury. I"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "need it."
+        "luxury."
        ]
       ]
      }
@@ -206,7 +191,7 @@
     ]
    }
   ],
-  "hook_text": "Water is a luxury. I need it.",
+  "hook_text": "Water is a luxury.",
   "end_line": "c"
  },
  "embed": {

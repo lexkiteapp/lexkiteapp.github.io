@@ -89,14 +89,8 @@
    "rows": [
     [
      [
-      "Not \"very",
+      "Very tired?",
       "white"
-     ]
-    ],
-    [
-     [
-      "tired\"",
-      "yellow"
      ]
     ]
    ],
@@ -132,16 +126,7 @@
       "hook": true,
       "runs": [
        [
-        "Not \"very"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "tired\""
+        "Very tired?"
        ]
       ]
      }
@@ -263,7 +248,7 @@
     ]
    }
   ],
-  "hook_text": "Not \"very tired\"",
+  "hook_text": "Very tired?",
   "end_line": "c"
  },
  "embed": {

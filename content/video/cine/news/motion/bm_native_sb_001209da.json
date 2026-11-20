@@ -98,18 +98,6 @@
       "never say",
       "yellow"
      ]
-    ],
-    [
-     [
-      "'finished",
-      "yellow"
-     ]
-    ],
-    [
-     [
-      "tickets",
-      "yellow"
-     ]
     ]
    ],
    "align": "l"
@@ -154,24 +142,6 @@
       "runs": [
        [
         "never say"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "'finished"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "tickets"
        ]
       ]
      }
@@ -266,7 +236,7 @@
     ]
    }
   ],
-  "hook_text": "Natives never say 'finished tickets",
+  "hook_text": "Natives never say",
   "end_line": "c"
  },
  "embed": {

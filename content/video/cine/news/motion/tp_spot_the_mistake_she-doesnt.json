@@ -97,12 +97,6 @@
       "She don't",
       "white"
      ]
-    ],
-    [
-     [
-      "like coffee",
-      "yellow"
-     ]
     ]
    ],
    "align": "l"
@@ -139,15 +133,6 @@
       "runs": [
        [
         "She don't"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "like coffee"
        ]
       ]
      }
@@ -191,7 +176,7 @@
     ]
    }
   ],
-  "hook_text": "She don't like coffee",
+  "hook_text": "She don't",
   "end_line": "c"
  },
  "embed": {

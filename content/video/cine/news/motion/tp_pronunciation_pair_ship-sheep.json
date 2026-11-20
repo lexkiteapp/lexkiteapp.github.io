@@ -84,14 +84,8 @@
    "rows": [
     [
      [
-      "Ship or",
+      "Ship/sheep?",
       "white"
-     ]
-    ],
-    [
-     [
-      "sheep?",
-      "yellow"
      ]
     ]
    ],
@@ -127,16 +121,7 @@
       "hook": true,
       "runs": [
        [
-        "Ship or"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "sheep?"
+        "Ship/sheep?"
        ]
       ]
      }
@@ -231,7 +216,7 @@
     ]
    }
   ],
-  "hook_text": "Ship or sheep?",
+  "hook_text": "Ship/sheep?",
   "end_line": "c"
  },
  "embed": {

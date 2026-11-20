@@ -26,10 +26,16 @@ def wotd(v): return v['hookLine'], [S(None, None, v['question']), S('MEANING', '
 STEPS = {'collocation': collocation, 'confusing-pair': confusing, 'idiom-vs-textbook': idiom, 'ielts-speaking': ielts_s, 'ielts-writing-phrase': ielts_w, 'irregular-verb': irregular, 'phrasal-verb': phrasal, 'polite-request': polite, 'pronunciation-pair': pron, 'roleplay': roleplay, 'three-words': three, 'upgrade-your-english': upgrade, 'word-of-the-day': wotd}
 def row(tpl, slug, v): return dict(id=f'tp_{tpl.replace("-", "_")}_{slug}'[:60], point=f'{tpl}: {slug}', topic=tpl.replace('-', ' '), cat=tpl, type=tpl)
 # hook CARD (what is on screen; the spoken hook line is unchanged): chip + at most 2 lines of <= 12 chars, written, not cut from the sentence
-HOOK_CARD = {'collocation:do-homework': 'Make homework?', 'confusing_pair:affect-effect': 'Affect or effect?', 'idiom_vs_textbook:circle-back': 'Circle back?', 'idiom_vs_textbook:im-down': "I'm down?",
-             'ielts_writing_phrase:firmly-believe': 'Stop "I think"', 'pronunciation_pair:ship-sheep': 'Ship or sheep?', 'roleplay:supermarket-eggs': 'Where are eggs?', 'upgrade_your_english:exhausted': 'Not "very tired"'}
+HOOK_CARD = {  # key -> (Ama one line <= 12 chars, Carlos up to 2 lines); None keeps the auto-fit of the spoken hook
+    'collocation:do-homework': ('Do homework!', 'Make homework?'), 'confusing_pair:affect-effect': ('Mix them up?', 'Affect or effect?'),
+    'idiom_vs_textbook:circle-back': ('Circle back?', 'Circle back?'), 'idiom_vs_textbook:im-down': ("I'm down?", "I'm down?"),
+    'ielts_writing_phrase:firmly-believe': ('I think?', 'Stop "I think"'), 'phrasal_verb:run-out-of': ('Ran out.', 'Sorry, we ran out.'),
+    'polite_request:could-i-get': ('Give me?', 'Is "give me" rude?'), 'pronunciation_pair:ship-sheep': ('Ship/sheep?', 'Ship or sheep?'),
+    'roleplay:cafe-for-here': ('For here?', 'For here or… to go?'), 'roleplay:reception-check-in': ('Where to go?', 'Where do I go?'),
+    'roleplay:supermarket-eggs': ('Eggs?', 'Where are eggs?'), 'spot_the_mistake:she-doesnt': ("She don't?", "She don't like coffee"),
+    'upgrade_your_english:exhausted': ('Very tired?', 'Not "very tired"'), 'word_of_the_day:bandwidth': ('Bandwidth?', 'No bandwidth.')}
 def steps_spec(tpl, slug, v):
-    hook, steps, tip, label = STEPS[tpl](v); card = HOOK_CARD.get(f'{tpl.replace("-", "_")}:{slug}', hook); r = row(tpl, slug, v); lines = [BM.line('h', hook)]; tiles = []
+    hook, steps, tip, label = STEPS[tpl](v); card = HOOK_CARD.get(f"{tpl.replace(chr(45), chr(95))}:{slug}") or hook; r = row(tpl, slug, v); lines = [BM.line('h', hook)]; tiles = []
     for i, s in enumerate(steps):
         lines.append(BM.line(f's{i}', s['say']))
         if s['tag']: tiles.append(dict(t='tile', tag=s['tag'], tone=s['tone'], lines=[[[BM.short(s['sub'], 46) if s['sub'] else ' ', 'muted']]], ex=[[BM.short(s['card'], 46), s['tone']]], ex_at=[f's{i}', 0], at=[f's{i}', 0]))

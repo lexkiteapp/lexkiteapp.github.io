@@ -94,14 +94,8 @@
    "rows": [
     [
      [
-      "Um… where do",
+      "Where to go?",
       "white"
-     ]
-    ],
-    [
-     [
-      "I go?",
-      "yellow"
      ]
     ]
    ],
@@ -137,16 +131,7 @@
       "hook": true,
       "runs": [
        [
-        "Um… where do"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "I go?"
+        "Where to go?"
        ]
       ]
      }
@@ -268,7 +253,7 @@
     ]
    }
   ],
-  "hook_text": "Um… where do I go?",
+  "hook_text": "Where to go?",
   "end_line": "c"
  },
  "embed": {

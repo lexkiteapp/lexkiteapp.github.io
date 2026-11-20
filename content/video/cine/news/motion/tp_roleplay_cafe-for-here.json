@@ -94,14 +94,8 @@
    "rows": [
     [
      [
-      "For here or…",
+      "For here?",
       "white"
-     ]
-    ],
-    [
-     [
-      "to go?",
-      "yellow"
      ]
     ]
    ],
@@ -137,16 +131,7 @@
       "hook": true,
       "runs": [
        [
-        "For here or…"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "to go?"
+        "For here?"
        ]
       ]
      }
@@ -268,7 +253,7 @@
     ]
    }
   ],
-  "hook_text": "For here or… to go?",
+  "hook_text": "For here?",
   "end_line": "c"
  },
  "embed": {

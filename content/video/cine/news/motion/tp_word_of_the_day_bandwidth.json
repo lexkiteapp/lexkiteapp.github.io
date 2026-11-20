@@ -89,14 +89,8 @@
    "rows": [
     [
      [
-      "No",
+      "Bandwidth?",
       "white"
-     ]
-    ],
-    [
-     [
-      "bandwidth.",
-      "yellow"
      ]
     ]
    ],
@@ -132,16 +126,7 @@
       "hook": true,
       "runs": [
        [
-        "No"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "bandwidth."
+        "Bandwidth?"
        ]
       ]
      }
@@ -236,7 +221,7 @@
     ]
    }
   ],
-  "hook_text": "No bandwidth.",
+  "hook_text": "Bandwidth?",
   "end_line": "c"
  },
  "embed": {

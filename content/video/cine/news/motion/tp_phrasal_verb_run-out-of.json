@@ -89,14 +89,8 @@
    "rows": [
     [
      [
-      "Sorry, we",
+      "Ran out.",
       "white"
-     ]
-    ],
-    [
-     [
-      "ran out.",
-      "yellow"
      ]
     ]
    ],
@@ -132,16 +126,7 @@
       "hook": true,
       "runs": [
        [
-        "Sorry, we"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "ran out."
+        "Ran out."
        ]
       ]
      }
@@ -263,7 +248,7 @@
     ]
    }
   ],
-  "hook_text": "Sorry, we ran out.",
+  "hook_text": "Ran out.",
   "end_line": "c"
  },
  "embed": {

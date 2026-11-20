@@ -39,8 +39,9 @@ def hook2(t, rows=2, n=12):   # the hook card is chip + at most 2 hook lines (a 
     while len(out) > 2 and out[-1].lower().strip('",.?!') in DANGLE | {'every', 'just', 'only', 'so', 'told'}: out.pop()
     return ' '.join(out) if out else t
 def base(kind, r, tpl, lines, motion, hook_text, base_kind):
-    hook_text = hook2(hook_text)
     k = NM.BASE[base_kind]; v = h(r['id'] + tpl, 12); teacher = ('ama', 'carlos')[v % 2]; src = NM.BASE['mistake' if teacher == 'ama' else 'drill']
+    if isinstance(hook_text, tuple): hook_text = hook_text[0 if teacher == 'ama' else 1]   # (ama one-liner, carlos text)
+    hook_text = hook2(hook_text, 1 if teacher == 'ama' else 2)   # Ama's plate leaves 401 px above her head: chip + 1 hook line; Carlos's 430 px: chip + 2 lines
     hl, pr = NM.hook_parts(hook_text)
     motion['top'][0]['rows'] = [motion['top'][0]['rows'][0]] + hl
     ac, act = [('navy2', 'mint'), ('navy2', 'yellow'), ('navy', 'mint'), ('navy', 'yellow')][v // 3 % 4], None

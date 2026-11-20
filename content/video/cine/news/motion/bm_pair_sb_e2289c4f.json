@@ -98,12 +98,6 @@
       "up quality",
       "yellow"
      ]
-    ],
-    [
-     [
-      "and quantity",
-      "yellow"
-     ]
     ]
    ],
    "align": "l"
@@ -148,15 +142,6 @@
       "runs": [
        [
         "up quality"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "and quantity"
        ]
       ]
      }
@@ -251,7 +236,7 @@
     ]
    }
   ],
-  "hook_text": "Stop mixing up quality and quantity",
+  "hook_text": "Stop mixing up quality",
   "end_line": "c"
  },
  "embed": {

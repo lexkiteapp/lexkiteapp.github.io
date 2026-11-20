@@ -97,18 +97,6 @@
       "Stop saying",
       "white"
      ]
-    ],
-    [
-     [
-      "'more or",
-      "yellow"
-     ]
-    ],
-    [
-     [
-      "not?",
-      "yellow"
-     ]
     ]
    ],
    "align": "l"
@@ -144,24 +132,6 @@
       "runs": [
        [
         "Stop saying"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "'more or"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "not?"
        ]
       ]
      }
@@ -264,7 +234,7 @@
     ]
    }
   ],
-  "hook_text": "Stop saying 'more or not?",
+  "hook_text": "Stop saying",
   "end_line": "c"
  },
  "embed": {

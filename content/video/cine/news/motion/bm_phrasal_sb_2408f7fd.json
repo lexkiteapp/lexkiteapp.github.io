@@ -97,24 +97,6 @@
       "Natives",
       "white"
      ]
-    ],
-    [
-     [
-      "never say",
-      "yellow"
-     ]
-    ],
-    [
-     [
-      "'play",
-      "yellow"
-     ]
-    ],
-    [
-     [
-      "together",
-      "yellow"
-     ]
     ]
    ],
    "align": "l"
@@ -150,33 +132,6 @@
       "runs": [
        [
         "Natives"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "never say"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "'play"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "together"
        ]
       ]
      }
@@ -279,7 +234,7 @@
     ]
    }
   ],
-  "hook_text": "Natives never say 'play together",
+  "hook_text": "Natives",
   "end_line": "c"
  },
  "embed": {

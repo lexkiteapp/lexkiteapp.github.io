@@ -84,14 +84,8 @@
    "rows": [
     [
      [
-      "Is \"give me\"",
+      "Give me?",
       "white"
-     ]
-    ],
-    [
-     [
-      "rude?",
-      "yellow"
      ]
     ]
    ],
@@ -127,16 +121,7 @@
       "hook": true,
       "runs": [
        [
-        "Is \"give me\""
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "rude?"
+        "Give me?"
        ]
       ]
      }
@@ -231,7 +216,7 @@
     ]
    }
   ],
-  "hook_text": "Is \"give me\" rude?",
+  "hook_text": "Give me?",
   "end_line": "c"
  },
  "embed": {

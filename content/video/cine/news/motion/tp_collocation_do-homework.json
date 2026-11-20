@@ -89,14 +89,8 @@
    "rows": [
     [
      [
-      "Make",
+      "Do homework!",
       "white"
-     ]
-    ],
-    [
-     [
-      "homework?",
-      "yellow"
      ]
     ]
    ],
@@ -132,16 +126,7 @@
       "hook": true,
       "runs": [
        [
-        "Make"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "homework?"
+        "Do homework!"
        ]
       ]
      }
@@ -236,7 +221,7 @@
     ]
    }
   ],
-  "hook_text": "Make homework?",
+  "hook_text": "Do homework!",
   "end_line": "c"
  },
  "embed": {
