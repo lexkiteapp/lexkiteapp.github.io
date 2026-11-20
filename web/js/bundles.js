@@ -100,6 +100,7 @@
     xport: ['js/export.js'],
     file: ['js/lib/save-file.js'],
     lsw: ['js/lang-menu.js'],
+    tlpick: ['js/i18n/en/tlui.js', 'cpack/tl-app/tl-pick.js'],
     quick: ['js/i18n/en/quick.js', 'js/quick.js'],
     pgames: ['js/i18n/en/rhythm.js', 'js/study-games.js', 'js/pron/coach.js', 'cpack/play-app/play-blitz.js', 'cpack/play-app/play-rhythm.js'], // ⚡ Thử thách 60 giây (docs/specs/play-learn.md)
     rmodes: ['js/i18n/en/rmodes.js', 'js/study-modes.js'], // 🔁 Ôn tập đa chế độ (Gõ phản xạ · Nghe chọn nghĩa) + ✍️ thẻ "Câu của bạn" [P2-1.2/P2-1.1-UI]
@@ -112,7 +113,11 @@
     skillsv2: ['js/st/v2/skills.js', 'js/skills-hub.js'], // 🎯 tab Kỹ năng (Stitch v2), ngoài khung app
     // 🧩 Bài học trộn bài tập nhỏ (cờ lesson_mix, docs/LESSON-ENGINE.md) · gold bank cho "Giải thích"
     // 🧩 Stitch v2.1 nhóm B (cờ ux1): mỗi màn 1 gói lười nạp SAU gói dữ liệu của route (ROUTE_UX1 ở app.js) – không phình gói ux1; bao routes.<màn> sẵn có
-    ulib: ['js/st/v2/library.js', 'js/ux1-lib.js'], utopic: ['js/st/v2/topic.js', 'js/ux1-topic.js'], udeck: ['js/st/v2/deck.js', 'js/ux1-deck.js'], umist: ['js/st/v2/mistakes.js', 'js/ux1-mistakes.js'], ustat: ['js/st/v2/stats.js', 'js/ux1-stats.js'],
+    ulib: ['js/st/v2/library.js', 'js/ux1-lib.js'],
+    utopic: ['js/st/v2/topic.js', 'js/ux1-topic.js'],
+    udeck: ['js/st/v2/deck.js', 'js/ux1-deck.js'],
+    umist: ['js/st/v2/mistakes.js', 'js/ux1-mistakes.js'],
+    ustat: ['js/st/v2/stats.js', 'js/ux1-stats.js'],
     ux1: ['js/i18n/en/ux1.js', 'js/say-text.js', 'js/i18n/en/v2.js', 'js/st/common.js', 'js/st/home.js', 'js/st/v2/runtime.js', 'js/st/v2/shell.js', 'js/path-trail.js', 'js/st/v2/path.js', 'js/st/v2/review.js', 'js/st/v2/practice.js', 'js/st/v2/leagues.js', 'js/st/v2/me.js', 'js/st/v2/streak.js', 'js/st/v2/exam-readiness.js', 'js/st/v2/today.js', 'js/st/v2/today-new.js', 'js/st/v2/today-desk.js', 'js/st/v2/today-rail.js', 'js/ux1.js', 'js/ux1-me.js'],
     lesson: ['js/i18n/en/lesson.js', 'js/i18n/en/v2.js', 'js/st/common.js', 'js/st/lesson.js', 'js/st/v2/runtime.js', 'js/st/v2/lesson-question.js', 'js/st/v2/feedback-correct.js', 'js/st/v2/feedback-wrong.js', 'js/st/v2/lesson-complete.js', 'js/st/v2/story-duo.js', 'js/listen/kvoice.js', 'js/lesson/engine.js', 'js/i18n/en/arrange.js', 'js/word-arrange.js', 'js/lesson/teacher.js', 'cpack/lesson/stories.js', 'cpack/lesson/path-nodes.js', 'js/lesson/ui.js'],
     lgold: ['cpack/lesson/gold.js'],

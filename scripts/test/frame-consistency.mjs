@@ -33,7 +33,7 @@ const probe = (SPEC) => {
   const vis = el => { if (!el) return false; const r = el.getBoundingClientRect(), cs = getComputedStyle(el); return r.width > 0 && r.height > 0 && cs.visibility !== 'hidden' && cs.display !== 'none' && +cs.opacity !== 0 && !el.closest('[hidden]'); };
   const px = v => Math.round(parseFloat(v) || 0);
   const sel = el => el ? el.tagName.toLowerCase() + (el.id ? '#' + el.id : '') + [...el.classList].slice(0, 3).map(c => '.' + c).join('') : '';
-  const iconOf = el => { const u = el && el.querySelector('svg use'); return u ? (u.getAttribute('href') || u.getAttribute('xlink:href') || '').replace(/^.*#/, '') : (el && el.querySelector('svg, img') ? 'inline' : ''); };
+  const iconOf = el => { const u = el && el.querySelector('svg:not(.msv) use'); return u ? (u.getAttribute('href') || u.getAttribute('xlink:href') || '').replace(/^.*#/, '') : (el && el.querySelector('svg:not(.msv), img') ? 'inline' : ''); };
   const vw = innerWidth, view = document.querySelector('#view');
   const hash = location.hash, name = (/^#\/([^/?]*)/.exec(hash) || [])[1] || 'home', argv = (/^#\/[^/?]*\/([^?]*)/.exec(hash) || [])[1] || '';
   const [navTab] = window.App && App.navOf ? App.navOf(name, argv && decodeURIComponent(argv)) : [null];
