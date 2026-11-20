@@ -272,7 +272,8 @@
   ":scope > main > div > section:nth-child(6) button": "min-h-[44px]"
  },
  "remove": [
-  ":scope > main > nav"
+  ":scope > main > nav",
+  "header button[aria-label^=\"Target Language\"], header button[aria-label^=\"Learning Language\"]"
  ],
  "repeat": [
   {
