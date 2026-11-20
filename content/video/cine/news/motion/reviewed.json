@@ -1321,8 +1321,8 @@
    "reviewer": "content/video/templates example vars (reviewed) via tpl2motion.py 15/11/2026",
    "script": {
     "h": "Quick quiz!",
-    "q": "A hour or an hour?",
-    "o": "A: I waited a hour? Or B: I waited an hour?",
+    "q": "Which sentence is correct?",
+    "o": "A: a hour? Or B: an hour?",
     "a": "It's B, an hour. The h is silent, so it starts with a vowel sound.",
     "w": "Tip: listen to the first sound, not the first letter.",
     "sh": "Send this to a friend who's learning English!",
@@ -1338,7 +1338,7 @@
    "script": {
     "h": "Quick quiz!",
     "q": "Bored or boring?",
-    "o": "A: I'm boring in class? Or B: I'm bored in class?",
+    "o": "A: boring in? Or B: bored in?",
     "a": "It's B! I'm bored is how you feel. I'm boring means I'm no fun.",
     "w": "Tip: bored is how you feel. Boring is what makes you feel that way.",
     "sh": "Send this to a friend who's learning English!",
@@ -1471,7 +1471,7 @@
    "script_reviewed": true,
    "reviewer": "content/video/templates example vars (reviewed) via tpl2motion.py 15/11/2026",
    "script": {
-    "h": "Spot the mistake.",
+    "h": "Find the mistake.",
     "q": "How much cost this?",
     "a": "does this cost",
     "b": "Say: How much does this cost?",
@@ -1503,7 +1503,7 @@
    "script_reviewed": true,
    "reviewer": "content/video/templates example vars (reviewed) via tpl2motion.py 15/11/2026",
    "script": {
-    "h": "Wait, only \"rainy\"?",
+    "h": "Three better words for rain.",
     "s0": "drizzle. Light, soft rain.",
     "s1": "shower. A short rain that stops fast.",
     "s2": "downpour. Very heavy rain, so grab an umbrella.",
