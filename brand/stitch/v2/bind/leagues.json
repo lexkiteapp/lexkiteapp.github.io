@@ -9,11 +9,11 @@
   ":scope > svg.inline-defs-container"
  ],
  "text": {
-  "Sapphire League": "d.tier",
-  "3 DAYS LEFT": "d.left",
+  "Emerald League": "d.tier",
+  "3D 0H LEFT": "d.left",
   "Top 3 advance to": "d.lead",
   "Ruby League": "d.next",
-  "Maintain safe rank to avoid demotion.": "d.zoneMsg"
+  "Safe position.": "d.zoneMsg"
  },
  "attr": {
   ":scope > main > div > div > div:nth-child(1) > div:nth-child(1) > div": {
