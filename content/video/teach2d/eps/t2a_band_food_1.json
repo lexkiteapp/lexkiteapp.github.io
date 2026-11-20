@@ -1,0 +1,131 @@
+{
+ "id": "t2a_band_food_1",
+ "template": "band",
+ "series": "Band 5 to 9",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "writing-ielts",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Band five to nine!",
+   "pause": 0.3
+  },
+  {
+   "id": "s5",
+   "text": "Fast food is bad for health.",
+   "pause": 0.3
+  },
+  {
+   "id": "s7",
+   "text": "Fast food is harmful because it contains too much sugar.",
+   "pause": 0.3
+  },
+  {
+   "id": "w7",
+   "text": "A more exact word.",
+   "pause": 0.3
+  },
+  {
+   "id": "s9",
+   "text": "Fast food is harmful, but banning it would be an overreaction.",
+   "pause": 0.3
+  },
+  {
+   "id": "w9",
+   "text": "It weighs both sides.",
+   "pause": 0.3
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "topic": "food",
+  "skill": "writing",
+  "steps": [
+   {
+    "band": 5,
+    "text": "Fast food is bad for health."
+   },
+   {
+    "band": 7,
+    "text": "Fast food is harmful because it contains too much sugar.",
+    "mark": "harmful",
+    "why": "precise",
+    "crit": "Lexical Resource"
+   },
+   {
+    "band": 9,
+    "text": "Fast food is harmful, but banning it would be an overreaction.",
+    "mark": "but banning it would be an overreaction",
+    "why": "balance",
+    "crit": "Task Response"
+   }
+  ]
+ },
+ "cta": {
+  "area": "writing-ielts",
+  "route": "#/write",
+  "link": "https://lexkite.com/app/#/write",
+  "say": "Try an IELTS model answer"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Band five to nine"
+ },
+ "src": {
+  "band": "food"
+ },
+ "est": {
+  "words": 45,
+  "seconds": 24.3,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "IELTS band 5 to 9: Food",
+  "keyword": "ielts band 9",
+  "value": "Food, three ways. Band 5: Fast food is bad for health. Band 7: Fast food is harmful because it contains too much sugar. Band 9: Fast food is harmful, but banning it would be an overreaction.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#ielts",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/write",
+  "script_words": 44,
+  "platforms": {
+   "youtube": {
+    "title": "IELTS band 5 to 9: Food",
+    "description": "Food, three ways. Band 5: Fast food is bad for health. Band 7: Fast food is harmful because it contains too much sugar. Band 9: Fast food is harmful, but banning it would be an overreaction.\n\nTry an IELTS model answer, free: https://lexkite.com/app/#/write\n\nSeries: Band 5 to 9 · Teacher: Carlos\n\n#learnenglish #englishtips #ielts #englishteacher",
+    "tags": [
+     "ielts band 9",
+     "Band 5 to 9",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "IELTS band 5 to 9: Food\n\nFood, three ways. Band 5: Fast food is bad for health. Band 7: Fast food is harmful because it contains too much sugar. Band 9: Fast food is harmful, but banning it would be an overreaction.\n\nTry an IELTS model answer, free: https://lexkite.com/app/#/write"
+   },
+   "instagram": {
+    "caption": "IELTS band 5 to 9: Food\n\nFood, three ways. Band 5: Fast food is bad for health. Band 7: Fast food is harmful because it contains too much sugar. Band 9: Fast food is harmful, but banning it would be an overreaction.\n\nTry an IELTS model answer: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#ielts",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "IELTS band 5 to 9: Food #learnenglish #englishtips #ielts"
+   }
+  },
+  "first_comment": "Did you get it? Food, three ways. Band 5: Fast food is bad for health. Band 7: Fast food is harmful because it contains too much sugar. Band 9: Fast food is harmful, but banning it would be an overreaction. More practice like this (free): {link}"
+ }
+}

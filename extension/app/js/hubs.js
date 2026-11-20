@@ -143,6 +143,7 @@
       + (rows.length ? `<div class="set-list">${rows.map(r => `<div class="set-row"><div class="set-l"><span>${esc(r[2])}</span><small>${esc(r[1])}${fmt(r[0]) ? ' · ' + fmt(r[0]) : ''}</small></div><div class="set-c"><b>${esc(r[3])}</b></div></div>`).join('')}</div>`
         : `<div class="card empty-note"><p class="muted" style="margin:0">${t('Chưa có bài thi nào. Làm bài kiểm tra trình độ 5 phút để bắt đầu.')}</p></div>`)
       + `<details class="hub-more"><summary>${t('Kỳ thi khác')}</summary><div class="hub-grid">${Object.keys(T).filter(e => e !== ex && e !== 'ieltsgt' && !(ex === 'ieltsgt' && e === 'ielts')).map(e => T[e].join('')).join('')}</div></details>`;
+    if (window.ST2 && ST2.hubPage) ST2.hubPage(view); // thanh hub chung 5 tab
   });
 
   // ---------- Tôi ----------

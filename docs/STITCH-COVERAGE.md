@@ -29,6 +29,7 @@ Chuẩn: Lexkite Kit (assets/1b7a8a3d3d52404bb332d9ba3f783547), cách port [STIT
 | Từ điển: đầu trang + ô tìm + Gần đây + Khám phá nhanh (thẻ mục từ/lưu ngữ cảnh còn khung cũ) | #/dict | dict-light / dict-dark… | diff:dict |
 | Phát âm: thư viện (bài #/pron/<id> còn khung cũ) | #/pron | pron-hub-light / pron-hub-dark… | diff:pron-hub |
 | Hub Ngữ pháp | #/grammar | 9e62a2e8 / e5fec5b8… | diff:grammar |
+| Cài đặt (mục lục; trang con còn điều khiển cũ) | #/settings | settings-light / settings-dark… | diff:settings |
 
 ## Còn thiếu – theo lô (thứ tự = lượt người dùng thấy)
 | Lô | Màn | Trạng thái |
@@ -39,7 +40,7 @@ Chuẩn: Lexkite Kit (assets/1b7a8a3d3d52404bb332d9ba3f783547), cách port [STIT
 | A4 Luyện kỹ năng | Nghe (hub, chép chính tả, rảnh tay) · Đọc · Viết (editor, task1, sửa văn) · Nói + nhập vai | có screen Kit, chưa port |
 | A5 Game · thống kê · ngữ pháp · lớp | Trò chơi từ vựng · Thống kê + huy hiệu · Độ tự tin · Khóa học + lớp | có screen Kit, chưa port |
 | A6 Thi + trang thông tin | Thi thử IELTS / quick · TOEIC · TOEFL · Thi trên máy (CBT) · Tài nguyên · phương pháp · liên hệ · ý tưởng | có screen Kit, chưa port |
-| A7 Cài đặt & tài khoản | Cài đặt · Tài khoản / đồng bộ (sheet) · Đăng xuất · xóa tài khoản · Bàn giao đăng nhập add-on · Báo lỗi / góp ý | có screen Kit, chưa port |
+| A7 Cài đặt & tài khoản | Tài khoản / đồng bộ (sheet) · Đăng xuất · xóa tài khoản · Bàn giao đăng nhập add-on · Báo lỗi / góp ý | có screen Kit, chưa port |
 | A8 Popup/sheet chung | Bảng thông báo · Popup chuỗi (đóng băng/mất/cột mốc) · Thẻ chia sẻ · Chọn ngôn ngữ · chọn kỳ thi · popup giải đấu · Modal/confirm/toast chung · cookie · banner add-on · tìm kiếm | có screen Kit, chưa port |
 | V Video | Học qua video | đang làm |
 | W1 Web nhóm 1 | Landing · mẫu · speaking · bài blog · hub blog | PR chờ duyệt |
