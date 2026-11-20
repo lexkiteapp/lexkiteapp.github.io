@@ -5,12 +5,13 @@
 // câu trùng · lời giải thiếu / ngắn / RẬP KHUÔN (cùng 4 từ đầu lặp ≥ 8 lần) · lời giải không nhắc đáp án đúng.
 // Dùng: node scripts/content-qa/bank-audit.mjs [--json]  → ghi reports/bank-audit.json, in bảng; không đổi exit code (đo, chưa chặn).
 import fs from 'node:fs';
+import { pathToFileURL } from 'node:url';
 import { loadContent } from '../lib/content-load.mjs';
 
-const C = loadContent();
 const SKIP = new Set(['console', 'Date', 'Math', 'JSON', 'setTimeout', 'clearTimeout', 'localStorage', 'navigator', 'self', 'window', 't', 'GRAMMAR_CHECK', 'DistRules', 'KVoice', 'LKFile', 'LKQR', 'LkVideoRank', 'VBStruct', 'Lexis', 'IELTS_DATA']);
 const norm = s => String(s || '').toLowerCase().replace(/[^\p{L}\p{N} ]+/gu, ' ').replace(/\s+/g, ' ').trim();
-const groups = {};
+export function auditBank(C) {
+const groups = {}, items = [];
 const G = name => (groups[name] ||= { n: 0, pos: [0, 0, 0, 0, 0, 0], nOpt: {}, noExplain: 0, shortExplain: 0, explainNotMention: 0, longestIsAnswer: 0, dupOpts: 0, allAbove: 0, level: {}, kind: {}, q: new Map(), lead: new Map(), expl: new Map() });
 const seen = new WeakSet();
 function walk(v, path, lvl) {
@@ -19,13 +20,14 @@ function walk(v, path, lvl) {
   const level = String(v.level || v.cefr || lvl || '').toUpperCase() || '—';
   if (Array.isArray(v.options) && v.options.length >= 2 && (Number.isInteger(v.a) || Number.isInteger(v.answer))) {
     const g = G(path), a = Number.isInteger(v.a) ? v.a : v.answer, opts = v.options.map(String);
-    g.n++; g.pos[Math.min(a, 5)]++; g.nOpt[opts.length] = (g.nOpt[opts.length] || 0) + 1;
+    g.n++; items.push({ group: path, level, q: String(v.q || v.text || ''), options: opts, a, explain: Array.isArray(v.explain) ? v.explain.join(' ') : String(v.explain || v.why || v.exp || ''), id: v.id || v.n || '' });
+    g.pos[Math.min(a, 5)]++; g.nOpt[opts.length] = (g.nOpt[opts.length] || 0) + 1;
     g.level[level] = (g.level[level] || 0) + 1; const kind = v.kind || v.type || '—'; g.kind[kind] = (g.kind[kind] || 0) + 1;
     const lens = opts.map(o => o.length), mx = Math.max(...lens);
     if (lens[a] === mx && lens.filter(l => l === mx).length === 1 && opts.length > 2 && mx - Math.max(...lens.filter((_, i) => i !== a)) >= 4) g.longestIsAnswer++;
     if (new Set(opts.map(norm)).size < opts.length) g.dupOpts++;
     if (opts.some(o => /all of the above|none of the above/i.test(o))) g.allAbove++;
-    const k = norm((v.q || v.text || '') + '|' + opts.map(norm).sort().join('|')); if (k.length > 12) g.q.set(k, (g.q.get(k) || 0) + 1);
+    const k = norm((v.q || v.text || '') + '|' + opts.map(norm).sort().join('|')); if (String(v.q || v.text || '').trim().length >= 12 && opts.some(o => o.trim().length > 1)) g.q.set(k, (g.q.get(k) || 0) + 1);
     const ex = Array.isArray(v.explain) ? v.explain.join(' ') : v.explain || v.why || v.exp || '';
     if (!String(ex).trim()) g.noExplain++;
     else {
@@ -54,6 +56,11 @@ for (const [name, g] of Object.entries(groups)) {
     templatedExplainPct: pc(templated, g.n), duplicateExplainPct: pc(dupExpl, g.n), duplicateQuestionPct: pc(dupQ, g.n),
     longestIsAnswerPct: pc(g.longestIsAnswer, g.n), dupOptionPct: pc(g.dupOpts, g.n), allAbovePct: pc(g.allAbove, g.n) };
 }
+return { out, items };
+}
+
+if (import.meta.url === pathToFileURL(process.argv[1]).href) {
+const { out } = auditBank(loadContent());
 fs.mkdirSync('reports', { recursive: true }); fs.writeFileSync('reports/bank-audit.json', JSON.stringify(out, null, 1));
 const tot = Object.values(out).reduce((a, x) => a + x.items, 0);
 if (process.argv.includes('--json')) console.log(JSON.stringify(out, null, 1));
@@ -61,4 +68,5 @@ else {
   console.log(`Kho trắc nghiệm đo được: ${tot} câu, ${Object.keys(out).length} nhóm\n`);
   console.log('nhóm | câu | lệch vị trí đ.án % | đ.án dài nhất % | không giải thích % | rập khuôn % | trùng lời giải % | trùng câu %');
   for (const [k, x] of Object.entries(out).sort((a, b) => b[1].items - a[1].items)) console.log([k, x.items, x.posSkew, x.longestIsAnswerPct, x.noExplainPct, x.templatedExplainPct, x.duplicateExplainPct, x.duplicateQuestionPct].join(' | '));
+}
 }
