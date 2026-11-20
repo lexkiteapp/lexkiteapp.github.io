@@ -302,6 +302,17 @@ export async function autoQueue(env, db, cfg, now, max = 30) {
   }
   return n;
 }
+/** Máy gác tự lấp (20/11, social-coverage đỏ 3 ngày không ai chạm): duyệt thêm clip QC-pass từ kho (≤ 150, gấp 5 lượt thường) + xếp lịch + dồn ngày – chỉ D1, 0 lượt GrabCast.
+ *  → { queued, planned, rebalanced, skipped:{lý do:n} } (skipped no-channel/no-slot/duplicate cho biết ngôn ngữ nào HẾT clip bản ngữ → cần dựng thêm). */
+export async function autoFill(env, now = Date.now()) {
+  const db = env.DB; await setupMgr(db); await setupDist(db); await setupLock(db, env); await ytSetup(db); T0 = Date.now();
+  const cfg = await loadAuto(db), out = { queued: 0, planned: 0, rebalanced: 0, skipped: {} };
+  if (!cfg.on) return { ...out, off: true };
+  out.queued = await autoQueue(env, db, cfg, now, 150).catch(() => 0);
+  const p = await DIST.plan_run(db, {}, env); out.planned = (p && p.social) || 0; for (const x of (p && p.skipped) || []) out.skipped[x.why] = (out.skipped[x.why] || 0) + 1;
+  out.rebalanced = await rebalanceDays(db, now, 0, 120, outOfTime).catch(() => 0);
+  return out;
+}
 /** Sức khỏe cả chuỗi (CI xanh mà không đăng được gì là mù): kênh đã nối? có clip đã duyệt? có lịch sắp tới? → cảnh báo + rec.health. Chỉ đọc theo khóa/chỉ mục, LIMIT 1. */
 export async function chainHealth(db, cfg, now) {
   const has = async (sql, ...a) => !!(await one(db, sql, ...a).catch(() => null));

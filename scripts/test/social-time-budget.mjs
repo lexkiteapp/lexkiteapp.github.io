@@ -9,4 +9,8 @@ ok(reset > 0 && reset < first, 'runAuto đặt lại T0 TRƯỚC khi dùng outOf
 const m = (src.match(/T0 = Date\.now\(\)/g) || []).length; ok(m >= 2, 'T0 được đặt ở cả runAuto và autoStatus');
 ok(/rebalanceDays\(db, now, dayCap, 120, outOfTime\)/.test(run) && !/rebalanceDays\(db, now, dayCap\)/.test(run), 'rebalanceDays nhận stop = outOfTime (không quét mãi gây 524)');
 ok(/plan_daily && !outOfTime\(\)/.test(run), 'planNow chỉ chạy khi còn ngân sách thời gian');
+// máy gác tự lấp (20/11): op autofill nối dây đủ + coverage.mjs gọi trước khi báo đỏ
+const api = fs.readFileSync(new URL('../../functions/api/social-auto.js', import.meta.url), 'utf8'), cov = fs.readFileSync(new URL('../../scripts/social/coverage.mjs', import.meta.url), 'utf8');
+ok(/b\.op === 'autofill'[^\n]*autoFill\(env\)/.test(api) && /export async function autoFill\(/.test(src), 'op autofill gọi autoFill (duyệt thêm ≤150 + plan_run + rebalance)');
+ok(/op: 'autofill'/.test(cov) && cov.indexOf("op: 'autofill'") < cov.indexOf('report(jj)'), 'social-coverage tự lấp rồi đo lại trước khi báo đỏ');
 console.log(fails ? `social-time-budget: ${fails} lỗi` : 'social-time-budget OK'); process.exit(fails ? 1 : 0);
