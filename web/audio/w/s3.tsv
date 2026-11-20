@@ -9770,3 +9770,25 @@ gasification	ok	ok
 anoint	ok	cut_wordis: câu mang: "The word is a night." · dot100:"At night." 0.66s · cut_wordis100: câu mang: "The word is a night." · cut_next: câu mang: "Next word, a night." · plain095:"A night." 0.65s · dot090:"At night." 0.74s
 porpoise	ok	ok
 systematics	ok	ok
+aeroplane	ok	ok
+yoghurt	cut_wordis:"Yogurt." 0.87s · cut_wordis:"Yogurt." 0.78s · dot100:"Yogurt" 0.64s · cut_wordis100:"Yogurt" 0.82s · cut_wordis100:"Yogurt" 0.74s · cut_next:"Yogurti" 0.81s · cut_next:"Go to..." 0.57s · plain095:"Yogurt" 0.60s · dot090:"Yogurt" 0.74s	cut_wordis: câu mang: "The word is yogurt." · dot100:"yogurt" 0.67s · cut_wordis100: câu mang: "The word is yogurt." · cut_next: câu mang: "Next word, yogurt." · plain095:"yogurt" 0.68s · dot090:"yogurt" 0.76s
+motorway	ok	ok
+toothache	ok	ok
+preposition	ok	cut_wordis:"Proposition" 1.04s · cut_wordis:"Proposition." 0.87s · dot100:"Proposition" 0.82s · cut_wordis100:"Proposition." 0.96s · cut_wordis100:"Proposition" 0.78s · cut_next: câu mang: "Next word, Proposition." · plain095:"Proposition" 0.82s · dot090:"Proposition" 0.92s
+antonym	ok	ok
+semicolon	ok	ok
+archeologist	cut_wordis: câu mang: "The word is archaeologist." · dot100:"Archaeologist" 1.12s · cut_wordis100: câu mang: "The word is archaeologist." · cut_next: câu mang: "Next word, archaeologist" · plain095:"Archaeologist" 1.07s · dot090:"archaeologist" 1.28s	cut_wordis: câu mang: "The word is archaeologist." · dot100:"Archaeologist" 1.03s · cut_wordis100: câu mang: "The word is archaeologist." · cut_next: câu mang: "Next word, archaeologist." · plain095:"Archaeologist" 1.04s · dot090:"Archaeologist" 1.08s
+mutability	ok	ok
+sentient	ok	ok
+verandah	cut_wordis:"It's veranda." 0.86s · cut_wordis:"Veranda" 0.80s · dot100:"Veranda" 0.81s · cut_wordis100: câu mang: "The word is veranda." · cut_next: câu mang: "Next word Veranda" · plain095:"Veranda" 0.78s · dot090:"Veranda" 0.93s	cut_wordis: câu mang: "The word is veranda." · dot100:"Veranda" 0.70s · cut_wordis100: câu mang: "The word is veranda." · cut_next: câu mang: "Next word, veranda." · plain095:"Veranda" 0.75s · dot090:"Veranda" 0.81s
+naivety	ok	cut_wordis:"Naivere." 0.95s · cut_wordis:"Naivere" 0.75s · dot100:"Naivere" 0.75s · cut_wordis100:"Naivere." 0.86s · cut_wordis100:"Naivere" 0.73s · cut_next:"Naivere" 0.77s · cut_next:"Avery." 0.61s · plain095:"Naivere." 0.77s · dot090:"Naivere" 0.84s
+geologically	ok	ok
+tautly	ok	ok
+crystallization	ok	ok
+indolence	ok	ok
+lassitude	ok	ok
+col	ok	cut_wordis: câu mang: "The word is call." · dot100:"Kyle" 0.58s · cut_wordis100: câu mang: "The word is Kyle." · cut_next: câu mang: "Next word, call." · plain095:"Carl" 0.57s · dot090:"Kyle" 0.65s
+metadata	ok	ok
+rhyme	ok	ok
+brook	cut_wordis: câu mang: "The word is brookie." · dot100:"Brooke." 0.76s · cut_wordis100: câu mang: "The word is brokey." · cut_next: câu mang: "Next word, brookie" · plain095:"Brooke" 0.53s · dot090:"Broke." 0.65s	ok
+anarchism	ok	ok
