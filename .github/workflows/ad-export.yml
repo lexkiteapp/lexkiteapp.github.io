@@ -1,0 +1,42 @@
+# ci-policy: no-gen – xuất bản quảng cáo từ MỘT clip Teach2D đã render (scripts/video/teach2d/ad_export.py): 9:16 · 4:5 · 1:1 + thẻ cuối + báo cáo chính sách. 0 credit, không đăng, không chạm Drive/prod.
+# Chạy tay: lấy artifact tv-<ep>-short-<run> của teach-video → ad_export.py → artifact ad-<ep>-<run> (30 ngày). Chủ lấy 3 file ở đó.
+name: ad-export
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/ad-export.yml'
+      - 'scripts/video/teach2d/ad_export.py'
+  workflow_dispatch:
+    inputs:
+      run: { description: 'id lượt teach-video có artifact tv-<ep>-short-<run>', required: true }
+      ep: { description: 'id tập (vd t2_mistake_discuss)', required: true }
+      keep_s: { description: 'giữ N giây đầu của clip (cắt thẻ cuối cũ, thay bằng thẻ CTA của quảng cáo); 0 = giữ hết', default: '0' }
+      hook_ms: { description: 'thời điểm chữ hook xuất hiện (ms, ≤ 1500)', default: '0' }
+permissions: { contents: read, actions: read }
+concurrency: { group: 'ad-export-${{ github.ref }}', cancel-in-progress: true }
+env:
+  EP: ${{ inputs.ep || 't2_react_lookintoit' }}
+  SRC_RUN: ${{ inputs.run || '44262329940' }}
+  HOOK: ${{ inputs.hook_ms || '1000' }}
+  KEEP: ${{ inputs.keep_s || '21' }}
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: tv-${{ env.EP }}-short-${{ env.SRC_RUN }}
+          path: src
+          github-token: ${{ github.token }}
+          run-id: ${{ env.SRC_RUN }}
+      - uses: ./.github/actions/setup-ffmpeg
+      - run: pip install -q pillow
+      - name: Export 3 ratios
+        run: |
+          f=$(ls src/phone/"$EP".mp4 src/"$EP"-short.mp4 2>/dev/null | head -1); [ -n "$f" ] || { echo "::error::no short mp4 in artifact"; ls -R src | head -20; exit 1; }
+          txt=$(python3 -c "import json,sys;e=json.load(open('content/video/teach2d/eps/$EP.json'));print(' '.join(l['text'] for l in e['lines']))")
+          python3 scripts/video/teach2d/ad_export.py --in "$f" --out out --id "$EP" --hook-ms "$HOOK" --keep-s "$KEEP" --text "$txt"
+      - uses: actions/upload-artifact@v4
+        with: { name: 'ad-${{ env.EP }}-${{ github.run_id }}', path: out/, retention-days: 30 }
