@@ -173,7 +173,7 @@ ok(bad.status === 403, 'unsigned sync refused');
 {
   const dom = new JSDOM('<!doctype html><div id="box"></div>', { url: 'https://lexkite.com/admin.html#video/channels', runScripts: 'outside-only' }), w = dom.window, calls = [];
   w.fetch = async () => ({ json: async () => ({ items: [{ id: 'cafe-l', youtube_id: 'LLLLLLLLLLL' }] }) });
-  w.confirm = () => true; w.navigator.clipboard = { writeText: async v => calls.push(['clip', v]) };
+  w.confirm = () => true; w.navigator.clipboard = { writeText: async v => calls.push(['clip', v]) };;Object.defineProperty(w,'LXDialog',{configurable:true,get:()=>({confirm:async m=>w.confirm(m),prompt:async(m,d)=>w.prompt(m,d),alert:async m=>w.alert(m)})}); // cầu nối: test vẫn giả hộp thoại bằng w.confirm/prompt/alert
   w.eval(fs.readFileSync('web/js/admin-chart.js', 'utf8')); w.eval(fs.readFileSync('web/js/admin-video.js', 'utf8'));
   const st = { channel: { status: 'ok', title: 'Lexkite', channel_id: 'UCx', is_default: true }, channels: [{ status: 'ok', title: 'Lexkite', channel_id: 'UCx', is_default: true, videos: 2, thumb: 'https://yt3.ggpht.com/a' }, { status: 'ok', title: 'Lexkite English', channel_id: 'UCy', videos: 0 }], quota: {}, queue: {}, settings: { mode: 'manual', privacy: 'private' }, manual: { ready: 1 }, scope: { ok: true }, sync: { at: Date.now(), scanned: 3, matched: 1, issues: [{ kind: 'no-marker', video_id: 'ZZZZZZZZZZZ', title: 'Mystery' }] } };
   const packs = { studio: 'https://studio.youtube.com/channel/UCx/videos/upload?d=ud', rows: [

@@ -66,7 +66,7 @@ const FIX = {
   'storage/objects': { items: [{ id: 'o1', name: 'ielts-tip-1.mp4', mime: 'video/mp4', size: 12e6, meta: { w: 1080, h: 1920, duration_ms: 42000 } }, { id: 'o2', name: 'toeic-2.mp4', mime: 'video/mp4', size: 8e6 }, { id: 'o3', name: 'vocab-3.mov', mime: 'video/quicktime', size: 5e6 }, { id: 'x', name: 'cover.png', mime: 'image/png', size: 1 }] },
 };
 let calls = [], valOk = false, conf = [], confAns = () => true;
-w.confirm = m => { conf.push(m); return confAns(m); }; w.alert = () => {}; w.prompt = () => null;
+w.confirm = m => { conf.push(m); return confAns(m); }; w.alert = () => {}; w.prompt = () => null;;Object.defineProperty(w,'LXDialog',{configurable:true,get:()=>({confirm:async m=>w.confirm(m),prompt:async(m,d)=>w.prompt(m,d),alert:async m=>w.alert(m)})}); // cầu nối: test vẫn giả hộp thoại bằng w.confirm/prompt/alert
 const sapi = async (method, path, body, opt = {}) => {
   calls.push({ method, path, body: body && JSON.parse(JSON.stringify(body)), opt });
   if (method === 'GET' && FIX[path]) return JSON.parse(JSON.stringify(FIX[path]));

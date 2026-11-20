@@ -159,8 +159,8 @@
         };
         countdown(30, '#mkClock', start);
         $('#mkSkip').onclick = start;
-        $('#mkNext').onclick = () => {
-          if (M.player && M.player.playing && !confirm(t('Phần nghe chưa phát xong. Vẫn chuyển tiếp?'))) return;
+        $('#mkNext').onclick = async () => {
+          if (M.player && M.player.playing && !await LXDialog.confirm(t('Phần nghe chưa phát xong. Vẫn chuyển tiếp?'))) return;
           Object.assign(res, Object.fromEntries(Object.entries(QE.collect(p, $('#lQs'))).map(([n, r]) => [n, { ...r, ref: p.id }])));
           if (k < parts.length - 1) { clearAll(); part(k + 1); window.scrollTo({ top: 0 }); }
           else { if (window.QT) QT.record('il', res); const raw = Object.values(res).filter(r => r.ok).length; M.bands.listening = QE.bandOf(raw, 'listening'); M.detail.listening = { raw, res }; next(); }
@@ -211,7 +211,7 @@
         const saveAns = () => { try { localStorage.setItem(rKey, JSON.stringify(fields().map(i => (i.type === 'radio' || i.type === 'checkbox' ? (i.checked ? 1 : 0) : i.value)))); } catch (e) { /* bỏ qua */ } };
         $('#mkQs').addEventListener('change', saveAns); $('#mkQs').addEventListener('input', saveAns);
         clockOf('reading', (window.ExamClock ? ExamClock.STD.ielts.reading : 60) * 60, () => { toast(t('Hết giờ Reading – bài đã được tự nộp')); submit(); });
-        $('#mkSubmit').onclick = () => { const empty = $$('#mkQs input.gap').filter(x => !x.value.trim()).length; if (confirm(empty ? t('Còn ô trống. Nộp bài Reading?') : t('Nộp bài Reading?'))) submit(); };
+        $('#mkSubmit').onclick = async () => { const empty = $$('#mkQs input.gap').filter(x => !x.value.trim()).length; if (await LXDialog.confirm(empty ? t('Còn ô trống. Nộp bài Reading?') : t('Nộp bài Reading?'))) submit(); };
       }
     }
 
@@ -247,7 +247,7 @@
           next();
         };
         clockOf('writing', (window.ExamClock ? ExamClock.STD.ielts.writing : 60) * 60, () => { toast(t('Hết giờ Writing – bài đã được tự nộp')); submit(); });
-        $('#mkSubmit').onclick = () => { if (confirm(t('Nộp bài Writing?'))) submit(); };
+        $('#mkSubmit').onclick = async () => { if (await LXDialog.confirm(t('Nộp bài Writing?'))) submit(); };
       }
     }
 

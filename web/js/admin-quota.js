@@ -66,7 +66,7 @@
       const held = (jt.leases || []).map(l => `${esc(l.resource)} ← ${esc(l.job)}`).join(' · ');
       return `<p class="small" style="margin:.2rem 0">${esc(jt.day)} UTC · ${bud || '—'}</p>${held ? `<p class="small">🔒 ${held}</p>` : ''}<div style="overflow-x:auto"><table class="tbl"><thead><tr><th>${Q('Việc')}</th><th>cron (UTC)</th><th>${Q('Ưu tiên')}</th><th>${Q('Tài nguyên')}</th><th>${Q('Hôm nay')}</th></tr></thead><tbody>${rows}</tbody></table></div><p class="tiny muted">${Q('Việc nặng thuê tài nguyên độc quyền; đang có việc khác giữ hoặc ngân sách D1 gần cạn → bỏ qua tới khung kế (lý do hiện ở cột cuối). Nguồn: docs/JOBS.md.')}</p>`;
     }
-    async function act(op, body) { try { await qapi(op, body); await load(); } catch (e) { alert(Q('Lỗi: {e}', { e: e.message })); } }
+    async function act(op, body) { try { await qapi(op, body); await load(); } catch (e) { LXDialog.alert(Q('Lỗi: {e}', { e: e.message })); } }
     async function load() {
       box.innerHTML = `<p class="small muted">${Q('Đang tải…')}</p>`;
       let jt = null; try { jt = await qapi('jobs'); } catch (e) { jt = null; }
@@ -98,7 +98,7 @@
       capi('trend').then(t => { const el = $('#qCap'); if (el) el.innerHTML = capCard(t, Q, esc, num); }).catch(e => { const el = $('#qCap'); if (el) el.innerHTML = `<p class="small muted">✗ ${esc(Q('Không tải được'))}: ${esc(e.message)}</p>`; });
       $('#qbAdd').onclick = () => act('blockSet', { target: $('#qbT').value, minutes: +$('#qbM').value || 0, reason: $('#qbR').value });
       $('#qaAdd').onclick = () => act('allowSet', { target: $('#qaT').value, note: $('#qaN').value });
-      box.querySelectorAll('[data-block]').forEach(b => b.onclick = () => { const reason = prompt(Q('Lý do'), ''); if (reason !== null) act('blockSet', { target: b.dataset.block, minutes: 60, reason }); });
+      box.querySelectorAll('[data-block]').forEach(b => b.onclick = async () => { const reason = await LXDialog.prompt(Q('Lý do'), ''); if (reason !== null) act('blockSet', { target: b.dataset.block, minutes: 60, reason }); });
       box.querySelectorAll('[data-unblock]').forEach(b => b.onclick = () => act('blockDelete', { id: b.dataset.unblock }));
       box.querySelectorAll('[data-unallow]').forEach(b => b.onclick = () => act('allowDelete', { id: b.dataset.unallow }));
       box.querySelectorAll('[data-reset]').forEach(b => b.onclick = () => act('configReset', { feature: b.dataset.reset }));
