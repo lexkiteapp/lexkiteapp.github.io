@@ -257,6 +257,13 @@ ok(!prCapable('name: a\non:\n  workflow_run:\n    workflows: [b]\njobs: {}\n'), 
     ok(gateDrift([F('scripts/test/ads-demo-android.mjs')], ['scripts/test/ads-demo-android.mjs'], suite).length === 1, '…nhưng PR sửa chính nó vẫn tính');
     ok(gateDrift([F('scripts/test/lex.mjs')], ['web/js/app.js'], { ...suite, 'scripts/test/lex.mjs': "x('web/js/app.js')" }).length === 1, 'test CÓ trong suite và nhắc tệp PR → vẫn tính');
     ok(gateDrift([F('scripts/test/lib/helper.mjs')], ['web/js/app.js'], suite).length === 1, 'tệp trong scripts/test/lib (được test khác nhập) → vẫn tính'); }
+  // 20/11: workflow nặng (luật 18: job gate bỏ qua trên PR trừ nhãn ready-heavy/ready) đổi trên main KHÔNG làm đổi kết quả PR không nhãn → không bắt gộp lại; PR có nhãn / PR tự sửa nó / nguồn nhẹ (chạy trên PR) vẫn bắt
+  { const heavy = "on:\n  pull_request:\n    paths: ['web/**']\n  push:\n    branches: [main]\njobs:\n  gate:\n    if: ${{ github.event_name != 'pull_request' || contains(github.event.pull_request.labels.*.name, 'ready-heavy') || contains(github.event.pull_request.labels.*.name, 'ready') }}\n    runs-on: ubuntu-latest\n";
+    const light = "on:\n  pull_request:\n    paths: ['web/**']\njobs:\n  fast:\n    runs-on: ubuntu-latest\n";
+    const fl = [F('.github/workflows/frame.yml'), F('.github/workflows/fast.yml')], src = { '.github/workflows/frame.yml': heavy, '.github/workflows/fast.yml': light };
+    ok(gateDrift(fl, ['web/js/app.js'], src).join() === '.github/workflows/fast.yml', 'workflow nặng bỏ qua trên PR → không bắt; workflow nhẹ chạy trên PR vẫn bắt: ' + gateDrift(fl, ['web/js/app.js'], src).join());
+    ok(gateDrift(fl, ['web/js/app.js'], src, true).length === 2, 'PR có nhãn ready/ready-heavy → workflow nặng sẽ chạy → vẫn bắt');
+    ok(gateDrift(fl, ['.github/workflows/frame.yml'], src).includes('.github/workflows/frame.yml'), 'PR tự sửa chính workflow nặng → vẫn bắt'); }
   ok(gateDrift([F('scripts/test/brand-new.mjs', 'added'), F('web/js/app.js'), F('docs/CODEMAP.md')]).length === 0, 'test MỚI thêm + mã/tài liệu thường → không đổi cổng');
   // 16/11: workflow main đổi chỉ tính khi PR cũng sửa đúng file đó; luật/policy vẫn mọi PR
   { const wf = [F('.github/workflows/audio.yml'), F('.github/workflows/call-rt.yml', 'added'), F('.github/workflows/x.yml')];
