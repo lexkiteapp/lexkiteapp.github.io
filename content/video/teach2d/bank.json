@@ -2478,6 +2478,21 @@
    "state": "failed",
    "tries": 1
   },
+  "t2_l1_fr_actually": {
+   "run": "44778177546",
+   "at": "2026-11-20T22:27Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "c3a2e3f637f0d560",
+    "wide": "0c6e0c1181cf0927"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
   "t2_l1_fr_adj_order": {
    "run": "43879340893",
    "at": "2026-11-17T05:21Z",
@@ -2508,6 +2523,21 @@
    "state": "banked",
    "tries": 1
   },
+  "t2_l1_fr_afraid_of": {
+   "run": "44778177546",
+   "at": "2026-11-20T22:27Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "1d83e6cb1013f196",
+    "wide": "809b429995506410"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
   "t2_l1_fr_age": {
    "run": "43129502972",
    "at": "2026-11-12T14:39Z",
@@ -2523,6 +2553,18 @@
    "state": "banked",
    "tries": 0
   },
+  "t2_l1_fr_age_am": {
+   "run": "44778177546",
+   "at": "2026-11-20T22:27Z",
+   "score": {},
+   "sha": {},
+   "why": [
+    "short: no render",
+    "wide: no render"
+   ],
+   "state": "failed",
+   "tries": 1
+  },
   "t2_l1_fr_agree": {
    "run": "43879340893",
    "at": "2026-11-17T05:21Z",
@@ -2536,6 +2578,153 @@
    },
    "why": [],
    "state": "banked",
+   "tries": 1
+  },
+  "t2_l1_fr_any_question": {
+   "run": "44778177546",
+   "at": "2026-11-20T22:27Z",
+   "score": {},
+   "sha": {},
+   "why": [
+    "short: no render",
+    "wide: no render"
+   ],
+   "state": "failed",
+   "tries": 1
+  },
+  "t2_l1_fr_attached": {
+   "run": "44778177546",
+   "at": "2026-11-20T22:27Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "f8b123273316f15b",
+    "wide": "b01ae6e069c3e9ba"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_fr_attend": {
+   "run": "44778177546",
+   "at": "2026-11-20T22:27Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "21c0f89e0c1a745f",
+    "wide": "0dbf79c81c895e59"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_fr_attention": {
+   "run": "44778177546",
+   "at": "2026-11-20T22:27Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "31a91dab54c94763",
+    "wide": "1eac93618cb0625b"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_fr_been_since": {
+   "run": "44778177546",
+   "at": "2026-11-20T22:27Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "8de713f557ba5116",
+    "wide": "f86771e1b799796c"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_fr_by_bus": {
+   "run": "44778177546",
+   "at": "2026-11-20T22:27Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "2c07f8e419e928b9",
+    "wide": "28c27f781bb79207"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_fr_by_foot": {
+   "run": "44778177546",
+   "at": "2026-11-20T22:27Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "5ac3dd9cf8ca158d",
+    "wide": "bf488cd5ec97fb1e"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_fr_calendar": {
+   "run": "44778177546",
+   "at": "2026-11-20T22:27Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "2e1acdaa525b9f40",
+    "wide": "c2d6fdf7297dde5a"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_fr_cold": {
+   "run": "44778177546",
+   "at": "2026-11-20T22:27Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "9d3e3b91c1c5300f",
+    "wide": "6f9298ef84453de0"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_fr_decimal": {
+   "run": "44778177546",
+   "at": "2026-11-20T22:27Z",
+   "score": {
+    "wide": 100.0
+   },
+   "sha": {
+    "wide": "35b57f028bc7b29d"
+   },
+   "why": [
+    "short: no render"
+   ],
+   "state": "failed",
    "tries": 1
   },
   "t2_l1_fr_demand": {
@@ -2597,6 +2786,141 @@
    "why": [],
    "state": "banked",
    "tries": 1
+  },
+  "t2_l1_fr_double_no": {
+   "run": "44778177546",
+   "at": "2026-11-20T22:27Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "345109e1ff934b1b",
+    "wide": "c137adf7bf849ae1"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_fr_enter": {
+   "run": "44778177546",
+   "at": "2026-11-20T22:27Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "a812c783727d3803",
+    "wide": "7c9a04bf1124f335"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_fr_eventually": {
+   "run": "44778177546",
+   "at": "2026-11-20T22:27Z",
+   "score": {
+    "wide": 100.0
+   },
+   "sha": {
+    "wide": "59ab26281ef620a0"
+   },
+   "why": [
+    "short: no render"
+   ],
+   "state": "failed",
+   "tries": 1
+  },
+  "t2_l1_fr_explain_to": {
+   "run": "44778177546",
+   "at": "2026-11-20T22:27Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "c3e42f864e205059",
+    "wide": "fecb5566a817dd59"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_fr_factory": {
+   "run": "44778177546",
+   "at": "2026-11-20T22:27Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "f79802d8a7a6f616",
+    "wide": "2c9fe19f93def227"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_fr_fifth_floor": {
+   "run": "44778177546",
+   "at": "2026-11-20T22:27Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "3c306fb98bcf57f8",
+    "wide": "2c43ca65469d9e7d"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_fr_first_time": {
+   "run": "44778177546",
+   "at": "2026-11-20T22:27Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "cdafda055e69b5d1",
+    "wide": "dd3c15814ddeff5c"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_fr_former_boss": {
+   "run": "44778177546",
+   "at": "2026-11-20T22:27Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "c3bb5ae64196f246",
+    "wide": "2c85817a1fef3b00"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
+  "t2_l1_fr_go_home": {
+   "run": "44778177546",
+   "at": "2026-11-20T22:27Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "57a3046e70d90867",
+    "wide": "45ef60d8e9732932"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
   },
   "t2_l1_fr_homework": {
    "run": "43879340893",
