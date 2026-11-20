@@ -129,3 +129,50 @@ Tổng hiện 47,8 = trung bình 7 mảng; phần còn trống cộng lại đú
 - Đợt 1 (02/11, Giao tiếp + Ngữ pháp): xưởng + kind `functions`, `mcq` chạy đêm (~100 chức năng/đêm, ~500 câu trắc nghiệm/đêm trước cổng) → sổ chức năng 100/100 ~04/11, trắc nghiệm 3.000 ~10/11; Ngữ pháp ≥ 95 ~20/11 khi bật thêm drill + bài C1/C2; Giao tiếp ≥ 95 ~25/11 khi bật gold/roleplay/cuộc gọi/tình huống (cần Kokoro trong luồng, đợt 1b).
 
 Nguồn phương pháp: englishprofile.org (EVP/EGP), oxfordlearnersdictionaries.com/about/wordlists, pearson.com GSE learning objectives, rm.coe.int (CEFR Companion Volume), cambridgeenglish.org exam format, ets.org (TOEFL 2026, TOEIC), ielts.org / britishcouncil.org (IELTS format, band descriptors), Swan & Smith *Learner English* (CUP, 2001).
+
+## 7. Nâng cấp kho đề & bài tập – kế hoạch sóng E0–E5 (20/11/2026, anh chủ giao)
+
+> Mục tiêu: chất lượng đề/bài tập vượt Duolingo, Cambridge/ELT, ETS (TOEFL/TOEIC), IELTS official/British Council, Magoosh, Babbel, Busuu, Elsa, Quizlet; đầu ra là **nói + viết thật** sau 3–6 tháng. Không cắt, không hạ ngưỡng, $0, dùng lại pipeline (`content:gate`, `exam-format-check`, xưởng `CONTENT-FACTORY.md`, i18n `I18N-PIPELINE.md`). Một nguồn: mục này; số đo tự sinh bằng `npm run content:bank-audit` → `reports/bank-audit.json`.
+
+### 7.1 Kiểm toán thật (main 20/11, `scripts/content-qa/bank-audit.mjs`, 0 token)
+SCORE 80,4: Kho từ 59,2 · Ngữ pháp 72,8 · Giao tiếp 89,7 · 4 kỹ năng 97,6 · **Đề thi 66,6** · Can-do 82,5 · Dễ học 91,8 · i18n 82,8. Kho trắc nghiệm đo được **4.971 câu** (đề dạng điền/viết/nói tính riêng ở SCORE):
+
+| Nhóm | Câu | Lệch vị trí đ.án* | Đ.án dài nhất** | Lời giải rập khuôn | Trùng câu |
+|---|---|---|---|---|---|
+| Ngữ pháp | 1.320 | 15,5 % | 5,8 % | 0 % | 0 % |
+| TOEIC Reading | 1.000 | 1,1 % | 22,5 % | 9,3 % | 0,2 % |
+| TOEIC Listening | 1.000 | 16,2 % | 20,7 % | 13,6 % | 24,9 %*** |
+| TOEFL Listening | 470 | 1,3 % | **55,5 %** | 1,7 % | 0 % |
+| Cambridge (13 đề) | 398 | **28,4 %** | 23,9 % | 0 % | 0 % |
+| TOEFL Reading | 300 | 0,7 % | **48,7 %** | 4,7 % | 0 % |
+| Bài đọc (READINGS) | 222 | **28,4 %** | **59,9 %** | 0 % | 0 % |
+| IELTS Nghe (LISTENING) | 177 | **38,4 %** | 31,1 % | 0 % | 0 % |
+| IELTS Đọc (READTESTS) | 84 | 14,3 % | 45,2 % | (lời giải ở `READ_EXPLAIN`) | 0 % |
+
+\* chênh giữa vị trí A–D phổ biến nhất và ít nhất (đều lý tưởng ≈ 0–5 %). \** tỉ lệ câu có đáp án đúng là lựa chọn dài nhất rõ rệt (mẹo làm bài; chuẩn ETS/Cambridge < 10 %). \*** Part 1–2 chỉ có audio nên khoá "câu+đáp án" trùng; E0 xác nhận bằng audio-id, không đoán.
+Đã tốt: 100 % câu có lời giải, đáp án nhiễu trùng nhau chỉ ở Ngữ pháp (2 % = ~26 câu, sửa ở E1), spec máy đọc `content/exams/spec/*.json` + `exam-format-check`, mock có đồng hồ (`exam-clock`).
+Còn thiếu (số đo SCORE): IELTS Reading AC 480/800, GT 280/400, Writing T2 100/200, T1 52/80, **TOEIC S&W 78/190**, **Cambridge 13/30 đề**; **chưa có**: hiệu chỉnh độ khó (IRT), thi thử ↔ điểm thật, thích ứng theo năng lực, chấm viết/nói theo rubric chính thức có phản hồi lỗi theo tiếng mẹ đẻ. **Chưa đo**: độ đúng đáp án, chất lượng đáp án nhiễu, lời giải độc đáo/đúng, audio tự nhiên, độ phủ spec theo từng dạng câu → E0 đo bằng giám khảo LLM trên mẫu lớn.
+
+### 7.2 Đối chiếu ông lớn (phương pháp, không chép nội dung) và chỗ ta vượt
+| Chiều | Ông lớn làm tốt hơn | LexKite vượt bằng |
+|---|---|---|
+| Format chính thức, độ phủ spec | ETS/IELTS/Cambridge: pretest, đúng từng dạng câu, đủ số đề | spec máy đọc + `exam-format-check` chặn đề lệch; lấp đủ số đề (E2) |
+| Độ khó chuẩn hoá | ETS (IRT, pretest), Duolingo (CAT) | hiệu chỉnh từ **dữ liệu làm bài ẩn danh** của chính app (tỉ lệ đúng, phân biệt, Rasch/Elo) → mỗi câu có độ khó + nhãn band (E3) |
+| Thích ứng | TOEFL 2026 (đa tầng), Duolingo English Test | chọn câu theo năng lực + lỗi lặp (FSRS đã có), miễn phí, offline (E3) |
+| Thi thử ↔ điểm thật | Magoosh/Kaplan dự đoán điểm | bảng quy đổi công khai theo spec + khoảng tin cậy; hiệu chuẩn bằng điểm thật người dùng tự khai báo (E3) |
+| Nói/viết có phản hồi | Elsa (phát âm), IELTS prep (tiêu chí), Cambridge rubric | rubric 4 tiêu chí + sửa lỗi theo L1 (Swan & Smith) + `writecheck`/`pron-coach` chạy trên máy, 0 đồng (E4) |
+| Giải thích | Cambridge/ELT: vì sao sai từng đáp án | lời giải từng đáp án nhiễu, dịch bản xứ 15 ngôn ngữ (E1/E5) |
+| Âm thanh | thu thật, nhiều giọng | Kokoro nhiều giọng/giọng vùng + ASR round-trip gate; bài nghe đủ UK/US/AU/IN (E5) |
+| Quizlet/Babbel/Busuu | lặp ngắt quãng, hội thoại | liên kết hai chiều `lo`↔từ↔ngữ pháp↔câu đề (§3.2) + làm lại câu sai |
+
+### 7.3 Sóng (mỗi sóng đo được; làm tuần tự, 1 PR/mục; CI làm nặng, AI miễn phí = nháp + giám khảo khác họ, Sonnet viết/soát; Opus chỉ trọng tài)
+| Sóng | Việc | Số đo/ngưỡng ra khỏi sóng |
+|---|---|---|
+| **E0 – đo thật** (1 tuần) | `bank-audit` vào CI + giám khảo LLM (ai-pool, 2 họ khác nhau, mẫu ≥ 1.500 câu phân tầng theo nhóm/cấp) chấm: đáp án đúng duy nhất, đáp án nhiễu hợp lý, lời giải đúng & riêng, audio khớp; trùng câu theo audio-id. Thêm mảng **“Chất lượng đề”** vào `content-score` (sàn chỉ tăng) | có số gốc mỗi nhóm; báo `reports/bank-judge.json`; **không** ước lượng |
+| **E1 – sửa lỗi đã đo** (2–3 tuần) | cân bằng vị trí đáp án (xáo theo hạt giống, an toàn với `a`/audio), viết lại đáp án nhiễu cho câu “đ.án dài nhất”, loại trùng, thay lời giải rập khuôn/sai, câu bị giám khảo loại | lệch vị trí ≤ 3 %, đ.án dài nhất ≤ 10 %, rập khuôn ≤ 2 %, trùng 0 %, **≥ 95 % câu qua giám khảo**; mảng “Chất lượng đề” ≥ 95 |
+| **E2 – lấp spec** (4–6 tuần) | Cambridge 13→30 đề + audio, IELTS Reading AC/GT, Writing T1/T2, TOEIC S&W 78→190 (lô Sonnet theo `content-lots.md`, cổng `exam-format-check`, tầng 0 sinh audio Kokoro) | **Đề thi ≥ 95** (hiện 66,6); mọi dạng câu trong spec có ≥ 3 đề |
+| **E3 – hiệu chỉnh + thích ứng + dự đoán điểm** (3–4 tuần) | telemetry làm bài ẩn danh (E0 xác nhận nguồn có sẵn: `web/js/qwk`/`qtips`; thiếu thì thêm, ẩn danh, theo luật riêng tư) → Rasch/Elo theo câu, nhãn độ khó & band; chọn câu thích ứng; bảng quy đổi thi thử→điểm thật có khoảng tin cậy | ≥ 80 % câu có ≥ 30 lượt làm trong 8 tuần có độ khó ổn định (±0,3 logit); lệch dự đoán vs điểm tự khai ≤ 0,5 band (IELTS) / ≤ 60 điểm (TOEIC) trên mẫu thật |
+| **E4 – nói + viết ra kết quả** (song song E3) | ngân hàng đề nói/viết theo rubric chính thức, phản hồi lỗi theo L1, bài mẫu band 6/7/8 (CQ3), đo hàng tháng “nói/viết có tự tin không cần dịch” (chỉ số `web/js/outcomes`) | mỗi tiêu chí rubric có phản hồi cụ thể; số người đạt mốc nói/viết 3 tháng đo được và tăng theo tháng |
+| **E5 – vượt chuẩn** | đáp án nhiễu theo lỗi L1 thật, giọng vùng đa dạng, lời giải 3 tầng (ngắn/ sâu/ vì sao các đáp án sai) dịch bản xứ 15 ngôn ngữ (i18n O5) | điểm bản xứ ≥ 4,5/5; giám khảo so sánh mù với đề ông lớn (cùng cấp) không thua |
+
+Luật chung: không sóng nào hạ sàn `score.budget.json`; mỗi PR gắn `lo`, chạy `content:gate` + `bank-audit`; câu đổi đáp án/vị trí phải đồng bộ audio/`READ_EXPLAIN`/gói i18n (gate bắt); chi phí CI theo `CI-RUNNERS.md`, giám khảo dùng hạn mức ai-pool (`AI-CHAIN.md`), 0 đồng.

@@ -4,6 +4,7 @@ import com.lexkite.app.core.audio.LkAudio
 import com.lexkite.app.core.audio.TtsCallback
 import com.lexkite.app.core.skills.Clip
 import com.lexkite.app.core.skills.PlayerIO
+import com.lexkite.app.core.skills.Reading
 import com.lexkite.app.core.skills.SkillsContent
 import com.lexkite.app.core.skills.Utter
 import com.lexkite.app.core.skills.WordPort
@@ -15,6 +16,7 @@ import com.lexkite.app.feature.vocab.WordEnv
 import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -28,9 +30,12 @@ import java.io.File
  * Everything the listening + reading screens need from the app graph: the vocabulary env (store, audio, mistakes, rewards), the word env (dictionary, cards, speech)
  * and the content pack (parts, passages, word tables). [loadContent] is injected by :app; null = no pack yet (the screens show their empty state).
  */
-class SkillsEnv(val vocab: VocabEnv, val word: WordEnv, val learnLang: String, private val loadContent: suspend () -> SkillsContent?) {
+class SkillsEnv(val vocab: VocabEnv, val word: WordEnv, val learnLang: String, private val loadContent: suspend () -> SkillsContent?, private val loadAdv: suspend () -> List<Reading> = { emptyList() }) {
     @Volatile private var memo: SkillsContent? = null
-    suspend fun content(): SkillsContent? = memo ?: loadContent()?.also { memo = it }
+    @Volatile private var advStarted = false
+    private val bg = CoroutineScope(SupervisorJob() + Dispatchers.IO)
+    /** The core pack first (never blocked by the advanced one); then the C1–C2 readings load in the background and are merged into [memo] – a failed/missing advanced pack is ignored. */
+    suspend fun content(): SkillsContent? = (memo ?: loadContent()?.also { memo = it })?.also { if (!advStarted) { advStarted = true; bg.launch { runCatching { val a = loadAdv(); if (a.isNotEmpty()) memo = memo?.withReadings(a) } } } }
     val now: Long get() = vocab.now()
 
     /** The web's localStorage keys (vb.listenT, vb.readLv): device only, never synced. */
@@ -69,7 +74,16 @@ class SkillsEnv(val vocab: VocabEnv, val word: WordEnv, val learnLang: String, p
             val fresh = if (r != null && r.ok) parse(r.text)?.also { runCatching { f.parentFile?.mkdirs(); f.writeText(r.text) } } else null
             fresh ?: (if (f.exists()) runCatching { f.readText() }.getOrNull()?.let(::parse) else null) ?: runCatching { starter() }.getOrNull()?.let(::parse) // bundled 2-test starter: the hub is never empty offline
         }
+        /** The advanced reading pack https://lexkite.com/data/skills-pack-adv.json (C1–C2 passages, `{v, schema, readings[]}`), disk-cached as skills-pack-adv.json: good download → cache; failure → cache; none → empty (core still works). */
+        suspend fun fetchAdv(http: Http, cacheDir: File, url: String = PACK_ADV_URL): List<Reading> = withContext(Dispatchers.IO) {
+            val f = File(cacheDir, "skills-pack-adv.json")
+            fun parse(t: String) = runCatching { SkillsContent.parseAdv(Json.parseToJsonElement(t) as JsonObject) }.getOrDefault(emptyList())
+            val r = runCatching { http.send(Http.Req("GET", url)) }.getOrNull()
+            val fresh = if (r != null && r.ok) parse(r.text).takeIf { it.isNotEmpty() }?.also { runCatching { f.parentFile?.mkdirs(); f.writeText(r.text) } } else null
+            fresh ?: (if (f.exists()) runCatching { f.readText() }.getOrNull()?.let(::parse) else null) ?: emptyList()
+        }
         const val PACK_URL = "https://lexkite.com/data/skills-pack.json"
+        const val PACK_ADV_URL = "https://lexkite.com/data/skills-pack-adv.json"
     }
 }
 
