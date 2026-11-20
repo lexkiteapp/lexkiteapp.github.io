@@ -330,8 +330,8 @@ def _cut1(runs, size, w):   # one line of the runs: whole words that fit the wid
             keep += tok
         out.append([keep, c_]); cur += keep
     return out
-def _col(c, y0):   # a rules column that is too tall for the room above the captions drops detail step by step (full -> one line per tile -> tag + example), never overflows
-    for lvl in (0, 1, 2):
+def _col(c, y0):   # a rules column that is too tall for the room above the captions drops detail step by step (full -> one line per tile -> tag + example -> tag + one-line example), never overflows
+    for lvl in (0, 1, 2, 3):
         n0, c0, i0 = len(NODES), len(CUES), len(IPA)
         try: return _col1(c, y0, lvl)
         except Tall:
@@ -361,12 +361,12 @@ def _col1(c, y0, lvl=0):
                 ins_, cw_ = cue(r['at'], 'rise'); _cw(f"{c['id']}.tile{n0}", cw_)
                 for k_, x in enumerate(cd.rows[n0:]): x['in'] = ins_; x['id'] = x.get('id') or f"{c['id']}.tile{n0}" + ('' if not k_ else f'.{k_}')
             if r.get('ex'):
-                items = [x for x in cd.line(runs_of(r['ex']), S_SUB, 'card') if x['type'] == 'text']; ins_, cw_ = cue(r['ex_at'], 'rise')
+                items = [x for x in cd.line(_cut1(runs_of(r['ex']), S_SUB, cd.inner()) if lvl >= 3 else runs_of(r['ex']), S_SUB, 'card') if x['type'] == 'text']; ins_, cw_ = cue(r['ex_at'], 'rise')
                 for j_, x in enumerate(items): x['in'] = ins_; x['id'] = f"{c['id']}.ex{len(cd.rows)}" + (f'.{j_}' if j_ else '')
                 _cw(items[0]['id'], cw_)
     ins, cw = cue(c['at'], 'rise'); _cw(c['id'], cw)
     if c.get('ipa'): IPA.append(dict(pop=c['id'], **c['ipa']))
-    if lvl < 2 and y0 + cd.height() > cap_top and c['t'] == 'card' and any(r['t'] == 'tile' for r in c['rows']): raise Tall()
+    if lvl < 3 and y0 + cd.height() > cap_top and c['t'] == 'card' and any(r['t'] == 'tile' for r in c['rows']): raise Tall()
     cn = cd.place(ins=ins)
     for n in NODES:
         if n.get('parent') == c['id'] and n['type'] == 'dot' and n.get('hit'):
