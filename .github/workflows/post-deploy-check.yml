@@ -44,6 +44,7 @@ jobs:
         run: node scripts/test/live-es-course.mjs "$BASE" out/post-deploy/es-course
       - name: Soát tuyến live (console / exception / request / ảnh vỡ)
         id: routes
+        if: ${{ !cancelled() }}
         timeout-minutes: 8
         env: { WAIT_SW: "${{ github.event_name == 'workflow_run' && '1' || '0' }}" }
         run: node scripts/test/post-deploy-check.mjs "$BASE" out/post-deploy

@@ -14,7 +14,7 @@ for (const lang of LANGS) {
   await page.waitForFunction(() => window.App && App.state && App.saveSettings, null, { timeout: 45000 });
   await page.evaluate(async () => { localStorage.setItem('lk.ux1', '1'); localStorage.setItem('lk.onb', '1'); localStorage.setItem('lk.es', '1'); localStorage.setItem('lk.tl', 'es'); App.state.settings.onboarded = true; await App.saveSettings(); });
   for (const r of ROUTES) {
-    await page.goto(`${ORIGIN}/app/?sandbox=1&hl=${lang}#/${r}`, { waitUntil: 'load' }); await page.reload({ waitUntil: 'load' }); await page.waitForTimeout(3500);
+    await page.goto(`${ORIGIN}/app/?sandbox=1&hl=${lang}#/${r}`, { waitUntil: 'load' }); await page.reload({ waitUntil: 'load' }); await page.waitForFunction(() => document.body.innerText.length > 300, null, { timeout: 20000 }).catch(() => {}); await page.waitForTimeout(1500);
     const t = await page.evaluate(() => document.body.innerText), tag = `${lang} ${r}`;
     ok(t.length > 300, `${tag}: có nội dung (${t.length} ký tự)`);
     ok(lang === 'vi' || !VI.test(t), `${tag}: không chữ Việt${VI.test(t) && lang !== 'vi' ? ' [' + t.match(new RegExp('.{0,25}' + VI.source + '.{0,25}', 'i'))[0].replace(/\n/g, ' ') + ']' : ''}`);
