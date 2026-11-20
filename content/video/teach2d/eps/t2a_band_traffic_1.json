@@ -1,0 +1,131 @@
+{
+ "id": "t2a_band_traffic_1",
+ "template": "band",
+ "series": "Band 5 to 9",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "writing-ielts",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Band five to nine!",
+   "pause": 0.3
+  },
+  {
+   "id": "s5",
+   "text": "Cities have too many cars.",
+   "pause": 0.3
+  },
+  {
+   "id": "s7",
+   "text": "Heavy traffic is a major cause of pollution.",
+   "pause": 0.3
+  },
+  {
+   "id": "w7",
+   "text": "Words that go together naturally.",
+   "pause": 0.3
+  },
+  {
+   "id": "s9",
+   "text": "Heavy traffic causes pollution, so public transport deserves investment.",
+   "pause": 0.3
+  },
+  {
+   "id": "w9",
+   "text": "A linking word adds logic.",
+   "pause": 0.3
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "topic": "traffic",
+  "skill": "writing",
+  "steps": [
+   {
+    "band": 5,
+    "text": "Cities have too many cars."
+   },
+   {
+    "band": 7,
+    "text": "Heavy traffic is a major cause of pollution.",
+    "mark": "a major cause of",
+    "why": "collocation",
+    "crit": "Lexical Resource"
+   },
+   {
+    "band": 9,
+    "text": "Heavy traffic causes pollution, so public transport deserves investment.",
+    "mark": "so public transport deserves investment",
+    "why": "link",
+    "crit": "Coherence & Cohesion"
+   }
+  ]
+ },
+ "cta": {
+  "area": "writing-ielts",
+  "route": "#/write",
+  "link": "https://lexkite.com/app/#/write",
+  "say": "Try an IELTS model answer"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Band five to nine"
+ },
+ "src": {
+  "band": "traffic"
+ },
+ "est": {
+  "words": 42,
+  "seconds": 22.8,
+  "wpm": 110
+ },
+ "publish": {
+  "title": "IELTS band 5 to 9: Traffic",
+  "keyword": "ielts band 9",
+  "value": "Traffic, three ways. Band 5: Cities have too many cars. Band 7: Heavy traffic is a major cause of pollution. Band 9: Heavy traffic causes pollution, so public transport deserves investment.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#ielts",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/write",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "IELTS band 5 to 9: Traffic",
+    "description": "Traffic, three ways. Band 5: Cities have too many cars. Band 7: Heavy traffic is a major cause of pollution. Band 9: Heavy traffic causes pollution, so public transport deserves investment.\n\nTry an IELTS model answer, free: https://lexkite.com/app/#/write\n\nSeries: Band 5 to 9 · Teacher: Carlos\n\n#learnenglish #englishtips #ielts #englishteacher",
+    "tags": [
+     "ielts band 9",
+     "Band 5 to 9",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "IELTS band 5 to 9: Traffic\n\nTraffic, three ways. Band 5: Cities have too many cars. Band 7: Heavy traffic is a major cause of pollution. Band 9: Heavy traffic causes pollution, so public transport deserves investment.\n\nTry an IELTS model answer, free: https://lexkite.com/app/#/write"
+   },
+   "instagram": {
+    "caption": "IELTS band 5 to 9: Traffic\n\nTraffic, three ways. Band 5: Cities have too many cars. Band 7: Heavy traffic is a major cause of pollution. Band 9: Heavy traffic causes pollution, so public transport deserves investment.\n\nTry an IELTS model answer: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#ielts",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "IELTS band 5 to 9: Traffic #learnenglish #englishtips #ielts"
+   }
+  },
+  "first_comment": "Quiz answer: Traffic, three ways. Band 5: Cities have too many cars. Band 7: Heavy traffic is a major cause of pollution. Band 9: Heavy traffic causes pollution, so public transport deserves investment. Practice it with a free quiz: {link}"
+ }
+}

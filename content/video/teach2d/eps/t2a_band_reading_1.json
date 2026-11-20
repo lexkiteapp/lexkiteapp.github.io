@@ -1,0 +1,131 @@
+{
+ "id": "t2a_band_reading_1",
+ "template": "band",
+ "series": "Band 5 to 9",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "speaking",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Band five to nine!",
+   "pause": 0.3
+  },
+  {
+   "id": "s5",
+   "text": "Reading books is useful.",
+   "pause": 0.3
+  },
+  {
+   "id": "s7",
+   "text": "Reading is rewarding because it expands your vocabulary.",
+   "pause": 0.3
+  },
+  {
+   "id": "w7",
+   "text": "A more exact word.",
+   "pause": 0.3
+  },
+  {
+   "id": "s9",
+   "text": "Reading widely expands vocabulary and sharpens thinking.",
+   "pause": 0.3
+  },
+  {
+   "id": "w9",
+   "text": "Words that go together naturally.",
+   "pause": 0.3
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "topic": "reading",
+  "skill": "speaking",
+  "steps": [
+   {
+    "band": 5,
+    "text": "Reading books is useful."
+   },
+   {
+    "band": 7,
+    "text": "Reading is rewarding because it expands your vocabulary.",
+    "mark": "rewarding",
+    "why": "precise",
+    "crit": "Lexical Resource"
+   },
+   {
+    "band": 9,
+    "text": "Reading widely expands vocabulary and sharpens thinking.",
+    "mark": "Reading widely",
+    "why": "collocation",
+    "crit": "Lexical Resource"
+   }
+  ]
+ },
+ "cta": {
+  "area": "speaking",
+  "route": "#/speaking",
+  "link": "https://lexkite.com/app/#/speaking",
+  "say": "Practise IELTS speaking"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Band five to nine"
+ },
+ "src": {
+  "band": "reading"
+ },
+ "est": {
+  "words": 38,
+  "seconds": 20.8,
+  "wpm": 109
+ },
+ "publish": {
+  "title": "IELTS band 5 to 9: Reading",
+  "keyword": "ielts band 9",
+  "value": "Reading, three ways. Band 5: Reading books is useful. Band 7: Reading is rewarding because it expands your vocabulary. Band 9: Reading widely expands vocabulary and sharpens thinking.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#ielts",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/speaking",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "IELTS band 5 to 9: Reading",
+    "description": "Reading, three ways. Band 5: Reading books is useful. Band 7: Reading is rewarding because it expands your vocabulary. Band 9: Reading widely expands vocabulary and sharpens thinking.\n\nPractise IELTS speaking, free: https://lexkite.com/app/#/speaking\n\nSeries: Band 5 to 9 · Teacher: Ama\n\n#learnenglish #englishtips #ielts #englishteacher",
+    "tags": [
+     "ielts band 9",
+     "Band 5 to 9",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "IELTS band 5 to 9: Reading\n\nReading, three ways. Band 5: Reading books is useful. Band 7: Reading is rewarding because it expands your vocabulary. Band 9: Reading widely expands vocabulary and sharpens thinking.\n\nPractise IELTS speaking, free: https://lexkite.com/app/#/speaking"
+   },
+   "instagram": {
+    "caption": "IELTS band 5 to 9: Reading\n\nReading, three ways. Band 5: Reading books is useful. Band 7: Reading is rewarding because it expands your vocabulary. Band 9: Reading widely expands vocabulary and sharpens thinking.\n\nPractise IELTS speaking: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#ielts",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "IELTS band 5 to 9: Reading #learnenglish #englishtips #ielts"
+   }
+  },
+  "first_comment": "Did you get it? Reading, three ways. Band 5: Reading books is useful. Band 7: Reading is rewarding because it expands your vocabulary. Band 9: Reading widely expands vocabulary and sharpens thinking. More practice like this (free): {link}"
+ }
+}

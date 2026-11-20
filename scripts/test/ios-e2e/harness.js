@@ -189,6 +189,7 @@
   function plan() {
     if (MODE === 'auth') return planAuth();
     if (MODE === 'journey') return planJourney();
+    if (MODE === 'hubbar') return planHubbar();
     const S = [];
     S.push({ k: 'launch' });
     S.push({ k: 'toapp' });
@@ -206,6 +207,39 @@
     S.push({ k: 'realshare' }); S.push({ k: 'realnotify' });
     S.push({ k: 'done' });
     return S;
+  }
+  // Thanh hub 5 tab trên iPhone thật trong Simulator (hub-bar.yml, E2E_MODE=hubbar): sáng/tối × 5 tab → đo safe-area px thật, một thanh, icon, nhãn tab, chồng lấn + ảnh
+  function planHubbar() {
+    const S = [{ k: 'launch' }, { k: 'toapp' }, { k: 'lang', l: 'vi' }, { k: 'onboard' }];
+    for (const th of ['light', 'dark']) for (const r of ['home', 'vocab', 'skills', 'tests', 'me']) S.push({ k: 'hub', r, th });
+    S.push({ k: 'done' });
+    return S;
+  }
+  function hubMeasure(route) {
+    const out = [], hbs = [...document.querySelectorAll('header.hb')].filter(vis);
+    const pr = document.createElement('div'); pr.style.cssText = 'position:fixed;top:0;left:0;visibility:hidden;padding-top:env(safe-area-inset-top,0px)'; document.body.appendChild(pr);
+    const safe = parseFloat(getComputedStyle(pr).paddingTop) || 0; pr.remove();
+    const nav = [...document.querySelectorAll('nav a[data-tab], #bnav a[data-tab]')].filter(vis);
+    emit({ type: 'info', key: 'hubbar', route, safe, hb: hbs.length, W: innerWidth });
+    if (hbs.length !== 1) out.push('có ' + hbs.length + ' thanh hub nhìn thấy (cần đúng 1)');
+    const hb = hbs[0];
+    if (hb) {
+      const r1 = hb.querySelector('.hb-r').getBoundingClientRect(), hr = hb.getBoundingClientRect();
+      if (hr.top < -0.5) out.push('thanh hub bị đẩy lên trên mép màn (top ' + hr.top.toFixed(1) + ')');
+      if (r1.top < safe - 0.5) out.push('hàng 1 thanh hub (top ' + r1.top.toFixed(1) + ' px) nằm DƯỚI thanh trạng thái iOS (safe-area-inset-top ' + safe.toFixed(1) + ' px)');
+      if (safe < 1) out.push('safe-area-inset-top = 0 trên iPhone thật (viewport-fit=cover mất?)');
+      const items = [...hb.querySelectorAll('a, button')].filter(vis), bs = items.map(e => e.getBoundingClientRect());
+      for (let i = 0; i < bs.length; i++) for (let j = i + 1; j < bs.length; j++) { const a = bs[i], b = bs[j]; if (Math.min(a.right, b.right) - Math.max(a.left, b.left) > 1 && Math.min(a.bottom, b.bottom) - Math.max(a.top, b.top) > 1) out.push('hai nút thanh hub chồng nhau: ' + (items[i].getAttribute('data-act') || items[i].className) + ' × ' + (items[j].getAttribute('data-act') || items[j].className)); }
+      for (const e of items) { const b = e.getBoundingClientRect(), h = document.elementFromPoint((b.left + b.right) / 2, (b.top + b.bottom) / 2); if (!(h && (h === e || e.contains(h)))) out.push('nút ' + (e.getAttribute('data-act') || e.getAttribute('data-hdr') || e.className) + ' bị phần tử khác che'); if (b.left < -0.5 || b.right > innerWidth + 0.5) out.push('nút ra ngoài màn: ' + (e.getAttribute('data-act') || e.className)); }
+      if (route !== 'home' && hb.querySelectorAll('[data-hdr]').length !== 4) out.push('thiếu viên số (' + hb.querySelectorAll('[data-hdr]').length + '/4)');
+    }
+    if ([...document.querySelectorAll('.topbar')].some(vis)) out.push('còn thanh trên cũ (.topbar)');
+    if (nav.length !== 5) out.push('thanh tab dưới ' + nav.length + '/5 tab');
+    else { const tt = nav.map(a => { const sp = a.querySelector('span:not(.badge), bdi'); return sp ? getComputedStyle(sp).textTransform : ''; }); if (new Set(tt).size > 1 || tt.includes('uppercase')) out.push('nhãn tab dưới không cùng kiểu/viết HOA: ' + tt.join(',')); if (nav.some(a => { const b = a.getBoundingClientRect(); return b.left < -0.5 || b.right > innerWidth + 0.5; })) out.push('nhãn tab dưới bị cắt ra ngoài màn'); }
+    // icon rỗng: ô icon (ligature hoặc SVG sprite) nhìn thấy mà không vẽ gì → ligature còn là chữ thô, hoặc <use> trỏ symbol không có
+    for (const e of document.querySelectorAll('[class*="material-symbols"]')) if (vis(e) && !e.querySelector('svg.msv') && /^[a-z_]{3,}$/.test((e.textContent || '').trim()) && getComputedStyle(e).fontSize !== '0px' && getComputedStyle(e).color !== 'rgba(0, 0, 0, 0)') out.push('icon ligature chưa thành SVG (có thể trống trên iOS): ' + (e.textContent || '').trim());
+    for (const u of document.querySelectorAll('svg use')) { const id = (u.getAttribute('href') || '').replace(/^#/, ''), sym = id && document.getElementById(id); if (vis(u.ownerSVGElement) && id && (!sym || !sym.children.length)) out.push('symbol SVG thiếu/rỗng: #' + id); }
+    return out;
   }
   // Hành trình 1–3 (journey-e2e.yml, native=1): scripts/test/journey-e2e/native.js (LKJN) – mỗi ngôn ngữ: hồ sơ mới → lần đầu → quay lại → ôn tập; tải lại giữa các pha
   function planJourney() {
@@ -256,6 +290,12 @@
         if (!W.LKJN) { add('journey', 'không nạp được e2e-journey.js'); return; }
         const hb = setInterval(() => emit({ type: 'beat' }), 10000); // pha dài (j2a > 45 s) → driver không tưởng app treo
         let bad; try { bad = await W.LKJN[s.f](); } finally { clearInterval(hb); } for (const m of bad || []) add('journey', m); await shot('jrn-' + s.f); return;
+      }
+      case 'hub': {
+        await host('appearance', { mode: s.th }); await sleep(1200);
+        await visit(s.r, 'hub ' + s.th + ' ' + s.r, { wait: 9000 });
+        await sleep(600); for (const m of hubMeasure(s.r)) add('hubbar', '[' + s.th + '/' + s.r + '] ' + m);
+        return;
       }
       case 'reload': { st.i++; st.inStep = null; save(); location.reload(); await sleep(15000); add('flow', 'tải lại không xảy ra'); return; }
       case 'launch': {

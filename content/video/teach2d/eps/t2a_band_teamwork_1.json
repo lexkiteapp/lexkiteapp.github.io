@@ -1,0 +1,131 @@
+{
+ "id": "t2a_band_teamwork_1",
+ "template": "band",
+ "series": "Band 5 to 9",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "speaking",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Band five to nine!",
+   "pause": 0.3
+  },
+  {
+   "id": "s5",
+   "text": "Working in a team is good.",
+   "pause": 0.3
+  },
+  {
+   "id": "s7",
+   "text": "Working in a team is advantageous because ideas are shared.",
+   "pause": 0.3
+  },
+  {
+   "id": "w7",
+   "text": "A more exact word.",
+   "pause": 0.3
+  },
+  {
+   "id": "s9",
+   "text": "Teamwork pays off when people combine their strengths rather than compete.",
+   "pause": 0.3
+  },
+  {
+   "id": "w9",
+   "text": "Exact meaning, natural flow.",
+   "pause": 0.3
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "topic": "teamwork",
+  "skill": "speaking",
+  "steps": [
+   {
+    "band": 5,
+    "text": "Working in a team is good."
+   },
+   {
+    "band": 7,
+    "text": "Working in a team is advantageous because ideas are shared.",
+    "mark": "advantageous",
+    "why": "precise",
+    "crit": "Lexical Resource"
+   },
+   {
+    "band": 9,
+    "text": "Teamwork pays off when people combine their strengths rather than compete.",
+    "mark": "pays off when people combine their strengths rather than compete",
+    "why": "nuance",
+    "crit": "Lexical Resource"
+   }
+  ]
+ },
+ "cta": {
+  "area": "speaking",
+  "route": "#/speaking",
+  "link": "https://lexkite.com/app/#/speaking",
+  "say": "Practise IELTS speaking"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Band five to nine"
+ },
+ "src": {
+  "band": "teamwork"
+ },
+ "est": {
+  "words": 45,
+  "seconds": 24.3,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "IELTS band 5 to 9: Teamwork",
+  "keyword": "ielts band 9",
+  "value": "Teamwork, three ways. Band 5: Working in a team is good. Band 7: Working in a team is advantageous because ideas are shared. Band 9: Teamwork pays off when people combine their strengths rather than compete.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#ielts",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/speaking",
+  "script_words": 44,
+  "platforms": {
+   "youtube": {
+    "title": "IELTS band 5 to 9: Teamwork",
+    "description": "Teamwork, three ways. Band 5: Working in a team is good. Band 7: Working in a team is advantageous because ideas are shared. Band 9: Teamwork pays off when people combine their strengths rather than compete.\n\nPractise IELTS speaking, free: https://lexkite.com/app/#/speaking\n\nSeries: Band 5 to 9 · Teacher: Ama\n\n#learnenglish #englishtips #ielts #englishteacher",
+    "tags": [
+     "ielts band 9",
+     "Band 5 to 9",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "IELTS band 5 to 9: Teamwork\n\nTeamwork, three ways. Band 5: Working in a team is good. Band 7: Working in a team is advantageous because ideas are shared. Band 9: Teamwork pays off when people combine their strengths rather than compete.\n\nPractise IELTS speaking, free: https://lexkite.com/app/#/speaking"
+   },
+   "instagram": {
+    "caption": "IELTS band 5 to 9: Teamwork\n\nTeamwork, three ways. Band 5: Working in a team is good. Band 7: Working in a team is advantageous because ideas are shared. Band 9: Teamwork pays off when people combine their strengths rather than compete.\n\nPractise IELTS speaking: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#ielts",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "IELTS band 5 to 9: Teamwork #learnenglish #englishtips #ielts"
+   }
+  },
+  "first_comment": "Did you get it? Teamwork, three ways. Band 5: Working in a team is good. Band 7: Working in a team is advantageous because ideas are shared. Band 9: Teamwork pays off when people combine their strengths rather than compete. More practice like this (free): {link}"
+ }
+}

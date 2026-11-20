@@ -1,0 +1,130 @@
+{
+ "_doc": "Màn Cài đặt (#/settings) – mẫu v2.1 dựng từ token + khuôn hàng của màn Tôi (Stitch screen 1d2fcc5f… là bản thăm dò; xem .index.txt). Khung \"inner\" (frame-variants.json): thanh trên + 5 tab chung của app giữ nguyên (tab = null, bỏ st/v2on như grammar), nút Back + tiêu đề của mẫu giữ (≥ 44 px, về Tôi / về mục lục). Mục lục = d.groups (nhóm hàng cùng khuôn hàng 'Preferences' của Tôi: icon, nhãn, giá trị, chevron; hàng là liên kết #/settings/<mục>). Trang con (#/settings/<mục>): groups rỗng, web/js/settings.js chèn các nhóm điều khiển cũ (.set-wrap, mọi id/handler giữ nguyên) vào cuối khung.",
+ "swap": {
+  "w-[390px]": "w-full",
+  "max-w-[390px]": "",
+  "min-h-screen": "min-h-0",
+  "sticky": "",
+  "top-0": "",
+  "z-30": "",
+  "pb-10": "pb-4",
+  "text-[22px]": "",
+  "leading-[30px]": "",
+  "tracking-[0em]": "",
+  "text-headline-sm": "",
+  "font-headline-sm": ""
+ },
+ "text": {
+  "Settings": "d.title"
+ },
+ "attr": {
+  ":scope > main > header > button": {
+   "data-href": "d.backHref",
+   "aria-label": "d.backL"
+  }
+ },
+ "repeat": [
+  {
+   "list": "d.groups",
+   "as": "g",
+   "samples": ":scope > main > div > div",
+   "variants": {
+    "g": ":scope > main > div > div:nth-child(2)"
+   },
+   "bind": {
+    "g": {
+     "attr": {
+      ":scope": {
+       "data-grp": "g.k"
+      }
+     },
+     "repeat": [
+      {
+       "list": "g.rows",
+       "as": "w",
+       "samples": ":scope > div",
+       "pick": "w.v",
+       "variants": {
+        "n1": ":scope > div:nth-child(1)",
+        "hr": ":scope > div:nth-child(2)",
+        "n2": ":scope > div:nth-child(3)",
+        "n3": ":scope > div:nth-child(5)"
+       },
+       "bind": {
+        "n1": {
+         "html": {
+          ":scope > div:nth-child(1) > div:nth-child(1) > span": "w.icon",
+          ":scope > div:nth-child(1) > div:nth-child(2) > span:nth-child(1)": "e(w.label)",
+          ":scope > div:nth-child(1) > div:nth-child(2) > span:nth-child(2)": "e(w.value)",
+          ":scope > span": "w.chev"
+         },
+         "tag": {
+          ":scope": {
+           "to": "a"
+          }
+         },
+         "attr": {
+          ":scope": {
+           "href": "w.href",
+           "data-go": "w.k"
+          }
+         },
+         "addClass": {
+          ":scope": "set-go"
+         }
+        },
+        "n2": {
+         "html": {
+          ":scope > div:nth-child(1) > div:nth-child(1) > span": "w.icon",
+          ":scope > div:nth-child(1) > div:nth-child(2) > span:nth-child(1)": "e(w.label)",
+          ":scope > div:nth-child(1) > div:nth-child(2) > span:nth-child(2)": "e(w.value)",
+          ":scope > span": "w.chev"
+         },
+         "tag": {
+          ":scope": {
+           "to": "a"
+          }
+         },
+         "attr": {
+          ":scope": {
+           "href": "w.href",
+           "data-go": "w.k"
+          }
+         },
+         "addClass": {
+          ":scope": "set-go"
+         }
+        },
+        "n3": {
+         "html": {
+          ":scope > div:nth-child(1) > div:nth-child(1) > span": "w.icon",
+          ":scope > div:nth-child(1) > div:nth-child(2) > span:nth-child(1)": "e(w.label)",
+          ":scope > div:nth-child(1) > div:nth-child(2) > span:nth-child(2)": "e(w.value)",
+          ":scope > span": "w.chev"
+         },
+         "tag": {
+          ":scope": {
+           "to": "a"
+          }
+         },
+         "attr": {
+          ":scope": {
+           "href": "w.href",
+           "data-go": "w.k"
+          }
+         },
+         "addClass": {
+          ":scope": "set-go"
+         }
+        }
+       }
+      }
+     ]
+    }
+   }
+  }
+ ],
+ "addClass": {
+  ":scope > main > header > h1": "[font-family:var(--font-display)]"
+ }
+}

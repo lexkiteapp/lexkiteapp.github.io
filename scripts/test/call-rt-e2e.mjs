@@ -74,7 +74,7 @@ const INIT = cfg => {
   window.SpeechRecognition = window.webkitSpeechRecognition = MockSR;
   try { const ss = window.speechSynthesis; ss.speak = u => setTimeout(() => { if (u.onstart) u.onstart({}); if (u.onend) u.onend({}); }, 40); ss.getVoices = () => []; } catch (e) { /* */ }
   // theo dõi mỗi khung: lúc giáo viên chuyển sang 'talk' + fps
-  window.__talk = []; window.__fr = [];
+  window.__talk = []; window.__fr = []; window.__callRtTrace = true;
   let prev = '';
   const loop = t => { window.__fr.push(t); if (window.__fr.length > 20000) window.__fr.shift(); const s = window.__callState && window.__callState(); const ph = s && s.phase; if (ph === 'talk' && prev !== 'talk') window.__talk.push(performance.now()); prev = ph; requestAnimationFrame(loop); };
   requestAnimationFrame(loop);
@@ -101,7 +101,7 @@ async function run(tag, cfg, calls, o = {}) {
   for (let i = 0; i < 8 && !(await page.$('#go')) && (await page.$('#obNext')); i++) { await page.click('#obNext').catch(() => {}); await page.waitForTimeout(150); }
   if (await page.$('#go')) { await page.click('#go').catch(() => {}); await page.waitForTimeout(800); }
   const cdp = await ctx.newCDPSession(page); await cdp.send('Emulation.setCPUThrottlingRate', { rate: (await rateFor(browser, CPU)).rate }); // hiệu chuẩn theo tốc độ thật của runner (lib/perf-calibrate.mjs)
-  const res = { first: [], reply: [], barge: [], fps: 0, src: '', turns: 0 };
+  const res = { first: [], reply: [], barge: [], bargeTrace: [], fps: 0, src: '', turns: 0 };
   let w = 0;
   // Mỗi chế độ có ngân sách thời gian (5,5 phút) + nhật ký từng bước: kẹt ở đâu thấy ngay trong log CI, không im lặng tới khi job bị huỷ ở phút 25
   const T0 = Date.now(), DEADLINE = T0 + RUN_MS, lg = m => console.log(`  [${tag} +${((Date.now() - T0) / 1000).toFixed(0)}s] ${m}`);
@@ -138,6 +138,8 @@ async function run(tag, cfg, calls, o = {}) {
           await page.waitForFunction(o => (window.__callRt.marks || []).some(x => x.name === 'hushed' && x.t > o), b.onset, { timeout: 5000 }).catch(() => {});
           const h = await page.evaluate(o => (window.__callRt.marks.find(x => x.name === 'hushed' && x.t > o) || {}).t, b.onset);
           res.barge.push(h ? h - b.onset : 9999);
+          // vết xác suất từng khung quanh lần nói chen: [ms so với lúc tiếng bắt đầu, p×100] – để thấy độ trễ nằm ở khung nào (16/11: mẫu lẻ ~300 ms trong khi 3 khung liền > 0,8 đáng lẽ ≈ 100 ms)
+{ const tr = { ms: res.barge[res.barge.length - 1], fr: await page.evaluate(o => (window.__callRt.fr || []).filter(f => f[0] >= o - 150 && f[0] <= o + 700).map(f => [Math.round(f[0] - o), Math.round(f[1] * 100)]), b.onset) }; res.bargeTrace.push(tr); lg(`nói chen ${tr.ms.toFixed ? tr.ms.toFixed(0) : tr.ms} ms · khung [ms,p×100]: ` + JSON.stringify(tr.fr.filter(f => f[0] >= -60 && f[0] <= 420))); }
           await page.waitForFunction(n => window.__callState().log.length > n || window.__callState().phase === 'done', n1, { timeout: 30000 }).catch(() => {});
         }
       }

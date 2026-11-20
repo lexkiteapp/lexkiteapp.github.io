@@ -13288,6 +13288,502 @@
     ],
     "tight": 1
    }
+  },
+  {
+   "id": "t2a_band_technology_1",
+   "template": "band",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "writing-ielts",
+   "point": "band:technology",
+   "hash": "46b5b9bbe386",
+   "heads": [
+    "band:technology"
+   ],
+   "taught": [
+    "Technology",
+    "is",
+    "beneficial",
+    "because",
+    "it",
+    "eases",
+    "communication",
+    "Technology",
+    "transforms",
+    "communication",
+    "though",
+    "it",
+    "can",
+    "weaken",
+    "personal",
+    "ties"
+   ],
+   "in": {
+    "topic": "technology"
+   }
+  },
+  {
+   "id": "t2a_band_health_1",
+   "template": "band",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "writing-ielts",
+   "point": "band:health",
+   "hash": "1daeff0c720b",
+   "heads": [
+    "band:health"
+   ],
+   "taught": [
+    "Regular",
+    "exercise",
+    "improves",
+    "physical",
+    "and",
+    "mental",
+    "health",
+    "Exercise",
+    "strengthens",
+    "the",
+    "body",
+    "and",
+    "equally",
+    "steadies",
+    "the",
+    "mind"
+   ],
+   "in": {
+    "topic": "health"
+   }
+  },
+  {
+   "id": "t2a_band_cities_1",
+   "template": "band",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "writing-ielts",
+   "point": "band:cities",
+   "hash": "37b3e88e808a",
+   "heads": [
+    "band:cities"
+   ],
+   "taught": [
+    "Large",
+    "cities",
+    "face",
+    "serious",
+    "problems",
+    "such",
+    "as",
+    "pollution",
+    "Large",
+    "cities",
+    "face",
+    "serious",
+    "problems",
+    "yet",
+    "they",
+    "remain",
+    "hubs",
+    "of",
+    "opportunity"
+   ],
+   "in": {
+    "topic": "cities"
+   }
+  },
+  {
+   "id": "t2a_band_money_1",
+   "template": "band",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "speaking",
+   "point": "band:money",
+   "hash": "13d0b18b0085",
+   "heads": [
+    "band:money"
+   ],
+   "taught": [
+    "I",
+    "believe",
+    "money",
+    "matters",
+    "because",
+    "it",
+    "gives",
+    "people",
+    "security",
+    "Money",
+    "matters",
+    "though",
+    "it",
+    "rarely",
+    "buys",
+    "lasting",
+    "satisfaction"
+   ],
+   "in": {
+    "topic": "money"
+   }
+  },
+  {
+   "id": "t2a_band_travel_1",
+   "template": "band",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "speaking",
+   "point": "band:travel",
+   "hash": "bf136a7c864f",
+   "heads": [
+    "band:travel"
+   ],
+   "taught": [
+    "Travelling",
+    "is",
+    "enjoyable",
+    "and",
+    "broadens",
+    "your",
+    "horizons",
+    "Travel",
+    "broadens",
+    "the",
+    "mind",
+    "precisely",
+    "because",
+    "it",
+    "unsettles",
+    "assumptions"
+   ],
+   "in": {
+    "topic": "travel"
+   }
+  },
+  {
+   "id": "t2a_band_environment_1",
+   "template": "band",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "writing-ielts",
+   "point": "band:environment",
+   "hash": "79b2a629e548",
+   "heads": [
+    "band:environment"
+   ],
+   "taught": [
+    "Governments",
+    "should",
+    "take",
+    "action",
+    "to",
+    "protect",
+    "the",
+    "planet",
+    "Governments",
+    "must",
+    "act",
+    "now",
+    "otherwise",
+    "future",
+    "generations",
+    "will",
+    "pay"
+   ],
+   "in": {
+    "topic": "environment"
+   }
+  },
+  {
+   "id": "t2a_band_jobs_1",
+   "template": "band",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "speaking",
+   "point": "band:jobs",
+   "hash": "c9697074929d",
+   "heads": [
+    "band:jobs"
+   ],
+   "taught": [
+    "A",
+    "rewarding",
+    "job",
+    "gives",
+    "people",
+    "a",
+    "sense",
+    "of",
+    "purpose",
+    "A",
+    "rewarding",
+    "job",
+    "matters",
+    "less",
+    "for",
+    "its",
+    "salary",
+    "than",
+    "for",
+    "the",
+    "purpose",
+    "it",
+    "provides"
+   ],
+   "in": {
+    "topic": "jobs"
+   }
+  },
+  {
+   "id": "t2a_band_food_1",
+   "template": "band",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "writing-ielts",
+   "point": "band:food",
+   "hash": "b21579df5c89",
+   "heads": [
+    "band:food"
+   ],
+   "taught": [
+    "Fast",
+    "food",
+    "is",
+    "harmful",
+    "because",
+    "it",
+    "contains",
+    "too",
+    "much",
+    "sugar",
+    "Fast",
+    "food",
+    "is",
+    "harmful",
+    "but",
+    "banning",
+    "it",
+    "would",
+    "be",
+    "an",
+    "overreaction"
+   ],
+   "in": {
+    "topic": "food"
+   }
+  },
+  {
+   "id": "t2a_band_socialmedia_1",
+   "template": "band",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "writing-ielts",
+   "point": "band:social-media",
+   "hash": "033862b4a053",
+   "heads": [
+    "band:social-media"
+   ],
+   "taught": [
+    "Social",
+    "media",
+    "is",
+    "an",
+    "essential",
+    "part",
+    "of",
+    "daily",
+    "life",
+    "Social",
+    "media",
+    "is",
+    "so",
+    "essential",
+    "that",
+    "few",
+    "imagine",
+    "life",
+    "without",
+    "it"
+   ],
+   "in": {
+    "topic": "social-media"
+   }
+  },
+  {
+   "id": "t2a_band_climate_1",
+   "template": "band",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "writing-ielts",
+   "point": "band:climate",
+   "hash": "4cc8e8291fc9",
+   "heads": [
+    "band:climate"
+   ],
+   "taught": [
+    "Climate",
+    "change",
+    "is",
+    "a",
+    "pressing",
+    "issue",
+    "that",
+    "affects",
+    "everyone",
+    "Climate",
+    "change",
+    "is",
+    "a",
+    "pressing",
+    "issue",
+    "whose",
+    "consequences",
+    "no",
+    "country",
+    "can",
+    "escape"
+   ],
+   "in": {
+    "topic": "climate"
+   }
+  },
+  {
+   "id": "t2a_band_teamwork_1",
+   "template": "band",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "speaking",
+   "point": "band:teamwork",
+   "hash": "5afdb50bb622",
+   "heads": [
+    "band:teamwork"
+   ],
+   "taught": [
+    "Working",
+    "in",
+    "a",
+    "team",
+    "is",
+    "advantageous",
+    "because",
+    "ideas",
+    "are",
+    "shared",
+    "Teamwork",
+    "pays",
+    "off",
+    "when",
+    "people",
+    "combine",
+    "their",
+    "strengths",
+    "rather",
+    "than",
+    "compete"
+   ],
+   "in": {
+    "topic": "teamwork"
+   }
+  },
+  {
+   "id": "t2a_band_sleep_1",
+   "template": "band",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "speaking",
+   "point": "band:sleep",
+   "hash": "ce6a15d137fe",
+   "heads": [
+    "band:sleep"
+   ],
+   "taught": [
+    "Adequate",
+    "sleep",
+    "is",
+    "vital",
+    "for",
+    "students",
+    "concentration",
+    "Adequate",
+    "sleep",
+    "is",
+    "vital",
+    "since",
+    "tired",
+    "students",
+    "rarely",
+    "concentrate",
+    "or",
+    "remember",
+    "much"
+   ],
+   "in": {
+    "topic": "sleep"
+   }
+  },
+  {
+   "id": "t2a_band_reading_1",
+   "template": "band",
+   "teacher": "ama",
+   "theme": "dusk",
+   "area": "speaking",
+   "point": "band:reading",
+   "hash": "9fb072abc5f0",
+   "heads": [
+    "band:reading"
+   ],
+   "taught": [
+    "Reading",
+    "is",
+    "rewarding",
+    "because",
+    "it",
+    "expands",
+    "your",
+    "vocabulary",
+    "Reading",
+    "widely",
+    "expands",
+    "vocabulary",
+    "and",
+    "sharpens",
+    "thinking"
+   ],
+   "in": {
+    "topic": "reading"
+   }
+  },
+  {
+   "id": "t2a_band_traffic_1",
+   "template": "band",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "area": "writing-ielts",
+   "point": "band:traffic",
+   "hash": "7a45afed3a23",
+   "heads": [
+    "band:traffic"
+   ],
+   "taught": [
+    "Heavy",
+    "traffic",
+    "is",
+    "a",
+    "major",
+    "cause",
+    "of",
+    "pollution",
+    "Heavy",
+    "traffic",
+    "causes",
+    "pollution",
+    "so",
+    "public",
+    "transport",
+    "deserves",
+    "investment"
+   ],
+   "in": {
+    "topic": "traffic"
+   }
   }
  ]
 }
