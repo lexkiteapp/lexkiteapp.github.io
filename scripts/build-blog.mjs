@@ -333,8 +333,8 @@ const write = (u, html) => { const f = path.join(OUT, u, 'index.html'); fs.mkdir
 LIVE = new Set(posts.map(postUrl));
 const TAGN = new Map(); for (const p of posts) for (const g of p.tags || []) TAGN.set(`${p.lang}/${g}`, (TAGN.get(`${p.lang}/${g}`) || 0) + 1); // thẻ < 2 bài → không có trang thẻ
 const byKey = new Map(); for (const p of posts) (byKey.get(p.translationKey || p.slug) || byKey.set(p.translationKey || p.slug, []).get(p.translationKey || p.slug)).push(p);
-// x-default: bản tiếng Anh (khách quốc tế) nếu có, không thì ngôn ngữ chính
-const alts = p => { const g = byKey.get(p.translationKey || p.slug) || [p]; if (g.length < 2) return []; const a = g.map(x => ({ lang: x.lang, url: postUrl(x) })); const d = g.find(x => x.lang === 'en') || g.find(x => x.lang === DEF) || g[0]; /* luôn có x-default (cổng seo-pages) */ return d ? [...a, { lang: 'x-default', url: postUrl(d) }] : a; };
+// x-default: bản tiếng Anh (khách quốc tế) nếu có, không thì ngôn ngữ phổ biến nhất trong cụm (khớp cổng seo-pages)
+const alts = p => { const g = byKey.get(p.translationKey || p.slug) || [p]; if (g.length < 2) return []; const a = g.map(x => ({ lang: x.lang, url: postUrl(x) })); const d = ['en', 'es', 'pt', 'fr', 'de', 'id', 'ru', 'tr', 'ja', 'ko', 'zh', 'th', 'ar', 'hi', 'vi'].map(l => g.find(x => x.lang === l)).find(Boolean) || g[0]; /* cùng thứ tự XD với cổng seo-pages */ /* luôn có x-default (cổng seo-pages) */ return d ? [...a, { lang: 'x-default', url: postUrl(d) }] : a; };
 
 // Bài viết
 for (const p of posts) {
