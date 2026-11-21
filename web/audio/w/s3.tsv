@@ -10051,3 +10051,15 @@ pronounceable	ok	ok
 transliterate	ok	ok
 semipermeable	ok	ok
 closedown	ok	ok
+urinalysis	ok	cut_wordis: câu mang: "The word is, your analysis." · dot100:"Your analysis" 0.99s · cut_wordis100: câu mang: "The word is, your analysis." · cut_next: câu mang: "Next word, your analysis." · plain095:"Your analysis." 0.99s · dot090:"Your analysis." 1.05s
+depolarize	ok	ok
+mucilaginous	ok	ok
+collectivize	ok	ok
+misapply	ok	ok
+precast	ok	ok
+sailplane	ok	ok
+clast	cut_wordis: câu mang: "The word is clasty." · dot100:"Classed." 0.67s · cut_wordis100: câu mang: "The word is classed." · cut_next: câu mang: "Next word, Eclasti." · plain095:"Clursed." 0.64s · dot090:"Eglast." 0.74s	cut_wordis: câu mang: "The word is classed." · dot100:"Glassed." 0.66s · cut_wordis100: câu mang: "The word is classed." · cut_next: câu mang: "Next word, classed." · plain095:"At last." 0.66s · dot090:"Classed" 0.74s
+erythropoiesis	ok	ok
+attender	ok	ok
+protract	cut_wordis: câu mang: "The word is protracty." · dot100:"Protractor" 0.86s · cut_wordis100: câu mang: "The word is protracty." · cut_next: câu mang: "Next word, protractor." · plain095:"and protract" 0.79s · dot090:"Protractor" 0.90s	ok
+ossify	ok	ok
