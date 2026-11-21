@@ -332,6 +332,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
     roleplay: 'roleplay',
     rtype: 'mock',
     say: 'say',
+    score: 'score30',
     settings: ['remind', 'settings'],
     skills: 'skillsv2',
     speak: 'pas',
@@ -388,14 +389,14 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
     cambridge: 'css/exam.css',
     dayv2: 'css/st-v2-day.css',
     dictp: 'css/st-v2-dict.css',
-    espr: ['css/tactile-x.css', 'css/st-lesson.css', 'css/st-v2-lesson-question.css', 'css/st-v2-ex-frame.css', 'css/st-v2-ex-match.css', 'css/lesson-ex.css', 'css/st-v2-feedback-correct.css', 'css/st-v2-feedback-wrong.css', 'css/st-v2-lesson-complete.css'],
+    espr: ['css/tactile-x.css', 'css/st-lesson.css', 'css/st-v2-lesson-question.css', 'css/st-v2-feedback-correct.css', 'css/st-v2-feedback-wrong.css', 'css/st-v2-lesson-complete.css'],
     ghub: 'css/st-v2-grammar.css',
     goal: ['css/tactile-x.css', 'css/st-goal.css'],
     irregular: 'css/st-v2-irregular.css',
     irvdrill: 'css/st-v2-irregular-drill.css',
     lcard: 'css/lcard.css',
     league: 'css/league.css',
-    lesson: ['css/tactile-x.css', 'css/st-lesson.css', 'css/st-v2-lesson-question.css', 'css/st-v2-ex-frame.css', 'css/st-v2-ex-match.css', 'css/lesson-ex.css', 'css/st-v2-feedback-correct.css', 'css/st-v2-feedback-wrong.css', 'css/st-v2-lesson-complete.css', 'css/st-v2-story-duo.css'],
+    lesson: ['css/tactile-x.css', 'css/st-lesson.css', 'css/st-v2-lesson-question.css', 'css/st-v2-feedback-correct.css', 'css/st-v2-feedback-wrong.css', 'css/st-v2-lesson-complete.css', 'css/st-v2-story-duo.css'],
     libv2: 'css/st-v2-library.css',
     listening: 'css/exam.css',
     mock: 'css/exam.css',
@@ -934,7 +935,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
       if (!next) {
         hab('plan_done');
         el.innerHTML = `<div class="today-done">${window.Kit ? Kit.svg('win', 72, true) : UI.icon('party-popper')}<h2>${t('Xong kế hoạch hôm nay!')} ${UI.icon('party-popper')}</h2><p class="muted">${t('Ngày mai quay lại để giữ chuỗi nhé. Muốn học thêm?')}</p>
-          <div class="row center"><a class="btn" href="#/practice">⚡ ${t('Trò chơi từ vựng')}</a><a class="btn" href="#/skills">🎯 ${t('Luyện thêm kỹ năng')}</a></div>${resume}</div>`;
+          <div class="row center"><a class="btn" href="#/practice">⚡ ${t('Trò chơi từ vựng')}</a><a class="btn" href="#/skills">🎯 ${t('Luyện thêm kỹ năng')}</a><a class="btn" href="#/score">🎤 ${t('Thử thách nói 30 giây')}</a></div>${resume}</div>`;
         const ks = $('#kitSay'); if (ks) ks.textContent = t('Xong mục tiêu hôm nay rồi! Giỏi quá 🎉');
         return;
       }

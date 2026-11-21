@@ -36,6 +36,7 @@ const CTA_EV = ['ext_land', 'ext_feat', 'ext_blog', 'ext_app', 'ext_set', 'ext_n
   ...['head', 'foot', 'menu', 'me', 'top', 'rail', 'inst', 'get'].flatMap(p => ['cws', 'play', 'ios', 'edge', 'firefox', 'a2hs', 'dock', 'web'].map(k => `app_${p}_${k}`))]; // bấm "Thêm vào Chrome" (web/js/ext-cta.js) → kind 'cta:<ev>'
 const INST_EV = ['first', 'streak', 'words'].flatMap(m => ['v', 'c', 'x'].flatMap(a => ['play', 'ios', 'desk'].map(k => `inst_${m}_${a}_${k}`))); // mời cài app ở khoảnh khắc giá trị (web/js/install-sheet.js): xem · bấm · để sau → kind 'cta:<ev>'
 const SHARE_EV = ['open', 'send', 'dl', 'inv'].flatMap(a => ['streak', 'result', 'goal', 'day'].map(k => `share_${a}_${k}`)); // thẻ chia sẻ (web/js/share-card.js): mở · gửi · tải ảnh · mời, theo loại thẻ → kind 'cta:<ev>' (chỉ đếm; tỷ lệ chia sẻ → lượt về: utm_source share|qr|ref ở bảng kênh)
+const SC_EV = ['view', 'start', 'done', 'share', 'dl', 'cview', 'cstart', 'cdone', 'cta'].map(a => `sc_${a}`); // 🎤 thẻ điểm nói 30 giây + link thử thách (web/js/score30.js, functions/c/[[path]].js): chỉ đếm → kind 'cta:<ev>'
 const CTA_LANGS = ['vi', 'en', 'es', 'pt', 'fr', 'de', 'id', 'th', 'zh', 'ja', 'ko', 'hi', 'ar', 'ru', 'tr']; // 15 ngôn ngữ – chặn giá trị lạ làm phình bảng ext_events
 const CTA_PAGES = ['vocab', 'samples', 'speaking', 'grammar', 'letters', 'blog', 'go'];
 const SMART_CTA_EV = ['cta_addon_view', 'cta_addon_click', 'cta_pwa_view', 'cta_pwa_click', 'cta_topic_click', 'go_view', 'go_start', 'go_done', 'go_cta']; // CTA trang tĩnh/từ vựng (scripts/lib/site-layout.mjs)
@@ -233,7 +234,7 @@ export async function onRequestPost({ request, env }) {
       const kind = landKey(b, request.cf && request.cf.country); if (!kind) return ok();
       if (await limit('hl:' + await sha('ip|' + (request.headers.get('CF-Connecting-IP') || '?')), 30, 3600)) return ok();
       await env.DB.prepare('INSERT INTO ext_events (day, kind, n) VALUES (?1, ?2, 1) ON CONFLICT (day, kind) DO UPDATE SET n = n + 1').bind(dayOf(now), kind).run();
-    } else if (b.t === 'q' && (QUIZ_EV.includes(b.ev) || CTA_EV.includes(b.ev) || INST_EV.includes(b.ev) || SHARE_EV.includes(b.ev) || SMART_CTA_EV.includes(b.ev) || RET_EV.includes(b.ev) || HAB_EV.includes(b.ev) || UX1_EV.includes(b.ev))) {
+    } else if (b.t === 'q' && (QUIZ_EV.includes(b.ev) || CTA_EV.includes(b.ev) || INST_EV.includes(b.ev) || SC_EV.includes(b.ev) || SHARE_EV.includes(b.ev) || SMART_CTA_EV.includes(b.ev) || RET_EV.includes(b.ev) || HAB_EV.includes(b.ev) || UX1_EV.includes(b.ev))) {
       if (await limit('hq:' + await sha('ip|' + (request.headers.get('CF-Connecting-IP') || '?')), 60, 3600)) return ok();
       const today = dayOf(now);
       if (SMART_CTA_EV.includes(b.ev)) {
@@ -245,7 +246,7 @@ export async function onRequestPost({ request, env }) {
         const fs_ = b.ev.startsWith('go_') && funStmt(env.DB, today, b.ev, b.at); if (fs_) batch.push(fs_);
         await env.DB.batch(batch);
       } else {
-        await env.DB.prepare('INSERT INTO ext_events (day, kind, n) VALUES (?1, ?2, 1) ON CONFLICT (day, kind) DO UPDATE SET n = n + 1').bind(today, ((CTA_EV.includes(b.ev) || INST_EV.includes(b.ev)) ? 'cta:' : RET_EV.includes(b.ev) ? 'ret:' : UX1_EV.includes(b.ev) ? 'ux1:' : HAB_EV.includes(b.ev) ? 'hab:' : 'blog:') + b.ev).run();
+        await env.DB.prepare('INSERT INTO ext_events (day, kind, n) VALUES (?1, ?2, 1) ON CONFLICT (day, kind) DO UPDATE SET n = n + 1').bind(today, ((CTA_EV.includes(b.ev) || INST_EV.includes(b.ev) || SC_EV.includes(b.ev)) ? 'cta:' : RET_EV.includes(b.ev) ? 'ret:' : UX1_EV.includes(b.ev) ? 'ux1:' : HAB_EV.includes(b.ev) ? 'hab:' : 'blog:') + b.ev).run();
       }
     } else if (b.t === 'v' && VID_EV.includes(b.ev) && /^[a-z0-9_]{6,80}$/.test(b.id || '')) {
       // 🎬 Video bài học trên web (web/js/lesson-video.js): lượt xem / xem hết / câu đố đúng-sai theo clip → kind 'vid:<ev>:<id>' (Quản trị → Thư viện video → Web)

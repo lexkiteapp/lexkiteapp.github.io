@@ -40,7 +40,7 @@
   },
   {
    "id": "s0",
-   "text": "At the hotel.",
+   "text": "In the hotel.",
    "gap": 0.7
   },
   {
@@ -51,7 +51,7 @@
   {
    "id": "s2",
    "text": "Hi, I have a reservation under Ama Brown.",
-   "gap": 0.7
+   "gap": 0.5
   },
   {
    "id": "s3",
@@ -61,7 +61,7 @@
   {
    "id": "tip",
    "text": "Tip: say I have a reservation under, then your name.",
-   "gap": 0.7
+   "gap": 0.5
   },
   {
    "id": "sh",
