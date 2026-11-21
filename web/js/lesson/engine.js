@@ -132,7 +132,23 @@
       return { p, c, s, pair, ims, types: only && only.length ? only : types };
     });
     // cân bằng cả bài: mỗi vòng, mỗi từ lấy dạng còn ít nhất trong bài
-    const cnt = { gap: 0, build: 0, pic: 0, lpic: 0, tr: 0, type: 0, say: 0 }, RARE = { pic: 0, lpic: 0.05, tr: 0.1, build: 0.2, type: 0.25, gap: 0.3, say: 0.4 };
+    const cnt = {
+      build: 0,
+      gap: 0,
+      lpic: 0,
+      pic: 0,
+      say: 0,
+      tr: 0,
+      type: 0,
+    }, RARE = {
+      build: 0.2,
+      gap: 0.3,
+      lpic: 0.05,
+      pic: 0,
+      say: 0.4,
+      tr: 0.1,
+      type: 0.25,
+    };
     byWord.forEach(w => { w.order = []; });
     for (let round = 0; round < per; round++) byWord.forEach(w => {
       const left = w.types.filter(x => !w.order.includes(x)); if (!left.length) return;

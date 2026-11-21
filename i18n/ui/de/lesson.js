@@ -43,6 +43,7 @@
 "Mẹo nhớ:":"Merkhilfe:",
 "Mục tiêu {s}":"Ziel {s}",
 "Nghe chậm hơn":"Langsamer",
+"Nghe, chọn ảnh":"Hör zu, wähle das Bild",
 "Những từ bạn hay quên":"Wörter, die Sie oft vergessen",
 "Nói câu này":"Sag das",
 "Nói hay hơn":"Besser gesagt",

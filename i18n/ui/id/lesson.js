@@ -43,6 +43,7 @@
 "Mẹo nhớ:":"Tips mengingat:",
 "Mục tiêu {s}":"Target {s}",
 "Nghe chậm hơn":"Lebih pelan",
+"Nghe, chọn ảnh":"Dengar, pilih gambar",
 "Những từ bạn hay quên":"Kata yang sering kamu lupa",
 "Nói câu này":"Ucapkan ini",
 "Nói hay hơn":"Lebih baik",

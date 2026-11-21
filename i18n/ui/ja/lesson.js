@@ -43,6 +43,7 @@
 "Mẹo nhớ:":"覚え方：",
 "Mục tiêu {s}":"目標 {s}",
 "Nghe chậm hơn":"ゆっくり再生",
+"Nghe, chọn ảnh":"聞いて絵を選ぼう",
 "Những từ bạn hay quên":"よく忘れる単語",
 "Nói câu này":"言ってみよう",
 "Nói hay hơn":"より良い言い方",
