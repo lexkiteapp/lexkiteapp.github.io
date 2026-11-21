@@ -331,6 +331,7 @@ ok(!prCapable('name: a\non:\n  workflow_run:\n    workflows: [b]\njobs: {}\n'), 
     const w = applyWindow(green, gf, at(14));
     ok(w.state === 'pending' && /khung merge cổng 09–10 VN/.test(w.description), 'PR đổi tệp cổng, gate xanh, ngoài khung → pending "chờ khung merge cổng 09–10 VN"');
     ok(applyWindow(green, gf, at(2)).state === 'success', 'trong khung → vẫn xanh');
+    ok(applyWindow(green, gf, at(14), ['main-red-fix']).state === 'success' && applyWindow(green, gf, at(14), ['ui']).state === 'pending' && applyWindow({ ...green, state: 'failure' }, gf, at(14), ['main-red-fix']).state === 'failure', 'nhãn main-red-fix (sửa main đỏ) → không bị khung giữ; nhãn khác vẫn chờ; gate đỏ vẫn đỏ');
     ok(applyWindow(green, [], at(14)).state === 'success' && applyWindow({ ...green, state: 'failure' }, gf, at(14)).state === 'failure', 'PR thường / gate đỏ → không đụng');
   }
   ok(applyDrift(green, []).state === 'success' && applyDrift({ ...green, state: 'failure' }, ['scripts/i18n-qa.mjs']).state === 'failure' && applyDrift({ ...green, state: 'pending' }, ['x']).state === 'pending', 'không đổi cổng → vẫn xanh; đỏ/chờ không bị đụng');
