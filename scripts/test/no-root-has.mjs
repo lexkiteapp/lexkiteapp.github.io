@@ -9,6 +9,7 @@ for (const f of fs.readdirSync('web/css').filter(x => x.endsWith('.css') && !/^(
 }
 const ui = fs.readFileSync('web/js/lesson/ui.js', 'utf8');
 if (/void\s+\w+\.offsetWidth/.test(ui)) fail('web/js/lesson/ui.js: `void x.offsetWidth` ép layout trong lượt chạm – dùng requestAnimationFrame');
+if (/void\s+view\.offsetWidth/.test(fs.readFileSync('web/js/app.js', 'utf8'))) fail('web/js/app.js: route() ép layout bằng `void view.offsetWidth` – khởi động lại hiệu ứng bằng requestAnimationFrame');
 if (!/watchFlags/.test(fs.readFileSync('web/js/ui.js', 'utf8'))) fail('web/js/ui.js: thiếu watchFlags (cờ data-has-*)');
 if (bad) process.exit(1);
 console.log('✓ no-root-has: không còn :has() hậu duệ ở html/body, lesson/ui.js không ép layout bằng offsetWidth');
