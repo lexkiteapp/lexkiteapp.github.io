@@ -34,7 +34,7 @@ jobs:
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2 && bash scripts/ci/pw-install.sh chromium
           node scripts/app-loader.mjs --check dist/app/index.html
-          node scripts/test/app-lcp-probe.mjs http://localhost:8080 "app/?sandbox=1&hl=en#/review" "app/?sandbox=1&hl=en#/dict/hello" "app/?sandbox=1&hl=en#/me" "app/?sandbox=1&hl=en#/path"
+          node scripts/test/app-lcp-probe.mjs http://localhost:8080
       - name: So sánh offline với main (cùng phép thử)
         if: ${{ !cancelled() }}
         run: |
