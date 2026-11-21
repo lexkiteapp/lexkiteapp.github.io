@@ -363,6 +363,20 @@ export const REG = {
    "lease": false
   },
   {
+   "id": "zombie-sweep",
+   "workflow": "zombie-sweep.yml",
+   "cron": [
+    "7,22,37,52 * * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 1,
+   "est": {},
+   "lease": false
+  },
+  {
    "id": "ci-filler",
    "workflow": "ci-filler.yml",
    "cron": [
