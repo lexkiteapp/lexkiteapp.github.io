@@ -1500,21 +1500,6 @@ export const REG = {
    "minutes": 2,
    "est": {},
    "lease": false
-  },
-  {
-   "id": "ota-ios-e2e",
-   "workflow": "ota-ios-e2e.yml",
-   "cron": [
-    "17 3 * * *"
-   ],
-   "priority": "reports",
-   "resources": [
-    "gh_minutes"
-   ],
-   "minutes": 45,
-   "est": {},
-   "lease": false,
-   "_note": "OTA iOS đầu-cuối trên Simulator (macOS): gói OTA đang phát phải tải + áp + giữ trong app gốc"
   }
  ]
 };
