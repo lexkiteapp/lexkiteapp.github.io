@@ -9957,7 +9957,6 @@ conciseness	ok	ok
 spermicide	ok	ok
 contiguity	ok	ok
 dysmenorrhea	cut_wordis: câu mang: "The word is dysmenoria." · dot100:"Dismenoria" 1.00s · cut_wordis100: câu mang: "The word is dysmenoria." · cut_next: câu mang: "Next word, dysmenoria." · plain095:"Dismenoria" 0.98s · dot090:"Dismenoria" 1.08s	cut_wordis: câu mang: "The word is dysmenoria." · dot100:"Dysmenoria" 0.85s · cut_wordis100: câu mang: "The word is dysmenoria." · cut_next: câu mang: "Next word, dysmenoria." · plain095:"Dysmenoria" 0.88s · dot090:"Dysmenoria" 0.93s
-bandmaster	ok	ok
 centrosome	ok	ok
 intercalary	ok	ok
 monocyte	ok	ok
@@ -9968,7 +9967,6 @@ simultaneity	ok	ok
 quicklime	cut_wordis:"Quick climb." 0.83s · cut_wordis:"Quick climb." 0.79s · dot100:"quick limer" 0.81s · cut_wordis100:"Quick climb." 0.78s · cut_wordis100:"Quick climb." 0.73s · cut_next: câu mang: "Next word, quick climb." · plain095:"quick climb" 0.75s · dot090:"It's quick climbing." 0.92s	ok
 foreleg	ok	ok
 imprecision	ok	ok
-futurology	ok	ok
 repetitiveness	ok	ok
 systematize	ok	ok
 forebear	cut_wordis:"To forebear." 0.79s · cut_wordis:"4-Bear" 0.71s · dot100:"Foolbear" 0.68s · cut_wordis100: câu mang: "The word is forbear." · cut_next: câu mang: "Next word for bear" · plain095:"Thorbeir" 0.65s · dot090:"Full bear." 0.75s	ok
@@ -9995,7 +9993,6 @@ synovitis	ok	ok
 paleobiology	ok	ok
 toxicant	ok	ok
 sociality	ok	ok
-lucidly	ok	ok
 pleura	cut_wordis: câu mang: "The word is plereth." · dot100:"The Playwrith" 0.70s · cut_wordis100: câu mang: "The word is plereth." · cut_next: câu mang: "Next word, playera" · plain095:"Flaira" 0.61s · dot090:"To Polaris." 0.77s	ok
 unprovable	ok	ok
 satrap	cut_wordis: câu mang: "The word is satrapi." · dot100:"Zatrep" 0.75s · cut_wordis100: câu mang: "The word is satrapi." · cut_next: câu mang: "Next word is satrapi." · plain095:"Is that trap?" 0.72s · dot090:"Is that Drep?" 0.79s	ok
@@ -10063,3 +10060,5 @@ erythropoiesis	ok	ok
 attender	ok	ok
 protract	cut_wordis: câu mang: "The word is protracty." · dot100:"Protractor" 0.86s · cut_wordis100: câu mang: "The word is protracty." · cut_next: câu mang: "Next word, protractor." · plain095:"and protract" 0.79s · dot090:"Protractor" 0.90s	ok
 ossify	ok	ok
+axil	cut_wordis: câu mang: "The word is axel." · dot100:"Axle" 0.69s · cut_wordis100: câu mang: "The word is axial." · cut_next: câu mang: "Next word, axel." · plain095:"Axle" 0.65s · dot090:"Axle" 0.80s	cut_wordis: câu mang: "The word is axel." · dot100:"Axle" 0.62s · cut_wordis100: câu mang: "The word is axel." · cut_next: câu mang: "Next word, axel." · plain095:"Axle" 0.63s · dot090:"Axle" 0.74s
+taxonomist	ok	ok
