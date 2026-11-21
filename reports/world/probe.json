@@ -1,5 +1,5 @@
 {
- "at": "2026-11-20T11:52:13.481Z",
+ "at": "2026-11-21T03:12:00.352Z",
  "lang": "en",
  "device": "Pixel 7",
  "firstRun": {
@@ -19,8 +19,14 @@
   ]
  },
  "today": {
-  "ok": false,
-  "err": "không tới bài hôm nay từ /app/?sandbox=1&hl=en#/day/1"
+  "ok": true,
+  "taps": 2,
+  "trail": [
+   "#view a.btn.primary",
+   ".dayv2-steps a[data-step=\"learn\"]:not(.ok)"
+  ],
+  "at": "#known",
+  "route": "/app/?sandbox=1&hl=en#/practice/learn?src=topic%3Angsl1.1~1"
  },
  "errors": []
 }
