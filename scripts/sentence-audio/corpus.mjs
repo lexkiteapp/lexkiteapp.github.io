@@ -96,7 +96,7 @@ export function collect() {
       for (const sc of x.ROLEPLAY || []) { for (const tr of sc.turns || []) { for (const v of [...strs(tr.a), ...strs(tr.h), ...(tr.br || []).flatMap(b => strs(b[1]))]) bothSplit(v, 'roleplay'); } for (const v of strs(sc.end)) bothSplit(v, 'roleplay'); }
       for (const v of ['Okay.', 'I see.', 'Right.', 'Okay, I see.', 'Got it.', 'Right, thanks.', 'Understood.', 'That makes sense.', 'Fair enough.', 'Sorry, can you say a little more?', 'Sorry, could you tell me a bit more?', 'Could you expand on that a little?']) both(v, 'roleplay'); }
     // TOEIC Speaking & Writing (toeic.js): đề đọc theo u.accent; câu mẫu theo accent người học
-    { const x = ctx(); L(x, 'web/js/toeic/sw1.js');
+    { const x = ctx(); L(x, 'web/cpack/toeic/sw1.js');
       for (const u of ((x.TOEIC_SW || {}).speaking) || []) { const v = GEN[u.accent] || GEN['en-US'], pr = u.task === 'read' ? [u.text] : u.task === 'opinion' ? [u.q] : (u.questions || []).map(q => q.q);
         for (const t of strs(pr)) oneSplit(v, t, 'toeic-speaking');
         for (const t of strs(u.task === 'opinion' ? [u.model] : (u.questions || []).map(q => q.model))) bothSplit(t, 'toeic-speaking'); }
