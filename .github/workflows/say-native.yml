@@ -35,6 +35,8 @@ jobs:
         id: tr
         shell: bash
         env:
+          LX_IN1: ${{ inputs.langs && format('--langs {0}', inputs.langs) || '' }}
+          LX_IN2: ${{ inputs.redo == 'true' && '--redo' || '' }}
           # 01/11: same pool order as lexicon-expand (run 41214894745 failed with only GrabCast + CF account 2): Gemini/Groq free-key pools → cf2 = CF_POOL rotation
           GEMINI_POOL: ${{ secrets.GEMINI_POOL }}
           GROQ_POOL: ${{ secrets.GROQ_POOL }}
@@ -48,7 +50,7 @@ jobs:
           AI_POOL_GC_MAX: '2000'
         run: |
           mkdir -p out/say-native
-          node scripts/say-native/translate.mjs ${{ inputs.langs && format('--langs {0}', inputs.langs) || '' }} ${{ inputs.redo == 'true' && '--redo' || '' }} 2>&1 | tee out/say-native/translate.log
+          node scripts/say-native/translate.mjs $LX_IN1 $LX_IN2 2>&1 | tee out/say-native/translate.log
       - name: Build say.json
         if: always()
         shell: bash

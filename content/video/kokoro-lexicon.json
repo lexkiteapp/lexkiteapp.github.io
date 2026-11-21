@@ -45,6 +45,42 @@
    "ph": "əpˈɪnjən",
    "ipa": "/əˈpɪnjən/",
    "why": "espeak says əpˈɪniən (i-ən); CMUdict AH0 P IH1 N Y AH0 N = /əˈpɪnjən/ (Merriam-Webster \\\\ə-ˈpin-yən\\\\, Cambridge US)"
+  },
+  "conclusion": {
+   "ph": "kənklˈuːʒn",
+   "ipa": "/kənˈkluːʒn/",
+   "why": "espeak says kəŋklˈuːʒən (ŋ, extra schwa); CMUdict K AH0 N K L UW1 ZH AH0 N = /kənˈkluːʒn/ (Merriam-Webster \\\\kən-ˈklü-zhən\\\\, Cambridge US)"
+  },
+  "ama": {
+   "ph": "ˈɑːmə",
+   "ipa": "/ˈɑːmə/",
+   "why": "the teacher's name Ama (AH-muh, a name, not the letters A-M-A); CMUdict only has the initialism AMA = /ˌeɪeˈmeɪ/"
+  },
+  "cafe": {
+   "ph": "kæfˈeɪ",
+   "ipa": "/kæˈfeɪ/",
+   "why": "espeak stresses the first syllable; CMUdict K AE0 F EY1 /kæˈfeɪ/ (Merriam-Webster \\ka-ˈfā\\, Cambridge US)"
+  },
+  "they're": {
+   "ph": "ðˈɛɹ",
+   "ipa": "/ðɛr/",
+   "why": "espeak says ðeɪˈɚ (they-er); CMUdict THEY'RE = DH EH1 R /ðɛr/ (Merriam-Webster \\ˈther\\, Cambridge US)"
+  },
+  "latin": {
+   "ph": "lˈætn",
+   "ipa": "/ˈlætn/",
+   "why": "espeak says lˈætɪn; CMUdict L AE1 T N /ˈlætn/ (Merriam-Webster \\ˈla-tᵊn\\, Cambridge US)"
+  },
+  "charity": {
+   "ph": "tʃˈɛɹɪti",
+   "ipa": "/ˈtʃɛrɪti/",
+   "why": "espeak flaps the t (tʃˈæɹᵻɾi); CMUdict CH EH1 R AH0 T IY0 /ˈtʃɛrɪti/ (Merriam-Webster \\ˈcher-ə-tē\\, Cambridge US)"
+  },
+  "increasing": {"ph": "ɪnkɹˈiːsɪŋ", "ipa": "/ɪnˈkriːsɪŋ/", "why": "Kokoro reads the first syllable as ing; CMUdict IH0 N K R IY1 S IH0 NG /ɪnˈkriːsɪŋ/, Merriam-Webster in-ˈkrē-siŋ"},
+  "bandwidth": {
+   "ph": "bˈændwɪdθ",
+   "ipa": "/ˈbændwɪdθ/",
+   "why": "Whisper split it as \"band widths\"; slower clean form B AE1 N D W IH2 D TH (CMUdict /ˈbændˌwɪdθ/, Merriam-Webster \\ˈban(d)-ˌwidth\\, Cambridge US)"
   }
  }
 }

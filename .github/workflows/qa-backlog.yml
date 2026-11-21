@@ -25,4 +25,6 @@ jobs:
         run: node scripts/ci/qa-backlog.mjs
       - name: Lưu
         run: |
-          bash scripts/ci/push-main.sh "QA-BACKLOG: lỗi mới từ ${{ github.event.workflow_run.name }}" docs/QA-BACKLOG.md
+          bash scripts/ci/push-main.sh "QA-BACKLOG: lỗi mới từ $LX_IN1" docs/QA-BACKLOG.md
+        env:
+          LX_IN1: ${{ github.event.workflow_run.name }}
