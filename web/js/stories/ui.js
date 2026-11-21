@@ -1,4 +1,4 @@
-/* 📚 Truyện & podcast theo cấp (#/stories · #/story/<id>/<chương>) – gói lười 'stories'. Lõi thuần: stories/core.js; nội dung: cpack/stories/lib.js (scripts/stories/build-lib.mjs); spec: docs/STORIES.md §5.
+/* 📚 Truyện & podcast theo cấp (#/stories · #/stories/<id>/<chương>) – gói lười 'stories'. Lõi thuần: stories/core.js; nội dung: cpack/stories/lib.js (scripts/stories/build-lib.mjs); spec: docs/STORIES.md §5.
  * Thư viện → trình đọc/nghe (tô câu theo giọng đọc) → chạm từ → thẻ tra (Đã biết / Học → App.addWord) → quiz → tổng kết. Chỉ token sẵn có (css/stories.css) → tự đúng sáng/tối. */
 (function (g) {
   const { $, $$, esc } = UI, S = g.Stories, App = g.App, { state, routes } = App, view = App.view;
@@ -28,7 +28,8 @@
   const goalNow = () => S.goal((state.game || {}).storyMin, today(), 10);
 
   // ================= Thư viện =================
-  routes.stories = () => {
+  routes.stories = arg => {
+    if (arg) return reader(arg);
     stopAll();
     const lv = myLevel(), st = mine(), gl = goalNow();
     const cont = LIB().filter(x => (st.at || {})[x.id] != null && doneCount(x) < x.chapters.length).sort((a, b) => 0)[0];
@@ -37,18 +38,18 @@
       <div class="page-head"><div><h1>${UI.icon('book-open')} ${t('Truyện & podcast')}</h1><p class="muted">${t('Đọc và nghe truyện theo cấp độ; chạm từ mới để học.')}</p></div></div>
       <div class="card st-goal"><div class="row between"><b>${t('Hôm nay')}</b><span class="tiny muted" dir="ltr">${gl.min} / ${gl.target} ${t('phút')}</span></div>${bar(gl.pct, t('Hôm nay'))}</div>
       <div class="st-lvs" role="radiogroup" aria-label="${t('Trình độ')}">${S.LEVELS.map(l => `<button type="button" role="radio" class="chip st-lvb" data-lv="${l}" aria-checked="${l === lv}">${l}</button>`).join('')}</div>
-      ${cont ? `<a class="card st-cont" href="#/story/${cont.id}/${nextCh(cont)}">${cover(cont)}<div class="st-info"><span class="tiny muted">${t('Tiếp tục')}</span><b>${esc(cont.title)}</b><span class="tiny muted">${t('Chương {n}/{m}', { n: nextCh(cont) + 1, m: cont.chapters.length })}</span>${bar(Math.round(doneCount(cont) / cont.chapters.length * 100))}</div></a>` : ''}
+      ${cont ? `<a class="card st-cont" href="#/stories/${cont.id}/${nextCh(cont)}">${cover(cont)}<div class="st-info"><span class="tiny muted">${t('Tiếp tục')}</span><b>${esc(cont.title)}</b><span class="tiny muted">${t('Chương {n}/{m}', { n: nextCh(cont) + 1, m: cont.chapters.length })}</span>${bar(Math.round(doneCount(cont) / cont.chapters.length * 100))}</div></a>` : ''}
       <div class="st-list" id="stList">${list.length ? list.map(card).join('') : `<p class="muted">${t('Chưa có nội dung cho cấp này.')}</p>`}</div>
     </div>`;
     $$('.st-lvb').forEach(b => { b.onclick = () => { LS.set('lv', b.dataset.lv); routes.stories(); }; });
   };
-  const card = x => { const n = doneCount(x), tot = x.chapters.length; return `<a class="card st-card" href="#/story/${x.id}/${nextCh(x)}">${cover(x)}<div class="st-info"><b>${esc(x.title)}</b><span class="st-meta"><span class="chip">${x.level}</span><span class="chip">${x.kind === 'podcast' ? UI.icon('headphones') : UI.icon('book-open')} ${KIND(x)}</span><span class="tiny muted">${t('{n} phút', { n: minsOf(x) })}</span>${n >= tot ? `<span class="st-done" aria-label="${t('Đã đọc hết')}">${UI.icon('check')}</span>` : n ? `<span class="tiny muted">${n}/${tot}</span>` : ''}</span></div></a>`; };
+  const card = x => { const n = doneCount(x), tot = x.chapters.length; return `<a class="card st-card" href="#/stories/${x.id}/${nextCh(x)}">${cover(x)}<div class="st-info"><b>${esc(x.title)}</b><span class="st-meta"><span class="chip">${x.level}</span><span class="chip">${x.kind === 'podcast' ? UI.icon('headphones') : UI.icon('book-open')} ${KIND(x)}</span><span class="tiny muted">${t('{n} phút', { n: minsOf(x) })}</span>${n >= tot ? `<span class="st-done" aria-label="${t('Đã đọc hết')}">${UI.icon('check')}</span>` : n ? `<span class="tiny muted">${n}/${tot}</span>` : ''}</span></div></a>`; };
 
   // ================= Trình đọc / nghe =================
   let P = null; // trạng thái trình phát hiện tại
   function stopAll() { if (P) { P.stop(); P = null; } stopClock(); const sh = $('#stSheet'); if (sh) sh.remove(); }
 
-  routes.story = arg => {
+  function reader(arg) {
     stopAll();
     const [id, c0] = String(arg || '').split('/'), x = byId(id), ci = Math.max(0, parseInt(c0 || '0', 10) || 0);
     if (!x || !x.chapters[ci]) { location.replace('#/stories'); return; }
@@ -106,7 +107,7 @@
     window.addEventListener('hashchange', function off() { window.removeEventListener('hashchange', off); document.removeEventListener('visibilitychange', hide); stopAll(); }, { once: true });
     // từ mới tô gạch chân
     $$('.st-w.st-key').forEach(b => { const w = b.dataset.w; if (st0.known[w] || inDeck(w) || (S.lemmas(w).some(l => st0.known[l]))) b.classList.remove('st-key'); else b.classList.add('st-new'); });
-  };
+  }
 
   // ================= Thẻ tra từ =================
   async function openCard(x, ci, word, si, sentence, el) {
@@ -140,7 +141,7 @@
     const ch = x.chapters[ci], Q = ch.quiz || [], ans = {}; let i = 0;
     const q = () => {
       const it = Q[i];
-      view.innerHTML = `<div class="st-reader" id="stReader"><div class="st-top"><a class="icon-btn" href="#/story/${x.id}/${ci}" aria-label="${t('Quay lại')}">${UI.icon('arrow-left')}</a><div class="st-ttl"><b>${t('Câu hỏi {n}/{m}', { n: i + 1, m: Q.length })}</b></div></div>${bar(Math.round(i / Q.length * 100))}
+      view.innerHTML = `<div class="st-reader" id="stReader"><div class="st-top"><a class="icon-btn" href="#/stories/${x.id}/${ci}" aria-label="${t('Quay lại')}">${UI.icon('arrow-left')}</a><div class="st-ttl"><b>${t('Câu hỏi {n}/{m}', { n: i + 1, m: Q.length })}</b></div></div>${bar(Math.round(i / Q.length * 100))}
         <div class="card st-q"><h2 dir="ltr" lang="en">${esc(it.q)}</h2><div class="st-opts" role="group" aria-label="${t('Chọn đáp án')}">${it.options.map((o, k) => `<button type="button" class="btn st-opt" data-k="${k}" lang="en" dir="ltr">${esc(o)}</button>`).join('')}</div><div id="stFb" aria-live="polite"></div></div></div>`;
       $$('.st-opt').forEach(b => { b.onclick = () => {
         const k = +b.dataset.k; ans[i] = k; const ok = k === it.answer; $$('.st-opt').forEach(o => { o.disabled = true; if (+o.dataset.k === it.answer) o.classList.add('st-ok'); });
@@ -160,9 +161,8 @@
       <div class="card st-res"><div class="st-score" dir="ltr">${r.score}/${r.n}</div><p>${r.score === r.n ? t('Tuyệt vời! Bạn hiểu toàn bộ chương.') : t('Làm tốt lắm! Đọc lại chương để nắm chắc hơn.')}</p></div>
       <div class="card"><div class="row between"><b>${t('Hôm nay')}</b><span class="tiny muted" dir="ltr">${gl.min} / ${gl.target} ${t('phút')}</span></div>${bar(gl.pct, t('Hôm nay'))}</div>
       <div class="card st-new-n"><b>${t('+{n} từ mới', { n: cn.learned })}</b><span class="tiny muted">${t('{n} từ đã đánh dấu biết', { n: cn.known })}</span></div>
-      <div class="st-sum-acts">${cn.learned ? `<a class="btn" href="#/practice/learn?src=deck">${t('Ôn {n} từ vừa học', { n: cn.learned })}</a>` : ''}${nxt ? `<a class="btn primary" href="#/story/${x.id}/${ci + 1}">${t('Chương tiếp')}</a>` : `<a class="btn primary" href="#/stories">${t('Về thư viện')}</a>`}</div></div>`;
+      <div class="st-sum-acts">${cn.learned ? `<a class="btn" href="#/practice/learn?src=deck">${t('Ôn {n} từ vừa học', { n: cn.learned })}</a>` : ''}${nxt ? `<a class="btn primary" href="#/stories/${x.id}/${ci + 1}">${t('Chương tiếp')}</a>` : `<a class="btn primary" href="#/stories">${t('Về thư viện')}</a>`}</div></div>`;
     startClock();
   }
-  if (g.ExitGuard && ExitGuard.learn) ExitGuard.learn('story');
   g.StoriesUI = { byId, minsOf };
 })(self);

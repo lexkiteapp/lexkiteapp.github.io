@@ -80,7 +80,6 @@
   "vocab": {"variant": "hub", "surface": ["hub-vocab"]},
   "watch": {"variant": "inner", "surface": ["listening"]},
   "stories": {"variant": "inner", "surface": ["listening"]},
-  "story": {"variant": "focus", "surface": ["listening"]},
   "welcome": {"variant": "focus", "surface": ["welcome"]},
   "write": {"variant": "focus", "surface": ["writing"]}
  }

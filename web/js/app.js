@@ -339,7 +339,6 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
     speaking: 'speak',
     stats: ['words', 'streak', 'statsp'],
     stories: 'stories',
-    story: 'stories',
     streak: ['streak', 'ret'],
     style: 'quick',
     task1: 'writing',

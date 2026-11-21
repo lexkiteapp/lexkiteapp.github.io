@@ -1,5 +1,6 @@
 /* 📚 Truyện & podcast (#/stories, #/story/…) – gói lười 'stories'. Chỉ token sẵn có (docs/DESIGN-SYSTEM.md §2) → tự đúng sáng/tối; chạm ≥ 44 px. */
-.st-lib, .st-reader { max-width: 640px; margin: 0 auto; padding: 0 var(--sp-4) calc(var(--sp-6) * 3); }
+.st-lib, .st-reader { padding: 0 0 calc(var(--sp-6) * 3); } /* khung chung của app lo lề/độ rộng (frame-consistency) */
+.st-text, .st-list { max-width: 640px; }
 .st-goal, .st-cont, .st-res, .st-new-n { margin: var(--sp-3) 0; padding: var(--sp-3) var(--sp-4); }
 .st-bar { height: var(--sp-2); border-radius: var(--r-pill); background: var(--surface-3); overflow: hidden; margin-top: var(--sp-2); }
 .st-bar > i { display: block; height: 100%; background: var(--primary); border-radius: inherit; transition: width var(--dur-2) var(--ease-std); }
