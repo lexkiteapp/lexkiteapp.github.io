@@ -32,4 +32,8 @@ jobs:
         run: node scripts/content-qa/bank-rewrite.mjs gen --shard ${{ matrix.shard }} --of 4 --max "${{ inputs.max }}" --budget-min 45
       - uses: actions/upload-artifact@v4
         if: always()
-        with: { name: bank-patches-${{ matrix.shard }}, path: reports/bank-patches-*.json, retention-days: 30, if-no-files-found: ignore }
+        with:
+          name: bank-patches-${{ matrix.shard }}
+          path: reports/bank-patches-*.json
+          retention-days: 30
+          if-no-files-found: ignore
