@@ -16,6 +16,7 @@ async function run(tag, ctxOpts, lang) {
   await page.evaluate(async () => { localStorage.setItem('lk.onb', '1'); localStorage.setItem('lk.st.lv', JSON.stringify('A2')); App.state.settings.onboarded = true; await App.saveSettings(); });
   const check = async step => {
     if (mobile) { const over = await page.evaluate(() => document.documentElement.scrollWidth - innerWidth); ok(over <= 1, `${tag} ${step}: không tràn ngang (${over}px)`); }
+    await page.waitForTimeout(800); // chờ hết chuyển màn (fade) – axe đo tương phản trên màu đã ổn định, không phải giữa lúc mờ dần
     await page.addScriptTag({ path: AXE });
     const v = await page.evaluate(async () => (await axe.run(document.querySelector('#stReader, #stSum, .st-lib'), { runOnly: { type: 'tag', values: ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'] } })).violations.filter(x => /serious|critical/.test(x.impact)).map(x => x.id + ':' + x.nodes.length + ' ' + x.nodes.slice(0, 3).map(n => n.target.join(' ') + ' [' + ((n.any[0] || {}).data ? [(n.any[0].data.fgColor), (n.any[0].data.bgColor), n.any[0].data.contrastRatio].join(' ') : (n.any[0] || {}).message) + ']').join(' ; ')));
     ok(!v.length, `${tag} ${step}: axe WCAG AA 0 lỗi nặng${v.length ? ' – ' + v.join(' | ') : ''}`);
