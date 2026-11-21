@@ -55,6 +55,7 @@ for (const s of ORDER) for (const m of ['dark', 'light']) { const f = path.join(
   if (miss) { console.error(`✗ ${s}-${m}: ${miss} icon chưa thành hình (font icon lỗi)`); process.exitCode = 1; }
   const st = await p.evaluate(STAT);
   const o = path.join(OUT, 'png', `${s}-${m}.png`); await p.screenshot({ path: o, fullPage: true }); done[`${s}-${m}`] = o; await p.close();
+  fs.writeFileSync(o.replace(/\.png$/, '.boxes.json'), JSON.stringify((st.boxes || []).map(b => [b.t, Math.round(b.x), Math.round(b.bt), Math.round(b.w), Math.round(b.bh)]))); // hộp chữ (chẩn đoán lệch bố cục mẫu ↔ app)
   st.lowContrast = contrast(o, st.boxes); delete st.boxes; (info[s] ||= {})[m] = st; }
 await browser.close();
 // ---- báo cáo đồng bộ: PHẢI SỬA (đỏ) vs lệch nội dung (tham khảo) ----
