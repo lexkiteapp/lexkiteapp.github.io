@@ -624,8 +624,8 @@ items: [
 { type: 'mcq', instr: g.RTI[3],
 items: [
 { n: 40, q: 'According to paragraph G, what was one lasting effect of the natural ice trade?',
-options: ['It made electric refrigerators cheaper to produce.', 'It led to cleaner ponds and rivers in cities.', 'It created an expectation of cold food and drink.', 'It is still an important industry in some countries.'],
-a: 2, cue: 'It created the expectation of cold food and drink' },
+options: ['It created an expectation of cold food and drink.', 'It led to cleaner ponds and rivers in cities.', 'It made electric refrigerators cheaper to produce.', 'It is still an important industry in some countries.'],
+a: 0, cue: 'It created the expectation of cold food and drink' },
 ] },
 ],
 vocab: [
@@ -694,6 +694,6 @@ E.gt5 = {
 37: { why: "Đoạn C: Tudor tạo nhu cầu bằng cách “giving away free ice to bar owners and showing them how to serve cold drinks” → bar.", para: "C", keys: [["gave free ice to", "giving away free ice to"]] },
 38: { why: "Đoạn E: ở các thành phố Mỹ, băng được giao tận nhà và “used in wooden 'iceboxes' to keep food fresh” → iceboxes.", para: "E", keys: [["kept in wooden", "used in wooden"]] },
 39: { why: "Đoạn E: chở băng tới Ấn Độ là “a voyage of four months” → four months.", para: "E", keys: [["The journey by ship", "a voyage"]] },
-40: { why: "Đoạn G: ngành này để lại di sản vì “It created the expectation of cold food and drink that the modern refrigeration industry was built to satisfy” → C. Bài không nói tủ lạnh rẻ hơn, nguồn nước sạch hơn hay ngành này vẫn còn tồn tại (đoạn G nói “the trade itself disappeared”).", para: "G", keys: [["one lasting effect", "it left a lasting legacy"], ["an expectation of cold food and drink", "the expectation of cold food and drink"]] },
+40: { why: "Đoạn G: ngành này để lại di sản vì “It created the expectation of cold food and drink that the modern refrigeration industry was built to satisfy” → A. Bài không nói tủ lạnh rẻ hơn, nguồn nước sạch hơn hay ngành này vẫn còn tồn tại (đoạn G nói “the trade itself disappeared”).", para: "G", keys: [["one lasting effect", "it left a lasting legacy"], ["an expectation of cold food and drink", "the expectation of cold food and drink"]] },
 };
 })(typeof self !== 'undefined' ? self : this);

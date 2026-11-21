@@ -49,7 +49,7 @@
     "c": null,
     "d": 96.6,
     "e": 56.3,
-    "f": 80.6,
+    "f": 80.5,
     "g": null,
     "h": null,
     "i": 99.3,
@@ -2967,7 +2967,7 @@
    "id": "environment",
    "title": "environment",
    "level": "B2",
-   "score": 72.3,
+   "score": 72.1,
    "crit": {
     "a": null,
     "b": null,
@@ -2992,14 +2992,14 @@
    "id": "technology",
    "title": "technology",
    "level": "C1",
-   "score": 68.3,
+   "score": 68,
    "crit": {
     "a": null,
     "b": null,
     "c": null,
     "d": 0.99,
-    "e": 0.48,
-    "f": 0.68,
+    "e": 0.47,
+    "f": 0.67,
     "g": null,
     "h": null,
     "i": 0.98,
@@ -3008,7 +3008,7 @@
     "l": null
    },
    "fix": [
-    "mã hoá kép 68% (ảnh/audio từ/audio câu)",
+    "mã hoá kép 67% (ảnh/audio từ/audio câu)",
     "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 0%",
     "ví dụ: thiếu collocation/đồng nghĩa"
    ]
@@ -3043,25 +3043,25 @@
    "area": "vocab",
    "id": "work",
    "title": "work",
-   "level": "B2",
-   "score": 68.9,
+   "level": "C1",
+   "score": 68.7,
    "crit": {
     "a": null,
     "b": null,
     "c": null,
-    "d": 0.96,
-    "e": 0.46,
-    "f": 0.68,
+    "d": 0.97,
+    "e": 0.47,
+    "f": 0.67,
     "g": null,
     "h": null,
     "i": 1,
     "j": null,
-    "k": 0.11,
+    "k": 0.1,
     "l": null
    },
    "fix": [
-    "mã hoá kép 68% (ảnh/audio từ/audio câu)",
-    "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 11%",
+    "mã hoá kép 67% (ảnh/audio từ/audio câu)",
+    "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 10%",
     "ví dụ: thiếu collocation/đồng nghĩa"
    ]
   },
@@ -3177,8 +3177,8 @@
     "b": null,
     "c": null,
     "d": 1,
-    "e": 0.65,
-    "f": 0.71,
+    "e": 0.66,
+    "f": 0.7,
     "g": null,
     "h": null,
     "i": 0.97,
@@ -3187,6 +3187,7 @@
     "l": null
    },
    "fix": [
+    "mã hoá kép 70% (ảnh/audio từ/audio câu)",
     "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 0%",
     "ví dụ: thiếu collocation/đồng nghĩa"
    ]
@@ -3244,14 +3245,14 @@
    "id": "culture",
    "title": "culture",
    "level": "C1",
-   "score": 69.8,
+   "score": 69.7,
    "crit": {
     "a": null,
     "b": null,
     "c": null,
     "d": 0.99,
     "e": 0.5,
-    "f": 0.7,
+    "f": 0.69,
     "g": null,
     "h": null,
     "i": 1,
@@ -3260,7 +3261,7 @@
     "l": null
    },
    "fix": [
-    "mã hoá kép 70% (ảnh/audio từ/audio câu)",
+    "mã hoá kép 69% (ảnh/audio từ/audio câu)",
     "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 0%",
     "ví dụ: thiếu collocation/đồng nghĩa"
    ]
@@ -3270,14 +3271,14 @@
    "id": "sport",
    "title": "sport",
    "level": "B2",
-   "score": 75.7,
+   "score": 75,
    "crit": {
     "a": null,
     "b": null,
     "c": null,
     "d": 0.98,
-    "e": 0.68,
-    "f": 0.78,
+    "e": 0.66,
+    "f": 0.77,
     "g": null,
     "h": null,
     "i": 1,
@@ -3295,14 +3296,14 @@
    "id": "science",
    "title": "science",
    "level": "C1",
-   "score": 65.9,
+   "score": 65.8,
    "crit": {
     "a": null,
     "b": null,
     "c": null,
     "d": 1,
     "e": 0.36,
-    "f": 0.68,
+    "f": 0.67,
     "g": null,
     "h": null,
     "i": 1,
@@ -3311,7 +3312,7 @@
     "l": null
    },
    "fix": [
-    "mã hoá kép 68% (ảnh/audio từ/audio câu)",
+    "mã hoá kép 67% (ảnh/audio từ/audio câu)",
     "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 0%",
     "ví dụ: thiếu collocation/đồng nghĩa"
    ]
@@ -3321,14 +3322,14 @@
    "id": "government",
    "title": "government",
    "level": "C1",
-   "score": 69.9,
+   "score": 69.4,
    "crit": {
     "a": null,
     "b": null,
     "c": null,
     "d": 1,
-    "e": 0.49,
-    "f": 0.71,
+    "e": 0.48,
+    "f": 0.69,
     "g": null,
     "h": null,
     "i": 1,
@@ -3337,6 +3338,7 @@
     "l": null
    },
    "fix": [
+    "mã hoá kép 69% (ảnh/audio từ/audio câu)",
     "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 0%",
     "ví dụ: thiếu collocation/đồng nghĩa"
    ]
@@ -3490,24 +3492,24 @@
    "id": "language",
    "title": "language",
    "level": "B2",
-   "score": 73.2,
+   "score": 72,
    "crit": {
     "a": null,
     "b": null,
     "c": null,
     "d": 0.98,
-    "e": 0.6,
-    "f": 0.67,
+    "e": 0.58,
+    "f": 0.64,
     "g": null,
     "h": null,
     "i": 1,
     "j": null,
-    "k": 0.17,
+    "k": 0.15,
     "l": null
    },
    "fix": [
-    "mã hoá kép 67% (ảnh/audio từ/audio câu)",
-    "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 17%",
+    "mã hoá kép 64% (ảnh/audio từ/audio câu)",
+    "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 15%",
     "ví dụ: thiếu collocation/đồng nghĩa"
    ]
   },
@@ -3516,23 +3518,23 @@
    "id": "food",
    "title": "food",
    "level": "B2",
-   "score": 74.9,
+   "score": 74.5,
    "crit": {
     "a": null,
     "b": null,
     "c": null,
     "d": 1,
     "e": 0.63,
-    "f": 0.74,
+    "f": 0.73,
     "g": null,
     "h": null,
     "i": 0.99,
     "j": null,
-    "k": 0.1,
+    "k": 0.08,
     "l": null
    },
    "fix": [
-    "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 10%",
+    "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 8%",
     "ví dụ: thiếu collocation/đồng nghĩa"
    ]
   },
@@ -5290,24 +5292,24 @@
    "id": "xw-feelings",
    "title": "xw-feelings",
    "level": "B2",
-   "score": 67.7,
+   "score": 67.5,
    "crit": {
     "a": null,
     "b": null,
     "c": null,
     "d": 1,
-    "e": 0.41,
-    "f": 0.69,
+    "e": 0.4,
+    "f": 0.68,
     "g": null,
     "h": null,
     "i": 1,
     "j": null,
-    "k": 0.04,
+    "k": 0.03,
     "l": null
    },
    "fix": [
-    "mã hoá kép 69% (ảnh/audio từ/audio câu)",
-    "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 4%",
+    "mã hoá kép 68% (ảnh/audio từ/audio câu)",
+    "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 3%",
     "ví dụ: thiếu collocation/đồng nghĩa"
    ]
   },
@@ -5342,14 +5344,14 @@
    "id": "xw-everyday",
    "title": "xw-everyday",
    "level": "B2",
-   "score": 64.8,
+   "score": 64.6,
    "crit": {
     "a": null,
     "b": null,
     "c": null,
     "d": 0.99,
-    "e": 0.37,
-    "f": 0.63,
+    "e": 0.38,
+    "f": 0.62,
     "g": null,
     "h": null,
     "i": 1,
@@ -5358,7 +5360,7 @@
     "l": null
    },
    "fix": [
-    "mã hoá kép 63% (ảnh/audio từ/audio câu)",
+    "mã hoá kép 62% (ảnh/audio từ/audio câu)",
     "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 0%",
     "ví dụ: thiếu collocation/đồng nghĩa"
    ]
@@ -5368,7 +5370,7 @@
    "id": "xw-qualities",
    "title": "xw-qualities",
    "level": "B2",
-   "score": 66.4,
+   "score": 66.3,
    "crit": {
     "a": null,
     "b": null,
@@ -5420,14 +5422,14 @@
    "id": "xw-body",
    "title": "xw-body",
    "level": "B2",
-   "score": 67.8,
+   "score": 67.7,
    "crit": {
     "a": null,
     "b": null,
     "c": null,
     "d": 0.98,
     "e": 0.49,
-    "f": 0.65,
+    "f": 0.64,
     "g": null,
     "h": null,
     "i": 0.98,
@@ -5436,7 +5438,7 @@
     "l": null
    },
    "fix": [
-    "mã hoá kép 65% (ảnh/audio từ/audio câu)",
+    "mã hoá kép 64% (ảnh/audio từ/audio câu)",
     "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 0%",
     "ví dụ: thiếu collocation/đồng nghĩa"
    ]
@@ -5524,13 +5526,13 @@
    "id": "xw-military",
    "title": "xw-military",
    "level": "C1",
-   "score": 63.2,
+   "score": 63.5,
    "crit": {
     "a": null,
     "b": null,
     "c": null,
     "d": 1,
-    "e": 0.35,
+    "e": 0.37,
     "f": 0.56,
     "g": null,
     "h": null,

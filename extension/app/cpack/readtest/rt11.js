@@ -91,8 +91,8 @@ items: [
 { type: 'mcq', instr: g.RTI[3],
 items: [
 { n: 19, q: 'According to paragraph B, urchin barrens develop when',
-options: ['kelp grows too slowly to feed the urchins.', 'storms tear the kelp away from the rocks.', 'the animals that eat urchins become fewer.', 'urchins arrive from other seas.'],
-a: 2, cue: 'When the predators decline, the urchins multiply' },
+options: ['kelp grows too slowly to feed the urchins.', 'storms tear the kelp away from the rocks.', 'urchins arrive from other seas.', 'the animals that eat urchins become fewer.'],
+a: 3, cue: 'When the predators decline, the urchins multiply' },
 { n: 20, q: 'What does Dr Valcourt warn in paragraph E?',
 options: ['The result at Calder Reach may not apply to every coast.', 'Heatwaves are a greater threat to kelp than urchins are.', 'Otters should never be moved from one place to another.', 'Her survey was too short to be reliable.'],
 a: 0, cue: 'the Calder Reach result may not be repeated everywhere' },
@@ -158,8 +158,8 @@ items: [
 { type: 'mcq', instr: g.RTI[3],
 items: [
 { n: 32, q: 'What is the writer’s main purpose in paragraph B?',
-options: ['To explain why averaging many estimates can give an accurate result.', 'To show that the story of the country fair is probably untrue.', 'To argue that students make better estimates than other groups.', 'To describe how crowds are chosen for experiments.'],
-a: 0, cue: 'these mistakes tend to cancel one another out, leaving the knowledge behind' },
+options: ['To show that the story of the country fair is probably untrue.', 'To explain why averaging many estimates can give an accurate result.', 'To argue that students make better estimates than other groups.', 'To describe how crowds are chosen for experiments.'],
+a: 1, cue: 'these mistakes tend to cancel one another out, leaving the knowledge behind' },
 { n: 33, q: 'What did Professor Obi’s experiment reveal?',
 options: ['Volunteers who worked alone gave the least accurate estimates.', 'Seeing other answers made the group’s average much more accurate.', 'Volunteers’ answers became more similar without becoming more accurate.', 'People who changed their minds were usually the ones who had been mistaken.'],
 a: 2, cue: 'the spread of answers narrowed sharply' },

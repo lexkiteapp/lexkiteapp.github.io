@@ -6,7 +6,7 @@
     /* ================= PART 5 ================= */
     { part: 5, title: 'Incomplete Sentences', instr: g.TQR[2],
       groups: [ { type: 'mcq', instr: '', items: [
-        { n: 101, q: 'The marketing director was ------- impressed with the designs submitted by the new agency.', options: ['particular', 'particularly', 'particularity', 'particulars'], a: 1, cue: 'was ------- impressed',
+        { n: 101, q: 'The marketing director was ------- impressed with the designs submitted by the new agency.', options: ['particular', 'particularity', 'particularly', 'particulars'], a: 2, cue: 'was ------- impressed',
           explain: 'Cần trạng từ bổ nghĩa cho tính từ/phân từ "impressed" → "particularly" (đặc biệt). "particular" là tính từ; "particularity" và "particulars" là danh từ, không bổ nghĩa cho "impressed".' },
         { n: 102, q: 'Passengers are reminded to keep ------- belongings with them at all times.', options: ['they', 'them', 'their', 'theirs'], a: 2, cue: '------- belongings',
           explain: 'Trước danh từ "belongings" (đồ đạc cá nhân) cần tính từ sở hữu → "their". "they" là đại từ chủ ngữ; "them" là tân ngữ; "theirs" là đại từ sở hữu, đứng một mình, không đi kèm danh từ.' },
@@ -14,7 +14,7 @@
           explain: 'Cuộc kiểm tra "được lên lịch vào" thứ Ba tới → bị động "is scheduled for + thời gian". "scheduled" (quá khứ chủ động) và "was scheduling" sai thì, sai thể; "schedules" mang nghĩa chủ động (cuộc kiểm tra tự lên lịch) – vô lý.' },
         { n: 104, q: 'Ms. Haddad will lead the training sessions ------- Mr. Torres is on leave.', options: ['during', 'despite', 'unless', 'while'], a: 3, cue: 'Mr. Torres is on leave',
           explain: 'Theo sau là mệnh đề (Mr. Torres is on leave) và ý nghĩa là "trong khi/trong thời gian" → liên từ "while". "during" và "despite" là giới từ, chỉ đi với danh từ; "unless" (trừ khi) không hợp nghĩa.' },
-        { n: 105, q: 'The Hollin Crest Hotel recently ------- its lobby to create more seating space for guests.', options: ['expanded', 'expanding', 'expansion', 'expansive'], a: 0, cue: 'recently ------- its lobby',
+        { n: 105, q: 'The Hollin Crest Hotel recently ------- its lobby to create more seating space for guests.', options: ['expanding', 'expanded', 'expansion', 'expansive'], a: 1, cue: 'recently ------- its lobby',
           explain: 'Câu thiếu động từ chính, có "recently" và tân ngữ "its lobby" → động từ quá khứ "expanded" (đã mở rộng). "expanding" không thể làm động từ chính khi thiếu "be"; "expansion" là danh từ; "expansive" là tính từ.' },
         { n: 106, q: 'Our customer service representatives are trained to handle complaints ------- and professionally.', options: ['calm', 'calmness', 'calmer', 'calmly'], a: 3, cue: 'and professionally',
           explain: 'Cấu trúc song song với "and professionally" (trạng từ) và cùng bổ nghĩa cho động từ "handle" → trạng từ "calmly" (một cách bình tĩnh). "calm/calmer" là tính từ; "calmness" là danh từ.' },
@@ -28,9 +28,9 @@
           explain: 'Giữa mạo từ "a" và danh từ "budget" cần tính từ; ngân sách "được điều chỉnh" mang nghĩa bị động → phân từ II "revised". "revise/revises" là động từ; "revision" là danh từ, "a revision budget" không có nghĩa.' },
         { n: 111, q: 'Elmstead Bus Lines has ------- its timetable to include an additional morning departure.', options: ['admitted', 'attracted', 'assured', 'adjusted'], a: 3, cue: 'its timetable to include an additional morning departure',
           explain: '"adjust a timetable" = điều chỉnh lịch trình (để thêm một chuyến sáng) → "adjusted". "admitted" (thừa nhận, cho vào), "attracted" (thu hút), "assured" (cam đoan) không hợp nghĩa với "timetable".' },
-        { n: 112, q: 'Only employees ------- names appear on the list may enter the server room.', options: ['who', 'whom', 'whose', 'which'], a: 2, cue: '------- names appear on the list',
+        { n: 112, q: 'Only employees ------- names appear on the list may enter the server room.', options: ['whose', 'whom', 'who', 'which'], a: 0, cue: '------- names appear on the list',
           explain: 'Đại từ quan hệ chỉ sở hữu, theo sau là danh từ "names" (tên CỦA các nhân viên) → "whose". "who/whom" không đi liền với danh từ; "which" dùng cho vật.' },
-        { n: 113, q: 'The workshop on contract negotiation was ------- popular that a second session was added.', options: ['so', 'such', 'too', 'very'], a: 0, cue: 'popular that a second session was added',
+        { n: 113, q: 'The workshop on contract negotiation was ------- popular that a second session was added.', options: ['such', 'so', 'too', 'very'], a: 1, cue: 'popular that a second session was added',
           explain: 'Cấu trúc "so + tính từ + that + mệnh đề" (quá… đến nỗi) → "so popular that". "such" phải đi với cụm danh từ (such a popular workshop); "too" đi với "to V"; "very" không kết hợp với "that" để chỉ kết quả.' },
         { n: 114, q: 'Ms. Lindgren prefers to review the contracts ------- rather than delegate the task.', options: ['her', 'herself', 'hers', 'she'], a: 1, cue: 'rather than delegate the task',
           explain: 'Đại từ phản thân "herself" đứng cuối mệnh đề để nhấn mạnh "tự mình làm" – hợp với ý "thay vì giao việc cho người khác". "her" là tân ngữ/tính từ sở hữu; "hers" là đại từ sở hữu; "she" là chủ ngữ.' },
@@ -44,9 +44,9 @@
           explain: 'Cấu trúc "agree + to V nguyên mẫu" (đồng ý làm gì) → "to host". Ở đây "to" là một phần của động từ nguyên mẫu, không phải giới từ, nên không dùng "hosting"; "hosted/hosts" là dạng chia.' },
         { n: 119, q: 'Construction workers must wear hard hats ------- they are on the building site.', options: ['however', 'whoever', 'whichever', 'whenever'], a: 3, cue: 'they are on the building site',
           explain: '"whenever" (bất cứ khi nào) nối hai mệnh đề và chỉ thời gian → phải đội mũ cứng bất cứ khi nào ở công trường. "however" (dù thế nào), "whoever" (bất kỳ ai), "whichever" (bất kỳ cái nào) không hợp nghĩa.' },
-        { n: 120, q: 'The new phone model is lighter and has a longer battery life than ------- predecessor.', options: ['it', 'its', 'it\'s', 'itself'], a: 1, cue: '------- predecessor',
+        { n: 120, q: 'The new phone model is lighter and has a longer battery life than ------- predecessor.', options: ['its', 'it', 'it\'s', 'itself'], a: 0, cue: '------- predecessor',
           explain: 'Trước danh từ "predecessor" (mẫu tiền nhiệm) cần tính từ sở hữu → "its". "it\'s" là viết tắt của "it is/it has"; "it" và "itself" không đứng trước danh từ để chỉ sở hữu.' },
-        { n: 121, q: 'Ms. Ortiz was chosen to lead the project because of her ------- with similar initiatives.', options: ['experience', 'experienced', 'experiencing', 'experiential'], a: 0, cue: 'because of her',
+        { n: 121, q: 'Ms. Ortiz was chosen to lead the project because of her ------- with similar initiatives.', options: ['experiencing', 'experienced', 'experience', 'experiential'], a: 2, cue: 'because of her',
           explain: 'Sau tính từ sở hữu "her" cần danh từ → "experience" (kinh nghiệm); "experience with sth" = kinh nghiệm với việc gì. "experienced" và "experiential" là tính từ; "experiencing" là dạng V-ing.' },
         { n: 122, q: 'Interested candidates should send a résumé and cover letter ------- Ms. Yildiz in Human Resources.', options: ['for', 'at', 'to', 'with'], a: 2, cue: 'send a résumé and cover letter',
           explain: '"send sth to sb" = gửi cái gì cho ai → "to Ms. Yildiz". "for" mang nghĩa "thay cho/vì ai"; "at" chỉ địa điểm; "with" = cùng với – đều không hợp.' },
@@ -122,7 +122,7 @@ Bayline carries more than 400,000 passengers each year, -----(142)----- of them 
           groups: [ { type: 'mcq', instr: g.TQR[6], items: [
             { n: 139, q: '(139)', options: ['beginning', 'begin', 'began', 'begins'], a: 1, cue: 'The first electric ferry is expected to',
               explain: 'Cấu trúc "be expected + to V nguyên mẫu" (được dự kiến sẽ làm gì) → "is expected to begin service" (dự kiến bắt đầu hoạt động). Sau "to" ở đây không dùng V-ing, quá khứ hay động từ chia ngôi.' },
-            { n: 140, q: '(140)', options: ['quiet', 'quietly', 'quieter', 'quietest'], a: 2, cue: 'than the current fleet',
+            { n: 140, q: '(140)', options: ['quieter', 'quietly', 'quiet', 'quietest'], a: 0, cue: 'than the current fleet',
               explain: 'Có "much … than" → so sánh hơn; tính từ ngắn "quiet" thêm -er → "much quieter than" (yên tĩnh hơn nhiều) – hợp với ý cư dân gần cảng từng phàn nàn (về tiếng ồn). "quiet" là dạng nguyên; "quietest" là so sánh nhất; "quietly" là trạng từ, không đứng sau "be".' },
             { n: 141, q: '(141)', options: ['Gull Island is popular with birdwatchers.', 'The company was sold to a rival last year.', 'Diesel prices have risen sharply this year.', 'Each vessel will be able to recharge fully in about fifteen minutes.'], a: 3, cue: 'Charging stations will be built at both terminals.',
               explain: 'Câu trước nói về trạm sạc ở hai bến → câu tiếp hợp lý nói tiếp về việc sạc: "Each vessel will be able to recharge fully in about fifteen minutes" (mỗi tàu sạc đầy trong khoảng 15 phút). Thông tin về chim trên đảo, việc bán công ty hay giá dầu diesel không nối tiếp ý về trạm sạc.' },
@@ -146,9 +146,9 @@ Conference Coordinator`,
           groups: [ { type: 'mcq', instr: g.TQR[13], items: [
             { n: 143, q: '(143)', options: ['popular', 'more popular', 'popularity', 'most popular'], a: 3, cue: 'is sure to be one of the',
               explain: 'Cấu trúc "one of the + so sánh nhất + danh từ số nhiều" → "one of the most popular sessions" (một trong những phiên được yêu thích nhất). "more popular" là so sánh hơn; "popular" thiếu dạng so sánh; "popularity" là danh từ.' },
-            { n: 144, q: '(144)', options: ['Our travel agent will contact you shortly to arrange these bookings.', 'Hall B can seat up to 300 people.', 'The conference fee for members is $250.', 'Many supermarkets now donate unsold food.'], a: 0, cue: 'the association will cover the cost of your flight and two nights at the Ridgeline Hotel',
+            { n: 144, q: '(144)', options: ['Hall B can seat up to 300 people.', 'Our travel agent will contact you shortly to arrange these bookings.', 'The conference fee for members is $250.', 'Many supermarkets now donate unsold food.'], a: 1, cue: 'the association will cover the cost of your flight and two nights at the Ridgeline Hotel',
               explain: 'Câu trước nói hiệp hội chi trả vé máy bay và hai đêm khách sạn → câu tiếp hợp lý là "Our travel agent will contact you shortly to arrange these bookings" ("these bookings" = vé máy bay và phòng khách sạn). Thông tin về sức chứa Hall B thuộc đoạn sau; phí hội nghị và chuyện siêu thị quyên góp thực phẩm lạc mạch.' },
-            { n: 145, q: '(145)', options: ['so that', 'in case', 'as if', 'even though'], a: 1, cue: 'you need help with your slides',
+            { n: 145, q: '(145)', options: ['so that', 'as if', 'in case', 'even though'], a: 2, cue: 'you need help with your slides',
               explain: '"in case" = phòng khi → kỹ thuật viên có mặt từ 9 giờ phòng khi diễn giả cần hỗ trợ trình chiếu. "so that" (để mà) làm câu vô lý (có mặt để diễn giả cần giúp); "as if" (như thể) và "even though" (mặc dù) không hợp logic.' },
             { n: 146, q: '(146)', options: ['welcome', 'be welcomed', 'welcoming', 'welcomed'], a: 2, cue: 'We look forward to',
               explain: 'Trong "look forward to", "to" là giới từ → theo sau là V-ing: "look forward to welcoming you" (mong được đón tiếp ông). "welcome" (nguyên mẫu) là lỗi rất hay gặp; "be welcomed" mang nghĩa bị động, sai chủ thể; "welcomed" là quá khứ.' }
@@ -181,7 +181,7 @@ Dariusz Novak [1:51 P.M.]: I could be there in about twenty minutes.
 Imogen Pryce [1:52 P.M.]: That would be great. Can you bring some of the new spring catalogs? We ran out this morning.
 Dariusz Novak [1:53 P.M.]: Sure thing. There are two full boxes in the back room here.`,
           groups: [ { type: 'mcq', instr: g.TQR[5], items: [
-            { n: 149, q: 'Why does Ms. Pryce contact Mr. Novak?', options: ['She wants to change a display.', 'She is looking for a manager.', 'She needs help at a store.', 'She forgot a meeting time.'], a: 2, cue: "Hamid called in sick. I'm the only one here.",
+            { n: 149, q: 'Why does Ms. Pryce contact Mr. Novak?', options: ['She wants to change a display.', 'She is looking for a manager.', 'She forgot a meeting time.', 'She needs help at a store.'], a: 3, cue: "Hamid called in sick. I'm the only one here.",
               explain: 'Quản lý vùng sắp đến thăm cửa hàng phố Cole lúc 3 giờ, Hamid xin nghỉ ốm và cô đang làm một mình ("I\'m the only one here") → cô cần người hỗ trợ ở cửa hàng. Người làm tủ trưng bày là Dariusz; quản lý vùng không bị "tìm kiếm" mà đang đến thăm.' },
             { n: 150, q: 'At 1:51 P.M., what does Mr. Novak mean when he writes, "I could be there in about twenty minutes"?', options: ['He is running late for a meeting.', 'He cannot leave his store.', 'He wants to postpone a visit.', 'He is offering to come help.'], a: 3, cue: 'I could be there in about twenty minutes.',
               explain: 'Ngay sau khi biết cô đang thiếu người, anh nói có thể đến trong khoảng 20 phút → đề nghị sang giúp; cô đáp "That would be great". Không có cuộc họp nào bị trễ, và anh rõ ràng có thể rời cửa hàng của mình.' }
@@ -226,7 +226,7 @@ Membership Director`,
               explain: 'Đoạn 2 liệt kê: thư viện hơn 400 bài giảng ghi hình, đăng hồ sơ năng lực trong danh bạ trực tuyến, giảm 30% phí đăng ký hội nghị. Tạp chí in miễn phí không được nhắc đến → đáp án.' },
             { n: 156, q: 'How can Ms. Szabo avoid paying a higher fee?', options: ['By renewing before July 1', 'By attending the conference', 'By paying by check', 'By recruiting a new member'], a: 0, cue: 'Members who renew before that date, however, will pay the current rate.',
               explain: 'Phí tăng từ $180 lên $210 từ ngày 1/7, nhưng "Members who renew before that date… will pay the current rate" ("that date" = July 1) → gia hạn trước ngày 1/7. Các cách còn lại không được nhắc đến.' },
-            { n: 157, q: 'In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong? "The process takes less than five minutes."', options: ['[1]', '[2]', '[3]', '[4]'], a: 3, cue: 'You can renew online at www.pclas.org/renew.',
+            { n: 157, q: 'In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong? "The process takes less than five minutes."', options: ['[1]', '[4]', '[3]', '[2]'], a: 1, cue: 'You can renew online at www.pclas.org/renew.',
               explain: '"The process" (quy trình) phải chỉ một thủ tục vừa được nhắc ngay trước → việc gia hạn trực tuyến "You can renew online at www.pclas.org/renew". Đặt ở [4] tạo mạch: gia hạn online – quy trình chưa đến 5 phút – có thắc mắc thì liên hệ. Ở các vị trí khác không có "quy trình" nào để câu này thay thế.' }
           ] } ] },
         { title: 'Article', text:
@@ -280,7 +280,7 @@ Large-Format Printing: Posters, banners, and window graphics printed on weather-
 
 First-time business customers receive 15 percent off their first order. To book, call 555-0182 or use the online form below. Please note that the studio is closed on Mondays.`,
           groups: [ { type: 'mcq', instr: 'Questions 165-166 refer to the following Web page.', items: [
-            { n: 165, q: 'For whom is the Web page most likely intended?', options: ['Amateur photographers', 'Wedding planners', 'Photography students', 'Business owners'], a: 3, cue: 'Quillon Photo Lab has helped restaurants, real estate agencies, and online shops',
+            { n: 165, q: 'For whom is the Web page most likely intended?', options: ['Business owners', 'Wedding planners', 'Photography students', 'Amateur photographers'], a: 0, cue: 'Quillon Photo Lab has helped restaurants, real estate agencies, and online shops',
               explain: 'Tiêu đề "Services for Businesses" và câu "has helped restaurants, real estate agencies, and online shops" (đã giúp nhà hàng, công ty bất động sản, cửa hàng trực tuyến) → dành cho chủ doanh nghiệp. Trang web không nhắm tới người chụp ảnh nghiệp dư, người tổ chức đám cưới hay sinh viên nhiếp ảnh.' },
             { n: 166, q: 'What is indicated about on-site shoots?', options: ['They are available only on Mondays.', 'They include free printing.', 'They may require an additional charge.', 'They must be booked by phone.'], a: 2, cue: 'A travel fee applies to locations beyond that distance.',
               explain: '"A travel fee applies to locations beyond that distance" → địa điểm xa hơn 40 km phải trả thêm phí đi lại, tức có thể phát sinh chi phí. Studio đóng cửa thứ Hai; in ấn là dịch vụ riêng, không miễn phí; có thể đặt qua điện thoại hoặc biểu mẫu trực tuyến.' }
@@ -300,7 +300,7 @@ Mehmet Aydin [10:18 A.M.]: Confirmed. The van is free all day. I'll assign two d
               explain: 'Khách hàng muốn giao 60 ghế "on Thursday instead of next Monday" (vào thứ Năm thay vì thứ Hai tới) vì chi nhánh mới khai trương sớm hơn → nhận hàng sớm hơn. Số lượng ghế, việc hủy đơn hay địa chỉ giao đều không thay đổi.' },
             { n: 168, q: 'At 10:13 A.M., what does Mr. Aydin most likely mean when he writes, "Not that I know of"?', options: ['He believes the van is available.', 'He does not know where the van is parked.', 'He has not met the client.', 'He is unsure how many chairs were ordered.'], a: 0, cue: 'Not that I know of.',
               explain: 'Ms. Brandao hỏi có ai dùng xe van vào thứ Năm không; "Not that I know of" (theo tôi biết thì không) → anh cho rằng xe van đang trống, sau đó xác nhận "The van is free all day". Câu này không liên quan đến chỗ đỗ xe, khách hàng hay số lượng ghế.' },
-            { n: 169, q: 'What is suggested about the delivery to Hartwell Interiors?', options: ['It will be made by a rental company.', 'It will begin in the afternoon.', 'It will require several trips.', 'It will be handled by one driver.'], a: 2, cue: 'so it would take three trips',
+            { n: 169, q: 'What is suggested about the delivery to Hartwell Interiors?', options: ['It will be made by a rental company.', 'It will begin in the afternoon.', 'It will be handled by one driver.', 'It will require several trips.'], a: 3, cue: 'so it would take three trips',
               explain: 'Xe van chở khoảng 20 ghế nên "it would take three trips" (cần ba chuyến) để chở 60 ghế. Họ không thuê xe; chuyến đầu đến trước 9 giờ sáng chứ không phải buổi chiều; Mr. Aydin sẽ bố trí hai tài xế, không phải một.' }
           ] } ] },
         { title: 'Memo', text:
@@ -334,7 +334,7 @@ The switch will also affect the company's packaging. Beginning in October, Kesta
 
 Prices of Kestavik teas will not change. —[4]— The new bags will first appear on the company's best-selling Harbor Breakfast and Mint Garden blends, with the remaining 22 varieties following in November and December.`,
           groups: [ { type: 'mcq', instr: 'Questions 172-175 refer to the following press release.', items: [
-            { n: 172, q: 'What is the purpose of the press release?', options: ['To introduce a new tea flavor', 'To report an increase in prices', 'To advertise a store opening', 'To announce a change in materials'], a: 3, cue: 'it will replace all of its plastic tea bags with plant-based ones',
+            { n: 172, q: 'What is the purpose of the press release?', options: ['To announce a change in materials', 'To report an increase in prices', 'To advertise a store opening', 'To introduce a new tea flavor'], a: 0, cue: 'it will replace all of its plastic tea bags with plant-based ones',
               explain: 'Công ty thông báo "will replace all of its plastic tea bags with plant-based ones" (thay túi trà nhựa bằng túi từ thực vật) → thay đổi vật liệu. Không có hương trà mới hay cửa hàng mới, và "Prices of Kestavik teas will not change" nên không có chuyện tăng giá.' },
             { n: 173, q: 'What is NOT mentioned as a change the company will make?', options: ['Printing its boxes with a different ink', 'Removing the plastic wrap from its boxes', 'Reducing the size of its boxes', 'Using tea bags made of corn fiber'], a: 2, cue: "Kestavik's boxes will be printed with vegetable-based inks, and the plastic wrap around each box will be removed",
               explain: 'Thông cáo nêu: túi trà làm từ sợi ngô ("made from corn fiber"), hộp in bằng mực gốc thực vật và bỏ lớp màng nhựa bọc hộp. Việc thu nhỏ kích thước hộp không hề được nhắc đến → đáp án.' },
@@ -382,7 +382,7 @@ Customer Support Manager, Larchmont Insurance`,
               explain: 'Gói Ridgeline giá $95/người; email gửi ngày 3/3 cho sự kiện ngày 16/5 – trước hơn 60 ngày → được giảm 10%: $95 × 0,9 = $85,50. "$95.00" là giá chưa giảm; "$45.00" và "$40.50" là giá gói Basecamp trước và sau giảm.' },
             { n: 179, q: 'In the e-mail, the word "entitles" in paragraph 2 is closest in meaning to', options: ['allows', 'names', 'requires', 'describes'], a: 0, cue: 'booking this far ahead entitles us to a discount',
               explain: '"entitle sb to sth" = cho ai quyền được hưởng cái gì → "booking this far ahead entitles us to a discount" (đặt sớm như vậy cho chúng tôi quyền được giảm giá) ≈ "allows". "names" (đặt tên) là nghĩa khác của "entitle" (đặt tiêu đề) nhưng không hợp ngữ cảnh; "requires" và "describes" sai nghĩa.' },
-            { n: 180, q: 'What does Mr. Baek ask about one of his team members?', options: ['Whether she can bring a family member', 'Whether she can join a different activity', 'Whether she can arrive late', 'Whether she can receive a refund'], a: 1, cue: 'Is there an alternative activity she could take part in at the same location?',
+            { n: 180, q: 'What does Mr. Baek ask about one of his team members?', options: ['Whether she can bring a family member', 'Whether she can arrive late', 'Whether she can join a different activity', 'Whether she can receive a refund'], a: 2, cue: 'Is there an alternative activity she could take part in at the same location?',
               explain: 'Một nhân viên bị đau mắt cá chân, không đi bộ đường dài được; ông hỏi "Is there an alternative activity she could take part in…?" → liệu cô ấy có thể tham gia hoạt động khác không. "family commitments" ở đoạn trước là lý do không ngủ qua đêm, không phải việc đưa người nhà theo.' }
           ] } ] },
         { title: 'Brochure and E-mail', text:
@@ -416,7 +416,7 @@ I look forward to hearing from you.
 Priscilla Okafor-Lindqvist
 Events Coordinator, Varrow Foundation`,
           groups: [ { type: 'mcq', instr: 'Questions 181-185 refer to the following brochure and e-mail.', items: [
-            { n: 181, q: "What is indicated about the museum's event spaces?", options: ['They all include a sound system.', 'They can be booked only on weekends.', 'They are all located indoors.', 'They are free for nonprofit groups.'], a: 0, cue: 'All bookings include tables, chairs, and a basic sound system.',
+            { n: 181, q: "What is indicated about the museum's event spaces?", options: ['They are free for nonprofit groups.', 'They can be booked only on weekends.', 'They are all located indoors.', 'They all include a sound system.'], a: 3, cue: 'All bookings include tables, chairs, and a basic sound system.',
               explain: '"All bookings include tables, chairs, and a basic sound system" → mọi không gian đều kèm hệ thống âm thanh. Captain\'s Deck ở ngoài trời; tổ chức phi lợi nhuận chỉ được giảm 10%, không miễn phí; không có quy định chỉ đặt vào cuối tuần.' },
             { n: 182, q: 'How much will the Varrow Foundation most likely be charged for the space it wants?', options: ['$810', '$2,160', '$2,400', '$2,790'], a: 1, cue: 'Nonprofit organizations receive a 10 percent discount on all spaces.',
               explain: 'Kết hợp hai văn bản: e-mail cho biết Varrow Foundation là tổ chức phi lợi nhuận muốn thuê Harbor Gallery; tờ giới thiệu ghi giá $2,400 và giảm 10% cho tổ chức phi lợi nhuận → $2,400 − $240 = $2,160. $2,400 là giá chưa giảm; $810 là giá Lighthouse Room sau giảm.' },
@@ -527,11 +527,11 @@ Thursday, June 25 | 9:00 A.M. | Valentina Ospina (video call – to be confirmed
 
 Each interview will last about 45 minutes and will include a short role-play in which the candidate responds to a guest complaint.`,
           groups: [ { type: 'mcq', instr: 'Questions 191-195 refer to the following job advertisement, e-mail, and schedule.', items: [
-            { n: 191, q: 'What is indicated about the advertised position?', options: ['It is a part-time job.', 'It involves supervising twelve employees.', "It is based at the hotel's main branch.", 'It requires a university degree.'], a: 1, cue: 'lead our front-desk team of twelve',
+            { n: 191, q: 'What is indicated about the advertised position?', options: ['It involves supervising twelve employees.', 'It is a part-time job.', "It is based at the hotel's main branch.", 'It requires a university degree.'], a: 0, cue: 'lead our front-desk team of twelve',
               explain: '"lead our front-desk team of twelve" (dẫn dắt đội lễ tân 12 người) → giám sát 12 nhân viên. Vị trí là toàn thời gian ("full-time"), làm tại chi nhánh Lakeview chứ không phải chi nhánh chính, và không yêu cầu bằng đại học.' },
             { n: 192, q: 'Which shortlisted candidate does NOT meet all of the stated requirements?', options: ['Valentina Ospina', 'Kwame Asante-Boateng', 'Lucie Marchand', 'Dmitri Volkov'], a: 3, cue: 'with no supervisory role yet',
               explain: 'Kết hợp quảng cáo và e-mail: yêu cầu có ít nhất ba năm làm lễ tân, trong đó một năm ở vai trò giám sát. Dmitri Volkov có ba năm lễ tân nhưng "with no supervisory role yet" (chưa từng giữ vai trò giám sát) → chưa đạt. Lucie Marchand chỉ nói tiếng Anh nhưng ngoại ngữ thứ hai chỉ là lợi thế, không bắt buộc.' },
-            { n: 193, q: 'In the e-mail, the word "brief" in paragraph 1, line 3, is closest in meaning to', options: ['short', 'legal', 'urgent', 'informal'], a: 0, cue: 'Here is a brief summary of each',
+            { n: 193, q: 'In the e-mail, the word "brief" in paragraph 1, line 3, is closest in meaning to', options: ['urgent', 'legal', 'short', 'informal'], a: 2, cue: 'Here is a brief summary of each',
               explain: '"a brief summary" là bản tóm tắt ngắn gọn về từng ứng viên → "short". "brief" không mang nghĩa pháp lý, khẩn cấp hay thân mật trong ngữ cảnh này.' },
             { n: 194, q: "What is suggested about Ms. Ospina's interview?", options: ['It will take place in Meeting Room 2.', 'It is scheduled for the first day of interviews.', 'It may not follow the format stated in the job advertisement.', 'It will be conducted by Ms. Mapfumo alone.'], a: 2, cue: '(video call – to be confirmed)',
               explain: 'Kết hợp ba văn bản: quảng cáo nói phỏng vấn trực tiếp ("in person"); e-mail cho biết Ms. Ospina xin phỏng vấn qua video; lịch ghi "video call – to be confirmed" → buổi phỏng vấn có thể khác hình thức đã nêu trong quảng cáo. Lịch của cô vào thứ Năm (ngày cuối), không ở Meeting Room 2, và có cả hai người phỏng vấn.' },
@@ -588,7 +588,7 @@ Payment due by October 15`,
           groups: [ { type: 'mcq', instr: 'Questions 196-200 refer to the following price list, e-mail, and invoice.', items: [
             { n: 196, q: "What is indicated about Leafward Greenery's service?", options: ['It replaces unhealthy plants at no charge.', 'It charges a fee for delivery.', 'It requires customers to buy their own pots.', 'It sends a technician once a month.'], a: 0, cue: 'Plants that become unhealthy are replaced at no cost.',
               explain: '"Plants that become unhealthy are replaced at no cost" → cây yếu được thay miễn phí. Giá thuê đã bao gồm giao hàng và chậu trang trí; nhân viên bảo dưỡng đến hai tuần một lần, không phải mỗi tháng một lần.' },
-            { n: 197, q: 'Why did Mr. Jang write the e-mail?', options: ["To cancel his company's rental", 'To ask about a new type of plant', 'To report a problem with a bill', 'To change a payment due date'], a: 2, cue: 'I believe there is an error on our September invoice.',
+            { n: 197, q: 'Why did Mr. Jang write the e-mail?', options: ["To cancel his company's rental", 'To ask about a new type of plant', 'To change a payment due date', 'To report a problem with a bill'], a: 3, cue: 'I believe there is an error on our September invoice.',
               explain: '"I believe there is an error on our September invoice" (tôi nghĩ hóa đơn tháng 9 có sai sót) → báo lỗi trên hóa đơn. Anh khen dịch vụ chứ không hủy hợp đồng; cây cọ Kentia đã được thêm từ tháng 8; hạn thanh toán không được đề cập trong e-mail.' },
             { n: 198, q: 'What will the corrected total most likely be?', options: ['$183.60', '$186.00', '$194.00', '$204.00'], a: 0, cue: 'Customers who rent 20 or more plants receive a 10 percent discount on their monthly total.',
               explain: 'Kết hợp ba văn bản: bảng giá giảm 10% cho khách thuê từ 20 cây; e-mail cho biết công ty có 20 cây; hóa đơn ghi tạm tính $204 nhưng "Discount: $0". Tổng đúng = $204 − $20.40 = $183.60. $204.00 là số tiền sai trên hóa đơn hiện tại.' },
