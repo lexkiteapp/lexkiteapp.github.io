@@ -23,14 +23,6 @@
   ":scope > main > div > div:nth-child(4) > div:nth-child(1)": {
    "role": "'status'"
   },
-  ":scope > main > div > div:nth-child(4) > div:nth-child(4) > button": {
-   "id": "'lsnWhy'",
-   "type": "'button'"
-  },
-  ":scope > main > div > div:nth-child(4) > div:nth-child(6) > button": {
-   "id": "'lsnNext'",
-   "type": "'button'"
-  },
   ":scope > main > div > div:nth-child(4) .material-symbols-outlined": {
    "aria-hidden": "'true'"
   },
@@ -47,16 +39,19 @@
    "data-accent": "d.acc2",
    "data-url": "d.url2",
    "aria-label": "d.ar2"
+  },
+  ":scope > main > div > div:nth-child(4) > div:nth-child(5) > button": {
+   "id": "'lsnNext'",
+   "type": "'button'"
   }
  },
  "addClass": {
   ":scope > main > div > div:nth-child(4) > div:nth-child(1) > div:nth-child(2) > span:nth-child(2)": "lsn-ans",
-  ":scope > main > div > div:nth-child(4) > div:nth-child(6) > button > span:nth-child(1)": "uppercase",
   ":scope > main > div > div:nth-child(4) > div:nth-child(3)": "lsn-dict",
-  ":scope > main > div > div:nth-child(4) > div:nth-child(4)": "lsn-whyrow"
+  ":scope > main > div > div:nth-child(4) > div:nth-child(5) > button > span:nth-child(1)": "uppercase"
  },
  "after": {
-  ":scope > main > div > div:nth-child(4) > div:nth-child(4)": "d.boxes"
+  ":scope > main > div > div:nth-child(4) > div:nth-child(3)": "'<div class=\"flex items-center justify-start lsn-whyrow\"><button class=\"min-h-[44px] rounded-[9999px] border border-white/60 bg-transparent text-white text-[13px] font-bold flex items-center gap-1.5 px-4 py-2 hover:bg-white/10 transition-colors\" id=\"lsnWhy\" type=\"button\"><span class=\"material-symbols-outlined text-[18px] text-white [font-variation-settings:\\'FILL\\'_1]\" aria-hidden=\"true\">lightbulb</span><span>' + e(t('Vì sao?')) + '</span></button></div>' + d.boxes"
  },
  "remove": [
   ":scope > main > div > div:nth-child(4) > div.lsn-ph"
