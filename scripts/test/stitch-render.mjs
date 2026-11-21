@@ -21,7 +21,7 @@ const STAT = () => { const vis = e => { const r = e.getBoundingClientRect(), cs 
   const iconOnly = [...document.querySelectorAll('a,button,[role=button],[role=switch]')].filter(vis).filter(b => !txt(b).length && !b.getAttribute('aria-label') && !b.getAttribute('title') && !b.getAttribute('aria-labelledby')).map(b => (b.className.toString().match(/\S+/g) || []).slice(0, 2).join('.') + '@' + Math.round(b.getBoundingClientRect().top));
   const boxes = [...document.querySelectorAll('body *')].filter(x => [...x.childNodes].some(n => n.nodeType === 3 && n.textContent.trim()) && !/material-symbols/.test(x.className) && vis(x)).map(x => { const r = x.getBoundingClientRect(), cs = getComputedStyle(x), fs = parseFloat(cs.fontSize), fw = +cs.fontWeight || 400;
     let op = 1; for (let q = x; q && q.nodeType === 1; q = q.parentElement) op *= +getComputedStyle(q).opacity;
-    const hh = Math.min(r.height, fs * 1.2), cy = r.top + r.height / 2 + scrollY; return { t: x.textContent.trim().slice(0, 30), x: r.left, y: cy - hh / 2, w: r.width, h: hh, c: cs.color, op, rad: parseFloat(cs.borderTopLeftRadius) || 0, bt: r.top + scrollY, bh: r.height, large: fs >= 24 || (fs >= 18.66 && fw >= 700) }; });
+    const hh = Math.min(r.height, fs * 1.2), cy = r.top + r.height / 2 + scrollY; return { fsz: cs.fontSize, ls: cs.letterSpacing, fw: cs.fontWeight, ff: cs.fontFamily.split(',')[0], t: x.textContent.trim().slice(0, 30), x: r.left, y: cy - hh / 2, w: r.width, h: hh, c: cs.color, op, rad: parseFloat(cs.borderTopLeftRadius) || 0, bt: r.top + scrollY, bh: r.height, large: fs >= 24 || (fs >= 18.66 && fw >= 700) }; });
   return { navLabels: tabs.map(t => txt(t).join(' ')).filter(Boolean), navAria: tabs.map(t => t.getAttribute('aria-label')).filter(Boolean), navN: tabs.length,
     header: hdr ? txt(hdr) : [], buttons: [...document.querySelectorAll('button,a')].filter(vis).map(b => txt(b).join(' ')).filter(Boolean), words: txt(document.body), iconOnly, boxes }; };
 const lum = c => { const f = v => { v /= 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; }; return 0.2126 * f(c[0]) + 0.7152 * f(c[1]) + 0.0722 * f(c[2]); };
@@ -55,7 +55,7 @@ for (const s of ORDER) for (const m of ['dark', 'light']) { const f = path.join(
   if (miss) { console.error(`✗ ${s}-${m}: ${miss} icon chưa thành hình (font icon lỗi)`); process.exitCode = 1; }
   const st = await p.evaluate(STAT);
   const o = path.join(OUT, 'png', `${s}-${m}.png`); await p.screenshot({ path: o, fullPage: true }); done[`${s}-${m}`] = o; await p.close();
-  fs.writeFileSync(o.replace(/\.png$/, '.boxes.json'), JSON.stringify((st.boxes || []).map(b => [b.t, Math.round(b.x), Math.round(b.bt), Math.round(b.w), Math.round(b.bh)]))); // hộp chữ (chẩn đoán lệch bố cục mẫu ↔ app)
+  fs.writeFileSync(o.replace(/\.png$/, '.boxes.json'), JSON.stringify((st.boxes || []).map(b => [b.t, Math.round(b.x), Math.round(b.bt), Math.round(b.w), Math.round(b.bh), b.fsz, b.ls, b.fw, b.ff]))); // hộp chữ (chẩn đoán lệch bố cục mẫu ↔ app)
   st.lowContrast = contrast(o, st.boxes); delete st.boxes; (info[s] ||= {})[m] = st; }
 await browser.close();
 // ---- báo cáo đồng bộ: PHẢI SỬA (đỏ) vs lệch nội dung (tham khảo) ----
