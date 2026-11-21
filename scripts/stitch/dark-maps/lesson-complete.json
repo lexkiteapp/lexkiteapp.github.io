@@ -1,13 +1,58 @@
 {
  "_doc": "Bảng tối cho lesson-complete (20/11): cùng DOM bản sáng (lesson-complete-v3 light, key1 2908fa23…), màu theo ref tối Stitch 5a0c82f4… (Tactile Night): nền #091518, thẻ #162125, viền #2B373A, gờ #051013, chữ #D8E5EA/#BCC9C7, teal #6BD8CE. Dải teal + nút CTA giữ nguyên hai bản.",
- "config": { "surface": "#091518", "background": "#091518", "on-surface": "#D8E5E9", "on-background": "#D8E5E9" },
- "hex": { "#FFF7EA": "#091518" },
+ "config": {
+  "surface": "#091518",
+  "background": "#091518",
+  "on-surface": "#D8E5E9",
+  "on-background": "#D8E5E9"
+ },
+ "hex": {
+  "#FFF7EA": "#091518"
+ },
  "cls": {
-  "bg-[#FFFFFF]": "bg-[#162125]", "border-[#EADEC8]": "border-[#2B373A]",
-  "shadow-[0_3px_0_0_#D8CFBC]": "shadow-[0_3px_0_0_#051013]", "shadow-[0_4px_0_0_#D8CFBC]": "shadow-[0_4px_0_0_#051013]", "shadow-[0_1.5px_0_0_#D8CFBC]": "shadow-[0_1.5px_0_0_#051013]",
-  "text-[#0F3D3E]": "text-[#D8E5E9]", "text-[#5A6D6C]": "text-[#BCC9C7]", "text-[#145652]": "text-[#6BD8CE]", "text-[#12514D]": "text-[#6BD8CE]",
-  "bg-[#FBF7F1]": "bg-[#121D20]", "bg-[#F1FAF8]": "bg-[#0F2A2B]", "border-[#1F7A75]": "border-[#2BA39A]", "text-[#1F7A75]": "text-[#6BD8CE]",
-  "bg-[#FFEAE5]": "bg-[#3A1D18]", "bg-[#EADEC8]": "bg-[#2B373A]", "bg-[#B6A68D]": "bg-[#879391]", "text-[#879391]": "text-[#879391]", "text-[#B03718]": "text-[#FF8466]", "text-[#45555A]": "text-[#A3B9B7]",
-  "bg-[#E3F8F5]": "bg-[#0F2A2B]", "hover:bg-black/5": "hover:bg-white/5", "active:bg-black/10": "active:bg-white/10"
- }
+  "bg-[#FFFFFF]": "bg-[#162125]",
+  "border-[#EADEC8]": "border-[#2B373A]",
+  "shadow-[0_3px_0_0_#D8CFBC]": "shadow-[0_3px_0_0_#051013]",
+  "shadow-[0_4px_0_0_#D8CFBC]": "shadow-[0_4px_0_0_#051013]",
+  "shadow-[0_1.5px_0_0_#D8CFBC]": "shadow-[0_1.5px_0_0_#051013]",
+  "text-[#0F3D3E]": "text-[#D8E5E9]",
+  "text-[#5A6D6C]": "text-[#BCC9C7]",
+  "text-[#145652]": "text-[#6BD8CE]",
+  "text-[#12514D]": "text-[#6BD8CE]",
+  "bg-[#FBF7F1]": "bg-[#121D20]",
+  "bg-[#F1FAF8]": "bg-[#0F2A2B]",
+  "border-[#1F7A75]": "border-[#2BA39A]",
+  "text-[#1F7A75]": "text-[#6BD8CE]",
+  "bg-[#FFEAE5]": "bg-[#3A1D18]",
+  "bg-[#EADEC8]": "bg-[#2B373A]",
+  "bg-[#B6A68D]": "bg-[#879391]",
+  "text-[#879391]": "text-[#879391]",
+  "text-[#B03718]": "text-[#FF8466]",
+  "text-[#45555A]": "text-[#A3B9B7]",
+  "bg-[#E3F8F5]": "bg-[#0F2A2B]",
+  "hover:bg-black/5": "hover:bg-white/5",
+  "active:bg-black/10": "active:bg-white/10"
+ },
+ "raw": [
+  [
+   "<html class=\"light\"",
+   "<html class=\"dark\""
+  ],
+  [
+   "<body class=\"bg-surface text-on-surface",
+   "<body class=\"bg-[#0E191C] text-[#EAF2F2]"
+  ],
+  [
+   "\"surface\": \"#FFF7EA\"",
+   "\"surface\": \"#091518\""
+  ],
+  [
+   "\"background\": \"#FFF7EA\"",
+   "\"background\": \"#091518\""
+  ],
+  [
+   "\"on-surface\": \"#0F3D3E\"",
+   "\"on-surface\": \"#D8E5E9\""
+  ]
+ ]
 }
