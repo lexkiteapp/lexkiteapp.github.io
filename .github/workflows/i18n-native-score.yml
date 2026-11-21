@@ -24,6 +24,8 @@ jobs:
         with: { node-version: 22 }
       - name: Chấm shard
         env:
+          LX_IN1: ${{ github.event.inputs.limit || '400' }}
+          LX_IN2: ${{ github.event.inputs.fix == '1' && '--fix' || '' }}
           GRABCAST_AI_KEY: ${{ secrets.GRABCAST_AI_KEY }}
           GEMINI_POOL: ${{ secrets.GEMINI_POOL }}
           GROQ_POOL: ${{ secrets.GROQ_POOL }}
@@ -31,7 +33,7 @@ jobs:
           CF_ACCOUNT_2: ${{ secrets.CF_ACCOUNT_2 }}
           AI_POOL_GC_MAX: '3000'
           NS_MIN: '48'   # dừng trước timeout 60' để còn lưu artifact
-        run: node scripts/i18n-native-score.mjs --shard ${{ matrix.shard }}/4 --limit "${{ github.event.inputs.limit || '400' }}" ${{ github.event.inputs.fix == '1' && '--fix' || '' }}
+        run: node scripts/i18n-native-score.mjs --shard ${{ matrix.shard }}/4 --limit "$LX_IN1" $LX_IN2
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with:

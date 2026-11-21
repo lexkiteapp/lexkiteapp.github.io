@@ -30,12 +30,15 @@ jobs:
         run: node scripts/jobs/lease.mjs acquire script-bank
       - name: Sinh + QC + chấm
         env:  # ai-pool (scripts/lib/ai-pool.mjs): Gemini kho Lexkite → GrabCast → Workers AI tài khoản 2 (neuron = phần cấp điều phối) → GrabCast Groq
+          LX_IN1: ${{ github.event.inputs.max || '400' }}
+          LX_IN2: ${{ github.event.inputs.calls || '60' }}
+          LX_IN3: ${{ github.event.inputs.cap || '6' }}
           GRABCAST_AI_KEY: ${{ secrets.GRABCAST_AI_KEY }}
           CF_AI_TOKEN_2: ${{ secrets.CF_AI_TOKEN_2 }}
           CF_ACCOUNT_2: ${{ secrets.CF_ACCOUNT_2 }}
           AI_POOL_GC_MAX: '8000'
         if: ${{ steps.lease.outputs.skip != '1' }}
-        run: node scripts/scriptbank/job.mjs --max "${{ github.event.inputs.max || '400' }}" --calls "${{ github.event.inputs.calls || '60' }}" --neurons "${{ steps.lease.outputs.ai_b_neurons || 0 }}" --cap "${{ github.event.inputs.cap || '6' }}"
+        run: node scripts/scriptbank/job.mjs --max "$LX_IN1" --calls "$LX_IN2" --neurons "${{ steps.lease.outputs.ai_b_neurons || 0 }}" --cap "$LX_IN3"
       - name: Lưu kết quả
         if: ${{ always() && steps.lease.outputs.skip != '1' }}
         run: |

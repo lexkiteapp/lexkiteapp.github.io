@@ -69,7 +69,9 @@ jobs:
       - name: Chạy kịch bản trên ${{ matrix.tag }}
         run: |
           unzip -q app-e2e.zip -d "$RUNNER_TEMP/app"
-          node scripts/test/ios-e2e/driver.mjs --app "$RUNNER_TEMP/app/App.app" --device '${{ matrix.device }}' --tag ${{ matrix.tag }} --out e2e-out --minutes ${{ github.event.inputs.minutes || '35' }}
+          node scripts/test/ios-e2e/driver.mjs --app "$RUNNER_TEMP/app/App.app" --device '${{ matrix.device }}' --tag ${{ matrix.tag }} --out e2e-out --minutes $LX_IN1
+        env:
+          LX_IN1: ${{ github.event.inputs.minutes || '35' }}
       - uses: actions/upload-artifact@v4
         if: always()
         with: { name: 'e2e-${{ matrix.tag }}', path: e2e-out/, retention-days: 14 }

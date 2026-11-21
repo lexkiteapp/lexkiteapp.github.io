@@ -49,7 +49,11 @@ jobs:
       - if: steps.c.outputs.cache-hit != 'true'
         run: |
           pip install -q numpy scipy soundfile pandas pyarrow huggingface_hub
-          python scripts/pron/prep_data.py "${{ inputs.n_so }}" "${{ inputs.n_ls }}" pron-data "${{ inputs.n_tr }}"
+          python scripts/pron/prep_data.py "$LX_IN1" "$LX_IN2" pron-data "$LX_IN3"
+        env:
+          LX_IN1: ${{ inputs.n_so }}
+          LX_IN2: ${{ inputs.n_ls }}
+          LX_IN3: ${{ inputs.n_tr }}
       - uses: actions/upload-artifact@v4
         with: { name: pron-data, path: pron-data, retention-days: 3 }
   eval:
@@ -86,7 +90,9 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: '22' }
       - run: bash scripts/ci/npm-retry.sh install --no-save --no-package-lock --ignore-scripts=false onnxruntime-node@1.20.1
-      - run: node scripts/pron/eval.mjs --cand "${{ matrix.cand.id }}" --dir "models/${{ matrix.cand.id }}" --data pron-data --quant "${{ inputs.quant }}" --out "reports/pron-eval-${{ matrix.cand.id }}.json"
+      - run: node scripts/pron/eval.mjs --cand "${{ matrix.cand.id }}" --dir "models/${{ matrix.cand.id }}" --data pron-data --quant "$LX_IN1" --out "reports/pron-eval-${{ matrix.cand.id }}.json"
+        env:
+          LX_IN1: ${{ inputs.quant }}
       - uses: actions/upload-artifact@v4
         if: always()
         with: { name: 'pron-eval-${{ matrix.cand.id }}', path: 'reports/pron-eval-*.json', if-no-files-found: ignore }

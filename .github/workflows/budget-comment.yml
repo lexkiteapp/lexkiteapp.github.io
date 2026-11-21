@@ -23,10 +23,10 @@ jobs:
         with: { node-version: 22, cache: npm }
       - run: npm ci --no-audit --no-fund
       - name: Đo + comment (mã comment lấy từ main)
-        env: { GH_TOKEN: '${{ github.token }}', GITHUB_REPOSITORY: '${{ github.repository }}' }
+        env: { GH_TOKEN: '${{ github.token }}', GITHUB_REPOSITORY: '${{ github.repository }}', LX_PR: '${{ github.event.pull_request.number }}' }
         run: |
           git fetch --no-tags --depth=1 origin main
           git show FETCH_HEAD:scripts/ci/budget-comment.mjs > "$RUNNER_TEMP/budget-comment.mjs" 2>/dev/null || { echo "chưa có budget-comment trên main – bỏ qua"; exit 0; }
           git show FETCH_HEAD:scripts/lib/headroom.mjs > "$RUNNER_TEMP/headroom.mjs"
           sed -i "s#'../lib/headroom.mjs'#'./headroom.mjs'#" "$RUNNER_TEMP/budget-comment.mjs"
-          node "$RUNNER_TEMP/budget-comment.mjs" ${{ github.event.pull_request.number }}
+          node "$RUNNER_TEMP/budget-comment.mjs" $LX_PR

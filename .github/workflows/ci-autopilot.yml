@@ -23,6 +23,7 @@ jobs:
         with: { node-version: 22 }
       - name: Duyệt PR
         env:
+          LX_IN1: ${{ inputs.dry && '--dry' || '' }}
           GITHUB_TOKEN: ${{ github.token }}
           # AUTOPILOT_MERGE_TOKEN: nối secret cùng tên vào env SAU KHI chủ tạo secret (accounts.mjs chặn secret chưa có trong sổ)
-        run: node scripts/ci/autopilot.mjs ${{ inputs.dry && '--dry' || '' }}
+        run: node scripts/ci/autopilot.mjs $LX_IN1

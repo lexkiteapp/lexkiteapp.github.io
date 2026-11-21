@@ -137,10 +137,12 @@ jobs:
         with: { node-version: 22 }
       - name: App Store Connect (${{ inputs.asc }})
         env:
+          LX_IN1: ${{ inputs.asc == 'dry-run' && '--dry-run' || '' }}
+          LX_IN2: ${{ inputs.only || 'all' }}
           ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
           ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
           ASC_KEY_P8: ${{ secrets.ASC_KEY_P8 }}
           ASC_BUILD: ${{ inputs.build }}
           ASC_SUBMIT: ${{ inputs.submit && 'yes' || 'no' }}
           ASC_REVIEW_PHONE: ${{ secrets.ASC_REVIEW_PHONE }}   # số liên hệ người duyệt – chỉ ở secret, không ở repo
-        run: set -o pipefail; node scripts/asc-upload.mjs ${{ inputs.asc == 'dry-run' && '--dry-run' || '' }} --shots store/apple/screenshots --only ${{ inputs.only || 'all' }} | tee -a "$GITHUB_STEP_SUMMARY"
+        run: set -o pipefail; node scripts/asc-upload.mjs $LX_IN1 --shots store/apple/screenshots --only $LX_IN2 | tee -a "$GITHUB_STEP_SUMMARY"

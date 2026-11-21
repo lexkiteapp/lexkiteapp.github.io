@@ -27,13 +27,15 @@ jobs:
         with: { node-version: 22 }
       - name: Chọn dự án theo app
         run: |
-          case "${{ inputs.app }}" in
+          case "$LX_APP" in
             capacitor) { echo "DIR=mobile/ios/App"; echo "PROJ=App.xcodeproj"; echo "SCHEME=App"; echo "APPNAME=App"; } >> "$GITHUB_ENV" ;;
             native) [ -d native/ios ] || { echo "::error::Chưa có native/ios trên nhánh này (app native chưa gộp vào main)"; exit 1; }
                     { echo "DIR=native/ios"; echo "PROJ=Lexkite.xcodeproj"; echo "SCHEME=Lexkite"; echo "APPNAME=Lexkite"; } >> "$GITHUB_ENV" ;;
             *) echo "::error::app phải là capacitor|native"; exit 1 ;;
           esac
           [[ "$VER" =~ ^[0-9]+\.[0-9]+(\.[0-9]+)?$ ]] && [[ "$BUILD" =~ ^[0-9]+$ ]] || { echo "::error::version/build lạ: $VER / $BUILD"; exit 1; }
+        env:
+          LX_APP: ${{ inputs.app }}
       # App Store Connect chỉ nhận bản build bằng Xcode 26+ / iOS 26 SDK
       - name: Chọn Xcode 26
         run: |
@@ -63,9 +65,9 @@ jobs:
           printf '%s' "$ASC_KEY_P8" > "$RUNNER_TEMP/AuthKey.p8"; chmod 600 "$RUNNER_TEMP/AuthKey.p8"
       - name: Archive (Release, ký Manual bằng chứng chỉ Distribution cố định)
         working-directory: ${{ env.DIR }}
-        env: { IOS_DIST_P12_BASE64: '${{ secrets.IOS_DIST_P12_BASE64 }}', IOS_DIST_P12_PASSWORD: '${{ secrets.IOS_DIST_P12_PASSWORD }}', IOS_PROFILE_APP_BASE64: '${{ secrets.IOS_PROFILE_APP_BASE64 }}', IOS_PROFILE_WIDGET_BASE64: '${{ secrets.IOS_PROFILE_WIDGET_BASE64 }}' }
+        env: { IOS_DIST_P12_BASE64: '${{ secrets.IOS_DIST_P12_BASE64 }}', IOS_DIST_P12_PASSWORD: '${{ secrets.IOS_DIST_P12_PASSWORD }}', IOS_PROFILE_APP_BASE64: '${{ secrets.IOS_PROFILE_APP_BASE64 }}', IOS_PROFILE_WIDGET_BASE64: '${{ secrets.IOS_PROFILE_WIDGET_BASE64 }}', LX_APP: '${{ inputs.app }}' }
         run: |
-          if [ "${{ inputs.app }}" = capacitor ]; then
+          if [ "$LX_APP" = capacitor ]; then
             bash "$GITHUB_WORKSPACE/scripts/native/ios-sign.sh" "$PROJ/project.pbxproj" com.lexkite.app:IOS_PROFILE_APP_BASE64 com.lexkite.app.widget:IOS_PROFILE_WIDGET_BASE64
           else
             bash "$GITHUB_WORKSPACE/scripts/native/ios-sign.sh" "$PROJ/project.pbxproj" com.lexkite.app:IOS_PROFILE_APP_BASE64
@@ -96,7 +98,7 @@ jobs:
           [ "$(/usr/libexec/PlistBuddy -c 'Print :ITSAppUsesNonExemptEncryption' "$APP/Info.plist" 2>/dev/null)" = "false" ] || echo "::warning::Info.plist thiếu ITSAppUsesNonExemptEncryption=false – asc-submit sẽ khai qua API"
           [ "$(/usr/libexec/PlistBuddy -c 'Print :CFBundleShortVersionString' "$APP/Info.plist")" = "$VER" ] || { echo "::error::CFBundleShortVersionString ≠ $VER"; exit 1; }
           [ "$(/usr/libexec/PlistBuddy -c 'Print :CFBundleVersion' "$APP/Info.plist")" = "$BUILD" ] || { echo "::error::CFBundleVersion ≠ $BUILD"; exit 1; }
-          if [ "${{ inputs.app }}" = capacitor ]; then
+          if [ "$LX_APP" = capacitor ]; then
             security cms -D -i "$APP/embedded.mobileprovision" 2>/dev/null | grep -A3 -E 'applesignin|application-groups' || true
             # Widget (ôn tập + "Từ mỗi giờ") đọc dữ liệu qua App Group: thiếu → widget trống. Bước tay trên portal: docs/STORE-READINESS.md mục B.x
             WX="$APP/PlugIns/LexkiteWidget.appex"
@@ -105,16 +107,18 @@ jobs:
             echo "✓ App + widget extension đều có App Group group.com.lexkite.app" >> "$GITHUB_STEP_SUMMARY"
             [ -f "$APP/GoogleService-Info.plist" ] && echo "✓ Có GoogleService-Info.plist – đăng nhập gốc BẬT" >> "$GITHUB_STEP_SUMMARY" || echo "⚠ Chưa có GoogleService-Info.plist – đăng nhập trong app TẮT" >> "$GITHUB_STEP_SUMMARY"
           fi
+        env:
+          LX_APP: ${{ inputs.app }}
       - name: Export + tải lên App Store Connect
         if: inputs.upload
-        env: { KID: '${{ secrets.ASC_KEY_ID }}', ISS: '${{ secrets.ASC_ISSUER_ID }}' }
+        env: { KID: '${{ secrets.ASC_KEY_ID }}', ISS: '${{ secrets.ASC_ISSUER_ID }}', LX_APP: '${{ inputs.app }}' }
         run: |
           # ExportOptions.plist (manual, app-store-connect, upload) do scripts/native/ios-sign.sh ghi ở bước Archive
           set -o pipefail
           xcodebuild -exportArchive -archivePath "$RUNNER_TEMP/Lexkite.xcarchive" -exportOptionsPlist "$RUNNER_TEMP/ExportOptions.plist" \
             -exportPath "$RUNNER_TEMP/export" \
             -authenticationKeyPath "$RUNNER_TEMP/AuthKey.p8" -authenticationKeyID "$KID" -authenticationKeyIssuerID "$ISS" 2>&1 | tail -40
-          echo "✓ Đã tải ${{ inputs.app }} $VER ($BUILD) lên App Store Connect – Apple xử lý 5–30 phút rồi hiện ở TestFlight" >> "$GITHUB_STEP_SUMMARY"
+          echo "✓ Đã tải $LX_APP $VER ($BUILD) lên App Store Connect – Apple xử lý 5–30 phút rồi hiện ở TestFlight" >> "$GITHUB_STEP_SUMMARY"
       # Crashlytics: dSYM của bản archive → Firebase (lexkite-app) để crash iOS đọc được tên hàm/dòng. Công cụ upload-symbols đi kèm firebase-ios-sdk (SPM, @capacitor-firebase/crashlytics).
       - name: Tải dSYM lên Firebase Crashlytics
         if: inputs.upload && inputs.app == 'capacitor'
