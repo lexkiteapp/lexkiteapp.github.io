@@ -4421,16 +4421,17 @@
   },
   "anticoagulant#n": {
    "ex": "For patients undergoing surgery, treatment with anticoagulants is generally suspended.",
-   "ps": "a clear bottle filled with many small round pills on a plain surface",
-   "sc": "a clear bottle filled with many small round pills on a plain surface",
-   "check": "Is there a container of small pills used as medicine?",
-   "cap": "a bottle filled with many small round pills",
-   "key": "bottle of small round pills; pills visible inside",
-   "who": 0,
-   "draw": 5,
+   "ps": "a doctor holds a clear syringe above a patient in a hospital bed, a red clot on the arm fades",
+   "sc": "a doctor holds a clear syringe above a patient in a hospital bed, a red clot on the arm fades",
+   "check": "Is the person being given a medicine that prevents blood clots?",
+   "cap": "a doctor administering an injection to a patient in bed",
+   "key": "a clear syringe held by the doctor; a red clot on the patient's arm fading",
+   "who": 2,
+   "draw": 4,
    "v": "e6",
    "by": "openai/gpt-oss-120b",
-   "tries": 2
+   "tries": 3,
+   "refix": 2
   },
   "anticonvulsant#n": {
    "ex": "Anticonvulsants may be used to help with seizures.",
@@ -13495,17 +13496,17 @@
   },
   "checking account#n": {
    "ex": "My salary goes into my checking account, and I pay my bills from it.",
-   "ps": "a woman holds a tiny bank building model in one hand and a grocery bag in the other",
-   "sc": "a woman holds a tiny bank building model in one hand and a grocery bag in the other",
-   "check": "Is the person using a bank account to pay for everyday items?",
-   "cap": "a woman holding a bank building model and a grocery bag",
-   "key": "a tiny bank building model in hand; a grocery bag with food",
-   "who": 1,
+   "ps": "a woman hands a blank sheet with a green tick to a cashier as groceries sit on the counter",
+   "sc": "a woman hands a blank sheet with a green tick to a cashier as groceries sit on the counter",
+   "check": "Is the person paying for groceries by handing a marked sheet to the cashier?",
+   "cap": "a woman gives a marked sheet to a cashier for groceries",
+   "key": "a blank sheet with a green tick; the woman handing the sheet to the cashier",
+   "who": 2,
    "draw": 4,
    "v": "e6",
-   "by": "@cf/openai/gpt-oss-120b",
+   "by": "openai/gpt-oss-120b",
    "tries": 3,
-   "refix": 1
+   "refix": 2
   },
   "checkmate#n": {
    "ex": "The final check results in checkmate.",
@@ -13851,15 +13852,17 @@
   },
   "chromatin#n": {
    "ex": "There are two types of chromatin.",
-   "ps": "a scientist peers through a microscope at a magnified cell nucleus filled with string-like fibers",
-   "sc": "a scientist peers through a microscope at a magnified cell nucleus filled with string-like fibers",
-   "check": "Is there a magnified view of a cell nucleus containing many string-like fibers?",
-   "cap": "a scientist looks at a nucleus full of tangled fibers",
-   "key": "magnified cell nucleus with string-like fibers; scientist peering through a microscope",
+   "ps": "a scientist looks through a microscope at a glowing tangled thread ball inside a clear cell model",
+   "sc": "a scientist looks through a microscope at a glowing tangled thread ball inside a clear cell model",
+   "check": "Is the scientist observing tangled thread-like structures inside a cell?",
+   "cap": "a scientist examining tangled threads inside a cell model",
+   "key": "glowing tangled thread ball; the clear cell model",
    "who": 1,
    "draw": 4,
    "v": "e6",
-   "by": "openai/gpt-oss-120b"
+   "by": "openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 1
   },
   "chromium#n": {
    "ex": "Chromium is used in different metal products.",
@@ -14573,16 +14576,17 @@
   },
   "clef#n": {
    "ex": "Pretend the written music has a different clef.",
-   "ps": "a large G-shaped symbol at the left of five thin horizontal lines on a plain background",
-   "sc": "a large G-shaped symbol at the left of five thin horizontal lines on a plain background",
-   "check": "Is there a curved symbol at the start of five horizontal lines?",
-   "cap": "a musical staff with a big curved symbol on the left side",
-   "key": "a G-shaped curved symbol at the beginning of five horizontal lines; the symbol placed on the left side",
+   "ps": "a musical staff of five horizontal lines with a large G-shaped symbol at the left",
+   "sc": "a musical staff of five horizontal lines with a large G-shaped symbol at the left",
+   "check": "Is there a musical symbol that shows the pitch of notes on a staff?",
+   "cap": "a musical staff with a large G-shaped symbol at the left",
+   "key": "a large G-shaped symbol on a musical staff; five horizontal lines",
    "who": 0,
-   "draw": 4,
+   "draw": 5,
    "v": "e6",
    "by": "openai/gpt-oss-120b",
-   "tries": 2
+   "tries": 3,
+   "refix": 1
   },
   "clergy#n": {
    "ex": "The clergy also had become more powerful.",
