@@ -539,7 +539,7 @@
   const flowStrip = t => {
     const el = $('#flowStrip'); if (!el) return;
     if (!FLOW_TABS.has(t)) { el.hidden = true; el.innerHTML = ''; return; }
-    lazy('AdminFlow', 'js/admin-flow.js').then(() => AdminFlow.paint(el, t, { capi, go, L, esc, lang: () => LANG })).catch(() => { el.hidden = true; });
+    lazy('AdminFlow', 'js/admin-flow.js').then(() => AdminFlow.paint(el, t, { capi, go, L, esc, ic: navIc, lang: () => LANG })).catch(() => { el.hidden = true; });
   };
   const setActions = html => { const a = $('#pgAct'); if (a) a.innerHTML = html; return a; };
   // Ngăn kéo thanh bên (điện thoại)

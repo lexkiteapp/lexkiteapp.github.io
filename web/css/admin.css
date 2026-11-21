@@ -872,3 +872,6 @@ body.u-bulk-on .adm-main { padding-bottom: 6.5rem; }
 .adm-me .btn { display: inline-flex; align-items: center; }
 .adm-me .btn .ic { width: 18px; height: 18px; margin: 0; vertical-align: 0; }
 .adm-me .btn .ic + span { margin-inline-start: .35rem; }
+/* Dải luồng video: icon Material cùng bộ với thanh bên (thay 🎞️ 🎬 🛰️ 📣 🗄️) */
+.adm .flow-t .ic { width: 16px; height: 16px; margin: 0 .3rem 0 0; vertical-align: -.2em; color: var(--muted); }
+.adm .flow-step[aria-current] .flow-t .ic { color: var(--primary); }
