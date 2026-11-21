@@ -883,3 +883,10 @@ body.u-bulk-on .adm-main { padding-bottom: 6.5rem; }
 .a-tabs > :is([aria-selected="true"], [aria-current="page"]) { background: var(--surface); color: var(--text); box-shadow: inset 0 -3px 0 var(--primary), var(--a-card-shadow); }
 .a-tabs > :is(button, a):focus-visible { outline: 2px solid var(--primary); outline-offset: -2px; }
 @media (max-width: 640px) { .a-tabs { margin-inline: calc(-1 * clamp(16px, 3.2vw, 2.4rem)); padding-inline: clamp(16px, 3.2vw, 2.4rem); } .a-tabs > :is(button, a) { min-height: 44px; } }
+/* Chip lọc có số (Cần xem 1 · Nghiêm trọng 1…): ở màn cảm ứng chip là inline-flex → khoảng trắng giữa nhãn và số bị nuốt ("To review1") – dùng gap */
+.chip-f { gap: .35rem; }
+/* Điện thoại: ô số liệu 2 cột (trước: 1 ô/hàng, 6 ô = 6 màn cuộn ở Sức khỏe hệ thống) */
+@media (max-width: 640px) {
+  .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .6rem; }
+  .tiles .kstat { padding: .85rem .9rem .8rem; }
+}
