@@ -17,7 +17,9 @@
   const { state, routes } = App, view = App.view, old = routes.me;
   const on = () => !!(self.ST2 && ST2.me && App.ux1On && App.ux1On());
   const num = n => (n || 0).toLocaleString(I18N.lang());
-  const ini = s => { const w = String(s || '').trim().split(/\s+/).filter(Boolean); return ((w.length > 1 ? w[0][0] + w[1][0] : (w[0] || 'L').slice(0, 2)) || 'L').toUpperCase(); };
+  // chữ tắt: chữ đầu (grapheme) từ đầu + từ cuối; chưa có tên → icon người
+  const g1 = w => [...w.normalize('NFC')][0], ini = s => { const w = String(s).split('@')[0].split(/[\s._-]+/).filter(Boolean); return (g1(w[0] || 'L') + (w[1] ? g1(w[w.length - 1]) : '')).toLocaleUpperCase(); };
+  const ANON = 'data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 56" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"><circle cx="28" cy="22" r="8"/><path d="M15 42c2-7 7-10 13-10s11 3 13 10"/></svg>');
   const THEMES = { auto: ['brightness_auto', () => t('Tự động')], light: ['light_mode', () => t('Sáng')], dark: ['dark_mode', () => t('Tối')] };
   const ACH_IC = { first: 'hotel_class', streak: 'local_fire_department' };
   // Huy hiệu: Stitch vẽ biểu tượng Material trên ô màu (không dùng emoji). @icons hotel_class flash_on verified local_library menu_book school account_balance psychology emoji_events local_fire_department whatshot diamond rocket_launch military_tech mic auto_stories bolt bedtime wb_twilight target workspace_premium
@@ -86,7 +88,7 @@
     secs.forEach(s => { const out = []; s.rows.forEach((r, i) => { if (i) out.push({ v: 'hr' }); out.push(r); }); s.rows = out; });
     const have = g.badges || {}, B = (Game.BADGES || []).slice().sort((a, b) => (have[b.id] ? 1 : 0) - (have[a.id] ? 1 : 0) || (have[b.id] || 0) - (have[a.id] || 0));
     const ach = B.slice(0, 3).map((b, i) => ({ icon: BADGE_IC[b.id] || ACH_IC.first, name: b.name, sub: have[b.id] ? t('Đã đạt') : t('Chưa đạt'), v: 'a' + (1 + i) }));
-    const photo = u && u.photoURL ? u.photoURL : '';
+    const named = !!(u && (u.displayName || u.email)), photo = u && u.photoURL ? u.photoURL : named ? '' : ANON;
     return { late, ini: ini((u && (u.displayName || u.email)) || name), photo, name, target: goal, lEdit: t('Cài đặt'), lStreak: t('Chuỗi ngày'), lXp: t('Tổng XP'), lSaved: t('Đã lưu'), streak: num(streak || 0), xp: num(g.xp || 0), saved: num(totalC),
       lAch: t('Huy hiệu'), lAll: t('Xem tất cả'), ach, secs, more, out: u ? t('Đăng xuất') : (window.Sync && Sync.can === false ? '' : t('Đăng nhập')), ver: 'Lexkite' + (L.title ? ' · ' + L.title : '') };
   }

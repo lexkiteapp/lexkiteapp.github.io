@@ -6,7 +6,7 @@ import fs from 'node:fs'; import { JSDOM } from 'jsdom';
 let n = 0, fails = 0; const ok = (c, m) => { n++; if (!c) { fails++; console.log('✗', m); } };
 const rd = f => fs.readFileSync(f, 'utf8');
 function mk(cfg = {}, lsInit = {}) {
-  const dom = new JSDOM('<!doctype html><body><div class="top-stats"><button id="examChip"></button></div><div id="modal" hidden><div id="modalBox"></div></div><main id="view"><a class="chip tl-chip" href="#/settings" data-tl="es">x</a><p>c</p></main><div id="root"><div><button data-act="lang"></button></div></div></body>', { url: 'https://lexkite.test/app/#/home', runScripts: 'outside-only' });
+  const dom = new JSDOM('<!doctype html><body><div class="top-stats"><button id="examChip"></button></div><div id="modal" hidden><div id="modalBox"></div></div><main id="view"><a class="chip tl-chip" href="#/settings" data-tl="es">x</a><p>c</p></main><div id="root"><div><button data-act="search"></button><button data-act="lang"></button></div><div class="set-row"><button data-act="lang" id="setLang"></button></div></div></body>', { url: 'https://lexkite.test/app/#/home', runScripts: 'outside-only' });
   const w = dom.window; w.self = w; w.localStorage.setItem('lk.cfg', JSON.stringify({ v: cfg }));
   Object.entries(lsInit).forEach(([k, v]) => w.localStorage.setItem(k, v));
   const toasts = []; w.t = (k, v) => String(k).replace(/\{(\w+)\}/g, (_, x) => (v && v[x] != null ? v[x] : '{' + x + '}'));
@@ -44,7 +44,7 @@ const tick = () => new Promise(r => setTimeout(r, 20));
 { const { w } = mk({ es_course: true, es_kill: true }); ok(!w.TLPick.courses().some(x => x.id === 'es' && x.on), 'es_kill tắt es'); }
 // 4) nút cờ + a11y: desktop #tlBtn trước examChip; điện thoại cạnh nút ngôn ngữ; Esc = hộp chung (ui.js) – ở đây kiểm có nhãn
 { const { w, d } = mk({ es_course: true }); w.TLPick.boot(); const b = d.getElementById('tlBtn'); ok(b && b.nextElementSibling.id === 'examChip' && /English/.test(b.getAttribute('aria-label')) && b.getAttribute('aria-haspopup') === 'dialog', 'desktop #tlBtn + aria-label ngôn ngữ hiện tại');
-  w.TLPick.head(d.getElementById('root')); ok(d.querySelectorAll('#root [data-act="tl"]').length === 1, 'điện thoại: 1 nút cờ'); w.TLPick.head(d.getElementById('root')); ok(d.querySelectorAll('#root [data-act="tl"]').length === 1, 'không nhân đôi nút');
+  w.TLPick.head(d.getElementById('root')); ok(d.querySelectorAll('#root [data-act="tl"]').length === 1, 'điện thoại: 1 nút cờ'); w.TLPick.head(d.getElementById('root')); ok(d.querySelectorAll('#root [data-act="tl"]').length === 1, 'không nhân đôi nút'); ok(!d.querySelector('.set-row [data-act="tl"]') && d.querySelector('#root [data-act="tl"] + [data-act="search"]'), 'cờ đứng trước ô tra từ của thanh hub; hàng "Ngôn ngữ" (không ô tra từ) không bị chèn cờ chồng nhãn');
   w.Target.set('es'); w.TLPick.paint(); ok(/Español/.test(b.getAttribute('aria-label')) && b.textContent.includes('🇪🇸'), 'nút cờ đổi theo ngôn ngữ đang học');
   w.TLPick.card(d.getElementById('root')); ok(/Khóa học khác/.test(d.querySelector('.tlp-card').textContent) && d.querySelectorAll('.tlp-open').length === 3, 'thẻ Khóa học khác: en + fr/pt (sắp)'); }
 // 4b) chip trang ngôn ngữ đích mở bảng chọn; Explore có thẻ Khóa học khác

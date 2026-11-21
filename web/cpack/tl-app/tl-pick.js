@@ -61,7 +61,7 @@
   // desktop: trước nút kỳ thi ở thanh trên (#examChip nằm trong .top-stats)
   function top() { if (!show() || document.getElementById('tlBtn')) return; const at = document.getElementById('examChip') || document.getElementById('streakPill'); if (!at) return; const b = mk('pill tlp-btn'); b.id = 'tlBtn'; at.before(b); }
   // điện thoại: đầu Hôm nay/Tôi (thanh trên của app ẩn): đặt cạnh nút ngôn ngữ giao diện của mẫu
-  function head(root) { if (!show() || !root) return; root.querySelectorAll('[data-act="lang"]').forEach(l => { if (l.parentNode.querySelector('[data-act="tl"]')) return; const s = l.parentNode.querySelector('[data-act="search"]'), b = mk(s ? 'tlp-btn tlp-hd' : 'tlp-btn tlp-mini'); (s || l).before(b); }); } // Hôm nay: cờ đứng đầu cụm nút bên phải như mẫu Stitch (cờ · tìm · chuông · EN · avatar); Tôi: trong hàng Ngôn ngữ
+  function head(root) { if (!show() || !root) return; root.querySelectorAll('[data-act="lang"]').forEach(l => { if (l.parentNode.querySelector('[data-act="tl"]')) return; const s = l.parentNode.querySelector('[data-act="search"]'); if (!s) return; s.before(mk('tlp-btn tlp-hd')); }); } // chỉ thanh hub (cờ · tìm · chuông · 🌐 · avatar) ở MỌI màn có thanh hub – 22/11: bản mini chèn vào hàng "Ngôn ngữ" ở Tôi chồng lên nhãn; cờ đã có trên thanh trên của Tôi
   // thẻ "Khóa học khác" (tab Tôi/Khám phá): các khóa chưa chọn + Sắp ra mắt; bấm = mở bảng chọn
   function card(root) { if (!show() || !root || root.querySelector('.tlp-card')) return; const others = courses().filter(c => c.id !== T().cur()); if (!others.length) return;
     const s = document.createElement('section'); s.className = 'tlp-card'; s.setAttribute('aria-label', tr('Khóa học khác'));
