@@ -1,0 +1,88 @@
+{
+ "id": "20261121-r265",
+ "source": "lexicon-expand",
+ "n": 16,
+ "checked": [
+  {
+   "id": "mucilaginous#adj",
+   "ok": true
+  },
+  {
+   "id": "urinalysis#n",
+   "ok": true
+  },
+  {
+   "id": "closedown#n",
+   "ok": true
+  },
+  {
+   "id": "collectivize#v",
+   "ok": true
+  },
+  {
+   "id": "depolarize#v",
+   "ok": true
+  },
+  {
+   "id": "transliterate#v",
+   "ok": true
+  },
+  {
+   "id": "protract#v",
+   "ok": true,
+   "note": "1/3 nêu lỗi (về hàng duyệt): def: does not match the sense 'to draw out; to extend', but rather 'to prolong' which is a synonym of the given sense 'prolong.v.01' but not the exact definition · ex: examples do not exactly match the sense 'to draw out; to extend', consider rephrasing"
+  },
+  {
+   "id": "axil#n",
+   "ok": true
+  },
+  {
+   "id": "taxonomist#n",
+   "ok": true
+  },
+  {
+   "id": "attender#n",
+   "ok": true,
+   "note": "1/3 nêu lỗi (về hàng duyệt): sense: 'attendant.n.02' is likely incorrect as it refers to 'a person who waits on or serves another', consider 'attendee.n.01' or similar"
+  },
+  {
+   "id": "pronounceable#adj",
+   "ok": true
+  },
+  {
+   "id": "ossify#v",
+   "ok": true,
+   "note": "1/3 nêu lỗi (về hàng duyệt): vi: incorrect or non‑standard Vietnamese equivalent"
+  },
+  {
+   "id": "symbiotically#adv",
+   "ok": true
+  },
+  {
+   "id": "misapply#v",
+   "ok": true
+  },
+  {
+   "id": "clast#n",
+   "ok": true
+  },
+  {
+   "id": "precast#adj",
+   "ok": true
+  },
+  {
+   "id": "sailplane#n",
+   "ok": true
+  },
+  {
+   "id": "erythropoiesis#n",
+   "ok": true
+  },
+  {
+   "id": "semipermeable#adj",
+   "ok": true
+  }
+ ],
+ "at": "2026-11-21",
+ "status": "published"
+}
