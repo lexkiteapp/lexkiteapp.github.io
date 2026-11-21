@@ -496,3 +496,4 @@ node scripts/test/no-native-dialogs.mjs --self
 node scripts/test/no-native-dialogs.mjs
 node scripts/test/dialog.mjs
 node scripts/test/score-card.mjs
+node scripts/stitch-v2-convert.mjs --check
