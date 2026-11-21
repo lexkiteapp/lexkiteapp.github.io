@@ -149,15 +149,7 @@
       "t": "line",
       "runs": [
        [
-        "Fix: The number of student are increasing."
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "runs": [
-       [
-        "The number of "
+        "… number of "
        ],
        [
         "_____",
@@ -204,19 +196,11 @@
       "tone": "green"
      },
      {
-      "t": "line",
+      "t": "sub",
       "runs": [
        [
         "The number of students is increasing.",
         "green"
-       ]
-      ]
-     },
-     {
-      "t": "sub",
-      "runs": [
-       [
-        "The number takes is. A number takes are."
        ]
       ]
      }

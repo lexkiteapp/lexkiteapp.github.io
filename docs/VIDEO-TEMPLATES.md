@@ -269,3 +269,7 @@ Trước (15/11–19/11): 64 render `tp_` đỏ cả lượt (mốc thời gian 
 | chưa rõ (log trống) | spot she-doesnt | điều tra |
 
 Bản này chỉ duyệt mẫu đã xanh thật; các nhóm trên là việc tiếp theo của họ Motion, không hạ ngưỡng.
+
+### Lượt sửa gốc 21/11 – kết quả
+
+19 họ Motion đã duyệt (short + embed đủ cổng, 43/43): thêm collocation, confusing-pair, gap, idiom-vs-textbook, ielts-speaking, irregular-verb, pattern, phrasal, polite-request, pronunciation-pair, quiz-ab, recall, roleplay, spot-the-mistake, three-words, upgrade-your-english, word-of-the-day (cộng ielts-writing-phrase, phrasal-verb đã duyệt trước). Còn nháp: tf, pair, native, spot, tip, mistake, drill-bank (chưa render). Gốc đã sửa: chip tag co vừa cột luật, cột luật đo lại theo chiều cao thật + lề 14–22 px khi từ quá dài, pill chỉ hiện từ khác nhau, dòng slot tự xuống dòng, kết thúc câu cho trang caption một từ, lexicon (ama, cafe, latin, charity, bandwidth, increasing), lời dẫn/thời gian nghỉ cho roleplay/gap/pattern.

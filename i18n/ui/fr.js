@@ -983,6 +983,7 @@
 "Thử Phòng viết lần đầu":"Essayez la salle d'écriture pour la première fois",
 "Thử lại":"Réessayer",
 "Thử thách 60 giây":"Défi de 60 secondes",
+"Thử thách nói 30 giây":"30-second speaking challenge",
 "Thử thách tự đặt câu":"Défi Écrivez votre propre phrase",
 "Thực phẩm & Nông nghiệp":"Alimentation et agriculture",
 "Tia chớp":"Éclair",
