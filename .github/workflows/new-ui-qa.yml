@@ -53,7 +53,9 @@ jobs:
       - name: Gộp báo cáo + chuỗi chưa dịch + contact sheet
         run: |
           command -v montage >/dev/null || bash scripts/ci/apt-install.sh imagemagick
-          node scripts/test/new-ui-sheets.mjs nuq sheets "${{ github.event.inputs.label || github.run_id }}"
+          node scripts/test/new-ui-sheets.mjs nuq sheets "$LX_LABEL"
+        env:
+          LX_LABEL: ${{ github.event.inputs.label || github.run_id }}
       - if: always()
         uses: actions/upload-artifact@v4
         with: { name: 'new-ui-sheets-${{ github.event.inputs.label || github.run_id }}', path: sheets, retention-days: 14 }

@@ -6,7 +6,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 
 | Mảng | Điểm | Sàn | Độ phủ | Qua cổng | Lỗi |
 |---|---|---|---|---|---|
-| Kho từ | **59.2** | 59.2 | 59.2% | 100% | 0 |
+| Kho từ | **59.6** | 59.2 | 59.6% | 100% | 0 |
 | Ngữ pháp | **72.8** | 72.8 | 72.8% | 100% | 0 |
 | Giao tiếp | **89.7** | 89.7 | 89.7% | 100% | 0 |
 | 4 kỹ năng | **97.6** | 97.6 | 97.6% | 100% | 0 |
@@ -20,14 +20,14 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 
 | Thành phần | Có / chuẩn | % | Trọng số |
 |---|---|---|---|
-| từ#loại duy nhất | 10287 / 20000 | 51% | 25 |
-| IPA·nghĩa·định nghĩa·ví dụ·CEFR | 10287 / 10287 | 100% | 20 |
-| collocation | 5019 / 20000 | 25% | 12 |
-| đồng nghĩa | 3106 / 20000 | 16% | 8 |
-| IPA Mỹ | 6884 / 20000 | 34% | 5 |
-| ảnh theo nghĩa | 8044 / 20000 | 40% | 15 |
-| C2 | 1022 / 1000 | 100% | 10 |
-| A1 | 869 / 1000 | 87% | 5 |
+| từ#loại duy nhất | 10466 / 20000 | 52% | 25 |
+| IPA·nghĩa·định nghĩa·ví dụ·CEFR | 10466 / 10466 | 100% | 20 |
+| collocation | 5057 / 20000 | 25% | 12 |
+| đồng nghĩa | 3161 / 20000 | 16% | 8 |
+| IPA Mỹ | 6978 / 20000 | 35% | 5 |
+| ảnh theo nghĩa | 8186 / 20000 | 41% | 15 |
+| C2 | 1175 / 1000 | 100% | 10 |
+| A1 | 871 / 1000 | 87% | 5 |
 
 ## Ngữ pháp
 
@@ -109,7 +109,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 |---|---|---|---|
 | mục tiêu LKF tự soạn | 585 / 600 | 98% | 25 |
 | ô kỹ năng × cấp đủ ≥ 15 | 36 / 36 | 100% | 15 |
-| nội dung có lo hợp lệ | 11667 / 11667 | 100% | 35 |
+| nội dung có lo hợp lệ | 11846 / 11846 | 100% | 35 |
 | mục tiêu đã có nội dung luyện | 197 / 600 | 33% | 25 |
 
 ## Dễ học – dễ nhớ
@@ -118,7 +118,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 |---|---|---|---|
 | Ngữ pháp | 96.9 / 100 | 97% | 25 |
 | Bài lộ trình | 100 / 100 | 100% | 25 |
-| Bộ từ | 74.2 / 100 | 74% | 25 |
+| Bộ từ | 74.1 / 100 | 74% | 25 |
 | Kỹ năng | 96.1 / 100 | 96% | 25 |
 
 ## i18n
@@ -126,6 +126,6 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | Thành phần | Có / chuẩn | % | Trọng số |
 |---|---|---|---|
 | ngôn ngữ đạt i18n-qa | 13 / 13 | 100% | 45 |
-| nhãn ngắn dịch tay | 12.3 / 13 | 95% | 10 |
+| nhãn ngắn dịch tay | 12.4 / 13 | 95% | 10 |
 | gói nghĩa từ theo ngôn ngữ | 6.5 / 13 | 50% | 20 |
 | điểm bản xứ (native-score/5) (chưa làm) | 3.7 / 5 | 74% | 25 |

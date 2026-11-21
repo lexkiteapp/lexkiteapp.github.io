@@ -10,7 +10,7 @@
    "script": {
     "h": "Fill the blank.",
     "q": "Please concentrate blank the lesson.",
-    "o": "on, or in?",
+    "o": "Which is right: on, or in?",
     "a": "on! Concentrate takes on.",
     "w": "Focus on works the same way!",
     "sh": "Send this to a friend who's learning English!",
@@ -204,7 +204,7 @@
     "x": "Not: I can't cope stress.",
     "b": "Say: I can't cope with stress.",
     "w": "Cope needs with before the problem.",
-    "m": "Remember: cope / deal WITH.",
+    "m": "Remember: cope, or deal WITH.",
     "a": "Deal with works the same way!",
     "sh": "Send this to a friend who's learning English!",
     "c": "Save this, and practice free on lexkite.com."
@@ -1260,7 +1260,7 @@
    "script": {
     "h": "Let's push it back.",
     "s0": "Back? Like, push the table?",
-    "s1": "Oh! Push back means move it to a later time.",
+    "s1": "Oh! Push back means move it later.",
     "s2": "Can we push the call back to Friday?",
     "tip": "Tip: push back means later. Move up means earlier.",
     "sh": "Send this to a friend who's learning English!",
@@ -1322,7 +1322,7 @@
    "script": {
     "h": "Quick quiz!",
     "q": "Which sentence is correct?",
-    "o": "A: a hour? Or B: an hour?",
+    "o": "a hour? Or an hour?",
     "a": "It's B, an hour. The h is silent, so it starts with a vowel sound.",
     "w": "Tip: listen to the first sound, not the first letter.",
     "sh": "Send this to a friend who's learning English!",
@@ -1353,7 +1353,7 @@
    "reviewer": "content/video/templates example vars (reviewed) via tpl2motion.py 15/11/2026",
    "script": {
     "h": "For here or… to go?",
-    "s0": "At the cafe.",
+    "s0": "In the cafe.",
     "s1": "Drink it here, or take it with you. Your call!",
     "s2": "Oh! To go, please. One small latte.",
     "s3": "One small latte to go. Coming up!",
@@ -1370,10 +1370,10 @@
    "reviewer": "content/video/templates example vars (reviewed) via tpl2motion.py 15/11/2026",
    "script": {
     "h": "Wait… what did she say?",
-    "s0": "At class.",
-    "s1": "For homework, read pages forty to fifty-two.",
+    "s0": "In class.",
+    "s1": "For homework, read the next chapter.",
     "s2": "Sorry, could you say that again, please?",
-    "s3": "Of course! Pages forty to fifty-two.",
+    "s3": "Of course! The next chapter.",
     "tip": "Tip: add please. Teachers are happy to repeat.",
     "sh": "Send this to a friend who's learning English!",
     "c": "Save this, and practice free on lexkite.com."
@@ -1387,11 +1387,11 @@
    "reviewer": "content/video/templates example vars (reviewed) via tpl2motion.py 15/11/2026",
    "script": {
     "h": "Um… how do I book?",
-    "s0": "At the clinic.",
+    "s0": "In the clinic.",
     "s1": "Hello! Welcome to the clinic.",
-    "s2": "Hi, I'd like to make an appointment, please. I have a sore throat.",
+    "s2": "Hi, I'd like an appointment, please.",
     "s3": "Sure. Tomorrow at nine works. See you then!",
-    "tip": "Tip: say I'd like to, then why you need the doctor.",
+    "tip": "Tip: say I'd like to, then your reason.",
     "sh": "Send this to a friend who's learning English!",
     "c": "Save this, and practice free on lexkite.com."
    }
@@ -1404,7 +1404,7 @@
    "reviewer": "content/video/templates example vars (reviewed) via tpl2motion.py 15/11/2026",
    "script": {
     "h": "Um… what do I say?",
-    "s0": "At the hotel.",
+    "s0": "In the hotel.",
     "s1": "Good evening! Welcome to the hotel.",
     "s2": "Hi, I have a reservation under Ama Brown.",
     "s3": "Thank you, Ms. Chen. Here's your room key. Room 512.",
@@ -1421,11 +1421,11 @@
    "reviewer": "content/video/templates example vars (reviewed) via tpl2motion.py 15/11/2026",
    "script": {
     "h": "Talk about… myself?",
-    "s0": "At a job interview.",
+    "s0": "In a job interview.",
     "s1": "Let's start easy. Tell me about yourself.",
-    "s2": "I'm a designer. I've worked on shopping apps for three years, and now I'd love to grow here.",
+    "s2": "I'm a designer. I've built shopping apps for three years, and I'd love to grow here.",
     "s3": "Nice and clear. So why do you want to join us?",
-    "tip": "Tip: present, past, future. Who you are, what you've done, and what you want next.",
+    "tip": "Tip: present, past, future. Who you are, what you've done, what's next.",
     "sh": "Send this to a friend who's learning English!",
     "c": "Save this, and practice free on lexkite.com."
    }
@@ -1455,10 +1455,10 @@
    "reviewer": "content/video/templates example vars (reviewed) via tpl2motion.py 15/11/2026",
    "script": {
     "h": "Wait, where are the eggs?",
-    "s0": "At the supermarket.",
+    "s0": "In the supermarket.",
     "s1": "Looking for something? I can help.",
     "s2": "Yes, please. Where can I find the eggs?",
-    "s3": "They're in aisle five, next to the milk.",
+    "s3": "Aisle five, next to the milk.",
     "tip": "Tip: excuse me, where can I find… works in any store.",
     "sh": "Send this to a friend who's learning English!",
     "c": "Save this, and practice free on lexkite.com."
@@ -1489,7 +1489,7 @@
    "script": {
     "h": "Spot the mistake.",
     "q": "She don't like coffee",
-    "a": "doesn't",
+    "a": "doesn't.",
     "b": "Say: She doesn't like coffee",
     "w": "Tip: he, she, and it take does. I, you, we, and they take do.",
     "sh": "Send this to a friend who's learning English!",
@@ -1536,7 +1536,7 @@
    "reviewer": "content/video/templates example vars (reviewed) via tpl2motion.py 15/11/2026",
    "script": {
     "h": "No bandwidth.",
-    "s0": "Bandwidth? Like the Wi-Fi?",
+    "s0": "How is the Wi-Fi bandwidth?",
     "s1": "bandwidth means time and energy to take on more work.",
     "s2": "Do you have the bandwidth to help on Friday?",
     "tip": "Tip: no bandwidth is a polite way to say I'm too busy.",
@@ -1555,7 +1555,7 @@
     "s0": "My teacher says I procrastinate. Is that bad?",
     "s1": "procrastinate means to keep putting things off.",
     "s2": "If I procrastinate, I end up studying all night.",
-    "tip": "Tip: it comes from Latin. Cras means tomorrow, so don't push it to tomorrow!",
+    "tip": "Tip: it comes from old Latin. Cras means tomorrow, so don't push it to tomorrow!",
     "sh": "Send this to a friend who's learning English!",
     "c": "Save this, and practice free on lexkite.com."
    }

@@ -45,7 +45,7 @@
   },
   {
    "id": "o",
-   "text": "A: a hour? Or B: an hour?",
+   "text": "a hour? Or an hour?",
    "gap": 0.7
   },
   {
@@ -201,14 +201,18 @@
      "a hour",
      "an hour"
     ],
+    "optsmin": [
+     "a",
+     "an"
+    ],
     "cues": [
      [
       "o",
-      1
+      0
      ],
      [
       "o",
-      5
+      3
      ]
     ],
     "reveal": [
