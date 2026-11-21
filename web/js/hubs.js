@@ -313,7 +313,7 @@ ${window.Sync && Sync.renderBox ? `<section class="card me-acct" id="meAcct" ari
   App.blogLive().then(on => { blogLinks(on); document.querySelectorAll('#nav a[data-blog]').forEach(a => { a.hidden = false; }); });
 
   // ---------- Bản đồ điều hướng: trang → [mục chính, mục con] (đánh dấu menu, đường dẫn "Kỹ năng › Nghe") ----------
-  const SKILL_OF = { listening: 'listening', listen: 'listening', dictation: 'listening', watch: 'listening', stories: 'listening', story: 'listening', reading: 'reading', read: 'reading', rtype: 'reading', cbt: 'reading', 'toeic-r': 'reading', write: 'writing', task1: 'writing', letters: 'writing', ideas: 'writing', model: 'writing', models: 'writing', speaking: 'speaking', roleplay: 'speaking', call: 'speaking', fix: 'writing', mediate: 'writing' };
+  const SKILL_OF = { listening: 'listening', listen: 'listening', dictation: 'listening', watch: 'listening', reading: 'reading', read: 'reading', rtype: 'reading', cbt: 'reading', 'toeic-r': 'reading', write: 'writing', task1: 'writing', letters: 'writing', ideas: 'writing', model: 'writing', models: 'writing', speaking: 'speaking', roleplay: 'speaking', call: 'speaking', fix: 'writing', mediate: 'writing' };
   const TOEFL_SK = { cw: 'reading', daily: 'reading', academic: 'reading', response: 'listening', conversation: 'listening', announcement: 'listening', talk: 'listening', sentence: 'writing', email: 'writing', discussion: 'writing', repeat: 'speaking', interview: 'speaking' };
   App.navOf = (name, arg) => {
     if (!name || name === 'home' || name === 'tlprep') return ['home', 'home'];
@@ -322,6 +322,7 @@ ${window.Sync && Sync.renderBox ? `<section class="card me-acct" id="meAcct" ari
     if (name === 'practice') return arg === 'speak' ? ['skills', 'pron'] : ['vocab', 'practice'];
     if (name === 'skill') return ['skills', 'skill-' + arg];
     if (name === 'cbt' && arg && arg.includes(',')) return ['tests', 'tests'];
+    if (name === 'stories' || name === 'story') return ['skills', 'skill-listening']; // Truyện & podcast: Kỹ năng › Nghe (docs/STORIES.md)
     if (SKILL_OF[name]) return ['skills', 'skill-' + SKILL_OF[name]];
     if (name === 'toefl-p') return ['skills', 'skill-' + (TOEFL_SK[arg] || 'reading')];
     if (['skills', 'grammar', 'pron', 'toeic', 'toefl', 'score'].includes(name)) return ['skills', name];
