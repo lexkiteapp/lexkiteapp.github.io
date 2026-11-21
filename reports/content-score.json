@@ -1,44 +1,44 @@
 {
- "total": 76.7,
+ "total": 77.5,
  "areas": {
   "vocab": {
    "name": "Kho từ",
-   "score": 59.2,
-   "coverage": 59.2,
+   "score": 59.3,
+   "coverage": 59.3,
    "pass": 100,
    "errors": 0,
    "parts": [
     {
      "k": "từ#loại duy nhất",
-     "have": 10287,
+     "have": 10318,
      "std": 20000,
      "w": 25,
      "future": false
     },
     {
      "k": "IPA·nghĩa·định nghĩa·ví dụ·CEFR",
-     "have": 10287,
-     "std": 10287,
+     "have": 10318,
+     "std": 10318,
      "w": 20,
      "future": false
     },
     {
      "k": "collocation",
-     "have": 5019,
+     "have": 5029,
      "std": 20000,
      "w": 12,
      "future": false
     },
     {
      "k": "đồng nghĩa",
-     "have": 3106,
+     "have": 3123,
      "std": 20000,
      "w": 8,
      "future": false
     },
     {
      "k": "IPA Mỹ",
-     "have": 6884,
+     "have": 6898,
      "std": 20000,
      "w": 5,
      "future": false
@@ -52,14 +52,14 @@
     },
     {
      "k": "C2",
-     "have": 1022,
+     "have": 1027,
      "std": 1000,
      "w": 10,
      "future": false
     },
     {
      "k": "A1",
-     "have": 869,
+     "have": 871,
      "std": 1000,
      "w": 5,
      "future": false
@@ -412,14 +412,14 @@
   },
   "quality": {
    "name": "Chất lượng đề",
-   "score": 46.9,
-   "coverage": 46.9,
+   "score": 54.2,
+   "coverage": 54.2,
    "pass": 100,
    "errors": 0,
    "parts": [
     {
      "k": "đáp án cân bằng vị trí (lệch ≤ 3 %)",
-     "have": 50.9,
+     "have": 100,
      "std": 100,
      "w": 15,
      "future": false
@@ -477,8 +477,8 @@
     },
     {
      "k": "nội dung có lo hợp lệ",
-     "have": 11667,
-     "std": 11667,
+     "have": 11698,
+     "std": 11698,
      "w": 35,
      "future": false
     },
