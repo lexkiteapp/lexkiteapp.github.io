@@ -52,7 +52,7 @@ async function run(tag, ctxOpts, lang) {
   // 6) Podcast: có lượt thoại Ama/Carlos
   await page.goto(url('stories'), { waitUntil: 'load' }); await page.waitForSelector('.st-card');
   const pod = await page.evaluate(() => { const a = [...document.querySelectorAll('.st-card')].find(c => /Podcast/.test(c.textContent)); return a && a.getAttribute('href'); });
-  if (pod) { await page.goto(`https://lk.test/app/?sandbox=1&hl=${lang}${pod}`, { waitUntil: 'load' }); await page.waitForSelector('.st-pod', { timeout: 15000 }); ok(await page.$$eval('.st-pod img', i => i.length) >= 2, `${tag}: podcast có avatar người nói`); await check('podcast'); }
+  if (pod) { await page.goto(`https://lk.test/app/?sandbox=1&hl=${lang}${pod}`, { waitUntil: 'load' }); await page.waitForSelector('.st-pod', { timeout: 15000 }); ok(await page.$$eval('.st-pod .tslot', i => i.length) >= 2, `${tag}: podcast có avatar người nói`); await check('podcast'); }
   ok(!errs.length, `${tag}: không lỗi JS ${errs.slice(0, 3).join(' | ')}`);
   await browser.close();
 }

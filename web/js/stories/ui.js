@@ -16,7 +16,7 @@
   const nextCh = x => Math.min(x.chapters.length - 1, (mine().at || {})[x.id] || 0);
   const myLevel = () => { const l = LS.get('lv', ''); if (S.LEVELS.includes(l)) return l; const p = (state.settings || {}).placement, c = p && String(p.vCefr || p.gCefr || '').toUpperCase().slice(0, 2); return S.LEVELS.includes(c) ? c : 'A2'; };
   const bar = pct => `<div class="st-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${pct}"><i style="width:${pct}%"></i></div>`;
-  const cover = x => { const c = (x.cover || {}).cast || []; return `<div class="st-cover st-lv-${x.level}" aria-hidden="true">${c.length && g.Chars ? Chars.img(c[0], { size: 44, lazy: true }) : `<span>${x.kind === 'podcast' ? UI.icon('headphones') : UI.icon('book-open')}</span>`}</div>`; };
+  const cover = x => `<div class="st-cover st-lv-${x.level}" aria-hidden="true"><span>${x.kind === 'podcast' ? UI.icon('headphones') : UI.icon('book-open')}</span></div>`; // bìa 2D 0 credit: PR sau (docs/STORIES.md §3.4)
 
   // ---- thời gian đọc/nghe → game.storyMin (mỗi 15 s khi tab hiện) ----
   let tick = 0;
@@ -58,7 +58,7 @@
     const row = (s, i) => {
       const who = pod ? (x.speakers || {})[s.who] : '';
       const toks = S.tokens(S.textOf(s)).map(tk => tk.w ? `<button type="button" class="st-w${tk.l.some(l => wset.has(l)) ? ' st-key' : ''}" data-w="${esc(tk.w)}" data-i="${i}">${esc(tk.t)}</button>` : esc(tk.t)).join('');
-      return `<div class="st-s${pod ? ' st-pod ' + (s.who === 'A' ? 'st-a' : 'st-b') : ''}" data-i="${i}">${pod && g.Chars ? Chars.img(who, { size: 36, lazy: true, alt: '' }) : ''}<button type="button" class="st-rp icon-btn sm" data-rp="${i}" aria-label="${t('Nghe lại câu này')}">${UI.icon('volume-2')}</button><p dir="ltr">${toks}</p></div>`;
+      return `<div class="st-s${pod ? ' st-pod ' + (s.who === 'A' ? 'st-a' : 'st-b') : ''}" data-i="${i}">${pod && g.Chars && g.Chars.slot ? Chars.slot(who, { size: 'xs', pose: 'talk', cls: 'st-av', lazy: true }) : ''}<button type="button" class="st-rp icon-btn sm" data-rp="${i}" aria-label="${t('Nghe lại câu này')}">${UI.icon('volume-2')}</button><p dir="ltr">${toks}</p></div>`;
     };
     view.innerHTML = `<div class="st-reader" id="stReader">
       <div class="st-top"><a class="icon-btn" href="#/stories" aria-label="${t('Thư viện')}">${UI.icon('arrow-left')}</a><div class="st-ttl"><b>${esc(x.title)}</b><span class="tiny muted">${t('Chương {n}/{m}', { n: ci + 1, m: x.chapters.length })} · ${esc(ch.title)}</span></div></div>

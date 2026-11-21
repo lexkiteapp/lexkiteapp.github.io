@@ -14,7 +14,6 @@
 .st-meta .chip { display: inline-flex; align-items: center; gap: .25rem; }
 .st-done { color: var(--primary); display: inline-flex; }
 .st-cover { flex: none; width: 56px; height: 56px; border-radius: 16px; background: var(--primary-soft); display: grid; place-items: center; overflow: hidden; color: var(--primary-text, var(--heading)); }
-.st-cover img { width: 44px; height: 44px; object-fit: cover; border-radius: 12px; }
 .st-top { display: flex; align-items: center; gap: .5rem; min-height: 56px; position: sticky; top: 0; background: var(--bg); z-index: 3; }
 .st-top .icon-btn { min-width: 44px; min-height: 44px; display: inline-grid; place-items: center; }
 .st-ttl { display: flex; flex-direction: column; min-width: 0; }
@@ -24,7 +23,7 @@
 .st-s p { margin: 0; flex: 1; min-width: 0; padding-top: .35rem; }
 .st-s.st-cur { background: var(--primary-soft); }
 .st-rp { flex: none; min-width: 44px; min-height: 44px; display: inline-grid; place-items: center; background: none; border: 0; color: var(--muted); cursor: pointer; }
-.st-pod img { flex: none; width: 36px; height: 36px; border-radius: 50%; margin-top: .45rem; }
+.st-pod .st-av { flex: none; margin-top: .25rem; }
 .st-w { all: unset; cursor: pointer; border-radius: 4px; }
 .st-w:focus-visible { outline: 2px solid var(--primary); outline-offset: 1px; }
 .st-w.st-new { text-decoration: underline; text-decoration-style: dotted; text-decoration-thickness: 2px; text-underline-offset: 4px; font-weight: 600; color: var(--heading); }
