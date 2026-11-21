@@ -13,12 +13,12 @@
 (function () {
   const GC = 'https://grabcast.click/scheduler.html', GC_ACC = GC + '#accounts', GC_KEY = 'https://grabcast.click/account.html#api', WS = '4';
   const EN = {
-    '🎬 Video & Social': '🎬 Video & Social', 'Lưu video trên Drive và đăng lên các kênh qua GrabCast.': 'Store videos on Drive and post to channels via GrabCast.',
-    'Kết nối kênh/Drive trên GrabCast ↗': 'Connect channels/Drive on GrabCast ↗', '🔄 Tải lại': '🔄 Reload', 'Đang tải…': 'Loading…',
-    '✍️ Soạn bài': '✍️ Compose', '📅 Lịch': '📅 Calendar', '🗂️ Bài đăng': '🗂️ Posts', '📡 Kênh & Drive': '📡 Channels & Drives', 'Mục Video & Social': 'Video & Social sections',
+    'Autopilot & kênh': 'Autopilot & channels', 'Soạn bài': 'Compose', 'Duyệt bài': 'Approvals', 'Lịch': 'Calendar', 'Bài đăng': 'Posts', 'Sức khỏe kênh': 'Account health', 'Phân tích': 'Analytics', 'Kênh & Drive': 'Channels & Drives', 'Tải lại': 'Reload',
+        'Kết nối kênh/Drive trên GrabCast ↗': 'Connect channels/Drive on GrabCast ↗', '🔄 Tải lại': '🔄 Reload', 'Đang tải…': 'Loading…',
+    'Mục Video & Social': 'Video & Social sections',
     '🗽 New York: {ny} · 🕒 Giờ của bạn: {loc}': '🗽 New York: {ny} · 🕒 Your time: {loc}',
     // Duyệt bài & quản lý (admin-social-mgr.js)
-    '✅ Duyệt bài': '✅ Approvals', '🤖 Hàng đợi': '🤖 Queue', '🛰️ Autopilot & kênh': '🛰️ Autopilot & channels', '🩺 Sức khỏe kênh': '🩺 Account health', '📈 Phân tích': '📈 Analytics', '💬 Bình luận': '💬 Comments',
+    '🤖 Hàng đợi': '🤖 Queue', '🩺 Sức khỏe kênh': '🩺 Account health', '📈 Phân tích': '📈 Analytics', '💬 Bình luận': '💬 Comments',
     'Gửi duyệt & lên lịch': 'Send for review & schedule', 'Gửi duyệt & đăng ngay': 'Send for review & publish now',
     'Bài phải qua duyệt trước khi lên lịch/đăng – gửi duyệt ở tab Duyệt bài.': 'Posts must be approved before scheduling/publishing – send it for review in Approvals.',
     'Bài chưa được duyệt – duyệt ở tab Duyệt bài rồi thử lại.': 'The post is not approved – approve it in Approvals, then retry.',
@@ -111,10 +111,9 @@
     'Chi tiết bài đăng': 'Post details', 'Kênh': 'Channels', 'lần thử: {n}': 'attempts: {n}', 'Bình luận đầu tiên: {s}': 'First comment: {s}', '📊 Số liệu': '📊 Analytics', 'Chưa có số liệu (cần quyền insights trên GrabCast).': 'No analytics yet (needs the insights permission on GrabCast).',
     'Lượt xem': 'Views', 'Tiếp cận': 'Reach', 'Thích': 'Likes', 'Bình luận': 'Comments', 'Chia sẻ': 'Shares', 'Lưu': 'Saves', 'Cập nhật {d}': 'Updated {d}', 'Không tải được bài: {e}': 'Could not load the post: {e}',
   };
-  const CSS = `.soc-head{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;justify-content:space-between;margin-bottom:.8rem}.soc-head h2{margin:0;font-size:1.25rem}.soc-head .acts{display:flex;gap:.5rem;flex-wrap:wrap}
+  const CSS = `.soc-head{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;justify-content:space-between;margin-bottom:.6rem}.soc-head>p{margin:0}.soc-head .acts{display:flex;gap:.5rem;flex-wrap:wrap}
 .soc-wrap :focus-visible,.soc-drawer :focus-visible,.soc-pt :focus-visible{outline:2px solid var(--primary);outline-offset:2px}
-.soc-tabs{display:flex;gap:.25rem;flex-wrap:wrap;margin:0 0 1rem;padding:.25rem;border:1px solid var(--line);border-radius:12px;background:var(--surface-2,rgba(0,0,0,.03))}
-.soc-tabs button{border:0;background:none;color:var(--muted);font:inherit;font-weight:600;padding:.45rem .8rem;border-radius:8px;cursor:pointer}.soc-tabs button[aria-selected=true]{background:var(--surface,#fff);color:var(--text);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+
 .soc-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin-bottom:1rem}.soc-grid>.card{margin:0;min-width:0}
 .soc-drv{margin:.6rem 0 .9rem}.soc-drv .t{display:flex;justify-content:space-between;gap:.5rem;font-size:.85rem;flex-wrap:wrap}.soc-drv .t b{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:60%}
 .soc-bar{height:9px;border-radius:99px;background:var(--line,#e5e7eb);overflow:hidden;margin:.3rem 0}.soc-bar i{display:block;height:100%;background:#2FBF71;border-radius:99px}
@@ -175,7 +174,7 @@
 .pill.bad{background:#fee2e2;color:#b91c1c}.warn-t{color:#b45309}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .pill.bad{background:#450a0a;color:#fecaca}:root:not([data-theme="light"]) .warn-t,:root:not([data-theme="light"]) .soc-cnt.w{color:#fbbf24}}:root[data-theme="dark"] .pill.bad{background:#450a0a;color:#fecaca}:root[data-theme="dark"] .warn-t,:root[data-theme="dark"] .soc-cnt.w{color:#fbbf24}
 @media (max-width:980px){.soc-comp{grid-template-columns:1fr}.soc-sticky{position:static}}
-@media (max-width:760px){.soc-grid{grid-template-columns:1fr}}@media (max-width:560px){.soc-form{grid-template-columns:1fr}.soc-btns .btn,.soc-head .acts .btn{flex:1 1 auto;text-align:center}.soc-tabs button{flex:1 1 auto;padding:.45rem .4rem}}`;
+@media (max-width:760px){.soc-grid{grid-template-columns:1fr}}@media (max-width:560px){.soc-form{grid-template-columns:1fr}.soc-btns .btn,.soc-head .acts .btn{flex:1 1 auto;text-align:center}}`;
 
   // ---------- Nền tảng & giới hạn thật (theo GrabCast validate.py / threads_rules.py) ----------
   const PL = {
@@ -331,7 +330,7 @@
     // Mọi nội dung nằm trong .soc-wrap (khung main dùng chung với tab khác → không để lại class/sự kiện trên main)
     const put = html => { box.innerHTML = `<div class="soc-wrap">${html}</div>`; box.firstElementChild.addEventListener('error', e => { if (e.target && e.target.tagName === 'IMG' && e.target.closest('.soc-av,.soc-th')) e.target.remove(); }, true); }; // ảnh hỏng (link hết hạn) → chữ cái đầu
 
-    const TABS = [['queue', '🛰️ Autopilot & kênh'], ['compose', '✍️ Soạn bài'], ['board', '✅ Duyệt bài'], ['calendar', '📅 Lịch'], ['posts', '🗂️ Bài đăng'], ['health', '🩺 Sức khỏe kênh'], ['stats', '📈 Phân tích'], ['inbox', '💬 Bình luận'], ['accounts', '📡 Kênh & Drive']];
+    const TABS = [['queue', 'Autopilot & kênh'], ['compose', 'Soạn bài'], ['board', 'Duyệt bài'], ['calendar', 'Lịch'], ['posts', 'Bài đăng'], ['health', 'Sức khỏe kênh'], ['stats', 'Phân tích'], ['inbox', 'Bình luận'], ['accounts', 'Kênh & Drive']]; // nhãn chữ, không emoji (thanh tab chung .a-tabs ở admin.css)
     const MGR = new Set(['board', 'queue', 'health', 'stats', 'inbox']);
     const D = { stores: [], accounts: [], posts: [], objects: [], bad: {} };
     const accById = id => D.accounts.find(a => String(a.id) === String(id));
@@ -343,9 +342,10 @@
     usedSync(); // bài nguồn đã dùng: dùng chung mọi admin
     if (pre) { C.title = String(pre.title || '').slice(0, 100); C.cap = String(pre.caption || ''); }
 
-    const head = `<div class="soc-head"><div><h2>${S('🎬 Video & Social')}</h2><p class="small muted" style="margin:.2rem 0 0">${S('Lưu video trên Drive và đăng lên các kênh qua GrabCast.')}</p><p class="tiny muted" id="socTz" style="margin:.25rem 0 0"></p></div>
-      <div class="acts"><a class="btn ghost sm" href="${GC_ACC}" target="_blank" rel="noopener">${S('Kết nối kênh/Drive trên GrabCast ↗')}</a><button type="button" class="btn sm" id="socReload">${S('🔄 Tải lại')}</button></div></div>`;
-    const tabsHtml = () => `<div class="soc-tabs" role="tablist" aria-label="${esc(S('Mục Video & Social'))}">${TABS.map(([k, t]) => `<button type="button" role="tab" id="socT-${k}" data-tab="${k}" aria-selected="${k === tab}" aria-controls="socBody" tabindex="${k === tab ? 0 : -1}">${S(t)}</button>`).join('')}</div>`;
+    // Tiêu đề + mô tả đã ở đầu trang (admin.js pageHead) → không lặp h2; giữ giờ New York/giờ máy + Kết nối GrabCast + Tải lại thành một hàng công cụ
+    const head = `<div class="soc-head"><p class="small muted" id="socTz"></p>
+      <div class="acts"><a class="btn ghost sm" href="${GC_ACC}" target="_blank" rel="noopener">${S('Kết nối kênh/Drive trên GrabCast ↗')}</a><button type="button" class="btn sm" id="socReload">${S('Tải lại')}</button></div></div>`;
+    const tabsHtml = () => `<div class="soc-tabs a-tabs" role="tablist" aria-label="${esc(S('Mục Video & Social'))}">${TABS.map(([k, t]) => `<button type="button" role="tab" id="socT-${k}" data-tab="${k}" aria-selected="${k === tab}" aria-controls="socBody" tabindex="${k === tab ? 0 : -1}">${S(t)}</button>`).join('')}</div>`;
     put(head + `<p class="small muted">${S('Đang tải…')}</p>`);
     const $ = s => box.querySelector(s);
     const bindHead = () => { const b = $('#socReload'); if (b) b.onclick = () => render(box, sapi, L, h); tick(); };
