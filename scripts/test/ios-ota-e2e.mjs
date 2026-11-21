@@ -35,6 +35,8 @@ const shot = n => simq('io', U, 'screenshot', '--type=png', path.join(OUT, n + '
 
 // 1) mở nguội: bản builtin; ota.js chạy sau load + 8 s → kiểm chữ ký → tải → next
 await sleep(15000); await launch();
+// runner chậm: WebView đôi khi không nạp (màn trắng, stdout rỗng – 21/11 lượt main đầu tiên) → không có tín hiệu Capacitor trong 90 s thì mở lại, tối đa 2 lần (như driver iOS E2E)
+for (let k = 0; k < 2 && !(await until(() => /To Native ->/.test(out()), 90000)); k++) { log('90 s không có tín hiệu Capacitor – mở lại app'); shot('0-stall-' + k); await launch(); }
 const queued = await until(() => /To Native ->\s+CapacitorUpdater next\b/.test(out()) || /CapacitorUpdater download[\s\S]*?(error|failed)/i.test(out()) && 'fail', WAIT);
 await sleep(4000); shot('1-builtin');
 const fails = (out().match(/^.*(downloadFailed|Download failed|checksum|signature|Error.*bundle|updateFailed).*$/gim) || []).slice(0, 8);
