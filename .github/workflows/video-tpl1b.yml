@@ -38,7 +38,9 @@ jobs:
       - name: Keep verdicts on main (idempotent re-runs)
         run: |
           git diff --quiet -- "$TD" && exit 0
-          bash scripts/ci/push-main.sh "tpl1b: hook verdicts batch ${{ inputs.batch }} (video-tpl1b #${{ github.run_number }})" "$TD"
+          bash scripts/ci/push-main.sh "tpl1b: hook verdicts batch $LX_IN1 (video-tpl1b #${{ github.run_number }})" "$TD"
+        env:
+          LX_IN1: ${{ inputs.batch }}
       - name: Matrix (≤ 10 jobs)
         id: m
         run: |
@@ -153,11 +155,16 @@ jobs:
         run: |
           pip install -q pillow numpy
           mkdir -p out/batch; cp /tmp/chunks/* out/batch/ 2>/dev/null || true
-          python3 scripts/video/tpl/batch_report.py out/batch "${{ inputs.batch }}" /tmp/lessons/judge_rejects.txt
+          python3 scripts/video/tpl/batch_report.py out/batch "$LX_IN1" /tmp/lessons/judge_rejects.txt
           cat out/batch/report.md >> "$GITHUB_STEP_SUMMARY"
+        env:
+          LX_IN1: ${{ inputs.batch }}
       - name: Store accepted (lexkite-shorts + Drive pool → Admin › Video "Chờ duyệt")
         if: steps.lease.outputs.skip != '1'
-        env: { KEY: '${{ secrets.SHORTS_DEPLOY_KEY }}', LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }
+        env:
+          KEY: '${{ secrets.SHORTS_DEPLOY_KEY }}'
+          LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}'
+          LX_IN1: ${{ inputs.batch }}
         run: |
           [ -s out/batch/accepted.txt ] || { echo "::error::0 accepted videos"; exit 1; }
           [ -n "$KEY" ] || { echo "::error::missing secret SHORTS_DEPLOY_KEY"; exit 1; }
@@ -168,7 +175,7 @@ jobs:
           git -C /tmp/shorts sparse-checkout add shorts/tpl1b
           python3 scripts/video/tpl/store_tpl.py out/batch /tmp/shorts "${{ github.run_number }}" "${{ github.sha }}"
           bash scripts/cine/archive_new.sh /tmp/shorts
-          cd /tmp/shorts; git add --sparse -A shorts .gitignore; git -c user.name="Lexkite CI" -c user.email="lexkiteapp@users.noreply.github.com" commit -qm "video-tpl1b #${{ github.run_number }} batch ${{ inputs.batch }} [CF-Pages-Skip]" || exit 0
+          cd /tmp/shorts; git add --sparse -A shorts .gitignore; git -c user.name="Lexkite CI" -c user.email="lexkiteapp@users.noreply.github.com" commit -qm "video-tpl1b #${{ github.run_number }} batch $LX_IN1 [CF-Pages-Skip]" || exit 0
           for k in 1 2 3 4 5 6; do { git fetch -q origin main && git rebase -q origin/main || git rebase --abort 2>/dev/null; } && git push -q origin HEAD:main && break; sleep 4; done
           rm -f ~/.ssh/shorts
       - uses: actions/upload-artifact@v4

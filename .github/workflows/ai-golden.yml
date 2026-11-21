@@ -28,8 +28,9 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
-      - run: node scripts/ai-golden/run.mjs --only "${{ github.event.inputs.only || 'gem,groq,wai' }}" --out reports/ai-golden.json
+      - run: node scripts/ai-golden/run.mjs --only "$LX_IN1" --out reports/ai-golden.json
         env:
+          LX_IN1: ${{ github.event.inputs.only || 'gem,groq,wai' }}
           GEMINI_POOL: ${{ secrets.GEMINI_POOL }}
           GROQ_POOL: ${{ secrets.GROQ_POOL }}
           CF_POOL: ${{ secrets.CF_POOL }}

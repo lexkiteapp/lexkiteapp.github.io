@@ -23,8 +23,10 @@ jobs:
       - name: Chưa có khóa ký
         if: env.HAS_KEY != 'true'
         run: |
-          if [ "${{ inputs.require_key }}" = true ]; then echo "::error::Thiếu secret ANDROID_KEYSTORE_BASE64 – không nộp được Google Play"; exit 1; fi
+          if [ "$LX_REQUIRE_KEY" = true ]; then echo "::error::Thiếu secret ANDROID_KEYSTORE_BASE64 – không nộp được Google Play"; exit 1; fi
           echo "::notice::Chưa có secret ANDROID_KEYSTORE_BASE64 – bỏ qua bản .aab (xem docs/STORE-READINESS.md)"
+        env:
+          LX_REQUIRE_KEY: ${{ inputs.require_key }}
       - uses: actions/checkout@v4
         if: env.HAS_KEY == 'true'
       - uses: actions/setup-node@v4
@@ -35,9 +37,9 @@ jobs:
         with: { distribution: temurin, java-version: 21 }
       - name: Chọn dự án + số phiên bản
         if: env.HAS_KEY == 'true'
-        env: { VN: '${{ inputs.version_name }}', VC: '${{ inputs.version_code }}' }
+        env: { VN: '${{ inputs.version_name }}', VC: '${{ inputs.version_code }}', LX_APP: '${{ inputs.app }}' }
         run: |
-          case "${{ inputs.app }}" in
+          case "$LX_APP" in
             capacitor) DIR=mobile/android; BASE=1000; DEF_VN=$(node -p "require('./mobile/package.json').version") ;;
             native) [ -d native/android ] || { echo "::error::Chưa có native/android trên nhánh này"; exit 1; }; DIR=native/android; BASE=200000; DEF_VN=2.0.0 ;;
             *) echo "::error::app phải là capacitor|native"; exit 1 ;;
@@ -61,6 +63,7 @@ jobs:
         if: env.HAS_KEY == 'true'
         working-directory: ${{ env.DIR }}
         env:
+          LX_APP: ${{ inputs.app }}
           KS_B64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
           LEXKITE_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
           LEXKITE_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
@@ -70,13 +73,13 @@ jobs:
           printf '%s' "$KS_B64" | base64 -d > "$LEXKITE_KEYSTORE_FILE"
           # Vân tay upload key (công khai, không phải bí mật) → đăng ký SHA-1/SHA-256 trong Firebase cho Google Sign-In
           keytool -list -v -keystore "$LEXKITE_KEYSTORE_FILE" -storepass "$LEXKITE_KEYSTORE_PASSWORD" 2>/dev/null | grep -E '^\s*SHA(1|256):' | sed 's/^ */upload key /' | tee -a "$GITHUB_STEP_SUMMARY" || true
-          if [ "${{ inputs.app }}" = native ]; then gradle --no-daemon :app:bundleRelease; else chmod +x gradlew && ./gradlew --no-daemon bundleRelease; fi
+          if [ "$LX_APP" = native ]; then gradle --no-daemon :app:bundleRelease; else chmod +x gradlew && ./gradlew --no-daemon bundleRelease; fi
           rm -f "$LEXKITE_KEYSTORE_FILE"
           AAB=app/build/outputs/bundle/release/app-release.aab
           test -f "$AAB"
           # Play từ chối khoá khác upload key của bản live
           jarsigner -verify -certs "$AAB" >/dev/null || { echo "::error::.aab chưa được ký"; exit 1; }
-          P=lexkite; [ "${{ inputs.app }}" = native ] && P=lexkite-native
+          P=lexkite; [ "$LX_APP" = native ] && P=lexkite-native
           cp "$AAB" "$GITHUB_WORKSPACE/$P-$LEXKITE_VERSION_NAME-$LEXKITE_VERSION_CODE.aab"
       - name: Dung lượng .aab theo thư mục (sổ để cắt nội dung nặng khỏi app → CDN)
         if: env.HAS_KEY == 'true' && inputs.app == 'capacitor'

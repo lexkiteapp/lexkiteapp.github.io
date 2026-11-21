@@ -40,8 +40,8 @@
   },
   {
    "id": "s0",
-   "text": "At a job interview.",
-   "gap": 0.7
+   "text": "In a job interview.",
+   "gap": 0.55
   },
   {
    "id": "s1",
@@ -50,7 +50,7 @@
   },
   {
    "id": "s2",
-   "text": "I'm a designer. I've worked on shopping apps for three years, and now I'd love to grow here.",
+   "text": "I'm a designer. I've built shopping apps for three years, and I'd love to grow here.",
    "gap": 0.7
   },
   {
@@ -60,7 +60,7 @@
   },
   {
    "id": "tip",
-   "text": "Tip: present, past, future. Who you are, what you've done, and what you want next.",
+   "text": "Tip: present, past, future. Who you are, what you've done, what's next.",
    "gap": 0.7
   },
   {

@@ -24,13 +24,16 @@ jobs:
         with: { node-version: 22 }
       - name: Sinh + duyệt
         env:  # ai-pool (scripts/lib/ai-pool.mjs): Gemini kho Lexkite → GrabCast → Workers AI tài khoản 2 (neuron = phần cấp điều phối) → GrabCast Groq
+          LX_IN1: ${{ github.event.inputs.set || 'usage grammar' }}
+          LX_IN2: ${{ github.event.inputs.calls || '400' }}
+          LX_IN3: ${{ github.event.inputs.langs && format('--langs {0}', github.event.inputs.langs) || '' }}
           GRABCAST_AI_KEY: ${{ secrets.GRABCAST_AI_KEY }}
           CF_AI_TOKEN_2: ${{ secrets.CF_AI_TOKEN_2 }}
           CF_ACCOUNT_2: ${{ secrets.CF_ACCOUNT_2 }}
           AI_POOL_GC_MAX: '15000'
         run: |
-          for s in ${{ github.event.inputs.set || 'usage grammar' }}; do
-            node scripts/explain/job.mjs --set "$s" --calls "${{ github.event.inputs.calls || '400' }}" ${{ github.event.inputs.langs && format('--langs {0}', github.event.inputs.langs) || '' }} || true
+          for s in $LX_IN1; do
+            node scripts/explain/job.mjs --set "$s" --calls "$LX_IN2" $LX_IN3 || true
           done
           node scripts/explain/build.mjs
           node scripts/content-qa/gate.mjs   # cổng QA: mục chưa có 2 giám khảo đồng ý không được xuất (docs/CONTENT-QA.md)
