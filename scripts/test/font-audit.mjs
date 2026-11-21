@@ -135,6 +135,7 @@ async function browserScan(part, base) {
   for (const vp of VPS) {
     const ctx = await browser.newContext({ bypassCSP: true, ...vp, deviceScaleFactor: 1, locale: 'vi' });
     const page = await ctx.newPage();
+    await page.addInitScript(() => { try { if (localStorage.getItem('lk.ux1') == null) localStorage.setItem('lk.ux1', '0'); } catch (e) { /* bỏ qua */ } }); // app: giữ phủ v1 như trước TƯỜNG MINH (máy mới chưa có config giờ = v2, #1789) – v2 chưa có lượt font riêng
     // Chẩn đoán "không mở được" (networkidle quá giờ): request còn treo + đếm theo host trong lượt mở trang → biết trang chờ cái gì
     const pending = new Set(); let hosts = {};
     page.on('request', q => { pending.add(q); const h = q.url().replace(/^(\w+:\/\/[^/]+(\/api\/[a-z-]+)?).*$/, '$1'); hosts[h] = (hosts[h] || 0) + 1; });
