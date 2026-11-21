@@ -875,3 +875,11 @@ body.u-bulk-on .adm-main { padding-bottom: 6.5rem; }
 /* Dải luồng video: icon Material cùng bộ với thanh bên (thay 🎞️ 🎬 🛰️ 📣 🗄️) */
 .adm .flow-t .ic { width: 16px; height: 16px; margin: 0 .3rem 0 0; vertical-align: -.2em; color: var(--muted); }
 .adm .flow-step[aria-current] .flow-t .ic { color: var(--primary); }
+/* ---------- Thanh tab trong trang (dùng chung, cùng kiểu Trung tâm video .vx-nav): một hàng, cuộn ngang ở điện thoại, dính dưới thanh trên, mục đang chọn = gạch chân màu chính ---------- */
+.a-tabs { position: sticky; top: var(--a-top); z-index: 20; display: flex; flex-wrap: nowrap; gap: .2rem; overflow-x: auto; scrollbar-width: none; margin: 0 0 1.1rem; padding: .4rem .1rem; background: color-mix(in srgb, var(--bg) 94%, transparent); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+.a-tabs::-webkit-scrollbar { display: none; }
+.a-tabs > :is(button, a) { flex: none; display: inline-flex; align-items: center; gap: .4rem; min-height: 40px; padding: 0 .85rem; border: 0; border-radius: 10px; background: none; color: var(--muted); font: inherit; font-weight: 600; font-size: .88rem; text-decoration: none; white-space: nowrap; cursor: pointer; }
+.a-tabs > :is(button, a):hover { background: var(--surface-2); color: var(--text); }
+.a-tabs > :is([aria-selected="true"], [aria-current="page"]) { background: var(--surface); color: var(--text); box-shadow: inset 0 -3px 0 var(--primary), var(--a-card-shadow); }
+.a-tabs > :is(button, a):focus-visible { outline: 2px solid var(--primary); outline-offset: -2px; }
+@media (max-width: 640px) { .a-tabs { margin-inline: calc(-1 * clamp(16px, 3.2vw, 2.4rem)); padding-inline: clamp(16px, 3.2vw, 2.4rem); } .a-tabs > :is(button, a) { min-height: 44px; } }
