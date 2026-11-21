@@ -7240,6 +7240,19 @@
    "by": "@cf/openai/gpt-oss-120b",
    "tries": 3
   },
+  "axil#n": {
+   "ex": "Flowers occur in leaf axils.",
+   "ps": "a green branch shows a leaf attached at an angle with a small bud in the leaf axil",
+   "sc": "a green branch shows a leaf attached at an angle with a small bud in the leaf axil",
+   "check": "Is there the angle where a leaf joins the stem?",
+   "cap": "a branch with a leaf and a bud in its joining angle",
+   "key": "leaf attached at an angle to the stem; small bud growing in the leaf axil",
+   "who": 0,
+   "draw": 5,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 2
+  },
   "axiom#n": {
    "ex": "It is an axiom of economics that people respond to incentives.",
    "ps": "a man stands beside a blank sheet with a large green tick, pointing confidently",
@@ -9740,8 +9753,8 @@
    "draw": 4,
    "v": "e4",
    "by": "@cf/openai/gpt-oss-120b",
-   "e4bad": 8,
-   "badAt": "2026-11-19T07:28:36.637Z"
+   "e4bad": 9,
+   "badAt": "2026-11-21T19:45:45.028Z"
   },
   "boolean#n": {
    "ex": "The flag is stored as a boolean in the settings table.",
@@ -14480,6 +14493,18 @@
    "tries": 3,
    "refix": 2
   },
+  "clast#n": {
+   "ex": "Pieces of other rocks are called clasts.",
+   "ps": "a hand holds a jagged gray rock fragment next to a larger intact rock",
+   "sc": "a hand holds a jagged gray rock fragment next to a larger intact rock",
+   "check": "Is there a small broken piece of rock separate from a larger rock?",
+   "cap": "a hand showing a small rock piece beside a big rock",
+   "key": "a jagged gray rock fragment; a larger intact rock",
+   "who": 0,
+   "draw": 5,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b"
+  },
   "clause#n": {
    "skip": "draw 3: a person fits a single puzzle piece into a larger picture on",
    "v": "e6",
@@ -14828,6 +14853,10 @@
    "by": "@cf/openai/gpt-oss-120b",
    "tries": 3,
    "refix": 1
+  },
+  "closedown#n": {
+   "skip": "cannot create clear picture with required clarity",
+   "by": "openai/gpt-oss-120b"
   },
   "closely#adv": {
    "ex": "Watch closely and you will see how it works.",
@@ -15418,6 +15447,19 @@
    "draw": 4,
    "v": "e6",
    "by": "openai/gpt-oss-120b"
+  },
+  "collectivize#v": {
+   "ex": "For example, Mao collectivized farms in China.",
+   "ps": "a man ties a large rope around three separate barns, linking them together",
+   "sc": "a man ties a large rope around three separate barns, linking them together",
+   "check": "Is the person connecting several farm buildings with one rope?",
+   "cap": "a man linking three barns with a single rope",
+   "key": "a man holding a large rope; three barns connected by the rope",
+   "who": 1,
+   "draw": 4,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 2
   },
   "collector#n": {
    "ex": "The painting was sold to a private collector.",
@@ -24500,6 +24542,19 @@
    "by": "openai/gpt-oss-120b",
    "tries": 3
   },
+  "depolarize#v": {
+   "ex": "As a result, the membrane depolarizes rapidly.",
+   "ps": "a person pulls apart red and blue wires from a large battery, leaving the terminals disconnected",
+   "sc": "a person pulls apart red and blue wires from a large battery, leaving the terminals disconnected",
+   "check": "Is the person disconnecting the positive and negative ends of a battery?",
+   "cap": "a person separating the two colored wires from a battery",
+   "key": "red and blue wires attached to battery terminals; the person pulling the wires apart",
+   "who": 1,
+   "draw": 4,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 2
+  },
   "deportment#n": {
    "ex": "Her deportment impressed her interviewers.",
    "ps": "a woman walks with a straight back, shoulders back, and graceful steps",
@@ -28890,8 +28945,8 @@
    "cap": "employees learning on computers in a meeting",
    "who": 2,
    "by": "openai/gpt-oss-120b",
-   "e4bad": 8,
-   "badAt": "2026-11-19T07:28:36.637Z"
+   "e4bad": 9,
+   "badAt": "2026-11-21T19:45:45.028Z"
   },
   "eager#adj": {
    "ex": "The new staff members are eager to learn about our products.",
@@ -30230,8 +30285,8 @@
    "draw": 4,
    "v": "e4",
    "by": "@cf/openai/gpt-oss-120b",
-   "e4bad": 8,
-   "badAt": "2026-11-19T07:28:36.636Z"
+   "e4bad": 9,
+   "badAt": "2026-11-21T19:45:45.028Z"
   },
   "email#v": {
    "e4bad": 8,
@@ -32267,6 +32322,20 @@
    "v": "e6",
    "by": "openai/gpt-oss-120b",
    "tries": 2
+  },
+  "erythropoiesis#n": {
+   "ex": "Other mechanisms may also play a role, such as reduced erythropoiesis.",
+   "ps": "a man in a white coat points at a large white bone where many tiny red balls form inside",
+   "sc": "a man in a white coat points at a large white bone where many tiny red balls form inside",
+   "check": "Is there a bone where many small red spheres are being created?",
+   "cap": "a man in a coat indicating a bone filled with red cells",
+   "key": "a large white bone with many tiny red balls forming inside; the man pointing at the bone",
+   "who": 1,
+   "draw": 4,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 1
   },
   "escalate#v": {
    "ex": "If the agent cannot solve your problem, ask them to escalate it to a supervisor.",
@@ -56730,6 +56799,20 @@
    "tries": 3,
    "refix": 1
   },
+  "misapply#v": {
+   "ex": "The two terms are commonly used incorrectly, or are misapplied, particularly by journalists.",
+   "ps": "a man holds a large screwdriver and stirs a big pot of soup, looking confused",
+   "sc": "a man holds a large screwdriver and stirs a big pot of soup, looking confused",
+   "check": "Is the person using a tool for a purpose it is not meant for?",
+   "cap": "a man stirring soup with a screwdriver",
+   "key": "a large screwdriver held in hand; a pot of soup being stirred",
+   "who": 1,
+   "draw": 4,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 1
+  },
   "misappropriation#n": {
    "ex": "There had been much waste and misappropriation.",
    "ps": "a man snatches a bag of gold coins from a table while a woman looks shocked",
@@ -56846,8 +56929,8 @@
    "by": "openai/gpt-oss-120b"
   },
   "missal#n": {
-   "e4bad": 3,
-   "badAt": "2026-11-19T06:01:08.612Z"
+   "e4bad": 4,
+   "badAt": "2026-11-21T19:45:45.029Z"
   },
   "missile#n": {
    "skip": "weapon content not allowed",
@@ -57953,6 +58036,18 @@
    "draw": 5,
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b"
+  },
+  "mucilaginous#adj": {
+   "ex": "The sap is mucilaginous and clear.",
+   "ps": "a thick glossy slime sits on one spoon while clear water sits on another spoon",
+   "sc": "a thick glossy slime sits on one spoon while clear water sits on another spoon",
+   "check": "Is the substance on the first spoon thick and sticky compared to the clear water?",
+   "cap": "a sticky slime beside a clear water drop on spoons",
+   "key": "a thick glossy slime on a spoon; clear water on a separate spoon",
+   "who": 0,
+   "draw": 4,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b"
   },
   "mucosa#n": {
    "ex": "Temperature gradient along the nasal mucosa is under physiological control.",
@@ -68619,6 +68714,18 @@
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b"
   },
+  "precast#adj": {
+   "ex": "All exterior ornament is precast concrete.",
+   "ps": "a smooth gray concrete panel sits beside a heap of wet concrete in a wheelbarrow",
+   "sc": "a smooth gray concrete panel sits beside a heap of wet concrete in a wheelbarrow",
+   "check": "Is the gray panel already formed before being placed on site?",
+   "cap": "a finished concrete slab next to raw wet concrete",
+   "key": "a smooth gray concrete panel; a heap of wet concrete in a wheelbarrow",
+   "who": 0,
+   "draw": 4,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b"
+  },
   "precede#v": {
    "ex": "The crisis was preceded by a period of rapid growth.",
    "ps": "a boy looks at a thriving tree on the left while a ruined building smokes on the right",
@@ -70813,6 +70920,19 @@
    "skip": "draw 3: a girl opens her mouth to speak while a teacher watches and ",
    "v": "e4",
    "by": "@cf/openai/gpt-oss-120b"
+  },
+  "pronounceable#adj": {
+   "ex": "Call signs were mostly pronounceable.",
+   "ps": "a man with a relaxed mouth shape speaks clearly while a woman with a twisted tongue struggles to speak",
+   "sc": "a man with a relaxed mouth shape speaks clearly while a woman with a twisted tongue struggles to speak",
+   "check": "Is the picture showing one person speaking easily and another person having difficulty speaking?",
+   "cap": "two people showing easy and difficult speech",
+   "key": "a relaxed mouth shape on a man; a twisted tongue on a woman",
+   "who": 2,
+   "draw": 4,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 2
   },
   "pronunciation#n": {
    "ex": "Clear pronunciation matters more than a perfect native accent.",
@@ -76434,8 +76554,8 @@
    "refix": 1
   },
   "republish#v": {
-   "e4bad": 2,
-   "badAt": "2026-11-21T03:53:59.480Z"
+   "e4bad": 3,
+   "badAt": "2026-11-21T19:45:45.029Z"
   },
   "reputation management#n": {
    "ex": "Online reputation management includes replying politely to negative reviews.",
@@ -79166,6 +79286,18 @@
    "who": 2,
    "by": "openai/gpt-oss-120b"
   },
+  "sailplane#n": {
+   "ex": "Sailplanes are flown using thermal lift.",
+   "ps": "a white glider with long wings glides high above green hills under a blue sky",
+   "sc": "a white glider with long wings glides high above green hills under a blue sky",
+   "check": "Is the aircraft a light winged plane that flies without an engine?",
+   "cap": "a white glider soaring over rolling hills",
+   "key": "a white glider with long wings; the glider soaring over hills",
+   "who": 0,
+   "draw": 5,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b"
+  },
   "sake#n": {
    "ex": "For the sake of safety, please wear a helmet.",
    "ps": "a man puts on a bright helmet before riding a bicycle on a road",
@@ -80937,6 +81069,18 @@
    "draw": 4,
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b"
+  },
+  "semipermeable#adj": {
+   "ex": "The fiber wall acts as the semipermeable membrane.",
+   "ps": "a clear thin membrane lets water droplets pass while a solid glass pane blocks water",
+   "sc": "a clear thin membrane lets water droplets pass while a solid glass pane blocks water",
+   "check": "Does the thin film allow water to move through while the solid barrier does not?",
+   "cap": "a thin membrane passing water beside an impermeable glass pane",
+   "key": "a thin clear membrane with water droplets passing through; a solid glass barrier blocking water",
+   "who": 0,
+   "draw": 4,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b"
   },
   "senator#n": {
    "ex": "The senator gave a speech about trade policy at the annual business conference.",
@@ -88658,6 +88802,20 @@
    "tries": 3,
    "refix": 1
   },
+  "symbiotically#adv": {
+   "ex": "Many fungi live symbiotically with plants or animals.",
+   "ps": "a cow grazes while a small bird picks insects off its back, both look content",
+   "sc": "a cow grazes while a small bird picks insects off its back, both look content",
+   "check": "Is there a large animal and a small bird helping each other?",
+   "cap": "a cow and a bird sharing a helpful moment",
+   "key": "a cow grazing peacefully; a bird picking insects from the cow's back",
+   "who": 0,
+   "draw": 4,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 1
+  },
   "symbol#n": {
    "ex": "The dove is a symbol of peace.",
    "sc": "person A and person B, a man and a woman of different skin tones, shake hands in a park; above them a white dove flies and lands on an olive branch, indicating peace.",
@@ -89425,6 +89583,20 @@
    "draw": 5,
    "v": "e6",
    "by": "openai/gpt-oss-120b"
+  },
+  "taxonomist#n": {
+   "ex": "The name remains accepted by taxonomists.",
+   "ps": "a man in a lab coat examines a beetle with a magnifying glass beside a tray of sorted insects",
+   "sc": "a man in a lab coat examines a beetle with a magnifying glass beside a tray of sorted insects",
+   "check": "Is the person looking closely at an insect to sort it into a group?",
+   "cap": "a scientist studying insects with a magnifying glass",
+   "key": "a magnifying glass over a beetle; a tray of sorted insects",
+   "who": 1,
+   "draw": 4,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 1
   },
   "taxpayer#n": {
    "ex": "The new bridge was paid for by taxpayers.",
@@ -90961,8 +91133,8 @@
    "by": "openai/gpt-oss-120b"
   },
   "thrombus#n": {
-   "e4bad": 2,
-   "badAt": "2026-11-21T03:53:59.480Z"
+   "e4bad": 3,
+   "badAt": "2026-11-21T19:45:34.974Z"
   },
   "throne#n": {
    "ex": "He approached the throne reverently.",
@@ -92577,6 +92749,10 @@
    "by": "@cf/openai/gpt-oss-120b",
    "tries": 3,
    "refix": 1
+  },
+  "transliterate#v": {
+   "skip": "cannot illustrate without writing",
+   "by": "openai/gpt-oss-120b"
   },
   "transliteration#n": {
    "e4bad": 2,
@@ -95465,6 +95641,20 @@
    "v": "e6",
    "by": "openai/gpt-oss-120b",
    "tries": 2
+  },
+  "urinalysis#n": {
+   "ex": "However, Woods declined to submit to a urinalysis.",
+   "ps": "a lab technician holds a clear cup of yellow liquid and examines its color change",
+   "sc": "a lab technician holds a clear cup of yellow liquid and examines its color change",
+   "check": "Is a person examining a sample of yellow liquid for clues?",
+   "cap": "a technician checking a cup of urine for diagnostic clues",
+   "key": "a clear cup of yellow liquid; a technician examining the liquid",
+   "who": 1,
+   "draw": 4,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 1
   },
   "urine test#n": {
    "ex": "A urine test can detect kidney problems early.",
