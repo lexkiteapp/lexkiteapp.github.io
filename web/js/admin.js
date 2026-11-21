@@ -1308,7 +1308,7 @@
       const todo = Array.isArray(sg) ? sg.filter(x => x.lv === 'crit' || x.lv === 'warn') : null;
       const todoHtml = `<section class="card today-q" aria-labelledby="todayT"><div class="card-h"><h2 class="h3" id="todayT">${esc(L('Cần anh xử lý hôm nay'))}</h2><a href="#alerts" data-go="alerts" class="small">${esc(L('Trung tâm cảnh báo →'))}</a></div>${
         !todo ? errBox(sg._err) : !todo.length ? emptyState(L('Không có việc nào cần anh làm'), L('Mọi hệ thống đang ổn – số liệu bên dưới để theo dõi.'), '✓')
-        : `<div class="tbl-wrap"><table class="tbl"><caption class="sr-only">${esc(L('Cần anh xử lý hôm nay'))}</caption><tbody>${todo.slice(0, 8).map(x => `<tr class="today-i"><td class="nowrap">${lvChip(x.lv)}</td><td class="msg"><b>${esc(x.title)}</b><br><span class="small muted">${esc(x.src)}${x.detail ? ' · ' + esc(x.detail) : ''}</span></td><td class="nowrap">${sigAct(x)}</td></tr>`).join('')}</tbody></table></div>${todo.length > 8 ? `<p class="small"><a href="#alerts" data-go="alerts">${esc(L('+{n} mục khác', { n: todo.length - 8 }))}</a></p>` : ''}`}</section>`;
+        : `<ul class="today-l" aria-label="${esc(L('Cần anh xử lý hôm nay'))}">${todo.slice(0, 8).map(x => `<li class="today-i"><span class="today-lv">${lvChip(x.lv)}</span><span class="msg"><b>${esc(x.title)}</b><span class="small muted">${esc(x.src)}${x.detail ? ' · ' + esc(x.detail) : ''}</span></span><span class="today-a">${sigAct(x)}</span></li>`).join('')}</ul>${todo.length > 8 ? `<p class="small"><a href="#alerts" data-go="alerts">${esc(L('+{n} mục khác', { n: todo.length - 8 }))}</a></p>` : ''}`}</section>`;
       main.innerHTML = todoHtml + `
         <h2 class="sec-t">${L('Người thật')}</h2>
         <div class="tiles">

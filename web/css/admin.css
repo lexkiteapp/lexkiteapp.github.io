@@ -866,8 +866,12 @@ body.u-bulk-on .adm-main { padding-bottom: 6.5rem; }
 .cmdk-i .ic { width: 20px; height: 20px; margin: 0; vertical-align: 0; }
 .cmdk-o[aria-selected="true"] .cmdk-i { color: inherit; }
 /* Hôm nay › Cần anh xử lý: cột nội dung lấp chỗ trống – mức (chip) sát nội dung, nút Xử lý sát mép phải (trước: 3 cột chia đều, khoảng trống lớn ở 1440 px) */
-.today-q .today-i td.msg { width: 100%; }
-.today-q .today-i td { vertical-align: middle; }
+.today-l { list-style: none; margin: 0; padding: 0; }
+.today-i { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: .4rem 1rem; padding: .7rem 0; border-top: 1px solid var(--line); }
+.today-i:first-child { border-top: 0; }
+.today-i .msg { display: flex; flex-direction: column; gap: .1rem; min-width: 0; overflow-wrap: anywhere; }
+.today-a { white-space: nowrap; }
+@media (max-width: 480px) { .today-i { grid-template-columns: auto minmax(0, 1fr); } .today-a { grid-column: 2; } }
 /* Thanh trên: Về app · Sáng/Tối · Thoát dùng icon Material (thay ↩ ☀️ 🌙) – nhãn ẩn ở màn hẹp thì chỉ còn icon, không thừa lề */
 .adm-me .btn { display: inline-flex; align-items: center; }
 .adm-me .btn .ic { width: 18px; height: 18px; margin: 0; vertical-align: 0; }
