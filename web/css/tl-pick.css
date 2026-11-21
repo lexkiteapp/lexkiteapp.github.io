@@ -4,8 +4,8 @@
 .tlp-mini{min-height:var(--tap,44px);min-width:var(--tap,44px);padding:0;position:relative;z-index:1}.tlp-mini::after{content:"";position:absolute;inset:calc(var(--sp-1)*-1) -2px}
 /* Me: hàng Ngôn ngữ cao đúng như các hàng khác (nút cờ vẫn chạm 44 px, phần dư tràn lề âm, không đẩy các hàng dưới) */
 .v2-me [data-row] .tlp-mini{margin-block:-6px}
-/* đầu Hôm nay: ô cờ 40 px bo vuông như mẫu Stitch (vùng chạm 44 px nhờ ::after) */
-.tlp-hd{flex:none;position:relative;width:40px;height:40px;min-width:40px;min-height:40px;border-width:2px;border-radius:var(--r-sm);box-shadow:0 2px 0 var(--ledge);font-size:var(--fs-md)}.tlp-hd::after{content:"";position:absolute;inset:-2px}
+/* đầu Hôm nay: ô cờ 44 px bo vuông (chạm thật 44 px, hub-bar kiểm cả hộp) */
+.tlp-hd{flex:none;position:relative;width:var(--tap,44px);height:var(--tap,44px);min-width:var(--tap,44px);min-height:var(--tap,44px);border-width:2px;border-radius:var(--r-sm);box-shadow:0 2px 0 var(--ledge);font-size:var(--fs-md)}
 #modal .tlp-sheet{padding:var(--sp-2) var(--sp-4) var(--sp-4)}.tlp-grab{width:40px;height:4px;border-radius:99px;background:var(--line-2);margin:var(--sp-1) auto var(--sp-2)}
 .tlp-head{display:flex;align-items:center;justify-content:space-between;gap:var(--sp-2)}.tlp-head h2{margin:0;font-size:var(--fs-lg);color:var(--heading)}
 .tlp-x{width:44px;height:44px;border:0;border-radius:50%;background:transparent;color:var(--text);display:grid;place-items:center;cursor:pointer}.tlp-x:hover{background:var(--surface-2)}

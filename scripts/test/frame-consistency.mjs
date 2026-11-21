@@ -139,6 +139,8 @@ const unknown = ROUTES.filter(r => !VAR.routes[r]);
 const stale = Object.keys(VAR.routes).filter(r => !SRC_ROUTES.includes(r) && !live.routes.includes(r));
 
 const res = {}; // res[route][w-theme] = probe
+const dev = []; // { route, combo, prop, got, want }
+const D = (route, combo, prop, got, want) => dev.push({ route, combo, prop, got: String(got), want: String(want) });
 const runCombo = async (P) => {
   for (const r of ROUTES) { await go(P, target(r));
     let m; try { m = await P.page.evaluate(probe, SPEC); } catch (e) { m = { error: String(e.message).slice(0, 120) }; }
@@ -153,8 +155,6 @@ for (const r of ['home', 'vocab', 'skills', 'tests', 'me']) { await go(PU, targe
   else { if (t.h !== SPEC.hubTop) D(r, 'ux1', 'hub.same-bar.h', t.h, SPEC.hubTop); if (t.y > 1) D(r, 'ux1', 'hub.same-bar.y', t.y, 0); } }
 
 // ---------- chấm ----------
-const dev = []; // { route, combo, prop, got, want }
-const D = (route, combo, prop, got, want) => dev.push({ route, combo, prop, got: String(got), want: String(want) });
 for (const r of unknown) D(r, '-', 'variant', 'chưa có trong frame-variants.json', 'hub|inner|focus');
 for (const r of stale) D(r, '-', 'variant', 'route không còn trong app', 'xóa khỏi frame-variants.json');
 const mode = arr => { const c = {}; arr.forEach(v => { if (v !== undefined && v !== null && v !== '') c[v] = (c[v] || 0) + 1; }); return Object.entries(c).sort((a, b) => b[1] - a[1])[0]?.[0]; };
