@@ -4,7 +4,8 @@ import fs from 'node:fs';
 const DIR = 'content/stories', OUT = 'web/cpack/stories/lib.js', LV = ['A1', 'A2', 'B1', 'B2', 'C1'];
 const all = fs.readdirSync(DIR).filter(f => f.endsWith('.json')).map(f => JSON.parse(fs.readFileSync(`${DIR}/${f}`, 'utf8')))
   .sort((a, b) => LV.indexOf(a.level) - LV.indexOf(b.level) || a.id.localeCompare(b.id));
-const slim = x => ({ id: x.id, kind: x.kind, level: x.level, title: x.title, summary: x.summary, cover: x.cover, audio: x.audio, speakers: x.speakers, source: { type: x.source.type, work: x.source.work, author: x.source.author }, chapters: x.chapters });
+// chỉ trường app dùng (bỏ summary/cover.scene/source.* dài – vẫn ở content/stories): gói lười nhỏ nhất có thể
+const slim = x => ({ id: x.id, kind: x.kind, level: x.level, title: x.title, cover: { cast: x.cover.cast }, audio: { wpm: x.audio.wpm, files: x.audio.files, marks: x.audio.marks }, speakers: x.speakers, chapters: x.chapters.map(c => ({ title: c.title, sentences: c.sentences, words: c.words, quiz: c.quiz })) });
 const out = `/* FILE SINH TỰ ĐỘNG – scripts/stories/build-lib.mjs từ content/stories/*.json. Đừng sửa tay. Truyện & podcast theo cấp (docs/STORIES.md). */\nself.STORIES_LIB = ${JSON.stringify(all.map(slim))};\n`;
 if (process.argv.includes('--check')) {
   if ((fs.existsSync(OUT) ? fs.readFileSync(OUT, 'utf8') : '') !== out) { console.error(`✗ ${OUT} cũ – chạy node scripts/stories/build-lib.mjs`); process.exit(1); }
