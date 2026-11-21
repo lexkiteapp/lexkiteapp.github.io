@@ -5,12 +5,15 @@
 "Chương tiếp":"Próximo capítulo",
 "Chương {n}/{m}":"Capítulo {n}/{m}",
 "Chạm từ gạch chân để xem nghĩa và lưu vào thẻ ôn.":"Toque numa palavra sublinhada para ver o significado e guardá-la nos seus cartões de revisão.",
+"Chọn đáp án":"Escolha uma resposta",
 "Câu hỏi {n}/{m}":"Pergunta {n}/{m}",
 "Hoàn thành chương":"Capítulo concluído",
 "Làm bài kiểm tra":"Fazer o questionário",
 "Làm tốt lắm! Đọc lại chương để nắm chắc hơn.":"Muito bem! Releia o capítulo para fixar melhor.",
 "Nghe lại câu này":"Repetir esta frase",
 "Podcast":"Podcast",
+"Thư viện truyện":"Biblioteca de histórias",
+"Truyện đọc":"História",
 "Trình phát":"Reprodutor",
 "Tuyệt vời! Bạn hiểu toàn bộ chương.":"Excelente! Você entendeu o capítulo inteiro.",
 "Xem kết quả":"Ver resultados",
@@ -20,6 +23,7 @@
 "Đã biết":"Já sei",
 "Đã lưu vào thẻ ôn":"Guardada nos cartões",
 "Đã trong sổ":"Já está no seu baralho",
+"Đã đọc hết":"Concluído",
 "Đọc và nghe truyện theo cấp độ; chạm từ mới để học.":"Leia e ouça histórias do seu nível; toque nas palavras novas para aprendê-las.",
 });
 })(typeof self !== 'undefined' ? self : this);

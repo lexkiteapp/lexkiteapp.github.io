@@ -5,12 +5,15 @@
 "Chương tiếp":"次の章",
 "Chương {n}/{m}":"第{n}/{m}章",
 "Chạm từ gạch chân để xem nghĩa và lưu vào thẻ ôn.":"下線付きの単語をタップすると、意味を確認して復習カードに保存できます。",
+"Chọn đáp án":"答えを選んでください",
 "Câu hỏi {n}/{m}":"質問 {n}/{m}",
 "Hoàn thành chương":"章を完了",
 "Làm bài kiểm tra":"クイズに挑戦",
 "Làm tốt lắm! Đọc lại chương để nắm chắc hơn.":"よくできました！章をもう一度読むと、もっと覚えられます。",
 "Nghe lại câu này":"この文をもう一度聞く",
 "Podcast":"ポッドキャスト",
+"Thư viện truyện":"ストーリーライブラリ",
+"Truyện đọc":"ストーリー",
 "Trình phát":"プレーヤー",
 "Tuyệt vời! Bạn hiểu toàn bộ chương.":"すばらしい！この章をすべて理解できました。",
 "Xem kết quả":"結果を見る",
@@ -20,6 +23,7 @@
 "Đã biết":"知っている",
 "Đã lưu vào thẻ ôn":"復習カードに保存しました",
 "Đã trong sổ":"すでに単語帳にあります",
+"Đã đọc hết":"読了",
 "Đọc và nghe truyện theo cấp độ; chạm từ mới để học.":"自分のレベルのストーリーを読んで聞き、新しい単語をタップして学びましょう。",
 });
 })(typeof self !== 'undefined' ? self : this);

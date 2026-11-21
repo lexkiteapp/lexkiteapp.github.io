@@ -5,12 +5,15 @@
 "Chương tiếp":"Bab berikutnya",
 "Chương {n}/{m}":"Bab {n}/{m}",
 "Chạm từ gạch chân để xem nghĩa và lưu vào thẻ ôn.":"Ketuk kata bergaris bawah untuk melihat artinya dan menyimpannya ke kartu ulasan Anda.",
+"Chọn đáp án":"Pilih jawaban",
 "Câu hỏi {n}/{m}":"Pertanyaan {n}/{m}",
 "Hoàn thành chương":"Bab selesai",
 "Làm bài kiểm tra":"Kerjakan kuis",
 "Làm tốt lắm! Đọc lại chương để nắm chắc hơn.":"Bagus! Baca ulang bab ini agar lebih ingat.",
 "Nghe lại câu này":"Putar ulang kalimat ini",
 "Podcast":"Podcast",
+"Thư viện truyện":"Perpustakaan cerita",
+"Truyện đọc":"Cerita",
 "Trình phát":"Pemutar",
 "Tuyệt vời! Bạn hiểu toàn bộ chương.":"Luar biasa! Anda memahami seluruh bab ini.",
 "Xem kết quả":"Lihat hasil",
@@ -20,6 +23,7 @@
 "Đã biết":"Sudah tahu",
 "Đã lưu vào thẻ ôn":"Disimpan ke kartu ulasan",
 "Đã trong sổ":"Sudah ada di buku",
+"Đã đọc hết":"Selesai",
 "Đọc và nghe truyện theo cấp độ; chạm từ mới để học.":"Baca dan dengarkan cerita sesuai level Anda; ketuk kata baru untuk mempelajarinya.",
 });
 })(typeof self !== 'undefined' ? self : this);

@@ -5,12 +5,15 @@
 "Chương tiếp":"다음 챕터",
 "Chương {n}/{m}":"{n}/{m} 챕터",
 "Chạm từ gạch chân để xem nghĩa và lưu vào thẻ ôn.":"밑줄 친 단어를 누르면 뜻을 보고 복습 카드에 저장할 수 있어요.",
+"Chọn đáp án":"답을 고르세요",
 "Câu hỏi {n}/{m}":"질문 {n}/{m}",
 "Hoàn thành chương":"챕터 완료",
 "Làm bài kiểm tra":"퀴즈 풀기",
 "Làm tốt lắm! Đọc lại chương để nắm chắc hơn.":"잘했어요! 챕터를 다시 읽으면 더 잘 기억할 수 있어요.",
 "Nghe lại câu này":"이 문장 다시 듣기",
 "Podcast":"팟캐스트",
+"Thư viện truyện":"이야기 라이브러리",
+"Truyện đọc":"이야기",
 "Trình phát":"플레이어",
 "Tuyệt vời! Bạn hiểu toàn bộ chương.":"훌륭해요! 챕터 전체를 이해했어요.",
 "Xem kết quả":"결과 보기",
@@ -20,6 +23,7 @@
 "Đã biết":"이미 알아요",
 "Đã lưu vào thẻ ôn":"복습 카드에 저장했어요",
 "Đã trong sổ":"이미 단어장에 있어요",
+"Đã đọc hết":"완독",
 "Đọc và nghe truyện theo cấp độ; chạm từ mới để học.":"내 수준에 맞는 이야기를 읽고 들으며 새 단어를 눌러 배워요.",
 });
 })(typeof self !== 'undefined' ? self : this);
