@@ -18,7 +18,7 @@
     "_note": "Tải lần đầu theo gói (JS BUNDLES + CSS BCSS, gzip chuẩn) – chỉ được giảm. 3/11 ux1 (Home/Hôm nay): mốc main 32c7194bd = 122044 B (JS 56295 + CSS 65749).",
     "ux1": 122044
   },
-  "_cpackNote12": "21/11 (Truyện & podcast, lazy-pack): cpackTotal 12803000 → 12883000 = + 80 000 B cho web/cpack/stories/lib.js (78 KB, 25 truyện/podcast A1–C1, chỉ trường app dùng; tải lười theo #/stories, không precache); khung app, web/js, LCP không đổi.",
+  "_cpackNote14": "21/11 (Truyện & podcast, lazy-pack): cpackTotal 12803000 → 12883000 = + 80 000 B cho web/cpack/stories/lib.js (78 KB, 25 truyện/podcast A1–C1, chỉ trường app dùng; tải lười theo #/stories, không precache); khung app, web/js, LCP không đổi.",
   "cpackTotal": 12883000,
   "_cpackNote12": "21/11 (điều phối giao, giảm byte người học thật): dời 4 đề TOEIC lười (reading4, listening3/4/7 = 299 KB) web/js/toeic → web/cpack/toeic; totalJs 9 200 000 → 8 897 000 (thực tế + ~200 KB, KHÔNG nâng), cpackTotal 12 608 500 → 12 803 000 (đo 12 795 384 + 8 KB).",
   "_cpackNote11": "19/11 điều phối duyệt: cpackTotal +24 500 B (đúng số byte dời grammar/check.js sang cpack ở PR #1627, cộng trên mốc 12 470 000 của ci-byte-headroom (#1543)).",
