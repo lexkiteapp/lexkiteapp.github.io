@@ -35,12 +35,12 @@ export function appUrl(id, params) {
   return `/app/?${u}#/score${id ? '/' + id : ''}`;
 }
 export function page({ id, card, lang, params }) {
-  const C = COPY[lang], fill = s => s.replace('{s}', card.score).replace('{c}', card.cefr), title = fill(C[0]), to = appUrl(id, params), url = `${SITE}/c/${id}`;
+  const C = COPY[lang], fill = s => s.replace('{s}', card.score).replace('{c}', card.cefr), title = fill(C[0]), to = appUrl(id, params), url = `${SITE}/c/${id}`, img = `${SITE}/og/score-${card.cefr}.png`; // ảnh OG theo bậc CEFR (scripts/og-score.mjs)
   const bar = (label, v) => `<div class="b"><span>${esc(label)}</span><b>${v}</b><i style="--w:${v}%"></i></div>`;
   return `<!doctype html><html lang="${lang}" dir="${lang === 'ar' ? 'rtl' : 'ltr'}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${esc(title)}</title><meta name="description" content="${esc(C[1])}"><meta name="robots" content="noindex"><link rel="canonical" href="${url}">
-<meta property="og:type" content="website"><meta property="og:site_name" content="Lexkite"><meta property="og:url" content="${url}"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(C[1])}"><meta property="og:image" content="${SITE}/og-default.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
-<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(title)}"><meta name="twitter:description" content="${esc(C[1])}"><meta name="twitter:image" content="${SITE}/og-default.png">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Lexkite"><meta property="og:url" content="${url}"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(C[1])}"><meta property="og:image" content="${img}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(title)}"><meta name="twitter:description" content="${esc(C[1])}"><meta name="twitter:image" content="${img}">
 <meta name="theme-color" content="#0F3D3E"><link rel="icon" href="/favicon.ico">
 <style>:root{--bg:#FFF7EA;--card:#fff;--ink:#1f1b16;--mut:#5c5349;--line:#eae1d8;--acc:#E5502F;--on:#fff;--tr:#eff4f3}@media(prefers-color-scheme:dark){:root{--bg:#0b1517;--card:#121d20;--ink:#e6f1f3;--mut:#a9bec2;--line:#234e57;--acc:#ff7a59;--on:#10191b;--tr:#234e57}}
 *{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:16px;background:var(--bg);color:var(--ink);font:16px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
