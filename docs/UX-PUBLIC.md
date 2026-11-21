@@ -93,6 +93,8 @@ Playwright 4G/CPU×4: FCP 3,0 → 1,1 s, LCP 3,6 → 1,15 s. Cổng: `app-loader
 Gốc: Lantern tính mọi request xong trước LCP quan sát, ≈ 9 ms/KB. Khung JS + en.js + CSS ≈ 250 KB nên trang sâu cold không thể ≤ 2,5 s nếu chưa tách khung; phần thừa là kho từ (280–730 KB), font (70–135 KB), i18nx/i18nl kéo theo gói nhắc học (~80 KB). Tải sẵn (ưu tiên VeryLow) bắt đầu SAU LCP, không phải gốc.
 Sửa: `App.painted` (lần vẽ đầu) → font (app-loader, `lk:drawn`), tải sẵn, nhắc học chờ mốc này; `softOf` (app.js): phiên ôn, luyện chủ đề lõi/sổ từ vẽ trước, kho từ nạp sau lần vẽ, `lk:soft` chuẩn hóa theo lát. Khóa: `scripts/test/late-insert.mjs`.
 
+21/11 (mobile-qa, Lighthouse): LCP trang sâu = thời điểm nội dung thật hiện, Lantern tính mọi request bắt đầu trước đó. Sửa: `later()` (app.js) – nhắc học, mời cài, chọn khóa, kho từ của phiên ôn chờ lần vẽ đầu + 2,5 s. #/review 6828 → 4905, #/dict 7103 → 6465, #/me 5145 → 4979 ms; home/path/practice không đổi. Ngưỡng `lcp_deep_ms` 10000 → 7500 (chỉ giảm). Còn lại: byte khung (~358 KB gz) trước lần vẽ đầu → tách khung theo route. Thử nạp JS sớm cho MỌI hash sâu làm path 1,7 → 2,7 s và practice 1,7 → 8,7 s (LCP của chúng là khung chào tĩnh) – đừng làm.
+
 ## Luật LCP (chuyển từ METHODS 27/10)
 - **LCP app (24/10):** màn đầu /app/ phải vẽ được chỉ bằng HTML + style.css; JS khung nạp sau khung hình đầu (dist, `scripts/app-loader.mjs`). Không thêm `<script>`/preload/hiệu ứng mờ dần cho màn đầu; đo bằng `app-lcp.yml` (đẩy nhánh `perf/app-lcp*`) trước/sau – docs/UX-PUBLIC.md §LCP.
 
