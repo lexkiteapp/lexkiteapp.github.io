@@ -411,7 +411,7 @@ E.gt6 = {
 36: { why: "Đoạn A: giá tùy vào quãng đường và “the number of sheets it contained” → sheets.", para: "A", keys: [["how many", "the number of"]] },
 37: { why: "Đoạn B: “Recipients who could not afford the charge simply refused to accept their mail” → recipients.", para: "B", keys: [["refused to accept their mail", "simply refused to accept their mail"]] },
 38: { why: "Đoạn B: “they wrote tiny symbols on the outside of an envelope” để báo tin mà không phải trả tiền → symbols.", para: "B", keys: [["secret", "agreed beforehand"], ["on envelopes", "on the outside of an envelope"]] },
-39: { why: "Đoạn D: trong vòng một năm “the number of letters posted had more than doubled” – lượng thư tăng vọt tức nhu cầu dùng dịch vụ bưu chính tăng nhanh → B.", para: "D", keys: [["Demand for the postal service grew quickly", "the number of letters posted had more than doubled"]] },
+39: { why: "Đoạn D: trong vòng một năm “the number of letters posted had more than doubled” – lượng thư tăng vọt tức nhu cầu dùng dịch vụ bưu chính tăng nhanh → D.", para: "D", keys: [["Demand for the postal service grew quickly", "the number of letters posted had more than doubled"]] },
 40: { why: "Đoạn F: một số nước nhỏ in nhiều tem đẹp để bán cho người sưu tầm, “earning a useful income without having to carry a single letter” – kiếm tiền từ tem không dùng để gửi thư → B.", para: "F", keys: [["earned money from stamps that were never used for posting", "earning a useful income without having to carry a single letter"]] },
 };
 
@@ -460,7 +460,7 @@ E.gt7 = {
 36: { why: "Đoạn D: “artificial light was limited to ten hours a day” → light.", para: "D", keys: [["daily supply of", "limited to ten hours a day"]] },
 37: { why: "Đoạn D: trong các quãng yên tĩnh cơ thể sinh ra “a hormone associated with relaxation” → relaxation.", para: "D", keys: [["connected with", "associated with"], ["chemical", "hormone"]] },
 38: { why: "Đoạn E: ở làng không có điện, người dân ngủ một giấc nhưng “also nap during the day” → nap.", para: "E", keys: [["supplemented by", "also nap"], ["in the daytime", "during the day"]] },
-39: { why: "Đoạn C: khi đèn gas và đèn điện lan rộng, “evenings became longer and more productive” nên giờ đi ngủ lùi muộn → B.", para: "C", keys: [["longer and more productive", "longer and more productive"]] },
+39: { why: "Đoạn C: khi đèn gas và đèn điện lan rộng, “evenings became longer and more productive” nên giờ đi ngủ lùi muộn → A.", para: "C", keys: [["longer and more productive", "longer and more productive"]] },
 40: { why: "Đoạn G: tác giả cảnh giác với cả hai thái cực và cho rằng “people would benefit from a more relaxed attitude towards sleep” – khuyên một thái độ cân bằng, thoải mái hơn → C.", para: "G", keys: [["a balanced and more relaxed attitude", "a more relaxed attitude towards sleep"]] },
 };
 })(typeof self !== 'undefined' ? self : this);
