@@ -45,7 +45,7 @@
   },
   {
    "id": "o",
-   "text": "on, or in?",
+   "text": "Which is right: on, or in?",
    "gap": 0.7
   },
   {
@@ -196,11 +196,11 @@
     "cues": [
      [
       "o",
-      0
+      3
      ],
      [
       "o",
-      2
+      5
      ]
     ],
     "reveal": [

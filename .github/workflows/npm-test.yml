@@ -76,5 +76,9 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - name: chạy lại việc nặng của cùng sha
-        env: { GITHUB_TOKEN: '${{ github.token }}', GITHUB_REPOSITORY: '${{ github.repository }}' }
-        run: node scripts/ci/heavy-rerun.mjs --sha "${{ github.event.pull_request.head.sha }}" --ref "${{ github.event.pull_request.head.ref }}"
+        env:
+          GITHUB_TOKEN: '${{ github.token }}'
+          GITHUB_REPOSITORY: '${{ github.repository }}'
+          LX_IN1: ${{ github.event.pull_request.head.sha }}
+          LX_IN2: ${{ github.event.pull_request.head.ref }}
+        run: node scripts/ci/heavy-rerun.mjs --sha "$LX_IN1" --ref "$LX_IN2"

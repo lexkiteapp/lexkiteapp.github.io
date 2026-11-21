@@ -42,8 +42,11 @@ jobs:
           GIT_SSH_COMMAND="ssh -i ~/.ssh/shorts -o IdentitiesOnly=yes" git clone -q --depth 1 git@github.com:lexkiteapp/lexkite-shorts.git /tmp/shorts
       - name: Tải shorts ĐẠT lên Kho Drive
         if: ${{ steps.lease.outputs.skip != '1' }}
-        env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }
-        run: node scripts/ci/quota-skip.mjs node scripts/video/drive-shorts.mjs --repo /tmp/shorts --limit "${{ github.event.inputs.limit || '500' }}" ${{ github.event.inputs.dry_run == 'true' && '--dry-run' || '' }}
+        env:
+          LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}'
+          LX_IN1: ${{ github.event.inputs.limit || '500' }}
+          LX_IN2: ${{ github.event.inputs.dry_run == 'true' && '--dry-run' || '' }}
+        run: node scripts/ci/quota-skip.mjs node scripts/video/drive-shorts.mjs --repo /tmp/shorts --limit "$LX_IN1" $LX_IN2
       - name: Luật kho shorts (2 bản cho clip đã duyệt/đăng · giữ 30 ngày · cân bằng Drive)
         if: ${{ steps.lease.outputs.skip != '1' && (!cancelled() && github.event.inputs.dry_run != 'true') }}
         env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }

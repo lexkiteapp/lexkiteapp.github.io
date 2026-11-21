@@ -29,10 +29,14 @@ jobs:
           bash scripts/ci/pw-install.sh --with-deps chromium
       - name: Trước
         run: |
-          BASE="${{ inputs.base }}"; [ -n "$BASE" ] || BASE=$([ "${{ github.ref_name }}" = main ] && echo "${{ github.event.before }}" || git merge-base origin/main HEAD)
+          BASE="$LX_IN1"; [ -n "$BASE" ] || BASE=$([ "$LX_IN2" = main ] && echo "$LX_IN3" || git merge-base origin/main HEAD)
           git worktree add -q /tmp/base "$BASE" && echo "base=$(git -C /tmp/base rev-parse --short HEAD)"
           [ -f /tmp/base/scripts/lexicon/shards.mjs ] && node /tmp/base/scripts/lexicon/shards.mjs --out /tmp/base/web || echo "bản trước chưa có mảnh"
           node scripts/test/dict-perf.mjs --root /tmp/base --label before --json /tmp/before.json || true
+        env:
+          LX_IN1: ${{ inputs.base }}
+          LX_IN2: ${{ github.ref_name }}
+          LX_IN3: ${{ github.event.before }}
       - name: Sau
         run: |
           node scripts/lexicon/shards.mjs --out web

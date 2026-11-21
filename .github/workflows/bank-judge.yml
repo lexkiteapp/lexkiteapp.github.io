@@ -24,7 +24,8 @@ jobs:
           GROQ_POOL: ${{ secrets.GROQ_POOL }}
           GRABCAST_AI_KEY: ${{ secrets.GRABCAST_AI_KEY }}
           AI_POOL_GC_MAX: '2500'
-        run: node scripts/content-qa/judge-bank.mjs --n "${{ inputs.n }}"
+          LX_IN1: ${{ inputs.n }}
+        run: node scripts/content-qa/judge-bank.mjs --n "$LX_IN1"
       - run: node scripts/content-qa/bank-audit.mjs
         if: always()
       - uses: actions/upload-artifact@v4
