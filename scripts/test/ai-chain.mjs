@@ -43,6 +43,18 @@ const MX = await import(new URL('../../functions/api/_aimix.js', import.meta.url
 const KS = await import(new URL('../../functions/api/keysync.js', import.meta.url));
 const S = await import(new URL('../ai-golden/score.mjs', import.meta.url));
 const CL = await import(new URL('../ai-golden/client.mjs', import.meta.url));
+// chấm trung vị 3 lượt cho model sát ngưỡng (golden chập chờn 19/11) – ngưỡng GATE KHÔNG đổi
+{ const si = (o = {}) => ({ recall: 0.94, mae: 0.3, valid: 1, lang: 1, pass: true, ...o }), sr = (o = {}) => ({ n: 20, judged: 20, mean: 4.8, absurd: 0, valid: 1, clarify: 1, pass: true, ...o });
+  ok(!S.nearMiss(si({ lang: 0.95 }), sr()) === false, 'nearMiss: 1 ca ngôn ngữ hỏng /20 (95 %) = sát ngưỡng');
+  ok(!S.nearMiss(si({ recall: 0.65, lang: 0.65, valid: 0.65 }), sr({ clarify: 0.5 })), 'nearMiss: gpt-oss-20b (bắt lỗi 65 %) trượt thật → KHÔNG đo lại');
+  ok(!S.nearMiss(si({ recall: 0.4, mae: 0.8 }), sr({ clarify: 0 })), 'nearMiss: Llama 8B trượt thật → KHÔNG đo lại');
+  const m = (o, r) => S.passMetrics(si(o), sr(r));
+  ok(S.medianVerdict([m({ lang: 0.95 }), m({}), m({})]).pass, 'trung vị: 1/3 lượt hỏng ngôn ngữ → đạt');
+  ok(!S.medianVerdict([m({ lang: 0.95 }), m({ lang: 0.95 }), m({})]).pass, 'trung vị: 2/3 lượt hỏng ngôn ngữ → trượt (ngưỡng ngôn ngữ 100 % giữ nguyên)');
+  ok(!S.medianVerdict([m({ recall: 0.85 }), m({ recall: 0.86 }), m({ recall: 0.95 })]).pass, 'trung vị: bắt lỗi trung vị 86 % < 90 % → trượt');
+  ok(!S.medianVerdict([m({}, { mean: 3.8 }), m({}, { mean: 3.9 }), m({}, { mean: 4.5 })]).pass, 'trung vị: roleplay trung vị 3,9 < 4,0 → trượt');
+  ok(S.median([3, 1, 2]) === 2 && S.median([1, 2]) === 1.5, 'median');
+  ok(S.GATE.ielts.recall === 0.9 && S.GATE.ielts.mae === 0.5 && S.GATE.ielts.lang === 1 && S.GATE.rp.mean === 4, 'ngưỡng GATE không bị hạ'); }
 
 // 1) chọn model từ danh sách THẬT (không ghi cứng tên sắp hết hạn)
 ok(JSON.stringify(C.pickGemini(['models/gemini-2.5-flash', 'models/gemini-3.8-flash', 'models/gemini-3.9-flash-preview', 'models/gemini-3.9-flash-lite', 'models/gemini-3.8-pro'])) === '["gemini-3.9-flash-preview","gemini-3.8-flash"]', 'pickGemini: Flash số lớn nhất trước, bỏ lite/pro');

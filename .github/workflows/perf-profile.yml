@@ -31,4 +31,7 @@ jobs:
           rm -rf out/site && mkdir -p out && cp -R web out/site && rm -rf out/site/audio
           node scripts/app-loader.mjs out/site/app/index.html
           (node scripts/test/serve-web.mjs out/site 8080 >/dev/null 2>&1 &) ; sleep 1
-          TAP=${{ inputs.tap && '1' || '' }} node scripts/test/profile-route.mjs http://localhost:8080 "${{ inputs.route || 'path' }}" 1
+          TAP=$LX_IN1 node scripts/test/profile-route.mjs http://localhost:8080 "$LX_IN2" 1
+        env:
+          LX_IN1: ${{ inputs.tap && '1' || '' }}
+          LX_IN2: ${{ inputs.route || 'path' }}
