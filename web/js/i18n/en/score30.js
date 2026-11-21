@@ -24,4 +24,5 @@
 "Xong": "Done",
 "Làm lại": "Try again",
 "Tải ảnh": "Save image",
+"Quay về": "Back"
 }); })(typeof self !== 'undefined' ? self : this);
