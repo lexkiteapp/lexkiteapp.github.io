@@ -17,7 +17,7 @@ async function run(tag, ctxOpts, lang) {
   const check = async step => {
     if (mobile) { const over = await page.evaluate(() => document.documentElement.scrollWidth - innerWidth); ok(over <= 1, `${tag} ${step}: không tràn ngang (${over}px)`); }
     await page.addScriptTag({ path: AXE });
-    const v = await page.evaluate(async () => (await axe.run(document.querySelector('#stReader, .st-lib'), { runOnly: { type: 'tag', values: ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'] } })).violations.filter(x => /serious|critical/.test(x.impact)).map(x => x.id + ':' + x.nodes.length));
+    const v = await page.evaluate(async () => (await axe.run(document.querySelector('#stReader, #stSum, .st-lib'), { runOnly: { type: 'tag', values: ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'] } })).violations.filter(x => /serious|critical/.test(x.impact)).map(x => x.id + ':' + x.nodes.length + ' ' + x.nodes.slice(0, 3).map(n => n.target.join(' ') + ' [' + ((n.any[0] || {}).data ? [(n.any[0].data.fgColor), (n.any[0].data.bgColor), n.any[0].data.contrastRatio].join(' ') : (n.any[0] || {}).message) + ']').join(' ; ')));
     ok(!v.length, `${tag} ${step}: axe WCAG AA 0 lỗi nặng${v.length ? ' – ' + v.join(' | ') : ''}`);
     await page.screenshot({ path: path.join(OUT, `${tag}-${step}.png`), fullPage: mobile });
   };

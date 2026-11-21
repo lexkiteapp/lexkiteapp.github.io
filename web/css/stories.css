@@ -24,7 +24,7 @@
 .st-s.st-cur { background: var(--primary-soft); }
 .st-rp { flex: none; min-width: 44px; min-height: 44px; display: inline-grid; place-items: center; background: none; border: 0; color: var(--muted); cursor: pointer; }
 .st-pod .st-av { flex: none; margin-top: var(--sp-1); }
-.st-w { all: unset; cursor: pointer; border-radius: var(--r-xs); }
+.st-w { all: unset; cursor: pointer; border-radius: var(--r-xs); color: inherit; }
 .st-w:focus-visible { outline: 2px solid var(--primary); outline-offset: 1px; }
 .st-w.st-new { text-decoration: underline; text-decoration-style: dotted; text-decoration-thickness: 2px; text-underline-offset: var(--sp-1); font-weight: 600; color: var(--heading); }
 .st-w.st-mine { background: var(--surface-3); }
