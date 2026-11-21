@@ -13,7 +13,6 @@ D.en = Object.assign(D.en || {}, {
 "Làm tốt lắm! Đọc lại chương để nắm chắc hơn.": "Well done! Read the chapter again to remember more.",
 "Nghe lại câu này": "Replay this sentence",
 "Podcast": "Podcast",
-"Truyện & podcast": "Stories & podcasts",
 "phút": "min",
 "Trình phát": "Player",
 "Tuyệt vời! Bạn hiểu toàn bộ chương.": "Excellent! You understood the whole chapter.",
@@ -22,7 +21,6 @@ D.en = Object.assign(D.en || {}, {
 "Đã biết": "Already known",
 "Đã lưu vào thẻ ôn": "Saved to review cards",
 "Đã trong sổ": "Already in your deck",
-"Đọc và nghe theo cấp A1–C1, chạm từ để học": "Read and listen by level A1–C1, tap words to learn",
 "Đọc và nghe truyện theo cấp độ; chạm từ mới để học.": "Read and listen to stories at your level; tap new words to learn them.",
 "{n} từ đã đánh dấu biết": "{n} words marked as known",
 });

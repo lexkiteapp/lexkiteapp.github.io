@@ -1,0 +1,25 @@
+/* UI tr – stories (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["tr"] = Object.assign(D["tr"] || {}, {
+"+{n} từ mới":"+{n} yeni kelime",
+"Chưa có nội dung cho cấp này.":"Bu seviye için henüz hikâye yok.",
+"Chương tiếp":"Sonraki bölüm",
+"Chương {n}/{m}":"Bölüm {n}/{m}",
+"Chạm từ gạch chân để xem nghĩa và lưu vào thẻ ôn.":"Anlamını görmek ve tekrar kartlarına kaydetmek için altı çizili bir kelimeye dokunun.",
+"Câu hỏi {n}/{m}":"Soru {n}/{m}",
+"Hoàn thành chương":"Bölüm tamamlandı",
+"Làm bài kiểm tra":"Teste başla",
+"Làm tốt lắm! Đọc lại chương để nắm chắc hơn.":"Aferin! Daha iyi hatırlamak için bölümü tekrar okuyun.",
+"Nghe lại câu này":"Bu cümleyi tekrar dinle",
+"Podcast":"Podcast",
+"Trình phát":"Oynatıcı",
+"Tuyệt vời! Bạn hiểu toàn bộ chương.":"Harika! Bölümün tamamını anladınız.",
+"Xem kết quả":"Sonucu gör",
+"phút":"dk",
+"{n} từ đã đánh dấu biết":"{n} kelime biliyor olarak işaretlendi",
+"Ôn {n} từ vừa học":"Yeni öğrendiğiniz {n} kelimeyi tekrar edin",
+"Đã biết":"Biliyorum",
+"Đã lưu vào thẻ ôn":"Tekrar kartlarına kaydedildi",
+"Đã trong sổ":"Zaten destede",
+"Đọc và nghe truyện theo cấp độ; chạm từ mới để học.":"Seviyenize uygun hikâyeleri okuyun ve dinleyin; öğrenmek için yeni kelimelere dokunun.",
+});
+})(typeof self !== 'undefined' ? self : this);

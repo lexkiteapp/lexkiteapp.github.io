@@ -1,0 +1,25 @@
+/* UI fr – stories (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["fr"] = Object.assign(D["fr"] || {}, {
+"+{n} từ mới":"+{n} mots nouveaux",
+"Chưa có nội dung cho cấp này.":"Pas encore d'histoires pour ce niveau.",
+"Chương tiếp":"Chapitre suivant",
+"Chương {n}/{m}":"Chapitre {n}/{m}",
+"Chạm từ gạch chân để xem nghĩa và lưu vào thẻ ôn.":"Touchez un mot souligné pour voir sa signification et l'enregistrer dans vos cartes de révision.",
+"Câu hỏi {n}/{m}":"Question {n}/{m}",
+"Hoàn thành chương":"Chapitre terminé",
+"Làm bài kiểm tra":"Faire le quiz",
+"Làm tốt lắm! Đọc lại chương để nắm chắc hơn.":"Bien joué ! Relisez le chapitre pour mieux retenir.",
+"Nghe lại câu này":"Réécouter cette phrase",
+"Podcast":"Podcast",
+"Trình phát":"Lecteur",
+"Tuyệt vời! Bạn hiểu toàn bộ chương.":"Excellent ! Vous avez compris tout le chapitre.",
+"Xem kết quả":"Voir les résultats",
+"phút":"min",
+"{n} từ đã đánh dấu biết":"{n} mots marqués comme connus",
+"Ôn {n} từ vừa học":"Réviser les {n} mots appris",
+"Đã biết":"Je connais",
+"Đã lưu vào thẻ ôn":"Enregistré dans vos cartes",
+"Đã trong sổ":"Déjà dans votre carnet",
+"Đọc và nghe truyện theo cấp độ; chạm từ mới để học.":"Lisez et écoutez des histoires de votre niveau ; touchez les nouveaux mots pour les apprendre.",
+});
+})(typeof self !== 'undefined' ? self : this);
