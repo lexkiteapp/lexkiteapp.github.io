@@ -162,6 +162,7 @@ async function openCombo(browser, c) {
   await noProd(ctx); // CI: media/audio → GitHub, /api → offline (0 lượt prod)
   // CLS: cộng layout-shift không do thao tác (chuẩn web-vitals); visit() đặt lại về 0 trước mỗi route
   // + ghi phần tử xê dịch nhiều nhất (sources[].node) để báo cáo chỉ đúng chỗ cần giữ chỗ (min-height/aspect-ratio)
+  await ctx.addInitScript(() => { try { if (localStorage.getItem('lk.ux1') == null) localStorage.setItem('lk.ux1', '0'); } catch (e) { /* bỏ qua */ } }); // giữ phủ v1 như trước TƯỜNG MINH (máy mới chưa có config giờ = v2, #1789) – lượt v2 riêng: việc sau
   await ctx.addInitScript(() => { window.__vqaCls = 0; window.__vqaClsSrc = {}; const nm = n => { if (!n || !n.tagName) return '?'; const one = x => x.tagName.toLowerCase() + [...x.classList].slice(0, 2).map(c => '.' + c).join('') + (x.id && !/\d/.test(x.id) ? '#' + x.id : ''); return (n.parentElement && n.parentElement !== document.body ? one(n.parentElement) + ' > ' : '') + one(n); };
     try { new PerformanceObserver(l => { for (const e of l.getEntries()) if (!e.hadRecentInput) { window.__vqaCls += e.value; for (const s of e.sources || []) { const k = nm(s.node); window.__vqaClsSrc[k] = (window.__vqaClsSrc[k] || 0) + e.value; } } }).observe({ type: 'layout-shift', buffered: true }); } catch (e) {} });
   const page = await ctx.newPage();

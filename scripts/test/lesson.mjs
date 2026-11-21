@@ -146,7 +146,7 @@ vc.on('jsdomError', e => { if (!/Not implemented|Could not parse CSS/.test(e.mes
 vc.on('error', e => consoleErr.push(String(e)));
 const dom = new jsdom.JSDOM(html.replace(/<!--hero-->[\s\S]*?<!--\/hero-->/, '').replace(/<script(?: defer)? src="[^"]+"><\/script>/g, '').replace(/<link[^>]+>/g, ''),
   { url: 'http://localhost/app/#/home', runScripts: 'outside-only', pretendToBeVisual: true, virtualConsole: vc });
-const w = dom.window;
+const w = dom.window; w.localStorage.setItem('lk.ux1', '0'); // luồng v1: đặt cờ TẮT tường minh (máy mới chưa có config giờ = BẬT v2, #1789)
 w.scrollTo = () => {}; w.HTMLElement.prototype.scrollIntoView = () => {};
 w.matchMedia = () => ({ matches: false, addEventListener() {}, addListener() {} }); w.CSS = { escape: s => s };
 const IMG = JSON.parse(fs.readFileSync(path.join(WEB, 'js/lexicon-img.json'), 'utf8'));

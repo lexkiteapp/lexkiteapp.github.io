@@ -6,7 +6,7 @@ const WEB = process.argv[2] || 'web';
 const html = fs.readFileSync(path.join(WEB, 'app', 'index.html'), 'utf8');
 const scripts = [...html.matchAll(/<script(?: defer)? src="([^"]+)"><\/script>/g)].map(m => m[1]);
 const dom = new JSDOM(html.replace(/<script(?: defer)? src="[^"]+"><\/script>/g, '').replace(/<link[^>]+>/g, ''), { url: 'http://localhost/app/#/home', runScripts: 'outside-only', pretendToBeVisual: true });
-const w = dom.window, errors = [];
+const w = dom.window, errors = []; w.localStorage.setItem('lk.ux1', '0'); // luồng v1: đặt cờ TẮT tường minh (máy mới chưa có config giờ = BẬT v2, #1789)
 w.addEventListener('error', e => errors.push(e.message));
 w.console.error = (...a) => errors.push(a.join(' '));
 w.scrollTo = () => {}; w.HTMLElement.prototype.scrollIntoView = () => {}; w.matchMedia = () => ({ matches: false });

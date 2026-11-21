@@ -46,6 +46,7 @@ vc.on('error', e => consoleErr.push(String(e)));
 const dom = new jsdom.JSDOM(html.replace(/<!--hero-->[\s\S]*?<!--\/hero-->/, '').replace(/<script(?: defer)? src="[^"]+"><\/script>/g, '').replace(/<link[^>]+>/g, ''),
   { url: 'http://localhost/app/#/home', runScripts: 'outside-only', pretendToBeVisual: true, virtualConsole: vc });
 const w = dom.window;
+w.localStorage.setItem('lk.ux1', '0'); // khởi động ở cờ TẮT tường minh (máy mới chưa có config giờ = BẬT, #1789)
 w.scrollTo = () => {}; w.HTMLElement.prototype.scrollIntoView = () => {};
 let wide = false;
 w.matchMedia = q => ({ matches: /min-width:\s*1024/.test(q) ? wide : false, addEventListener() {}, addListener() {} }); w.CSS = { escape: s => s };
@@ -64,12 +65,14 @@ const { App } = w;
 w.I18N.whenReady = () => Promise.resolve(); // từ điển en đã nạp sẵn trong khung – không chờ 6 s mạng giả
 const go = async (h, sel) => { w.location.hash = h; await tick(10); await App.route(); for (let i = 0; i < 60; i++) { await tick(50); if (!sel || $(sel)) break; } await tick(50); };
 
-// Cờ TẮT (mặc định): giao diện cũ nguyên vẹn
-w.localStorage.removeItem('lk.ux1'); w.sessionStorage.removeItem('lk.ux1.pv');
-ok(App.ux1On() === false && App.lessonOn() === false, 'cờ ux1 mặc định TẮT (lesson_mix cũng tắt)');
+// Cờ TẮT (lk.ux1=0 đặt trước khi nạp mã / tắt khẩn từ xa): giao diện cũ nguyên vẹn
+ok(App.ux1On() === false && App.lessonOn() === false, 'cờ ux1 TẮT (lk.ux1=0): lesson_mix cũng tắt');
 await go('#/home');
 ok(!w.document.body.classList.contains('ux1') && $$('#bnav a').map(a => a.dataset.tab).join(',') === OLD_TABS && $('#todayPlan'), 'cờ tắt: thanh dưới cũ + trang chủ Hôm nay như cũ');
 ok(JSON.stringify(App.navOf('vocab')) === '["vocab","vocab"]', 'cờ tắt: bản đồ điều hướng cũ');
+// Máy mới (chưa từng tải config, lk.cfg trống, không lk.ux1): theo trạng thái phát hành = BẬT ngay phiên đầu (#1789 – trước đây v1 + thanh trên cũ, lần sau mới v2)
+w.localStorage.removeItem('lk.ux1'); w.sessionStorage.removeItem('lk.ux1.pv');
+ok(w.localStorage.getItem('lk.cfg') == null && App.ux1On() === true, 'máy mới chưa có config: ux1 BẬT ngay phiên đầu');
 
 // Cờ BẬT
 w.localStorage.setItem('lk.ux1', '1');
@@ -313,10 +316,10 @@ ok(($('#ux1Rail .ux1-exam') || $('#ux1Rail .v2-today-rail [data-blk="exam"]')) &
 wide = false; await go('#/home', '.ux1-home');
 ok(!$('#ux1Rail').innerHTML, 'điện thoại: không vẽ cột phải');
 // Xem trước 1 phiên
-w.localStorage.removeItem('lk.ux1'); w.location.hash = '#/home?ux1=1';
+w.localStorage.setItem('lk.ux1', '0'); w.location.hash = '#/home?ux1=1'; // máy đang TẮT (tường minh – máy mới chưa có config giờ = BẬT, #1789)
 ok(App.ux1On() && w.sessionStorage.getItem('lk.ux1.pv') === '1', 'xem trước: #/home?ux1=1 bật cho phiên này');
 w.sessionStorage.removeItem('lk.ux1.pv'); w.location.hash = '#/home';
-ok(!App.ux1On(), 'hết xem trước → tắt');
+ok(!App.ux1On(), 'hết xem trước → về trạng thái của máy (tắt)');
 // i18n: nhãn 5 tab có bản dịch tay cả 15 ngôn ngữ
 const fx = JSON.parse(fs.readFileSync('scripts/i18n-fixed.json', 'utf8'));
 // ---------- Thư viện #/library (Stitch v2.1 library): khung mới giữ đủ ý trang cũ (tab nhóm, CEFR, lọc, Anki, Xem cả, Đang học + Thư viện của tôi) ----------
