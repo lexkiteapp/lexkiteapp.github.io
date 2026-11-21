@@ -24,9 +24,9 @@
  },
  "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
  "cta": {
-  "area": "stop-saying",
-  "link": "https://lexkite.com/app/",
-  "say": "Practice free on lexkite.com"
+  "area": "vocab-review",
+  "link": "https://lexkite.com/app/#/review",
+  "say": "Practice it free"
  },
  "series": {
   "name": "Money",
@@ -92,12 +92,6 @@
       "Say it",
       "white"
      ]
-    ],
-    [
-     [
-      "before I do.",
-      "yellow"
-     ]
     ]
    ],
    "align": "l"
@@ -135,15 +129,6 @@
         "Say it"
        ]
       ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "before I do."
-       ]
-      ]
      }
     ]
    },
@@ -164,14 +149,6 @@
       "t": "line",
       "runs": [
        [
-        "Fix: How I can send money other account?"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "runs": [
-       [
         "How "
        ],
        [
@@ -179,7 +156,7 @@
         "muted"
        ],
        [
-        " I transfer money to another account?"
+        " I transfer …"
        ]
       ],
       "slot": {
@@ -219,26 +196,18 @@
       "tone": "green"
      },
      {
-      "t": "line",
+      "t": "sub",
       "runs": [
        [
         "How do I transfer money to another account?",
         "green"
        ]
       ]
-     },
-     {
-      "t": "sub",
-      "runs": [
-       [
-        "In questions, put do before I."
-       ]
-      ]
      }
     ]
    }
   ],
-  "hook_text": "Say it before I do.",
+  "hook_text": "Say it",
   "end_line": "c"
  },
  "embed": {

@@ -24,9 +24,9 @@
  },
  "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
  "cta": {
-  "area": "idiom-vs-textbook",
-  "link": "https://lexkite.com/app/",
-  "say": "Practice free on lexkite.com"
+  "area": "phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Practice it free"
  },
  "series": {
   "name": "Idiom Vs Textbook",
@@ -54,7 +54,7 @@
    "gap": 0.7
   },
   {
-   "id": "t",
+   "id": "tip",
    "text": "Tip: I'm down is for friends. At work, say I'd love to.",
    "gap": 0.7
   },
@@ -89,20 +89,8 @@
    "rows": [
     [
      [
-      "Wait, \"I'm",
+      "I'm down?",
       "white"
-     ]
-    ],
-    [
-     [
-      "down\" means",
-      "yellow"
-     ]
-    ],
-    [
-     [
-      "sad?",
-      "yellow"
      ]
     ]
    ],
@@ -138,25 +126,7 @@
       "hook": true,
       "runs": [
        [
-        "Wait, \"I'm"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "down\" means"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "sad?"
+        "I'm down?"
        ]
       ]
      }
@@ -165,7 +135,7 @@
    {
     "id": "sum",
     "at": [
-     "t",
+     "tip",
      0
     ],
     "rows": [
@@ -178,7 +148,7 @@
       "t": "line",
       "runs": [
        [
-        "I'm down is for friends. At work, say I'd love to."
+        "I'm down is for friends."
        ]
       ]
      }
@@ -251,7 +221,7 @@
     ]
    }
   ],
-  "hook_text": "Wait, \"I'm down\" means sad?",
+  "hook_text": "I'm down?",
   "end_line": "c"
  },
  "embed": {

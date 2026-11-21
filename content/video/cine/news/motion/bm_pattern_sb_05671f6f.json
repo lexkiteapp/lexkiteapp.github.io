@@ -24,9 +24,9 @@
  },
  "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
  "cta": {
-  "area": "collocation",
-  "link": "https://lexkite.com/app/",
-  "say": "Practice free on lexkite.com"
+  "area": "grammar",
+  "link": "https://lexkite.com/app/#/grammar",
+  "say": "Practice it free"
  },
  "series": {
   "name": "Shopping",
@@ -97,12 +97,6 @@
       "Guess before",
       "white"
      ]
-    ],
-    [
-     [
-      "I tell you",
-      "yellow"
-     ]
     ]
    ],
    "align": "l"
@@ -138,15 +132,6 @@
       "runs": [
        [
         "Guess before"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "I tell you"
        ]
       ]
      }
@@ -241,7 +226,7 @@
     ]
    }
   ],
-  "hook_text": "Guess before I tell you",
+  "hook_text": "Guess before",
   "end_line": "c"
  },
  "embed": {

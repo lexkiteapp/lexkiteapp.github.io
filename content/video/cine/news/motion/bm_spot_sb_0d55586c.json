@@ -24,9 +24,9 @@
  },
  "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
  "cta": {
-  "area": "misunderstanding",
-  "link": "https://lexkite.com/app/",
-  "say": "Practice free on lexkite.com"
+  "area": "grammar-check",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Practice it free"
  },
  "series": {
   "name": "Health",
@@ -97,18 +97,6 @@
       "I eat diet",
       "white"
      ]
-    ],
-    [
-     [
-      "to lose",
-      "yellow"
-     ]
-    ],
-    [
-     [
-      "weight.",
-      "yellow"
-     ]
     ]
    ],
    "align": "l"
@@ -145,24 +133,6 @@
       "runs": [
        [
         "I eat diet"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "to lose"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "weight."
        ]
       ]
      }
@@ -206,7 +176,7 @@
     ]
    }
   ],
-  "hook_text": "I eat diet to lose weight.",
+  "hook_text": "I eat diet",
   "end_line": "c"
  },
  "embed": {

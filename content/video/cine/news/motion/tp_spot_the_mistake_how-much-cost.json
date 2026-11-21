@@ -24,9 +24,9 @@
  },
  "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
  "cta": {
-  "area": "spot-the-mistake",
-  "link": "https://lexkite.com/app/",
-  "say": "Practice free on lexkite.com"
+  "area": "grammar-check",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Practice it free"
  },
  "series": {
   "name": "Spot The Mistake",
@@ -35,7 +35,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "Spot the mistake.",
+   "text": "Find the mistake.",
    "gap": 0.7
   },
   {
@@ -94,14 +94,8 @@
    "rows": [
     [
      [
-      "How much",
-      "white"
-     ]
-    ],
-    [
-     [
       "cost this?",
-      "yellow"
+      "white"
      ]
     ]
    ],
@@ -138,16 +132,8 @@
       "hook": true,
       "runs": [
        [
-        "How much"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "cost this?"
+        "cost this?",
+        "ink"
        ]
       ]
      }
@@ -155,7 +141,7 @@
     "strike": [
      {
       "line": 0,
-      "run": 1,
+      "run": 0,
       "at": [
        "a",
        0
@@ -191,7 +177,7 @@
     ]
    }
   ],
-  "hook_text": "How much cost this?",
+  "hook_text": "cost this?",
   "end_line": "c"
  },
  "embed": {

@@ -25,8 +25,8 @@
  "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
  "cta": {
   "area": "grammar",
-  "link": "https://lexkite.com/app/",
-  "say": "Practice free on lexkite.com"
+  "link": "https://lexkite.com/app/#/grammar",
+  "say": "Practice it free"
  },
  "series": {
   "name": "Tech",
@@ -97,12 +97,6 @@
       "Which is",
       "white"
      ]
-    ],
-    [
-     [
-      "correct?",
-      "yellow"
-     ]
     ]
    ],
    "align": "l"
@@ -138,15 +132,6 @@
       "runs": [
        [
         "Which is"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "correct?"
        ]
       ]
      }
@@ -241,7 +226,7 @@
     ]
    }
   ],
-  "hook_text": "Which is correct?",
+  "hook_text": "Which is",
   "end_line": "c"
  },
  "embed": {

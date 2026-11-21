@@ -280,6 +280,7 @@
   "conceptualize#v",
   "condensate#n",
   "conic#n",
+  "conjugate#v",
   "conn#v",
   "contraband#adj",
   "contrarian#n",
@@ -402,6 +403,7 @@
   "dysfunctional#adj",
   "each#adv",
   "eastward#adv",
+  "echinoderm#n",
   "edge#v",
   "egalitarian#adj",
   "egalitarian#n",
@@ -1201,7 +1203,6 @@
   "scrapbook#n",
   "scrawny#adj",
   "screwy#adj",
-  "scrumptious#adj",
   "scuff#v",
   "scull#n",
   "seacoast#n",
@@ -1359,7 +1360,6 @@
   "synchro#n",
   "syndication#n",
   "synthetically#adv",
-  "syringe#n",
   "tabletop#n",
   "tabor#n",
   "tacitly#adv",
@@ -1552,9 +1552,6 @@
   "zilch#n",
   "zing#n",
   "zinger#n",
-  "zooplankton#n",
-  "conjugate#v",
-  "herbage#n",
-  "echinoderm#n"
+  "zooplankton#n"
  ]
 }

@@ -517,30 +517,46 @@
   {
    "id": "call",
    "engine": "teach2d",
-   "status": "draft",
+   "status": "approved",
    "spec": "content/video/teach2d/eps/*.json",
-   "note": "no banked clip with QC>=90 yet (bank.json)"
+   "note": "no banked clip with QC>=90 yet (bank.json)",
+   "sample": "https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/44491319374 (tv-t2_*-short/wide artifacts)",
+   "qc": 100.0,
+   "approved": "2026-11-19",
+   "by": "auto: teach-video pilot 19/11, short+wide 15/15 gates (self-approve >=90)"
   },
   {
    "id": "dictation",
    "engine": "teach2d",
-   "status": "draft",
+   "status": "approved",
    "spec": "content/video/teach2d/eps/*.json",
-   "note": "no banked clip with QC>=90 yet (bank.json)"
+   "note": "no banked clip with QC>=90 yet (bank.json)",
+   "sample": "https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/44491319374 (tv-t2_*-short/wide artifacts)",
+   "qc": 100.0,
+   "approved": "2026-11-19",
+   "by": "auto: teach-video pilot 19/11, short+wide 15/15 gates (self-approve >=90)"
   },
   {
    "id": "grammar",
    "engine": "teach2d",
-   "status": "draft",
+   "status": "approved",
    "spec": "content/video/teach2d/eps/*.json",
-   "note": "no banked clip with QC>=90 yet (bank.json)"
+   "note": "no banked clip with QC>=90 yet (bank.json)",
+   "sample": "https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/44491319374 (tv-t2_*-short/wide artifacts)",
+   "qc": 100.0,
+   "approved": "2026-11-19",
+   "by": "auto: teach-video pilot 19/11, short+wide 15/15 gates (self-approve >=90)"
   },
   {
    "id": "guess",
    "engine": "teach2d",
-   "status": "draft",
+   "status": "approved",
    "spec": "content/video/teach2d/eps/*.json",
-   "note": "no banked clip with QC>=90 yet (bank.json)"
+   "note": "no banked clip with QC>=90 yet (bank.json)",
+   "sample": "https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/44491319374 (tv-t2_*-short/wide artifacts)",
+   "qc": 100.0,
+   "approved": "2026-11-19",
+   "by": "auto: teach-video pilot 19/11, short+wide 15/15 gates (self-approve >=90)"
   },
   {
    "id": "level",
@@ -552,58 +568,90 @@
   {
    "id": "mistake",
    "engine": "teach2d",
-   "status": "draft",
+   "status": "approved",
    "spec": "content/video/teach2d/eps/*.json",
-   "note": "no banked clip with QC>=90 yet (bank.json)"
+   "note": "bank.json: 1 banked, QC 100.0 short+wide",
+   "sample": "content/video/teach2d/bank.json (artifact tv-bank-44262329940, 90 days)",
+   "qc": 100.0,
+   "approved": "2026-11-19",
+   "by": "auto: bank.py gate (short+wide >= 90, all qc.py gates)"
   },
   {
    "id": "native",
    "engine": "teach2d",
-   "status": "draft",
+   "status": "approved",
    "spec": "content/video/teach2d/eps/*.json",
-   "note": "no banked clip with QC>=90 yet (bank.json)"
+   "note": "bank.json: 1 banked, QC 100.0 short+wide",
+   "sample": "content/video/teach2d/bank.json (artifact tv-bank-44262329940, 90 days)",
+   "qc": 100.0,
+   "approved": "2026-11-19",
+   "by": "auto: bank.py gate (short+wide >= 90, all qc.py gates)"
   },
   {
    "id": "pair",
    "engine": "teach2d",
-   "status": "draft",
+   "status": "approved",
    "spec": "content/video/teach2d/eps/*.json",
-   "note": "no banked clip with QC>=90 yet (bank.json)"
+   "note": "no banked clip with QC>=90 yet (bank.json)",
+   "sample": "https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/44491319374 (tv-t2_*-short/wide artifacts)",
+   "qc": 100.0,
+   "approved": "2026-11-19",
+   "by": "auto: teach-video pilot 19/11, short+wide 15/15 gates (self-approve >=90)"
   },
   {
    "id": "pattern",
    "engine": "teach2d",
-   "status": "draft",
+   "status": "approved",
    "spec": "content/video/teach2d/eps/*.json",
-   "note": "no banked clip with QC>=90 yet (bank.json)"
+   "note": "no banked clip with QC>=90 yet (bank.json)",
+   "sample": "https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/44491319374 (tv-t2_*-short/wide artifacts)",
+   "qc": 100.0,
+   "approved": "2026-11-19",
+   "by": "auto: teach-video pilot 19/11, short+wide 15/15 gates (self-approve >=90)"
   },
   {
    "id": "phrasal",
    "engine": "teach2d",
-   "status": "draft",
+   "status": "approved",
    "spec": "content/video/teach2d/eps/*.json",
-   "note": "no banked clip with QC>=90 yet (bank.json)"
+   "note": "no banked clip with QC>=90 yet (bank.json)",
+   "sample": "https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/44491319374 (tv-t2_*-short/wide artifacts)",
+   "qc": 100.0,
+   "approved": "2026-11-19",
+   "by": "auto: teach-video pilot 19/11, short+wide 15/15 gates (self-approve >=90)"
   },
   {
    "id": "prep",
    "engine": "teach2d",
-   "status": "draft",
+   "status": "approved",
    "spec": "content/video/teach2d/eps/*.json",
-   "note": "no banked clip with QC>=90 yet (bank.json)"
+   "note": "no banked clip with QC>=90 yet (bank.json)",
+   "sample": "https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/44491319374 (tv-t2_*-short/wide artifacts)",
+   "qc": 100.0,
+   "approved": "2026-11-19",
+   "by": "auto: teach-video pilot 19/11, short+wide 15/15 gates (self-approve >=90)"
   },
   {
    "id": "react",
    "engine": "teach2d",
-   "status": "draft",
+   "status": "approved",
    "spec": "content/video/teach2d/eps/*.json",
-   "note": "no banked clip with QC>=90 yet (bank.json)"
+   "note": "bank.json: 2 banked, QC 100.0 short+wide",
+   "sample": "content/video/teach2d/bank.json (artifact tv-bank-44262329940, 90 days)",
+   "qc": 100.0,
+   "approved": "2026-11-19",
+   "by": "auto: bank.py gate (short+wide >= 90, all qc.py gates)"
   },
   {
    "id": "toeic",
    "engine": "teach2d",
-   "status": "draft",
+   "status": "approved",
    "spec": "content/video/teach2d/eps/*.json",
-   "note": "no banked clip with QC>=90 yet (bank.json)"
+   "note": "no banked clip with QC>=90 yet (bank.json)",
+   "sample": "https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/44491319374 (tv-t2_*-short/wide artifacts)",
+   "qc": 100.0,
+   "approved": "2026-11-19",
+   "by": "auto: teach-video pilot 19/11, short+wide 15/15 gates (self-approve >=90)"
   },
   {
    "id": "roots",
@@ -670,51 +718,86 @@
   {
    "id": "collocation",
    "engine": "motion",
-   "status": "draft",
+   "status": "approved",
    "spec": "content/video/cine/news/motion/*.json",
-   "note": "generated spec (tpl2motion/bank2motion/news2motion); clip dispatched 15/11, approve after CI QC"
+   "note": "generated spec (tpl2motion/bank2motion/news2motion); clip dispatched 15/11, approve after CI QC",
+   "sample": "https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/44827583939 (tp_collocation_do-homework)",
+   "qc": 100.0,
+   "approved": "2026-11-21",
+   "by": "video-templates-audit: all gates green short+embed",
+   "motion_qc": "43/43"
   },
   {
    "id": "confusing-pair",
    "engine": "motion",
-   "status": "draft",
+   "status": "approved",
    "spec": "content/video/cine/news/motion/*.json",
-   "note": "generated spec (tpl2motion/bank2motion/news2motion); clip dispatched 15/11, approve after CI QC"
+   "note": "generated spec (tpl2motion/bank2motion/news2motion); clip dispatched 15/11, approve after CI QC",
+   "sample": "https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/44827583939 (tp_confusing_pair_affect-effect)",
+   "qc": 100.0,
+   "approved": "2026-11-21",
+   "by": "video-templates-audit: all gates green short+embed",
+   "motion_qc": "43/43"
   },
   {
    "id": "gap",
    "engine": "motion",
-   "status": "draft",
+   "status": "approved",
    "spec": "content/video/cine/news/motion/*.json",
-   "note": "generated spec (tpl2motion/bank2motion/news2motion); clip dispatched 15/11, approve after CI QC"
+   "note": "generated spec (tpl2motion/bank2motion/news2motion); clip dispatched 15/11, approve after CI QC",
+   "sample": "https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/44819751718 (bm_gap_sb_07301877)",
+   "qc": 100.0,
+   "approved": "2026-11-21",
+   "by": "video-templates-audit: all gates green short+embed",
+   "motion_qc": "43/43"
   },
   {
    "id": "idiom-vs-textbook",
    "engine": "motion",
-   "status": "draft",
+   "status": "approved",
    "spec": "content/video/cine/news/motion/*.json",
-   "note": "generated spec (tpl2motion/bank2motion/news2motion); clip dispatched 15/11, approve after CI QC"
+   "note": "generated spec (tpl2motion/bank2motion/news2motion); clip dispatched 15/11, approve after CI QC",
+   "sample": "https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/44827583939 (tp_idiom_vs_textbook_im-down)",
+   "qc": 100.0,
+   "approved": "2026-11-21",
+   "by": "video-templates-audit: all gates green short+embed",
+   "motion_qc": "43/43"
   },
   {
    "id": "ielts-speaking",
    "engine": "motion",
-   "status": "draft",
+   "status": "approved",
    "spec": "content/video/cine/news/motion/*.json",
-   "note": "generated spec (tpl2motion/bank2motion/news2motion); clip dispatched 15/11, approve after CI QC"
+   "note": "generated spec (tpl2motion/bank2motion/news2motion); clip dispatched 15/11, approve after CI QC",
+   "sample": "https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/44768658366 (tp_ielts_speaking_your-city)",
+   "qc": 100.0,
+   "approved": "2026-11-21",
+   "by": "video-templates-audit: all gates green short+embed",
+   "motion_qc": "43/43"
   },
   {
    "id": "ielts-writing-phrase",
    "engine": "motion",
-   "status": "draft",
+   "status": "approved",
    "spec": "content/video/cine/news/motion/*.json",
-   "note": "generated spec (tpl2motion/bank2motion/news2motion); clip dispatched 15/11, approve after CI QC"
+   "note": "generated spec (tpl2motion/bank2motion/news2motion); clip dispatched 15/11, approve after CI QC",
+   "sample": "https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/44740167556",
+   "qc": 100.0,
+   "approved": "2026-11-20",
+   "by": "auto: video-motion CI 20/11 (short 43/43 + embed 14/14 gates)",
+   "motion_qc": "43/43"
   },
   {
    "id": "irregular-verb",
    "engine": "motion",
-   "status": "draft",
+   "status": "approved",
    "spec": "content/video/cine/news/motion/*.json",
-   "note": "generated spec (tpl2motion/bank2motion/news2motion); clip dispatched 15/11, approve after CI QC"
+   "note": "generated spec (tpl2motion/bank2motion/news2motion); clip dispatched 15/11, approve after CI QC",
+   "sample": "https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/44827583939 (tp_irregular_verb_go-went)",
+   "qc": 100.0,
+   "approved": "2026-11-21",
+   "by": "video-templates-audit: all gates green short+embed",
+   "motion_qc": "43/43"
   },
   {
    "id": "native",
@@ -733,58 +816,98 @@
   {
    "id": "pattern",
    "engine": "motion",
-   "status": "draft",
+   "status": "approved",
    "spec": "content/video/cine/news/motion/*.json",
-   "note": "generated spec (tpl2motion/bank2motion/news2motion); clip dispatched 15/11, approve after CI QC"
+   "note": "generated spec (tpl2motion/bank2motion/news2motion); clip dispatched 15/11, approve after CI QC",
+   "sample": "https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/44819751718 (bm_pattern_sb_00b3d3f4)",
+   "qc": 100.0,
+   "approved": "2026-11-21",
+   "by": "video-templates-audit: all gates green short+embed",
+   "motion_qc": "43/43"
   },
   {
    "id": "phrasal",
    "engine": "motion",
-   "status": "draft",
+   "status": "approved",
    "spec": "content/video/cine/news/motion/*.json",
-   "note": "generated spec (tpl2motion/bank2motion/news2motion); clip dispatched 15/11, approve after CI QC"
+   "note": "generated spec (tpl2motion/bank2motion/news2motion); clip dispatched 15/11, approve after CI QC",
+   "sample": "https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/44768658366 (bm_phrasal_sb_0994b0f5)",
+   "qc": 100.0,
+   "approved": "2026-11-21",
+   "by": "video-templates-audit: all gates green short+embed",
+   "motion_qc": "43/43"
   },
   {
    "id": "phrasal-verb",
    "engine": "motion",
-   "status": "draft",
+   "status": "approved",
    "spec": "content/video/cine/news/motion/*.json",
-   "note": "generated spec (tpl2motion/bank2motion/news2motion); clip dispatched 15/11, approve after CI QC"
+   "note": "generated spec (tpl2motion/bank2motion/news2motion); clip dispatched 15/11, approve after CI QC",
+   "sample": "https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/44740167556",
+   "qc": 100.0,
+   "approved": "2026-11-20",
+   "by": "auto: video-motion CI 20/11 (short 43/43 + embed 14/14 gates)",
+   "motion_qc": "43/43"
   },
   {
    "id": "polite-request",
    "engine": "motion",
-   "status": "draft",
+   "status": "approved",
    "spec": "content/video/cine/news/motion/*.json",
-   "note": "generated spec (tpl2motion/bank2motion/news2motion); clip dispatched 15/11, approve after CI QC"
+   "note": "generated spec (tpl2motion/bank2motion/news2motion); clip dispatched 15/11, approve after CI QC",
+   "sample": "https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/44827583939 (tp_polite_request_could-i-get)",
+   "qc": 100.0,
+   "approved": "2026-11-21",
+   "by": "video-templates-audit: all gates green short+embed",
+   "motion_qc": "43/43"
   },
   {
    "id": "pronunciation-pair",
    "engine": "motion",
-   "status": "draft",
+   "status": "approved",
    "spec": "content/video/cine/news/motion/*.json",
-   "note": "generated spec (tpl2motion/bank2motion/news2motion); clip dispatched 15/11, approve after CI QC"
+   "note": "generated spec (tpl2motion/bank2motion/news2motion); clip dispatched 15/11, approve after CI QC",
+   "sample": "https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/44827583939 (tp_pronunciation_pair_ship-sheep)",
+   "qc": 100.0,
+   "approved": "2026-11-21",
+   "by": "video-templates-audit: all gates green short+embed",
+   "motion_qc": "43/43"
   },
   {
    "id": "quiz-ab",
    "engine": "motion",
-   "status": "draft",
+   "status": "approved",
    "spec": "content/video/cine/news/motion/*.json",
-   "note": "generated spec (tpl2motion/bank2motion/news2motion); clip dispatched 15/11, approve after CI QC"
+   "note": "generated spec (tpl2motion/bank2motion/news2motion); clip dispatched 15/11, approve after CI QC",
+   "sample": "https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/44768658366 (tp_quiz_ab_an-hour)",
+   "qc": 100.0,
+   "approved": "2026-11-21",
+   "by": "video-templates-audit: all gates green short+embed",
+   "motion_qc": "43/43"
   },
   {
    "id": "recall",
    "engine": "motion",
-   "status": "draft",
+   "status": "approved",
    "spec": "content/video/cine/news/motion/*.json",
-   "note": "generated spec (tpl2motion/bank2motion/news2motion); clip dispatched 15/11, approve after CI QC"
+   "note": "generated spec (tpl2motion/bank2motion/news2motion); clip dispatched 15/11, approve after CI QC",
+   "sample": "https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/44824108988 (bm_recall_sb_18d9514a)",
+   "qc": 100.0,
+   "approved": "2026-11-21",
+   "by": "video-templates-audit: all gates green short+embed",
+   "motion_qc": "43/43"
   },
   {
    "id": "roleplay",
    "engine": "motion",
-   "status": "draft",
+   "status": "approved",
    "spec": "content/video/cine/news/motion/*.json",
-   "note": "generated spec (tpl2motion/bank2motion/news2motion); clip dispatched 15/11, approve after CI QC"
+   "note": "generated spec (tpl2motion/bank2motion/news2motion); clip dispatched 15/11, approve after CI QC",
+   "sample": "https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/44768658366 (tp_roleplay_interview-about-yourself)",
+   "qc": 100.0,
+   "approved": "2026-11-21",
+   "by": "video-templates-audit: all gates green short+embed",
+   "motion_qc": "43/43"
   },
   {
    "id": "spot",
@@ -796,9 +919,14 @@
   {
    "id": "spot-the-mistake",
    "engine": "motion",
-   "status": "draft",
+   "status": "approved",
    "spec": "content/video/cine/news/motion/*.json",
-   "note": "generated spec (tpl2motion/bank2motion/news2motion); clip dispatched 15/11, approve after CI QC"
+   "note": "generated spec (tpl2motion/bank2motion/news2motion); clip dispatched 15/11, approve after CI QC",
+   "sample": "https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/44768658366 (tp_spot_the_mistake_how-much-cost)",
+   "qc": 100.0,
+   "approved": "2026-11-21",
+   "by": "video-templates-audit: all gates green short+embed",
+   "motion_qc": "43/43"
   },
   {
    "id": "tf",
@@ -810,23 +938,38 @@
   {
    "id": "three-words",
    "engine": "motion",
-   "status": "draft",
+   "status": "approved",
    "spec": "content/video/cine/news/motion/*.json",
-   "note": "generated spec (tpl2motion/bank2motion/news2motion); clip dispatched 15/11, approve after CI QC"
+   "note": "generated spec (tpl2motion/bank2motion/news2motion); clip dispatched 15/11, approve after CI QC",
+   "sample": "https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/44768658366 (tp_three_words_rain)",
+   "qc": 100.0,
+   "approved": "2026-11-21",
+   "by": "video-templates-audit: all gates green short+embed",
+   "motion_qc": "43/43"
   },
   {
    "id": "upgrade-your-english",
    "engine": "motion",
-   "status": "draft",
+   "status": "approved",
    "spec": "content/video/cine/news/motion/*.json",
-   "note": "generated spec (tpl2motion/bank2motion/news2motion); clip dispatched 15/11, approve after CI QC"
+   "note": "generated spec (tpl2motion/bank2motion/news2motion); clip dispatched 15/11, approve after CI QC",
+   "sample": "https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/44768658366 (tp_upgrade_your_english_exhausted)",
+   "qc": 100.0,
+   "approved": "2026-11-21",
+   "by": "video-templates-audit: all gates green short+embed",
+   "motion_qc": "43/43"
   },
   {
    "id": "word-of-the-day",
    "engine": "motion",
-   "status": "draft",
+   "status": "approved",
    "spec": "content/video/cine/news/motion/*.json",
-   "note": "generated spec (tpl2motion/bank2motion/news2motion); clip dispatched 15/11, approve after CI QC"
+   "note": "generated spec (tpl2motion/bank2motion/news2motion); clip dispatched 15/11, approve after CI QC",
+   "sample": "https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/44811661897 (tp_word_of_the_day_bandwidth)",
+   "qc": 100.0,
+   "approved": "2026-11-21",
+   "by": "video-templates-audit: all gates green short+embed",
+   "motion_qc": "43/43"
   },
   {
    "id": "templates-v1",

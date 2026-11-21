@@ -25,8 +25,8 @@
  "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
  "cta": {
   "area": "roleplay",
-  "link": "https://lexkite.com/app/",
-  "say": "Practice free on lexkite.com"
+  "link": "https://lexkite.com/app/#/roleplay",
+  "say": "Practice it free"
  },
  "series": {
   "name": "Roleplay",
@@ -40,7 +40,7 @@
   },
   {
    "id": "s0",
-   "text": "At the hotel.",
+   "text": "In the hotel.",
    "gap": 0.7
   },
   {
@@ -51,7 +51,7 @@
   {
    "id": "s2",
    "text": "Hi, I have a reservation under Ama Brown.",
-   "gap": 0.7
+   "gap": 0.5
   },
   {
    "id": "s3",
@@ -59,9 +59,9 @@
    "gap": 0.7
   },
   {
-   "id": "t",
+   "id": "tip",
    "text": "Tip: say I have a reservation under, then your name.",
-   "gap": 0.7
+   "gap": 0.5
   },
   {
    "id": "sh",
@@ -96,12 +96,6 @@
      [
       "Um… what do",
       "white"
-     ]
-    ],
-    [
-     [
-      "I say?",
-      "yellow"
      ]
     ]
    ],
@@ -140,22 +134,13 @@
         "Um… what do"
        ]
       ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "I say?"
-       ]
-      ]
      }
     ]
    },
    {
     "id": "sum",
     "at": [
-     "t",
+     "tip",
      0
     ],
     "rows": [
@@ -168,7 +153,7 @@
       "t": "line",
       "runs": [
        [
-        "say I have a reservation under, then your name."
+        "say I have a reservation under"
        ]
       ]
      }
@@ -268,7 +253,7 @@
     ]
    }
   ],
-  "hook_text": "Um… what do I say?",
+  "hook_text": "Um… what do",
   "end_line": "c"
  },
  "embed": {

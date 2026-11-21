@@ -24,9 +24,9 @@
  },
  "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
  "cta": {
-  "area": "quiz-ab",
-  "link": "https://lexkite.com/app/",
-  "say": "Practice free on lexkite.com"
+  "area": "grammar",
+  "link": "https://lexkite.com/app/#/grammar",
+  "say": "Practice it free"
  },
  "series": {
   "name": "Quiz Ab",
@@ -40,12 +40,12 @@
   },
   {
    "id": "q",
-   "text": "A hour or an hour?",
+   "text": "Which sentence is correct?",
    "gap": 0.7
   },
   {
    "id": "o",
-   "text": "A: I waited a hour? Or B: I waited an hour?",
+   "text": "a hour? Or an hour?",
    "gap": 0.7
   },
   {
@@ -186,7 +186,7 @@
       "t": "line",
       "runs": [
        [
-        "listen to the first sound, not the first letter."
+        "listen to the first sound"
        ]
       ]
      }
@@ -198,17 +198,21 @@
     "t": "opts",
     "id": "opts",
     "opts": [
-     "I waited a hour.",
-     "I waited an hour."
+     "a hour",
+     "an hour"
+    ],
+    "optsmin": [
+     "a",
+     "an"
     ],
     "cues": [
      [
       "o",
-      1
+      0
      ],
      [
       "o",
-      7
+      3
      ]
     ],
     "reveal": [

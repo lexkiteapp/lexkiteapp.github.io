@@ -24,9 +24,9 @@
  },
  "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
  "cta": {
-  "area": "word-of-the-day",
-  "link": "https://lexkite.com/app/",
-  "say": "Practice free on lexkite.com"
+  "area": "dictionary",
+  "link": "https://lexkite.com/app/#/dict",
+  "say": "Practice it free"
  },
  "series": {
   "name": "Word Of The Day",
@@ -40,7 +40,7 @@
   },
   {
    "id": "s0",
-   "text": "Bandwidth? Like the Wi-Fi?",
+   "text": "How is the Wi-Fi bandwidth?",
    "gap": 0.7
   },
   {
@@ -54,7 +54,7 @@
    "gap": 0.7
   },
   {
-   "id": "t",
+   "id": "tip",
    "text": "Tip: no bandwidth is a polite way to say I'm too busy.",
    "gap": 0.7
   },
@@ -89,14 +89,8 @@
    "rows": [
     [
      [
-      "No",
+      "Bandwidth?",
       "white"
-     ]
-    ],
-    [
-     [
-      "bandwidth.",
-      "yellow"
      ]
     ]
    ],
@@ -132,16 +126,7 @@
       "hook": true,
       "runs": [
        [
-        "No"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "bandwidth."
+        "Bandwidth?"
        ]
       ]
      }
@@ -150,7 +135,7 @@
    {
     "id": "sum",
     "at": [
-     "t",
+     "tip",
      0
     ],
     "rows": [
@@ -163,7 +148,7 @@
       "t": "line",
       "runs": [
        [
-        "no bandwidth is a polite way to say I'm too busy."
+        "no bandwidth is a polite way to say"
        ]
       ]
      }
@@ -186,7 +171,7 @@
       "lines": [
        [
         [
-         "time and energy to take on more work",
+         "time and energy",
          "muted"
         ]
        ]
@@ -236,7 +221,7 @@
     ]
    }
   ],
-  "hook_text": "No bandwidth.",
+  "hook_text": "Bandwidth?",
   "end_line": "c"
  },
  "embed": {
