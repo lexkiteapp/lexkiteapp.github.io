@@ -215,6 +215,7 @@
   // Khung = Stitch v2 (brand/stitch/v2/day-light|dark.html → bind/day.json → st/v2/day.js, gói 'dayv2'); chỉ dựng dữ liệu thật d ở đây.
   async function page(arg) {
     await load(); await TK().ready(curTr()); settleExt(); css();
+    state.game = await g.Game.mutate(() => {}); // chờ phần thưởng/ghi điểm đang dở (vừa xong bài rồi quay lại nhanh) → bước "đã xong" hiện đúng, không đọc state cũ
     const view = App.view, ds = days();
     const d = ds[(+arg || (ds.find(x => x.status === 'current') || ds[0] || {}).n) - 1];
     if (!d) { location.hash = '#/path'; return; }
