@@ -81,7 +81,13 @@ jobs:
       - name: Chặn lexkite.com (0 lượt chạm prod)
         run: echo "127.0.0.1 lexkite.com www.lexkite.com audio.lexkite.com media.lexkite.com" | sudo tee -a /etc/hosts >/dev/null
       - name: Đo cuộn ${{ matrix.device }}
-        run: node scripts/test/scroll-perf.mjs --root dist --device ${{ matrix.device }} --themes ${{ matrix.theme }} --out sp-out --check ${{ inputs.variant && format('--variant {0}', inputs.variant) }} ${{ inputs.only && format('--only {0}', inputs.only) }} ${{ inputs.stacks && '--stacks' }}
+        env:
+          SP_VARIANT: ${{ inputs.variant }}
+          SP_ONLY: ${{ inputs.only }}
+          SP_STACKS: ${{ inputs.stacks }}
+        run: |
+          SP_ARGS=''; [ -n "$SP_VARIANT" ] && SP_ARGS="$SP_ARGS --variant $SP_VARIANT"; [ -n "$SP_ONLY" ] && SP_ARGS="$SP_ARGS --only $SP_ONLY"; [ -n "$SP_STACKS" ] && SP_ARGS="$SP_ARGS --stacks"
+          node scripts/test/scroll-perf.mjs --root dist --device ${{ matrix.device }} --themes ${{ matrix.theme }} --out sp-out --check $SP_ARGS
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with: { name: 'scroll-perf-${{ matrix.device }}-${{ matrix.theme }}', path: sp-out, retention-days: 14 }
