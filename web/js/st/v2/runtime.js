@@ -44,7 +44,7 @@
 .hb-b{flex:none;position:relative;display:flex;align-items:center;justify-content:center;width:44px;height:44px;margin:0;padding:0;border:0;background:none;color:var(--heading);font:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}
 .hb-b .i{width:22px;height:22px}.hb-logo img{width:32px;height:32px;border-radius:9px;display:block}
 .hb-s{flex:1;min-width:0;display:flex;align-items:center;gap:8px;height:44px;margin:0;padding:0 14px;border:0;background:none;color:var(--muted);font:inherit;font-size:14px;cursor:pointer;text-align:start}
-.hb-s{container-type:inline-size}.hb-t{font-style:normal;min-width:0;overflow:hidden;text-overflow:ellipsis}@container (max-width:200px){.hb-t{display:none}.hb-s span{justify-content:center;padding:0}}
+.hb-s{container-type:inline-size}.hb-t{font-style:normal;min-width:0;overflow:hidden;text-overflow:ellipsis}@container (max-width:84px){.hb-t{display:none}.hb-s span{justify-content:center;padding:0}}
 .hb-s span{flex:1;min-width:0;height:36px;display:flex;align-items:center;gap:8px;padding:0 14px;border-radius:999px;background:var(--surface-2);border:1px solid var(--line-2);overflow:hidden;white-space:nowrap}.hb-s .i{width:18px;height:18px}
 .hb-av i{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:999px;background:var(--primary);color:#fff;font:800 15px/1 inherit;font-style:normal;overflow:hidden;box-shadow:0 0 0 3px var(--surface-2)}.hb-av img{width:100%;height:100%;object-fit:cover;display:block}.hb-av .i{width:20px;height:20px;color:#fff}
 .hb-c{flex:1 1 0;min-width:0;display:flex;align-items:center;justify-content:center;min-height:44px;color:var(--text);text-decoration:none;-webkit-tap-highlight-color:transparent}
