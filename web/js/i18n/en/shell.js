@@ -312,3 +312,5 @@
 (function (g) { Object.assign(g.I18N_DICT.en, {"Bài học trộn": "Mixed lesson", "Nghe · nói · xếp câu từ chính các từ của bạn": "Listen, speak and build sentences with your own words"}); })(typeof self !== 'undefined' ? self : this);
 /* ExitGuard (web/js/exit-guard.js): hỏi khi thoát giữa bài */
 (function (g) { Object.assign(g.I18N_DICT.en, {"Thoát bây giờ sẽ mất tiến độ bài này?": "Leave now and lose your progress in this lesson?", "Thoát bài?": "Leave this lesson?", "Tiến độ đã được lưu – lần sau bạn học tiếp từ đây.": "Your progress is saved – next time you'll pick up right here.", "Tiếp tục học": "Keep learning", "Thoát bài học": "Quit lesson"}); })(typeof self !== 'undefined' ? self : this);
+/* Thử thách nói 30 giây (lối vào ở Hôm nay/Luyện/kết quả Nói; màn: web/cpack/score30) */
+(function (g) { Object.assign(g.I18N_DICT.en, {"Thử thách nói 30 giây": "30-second speaking challenge"}); })(typeof self !== 'undefined' ? self : this);
