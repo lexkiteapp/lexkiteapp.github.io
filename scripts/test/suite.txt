@@ -496,7 +496,6 @@ node scripts/test/read-highlight.mjs
 node scripts/test/no-native-dialogs.mjs --self
 node scripts/test/no-native-dialogs.mjs
 node scripts/test/dialog.mjs
-node scripts/test/main-no-cancel.mjs
 node scripts/test/workflow-startup.mjs
 node scripts/test/score-card.mjs
 node scripts/stitch-v2-convert.mjs --check

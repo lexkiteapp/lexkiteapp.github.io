@@ -9,7 +9,8 @@ permissions:
   contents: read
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: ${{ github.event_name != 'push' }}
+  cancel-in-progress: true
+
 jobs:
   perf:
     runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}

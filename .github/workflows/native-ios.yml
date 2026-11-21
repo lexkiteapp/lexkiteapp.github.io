@@ -18,7 +18,7 @@ permissions:
   contents: read
 concurrency:
   group: native-ios-${{ github.event.pull_request.number || github.ref }}
-  cancel-in-progress: ${{ github.event_name != 'push' }}
+  cancel-in-progress: true
 jobs:
   ios:
     runs-on: macos-15

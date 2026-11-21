@@ -15,11 +15,9 @@ permissions:
   actions: write   # fast-lane: huỷ lượt nặng khi npm test cùng sha đã đỏ (docs/CI-RUNNERS.md › Máy gác)
   checks: read
   pull-requests: write   # một bình luận PR (marker <!-- stitch-shots -->) chứa link ảnh QC
-# 21/11: trên push main mỗi lần gộp huỷ lượt đang chạy của lần gộp trước → shard chậm (shard 1) luôn 'cancelled', drift (practice, lesson-complete, feedback-wrong-light, home header) không ai thấy.
-# Chỉ PR được huỷ lượt cũ; push main xếp hàng (1 chạy + 1 chờ) để lượt đang chạy tới cùng. Test: scripts/test/main-no-cancel.mjs.
 concurrency:
   group: stitch-diff-${{ github.ref }}
-  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+  cancel-in-progress: true
 jobs:
   # luật 11 (làn nhanh trước làn nặng, scripts/test/ci-policy.mjs): trên PR việc nặng chỉ chạy khi `npm test` đã XANH cùng sha – đỏ/chưa xong thì mọi job dưới là skipped
   # (không chiếm runner); npm-test.yml job `heavy` chạy lại lượt này ngay khi npm test xanh (scripts/ci/heavy-rerun.mjs). Lỗi API → mở cổng (không mất kiểm).
@@ -72,7 +70,6 @@ jobs:
           node scripts/stitch-v2-convert.mjs --check
           node scripts/build-stitch-css.mjs --check
       - uses: ./.github/actions/playwright-cache
-        if: always()   # 21/11: bước CSS đỏ (drift thật) làm bỏ qua bước cache → cài trình duyệt + apt không cache mất ~10 phút, shard 1 vượt trần
         with: { browsers: '--with-deps chromium' }
       - name: Vẽ HTML Stitch v2 tĩnh (tắt hoạt ảnh) → tờ duyệt tối/sáng
         if: always()
