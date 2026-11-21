@@ -50,8 +50,8 @@ ok(/later\(\(\) => App\.need\('remind'\)/.test(app) && /const later = cb => App\
 // ---- LCP home dao động 14/11: JS khung chỉ nạp sau khi FCP ĐÃ HIỆN (Paint Timing), không theo rAF (khung chưa chắc đã hiện)
 {
   const boot = (/const boot = `<script id="lk-boot">([\s\S]*?)<\/script>/.exec(loader.replace(/\$\{JSON\.stringify\(order\)\}/, '["a.js"]').replace(/\$\{JSON\.stringify\(font\)\}/, '[]')) || [])[1] || '';
-  const run = async paint => {
-    const dom = new JSDOM('<!doctype html><head></head><body></body>', { url: 'http://localhost/app/', runScripts: 'outside-only' }), w = dom.window; let cb = null;
+  const run = async (paint, hash = '') => {
+    const dom = new JSDOM('<!doctype html><head></head><body></body>', { url: 'http://localhost/app/' + hash, runScripts: 'outside-only' }), w = dom.window; let cb = null;
     w.requestAnimationFrame = f => { f(); return 1; };
     w.PerformanceObserver = paint ? Object.assign(function (f) { cb = f; this.observe = () => {}; this.disconnect = () => {}; }, { supportedEntryTypes: ['paint', 'largest-contentful-paint'] }) : undefined;
     w.eval(boot); await new Promise(r => setTimeout(r, 20));
@@ -61,6 +61,8 @@ ok(/later\(\(\) => App\.need\('remind'\)/.test(app) && /const later = cb => App\
   };
   const [b1, a1] = await run(true), [b0] = await run(false);
   ok(boot && b1 === 0 && a1 === 1, `có Paint Timing: JS chưa nạp trước FCP (${b1}), nạp ngay sau FCP (${a1})`);
+  const hs = await Promise.all(['#/review', '#/dict/hello', '#/me', '#/path', '#/practice/mcq', '#/home', '#/welcome'].map(h => run(true, h).then(r => r[0])));
+  ok(hs.join() === '1,1,1,0,0,0,0', `nạp JS ngay (không chờ FCP) chỉ cho review/dict/me; path/practice/home/welcome vẫn chờ FCP (${hs})`);
   ok(b0 === 1, 'không có Paint Timing: giữ đường cũ rAF → setTimeout (nạp ngay)');
   ok(/setTimeout\(go,fcp\?3000:300\)/.test(loader), 'dự phòng: 3 s khi chờ FCP (tab nền), 300 ms đường cũ');
 }
