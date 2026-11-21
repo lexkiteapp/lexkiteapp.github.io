@@ -32,7 +32,7 @@ w.addEventListener('lk:drawn',fonts);setTimeout(fonts,6000);
 function go(){if(done)return;if(d.readyState==='loading'){d.addEventListener('DOMContentLoaded',go);return}done=1;var late=d.readyState==='complete',n=S.length;
 S.forEach(function(u){var s=d.createElement('script');s.src=u;s.async=false;s.onload=s.onerror=function(){if(--n)return;w.__lkReady=1;d.dispatchEvent(new Event('DOMContentLoaded'));if(late||d.readyState==='complete'&&w.__lkLoaded)w.dispatchEvent(new Event('load'))};d.body.appendChild(s)})}
 w.addEventListener('load',function(){w.__lkLoaded=1});
-if(/^#\\/(review|dict|me)(\\/|\\?|$)/.test(w.location.hash)){go();return}
+var h=w.location.hash;if(["#/review","#/dict","#/me"].some(function(p){return h.indexOf(p)===0&&(h.length===p.length||"/?".indexOf(h.charAt(p.length))>=0)})){go();return}
 var P=w.PerformanceObserver,fcp=P&&P.supportedEntryTypes&&P.supportedEntryTypes.indexOf('paint')>=0;
 if(fcp){try{new P(function(l,o){if(l.getEntriesByName('first-contentful-paint').length){o.disconnect();setTimeout(go,0)}}).observe({type:'paint',buffered:true})}catch(e){fcp=0}}
 if(!fcp&&w.requestAnimationFrame)requestAnimationFrame(function(){setTimeout(go,0)});setTimeout(go,fcp?3000:300)})()</script>
