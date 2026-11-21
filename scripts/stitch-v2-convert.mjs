@@ -72,6 +72,8 @@ function merge(L, D, RL, RD, doc) {
     // điểm dừng gradient: from-* tách lt:/dk: mà to-/via-* chung → Tailwind cho from-* đặt lại --tw-gradient-to (trong suốt) ở tầng lt:/dk: SAU to-* chung → gradient nhạt dần. Kéo to-/via-* chung theo cùng tầng.
     const varFrom = cl.some(c => /^from-/.test(c) && !sd.has(c)) || cd.some(c => /^from-/.test(c) && !sl.has(c)), stop = c => varFrom && /^(to|via)-/.test(c);
     const cls = [...cl.filter(c => sd.has(c) && !stop(c)), ...cl.filter(c => !sd.has(c) || stop(c)).map(c => 'lt:' + c), ...cd.filter(c => !sl.has(c) || stop(c)).map(c => 'dk:' + c)];
+    // màu vẽ SVG (stroke/fill) khác nhau giữa 2 bản (bản sáng class/currentColor, bản tối thuộc tính hex, hoặc ngược lại): thuộc tính chỉ lấy của bản sáng → bản tối mất màu (vòng 'đến hạn' Ôn rãnh trắng đặc). Đưa thành lớp lt:/dk: stroke-[#hex]/fill-[#hex] (CSS thắng thuộc tính).
+    for (const k of ['stroke', 'fill']) { const lv = L.getAttribute(k), dv = D.getAttribute(k), hex = v => /^#[0-9a-f]{3,8}$/i.test(v || ''); if (lv !== dv) { if (hex(dv)) cls.push(`dk:${k}-[${dv}]`); if (hex(lv) && dv) cls.push(`lt:${k}-[${lv}]`); } }
     if (cls.length) out.setAttribute('class', cls.join(' '));
     for (const a of D.attributes) if (!out.hasAttribute(a.name) && !/^(class|style|on\w+|data-active-classes)$/i.test(a.name)) out.setAttribute(a.name, a.value); // thuộc tính chỉ bản tối có (aria…)
   } else { const c = classesOf(L, RL); if (c.length) out.setAttribute('class', c.join(' ')); }
