@@ -24,7 +24,9 @@ jobs:
         with: { node-version: 22 }
       - name: Một lượt autopilot
         if: ${{ github.event_name != 'workflow_dispatch' || inputs.mode == 'run' || inputs.mode == 'status' }}
-        run: node scripts/social/auto.mjs "${{ inputs.mode || 'run' }}"
+        run: node scripts/social/auto.mjs "$LX_IN1"
+        env:
+          LX_IN1: ${{ inputs.mode || 'run' }}
       - name: Dry-run qua máy chủ (payload từng nền tảng, kênh thật, không đăng)
         if: ${{ inputs.mode == 'preview' }}
         env: { CLIP: '${{ inputs.clip }}' }

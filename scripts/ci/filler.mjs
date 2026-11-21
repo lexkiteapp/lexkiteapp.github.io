@@ -18,8 +18,9 @@ export const loadRegistry = (f = 'infra/ci-backlog.json') => JSON.parse(fs.readF
 /** Chỗ còn cho việc nền (thuần). Chỉ dispatch khi busy + queued + shard mới ≤ total − reserve (32): job đang xếp hàng (kể cả bị max-parallel giữ)
  *  cũng chiếm chỗ – 02/11 04:21Z busy 20, queued 118 (đói 0) mà vẫn bơm 12 job → 40/40, check PR không có runner.
  *  Không bao giờ dispatch khi có job đói runner (starved) hoặc check PR (pull_request) đang xếp hàng (prQueued). */
-export function capacity({ busy, queued = 0, starved = 0, prQueued = 0 }, { total = 40, reserve = 8 } = {}) {
-  if (starved > 0 || prQueued > 0) return 0;
+export const JAM_RUNS = 20;   // 20/11: ≥ 20 lượt workflow (không phải zombie) đang queued = hàng chờ thật, dù job đã chờ > 45' bị STUCK_MS loại khỏi `queued` (busy thấp mà ~100 lượt xếp hàng vẫn bị bơm thêm)
+export function capacity({ busy, queued = 0, starved = 0, prQueued = 0, queuedRuns = 0 }, { total = 40, reserve = 8 } = {}) {
+  if (starved > 0 || prQueued > 0 || queuedRuns >= JAM_RUNS) return 0;
   return Math.max(0, total - reserve - busy - queued);
 }
 /** Số job một mục chiếm nếu dispatch với `free` chỗ (thuần): mục có shards_input → min(max_shards, free) (≥ min_shards, không thì 0); mục cố định → jobs nếu vừa. */
@@ -98,7 +99,8 @@ export async function measure() {
   const seen = new Set(), uniq = runs.filter(r => !seen.has(r.id) && seen.add(r.id));
   const jobsByRun = [];
   for (const r of uniq.filter(r => r.status === 'in_progress' || r.status === 'queued')) jobsByRun.push({ event: r.event, jobs: ((await gh(`/actions/runs/${r.id}/jobs?filter=latest&per_page=100`)) || {}).jobs || [] });
-  return { ...countJobs(jobsByRun), active: activeWorkflows(uniq) };
+  const now = Date.now();
+  return { ...countJobs(jobsByRun), queuedRuns: uniq.filter(r => r.status === 'queued' && !isZombie(r, now)).length, active: activeWorkflows(uniq) };
 }
 /** Cùng sha main và lượt gần nhất đã xanh → chạy lại chỉ tốn runner (thuần). */
 export const sameShaDone = (run, sha) => !!run && !!sha && run.head_sha === sha && run.conclusion === 'success';
@@ -135,7 +137,7 @@ async function main(mode) {
   if (mode === 'report') return summary(report(await readLog()).md);
   const m = await measure(), free = capacity(m, lim), ts = new Date().toISOString().slice(0, 16) + 'Z';
   const entries = reg.entries.filter(eligible), running = entries.filter(e => isActive(e, m.active)).length;
-  const head = `busy ${m.busy}/${lim.total} · queued ${m.queued} (đói ${m.starved}, check PR chờ ${m.prQueued}) · chỗ cho việc nền ${free} · mục đang chạy ${running}`;
+  const head = `busy ${m.busy}/${lim.total} · queued ${m.queued} (lượt chờ ${m.queuedRuns}, đói ${m.starved}, check PR chờ ${m.prQueued}) · chỗ cho việc nền ${free} · mục đang chạy ${running}`;
   const stale = {}; // dò stale bằng API (không cần checkout)
   for (const e of entries.filter(e => e.probe.stale_hours && !isActive(e, m.active))) stale[e.id] = await staleLeft(e).catch(() => null);
   const needCmd = entries.some(e => e.probe.cmd && !isActive(e, m.active));

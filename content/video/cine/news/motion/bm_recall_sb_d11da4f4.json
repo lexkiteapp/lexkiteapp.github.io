@@ -149,14 +149,6 @@
       "t": "line",
       "runs": [
        [
-        "Fix: How I can send money other account?"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "runs": [
-       [
         "How "
        ],
        [
@@ -164,7 +156,7 @@
         "muted"
        ],
        [
-        " I transfer money to another account?"
+        " I transfer …"
        ]
       ],
       "slot": {
@@ -204,19 +196,11 @@
       "tone": "green"
      },
      {
-      "t": "line",
+      "t": "sub",
       "runs": [
        [
         "How do I transfer money to another account?",
         "green"
-       ]
-      ]
-     },
-     {
-      "t": "sub",
-      "runs": [
-       [
-        "In questions, put do before I."
        ]
       ]
      }
