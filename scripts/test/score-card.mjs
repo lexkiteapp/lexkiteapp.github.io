@@ -93,7 +93,6 @@ async function flow({ chalId, canned, dead }) {
   w.I18N = { lang: () => 'vi' };
   const routes = {}; w.App = { routes, guard: f => f, W: p => p };
   w.UI = { $: (q, r) => (r || w.document).querySelector(q), esc: x => String(x).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c])), toast: m => calls.toast.push(m), dev: () => 'devdevdevdevdevdev', humanHdr: async () => {} };
-  w.ST2 = { tabs: () => '', hdr: () => '', mount: (view) => { view.innerHTML = '<div class="v2"><header><button data-href="#/x"></button><h1>Nói như người bản xứ</h1><button id="sFlag"></button></header><main></main></div>'; } };
   w.Speak = { score: async o => { calls.speak.push(o); return canned; }, stop() {} };
   w.LKFile = { save: async (b, name, o) => { calls.save.push({ name, o }); return 'shared'; } };
   w.fetch = async (u, init = {}) => {
@@ -110,7 +109,7 @@ async function flow({ chalId, canned, dead }) {
 }
 { // A) bài mới
   const F = await flow({ canned: sp(0.9, 0.9, 130) });
-  ok(/Thử thách nói 30 giây/.test(F.$('header h1').textContent) && !/bản xứ/.test(F.$('header h1').textContent), 'tiêu đề khung đổi đúng');
+  ok(/Thử thách nói 30 giây/.test(F.$('h1').textContent) && !/bản xứ/.test(F.$('h1').textContent), 'tiêu đề khung đổi đúng');
   const txt = F.$('.txt').textContent; ok(S.PROMPTS.includes(txt), 'hiện một đoạn đọc có thật');
   ok(F.calls.beacon.join() === 'sc_view' && !F.$('.banner'), 'mở: chỉ sc_view, không banner thử thách');
   F.$('#s30go').click(); await F.tick(); await F.tick();

@@ -34,7 +34,7 @@
   g.Score30 = { PROMPTS, grade, overall, cefrOf, idOk, linkOf };
   if (typeof App === 'undefined' || !App.routes) return; // nạp trong test thuần (không có app)
 
-  const { routes } = App, { $, esc, toast } = UI, d = document, ST2 = g.ST2;
+  const { routes } = App, { $, esc, toast } = UI, d = document;
   const T = (k, v) => g.t(k, v), lang = () => (g.I18N && I18N.lang && I18N.lang()) || 'en';
   const ev = a => { try { navigator.sendBeacon('/api/hit', JSON.stringify({ t: 'q', ev: 'sc_' + a })); } catch (e) { /* bỏ qua */ } };
   const api = (body, again) => (async () => {
@@ -68,7 +68,7 @@
   const cssOnce = () => {
     if (d.getElementById('s30-css')) return;
     const st = d.createElement('style'); st.id = 's30-css';
-    st.textContent = `.s30{display:grid;gap:1rem;justify-items:center;text-align:center;padding:0 0 7rem}.s30 .txt{font-size:1.25rem;line-height:1.5;font-weight:600;max-width:34ch;margin:0}
+    st.textContent = `.s30{display:grid;gap:1rem;justify-items:center;text-align:center;padding:0 0 1rem}.s30 .txt{font-size:1.25rem;line-height:1.5;font-weight:600;max-width:34ch;margin:0}
 .s30 .banner{border:2px solid var(--line,#eae1d8);border-radius:16px;padding:.7rem 1rem;font-weight:700}.s30 .cta{min-height:56px;min-width:min(100%,260px);font-weight:800;font-size:1.1rem}
 .s30 .row{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center}.s30 .row .btn{min-height:48px}
 .s30 canvas{width:min(78vw,340px);height:auto;aspect-ratio:4/5;border-radius:20px;box-shadow:0 14px 34px rgba(15,61,62,.25);background:${C.teal}}
@@ -79,17 +79,11 @@
   };
   const reduce = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // Khung = Stitch v2 say-front (thanh trên + 5 tab), thân tự vẽ như say.js list()
+  // Khung = khung chung của app (thanh trên + 5 tab + đường dẫn Kỹ năng › … do App.crumb chèn vào .page-head) – cùng trang con khác (frame-consistency); thân tự vẽ
   function frame(view, title) {
     cssOnce();
-    const dd = { tabs: ST2.tabs('skills'), series: '', step: '', regLbl: '', say: '', ipa: '', teacher: '', back: '#/skills', pct: 0, n: 0, total: 0, nav: '', heard: '' };
-    ST2.mount(view, 'say-front', dd, null);
-    const root = view.querySelector('.v2'), main = root.querySelector('main');
-    main.insertAdjacentHTML('afterend', ST2.shell ? `<div class="lg:hidden">${ST2.shell(Object.assign({ hdr: ST2.hdr() }, dd)).nav}</div>` : '');
-    const h1 = root.querySelector('header h1'); if (h1) h1.textContent = title;
-    const fl = root.querySelector('#sFlag'); if (fl) { fl.classList.add('invisible'); fl.setAttribute('aria-hidden', 'true'); fl.tabIndex = -1; }
-    const bk = root.querySelector('header button[data-href]'); if (bk) bk.setAttribute('aria-label', T('Quay về'));
-    main.innerHTML = '<div class="s30" id="s30"></div>'; return $('#s30', main);
+    view.innerHTML = `<div class="page-head"><div><h1>${esc(title)}</h1></div></div><div class="s30" id="s30"></div>`;
+    return $('#s30', view);
   }
 
   routes.score = App.guard(async function (arg) {

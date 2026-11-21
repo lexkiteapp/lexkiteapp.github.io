@@ -41,8 +41,8 @@ items: [
 options: ['They make air pollution harder to measure.', 'They prevent the body from recovering after a hot day.', 'They cause power networks to fail completely.', 'They mainly affect people who work at night.'],
 a: 1, cue: 'they deny the body the chance to recover from the stress of the day' },
 { n: 13, q: 'What did the temperature surveys described in paragraph G show?',
-options: ['Official weather stations had recorded inaccurate data.', 'Temperatures were similar across most districts of a city.', 'Buses were more reliable than cars for carrying sensors.', 'Poorer districts were often hotter than wealthier ones.'],
-a: 3, cue: 'the hottest neighbourhoods turned out to be poorer ones' },
+options: ['Poorer districts were often hotter than wealthier ones.', 'Temperatures were similar across most districts of a city.', 'Buses were more reliable than cars for carrying sensors.', 'Official weather stations had recorded inaccurate data.'],
+a: 0, cue: 'the hottest neighbourhoods turned out to be poorer ones' },
 ] },
 ],
 vocab: [
@@ -159,8 +159,8 @@ items: [
 { type: 'mcq', instr: g.RTI[3],
 items: [
 { n: 32, q: 'Why does the writer mention Greenland and Africa?',
-options: ['To show that Mercator made errors in his measurements.', 'To illustrate how a projection can distort the relative size of areas.', 'To explain why sailors preferred maps of the northern hemisphere.', 'To compare the accuracy of medieval and modern maps.'],
-a: 1, cue: 'Greenland appears roughly as large as Africa, although Africa is in reality about fourteen times larger' },
+options: ['To show that Mercator made errors in his measurements.', 'To explain why sailors preferred maps of the northern hemisphere.', 'To illustrate how a projection can distort the relative size of areas.', 'To compare the accuracy of medieval and modern maps.'],
+a: 2, cue: 'Greenland appears roughly as large as Africa, although Africa is in reality about fourteen times larger' },
 { n: 33, q: 'What point does the writer make by comparing a medieval map with a cathedral?',
 options: ['Medieval maps were mainly kept in religious buildings.', 'Medieval maps were more beautiful than they were useful.', 'It is unfair to judge something by a purpose it was never meant to serve.', 'Religious institutions controlled the production of maps.'],
 a: 2, cue: 'Criticising them for being useless to travellers is rather like criticising a cathedral because it would make a poor warehouse' },
