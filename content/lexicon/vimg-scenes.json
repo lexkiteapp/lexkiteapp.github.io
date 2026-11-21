@@ -4420,8 +4420,17 @@
    "tries": 2
   },
   "anticoagulant#n": {
-   "e4bad": 1,
-   "badAt": "2026-11-20T16:52:33.736Z"
+   "ex": "For patients undergoing surgery, treatment with anticoagulants is generally suspended.",
+   "ps": "a clear bottle filled with many small round pills on a plain surface",
+   "sc": "a clear bottle filled with many small round pills on a plain surface",
+   "check": "Is there a container of small pills used as medicine?",
+   "cap": "a bottle filled with many small round pills",
+   "key": "bottle of small round pills; pills visible inside",
+   "who": 0,
+   "draw": 5,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 2
   },
   "anticonvulsant#n": {
    "ex": "Anticonvulsants may be used to help with seizures.",
@@ -8993,8 +9002,18 @@
    "by": "@cf/openai/gpt-oss-120b"
   },
   "bioterrorism#n": {
-   "e4bad": 1,
-   "badAt": "2026-11-20T16:50:46.140Z"
+   "ex": "Humans can also be infected through bioterrorism attempts.",
+   "ps": "a man in a hazmat suit pours green liquid from a container into the sky, people cover faces",
+   "sc": "a man in a hazmat suit pours green liquid from a container into the sky, people cover faces",
+   "check": "Is a person in protective gear releasing a harmful substance over a crowd?",
+   "cap": "a person in a hazmat suit pours green liquid into the air",
+   "key": "hazmat suit person pouring green liquid; people covering their faces",
+   "who": 1,
+   "draw": 4,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 2
   },
   "bird hide#n": {
    "ex": "From the bird hide you can watch herons feeding in the marsh.",
@@ -13831,8 +13850,16 @@
    "refix": 1
   },
   "chromatin#n": {
-   "e4bad": 1,
-   "badAt": "2026-11-20T16:36:14.077Z"
+   "ex": "There are two types of chromatin.",
+   "ps": "a scientist peers through a microscope at a magnified cell nucleus filled with string-like fibers",
+   "sc": "a scientist peers through a microscope at a magnified cell nucleus filled with string-like fibers",
+   "check": "Is there a magnified view of a cell nucleus containing many string-like fibers?",
+   "cap": "a scientist looks at a nucleus full of tangled fibers",
+   "key": "magnified cell nucleus with string-like fibers; scientist peering through a microscope",
+   "who": 1,
+   "draw": 4,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b"
   },
   "chromium#n": {
    "ex": "Chromium is used in different metal products.",
@@ -24871,8 +24898,8 @@
    "by": "openai/gpt-oss-120b"
   },
   "desktop#n": {
-   "e4bad": 7,
-   "badAt": "2026-11-19T01:29:42.179Z"
+   "e4bad": 8,
+   "badAt": "2026-11-21T03:53:59.480Z"
   },
   "desolate#adj": {
    "ex": "Some of the routes go through more desolate landscapes.",
@@ -57610,8 +57637,18 @@
    "by": "@cf/openai/gpt-oss-120b"
   },
   "morphologically#adv": {
-   "e4bad": 1,
-   "badAt": "2026-11-20T14:54:58.246Z"
+   "ex": "However, the group is morphologically very diverse.",
+   "ps": "a person holds a magnifying glass, looking closely at three stacked colored blocks on a table",
+   "sc": "a person holds a magnifying glass, looking closely at three stacked colored blocks on a table",
+   "check": "Is the person looking closely at how something is built or arranged?",
+   "cap": "a person examines a stack of colored blocks with a magnifying glass",
+   "key": "a person holding a magnifying glass; three stacked colored blocks",
+   "who": 1,
+   "draw": 4,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 2
   },
   "morphology#n": {
    "ex": "Morphology studies how words are formed from smaller parts such as prefixes.",
@@ -59048,8 +59085,17 @@
    "by": "openai/gpt-oss-120b"
   },
   "neoliberalism#n": {
-   "e4bad": 1,
-   "badAt": "2026-11-20T15:50:59.861Z"
+   "ex": "The party's economic policies were based on neoliberalism.",
+   "ps": "a man in a suit hands a golden key to a businessman in front of a small town hall",
+   "sc": "a man in a suit hands a golden key to a businessman in front of a small town hall",
+   "check": "Is a private individual receiving control of a public building?",
+   "cap": "a businessman receives a key beside a town hall",
+   "key": "a golden key being handed to a businessman; a small town hall building",
+   "who": 2,
+   "draw": 4,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 3
   },
   "neolithic#adj": {
    "ex": "Neolithic farmers built the first permanent villages in Europe.",
@@ -73261,8 +73307,8 @@
    "by": "openai/gpt-oss-120b"
   },
   "reactance#n": {
-   "e4bad": 1,
-   "badAt": "2026-11-20T15:27:36.785Z"
+   "e4bad": 2,
+   "badAt": "2026-11-21T02:47:36.945Z"
   },
   "reactant#n": {
    "ex": "Two reactants yield two products.",
@@ -76384,8 +76430,8 @@
    "refix": 1
   },
   "republish#v": {
-   "e4bad": 1,
-   "badAt": "2026-11-20T14:54:45.821Z"
+   "e4bad": 2,
+   "badAt": "2026-11-21T03:53:59.480Z"
   },
   "reputation management#n": {
    "ex": "Online reputation management includes replying politely to negative reviews.",
@@ -90911,8 +90957,8 @@
    "by": "openai/gpt-oss-120b"
   },
   "thrombus#n": {
-   "e4bad": 1,
-   "badAt": "2026-11-20T16:36:08.543Z"
+   "e4bad": 2,
+   "badAt": "2026-11-21T03:53:59.480Z"
   },
   "throne#n": {
    "ex": "He approached the throne reverently.",
@@ -92529,8 +92575,8 @@
    "refix": 1
   },
   "transliteration#n": {
-   "e4bad": 1,
-   "badAt": "2026-11-20T14:54:41.642Z"
+   "e4bad": 2,
+   "badAt": "2026-11-21T03:53:59.480Z"
   },
   "transmission#n": {
    "ex": "The data transmission to the head office failed overnight.",

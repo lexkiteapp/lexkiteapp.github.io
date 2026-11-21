@@ -14,7 +14,7 @@ import vm from 'vm';
 import { execFileSync } from 'child_process';
 
 const ROOT = path.resolve('web');
-const ctxSW = { self: {} }; vm.runInNewContext(fs.readFileSync(path.join(ROOT, 'js/toeic/sw1.js'), 'utf8'), ctxSW);
+const ctxSW = { self: {} }; vm.runInNewContext(fs.readFileSync(path.join(ROOT, 'cpack/toeic/sw1.js'), 'utf8'), ctxSW);
 const UNIT = ctxSW.self.TOEIC_SW.speaking.filter(u => u.task === 'read')[0]; // đề i=0
 const TEXT = UNIT.text;
 
