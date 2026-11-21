@@ -81,7 +81,7 @@ E.gt2 = {
 23: { why: "Đoạn E: “you should keep your online calendar up to date” → điền “calendar”.", para: "E", keys: [["keep your online ___ up to date", "keep your online calendar up to date"]] },
 24: { why: "Đoạn F: “receipts must be submitted through the expenses system within one month of purchase” → điền “receipts” (hóa đơn).", para: "F", keys: [["submit ___", "receipts must be submitted"], ["within one month", "within one month of purchase"]] },
 25: { why: "Đoạn C: “if you use a computer for most of your working day, you may request a free eye test” → B.", para: "C", keys: [["ask for a free eye test", "request a free eye test"], ["use a computer for most of the day", "use a computer for most of your working day"]] },
-26: { why: "Đoạn D: “you must first discuss it with your line manager and then complete a remote working agreement” → C. “talk to” = “discuss it with”.", para: "D", keys: [["talk to their line manager", "discuss it with your line manager"], ["complete an agreement", "complete a remote working agreement"]] },
+26: { why: "Đoạn D: “you must first discuss it with your line manager and then complete a remote working agreement” → A. “talk to” = “discuss it with”.", para: "D", keys: [["talk to their line manager", "discuss it with your line manager"], ["complete an agreement", "complete a remote working agreement"]] },
 27: { why: "Đoạn E: khi quản lý yêu cầu lên văn phòng vào ngày làm ở nhà, “you will be given at least two days' notice” → D (được báo trước ít nhất hai ngày).", para: "E", keys: [["told at least two days in advance", "given at least two days' notice"], ["come into the office", "come into the office on a day when you would normally work from home"]] },
 
 /* ---- Section 3: The Rise of Urban Cycling ---- */
