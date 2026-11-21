@@ -38,7 +38,12 @@ jobs:
         with: { python-version: '3.11' }
       - run: pip install -q "modal>=1.0,<2"
       - name: Cost guard
-        run: python "$APP" --cost-only --hours "${{ inputs.hours }}" --gpu "${{ inputs.gpu }}" --include360 "${{ inputs.include360 }}" --dry-run "${{ inputs.dry_run }}" | tee -a "$GITHUB_STEP_SUMMARY"
+        run: python "$APP" --cost-only --hours "$LX_IN1" --gpu "$LX_IN2" --include360 "$LX_IN3" --dry-run "$LX_IN4" | tee -a "$GITHUB_STEP_SUMMARY"
+        env:
+          LX_IN1: ${{ inputs.hours }}
+          LX_IN2: ${{ inputs.gpu }}
+          LX_IN3: ${{ inputs.include360 }}
+          LX_IN4: ${{ inputs.dry_run }}
       - id: s
         name: Spawn remote pipeline (detached; runs on Modal without this runner)
         run: |

@@ -39,8 +39,8 @@ jobs:
       - name: Tăng bậc nếu vitals đạt
         id: r
         if: env.HAS_PLAY == 'true'
-        env: { PLAY_SERVICE_ACCOUNT_JSON: '${{ secrets.PLAY_SERVICE_ACCOUNT_JSON }}' }
-        run: node scripts/store/play-api.mjs rollout --min-hours 24 --last-step-at "$LAST_AT" ${{ inputs.dry_run && '--dry-run' || '' }}
+        env: { PLAY_SERVICE_ACCOUNT_JSON: '${{ secrets.PLAY_SERVICE_ACCOUNT_JSON }}', LX_DRY: "${{ inputs.dry_run && '--dry-run' || '' }}" }
+        run: node scripts/store/play-api.mjs rollout --min-hours 24 --last-step-at "$LAST_AT" $LX_DRY
       - name: Tag mốc bậc mới
         if: steps.r.outputs.advanced == 'yes'
         env: { NAME: '${{ steps.r.outputs.name }}', PCT: '${{ steps.r.outputs.pct }}' }

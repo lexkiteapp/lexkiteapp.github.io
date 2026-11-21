@@ -7,7 +7,7 @@ let fail = 0; const ok = (c, m) => { console.log(`${c ? '✓' : '✗'} static-ro
 const routes = JSON.parse(fs.readFileSync(path.join(R, 'web/_routes.json'), 'utf8'));
 ok(routes.version === 1 && Array.isArray(routes.include) && Array.isArray(routes.exclude), '_routes.json đúng định dạng Cloudflare Pages (version 1, include, exclude)');
 ok(Object.keys(routes).every(k => ['version', 'include', 'exclude'].includes(k)), '_routes.json không có khoá lạ (Pages từ chối deploy)');
-ok(routes.include.length > 0 && routes.include.every(r => r.startsWith('/api/') || r === '/' || /^\/[a-z]{2}\/words\/\*$/.test(r)), 'Functions chỉ được gọi ở /api/*, đúng "/" và /<lang>/words/* (trang từ R2, functions/[lang]/words – luôn fail-open → next())');
+ok(routes.include.length > 0 && routes.include.every(r => r.startsWith('/api/') || r === '/' || r === '/c/*' || /^\/[a-z]{2}\/words\/\*$/.test(r)), 'Functions chỉ được gọi ở /api/*, đúng "/", "/c/*" (link thử thách, functions/c – lỗi D1 vẫn 302 về app) và /<lang>/words/* (trang từ R2, functions/[lang]/words – luôn fail-open → next())');
 ok(routes.include.length + routes.exclude.length <= 100, '≤ 100 luật (giới hạn Pages)');
 const glob = r => new RegExp('^' + r.replace(/[.+?^${}()|[\]\\]/g, '\\$&').replace(/\*/g, '.*') + '$');
 const hit = p => routes.include.some(r => glob(r).test(p)) && !routes.exclude.some(r => glob(r).test(p));
@@ -16,8 +16,9 @@ for (const p of ['/app/', '/vi/', '/en/', '/ar/', '/data/seo-twins.json', '/blog
 // Mọi function phải nằm dưới functions/api và được _routes.json phủ; không có _middleware ở gốc chạy trên mọi đường dẫn
 const walk = d => fs.readdirSync(d, { withFileTypes: true }).flatMap(e => e.isDirectory() ? walk(path.join(d, e.name)) : [path.join(d, e.name)]);
 const WORDS_FN = path.join('[lang]', 'words', '[[path]].js');
+const CHAL_FN = path.join('c', '[[path]].js');
 const fns = walk(path.join(R, 'functions')).filter(f => /\.(m?js|ts)$/.test(f)).map(f => path.relative(path.join(R, 'functions'), f));
-ok(fns.every(f => f.startsWith('api' + path.sep) || f === 'index.js' || f === WORDS_FN), `mọi Pages Function nằm dưới functions/api/, riêng functions/index.js cho "/" và ${WORDS_FN} (${fns.filter(f => !f.startsWith('api' + path.sep) && f !== 'index.js' && f !== WORDS_FN).join(', ') || 'ok'})`);
+ok(fns.every(f => f.startsWith('api' + path.sep) || f === 'index.js' || f === WORDS_FN || f === CHAL_FN), `mọi Pages Function nằm dưới functions/api/, riêng functions/index.js cho "/", ${WORDS_FN} và ${CHAL_FN} (${fns.filter(f => !f.startsWith('api' + path.sep) && f !== 'index.js' && f !== WORDS_FN && f !== CHAL_FN).join(', ') || 'ok'})`);
 // Hàm "/" không được phụ thuộc mã khác (D1, quota, sync…): chỉ _rootlang.js + bảng GEO sinh tự động, lỗi lạ vẫn về /en/
 { const a = fs.readFileSync(path.join(R, 'functions/index.js'), 'utf8'), b = fs.readFileSync(path.join(R, 'functions/api/_rootlang.js'), 'utf8');
   ok([...a.matchAll(/from '([^']+)'/g)].map(m => m[1]).join() === './api/_rootlang.js' && [...b.matchAll(/from '([^']+)'/g)].map(m => m[1]).join() === './_geo.gen.js' && !/\benv\b/.test(a + b) && /catch/.test(a), 'functions/index.js không dùng D1/env, không phụ thuộc mã nào khác'); }

@@ -983,6 +983,7 @@
 "Thử Phòng viết lần đầu":"Cobalah ruang Menulis untuk pertama kalinya",
 "Thử lại":"Coba lagi",
 "Thử thách 60 giây":"Tantangan 60 detik",
+"Thử thách nói 30 giây":"30-second speaking challenge",
 "Thử thách tự đặt câu":"Tantangan menulis kalimat Anda sendiri",
 "Thực phẩm & Nông nghiệp":"Pangan & pertanian",
 "Tia chớp":"Kilat",

@@ -26,4 +26,7 @@ jobs:
           STUDIO_CALLBACK_SECRET: ${{ secrets.STUDIO_CALLBACK_SECRET }}
           LEXKITE_CI_HEADER: ${{ secrets.LEXKITE_CI_HEADER }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: node scripts/growth/funnel-digest.mjs ${{ inputs.dry && '--dry' || '' }}
+          DRY: ${{ inputs.dry }}
+        run: |
+          args=(); [ "$DRY" = true ] && args+=(--dry)
+          node scripts/growth/funnel-digest.mjs "${args[@]}"

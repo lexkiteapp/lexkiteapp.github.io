@@ -74,9 +74,10 @@ jobs:
           rm -rf /tmp/footage
       - name: Dựng video mẫu (toàn bộ các bước)
         env:
+          LX_IN1: ${{ github.event.inputs.script }}
           KOKORO_NODE_PATH: /tmp/kk/node_modules
           VIDEO_STRICT: '1' # kho thật (fetch-render): thiếu phòng/whisper/Rhubarb/Remotion → lỗi, không lặng lẽ dùng nền gradient / chia đều
-        run: node scripts/video/render.mjs --local --script "${{ github.event.inputs.script }}" 2>&1 | tee render.log
+        run: node scripts/video/render.mjs --local --script "$LX_IN1" 2>&1 | tee render.log
       - name: 6 khung chính để duyệt
         if: always()
         run: |
