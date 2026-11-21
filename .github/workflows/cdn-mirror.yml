@@ -40,8 +40,10 @@ jobs:
         run: node scripts/cdn/cutover.mjs prepare
       - name: Chép GitHub → R2
         if: steps.check.outputs.r2 == 'on' && env.ACTION == 'mirror' && (github.event_name == 'workflow_dispatch' || steps.check.outputs.buckets == '1')
-        env: { GH_TOKEN: '${{ github.token }}' }
-        run: node scripts/cdn/mirror.mjs --host "$HOST" --max "${{ inputs.max || '0' }}"
+        env:
+          GH_TOKEN: '${{ github.token }}'
+          LX_IN1: ${{ inputs.max || '0' }}
+        run: node scripts/cdn/mirror.mjs --host "$HOST" --max "$LX_IN1"
       - name: Chuyển / kiểm / quay lại tên miền
         if: steps.check.outputs.r2 == 'on' && env.ACTION != 'mirror'
         run: |

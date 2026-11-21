@@ -35,9 +35,12 @@ jobs:
     steps:
       - name: Chờ yên (debounce)
         run: |
-          case "${{ github.event_name }}" in push) q=15;; schedule) q=0;; *) q="${{ inputs.quiet }}";; esac
-          echo "· ${{ github.event_name }} · ${{ inputs.reason }} · chờ ${q:-0} phút (lượt mới hơn sẽ huỷ lượt này)"
+          case "${{ github.event_name }}" in push) q=15;; schedule) q=0;; *) q="$LX_IN1";; esac
+          echo "· ${{ github.event_name }} · $LX_IN2 · chờ ${q:-0} phút (lượt mới hơn sẽ huỷ lượt này)"
           sleep $(( ${q:-0} * 60 ))
+        env:
+          LX_IN1: ${{ inputs.quiet }}
+          LX_IN2: ${{ inputs.reason }}
       - uses: actions/checkout@v4
         with: { fetch-depth: 300, filter: 'blob:none' }
       - uses: actions/setup-node@v4

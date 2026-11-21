@@ -63,9 +63,12 @@ jobs:
         run: |
           if [ "$MODE" = pilot2 ]; then cp content/lexicon/vimg-pilot2.json keys.json
           elif [ "$MODE" = pilot ]; then cp content/lexicon/vimg-pilot.json keys.json
-          else node scripts/vocab-img/publish.mjs --gaps "${{ github.event.inputs.limit || '220' }}" > gaps.json
-            EXTRA='${{ github.event.inputs.extra }}' node -e "const g=require('./gaps.json').items,x=(process.env.EXTRA||'').split(',').map(s=>s.trim()).filter(Boolean);require('fs').writeFileSync('keys.json',JSON.stringify({items:[...new Set([...x,...g])]}))"; fi
+          else node scripts/vocab-img/publish.mjs --gaps "$LX_IN1" > gaps.json
+            EXTRA="$LX_IN2" node -e "const g=require('./gaps.json').items,x=(process.env.EXTRA||'').split(',').map(s=>s.trim()).filter(Boolean);require('fs').writeFileSync('keys.json',JSON.stringify({items:[...new Set([...x,...g])]}))"; fi
           echo "nghĩa lượt này: $(node -p "require('./keys.json').items.length")"
+        env:
+          LX_IN1: ${{ github.event.inputs.limit || '220' }}
+          LX_IN2: ${{ github.event.inputs.extra }}
       - name: Thẻ vẽ cho nghĩa chưa có thẻ (GrabCast văn bản; thẻ skip = không vẽ)
         if: steps.lease.outputs.skip != '1' && env.MODE == 'fill'
         run: node scripts/vocab-img/cards.mjs --keys keys.json --write && cp content/lexicon/vimg-cards.json out-cards.json

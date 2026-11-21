@@ -127,12 +127,13 @@ jobs:
           R=$(find /tmp/rh -type f -name rhubarb | head -1); chmod +x "$R"; echo "RHUBARB=$R" >> "$GITHUB_ENV"; echo "KOKORO_NODE_PATH=/tmp/kk/node_modules" >> "$GITHUB_ENV"
       - name: Dựng + QA
         env:
+          LX_IN1: ${{ inputs.viral }}
           SCENE: ${{ inputs.scene }}
           LESSONS: ${{ inputs.lessons }}
           LANG_DEF: ${{ inputs.lang }}
         run: |
           set -o pipefail
-          [ "${{ inputs.viral }}" = true ] || export VIRAL=0
+          [ "$LX_IN1" = true ] || export VIRAL=0
           mkdir -p out/qa; : > out/passed.txt
           fail=0; n=0
           for SC in ${SCENE//,/ }; do
@@ -183,6 +184,7 @@ jobs:
       - name: Lưu bền bài ĐẠT (repo riêng tư lexkiteapp/lexkite-shorts, shorts/<cảnh>/<bài>/)
         if: always()
         env:
+          LX_IN1: ${{ inputs.scene }}
           KEY: ${{ secrets.SHORTS_DEPLOY_KEY }}
           LEXKITE_DRIVE_CLI_KEY: ${{ secrets.LEXKITE_DRIVE_CLI_KEY }}
         run: |
@@ -194,7 +196,7 @@ jobs:
           git clone -q --depth 1 --filter=blob:none --sparse git@github.com:lexkiteapp/lexkite-shorts.git /tmp/shorts
           python scripts/cine/store_shorts.py out /tmp/shorts "${{ github.run_number }}" "${{ github.sha }}"
           bash scripts/cine/archive_new.sh /tmp/shorts
-          cd /tmp/shorts; git add --sparse -A shorts recipes .gitignore; git -c user.name="Lexkite CI" -c user.email="lexkiteapp@users.noreply.github.com" commit -qm "cine-render #${{ github.run_number }} (${{ inputs.scene }}) [CF-Pages-Skip]" || exit 0
+          cd /tmp/shorts; git add --sparse -A shorts recipes .gitignore; git -c user.name="Lexkite CI" -c user.email="lexkiteapp@users.noreply.github.com" commit -qm "cine-render #${{ github.run_number }} ($LX_IN1) [CF-Pages-Skip]" || exit 0
           pushed=; for k in 1 2 3 4; do git push -q origin HEAD:main && { pushed=1; break; }; { git fetch -q origin main && git rebase -q origin/main || git rebase --abort 2>/dev/null; }; done
           rm -f ~/.ssh/shorts
           [ -n "$pushed" ] || { echo "::error::không đẩy được lexkite-shorts sau 4 lần"; exit 1; }

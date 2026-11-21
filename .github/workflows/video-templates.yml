@@ -79,10 +79,12 @@ jobs:
       - name: Render
         run: |
           mkdir -p out/tpl
-          for T in $(echo "${{ inputs.tpls }}" | tr ',' ' '); do
+          for T in $(echo "$LX_IN1" | tr ',' ' '); do
             python scripts/video/tpl/render_tpl.py --tpl $T ${PLATE:+--crf 18} --lesson "$LD/$LID.json" --lines "$ND/ci/lines.json" --vo "$ND/vis3" \
               --lib footage/anchor --icons icons --fonts brand/social/src/fonts --out "out/tpl/tpl$T-preview.mp4"
           done
+        env:
+          LX_IN1: ${{ inputs.tpls }}
       - name: QC (host variance, motion tokens, safe area, readability, jitter, one moving group, file)
         run: python scripts/video/tpl/qc_tpl.py out/tpl/tpl*-preview.mp4
       - uses: actions/upload-artifact@v4

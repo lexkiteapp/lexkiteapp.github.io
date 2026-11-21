@@ -2,16 +2,16 @@
 
 Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipeline/score.budget.json` · kế hoạch `docs/CONTENT-WORLD-PLAN.md` §3.5. Điểm = độ phủ so với chuẩn × tỉ lệ qua cổng.
 
-**Tổng: 77.5 / 100**
+**Tổng: 76.7 / 100**
 
 | Mảng | Điểm | Sàn | Độ phủ | Qua cổng | Lỗi |
 |---|---|---|---|---|---|
-| Kho từ | **59.3** | 59.3 | 59.3% | 100% | 0 |
+| Kho từ | **59.6** | 59.2 | 59.6% | 100% | 0 |
 | Ngữ pháp | **72.8** | 72.8 | 72.8% | 100% | 0 |
 | Giao tiếp | **89.7** | 89.7 | 89.7% | 100% | 0 |
 | 4 kỹ năng | **97.6** | 97.6 | 97.6% | 100% | 0 |
 | Đề thi | **66.6** | 66.6 | 66.6% | 100% | 0 |
-| Chất lượng đề | **54.2** | 54.2 | 54.2% | 100% | 0 |
+| Chất lượng đề | **46.9** | 46.9 | 46.9% | 100% | 0 |
 | Khung Can-do | **82.6** | 82.6 | 82.6% | 100% | 0 |
 | Dễ học – dễ nhớ | **91.8** | 91.8 | 91.8% | 100% | 0 |
 | i18n | **82.8** | 82.8 | 82.8% | 100% | 0 |
@@ -20,13 +20,13 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 
 | Thành phần | Có / chuẩn | % | Trọng số |
 |---|---|---|---|
-| từ#loại duy nhất | 10318 / 20000 | 52% | 25 |
-| IPA·nghĩa·định nghĩa·ví dụ·CEFR | 10318 / 10318 | 100% | 20 |
-| collocation | 5029 / 20000 | 25% | 12 |
-| đồng nghĩa | 3123 / 20000 | 16% | 8 |
-| IPA Mỹ | 6898 / 20000 | 34% | 5 |
-| ảnh theo nghĩa | 8044 / 20000 | 40% | 15 |
-| C2 | 1027 / 1000 | 100% | 10 |
+| từ#loại duy nhất | 10466 / 20000 | 52% | 25 |
+| IPA·nghĩa·định nghĩa·ví dụ·CEFR | 10466 / 10466 | 100% | 20 |
+| collocation | 5057 / 20000 | 25% | 12 |
+| đồng nghĩa | 3161 / 20000 | 16% | 8 |
+| IPA Mỹ | 6978 / 20000 | 35% | 5 |
+| ảnh theo nghĩa | 8186 / 20000 | 41% | 15 |
+| C2 | 1175 / 1000 | 100% | 10 |
 | A1 | 871 / 1000 | 87% | 5 |
 
 ## Ngữ pháp
@@ -97,7 +97,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 
 | Thành phần | Có / chuẩn | % | Trọng số |
 |---|---|---|---|
-| đáp án cân bằng vị trí (lệch ≤ 3 %) | 100 / 100 | 100% | 15 |
+| đáp án cân bằng vị trí (lệch ≤ 3 %) | 50.9 / 100 | 51% | 15 |
 | đáp án đúng không lộ qua độ dài (≤ 10 %) | 61.3 / 100 | 61% | 20 |
 | lời giải riêng từng câu (rập khuôn ≤ 2 %) | 85 / 100 | 85% | 15 |
 | không trùng câu / đáp án nhiễu trùng | 94.7 / 100 | 95% | 15 |
@@ -109,7 +109,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 |---|---|---|---|
 | mục tiêu LKF tự soạn | 585 / 600 | 98% | 25 |
 | ô kỹ năng × cấp đủ ≥ 15 | 36 / 36 | 100% | 15 |
-| nội dung có lo hợp lệ | 11698 / 11698 | 100% | 35 |
+| nội dung có lo hợp lệ | 11846 / 11846 | 100% | 35 |
 | mục tiêu đã có nội dung luyện | 197 / 600 | 33% | 25 |
 
 ## Dễ học – dễ nhớ
@@ -118,7 +118,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 |---|---|---|---|
 | Ngữ pháp | 96.9 / 100 | 97% | 25 |
 | Bài lộ trình | 100 / 100 | 100% | 25 |
-| Bộ từ | 74.2 / 100 | 74% | 25 |
+| Bộ từ | 74.1 / 100 | 74% | 25 |
 | Kỹ năng | 96.1 / 100 | 96% | 25 |
 
 ## i18n
@@ -126,6 +126,6 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | Thành phần | Có / chuẩn | % | Trọng số |
 |---|---|---|---|
 | ngôn ngữ đạt i18n-qa | 13 / 13 | 100% | 45 |
-| nhãn ngắn dịch tay | 12.3 / 13 | 95% | 10 |
+| nhãn ngắn dịch tay | 12.4 / 13 | 95% | 10 |
 | gói nghĩa từ theo ngôn ngữ | 6.5 / 13 | 50% | 20 |
 | điểm bản xứ (native-score/5) (chưa làm) | 3.7 / 5 | 74% | 25 |
