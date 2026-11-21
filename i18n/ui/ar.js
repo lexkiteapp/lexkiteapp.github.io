@@ -983,7 +983,6 @@
 "Thử Phòng viết lần đầu":"جرب غرفة الكتابة لأول مرة",
 "Thử lại":"أعد المحاولة",
 "Thử thách 60 giây":"تحدي 60 ثانية",
-"Thử thách nói 30 giây":"30-second speaking challenge",
 "Thử thách tự đặt câu":"تحدي كتابة الجملة الخاصة بك",
 "Thực phẩm & Nông nghiệp":"الغذاء والزراعة",
 "Tia chớp":"البرق",

@@ -217,7 +217,6 @@
         ${topicWords.length || (a && (a.awl.size || a.link.size)) ? `<div class="row">${topicWords.map(w => `<span class="chip ok">✓ ${esc(w.word)}</span>`).join('')}${a ? [...a.awl.keys()].map(w => `<span class="chip lv">🎓 ${esc(w)}</span>`).join('') + [...a.link.keys()].map(w => `<span class="chip">🧷 ${esc(w)}</span>`).join('') : ''}</div>` : ''}
         <div><b class="small">💬 ${t('Nhận xét')}</b><ul style="margin:.3rem 0;padding-left:1.2rem">${notes.map(n => `<li style="margin:.3rem 0">${n}</li>`).join('')}</ul></div>
         <div class="tiny muted">${t('Phân tích tự động để luyện tập, không thay thế giám khảo.')}</div>
-        <a class="btn sm" href="#/score">🎤 ${t('Thử thách nói 30 giây')}</a>
       </div>`;
       if (words.length >= 10) { App.reward({ spoken: Math.min(10, Math.round(words.length / 10)), quizzes: 1, xp: 15 }, $('#recBtn')); Sfx.win(); }
       if (window.AI && text) AI.attach($('#result'), () => ({ kind: 'speaking', task: askText(), text: `Q (${part.toUpperCase()}): ${askText()}\nA (${Math.round(secs)}s): ${text}` }));

@@ -983,7 +983,6 @@
 "Thử Phòng viết lần đầu":"ลองห้องเขียนเป็นครั้งแรก",
 "Thử lại":"ลองอีกครั้ง",
 "Thử thách 60 giây":"ชาเลนจ์ 60 วินาที",
-"Thử thách nói 30 giây":"30-second speaking challenge",
 "Thử thách tự đặt câu":"ความท้าทายในการเขียนประโยคของคุณเอง",
 "Thực phẩm & Nông nghiệp":"อาหารและการเกษตร",
 "Tia chớp":"สายฟ้า",

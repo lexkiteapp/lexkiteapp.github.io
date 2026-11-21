@@ -983,7 +983,6 @@
 "Thử Phòng viết lần đầu":"처음으로 글쓰기 방을 사용해 보세요",
 "Thử lại":"다시 시도",
 "Thử thách 60 giây":"60초 챌린지",
-"Thử thách nói 30 giây":"30-second speaking challenge",
 "Thử thách tự đặt câu":"직접 문장 쓰기 챌린지",
 "Thực phẩm & Nông nghiệp":"식품과 농업",
 "Tia chớp":"번개",
