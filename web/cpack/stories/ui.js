@@ -14,9 +14,12 @@
   const minsOf = x => S.minutes(x);
   const doneCount = x => x.chapters.filter((_, i) => mine().done[x.id + '#' + i]).length;
   const nextCh = x => Math.min(x.chapters.length - 1, (mine().at || {})[x.id] || 0);
+  // chương kế cho lộ trình ngày (ux1.js đọc lk.st.next, không cần nạp gói truyện): đang dở thì tiếp, chưa thì truyện đầu của cấp mình
+  const rememberNext = () => { const st = mine(), lv = myLevel(), x = LIB().find(y => (st.at || {})[y.id] != null && doneCount(y) < y.chapters.length) || LIB().find(y => y.level === lv && doneCount(y) < y.chapters.length); LS.set('next', x ? { id: x.id, title: x.title, level: x.level, kind: x.kind, ch: nextCh(x), min: minsOf(x) } : null); };
   const myLevel = () => { const l = LS.get('lv', ''); if (S.LEVELS.includes(l)) return l; const p = (state.settings || {}).placement, c = p && String(p.vCefr || p.gCefr || '').toUpperCase().slice(0, 2); return S.LEVELS.includes(c) ? c : 'A2'; };
   const bar = (pct, label) => `<div class="st-bar" role="progressbar" aria-label="${esc(label || t('Tiến độ'))}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${pct}"><i style="width:${pct}%"></i></div>`;
-  const cover = x => `<div class="st-cover st-lv-${x.level}" aria-hidden="true"><span>${x.kind === 'podcast' ? UI.icon('headphones') : UI.icon('book-open')}</span></div>`; // bìa 2D 0 credit: PR sau (docs/STORIES.md §3.4)
+  // bìa 2D 0 credit: nhân vật 2D có sẵn (Ama/Carlos/Kit – x.cover.cast[0]) trên nền cấp độ, huy hiệu loại nội dung; không sinh ảnh nên không dính cổng TEXT_OBJ/credit
+  const cover = x => `<div class="st-cover st-lv-${x.level}" aria-hidden="true">${g.Chars && g.Chars.slot ? Chars.slot((x.cover && x.cover.cast && x.cover.cast[0]) || 'kit', { size: 'xs', pose: 'idle', cls: 'st-cav', lazy: true }) : ''}<span class="st-ck">${x.kind === 'podcast' ? UI.icon('headphones') : UI.icon('book-open')}</span></div>`;
 
   // ---- thời gian đọc/nghe → game.storyMin (mỗi 15 s khi tab hiện) ----
   let tick = 0;
@@ -32,6 +35,7 @@
     if (arg) return reader(arg);
     stopAll();
     const lv = myLevel(), st = mine(), gl = goalNow();
+    rememberNext();
     const cont = LIB().filter(x => (st.at || {})[x.id] != null && doneCount(x) < x.chapters.length).sort((a, b) => 0)[0];
     const list = LIB().filter(x => x.level === lv);
     view.innerHTML = `<div class="st-lib">
@@ -76,14 +80,14 @@
     // --- trình phát: mỗi câu = một lượt UI.tts (đúng giọng Ama/Carlos), hoặc file audio + mốc câu khi có (audio.files/marks do CI dựng) ---
     const cur = i => { $$('.st-s.st-cur').forEach(e => e.classList.remove('st-cur')); const e = $(`.st-s[data-i="${i}"]`); if (e) { e.classList.add('st-cur'); e.scrollIntoView({ block: 'center', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }); } const pr = $('#stProg'); if (pr) { const p = Math.round((i + 1) / sents.length * 100); pr.setAttribute('aria-valuenow', p); pr.firstElementChild.style.width = p + '%'; } };
     const setPlay = on => { const b = $('#stPlay'); if (b) { b.innerHTML = `${UI.icon(on ? 'pause' : 'play')} <span>${on ? t('Dừng') : t('Nghe')}</span>`; b.setAttribute('aria-pressed', String(on)); } };
-    const files = x.audio && x.audio.files && x.audio.files[ci], marks = x.audio && x.audio.marks && x.audio.marks[ci];
+    const files = x.audio && x.audio.files && x.audio.files[ci], st0 = x.audio && x.audio.marks && x.audio.marks[ci], marks = st0 && st0.map((a, i) => [a, i + 1 < st0.length ? st0[i + 1] : a + 6]); // marks trong lib = giây bắt đầu từng câu
     let seq = 0, at = -1, playing = false, audio = null;
     const rate = () => LS.get('rate', 1);
     const stopNow = () => { seq++; playing = false; if (audio) { audio.pause(); audio = null; } if (UI.stopSpeak) UI.stopSpeak(); setPlay(false); };
     function playFrom(i) {
       stopNow(); const my = seq; playing = true; setPlay(true);
       if (files) {
-        const tl = S.timeline(sents, { marks, wpm: x.audio.wpm }); audio = new Audio(files); audio.playbackRate = rate();
+        const tl = S.timeline(sents, { marks, wpm: x.audio.wpm }); audio = new Audio(UI.audioUrls ? UI.audioUrls(files)[0] : 'https://audio.lexkite.com/audio/l/' + files + '.mp3'); audio.playbackRate = rate();
         audio.ontimeupdate = () => { const k = S.sentenceAt(tl, audio.currentTime); if (k >= 0 && k !== at) { at = k; cur(k); } };
         audio.onended = () => { if (my === seq) stopNow(); };
         audio.onloadedmetadata = () => { if (i > 0 && tl[i]) audio.currentTime = tl[i].start; audio.play().catch(() => stopNow()); };
@@ -156,6 +160,7 @@
     const first = !mine().done[x.id + '#' + ci], pod = x.kind === 'podcast';
     await save(s => S.chapterDone(s, x.id, ci, r.score + '/' + r.n));
     if (first) await App.reward({ [pod ? 'listens' : 'readings']: 1, quizzes: 1, perfect: r.score === r.n ? 1 : 0, xp: Game.xpFor('set', { right: r.score, total: r.n }) });
+    rememberNext();
     const gl = goalNow(), cn = S.counter(mine(), t0), nxt = ci + 1 < x.chapters.length;
     view.innerHTML = `<div class="st-reader" id="stSum"><div class="st-top"><a class="icon-btn" href="#/stories" aria-label="${t('Thư viện truyện')}">${UI.icon('x')}</a><div class="st-ttl"><b>${t('Hoàn thành chương')}</b><span class="tiny muted">${esc(x.title)} · ${esc(chTitle(x, ci))}</span></div></div>
       <div class="card st-res"><div class="st-score" dir="ltr">${r.score}/${r.n}</div><p>${r.score === r.n ? t('Tuyệt vời! Bạn hiểu toàn bộ chương.') : t('Làm tốt lắm! Đọc lại chương để nắm chắc hơn.')}</p></div>

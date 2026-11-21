@@ -1,0 +1,89 @@
+# Giọng đọc Truyện & podcast theo cấp (Kokoro-82M, Apache-2.0) – miễn phí trên máy chủ GitHub, tiếp tục được. Spec: docs/STORIES.md §M3.
+# Mỗi chương = 1 mp3 (nối các câu, giọng af_heart/am_michael, tốc độ theo cấp, wpm đo ≤ 150) + mốc [bắt đầu, kết thúc] từng câu
+# → scripts/stories/audio-state.json (khóa theo chữ) → lib.js (audio.files/marks). mp3 → kho media (audio.lexkite.com/audio/l/st-….mp3), repo chính chỉ giữ chỉ mục.
+# Đỏ khi có chương cần dựng mà shard nào cũng ra 0 file (render-audio.mjs thoát 1) – không bao giờ "xanh giả".
+name: Giọng đọc Truyện & podcast (Kokoro)
+on:
+  push:
+    branches: [main]
+    paths: ['content/stories/**', 'scripts/stories/render-audio.mjs', '.github/workflows/stories-audio.yml']
+  workflow_dispatch:
+    inputs:
+      shards: { description: 'Số shard chạy song song', default: '4' }
+permissions:
+  contents: write
+concurrency: { group: stories-audio, cancel-in-progress: false }
+jobs:
+  plan:
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
+    timeout-minutes: 10
+    outputs:
+      left: ${{ steps.c.outputs.left }}
+      shards: ${{ steps.c.outputs.shards }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/no-prod
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - id: c
+        run: |
+          echo "left=$(node scripts/stories/render-audio.mjs --count | grep -o 'cần dựng [0-9]*' | grep -o '[0-9]*')" >> "$GITHUB_OUTPUT"
+          echo "shards=$(node -e "console.log(JSON.stringify([...Array(+process.argv[1]).keys()]))" "$LX_IN1")" >> "$GITHUB_OUTPUT"
+        env:
+          LX_IN1: ${{ github.event.inputs.shards || '4' }}
+  gen:
+    needs: plan
+    if: needs.plan.outputs.left != '0'
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
+    timeout-minutes: 120
+    strategy: { fail-fast: false, matrix: { shard: '${{ fromJSON(needs.plan.outputs.shards) }}' } }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/no-prod
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: ./.github/actions/setup-ffmpeg
+      - name: Cài kokoro-js
+        run: bash scripts/ci/npm-retry.sh i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1
+      - uses: actions/cache@v4
+        with: { path: /tmp/kk/node_modules/@huggingface/transformers/.cache, key: kokoro-82m-v1-fp32 }
+      - name: Dựng chương (câu → mp3 + mốc)
+        run: NODE_PATH=/tmp/kk/node_modules node scripts/stories/render-audio.mjs --shard ${{ matrix.shard }}/${{ strategy.job-total }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: st-${{ matrix.shard }}
+          path: |
+            .media-out/
+            .st-res/
+          retention-days: 3
+          include-hidden-files: true
+  publish:
+    needs: [plan, gen]
+    if: always() && needs.plan.outputs.left != '0'
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with: { ssh-key: '${{ secrets.BOT_DEPLOY_KEY }}' }   # đẩy main qua SSH khoá deploy (ruleset) – docs/CI-RUNNERS.md › required-gate
+      - uses: ./.github/actions/no-prod
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: actions/download-artifact@v4
+        with: { pattern: 'st-*', merge-multiple: true, path: . }
+      - uses: ./.github/actions/setup-ffmpeg
+      - name: Chuẩn hoá độ to (−16 LUFS, đỉnh ≤ −1 dBTP – scripts/audio/norm.mjs)
+        run: '[ ! -d .media-out/audio/l ] || node scripts/audio/loudness.mjs normalize .media-out/audio/l'
+      - name: Gộp kết quả → audio.json + lib.js
+        run: ls .st-res/ && node scripts/stories/merge-audio.mjs .st-res/*.json
+      - name: Khoá deploy kho media
+        env: { K: '${{ secrets.MEDIA2_DEPLOY_KEY }}' }
+        run: |
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh; ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
+          printf '%s\n' "$K" > ~/.ssh/m2 && chmod 600 ~/.ssh/m2 && echo "MEDIA_KEY_M2=$HOME/.ssh/m2" >> "$GITHUB_ENV"
+      - name: Đẩy mp3 lên kho media (trước khi cập nhật chỉ mục)
+        run: node scripts/media/push.mjs --src .media-out --kind audio --msg "audio/l giọng Truyện & podcast – run ${{ github.run_id }}"
+      - name: Lưu chỉ mục vào repo
+        run: |
+          rm -f ~/.ssh/m2
+          bash scripts/ci/push-main.sh "Truyện & podcast: audio Kokoro + mốc câu (còn ${{ needs.plan.outputs.left }} chương trước lượt này)" scripts/stories/audio-state.json web/cpack/stories/lib.js
