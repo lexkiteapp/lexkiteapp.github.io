@@ -12,7 +12,7 @@ import kotlin.math.floor
  */
 object RewardRules {
     const val PICK = 2; const val TYPE = 3; const val WRITE = 4; const val SAY = 3; const val HARD = 3; const val SET = 10; const val EXAM = 40; const val SEC = 30
-    const val PERFECT = 5; const val MIN = 5; const val TALK = 10; const val ESSAY = 20; const val LEARN = 20; const val STEP = 2; const val GREAT = 85; const val PASS = 65
+    const val PERFECT = 5; const val MIN = 5; const val TALK = 10; const val ESSAY = 20; const val LEARN = 20; const val DAY = 15; const val STEP = 2; const val GREAT = 85; const val PASS = 65
     const val CAP = 150; const val GAME = 40
     /** card XP by [again, review, new] */
     val CARD = intArrayOf(2, 5, 8)
@@ -20,7 +20,7 @@ object RewardRules {
     /** Per-answer XP of a mode (unknown → pick), like `XPR[r.mode] || XPR.pick`. */
     fun perAnswer(mode: String?): Int = when (mode) {
         "pick" -> PICK; "type" -> TYPE; "write" -> WRITE; "say" -> SAY; "hard" -> HARD; "set" -> SET; "exam" -> EXAM; "sec" -> SEC; "perfect" -> PERFECT
-        "min" -> MIN; "talk" -> TALK; "essay" -> ESSAY; "learn" -> LEARN; "step" -> STEP; else -> PICK
+        "min" -> MIN; "talk" -> TALK; "essay" -> ESSAY; "learn" -> LEARN; "day" -> DAY; "step" -> STEP; else -> PICK
     }
 
     fun jsRound(x: Double): Int = floor(x + 0.5).toInt()
@@ -37,6 +37,7 @@ object RewardRules {
             "talk" -> maxOf(MIN, TALK + SAY * n - h)
             "essay" -> ESSAY
             "learn" -> LEARN
+            "day" -> DAY
             "output" -> minOf(60, jsRound(words / 5))
             "exam" -> EXAM + per * n + SEC * sections + full
             "set", "game" -> maxOf(MIN, SET + (if (paid) 0 else per * n) + full - h)

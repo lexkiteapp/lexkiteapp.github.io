@@ -11,14 +11,14 @@
 | Giải tuần | D1 thật, top 7 lên / 5 xuống (> 12 người), server ≤ 3 XP/phút | copy "30 người" khi nhóm nhỏ hơn | chip "Nguy cơ", "hãy cố gắng hơn" |
 | Mini-game | blitz, nhịp, ghép thẻ, nói từ | nhịp tự phát âm ngoài `Sfx.answer`; chưa có ô chữ/ghép tranh/cờ | – |
 | Âm/rung | `Sfx.*`, gói mp3 −16 LUFS | 2 engine (mp3 + tone), `lesson/ui.js` rung bỏ qua công tắc, `teacher-bubble` pop ngoài Sfx | – |
-| Chuyển động | `st-pop/burst/fade` | exam.css, wordcard.css, st-v2-onb-ready.css, st-v2-today-rail.css không guard reduced-motion | – |
+| Chuyển động | `st-pop/burst/fade`; `style.css` tắt MỌI animation/transition khi reduced-motion | (4 file "không guard" của kiểm kê đầu là báo nhầm – đã có luật chung) | – |
 | Thẻ nói 30 s | `#/score` | không XP, không streak | – |
 
 ## Các phần (mỗi phần 1 PR, base main mới nhất)
 1. **Luật thưởng một nguồn** ✅ PR này: `Game.xpFor` + chống cày `src` + vectors `rewards.json` + Swift/Kotlin `RewardRules`; ratchet `reward-rules.mjs` (danh sách chờ: app.js, path-day.js, lesson/ui.js – đang bị #1840/#1830/#1814 giữ).
-2. **Một định nghĩa "ngày học"**: chuỗi = ngày có ≥ 1 bước học thật (XP > 0 từ `set/answer/say/talk/card`, không tính `step`); trợ giúp + mục tiêu ngày + quest nói cùng một câu; thẻ nói 30 s được tính. Bỏ chữ ép (“Chấp nhận bắt đầu lại” → “Bắt đầu chuỗi mới”, "Nguy cơ" → "Cần thêm {n} XP để giữ hạng"); cứu chuỗi luôn có đường miễn phí.
+2. **Một định nghĩa "ngày học" + bỏ chữ ép** ✅ PR #2: ngày học = có XP hoặc ôn thẻ (đúng `activeDays`) – trợ giúp chuỗi nói đúng câu đó; thẻ nói 30 s cho XP (`talk`, src `score30`) nên tính chuỗi; giải tuần "Nguy cơ" → "Cần thêm XP", "hãy cố gắng hơn" → "Tuần mới, khởi đầu mới – học đều mỗi ngày là đủ"; gợi ý câu khó "để nhận thêm XP" → "để nhớ lâu hơn". Chờ app.js gộp xong (#1840/#1814/#1713/#1769): "Chấp nhận bắt đầu lại" → "Bắt đầu chuỗi mới", cứu chuỗi luôn có đường miễn phí.
 3. **Bộ UI game Stitch** (`web/js/st/game-kit.js`, lười): thanh tiến độ, chip combo, dải đúng/sai, màn hoàn thành, hoạt ảnh nhận thưởng; ref Stitch sáng + tối từ "Lexkite Kit", port trung thành, cổng font/màu + contrast + frame-consistency. Native: SwiftUI/Compose cùng token.
-4. **Một engine âm/rung**: mọi âm qua `Sfx` (gộp `tone` làm dự phòng của `feel.js`), rung qua `Sfx.haptic` (sửa lesson/ui.js, teacher-bubble, nhịp), guard reduced-motion cho 4 file CSS.
+4. **Một engine âm/rung**: `tone()` là dự phòng có chủ đích khi mp3 chưa giải mã (không phải engine thứ 2); còn lại: rung trong lesson/ui.js qua `Sfx.haptic` (chờ #1830), máy nhịp của game nhịp giữ AudioContext riêng (cần chính xác thời gian).
 5. **Áp vào mọi dạng bài + mini-game** và thêm 3 game còn thiếu (ô chữ → ghép tranh → cờ câu đố) theo `play-community-1211.md`, mỗi game nạp lười < 30 KB.
 
 ## Luật không đổi

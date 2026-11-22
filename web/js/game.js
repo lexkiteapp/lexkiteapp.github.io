@@ -4,7 +4,7 @@
   const { Store, todayKey } = g.Core;
 
   // ---------- Cấp độ ----------
-  // Cần 100, 150, 200... XP cho mỗi cấp tiếp theo
+  // cấp: 100, 150, 200… XP
   const LEVEL_TITLES = () => [t('Người mới'), t('Tập sự'), t('Chăm chỉ'), t('Tiến bộ'), t('Vững vàng'), 'Band 6.0', 'Band 6.5', 'Band 7.0', 'Band 7.5', 'Band 8.0', 'Band 8.5', t('Bậc thầy'), t('Huyền thoại')];
   function levelOf(xp) {
     let lvl = 1, need = 100, rest = xp;
@@ -60,7 +60,7 @@
   ];
 
   // 🎯 Luật thưởng MỘT nguồn (docs/GAME-FEEL.md §6; native: vectors/rewards.json)
-  const XPR = { pick: 2, type: 3, write: 4, say: 3, hard: 3, set: 10, exam: 40, sec: 30, perfect: 5, min: 5, talk: 10, essay: 20, learn: 20, step: 2, card: [2, 5, 8], great: 85, pass: 65, cap: 150, game: 40 };
+  const XPR = { pick: 2, type: 3, write: 4, say: 3, hard: 3, set: 10, exam: 40, sec: 30, perfect: 5, min: 5, talk: 10, essay: 20, learn: 20, day: 15, step: 2, card: [2, 5, 8], great: 85, pass: 65, cap: 150, game: 40 };
   function xpFor(kind, r = {}) {
     const n = Math.max(0, r.right | 0), tot = r.total | 0, per = XPR[r.mode] || XPR.pick, h = Math.min(r.hints | 0, n), sc = r.score;
     const full = tot >= 3 && n >= tot ? XPR.perfect : 0;
@@ -68,7 +68,7 @@
       : kind === 'say' ? (sc == null ? XPR.say : sc >= XPR.great ? 5 : sc >= XPR.pass ? 3 : 0)
       : kind === 'card' ? XPR.card[r.again ? 0 : r.isNew ? 2 : 1]
       : kind === 'talk' ? Math.max(XPR.min, XPR.talk + XPR.say * n - h)
-      : kind === 'essay' || kind === 'learn' ? XPR[kind]
+      : kind === 'essay' || kind === 'learn' || kind === 'day' ? XPR[kind]
       : kind === 'output' ? Math.min(60, Math.round((+r.words || 0) / 5))
       : kind === 'exam' ? XPR.exam + per * n + XPR.sec * (r.sections | 0) + full
       : kind === 'set' || kind === 'game' ? Math.max(XPR.min, XPR.set + (r.paid ? 0 : per * n) + full - h)

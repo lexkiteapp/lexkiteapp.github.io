@@ -27,7 +27,7 @@ class RewardsVectorsTest {
         assertEquals(i("pick"), RewardRules.PICK); assertEquals(i("type"), RewardRules.TYPE); assertEquals(i("write"), RewardRules.WRITE); assertEquals(i("say"), RewardRules.SAY)
         assertEquals(i("hard"), RewardRules.HARD); assertEquals(i("set"), RewardRules.SET); assertEquals(i("exam"), RewardRules.EXAM); assertEquals(i("sec"), RewardRules.SEC)
         assertEquals(i("perfect"), RewardRules.PERFECT); assertEquals(i("min"), RewardRules.MIN); assertEquals(i("talk"), RewardRules.TALK); assertEquals(i("essay"), RewardRules.ESSAY)
-        assertEquals(i("learn"), RewardRules.LEARN); assertEquals(i("step"), RewardRules.STEP); assertEquals(i("great"), RewardRules.GREAT); assertEquals(i("pass"), RewardRules.PASS)
+        assertEquals(i("learn"), RewardRules.LEARN); assertEquals(i("day"), RewardRules.DAY); assertEquals(i("step"), RewardRules.STEP); assertEquals(i("great"), RewardRules.GREAT); assertEquals(i("pass"), RewardRules.PASS)
         assertEquals(i("cap"), RewardRules.CAP); assertEquals(i("game"), RewardRules.GAME)
         assertEquals(x.getValue("card").jsonArray.map { it.jsonPrimitive.int }, RewardRules.CARD.toList())
     }

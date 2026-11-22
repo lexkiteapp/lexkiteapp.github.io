@@ -13,7 +13,7 @@ export function rewardVectors() {
   for (const score of [undefined, 0, 64, 65, 84, 85, 100]) add('say', score === undefined ? {} : { score });
   for (const again of [0, 1]) for (const isNew of [0, 1]) add('card', { again, isNew });
   for (const [right, hints] of [[0, 0], [1, 0], [4, 2], [6, 9], [40, 0]]) add('talk', { right, hints });
-  add('essay'); add('learn'); add('step'); add('unknown-kind');
+  add('essay'); add('learn'); add('day'); add('step'); add('unknown-kind');
   for (const words of [0, 4, 7.4, 120, 999]) add('output', { words });
   for (const [right, total, sections] of [[0, 40, 0], [30, 40, 0], [40, 40, 0], [0, 0, 3]]) add('exam', { right, total, sections });
   add('game', { right: 30, total: 30 }); add('game', { right: 3, total: 6 });

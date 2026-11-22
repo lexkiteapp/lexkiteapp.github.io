@@ -31,8 +31,6 @@ ok(fs.readFileSync(path.join(ROOT, OUT), 'utf8') === rewardVectors(), `${OUT} kh
 // 4) không còn công thức XP tự chế ngoài game.js
 const WAIT = { // chờ PR đang giữ file gộp xong rồi chuyển sang Game.xpFor (chỉ được xoá dòng)
   'web/js/app.js': 2, // #1840/#1814/#1713/#1769 giữ: 3 vòng mục tiêu +50, XP bài đầu vào +20
-  'web/js/path-day.js': 1, // #1840 giữ: ngày xong +15
-  'web/js/lesson/ui.js': 0, // #1830 giữ (công thức lesson dùng biến xp, không số trực tiếp)
 };
 const files = []; const walk = d => { for (const e of fs.readdirSync(path.join(ROOT, d), { withFileTypes: true })) { const p = d + '/' + e.name; if (e.isDirectory()) { if (!/\/(i18n|vendor)$/.test(p)) walk(p); } else if (/\.js$/.test(e.name) && !/^admin-/.test(e.name)) files.push(p); } };
 walk('web/js'); walk('web/cpack');

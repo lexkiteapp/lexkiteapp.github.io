@@ -10,7 +10,7 @@ fs.mkdirSync(out, { recursive: true });
 const W = pathToFileURL(web).href;
 const html = `<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>rh</title>
 <link rel="stylesheet" href="${W}/css/style.css"></head><body><main id="view" class="view" style="max-width:520px;margin:0 auto;padding:1rem"></main>
-<script src="${W}/js/pron/coach.js"></script><script src="${W}/cpack/play-app/play-blitz.js"></script><script src="${W}/cpack/play-app/play-rhythm.js"></script>
+<script>window.Core={Store:{get:async(k,d)=>d,set:async()=>{}},todayKey:()=>"2026-11-22"};window.localStorage.setItem("vb.feel","0");</script><script src="${W}/js/game.js"></script><script src="${W}/js/pron/coach.js"></script><script src="${W}/cpack/play-app/play-blitz.js"></script><script src="${W}/cpack/play-app/play-rhythm.js"></script>
 <script>
 window.t=(s,v)=>v?s.replace(/\\{(\\w+)\\}/g,(m,k)=>v[k]):s;
 const card=(word,ex,due)=>({word,ex,vi:'x',srs:{reps:1,last:1,due,lapses:0}});

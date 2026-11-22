@@ -517,7 +517,7 @@
   const OK_LINES = ['Nice!', 'Great!', 'Yes!', 'Perfect!', 'Well done!'], NO_LINES = ['Almost!', 'Not quite.', "Let's try again."];
   function react(ok, combo) {
     L.pose = MOOD('answer', { ok }, ok ? 'cheer' : 'concern');
-    try { if (navigator.vibrate && (state.settings || {}).sfx !== false && !matchMedia('(prefers-reduced-motion: reduce)').matches) navigator.vibrate(ok ? 12 : [18, 40, 18]); } catch (e) { /* bỏ qua */ }
+    try { if (window.Sfx && Sfx.haptic) Sfx.haptic(ok ? 'soft' : 'wrong'); } catch (e) { /* bỏ qua */ } // một cổng rung (công tắc Rung, tắt âm, giảm chuyển động)
     try { if (window.Sfx) { if (ok && combo >= 3 && combo % 3 === 0 && Sfx.combo) Sfx.combo(combo); else (ok ? Sfx.correct : Sfx.wrong)(); } } catch (e) { /* bỏ qua */ }
     const el = $('#lsnTch'), pop = $('#lsnEmo');
     if (el) { el.classList.remove('nod', 'shake'); requestAnimationFrame(() => el.classList.add(ok ? 'nod' : 'shake')); } // khởi động lại animation ở khung kế, không ép layout ngay trong lượt chạm
@@ -724,7 +724,7 @@
     if (L.story && L.story.id) { const a = sDone(L.demo); if (!a.includes(L.story.id)) ls.set(SDKEY(L.demo), JSON.stringify(a.concat(L.story.id))); }
     if (L.story && !L.xs) ls.set(L.SK, String((parseInt(ls.get(L.SK) || '0', 10) || 0) + 1)); // truyện/radio kế tiếp lần sau // nút bản đồ xong (demo: khóa riêng)
     try { if (window.Sfx) Sfx.win(); /* không pháo giấy: chuyển động tiết chế (chủ 28/10) */ } catch (e) { /* bỏ qua */ }
-    let added = 0; const xp = Math.max(5, 10 + s.ok1 * 2 + (s.wrong.size ? 0 : 5) - (L.hints || 0)); // XP hiện cả ở bài thử (không ghi)
+    let added = 0; const xp = Game.xpFor('set', { right: s.ok1, total: s.total, hints: L.hints || 0 }); // XP hiện cả ở bài thử (không ghi)
     if (!L.demo) {
       for (const r of res) {
         try {

@@ -14,6 +14,7 @@
   "talk": 10,
   "essay": 20,
   "learn": 20,
+  "day": 15,
   "step": 2,
   "card": [
    2,
@@ -234,6 +235,11 @@
    "kind": "learn",
    "args": {},
    "xp": 20
+  },
+  {
+   "kind": "day",
+   "args": {},
+   "xp": 15
   },
   {
    "kind": "step",

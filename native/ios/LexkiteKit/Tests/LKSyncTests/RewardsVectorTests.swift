@@ -12,7 +12,7 @@ final class RewardsVectorTests: XCTestCase {
         XCTAssertEqual(i("say"), RewardRules.say); XCTAssertEqual(i("hard"), RewardRules.hard); XCTAssertEqual(i("set"), RewardRules.set)
         XCTAssertEqual(i("exam"), RewardRules.exam); XCTAssertEqual(i("sec"), RewardRules.sec); XCTAssertEqual(i("perfect"), RewardRules.perfect)
         XCTAssertEqual(i("min"), RewardRules.min); XCTAssertEqual(i("talk"), RewardRules.talk); XCTAssertEqual(i("essay"), RewardRules.essay)
-        XCTAssertEqual(i("learn"), RewardRules.learn); XCTAssertEqual(i("step"), RewardRules.step); XCTAssertEqual(i("great"), RewardRules.great)
+        XCTAssertEqual(i("learn"), RewardRules.learn); XCTAssertEqual(i("day"), RewardRules.day); XCTAssertEqual(i("step"), RewardRules.step); XCTAssertEqual(i("great"), RewardRules.great)
         XCTAssertEqual(i("pass"), RewardRules.pass); XCTAssertEqual(i("cap"), RewardRules.cap); XCTAssertEqual(i("game"), RewardRules.game)
         XCTAssertEqual(x["card"]?.array?.map { Int($0.double ?? -1) }, RewardRules.card)
     }

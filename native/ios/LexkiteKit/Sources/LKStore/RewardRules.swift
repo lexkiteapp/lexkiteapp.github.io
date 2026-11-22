@@ -4,7 +4,7 @@ import Foundation
 /// (RewardsVectorTests). Integer semantics follow JS: `|0` truncation, Math.round = floor(x+0.5), Math.min/Math.max order kept.
 public enum RewardRules {
     public static let pick = 2, type = 3, write = 4, say = 3, hard = 3, set = 10, exam = 40, sec = 30, perfect = 5, min = 5
-    public static let talk = 10, essay = 20, learn = 20, step = 2, great = 85, pass = 65, cap = 150, game = 40
+    public static let talk = 10, essay = 20, learn = 20, day = 15, step = 2, great = 85, pass = 65, cap = 150, game = 40
     /// card XP by [again, review, new]
     public static let card = [2, 5, 8]
 
@@ -12,7 +12,7 @@ public enum RewardRules {
     public static func perAnswer(_ mode: String?) -> Int {
         switch mode { case "pick": return pick; case "type": return type; case "write": return write; case "say": return say
         case "hard": return hard; case "set": return set; case "exam": return exam; case "sec": return sec; case "perfect": return perfect
-        case "min": return min; case "talk": return talk; case "essay": return essay; case "learn": return learn; case "step": return step
+        case "min": return min; case "talk": return talk; case "essay": return essay; case "learn": return learn; case "day": return day; case "step": return step
         default: return pick }
     }
 
@@ -32,6 +32,7 @@ public enum RewardRules {
         case "talk": x = Swift.max(min, talk + say * n - h)
         case "essay": x = essay
         case "learn": x = learn
+        case "day": x = day
         case "output": x = Swift.min(60, jsRound(words / 5))
         case "exam": x = exam + per * n + sec * sections + full
         case "set", "game": x = Swift.max(min, set + (paid ? 0 : per * n) + full - h)
