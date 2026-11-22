@@ -41,7 +41,7 @@ items: [
 options: ['to show that clocks were first invented in England', 'to show that early clocks often told the time by sound rather than by sight', 'to explain why early clocks were so expensive', 'to suggest that churches controlled the measurement of time'],
 a: 1, cue: 'Many had no dial at all and simply struck a bell on the hour' },
 { n: 13, q: 'According to paragraph F, why did British railway companies adopt London time?',
-options: ['Differences in local time made timetables confusing and travel less safe.', 'The government passed a law requiring a single national time.', 'The Washington conference recommended it.', 'Passengers complained that journeys took too long.'],
+options: ['Differences in local time made timetables confusing and travel less safe.', 'The parliament enacted legislation mandating uniform railway scheduling.', 'The International Standards Board advocated its adoption.', 'Travelers argued that the trains were frequently delayed.'],
 a: 0, cue: 'they made railway timetables extremely confusing and increased the risk of accidents' },
 ] },
 ],

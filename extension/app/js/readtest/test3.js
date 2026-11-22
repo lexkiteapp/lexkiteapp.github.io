@@ -104,7 +104,7 @@ a: 0, cue: "reduce working hours by around 20 per cent for six months while main
 options: ["It closed every Friday from the beginning of the trial.", "It allowed staff to choose which day they took off.", "It shortened each working day before giving a whole day off.", "It kept its doors open by staggering staff days off."],
 a: 2, cue: "cutting thirty minutes a day for the first two months before moving to a full extra day off" },
 { n: 22, q: "What happened at Pellwood Design after the four-day week was advertised?",
-options: ["It received far more applications from job seekers.", "Its revenue more than doubled.", "It had to recruit less experienced staff.", "It went back to the five-day schedule."],
+options: ["It received far more applications from job seekers.", "It experienced a sudden drop in overall customer demand.", "It struggled to retain its most experienced staff members.", "It decided to abandon the trial and return to five days."],
 a: 0, cue: "the number of job applications they received more than doubled once the four-day week was advertised" },
 { n: 23, q: "What does the writer suggest about the fact that organisations volunteered for the trial?",
 options: ["It made the trial less expensive to run.", "It allowed results to be collected more quickly.", "It meant the trial could be extended to three years.", "It may have increased the chances of a positive result."],
