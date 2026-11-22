@@ -1,8 +1,13 @@
 {
- "mode": "normal",
- "since": "2026-11-18T02:00:50.282Z",
- "level": "ok",
+ "mode": "shed",
+ "since": "2026-11-22T07:30:16.385Z",
+ "level": "alert",
  "day": "2026-11-22",
- "paused": [],
+ "paused": [
+  "ci-filler.yml",
+  "vocab-img-scene.yml",
+  "i18n.yml",
+  "lighthouse.yml"
+ ],
  "doc": "docs/FREE-TIER.md §3"
 }

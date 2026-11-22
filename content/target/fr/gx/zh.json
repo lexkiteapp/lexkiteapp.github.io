@@ -1,0 +1,514 @@
+{
+ "etre-present": {
+  "t": "Être：是",
+  "x": "\"être\" 意思是\"是\"：\"je suis\"、\"tu es\"、\"il est\"、\"nous sommes\"、\"vous êtes\"、\"ils sont\"。用来表示身份、来源、职业和描述。请背熟，它是法语中最常用的动词。例句：\"je suis\", \"nous sommes\", \"ils sont\""
+ },
+ "avoir-present": {
+  "t": "Avoir：有",
+  "x": "\"avoir\" 意思是\"有\"：\"j'ai\"、\"tu as\"、\"il a\"、\"nous avons\"、\"vous avez\"、\"ils ont\"。以后它还用来构成复合过去时。注意元音前的省音：\"j'ai\"。例句：\"j'ai\", \"elle a\", \"nous avons\""
+ },
+ "il-y-a": {
+  "t": "Il y a：有（存在）",
+  "x": "\"il y a\" 用来引出存在的事物，单复数都可以，形式永远不变：\"il y a un livre\"、\"il y a des livres\"。否定：\"il n'y a pas de livre\"。疑问句用 \"y a-t-il\" 或 \"est-ce qu'il y a\"。例句：\"il y a un café\", \"il n'y a pas de lait\""
+ },
+ "art-defini": {
+  "t": "定冠词",
+  "x": "\"le\"（阳性）、\"la\"（阴性）、\"l'\"（元音前）和 \"les\"（复数）表示\"这个、那个\"。法语也用它们表示泛指：\"j'aime la musique\" 意思是\"我喜欢音乐\"。例句：\"le café\", \"la pomme\", \"les enfants\""
+ },
+ "art-indefini": {
+  "t": "不定冠词",
+  "x": "\"un\"（阳性）、\"une\"（阴性）和 \"des\"（复数）表示\"一个\"或\"一些\"。用来引入新事物：\"j'ai un frère et des cousins\"。注意：\"des\" 在中文里常常不用翻译。例句：\"un frère\", \"une sœur\", \"des amis\""
+ },
+ "gender-nouns": {
+  "t": "阳性还是阴性？",
+  "x": "每个名词不是阳性就是阴性。词尾有帮助：\"-tion\"、\"-té\"、\"-ette\" 多为阴性，\"-ment\"、\"-age\"、\"-eau\" 多为阳性。学名词时一定要连冠词一起记：\"la ville\"、\"le village\"。例句：\"le village\", \"la ville\", \"la question\""
+ },
+ "plural-regular": {
+  "t": "复数：加 -s",
+  "x": "大多数复数加 \"-s\"，但不发音：\"un ami\"、\"des amis\"。已经以 \"-s\"、\"-x\"、\"-z\" 结尾的名词不变：\"un pays\"、\"des pays\"。只有冠词和连音能让你听出是复数。例句：\"deux sœurs\", \"trois amis\""
+ },
+ "plural-irregular": {
+  "t": "不规则复数",
+  "x": "以 \"-al\" 结尾的名词变成 \"-aux\"：\"un journal\"、\"des journaux\"。以 \"-eau\" 和 \"-eu\" 结尾的加 \"-x\"：\"un bateau\"、\"des bateaux\"、\"un jeu\"、\"des jeux\"。记住少数例外，如 \"un festival, des festivals\"。例句：\"des journaux\", \"des bateaux\", \"des cheveux\""
+ },
+ "elision-basic": {
+  "t": "元音前的省音",
+  "x": "短词 \"le\"、\"la\"、\"je\"、\"ne\"、\"de\"、\"que\"、\"se\" 在元音或不发音的 h 前会去掉元音，并加撇号：\"l'école\"、\"j'aime\"、\"n'aime pas\"、\"qu'elle\"。\"les\" 和 \"un\" 从不省音。例句：\"l'école\", \"j'aime\", \"qu'elle\""
+ },
+ "contractions-au-du": {
+  "t": "au、aux、du、des",
+  "x": "\"à + le\" 变成 \"au\"，\"à + les\" 变成 \"aux\"，\"de + le\" 变成 \"du\"，\"de + les\" 变成 \"des\"。遇到 \"la\" 和 \"l'\" 则不变：\"à la gare\"、\"de la gare\"。千万别写 \"à le\" 或 \"de le\"。例句：\"au marché\", \"aux voisins\", \"du professeur\""
+ },
+ "partitif": {
+  "t": "部分冠词：一些",
+  "x": "谈到不可数事物的数量时，用 \"du\"（阳性）、\"de la\"（阴性）、\"de l'\"（元音前）或 \"des\"（复数）：\"je prends du café\"。中文里常常没有对应的词，法语里却必须有。例句：\"du pain\", \"de la salade\", \"des légumes\""
+ },
+ "de-negation": {
+  "t": "否定 + de",
+  "x": "在 \"ne… pas\"、\"jamais\"、\"plus\" 之后，不定冠词或部分冠词变成 \"de\"：\"j'ai un chat\" 变成 \"je n'ai pas de chat\"。例外：在 \"être\" 之后保留冠词：\"ce n'est pas un chat\"。例句：\"pas de voiture\", \"jamais de viande\""
+ },
+ "adj-agreement": {
+  "t": "形容词的性数配合",
+  "x": "形容词要与名词配合：阴性加 \"-e\"，复数加 \"-s\"。\"grand\"、\"grande\"、\"grands\"、\"grandes\"。以 -e 结尾的形容词阴性不变：\"un garçon sympa\"、\"une fille sympa\"。例句：\"elle est grande\", \"ils sont petits\""
+ },
+ "adj-position": {
+  "t": "形容词放在哪里？",
+  "x": "大多数形容词放在名词后面：\"une robe bleue\"。少数短小常用的放在前面，涉及美丑、年龄、好坏、大小（\"beau, jeune, bon, grand, petit\"）：\"un petit chien\"。\"beau\" 有 \"bel\" 和 \"belle\" 两种形式。例句：\"une belle maison\", \"une maison blanche\""
+ },
+ "possessifs": {
+  "t": "物主形容词：mon、ma、mes",
+  "x": "物主形容词与所属的事物配合，而不是与主人配合：\"mon père\"、\"ma mère\"、\"mes parents\"。阴性名词以元音开头时用 \"mon\"：\"mon amie\"。其他：\"notre/nos\"、\"votre/vos\"、\"leur/leurs\"。例句：\"mon père\", \"ma mère\", \"leurs chats\""
+ },
+ "demonstratifs": {
+  "t": "这、那：ce、cette、ces",
+  "x": "\"ce\"（阳性）、\"cet\"（阳性，元音前）、\"cette\"（阴性）和 \"ces\"（复数）表示\"这\"或\"那\"。加上 \"-ci\" 或 \"-là\" 可作对比：\"ce livre-ci\"、\"ce livre-là\"。例句：\"ce livre\", \"cette veste\", \"ces enfants\""
+ },
+ "pres-er": {
+  "t": "现在时：-er 动词",
+  "x": "去掉 \"-er\"，加上 \"-e, -es, -e, -ons, -ez, -ent\"：\"parler\" 变成 \"je parle\"、\"tu parles\"、\"il parle\"、\"nous parlons\"、\"vous parlez\"、\"ils parlent\"。约 90% 的法语动词遵循这个规律。例句：\"je parle\", \"nous parlons\", \"ils parlent\""
+ },
+ "pres-ir-re": {
+  "t": "现在时：-ir 和 -re 动词",
+  "x": "规则的 \"-ir\" 动词加 \"-is, -is, -it, -issons, -issez, -issent\"：\"finir\"、\"je finis\"、\"nous finissons\"。\"-re\" 动词加 \"-s, -s, -, -ons, -ez, -ent\"：\"vendre\"、\"je vends\"、\"il vend\"。例句：\"je finis\", \"nous finissons\", \"je vends\""
+ },
+ "pres-irreguliers": {
+  "t": "常见不规则动词",
+  "x": "请学会 \"aller\"（\"je vais, nous allons\"）、\"faire\"（\"je fais, vous faites\"）、\"prendre\"（\"je prends, ils prennent\"）和 \"venir\"（\"je viens, ils viennent\"）。留意 \"vous faites\" 和 \"ils font\"，它们不遵循规律。例句：\"je vais\", \"nous faisons\", \"ils prennent\", \"vous venez\""
+ },
+ "tu-vous": {
+  "t": "tu 还是 vous？",
+  "x": "对朋友、家人、孩子和同辈用 \"tu\"。对陌生人、长辈、在商店和工作场合用 \"vous\"，对多个人说话时也一定用 \"vous\"。拿不准时，就先用 \"vous\"。例句：\"tu viens\", \"vous venez\""
+ },
+ "on-nous": {
+  "t": "On = 我们",
+  "x": "日常法语中 \"on\" 代替 \"nous\"，但动词仍用第三人称单数：\"on va au cinéma\"。\"On\" 还可以表示\"人们、大家\"：\"en France, on mange du pain\"。例句：\"on va\", \"on mange\""
+ },
+ "neg-ne-pas": {
+  "t": "否定：ne … pas",
+  "x": "把 \"ne\" 放在动词前，\"pas\" 放在动词后：\"je ne parle pas\"。元音前 \"ne\" 变成 \"n'\"：\"il n'aime pas\"。口语中常常省掉 \"ne\"，但书写时要用规范的法语。例句：\"je ne parle pas\", \"il n'aime pas\""
+ },
+ "q-est-ce-que": {
+  "t": "是非疑问句",
+  "x": "最简单的方式：保持语序并提高语调，或者写上问号：\"tu viens ?\"。更正式的方式：在前面加 \"est-ce que\"：\"est-ce que tu viens ?\"。元音前变成 \"est-ce qu'\"：\"est-ce qu'elle vient ?\"。例句：\"tu aimes le thé ?\", \"est-ce que vous avez\""
+ },
+ "q-mots-interrogatifs": {
+  "t": "疑问词",
+  "x": "\"où\"（哪里）、\"quand\"（什么时候）、\"comment\"（怎么样）、\"combien\"（多少）、\"pourquoi\"（为什么）、\"qui\"（谁）。它们放在句首：\"où est la gare ?\"。回答 \"pourquoi\" 用 \"parce que\"。例句：\"où\", \"quand\", \"combien\", \"pourquoi\""
+ },
+ "q-quel": {
+  "t": "Quel：哪个、什么",
+  "x": "\"quel\" 与名词配合：\"quel\"（阳单）、\"quelle\"（阴单）、\"quels\"（阳复）、\"quelles\"（阴复）。在 \"être\" 之后它可以放在名词后面：\"quel est ton nom ?\"。例句：\"quelle heure\", \"quels films\""
+ },
+ "futur-proche": {
+  "t": "近将来时：aller + 动词原形",
+  "x": "把 \"aller\" 变位成现在时，再加动词原形：\"je vais travailler\"、\"nous allons manger\"。否定：\"je ne vais pas partir\"。这是口语里谈论计划的常用说法。例句：\"je vais manger\", \"elle va partir\""
+ },
+ "pres-pronominaux": {
+  "t": "代词式动词",
+  "x": "这类动词带有一个与主语对应的代词：\"je me\"、\"tu te\"、\"il se\"、\"nous nous\"、\"vous vous\"、\"ils se\"。例子：\"se lever\"、\"se coucher\"、\"s'habiller\"。否定：\"je ne me lève pas\"。例句：\"je me lève\", \"elle se couche\""
+ },
+ "imperatif-present": {
+  "t": "命令式",
+  "x": "用 \"tu\"、\"nous\"、\"vous\" 的现在时形式，去掉主语代词：\"tu parles\" 变成 \"parle !\"，\"nous parlons\" 变成 \"parlons !\"，\"vous parlez\" 变成 \"parlez !\"。\"-er\" 动词在 \"tu\" 形式中去掉词尾的 -s。不规则：\"sois, soyons, soyez\"、\"aie, ayons, ayez\"。例句：\"parle !\", \"parlons !\", \"parlez !\""
+ },
+ "modaux-pouvoir-vouloir": {
+  "t": "vouloir、pouvoir、devoir",
+  "x": "这三个动词后面接动词原形：\"je veux manger\"、\"tu peux venir\"、\"nous devons partir\"。它们都是不规则动词：\"je veux, nous voulons\"、\"je peux, nous pouvons\"、\"je dois, nous devons\"。例句：\"je veux partir\", \"tu peux\", \"nous devons\""
+ },
+ "prep-lieu": {
+  "t": "在哪里？",
+  "x": "常用的方位词：\"dans\"（在……里）、\"sur\"（在……上）、\"sous\"（在……下）、\"devant\"（在……前面）、\"derrière\"（在……后面）、\"entre\"（在……之间）、\"à côté de\"（在……旁边）、\"près de\"（靠近）。\"de\" 之后要记得缩合：\"à côté du parc\"。例句：\"sur la table\", \"sous la table\", \"entre la poste et la banque\""
+ },
+ "prep-a-chez-de": {
+  "t": "à、chez、de",
+  "x": "\"à\" 用于城市和地点：\"je vais à Lyon\"。\"chez\" 用于某人或某人的店、家：\"chez le dentiste\"、\"chez moi\"。\"de\" 表示来自哪里：\"je viens de Lyon\"。例句：\"chez Marie\", \"à Lyon\", \"de la gare\""
+ },
+ "nombres": {
+  "t": "数字",
+  "x": "特殊形式：\"soixante-dix\"（70）、\"quatre-vingts\"（80，带 -s）、\"quatre-vingt-dix\"（90）。\"et\" 出现在 21、31、41、51、61 和 71 中，但 81 和 91 中没有。连字符连接十位和个位。例句：\"vingt et un\", \"soixante-dix\", \"quatre-vingts\""
+ },
+ "heure-date": {
+  "t": "时间和日期",
+  "x": "用 \"il est\" + 钟点：\"il est trois heures et quart\"。\"midi\" 和 \"minuit\" 用 \"et demi\"，其他钟点用 \"et demie\"。日期：\"le 5 mai\"；只有 1 日用序数：\"le premier mai\"。时间点用 \"à\"：\"à neuf heures\"。例句：\"huit heures et demie\", \"le cinq mai\""
+ },
+ "c-est-ce-sont": {
+  "t": "C'est、ce sont",
+  "x": "用 \"c'est\" + 单数名词和 \"ce sont\" + 复数名词来介绍或说明：\"c'est un livre\"、\"ce sont des livres\"。口语里 \"c'est\" 也常与复数连用。疑问句：\"qu'est-ce que c'est ?\"。例句：\"c'est mon frère\", \"ce sont mes amis\""
+ },
+ "gouts-aimer": {
+  "t": "喜欢与不喜欢",
+  "x": "在 \"aimer\"、\"adorer\"、\"détester\" 和 \"préférer\" 之后用定冠词，不用部分冠词：\"j'aime le café\"、\"elle adore les chats\"。可以加 \"beaucoup\"：\"j'aime beaucoup la musique\"。例句：\"j'aime le chocolat\", \"je déteste les épinards\""
+ },
+ "adv-intensite": {
+  "t": "程度有多大？",
+  "x": "\"très\" 放在形容词和副词前：\"très bien\"。\"beaucoup\" 放在动词后：\"il travaille beaucoup\"。名词前用 \"beaucoup de\"：\"beaucoup de fruits\"。\"un peu\" 和 \"trop\" 的用法与 \"beaucoup\" 相同。例句：\"très grand\", \"il mange beaucoup\", \"un peu\""
+ },
+ "avoir-expressions": {
+  "t": "avoir 的固定表达",
+  "x": "法语表示年龄和许多身体感受时用 \"avoir\"，而不用 \"être\"：\"j'ai vingt ans\"、\"j'ai faim\"、\"j'ai soif\"、\"j'ai chaud\"、\"j'ai froid\"、\"j'ai peur\"、\"j'ai sommeil\"。可加 \"très\"：\"j'ai très faim\"。例句：\"j'ai faim\", \"elle a vingt ans\", \"il a froid\""
+ },
+ "clause-et-mais-parce-que": {
+  "t": "连接词",
+  "x": "\"et\" 表示并列，\"ou\" 表示选择，\"mais\" 表示转折，\"parce que\" 说明原因。元音前 \"parce que\" 变成 \"parce qu'\"：\"parce qu'il pleut\"。\"donc\" 表示结果。例句：\"et\", \"mais\", \"parce que\""
+ },
+ "pc-avoir": {
+  "t": "用 avoir 的复合过去时",
+  "x": "大多数动词用现在时的 \"avoir\" + 过去分词构成过去时：\"j'ai mangé\"、\"tu as fini\"、\"il a vendu\"。过去分词：\"-er\" 变 \"-é\"，\"-ir\" 变 \"-i\"，\"-re\" 变 \"-u\"。例句：\"j'ai mangé\", \"nous avons fini\""
+ },
+ "pc-etre": {
+  "t": "用 être 的复合过去时",
+  "x": "大约十五个动词用 \"être\"：\"aller, venir, arriver, partir, entrer, sortir, monter, descendre, rester, tomber, naître, mourir, retourner, passer\"，以及所有代词式动词。有一个记忆口诀叫 \"DR MRS VANDERTRAMP\"。例句：\"je suis allé\", \"elle est partie\""
+ },
+ "pc-accord-etre": {
+  "t": "être 的过去分词配合",
+  "x": "用 \"être\" 时，过去分词与主语配合：阴性加 \"-e\"，复数加 \"-s\"。\"il est parti\"、\"elle est partie\"、\"ils sont partis\"、\"elles sont parties\"。例句：\"elle est partie\", \"ils sont venus\", \"elles sont allées\""
+ },
+ "pc-pronominaux": {
+  "t": "代词式动词的过去时",
+  "x": "代词式动词用 \"être\"，代词放在前面：\"je me suis levé\"、\"elle s'est couchée\"、\"ils se sont promenés\"。过去分词通常与主语配合。例句：\"je me suis levé\", \"elle s'est couchée\""
+ },
+ "pc-negation": {
+  "t": "过去时的否定",
+  "x": "把 \"ne … pas\" 放在助动词两边，而不是过去分词两边：\"je n'ai pas mangé\"、\"elle n'est pas venue\"。\"jamais\"、\"plus\"、\"rien\" 也一样：\"il n'a rien dit\"。例句：\"je n'ai pas mangé\", \"il n'est jamais venu\""
+ },
+ "pc-participes-irreguliers": {
+  "t": "不规则过去分词",
+  "x": "必须记住的形式：\"avoir\" 变 \"eu\"，\"être\" 变 \"été\"，\"faire\" 变 \"fait\"，\"prendre\" 变 \"pris\"，\"voir\" 变 \"vu\"，\"dire\" 变 \"dit\"，\"écrire\" 变 \"écrit\"，\"mettre\" 变 \"mis\"，\"pouvoir\" 变 \"pu\"，\"vouloir\" 变 \"voulu\"。例句：\"j'ai eu\", \"j'ai été\", \"il a fait\", \"elle a pris\""
+ },
+ "imparfait-formation": {
+  "t": "未完成过去时：构成",
+  "x": "取现在时的 \"nous\" 形式，去掉 \"-ons\"，加上 \"-ais, -ais, -ait, -ions, -iez, -aient\"：\"nous parlons\" 变成 \"je parlais\"。只有 \"être\" 不规则：\"j'étais, nous étions\"。例句：\"je jouais\", \"nous allions\", \"il était\""
+ },
+ "imparfait-usage": {
+  "t": "未完成过去时：何时使用",
+  "x": "用 \"imparfait\" 描写故事的背景：天气、感受、描述和反复发生的习惯。\"Il faisait beau\"、\"j'étais fatigué\"、\"chaque été, nous allions à la mer\"。例句：\"il faisait beau\", \"je jouais\", \"nous habitions\""
+ },
+ "impf-vs-pc": {
+  "t": "imparfait 还是 passé composé？",
+  "x": "\"Imparfait\"：正在进行的事、背景。\"Passé composé\"：发生了什么，推动故事向前的单个事件。\"Je lisais quand le téléphone a sonné\"：读书在进行中，电话铃声打断了它。例句：\"je dormais\", \"le téléphone a sonné\""
+ },
+ "futur-simple": {
+  "t": "简单将来时",
+  "x": "取动词原形（\"-re\" 动词去掉词尾的 -e），加上 \"-ai, -as, -a, -ons, -ez, -ont\"：\"parler\" 变成 \"je parlerai\"，\"prendre\" 变成 \"je prendrai\"。例句：\"je parlerai\", \"nous prendrons\", \"ils finiront\""
+ },
+ "futur-irreguliers": {
+  "t": "不规则的将来时词干",
+  "x": "词尾不变，但词干会变：\"aller\" 变 \"ir-\"，\"être\" 变 \"ser-\"，\"avoir\" 变 \"aur-\"，\"faire\" 变 \"fer-\"，\"venir\" 变 \"viendr-\"，\"pouvoir\" 变 \"pourr-\"，\"voir\" 变 \"verr-\"，\"vouloir\" 变 \"voudr-\"。例句：\"j'irai\", \"il fera\", \"ils viendront\""
+ },
+ "conditionnel-politesse": {
+  "t": "礼貌的条件式",
+  "x": "\"conditionnel\" 让请求更委婉：\"je voudrais\"（我想要）、\"pourriez-vous\"（您能否）、\"j'aimerais\"（我很想）。构成：将来时词干 + 未完成过去时词尾 \"-ais, -ais, -ait, -ions, -iez, -aient\"。例句：\"je voudrais\", \"pourriez-vous\", \"nous aimerions\""
+ },
+ "cod-pronoms": {
+  "t": "直接宾语代词",
+  "x": "\"le\"、\"la\"、\"l'\" 和 \"les\" 代替不带介词的名词，放在动词前：\"je vois Paul\" 变成 \"je le vois\"。否定：\"je ne le vois pas\"。例句：\"je le vois\", \"elle la prend\", \"tu les aimes\""
+ },
+ "coi-pronoms": {
+  "t": "间接宾语代词",
+  "x": "指\"à\"后面的人时，用 \"lui\"（他或她）和 \"leur\"（他们）：\"je parle à Marie\" 变成 \"je lui parle\"，\"je téléphone à mes parents\" 变成 \"je leur téléphone\"。这里的 \"leur\" 永远不加 -s。例句：\"je lui parle\", \"elle leur écrit\""
+ },
+ "pronoms-me-te-nous-vous": {
+  "t": "me、te、nous、vous",
+  "x": "这四个代词既可作直接宾语也可作间接宾语：\"il me voit\"、\"il me parle\"。元音前 \"me\" 和 \"te\" 变成 \"m'\" 和 \"t'\"：\"je t'aime\"、\"il m'écoute\"。例句：\"il me voit\", \"elle nous parle\""
+ },
+ "y-pronom": {
+  "t": "代词 y",
+  "x": "\"y\" 代替 \"à\" + 事物或某个地点：\"je vais à Rome\" 变成 \"j'y vais\"。它放在动词前：\"nous y allons\"、\"je n'y vais pas\"。还有 \"j'y pense\"。例句：\"j'y vais\", \"nous y allons\""
+ },
+ "en-pronom": {
+  "t": "代词 en",
+  "x": "\"en\" 代替 \"du, de la, des\" + 名词，或 \"de\" + 名词。数量要保留：\"j'ai deux frères\" 变成 \"j'en ai deux\"。否定：\"je n'en veux pas\"。例句：\"j'en veux\", \"nous en avons deux\""
+ },
+ "pronoms-toniques": {
+  "t": "重读人称代词",
+  "x": "在介词后（\"avec moi\"、\"chez eux\"）、表示强调（\"moi, je\"）以及单独使用（\"Qui est là ? Moi !\"）时，用 \"moi, toi, lui, elle, nous, vous, eux, elles\"。\"c'est\" 之后也用：\"c'est lui\"。例句：\"avec moi\", \"chez lui\", \"eux\""
+ },
+ "comparatifs": {
+  "t": "比较：plus … que",
+  "x": "在形容词或副词两边用 \"plus … que\"（更）、\"moins … que\"（不如）和 \"aussi … que\"（和……一样）：\"elle est plus rapide que lui\"。比较名词用 \"plus de … que\"。例句：\"plus grand que\", \"moins cher que\", \"aussi rapide que\""
+ },
+ "superlatifs": {
+  "t": "最高级",
+  "x": "在 \"plus\" 或 \"moins\" 前加定冠词：\"le plus grand\"、\"la plus belle\"、\"les moins chers\"。表示\"在……中\"用 \"de\"：\"le plus grand de la classe\"。例句：\"le plus grand\", \"la plus belle\", \"les moins chers\""
+ },
+ "meilleur-mieux": {
+  "t": "meilleur 还是 mieux？",
+  "x": "\"bon\" 变成 \"meilleur\"（形容词，需配合）：\"une meilleure idée\"。\"bien\" 变成 \"mieux\"（副词，不变）：\"elle chante mieux\"。永远不要说 \"plus bon\" 或 \"plus bien\"。例句：\"meilleur\", \"mieux\", \"la meilleure idée\""
+ },
+ "adverbes-ment": {
+  "t": "-ment 副词",
+  "x": "在阴性形容词后加 \"-ment\"：\"lent\" 变成 \"lentement\"，\"heureux\" 变成 \"heureusement\"。元音结尾时，加在阳性形式后：\"vrai\" 变成 \"vraiment\"。\"-ent\" 变成 \"-emment\"：\"prudent\" 变成 \"prudemment\"。例句：\"lentement\", \"vraiment\", \"prudemment\""
+ },
+ "prep-pays-villes": {
+  "t": "国家和城市",
+  "x": "城市：\"à Paris\"、\"de Paris\"。阴性国家：\"en France\"、\"de France\"。阳性国家：\"au Japon\"、\"du Japon\"。复数国家：\"aux États-Unis\"、\"des États-Unis\"。例句：\"en France\", \"au Japon\", \"aux États-Unis\", \"à Paris\""
+ },
+ "depuis-pendant-il-y-a": {
+  "t": "depuis、pendant、il y a",
+  "x": "\"depuis\" + 现在时：仍在持续的事（\"j'habite ici depuis deux ans\"）。\"pendant\" + 时间段：持续了多久（\"j'ai dormi pendant huit heures\"）。\"il y a\" + 时间段：多久以前（\"il est parti il y a une heure\"）。例句：\"depuis deux ans\", \"pendant trois heures\", \"il y a une heure\""
+ },
+ "passe-recent": {
+  "t": "最近过去时：venir de",
+  "x": "把 \"venir\" 变位成现在时，再加 \"de\" + 动词原形：\"je viens de finir\"、\"nous venons de partir\"。元音前 \"de\" 变成 \"d'\"：\"il vient d'arriver\"。例句：\"je viens de manger\", \"ils viennent de partir\""
+ },
+ "imperatif-negatif": {
+  "t": "否定命令式",
+  "x": "把 \"ne … pas\" 放在命令式动词两边：\"ne pars pas !\"、\"ne partons pas !\"、\"ne partez pas !\"。代词仍放在动词前：\"ne le fais pas !\"。例句：\"ne parle pas\", \"ne partez pas\""
+ },
+ "imperatif-pronoms": {
+  "t": "命令式与代词",
+  "x": "肯定命令式中，代词放在动词后并用连字符连接：\"regarde-moi\"、\"parlez-nous\"、\"dis-lui\"。\"me\" 变成 \"moi\"。否定式保持正常顺序：\"ne me regarde pas\"。例句：\"regarde-moi\", \"dis-lui\", \"donne-le-moi\""
+ },
+ "rel-qui-que": {
+  "t": "qui 和 que",
+  "x": "\"qui\" 代替主语：\"la femme qui habite ici\"。\"que\" 代替直接宾语：\"le film que nous regardons\"。元音前 \"que\" 变成 \"qu'\"：\"le livre qu'il lit\"。例句：\"l'homme qui parle\", \"le livre que je lis\""
+ },
+ "rel-ou": {
+  "t": "où：在……的地方、时候",
+  "x": "\"où\" 把地点或时间与从句连接起来：\"la maison où elle habite\"、\"le jour où nous sommes partis\"。地点和时间都可以用。例句：\"la ville où j'habite\", \"le jour où\""
+ },
+ "il-faut": {
+  "t": "il faut",
+  "x": "\"il faut\" + 动词原形表示\"必须\"：\"il faut partir\"。\"il faut\" + 名词表示\"需要\"：\"il faut du temps\"。否定 \"il ne faut pas\" 表示\"不可以\"。这是无人称动词，只用 \"il\"。例句：\"il faut travailler\", \"il faut du temps\""
+ },
+ "neg-jamais-plus-rien": {
+  "t": "jamais、plus、rien、personne",
+  "x": "它们代替 \"pas\"：\"ne … jamais\"（从不）、\"ne … plus\"（不再）、\"ne … rien\"（什么也没有）、\"ne … personne\"（没有人）。\"rien\" 和 \"personne\" 也可以作主语：\"personne ne vient\"。例句：\"je ne mange jamais\", \"il ne travaille plus\", \"nous ne voyons personne\""
+ },
+ "quantite-de": {
+  "t": "数量词 + de",
+  "x": "在表示数量的词后面用 \"de\"，不加冠词：\"beaucoup de travail\"、\"un peu de sucre\"、\"assez de temps\"、\"trop de monde\"、\"peu de gens\"、\"une bouteille d'eau\"。例句：\"beaucoup de travail\", \"un peu de sucre\", \"trop de monde\""
+ },
+ "c-est-il-est": {
+  "t": "c'est 还是 il est？",
+  "x": "\"il est\" / \"elle est\" 后面只接形容词或单独的职业：\"il est médecin\"、\"elle est gentille\"。有冠词或物主形容词时用 \"c'est\"：\"c'est un médecin\"、\"c'est mon frère\"。例句：\"c'est un médecin\", \"il est médecin\", \"elle est gentille\""
+ },
+ "q-inversion": {
+  "t": "倒装",
+  "x": "在讲究的法语中，动词移到主语代词前，用连字符连接：\"parlez-vous ?\"、\"où vas-tu ?\"、\"que font-ils ?\"。如果动词以元音结尾，要加 \"-t-\"：\"aime-t-il ?\"。例句：\"parlez-vous\", \"où vas-tu\", \"que font-ils\""
+ },
+ "q-qui-que-quoi": {
+  "t": "谁和什么",
+  "x": "\"qui\" 问人，\"que\" 和 \"qu'est-ce que\" 问事物：\"qu'est-ce que tu fais ?\"。介词后用 \"qui\"（人）或 \"quoi\"（事物）：\"avec qui ?\"、\"de quoi parles-tu ?\"。例句：\"qui est-ce ?\", \"qu'est-ce que tu fais ?\", \"de quoi parles-tu ?\""
+ },
+ "adj-irreguliers": {
+  "t": "beau、nouveau、vieux",
+  "x": "这三个词在阳性元音前有特殊形式：\"beau\" 变 \"bel\"，\"nouveau\" 变 \"nouvel\"，\"vieux\" 变 \"vieil\"。阴性：\"belle\"、\"nouvelle\"、\"vieille\"。复数：\"beaux\"、\"nouveaux\"、\"vieux\"。例句：\"un bel homme\", \"une nouvelle voiture\", \"un vieil ami\""
+ },
+ "connecteurs-temps": {
+  "t": "首先、然后、最后",
+  "x": "\"d'abord\"（首先）、\"ensuite\" 或 \"puis\"（然后）、\"après\"（之后）、\"enfin\"（最后）用来排列动作顺序：\"d'abord je mange, puis je pars, enfin j'arrive\"。例句：\"d'abord\", \"ensuite\", \"puis\", \"enfin\""
+ },
+ "si-present-futur": {
+  "t": "si + 现在时，将来时",
+  "x": "表示真实的可能性：\"si\" + 现在时说明条件，结果用将来时（或命令式）。\"si tu viens, je serai content\"、\"si vous avez le temps, appelez-moi\"。\"si\" 之后绝不用将来时。\"si\" 在 \"il\" 前写成 \"s'il\"。例句：\"si tu viens, nous mangerons\", \"s'il pleut, je resterai\""
+ },
+ "savoir-connaitre": {
+  "t": "savoir 还是 connaître？",
+  "x": "\"savoir\" 用于事实和技能：\"je sais nager\"、\"je sais où il habite\"。\"connaître\" 用于认识人、地方和事物：\"je connais Marie\"、\"je connais cette ville\"。例句：\"je sais nager\", \"je connais Paris\""
+ },
+ "pres-irreguliers-2": {
+  "t": "更多不规则动词",
+  "x": "分组来学：\"lire\"（\"nous lisons\"）、\"dire\"（\"vous dites\"）、\"écrire\"（\"ils écrivent\"）、\"voir\"（\"nous voyons\"）、\"boire\"（\"ils boivent\"）。\"nous\" 形式有助于构成 imparfait。例句：\"nous lisons\", \"vous dites\", \"ils écrivent\""
+ },
+ "meteo-il": {
+  "t": "天气",
+  "x": "用 \"il fait\" + 形容词（\"il fait beau, froid, chaud\"），下雨和下雪用动词（\"il pleut\"、\"il neige\"）。主语 \"il\" 没有实际意义，形式永远不变。提问：\"quel temps fait-il ?\"。例句：\"il fait beau\", \"il pleut\", \"il neige\""
+ },
+ "profession-sans-article": {
+  "t": "职业不加冠词",
+  "x": "在 \"être\" 之后，职业、国籍或宗教不加冠词：\"il est médecin\"、\"elle est française\"。带形容词时，改用 \"c'est un\"：\"c'est un bon médecin\"。例句：\"elle est infirmière\", \"il est professeur\""
+ },
+ "subj-il-faut-que": {
+  "t": "虚拟式：il faut que",
+  "x": "\"il faut que\" 之后用虚拟式。规则动词：取 \"ils\" 的现在时词干，加上 \"-e, -es, -e, -ions, -iez, -ent\"：\"ils partent\" 变成 \"que je parte\"。\"nous\" 和 \"vous\" 形式与 imparfait 相同。例句：\"il faut que tu viennes\", \"il faut que je parte\""
+ },
+ "subj-vouloir-que": {
+  "t": "vouloir que + 虚拟式",
+  "x": "主语不同时，\"vouloir que\"、\"préférer que\"、\"aimer mieux que\" 和 \"demander que\" 要用虚拟式：\"je veux que tu viennes\"。主语相同时用动词原形：\"je veux venir\"。例句：\"je veux que tu viennes\", \"elle veut que nous partions\""
+ },
+ "subj-irreguliers": {
+  "t": "不规则虚拟式",
+  "x": "请背下来：\"être\"（\"que je sois\"）、\"avoir\"（\"que j'aie, qu'il ait\"）、\"aller\"（\"que j'aille\"）、\"faire\"（\"que je fasse\"）、\"pouvoir\"（\"que je puisse\"）、\"savoir\"（\"que je sache\"）、\"vouloir\"（\"que je veuille\"）。例句：\"que je sois\", \"qu'il ait\", \"que nous allions\", \"qu'ils fassent\""
+ },
+ "subj-emotions": {
+  "t": "情感 + 虚拟式",
+  "x": "在表达情感的说法之后（\"être content que\"、\"être triste que\"、\"regretter que\"、\"avoir peur que\"、\"être surpris que\"），主语不同时用虚拟式。例句：\"je suis content que tu sois là\", \"elle regrette que nous partions\""
+ },
+ "subj-vs-indic": {
+  "t": "直陈式还是虚拟式",
+  "x": "确定的事用直陈式：\"je pense que\"、\"je sais que\"、\"il est sûr que\"。怀疑、否定和意愿用虚拟式：\"je ne pense pas que\"、\"je doute que\"、\"il faut que\"。疑问句中的 \"Penser que\" 两者皆可。例句：\"je pense qu'il a raison\", \"je ne pense pas qu'il ait raison\""
+ },
+ "subj-conjonctions": {
+  "t": "连词 + 虚拟式",
+  "x": "有些连词总是接虚拟式：\"pour que\"（为了）、\"avant que\"（在……之前）、\"bien que\"（虽然）、\"à condition que\"（条件是）、\"jusqu'à ce que\"（直到）。\"après que\" 接直陈式。例句：\"pour que tu comprennes\", \"avant que tu partes\", \"bien qu'il soit fatigué\""
+ },
+ "si-imparfait-cond": {
+  "t": "si + 未完成过去时，条件式",
+  "x": "表示想象的或不太可能的情况：\"si\" + imparfait，结果用条件式。\"si j'étais riche, je voyagerais\"。\"si\" 之后绝不用条件式。例句：\"si j'avais de l'argent\", \"j'achèterais une maison\""
+ },
+ "cond-usage": {
+  "t": "条件式：建议与愿望",
+  "x": "\"conditionnel\" 用来提建议（\"tu devrais\"）、表达愿望（\"j'aimerais\"）和礼貌地提议（\"on pourrait\"）。与 \"devoir\"、\"pouvoir\" 和 \"vouloir\" 连用非常常见。例句：\"tu devrais dormir\", \"nous aimerions voyager\""
+ },
+ "cond-passe-regret": {
+  "t": "对过去的遗憾",
+  "x": "表示没有发生的事：\"si\" + plus-que-parfait，条件式过去时。\"si tu avais étudié, tu aurais réussi\"。条件式过去时是条件式的 \"avoir\" 或 \"être\" + 过去分词。例句：\"si j'avais su\", \"je serais venu\""
+ },
+ "plus-que-parfait-forme": {
+  "t": "愈过去时：构成",
+  "x": "助动词用 \"imparfait\" + 过去分词：\"j'avais mangé\"、\"elle était partie\"、\"nous nous étions levés\"。选择 \"avoir\" 还是 \"être\"，以及配合规则，与 passé composé 相同。例句：\"j'avais fini\", \"nous étions partis\", \"elle avait mangé\""
+ },
+ "plus-que-parfait-usage": {
+  "t": "愈过去时：用法",
+  "x": "用 \"plus-que-parfait\" 表示发生在另一个过去动作或某个过去时刻之前的动作：\"quand je suis arrivé, il était déjà parti\"。它常常用来解释原因：\"il était fatigué, il n'avait pas dormi\"。例句：\"le film avait déjà commencé\", \"il n'avait pas dormi\""
+ },
+ "di-present": {
+  "t": "间接引语（现在时）",
+  "x": "\"dire que\"、\"répondre que\"、\"expliquer que\" 用现在时时，从句的时态不变；只有代词和 \"mon\" 之类的词会变：\"« j'ai faim »\" 变成 \"il dit qu'il a faim\"。例句：\"il dit qu'il est fatigué\", \"elle répond qu'elle ne sait pas\""
+ },
+ "di-questions": {
+  "t": "间接疑问句",
+  "x": "是非疑问句用 \"si\"：\"il demande si tu viens\"。疑问词不变：\"où, quand, comment, pourquoi\"。\"Qu'est-ce que\" 变成 \"ce que\"，\"qu'est-ce qui\" 变成 \"ce qui\"。语序与陈述句相同。例句：\"il demande si je viens\", \"elle demande où j'habite\""
+ },
+ "di-passe": {
+  "t": "间接引语（过去时）",
+  "x": "在 \"a dit que\" 之后，时态要后移：现在时变 \"imparfait\"，将来时变 \"conditionnel\"，passé composé 变 \"plus-que-parfait\"。时间词也要变：\"demain\" 变成 \"le lendemain\"。例句：\"il a dit qu'il était fatigué\", \"elle a répondu qu'elle viendrait\""
+ },
+ "gerondif-formation": {
+  "t": "副动词：构成",
+  "x": "取现在时的 \"nous\" 形式，去掉 \"-ons\"，加 \"-ant\"，前面加 \"en\"：\"nous travaillons\" 变成 \"en travaillant\"。例外：\"être\" 变 \"en étant\"，\"avoir\" 变 \"en ayant\"，\"savoir\" 变 \"en sachant\"。例句：\"en travaillant\", \"en lisant\", \"en finissant\""
+ },
+ "gerondif-usage": {
+  "t": "副动词：用法",
+  "x": "\"gérondif\" 表示两个动作同时发生（\"il chante en travaillant\"）、做事的方式（\"on apprend en lisant\"）或条件（\"en tournant à gauche, vous verrez la poste\"）。两个动词的主语相同。例句：\"on apprend en lisant\", \"il s'est blessé en jouant\""
+ },
+ "rel-dont": {
+  "t": "dont：关于……的、……的",
+  "x": "\"dont\" 代替 \"de\" + 名词：\"je parle de ce livre\" 变成 \"le livre dont je parle\"。它也表示\"……的\"：\"la fille dont le père est médecin\"。\"avoir besoin de\" 之后也用：\"ce dont j'ai besoin\"。例句：\"le livre dont je parle\", \"la fille dont le père est médecin\""
+ },
+ "rel-ce-qui-ce-que": {
+  "t": "ce qui、ce que、ce dont",
+  "x": "前面没有名词时，用 \"ce qui\"（主语）、\"ce que\"（宾语）和 \"ce dont\"（与 \"de\" 连用）：\"ce qui se passe\"、\"ce que tu veux\"、\"ce dont j'ai besoin\"。例句：\"ce que tu veux\", \"ce qui se passe\", \"ce dont j'ai besoin\""
+ },
+ "pronoms-ordre": {
+  "t": "两个代词连用",
+  "x": "动词前的顺序：\"me, te, nous, vous\" + \"le, la, les\" + \"lui, leur\" + \"y\" + \"en\"。\"me le\"、\"te la\"、\"nous les\"，但 \"le lui\"、\"les leur\"：\"je le lui donne\"。例句：\"je le lui donne\", \"elle me les envoie\""
+ },
+ "y-en-ensemble": {
+  "t": "il y en a",
+  "x": "\"y\" 和 \"en\" 同时出现时，\"y\" 在前：\"il y en a\"、\"il n'y en a plus\"。\"en\" 保留数量：\"il y en a trois\"。例句：\"il y en a\", \"nous y en avons\""
+ },
+ "imperatif-ordre-pronoms": {
+  "t": "命令式：代词顺序",
+  "x": "肯定式：动词 + 直接宾语（\"le, la, les\"）+ 间接宾语（\"moi, lui, nous, leur\"）+ \"y\" / \"en\"：\"donne-le-moi\"、\"dis-le-lui\"。\"moi\" 在 \"en\" 前变成 \"m'\"：\"donne-m'en\"。否定式：正常顺序，\"ne me le donne pas\"。例句：\"donne-le-moi\", \"dis-le-lui\", \"donne-m'en\""
+ },
+ "pronoms-possessifs": {
+  "t": "物主代词",
+  "x": "它们代替物主形容词 + 名词，并与名词配合：\"le mien, la mienne, les miens, les miennes\"、\"le tien\"、\"le sien\"、\"le nôtre\"、\"le vôtre\"、\"le leur\"。\"Où est ma clé ? — Voici la mienne.\"。例句：\"le mien\", \"la tienne\", \"les nôtres\""
+ },
+ "pronoms-demonstratifs": {
+  "t": "celui、celle、ceux、celles",
+  "x": "它们代替\"那个/那些\"，后面接 \"de\"、\"qui\"、\"que\" 或 \"-ci / -là\"：\"celui de gauche\"、\"celle qui est ici\"、\"ceux de Marc\"、\"celles-là\"。例句：\"celui de gauche\", \"celle qui est ici\", \"ceux de Marc\""
+ },
+ "pronoms-indefinis": {
+  "t": "不定代词",
+  "x": "\"quelqu'un\"（某人）、\"quelque chose\"（某事）、\"personne\"（没有人）、\"rien\"（没有什么）、\"chacun\"（每个人）、\"plusieurs\"（几个）。形容词前用 \"de\"：\"quelque chose de bon\"。例句：\"quelqu'un\", \"quelque chose de sucré\", \"chacun\""
+ },
+ "adj-indefinis": {
+  "t": "chaque、plusieurs、quelques",
+  "x": "\"chaque\" + 单数名词（每个），\"plusieurs\" 和 \"quelques\" + 复数名词（几个、一些）。\"tout\" 要配合：\"tout le monde\"、\"toute la journée\"、\"tous les jours\"、\"toutes les semaines\"。例句：\"chaque élève\", \"plusieurs voitures\", \"toute la journée\""
+ },
+ "pc-accord-cod": {
+  "t": "avoir 的过去分词配合",
+  "x": "用 \"avoir\" 时，只有直接宾语在动词前面，过去分词才与它配合：\"j'ai acheté des fleurs\"，但 \"les fleurs que j'ai achetées\"、\"je les ai vues\"。例句：\"les fleurs que j'ai achetées\", \"je les ai vues\""
+ },
+ "passif-forme": {
+  "t": "被动语态",
+  "x": "\"être\"（用所需的时态）+ 与主语配合的过去分词 + \"par\"：\"la lettre est écrite par Paul\"、\"les maisons ont été détruites par le feu\"。主动句的宾语变成主语。例句：\"le roman est écrit par\", \"la porte est ouverte par\""
+ },
+ "se-passif": {
+  "t": "se 构成的被动",
+  "x": "第三人称动词加 \"se\" 具有被动意义，不出现施动者：\"le vin se vend ici\"、\"ça ne se dit pas\"、\"cela se voit\"。在口语和规则说明中非常常见。例句：\"ça se dit\", \"ce produit se vend partout\""
+ },
+ "etre-en-train-de": {
+  "t": "être en train de",
+  "x": "\"être en train de\" + 动词原形强调动作此刻正在进行：\"je suis en train de lire\"。想要强调时，相当于中文的\"正在\"：\"ne l'appelle pas, il est en train de dormir\"。例句：\"je suis en train de manger\", \"ils sont en train de partir\""
+ },
+ "pc-avoir-transitif": {
+  "t": "同一个动词，两个助动词",
+  "x": "当 \"sortir, monter, descendre, passer, rentrer, retourner\" 带直接宾语时，助动词用 \"avoir\"：\"j'ai sorti la voiture\"、\"elle a monté les escaliers\"。没有宾语时用 \"être\"：\"elle est sortie\"。例句：\"il a sorti la valise\", \"elle a monté les escaliers\""
+ },
+ "futur-anterieur": {
+  "t": "先将来时",
+  "x": "简单将来时的 \"avoir\" 或 \"être\" + 过去分词：\"j'aurai fini\"、\"elle sera partie\"。表示在另一个将来动作之前已完成的动作：\"quand j'aurai fini, je t'appellerai\"。例句：\"quand j'aurai fini\", \"dès qu'elle sera arrivée\""
+ },
+ "quand-futur": {
+  "t": "quand + 将来时",
+  "x": "与中文不同，当动作发生在将来时，法语在 \"quand\"、\"dès que\"、\"lorsque\" 和 \"aussitôt que\" 之后要用将来时：\"dès qu'il arrivera, nous partirons\"。\"Si\" 是例外：它之后绝不用将来时。例句：\"quand je serai grand\", \"dès qu'il arrivera\""
+ },
+ "connecteurs-cause-consequence": {
+  "t": "原因与结果",
+  "x": "\"car\" 和 \"parce que\" 说明原因；\"comme\" 和 \"puisque\" 用已知的原因开头：\"comme il pleut, je reste\"。\"donc\" 和 \"alors\" 表示结果：\"il pleut, donc je reste\"。例句：\"donc\", \"car\", \"comme\", \"puisque\""
+ },
+ "connecteurs-opposition": {
+  "t": "对比",
+  "x": "\"mais\"、\"pourtant\" 和 \"cependant\" 表示两个想法相对立。\"alors que\" 对比两个事实：\"elle aime le thé, alors que son mari préfère le café\"。\"malgré\" + 名词表示\"尽管\"：\"malgré la pluie\"。例句：\"pourtant\", \"alors que\", \"malgré la pluie\""
+ },
+ "but-pour-afin-de": {
+  "t": "目的",
+  "x": "主语相同时：\"pour\" 或 \"afin de\" + 动词原形：\"je travaille pour gagner de l'argent\"。主语不同时：\"pour que\" 或 \"afin que\" + 虚拟式：\"il parle lentement pour que nous comprenions\"。例句：\"pour gagner de l'argent\", \"afin de rentrer\", \"pour que nous comprenions\""
+ },
+ "neg-ne-que-ni": {
+  "t": "ne … que、ni … ni、aucun",
+  "x": "\"ne … que\" 表示\"只有\"：\"je n'ai que dix euros\"。\"ne … ni … ni\" 表示\"既不……也不……\"：\"elle ne mange ni viande ni poisson\"。\"ne … aucun\" 表示\"没有任何一个\"：\"il n'a aucun ami\"。例句：\"je n'ai que dix euros\", \"ni viande ni poisson\", \"aucun ami\""
+ },
+ "neg-infinitif": {
+  "t": "否定的动词原形",
+  "x": "否定的两个部分一起放在动词原形前：\"ne pas partir\"、\"ne plus fumer\"、\"ne jamais mentir\"。\"Il m'a demandé de ne pas fumer\"。例句：\"ne pas fumer\", \"ne plus travailler\", \"ne jamais mentir\""
+ },
+ "q-lequel": {
+  "t": "Lequel：哪一个",
+  "x": "\"lequel\" 代替 \"quel\" + 名词，并配合性数：\"lequel\"（阳单）、\"laquelle\"（阴单）、\"lesquels\"（阳复）、\"lesquelles\"（阴复）。\"Quel sac ? Lequel ?\" 在 \"à\" 和 \"de\" 之后：\"auquel\"、\"duquel\"。例句：\"lequel\", \"laquelle\", \"lesquels\""
+ },
+ "exclamations": {
+  "t": "感叹句",
+  "x": "\"quel\" + 名词：\"quelle belle journée !\"。\"comme\" 或 \"que\" + 从句：\"comme il fait chaud !\"、\"que c'est joli !\"。注意法语中 \"!\" 前要空一格。例句：\"quelle belle journée !\", \"comme il fait chaud !\", \"que c'est joli !\""
+ },
+ "adv-place-pc": {
+  "t": "passé composé 中的短副词",
+  "x": "常见的短副词（\"déjà, bien, mal, souvent, toujours, encore, trop, beaucoup\"）放在助动词和过去分词之间：\"j'ai déjà mangé\"、\"il a bien compris\"。地点副词和长副词放在后面。例句：\"elle a déjà fini\", \"il a bien compris\""
+ },
+ "comparatifs-avances": {
+  "t": "越来越……、越……越……",
+  "x": "\"de plus en plus\"（越来越多）、\"de moins en moins\"（越来越少）、\"plus … plus\"（越……越……）、\"autant de … que\"（和……一样多）：\"elle a autant de livres que moi\"。例句：\"de plus en plus froid\", \"plus on travaille, plus on apprend\", \"autant de livres\""
+ },
+ "prep-verbes": {
+  "t": "带介词的动词",
+  "x": "许多动词需要固定的介词：\"penser à\"、\"s'intéresser à\"、\"répondre à\"、\"parler de\"、\"avoir besoin de\"、\"avoir envie de\"、\"rêver de\"。请连同动词一起记。例句：\"penser à\", \"parler de\", \"avoir besoin de\", \"s'intéresser à\""
+ },
+ "prep-temps-en-dans": {
+  "t": "en 还是 dans？",
+  "x": "\"dans\" + 时间段：从现在算起，某事何时发生（\"le film commence dans une heure\"）。\"en\" + 时间段：某事花了多长时间（\"il a lu ce livre en deux jours\"）。\"en\" 还用于月份和年份：\"en mai\"、\"en 1998\"。例句：\"dans une heure\", \"en deux jours\""
+ },
+ "inf-apres-prepositions": {
+  "t": "介词 + 动词原形",
+  "x": "\"avant de\" + 动词原形，\"après\" + 完成式原形（\"avoir\" 或 \"être\" + 过去分词），\"sans\" + 动词原形：\"avant de partir\"、\"après avoir mangé\"、\"sans dire au revoir\"。主语必须相同。例句：\"avant de manger\", \"après avoir mangé\", \"sans dire\""
+ },
+ "faire-causatif": {
+  "t": "faire + 动词原形",
+  "x": "\"faire\" + 动词原形表示让人做某事（\"je fais réparer ma voiture\"）或使某人做某事（\"il fait rire les enfants\"）。动词原形紧跟在 \"faire\" 后面。例句：\"je fais réparer ma voiture\", \"il fait rire les enfants\""
+ },
+ "verbes-perception": {
+  "t": "看见、听见 + 动词原形",
+  "x": "在 \"voir\"、\"entendre\"、\"regarder\"、\"écouter\"、\"sentir\" 之后接动词原形：\"je les entends jouer\"、\"nous voyons passer le train\"。代词是感官动词的宾语。例句：\"je les entends chanter\", \"nous voyons passer le train\""
+ },
+ "voyelle-liaison-ecrite": {
+  "t": "元音前的特殊形式",
+  "x": "在元音或不发音的 h 前，有些词会改变形式以便发音：\"ma\" 变成 \"mon\"（\"mon amie\"），\"ce\" 变成 \"cet\"（\"cet homme\"），\"beau\" 变成 \"bel\"（\"un bel arbre\"），\"nouveau\" 变成 \"nouvel\"，\"vieux\" 变成 \"vieil\"。例句：\"mon amie\", \"cet homme\", \"un bel arbre\""
+ },
+ "tout-tous-toutes": {
+  "t": "tout、tous、toute、toutes",
+  "x": "作形容词时，\"tout\" 要配合性数：\"tout le monde\"、\"toute la journée\"、\"tous les jours\"、\"toutes les semaines\"。作代词时表示\"一切\"（\"j'ai tout compris\"）或\"全都\"（\"ils sont tous là\"，词尾 -s 要发音）。例句：\"tous les jours\", \"toute la journée\", \"ils sont tous là\""
+ }
+}

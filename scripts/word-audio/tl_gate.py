@@ -121,7 +121,8 @@ if PUB:
 txt = '\n'.join(lines); print(txt)
 if os.environ.get('GITHUB_STEP_SUMMARY'): open(os.environ['GITHUB_STEP_SUMMARY'], 'a').write(txt + '\n')
 # Tiêu chí tính RIÊNG từng giọng dùng thật (TL_REQUIRE, mặc định giọng Ama + Carlos của bảng); giọng khác (Piper đối chứng) chỉ báo cáo.
-REQ = [v for v in os.environ.get('TL_REQUIRE', ','.join(C['voices'])).split(',') if v]
+# bảng có 'require' (fr: Kokoro ff_siwis trượt → giọng dùng thật là Piper siwis) thì chấm đúng giọng đó; còn lại = voices Kokoro như cũ
+REQ = [v for v in os.environ.get('TL_REQUIRE', ','.join(C.get('require', C['voices']))).split(',') if v]
 bad = []
 for v in REQ:
     xs = by.get(v, []); ok = sum(x['ok'] for x in xs); n = len(xs) or 1
