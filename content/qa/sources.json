@@ -321,7 +321,8 @@
    ],
    "delegate": [
     "target/drill-pack.mjs --tl fr --check",
-    "test/fr-practice.mjs"
+    "test/fr-practice.mjs",
+    "test/fr-pron.mjs"
    ],
    "_note": "Gói luyện tập tiếng Pháp W2 (french-course.md §10): CÙNG engine es (drill-lib TLP), dựng từ content/target/fr/{drills,gx}; drill-pack --tl fr --check = khớp nguồn + đủ 15 ngôn ngữ + ví dụ Pháp nguyên văn, CI thêm LanguageTool fr 0 lỗi (--lt) + tu ⟂ vous"
   },

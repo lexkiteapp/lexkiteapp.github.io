@@ -88,6 +88,7 @@
     outcome: ['js/i18n/en/outcomes.js', 'js/writecheck-rules.js', 'cpack/outcomes/forms.js', 'cpack/outcomes-app/outcomes-core.js', 'cpack/outcomes-app/outcomes.js'],
     // 🇪🇸 Luyện tiếng TBN (spanish-course.md W2b); dữ liệu cpack/es
     espr: ['js/i18n/en/espr.js', 'js/i18n/en/lesson.js', 'js/i18n/en/v2.js', 'js/st/common.js', 'js/st/lesson.js', 'js/st/v2/runtime.js', 'js/st/v2/lesson-question.js', 'js/st/v2/feedback-correct.js', 'js/st/v2/feedback-wrong.js', 'js/st/v2/lesson-complete.js', 'js/qengine.js', 'cpack/es/dr.js', 'cpack/es/px.js', 'js/espr.js', 'cpack/es-app/pron-ui.js'],
+    frpx: ['cpack/fr/px.js'], // chủ đề + cặp tối thiểu + IPA phát âm tiếng Pháp (cpack/es-app/pron-ui.js chung engine es; french-course.md W3)
     frpr: ['cpack/fr/dr.js'], // câu hỏi luyện tiếng Pháp (js/espr.js chung engine es; french-course.md W2)
     calles: ['cpack/es/cl.js'],
     esx: ['cpack/es-app/exam-ui.js'],

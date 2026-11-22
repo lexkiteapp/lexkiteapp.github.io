@@ -1,0 +1,409 @@
+{
+ "_doc": "Phát âm tiếng Pháp chuẩn (Pháp) (french-course.md W3, copy khung es-pron). Cặp tối thiểu 'a/b' phải KHÁC âm thật (test chặn đồng âm: pain/peint, vers/vert/verre, sans/cent, ses/ces, mer/mère, saint/sein, ou/où → chỉ làm chính tả, KHÔNG làm cặp; không dùng cặp chỉ khác é/è vì nhiều người đọc trùng); dict = từ/cụm nghe-chép; say = từ/cụm nói theo; 'ipa' = IPA chuẩn espeak-ng fr-fr cho MỌI từ/cụm trong file (không gạch chéo, không dấu nhấn; cụm viết cách từ, phụ âm liaison dính cuối từ trước). CI đối chiếu bằng espeak-ng. Giải thích 15 ngôn ngữ: px/<lang>.json.",
+ "topics": [
+  {
+   "id": "nasal",
+   "level": "A1",
+   "ex": [
+    "bon",
+    "blanc",
+    "vin",
+    "un",
+    "enfant",
+    "maman"
+   ],
+   "pairs": [
+    "bon/banc",
+    "vent/vin",
+    "lent/long",
+    "fond/faim",
+    "dans/don"
+   ],
+   "dict": [
+    "blanc",
+    "mon",
+    "matin",
+    "enfant",
+    "bonjour",
+    "jardin",
+    "content",
+    "maison"
+   ],
+   "say": [
+    "bonjour",
+    "enfant",
+    "pain",
+    "maison",
+    "demain"
+   ]
+  },
+  {
+   "id": "uou",
+   "level": "A1",
+   "ex": [
+    "tu",
+    "tout",
+    "rue",
+    "roue",
+    "lune",
+    "nous"
+   ],
+   "pairs": [
+    "vu/vous",
+    "rue/roue",
+    "bu/bout",
+    "dessus/dessous",
+    "tu/tout"
+   ],
+   "dict": [
+    "lune",
+    "jour",
+    "musique",
+    "couleur",
+    "voiture",
+    "nous",
+    "rouge",
+    "sur"
+   ],
+   "say": [
+    "tu",
+    "vous",
+    "rue",
+    "rouge",
+    "musique"
+   ]
+  },
+  {
+   "id": "r",
+   "level": "A1",
+   "ex": [
+    "rouge",
+    "rue",
+    "merci",
+    "quatre",
+    "mardi",
+    "parler"
+   ],
+   "pairs": [
+    "rue/lue",
+    "roue/loue",
+    "riz/lit",
+    "rire/lire",
+    "rond/long"
+   ],
+   "dict": [
+    "rouge",
+    "parler",
+    "merci",
+    "quatre",
+    "frère",
+    "très",
+    "mardi",
+    "garçon"
+   ],
+   "say": [
+    "rouge",
+    "merci",
+    "très",
+    "parler",
+    "frère"
+   ]
+  },
+  {
+   "id": "emuet",
+   "level": "A2",
+   "ex": [
+    "petit",
+    "samedi",
+    "porte",
+    "table",
+    "je",
+    "demain"
+   ],
+   "pairs": [
+    "petit/petite",
+    "grand/grande",
+    "chaud/chaude",
+    "vert/verte",
+    "content/contente"
+   ],
+   "dict": [
+    "table",
+    "porte",
+    "samedi",
+    "demain",
+    "semaine",
+    "vendredi",
+    "petite",
+    "une table"
+   ],
+   "say": [
+    "je",
+    "demain",
+    "samedi",
+    "une table",
+    "petite"
+   ]
+  },
+  {
+   "id": "eai",
+   "level": "A2",
+   "ex": [
+    "été",
+    "père",
+    "tête",
+    "café",
+    "mère",
+    "fenêtre"
+   ],
+   "dict": [
+    "été",
+    "café",
+    "chez",
+    "père",
+    "fête",
+    "lait",
+    "aimer",
+    "français"
+   ],
+   "say": [
+    "café",
+    "été",
+    "père",
+    "français",
+    "chez"
+   ]
+  },
+  {
+   "id": "eu",
+   "level": "A2",
+   "ex": [
+    "deux",
+    "peu",
+    "heure",
+    "fleur",
+    "bleu",
+    "sœur"
+   ],
+   "pairs": [
+    "peu/peur",
+    "jeu/jeune",
+    "veux/veulent",
+    "neuf/nœud",
+    "sœur/ceux"
+   ],
+   "dict": [
+    "deux",
+    "heure",
+    "fleur",
+    "bleu",
+    "heureux",
+    "couleur",
+    "curieux"
+   ],
+   "say": [
+    "deux",
+    "peu",
+    "heure",
+    "fleur",
+    "heureux"
+   ]
+  },
+  {
+   "id": "liaison",
+   "level": "B1",
+   "ex": [
+    "les amis",
+    "un ami",
+    "ils ont",
+    "vous avez",
+    "les hommes",
+    "les héros"
+   ],
+   "pairs": [
+    "ils ont/ils sont",
+    "vous avez/vous savez",
+    "nous avons/nous savons",
+    "deux ans/deux cents",
+    "des ours/des sourds"
+   ],
+   "dict": [
+    "les amis",
+    "un ami",
+    "ils ont",
+    "vous avez",
+    "les hommes",
+    "les héros",
+    "un grand ami"
+   ],
+   "say": [
+    "les amis",
+    "un ami",
+    "vous avez",
+    "ils ont",
+    "un grand ami"
+   ]
+  },
+  {
+   "id": "semi",
+   "level": "B1",
+   "ex": [
+    "huit",
+    "oui",
+    "lui",
+    "fille",
+    "nuit",
+    "moi"
+   ],
+   "pairs": [
+    "loue/lui",
+    "nous/nuit",
+    "pou/puis",
+    "oui/huit",
+    "fil/fille"
+   ],
+   "dict": [
+    "huit",
+    "oui",
+    "lui",
+    "fille",
+    "nuit",
+    "moi",
+    "travail",
+    "famille"
+   ],
+   "say": [
+    "huit",
+    "oui",
+    "lui",
+    "fille",
+    "nuit"
+   ]
+  }
+ ],
+ "ipa": {
+  "bon": "bɔ̃",
+  "banc": "bɑ̃",
+  "blanc": "blɑ̃",
+  "vin": "vɛ̃",
+  "vent": "vɑ̃",
+  "lent": "lɑ̃",
+  "long": "lɔ̃",
+  "fond": "fɔ̃",
+  "faim": "fɛ̃",
+  "dans": "dɑ̃",
+  "don": "dɔ̃",
+  "un": "œ̃",
+  "enfant": "ɑ̃fɑ̃",
+  "maman": "mamɑ̃",
+  "mon": "mɔ̃",
+  "matin": "matɛ̃",
+  "bonjour": "bɔ̃ʒuʁ",
+  "jardin": "ʒaʁdɛ̃",
+  "content": "kɔ̃tɑ̃",
+  "pain": "pɛ̃",
+  "maison": "mɛzɔ̃",
+  "demain": "dəmɛ̃",
+  "tu": "ty",
+  "tout": "tu",
+  "rue": "ʁy",
+  "roue": "ʁu",
+  "lune": "lyn",
+  "nous": "nu",
+  "vu": "vy",
+  "vous": "vu",
+  "bu": "by",
+  "bout": "bu",
+  "dessus": "dəsy",
+  "dessous": "dəsu",
+  "jour": "ʒuʁ",
+  "musique": "myzik",
+  "couleur": "kulœʁ",
+  "voiture": "vwatyʁ",
+  "rouge": "ʁuʒ",
+  "sur": "syʁ",
+  "lue": "ly",
+  "loue": "lu",
+  "riz": "ʁi",
+  "lit": "li",
+  "rire": "ʁiʁ",
+  "lire": "liʁ",
+  "rond": "ʁɔ̃",
+  "merci": "mɛʁsi",
+  "parler": "paʁle",
+  "quatre": "katʁ",
+  "frère": "fʁɛʁ",
+  "très": "tʁɛ",
+  "mardi": "maʁdi",
+  "garçon": "ɡaʁsɔ̃",
+  "petit": "pəti",
+  "petite": "pətit",
+  "grand": "ɡʁɑ̃",
+  "grande": "ɡʁɑ̃d",
+  "chaud": "ʃo",
+  "chaude": "ʃod",
+  "vert": "vɛʁ",
+  "verte": "vɛʁt",
+  "contente": "kɔ̃tɑ̃t",
+  "table": "tabl",
+  "porte": "pɔʁt",
+  "samedi": "samdi",
+  "semaine": "səmɛn",
+  "vendredi": "vɑ̃dʁədi",
+  "je": "ʒə",
+  "une table": "yn tabl",
+  "été": "ete",
+  "père": "pɛʁ",
+  "tête": "tɛt",
+  "café": "kafe",
+  "mère": "mɛʁ",
+  "fenêtre": "fənɛtʁ",
+  "chez": "ʃe",
+  "fête": "fɛt",
+  "lait": "lɛ",
+  "aimer": "ɛme",
+  "français": "fʁɑ̃sɛ",
+  "deux": "dø",
+  "heure": "œʁ",
+  "fleur": "flœʁ",
+  "bleu": "blø",
+  "heureux": "øʁø",
+  "curieux": "kyʁjø",
+  "peu": "pø",
+  "peur": "pœʁ",
+  "jeu": "ʒø",
+  "jeune": "ʒœn",
+  "veux": "vø",
+  "veulent": "vœl",
+  "neuf": "nœf",
+  "nœud": "nø",
+  "sœur": "sœʁ",
+  "ceux": "sø",
+  "les amis": "lez ami",
+  "un ami": "œ̃n ami",
+  "ils ont": "ilz ɔ̃",
+  "ils sont": "il sɔ̃",
+  "vous avez": "vuz ave",
+  "vous savez": "vu save",
+  "nous avons": "nuz avɔ̃",
+  "nous savons": "nu savɔ̃",
+  "deux ans": "døz ɑ̃",
+  "deux cents": "dø sɑ̃",
+  "des ours": "dez uʁs",
+  "des sourds": "de suʁ",
+  "les hommes": "lez ɔm",
+  "les héros": "le eʁo",
+  "un grand ami": "œ̃ ɡʁɑ̃t ami",
+  "huit": "ɥit",
+  "oui": "wi",
+  "lui": "lɥi",
+  "fille": "fij",
+  "nuit": "nɥi",
+  "moi": "mwa",
+  "travail": "tʁavaj",
+  "famille": "famij",
+  "fil": "fil",
+  "pou": "pu",
+  "puis": "pɥi"
+ }
+}
