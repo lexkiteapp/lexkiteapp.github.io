@@ -25592,17 +25592,17 @@
   },
   "diatom#n": {
    "ex": "Diatoms have some practical uses.",
-   "ps": "a single ornate glass-like cell shaped like a tiny symmetrical boat, shown enlarged against a plain background",
-   "sc": "a single ornate glass-like cell shaped like a tiny symmetrical boat, shown enlarged against a plain background",
+   "ps": "a single glassy oval cell with intricate patterned walls floats alone in clear water",
+   "sc": "a single glassy oval cell with intricate patterned walls floats alone in clear water",
    "check": "Is there a tiny single-celled organism with a patterned silica shell?",
-   "cap": "an enlarged glassy single-celled organism with intricate shape",
-   "key": "the ornate glass-like cell shape; the single isolated organism",
+   "cap": "a lone glassy cell with patterned walls drifting in water",
+   "key": "a glassy oval cell with intricate patterned walls; the cell floating alone in clear water",
    "who": 0,
-   "draw": 5,
+   "draw": 4,
    "v": "e6",
    "by": "openai/gpt-oss-120b",
    "tries": 3,
-   "refix": 1
+   "refix": 2
   },
   "dice#n": {
    "ex": "It's your turn to throw the dice.",
@@ -32312,16 +32312,17 @@
   },
   "erythrocyte#n": {
    "ex": "Erythrocytes are red blood cells.",
-   "ps": "a single bright red disc-shaped cell floating in clear liquid, no nucleus visible",
-   "sc": "a single bright red disc-shaped cell floating in clear liquid, no nucleus visible",
-   "check": "Is there a red disc-shaped cell without a nucleus that transports oxygen?",
-   "cap": "a bright red disc-shaped cell floating in clear liquid",
-   "key": "a bright red disc-shaped cell; no nucleus visible",
+   "ps": "a large red biconcave disc cell with several small blue circles around it",
+   "sc": "a large red biconcave disc cell with several small blue circles around it",
+   "check": "Is there a red disc-shaped cell with a concave center that carries oxygen?",
+   "cap": "a red disc-shaped cell with tiny blue dots around it",
+   "key": "a red biconcave disc shape; small blue circles attached to it",
    "who": 0,
-   "draw": 4,
+   "draw": 5,
    "v": "e6",
    "by": "openai/gpt-oss-120b",
-   "tries": 2
+   "tries": 3,
+   "refix": 2
   },
   "erythropoiesis#n": {
    "ex": "Other mechanisms may also play a role, such as reduced erythropoiesis.",
@@ -73431,8 +73432,8 @@
    "by": "openai/gpt-oss-120b"
   },
   "reactance#n": {
-   "e4bad": 2,
-   "badAt": "2026-11-21T02:47:36.945Z"
+   "e4bad": 3,
+   "badAt": "2026-11-22T01:36:05.142Z"
   },
   "reactant#n": {
    "ex": "Two reactants yield two products.",
@@ -89782,15 +89783,17 @@
   },
   "technocracy#n": {
    "ex": "Technocracy is a government by scientific method and controlled by technical people.",
-   "ps": "a man and a woman in lab coats sit at a round table with a city model",
-   "sc": "a man and a woman in lab coats sit at a round table with a city model",
-   "check": "Are the people making decisions as technical experts governing a city?",
-   "cap": "two lab‑coated experts discussing a city model at a table",
-   "key": "a man and a woman in lab coats; a city model on the table",
+   "ps": "three people in white lab coats sit around a round table with a large gear in the center, discussing",
+   "sc": "three people in white lab coats sit around a round table with a large gear in the center, discussing",
+   "check": "Are a group of technical experts gathered together making decisions?",
+   "cap": "three lab-coated experts gather around a gear on a table",
+   "key": "three people in white lab coats; a large gear on the table",
    "who": 2,
    "draw": 4,
    "v": "e6",
-   "by": "openai/gpt-oss-120b"
+   "by": "openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 2
   },
   "technological#adj": {
    "ex": "Rapid technological change is creating new jobs while making others disappear.",
@@ -90506,17 +90509,17 @@
   },
   "testis#n": {
    "ex": "Fish usually have two testes of a similar size.",
-   "ps": "a cartoon male rabbit shows two small round bulges near its lower abdomen",
-   "sc": "a cartoon male rabbit shows two small round bulges near its lower abdomen",
-   "check": "Are there two small round bulges on the lower side of the male animal?",
-   "cap": "a male rabbit with two small round bulges near its belly",
-   "key": "two small round bulges on the lower abdomen of a male animal",
-   "who": 1,
+   "ps": "two smooth pinkish oval shapes hanging from a simple outline of a male pelvis",
+   "sc": "two smooth pinkish oval shapes hanging from a simple outline of a male pelvis",
+   "check": "Is there a pair of small oval glands located near the lower abdomen?",
+   "cap": "two pink oval glands shown near a male torso",
+   "key": "two smooth pinkish oval shapes; location near lower abdomen",
+   "who": 0,
    "draw": 4,
    "v": "e6",
    "by": "openai/gpt-oss-120b",
    "tries": 3,
-   "refix": 1
+   "refix": 2
   },
   "tetra#n": {
    "ex": "The bleeding heart tetra is readily available.",
@@ -98414,15 +98417,17 @@
   },
   "weft#n": {
    "ex": "The right hand adds extra threads to the weft.",
-   "ps": "a woman weaves on a loom, showing clear horizontal threads crossing vertical ones",
-   "sc": "a woman weaves on a loom, showing clear horizontal threads crossing vertical ones",
-   "check": "Are there horizontal threads woven through vertical threads on the loom?",
-   "cap": "woman weaving on loom, horizontal threads cross vertical ones",
-   "key": "horizontal threads crossing vertical warp on loom",
-   "who": 1,
-   "draw": 5,
+   "ps": "a loom displays vertical warp threads and a horizontal weft thread being woven through",
+   "sc": "a loom displays vertical warp threads and a horizontal weft thread being woven through",
+   "check": "Is there a horizontal thread crossing vertical threads in a fabric?",
+   "cap": "a loom shows crossing threads forming fabric",
+   "key": "horizontal weft thread crossing vertical warp threads; the loom clearly shows both thread sets",
+   "who": 0,
+   "draw": 4,
    "v": "e6",
-   "by": "openai/gpt-oss-120b"
+   "by": "openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 1
   },
   "weigh#v": {
    "ex": "How much do you weigh?",
