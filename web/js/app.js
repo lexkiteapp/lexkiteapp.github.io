@@ -282,6 +282,8 @@ App.cpackI18n.lcardui = { es: 'cpack/i18n/lcardui-es.js', pt: 'cpack/i18n/lcardu
 App.esGx = { en: 'cpack/es/gx-en.js', vi: 'cpack/es/gx-vi.js', es: 'cpack/es/gx-es.js', pt: 'cpack/es/gx-pt.js', fr: 'cpack/es/gx-fr.js', de: 'cpack/es/gx-de.js', id: 'cpack/es/gx-id.js', th: 'cpack/es/gx-th.js', zh: 'cpack/es/gx-zh.js', ja: 'cpack/es/gx-ja.js', ko: 'cpack/es/gx-ko.js', hi: 'cpack/es/gx-hi.js', ar: 'cpack/es/gx-ar.js', ru: 'cpack/es/gx-ru.js', tr: 'cpack/es/gx-tr.js' }; // giải thích ngữ pháp TBN theo ngôn ngữ người học, tải lười 1 gói (js/espr.js)
 App.esX = { lv: { A1: 'cpack/es/x-A1.js', A2: 'cpack/es/x-A2.js', B1: 'cpack/es/x-B1.js' }, ui: { en: 'cpack/es/x-ui-en.js', vi: 'cpack/es/x-ui-vi.js', es: 'cpack/es/x-ui-es.js', pt: 'cpack/es/x-ui-pt.js', fr: 'cpack/es/x-ui-fr.js', de: 'cpack/es/x-ui-de.js', id: 'cpack/es/x-ui-id.js', th: 'cpack/es/x-ui-th.js', zh: 'cpack/es/x-ui-zh.js', ja: 'cpack/es/x-ui-ja.js', ko: 'cpack/es/x-ui-ko.js', hi: 'cpack/es/x-ui-hi.js', ar: 'cpack/es/x-ui-ar.js', ru: 'cpack/es/x-ui-ru.js', tr: 'cpack/es/x-ui-tr.js' } }; // luyện định dạng DELE/SIELE W5 (cpack/es-app/exam-ui.js): đề theo cấp + nhãn theo ngôn ngữ người học, tải lười
 App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-es.js', pt: 'cpack/es/px-pt.js', fr: 'cpack/es/px-fr.js', de: 'cpack/es/px-de.js', id: 'cpack/es/px-id.js', th: 'cpack/es/px-th.js', zh: 'cpack/es/px-zh.js', ja: 'cpack/es/px-ja.js', ko: 'cpack/es/px-ko.js', hi: 'cpack/es/px-hi.js', ar: 'cpack/es/px-ar.js', ru: 'cpack/es/px-ru.js', tr: 'cpack/es/px-tr.js' }; // gói phát âm TBN W3 theo ngôn ngữ người học (js/espr-pron.js): nhãn giao diện + giải thích 8 chủ đề
+  // Màn Stitch (gói u1*) theo trang: ST2.<màn> được dò ở đúng trang đó; trang không có trong bảng (lesson, study, league, goal…) nạp đủ UX1_ALL như trước
+  const UX1_ALL = ['u1home', 'u1rev', 'u1prac', 'u1lg', 'u1ex', 'u1me'], UX1_SCR = { home: ['u1home'], path: ['u1home'], review: ['u1rev'], practice: ['u1prac'], me: ['u1me'], dict: [] };
   const ROUTE_BUNDLE = {
     call: 'call',
     cambridge: ['listening', 'cambridge'],
@@ -424,7 +426,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
     if (!home) x.push('review', 'practice', 'leagues', 'me', 'streak', 'exam-readiness'); if (matchMedia('(min-width: 1024px)').matches) x.push('today-desk', 'today-rail');
     if (home && !((state.game || {}).xp > 0)) x.push('today-new'); return x.map(k => `css/st-v2-${k}.css`); };
   let n0x = 0;
-  const LZCSS = n => /^(ux1|i18nx|i18nl)$/.test(n) ? [] : ['css/lazy-ui.css']; // CSS trang lười tách khỏi style.css (scripts/test/css-lazy.mjs) – ux1 vẽ ngay nên không chờ
+  const LZCSS = n => /^(ux1|u1\w+|i18nx|i18nl)$/.test(n) ? [] : ['css/lazy-ui.css']; // CSS trang lười tách khỏi style.css (scripts/test/css-lazy.mjs) – ux1 vẽ ngay nên không chờ
   const need1 = n => bundleP[n] || (inflight++, bundleP[n] = manifest().then(() => Promise.all(BUNDLES[n].map(loadScript).concat([].concat(BCSS[n] || [], n === 'ux1' ? UX1X() : [], LZCSS(n)).map(loadCss)))).catch(e => { delete bundleP[n]; throw e; }).finally(() => { inflight--; }));
   App.need = (...names) => Promise.all([...(window.I18N && I18N.lang() !== 'vi' ? ['i18nx', 'i18nl'].map(need1) : []), ...names.map(need1)]);
   App.loaded = n => !!bundleP[n];
@@ -554,7 +556,10 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
     const late = PAINT_FIRST.has(name) ? b.filter(x => PAINT_LATE.has(x) && !App.loaded(x)) : [];
     if (late.length) b.splice(0, b.length, ...b.filter(x => !late.includes(x)));
     if (ux1 && name === 'library') b.push('libv2'); // Thư viện Stitch v2 (ux1-lib.js bọc routes.library, chỉ khi cờ ux1)
-    if (ux1) b.unshift('ux1'); // 🧭 cờ ux1: 5 tab + bản đồ – gói nạp trước mọi trang (lần sau tức thì)
+    if (ux1) { // 🧭 cờ ux1: 5 tab + bản đồ – lõi nạp trước mọi trang (lần sau tức thì); màn Stitch chỉ nạp cùng trang cần nó, phần còn lại sau lần vẽ đầu
+      const scr = UX1_SCR[name] || UX1_ALL; b.unshift('ux1', ...scr);
+      if (scr !== UX1_ALL) App.calm(() => App.need(...UX1_ALL.filter(x => !App.loaded(x))).catch(() => {}), 2500);
+    }
     // Khung màn đặt NGAY lúc chạm: docs/PERF-SCROLL.md
     const reviewHub = ux1 && name === 'review' && query.get('hub') === '1';
     document.body.classList.toggle('focus', !reviewHub && (name === 'review' || (name === 'lesson' && !(ux1 && arg !== 'go')) || (name === 'practice' && !!arg) || !!(window.ExitGuard && ExitGuard.focusFor(name, arg, query.toString())))); document.documentElement.classList.remove('lk-fo'); // màn học mở thẳng từ link: gỡ lớp ẩn khung của script đầu trang (data-lkf) khi route() đã đặt focus
