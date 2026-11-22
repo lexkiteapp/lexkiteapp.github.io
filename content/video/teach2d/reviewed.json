@@ -36718,6 +36718,28 @@
     "e": "The cat jumped in the box. I'm dead!",
     "c": "lexkite.com"
    }
+  },
+  "t2s_pigout": {
+   "template": "slang",
+   "hook": "The whole pizza is gone!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py slang gates v1 (data == slang.json card · level <= B1 NGSL except the slang + its forms · hook = the card situation <= 6 words · one card = one episode per language · 7-12 s) + slang.mjs bank gates (ad-safety, IPA, lengths)",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "6859cf859c75",
+   "script": {
+    "h": "The whole pizza is gone!",
+    "k": "Pig out!",
+    "m": "Eat way too much.",
+    "e": "We pigged out on pizza last night.",
+    "c": "lexkite.com"
+   }
   }
  }
 }

@@ -12,7 +12,8 @@ for i, it in enumerate(B.values()):
     except AssertionError as e: bad.setdefault(str(e.args[0][0] if isinstance(e.args[0], tuple) else e.args[0]), []).append(it['key']); continue
     assert not publish.check(ep), (it['key'], publish.check(ep))
     assert ep['expr'] in X['x'], it['key']
-    assert bool(ep.get('pose')) == bool(X['x'][ep['expr']].get('gesture')), it['key']
+    assert not ep.get('pose') or X['x'][ep['expr']].get('gesture'), it['key']   # a pose only for EXPR names that have one (dropped when the card would pass 12 s)
+    npose = globals().get('npose', 0) + bool(ep.get('pose')); globals()['npose'] = npose
     assert [l['id'] for l in ep['lines']] == ['h', 'k', 'm', 'e', 'c'] and ep['lines'][3].get('quiz'), it['key']
     var[ep['data']['variant']] += 1; ok += 1
 share = ok / len(B)

@@ -506,12 +506,15 @@ def slang(p):   # Slang Card: hook + STRONG expression (drawn face or approved p
     assert var in ('quiz', 'misuse'), var
     XP = X['x'][it['expr']]; g = XP.get('gesture'); ex = it['example']
     said = it['key'][0].upper() + it['key'][1:]
-    lines = [L('h', it['hook'], 1.0 if g else 0.55),                    # the reaction silence: pose gesture (rig_plan T.pose) or the drawn face held (T.expr)
+    def secs(ls): return sum(len(words(l['text'])) for l in ls) / (2.55 * SLANG_SPEED) + sum(l['pause'] for l in ls)   # = make()'s estimate
+    for pose_ok in ((True, False) if g else (False,)):   # the approved pose image needs a long reaction silence; when the card would pass 12 s the drawn face carries the expression alone
+        lines = [L('h', it['hook'], 1.25 if pose_ok else 0.55),                   # the reaction silence: a pose gesture needs a voiced gap >= rig_plan LONG (1.2 s) to split the speak blocks; a drawn face just holds (T.expr)
              L('k', said.rstrip('.!?') + '!', 0.25),
              L('m', it['mean'], 0.2),
              L('e', ex['text'], 2.2 if var == 'quiz' else 2.4, quiz=True),   # silent card in this pause: 2-option quiz (answer lights on 'c') or the misuse card
              L('c', 'lexkite.com', 0.5)]
-    pose = dict(clip=X['g'][g]['pose'], after='h') if g else None
+        if secs(lines) <= SLANG_SECS[1]: break
+    pose = dict(clip=X['g'][g]['pose'], after='h') if g and pose_ok else None
     return dict(lines=lines, expr=it['expr'], **({'pose': pose} if pose else {}),
                 data=dict(key=it['key'], forms=it.get('forms') or [], ipa=it['ipa'], mean=it['mean'], define=it['def'], vi=it['vi'], reg=it['reg'], region=it['region'], level=it['level'],
                           era=it['era'], theme=it['theme'], example=ex, variant=var, quiz=it['quiz'], misuse=it['misuse']),

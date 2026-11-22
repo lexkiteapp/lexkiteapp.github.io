@@ -13920,6 +13920,52 @@
    "in": {
     "key": "I'm dead"
    }
+  },
+  {
+   "id": "t2s_pigout",
+   "template": "slang",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 4,
+   "area": "phrases",
+   "point": "slang:pig out",
+   "hash": "6859cf859c75",
+   "heads": [
+    "slang:pig out"
+   ],
+   "taught": [
+    "pig out",
+    "pigged out"
+   ],
+   "facts": {
+    "key": "pig out",
+    "ipa": "/ˈpɪɡ ˈaʊt/",
+    "mean": "Eat way too much.",
+    "def": "To eat a very large amount of food happily.",
+    "hook": "The whole pizza is gone!",
+    "example": {
+     "ctx": "After a party",
+     "text": "We pigged out on pizza last night."
+    },
+    "quiz": {
+     "ask": "To \"pig out\" is to…",
+     "options": [
+      "eat too much",
+      "go to a farm"
+     ],
+     "answer": 0
+    },
+    "misuse": {
+     "text": "Don't tell your host she made you 'pig out'.",
+     "why": "It sounds like an insult."
+    },
+    "expr": "laugh",
+    "reg": "casual",
+    "region": "US"
+   },
+   "in": {
+    "key": "pig out"
+   }
   }
  ]
 }

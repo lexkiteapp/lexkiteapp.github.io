@@ -88,7 +88,7 @@ export function schedule(T, lines, B) {
     const g0 = B[i].end + FIN + 0.02, room = B[i + 1].start - g0, F = CORE.FADE;
     const l = [...lines].reverse().find(x => wStart(x) <= B[i].v1) || lines[0];
     if (isQuiz(l)) continue;   // quiz countdown: thinking face only (the ring is the focus)
-    if (XP && !XP.gesture && l.id === hook) continue;   // drawn-face expression (smug, smirk, shrug…): the face IS the reaction – no pose image over it
+    if (XP && !(T.pose && T.pose.clip) && l.id === hook) continue;   // drawn-face expression (smug, smirk, shrug…): the face IS the reaction – no pose image over it
     let name = null, need = 2 * F + 0.5;
     if (react && react.after === l.id && react.g) { name = react.g; need = 2 * F + 0.3; }
     else if (l.repeat) name = 'point';           // "say it with me" -> your turn
