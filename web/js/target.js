@@ -8,7 +8,7 @@
     es: { em: '🇪🇸', name: 'Español', home: '#/practice/esd', routes: { vocab: '#/practice/es', skills: '#/practice/esp', tests: '#/practice/esx' }, speech: 'es-419', rec: 'es-MX' /* Web Speech nhận giọng chưa có es-419 ổn định → es-MX (chuẩn trung tính gần nhất) */, fallback: ['es-MX', 'es-US'], prefix: 'es', kokoro: { 'es-419': 'ef_dora', 'es-MX': 'ef_dora', 'es-US': 'ef_dora' }, voices: { ama: 'ef_dora', carlos: 'em_alex' }, wordFiles: false,
       flag: 'es_course', pct: 'es_course_pct', kill: 'es_kill', ls: 'lk.es', label: 'Español (beta)' },
     fr: { em: '🇫🇷', name: 'Français', home: '#/practice/frd', routes: { vocab: '#/practice/fr', skills: '#/practice/frp', tests: '#/practice/frx' }, speech: 'fr-FR', rec: 'fr-FR', fallback: ['fr-CA', 'fr-BE'], prefix: 'fr', kokoro: { 'fr-FR': 'ff_siwis', 'fr-CA': 'ff_siwis', 'fr-BE': 'ff_siwis' }, voices: { ama: 'ff_siwis', carlos: 'ff_siwis' }, wordFiles: false,
-      ready: false, flag: 'fr_course', pct: 'fr_course_pct', kill: 'fr_kill', ls: 'lk.fr', label: 'Français (bêta)' },
+      flag: 'fr_course', pct: 'fr_course_pct', kill: 'fr_kill', ls: 'lk.fr', label: 'Français (bêta)' },
     ja: { em: '🇯🇵', name: '日本語', speech: 'ja-JP', rec: 'ja-JP', fallback: [], prefix: 'ja', kokoro: { 'ja-JP': 'jf_alpha' }, voices: { ama: 'jf_alpha', carlos: 'jm_kumo' }, wordFiles: false,
       ready: false, home: '#/tlprep/ja', flag: 'ja_course', pct: 'ja_course_pct', kill: 'ja_kill', ls: 'lk.ja', label: '日本語 (ベータ)' },
     // ko (korean-course.md §3/§7): Kokoro-82M không có giọng Hàn → kokoro rỗng (giọng file/giọng máy ko-KR); giọng giáo viên chốt sau lượt mẫu word-audio-ko
