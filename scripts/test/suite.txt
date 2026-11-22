@@ -105,6 +105,7 @@ node scripts/test/ui-audit-rules.mjs
 node scripts/test/account-ui.mjs
 node scripts/test/ext-popup.mjs
 node scripts/test/ext-selection.mjs
+node scripts/test/ext-tl-guess.mjs
 node scripts/test/sel-translate.mjs
 node scripts/test/ext-orphan.mjs
 node scripts/test/social-proxy.mjs
