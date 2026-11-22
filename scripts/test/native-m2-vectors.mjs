@@ -5,6 +5,8 @@ import { lessonVectors } from '../native/gen-lesson.mjs';
 import { audioVectors } from '../native/gen-audio.mjs';
 import { teachGen, teachBundle, rigVectorText, BUNDLED_POSES, TEACHERS } from '../native/gen-teach.mjs';
 import { vocabVectors } from '../native/gen-vocab.mjs';
+import { createRequire } from 'node:module';
+const RIG_CORE = createRequire(import.meta.url)('../../web/js/teacher-rig.js');
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..'), R = p => path.join(ROOT, p), rd = p => fs.readFileSync(R(p), 'utf8');
 const SH = 'native/shared/gen', IOS = 'native/ios/LexkiteKit/Sources/LKDesign/Resources/teach';
@@ -82,7 +84,7 @@ const RV = T1.vectorJson, RD = T1.rigJson;
   ok(rigid && RV.matrix.length === 12, 'matrix vectors are rigid (rotation + uniform scale + translation, no shear)');
   ok(RV.paint.length === 2 * 14 && RV.paint.every(p => p.parts.length === 5 && p.parts[3].length > 3) && RV.paint.filter(p => p.who === 'ama').every(p => p.parts[4].length === 0) && RV.paint.filter(p => p.who === 'carlos').every(p => p.parts[4].length > 0), 'face paint ops: 5 layers per state (eyes×2, brows, mouth, moustache only for Carlos)');
   ok(RV.mood.length === 10 && RV.mood[0].out.pose === 'cheer' && RV.mood[2].out.pose === 'concern' && RV.mood[3].out.pose === 'encourage' && RV.mood[9].out === null, 'mood vector: answer ok → cheer, wrong → concern, 2nd wrong → encourage, unknown event → null');
-  ok(TEACHERS.every(w => RD.people[w] && Object.values(RD.people[w].gestures).filter(g => g.kind === 'pose').every(g => g.file.endsWith(`still-${g.pose}.webp`))) && RD.limits.tilt === 6 && Object.keys(RD.emotions).length === 9, 'rig.json: both teachers, every gesture resolves to a still, 9 emotions, limits from the web core');
+  ok(TEACHERS.every(w => RD.people[w] && Object.values(RD.people[w].gestures).filter(g => g.kind === 'pose').every(g => g.file.endsWith(`still-${g.pose}.webp`))) && RD.limits.tilt === 6 && Object.keys(RD.emotions).join() === Object.keys(RIG_CORE.EMOTIONS).join(), `rig.json: both teachers, every gesture resolves to a still, ${Object.keys(RIG_CORE.EMOTIONS).length} emotions == web core, limits from the web core`);
 }
 
 // ---- 4) audio vectors ----

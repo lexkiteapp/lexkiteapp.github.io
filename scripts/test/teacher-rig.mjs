@@ -96,6 +96,14 @@ for (const who of ['ama', 'carlos']) {
   console.log(`ℹ chờ gesture bank (footage riêng, dùng tạm tư thế gần nhất đã duyệt): ${pend.join(', ')}`);
 }
 
+// ---- 4b) bộ biểu cảm mạnh EXPR (thẻ lóng: content/say-native/slang.json expr ∈ EXPR, scripts/say-native/slang.mjs): mỗi tên → biểu cảm có thật + cử chỉ ảnh tư thế có thật; trong giới hạn khớp ----
+{
+  const NAMES = Object.keys(R.EXPR), bad = NAMES.length >= 14 ? [] : [`EXPR có ${NAMES.length} tên (< 14)`];
+  for (const x of NAMES) { const E = R.EXPR[x]; if (!E || !R.EMOTIONS[E.emo] || (E.gesture && (!R.GESTURES[E.gesture] || R.GESTURES[E.gesture].kind !== 'pose'))) bad.push(x); }
+  for (const [n, e] of Object.entries(R.EMOTIONS)) if (Math.abs(e.tilt || 0) * 0.6 > L.tilt || (e.brow || 0) > 1 || (e.brow || 0) < -0.3 || (e.knit || 0) > 1 || (e.o || 0) > 1) bad.push(n + ' (vượt khớp)');
+  ok(!bad.length, `biểu cảm mạnh: ${NAMES.length} tên đều có mặt vẽ + cử chỉ đã duyệt, mọi biểu cảm trong giới hạn khớp ${bad.length ? '– lỗi ' + bad.join(' ') : ''}`);
+}
+
 // ---- 5) speak/quiet: miệng về X ≤ 80 ms khi tiếng dừng; tư thế đang hiện mờ ra khi nói ----
 {
   const [k, p] = K[0], c = R.cuesOf(p), M = R.machine('ama', {}); let T = 0, stopAt = Math.min(0.8, c.dur / 2);

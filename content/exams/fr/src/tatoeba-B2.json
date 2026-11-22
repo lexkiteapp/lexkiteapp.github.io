@@ -1,0 +1,320 @@
+{
+ "v": 1,
+ "source": "Tatoeba (tatoeba.org), CC BY 2.0 FR",
+ "license": "https://creativecommons.org/licenses/by/2.0/fr/",
+ "lv": "B2",
+ "items": [
+  {
+   "id": 7375,
+   "au": "Bruno",
+   "s": "J'___ toujours les lettres à la plume et à l'encre.",
+   "a": "écris",
+   "o": [
+    "écrivons",
+    "écris",
+    "écrit"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 12460750,
+   "au": "lbdx",
+   "s": "Si tu ___ toujours autant, tu vas prendre du poids.",
+   "a": "manges",
+   "o": [
+    "manges",
+    "mangeons",
+    "mange"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 10641596,
+   "au": "felix63",
+   "s": "Parlons de la manière dont nous ___ y parvenir d'ici lundi !",
+   "a": "pouvons",
+   "o": [
+    "pouvons",
+    "peux",
+    "peut"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 13058599,
+   "au": "carlosalberto",
+   "s": "On ___ un oiseau à son chant, et un homme à sa façon de parler.",
+   "a": "reconnaît",
+   "o": [
+    "reconnaît",
+    "reconnais",
+    "reconnaissons"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 6705539,
+   "au": "lucasmg123",
+   "s": "On ___ l'habitude de beaucoup nager dans ce fleuve quand on était petits.",
+   "a": "avait",
+   "o": [
+    "avait",
+    "avais",
+    "avions"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 8274155,
+   "au": "dolomitt",
+   "s": "Tu ___ dire qu'on a fait tout ça en vain ?",
+   "a": "veux",
+   "o": [
+    "voulons",
+    "veux",
+    "veut"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 8126689,
+   "au": "Aiji",
+   "s": "Nous ___ considérer le problème du point de vue d'un enfant.",
+   "a": "devrions",
+   "o": [
+    "devrais",
+    "devrait",
+    "devrions"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 4590843,
+   "au": "sacredceltic",
+   "s": "Nous ___ ravis de vous compter au nombre de nos invités.",
+   "a": "serons",
+   "o": [
+    "serons",
+    "serai",
+    "seras"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 1531830,
+   "au": "Rovo",
+   "s": "Ils ___ trente minutes de retard par rapport à l'horaire prévu.",
+   "a": "ont",
+   "o": [
+    "ont",
+    "ai",
+    "as"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 10519216,
+   "au": "Igider",
+   "s": "J’___ passé une nuit blanche à étudier pour mon examen de sciences.",
+   "a": "ai",
+   "o": [
+    "a",
+    "ai",
+    "as"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 9675010,
+   "au": "Micsmithel",
+   "s": "Il a poussé un profond soupir quand il ___ finalement descendu.",
+   "a": "est",
+   "o": [
+    "es",
+    "suis",
+    "est"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 130598,
+   "au": "nimfeo",
+   "s": "Il ___ au zoo en deux ou trois minutes de marche.",
+   "a": "fut",
+   "o": [
+    "fut",
+    "fus",
+    "fûmes"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 8104420,
+   "au": "felix63",
+   "s": "J'___ que ton séjour chez nous t'a plu.",
+   "a": "espère",
+   "o": [
+    "espérons",
+    "espère",
+    "espères"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 1542399,
+   "au": "sacredceltic",
+   "s": "Elle m'a demandée si elle ___ utiliser le téléphone.",
+   "a": "pouvait",
+   "o": [
+    "pouvait",
+    "pouvais",
+    "pouvions"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 3464858,
+   "au": "Lulantis",
+   "s": "On ___ se moquer de toi si tu parles comme ça.",
+   "a": "va",
+   "o": [
+    "vais",
+    "va",
+    "vas"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 4743710,
+   "au": "dafp",
+   "s": "Qu'est-ce que t'as à rigoler, je ___ sérieusement.",
+   "a": "parle",
+   "o": [
+    "parles",
+    "parlons",
+    "parle"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 1205280,
+   "au": "rene1596",
+   "s": "Nous l'avons vu par hasard, quand il ___ de ce magasin.",
+   "a": "sortait",
+   "o": [
+    "sortait",
+    "sortais",
+    "sortions"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 12260994,
+   "au": "LdjuherTaqvaylit",
+   "s": "Vous vous ___ noyé dans l'océan, n'est-ce pas ?",
+   "a": "êtes",
+   "o": [
+    "es",
+    "suis",
+    "êtes"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 6889270,
+   "au": "GB3",
+   "s": "Mes parents ne m'auraient pas autorisée à faire ça lorsque j'___ plus jeune.",
+   "a": "étais",
+   "o": [
+    "étais",
+    "était",
+    "étions"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 11563267,
+   "au": "Aiji",
+   "s": "Je ___ passé à la librairie et j'ai acheté un livre intéressant.",
+   "a": "suis",
+   "o": [
+    "es",
+    "suis",
+    "est"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 11547674,
+   "au": "Adelpa",
+   "s": "Comment voulez-vous que les gens se fassent entendre dans ce pays ?",
+   "k": "l"
+  },
+  {
+   "id": 12543,
+   "au": "Archibald",
+   "s": "Chaque fois que le prix des cigarettes augmente, beaucoup de gens essayent d'arrêter de fumer.",
+   "k": "l"
+  },
+  {
+   "id": 10327733,
+   "au": "Julien_PDC",
+   "s": "Veux-tu bien te mêler de ce qui te regarde ?",
+   "k": "l"
+  },
+  {
+   "id": 7817994,
+   "au": "Mablaise",
+   "s": "La veuve a dû faire face à de nombreuses difficultés.",
+   "k": "l"
+  },
+  {
+   "id": 5662098,
+   "au": "Aiji",
+   "s": "Cela ne vous dérangerait-il pas de partager votre table ?",
+   "k": "l"
+  },
+  {
+   "id": 1787536,
+   "au": "sacredceltic",
+   "s": "Il n'est pas nécessaire qu'elle s'y rende en personne.",
+   "k": "l"
+  },
+  {
+   "id": 13948563,
+   "au": "Rovo",
+   "s": "Est-ce que vous pouvez nous dire ce qui vous a le plus inspiré ?",
+   "k": "l"
+  },
+  {
+   "id": 12247608,
+   "au": "felix63",
+   "s": "C'est presque aussi bon que la recette de ma grand-mère !",
+   "k": "l"
+  },
+  {
+   "id": 1224732,
+   "au": "sacredceltic",
+   "s": "Aussitôt que j'ai terminé de faire ça, je vous aiderai.",
+   "k": "l"
+  },
+  {
+   "id": 13838116,
+   "au": "Olcyx",
+   "s": "Son manque d'attention comme à légèrement me taper sur les nerfs.",
+   "k": "l"
+  },
+  {
+   "id": 3320730,
+   "au": "Malape",
+   "s": "Mon petit frère et ses amis jouent presque toujours dehors.",
+   "k": "l"
+  },
+  {
+   "id": 8972,
+   "au": "Petro1",
+   "s": "Tout ce que tu as à faire, c'est d'obéir à mes ordres.",
+   "k": "l"
+  }
+ ]
+}
