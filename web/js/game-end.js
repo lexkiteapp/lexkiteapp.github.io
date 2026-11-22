@@ -1,5 +1,13 @@
-/* 🏁 Màn kết chung của mini-game (game-system.md P3) trên khung Stitch 'lesson-complete'; gói lười 'gend'. Người gọi thưởng XP trước.
-   GameEnd.show(view, { chip, head, acc, xp, tiles: [[số, nhãn]…] ≤ 4 (không số thật → ẩn), ring2?, sub, more, words, again, rev, share, icon, close, good }). */
+/* 🏁 Màn kết chung của mini-game (docs/specs/game-system.md P3) trên khung Stitch 'lesson-complete' – cùng khung với màn kết bài học
+   (lesson/ui.js finishV2) và Luyện tiếng Tây Ban Nha (espr.js App.esEnd). Gói lười 'gend'. Người gọi tự thưởng XP (App.reward) trước khi gọi.
+   GameEnd.show(view, o) – o = {
+     chip, head,            // nhãn chế độ (chip trên) · dòng tiêu đề (kỷ lục / thắng thách đấu…)
+     acc, xp,               // % chính xác (vòng ngoài + nhãn) · XP đã thưởng
+     tiles: [[giá trị, nhãn]…] ≤ 4 – ô nào không có số thật thì không truyền (ẩn, không vẽ số giả)
+     ring2,                 // 0..1 vòng trong (bỏ trống → ẩn vòng trong)
+     sub, more, words,      // câu khen · HTML phụ (từ cần ôn…) · từ chạm để nghe [{ word }]
+     again: { label, fn }, rev: { label, href, icon }, share: { label, fn }, icon, close, good
+   } → trả về gốc màn. Chấm tuần/chuỗi = Game.weekDots/runOf (một luật với bài học). */
 (function (g) {
   const t = (s, v) => (g.t ? g.t(s, v) : s);
   const unit = (n, u) => { try { return new Intl.NumberFormat((g.I18N && I18N.lang && I18N.lang()) || undefined, { style: 'unit', unit: u, unitDisplay: 'long' }).format(n).replace(/^(?!.*\p{Nd})(.*)$/u, m => n + ' ' + m); } catch (e) { return n + ' ' + u; } }; // như lesson/ui.js unitFmt
