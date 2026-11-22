@@ -350,6 +350,7 @@ node scripts/test/vocab-img-judge-budget.mjs
 node scripts/test/vocab-img-worth.mjs
 node scripts/test/lastmod.mjs
 node scripts/test/sitemap-lastmod.mjs
+node scripts/test/indexnow-wait.mjs
 node scripts/test/outcomes.mjs
 node scripts/test/today-debt.mjs
 node scripts/test/ci-shards-busy.mjs
