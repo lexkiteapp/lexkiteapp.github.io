@@ -4,7 +4,9 @@
   "de": "glänzen; mit Bravour bestehen; eine Eins holen",
   "es": "sacar la máxima nota; clavar; aprobar con nota perfecta",
   "fr": "cartonner; réussir brillamment",
-  "hi": "बहुत बढ़िया प्रदर्शन करना; पूरे अंक पाना"
+  "hi": "बहुत बढ़िया प्रदर्शन करना; पूरे अंक पाना",
+  "id": "mendapat nilai A; berhasil meraih nilai sempurna",
+  "ja": "満点を取る; 最高点を取る"
  },
  "aesthetic": {
   "ar": "جمالي; أنيق",
@@ -12,70 +14,90 @@
   "es": "estético; con estilo",
   "fr": "esthétique; stylé",
   "hi": "सौंदर्यपूर्ण; आकर्षक; शैलीदार",
-  "id": "estetis; estetik"
+  "id": "estetis; estetik",
+  "ja": "美的な; おしゃれな; センスがいい",
+  "ko": "감각적인; 미적인"
  },
  "afk": {
   "ar": "بعيد عن لوحة المفاتيح; غير متصل",
   "de": "AFK; abwesend; nicht am Platz",
   "es": "ausente; lejos del teclado",
   "fr": "hors clavier; AFK; absent",
-  "hi": "कीबोर्ड से दूर; अनुपस्थित"
+  "hi": "कीबोर्ड से दूर; अनुपस्थित",
+  "id": "afk; tidak di depan komputer; offline",
+  "ja": "離席中の; 席を外している"
  },
  "anytime": {
   "ar": "على الرحب والسعة; في أي وقت",
   "de": "gerne; jederzeit; keine Ursache",
   "es": "cuando quieras; no hay de qué; a la orden",
   "fr": "Avec plaisir; Pas de problème; De rien",
-  "hi": "कोई बात नहीं; कभी भी; आपका स्वागत है"
+  "hi": "कोई बात नहीं; कभी भी; आपका स्वागत है",
+  "id": "sama-sama; kapan saja; tidak masalah",
+  "ja": "どういたしまして; いつでもどうぞ"
  },
  "arm and a leg": {
   "ar": "مبلغ باهظ جداً; ثمن باهظ",
   "de": "ein Vermögen kosten; ein kleines Vermögen kosten",
   "es": "costar un ojo de la cara; costar un riñón",
   "fr": "coûter les yeux de la tête; coûter un bras",
-  "hi": "बेहद महंगा; बहुत कीमती"
+  "hi": "बेहद महंगा; बहुत कीमती",
+  "id": "mahal sekali; harganya selangit",
+  "ja": "とんでもなく高い; 高すぎる; 金がかかりすぎる"
  },
  "asap": {
   "ar": "في أسرع وقت ممكن; بأسرع ما يمكن",
   "de": "so schnell wie möglich; umgehend",
   "es": "lo antes posible; cuanto antes",
   "fr": "dès que possible; au plus vite; le plus tôt possible",
-  "hi": "जितनी जल्दी हो सके; यथाशीघ्र"
+  "hi": "जितनी जल्दी हो सके; यथाशीघ्र",
+  "id": "segera; sesegera mungkin",
+  "ja": "できるだけ早く; なるべく早く"
  },
  "awesome": {
   "ar": "رائع; ممتاز",
   "de": "großartig; super; klasse",
   "es": "genial; increíble; fantástico",
   "fr": "génial; super; formidable",
-  "hi": "शानदार; बेहतरीन; बहुत बढ़िया"
+  "hi": "शानदार; बेहतरीन; बहुत बढ़िया",
+  "id": "keren; mantap; hebat",
+  "ja": "すごい; 最高; 素晴らしい"
  },
  "back on my feet": {
   "ar": "عاد إلى قوامه; عاد إلى نشاطه",
   "de": "wieder auf den Beinen sein; wieder fit sein",
   "es": "de nuevo en pie; recuperado; volver a estar activo",
   "fr": "remis sur pied; rétabli",
-  "hi": "फिर से स्वस्थ; चंगा; रोगमुक्त"
+  "hi": "फिर से स्वस्थ; चंगा; रोगमुक्त",
+  "id": "sembuh kembali; kembali pulih",
+  "ja": "元気を取り戻した; 回復した"
  },
  "back to square one": {
   "ar": "العودة إلى نقطة الصفر; العودة للمربع الأول",
   "de": "Zurück zum Anfang; wieder bei Null anfangen; wieder von vorne beginnen",
   "es": "volver al punto de partida; empezar de cero",
   "fr": "retour à la case départ; repartir de zéro",
-  "hi": "शुरुआती बिंदु पर लौटना; शून्य पर लौटना"
+  "hi": "शुरुआती बिंदु पर लौटना; शून्य पर लौटना",
+  "id": "kembali ke titik awal; mulai lagi dari nol; kembali ke awal",
+  "ja": "最初に戻る; やり直し"
  },
  "ballpark figure": {
   "ar": "رقم تقريبي; تقدير أولي",
   "de": "ungefähre Angabe; grobe Schätzung; Richtwert",
   "es": "cifra aproximada; cifra estimada; cifra orientativa",
   "fr": "estimation approximative; chiffre approximatif",
-  "hi": "अनुमानित आंकड़ा; मोटा-मोटा अंदाज़ा"
+  "hi": "अनुमानित आंकड़ा; मोटा-मोटा अंदाज़ा",
+  "id": "perkiraan kasar; angka perkiraan",
+  "ja": "概算; 大まかな数字; ざっくりした見積もり"
  },
  "banger": {
   "ar": "أغنية حماسية; أغنية رائعة",
   "de": "Knaller; Hammer; Banger",
   "es": "temazo; temazo musical; canción pegajosa",
   "fr": "tube; gros son",
-  "hi": "ज़बरदस्त गाना; शानदार गाना"
+  "hi": "ज़बरदस्त गाना; शानदार गाना",
+  "id": "lagu hits; lagu keren",
+  "ja": "神曲; 超ヒット曲; すごい曲"
  },
  "basic": {
   "ar": "عادي; تقليدي; ممل",
@@ -83,14 +105,18 @@
   "es": "básico; muy común; poco original",
   "fr": "banal; basique",
   "hi": "मामूली; साधारण; आम",
-  "id": "pasaran; biasa saja"
+  "id": "pasaran; biasa saja",
+  "ja": "ありきたりな; 凡庸な",
+  "ko": "기본; 뻔한; 평범한"
  },
  "beats me": {
   "ar": "لا أعلم; لا أعرف",
   "de": "weiß ich nicht; hab keine Ahnung",
   "es": "ni idea; no lo sé",
   "fr": "je ne sais pas; je n'en sais rien",
-  "hi": "मुझे नहीं पता; मुझे क्या पता"
+  "hi": "मुझे नहीं पता; मुझे क्या पता",
+  "id": "saya tidak tahu; gak tahu",
+  "ja": "わからない; 見当がつかない"
  },
  "beef": {
   "ar": "نزاع; خلاف",
@@ -98,7 +124,9 @@
   "es": "disputa; pleito; problema",
   "fr": "embrouille; problème; rancune",
   "hi": "अनबन; दुश्मनी; झगड़ा",
-  "id": "perseteruan; percekcokan"
+  "id": "perseteruan; percekcokan",
+  "ja": "確執; もめ事; 争い",
+  "ko": "불화; 다툼; 갈등"
  },
  "behind schedule": {
   "ar": "متأخر عن الجدول; متأخر عن الموعد; متأخر عن الخطة",
@@ -120,7 +148,9 @@
   "de": "beste Freundin; BFF; beste Kumpeline",
   "es": "mejor amiga; mejor amigo; compinche",
   "fr": "meilleure amie; meilleure pote; bestie",
-  "hi": "पक्का दोस्त; ख़ास दोस्त; जिगरी यार"
+  "hi": "पक्का दोस्त; ख़ास दोस्त; जिगरी यार",
+  "id": "sahabat karib; bestie; teman dekat",
+  "ja": "親友; ベストフレンド"
  },
  "bet": {
   "ar": "تم; اتفقنا; ماشي",
@@ -128,46 +158,62 @@
   "es": "vale; de acuerdo; ok",
   "fr": "OK; Ça marche; Entendu",
   "hi": "पक्का; मंजूर है; ठीक है",
-  "id": "setuju; deal; siap"
+  "id": "setuju; deal; siap",
+  "ja": "了解; いいね; わかった",
+  "ko": "알겠어; 좋아; 그래"
  },
  "big mood": {
   "ar": "شعور يمثلني جداً; ينطبق علي تماماً",
   "de": "passt genau; voll mein Mood",
   "fr": "c'est trop moi; c'est le mood; c'est exactement mon feeling",
-  "hi": "बिल्कुल दिल की बात; पूरी तरह सहमत"
+  "hi": "बिल्कुल दिल की बात; पूरी तरह सहमत",
+  "id": "bener banget; relate banget",
+  "ja": "あるある; 共感"
  },
  "big w": {
   "ar": "فوز كبير; انتصار كبير",
   "de": "großer Sieg; großer Erfolg; großer Gewinn",
   "es": "gran victoria; gran triunfo",
   "fr": "grosse victoire; super succès; gros gain",
-  "hi": "बड़ी जीत; शानदार सफलता"
+  "hi": "बड़ी जीत; शानदार सफलता",
+  "id": "kemenangan besar; kemenangan luar biasa; big w",
+  "ja": "大勝利; 大成功"
  },
  "big yikes": {
+  "ar": "يا للحرج; يا للفضيحة",
   "de": "igitt; echt igitt; mega igitt",
   "es": "qué vergüenza; qué horror",
   "fr": "c'est trop gênant; c'est vraiment nul",
-  "hi": "बहुत शर्मनाक; बेहद अजीब"
+  "hi": "बहुत शर्मनाक; बेहद अजीब",
+  "id": "memalukan banget; wah, yikes",
+  "ja": "やばいね; 恥ずかしいね; ひどいね"
  },
  "binge-watch": {
   "ar": "يشاهد حلقات متتالية; يتابع بشغف دون توقف",
   "de": "marathonartig schauen; binge-watchen",
   "es": "maratonear; ver en maratón",
   "fr": "regarder en rafale; marathonner",
-  "hi": "लगातार देखना; एक ही बार में कई एपिसोड देखना"
+  "hi": "लगातार देखना; एक ही बार में कई एपिसोड देखना",
+  "id": "maraton menonton; menonton tanpa henti",
+  "ja": "一気見する; 連続視聴する"
  },
  "blank out": {
   "ar": "يتوقف عقله عن التفكير; ينسى فجأة",
+  "de": "Blackout haben; den Faden verlieren; aus dem Gedächtnis verschwinden",
   "es": "quedarse en blanco; perder la memoria momentáneamente",
   "fr": "bloquer; avoir un trou de mémoire",
-  "hi": "सब भूल जाना; दिमाग़ ख़ाली हो जाना"
+  "hi": "सब भूल जाना; दिमाग़ ख़ाली हो जाना",
+  "id": "lupa ingatan; mendadak lupa; pikiran menjadi kosong",
+  "ja": "頭が真っ白になる; 記憶が飛ぶ"
  },
  "blooper": {
   "ar": "خطأ مضحك; سقطة مضحكة",
   "de": "Patzer; Fehltritt; Lapsus",
   "es": "error gracioso; metedura de pata",
   "fr": "gag; bouffonnerie; gaffe",
-  "hi": "मज़ेदार गलती; हास्यास्पद भूल"
+  "hi": "मज़ेदार गलती; हास्यास्पद भूल",
+  "id": "kesalahan lucu; kekeliruan kocak",
+  "ja": "NGシーン; 失敗"
  },
  "blow a fuse": {
   "ar": "ينفجر غضبًا; يثور",
@@ -175,7 +221,9 @@
   "es": "perder los estribos; volverse loco",
   "fr": "péter un câble; perdre les nerfs",
   "hi": "आपा खोना; अचानक आगबबूला होना; बुरी तरह भड़कना",
-  "id": "meledak marah; sangat murka"
+  "id": "meledak marah; sangat murka",
+  "ja": "かんしゃくを起こす; 激怒する; 頭に来る",
+  "ko": "폭발하다; 화가 나다"
  },
  "bored stiff": {
   "ar": "مملّ جدًا; مملّ حتى الموت",
@@ -183,47 +231,59 @@
   "es": "muerto de aburrimiento; aburrido hasta la muerte",
   "fr": "mort d'ennui; ennuyé à mort",
   "hi": "अत्यधिक ऊबा हुआ; बेहद उकताया हुआ",
-  "id": "bosan setengah mati; sangat bosan"
+  "id": "bosan setengah mati; sangat bosan",
+  "ja": "退屈で死にそう; 退屈でたまらない"
  },
  "bougie": {
   "ar": "متأنق بابتذال; متأنق بتباهٍ; برجوازي",
   "de": "schick; protzig; snobistisch",
   "es": "pijo; pretencioso; lujoso",
   "fr": "chic; prétentieux; snob",
-  "hi": "दिखावटी; तड़क-भड़क वाला"
+  "hi": "दिखावटी; तड़क-भड़क वाला",
+  "id": "mewah; pamer",
+  "ja": "気取った; 高級志向の; 上等志向の"
  },
  "brain rot": {
   "ar": "تفاهات الإنترنت; محتوى مفسد للذهن",
   "es": "basura mental; contenido basura",
-  "hi": "दिमाग ख़राब करने वाला कंटेंट; व्यर्थ सामग्री"
+  "hi": "दिमाग ख़राब करने वाला कंटेंट; व्यर्थ सामग्री",
+  "id": "pembusukan otak; tontonan tidak berguna",
+  "ja": "脳みそが腐るようなコンテンツ; 脳腐れ"
  },
  "break the bank": {
   "ar": "يكلف ثروة; يستنزف الميزانية",
   "de": "ein Vermögen kosten; zu teuer sein",
   "es": "romper la banca; costar un dineral",
   "fr": "casser la tirelire; coûter une fortune",
-  "hi": "जेब ख़ाली कर देना; बहुत महंगा होना"
+  "hi": "जेब ख़ाली कर देना; बहुत महंगा होना",
+  "id": "menguras kantong; membuat bangkrut",
+  "ja": "破産するほど高い; 財布が破綻するほど高い; 予算オーバーになる"
  },
  "bro": {
   "ar": "أخ; صديق",
   "de": "Bruder; Kumpel; Bro",
   "es": "hermano; colega; compa",
   "fr": "frérot; pote; mec",
-  "hi": "भाई; यार; दोस्त"
+  "hi": "भाई; यार; दोस्त",
+  "id": "sobat; bro; kawan"
  },
  "bruh": {
   "ar": "يا رجل!; غير معقول!",
   "de": "Alter; ey",
   "es": "¡no manches!; ¡no me lo creo!",
   "fr": "sérieux; frérot",
-  "hi": "अरे यार; भाई यार"
+  "hi": "अरे यार; भाई यार",
+  "id": "bro; gila",
+  "ja": "マジで; うそでしょ"
  },
  "buddy": {
   "ar": "رفيق; صديق",
   "de": "Kumpel; Freund; Kamarad",
   "es": "amigo; compañero; colega",
   "fr": "copain; pote; ami",
-  "hi": "दोस्त; यार; साथी"
+  "hi": "दोस्त; यार; साथी",
+  "id": "teman; sahabat; buddy",
+  "ja": "相棒; 友達"
  },
  "bummed out": {
   "ar": "محبط; مكتئب قليلًا",
@@ -231,56 +291,73 @@
   "es": "decepcionado; triste; desanimado",
   "fr": "déprimé; déçu; abattu",
   "hi": "उदास; निराश",
-  "id": "kecewa; sedih"
+  "id": "kecewa; sedih",
+  "ja": "がっかりした; 落ち込んだ",
+  "ko": "우울한; 실망한"
  },
  "bummer": {
   "ar": "أمر محبط; خيبة أمل",
   "de": "Mist; ärgerlich; schade",
   "es": "qué lástima; qué pena",
   "fr": "déception; c'est dommage",
-  "hi": "निराशाजनक बात; अफ़सोस की बात"
+  "hi": "निराशाजनक बात; अफ़सोस की बात",
+  "id": "kekecewaan; menyedihkan",
+  "ja": "残念; がっかり"
  },
  "bundle up": {
   "ar": "ارتدِ ملابس دافئة; غطّ نفسك بالملابس",
   "de": "sich warm anziehen; sich einmummeln",
   "es": "abrígate; cúbrete bien; ponte ropa abrigada",
   "fr": "s'emmitoufler; bien se couvrir",
-  "hi": "गर्म कपड़े पहनना; अच्छी तरह ढकना"
+  "hi": "गर्म कपड़े पहनना; अच्छी तरह ढकना",
+  "id": "pakai pakaian hangat; berpakaian berlapis",
+  "ja": "厚着する; 暖かく着込む"
  },
  "burn the midnight oil": {
   "ar": "يسهر الليالي في العمل; يجهد نفسه ليلاً",
   "de": "die Nacht durcharbeiten; bis spät in die Nacht arbeiten; die Nacht durchackern",
   "es": "trabajar hasta altas horas; quemarse las pestañas; trabajar de noche",
   "fr": "travailler tard; faire des heures sup",
-  "hi": "देर रात तक मेहनत करना; रात-दिन एक करना"
+  "hi": "देर रात तक मेहनत करना; रात-दिन एक करना",
+  "id": "begadang; bekerja hingga larut malam",
+  "ja": "徹夜する; 夜遅くまで働く"
  },
  "burned out": {
   "ar": "مُرهق; مستنزف",
   "de": "ausgebrannt; erschöpft; überarbeitet",
   "es": "agotado; quemado; exhausto",
   "fr": "épuisé; surmené",
-  "hi": "अत्यधिक थका हुआ; काम से थका-मांदा; क्लान्त"
+  "hi": "अत्यधिक थका हुआ; काम से थका-मांदा; क्लान्त",
+  "id": "kelelahan; kelelahan total; burnout",
+  "ja": "燃え尽きた; 疲れ果てた; 燃え尽き症候群の"
  },
  "bussin": {
   "ar": "لذيذ جدًا; طعمه لا يُقاوم; شهي",
   "de": "mega lecker; hammer lecker; geil",
   "es": "delicioso; riquísimo; exquisito",
   "fr": "délicieux; trop bon",
-  "hi": "बेहद स्वादिष्ट; अत्यंत जायकेदार"
+  "hi": "बेहद स्वादिष्ट; अत्यंत जायकेदार",
+  "id": "enak banget; mantap; lezat",
+  "ja": "超うまい; 最高においしい",
+  "ko": "존맛인; 기가 막히게 맛있는"
  },
  "busy as a bee": {
   "ar": "مشغول كال نحل; مشغول جدًا",
   "de": "bis über beide Ohren beschäftigt; voll beschäftigt; wie eine Biene beschäftigt",
   "es": "muy ocupado; ajetreado; con mil cosas",
   "fr": "sur les dents; très occupé",
-  "hi": "बहुत व्यस्त; मधुमक्खी की तरह व्यस्त"
+  "hi": "बहुत व्यस्त; मधुमक्खी की तरह व्यस्त",
+  "id": "sangat sibuk; padat kerja; seperti lebah",
+  "ja": "忙しい; 手が回らない; バタバタしている"
  },
  "by the way": {
   "ar": "بالمناسبة; على فكرة",
   "de": "übrigens; nebenbei",
   "es": "por cierto; a propósito",
   "fr": "au fait; à propos",
-  "hi": "वैसे; वैसे एक और बात"
+  "hi": "वैसे; वैसे एक और बात",
+  "id": "ngomong-ngomong; omong-omong",
+  "ja": "ところで; ちなみに"
  },
  "call it a day": {
   "ar": "نقفل اليوم; نختتم اليوم",
@@ -303,7 +380,9 @@
   "es": "señalar; criticar; denunciar",
   "fr": "dénoncer; signaler; remettre en cause",
   "hi": "गलती उजागर करना; टोकना",
-  "id": "menegur; membongkar kesalahan"
+  "id": "menegur; membongkar kesalahan",
+  "ja": "指摘する; 公に非難する",
+  "ko": "지적하다; 비판하다"
  },
  "calm down": {
   "ar": "اهدأ; هدئ نفسك; استرخي",
@@ -336,22 +415,29 @@
   "zh": "受不了; 受不了"
  },
  "carry": {
+  "ar": "يحمل; ينقذ الفريق",
+  "de": "führen; dominieren; das Team tragen",
   "es": "liderar; llevar; salvar",
-  "hi": "अकेले दम पर जिताना; टीम को जीत दिलाना"
+  "hi": "अकेले दम पर जिताना; टीम को जीत दिलाना",
+  "ja": "キャリーする; チームを勝たせる; 引っ張る"
  },
  "catch some zs": {
   "ar": "ينام; ينام قليلًا",
   "de": "ein Nickerchen machen; ein bisschen schlafen; kurz schlafen",
   "es": "echar una siesta; dormir un poco",
   "fr": "faire une sieste; piquer un somme",
-  "hi": "थोड़ी नींद लेना; सोना; झपकी लेना"
+  "hi": "थोड़ी नींद लेना; सोना; झपकी लेना",
+  "id": "tidur; ngantuk",
+  "ja": "寝る; 睡眠を取る; 仮眠する"
  },
  "catch you later": {
   "ar": "أراك لاحقًا; أشوفك بعدين",
   "de": "bis später; wir sehen uns später; bis dann",
   "es": "nos vemos luego; hasta luego; te veo después",
   "fr": "à plus tard; à bientôt; on se voit plus tard",
-  "hi": "बाद में मिलते हैं; फिर मिलते हैं"
+  "hi": "बाद में मिलते हैं; फिर मिलते हैं",
+  "id": "sampai jumpa lagi; nanti ya; sampai nanti",
+  "ja": "またね; ではまた"
  },
  "cheap": {
   "ar": "بخيل; رخيص; مقتصد",
@@ -359,14 +445,19 @@
   "es": "tacaño; barato; de mala calidad",
   "fr": "radin; avare; bon marché",
   "hi": "कंजूस; मक्खीचूस",
-  "id": "pelit; kikir"
+  "id": "pelit; kikir",
+  "ja": "ケチな; 安っぽい",
+  "ko": "인색한; 싸구려; 값싼"
  },
  "cheat day": {
   "ar": "يوم السماح بالأكل; يوم الغش الغذائي",
   "de": "Schummeltag; Cheat‑Day",
   "es": "día de trampa; día libre; día de indulgencia",
   "fr": "jour de triche",
-  "hi": "चीट डे; नियम-मुक्ति का दिन"
+  "hi": "चीट डे; नियम-मुक्ति का दिन",
+  "id": "hari bebas diet; hari makan sepuasnya; hari ngemil",
+  "ja": "チートデイ; 好きなものを食べていい日",
+  "ko": "치팅 데이"
  },
  "cheer up": {
   "ar": "افرح; تشجع",
@@ -374,14 +465,18 @@
   "es": "¡Ánimo!; ¡Anímate!",
   "fr": "remonte le moral; sois plus joyeux",
   "hi": "खुश होना; हिम्मत रखना",
-  "id": "gembiralah; bersemangatlah"
+  "id": "gembiralah; bersemangatlah",
+  "ja": "元気出して; 気分を上げて",
+  "ko": "힘내; 기운 내"
  },
  "cheers": {
   "ar": "شكرًا; مع السلامة",
   "de": "Danke; Prost; Tschüss",
   "es": "¡salud!; ¡gracias!; ¡hasta luego!",
   "fr": "merci; salut; à la tienne",
-  "hi": "धन्यवाद; शुक्रिया; अलविदा"
+  "hi": "धन्यवाद; शुक्रिया; अलविदा",
+  "id": "makasih; terima kasih; cheers",
+  "ja": "ありがとう; じゃあね"
  },
  "cheesy": {
   "ar": "مبتذل; سخيف; مبالغ فيه",
@@ -389,21 +484,28 @@
   "es": "cursi; empalagoso; chabacano",
   "fr": "kitsch; ringard; niais",
   "hi": "बनावटी; भद्दा",
-  "id": "norak; lebay"
+  "id": "norak; lebay",
+  "ja": "甘ったるい; ダサい",
+  "ko": "진부한; 뻔한; 촌스러운"
  },
  "chef's kiss": {
   "ar": "مثالي تمامًا; لا يُعلى عليه",
   "de": "ein Volltreffer; einfach perfekt",
   "es": "perfecto; de diez",
   "fr": "coup de maître; parfait",
-  "hi": "बिल्कुल परिपूर्ण; लाज़वाब"
+  "hi": "बिल्कुल परिपूर्ण; लाज़वाब",
+  "id": "sempurna sekali; luar biasa; mantap",
+  "ja": "完璧; 最高なもの; 言うことなし",
+  "ko": "완벽함; 최상임"
  },
  "chill": {
   "ar": "يستريح; يهدئ",
   "de": "entspannen; chillen; locker bleiben",
   "es": "relajarse; tranquilizarse; tomarse con calma",
   "fr": "se détendre; chiller; relâcher",
-  "hi": "आराम करना; सुस्ताना; मौज करना"
+  "hi": "आराम करना; सुस्ताना; मौज करना",
+  "id": "santai; leyeh-leyeh; bersantai",
+  "ja": "のんびり過ごす; まったりする"
  },
  "chin up": {
   "ar": "ارفع رأسك; تشجع",
@@ -411,21 +513,27 @@
   "es": "¡Ánimo!; ¡Arriba!",
   "fr": "garde le moral; tiens bon",
   "hi": "हौसला रखना; हिम्मत बनाए रखना",
-  "id": "tetap semangat; jangan berkecil hati"
+  "id": "tetap semangat; jangan berkecil hati",
+  "ja": "顔を上げて; 前向きに",
+  "ko": "고개를 들어; 힘내"
  },
  "chip in": {
   "ar": "يساهم بالمبلغ; يشارك في الدفع",
   "de": "einen Beitrag leisten; einwerfen; mithelfen",
   "es": "aportar; echar una mano",
   "fr": "cotiser; mettre la main à la poche",
-  "hi": "पैसे मिलाकर देना; योगदान देना"
+  "hi": "पैसे मिलाकर देना; योगदान देना",
+  "id": "menyumbang; ikut bayar",
+  "ja": "出資する; お金を出す; 割り勘する"
  },
  "circle back": {
   "ar": "نعود إلى ذلك لاحقًا; نعود للموضوع لاحقًا",
   "de": "später darauf zurückkommen; zurückkommen",
   "es": "volver a retomar; regresar al tema",
   "fr": "y revenir; revenir dessus; revenir sur ce sujet",
-  "hi": "बाद में चर्चा करना; फिर से बात करना"
+  "hi": "बाद में चर्चा करना; फिर से बात करना",
+  "id": "kembali membahas; kembali ke topik",
+  "ja": "後で戻る; 後ほど再度取り上げる"
  },
  "clap back": {
   "ar": "يرد بحدة; يرد بسخرية",
@@ -433,56 +541,80 @@
   "es": "contraatacar; responder con ingenio",
   "fr": "riposter; répliquer; répondre avec une réplique cinglante",
   "hi": "करारा जवाब देना; मुँहतोड़ जवाब देना",
-  "id": "membalas telak; membalas dengan tajam"
+  "id": "membalas telak; membalas dengan tajam",
+  "ja": "鋭く返す; 反論する",
+  "ko": "예리하게 반박하다; 날카롭게 대꾸하다"
  },
  "class act": {
   "ar": "شخص راقٍ; مثال على الرقي",
+  "de": "Musterperson; Vorbild; Gentleman",
   "es": "persona ejemplar; gente con clase",
-  "hi": "गरिमामय व्यक्ति; उच्च श्रेणी का व्यक्ति; उत्कृष्ट व्यक्ति"
+  "fr": "un vrai gentleman; une personne de classe",
+  "hi": "गरिमामय व्यक्ति; उच्च श्रेणी का व्यक्ति; उत्कृष्ट व्यक्ति",
+  "id": "pribadi berkelas; orang beradab",
+  "ja": "品格のある人; 立派な人; 紳士的な人"
  },
  "clickbait": {
   "ar": "عنوان خادع; محتوى جذاب مضلل",
   "de": "Klickköder; Clickbait",
   "es": "cibercebo; anzuelo digital",
   "fr": "piège à clics; appât à clics",
-  "hi": "क्लिकबेट; भ्रामक शीर्षक"
+  "hi": "क्लिकबेट; भ्रामक शीर्षक",
+  "id": "umpan klik; judul jebakan",
+  "ja": "クリックベイト; 釣りタイトル"
  },
  "clingy": {
   "ar": "ملتصق; متعلق",
   "de": "anhänglich; klammernd",
-  "es": "pegajoso; apegado"
+  "es": "pegajoso; apegado",
+  "hi": "चिपकू; बहुत चिपकने वाला",
+  "id": "menempel terus; terlalu melekat; terlalu bergantung",
+  "ja": "甘えん坊の; べったりした"
  },
  "clutch": {
   "ar": "حاسم; في اللحظة الحاسمة",
+  "de": "entscheidend; in entscheidenden Momenten stark; top",
   "es": "decisivo; clave",
   "fr": "décisif; crucial",
-  "hi": "ऐन मौके पर काम आने वाला; निर्णायक समय पर बेहतरीन"
+  "hi": "ऐन मौके पर काम आने वाला; निर्णायक समय पर बेहतरीन",
+  "ja": "決定的な; ここぞという時に頼りになる"
  },
  "come again": {
   "ar": "ماذا قلت؟; أعد من فضلك",
   "de": "Wie bitte?; Noch mal?; Wiederholen bitte?",
   "es": "¿cómo?; ¿puedes repetir?",
-  "hi": "क्या कहा; ज़रा फिर से कहना"
+  "fr": "Comment?; Pardon?; Encore?",
+  "hi": "क्या कहा; ज़रा फिर से कहना",
+  "id": "ulangi; apa?; tolong ulangi",
+  "ja": "もう一度言って; もう一度お願いします"
  },
  "come down with": {
   "ar": "يُصاب بـ; يبتدئ بالمرض",
   "de": "sich anstecken mit; eine Erkältung bekommen",
   "es": "ponerse enfermo; coger un resfriado",
-  "hi": "बीमार पड़ना; रोग की चपेट में आना"
+  "fr": "attraper; tomber malade",
+  "hi": "बीमार पड़ना; रोग की चपेट में आना",
+  "id": "mulai sakit; jatuh sakit",
+  "ja": "風邪をひく; 体調を崩す"
  },
  "comfort food": {
   "ar": "طعام مريح; طعام يريح النفس",
   "de": "Wohlfühlessen; Seelenfutter; Komfortessen",
   "es": "comida reconfortante; plato reconfortante; comfort food",
   "fr": "nourriture réconfortante; plat réconfort",
-  "hi": "मनपसंद भोजन; सांत्वनादायक खाना"
+  "hi": "मनपसंद भोजन; सांत्वनादायक खाना",
+  "id": "makanan penghibur; makanan nyaman; makanan nostalgia",
+  "ja": "コンフォートフード; 心が落ち着く料理; 懐かしい味",
+  "ko": "소울 푸드; 위안을 주는 음식"
  },
  "cooked": {
   "ar": "في ورطة; هالك",
   "de": "fertig; erledigt; am Arsch",
   "es": "estar jodido; estar en aprietos",
   "fr": "cuit; dans la mouise; dans la merde",
-  "hi": "मुसीबत में; संकट में"
+  "hi": "मुसीबत में; संकट में",
+  "id": "terjebak; sudah kena",
+  "ja": "やられた; 終わった; もうだめ"
  },
  "cool": {
   "ar": "رائع; ممتاز; ماشي",
@@ -490,7 +622,9 @@
   "es": "genial; chévere; guay",
   "fr": "cool; sympa; génial",
   "hi": "बढ़िया; ठीक है; बहुत अच्छा",
-  "id": "oke; mantap; sip"
+  "id": "oke; mantap; sip",
+  "ja": "いい; イケてる",
+  "ko": "좋아; 괜찮아; 멋져"
  },
  "corny": {
   "ar": "سخيف; مبتذل; قديم",
@@ -498,7 +632,9 @@
   "es": "cursi; pasado de moda; de mal gusto",
   "fr": "ringard; cliché; démodé",
   "hi": "घिसा-पिटा; बेतुका; पुराना",
-  "id": "garing; norak"
+  "id": "garing; norak",
+  "ja": "古臭い; 陳腐な",
+  "ko": "진부한; 촌스러운; 시시한"
  },
  "could we reschedule": {
   "ar": "هل يمكننا إعادة جدولة الموعد؟; هل يمكننا تعديل الموعد؟",
@@ -519,78 +655,110 @@
   "ar": "احسبني; احسبني معكم; أنا معكم",
   "de": "ich bin dabei; ich mach mit; zähle mich ein",
   "es": "cuenta conmigo; me apunto",
-  "hi": "मुझे भी शामिल करो; मैं भी तैयार हूँ"
+  "fr": "compte sur moi; je suis partant(e)",
+  "hi": "मुझे भी शामिल करो; मैं भी तैयार हूँ",
+  "id": "ikut; aku ikut; masuk",
+  "ja": "参加させて; 入れて"
  },
  "count me out": {
   "ar": "لا تحسب حسابي; استثنني",
   "de": "ich bin raus; ich mach nicht mit; zähle mich nicht dazu",
   "es": "no cuentes conmigo; me excluyo",
   "fr": "pas pour moi; je ne suis pas partant",
-  "hi": "मुझे शामिल मत करो; मुझे बाहर ही रखो"
+  "hi": "मुझे शामिल मत करो; मुझे बाहर ही रखो",
+  "id": "tidak ikut; aku tidak ikut; keluar",
+  "ja": "遠慮します; 参加しません"
  },
  "cracking up": {
   "ar": "يموت من الضحك; يفرط في الضحك",
   "de": "sich totlachen; sich kaputtlachen; laut lachen",
   "es": "partirse de risa; reírse a carcajadas",
   "fr": "mort de rire; se tordre de rire",
-  "hi": "हँस-हँसकर लोट-पोट होना; ज़ोर-ज़ोर से हँसना"
+  "hi": "हँस-हँसकर लोट-पोट होना; ज़ोर-ज़ोर से हँसना",
+  "id": "ketawa terbahak-bahak; tergelak; pecah tawa",
+  "ja": "大笑い; 笑いが止まらない"
  },
  "cram": {
   "ar": "يذاكر على السريع; يحشر",
   "de": "büffeln; pauken; schnell lernen",
   "es": "empollar; estudiar a última hora; repasar intensamente",
   "fr": "bûcher; bachoter",
-  "hi": "रट्टा मारना; अंतिम समय में रटना"
+  "hi": "रट्टा मारना; अंतिम समय में रटना",
+  "id": "belajar mendadak; mengejar materi belajar",
+  "ja": "詰め込む; ギリギリで勉強する"
  },
  "cranky": {
+  "ar": "متقلب المزاج; مُتَجهم; غاضب",
   "de": "grantig; schlecht gelaunt; mürrisch",
   "es": "gruñón; malhumorado",
   "fr": "grognon; irritable; de mauvaise humeur",
-  "hi": "चिड़चिड़ा; बदमिज़ाज"
+  "hi": "चिड़चिड़ा; बदमिज़ाज",
+  "id": "rewel; pemarah; galak",
+  "ja": "機嫌が悪い; イライラした",
+  "ko": "짜증나는; 투덜거리는"
  },
  "cringe": {
   "ar": "مُحرج; يدعو للاشمئزاز",
   "de": "peinlich; fremdschämend; unangenehm",
   "es": "incómodo; vergonzoso; cringe",
   "fr": "gênant; cringe",
-  "hi": "शर्मनाक; असहज करने वाला"
+  "hi": "शर्मनाक; असहज करने वाला",
+  "id": "memalukan; bikin tidak nyaman; canggung",
+  "ja": "恥ずかしい; ぞっとする"
  },
  "crushing it": {
   "ar": "يبدع; يحقق نجاحاً باهراً",
   "de": "du rockst; du bist spitze",
   "es": "la estás rompiendo; lo estás petando; te va genial",
   "fr": "cartonner; déchirer; gérer",
-  "hi": "कमाल करना; बहुत बढ़िया प्रदर्शन करना; छा जाना"
+  "hi": "कमाल करना; बहुत बढ़िया प्रदर्शन करना; छा जाना",
+  "id": "berhasil banget; mantap sekali",
+  "ja": "絶好調だね; やる気満々だね; すごくうまくやっている"
  },
  "cut me some slack": {
   "ar": "تساهل معي; خفف عني",
   "de": "Sei nachsichtig mit mir; gib mir etwas Spielraum; lass mich locker",
   "es": "dame un respiro; sé más indulgente",
   "fr": "sois indulgent; laisse-moi du répit; accorde-moi un peu de marge",
-  "hi": "थोड़ी रियायत देना; थोड़ी ढील देना"
+  "hi": "थोड़ी रियायत देना; थोड़ी ढील देना",
+  "id": "beri saya kelonggaran; jangan terlalu keras pada saya",
+  "ja": "手加減して; 甘くして; 寛大にして"
  },
  "delulu": {
   "ar": "خيالي; غير واقعي",
   "de": "realitätsfern; träumerisch; wahnhaft",
-  "es": "ilusorio; delirante; soñador"
+  "es": "ilusorio; delirante; soñador",
+  "fr": "délirant; illusoire",
+  "hi": "भ्रमित; अवास्तविक आशावादी",
+  "id": "delulu; khayalan; tidak realistis",
+  "ja": "妄想的; 非現実的",
+  "ko": "공상적인; 비현실적인"
  },
  "dig in": {
+  "ar": "يلا كل; تفضلوا بالأكل",
+  "de": "Mahlzeit!; Los, essen!; Ran an den Tisch!",
   "es": "a comer; ¡a comer!; manos a la obra",
-  "fr": "attaquer; passer à table"
+  "fr": "attaquer; passer à table",
+  "hi": "खाना शुरू करो; खा लो",
+  "id": "silakan makan; mari makan; langsung makan"
  },
  "dog tired": {
   "ar": "متعب جدًا; مرهق",
   "de": "hundemüde; total erschöpft; völlig erledigt",
   "es": "cansadísimo; muerto de cansancio; agotadísimo",
   "fr": "crevé; épuisé",
-  "hi": "चूर-चूर थका हुआ; अत्यंत थका हुआ; निढाल"
+  "hi": "चूर-चूर थका हुआ; अत्यंत थका हुआ; निढाल",
+  "id": "lelah banget; capek parah; kelelahan total",
+  "ja": "へとへと; くたくた; 疲れ切った"
  },
  "doomscroll": {
   "ar": "يتصفح الأخبار السيئة بشغف; يغرق في قراءة الأخبار المحبطة",
   "de": "doomscrollen; endlos schlechte Nachrichten scrollen",
   "es": "desplazarse sin cesar por noticias deprimentes; hacer scroll de noticias negativas",
   "fr": "faire du doomscrolling; défiler les mauvaises nouvelles",
-  "hi": "लगातार बुरी ख़बरें पढ़ना; दुखद समाचार स्क्रॉल करना"
+  "hi": "लगातार बुरी ख़बरें पढ़ना; दुखद समाचार स्क्रॉल करना",
+  "id": "doomscroll; membaca berita buruk terus-menerus",
+  "ja": "ドゥームスクロールする; 悲観的にスクロールし続ける"
  },
  "drama": {
   "ar": "دراما; مشاكل",
@@ -598,7 +766,9 @@
   "es": "drama; problemas; conflicto",
   "fr": "drame; embrouille; chahut",
   "hi": "नौटंकी; बखेड़ा; फ़साद",
-  "id": "drama; keributan"
+  "id": "drama; keributan",
+  "ja": "騒ぎ; もめ事",
+  "ko": "소란; 다툼; 트러블"
  },
  "dressed to impress": {
   "ar": "مُرتدٍ بأناقة; لابس بأفضل مظهر",
@@ -606,7 +776,9 @@
   "es": "bien vestido; vestido para impresionar",
   "fr": "habillé pour impressionner; habillé pour faire bonne impression",
   "hi": "प्रभावशाली पोशाक पहने; सजे-धजे; बेहतरीन कपड़ों में",
-  "id": "berpakaian sangat rapi; berdandan memukau"
+  "id": "berpakaian sangat rapi; berdandan memukau",
+  "ja": "目立つように着飾る; 印象的に装う; かっこよく着る",
+  "ko": "멋내게 차려입다; 인상 깊게 입다"
  },
  "drip": {
   "ar": "ستايل; مظهر أنيق",
@@ -614,7 +786,9 @@
   "es": "estilo; flow",
   "fr": "look stylé; style",
   "hi": "शानदार स्टाइल; कूल लुक; स्टाइलिश कपड़े",
-  "id": "gaya busana keren; pakaian modis"
+  "id": "gaya busana keren; pakaian modis",
+  "ja": "イケてる服; かっこいいコーデ; スタイリッシュな服",
+  "ko": "멋; 패션 센스"
  },
  "drives me up the wall": {
   "ar": "يزعجني جدًا; يُغضّبني",
@@ -622,49 +796,62 @@
   "es": "me saca de quicio; me vuelve loco",
   "fr": "me tape sur les nerfs; me rend fou",
   "hi": "नाक में दम करना; अत्यधिक परेशान करना",
-  "id": "membuat sangat jengkel; bikin naik darah"
+  "id": "membuat sangat jengkel; bikin naik darah",
+  "ja": "イライラさせる; 腹が立つ",
+  "ko": "미치게 짜증나요; 화가 나"
  },
  "drop by": {
   "ar": "يزور عفويًا; يمرّ لزيارة سريعة; يزور بدون موعد",
   "de": "vorbeischauen; kurz vorbeikommen",
   "es": "pasar por; dar una vuelta",
   "fr": "passer voir; faire un saut",
-  "hi": "ऐसे ही मिलने आ जाना; चक्कर लगाना"
+  "hi": "ऐसे ही मिलने आ जाना; चक्कर लगाना",
+  "id": "singgah; mampir; datang sebentar",
+  "ja": "立ち寄る; ちょっと寄る"
  },
  "dude": {
   "ar": "شاب; رجل",
   "de": "Alter; Kumpel; Typ",
   "es": "tío; colega; amigo",
   "fr": "mec; gars; type",
-  "hi": "यार; दोस्त; बंदा"
+  "hi": "यार; दोस्त; बंदा",
+  "id": "bro; sob; kawan"
  },
  "early bird": {
   "ar": "مستيقظ مبكر; صبي الصباح",
   "de": "Frühaufsteher; Morgenmensch; Frühaufsteherin",
   "es": "madrugador; persona madrugadora",
   "fr": "lève-tôt; matinal",
-  "hi": "तड़के उठने वाला व्यक्ति; सुबह जल्दी उठने वाला"
+  "hi": "तड़के उठने वाला व्यक्ति; सुबह जल्दी उठने वाला",
+  "id": "orang yang bangun pagi; pagi-pagi; orang pagi",
+  "ja": "早起きの人; 朝型人間; 早起きさん"
  },
  "easy peasy": {
   "ar": "سهل للغاية; غاية في السهولة",
   "de": "kinderleicht; super einfach; ein Kinderspiel",
   "es": "pan comido; muy fácil; facilísimo",
   "fr": "facile comme tout; c'est du gâteau",
-  "hi": "बेहद आसान; बहुत सरल"
+  "hi": "बेहद आसान; बहुत सरल",
+  "id": "gampang banget; mudah sekali; super mudah",
+  "ja": "超簡単; 楽勝"
  },
  "epic fail": {
   "ar": "فشل ذريع; خيبة أمل كبيرة",
   "de": "epischer Fehlschlag; großer Reinfall; totaler Reinfall",
   "es": "fracaso épico; desastre total",
   "fr": "fail épique; gros flop; échec monumental",
-  "hi": "भारी विफलता; बड़ी नाकामी"
+  "hi": "भारी विफलता; बड़ी नाकामी",
+  "id": "kegagalan besar; gagal total",
+  "ja": "大失敗; とんでもない失敗"
  },
  "epic win": {
   "ar": "نصر ملحمي; فوز أسطوري",
   "de": "epischer Sieg; großer Triumph; epischer Erfolg",
   "es": "victoria épica; gran victoria",
   "fr": "victoire épique; gros triomphe; super victoire",
-  "hi": "ज़बरदस्त जीत; शानदार विजय"
+  "hi": "ज़बरदस्त जीत; शानदार विजय",
+  "id": "kemenangan epik; kemenangan luar biasa; kemenangan besar",
+  "ja": "大勝利; 圧勝"
  },
  "era": {
   "ar": "مرحلة; حقبة",
@@ -672,20 +859,27 @@
   "es": "época; fase",
   "fr": "phase; ère",
   "hi": "दौर; चरण",
-  "id": "era; fase"
+  "id": "era; fase",
+  "ja": "時代; 期",
+  "ko": "시기; 시절"
  },
  "extra": {
   "ar": "مبالغ فيه; متصنع",
   "de": "übertrieben; zu viel; dramatisch",
   "es": "exagerado; excesivo; dramático",
   "fr": "exagéré; trop",
-  "hi": "ज़रूरत से ज़्यादा नाटकीय; अतिरंजित"
+  "hi": "ज़रूरत से ज़्यादा नाटकीय; अतिरंजित",
+  "id": "lebay; berlebihan; dramatis",
+  "ja": "やりすぎ; 過剰"
  },
  "facepalm": {
   "ar": "حركة وضع اليد على الوجه; إيماءة الصدمة; وجه باليد",
   "de": "Facepalm; Hand vor das Gesicht; Gesichtspalme",
   "es": "gesto de palmada en la cara; cara de frustración",
-  "fr": "facepalm; geste de la main sur le visage; se taper la tête"
+  "fr": "facepalm; geste de la main sur le visage; se taper la tête",
+  "hi": "हाथ से चेहरा ढकना; निराशा का इशारा",
+  "id": "menepuk dahi; menutup wajah dengan tangan",
+  "ja": "フェイスパーム; 手で顔を覆う"
  },
  "fair enough": {
   "ar": "منطقي; كلام سليم; لا بأس",
@@ -693,20 +887,26 @@
   "es": "está bien; de acuerdo; vale",
   "fr": "d'accord; ça se tient; c'est juste",
   "hi": "बात तो सही है; ठीक है; वाजिब है",
-  "id": "masuk akal; boleh juga"
+  "id": "masuk akal; boleh juga",
+  "ja": "なるほど; 了解; わかる",
+  "ko": "그렇구나; 알겠어; 그럼"
  },
  "fam": {
   "ar": "العائلة; الأصدقاء المقربون",
   "es": "familia; cuates; panas",
   "fr": "famille; les proches; la bande",
-  "hi": "दोस्त; परिवार"
+  "hi": "दोस्त; परिवार",
+  "id": "keluarga; sobat; geng",
+  "ja": "仲間; 家族"
  },
  "fandom": {
   "ar": "مجتمع المعجبين; جماعة المعجبين",
   "de": "Fangemeinde; Fanbase",
   "es": "grupo de fans; comunidad de seguidores; fandom",
   "fr": "communauté de fans; fandom",
-  "hi": "प्रशंसक वर्ग; फ़ैनडम"
+  "hi": "प्रशंसक वर्ग; फ़ैनडम",
+  "id": "fandom; komunitas penggemar",
+  "ja": "ファン層; ファンダム; ファンコミュニティ"
  },
  "fed up": {
   "ar": "سئمت; مللت",
@@ -714,7 +914,9 @@
   "es": "estar harto; estar cansado",
   "fr": "en avoir marre; en avoir assez",
   "hi": "तंग; परेशान",
-  "id": "muak; jenuh"
+  "id": "muak; jenuh",
+  "ja": "うんざりした; 飽き飽きだ",
+  "ko": "지긋지긋해; 짜증난"
  },
  "fine by me": {
   "ar": "لا مانع لدي; يناسبني; ممتاز",
@@ -722,34 +924,45 @@
   "es": "me parece bien; está bien para mí; me vale",
   "fr": "ça me va; c'est bon pour moi; je suis d'accord",
   "hi": "मुझे मंज़ूर है; मुझे चलेगा",
-  "id": "saya sih oke; tidak masalah buat saya"
+  "id": "saya sih oke; tidak masalah buat saya",
+  "ja": "大丈夫; いいですよ; 構わない",
+  "ko": "괜찮아; 나도 괜찮아; 내게는 괜찮아"
  },
  "fire": {
   "ar": "رائع جداً; مذهل",
   "de": "geil; mega; krass",
   "es": "brutal; genial; chévere",
   "fr": "mortel; canon; trop stylé",
-  "hi": "बहुत शानदार; एकदम कड़क; बेहतरीन"
+  "hi": "बहुत शानदार; एकदम कड़क; बेहतरीन",
+  "id": "keren; mantap; kece",
+  "ja": "かっこいい; イケてる; ヤバい"
  },
  "fit check": {
   "ar": "تقييم الزي; فحص الزي",
   "de": "Outfit-Check; Klamotten-Check",
   "es": "chequeo de look; revisión de outfit",
-  "id": "pemeriksaan busana; pamer pakaian"
+  "hi": "पहनावा जाँच; लुक चेक",
+  "id": "pemeriksaan busana; pamer pakaian",
+  "ja": "コーデチェック; 服チェック; コーデ披露",
+  "ko": "코디 확인; 옷 체크"
  },
  "flat broke": {
   "ar": "مفلس تماماً; لا يملك فلساً",
   "de": "pleite; völlig pleite; bankrott",
   "es": "sin blanca; sin un peso",
   "fr": "fauché; sans le sou",
-  "hi": "एकदम कंगाल; जेब ख़ाली"
+  "hi": "एकदम कंगाल; जेब ख़ाली",
+  "id": "sangat miskin; tidak punya uang",
+  "ja": "金欠; 全く金がない; 財布が空っぽ"
  },
  "flex": {
   "ar": "يتفاخر; يفتخر",
   "de": "angeben; protzen",
   "es": "presumir; lucir; fanfarronear",
   "fr": "frimer; se la péter",
-  "hi": "दिखावा करना; शो-ऑफ़ करना"
+  "hi": "दिखावा करना; शो-ऑफ़ करना",
+  "id": "pamer; memamerkan",
+  "ja": "自慢する; 見せびらかす; 誇示する"
  },
  "fomo": {
   "ar": "الخوف من الفوت; الخوف من الفقدان",
@@ -757,21 +970,28 @@
   "es": "miedo a quedarse fuera; ansia de no perderse",
   "fr": "peur de rater; FOMO",
   "hi": "अवसर छूटने का डर; पीछे छूट जाने का भय",
-  "id": "FOMO; takut ketinggalan"
+  "id": "FOMO; takut ketinggalan",
+  "ja": "FOMO; 取り残される不安",
+  "ko": "FOMO; 놓치는 것에 대한 두려움"
  },
  "foodie": {
   "ar": "محب الطعام; هاوي الطعام",
   "de": "Feinschmecker; Gourmet; Foodie",
   "es": "gourmet; amante de la comida; foodie",
   "fr": "gourmand; épicurien",
-  "hi": "भोजनप्रेमी; स्वादप्रेमी"
+  "hi": "भोजनप्रेमी; स्वादप्रेमी",
+  "id": "penikmat makanan; pencinta kuliner; foodie",
+  "ja": "グルメ; 食道楽; フーディー",
+  "ko": "식도락가; 미식가"
  },
  "for real": {
   "ar": "حقاً؟; جاداً",
   "de": "wirklich?; im Ernst; echt",
   "es": "¿en serio?; de verdad",
   "fr": "c'est vrai; pour de vrai",
-  "hi": "सच में; सचमुच"
+  "hi": "सच में; सचमुच",
+  "id": "serius; beneran; sungguh",
+  "ja": "本当に; マジで"
  },
  "for sure": {
   "ar": "بالتأكيد; بكل تأكيد; طبعاً",
@@ -779,7 +999,9 @@
   "es": "claro; seguro; por supuesto",
   "fr": "certainement; c'est sûr; sans doute",
   "hi": "बिल्कुल; पक्का; निश्चित रूप से",
-  "id": "pasti; tentu saja"
+  "id": "pasti; tentu saja",
+  "ja": "絶対に; もちろん; 確かに",
+  "ko": "당연히; 확실히; 틀림없이"
  },
  "frenemy": {
   "ar": "صديق عدائي; صديق منافس",
@@ -787,21 +1009,27 @@
   "es": "amigo-enemigo; rival amistoso",
   "fr": "ami(e) ennemi(e); pseudo‑ami",
   "hi": "कपटी मित्र; छद्म मित्र",
-  "id": "teman tapi musuh"
+  "id": "teman tapi musuh",
+  "ja": "フレネミー; 友敵",
+  "ko": "친구이면서 경쟁자; 불편한 친구"
  },
  "fyi": {
   "ar": "للعلم; للعلم",
   "de": "zur Info; zur Kenntnis",
   "es": "para tu información; para que sepas",
   "fr": "pour info; pour votre information",
-  "hi": "आपकी जानकारी के लिए"
+  "hi": "आपकी जानकारी के लिए",
+  "id": "sebagai informasi; untuk diketahui",
+  "ja": "参考までに; ご参考までに"
  },
  "game plan": {
   "ar": "خطة عمل; استراتيجية",
   "de": "Plan; Vorgehensplan; Strategie",
   "es": "plan de juego; estrategia",
   "fr": "plan d'action; stratégie",
-  "hi": "कार्ययोजना; रणनीति"
+  "hi": "कार्ययोजना; रणनीति",
+  "id": "rencana aksi; strategi; rencana",
+  "ja": "作戦; 計画"
  },
  "get on my nerves": {
   "ar": "يضايقني; يُزعجني",
@@ -809,7 +1037,9 @@
   "es": "me saca de mis casillas; me irrita",
   "fr": "me tape sur les nerfs; m'énerve",
   "hi": "नाक में दम करना; बहुत चिढ़ाना",
-  "id": "membuat jengkel; bikin kesal"
+  "id": "membuat jengkel; bikin kesal",
+  "ja": "神経にさわる; イライラさせる",
+  "ko": "신경 쓰여; 짜증나요"
  },
  "get over it": {
   "ar": "تجاوز الأمر; انسَ الأمر",
@@ -817,48 +1047,63 @@
   "es": "supéralo; déjalo pasar",
   "fr": "oublie ça; passe à autre chose",
   "hi": "उबर जाना; बात भूल जाना",
-  "id": "lupakanlah; ikhlaskanlah"
+  "id": "lupakanlah; ikhlaskanlah",
+  "ja": "気にしないで; 乗り越えて",
+  "ko": "잊어버려; 극복해"
  },
  "get the ball rolling": {
   "ar": "نبدأ العمل; نطلق المشروع",
   "de": "den Ball ins Rollen bringen; loslegen",
   "es": "poner en marcha; dar el pisto",
   "fr": "lancer le mouvement; démarrer les choses; donner le coup d'envoi",
-  "hi": "शुरुआत करना; पहल करना"
+  "hi": "शुरुआत करना; पहल करना",
+  "id": "memulai; memulai proses",
+  "ja": "本格的に始める; まずは始める"
  },
  "gg": {
   "ar": "لعبة جيدة; لعبة ممتعة",
+  "de": "gutes Spiel; gut gespielt",
   "es": "buena partida; buen juego",
   "fr": "bonne partie; bon jeu",
-  "hi": "अच्छा खेल; बढ़िया खेल"
+  "hi": "अच्छा खेल; बढ़िया खेल",
+  "id": "gg; permainan bagus; game bagus",
+  "ja": "お疲れ様; 良い試合だった"
  },
  "ghost": {
   "ar": "يختفي; يتوقف عن الرد",
   "de": "ghosten; ignorieren",
   "es": "desaparecer; ignorar; dar el fantasma",
   "fr": "ghoster; ignorer; faire le fantôme",
-  "hi": "अचानक बातचीत बंद कर देना; संपर्क तोड़ना"
+  "hi": "अचानक बातचीत बंद कर देना; संपर्क तोड़ना",
+  "id": "menghilang; mengabaikan",
+  "ja": "音信不通になる; スルーする"
  },
  "glow-up": {
   "ar": "تحول إيجابي; تحسن ملحوظ",
   "de": "Verwandlung; Aufwertung; Makeover",
   "es": "cambio de look; transformación; mejora",
   "fr": "relooking; transformation",
-  "hi": "कायाकल्प; निखार; सकारात्मक बदलाव"
+  "hi": "कायाकल्प; निखार; सकारात्मक बदलाव",
+  "id": "transformasi; perubahan besar; penampilan baru",
+  "ja": "イメチェン; 大変身; 変身"
  },
  "goat": {
   "ar": "الأفضل على الإطلاق; الأعظم في مجاله",
   "de": "Allergrößter; Beste aller Zeiten; GOAT",
   "es": "el mejor de todos los tiempos; el más grande de la historia; el mejor",
   "fr": "GOAT; meilleur de tous les temps",
-  "hi": "सर्वकालिक महानतम व्यक्ति; सर्वश्रेष्ठ व्यक्ति"
+  "hi": "सर्वकालिक महानतम व्यक्ति; सर्वश्रेष्ठ व्यक्ति",
+  "id": "paling hebat; yang terhebat",
+  "ja": "史上最高; 史上最強; 最高の人"
  },
  "good as new": {
   "ar": "كالجديد; كأنه جديد",
   "de": "wie neu; wieder wie neu",
   "es": "como nuevo; como si fuera nuevo",
   "fr": "comme neuf",
-  "hi": "बिल्कुल ठीक; एकदम नया जैसा"
+  "hi": "बिल्कुल ठीक; एकदम नया जैसा",
+  "id": "sehat kembali; seperti baru",
+  "ja": "新品同様; まるで新しい"
  },
  "good vibes only": {
   "ar": "أجواء إيجابية فقط; مشاعر طيبة فقط",
@@ -866,21 +1111,27 @@
   "es": "solo buenas vibras; solo buenas energías",
   "fr": "que des bonnes ondes; que des ondes positives",
   "hi": "केवल सकारात्मक ऊर्जा; सिर्फ सकारात्मक माहौल",
-  "id": "hanya energi positif; hanya suasana positif"
+  "id": "hanya energi positif; hanya suasana positif",
+  "ja": "良い雰囲気だけ; ポジティブな雰囲気だけ; いい感じだけ",
+  "ko": "긍정적인 에너지만; 긍정적인 기운만"
  },
  "grab a bite": {
   "ar": "نأخذ وجبة سريعة; نتناول لقمة",
   "de": "etwas essen; einen Happen nehmen; schnell etwas essen",
   "es": "echar un bocado; comer algo rápido; tomar algo",
   "fr": "manger un morceau; prendre une bouchée; grignoter",
-  "hi": "जल्दी से कुछ खा लेना; हल्का-फुल्का खाना"
+  "hi": "जल्दी से कुछ खा लेना; हल्का-फुल्का खाना",
+  "id": "makan cepat; makan sebentar; cicipi",
+  "ja": "軽く食べる; 軽食をとる"
  },
  "grind": {
   "ar": "يكدّ; يشتغل بجد; يجهد",
   "de": "schuften; ackern",
   "es": "grindear; currar; esforzarse",
   "fr": "bûcher; trimer",
-  "hi": "कड़ी मेहनत करना; कठिन परिश्रम करना"
+  "hi": "कड़ी मेहनत करना; कठिन परिश्रम करना",
+  "id": "bekerja keras; berjuang; grind",
+  "ja": "コツコツやる; 努力する; 根気よくやる"
  },
  "hang in there": {
   "ar": "اصبر; تمسك",
@@ -888,20 +1139,27 @@
   "es": "aguanta; sigue adelante",
   "fr": "tiens bon; accroche-toi",
   "hi": "हिम्मत रखो; डटे रहो",
-  "id": "bertahanlah; tetap semangat; jangan menyerah"
+  "id": "bertahanlah; tetap semangat; jangan menyerah",
+  "ja": "頑張って; もう少し頑張って; 辛抱して",
+  "ko": "버티다; 힘내다; 조금만 더 참다"
  },
  "hang out": {
   "ar": "يتسكع; يقضي وقتًا مع الأصدقاء",
   "de": "abhängen; rumhängen",
   "es": "pasar el rato; quedar; salir",
   "fr": "traîner; chiller; passer du temps",
-  "hi": "साथ समय बिताना; मज़ाक-मस्ती करना"
+  "hi": "साथ समय बिताना; मज़ाक-मस्ती करना",
+  "id": "nongkrong; bersantai",
+  "ja": "ぶらぶらする; 遊ぶ"
  },
  "hangry": {
   "ar": "غاضب من الجوع; متقلب المزاج من الجوع",
   "de": "hungrig und gereizt; wütend vor Hunger",
   "es": "irritable por hambre; de mal humor por hambre",
-  "hi": "भूख से चिड़चिड़ा; भूख के कारण गुस्से में"
+  "fr": "affamé(e); grognon(ne) de faim",
+  "hi": "भूख से चिड़चिड़ा; भूख के कारण गुस्से में",
+  "id": "lapar marah; galau karena lapar; kesal karena lapar",
+  "ja": "腹が減ってイライラしている"
  },
  "have a lot on my plate": {
   "ar": "مشغول جداً; لديه مشاغل كثيرة",
@@ -923,7 +1181,9 @@
   "de": "Warnung; Hinweis",
   "es": "aviso; advertencia",
   "fr": "avertissement; petit rappel",
-  "hi": "अग्रिम सूचना; पूर्व चेतावनी"
+  "hi": "अग्रिम सूचना; पूर्व चेतावनी",
+  "id": "pemberitahuan singkat; peringatan awal",
+  "ja": "注意喚起; 事前の警告"
  },
  "highkey": {
   "ar": "بصراحة; صراحة",
@@ -931,83 +1191,109 @@
   "es": "abiertamente; claramente; sin rodeos",
   "fr": "franchement; vraiment; carrément",
   "hi": "खुले तौर पर; सचमुच",
-  "id": "sangat; terang-terangan; secara terbuka"
+  "id": "sangat; terang-terangan; secara terbuka",
+  "ja": "かなり; はっきりと; めっちゃ",
+  "ko": "대놓고; 진짜로; 공공연히"
  },
  "hilarious": {
   "ar": "مضحك جداً; فكاهي للغاية",
   "de": "urkomisch; zum Brüllen komisch; witzig",
   "es": "hilarante; desternillante; muy gracioso",
   "fr": "mortel; hilarant; trop drôle",
-  "hi": "अत्यंत हास्यप्रद; बेहद मज़ेदार"
+  "hi": "अत्यंत हास्यप्रद; बेहद मज़ेदार",
+  "id": "lucu banget; kocak; gokil",
+  "ja": "めっちゃ面白い; 笑える"
  },
  "hit me up": {
   "ar": "تواصل معي; راسلني",
   "de": "schreib mir; meld dich; gib mir Bescheid",
   "es": "contáctame; avísame",
   "fr": "contacte-moi; envoie-moi un message",
-  "hi": "मुझे मैसेज करना; मुझसे संपर्क करना"
+  "hi": "मुझे मैसेज करना; मुझसे संपर्क करना",
+  "id": "hubungi aku; kontak aku; pesan aku",
+  "ja": "連絡して; 連絡ちょうだい"
  },
  "hit the books": {
   "ar": "يطالع بجد; يبدأ الدراسة بجدية",
   "de": "die Bücher wälzen; sich an die Bücher setzen; lernen",
   "es": "ponerse a estudiar; ponerse los libros",
   "fr": "se mettre aux études; se mettre à étudier",
-  "hi": "जी-तोड़ पढ़ाई शुरू करना; पढ़ाई में जुट जाना"
+  "hi": "जी-तोड़ पढ़ाई शुरू करना; पढ़ाई में जुट जाना",
+  "id": "mulai belajar giat; belajar serius",
+  "ja": "勉強に取り掛かる; 本格的に勉強する"
  },
  "hit the roof": {
   "ar": "انفجر غيظًا; غضب بشدة",
   "de": "ausflippen; aus der Haut fahren; sich aufregen",
   "es": "perder los estribos; enfadarse mucho",
   "fr": "sortir de ses gonds; exploser",
-  "id": "sangat marah; naik darah; ngamuk"
+  "hi": "भौहें चढ़ना; गुस्से में उफान आना",
+  "id": "sangat marah; naik darah; ngamuk",
+  "ja": "激怒する; カンカンに怒る; 頭にくる",
+  "ko": "노발대발하다; 뚜껑이 열리다; 엄청 화내다"
  },
  "hit the sack": {
   "ar": "اذهب إلى السرير; اذهب للنوم",
   "de": "ins Bett gehen; schlafen gehen; die Kiste drücken",
   "es": "irse a la cama; acostarse",
   "fr": "aller au lit; se coucher",
-  "hi": "सोने जाना; बिस्तर पर जाना"
+  "hi": "सोने जाना; बिस्तर पर जाना",
+  "id": "tidur; pergi tidur; berbaring",
+  "ja": "寝る; 就寝する; 布団に入る"
  },
  "hit the spot": {
   "ar": "كان على المقاس; كان تمامًا; أصاب الهدف",
   "de": "genau das Richtige; trifft den Geschmack; passt perfekt",
   "es": "caer como anillo al dedo; dar en el clavo; ser justo lo que necesitaba",
   "fr": "ça tombe à pic; c'est parfait; ça fait du bien",
-  "hi": "तृप्त कर देना; मन को भा जाना"
+  "hi": "तृप्त कर देना; मन को भा जाना",
+  "id": "pas di lidah; tepat sekali; memuaskan",
+  "ja": "満足させる; 期待通りである"
  },
  "hits different": {
   "ar": "يُحسّس بشعور مختلف; يُعطي إحساسًا مختلفًا",
   "de": "ist etwas Besonderes; fühlt sich besonders an; kommt anders rüber",
   "es": "se siente diferente; te llega de otra manera",
   "hi": "अलग ही मज़ा देना; अलग ही अहसास होना",
-  "id": "terasa berbeda; terasa lebih spesial"
+  "id": "terasa berbeda; terasa lebih spesial",
+  "ja": "格別に感じる; 特別に響く; 違う感じがする",
+  "ko": "특별하게 다가오다; 색다르다; 차원이 다르다"
  },
  "hot mess": {
   "ar": "فوضى عارمة; حالة يرثى لها",
   "de": "Katastrophe; totaler Reinfall; Chaos",
   "es": "un desastre; un caos; un lío",
   "fr": "bordel; bazar",
-  "hi": "अस्त-व्यस्त स्थिति; बदहाल व्यक्ति"
+  "hi": "अस्त-व्यस्त स्थिति; बदहाल व्यक्ति",
+  "id": "berantakan total; kacau balau; bencana",
+  "ja": "めちゃくちゃ; カオス; ドタバタ"
  },
  "hot take": {
   "ar": "رأي مثير للجدل; رأي ساخن",
   "de": "provokante Meinung; heißer Kommentar",
   "es": "opinión polémica; punto de vista controvertido",
   "fr": "opinion controversée; prise de position choc",
-  "hi": "विवादित राय; तीखी राय"
+  "hi": "विवादित राय; तीखी राय",
+  "id": "pendapat kontroversial; opini panas",
+  "ja": "過激な意見; 刺激的な見解"
  },
  "hype": {
   "ar": "ضجة; حماس",
   "de": "Hype; Aufregung",
   "es": "expectativa exagerada; bombo; hype",
   "fr": "engouement; buzz; hype",
-  "hi": "हाइप; अत्यधिक प्रचार"
+  "hi": "हाइप; अत्यधिक प्रचार",
+  "id": "gembar-gembor; hype",
+  "ja": "盛り上がり; 期待感; ブーム"
  },
  "i can't even": {
   "ar": "ما أقدر أتحمل; ما أستطيع الكلام",
   "de": "Ich bin sprachlos; Ich kann gar nicht mehr; Ich krieg's nicht mehr mit",
   "es": "no puedo con esto; me supera; no sé qué decir",
-  "hi": "मैं तो हैरान हूँ; शब्द ही नहीं हैं"
+  "fr": "Je suis sans voix; J'en peux plus",
+  "hi": "मैं तो हैरान हूँ; शब्द ही नहीं हैं",
+  "id": "gak kuat; nggak bisa ngomong; terkejut banget",
+  "ja": "言葉が出ない; もう無理"
  },
  "i haven't decided yet": {
   "ar": "لم أقرر بعد",
@@ -1149,27 +1435,38 @@
   "de": "ich bin erledigt; ich bin fix und fertig; ich bin total müde",
   "es": "estoy agotado; estoy rendido",
   "fr": "je suis crevé; je suis épuisé",
-  "hi": "मैं बहुत थक गया हूँ; मैं पस्त हूँ; मैं चूर हो चुका हूँ"
+  "hi": "मैं बहुत थक गया हूँ; मैं पस्त हूँ; मैं चूर हो चुका हूँ",
+  "id": "capek banget; lelah total; kelelahan",
+  "ja": "ヘトヘトだ; くたくただ; 疲れた"
  },
  "i'm dead": {
   "ar": "سأموت من الضحك; هلكت من الضحك",
   "de": "Ich sterbe; Ich lach mich tot",
   "es": "Me muero; Me muero de risa",
-  "hi": "हँस-हँस कर लोटपोट; हँसी के मारे बुरा हाल"
+  "fr": "Je suis mort(e); Je meurs",
+  "hi": "हँस-हँस कर लोटपोट; हँसी के मारे बुरा हाल",
+  "id": "aku mati; aku ketawa mati; aku terbahak",
+  "ja": "笑い死んだ; 死んだ"
  },
  "i'm down": {
   "ar": "أنا موافق; أنا معك; جاهز",
   "de": "Ich bin dabei; Ich mach mit; Ich bin bereit",
   "es": "me apunto; estoy dentro; cuento conmigo",
   "fr": "je suis partant; je suis chaud; je suis dispo",
-  "hi": "मैं तैयार हूँ; मुझे मंजूर है; मैं शामिल हूँ"
+  "hi": "मैं तैयार हूँ; मुझे मंजूर है; मैं शामिल हूँ",
+  "id": "aku ikut; aku setuju; aku mau",
+  "ja": "やるよ; 参加する; 行くよ",
+  "ko": "나도 할게; 나도 갈게; 참여할게"
  },
  "i'm good": {
   "ar": "شكراً، لا داعي; أنا بخير; لست بحاجة",
   "de": "Ich bin okay; Ich komme klar; Ich brauch nichts",
   "es": "estoy bien; no, gracias; me conformo",
   "fr": "non merci; c'est bon; ça va",
-  "hi": "नहीं, शुक्रिया; मैं ठीक हूँ; रहने दीजिए"
+  "hi": "नहीं, शुक्रिया; मैं ठीक हूँ; रहने दीजिए",
+  "id": "aku baik-baik saja; tidak, terima kasih; aku sudah cukup",
+  "ja": "結構です; 大丈夫です; 遠慮します",
+  "ko": "괜찮아; 고마워, 괜찮아; 사양할게"
  },
  "i'm in": {
   "ar": "أنا مشارك; سأكون معكم; احسبني معكم",
@@ -1177,7 +1474,9 @@
   "es": "estoy dentro; me apunto; cuento conmigo",
   "fr": "j'en suis; je suis partant",
   "hi": "मैं शामिल हूँ; मैं तैयार हूँ; मैं भी हूँ",
-  "id": "saya ikut; ikut"
+  "id": "saya ikut; ikut",
+  "ja": "参加する; 入ります; 行くよ",
+  "ko": "나도 할게; 참여할게; 같이 할게"
  },
  "i'm over it": {
   "ar": "سئمت منه; تعبّت منه",
@@ -1185,61 +1484,79 @@
   "es": "ya estoy harto; me cansé",
   "fr": "j'en ai marre; j'en suis lassé",
   "hi": "मैं इससे ऊब गया हूँ; मुझे अब कोई फ़र्क़ नहीं पड़ता",
-  "id": "aku sudah bosan; aku tak peduli lagi; aku sudah muak"
+  "id": "aku sudah bosan; aku tak peduli lagi; aku sudah muak",
+  "ja": "もううんざりだ; もう飽きた; もうだめだ",
+  "ko": "이제 질렸어; 미련 없어; 관심 없어"
  },
  "i'm starving": {
   "ar": "أنا جائع جدًا; جائع لدرجة الموت",
   "de": "Ich sterbe vor Hunger; Ich habe riesigen Hunger; Ich bin total hungrig",
   "es": "me muero de hambre; tengo un hambre tremenda; estoy hambriento",
   "fr": "je meurs de faim; j'ai une faim de loup; je suis affamé(e)",
-  "hi": "मुझे बहुत तेज़ भूख लगी है; मैं भूख से मरा जा रहा हूँ"
+  "hi": "मुझे बहुत तेज़ भूख लगी है; मैं भूख से मरा जा रहा हूँ",
+  "id": "aku kelaparan banget; aku sangat lapar; aku lapar parah",
+  "ja": "お腹がすいて死にそうだ; とてもお腹が空いている"
  },
  "i'm swamped": {
   "ar": "غارق في الشغل; مشغول جدًا",
   "de": "überlastet sein; total beschäftigt sein; zu viel zu tun haben",
   "es": "estoy hasta el cuello; estoy saturado; tengo mucho trabajo",
   "fr": "je suis débordé; je suis sous l'eau",
-  "hi": "काम में डूबा हुआ; बेहद व्यस्त"
+  "hi": "काम में डूबा हुआ; बेहद व्यस्त",
+  "id": "terlalu sibuk; kewalahan; terjepit pekerjaan",
+  "ja": "忙しすぎる; 仕事が山ほどある; 手が回らない"
  },
  "i'm weak": {
   "ar": "ميت من الضحك; سأموت ضحكاً",
   "de": "Ich lach mich kaputt; Ich kann nicht mehr",
   "es": "Me muero; Me parto",
-  "hi": "हँस-हँस कर बेहाल; बहुत हँसी आना"
+  "fr": "je meurs; je suis mort",
+  "hi": "हँस-हँस कर बेहाल; बहुत हँसी आना",
+  "id": "aku lemah; aku nggak kuat; aku terpingkal"
  },
  "iconic": {
   "ar": "أيقوني; رمزي",
   "de": "ikonisch; legendär",
   "es": "icónico; legendario; inolvidable",
-  "fr": "iconique; marquant; inoubliable"
+  "fr": "iconique; marquant; inoubliable",
+  "id": "ikonik; legendaris; tak terlupakan",
+  "ja": "伝説的な; アイコニックな"
  },
  "idk": {
   "ar": "لا أعرف; ما بعرف",
   "de": "weiß nicht; keine Ahnung",
   "es": "no sé; no lo sé",
   "fr": "je ne sais pas; jsp",
-  "hi": "मुझे नहीं पता; मुझे मालूम नहीं"
+  "hi": "मुझे नहीं पता; मुझे मालूम नहीं",
+  "id": "gak tahu; tidak tahu",
+  "ja": "わからない; 知らない; わかんない"
  },
  "in the loop": {
   "ar": "مطلع على المستجدات; في دائرة المعرفة",
   "de": "auf dem Laufenden sein; informiert sein",
   "es": "estar al tanto; estar informado",
   "fr": "au courant; tenu au courant",
-  "hi": "जानकारी में होना; सूचित रहना"
+  "hi": "जानकारी में होना; सूचित रहना",
+  "id": "terinformasi; dalam lingkaran informasi",
+  "ja": "情報を共有している; 最新情報を把握している"
  },
  "influencer": {
   "ar": "مؤثر",
   "de": "Influencer; Social-Media-Influencer",
   "es": "influencer; creador de contenido; influyente digital",
   "fr": "influenceur; créateur de contenu",
-  "hi": "इन्फ्लुएंसर; प्रभावक"
+  "hi": "इन्फ्लुएंसर; प्रभावक",
+  "id": "influencer; pembuat tren",
+  "ja": "インフルエンサー; 影響力者; フォロワーが多い人"
  },
  "irl": {
   "ar": "في الحياة الواقعية; في الواقع",
   "de": "im echten Leben; im realen Leben",
   "es": "en la vida real",
   "fr": "dans la vraie vie; IRL",
-  "hi": "असल ज़िंदगी में; वास्तविक जीवन में"
+  "hi": "असल ज़िंदगी में; वास्तविक जीवन में",
+  "id": "dalam kehidupan nyata; secara nyata",
+  "ja": "実生活で; 現実では; リアルで"
  },
  "it depends": {
   "ar": "يعتمد على; يتوقف على",
@@ -1262,27 +1579,37 @@
   "es": "es una decisión fácil; es obvio; no hay duda",
   "fr": "c'est évident; c'est du gâteau; c'est simple",
   "hi": "इसमें सोचने की बात नहीं है; एकदम आसान फ़ैसला",
-  "id": "pilihan yang sangat mudah; tidak perlu dipikir lagi"
+  "id": "pilihan yang sangat mudah; tidak perlu dipikir lagi",
+  "ja": "迷う必要がない; 簡単すぎる; 考えるまでもない",
+  "ko": "쉽게 결정돼; 고민할 필요 없어; 당연히"
  },
  "it's a steal": {
   "ar": "صفقة رابحة جداً; بسعر التراب",
   "de": "ein Schnäppchen; ein echtes Schnäppchen",
   "es": "es una ganga; es un robo",
   "fr": "c'est une aubaine; c'est une bonne affaire",
-  "hi": "बहुत सस्ता सौदा; मुफ़्त के भाव"
+  "hi": "बहुत सस्ता सौदा; मुफ़्त के भाव",
+  "id": "murah banget; harga miring",
+  "ja": "お買い得; 破格の安さ; 安すぎる"
  },
  "it's all greek to me": {
   "ar": "طلاسم بالنسبة لي; لا أفهم منه شيئاً",
   "de": "Das ist mir alles Griechisch; das ist mir völlig unverständlich",
   "es": "es griego para mí; no entiendo nada",
   "fr": "c'est du grec pour moi",
-  "hi": "सब समझ से बाहर होना; कुछ समझ न आना"
+  "hi": "सब समझ से बाहर होना; कुछ समझ न आना",
+  "id": "sama sekali tidak kupahami; asing bagiku",
+  "ja": "全くわからない; 意味がわからない"
  },
  "it's giving": {
   "ar": "يعطي طابع; يبعث على",
+  "de": "hat den Vibe von; wirkt wie; gibt den Stil von",
   "es": "da la sensación de; tiene el aire de",
   "fr": "ça donne; ça évoque",
-  "hi": "...का वाइब देना; ...का अहसास देना; ...की झलक देना"
+  "hi": "...का वाइब देना; ...का अहसास देना; ...की झलक देना",
+  "id": "memberi kesan; terasa seperti; kelihatan seperti",
+  "ja": "…な感じがする; …っぽい; …の雰囲気",
+  "ko": "느낌이~이다; ~한 분위기다"
  },
  "just following up on": {
   "ar": "أتابع بخصوص; أذكرك ب",
@@ -1304,7 +1631,9 @@
   "de": "nur Spaß; nur ein Scherz; hab nur gescherzt",
   "es": "es broma; solo bromeaba; solo es una broma",
   "fr": "je plaisante; c'est une blague; je rigole",
-  "hi": "बस मज़ाक कर रहा था; केवल मज़ाक"
+  "hi": "बस मज़ाक कर रहा था; केवल मज़ाक",
+  "id": "cuma bercanda; hanya bercanda",
+  "ja": "冗談だよ; 本当は冗談です"
  },
  "keep me posted": {
   "ar": "أخبرني بآخر المستجدات; أطلعني على الأخبار",
@@ -1326,7 +1655,9 @@
   "de": "Verzögerung; Lag",
   "es": "latencia; retardo; lag",
   "fr": "latence; retard",
-  "hi": "रुकावट; देरी"
+  "hi": "रुकावट; देरी",
+  "id": "lag; keterlambatan",
+  "ja": "遅延; ラグ"
  },
  "lame": {
   "ar": "ممل; ضعيف; باهت",
@@ -1334,49 +1665,63 @@
   "es": "aburrido; poco guay; decepcionante",
   "fr": "nul; pas top; décevant",
   "hi": "बेकार; नीरस; फीका",
-  "id": "garing; membosankan; payah"
+  "id": "garing; membosankan; payah",
+  "ja": "つまらない; ダサい",
+  "ko": "시시한; 재미없는; 별로"
  },
  "last minute": {
   "ar": "في اللحظة الأخيرة; طارئ",
   "de": "kurzfristig; in letzter Minute",
   "es": "de última hora; de último minuto",
   "fr": "de dernière minute; à la dernière minute",
-  "hi": "अंतिम समय का; ऐन वक्त का"
+  "hi": "अंतिम समय का; ऐन वक्त का",
+  "id": "dadakan; di menit terakhir; terburu-buru",
+  "ja": "土壇場の; ぎりぎりの"
  },
  "left on read": {
   "ar": "قُرئ دون رد; ترك على القراءة",
   "de": "gelesen, aber nicht beantwortet; gelesen und ignoriert",
   "es": "dejado en visto; leído sin responder",
   "fr": "lu sans réponse; ignoré après lecture",
-  "hi": "मैसेज पढ़कर जवाब न मिलना; अनदेखा किया जाना"
+  "hi": "मैसेज पढ़कर जवाब न मिलना; अनदेखा किया जाना",
+  "id": "dibaca tapi tidak dibalas; ditinggal dibaca",
+  "ja": "既読無視; 読んで放置; 既読スルー"
  },
  "legend": {
   "ar": "أسطورة; بطل",
   "de": "Legende; Held",
   "es": "leyenda; ídolo; figura",
   "fr": "légende; icône; mythe",
-  "hi": "दिग्गज; महान व्यक्ति"
+  "hi": "दिग्गज; महान व्यक्ति",
+  "id": "legenda; pahlawan; orang hebat",
+  "ja": "伝説; レジェンド"
  },
  "legit": {
   "ar": "حقيقي; أصيل",
   "de": "echt; legitim; seriös",
   "es": "legítimo; auténtico; de verdad",
   "fr": "authentique; réel; fiable",
-  "hi": "असली; प्रामाणिक; सच्चा"
+  "hi": "असली; प्रामाणिक; सच्चा",
+  "id": "legit; asli; benar",
+  "ja": "本物の; 正真正銘の"
  },
  "let's roll": {
   "ar": "لننطلق; لنبدأ",
   "de": "Los geht's; Auf geht's; Lass uns loslegen",
   "es": "vámonos; vamos",
   "fr": "on y va; c'est parti",
-  "hi": "चलो शुरू करें; चलो चलें"
+  "hi": "चलो शुरू करें; चलो चलें",
+  "id": "ayo; mari berangkat; langsung",
+  "ja": "行こう; 出発しよう"
  },
  "level up": {
   "ar": "يرتقي مستوىً; يتحسن; يرفع المستوى",
   "de": "aufleveln; aufsteigen; besser werden",
   "es": "subir de nivel; nivelar",
   "fr": "monter en niveau; passer au niveau supérieur",
-  "hi": "स्तर बढ़ाना; बेहतर बनना"
+  "hi": "स्तर बढ़ाना; बेहतर बनना",
+  "id": "naik level; meningkatkan kemampuan",
+  "ja": "レベルアップする; レベル上げ; 強化する"
  },
  "living for it": {
   "ar": "أعيش من أجله; أستمتع به",
@@ -1384,35 +1729,46 @@
   "es": "me muero por ello; lo adoro",
   "fr": "je vis pour ça; je kiffe trop",
   "hi": "बेहद पसंद करना; बहुत आनंद लेना",
-  "id": "sangat menyukainya; sangat menikmati ini"
+  "id": "sangat menyukainya; sangat menikmati ini",
+  "ja": "これが最高; これが生きがいだ; これに夢中だ",
+  "ko": "너무 좋다; 환장하게 좋다; 열광하다"
  },
  "locked in": {
   "ar": "مستغرق تماماً; مركز كلياً",
   "de": "voll konzentriert; total fokussiert",
   "es": "concentrado; enfocado",
   "fr": "concentré",
-  "hi": "पूरी तरह एकाग्र; पूरी तरह केंद्रित"
+  "hi": "पूरी तरह एकाग्र; पूरी तरह केंद्रित",
+  "id": "sangat terfokus; fokus penuh",
+  "ja": "集中している; 夢中になっている"
  },
  "long story short": {
   "ar": "باختصار; خلاصة القول",
   "de": "kurz gesagt; um es kurz zu machen",
   "es": "en resumidas cuentas; para resumir; en breve",
   "fr": "pour faire court; en bref; en résumé",
-  "hi": "संक्षेप में कहें तो; संक्षेप में"
+  "hi": "संक्षेप में कहें तो; संक्षेप में",
+  "id": "singkat cerita; intinya",
+  "ja": "手短に言えば; 要するに"
  },
  "losing it": {
   "ar": "أفقد صبري; أفقد السيطرة",
   "de": "Durchdrehen; Die Kontrolle verlieren; Ausflippen",
   "es": "perdiendo el control; perdiendo la cabeza",
   "fr": "je perds les pédales; je perds le contrôle",
-  "id": "hilang kesabaran; mulai gila; tak tahan lagi"
+  "hi": "पागल हो जाना; नियंत्रण खो देना",
+  "id": "hilang kesabaran; mulai gila; tak tahan lagi",
+  "ja": "我慢できない; イライラが止まらない",
+  "ko": "이성을 잃다; 미쳐버리다; 멘붕 오다"
  },
  "low blow": {
   "ar": "إهانة قاسية; سخرية جارحة",
   "de": "beleidigende Bemerkung; unfaire Bemerkung; schmutziger Spruch",
   "es": "golpe bajo; comentario hiriente",
   "fr": "coup bas; remarque déplacée",
-  "hi": "घटिया प्रहार; नीच हरकत"
+  "hi": "घटिया प्रहार; नीच हरकत",
+  "id": "cemoohan; lecehan; sindiran pedas",
+  "ko": "저급한 비난; 불공정한 발언"
  },
  "lowkey": {
   "ar": "قليلًا; بهدوء; سراً",
@@ -1420,21 +1776,26 @@
   "es": "discretamente; en silencio",
   "fr": "discrètement; en douce; un peu",
   "hi": "मन ही मन; थोड़ा-बहुत",
-  "id": "agak; diam-diam; secara terselubung"
+  "id": "agak; diam-diam; secara terselubung",
+  "ja": "控えめに; ちょっとだけ; さりげなく",
+  "ko": "은근히; 남몰래; 약간"
  },
  "lurk": {
   "ar": "يتصفح بصمت; يراقب دون مشاركة",
   "de": "lurken; stillschweigend lesen",
   "es": "acechar; observar sin participar; merodear",
   "fr": "observer sans intervenir; lire en silence",
-  "hi": "चुपचाप देखना; बिना पोस्ट किए पढ़ना"
+  "hi": "चुपचाप देखना; बिना पोस्ट किए पढ़ना",
+  "ja": "潜む; 覗く"
  },
  "main character energy": {
   "ar": "طاقة الشخصية الرئيسية; حضور لافت",
   "de": "Hauptcharakter-Energie; Star-Feeling",
   "es": "energía de protagonista; actitud de protagonista; vibra de personaje principal",
   "fr": "vibe de personnage principal; attitude de protagoniste",
-  "hi": "मुख्य पात्र जैसा अंदाज़; नायक जैसा आत्मविश्वास"
+  "hi": "मुख्य पात्र जैसा अंदाज़; नायक जैसा आत्मविश्वास",
+  "id": "energi karakter utama; vibe protagonis",
+  "ja": "主役感; 主役オーラ"
  },
  "makes no sense": {
   "ar": "ما له معنى; غير منطقي; مبهم",
@@ -1442,14 +1803,18 @@
   "es": "no tiene sentido; no tiene lógica; es ilógico",
   "fr": "ça n'a aucun sens; c'est illogique; c'est incompréhensible",
   "hi": "समझ से बाहर है; कोई मतलब नहीं बनता; बेतुका है",
-  "id": "tidak masuk akal"
+  "id": "tidak masuk akal",
+  "ja": "意味がわからない; 理屈が通らない",
+  "ko": "말이 안 된다; 이해가 안 된다; 논리적이지 않다"
  },
  "mate": {
   "ar": "صديق; رفيق",
   "de": "Kumpel; Freund",
   "es": "colega; amigo; compi",
   "fr": "pote; copain; ami",
-  "hi": "दोस्त; यार; मित्र"
+  "hi": "दोस्त; यार; मित्र",
+  "id": "teman; sobat",
+  "ja": "相棒; 友だち"
  },
  "meh": {
   "ar": "عادي; لا شيء مميز; ما يهم",
@@ -1457,14 +1822,18 @@
   "es": "ni fu ni fa; más o menos; meh",
   "fr": "bof; pas terrible",
   "hi": "कुछ ख़ास नहीं; ठीक-ठाक",
-  "id": "biasa saja"
+  "id": "biasa saja",
+  "ja": "まあ; どちらでもない",
+  "ko": "그저 그래; 별로; 무난"
  },
  "meme": {
   "ar": "ميم; نكتة صورية",
   "de": "Meme; Internetwitz",
   "es": "meme; chiste visual",
   "fr": "mème; meme",
-  "hi": "मीम; इंटरनेट चुटकुला"
+  "hi": "मीम; इंटरनेट चुटकुला",
+  "id": "meme; gambar lelucon",
+  "ja": "ミーム; ネットミーム; 画像ミーム"
  },
  "mid": {
   "ar": "متوسط; عادي",
@@ -1472,166 +1841,217 @@
   "es": "regular; mediocre; más o menos",
   "fr": "moyen; bof; passable",
   "hi": "औसत दर्जे का; मामूली",
-  "id": "biasa saja; kurang bagus"
+  "id": "biasa saja; kurang bagus",
+  "ja": "普通; 微妙; まあまあ",
+  "ko": "그저 그런; 보통인; 평범한"
  },
  "mixed signals": {
   "ar": "إشارات مختلطة; رسائل متضاربة",
   "de": "gemischte Signale; widersprüchliche Signale",
   "es": "señales mixtas; mensajes contradictorios; indicios confusos",
   "fr": "signaux contradictoires; messages ambigus; signaux mixtes",
-  "hi": "विरोधाभासी संकेत; उलझाने वाले संकेत"
+  "hi": "विरोधाभासी संकेत; उलझाने वाले संकेत",
+  "id": "sinyal campur aduk; sinyal membingungkan",
+  "ja": "紛らわしい態度; 矛盾したシグナル"
  },
  "mood": {
   "ar": "حالة; مزاج; يمثلني",
   "de": "Stimmung; Vibe",
   "es": "Vibra; Estado de ánimo",
   "fr": "ambiance; humeur",
-  "hi": "मनोदशा; मिज़ाज; मन की स्थिति"
+  "hi": "मनोदशा; मिज़ाज; मन की स्थिति",
+  "id": "suasana hati; gambaran perasaan",
+  "ja": "気分; 雰囲気"
  },
  "move on": {
   "ar": "امضِ قدمًا; تجاوز",
   "de": "Weitergehen; Loslassen; Vergessen",
   "es": "seguir adelante; pasar página",
   "fr": "passer à autre chose; tourner la page",
-  "hi": "आगे बढ़ना; पुरानी बात भूलना"
+  "hi": "आगे बढ़ना; पुरानी बात भूलना",
+  "id": "lupakan; lanjutkan; tinggalkan",
+  "ja": "次に進む; 前に進む; 忘れる",
+  "ko": "털어버리다; 잊고 넘어가다; 다음으로 넘어가다"
  },
  "my bad": {
   "ar": "خطأي; العتب علي",
   "de": "Mein Fehler; Entschuldigung; Sorry",
   "es": "mi culpa; fue mi error",
   "fr": "c'est ma faute; ma faute; désolé",
-  "hi": "मेरी गलती; मुझसे भूल हो गई"
+  "hi": "मेरी गलती; मुझसे भूल हो गई",
+  "id": "salah saya; maaf, itu salah saya",
+  "ja": "私のミス; ごめん"
  },
  "my fault": {
   "ar": "خطأي; الذنب ذنبي",
   "de": "Meine Schuld; Das war mein Fehler; Ich war schuld",
   "es": "mi culpa; fue mi culpa",
   "fr": "c'est ma faute; ma faute",
-  "hi": "मेरी गलती; मेरा कसूर"
+  "hi": "मेरी गलती; मेरा कसूर",
+  "id": "kesalahan saya; salah saya",
+  "ja": "私のせい; 自分のせい"
  },
  "my plate is full": {
   "ar": "جدولي ممتلئ; لدي الكثير من الأعمال",
   "de": "mein Terminkalender ist voll; ich habe alle Hände voll zu tun",
   "es": "tener la agenda llena; estar hasta el tope",
   "fr": "avoir du pain sur la planche; être débordé",
-  "hi": "बहुत काम होना; फुर्सत न होना"
+  "hi": "बहुत काम होना; फुर्सत न होना",
+  "id": "saya sudah sibuk; jadwal saya penuh",
+  "ja": "手がいっぱいだ; 予定が詰まっている"
  },
  "my pleasure": {
   "ar": "من دواعي سروري; سروري",
   "de": "Gern geschehen; sehr gern",
   "es": "un placer; con gusto",
-  "fr": "avec plaisir; je vous en prie; c'est un plaisir"
+  "fr": "avec plaisir; je vous en prie; c'est un plaisir",
+  "hi": "मुझे खुशी है; आपका स्वागत है",
+  "id": "sama-sama; senang membantu",
+  "ja": "どういたしまして; 喜んで"
  },
  "my treat": {
   "ar": "على حسابي; دعوة مني",
   "de": "ich lade ein; ich übernehme",
   "es": "invito yo; yo pago",
   "fr": "c'est pour moi; c'est moi qui invite",
-  "hi": "मेरी तरफ़ से; मेरी ओर से दावत"
+  "hi": "मेरी तरफ़ से; मेरी ओर से दावत",
+  "id": "saya traktir; aku traktir",
+  "ja": "私が奢ります; 私がごちそうします; 私が払います"
  },
  "nailed it": {
   "ar": "أتقنتها; أصبت الهدف",
   "de": "Habe es gerockt; Perfekt erledigt",
   "es": "lo clavé; lo peté; lo acerté",
   "fr": "c'est dans le mille; j'ai assuré",
-  "hi": "कमाल कर दिया; एकदम सही किया"
+  "hi": "कमाल कर दिया; एकदम सही किया",
+  "id": "berhasil total; tepat sasaran",
+  "ja": "決まった; バッチリ"
  },
  "neat": {
   "ar": "رائع; جميل; ممتع",
   "de": "geil; cool; sauber",
   "es": "Guay; Chido; Genial",
   "fr": "sympa; chouette; cool",
-  "hi": "बढ़िया; शानदार; अच्छा"
+  "hi": "बढ़िया; शानदार; अच्छा",
+  "id": "keren; mantap; apik",
+  "ja": "かっこいい; 素敵"
  },
  "ngl": {
   "ar": "صراحة; ما رح أكذب",
   "de": "ehrlich gesagt; um ehrlich zu sein; ganz ehrlich",
   "es": "no voy a mentir; para ser sincero; la verdad",
   "fr": "honnêtement; je ne vais pas mentir; pour être honnête",
-  "hi": "सच कहूँ तो; ईमानदारी से कहूँ तो"
+  "hi": "सच कहूँ तो; ईमानदारी से कहूँ तो",
+  "id": "jujur aja; sejujurnya; jujur deh",
+  "ja": "正直に言うと; 本音で言うと"
  },
  "night owl": {
   "ar": "بومة الليل; محب السهر",
   "de": "Nachteule; Nachtschwärmer",
   "es": "noctámbulo; persona nocturna",
-  "hi": "रात में जागने वाला; निशाचर"
+  "fr": "noctambule; couche-tard",
+  "hi": "रात में जागने वाला; निशाचर",
+  "id": "orang yang suka begadang; burung hantu; pencinta malam",
+  "ja": "夜型人間; 夜更かし好き"
  },
  "no big deal": {
   "ar": "ليس أمراً مهماً; لا بأس",
   "de": "Kein Problem; Nicht der Rede wert; Kein Ding",
   "es": "no es gran cosa; no pasa nada",
   "fr": "pas grave; pas de problème; ce n'est pas grave",
-  "hi": "कोई बड़ी बात नहीं"
+  "hi": "कोई बड़ी बात नहीं",
+  "id": "tidak masalah; bukan urusan besar",
+  "ja": "大したことない; 気にしないで"
  },
  "no cap": {
   "ar": "بصراحة; ما في كذب",
   "de": "kein Scherz; ehrlich; ohne zu übertreiben",
   "es": "sin mentiras; sin exagerar; te lo digo en serio",
   "fr": "c'est vrai; sans mentir; sans blague",
-  "hi": "सच में; बिना किसी झूठ के"
+  "hi": "सच में; बिना किसी झूठ के",
+  "id": "gak bohong; serius deh; tanpa bohong",
+  "ja": "嘘じゃない; 本気で言う"
  },
  "no clue": {
   "ar": "ما عندي فكرة; ما عندي أدنى علم",
   "de": "keine Ahnung; ich habe keine Ahnung; ratlos",
   "es": "no tengo ni idea; no sé nada; no sé",
   "fr": "je n'en ai aucune idée; je ne sais pas du tout; pas une idée",
-  "hi": "कोई अंदाज़ा नहीं; कोई पता नहीं"
+  "hi": "कोई अंदाज़ा नहीं; कोई पता नहीं",
+  "id": "gak tahu; tidak tahu sama sekali; tidak ada ide",
+  "ja": "全くわからない; 見当もつかない"
  },
  "no kidding": {
   "ar": "بدون مزاح; حقاً; لا تمزح",
   "de": "Kein Scherz; Echt jetzt; Im Ernst",
   "es": "En serio; No es broma; De verdad",
   "fr": "sans blague; sans déconner",
-  "hi": "सच में; सचमुच; मज़ाक नहीं"
+  "hi": "सच में; सचमुच; मज़ाक नहीं",
+  "id": "seriusan; tidak bercanda",
+  "ja": "マジで; 本気で"
  },
  "no offense": {
   "ar": "بدون إهانة; لا أقصد الإهانة",
   "de": "nicht böse gemeint; ohne Anstoß; keine Beleidigung",
   "es": "sin ofender; no es por ofender; con todo respeto",
   "fr": "sans vouloir vous offenser; pas d'offense; sans offense",
-  "hi": "बुरा मत मानना; बुरा न मानें"
+  "hi": "बुरा मत मानना; बुरा न मानें",
+  "id": "tidak bermaksud menyinggung; maaf kalau menyinggung; tidak ingin menyinggung",
+  "ja": "悪気はないけど; 気を悪くしないで"
  },
  "no problem": {
   "ar": "لا مشكلة; على الرحب والسعة",
   "de": "Kein Problem; kein Ding",
   "es": "no hay problema; de nada; sin problema",
   "fr": "pas de problème; de rien; pas de souci",
-  "hi": "कोई बात नहीं"
+  "hi": "कोई बात नहीं",
+  "id": "tidak masalah; sama-sama",
+  "ja": "問題ないよ; どういたしまして"
  },
  "no rush": {
   "ar": "لا داعي للعجلة; خذ وقتك",
   "de": "keine Eile; ohne Eile; lass dir Zeit",
   "es": "sin prisa; tómate tu tiempo",
   "fr": "pas de précipitation; prends ton temps",
-  "hi": "कोई जल्दबाज़ी नहीं; आराम से"
+  "hi": "कोई जल्दबाज़ी नहीं; आराम से",
+  "id": "santai saja; tidak terburu-buru; ambil waktu",
+  "ja": "急がなくていい; ゆっくりでいい"
  },
  "no strings attached": {
   "ar": "بدون أي شرط; مجاني",
   "de": "ohne Bedingungen; ohne Auflagen; unverbindlich",
   "es": "sin condiciones; sin ataduras; gratis y sin compromiso",
   "fr": "sans condition; sans engagement; gratuit, sans condition",
-  "hi": "बिना किसी शर्त के; बिना किसी पाबंदी के"
+  "hi": "बिना किसी शर्त के; बिना किसी पाबंदी के",
+  "id": "tanpa syarat; gratis tanpa ikatan; tanpa beban",
+  "ja": "条件なしで; 無条件で"
  },
  "no way": {
   "ar": "مستحيل; غير معقول",
   "de": "Auf keinen Fall; Das gibt's doch nicht; Echt nicht",
   "es": "¡Ni hablar!; ¡De ninguna manera!; ¡No puede ser!",
   "fr": "pas possible; c'est pas vrai",
-  "hi": "हो ही नहीं सकता; सच में?"
+  "hi": "हो ही नहीं सकता; सच में?",
+  "id": "mustahil; tidak mungkin; masa sih",
+  "ja": "うそ; まじで"
  },
  "no worries": {
   "ar": "لا تقلق; لا داعي للقلق",
   "de": "Keine Sorge; Kein Problem; Mach dir keine Sorgen",
   "es": "no te preocupes; sin problema",
   "fr": "pas de souci; pas de problème; t'inquiète",
-  "hi": "कोई बात नहीं; चिंता मत करो"
+  "hi": "कोई बात नहीं; चिंता मत करो",
+  "id": "tidak apa-apa; santai saja",
+  "ja": "大丈夫; 気にしないで"
  },
  "noob": {
   "ar": "مبتدئ; جديد; مبتدئ تمامًا",
   "de": "Anfänger; Neuling",
   "es": "novato; principiante; noob",
   "fr": "débutant; novice",
-  "hi": "नौसिखिया; अनाड़ी"
+  "hi": "नौसिखिया; अनाड़ी",
+  "id": "noob; pemula",
+  "ja": "初心者; ビギナー"
  },
  "not my cup of tea": {
   "ar": "ليس من ذوقي; لا يستهويني",
@@ -1665,8 +2085,10 @@
  },
  "npc": {
   "de": "NPC; Roboter; Automat",
+  "es": "autómata; robot; personaje sin personalidad",
   "fr": "PNJ; NPC",
-  "hi": "रोबोट जैसा व्यक्ति"
+  "hi": "रोबोट जैसा व्यक्ति",
+  "ja": "ロボットみたいな人; 無感情な人"
  },
  "obsessed": {
   "ar": "مهووس بـ; مفتون",
@@ -1674,19 +2096,26 @@
   "es": "obsesionado; fanático",
   "fr": "obsédé; fanatique",
   "hi": "दीवाना; अत्यधिक मोहित",
-  "id": "terobsesi; tergila-gila; sangat suka"
+  "id": "terobsesi; tergila-gila; sangat suka",
+  "ja": "ハマっている; 夢中になる; 取り憑かれた",
+  "ko": "푹 빠진; 완전 매료된; 정신이 팔린"
  },
  "off the record": {
   "ar": "سري; غير رسمي",
   "de": "vertraulich; unter vier Augen; nicht für die Öffentlichkeit",
   "es": "en confianza; a puerta cerrada; no oficial",
-  "fr": "en privé; hors du registre; confidentiel"
+  "fr": "en privé; hors du registre; confidentiel",
+  "hi": "गुप्त रूप से; निजी तौर पर",
+  "id": "di luar catatan; tidak resmi; rahasia",
+  "ja": "内緒で; 公にはしないで"
  },
  "og": {
   "ar": "الأصلي; الأول",
   "de": "Original; Urgestein",
+  "es": "original; clásico; pionero",
   "fr": "original; vétéran; pionnier",
-  "hi": "मूल सदस्य; असली दिग्गज; पुराना खिलाड़ी"
+  "hi": "मूल सदस्य; असली दिग्गज; पुराना खिलाड़ी",
+  "ja": "元祖; オリジナル"
  },
  "on cloud nine": {
   "ar": "في غاية السعادة; في سحاب السعادة",
@@ -1694,27 +2123,36 @@
   "es": "estar en la gloria; estar en la nube",
   "fr": "être sur un petit nuage; être aux anges",
   "hi": "सातवें आसमान पर; अत्यंत प्रसन्न",
-  "id": "sangat bahagia; amat senang; senang bukan main"
+  "id": "sangat bahagia; amat senang; senang bukan main",
+  "ja": "有頂天; とても幸せ; 天にも昇る気持ち",
+  "ko": "날아갈 듯이 기쁜; 최고의 기분인"
  },
  "on my last legs": {
   "ar": "على آخر قواي; في أقصى تعب",
   "de": "am Ende meiner Kräfte sein; völlig erschöpft sein; am Ende sein",
   "es": "estar en las últimas; estar agotado; estar rendido",
-  "hi": "थका-माँदा; निढाल; चूर-चूर"
+  "fr": "être à bout; être sur mes dernières forces",
+  "hi": "थका-माँदा; निढाल; चूर-चूर",
+  "id": "sangat lelah; kehabisan tenaga",
+  "ja": "体力が尽きかけている; もう限界だ"
  },
  "on point": {
   "ar": "متقن; مضبوط",
   "de": "treffend; top",
   "es": "perfecto; a la moda; impecable",
   "fr": "au top; impeccable; parfait",
-  "hi": "एकदम सही; सटीक; बेमिसाल"
+  "hi": "एकदम सही; सटीक; बेमिसाल",
+  "id": "tepat; keren; pas",
+  "ja": "バッチリ; 完璧"
  },
  "on the fence": {
   "ar": "متردد; محتار",
   "de": "ich schwanke; ich bin unentschieden; ich bin mir unsicher",
   "es": "indeciso; entre dos aguas",
   "fr": "indécis; entre deux",
-  "hi": "दुविधा में; असमंजस में"
+  "hi": "दुविधा में; असमंजस में",
+  "id": "ragu; belum memutuskan; bimbang",
+  "ja": "迷っている; 決めかねている"
  },
  "on the go": {
   "ar": "في حركة دائمة; مشغول جداً",
@@ -1736,7 +2174,9 @@
   "de": "auf's Haus; kostenlos",
   "es": "por cuenta de la casa; gratis",
   "fr": "offert par la maison; gratuit",
-  "hi": "मुफ़्त; दुकान की तरफ़ से मुफ़्त"
+  "hi": "मुफ़्त; दुकान की तरफ़ से मुफ़्त",
+  "id": "gratis; tanpa biaya",
+  "ja": "サービスで; 店のサービスで; 無料で"
  },
  "on the same page": {
   "ar": "على وفاق; متفقون; نرى الأمور بنفس الطريقة",
@@ -1744,34 +2184,45 @@
   "es": "estar en la misma sintonía; estar de acuerdo; tener la misma idea",
   "fr": "être sur la même longueur d'onde; être d'accord; avoir la même vision",
   "hi": "एक ही राय पर; एक जैसी समझ होना; सहमत होना",
-  "id": "sepemikiran; sependapat; satu pemahaman"
+  "id": "sepemikiran; sependapat; satu pemahaman",
+  "ja": "意見が合う; 同じ考えだ; 認識が同じ",
+  "ko": "같은 생각이다; 동의한다; 같은 입장이다"
  },
  "oof": {
   "ar": "أوف; يا للأسف; يا للإحراج",
   "de": "Uff; Autsch; Pech",
   "es": "¡Uff!; ¡Ay!; ¡Qué mal!",
   "fr": "aïe; oups",
-  "hi": "उफ़; ओहो"
+  "hi": "उफ़; ओहो",
+  "id": "aduh",
+  "ja": "痛っ; やばい"
  },
  "op": {
   "ar": "قوي جدًا; مفرط القوة; غير متوازن",
   "de": "übermächtig; zu stark",
   "es": "desbalanceado; demasiado fuerte; OP",
   "fr": "trop puissant; surpuissant",
-  "hi": "अत्यधिक शक्तिशाली; अति-शक्तिशाली"
+  "hi": "अत्यधिक शक्तिशाली; अति-शक्तिशाली",
+  "id": "OP; terlalu kuat",
+  "ja": "強すぎる; 圧倒的に強い"
  },
  "out of the blue": {
   "ar": "فجأة; من حيث لا أدري; دون سابق إنذار",
   "de": "aus dem Nichts; plötzlich; unerwartet",
   "es": "De repente; Sin avisar; De la nada",
   "fr": "à l'improviste; sans prévenir",
-  "hi": "अचानक; एकाएक; बिन बताए"
+  "hi": "अचानक; एकाएक; बिन बताए",
+  "id": "tiba-tiba; tanpa alasan; mendadak",
+  "ja": "いきなり; 突然"
  },
  "over my head": {
   "ar": "فوق مستوى فهمي; أثقل من قدرتي على الفهم",
   "de": "Das geht mir über den Kopf; zu schwer für mich",
   "es": "me supera; se me escapa",
-  "fr": "trop compliqué pour moi; au-dessus de mes capacités"
+  "fr": "trop compliqué pour moi; au-dessus de mes capacités",
+  "hi": "मेरी समझ से बाहर; मेरे सिर से ऊपर",
+  "id": "terlalu sulit dipahami; di luar jangkauan pemikiran",
+  "ja": "難しすぎる; 私には理解できない"
  },
  "over the moon": {
   "ar": "في غاية السعادة; طائر من الفرح",
@@ -1794,21 +2245,28 @@
   "es": "sobrevalorado; sobreestimado",
   "fr": "surévalué; surestimé",
   "hi": "बढ़ा-चढ़ाकर आंका गया; अतिमूल्यांकित",
-  "id": "dipuji berlebihan; terlalu disanjung"
+  "id": "dipuji berlebihan; terlalu disanjung",
+  "ja": "過大評価された; 評価が高すぎる",
+  "ko": "과대평가된; 기대에 못 미치는"
  },
  "penny-pincher": {
   "ar": "شديد البخل; حرص على القرش",
   "de": "Sparfuchs; Geizhals; Knauser",
   "es": "tacaño; codo; ahorrador",
   "fr": "avare; radin",
-  "hi": "कंजूस; मक्खीचूस"
+  "hi": "कंजूस; मक्खीचूस",
+  "id": "pelit; orang pelit",
+  "ja": "ケチ; けちんぼ; 倹約家"
  },
  "periodt": {
   "ar": "انتهى; كده; خلاص",
   "de": "Punkt; Ende; Das war's",
   "es": "punto; ya está; fin",
   "fr": "point final; c'est tout; pas de débat",
-  "hi": "बस बात खत्म; और कुछ नहीं; अंतिम बात"
+  "hi": "बस बात खत्म; और कुछ नहीं; अंतिम बात",
+  "id": "gitu aja; selesai",
+  "ja": "それで決まり; 以上だ; これで終わり",
+  "ko": "끝; 그게 전부야; 이게 마지막이야"
  },
  "petty": {
   "ar": "تافه; سطحي",
@@ -1816,87 +2274,115 @@
   "es": "mezquino; insignificante; nimio",
   "fr": "mesquin; mesquine; futile",
   "hi": "तुच्छ; छोटी सोच वाला",
-  "id": "picik; kekanak-kanakan"
+  "id": "picik; kekanak-kanakan",
+  "ja": "ちっぽけな; 小さなことにこだわる",
+  "ko": "사소한; 까다로운; 소심한"
  },
  "piece of cake": {
   "ar": "غاية في السهولة; أمر يسير جداً",
   "de": "ein Kinderspiel; ein Klacks",
   "es": "pan comido; cosa fácil",
   "fr": "c'est du gâteau; facile",
-  "hi": "बाएँ हाथ का खेल; बहुत आसान काम"
+  "hi": "बाएँ हाथ का खेल; बहुत आसान काम",
+  "id": "sangat mudah; sepele; perkara mudah",
+  "ja": "楽勝; 朝飯前; 簡単"
  },
  "pig out": {
   "ar": "نأكل بشراهة; نلتهم الطعام",
   "de": "sich vollstopfen; sich reinfuttern; sich die Kanne vollschlagen",
   "es": "comerse como un cerdo; devorar; atracarse",
   "fr": "se goinfrer; bouffer comme un porc; faire un festin",
-  "hi": "ठूँस-ठूँसकर खाना; बहुत ज़्यादा खाना"
+  "hi": "ठूँस-ठूँसकर खाना; बहुत ज़्यादा खाना",
+  "id": "makannya berlebihan; makan berlebihan; melahap",
+  "ja": "ドカ食いする; 食べ過ぎる"
  },
  "play it by ear": {
   "ar": "يتصرف حسب الظروف; يترك الأمور لوقتها",
   "de": "nach Gefühl entscheiden; spontan entscheiden; im Moment entscheiden",
   "es": "improvisar; decidir sobre la marcha",
   "fr": "improviser; voir comment ça se passe",
-  "hi": "परिस्थिति के अनुसार चलना; मौके के हिसाब से तय करना"
+  "hi": "परिस्थिति के अनुसार चलना; मौके के हिसाब से तय करना",
+  "id": "ikut saja; menyesuaikan diri; improvisasi",
+  "ja": "臨機応変にやる; その場の流れで決める"
  },
  "pop quiz": {
   "ar": "إختبار مفاجئ; اختبار سريع دون إعلان",
   "de": "Kurztest; Überraschungsquiz",
   "es": "prueba sorpresa; examen inesperado",
   "fr": "interro surprise; contrôle surprise",
-  "hi": "अचानक लिया गया टेस्ट; सरप्राइज टेस्ट"
+  "hi": "अचानक लिया गया टेस्ट; सरप्राइज टेस्ट",
+  "id": "kuis mendadak; tes mendadak",
+  "ja": "突発テスト; 予告なしテスト"
  },
  "pull an all-nighter": {
   "ar": "يسهر الليل بطوله للدراسة; يقضي الليل صاحياً للمذاكرة",
   "de": "die Nacht durchmachen; die Nacht durchpauken",
   "es": "pasar la noche en vela; hacer una noche en blanco",
   "fr": "faire une nuit blanche; passer une nuit blanche",
-  "hi": "रात भर जागकर काम करना; पूरी रात जागना"
+  "hi": "रात भर जागकर काम करना; पूरी रात जागना",
+  "id": "begadang semalaman; tidak tidur semalaman",
+  "ja": "徹夜する; 夜通し起きる"
  },
  "pull off": {
   "ar": "ينجح في ارتداء; يبرع في",
   "de": "schaffen; hinbekommen; meistern",
   "es": "lograr; quedar bien; salir bien",
   "fr": "assurer; réussir à porter",
-  "hi": "बख़ूबी संभालना; सफलता से पहनना; कर दिखाना"
+  "hi": "बख़ूबी संभालना; सफलता से पहनना; कर दिखाना",
+  "id": "berhasil melakukan; berhasil memakai; bisa memadukan",
+  "ja": "うまく着こなす; 成功させる; やり遂げる",
+  "ko": "성공적으로 소화하다; 해내다"
  },
  "pumped": {
   "ar": "متحمس; متحمس جدًا; مفعم بالحماس",
   "de": "aufgeputscht; total begeistert; mega gehyped",
   "es": "emocionado; entusiasmado; excitado",
   "fr": "hyper motivé; à fond",
-  "hi": "अत्यंत उत्साहित; जोश से भरा"
+  "hi": "अत्यंत उत्साहित; जोश से भरा",
+  "id": "semangat; bersemangat; antusias",
+  "ja": "ワクワクしている; 超興奮した; 気合いが入った",
+  "ko": "신난; 벅차오른"
  },
  "rage quit": {
   "ar": "يغادر اللعبة غاضبًا; يترك اللعبة بغضب",
   "de": "wütend aufhören; rage quitten",
+  "es": "abandonar el juego enfadado; salir del juego furioso; dejar el juego enojado",
   "fr": "quitter en colère; quitter furieusement",
-  "hi": "गुस्से में छोड़ना; खीझकर छोड़ना"
+  "hi": "गुस्से में छोड़ना; खीझकर छोड़ना",
+  "id": "rage quit; keluar dengan marah",
+  "ja": "激怒してやめる; 怒って退出する"
  },
  "rain check": {
   "ar": "تأجيل الدعوة; فرصة أخرى",
   "de": "ein Aufschub; ein späterer Termin",
   "es": "otro día; en otra ocasión; lo dejo para después",
-  "hi": "फिर कभी मिलने का वादा; अगली बार का निमंत्रण"
+  "hi": "फिर कभी मिलने का वादा; अगली बार का निमंत्रण",
+  "id": "tunda dulu; cek lagi nanti; minta penundaan",
+  "ja": "また今度; 次の機会に; 後日改めて"
  },
  "raining cats and dogs": {
   "ar": "تمطر بغزارة شديدة; تمطر كالسيل",
   "de": "es regnet in Strömen; es gießt wie aus Eimern",
   "es": "lloviendo a cántaros; lloviendo a mares; lloviendo a raudales",
   "fr": "pleuvoir des cordes; pleuvoir à seaux",
-  "hi": "मूसलाधार बारिश होना; तेज़ बारिश होना"
+  "hi": "मूसलाधार बारिश होना; तेज़ बारिश होना",
+  "id": "hujan deras; hujan lebat",
+  "ja": "土砂降り; 大雨"
  },
  "ratio'd": {
   "ar": "حصل على ردود أكثر من الإعجابات; تمّت نسبته",
   "de": "ratio bekommen; mehr Antworten als Likes erhalten",
-  "fr": "être ratio; subir un ratio"
+  "fr": "être ratio; subir un ratio",
+  "ja": "リプが多くなる; 比率が逆転する; 逆比率になる"
  },
  "read the room": {
   "ar": "اقرأ الجو; احس بالموقف",
   "de": "die Stimmung einschätzen; den Raum lesen",
   "es": "leer el ambiente; captar el ambiente; sentir el ambiente",
   "fr": "sentir l'ambiance; lire la salle; déceler l'humeur",
-  "hi": "माहौल समझना; माहौल भाँपना"
+  "hi": "माहौल समझना; माहौल भाँपना",
+  "id": "membaca suasana; menilai situasi",
+  "ja": "空気を見る; 空気を読む"
  },
  "recharge my batteries": {
   "ar": "يستعيد نشاطه; يشحن طاقته",
@@ -1919,35 +2405,47 @@
   "es": "señal de alerta; indicio de problema",
   "fr": "signe d'alerte; drapeau rouge; alerte",
   "hi": "चेतावनी का संकेत; खतरे की घंटी",
-  "id": "tanda bahaya; sinyal bahaya"
+  "id": "tanda bahaya; sinyal bahaya",
+  "ja": "警告サイン; 危険信号",
+  "ko": "경고 신호; 위험 신호; 레드 플래그"
  },
  "rent-free": {
   "ar": "ما يخرج من باله; ثابت في ذهنه",
   "de": "im Kopf bleiben",
   "es": "se me queda en la cabeza; no me sale de la cabeza",
   "fr": "en tête; dans la tête",
-  "hi": "दिमाग से न निकलना; ज़हन में बसा रहना"
+  "hi": "दिमाग से न निकलना; ज़हन में बसा रहना",
+  "id": "terus terngiang; menempel di kepala; tidak lepas",
+  "ja": "頭から離れない; 気になって仕方がない",
+  "ko": "머릿속을 떠나지 않는; 계속 생각나는"
  },
  "roast": {
   "ar": "يسخر من; يستهزئ بـ",
   "de": "verarschen; aufziehen; auslachen",
   "es": "burlarse",
   "fr": "charrier; taquiner; se moquer de",
-  "hi": "मज़ाक उड़ाना; खिंचाई करना"
+  "hi": "मज़ाक उड़ाना; खिंचाई करना",
+  "id": "mengolok-olok; mengejek",
+  "ja": "いじる; 軽くいじる; 茶化す"
  },
  "rock it": {
   "ar": "يتألق به; يبرع فيه",
   "de": "rocken; tragen wie ein Profi",
   "es": "lucirlo; llevarlo con estilo",
   "fr": "assurer; porter avec assurance",
-  "id": "tampil keren memakai; cocok sekali memakai"
+  "hi": "स्टाइल से पहनना; धूमधाम से पहनना",
+  "id": "tampil keren memakai; cocok sekali memakai",
+  "ja": "かっこよく着こなす; 自信満々で着る; イケてる",
+  "ko": "멋지게 입다; 당당히 소화하다"
  },
  "run out of steam": {
   "ar": "نفد منه الحماس; انتهت طاقته",
   "de": "aus der Puste kommen; die Kraft verlieren",
   "es": "quedarse sin energía; perder el impulso; agotarse",
   "fr": "s'essouffler; s'épuiser",
-  "hi": "ऊर्जा ख़त्म होना; थक जाना"
+  "hi": "ऊर्जा ख़त्म होना; थक जाना",
+  "id": "kehabisan tenaga; kehabisan semangat",
+  "ja": "勢いがなくなる; やる気が尽きる"
  },
  "running late": {
   "ar": "متأخر; متأخر عن الموعد; متأخر عن الجدول",
@@ -1968,28 +2466,37 @@
   "ar": "يكاد ينفد طاقته; يعمل على آخر ما تبقى من الوقود",
   "de": "auf Sparflamme laufen; mit leeren Kräften weitermachen",
   "es": "andar con las pilas bajas; funcionar con lo justo; estar al límite",
-  "hi": "अत्यधिक थका होना; नाममात्र की ऊर्जा पर चलना"
+  "fr": "être à plat; fonctionner à vide",
+  "hi": "अत्यधिक थका होना; नाममात्र की ऊर्जा पर चलना",
+  "id": "hampir kehabisan tenaga; hampir tak berdaya",
+  "ja": "体力が底をつく; 息切れ状態"
  },
  "salty": {
   "ar": "مستاء; متذمر; حامض",
   "de": "sauer; genervt; verbittert",
   "es": "amargado; resentido; molesto",
   "fr": "vénère; amer",
-  "hi": "चिड़चिड़ा; ख़फ़ा"
+  "hi": "चिड़चिड़ा; ख़फ़ा",
+  "id": "kesal; marah; jengkel",
+  "ja": "イライラした; 悔しがっている; ひがんでいる"
  },
  "same": {
   "ar": "وأنا أيضاً; كذلك أنا; نفس الشيء",
   "de": "Ich auch; Gleichfalls; Ebenso",
   "es": "yo también; igual; lo mismo",
   "fr": "moi aussi; pareil; idem",
-  "hi": "मैं भी; मेरा भी यही हाल है"
+  "hi": "मैं भी; मेरा भी यही हाल है",
+  "id": "sama; aku juga; begitu juga",
+  "ja": "同感; 私も; 同じく",
+  "ko": "나도; 같이; 동감"
  },
  "savage": {
   "ar": "قاسي; صريح",
   "de": "krass; heftig; brutal",
   "es": "Brutal; Feroz; Descarado",
   "fr": "sauvage; brutal",
-  "hi": "बेबाक; धाकड़; करारा"
+  "hi": "बेबाक; धाकड़; करारा",
+  "id": "pedas; menohok; tajam"
  },
  "say less": {
   "ar": "خلاص; ما في داعي; فهمت",
@@ -1997,19 +2504,27 @@
   "es": "ya está; no hace falta; entendido",
   "fr": "c’est bon; pas la peine; ok",
   "hi": "समझ गया; और मत बताओ",
-  "id": "siap; paham"
+  "id": "siap; paham",
+  "ja": "了解; わかった",
+  "ko": "알겠어; 말 필요 없어"
  },
  "scorcher": {
   "ar": "يوم حار; يوم شديد الحرارة; حارّ",
   "de": "Hitzetag; Gluthitze-Tag",
   "es": "calorazo; día de horno; día abrasador",
   "fr": "journée étouffante; journée de canicule",
-  "hi": "बेहद गर्म दिन; बहुत गर्म दिन"
+  "hi": "बेहद गर्म दिन; बहुत गर्म दिन",
+  "id": "hari terik; hari panas",
+  "ja": "猛暑日; 灼熱の日"
  },
  "scratching my head": {
   "ar": "محتار; يحك رأسه من الحيرة",
   "de": "den Kopf zerbrechen; grübeln; ratlos sein",
-  "fr": "se gratter la tête"
+  "es": "me estoy rascando la cabeza; no sé qué pensar",
+  "fr": "se gratter la tête",
+  "hi": "सोच में पड़ना; उलझन में होना",
+  "id": "bingung; kebingungan; pusing",
+  "ja": "頭を抱える; 考え込む"
  },
  "see eye to eye": {
   "ar": "يتفق; يتطابق في الرأي; يتناغم",
@@ -2031,49 +2546,62 @@
   "de": "man sieht sich; bis später; bis dann",
   "es": "nos vemos; hasta luego",
   "fr": "à plus; à bientôt; on se voit plus tard",
-  "hi": "फिर मिलते हैं; बाद में मिलते हैं"
+  "hi": "फिर मिलते हैं; बाद में मिलते हैं",
+  "id": "sampai jumpa lagi; sampai nanti",
+  "ja": "またね; またどこかで"
  },
  "sheesh": {
   "ar": "يا لإلهي; ما شاء الله; يا للروعة",
   "de": "Mensch; Wow; Alter",
   "es": "¡Vaya!; ¡Madre mía!; ¡No me digas!",
   "fr": "ouah; ça alors",
-  "hi": "अरे वाह; बाप रे"
+  "hi": "अरे वाह; बाप रे",
+  "id": "wah; astaga; buset",
+  "ja": "すげえ; やばい"
  },
  "shook": {
   "ar": "مصدوم; مذهول; مصدوم جداً",
   "de": "schockiert; fassungslos; aus den Fügen",
   "es": "Flipado; Impactado; Alucinado",
   "fr": "choqué; secoué",
-  "hi": "दंग; हैरान; भौचक्का"
+  "hi": "दंग; हैरान; भौचक्का",
+  "id": "kaget; syok; terguncang",
+  "ja": "仰天した; びびった"
  },
  "side-eye": {
   "ar": "نظرة مريبة; نظرة استهجان",
   "de": "skeptischer Blick; misstrauischer Blick",
   "es": "mirada de reojo; mirada sospechosa",
   "fr": "regard en coin; œil de côté",
-  "hi": "तिरछी नज़र; शंका की नज़र"
+  "hi": "तिरछी नज़र; शंका की नज़र",
+  "id": "tatapan sinis; tatapan curiga; lirikan mata",
+  "ja": "横目; 斜め目"
  },
  "sketchy": {
   "ar": "مشبوه; مريب",
   "de": "dubios; zweifelhaft; suspekt",
   "es": "sospechoso; poco fiable; de mala reputación",
   "fr": "louche; suspect; douteux",
-  "hi": "संदिग्ध; शंकास्पद"
+  "hi": "संदिग्ध; शंकास्पद",
+  "id": "mencurigakan; tidak dapat dipercaya; curiga",
+  "ja": "怪しい; 信用できない"
  },
  "skip class": {
   "ar": "يتغيب عن الحصة; يتهرب من الدرس",
   "de": "den Unterricht schwänzen; die Vorlesung schwänzen; den Unterricht ausfallen lassen",
   "es": "faltar a clase; ausentarse de clase",
   "fr": "sécher les cours; manquer les cours",
-  "hi": "क्लास बंक करना; कक्षा छोड़ना"
+  "hi": "क्लास बंक करना; कक्षा छोड़ना",
+  "id": "membolos; membolos sekolah",
+  "ja": "授業をサボる; 欠席する"
  },
  "slay": {
   "ar": "يبدع; يتألق; يكتسح",
   "de": "abrocken; glänzen",
   "es": "arrasar; destacar; lucir",
   "fr": "déchirer; assurer; cartonner",
-  "hi": "कमाल करना; तहलका मचाना"
+  "hi": "कमाल करना; तहलका मचाना",
+  "ja": "決める; やり切る"
  },
  "sleep on it": {
   "ar": "يتمهل في القرار; يفكر في الأمر حتى الغد",
@@ -2095,103 +2623,137 @@
   "de": "einen Fehler machen; sich verhaspeln; einen Patzer machen",
   "es": "meter la pata; equivocarse",
   "fr": "faire une erreur; se tromper; commettre une bévue",
-  "hi": "चूक जाना; छोटी गलती करना"
+  "hi": "चूक जाना; छोटी गलती करना",
+  "id": "terlupa; membuat kesalahan kecil",
+  "ja": "うっかりミス; 失敗する"
  },
  "smh": {
   "ar": "أهز رأسي; أُهزّ رأسي",
   "de": "Kopfschütteln; ich schüttle den Kopf",
   "es": "me sacudo la cabeza; sacudiendo la cabeza",
   "fr": "je secoue la tête; SMH",
-  "hi": "सिर हिलाकर असहमति जताना; निराशा व्यक्त करना"
+  "hi": "सिर हिलाकर असहमति जताना; निराशा व्यक्त करना",
+  "id": "geleng kepala; menggelengkan kepala",
+  "ja": "呆れる; 頭を振る; がっかり"
  },
  "sounds like a plan": {
   "ar": "فكرة جيدة; يبدو مناسبًا",
   "de": "Klingt gut; klingt nach einem Plan",
   "es": "suena bien; me parece bien; vale",
   "fr": "ça me va; c’est bon",
-  "hi": "यह योजना सही है; ठीक रहेगा; बढ़िया विचार है"
+  "hi": "यह योजना सही है; ठीक रहेगा; बढ़िया विचार है",
+  "id": "oke; setuju; bagus",
+  "ja": "いいね; それで決まりだね; 了解"
  },
  "spill the tea": {
   "ar": "احكي القيل والقال; شارك القصة",
+  "de": "Erzähl den Klatsch; Lass die Neuigkeiten raus; Hau den Klatsch raus",
   "es": "soltar la sopa; contar el chisme",
   "fr": "balancer les potins; dévoiler les ragots",
   "hi": "गपशप बताना; भेद खोलना; बातें सुनाना",
-  "id": "membongkar gosip; membagikan gosip"
+  "id": "membongkar gosip; membagikan gosip",
+  "ja": "噂を教えて; ゴシップを聞かせて",
+  "ko": "가십 털어줘; 소문 알려줘"
  },
  "splurge": {
   "ar": "يبذر; يسرف في الإنفاق",
   "de": "sich etwas gönnen; ausgeben",
   "es": "derrochar; darse un capricho",
   "fr": "se faire plaisir; dépenser sans compter",
-  "hi": "फ़जूलख़र्ची करना; खुलकर ख़र्च करना"
+  "hi": "फ़जूलख़र्ची करना; खुलकर ख़र्च करना",
+  "id": "menghambur-hamburkan uang; berbelanja berlebihan",
+  "ja": "浪費する; 贅沢に使う; ぜいたくする"
  },
  "spoiler": {
   "ar": "مُفسد القصة; مفسد",
   "de": "Spoiler; Handlungsenthüllung",
   "es": "spoiler; revelación; detalle que arruina",
   "fr": "spoiler; révélation",
-  "hi": "स्पॉइलर; रहस्य खोलने वाली जानकारी"
+  "hi": "स्पॉइलर; रहस्य खोलने वाली जानकारी",
+  "id": "spoiler; pengungkapan",
+  "ja": "ネタバレ; 先行情報; 伏線暴露"
  },
  "squad": {
+  "ar": "صَحْبة; رفقة; فرقة",
   "de": "Clique; Truppe; Freundeskreis",
   "es": "pandilla; grupo",
   "fr": "bande; crew; bande de potes",
-  "hi": "दोस्तों की टोली; गैंग"
+  "hi": "दोस्तों की टोली; गैंग",
+  "id": "geng; kelompok teman; squad",
+  "ja": "いつもの仲間; いつメン; 仲良しグループ"
  },
  "stan": {
   "ar": "يعشق; يهوى",
   "de": "anhimmeln; unterstützen; fan sein von",
   "es": "admirar; ser fan de; apoyar fervientemente",
   "fr": "être fan de; soutenir",
-  "hi": "अत्यधिक समर्थन करना; बड़ा प्रशंसक होना"
+  "hi": "अत्यधिक समर्थन करना; बड़ा प्रशंसक होना",
+  "id": "mengidolakan; menjadi stan",
+  "ja": "推す; 熱狂的に応援する; ファンになる"
  },
  "stellar": {
   "ar": "ممتاز; رائع; متألق",
   "de": "stellar; hervorragend",
   "es": "estelar; excelente; de primera",
   "fr": "exceptionnel; brillant; stellaire",
-  "hi": "शानदार; उत्कृष्ट; बेहतरीन"
+  "hi": "शानदार; उत्कृष्ट; बेहतरीन",
+  "id": "luar biasa; gemilang",
+  "ja": "最高; 素晴らしい"
  },
  "stoked": {
   "ar": "متحمس جدًا; مبتهج; مسرور",
   "de": "begeistert; total aus dem Häuschen; mega gefreut",
   "es": "emocionado; entusiasmado; eufórico",
   "fr": "aux anges; super content",
-  "hi": "बेहद रोमांचित; अत्यंत उत्साहित"
+  "hi": "बेहद रोमांचित; अत्यंत उत्साहित",
+  "id": "senang banget; bersemangat; gembira",
+  "ja": "超興奮した; 最高に嬉しい; ワクワクしている",
+  "ko": "신난; 들뜬"
  },
  "subtweet": {
   "ar": "منشور غير مباشر; تغريدة غير مباشرة",
   "de": "Subtweet; indirekter Tweet; anspielender Beitrag",
   "es": "tuit indirecto; publicación indirecta",
   "fr": "tweet indirect; allusion sur Twitter",
-  "hi": "परोक्ष ट्वीट; बिना नाम लिए की गई पोस्ट"
+  "hi": "परोक्ष ट्वीट; बिना नाम लिए की गई पोस्ट",
+  "id": "subtweet; tweet tidak langsung",
+  "ja": "裏ツイート; 暗示ツイート"
  },
  "sus": {
   "ar": "مريب; مشبوه",
   "de": "verdächtig",
   "es": "sospechoso; sospechosa",
   "fr": "suspect; louche",
-  "hi": "संदिग्ध; शंकास्पद"
+  "hi": "संदिग्ध; शंकास्पद",
+  "id": "sus; curiga; mencurigakan",
+  "ja": "怪しい; 疑わしい"
  },
  "sweating buckets": {
   "ar": "يتعرق بغزارة; يتصبب عرقًا كثيرًا",
+  "de": "schwitzend wie ein Schwein; stark schwitzen; in Schweiß gebadet",
   "es": "sudar a mares; sudar a chorros",
   "fr": "suer à grosses gouttes; transpirer à grosses gouttes",
-  "hi": "बहुत पसीना आना; पसीने से तर-बतर होना"
+  "hi": "बहुत पसीना आना; पसीने से तर-बतर होना",
+  "id": "keringat deras; keringat meluap",
+  "ja": "汗だく; 大量に汗をかく"
  },
  "sweet": {
   "ar": "رائع!; ممتاز!",
   "de": "Geil; Cool; Super",
   "es": "genial; chévere; guay",
   "fr": "Super; Génial; Cool",
-  "hi": "वाह!; बढ़िया!; शानदार!"
+  "hi": "वाह!; बढ़िया!; शानदार!",
+  "id": "keren; mantap; asyik",
+  "ja": "やった; すごい; かっこいい"
  },
  "swing by": {
   "ar": "يمر سريعاً; يزور لبرهة",
   "de": "kurz vorbeischauen; vorbeischauen",
   "es": "pasar por; dar una vuelta; pasar rápidamente",
   "fr": "passer; faire un saut",
-  "hi": "थोड़ी देर के लिए आना; चक्कर लगाना"
+  "hi": "थोड़ी देर के लिए आना; चक्कर लगाना",
+  "id": "singgah; mampir",
+  "ja": "立ち寄る; ちょっと寄る; 顔を出す"
  },
  "tacky": {
   "ar": "رخيص المظهر; ذوق رخيص",
@@ -2199,13 +2761,18 @@
   "es": "cursi; de mala calidad; chabacano",
   "fr": "kitsch; de mauvais goût; ringard",
   "hi": "भद्दा; घटिया",
-  "id": "norak; murahan"
+  "id": "norak; murahan",
+  "ja": "安っぽい; ださい; チープ",
+  "ko": "천박한; 촌스러운; 저속한"
  },
  "tag along": {
   "ar": "يرافق; يذهب مع",
   "de": "mitkommen; mitgehen",
   "es": "acompañarme; unirme; ir de acompañamiento",
-  "hi": "साथ हो लेना; साथ चलना"
+  "fr": "se joindre; accompagner",
+  "hi": "साथ हो लेना; साथ चलना",
+  "id": "ikut; ikut-ikutan",
+  "ja": "付き合う; 同行する; ついて行く"
  },
  "take it easy": {
   "ar": "اهدأ; خذ الأمور بسهولة; استرخي",
@@ -2227,35 +2794,45 @@
   "de": "die Niederlage einstecken; das L akzeptieren; verlieren und akzeptieren",
   "es": "aceptar la derrota; tomar la L",
   "fr": "accepter la défaite; prendre la perte",
-  "hi": "हार स्वीकार करना; हार मानना"
+  "hi": "हार स्वीकार करना; हार मानना",
+  "id": "terima kekalahan; ambil L",
+  "ja": "負けを認める; 敗北を受け入れる; 負けを受け止める"
  },
  "teacher's pet": {
   "ar": "المفضل لدى المعلم; مدلل المعلم",
   "de": "Lehrerliebling; Lieblingsschüler",
   "es": "favorito del profesor; consentido del profe",
   "fr": "chouchou du prof; élève préféré",
-  "hi": "शिक्षक का चहेता; शिक्षक का दुलारा"
+  "hi": "शिक्षक का चहेता; शिक्षक का दुलारा",
+  "id": "murid kesayangan guru; anak emas guru",
+  "ja": "先生の子分; 先生のお気に入り"
  },
  "that slaps": {
   "ar": "رائع جداً; رهيب; مذهل",
   "de": "Das geht ab; Das knallt",
   "es": "eso está brutal; eso está buenísimo; eso está cañón",
   "fr": "ça claque; c'est top; c'est mortel",
-  "hi": "बहुत ज़बरदस्त है; धांसू है"
+  "hi": "बहुत ज़बरदस्त है; धांसू है",
+  "id": "keren banget; mantap",
+  "ja": "ヤバい; 神"
  },
  "that's a riot": {
   "ar": "هذا مضحك جداً; أمر ممتع للغاية",
   "de": "Das ist zum Brüllen; Das ist urkomisch; Das ist ein Kracher",
   "es": "¡qué risa!; es una carcajada; es muy gracioso",
   "fr": "c'est hilarant; c'est mortel; c'est trop drôle",
-  "hi": "बहुत मज़ेदार है; बेहद हँसाने वाला है"
+  "hi": "बहुत मज़ेदार है; बेहद हँसाने वाला है",
+  "id": "lucu sekali; konyol banget",
+  "ja": "笑える; 面白すぎる; 大笑いだ"
  },
  "that's cap": {
   "ar": "ده كدب; مش حقيقي",
   "de": "das ist nicht wahr; das ist Quatsch; das ist gelogen",
   "es": "eso es mentira; eso es falso; eso es puro cuento",
   "fr": "c'est faux; c'est du mensonge; c'est du pipeau",
-  "hi": "यह झूठ है; यह झूठी बात है"
+  "hi": "यह झूठ है; यह झूठी बात है",
+  "id": "itu bohong; itu tidak benar; itu nggak bener",
+  "ja": "嘘だ; デタラメだ"
  },
  "the last straw": {
   "ar": "القشة الأخيرة; القطرة الأخيرة",
@@ -2277,12 +2854,18 @@
   "de": "das Original; das Wahre; echte Sache",
   "es": "lo auténtico; lo de verdad; el verdadero",
   "fr": "l'authentique; le vrai de vrai; le vrai truc",
-  "hi": "असली चीज़; वास्तव में श्रेष्ठ"
+  "hi": "असली चीज़; वास्तव में श्रेष्ठ",
+  "id": "asli; yang sebenarnya; otentik",
+  "ja": "本物そのもの; 本格的"
  },
  "third wheel": {
   "ar": "الطرف الثالث; الشخص الزائد",
   "de": "drittes Rad; ungebetener Gast; die dritte Person",
-  "es": "persona de más; cucharilla"
+  "es": "persona de más; cucharilla",
+  "fr": "troisième roue; roue de trop",
+  "hi": "अतिरिक्त व्यक्ति; बेमेल साथी",
+  "id": "orang ketiga; penumpang tambahan; orang yang terasing",
+  "ja": "お邪魔虫; 3人目の余計な人"
  },
  "thrifting": {
   "ar": "يتسوق مستعمل; يشتري ملابس مستعملة",
@@ -2290,7 +2873,9 @@
   "es": "comprar de segunda mano; cazar gangas",
   "fr": "chiner; faire les friperies",
   "hi": "सेकंड-हैंड खरीदारी करना; पुराना सामान खरीदना",
-  "id": "berbelanja barang bekas; berburu pakaian bekas"
+  "id": "berbelanja barang bekas; berburu pakaian bekas",
+  "ja": "古着を買う; リサイクルショップで買い物する; 古着狩りをする",
+  "ko": "중고 옷을 사다; 중고 쇼핑하다"
  },
  "throw shade": {
   "ar": "يُهين بخفة; يطلق سخرية",
@@ -2298,42 +2883,55 @@
   "es": "tirar indirectas; lanzar indirectas; echar indirectas",
   "fr": "lancer une pique; balancer une remarque cinglante",
   "hi": "ताना मारना; तंज़ कसना; परोक्ष रूप से अपमान करना",
-  "id": "menyindir; melempar sindiran"
+  "id": "menyindir; melempar sindiran",
+  "ja": "陰口を叩く; 皮肉る; 嫌味を言う",
+  "ko": "비아냥거리다; 비꼬다"
  },
  "ticked off": {
   "ar": "غاضب; منزعج; مستاء",
   "de": "verärgert; aufgebracht; genervt",
   "es": "molesto; enfadado; fastidiado",
   "fr": "vexé; énervé",
-  "hi": "नाराज़; चिढ़ा हुआ"
+  "hi": "नाराज़; चिढ़ा हुआ",
+  "id": "kesal; marah; geram",
+  "ja": "ムカついている; 腹を立てている; イライラした",
+  "ko": "화난; 짜증 난"
  },
  "tight on cash": {
   "ar": "مزنوق مادياً; ضيق ذات اليد",
   "de": "knapp bei Kasse; knapp bei Geld",
   "es": "con poco dinero; apretado de dinero",
   "fr": "à court d'argent; serré niveau finances",
-  "hi": "हाथ तंग; पैसे की तंगी में"
+  "hi": "हाथ तंग; पैसे की तंगी में",
+  "id": "kurang uang; kekurangan uang",
+  "ja": "金欠; 財布が厳しい; 資金が足りない"
  },
  "to be honest": {
   "ar": "بصراحة; لأكون صادقًا",
   "de": "ehrlich gesagt; um ehrlich zu sein; offen gesagt",
   "es": "para ser honesto; siendo sincero; a decir verdad",
   "fr": "pour être honnête; honnêtement; à vrai dire",
-  "hi": "सच कहूँ तो; ईमानदारी से"
+  "hi": "सच कहूँ तो; ईमानदारी से",
+  "id": "sejujurnya; jujur saja; terus terang",
+  "ja": "正直に言うと; 率直に言えば"
  },
  "too funny": {
   "ar": "مضحك جداً; يموت من الضحك",
   "de": "Zu witzig; Echt witzig; Das ist zum Lachen",
   "es": "¡muy gracioso!; ¡qué gracioso!; ¡qué chistoso!",
   "fr": "c'est trop drôle; c'est vraiment marrant",
-  "hi": "बहुत ही मज़ेदार; बेहद हँसी की बात"
+  "hi": "बहुत ही मज़ेदार; बेहद हँसी की बात",
+  "id": "lucu banget; kocak sekali",
+  "ja": "めっちゃ笑える; 超面白い; 笑いすぎる"
  },
  "top-notch": {
   "ar": "من أعلى طراز; ممتاز; رفيع المستوى",
   "de": "erstklassig; spitzenmäßig",
   "es": "de primera; de primera categoría; de lujo",
   "fr": "haut de gamme; de première classe; de qualité supérieure",
-  "hi": "आला दर्जे का; बेहतरीन; सर्वोत्कृष्ट"
+  "hi": "आला दर्जे का; बेहतरीन; सर्वोत्कृष्ट",
+  "id": "kelas satu; terbaik",
+  "ja": "一流; 最高級"
  },
  "totally": {
   "ar": "تمامًا; كليًا; على أكمل وجه",
@@ -2341,20 +2939,27 @@
   "es": "totalmente; por completo; completamente",
   "fr": "totalement; à fond; grave",
   "hi": "बिल्कुल; पूरी तरह से; एकदम",
-  "id": "benar-benar; sepenuhnya; sama sekali"
+  "id": "benar-benar; sepenuhnya; sama sekali",
+  "ja": "完全に; まじで",
+  "ko": "완전; 진짜; 완전히"
  },
  "touch base": {
   "ar": "نتواصل; نلتقي",
   "de": "kurz abstimmen; sich kurz melden",
   "es": "ponerse en contacto; tocar base",
   "fr": "faire le point; prendre contact",
-  "hi": "संपर्क करना; थोड़ी बात करना"
+  "hi": "संपर्क करना; थोड़ी बात करना",
+  "id": "berhubungan singkat; menyapa",
+  "ja": "軽く連絡を取る; 簡単に確認する"
  },
  "touch grass": {
   "ar": "اخرج للهواء; اخرج إلى الخارج",
   "de": "Geh nach draußen; frische Luft schnappen; offline gehen",
   "es": "salir al aire libre; desconectar",
-  "hi": "बाहर जाना; वास्तविक दुनिया में आना; इंटरनेट छोड़ना"
+  "fr": "Va prendre l'air; Sors dehors",
+  "hi": "बाहर जाना; वास्तविक दुनिया में आना; इंटरनेट छोड़ना",
+  "id": "keluar rumah; jalan-jalan; ambil udara segar",
+  "ja": "外に出る; 外に出てみろ; リアルに戻る"
  },
  "toxic": {
   "ar": "سامٍ; مُسمم; مُؤذٍ",
@@ -2362,19 +2967,25 @@
   "es": "tóxico; dañino",
   "fr": "toxique; nocif",
   "hi": "ज़हरीला; मानसिक रूप से हानिकारक; अस्वास्थ्यकर",
-  "id": "toksik; beracun"
+  "id": "toksik; beracun",
+  "ja": "有害な; 毒性のある; 毒舌な"
  },
  "troll": {
   "ar": "يستفز; يزعج",
   "de": "trollen; ärgern; provozieren",
   "es": "trollear; molestar en línea; provocar",
   "fr": "troller; provoquer",
-  "hi": "ऑनलाइन परेशान करना; ट्रॉल करना; उकसाना"
+  "hi": "ऑनलाइन परेशान करना; ट्रॉल करना; उकसाना",
+  "id": "troll; mengganggu secara daring; mengolok-olok",
+  "ja": "荒らす; 挑発する; 釣る"
  },
  "tryhard": {
   "de": "Streber; Angeber; Überflieger",
+  "es": "intentón; esforzado",
+  "fr": "un(e) acharné(e); un(e) trop zélé",
   "hi": "दिखावा करने वाला; अत्यधिक प्रयास करने वाला व्यक्ति",
-  "id": "orang yang terlalu berupaya; pemaksa diri"
+  "id": "orang yang terlalu berupaya; pemaksa diri",
+  "ko": "노력쟁이; 과도하게 애쓰는 사람"
  },
  "under the weather": {
   "ar": "متوعك قليلاً; ليس على ما يرام",
@@ -2396,69 +3007,90 @@
   "de": "unterbewertet; unterschätzt",
   "es": "subestimado; infravalorado; poco apreciado",
   "fr": "sous-estimé; méconnu",
-  "hi": "कम आंका गया; अल्पमूल्यांकित"
+  "hi": "कम आंका गया; अल्पमूल्यांकित",
+  "id": "terlalu diremehkan; kurang dihargai",
+  "ja": "過小評価されている; 見落とされがち"
  },
  "understood the assignment": {
   "ar": "قام بالواجب وزيادة; فهم المطلوب تماماً",
   "de": "hat's voll drauf; hat die Aufgabe verstanden",
   "es": "entendió la consigna; la clavó; la rompió",
   "fr": "a compris le brief; a assuré; a tout déchiré",
-  "hi": "काम बख़ूबी निभाया; उम्मीद पर खरा उतरा"
+  "hi": "काम बख़ूबी निभाया; उम्मीद पर खरा उतरा",
+  "ja": "バッチリ決まってる; 完璧にやった"
  },
  "unfollow": {
   "ar": "يلغي المتابعة; يتوقف عن المتابعة",
   "de": "entfolgen; nicht mehr folgen; Abonnement beenden",
   "es": "dejar de seguir; anular seguimiento",
   "fr": "se désabonner; ne plus suivre",
-  "hi": "अनफॉलो करना; फ़ॉलो करना बंद करना"
+  "hi": "अनफॉलो करना; फ़ॉलो करना बंद करना",
+  "id": "unfollow; berhenti mengikuti; tidak lagi mengikuti",
+  "ja": "フォロー解除する; フォローを外す; フォローをやめる"
  },
  "unhinged": {
   "ar": "مجذوب; مضطرب; جنوني",
   "de": "durchgeknallt; verrückt; ausgeflippt",
   "es": "desenfrenado; loco; chiflado",
   "fr": "déraillé; fou; détraqué",
-  "hi": "बेकाबू; सनकी; सिरफिरा"
+  "hi": "बेकाबू; सनकी; सिरफिरा",
+  "id": "gila; sinting; tak terkendali",
+  "ja": "ぶっ飛んだ; ヤバい; キテる"
  },
  "unpopular opinion": {
   "ar": "رأي غير شائع; رأي لا يحظى بشعبية",
   "de": "unbeliebte Meinung; unpopuläre Meinung; unpopuläre Ansicht",
   "es": "opinión impopular",
   "fr": "opinion impopulaire; avis impopulaire",
-  "hi": "अलोकप्रिय राय; अलोकप्रिय विचार"
+  "hi": "अलोकप्रिय राय; अलोकप्रिय विचार",
+  "id": "pendapat tidak populer; opini yang tidak disukai; pandangan tidak umum",
+  "ja": "少数派の意見; 不人気な意見"
  },
  "up in the air": {
   "ar": "غير محدد; معلق في الهواء",
   "de": "in der Schwebe; noch offen",
   "es": "en el aire; pendiente; por decidir",
   "fr": "en suspens; incertain",
-  "hi": "अनिश्चित; अधर में लटका हुआ; तय न होना"
+  "hi": "अनिश्चित; अधर में लटका हुआ; तय न होना",
+  "id": "belum pasti; masih ragu",
+  "ja": "未定だ; まだ決まっていない; はっきりしない"
  },
  "vibe": {
   "ar": "أجواء; جو; مزاج",
   "de": "Stimmung; Atmosphäre; Vibe",
   "es": "ambiente; onda; vibra",
   "fr": "ambiance; atmosphère",
-  "hi": "माहौल; तरंग"
+  "hi": "माहौल; तरंग",
+  "id": "suasana; aura; getaran",
+  "ja": "雰囲気; ムード; 感じ",
+  "ko": "분위기; 느낌"
  },
  "vibe check": {
   "ar": "فحص الأجواء; تقييم المزاج",
   "de": "Stimmungscheck; Stimmung prüfen; Vibes-Check",
   "es": "chequeo de vibra; revisión del ambiente",
   "fr": "vibe check; test d'ambiance",
-  "hi": "मूड की जाँच; माहौल का जायज़ा"
+  "hi": "मूड की जाँच; माहौल का जायज़ा",
+  "id": "cek suasana; cek vibe; cek mood",
+  "ja": "雰囲気の確認; テンションの確認"
  },
  "vibing": {
   "ar": "يستمتع; يتمايل",
   "de": "chillen; relaxen; die Stimmung genießen",
   "es": "disfrutar; estar en sintonía; vibrar",
   "fr": "kiffer; se détendre; profiter",
-  "hi": "आनंद लेना; चिल करना; मज़े करना"
+  "hi": "आनंद लेना; चिल करना; मज़े करना",
+  "id": "menikmati suasana; bersantai; menikmati",
+  "ja": "まったり楽しんでいる; いい雰囲気で過ごしている"
  },
  "wait, what": {
   "ar": "لحظة، ماذا؟; مهلاً، ما هذا؟",
   "de": "Moment, was?; Was?; Warte mal",
   "es": "¿Qué?; ¿Cómo?; ¿En serio?",
-  "hi": "अरे, क्या?; रुको, क्या?"
+  "fr": "Attends, quoi?; Quoi?; Hein, quoi?",
+  "hi": "अरे, क्या?; रुको, क्या?",
+  "id": "tunggu, apa; bentar, apa",
+  "ja": "え、何？; 待って、何？; え、マジで？"
  },
  "win-win": {
   "ar": "مربح للطرفين; فوز-فوز; مفيد للجميع",
@@ -2466,14 +3098,18 @@
   "es": "ganar-ganar; mutuamente beneficioso; ventajoso",
   "fr": "gagnant-gagnant; mutuellement bénéfique",
   "hi": "दोनों के लिए फायदेमंद; लाभदायक",
-  "id": "sama-sama menguntungkan; menguntungkan kedua pihak"
+  "id": "sama-sama menguntungkan; menguntungkan kedua pihak",
+  "ja": "ウィンウィン; 相互利益",
+  "ko": "윈윈; 상생; 두 마리 토끼"
  },
  "wiped out": {
   "ar": "منهك تمامًا; مُرهق للغاية",
   "de": "erschöpft; völlig erledigt; total ausgelaugt",
   "es": "agotado; exhausto; cansadísimo",
   "fr": "épuisé; vanné; crevé",
-  "hi": "अत्यधिक थका हुआ; पस्त; निढाल"
+  "hi": "अत्यधिक थका हुआ; पस्त; निढाल",
+  "id": "lelah sekali; sangat lelah",
+  "ja": "へとへとだ; くたくただ"
  },
  "works for me": {
   "ar": "موافق; يناسبني; ما عندي مانع",
@@ -2481,28 +3117,36 @@
   "es": "me vale; me parece bien; me funciona",
   "fr": "ça me va; ça me convient; c’est bon pour moi",
   "hi": "मुझे मंज़ूर है; मुझे चलेगा; मेरे लिए ठीक है",
-  "id": "boleh juga; aku setuju"
+  "id": "boleh juga; aku setuju",
+  "ja": "いいよ; 大丈夫",
+  "ko": "괜찮아; 좋아; 내게 맞아"
  },
  "worth it": {
   "ar": "يستحق التعب; يستأهل; جدير بالاهتمام",
   "de": "es lohnt sich; es ist es wert",
   "es": "vale la pena; merece la pena",
   "fr": "ça vaut le coup; ça en vaut la peine",
-  "hi": "सार्थक; फ़ायदेमंद; मेहनत या पैसे के लायक"
+  "hi": "सार्थक; फ़ायदेमंद; मेहनत या पैसे के लायक",
+  "id": "sepadan; layak",
+  "ja": "価値がある; それだけの価値がある"
  },
  "wrap up": {
   "ar": "نختتم; نُنهِي",
   "de": "abschließen; zu Ende bringen",
   "es": "concluir; terminar",
   "fr": "boucler; conclure; terminer",
-  "hi": "समाप्त करना; खत्म करना"
+  "hi": "समाप्त करना; खत्म करना",
+  "id": "menyelesaikan; menutup",
+  "ja": "まとめる; 終了する"
  },
  "yeet": {
   "ar": "يرمي بقوة; يلقي بعنف",
   "de": "schmeißen; wegschmeißen; werfen",
   "es": "lanzar con fuerza; tirar con energía; lanzar",
   "fr": "balancer; lancer",
-  "hi": "ज़ोर से फेंकना; दूर उछालना"
+  "hi": "ज़ोर से फेंकना; दूर उछालना",
+  "id": "melempar; membuang",
+  "ja": "ぶん投げる; 投げ捨てる"
  },
  "you bet": {
   "ar": "أكيد; طبعًا; على الرحب والسعة",
@@ -2510,20 +3154,26 @@
   "es": "claro; por supuesto; cómo no",
   "fr": "bien sûr; pas de problème; c’est sûr",
   "hi": "बिल्कुल; ज़रूर; अवश्य",
-  "id": "tentu saja; tentu"
+  "id": "tentu saja; tentu",
+  "ja": "もちろん; もちろんだよ",
+  "ko": "당연하지; 물론이지; 그래"
  },
  "you've got this": {
   "ar": "أنت قادر على ذلك; تقدر",
   "de": "Du schaffst das; Du hast das drauf; Du packst das",
   "es": "tú puedes; lo tienes",
   "fr": "t'en es capable; tu gères; tu vas y arriver",
-  "hi": "तुम यह कर सकते हो; तुम कर लोगे"
+  "hi": "तुम यह कर सकते हो; तुम कर लोगे",
+  "id": "kamu pasti bisa; kamu bisa melakukannya; semangat",
+  "ja": "君ならできる; 頑張って"
  },
  "zonked": {
   "ar": "متعب جدًا; ناعس",
   "de": "total erledigt; völlig erschöpft; ausgepowert",
   "es": "reventado; agotadísimo; muerto",
   "fr": "claqué; k.o.; lessivé",
-  "hi": "थका-माँदा; नींद में धुत"
+  "hi": "थका-माँदा; नींद में धुत",
+  "id": "ngantuk banget; lelah total",
+  "ja": "ヘトヘトだ; だるい"
  }
 }
