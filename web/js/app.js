@@ -429,7 +429,11 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
   let n0x = 0;
   const LZCSS = n => /^(ux1|u1\w+|i18nx|i18nl)$/.test(n) ? [] : ['css/lazy-ui.css']; // CSS trang lười tách khỏi style.css (scripts/test/css-lazy.mjs) – ux1 vẽ ngay nên không chờ
   const need1 = n => bundleP[n] || (inflight++, bundleP[n] = manifest().then(() => Promise.all(BUNDLES[n].map(loadScript).concat([].concat(BCSS[n] || [], n === 'ux1' ? UX1X() : [], LZCSS(n)).map(loadCss)))).catch(e => { delete bundleP[n]; throw e; }).finally(() => { inflight--; }));
-  App.need = (...names) => Promise.all([...(window.I18N && I18N.lang() !== 'vi' ? ['i18nx', 'i18nl'].map(need1) : []), ...names.map(need1)]);
+  // Chuỗi giao diện lười (i18nx + i18nl = 9 tệp en/*.js, ~75 KB nén) KHÔNG chặn mọi trang: gói trong I18N_NEED chỉ chờ đúng tệp nó dùng (bảng kiểm từ NGUỒN bằng scripts/test/i18n-need.mjs);
+  // gói ngoài bảng (hoặc gọi không tên) nạp đủ hai gói như cũ. LCP #/path #/dict #/review #/me bớt 16–26 KB trước lần vẽ đầu (mobile-qa 22/11).
+  const I18N_NEED = { ux1: ['league', 'verbs', 'skills', 'lazyui'], u1home: ['lazyui', 'verbs'], u1rev: [], u1prac: [], u1me: ['lazyui'], words: ['call', 'lazyui'], pathx: ['lazyui', 'structs', 'verbs', 'handoff'], vcore: [], uidx: ['structs'], dictp: ['handoff', 'lazyui'], streak: ['lazyui'] }, i18nP = {};
+  const i18nOne = f => i18nP[f] || (i18nP[f] = (inflight++, manifest().then(() => loadScript(`js/i18n/en/${f}.js`)).catch(e => { delete i18nP[f]; throw e; }).finally(() => { inflight--; })));
+  App.need = (...names) => Promise.all([...(window.I18N && I18N.lang() !== 'vi' ? (names.length && names.every(n => I18N_NEED[n]) ? [...new Set(names.flatMap(n => I18N_NEED[n]))].map(i18nOne) : ['i18nx', 'i18nl'].map(need1)) : []), ...names.map(need1)]);
   App.loaded = n => !!bundleP[n];
   // 17/11 (mục 4 ngân sách khung, chừa chỗ ≥ 3 %): ai.js KHÔNG còn trong khung. window.AI là shim: hàm bất đồng bộ tải gói 'ai' rồi gọi bản thật (ai.js tự ghi đè window.AI);
   // hàm đồng bộ trả giá trị an toàn khi chưa tải (chỉ gọi sau một lần gọi AI nên bản thật đã có). `window.AI &&` ở mọi nơi vẫn đúng như trước. Test: scripts/test/ai-shim.mjs
