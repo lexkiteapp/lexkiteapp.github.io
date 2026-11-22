@@ -1,6 +1,11 @@
 {
  "es": [
   [
+   "detect",
+   "detect",
+   "detectar"
+  ],
+  [
    "volume",
    "volume",
    "volumen"
@@ -11,9 +16,19 @@
    "seguro"
   ],
   [
+   "found",
+   "found",
+   "fundar"
+  ],
+  [
    "outcome",
    "outcome",
    "resultado"
+  ],
+  [
+   "vision",
+   "vision",
+   "visión"
   ],
   [
    "status",
@@ -31,31 +46,41 @@
    "modo"
   ],
   [
-   "scope",
-   "scope",
-   "alcance"
-  ],
-  [
-   "regime",
-   "regime",
-   "régimen"
-  ],
-  [
-   "voluntary",
-   "voluntary",
-   "voluntario"
-  ],
-  [
-   "resolve",
-   "resolve",
-   "resolver"
+   "bond-over",
+   "bond over",
+   "vínculo terminado"
   ]
  ],
  "pt": [
   [
+   "detect",
+   "detect",
+   "descobrir"
+  ],
+  [
+   "secure",
+   "secure",
+   "seguro"
+  ],
+  [
+   "found",
+   "found",
+   "fundar"
+  ],
+  [
    "mode",
    "mode",
    "modo"
+  ],
+  [
+   "vision",
+   "vision",
+   "visão"
+  ],
+  [
+   "status",
+   "status",
+   "estado"
   ],
   [
    "criteria",
@@ -63,44 +88,19 @@
    "critérios"
   ],
   [
+   "bond-over",
+   "bond over",
+   "vínculo sobre"
+  ],
+  [
    "scope",
    "scope",
    "escopo"
   ],
   [
-   "regime",
-   "regime",
-   "regime"
-  ],
-  [
-   "resolve",
-   "resolve",
-   "resolver"
-  ],
-  [
-   "fee",
-   "fee",
-   "taxa"
-  ],
-  [
-   "convert",
-   "convert",
-   "converter"
-  ],
-  [
-   "reverse",
-   "reverse",
-   "reverter"
-  ],
-  [
-   "differentiate",
-   "differentiate",
-   "diferenciar"
-  ],
-  [
-   "ensure",
-   "ensure",
-   "garantir"
+   "outcome",
+   "outcome",
+   "resultado"
   ]
  ],
  "fr": [
@@ -130,29 +130,29 @@
    "critères"
   ],
   [
+   "bond-over",
+   "bond over",
+   "lien sur"
+  ],
+  [
    "scope",
    "scope",
    "portée"
   ],
   [
+   "outcome",
+   "outcome",
+   "résultat"
+  ],
+  [
+   "valid",
+   "valid",
+   "valide"
+  ],
+  [
    "regime",
    "regime",
    "régime"
-  ],
-  [
-   "voluntary",
-   "voluntary",
-   "volontaire"
-  ],
-  [
-   "resolve",
-   "resolve",
-   "résoudre"
-  ],
-  [
-   "academy",
-   "academy",
-   "académie"
   ]
  ],
  "de": [
@@ -177,6 +177,11 @@
    "sicher"
   ],
   [
+   "found",
+   "found",
+   "gründen"
+  ],
+  [
    "criteria",
    "criteria",
    "Kriterien"
@@ -187,31 +192,41 @@
    "Modus"
   ],
   [
+   "bond-over",
+   "bond over",
+   "Bindung vorbei"
+  ],
+  [
    "scope",
    "scope",
    "Umfang"
   ],
   [
-   "regime",
-   "regime",
-   "Regime"
-  ],
-  [
-   "voluntary",
-   "voluntary",
-   "freiwillig"
-  ],
-  [
-   "resolve",
-   "resolve",
-   "lösen"
+   "valid",
+   "valid",
+   "gültig"
   ]
  ],
  "id": [
   [
+   "detect",
+   "detect",
+   "menemukan"
+  ],
+  [
    "found",
    "found",
    "mendirikan"
+  ],
+  [
+   "secure",
+   "secure",
+   "aman"
+  ],
+  [
+   "vision",
+   "vision",
+   "penglihatan"
   ],
   [
    "criteria",
@@ -224,39 +239,24 @@
    "memahami"
   ],
   [
+   "bond-over",
+   "bond over",
+   "ikatan berakhir"
+  ],
+  [
    "incline",
    "incline",
    "condong"
   ],
   [
-   "regime",
-   "regime",
-   "rezim"
+   "scope",
+   "scope",
+   "cakupan"
   ],
   [
-   "resolve",
-   "resolve",
-   "menyelesaikan"
-  ],
-  [
-   "fee",
-   "fee",
-   "biaya"
-  ],
-  [
-   "convert",
-   "convert",
-   "mengubah"
-  ],
-  [
-   "cease",
-   "cease",
-   "berhenti"
-  ],
-  [
-   "contrary",
-   "contrary",
-   "yg bertentangan"
+   "outcome",
+   "outcome",
+   "hasil"
   ]
  ],
  "th": [
@@ -313,54 +313,54 @@
  ],
  "zh": [
   [
+   "detect",
+   "detect",
+   "检测"
+  ],
+  [
+   "volume",
+   "volume",
+   "体积"
+  ],
+  [
+   "secure",
+   "secure",
+   "安全"
+  ],
+  [
+   "found",
+   "found",
+   "成立"
+  ],
+  [
+   "vision",
+   "vision",
+   "视力"
+  ],
+  [
+   "status",
+   "status",
+   "地位"
+  ],
+  [
    "criteria",
    "criteria",
    "标准"
   ],
   [
-   "fee",
-   "fee",
-   "费用"
+   "mode",
+   "mode",
+   "模式"
   ],
   [
-   "convert",
-   "convert",
-   "变换"
+   "scope",
+   "scope",
+   "范围"
   ],
   [
-   "federal",
-   "federal",
-   "联邦"
-  ],
-  [
-   "differentiate",
-   "differentiate",
-   "区分"
-  ],
-  [
-   "debate",
-   "debate",
-   "争论"
-  ],
-  [
-   "ensure",
-   "ensure",
-   "确保"
-  ],
-  [
-   "capable",
-   "capable",
-   "能"
-  ],
-  [
-   "coherent",
-   "coherent",
-   "相干"
-  ],
-  [
-   "coincide",
-   "coincide",
-   "重合"
+   "outcome",
+   "outcome",
+   "结果"
   ]
  ],
  "ja": [
@@ -380,6 +380,16 @@
    "安全な"
   ],
   [
+   "found",
+   "found",
+   "見つかった"
+  ],
+  [
+   "vision",
+   "vision",
+   "ビジョン"
+  ],
+  [
    "status",
    "status",
    "地位"
@@ -395,24 +405,14 @@
    "モード"
   ],
   [
+   "bond-over",
+   "bond over",
+   "絆を深める"
+  ],
+  [
    "scope",
    "scope",
    "範囲"
-  ],
-  [
-   "regime",
-   "regime",
-   "領域"
-  ],
-  [
-   "voluntary",
-   "voluntary",
-   "随意"
-  ],
-  [
-   "resolve",
-   "resolve",
-   "思い立つ"
   ]
  ],
  "ko": [
@@ -432,9 +432,19 @@
    "안전"
   ],
   [
+   "found",
+   "found",
+   "설립하다"
+  ],
+  [
    "status",
    "status",
    "지위"
+  ],
+  [
+   "vision",
+   "vision",
+   "시력"
   ],
   [
    "widespread",
@@ -452,19 +462,9 @@
    "모드"
   ],
   [
-   "scope",
-   "scope",
-   "범위"
-  ],
-  [
-   "regime",
-   "regime",
-   "정권"
-  ],
-  [
-   "voluntary",
-   "voluntary",
-   "자발적인"
+   "bond-over",
+   "bond over",
+   "~을 계기로 친해지다"
   ]
  ],
  "hi": [
@@ -474,9 +474,19 @@
    "पता लगाना"
   ],
   [
+   "volume",
+   "volume",
+   "आयतन"
+  ],
+  [
    "secure",
    "secure",
    "सुरक्षित"
+  ],
+  [
+   "found",
+   "found",
+   "ढालना"
   ],
   [
    "vision",
@@ -484,39 +494,29 @@
    "नज़र"
   ],
   [
+   "status",
+   "status",
+   "प्रतिष्ठा"
+  ],
+  [
    "criteria",
    "criteria",
    "मानदंड"
   ],
   [
-   "valid",
-   "valid",
-   "जायज़"
+   "mode",
+   "mode",
+   "साधन"
   ],
   [
-   "resolve",
-   "resolve",
-   "समाधान करना"
+   "scope",
+   "scope",
+   "क्षेत्र"
   ],
   [
-   "levy",
-   "levy",
-   "उगाही"
-  ],
-  [
-   "capacity",
-   "capacity",
-   "क्षमता"
-  ],
-  [
-   "fee",
-   "fee",
-   "शुल्क"
-  ],
-  [
-   "convert",
-   "convert",
-   "रूपांतरित करना"
+   "outcome",
+   "outcome",
+   "नतीजा"
   ]
  ],
  "ar": [
@@ -551,27 +551,57 @@
    "ذو صلة"
   ],
   [
+   "volume",
+   "volume",
+   "مقدار"
+  ],
+  [
    "integrity",
    "integrity",
    "نزاهة"
   ],
   [
+   "secure",
+   "secure",
+   "مأمون"
+  ],
+  [
    "convert",
    "convert",
    "تحول"
-  ],
-  [
-   "circumstance",
-   "circumstance",
-   "ظرف"
-  ],
-  [
-   "reverse",
-   "reverse",
-   "عكس"
   ]
  ],
  "ru": [
+  [
+   "detect",
+   "detect",
+   "обнаруживать"
+  ],
+  [
+   "volume",
+   "volume",
+   "объем"
+  ],
+  [
+   "secure",
+   "secure",
+   "безопасный"
+  ],
+  [
+   "found",
+   "found",
+   "основывать"
+  ],
+  [
+   "vision",
+   "vision",
+   "зрение"
+  ],
+  [
+   "status",
+   "status",
+   "статус"
+  ],
   [
    "criteria",
    "criteria",
@@ -583,47 +613,47 @@
    "режим"
   ],
   [
-   "regime",
-   "regime",
-   "режим"
+   "scope",
+   "scope",
+   "рамки"
   ],
   [
-   "evolve",
-   "evolve",
-   "эволюционировать"
-  ],
-  [
-   "fee",
-   "fee",
-   "вознаграждение"
-  ],
-  [
-   "convert",
-   "convert",
-   "конвертировать"
-  ],
-  [
-   "federal",
-   "federal",
-   "федеральный"
-  ],
-  [
-   "reverse",
-   "reverse",
-   "реверсировать"
-  ],
-  [
-   "differentiate",
-   "differentiate",
-   "дифференцировать"
-  ],
-  [
-   "debate",
-   "debate",
-   "дебаты"
+   "outcome",
+   "outcome",
+   "исход"
   ]
  ],
  "tr": [
+  [
+   "detect",
+   "detect",
+   "belirlemek"
+  ],
+  [
+   "volume",
+   "volume",
+   "hacim"
+  ],
+  [
+   "secure",
+   "secure",
+   "güvenli"
+  ],
+  [
+   "found",
+   "found",
+   "kurmak"
+  ],
+  [
+   "vision",
+   "vision",
+   "görüş"
+  ],
+  [
+   "status",
+   "status",
+   "durum"
+  ],
   [
    "criteria",
    "criteria",
@@ -635,44 +665,14 @@
    "moda"
   ],
   [
-   "regime",
-   "regime",
-   "rejim"
+   "scope",
+   "scope",
+   "kapsam"
   ],
   [
-   "prime",
-   "prime",
-   "asal"
-  ],
-  [
-   "fee",
-   "fee",
-   "ücret"
-  ],
-  [
-   "convert",
-   "convert",
-   "dönüştürmek"
-  ],
-  [
-   "reverse",
-   "reverse",
-   "tersine çevirmek"
-  ],
-  [
-   "differentiate",
-   "differentiate",
-   "farklılaştırmak"
-  ],
-  [
-   "debate",
-   "debate",
-   "çekişme"
-  ],
-  [
-   "ensure",
-   "ensure",
-   "sağlamak"
+   "outcome",
+   "outcome",
+   "sonuç"
   ]
  ]
 }
