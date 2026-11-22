@@ -17,10 +17,12 @@ const html = `<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta n
 window.t=(s,v)=>v?s.replace(/\\{(\\w+)\\}/g,(m,k)=>v[k]):s;
 const card=(word,ex,due)=>({word,ex,vi:'x',srs:{reps:1,last:1,due,lapses:0}});
 const deck={apple:card('apple','We need to buy the apple for the party.',100),happy:card('happy','She was happy to see the family again.',200),river:card('river','They walked along the river after the lunch.',100),eat:card('eat','I like to eat fruit in the morning.',100),blue:card('blue','He bought a blue bag at the market.',100)};
-window.Core={Cards:{update:async()=>{}},SRS:{review:s=>s},Stats:{logReview:async()=>({})},endOfToday:()=>5000,todayKey:()=>'2026-11-22'};window.I18N={lang:()=>'en'};
+window.Core={Cards:{update:async()=>{}},SRS:{review:s=>s},Stats:{logReview:async()=>({})},endOfToday:()=>5000};
+window.Core.todayKey=()=>'2026-11-22';window.I18N={lang:()=>'en'};
 const lj=f=>new Promise(r=>{const s=document.createElement('script');s.src='${W}/'+f;s.onload=s.onerror=r;document.head.appendChild(s);});
 ['tactile-x','st-lesson','st-v2-lesson-complete'].forEach(c=>{const l=document.createElement('link');l.rel='stylesheet';l.href='${W}/css/'+c+'.css';document.head.appendChild(l);});
-window.App={view:document.getElementById('view'),state:{cards:deck,settings:{sfx:false},game:{best:{}}},reward:async()=>{},cleanup:null,backHref:()=>'#',need:async b=>{if(b==='gend'&&!window.GameEnd)for(const f of ${GEND})await lj(f);}};
+window.App={view:document.getElementById('view'),state:{cards:deck,settings:{sfx:false},game:{best:{}}},reward:async()=>{},cleanup:null,backHref:()=>'#'};
+window.App.need=async b=>{if(b==='gend'&&!window.GameEnd)for(const f of ${GEND})await lj(f);};
 window.UI={$:(s,r)=>(r||document).querySelector(s),esc:s=>String(s).replace(/[<>&"]/g,''),speak(){},WEAK:{to:['t','t',''],the:['d','d',''],a:['a','a',''],for:['f','f',''],was:['w','w',''],at:['a','a',''],in:['i','i',''],after:['a','a',''],of:['v','v','']}};
 window.Sfx={correct(){},wrong(){},finish(){},haptic(){}};
 const head=(title,i,n,extra)=>'<div class="study-top"><a class="icon-btn" href="#">✕</a><div class="progress"><i style="width:'+(i/Math.max(1,n)*100)+'%"></i></div><span class="small muted" style="white-space:nowrap">'+(extra||'')+'</span></div><div class="small muted" style="margin:-.4rem 0 .8rem">'+title+'</div>';
