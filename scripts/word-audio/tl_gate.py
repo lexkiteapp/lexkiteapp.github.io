@@ -113,7 +113,7 @@ CARRIER = {v: detail(f, C['carrier'].rstrip(':')) for v, f in (probe.get('carrie
 res = [gate(r) if r.get('f') else {**r, 'ok': False, 'why': r.get('err', 'no file')} for r in probe.get('rows', [])]
 by = {}
 for x in res: by.setdefault(x.get('v', '?'), []).append(x)
-lines = [f'## Giọng từ đơn {TL} ({C["espeak"]}) – lượt mẫu', f"kokoro-js tự đọc {TL}: `{probe.get('kokoroJsGenTl')}` · giọng {TL} kèm kokoro-js: {probe.get('kokoroJsHasTl')} · âm vị mẫu {C['probe']}: `{(probe.get('sample') or {}).get('p')}` · ASR {os.environ.get('TL_ASR', C['asrModel'])}", '', '| giọng | đạt | qua câu mang | ASR trượt | độ to trượt |', '|---|---|---|---|---|']
+lines = [f'## Giọng từ đơn {TL} ({C["espeak"]}) – lượt mẫu', *([f"⚠ nguồn đối chứng hỏng (bỏ qua): {probe['altErr']}"] if probe.get('altErr') else []), f"kokoro-js tự đọc {TL}: `{probe.get('kokoroJsGenTl')}` · giọng {TL} kèm kokoro-js: {probe.get('kokoroJsHasTl')} · âm vị mẫu {C['probe']}: `{(probe.get('sample') or {}).get('p')}` · ASR {os.environ.get('TL_ASR', C['asrModel'])}", '', '| giọng | đạt | qua câu mang | ASR trượt | độ to trượt |', '|---|---|---|---|---|']
 for v, xs in by.items():
     lines.append(f"| {v} | {sum(x['ok'] for x in xs)}/{len(xs)} | {sum(1 for x in xs if x['ok'] and x.get('m') == 'cut')} | {', '.join(x['w'] + '→' + repr(x.get('heard')) for x in xs if not x.get('asr'))} | {', '.join(x['w'] for x in xs if x.get('asr') and not x.get('loud'))} |")
 json.dump(res, open(os.path.join(OUT, 'gate.json'), 'w'), ensure_ascii=False, indent=1)
