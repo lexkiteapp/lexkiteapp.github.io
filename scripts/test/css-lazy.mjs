@@ -24,7 +24,7 @@ export function lazyModel() {
   const all = walk('web');
   for (const h of all.filter(f => f.endsWith('.html'))) for (const m of rd(h).matchAll(/<script\b[^>]*\bsrc="([^"]+)"/g)) lazy.delete('web/' + m[1].replace(/^(\.\.\/)+|^\//, '').replace(/\?.*/, ''));
   const ext = fs.existsSync('extension') ? walk('extension').filter(f => !f.startsWith('extension/app/')) : [];
-  const keepText = [...all.filter(f => !lazy.has(f) && !f.startsWith('web/css/')), ...ext].map(rd).join('\n');
+  const keepText = [...all.filter(f => !lazy.has(f) && !f.startsWith('web/css/') && !f.startsWith('web/js/path-skel/')), // path-skel/<lang>.js tự mang style của nó (sinh từ lazy-ui.css) → không phải nơi khung dùng class ...ext].map(rd).join('\n');
   const lazyText = [...lazy].filter(f => fs.existsSync(f)).map(rd).join('\n');
   const dyn = [...keepText.matchAll(/['"`\s.]([A-Za-z]\w*(?:-\w+)*)[-_](?:\$\{|['"`]\s*\+)/g)].map(m => m[1] + '-');
   const inKeep = c => keepText.includes(c) || dyn.some(p => c.startsWith(p));
