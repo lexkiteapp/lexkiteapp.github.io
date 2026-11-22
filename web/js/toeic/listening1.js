@@ -557,7 +557,7 @@ explain: 'Hàng bị chậm vì "a storm near our warehouse" – bão gần kho 
 { n: 69, q: "What does the man imply when he says, \"I've been sitting on a kitchen stool all week\"?", options: ['He needs the chair urgently.', 'He prefers to work in the kitchen.', 'He wants to return a stool.', 'He works in a restaurant.'], a: 0, cue: "I've been sitting on a kitchen stool all week.",
 explain: 'Dù được hoàn phí giao hàng, anh nói mình phải ngồi ghế đẩu nhà bếp cả tuần → hàm ý rất cần chiếc ghế gấp. Người phụ nữ hiểu ngay ("In that case") và đề nghị giao nhanh vào sáng mai.' },
 { n: 70, q: 'What will the woman send the man?', options: ['A promotional voucher', 'A new tracking number', 'A brochure of new items', 'A corrected billing statement'], a: 1, cue: "I'll e-mail you a new tracking number within the hour.",
-explain: 'Đáp B đúng vì cô nói sẽ gửi email với mã theo dõi mới trong vòng một giờ. Các đáp A, C, D không khớp vì không có đề cập tới mã giảm giá, danh mục sản phẩm, hay hoá đơn đã sửa.' },
+explain: 'Đáp B đúng vì cô nói sẽ gửi email với mã theo dõi mới trong vòng một giờ. Các đáp A, C, D không khớp vì không có đề cập tới mã giảm giá, danh mục sản phẩm, hay hóa đơn đã sửa.' },
 ] },
 ],
 vocab: [
