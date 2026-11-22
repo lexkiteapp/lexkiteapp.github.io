@@ -66,7 +66,7 @@ g.TQR = [
           explain: '"years of experience" = số năm kinh nghiệm. "experiment" = thí nghiệm, "expectation" = sự mong đợi (sai nghĩa); "expertly" là trạng từ.' },
         { n: 118, q: 'The annual employee awards dinner ------- at the Quillmere Riverside Hotel last Saturday.', options: ['holds', 'is holding', 'will be held', 'was held'], a: 3, cue: 'last Saturday',
           explain: 'Bữa tiệc "được tổ chức" (bị động) và "last Saturday" là quá khứ → "was held". "will be held" sai thì; "holds/is holding" là chủ động.' },
-        { n: 119, q: 'Ms. Dubois and her colleagues designed the trade show booth by -------.', options: ['themselves', 'them', 'their', 'theirs'], a: 0, cue: 'designed the trade show booth by',
+        { n: 119, q: 'Ms. Dubois and her colleagues designed the trade show booth by -------.', options: ['themselves', 'himself', 'ourselves', 'yourself'], a: 0, cue: 'designed the trade show booth by',
           explain: '"by + đại từ phản thân" = tự mình (không ai giúp): "by themselves". Các dạng khác không dùng trong cụm này.' },
         { n: 120, q: 'Participants may register for the workshop either online ------- by phone.', options: ['and', 'nor', 'or', 'but'], a: 2, cue: 'either online',
           explain: 'Cặp liên từ "either ... or ..." (hoặc ... hoặc ...). "nor" đi với "neither".' },
@@ -115,8 +115,8 @@ Linh Pham`,
               explain: '"be expected to + V nguyên mẫu" → "last" (kéo dài). Các dạng khác không đứng sau "to".' },
             { n: 132, q: '(132)', options: ['Therefore', 'Instead', 'Otherwise', 'Similarly'], a: 0, cue: 'only levels 1 and 2 will be open',
               explain: 'Vế trước là nguyên nhân (chỉ mở 2 tầng), vế sau là hệ quả (khuyến khích đi xe công cộng) → "Therefore" (vì vậy). "Otherwise" = nếu không thì; "Instead" = thay vào đó; "Similarly" = tương tự.' },
-            { n: 133, q: '(133)', options: ['The garage was first built in 1998.', 'Our cafeteria will also offer a new lunch menu.', 'Parking there will be free for employees who show their company ID.', 'Please return your visitor badges at the end of the day.'], a: 2, cue: 'Greenfield Plaza lot',
-              explain: 'Câu trước nói về bãi Greenfield Plaza; câu (C) bổ sung thông tin về chỗ đậu xe đó ("there") → mạch lạc nhất. Các câu khác lạc đề.' },
+            { n: 133, q: '(133)', options: ['The garage will be renovated next year.', 'Our cafeteria will close for cleaning tomorrow.', 'Parking there will be free for employees who show their company ID.', 'Please submit your visitor badges to reception before leaving today.'], a: 2, cue: 'Greenfield Plaza lot',
+              explain: 'Câu (C) nối tiếp thông tin về bãi đậu xe ở Greenfield Plaza, vì vậy hợp lý nhất. Các lựa chọn còn lại không liên quan tới nội dung đã nêu.' },
             { n: 134, q: '(134)', options: ['patiently', 'patience', 'patient', 'patients'], a: 1, cue: 'appreciate your',
               explain: 'Sau tính từ sở hữu "your" cần danh từ; "appreciate your patience" = cảm ơn sự kiên nhẫn của bạn. "patients" = bệnh nhân (sai nghĩa).' }
           ] } ] },
@@ -201,10 +201,10 @@ Priya Raman`,
               explain: 'Email báo hộp mực TX-450 tạm hết hàng – tức là một phần đơn hàng gặp vấn đề. Không nhắc đến đổi địa chỉ, đòi nợ hay quảng cáo máy in.' },
             { n: 148, q: 'What has Northgate Office Supplies done for Mr. Mbeki?', options: ['Waived a delivery fee', 'Upgraded his account', 'Refunded his entire order', 'Sent him a free printer'], a: 0, cue: 'we have removed the delivery charge from your invoice',
               explain: '"removed the delivery charge" = miễn phí giao hàng ("waived a delivery fee" – diễn đạt lại). Không hoàn tiền toàn bộ hay tặng máy in.' },
-            { n: 149, q: 'What is indicated about the TX-460 cartridges?', options: ['They will arrive on June 20.', 'They are no longer manufactured.', 'They are used only in color printers.', 'They are usually more expensive than the TX-450.'], a: 3, cue: 'normally costs $8 more per unit',
-              explain: 'TX-460 "normally costs $8 more per unit" → thường đắt hơn TX-450. Ngày 20/6 là ngày TX-450 về hàng, không phải TX-460.' },
-            { n: 150, q: 'What will happen if Mr. Mbeki does not reply by June 15?', options: ['His order will be canceled.', 'He will receive the original cartridges later.', 'He will be charged an extra fee.', 'The TX-460 cartridges will be shipped.'], a: 1, cue: 'we will ship the TX-450 cartridges as soon as they become available',
-              explain: 'Nếu không trả lời, công ty sẽ gửi TX-450 (loại ban đầu đã đặt) khi có hàng → nhận sau. (D) sai vì TX-460 chỉ gửi nếu ông ấy chọn.' }
+            { n: 149, q: 'What is indicated about the TX-460 cartridges?', options: ['They will be shipped on June 20.', 'They are currently out of stock.', 'They are compatible only with laser printers.', 'They are usually more expensive than the TX-450.'], a: 3, cue: 'normally costs $8 more per unit',
+              explain: 'Câu đúng nêu rằng TX-460 thường đắt hơn TX-450. Các đáp án khác đưa ra thông tin không có trong đoạn văn.' },
+            { n: 150, q: 'What will happen if Mr. Mbeki does not reply by June 15?', options: ['His order will be delayed.', 'He will receive the original cartridges later.', 'He will be offered a discount.', 'The TX‑460 cartridges will be shipped at a higher price.'], a: 1, cue: 'we will ship the TX-450 cartridges as soon as they become available',
+              explain: 'Nếu không trả lời, công ty sẽ gửi các hộp mực TX‑450 đã đặt khi hàng về, vì vậy ông sẽ nhận được loại nguyên bản sau. Đáp án (D) sai vì công ty không gửi mẫu TX‑460 và không tính phí thêm.' }
           ] } ] },
         { title: 'Text-message chain', text:
 `Kenji Arai [9:12 A.M.]: Hi Mariana, are you at the Fairmont Street site yet? The client wants to move the walkthrough to 10:30.
@@ -219,7 +219,7 @@ Kenji Arai [9:20 A.M.]: Great. I'll let Tomas know.`,
               explain: 'Tin nhắn đầu: khách muốn dời buổi đi xem công trình sang 10:30 → thông báo thay đổi lịch. Chính Ms. Costa mới là người nhắc đến tai nạn.' },
             { n: 152, q: 'What is suggested about Tomas?', options: ['He is the client.', 'He was in an accident.', 'He is driving on Route 7.', 'He can open the showroom.'], a: 3, cue: 'He already has the keys',
               explain: 'Ms. Costa nhờ Tomas mở cửa phòng trưng bày, và Mr. Arai xác nhận "He already has the keys" → Tomas mở được phòng trưng bày.' },
-            { n: 153, q: 'At 9:19 A.M., what does Ms. Costa most likely mean when she writes, "That won\'t be necessary"?', options: ['She does not need help from Tomas.', 'She wants to cancel the walkthrough.', 'She expects to arrive in time for the meeting.', 'She has already contacted the client.'], a: 2, cue: '10:30 still works for me',
+            { n: 153, q: 'At 9:19 A.M., what does Ms. Costa most likely mean when she writes, "That won\'t be necessary"?', options: ['She does not need Tomas to unlock the showroom.', 'She wants to postpone the walkthrough to a later time.', 'She expects to arrive in time for the meeting.', 'She has already informed the client about the new schedule.'], a: 2, cue: '10:30 still works for me',
               explain: 'Kẹt xe khoảng 40 phút (đến khoảng 9:56) nên vẫn kịp buổi 10:30 → không cần báo khách là cô đến muộn.' }
           ] } ] },
         { title: 'Advertisement', text:
@@ -240,7 +240,7 @@ Visit us at 18 Vo Van Ngan Street for a free one-day trial.`,
           groups: [ { type: 'mcq', instr: 'Questions 154-157 refer to the following advertisement.', items: [
             { n: 154, q: 'For whom is the advertisement most likely intended?', options: ['People who work independently or remotely', 'Real estate agents', 'Coffee suppliers', 'Restaurant owners'], a: 0, cue: 'freelancers, start-ups, and remote employees',
               explain: 'Quảng cáo hướng đến người làm tự do, start-up và nhân viên làm từ xa. Cà phê chỉ là tiện ích đi kèm, không phải đối tượng.' },
-            { n: 155, q: 'What is included with the Dedicated Desk membership but NOT with the Flex Pass?', options: ['Free coffee and tea', 'Access at any time of day', 'High-speed Internet', 'Printing services'], a: 1, cue: '24-hour access',
+            { n: 155, q: 'What is included with the Dedicated Desk membership but NOT with the Flex Pass?', options: ['Free snack bar', 'Access at any time of day', 'Reserved parking space', 'On-site gym facilities'], a: 1, cue: '24-hour access',
               explain: 'Dedicated Desk có "24-hour access", còn Flex Pass chỉ 8h–18h các ngày trong tuần. Internet, cà phê, in ấn có trong MỌI gói.' },
             { n: 156, q: 'How can members reserve a meeting room?', options: ['By calling the front desk', 'By sending an e-mail', 'By using an app', 'By visiting the website'], a: 2, cue: 'booked by the hour through our mobile app',
               explain: 'Phòng họp đặt theo giờ qua ứng dụng di động ("mobile app").' },
@@ -266,7 +266,7 @@ Questions may be directed to Ahmed Farouk, Building Manager, at extension 201.`,
               explain: 'Nếu không có ai, gửi chìa khóa ở quầy bảo vệ trước 17h ngày 21/10 → gửi chìa khóa trước.' },
             { n: 160, q: 'What is indicated about the fire alarm test?', options: ['It will last about an hour.', 'It will take place in the morning.', 'Tenants may remain inside the building.', 'It is held every month.'], a: 2, cue: 'Tenants do NOT need to leave the building',
               explain: 'Người thuê KHÔNG cần rời tòa nhà → được ở lại bên trong. Còi kêu khoảng 10 phút, lúc 14h (buổi chiều).' },
-            { n: 161, q: 'What will happen to suites that fail the inspection?', options: ['They will be closed for 30 days.', 'They will be given a list of required repairs.', 'They will be charged a fine.', 'Their keys will not be returned.'], a: 1, cue: 'a written report listing the items that must be corrected',
+            { n: 161, q: 'What will happen to suites that fail the inspection?', options: ['They will be required to submit a compliance report within 30 days.', 'They will be given a list of required repairs.', 'They will receive a notice of violation and a penalty charge.', 'Their access cards will be deactivated until the issues are resolved.'], a: 1, cue: 'a written report listing the items that must be corrected',
               explain: 'Văn phòng không đạt sẽ nhận báo cáo liệt kê các hạng mục phải khắc phục trong 30 ngày. "30 days" là hạn sửa chữa, không phải đóng cửa.' }
           ] } ] },
         { title: 'Article', text:
@@ -326,7 +326,7 @@ Paper forms will still be accepted for expenses incurred before March 2, provide
 
 Questions about the transition should be directed to Kaveh Jafari in the finance department at extension 2214.`,
           groups: [ { type: 'mcq', instr: 'Questions 169-171 refer to the following memo.', items: [
-            { n: 169, q: g.TQR[11], options: ['To announce the opening of new laboratories', 'To request feedback on a training program', 'To remind staff about a travel policy', 'To explain a change in how expenses are submitted'], a: 3, cue: 'will replace paper expense forms with ExpenseTrack',
+            { n: 169, q: g.TQR[11], options: ['To announce the launch of new research labs on campus.', 'To request employee input on the upcoming training curriculum.', 'To remind staff of the revised travel expense policy.', 'To explain a change in how expenses are submitted'], a: 3, cue: 'will replace paper expense forms with ExpenseTrack',
               explain: 'Bản ghi nhớ thông báo công ty "will replace paper expense forms with ExpenseTrack" → thay đổi cách nộp chi phí. Lyon và Porto là phòng thí nghiệm sẵn có, không phải mới mở; không có xin góp ý hay chính sách đi lại.' },
             { n: 170, q: 'What is NOT mentioned as a feature of ExpenseTrack?', options: ['It automatically approves small claims.', 'It lets users check the progress of their claims.', 'It can be used on mobile phones.', 'It allows receipts to be photographed.'], a: 0, cue: 'photograph receipts, submit claims, and check the status of their reimbursements',
               explain: 'Memo nêu dùng được trên điện thoại, chụp ảnh hóa đơn và "check the status" (xem tình trạng) yêu cầu hoàn tiền. Việc tự động duyệt các khoản nhỏ không hề được nhắc đến.' },
@@ -388,9 +388,9 @@ Operations Manager, Bluewater Travel`,
               explain: 'Câu hỏi kết hợp 2 bài: email nói đã học lớp của Mr. Adeyemi; lịch cho thấy Samuel Adeyemi dạy "Effective Business Writing".' },
             { n: 178, q: 'How much will Ms. Haddad most likely pay for the October 5 workshop before any refund is applied?', options: ['$144', '$180', '$200', '$162'], a: 1, cue: 'receive a 10% discount',
               explain: 'Lớp 5/10 (Leading Remote Teams) giá $200; cô là thành viên Alumni Network nên giảm 10% → $200 − $20 = $180.' },
-            { n: 179, q: 'Why does Ms. Haddad want to cancel a registration?', options: ['She is changing jobs.', 'She thinks the fee is too high.', 'The workshop has been canceled.', 'She has a conflict with a business event.'], a: 3, cue: 'attending a trade fair in Osaka',
-              explain: 'Cô hủy lớp ngân sách vì tuần đó đi hội chợ thương mại ở Osaka → trùng lịch với sự kiện công việc.' },
-            { n: 180, q: "What is suggested about Ms. Haddad's cancellation?", options: ["It meets the institute's deadline for a full refund.", 'It will not be refunded because of the policy.', 'It is for the September 21 workshop.', 'It was sent directly to Ms. Petrenko.'], a: 0, cue: 'at least seven days before a workshop',
+            { n: 179, q: 'Why does Ms. Haddad want to cancel a registration?', options: ['She is moving to a new city.', 'She believes the workshop is too short.', 'The workshop is fully booked.', 'She has a conflict with a business event.'], a: 3, cue: 'attending a trade fair in Osaka',
+              explain: 'Cô hủy đăng ký vì tuần đó phải tham dự hội chợ thương mại ở Osaka, nên đáp án (D) đúng. Đáp án (C) sai vì hội thảo không bị hủy.' },
+            { n: 180, q: "What is suggested about Ms. Haddad's cancellation?", options: ["It meets the institute's deadline for a full refund.", 'It will be denied a refund under the institute\'s cancellation rules.', 'It refers to the September 21 workshop on business writing.', 'It was mailed directly to Ms. Petrenko by the registration office.'], a: 0, cue: 'at least seven days before a workshop',
               explain: 'Email gửi ngày 30/9, lớp Budgeting diễn ra 12/10 (trước 12 ngày) → thỏa điều kiện hủy trước ít nhất 7 ngày để được hoàn tiền đầy đủ.' }
           ] } ] },
         { title: 'Web page and Online review', text:
@@ -417,9 +417,9 @@ The space was spotless, and the natural light from the large windows was excelle
           groups: [ { type: 'mcq', instr: g.TQR[10], items: [
             { n: 181, q: 'What is indicated about all the studios at Tidewell?', options: ['They have kitchen facilities.', 'They must be booked for a full day.', 'They include free use of a dressing room.', 'They come with basic lighting equipment.'], a: 3, cue: 'All rentals include basic lighting kits',
               explain: '"All rentals include basic lighting kits" → mọi phòng đều có bộ đèn cơ bản. Chỉ Studio C có bếp; phòng thay đồ chỉ miễn phí khi thuê từ cả ngày trở lên; có thể thuê theo giờ hoặc nửa ngày.' },
-            { n: 182, q: "How much did Ms. Benavides' team most likely pay for the studio rental?", options: ['$340', '$520', '$560', '$800'], a: 2, cue: 'We booked the space for a half day',
+            { n: 182, q: "How much did Ms. Benavides' team most likely pay for the studio rental?", options: ['$300', '$450', '$560', '$900'], a: 2, cue: 'We booked the space for a half day',
               explain: 'Kết hợp hai văn bản: nhóm cần bếp → Studio C (trang web: "with kitchen set"); thuê nửa ngày $440 + thêm 1 giờ theo giá giờ $120 = $560. $800 là giá cả ngày mà quản lý đã không tính.' },
-            { n: 183, q: "What is suggested about Ms. Benavides' team?", options: ['They canceled a booking at short notice.', 'They did not receive free use of the dressing room.', 'They rented camera equipment from the studio.', 'They photographed clothing for a catalog.'], a: 1, cue: 'Bookings of a full day or more receive free use of our dressing room',
+            { n: 183, q: "What is suggested about Ms. Benavides' team?", options: ['They arrived later than the scheduled start time.', 'They did not receive free use of the dressing room.', 'They used the studio’s lighting kit without extra charge.', 'They filmed a cooking demonstration for a TV show.'], a: 1, cue: 'Bookings of a full day or more receive free use of our dressing room',
               explain: 'Kết hợp hai văn bản: trang web cho dùng phòng thay đồ miễn phí khi thuê "a full day or more", còn bài đánh giá cho biết nhóm chỉ thuê nửa ngày (cộng thêm 1 giờ) → không được miễn phí phòng thay đồ. Thiết bị máy ảnh cho thuê đã hết nên họ không thuê được.' },
             { n: 184, q: 'In the online review, the word "ran" in paragraph 1 is closest in meaning to', options: ['continued', 'hurried', 'operated', 'managed'], a: 0, cue: 'the session ran long',
               explain: '"the session ran long" = buổi chụp kéo dài hơn dự kiến → "continued". "operated/managed" (vận hành, quản lý) và "hurried" (chạy vội) là các nghĩa khác của "run", không hợp ngữ cảnh thời gian.' },
@@ -481,8 +481,8 @@ Priya Raman`,
               explain: 'Hóa đơn: hàng được đổi "within 14 days of delivery at no charge"; email cho biết hàng giao ngày 10/3 ("arrived yesterday", email ngày 11/3) và cô còn giữ thùng → yêu cầu đổi nằm trong hạn, miễn phí. Không có thông tin về trả tiền trước, phiếu đặt hàng mới hay việc trì hoãn.' },
             { n: 189, q: 'In the invoice, the word "meet" in paragraph 1 is closest in meaning to', options: ['satisfy', 'encounter', 'gather', 'join'], a: 0, cue: 'meet your needs',
               explain: '"the items meet your needs" = sản phẩm đáp ứng nhu cầu → "meet" mang nghĩa "satisfy". "encounter" (gặp gỡ), "gather" (tập hợp), "join" (tham gia) là các nghĩa khác của "meet", không hợp ngữ cảnh.' },
-            { n: 190, q: 'What is suggested about the delivery on March 10?', options: ['It included fewer items than ordered.', 'It was made by a different company.', "It did not follow the customer's instructions.", 'It was charged a delivery fee.'], a: 2, cue: 'the delivery arrived in the afternoon',
-              explain: 'Phiếu đặt hàng yêu cầu "Please deliver before 10:00 A.M." vì thang máy chở hàng không dùng được buổi chiều; email cho biết "the delivery arrived in the afternoon" → giao hàng không theo hướng dẫn. Số lượng giao đủ, phí giao hàng là $0 (đơn trên $1,000).' }
+            { n: 190, q: 'What is suggested about the delivery on March 10?', options: ['It included extra items not ordered.', 'It was delivered by a third‑party carrier.', "It did not follow the customer's instructions.", 'It was delivered with a surcharge for rush service.'], a: 2, cue: 'the delivery arrived in the afternoon',
+              explain: 'Email cho biết giao hàng đến vào buổi chiều, trái với yêu cầu giao trước 10:00 a.m., vì vậy đáp án (C) đúng. Đáp án (A) sai vì số lượng giao đúng với đơn đặt hàng.' }
           ] } ] },
         { title: 'Advertisement, Registration form and E-mail', text:
 `Dovecote Language Centre – Intensive Courses for Professionals
@@ -531,11 +531,11 @@ Ines Carvalho`,
           groups: [ { type: 'mcq', instr: 'Questions 191-195 refer to the following advertisement, registration form, and e-mail.', items: [
             { n: 191, q: 'What is indicated about the courses in the advertisement?', options: ['They are taught online.', 'They last for about one month.', 'They are held on weekday mornings.', 'They are intended only for beginners.'], a: 1, cue: 'in just four weeks',
               explain: 'Quảng cáo: "in just four weeks" → khóa học kéo dài khoảng một tháng. Lớp học buổi tối tại cơ sở Kingsway Road (không phải trực tuyến hay buổi sáng), và có cả lớp trung cấp.' },
-            { n: 192, q: "On which days will Mr. Haddad's regular classes take place?", options: ['Mondays and Wednesdays', 'Tuesdays and Thursdays', 'Saturdays only', 'Wednesdays and Fridays'], a: 0, cue: 'Business Spanish (Intermediate) | Mon. & Wed.',
+            { n: 192, q: "On which days will Mr. Haddad's regular classes take place?", options: ['Mondays and Wednesdays', 'Tuesday and Thursday classes', 'Saturdays and Sundays', 'Wednesday and Friday evenings'], a: 0, cue: 'Business Spanish (Intermediate) | Mon. & Wed.',
               explain: 'Kết hợp hai văn bản: phiếu đăng ký cho thấy ông chọn "Business Spanish (Intermediate)", và bảng trong quảng cáo ghi khóa này học "Mon. & Wed." (thứ Hai và thứ Tư). Lớp thứ Bảy chỉ là lựa chọn học bù.' },
             { n: 193, q: 'Why is Mr. Haddad required to take a placement test?', options: ['His company requested it.', 'He registered after the deadline.', 'He plans to miss the first week of classes.', 'He is a new learner enrolling in an intermediate course.'], a: 3, cue: 'Learners who are new to Dovecote must take a short placement test before enrolling in an intermediate course',
               explain: 'Kết hợp ba văn bản: quảng cáo yêu cầu học viên mới thi xếp lớp khi đăng ký lớp trung cấp; phiếu đăng ký ghi "Previous study at Dovecote: No" và chọn lớp Intermediate; e-mail yêu cầu ông làm bài thi. Hạn đăng ký chỉ liên quan đến giảm giá, không liên quan bài thi.' },
-            { n: 194, q: 'How much will Pellworth Logistics most likely be charged for the course?', options: ['$342', '$350', '$380', '$420'], a: 2, cue: 'Date submitted: April 23',
+            { n: 194, q: 'How much will Pellworth Logistics most likely be charged for the course?', options: ['$342', '$340', '$380', '$400'], a: 2, cue: 'Date submitted: April 23',
               explain: 'Kết hợp ba văn bản: khóa tiếng Tây Ban Nha giá $380; ông nộp phiếu ngày 23/4, sau hạn 20/4 nên không được giảm 10% ($342); e-mail xác nhận sẽ gửi hóa đơn "full course fee" cho công ty → $380.' },
             { n: 195, q: 'In the e-mail, the word "follows" in paragraph 2 is closest in meaning to', options: ['chases', 'uses', 'succeeds', 'obeys'], a: 1, cue: 'which follows the same course materials',
               explain: '"follows the same course materials" = học theo, sử dụng cùng giáo trình → "uses". "chases" (đuổi theo), "succeeds" (nối tiếp) và "obeys" (tuân lệnh) là các nghĩa khác của "follow", không hợp với giáo trình.' }
@@ -585,13 +585,13 @@ Total paid | $291.00`,
           groups: [ { type: 'mcq', instr: 'Questions 196-200 refer to the following Web page, e-mail, and receipt.', items: [
             { n: 196, q: 'Why does Ms. Balogun need to rent a vehicle?', options: ['Her company is moving to a new kitchen.', 'Her company has received a larger order than usual.', "Her head chef does not have a driver's license.", "Her company's usual van is being fixed."], a: 3, cue: 'Our regular van is being repaired',
               explain: '"Our regular van is being repaired" = xe tải thường dùng của công ty đang được sửa → thuê xe khác. E-mail không nhắc đến chuyển bếp hay đơn hàng lớn bất thường.' },
-            { n: 197, q: 'Why was Saffron & Salt Catering charged $35?', options: ['The van was returned late.', 'The van was not refilled with fuel.', 'A second driver was added.', 'The van was driven too far.'], a: 1, cue: 'Vehicles must be returned with a full fuel tank, or a refueling charge of $35 will be added',
+            { n: 197, q: 'Why was Saffron & Salt Catering charged $35?', options: ['The van was returned with a dent.', 'The van was not refilled with fuel.', 'An extra insurance fee was charged.', 'The van exceeded the mileage limit.'], a: 1, cue: 'Vehicles must be returned with a full fuel tank, or a refueling charge of $35 will be added',
               explain: 'Kết hợp hai văn bản: biên lai có "Refueling charge $35", và trang web giải thích khoản này áp dụng khi xe không được trả với bình xăng đầy. Phí tài xế phụ là $12, phí quãng đường thêm là $24.' },
             { n: 198, q: 'How many kilometers did the van most likely travel during the rental?', options: ['180', '300', '360', '390'], a: 2, cue: 'the first 150 kilometers per day',
               explain: 'Kết hợp ba văn bản: thuê 2 ngày, mỗi ngày miễn phí 150 km (trang web) → 300 km; biên lai tính thêm 60 km → tổng 360 km, khớp với e-mail (đi về 90 km × 2 = 180 km mỗi ngày × 2 ngày).' },
             { n: 199, q: 'In the e-mail, the word "regular" in paragraph 1 is closest in meaning to', options: ['usual', 'balanced', 'frequent', 'standard-sized'], a: 0, cue: 'Our regular van is being repaired',
               explain: '"Our regular van" = chiếc xe tải công ty vẫn thường dùng → "usual". "frequent" (thường xuyên xảy ra), "balanced" (cân đối) hay "standard-sized" (cỡ tiêu chuẩn) không hợp với ngữ cảnh.' },
-            { n: 200, q: 'What is suggested about Mr. Volkov?', options: ['He owns Saffron & Salt Catering.', 'He drove the van only on July 19.', 'He returned the van before noon.', 'He rented a second vehicle.'], a: 1, cue: 'Additional driver (1 day)',
+            { n: 200, q: 'What is suggested about Mr. Volkov?', options: ['He was the head accountant for the catering firm.', 'He drove the van only on July 19.', 'He returned the van after midnight on the 19th.', 'He scheduled a replacement vehicle for the next day.'], a: 1, cue: 'Additional driver (1 day)',
               explain: 'Kết hợp hai văn bản: e-mail cho biết Mr. Volkov lái xe "on the second day" (19/7), và biên lai chỉ tính "Additional driver (1 day)" → ông chỉ lái ngày 19/7. Xe được trả lúc 8:40 tối, và e-mail cho thấy ông là bếp trưởng, không phải chủ công ty.' }
           ] } ] }
       ] }

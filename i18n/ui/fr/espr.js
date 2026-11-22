@@ -3,6 +3,7 @@
 "Chưa có bài cho mục này.":"Pas encore d'exercices pour ce thème.",
 "Cấp {l}":"Niveau {l}",
 "Cẩn thận dấu (tilde): {a}":"Attention à l'accent : {a}",
+"Cẩn thận dấu (é, è, ç…): {a}":"Attention aux accents (é, è, ç…) : {a}",
 "Không tải được bài. Kiểm tra mạng rồi thử lại.":"Impossible de charger la leçon. Vérifiez votre connexion et réessayez.",
 "Điền từ còn thiếu":"Complétez le mot manquant",
 });

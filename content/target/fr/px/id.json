@@ -1,0 +1,53 @@
+{
+ "ui": {
+  "ti": "Pelafalan bahasa Prancis",
+  "pk": "Pilih bunyi untuk dilatih",
+  "ex": "Dengarkan contoh",
+  "pp": "Pasangan minimal",
+  "dc": "Dikte",
+  "sy": "Ucapkan",
+  "qp": "Kata mana yang kamu dengar?",
+  "qd": "Ketik yang kamu dengar",
+  "qs": "Ketuk mikrofon dan ucapkan kata ini",
+  "mic": "Ketuk untuk bicara",
+  "hd": "Aku mendengar: “{h}”",
+  "rt": "Belum jelas. Coba lagi.",
+  "sk": "Lewati",
+  "nm": "Tidak ada mikrofon di sini. Latihan dengan pasangan kata atau dikte.",
+  "tp": "Tips"
+ },
+ "tp": {
+  "nasal": {
+   "t": "Vokal sengau: an, on, in",
+   "x": "Pada “bon”, “blanc”, dan “vin”, huruf n bukan konsonan: ia hanya mengalirkan vokal lewat hidung. Jangan sentuhkan lidah ke langit-langit. Tiga bunyi: on /ɔ̃/ dengan bibir bulat (“bon”), an /ɑ̃/ dengan mulut terbuka (“blanc”), in /ɛ̃/ dengan bibir melebar (“vin”). “bon” dan “banc” adalah dua kata berbeda."
+  },
+  "uou": {
+   "t": "u dan ou berbeda",
+   "x": "Bunyi u Prancis /y/: ucapkan “i” dengan lidah di depan, lalu bulatkan bibir seperti mengucapkan “u”: “tu”, “rue”. ou /u/ adalah “u” biasa: “tout”, “roue”. Satu bunyi mengubah kata: “vu” (dilihat) dan “vous” (kalian), “dessus” (di atas) dan “dessous” (di bawah)."
+  },
+  "r": {
+   "t": "Bunyi r Prancis",
+   "x": "Bunyi r Prancis /ʁ/ dibuat di belakang tenggorokan, seperti berkumur lembut atau bunyi “kh” yang halus: ujung lidah di belakang gigi bawah, pangkal lidah naik. Coba “rue”, “rouge”, dan “merci”. Jangan digetarkan dengan ujung lidah seperti r bahasa Indonesia. Bandingkan “rue” dan “lue”."
+  },
+  "emuet": {
+   "t": "E bisu",
+   "x": "Di akhir kata, huruf e tidak dibaca: “porte”, “table”. Pada kata pendek ia menjadi /ə/ cepat dan agak bulat: “je”, “demain”. Di tengah kata sering hilang: “samedi” terdengar seperti “samdi”. Tetapi e bisu penting: ia membuat konsonan terakhir terdengar, seperti “petit” dan “petite”, “grand” dan “grande”."
+  },
+  "eai": {
+   "t": "é, è, dan ai",
+   "x": "é /e/ tertutup: bibir melebar, mulut hampir menutup, seperti “e” pendek pada “sate” tanpa meluncur: “été”, “café”. è, ê, dan ai /ɛ/ lebih terbuka, seperti “e” pada “enak”: “père”, “tête”, “lait”. Tanda aksen menunjukkan bunyinya. Dikte menerima aksen yang hilang (é è ê ç), tetapi akan mengingatkan Anda."
+  },
+  "eu": {
+   "t": "eu: dua bunyi",
+   "x": "eu punya dua bunyi. Di akhir suku kata ia tertutup /ø/: ucapkan “e” sambil membulatkan bibir seperti “o”: “deux”, “peu”. Sebelum konsonan yang dibaca, terutama r, ia terbuka /œ/: “heure”, “fleur”. Bandingkan “peu” dan “peur”, “jeu” dan “jeune”."
+  },
+  "liaison": {
+   "t": "Penyambungan dan liaison",
+   "x": "Kata-kata Prancis mengalir menyatu. Konsonan akhir yang dibaca berpindah ke vokal berikutnya (enchaînement). Konsonan akhir yang bisu dibaca sebelum vokal (liaison): s dan x menjadi /z/, d menjadi /t/. “les amis” terdengar /lezami/ dan “vous avez” /vuzave/. Inilah yang membedakan “ils ont” dari “ils sont”. Tidak ada liaison sebelum h aspiré: “les héros”."
+  },
+  "semi": {
+   "t": "Semivokal: j, w, ɥ",
+   "x": "Sebelum vokal, i, ou, dan u menjadi bunyi luncur cepat dalam satu suku kata. i adalah /j/ seperti “y” pada “ya”: “fille”. ou adalah /w/ seperti “w” pada “waktu”: “oui”. u adalah /ɥ/, bibir /y/ yang meluncur: “huit”, “lui”, “nuit”. “huit” satu suku kata, bukan “u-it”. Bandingkan “loue” dan “lui”, “fil” dan “fille”."
+  }
+ }
+}

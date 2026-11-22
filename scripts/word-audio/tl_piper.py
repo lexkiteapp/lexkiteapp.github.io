@@ -6,7 +6,7 @@
 import io, json, os, subprocess, sys, tarfile, urllib.request
 TL = os.environ.get('TL', 'pt'); C = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'tl-voices.json')))[TL]
 OUT = os.environ.get('OUT', f'out/{TL}-sample'); M = os.environ.get('PIPER_DIR', '/tmp/piper'); PF = os.path.join(OUT, 'probe.json')
-ALTS = C.get('alts') or ([C['piper']] if C.get('piper') else [])
+ALTS = C.get('alts') or (([C['piper']] if C.get('piper') else []) + C.get('piperAlt', []))   # piperAlt = giọng thử thêm (fr: giọng nam cho Carlos, french-course.md §7)
 def speaker(a):
     """→ hàm say(text, wav) của một nguồn."""
     if a.get('engine') == 'openjtalk':

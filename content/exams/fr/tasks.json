@@ -1,0 +1,69 @@
+{
+ "_note": "Consigne + rubric TỰ VIẾT (không chép tiêu chí DELF/DALF; TEF/TCF chỉ là định dạng liên quan). g = ý khóa (regex không dấu, chữ thường, khớp bản chữ đã bỏ dấu), con = từ nối cần dùng (không dấu), min = số từ tối thiểu (mục tiêu luyện tập, KHÔNG phải giới hạn chính thức). Một cách xưng: vous.",
+ "A1": {
+  "con": ["et", "mais", "parce que", "car", "aussi", "puis"],
+  "w": [
+   {"t": "Écrivez un message à un nouvel ami. Dites comment vous vous appelez, d'où vous venez et ce que vous aimez faire.", "min": 30, "g": ["appelle|nom|suis", "habite|viens|de [a-z]+|pays|ville", "aime|adore|prefere"]},
+   {"t": "Décrivez votre famille : combien de personnes, comment elles s'appellent et ce qu'elles font.", "min": 30, "g": ["nous sommes|il y a|j'ai|ma (mere|maman|soeur|grand-mere)|mon (pere|papa|frere|grand-pere)", "appelle", "travaille|etudie|fait|est (medecin|professeur|etudiant)"]}
+  ],
+  "s": [
+   {"t": "Parlez de votre logement : où il se trouve et comment il est.", "min": 15, "g": ["j'habite|maison|appartement|chez moi", "grand|petit|joli|chambre|cuisine|salon|salle de bain", "pres|dans|ville|rue|quartier"]},
+   {"t": "Parlez de votre journée : à quelle heure vous vous levez et ce que vous faites l'après-midi.", "min": 15, "g": ["leve|reveille|petit.?dejeuner", "travaille|etudie|vais|cours", "apres-midi|soir|dine|mange|dors"]}
+  ]
+ },
+ "A2": {
+  "con": ["mais", "parce que", "car", "donc", "d'abord", "ensuite", "puis", "alors", "aussi"],
+  "w": [
+   {"t": "Racontez à un ami ce que vous avez fait le week-end dernier.", "min": 60, "g": ["suis (alle|reste|sorti|rentre|parti)|ai (visite|joue|mange|vu|fait|regarde)", "avec |ami|famille|mon (frere|pere|mari)|ma (mere|soeur|femme)", "hier|samedi|dimanche|ensuite|puis|le week-end"]},
+   {"t": "Écrivez un message pour inviter un ami à votre fête : dites quand et où elle a lieu et ce que vous allez faire.", "min": 60, "g": ["fete|anniversaire|invite|soiree", "le (samedi|dimanche|vendredi)|a [0-9]+ ?h|heure|prochain", "chez moi|maison|restaurant|parc|lieu", "on va|nous allons|nous pouvons|on peut|danser|manger|jouer"]}
+  ],
+  "s": [
+   {"t": "Parlez de vos vacances idéales.", "min": 30, "g": ["voyage|vacances|plage|ville|montagne|pays", "voudrais|aimerais|veux|vais|irais", "parce que|car|avec |faire|visiter"]},
+   {"t": "Décrivez une personne importante pour vous.", "min": 30, "g": ["mon |ma |mes |s'appelle", "grand|petit|sympa|gentil|drole|travailleur|cheveux|yeux", "parce que|toujours|j'aime|m'aide"]}
+  ]
+ },
+ "B1": {
+  "con": ["pourtant", "cependant", "c'est pourquoi", "bien que", "de plus", "parce que", "donc", "en revanche", "puisque", "enfin", "par consequent", "d'ailleurs"],
+  "w": [
+   {"t": "Écrivez un courriel à une école de langues : expliquez pourquoi vous voulez y étudier, présentez votre expérience du français et demandez des renseignements sur les horaires et les tarifs.", "min": 100, "g": ["voudrais|souhaite|veux|aimerais", "etudie|apprends|experience|depuis|il y a|ans|mois|niveau", "horaire|tarif|prix|combien|cours|inscription", "cordialement|salutations|merci|madame|monsieur|bonjour"]},
+   {"t": "Donnez votre opinion : vaut-il mieux vivre en ville ou à la campagne ? Expliquez vos raisons et donnez un exemple.", "min": 100, "g": ["ville", "campagne|village|rural", "pense|crois|avis|selon moi|il me semble", "parce que|car|raison|avantage|inconvenient|par exemple"]}
+  ],
+  "s": [
+   {"t": "Parlez d'une expérience qui vous a appris quelque chose d'important.", "min": 50, "g": ["un jour|quand|il y a|l'annee derniere", "appris|decouvert|compris|rendu compte", "parce que|alors|donc|maintenant"]},
+   {"t": "Parlez d'un problème de votre ville et proposez une solution.", "min": 50, "g": ["probleme|circulation|bruit|pollution|transport|dechets|prix", "devrait|pourrait|il faudrait|propose|solution|on pourrait", "parce que|donc|pense|crois|de plus"]}
+  ]
+ },
+ "B2": {
+  "con": ["pourtant", "cependant", "neanmoins", "par consequent", "bien que", "d'une part", "d'autre part", "en conclusion", "de plus", "en revanche", "malgre", "etant donne que", "certes"],
+  "w": [
+   {"t": "Écrivez une lettre à un journal : donnez votre avis sur le télétravail. Présentez les avantages et les inconvénients, donnez des exemples et concluez en défendant votre position.", "min": 160, "g": ["travail|teletravail|domicile|maison", "avantage|inconvenient|probleme|benefice", "par exemple|comme|c'est le cas", "pense|crois|estime|a mon avis|en conclusion"]},
+   {"t": "Rédigez un rapport bref pour votre université : décrivez un problème de la bibliothèque (bruit, horaires, manque de livres) et proposez deux solutions réalistes.", "min": 160, "g": ["bibliotheque", "probleme|bruit|horaire|manque|plainte", "propose|suggere|recommande|on pourrait|il serait|solution", "de plus|d'une part|d'autre part|en conclusion"]}
+  ],
+  "s": [
+   {"t": "Parlez d'un changement important dans votre vie et expliquez ses conséquences.", "min": 80, "g": ["change|demenage|commence|quitte|decide", "consequence|influence|grace a|a cause de|touche", "avant|apres|maintenant|depuis", "bien que|pourtant|puisque|donc"]},
+   {"t": "Défendez votre opinion : les villes devraient-elles limiter la voiture dans le centre ? Donnez des arguments et mentionnez au moins une objection.", "min": 80, "g": ["voiture|circulation|centre", "pollution|bruit|transport en commun|velo|pieton", "devraient|il faudrait|il vaudrait|je pense|a mon avis", "bien que|pourtant|malgre|d'autre part|certes"]}
+  ]
+ },
+ "C1": {
+  "con": ["toutefois", "neanmoins", "par consequent", "bien que", "dans la mesure ou", "il convient de souligner", "certes", "en revanche", "en definitive", "cela dit", "d'ou", "force est de constater"],
+  "w": [
+   {"t": "Rédigez un essai argumenté : dans quelle mesure la technologie améliore-t-elle l'éducation ? Confrontez les points de vue, nuancez votre opinion et terminez par une conclusion étayée.", "min": 240, "g": ["technolog|numerique|internet|application|outil", "education|enseignement|apprentissage|classe|eleve|etudiant", "certes|toutefois|neanmoins|en revanche|bien que", "en definitive|en conclusion|par consequent"]},
+   {"t": "Rédigez une critique d'un livre, d'un film ou d'une série que vous connaissez : résumez l'intrigue, appréciez ses réussites et signalez ses limites.", "min": 240, "g": ["livre|film|serie|roman|oeuvre", "intrigue|scenario|personnage|histoire|raconte", "reussite|qualite|force|limite|defaut|faiblesse", "recommande|apprecie|en definitive|a mon avis"]}
+  ],
+  "s": [
+   {"t": "Présentez une proposition pour améliorer la vie de votre quartier et répondez aux critiques possibles.", "min": 100, "g": ["quartier|voisin|ville|communaute", "proposition|propose|projet|initiative", "critique|objection|inquiete|risque|cout", "toutefois|neanmoins|certes|en definitive"]},
+   {"t": "Analysez les avantages et les risques de partir travailler dans un autre pays.", "min": 100, "g": ["pays|etranger|expatri|demenager", "travail|emploi|carriere|professionnel", "avantage|opportunite|risque|defi|difficulte|deracinement", "certes|toutefois|d'une part|d'autre part|en definitive"]}
+  ]
+ },
+ "C2": {
+  "con": ["toutefois", "pour autant", "en depit de", "au regard de", "il convient de noter", "de fait", "au fond", "par ailleurs", "loin de", "dans la mesure ou", "somme toute", "force est de constater"],
+  "w": [
+   {"t": "Rédigez une tribune sur l'équilibre entre la liberté individuelle et l'intérêt collectif à l'ère numérique. Employez un registre soutenu, des nuances et des exemples concrets.", "min": 300, "g": ["liberte|individu|droit|vie privee", "collectif|societe|communaute|bien commun|interet general", "numerique|donnees|reseaux|internet|technolog", "toutefois|pour autant|en depit de|au fond|loin de"]},
+   {"t": "Rédigez une courte communication pour un colloque : défendez l'idée qu'apprendre des langues transforme la manière de penser. Structurez vos idées, anticipez les objections et concluez par une réflexion personnelle.", "min": 300, "g": ["langue|bilingue|apprendre|apprentissage", "penser|pensee|esprit|cerveau|cognitif|regard", "objection|critique|on pourrait objecter|certes|reste a savoir", "toutefois|pour autant|en depit de|au fond|somme toute"]}
+  ],
+  "s": [
+   {"t": "Exposé bref : quel rôle l'art devrait-il jouer dans la vie publique ? Argumentez avec nuance et donnez des exemples.", "min": 120, "g": ["art|artiste|culture|musee|musique|litterature", "public|publique|societe|ville|communaute|espace", "devrait|il conviendrait|il serait souhaitable|a mon sens", "toutefois|pour autant|en depit de|au fond|somme toute"]},
+   {"t": "Expliquez et appréciez de façon critique un changement de société récent que vous jugez important.", "min": 120, "g": ["changement|transformation|phenomene|tendance|recent", "social|societe|generation|culture|travail|famille", "important|portee|consequence|impact|repercussion", "toutefois|pour autant|en depit de|au fond|loin de"]}
+  ]
+ }
+}
