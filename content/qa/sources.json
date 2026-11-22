@@ -322,7 +322,8 @@
    ],
    "delegate": [
     "target/drill-pack.mjs --tl fr --check",
-    "test/fr-practice.mjs"
+    "test/fr-practice.mjs",
+    "test/fr-pron.mjs"
    ],
    "_note": "Gói luyện tập tiếng Pháp W2 (french-course.md §10): CÙNG engine es (drill-lib TLP), dựng từ content/target/fr/{drills,gx}; drill-pack --tl fr --check = khớp nguồn + đủ 15 ngôn ngữ + ví dụ Pháp nguyên văn, CI thêm LanguageTool fr 0 lỗi (--lt) + tu ⟂ vous"
   },
@@ -609,6 +610,7 @@
   "content/qa": "chính cổng QA (sổ đăng ký, baseline, hàng duyệt, lô)",
   "web/js/ads": "mã quảng cáo (docs/ADS.md), không phải nội dung học – test scripts/test/ads.mjs",
   "content/visual": "prompt vẽ ảnh cảnh/bìa bài học – ảnh ra qua giám khảo riêng của vocab-img-scene (CLIP + chú thích + thị giác GrabCast), không phải văn bản học",
-  "web/js/tools": "mã giao diện công cụ miễn phí (không phải nội dung) – dữ liệu ở content/tools, kiểm bởi test/tools-pages.mjs"
+  "web/js/tools": "mã giao diện công cụ miễn phí (không phải nội dung) – dữ liệu ở content/tools, kiểm bởi test/tools-pages.mjs",
+  "web/js/path-skel": "khung #/path tĩnh theo ngôn ngữ SINH bởi scripts/build-path-skel.mjs từ chuỗi giao diện sẵn có (path.js STAGES × i18n/ui) – không phải nội dung học; kiểm bởi scripts/test/path-skel.mjs"
  }
 }
