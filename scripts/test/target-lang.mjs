@@ -274,7 +274,7 @@ const load = (sb, f) => vm.runInContext(rd(f), sb, { filename: f });
   ok(/w\.kana \? \{ kana: w\.kana, romaji: w\.romaji, pitch: w\.pitch \}/.test(rd('web/js/settings.js')) && /tiếng Nhật vào Sổ từ/.test(rd('web/js/settings.js')), 'settings.js: thẻ ja giữ kana/romaji/pitch + thông báo tiếng Nhật');
   const V = readJSON('scripts/word-audio/tl-voices.json'); ok(V.ja.voices.join() === 'jf_alpha,jm_kumo' && V.ja.g2p === 'misaki-ja' && V.ja.say === 'kana' && V.ja.asrMatch === 'reading' && V.ja.cut === false && V.ja.require.join() === 'ojt_mei,ojt_m001' && V.ja.alts.every(a => a.engine === 'openjtalk' && /CC BY 3\.0/.test(a.name)) && V.ja.alts.find(a => a.label === 'ojt_m001').archive && V.fr.espeak === 'fr-fr', 'tl-voices.json: ja (Kokoro chỉ báo cáo; giọng dùng thật Open JTalk mei/m001 CC BY 3.0, đọc kana, chấm cách đọc)');
   ok(/word-audio-ja/.test(rd('.github/workflows/word-audio-tl.yml')) && /tl: \[pt, es, fr, ja[,\]]/.test(rd('.github/workflows/target-content.yml')), 'workflow: nhãn word-audio-ja + ma trận target-content có ja');
-  const { TL_GEN } = await import('../target/tl-gen.mjs'); ok(TL_GEN.ja.variant === 'ja-JP' && TL_GEN.ja.kaikki === 'Japanese' && /ja_full/.test(TL_GEN.ja.source.url) && TL_GEN.ja.one.test('本'), 'tl-gen.mjs: dòng ja');
+  const { TL_GEN } = await import('../target/tl-gen.mjs'); ok(TL_GEN.ja.variant === 'ja-JP' && TL_GEN.ja.kaikki === 'Japanese' && /open-anki-jlpt-decks/.test(TL_GEN.ja.source.url) && TL_GEN.ja.one.test('本'), 'tl-gen.mjs: dòng ja');
 }
 // ja-kana.mjs: kana → romaji (gõ IME) / IPA, mora, cao độ, furigana, chuẩn hoá chấm IME
 { const J = await import('../target/ja-kana.mjs');
@@ -347,6 +347,25 @@ const load = (sb, f) => vm.runInContext(rd(f), sb, { filename: f });
   ok(!K.conjShape('먹다', 'ㅂ') && !K.conjShape('좋다', 'ㅎ') && !K.conjShape('사과', 'reg') && K.conjShape('입다', 'reg'), 'lớp chia khớp hình thức gốc (좋다 không phải ㅎ bất quy tắc)');
   ok(K.same('사과', '사과') === 'ok' && K.same('사과'.normalize('NFD'), '사과') === 'ok' && K.same('ㅅㅏㄱㅗㅏ', '사과') === 'ok' && K.same('한국 어', '한국어') === 'spacing' && K.same('사가', '사과') === '' && K.same('', '사과') === '', 'chấm IME: NFD/jamo rời = đúng, sai cách chữ = nhận kèm nhắc, sai chữ = sai');
   let thr = false; try { K.pron('사과a'); } catch { thr = true; } ok(thr, 'ký tự ngoài Hangul → lỗi (không đoán)'); }
+
+// W1 ja: ứng viên JLPT (csv có trích dẫn), derive (kana/jlpt theo nguồn, romaji/IPA sinh, cao độ ngoài khoảng → 0 + qa), gói web/packs/tl/ja khớp nguồn, longFold
+{ const { csvRows, jlptCands, TL_GEN } = await import('../target/tl-gen.mjs'), J = await import('../target/ja-kana.mjs');
+  ok(JSON.stringify(csvRows('a,b\n"x, y","say ""hi"""\n')) === JSON.stringify([['a', 'b'], ['x, y', 'say "hi"']]), 'csvRows: dấu phẩy + ngoặc kép trong trường');
+  const fake = { 5: 'expression,reading,meaning,tags\n食べる,たべる,to eat,JLPT\n明日,あした、あす,tomorrow,JLPT\n〜時,じ,o-clock,JLPT\n', 4: 'expression,reading,meaning\n食べる,たべる,to eat\n運転,うんてん,driving\n' };
+  const c = await jlptCands(u => Promise.resolve(fake[(/n(\d)\.csv$/.exec(u) || [])[1]] || 'expression,reading,meaning\n'));
+  ok(c.map(x => x.form).join() === '食べる,明日,運転' && c[1].hint.kana === 'あした' && c[2].hint.jlpt === 4 && c[0].hint.jlpt === 5, 'jlptCands: N5 trước, trùng giữ cấp thấp, nhiều cách đọc → cách đầu, bỏ 〜');
+  ok(TL_GEN.ja.lemma === false && TL_GEN.ja.cands === jlptCands && /JLPT/.test(TL_GEN.ja.source.name), 'TL_GEN.ja: nguồn JLPT, không quy lemma kaikki');
+  const d = TL_RULES.ja.derive({ word: '話す', pos: 'v', gender: 'm', kana: 'はなし', romaji: 'x', ipa: 'x', pitch: 9, jlpt: 1, vclass: 'godan' }, { form: '話す', kana: 'はなす', jlpt: 5 });
+  ok(d.kana === 'はなす' && d.jlpt === 5 && d.romaji === 'hanasu' && d.ipa === 'hanasɯ' && d.pitch === 0 && d.qa.pitchAi === 9 && !('gender' in d), 'derive: cách đọc + cấp theo nguồn, romaji/IPA sinh, cao độ ngoài khoảng → 0 + qa.pitchAi, bỏ gender');
+  const d2 = TL_RULES.ja.derive({ word: '話し', pos: 'n', kana: 'はなし', pitch: 3, jlpt: 4 }, { form: '話す', kana: 'はなす', jlpt: 5 }); ok(d2.kana === 'はなし' && d2.jlpt === 4 && d2.pitch === 3, 'derive: người soạn đổi mục từ → không áp cách đọc nguồn');
+  const g = rd('scripts/target/gen.mjs'); ok(/G\.cands \? await G\.cands\(\)/.test(g) && /R\.derive \? R\.derive\(o, hint\)/.test(g) && /G\.lemma === false/.test(g) && !/'ja'/.test(g), 'gen.mjs: nguồn/derive/lemma theo bảng, không nhánh ja');
+  const tc = rd('.github/workflows/target-content.yml'); ok(/tl_ja_fill\.py --self/.test(tc) && tc.includes(`'.[$t].ipaCheck // ""' scripts/word-audio/tl-voices.json)" = "reading" ] && exit 0`), 'target-content: OpenJTalk cao độ/cách đọc cho ja, espeak không ghi đè IPA ja');
+  ok(J.longFold('たいよう') === J.longFold('タイヨー') && J.longFold('がっこう') === J.longFold('ガッコー') && J.longFold('おもう') === 'おもー' && J.longFold('ちいさい') === 'ちーさい', 'longFold: trường âm viết kiểu nào cũng so được');
+  const P = await import('../target/tl-pack.mjs'), b = P.build('ja');
+  ok(!b.err.length && b.n === 30 && Object.keys(b.out).length === 15, 'tl-pack ja: seed (lô đã duyệt) × 15 ngôn ngữ');
+  const vi = JSON.parse(b.out.vi), col = k => vi.cols.indexOf(k), w0 = vi.words.find(r => r[0] === '食べる');
+  ok(!vi.cols.includes('gender') && w0[col('kana')] === 'たべる' && w0[col('gl')] === 'ăn' && w0[col('vclass')] === 'ichidan' && w0[col('exForm')] === '食べます', 'gói ja: cột theo dữ liệu (không gender), nghĩa đúng ngôn ngữ');
+  try { execFileSync(process.execPath, ['scripts/target/tl-pack.mjs', 'ja', '--check'], { stdio: 'pipe' }); ok(true); } catch (e) { ok(false, 'web/packs/tl/ja lệch nguồn: ' + String(e.stderr)); } }
 
 // ---------- 5) nối dây: shell nạp target.js trước core.js; package test ----------
 {

@@ -14,7 +14,7 @@ on:
       dry: { description: '1 = chỉ dựng danh sách ứng viên (không gọi AI)', default: '1' }
       shards: { description: 'Số job song song (1–12; mỗi shard ≤ n mục)', default: '1' }
   pull_request:
-    paths: ['scripts/target/**', 'content/target/**', 'scripts/content-qa/grammar-map-check.mjs', 'scripts/ci/lt-up.sh', 'scripts/word-audio/tl-voices.json', '.github/workflows/target-content.yml']
+    paths: ['scripts/target/**', 'content/target/**', 'scripts/content-qa/grammar-map-check.mjs', 'scripts/ci/lt-up.sh', 'scripts/word-audio/tl-voices.json', 'scripts/word-audio/tl_kana.py', '.github/workflows/target-content.yml']
 permissions: { contents: read, id-token: write }   # chỉ đọc repo (lô ra artifact); id-token: JWT OIDC cho /api/lexai
 # Lượt tay nối tiếp lô trước → xếp hàng, KHÔNG huỷ lượt đang sinh (mất hạn mức ai-pool); PR thì huỷ lượt cũ.
 concurrency:
@@ -41,8 +41,11 @@ jobs:
       - name: IPA espeak-ng tự kiểm trên seed (es, fr)
         if: ${{ matrix.tl == 'es' || matrix.tl == 'fr' }}
         run: pip install -q "phonemizer-fork==3.3.2" "espeakng-loader==0.2.4" && TL=${{ matrix.tl }} python3 scripts/target/tl_ipa_fill.py --self
-      - name: Wiktionary trên seed (es, fr)
-        if: ${{ matrix.tl == 'es' || matrix.tl == 'fr' }}
+      - name: Cao độ + cách đọc seed ↔ OpenJTalk (ja, khớp 100 %)
+        if: ${{ matrix.tl == 'ja' }}
+        run: pip install -q "pyopenjtalk==0.4.1" && python3 scripts/target/tl_ja_fill.py --self
+      - name: Wiktionary trên seed (es, fr, ja)
+        if: ${{ matrix.tl == 'es' || matrix.tl == 'fr' || matrix.tl == 'ja' }}
         run: node scripts/target/wikt-check.mjs --tl ${{ matrix.tl }} --self
       - name: Chia động từ ↔ Wiktionary (es, khớp 100 %)
         if: ${{ matrix.tl == 'es' }}
@@ -124,10 +127,16 @@ jobs:
         if: ${{ github.event.inputs.dry != '1' }}
         run: |
           [ "$(jq -r --arg t "$TL" '.[$t].espeak // ""' scripts/word-audio/tl-voices.json)" = "" ] && exit 0
+          [ "$(jq -r --arg t "$TL" '.[$t].ipaCheck // ""' scripts/word-audio/tl-voices.json)" = "reading" ] && exit 0   # ja: IPA sinh từ kana (ja-kana.mjs), không phải espeak
           pip install -q "phonemizer-fork==3.3.2" "espeakng-loader==0.2.4" && python3 scripts/target/tl_ipa_fill.py "$(ls content/target/$TL/core-[0-9]*.json | grep -v report | tail -1)"
       - name: IPA es theo quy ước g2p (espeak còn là kiểm chéo, lệch → qa.ipaEs)
         if: ${{ github.event.inputs.dry != '1' && github.event.inputs.tl == 'es' }}
         run: node scripts/target/es-g2p.mjs --apply "$(ls content/target/es/core-[0-9]*.json | grep -v -e report -e review | tail -1)"
+      - name: Cao độ + cách đọc OpenJTalk (bảng ipaCheck = reading – ja, japanese-course.md §5.2–§5.3)
+        if: ${{ github.event.inputs.dry != '1' }}
+        run: |
+          [ "$(jq -r --arg t "$TL" '.[$t].ipaCheck // ""' scripts/word-audio/tl-voices.json)" = "reading" ] || exit 0
+          pip install -q "pyopenjtalk==0.4.1" && python3 scripts/target/tl_ja_fill.py --self && python3 scripts/target/tl_ja_fill.py "$(ls content/target/$TL/core-[0-9]*.json | grep -v report | tail -1)"
       - name: Wiktionary lemma / giống / số nhiều
         if: ${{ github.event.inputs.dry != '1' }}
         run: node scripts/target/wikt-check.mjs --tl "$TL"
