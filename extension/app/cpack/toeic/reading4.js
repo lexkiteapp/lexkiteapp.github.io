@@ -28,7 +28,7 @@
           explain: 'Giữa mạo từ "a" và danh từ "budget" cần tính từ; ngân sách "được điều chỉnh" mang nghĩa bị động → phân từ II "revised". "revise/revises" là động từ; "revision" là danh từ, "a revision budget" không có nghĩa.' },
         { n: 111, q: 'Elmstead Bus Lines has ------- its timetable to include an additional morning departure.', options: ['admitted', 'attracted', 'assured', 'adjusted'], a: 3, cue: 'its timetable to include an additional morning departure',
           explain: '"adjust a timetable" = điều chỉnh lịch trình (để thêm một chuyến sáng) → "adjusted". "admitted" (thừa nhận, cho vào), "attracted" (thu hút), "assured" (cam đoan) không hợp nghĩa với "timetable".' },
-        { n: 112, q: 'Only employees ------- names appear on the list may enter the server room.', options: ['whose', 'who', 'which', 'whom'], a: 0, cue: '------- names appear on the list',
+        { n: 112, q: 'Only employees ------- names appear on the list may enter the server room.', options: ['whom', 'who', 'which', 'where'], a: 0, cue: '------- names appear on the list',
           explain: 'Đại từ quan hệ chỉ sở hữu, theo sau là danh từ "names" (tên CỦA các nhân viên) → "whose". "who" và "which" không biểu thị sở hữu, còn "whom" không phù hợp với vị trí này.' },
         { n: 113, q: 'The workshop on contract negotiation was ------- popular that a second session was added.', options: ['such', 'so', 'too', 'very'], a: 1, cue: 'popular that a second session was added',
           explain: 'Cấu trúc "so + tính từ + that + mệnh đề" (quá… đến nỗi) → "so popular that". "such" phải đi với cụm danh từ (such a popular workshop); "too" đi với "to V"; "very" không kết hợp với "that" để chỉ kết quả.' },

@@ -75,7 +75,7 @@ function applyHelper(t, p) {
   const W = mapOf(p), nb = h.body.replace(TOK, tk => { const x = val(tk); return x === right ? tk : quote(W.get(x), tk); });
   const end = h.at + h.len; let rest = t.slice(end);
   const e = TAIL.exec(rest.slice(0, 1500));
-  if (e && p.explain && p.explain !== p.oldExplain && val(e[2]) === p.oldExplain) rest = rest.slice(0, e.index + e[0].length - e[2].length) + quote(p.explain, e[2]) + rest.slice(e.index + e[0].length);
+  if (e && p.explain && p.group !== 'GRAMMAR' && p.explain !== p.oldExplain && val(e[2]) === p.oldExplain) rest = rest.slice(0, e.index + e[0].length - e[2].length) + quote(p.explain, e[2]) + rest.slice(e.index + e[0].length);
   return t.slice(0, h.bodyAt) + nb + t.slice(h.bodyAt + h.body.length, end) + rest;
 }
 // Áp một danh sách bản vá lên văn bản nguồn: tìm mảng options trùng ĐÚNG chữ + thứ tự (phải duy nhất), thay phương án và (nếu khớp) lời giải đứng ngay sau.
@@ -89,7 +89,7 @@ export function applyAll(src, patches) {
     m = at[0]; const W = mapOf(p), nb = m[1].replace(TOK, tk => { const x = val(tk); return x === p.old[p.a] ? tk : quote(W.get(x), tk); }), start = m.index, end = start + m[0].length;
     let head = t.slice(0, start) + m[0].replace(m[1], nb), rest = t.slice(end);
     const e = EXP.exec(rest.slice(0, 1500));
-    if (e && p.explain && p.explain !== p.oldExplain && val(e[2]) === p.oldExplain) rest = e[1] + quote(p.explain, e[2]) + rest.slice(e[0].length);
+    if (e && p.explain && p.group !== 'GRAMMAR' && p.explain !== p.oldExplain && val(e[2]) === p.oldExplain) rest = e[1] + quote(p.explain, e[2]) + rest.slice(e[0].length);
     t = head + rest; hit++;
   }
   return { text: t, hit };
