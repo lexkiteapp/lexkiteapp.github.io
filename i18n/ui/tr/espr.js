@@ -3,6 +3,7 @@
 "Chưa có bài cho mục này.":"Bu konu için henüz alıştırma yok.",
 "Cấp {l}":"Seviye {l}",
 "Cẩn thận dấu (tilde): {a}":"Vurgu işaretine dikkat: {a}",
+"Cẩn thận dấu (é, è, ç…): {a}":"Aksan işaretlerine dikkat (é, è, ç…): {a}",
 "Không tải được bài. Kiểm tra mạng rồi thử lại.":"Ders yüklenemedi. Bağlantını kontrol edip tekrar dene.",
 "Điền từ còn thiếu":"Eksik kelimeyi doldur",
 });

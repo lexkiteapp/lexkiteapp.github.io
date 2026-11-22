@@ -601,6 +601,7 @@
 "Luyện theo phần":"Latihan per bagian",
 "Luyện theo phần TOEFL iBT":"Latihan bagian TOEFL iBT",
 "Luyện thêm kỹ năng":"Latihan keterampilan lain",
+"Luyện tiếng Pháp":"Latihan bahasa Prancis",
 "Luyện tiếng Tây Ban Nha":"Latihan bahasa Spanyol",
 "Luyện tiếp":"Lanjut latihan",
 "Luyện tập":"Latihan",

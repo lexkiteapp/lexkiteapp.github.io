@@ -601,6 +601,7 @@
 "Luyện theo phần":"Bölüm bölüm alıştırma",
 "Luyện theo phần TOEFL iBT":"TOEFL iBT bölümü uygulaması",
 "Luyện thêm kỹ năng":"Daha fazla beceri pratiği",
+"Luyện tiếng Pháp":"Fransızca alıştırması",
 "Luyện tiếng Tây Ban Nha":"İspanyolca pratiği",
 "Luyện tiếp":"Pratiğe devam",
 "Luyện tập":"Alıştırma",

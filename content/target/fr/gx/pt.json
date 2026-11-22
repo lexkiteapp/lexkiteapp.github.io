@@ -1,0 +1,514 @@
+{
+ "etre-present": {
+  "t": "Être: ser ou estar",
+  "x": "\"être\" significa 'ser' ou 'estar': \"je suis\", \"tu es\", \"il est\", \"nous sommes\", \"vous êtes\", \"ils sont\". Serve para identidade, origem, profissão e descrição. Decore-o: é o verbo mais frequente do francês. Exemplos: \"je suis\", \"nous sommes\", \"ils sont\""
+ },
+ "avoir-present": {
+  "t": "Avoir: ter",
+  "x": "\"avoir\" significa 'ter': \"j'ai\", \"tu as\", \"il a\", \"nous avons\", \"vous avez\", \"ils ont\". Mais tarde também forma o passé composé. Repare na elisão \"j'ai\" diante de som vocálico. Exemplos: \"j'ai\", \"elle a\", \"nous avons\""
+ },
+ "il-y-a": {
+  "t": "Il y a: há / existe",
+  "x": "\"il y a\" apresenta algo que existe, no singular ou no plural, e nunca muda: \"il y a un livre\", \"il y a des livres\". Negativa: \"il n'y a pas de livre\". A pergunta é \"y a-t-il\" ou \"est-ce qu'il y a\". Exemplos: \"il y a un café\", \"il n'y a pas de lait\""
+ },
+ "art-defini": {
+  "t": "Artigos definidos",
+  "x": "\"le\" (masculino), \"la\" (feminino), \"l'\" (diante de vogal) e \"les\" (plural) significam 'o, a, os, as'. O francês também os usa para ideias gerais: \"j'aime la musique\" significa 'gosto de música'. Exemplos: \"le café\", \"la pomme\", \"les enfants\""
+ },
+ "art-indefini": {
+  "t": "Artigos indefinidos",
+  "x": "\"un\" (masculino), \"une\" (feminino) e \"des\" (plural) significam 'um, uma, uns, umas'. Apresentam algo novo: \"j'ai un frère et des cousins\". Atenção: \"des\" muitas vezes não se traduz em português. Exemplos: \"un frère\", \"une sœur\", \"des amis\""
+ },
+ "gender-nouns": {
+  "t": "Masculino ou feminino?",
+  "x": "Todo substantivo é masculino ou feminino. As terminações ajudam: \"-tion\", \"-té\", \"-ette\" são quase sempre femininas; \"-ment\", \"-age\", \"-eau\" quase sempre masculinas. Aprenda sempre o substantivo com o artigo: \"la ville\", \"le village\". Exemplos: \"le village\", \"la ville\", \"la question\""
+ },
+ "plural-regular": {
+  "t": "Plural: acrescente -s",
+  "x": "A maioria dos plurais leva \"-s\", que não se pronuncia: \"un ami\", \"des amis\". Os que já terminam em \"-s\", \"-x\" ou \"-z\" não mudam: \"un pays\", \"des pays\". Só o artigo e a liaison mostram que é plural. Exemplos: \"deux sœurs\", \"trois amis\""
+ },
+ "plural-irregular": {
+  "t": "Plurais irregulares",
+  "x": "Os substantivos em \"-al\" passam a \"-aux\": \"un journal\", \"des journaux\". Os em \"-eau\" e \"-eu\" levam \"-x\": \"un bateau\", \"des bateaux\", \"un jeu\", \"des jeux\". Aprenda as poucas exceções, como \"un festival, des festivals\". Exemplos: \"des journaux\", \"des bateaux\", \"des cheveux\""
+ },
+ "elision-basic": {
+  "t": "Elisão diante de vogal",
+  "x": "As palavras curtas \"le\", \"la\", \"je\", \"ne\", \"de\", \"que\", \"se\" perdem a vogal diante de vogal ou h mudo e levam apóstrofo: \"l'école\", \"j'aime\", \"n'aime pas\", \"qu'elle\". \"les\" e \"un\" nunca sofrem elisão. Exemplos: \"l'école\", \"j'aime\", \"qu'elle\""
+ },
+ "contractions-au-du": {
+  "t": "au, aux, du, des",
+  "x": "\"à + le\" vira \"au\", \"à + les\" vira \"aux\", \"de + le\" vira \"du\", \"de + les\" vira \"des\". Com \"la\" e \"l'\" nada muda: \"à la gare\", \"de la gare\". Nunca escreva \"à le\" nem \"de le\". Exemplos: \"au marché\", \"aux voisins\", \"du professeur\""
+ },
+ "partitif": {
+  "t": "Partitivo: um pouco de",
+  "x": "Para falar de uma quantidade de algo que não se conta, use \"du\" (masculino), \"de la\" (feminino), \"de l'\" (vogal) ou \"des\" (plural): \"je prends du café\". Em português muitas vezes não há palavra; em francês há sempre. Exemplos: \"du pain\", \"de la salade\", \"des légumes\""
+ },
+ "de-negation": {
+  "t": "Negação + de",
+  "x": "Depois de \"ne… pas\", \"jamais\", \"plus\", o artigo indefinido ou partitivo passa a \"de\": \"j'ai un chat\" vira \"je n'ai pas de chat\". Exceção: depois de \"être\" mantém-se o artigo: \"ce n'est pas un chat\". Exemplos: \"pas de voiture\", \"jamais de viande\""
+ },
+ "adj-agreement": {
+  "t": "Concordância do adjetivo",
+  "x": "Os adjetivos concordam com o substantivo: \"-e\" para o feminino e \"-s\" para o plural. \"grand\", \"grande\", \"grands\", \"grandes\". Os terminados em -e não mudam no feminino: \"un garçon sympa\", \"une fille sympa\". Exemplos: \"elle est grande\", \"ils sont petits\""
+ },
+ "adj-position": {
+  "t": "Onde vai o adjetivo?",
+  "x": "A maioria vem depois do substantivo: \"une robe bleue\". Alguns curtos e comuns vêm antes: beleza, idade, bondade, tamanho (\"beau, jeune, bon, grand, petit\"): \"un petit chien\". \"beau\" tem as formas \"bel\" e \"belle\". Exemplos: \"une belle maison\", \"une maison blanche\""
+ },
+ "possessifs": {
+  "t": "Possessivos: mon, ma, mes",
+  "x": "O possessivo concorda com a coisa possuída, não com o dono: \"mon père\", \"ma mère\", \"mes parents\". Diante de vogal, os femininos usam \"mon\": \"mon amie\". Outros: \"notre/nos\", \"votre/vos\", \"leur/leurs\". Exemplos: \"mon père\", \"ma mère\", \"leurs chats\""
+ },
+ "demonstratifs": {
+  "t": "Este, esse: ce, cette, ces",
+  "x": "\"ce\" (masculino), \"cet\" (masculino diante de vogal), \"cette\" (feminino) e \"ces\" (plural) significam 'este' ou 'esse'. Junte \"-ci\" ou \"-là\" para contrastar: \"ce livre-ci\", \"ce livre-là\". Exemplos: \"ce livre\", \"cette veste\", \"ces enfants\""
+ },
+ "pres-er": {
+  "t": "Présent: verbos em -er",
+  "x": "Tire \"-er\" e acrescente \"-e, -es, -e, -ons, -ez, -ent\": \"parler\" dá \"je parle\", \"tu parles\", \"il parle\", \"nous parlons\", \"vous parlez\", \"ils parlent\". Cerca de 90 % dos verbos franceses seguem esse modelo. Exemplos: \"je parle\", \"nous parlons\", \"ils parlent\""
+ },
+ "pres-ir-re": {
+  "t": "Présent: verbos em -ir e -re",
+  "x": "Os verbos regulares em \"-ir\" levam \"-is, -is, -it, -issons, -issez, -issent\": \"finir\", \"je finis\", \"nous finissons\". Os em \"-re\" levam \"-s, -s, -, -ons, -ez, -ent\": \"vendre\", \"je vends\", \"il vend\". Exemplos: \"je finis\", \"nous finissons\", \"je vends\""
+ },
+ "pres-irreguliers": {
+  "t": "Verbos irregulares comuns",
+  "x": "Aprenda \"aller\" (\"je vais, nous allons\"), \"faire\" (\"je fais, vous faites\"), \"prendre\" (\"je prends, ils prennent\") e \"venir\" (\"je viens, ils viennent\"). Cuidado com \"vous faites\" e \"ils font\": quebram o padrão. Exemplos: \"je vais\", \"nous faisons\", \"ils prennent\", \"vous venez\""
+ },
+ "tu-vous": {
+  "t": "Tu ou vous?",
+  "x": "Use \"tu\" com amigos, família, crianças e colegas. Use \"vous\" com desconhecidos, pessoas mais velhas, em lojas e no trabalho, e sempre ao falar com várias pessoas. Na dúvida, comece com \"vous\". Exemplos: \"tu viens\", \"vous venez\""
+ },
+ "on-nous": {
+  "t": "On = nós",
+  "x": "No francês do dia a dia, \"on\" substitui \"nous\", mas o verbo fica na terceira pessoa do singular: \"on va au cinéma\". \"On\" também significa 'as pessoas em geral': \"en France, on mange du pain\". Exemplos: \"on va\", \"on mange\""
+ },
+ "neg-ne-pas": {
+  "t": "Negação: ne … pas",
+  "x": "Coloque \"ne\" antes do verbo e \"pas\" depois: \"je ne parle pas\". Diante de vogal \"ne\" vira \"n'\": \"il n'aime pas\". Na fala, o \"ne\" costuma cair, mas na escrita use o francês correto. Exemplos: \"je ne parle pas\", \"il n'aime pas\""
+ },
+ "q-est-ce-que": {
+  "t": "Perguntas de sim ou não",
+  "x": "O mais fácil: mantenha a ordem e suba a voz, ou escreva o ponto de interrogação: \"tu viens ?\". Mais formal: coloque \"est-ce que\" na frente: \"est-ce que tu viens ?\". Diante de vogal vira \"est-ce qu'\": \"est-ce qu'elle vient ?\". Exemplos: \"tu aimes le thé ?\", \"est-ce que vous avez\""
+ },
+ "q-mots-interrogatifs": {
+  "t": "Palavras interrogativas",
+  "x": "\"où\" (onde), \"quand\" (quando), \"comment\" (como), \"combien\" (quanto), \"pourquoi\" (por que), \"qui\" (quem). Ficam no início: \"où est la gare ?\". Responda a \"pourquoi\" com \"parce que\". Exemplos: \"où\", \"quand\", \"combien\", \"pourquoi\""
+ },
+ "q-quel": {
+  "t": "Quel: qual, que",
+  "x": "\"quel\" concorda com o substantivo: \"quel\" (m. sing.), \"quelle\" (f. sing.), \"quels\" (m. pl.), \"quelles\" (f. pl.). Pode vir depois do substantivo com \"être\": \"quel est ton nom ?\" Exemplos: \"quelle heure\", \"quels films\""
+ },
+ "futur-proche": {
+  "t": "Futuro próximo: aller + infinitivo",
+  "x": "Conjugue \"aller\" no presente e acrescente um infinitivo: \"je vais travailler\", \"nous allons manger\". Negativa: \"je ne vais pas partir\". É a maneira usual de falar de planos. Exemplos: \"je vais manger\", \"elle va partir\""
+ },
+ "pres-pronominaux": {
+  "t": "Verbos pronominais",
+  "x": "Esses verbos têm um pronome que concorda com o sujeito: \"je me\", \"tu te\", \"il se\", \"nous nous\", \"vous vous\", \"ils se\". Exemplos: \"se lever\", \"se coucher\", \"s'habiller\". Negativa: \"je ne me lève pas\". Exemplos: \"je me lève\", \"elle se couche\""
+ },
+ "imperatif-present": {
+  "t": "Imperativo",
+  "x": "Use as formas do presente de \"tu\", \"nous\", \"vous\" sem o pronome: \"tu parles\" dá \"parle !\", \"nous parlons\" dá \"parlons !\", \"vous parlez\" dá \"parlez !\". Os verbos em \"-er\" perdem o -s final em \"tu\". Irregulares: \"sois, soyons, soyez\", \"aie, ayons, ayez\". Exemplos: \"parle !\", \"parlons !\", \"parlez !\""
+ },
+ "modaux-pouvoir-vouloir": {
+  "t": "vouloir, pouvoir, devoir",
+  "x": "Estes três verbos são seguidos de infinitivo: \"je veux manger\", \"tu peux venir\", \"nous devons partir\". São irregulares: \"je veux, nous voulons\", \"je peux, nous pouvons\", \"je dois, nous devons\". Exemplos: \"je veux partir\", \"tu peux\", \"nous devons\""
+ },
+ "prep-lieu": {
+  "t": "Onde fica?",
+  "x": "Palavras de lugar comuns: \"dans\" (em, dentro de), \"sur\" (sobre), \"sous\" (sob), \"devant\" (diante de), \"derrière\" (atrás de), \"entre\" (entre), \"à côté de\" (ao lado de), \"près de\" (perto de). Depois de \"de\", lembre as contrações: \"à côté du parc\". Exemplos: \"sur la table\", \"sous la table\", \"entre la poste et la banque\""
+ },
+ "prep-a-chez-de": {
+  "t": "à, chez, de",
+  "x": "\"à\" vai com cidades e lugares: \"je vais à Lyon\". \"chez\" vai com pessoas ou com a loja ou casa delas: \"chez le dentiste\", \"chez moi\". \"de\" diz de onde você vem: \"je viens de Lyon\". Exemplos: \"chez Marie\", \"à Lyon\", \"de la gare\""
+ },
+ "nombres": {
+  "t": "Números",
+  "x": "Formas especiais: \"soixante-dix\" (70), \"quatre-vingts\" (80, com -s), \"quatre-vingt-dix\" (90). O \"et\" aparece em 21, 31, 41, 51, 61 e 71, mas não em 81 e 91. Hífens ligam dezenas e unidades. Exemplos: \"vingt et un\", \"soixante-dix\", \"quatre-vingts\""
+ },
+ "heure-date": {
+  "t": "Hora e datas",
+  "x": "Use \"il est\" + hora: \"il est trois heures et quart\". \"midi\" e \"minuit\" levam \"et demi\"; as outras horas, \"et demie\". Datas: \"le 5 mai\"; só o dia 1 é ordinal: \"le premier mai\". A hora leva \"à\": \"à neuf heures\". Exemplos: \"huit heures et demie\", \"le cinq mai\""
+ },
+ "c-est-ce-sont": {
+  "t": "C'est, ce sont",
+  "x": "Use \"c'est\" + substantivo singular e \"ce sont\" + substantivo plural para apresentar ou identificar: \"c'est un livre\", \"ce sont des livres\". Na fala, \"c'est\" também é comum com plurais. Pergunta: \"qu'est-ce que c'est ?\" Exemplos: \"c'est mon frère\", \"ce sont mes amis\""
+ },
+ "gouts-aimer": {
+  "t": "Gostos e preferências",
+  "x": "Depois de \"aimer\", \"adorer\", \"détester\" e \"préférer\" use o artigo definido, não o partitivo: \"j'aime le café\", \"elle adore les chats\". Acrescente \"beaucoup\": \"j'aime beaucoup la musique\". Exemplos: \"j'aime le chocolat\", \"je déteste les épinards\""
+ },
+ "adv-intensite": {
+  "t": "Quanto?",
+  "x": "\"très\" vem antes de adjetivos e advérbios: \"très bien\". \"beaucoup\" vem depois dos verbos: \"il travaille beaucoup\". Diante de substantivo use \"beaucoup de\": \"beaucoup de fruits\". \"un peu\" e \"trop\" funcionam como \"beaucoup\". Exemplos: \"très grand\", \"il mange beaucoup\", \"un peu\""
+ },
+ "avoir-expressions": {
+  "t": "Expressões com avoir",
+  "x": "O francês usa \"avoir\", e não \"être\", para a idade e muitas sensações do corpo: \"j'ai vingt ans\", \"j'ai faim\", \"j'ai soif\", \"j'ai chaud\", \"j'ai froid\", \"j'ai peur\", \"j'ai sommeil\". Acrescente \"très\": \"j'ai très faim\". Exemplos: \"j'ai faim\", \"elle a vingt ans\", \"il a froid\""
+ },
+ "clause-et-mais-parce-que": {
+  "t": "Palavras de ligação",
+  "x": "\"et\" soma, \"ou\" dá uma escolha, \"mais\" contrasta, \"parce que\" dá uma razão. Diante de vogal \"parce que\" vira \"parce qu'\": \"parce qu'il pleut\". \"donc\" indica a consequência. Exemplos: \"et\", \"mais\", \"parce que\""
+ },
+ "pc-avoir": {
+  "t": "Passé composé com avoir",
+  "x": "A maioria dos verbos forma o passado com \"avoir\" no presente + particípio: \"j'ai mangé\", \"tu as fini\", \"il a vendu\". Particípios: \"-er\" dá \"-é\", \"-ir\" dá \"-i\", \"-re\" dá \"-u\". Exemplos: \"j'ai mangé\", \"nous avons fini\""
+ },
+ "pc-etre": {
+  "t": "Passé composé com être",
+  "x": "Cerca de quinze verbos usam \"être\": \"aller, venir, arriver, partir, entrer, sortir, monter, descendre, rester, tomber, naître, mourir, retourner, passer\" e todos os pronominais. Um truque de memória é a lista chamada \"DR MRS VANDERTRAMP\". Exemplos: \"je suis allé\", \"elle est partie\""
+ },
+ "pc-accord-etre": {
+  "t": "Concordância do particípio com être",
+  "x": "Com \"être\" o particípio concorda com o sujeito: \"-e\" para o feminino e \"-s\" para o plural. \"il est parti\", \"elle est partie\", \"ils sont partis\", \"elles sont parties\". Exemplos: \"elle est partie\", \"ils sont venus\", \"elles sont allées\""
+ },
+ "pc-pronominaux": {
+  "t": "Pronominais no passado",
+  "x": "Os verbos pronominais usam \"être\", com o pronome antes: \"je me suis levé\", \"elle s'est couchée\", \"ils se sont promenés\". O particípio costuma concordar com o sujeito. Exemplos: \"je me suis levé\", \"elle s'est couchée\""
+ },
+ "pc-negation": {
+  "t": "Passado negativo",
+  "x": "Coloque \"ne … pas\" em volta do auxiliar, não do particípio: \"je n'ai pas mangé\", \"elle n'est pas venue\". O mesmo vale para \"jamais\", \"plus\", \"rien\": \"il n'a rien dit\". Exemplos: \"je n'ai pas mangé\", \"il n'est jamais venu\""
+ },
+ "pc-participes-irreguliers": {
+  "t": "Particípios irregulares",
+  "x": "Formas indispensáveis: \"avoir\" dá \"eu\", \"être\" dá \"été\", \"faire\" dá \"fait\", \"prendre\" dá \"pris\", \"voir\" dá \"vu\", \"dire\" dá \"dit\", \"écrire\" dá \"écrit\", \"mettre\" dá \"mis\", \"pouvoir\" dá \"pu\", \"vouloir\" dá \"voulu\". Exemplos: \"j'ai eu\", \"j'ai été\", \"il a fait\", \"elle a pris\""
+ },
+ "imparfait-formation": {
+  "t": "Imparfait: formas",
+  "x": "Pegue a forma \"nous\" do presente, tire \"-ons\" e acrescente \"-ais, -ais, -ait, -ions, -iez, -aient\": \"nous parlons\" dá \"je parlais\". Só \"être\" é irregular: \"j'étais, nous étions\". Exemplos: \"je jouais\", \"nous allions\", \"il était\""
+ },
+ "imparfait-usage": {
+  "t": "Imparfait: quando usar",
+  "x": "Use o \"imparfait\" para o pano de fundo de uma história: tempo, sentimentos, descrições e hábitos repetidos. \"Il faisait beau\", \"j'étais fatigué\", \"chaque été, nous allions à la mer\". Exemplos: \"il faisait beau\", \"je jouais\", \"nous habitions\""
+ },
+ "impf-vs-pc": {
+  "t": "Imparfait ou passé composé?",
+  "x": "\"Imparfait\": o que estava acontecendo, o cenário. \"Passé composé\": o que aconteceu, um fato que faz a história avançar. \"Je lisais quand le téléphone a sonné\": a leitura estava em curso e o toque a interrompeu. Exemplos: \"je dormais\", \"le téléphone a sonné\""
+ },
+ "futur-simple": {
+  "t": "Futur simple",
+  "x": "Pegue o infinitivo (tire o -e final dos verbos em \"-re\") e acrescente \"-ai, -as, -a, -ons, -ez, -ont\": \"parler\" dá \"je parlerai\", \"prendre\" dá \"je prendrai\". Exemplos: \"je parlerai\", \"nous prendrons\", \"ils finiront\""
+ },
+ "futur-irreguliers": {
+  "t": "Radicais irregulares do futuro",
+  "x": "As terminações são as mesmas, mas o radical muda: \"aller\" dá \"ir-\", \"être\" dá \"ser-\", \"avoir\" dá \"aur-\", \"faire\" dá \"fer-\", \"venir\" dá \"viendr-\", \"pouvoir\" dá \"pourr-\", \"voir\" dá \"verr-\", \"vouloir\" dá \"voudr-\". Exemplos: \"j'irai\", \"il fera\", \"ils viendront\""
+ },
+ "conditionnel-politesse": {
+  "t": "Condicional de cortesia",
+  "x": "O \"conditionnel\" suaviza pedidos: \"je voudrais\" (eu gostaria), \"pourriez-vous\" (o senhor poderia), \"j'aimerais\" (eu adoraria). Formação: radical do futuro + terminações do imparfait \"-ais, -ais, -ait, -ions, -iez, -aient\". Exemplos: \"je voudrais\", \"pourriez-vous\", \"nous aimerions\""
+ },
+ "cod-pronoms": {
+  "t": "Pronomes de objeto direto",
+  "x": "\"le\", \"la\", \"l'\" e \"les\" substituem um substantivo sem preposição e ficam antes do verbo: \"je vois Paul\" dá \"je le vois\". Negativa: \"je ne le vois pas\". Exemplos: \"je le vois\", \"elle la prend\", \"tu les aimes\""
+ },
+ "coi-pronoms": {
+  "t": "Pronomes de objeto indireto",
+  "x": "Para pessoas depois de \"à\", use \"lui\" (lhe) e \"leur\" (lhes): \"je parle à Marie\" dá \"je lui parle\", \"je téléphone à mes parents\" dá \"je leur téléphone\". Aqui \"leur\" nunca leva -s. Exemplos: \"je lui parle\", \"elle leur écrit\""
+ },
+ "pronoms-me-te-nous-vous": {
+  "t": "me, te, nous, vous",
+  "x": "Estes quatro pronomes servem para objeto direto e indireto: \"il me voit\", \"il me parle\". Diante de vogal \"me\" e \"te\" viram \"m'\" e \"t'\": \"je t'aime\", \"il m'écoute\". Exemplos: \"il me voit\", \"elle nous parle\""
+ },
+ "y-pronom": {
+  "t": "O pronome y",
+  "x": "\"y\" substitui \"à\" + coisa ou um lugar: \"je vais à Rome\" dá \"j'y vais\". Fica antes do verbo: \"nous y allons\", \"je n'y vais pas\". Também \"j'y pense\". Exemplos: \"j'y vais\", \"nous y allons\""
+ },
+ "en-pronom": {
+  "t": "O pronome en",
+  "x": "\"en\" substitui \"du, de la, des\" + substantivo ou \"de\" + substantivo. Mantém-se o número: \"j'ai deux frères\" dá \"j'en ai deux\". Negativa: \"je n'en veux pas\". Exemplos: \"j'en veux\", \"nous en avons deux\""
+ },
+ "pronoms-toniques": {
+  "t": "Pronomes tônicos",
+  "x": "Use \"moi, toi, lui, elle, nous, vous, eux, elles\" depois de preposições (\"avec moi\", \"chez eux\"), para enfatizar (\"moi, je\") e sozinhos (\"Qui est là ? Moi !\"). Também depois de \"c'est\": \"c'est lui\". Exemplos: \"avec moi\", \"chez lui\", \"eux\""
+ },
+ "comparatifs": {
+  "t": "Comparar: plus … que",
+  "x": "Use \"plus … que\" (mais), \"moins … que\" (menos) e \"aussi … que\" (tão … quanto) com um adjetivo ou advérbio: \"elle est plus rapide que lui\". Com substantivos, \"plus de … que\". Exemplos: \"plus grand que\", \"moins cher que\", \"aussi rapide que\""
+ },
+ "superlatifs": {
+  "t": "Superlativos",
+  "x": "Coloque o artigo definido antes de \"plus\" ou \"moins\": \"le plus grand\", \"la plus belle\", \"les moins chers\". Para 'de/em' use \"de\": \"le plus grand de la classe\". Exemplos: \"le plus grand\", \"la plus belle\", \"les moins chers\""
+ },
+ "meilleur-mieux": {
+  "t": "meilleur ou mieux?",
+  "x": "\"bon\" vira \"meilleur\" (adjetivo, concorda): \"une meilleure idée\". \"bien\" vira \"mieux\" (advérbio, invariável): \"elle chante mieux\". Nunca diga \"plus bon\" nem \"plus bien\". Exemplos: \"meilleur\", \"mieux\", \"la meilleure idée\""
+ },
+ "adverbes-ment": {
+  "t": "Advérbios em -ment",
+  "x": "Acrescente \"-ment\" ao adjetivo feminino: \"lent\" dá \"lentement\", \"heureux\" dá \"heureusement\". Depois de vogal, acrescente ao masculino: \"vrai\" dá \"vraiment\". \"-ent\" vira \"-emment\": \"prudent\" dá \"prudemment\". Exemplos: \"lentement\", \"vraiment\", \"prudemment\""
+ },
+ "prep-pays-villes": {
+  "t": "Países e cidades",
+  "x": "Cidades: \"à Paris\", \"de Paris\". Países femininos: \"en France\", \"de France\". Países masculinos: \"au Japon\", \"du Japon\". Países plurais: \"aux États-Unis\", \"des États-Unis\". Exemplos: \"en France\", \"au Japon\", \"aux États-Unis\", \"à Paris\""
+ },
+ "depuis-pendant-il-y-a": {
+  "t": "depuis, pendant, il y a",
+  "x": "\"depuis\" + presente: algo que continua (\"j'habite ici depuis deux ans\"). \"pendant\" + duração: quanto tempo durou (\"j'ai dormi pendant huit heures\"). \"il y a\" + duração: há quanto tempo (\"il est parti il y a une heure\"). Exemplos: \"depuis deux ans\", \"pendant trois heures\", \"il y a une heure\""
+ },
+ "passe-recent": {
+  "t": "Passado recente: venir de",
+  "x": "Conjugue \"venir\" no presente e acrescente \"de\" + infinitivo: \"je viens de finir\", \"nous venons de partir\". Diante de vogal \"de\" vira \"d'\": \"il vient d'arriver\". Exemplos: \"je viens de manger\", \"ils viennent de partir\""
+ },
+ "imperatif-negatif": {
+  "t": "Imperativo negativo",
+  "x": "Coloque \"ne … pas\" em volta do verbo no imperativo: \"ne pars pas !\", \"ne partons pas !\", \"ne partez pas !\". Os pronomes ficam antes do verbo: \"ne le fais pas !\". Exemplos: \"ne parle pas\", \"ne partez pas\""
+ },
+ "imperatif-pronoms": {
+  "t": "Imperativo com pronomes",
+  "x": "No imperativo afirmativo o pronome vem depois do verbo, com hífen: \"regarde-moi\", \"parlez-nous\", \"dis-lui\". \"me\" vira \"moi\". A negativa mantém a ordem normal: \"ne me regarde pas\". Exemplos: \"regarde-moi\", \"dis-lui\", \"donne-le-moi\""
+ },
+ "rel-qui-que": {
+  "t": "qui e que",
+  "x": "\"qui\" substitui o sujeito: \"la femme qui habite ici\". \"que\" substitui o objeto direto: \"le film que nous regardons\". \"que\" vira \"qu'\" diante de vogal: \"le livre qu'il lit\". Exemplos: \"l'homme qui parle\", \"le livre que je lis\""
+ },
+ "rel-ou": {
+  "t": "où: onde, quando",
+  "x": "\"où\" liga um lugar ou um tempo a uma oração: \"la maison où elle habite\", \"le jour où nous sommes partis\". Vale tanto para lugar quanto para tempo. Exemplos: \"la ville où j'habite\", \"le jour où\""
+ },
+ "il-faut": {
+  "t": "il faut",
+  "x": "\"il faut\" + infinitivo significa 'é preciso': \"il faut partir\". \"il faut\" + substantivo significa 'precisa-se de': \"il faut du temps\". A negativa \"il ne faut pas\" significa 'não se deve'. É um verbo impessoal: só \"il\". Exemplos: \"il faut travailler\", \"il faut du temps\""
+ },
+ "neg-jamais-plus-rien": {
+  "t": "jamais, plus, rien, personne",
+  "x": "Substituem \"pas\": \"ne … jamais\" (nunca), \"ne … plus\" (não mais), \"ne … rien\" (nada), \"ne … personne\" (ninguém). \"rien\" e \"personne\" também podem ser sujeito: \"personne ne vient\". Exemplos: \"je ne mange jamais\", \"il ne travaille plus\", \"nous ne voyons personne\""
+ },
+ "quantite-de": {
+  "t": "Quantidade + de",
+  "x": "Depois de palavras de quantidade use \"de\", sem artigo: \"beaucoup de travail\", \"un peu de sucre\", \"assez de temps\", \"trop de monde\", \"peu de gens\", \"une bouteille d'eau\". Exemplos: \"beaucoup de travail\", \"un peu de sucre\", \"trop de monde\""
+ },
+ "c-est-il-est": {
+  "t": "c'est ou il est?",
+  "x": "Use \"il est\" / \"elle est\" + adjetivo ou profissão sozinha: \"il est médecin\", \"elle est gentille\". Use \"c'est\" quando há artigo ou possessivo: \"c'est un médecin\", \"c'est mon frère\". Exemplos: \"c'est un médecin\", \"il est médecin\", \"elle est gentille\""
+ },
+ "q-inversion": {
+  "t": "Inversão",
+  "x": "No francês cuidado o verbo vai antes do pronome sujeito, ligado por hífen: \"parlez-vous ?\", \"où vas-tu ?\", \"que font-ils ?\". Se o verbo termina em vogal, acrescente \"-t-\": \"aime-t-il ?\". Exemplos: \"parlez-vous\", \"où vas-tu\", \"que font-ils\""
+ },
+ "q-qui-que-quoi": {
+  "t": "Quem e o quê",
+  "x": "\"qui\" pergunta por pessoas; \"que\" e \"qu'est-ce que\" por coisas: \"qu'est-ce que tu fais ?\". Depois de preposição use \"qui\" (pessoas) ou \"quoi\" (coisas): \"avec qui ?\", \"de quoi parles-tu ?\". Exemplos: \"qui est-ce ?\", \"qu'est-ce que tu fais ?\", \"de quoi parles-tu ?\""
+ },
+ "adj-irreguliers": {
+  "t": "beau, nouveau, vieux",
+  "x": "Estes três têm uma forma especial diante de vogal masculina: \"beau\" dá \"bel\", \"nouveau\" dá \"nouvel\", \"vieux\" dá \"vieil\". Feminino: \"belle\", \"nouvelle\", \"vieille\". Plural: \"beaux\", \"nouveaux\", \"vieux\". Exemplos: \"un bel homme\", \"une nouvelle voiture\", \"un vieil ami\""
+ },
+ "connecteurs-temps": {
+  "t": "Primeiro, depois, por fim",
+  "x": "\"d'abord\" (primeiro), \"ensuite\" ou \"puis\" (depois), \"après\" (em seguida), \"enfin\" (por fim) põem as ações em ordem: \"d'abord je mange, puis je pars, enfin j'arrive\". Exemplos: \"d'abord\", \"ensuite\", \"puis\", \"enfin\""
+ },
+ "si-present-futur": {
+  "t": "si + presente, futuro",
+  "x": "Para uma possibilidade real: \"si\" + presente na condição, futuro (ou imperativo) no resultado. \"si tu viens, je serai content\", \"si vous avez le temps, appelez-moi\". Nunca ponha o futuro depois de \"si\". Diante de \"il\" fica \"s'il\". Exemplos: \"si tu viens, nous mangerons\", \"s'il pleut, je resterai\""
+ },
+ "savoir-connaitre": {
+  "t": "savoir ou connaître?",
+  "x": "\"savoir\" é para fatos e habilidades: \"je sais nager\", \"je sais où il habite\". \"connaître\" é para conhecer pessoas, lugares e coisas: \"je connais Marie\", \"je connais cette ville\". Exemplos: \"je sais nager\", \"je connais Paris\""
+ },
+ "pres-irreguliers-2": {
+  "t": "Mais verbos irregulares",
+  "x": "Aprenda-os em grupos: \"lire\" (\"nous lisons\"), \"dire\" (\"vous dites\"), \"écrire\" (\"ils écrivent\"), \"voir\" (\"nous voyons\"), \"boire\" (\"ils boivent\"). A forma \"nous\" ajuda a construir o imparfait. Exemplos: \"nous lisons\", \"vous dites\", \"ils écrivent\""
+ },
+ "meteo-il": {
+  "t": "O tempo",
+  "x": "Use \"il fait\" + adjetivo (\"il fait beau, froid, chaud\") e um verbo para chuva e neve (\"il pleut\", \"il neige\"). O sujeito \"il\" é vazio e nunca muda. Pergunta: \"quel temps fait-il ?\" Exemplos: \"il fait beau\", \"il pleut\", \"il neige\""
+ },
+ "profession-sans-article": {
+  "t": "Sem artigo nas profissões",
+  "x": "Depois de \"être\", profissão, nacionalidade ou religião não leva artigo: \"il est médecin\", \"elle est française\". Com adjetivo, use \"c'est un\": \"c'est un bon médecin\". Exemplos: \"elle est infirmière\", \"il est professeur\""
+ },
+ "subj-il-faut-que": {
+  "t": "Subjuntivo: il faut que",
+  "x": "Depois de \"il faut que\" use o subjuntivo. Verbos regulares: pegue o radical do presente de \"ils\" e acrescente \"-e, -es, -e, -ions, -iez, -ent\": \"ils partent\" dá \"que je parte\". As formas \"nous\" e \"vous\" são como as do imparfait. Exemplos: \"il faut que tu viennes\", \"il faut que je parte\""
+ },
+ "subj-vouloir-que": {
+  "t": "vouloir que + subjuntivo",
+  "x": "Quando o sujeito muda, \"vouloir que\", \"préférer que\", \"aimer mieux que\" e \"demander que\" levam subjuntivo: \"je veux que tu viennes\". Se o sujeito é o mesmo, use infinitivo: \"je veux venir\". Exemplos: \"je veux que tu viennes\", \"elle veut que nous partions\""
+ },
+ "subj-irreguliers": {
+  "t": "Subjuntivos irregulares",
+  "x": "Decore: \"être\" (\"que je sois\"), \"avoir\" (\"que j'aie, qu'il ait\"), \"aller\" (\"que j'aille\"), \"faire\" (\"que je fasse\"), \"pouvoir\" (\"que je puisse\"), \"savoir\" (\"que je sache\"), \"vouloir\" (\"que je veuille\"). Exemplos: \"que je sois\", \"qu'il ait\", \"que nous allions\", \"qu'ils fassent\""
+ },
+ "subj-emotions": {
+  "t": "Sentimentos + subjuntivo",
+  "x": "Depois de expressões de emoção (\"être content que\", \"être triste que\", \"regretter que\", \"avoir peur que\", \"être surpris que\") use o subjuntivo quando o sujeito muda. Exemplos: \"je suis content que tu sois là\", \"elle regrette que nous partions\""
+ },
+ "subj-vs-indic": {
+  "t": "Indicativo ou subjuntivo",
+  "x": "A certeza leva indicativo: \"je pense que\", \"je sais que\", \"il est sûr que\". Dúvida, negação e vontade levam subjuntivo: \"je ne pense pas que\", \"je doute que\", \"il faut que\". \"Penser que\" em pergunta admite os dois. Exemplos: \"je pense qu'il a raison\", \"je ne pense pas qu'il ait raison\""
+ },
+ "subj-conjonctions": {
+  "t": "Conjunções + subjuntivo",
+  "x": "Algumas conjunções sempre levam subjuntivo: \"pour que\" (para que), \"avant que\" (antes que), \"bien que\" (embora), \"à condition que\" (desde que), \"jusqu'à ce que\" (até que). \"après que\" leva indicativo. Exemplos: \"pour que tu comprennes\", \"avant que tu partes\", \"bien qu'il soit fatigué\""
+ },
+ "si-imparfait-cond": {
+  "t": "si + imparfait, condicional",
+  "x": "Para situações imaginárias ou improváveis: \"si\" + imparfait, e condicional no resultado. \"si j'étais riche, je voyagerais\". Nunca use o condicional depois de \"si\". Exemplos: \"si j'avais de l'argent\", \"j'achèterais une maison\""
+ },
+ "cond-usage": {
+  "t": "Condicional: conselhos e desejos",
+  "x": "O \"conditionnel\" dá conselhos (\"tu devrais\"), expressa desejos (\"j'aimerais\") e faz sugestões educadas (\"on pourrait\"). Com \"devoir\", \"pouvoir\" e \"vouloir\" é muito comum. Exemplos: \"tu devrais dormir\", \"nous aimerions voyager\""
+ },
+ "cond-passe-regret": {
+  "t": "Arrependimentos do passado",
+  "x": "Para o que não aconteceu: \"si\" + plus-que-parfait, conditionnel passé. \"si tu avais étudié, tu aurais réussi\". O conditionnel passé é \"avoir\" ou \"être\" no condicional + particípio. Exemplos: \"si j'avais su\", \"je serais venu\""
+ },
+ "plus-que-parfait-forme": {
+  "t": "Plus-que-parfait: formas",
+  "x": "Auxiliar no \"imparfait\" + particípio: \"j'avais mangé\", \"elle était partie\", \"nous nous étions levés\". As mesmas regras do passé composé decidem entre \"avoir\" e \"être\" e a concordância. Exemplos: \"j'avais fini\", \"nous étions partis\", \"elle avait mangé\""
+ },
+ "plus-que-parfait-usage": {
+  "t": "Plus-que-parfait: uso",
+  "x": "Use o \"plus-que-parfait\" para uma ação anterior a outra ação passada ou a um momento passado: \"quand je suis arrivé, il était déjà parti\". Muitas vezes explica uma causa: \"il était fatigué, il n'avait pas dormi\". Exemplos: \"le film avait déjà commencé\", \"il n'avait pas dormi\""
+ },
+ "di-present": {
+  "t": "Discurso indireto (presente)",
+  "x": "Com \"dire que\", \"répondre que\", \"expliquer que\" no presente, o tempo da subordinada não muda; só mudam os pronomes e palavras como \"mon\": \"« j'ai faim »\" dá \"il dit qu'il a faim\". Exemplos: \"il dit qu'il est fatigué\", \"elle répond qu'elle ne sait pas\""
+ },
+ "di-questions": {
+  "t": "Perguntas indiretas",
+  "x": "As perguntas de sim ou não usam \"si\": \"il demande si tu viens\". As palavras interrogativas ficam: \"où, quand, comment, pourquoi\". \"Qu'est-ce que\" vira \"ce que\", \"qu'est-ce qui\" vira \"ce qui\". A ordem é a de uma afirmação. Exemplos: \"il demande si je viens\", \"elle demande où j'habite\""
+ },
+ "di-passe": {
+  "t": "Discurso indireto (passado)",
+  "x": "Depois de \"a dit que\" os tempos recuam: o presente vira \"imparfait\", o futur vira \"conditionnel\", o passé composé vira \"plus-que-parfait\". As palavras de tempo também mudam: \"demain\" vira \"le lendemain\". Exemplos: \"il a dit qu'il était fatigué\", \"elle a répondu qu'elle viendrait\""
+ },
+ "gerondif-formation": {
+  "t": "Gérondif: formas",
+  "x": "Pegue a forma \"nous\" do presente, tire \"-ons\", acrescente \"-ant\" e ponha \"en\" antes: \"nous travaillons\" dá \"en travaillant\". Exceções: \"être\" dá \"en étant\", \"avoir\" dá \"en ayant\", \"savoir\" dá \"en sachant\". Exemplos: \"en travaillant\", \"en lisant\", \"en finissant\""
+ },
+ "gerondif-usage": {
+  "t": "Gérondif: uso",
+  "x": "O \"gérondif\" indica duas ações simultâneas (\"il chante en travaillant\"), o modo como algo se faz (\"on apprend en lisant\") ou uma condição (\"en tournant à gauche, vous verrez la poste\"). Os dois verbos têm o mesmo sujeito. Exemplos: \"on apprend en lisant\", \"il s'est blessé en jouant\""
+ },
+ "rel-dont": {
+  "t": "dont: do qual, cujo",
+  "x": "\"dont\" substitui \"de\" + substantivo: \"je parle de ce livre\" dá \"le livre dont je parle\". Também significa 'cujo': \"la fille dont le père est médecin\". E depois de \"avoir besoin de\": \"ce dont j'ai besoin\". Exemplos: \"le livre dont je parle\", \"la fille dont le père est médecin\""
+ },
+ "rel-ce-qui-ce-que": {
+  "t": "ce qui, ce que, ce dont",
+  "x": "Quando não há substantivo antes, use \"ce qui\" (sujeito), \"ce que\" (objeto) e \"ce dont\" (com \"de\"): \"ce qui se passe\", \"ce que tu veux\", \"ce dont j'ai besoin\". Exemplos: \"ce que tu veux\", \"ce qui se passe\", \"ce dont j'ai besoin\""
+ },
+ "pronoms-ordre": {
+  "t": "Dois pronomes juntos",
+  "x": "Ordem antes do verbo: \"me, te, nous, vous\" + \"le, la, les\" + \"lui, leur\" + \"y\" + \"en\". \"me le\", \"te la\", \"nous les\", mas \"le lui\", \"les leur\": \"je le lui donne\". Exemplos: \"je le lui donne\", \"elle me les envoie\""
+ },
+ "y-en-ensemble": {
+  "t": "il y en a",
+  "x": "Quando \"y\" e \"en\" aparecem juntos, \"y\" vem primeiro: \"il y en a\", \"il n'y en a plus\". \"en\" mantém a quantidade: \"il y en a trois\". Exemplos: \"il y en a\", \"nous y en avons\""
+ },
+ "imperatif-ordre-pronoms": {
+  "t": "Imperativo: ordem dos pronomes",
+  "x": "Afirmativo: verbo + objeto direto (\"le, la, les\") + indireto (\"moi, lui, nous, leur\") + \"y\" / \"en\": \"donne-le-moi\", \"dis-le-lui\". \"moi\" vira \"m'\" diante de \"en\": \"donne-m'en\". Negativo: ordem normal, \"ne me le donne pas\". Exemplos: \"donne-le-moi\", \"dis-le-lui\", \"donne-m'en\""
+ },
+ "pronoms-possessifs": {
+  "t": "Pronomes possessivos",
+  "x": "Substituem um possessivo + substantivo e concordam com ele: \"le mien, la mienne, les miens, les miennes\", \"le tien\", \"le sien\", \"le nôtre\", \"le vôtre\", \"le leur\". \"Où est ma clé ? — Voici la mienne.\" Exemplos: \"le mien\", \"la tienne\", \"les nôtres\""
+ },
+ "pronoms-demonstratifs": {
+  "t": "celui, celle, ceux, celles",
+  "x": "Substituem 'aquele(s) que' e são seguidos de \"de\", \"qui\", \"que\" ou \"-ci / -là\": \"celui de gauche\", \"celle qui est ici\", \"ceux de Marc\", \"celles-là\". Exemplos: \"celui de gauche\", \"celle qui est ici\", \"ceux de Marc\""
+ },
+ "pronoms-indefinis": {
+  "t": "Pronomes indefinidos",
+  "x": "\"quelqu'un\" (alguém), \"quelque chose\" (algo), \"personne\" (ninguém), \"rien\" (nada), \"chacun\" (cada um), \"plusieurs\" (vários). Diante de adjetivo use \"de\": \"quelque chose de bon\". Exemplos: \"quelqu'un\", \"quelque chose de sucré\", \"chacun\""
+ },
+ "adj-indefinis": {
+  "t": "chaque, plusieurs, quelques",
+  "x": "\"chaque\" + substantivo singular (cada), \"plusieurs\" e \"quelques\" + substantivo plural (vários, alguns). \"tout\" concorda: \"tout le monde\", \"toute la journée\", \"tous les jours\", \"toutes les semaines\". Exemplos: \"chaque élève\", \"plusieurs voitures\", \"toute la journée\""
+ },
+ "pc-accord-cod": {
+  "t": "Concordância do particípio com avoir",
+  "x": "Com \"avoir\" o particípio só concorda com o objeto direto quando este vem antes do verbo: \"j'ai acheté des fleurs\", mas \"les fleurs que j'ai achetées\", \"je les ai vues\". Exemplos: \"les fleurs que j'ai achetées\", \"je les ai vues\""
+ },
+ "passif-forme": {
+  "t": "Voz passiva",
+  "x": "\"être\" (no tempo necessário) + particípio que concorda com o sujeito + \"par\": \"la lettre est écrite par Paul\", \"les maisons ont été détruites par le feu\". O objeto da frase ativa vira sujeito. Exemplos: \"le roman est écrit par\", \"la porte est ouverte par\""
+ },
+ "se-passif": {
+  "t": "Passiva com se",
+  "x": "Um verbo na terceira pessoa com \"se\" tem sentido passivo, sem agente: \"le vin se vend ici\", \"ça ne se dit pas\", \"cela se voit\". Muito comum na fala e em regras. Exemplos: \"ça se dit\", \"ce produit se vend partout\""
+ },
+ "etre-en-train-de": {
+  "t": "être en train de",
+  "x": "\"être en train de\" + infinitivo destaca que uma ação está em curso agora: \"je suis en train de lire\". Equivale a 'estar + gerúndio' quando se quer insistir: \"ne l'appelle pas, il est en train de dormir\". Exemplos: \"je suis en train de manger\", \"ils sont en train de partir\""
+ },
+ "pc-avoir-transitif": {
+  "t": "Mesmo verbo, dois auxiliares",
+  "x": "Quando \"sortir, monter, descendre, passer, rentrer, retourner\" têm objeto direto, o auxiliar é \"avoir\": \"j'ai sorti la voiture\", \"elle a monté les escaliers\". Sem objeto, \"être\": \"elle est sortie\". Exemplos: \"il a sorti la valise\", \"elle a monté les escaliers\""
+ },
+ "futur-anterieur": {
+  "t": "Futur antérieur",
+  "x": "\"avoir\" ou \"être\" no futur simple + particípio: \"j'aurai fini\", \"elle sera partie\". Descreve uma ação concluída antes de outra ação futura: \"quand j'aurai fini, je t'appellerai\". Exemplos: \"quand j'aurai fini\", \"dès qu'elle sera arrivée\""
+ },
+ "quand-futur": {
+  "t": "quand + futuro",
+  "x": "Ao contrário do português, o francês usa o futuro depois de \"quand\", \"dès que\", \"lorsque\" e \"aussitôt que\" quando a ação é futura: \"dès qu'il arrivera, nous partirons\". \"Si\" é a exceção: nunca leva futuro. Exemplos: \"quand je serai grand\", \"dès qu'il arrivera\""
+ },
+ "connecteurs-cause-consequence": {
+  "t": "Causa e consequência",
+  "x": "\"car\" e \"parce que\" dão uma razão; \"comme\" e \"puisque\" abrem a frase com uma razão conhecida: \"comme il pleut, je reste\". \"donc\" e \"alors\" dão o resultado: \"il pleut, donc je reste\". Exemplos: \"donc\", \"car\", \"comme\", \"puisque\""
+ },
+ "connecteurs-opposition": {
+  "t": "Contraste",
+  "x": "\"mais\", \"pourtant\" e \"cependant\" opõem duas ideias. \"alors que\" compara dois fatos: \"elle aime le thé, alors que son mari préfère le café\". \"malgré\" + substantivo significa 'apesar de': \"malgré la pluie\". Exemplos: \"pourtant\", \"alors que\", \"malgré la pluie\""
+ },
+ "but-pour-afin-de": {
+  "t": "Finalidade",
+  "x": "Com o mesmo sujeito: \"pour\" ou \"afin de\" + infinitivo: \"je travaille pour gagner de l'argent\". Com outro sujeito: \"pour que\" ou \"afin que\" + subjuntivo: \"il parle lentement pour que nous comprenions\". Exemplos: \"pour gagner de l'argent\", \"afin de rentrer\", \"pour que nous comprenions\""
+ },
+ "neg-ne-que-ni": {
+  "t": "ne … que, ni … ni, aucun",
+  "x": "\"ne … que\" significa 'só': \"je n'ai que dix euros\". \"ne … ni … ni\" significa 'nem … nem': \"elle ne mange ni viande ni poisson\". \"ne … aucun\" significa 'nenhum': \"il n'a aucun ami\". Exemplos: \"je n'ai que dix euros\", \"ni viande ni poisson\", \"aucun ami\""
+ },
+ "neg-infinitif": {
+  "t": "Infinitivo negativo",
+  "x": "As duas partes da negação ficam juntas antes do infinitivo: \"ne pas partir\", \"ne plus fumer\", \"ne jamais mentir\". \"Il m'a demandé de ne pas fumer\". Exemplos: \"ne pas fumer\", \"ne plus travailler\", \"ne jamais mentir\""
+ },
+ "q-lequel": {
+  "t": "Lequel: qual",
+  "x": "\"lequel\" substitui \"quel\" + substantivo e concorda: \"lequel\" (m. sing.), \"laquelle\" (f. sing.), \"lesquels\" (m. pl.), \"lesquelles\" (f. pl.). \"Quel sac ? Lequel ?\" Depois de \"à\" e \"de\": \"auquel\", \"duquel\". Exemplos: \"lequel\", \"laquelle\", \"lesquels\""
+ },
+ "exclamations": {
+  "t": "Exclamações",
+  "x": "\"quel\" + substantivo: \"quelle belle journée !\". \"comme\" ou \"que\" + oração: \"comme il fait chaud !\", \"que c'est joli !\". Atenção: em francês há um espaço antes de \"!\". Exemplos: \"quelle belle journée !\", \"comme il fait chaud !\", \"que c'est joli !\""
+ },
+ "adv-place-pc": {
+  "t": "Advérbios curtos no passé composé",
+  "x": "Os advérbios curtos e comuns (\"déjà, bien, mal, souvent, toujours, encore, trop, beaucoup\") ficam entre o auxiliar e o particípio: \"j'ai déjà mangé\", \"il a bien compris\". Os de lugar e os longos vão depois. Exemplos: \"elle a déjà fini\", \"il a bien compris\""
+ },
+ "comparatifs-avances": {
+  "t": "Cada vez mais, quanto mais … mais",
+  "x": "\"de plus en plus\" (cada vez mais), \"de moins en moins\" (cada vez menos), \"plus … plus\" (quanto mais … mais), \"autant de … que\" (tantos … quanto): \"elle a autant de livres que moi\". Exemplos: \"de plus en plus froid\", \"plus on travaille, plus on apprend\", \"autant de livres\""
+ },
+ "prep-verbes": {
+  "t": "Verbos com preposição",
+  "x": "Muitos verbos exigem uma preposição fixa: \"penser à\", \"s'intéresser à\", \"répondre à\", \"parler de\", \"avoir besoin de\", \"avoir envie de\", \"rêver de\". Aprenda-os junto com o verbo. Exemplos: \"penser à\", \"parler de\", \"avoir besoin de\", \"s'intéresser à\""
+ },
+ "prep-temps-en-dans": {
+  "t": "en ou dans?",
+  "x": "\"dans\" + duração: quando algo vai acontecer, contando a partir de agora (\"le film commence dans une heure\"). \"en\" + duração: quanto tempo algo leva (\"il a lu ce livre en deux jours\"). \"en\" também vai com meses e anos: \"en mai\", \"en 1998\". Exemplos: \"dans une heure\", \"en deux jours\""
+ },
+ "inf-apres-prepositions": {
+  "t": "Preposições + infinitivo",
+  "x": "\"avant de\" + infinitivo, \"après\" + infinitivo passado (\"avoir\" ou \"être\" + particípio), \"sans\" + infinitivo: \"avant de partir\", \"après avoir mangé\", \"sans dire au revoir\". O sujeito deve ser o mesmo. Exemplos: \"avant de manger\", \"après avoir mangé\", \"sans dire\""
+ },
+ "faire-causatif": {
+  "t": "faire + infinitivo",
+  "x": "\"faire\" + infinitivo significa mandar fazer algo (\"je fais réparer ma voiture\") ou fazer alguém fazer algo (\"il fait rire les enfants\"). O infinitivo vem logo depois de \"faire\". Exemplos: \"je fais réparer ma voiture\", \"il fait rire les enfants\""
+ },
+ "verbes-perception": {
+  "t": "Ver e ouvir + infinitivo",
+  "x": "Depois de \"voir\", \"entendre\", \"regarder\", \"écouter\", \"sentir\" vem um infinitivo: \"je les entends jouer\", \"nous voyons passer le train\". O pronome é o objeto do verbo de percepção. Exemplos: \"je les entends chanter\", \"nous voyons passer le train\""
+ },
+ "voyelle-liaison-ecrite": {
+  "t": "Formas especiais diante de vogal",
+  "x": "Diante de vogal ou h mudo, algumas palavras mudam para facilitar a pronúncia: \"ma\" vira \"mon\" (\"mon amie\"), \"ce\" vira \"cet\" (\"cet homme\"), \"beau\" vira \"bel\" (\"un bel arbre\"), \"nouveau\" vira \"nouvel\", \"vieux\" vira \"vieil\". Exemplos: \"mon amie\", \"cet homme\", \"un bel arbre\""
+ },
+ "tout-tous-toutes": {
+  "t": "tout, tous, toute, toutes",
+  "x": "Como adjetivo, \"tout\" concorda: \"tout le monde\", \"toute la journée\", \"tous les jours\", \"toutes les semaines\". Como pronome significa 'tudo' (\"j'ai tout compris\") ou 'todos' (\"ils sont tous là\", com o -s final pronunciado). Exemplos: \"tous les jours\", \"toute la journée\", \"ils sont tous là\""
+ }
+}

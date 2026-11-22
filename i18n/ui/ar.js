@@ -601,6 +601,7 @@
 "Luyện theo phần":"تدريب حسب الجزء",
 "Luyện theo phần TOEFL iBT":"ممارسة قسم TOEFL iBT",
 "Luyện thêm kỹ năng":"تدرّب أكثر",
+"Luyện tiếng Pháp":"تدريب على الفرنسية",
 "Luyện tiếng Tây Ban Nha":"تدرّب على الإسبانية",
 "Luyện tiếp":"تابع التدريب",
 "Luyện tập":"تدريب",

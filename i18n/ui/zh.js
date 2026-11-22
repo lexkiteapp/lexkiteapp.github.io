@@ -601,6 +601,7 @@
 "Luyện theo phần":"分部分练习",
 "Luyện theo phần TOEFL iBT":"托福 iBT 部分练习",
 "Luyện thêm kỹ năng":"更多技能练习",
+"Luyện tiếng Pháp":"法语练习",
 "Luyện tiếng Tây Ban Nha":"西班牙语练习",
 "Luyện tiếp":"继续练习",
 "Luyện tập":"练习",

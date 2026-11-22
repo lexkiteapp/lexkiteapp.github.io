@@ -601,6 +601,7 @@
 "Luyện theo phần":"ฝึกทีละพาร์ต",
 "Luyện theo phần TOEFL iBT":"แบบฝึกหัดส่วน TOEFL iBT",
 "Luyện thêm kỹ năng":"ฝึกทักษะเพิ่ม",
+"Luyện tiếng Pháp":"ฝึกภาษาฝรั่งเศส",
 "Luyện tiếng Tây Ban Nha":"ฝึกภาษาสเปน",
 "Luyện tiếp":"ฝึกต่อ",
 "Luyện tập":"ฝึกฝน",

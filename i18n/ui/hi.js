@@ -601,6 +601,7 @@
 "Luyện theo phần":"भाग अनुसार अभ्यास",
 "Luyện theo phần TOEFL iBT":"टीओईएफएल आईबीटी अनुभाग अभ्यास",
 "Luyện thêm kỹ năng":"और कौशल अभ्यास",
+"Luyện tiếng Pháp":"फ़्रेंच अभ्यास",
 "Luyện tiếng Tây Ban Nha":"स्पेनिश अभ्यास",
 "Luyện tiếp":"अभ्यास जारी रखें",
 "Luyện tập":"अभ्यास",

@@ -601,6 +601,7 @@
 "Luyện theo phần":"По частям",
 "Luyện theo phần TOEFL iBT":"Практика раздела TOEFL iBT",
 "Luyện thêm kỹ năng":"Ещё практика",
+"Luyện tiếng Pháp":"Практика французского",
 "Luyện tiếng Tây Ban Nha":"Практика испанского",
 "Luyện tiếp":"Продолжить",
 "Luyện tập":"Практика",

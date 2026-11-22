@@ -1,0 +1,2944 @@
+{
+ "_doc": "Kho điểm ngữ pháp tiếng Pháp (Pháp chuẩn, trung tính) của LexKite. 100% tự soạn: tên điểm, câu \"Can …\" và ví dụ là của LexKite, không chép Référentiels (CECRL/DELF) hay sách giáo trình (CONTENT-RULES §1). lessons = id bài fr (chưa có → []); tenses = khóa của scripts/target/conjugate.mjs; kiểm: node scripts/content-qa/grammar-map-check.mjs --tl fr; id điểm KHÔNG đổi/tái dùng. ",
+ "version": 1,
+ "areas": {
+  "verb": "Verb forms & tenses",
+  "mood": "Subjunctive & imperative",
+  "etreavoir": "Être, avoir & il y a",
+  "modal": "Modality & periphrasis",
+  "passive": "Passive, se & impersonals",
+  "cond": "Conditionals & hypothesis",
+  "reported": "Reported speech",
+  "noun": "Nouns, gender, articles & partitives",
+  "pronoun": "Pronouns: object, y, en, relative",
+  "adj": "Adjectives & comparison",
+  "adv": "Adverbs",
+  "prep": "Prepositions & countries",
+  "question": "Questions & exclamations",
+  "clause": "Clauses & complex sentences",
+  "sentence": "Word order, negation & punctuation",
+  "discourse": "Discourse, connectors & register",
+  "word": "Word formation (affixes, families)",
+  "number": "Numbers, dates & time",
+  "phon": "Elision & liaison in writing"
+ },
+ "points": [
+  {
+   "id": "etre-present",
+   "level": "A1",
+   "area": "etreavoir",
+   "name": "être: present tense",
+   "can_do_en": "Can use être to say who I am, where I am from and what I am like.",
+   "example": "Je suis Léa et je suis étudiante. Nous sommes de Lyon.",
+   "example_en": "I'm Léa and I'm a student. We're from Lyon.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "avoir-present",
+   "level": "A1",
+   "area": "etreavoir",
+   "name": "avoir: present tense",
+   "can_do_en": "Can use avoir to say what I have, my age and my family.",
+   "example": "J'ai deux frères. Elle a un chat.",
+   "example_en": "I have two brothers. She has a cat.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "il-y-a",
+   "level": "A1",
+   "area": "etreavoir",
+   "name": "il y a: there is, there are",
+   "can_do_en": "Can say that something exists or is in a place with il y a.",
+   "example": "Il y a un café près de la gare.",
+   "example_en": "There is a café near the station.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "art-defini",
+   "level": "A1",
+   "area": "noun",
+   "name": "Definite articles: le, la, l', les",
+   "can_do_en": "Can use le, la and les to talk about specific or general things.",
+   "example": "Le café est chaud. Les enfants jouent dans la rue.",
+   "example_en": "The coffee is hot. The children are playing in the street.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "art-indefini",
+   "level": "A1",
+   "area": "noun",
+   "name": "Indefinite articles: un, une, des",
+   "can_do_en": "Can use un, une and des to introduce people and things.",
+   "example": "Il y a un livre et des stylos sur la table.",
+   "example_en": "There is a book and some pens on the table.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "gender-nouns",
+   "level": "A1",
+   "area": "noun",
+   "name": "Gender of nouns",
+   "can_do_en": "Can guess whether a noun is masculine or feminine from its ending.",
+   "example": "Le village est petit et la ville est grande.",
+   "example_en": "The village is small and the town is big.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "plural-regular",
+   "level": "A1",
+   "area": "noun",
+   "name": "Regular plurals",
+   "can_do_en": "Can form the plural of most nouns by adding -s.",
+   "example": "J'ai deux sœurs et trois amis.",
+   "example_en": "I have two sisters and three friends.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "plural-irregular",
+   "level": "A1",
+   "area": "noun",
+   "name": "Irregular plurals: -aux, -eaux, -eux",
+   "can_do_en": "Can form common irregular plurals like journaux, bateaux and cheveux.",
+   "example": "Les journaux sont sur les tables.",
+   "example_en": "The newspapers are on the tables.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "elision-basic",
+   "level": "A1",
+   "area": "phon",
+   "name": "Elision: l', j', n', qu'",
+   "can_do_en": "Can write the elided forms l', j', n', d' and qu' before a vowel sound.",
+   "example": "J'aime l'école, mais je n'aime pas l'hiver.",
+   "example_en": "I like school, but I don't like winter.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "contractions-au-du",
+   "level": "A1",
+   "area": "prep",
+   "name": "Contractions: au, aux, du, des",
+   "can_do_en": "Can combine à and de with le and les correctly.",
+   "example": "Je vais au marché et je parle aux voisins.",
+   "example_en": "I'm going to the market and I talk to the neighbours.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "partitif",
+   "level": "A1",
+   "area": "noun",
+   "name": "Partitive articles: du, de la, des",
+   "can_do_en": "Can talk about an unspecified amount with du, de la and des.",
+   "example": "Je mange du pain et je bois de l'eau.",
+   "example_en": "I eat bread and I drink water.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "de-negation",
+   "level": "A1",
+   "area": "noun",
+   "name": "de after negation",
+   "can_do_en": "Can replace du, de la, des and un with de after a negative.",
+   "example": "Je n'ai pas de voiture. Il ne mange jamais de viande.",
+   "example_en": "I don't have a car. He never eats meat.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "adj-agreement",
+   "level": "A1",
+   "area": "adj",
+   "name": "Adjective agreement",
+   "can_do_en": "Can make an adjective agree in gender and number with the noun.",
+   "example": "Ma sœur est grande et mes frères sont petits.",
+   "example_en": "My sister is tall and my brothers are short.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "adj-position",
+   "level": "A1",
+   "area": "adj",
+   "name": "Adjective position",
+   "can_do_en": "Can place common short adjectives before the noun and most others after it.",
+   "example": "C'est une belle maison blanche.",
+   "example_en": "It's a beautiful white house.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "possessifs",
+   "level": "A1",
+   "area": "noun",
+   "name": "Possessive adjectives",
+   "can_do_en": "Can use mon, ma, mes, ton, son, notre, leur to say who something belongs to.",
+   "example": "Mon père et ma mère habitent avec leurs chats.",
+   "example_en": "My father and mother live with their cats.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "demonstratifs",
+   "level": "A1",
+   "area": "noun",
+   "name": "Demonstratives: ce, cet, cette, ces",
+   "can_do_en": "Can point to things with ce, cet, cette and ces.",
+   "example": "Ce livre est cher, mais cette veste est belle.",
+   "example_en": "This book is expensive, but this jacket is nice.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "pres-er",
+   "level": "A1",
+   "area": "verb",
+   "name": "Présent of -er verbs",
+   "can_do_en": "Can conjugate regular -er verbs in the present.",
+   "example": "Je parle français et tu habites à Paris.",
+   "example_en": "I speak French and you live in Paris.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "pres-ir-re",
+   "level": "A1",
+   "area": "verb",
+   "name": "Présent of -ir and -re verbs",
+   "can_do_en": "Can conjugate regular -ir (finir) and -re (vendre) verbs.",
+   "example": "Elle finit ses devoirs et il vend sa voiture.",
+   "example_en": "She finishes her homework and he sells his car.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "pres-irreguliers",
+   "level": "A1",
+   "area": "verb",
+   "name": "Présent of aller, faire, prendre, venir",
+   "can_do_en": "Can use the present of the most common irregular verbs.",
+   "example": "Je vais au marché et je fais les courses.",
+   "example_en": "I'm going to the market and I'm doing the shopping.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "tu-vous",
+   "level": "A1",
+   "area": "discourse",
+   "name": "tu or vous?",
+   "can_do_en": "Can choose between tu and vous depending on who I am talking to.",
+   "example": "Tu viens, Paul ? Vous venez, madame ?",
+   "example_en": "Are you coming, Paul? Are you coming, madam?",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "on-nous",
+   "level": "A1",
+   "area": "pronoun",
+   "name": "on: we, one, people",
+   "can_do_en": "Can use on to mean we or people in general.",
+   "example": "On mange ensemble ce soir ? Nous allons au parc.",
+   "example_en": "Shall we eat together tonight? We're going to the park.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "neg-ne-pas",
+   "level": "A1",
+   "area": "sentence",
+   "name": "Negation: ne … pas",
+   "can_do_en": "Can make a sentence negative with ne … pas.",
+   "example": "Je ne parle pas allemand. Il n'aime pas le thé.",
+   "example_en": "I don't speak German. He doesn't like tea.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "q-est-ce-que",
+   "level": "A1",
+   "area": "question",
+   "name": "Yes/no questions: intonation and est-ce que",
+   "can_do_en": "Can ask a yes/no question with rising intonation or est-ce que.",
+   "example": "Tu aimes le thé ? Est-ce que vous avez des enfants ?",
+   "example_en": "Do you like tea? Do you have children?",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "q-mots-interrogatifs",
+   "level": "A1",
+   "area": "question",
+   "name": "Question words: où, quand, comment, combien, pourquoi",
+   "can_do_en": "Can ask for place, time, manner, quantity and reason.",
+   "example": "Où habites-tu ? Combien ça coûte ?",
+   "example_en": "Where do you live? How much does it cost?",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "q-quel",
+   "level": "A1",
+   "area": "question",
+   "name": "quel, quelle, quels, quelles",
+   "can_do_en": "Can ask 'which' or 'what' with quel and agree it with the noun.",
+   "example": "Quelle heure est-il ? Quels films aimes-tu ?",
+   "example_en": "What time is it? Which films do you like?",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "futur-proche",
+   "level": "A1",
+   "area": "verb",
+   "name": "Futur proche: aller + infinitive",
+   "can_do_en": "Can talk about near-future plans with aller + infinitive.",
+   "example": "Je vais manger. Elle va partir demain.",
+   "example_en": "I'm going to eat. She's going to leave tomorrow.",
+   "tenses": [
+    "futProche"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "pres-pronominaux",
+   "level": "A1",
+   "area": "verb",
+   "name": "Pronominal verbs (se lever, se coucher)",
+   "can_do_en": "Can use reflexive verbs to talk about my daily routine.",
+   "example": "Je me lève à sept heures. Elle se couche tard.",
+   "example_en": "I get up at seven. She goes to bed late.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "imperatif-present",
+   "level": "A1",
+   "area": "mood",
+   "name": "Imperative: orders and requests",
+   "can_do_en": "Can give simple orders and suggestions with the imperative.",
+   "example": "Écoute, regarde et répète !",
+   "example_en": "Listen, look and repeat!",
+   "tenses": [
+    "imp"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "modaux-pouvoir-vouloir",
+   "level": "A1",
+   "area": "modal",
+   "name": "vouloir, pouvoir, devoir + infinitive",
+   "can_do_en": "Can say what I want, can and must do with vouloir, pouvoir and devoir.",
+   "example": "Je veux partir. Tu peux m'aider ? Nous devons travailler.",
+   "example_en": "I want to leave. Can you help me? We have to work.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "prep-lieu",
+   "level": "A1",
+   "area": "prep",
+   "name": "Prepositions of place",
+   "can_do_en": "Can say where something is with dans, sur, sous, devant, derrière, entre.",
+   "example": "Le chat est sous la table, à côté du canapé.",
+   "example_en": "The cat is under the table, next to the sofa.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "prep-a-chez-de",
+   "level": "A1",
+   "area": "prep",
+   "name": "à, chez, de: going to and coming from",
+   "can_do_en": "Can say where I go and where I come from with à, chez and de.",
+   "example": "Je vais chez Marie et je viens de la gare.",
+   "example_en": "I'm going to Marie's and I'm coming from the station.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "nombres",
+   "level": "A1",
+   "area": "number",
+   "name": "Numbers 0–100 and prices",
+   "can_do_en": "Can use numbers up to 100 for ages, prices and quantities.",
+   "example": "J'ai vingt et un ans. Ça coûte soixante-dix euros.",
+   "example_en": "I'm twenty-one. It costs seventy euros.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "heure-date",
+   "level": "A1",
+   "area": "number",
+   "name": "Telling the time and dates",
+   "can_do_en": "Can say the time and the date.",
+   "example": "Il est huit heures et demie. Nous sommes le cinq mai.",
+   "example_en": "It's half past eight. It's the fifth of May.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "c-est-ce-sont",
+   "level": "A1",
+   "area": "sentence",
+   "name": "C'est / ce sont",
+   "can_do_en": "Can introduce and identify people and things with c'est and ce sont.",
+   "example": "C'est mon frère. Ce sont mes amis.",
+   "example_en": "This is my brother. These are my friends.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "gouts-aimer",
+   "level": "A1",
+   "area": "verb",
+   "name": "Likes and dislikes: aimer, adorer, détester",
+   "can_do_en": "Can say what I like or dislike with aimer, adorer and détester.",
+   "example": "J'aime le chocolat et je déteste les épinards.",
+   "example_en": "I like chocolate and I hate spinach.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "adv-intensite",
+   "level": "A1",
+   "area": "adv",
+   "name": "très, beaucoup, un peu, trop",
+   "can_do_en": "Can say how much with très, beaucoup, un peu and trop.",
+   "example": "Il est très grand et il mange beaucoup.",
+   "example_en": "He is very tall and he eats a lot.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "avoir-expressions",
+   "level": "A1",
+   "area": "etreavoir",
+   "name": "avoir expressions: faim, soif, ans, peur",
+   "can_do_en": "Can use avoir to say age, hunger, thirst and feelings of cold or fear.",
+   "example": "J'ai faim et j'ai vingt ans.",
+   "example_en": "I'm hungry and I'm twenty.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "clause-et-mais-parce-que",
+   "level": "A1",
+   "area": "clause",
+   "name": "et, ou, mais, parce que",
+   "can_do_en": "Can link two ideas with et, ou, mais and parce que.",
+   "example": "Je suis fatigué, mais je travaille parce que j'ai un examen.",
+   "example_en": "I'm tired, but I'm working because I have an exam.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "pc-avoir",
+   "level": "A2",
+   "area": "verb",
+   "name": "Passé composé with avoir",
+   "can_do_en": "Can talk about finished actions with avoir + past participle.",
+   "example": "J'ai mangé une pomme. Nous avons fini le travail.",
+   "example_en": "I ate an apple. We finished the work.",
+   "tenses": [
+    "pc"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "pc-etre",
+   "level": "A2",
+   "area": "verb",
+   "name": "Passé composé with être",
+   "can_do_en": "Can use être as the auxiliary with verbs of movement and change of state.",
+   "example": "Je suis allé au cinéma. Elle est partie à six heures.",
+   "example_en": "I went to the cinema. She left at six.",
+   "tenses": [
+    "pc"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "pc-accord-etre",
+   "level": "A2",
+   "area": "verb",
+   "name": "Agreement of the participle with être",
+   "can_do_en": "Can make the past participle agree with the subject after être.",
+   "example": "Marie est partie. Mes amis sont venus.",
+   "example_en": "Marie left. My friends came.",
+   "tenses": [
+    "pc"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "pc-pronominaux",
+   "level": "A2",
+   "area": "verb",
+   "name": "Passé composé of pronominal verbs",
+   "can_do_en": "Can use pronominal verbs in the passé composé with être.",
+   "example": "Elle s'est levée tôt. Nous nous sommes promenés.",
+   "example_en": "She got up early. We went for a walk.",
+   "tenses": [
+    "pc"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "pc-negation",
+   "level": "A2",
+   "area": "sentence",
+   "name": "Negation in the passé composé",
+   "can_do_en": "Can make a passé composé sentence negative.",
+   "example": "Je n'ai pas mangé. Il n'est jamais venu.",
+   "example_en": "I didn't eat. He never came.",
+   "tenses": [
+    "pc"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "pc-participes-irreguliers",
+   "level": "A2",
+   "area": "verb",
+   "name": "Irregular past participles",
+   "can_do_en": "Can use common irregular past participles like eu, été, fait, pris, vu.",
+   "example": "Hier, j'ai vu un film et nous avons fait du sport.",
+   "example_en": "Yesterday I watched a film and we did sport.",
+   "tenses": [
+    "pc"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "imparfait-formation",
+   "level": "A2",
+   "area": "verb",
+   "name": "Imparfait: formation",
+   "can_do_en": "Can form the imparfait from the nous stem.",
+   "example": "Je jouais au parc. Nous allions chez nos grands-parents.",
+   "example_en": "I used to play in the park. We used to go to our grandparents'.",
+   "tenses": [
+    "impf"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "imparfait-usage",
+   "level": "A2",
+   "area": "verb",
+   "name": "Imparfait: habits and descriptions",
+   "can_do_en": "Can describe the past scene, habits and states with the imparfait.",
+   "example": "Quand j'étais petit, je jouais dehors. Il faisait beau.",
+   "example_en": "When I was little, I played outside. The weather was nice.",
+   "tenses": [
+    "impf"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "impf-vs-pc",
+   "level": "A2",
+   "area": "verb",
+   "name": "Imparfait vs passé composé",
+   "can_do_en": "Can combine the imparfait for background and the passé composé for events.",
+   "example": "Je dormais quand le téléphone a sonné.",
+   "example_en": "I was sleeping when the phone rang.",
+   "tenses": [
+    "impf",
+    "pc"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "futur-simple",
+   "level": "A2",
+   "area": "verb",
+   "name": "Futur simple",
+   "can_do_en": "Can talk about the future with the futur simple.",
+   "example": "Demain, je serai à Paris. Nous prendrons le train.",
+   "example_en": "Tomorrow I'll be in Paris. We'll take the train.",
+   "tenses": [
+    "fut"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "futur-irreguliers",
+   "level": "A2",
+   "area": "verb",
+   "name": "Irregular futur stems",
+   "can_do_en": "Can use the irregular stems of common verbs in the futur simple.",
+   "example": "Il fera beau demain. Nous irons en vacances.",
+   "example_en": "The weather will be nice tomorrow. We'll go on holiday.",
+   "tenses": [
+    "fut"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "conditionnel-politesse",
+   "level": "A2",
+   "area": "cond",
+   "name": "Conditionnel: polite requests",
+   "can_do_en": "Can make polite requests and offers with je voudrais and pourriez-vous.",
+   "example": "Je voudrais un café. Pourriez-vous m'aider ?",
+   "example_en": "I would like a coffee. Could you help me?",
+   "tenses": [
+    "cond"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "cod-pronoms",
+   "level": "A2",
+   "area": "pronoun",
+   "name": "Direct object pronouns: le, la, les",
+   "can_do_en": "Can replace a direct object with le, la, l' or les.",
+   "example": "Je le vois. Elle les achète.",
+   "example_en": "I see him. She buys them.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "coi-pronoms",
+   "level": "A2",
+   "area": "pronoun",
+   "name": "Indirect object pronouns: lui, leur",
+   "can_do_en": "Can replace a person introduced by à with lui or leur.",
+   "example": "Je lui parle. Elle leur écrit.",
+   "example_en": "I talk to him. She writes to them.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "pronoms-me-te-nous-vous",
+   "level": "A2",
+   "area": "pronoun",
+   "name": "me, te, nous, vous as object pronouns",
+   "can_do_en": "Can use me, te, nous and vous as object pronouns.",
+   "example": "Il me voit. Elle nous parle.",
+   "example_en": "He sees me. She speaks to us.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "y-pronom",
+   "level": "A2",
+   "area": "pronoun",
+   "name": "The pronoun y",
+   "can_do_en": "Can replace a place or a phrase with à with y.",
+   "example": "Tu vas à Paris ? Oui, j'y vais.",
+   "example_en": "Are you going to Paris? Yes, I'm going there.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "en-pronom",
+   "level": "A2",
+   "area": "pronoun",
+   "name": "The pronoun en",
+   "can_do_en": "Can replace du, de la, des and quantities with en.",
+   "example": "Tu veux du pain ? Oui, j'en veux.",
+   "example_en": "Do you want some bread? Yes, I want some.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "pronoms-toniques",
+   "level": "A2",
+   "area": "pronoun",
+   "name": "Stressed pronouns: moi, toi, lui, eux",
+   "can_do_en": "Can use moi, toi, lui, elle, nous, vous, eux, elles after prepositions and alone.",
+   "example": "Tu viens avec moi ? Moi, j'aime le café.",
+   "example_en": "Are you coming with me? As for me, I like coffee.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "comparatifs",
+   "level": "A2",
+   "area": "adj",
+   "name": "Comparatives: plus, moins, aussi … que",
+   "can_do_en": "Can compare two things with plus, moins or aussi … que.",
+   "example": "Paul est plus grand que Marc.",
+   "example_en": "Paul is taller than Marc.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "superlatifs",
+   "level": "A2",
+   "area": "adj",
+   "name": "Superlatives: le plus, la moins",
+   "can_do_en": "Can say the most or the least with le plus, la plus, les moins.",
+   "example": "C'est le plus grand musée de Paris.",
+   "example_en": "It's the biggest museum in Paris.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "meilleur-mieux",
+   "level": "A2",
+   "area": "adj",
+   "name": "meilleur vs mieux",
+   "can_do_en": "Can use meilleur for adjectives and mieux for verbs.",
+   "example": "Ce gâteau est meilleur. Elle chante mieux.",
+   "example_en": "This cake is better. She sings better.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "adverbes-ment",
+   "level": "A2",
+   "area": "adv",
+   "name": "Adverbs in -ment",
+   "can_do_en": "Can form adverbs from adjectives with -ment.",
+   "example": "Elle parle lentement. Il conduit prudemment.",
+   "example_en": "She speaks slowly. He drives carefully.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "prep-pays-villes",
+   "level": "A2",
+   "area": "prep",
+   "name": "Prepositions with countries and cities",
+   "can_do_en": "Can say I live in, go to and come from a city or country.",
+   "example": "J'habite en France et je vais au Japon. Il travaille à Paris.",
+   "example_en": "I live in France and I'm going to Japan. He works in Paris.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "depuis-pendant-il-y-a",
+   "level": "A2",
+   "area": "prep",
+   "name": "depuis, pendant, il y a",
+   "can_do_en": "Can express duration and time ago with depuis, pendant and il y a.",
+   "example": "J'habite ici depuis deux ans. Il est parti il y a une heure.",
+   "example_en": "I've lived here for two years. He left an hour ago.",
+   "tenses": [
+    "pres",
+    "pc"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "passe-recent",
+   "level": "A2",
+   "area": "verb",
+   "name": "Passé récent: venir de + infinitive",
+   "can_do_en": "Can say something has just happened with venir de + infinitive.",
+   "example": "Je viens de manger. Ils viennent de partir.",
+   "example_en": "I've just eaten. They've just left.",
+   "tenses": [
+    "passeRecent"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "imperatif-negatif",
+   "level": "A2",
+   "area": "mood",
+   "name": "Negative imperative",
+   "can_do_en": "Can tell someone not to do something with ne … pas.",
+   "example": "Ne parle pas ! Ne prenez pas de photos.",
+   "example_en": "Don't talk! Don't take photos.",
+   "tenses": [
+    "imp"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "imperatif-pronoms",
+   "level": "A2",
+   "area": "mood",
+   "name": "Imperative with pronouns",
+   "can_do_en": "Can use object pronouns with the affirmative imperative.",
+   "example": "Regarde-moi ! Dis-lui la vérité.",
+   "example_en": "Look at me! Tell him the truth.",
+   "tenses": [
+    "imp"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "rel-qui-que",
+   "level": "A2",
+   "area": "clause",
+   "name": "Relative pronouns: qui and que",
+   "can_do_en": "Can link two clauses with qui (subject) and que (object).",
+   "example": "L'homme qui parle est mon père. Le livre que je lis est bon.",
+   "example_en": "The man who is talking is my father. The book I'm reading is good.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "rel-ou",
+   "level": "A2",
+   "area": "clause",
+   "name": "Relative pronoun où",
+   "can_do_en": "Can say where or when with où.",
+   "example": "La ville où j'habite est petite.",
+   "example_en": "The town where I live is small.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "il-faut",
+   "level": "A2",
+   "area": "modal",
+   "name": "il faut + infinitive or noun",
+   "can_do_en": "Can say what is necessary with il faut.",
+   "example": "Il faut travailler. Il faut du temps.",
+   "example_en": "One has to work. It takes time.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "neg-jamais-plus-rien",
+   "level": "A2",
+   "area": "sentence",
+   "name": "Negation: jamais, plus, rien, personne",
+   "can_do_en": "Can say never, no more, nothing and nobody.",
+   "example": "Je ne vois personne. Il ne mange rien.",
+   "example_en": "I don't see anybody. He eats nothing.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "quantite-de",
+   "level": "A2",
+   "area": "noun",
+   "name": "Quantity words + de",
+   "can_do_en": "Can say how much with beaucoup de, un peu de, trop de, assez de.",
+   "example": "J'ai beaucoup de travail et un peu de temps.",
+   "example_en": "I have a lot of work and a little time.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "c-est-il-est",
+   "level": "A2",
+   "area": "sentence",
+   "name": "c'est vs il est",
+   "can_do_en": "Can choose between c'est and il est/elle est to describe people and things.",
+   "example": "C'est un médecin. Il est médecin.",
+   "example_en": "He is a doctor. He is a doctor.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "q-inversion",
+   "level": "A2",
+   "area": "question",
+   "name": "Questions with inversion",
+   "can_do_en": "Can ask formal questions by inverting verb and subject.",
+   "example": "Où habites-tu ? Parlez-vous anglais ?",
+   "example_en": "Where do you live? Do you speak English?",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "q-qui-que-quoi",
+   "level": "A2",
+   "area": "question",
+   "name": "qui, que, quoi, qu'est-ce que",
+   "can_do_en": "Can ask who and what with qui, que, quoi and qu'est-ce que.",
+   "example": "Qui est-ce ? Qu'est-ce que tu fais ?",
+   "example_en": "Who is it? What are you doing?",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "adj-irreguliers",
+   "level": "A2",
+   "area": "adj",
+   "name": "Irregular adjectives: beau, nouveau, vieux",
+   "can_do_en": "Can use beau, nouveau and vieux and their feminine and vowel forms.",
+   "example": "C'est un bel homme avec une nouvelle voiture.",
+   "example_en": "He is a handsome man with a new car.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "connecteurs-temps",
+   "level": "A2",
+   "area": "discourse",
+   "name": "Sequencing: d'abord, ensuite, puis, enfin",
+   "can_do_en": "Can tell the order of actions with d'abord, ensuite, puis and enfin.",
+   "example": "D'abord, je me lève ; ensuite, je prends une douche.",
+   "example_en": "First, I get up; then I take a shower.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "si-present-futur",
+   "level": "A2",
+   "area": "cond",
+   "name": "si + présent, futur",
+   "can_do_en": "Can say what will happen if something happens with si + présent, futur.",
+   "example": "Si tu viens, nous mangerons ensemble.",
+   "example_en": "If you come, we'll eat together.",
+   "tenses": [
+    "pres",
+    "fut"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "savoir-connaitre",
+   "level": "A2",
+   "area": "verb",
+   "name": "savoir vs connaître",
+   "can_do_en": "Can choose between savoir (facts, skills) and connaître (people, places).",
+   "example": "Je sais nager. Je connais Paris.",
+   "example_en": "I can swim. I know Paris.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "pres-irreguliers-2",
+   "level": "A2",
+   "area": "verb",
+   "name": "Présent of lire, dire, écrire, voir, boire",
+   "can_do_en": "Can use the present of common irregular verbs like lire, dire, écrire.",
+   "example": "Nous lisons un livre et vous écrivez une lettre.",
+   "example_en": "We read a book and you write a letter.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "meteo-il",
+   "level": "A2",
+   "area": "sentence",
+   "name": "Weather expressions with il",
+   "can_do_en": "Can talk about the weather with il fait, il pleut, il neige.",
+   "example": "Il fait beau. Il pleut depuis ce matin.",
+   "example_en": "The weather is nice. It has been raining since this morning.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "profession-sans-article",
+   "level": "A2",
+   "area": "noun",
+   "name": "Professions without an article",
+   "can_do_en": "Can say what someone does without an article after être.",
+   "example": "Elle est infirmière. Mon père est professeur.",
+   "example_en": "She is a nurse. My father is a teacher.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "subj-il-faut-que",
+   "level": "B1",
+   "area": "mood",
+   "name": "Subjunctive after il faut que",
+   "can_do_en": "Can use the present subjunctive after il faut que.",
+   "example": "Il faut que tu viennes. Il faut que je parte.",
+   "example_en": "You have to come. I have to leave.",
+   "tenses": [
+    "subj"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "subj-vouloir-que",
+   "level": "B1",
+   "area": "mood",
+   "name": "Subjunctive after vouloir que",
+   "can_do_en": "Can say I want someone to do something with vouloir que + subjunctive.",
+   "example": "Je veux que tu viennes. Elle veut que nous partions.",
+   "example_en": "I want you to come. She wants us to leave.",
+   "tenses": [
+    "subj"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "subj-irreguliers",
+   "level": "B1",
+   "area": "mood",
+   "name": "Irregular subjunctive: être, avoir, aller, faire",
+   "can_do_en": "Can use the irregular subjunctive forms of être, avoir, aller, faire, pouvoir, savoir.",
+   "example": "Il faut que tu sois patient et que nous fassions attention.",
+   "example_en": "You have to be patient and we have to be careful.",
+   "tenses": [
+    "subj"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "subj-emotions",
+   "level": "B1",
+   "area": "mood",
+   "name": "Subjunctive after feelings",
+   "can_do_en": "Can express feelings about a fact with être content que, regretter que, avoir peur que.",
+   "example": "Je suis content que tu sois là.",
+   "example_en": "I'm glad you are here.",
+   "tenses": [
+    "subj"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "subj-vs-indic",
+   "level": "B1",
+   "area": "mood",
+   "name": "Subjunctive or indicative?",
+   "can_do_en": "Can choose between indicative (certainty) and subjunctive (doubt, will, feeling).",
+   "example": "Je pense qu'il a raison. Je ne pense pas qu'il ait raison.",
+   "example_en": "I think he is right. I don't think he is right.",
+   "tenses": [
+    "subj",
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "subj-conjonctions",
+   "level": "B1",
+   "area": "clause",
+   "name": "Conjunctions with the subjunctive",
+   "can_do_en": "Can use pour que, avant que, bien que, à condition que with the subjunctive.",
+   "example": "Bien qu'il soit fatigué, il travaille.",
+   "example_en": "Although he is tired, he is working.",
+   "tenses": [
+    "subj"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "si-imparfait-cond",
+   "level": "B1",
+   "area": "cond",
+   "name": "si + imparfait, conditionnel",
+   "can_do_en": "Can talk about unreal or unlikely situations with si + imparfait, conditionnel.",
+   "example": "Si j'avais de l'argent, j'achèterais une maison.",
+   "example_en": "If I had money, I would buy a house.",
+   "tenses": [
+    "impf",
+    "cond"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "cond-usage",
+   "level": "B1",
+   "area": "cond",
+   "name": "Conditionnel: advice, wishes, possibilities",
+   "can_do_en": "Can give advice and express wishes with the conditionnel.",
+   "example": "Tu devrais dormir. Nous aimerions voyager.",
+   "example_en": "You should sleep. We would like to travel.",
+   "tenses": [
+    "cond"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "cond-passe-regret",
+   "level": "B1",
+   "area": "cond",
+   "name": "si + plus-que-parfait, conditionnel passé",
+   "can_do_en": "Can express regret about the past with si + plus-que-parfait, conditionnel passé.",
+   "example": "Si j'avais su, je serais venu.",
+   "example_en": "If I had known, I would have come.",
+   "tenses": [
+    "plup",
+    "condPasse"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "plus-que-parfait-forme",
+   "level": "B1",
+   "area": "verb",
+   "name": "Plus-que-parfait: formation",
+   "can_do_en": "Can form the plus-que-parfait with avoir or être in the imparfait + participle.",
+   "example": "Elle avait fini. Nous étions partis.",
+   "example_en": "She had finished. We had left.",
+   "tenses": [
+    "plup"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "plus-que-parfait-usage",
+   "level": "B1",
+   "area": "verb",
+   "name": "Plus-que-parfait: earlier past action",
+   "can_do_en": "Can say that one past action happened before another with the plus-que-parfait.",
+   "example": "Quand je suis arrivé, le film avait déjà commencé.",
+   "example_en": "When I arrived, the film had already started.",
+   "tenses": [
+    "plup",
+    "pc"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "di-present",
+   "level": "B1",
+   "area": "reported",
+   "name": "Reported speech in the present",
+   "can_do_en": "Can report what someone says with dire que and a present-tense introduction.",
+   "example": "Il dit qu'il est fatigué. Elle répond qu'elle ne sait pas.",
+   "example_en": "He says he is tired. She answers that she doesn't know.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "di-questions",
+   "level": "B1",
+   "area": "reported",
+   "name": "Reported questions: si, ce que, où",
+   "can_do_en": "Can report a question with demander si, où, quand, ce que.",
+   "example": "Il demande si je viens. Elle demande où j'habite.",
+   "example_en": "He asks if I'm coming. She asks where I live.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "di-passe",
+   "level": "B1",
+   "area": "reported",
+   "name": "Reported speech in the past",
+   "can_do_en": "Can report speech after a past verb by shifting the tenses.",
+   "example": "Il a dit qu'il était fatigué.",
+   "example_en": "He said he was tired.",
+   "tenses": [
+    "impf",
+    "cond"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "gerondif-formation",
+   "level": "B1",
+   "area": "verb",
+   "name": "Gérondif: formation",
+   "can_do_en": "Can form the gérondif with en + present participle.",
+   "example": "Il chante en travaillant. Elle mange en lisant.",
+   "example_en": "He sings while working. She eats while reading.",
+   "tenses": [
+    "ppres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "gerondif-usage",
+   "level": "B1",
+   "area": "verb",
+   "name": "Gérondif: at the same time, how, if",
+   "can_do_en": "Can use the gérondif to say simultaneity, manner or condition.",
+   "example": "On apprend en lisant. Il s'est blessé en jouant au football.",
+   "example_en": "You learn by reading. He hurt himself playing football.",
+   "tenses": [
+    "ppres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "rel-dont",
+   "level": "B1",
+   "area": "clause",
+   "name": "Relative pronoun dont",
+   "can_do_en": "Can use dont to replace a phrase with de.",
+   "example": "Voici le livre dont je t'ai parlé.",
+   "example_en": "Here is the book I told you about.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "rel-ce-qui-ce-que",
+   "level": "B1",
+   "area": "clause",
+   "name": "ce qui, ce que, ce dont",
+   "can_do_en": "Can say what with ce qui, ce que and ce dont.",
+   "example": "Dis-moi ce que tu veux. Je ne comprends pas ce qui se passe.",
+   "example_en": "Tell me what you want. I don't understand what is happening.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "pronoms-ordre",
+   "level": "B1",
+   "area": "pronoun",
+   "name": "Order of two object pronouns",
+   "can_do_en": "Can combine two pronouns such as le lui, me le, nous les.",
+   "example": "Je le lui donne. Elle me les envoie.",
+   "example_en": "I give it to him. She sends them to me.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "y-en-ensemble",
+   "level": "B1",
+   "area": "pronoun",
+   "name": "il y en a, y and en together",
+   "can_do_en": "Can use y and en together and in il y en a.",
+   "example": "Des pommes ? Il y en a dans le panier.",
+   "example_en": "Apples? There are some in the basket.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "imperatif-ordre-pronoms",
+   "level": "B1",
+   "area": "mood",
+   "name": "Imperative: order of pronouns",
+   "can_do_en": "Can order two pronouns after an affirmative imperative.",
+   "example": "Donne-le-moi ! Dis-le-lui.",
+   "example_en": "Give it to me! Tell it to him.",
+   "tenses": [
+    "imp"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "pronoms-possessifs",
+   "level": "B1",
+   "area": "pronoun",
+   "name": "Possessive pronouns: le mien, la tienne",
+   "can_do_en": "Can use le mien, la tienne, les nôtres to avoid repeating a noun.",
+   "example": "Ce n'est pas ton stylo, c'est le mien.",
+   "example_en": "That is not your pen, it's mine.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "pronoms-demonstratifs",
+   "level": "B1",
+   "area": "pronoun",
+   "name": "Demonstrative pronouns: celui, celle, ceux, celles",
+   "can_do_en": "Can use celui, celle, ceux, celles to choose between things.",
+   "example": "Quel stylo ? Celui de gauche.",
+   "example_en": "Which pen? The one on the left.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "pronoms-indefinis",
+   "level": "B1",
+   "area": "pronoun",
+   "name": "Indefinite pronouns: quelqu'un, quelque chose, chacun",
+   "can_do_en": "Can use quelqu'un, quelque chose, chacun, plusieurs in simple sentences.",
+   "example": "Il y a quelqu'un à la porte. Je voudrais quelque chose de sucré.",
+   "example_en": "There is someone at the door. I'd like something sweet.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "adj-indefinis",
+   "level": "B1",
+   "area": "adj",
+   "name": "Indefinite adjectives: chaque, plusieurs, quelques, tout",
+   "can_do_en": "Can use chaque, plusieurs, quelques and tout with nouns.",
+   "example": "Chaque élève a un livre. Il y a plusieurs voitures.",
+   "example_en": "Every pupil has a book. There are several cars.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "pc-accord-cod",
+   "level": "B1",
+   "area": "verb",
+   "name": "Participle agreement with a preceding direct object",
+   "can_do_en": "Can make the participle agree with a direct object that comes before avoir.",
+   "example": "Les fleurs que j'ai achetées sont belles.",
+   "example_en": "The flowers I bought are beautiful.",
+   "tenses": [
+    "pc"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "passif-forme",
+   "level": "B1",
+   "area": "passive",
+   "name": "Passive voice: être + participle",
+   "can_do_en": "Can form and use the passive with être + past participle + par.",
+   "example": "Ce roman est écrit par un auteur célèbre.",
+   "example_en": "This novel is written by a famous author.",
+   "tenses": [
+    "pres",
+    "part"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "se-passif",
+   "level": "B1",
+   "area": "passive",
+   "name": "se + verb: reflexive passive",
+   "can_do_en": "Can say how things are normally done with ça se fait, ça se dit, ça se vend.",
+   "example": "Ce produit se vend partout. Ça ne se dit pas.",
+   "example_en": "This product is sold everywhere. You don't say that.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "etre-en-train-de",
+   "level": "B1",
+   "area": "verb",
+   "name": "être en train de + infinitive",
+   "can_do_en": "Can say that something is happening right now with être en train de.",
+   "example": "Je suis en train de manger.",
+   "example_en": "I'm in the middle of eating.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "pc-avoir-transitif",
+   "level": "B1",
+   "area": "verb",
+   "name": "sortir, monter, passer with avoir",
+   "can_do_en": "Can choose avoir for sortir, monter, descendre, passer, rentrer when they have an object.",
+   "example": "Il a sorti la valise. Elle est sortie.",
+   "example_en": "He took out the suitcase. She went out.",
+   "tenses": [
+    "pc"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "futur-anterieur",
+   "level": "B1",
+   "area": "verb",
+   "name": "Futur antérieur",
+   "can_do_en": "Can say that something will be finished before another future event.",
+   "example": "Quand j'aurai fini, je t'appellerai.",
+   "example_en": "When I've finished, I'll call you.",
+   "tenses": [
+    "futAnt"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "quand-futur",
+   "level": "B1",
+   "area": "clause",
+   "name": "quand, dès que + futur",
+   "can_do_en": "Can use the future after quand, dès que and lorsque for future events.",
+   "example": "Quand je serai grand, je serai pilote.",
+   "example_en": "When I grow up, I'll be a pilot.",
+   "tenses": [
+    "fut"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "connecteurs-cause-consequence",
+   "level": "B1",
+   "area": "discourse",
+   "name": "Cause and consequence: car, donc, comme, puisque",
+   "can_do_en": "Can give reasons and results with car, donc, comme, puisque.",
+   "example": "Il pleut, donc nous restons à la maison.",
+   "example_en": "It's raining, so we are staying at home.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "connecteurs-opposition",
+   "level": "B1",
+   "area": "discourse",
+   "name": "Contrast: pourtant, cependant, alors que, malgré",
+   "can_do_en": "Can contrast ideas with pourtant, cependant, alors que and malgré.",
+   "example": "Il est riche, pourtant il n'est pas heureux.",
+   "example_en": "He is rich, yet he isn't happy.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "but-pour-afin-de",
+   "level": "B1",
+   "area": "clause",
+   "name": "Purpose: pour, afin de, pour que",
+   "can_do_en": "Can say why with pour + infinitive, afin de and pour que + subjunctive.",
+   "example": "Je travaille pour gagner de l'argent.",
+   "example_en": "I work to earn money.",
+   "tenses": [
+    "subj"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "neg-ne-que-ni",
+   "level": "B1",
+   "area": "sentence",
+   "name": "ne … que, ne … ni … ni, ne … aucun",
+   "can_do_en": "Can say only, neither … nor and not any.",
+   "example": "Je n'ai que dix euros. Elle ne mange ni viande ni poisson.",
+   "example_en": "I only have ten euros. She eats neither meat nor fish.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "neg-infinitif",
+   "level": "B1",
+   "area": "sentence",
+   "name": "Negation with an infinitive",
+   "can_do_en": "Can put ne pas, ne plus, ne jamais before an infinitive.",
+   "example": "Il m'a demandé de ne pas fumer ici.",
+   "example_en": "He asked me not to smoke here.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "q-lequel",
+   "level": "B1",
+   "area": "question",
+   "name": "lequel, laquelle, lesquels, lesquelles",
+   "can_do_en": "Can ask which one with lequel and its forms.",
+   "example": "Tu as deux sacs : lequel préfères-tu ?",
+   "example_en": "You have two bags: which one do you prefer?",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "exclamations",
+   "level": "B1",
+   "area": "question",
+   "name": "Exclamations: quel, comme, que",
+   "can_do_en": "Can make an exclamation with quel, comme and que.",
+   "example": "Quelle belle journée ! Comme il fait chaud !",
+   "example_en": "What a lovely day! How hot it is!",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "adv-place-pc",
+   "level": "B1",
+   "area": "adv",
+   "name": "Adverb position in the passé composé",
+   "can_do_en": "Can place déjà, bien, souvent between the auxiliary and the participle.",
+   "example": "Elle a déjà fini. Nous sommes souvent allés au Maroc.",
+   "example_en": "She has already finished. We often went to Morocco.",
+   "tenses": [
+    "pc"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "comparatifs-avances",
+   "level": "B1",
+   "area": "adj",
+   "name": "de plus en plus, plus … plus, autant de",
+   "can_do_en": "Can express gradual change and proportion with de plus en plus, plus … plus, autant de.",
+   "example": "Il fait de plus en plus froid. Plus on travaille, plus on apprend.",
+   "example_en": "It's getting colder and colder. The more you work, the more you learn.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "prep-verbes",
+   "level": "B1",
+   "area": "prep",
+   "name": "Verbs with à and de",
+   "can_do_en": "Can use common verbs followed by à or de: penser à, parler de, avoir besoin de.",
+   "example": "Je pense à mes vacances. Nous avons besoin d'aide.",
+   "example_en": "I'm thinking about my holidays. We need help.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "prep-temps-en-dans",
+   "level": "B1",
+   "area": "prep",
+   "name": "en vs dans with time",
+   "can_do_en": "Can tell en (duration) from dans (a point in the future).",
+   "example": "Le film commence dans une heure. Il a lu ce livre en deux jours.",
+   "example_en": "The film starts in an hour. He read this book in two days.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "inf-apres-prepositions",
+   "level": "B1",
+   "area": "clause",
+   "name": "Infinitive after avant de, après, sans",
+   "can_do_en": "Can use avant de, après avoir and sans + infinitive.",
+   "example": "Lave-toi les mains avant de manger. Après avoir mangé, nous sortons.",
+   "example_en": "Wash your hands before eating. After eating, we go out.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "faire-causatif",
+   "level": "B1",
+   "area": "verb",
+   "name": "faire + infinitive",
+   "can_do_en": "Can say that someone has something done or makes someone do something with faire + infinitive.",
+   "example": "Je fais réparer ma voiture. Il fait rire les enfants.",
+   "example_en": "I'm having my car repaired. He makes the children laugh.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "verbes-perception",
+   "level": "B1",
+   "area": "verb",
+   "name": "Verbs of perception + infinitive",
+   "can_do_en": "Can use voir, entendre, regarder + infinitive to say what I see or hear.",
+   "example": "Je les entends chanter. Nous voyons passer le train.",
+   "example_en": "I hear them singing. We see the train go by.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "voyelle-liaison-ecrite",
+   "level": "B1",
+   "area": "phon",
+   "name": "Written forms before a vowel: mon amie, cet homme, bel",
+   "can_do_en": "Can write mon, cet, bel, nouvel before a vowel sound.",
+   "example": "Mon amie habite dans un bel immeuble.",
+   "example_en": "My friend lives in a beautiful building.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "tout-tous-toutes",
+   "level": "B1",
+   "area": "adj",
+   "name": "tout, tous, toute, toutes",
+   "can_do_en": "Can use tout, tous, toute, toutes correctly as adjective, pronoun and adverb.",
+   "example": "Les enfants sont tous là. Elle a tout compris.",
+   "example_en": "The children are all here. She understood everything.",
+   "tenses": [
+    "pc"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "subj-after-bien-que",
+   "level": "B2",
+   "area": "mood",
+   "name": "subjunctive after bien que and concession conjunctions",
+   "can_do_en": "Can express concession with bien que, quoique and encore que followed by the subjunctive.",
+   "example": "Bien que le projet soit coûteux, nous allons le poursuivre.",
+   "example_en": "Although the project is expensive, we are going to continue it.",
+   "tenses": [
+    "subj"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "subj-after-pour-que",
+   "level": "B2",
+   "area": "mood",
+   "name": "subjunctive after pour que and afin que",
+   "can_do_en": "Can state a purpose with pour que or afin que and the subjunctive.",
+   "example": "Je vous écris afin que vous puissiez réserver à temps.",
+   "example_en": "I am writing to you so that you can book in time.",
+   "tenses": [
+    "subj"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "subj-after-avant-que",
+   "level": "B2",
+   "area": "mood",
+   "name": "subjunctive after avant que and jusqu'à ce que",
+   "can_do_en": "Can use avant que and jusqu'à ce que with the subjunctive for time limits.",
+   "example": "Rangez vos affaires avant que le cours ne commence.",
+   "example_en": "Put your things away before the class begins.",
+   "tenses": [
+    "subj"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "subj-a-moins-que-ne",
+   "level": "B2",
+   "area": "mood",
+   "name": "à moins que with the subjunctive",
+   "can_do_en": "Can state an exception with à moins que and the subjunctive.",
+   "example": "Nous partirons demain, à moins qu'il ne pleuve.",
+   "example_en": "We will leave tomorrow, unless it rains.",
+   "tenses": [
+    "subj"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "subj-a-condition-que",
+   "level": "B2",
+   "area": "mood",
+   "name": "à condition que and pourvu que",
+   "can_do_en": "Can set a condition with à condition que or pourvu que and the subjunctive.",
+   "example": "Je viendrai, à condition que vous me préveniez.",
+   "example_en": "I will come, provided that you let me know.",
+   "tenses": [
+    "subj"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "subj-vs-ind-opinion",
+   "level": "B2",
+   "area": "mood",
+   "name": "subjunctive or indicative after opinion verbs",
+   "can_do_en": "Can choose between indicative and subjunctive after penser que, croire que and their negative or question forms.",
+   "example": "Je pense qu'il viendra, mais je ne pense pas qu'il soit prêt.",
+   "example_en": "I think he will come, but I do not think he is ready.",
+   "tenses": [
+    "fut",
+    "subj"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "subj-emotion-doubt",
+   "level": "B2",
+   "area": "mood",
+   "name": "subjunctive after emotion, doubt and necessity",
+   "can_do_en": "Can use the subjunctive after verbs of feeling, doubt and necessity.",
+   "example": "Je suis ravie que vous veniez, mais je doute qu'il puisse venir.",
+   "example_en": "I'm delighted that you are coming, but I doubt he can come.",
+   "tenses": [
+    "subj"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "subj-irregular-forms",
+   "level": "B2",
+   "area": "mood",
+   "name": "irregular subjunctive stems",
+   "can_do_en": "Can form the subjunctive of être, avoir, aller, faire, pouvoir, savoir and vouloir.",
+   "example": "Il est possible qu'elle sache la réponse et qu'elle aille la donner.",
+   "example_en": "It is possible that she knows the answer and goes to give it.",
+   "tenses": [
+    "subj"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "subj-passe",
+   "level": "B2",
+   "area": "mood",
+   "name": "past subjunctive",
+   "can_do_en": "Can use the past subjunctive for an action completed before another.",
+   "example": "Je suis content que vous soyez arrivés avant la fin.",
+   "example_en": "I am glad that you arrived before the end.",
+   "tenses": [
+    "subjPasse"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "subj-vs-infinitive",
+   "level": "B2",
+   "area": "mood",
+   "name": "subjunctive or infinitive with the same subject",
+   "can_do_en": "Can use an infinitive when the subject is shared and the subjunctive when it changes.",
+   "example": "Je veux partir, mais je veux que tu restes.",
+   "example_en": "I want to leave, but I want you to stay.",
+   "tenses": [
+    "subj"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "subj-superlative-relative",
+   "level": "B2",
+   "area": "mood",
+   "name": "subjunctive in relative clauses after superlatives",
+   "can_do_en": "Can use the subjunctive in a relative clause after a superlative or seul, premier, dernier.",
+   "example": "C'est le meilleur roman que j'aie jamais lu.",
+   "example_en": "It is the best novel I have ever read.",
+   "tenses": [
+    "subjPasse"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "subj-relative-search",
+   "level": "B2",
+   "area": "mood",
+   "name": "subjunctive after a wished-for or unknown antecedent",
+   "can_do_en": "Can use the subjunctive in a relative clause describing something sought but not known to exist.",
+   "example": "Je cherche un appartement qui soit calme et lumineux.",
+   "example_en": "I am looking for a flat that is quiet and bright.",
+   "tenses": [
+    "subj"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "cond-passe-news",
+   "level": "B2",
+   "area": "cond",
+   "name": "conditional for unconfirmed information",
+   "can_do_en": "Can report unverified facts in the news with the conditional.",
+   "example": "Le ministre aurait démissionné hier soir, selon la presse.",
+   "example_en": "The minister reportedly resigned last night, according to the press.",
+   "tenses": [
+    "condPasse"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "si-plus-que-parfait",
+   "level": "B2",
+   "area": "cond",
+   "name": "si with the pluperfect and past conditional",
+   "can_do_en": "Can express unreal past conditions with si plus-que-parfait and conditionnel passé.",
+   "example": "Si j'avais su, je serais venu plus tôt.",
+   "example_en": "If I had known, I would have come earlier.",
+   "tenses": [
+    "plup",
+    "condPasse"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "si-mixed-conditions",
+   "level": "B2",
+   "area": "cond",
+   "name": "mixed conditional sentences",
+   "can_do_en": "Can combine a past condition with a present result.",
+   "example": "Si tu avais écouté, tu comprendrais maintenant.",
+   "example_en": "If you had listened, you would understand now.",
+   "tenses": [
+    "plup",
+    "cond"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "hypothese-au-cas-ou",
+   "level": "B2",
+   "area": "cond",
+   "name": "hypothesis without si",
+   "can_do_en": "Can express a precaution with au cas où and the conditional.",
+   "example": "Prenez un parapluie au cas où il pleuvrait.",
+   "example_en": "Take an umbrella in case it rains.",
+   "tenses": [
+    "cond"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "apres-que-indicatif",
+   "level": "B2",
+   "area": "verb",
+   "name": "après que with the indicative",
+   "can_do_en": "Can use après que and dès que with the indicative and correct tense sequence.",
+   "example": "Après qu'il a fini son travail, il est rentré.",
+   "example_en": "After he finished his work, he went home.",
+   "tenses": [
+    "pc"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "concordance-des-temps",
+   "level": "B2",
+   "area": "reported",
+   "name": "sequence of tenses",
+   "can_do_en": "Can keep tenses consistent between a main clause and a subordinate clause.",
+   "example": "Il pensait que nous étions déjà partis.",
+   "example_en": "He thought that we had already left.",
+   "tenses": [
+    "impf"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "discours-indirect-passe",
+   "level": "B2",
+   "area": "reported",
+   "name": "reported speech in the past",
+   "can_do_en": "Can report statements in the past, shifting tenses and time words.",
+   "example": "Elle a dit qu'elle viendrait le lendemain.",
+   "example_en": "She said she would come the next day.",
+   "tenses": [
+    "pc",
+    "cond"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "discours-indirect-questions",
+   "level": "B2",
+   "area": "reported",
+   "name": "reported questions",
+   "can_do_en": "Can report questions with si, ce qui, ce que and indirect word order.",
+   "example": "Il m'a demandé ce que je voulais faire le soir.",
+   "example_en": "He asked me what I wanted to do in the evening.",
+   "tenses": [
+    "pc",
+    "impf"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "discours-indirect-ordres",
+   "level": "B2",
+   "area": "reported",
+   "name": "reported commands and requests",
+   "can_do_en": "Can report orders and requests with dire de and demander de plus an infinitive.",
+   "example": "La directrice nous a demandé de relire le rapport.",
+   "example_en": "The manager asked us to reread the report.",
+   "tenses": [
+    "pc"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "accord-participe-cod-avant",
+   "level": "B2",
+   "area": "verb",
+   "name": "agreement of the past participle with a preceding direct object",
+   "can_do_en": "Can agree the participle with avoir when the direct object comes before it.",
+   "example": "Les photos que j'ai prises sont très réussies.",
+   "example_en": "The photos I took are very successful.",
+   "tenses": [
+    "pc"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "accord-participe-pronominaux",
+   "level": "B2",
+   "area": "verb",
+   "name": "agreement of the past participle in pronominal verbs",
+   "can_do_en": "Can agree the participle of pronominal verbs and spot cases with no agreement.",
+   "example": "Elles se sont téléphoné hier, puis elles se sont retrouvées.",
+   "example_en": "They phoned each other yesterday, then met up.",
+   "tenses": [
+    "pc"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "participe-present-gerondif",
+   "level": "B2",
+   "area": "verb",
+   "name": "present participle, gerund and verbal adjective",
+   "can_do_en": "Can tell apart the present participle, the gerund and the adjective verbal.",
+   "example": "En marchant vers la gare, j'ai croisé un homme souriant.",
+   "example_en": "While walking to the station, I passed a smiling man.",
+   "tenses": [
+    "ppres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "passif-et-alternatives",
+   "level": "B2",
+   "area": "passive",
+   "name": "passive voice and its alternatives",
+   "can_do_en": "Can use the passive and alternatives such as on, a reflexive or se faire.",
+   "example": "Cette pièce se joue encore, et elle est applaudie partout.",
+   "example_en": "This play is still performed, and it is applauded everywhere.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "causatif-faire-laisser",
+   "level": "B2",
+   "area": "verb",
+   "name": "causative faire and laisser with an infinitive",
+   "can_do_en": "Can use faire and laisser followed by an infinitive for causation and permission.",
+   "example": "Elle fait réparer sa voiture et nous laisse entrer.",
+   "example_en": "She has her car repaired and lets us in.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "pronoms-relatifs-composes",
+   "level": "B2",
+   "area": "pronoun",
+   "name": "compound relative pronouns",
+   "can_do_en": "Can use lequel, auquel, duquel and prepositions with relative pronouns.",
+   "example": "Voici le projet auquel nous avons beaucoup travaillé.",
+   "example_en": "Here is the project we worked on a lot.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "pronom-relatif-dont",
+   "level": "B2",
+   "area": "pronoun",
+   "name": "relative pronoun dont",
+   "can_do_en": "Can use dont to replace de plus a noun in a relative clause.",
+   "example": "Le livre dont tu parles est en rupture de stock.",
+   "example_en": "The book you are talking about is out of stock.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "ce-qui-ce-que-ce-dont",
+   "level": "B2",
+   "area": "pronoun",
+   "name": "ce qui, ce que, ce dont, ce à quoi",
+   "can_do_en": "Can use indefinite relatives for ideas and unnamed things.",
+   "example": "Je ne comprends pas ce dont tu as besoin.",
+   "example_en": "I do not understand what you need.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "pronoms-doubles-ordre",
+   "level": "B2",
+   "area": "pronoun",
+   "name": "order of double object pronouns",
+   "can_do_en": "Can order two pronouns before a verb and after an affirmative imperative.",
+   "example": "Je le lui donne, donne-le-moi ensuite.",
+   "example_en": "I am giving it to him, then give it to me.",
+   "tenses": [
+    "pres",
+    "imp"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "pronoms-y-en-avances",
+   "level": "B2",
+   "area": "pronoun",
+   "name": "advanced use of y and en",
+   "can_do_en": "Can use y and en with quantities, infinitives and combined pronouns.",
+   "example": "Il y en a trois, mais je ne m'en souviens plus.",
+   "example_en": "There are three of them, but I no longer remember.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "mise-en-relief",
+   "level": "B2",
+   "area": "sentence",
+   "name": "emphasis with c'est ... qui/que",
+   "can_do_en": "Can stress an element with c'est ... qui or c'est ... que.",
+   "example": "C'est la direction qui décidera, pas nous.",
+   "example_en": "It is the management that will decide, not us.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "inversion-peut-etre",
+   "level": "B2",
+   "area": "sentence",
+   "name": "inversion after peut-être, aussi and sans doute",
+   "can_do_en": "Can invert the subject after sentence adverbs in formal writing.",
+   "example": "Peut-être viendra-t-il demain, sans doute aurons-nous des nouvelles.",
+   "example_en": "Perhaps he will come tomorrow; we will probably have news.",
+   "tenses": [
+    "fut"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "ne-expletif",
+   "level": "B2",
+   "area": "sentence",
+   "name": "expletive ne",
+   "can_do_en": "Can recognise and use ne explétif after craindre, avant que and comparatives.",
+   "example": "Je crains qu'il ne soit trop tard.",
+   "example_en": "I am afraid it may be too late.",
+   "tenses": [
+    "subj"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "connecteurs-concession-opposition",
+   "level": "B2",
+   "area": "discourse",
+   "name": "connectors of concession and opposition",
+   "can_do_en": "Can use pourtant, cependant, en revanche, malgré and alors que.",
+   "example": "Ce film est long ; pourtant, nous ne nous sommes pas ennuyés.",
+   "example_en": "This film is long; yet we were not bored.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "nominalisation",
+   "level": "B2",
+   "area": "noun",
+   "name": "nominalisation",
+   "can_do_en": "Can turn verbs and adjectives into nouns to write more concisely.",
+   "example": "La réduction des coûts permet l'amélioration du service.",
+   "example_en": "Reducing costs allows the service to improve.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "tout-accord",
+   "level": "B2",
+   "area": "adj",
+   "name": "tout as adjective, pronoun and adverb",
+   "can_do_en": "Can handle the agreement of tout and toute.",
+   "example": "Elle est tout étonnée, et toutes les fenêtres sont ouvertes.",
+   "example_en": "She is quite astonished, and all the windows are open.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "prepositions-apres-verbes",
+   "level": "B2",
+   "area": "prep",
+   "name": "prepositions after verbs",
+   "can_do_en": "Can choose between penser à and penser de, and other verb plus preposition pairs.",
+   "example": "Que pensez-vous de cette idée, et à quoi pensez-vous ?",
+   "example_en": "What do you think of this idea, and what are you thinking about?",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "infinitif-passe",
+   "level": "B2",
+   "area": "verb",
+   "name": "past infinitive",
+   "can_do_en": "Can use après avoir or après être with the past participle.",
+   "example": "Après avoir fini ses études, elle est partie à Lyon.",
+   "example_en": "After finishing her studies, she left for Lyon.",
+   "tenses": [
+    "part"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "a-regard-pronoms-lequel",
+   "level": "B2",
+   "area": "question",
+   "name": "interrogative lequel",
+   "can_do_en": "Can ask for a choice with lequel, laquelle, auquel and duquel.",
+   "example": "Lequel de ces itinéraires conseillez-vous ?",
+   "example_en": "Which of these routes do you recommend?",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "subj-imparfait-recognition",
+   "level": "C1",
+   "area": "mood",
+   "name": "recognising the imperfect subjunctive",
+   "can_do_en": "Can recognise the imperfect subjunctive in formal and literary texts.",
+   "example": "Il fallait qu'elle partît avant que la nuit ne tombât.",
+   "example_en": "She had to leave before night fell.",
+   "tenses": [
+    "subjImpf"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "subj-concordance-temps",
+   "level": "C1",
+   "area": "mood",
+   "name": "tense sequence of the subjunctive",
+   "can_do_en": "Can choose between present and past subjunctive according to timing.",
+   "example": "Je doute qu'il ait compris, et je regrette qu'il soit parti.",
+   "example_en": "I doubt that he understood, and I regret that he left.",
+   "tenses": [
+    "subjPasse"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "subj-apres-superlatifs-seul",
+   "level": "C1",
+   "area": "mood",
+   "name": "subjunctive after seul, unique and superlatives",
+   "can_do_en": "Can use the subjunctive after seul, unique, premier and dernier.",
+   "example": "Il est le seul qui ait refusé cette offre.",
+   "example_en": "He is the only one who refused this offer.",
+   "tenses": [
+    "subjPasse"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "subj-soit-que",
+   "level": "C1",
+   "area": "mood",
+   "name": "soit que ... soit que",
+   "can_do_en": "Can list possible causes with soit que ... soit que and the subjunctive.",
+   "example": "Soit qu'il soit fatigué, soit qu'il ait peur, il se tait.",
+   "example_en": "Whether he is tired or afraid, he stays silent.",
+   "tenses": [
+    "subj"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "subj-quelque-quel-que",
+   "level": "C1",
+   "area": "mood",
+   "name": "quelque, quel que, quelque ... que",
+   "can_do_en": "Can express concession with quel que, quelque and si ... que.",
+   "example": "Quelles que soient vos raisons, nous les respecterons.",
+   "example_en": "Whatever your reasons, we will respect them.",
+   "tenses": [
+    "subj",
+    "fut"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "subj-en-attendant-que",
+   "level": "C1",
+   "area": "mood",
+   "name": "en attendant que and de peur que",
+   "can_do_en": "Can use en attendant que, de peur que and sans que with the subjunctive.",
+   "example": "Nous resterons ici en attendant que la pluie cesse.",
+   "example_en": "We will stay here until the rain stops.",
+   "tenses": [
+    "subj"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "subj-independent-souhait",
+   "level": "C1",
+   "area": "mood",
+   "name": "subjunctive in independent clauses",
+   "can_do_en": "Can use a stand-alone subjunctive for wishes, orders and concessions.",
+   "example": "Que chacun fasse son possible, et vive la liberté !",
+   "example_en": "May everyone do their best, and long live freedom!",
+   "tenses": [
+    "subj"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "plus-que-parfait-valeurs",
+   "level": "C1",
+   "area": "verb",
+   "name": "values of the pluperfect",
+   "can_do_en": "Can use the pluperfect for background, regret, politeness and reported speech.",
+   "example": "Je voulais vous dire que j'avais oublié de vous écrire.",
+   "example_en": "I wanted to tell you that I had forgotten to write to you.",
+   "tenses": [
+    "plup"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "cond-valeurs-nuances",
+   "level": "C1",
+   "area": "cond",
+   "name": "nuances of the conditional",
+   "can_do_en": "Can use the conditional for politeness, hypothesis and reported rumour.",
+   "example": "Pourriez-vous m'indiquer la direction ? Il y aurait un retard.",
+   "example_en": "Could you show me the way? There would be a delay.",
+   "tenses": [
+    "cond"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "si-variantes-hypothese",
+   "level": "C1",
+   "area": "cond",
+   "name": "alternatives to si",
+   "can_do_en": "Can express a condition with en cas de, sauf si, pour peu que and dans l'hypothèse où.",
+   "example": "Dans l'hypothèse où il refuserait, nous chercherions un autre fournisseur.",
+   "example_en": "If he were to refuse, we would look for another supplier.",
+   "tenses": [
+    "cond"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "passe-simple-reconnaissance",
+   "level": "C1",
+   "area": "verb",
+   "name": "passé simple in narrative",
+   "can_do_en": "Can read the passé simple in novels, history and tales.",
+   "example": "Il ouvrit la porte, entra et s'assit sans un mot.",
+   "example_en": "He opened the door, came in and sat down without a word.",
+   "tenses": [
+    "ps"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "passe-anterieur",
+   "level": "C1",
+   "area": "verb",
+   "name": "past anterior",
+   "can_do_en": "Can recognise the passé antérieur after quand, dès que and aussitôt que.",
+   "example": "Dès qu'il eut fini son discours, la salle applaudit.",
+   "example_en": "As soon as he had finished his speech, the room applauded.",
+   "tenses": [
+    "ps"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "participe-compose-absolu",
+   "level": "C1",
+   "area": "verb",
+   "name": "compound participle and absolute construction",
+   "can_do_en": "Can use ayant fait and étant parti, and absolute clauses with a different subject.",
+   "example": "Le soleil s'étant couché, nous avons rallumé le feu.",
+   "example_en": "The sun having set, we relit the fire.",
+   "tenses": [
+    "part"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "adjectif-verbal-participe",
+   "level": "C1",
+   "area": "adj",
+   "name": "spelling of verbal adjective versus participle",
+   "can_do_en": "Can tell fatigant and fatiguant, différent and différant apart.",
+   "example": "Des résultats différant peu des précédents sont différents des prévisions.",
+   "example_en": "Results differing little from earlier ones are different from the forecasts.",
+   "tenses": [
+    "ppres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "passif-se-voir-se-faire",
+   "level": "C1",
+   "area": "passive",
+   "name": "se voir and se faire plus infinitive",
+   "can_do_en": "Can use se voir, se faire and se laisser to avoid heavy passives.",
+   "example": "Elle s'est vu refuser le visa et s'est fait remarquer.",
+   "example_en": "She was refused the visa and got noticed.",
+   "tenses": [
+    "pc"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "relatives-prepositions-lequel",
+   "level": "C1",
+   "area": "pronoun",
+   "name": "relative clauses with prepositions and lequel",
+   "can_do_en": "Can build relatives after complex prepositions such as à travers lequel.",
+   "example": "La raison pour laquelle il a démissionné reste obscure.",
+   "example_en": "The reason for which he resigned remains unclear.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "relatif-ce-a-quoi",
+   "level": "C1",
+   "area": "pronoun",
+   "name": "ce à quoi, ce sur quoi, tout ce qui",
+   "can_do_en": "Can use ce à quoi, ce sur quoi and tout ce que for abstract ideas.",
+   "example": "Tout ce que vous dites est exact, ce sur quoi nous sommes d'accord.",
+   "example_en": "Everything you say is correct, which is something we agree on.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "mise-en-relief-ce-qui",
+   "level": "C1",
+   "area": "sentence",
+   "name": "pseudo-cleft: ce qui ... c'est",
+   "can_do_en": "Can stress with ce qui ... c'est and ce que ... c'est.",
+   "example": "Ce qui m'importe, c'est que vous soyez sincère.",
+   "example_en": "What matters to me is that you are sincere.",
+   "tenses": [
+    "subj"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "detachement-reprise",
+   "level": "C1",
+   "area": "sentence",
+   "name": "dislocation and resumptive pronouns",
+   "can_do_en": "Can use left and right dislocation for focus in speech and writing.",
+   "example": "Ce projet, nous y croyons ; les risques, nous les connaissons.",
+   "example_en": "This project, we believe in it; the risks, we know them.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "inversion-stylistique",
+   "level": "C1",
+   "area": "sentence",
+   "name": "stylistic inversion",
+   "can_do_en": "Can use subject inversion in relatives, subordinates and quotations.",
+   "example": "Voici le livre qu'a écrit mon père.",
+   "example_en": "Here is the book that my father wrote.",
+   "tenses": [
+    "pc"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "ne-seul-litteraire",
+   "level": "C1",
+   "area": "sentence",
+   "name": "ne alone with certain verbs",
+   "can_do_en": "Can recognise ne without pas with oser, cesser, pouvoir and savoir.",
+   "example": "Je n'ose imaginer ce qu'il en pensera.",
+   "example_en": "I dare not imagine what he will think of it.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "negation-restrictive-ne-que",
+   "level": "C1",
+   "area": "sentence",
+   "name": "restrictive ne ... que and ne ... guère",
+   "can_do_en": "Can use ne ... que, ne ... guère and ne ... point in careful French.",
+   "example": "Il ne reste que deux places, et je n'ai guère de temps.",
+   "example_en": "Only two seats remain, and I have hardly any time.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "adjectif-sens-position",
+   "level": "C1",
+   "area": "adj",
+   "name": "adjectives that change meaning with position",
+   "can_do_en": "Can choose the position of grand, pauvre, propre, ancien and cher.",
+   "example": "Cet homme grand n'est pas un grand homme, mais mon ancien collègue l'est.",
+   "example_en": "This tall man is not a great man, but my former colleague is.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "articles-omission",
+   "level": "C1",
+   "area": "noun",
+   "name": "omission of the article",
+   "can_do_en": "Can omit the article in lists, proverbs, titles and with en plus a noun.",
+   "example": "Il est devenu avocat, et il travaille sans relâche, par amour de son métier.",
+   "example_en": "He became a lawyer, and he works tirelessly, out of love for his profession.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "indefinis-n-importe",
+   "level": "C1",
+   "area": "pronoun",
+   "name": "n'importe qui, quoi, où, quand, comment",
+   "can_do_en": "Can use n'importe plus an interrogative for free choice.",
+   "example": "N'importe qui peut participer, n'importe quand.",
+   "example_en": "Anyone can take part, at any time.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "pronoms-indefinis-quiconque",
+   "level": "C1",
+   "area": "pronoun",
+   "name": "quiconque, chacun, quelques-uns, certains",
+   "can_do_en": "Can use quiconque, nul, aucun and autrui in careful writing.",
+   "example": "Quiconque enfreint ce règlement sera sanctionné.",
+   "example_en": "Whoever breaks this rule will be punished.",
+   "tenses": [
+    "fut"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "articulateurs-argumentation",
+   "level": "C1",
+   "area": "discourse",
+   "name": "structuring an argument",
+   "can_do_en": "Can organise an argument with d'abord, en outre, d'une part ... d'autre part, enfin.",
+   "example": "D'une part, le coût baisse ; d'autre part, la qualité progresse.",
+   "example_en": "On the one hand the cost falls; on the other, quality improves.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "lettre-formelle",
+   "level": "C1",
+   "area": "discourse",
+   "name": "formal letters",
+   "can_do_en": "Can write formal letters with set openings, requests and closings.",
+   "example": "Madame, Monsieur, je vous prie de bien vouloir m'envoyer votre brochure.",
+   "example_en": "Dear Sir or Madam, I would be grateful if you would send me your brochure.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "registre-courant-soutenu",
+   "level": "C1",
+   "area": "discourse",
+   "name": "common versus formal register",
+   "can_do_en": "Can adapt vocabulary and structure between everyday and formal French.",
+   "example": "Veuillez patienter ; nous reviendrons vers vous dans les meilleurs délais.",
+   "example_en": "Please wait; we will get back to you as soon as possible.",
+   "tenses": [
+    "fut"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "euphonie",
+   "level": "C1",
+   "area": "phon",
+   "name": "euphony: l'on, -t-, liaison",
+   "can_do_en": "Can use l'on, -t- and elided forms for easy pronunciation.",
+   "example": "A-t-il compris ce que l'on attend de lui ?",
+   "example_en": "Has he understood what is expected of him?",
+   "tenses": [
+    "pc"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "concession-quoique-malgre",
+   "level": "C1",
+   "area": "clause",
+   "name": "concession: quoique, malgré, en dépit de",
+   "can_do_en": "Can contrast clauses with quoique, malgré que, en dépit de and tandis que.",
+   "example": "En dépit de la fatigue, elle a terminé la course.",
+   "example_en": "Despite her tiredness, she finished the race.",
+   "tenses": [
+    "pc"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "but-cause-gerundif-participe",
+   "level": "C1",
+   "area": "clause",
+   "name": "cause and manner with the gerund",
+   "can_do_en": "Can express manner or cause with en plus the participle.",
+   "example": "En lisant chaque soir, il a enrichi son vocabulaire.",
+   "example_en": "By reading every evening, he enriched his vocabulary.",
+   "tenses": [
+    "ppres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "proportion-plus-moins",
+   "level": "C1",
+   "area": "clause",
+   "name": "proportion: plus ... plus, d'autant plus que",
+   "can_do_en": "Can express proportional change with plus ... plus and d'autant plus que.",
+   "example": "Plus je travaille, plus je progresse, d'autant plus que le sujet me plaît.",
+   "example_en": "The more I work, the more I progress, all the more because I like the subject.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "hypotheses-discours-indirect",
+   "level": "C1",
+   "area": "reported",
+   "name": "reported speech with nuances",
+   "can_do_en": "Can use annoncer, prétendre, soutenir, reconnaître with correct moods.",
+   "example": "Il prétend avoir raison ; elle reconnaît qu'elle s'est trompée.",
+   "example_en": "He claims he is right; she admits she was wrong.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "passe-simple-subjonctif-imparfait",
+   "level": "C2",
+   "area": "mood",
+   "name": "imperfect and pluperfect subjunctive in literary style",
+   "can_do_en": "Can read the imperfect and pluperfect subjunctive in classic prose.",
+   "example": "Il eût fallu qu'il parlât plus tôt pour qu'on l'entendît.",
+   "example_en": "He should have spoken sooner for people to hear him.",
+   "tenses": [
+    "subjImpf"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "conditionnel-passe-2e-forme",
+   "level": "C2",
+   "area": "cond",
+   "name": "second form of the past conditional",
+   "can_do_en": "Can recognise eût fait and fût venu replacing the past conditional.",
+   "example": "Si j'eusse su, je fusse venu plus tôt.",
+   "example_en": "Had I known, I would have come earlier.",
+   "tenses": [
+    "plup"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "inversion-hypothese-litteraire",
+   "level": "C2",
+   "area": "sentence",
+   "name": "inversion in hypothetical subordinates",
+   "can_do_en": "Can read and use inversion forms such as fût-il, dût-il, eût-il.",
+   "example": "Fût-il malade, il viendrait à la réunion.",
+   "example_en": "Even if he were ill, he would come to the meeting.",
+   "tenses": [
+    "subjImpf"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "subj-valeurs-hypothese-sans-si",
+   "level": "C2",
+   "area": "mood",
+   "name": "subjunctive for hypothesis and concession",
+   "can_do_en": "Can use que plus subjunctive and sans doute que to hypothesise.",
+   "example": "Qu'il pleuve ou qu'il vente, nous partirons.",
+   "example_en": "Whether it rains or blows, we will leave.",
+   "tenses": [
+    "subj"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "ps-succession-recits",
+   "level": "C2",
+   "area": "verb",
+   "name": "passé simple and imparfait in narration",
+   "can_do_en": "Can interlace passé simple and imparfait for foreground and background.",
+   "example": "Il pleuvait quand elle sortit ; elle s'arrêta et regarda le ciel.",
+   "example_en": "It was raining when she went out; she stopped and looked at the sky.",
+   "tenses": [
+    "ps",
+    "impf"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "present-historique",
+   "level": "C2",
+   "area": "verb",
+   "name": "historical present and narrative present",
+   "can_do_en": "Can use the historical present for vivid narration.",
+   "example": "En 1789, le peuple prend la Bastille et change l'histoire.",
+   "example_en": "In 1789, the people take the Bastille and change history.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "futur-valeurs-modales",
+   "level": "C2",
+   "area": "verb",
+   "name": "modal values of the future",
+   "can_do_en": "Can use the future for conjecture, command and politeness.",
+   "example": "Vous voudrez bien m'excuser ; ce sera sans doute un oubli.",
+   "example_en": "Please excuse me; it will probably be an oversight.",
+   "tenses": [
+    "fut"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "imparfait-valeurs-stylistiques",
+   "level": "C2",
+   "area": "verb",
+   "name": "stylistic imperfect",
+   "can_do_en": "Can use the imperfect for hypothetical, narrative and polite effects.",
+   "example": "Une minute de plus, et le train partait sans nous.",
+   "example_en": "One more minute and the train would have left without us.",
+   "tenses": [
+    "impf"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "infinitif-narration-exclamation",
+   "level": "C2",
+   "area": "verb",
+   "name": "infinitive of narration and exclamation",
+   "can_do_en": "Can recognise the narrative infinitive and the exclamative infinitive.",
+   "example": "Et lui de s'indigner, et nous de rire.",
+   "example_en": "And he gets indignant, and we laugh.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "apposition-detachement",
+   "level": "C2",
+   "area": "sentence",
+   "name": "apposition and detached adjectives",
+   "can_do_en": "Can use detached adjectives and appositions to compress information.",
+   "example": "Fatiguée mais rayonnante, la lauréate a salué la salle.",
+   "example_en": "Tired but radiant, the winner greeted the room.",
+   "tenses": [
+    "pc"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "phrases-nominales",
+   "level": "C2",
+   "area": "sentence",
+   "name": "nominal sentences",
+   "can_do_en": "Can write verbless sentences for rhythm and emphasis.",
+   "example": "Un silence. Puis, au loin, le bruit d'une porte qui claque.",
+   "example_en": "A silence. Then, far off, the sound of a door slamming.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "chiasme-parallelisme",
+   "level": "C2",
+   "area": "discourse",
+   "name": "rhetorical figures: parallelism and chiasmus",
+   "can_do_en": "Can build parallel and mirrored structures for rhetoric.",
+   "example": "Il faut manger pour vivre, et non vivre pour manger.",
+   "example_en": "One must eat to live, not live to eat.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "concession-litteraire-si-que",
+   "level": "C2",
+   "area": "clause",
+   "name": "concession with si ... que and tout ... que",
+   "can_do_en": "Can use si habile qu'il soit and tout savant qu'il est.",
+   "example": "Si habile qu'il soit, il ne peut tout prévoir.",
+   "example_en": "However skilful he is, he cannot foresee everything.",
+   "tenses": [
+    "subj"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "proposition-participiale",
+   "level": "C2",
+   "area": "clause",
+   "name": "participial clauses with a different subject",
+   "can_do_en": "Can use clauses like cela dit, ce point réglé, les élections passées.",
+   "example": "Ce point réglé, la séance a été levée.",
+   "example_en": "That point settled, the meeting was closed.",
+   "tenses": [
+    "pc"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "pronoms-demonstratifs-litteraires",
+   "level": "C2",
+   "area": "pronoun",
+   "name": "demonstratives celui-ci/celui-là and ceux",
+   "can_do_en": "Can use celui, celle, ceux with de, qui, que and the pair ci/là.",
+   "example": "Ceux qui travaillent régulièrement réussissent mieux que ceux qui révisent la veille.",
+   "example_en": "Those who work regularly do better than those who revise the night before.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "pronom-neutre-le-attribut",
+   "level": "C2",
+   "area": "pronoun",
+   "name": "neutral le as attribute",
+   "can_do_en": "Can use invariable le to replace an adjective or clause.",
+   "example": "Elle est heureuse et le restera, je le crois.",
+   "example_en": "She is happy and will remain so, I believe.",
+   "tenses": [
+    "fut"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "possessif-article-parties-corps",
+   "level": "C2",
+   "area": "noun",
+   "name": "definite article with parts of the body",
+   "can_do_en": "Can use the article instead of possessives with body parts.",
+   "example": "Elle s'est lavé les mains et il s'est cassé la jambe.",
+   "example_en": "She washed her hands and he broke his leg.",
+   "tenses": [
+    "pc"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "accord-participe-fait-laisse",
+   "level": "C2",
+   "area": "verb",
+   "name": "participle agreement with faire, laisser and impersonal verbs",
+   "can_do_en": "Can handle invariable fait, laissé and impersonal participles.",
+   "example": "Les pluies qu'il a fait tomber l'ont surpris ; les efforts qu'il a fallu étaient grands.",
+   "example_en": "The rains he caused surprised him; the effort needed was great.",
+   "tenses": [
+    "pc"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "accord-participe-coute-vecu",
+   "level": "C2",
+   "area": "verb",
+   "name": "participle with coûter, valoir, courir",
+   "can_do_en": "Can decide on agreement with coûté, vécu, pesé, couru.",
+   "example": "Les vingt euros que ce livre a coûté me semblent justifiés.",
+   "example_en": "The twenty euros this book cost seem justified to me.",
+   "tenses": [
+    "pc"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "accord-adjectifs-couleur",
+   "level": "C2",
+   "area": "adj",
+   "name": "agreement of colour and compound adjectives",
+   "can_do_en": "Can agree compound and colour adjectives and demi, nu, feu.",
+   "example": "Elle a des yeux bleu clair et des cheveux châtain foncé.",
+   "example_en": "She has light blue eyes and dark chestnut hair.",
+   "tenses": [],
+   "lessons": []
+  },
+  {
+   "id": "accord-sujet-collectif",
+   "level": "C2",
+   "area": "verb",
+   "name": "agreement with collective subjects",
+   "can_do_en": "Can agree the verb after une foule de, la plupart, plus d'un.",
+   "example": "La plupart des invités sont partis et une foule de gens attendait.",
+   "example_en": "Most guests had left and a crowd was waiting.",
+   "tenses": [
+    "plup"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "quelque-quel-que-orthographe",
+   "level": "C2",
+   "area": "adj",
+   "name": "quelque, quel que and quelques",
+   "can_do_en": "Can spell quelque, quelques, quel que and quelque que correctly.",
+   "example": "Quelques erreurs, quelle que soit leur gravité, subsistent.",
+   "example_en": "A few errors, whatever their seriousness, remain.",
+   "tenses": [
+    "subj"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "registre-litteraire-vocabulaire",
+   "level": "C2",
+   "area": "discourse",
+   "name": "literary register and lexical precision",
+   "can_do_en": "Can choose precise and elevated words for essays and speeches.",
+   "example": "Cette thèse, d'ailleurs fort contestée, mérite néanmoins d'être examinée.",
+   "example_en": "This thesis, which is also much disputed, nonetheless deserves to be examined.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "ironie-litote",
+   "level": "C2",
+   "area": "discourse",
+   "name": "irony, understatement and rhetorical effects",
+   "can_do_en": "Can read and produce litote, irony and euphemism.",
+   "example": "Ce n'est pas mal du tout, dit-elle avec un sourire.",
+   "example_en": "It is not bad at all, she said with a smile.",
+   "tenses": [
+    "ps"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "cohesion-anaphores",
+   "level": "C2",
+   "area": "discourse",
+   "name": "cohesion with anaphora and nominal resumption",
+   "can_do_en": "Can link sentences with anaphoric nouns such as ce phénomène, cette mesure.",
+   "example": "Le gouvernement a annoncé une réforme ; cette mesure divise l'opinion.",
+   "example_en": "The government announced a reform; this measure divides opinion.",
+   "tenses": [
+    "pc"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "prepositions-locutions-formelles",
+   "level": "C2",
+   "area": "prep",
+   "name": "formal prepositional phrases",
+   "can_do_en": "Can use au regard de, eu égard à, en vertu de, quant à.",
+   "example": "Eu égard à votre situation, nous accordons un délai.",
+   "example_en": "Having regard to your situation, we grant an extension.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "de-vs-des-pluriel",
+   "level": "C2",
+   "area": "noun",
+   "name": "de instead of des before plural adjectives",
+   "can_do_en": "Can choose de or des before a plural adjective and noun.",
+   "example": "Il y a de beaux jardins, mais aussi des jardins publics fermés.",
+   "example_en": "There are beautiful gardens, but also closed public gardens.",
+   "tenses": [
+    "pres"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "pronom-on-valeurs",
+   "level": "C2",
+   "area": "pronoun",
+   "name": "on and its agreement",
+   "can_do_en": "Can use on for we, people, someone and agree the adjective.",
+   "example": "On est restées amies, ma sœur et moi.",
+   "example_en": "We remained friends, my sister and I.",
+   "tenses": [
+    "pc"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "emphase-pronoms-toniques",
+   "level": "C2",
+   "area": "pronoun",
+   "name": "stressed pronouns for emphasis and comparison",
+   "can_do_en": "Can use moi, lui, soi and the aussi/non plus patterns.",
+   "example": "Lui, il a refusé ; moi non plus, je n'ai pas accepté.",
+   "example_en": "He refused; I did not accept either.",
+   "tenses": [
+    "pc"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "question-inversion-complexe",
+   "level": "C2",
+   "area": "question",
+   "name": "complex and formal questions",
+   "can_do_en": "Can ask formal questions with inversion and long subjects.",
+   "example": "Pourquoi le directeur a-t-il refusé cette demande ?",
+   "example_en": "Why did the director refuse this request?",
+   "tenses": [
+    "pc"
+   ],
+   "lessons": []
+  },
+  {
+   "id": "style-direct-libre",
+   "level": "C2",
+   "area": "reported",
+   "name": "free indirect speech",
+   "can_do_en": "Can read free indirect style mixing narration and thought.",
+   "example": "Elle regarda la lettre. Comment pourrait-il oublier ?",
+   "example_en": "She looked at the letter. How could he forget?",
+   "tenses": [
+    "ps",
+    "cond"
+   ],
+   "lessons": []
+  }
+ ]
+}

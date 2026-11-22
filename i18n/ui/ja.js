@@ -601,6 +601,7 @@
 "Luyện theo phần":"パート別練習",
 "Luyện theo phần TOEFL iBT":"TOEFL iBT セクションの練習",
 "Luyện thêm kỹ năng":"他のスキルも練習",
+"Luyện tiếng Pháp":"フランス語の練習",
 "Luyện tiếng Tây Ban Nha":"スペイン語の練習",
 "Luyện tiếp":"練習を続ける",
 "Luyện tập":"練習",

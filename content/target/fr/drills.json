@@ -1,0 +1,4479 @@
+{
+ "_doc": "Câu điền từ A1–B1 (tiếng Pháp) – gắn id điểm ngữ pháp; dựng gói bởi scripts/target/drill-pack.mjs",
+ "cloze": {
+  "etre-present": [
+   {
+    "s": "Nous ___ de Lyon.",
+    "a": "sommes",
+    "o": [
+     "sommes",
+     "suis",
+     "êtes",
+     "sont"
+    ],
+    "en": "We are from Lyon."
+   },
+   {
+    "s": "Ils ___ très gentils.",
+    "a": "sont",
+    "o": [
+     "est",
+     "sont",
+     "sommes",
+     "êtes"
+    ],
+    "en": "They are very kind."
+   },
+   {
+    "s": "Vous ___ français ?",
+    "a": "êtes",
+    "o": [
+     "suis",
+     "sommes",
+     "êtes",
+     "sont"
+    ],
+    "en": "Are you French?"
+   }
+  ],
+  "avoir-present": [
+   {
+    "s": "Nous ___ un grand appartement.",
+    "a": "avons",
+    "o": [
+     "avons",
+     "ai",
+     "avez",
+     "ont"
+    ],
+    "en": "We have a big apartment."
+   },
+   {
+    "s": "Tu ___ une sœur ?",
+    "a": "as",
+    "o": [
+     "a",
+     "as",
+     "ai",
+     "ont"
+    ],
+    "en": "Do you have a sister?"
+   },
+   {
+    "s": "Ils ___ un chien.",
+    "a": "ont",
+    "o": [
+     "a",
+     "avons",
+     "ont",
+     "avez"
+    ],
+    "en": "They have a dog."
+   }
+  ],
+  "il-y-a": [
+   {
+    "s": "Il y ___ des fleurs sur la table.",
+    "a": "a",
+    "o": [
+     "a",
+     "est",
+     "ont",
+     "sont"
+    ],
+    "en": "There are flowers on the table."
+   },
+   {
+    "s": "Il n'y a pas ___ lait dans le frigo.",
+    "a": "de",
+    "o": [
+     "du",
+     "de",
+     "un",
+     "le"
+    ],
+    "en": "There is no milk in the fridge."
+   },
+   {
+    "s": "Il y a ___ voiture devant la maison.",
+    "a": "une",
+    "o": [
+     "un",
+     "du",
+     "une",
+     "de"
+    ],
+    "en": "There is a car in front of the house."
+   }
+  ],
+  "art-defini": [
+   {
+    "s": "___ pomme est rouge.",
+    "a": "La",
+    "o": [
+     "La",
+     "Le",
+     "Les",
+     "Des"
+    ],
+    "en": "The apple is red."
+   },
+   {
+    "s": "___ garçons sont dans le jardin.",
+    "a": "Les",
+    "o": [
+     "Le",
+     "Les",
+     "La",
+     "Un"
+    ],
+    "en": "The boys are in the garden."
+   },
+   {
+    "s": "J'aime ___ musique.",
+    "a": "la",
+    "o": [
+     "le",
+     "les",
+     "la",
+     "des"
+    ],
+    "en": "I like music."
+   }
+  ],
+  "art-indefini": [
+   {
+    "s": "Elle a ___ frère et deux sœurs.",
+    "a": "un",
+    "o": [
+     "un",
+     "une",
+     "des",
+     "de"
+    ],
+    "en": "She has a brother and two sisters."
+   },
+   {
+    "s": "Nous avons ___ chambre ici.",
+    "a": "une",
+    "o": [
+     "un",
+     "une",
+     "des",
+     "de"
+    ],
+    "en": "We have a room here."
+   },
+   {
+    "s": "Je cherche ___ appartement.",
+    "a": "un",
+    "o": [
+     "une",
+     "des",
+     "un",
+     "de"
+    ],
+    "en": "I'm looking for an apartment."
+   }
+  ],
+  "gender-nouns": [
+   {
+    "s": "___ ville est très grande.",
+    "a": "La",
+    "o": [
+     "La",
+     "Le",
+     "Les",
+     "Un"
+    ],
+    "en": "The city is very big."
+   },
+   {
+    "s": "J'habite dans ___ village.",
+    "a": "un",
+    "o": [
+     "une",
+     "un",
+     "la",
+     "des"
+    ],
+    "en": "I live in a village."
+   },
+   {
+    "s": "Voici ___ question importante.",
+    "a": "une",
+    "o": [
+     "un",
+     "le",
+     "une",
+     "des"
+    ],
+    "en": "Here is an important question."
+   }
+  ],
+  "plural-regular": [
+   {
+    "s": "J'ai deux ___.",
+    "a": "sœurs",
+    "o": [
+     "sœur",
+     "sœurs",
+     "frère"
+    ],
+    "en": "I have two sisters."
+   },
+   {
+    "s": "Il a trois ___ à Paris.",
+    "a": "amis",
+    "o": [
+     "ami",
+     "amie",
+     "amis"
+    ],
+    "en": "He has three friends in Paris."
+   },
+   {
+    "s": "Les ___ sont sur la table.",
+    "a": "livres",
+    "o": [
+     "livres",
+     "livre",
+     "stylo"
+    ],
+    "en": "The books are on the table."
+   }
+  ],
+  "plural-irregular": [
+   {
+    "s": "Je lis les ___ tous les matins.",
+    "a": "journaux",
+    "o": [
+     "journal",
+     "journaux",
+     "journée"
+    ],
+    "en": "I read the newspapers every morning."
+   },
+   {
+    "s": "Il y a trois ___ sur le lac.",
+    "a": "bateaux",
+    "o": [
+     "bateau",
+     "barque",
+     "bateaux"
+    ],
+    "en": "There are three boats on the lake."
+   },
+   {
+    "s": "Nous avons deux ___ à la maison.",
+    "a": "animaux",
+    "o": [
+     "animaux",
+     "animal",
+     "animé"
+    ],
+    "en": "We have two animals at home."
+   }
+  ],
+  "elision-basic": [
+   {
+    "s": "___ école est grande.",
+    "a": "L'",
+    "o": [
+     "L'",
+     "Le",
+     "La",
+     "Les"
+    ],
+    "en": "The school is big."
+   },
+   {
+    "s": "Elle dit ___ elle est fatiguée.",
+    "a": "qu'",
+    "o": [
+     "que",
+     "qu'",
+     "qui",
+     "quoi"
+    ],
+    "en": "She says she is tired."
+   },
+   {
+    "s": "Je ___ aime pas le poisson.",
+    "a": "n'",
+    "o": [
+     "ne",
+     "me",
+     "n'",
+     "ni"
+    ],
+    "en": "I don't like fish."
+   }
+  ],
+  "contractions-au-du": [
+   {
+    "s": "Nous allons ___ cinéma.",
+    "a": "au",
+    "o": [
+     "au",
+     "à le",
+     "à la",
+     "aux"
+    ],
+    "en": "We are going to the cinema."
+   },
+   {
+    "s": "Il parle ___ enfants.",
+    "a": "aux",
+    "o": [
+     "au",
+     "aux",
+     "à les",
+     "à la"
+    ],
+    "en": "He talks to the children."
+   },
+   {
+    "s": "Le livre ___ professeur est ici.",
+    "a": "du",
+    "o": [
+     "de le",
+     "de la",
+     "du",
+     "des"
+    ],
+    "en": "The teacher's book is here."
+   }
+  ],
+  "partitif": [
+   {
+    "s": "Je prends ___ café.",
+    "a": "du",
+    "o": [
+     "du",
+     "de la",
+     "des",
+     "de"
+    ],
+    "en": "I'm having some coffee."
+   },
+   {
+    "s": "Il mange ___ soupe.",
+    "a": "de la",
+    "o": [
+     "du",
+     "de la",
+     "des",
+     "de"
+    ],
+    "en": "He is eating some soup."
+   },
+   {
+    "s": "Nous achetons ___ légumes.",
+    "a": "des",
+    "o": [
+     "du",
+     "de la",
+     "des",
+     "de"
+    ],
+    "en": "We buy some vegetables."
+   }
+  ],
+  "de-negation": [
+   {
+    "s": "Il n'y a pas ___ lait.",
+    "a": "de",
+    "o": [
+     "de",
+     "du",
+     "des",
+     "de la"
+    ],
+    "en": "There is no milk."
+   },
+   {
+    "s": "Je ne mange jamais ___ viande.",
+    "a": "de",
+    "o": [
+     "du",
+     "de",
+     "des",
+     "un"
+    ],
+    "en": "I never eat meat."
+   },
+   {
+    "s": "Nous n'avons pas ___ voiture.",
+    "a": "de",
+    "o": [
+     "du",
+     "des",
+     "de",
+     "de la"
+    ],
+    "en": "We don't have a car."
+   }
+  ],
+  "adj-agreement": [
+   {
+    "s": "Elle est très ___.",
+    "a": "grande",
+    "o": [
+     "grande",
+     "grand",
+     "grands",
+     "grandes"
+    ],
+    "en": "She is very tall."
+   },
+   {
+    "s": "Mes amis sont ___.",
+    "a": "contents",
+    "o": [
+     "content",
+     "contents",
+     "contente",
+     "contentes"
+    ],
+    "en": "My friends are happy."
+   },
+   {
+    "s": "Ces filles sont ___.",
+    "a": "heureuses",
+    "o": [
+     "heureux",
+     "heureuse",
+     "heureusement",
+     "heureuses"
+    ],
+    "en": "These girls are happy."
+   }
+  ],
+  "adj-position": [
+   {
+    "s": "C'est une ___ ville.",
+    "a": "belle",
+    "o": [
+     "belle",
+     "bel",
+     "beau",
+     "belles"
+    ],
+    "en": "It's a beautiful city."
+   },
+   {
+    "s": "Elle porte une robe ___.",
+    "a": "bleue",
+    "o": [
+     "bleu",
+     "bleue",
+     "bleues",
+     "bleus"
+    ],
+    "en": "She is wearing a blue dress."
+   },
+   {
+    "s": "Paul a un ___ chien.",
+    "a": "gros",
+    "o": [
+     "grosse",
+     "grosses",
+     "gros",
+     "grandes"
+    ],
+    "en": "Paul has a big dog."
+   }
+  ],
+  "possessifs": [
+   {
+    "s": "Je cherche ___ clés : elles sont à moi.",
+    "a": "mes",
+    "o": [
+     "mes",
+     "mon",
+     "ma",
+     "ses"
+    ],
+    "en": "I'm looking for my keys: they're mine."
+   },
+   {
+    "s": "Nous aimons beaucoup ___ quartier : nous y habitons depuis dix ans.",
+    "a": "notre",
+    "o": [
+     "nos",
+     "notre",
+     "votre",
+     "leur"
+    ],
+    "en": "We love our neighbourhood: we've lived there for ten years."
+   },
+   {
+    "s": "Les enfants cherchent ___ chaussures.",
+    "a": "leurs",
+    "o": [
+     "leur",
+     "son",
+     "leurs",
+     "sa"
+    ],
+    "en": "The children are looking for their shoes."
+   }
+  ],
+  "demonstratifs": [
+   {
+    "s": "___ livre est très intéressant.",
+    "a": "Ce",
+    "o": [
+     "Ce",
+     "Cette",
+     "Ces",
+     "Cet"
+    ],
+    "en": "This book is very interesting."
+   },
+   {
+    "s": "Je prends ___ robe rouge.",
+    "a": "cette",
+    "o": [
+     "ce",
+     "cette",
+     "cet",
+     "ces"
+    ],
+    "en": "I'll take this red dress."
+   },
+   {
+    "s": "___ enfants sont gentils.",
+    "a": "Ces",
+    "o": [
+     "Ce",
+     "Cette",
+     "Ces",
+     "Cet"
+    ],
+    "en": "These children are kind."
+   }
+  ],
+  "pres-er": [
+   {
+    "s": "Nous ___ le français.",
+    "a": "parlons",
+    "o": [
+     "parlons",
+     "parlez",
+     "parlent",
+     "parle"
+    ],
+    "en": "We speak French."
+   },
+   {
+    "s": "Ils ___ au tennis le dimanche.",
+    "a": "jouent",
+    "o": [
+     "joue",
+     "jouent",
+     "jouons",
+     "jouez"
+    ],
+    "en": "They play tennis on Sundays."
+   },
+   {
+    "s": "Vous ___ très bien.",
+    "a": "chantez",
+    "o": [
+     "chante",
+     "chantons",
+     "chantez",
+     "chantent"
+    ],
+    "en": "You sing very well."
+   }
+  ],
+  "pres-ir-re": [
+   {
+    "s": "Nous ___ à huit heures.",
+    "a": "finissons",
+    "o": [
+     "finissons",
+     "finissez",
+     "finit",
+     "finissent"
+    ],
+    "en": "We finish at eight o'clock."
+   },
+   {
+    "s": "Je ___ mon vélo.",
+    "a": "vends",
+    "o": [
+     "vend",
+     "vends",
+     "vendons",
+     "vendez"
+    ],
+    "en": "I'm selling my bike."
+   },
+   {
+    "s": "Ils ___ le train.",
+    "a": "attendent",
+    "o": [
+     "attend",
+     "attendons",
+     "attendent",
+     "attendez"
+    ],
+    "en": "They are waiting for the train."
+   }
+  ],
+  "pres-irreguliers": [
+   {
+    "s": "Nous ___ au cinéma ce soir.",
+    "a": "allons",
+    "o": [
+     "allons",
+     "allez",
+     "vont",
+     "va"
+    ],
+    "en": "We are going to the cinema tonight."
+   },
+   {
+    "s": "Tu ___ du sport le samedi ?",
+    "a": "fais",
+    "o": [
+     "fait",
+     "fais",
+     "faites",
+     "faisons"
+    ],
+    "en": "Do you play sport on Saturdays?"
+   },
+   {
+    "s": "Ils ___ le bus le matin.",
+    "a": "prennent",
+    "o": [
+     "prend",
+     "prenons",
+     "prennent",
+     "prenez"
+    ],
+    "en": "They take the bus in the morning."
+   }
+  ],
+  "tu-vous": [
+   {
+    "s": "Madame, ___ avez un message.",
+    "a": "vous",
+    "o": [
+     "vous",
+     "tu",
+     "on",
+     "il"
+    ],
+    "en": "Madam, you have a message."
+   },
+   {
+    "s": "Salut Paul, ___ vas bien ?",
+    "a": "tu",
+    "o": [
+     "vous",
+     "tu",
+     "on",
+     "nous"
+    ],
+    "en": "Hi Paul, are you well?"
+   },
+   {
+    "s": "Mon ami, ___ es en retard !",
+    "a": "tu",
+    "o": [
+     "vous",
+     "il",
+     "tu",
+     "nous"
+    ],
+    "en": "My friend, you're late!"
+   }
+  ],
+  "on-nous": [
+   {
+    "s": "Samedi, on ___ au cinéma.",
+    "a": "va",
+    "o": [
+     "va",
+     "vais",
+     "vont",
+     "allons"
+    ],
+    "en": "On Saturday, we're going to the cinema."
+   },
+   {
+    "s": "Avec Léa, on ___ souvent ensemble.",
+    "a": "mange",
+    "o": [
+     "mangeons",
+     "mange",
+     "mangent",
+     "manges"
+    ],
+    "en": "With Léa, we often eat together."
+   },
+   {
+    "s": "Ici, on ___ du sport tous les jours.",
+    "a": "fait",
+    "o": [
+     "faisons",
+     "font",
+     "fait",
+     "fais"
+    ],
+    "en": "Here, we do sport every day."
+   }
+  ],
+  "neg-ne-pas": [
+   {
+    "s": "Je ___ parle pas anglais.",
+    "a": "ne",
+    "o": [
+     "ne",
+     "n'",
+     "pas",
+     "ni"
+    ],
+    "en": "I don't speak English."
+   },
+   {
+    "s": "Elle ___ aime pas le lait.",
+    "a": "n'",
+    "o": [
+     "ne",
+     "n'",
+     "ni",
+     "pas"
+    ],
+    "en": "She doesn't like milk."
+   },
+   {
+    "s": "Il ne boit ___ de café.",
+    "a": "pas",
+    "o": [
+     "non",
+     "ni",
+     "pas",
+     "sans"
+    ],
+    "en": "He doesn't drink coffee."
+   }
+  ],
+  "q-est-ce-que": [
+   {
+    "s": "___ vous avez des enfants ?",
+    "a": "Est-ce que",
+    "o": [
+     "Est-ce que",
+     "Qu'est-ce que",
+     "Est-ce qu'",
+     "Est-il que"
+    ],
+    "en": "Do you have children?"
+   },
+   {
+    "s": "Est-ce ___ tu habites ici ?",
+    "a": "que",
+    "o": [
+     "qui",
+     "quoi",
+     "que",
+     "quand"
+    ],
+    "en": "Do you live here?"
+   },
+   {
+    "s": "Est-ce que vous ___ le thé ?",
+    "a": "aimez",
+    "o": [
+     "aimes",
+     "aimons",
+     "aimez",
+     "aiment"
+    ],
+    "en": "Do you like tea?"
+   }
+  ],
+  "q-mots-interrogatifs": [
+   {
+    "s": "___ coûte ce livre ?",
+    "a": "Combien",
+    "o": [
+     "Combien",
+     "Pourquoi",
+     "Où",
+     "Quand"
+    ],
+    "en": "How much does this book cost?"
+   },
+   {
+    "s": "___ est la gare ?",
+    "a": "Où",
+    "o": [
+     "Quand",
+     "Où",
+     "Pourquoi",
+     "Combien"
+    ],
+    "en": "Where is the station?"
+   },
+   {
+    "s": "— ___ tu pars ? — Demain matin.",
+    "a": "Quand",
+    "o": [
+     "Où",
+     "Qui",
+     "Quand",
+     "Combien"
+    ],
+    "en": "— When are you leaving? — Tomorrow morning."
+   }
+  ],
+  "q-quel": [
+   {
+    "s": "___ heure est-il ?",
+    "a": "Quelle",
+    "o": [
+     "Quelle",
+     "Quel",
+     "Quels",
+     "Quelles"
+    ],
+    "en": "What time is it?"
+   },
+   {
+    "s": "___ est ton numéro de téléphone ?",
+    "a": "Quel",
+    "o": [
+     "Quelle",
+     "Quel",
+     "Quels",
+     "Quelles"
+    ],
+    "en": "What is your phone number?"
+   },
+   {
+    "s": "___ langues parlez-vous ?",
+    "a": "Quelles",
+    "o": [
+     "Quel",
+     "Quelle",
+     "Quelles",
+     "Quels"
+    ],
+    "en": "Which languages do you speak?"
+   }
+  ],
+  "futur-proche": [
+   {
+    "s": "Demain, nous ___ visiter Rome.",
+    "a": "allons",
+    "o": [
+     "allons",
+     "avons",
+     "sommes",
+     "faisons"
+    ],
+    "en": "Tomorrow, we are going to visit Rome."
+   },
+   {
+    "s": "Je ___ appeler ma mère.",
+    "a": "vais",
+    "o": [
+     "suis",
+     "ai",
+     "vais",
+     "vas"
+    ],
+    "en": "I'm going to call my mother."
+   },
+   {
+    "s": "Ils ___ arriver bientôt.",
+    "a": "vont",
+    "o": [
+     "sont",
+     "ont",
+     "vont",
+     "viennent"
+    ],
+    "en": "They are going to arrive soon."
+   }
+  ],
+  "pres-pronominaux": [
+   {
+    "s": "Je ___ lève à six heures.",
+    "a": "me",
+    "o": [
+     "me",
+     "te",
+     "se",
+     "nous"
+    ],
+    "en": "I get up at six."
+   },
+   {
+    "s": "Il ___ couche à dix heures.",
+    "a": "se",
+    "o": [
+     "me",
+     "se",
+     "te",
+     "nous"
+    ],
+    "en": "He goes to bed at ten."
+   },
+   {
+    "s": "Nous ___ habillons vite.",
+    "a": "nous",
+    "o": [
+     "me",
+     "se",
+     "nous",
+     "te"
+    ],
+    "en": "We get dressed quickly."
+   }
+  ],
+  "imperatif-present": [
+   {
+    "s": "___ la porte, s'il te plaît.",
+    "a": "Ferme",
+    "o": [
+     "Fermes",
+     "Ferme",
+     "Fermez",
+     "Fermé"
+    ],
+    "en": "Close the door, please."
+   },
+   {
+    "s": "Mon chéri, ___ attention !",
+    "a": "fais",
+    "o": [
+     "faites",
+     "fait",
+     "fais",
+     "font"
+    ],
+    "en": "Darling, be careful!"
+   },
+   {
+    "s": "Les enfants, ___ vos livres, s'il vous plaît.",
+    "a": "ouvrez",
+    "o": [
+     "ouvre",
+     "ouvrons",
+     "ouvrez",
+     "ouvres"
+    ],
+    "en": "Children, open your books, please."
+   }
+  ],
+  "modaux-pouvoir-vouloir": [
+   {
+    "s": "Tu ___ venir avec nous ?",
+    "a": "peux",
+    "o": [
+     "peux",
+     "peut",
+     "pouvons",
+     "peuvent"
+    ],
+    "en": "Can you come with us?"
+   },
+   {
+    "s": "Nous ___ finir ce travail.",
+    "a": "devons",
+    "o": [
+     "doit",
+     "devons",
+     "devez",
+     "dois"
+    ],
+    "en": "We have to finish this work."
+   },
+   {
+    "s": "Elle ___ apprendre le français.",
+    "a": "veut",
+    "o": [
+     "veux",
+     "voulons",
+     "veut",
+     "veulent"
+    ],
+    "en": "She wants to learn French."
+   }
+  ],
+  "prep-lieu": [
+   {
+    "s": "Il y a un tableau ___ le mur.",
+    "a": "sur",
+    "o": [
+     "sur",
+     "sous",
+     "entre",
+     "avec"
+    ],
+    "en": "There is a painting on the wall."
+   },
+   {
+    "s": "Je mets mes clés ___ mon sac.",
+    "a": "dans",
+    "o": [
+     "chez",
+     "dans",
+     "pour",
+     "avec"
+    ],
+    "en": "I put my keys in my bag."
+   },
+   {
+    "s": "La banque est ___ la poste et la boulangerie.",
+    "a": "entre",
+    "o": [
+     "sous",
+     "chez",
+     "entre",
+     "dans"
+    ],
+    "en": "The bank is between the post office and the bakery."
+   }
+  ],
+  "prep-a-chez-de": [
+   {
+    "s": "Nous allons ___ le dentiste.",
+    "a": "chez",
+    "o": [
+     "chez",
+     "à",
+     "dans",
+     "en"
+    ],
+    "en": "We are going to the dentist's."
+   },
+   {
+    "s": "Elle habite ___ Lyon.",
+    "a": "à",
+    "o": [
+     "en",
+     "à",
+     "au",
+     "chez"
+    ],
+    "en": "She lives in Lyon."
+   },
+   {
+    "s": "Je rentre ___ moi à six heures.",
+    "a": "chez",
+    "o": [
+     "à",
+     "dans",
+     "chez",
+     "de"
+    ],
+    "en": "I get home at six o'clock."
+   }
+  ],
+  "nombres": [
+   {
+    "s": "Dans la classe, il y a quatre-___ élèves.",
+    "a": "vingts",
+    "o": [
+     "vingt",
+     "vingts",
+     "cents",
+     "trente"
+    ],
+    "en": "There are eighty pupils in the class."
+   },
+   {
+    "s": "Il y a ___ jours dans une semaine.",
+    "a": "sept",
+    "o": [
+     "six",
+     "sept",
+     "huit",
+     "neuf"
+    ],
+    "en": "There are seven days in a week."
+   },
+   {
+    "s": "Mon père a soixante-___ ans.",
+    "a": "dix",
+    "o": [
+     "vingt",
+     "cent",
+     "mille",
+     "dix"
+    ],
+    "en": "My father is seventy."
+   }
+  ],
+  "heure-date": [
+   {
+    "s": "Il est midi et ___.",
+    "a": "demi",
+    "o": [
+     "demi",
+     "demie",
+     "demis",
+     "demies"
+    ],
+    "en": "It's half past twelve."
+   },
+   {
+    "s": "Il est trois heures et ___.",
+    "a": "demie",
+    "o": [
+     "demi",
+     "demie",
+     "demis",
+     "demies"
+    ],
+    "en": "It's half past three."
+   },
+   {
+    "s": "Le cours commence ___ neuf heures.",
+    "a": "à",
+    "o": [
+     "en",
+     "dans",
+     "à",
+     "sur"
+    ],
+    "en": "The class starts at nine o'clock."
+   }
+  ],
+  "c-est-ce-sont": [
+   {
+    "s": "___ ma sœur.",
+    "a": "C'est",
+    "o": [
+     "Ce sont",
+     "C'est",
+     "Il est",
+     "Ils sont"
+    ],
+    "en": "This is my sister."
+   },
+   {
+    "s": "___ mes cousins.",
+    "a": "Ce sont",
+    "o": [
+     "C'est",
+     "Ce sont",
+     "Il est",
+     "Elle est"
+    ],
+    "en": "These are my cousins."
+   },
+   {
+    "s": "Qu'est-ce que ___ ?",
+    "a": "c'est",
+    "o": [
+     "ce sont",
+     "il est",
+     "c'est",
+     "elle est"
+    ],
+    "en": "What is it?"
+   }
+  ],
+  "gouts-aimer": [
+   {
+    "s": "Elle adore ___ chocolat.",
+    "a": "le",
+    "o": [
+     "le",
+     "la",
+     "les",
+     "du"
+    ],
+    "en": "She loves chocolate."
+   },
+   {
+    "s": "Nous détestons ___ légumes.",
+    "a": "les",
+    "o": [
+     "le",
+     "les",
+     "la",
+     "du"
+    ],
+    "en": "We hate vegetables."
+   },
+   {
+    "s": "Il aime ___ musique classique.",
+    "a": "la",
+    "o": [
+     "le",
+     "les",
+     "la",
+     "du"
+    ],
+    "en": "He likes classical music."
+   }
+  ],
+  "adv-intensite": [
+   {
+    "s": "Elle est ___ contente.",
+    "a": "très",
+    "o": [
+     "très",
+     "beaucoup",
+     "demain",
+     "hier"
+    ],
+    "en": "She is very happy."
+   },
+   {
+    "s": "Il mange ___ de fruits.",
+    "a": "beaucoup",
+    "o": [
+     "très",
+     "beaucoup",
+     "bien",
+     "mal"
+    ],
+    "en": "He eats a lot of fruit."
+   },
+   {
+    "s": "Tu danses ___ bien !",
+    "a": "très",
+    "o": [
+     "beaucoup",
+     "peu",
+     "hier",
+     "très"
+    ],
+    "en": "You dance very well!"
+   }
+  ],
+  "avoir-expressions": [
+   {
+    "s": "Elle ___ vingt-cinq ans.",
+    "a": "a",
+    "o": [
+     "a",
+     "est",
+     "vit",
+     "met"
+    ],
+    "en": "She is twenty-five."
+   },
+   {
+    "s": "Il y a de la neige : j'ai ___.",
+    "a": "froid",
+    "o": [
+     "froide",
+     "froid",
+     "petit",
+     "bon"
+    ],
+    "en": "There is snow: I'm cold."
+   },
+   {
+    "s": "Nous avons ___ : il est midi.",
+    "a": "faim",
+    "o": [
+     "rien",
+     "grand",
+     "très",
+     "faim"
+    ],
+    "en": "We're hungry: it's noon."
+   }
+  ],
+  "clause-et-mais-parce-que": [
+   {
+    "s": "Elle est contente ___ elle a gagné.",
+    "a": "parce qu'",
+    "o": [
+     "parce que",
+     "parce qu'",
+     "puisque",
+     "pour que"
+    ],
+    "en": "She is happy because she won."
+   },
+   {
+    "s": "Tu préfères le thé ___ le café ?",
+    "a": "ou",
+    "o": [
+     "mais",
+     "ou",
+     "donc",
+     "parce que"
+    ],
+    "en": "Do you prefer tea or coffee?"
+   },
+   {
+    "s": "Je voudrais sortir, ___ il pleut trop.",
+    "a": "mais",
+    "o": [
+     "ou",
+     "donc",
+     "mais",
+     "parce que"
+    ],
+    "en": "I would like to go out, but it's raining too much."
+   }
+  ],
+  "pc-avoir": [
+   {
+    "s": "Hier, nous ___ mangé au restaurant.",
+    "a": "avons",
+    "o": [
+     "avons",
+     "ont",
+     "avez",
+     "sommes"
+    ],
+    "en": "Yesterday, we ate at the restaurant."
+   },
+   {
+    "s": "Elle ___ fini son travail.",
+    "a": "a",
+    "o": [
+     "ai",
+     "a",
+     "as",
+     "est"
+    ],
+    "en": "She finished her work."
+   },
+   {
+    "s": "Ils ___ acheté une maison.",
+    "a": "ont",
+    "o": [
+     "a",
+     "avons",
+     "ont",
+     "sont"
+    ],
+    "en": "They bought a house."
+   }
+  ],
+  "pc-etre": [
+   {
+    "s": "Hier, nous ___ allés au parc.",
+    "a": "sommes",
+    "o": [
+     "sommes",
+     "avons",
+     "ont",
+     "sont"
+    ],
+    "en": "Yesterday, we went to the park."
+   },
+   {
+    "s": "Elle ___ arrivée à midi.",
+    "a": "est",
+    "o": [
+     "a",
+     "est",
+     "sont",
+     "ont"
+    ],
+    "en": "She arrived at noon."
+   },
+   {
+    "s": "Ils ___ partis très tôt.",
+    "a": "sont",
+    "o": [
+     "ont",
+     "est",
+     "sont",
+     "avons"
+    ],
+    "en": "They left very early."
+   }
+  ],
+  "pc-accord-etre": [
+   {
+    "s": "Marie est ___ à huit heures.",
+    "a": "arrivée",
+    "o": [
+     "arrivée",
+     "arrivé",
+     "arrivés",
+     "arriver"
+    ],
+    "en": "Marie arrived at eight."
+   },
+   {
+    "s": "Mes amis sont ___ hier.",
+    "a": "venus",
+    "o": [
+     "venu",
+     "venus",
+     "venue",
+     "venir"
+    ],
+    "en": "My friends came yesterday."
+   },
+   {
+    "s": "Julie et Anna sont ___ à Paris.",
+    "a": "allées",
+    "o": [
+     "allé",
+     "allés",
+     "allées",
+     "allée"
+    ],
+    "en": "Julie and Anna went to Paris."
+   }
+  ],
+  "pc-pronominaux": [
+   {
+    "s": "Hier, je me ___ levée à sept heures.",
+    "a": "suis",
+    "o": [
+     "suis",
+     "ai",
+     "es",
+     "est"
+    ],
+    "en": "Yesterday, I got up at seven."
+   },
+   {
+    "s": "Elle s'est ___ à huit heures.",
+    "a": "couchée",
+    "o": [
+     "couché",
+     "couchée",
+     "couchés",
+     "coucher"
+    ],
+    "en": "She went to bed at eight."
+   },
+   {
+    "s": "Ils se ___ promenés dans le parc.",
+    "a": "sont",
+    "o": [
+     "ont",
+     "est",
+     "sont",
+     "sommes"
+    ],
+    "en": "They walked in the park."
+   }
+  ],
+  "pc-negation": [
+   {
+    "s": "Nous n'avons ___ fini.",
+    "a": "pas",
+    "o": [
+     "pas",
+     "non",
+     "ni",
+     "sans"
+    ],
+    "en": "We haven't finished."
+   },
+   {
+    "s": "Il ___ est pas venu.",
+    "a": "n'",
+    "o": [
+     "ne",
+     "n'",
+     "pas",
+     "ni"
+    ],
+    "en": "He didn't come."
+   },
+   {
+    "s": "Elle n'a pas ___ ses clés.",
+    "a": "trouvé",
+    "o": [
+     "trouver",
+     "trouvés",
+     "trouvé",
+     "trouve"
+    ],
+    "en": "She didn't find her keys."
+   }
+  ],
+  "pc-participes-irreguliers": [
+   {
+    "s": "Hier, j'ai ___ un film.",
+    "a": "vu",
+    "o": [
+     "voir",
+     "vu",
+     "vois",
+     "voit"
+    ],
+    "en": "Yesterday, I watched a film."
+   },
+   {
+    "s": "Nous avons ___ du sport.",
+    "a": "fait",
+    "o": [
+     "faire",
+     "fais",
+     "fait",
+     "faites"
+    ],
+    "en": "We did some sport."
+   },
+   {
+    "s": "Il a ___ un message.",
+    "a": "écrit",
+    "o": [
+     "écrire",
+     "écris",
+     "écrivait",
+     "écrit"
+    ],
+    "en": "He wrote a message."
+   }
+  ],
+  "imparfait-formation": [
+   {
+    "s": "Quand nous ___ petits, nous habitions à Nice.",
+    "a": "étions",
+    "o": [
+     "étions",
+     "étais",
+     "étiez",
+     "étaient"
+    ],
+    "en": "When we were small, we lived in Nice."
+   },
+   {
+    "s": "Je ___ au parc tous les jours.",
+    "a": "jouais",
+    "o": [
+     "jouait",
+     "jouais",
+     "jouions",
+     "jouaient"
+    ],
+    "en": "I used to play in the park every day."
+   },
+   {
+    "s": "Nous ___ souvent chez nos grands-parents.",
+    "a": "allions",
+    "o": [
+     "allais",
+     "allait",
+     "allions",
+     "allaient"
+    ],
+    "en": "We often used to go to our grandparents'."
+   }
+  ],
+  "imparfait-usage": [
+   {
+    "s": "Quand j'étais enfant, je ___ beaucoup de dessins animés.",
+    "a": "regardais",
+    "o": [
+     "regardais",
+     "regardai",
+     "regarde",
+     "regarderai"
+    ],
+    "en": "When I was a child, I watched a lot of cartoons."
+   },
+   {
+    "s": "Pendant mon enfance, il ___ toujours beau en été.",
+    "a": "faisait",
+    "o": [
+     "fait",
+     "faisait",
+     "ferait",
+     "fera"
+    ],
+    "en": "During my childhood, the weather was always nice in summer."
+   },
+   {
+    "s": "Quand j'étais petit, nous ___ chez mes grands-parents chaque été.",
+    "a": "allions",
+    "o": [
+     "allons",
+     "irons",
+     "allions",
+     "irions"
+    ],
+    "en": "When I was little, we went to my grandparents' every summer."
+   }
+  ],
+  "impf-vs-pc": [
+   {
+    "s": "Je lisais quand soudain le téléphone ___.",
+    "a": "a sonné",
+    "o": [
+     "a sonné",
+     "sonnait",
+     "sonnera",
+     "sonne"
+    ],
+    "en": "I was reading when suddenly the phone rang."
+   },
+   {
+    "s": "Quand je suis arrivé, il ___ déjà.",
+    "a": "dormait",
+    "o": [
+     "a dormi",
+     "dormait",
+     "dort",
+     "dormira"
+    ],
+    "en": "When I arrived, he was already sleeping."
+   },
+   {
+    "s": "Pendant que je cuisinais, mes enfants ___ dans le jardin.",
+    "a": "jouaient",
+    "o": [
+     "jouent",
+     "joueront",
+     "jouaient",
+     "ont joué"
+    ],
+    "en": "While I was cooking, my children were playing in the garden."
+   }
+  ],
+  "futur-simple": [
+   {
+    "s": "Demain, je ___ à Paris.",
+    "a": "serai",
+    "o": [
+     "serais",
+     "serai",
+     "étais",
+     "ai été"
+    ],
+    "en": "Tomorrow, I'll be in Paris."
+   },
+   {
+    "s": "Nous ___ le train demain matin.",
+    "a": "prendrons",
+    "o": [
+     "prendrions",
+     "prendrons",
+     "prendront",
+     "prendrez"
+    ],
+    "en": "We'll take the train tomorrow morning."
+   },
+   {
+    "s": "Tu ___ ton cadeau la semaine prochaine.",
+    "a": "recevras",
+    "o": [
+     "as reçu",
+     "recevais",
+     "recevras",
+     "reçu"
+    ],
+    "en": "You'll get your gift next week."
+   }
+  ],
+  "futur-irreguliers": [
+   {
+    "s": "Il ___ beau demain.",
+    "a": "fera",
+    "o": [
+     "faisait",
+     "fera",
+     "a fait",
+     "fasse"
+    ],
+    "en": "The weather will be nice tomorrow."
+   },
+   {
+    "s": "Nous ___ en vacances en juillet.",
+    "a": "irons",
+    "o": [
+     "irais",
+     "irez",
+     "irons",
+     "iront"
+    ],
+    "en": "We'll go on holiday in July."
+   },
+   {
+    "s": "Ils ___ nous voir ce week-end.",
+    "a": "viendront",
+    "o": [
+     "viendrons",
+     "viendrez",
+     "viendrait",
+     "viendront"
+    ],
+    "en": "They'll come to see us this weekend."
+   }
+  ],
+  "conditionnel-politesse": [
+   {
+    "s": "Je ___ un café, s'il vous plaît.",
+    "a": "voudrais",
+    "o": [
+     "voulez",
+     "voudrais",
+     "voulons",
+     "voudra"
+    ],
+    "en": "I would like a coffee, please."
+   },
+   {
+    "s": "___-vous m'aider, s'il vous plaît ?",
+    "a": "Pourriez",
+    "o": [
+     "Pourrais",
+     "Pourraient",
+     "Pourriez",
+     "Pourra"
+    ],
+    "en": "Could you help me, please?"
+   },
+   {
+    "s": "Nous ___ réserver une table.",
+    "a": "voudrions",
+    "o": [
+     "voudriez",
+     "voudraient",
+     "voulez",
+     "voudrions"
+    ],
+    "en": "We would like to book a table."
+   }
+  ],
+  "cod-pronoms": [
+   {
+    "s": "Tu vois Paul ? Oui, je ___ vois.",
+    "a": "le",
+    "o": [
+     "le",
+     "la",
+     "les",
+     "lui"
+    ],
+    "en": "Do you see Paul? Yes, I see him."
+   },
+   {
+    "s": "Elle prend la voiture ? Oui, elle ___ prend.",
+    "a": "la",
+    "o": [
+     "le",
+     "la",
+     "les",
+     "lui"
+    ],
+    "en": "Is she taking the car? Yes, she is taking it."
+   },
+   {
+    "s": "Tu veux ces chaussures ? Oui, je ___ prends.",
+    "a": "les",
+    "o": [
+     "le",
+     "la",
+     "les",
+     "lui"
+    ],
+    "en": "Do you want these shoes? Yes, I'll take them."
+   }
+  ],
+  "coi-pronoms": [
+   {
+    "s": "Tu parles à Marie ? Oui, je ___ parle.",
+    "a": "lui",
+    "o": [
+     "lui",
+     "le",
+     "la",
+     "leur"
+    ],
+    "en": "Do you talk to Marie? Yes, I talk to her."
+   },
+   {
+    "s": "Il téléphone à ses parents ? Oui, il ___ téléphone.",
+    "a": "leur",
+    "o": [
+     "lui",
+     "leur",
+     "les",
+     "le"
+    ],
+    "en": "Does he call his parents? Yes, he calls them."
+   },
+   {
+    "s": "Je donne le livre à mes amis : je ___ donne le livre.",
+    "a": "leur",
+    "o": [
+     "lui",
+     "les",
+     "leur",
+     "leurs"
+    ],
+    "en": "I give the book to my friends: I give them the book."
+   }
+  ],
+  "pronoms-me-te-nous-vous": [
+   {
+    "s": "Maman ___ appelle toujours le dimanche, à moi et à mon frère.",
+    "a": "nous",
+    "o": [
+     "nous",
+     "me",
+     "te",
+     "vous"
+    ],
+    "en": "Mum always calls us on Sundays, me and my brother."
+   },
+   {
+    "s": "Léa, je ___ parle.",
+    "a": "te",
+    "o": [
+     "t'",
+     "me",
+     "te",
+     "nous"
+    ],
+    "en": "Léa, I'm talking to you."
+   },
+   {
+    "s": "Madame, je ___ remercie.",
+    "a": "vous",
+    "o": [
+     "te",
+     "nous",
+     "vous",
+     "me"
+    ],
+    "en": "Madam, I thank you."
+   }
+  ],
+  "y-pronom": [
+   {
+    "s": "Vous allez à la gare ? Oui, nous ___ allons.",
+    "a": "y",
+    "o": [
+     "y",
+     "en",
+     "le",
+     "lui"
+    ],
+    "en": "Are you going to the station? Yes, we're going there."
+   },
+   {
+    "s": "Il habite à Lyon ? Oui, il ___ habite depuis dix ans.",
+    "a": "y",
+    "o": [
+     "en",
+     "y",
+     "le",
+     "lui"
+    ],
+    "en": "Does he live in Lyon? Yes, he has lived there for ten years."
+   },
+   {
+    "s": "Vous allez à Rome ? Non, nous n'___ allons pas.",
+    "a": "y",
+    "o": [
+     "en",
+     "le",
+     "y",
+     "lui"
+    ],
+    "en": "Are you going to Rome? No, we aren't going there."
+   }
+  ],
+  "en-pronom": [
+   {
+    "s": "Tu veux du café ? Oui, j'___ veux.",
+    "a": "en",
+    "o": [
+     "en",
+     "y",
+     "le",
+     "lui"
+    ],
+    "en": "Do you want some coffee? Yes, I want some."
+   },
+   {
+    "s": "Vous avez des enfants ? Oui, nous ___ avons deux.",
+    "a": "en",
+    "o": [
+     "y",
+     "en",
+     "les",
+     "leur"
+    ],
+    "en": "Do you have children? Yes, we have two."
+   },
+   {
+    "s": "Tu manges du fromage ? Non, je n'___ mange pas.",
+    "a": "en",
+    "o": [
+     "y",
+     "le",
+     "en",
+     "lui"
+    ],
+    "en": "Do you eat cheese? No, I don't eat any."
+   }
+  ],
+  "pronoms-toniques": [
+   {
+    "s": "Tu viens avec ___ ?",
+    "a": "moi",
+    "o": [
+     "moi",
+     "je",
+     "me",
+     "mon"
+    ],
+    "en": "Are you coming with me?"
+   },
+   {
+    "s": "Qui est là ? — ___ !",
+    "a": "Moi",
+    "o": [
+     "Je",
+     "Moi",
+     "Me",
+     "Mon"
+    ],
+    "en": "Who's there? — Me!"
+   },
+   {
+    "s": "Ils sont gentils : j'aime travailler avec ___.",
+    "a": "eux",
+    "o": [
+     "ils",
+     "les",
+     "eux",
+     "leur"
+    ],
+    "en": "They are kind: I like working with them."
+   }
+  ],
+  "comparatifs": [
+   {
+    "s": "Paul est ___ grand que Marc : il mesure dix centimètres de plus.",
+    "a": "plus",
+    "o": [
+     "plus",
+     "aussi",
+     "moins",
+     "très"
+    ],
+    "en": "Paul is taller than Marc: he is ten centimetres taller."
+   },
+   {
+    "s": "Léa est ___ rapide que sa sœur : elles courent à la même vitesse.",
+    "a": "aussi",
+    "o": [
+     "plus",
+     "aussi",
+     "moins",
+     "très"
+    ],
+    "en": "Léa is as fast as her sister: they run at the same speed."
+   },
+   {
+    "s": "Le stylo est ___ cher que le livre : il coûte un euro et le livre quinze.",
+    "a": "moins",
+    "o": [
+     "plus",
+     "aussi",
+     "moins",
+     "très"
+    ],
+    "en": "The pen is less expensive than the book: it costs one euro and the book fifteen."
+   }
+  ],
+  "superlatifs": [
+   {
+    "s": "Paul est ___ plus grand de la classe.",
+    "a": "le",
+    "o": [
+     "le",
+     "la",
+     "les",
+     "l'"
+    ],
+    "en": "Paul is the tallest in the class."
+   },
+   {
+    "s": "Marie est ___ plus rapide de l'équipe.",
+    "a": "la",
+    "o": [
+     "le",
+     "la",
+     "les",
+     "l'"
+    ],
+    "en": "Marie is the fastest in the team."
+   },
+   {
+    "s": "Ce sont ___ plus beaux jardins de la ville.",
+    "a": "les",
+    "o": [
+     "le",
+     "la",
+     "les",
+     "l'"
+    ],
+    "en": "These are the most beautiful gardens in the city."
+   }
+  ],
+  "meilleur-mieux": [
+   {
+    "s": "Ce restaurant est ___ que l'autre.",
+    "a": "meilleur",
+    "o": [
+     "meilleure",
+     "meilleur",
+     "bon",
+     "bien"
+    ],
+    "en": "This restaurant is better than the other one."
+   },
+   {
+    "s": "Elle chante ___ que moi.",
+    "a": "mieux",
+    "o": [
+     "meilleur",
+     "mieux",
+     "meilleure",
+     "bon"
+    ],
+    "en": "She sings better than me."
+   },
+   {
+    "s": "C'est ___ idée du monde !",
+    "a": "la meilleure",
+    "o": [
+     "le mieux",
+     "la mieux",
+     "la meilleure",
+     "la meilleur"
+    ],
+    "en": "It's the best idea in the world!"
+   }
+  ],
+  "adverbes-ment": [
+   {
+    "s": "Elle parle très ___.",
+    "a": "lentement",
+    "o": [
+     "lent",
+     "lentement",
+     "lente",
+     "lents"
+    ],
+    "en": "She speaks very slowly."
+   },
+   {
+    "s": "Il conduit ___.",
+    "a": "prudemment",
+    "o": [
+     "prudent",
+     "prudente",
+     "prudemment",
+     "prudents"
+    ],
+    "en": "He drives carefully."
+   },
+   {
+    "s": "Elle est ___ contente.",
+    "a": "vraiment",
+    "o": [
+     "vrai",
+     "vraie",
+     "vraies",
+     "vraiment"
+    ],
+    "en": "She is really happy."
+   }
+  ],
+  "prep-pays-villes": [
+   {
+    "s": "Elle habite ___ France.",
+    "a": "en",
+    "o": [
+     "en",
+     "au",
+     "à",
+     "aux"
+    ],
+    "en": "She lives in France."
+   },
+   {
+    "s": "Nous allons ___ Japon.",
+    "a": "au",
+    "o": [
+     "en",
+     "au",
+     "à",
+     "aux"
+    ],
+    "en": "We are going to Japan."
+   },
+   {
+    "s": "Il travaille ___ Paris.",
+    "a": "à",
+    "o": [
+     "en",
+     "au",
+     "à",
+     "aux"
+    ],
+    "en": "He works in Paris."
+   }
+  ],
+  "depuis-pendant-il-y-a": [
+   {
+    "s": "J'habite à Lyon ___ trois ans.",
+    "a": "depuis",
+    "o": [
+     "depuis",
+     "pendant",
+     "il y a",
+     "dans"
+    ],
+    "en": "I've lived in Lyon for three years."
+   },
+   {
+    "s": "Nous avons dormi ___ huit heures.",
+    "a": "pendant",
+    "o": [
+     "depuis",
+     "pendant",
+     "il y a",
+     "dans"
+    ],
+    "en": "We slept for eight hours."
+   },
+   {
+    "s": "Elle est arrivée ___ deux jours.",
+    "a": "il y a",
+    "o": [
+     "depuis",
+     "pendant",
+     "il y a",
+     "dans"
+    ],
+    "en": "She arrived two days ago."
+   }
+  ],
+  "passe-recent": [
+   {
+    "s": "Nous venons ___ finir.",
+    "a": "de",
+    "o": [
+     "de",
+     "à",
+     "en",
+     "sur"
+    ],
+    "en": "We have just finished."
+   },
+   {
+    "s": "Je ___ de téléphoner à Paul.",
+    "a": "viens",
+    "o": [
+     "vais",
+     "viens",
+     "suis",
+     "ai"
+    ],
+    "en": "I have just called Paul."
+   },
+   {
+    "s": "Ils ___ de partir : tu les as manqués.",
+    "a": "viennent",
+    "o": [
+     "vont",
+     "sont",
+     "viennent",
+     "ont"
+    ],
+    "en": "They have just left: you missed them."
+   }
+  ],
+  "imperatif-negatif": [
+   {
+    "s": "Les enfants, ne ___ pas dans la rue !",
+    "a": "courez",
+    "o": [
+     "courez",
+     "cours",
+     "courent",
+     "courir"
+    ],
+    "en": "Children, don't run in the street!"
+   },
+   {
+    "s": "Ne ___ pas, s'il te plaît !",
+    "a": "pars",
+    "o": [
+     "part",
+     "pars",
+     "partez",
+     "partir"
+    ],
+    "en": "Don't leave, please!"
+   },
+   {
+    "s": "Messieurs, ne ___ pas de photos ici !",
+    "a": "prenez",
+    "o": [
+     "prends",
+     "prendre",
+     "prenez",
+     "prennent"
+    ],
+    "en": "Gentlemen, don't take photos here!"
+   }
+  ],
+  "imperatif-pronoms": [
+   {
+    "s": "Regarde-___ !",
+    "a": "moi",
+    "o": [
+     "moi",
+     "me",
+     "je",
+     "mon"
+    ],
+    "en": "Look at me!"
+   },
+   {
+    "s": "Parlez-___ de votre voyage.",
+    "a": "nous",
+    "o": [
+     "me",
+     "je",
+     "nous",
+     "elle"
+    ],
+    "en": "Tell us about your trip."
+   },
+   {
+    "s": "Voici Marie : téléphone-___ demain.",
+    "a": "lui",
+    "o": [
+     "elle",
+     "la",
+     "lui",
+     "le"
+    ],
+    "en": "Here is Marie: call her tomorrow."
+   }
+  ],
+  "rel-qui-que": [
+   {
+    "s": "La femme ___ habite ici est médecin.",
+    "a": "qui",
+    "o": [
+     "qui",
+     "que",
+     "où",
+     "dont"
+    ],
+    "en": "The woman who lives here is a doctor."
+   },
+   {
+    "s": "Le film ___ nous regardons est drôle.",
+    "a": "que",
+    "o": [
+     "qui",
+     "que",
+     "où",
+     "dont"
+    ],
+    "en": "The film we are watching is funny."
+   },
+   {
+    "s": "Le livre ___ tu lis est très long.",
+    "a": "que",
+    "o": [
+     "qui",
+     "où",
+     "que",
+     "dont"
+    ],
+    "en": "The book you are reading is very long."
+   }
+  ],
+  "rel-ou": [
+   {
+    "s": "La maison ___ elle habite est petite.",
+    "a": "où",
+    "o": [
+     "où",
+     "qui",
+     "que",
+     "dont"
+    ],
+    "en": "The house where she lives is small."
+   },
+   {
+    "s": "Le jour ___ nous sommes partis, il neigeait.",
+    "a": "où",
+    "o": [
+     "qui",
+     "où",
+     "que",
+     "dont"
+    ],
+    "en": "The day we left, it was snowing."
+   },
+   {
+    "s": "Voici le café ___ nous nous retrouvons.",
+    "a": "où",
+    "o": [
+     "qui",
+     "que",
+     "où",
+     "dont"
+    ],
+    "en": "Here is the café where we meet."
+   }
+  ],
+  "il-faut": [
+   {
+    "s": "Pour réussir, il ___ travailler.",
+    "a": "faut",
+    "o": [
+     "est",
+     "faut",
+     "fait",
+     "vaut"
+    ],
+    "en": "To succeed, you have to work."
+   },
+   {
+    "s": "Il ___ du temps pour apprendre une langue.",
+    "a": "faut",
+    "o": [
+     "est",
+     "va",
+     "faut",
+     "sait"
+    ],
+    "en": "It takes time to learn a language."
+   },
+   {
+    "s": "Il ne ___ pas fumer ici.",
+    "a": "faut",
+    "o": [
+     "fait",
+     "faille",
+     "vaut",
+     "faut"
+    ],
+    "en": "You must not smoke here."
+   }
+  ],
+  "neg-jamais-plus-rien": [
+   {
+    "s": "Je n'ai ___ mangé de sushi : c'est ma première fois.",
+    "a": "jamais",
+    "o": [
+     "jamais",
+     "rien",
+     "personne",
+     "plus"
+    ],
+    "en": "I have never eaten sushi: it's my first time."
+   },
+   {
+    "s": "Il n'y a ___ dans la classe : tous les élèves sont partis.",
+    "a": "personne",
+    "o": [
+     "rien",
+     "personne",
+     "jamais",
+     "plus"
+    ],
+    "en": "There is nobody in the classroom: all the pupils have left."
+   },
+   {
+    "s": "Nous n'habitons ___ à Paris : nous avons déménagé.",
+    "a": "plus",
+    "o": [
+     "rien",
+     "personne",
+     "plus",
+     "jamais"
+    ],
+    "en": "We no longer live in Paris: we have moved."
+   }
+  ],
+  "quantite-de": [
+   {
+    "s": "Il y a trop ___ monde ici.",
+    "a": "de",
+    "o": [
+     "de",
+     "du",
+     "des",
+     "le"
+    ],
+    "en": "There are too many people here."
+   },
+   {
+    "s": "Je voudrais un peu ___ sucre.",
+    "a": "de",
+    "o": [
+     "du",
+     "de",
+     "le",
+     "un"
+    ],
+    "en": "I would like a little sugar."
+   },
+   {
+    "s": "Nous avons assez ___ temps.",
+    "a": "de",
+    "o": [
+     "du",
+     "des",
+     "de",
+     "le"
+    ],
+    "en": "We have enough time."
+   }
+  ],
+  "c-est-il-est": [
+   {
+    "s": "Il ___ médecin.",
+    "a": "est",
+    "o": [
+     "est",
+     "c'est",
+     "ce sont",
+     "sont"
+    ],
+    "en": "He is a doctor."
+   },
+   {
+    "s": "___ un médecin très connu.",
+    "a": "C'est",
+    "o": [
+     "Ce sont",
+     "Ils sont",
+     "C'est",
+     "Elles sont"
+    ],
+    "en": "He is a very well-known doctor."
+   },
+   {
+    "s": "Elle ___ très gentille.",
+    "a": "est",
+    "o": [
+     "c'est",
+     "ce sont",
+     "est",
+     "sont"
+    ],
+    "en": "She is very kind."
+   }
+  ],
+  "q-inversion": [
+   {
+    "s": "___-vous anglais ?",
+    "a": "Parlez",
+    "o": [
+     "Parlez",
+     "Parlons",
+     "Parlent",
+     "Parle"
+    ],
+    "en": "Do you speak English?"
+   },
+   {
+    "s": "Où ___-tu ?",
+    "a": "vas",
+    "o": [
+     "va",
+     "vas",
+     "vais",
+     "allons"
+    ],
+    "en": "Where are you going?"
+   },
+   {
+    "s": "Que ___-ils ?",
+    "a": "font",
+    "o": [
+     "fait",
+     "fais",
+     "font",
+     "faisons"
+    ],
+    "en": "What are they doing?"
+   }
+  ],
+  "q-qui-que-quoi": [
+   {
+    "s": "___ est ce monsieur ? — C'est mon professeur.",
+    "a": "Qui",
+    "o": [
+     "Qui",
+     "Que",
+     "Quoi",
+     "Où"
+    ],
+    "en": "Who is this gentleman? — He is my teacher."
+   },
+   {
+    "s": "___ tu fais ce soir ? — Je reste à la maison.",
+    "a": "Qu'est-ce que",
+    "o": [
+     "Qu'est-ce qui",
+     "Quand",
+     "Qu'est-ce que",
+     "Où"
+    ],
+    "en": "What are you doing tonight? — I'm staying at home."
+   },
+   {
+    "s": "Tu parles de ___ ? — De mes vacances.",
+    "a": "quoi",
+    "o": [
+     "que",
+     "qui est",
+     "quoi",
+     "quel"
+    ],
+    "en": "What are you talking about? — My holidays."
+   }
+  ],
+  "adj-irreguliers": [
+   {
+    "s": "Elle a une ___ voiture.",
+    "a": "nouvelle",
+    "o": [
+     "nouvelle",
+     "nouveau",
+     "nouvel",
+     "nouvelles"
+    ],
+    "en": "She has a new car."
+   },
+   {
+    "s": "Mon grand-père est un ___ homme.",
+    "a": "vieil",
+    "o": [
+     "vieux",
+     "vieil",
+     "vieille",
+     "vieilles"
+    ],
+    "en": "My grandfather is an old man."
+   },
+   {
+    "s": "La neige est ___.",
+    "a": "blanche",
+    "o": [
+     "blanc",
+     "blancs",
+     "blanche",
+     "blanches"
+    ],
+    "en": "The snow is white."
+   }
+  ],
+  "connecteurs-temps": [
+   {
+    "s": "___, je me lève ; ensuite, je prends une douche.",
+    "a": "D'abord",
+    "o": [
+     "D'abord",
+     "Enfin",
+     "Pourtant",
+     "Puisque"
+    ],
+    "en": "First, I get up; then I take a shower."
+   },
+   {
+    "s": "Je prends un café, ___ je pars au travail.",
+    "a": "puis",
+    "o": [
+     "pourtant",
+     "puis",
+     "car",
+     "parce que"
+    ],
+    "en": "I have a coffee, then I leave for work."
+   },
+   {
+    "s": "Après six heures de route, nous sommes ___ arrivés.",
+    "a": "enfin",
+    "o": [
+     "d'abord",
+     "ensuite",
+     "enfin",
+     "puis"
+    ],
+    "en": "After six hours on the road, we have finally arrived."
+   }
+  ],
+  "si-present-futur": [
+   {
+    "s": "Si tu ___, je t'attendrai.",
+    "a": "viens",
+    "o": [
+     "viens",
+     "viendras",
+     "viendrais",
+     "venais"
+    ],
+    "en": "If you come, I'll wait for you."
+   },
+   {
+    "s": "S'il pleut demain, nous ___ à la maison.",
+    "a": "resterons",
+    "o": [
+     "resterions",
+     "resterons",
+     "restions",
+     "resterait"
+    ],
+    "en": "If it rains tomorrow, we'll stay at home."
+   },
+   {
+    "s": "Si vous ___ du temps, appelez-moi.",
+    "a": "avez",
+    "o": [
+     "aurez",
+     "aviez",
+     "avez",
+     "auriez"
+    ],
+    "en": "If you have time, call me."
+   }
+  ],
+  "savoir-connaitre": [
+   {
+    "s": "Tu ___ cette ville ?",
+    "a": "connais",
+    "o": [
+     "sais",
+     "connais",
+     "connaît",
+     "savons"
+    ],
+    "en": "Do you know this city?"
+   },
+   {
+    "s": "Je ___ parler trois langues.",
+    "a": "sais",
+    "o": [
+     "connais",
+     "sais",
+     "sait",
+     "connaît"
+    ],
+    "en": "I can speak three languages."
+   },
+   {
+    "s": "Elle ne ___ pas mon frère.",
+    "a": "connaît",
+    "o": [
+     "sait",
+     "connais",
+     "connaît",
+     "connaissent"
+    ],
+    "en": "She doesn't know my brother."
+   }
+  ],
+  "pres-irreguliers-2": [
+   {
+    "s": "Nous ___ un livre.",
+    "a": "lisons",
+    "o": [
+     "lisons",
+     "lisez",
+     "lisent",
+     "lis"
+    ],
+    "en": "We are reading a book."
+   },
+   {
+    "s": "Vous ___ la vérité.",
+    "a": "dites",
+    "o": [
+     "dis",
+     "disent",
+     "dites",
+     "disons"
+    ],
+    "en": "You are telling the truth."
+   },
+   {
+    "s": "Ils ___ une lettre.",
+    "a": "écrivent",
+    "o": [
+     "écrivons",
+     "écrit",
+     "écrivent",
+     "écrivez"
+    ],
+    "en": "They are writing a letter."
+   }
+  ],
+  "meteo-il": [
+   {
+    "s": "Il ___ beau aujourd'hui.",
+    "a": "fait",
+    "o": [
+     "pleut",
+     "fait",
+     "neige",
+     "va"
+    ],
+    "en": "The weather is nice today."
+   },
+   {
+    "s": "Il ___ en hiver.",
+    "a": "neige",
+    "o": [
+     "neiges",
+     "neige",
+     "neigeons",
+     "neigent"
+    ],
+    "en": "It snows in winter."
+   },
+   {
+    "s": "Il ___ froid ce matin.",
+    "a": "fait",
+    "o": [
+     "pleut",
+     "neige",
+     "va",
+     "fait"
+    ],
+    "en": "It is cold this morning."
+   }
+  ],
+  "profession-sans-article": [
+   {
+    "s": "Elle est ___ : elle travaille à l'hôpital.",
+    "a": "infirmière",
+    "o": [
+     "une infirmière",
+     "infirmière",
+     "des infirmières",
+     "les infirmières"
+    ],
+    "en": "She is a nurse: she works at the hospital."
+   },
+   {
+    "s": "Mon frère est ___ : il enseigne les maths.",
+    "a": "professeur",
+    "o": [
+     "un professeur",
+     "des professeurs",
+     "professeur",
+     "les professeurs"
+    ],
+    "en": "My brother is a teacher: he teaches maths."
+   },
+   {
+    "s": "Il est ___ depuis dix ans.",
+    "a": "avocat",
+    "o": [
+     "un avocat",
+     "des avocats",
+     "les avocats",
+     "avocat"
+    ],
+    "en": "He has been a lawyer for ten years."
+   }
+  ],
+  "subj-il-faut-que": [
+   {
+    "s": "Il faut que tu ___ à l'heure.",
+    "a": "sois",
+    "o": [
+     "sois",
+     "es",
+     "seras",
+     "étais"
+    ],
+    "en": "You have to be on time."
+   },
+   {
+    "s": "Il faut que nous ___ le travail.",
+    "a": "finissions",
+    "o": [
+     "finissons",
+     "finissions",
+     "finirons",
+     "finissez"
+    ],
+    "en": "We have to finish the work."
+   },
+   {
+    "s": "Il faut que je ___ tôt demain.",
+    "a": "parte",
+    "o": [
+     "pars",
+     "partirai",
+     "parte",
+     "partais"
+    ],
+    "en": "I have to leave early tomorrow."
+   }
+  ],
+  "subj-vouloir-que": [
+   {
+    "s": "Je veux que vous ___ avec nous.",
+    "a": "veniez",
+    "o": [
+     "veniez",
+     "venez",
+     "viendrez",
+     "viendriez"
+    ],
+    "en": "I want you to come with us."
+   },
+   {
+    "s": "Elle veut que nous ___ ensemble.",
+    "a": "mangions",
+    "o": [
+     "mangeons",
+     "mangions",
+     "mangerons",
+     "mangeriez"
+    ],
+    "en": "She wants us to eat together."
+   },
+   {
+    "s": "Mes parents veulent que je ___ médecin.",
+    "a": "devienne",
+    "o": [
+     "deviens",
+     "deviendrai",
+     "devienne",
+     "devenais"
+    ],
+    "en": "My parents want me to become a doctor."
+   }
+  ],
+  "subj-irreguliers": [
+   {
+    "s": "Il faut qu'elle ___ de la chance.",
+    "a": "ait",
+    "o": [
+     "ait",
+     "a",
+     "aura",
+     "aie"
+    ],
+    "en": "She needs to be lucky."
+   },
+   {
+    "s": "Je veux qu'il ___ au marché.",
+    "a": "aille",
+    "o": [
+     "va",
+     "aille",
+     "ira",
+     "allait"
+    ],
+    "en": "I want him to go to the market."
+   },
+   {
+    "s": "Il faut que nous ___ attention.",
+    "a": "fassions",
+    "o": [
+     "faisons",
+     "ferons",
+     "faisions",
+     "fassions"
+    ],
+    "en": "We have to pay attention."
+   }
+  ],
+  "subj-emotions": [
+   {
+    "s": "Je suis content que vous ___ ici.",
+    "a": "soyez",
+    "o": [
+     "soyez",
+     "êtes",
+     "serez",
+     "étiez"
+    ],
+    "en": "I'm glad you are here."
+   },
+   {
+    "s": "Elle regrette que nous ne ___ pas là.",
+    "a": "soyons",
+    "o": [
+     "sommes",
+     "soyons",
+     "serons",
+     "étions"
+    ],
+    "en": "She regrets that we aren't there."
+   },
+   {
+    "s": "Nous sommes heureux qu'il ___ beau.",
+    "a": "fasse",
+    "o": [
+     "fait",
+     "fera",
+     "fasse",
+     "faisait"
+    ],
+    "en": "We are happy that the weather is nice."
+   }
+  ],
+  "subj-vs-indic": [
+   {
+    "s": "Je pense qu'il ___ raison.",
+    "a": "a",
+    "o": [
+     "a",
+     "ait",
+     "aient",
+     "ayez"
+    ],
+    "en": "I think he is right."
+   },
+   {
+    "s": "Je ne pense pas qu'il ___ raison.",
+    "a": "ait",
+    "o": [
+     "a",
+     "ait",
+     "aura",
+     "avait"
+    ],
+    "en": "I don't think he is right."
+   },
+   {
+    "s": "Je sais que tu ___ fatigué.",
+    "a": "es",
+    "o": [
+     "sois",
+     "soit",
+     "es",
+     "soyons"
+    ],
+    "en": "I know you are tired."
+   }
+  ],
+  "subj-conjonctions": [
+   {
+    "s": "Je t'explique pour que tu ___.",
+    "a": "comprennes",
+    "o": [
+     "comprennes",
+     "comprends",
+     "comprendras",
+     "comprenais"
+    ],
+    "en": "I'm explaining so that you understand."
+   },
+   {
+    "s": "Bien qu'il ___ fatigué, il travaille.",
+    "a": "soit",
+    "o": [
+     "est",
+     "soit",
+     "sera",
+     "était"
+    ],
+    "en": "Although he is tired, he is working."
+   },
+   {
+    "s": "Appelle-moi avant que tu ___.",
+    "a": "partes",
+    "o": [
+     "pars",
+     "partiras",
+     "partes",
+     "partais"
+    ],
+    "en": "Call me before you leave."
+   }
+  ],
+  "si-imparfait-cond": [
+   {
+    "s": "Si j'avais plus de temps, je ___ un livre.",
+    "a": "lirais",
+    "o": [
+     "lirais",
+     "lis",
+     "lirai",
+     "lisais"
+    ],
+    "en": "If I had more time, I would read a book."
+   },
+   {
+    "s": "Si nous gagnions, nous ___ une fête.",
+    "a": "ferions",
+    "o": [
+     "ferons",
+     "ferions",
+     "faisons",
+     "ferais"
+    ],
+    "en": "If we won, we would have a party."
+   },
+   {
+    "s": "Si tu ___ riche, que ferais-tu ?",
+    "a": "étais",
+    "o": [
+     "es",
+     "seras",
+     "étais",
+     "serais"
+    ],
+    "en": "If you were rich, what would you do?"
+   }
+  ],
+  "cond-usage": [
+   {
+    "s": "Nous ___ bien partir en vacances, mais nous n'avons pas le temps.",
+    "a": "aimerions",
+    "o": [
+     "aimerions",
+     "aimerons",
+     "aimerais",
+     "aimeriez"
+    ],
+    "en": "We would like to go on holiday, but we don't have time."
+   },
+   {
+    "s": "Tu ___ prendre un parapluie : il va pleuvoir.",
+    "a": "devrais",
+    "o": [
+     "devrait",
+     "devriez",
+     "devrais",
+     "devez"
+    ],
+    "en": "You should take an umbrella: it's going to rain."
+   },
+   {
+    "s": "Mon frère ___ un chien, mais notre appartement est trop petit.",
+    "a": "voudrait",
+    "o": [
+     "voudrais",
+     "voudriez",
+     "voulons",
+     "voudrait"
+    ],
+    "en": "My brother would like a dog, but our apartment is too small."
+   }
+  ],
+  "cond-passe-regret": [
+   {
+    "s": "Si j'avais su, je ___ venu.",
+    "a": "serais",
+    "o": [
+     "serais",
+     "suis",
+     "serai",
+     "étais"
+    ],
+    "en": "If I had known, I would have come."
+   },
+   {
+    "s": "Si tu avais étudié, tu ___ réussi.",
+    "a": "aurais",
+    "o": [
+     "as",
+     "aurais",
+     "auras",
+     "avais"
+    ],
+    "en": "If you had studied, you would have passed."
+   },
+   {
+    "s": "Si nous avions eu le temps, nous ___ visité Rome.",
+    "a": "aurions",
+    "o": [
+     "avons",
+     "aurons",
+     "aurions",
+     "avions"
+    ],
+    "en": "If we had had time, we would have visited Rome."
+   }
+  ],
+  "plus-que-parfait-forme": [
+   {
+    "s": "Elle ___ déjà mangé quand je suis arrivé.",
+    "a": "avait",
+    "o": [
+     "aura",
+     "avait",
+     "avais",
+     "ont"
+    ],
+    "en": "She had already eaten when I arrived."
+   },
+   {
+    "s": "Nous ___ partis avant la pluie.",
+    "a": "étions",
+    "o": [
+     "étiez",
+     "étais",
+     "étions",
+     "étaient"
+    ],
+    "en": "We had left before the rain."
+   },
+   {
+    "s": "Ils avaient ___ leur travail.",
+    "a": "fini",
+    "o": [
+     "finir",
+     "finie",
+     "fini",
+     "finis"
+    ],
+    "en": "They had finished their work."
+   }
+  ],
+  "plus-que-parfait-usage": [
+   {
+    "s": "Il était fatigué parce qu'il ___ mal dormi.",
+    "a": "avait",
+    "o": [
+     "ait",
+     "avait",
+     "avais",
+     "avaient"
+    ],
+    "en": "He was tired because he had slept badly."
+   },
+   {
+    "s": "Elle m'a dit qu'elle ___ déjà vu ce film.",
+    "a": "avait",
+    "o": [
+     "ait",
+     "avais",
+     "avait",
+     "avaient"
+    ],
+    "en": "She told me she had already seen this film."
+   },
+   {
+    "s": "Quand nous sommes arrivés, le train était déjà ___.",
+    "a": "parti",
+    "o": [
+     "partir",
+     "partis",
+     "parti",
+     "partie"
+    ],
+    "en": "When we arrived, the train had already left."
+   }
+  ],
+  "di-present": [
+   {
+    "s": "Mes parents disent ___ nous devons partir.",
+    "a": "que",
+    "o": [
+     "que",
+     "qui",
+     "quoi",
+     "dont"
+    ],
+    "en": "My parents say we have to leave."
+   },
+   {
+    "s": "Il explique qu'il ___ beaucoup de travail.",
+    "a": "a",
+    "o": [
+     "ai",
+     "a",
+     "as",
+     "avons"
+    ],
+    "en": "He explains that he has a lot of work."
+   },
+   {
+    "s": "Elle répond qu'elle ne ___ pas.",
+    "a": "sait",
+    "o": [
+     "sais",
+     "savons",
+     "sait",
+     "savent"
+    ],
+    "en": "She answers that she doesn't know."
+   }
+  ],
+  "di-questions": [
+   {
+    "s": "Elle demande ___ tu veux du café.",
+    "a": "si",
+    "o": [
+     "si",
+     "que",
+     "qui",
+     "ce que"
+    ],
+    "en": "She asks if you want coffee."
+   },
+   {
+    "s": "Je demande ___ il habite.",
+    "a": "où",
+    "o": [
+     "que",
+     "si",
+     "où",
+     "quoi"
+    ],
+    "en": "I ask where he lives."
+   },
+   {
+    "s": "Il veut savoir ___ tu fais.",
+    "a": "ce que",
+    "o": [
+     "qu'est-ce que",
+     "que",
+     "ce que",
+     "si"
+    ],
+    "en": "He wants to know what you are doing."
+   }
+  ],
+  "di-passe": [
+   {
+    "s": "Hier, elle a dit qu'elle ___ fatiguée.",
+    "a": "était",
+    "o": [
+     "étais",
+     "était",
+     "étaient",
+     "soit"
+    ],
+    "en": "Yesterday, she said she was tired."
+   },
+   {
+    "s": "Il m'a répondu qu'il ___ le lendemain.",
+    "a": "viendrait",
+    "o": [
+     "viendra",
+     "viendrait",
+     "vient",
+     "vienne"
+    ],
+    "en": "He answered that he would come the next day."
+   },
+   {
+    "s": "Nous avons dit que nous ___ en retard.",
+    "a": "étions",
+    "o": [
+     "étiez",
+     "étaient",
+     "étais",
+     "étions"
+    ],
+    "en": "We said we were late."
+   }
+  ],
+  "gerondif-formation": [
+   {
+    "s": "Elle écoute de la musique en ___.",
+    "a": "travaillant",
+    "o": [
+     "travaillant",
+     "travailler",
+     "travaillé",
+     "travaille"
+    ],
+    "en": "She listens to music while working."
+   },
+   {
+    "s": "Il mange en ___ la télé.",
+    "a": "regardant",
+    "o": [
+     "regarde",
+     "regardant",
+     "regarder",
+     "regardé"
+    ],
+    "en": "He eats while watching TV."
+   },
+   {
+    "s": "Nous apprenons en ___.",
+    "a": "jouant",
+    "o": [
+     "joue",
+     "jouons",
+     "jouant",
+     "jouer"
+    ],
+    "en": "We learn by playing."
+   }
+  ],
+  "gerondif-usage": [
+   {
+    "s": "On apprend le français en ___ beaucoup.",
+    "a": "lisant",
+    "o": [
+     "lisant",
+     "lire",
+     "lu",
+     "lit"
+    ],
+    "en": "You learn French by reading a lot."
+   },
+   {
+    "s": "Il s'est blessé en ___ au football.",
+    "a": "jouant",
+    "o": [
+     "jouer",
+     "jouant",
+     "joué",
+     "joue"
+    ],
+    "en": "He hurt himself playing football."
+   },
+   {
+    "s": "En ___ à gauche, vous verrez la poste.",
+    "a": "tournant",
+    "o": [
+     "tourner",
+     "tourné",
+     "tournant",
+     "tourne"
+    ],
+    "en": "If you turn left, you will see the post office."
+   }
+  ],
+  "rel-dont": [
+   {
+    "s": "Voici le livre ___ je t'ai parlé.",
+    "a": "dont",
+    "o": [
+     "dont",
+     "que",
+     "qui",
+     "où"
+    ],
+    "en": "Here is the book I told you about."
+   },
+   {
+    "s": "C'est la fille ___ le père est médecin.",
+    "a": "dont",
+    "o": [
+     "que",
+     "dont",
+     "qui",
+     "où"
+    ],
+    "en": "She is the girl whose father is a doctor."
+   },
+   {
+    "s": "Voici un film ___ j'ai très envie.",
+    "a": "dont",
+    "o": [
+     "que",
+     "qui",
+     "dont",
+     "où"
+    ],
+    "en": "Here is a film I really want to see."
+   }
+  ],
+  "rel-ce-qui-ce-que": [
+   {
+    "s": "Dis-moi ___ tu veux.",
+    "a": "ce que",
+    "o": [
+     "ce que",
+     "ce qui",
+     "ce dont",
+     "qui"
+    ],
+    "en": "Tell me what you want."
+   },
+   {
+    "s": "Je ne comprends pas ___ se passe.",
+    "a": "ce qui",
+    "o": [
+     "ce que",
+     "ce qui",
+     "ce dont",
+     "que"
+    ],
+    "en": "I don't understand what is happening."
+   },
+   {
+    "s": "Voilà ___ j'ai besoin.",
+    "a": "ce dont",
+    "o": [
+     "ce que",
+     "ce qui",
+     "ce dont",
+     "qui"
+    ],
+    "en": "That is what I need."
+   }
+  ],
+  "pronoms-ordre": [
+   {
+    "s": "Tu donnes le livre à Marie ? Oui, je ___ donne.",
+    "a": "le lui",
+    "o": [
+     "le lui",
+     "lui le",
+     "lui en",
+     "leur le"
+    ],
+    "en": "Are you giving the book to Marie? Yes, I'm giving it to her."
+   },
+   {
+    "s": "Elle te donne les clés ? Oui, elle me ___ donne.",
+    "a": "les",
+    "o": [
+     "le",
+     "les",
+     "lui",
+     "en"
+    ],
+    "en": "Does she give you the keys? Yes, she gives them to me."
+   },
+   {
+    "s": "Tu me prêtes ton stylo ? Oui, je te ___ prête.",
+    "a": "le",
+    "o": [
+     "lui",
+     "les",
+     "le",
+     "en"
+    ],
+    "en": "Will you lend me your pen? Yes, I'll lend it to you."
+   }
+  ],
+  "y-en-ensemble": [
+   {
+    "s": "Des pommes ? Il y ___ a dans le panier.",
+    "a": "en",
+    "o": [
+     "en",
+     "y",
+     "les",
+     "le"
+    ],
+    "en": "Apples? There are some in the basket."
+   },
+   {
+    "s": "Du lait ? Non, il n'y ___ a plus.",
+    "a": "en",
+    "o": [
+     "y",
+     "en",
+     "le",
+     "lui"
+    ],
+    "en": "Milk? No, there is none left."
+   },
+   {
+    "s": "Des places libres ? Il y ___ a encore deux.",
+    "a": "en",
+    "o": [
+     "y",
+     "les",
+     "en",
+     "le"
+    ],
+    "en": "Free seats? There are still two."
+   }
+  ],
+  "imperatif-ordre-pronoms": [
+   {
+    "s": "Donne-___-moi, s'il te plaît.",
+    "a": "le",
+    "o": [
+     "le",
+     "lui",
+     "moi",
+     "leur"
+    ],
+    "en": "Give it to me, please."
+   },
+   {
+    "s": "Tu veux du pain ? Donne-m'___ un peu.",
+    "a": "en",
+    "o": [
+     "y",
+     "en",
+     "le",
+     "les"
+    ],
+    "en": "Do you want some bread? Give me some."
+   },
+   {
+    "s": "Ne ___ le donne pas !",
+    "a": "me",
+    "o": [
+     "moi",
+     "lui",
+     "me",
+     "m'"
+    ],
+    "en": "Don't give it to me!"
+   }
+  ],
+  "pronoms-possessifs": [
+   {
+    "s": "Ce n'est pas ton stylo, c'est ___.",
+    "a": "le mien",
+    "o": [
+     "mon",
+     "le mien",
+     "mien",
+     "mienne"
+    ],
+    "en": "That's not your pen, it's mine."
+   },
+   {
+    "s": "Voici ma voiture ; où est ___ ?",
+    "a": "la tienne",
+    "o": [
+     "ta",
+     "la tien",
+     "la tienne",
+     "tienne"
+    ],
+    "en": "Here is my car; where is yours?"
+   },
+   {
+    "s": "Nos enfants sont petits ; ___ sont grands.",
+    "a": "les leurs",
+    "o": [
+     "leurs",
+     "les leur",
+     "la leur",
+     "les leurs"
+    ],
+    "en": "Our children are small; theirs are big."
+   }
+  ],
+  "pronoms-demonstratifs": [
+   {
+    "s": "Quelle robe ? ___ de gauche.",
+    "a": "Celle",
+    "o": [
+     "Celle",
+     "Celui",
+     "Ceux",
+     "Celles"
+    ],
+    "en": "Which dress? The one on the left."
+   },
+   {
+    "s": "Quels livres ? ___ de Marc.",
+    "a": "Ceux",
+    "o": [
+     "Celui",
+     "Ceux",
+     "Celle",
+     "Celles"
+    ],
+    "en": "Which books? Marc's."
+   },
+   {
+    "s": "Quel stylo ? ___ de droite.",
+    "a": "Celui",
+    "o": [
+     "Celle",
+     "Ceux",
+     "Celui",
+     "Celles"
+    ],
+    "en": "Which pen? The one on the right."
+   }
+  ],
+  "pronoms-indefinis": [
+   {
+    "s": "Il y a ___ à la porte.",
+    "a": "quelqu'un",
+    "o": [
+     "chacun",
+     "quelqu'un",
+     "quelques",
+     "chaque"
+    ],
+    "en": "There is someone at the door."
+   },
+   {
+    "s": "Je voudrais ___ de sucré.",
+    "a": "quelque chose",
+    "o": [
+     "chacun",
+     "quelques",
+     "quelque chose",
+     "chaque"
+    ],
+    "en": "I would like something sweet."
+   },
+   {
+    "s": "Les enfants ont reçu un cadeau ; ___ a choisi un jeu.",
+    "a": "chacun",
+    "o": [
+     "chaque",
+     "quelques",
+     "plusieurs",
+     "chacun"
+    ],
+    "en": "The children received a gift; each one chose a game."
+   }
+  ],
+  "adj-indefinis": [
+   {
+    "s": "___ élève a un livre.",
+    "a": "Chaque",
+    "o": [
+     "Chaque",
+     "Chacun",
+     "Plusieurs",
+     "Quelques"
+    ],
+    "en": "Each pupil has a book."
+   },
+   {
+    "s": "Il y a ___ voitures dans la rue.",
+    "a": "plusieurs",
+    "o": [
+     "chaque",
+     "plusieurs",
+     "tout",
+     "chacune"
+    ],
+    "en": "There are several cars in the street."
+   },
+   {
+    "s": "Elle travaille ___ la journée.",
+    "a": "toute",
+    "o": [
+     "tout",
+     "tous",
+     "toute",
+     "toutes"
+    ],
+    "en": "She works all day."
+   }
+  ],
+  "pc-accord-cod": [
+   {
+    "s": "Les fleurs que j'ai ___ sont belles.",
+    "a": "achetées",
+    "o": [
+     "achetées",
+     "acheté",
+     "achetés",
+     "acheter"
+    ],
+    "en": "The flowers I bought are beautiful."
+   },
+   {
+    "s": "La robe qu'elle a ___ est rouge.",
+    "a": "choisie",
+    "o": [
+     "choisi",
+     "choisie",
+     "choisis",
+     "choisies"
+    ],
+    "en": "The dress she chose is red."
+   },
+   {
+    "s": "Où sont mes clés ? Je les ai ___ hier.",
+    "a": "vues",
+    "o": [
+     "vu",
+     "vus",
+     "vues",
+     "voir"
+    ],
+    "en": "Where are my keys? I saw them yesterday."
+   }
+  ],
+  "passif-forme": [
+   {
+    "s": "Ce roman est ___ par un auteur célèbre.",
+    "a": "écrit",
+    "o": [
+     "écrit",
+     "écrire",
+     "écrite",
+     "écrits"
+    ],
+    "en": "This novel is written by a famous author."
+   },
+   {
+    "s": "Les maisons ont été ___ par le feu.",
+    "a": "détruites",
+    "o": [
+     "détruit",
+     "détruites",
+     "détruite",
+     "détruire"
+    ],
+    "en": "The houses were destroyed by the fire."
+   },
+   {
+    "s": "La porte est ___ par le gardien.",
+    "a": "ouverte",
+    "o": [
+     "ouvert",
+     "ouvertes",
+     "ouverte",
+     "ouvrir"
+    ],
+    "en": "The door is opened by the caretaker."
+   }
+  ],
+  "se-passif": [
+   {
+    "s": "Ce produit ___ vend partout.",
+    "a": "se",
+    "o": [
+     "se",
+     "me",
+     "te",
+     "le"
+    ],
+    "en": "This product is sold everywhere."
+   },
+   {
+    "s": "Ça ne ___ dit pas en français.",
+    "a": "se",
+    "o": [
+     "me",
+     "se",
+     "te",
+     "nous"
+    ],
+    "en": "You don't say that in French."
+   },
+   {
+    "s": "Les fruits ___ vendent au marché.",
+    "a": "se",
+    "o": [
+     "me",
+     "te",
+     "nous",
+     "se"
+    ],
+    "en": "Fruit is sold at the market."
+   }
+  ],
+  "etre-en-train-de": [
+   {
+    "s": "Chut ! Je suis en train ___ travailler.",
+    "a": "de",
+    "o": [
+     "de",
+     "à",
+     "en",
+     "pour"
+    ],
+    "en": "Shh! I'm in the middle of working."
+   },
+   {
+    "s": "Il est en train de ___ le dîner.",
+    "a": "préparer",
+    "o": [
+     "prépare",
+     "préparer",
+     "préparé",
+     "préparant"
+    ],
+    "en": "He is preparing dinner."
+   },
+   {
+    "s": "Nous ___ en train de regarder un film.",
+    "a": "sommes",
+    "o": [
+     "avons",
+     "allons",
+     "sommes",
+     "venons"
+    ],
+    "en": "We are watching a film."
+   }
+  ],
+  "pc-avoir-transitif": [
+   {
+    "s": "Il ___ sorti la valise du coffre.",
+    "a": "a",
+    "o": [
+     "a",
+     "est",
+     "ont",
+     "sont"
+    ],
+    "en": "He took the suitcase out of the boot."
+   },
+   {
+    "s": "Elle ___ monté les escaliers en courant.",
+    "a": "a",
+    "o": [
+     "est",
+     "a",
+     "ont",
+     "sont"
+    ],
+    "en": "She ran up the stairs."
+   },
+   {
+    "s": "Nous avons ___ nos vacances à la mer.",
+    "a": "passé",
+    "o": [
+     "passés",
+     "passer",
+     "passé",
+     "passons"
+    ],
+    "en": "We spent our holidays at the seaside."
+   }
+  ],
+  "futur-anterieur": [
+   {
+    "s": "Quand nous ___ fini, nous partirons.",
+    "a": "aurons",
+    "o": [
+     "aurions",
+     "aurons",
+     "avions",
+     "avez"
+    ],
+    "en": "When we have finished, we will leave."
+   },
+   {
+    "s": "Dès qu'elle ___ arrivée, elle téléphonera.",
+    "a": "sera",
+    "o": [
+     "serait",
+     "était",
+     "sera",
+     "étaient"
+    ],
+    "en": "As soon as she has arrived, she will call."
+   },
+   {
+    "s": "Demain à midi, il ___ déjà parti.",
+    "a": "sera",
+    "o": [
+     "était",
+     "avait",
+     "serai",
+     "sera"
+    ],
+    "en": "By noon tomorrow, he will already have left."
+   }
+  ],
+  "quand-futur": [
+   {
+    "s": "Quand je ___ riche, j'achèterai une maison.",
+    "a": "serai",
+    "o": [
+     "serais",
+     "serai",
+     "étais",
+     "sois"
+    ],
+    "en": "When I'm rich, I'll buy a house."
+   },
+   {
+    "s": "Dès qu'il ___, nous partirons.",
+    "a": "arrivera",
+    "o": [
+     "arriverait",
+     "arrivait",
+     "arrivera",
+     "arrivions"
+    ],
+    "en": "As soon as he arrives, we'll leave."
+   },
+   {
+    "s": "Lorsque tu ___ à Paris, téléphone-moi.",
+    "a": "seras",
+    "o": [
+     "serais",
+     "étais",
+     "sois",
+     "seras"
+    ],
+    "en": "When you are in Paris, call me."
+   }
+  ],
+  "connecteurs-cause-consequence": [
+   {
+    "s": "Il pleut, ___ nous restons à la maison.",
+    "a": "donc",
+    "o": [
+     "donc",
+     "car",
+     "parce que",
+     "puisque"
+    ],
+    "en": "It's raining, so we are staying at home."
+   },
+   {
+    "s": "Je reste chez moi, ___ je suis malade.",
+    "a": "car",
+    "o": [
+     "donc",
+     "car",
+     "alors que",
+     "pourtant"
+    ],
+    "en": "I'm staying at home because I'm ill."
+   },
+   {
+    "s": "___ il pleut, nous prenons un parapluie.",
+    "a": "Comme",
+    "o": [
+     "Donc",
+     "Mais",
+     "Comme",
+     "Pourtant"
+    ],
+    "en": "As it's raining, we are taking an umbrella."
+   }
+  ],
+  "connecteurs-opposition": [
+   {
+    "s": "Il est riche, ___ il n'est pas heureux.",
+    "a": "pourtant",
+    "o": [
+     "pourtant",
+     "donc",
+     "car",
+     "puisque"
+    ],
+    "en": "He is rich, yet he isn't happy."
+   },
+   {
+    "s": "Elle aime le thé, ___ son mari préfère le café.",
+    "a": "alors que",
+    "o": [
+     "parce que",
+     "alors que",
+     "donc",
+     "puisque"
+    ],
+    "en": "She likes tea, whereas her husband prefers coffee."
+   },
+   {
+    "s": "___ la pluie, nous sommes sortis.",
+    "a": "Malgré",
+    "o": [
+     "Pourtant",
+     "Parce que",
+     "Malgré",
+     "Alors que"
+    ],
+    "en": "Despite the rain, we went out."
+   }
+  ],
+  "but-pour-afin-de": [
+   {
+    "s": "Je travaille ___ gagner de l'argent.",
+    "a": "pour",
+    "o": [
+     "pour",
+     "parce que",
+     "car",
+     "avec"
+    ],
+    "en": "I work to earn money."
+   },
+   {
+    "s": "Nous partons tôt afin ___ rentrer avant la nuit.",
+    "a": "de",
+    "o": [
+     "que",
+     "de",
+     "à",
+     "pour"
+    ],
+    "en": "We are leaving early in order to be back before night."
+   },
+   {
+    "s": "Elle explique lentement pour que nous ___.",
+    "a": "comprenions",
+    "o": [
+     "comprenons",
+     "comprendrons",
+     "comprenions",
+     "comprendre"
+    ],
+    "en": "She explains slowly so that we understand."
+   }
+  ],
+  "neg-ne-que-ni": [
+   {
+    "s": "Elle ne mange ni viande ___ poisson.",
+    "a": "ni",
+    "o": [
+     "ni",
+     "ou",
+     "et",
+     "pas"
+    ],
+    "en": "She eats neither meat nor fish."
+   },
+   {
+    "s": "Il n'a ___ ami ici.",
+    "a": "aucun",
+    "o": [
+     "pas",
+     "aucun",
+     "personne",
+     "chaque"
+    ],
+    "en": "He has no friend here."
+   },
+   {
+    "s": "Elle n'a ___ deux amis, mais elle est heureuse.",
+    "a": "que",
+    "o": [
+     "aucun",
+     "ni",
+     "que",
+     "personne"
+    ],
+    "en": "She only has two friends, but she is happy."
+   }
+  ],
+  "neg-infinitif": [
+   {
+    "s": "Il m'a demandé de ne ___ fumer ici.",
+    "a": "pas",
+    "o": [
+     "pas",
+     "rien",
+     "personne",
+     "non"
+    ],
+    "en": "He asked me not to smoke here."
+   },
+   {
+    "s": "J'ai promis de ne ___ mentir.",
+    "a": "jamais",
+    "o": [
+     "rien",
+     "jamais",
+     "personne",
+     "non"
+    ],
+    "en": "I promised never to lie."
+   },
+   {
+    "s": "Il a décidé de ne ___ travailler le dimanche.",
+    "a": "plus",
+    "o": [
+     "rien",
+     "personne",
+     "plus",
+     "non"
+    ],
+    "en": "He decided not to work on Sundays anymore."
+   }
+  ],
+  "q-lequel": [
+   {
+    "s": "Tu as deux sacs : ___ préfères-tu ?",
+    "a": "lequel",
+    "o": [
+     "lequel",
+     "laquelle",
+     "lesquels",
+     "quel"
+    ],
+    "en": "You have two bags: which one do you prefer?"
+   },
+   {
+    "s": "Voici deux robes : ___ préfères-tu ?",
+    "a": "laquelle",
+    "o": [
+     "lequel",
+     "laquelle",
+     "lesquelles",
+     "quelle"
+    ],
+    "en": "Here are two dresses: which one do you prefer?"
+   },
+   {
+    "s": "Tu as des gants et des bonnets : ___ prends-tu ?",
+    "a": "lesquels",
+    "o": [
+     "lequel",
+     "laquelle",
+     "lesquels",
+     "quels"
+    ],
+    "en": "You have gloves and hats: which ones do you take?"
+   }
+  ],
+  "exclamations": [
+   {
+    "s": "___ belle journée !",
+    "a": "Quelle",
+    "o": [
+     "Quelle",
+     "Quel",
+     "Quels",
+     "Que"
+    ],
+    "en": "What a lovely day!"
+   },
+   {
+    "s": "___ il fait chaud !",
+    "a": "Comme",
+    "o": [
+     "Quel",
+     "Comme",
+     "Quelle",
+     "Qui"
+    ],
+    "en": "How hot it is!"
+   },
+   {
+    "s": "___ c'est joli !",
+    "a": "Que",
+    "o": [
+     "Quel",
+     "Quelle",
+     "Que",
+     "Qui"
+    ],
+    "en": "How pretty it is!"
+   }
+  ],
+  "adv-place-pc": [
+   {
+    "s": "Elle a ___ fini.",
+    "a": "déjà",
+    "o": [
+     "déjà",
+     "hier",
+     "demain",
+     "bientôt"
+    ],
+    "en": "She has already finished."
+   },
+   {
+    "s": "Il a ___ compris la question.",
+    "a": "bien",
+    "o": [
+     "très",
+     "bien",
+     "tout",
+     "si"
+    ],
+    "en": "He understood the question well."
+   },
+   {
+    "s": "Nous sommes ___ allés au Maroc.",
+    "a": "souvent",
+    "o": [
+     "très",
+     "si",
+     "souvent",
+     "trop"
+    ],
+    "en": "We often went to Morocco."
+   }
+  ],
+  "comparatifs-avances": [
+   {
+    "s": "Il fait ___ en plus froid.",
+    "a": "de plus",
+    "o": [
+     "de plus",
+     "de moins",
+     "plus",
+     "autant"
+    ],
+    "en": "It's getting colder and colder."
+   },
+   {
+    "s": "Plus on travaille, ___ on apprend.",
+    "a": "plus",
+    "o": [
+     "aussi",
+     "plus",
+     "autant",
+     "très"
+    ],
+    "en": "The more you work, the more you learn."
+   },
+   {
+    "s": "Elle a ___ de livres que moi : nous en avons dix chacune.",
+    "a": "autant",
+    "o": [
+     "plus",
+     "moins",
+     "autant",
+     "aussi"
+    ],
+    "en": "She has as many books as me: we each have ten."
+   }
+  ],
+  "prep-verbes": [
+   {
+    "s": "Je pense ___ mes vacances.",
+    "a": "à",
+    "o": [
+     "à",
+     "de",
+     "en",
+     "sur"
+    ],
+    "en": "I'm thinking about my holidays."
+   },
+   {
+    "s": "Nous avons besoin ___ aide.",
+    "a": "d'",
+    "o": [
+     "de",
+     "d'",
+     "à",
+     "en"
+    ],
+    "en": "We need help."
+   },
+   {
+    "s": "Elle s'intéresse ___ la musique.",
+    "a": "à",
+    "o": [
+     "de",
+     "en",
+     "à",
+     "sur"
+    ],
+    "en": "She is interested in music."
+   }
+  ],
+  "prep-temps-en-dans": [
+   {
+    "s": "Il est trois heures. Le film commence ___ une heure.",
+    "a": "dans",
+    "o": [
+     "dans",
+     "en",
+     "pendant",
+     "depuis"
+    ],
+    "en": "It's three o'clock. The film starts in an hour."
+   },
+   {
+    "s": "Il a lu ce livre ___ deux jours : c'est rapide !",
+    "a": "en",
+    "o": [
+     "dans",
+     "depuis",
+     "en",
+     "avant"
+    ],
+    "en": "He read this book in two days: that's quick!"
+   },
+   {
+    "s": "Je suis né ___ 1998.",
+    "a": "en",
+    "o": [
+     "dans",
+     "pendant",
+     "en",
+     "depuis"
+    ],
+    "en": "I was born in 1998."
+   }
+  ],
+  "inf-apres-prepositions": [
+   {
+    "s": "Lave-toi les mains avant ___ partir.",
+    "a": "de",
+    "o": [
+     "de",
+     "que",
+     "à",
+     "pour"
+    ],
+    "en": "Wash your hands before leaving."
+   },
+   {
+    "s": "Après ___ mangé, nous sortons.",
+    "a": "avoir",
+    "o": [
+     "être",
+     "avoir",
+     "avons",
+     "ayant"
+    ],
+    "en": "After eating, we go out."
+   },
+   {
+    "s": "Elle est sortie sans ___ au revoir.",
+    "a": "dire",
+    "o": [
+     "disant",
+     "dit",
+     "dire",
+     "dis"
+    ],
+    "en": "She left without saying goodbye."
+   }
+  ],
+  "faire-causatif": [
+   {
+    "s": "Je ___ réparer ma voiture.",
+    "a": "fais",
+    "o": [
+     "fais",
+     "ai",
+     "suis",
+     "mets"
+    ],
+    "en": "I'm having my car repaired."
+   },
+   {
+    "s": "Il fait ___ les enfants.",
+    "a": "rire",
+    "o": [
+     "rit",
+     "rire",
+     "ri",
+     "riant"
+    ],
+    "en": "He makes the children laugh."
+   },
+   {
+    "s": "Nous faisons ___ un gâteau pour la fête.",
+    "a": "faire",
+    "o": [
+     "fait",
+     "fais",
+     "faire",
+     "faisant"
+    ],
+    "en": "We are having a cake made for the party."
+   }
+  ],
+  "verbes-perception": [
+   {
+    "s": "Je les ___ jouer dans le jardin.",
+    "a": "entends",
+    "o": [
+     "entends",
+     "entend",
+     "entendent",
+     "entendu"
+    ],
+    "en": "I hear them playing in the garden."
+   },
+   {
+    "s": "Nous ___ passer le train chaque matin.",
+    "a": "voyons",
+    "o": [
+     "voit",
+     "voyons",
+     "voient",
+     "voyez"
+    ],
+    "en": "We see the train go by every morning."
+   },
+   {
+    "s": "Elle regarde les enfants ___.",
+    "a": "jouer",
+    "o": [
+     "joué",
+     "joue",
+     "jouer",
+     "jouent"
+    ],
+    "en": "She watches the children play."
+   }
+  ],
+  "voyelle-liaison-ecrite": [
+   {
+    "s": "___ amie s'appelle Léa.",
+    "a": "Mon",
+    "o": [
+     "Mon",
+     "Ma",
+     "Mes",
+     "Cet"
+    ],
+    "en": "My friend is called Léa."
+   },
+   {
+    "s": "___ homme est mon voisin.",
+    "a": "Cet",
+    "o": [
+     "Ce",
+     "Cet",
+     "Cette",
+     "Ces"
+    ],
+    "en": "This man is my neighbour."
+   },
+   {
+    "s": "C'est un ___ arbre.",
+    "a": "bel",
+    "o": [
+     "beau",
+     "belle",
+     "bel",
+     "belles"
+    ],
+    "en": "It's a beautiful tree."
+   }
+  ],
+  "tout-tous-toutes": [
+   {
+    "s": "Les enfants sont ___ là.",
+    "a": "tous",
+    "o": [
+     "tous",
+     "tout",
+     "toute",
+     "toutes"
+    ],
+    "en": "The children are all here."
+   },
+   {
+    "s": "Mes sœurs sont ___ parties.",
+    "a": "toutes",
+    "o": [
+     "tous",
+     "toutes",
+     "tout",
+     "toute"
+    ],
+    "en": "My sisters have all left."
+   },
+   {
+    "s": "Elle a ___ compris.",
+    "a": "tout",
+    "o": [
+     "tous",
+     "toute",
+     "tout",
+     "toutes"
+    ],
+    "en": "She understood everything."
+   }
+  ]
+ }
+}

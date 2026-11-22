@@ -601,6 +601,7 @@
 "Luyện theo phần":"Prática por partes",
 "Luyện theo phần TOEFL iBT":"Prática da seção TOEFL iBT",
 "Luyện thêm kỹ năng":"Praticar mais habilidades",
+"Luyện tiếng Pháp":"Prática de francês",
 "Luyện tiếng Tây Ban Nha":"Prática de espanhol",
 "Luyện tiếp":"Continuar praticando",
 "Luyện tập":"Praticar",

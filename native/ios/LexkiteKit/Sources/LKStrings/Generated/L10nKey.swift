@@ -1190,6 +1190,7 @@ public enum L10nKey: String, CaseIterable, Sendable {
     case revBlitz60 = "rev.blitz60"
     case revRhythm = "rev.rhythm"
     case revPractiseSpanish = "rev.practiseSpanish"
+    case revPractiseFrench = "rev.practiseFrench"
     case revTestHint = "rev.testHint"
     case revWritingRoom = "rev.writingRoom"
     case revWritingRoomHint = "rev.writingRoomHint"
