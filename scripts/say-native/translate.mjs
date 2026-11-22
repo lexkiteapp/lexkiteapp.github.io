@@ -1,4 +1,4 @@
-// Say it like a native – meanings in 13 languages (vi = audited lexicon gloss) via the AI pool (docs/SAY-NATIVE.md, CI only: .github/workflows/say-native.yml).
+// Say it like a native + Slang Card – meanings in 13 languages (vi = audited lexicon gloss) via the AI pool (docs/SAY-NATIVE.md, CI only: .github/workflows/say-native.yml).
 //   node scripts/say-native/translate.mjs [--langs vi,es] [--redo]
 // gen = AI.gen mode 'translate' (sense-locked by the card's plain meaning + lexicon definition + example), judge = AI.judgePair (2 different
 // model families). A meaning is kept only when BOTH judges score >= 4; else one regeneration, then the slot stays empty and build.mjs fails.
@@ -16,7 +16,11 @@ const M = fs.existsSync(F) ? JSON.parse(fs.readFileSync(F, 'utf8')) : {};
 const { sources } = await import(ROOT + 'scripts/scriptbank/lib.mjs');
 const lex = new Map(); for (const [, r] of sources().byWord) lex.set(r[0].toLowerCase(), r);
 const AI = createPool({ budget: { lexai: 400 } });
-const items = S.series.flatMap(s => s.items).map(it => { const r = lex.get(it.key.toLowerCase()) || []; return { k: it.key.toLowerCase(), w: it.key, pos: r[2] || 'phrase', def: `${it.mean} (${r[4] || ''})`, ex: it.say }; });
+const cards = S.series.flatMap(s => s.items).map(it => { const r = lex.get(it.key.toLowerCase()) || []; return { k: it.key.toLowerCase(), w: it.key, pos: r[2] || 'phrase', def: `${it.mean} (${r[4] || ''})`, ex: it.say }; });
+// Slang Card bank (content/say-native/slang.json): same meanings.json, sense-locked by the card's spoken meaning + definition + its own example
+const SL = fs.existsSync(ROOT + 'content/say-native/slang.json') ? JSON.parse(fs.readFileSync(ROOT + 'content/say-native/slang.json', 'utf8')).items : [];
+const seenK = new Set(cards.map(x => x.k));
+const items = [...cards, ...SL.filter(it => !seenK.has(it.key.toLowerCase())).map(it => ({ k: it.key.toLowerCase(), w: it.key, pos: it.pos, def: `${it.mean} (${it.def}) – informal slang`, ex: it.example.text }))];
 const score = (r, k) => +((r && r.out && r.out[k]) ?? 0);
 let kept = 0, empty = 0;
 for (const lang of want) {
