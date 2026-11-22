@@ -69,9 +69,9 @@ assert.ok(P.HOSTS.every(h => h.startsWith('https://audio.lexkite.com/kokoro/' + 
 const kl = fs.readFileSync('web/js/klocal.js', 'utf8');
 assert.ok(!/requestPermission|confirm\(|alert\(|prompt\(|geolocation/.test(kl), 'klocal.js không xin quyền / không mở hộp thoại');
 assert.ok(/storage\.persist && P\.persistOk\(/.test(kl), 'storage.persist() chỉ gọi khi persistOk');
-// Cài đặt › Âm thanh: settings.js chừa #klBox (web + add-on – add-on chạy Kokoro qua khung lexkite.com/kl.html) và gọi KLocal.settings; chuỗi có tiếng Anh
+// Cài đặt › Âm thanh: settings.js chỉ chừa #klBox (web, không add-on) và gọi KLocal.settings; chuỗi có tiếng Anh
 const st = fs.readFileSync('web/js/settings.js', 'utf8');
-assert.ok(/\+ '<div id="klBox"><\/div>'/.test(st) && /KLocal\.settings\(\$\('#klBox'\)\)/.test(st), 'Cài đặt có mục giọng Kokoro trên máy (#klBox)');
+assert.ok(/Store\.isExtension \? '' : '<div id="klBox"><\/div>'/.test(st) && /KLocal\.settings\(\$\('#klBox'\)\)/.test(st), 'Cài đặt có mục giọng Kokoro trên máy (#klBox)');
 assert.ok(/sw\('sKl',/.test(kl) && /sw\('sKlCell',/.test(kl) && /id="klDel"/.test(kl) && /id="klMb"/.test(kl), 'mục Cài đặt: bật/tắt, dữ liệu di động, Xóa, MB');
 assert.ok(/id="klDel"[^>]*min-height:44px/.test(kl), 'nút Xóa khỏi máy: vùng chạm ≥ 44px (qa-bot tap)');
 const en = fs.readFileSync('web/js/i18n/en/lazyui.js', 'utf8');
@@ -91,12 +91,3 @@ assert.ok(/onStart: \(\) => \{ LA\(\)\.src\('f'\)/.test(ui), 'UI.speak từ đơ
 assert.ok(/el\.preservesPitch = true/.test(fs.readFileSync('web/js/audio.js', 'utf8')), 'LKAudio.play giữ cao độ khi phát chậm');
 assert.ok(/rate: slow \? 0\.7 : 1/.test(ui) && /data-slow/.test(ui), 'nút 🐢 từ/câu phát file Kokoro chậm 0,7×');
 console.log('✓ klocal: chính sách cấp máy/mạng/bật từ xa, WAV, LRU, khóa mô hình, chuỗi dự phòng + đếm nguồn giọng, 🐢 từ file');
-
-// Add-on (22/11: ~2.550 lượt/tuần giọng máy 'off' không nhãn vì add-on không có Kokoro): klocal chạy worker trong khung ẩn
-// https://lexkite.com/kl.html cùng giao thức; khung chỉ nói chuyện với origin trong danh sách cho phép; header riêng cho phép nhúng từ add-on.
-assert.ok(/EXT \? frameWorker\(\) : new Worker\('js\/klocal-worker\.js'/.test(kl) && /e\.origin !== SITE/.test(kl), 'add-on dùng khung kl.html, kiểm origin');
-const fr = fs.readFileSync('web/kl.html', 'utf8');
-assert.ok(/chrome-extension:\\\/\\\/\[a-p\]\{32\}/.test(fr) && /e\.origin !== o/.test(fr) && /new Worker\('\/js\/klocal-worker\.js'/.test(fr), 'kl.html: danh sách origin + kiểm nguồn + worker cùng gốc');
-const hd = fs.readFileSync('web/_headers', 'utf8'), kb = hd.split(/\n(?=\/)/).find(b => b.startsWith('/kl*')) || '';
-assert.ok(/frame-ancestors[^\n]*chrome-extension:/.test(kb) && /! X-Frame-Options/.test(kb) && /no-transform/.test(kb), '/kl*: cho add-on nhúng, không beacon');
-assert.ok(!/isExtension \? 'off'/.test(fs.readFileSync('web/js/ui.js', 'utf8')), "ui.js: add-on chưa nạp KLocal = 'load', không 'off' rỗng nhãn");

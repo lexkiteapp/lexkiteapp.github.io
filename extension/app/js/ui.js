@@ -274,7 +274,7 @@
     let why = opts.noKl ? 'fail' : !/^en-/.test(accent) ? 'lang' : prefs().hqVoice === false ? 'pref' : '';
     if (!opts.noKl && /^en-/.test(accent) && prefs().hqVoice !== false && LA()) {
       const K = g.KLocal;
-      why = !K ? 'load' : K.allowed && !K.allowed() ? 'off' : 'wait';
+      why = !K ? (g.Store && g.Store.isExtension ? 'off' : 'load') : K.allowed && !K.allowed() ? 'off' : 'wait';
       if (K && K.ready()) {
         const my = ++speakSeq, pr = Math.min(1.3, Math.max(0.55, (rate || prefs().ttsRate || 0.92) / 0.95));
         if ('speechSynthesis' in g) speechSynthesis.cancel();
