@@ -330,6 +330,13 @@ const load = (sb, f) => vm.runInContext(rd(f), sb, { filename: f });
   ok(derive({ word: '밟다', pos: 'v', pronX: { lbP: [0] } }, 'ko').pron === '밥따' && JSON.stringify(derive({ word: 'casa', pos: 'n', ipa: 'ˈkasa' }, 'es')) === '{"word":"casa","pos":"n","ipa":"ˈkasa"}', 'derive giữ pronX người soạn; es không đổi');
   const g = rd('scripts/target/gen.mjs'), { TL_GEN } = await import('../target/tl-gen.mjs');
   ok(/derive\(/.test(g) && /noGender \? ''/.test(g) && /stripOf\(form\)/.test(g) && TL_GEN.ko.strip.test('우리가') && !TL_GEN.es.strip, 'gen.mjs: derive + lời nhắc không giống cho noGender + bóc tiểu từ theo bảng'); }
+// W1a ko: dữ liệu bài Hangul (content/target/ko/hangul.json) – đủ 19 phụ âm + 21 nguyên âm, 7 âm cuối đại diện + 11 phụ âm kép cuối, bài đọc = máy sinh
+{ const H = readJSON('content/target/ko/hangul.json'), K = await import('../target/ko-hangul.mjs'), all = H.units.flatMap(u => u.jamo || []), bat = H.units.flatMap(u => u.batchim || []);
+  ok(H.consonants.length === 19 && H.vowels.length === 21 && new Set(all).size === 40 && all.length === 40 && bat.length === 18 && new Set(bat).size === 18, 'Hangul: 40 jamo dạy đúng 1 lần, 18 dạng âm cuối');
+  const vb = w => /다$/.test(w), rb = H.units.flatMap(u => u.read).filter(r => r.pron !== K.pron(r.w, { verb: vb(r.w) }) || r.romaja !== K.romaja(r.w, { verb: vb(r.w) }) || r.ipa !== K.ipa(r.w, { verb: vb(r.w) }));
+  ok(!rb.length, 'bài đọc Hangul: pron/RR/IPA = máy sinh: ' + rb.map(r => r.w).join(' '));
+  const seenJ = new Set(); let order = true; for (const u of H.units) { for (const r of u.read) for (const ch of r.w) { const x = K.split(ch); for (const j of [x.l, x.v]) if (j !== 'ㅇ' && !seenJ.has(j) && !(u.jamo || []).includes(j)) order = false; } (u.jamo || []).forEach(j => seenJ.add(j)); }
+  ok(order, 'bài đọc chỉ dùng jamo đã học ở bài đó hoặc trước'); }
 // ko-hangul.mjs: chữ Hangul (ghép/tách, IME), phát âm chuẩn, RR, IPA, tiểu từ, số + từ đếm, chia vị từ, chấm IME
 { const K = await import('../target/ko-hangul.mjs');
   ok(JSON.stringify(K.split('한')) === '{"l":"ㅎ","v":"ㅏ","t":"ㄴ"}' && K.join({ l: 'ㄱ', v: 'ㅘ', t: 'ㄴ' }) === '관' && K.split('a') === null, 'tách/ghép âm tiết');
