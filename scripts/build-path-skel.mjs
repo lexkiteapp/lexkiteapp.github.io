@@ -10,8 +10,8 @@ const unq = s => s.replace(/\\(['\\])/g, '$1');
 const ps = rd('web/js/path.js'), blk = ps.slice(ps.indexOf('const STAGES = ['), ps.indexOf('\n  ];', ps.indexOf('const STAGES = [')));
 const RE = /id: '(\w+)', get name\(\) \{ return t\('((?:[^'\\]|\\.)*)'\); \}, band: '([^']*)', cefr: '([^']*)', color: '([^']*)', get desc\(\) \{ return t\('((?:[^'\\]|\\.)*)'\); \},\s*get cando\(\) \{ return t\('((?:[^'\\]|\\.)*)'\);/g;
 export const STAGES = [...blk.matchAll(RE)].map(m => ({ id: m[1], name: unq(m[2]), band: m[3], cefr: m[4], color: m[5], desc: unq(m[6]), cando: unq(m[7]) }));
-const pd = rd('web/js/path-day.js'), TITLE = 'Lộ trình chinh phục IELTS';
-if (STAGES.length !== 5 || !pd.includes(`t('${TITLE}')`)) { console.error(`✗ path-skel: nguồn đổi (chặng ${STAGES.length}/5 hoặc thiếu tiêu đề) – cập nhật scripts/build-path-skel.mjs`); process.exit(1); }
+const pd = rd('web/js/path-day.js'), TITLE = 'Lộ trình chinh phục IELTS', MUTED = 'Đã xong {a}/{b} ngày · mỗi ngày 5–10 phút, dễ trước khó sau.';
+if (STAGES.length !== 5 || !pd.includes(`t('${TITLE}')`) || !pd.includes(`t('${MUTED}'`)) { console.error(`✗ path-skel: nguồn đổi (chặng ${STAGES.length}/5 hoặc thiếu tiêu đề) – cập nhật scripts/build-path-skel.mjs`); process.exit(1); }
 // chuỗi dịch: vi = khóa gốc; en = web/js/i18n/en.js + en/*.js; còn lại i18n/ui/<l>.js (như gói dịch của app)
 const dictOf = l => { if (l === 'vi') return {}; const g = {}; g.I18N_DICT = {};
   const files = l === 'en' ? [...['web/js/i18n/en.js'], ...fs.readdirSync('web/js/i18n/en').filter(f => f.endsWith('.js')).map(f => `web/js/i18n/en/${f}`)] : [`i18n/ui/${l}.js`, ...(fs.existsSync(`i18n/ui/${l}`) ? fs.readdirSync(`i18n/ui/${l}`).filter(f => f.endsWith('.js')).sort().map(f => `i18n/ui/${l}/${f}`) : [])];
@@ -26,10 +26,10 @@ if (!pd.includes(ARROW)) { console.error('✗ path-skel: path-day.js đổi lu�
 if (!/\.stage-banner \{/.test(lazy) || !/\.stage-cando \{/.test(lazy)) { console.error('✗ path-skel: không thấy luật .stage-* trong lazy-ui.css'); process.exit(1); }
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const html = (l, D) => { const t = k => D[k] || k;
-  const st = STAGES.map((s, i) => `<details class="dp-stage" data-st="${s.id}"${i === 0 ? ' open' : ''}><summary class="stage-banner" style="--sc:${s.color};cursor:pointer"><div><div class="tiny stage-lv">${s.cefr} · ${s.band}</div><h2 style="margin:.1rem 0;color:#fff">${esc(t(s.name))}</h2><div class="small" style="opacity:.92">${esc(t(s.desc))}</div><div class="small stage-cando">🎯 ${esc(t(s.cando))}</div></div></summary></details>`).join('');
-  return `<div id="lkPath"><div class="page-head"><div><h1>${esc(t(TITLE))}</h1></div></div><div class="path">${st}</div></div>`; };
+  const st = STAGES.map((s, i) => `<details class="dp-stage" data-st="${s.id}"${i === 0 ? ' open' : ''}><summary class="stage-banner" style="--sc:${s.color};cursor:pointer"><div><div class="tiny stage-lv">${s.cefr} · ${s.band}</div><h2 style="margin:.1rem 0;color:#fff">${esc(t(s.name))}</h2><div class="small" style="opacity:.92">${esc(t(s.desc))}</div><div class="small stage-cando">🎯 ${esc(t(s.cando))}</div><div class="stage-count">00/000</div></summary></details>`).join('');
+  return `<div id="lkPath"><div class="page-head"><div><h1>${esc(t(TITLE))}</h1><p class="muted">${esc(t(MUTED).replace('{a}', '0').replace('{b}', '9999'))}</p></div><div class="row" style="width:88px"></div></div><div class="path">${st}</div></div>`; };
 const file = l => `/* SINH TỰ ĐỘNG bởi scripts/build-path-skel.mjs – KHÔNG sửa tay. Khung #/path (${l}) vẽ ngay lần vẽ đầu; DayPath.map thay khi words+pathx về. */\n`
-  + `(function(){var v=document.getElementById("view");if(!v||v.firstChild||!/^#\\/path(\\?|$)/.test(location.hash))return;var s=document.createElement("style");s.id="lkPathCss";s.textContent=${JSON.stringify(CSS)};document.head.appendChild(s);v.innerHTML=${JSON.stringify(html(l, dictOf(l)))}})();\n`;
+  + `(function(){function go(){var v=document.getElementById("view");if(!v||v.firstChild||!/^#\\/path(\\?|$)/.test(location.hash))return;var s=document.createElement("style");s.id="lkPathCss";s.textContent=${JSON.stringify(CSS)};document.head.appendChild(s);v.innerHTML=${JSON.stringify(html(l, dictOf(l)))}}if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",go);else go()})();\n`;
 const want = Object.fromEntries(LANGS.map(l => [`${OUT}/${l}.js`, file(l)]));
 if (process.argv.includes('--check')) { const bad = Object.entries(want).filter(([f, c]) => !fs.existsSync(f) || rd(f) !== c).map(([f]) => f); const extra = fs.existsSync(OUT) ? fs.readdirSync(OUT).filter(f => !LANGS.includes(f.replace(/\.js$/, ''))) : [];
   if (bad.length || extra.length) { console.error(`✗ path-skel: lệch nguồn: ${[...bad, ...extra].join(', ')} → chạy node scripts/build-path-skel.mjs`); process.exit(1); } console.log(`✓ path-skel: ${LANGS.length} ngôn ngữ khớp nguồn`); }
