@@ -25,6 +25,7 @@
 "Có cặp ghép nhầm":"Certaines paires étaient fausses",
 "Dịch câu này":"Traduisez cette phrase",
 "Ghép cặp":"Associez les paires",
+"Ghép từ, ảnh":"Associez mots et images",
 "Giáo viên của bạn":"Votre professeur",
 "Hoàn thành bài học!":"Leçon terminée !",
 "Hoặc chọn “Không nói được lúc này” để học tiếp.":"Ou choisissez « Je ne peux pas parler » pour continuer.",

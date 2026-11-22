@@ -25,6 +25,7 @@
 "Có cặp ghép nhầm":"有些配对错了",
 "Dịch câu này":"翻译这句话",
 "Ghép cặp":"配对",
+"Ghép từ, ảnh":"单词配图片",
 "Giáo viên của bạn":"你的老师",
 "Hoàn thành bài học!":"课程完成！",
 "Hoặc chọn “Không nói được lúc này” để học tiếp.":"或选择“现在不方便说”继续学习。",
