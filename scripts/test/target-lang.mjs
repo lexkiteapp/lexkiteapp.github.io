@@ -324,6 +324,12 @@ const load = (sb, f) => vm.runInContext(rd(f), sb, { filename: f });
   ok(/word-audio-ko/.test(rd('.github/workflows/word-audio-tl.yml')) && /tl: \[pt, es, fr, ja, ko\]/.test(rd('.github/workflows/target-content.yml')), 'workflow: nhãn word-audio-ko + ma trận target-content có ko');
   const { TL_GEN } = await import('../target/tl-gen.mjs'); ok(TL_GEN.ko.variant === 'ko-KR' && TL_GEN.ko.kaikki === 'Korean' && /ko_full/.test(TL_GEN.ko.source.url) && TL_GEN.ko.one.test('집') && !TL_GEN.ko.one.test('ㄱ'), 'tl-gen.mjs: dòng ko');
 }
+// W1 ko: gen.mjs SINH pron/romaja/ipa từ chữ trước cổng (derive), lệch người soạn → qa.<trường>Ai; ngôn ngữ khác không đổi; tiểu từ bóc theo bảng
+{ const { derive } = await import('../target/lib.mjs'), d = derive({ word: '국물', pos: 'n', pron: '국물', romaja: 'gungmul', ipa: 'x' }, 'ko');
+  ok(d.pron === '궁물' && d.romaja === 'gungmul' && d.ipa === 'kuŋmul' && d.qa.pronAi === '국물' && d.qa.ipaAi === 'x' && !d.qa.romajaAi, 'derive ko: pron/RR/IPA sinh từ chữ, lệch → qa.*Ai');
+  ok(derive({ word: '밟다', pos: 'v', pronX: { lbP: [0] } }, 'ko').pron === '밥따' && JSON.stringify(derive({ word: 'casa', pos: 'n', ipa: 'ˈkasa' }, 'es')) === '{"word":"casa","pos":"n","ipa":"ˈkasa"}', 'derive giữ pronX người soạn; es không đổi');
+  const g = rd('scripts/target/gen.mjs'), { TL_GEN } = await import('../target/tl-gen.mjs');
+  ok(/derive\(/.test(g) && /noGender \? ''/.test(g) && /stripOf\(form\)/.test(g) && TL_GEN.ko.strip.test('우리가') && !TL_GEN.es.strip, 'gen.mjs: derive + lời nhắc không giống cho noGender + bóc tiểu từ theo bảng'); }
 // ko-hangul.mjs: chữ Hangul (ghép/tách, IME), phát âm chuẩn, RR, IPA, tiểu từ, số + từ đếm, chia vị từ, chấm IME
 { const K = await import('../target/ko-hangul.mjs');
   ok(JSON.stringify(K.split('한')) === '{"l":"ㅎ","v":"ㅏ","t":"ㄴ"}' && K.join({ l: 'ㄱ', v: 'ㅘ', t: 'ㄴ' }) === '관' && K.split('a') === null, 'tách/ghép âm tiết');
