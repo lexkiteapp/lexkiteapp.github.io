@@ -1,0 +1,131 @@
+{
+ "id": "t2s_foodie",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 105,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "She reviews every restaurant in town!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Foodie!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "A person who loves good food.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "My sister is a total foodie.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "data": {
+  "key": "foodie",
+  "forms": [],
+  "ipa": "/ˈfuːdi/",
+  "mean": "A person who loves good food.",
+  "define": "Someone who enjoys trying and talking about food.",
+  "vi": "Người mê ẩm thực",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "modern",
+  "theme": "food",
+  "example": {
+   "ctx": "Talking about a new spot",
+   "text": "My sister is a total foodie."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "A \"foodie\" is…",
+   "options": [
+    "a food bag",
+    "someone who loves food"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call a chef a 'foodie'.",
+   "why": "A chef cooks; a foodie loves eating."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "She reviews every restaurant in town!"
+ },
+ "src": {
+  "slang": "foodie"
+ },
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "What does \"foodie\" mean?",
+  "keyword": "foodie",
+  "value": "Foodie = A person who loves good food. Example: \"My sister is a total foodie.\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"foodie\" mean?",
+    "description": "Foodie = A person who loves good food. Example: \"My sister is a total foodie.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Ama\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "foodie",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"foodie\" mean?\n\nFoodie = A person who loves good food. Example: \"My sister is a total foodie.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"foodie\" mean?\n\nFoodie = A person who loves good food. Example: \"My sister is a total foodie.\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"foodie\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't call a chef a 'foodie'. A chef cooks; a foodie loves eating. Real example: \"My sister is a total foodie.\" More real English slang, free: {link}"
+ }
+}

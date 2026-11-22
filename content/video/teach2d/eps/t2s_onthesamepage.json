@@ -1,0 +1,131 @@
+{
+ "id": "t2s_onthesamepage",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 173,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Wait, who's doing what?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "On the same page!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "We understand each other.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Let's make sure we're on the same page.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smug",
+ "data": {
+  "key": "on the same page",
+  "forms": [],
+  "ipa": "/ɑːn ðə ˈseɪm ˈpeɪdʒ/",
+  "mean": "We understand each other.",
+  "define": "Used when people share the same understanding.",
+  "vi": "Cùng tần số nha",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "agreement",
+  "example": {
+   "ctx": "After a team talk",
+   "text": "Let's make sure we're on the same page."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means you…",
+   "options": [
+    "read the same book",
+    "understand the same"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'on the same page' about a paperback.",
+   "why": "It means shared understanding, not books."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Wait, who's doing what?"
+ },
+ "src": {
+  "slang": "on the same page"
+ },
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "What does \"on the same page\" mean?",
+  "keyword": "on the same page",
+  "value": "On the same page = We understand each other. Example: \"Let's make sure we're on the same page.\" (casual English).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"on the same page\" mean?",
+    "description": "On the same page = We understand each other. Example: \"Let's make sure we're on the same page.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Ama\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "on the same page",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"on the same page\" mean?\n\nOn the same page = We understand each other. Example: \"Let's make sure we're on the same page.\" (casual English).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"on the same page\" mean?\n\nOn the same page = We understand each other. Example: \"Let's make sure we're on the same page.\" (casual English).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"on the same page\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't say 'on the same page' about a paperback. It means shared understanding, not books. Real example: \"Let's make sure we're on the same page.\" More real English slang, free: {link}"
+ }
+}

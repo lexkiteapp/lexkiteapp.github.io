@@ -1,0 +1,133 @@
+{
+ "id": "t2s_era",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 159,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "New hobby, new me!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Era!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "I'm in this phase of life.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I'm in my baking era right now.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smug",
+ "data": {
+  "key": "era",
+  "forms": [
+   "baking era"
+  ],
+  "ipa": "/ˈerə/",
+  "mean": "I'm in this phase of life.",
+  "define": "Used playfully for a current phase or interest.",
+  "vi": "Giai đoạn của tui",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B2",
+  "era": "gen-z",
+  "theme": "feelings",
+  "example": {
+   "ctx": "Talking about a hobby",
+   "text": "I'm in my baking era right now."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"In my era\" means…",
+   "options": [
+    "history",
+    "a current phase"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'my era' about a history class.",
+   "why": "It means a personal life phase."
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "New hobby, new me!"
+ },
+ "src": {
+  "slang": "era"
+ },
+ "est": {
+  "words": 20,
+  "seconds": 11.0,
+  "wpm": 109
+ },
+ "publish": {
+  "title": "What does \"era\" mean?",
+  "keyword": "era",
+  "value": "Era = I'm in this phase of life. Example: \"I'm in my baking era right now.\" (very casual English, US).",
+  "hashtags": [
+   "#englishslang",
+   "#learnenglish",
+   "#slang",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"era\" mean?",
+    "description": "Era = I'm in this phase of life. Example: \"I'm in my baking era right now.\" (very casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases\n\nSeries: Slang Card · Teacher: Ama\n\n#englishslang #learnenglish #slang #speakenglish #englishtips",
+    "tags": [
+     "era",
+     "Slang Card",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"era\" mean?\n\nEra = I'm in this phase of life. Example: \"I'm in my baking era right now.\" (very casual English, US).\n\nLearn real slang free, free: https://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "What does \"era\" mean?\n\nEra = I'm in this phase of life. Example: \"I'm in my baking era right now.\" (very casual English, US).\n\nLearn real slang free: link in bio.",
+    "hashtags": [
+     "#englishslang",
+     "#learnenglish",
+     "#slang",
+     "#speakenglish",
+     "#englishtips"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"era\" mean? #englishslang #learnenglish #slang"
+   }
+  },
+  "first_comment": "Don't say 'my era' about a history class. It means a personal life phase. Real example: \"I'm in my baking era right now.\" More real English slang, free: {link}"
+ }
+}
