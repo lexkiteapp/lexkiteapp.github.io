@@ -109,6 +109,7 @@ struct MeHub: View {
                         }
                         .foregroundStyle(LKColor.onSurface.resolve(scheme))
                     }
+                    SettingsGroup { SettingsNavRow(icon: "gearshape.fill", tone: .n2, label: t(.setTitle), value: nil) { services.router.open(AppRoute("settings")) } }   // P11
                 }
                 .padding(.horizontal, LKFrame.shared.gutter)
                 .padding(.top, LKSpacing.spaceLg)

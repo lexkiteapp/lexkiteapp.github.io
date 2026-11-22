@@ -7,6 +7,8 @@ import LKCore
 /// and a `VocabClock` so results are deterministic. Verified against native/shared/gen/vectors/vocab.json (VocabVectorTests).
 public struct VocabClock: Sendable {
     public var calendar: Calendar
+    /// Settings › retention (web app.js `SRS.retentionTarget`): drives grading and the interval previews.
+    public var retention = SRSParams.fsrs5.retentionTarget
     public init(calendar: Calendar = .current) { self.calendar = calendar }
     public static let day: Int64 = 86_400_000
     func date(_ now: Int64) -> Date { Date(timeIntervalSince1970: Double(now) / 1000) }
@@ -19,7 +21,7 @@ public struct VocabClock: Sendable {
     /// 23:59:59.999 local
     public func endOfToday(_ now: Int64) -> Int64 { startOfToday(now) + Self.day - 1 }
     public func hour(_ now: Int64) -> Int { calendar.component(.hour, from: date(now)) }
-    public func srs() -> SRS { SRS(calendar: calendar) }
+    public func srs() -> SRS { var p = SRSParams.fsrs5; p.retentionTarget = retention; return SRS(params: p, calendar: calendar) }
 }
 
 public extension JSON {
