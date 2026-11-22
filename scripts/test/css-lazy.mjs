@@ -92,7 +92,7 @@ if (isMain(import.meta.url)) {
   // 3) cách nạp
   const first = firstLoadFiles(), app = rd('web/js/app.js');
   ok(!first.includes('/css/lazy-ui.css'), 'lazy-ui.css KHÔNG nằm trong file nạp ngay (SHELL ∪ web/app/index.html)');
-  ok(/const LZCSS = n => \/\^\(ux1\|i18nx\|i18nl\)\$\/\.test\(n\) \? \[\] : \['css\/lazy-ui\.css'\]/.test(app) && /need1 = [^\n]*LZCSS\(n\)[^\n]*map\(loadCss\)/.test(app), 'need1 nạp + chờ lazy-ui.css cho mọi gói lười (trừ ux1/i18n)');
+  ok(/const LZCSS = n => \/\^\(ux1\|u1\\w\+\|i18nx\|i18nl\)\$\/\.test\(n\) \? \[\] : \['css\/lazy-ui\.css'\]/.test(app) && /need1 = [^\n]*LZCSS\(n\)[^\n]*map\(loadCss\)/.test(app), 'need1 nạp + chờ lazy-ui.css cho mọi gói lười (trừ ux1/u1*/i18n)');
   ok(/App\.loadScript = src => Promise\.all\(\[loadScript\(src\), loadCss\('css\/lazy-ui\.css'\)\]\)/.test(app), 'App.loadScript (file lười lẻ) cũng chờ lazy-ui.css');
   // thêm: App.loadScript (speak/app.js: cpack/speak/s/<id>.js qua SPK_P) chỉ nạp tệp NGOÀI gói lười
   const lzFiles = [...lazyModel().lazy].map(f => f.slice(4)), lsPre = [];
