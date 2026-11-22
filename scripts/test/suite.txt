@@ -82,6 +82,7 @@ node scripts/test/mic-exclusive.mjs
 node scripts/factory/build-grammar-bank.mjs --check
 node scripts/test/content-factory.mjs
 node scripts/test/bank-judge.mjs
+node scripts/test/bank-balance.mjs
 node scripts/test/ux1.mjs
 node scripts/test/ux1-rollout.mjs
 node scripts/test/pron-gop.mjs
@@ -348,6 +349,8 @@ node scripts/test/exam-clock.mjs
 node scripts/test/vocab-img-judge-budget.mjs
 node scripts/test/vocab-img-worth.mjs
 node scripts/test/lastmod.mjs
+node scripts/test/sitemap-lastmod.mjs
+node scripts/test/indexnow-wait.mjs
 node scripts/test/outcomes.mjs
 node scripts/test/today-debt.mjs
 node scripts/test/ci-shards-busy.mjs
@@ -484,6 +487,7 @@ node scripts/test/live-csp-safe.mjs
 node scripts/test/home-words.mjs
 node scripts/test/red-report.mjs
 node scripts/test/run-suite-annotate.mjs
+node scripts/test/run-suite-affected.mjs
 node scripts/test/ai-shim.mjs
 node scripts/test/prwatch.mjs
 node scripts/test/flake-tracker.mjs
@@ -495,4 +499,7 @@ node scripts/test/read-highlight.mjs
 node scripts/test/no-native-dialogs.mjs --self
 node scripts/test/no-native-dialogs.mjs
 node scripts/test/dialog.mjs
+node scripts/test/main-no-cancel.mjs
+node scripts/test/workflow-startup.mjs
 node scripts/test/score-card.mjs
+node scripts/stitch-v2-convert.mjs --check

@@ -1,0 +1,121 @@
+{
+ "detect": {
+  "n": "detect แปลว่า ตรวจจับ หรือตรวจพบ สิ่งที่มองเห็นหรือรับรู้ได้ยาก เช่น detect a fault คือตรวจพบข้อบกพร่อง ต่างจาก notice ที่แค่สังเกตเห็น เพราะ detect มักใช้เครื่องมือหรือความชำนาญ พบบ่อยกับ smoke, error, cancer คำนามคือ detection ใช้ในบริบททางการหรือเทคนิค",
+  "x": [
+   [
+    "The alarm can detect even a small amount of smoke.",
+    "สัญญาณเตือนสามารถตรวจจับควันได้แม้เพียงเล็กน้อย"
+   ],
+   [
+    "She detected a hint of sadness in his voice.",
+    "เธอสัมผัสได้ถึงความเศร้าเล็กน้อยในน้ำเสียงของเขา"
+   ],
+   [
+    "The software failed to detect the virus.",
+    "ซอฟต์แวร์ตรวจไม่พบไวรัสตัวนั้น"
+   ]
+  ]
+ },
+ "secure": {
+  "n": "secure แปลว่า ปลอดภัย หรือมั่นคง เช่น a secure password คือรหัสผ่านที่ปลอดภัย และ a secure job คืองานที่มั่นคง ต่างจาก safe ตรงที่เน้นการป้องกันจากภัยหรือการโจมตี feel secure คือรู้สึกมั่นใจ ถ้าเป็นกริยาแปลว่า ได้มา เช่น secure a loan อ่านว่า ซิ-เคียว",
+  "x": [
+   [
+    "Please use a secure connection when you pay online.",
+    "กรุณาใช้การเชื่อมต่อที่ปลอดภัยเมื่อชำระเงินออนไลน์"
+   ],
+   [
+    "He finally felt secure in his new job.",
+    "ในที่สุดเขาก็รู้สึกมั่นคงในงานใหม่"
+   ],
+   [
+    "The company secured a large contract last month.",
+    "บริษัทได้สัญญาฉบับใหญ่มาเมื่อเดือนที่แล้ว"
+   ]
+  ]
+ },
+ "visual": {
+  "n": "visual แปลว่า เกี่ยวกับการมองเห็น หรือที่เห็นด้วยตา เช่น visual aids คือสื่อช่วยสอนที่เป็นภาพ และ visual arts คือทัศนศิลป์ visual learner คือคนที่เรียนรู้ได้ดีจากภาพ มักวางหน้านาม ส่วนคำนามคือ vision อย่าสับสนกับ virtual ที่แปลว่าเสมือนจริง",
+  "x": [
+   [
+    "I am a visual learner, so I prefer diagrams to long texts.",
+    "ฉันเป็นคนเรียนรู้ผ่านภาพ จึงชอบแผนภาพมากกว่าข้อความยาว ๆ"
+   ],
+   [
+    "The film has stunning visual effects.",
+    "ภาพยนตร์เรื่องนี้มีเทคนิคภาพที่น่าตื่นตาตื่นใจ"
+   ],
+   [
+    "There was no visual sign of damage on the car.",
+    "ไม่เห็นร่องรอยความเสียหายบนรถด้วยตาเปล่า"
+   ]
+  ]
+ },
+ "stable": {
+  "n": "stable แปลว่า มั่นคง หรือคงที่ ไม่เปลี่ยนแปลงง่าย เช่น a stable economy คือเศรษฐกิจที่มั่นคง และ stable condition คืออาการคงที่ ซึ่งใช้บ่อยในข่าวการแพทย์ ตรงข้ามคือ unstable คำนามคือ stability ใช้ได้กับราคา อารมณ์ ความสัมพันธ์ ถ้า stable เป็นคำนามจะแปลว่า คอกม้า",
+  "x": [
+   [
+    "The patient is in a stable condition after the surgery.",
+    "ผู้ป่วยมีอาการคงที่หลังการผ่าตัด"
+   ],
+   [
+    "A stable relationship takes trust and patience.",
+    "ความสัมพันธ์ที่มั่นคงต้องอาศัยความไว้ใจและความอดทน"
+   ],
+   [
+    "Make sure the ladder is stable before you climb it.",
+    "ตรวจดูให้แน่ใจว่าบันไดตั้งมั่นคงก่อนปีนขึ้นไป"
+   ]
+  ]
+ },
+ "vision": {
+  "n": "vision แปลว่า วิสัยทัศน์ คือภาพอนาคตที่ผู้นำมองเห็น และแปลว่า สายตา ได้ด้วย เช่น blurred vision คือตามัว ในธุรกิจพบคู่กับ mission เช่น company vision ส่วน have a vision for ... คือมีภาพที่ชัดเจนว่าอยากให้เป็นอย่างไร เมื่อหมายถึงสายตาจะนับไม่ได้",
+  "x": [
+   [
+    "The founder shared her vision for the future of the company.",
+    "ผู้ก่อตั้งเล่าวิสัยทัศน์ของเธอเกี่ยวกับอนาคตของบริษัท"
+   ],
+   [
+    "My grandfather's vision has got worse with age.",
+    "สายตาของคุณตาแย่ลงตามวัย"
+   ],
+   [
+    "Without a clear vision, the team lost its direction.",
+    "เมื่อไม่มีวิสัยทัศน์ที่ชัดเจน ทีมก็หลงทิศทาง"
+   ]
+  ]
+ },
+ "relevant": {
+  "n": "relevant แปลว่า ที่เกี่ยวข้อง หรือเข้าเรื่อง เช่น relevant experience คือประสบการณ์ที่เกี่ยวข้องกับงานนั้น มักตามด้วย to เช่น relevant to the topic ตรงข้ามคือ irrelevant ต่างจาก related ตรงที่ relevant เน้นว่ามีประโยชน์หรือมีผลต่อเรื่องที่พูดอยู่ ใช้บ่อยในเรซูเม่และงานวิชาการ",
+  "x": [
+   [
+    "Please attach all relevant documents to your application.",
+    "กรุณาแนบเอกสารที่เกี่ยวข้องทั้งหมดมากับใบสมัคร"
+   ],
+   [
+    "Is this question relevant to our discussion?",
+    "คำถามนี้เกี่ยวข้องกับสิ่งที่เรากำลังคุยกันไหม"
+   ],
+   [
+    "She has relevant experience in digital marketing.",
+    "เธอมีประสบการณ์ด้านการตลาดดิจิทัลที่ตรงกับงานนี้"
+   ]
+  ]
+ },
+ "valid": {
+  "n": "valid แปลว่า ใช้ได้ หรือถูกต้อง มีสองความหมายหลัก คือมีผลตามกฎหมาย เช่น a valid passport คือพาสปอร์ตที่ยังไม่หมดอายุ และมีเหตุผลฟังขึ้น เช่น a valid point คือข้อโต้แย้งที่สมเหตุสมผล ตรงข้ามคือ invalid คำนามคือ validity",
+  "x": [
+   [
+    "Your ticket is valid for three months.",
+    "ตั๋วของคุณใช้ได้เป็นเวลาสามเดือน"
+   ],
+   [
+    "That is a valid reason to ask for more time.",
+    "นั่นเป็นเหตุผลที่ฟังขึ้นในการขอเวลาเพิ่ม"
+   ],
+   [
+    "The system will not accept an email address that is not valid.",
+    "ระบบจะไม่รับอีเมลที่ไม่ถูกต้อง"
+   ]
+  ]
+ }
+}

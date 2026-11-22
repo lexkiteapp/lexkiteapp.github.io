@@ -17,7 +17,7 @@ const scripts = [...html.matchAll(/<script(?: defer)? src="([^"]+)"><\/script>/g
 const css = (fs.readFileSync(path.join(WEB, 'css/style.css'), 'utf8') + fs.readFileSync(path.join(WEB, 'css/lazy-ui.css'), 'utf8'));
 const vc = new jsdom.VirtualConsole(); vc.on('jsdomError', e => { if (!/Not implemented|Could not parse CSS/.test(e.message)) console.error(e.message); });
 const dom = new JSDOM(html.replace(/<!--hero-->[\s\S]*?<!--\/hero-->/, '').replace(/<script(?: defer)? src="[^"]+"><\/script>/g, '').replace(/<link[^>]+>/g, '').replace('</head>', `<style>${css}</style></head>`), { url: 'http://localhost/app/#/home', runScripts: 'outside-only', pretendToBeVisual: true, virtualConsole: vc });
-const w = dom.window, errors = [];
+const w = dom.window, errors = []; w.localStorage.setItem('lk.ux1', '0'); // luồng v1: đặt cờ TẮT tường minh (máy mới chưa có config giờ = BẬT v2, #1789)
 w.addEventListener('error', e => errors.push(e.message));
 w.console.error = (...a) => errors.push(a.join(' '));
 w.scrollTo = () => {}; w.HTMLElement.prototype.scrollIntoView = () => {}; w.matchMedia = () => ({ matches: false, addEventListener() {}, addListener() {} });

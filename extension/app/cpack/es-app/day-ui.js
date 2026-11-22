@@ -6,7 +6,7 @@
   const { $, esc } = UI, App = window.App, view = App.view, KEY = 'lk.es.day', CTX = 'lk.es.dayctx', ACC = 'es-419';
   const DYL = { en: 'cpack/es/dy-en.js', vi: 'cpack/es/dy-vi.js', es: 'cpack/es/dy-es.js', pt: 'cpack/es/dy-pt.js', fr: 'cpack/es/dy-fr.js', de: 'cpack/es/dy-de.js', id: 'cpack/es/dy-id.js', th: 'cpack/es/dy-th.js', zh: 'cpack/es/dy-zh.js', ja: 'cpack/es/dy-ja.js', ko: 'cpack/es/dy-ko.js', hi: 'cpack/es/dy-hi.js', ar: 'cpack/es/dy-ar.js', ru: 'cpack/es/dy-ru.js', tr: 'cpack/es/dy-tr.js' };
   const WDL = { en: 'cpack/es/wd-en.js', vi: 'cpack/es/wd-vi.js', es: 'cpack/es/wd-es.js', pt: 'cpack/es/wd-pt.js', fr: 'cpack/es/wd-fr.js', de: 'cpack/es/wd-de.js', id: 'cpack/es/wd-id.js', th: 'cpack/es/wd-th.js', zh: 'cpack/es/wd-zh.js', ja: 'cpack/es/wd-ja.js', ko: 'cpack/es/wd-ko.js', hi: 'cpack/es/wd-hi.js', ar: 'cpack/es/wd-ar.js', ru: 'cpack/es/wd-ru.js', tr: 'cpack/es/wd-tr.js' };
-  const LABEL = 'ti sub dy w g p c go pr mk fin td'.split(' '); // thứ tự khớp path-lib.DAY_UI
+  const LABEL = 'ti sub dy w g p c go pr mk fin td sv'.split(' '); // thứ tự khớp path-lib.DAY_UI
   const ls = (k, v, s) => { try { const st = s ? sessionStorage : localStorage; if (v === undefined) return st.getItem(k); if (v === null) st.removeItem(k); else st.setItem(k, v); } catch (e) { /* riêng tư */ } return null; };
   const X = () => (self.ESX = self.ESX || {});
   const lang = () => { const l = window.I18N && I18N.learnLang ? I18N.learnLang() : 'en'; return DYL[l] ? l : 'en'; };
@@ -20,6 +20,22 @@
   let DAYS = []; // kế hoạch: ESX.dyp (planDay của path-lib, sinh vào dy.js) áp lên ESX.dy
   const firstOpen = () => { const k = DAYS.findIndex((d, n) => !full(n, d)); return k < 0 ? DAYS.length - 1 : k; };
   const gxOf = id => { const g = (X().gx || {})[lang()] || (X().gx || {}).en || {}; return (g[id] || [id])[0]; };
+  // Danh từ học kèm mạo từ: m → el, f → la (el trước a/ha nhấn ở âm đầu: el agua), mf → el/la. IPA es-419 của kho: nhấn đầu từ = 'ˈa…'
+  const art = w => w[1] !== 'n' || !w[4] ? '' : w[4] === 'm' ? 'el' : w[4] === 'mf' ? 'el/la' : /^ˈa/.test(w[2]) ? 'el' : 'la';
+  // "Đánh dấu xong" bước từ mới → thẻ tl:'es' vào Sổ từ/Ôn tập (SRS sẵn có lọc theo Target.cur(); cùng dạng thẻ bộ seed ở settings.js addTlSeed)
+  async function toDeck(a, b) {
+    const C = window.Core, l = lang(); if (!C || !C.Cards) return 0;
+    const W = X().wd.slice(a, b), E = (X().wdl.en || []).slice(a, b), G = ((X().wdl || {})[l] || X().wdl.en || []).slice(a, b), add = [];
+    await C.Cards.mutate(m => {
+      W.forEach((w, k) => { const key = C.tlKey(w[0], 'es'); if (m[key]) return;
+        m[key] = C.Cards.make({ word: w[0], pos: w[1], ipa: w[2], def: E[k] || G[k] || '', vi: l === 'vi' ? G[k] : '', ex: w[3], topic: 'es-core', emoji: '📘', tl: 'es' }, { gl: { en: E[k] || G[k], [l]: G[k] }, ...(w[4] ? { gender: w[4] } : {}), ...(w[5] ? { plural: w[5] } : {}) });
+        add.push(m[key]); });
+      return m;
+    });
+    if (window.Target && Target.cur() === 'es') for (const c of add) App.state.cards[c.word.toLowerCase()] = c;
+    if (add.length) { try { App.updateChrome(); } catch (e) { /* khung chưa vẽ */ } if (window.Sync && Sync.schedule) Sync.schedule(); }
+    return add.length;
+  }
   const pxOf = id => { const g = (X().pxl || {})[lang()] || (X().pxl || {}).en || { tp: {} }; return ((g.tp || {})[id] || [id])[0]; };
 
   // Làm xong một bước ở màn khác (espr.js end · call.js recap): đánh dấu theo ngữ cảnh đã ghi lúc bấm Bắt đầu
@@ -60,7 +76,7 @@
     const call = cid && (window.CALLS || []).find(c => c.id === cid);
     const row = (s, title, body, href) => `<section class="card" id="ds-${s}"><div class="row between"><h3 style="margin:0">${have.includes(s) ? '✓ ' : ''}${esc(title)}</h3>${href ? `<a class="btn ${have.includes(s) ? '' : 'primary'}" href="${href}" data-s="${s}">${esc(u('go'))}</a>` : ''}</div>${body}</section>`;
     const words = W.map((w, k) => `<div class="row" style="align-items:flex-start;gap:.6rem;padding:.35rem 0"><button type="button" class="icon-btn sm" data-sp="${esc(w[0])}" aria-label="${esc(w[0])}">🔊</button>
-      <div><b lang="es">${esc(w[0])}</b> <span class="ipa">/${esc(w[2])}/</span> <span class="muted small">${esc(w[1])}</span><div dir="auto">${esc(G[k])}</div><div class="small muted" lang="es">${esc(w[3])} <button type="button" class="icon-btn sm" data-sp="${esc(w[3])}" aria-label="${esc(w[3])}">🔊</button></div></div></div>`).join('');
+      <div><b lang="es">${art(w) ? `<span class="muted">${art(w)}</span> ` : ''}${esc(w[0])}</b>${w[5] ? ` <span class="small muted" lang="es">(${esc(w[5])})</span>` : ''} <span class="ipa">/${esc(w[2])}/</span> <span class="muted small">${esc(w[1])}</span><div dir="auto">${esc(G[k])}</div><div class="small muted" lang="es">${esc(w[3])} <button type="button" class="icon-btn sm" data-sp="${esc(w[3])}" aria-label="${esc(w[3])}">🔊</button></div></div></div>`).join('');
     view.innerHTML = `${window.Target ? Target.chip('es') : ''}<div class="page-head"><div><h1>${esc(fmt(u('dy'), { n: n + 1 }))}</h1><p class="muted"><span class="chip">${lv}</span> ${esc(fmt(u('pr'), { d: n + 1, t: DAYS.length, p: doneOf(n, d).length }))}</p></div><a class="btn ghost" href="#/practice/esd">${esc(u('ti'))}</a></div>
       ${row('w', u('w'), words + `<button type="button" class="btn ${have.includes('w') ? '' : 'primary'}" id="dsMk">${esc(u('mk'))}</button>`)}
       ${row('g', u('g') + ' · ' + gxOf(gid), '', `#/practice/es?lv=${lv}&p=${encodeURIComponent(gid)}`)}
@@ -69,6 +85,6 @@
       ${full(n, d) ? `<div class="card center" role="status"><b>${esc(u('fin'))}</b></div>` : ''}`;
     view.querySelectorAll('[data-sp]').forEach(x => { x.onclick = () => speak(x.dataset.sp); });
     view.querySelectorAll('a[data-s]').forEach(x => { x.onclick = () => ls(CTX, JSON.stringify({ d: n, s: x.dataset.s }), 1); });
-    $('#dsMk').onclick = () => { mark(n, 'w'); day(n, d); };
+    $('#dsMk').onclick = async () => { mark(n, 'w'); let k = 0; try { k = await toDeck(d[0], d[1]); } catch (e) { /* lưu thẻ lỗi: bước vẫn ghi */ } day(n, d); if (k && UI.toast) UI.toast(fmt(u('sv'), { n: k })); };
   }
 })();

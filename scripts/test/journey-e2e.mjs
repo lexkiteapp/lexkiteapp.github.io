@@ -226,7 +226,7 @@ async function j2(h) {
   const { page } = h;
   await setup(h);
   await h.reload(); await h.go('#/home');
-  h.ok(!/welcome/.test(page.url()) && await h.has('#view h1, #view .card'), 'quay lại: vào thẳng trang chủ');
+  h.ok(!/welcome/.test(page.url()) && await h.has('#view h1, #view .card, #view .v2s-today, #view .v2s-today-new'), 'quay lại: vào thẳng trang chủ (v1 hoặc khung Hôm nay v2 – máy mới giờ = v2, #1789)');
   await h.audit('home');
   await h.go('#/day/1');
   const gl = await page.locator('.dayv2-steps a[data-step="gl"]').count(), pr = await page.locator('.dayv2-steps a[data-step="pr"]').count();

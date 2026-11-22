@@ -13,7 +13,7 @@ permissions:
   contents: read
 concurrency:
   group: native-auth-e2e
-  cancel-in-progress: true
+  cancel-in-progress: ${{ github.event_name != 'push' }}
 env:
   PLAY_SIGNING_SHA1: 7dfca040152c14d51b24c0edb07fbe509ab01b92
 jobs:

@@ -1,0 +1,53 @@
+{
+ "infer": {
+  "n": "infer تعني يستنتج أو يستدل، أي يصل إلى رأي من الحقائق أو القرائن المتاحة دون أن يُقال صراحة. مثال: We inferred from his tone that he was upset. تُستخدم غالبًا مع from، والاسم منها inference أي استنتاج. يخطئ بعض المتعلمين فيخلطونها مع imply التي تعني يلمّح؛ فالمتكلم يلمّح imply والمستمع يستنتج infer. وهي كلمة رسمية تكثر في الكتابة الأكاديمية.",
+  "x": [
+   [
+    "What can we infer from these results?",
+    "ماذا يمكننا أن نستنتج من هذه النتائج؟"
+   ],
+   [
+    "I inferred from her silence that she disagreed.",
+    "استنتجت من صمتها أنها لا توافق."
+   ],
+   [
+    "Readers must infer the meaning of unfamiliar words from the context.",
+    "على القراء أن يستدلوا على معنى الكلمات غير المألوفة من السياق."
+   ]
+  ]
+ },
+ "relevant": {
+  "n": "relevant تعني ذو صلة أو وثيق الصلة بالموضوع، وهي صفة تُنطق «ريلفنت». تأتي غالبًا مع to، مثل relevant to the question أي ذو صلة بالسؤال، وتُستخدم في السير الذاتية مثل relevant experience أي خبرة ذات صلة. عكسها irrelevant. تختلف عن related التي تصف علاقة عامة، أما relevant فتعني أن الشيء مفيد أو مؤثر في الموضوع المطروح. والاسم منها relevance.",
+  "x": [
+   [
+    "Please send only the information that is relevant to this case.",
+    "يُرجى إرسال المعلومات ذات الصلة بهذه القضية فقط."
+   ],
+   [
+    "Her experience is highly relevant to this job.",
+    "خبرتها وثيقة الصلة بهذه الوظيفة إلى حد كبير."
+   ],
+   [
+    "Is that comment really relevant right now?",
+    "هل هذا التعليق ذو صلة فعلًا في هذه اللحظة؟"
+   ]
+  ]
+ },
+ "fee": {
+  "n": "fee تعني رسوم أو أجر مقابل خدمة أو دخول، مثل tuition fees أي الرسوم الدراسية وentrance fee أي رسم الدخول. هي اسم معدود، وتُستخدم الصيغة الجمعية fees كثيرًا مع الجامعات والمحامين والبنوك. تختلف عن price التي تخص السلع، وعن fare التي تخص أجرة المواصلات، وعن salary التي هي راتب ثابت. أما fee فتناسب الخدمات المهنية والاشتراكات، مثل a membership fee.",
+  "x": [
+   [
+    "The gym charges a monthly membership fee.",
+    "تفرض صالة الألعاب الرياضية رسم اشتراك شهريًا."
+   ],
+   [
+    "You have to pay a small fee to enter the museum.",
+    "عليك دفع رسم بسيط لدخول المتحف."
+   ],
+   [
+    "The lawyer's fees were higher than we expected.",
+    "كانت أتعاب المحامي أعلى مما توقعنا."
+   ]
+  ]
+ }
+}

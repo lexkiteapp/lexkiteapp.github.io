@@ -9,12 +9,13 @@ const lines = app.split('\n'), from = lines.findIndex(l => l.includes('const ux1
 ok(from > 0 && to > from, 'tìm thấy khối cờ ux1 trong app.js');
 const code = lines.slice(from, to + 1).join('\n');
 const run = (cfg, ub, { q = '', marks = {}, rnd = 0.5 } = {}) => {
-  const store = { 'lk.cfg': JSON.stringify({ v: cfg }), ...(ub == null ? {} : { 'lk.ub': String(ub) }), ...marks }, ss = {}, sent = [];
+  const store = { ...(cfg === null ? {} : { 'lk.cfg': JSON.stringify({ v: cfg }) }), ...(ub == null ? {} : { 'lk.ub': String(ub) }), ...marks }, ss = {}, sent = [];
   const mem = s => ({ getItem: k => (k in s ? s[k] : null), setItem: (k, v) => { s[k] = String(v); } });
   const env = { App: {}, location: { search: q, hash: '', hostname: 'lexkite.com' }, localStorage: mem(store), sessionStorage: mem(ss), navigator: { sendBeacon: (u, d) => sent.push(JSON.parse(d).ev) }, JSON, Math: Object.assign(Object.create(Math), { random: () => rnd }), isNaN, String };
   vm.runInNewContext(code, env); return { A: env.App, store, sent };
 };
 ok(run({}, 3).A.ux1On() === false && run({ ux1_pct: '0' }, 0).A.ux1On() === false, 'chưa đặt / ux1_pct 0 → tắt (công tắc khẩn)');
+ok(run(null, 99).A.ux1On() === true && run(null, 0, { marks: { 'lk.ux1': '0' } }).A.ux1On() === false, 'máy chưa từng tải config (lần mở đầu) → theo trạng thái phát hành (bật), không v1 phiên đầu rồi v2 lần sau; lk.ux1=0 vẫn thắng');
 ok(run({ ux1_pct: '10' }, 0).A.ux1On() && run({ ux1_pct: '10' }, 9).A.ux1On() && !run({ ux1_pct: '10' }, 10).A.ux1On() && !run({ ux1_pct: '10' }, 99).A.ux1On(), 'ux1_pct 10: đúng nhóm 0–9 bật');
 ok(run({ ux1_pct: 25 }, 24).A.ux1On() && !run({ ux1_pct: 25 }, 25).A.ux1On(), 'pct dạng số cũng đọc được');
 ok(!run({ ux1_pct: '100', ux1: '0' }, 0).A.ux1On() && run({ ux1: '1' }, 99).A.ux1On() && run({ ux1: true }, 99).A.ux1On(), "ux1 '0' tắt khẩn thắng pct / '1' bật hết");

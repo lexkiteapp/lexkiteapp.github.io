@@ -25,3 +25,4 @@ const mk = (n, a, extra = {}) => Array.from({ length: n }, (_, i) => ({ id: i, q
   t(none.judged === 0 && none.nojudge === 6 && none.low.length === 0, 'judge: thiếu giám khảo = trung lập, không tính trượt'); }
 if (bad) { console.error(`✗ bank-judge: ${bad} lỗi`); process.exit(1); }
 console.log('✓ bank-judge: auditBank + sample + judge (pool giả) đạt');
+await import('./bank-rewrite.mjs'); // E1b: luật cứng + áp bản vá (một file test, không đụng suite.txt → không dính khung merge cổng)

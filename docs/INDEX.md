@@ -27,6 +27,7 @@
 - [specs/learn-card.md](specs/learn-card.md) — Thẻ kết quả theo câu sau mỗi bài: câu đủ dấu, nghĩa, mẫu câu, thử nói, Vì sao, thử đổi từ, tự lưu mẫu; kho mẫu + cổng dấu câu
 - [specs/sentence-builder.md](specs/sentence-builder.md) — Xếp câu + Vì sao? theo câu (why.js, #336)
 - [specs/exam-mini-test-srs.md](specs/exam-mini-test-srs.md) — mini-test 10 phút + dải tuần + thẻ dạng yếu của #/qstats (đã duyệt 14/11); đọc khi: làm qstats/ôn dạng yếu/mini-test
+- [specs/lesson-types-more.md](specs/lesson-types-more.md) — thêm dạng bài (nghe→chọn tranh, ghép cặp ảnh, sửa lỗi câu, chính tả câu) vào khung lesson + bật speak_pack (đề xuất 21/11); đọc khi: làm dạng bài mới trong #/lesson
 - [specs/learnability.md](specs/learnability.md) — Spec P0-H Dễ học – dễ nhớ: 12 tiêu chí sư phạm → luật máy đo tầng 0, trọng số, điểm sàn; đọc khi: sửa bộ chấm learnability.mjs hoặc nội dung bài để tăng điểm
 - [specs/spell-sound.md](specs/spell-sound.md) — series "Spell→Sound": template rule (chữ câm → âm), ngân hàng luật JSON, hook L1, cổng vùng nền tảng; đọc khi: thêm luật phát âm / sửa mẫu rule
 - [specs/band-upgrade.md](specs/band-upgrade.md) — series "Band 5→7→9": template band (một ý nâng 3 bậc IELTS, lý do + tiêu chí mỗi bậc), bands.json, hook L1 14 ngôn ngữ; đọc khi: thêm chủ đề band / sửa mẫu band
@@ -123,8 +124,8 @@
 - [specs/funnel.md](specs/funnel.md) — Phễu kênh UTM → /go → app → bài đầu → D1/D7+, bảng Quản trị Kênh & mã bài; đọc khi: sửa _funnel.js, beacon at/fl, admin-channels.js.
 - [specs/referral.md](specs/referral.md) — Vòng giới thiệu: link mời, thưởng XP + đóng băng chuỗi hai phía, trần chống lạm dụng; đọc khi: sửa nút mời, api/ref.js.
 - [specs/score-card.md](specs/score-card.md) — Thử thách nói 30 giây: thẻ điểm Canvas + link /c/<id> so điểm với bạn, chấm bằng Speak.score; đọc khi: sửa score30, api/challenge.js, functions/c, sự kiện sc_*.
-- [SEO-AUDIT-1211.md](SEO-AUDIT-1211.md) — Audit trang từ × 15 ngôn ngữ: quy mô index, lastmod, liên kết /go; đọc khi: chọn việc SEO cho thị trường CPM cao.
-- [SEO-AUDIT-1511.md](SEO-AUDIT-1511.md) — Soát live blog/từ R2/đề thi: lỗi + mức ưu tiên, đã sửa gì; đọc khi: làm SEO, sitemap, lastmod hoặc trang từ R2.
+- [SEO-AUDIT-1211.md](archive/SEO-AUDIT-1211.md) — Audit trang từ × 15 ngôn ngữ: quy mô index, lastmod, liên kết /go; đọc khi: chọn việc SEO cho thị trường CPM cao.
+- [SEO-AUDIT-1511.md](archive/SEO-AUDIT-1511.md) — Soát live blog/từ R2/đề thi: lỗi + mức ưu tiên, đã sửa gì; đọc khi: làm SEO, sitemap, lastmod hoặc trang từ R2.
 - [specs/seo-words-depth.md](specs/seo-words-depth.md) — Spec độ dày trang từ /<lang>/words/: khối nội dung từ dữ liệu thật 15 ngôn ngữ, cổng DEPTH_MIN (noindex dưới ngưỡng), ảnh trước/sau, hộp blog → /words/ 13 ngôn ngữ (lib seo-words/blog-words); đọc khi: sửa build-seo-pages.mjs, seo-words.mjs, word-depth.mjs, blog-words.mjs
 - [specs/words-off-pages.md](specs/words-off-pages.md) — Spec chuyển trang từ 13 ngôn ngữ sang R2 + Pages Function (giữ URL) để nâng 650 → 1.000 trong ngân sách file; đọc khi: làm SEO-ARCH § Ngân sách file
 - [specs/notifications.md](specs/notifications.md) — Chuẩn mọi thông báo (push, nhắc học, toast, banner, báo lỗi): hỏi quyền sau giá trị, tắt dễ, ≤1/ngày, giọng không dọa, toast một-cái có nút sửa, 15 ngôn ngữ; bảng chỗ lệch; đọc khi: thêm/sửa thông báo/toast
@@ -146,7 +147,8 @@
 - [SEO-DICT-PAGES.md](SEO-DICT-PAGES.md) — Trang từ điển tự sinh /vi/tu-dien/, /en/dictionary/: URL bản địa, nội dung độc nhất, schema/hreflang/sitemap shard, ngưỡng index + mở dần; đọc khi: sửa trang từ điển, mở index, làm script GSC
 - [SEO-AUTHORITY.md](SEO-AUTHORITY.md) — Uy tín/E-E-A-T: trang Giới thiệu, đội biên tập, quy trình kiểm chứng, sửa lỗi; đọc khi: sửa các trang này hoặc tác giả blog/sameAs
 - [SEO-TOOLS.md](SEO-TOOLS.md) — Công cụ miễn phí 15 ngôn ngữ: bài kiểm tra trình độ CEFR thích ứng, trang cấp độ A1–C2, quiz TOEIC Part 5; URL, ngân hàng câu, engine, SEO; đọc khi: sửa công cụ/chuỗi/câu hỏi
-- [SEO-GROWTH-PLAN.md](SEO-GROWTH-PLAN.md) — Kế hoạch tăng trưởng SEO 15 quốc gia 6 tháng (17/10/2026→04/2027): mục tiêu, nhịp đăng, nội dung theo nước, trang công cụ, đo lường; đọc khi: lên kế hoạch nội dung SEO
+- [SEO-GROWTH-PLAN.md](SEO-GROWTH-PLAN.md) — MỘT kế hoạch SEO hiện hành (22/11): chẩn đoán số thật GSC/index, mục tiêu theo tuần, đòn bẩy xếp theo tác động/công sức, nguồn đo, chủ việc, máy gác; đọc khi: chọn/làm bất kỳ việc SEO nào
+- [SEO-GROWTH-PLAN-1710.md](archive/SEO-GROWTH-PLAN-1710.md) — Lưu trữ: kế hoạch SEO 17/10 (nhịp đăng, nội dung theo nước) + kế hoạch lên top 14/11; đọc khi: tra lại kế hoạch cũ
 - [SEO-PLAN.md](SEO-PLAN.md) — SEO kỹ thuật và blog tự đăng: kiến trúc, rà soát & sửa, blog engine, lịch đăng, quy trình viết 7 bước, đặc tả định dạng bài; đọc khi: sửa SEO kỹ thuật/blog engine
 - [SHORTS-ACCESS.md](SHORTS-ACCESS.md) — Thư viện video quản trị phát từ Kho Drive riêng (repo riêng tư lexkite-shorts), không cần token GitHub; luồng và dữ liệu; đọc khi: sửa thư viện video
 - [STORAGE.md](STORAGE.md) — Dung lượng repo chính và kho media (24/10): số đo trước→sau, âm thanh ở kho media, không viết lại lịch sử git, cổng size-guard; đọc khi: thêm file lớn/media

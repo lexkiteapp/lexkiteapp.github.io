@@ -88,7 +88,7 @@ p { margin: .4rem 0; }
 .gsearch input:focus { border-color: var(--primary); box-shadow: 0 0 0 4px var(--primary-soft); }
 @media (max-width: 1023px) { body.v2on.v2-gs .topbar { display: flex !important; position: fixed; inset: 0 0 auto; z-index: 60; padding: .5rem .75rem; } body.v2on.v2-gs .topbar > :not(.gsearch) { display: none; } body.v2-gs .gsearch { max-width: none; } }
 /* Máy tính: màn hub v2 cùng độ rộng trang… CSS-NOTES §3 */
-@media (max-width: 374px) { .v2-me > header [data-hdr="xp"] { display: none; } } /* Tôi < 375 px: chỗ cho logo + tra từ (ux1-me.js hubHead) – Tổng XP lớn ngay dưới */
+@media (max-width: 374px) { .v2-me > header:not(.hb) [data-hdr="xp"] { display: none; } } /* Tôi < 375 px: chỗ cho logo + tra từ (ux1-me.js hubHead) – Tổng XP lớn ngay dưới */
 @media (min-width: 1024px) { body.v2on:not(.focus) :is(.v2-practice, .v2-me, .v2-exam-readiness, .v2-streak, .v2-today-new) { max-width: 816px; } }
 .notif-dot { position: absolute; top: -4px; inset-inline-end: -4px; min-width: 16px; height: 16px; padding: 0 4px; border-radius: 999px; background: #C2410C; color: #fff; font-size: 10px; font-weight: 800; line-height: 16px; text-align: center; }
 .ux1-menu .btn { display: flex; justify-content: center; width: 100%; margin-top: .5rem; }
@@ -1208,6 +1208,7 @@ body.focus .shell, .lk-fo .shell { grid-template-columns: 1fr; }
   .w-feats, .w-foot { content-visibility: auto; contain-intrinsic-size: auto 400px; }
 }
 @media (max-width: 1023px) { body.v2pre .topbar, body.v2pre #bnav { display: none !important; } }
+@media (max-width: 1023px) { body.hbpre .topbar { display: none !important; } } /* hbpre: Từ vựng/Thư viện/Thi thử có thanh hub riêng (ST2.hubbar) → ẩn thanh trên cũ từ đầu, hết nhảy bố cục */
 body.v2pre #view { padding: 0; max-width: none; }
 @media (min-width: 1024px) {
   body.ux1 .shell { grid-template-columns: 232px minmax(0, 1fr) 340px; }
@@ -1484,3 +1485,9 @@ html.ic-wait-o .material-symbols-outlined:not([data-ms]),html.ic-wait-r .materia
 /* kiểm toán 18/11 (lesson-perf): cờ data-has-* do ui.js đặt thay cho :has() gốc html/body – mỗi lần DOM đổi, :has() gốc buộc tính lại style cả cây (~25 % thời gian luồng chính của 1 bài học ở CPU 4×) */
 /* P0 kiểm toán 18/11: hàng nút chép chính tả ở 390 px – Câu trước/Câu sau chia đều dòng sau (nút Nghe chiếm cả dòng ở lazy-ui.css) */
 @media (max-width: 480px) { .q-card .row.center #dPrev, .q-card .row.center #dNext { flex: 1 1 0; min-width: 0; } }
+/* scroll-perf (22/11): ngọn lửa chuỗi (st-fl, runtime.js) lay bằng transform trên <path> con của SVG = KHÔNG lên lớp ghép (compositor) → mỗi khung hình tính lại bố cục SVG (layout 393 lần/389 khung ở #/train, #/me, #/library… vì ngọn lửa nằm trên thanh trên cố định). Lay cả ngọn (transform trên chính <svg>, phần tử HTML → compositor) thay hai path con: cùng nhịp 1,6 s, cùng biên độ, 0 layout khi cuộn */
+@media (prefers-reduced-motion: no-preference) {
+  .st-fl[data-fl=active] .fl-mid, .st-fl[data-fl=milestone] .fl-mid, .st-fl[data-fl=active] .fl-core, .st-fl[data-fl=milestone] .fl-core { animation: none !important; }
+  .st-fl[data-fl=active], .st-fl[data-fl=milestone] { transform-origin: 50% 100%; animation: stFlAll 1.6s ease-in-out infinite alternate; will-change: transform; }
+  @keyframes stFlAll { from { transform: scale(1, 1); } to { transform: scale(.97, 1.04); } }
+}

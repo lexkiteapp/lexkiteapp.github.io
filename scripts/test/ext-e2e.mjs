@@ -51,6 +51,12 @@ const IMG_REPLY = { src: IMG_SRC, link: IMG_SRC, license: 'CC0', title: 'e2e', c
 // Chỉ mock đường dẫn trang gọi khi chạy bình thường; /api khác vẫn 503 và vẫn làm đỏ test: lỗi console thật không bị che
 await noProd(ctx, { api: url => (url.pathname === '/api/notices' ? { notices: [] } : url.pathname === '/api/img' ? IMG_REPLY : null) }); // CI: media/audio → GitHub, /api → offline (0 lượt prod)
 await ctx.route(IMG_SRC, r => r.fulfill({ contentType: 'image/png', body: IMG_BYTES }));
+// Khung Kokoro của add-on (#1813: klocal.js nhúng https://lexkite.com/kl.html) – KHÔNG phụ thuộc bản prod đã deploy chưa (e2e chạy ngay sau gộp, Pages deploy theo lô 3 giờ → prod chưa có kl.html → trả '/' kèm X-Frame-Options → "Refused to frame" đỏ giả).
+// Phục vụ từ web/ của PR với ĐÚNG header khối `/kl*` của web/_headers (có frame-ancestors chrome-extension:) → đồng thời kiểm luôn header cho phép add-on nhúng.
+{ const blk = (fs.readFileSync('web/_headers', 'utf8').split(/\r?\n/).reduce((a, l) => (a.on ? (/^\s+\S/.test(l) ? (a.h.push(l.trim()), a) : { ...a, on: false }) : (l.trim() === '/kl*' ? { ...a, on: true } : a)), { on: false, h: [] })).h,
+    hdr = Object.fromEntries(blk.filter(l => !l.startsWith('!')).map(l => [l.slice(0, l.indexOf(':')).trim().toLowerCase(), l.slice(l.indexOf(':') + 1).trim()]));
+  await ctx.route(/^https:\/\/lexkite\.com\/(kl|kl\.html|js\/klocal-worker\.js)(\?.*)?$/, r => { const u = new URL(r.request().url()), js = u.pathname.endsWith('.js');
+    return r.fulfill({ status: 200, headers: js ? { 'content-type': 'text/javascript', 'cache-control': 'no-cache' } : { ...hdr, 'content-type': 'text/html; charset=utf-8' }, body: fs.readFileSync(js ? 'web/js/klocal-worker.js' : 'web/kl.html') }); }); }
 await ctx.route('https://t1.example.com/**', r => r.fulfill({ contentType: 'text/html', body: ARTICLE }));
 await ctx.route('https://t2.example.com/**', r => r.fulfill({ contentType: 'text/html', body: CSP_PAGE, headers: { 'Content-Security-Policy': "img-src 'self'; style-src 'self'" } })); // chặn cả ảnh ngoài, data: và <style>/style="" chèn vào
 await ctx.route('https://t3.example.com/**', r => r.fulfill({ contentType: 'text/html', body: FRAME }));
