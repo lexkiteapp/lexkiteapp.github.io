@@ -37,6 +37,8 @@ data class LItem(
     val tiles: List<String>? = null, val prompt: String? = null, val tr: String? = null, val def: String? = null, val len: Int? = null, val first: String? = null,
     val bank: List<String>? = null, val alt: LItem? = null, val choice: Boolean? = null, val spoke: Boolean? = null,
     val pairs: List<MatchPair>? = null, val free: Boolean? = null, val who: String? = null, val radio: Boolean? = null,
+    /** lpic: part of speech per option (UI looks up the image word#pos) · match: pics = right column shows images (mpic) */
+    val ipos: Map<String, String>? = null, val pics: Boolean? = null,
 ) {
     /** Hard = the learner must produce the answer (web HARD). */
     val hard get() = type == "build" || type == "tr" || type == "type" || (type == "say" && spoke != true) || (type == "pic" && choice != true)
@@ -149,15 +151,17 @@ object LessonEngine {
     class BuildOpts(
         val seed: Long? = null, val pool: List<JsonObject> = emptyList(), val off: Off = Off(), val only: List<String>? = null, val calm: Boolean = false,
         val perWord: Int = 2, val match: Boolean = true,
+        /** lpic = listen → pick 1 of 4 images · mpic = match words ↔ images (web lesson/ui.js turns both on; vectors cover on + off) */
+        val lpic: Boolean = false, val mpic: Boolean = false,
         val hasImg: ((String, String) -> Boolean)? = null, val gloss: ((JsonObject, String) -> String)? = null, val mean: ((JsonObject) -> String)? = null,
     )
 
-    private val RARE = mapOf("pic" to 0.0, "tr" to 0.1, "build" to 0.2, "type" to 0.25, "gap" to 0.3, "say" to 0.4)
-    private class W(val p: Pick, val c: JsonObject, val s: Sent?, val pair: Sent?, val types: List<String>) { val order = ArrayList<String>() }
+    private val RARE = mapOf("pic" to 0.0, "lpic" to 0.05, "tr" to 0.1, "build" to 0.2, "type" to 0.25, "gap" to 0.3, "say" to 0.4)
+    private class W(val p: Pick, val c: JsonObject, val s: Sent?, val pair: Sent?, val ims: List<String>, val types: List<String>) { val order = ArrayList<String>() }
 
     /** Builds the exercises (balanced across words, no two in a row for the same word, one match exercise mid-lesson with ≥ 4 words). */
     fun build(picks: List<Pick>, o: BuildOpts = BuildOpts(), nowMs: Long = System.currentTimeMillis()): List<LItem> {
-        val r = rng(o.seed?.takeIf { it != 0L } ?: nowMs)
+        val r0 = o.seed?.takeIf { it != 0L } ?: nowMs; val r = rng(r0)
         val pool = o.pool + picks.map { it.card }; val off = o.off; val per = if (o.perWord == 0) 2 else o.perWord
         val byWord = picks.map { p ->
             val c = p.card; val pat = isPat(c) && c.truthy("ex"); val types = ArrayList<String>()
@@ -174,11 +178,16 @@ object LessonEngine {
             if (pair != null) types.add("tr")
             val mn = o.mean?.invoke(c).orEmpty()
             if (!Regex("\\s").containsMatchIn(c.s("word").trim()) && c.s("word").length >= 3 && (!off.listen || mn.isNotEmpty() || c.truthy("def"))) types.add("type")
+            // listen → pick 1 of 4 images: the word AND 3 distractors need an image; own RNG so the other types' shuffle order is unchanged
+            val h = o.hasImg
+            val ims = if (o.lpic && !off.listen && h != null && h(c.s("word"), c.s("pos")))
+                distract(c.s("word"), c.s("pos"), pool.filter { it.truthy("word") && h(it.s("word"), it.s("pos")) }, 3, rng(r0 + c.s("word").length)) else emptyList()
+            if (ims.size >= 3) types.add("lpic")
             types.add("say")
             val only = o.only?.let { on -> types.filter { it in on } }
-            W(p, c, st, pair, if (only != null && only.isNotEmpty()) only else types)
+            W(p, c, st, pair, ims, if (only != null && only.isNotEmpty()) only else types)
         }
-        val cnt = hashMapOf("gap" to 0, "build" to 0, "pic" to 0, "tr" to 0, "type" to 0, "say" to 0)
+        val cnt = hashMapOf("gap" to 0, "build" to 0, "pic" to 0, "tr" to 0, "type" to 0, "say" to 0, "lpic" to 0)
         for (round in 0 until per) byWord.forEach { w ->
             val left = w.types.filter { it !in w.order }; if (left.isEmpty()) return@forEach
             val pick = shuffle(left, r).sortedWith(compareBy<String> { cnt[it]!! + RARE[it]!! }).first()
@@ -200,6 +209,12 @@ object LessonEngine {
                     var h = 7L; for (cp in wd.codePoints().toArray()) h = (h * 31 + Character.toChars(cp)[0].code) and 0xFFFFFFFFL
                     return base.copy(answer = wd, def = c.s("def"), len = wd.replace(Regex("[\\s'-]"), "").length, first = wd.take(1), bank = letterBank(wd.lowercase(), rng(h)))
                 }
+                "lpic" -> {
+                    val opts = shuffle(listOf(c.s("word")) + w.ims, r)
+                    val ip = LinkedHashMap<String, String>()
+                    for (x in opts) pool.firstOrNull { same(it.s("word"), x) }?.let { pc -> if (pc["pos"] is JsonPrimitive) ip[x] = pc.s("pos") }
+                    return base.copy(hints = listOf("fifty"), answer = c.s("word"), options = opts, ipos = ip)
+                }
                 "pic" -> return base.copy(answer = c.s("word"), options = shuffle(listOf(c.s("word")) + distract(c.s("word"), c.s("pos"), pool, 3, r), r))
             }
             val short = s != null && (toks(s.text).size <= 8 || isPat(c))
@@ -216,6 +231,13 @@ object LessonEngine {
         val mp = picks.filter { (it.card.truthy("vi") || it.card.truthy("def")) && !isPat(it.card) }.take(5)
         if (o.match && (o.only == null || "match" in o.only) && mp.size >= 4)
             items.add(ceil(items.size / 2.0).toInt(), LItem(++id, "match", "#match", null, answer = "", hints = HINTS["match"]!!, pairs = shuffle(mp, r).take(4).map { MatchPair(it.card.s("word"), null, it.card) }))
+        // match words ↔ images (mpic): same grading as match, ≥ 4 words with images, ~40 % of lessons; own RNGs
+        val hi = o.hasImg
+        if (o.mpic && o.only == null && hi != null) {
+            val mi = picks.filter { !isPat(it.card) && hi(it.card.s("word"), it.card.s("pos")) }
+            if (mi.size >= 4 && rng(r0 + 97).next() < 0.4)
+                items.add(ceil(items.size * 0.75).toInt(), LItem(++id, "match", "#mpic", null, answer = "", hints = HINTS["match"]!!, pics = true, pairs = shuffle(mi, rng(r0 + 98)).take(4).map { MatchPair(it.card.s("word"), null, it.card) }))
+        }
         val out = items.map { adapt(it, off) }
         return if (o.calm) calm(out) else out
     }
@@ -223,6 +245,7 @@ object LessonEngine {
     /** Switches kinds when the learner can't listen / speak right now. */
     fun adapt(it: LItem, off: Off = Off()): LItem {
         var o = it.copy(noAudio = off.listen)
+        if (off.listen && it.type == "lpic") o = o.copy(type = "pic", choice = true, hints = HINTS["pic"]!!)   // can't listen → see the image, pick the word
         if (off.speak && (it.type == "say" || it.type == "pic")) {
             o = if (it.type == "pic") o.copy(choice = true) else {
                 val a = it.alt!!
