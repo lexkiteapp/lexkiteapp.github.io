@@ -1,8 +1,9 @@
-// Lộ trình ngày tiếng Tây Ban Nha W4 (spanish-course.md §10): dựng web/cpack/es/{wd,wd-<ngôn ngữ>,cl,dy,dy-<ngôn ngữ>}.js từ NGUỒN
+// Lộ trình ngày tiếng Tây Ban Nha W4 (spanish-course.md §10): dựng web/cpack/es/{cl,dy,dy-<ngôn ngữ>}.js + web/packs/es/{wd,wd-<ngôn ngữ>}.json từ NGUỒN
 //   content/target/es/{seed.json, core-*.json (status reviewed), calls/*.json, drills.json+grammar-inventory (qua drill-lib), pron.json, path-ui.json}.
 // Mỗi ngày = ~4 từ mới (theo rank) + 1 điểm ngữ pháp (drill-lib pts) + 1 chủ đề phát âm + cứ 5 ngày 1 cuộc gọi. Số ngày = số điểm ngữ pháp A1–B1 (mỗi điểm đúng 1 ngày).
 // Dùng bởi drill-lib.build() → drill-pack.mjs (ghi/--check, mồ côi) và corpus âm thanh.
 import fs from 'node:fs';
+import { createHash } from 'node:crypto';
 import { readJSON, coreFiles } from './lib.mjs';
 
 const D = 'content/target/es/', LANGS = ['en', 'vi', 'es', 'pt', 'fr', 'de', 'id', 'th', 'zh', 'ja', 'ko', 'hi', 'ar', 'ru', 'tr'];
@@ -34,12 +35,16 @@ export function buildPath(pts, px) {
   const lvRank = { A1: 0, A2: 1, B1: 2, B2: 3, C1: 4 }, order = [...calls].sort((a, b) => lvRank[a.lv] - lvRank[b.lv]); // cuộc gọi dễ → khó theo ngày
   const lvs = [...new Set(pts.map(p => p.level))], plan = { g: pts.map(p => p.id), l: lvs.map(l => [l, pts.filter(p => p.level === l).length]), t: px.map(t => [t.i, t.p.length ? 1 : 0]), n: words.length, k: WORDS_MAX, c: order.map(c => c.id) };
   const days = pts.map((p, i) => planDay(i, plan));
-  files['dy.js'] = `self.ESX=self.ESX||{};ESX.dy=${JSON.stringify(plan)};ESX.dyp=${planDay.toString()};\n`;
-  files['wd.js'] = `self.ESX=self.ESX||{};ESX.wd=${JSON.stringify(words.map(wdRow))};\n`;
+
+  // Từ của lộ trình (lớn dần tới 3.000 lemma) = JSON ở web/packs/es/ (khóa '@packs/'), tải như App.loadPack: cùng tên miền trên web, https://lexkite.com
+  // ở add-on/app gốc – không nằm trong web/cpack (không nâng trần cpackTotal mỗi lô). ESX.wdv = mã băm nội dung (dy.js tên băm) → bỏ cache khi đổi.
+  files['@packs/wd.json'] = JSON.stringify(words.map(wdRow)) + '\n';
   for (const l of LANGS) {
-    files[`wd-${l}.js`] = `self.ESX=self.ESX||{};(ESX.wdl=ESX.wdl||{})[${JSON.stringify(l)}]=${JSON.stringify(words.map(w => w.gl[l] || w.gl.en))};\n`;
+    files[`@packs/wd-${l}.json`] = JSON.stringify(words.map(w => w.gl[l] || w.gl.en)) + '\n';
     files[`dy-${l}.js`] = `self.ESX=self.ESX||{};(ESX.dyl=ESX.dyl||{})[${JSON.stringify(l)}]=${JSON.stringify(DAY_UI.map(k => ui[l][k]))};\n`;
   }
+  const wdv = createHash('sha1').update(Object.keys(files).filter(f => f.startsWith('@packs/')).sort().map(f => files[f]).join('')).digest('hex').slice(0, 10);
+  files['dy.js'] = `self.ESX=self.ESX||{};ESX.dy=${JSON.stringify(plan)};ESX.dyp=${planDay.toString()};ESX.wdv=${JSON.stringify(wdv)};\n`;
   // gói nhỏ gọn: bỏ kind/tr (không dùng ở màn gọi); tl gắn lúc nạp (call.js lọc theo tl)
   files['cl.js'] = `self.CALLS=(self.CALLS||[]).concat(${JSON.stringify(calls.map(({ kind, tr, ...c }) => ({ ...c, tl: 'es' })))});\n`;
   return { files, days, words, calls, plan };

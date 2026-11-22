@@ -8,18 +8,21 @@ import { readJSON, TL_RULES, ltErrors } from './lib.mjs';
 import { TL_GEN } from './tl-gen.mjs';
 import { D, LV, GX_LANGS, build, sayText } from './drill-lib.mjs';
 
-const OUT = 'web/cpack/es/', CHECK = process.argv.includes('--check');
+const OUT = 'web/cpack/es/', PACKS = 'web/packs/es/', CHECK = process.argv.includes('--check');
+const dest = f => f.startsWith('@packs/') ? PACKS + f.slice(7) : OUT + f; // từ lộ trình → web/packs/es (path-lib)
 const { files, dr, pts, cloze } = build();
 if (!CHECK) {
   fs.mkdirSync(OUT, { recursive: true });
-  for (const [f, s] of Object.entries(files)) fs.writeFileSync(OUT + f, s);
+  fs.mkdirSync(PACKS, { recursive: true });
+  for (const [f, s] of Object.entries(files)) fs.writeFileSync(dest(f), s);
   console.log(`✓ drill-pack: ${Object.values(dr).flat().length} câu (${LV.map(l => l + ' ' + dr[l].length).join(' · ')}), ${GX_LANGS.length} ngôn ngữ giải thích`);
   process.exit(0);
 }
 
 const errs = [], E = m => errs.push(m);
-for (const [f, s] of Object.entries(files)) if (!fs.existsSync(OUT + f) || fs.readFileSync(OUT + f, 'utf8') !== s) E(`${OUT}${f} cũ so với nguồn – chạy: node scripts/target/drill-pack.mjs`);
+for (const [f, s] of Object.entries(files)) if (!fs.existsSync(dest(f)) || fs.readFileSync(dest(f), 'utf8') !== s) E(`${dest(f)} cũ so với nguồn – chạy: node scripts/target/drill-pack.mjs`);
 for (const f of fs.existsSync(OUT) ? fs.readdirSync(OUT) : []) if (!files[f]) E(`${OUT}${f} mồ côi (không có trong nguồn)`);
+for (const f of fs.existsSync(PACKS) ? fs.readdirSync(PACKS) : []) if (!files['@packs/' + f]) E(`${PACKS}${f} mồ côi (không có trong nguồn)`);
 const VN = /[ơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹđă]/i, en = readJSON(`${D}gx/en.json`), lint = TL_RULES.es.lint || [];
 const GXD = Object.fromEntries(GX_LANGS.map(l => [l, readJSON(`${D}gx/${l}.json`)])), kept = (id, seg) => GX_LANGS.filter(l => l !== 'en' && GXD[l][id] && GXD[l][id].x.includes(seg)).length;
 for (const p of pts) {

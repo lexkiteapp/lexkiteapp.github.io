@@ -1,11 +1,11 @@
 /* 🇪🇸 Lộ trình ngày tiếng Tây Ban Nha (#/practice/esd, spanish-course.md W4): mỗi ngày = từ mới + 1 điểm ngữ pháp + 1 chủ đề phát âm (+ cuộc gọi AI mỗi 5 ngày).
  * Chỉ ĐIỀU HƯỚNG tới màn có sẵn (#/practice/es · #/practice/esp · #/call/<id>) + bước "từ mới" tại chỗ; không khung/CSS mới (lớp card/chip/btn sẵn có).
- * Dữ liệu tải lười dựng bởi scripts/target/path-lib.mjs: cpack/es/{dy,wd}.js + dy-<ngôn ngữ>.js (nhãn) + wd-<ngôn ngữ>.js (nghĩa). Tiến độ: lk.es.day = { "<ngày>": "wgpc" }.
+ * Dữ liệu tải lười dựng bởi scripts/target/path-lib.mjs: cpack/es/dy.js + dy-<ngôn ngữ>.js (nhãn); từ = packs/es/wd.json + wd-<ngôn ngữ>.json (nghĩa) – tải như App.loadPack. Tiến độ: lk.es.day = { "<ngày>": "wgpc" }.
  * Làm xong bước ở màn khác: nút bắt đầu ghi lk.es.dayctx (sessionStorage); màn kết của luyện TBN/phát âm/cuộc gọi gọi App.esDayMark → đánh dấu bước. */
 (function () {
   const { $, esc } = UI, App = window.App, view = App.view, KEY = 'lk.es.day', CTX = 'lk.es.dayctx', ACC = 'es-419';
   const DYL = { en: 'cpack/es/dy-en.js', vi: 'cpack/es/dy-vi.js', es: 'cpack/es/dy-es.js', pt: 'cpack/es/dy-pt.js', fr: 'cpack/es/dy-fr.js', de: 'cpack/es/dy-de.js', id: 'cpack/es/dy-id.js', th: 'cpack/es/dy-th.js', zh: 'cpack/es/dy-zh.js', ja: 'cpack/es/dy-ja.js', ko: 'cpack/es/dy-ko.js', hi: 'cpack/es/dy-hi.js', ar: 'cpack/es/dy-ar.js', ru: 'cpack/es/dy-ru.js', tr: 'cpack/es/dy-tr.js' };
-  const WDL = { en: 'cpack/es/wd-en.js', vi: 'cpack/es/wd-vi.js', es: 'cpack/es/wd-es.js', pt: 'cpack/es/wd-pt.js', fr: 'cpack/es/wd-fr.js', de: 'cpack/es/wd-de.js', id: 'cpack/es/wd-id.js', th: 'cpack/es/wd-th.js', zh: 'cpack/es/wd-zh.js', ja: 'cpack/es/wd-ja.js', ko: 'cpack/es/wd-ko.js', hi: 'cpack/es/wd-hi.js', ar: 'cpack/es/wd-ar.js', ru: 'cpack/es/wd-ru.js', tr: 'cpack/es/wd-tr.js' };
+  const WDL = l => 'packs/es/wd' + (l ? '-' + l : '') + '.json'; // web/packs/es (path-lib): ngoài web/cpack, lớn dần theo kho từ
   const LABEL = 'ti sub dy w g p c go pr mk fin td sv'.split(' '); // thứ tự khớp path-lib.DAY_UI
   const ls = (k, v, s) => { try { const st = s ? sessionStorage : localStorage; if (v === undefined) return st.getItem(k); if (v === null) st.removeItem(k); else st.setItem(k, v); } catch (e) { /* riêng tư */ } return null; };
   const X = () => (self.ESX = self.ESX || {});
@@ -46,8 +46,14 @@
   };
 
   const load = async () => {
-    const l = lang(), tl = [App.need('esday', 'calles'), App.loadScript(DYL[l]), App.loadScript(WDL[l])];
-    if (l !== 'en') tl.push(App.loadScript(DYL.en), App.loadScript(WDL.en)); // dự phòng nhãn/nghĩa tiếng Anh
+    const l = lang(), tl = [App.need('esday', 'calles'), App.loadScript(DYL[l])];
+    if (l !== 'en') tl.push(App.loadScript(DYL.en)); // dự phòng nhãn tiếng Anh
+    await Promise.all(tl); tl.length = 0;
+    // Từ + nghĩa: JSON cùng tên miền trên lexkite.com, https://lexkite.com ở add-on/app gốc (mẫu App.loadPack); ?v = băm nội dung (dy.js) → không dùng bản cũ
+    const base = /(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname) ? '' : 'https://lexkite.com', v = '?v=' + (X().wdv || '0');
+    const get = f => fetch((base ? base + '/' : '') + f + v).then(r => { if (!r.ok) throw new Error(f + ' ' + r.status); return r.json(); });
+    tl.push(X().wd ? 0 : get(WDL()).then(j => { X().wd = j; }));
+    for (const k of l !== 'en' ? [l, 'en'] : ['en']) if (!(X().wdl || {})[k]) tl.push(get(WDL(k)).then(j => { (X().wdl = X().wdl || {})[k] = j; }));
     tl.push(App.loadScript(App.esGx[l]), App.loadScript(App.esPx[l]), App.loadScript('cpack/es/px.js'));
     await Promise.all(tl);
   };

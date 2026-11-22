@@ -25,7 +25,10 @@ const need = [];
 (function walk(d) { for (const e of fs.readdirSync(d, { withFileTypes: true })) { const p = path.join(d, e.name); e.isDirectory() ? walk(p) : need.push(p.replace(/^web\//, '')); } })('web/cpack/es-app');
 need.push('js/target.js', 'js/target-es-seed.json');
 const miss = need.filter(f => !inBundle.has(f));
-ok(need.length > 80 && !miss.length, `gói app gốc thiếu ${miss.length}/${need.length} tệp khóa TBN: ${miss.slice(0, 5).join(', ')}`);
+ok(need.length > 60 && !miss.length, `gói app gốc thiếu ${miss.length}/${need.length} tệp khóa TBN: ${miss.slice(0, 5).join(', ')}`); // 22/11: 16 tệp từ lộ trình (wd*) dời sang web/packs/es – kiểm riêng dưới
+// Từ lộ trình (lớn dần tới 3.000 lemma) ở web/packs/es/*.json – packs/ bị loại khỏi gói OTA → app gốc tải https://lexkite.com/packs/es/… (mẫu App.loadPack)
+{ const pk = fs.existsSync('web/packs/es') ? fs.readdirSync('web/packs/es') : [], ui = rd('web/cpack/es-app/day-ui.js');
+  ok(pk.includes('wd.json') && pk.filter(f => /^wd-[a-z]{2}\.json$/.test(f)).length === 15 && /'https:\/\/lexkite\.com'/.test(ui) && ex.includes('packs/'), 'từ lộ trình: web/packs/es (wd + 15 nghĩa) tải từ https://lexkite.com khi không ở lexkite.com (gói OTA loại packs/)'); }
 // tài nguyên tải qua mạng (không nằm trong gói) phải là loại sẵn có của khóa tiếng Anh: audio/ + packs/ (cùng cơ chế CDN)
 ok(/--exclude 'audio\/'/.test(line) && /--exclude 'packs\/'/.test(line), 'audio/ và packs/ vẫn tải qua mạng như khóa tiếng Anh');
 
