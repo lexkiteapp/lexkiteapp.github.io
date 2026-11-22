@@ -186,10 +186,12 @@ public enum L10nKey: String, CaseIterable, Sendable {
     case lessonQSay = "lesson.q.say"
     case lessonQPicChoice = "lesson.q.picChoice"
     case lessonQPicSay = "lesson.q.picSay"
+    case lessonQLpic = "lesson.q.lpic"
     case lessonQTr = "lesson.q.tr"
     case lessonQMean = "lesson.q.mean"
     case lessonQType = "lesson.q.type"
     case lessonQMatch = "lesson.q.match"
+    case lessonQMpic = "lesson.q.mpic"
     case lessonQQ = "lesson.q.q"
     case lessonQn = "lesson.qn"
     case lessonCombo = "lesson.combo"
@@ -3490,6 +3492,7 @@ public enum L10nKey: String, CaseIterable, Sendable {
     case speakSpkLamViecNhom = "speak.spk.lamViecNhom"
     case speakSpkDuHocSongONuoc = "speak.spk.duHocSongONuoc"
     case speakSpkMayTinhInternetHangNgay = "speak.spk.mayTinhInternetHangNgay"
+    case speakSpkThuThachNoi30Giay = "speak.spk.thuThachNoi30Giay"
 }
 
 public enum L10nLangs {

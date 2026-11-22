@@ -111,7 +111,7 @@
         + tog('sWhisper', s.whisperMode, t('Chế độ thì thầm khi luyện nói'))
         + tog('sHq', s.hqVoice !== false, t('Giọng đọc tự nhiên cho bài nghe & giám khảo (tải âm thanh từ mạng)'))
         + (OFFP ? tog('sOff', LKAudio.offline.on(), t('Nghe offline: tải sẵn khoảng {n} từ thông dụng và bài đang học', { n: LKAudio.offline.N.toLocaleString(I18N.lang ? I18N.lang() : undefined) }), t('Khoảng {mb} MB, tối đa {max} MB. Tắt để xóa khỏi máy.', { mb: LKAudio.offline.EST_MB, max: LKAudio.offline.MAX_MB })) + '<div id="offStat" class="tip small set-tip" aria-live="polite" hidden></div>' : '')
-        + (Store.isExtension ? '' : '<div id="klBox"></div>') // 🎧 Kokoro trên máy: bật/tắt, MB, Xóa, dữ liệu di động – vẽ trong js/klocal.js (KLocal.settings)
+        + '<div id="klBox"></div>' // 🎧 Kokoro trên máy: bật/tắt, MB, Xóa, dữ liệu di động – vẽ trong js/klocal.js (KLocal.settings)
         + tog('sSfx', s.sfx, t('Hiệu ứng âm thanh'))
         + tog('sHap', !!(window.Sfx && Sfx.haptics && Sfx.haptics()), t('Rung khi trả lời và hoàn thành bài'))
         + tog('sFeel', !!(window.Sfx && Sfx.feel && Sfx.feel()), t('Âm thanh & hiệu ứng kiểu trò chơi')))}

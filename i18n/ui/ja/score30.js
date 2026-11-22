@@ -1,0 +1,28 @@
+/* UI ja – score30 (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ja"] = Object.assign(D["ja"] || {}, {
+"Bạn của bạn hơn {n} điểm – thử lại nhé!":"友だちが {n} ポイント上でした。もう一度！",
+"Bạn của bạn đạt {s} ({c}). Vượt qua nhé!":"友だちは {s}（{c}）でした。超えてみよう！",
+"Bạn thắng! {me} so với {fr}":"あなたの勝ち！ {me} 対 {fr}",
+"Bắt đầu":"はじめる",
+"Cần micro. Âm thanh không rời khỏi máy bạn.":"マイクが必要です。音声は端末の外に出ません。",
+"Hòa nhau! {me} so với {fr}":"引き分け！ {me} 対 {fr}",
+"Không nghe rõ – thử lại ở nơi yên tĩnh hơn nhé.":"うまく聞き取れませんでした。静かな場所でもう一度どうぞ。",
+"Link thử thách không dùng được lúc này – thử lại sau.":"チャレンジリンクを今は使えません。後でもう一度お試しください。",
+"Làm lại":"もう一度",
+"Lưu loát":"流暢さ",
+"Mình nói tiếng Anh được {s}/100 ({c}) trên Lexkite. Bạn hơn được không? {url}":"Lexkiteの英語スピーキングで {s}/100（{c}）でした。超えられる？ {url}",
+"Nhận điểm nói, thách bạn bè":"スコアをもらって友だちに挑戦",
+"Phát âm":"発音する",
+"Thách bạn bè":"友だちに挑戦状",
+"Thẻ điểm nói tiếng Anh":"英語スピーキングのスコアカード",
+"Trình duyệt này chưa hỗ trợ nhận giọng nói. Hãy thử Chrome hoặc app Lexkite.":"このブラウザは音声認識に対応していません。ChromeかLexkiteアプリをお試しください。",
+"Tải ảnh":"画像を保存",
+"Xong":"完了",
+"Đang nghe… còn {n} giây":"聞いています…残り {n} 秒",
+"Điểm tổng":"総合スコア",
+"Điểm {s}/100, trình độ {c}":"スコア {s}/100、レベル {c}",
+"Đã chép link thử thách – dán gửi bạn nhé":"チャレンジリンクをコピーしました。友だちに貼り付けて送ろう",
+"Đọc to đoạn văn này trong 30 giây":"この文を30秒以内に声に出して読もう",
+"Ước lượng CEFR – chỉ mang tính tham khảo":"CEFRの目安です（参考値）",
+});
+})(typeof self !== 'undefined' ? self : this);

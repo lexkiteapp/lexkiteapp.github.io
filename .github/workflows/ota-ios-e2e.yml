@@ -1,0 +1,48 @@
+# OTA iOS ĐẦU-CUỐI (21/11: máy chủ vẫn chạy giao diện cũ dù bản sửa đã trong gói OTA – chưa máy nào kiểm gói OTA có TỚI app không).
+# App gốc build từ nhánh (không harness, không ký) → Simulator → ota.js tải gói đang phát (lexkite.com/api/ota) → xuống nền → mở lại → phải chạy + giữ đúng bản đó.
+# scripts/test/ios-ota-e2e.mjs. Chạy: sau mỗi lần đổi mã OTA/app gốc trên main, hằng ngày (bắt gói OTA mới hỏng / plugin đổi hành vi), và tay.
+name: OTA iOS E2E
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 3 * * *'
+  push:
+    branches: [main, ota-e2e-try]   # ota-e2e-try: nhánh thử riêng (chạy trước khi gộp)
+    paths: ['web/js/ota*.js', 'web/js/native.js', 'functions/api/ota.js', 'scripts/ota/**', 'mobile/package*.json', 'mobile/capacitor.config.json', 'scripts/build-mobile.sh', 'scripts/test/ios-ota-e2e.mjs', '.github/workflows/ota-ios-e2e.yml']
+permissions: { contents: read }
+concurrency: { group: ota-ios-e2e, cancel-in-progress: true }
+jobs:
+  ota:
+    runs-on: macos-15
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Chọn Xcode 26
+        run: |
+          X=$(ls -d /Applications/Xcode_26*.app 2>/dev/null | sort -V | tail -1)
+          [ -n "$X" ] && sudo xcode-select -s "$X/Contents/Developer"; xcodebuild -version
+      - uses: actions/cache@v4
+        with:
+          path: ~/.npm/_libvips
+          key: sharp-libvips-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('mobile/package-lock.json') }}
+      - name: Build web → mobile/www → cap sync (bản phát hành, không harness)
+        timeout-minutes: 25
+        run: |
+          bash scripts/ci/npm-retry.sh ci --prefix mobile --no-audit --no-fund
+          ./scripts/build-mobile.sh
+      - name: xcodebuild (iphonesimulator, không ký)
+        timeout-minutes: 25
+        working-directory: mobile/ios/App
+        run: |
+          set -o pipefail
+          xcodebuild -project App.xcodeproj -scheme App -configuration Debug -sdk iphonesimulator \
+            -destination 'generic/platform=iOS Simulator' -derivedDataPath build \
+            CODE_SIGNING_ALLOWED=NO build | tail -20
+      - name: OTA tải → áp → giữ
+        timeout-minutes: 15
+        run: node scripts/test/ios-ota-e2e.mjs --app mobile/ios/App/build/Build/Products/Debug-iphonesimulator/App.app --out ota-out
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: ota-ios-e2e, path: ota-out/, retention-days: 14 }

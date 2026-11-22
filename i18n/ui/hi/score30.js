@@ -1,0 +1,28 @@
+/* UI hi – score30 (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["hi"] = Object.assign(D["hi"] || {}, {
+"Bạn của bạn hơn {n} điểm – thử lại nhé!":"आपका दोस्त {n} अंक आगे है – फिर कोशिश करें!",
+"Bạn của bạn đạt {s} ({c}). Vượt qua nhé!":"आपके दोस्त का स्कोर {s} ({c}) रहा। इसे हराइए!",
+"Bạn thắng! {me} so với {fr}":"आप जीत गए! {me} बनाम {fr}",
+"Bắt đầu":"शुरू करें",
+"Cần micro. Âm thanh không rời khỏi máy bạn.":"माइक्रोफ़ोन चाहिए। ऑडियो आपके डिवाइस से बाहर नहीं जाता।",
+"Hòa nhau! {me} so với {fr}":"बराबरी! {me} बनाम {fr}",
+"Không nghe rõ – thử lại ở nơi yên tĩnh hơn nhé.":"आवाज़ साफ़ नहीं सुनाई दी – किसी शांत जगह पर फिर कोशिश करें।",
+"Link thử thách không dùng được lúc này – thử lại sau.":"चुनौती लिंक अभी उपलब्ध नहीं है – बाद में फिर कोशिश करें।",
+"Làm lại":"फिर कोशिश करें",
+"Lưu loát":"प्रवाह",
+"Mình nói tiếng Anh được {s}/100 ({c}) trên Lexkite. Bạn hơn được không? {url}":"Lexkite पर अंग्रेज़ी बोलने में मेरा स्कोर {s}/100 ({c}) रहा। क्या आप हरा सकते हैं? {url}",
+"Nhận điểm nói, thách bạn bè":"स्कोर पाएँ, दोस्त को चुनौती दें",
+"Phát âm":"उच्चारण करें",
+"Thách bạn bè":"दोस्त को चुनौती दें",
+"Thẻ điểm nói tiếng Anh":"अंग्रेज़ी बोलने का स्कोर कार्ड",
+"Trình duyệt này chưa hỗ trợ nhận giọng nói. Hãy thử Chrome hoặc app Lexkite.":"यह ब्राउज़र आवाज़ पहचान का समर्थन नहीं करता। Chrome या Lexkite ऐप आज़माएँ।",
+"Tải ảnh":"इमेज सेव करें",
+"Xong":"हो गया",
+"Đang nghe… còn {n} giây":"सुन रहा है… {n} सेकंड बाकी",
+"Điểm tổng":"कुल स्कोर",
+"Điểm {s}/100, trình độ {c}":"स्कोर {s}/100, स्तर {c}",
+"Đã chép link thử thách – dán gửi bạn nhé":"चुनौती लिंक कॉपी हो गया – दोस्त को पेस्ट करके भेजें",
+"Đọc to đoạn văn này trong 30 giây":"इस अंश को 30 सेकंड में ज़ोर से पढ़ें",
+"Ước lượng CEFR – chỉ mang tính tham khảo":"CEFR अनुमान – केवल संदर्भ के लिए",
+});
+})(typeof self !== 'undefined' ? self : this);

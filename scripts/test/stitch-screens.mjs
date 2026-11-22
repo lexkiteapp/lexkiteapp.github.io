@@ -70,6 +70,7 @@ export const SCREENS = {
   'pron-hub': 'pron',
   readiness: 'goal',
   review: 'review?hub=1',
+  score: 'score',
   settings: 'settings',
   skills: 'skills',
   'speak-drill': 'speak/cafe/drill',
@@ -108,6 +109,7 @@ export const V2REF = {
   'pron-hub': 'pron-hub',
   readiness: 'exam-readiness',
   review: 'review',
+  score: 'say-front', // Thử thách nói 30 giây (web/cpack/score-app/score30.js): cùng khung Stitch say-front (thanh trên + tab), thân riêng
   settings: 'settings',
   skills: 'skills',
   'speak-drill': 'pas-drill',
@@ -185,5 +187,5 @@ export const FINAL = [
   { stitch: 'deck', k: 'deck', teacher: null }, { stitch: 'mistakes', k: 'mistakes', teacher: ['thinking'] },
 ];
 export const READY = Object.fromEntries(FINAL.filter(f => f.k && f.ready).map(f => [f.k, f.ready]));
-Object.assign(READY, { 'speak-sit': '.v2s-pas-sit', 'speak-drill': '.v2s-pas-drill', 'onb-goal': '.v2s-onb-goal', 'onb-level': '.v2s-onb-level', 'onb-target': '.v2s-onb-target', 'onb-pace': '.v2s-onb-pace', 'onb-ready': '.v2s-onb-ready', welcome: ':is(.v2s-welcome, .v2s-welcome-desk)', 'welcome-desk': ':is(.v2s-welcome, .v2s-welcome-desk)' }); // welcome: điện thoại/máy tính cùng route, chọn khung theo độ rộng // 2 màn Nói (cờ lk.speak=1): trang lỗi/không tải gói = ĐỎ, không xanh giả
+Object.assign(READY, { score: '.s30 .txt', 'speak-sit': '.v2s-pas-sit', 'speak-drill': '.v2s-pas-drill', 'onb-goal': '.v2s-onb-goal', 'onb-level': '.v2s-onb-level', 'onb-target': '.v2s-onb-target', 'onb-pace': '.v2s-onb-pace', 'onb-ready': '.v2s-onb-ready', welcome: ':is(.v2s-welcome, .v2s-welcome-desk)', 'welcome-desk': ':is(.v2s-welcome, .v2s-welcome-desk)' }); // welcome: điện thoại/máy tính cùng route, chọn khung theo độ rộng // 2 màn Nói (cờ lk.speak=1): trang lỗi/không tải gói = ĐỎ, không xanh giả
 

@@ -97,7 +97,7 @@ groups: [
 items: [
 { n: 11, q: 'Harbour FM originally started as', options: ['a student project.', 'a council service.', 'a business venture.'], a: 0, cue: 'Harbour FM began as a student project in a garage', explain: 'Đài khởi đầu là một dự án sinh viên trong ga-ra, chỉ phát hai giờ mỗi tuần. Câu nghe được: “Harbour FM began as a student project in a garage.”' },
 { n: 12, q: 'Most of the station’s money comes from', options: ['advertising by large companies.', 'a grant from the town council.', 'sponsorship by local businesses.'], a: 1, cue: 'Most of our money comes from a grant from the town council', explain: 'Không có quảng cáo của công ty lớn; doanh nghiệp địa phương chỉ đóng góp phần còn lại.' },
-{ n: 13, q: 'How long is the training period?', options: ['two weeks', 'six weeks', 'eighteen weeks'], a: 1, cue: 'That lasts six weeks, with one evening session a week', explain: '“Two” là số giờ phát sóng ban đầu; “eighteen” là số giờ phát mỗi ngày hiện nay.' },
+{ n: 13, q: 'How long is the training period?', options: ['two weeks', 'eighteen weeks', 'six weeks'], a: 2, cue: 'That lasts six weeks, with one evening session a week', explain: '“Two” là số giờ phát sóng ban đầu; “eighteen” là số giờ phát mỗi ngày hiện nay.' },
 { n: 14, q: 'Most new volunteers begin by', options: ['presenting their own show.', 'reading the news.', 'working as a producer.'], a: 2, cue: 'usually as a producer, finding guests and checking facts', explain: 'Người mới thường giúp chương trình có sẵn với vai trò sản xuất, chưa có chương trình riêng.' },
 { n: 15, q: 'What is not allowed in the studio?', options: ['drinks', 'food', 'mobile phones'], a: 0, cue: 'Please never take drinks into the studio.', explain: 'Đồ uống có thể làm hỏng bàn trộn âm; điện thoại được phép nếu để chế độ im lặng.' },
 ] },
@@ -166,10 +166,10 @@ script: [
 groups: [
 { type: 'mcq', instr: g.LTI[0],
 items: [
-{ n: 21, q: 'What was the most common reason first-year students gave for wanting a mentor?', options: ['to improve their academic writing', 'to get help with accommodation', 'to have someone to talk to'], a: 2, cue: 'they felt lonely and wanted someone to talk to', explain: 'Priya tưởng là kỹ năng viết học thuật, nhưng rất ít người nhắc đến; lý do chính là cô đơn.' },
+{ n: 21, q: 'What was the most common reason first-year students gave for wanting a mentor?', options: ['to improve their academic writing', 'to have someone to talk to', 'to get help with accommodation'], a: 1, cue: 'they felt lonely and wanted someone to talk to', explain: 'Priya tưởng là kỹ năng viết học thuật, nhưng rất ít người nhắc đến; lý do chính là cô đơn.' },
 { n: 22, q: 'How often did most pairs meet?', options: ['once a week', 'every two weeks', 'once a term'], a: 1, cue: 'Most met every two weeks', explain: 'Mỗi tuần một lần là khuyến nghị của trường; chỉ vài cặp gặp mỗi học kỳ một lần.' },
-{ n: 23, q: 'What was the main problem reported by mentors?', options: ['lack of training', 'finding a suitable time to meet', 'students not attending'], a: 1, cue: "they couldn't find a time that suited both people", explain: 'Một số nhắc đến thiếu đào tạo, nhưng phàn nàn chính là thời khóa biểu không khớp.' },
-{ n: 24, q: 'How will the students present the satisfaction data?', options: ['in a pie chart', 'in a bar chart', 'in a table'], a: 1, cue: 'I think a bar chart would show the difference best', explain: 'Biểu đồ tròn khó so sánh; biểu đồ cột thể hiện rõ khác biệt đầu năm và cuối năm.' },
+{ n: 23, q: 'What was the main problem reported by mentors?', options: ['finding a suitable time to meet', 'lack of training', 'students not attending'], a: 0, cue: "they couldn't find a time that suited both people", explain: 'Một số nhắc đến thiếu đào tạo, nhưng phàn nàn chính là thời khóa biểu không khớp.' },
+{ n: 24, q: 'How will the students present the satisfaction data?', options: ['in a pie chart', 'in a table', 'in a bar chart'], a: 2, cue: 'I think a bar chart would show the difference best', explain: 'Biểu đồ tròn khó so sánh; biểu đồ cột thể hiện rõ khác biệt đầu năm và cuối năm.' },
 ] },
 { type: 'multi', instr: 'Choose TWO letters, A–E.', q: 'Which TWO recommendations will the students make to the student union?', n: [25, 26],
 options: ['A paying mentors', 'B matching pairs by subject', 'C a training day for mentors', 'D a new booking app', 'E more social events'], a: ['B', 'C'], cue: "Definitely, that's one.",

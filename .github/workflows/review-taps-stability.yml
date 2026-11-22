@@ -15,7 +15,7 @@ permissions:
   contents: read
 concurrency:
   group: review-taps-stability-${{ github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: ${{ github.event_name != 'push' }}
 jobs:
   # luật 11 (làn nhanh trước làn nặng, scripts/test/ci-policy.mjs): trên PR việc nặng chỉ chạy khi `npm test` đã XANH cùng sha (hoặc PR có nhãn `ready`) – đỏ/chưa xong thì mọi job dưới là skipped
   # (không chiếm runner); npm-test.yml job `heavy` chạy lại lượt này ngay khi npm test xanh (scripts/ci/heavy-rerun.mjs). Lỗi API → mở cổng (không mất kiểm).
@@ -56,8 +56,10 @@ jobs:
         timeout-minutes: 12
       - name: Lặp review-taps
         run: |
-          n=${{ inputs.runs || '5' }}; bad=0
+          n=$LX_IN1; bad=0
           for i in $(seq 1 "$n"); do
             node scripts/test/review-taps.mjs web out/s$i > out.log 2>&1 && echo "run $i ✓" || { echo "run $i ✗"; grep '✗' out.log | head -5; bad=$((bad+1)); }
           done
           echo "shard ${{ matrix.shard }}: $((n-bad))/$n xanh"; [ "$bad" = 0 ]
+        env:
+          LX_IN1: ${{ inputs.runs || '5' }}

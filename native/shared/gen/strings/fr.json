@@ -184,10 +184,12 @@
   "lesson.q.say": "Dites ceci",
   "lesson.q.picChoice": "Qu'est-ce que c'est ?",
   "lesson.q.picSay": "Dites ce que vous voyez",
+  "lesson.q.lpic": "Écoutez, choisissez l'image",
   "lesson.q.tr": "Traduisez cette phrase",
   "lesson.q.mean": "Choisissez le bon mot",
   "lesson.q.type": "Tapez le mot anglais",
   "lesson.q.match": "Associez les paires",
+  "lesson.q.mpic": "Associez mots et images",
   "lesson.q.q": "Répondez à la question",
   "lesson.qn": "Question {a} sur {b}",
   "lesson.combo": "COMBO ×{n}",
@@ -3487,5 +3489,6 @@
   "speak.spk.thanhCongDongLuc": "Réussite et motivation",
   "speak.spk.lamViecNhom": "Travail d'équipe",
   "speak.spk.duHocSongONuoc": "Étudier et vivre à l'étranger",
-  "speak.spk.mayTinhInternetHangNgay": "Ordinateurs et internet au quotidien"
+  "speak.spk.mayTinhInternetHangNgay": "Ordinateurs et internet au quotidien",
+  "speak.spk.thuThachNoi30Giay": "30-second speaking challenge"
 }

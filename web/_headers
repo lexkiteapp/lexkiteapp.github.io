@@ -58,6 +58,8 @@
   Cache-Control: public, max-age=86400
 /og-default.png
   Cache-Control: public, max-age=604800
+/og/*
+  Cache-Control: public, max-age=604800
 # Blog & trang SEO tĩnh: HTML luôn kiểm tra bản mới (bài đăng theo lịch); RSS/sitemap cũng vậy
 /blog/*
   Cache-Control: no-cache
@@ -93,6 +95,14 @@
   ! X-Frame-Options
   ! Content-Security-Policy
   Content-Security-Policy: default-src 'none'; script-src 'unsafe-inline' https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; connect-src https://challenges.cloudflare.com; style-src 'unsafe-inline'; img-src data: https://challenges.cloudflare.com; base-uri 'none'; form-action 'none'; frame-ancestors 'self' https://lexkite.com https://www.lexkite.com https://*.lexkite.pages.dev capacitor://localhost http://localhost:* https://localhost:* http://localhost https://localhost chrome-extension: moz-extension:
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: no-cache, no-transform
+# Kokoro cho add-on (web/kl.html, docs/specs/kokoro-on-device.md): trang add-on (chrome-extension:/moz-extension:) nhúng khung ẩn chạy klocal-worker.js
+# vì CWS cấm mã tải từ xa trong gói. Gỡ X-Frame-Options chung, CSP chặt (chỉ script nội tuyến + worker cùng gốc), no-transform để Cloudflare không chèn beacon.
+/kl*
+  ! X-Frame-Options
+  ! Content-Security-Policy
+  Content-Security-Policy: default-src 'none'; script-src 'unsafe-inline'; worker-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'self' https://lexkite.com https://www.lexkite.com https://*.lexkite.pages.dev http://localhost:* chrome-extension: moz-extension:
   X-Robots-Tag: noindex, nofollow
   Cache-Control: no-cache, no-transform
 # Gói nội dung tải lười (web/cpack → dist/cpack/<tên>.<mã băm>.js, scripts/build-cpack.mjs): đổi nội dung = đổi tên → immutable 1 năm trên Cloudflare (miễn phí)

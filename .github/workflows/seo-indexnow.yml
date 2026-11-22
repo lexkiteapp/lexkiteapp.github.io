@@ -1,11 +1,14 @@
 # Báo IndexNow (Bing, Yandex, Naver…) các trang tĩnh Từ điển + Giao tiếp mới/đổi nội dung (docs/SEO-ARCH.md §4).
 # Push main đụng nguồn (mọi nguồn nội dung trang /words/ – docs/specs/seo-words-depth.md §2) → sinh lại danh sách URL + băm (scripts/build-seo-pages.mjs → .seo-urls.txt) → so với lần trước (cache Actions, miễn phí)
-# → chờ Cloudflare Pages deploy xong → scripts/indexnow.mjs (dùng chung với blog). Không cron, không tốn D1/AI.
+# → chờ tới khi băm <main> của trang live = bản vừa dựng (scripts/seo/indexnow-wait.mjs) → scripts/indexnow.mjs (dùng chung với blog).
+# Chưa lên (Pages gom deploy ≥ 3 giờ) → không báo, không lưu; cron sau mỗi lượt deploy báo lại. Không tốn D1/AI.
 name: SEO IndexNow
 on:
   push:
     branches: [main]
-    paths: ['web/js/data.js', 'web/js/lib/**', 'web/cpack/lib/**', 'web/packs/**', 'web/js/notes/**', 'content/confidence/**', 'scripts/build-seo-pages.mjs', 'scripts/lib/seo-pages-i18n.mjs', 'scripts/lib/seo-words.mjs', 'web/js/usage/**', 'content/dict/wordnet.json', 'web/cpack/write/models.js', 'web/cpack/speak/samples.js', 'scripts/lib/word-depth.mjs', 'scripts/dict/build.mjs']
+    paths: ['web/js/data.js', 'web/js/lib/**', 'web/cpack/lib/**', 'web/packs/**', 'web/js/notes/**', 'content/confidence/**', 'scripts/build-seo-pages.mjs', 'scripts/lib/seo-pages-i18n.mjs', 'scripts/lib/seo-words.mjs', 'web/js/usage/**', 'content/dict/**', 'web/cpack/write/models.js', 'web/cpack/speak/samples.js', 'scripts/lib/word-depth.mjs', 'scripts/dict/build.mjs']
+  schedule:
+    - cron: '50 */3 * * *'   # 27 phút sau pages-deploy (cron '23 */3') – báo URL mà lượt push chưa báo được vì bản mới chưa lên site
   workflow_dispatch:
     inputs:
       all: { description: 'Gửi lại toàn bộ URL (bỏ qua so sánh)', type: boolean, default: false }
@@ -33,21 +36,24 @@ jobs:
       - name: URL mới/đổi
         run: |
           touch prev-seo-urls.txt
-          if [ "${{ github.event.inputs.all }}" = "true" ]; then : > prev-seo-urls.txt; fi
+          if [ "$LX_IN1" = "true" ]; then : > prev-seo-urls.txt; fi
           grep -vxFf prev-seo-urls.txt "$RUNNER_TEMP/now.txt" | cut -d' ' -f1 | head -10000 > changed.txt || true
           echo "$(wc -l < changed.txt) URL mới/đổi"; head -5 changed.txt
-      - name: Chờ deploy rồi báo IndexNow
+        env:
+          LX_IN1: ${{ github.event.inputs.all }}
+      - name: Chờ NỘI DUNG MỚI lên site rồi báo IndexNow (so băm <main> live – scripts/seo/indexnow-wait.mjs)
+        id: ping
         if: hashFiles('changed.txt') != ''
-        env: { CI_HDR: '${{ secrets.LEXKITE_CI_HEADER }}' }
+        env: { X_LEXKITE_CI: '${{ secrets.LEXKITE_CI_HEADER }}' }
         run: |
-          [ -s changed.txt ] || exit 0
-          u=$(head -1 changed.txt); sleep 240
-          for i in $(seq 1 20); do c=$(curl -s -o /dev/null -w '%{http_code}' -H "X-Lexkite-CI: $CI_HDR" "$u" || true); [ "$c" = 200 ] && break; sleep 30; done
-          echo "HTTP $c cho $u"
-          node scripts/indexnow.mjs < changed.txt
+          [ -s changed.txt ] || { echo "done=1" >> "$GITHUB_OUTPUT"; exit 0; }
+          set +e; node scripts/seo/indexnow-wait.mjs changed.txt "$RUNNER_TEMP/now.txt" 12; rc=$?; set -e
+          [ $rc = 3 ] && exit 0   # chưa deploy: không báo, không lưu → lượt lịch sau thử lại
+          [ $rc = 0 ] || exit $rc
+          node scripts/indexnow.mjs < changed.txt && echo "done=1" >> "$GITHUB_OUTPUT"
       - name: Lưu danh sách cho lần sau
-        if: success()
+        if: success() && (steps.ping.outputs.done == '1' || hashFiles('changed.txt') == '')
         run: cp "$RUNNER_TEMP/now.txt" prev-seo-urls.txt
       - uses: actions/cache/save@v4
-        if: success()
+        if: success() && (steps.ping.outputs.done == '1' || hashFiles('changed.txt') == '')
         with: { path: prev-seo-urls.txt, key: 'seo-urls-${{ github.sha }}' }

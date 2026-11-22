@@ -9769,29 +9769,6 @@ col	ok	cut_wordis: câu mang: "The word is call." · dot100:"Kyle" 0.58s · cut_
 metadata	ok	ok
 rhyme	ok	ok
 anarchism	ok	ok
-retaliate	ok	ok
-alimony	ok	ok
-incoherent	ok	ok
-workmanship	ok	ok
-credence	ok	ok
-henceforth	ok	ok
-indignation	ok	ok
-orthography	ok	ok
-parallelism	ok	ok
-conflagration	ok	ok
-electrophoresis	ok	ok
-bicker	ok	ok
-rectification	ok	ok
-eavesdrop	ok	ok
-superconductivity	ok	ok
-emanate	ok	ok
-phonetics	ok	ok
-falsify	ok	ok
-gasification	ok	ok
-anoint	ok	cut_wordis: câu mang: "The word is a night." · dot100:"At night." 0.66s · cut_wordis100: câu mang: "The word is a night." · cut_next: câu mang: "Next word, a night." · plain095:"A night." 0.65s · dot090:"At night." 0.74s
-porpoise	ok	ok
-systematics	ok	ok
-goaltender	ok	ok
 colliery	ok	ok
 luminosity	ok	ok
 colitis	ok	ok
@@ -9846,7 +9823,6 @@ manse	cut_wordis: câu mang: "The word is mancy." · dot100:"AMANDS" 0.96s · cu
 weft	ok	ok
 decolonization	ok	ok
 anticoagulant	ok	ok
-geostationary	ok	ok
 climatology	ok	ok
 abolishment	ok	ok
 ambiguously	ok	ok
@@ -9939,7 +9915,44 @@ egoistic	ok	ok
 centroid	ok	ok
 thrombus	ok	ok
 erythrocyte	ok	cut_wordis:"Arithrocyte" 1.13s · cut_wordis:"Arithrocyte" 0.95s · dot100:"Arithrocyte" 0.90s · cut_wordis100:"Arithrocyte" 1.03s · cut_wordis100:"Arithrocyte" 0.89s · cut_next:"Arithrocyte" 0.95s · cut_next:"Hrythrocyte" 0.83s · plain095:"Arithrocyte" 0.95s · dot090:"Arithrocyte" 1.05s
-radiometer	ok	ok
+symbiotically	ok	ok
+pronounceable	ok	ok
+transliterate	ok	ok
+semipermeable	ok	ok
+closedown	ok	ok
+urinalysis	ok	cut_wordis: câu mang: "The word is, your analysis." · dot100:"Your analysis" 0.99s · cut_wordis100: câu mang: "The word is, your analysis." · cut_next: câu mang: "Next word, your analysis." · plain095:"Your analysis." 0.99s · dot090:"Your analysis." 1.05s
+depolarize	ok	ok
+mucilaginous	ok	ok
+collectivize	ok	ok
+misapply	ok	ok
+precast	ok	ok
+sailplane	ok	ok
+clast	cut_wordis: câu mang: "The word is clasty." · dot100:"Classed." 0.67s · cut_wordis100: câu mang: "The word is classed." · cut_next: câu mang: "Next word, Eclasti." · plain095:"Clursed." 0.64s · dot090:"Eglast." 0.74s	cut_wordis: câu mang: "The word is classed." · dot100:"Glassed." 0.66s · cut_wordis100: câu mang: "The word is classed." · cut_next: câu mang: "Next word, classed." · plain095:"At last." 0.66s · dot090:"Classed" 0.74s
+erythropoiesis	ok	ok
+axil	cut_wordis: câu mang: "The word is axel." · dot100:"Axle" 0.69s · cut_wordis100: câu mang: "The word is axial." · cut_next: câu mang: "Next word, axel." · plain095:"Axle" 0.65s · dot090:"Axle" 0.80s	cut_wordis: câu mang: "The word is axel." · dot100:"Axle" 0.62s · cut_wordis100: câu mang: "The word is axel." · cut_next: câu mang: "Next word, axel." · plain095:"Axle" 0.63s · dot090:"Axle" 0.74s
+taxonomist	ok	ok
+retaliate	ok	ok
+alimony	ok	ok
+incoherent	ok	ok
+workmanship	ok	ok
+credence	ok	ok
+henceforth	ok	ok
+indignation	ok	ok
+orthography	ok	ok
+parallelism	ok	ok
+conflagration	ok	ok
+electrophoresis	ok	ok
+bicker	ok	ok
+rectification	ok	ok
+eavesdrop	ok	ok
+superconductivity	ok	ok
+emanate	ok	ok
+phonetics	ok	ok
+falsify	ok	ok
+gasification	ok	ok
+anoint	ok	cut_wordis: câu mang: "The word is a night." · dot100:"At night." 0.66s · cut_wordis100: câu mang: "The word is a night." · cut_next: câu mang: "Next word, a night." · plain095:"A night." 0.65s · dot090:"At night." 0.74s
+porpoise	ok	ok
+systematics	ok	ok
 subclavian	ok	ok
 incorporeal	ok	ok
 spermatogenesis	ok	ok
@@ -9960,7 +9973,6 @@ conciseness	ok	ok
 spermicide	ok	ok
 contiguity	ok	ok
 dysmenorrhea	cut_wordis: câu mang: "The word is dysmenoria." · dot100:"Dismenoria" 1.00s · cut_wordis100: câu mang: "The word is dysmenoria." · cut_next: câu mang: "Next word, dysmenoria." · plain095:"Dismenoria" 0.98s · dot090:"Dismenoria" 1.08s	cut_wordis: câu mang: "The word is dysmenoria." · dot100:"Dysmenoria" 0.85s · cut_wordis100: câu mang: "The word is dysmenoria." · cut_next: câu mang: "Next word, dysmenoria." · plain095:"Dysmenoria" 0.88s · dot090:"Dysmenoria" 0.93s
-bandmaster	ok	ok
 centrosome	ok	ok
 intercalary	ok	ok
 monocyte	ok	ok
@@ -9971,13 +9983,11 @@ simultaneity	ok	ok
 quicklime	cut_wordis:"Quick climb." 0.83s · cut_wordis:"Quick climb." 0.79s · dot100:"quick limer" 0.81s · cut_wordis100:"Quick climb." 0.78s · cut_wordis100:"Quick climb." 0.73s · cut_next: câu mang: "Next word, quick climb." · plain095:"quick climb" 0.75s · dot090:"It's quick climbing." 0.92s	ok
 foreleg	ok	ok
 imprecision	ok	ok
-futurology	ok	ok
 repetitiveness	ok	ok
 systematize	ok	ok
 forebear	cut_wordis:"To forebear." 0.79s · cut_wordis:"4-Bear" 0.71s · dot100:"Foolbear" 0.68s · cut_wordis100: câu mang: "The word is forbear." · cut_next: câu mang: "Next word for bear" · plain095:"Thorbeir" 0.65s · dot090:"Full bear." 0.75s	ok
 amenorrhea	ok	cut_wordis: câu mang: "The word is a menoria." · dot100:"Amenoria." 0.79s · cut_wordis100: câu mang: "The word is a menoria." · cut_next: câu mang: "Next word, a menoria." · plain095:"A menoria." 0.77s · dot090:"A menoria." 0.82s
 fascicle	ok	ok
-mainmast	ok	ok
 autodidact	ok	ok
 juristic	ok	ok
 nucleolus	ok	ok
@@ -9997,11 +10007,7 @@ surmountable	ok	ok
 synovitis	ok	ok
 paleobiology	ok	ok
 toxicant	ok	ok
-catabolism	ok	ok
 sociality	ok	ok
-electromagnetics	ok	ok
-dilator	cut_wordis:"Stylator" 1.05s · cut_wordis:"Die later" 0.95s · dot100:"Die later." 0.90s · cut_wordis100:"Stylator" 0.89s · cut_wordis100:"Die later." 0.84s · cut_next: câu mang: "Next word die later" · plain095:"The dilator" 0.87s · dot090:"die later" 0.97s	cut_wordis:"Die later." 0.96s · cut_wordis:"Die later." 0.75s · dot100:"Die later." 0.74s · cut_wordis100:"Style later." 0.88s · cut_wordis100:"Die later." 0.72s · cut_next:"Die later." 0.79s · cut_next:"Later." 0.61s · plain095:"Die later." 0.75s · dot090:"Die later." 0.78s
-lucidly	ok	ok
 pleura	cut_wordis: câu mang: "The word is plereth." · dot100:"The Playwrith" 0.70s · cut_wordis100: câu mang: "The word is plereth." · cut_next: câu mang: "Next word, playera" · plain095:"Flaira" 0.61s · dot090:"To Polaris." 0.77s	ok
 unprovable	ok	ok
 satrap	cut_wordis: câu mang: "The word is satrapi." · dot100:"Zatrep" 0.75s · cut_wordis100: câu mang: "The word is satrapi." · cut_next: câu mang: "Next word is satrapi." · plain095:"Is that trap?" 0.72s · dot090:"Is that Drep?" 0.79s	ok
@@ -10027,7 +10033,6 @@ hypercholesterolemia	ok	ok
 angioedema	ok	ok
 photochemistry	ok	ok
 subsume	ok	ok
-transonic	ok	ok
 pointlessness	ok	ok
 prostatitis	ok	ok
 sociobiology	ok	ok
@@ -10036,10 +10041,8 @@ systematization	ok	ok
 esophagitis	ok	ok
 musicological	ok	ok
 nucleosynthesis	ok	ok
-purism	ok	ok
 thermosphere	ok	ok
 chrism	ok	ok
-pharyngitis	ok	ok
 fossilization	ok	ok
 subjectivism	ok	ok
 unclassifiable	ok	ok
@@ -10047,7 +10050,6 @@ bronchus	ok	ok
 macromolecule	ok	ok
 undependable	ok	ok
 variate	cut_wordis:"to variate." 0.91s · cut_wordis:"Vary 8" 0.85s · dot100:"Vary 8" 0.85s · cut_wordis100:"It's variate" 0.87s · cut_wordis100:"Vary 8" 0.78s · cut_next:"and variate." 1.01s · cut_next:"Vary 8" 0.85s · plain095:"Vary 8" 0.75s · dot090:"Vary 8" 0.94s	ok
-lexicographical	ok	ok
 lacquerware	ok	ok
 apiculture	ok	ok
 mycologist	ok	ok

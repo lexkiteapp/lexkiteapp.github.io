@@ -13,7 +13,7 @@ permissions:
   contents: read
 concurrency:
   group: topbar-lang-${{ github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: ${{ github.event_name != 'push' }}
 jobs:
   # luật 11 (làn nhanh trước làn nặng, scripts/test/ci-policy.mjs): trên PR việc nặng chỉ chạy khi `npm test` đã XANH cùng sha (hoặc PR có nhãn `ready`) – đỏ/chưa xong thì mọi job dưới là skipped
   # (không chiếm runner); npm-test.yml job `heavy` chạy lại lượt này ngay khi npm test xanh (scripts/ci/heavy-rerun.mjs). Lỗi API → mở cổng (không mất kiểm).
@@ -57,10 +57,12 @@ jobs:
         if: github.event_name == 'pull_request'
         continue-on-error: true
         run: |
-          git fetch -q --depth=1 origin "${{ github.base_ref }}"
+          git fetch -q --depth=1 origin "$LX_IN1"
           mkdir -p out/base && git archive FETCH_HEAD web | tar -x -C out/base
           node scripts/test/topbar-lang.mjs out/base/web out/topbar-lang --label truoc --report-only
           cat out/topbar-lang/truoc.md >> "$GITHUB_STEP_SUMMARY"
+        env:
+          LX_IN1: ${{ github.base_ref }}
       - name: Đo bản này
         run: |
           node scripts/test/topbar-lang.mjs web out/topbar-lang --label sau && s=0 || s=$?

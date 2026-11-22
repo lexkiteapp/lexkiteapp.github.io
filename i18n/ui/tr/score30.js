@@ -1,0 +1,28 @@
+/* UI tr – score30 (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["tr"] = Object.assign(D["tr"] || {}, {
+"Bạn của bạn hơn {n} điểm – thử lại nhé!":"Arkadaşın {n} puan önde – tekrar dene!",
+"Bạn của bạn đạt {s} ({c}). Vượt qua nhé!":"Arkadaşın {s} ({c}) aldı. Onu geç!",
+"Bạn thắng! {me} so với {fr}":"Kazandın! {me} - {fr}",
+"Bắt đầu":"Başla",
+"Cần micro. Âm thanh không rời khỏi máy bạn.":"Mikrofon gerekir. Ses cihazından çıkmaz.",
+"Hòa nhau! {me} so với {fr}":"Berabere! {me} - {fr}",
+"Không nghe rõ – thử lại ở nơi yên tĩnh hơn nhé.":"Seni net duyamadım – daha sessiz bir yerde tekrar dene.",
+"Link thử thách không dùng được lúc này – thử lại sau.":"Meydan okuma bağlantısı şu an kullanılamıyor – daha sonra tekrar dene.",
+"Làm lại":"Tekrar dene",
+"Lưu loát":"Akıcılık",
+"Mình nói tiếng Anh được {s}/100 ({c}) trên Lexkite. Bạn hơn được không? {url}":"Lexkite'ta İngilizce konuşmada {s}/100 ({c}) aldım. Beni geçebilir misin? {url}",
+"Nhận điểm nói, thách bạn bè":"Puanını al, arkadaşına meydan oku",
+"Phát âm":"Telaffuz et",
+"Thách bạn bè":"Arkadaşına meydan oku",
+"Thẻ điểm nói tiếng Anh":"İngilizce konuşma puan kartı",
+"Trình duyệt này chưa hỗ trợ nhận giọng nói. Hãy thử Chrome hoặc app Lexkite.":"Bu tarayıcı ses tanımayı desteklemiyor. Chrome'u veya Lexkite uygulamasını dene.",
+"Tải ảnh":"Resmi kaydet",
+"Xong":"Bitti",
+"Đang nghe… còn {n} giây":"Dinliyor… {n} sn kaldı",
+"Điểm tổng":"Toplam puan",
+"Điểm {s}/100, trình độ {c}":"Puan {s}/100, seviye {c}",
+"Đã chép link thử thách – dán gửi bạn nhé":"Meydan okuma bağlantısı kopyalandı – arkadaşına yapıştırıp gönder",
+"Đọc to đoạn văn này trong 30 giây":"Bu metni 30 saniyede sesli oku",
+"Ước lượng CEFR – chỉ mang tính tham khảo":"CEFR tahmini – yalnızca bilgi amaçlı",
+});
+})(typeof self !== 'undefined' ? self : this);

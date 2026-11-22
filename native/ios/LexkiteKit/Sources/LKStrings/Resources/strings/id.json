@@ -184,10 +184,12 @@
   "lesson.q.say": "Ucapkan ini",
   "lesson.q.picChoice": "Apa ini?",
   "lesson.q.picSay": "Sebut yang kamu lihat",
+  "lesson.q.lpic": "Dengar, pilih gambar",
   "lesson.q.tr": "Terjemahkan kalimat ini",
   "lesson.q.mean": "Pilih kata yang benar",
   "lesson.q.type": "Ketikkan kata bahasa Inggris",
   "lesson.q.match": "Pasangkan",
+  "lesson.q.mpic": "Cocokkan kata dan gambar",
   "lesson.q.q": "Jawab pertanyaannya",
   "lesson.qn": "Soal {a} dari {b}",
   "lesson.combo": "COMBO ×{n}",
@@ -3487,5 +3489,6 @@
   "speak.spk.thanhCongDongLuc": "Kesuksesan dan motivasi",
   "speak.spk.lamViecNhom": "Kerja sama tim",
   "speak.spk.duHocSongONuoc": "Belajar dan tinggal di luar negeri",
-  "speak.spk.mayTinhInternetHangNgay": "Komputer dan internet sehari-hari"
+  "speak.spk.mayTinhInternetHangNgay": "Komputer dan internet sehari-hari",
+  "speak.spk.thuThachNoi30Giay": "30-second speaking challenge"
 }

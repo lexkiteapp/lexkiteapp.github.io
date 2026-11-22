@@ -184,10 +184,12 @@
   "lesson.q.say": "यह बोलें",
   "lesson.q.picChoice": "यह क्या है?",
   "lesson.q.picSay": "जो दिखे वह बोलें",
+  "lesson.q.lpic": "सुनकर चित्र चुनें",
   "lesson.q.tr": "इस वाक्य का अनुवाद करें",
   "lesson.q.mean": "सही शब्द चुनें",
   "lesson.q.type": "अंग्रेजी शब्द टाइप करें",
   "lesson.q.match": "जोड़े मिलाएँ",
+  "lesson.q.mpic": "शब्द और चित्र मिलाएँ",
   "lesson.q.q": "सवाल का जवाब दें",
   "lesson.qn": "प्रश्न {a}/{b}",
   "lesson.combo": "COMBO ×{n}",
@@ -3487,5 +3489,6 @@
   "speak.spk.thanhCongDongLuc": "सफलता और प्रेरणा",
   "speak.spk.lamViecNhom": "टीमवर्क",
   "speak.spk.duHocSongONuoc": "विदेश में पढ़ाई और रहना",
-  "speak.spk.mayTinhInternetHangNgay": "कंप्यूटर और रोज़मर्रा का इंटरनेट"
+  "speak.spk.mayTinhInternetHangNgay": "कंप्यूटर और रोज़मर्रा का इंटरनेट",
+  "speak.spk.thuThachNoi30Giay": "30-second speaking challenge"
 }

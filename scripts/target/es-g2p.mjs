@@ -16,7 +16,7 @@ function units(w) {
     else if (c === 'c') C('c', 'eiéí'.includes(nx) ? 's' : 'k', 1);
     else if (c === 'z') C('z', 's'); else if (c === 'j') C('j', 'x'); else if (c === 'ñ') C('ñ', 'ɲ'); else if (c === 'h') { i++; }
     else if (c === 'v') C('v', 'b'); else if (c === 'y') { const last = i === w.length - 1 || !V.includes(nx); if (last) { u.push({ k: 'V', o: 'i', p: 'i', y: true }); i++; } else C('y', 'ʝ'); }
-    else if (c === 'x') { C('x', 'ks'); } else if (c === 'w') { u.push({ k: 'V', o: 'u', p: 'w', glide: true }); i++; }
+    else if (c === 'x') { const xc = nx === 'c' && 'eiéí'.includes(w[i + 2] || '#'); u.push({ k: 'C', o: 'x', p: 'k' }); u.push({ k: 'C', o: 's', p: 's' }); i += xc ? 2 : 1; } // x = k+s (2 phụ âm → ek.ˈsa.men); xce/xci: c câm theo seseo (excelente ekseˈlente) else if (c === 'w') { u.push({ k: 'V', o: 'u', p: 'w', glide: true }); i++; }
     else C(c, c);
   }
   return u;
@@ -68,4 +68,20 @@ export function ipaText(text) {
   const ws = String(text).trim().split(/\s+/); if (ws.length === 1) return ipa(ws[0]);
   const parts = ws.map(w => { const p = ipa(w); return CLITIC.has(w.toLowerCase()) ? p.replace('ˈ', '') : p; });
   return parts.reduce((a, p, i) => i === 0 ? p : a + (/[aeiouwj]$/.test(a) && /^ˈ?[aeiou]/.test(p) ? '‿' : ' ') + p, '');
+}
+
+// IPA kho từ es theo MỘT quy ước (luật này): espeak-ng (tl_ipa_fill.py) chỉ còn là kiểm chéo. espeak lệch quy ước theo hệ thống (ɛ/ɔ mở, ll → jj, ɪ/ʊ,
+// ː, đồng hoá mũi ŋ/ɱ, dấu tách âm tiết) → chuẩn hoá trước khi so; còn lệch → gắn qa.ipaEs (soát mẫu xem), không lặng lẽ giữ IPA khác quy ước.
+export const espeakNorm = s => String(s || '').replace(/[.ː]/g, '').replace(/jj/g, 'ʝ').replace(/ɛ/g, 'e').replace(/ɔ/g, 'o').replace(/ɪ/g, 'j').replace(/ʊ/g, 'w').replace(/[ŋ]/g, 'n').replace(/ɱ/g, 'm');
+// Chạy: node scripts/target/es-g2p.mjs --apply content/target/es/core-NN.json   (target-content.yml, sau tl_ipa_fill.py)
+if (process.argv[1] && import.meta.url.endsWith(process.argv[1].split('/').pop()) && process.argv.includes('--apply')) {
+  const fs = await import('node:fs'), f = process.argv[process.argv.indexOf('--apply') + 1], d = JSON.parse(fs.readFileSync(f, 'utf8'));
+  let set = 0, flag = 0;
+  for (const w of d.words) {
+    const g = ipa(w.word); if (w.ipa === g) continue;
+    if (espeakNorm(w.ipa) !== g) { (w.qa = w.qa || {}).ipaEs = w.ipa; flag++; }
+    w.ipa = g; set++;
+  }
+  fs.writeFileSync(f, JSON.stringify(d, null, 1) + '\n');
+  console.log(`✓ IPA theo quy ước g2p: ${set}/${d.words.length} mục đổi, ${flag} lệch espeak sau chuẩn hoá (qa.ipaEs)`);
 }

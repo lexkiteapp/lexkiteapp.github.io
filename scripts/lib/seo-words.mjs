@@ -139,15 +139,14 @@ const answerBox = (l, t, W, pos, m, e) => {
   const lead = l === 'en' ? `<b lang="en" dir="ltr">${esc(W)}</b>${pos ? ` (${esc(pos)})` : ''}: <span lang="en" dir="ltr">${esc(first)}</span>` : `<b lang="en" dir="ltr">${esc(W)}</b>${pos ? ` (${esc(pos)})` : ''}: ${esc(first)}`;
   return first ? `<p class="ans" data-ans>${lead}${more}${ipa}</p>` : '';
 };
-export function bodyOf(l, e) {
+function coreOf(l, e) {
   const c = (built[l] ||= new Map()); if (c.has(e)) return c.get(e);
   const t = S[l], list = setOf[l], P = POS[l], i = posIn[l].get(e);
     const w = e.word, k = w.toLowerCase(), g = gloss(l, e), dx = enrich(DX, e, l, byTok);
     const m = l === 'en' ? e.def : l === 'vi' ? e.vi : g[0];
     const W = cap(w), pos = P[gpos(e.pos)] || e.pos || '';
     const link = x => { const y = inSet[l].get(String(x).toLowerCase()); return y && y !== e ? `<a href="${wPath(l, y)}" lang="en" dir="ltr">${esc(x)}</a>` : `<span lang="en" dir="ltr">${esc(x)}</span>`; };
-    const tp = topicOf.get(e.topic), rel = list.filter(x => x !== e && x.topic === e.topic).slice(0, 8);
-    const near = rel.length >= 4 ? rel : [...rel, ...list.slice(Math.max(0, i - 4), i + 5).filter(x => x !== e && !rel.includes(x))].slice(0, 8);
+    const tp = topicOf.get(e.topic);
     const au = audioKey(w), n = l === 'vi' ? notes[k] : null, ipaUS = e.ipaUS || dx.ipaUS;
     // Nghĩa theo từ loại: mục chính + more[] (từ loại khác của cùng từ trong kho); 13 ngôn ngữ: nghĩa gói theo đúng từ#loại, không có → định nghĩa tiếng Anh
     const senses = [{ pos, m, mt: g && g[1] === 0, def: e.def }, ...(e.more || []).map(x => { const gx = l === 'vi' ? [x.vi] : l === 'en' ? [x.def] : (packs[l][k + '#' + gpos(x.pos)] || null); return { pos: P[gpos(x.pos)] || x.pos || '', m: gx && gx[0], mt: gx && gx[1] === 0, def: x.def, ex: x.ex, ipa: x.ipa && x.ipa !== e.ipa ? x.ipa : '' }; })];
@@ -194,10 +193,25 @@ ${faq.length >= 2 ? sec('q', 'faq', t.fq, faq.map(([q, a]) => `<details><summary
 ${cta(fill(t.ctaW, { w }), t.ctaWn, appLink(l, 'dict/' + encodeURIComponent(w)), t.ctaB)}${goLine(l, 'word')}
 ${tools.length ? sec('t', '', t.tools, `<ul>${tools.map(([h, x]) => `<li><a href="${h}">${esc(x)}</a></li>`).join('')}</ul>`) : ''}
 ${dx.blogs.length ? sec('b', '', t.blog, `<ul>${dx.blogs.map(b => `<li><a href="${b.href}">${esc(b.t)}</a></li>`).join('')}</ul>`) : ''}
-${near.length ? sec('r', '', t.rel, `<p class="chips">${near.map(x => `<a href="${wPath(l, x)}" lang="en" dir="ltr">${esc(x.word)}</a>`).join('')}</p>`) : ''}
-<nav class="pager" aria-label="${esc(t.words)}">${list[i - 1] ? `<a href="${wPath(l, list[i - 1])}" rel="prev" lang="en" dir="ltr">← ${esc(list[i - 1].word)}</a>` : '<span></span>'}${list[i + 1] ? `<a href="${wPath(l, list[i + 1])}" rel="next" lang="en" dir="ltr">${esc(list[i + 1].word)} →</a>` : ''}</nav>
+\u0000L\u0000
 </article>`.replace(/\n{2,}/g, '\n');
     const r = { body, faq: faq.length >= 2 ? faq : null, m }; c.set(e, r); return r;
 }
 // Trang sẽ index được (không noindex) – điều kiện y hệt build-seo-pages: trong idxW gốc + đạt độ dày. Dùng trước khi liên kết từ nơi khác.
-export const indexable = (l, e) => !!(idxW[l] && idxW[l].has(e)) && deep(measure(bodyOf(l, e).body));
+export const indexable = (l, e) => !!(idxW[l] && idxW[l].has(e)) && deep(measure(coreOf(l, e).body));
+// Liên kết "từ liên quan" + trước/sau CHỈ tới trang index được (đo 22/11: hub/related dẫn Googlebot sang trang noindex, 69 % URL sitemap Google
+// chưa biết → mỗi lượt crawl phải mở thêm trang index được). Không tính vào độ dày (không có data-d) nên tách khỏi coreOf → không đệ quy.
+// Trang noindex vẫn có liên kết từ hub A–Z (không mồ côi). Không đủ 4 từ cùng chủ đề → bù bằng từ index được gần nhất trong danh sách.
+const linksOf = (l, e) => {
+  const t = S[l], list = setOf[l], i = posIn[l].get(e), ok = x => x !== e && indexable(l, x);
+  const rel = list.filter(x => x.topic === e.topic && ok(x)).slice(0, 8), near = [...rel];
+  for (let d = 1; near.length < 8 && (i - d >= 0 || i + d < list.length); d++) for (const x of [list[i - d], list[i + d]]) if (x && near.length < 8 && ok(x) && !near.includes(x)) near.push(x);
+  let pv = null, nx = null; for (let j = i - 1; j >= 0 && !pv; j--) if (ok(list[j])) pv = list[j]; for (let j = i + 1; j < list.length && !nx; j++) if (ok(list[j])) nx = list[j];
+  return `${near.length ? sec('r', '', t.rel, `<p class="chips">${near.map(x => `<a href="${wPath(l, x)}" lang="en" dir="ltr">${esc(x.word)}</a>`).join('')}</p>`) : ''}
+<nav class="pager" aria-label="${esc(t.words)}">${pv ? `<a href="${wPath(l, pv)}" rel="prev" lang="en" dir="ltr">← ${esc(pv.word)}</a>` : '<span></span>'}${nx ? `<a href="${wPath(l, nx)}" rel="next" lang="en" dir="ltr">${esc(nx.word)} →</a>` : ''}</nav>`;
+};
+const full = {};
+export function bodyOf(l, e) {
+  const c = (full[l] ||= new Map()); if (c.has(e)) return c.get(e);
+  const r0 = coreOf(l, e), r = { ...r0, body: r0.body.replace('\u0000L\u0000', linksOf(l, e)) }; c.set(e, r); return r;
+}

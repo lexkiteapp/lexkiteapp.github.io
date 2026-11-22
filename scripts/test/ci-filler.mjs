@@ -12,6 +12,7 @@ ok(capacity({ busy: 5, starved: 1 }) === 0, 'có job đói runner → 0');
 ok(capacity({ busy: 20, queued: 118, starved: 0 }) === 0, '04:21Z busy 20 + queued 118 → 0 shard');
 ok(capacity({ busy: 20, queued: 5, starved: 0 }) === 7, 'busy + queued + shard ≤ 32 → 32 − 20 − 5 = 7');
 ok(capacity({ busy: 10, queued: 0, starved: 0, prQueued: 1 }) === 0, 'check PR đang xếp hàng → 0');
+ok(capacity({ busy: 10, queued: 0, starved: 0, queuedRuns: 100 }) === 0 && capacity({ busy: 10, queuedRuns: 19 }) === 22, '20/11: ≥ 20 lượt queued (dù job quá cũ bị STUCK_MS loại) → không lấp runner');
 const W = { id: 'w', workflow: 'w.yml', cpu_bound: true, shards_input: 'shards', max_shards: 6 };
 ok(shardsFor(W, 19) === 6 && shardsFor(W, 4) === 4 && shardsFor(W, 0) === 0, 'shard = min(trần, chỗ)');
 ok(shardsFor({ ...W, min_shards: 3 }, 2) === 0, 'dưới min_shards → không dispatch');

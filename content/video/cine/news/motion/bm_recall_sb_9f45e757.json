@@ -149,14 +149,6 @@
       "t": "line",
       "runs": [
        [
-        "Fix: I am interesting in this job."
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "runs": [
-       [
         " "
        ],
        [
@@ -204,7 +196,7 @@
       "tone": "green"
      },
      {
-      "t": "line",
+      "t": "sub",
       "runs": [
        [
         "I'm interested in this job.",

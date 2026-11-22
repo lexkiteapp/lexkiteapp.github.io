@@ -184,10 +184,12 @@
   "lesson.q.say": "قل هذا",
   "lesson.q.picChoice": "ما هذا؟",
   "lesson.q.picSay": "قل ما تراه",
+  "lesson.q.lpic": "استمع واختر الصورة",
   "lesson.q.tr": "ترجم هذه الجملة",
   "lesson.q.mean": "اختر الكلمة الصحيحة",
   "lesson.q.type": "اكتب الكلمة الانجليزية",
   "lesson.q.match": "طابق الأزواج",
+  "lesson.q.mpic": "طابق الكلمات بالصور",
   "lesson.q.q": "أجب عن السؤال",
   "lesson.qn": "السؤال {a} من {b}",
   "lesson.combo": "COMBO ×{n}",
@@ -3487,5 +3489,6 @@
   "speak.spk.thanhCongDongLuc": "النجاح والتحفيز",
   "speak.spk.lamViecNhom": "العمل الجماعي",
   "speak.spk.duHocSongONuoc": "الدراسة والعيش في الخارج",
-  "speak.spk.mayTinhInternetHangNgay": "الحاسوب والإنترنت في الحياة اليومية"
+  "speak.spk.mayTinhInternetHangNgay": "الحاسوب والإنترنت في الحياة اليومية",
+  "speak.spk.thuThachNoi30Giay": "30-second speaking challenge"
 }

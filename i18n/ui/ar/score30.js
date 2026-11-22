@@ -1,0 +1,28 @@
+/* UI ar – score30 (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ar"] = Object.assign(D["ar"] || {}, {
+"Bạn của bạn hơn {n} điểm – thử lại nhé!":"صديقك متقدّم بـ {n} نقطة – حاول مجددًا!",
+"Bạn của bạn đạt {s} ({c}). Vượt qua nhé!":"حصل صديقك على {s} ({c}). تفوّق عليه!",
+"Bạn thắng! {me} so với {fr}":"فزت! {me} مقابل {fr}",
+"Bắt đầu":"ابدأ",
+"Cần micro. Âm thanh không rời khỏi máy bạn.":"يتطلب الميكروفون. لا يغادر الصوت جهازك.",
+"Hòa nhau! {me} so với {fr}":"تعادل! {me} مقابل {fr}",
+"Không nghe rõ – thử lại ở nơi yên tĩnh hơn nhé.":"لم أسمعك بوضوح – جرّب مرة أخرى في مكان أهدأ.",
+"Link thử thách không dùng được lúc này – thử lại sau.":"رابط التحدي غير متاح الآن – حاول لاحقًا.",
+"Làm lại":"حاول مجددًا",
+"Lưu loát":"الطلاقة",
+"Mình nói tiếng Anh được {s}/100 ({c}) trên Lexkite. Bạn hơn được không? {url}":"حصلت على {s}/100 ({c}) في التحدث بالإنجليزية على Lexkite. هل تتفوق عليّ؟ {url}",
+"Nhận điểm nói, thách bạn bè":"احصل على درجتك وتحدَّ صديقًا",
+"Phát âm":"انطق",
+"Thách bạn bè":"تحدَّ صديقًا",
+"Thẻ điểm nói tiếng Anh":"بطاقة نتيجة التحدث بالإنجليزية",
+"Trình duyệt này chưa hỗ trợ nhận giọng nói. Hãy thử Chrome hoặc app Lexkite.":"هذا المتصفح لا يدعم التعرّف على الصوت. جرّب Chrome أو تطبيق Lexkite.",
+"Tải ảnh":"حفظ الصورة",
+"Xong":"تم",
+"Đang nghe… còn {n} giây":"جارٍ الاستماع… تبقّى {n} ث",
+"Điểm tổng":"الدرجة الإجمالية",
+"Điểm {s}/100, trình độ {c}":"الدرجة {s}/100، المستوى {c}",
+"Đã chép link thử thách – dán gửi bạn nhé":"تم نسخ رابط التحدي – ألصقه وأرسله لصديقك",
+"Đọc to đoạn văn này trong 30 giây":"اقرأ هذه الفقرة بصوت عالٍ خلال 30 ثانية",
+"Ước lượng CEFR – chỉ mang tính tham khảo":"تقدير CEFR – للاسترشاد فقط",
+});
+})(typeof self !== 'undefined' ? self : this);

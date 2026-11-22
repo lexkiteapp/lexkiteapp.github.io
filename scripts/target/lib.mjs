@@ -105,3 +105,14 @@ export async function ltErrors(url, lang, text) {
   if (!r.ok) throw new Error('LanguageTool ' + r.status);
   return (await r.json()).matches.map(m => `${m.rule.id}: ${text.slice(m.offset, m.offset + m.length)} – ${m.message}`);
 }
+
+/** Dạng → lemma từ mục Wiktionary của dạng đó (hàm thuần; gen.mjs quy dạng chia về lemma TRƯỚC khi tốn ai-pool). Trả { lemmas } (chính nó nếu dạng
+ *  cũng là một mục từ thật, không thì các lemma theo form_of) hoặc { name: true } khi trang chỉ có tên riêng. Không có trang → [form]. */
+export function lemmaFromEntries(form, E) {
+  if (!E || !E.length) return { lemmas: [form] };
+  const isForm = x => (x.form_of || []).length > 0 || (x.tags || []).includes('form-of');
+  const self = E.some(e => e.pos !== 'name' && (e.senses || []).some(x => !isForm(x)));
+  const of = E.flatMap(e => (e.senses || []).flatMap(x => (x.form_of || []).map(f => String(f.word || '').toLowerCase()))).filter(w => /^\p{L}+$/u.test(w));
+  if (!self && !of.length) return E.every(e => e.pos === 'name') ? { name: true, lemmas: [] } : { lemmas: [form] };
+  return { lemmas: self ? [form] : [...new Set(of)] }; // dạng là mục từ thật (casa, traje) → chỉ chính nó; lemma kia (casar, traer) tự đến từ dạng của nó, đúng thứ hạng
+}

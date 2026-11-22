@@ -184,10 +184,12 @@
   "lesson.q.say": "พูดประโยคนี้",
   "lesson.q.picChoice": "นี่คืออะไร?",
   "lesson.q.picSay": "พูดสิ่งที่เห็น",
+  "lesson.q.lpic": "ฟังแล้วเลือกรูป",
   "lesson.q.tr": "แปลประโยคนี้",
   "lesson.q.mean": "เลือกคำที่ถูก",
   "lesson.q.type": "พิมพ์คำภาษาอังกฤษ",
   "lesson.q.match": "จับคู่",
+  "lesson.q.mpic": "จับคู่คำกับรูป",
   "lesson.q.q": "ตอบคำถาม",
   "lesson.qn": "ข้อ {a}/{b}",
   "lesson.combo": "COMBO ×{n}",
@@ -3487,5 +3489,6 @@
   "speak.spk.thanhCongDongLuc": "ความสำเร็จและแรงบันดาลใจ",
   "speak.spk.lamViecNhom": "การทำงานเป็นทีม",
   "speak.spk.duHocSongONuoc": "การเรียนและการใช้ชีวิตในต่างประเทศ",
-  "speak.spk.mayTinhInternetHangNgay": "คอมพิวเตอร์และอินเทอร์เน็ตในชีวิตประจำวัน"
+  "speak.spk.mayTinhInternetHangNgay": "คอมพิวเตอร์และอินเทอร์เน็ตในชีวิตประจำวัน",
+  "speak.spk.thuThachNoi30Giay": "30-second speaking challenge"
 }

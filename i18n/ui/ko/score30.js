@@ -1,0 +1,28 @@
+/* UI ko – score30 (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ko"] = Object.assign(D["ko"] || {}, {
+"Bạn của bạn hơn {n} điểm – thử lại nhé!":"친구가 {n}점 앞서요. 다시 도전해 보세요!",
+"Bạn của bạn đạt {s} ({c}). Vượt qua nhé!":"친구가 {s}점({c})을 받았어요. 이겨 보세요!",
+"Bạn thắng! {me} so với {fr}":"이겼어요! {me} 대 {fr}",
+"Bắt đầu":"시작",
+"Cần micro. Âm thanh không rời khỏi máy bạn.":"마이크가 필요해요. 음성은 기기 밖으로 나가지 않아요.",
+"Hòa nhau! {me} so với {fr}":"무승부! {me} 대 {fr}",
+"Không nghe rõ – thử lại ở nơi yên tĩnh hơn nhé.":"잘 들리지 않았어요. 더 조용한 곳에서 다시 해 보세요.",
+"Link thử thách không dùng được lúc này – thử lại sau.":"지금은 챌린지 링크를 만들 수 없어요. 잠시 후 다시 시도해 주세요.",
+"Làm lại":"다시 하기",
+"Lưu loát":"유창성",
+"Mình nói tiếng Anh được {s}/100 ({c}) trên Lexkite. Bạn hơn được không? {url}":"Lexkite 영어 말하기에서 {s}/100점({c})을 받았어요. 이길 수 있어요? {url}",
+"Nhận điểm nói, thách bạn bè":"점수를 받고 친구에게 도전하세요",
+"Phát âm":"발음하기",
+"Thách bạn bè":"친구에게 도전장",
+"Thẻ điểm nói tiếng Anh":"영어 말하기 점수 카드",
+"Trình duyệt này chưa hỗ trợ nhận giọng nói. Hãy thử Chrome hoặc app Lexkite.":"이 브라우저는 음성 인식을 지원하지 않아요. Chrome이나 Lexkite 앱을 사용해 보세요.",
+"Tải ảnh":"이미지 저장",
+"Xong":"완료",
+"Đang nghe… còn {n} giây":"듣는 중… {n}초 남음",
+"Điểm tổng":"종합 점수",
+"Điểm {s}/100, trình độ {c}":"점수 {s}/100, 수준 {c}",
+"Đã chép link thử thách – dán gửi bạn nhé":"챌린지 링크를 복사했어요. 친구에게 붙여넣어 보내세요",
+"Đọc to đoạn văn này trong 30 giây":"이 글을 30초 안에 소리 내어 읽어 보세요",
+"Ước lượng CEFR – chỉ mang tính tham khảo":"CEFR 추정치 – 참고용입니다",
+});
+})(typeof self !== 'undefined' ? self : this);

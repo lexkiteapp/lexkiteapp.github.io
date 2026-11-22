@@ -184,10 +184,12 @@
   "lesson.q.say": "말해 보세요",
   "lesson.q.picChoice": "이건 뭘까요?",
   "lesson.q.picSay": "보이는 것 말하기",
+  "lesson.q.lpic": "듣고 그림 고르기",
   "lesson.q.tr": "이 문장을 번역하세요",
   "lesson.q.mean": "맞는 단어 고르기",
   "lesson.q.type": "영어 단어를 입력하세요",
   "lesson.q.match": "짝 맞추기",
+  "lesson.q.mpic": "단어와 그림 짝짓기",
   "lesson.q.q": "질문에 답하세요",
   "lesson.qn": "{a}/{b}번 문제",
   "lesson.combo": "COMBO ×{n}",
@@ -3487,5 +3489,6 @@
   "speak.spk.thanhCongDongLuc": "성공과 동기부여",
   "speak.spk.lamViecNhom": "팀워크",
   "speak.spk.duHocSongONuoc": "해외 유학과 생활",
-  "speak.spk.mayTinhInternetHangNgay": "컴퓨터와 일상 속 인터넷"
+  "speak.spk.mayTinhInternetHangNgay": "컴퓨터와 일상 속 인터넷",
+  "speak.spk.thuThachNoi30Giay": "30-second speaking challenge"
 }

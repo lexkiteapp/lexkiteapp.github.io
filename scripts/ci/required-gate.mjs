@@ -45,7 +45,11 @@ export function evaluate({ checkRuns = [], statuses = [], workflowRuns = [] } = 
   for (const r of workflowRuns) {
     if (r.path === SELF_PATH || (r.path || '').startsWith(SELF_PATH + '@')) continue;
     const k = r.workflow_id ?? r.name, prev = wr.get(k);
-    if (!prev || (r.run_number || 0) > (prev.run_number || 0) || ((r.run_number || 0) === (prev.run_number || 0) && (r.id || 0) > (prev.id || 0))) wr.set(k, r);
+    // 20/11: lượt 'cancelled' (concurrency nhường lượt, vd. sự kiện labeled huỷ lượt cùng head) KHÔNG che lượt thật của cùng workflow trên cùng head:
+    // luôn ưu tiên lượt mới nhất KHÔNG bị huỷ; chỉ khi mọi lượt đều bị huỷ mới dùng lượt huỷ mới nhất (rồi chạy lại ≤ MAX_AUTO_RERUN).
+    const newer = (a, b) => (a.run_number || 0) > (b.run_number || 0) || ((a.run_number || 0) === (b.run_number || 0) && (a.id || 0) > (b.id || 0));
+    const canc = x => x.conclusion === 'cancelled';
+    if (!prev || (canc(prev) === canc(r) ? newer(r, prev) : canc(prev))) wr.set(k, r);
   }
   // 16/11 (điều phối): GitHub brownout `pull_request_target` (16:00–18:00 UTC) → wip-guard startup_failure trên mọi PR mở lúc đó, KHÔNG chạy lại được (rerun 403, chỉ chạy khi PR mở/mở lại) → gate đỏ oan cả PR xanh.
   // wip-guard chỉ gắn nhãn `frozen` (cảnh báo WIP), KHÔNG chấm mã PR → startup_failure của nó là lỗi hạ tầng: bỏ qua (neutral) và ghi vào `infra`, không chặn PR. Lỗi thật của wip-guard (failure) vẫn đỏ.
@@ -132,7 +136,9 @@ export const applyDrift = (res, drift) => res.state === 'success' && drift.lengt
 export const MERGE_WINDOW_UTC = [2, 3];
 export const inMergeWindow = (now = Date.now()) => { const h = new Date(now).getUTCHours(); return h >= MERGE_WINDOW_UTC[0] && h < MERGE_WINDOW_UTC[1]; };
 export const gateFilesOf = (files = []) => files.filter(f => f.status !== 'removed' && (GATE_WORKFLOW.test(f.filename) || GATE_ANY.some(r => r.test(f.filename)) || (GATE_CHANGED.some(r => r.test(f.filename)) && f.status !== 'added'))).map(f => f.filename);
-export const applyWindow = (res, gateFiles = [], now = Date.now()) => res.state === 'success' && gateFiles.length && !inMergeWindow(now)
+/** 21/11: PR gắn nhãn `main-red-fix` (chỉ điều phối gắn; sửa để mở main đang đỏ) không bị giữ bởi khung — main đỏ thì mọi PR đều kẹt, không chờ 24h. */
+export const WINDOW_EXEMPT_LABEL = 'main-red-fix';
+export const applyWindow = (res, gateFiles = [], now = Date.now(), labels = []) => res.state === 'success' && gateFiles.length && !inMergeWindow(now) && !labels.includes(WINDOW_EXEMPT_LABEL)
   ? { ...res, state: 'pending', description: `Chờ khung merge cổng 09–10 VN (PR đổi tệp cổng: ${gateFiles.slice(0, 2).map(f => f.split('/').pop()).join(', ')}${gateFiles.length > 2 ? ` +${gateFiles.length - 2}` : ''})`.slice(0, 140), window: true }
   : res;
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
@@ -243,6 +249,7 @@ export function api(token, repo, fetchImpl = globalThis.fetch) {
     // 16/11 (điều phối): compare chỉ liệt kê 300 tệp/lần → trước đây ≥300 tệp = "(>300 tệp đổi)" = LUÔN chờ gộp lại (#1478 tự kẹt). Nay phân trang tới 10×100 tệp; chỉ khi vẫn cắt cụt mới dùng dấu hiệu chờ.
     // PR: cắt cụt → prFiles = null (chưa biết → tính hết, cách cũ). Tệp cổng: tải nguồn bản main để xét liên quan (≤ 40 tệp), lỗi/quá lớn → không có nguồn → giữ cách cũ.
     // tệp cổng mà CHÍNH PR đổi (khung merge cổng); lỗi API → [] (mở cổng)
+    prLabels: async sha => ((await call(`/commits/${sha}/pulls`)) || []).filter(p => p.state === 'open').flatMap(p => (p.labels || []).map(l => l.name)),
     prGateFiles: async sha => { const files = []; for (let pg = 1; pg <= 10; pg++) { const r = await call(`/compare/main...${sha}?per_page=100&page=${pg}`); const f = r.files || []; files.push(...f); if (f.length < 100) break; } return gateFilesOf(files); },
     drift: async sha => {
       const cmp = async (spec, max = 10) => { let first, files = []; for (let pg = 1; pg <= max; pg++) { const r = await call(`/compare/${spec}?per_page=100&page=${pg}`); first ??= r; const f = r.files || []; files.push(...f); if (f.length < 100) return { first, files, truncated: false }; } return { first, files, truncated: true }; };
@@ -309,7 +316,7 @@ export async function run(argv, env = process.env, A = null, log = console.log, 
   const reran = new Set();
   const withDrift = async (res, sha) => {
     if (res.state !== 'success') return res;
-    if (A.prGateFiles && !inMergeWindow(clock.now())) { try { const w = applyWindow(res, await A.prGateFiles(sha), clock.now()); if (w.window) return w; } catch (e) { log('::warning::đo tệp cổng của PR lỗi (mở cổng): ' + e.message); } }
+    if (A.prGateFiles && !inMergeWindow(clock.now())) { try { const w = applyWindow(res, await A.prGateFiles(sha), clock.now(), A.prLabels ? await A.prLabels(sha).catch(() => []) : []); if (w.window) return w; } catch (e) { log('::warning::đo tệp cổng của PR lỗi (mở cổng): ' + e.message); } }
     if (!A.drift) return res;
     try {
       let d = await A.drift(sha);

@@ -184,10 +184,12 @@
   "lesson.q.say": "Скажите это",
   "lesson.q.picChoice": "Что это?",
   "lesson.q.picSay": "Назовите, что видите",
+  "lesson.q.lpic": "Послушайте, выберите картинку",
   "lesson.q.tr": "Переведите эту фразу",
   "lesson.q.mean": "Выберите верное слово",
   "lesson.q.type": "Введите английское слово",
   "lesson.q.match": "Найдите пары",
+  "lesson.q.mpic": "Соедините слова и картинки",
   "lesson.q.q": "Ответьте на вопрос",
   "lesson.qn": "Вопрос {a} из {b}",
   "lesson.combo": "COMBO ×{n}",
@@ -3487,5 +3489,6 @@
   "speak.spk.thanhCongDongLuc": "Успех и мотивация",
   "speak.spk.lamViecNhom": "Командная работа",
   "speak.spk.duHocSongONuoc": "Учёба и жизнь за границей",
-  "speak.spk.mayTinhInternetHangNgay": "Компьютеры и интернет в повседневной жизни"
+  "speak.spk.mayTinhInternetHangNgay": "Компьютеры и интернет в повседневной жизни",
+  "speak.spk.thuThachNoi30Giay": "30-second speaking challenge"
 }

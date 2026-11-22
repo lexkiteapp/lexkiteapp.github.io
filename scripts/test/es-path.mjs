@@ -46,6 +46,10 @@ await App.esday('1'); await tick(60);
 ok($$('section.card').length === 3 && $$('[data-sp]').length >= 6 && $('a[href^="#/practice/es?lv=A1&p=ser-identity"]') && $('a[href^="#/practice/esp?tp="]'), 'ngày 1: từ mới + ngữ pháp (đúng điểm) + phát âm, có nút nghe');
 $('#dsMk').click(); await tick(20);
 ok(JSON.parse(w.localStorage.getItem('lk.es.day'))['0'] === 'w', 'bấm "Đánh dấu xong" ghi bước w');
+{ const C = await w.Core.Cards.all(), es = Object.values(C).filter(c => c.tl === 'es'), d0 = P.days[0];
+  ok(es.length === d0[1] - d0[0] && es.every(c => C[w.Core.tlKey(c.word, 'es')] === c && c.srs && c.gl && c.gl.en), `"Đánh dấu xong" đưa ${d0[1] - d0[0]} từ của ngày vào Ôn tập (thẻ tl:es, khóa es:từ, có SRS + nghĩa)`);
+  ok(/\bla casa\b/.test($('#ds-w').textContent), 'danh từ hiện kèm mạo từ theo giống (la casa)'); }
+ok(P.days.every(d => d[1] - d[0] <= 8), 'mỗi ngày ≤ 8 từ mới (kho lớn không dồn vào một ngày)');
 $('a[data-s="g"]').click(); App.esDayMark('c');
 ok(JSON.parse(w.localStorage.getItem('lk.es.day'))['0'] === 'w', 'màn kết cuộc gọi không đánh dấu bước ngữ pháp');
 App.esDayMark('gp');
