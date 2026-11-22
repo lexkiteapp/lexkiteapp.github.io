@@ -1189,6 +1189,8 @@
   "rev.rhythm": "Ritmo",
   "rev.practiseSpanish": "Practica español",
   "rev.practiseFrench": "Práctica de francés",
+  "rev.dailyPath": "Ruta de aprendizaje",
+  "rev.dailyPathHint": "Palabras nuevas, gramática y una llamada con IA cada día",
   "rev.testHint": "20 preguntas mixtas, puntuadas",
   "rev.writingRoom": "Sala de escritura",
   "rev.writingRoomHint": "Escribe la tarea 2 y obtén un análisis de vocabulario.",

@@ -317,6 +317,7 @@ node scripts/content-qa/grammar-map-check.mjs
 node scripts/target/drill-pack.mjs --check
 node scripts/target/drill-pack.mjs --tl fr --check
 node scripts/test/fr-practice.mjs
+node scripts/test/fr-path.mjs
 node scripts/target/exam-es-check.mjs
 node scripts/target/exam-es-check.mjs --tl fr
 node scripts/test/es-exam.mjs
