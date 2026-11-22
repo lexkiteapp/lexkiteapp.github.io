@@ -1189,6 +1189,8 @@
   "rev.rhythm": "จังหวะ",
   "rev.practiseSpanish": "ฝึกภาษาสเปน",
   "rev.practiseFrench": "ฝึกภาษาฝรั่งเศส",
+  "rev.dailyPath": "เส้นทางการเรียน",
+  "rev.dailyPathHint": "คำศัพท์ใหม่ ไวยากรณ์ และสายสนทนา AI ทุกวัน",
   "rev.testHint": "มีคำถามผสม 20 ข้อ ได้คะแนน",
   "rev.writingRoom": "ห้องเขียน",
   "rev.writingRoomHint": "เขียนภารกิจที่ 2 รับการวิเคราะห์คำศัพท์",

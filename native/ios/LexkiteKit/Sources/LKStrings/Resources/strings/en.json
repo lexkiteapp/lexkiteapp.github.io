@@ -1189,6 +1189,8 @@
   "rev.rhythm": "Rhythm",
   "rev.practiseSpanish": "Spanish practice",
   "rev.practiseFrench": "French practice",
+  "rev.dailyPath": "Path",
+  "rev.dailyPathHint": "New words, grammar and an AI call every day",
   "rev.testHint": "20 mixed questions, scored",
   "rev.writingRoom": "Writing Lab",
   "rev.writingRoomHint": "Write Task 2, get vocabulary analysis",
