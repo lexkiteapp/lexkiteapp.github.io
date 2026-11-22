@@ -15,6 +15,18 @@
     neutral: {}, happy: { brow: .25, tilt: 1.5, smile: .25 }, praise: { brow: .45, tilt: 2, smile: .4 }, encourage: { brow: .3, tilt: 1.8, smile: .2 },
     thinking: { brow: .2, knit: .3, tilt: -2.5, look: [-.4, -.5] }, surprise: { brow: .8, smile: .05, o: .45 }, listen: { brow: .15, tilt: 1.2, smile: .08, nodHz: .55, nodPx: 2 },
     sad: { brow: -.1, knit: .55, tilt: -1.5, smile: -.22, look: [0, .25] }, explain: { brow: .12, tilt: -1 },
+    // Biểu cảm mạnh (22/11, thẻ lóng – EXPR bên dưới): mặt vẽ đẩy tới gần giới hạn khớp, vẫn trong LIMITS (không đổi tốc độ/khớp)
+    shock: { brow: 1, o: .6 }, panic: { brow: .9, knit: .5, smile: -.15, o: .3, look: [.2, -.1] }, smug: { brow: .35, smile: .3, tilt: -3.5, look: [.6, 0] },
+    smirk: { brow: .2, smile: .45, tilt: 3, look: [-.5, .1] }, shrug: { brow: .75, smile: -.12, tilt: 4.5 }, furious: { brow: -.3, knit: 1, smile: -.35, tilt: -2 },
+    cringe: { brow: .1, knit: .7, smile: -.3, tilt: -4, look: [.6, .3] }, deadpan: { knit: .12, smile: -.06, look: [0, 0] }, love: { brow: .5, smile: .5, tilt: 3 },
+    confused: { brow: .5, knit: .45, tilt: -4, look: [.3, -.3] }, hype: { brow: .7, smile: .55, tilt: 2.5, o: .2 },
+  };
+  // Bộ biểu cảm mạnh dùng lại cho mọi clip (thẻ lóng, docs/CHARACTERS.md): tên → mặt vẽ (emo) + cử chỉ ảnh tư thế đã duyệt (gesture, tuỳ chọn) chiếu trong khoảng lặng sau hook
+  const EXPR = {
+    shock: { emo: 'shock', gesture: 'surprised' }, panic: { emo: 'panic', gesture: 'worry' }, smug: { emo: 'smug' }, smirk: { emo: 'smirk' },
+    shrug: { emo: 'shrug' }, furious: { emo: 'furious' }, cringe: { emo: 'cringe' }, laugh: { emo: 'praise', gesture: 'laugh' }, deadpan: { emo: 'deadpan' },
+    proud: { emo: 'praise', gesture: 'thumbs_up' }, love: { emo: 'love', gesture: 'clap' }, confused: { emo: 'confused', gesture: 'think' },
+    sad: { emo: 'sad', gesture: 'empathy' }, hype: { emo: 'hype', gesture: 'cheer' },
   };
   // Cử chỉ: 'proc' = thủ tục trên khớp cổ (cứng) · 'pose' = ảnh tư thế đã duyệt. pending = chưa có ảnh riêng → dùng tư thế gần nhất đã duyệt · alt = thay cho người chưa có ảnh
   const GESTURES = {
@@ -23,6 +35,7 @@
     explain: { kind: 'pose', pose: 'explain', hold: 1.6, emo: 'explain' }, cheer: { kind: 'pose', pose: 'cheer', hold: 1.2, emo: 'praise' },
     think: { kind: 'pose', pose: 'thinking', hold: 1.6, emo: 'thinking' }, surprised: { kind: 'pose', pose: 'surprise', hold: 1.0, emo: 'surprise' },
     laugh: { kind: 'pose', pose: 'laugh', hold: 1.2, emo: 'praise' }, empathy: { kind: 'pose', pose: 'empathy', hold: 1.4, emo: 'sad' },
+    worry: { kind: 'pose', pose: 'concern', hold: 1.2, emo: 'panic' },
     // ảnh chuẩn riêng (gesture bank 05/11): alt = tư thế đã duyệt cho người CHƯA có ảnh này (Chars.has)
     thumbs_up: { kind: 'pose', pose: 'thumbs_up', alt: 'encourage', hold: 1.2, emo: 'encourage' }, clap: { kind: 'pose', pose: 'clap', alt: 'cheer', hold: 1.2, emo: 'praise' },
     count: { kind: 'pose', pose: 'count', alt: 'explain', hold: 1.6, emo: 'explain' }, hold_card: { kind: 'pose', pose: 'hold_card', alt: 'explain', hold: 2, emo: 'explain' },
@@ -124,7 +137,7 @@
     return null;
   }
 
-  const core = { LIMITS, FADE, EMOTIONS, GESTURES, machine, matrix, cuesOf, poseOf };
+  const core = { LIMITS, FADE, EMOTIONS, EXPR, GESTURES, machine, matrix, cuesOf, poseOf };
   if (node) { module.exports = core; return; }
 
   // ===== Lớp DOM: MỘT <canvas> (đầu trơn + lớp vector + ảnh tư thế), chỉ vẽ khi khung đổi, 0 thay đổi DOM mỗi khung =====
