@@ -1189,6 +1189,8 @@
   "rev.rhythm": "Rhythmus",
   "rev.practiseSpanish": "Spanisch üben",
   "rev.practiseFrench": "Französisch üben",
+  "rev.dailyPath": "Lernpfad",
+  "rev.dailyPathHint": "Jeden Tag neue Wörter, Grammatik und ein KI-Anruf",
   "rev.testHint": "20 gemischte Fragen, bewertet",
   "rev.writingRoom": "Schreibraum",
   "rev.writingRoomHint": "Schreiben Sie Aufgabe 2 und erhalten Sie eine Vokabelanalyse",

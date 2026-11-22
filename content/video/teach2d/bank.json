@@ -10951,6 +10951,21 @@
    "state": "banked",
    "tries": 0
   },
+  "t2a_review_assist": {
+   "run": "45010481020",
+   "at": "2026-11-22T12:26Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "c24135b98d1b8a6d",
+    "wide": "f5fb46509dd15321"
+   },
+   "why": [],
+   "state": "banked",
+   "tries": 0
+  },
   "t2a_stress_artistic": {
    "run": "42534524390",
    "at": "2026-11-08T23:51Z",
@@ -11089,6 +11104,24 @@
    ],
    "tries": 0
   },
+  "t2a_stress_specific": {
+   "run": "45010481020",
+   "at": "2026-11-22T12:26Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "b1b0e16c0041198f",
+    "wide": "1c7d03a191f8ba10"
+   },
+   "why": [],
+   "state": "banked",
+   "publish_block": [
+    "topic"
+   ],
+   "tries": 0
+  },
   "t2a_usuk_apartment": {
    "run": "42534524390",
    "at": "2026-11-08T23:51Z",
@@ -11104,6 +11137,24 @@
    "state": "banked",
    "tries": 0
   },
+  "t2a_usuk_check": {
+   "run": "45010481020",
+   "at": "2026-11-22T12:26Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "eea1f119dce280a4",
+    "wide": "e2c4e29b45f8c938"
+   },
+   "why": [],
+   "state": "banked",
+   "publish_block": [
+    "topic"
+   ],
+   "tries": 0
+  },
   "t2a_usuk_cookie": {
    "run": "42534524390",
    "at": "2026-11-09T00:56Z",
@@ -11115,6 +11166,24 @@
    ],
    "state": "failed",
    "tries": 2
+  },
+  "t2a_usuk_fall": {
+   "run": "45010481020",
+   "at": "2026-11-22T12:26Z",
+   "score": {
+    "short": 100.0,
+    "wide": 100.0
+   },
+   "sha": {
+    "short": "f39071407738913c",
+    "wide": "c4887a18036c40ee"
+   },
+   "why": [],
+   "state": "banked",
+   "publish_block": [
+    "topic"
+   ],
+   "tries": 0
   },
   "t2a_usuk_gas": {
    "run": "42534524390",

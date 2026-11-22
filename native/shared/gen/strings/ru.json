@@ -1189,6 +1189,8 @@
   "rev.rhythm": "Ритм",
   "rev.practiseSpanish": "Практика испанского",
   "rev.practiseFrench": "Практика французского",
+  "rev.dailyPath": "План обучения",
+  "rev.dailyPathHint": "Каждый день: новые слова, грамматика и звонок с ИИ",
   "rev.testHint": "20 смешанных вопросов с оценкой",
   "rev.writingRoom": "Письменная практика",
   "rev.writingRoomHint": "Напишите задание 2, проведите анализ словарного запаса.",
