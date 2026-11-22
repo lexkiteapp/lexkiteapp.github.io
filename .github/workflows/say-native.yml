@@ -75,7 +75,7 @@ jobs:
             echo "<details><summary>reports/ai-pool-say-native.json</summary>"; echo; echo '```json'; cat reports/ai-pool-say-native.json 2>/dev/null; echo '```'; echo "</details>"
           } > out/say-native/report.md
       - name: Commit to main
-        if: github.ref == 'refs/heads/main'
+        if: always() && github.ref == 'refs/heads/main'   # also after a translate time-out: translate.mjs saves after every language (MAX_MIN), the kept meanings must not be lost (run 45029502257 lost 5 311 judged lines)
         shell: bash
         run: |
           cat out/say-native/report.md >> "$GITHUB_STEP_SUMMARY"

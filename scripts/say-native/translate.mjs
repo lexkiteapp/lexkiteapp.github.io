@@ -22,6 +22,10 @@ const SL = fs.existsSync(ROOT + 'content/say-native/slang.json') ? JSON.parse(fs
 const seenK = new Set(cards.map(x => x.k));
 const items = [...cards, ...SL.filter(it => !seenK.has(it.key.toLowerCase())).map(it => ({ k: it.key.toLowerCase(), w: it.key, pos: it.pos, def: `${it.mean} (${it.def}) – informal slang`, ex: it.example.text }))];
 const score = (r, k) => +((r && r.out && r.out[k]) ?? 0);
+// time budget (job timeout 40 min): stop cleanly before it and save after every language – a cancelled job used to lose every judged line (run 45029502257)
+const T0 = Date.now(), MAX_MS = +arg('--max-min', 32) * 60e3, late = () => Date.now() - T0 > MAX_MS;
+const sortOut = O => Object.fromEntries(Object.keys(O).sort().map(k => [k, Object.fromEntries(LANGS.filter(l => O[k][l]).map(l => [l, O[k][l]]))]));
+const saveM = () => fs.writeFileSync(F, JSON.stringify(sortOut(M), null, 1) + '\n');
 let kept = 0, empty = 0;
 // --lines N: Slang Card L1 clips (gen.py --slang-l1) also show the hook + the example in the page language. The first N slang episodes of the batch
 // (auto.json t2s_* order) get both lines translated into all 14 languages (vi included – the card's vi is only the gloss), sense-locked by the card,
@@ -34,9 +38,11 @@ if (NL > 0) {
     return [{ k: `${k}|hook`, w: it.hook, pos: 'sentence', def: `${d}. It is a short situation line before learning "${it.key}" (${it.mean})`, ex: it.example.ctx },
             { k: `${k}|ex`, w: it.example.text, pos: 'sentence', def: `${d}. "${it.key}" means: ${it.mean}`, ex: it.example.ctx }]; });
   for (const lang of (arg('--langs', '') || LANGS.join(',')).split(',').filter(l => LANGS.includes(l))) {
-    for (let round = 0; round < 2; round++) {
+    if (late()) { console.log(`lines: time budget reached before ${lang} – the next run continues`); break; }
+    for (let round = 0; round < 2 && !late(); round++) {
       const todo = lines.filter(x => !(LN[x.k] && LN[x.k][lang])); if (!todo.length) break;
       for (let i = 0; i < todo.length; i += 10) {
+        if (late()) break;
         const part = todo.slice(i, i + 10), g = await AI.gen({ mode: 'translate', lang, items: part }); if (!g || !g.out) continue;
         const cand = part.filter(x => typeof g.out[x.k] === 'string' && g.out[x.k].trim()).map(x => ({ ...x, tr: g.out[x.k].trim() })); if (!cand.length) continue;
         const { a, b } = await AI.judgePair({ mode: 'judge', lang, items: cand });
@@ -49,14 +55,17 @@ if (NL > 0) {
       }
     }
     empty += lines.filter(x => !(LN[x.k] && LN[x.k][lang])).length;
+    fs.writeFileSync(LF, JSON.stringify(sortOut(LN), null, 1) + '\n');   // saved after every language
   }
   fs.writeFileSync(LF, JSON.stringify(Object.fromEntries(Object.keys(LN).sort().map(k => [k, Object.fromEntries(LANGS.filter(l => LN[k][l]).map(l => [l, LN[k][l]]))])), null, 1) + '\n');
 }
 for (const lang of (process.argv.includes('--lines-only') ? [] : want)) {
-  for (let round = 0; round < 2; round++) {
+  if (late()) { console.log(`meanings: time budget reached before ${lang} – the next run continues`); break; }
+  for (let round = 0; round < 2 && !late(); round++) {
     const todo = items.filter(x => REDO && round === 0 || !(M[x.k] && M[x.k][lang]));
     if (!todo.length) break;
     for (let i = 0; i < todo.length; i += 12) {
+      if (late()) break;
       const part = todo.slice(i, i + 12), g = await AI.gen({ mode: 'translate', lang, items: part });
       if (!g || !g.out) continue;
       const cand = part.filter(x => typeof g.out[x.k] === 'string' && g.out[x.k].trim()).map(x => ({ ...x, tr: g.out[x.k].trim() }));
@@ -70,6 +79,7 @@ for (const lang of (process.argv.includes('--lines-only') ? [] : want)) {
     }
   }
   empty += items.filter(x => !(M[x.k] && M[x.k][lang])).length;
+  saveM();   // saved after every language
 }
 const sorted = Object.fromEntries(Object.keys(M).sort().map(k => [k, Object.fromEntries(LANGS.filter(l => M[k][l]).map(l => [l, M[k][l]]))]));
 fs.writeFileSync(F, JSON.stringify(sorted, null, 1) + '\n');
