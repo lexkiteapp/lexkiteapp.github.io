@@ -152,7 +152,7 @@ items: [
 options: ['It is simply a polite way of avoiding an unpleasant fact.', 'It was first introduced by professional linguists.', 'It should be applied to every language that has lost its speakers.', 'It reflects a genuine difference between languages and species.'],
 a: 3, cue: 'I think it captures something the biological metaphor obscures' },
 { n: 28, q: 'What does the writer say the case of Myaamia has shown?',
-options: ['A language can be revived even when no fluent speakers remain to teach it.', 'Universities are more effective than families at reviving languages.', 'Myaamia has again become the everyday language of the Miami people.', 'Records made by missionaries are a reliable guide to pronunciation.'],
+options: ['A language can be revived even when no fluent speakers remain to teach it.', 'Community elders are always the primary source for language revitalization.', 'The Myaamia language is now taught exclusively through online courses.', 'Written dictionaries guarantee accurate pronunciation of extinct languages.'],
 a: 0, cue: 'written records alone, combined with determination, can be enough to begin' },
 { n: 29, q: 'What point does the writer make about the unified form of Basque?',
 options: ['It has been rejected by most Basque-language schools.', 'It has brought benefits but has made some speakers feel their own speech is undervalued.', 'It was based on a single village dialect.', 'It caused longer disputes than the Cornish spelling systems.'],

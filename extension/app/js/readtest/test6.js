@@ -146,7 +146,7 @@ a: 1, cue: 'it should make no difference to a rational person where a sum of mon
 options: ['People are more careful with cash than with tickets.', 'Most people prefer not to buy theatre tickets in advance.', 'People tend to overestimate the cost of entertainment.', 'Losing a ticket feels different from losing the same amount of money.'],
 a: 3, cue: 'The financial loss is identical' },
 { n: 29, q: 'What did Dr Rahman find?',
-options: ['Families spent labelled payments on education even though nobody checked.', 'Families receiving unlabelled payments saved more money.', 'Payments were effective only when their use was monitored.', 'Most families ignored the label attached to their payments.'],
+options: ['Families spent labelled payments on education even though nobody checked.', 'Families receiving unlabelled grants set aside a higher percentage for savings.', 'Payments influenced household spending only when strictly monitored by officials.', 'Most families completely ignored the intended purpose specified on their grants.'],
 a: 0, cue: 'even though no one checked how the money was used' },
 { n: 30, q: 'According to paragraph D, why do many investors keep shares that have fallen in value?',
 options: ['They expect the government to compensate them.', 'They are advised to do so by financial professionals.', 'They do not want to accept a loss and admit an error.', 'They bought the shares using money they had won.'],

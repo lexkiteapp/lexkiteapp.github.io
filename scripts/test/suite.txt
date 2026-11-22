@@ -141,6 +141,7 @@ node scripts/test/sync-ctx.mjs
 node scripts/test/schema-lock.mjs
 node scripts/test/analytics.mjs
 node scripts/test/retention-admin.mjs
+node scripts/test/retention-funnel.mjs
 node scripts/test/mail-digest.mjs
 node scripts/test/d1-scan.mjs
 node scripts/test/drive.mjs
@@ -503,3 +504,4 @@ node scripts/test/main-no-cancel.mjs
 node scripts/test/workflow-startup.mjs
 node scripts/test/score-card.mjs
 node scripts/stitch-v2-convert.mjs --check
+node scripts/say-native/slang.mjs --check

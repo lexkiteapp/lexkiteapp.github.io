@@ -2,7 +2,7 @@
 
 Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipeline/score.budget.json` · kế hoạch `docs/CONTENT-WORLD-PLAN.md` §3.5. Điểm = độ phủ so với chuẩn × tỉ lệ qua cổng.
 
-**Tổng: 77.6 / 100**
+**Tổng: 78.1 / 100**
 
 | Mảng | Điểm | Sàn | Độ phủ | Qua cổng | Lỗi |
 |---|---|---|---|---|---|
@@ -11,7 +11,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | Giao tiếp | **89.7** | 89.7 | 89.7% | 100% | 0 |
 | 4 kỹ năng | **97.6** | 97.6 | 97.6% | 100% | 0 |
 | Đề thi | **66.6** | 66.6 | 66.6% | 100% | 0 |
-| Chất lượng đề | **54.2** | 54.2 | 54.2% | 100% | 0 |
+| Chất lượng đề | **59** | 54.2 | 59% | 100% | 0 |
 | Khung Can-do | **82.6** | 82.6 | 82.6% | 100% | 0 |
 | Dễ học – dễ nhớ | **91.8** | 91.8 | 91.8% | 100% | 0 |
 | i18n | **83** | 82.8 | 83% | 100% | 0 |
@@ -98,8 +98,8 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | Thành phần | Có / chuẩn | % | Trọng số |
 |---|---|---|---|
 | đáp án cân bằng vị trí (lệch ≤ 3 %) | 100 / 100 | 100% | 15 |
-| đáp án đúng không lộ qua độ dài (≤ 10 %) | 61.3 / 100 | 61% | 20 |
-| lời giải riêng từng câu (rập khuôn ≤ 2 %) | 85 / 100 | 85% | 15 |
+| đáp án đúng không lộ qua độ dài (≤ 10 %) | 82.8 / 100 | 83% | 20 |
+| lời giải riêng từng câu (rập khuôn ≤ 2 %) | 87.9 / 100 | 88% | 15 |
 | không trùng câu / đáp án nhiễu trùng | 94.7 / 100 | 95% | 15 |
 | qua giám khảo LLM (mẫu ≥ 1.500) (chưa làm) | 0 / 100 | 0% | 35 |
 
