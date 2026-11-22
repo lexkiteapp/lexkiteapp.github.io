@@ -32,6 +32,7 @@
 | `review` | Remember This? | audited word bank card + the app's 4 grade buttons (en i18n) | `#/review?w=<word>` |
 | `call` | Ask Ama | app call script (`web/js/call/calls.js`: phrase, meaning, reply) – in-app caller is Mia, so the CTA says "Practice a real call" | `#/call/<id>` |
 | `roots` | Word Roots (Gốc từ, 17/11) | `content/video/teach2d/roots.json`: 40 Latin / Greek roots × 6–10 real words; IPA / definition / example from the audited bank | `#/dict/<first word>` |
+| `slang` | Slang Card (22/11, 7–12 s, [SAY-NATIVE.md](SAY-NATIVE.md#slang-card-2211--dòng-clip-ngắn-viral-thẻ-lóng--biểu-cảm)) | `content/say-native/slang.json` (≥ 300 thẻ lóng sạch) + TeacherRig EXPR biểu cảm mạnh; carousel vuông `card.py` | `#/phrases` |
 | `band` | Band 5 to 9 (20/11, [spec](specs/band-upgrade.md)) | `content/video/teach2d/bands.json`: 14 topics × 3 hand-written model sentences (IELTS band 5 / 7 / 9) + one reason and criterion per upgrade | `#/write` · `#/speaking` |
 
 ## Variety (owner 29/10: "đa dạng, đỡ nhàm chán")
