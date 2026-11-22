@@ -842,7 +842,7 @@ def T_slang():
     forms = sorted([D['key']] + [f for f in (D.get('forms') or [])], key=len, reverse=True)
     hl = next((f for f in forms if f.lower() in ex['text'].lower()), D['key'])
     t_q = end('e') + 0.12   # the silent card takes the region the moment the example is said (one card at a time – the region holds one)
-    c.text(runs_hl(ex['text'], hl, col='onhl', base='ongood'), S['body'], t_e); c.place(t_e, t_q - 0.1, 'a')
+    c.text(runs_hl(ex['text'], hl, col='onhl', base='ongood'), S['body'], t_e); c.place(t_e, t_q - 0.3, 'a')
     if D['variant'] == 'quiz':
         q = D['quiz']; t_r1 = end('e') + LINES['e']['pause'] - 0.75   # 3-2-1 ring, then the answer lights (ding) and stays ~0.55 s before the CTA card
         c = Card(RY0); chip(c, 'QUICK QUIZ', t_q); c.text([[q['ask'], 'ink']], S['body'], t_q); pills(c, q['options'], t_q, t_r1 + 0.05, q['answer'])

@@ -506,7 +506,7 @@ def slang(p):   # Slang Card: hook + STRONG expression (drawn face or approved p
     assert var in ('quiz', 'misuse'), var
     XP = X['x'][it['expr']]; g = XP.get('gesture'); ex = it['example']
     said = it['key'][0].upper() + it['key'][1:]
-    lines = [L('h', it['hook'], 0.75 if g else 0.55),                    # the reaction silence: pose gesture (rig_plan T.pose) or the drawn face held (T.expr)
+    lines = [L('h', it['hook'], 1.0 if g else 0.55),                    # the reaction silence: pose gesture (rig_plan T.pose) or the drawn face held (T.expr)
              L('k', said.rstrip('.!?') + '!', 0.25),
              L('m', it['mean'], 0.2),
              L('e', ex['text'], 2.2 if var == 'quiz' else 2.4, quiz=True),   # silent card in this pause: 2-option quiz (answer lights on 'c') or the misuse card
