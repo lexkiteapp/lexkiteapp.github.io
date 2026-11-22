@@ -52,7 +52,8 @@ final class StudyPracticeModel {
     private(set) var misses = 0
     private(set) var matchStart: Int64 = 0
     private(set) var matchTime = 0.0
-    private(set) var matchXP = 0, speakDoneXP = 0
+    private(set) var matchXP = 0
+    private(set) var speakDoneXP = 0
     private(set) var matchBest: Double?
     private(set) var newRecord = false
 
