@@ -24,11 +24,11 @@ html = html.replace(TAG, '').replace(FONT, '');
 // JS: nạp sau lần vẽ đầu THẬT. 14/11 (mqa LCP home 1,8–3,1 s cùng mã): rAF → setTimeout có thể chạy TRƯỚC khi khung đó hiện lên (FCP 117 ms, JS bắt đầu 91 ms)
 // → Lighthouse (Lantern) tính 330 KB JS vào LCP. Có Paint Timing: chờ mục first-contentful-paint (đã hiện) rồi mới nạp; dự phòng 3 s (tab nền không vẽ).
 // Không có Paint Timing (trình duyệt cũ): như cũ rAF → setTimeout, dự phòng 300 ms.
-// Font web: nạp 1,5 s SAU khi TRANG ĐẦU đã vẽ (sự kiện lk:drawn của app.js, dự phòng 4,5 s + 1,5 s) – không lọt vào cửa sổ LCP của trang sâu (Lantern tính mọi request bắt đầu trước LCP: ~80 KB font = ~0,8 s) – 70–135 KB font không giành băng thông với JS khung; chữ vẽ trước bằng font dự phòng khớp số đo (--font).
+// Font web: nạp sau khi TRANG ĐẦU đã vẽ (sự kiện lk:drawn của app.js, dự phòng 6 s) – 70–135 KB font không giành băng thông với JS khung; chữ vẽ trước bằng font dự phòng khớp số đo (--font).
 // #/review, #/dict, #/me mở thẳng: LCP là nội dung thật (cần khung app) → nạp JS NGAY, không chờ FCP (đo mobile-qa 21/11). KHÔNG áp cho path/practice/home: LCP của chúng là khung chào tĩnh, JS nạp sớm làm LCP xấu đi (path 1,7→2,7 s, practice 1,7→8,7 s).
 const boot = `<script id="lk-boot">(function(){var S=${JSON.stringify(order)},F=${JSON.stringify(font)},d=document,w=window,done=0,fd=0;
-function fonts(){if(fd)return;fd=1;setTimeout(function(){F.forEach(function(u){var l=d.createElement('link');l.rel='stylesheet';l.href=u;d.head.appendChild(l)})},1500)}
-w.addEventListener('lk:drawn',fonts);setTimeout(fonts,4500);
+function fonts(){if(fd)return;fd=1;F.forEach(function(u){var l=d.createElement('link');l.rel='stylesheet';l.href=u;d.head.appendChild(l)})}
+w.addEventListener('lk:drawn',fonts);setTimeout(fonts,6000);
 function go(){if(done)return;if(d.readyState==='loading'){d.addEventListener('DOMContentLoaded',go);return}done=1;var late=d.readyState==='complete',n=S.length;
 S.forEach(function(u){var s=d.createElement('script');s.src=u;s.async=false;s.onload=s.onerror=function(){if(--n)return;w.__lkReady=1;d.dispatchEvent(new Event('DOMContentLoaded'));if(late||d.readyState==='complete'&&w.__lkLoaded)w.dispatchEvent(new Event('load'))};d.body.appendChild(s)})}
 w.addEventListener('load',function(){w.__lkLoaded=1});
