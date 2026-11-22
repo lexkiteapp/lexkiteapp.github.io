@@ -126,8 +126,8 @@ if PUB:
     json.dump({v: sorted(ws) for v, ws in idx.items()}, open(os.path.join(OUT, 'index.json'), 'w'), ensure_ascii=False, indent=1)
 txt = '\n'.join(lines); print(txt)
 if os.environ.get('GITHUB_STEP_SUMMARY'): open(os.environ['GITHUB_STEP_SUMMARY'], 'a').write(txt + '\n')
-# Tiêu chí tính RIÊNG từng giọng dùng thật (TL_REQUIRE, mặc định giọng Ama + Carlos của bảng); giọng khác (Piper đối chứng) chỉ báo cáo.
-REQ = [v for v in os.environ.get('TL_REQUIRE', ','.join(C['voices'])).split(',') if v]
+# Tiêu chí tính RIÊNG từng giọng dùng thật (TL_REQUIRE, mặc định require của bảng hoặc giọng Ama + Carlos Kokoro); giọng khác chỉ báo cáo.
+REQ = [v for v in os.environ.get('TL_REQUIRE', ','.join(C.get('require') or C['voices'])).split(',') if v]   # bảng require: giọng dùng thật khác Kokoro (ja: Open JTalk)
 bad = []
 for v in REQ:
     xs = by.get(v, []); ok = sum(x['ok'] for x in xs); n = len(xs) or 1

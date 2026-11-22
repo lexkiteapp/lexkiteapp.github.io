@@ -38,7 +38,7 @@ Người nói vi, en, ar, de, es, fr, hi, id, ko, pt_BR, ru, th, tr, zh_CN (giao
 | IPA | Sinh từ kana bằng `ja-kana.mjs` (quy ước §8.2), không gõ tay | tự viết |
 | Câu ví dụ | Tự soạn qua ai-pool; Tatoeba (jpn) chỉ đo độ tự nhiên + câu người viết cho đề | CC BY 2.0 FR |
 | Kiểm ngữ pháp | LanguageTool KHÔNG có tiếng Nhật → thay bằng: fugashi + UniDic phân tích hình thái (mọi token phải nhận được, không 未知語), 2 giám khảo AI khác họ + dịch ngược, lint kính ngữ/trộn thể | BSD / UniDic BSD |
-| Giọng (MỘT giọng/vai) | Kokoro-82M `jf_alpha` (Ama) / `jm_kumo` (Carlos), G2P chính thức misaki JAG2P; đối chứng Open JTalk (HTS nitech m001) vì Piper không có giọng ja | Apache-2.0 / BSD |
+| Giọng (MỘT giọng/vai) | **Open JTalk HTS** (lượt mẫu W0 chốt, §9): Ama = `mei_normal` (MMDAgent), Carlos = `nitech_jp_atr503_m001`; Kokoro-82M `jf_alpha`/`jm_kumo` (misaki JAG2P) chỉ đo báo cáo – Piper không có giọng ja | CC BY 3.0 (Nagoya Institute of Technology – ghi công ở trang Giới thiệu + mô tả video) / Apache-2.0 |
 | Nhận giọng | Whisper large-v3-turbo đa ngôn ngữ (CI; chấm theo CÁCH ĐỌC), máy người dùng theo tầng thiết bị | MIT |
 | Ảnh từ vựng | Tái dùng `img.json` khi đúng nghĩa `từ#loại` | không chữ trong ảnh |
 | Video | Teach2D, Ama + Carlos 2D đọc ja, ≤ 150 wpm (≈ 6 mora/s), chủ duyệt mẫu | 0 credit |
@@ -69,7 +69,7 @@ Như `spanish-course.md` §5 với `ja`, thay LanguageTool bằng phân tích h�
 Như `spanish-course.md` §6 cho ja: mọi phần ở §1 đủ N5→N1, qua cổng §5 ở 14 ngôn ngữ, giáo viên dạy bằng giọng ja, chạy web/add-on/iOS/Android, cờ 100 % sau 1 tuần nhóm thử không lỗi chặn.
 
 ## 7. Rủi ro
-- **Kokoro ja cần G2P riêng** (misaki[ja] + UniDic ~500 MB tải trên runner): lượt mẫu W0 đo; hỏng → giọng Open JTalk tạm (BSD) hoặc giọng máy `ja-JP`, không dịch vụ trả phí.
+- **Giọng HTS nghe máy hơn Kokoro/VOICEVOX**: đúng cách đọc là ưu tiên 1 (cổng §5.4); W3 thử giọng tự nhiên hơn, miễn phí, cùng cổng. Kokoro ja (misaki[ja] + UniDic ~500 MB) đọc thêm đuôi を/や và đọc sai một số từ – đo lại khi misaki/Kokoro có bản mới.
 - **Kanji nhiều cách đọc** (今日 きょう/こんにち, 一日 ついたち/いちにち): audio luôn đọc theo `kana` (`say: kana`), cổng đọc so OpenJTalk + JMdict.
 - **Cao độ có biến thể** (電車 0/1, 赤い 0/1): lưu dạng NHK chính, biến thể ghi chú; chấm nói không trừ điểm cao độ biến thể.
 - **Dung lượng**: dữ liệu kana/nét/kanji lớn → `web/packs` + CDN, lazy theo bài; size-budget chặn.
@@ -82,8 +82,9 @@ Như `spanish-course.md` §6 cho ja: mọi phần ở §1 đủ N5→N1, qua c�
 3. **Romaji** = kiểu gõ IME trung thành kana (không macron): dễ gõ, khớp IME, học xong romaji là gõ được.
 4. **Chữ mặc định**: từ viết như người Nhật viết thường ngày (kanji khi từ thường viết kanji; りんご, うれしい viết kana vì kanji không thuộc Jōyō/ít dùng).
 5. **Nhãn thi**: "Luyện theo định dạng JLPT" (không liên kết cơ quan tổ chức, không đề thật – tên thi chỉ để mô tả).
-6. **Giọng**: Ama = `jf_alpha`, Carlos = `jm_kumo` (Kokoro có sẵn cả nữ lẫn nam → không cần "chỉ Ama" như fr); lượt mẫu không đạt → Open JTalk tạm cho vai trượt.
+6. **Giọng** (chốt sau lượt mẫu 22/11, §9): Ama = Open JTalk `mei_normal`, Carlos = Open JTalk `nitech_jp_atr503_m001` (CC BY 3.0, ghi công). Kokoro ja không qua cổng → không dùng cho tới khi một lượt đo lại ≥ 80 %. Nâng chất lượng (giọng tự nhiên hơn HTS) ở W3: thử VOICEVOX (nhân vật cho phép dùng thương mại có ghi công) / Style-BERT-VITS2 JVNV (CC BY-SA) – cùng cổng, không hạ ngưỡng.
 
 ## 9. Trạng thái
 - **W0** (22/11/2026): spec này; `scripts/target/ja-kana.mjs`; dòng `ja` ở `web/js/target.js` (`ready: false`, cờ `ja_course`/`ja_course_pct`/`ja_kill` ở PUBLIC_KEYS + CONFIG_KEYS, chung nhóm thiết bị `lk.esb`); `TL_GEN.ja` + `TL_RULES.ja` (noGender, sub, kana, end, lint); `tl-voices.json` ja (misaki-ja, đọc kana, chấm cách đọc, không cắt câu mang, đối chứng Open JTalk) + nhãn `word-audio-ja` + `tl_kana.py`; ma trận PR `target-content` thêm ja; seed 30 từ `content/target/ja/` (27 khái niệm chung với seed es + 好き/来る/町, phủ hiragana/katakana/っ/ゃゅょ/ー/ん, 3 nhóm động từ, tính từ i/na); chuỗi "Đã thêm {n} từ tiếng Nhật" đủ 15 ngôn ngữ. Thẻ ja giữ `kana`/`romaji`/`pitch`.
+- **Lượt mẫu giọng W0** (22/11/2026, `word-audio-tl` tl=ja, 20 từ): cách đọc seed ↔ OpenJTalk 30/30, cao độ ↔ OpenJTalk 30/30; Kokoro `jf_alpha` 8/20, `jm_kumo` 9/20 (< 80 %: đuôi thừa を/や sau từ – 犬を, 大きいや – và đọc sai 家/靴/町) → **không đạt**; Open JTalk mặc định (= `mei_normal`) 19/20 (太陽 → 対応). Quyết định (điều phối, không hạ cổng): giọng dùng thật ja = Open JTalk HTS cho cả hai vai (`require` = `ojt_mei`, `ojt_m001` trong `tl-voices.json`), Kokoro chỉ đo báo cáo; nguồn giọng hỏng không làm chết lượt (ghi `altErr`). Bảng `Target.ja` (giọng chạy trên máy) đổi theo khi có file dựng sẵn (W1b/W3); cờ tắt nên chưa ai nghe.
 - **W1a cần**: dữ liệu nét kana (KanjiVG) ra `web/packs/ja-kana`, màn bài chữ cái (Stitch), chấm nét; **W1b**: nguồn tanos N5 làm ứng viên chính, `gen.mjs` giữ trường kana và SINH romaji/IPA từ kana trước cổng, bước CI fugashi + OpenJTalk + kaikki.
