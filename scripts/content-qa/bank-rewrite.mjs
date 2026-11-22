@@ -102,7 +102,9 @@ if (process.argv[1] && import.meta.url === new URL(`file://${process.argv[1]}`).
     const { items } = auditBank(loadContent()), all = pickTargets(items).filter((_, i) => i % of === sh).slice(0, max);
     console.log(`cần viết lại ${pickTargets(items).length} câu (long/tmpl) · shard ${sh}/${of}: ${all.length}`);
     const AI = createPool({ budget: { lexai: 0, cf2: 0 }, prompt: req => ({ sys: req.mode === 'cfgen' ? (req.toefl ? GEN_SYS_TOEFL : GEN_SYS) : JUDGE_SYS(RUBRIC + ' The item was REWRITTEN to remove giveaways; judge the new options and explanation as a whole.'), user: JSON.stringify(req.items), temp: req.mode === 'cfgen' ? 0.6 : 0.1 }) });
-    const R = { shard: sh, targets: all.length, gen: 0, rule: 0, judged: 0, pass: 0, patches: [], rejected: [] }, isT = i => /^TOEFL/.test(i.group), queue = [...chunks(all.filter(isT), 5).map(c => ({ c, toefl: true })), ...chunks(all.filter(i => !isT(i)), 5).map(c => ({ c, toefl: false }))];
+    const R = { shard: sh, targets: all.length, gen: 0, rule: 0, judged: 0, pass: 0, patches: [], rejected: [] }, queue = chunks(all, 5);
+    const isT = i => /^TOEFL/.test(i.group);
+    queue.splice(0, queue.length, ...chunks(all.filter(isT), 5).map(c => ({ c, toefl: true })), ...chunks(all.filter(i => !isT(i)), 5).map(c => ({ c, toefl: false }))); // TOEFL: lô riêng, prompt riêng (kéo dài nhiễu)
     await Promise.all(Array.from({ length: 4 }, async () => { for (let q; (q = queue.shift()) && Date.now() < deadline;) { const ch = q.c;
       try {
         const g = await AI.gen({ mode: 'cfgen', toefl: q.toefl, items: ch.map(i => ({ k: i.k, ...view(i), why: i.why })) }); if (!g) continue;
