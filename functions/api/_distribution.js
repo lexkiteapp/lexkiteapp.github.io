@@ -86,16 +86,17 @@ export function langOfChannel(title) {
  *  và clip EN không bao giờ rơi vào page tiếng Tây Ban Nha chỉ vì id đứng đầu bảng chữ cái (lỗi cũ: 1 kênh/nền tảng, bất kể ngôn ngữ). */
 export function implicitSocialRules(allRules, cfgs) {
   // chỉ luật cho kênh GrabCast (gc-*) mới chặn luật ngầm: luật YouTube trực tiếp (UC…) không được làm câm kênh YouTube GrabCast (lỗi cũ: platformOf(UC…) = 'youtube')
-  const have = new Set((allRules || []).filter(r => /^gc-/.test(String(r.channel_id || ''))).map(r => platformOf(r.channel_id))), seen = new Set(), own = [], general = [], en = {};
+  const have = new Set((allRules || []).filter(r => /^gc-/.test(String(r.channel_id || ''))).map(r => platformOf(r.channel_id))), own = {}, general = [], en = {};
   for (const id of Object.keys(cfgs || {}).filter(x => /^gc-/.test(x)).sort()) {
     const p = platformOf(id), lang = String((cfgs[id] && cfgs[id].lang) || 'en').toLowerCase(), k = p + '|' + lang;
     if (have.has(p)) continue;
     // page EN chung = mọi ngôn ngữ chưa có page riêng; NHIỀU page EN cùng nền tảng (Lexkite.com + Learn English, 11/11) chia nhau clip theo băm id thay vì chỉ page đứng đầu bảng chữ cái
     if (lang === 'en') { (en[p] = en[p] || []).push(id); continue; }
-    if (seen.has(k)) continue; seen.add(k); own.push({ cond: { lang }, channel_id: id, active: 1 });
+    (own[k] = own[k] || []).push(id);   // 22/11: nhiều page cùng ngôn ngữ (vd 2 page Facebook tiếng Việt) chia nhau clip theo băm id thay vì chỉ page đầu (page thứ hai 0/30 ngày)
   }
+  const ownRules = Object.entries(own).flatMap(([k, ids]) => ids.map((id, i) => ({ cond: ids.length > 1 ? { lang: k.split('|')[1], shard: `${i}/${ids.length}` } : { lang: k.split('|')[1] }, channel_id: id, active: 1 })));
   for (const ids of Object.values(en)) ids.forEach((id, i) => general.push({ cond: ids.length > 1 ? { shard: `${i}/${ids.length}` } : {}, channel_id: id, active: 1 }));
-  return [...own, ...general];
+  return [...ownRules, ...general];
 }
 /** Tài khoản không phải của Lexkite trong workspace GrabCast (OAuth Meta kéo kèm Page/IG "Grabcast.click" vào ws4, 05/11) hoặc bị tạm dừng đăng → không bao giờ là đích autopilot. */
 export const foreignAccount = a => /grab\s*cast/i.test([a && a.name, a && a.title, a && a.username, a && a.handle].filter(Boolean).join(' '));
