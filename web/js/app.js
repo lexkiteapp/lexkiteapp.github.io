@@ -283,7 +283,7 @@ App.esGx = { en: 'cpack/es/gx-en.js', vi: 'cpack/es/gx-vi.js', es: 'cpack/es/gx-
 App.esX = { lv: { A1: 'cpack/es/x-A1.js', A2: 'cpack/es/x-A2.js', B1: 'cpack/es/x-B1.js' }, ui: { en: 'cpack/es/x-ui-en.js', vi: 'cpack/es/x-ui-vi.js', es: 'cpack/es/x-ui-es.js', pt: 'cpack/es/x-ui-pt.js', fr: 'cpack/es/x-ui-fr.js', de: 'cpack/es/x-ui-de.js', id: 'cpack/es/x-ui-id.js', th: 'cpack/es/x-ui-th.js', zh: 'cpack/es/x-ui-zh.js', ja: 'cpack/es/x-ui-ja.js', ko: 'cpack/es/x-ui-ko.js', hi: 'cpack/es/x-ui-hi.js', ar: 'cpack/es/x-ui-ar.js', ru: 'cpack/es/x-ui-ru.js', tr: 'cpack/es/x-ui-tr.js' } }; // luyện định dạng DELE/SIELE W5 (cpack/es-app/exam-ui.js): đề theo cấp + nhãn theo ngôn ngữ người học, tải lười
 App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-es.js', pt: 'cpack/es/px-pt.js', fr: 'cpack/es/px-fr.js', de: 'cpack/es/px-de.js', id: 'cpack/es/px-id.js', th: 'cpack/es/px-th.js', zh: 'cpack/es/px-zh.js', ja: 'cpack/es/px-ja.js', ko: 'cpack/es/px-ko.js', hi: 'cpack/es/px-hi.js', ar: 'cpack/es/px-ar.js', ru: 'cpack/es/px-ru.js', tr: 'cpack/es/px-tr.js' }; // gói phát âm TBN W3 theo ngôn ngữ người học (js/espr-pron.js): nhãn giao diện + giải thích 8 chủ đề
   // Màn Stitch (gói u1*) theo trang: ST2.<màn> được dò ở đúng trang đó; trang không có trong bảng (lesson, study, league, goal…) nạp đủ UX1_ALL như trước
-  const UX1_ALL = ['u1home', 'u1rev', 'u1prac', 'u1lg', 'u1ex', 'u1me'], UX1_SCR = { home: ['u1home'], path: ['u1home'], review: ['u1rev'], practice: ['u1prac'], me: ['u1me'], dict: [] };
+  const UX1_ALL = ['u1home', 'u1rev', 'u1prac', 'u1lg', 'u1ex', 'u1me'], UX1_SCR = { home: ['u1home'], path: [], review: ['u1rev'], practice: ['u1prac'], me: ['u1me'], dict: [] }; // path = bản đồ NGÀY (path-day.js, không dùng khung ST2.path của trang chủ)
   const ROUTE_BUNDLE = {
     call: 'call',
     cambridge: ['listening', 'cambridge'],
@@ -413,7 +413,8 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
     tlpick: ['css/tl-pick.css'],
     toefl: 'css/exam.css',
     toeic: 'css/exam.css',
-    ux1: ['css/st-home.css', 'css/st-v2-ux1-pre.css', 'css/st-v2-path.css', 'css/st-v2-today.css'] /* Home lần đầu chỉ Lộ trình + Hôm nay; màn khác tải theo màn (st/v2/runtime.js LZ) */,
+    ux1: ['css/st-home.css', 'css/st-v2-ux1-pre.css'] /* lõi: thanh tab/khung chung */,
+    u1home: ['css/st-v2-path.css', 'css/st-v2-today.css'] /* Home lần đầu chỉ Lộ trình + Hôm nay – chỉ nạp cùng gói u1home; màn khác tải theo màn (st/v2/runtime.js LZ) */,
     vhub: 'css/st-v2-vocab-hub.css',
     watch: 'css/watch.css',
     welcome: self.matchMedia && matchMedia('(min-width:1024px)').matches ? 'css/st-v2-welcome-desk.css' : 'css/st-v2-welcome.css',
