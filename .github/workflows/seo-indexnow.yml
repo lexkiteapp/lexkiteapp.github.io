@@ -6,7 +6,7 @@ name: SEO IndexNow
 on:
   push:
     branches: [main]
-    paths: ['web/js/data.js', 'web/js/lib/**', 'web/cpack/lib/**', 'web/packs/**', 'web/js/notes/**', 'content/confidence/**', 'scripts/build-seo-pages.mjs', 'scripts/lib/seo-pages-i18n.mjs', 'scripts/lib/seo-words.mjs', 'web/js/usage/**', 'content/dict/**', 'web/cpack/write/models.js', 'web/cpack/speak/samples.js', 'scripts/lib/word-depth.mjs', 'scripts/dict/build.mjs']
+    paths: ['web/js/data.js', 'web/js/lib/**', 'web/cpack/lib/**', 'web/packs/**', 'web/js/notes/**', 'content/confidence/**', 'scripts/build-seo-pages.mjs', 'scripts/lib/seo-pages-i18n.mjs', 'scripts/lib/seo-words.mjs', 'web/js/usage/**', 'content/dict/**', 'content/seo/serp-overrides.json', 'web/cpack/write/models.js', 'web/cpack/speak/samples.js', 'scripts/lib/word-depth.mjs', 'scripts/dict/build.mjs']
   schedule:
     - cron: '50 */3 * * *'   # 27 phút sau pages-deploy (cron '23 */3') – báo URL mà lượt push chưa báo được vì bản mới chưa lên site
   workflow_dispatch:
