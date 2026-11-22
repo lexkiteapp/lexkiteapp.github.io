@@ -70,7 +70,8 @@ ok(JSON.parse(w.localStorage.getItem('lk.fr.day'))[String(first)] === 'wg' && !w
 await App.frday(String(first + 1)); await tick(40);
 ok($('#ds-fin') || /🎉/.test(App.view.textContent), 'đủ bước (w + g, không có p) → "Xong ngày học"');
 await App.frday('5'); await tick(60);
-ok($('a[href="#/call/' + P.days[4][6] + '"]') && $$('section.card').length === 2, 'ngày 5 (không từ mới) có ngữ pháp + cuộc gọi ' + P.days[4][6]);
+const d5w = P.days[4][1] > P.days[4][0] ? 1 : 0; // kho lớn dần theo lô reviewed → ngày 5 có thể có hoặc không có từ mới
+ok($('a[href="#/call/' + P.days[4][6] + '"]') && $$('section.card').length === 2 + d5w, `ngày 5 (${d5w ? 'có' : 'không'} từ mới) có ngữ pháp + cuộc gọi ` + P.days[4][6]);
 ok(w.CALLS.filter(c => c.tl === 'fr').length === 24 && w.CALLS.every(c => (c.tl === 'fr') === /^fr-/.test(c.id)), 'gói cl.js: 24 cuộc gọi gắn tl:fr, không lẫn es/tiếng Anh');
 try { App.routes.call('fr-loisirs'); await tick(80); } catch (e) { errors.push('call: ' + e.message); }
 ok(!errors.length && /Parlons de tes loisirs/.test(App.view.textContent) && !/IELTS|TOEIC/.test(App.view.textContent), 'mở #/call/fr-loisirs: cuộc gọi fr hiện đúng, không lẫn cuộc gọi tiếng Anh' + (errors.length ? ': ' + errors.join(' | ') : ''));
