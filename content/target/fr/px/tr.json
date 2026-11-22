@@ -1,0 +1,53 @@
+{
+ "ui": {
+  "ti": "Fransızca telaffuz",
+  "pk": "Çalışmak için bir ses seçin",
+  "ex": "Örnekleri dinle",
+  "pp": "En küçük çiftler",
+  "dc": "Dikte",
+  "sy": "Söyle",
+  "qp": "Hangi kelimeyi duyuyorsun?",
+  "qd": "Duyduğunu yaz",
+  "qs": "Mikrofona dokun ve kelimeyi söyle",
+  "mic": "Konuşmak için dokun",
+  "hd": "Duyduğum: “{h}”",
+  "rt": "Anlaşılmadı. Tekrar dene.",
+  "sk": "Atla",
+  "nm": "Burada mikrofon yok. Çiftler veya dikte ile çalış.",
+  "tp": "İpucu"
+ },
+ "tp": {
+  "nasal": {
+   "t": "Genizsi ünlüler: an, on, in",
+   "x": "“bon”, “blanc” ve “vin” sözcüklerinde n bir ünsüz değildir: yalnızca ünlünün buruna gitmesini sağlar. Dilinizi damağa değdirmeyin. Üç ses: on /ɔ̃/ dudaklar yuvarlak (“bon”), an /ɑ̃/ ağız açık (“blanc”), in /ɛ̃/ dudaklar yayvan (“vin”). “bon” ve “banc” iki farklı sözcüktür."
+  },
+  "uou": {
+   "t": "u ve ou farklıdır",
+   "x": "Fransızca u /y/ Türkçedeki ü gibidir: “i” deyip dudaklarınızı “u” gibi yuvarlayın: “tu”, “rue”. ou /u/ ise normal Türkçe u’dur: “tout”, “roue”. Tek bir ses sözcüğü değiştirir: “vu” (görülmüş) ile “vous” (siz), “dessus” (üstünde) ile “dessous” (altında)."
+  },
+  "r": {
+   "t": "Fransızca r",
+   "x": "Fransızca r /ʁ/ boğazın derininde, hafif bir gargara gibi yapılır; Türkçedeki yumuşak ğ’ye yakındır: dil ucu alt dişlerin arkasında kalır, dil kökü yükselir. “rue”, “rouge” ve “merci” sözcüklerini deneyin. Türkçe r gibi dil ucuyla titretmeyin. “rue” ile “lue” sözcüklerini karşılaştırın."
+  },
+  "emuet": {
+   "t": "Sessiz e",
+   "x": "Sözcük sonunda e harfi okunmaz: “porte”, “table”. Kısa sözcüklerde hızlı, hafif yuvarlak bir /ə/ olur: “je”, “demain”. Sözcüğün ortasında çoğu zaman düşer: “samedi” “samdi” gibi duyulur. Ama sessiz e önemlidir: son ünsüzün duyulmasını sağlar, örneğin “petit” ile “petite”, “grand” ile “grande”."
+  },
+  "eai": {
+   "t": "é, è ve ai",
+   "x": "é /e/ kapalıdır: dudaklar yayvan, ağız neredeyse kapalı, kısa bir “e”; kayma olmaz: “été”, “café”. è, ê ve ai /ɛ/ daha açıktır, “el” sözcüğündeki e gibi: “père”, “tête”, “lait”. Aksan işareti sesi gösterir. Dikte eksik aksanları (é è ê ç) kabul eder ama size hatırlatır."
+  },
+  "eu": {
+   "t": "eu: iki ses",
+   "x": "eu’nun iki sesi vardır. Hece sonunda kapalı /ø/ olur, Türkçe ö gibi: “deux”, “peu”. Okunan bir ünsüzden önce, özellikle r’den önce, açık /œ/ olur, “gök” değil daha açık bir ö: “heure”, “fleur”. “peu” ile “peur”, “jeu” ile “jeune” sözcüklerini karşılaştırın."
+  },
+  "liaison": {
+   "t": "Bağlama ve liaison",
+   "x": "Fransızca sözcükler birbirine akar. Okunan son ünsüz bir sonraki ünlüye geçer (enchaînement). Okunmayan son ünsüz, ünlüden önce okunur (liaison): s ve x /z/ olur, d /t/ olur. “les amis” /lezami/, “vous avez” /vuzave/ gibi duyulur. “ils ont” ile “ils sont” arasındaki fark budur. Aspiré h’den önce liaison yoktur: “les héros”."
+  },
+  "semi": {
+   "t": "Yarı ünlüler: j, w, ɥ",
+   "x": "Ünlüden önce i, ou ve u, tek hece içinde hızlı kayma seslerine dönüşür. i /j/ olur, Türkçe y gibi: “fille”. ou /w/ olur, İngilizce w gibi: “oui”. u /ɥ/ olur, /y/ dudak biçimiyle hızlı kayma: “huit”, “lui”, “nuit”. “huit” tek hecedir, “u-it” değildir. “loue” ile “lui”, “fil” ile “fille” sözcüklerini karşılaştırın."
+  }
+ }
+}

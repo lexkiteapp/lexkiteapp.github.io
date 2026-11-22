@@ -1,0 +1,320 @@
+{
+ "v": 1,
+ "source": "Tatoeba (tatoeba.org), CC BY 2.0 FR",
+ "license": "https://creativecommons.org/licenses/by/2.0/fr/",
+ "lv": "C1",
+ "items": [
+  {
+   "id": 1434680,
+   "au": "martin9",
+   "s": "Quand j'___ jeune, au printemps, j'allais à la chasse aux escargots.",
+   "a": "étais",
+   "o": [
+    "étais",
+    "était",
+    "étions"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 3851683,
+   "au": "Amastan",
+   "s": "Si je ___ lui dire ses quatre vérités, alors je lui dirais qu'il est non seulement arrogant mais également chiant.",
+   "a": "devais",
+   "o": [
+    "devions",
+    "devais",
+    "devait"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 1942377,
+   "au": "sacredceltic",
+   "s": "J'___ vous poser quelques questions au sujet de ce que vous avez fait le week-end passé.",
+   "a": "aimerais",
+   "o": [
+    "aimerais",
+    "aimerait",
+    "aimerions"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 12756292,
+   "au": "Igider",
+   "s": "J’___ reçu une carte postale d’un ami, ça m’a fait vraiment plaisir.",
+   "a": "ai",
+   "o": [
+    "a",
+    "ai",
+    "as"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 7280886,
+   "au": "tras",
+   "s": "Vous ___ tout dire, tout faire, mais évitez de vous plaindre cela fait pauvre!",
+   "a": "pouvez",
+   "o": [
+    "pouvez",
+    "peux",
+    "peut"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 924255,
+   "au": "Scott",
+   "s": "Quels misérables nous ___, si nous n'étions pas fiers de nos ancêtres !",
+   "a": "serions",
+   "o": [
+    "serais",
+    "serait",
+    "serions"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 8369098,
+   "au": "sacredceltic",
+   "s": "Il ___ financièrement à l’aise et ne se soucie donc pas d’argent.",
+   "a": "est",
+   "o": [
+    "es",
+    "suis",
+    "est"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 12739801,
+   "au": "Igider",
+   "s": "On ___ organiser une discussion sur les bonnes manières à observer lors des présentations publiques.",
+   "a": "pourrait",
+   "o": [
+    "pourrions",
+    "pourrait",
+    "pourrais"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 1087081,
+   "au": "sacredceltic",
+   "s": "À l'achat, vous ___ prêter attention à la durée de vie de la batterie et à une assise suffisante.",
+   "a": "devez",
+   "o": [
+    "dois",
+    "doit",
+    "devez"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 12865608,
+   "au": "Rovo",
+   "s": "Tu ___ toujours su que tout le monde finirait par le découvrir.",
+   "a": "as",
+   "o": [
+    "a",
+    "as",
+    "ai"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 1703628,
+   "au": "sacredceltic",
+   "s": "Je ___ dans un pays où un litre d'essence est moins cher qu'un litre d'eau.",
+   "a": "vis",
+   "o": [
+    "vîmes",
+    "vis",
+    "vit"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 1201332,
+   "au": "sacredceltic",
+   "s": "Avant-hier je ___ allé au grand magasin pour faire des achats.",
+   "a": "suis",
+   "o": [
+    "es",
+    "suis",
+    "est"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 13048729,
+   "au": "saverius",
+   "s": "Ne suce pas les piles, elles ___ de l'acide à l'intérieur.",
+   "a": "contiennent",
+   "o": [
+    "contiennent",
+    "contiens",
+    "contient"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 13833037,
+   "au": "Rovo",
+   "s": "Nous ___ bien avoir deux heures et si nous voulons discuter plus longtemps, nous pourrions encore aller nous promener ou faire autre chose après.",
+   "a": "allons",
+   "o": [
+    "vais",
+    "allons",
+    "vas"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 9147107,
+   "au": "manuchko",
+   "s": "Il ___ être en train de dormir car il ne répondait pas au téléphone.",
+   "a": "devait",
+   "o": [
+    "devions",
+    "devait",
+    "devais"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 890896,
+   "au": "U2FS",
+   "s": "Quand l'école n'avait ni livres ni papiers ni crayons, elle ___ l'alphabet sur le sol à l'aide d'un bâton.",
+   "a": "écrivait",
+   "o": [
+    "écrivait",
+    "écrivais",
+    "écrivions"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 6709432,
+   "au": "felix63",
+   "s": "Je ___ réserver une chambre en pension complète pour le week-end.",
+   "a": "voudrais",
+   "o": [
+    "voudrais",
+    "voudrait",
+    "voudrions"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 1247556,
+   "au": "Scott",
+   "s": "Je n'arrive pas à me rappeler quelles sucreries j'___ lorsque j'étais enfant.",
+   "a": "aimais",
+   "o": [
+    "aimions",
+    "aimais",
+    "aimait"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 2427517,
+   "au": "sacredceltic",
+   "s": "Je ___ présenter mes excuses pour la manière dont je t'ai parlé la dernière fois que nous nous sommes rencontrées.",
+   "a": "veux",
+   "o": [
+    "voulons",
+    "veux",
+    "veut"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 6131734,
+   "au": "Blabla",
+   "s": "Quand on n'aime pas quelqu'un, on ___ facilement le mal qu'on dit de lui.",
+   "a": "croit",
+   "o": [
+    "croyons",
+    "croit",
+    "crois"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 6155045,
+   "au": "Dobleue",
+   "s": "Elle m'a montré des lettres qu'elle a reçues de ses fans.",
+   "k": "l"
+  },
+  {
+   "id": 1990719,
+   "au": "Amastan",
+   "s": "Il n'a pas pu ouvrir la porte parce qu'elle était verrouillée de l'intérieur.",
+   "k": "l"
+  },
+  {
+   "id": 13325251,
+   "au": "genes1s",
+   "s": "À cause du coût élevé de leur mariage, ils n'ont pas pu partir en vacances cette année.",
+   "k": "l"
+  },
+  {
+   "id": 7481862,
+   "au": "MessDjaaf",
+   "s": "Ses ravisseurs portent des masques afin qu'ils ne soient pas reconnus.",
+   "k": "l"
+  },
+  {
+   "id": 8222386,
+   "au": "josivangoncalves",
+   "s": "Êtes-vous nerveux quand quelqu'un vous pose une question en anglais?",
+   "k": "l"
+  },
+  {
+   "id": 8457420,
+   "au": "samir_t",
+   "s": "La maison de ma grand-mère est située en dehors du village.",
+   "k": "l"
+  },
+  {
+   "id": 9751399,
+   "au": "samir_t",
+   "s": "Plus tard, elle s'est rendu compte que ce n'était point le fromage qui la faisait grossir, mais ce pain qu'elle savait si bien faire.",
+   "k": "l"
+  },
+  {
+   "id": 1556683,
+   "au": "Scott",
+   "s": "Quand chacun fait ce qui lui plaît, on fait souvent ce qui déplaît à d'autres.",
+   "k": "l"
+  },
+  {
+   "id": 13425362,
+   "au": "Rovo",
+   "s": "Cet arrogant dirigeant dit qu’il n’est pas un dictateur, mais prétend qu’il peut faire ce qu’il veut partout dans le monde.",
+   "k": "l"
+  },
+  {
+   "id": 6891998,
+   "au": "Adelpa",
+   "s": "Les règles ne sont que des barrières pour empêcher les enfants de tomber.",
+   "k": "l"
+  },
+  {
+   "id": 13875135,
+   "au": "Aghanim",
+   "s": "Les gens se reposent au milieu de la journée, quand la chaleur est la plus intense.",
+   "k": "l"
+  },
+  {
+   "id": 12993910,
+   "au": "Rovo",
+   "s": "Écoutons l’histoire, ne serait-ce que parce qu’elle est courte.",
+   "k": "l"
+  }
+ ]
+}
