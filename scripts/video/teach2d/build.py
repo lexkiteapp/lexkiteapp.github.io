@@ -31,6 +31,7 @@ EP = json.load(open(o.ep)); THEME = o.theme or EP['theme']; _TJ = json.load(open
 MIX = (json.load(open(o.mix))['mix'].get(EP['id']) if o.mix and os.path.exists(o.mix) else None) or {}   # mix.py combination (never changes a word of the script)
 if EP['template'] in ('rule', 'band'): o.layout = 'corner'   # rule: always the corner layout (no teacher bubble in the platform right rail), whatever mix.json or --layout say
 elif o.format == 'short' and not o.layout and MIX.get('layout'): o.layout = MIX['layout']
+if EP['template'] == 'slang' and o.layout == 'bubble': o.layout = 'corner'   # Slang Card: the strong expression is the hook – the teacher stays big (mix.py never picks bubble for it)
 TINT = _TJ['tints'][EP['template']]   # series colour: the big canvas blob carries it, so each series is recognisable from frame 0
 HG = json.load(open(f'{o.host}/geom.json')); EMBED = o.format == 'wide'
 LAYOUTS = dict(   # same cards / timing; only where the card region, captions and teacher sit (owner 29/10: varied layouts)
