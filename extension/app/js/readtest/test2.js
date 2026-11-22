@@ -37,7 +37,7 @@ items: [
 { type: 'mcq', instr: g.RTI[3],
 items: [
 { n: 11, q: "What was McLean's key idea, according to paragraph C?",
-options: ['Oil tankers could be converted to carry dry cargo cheaply.', 'Cargo should be carried on the deck rather than below it.', 'Wooden railway containers could be adapted for use at sea.', 'The box should be one part of a connected system of transport.'],
+options: ['Oil tankers could be modified to transport liquid chemicals efficiently.', 'Cargo ought to be stored below deck to protect it from weather.', 'Steel railway wagons might be repurposed for maritime freight.', 'The box should be one part of a connected system of transport.'],
 a: 3, cue: 'the box should not be treated as cargo but as part of a single transport system' },
 { n: 12, q: 'What happened to ports as containerisation spread?',
 options: ['City-centre harbours were widened to fit larger cranes.', 'Dock work needed larger teams of skilled workers.', 'New terminals were often built away from town centres.', 'Old warehouses were immediately turned into museums.'],
