@@ -70,13 +70,18 @@ const accepted = [...prev], rejected = [], seen = new Set(have); let fixedN = 0;
 // Hạn mức miễn phí theo PHÚT (Gemini 429 cả 16 khoá khi nhiều shard cùng chạy – run 44982384784: shard dừng sau 40/300) → chờ rồi thử lại
 // thay vì bỏ cả lượt; vẫn không tuyến nào sau ~15 phút = hết hạn mức ngày → dừng, lượt sau nối tiếp. Không đổi cổng/ngưỡng.
 const WAITS = (process.env.GEN_WAITS || '60,120,240,480').split(',').map(Number);
+// Chia hạn mức ai-pool với phiên fr/ja (điều phối 22/11): SOẠN/sửa chỉ qua Groq (groq → gc-groq), Gemini để CHẤM; mỗi lượt dùng ≤ GEM_MAX lượt gọi
+// Gemini (chia đều theo shard; mặc định 150 ≈ ½ phần còn lại sau mốc đặt lại 08:00 UTC) – hết phần → ghi lô đã nhận, lượt sau nối tiếp.
+const GEN_CHAIN = ['groq', 'gc-groq'], GEM_MAX = Math.floor((+process.env.AI_GEM_MAX || 150) / SN);
+const gemUsed = () => { const by = (AI.stats ? AI.stats().by : {}) || {}; return Object.entries(by).filter(([k]) => k.startsWith('gem|')).reduce((n, [, v]) => n + v.ok + v.fail + v.bad, 0); };
 async function patient(fn, what) { for (let t = 0; ; t++) { const r = await fn(); if (r || t >= WAITS.length) return r; console.log(`ai-pool: thiếu tuyến ${what} → chờ ${WAITS[t]} s rồi thử lại (${t + 1}/${WAITS.length})`); await new Promise(z => setTimeout(z, WAITS[t] * 1000)); } }
 const pick = e => ({ word: e.word, pos: e.pos, ...(e.pos === 'n' ? { gender: e.gender, ...(e.plural ? { plural: e.plural } : {}) } : {}), ...(e.h ? { h: e.h } : {}), ipa: e.ipa, gl: e.gl, ex: e.ex, ...(e.exForm ? { exForm: e.exForm } : {}) });
 const T0 = Date.now(), MAX_MS = (+process.env.GEN_MAX_MIN || 110) * 60e3; // job 150 phút: ghi lô trước khi hết giờ (hết giờ giữa chừng = mất cả lô)
 for (let i = 0; accepted.length - prev.length < N; i += BATCH) {
   if (Date.now() - T0 > MAX_MS) { console.log('hết giờ lượt → ghi lô đã nhận (lượt sau nối tiếp)'); break; }
   const items = await fillQ(BATCH); if (!items.length) { console.log('hết ứng viên'); break; }
-  const g = await patient(() => AI.gen({ mode: 'lxgen', items }), 'soạn'); if (!g) { console.log('ai-pool: hết tuyến soạn sau khi chờ → dừng (lượt sau làm tiếp)'); break; }
+  if (gemUsed() >= GEM_MAX) { console.log(`ai-pool: đã dùng ${gemUsed()}/${GEM_MAX} lượt Gemini phần es → ghi lô (chừa hạn mức cho fr/ja)`); break; }
+  const g = await patient(() => AI.gen({ mode: 'lxgen', items }, { chain: GEN_CHAIN }), 'soạn'); if (!g) { console.log('ai-pool: hết tuyến soạn sau khi chờ → dừng (lượt sau làm tiếp)'); break; }
   const draft = items.map(it => ({ it, e: g.out[it.k] })).filter(({ it, e }) => { if (!e || e.skip) { rejected.push({ form: it.form, why: e ? 'skip: ' + e.skip : 'không trả' }); return false; } return true; })
     .map(({ it, e }) => ({ k: it.k, e: { ...pick(e), rank: it.rank } }));
   for (const it of items) tried.add(it.form.toLowerCase());
@@ -115,7 +120,7 @@ for (let i = 0; accepted.length - prev.length < N; i += BATCH) {
   const fixable = r1.bad.filter(x => !x.why.some(w => /trùng lemma|không trả/.test(w)));
   for (const x of r1.bad) if (!fixable.includes(x)) { rejected.push({ form: x.d.k, word: x.d.e.word, why: x.why }); if (x.why.some(w => /không trả/.test(w))) tried.delete(x.d.k.toLowerCase()); } // không trả = chưa chấm → lượt sau thử lại
   if (fixable.length) {
-    const f = await AI.gen({ mode: 'lxgen', sys: SYS.lxfix, items: fixable.map(x => ({ k: x.d.k, entry: x.d.e, problems: x.why, ...(x.bt ? { backTranslations: x.bt } : {}) })) });
+    const f = await AI.gen({ mode: 'lxgen', sys: SYS.lxfix, items: fixable.map(x => ({ k: x.d.k, entry: x.d.e, problems: x.why, ...(x.bt ? { backTranslations: x.bt } : {}) })) }, { chain: GEN_CHAIN });
     const fixed = f ? fixable.map(x => { const e = f.out[x.d.k]; return e && !e.skip && e.word ? { k: x.d.k, e: { ...pick(e), rank: x.d.e.rank } } : null; }).filter(Boolean) : [];
     if (f) fams.push(f.fam);
     const r2 = fixed.length ? await patient(() => grade(fixed.map(x => ({ k: x.k, e: x.e }))), 'giám khảo bản sửa') : { ok: [], bad: [] };
@@ -134,6 +139,6 @@ const deck = { v: 1, tl: TL, variant: G.variant, status: 'pending-review', sourc
 const err = validate(deck); if (err.length) { console.error('✗ cổng cả bộ:', err.slice(0, 10)); process.exit(1); }
 fs.mkdirSync(OUT, { recursive: true });
 fs.writeFileSync(outFile, JSON.stringify(deck, null, 1) + '\n');
-fs.writeFileSync(repFile, JSON.stringify({ at: new Date().toISOString(), accepted: fresh.length, rejected, tried: [...tried], spot: fresh.filter(w => w.qa.spot).map(w => w.word), fixed: fixedN, skipped, stats: AI.stats ? AI.stats() : null }, null, 1) + '\n');
+fs.writeFileSync(repFile, JSON.stringify({ at: new Date().toISOString(), accepted: fresh.length, rejected, tried: [...tried], spot: fresh.filter(w => w.qa.spot).map(w => w.word), fixed: fixedN, skipped, gem: gemUsed(), stats: AI.stats ? AI.stats() : null }, null, 1) + '\n');
 console.log(`✓ ${fresh.length} mục mới (tổng ${accepted.length}; ${fixedN} qua vòng sửa), loại ${rejected.length}, bỏ trước AI ${skipped.dup} dạng trùng lemma + ${skipped.name} tên riêng, mẫu soát ${spotN} → ${path.relative(ROOT, outFile)}`);
 if (!fresh.length) process.exit(1); // việc nền phải tự đỏ khi ra 0
