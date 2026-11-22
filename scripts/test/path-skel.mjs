@@ -26,6 +26,7 @@ if (!m) bad.push('index.html thiếu script nạp khung #/path'); else {
   eq(loads('http://localhost/app/#/home', {}), [], 'chỉ #/path');
   eq(loads('http://localhost/app/#/path?x=1', {}), ['js/path-skel/en.js'], '#/path?query');
 }
+if (!html.includes('window.__lkSk=1;') || !/lk:skel/.test(rd('web/js/path-skel/en.js')) || !/__lkSk&&!w\.__lkSkd\)w\.addEventListener\('lk:skel',go\)/.test(rd('scripts/app-loader.mjs'))) bad.push('JS khung #/path phải chờ lk:skel (khung vẽ xong) – app-loader + script nạp + khung');
 if (!/!document\.getElementById\('lkHero'\) && !document\.getElementById\('lkPath'\)\) skel/.test(rd('web/js/app.js'))) bad.push('route() phải không thay khung #lkPath bằng khung chờ');
 if (bad.length) { console.error('✗ path-skel:\n- ' + bad.join('\n- ')); process.exit(1); }
 console.log(`✓ path-skel: ${LANGS.length} ngôn ngữ · DOM khớp path-day.js · script nạp đúng điều kiện`);
