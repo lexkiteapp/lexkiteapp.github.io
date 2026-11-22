@@ -1,31 +1,110 @@
 {
  "job": "say-native",
- "at": "2026-11-02T06:20:55.205Z",
+ "at": "2026-11-22T15:41:37.561Z",
  "used": {
-  "lexai": 0,
-  "gc": 0,
+  "lexai": 82,
+  "gc": 15,
   "cf2": 0,
   "cfLeak": 0,
   "cf2Dead": [],
   "gem": 0,
-  "groq": 0
+  "groq": 344
  },
  "budget": {
   "lexai": 400,
   "gc": 2000,
   "cf2": 100000
  },
- "by": {},
+ "by": {
+  "gem|gemini-3.8-flash": {
+   "ok": 0,
+   "fail": 13,
+   "bad": 0
+  },
+  "gem|gemini-3.6-flash": {
+   "ok": 0,
+   "fail": 3,
+   "bad": 0
+  },
+  "groq|openai/gpt-oss-120b": {
+   "ok": 220,
+   "fail": 3,
+   "bad": 0
+  },
+  "lexai|gemini-3.6-flash": {
+   "ok": 15,
+   "fail": 17,
+   "bad": 0
+  },
+  "lexai|gemini-3.5-flash": {
+   "ok": 0,
+   "fail": 17,
+   "bad": 0
+  },
+  "lexai|gemini-3-flash-preview": {
+   "ok": 1,
+   "fail": 16,
+   "bad": 0
+  },
+  "lexai|gemini-3.8-flash": {
+   "ok": 0,
+   "fail": 16,
+   "bad": 0
+  },
+  "gc-groq|openai/gpt-oss-120b": {
+   "ok": 0,
+   "fail": 3,
+   "bad": 0
+  },
+  "cf2|@cf/openai/gpt-oss-120b": {
+   "ok": 0,
+   "fail": 3,
+   "bad": 0
+  },
+  "gc-gemini|gemini-2.5-flash": {
+   "ok": 0,
+   "fail": 3,
+   "bad": 0
+  },
+  "gc-gemini|gemini-2.5-pro": {
+   "ok": 0,
+   "fail": 3,
+   "bad": 0
+  },
+  "gem|gemini-3.7-flash": {
+   "ok": 0,
+   "fail": 4,
+   "bad": 0
+  },
+  "groq|qwen/qwen3.8-27b": {
+   "ok": 124,
+   "fail": 0,
+   "bad": 0
+  },
+  "gc-groq|openai/gpt-oss-20b": {
+   "ok": 15,
+   "fail": 0,
+   "bad": 0
+  }
+ },
  "keys": {
   "gem": {
    "size": 85,
-   "live": 85,
-   "parked": {}
+   "live": 40,
+   "parked": {
+    "day": 27,
+    "auth": 2,
+    "minute": 16
+   }
   },
   "groq": {
    "size": 109,
-   "live": 109,
-   "parked": {}
+   "live": 76,
+   "parked": {
+    "day": 27,
+    "auth": 1,
+    "minute": 5
+   }
   }
  }
 }
