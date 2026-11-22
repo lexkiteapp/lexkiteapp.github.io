@@ -103,7 +103,7 @@
     return fresh || ids[(ids.indexOf(last) + 1) % ids.length];
   }
   // Thưởng ĐẦU RA (không thưởng chạm): 1 XP / 5 từ đã nói + viết, trần 60
-  const xpFor = c => Math.min(60, Math.round((((c && c.sp && c.sp.w) || 0) + ((c && c.rd && c.rd.w) || 0) * 0.2 + ((c && c.wr && c.wr.w) || 0)) / 5));
+  const xpFor = c => g.Game.xpFor('output', { words: ((c && c.sp && c.sp.w) || 0) + ((c && c.rd && c.rd.w) || 0) * 0.2 + ((c && c.wr && c.wr.w) || 0) }); // luật chung game.js
   // ≤ 3 lỗi ưu tiên (đếm theo luật, gộp nói + viết)
   function topFixes(c, n = 3) {
     const cnt = {}, ex = {};

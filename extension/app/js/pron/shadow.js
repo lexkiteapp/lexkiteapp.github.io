@@ -101,7 +101,7 @@
       if (my !== run) return;
       phase = ''; cur = -1;
       if (!noMic) {
-        const sm = summary(rows), d = load(); if (sm.heardN) { d[k] = Math.max(d[k] || 0, sm.score); save(d); if (g.App && App.reward && sm.score >= 65) App.reward({ spoken: sm.heardN, pron: 1, xp: sm.score >= 85 ? 5 : 3 }); }
+        const sm = summary(rows), d = load(); if (sm.heardN) { d[k] = Math.max(d[k] || 0, sm.score); save(d); if (g.App && App.reward && sm.score >= 65) App.reward({ spoken: sm.heardN, pron: 1, xp: Game.xpFor('say', { score: sm.score }) }); }
         render(true);
       } else render();
     }

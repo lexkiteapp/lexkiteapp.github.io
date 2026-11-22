@@ -104,28 +104,35 @@ export function lessonVectors() {
     { id: 'b-noex-nospeak', seed: 4, pick: 'pw-noex', mean: 'vi', gloss: false, img: false, off: { speak: true } },
     { id: 'b-noex-nolisten', seed: 4, pick: 'pw-noex', mean: 'none', gloss: false, img: false, off: { listen: true } },
     { id: 'b-nomatch', seed: 7, pick: 'pw-n8-map', mean: 'vi', gloss: true, img: true, match: false },
+    // lpic (nghe → chọn 1/4 ảnh) + mpic (ghép từ ↔ ảnh) – đúng cờ bài web bật (lesson/ui.js: lpic:true, mpic:true); img 'all' = mọi từ có ảnh
+    { id: 'b-pics-1', seed: 1, pick: 'pw-default', mean: 'vi', gloss: true, img: 'all', lpic: true, mpic: true },
+    { id: 'b-pics-7', seed: 7, pick: 'pw-n8-map', mean: 'vi', gloss: true, img: 'all', lpic: true, mpic: true },
+    { id: 'b-pics-42', seed: 42, pick: 'pw-n8-map', mean: 'vi', gloss: true, img: 'all', lpic: true, mpic: true, perWord: 3 },
+    { id: 'b-pics-2026', seed: 2026, pick: 'pw-n8-map', mean: 'vi', gloss: true, img: true, lpic: true, mpic: true },
+    { id: 'b-pics-nolisten', seed: 7, pick: 'pw-n8-map', mean: 'vi', gloss: true, img: 'all', lpic: true, mpic: true, off: { listen: true } },
+    { id: 'b-pics-only-listen', seed: 5, pick: 'pw-n8-map', mean: 'vi', gloss: true, img: 'all', lpic: true, mpic: true, only: E.KIND.listen.concat('lpic') },
   ];
   const picksOf = (id, cs, st) => pickOut.find(p => p.id === id).out.map(p => ({ card: (p.card[0] === 'c' ? cs : st)[+p.card.slice(2)], why: p.why }));
   const run = bc => {
     const { cs, st } = cardSets(), m = refOf(cs, st), picks = picksOf(bc.pick, cs, st);
-    const opts = { seed: bc.seed, pool: cs.concat(st), off: bc.off, only: bc.only, calm: !!bc.calm, perWord: bc.perWord, match: bc.match,
-      hasImg: bc.img ? (w => imgWords.includes(w)) : () => false, gloss: bc.gloss ? ((c, en) => gloss[en] || '') : undefined, mean: bc.mean === 'vi' ? meanVi : () => '' };
+    const opts = { seed: bc.seed, pool: cs.concat(st), off: bc.off, only: bc.only, calm: !!bc.calm, perWord: bc.perWord, match: bc.match, lpic: bc.lpic, mpic: bc.mpic,
+      hasImg: bc.img === 'all' ? (() => true) : bc.img ? (w => imgWords.includes(w)) : () => false, gloss: bc.gloss ? ((c, en) => gloss[en] || '') : undefined, mean: bc.mean === 'vi' ? meanVi : () => '' };
     Object.keys(opts).forEach(k => opts[k] === undefined && delete opts[k]);
     return { items: E.build(picks, opts), m, cs, st, picks };
   };
   const buildOut = BUILD.map(bc => { const r = run(bc); return { ...bc, out: jItems(r.items, r.m) }; });
 
   // ---- adapt: one built item per type × the 4 off combos ----
-  const base = run(BUILD[0]), seenT = new Set(), adaptIn = [];
-  for (const it of [...base.items, ...run(BUILD[3]).items]) { const k = it.type + (it.choice ? '/c' : ''); if (!seenT.has(k)) { seenT.add(k); adaptIn.push(it); } }
+  const seenT = new Set(), adaptIn = [];
+  for (const rb of [run(BUILD[0]), run(BUILD[3]), run(BUILD.find(b => b.id === 'b-pics-7'))]) for (const it of rb.items) { const k = it.type + (it.choice ? '/c' : '') + (it.pics ? '/p' : ''); if (!seenT.has(k)) { seenT.add(k); adaptIn.push([it, rb.m]); } }
   const OFFS = [{}, { listen: true }, { speak: true }, { listen: true, speak: true }];
-  const adaptOut = adaptIn.map(it => ({ in: unref(it, base.m), outs: OFFS.map(off => ({ off, out: unref(E.adapt(it, off), base.m) })) }));
+  const adaptOut = adaptIn.map(([it, m]) => ({ in: unref(it, m), outs: OFFS.map(off => ({ off, out: unref(E.adapt(it, off), m) })) }));
 
   // ---- check: answers per built item type (right / wrong / near-miss) ----
   const checkCases = [];
   const seenC = new Set();
-  for (const bc of [BUILD[0], BUILD[3], BUILD[9], BUILD.find(b => b.id === 'b-noex-nospeak')]) for (const it of run(bc).items) {
-    const k = it.type + (it.choice ? '/c' : '') + (it.spoke ? '/s' : ''); if (seenC.has(k) || it.type === 'line') continue; seenC.add(k);
+  for (const bc of [BUILD[0], BUILD[3], BUILD[9], BUILD.find(b => b.id === 'b-noex-nospeak'), BUILD.find(b => b.id === 'b-pics-7')]) for (const it of run(bc).items) {
+    const k = it.type + (it.choice ? '/c' : '') + (it.spoke ? '/s' : '') + (it.pics ? '/p' : ''); if (seenC.has(k) || it.type === 'line') continue; seenC.add(k);
     const item = { type: it.type, answer: it.answer }; if (it.choice) item.choice = true;
     let answers;
     if (it.type === 'build' || it.type === 'tr') { const t = it.answer.split(' '); answers = [t, t.slice().reverse(), it.answer, it.answer.toUpperCase() + '!', t.slice(1), []]; }
@@ -145,6 +152,7 @@ export function lessonVectors() {
     { id: 'sess-skip', build: 'b-nolisten', script: '1s0s1', opts: {} },
     { id: 'sess-nospeak', build: 'b-nospeak', script: '10000', opts: { ease: true } },
     { id: 'sess-noex-nospeak', build: 'b-noex-nospeak', script: '01', opts: {} },
+    { id: 'sess-pics', build: 'b-pics-7', script: '0110100', opts: {} },
   ];
   const sessOut = sessCases.map(sc => {
     const bc = BUILD.find(b => b.id === sc.build), r = run(bc), S = new E.Session(r.items, sc.opts), steps = [];
@@ -196,11 +204,6 @@ export function lessonVectors() {
   const similarity = vm.runInNewContext('(' + simM[0] + ')');
   const simOut = [['hello', 'hello'], ['Hello!', 'hello'], ['helo', 'hello'], ['I like green tea', 'i like green tea'], ['I like tea', 'I like green tea'], ['', ''], ['', 'cat'], ['cat', 'dog'],
     ["don't worry", 'dont worry'], ['Café au lait', 'cafe au lait'], ['look after', 'look out for'], ['THE', 'the'], ['think', 'sink']].map(([heard, target]) => { const v = similarity(heard, target); return { heard, target, sim: v, score: Math.round(v * 100) }; });
-  // lesson XP: the exact expression of web/js/lesson/ui.js finish() (const xp = Math.max(…)) sliced from source → ok1 · wrong count · hints (fifty / first / first letter hint, 1 XP each)
-  const xpM = /const xp = (Math\.max\(5, 10 \+ s\.ok1 \* 2 \+ \(s\.wrong\.size \? 0 : 5\) - \(L\.hints \|\| 0\)\));/.exec(fs.readFileSync(R('web/js/lesson/ui.js'), 'utf8'));
-  if (!xpM) throw new Error('gen-lesson: lesson XP expression not found in web/js/lesson/ui.js');
-  const xpFn = vm.runInNewContext('(s, L) => ' + xpM[1]);
-  const xpOut = [[0, 0, 0], [4, 0, 0], [4, 1, 0], [6, 0, 3], [8, 2, 1], [0, 3, 0], [1, 2, 9], [0, 0, 40], [12, 0, 0], [3, 0, 2]].map(([ok1, wrong, hints]) => ({ ok1, wrong, hints, out: xpFn({ ok1, wrong: { size: wrong } }, { hints }) }));
   const vec = {
     _doc: 'Reference outputs of web/js/lesson/engine.js (REAL code in node:vm; clock = now, TZ=UTC; cards = web/js/core.js Cards.make + web/js/lesson/ui.js DEMO/STARTER fixtures; stories = web/cpack/lesson/stories.js). Items keep every field; `card` is replaced by a reference "c:<i>" (inputs.cards[i]) | "s:<i>" (inputs.starter[i]). See docs/specs/native-m2-vectors.md. Swift + Kotlin ports must match exactly (floats from rng are exact 6-decimal values).',
     now: NOW,
@@ -208,7 +211,7 @@ export function lessonVectors() {
     consts: { HINTS: E.HINTS, KIND: E.KIND, DAY: E.DAY },
     pickWords: pickOut, build: buildOut, adapt: { offs: OFFS, cases: adaptOut }, check: checkCases, session: sessOut,
     rng: rngOut, shuffle: shuffleOut, letterBank: bankOut, toks: toksOut, norm: normOut, findWord: findOut, sentenceOf: sentOut, stress: stressOut, usuk: usukOut, visemes: visemeOut,
-    xp: xpOut, plans: planOut, nextKind: nextOut, isDue: dueOut, calm: calmOut, hard: hardCases, storyItems: storyOut, storySession: stSession, similarity: { pass: 70, retriesBeforeSubmit: 2, cases: simOut },
+    plans: planOut, nextKind: nextOut, isDue: dueOut, calm: calmOut, hard: hardCases, storyItems: storyOut, storySession: stSession, similarity: { pass: 70, retriesBeforeSubmit: 2, cases: simOut },
   };
   return JSON.stringify(vec) + '\n';
 }

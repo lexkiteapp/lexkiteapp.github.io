@@ -278,15 +278,15 @@ Assess ONLY the learner's lines. Return JSON: {"natural": 0-100, "polite": 0-100
     const ok = r && ['natural', 'polite', 'clarity', 'grammar'].every(k => typeof r[k] === 'number') && Array.isArray(r.rewrites);
     const res = ok ? r : loc;
     if (!document.body.contains($('#rpRep') || document.createElement('i'))) return;
-    const xp = 10 + spoken * 3 - Math.min(hintsUsed, spoken);
-    App.reward({ spoken, xp: Math.max(5, xp) });
+    const xp = Game.xpFor('talk', { right: spoken, hints: hintsUsed });
+    App.reward({ spoken, xp });
     const crit = [['natural', t('Độ tự nhiên')], ['polite', t('Mức lịch sự')], ['clarity', t('Độ rõ ý')], ['grammar', t('Ngữ pháp')]];
     const avg = Math.round(crit.reduce((a, [k]) => a + Math.max(0, Math.min(100, +res[k] || 0)), 0) / 4);
     const rws = (res.rewrites || []).filter(x => x && x.better).slice(0, 3);
     $('#rpRep').removeAttribute('aria-busy');
     $('#rpRep').innerHTML = `<div class="row between" style="flex-wrap:wrap;gap:.8rem"><div>${UI.ring(avg, avg)}</div><div style="flex:1 1 220px">${crit.map(([k, n]) => { const v = Math.max(0, Math.min(100, Math.round(+res[k] || 0))); return `<div class="rp-meter"><span class="small">${n}</span><i role="img" aria-label="${n}: ${v}/100"><b style="width:${v}%"></b></i><b class="small">${v}</b></div>`; }).join('')}</div></div>
       ${res.summary ? `<p style="margin-top:.8rem">${esc(res.summary)}</p>` : ''}
-      <p class="tiny muted">${ok ? t('Chấm bởi AI') : t('Ước lượng nhanh trên máy (không có AI).')} · +${Math.max(5, xp)} XP</p>
+      <p class="tiny muted">${ok ? t('Chấm bởi AI') : t('Ước lượng nhanh trên máy (không có AI).')} · +${xp} XP</p>
       <h2 class="set-h" style="margin-top:1rem">${UI.icon('sparkles')} ${t('3 câu nói sắc hơn')}</h2>
       ${rws.map((x, n) => `<div class="rp-rw"><div class="small"><s lang="en">${esc(x.you || '')}</s></div><div lang="en"><b>${esc(x.better)}</b> <button class="btn sm" data-say="${n}" aria-label="${t('Nghe')}">🔊</button></div>${x.meaning ? `<div class="small muted">${esc(x.meaning)}</div>` : ''}<div class="small">${UI.icon('lightbulb')} ${esc(x.why || '')}</div><button class="btn sm" data-save="${n}">+ ${t('Lưu vào flashcard')}</button></div>`).join('') || `<p class="muted">${t('Rất tốt – không có câu nào cần viết lại!')}</p>`}
       <div class="row" style="gap:.6rem;flex-wrap:wrap;margin-top:1rem">${opts.done ? `<button class="btn primary" id="rpDone">${t('Tiếp tục')} →</button>` : `<a class="btn primary" href="#/roleplay/${s.id}">↻ ${t('Luyện lại')}</a><a class="btn" href="#/roleplay">${t('Chọn tình huống khác')}</a>`}</div>

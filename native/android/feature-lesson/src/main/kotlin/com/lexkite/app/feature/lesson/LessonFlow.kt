@@ -116,7 +116,7 @@ class LessonController(
     }
     private fun hintStep(it: LItem): String? {
         return when (it.type) {
-            "gap", "mean", "q", "pic" -> if (it.type == "pic" && it.choice != true) null else { val wrong = (it.options ?: emptyList()).filter { o -> o != it.answer && o !in st.removed && o != st.pick }; if (wrong.size <= 1) null else { st = st.copy(removed = st.removed + wrong.first(), hints = st.hints + 1); "fifty" } }
+            "gap", "mean", "q", "pic", "lpic" -> if (it.type == "pic" && it.choice != true) null else { val wrong = (it.options ?: emptyList()).filter { o -> o != it.answer && o !in st.removed && o != st.pick }; if (wrong.size <= 1) null else { st = st.copy(removed = st.removed + wrong.first(), hints = st.hints + 1); "fifty" } }
             "build", "tr" -> {
                 val w = it.answer.split(" "); val tiles = it.tiles ?: return null
                 val cur = st.tiles.map { i -> tiles[i] }; val okPrefix = cur.size <= w.size && cur.indices.all { k -> LessonEngine.same(cur[k], w[k]) }

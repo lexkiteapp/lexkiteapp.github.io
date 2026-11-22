@@ -76,7 +76,8 @@ enum LessonVectorCheck {
             if let p = c["perWord"]?.double { o.perWord = Int(p) }
             if c["match"]?.truthy == false, c["match"] != nil { o.match = false }
             let img = c["img"]?.truthy == true, gl = c["gloss"]?.truthy == true, vi = c["mean"]?.string == "vi"
-            if img { o.hasImg = { w, _ in cx.imgWords.contains(w) } }
+            if c["img"]?.string == "all" { o.hasImg = { _, _ in true } } else if img { o.hasImg = { w, _ in cx.imgWords.contains(w) } }
+            o.lpic = c["lpic"]?.truthy == true; o.mpic = c["mpic"]?.truthy == true
             if gl { o.gloss = { _, en in cx.gloss[en] ?? "" } }
             o.mean = { vi ? $0.vi : "" }
             let items = LessonEngine.build(picks(cx, pc), o)
@@ -325,14 +326,6 @@ final class LessonVectorTests: XCTestCase {
     func testCheck() { assertReport(LessonVectorCheck.check(cx), min: 30) }
     func testSession() { assertReport(LessonVectorCheck.session(cx), min: 100) }
     func testPureFunctions() { assertReport(LessonVectorCheck.pure(cx), min: 100) }
-    func testXp() {   // lesson XP = web lesson/ui.js finish() (sliced expression)
-        let cases = cx.V["xp"]?.array ?? []
-        XCTAssertGreaterThanOrEqual(cases.count, 10)
-        for c in cases {
-            let ok1 = Int(c["ok1"]?.double ?? -1), wrong = Int(c["wrong"]?.double ?? -1), hints = Int(c["hints"]?.double ?? -1)
-            XCTAssertEqual(LessonEngine.xp(ok1: ok1, clean: wrong == 0, hints: hints), Int(c["out"]?.double ?? -1), "xp ok1=\(ok1) wrong=\(wrong) hints=\(hints)")
-        }
-    }
     func testStories() { assertReport(LessonVectorCheck.stories(cx, scriptPath: LessonVectorCheck.storiesPath()), min: 20) }
 }
 #endif

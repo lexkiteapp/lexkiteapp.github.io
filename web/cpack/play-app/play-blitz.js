@@ -23,7 +23,7 @@
   }
   const gradeOf = (ok, ms) => (!ok ? 0 : ms <= FAST ? 2 : 1);
   const mult = combo => (combo >= 6 ? 3 : combo >= 3 ? 2 : 1);
-  const xpOf = (right, n) => Math.min(40, 5 + right * 2 + (n >= 10 && right === n ? 5 : 0));
+  const xpOf = (right, n) => g.Game.xpFor('game', { right, total: n }); // luật chung game.js
   // Dạng câu: ảnh nếu từ có ảnh đúng nghĩa (xen kẽ), nghe nếu được phát âm, còn lại từ → nghĩa
   function kindOf(w, i, o) { if (o.pic && o.pic(w) && i % 3 === 2) return 'pic'; if (o.audio && i % 3 === 1) return 'listen'; return 'mean'; }
   // 4 lựa chọn: đáp án + 3 nhiễu khác nhãn (ưu tiên cùng từ loại), nhãn không trùng nhau
@@ -141,25 +141,22 @@
       });
     }
     async function end() {
-      S.over = true; App.cleanup();
+      S.over = true; App.cleanup(); const h0 = location.hash;
       const prev = (state.game.best && state.game.best.blitz) || 0, xp = xpOf(S.right, S.n), pct = S.n ? Math.round((S.right / S.n) * 100) : 0;
       await App.reward({ quizzes: 1, blitz: 1, blitzScore: S.score, xp });
       const missed = [...new Map(S.missed.map(w => [key(w.word), w])).values()].slice(0, 8);
       const gf = G ? G.score : 0, gbeat = G ? (S.score > gf ? t('Bạn đã thắng bóng ma! 🎉') : S.score === gf ? t('Hòa! Thử lại để vượt lên') : t('Còn thiếu {n} điểm – thử lại nhé', { n: gf - S.score })) : '';
       const beat = gbeat || (ch ? (S.score > ch.s ? t('Bạn đã thắng thách đấu! 🎉') : S.score === ch.s ? t('Hòa! Thử lại để vượt lên') : t('Còn thiếu {n} điểm – thử lại nhé', { n: ch.s - S.score })) : '');
-      view.innerHTML = `<div class="study-wrap"><div class="card empty celebrate">
-        <div class="em">⚡</div><h2 dir="ltr">${S.score}</h2>
-        <p>${beat ? esc(beat) + ' · ' : ''}${S.score > prev ? '🏅 ' + t('Kỷ lục mới!') : t('Kỷ lục của bạn: {best}', { best: prev })} · ${t('{a}/{b} đúng', { a: S.right, b: S.n })} · ${t('Combo cao nhất {n}', { n: S.best })} · +${xp} XP</p>
-        ${missed.length ? `<p class="small muted">${t('Từ cần ôn lại')}</p><div class="row center">${missed.map(w => `<span class="chip" lang="en">${esc(w.word)} = ${esc(mean(w))}</span>`).join('')}</div>` : ''}
-        <div class="row center" style="margin-top:1.2rem"><button class="btn primary" id="bzAgain">${t('Chơi lại')}</button><button class="btn" id="bzCh">👥 ${t('Thách đấu bạn bè')}</button><a class="btn" href="#/practice?src=${encodeURIComponent(src || 'deck')}">${t('Chế độ khác')}</a></div>
-      </div></div>`;
-      $('#bzAgain').onclick = () => run(H, src, query);
-      $('#bzCh').onclick = async () => {
+      const again = () => run(H, src, query), challenge = async () => {
         const url = location.origin + location.pathname + '#/practice/blitz?ch=' + encodeCh(items.map(w => w.word), S.score), text = t('Mình được {n} điểm trong Thử thách 60 giây trên Lexkite – bạn vượt được không?', { n: S.score });
         if (navigator.share) { try { await navigator.share({ title: 'Lexkite', text, url }); return; } catch (e) { /* hủy → chép link */ } }
         try { await navigator.clipboard.writeText(text + ' ' + url); toast(t('Đã chép link thách đấu')); } catch (e) { toast(url, 6000); }
       };
-      Sfx.finish({ pct, xp, good: 80, el: $('.celebrate', view) });
+      await App.need('gend').catch(() => {});
+      if (location.hash === h0 && g.GameEnd) g.GameEnd.show(view, { icon: '⚡', chip: t('Thử thách 60 giây'), head: beat || (S.score > prev ? '🏅 ' + t('Kỷ lục mới!') : t('Kỷ lục của bạn: {best}', { best: prev })), acc: pct, xp,
+        tiles: [[S.score, t('Điểm')], [S.right + '/' + S.n, t('Đúng')], [S.best, t('Combo tốt nhất')], [Math.max(prev, S.score), t('Kỷ lục')]],
+        words: missed.map(w => w.word), more: missed.length ? g.GameEnd.row('edit_note', t('Từ cần ôn lại') + ':', missed.map(w => `<span lang="en">${esc(w.word)}</span> = ${esc(mean(w))}`).join(' · ')) : '',
+        again: { label: t('Chơi lại'), fn: again }, share: { label: t('Thách đấu bạn bè'), fn: challenge }, rev: { label: t('Chế độ khác'), href: '#/practice?src=' + encodeURIComponent(src || 'deck') } });
       practiceDone({ mode: 'blitz', src, pct });
       if (!ch && goodTrace(S.trace) && S.score > 0) { // lưu bóng ma của mình + nộp lên (ẩn danh) cho người khác đua
         try { const l = JSON.parse(localStorage.getItem(GKEY) || 'null'); if (!l || S.score > (l.score | 0)) localStorage.setItem(GKEY, JSON.stringify({ score: S.score, trace: S.trace })); } catch (e) { /* bỏ qua */ }

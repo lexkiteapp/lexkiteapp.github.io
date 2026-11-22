@@ -184,7 +184,7 @@
       const essays = await Store.get('essays', []);
       essays.unshift({ prompt: p.id, text, words: a.words, band: a.band, at: Date.now() });
       await Store.set('essays', essays.slice(0, 20));
-      App.reward({ quizzes: 1, writes: 1, xp: 25 }, $('#analyze'));
+      App.reward({ quizzes: 1, writes: 1, xp: Game.xpFor('essay') }, $('#analyze'));
       Sfx.win();
     }
   }

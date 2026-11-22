@@ -60,7 +60,8 @@ struct LessonQuestionView: View {
         case "tr": t(.lessonQTr)
         case "mean": t(.lessonQMean)
         case "type": t(.lessonQType)
-        case "match": t(.lessonQMatch)
+        case "lpic": t(.lessonQLpic)
+        case "match": item.pics == true ? t(.lessonQMpic) : t(.lessonQMatch)
         case "q": t(.lessonQQ)
         default: ""
         }
@@ -119,6 +120,7 @@ struct LessonQuestionView: View {
     @ViewBuilder private var bodyView: some View {
         switch item.type {
         case "gap", "mean", "q", "pic" where item.type != "pic" || item.choice == true: options
+        case "lpic": pictureOptions
         case "build", "tr": LessonBuildBoard(model: model, item: item)
         case "type": LessonTypeBoard(model: model, item: item)
         case "match": LessonMatchBoard(model: model, item: item)
@@ -134,6 +136,16 @@ struct LessonQuestionView: View {
             ForEach(Array(opts.enumerated()), id: \.element) { i, o in
                 LessonOption(letter: String(UnicodeScalar(UInt8(65 + i % 26))), text: o, state: state(o), action: { if !feedback { model.pick = o } },
                              sub: feedback ? optionMeaning(o) : nil)
+            }
+        }
+    }
+    /// lpic: 2×2 picture tiles (letter + image); the word itself shows only after checking, so the learner listens instead of reading.
+    private var pictureOptions: some View {
+        let opts = (item.options ?? []).filter { !model.hidden.contains($0) || feedback }
+        return LazyVGrid(columns: [GridItem(.flexible(), spacing: LKSpacing.spaceSm), GridItem(.flexible())], spacing: LKSpacing.spaceSm) {
+            ForEach(Array(opts.enumerated()), id: \.element) { i, o in
+                LessonPictureOption(letter: String(UnicodeScalar(UInt8(65 + i % 26))), word: o, url: model.pictureURL(word: o, pos: item.ipos?[o]),
+                                    showWord: feedback, state: state(o), action: { if !feedback { model.pick = o } })
             }
         }
     }
@@ -266,9 +278,8 @@ struct LessonMatchBoard: View {
             ForEach(order, id: \.self) { i in
                 let done = matched.contains(i), sel = (side == 0 ? left : right) == i, bad = wrong.contains(i * 2 + side)
                 Button { tap(i, side: side) } label: {
-                    Text(text(i, side: side)).lkText(LKType.bodyLg).multilineTextAlignment(.center)
-                        .foregroundStyle(LKColor.onSurface.resolve(scheme))
-                        .frame(maxWidth: .infinity, minHeight: 56).padding(.horizontal, 6)
+                    cell(i, side: side)
+                        .frame(maxWidth: .infinity, minHeight: item.pics == true ? 88 : 56).padding(.horizontal, 6)   // mpic: one height for word + picture cells
                         .tactile(fill: bad ? LKColor.errorContainer : LKColor.surfaceContainer, line: bad ? LKColor.error : sel ? LKColor.secondary : LKColor.outlineVariant,
                                  ledge: sel ? LKColor.secondary : LKColor.outlineVariant, radius: 16)
                         .opacity(done ? 0.3 : 1)
@@ -281,6 +292,15 @@ struct LessonMatchBoard: View {
         }
         .frame(maxWidth: .infinity)
         .englishText(side == 0)
+    }
+    /// mpic: the right column is the word's picture (falls back to its meaning when the picture is gone)
+    @ViewBuilder private func cell(_ i: Int, side: Int) -> some View {
+        if side == 1, item.pics == true, let c = pairs[i].card, let u = model.pictureURL(word: c.word, pos: c.pos) {
+            LessonPicture(url: u, label: c.word, side: 72).padding(.vertical, 4)
+        } else {
+            Text(text(i, side: side)).lkText(LKType.bodyLg).multilineTextAlignment(.center)
+                .foregroundStyle(LKColor.onSurface.resolve(scheme))
+        }
     }
     private func tap(_ i: Int, side: Int) {
         if side == 0 { left = i; model.say(text(i, side: 0)) } else { right = i }

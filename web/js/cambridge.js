@@ -111,7 +111,7 @@
     if (b[key] == null || pct > b[key]) b[key] = pct;
     $('#camRes').innerHTML = `<div class="card"><h3 style="margin-top:0">${t('Kết quả: {a}/{b} câu đúng ({p}%)', { a: right, b: total, p: pct })}</h3><p class="small muted" style="margin:0">${t('Xem lời giải dưới từng câu. Phần viết có nhận xét riêng ngay dưới bài.')}</p></div>`;
     if (window.QT) QT.record('cb', all, p === 'listening' ? null : $('.lq-wrap', body));
-    App.reward({ quizzes: 1, xp: 10 + right });
+    App.reward({ quizzes: 1, xp: Game.xpFor('set', { right, total }) });
   }
   // Phản hồi viết: số từ, ý bắt buộc, từ nối, tiêu chí cấp, bài mẫu, AI (tùy chọn)
   function writeFb(T, x, k, body) {
@@ -157,7 +157,7 @@
         result: ({ heard }) => {
           const n = wc(heard), want = ext ? 25 : 6, why = /\b(because|so|but|and)\b/i.test(heard);
           out.innerHTML = `<div>${t('máy nghe: “{heard}”', { heard: esc(heard) })}</div><div>${n >= want ? '✅' : '💡'} ${t('{n} từ – nên nói khoảng {m} từ trở lên', { n, m: want })}</div><div>${why ? '✅' : '💡'} ${t('Thêm lý do hoặc ví dụ (because, so, for example…)')}</div>${model ? `<details><summary><b>${t('Câu trả lời mẫu')}</b></summary><i>${esc(model)}</i></details>` : ''}`;
-          App.reward({ spoken: 1, xp: 3 });
+          App.reward({ spoken: 1, xp: Game.xpFor('say') });
         },
         error: e => { out.textContent = UI.recErrorText ? UI.recErrorText(e) : t('Không nhận được giọng nói'); },
       });

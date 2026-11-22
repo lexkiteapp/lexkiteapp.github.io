@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import vm from 'node:vm';
 import { JSDOM } from 'jsdom';
+import { gameRules } from '../lib/game-rules.mjs';
 
 const SRC = fs.readFileSync('web/js/retention.js', 'utf8');
 const key = d => d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
@@ -82,7 +83,7 @@ let modalEl = null, toasts = [];
 win.UI = { modal: h => { modalEl = win.document.getElementById('modal'); modalEl.innerHTML = h; modalEl.hidden = false; return modalEl; }, closeModal: () => { modalEl.hidden = true; modalEl.innerHTML = ''; }, toast: m => toasts.push(m) };
 const today = key(new Date());
 const state = { user: { displayName: 'Lan' }, stats: { days: {} }, game: { xp: 100, days: Object.fromEntries([...days].map(k => [k, { xp: 10 }])), frozen: {}, freezes: 1, freezeAt: 7 } };
-win.Game = { mutate: async f => { const s = JSON.parse(JSON.stringify(state.game)); await f(s); return s; } };
+win.Game = { ...gameRules(), mutate: async f => { const s = JSON.parse(JSON.stringify(state.game)); await f(s); return s; } };
 win.App = { need: async n => { if (n === 'retcards' && !win.RetCards) win.eval(fs.readFileSync('web/cpack/ret-app/cards.js', 'utf8')); }, retOn: () => true, state, routes: {}, activeDays: () => C.activeDays(state), streak: () => C.streak(C.activeDays(state)) };
 let adAsked = 0; win.Ads = { rewarded: async (r, q) => { if (r !== 'cosmetic') throw new Error('sai lý do quảng cáo: ' + r); adAsked++; return q ? true : true; } };
 win.matchMedia = () => ({ matches: true });
