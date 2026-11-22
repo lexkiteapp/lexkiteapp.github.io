@@ -15,7 +15,7 @@ const maps = [
 ok(I.group(`${O}/sitemap-words-th.xml`) === 'words-th' && I.group(`${O}/sitemap-dict-en-1.xml`) === 'dict-en', 'tên nhóm sitemap');
 const s = I.sample(maps, 100, '2026-11-23');
 ok(s.length >= 100 && s.length <= 106, `cỡ mẫu ${s.length}`);
-ok(s.filter(x => x.group === 'blog-en').length === 6, 'nhóm nhỏ vẫn có tối thiểu MIN_PER');
+ok(s.filter(x => x.group === 'blog-en').length === I.MIN_PER, 'nhóm nhỏ vẫn có tối thiểu MIN_PER');
 ok(JSON.stringify(s) === JSON.stringify(I.sample(maps, 100, '2026-11-23')), 'cùng ngày → cùng mẫu');
 ok(JSON.stringify(s) !== JSON.stringify(I.sample(maps, 100, '2026-11-30')), 'tuần khác → mẫu khác');
 const checked = s.map((x, i) => i % 7 === 0 ? { ...x, error: 'HTTP 500' } : { ...x, result: i % 2 ? { verdict: 'PASS', coverageState: 'Submitted and indexed', googleCanonical: x.url, userCanonical: x.url }
