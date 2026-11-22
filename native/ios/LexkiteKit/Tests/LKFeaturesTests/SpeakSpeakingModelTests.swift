@@ -55,7 +55,7 @@ final class SpeakSpeakingModelTests: XCTestCase {
         XCTAssertTrue(none.unclear); XCTAssertEqual(none.error, "no-speech")
         XCTAssertEqual(rec.calls, ["en-US", "en-US"])
 
-        // a drill with a mic: the pass is recorded in lk.spk and rewarded spoken 1 · xp say(score)
+        // a drill with a mic: the pass is recorded in lk.spk and rewarded spoken 1 · xp by stars like web speak/app.js (1 star → say(pass) = 3, ≥ 2 stars → say(great) = 5)
         let (c1, data1) = ctx("mic")
         let m1 = SpeakDrillModel(ctx: c1, io: .scripted([.heard("Hello there friend")]), situation: Self.situation, stage: nil)
         XCTAssertEqual(m1.drill.target, "Hello there friend")
@@ -65,8 +65,8 @@ final class SpeakSpeakingModelTests: XCTestCase {
         XCTAssertEqual(stored["zz"]?["lines"]?["l1"]?.i("stars"), 1)
         XCTAssertEqual(stored["zz"]?["tasks"]?["t1"], .bool(true), "the mission task that names the line is done")
         XCTAssertEqual(Int(JSON.orZero(stored["week"]?[SpeakSit.weekKey(Self.now, calendar: Self.cal)])), 1)
-        let got = await eventually { await self.xp(data1) == 5 }
-        XCTAssertTrue(got, "reward xp say(100) = 5")
+        let got = await eventually { await self.xp(data1) == RewardRules.xp("say", score: Double(RewardRules.pass)) }
+        XCTAssertTrue(got, "reward xp 1 star = say(pass) = 3")
 
         // no mic: the words are tapped in order, at most 1 star, the line is recorded but nothing is rewarded
         let (c2, data2) = ctx("nomic")

@@ -85,11 +85,11 @@ final class SpeakSpeakingVectorTests: XCTestCase {
             XCTAssertEqual(d.res?.stars, 1); XCTAssertNil(fx.reward)
         }
         XCTAssertEqual(d.b, 2)
-        // a drill WITH a mic earns the reward `spoken 1, xp say(score)`
+        // a drill WITH a mic earns the reward `spoken 1, xp by stars` (web speak/app.js: 1 star → say(pass) = 3)
         var m = SpeakDrill(s, lang: "vi", stage: nil, store: .object([:]), week: "2026-W2", shuffle: { $0 })
         m.micStarted(nowMs: 0)
         let ok = m.attempt(SpeakScore.result(target: m.target, heard: m.target, platformScore: 100, seconds: 2), nowMs: 2000)
-        XCTAssertEqual(ok.reward, ["spoken": 1, "xp": 5])
+        XCTAssertEqual(ok.reward, ["spoken": 1, "xp": 3])
         XCTAssertEqual(m.store["cafe"]?["lines"]?["o1"]?.i("stars"), 1)
         XCTAssertEqual(Int(JSON.orZero(m.store["week"]?["2026-W2"])), 1)
     }
