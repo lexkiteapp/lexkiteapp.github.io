@@ -1139,6 +1139,7 @@
 "Từ mô tả biểu đồ: tăng, giảm, dao động, tỉ lệ":"Kata-kata untuk mendeskripsikan grafik: naik, turun, fluktuasi, proporsi",
 "Từ mới":"Kata baru",
 "Từ mới lưu":"Baru-baru ini disimpan",
+"Từ mới, ngữ pháp và cuộc gọi AI mỗi ngày":"Kata baru, tata bahasa, dan panggilan AI setiap hari",
 "Từ này bị gõ lặp hai lần liên tiếp. Xóa bớt một từ.":"Kata ini diketik dua kali berturut-turut. Hapus salah satunya.",
 "Từ này có vẻ viết sai chính tả hoặc không có trong từ điển. Kiểm tra lại cách viết – nếu là tên riêng, bấm “Bỏ qua lỗi”.":"Kata ini sepertinya salah eja atau tidak ada dalam kamus. Periksa ejaannya – jika itu adalah nama, ketuk “Abaikan”.",
 "Từ này viết sai chính tả. Hãy học cách viết đúng – từ hay sai sẽ được đưa vào thẻ ôn tập.":"Kata ini salah eja. Pelajari ejaan yang benar – kata-kata yang sering Anda salah eja akan ditambahkan ke kartu ulasan Anda.",

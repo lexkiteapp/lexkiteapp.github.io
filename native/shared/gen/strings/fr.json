@@ -1189,6 +1189,8 @@
   "rev.rhythm": "Rythme",
   "rev.practiseSpanish": "Pratique de l'espagnol",
   "rev.practiseFrench": "Pratique du français",
+  "rev.dailyPath": "Parcours",
+  "rev.dailyPathHint": "Mots nouveaux, grammaire et un appel avec l'IA chaque jour",
   "rev.testHint": "20 questions mixtes, notées",
   "rev.writingRoom": "Salle d'écriture",
   "rev.writingRoomHint": "Écrivez la tâche 2, obtenez une analyse du vocabulaire",
