@@ -1,4 +1,4 @@
-# ci-policy: matrix – 5 ngôn ngữ đích (pt es fr ja ko), mỗi nhánh cài bộ kiểm riêng (espeak, kaikki, LanguageTool) và chỉ chạy khi content/target hay scripts/target đổi; gộp tuần tự sẽ vượt timeout 20 phút của nhánh es
+# ci-policy: matrix – 5 ngôn ngữ đích (pt es fr ja ko), mỗi nhánh cài bộ kiểm riêng (espeak, kaikki, LanguageTool) và chỉ chạy khi content/target hay scripts/target đổi; gộp tuần tự sẽ vượt hạn của nhánh fr (~20 phút LanguageTool)
 # Sinh bộ từ lõi ngôn ngữ đích theo lô (pt-BR ~300 · es-419 3.000 lemma A1–B2, lô 300) – chạy tay; docs/specs/target-language.md, spanish-course.md W1.
 # AI qua ai-pool chung (khóa miễn phí): soạn → LanguageTool 0 lỗi (bảng có lt) → 2 giám khảo khác họ → dịch ngược → cổng validate
 # → IPA espeak-ng của bảng (tl_ipa_fill.py) → Wiktionary lemma/giống/số nhiều (wikt-check.mjs) → kiểm cả bộ (build.mjs --check) → mẫu soát ≥ 5 %.
@@ -27,7 +27,8 @@ jobs:
     # PR: khô cho mọi tl + tự kiểm IPA espeak (seed khớp cả dấu nhấn) + Wiktionary trên seed (100 %) + chia động từ ↔ Wiktionary + kho ngữ pháp es
     if: ${{ github.event_name == 'pull_request' }}
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    # 40: nhánh fr chạy LanguageTool trên kho ngữ pháp + gói luyện + 24 cuộc gọi W4 (#1854) ≈ 20 phút → hạn 20 huỷ giữa chừng (lượt 45028205630); các nhánh khác < 2 phút
+    timeout-minutes: 40
     strategy: { fail-fast: false, matrix: { tl: [pt, es, fr, ja, ko] } }
     steps:
       - uses: actions/checkout@v4
