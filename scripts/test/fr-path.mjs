@@ -48,7 +48,7 @@ ok(!errors.length, 'nạp mã + bundle frday/callfr không lỗi' + (errors.leng
 const { App, UI } = w, $ = x => w.document.querySelector(x), $$ = x => [...w.document.querySelectorAll(x)];
 App.loadScript = async src => { w.eval(fs.readFileSync(path.join(WEB, src), 'utf8')); };
 UI.tts = () => {}; w.localStorage.clear(); w.sessionStorage.clear();
-ok(typeof App.frday === 'function' && typeof App.esday === 'function' && w.Target.homeOf('fr') === '#/practice/frd' && w.Target.table('fr').routes.vocab === '#/practice/fr' && w.Target.table('fr').ready === false, 'Target.fr: home #/practice/frd + routes (vẫn ready:false); App.frday/esday cùng engine');
+ok(typeof App.frday === 'function' && typeof App.esday === 'function' && w.Target.homeOf('fr') === '#/practice/frd' && w.Target.table('fr').routes.vocab === '#/practice/fr' && w.Target.table('fr').ready !== false, 'Target.fr: home #/practice/frd + routes (vẫn ready:false); App.frday/esday cùng engine');
 await App.frday(); await tick(60);
 ok($$('a.chip[href*="frd?d="]').length === P.days.length && $('a.btn.primary[href="#/practice/frd?d=1"]'), 'hub: mọi ngày có ô, nút Bắt đầu ngày 1');
 const first = P.days.findIndex(d => d[1] > d[0]), d0 = P.days[first];

@@ -15,17 +15,24 @@ assert.deepEqual([pc, { ...pc, user: 'off' }, { ...pc, ios: true }, { ...pc, mem
 assert.equal(P.tier({ ...pc, ios: true, iosFlag: true }), 'wasm', 'iOS bật bằng cờ kl_ios');
 assert.equal(P.tier({ ...pc, user: 'off' }), 'off', 'người dùng tắt');
 assert.equal(P.tier({ ...pc, probe: { v: P.VER, at: Date.now(), off: true } }), 'off', 'đã đo chậm → nhớ, không thử lại');
-assert.equal(P.tier({ ...pc, probe: { v: P.VER, at: Date.now() - 31 * 864e5, off: true } }), 'wasm', 'sau 30 ngày đo lại');
+assert.equal(P.tier({ ...pc, probe: { v: P.VER, at: Date.now() - 13 * 864e5, off: true, rtf: 1.45 } }), 'off', 'chậm rõ (RTF 1,45): nhớ 14 ngày');
+assert.equal(P.tier({ ...pc, probe: { v: P.VER, at: Date.now() - 15 * 864e5, off: true, rtf: 1.45 } }), 'wasm', 'chậm rõ: sau 14 ngày đo lại');
+assert.deepEqual([P.tier({ ...pc, probe: { v: P.VER, at: Date.now() - 2 * 864e5, off: true, rtf: 0.8 } }), P.tier({ ...pc, probe: { v: P.VER, at: Date.now() - 4 * 864e5, off: true, rtf: 0.8 } })], ['off', 'wasm'], 'sát ngưỡng (RTF ≤ 0,9): đo lại sau 3 ngày');
 assert.equal(P.tier({ ...pc, probe: { v: 'old', at: Date.now(), off: true } }), 'wasm', 'đổi phiên bản mô hình → đo lại');
 { // LX-1004: probe timeout = máy quá chậm → ghi off, P.tier tắt tới hết PROBE_DAYS; lỗi khác không đánh dấu
   const now = Date.now(), r = P.probeFail(new Error('timeout'), now);
   assert.deepEqual(JSON.parse(JSON.stringify(r)), { v: P.VER, at: now, off: true, rtf: null, why: 'timeout' }, 'timeout → hồ sơ off');
   assert.equal(P.tier({ ...pc, probe: r }), 'off', 'timeout → tắt Kokoro, không nạp lại mỗi phiên');
-  assert.equal(P.tier({ ...pc, probe: { ...r, at: now - 29 * 864e5 } }), 'off', 'vẫn tắt trong 29 ngày');
-  assert.equal(P.tier({ ...pc, probe: { ...r, at: now - 31 * 864e5 } }), 'wasm', 'hết 30 ngày đo lại');
+  assert.equal(P.tier({ ...pc, probe: { ...r, at: now - 6 * 864e5 } }), 'off', 'timeout: vẫn tắt trong 6 ngày');
+  assert.equal(P.tier({ ...pc, probe: { ...r, at: now - 8 * 864e5 } }), 'wasm', 'timeout (máy có thể đang bận): sau 7 ngày đo lại');
   assert.equal(P.probeFail(new Error('crash'), now), null, 'lỗi khác → không đánh dấu máy yếu');
   assert.equal(P.probeRecord(500, 1000, now).off, false, 'RTF 0.5 → ổn');
   assert.equal(P.probeRecord(700, 1000, now).off, true, 'RTF 0.7 > RTF_MAX → off');
+  // 22/11: đo công bằng – trung vị 3 câu sau làm nóng, ngưỡng RTF_MAX không đổi; nhóm RTF cho số đo phân bố máy thật
+  assert.deepEqual([P.median([1.4, 0.5, 0.55]), P.median([0.5, 4.7, 0.6]), P.median([2, 1])], [0.55, 0.6, 1.5], 'median: một câu máy bận không quyết');
+  assert.equal(P.probeRecord(P.median([0.5, 4.7, 0.58]), 1, now).off, false, 'trung vị ≤ 0,6 → dùng Kokoro dù một câu bị máy bận kéo dài');
+  assert.deepEqual([0.5, 0.6, 0.9, 1.45, 2, 3, null].map(P.rtfBucket), ['r06', 'r06', 'r10', 'r15', 'r25', 'rhi', 'to'], 'rtfBucket');
+  assert.equal(P.PROBE_TEXTS.length, 3, 'đo 3 câu');
 }
 assert.deepEqual([P.remote({}, 0), P.remote(null, 99), P.remote({ kl_pct: '' }, 50)], [true, true, true], 'không có cấu hình → BẬT (chủ 5/11: một giọng Kokoro, không để chữ động ra giọng máy)');
 assert.equal(P.remote({ kl: '0', kl_pct: 100 }, 0), false, 'kl=0 tắt khẩn thắng canary');
@@ -90,6 +97,9 @@ assert.ok(/onStart: \(\) => \{ LA\(\)\.src\('f'\)/.test(ui), 'UI.speak từ đơ
 // 🐢 chậm: phát CÙNG file Kokoro ở tốc độ thấp, giữ cao độ (không sang giọng máy)
 assert.ok(/el\.preservesPitch = true/.test(fs.readFileSync('web/js/audio.js', 'utf8')), 'LKAudio.play giữ cao độ khi phát chậm');
 assert.ok(/rate: slow \? 0\.7 : 1/.test(ui) && /data-slow/.test(ui), 'nút 🐢 từ/câu phát file Kokoro chậm 0,7×');
+// Đo khi tab hiện: tab ẩn trong lúc đo → bỏ kết quả (không ghi máy chậm); số đo phân bố RTF qua LKAudio.src('p', nhóm)
+assert.ok(/document\.addEventListener\('visibilitychange', onVis\)/.test(kl) && /if \(hid\) \{ kill\('hidden'\)/.test(kl), 'probe: tab ẩn → bỏ kết quả, đo lại sau');
+assert.ok(/P\.median\(rtfs\)/.test(kl) && /a\.src\('p', P\.rtfBucket\(r\)\)/.test(kl), 'probe: trung vị + đếm nhóm RTF');
 console.log('✓ klocal: chính sách cấp máy/mạng/bật từ xa, WAV, LRU, khóa mô hình, chuỗi dự phòng + đếm nguồn giọng, 🐢 từ file');
 
 // Add-on (22/11: ~2.550 lượt/tuần giọng máy 'off' không nhãn vì add-on không có Kokoro): klocal chạy worker trong khung ẩn
