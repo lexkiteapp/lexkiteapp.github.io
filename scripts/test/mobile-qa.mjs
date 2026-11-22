@@ -250,6 +250,7 @@ if (LH) { const prate = (await rateFor(browser, 4)).rate;
       await pg.goto(`${BASE}/app/?sandbox=1&hl=en#/${route}`, { waitUntil: 'load', timeout: 90e3 }); await pg.waitForTimeout(fast ? 4000 : 14000);
       const r = await pg.evaluate(() => { const nav = performance.getEntriesByType('navigation')[0], fcp = (performance.getEntriesByName('first-contentful-paint')[0] || {}).startTime || 0, L = window.__lcp || [], last = L.length ? L[L.length - 1].t : 0;
         const res = performance.getEntriesByType('resource').filter(x => x.responseEnd <= last); return { ttfb: Math.round(nav.responseStart), fcp: Math.round(fcp), lcp: L, bytesBeforeLcp: Math.round(res.reduce((a, x) => a + (x.transferSize || 0), 0) / 1024), reqBeforeLcp: res.length, lastBefore: res.sort((x, y) => y.responseEnd - x.responseEnd).slice(0, 4).map(x => Math.round(x.responseEnd) + ' ' + x.name.replace(/^.*\//, '')) }; });
+      r.view = await pg.evaluate(() => { const v = document.getElementById('view'); return { len: v ? v.innerText.length : -1, head: v ? v.innerText.trim().replace(/\s+/g, ' ').slice(0, 70) : '', hero: !!document.getElementById('lkHero'), cls: document.body.className.slice(0, 60) }; }); if (route === 'path') await pg.screenshot({ path: `${OUT}/probe-path-${i + 1}${fast ? 'f' : ''}.png` });
       probe.push({ route, run: i + 1, fast, ...r });
     } catch (e) { probe.push({ route, run: i + 1, error: String(e.message || e).slice(0, 120) }); }
     await c.close();
