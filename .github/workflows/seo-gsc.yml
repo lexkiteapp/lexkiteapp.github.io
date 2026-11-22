@@ -36,10 +36,16 @@ jobs:
         if: always()
         env: { GSC_SA_JSON: '${{ secrets.GSC_SA_JSON }}' }
         run: node scripts/seo/index-coverage.mjs || echo "alert=1" >> "$GITHUB_OUTPUT"
+      - name: Trang chủ 13 ngôn ngữ – liên kết sâu theo cầu GSC mới (scripts/seo/home-words.mjs → build-landing, cùng commit báo cáo)
+        id: home
+        if: steps.gsc.outputs.report != ''
+        run: |
+          node scripts/seo/home-words.mjs --check >/dev/null 2>&1 && exit 0
+          node scripts/seo/home-words.mjs && npm ci --no-audit --no-fund >/dev/null && node scripts/build-landing.mjs && node scripts/test/home-words.mjs && echo "changed=1" >> "$GITHUB_OUTPUT"
       - name: Commit báo cáo [CF-Pages-Skip]
         if: always() && (steps.gsc.outputs.report != '' || hashFiles('reports/seo/index-*.md') != '')
         run: |
-          bash scripts/ci/push-main.sh "SEO: báo cáo GSC $(date -u +%F)" reports/seo content/blog/plan/gsc-priority.json
+          bash scripts/ci/push-main.sh "SEO: báo cáo GSC $(date -u +%F)" reports/seo content/blog/plan/gsc-priority.json content/seo/home-words.json web/index.html web/??/index.html
       - name: Issue seo-weekly
         if: steps.gsc.outputs.report != ''
         env: { GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}' }
