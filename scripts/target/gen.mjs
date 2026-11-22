@@ -58,7 +58,8 @@ for (let i = 0; i < cand.length && accepted.length - prev.length < N; i += BATCH
     if (m.length) { rejected.push({ form: draft[x].k, word: draft[x].e.word, why: ['LanguageTool: ' + m.join(' | ')] }); draft.splice(x, 1); }
   }
   if (!draft.length) continue;
-  const { a, b } = await AI.judgePair({ mode: 'lxaudit', items: draft.map(d => ({ k: d.k, entry: d.e })) }, { exclude: [g.fam].filter(Boolean) });
+  // giám khảo lỗi tạm (JSON hỏng, 429) → thử lại 3 lần, giãn 20 s · 40 s, rồi mới dừng (22/11: 1 lỗi JSON groq ở lô đầu làm cả shard ra 0 mục)
+  let a, b; for (let r = 0; r < 3 && !(a && b); r++) { if (r) await new Promise(z => setTimeout(z, 20000 * r)); ({ a, b } = await AI.judgePair({ mode: 'lxaudit', items: draft.map(d => ({ k: d.k, entry: d.e })) }, { exclude: [g.fam].filter(Boolean) })); }
   if (!a || !b) { console.log('ai-pool: thiếu giám khảo khác họ → không xuất lô này (lượt sau chấm lại)'); break; }
   const bt = await AI.judge({ mode: 'lxjudge', items: draft.map(d => ({ k: d.k, word: d.e.word, en: d.e.gl && d.e.gl.en, gl: d.e.gl })) }, { exclude: [g.fam].filter(Boolean) });
   for (const d of draft) {
