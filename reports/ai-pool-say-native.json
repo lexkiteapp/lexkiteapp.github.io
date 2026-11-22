@@ -1,14 +1,14 @@
 {
  "job": "say-native",
- "at": "2026-11-22T18:47:19.664Z",
+ "at": "2026-11-22T19:20:58.997Z",
  "used": {
   "lexai": 0,
   "gc": 0,
   "cf2": 0,
   "cfLeak": 0,
   "cf2Dead": [],
-  "gem": 21,
-  "groq": 186
+  "gem": 38,
+  "groq": 268
  },
  "budget": {
   "lexai": 400,
@@ -17,46 +17,47 @@
  },
  "by": {
   "gem|gemini-3.8-flash": {
-   "ok": 0,
-   "fail": 6,
+   "ok": 1,
+   "fail": 7,
    "bad": 0
   },
   "gem|gemini-3.6-flash": {
-   "ok": 20,
-   "fail": 4,
+   "ok": 37,
+   "fail": 2,
    "bad": 0
   },
   "groq|openai/gpt-oss-120b": {
-   "ok": 130,
+   "ok": 188,
    "fail": 0,
    "bad": 0
   },
   "groq|qwen/qwen3.8-27b": {
-   "ok": 56,
+   "ok": 80,
    "fail": 0,
    "bad": 0
   },
   "gem|gemini-3.7-flash": {
-   "ok": 1,
-   "fail": 3,
+   "ok": 0,
+   "fail": 4,
    "bad": 0
   }
  },
  "keys": {
   "gem": {
    "size": 85,
-   "live": 71,
+   "live": 45,
    "parked": {
-    "auth": 2,
-    "day": 12
+    "day": 22,
+    "minute": 16,
+    "auth": 2
    }
   },
   "groq": {
    "size": 109,
    "live": 105,
    "parked": {
-    "day": 3,
-    "auth": 1
+    "auth": 1,
+    "minute": 3
    }
   }
  }
