@@ -66,15 +66,15 @@
    "text": "Don't say 'beats me' to a client's question.",
    "why": "It sounds careless and unprofessional."
   },
-  "l1": "weiß ich nicht; hab keine Ahnung",
+  "l1": "weiß ich nicht",
   "l1_hook": "Wo ist der Schlüssel hin? beats me.",
   "l1_ex": "Wo ist der Schlüssel? „Beats me“.",
   "right": "beats me",
   "native": {
    "hook": "Was heißt “beats me”?",
-   "tip": "“beats me” = weiß ich nicht; hab keine Ahnung. Beispiel: “Where's the key? Beats me.”",
-   "caption": "Was heißt “beats me”?\n“beats me” = weiß ich nicht; hab keine Ahnung.\nBeispiel: “Where's the key? Beats me.” (Wo ist der Schlüssel? „Beats me“.)\nLerne englischen Slang kostenlos mit Lexkite.",
-   "comment": "Antwort: “beats me” = weiß ich nicht; hab keine Ahnung. “Where's the key? Beats me.” Kostenlos weiterüben: {link}",
+   "tip": "“beats me” = weiß ich nicht. Beispiel: “Where's the key? Beats me.”",
+   "caption": "Was heißt “beats me”?\n“beats me” = weiß ich nicht.\nBeispiel: “Where's the key? Beats me.” (Wo ist der Schlüssel? „Beats me“.)\nLerne englischen Slang kostenlos mit Lexkite.",
+   "comment": "Antwort: “beats me” = weiß ich nicht. “Where's the key? Beats me.” Kostenlos weiterüben: {link}",
    "hashtags": [
     "#englischlernen",
     "#englischtipps",
@@ -105,7 +105,7 @@
  "publish": {
   "title": "Was heißt “beats me”?",
   "keyword": "beats me",
-  "value": "“beats me” = weiß ich nicht; hab keine Ahnung. Beispiel: “Where's the key? Beats me.”",
+  "value": "“beats me” = weiß ich nicht. Beispiel: “Where's the key? Beats me.”",
   "hashtags": [
    "#englischlernen",
    "#englischtipps",
@@ -117,7 +117,7 @@
   "platforms": {
    "youtube": {
     "title": "Was heißt “beats me”?",
-    "description": "“beats me” = weiß ich nicht; hab keine Ahnung. Beispiel: “Where's the key? Beats me.”\n\nWas heißt “beats me”?\n“beats me” = weiß ich nicht; hab keine Ahnung.\nBeispiel: “Where's the key? Beats me.” (Wo ist der Schlüssel? „Beats me“.)\nLerne englischen Slang kostenlos mit Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "description": "“beats me” = weiß ich nicht. Beispiel: “Where's the key? Beats me.”\n\nWas heißt “beats me”?\n“beats me” = weiß ich nicht.\nBeispiel: “Where's the key? Beats me.” (Wo ist der Schlüssel? „Beats me“.)\nLerne englischen Slang kostenlos mit Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
     "tags": [
      "beats me",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "Was heißt “beats me”?\n“beats me” = weiß ich nicht; hab keine Ahnung.\nBeispiel: “Where's the key? Beats me.” (Wo ist der Schlüssel? „Beats me“.)\nLerne englischen Slang kostenlos mit Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+    "text": "Was heißt “beats me”?\n“beats me” = weiß ich nicht.\nBeispiel: “Where's the key? Beats me.” (Wo ist der Schlüssel? „Beats me“.)\nLerne englischen Slang kostenlos mit Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
    },
    "instagram": {
-    "caption": "Was heißt “beats me”?\n\n“beats me” = weiß ich nicht; hab keine Ahnung. Beispiel: “Where's the key? Beats me.”\n\nlexkite.com",
+    "caption": "Was heißt “beats me”?\n\n“beats me” = weiß ich nicht. Beispiel: “Where's the key? Beats me.”\n\nlexkite.com",
     "hashtags": [
      "#englischlernen",
      "#englischtipps",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "Was heißt “beats me”? “beats me” = weiß ich nicht; hab keine Ahnung. Beispiel: “Where's the key? Beats… #englischlernen #englischtipps #sprachenlernen"
+    "caption": "Was heißt “beats me”? “beats me” = weiß ich nicht. Beispiel: “Where's the key? Beats me.” #englischlernen #englischtipps #sprachenlernen"
    }
   },
-  "first_comment": "Antwort: “beats me” = weiß ich nicht; hab keine Ahnung. “Where's the key? Beats me.” Kostenlos weiterüben: {link}",
+  "first_comment": "Antwort: “beats me” = weiß ich nicht. “Where's the key? Beats me.” Kostenlos weiterüben: {link}",
   "lang": "de"
  }
 }

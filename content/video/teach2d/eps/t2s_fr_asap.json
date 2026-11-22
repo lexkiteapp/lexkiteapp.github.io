@@ -70,15 +70,15 @@
    "text": "Don't write 'ASAP' to your boss rudely.",
    "why": "It sounds demanding and bossy."
   },
-  "l1": "dès que possible; au plus vite; le plus tôt possible",
+  "l1": "dès que possible",
   "l1_hook": "J'en ai besoin tout de suite, « ASAP » !",
   "l1_ex": "Veuillez m'envoyer les notes « ASAP ».",
   "right": "ASAP",
   "native": {
    "hook": "Que veut dire « ASAP » ?",
-   "tip": "“ASAP” = dès que possible; au plus vite; le plus tôt possible. Exemple: “Please send me the notes ASAP.”",
-   "caption": "Que veut dire « ASAP » ?\n“ASAP” = dès que possible; au plus vite; le plus tôt possible.\nExemple: “Please send me the notes ASAP.” (Veuillez m'envoyer les notes « ASAP ».)\nApprends l'argot anglais gratuitement avec Lexkite.",
-   "comment": "Réponse: “ASAP” = dès que possible; au plus vite; le plus tôt possible. “Please send me the notes ASAP.” Entraîne-toi gratuitement: {link}",
+   "tip": "“ASAP” = dès que possible. Exemple: “Please send me the notes ASAP.”",
+   "caption": "Que veut dire « ASAP » ?\n“ASAP” = dès que possible.\nExemple: “Please send me the notes ASAP.” (Veuillez m'envoyer les notes « ASAP ».)\nApprends l'argot anglais gratuitement avec Lexkite.",
+   "comment": "Réponse: “ASAP” = dès que possible. “Please send me the notes ASAP.” Entraîne-toi gratuitement: {link}",
    "hashtags": [
     "#apprendrelanglais",
     "#anglaisfacile",
@@ -109,7 +109,7 @@
  "publish": {
   "title": "Que veut dire « ASAP » ?",
   "keyword": "ASAP",
-  "value": "“ASAP” = dès que possible; au plus vite; le plus tôt possible. Exemple: “Please send me the notes ASAP.”",
+  "value": "“ASAP” = dès que possible. Exemple: “Please send me the notes ASAP.”",
   "hashtags": [
    "#apprendrelanglais",
    "#anglaisfacile",
@@ -121,7 +121,7 @@
   "platforms": {
    "youtube": {
     "title": "Que veut dire « ASAP » ?",
-    "description": "“ASAP” = dès que possible; au plus vite; le plus tôt possible. Exemple: “Please send me the notes ASAP.”\n\nQue veut dire « ASAP » ?\n“ASAP” = dès que possible; au plus vite; le plus tôt possible.\nExemple: “Please send me the notes ASAP.” (Veuillez m'envoyer les notes « ASAP ».)\nApprends l'argot anglais gratuitement avec Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "description": "“ASAP” = dès que possible. Exemple: “Please send me the notes ASAP.”\n\nQue veut dire « ASAP » ?\n“ASAP” = dès que possible.\nExemple: “Please send me the notes ASAP.” (Veuillez m'envoyer les notes « ASAP ».)\nApprends l'argot anglais gratuitement avec Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
     "tags": [
      "ASAP",
      "learn english",
@@ -129,10 +129,10 @@
     ]
    },
    "facebook": {
-    "text": "Que veut dire « ASAP » ?\n“ASAP” = dès que possible; au plus vite; le plus tôt possible.\nExemple: “Please send me the notes ASAP.” (Veuillez m'envoyer les notes « ASAP ».)\nApprends l'argot anglais gratuitement avec Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+    "text": "Que veut dire « ASAP » ?\n“ASAP” = dès que possible.\nExemple: “Please send me the notes ASAP.” (Veuillez m'envoyer les notes « ASAP ».)\nApprends l'argot anglais gratuitement avec Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
    },
    "instagram": {
-    "caption": "Que veut dire « ASAP » ?\n\n“ASAP” = dès que possible; au plus vite; le plus tôt possible. Exemple: “Please send me the notes ASAP.”\n\nlexkite.com",
+    "caption": "Que veut dire « ASAP » ?\n\n“ASAP” = dès que possible. Exemple: “Please send me the notes ASAP.”\n\nlexkite.com",
     "hashtags": [
      "#apprendrelanglais",
      "#anglaisfacile",
@@ -141,10 +141,10 @@
     ]
    },
    "tiktok": {
-    "caption": "Que veut dire « ASAP » ? “ASAP” = dès que possible; au plus vite; le plus tôt possible. Exemple: “Pl… #apprendrelanglais #anglaisfacile #coursdanglais"
+    "caption": "Que veut dire « ASAP » ? “ASAP” = dès que possible. Exemple: “Please send me the notes ASAP.” #apprendrelanglais #anglaisfacile #coursdanglais"
    }
   },
-  "first_comment": "Réponse: “ASAP” = dès que possible; au plus vite; le plus tôt possible. “Please send me the notes ASAP.” Entraîne-toi gratuitement: {link}",
+  "first_comment": "Réponse: “ASAP” = dès que possible. “Please send me the notes ASAP.” Entraîne-toi gratuitement: {link}",
   "lang": "fr"
  }
 }

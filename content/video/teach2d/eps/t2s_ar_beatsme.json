@@ -66,15 +66,15 @@
    "text": "Don't say 'beats me' to a client's question.",
    "why": "It sounds careless and unprofessional."
   },
-  "l1": "لا أعلم; لا أعرف",
+  "l1": "لا أعلم",
   "l1_hook": "أين ذهب المفتاح؟",
   "l1_ex": "أين المفتاح؟ \"Beats me\".",
   "right": "beats me",
   "native": {
    "hook": "ما معنى “beats me”؟",
-   "tip": "“beats me” = لا أعلم; لا أعرف. مثال: “Where's the key? Beats me.”",
-   "caption": "ما معنى “beats me”؟\n“beats me” = لا أعلم; لا أعرف.\nمثال: “Where's the key? Beats me.” (أين المفتاح؟ \"Beats me\".)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.",
-   "comment": "الإجابة: “beats me” = لا أعلم; لا أعرف. “Where's the key? Beats me.” تدرّب أكثر مجانًا: {link}",
+   "tip": "“beats me” = لا أعلم. مثال: “Where's the key? Beats me.”",
+   "caption": "ما معنى “beats me”؟\n“beats me” = لا أعلم.\nمثال: “Where's the key? Beats me.” (أين المفتاح؟ \"Beats me\".)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.",
+   "comment": "الإجابة: “beats me” = لا أعلم. “Where's the key? Beats me.” تدرّب أكثر مجانًا: {link}",
    "hashtags": [
     "#تعلم_الانجليزية",
     "#اللغة_الانجليزية",
@@ -105,7 +105,7 @@
  "publish": {
   "title": "ما معنى “beats me”؟",
   "keyword": "beats me",
-  "value": "“beats me” = لا أعلم; لا أعرف. مثال: “Where's the key? Beats me.”",
+  "value": "“beats me” = لا أعلم. مثال: “Where's the key? Beats me.”",
   "hashtags": [
    "#تعلم_الانجليزية",
    "#اللغة_الانجليزية",
@@ -117,7 +117,7 @@
   "platforms": {
    "youtube": {
     "title": "ما معنى “beats me”؟",
-    "description": "“beats me” = لا أعلم; لا أعرف. مثال: “Where's the key? Beats me.”\n\nما معنى “beats me”؟\n“beats me” = لا أعلم; لا أعرف.\nمثال: “Where's the key? Beats me.” (أين المفتاح؟ \"Beats me\".)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "description": "“beats me” = لا أعلم. مثال: “Where's the key? Beats me.”\n\nما معنى “beats me”؟\n“beats me” = لا أعلم.\nمثال: “Where's the key? Beats me.” (أين المفتاح؟ \"Beats me\".)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
     "tags": [
      "beats me",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "ما معنى “beats me”؟\n“beats me” = لا أعلم; لا أعرف.\nمثال: “Where's the key? Beats me.” (أين المفتاح؟ \"Beats me\".)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+    "text": "ما معنى “beats me”؟\n“beats me” = لا أعلم.\nمثال: “Where's the key? Beats me.” (أين المفتاح؟ \"Beats me\".)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
    },
    "instagram": {
-    "caption": "ما معنى “beats me”؟\n\n“beats me” = لا أعلم; لا أعرف. مثال: “Where's the key? Beats me.”\n\nlexkite.com",
+    "caption": "ما معنى “beats me”؟\n\n“beats me” = لا أعلم. مثال: “Where's the key? Beats me.”\n\nlexkite.com",
     "hashtags": [
      "#تعلم_الانجليزية",
      "#اللغة_الانجليزية",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "ما معنى “beats me”؟ “beats me” = لا أعلم; لا أعرف. مثال: “Where's the key? Beats me.” #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+    "caption": "ما معنى “beats me”؟ “beats me” = لا أعلم. مثال: “Where's the key? Beats me.” #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
    }
   },
-  "first_comment": "الإجابة: “beats me” = لا أعلم; لا أعرف. “Where's the key? Beats me.” تدرّب أكثر مجانًا: {link}",
+  "first_comment": "الإجابة: “beats me” = لا أعلم. “Where's the key? Beats me.” تدرّب أكثر مجانًا: {link}",
   "lang": "ar"
  }
 }

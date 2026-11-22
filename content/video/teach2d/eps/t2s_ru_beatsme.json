@@ -66,15 +66,15 @@
    "text": "Don't say 'beats me' to a client's question.",
    "why": "It sounds careless and unprofessional."
   },
-  "l1": "не знаю; понятия не имею",
+  "l1": "не знаю",
   "l1_hook": "Куда делся ключ? «beats me».",
   "l1_ex": "Где ключ? Beats me.",
   "right": "beats me",
   "native": {
    "hook": "Что значит «beats me»?",
-   "tip": "“beats me” = не знаю; понятия не имею. Пример: “Where's the key? Beats me.”",
-   "caption": "Что значит «beats me»?\n“beats me” = не знаю; понятия не имею.\nПример: “Where's the key? Beats me.” (Где ключ? Beats me.)\nУчи английский сленг бесплатно в Lexkite.",
-   "comment": "Ответ: “beats me” = не знаю; понятия не имею. “Where's the key? Beats me.” Больше практики бесплатно: {link}",
+   "tip": "“beats me” = не знаю. Пример: “Where's the key? Beats me.”",
+   "caption": "Что значит «beats me»?\n“beats me” = не знаю.\nПример: “Where's the key? Beats me.” (Где ключ? Beats me.)\nУчи английский сленг бесплатно в Lexkite.",
+   "comment": "Ответ: “beats me” = не знаю. “Where's the key? Beats me.” Больше практики бесплатно: {link}",
    "hashtags": [
     "#английскийязык",
     "#английский",
@@ -105,7 +105,7 @@
  "publish": {
   "title": "Что значит «beats me»?",
   "keyword": "beats me",
-  "value": "“beats me” = не знаю; понятия не имею. Пример: “Where's the key? Beats me.”",
+  "value": "“beats me” = не знаю. Пример: “Where's the key? Beats me.”",
   "hashtags": [
    "#английскийязык",
    "#английский",
@@ -117,7 +117,7 @@
   "platforms": {
    "youtube": {
     "title": "Что значит «beats me»?",
-    "description": "“beats me” = не знаю; понятия не имею. Пример: “Where's the key? Beats me.”\n\nЧто значит «beats me»?\n“beats me” = не знаю; понятия не имею.\nПример: “Where's the key? Beats me.” (Где ключ? Beats me.)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#английскийязык #английский #учуанглийский #lexkite",
+    "description": "“beats me” = не знаю. Пример: “Where's the key? Beats me.”\n\nЧто значит «beats me»?\n“beats me” = не знаю.\nПример: “Where's the key? Beats me.” (Где ключ? Beats me.)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#английскийязык #английский #учуанглийский #lexkite",
     "tags": [
      "beats me",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "Что значит «beats me»?\n“beats me” = не знаю; понятия не имею.\nПример: “Where's the key? Beats me.” (Где ключ? Beats me.)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+    "text": "Что значит «beats me»?\n“beats me” = не знаю.\nПример: “Where's the key? Beats me.” (Где ключ? Beats me.)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
    },
    "instagram": {
-    "caption": "Что значит «beats me»?\n\n“beats me” = не знаю; понятия не имею. Пример: “Where's the key? Beats me.”\n\nlexkite.com",
+    "caption": "Что значит «beats me»?\n\n“beats me” = не знаю. Пример: “Where's the key? Beats me.”\n\nlexkite.com",
     "hashtags": [
      "#английскийязык",
      "#английский",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "Что значит «beats me»? “beats me” = не знаю; понятия не имею. Пример: “Where's the key? Beats me.” #английскийязык #английский #учуанглийский"
+    "caption": "Что значит «beats me»? “beats me” = не знаю. Пример: “Where's the key? Beats me.” #английскийязык #английский #учуанглийский"
    }
   },
-  "first_comment": "Ответ: “beats me” = не знаю; понятия не имею. “Where's the key? Beats me.” Больше практики бесплатно: {link}",
+  "first_comment": "Ответ: “beats me” = не знаю. “Where's the key? Beats me.” Больше практики бесплатно: {link}",
   "lang": "ru"
  }
 }

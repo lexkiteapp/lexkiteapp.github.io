@@ -66,15 +66,15 @@
    "text": "Don't say 'cool' when someone shares sad news.",
    "why": "It sounds like you don't care."
   },
-  "l1": "tamam; güzel; süper",
+  "l1": "tamam",
   "l1_hook": "Bu akşam saat altıda film, 'cool' mu?",
   "l1_ex": "'cool', saat altıda görüşürüz!",
   "right": "cool",
   "native": {
    "hook": "“cool” ne demek?",
-   "tip": "“cool” = tamam; güzel; süper. Örnek: “Cool, see you at six!”",
-   "caption": "“cool” ne demek?\n“cool” = tamam; güzel; süper.\nÖrnek: “Cool, see you at six!” ('cool', saat altıda görüşürüz!)\nLexkite ile İngilizce argoyu ücretsiz öğren.",
-   "comment": "Cevap: “cool” = tamam; güzel; süper. “Cool, see you at six!” Ücretsiz daha fazla pratik: {link}",
+   "tip": "“cool” = tamam. Örnek: “Cool, see you at six!”",
+   "caption": "“cool” ne demek?\n“cool” = tamam.\nÖrnek: “Cool, see you at six!” ('cool', saat altıda görüşürüz!)\nLexkite ile İngilizce argoyu ücretsiz öğren.",
+   "comment": "Cevap: “cool” = tamam. “Cool, see you at six!” Ücretsiz daha fazla pratik: {link}",
    "hashtags": [
     "#ingilizceöğren",
     "#ingilizcekonuşma",
@@ -105,7 +105,7 @@
  "publish": {
   "title": "“cool” ne demek?",
   "keyword": "cool",
-  "value": "“cool” = tamam; güzel; süper. Örnek: “Cool, see you at six!”",
+  "value": "“cool” = tamam. Örnek: “Cool, see you at six!”",
   "hashtags": [
    "#ingilizceöğren",
    "#ingilizcekonuşma",
@@ -117,7 +117,7 @@
   "platforms": {
    "youtube": {
     "title": "“cool” ne demek?",
-    "description": "“cool” = tamam; güzel; süper. Örnek: “Cool, see you at six!”\n\n“cool” ne demek?\n“cool” = tamam; güzel; süper.\nÖrnek: “Cool, see you at six!” ('cool', saat altıda görüşürüz!)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "description": "“cool” = tamam. Örnek: “Cool, see you at six!”\n\n“cool” ne demek?\n“cool” = tamam.\nÖrnek: “Cool, see you at six!” ('cool', saat altıda görüşürüz!)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
     "tags": [
      "cool",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "“cool” ne demek?\n“cool” = tamam; güzel; süper.\nÖrnek: “Cool, see you at six!” ('cool', saat altıda görüşürüz!)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases"
+    "text": "“cool” ne demek?\n“cool” = tamam.\nÖrnek: “Cool, see you at six!” ('cool', saat altıda görüşürüz!)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases"
    },
    "instagram": {
-    "caption": "“cool” ne demek?\n\n“cool” = tamam; güzel; süper. Örnek: “Cool, see you at six!”\n\nlexkite.com",
+    "caption": "“cool” ne demek?\n\n“cool” = tamam. Örnek: “Cool, see you at six!”\n\nlexkite.com",
     "hashtags": [
      "#ingilizceöğren",
      "#ingilizcekonuşma",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "“cool” ne demek? “cool” = tamam; güzel; süper. Örnek: “Cool, see you at six!” #ingilizceöğren #ingilizcekonuşma #ingilizce"
+    "caption": "“cool” ne demek? “cool” = tamam. Örnek: “Cool, see you at six!” #ingilizceöğren #ingilizcekonuşma #ingilizce"
    }
   },
-  "first_comment": "Cevap: “cool” = tamam; güzel; süper. “Cool, see you at six!” Ücretsiz daha fazla pratik: {link}",
+  "first_comment": "Cevap: “cool” = tamam. “Cool, see you at six!” Ücretsiz daha fazla pratik: {link}",
   "lang": "tr"
  }
 }

@@ -72,15 +72,15 @@
    "text": "Don't call your new boss your 'bestie'.",
    "why": "It's too close and casual."
   },
-  "l1": "صديق مقرب; صديقة مقربة",
+  "l1": "صديق مقرب",
   "l1_hook": "من يعرف كل أسرارك؟ \"bestie\"",
   "l1_ex": "أنا والـ \"bestie\" نحب التاكو.",
   "right": "bestie",
   "native": {
    "hook": "ما معنى “bestie”؟",
-   "tip": "“bestie” = صديق مقرب; صديقة مقربة. مثال: “My bestie and I love tacos.”",
-   "caption": "ما معنى “bestie”؟\n“bestie” = صديق مقرب; صديقة مقربة.\nمثال: “My bestie and I love tacos.” (أنا والـ \"bestie\" نحب التاكو.)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.",
-   "comment": "الإجابة: “bestie” = صديق مقرب; صديقة مقربة. “My bestie and I love tacos.” تدرّب أكثر مجانًا: {link}",
+   "tip": "“bestie” = صديق مقرب. مثال: “My bestie and I love tacos.”",
+   "caption": "ما معنى “bestie”؟\n“bestie” = صديق مقرب.\nمثال: “My bestie and I love tacos.” (أنا والـ \"bestie\" نحب التاكو.)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.",
+   "comment": "الإجابة: “bestie” = صديق مقرب. “My bestie and I love tacos.” تدرّب أكثر مجانًا: {link}",
    "hashtags": [
     "#تعلم_الانجليزية",
     "#اللغة_الانجليزية",
@@ -111,7 +111,7 @@
  "publish": {
   "title": "ما معنى “bestie”؟",
   "keyword": "bestie",
-  "value": "“bestie” = صديق مقرب; صديقة مقربة. مثال: “My bestie and I love tacos.”",
+  "value": "“bestie” = صديق مقرب. مثال: “My bestie and I love tacos.”",
   "hashtags": [
    "#تعلم_الانجليزية",
    "#اللغة_الانجليزية",
@@ -123,7 +123,7 @@
   "platforms": {
    "youtube": {
     "title": "ما معنى “bestie”؟",
-    "description": "“bestie” = صديق مقرب; صديقة مقربة. مثال: “My bestie and I love tacos.”\n\nما معنى “bestie”؟\n“bestie” = صديق مقرب; صديقة مقربة.\nمثال: “My bestie and I love tacos.” (أنا والـ \"bestie\" نحب التاكو.)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "description": "“bestie” = صديق مقرب. مثال: “My bestie and I love tacos.”\n\nما معنى “bestie”؟\n“bestie” = صديق مقرب.\nمثال: “My bestie and I love tacos.” (أنا والـ \"bestie\" نحب التاكو.)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
     "tags": [
      "bestie",
      "learn english",
@@ -131,10 +131,10 @@
     ]
    },
    "facebook": {
-    "text": "ما معنى “bestie”؟\n“bestie” = صديق مقرب; صديقة مقربة.\nمثال: “My bestie and I love tacos.” (أنا والـ \"bestie\" نحب التاكو.)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+    "text": "ما معنى “bestie”؟\n“bestie” = صديق مقرب.\nمثال: “My bestie and I love tacos.” (أنا والـ \"bestie\" نحب التاكو.)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
    },
    "instagram": {
-    "caption": "ما معنى “bestie”؟\n\n“bestie” = صديق مقرب; صديقة مقربة. مثال: “My bestie and I love tacos.”\n\nlexkite.com",
+    "caption": "ما معنى “bestie”؟\n\n“bestie” = صديق مقرب. مثال: “My bestie and I love tacos.”\n\nlexkite.com",
     "hashtags": [
      "#تعلم_الانجليزية",
      "#اللغة_الانجليزية",
@@ -143,10 +143,10 @@
     ]
    },
    "tiktok": {
-    "caption": "ما معنى “bestie”؟ “bestie” = صديق مقرب; صديقة مقربة. مثال: “My bestie and I love tacos.” #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+    "caption": "ما معنى “bestie”؟ “bestie” = صديق مقرب. مثال: “My bestie and I love tacos.” #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
    }
   },
-  "first_comment": "الإجابة: “bestie” = صديق مقرب; صديقة مقربة. “My bestie and I love tacos.” تدرّب أكثر مجانًا: {link}",
+  "first_comment": "الإجابة: “bestie” = صديق مقرب. “My bestie and I love tacos.” تدرّب أكثر مجانًا: {link}",
   "lang": "ar"
  }
 }

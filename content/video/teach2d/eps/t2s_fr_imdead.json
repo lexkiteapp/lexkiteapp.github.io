@@ -68,15 +68,15 @@
    "text": "Don't say 'I'm dead' about a sad story.",
    "why": "It means laughing hard."
   },
-  "l1": "Je suis mort(e); Je meurs",
+  "l1": "Je suis mort(e)",
   "l1_hook": "Le chat a sauté dans la boîte ! I'm dead.",
   "l1_ex": "Le chat a sauté dans la boîte. I'm dead !",
   "right": "I'm dead",
   "native": {
    "hook": "Que veut dire « I'm dead » ?",
-   "tip": "“I'm dead” = Je suis mort(e); Je meurs. Exemple: “The cat jumped in the box. I'm dead!”",
-   "caption": "Que veut dire « I'm dead » ?\n“I'm dead” = Je suis mort(e); Je meurs.\nExemple: “The cat jumped in the box. I'm dead!” (Le chat a sauté dans la boîte. I'm dead !)\nApprends l'argot anglais gratuitement avec Lexkite.",
-   "comment": "Réponse: “I'm dead” = Je suis mort(e); Je meurs. “The cat jumped in the box. I'm dead!” Entraîne-toi gratuitement: {link}",
+   "tip": "“I'm dead” = Je suis mort(e). Exemple: “The cat jumped in the box. I'm dead!”",
+   "caption": "Que veut dire « I'm dead » ?\n“I'm dead” = Je suis mort(e).\nExemple: “The cat jumped in the box. I'm dead!” (Le chat a sauté dans la boîte. I'm dead !)\nApprends l'argot anglais gratuitement avec Lexkite.",
+   "comment": "Réponse: “I'm dead” = Je suis mort(e). “The cat jumped in the box. I'm dead!” Entraîne-toi gratuitement: {link}",
    "hashtags": [
     "#apprendrelanglais",
     "#anglaisfacile",
@@ -107,7 +107,7 @@
  "publish": {
   "title": "Que veut dire « I'm dead » ?",
   "keyword": "I'm dead",
-  "value": "“I'm dead” = Je suis mort(e); Je meurs. Exemple: “The cat jumped in the box. I'm dead!”",
+  "value": "“I'm dead” = Je suis mort(e). Exemple: “The cat jumped in the box. I'm dead!”",
   "hashtags": [
    "#apprendrelanglais",
    "#anglaisfacile",
@@ -119,7 +119,7 @@
   "platforms": {
    "youtube": {
     "title": "Que veut dire « I'm dead » ?",
-    "description": "“I'm dead” = Je suis mort(e); Je meurs. Exemple: “The cat jumped in the box. I'm dead!”\n\nQue veut dire « I'm dead » ?\n“I'm dead” = Je suis mort(e); Je meurs.\nExemple: “The cat jumped in the box. I'm dead!” (Le chat a sauté dans la boîte. I'm dead !)\nApprends l'argot anglais gratuitement avec Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "description": "“I'm dead” = Je suis mort(e). Exemple: “The cat jumped in the box. I'm dead!”\n\nQue veut dire « I'm dead » ?\n“I'm dead” = Je suis mort(e).\nExemple: “The cat jumped in the box. I'm dead!” (Le chat a sauté dans la boîte. I'm dead !)\nApprends l'argot anglais gratuitement avec Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
     "tags": [
      "I'm dead",
      "learn english",
@@ -127,10 +127,10 @@
     ]
    },
    "facebook": {
-    "text": "Que veut dire « I'm dead » ?\n“I'm dead” = Je suis mort(e); Je meurs.\nExemple: “The cat jumped in the box. I'm dead!” (Le chat a sauté dans la boîte. I'm dead !)\nApprends l'argot anglais gratuitement avec Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+    "text": "Que veut dire « I'm dead » ?\n“I'm dead” = Je suis mort(e).\nExemple: “The cat jumped in the box. I'm dead!” (Le chat a sauté dans la boîte. I'm dead !)\nApprends l'argot anglais gratuitement avec Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
    },
    "instagram": {
-    "caption": "Que veut dire « I'm dead » ?\n\n“I'm dead” = Je suis mort(e); Je meurs. Exemple: “The cat jumped in the box. I'm dead!”\n\nlexkite.com",
+    "caption": "Que veut dire « I'm dead » ?\n\n“I'm dead” = Je suis mort(e). Exemple: “The cat jumped in the box. I'm dead!”\n\nlexkite.com",
     "hashtags": [
      "#apprendrelanglais",
      "#anglaisfacile",
@@ -139,10 +139,10 @@
     ]
    },
    "tiktok": {
-    "caption": "Que veut dire « I'm dead » ? “I'm dead” = Je suis mort(e); Je meurs. Exemple: “The cat jumped in the… #apprendrelanglais #anglaisfacile #coursdanglais"
+    "caption": "Que veut dire « I'm dead » ? “I'm dead” = Je suis mort(e). Exemple: “The cat jumped in the box. I'm… #apprendrelanglais #anglaisfacile #coursdanglais"
    }
   },
-  "first_comment": "Réponse: “I'm dead” = Je suis mort(e); Je meurs. “The cat jumped in the box. I'm dead!” Entraîne-toi gratuitement: {link}",
+  "first_comment": "Réponse: “I'm dead” = Je suis mort(e). “The cat jumped in the box. I'm dead!” Entraîne-toi gratuitement: {link}",
   "lang": "fr"
  }
 }

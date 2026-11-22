@@ -70,15 +70,15 @@
    "text": "Don't say 'awesome' about sad news.",
    "why": "It sounds sarcastic or cruel."
   },
-  "l1": "génial; super; formidable",
+  "l1": "génial",
   "l1_hook": "Tu as eu des billets gratuits pour nous ? « awesome »",
   "l1_ex": "Tu as eu des billets gratuits pour nous ? C’est « awesome » !",
   "right": "awesome",
   "native": {
    "hook": "Que veut dire « awesome » ?",
-   "tip": "“awesome” = génial; super; formidable. Exemple: “You got us free tickets? That's awesome!”",
-   "caption": "Que veut dire « awesome » ?\n“awesome” = génial; super; formidable.\nExemple: “You got us free tickets? That's awesome!” (Tu as eu des billets gratuits pour nous ? C’est « awesome » !)\nApprends l'argot anglais gratuitement avec Lexkite.",
-   "comment": "Réponse: “awesome” = génial; super; formidable. “You got us free tickets? That's awesome!” Entraîne-toi gratuitement: {link}",
+   "tip": "“awesome” = génial. Exemple: “You got us free tickets? That's awesome!”",
+   "caption": "Que veut dire « awesome » ?\n“awesome” = génial.\nExemple: “You got us free tickets? That's awesome!” (Tu as eu des billets gratuits pour nous ? C’est « awesome » !)\nApprends l'argot anglais gratuitement avec Lexkite.",
+   "comment": "Réponse: “awesome” = génial. “You got us free tickets? That's awesome!” Entraîne-toi gratuitement: {link}",
    "hashtags": [
     "#apprendrelanglais",
     "#anglaisfacile",
@@ -109,7 +109,7 @@
  "publish": {
   "title": "Que veut dire « awesome » ?",
   "keyword": "awesome",
-  "value": "“awesome” = génial; super; formidable. Exemple: “You got us free tickets? That's awesome!”",
+  "value": "“awesome” = génial. Exemple: “You got us free tickets? That's awesome!”",
   "hashtags": [
    "#apprendrelanglais",
    "#anglaisfacile",
@@ -121,7 +121,7 @@
   "platforms": {
    "youtube": {
     "title": "Que veut dire « awesome » ?",
-    "description": "“awesome” = génial; super; formidable. Exemple: “You got us free tickets? That's awesome!”\n\nQue veut dire « awesome » ?\n“awesome” = génial; super; formidable.\nExemple: “You got us free tickets? That's awesome!” (Tu as eu des billets gratuits pour nous ? C’est « awesome » !)\nApprends l'argot anglais gratuitement avec Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "description": "“awesome” = génial. Exemple: “You got us free tickets? That's awesome!”\n\nQue veut dire « awesome » ?\n“awesome” = génial.\nExemple: “You got us free tickets? That's awesome!” (Tu as eu des billets gratuits pour nous ? C’est « awesome » !)\nApprends l'argot anglais gratuitement avec Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
     "tags": [
      "awesome",
      "learn english",
@@ -129,10 +129,10 @@
     ]
    },
    "facebook": {
-    "text": "Que veut dire « awesome » ?\n“awesome” = génial; super; formidable.\nExemple: “You got us free tickets? That's awesome!” (Tu as eu des billets gratuits pour nous ? C’est « awesome » !)\nApprends l'argot anglais gratuitement avec Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+    "text": "Que veut dire « awesome » ?\n“awesome” = génial.\nExemple: “You got us free tickets? That's awesome!” (Tu as eu des billets gratuits pour nous ? C’est « awesome » !)\nApprends l'argot anglais gratuitement avec Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
    },
    "instagram": {
-    "caption": "Que veut dire « awesome » ?\n\n“awesome” = génial; super; formidable. Exemple: “You got us free tickets? That's awesome!”\n\nlexkite.com",
+    "caption": "Que veut dire « awesome » ?\n\n“awesome” = génial. Exemple: “You got us free tickets? That's awesome!”\n\nlexkite.com",
     "hashtags": [
      "#apprendrelanglais",
      "#anglaisfacile",
@@ -141,10 +141,10 @@
     ]
    },
    "tiktok": {
-    "caption": "Que veut dire « awesome » ? “awesome” = génial; super; formidable. Exemple: “You got us free tickets… #apprendrelanglais #anglaisfacile #coursdanglais"
+    "caption": "Que veut dire « awesome » ? “awesome” = génial. Exemple: “You got us free tickets? That's awesome!” #apprendrelanglais #anglaisfacile #coursdanglais"
    }
   },
-  "first_comment": "Réponse: “awesome” = génial; super; formidable. “You got us free tickets? That's awesome!” Entraîne-toi gratuitement: {link}",
+  "first_comment": "Réponse: “awesome” = génial. “You got us free tickets? That's awesome!” Entraîne-toi gratuitement: {link}",
   "lang": "fr"
  }
 }

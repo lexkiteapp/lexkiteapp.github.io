@@ -67,11 +67,41 @@ def lum(c):
 def cr(a, b): la, lb = sorted([lum(a), lum(b)], reverse=True); return (la + 0.05) / (lb + 0.05)
 
 
+import re as _re
+NOLATIN = {'dev', 'tha'}   # Noto Devanagari / Thai carry no Latin glyphs: a mixed line ("… 'salty' …") is drawn run by run (Latin runs in the brand font)
+
+
+def _runs(s, k):   # [(text, is_script)] – script letters (+ the spaces/punctuation between them) vs Latin runs
+    rx = [r for kk, r, _ in SCRIPTS if kk == k][0]
+    out, cur, cs = [], '', None
+    for ch in s:
+        isk = bool(_re.match(rx, ch)) or (ch in ' ,.!?:;-–()' and cs)
+        if cs is None or isk == cs: cur += ch; cs = isk if cs is None else cs
+        else: out.append((cur, cs)); cur, cs = ch, isk
+    if cur: out.append((cur, cs))
+    return out
+
+
+def tlen(d, s, f):   # text width, run by run when the font has no Latin
+    k = script_of(s)
+    if k not in NOLATIN: return d.textlength(s, font=f)
+    lat = font(f.size)
+    return sum(d.textlength(t, font=f if isk else lat) for t, isk in _runs(s, k))
+
+
+def draw(d, xy, s, f, fill, **kw):
+    k = script_of(s)
+    if k not in NOLATIN: d.text(xy, s, font=f, fill=fill, **kw); return
+    x, y, lat = xy[0], xy[1], font(f.size)
+    for t, isk in _runs(s, k):
+        ff = f if isk else lat; d.text((x, y), t, font=ff, fill=fill); x += d.textlength(t, font=ff)
+
+
 def wrap(d, text, f, width):
     out, cur = [], ''
     for w in text.split():
         t = (cur + ' ' + w).strip()
-        if d.textlength(t, font=f) <= width or not cur: cur = t
+        if tlen(d, t, f) <= width or not cur: cur = t
         else: out.append(cur); cur = w
     if cur: out.append(cur)
     return out
@@ -82,15 +112,15 @@ def text(d, xy, s, sz, fg, bg, width, align='c', ipa=False, max_lines=3, tag='')
     x, y = xy; size = sz
     while True:
         f = font(size, ipa, s); ls = wrap(d, s, f, width)
-        if len(ls) <= max_lines and all(d.textlength(l, font=f) <= width for l in ls): break
+        if len(ls) <= max_lines and all(tlen(d, l, f) <= width for l in ls): break
         if size <= sz * 0.7: GATES['overflow'].append(dict(tag=tag, text=s)); break
         size -= 4
     lim = 3.0 if size >= 56 else 4.5; c_ = cr(rgb(fg), rgb(bg))
     if c_ < lim: GATES['contrast'].append(dict(tag=tag, fg=fg, bg=bg, ratio=round(c_, 2), need=lim))
     lh = round(size * 1.2)
     for i, l in enumerate(ls):
-        lw = d.textlength(l, font=f); xx = x + (width - lw) / 2 if align == 'c' else x
-        d.text((xx, y + i * lh), l, font=f, fill=fg, **({'direction': 'rtl'} if RAQM and script_of(l) == 'ara' else {}))
+        lw = tlen(d, l, f); xx = x + (width - lw) / 2 if align == 'c' else x
+        draw(d, (xx, y + i * lh), l, f, fg, **({'direction': 'rtl'} if RAQM and script_of(l) == 'ara' else {}))
     return y + len(ls) * lh
 
 

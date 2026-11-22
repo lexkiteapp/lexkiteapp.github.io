@@ -66,15 +66,15 @@
    "text": "Don't call your friend's gift 'basic' to her.",
    "why": "It sounds like an insult."
   },
-  "l1": "عادي; تقليدي; ممل",
+  "l1": "عادي",
   "l1_hook": "بيتزا وفيلم مجدداً؟ \"basic\"",
   "l1_ex": "خطتي لنهاية الأسبوع \"basic\": بيتزا وفيلم.",
   "right": "basic",
   "native": {
    "hook": "ما معنى “basic”؟",
-   "tip": "“basic” = عادي; تقليدي; ممل. مثال: “My weekend plan is basic: pizza and a movie.”",
-   "caption": "ما معنى “basic”؟\n“basic” = عادي; تقليدي; ممل.\nمثال: “My weekend plan is basic: pizza and a movie.” (خطتي لنهاية الأسبوع \"basic\": بيتزا وفيلم.)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.",
-   "comment": "الإجابة: “basic” = عادي; تقليدي; ممل. “My weekend plan is basic: pizza and a movie.” تدرّب أكثر مجانًا: {link}",
+   "tip": "“basic” = عادي. مثال: “My weekend plan is basic: pizza and a movie.”",
+   "caption": "ما معنى “basic”؟\n“basic” = عادي.\nمثال: “My weekend plan is basic: pizza and a movie.” (خطتي لنهاية الأسبوع \"basic\": بيتزا وفيلم.)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.",
+   "comment": "الإجابة: “basic” = عادي. “My weekend plan is basic: pizza and a movie.” تدرّب أكثر مجانًا: {link}",
    "hashtags": [
     "#تعلم_الانجليزية",
     "#اللغة_الانجليزية",
@@ -105,7 +105,7 @@
  "publish": {
   "title": "ما معنى “basic”؟",
   "keyword": "basic",
-  "value": "“basic” = عادي; تقليدي; ممل. مثال: “My weekend plan is basic: pizza and a movie.”",
+  "value": "“basic” = عادي. مثال: “My weekend plan is basic: pizza and a movie.”",
   "hashtags": [
    "#تعلم_الانجليزية",
    "#اللغة_الانجليزية",
@@ -117,7 +117,7 @@
   "platforms": {
    "youtube": {
     "title": "ما معنى “basic”؟",
-    "description": "“basic” = عادي; تقليدي; ممل. مثال: “My weekend plan is basic: pizza and a movie.”\n\nما معنى “basic”؟\n“basic” = عادي; تقليدي; ممل.\nمثال: “My weekend plan is basic: pizza and a movie.” (خطتي لنهاية الأسبوع \"basic\": بيتزا وفيلم.)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "description": "“basic” = عادي. مثال: “My weekend plan is basic: pizza and a movie.”\n\nما معنى “basic”؟\n“basic” = عادي.\nمثال: “My weekend plan is basic: pizza and a movie.” (خطتي لنهاية الأسبوع \"basic\": بيتزا وفيلم.)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
     "tags": [
      "basic",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "ما معنى “basic”؟\n“basic” = عادي; تقليدي; ممل.\nمثال: “My weekend plan is basic: pizza and a movie.” (خطتي لنهاية الأسبوع \"basic\": بيتزا وفيلم.)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+    "text": "ما معنى “basic”؟\n“basic” = عادي.\nمثال: “My weekend plan is basic: pizza and a movie.” (خطتي لنهاية الأسبوع \"basic\": بيتزا وفيلم.)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
    },
    "instagram": {
-    "caption": "ما معنى “basic”؟\n\n“basic” = عادي; تقليدي; ممل. مثال: “My weekend plan is basic: pizza and a movie.”\n\nlexkite.com",
+    "caption": "ما معنى “basic”؟\n\n“basic” = عادي. مثال: “My weekend plan is basic: pizza and a movie.”\n\nlexkite.com",
     "hashtags": [
      "#تعلم_الانجليزية",
      "#اللغة_الانجليزية",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "ما معنى “basic”؟ “basic” = عادي; تقليدي; ممل. مثال: “My weekend plan is basic: pizza and a movie.” #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+    "caption": "ما معنى “basic”؟ “basic” = عادي. مثال: “My weekend plan is basic: pizza and a movie.” #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
    }
   },
-  "first_comment": "الإجابة: “basic” = عادي; تقليدي; ممل. “My weekend plan is basic: pizza and a movie.” تدرّب أكثر مجانًا: {link}",
+  "first_comment": "الإجابة: “basic” = عادي. “My weekend plan is basic: pizza and a movie.” تدرّب أكثر مجانًا: {link}",
   "lang": "ar"
  }
 }

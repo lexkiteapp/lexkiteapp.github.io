@@ -70,15 +70,15 @@
    "text": "Don't say 'awesome' about sad news.",
    "why": "It sounds sarcastic or cruel."
   },
-  "l1": "رائع; ممتاز",
+  "l1": "رائع",
   "l1_hook": "هل حصلت لنا على تذاكر مجانية؟",
   "l1_ex": "هل حصلت لنا على تذاكر مجانية؟ هذا \"awesome\"!",
   "right": "awesome",
   "native": {
    "hook": "ما معنى “awesome”؟",
-   "tip": "“awesome” = رائع; ممتاز. مثال: “You got us free tickets? That's awesome!”",
-   "caption": "ما معنى “awesome”؟\n“awesome” = رائع; ممتاز.\nمثال: “You got us free tickets? That's awesome!” (هل حصلت لنا على تذاكر مجانية؟ هذا \"awesome\"!)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.",
-   "comment": "الإجابة: “awesome” = رائع; ممتاز. “You got us free tickets? That's awesome!” تدرّب أكثر مجانًا: {link}",
+   "tip": "“awesome” = رائع. مثال: “You got us free tickets? That's awesome!”",
+   "caption": "ما معنى “awesome”؟\n“awesome” = رائع.\nمثال: “You got us free tickets? That's awesome!” (هل حصلت لنا على تذاكر مجانية؟ هذا \"awesome\"!)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.",
+   "comment": "الإجابة: “awesome” = رائع. “You got us free tickets? That's awesome!” تدرّب أكثر مجانًا: {link}",
    "hashtags": [
     "#تعلم_الانجليزية",
     "#اللغة_الانجليزية",
@@ -109,7 +109,7 @@
  "publish": {
   "title": "ما معنى “awesome”؟",
   "keyword": "awesome",
-  "value": "“awesome” = رائع; ممتاز. مثال: “You got us free tickets? That's awesome!”",
+  "value": "“awesome” = رائع. مثال: “You got us free tickets? That's awesome!”",
   "hashtags": [
    "#تعلم_الانجليزية",
    "#اللغة_الانجليزية",
@@ -121,7 +121,7 @@
   "platforms": {
    "youtube": {
     "title": "ما معنى “awesome”؟",
-    "description": "“awesome” = رائع; ممتاز. مثال: “You got us free tickets? That's awesome!”\n\nما معنى “awesome”؟\n“awesome” = رائع; ممتاز.\nمثال: “You got us free tickets? That's awesome!” (هل حصلت لنا على تذاكر مجانية؟ هذا \"awesome\"!)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "description": "“awesome” = رائع. مثال: “You got us free tickets? That's awesome!”\n\nما معنى “awesome”؟\n“awesome” = رائع.\nمثال: “You got us free tickets? That's awesome!” (هل حصلت لنا على تذاكر مجانية؟ هذا \"awesome\"!)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
     "tags": [
      "awesome",
      "learn english",
@@ -129,10 +129,10 @@
     ]
    },
    "facebook": {
-    "text": "ما معنى “awesome”؟\n“awesome” = رائع; ممتاز.\nمثال: “You got us free tickets? That's awesome!” (هل حصلت لنا على تذاكر مجانية؟ هذا \"awesome\"!)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+    "text": "ما معنى “awesome”؟\n“awesome” = رائع.\nمثال: “You got us free tickets? That's awesome!” (هل حصلت لنا على تذاكر مجانية؟ هذا \"awesome\"!)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
    },
    "instagram": {
-    "caption": "ما معنى “awesome”؟\n\n“awesome” = رائع; ممتاز. مثال: “You got us free tickets? That's awesome!”\n\nlexkite.com",
+    "caption": "ما معنى “awesome”؟\n\n“awesome” = رائع. مثال: “You got us free tickets? That's awesome!”\n\nlexkite.com",
     "hashtags": [
      "#تعلم_الانجليزية",
      "#اللغة_الانجليزية",
@@ -141,10 +141,10 @@
     ]
    },
    "tiktok": {
-    "caption": "ما معنى “awesome”؟ “awesome” = رائع; ممتاز. مثال: “You got us free tickets? That's awesome!” #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+    "caption": "ما معنى “awesome”؟ “awesome” = رائع. مثال: “You got us free tickets? That's awesome!” #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
    }
   },
-  "first_comment": "الإجابة: “awesome” = رائع; ممتاز. “You got us free tickets? That's awesome!” تدرّب أكثر مجانًا: {link}",
+  "first_comment": "الإجابة: “awesome” = رائع. “You got us free tickets? That's awesome!” تدرّب أكثر مجانًا: {link}",
   "lang": "ar"
  }
 }

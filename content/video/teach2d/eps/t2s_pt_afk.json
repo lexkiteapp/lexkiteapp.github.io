@@ -68,15 +68,15 @@
    "text": "Don't say 'AFK' in a formal email.",
    "why": "It's gamer shorthand."
   },
-  "l1": "AFK; fora do teclado; ausente",
+  "l1": "AFK",
   "l1_hook": "Cinco minutos, depois eu volto! \"AFK\"",
   "l1_ex": "Volto já, vou ficar \"AFK\" por cinco minutos.",
   "right": "AFK",
   "native": {
    "hook": "O que significa “AFK”?",
-   "tip": "“AFK” = AFK; fora do teclado; ausente. Exemplo: “Brb, I'll be AFK for five minutes.”",
-   "caption": "O que significa “AFK”?\n“AFK” = AFK; fora do teclado; ausente.\nExemplo: “Brb, I'll be AFK for five minutes.” (Volto já, vou ficar \"AFK\" por cinco minutos.)\nAprenda gírias em inglês de graça no Lexkite.",
-   "comment": "Resposta: “AFK” = AFK; fora do teclado; ausente. “Brb, I'll be AFK for five minutes.” Pratique mais de graça: {link}",
+   "tip": "“AFK” = AFK. Exemplo: “Brb, I'll be AFK for five minutes.”",
+   "caption": "O que significa “AFK”?\n“AFK” = AFK.\nExemplo: “Brb, I'll be AFK for five minutes.” (Volto já, vou ficar \"AFK\" por cinco minutos.)\nAprenda gírias em inglês de graça no Lexkite.",
+   "comment": "Resposta: “AFK” = AFK. “Brb, I'll be AFK for five minutes.” Pratique mais de graça: {link}",
    "hashtags": [
     "#aprenderingles",
     "#inglesfacil",
@@ -107,7 +107,7 @@
  "publish": {
   "title": "O que significa “AFK”?",
   "keyword": "AFK",
-  "value": "“AFK” = AFK; fora do teclado; ausente. Exemplo: “Brb, I'll be AFK for five minutes.”",
+  "value": "“AFK” = AFK. Exemplo: “Brb, I'll be AFK for five minutes.”",
   "hashtags": [
    "#aprenderingles",
    "#inglesfacil",
@@ -119,7 +119,7 @@
   "platforms": {
    "youtube": {
     "title": "O que significa “AFK”?",
-    "description": "“AFK” = AFK; fora do teclado; ausente. Exemplo: “Brb, I'll be AFK for five minutes.”\n\nO que significa “AFK”?\n“AFK” = AFK; fora do teclado; ausente.\nExemplo: “Brb, I'll be AFK for five minutes.” (Volto já, vou ficar \"AFK\" por cinco minutos.)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "description": "“AFK” = AFK. Exemplo: “Brb, I'll be AFK for five minutes.”\n\nO que significa “AFK”?\n“AFK” = AFK.\nExemplo: “Brb, I'll be AFK for five minutes.” (Volto já, vou ficar \"AFK\" por cinco minutos.)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
     "tags": [
      "AFK",
      "learn english",
@@ -127,10 +127,10 @@
     ]
    },
    "facebook": {
-    "text": "O que significa “AFK”?\n“AFK” = AFK; fora do teclado; ausente.\nExemplo: “Brb, I'll be AFK for five minutes.” (Volto já, vou ficar \"AFK\" por cinco minutos.)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+    "text": "O que significa “AFK”?\n“AFK” = AFK.\nExemplo: “Brb, I'll be AFK for five minutes.” (Volto já, vou ficar \"AFK\" por cinco minutos.)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
    },
    "instagram": {
-    "caption": "O que significa “AFK”?\n\n“AFK” = AFK; fora do teclado; ausente. Exemplo: “Brb, I'll be AFK for five minutes.”\n\nlexkite.com",
+    "caption": "O que significa “AFK”?\n\n“AFK” = AFK. Exemplo: “Brb, I'll be AFK for five minutes.”\n\nlexkite.com",
     "hashtags": [
      "#aprenderingles",
      "#inglesfacil",
@@ -139,10 +139,10 @@
     ]
    },
    "tiktok": {
-    "caption": "O que significa “AFK”? “AFK” = AFK; fora do teclado; ausente. Exemplo: “Brb, I'll be AFK for five minutes.” #aprenderingles #inglesfacil #inglesonline"
+    "caption": "O que significa “AFK”? “AFK” = AFK. Exemplo: “Brb, I'll be AFK for five minutes.” #aprenderingles #inglesfacil #inglesonline"
    }
   },
-  "first_comment": "Resposta: “AFK” = AFK; fora do teclado; ausente. “Brb, I'll be AFK for five minutes.” Pratique mais de graça: {link}",
+  "first_comment": "Resposta: “AFK” = AFK. “Brb, I'll be AFK for five minutes.” Pratique mais de graça: {link}",
   "lang": "pt"
  }
 }

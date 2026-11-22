@@ -72,15 +72,15 @@
    "text": "Don't call your new boss your 'bestie'.",
    "why": "It's too close and casual."
   },
-  "l1": "meilleure amie; meilleure pote; bestie",
+  "l1": "meilleure amie",
   "l1_hook": "Qui connaît tous tes secrets ? \"bestie\"",
   "l1_ex": "Mon \"bestie\" et moi aimons les tacos.",
   "right": "bestie",
   "native": {
    "hook": "Que veut dire « bestie » ?",
-   "tip": "“bestie” = meilleure amie; meilleure pote; bestie. Exemple: “My bestie and I love tacos.”",
-   "caption": "Que veut dire « bestie » ?\n“bestie” = meilleure amie; meilleure pote; bestie.\nExemple: “My bestie and I love tacos.” (Mon \"bestie\" et moi aimons les tacos.)\nApprends l'argot anglais gratuitement avec Lexkite.",
-   "comment": "Réponse: “bestie” = meilleure amie; meilleure pote; bestie. “My bestie and I love tacos.” Entraîne-toi gratuitement: {link}",
+   "tip": "“bestie” = meilleure amie. Exemple: “My bestie and I love tacos.”",
+   "caption": "Que veut dire « bestie » ?\n“bestie” = meilleure amie.\nExemple: “My bestie and I love tacos.” (Mon \"bestie\" et moi aimons les tacos.)\nApprends l'argot anglais gratuitement avec Lexkite.",
+   "comment": "Réponse: “bestie” = meilleure amie. “My bestie and I love tacos.” Entraîne-toi gratuitement: {link}",
    "hashtags": [
     "#apprendrelanglais",
     "#anglaisfacile",
@@ -111,7 +111,7 @@
  "publish": {
   "title": "Que veut dire « bestie » ?",
   "keyword": "bestie",
-  "value": "“bestie” = meilleure amie; meilleure pote; bestie. Exemple: “My bestie and I love tacos.”",
+  "value": "“bestie” = meilleure amie. Exemple: “My bestie and I love tacos.”",
   "hashtags": [
    "#apprendrelanglais",
    "#anglaisfacile",
@@ -123,7 +123,7 @@
   "platforms": {
    "youtube": {
     "title": "Que veut dire « bestie » ?",
-    "description": "“bestie” = meilleure amie; meilleure pote; bestie. Exemple: “My bestie and I love tacos.”\n\nQue veut dire « bestie » ?\n“bestie” = meilleure amie; meilleure pote; bestie.\nExemple: “My bestie and I love tacos.” (Mon \"bestie\" et moi aimons les tacos.)\nApprends l'argot anglais gratuitement avec Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "description": "“bestie” = meilleure amie. Exemple: “My bestie and I love tacos.”\n\nQue veut dire « bestie » ?\n“bestie” = meilleure amie.\nExemple: “My bestie and I love tacos.” (Mon \"bestie\" et moi aimons les tacos.)\nApprends l'argot anglais gratuitement avec Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
     "tags": [
      "bestie",
      "learn english",
@@ -131,10 +131,10 @@
     ]
    },
    "facebook": {
-    "text": "Que veut dire « bestie » ?\n“bestie” = meilleure amie; meilleure pote; bestie.\nExemple: “My bestie and I love tacos.” (Mon \"bestie\" et moi aimons les tacos.)\nApprends l'argot anglais gratuitement avec Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+    "text": "Que veut dire « bestie » ?\n“bestie” = meilleure amie.\nExemple: “My bestie and I love tacos.” (Mon \"bestie\" et moi aimons les tacos.)\nApprends l'argot anglais gratuitement avec Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
    },
    "instagram": {
-    "caption": "Que veut dire « bestie » ?\n\n“bestie” = meilleure amie; meilleure pote; bestie. Exemple: “My bestie and I love tacos.”\n\nlexkite.com",
+    "caption": "Que veut dire « bestie » ?\n\n“bestie” = meilleure amie. Exemple: “My bestie and I love tacos.”\n\nlexkite.com",
     "hashtags": [
      "#apprendrelanglais",
      "#anglaisfacile",
@@ -143,10 +143,10 @@
     ]
    },
    "tiktok": {
-    "caption": "Que veut dire « bestie » ? “bestie” = meilleure amie; meilleure pote; bestie. Exemple: “My bestie an… #apprendrelanglais #anglaisfacile #coursdanglais"
+    "caption": "Que veut dire « bestie » ? “bestie” = meilleure amie. Exemple: “My bestie and I love tacos.” #apprendrelanglais #anglaisfacile #coursdanglais"
    }
   },
-  "first_comment": "Réponse: “bestie” = meilleure amie; meilleure pote; bestie. “My bestie and I love tacos.” Entraîne-toi gratuitement: {link}",
+  "first_comment": "Réponse: “bestie” = meilleure amie. “My bestie and I love tacos.” Entraîne-toi gratuitement: {link}",
   "lang": "fr"
  }
 }

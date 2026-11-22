@@ -72,15 +72,15 @@
    "text": "Don't call your new boss your 'bestie'.",
    "why": "It's too close and casual."
   },
-  "l1": "en yakın arkadaş; en iyi arkadaş",
+  "l1": "en yakın arkadaş",
   "l1_hook": "Tüm sırlarını bilen kim? \"bestie\".",
   "l1_ex": "\"bestie\" ve ben taco'ları çok seviyoruz.",
   "right": "bestie",
   "native": {
    "hook": "“bestie” ne demek?",
-   "tip": "“bestie” = en yakın arkadaş; en iyi arkadaş. Örnek: “My bestie and I love tacos.”",
-   "caption": "“bestie” ne demek?\n“bestie” = en yakın arkadaş; en iyi arkadaş.\nÖrnek: “My bestie and I love tacos.” (\"bestie\" ve ben taco'ları çok seviyoruz.)\nLexkite ile İngilizce argoyu ücretsiz öğren.",
-   "comment": "Cevap: “bestie” = en yakın arkadaş; en iyi arkadaş. “My bestie and I love tacos.” Ücretsiz daha fazla pratik: {link}",
+   "tip": "“bestie” = en yakın arkadaş. Örnek: “My bestie and I love tacos.”",
+   "caption": "“bestie” ne demek?\n“bestie” = en yakın arkadaş.\nÖrnek: “My bestie and I love tacos.” (\"bestie\" ve ben taco'ları çok seviyoruz.)\nLexkite ile İngilizce argoyu ücretsiz öğren.",
+   "comment": "Cevap: “bestie” = en yakın arkadaş. “My bestie and I love tacos.” Ücretsiz daha fazla pratik: {link}",
    "hashtags": [
     "#ingilizceöğren",
     "#ingilizcekonuşma",
@@ -111,7 +111,7 @@
  "publish": {
   "title": "“bestie” ne demek?",
   "keyword": "bestie",
-  "value": "“bestie” = en yakın arkadaş; en iyi arkadaş. Örnek: “My bestie and I love tacos.”",
+  "value": "“bestie” = en yakın arkadaş. Örnek: “My bestie and I love tacos.”",
   "hashtags": [
    "#ingilizceöğren",
    "#ingilizcekonuşma",
@@ -123,7 +123,7 @@
   "platforms": {
    "youtube": {
     "title": "“bestie” ne demek?",
-    "description": "“bestie” = en yakın arkadaş; en iyi arkadaş. Örnek: “My bestie and I love tacos.”\n\n“bestie” ne demek?\n“bestie” = en yakın arkadaş; en iyi arkadaş.\nÖrnek: “My bestie and I love tacos.” (\"bestie\" ve ben taco'ları çok seviyoruz.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "description": "“bestie” = en yakın arkadaş. Örnek: “My bestie and I love tacos.”\n\n“bestie” ne demek?\n“bestie” = en yakın arkadaş.\nÖrnek: “My bestie and I love tacos.” (\"bestie\" ve ben taco'ları çok seviyoruz.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
     "tags": [
      "bestie",
      "learn english",
@@ -131,10 +131,10 @@
     ]
    },
    "facebook": {
-    "text": "“bestie” ne demek?\n“bestie” = en yakın arkadaş; en iyi arkadaş.\nÖrnek: “My bestie and I love tacos.” (\"bestie\" ve ben taco'ları çok seviyoruz.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases"
+    "text": "“bestie” ne demek?\n“bestie” = en yakın arkadaş.\nÖrnek: “My bestie and I love tacos.” (\"bestie\" ve ben taco'ları çok seviyoruz.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases"
    },
    "instagram": {
-    "caption": "“bestie” ne demek?\n\n“bestie” = en yakın arkadaş; en iyi arkadaş. Örnek: “My bestie and I love tacos.”\n\nlexkite.com",
+    "caption": "“bestie” ne demek?\n\n“bestie” = en yakın arkadaş. Örnek: “My bestie and I love tacos.”\n\nlexkite.com",
     "hashtags": [
      "#ingilizceöğren",
      "#ingilizcekonuşma",
@@ -143,10 +143,10 @@
     ]
    },
    "tiktok": {
-    "caption": "“bestie” ne demek? “bestie” = en yakın arkadaş; en iyi arkadaş. Örnek: “My bestie and I love tacos.” #ingilizceöğren #ingilizcekonuşma #ingilizce"
+    "caption": "“bestie” ne demek? “bestie” = en yakın arkadaş. Örnek: “My bestie and I love tacos.” #ingilizceöğren #ingilizcekonuşma #ingilizce"
    }
   },
-  "first_comment": "Cevap: “bestie” = en yakın arkadaş; en iyi arkadaş. “My bestie and I love tacos.” Ücretsiz daha fazla pratik: {link}",
+  "first_comment": "Cevap: “bestie” = en yakın arkadaş. “My bestie and I love tacos.” Ücretsiz daha fazla pratik: {link}",
   "lang": "tr"
  }
 }

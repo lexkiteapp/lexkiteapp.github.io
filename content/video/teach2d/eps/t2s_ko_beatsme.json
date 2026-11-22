@@ -66,15 +66,15 @@
    "text": "Don't say 'beats me' to a client's question.",
    "why": "It sounds careless and unprofessional."
   },
-  "l1": "전혀 모르겠어; 나도 몰라",
+  "l1": "전혀 모르겠어",
   "l1_hook": "열쇠가 어디로 갔지? 'beats me'",
   "l1_ex": "열쇠가 어디 있지? \"beats me\".",
   "right": "beats me",
   "native": {
    "hook": "“beats me” 무슨 뜻일까요?",
-   "tip": "“beats me” = 전혀 모르겠어; 나도 몰라. 예문: “Where's the key? Beats me.”",
-   "caption": "“beats me” 무슨 뜻일까요?\n“beats me” = 전혀 모르겠어; 나도 몰라.\n예문: “Where's the key? Beats me.” (열쇠가 어디 있지? \"beats me\".)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.",
-   "comment": "정답: “beats me” = 전혀 모르겠어; 나도 몰라. “Where's the key? Beats me.” 무료로 더 연습하기: {link}",
+   "tip": "“beats me” = 전혀 모르겠어. 예문: “Where's the key? Beats me.”",
+   "caption": "“beats me” 무슨 뜻일까요?\n“beats me” = 전혀 모르겠어.\n예문: “Where's the key? Beats me.” (열쇠가 어디 있지? \"beats me\".)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.",
+   "comment": "정답: “beats me” = 전혀 모르겠어. “Where's the key? Beats me.” 무료로 더 연습하기: {link}",
    "hashtags": [
     "#영어공부",
     "#영어회화",
@@ -105,7 +105,7 @@
  "publish": {
   "title": "“beats me” 무슨 뜻일까요?",
   "keyword": "beats me",
-  "value": "“beats me” = 전혀 모르겠어; 나도 몰라. 예문: “Where's the key? Beats me.”",
+  "value": "“beats me” = 전혀 모르겠어. 예문: “Where's the key? Beats me.”",
   "hashtags": [
    "#영어공부",
    "#영어회화",
@@ -117,7 +117,7 @@
   "platforms": {
    "youtube": {
     "title": "“beats me” 무슨 뜻일까요?",
-    "description": "“beats me” = 전혀 모르겠어; 나도 몰라. 예문: “Where's the key? Beats me.”\n\n“beats me” 무슨 뜻일까요?\n“beats me” = 전혀 모르겠어; 나도 몰라.\n예문: “Where's the key? Beats me.” (열쇠가 어디 있지? \"beats me\".)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "description": "“beats me” = 전혀 모르겠어. 예문: “Where's the key? Beats me.”\n\n“beats me” 무슨 뜻일까요?\n“beats me” = 전혀 모르겠어.\n예문: “Where's the key? Beats me.” (열쇠가 어디 있지? \"beats me\".)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases\n\n#영어공부 #영어회화 #영어독학 #lexkite",
     "tags": [
      "beats me",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "“beats me” 무슨 뜻일까요?\n“beats me” = 전혀 모르겠어; 나도 몰라.\n예문: “Where's the key? Beats me.” (열쇠가 어디 있지? \"beats me\".)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases"
+    "text": "“beats me” 무슨 뜻일까요?\n“beats me” = 전혀 모르겠어.\n예문: “Where's the key? Beats me.” (열쇠가 어디 있지? \"beats me\".)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases"
    },
    "instagram": {
-    "caption": "“beats me” 무슨 뜻일까요?\n\n“beats me” = 전혀 모르겠어; 나도 몰라. 예문: “Where's the key? Beats me.”\n\nlexkite.com",
+    "caption": "“beats me” 무슨 뜻일까요?\n\n“beats me” = 전혀 모르겠어. 예문: “Where's the key? Beats me.”\n\nlexkite.com",
     "hashtags": [
      "#영어공부",
      "#영어회화",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "“beats me” 무슨 뜻일까요? “beats me” = 전혀 모르겠어; 나도 몰라. 예문: “Where's the key? Beats me.” #영어공부 #영어회화 #영어독학"
+    "caption": "“beats me” 무슨 뜻일까요? “beats me” = 전혀 모르겠어. 예문: “Where's the key? Beats me.” #영어공부 #영어회화 #영어독학"
    }
   },
-  "first_comment": "정답: “beats me” = 전혀 모르겠어; 나도 몰라. “Where's the key? Beats me.” 무료로 더 연습하기: {link}",
+  "first_comment": "정답: “beats me” = 전혀 모르겠어. “Where's the key? Beats me.” 무료로 더 연습하기: {link}",
   "lang": "ko"
  }
 }

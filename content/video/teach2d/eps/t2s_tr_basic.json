@@ -66,15 +66,15 @@
    "text": "Don't call your friend's gift 'basic' to her.",
    "why": "It sounds like an insult."
   },
-  "l1": "sıradan; klişe; basit",
+  "l1": "sıradan",
   "l1_hook": "Yine pizza ve film mi?",
   "l1_ex": "Hafta sonu planım \"basic\": pizza ve film.",
   "right": "basic",
   "native": {
    "hook": "“basic” ne demek?",
-   "tip": "“basic” = sıradan; klişe; basit. Örnek: “My weekend plan is basic: pizza and a movie.”",
-   "caption": "“basic” ne demek?\n“basic” = sıradan; klişe; basit.\nÖrnek: “My weekend plan is basic: pizza and a movie.” (Hafta sonu planım \"basic\": pizza ve film.)\nLexkite ile İngilizce argoyu ücretsiz öğren.",
-   "comment": "Cevap: “basic” = sıradan; klişe; basit. “My weekend plan is basic: pizza and a movie.” Ücretsiz daha fazla pratik: {link}",
+   "tip": "“basic” = sıradan. Örnek: “My weekend plan is basic: pizza and a movie.”",
+   "caption": "“basic” ne demek?\n“basic” = sıradan.\nÖrnek: “My weekend plan is basic: pizza and a movie.” (Hafta sonu planım \"basic\": pizza ve film.)\nLexkite ile İngilizce argoyu ücretsiz öğren.",
+   "comment": "Cevap: “basic” = sıradan. “My weekend plan is basic: pizza and a movie.” Ücretsiz daha fazla pratik: {link}",
    "hashtags": [
     "#ingilizceöğren",
     "#ingilizcekonuşma",
@@ -105,7 +105,7 @@
  "publish": {
   "title": "“basic” ne demek?",
   "keyword": "basic",
-  "value": "“basic” = sıradan; klişe; basit. Örnek: “My weekend plan is basic: pizza and a movie.”",
+  "value": "“basic” = sıradan. Örnek: “My weekend plan is basic: pizza and a movie.”",
   "hashtags": [
    "#ingilizceöğren",
    "#ingilizcekonuşma",
@@ -117,7 +117,7 @@
   "platforms": {
    "youtube": {
     "title": "“basic” ne demek?",
-    "description": "“basic” = sıradan; klişe; basit. Örnek: “My weekend plan is basic: pizza and a movie.”\n\n“basic” ne demek?\n“basic” = sıradan; klişe; basit.\nÖrnek: “My weekend plan is basic: pizza and a movie.” (Hafta sonu planım \"basic\": pizza ve film.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "description": "“basic” = sıradan. Örnek: “My weekend plan is basic: pizza and a movie.”\n\n“basic” ne demek?\n“basic” = sıradan.\nÖrnek: “My weekend plan is basic: pizza and a movie.” (Hafta sonu planım \"basic\": pizza ve film.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
     "tags": [
      "basic",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "“basic” ne demek?\n“basic” = sıradan; klişe; basit.\nÖrnek: “My weekend plan is basic: pizza and a movie.” (Hafta sonu planım \"basic\": pizza ve film.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases"
+    "text": "“basic” ne demek?\n“basic” = sıradan.\nÖrnek: “My weekend plan is basic: pizza and a movie.” (Hafta sonu planım \"basic\": pizza ve film.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases"
    },
    "instagram": {
-    "caption": "“basic” ne demek?\n\n“basic” = sıradan; klişe; basit. Örnek: “My weekend plan is basic: pizza and a movie.”\n\nlexkite.com",
+    "caption": "“basic” ne demek?\n\n“basic” = sıradan. Örnek: “My weekend plan is basic: pizza and a movie.”\n\nlexkite.com",
     "hashtags": [
      "#ingilizceöğren",
      "#ingilizcekonuşma",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "“basic” ne demek? “basic” = sıradan; klişe; basit. Örnek: “My weekend plan is basic: pizza and a movie.” #ingilizceöğren #ingilizcekonuşma #ingilizce"
+    "caption": "“basic” ne demek? “basic” = sıradan. Örnek: “My weekend plan is basic: pizza and a movie.” #ingilizceöğren #ingilizcekonuşma #ingilizce"
    }
   },
-  "first_comment": "Cevap: “basic” = sıradan; klişe; basit. “My weekend plan is basic: pizza and a movie.” Ücretsiz daha fazla pratik: {link}",
+  "first_comment": "Cevap: “basic” = sıradan. “My weekend plan is basic: pizza and a movie.” Ücretsiz daha fazla pratik: {link}",
   "lang": "tr"
  }
 }

@@ -68,15 +68,15 @@
    "text": "Don't say 'AFK' in a formal email.",
    "why": "It's gamer shorthand."
   },
-  "l1": "bilgisayar başında değil; klavye başında değil; AFK",
+  "l1": "bilgisayar başında değil",
   "l1_hook": "Beş dakika, sonra geri döneceğim!",
   "l1_ex": "Beş dakika AFK olacağım, brb.",
   "right": "AFK",
   "native": {
    "hook": "“AFK” ne demek?",
-   "tip": "“AFK” = bilgisayar başında değil; klavye başında değil; AFK. Örnek: “Brb, I'll be AFK for five minutes.”",
-   "caption": "“AFK” ne demek?\n“AFK” = bilgisayar başında değil; klavye başında değil; AFK.\nÖrnek: “Brb, I'll be AFK for five minutes.” (Beş dakika AFK olacağım, brb.)\nLexkite ile İngilizce argoyu ücretsiz öğren.",
-   "comment": "Cevap: “AFK” = bilgisayar başında değil; klavye başında değil; AFK. “Brb, I'll be AFK for five minutes.” Ücretsiz daha fazla pratik: {link}",
+   "tip": "“AFK” = bilgisayar başında değil. Örnek: “Brb, I'll be AFK for five minutes.”",
+   "caption": "“AFK” ne demek?\n“AFK” = bilgisayar başında değil.\nÖrnek: “Brb, I'll be AFK for five minutes.” (Beş dakika AFK olacağım, brb.)\nLexkite ile İngilizce argoyu ücretsiz öğren.",
+   "comment": "Cevap: “AFK” = bilgisayar başında değil. “Brb, I'll be AFK for five minutes.” Ücretsiz daha fazla pratik: {link}",
    "hashtags": [
     "#ingilizceöğren",
     "#ingilizcekonuşma",
@@ -107,7 +107,7 @@
  "publish": {
   "title": "“AFK” ne demek?",
   "keyword": "AFK",
-  "value": "“AFK” = bilgisayar başında değil; klavye başında değil; AFK. Örnek: “Brb, I'll be AFK for five minutes.”",
+  "value": "“AFK” = bilgisayar başında değil. Örnek: “Brb, I'll be AFK for five minutes.”",
   "hashtags": [
    "#ingilizceöğren",
    "#ingilizcekonuşma",
@@ -119,7 +119,7 @@
   "platforms": {
    "youtube": {
     "title": "“AFK” ne demek?",
-    "description": "“AFK” = bilgisayar başında değil; klavye başında değil; AFK. Örnek: “Brb, I'll be AFK for five minutes.”\n\n“AFK” ne demek?\n“AFK” = bilgisayar başında değil; klavye başında değil; AFK.\nÖrnek: “Brb, I'll be AFK for five minutes.” (Beş dakika AFK olacağım, brb.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "description": "“AFK” = bilgisayar başında değil. Örnek: “Brb, I'll be AFK for five minutes.”\n\n“AFK” ne demek?\n“AFK” = bilgisayar başında değil.\nÖrnek: “Brb, I'll be AFK for five minutes.” (Beş dakika AFK olacağım, brb.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
     "tags": [
      "AFK",
      "learn english",
@@ -127,10 +127,10 @@
     ]
    },
    "facebook": {
-    "text": "“AFK” ne demek?\n“AFK” = bilgisayar başında değil; klavye başında değil; AFK.\nÖrnek: “Brb, I'll be AFK for five minutes.” (Beş dakika AFK olacağım, brb.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases"
+    "text": "“AFK” ne demek?\n“AFK” = bilgisayar başında değil.\nÖrnek: “Brb, I'll be AFK for five minutes.” (Beş dakika AFK olacağım, brb.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases"
    },
    "instagram": {
-    "caption": "“AFK” ne demek?\n\n“AFK” = bilgisayar başında değil; klavye başında değil; AFK. Örnek: “Brb, I'll be AFK for five minutes.”\n\nlexkite.com",
+    "caption": "“AFK” ne demek?\n\n“AFK” = bilgisayar başında değil. Örnek: “Brb, I'll be AFK for five minutes.”\n\nlexkite.com",
     "hashtags": [
      "#ingilizceöğren",
      "#ingilizcekonuşma",
@@ -139,10 +139,10 @@
     ]
    },
    "tiktok": {
-    "caption": "“AFK” ne demek? “AFK” = bilgisayar başında değil; klavye başında değil; AFK. Örnek: “Brb, I'll be AFK fo… #ingilizceöğren #ingilizcekonuşma #ingilizce"
+    "caption": "“AFK” ne demek? “AFK” = bilgisayar başında değil. Örnek: “Brb, I'll be AFK for five minutes.” #ingilizceöğren #ingilizcekonuşma #ingilizce"
    }
   },
-  "first_comment": "Cevap: “AFK” = bilgisayar başında değil; klavye başında değil; AFK. “Brb, I'll be AFK for five minutes.” Ücretsiz daha fazla pratik: {link}",
+  "first_comment": "Cevap: “AFK” = bilgisayar başında değil. “Brb, I'll be AFK for five minutes.” Ücretsiz daha fazla pratik: {link}",
   "lang": "tr"
  }
 }

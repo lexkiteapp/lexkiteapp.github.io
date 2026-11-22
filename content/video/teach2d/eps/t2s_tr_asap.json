@@ -70,15 +70,15 @@
    "text": "Don't write 'ASAP' to your boss rudely.",
    "why": "It sounds demanding and bossy."
   },
-  "l1": "en kısa sürede; mümkün olan en çabuk",
+  "l1": "en kısa sürede",
   "l1_hook": "Buna hemen ihtiyacım var, 'ASAP'!",
   "l1_ex": "Lütfen notları 'ASAP' gönder.",
   "right": "ASAP",
   "native": {
    "hook": "“ASAP” ne demek?",
-   "tip": "“ASAP” = en kısa sürede; mümkün olan en çabuk. Örnek: “Please send me the notes ASAP.”",
-   "caption": "“ASAP” ne demek?\n“ASAP” = en kısa sürede; mümkün olan en çabuk.\nÖrnek: “Please send me the notes ASAP.” (Lütfen notları 'ASAP' gönder.)\nLexkite ile İngilizce argoyu ücretsiz öğren.",
-   "comment": "Cevap: “ASAP” = en kısa sürede; mümkün olan en çabuk. “Please send me the notes ASAP.” Ücretsiz daha fazla pratik: {link}",
+   "tip": "“ASAP” = en kısa sürede. Örnek: “Please send me the notes ASAP.”",
+   "caption": "“ASAP” ne demek?\n“ASAP” = en kısa sürede.\nÖrnek: “Please send me the notes ASAP.” (Lütfen notları 'ASAP' gönder.)\nLexkite ile İngilizce argoyu ücretsiz öğren.",
+   "comment": "Cevap: “ASAP” = en kısa sürede. “Please send me the notes ASAP.” Ücretsiz daha fazla pratik: {link}",
    "hashtags": [
     "#ingilizceöğren",
     "#ingilizcekonuşma",
@@ -109,7 +109,7 @@
  "publish": {
   "title": "“ASAP” ne demek?",
   "keyword": "ASAP",
-  "value": "“ASAP” = en kısa sürede; mümkün olan en çabuk. Örnek: “Please send me the notes ASAP.”",
+  "value": "“ASAP” = en kısa sürede. Örnek: “Please send me the notes ASAP.”",
   "hashtags": [
    "#ingilizceöğren",
    "#ingilizcekonuşma",
@@ -121,7 +121,7 @@
   "platforms": {
    "youtube": {
     "title": "“ASAP” ne demek?",
-    "description": "“ASAP” = en kısa sürede; mümkün olan en çabuk. Örnek: “Please send me the notes ASAP.”\n\n“ASAP” ne demek?\n“ASAP” = en kısa sürede; mümkün olan en çabuk.\nÖrnek: “Please send me the notes ASAP.” (Lütfen notları 'ASAP' gönder.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "description": "“ASAP” = en kısa sürede. Örnek: “Please send me the notes ASAP.”\n\n“ASAP” ne demek?\n“ASAP” = en kısa sürede.\nÖrnek: “Please send me the notes ASAP.” (Lütfen notları 'ASAP' gönder.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
     "tags": [
      "ASAP",
      "learn english",
@@ -129,10 +129,10 @@
     ]
    },
    "facebook": {
-    "text": "“ASAP” ne demek?\n“ASAP” = en kısa sürede; mümkün olan en çabuk.\nÖrnek: “Please send me the notes ASAP.” (Lütfen notları 'ASAP' gönder.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases"
+    "text": "“ASAP” ne demek?\n“ASAP” = en kısa sürede.\nÖrnek: “Please send me the notes ASAP.” (Lütfen notları 'ASAP' gönder.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases"
    },
    "instagram": {
-    "caption": "“ASAP” ne demek?\n\n“ASAP” = en kısa sürede; mümkün olan en çabuk. Örnek: “Please send me the notes ASAP.”\n\nlexkite.com",
+    "caption": "“ASAP” ne demek?\n\n“ASAP” = en kısa sürede. Örnek: “Please send me the notes ASAP.”\n\nlexkite.com",
     "hashtags": [
      "#ingilizceöğren",
      "#ingilizcekonuşma",
@@ -141,10 +141,10 @@
     ]
    },
    "tiktok": {
-    "caption": "“ASAP” ne demek? “ASAP” = en kısa sürede; mümkün olan en çabuk. Örnek: “Please send me the notes ASAP.” #ingilizceöğren #ingilizcekonuşma #ingilizce"
+    "caption": "“ASAP” ne demek? “ASAP” = en kısa sürede. Örnek: “Please send me the notes ASAP.” #ingilizceöğren #ingilizcekonuşma #ingilizce"
    }
   },
-  "first_comment": "Cevap: “ASAP” = en kısa sürede; mümkün olan en çabuk. “Please send me the notes ASAP.” Ücretsiz daha fazla pratik: {link}",
+  "first_comment": "Cevap: “ASAP” = en kısa sürede. “Please send me the notes ASAP.” Ücretsiz daha fazla pratik: {link}",
   "lang": "tr"
  }
 }

@@ -66,15 +66,15 @@
    "text": "Don't say 'beats me' to a client's question.",
    "why": "It sounds careless and unprofessional."
   },
-  "l1": "hiçbir fikrim yok; ne bileyim",
+  "l1": "hiçbir fikrim yok",
   "l1_hook": "Anahtar nereye gitti?",
   "l1_ex": "Anahtar nerede? Beats me.",
   "right": "beats me",
   "native": {
    "hook": "“beats me” ne demek?",
-   "tip": "“beats me” = hiçbir fikrim yok; ne bileyim. Örnek: “Where's the key? Beats me.”",
-   "caption": "“beats me” ne demek?\n“beats me” = hiçbir fikrim yok; ne bileyim.\nÖrnek: “Where's the key? Beats me.” (Anahtar nerede? Beats me.)\nLexkite ile İngilizce argoyu ücretsiz öğren.",
-   "comment": "Cevap: “beats me” = hiçbir fikrim yok; ne bileyim. “Where's the key? Beats me.” Ücretsiz daha fazla pratik: {link}",
+   "tip": "“beats me” = hiçbir fikrim yok. Örnek: “Where's the key? Beats me.”",
+   "caption": "“beats me” ne demek?\n“beats me” = hiçbir fikrim yok.\nÖrnek: “Where's the key? Beats me.” (Anahtar nerede? Beats me.)\nLexkite ile İngilizce argoyu ücretsiz öğren.",
+   "comment": "Cevap: “beats me” = hiçbir fikrim yok. “Where's the key? Beats me.” Ücretsiz daha fazla pratik: {link}",
    "hashtags": [
     "#ingilizceöğren",
     "#ingilizcekonuşma",
@@ -105,7 +105,7 @@
  "publish": {
   "title": "“beats me” ne demek?",
   "keyword": "beats me",
-  "value": "“beats me” = hiçbir fikrim yok; ne bileyim. Örnek: “Where's the key? Beats me.”",
+  "value": "“beats me” = hiçbir fikrim yok. Örnek: “Where's the key? Beats me.”",
   "hashtags": [
    "#ingilizceöğren",
    "#ingilizcekonuşma",
@@ -117,7 +117,7 @@
   "platforms": {
    "youtube": {
     "title": "“beats me” ne demek?",
-    "description": "“beats me” = hiçbir fikrim yok; ne bileyim. Örnek: “Where's the key? Beats me.”\n\n“beats me” ne demek?\n“beats me” = hiçbir fikrim yok; ne bileyim.\nÖrnek: “Where's the key? Beats me.” (Anahtar nerede? Beats me.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "description": "“beats me” = hiçbir fikrim yok. Örnek: “Where's the key? Beats me.”\n\n“beats me” ne demek?\n“beats me” = hiçbir fikrim yok.\nÖrnek: “Where's the key? Beats me.” (Anahtar nerede? Beats me.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
     "tags": [
      "beats me",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "“beats me” ne demek?\n“beats me” = hiçbir fikrim yok; ne bileyim.\nÖrnek: “Where's the key? Beats me.” (Anahtar nerede? Beats me.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases"
+    "text": "“beats me” ne demek?\n“beats me” = hiçbir fikrim yok.\nÖrnek: “Where's the key? Beats me.” (Anahtar nerede? Beats me.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases"
    },
    "instagram": {
-    "caption": "“beats me” ne demek?\n\n“beats me” = hiçbir fikrim yok; ne bileyim. Örnek: “Where's the key? Beats me.”\n\nlexkite.com",
+    "caption": "“beats me” ne demek?\n\n“beats me” = hiçbir fikrim yok. Örnek: “Where's the key? Beats me.”\n\nlexkite.com",
     "hashtags": [
      "#ingilizceöğren",
      "#ingilizcekonuşma",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "“beats me” ne demek? “beats me” = hiçbir fikrim yok; ne bileyim. Örnek: “Where's the key? Beats me.” #ingilizceöğren #ingilizcekonuşma #ingilizce"
+    "caption": "“beats me” ne demek? “beats me” = hiçbir fikrim yok. Örnek: “Where's the key? Beats me.” #ingilizceöğren #ingilizcekonuşma #ingilizce"
    }
   },
-  "first_comment": "Cevap: “beats me” = hiçbir fikrim yok; ne bileyim. “Where's the key? Beats me.” Ücretsiz daha fazla pratik: {link}",
+  "first_comment": "Cevap: “beats me” = hiçbir fikrim yok. “Where's the key? Beats me.” Ücretsiz daha fazla pratik: {link}",
   "lang": "tr"
  }
 }

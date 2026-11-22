@@ -68,15 +68,15 @@
    "text": "Don't say 'we have beef' about a small mix-up.",
    "why": "It sounds like a serious feud."
   },
-  "l1": "kavga; anlaşmazlık; sorun",
+  "l1": "kavga",
   "l1_hook": "İkisi konuşmayı bıraktı. Neden?",
   "l1_ex": "Onların bir oyun yüzünden \"beef\"i var.",
   "right": "beef",
   "native": {
    "hook": "“beef” ne demek?",
-   "tip": "“beef” = kavga; anlaşmazlık; sorun. Örnek: “They have beef over a game.”",
-   "caption": "“beef” ne demek?\n“beef” = kavga; anlaşmazlık; sorun.\nÖrnek: “They have beef over a game.” (Onların bir oyun yüzünden \"beef\"i var.)\nLexkite ile İngilizce argoyu ücretsiz öğren.",
-   "comment": "Cevap: “beef” = kavga; anlaşmazlık; sorun. “They have beef over a game.” Ücretsiz daha fazla pratik: {link}",
+   "tip": "“beef” = kavga. Örnek: “They have beef over a game.”",
+   "caption": "“beef” ne demek?\n“beef” = kavga.\nÖrnek: “They have beef over a game.” (Onların bir oyun yüzünden \"beef\"i var.)\nLexkite ile İngilizce argoyu ücretsiz öğren.",
+   "comment": "Cevap: “beef” = kavga. “They have beef over a game.” Ücretsiz daha fazla pratik: {link}",
    "hashtags": [
     "#ingilizceöğren",
     "#ingilizcekonuşma",
@@ -107,7 +107,7 @@
  "publish": {
   "title": "“beef” ne demek?",
   "keyword": "beef",
-  "value": "“beef” = kavga; anlaşmazlık; sorun. Örnek: “They have beef over a game.”",
+  "value": "“beef” = kavga. Örnek: “They have beef over a game.”",
   "hashtags": [
    "#ingilizceöğren",
    "#ingilizcekonuşma",
@@ -119,7 +119,7 @@
   "platforms": {
    "youtube": {
     "title": "“beef” ne demek?",
-    "description": "“beef” = kavga; anlaşmazlık; sorun. Örnek: “They have beef over a game.”\n\n“beef” ne demek?\n“beef” = kavga; anlaşmazlık; sorun.\nÖrnek: “They have beef over a game.” (Onların bir oyun yüzünden \"beef\"i var.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "description": "“beef” = kavga. Örnek: “They have beef over a game.”\n\n“beef” ne demek?\n“beef” = kavga.\nÖrnek: “They have beef over a game.” (Onların bir oyun yüzünden \"beef\"i var.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
     "tags": [
      "beef",
      "learn english",
@@ -127,10 +127,10 @@
     ]
    },
    "facebook": {
-    "text": "“beef” ne demek?\n“beef” = kavga; anlaşmazlık; sorun.\nÖrnek: “They have beef over a game.” (Onların bir oyun yüzünden \"beef\"i var.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases"
+    "text": "“beef” ne demek?\n“beef” = kavga.\nÖrnek: “They have beef over a game.” (Onların bir oyun yüzünden \"beef\"i var.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases"
    },
    "instagram": {
-    "caption": "“beef” ne demek?\n\n“beef” = kavga; anlaşmazlık; sorun. Örnek: “They have beef over a game.”\n\nlexkite.com",
+    "caption": "“beef” ne demek?\n\n“beef” = kavga. Örnek: “They have beef over a game.”\n\nlexkite.com",
     "hashtags": [
      "#ingilizceöğren",
      "#ingilizcekonuşma",
@@ -139,10 +139,10 @@
     ]
    },
    "tiktok": {
-    "caption": "“beef” ne demek? “beef” = kavga; anlaşmazlık; sorun. Örnek: “They have beef over a game.” #ingilizceöğren #ingilizcekonuşma #ingilizce"
+    "caption": "“beef” ne demek? “beef” = kavga. Örnek: “They have beef over a game.” #ingilizceöğren #ingilizcekonuşma #ingilizce"
    }
   },
-  "first_comment": "Cevap: “beef” = kavga; anlaşmazlık; sorun. “They have beef over a game.” Ücretsiz daha fazla pratik: {link}",
+  "first_comment": "Cevap: “beef” = kavga. “They have beef over a game.” Ücretsiz daha fazla pratik: {link}",
   "lang": "tr"
  }
 }

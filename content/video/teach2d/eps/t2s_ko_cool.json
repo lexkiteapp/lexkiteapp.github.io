@@ -66,15 +66,15 @@
    "text": "Don't say 'cool' when someone shares sad news.",
    "why": "It sounds like you don't care."
   },
-  "l1": "좋아; 괜찮아; 멋져",
+  "l1": "좋아",
   "l1_hook": "오늘 밤 6시에 영화 보자, 괜찮아? 'cool'.",
   "l1_ex": "'Cool', 6시에 보자!",
   "right": "cool",
   "native": {
    "hook": "“cool” 무슨 뜻일까요?",
-   "tip": "“cool” = 좋아; 괜찮아; 멋져. 예문: “Cool, see you at six!”",
-   "caption": "“cool” 무슨 뜻일까요?\n“cool” = 좋아; 괜찮아; 멋져.\n예문: “Cool, see you at six!” ('Cool', 6시에 보자!)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.",
-   "comment": "정답: “cool” = 좋아; 괜찮아; 멋져. “Cool, see you at six!” 무료로 더 연습하기: {link}",
+   "tip": "“cool” = 좋아. 예문: “Cool, see you at six!”",
+   "caption": "“cool” 무슨 뜻일까요?\n“cool” = 좋아.\n예문: “Cool, see you at six!” ('Cool', 6시에 보자!)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.",
+   "comment": "정답: “cool” = 좋아. “Cool, see you at six!” 무료로 더 연습하기: {link}",
    "hashtags": [
     "#영어공부",
     "#영어회화",
@@ -105,7 +105,7 @@
  "publish": {
   "title": "“cool” 무슨 뜻일까요?",
   "keyword": "cool",
-  "value": "“cool” = 좋아; 괜찮아; 멋져. 예문: “Cool, see you at six!”",
+  "value": "“cool” = 좋아. 예문: “Cool, see you at six!”",
   "hashtags": [
    "#영어공부",
    "#영어회화",
@@ -117,7 +117,7 @@
   "platforms": {
    "youtube": {
     "title": "“cool” 무슨 뜻일까요?",
-    "description": "“cool” = 좋아; 괜찮아; 멋져. 예문: “Cool, see you at six!”\n\n“cool” 무슨 뜻일까요?\n“cool” = 좋아; 괜찮아; 멋져.\n예문: “Cool, see you at six!” ('Cool', 6시에 보자!)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "description": "“cool” = 좋아. 예문: “Cool, see you at six!”\n\n“cool” 무슨 뜻일까요?\n“cool” = 좋아.\n예문: “Cool, see you at six!” ('Cool', 6시에 보자!)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases\n\n#영어공부 #영어회화 #영어독학 #lexkite",
     "tags": [
      "cool",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "“cool” 무슨 뜻일까요?\n“cool” = 좋아; 괜찮아; 멋져.\n예문: “Cool, see you at six!” ('Cool', 6시에 보자!)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases"
+    "text": "“cool” 무슨 뜻일까요?\n“cool” = 좋아.\n예문: “Cool, see you at six!” ('Cool', 6시에 보자!)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases"
    },
    "instagram": {
-    "caption": "“cool” 무슨 뜻일까요?\n\n“cool” = 좋아; 괜찮아; 멋져. 예문: “Cool, see you at six!”\n\nlexkite.com",
+    "caption": "“cool” 무슨 뜻일까요?\n\n“cool” = 좋아. 예문: “Cool, see you at six!”\n\nlexkite.com",
     "hashtags": [
      "#영어공부",
      "#영어회화",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "“cool” 무슨 뜻일까요? “cool” = 좋아; 괜찮아; 멋져. 예문: “Cool, see you at six!” #영어공부 #영어회화 #영어독학"
+    "caption": "“cool” 무슨 뜻일까요? “cool” = 좋아. 예문: “Cool, see you at six!” #영어공부 #영어회화 #영어독학"
    }
   },
-  "first_comment": "정답: “cool” = 좋아; 괜찮아; 멋져. “Cool, see you at six!” 무료로 더 연습하기: {link}",
+  "first_comment": "정답: “cool” = 좋아. “Cool, see you at six!” 무료로 더 연습하기: {link}",
   "lang": "ko"
  }
 }

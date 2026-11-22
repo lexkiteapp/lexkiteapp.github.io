@@ -72,15 +72,15 @@
    "text": "Don't call your new boss your 'bestie'.",
    "why": "It's too close and casual."
   },
-  "l1": "близкий друг; лучшая подруга; подруга",
+  "l1": "близкий друг",
   "l1_hook": "Кто знает все твои секреты? — «bestie».",
   "l1_ex": "Моя «bestie» и я любим тако.",
   "right": "bestie",
   "native": {
    "hook": "Что значит «bestie»?",
-   "tip": "“bestie” = близкий друг; лучшая подруга; подруга. Пример: “My bestie and I love tacos.”",
-   "caption": "Что значит «bestie»?\n“bestie” = близкий друг; лучшая подруга; подруга.\nПример: “My bestie and I love tacos.” (Моя «bestie» и я любим тако.)\nУчи английский сленг бесплатно в Lexkite.",
-   "comment": "Ответ: “bestie” = близкий друг; лучшая подруга; подруга. “My bestie and I love tacos.” Больше практики бесплатно: {link}",
+   "tip": "“bestie” = близкий друг. Пример: “My bestie and I love tacos.”",
+   "caption": "Что значит «bestie»?\n“bestie” = близкий друг.\nПример: “My bestie and I love tacos.” (Моя «bestie» и я любим тако.)\nУчи английский сленг бесплатно в Lexkite.",
+   "comment": "Ответ: “bestie” = близкий друг. “My bestie and I love tacos.” Больше практики бесплатно: {link}",
    "hashtags": [
     "#английскийязык",
     "#английский",
@@ -111,7 +111,7 @@
  "publish": {
   "title": "Что значит «bestie»?",
   "keyword": "bestie",
-  "value": "“bestie” = близкий друг; лучшая подруга; подруга. Пример: “My bestie and I love tacos.”",
+  "value": "“bestie” = близкий друг. Пример: “My bestie and I love tacos.”",
   "hashtags": [
    "#английскийязык",
    "#английский",
@@ -123,7 +123,7 @@
   "platforms": {
    "youtube": {
     "title": "Что значит «bestie»?",
-    "description": "“bestie” = близкий друг; лучшая подруга; подруга. Пример: “My bestie and I love tacos.”\n\nЧто значит «bestie»?\n“bestie” = близкий друг; лучшая подруга; подруга.\nПример: “My bestie and I love tacos.” (Моя «bestie» и я любим тако.)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#английскийязык #английский #учуанглийский #lexkite",
+    "description": "“bestie” = близкий друг. Пример: “My bestie and I love tacos.”\n\nЧто значит «bestie»?\n“bestie” = близкий друг.\nПример: “My bestie and I love tacos.” (Моя «bestie» и я любим тако.)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#английскийязык #английский #учуанглийский #lexkite",
     "tags": [
      "bestie",
      "learn english",
@@ -131,10 +131,10 @@
     ]
    },
    "facebook": {
-    "text": "Что значит «bestie»?\n“bestie” = близкий друг; лучшая подруга; подруга.\nПример: “My bestie and I love tacos.” (Моя «bestie» и я любим тако.)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+    "text": "Что значит «bestie»?\n“bestie” = близкий друг.\nПример: “My bestie and I love tacos.” (Моя «bestie» и я любим тако.)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
    },
    "instagram": {
-    "caption": "Что значит «bestie»?\n\n“bestie” = близкий друг; лучшая подруга; подруга. Пример: “My bestie and I love tacos.”\n\nlexkite.com",
+    "caption": "Что значит «bestie»?\n\n“bestie” = близкий друг. Пример: “My bestie and I love tacos.”\n\nlexkite.com",
     "hashtags": [
      "#английскийязык",
      "#английский",
@@ -143,10 +143,10 @@
     ]
    },
    "tiktok": {
-    "caption": "Что значит «bestie»? “bestie” = близкий друг; лучшая подруга; подруга. Пример: “My bestie and I love tacos… #английскийязык #английский #учуанглийский"
+    "caption": "Что значит «bestie»? “bestie” = близкий друг. Пример: “My bestie and I love tacos.” #английскийязык #английский #учуанглийский"
    }
   },
-  "first_comment": "Ответ: “bestie” = близкий друг; лучшая подруга; подруга. “My bestie and I love tacos.” Больше практики бесплатно: {link}",
+  "first_comment": "Ответ: “bestie” = близкий друг. “My bestie and I love tacos.” Больше практики бесплатно: {link}",
   "lang": "ru"
  }
 }

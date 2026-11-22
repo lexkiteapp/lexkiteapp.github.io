@@ -66,15 +66,15 @@
    "text": "Don't reply 'bet' to your principal's email.",
    "why": "It sounds too casual for formal messages."
   },
-  "l1": "OK; Ça marche; Entendu",
+  "l1": "OK",
   "l1_hook": "Pizza à six heures, d’accord ? bet.",
   "l1_ex": "Pizza à six heures ? Bet.",
   "right": "bet",
   "native": {
    "hook": "Que veut dire « bet » ?",
-   "tip": "“bet” = OK; Ça marche; Entendu. Exemple: “Pizza at six? Bet.”",
-   "caption": "Que veut dire « bet » ?\n“bet” = OK; Ça marche; Entendu.\nExemple: “Pizza at six? Bet.” (Pizza à six heures ? Bet.)\nApprends l'argot anglais gratuitement avec Lexkite.",
-   "comment": "Réponse: “bet” = OK; Ça marche; Entendu. “Pizza at six? Bet.” Entraîne-toi gratuitement: {link}",
+   "tip": "“bet” = OK. Exemple: “Pizza at six? Bet.”",
+   "caption": "Que veut dire « bet » ?\n“bet” = OK.\nExemple: “Pizza at six? Bet.” (Pizza à six heures ? Bet.)\nApprends l'argot anglais gratuitement avec Lexkite.",
+   "comment": "Réponse: “bet” = OK. “Pizza at six? Bet.” Entraîne-toi gratuitement: {link}",
    "hashtags": [
     "#apprendrelanglais",
     "#anglaisfacile",
@@ -105,7 +105,7 @@
  "publish": {
   "title": "Que veut dire « bet » ?",
   "keyword": "bet",
-  "value": "“bet” = OK; Ça marche; Entendu. Exemple: “Pizza at six? Bet.”",
+  "value": "“bet” = OK. Exemple: “Pizza at six? Bet.”",
   "hashtags": [
    "#apprendrelanglais",
    "#anglaisfacile",
@@ -117,7 +117,7 @@
   "platforms": {
    "youtube": {
     "title": "Que veut dire « bet » ?",
-    "description": "“bet” = OK; Ça marche; Entendu. Exemple: “Pizza at six? Bet.”\n\nQue veut dire « bet » ?\n“bet” = OK; Ça marche; Entendu.\nExemple: “Pizza at six? Bet.” (Pizza à six heures ? Bet.)\nApprends l'argot anglais gratuitement avec Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "description": "“bet” = OK. Exemple: “Pizza at six? Bet.”\n\nQue veut dire « bet » ?\n“bet” = OK.\nExemple: “Pizza at six? Bet.” (Pizza à six heures ? Bet.)\nApprends l'argot anglais gratuitement avec Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
     "tags": [
      "bet",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "Que veut dire « bet » ?\n“bet” = OK; Ça marche; Entendu.\nExemple: “Pizza at six? Bet.” (Pizza à six heures ? Bet.)\nApprends l'argot anglais gratuitement avec Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+    "text": "Que veut dire « bet » ?\n“bet” = OK.\nExemple: “Pizza at six? Bet.” (Pizza à six heures ? Bet.)\nApprends l'argot anglais gratuitement avec Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
    },
    "instagram": {
-    "caption": "Que veut dire « bet » ?\n\n“bet” = OK; Ça marche; Entendu. Exemple: “Pizza at six? Bet.”\n\nlexkite.com",
+    "caption": "Que veut dire « bet » ?\n\n“bet” = OK. Exemple: “Pizza at six? Bet.”\n\nlexkite.com",
     "hashtags": [
      "#apprendrelanglais",
      "#anglaisfacile",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "Que veut dire « bet » ? “bet” = OK; Ça marche; Entendu. Exemple: “Pizza at six? Bet.” #apprendrelanglais #anglaisfacile #coursdanglais"
+    "caption": "Que veut dire « bet » ? “bet” = OK. Exemple: “Pizza at six? Bet.” #apprendrelanglais #anglaisfacile #coursdanglais"
    }
   },
-  "first_comment": "Réponse: “bet” = OK; Ça marche; Entendu. “Pizza at six? Bet.” Entraîne-toi gratuitement: {link}",
+  "first_comment": "Réponse: “bet” = OK. “Pizza at six? Bet.” Entraîne-toi gratuitement: {link}",
   "lang": "fr"
  }
 }

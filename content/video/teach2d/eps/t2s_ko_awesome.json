@@ -70,15 +70,15 @@
    "text": "Don't say 'awesome' about sad news.",
    "why": "It sounds sarcastic or cruel."
   },
-  "l1": "최고의; 대단한; 멋진",
+  "l1": "최고의",
   "l1_hook": "우리에게 무료 티켓을 구했어? \"awesome\"!",
   "l1_ex": "우리에게 무료 티켓을 구했어? \"awesome\"!",
   "right": "awesome",
   "native": {
    "hook": "“awesome” 무슨 뜻일까요?",
-   "tip": "“awesome” = 최고의; 대단한; 멋진. 예문: “You got us free tickets? That's awesome!”",
-   "caption": "“awesome” 무슨 뜻일까요?\n“awesome” = 최고의; 대단한; 멋진.\n예문: “You got us free tickets? That's awesome!” (우리에게 무료 티켓을 구했어? \"awesome\"!)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.",
-   "comment": "정답: “awesome” = 최고의; 대단한; 멋진. “You got us free tickets? That's awesome!” 무료로 더 연습하기: {link}",
+   "tip": "“awesome” = 최고의. 예문: “You got us free tickets? That's awesome!”",
+   "caption": "“awesome” 무슨 뜻일까요?\n“awesome” = 최고의.\n예문: “You got us free tickets? That's awesome!” (우리에게 무료 티켓을 구했어? \"awesome\"!)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.",
+   "comment": "정답: “awesome” = 최고의. “You got us free tickets? That's awesome!” 무료로 더 연습하기: {link}",
    "hashtags": [
     "#영어공부",
     "#영어회화",
@@ -109,7 +109,7 @@
  "publish": {
   "title": "“awesome” 무슨 뜻일까요?",
   "keyword": "awesome",
-  "value": "“awesome” = 최고의; 대단한; 멋진. 예문: “You got us free tickets? That's awesome!”",
+  "value": "“awesome” = 최고의. 예문: “You got us free tickets? That's awesome!”",
   "hashtags": [
    "#영어공부",
    "#영어회화",
@@ -121,7 +121,7 @@
   "platforms": {
    "youtube": {
     "title": "“awesome” 무슨 뜻일까요?",
-    "description": "“awesome” = 최고의; 대단한; 멋진. 예문: “You got us free tickets? That's awesome!”\n\n“awesome” 무슨 뜻일까요?\n“awesome” = 최고의; 대단한; 멋진.\n예문: “You got us free tickets? That's awesome!” (우리에게 무료 티켓을 구했어? \"awesome\"!)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "description": "“awesome” = 최고의. 예문: “You got us free tickets? That's awesome!”\n\n“awesome” 무슨 뜻일까요?\n“awesome” = 최고의.\n예문: “You got us free tickets? That's awesome!” (우리에게 무료 티켓을 구했어? \"awesome\"!)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases\n\n#영어공부 #영어회화 #영어독학 #lexkite",
     "tags": [
      "awesome",
      "learn english",
@@ -129,10 +129,10 @@
     ]
    },
    "facebook": {
-    "text": "“awesome” 무슨 뜻일까요?\n“awesome” = 최고의; 대단한; 멋진.\n예문: “You got us free tickets? That's awesome!” (우리에게 무료 티켓을 구했어? \"awesome\"!)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases"
+    "text": "“awesome” 무슨 뜻일까요?\n“awesome” = 최고의.\n예문: “You got us free tickets? That's awesome!” (우리에게 무료 티켓을 구했어? \"awesome\"!)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases"
    },
    "instagram": {
-    "caption": "“awesome” 무슨 뜻일까요?\n\n“awesome” = 최고의; 대단한; 멋진. 예문: “You got us free tickets? That's awesome!”\n\nlexkite.com",
+    "caption": "“awesome” 무슨 뜻일까요?\n\n“awesome” = 최고의. 예문: “You got us free tickets? That's awesome!”\n\nlexkite.com",
     "hashtags": [
      "#영어공부",
      "#영어회화",
@@ -141,10 +141,10 @@
     ]
    },
    "tiktok": {
-    "caption": "“awesome” 무슨 뜻일까요? “awesome” = 최고의; 대단한; 멋진. 예문: “You got us free tickets? That's awesome!” #영어공부 #영어회화 #영어독학"
+    "caption": "“awesome” 무슨 뜻일까요? “awesome” = 최고의. 예문: “You got us free tickets? That's awesome!” #영어공부 #영어회화 #영어독학"
    }
   },
-  "first_comment": "정답: “awesome” = 최고의; 대단한; 멋진. “You got us free tickets? That's awesome!” 무료로 더 연습하기: {link}",
+  "first_comment": "정답: “awesome” = 최고의. “You got us free tickets? That's awesome!” 무료로 더 연습하기: {link}",
   "lang": "ko"
  }
 }

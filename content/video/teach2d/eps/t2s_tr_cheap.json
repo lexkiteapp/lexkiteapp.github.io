@@ -66,15 +66,15 @@
    "text": "Don't call grandma 'cheap' for using coupons.",
    "why": "It insults her careful habits."
   },
-  "l1": "cimri; ucuz; kalitesiz",
+  "l1": "cimri",
   "l1_hook": "O, hiç öğle yemeği için ödeme yapmaz, 'cheap'!",
   "l1_ex": "O, öğle yemeği almak için çok 'cheap'.",
   "right": "cheap",
   "native": {
    "hook": "“cheap” ne demek?",
-   "tip": "“cheap” = cimri; ucuz; kalitesiz. Örnek: “He's too cheap to buy lunch.”",
-   "caption": "“cheap” ne demek?\n“cheap” = cimri; ucuz; kalitesiz.\nÖrnek: “He's too cheap to buy lunch.” (O, öğle yemeği almak için çok 'cheap'.)\nLexkite ile İngilizce argoyu ücretsiz öğren.",
-   "comment": "Cevap: “cheap” = cimri; ucuz; kalitesiz. “He's too cheap to buy lunch.” Ücretsiz daha fazla pratik: {link}",
+   "tip": "“cheap” = cimri. Örnek: “He's too cheap to buy lunch.”",
+   "caption": "“cheap” ne demek?\n“cheap” = cimri.\nÖrnek: “He's too cheap to buy lunch.” (O, öğle yemeği almak için çok 'cheap'.)\nLexkite ile İngilizce argoyu ücretsiz öğren.",
+   "comment": "Cevap: “cheap” = cimri. “He's too cheap to buy lunch.” Ücretsiz daha fazla pratik: {link}",
    "hashtags": [
     "#ingilizceöğren",
     "#ingilizcekonuşma",
@@ -105,7 +105,7 @@
  "publish": {
   "title": "“cheap” ne demek?",
   "keyword": "cheap",
-  "value": "“cheap” = cimri; ucuz; kalitesiz. Örnek: “He's too cheap to buy lunch.”",
+  "value": "“cheap” = cimri. Örnek: “He's too cheap to buy lunch.”",
   "hashtags": [
    "#ingilizceöğren",
    "#ingilizcekonuşma",
@@ -117,7 +117,7 @@
   "platforms": {
    "youtube": {
     "title": "“cheap” ne demek?",
-    "description": "“cheap” = cimri; ucuz; kalitesiz. Örnek: “He's too cheap to buy lunch.”\n\n“cheap” ne demek?\n“cheap” = cimri; ucuz; kalitesiz.\nÖrnek: “He's too cheap to buy lunch.” (O, öğle yemeği almak için çok 'cheap'.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "description": "“cheap” = cimri. Örnek: “He's too cheap to buy lunch.”\n\n“cheap” ne demek?\n“cheap” = cimri.\nÖrnek: “He's too cheap to buy lunch.” (O, öğle yemeği almak için çok 'cheap'.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
     "tags": [
      "cheap",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "“cheap” ne demek?\n“cheap” = cimri; ucuz; kalitesiz.\nÖrnek: “He's too cheap to buy lunch.” (O, öğle yemeği almak için çok 'cheap'.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases"
+    "text": "“cheap” ne demek?\n“cheap” = cimri.\nÖrnek: “He's too cheap to buy lunch.” (O, öğle yemeği almak için çok 'cheap'.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases"
    },
    "instagram": {
-    "caption": "“cheap” ne demek?\n\n“cheap” = cimri; ucuz; kalitesiz. Örnek: “He's too cheap to buy lunch.”\n\nlexkite.com",
+    "caption": "“cheap” ne demek?\n\n“cheap” = cimri. Örnek: “He's too cheap to buy lunch.”\n\nlexkite.com",
     "hashtags": [
      "#ingilizceöğren",
      "#ingilizcekonuşma",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "“cheap” ne demek? “cheap” = cimri; ucuz; kalitesiz. Örnek: “He's too cheap to buy lunch.” #ingilizceöğren #ingilizcekonuşma #ingilizce"
+    "caption": "“cheap” ne demek? “cheap” = cimri. Örnek: “He's too cheap to buy lunch.” #ingilizceöğren #ingilizcekonuşma #ingilizce"
    }
   },
-  "first_comment": "Cevap: “cheap” = cimri; ucuz; kalitesiz. “He's too cheap to buy lunch.” Ücretsiz daha fazla pratik: {link}",
+  "first_comment": "Cevap: “cheap” = cimri. “He's too cheap to buy lunch.” Ücretsiz daha fazla pratik: {link}",
   "lang": "tr"
  }
 }

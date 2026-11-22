@@ -66,15 +66,15 @@
    "text": "Don't reply 'bet' to your principal's email.",
    "why": "It sounds too casual for formal messages."
   },
-  "l1": "알겠어; 좋아; 그래",
+  "l1": "알겠어",
   "l1_hook": "6시에 피자 어때, bet?",
   "l1_ex": "6시에 피자? Bet",
   "right": "bet",
   "native": {
    "hook": "“bet” 무슨 뜻일까요?",
-   "tip": "“bet” = 알겠어; 좋아; 그래. 예문: “Pizza at six? Bet.”",
-   "caption": "“bet” 무슨 뜻일까요?\n“bet” = 알겠어; 좋아; 그래.\n예문: “Pizza at six? Bet.” (6시에 피자? Bet)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.",
-   "comment": "정답: “bet” = 알겠어; 좋아; 그래. “Pizza at six? Bet.” 무료로 더 연습하기: {link}",
+   "tip": "“bet” = 알겠어. 예문: “Pizza at six? Bet.”",
+   "caption": "“bet” 무슨 뜻일까요?\n“bet” = 알겠어.\n예문: “Pizza at six? Bet.” (6시에 피자? Bet)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.",
+   "comment": "정답: “bet” = 알겠어. “Pizza at six? Bet.” 무료로 더 연습하기: {link}",
    "hashtags": [
     "#영어공부",
     "#영어회화",
@@ -105,7 +105,7 @@
  "publish": {
   "title": "“bet” 무슨 뜻일까요?",
   "keyword": "bet",
-  "value": "“bet” = 알겠어; 좋아; 그래. 예문: “Pizza at six? Bet.”",
+  "value": "“bet” = 알겠어. 예문: “Pizza at six? Bet.”",
   "hashtags": [
    "#영어공부",
    "#영어회화",
@@ -117,7 +117,7 @@
   "platforms": {
    "youtube": {
     "title": "“bet” 무슨 뜻일까요?",
-    "description": "“bet” = 알겠어; 좋아; 그래. 예문: “Pizza at six? Bet.”\n\n“bet” 무슨 뜻일까요?\n“bet” = 알겠어; 좋아; 그래.\n예문: “Pizza at six? Bet.” (6시에 피자? Bet)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "description": "“bet” = 알겠어. 예문: “Pizza at six? Bet.”\n\n“bet” 무슨 뜻일까요?\n“bet” = 알겠어.\n예문: “Pizza at six? Bet.” (6시에 피자? Bet)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases\n\n#영어공부 #영어회화 #영어독학 #lexkite",
     "tags": [
      "bet",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "“bet” 무슨 뜻일까요?\n“bet” = 알겠어; 좋아; 그래.\n예문: “Pizza at six? Bet.” (6시에 피자? Bet)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases"
+    "text": "“bet” 무슨 뜻일까요?\n“bet” = 알겠어.\n예문: “Pizza at six? Bet.” (6시에 피자? Bet)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases"
    },
    "instagram": {
-    "caption": "“bet” 무슨 뜻일까요?\n\n“bet” = 알겠어; 좋아; 그래. 예문: “Pizza at six? Bet.”\n\nlexkite.com",
+    "caption": "“bet” 무슨 뜻일까요?\n\n“bet” = 알겠어. 예문: “Pizza at six? Bet.”\n\nlexkite.com",
     "hashtags": [
      "#영어공부",
      "#영어회화",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "“bet” 무슨 뜻일까요? “bet” = 알겠어; 좋아; 그래. 예문: “Pizza at six? Bet.” #영어공부 #영어회화 #영어독학"
+    "caption": "“bet” 무슨 뜻일까요? “bet” = 알겠어. 예문: “Pizza at six? Bet.” #영어공부 #영어회화 #영어독학"
    }
   },
-  "first_comment": "정답: “bet” = 알겠어; 좋아; 그래. “Pizza at six? Bet.” 무료로 더 연습하기: {link}",
+  "first_comment": "정답: “bet” = 알겠어. “Pizza at six? Bet.” 무료로 더 연습하기: {link}",
   "lang": "ko"
  }
 }

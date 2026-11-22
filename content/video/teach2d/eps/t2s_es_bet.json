@@ -66,15 +66,15 @@
    "text": "Don't reply 'bet' to your principal's email.",
    "why": "It sounds too casual for formal messages."
   },
-  "l1": "vale; de acuerdo; ok",
+  "l1": "vale",
   "l1_hook": "Pizza a las seis, ¿trato? \"bet\".",
   "l1_ex": "¿Pizza a las seis? \"bet\".",
   "right": "bet",
   "native": {
    "hook": "¿Qué significa “bet”?",
-   "tip": "“bet” = vale; de acuerdo; ok. Ejemplo: “Pizza at six? Bet.”",
-   "caption": "¿Qué significa “bet”?\n“bet” = vale; de acuerdo; ok.\nEjemplo: “Pizza at six? Bet.” (¿Pizza a las seis? \"bet\".)\nAprende slang en inglés gratis con Lexkite.",
-   "comment": "Respuesta: “bet” = vale; de acuerdo; ok. “Pizza at six? Bet.” Practica más gratis: {link}",
+   "tip": "“bet” = vale. Ejemplo: “Pizza at six? Bet.”",
+   "caption": "¿Qué significa “bet”?\n“bet” = vale.\nEjemplo: “Pizza at six? Bet.” (¿Pizza a las seis? \"bet\".)\nAprende slang en inglés gratis con Lexkite.",
+   "comment": "Respuesta: “bet” = vale. “Pizza at six? Bet.” Practica más gratis: {link}",
    "hashtags": [
     "#aprenderingles",
     "#inglesfacil",
@@ -105,7 +105,7 @@
  "publish": {
   "title": "¿Qué significa “bet”?",
   "keyword": "bet",
-  "value": "“bet” = vale; de acuerdo; ok. Ejemplo: “Pizza at six? Bet.”",
+  "value": "“bet” = vale. Ejemplo: “Pizza at six? Bet.”",
   "hashtags": [
    "#aprenderingles",
    "#inglesfacil",
@@ -117,7 +117,7 @@
   "platforms": {
    "youtube": {
     "title": "¿Qué significa “bet”?",
-    "description": "“bet” = vale; de acuerdo; ok. Ejemplo: “Pizza at six? Bet.”\n\n¿Qué significa “bet”?\n“bet” = vale; de acuerdo; ok.\nEjemplo: “Pizza at six? Bet.” (¿Pizza a las seis? \"bet\".)\nAprende slang en inglés gratis con Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#aprenderingles #inglesfacil #vocabulario #lexkite",
+    "description": "“bet” = vale. Ejemplo: “Pizza at six? Bet.”\n\n¿Qué significa “bet”?\n“bet” = vale.\nEjemplo: “Pizza at six? Bet.” (¿Pizza a las seis? \"bet\".)\nAprende slang en inglés gratis con Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#aprenderingles #inglesfacil #vocabulario #lexkite",
     "tags": [
      "bet",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "¿Qué significa “bet”?\n“bet” = vale; de acuerdo; ok.\nEjemplo: “Pizza at six? Bet.” (¿Pizza a las seis? \"bet\".)\nAprende slang en inglés gratis con Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+    "text": "¿Qué significa “bet”?\n“bet” = vale.\nEjemplo: “Pizza at six? Bet.” (¿Pizza a las seis? \"bet\".)\nAprende slang en inglés gratis con Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
    },
    "instagram": {
-    "caption": "¿Qué significa “bet”?\n\n“bet” = vale; de acuerdo; ok. Ejemplo: “Pizza at six? Bet.”\n\nlexkite.com",
+    "caption": "¿Qué significa “bet”?\n\n“bet” = vale. Ejemplo: “Pizza at six? Bet.”\n\nlexkite.com",
     "hashtags": [
      "#aprenderingles",
      "#inglesfacil",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "¿Qué significa “bet”? “bet” = vale; de acuerdo; ok. Ejemplo: “Pizza at six? Bet.” #aprenderingles #inglesfacil #vocabulario"
+    "caption": "¿Qué significa “bet”? “bet” = vale. Ejemplo: “Pizza at six? Bet.” #aprenderingles #inglesfacil #vocabulario"
    }
   },
-  "first_comment": "Respuesta: “bet” = vale; de acuerdo; ok. “Pizza at six? Bet.” Practica más gratis: {link}",
+  "first_comment": "Respuesta: “bet” = vale. “Pizza at six? Bet.” Practica más gratis: {link}",
   "lang": "es"
  }
 }

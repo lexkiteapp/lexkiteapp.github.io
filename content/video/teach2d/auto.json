@@ -29265,7 +29265,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "بصراحة; ما في كذب",
+     "m": "بصراحة",
      "hook": "أفضل بيتزا في المدينة. صدقني؟ \"no cap\"",
      "ex": "هذه البيتزا هي الأفضل في المدينة، 'no cap'."
     }
@@ -29317,7 +29317,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "مستاء; متذمر; حامض",
+     "m": "مستاء",
      "hook": "لقد خسر ثم استاء! \"salty\"",
      "ex": "إنه 'salty' لأنني فزت في لعبة الورق."
     }
@@ -29370,7 +29370,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "سأموت من الضحك; هلكت من الضحك",
+     "m": "سأموت من الضحك",
      "hook": "القطة قفزت في الصندوق! \"I'm dead\"",
      "ex": "القطة قفزت في الصندوق. 'I'm dead'!"
     }
@@ -29423,7 +29423,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "نأكل بشراهة; نلتهم الطعام",
+     "m": "نأكل بشراهة",
      "hook": "البيتزا بأكملها اختفت! \"pig out\"",
      "ex": "لقد قمنا بـ 'pig out' على البيتزا ليلة أمس."
     }
@@ -29475,7 +29475,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "تم; اتفقنا; ماشي",
+     "m": "تم",
      "hook": "بيتزا في السادسة، اتفقنا؟ \"bet\"",
      "ex": "بيتزا في السادسة؟ 'bet'."
     }
@@ -29527,7 +29527,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "عادي; تقليدي; ممل",
+     "m": "عادي",
      "hook": "بيتزا وفيلم مجدداً؟ \"basic\"",
      "ex": "خطتي لنهاية الأسبوع \"basic\": بيتزا وفيلم."
     }
@@ -29580,7 +29580,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "نزاع; خلاف",
+     "m": "نزاع",
      "hook": "توقف هذان الاثنان عن الكلام. لماذا؟ \"beef\"",
      "ex": "بينهما \"beef\" بسبب لعبة."
     }
@@ -29632,7 +29632,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "جمالي; أنيق",
+     "m": "جمالي",
      "hook": "غرفتك تبدو مثل بينتريست! \"aesthetic\"",
      "ex": "مكتبك يبدو \"aesthetic\" جدًا."
     }
@@ -29685,7 +29685,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "ينفجر غضبًا; يثور",
+     "m": "ينفجر غضبًا",
      "hook": "رأى أبي الغرفة الفوضوية! \"blow a fuse\"",
      "ex": "انفجر (blow a fuse) بسبب الغرفة الفوضوية."
     }
@@ -29737,7 +29737,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "لذيذ جدًا; طعمه لا يُقاوم; شهي",
+     "m": "لذيذ جدًا",
      "hook": "معكرونة أمي بطعم \"bussin\" الليلة!",
      "ex": "معكرونة أمي \"bussin\" الليلة."
     }
@@ -29789,7 +29789,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "على الرحب والسعة; في أي وقت",
+     "m": "على الرحب والسعة",
      "hook": "شكراً جزيلاً على التوصيلة!",
      "ex": "شكراً على التوصيلة! \"Anytime\"."
     }
@@ -29842,7 +29842,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "بعيد عن لوحة المفاتيح; غير متصل",
+     "m": "بعيد عن لوحة المفاتيح",
      "hook": "خمس دقائق، ثم أعود!",
      "ex": "سأعود قريباً، سأكون \"AFK\" لمدة خمس دقائق."
     }
@@ -29894,7 +29894,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "لا أعلم; لا أعرف",
+     "m": "لا أعلم",
      "hook": "أين ذهب المفتاح؟",
      "ex": "أين المفتاح؟ \"Beats me\"."
     }
@@ -29947,7 +29947,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "العودة إلى نقطة الصفر; العودة للمربع الأول",
+     "m": "العودة إلى نقطة الصفر",
      "hook": "فشلت الخطة. ماذا الآن؟",
      "ex": "فشلت الخطة. \"Back to square one\"."
     }
@@ -30000,7 +30000,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "مبلغ باهظ جداً; ثمن باهظ",
+     "m": "مبلغ باهظ جداً",
      "hook": "انظر إلى سعر هذا المعطف!",
      "ex": "هذا المعطف يكلف \"an arm and a leg\"."
     }
@@ -30053,7 +30053,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "بالمناسبة; على فكرة",
+     "m": "بالمناسبة",
      "hook": "أوه، \"by the way\" شيء آخر!",
      "ex": "\"by the way\"، تبدأ الحفلة في الساعة السابعة."
     }
@@ -30105,7 +30105,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "رائع; ممتاز",
+     "m": "رائع",
      "hook": "هل حصلت لنا على تذاكر مجانية؟",
      "ex": "هل حصلت لنا على تذاكر مجانية؟ هذا \"awesome\"!"
     }
@@ -30157,7 +30157,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "شعور يمثلني جداً; ينطبق علي تماماً",
+     "m": "شعور يمثلني جداً",
      "hook": "قطة نعسانة. شعوري بالضبط!",
      "ex": "تلك القطة النعسانة تمثل \"big mood\"."
     }
@@ -30209,7 +30209,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "يتفوق في; يحرز درجة كاملة",
+     "m": "يتفوق في",
      "hook": "يوم الاختبار. كيف كان أداؤك؟",
      "ex": "لقد \"aced\" اختبار التاريخ اليوم!"
     }
@@ -30264,7 +30264,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "يشاهد حلقات متتالية; يتابع بشغف دون توقف",
+     "m": "يشاهد حلقات متتالية",
      "hook": "عطلة نهاية أسبوع ممطرة. موسم كامل. هيا!",
      "ex": "سأقوم بـ \"binge-watch\" لهذا المسلسل طوال عطلة نهاية الأسبوع."
     }
@@ -30317,7 +30317,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "مُرهق; مستنزف",
+     "m": "مُرهق",
      "hook": "عمل كثير جداً. أنا \"burned out\"!",
      "ex": "بعد الامتحانات، شعرت بأني \"burned out\" تماماً."
     }
@@ -30369,7 +30369,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "عاد إلى قوامه; عاد إلى نشاطه",
+     "m": "عاد إلى قوامه",
      "hook": "الأسبوع الماضي كنت مريضاً، واليوم أنا \"back on my feet\"!",
      "ex": "أنا أخيراً \"back on my feet\"."
     }
@@ -30421,7 +30421,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "في أسرع وقت ممكن; بأسرع ما يمكن",
+     "m": "في أسرع وقت ممكن",
      "hook": "أحتاجه \"ASAP\"!",
      "ex": "من فضلك أرسل لي الملاحظات \"ASAP\"."
     }
@@ -30473,7 +30473,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "رائع; ممتاز; ماشي",
+     "m": "رائع",
      "hook": "فيلم الليلة في السادسة، \"cool\"؟",
      "ex": "\"Cool\"، أراك في السادسة!"
     }
@@ -30525,7 +30525,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "بخيل; رخيص; مقتصد",
+     "m": "بخيل",
      "hook": "هو لا يدفع ثمن الغداء أبداً، إنه \"cheap\"!",
      "ex": "إنه \"cheap\" جداً لدرجة أنه لا يشتري الغداء."
     }
@@ -30579,7 +30579,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "ينتقد علنًا; يُشير إلى الخطأ",
+     "m": "ينتقد علنًا",
      "hook": "هي \"call out\" خطأي أمام الجميع!",
      "ex": "لقد \"called me out\" بسبب تأخري."
     }
@@ -30632,7 +30632,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "مُرتدٍ بأناقة; لابس بأفضل مظهر",
+     "m": "مُرتدٍ بأناقة",
      "hook": "يوم المقابلة. \"dressed to impress\" بدلة وربطة عنق!",
      "ex": "إنه \"dressed to impress\" من أجل المقابلة."
     }
@@ -30684,7 +30684,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "مملّ جدًا; مملّ حتى الموت",
+     "m": "مملّ جدًا",
      "hook": "ساعتان من الشرائح نفسها، \"bored stiff\"",
      "ex": "كنت \"bored stiff\" في تلك الحصة."
     }
@@ -30736,7 +30736,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "يوم السماح بالأكل; يوم الغش الغذائي",
+     "m": "يوم السماح بالأكل",
      "hook": "السبت. \"cheat day\"؟ نظام غذائي؟ أي نظام غذائي؟",
      "ex": "يوم السبت هو الـ \"cheat day\" الخاص بي."
     }
@@ -30789,7 +30789,7 @@
     "reg": "very-casual",
     "region": "global",
     "l1": {
-     "m": "صديق مقرب; صديقة مقربة",
+     "m": "صديق مقرب",
      "hook": "من يعرف كل أسرارك؟ \"bestie\"",
      "ex": "أنا والـ \"bestie\" نحب التاكو."
     }
@@ -30841,7 +30841,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "kein Scherz; ehrlich; ohne zu übertreiben",
+     "m": "kein Scherz",
      "hook": "Beste Pizza in der Stadt. Glaub mir, no cap.",
      "ex": "Diese Pizza ist die beste der Stadt, „no cap“."
     }
@@ -30893,7 +30893,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "sauer; genervt; verbittert",
+     "m": "sauer",
      "hook": "Er hat verloren, dann war er salty.",
      "ex": "Er ist „salty“, weil ich das Kartenspiel gewonnen habe."
     }
@@ -30946,7 +30946,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "Ich sterbe; Ich lach mich tot",
+     "m": "Ich sterbe",
      "hook": "Die Katze sprang in die Kiste! I'm dead.",
      "ex": "Die Katze ist in den Karton gesprungen. „I'm dead“!"
     }
@@ -30998,7 +30998,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "Klar; Alles klar; Geht klar",
+     "m": "Klar",
      "hook": "Pizza um sechs, bet?",
      "ex": "Pizza um sechs? „Bet“."
     }
@@ -31050,7 +31050,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "basic; gewöhnlich; alltäglich",
+     "m": "basic",
      "hook": "Schon wieder Pizza und ein Film?",
      "ex": "Mein Wochenendplan ist „basic“: Pizza und ein Film."
     }
@@ -31103,7 +31103,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "Streit; Zoff; Fehde",
+     "m": "Streit",
      "hook": "Die zwei reden nicht mehr miteinander. Warum?",
      "ex": "Sie haben „beef“ wegen eines Spiels."
     }
@@ -31155,7 +31155,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "ästhetisch; stylisch; schick",
+     "m": "ästhetisch",
      "hook": "Dein Zimmer sieht aus wie auf Pinterest!",
      "ex": "Dein Schreibtisch sieht so „aesthetic“ aus."
     }
@@ -31207,7 +31207,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "mega lecker; hammer lecker; geil",
+     "m": "mega lecker",
      "hook": "Mamas Pasta schmeckt heute Abend unglaublich!",
      "ex": "Mamas Pasta ist heute Abend „bussin“."
     }
@@ -31259,7 +31259,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "gerne; jederzeit; keine Ursache",
+     "m": "gerne",
      "hook": "Danke für die Mitfahrgelegenheit! anytime.",
      "ex": "Danke fürs Mitnehmen! „Anytime“."
     }
@@ -31312,7 +31312,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "AFK; abwesend; nicht am Platz",
+     "m": "AFK",
      "hook": "Fünf Minuten, dann bin ich zurück! afk.",
      "ex": "Gleich zurück, ich bin für fünf Minuten AFK."
     }
@@ -31364,7 +31364,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "weiß ich nicht; hab keine Ahnung",
+     "m": "weiß ich nicht",
      "hook": "Wo ist der Schlüssel hin? beats me.",
      "ex": "Wo ist der Schlüssel? „Beats me“."
     }
@@ -31417,7 +31417,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "Zurück zum Anfang; wieder bei Null anfangen; wieder von vorne beginnen",
+     "m": "Zurück zum Anfang",
      "hook": "Plan gescheitert. Jetzt was? back to square one.",
      "ex": "Plan gescheitert. „Back to square one“."
     }
@@ -31470,7 +31470,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "übrigens; nebenbei",
+     "m": "übrigens",
      "hook": "Oh, „by the way“, noch etwas!",
      "ex": "'By the way', die Party fängt um sieben an."
     }
@@ -31522,7 +31522,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "großartig; super; klasse",
+     "m": "großartig",
      "hook": "Du hast uns kostenlose Tickets? Das ist „awesome“.",
      "ex": "Du hast uns Freikarten besorgt? Das ist 'awesome'!"
     }
@@ -31574,7 +31574,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "passt genau; voll mein Mood",
+     "m": "passt genau",
      "hook": "Schläfriger Kater. Genau mein „big mood“.",
      "ex": "Diese müde Katze ist ein 'big mood'."
     }
@@ -31626,7 +31626,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "glänzen; mit Bravour bestehen; eine Eins holen",
+     "m": "glänzen",
      "hook": "Prüfungstag. Wie lief es bei dir?",
      "ex": "Ich habe heute meinen Geschichtstest 'aced'!"
     }
@@ -31679,7 +31679,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "ausgebrannt; erschöpft; überarbeitet",
+     "m": "ausgebrannt",
      "hook": "Zu viel Arbeit. Ich bin 'burned out'!",
      "ex": "Nach den Prüfungen fühlte ich mich total 'burned out'."
     }
@@ -31731,7 +31731,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "wieder auf den Beinen sein; wieder fit sein",
+     "m": "wieder auf den Beinen sein",
      "hook": "Letzte Woche krank, heute wieder 'back on my feet'!",
      "ex": "Ich bin endlich wieder 'back on my feet'."
     }
@@ -31783,7 +31783,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "so schnell wie möglich; umgehend",
+     "m": "so schnell wie möglich",
      "hook": "Ich brauche es 'ASAP'!",
      "ex": "Bitte schick mir die Notizen 'ASAP'."
     }
@@ -31835,7 +31835,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "cool; super; geil",
+     "m": "cool",
      "hook": "Film heute Abend um sechs, 'cool'?",
      "ex": "'Cool', wir sehen uns um sechs!"
     }
@@ -31887,7 +31887,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "geizig; billig; knauserig",
+     "m": "geizig",
      "hook": "Er bezahlt nie fürs Mittagessen, so 'cheap'!",
      "ex": "Er ist zu 'cheap', um sich ein Mittagessen zu kaufen."
     }
@@ -31940,7 +31940,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "schick gekleidet; gut gekleidet, um zu beeindrucken",
+     "m": "schick gekleidet",
      "hook": "Interview‑Tag. Anzug und Krawatte – „dressed to impress“.",
      "ex": "Er ist für das Vorstellungsgespräch „dressed to impress“ gekleidet."
     }
@@ -31992,7 +31992,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "Schummeltag; Cheat‑Day",
+     "m": "Schummeltag",
      "hook": "Samstag. Diät? Welche Diät? – „cheat day“.",
      "ex": "Samstag ist mein „cheat day“."
     }
@@ -32045,7 +32045,7 @@
     "reg": "very-casual",
     "region": "global",
     "l1": {
-     "m": "beste Freundin; BFF; beste Kumpeline",
+     "m": "beste Freundin",
      "hook": "Wer kennt all deine Geheimnisse? Das ist deine „bestie“.",
      "ex": "Meine bestie und ich lieben Tacos."
     }
@@ -32098,7 +32098,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "großer Sieg; großer Erfolg; großer Gewinn",
+     "m": "großer Sieg",
      "hook": "Du hast den Test bestanden? \"big W\"!",
      "ex": "Du hast den Test bestanden? \"Big W\"!"
     }
@@ -32151,7 +32151,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "provokante Meinung; heißer Kommentar",
+     "m": "provokante Meinung",
      "hook": "Ananaspizza ist das Beste! \"hot take\"",
      "ex": "Hier ist mein \"hot take\": Ananas gehört auf Pizza."
     }
@@ -32204,7 +32204,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "Patzer; Fehltritt; Lapsus",
+     "m": "Patzer",
      "hook": "Er ist in der Schulaufführung gestolpert! \"blooper\"",
      "ex": "Dieser \"blooper\" brachte die ganze Klasse zum Lachen."
     }
@@ -32257,7 +32257,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "ungefähre Angabe; grobe Schätzung; Richtwert",
+     "m": "ungefähre Angabe",
      "hook": "Wie viel wird es kosten? \"ballpark figure\"",
      "ex": "Gib mir eine \"ballpark figure\"."
     }
@@ -32309,7 +32309,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "ich bin dabei; ich mach mit; zähle mich ein",
+     "m": "ich bin dabei",
      "hook": "Spieleabend bei mir! \"count me in\"",
      "ex": "Spieleabend? \"count me in\"!"
     }
@@ -32362,7 +32362,7 @@
     "reg": "very-casual",
     "region": "global",
     "l1": {
-     "m": "Knaller; Hammer; Banger",
+     "m": "Knaller",
      "hook": "Spiel das Lied lauter!",
      "ex": "Dieser neue Song ist ein \"banger\"!"
     }
@@ -32414,7 +32414,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "sin mentiras; sin exagerar; te lo digo en serio",
+     "m": "sin mentiras",
      "hook": "La mejor pizza de la ciudad. Créeme, \"no cap\".",
      "ex": "Esta pizza es la mejor de la ciudad, \"no cap\"."
     }
@@ -32466,7 +32466,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "amargado; resentido; molesto",
+     "m": "amargado",
      "hook": "Perdió y luego se puso \"salty\".",
      "ex": "Está \"salty\" porque gané al juego de cartas."
     }
@@ -32519,7 +32519,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "Me muero; Me muero de risa",
+     "m": "Me muero",
      "hook": "¡El gato se metió en la caja! \"I'm dead\".",
      "ex": "El gato se metió en la caja. \"I'm dead\"!"
     }
@@ -32572,7 +32572,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "comerse como un cerdo; devorar; atracarse",
+     "m": "comerse como un cerdo",
      "hook": "¡Se ha comido toda la pizza! \"pig out\".",
      "ex": "Anoche hicimos \"pig out\" comiendo pizza."
     }
@@ -32624,7 +32624,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "vale; de acuerdo; ok",
+     "m": "vale",
      "hook": "Pizza a las seis, ¿trato? \"bet\".",
      "ex": "¿Pizza a las seis? \"bet\"."
     }
@@ -32676,7 +32676,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "básico; muy común; poco original",
+     "m": "básico",
      "hook": "¿Otra vez pizza y película? Tan \"basic\".",
      "ex": "Mi plan de fin de semana es \"basic\": pizza y una película."
     }
@@ -32729,7 +32729,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "disputa; pleito; problema",
+     "m": "disputa",
      "hook": "Esos dos dejaron de hablarse. ¿Tienen algún \"beef\"?",
      "ex": "Ellos tienen \"beef\" por un juego."
     }
@@ -32781,7 +32781,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "estético; con estilo",
+     "m": "estético",
      "hook": "¡Tu habitación parece de Pinterest! Muy \"aesthetic\".",
      "ex": "Tu escritorio se ve tan \"aesthetic\"."
     }
@@ -32834,7 +32834,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "perder los estribos; volverse loco",
+     "m": "perder los estribos",
      "hook": "¡Papá vio la habitación desordenada! Va a hacer \"blow a fuse\".",
      "ex": "Él hizo \"blow a fuse\" por la habitación desordenada."
     }
@@ -32886,7 +32886,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "delicioso; riquísimo; exquisito",
+     "m": "delicioso",
      "hook": "¡La pasta de mamá está increíble esta noche! Está \"bussin\".",
      "ex": "La pasta de mamá está \"bussin\" esta noche."
     }
@@ -32938,7 +32938,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "cuando quieras; no hay de qué; a la orden",
+     "m": "cuando quieras",
      "hook": "¡Muchas gracias por el viaje!",
      "ex": "¡Gracias por el viaje! \"anytime\"."
     }
@@ -32991,7 +32991,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "ausente; lejos del teclado",
+     "m": "ausente",
      "hook": "¡Cinco minutos y vuelvo!",
      "ex": "Vuelvo pronto, estaré \"AFK\" cinco minutos."
     }
@@ -33043,7 +33043,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "ni idea; no lo sé",
+     "m": "ni idea",
      "hook": "¿Dónde se fue la llave?",
      "ex": "¿Dónde está la llave? \"beats me\"."
     }
@@ -33096,7 +33096,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "volver al punto de partida; empezar de cero",
+     "m": "volver al punto de partida",
      "hook": "El plan falló. ¿Y ahora qué?",
      "ex": "El plan falló. \"back to square one\"."
     }
@@ -33149,7 +33149,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "costar un ojo de la cara; costar un riñón",
+     "m": "costar un ojo de la cara",
      "hook": "¡Mira el precio de este abrigo!",
      "ex": "Este abrigo cuesta \"arm and a leg\"."
     }
@@ -33202,7 +33202,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "por cierto; a propósito",
+     "m": "por cierto",
      "hook": "¡Oh, by the way, una cosa más!",
      "ex": "By the way, la fiesta empieza a las siete."
     }
@@ -33254,7 +33254,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "genial; increíble; fantástico",
+     "m": "genial",
      "hook": "¿Conseguiste entradas gratis? ¡awesome!",
      "ex": "¿Conseguiste entradas gratis? ¡Eso es awesome!"
     }
@@ -33309,7 +33309,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "maratonear; ver en maratón",
+     "m": "maratonear",
      "hook": "Fin de semana lluvioso. Toda la temporada. ¡binge-watch!",
      "ex": "Voy a binge-watch esta serie todo el fin de semana."
     }
@@ -33362,7 +33362,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "agotado; quemado; exhausto",
+     "m": "agotado",
      "hook": "¡Demasiado trabajo. Estoy 'burned out'!",
      "ex": "Después de los exámenes, me sentí totalmente 'burned out'."
     }
@@ -33414,7 +33414,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "de nuevo en pie; recuperado; volver a estar activo",
+     "m": "de nuevo en pie",
      "hook": "La semana pasada enfermo, ¡hoy estoy 'back on my feet'!",
      "ex": "Finalmente estoy 'back on my feet'."
     }
@@ -33466,7 +33466,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "lo antes posible; cuanto antes",
+     "m": "lo antes posible",
      "hook": "¡Lo necesito ahora, 'ASAP'!",
      "ex": "Por favor, envíame las notas 'ASAP'."
     }
@@ -33518,7 +33518,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "genial; chévere; guay",
+     "m": "genial",
      "hook": "¿Película esta noche a las seis, 'cool'?",
      "ex": "Cool, nos vemos a las seis."
     }
@@ -33570,7 +33570,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "tacaño; barato; de mala calidad",
+     "m": "tacaño",
      "hook": "¡Él nunca paga la comida! Es muy 'cheap'.",
      "ex": "Él es demasiado 'cheap' para comprar la comida."
     }
@@ -33623,7 +33623,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "bien vestido; vestido para impresionar",
+     "m": "bien vestido",
      "hook": "Día de entrevista. ¡Traje y corbata para ir \"dressed to impress\"!",
      "ex": "Él está \"dressed to impress\" para la entrevista."
     }
@@ -33675,7 +33675,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "muerto de aburrimiento; aburrido hasta la muerte",
+     "m": "muerto de aburrimiento",
      "hook": "Dos horas de las mismas diapositivas, estoy \"bored stiff\".",
      "ex": "Yo estaba \"bored stiff\" en esa clase."
     }
@@ -33727,7 +33727,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "día de trampa; día libre; día de indulgencia",
+     "m": "día de trampa",
      "hook": "Sábado. ¿Dieta? ¿Qué dieta? Hoy es mi \"cheat day\".",
      "ex": "El sábado es mi \"cheat day\"."
     }
@@ -33780,7 +33780,7 @@
     "reg": "very-casual",
     "region": "global",
     "l1": {
-     "m": "mejor amiga; mejor amigo; compinche",
+     "m": "mejor amiga",
      "hook": "¿Quién conoce todos tus secretos? Tu \"bestie\".",
      "ex": "Mi \"bestie\" y yo amamos los tacos."
     }
@@ -33833,7 +33833,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "gran victoria; gran triunfo",
+     "m": "gran victoria",
      "hook": "¿Aprobaste el examen? ¡big W!",
      "ex": "¿Aprobaste el examen? ¡Big W!"
     }
@@ -33886,7 +33886,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "opinión polémica; punto de vista controvertido",
+     "m": "opinión polémica",
      "hook": "¡hot take! La pizza con piña es la mejor.",
      "ex": "Aquí va mi hot take: la piña pertenece a la pizza."
     }
@@ -33939,7 +33939,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "error gracioso; metedura de pata",
+     "m": "error gracioso",
      "hook": "¡blooper! Se tropezó en la obra escolar.",
      "ex": "Ese blooper hizo reír a toda la clase."
     }
@@ -33991,7 +33991,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "c'est vrai; sans mentir; sans blague",
+     "m": "c'est vrai",
      "hook": "Meilleure pizza de la ville. Crois-moi, no cap.",
      "ex": "Cette pizza est la meilleure de la ville, no cap."
     }
@@ -34043,7 +34043,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "vénère; amer",
+     "m": "vénère",
      "hook": "Il a perdu, puis il s’est morfondu, salty.",
      "ex": "Il est salty parce que j’ai gagné au jeu de cartes."
     }
@@ -34096,7 +34096,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "Je suis mort(e); Je meurs",
+     "m": "Je suis mort(e)",
      "hook": "Le chat a sauté dans la boîte ! I'm dead.",
      "ex": "Le chat a sauté dans la boîte. I'm dead !"
     }
@@ -34148,7 +34148,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "OK; Ça marche; Entendu",
+     "m": "OK",
      "hook": "Pizza à six heures, d’accord ? bet.",
      "ex": "Pizza à six heures ? Bet."
     }
@@ -34200,7 +34200,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "délicieux; trop bon",
+     "m": "délicieux",
      "hook": "Les pâtes de maman sont « bussin » ce soir !",
      "ex": "Les pâtes de maman sont \"bussin\" ce soir."
     }
@@ -34252,7 +34252,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "Avec plaisir; Pas de problème; De rien",
+     "m": "Avec plaisir",
      "hook": "Merci beaucoup pour le trajet ! « anytime »",
      "ex": "Merci pour le trajet ! \"anytime\"."
     }
@@ -34305,7 +34305,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "hors clavier; AFK; absent",
+     "m": "hors clavier",
      "hook": "Cinq minutes, puis je reviens ! « AFK »",
      "ex": "Je reviens tout de suite, je serai \"AFK\" pendant cinq minutes."
     }
@@ -34357,7 +34357,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "je ne sais pas; je n'en sais rien",
+     "m": "je ne sais pas",
      "hook": "Où est passée la clé ? « beats me ».",
      "ex": "Où est la clé ? \"Beats me\"."
     }
@@ -34410,7 +34410,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "retour à la case départ; repartir de zéro",
+     "m": "retour à la case départ",
      "hook": "Le plan a échoué. Et maintenant ? « back to square one ».",
      "ex": "Le plan a échoué. \"Back to square one\"."
     }
@@ -34463,7 +34463,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "coûter les yeux de la tête; coûter un bras",
+     "m": "coûter les yeux de la tête",
      "hook": "Regarde le prix de ce manteau ! « arm and a leg ».",
      "ex": "Ce manteau coûte \"arm and a leg\"."
     }
@@ -34516,7 +34516,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "au fait; à propos",
+     "m": "au fait",
      "hook": "Oh, « by the way », une autre chose !",
      "ex": "« By the way », la fête commence à sept heures."
     }
@@ -34568,7 +34568,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "génial; super; formidable",
+     "m": "génial",
      "hook": "Tu as eu des billets gratuits pour nous ? « awesome »",
      "ex": "Tu as eu des billets gratuits pour nous ? C’est « awesome » !"
     }
@@ -34620,7 +34620,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "c'est trop moi; c'est le mood; c'est exactement mon feeling",
+     "m": "c'est trop moi",
      "hook": "Chat endormi. Exactement mon « big mood » !",
      "ex": "Ce chat endormi est un « big mood »."
     }
@@ -34672,7 +34672,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "cartonner; réussir brillamment",
+     "m": "cartonner",
      "hook": "Jour de test. Comment ça s’est passé ? « ace »",
      "ex": "J'ai « aced » mon contrôle d'histoire aujourd'hui !"
     }
@@ -34727,7 +34727,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "regarder en rafale; marathonner",
+     "m": "regarder en rafale",
      "hook": "Week-end pluvieux. Toute la saison. Allez, « binge-watch » !",
      "ex": "Je vais « binge-watch » cette série tout le week-end."
     }
@@ -34780,7 +34780,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "épuisé; surmené",
+     "m": "épuisé",
      "hook": "Trop de travail. Je suis « burned out ».",
      "ex": "Après les examens, je me suis senti totalement « burned out »."
     }
@@ -34832,7 +34832,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "remis sur pied; rétabli",
+     "m": "remis sur pied",
      "hook": "La semaine dernière j'étais malade, aujourd'hui je suis « back on my feet ».",
      "ex": "Je suis enfin « back on my feet »."
     }
@@ -34884,7 +34884,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "dès que possible; au plus vite; le plus tôt possible",
+     "m": "dès que possible",
      "hook": "J'en ai besoin tout de suite, « ASAP » !",
      "ex": "Veuillez m'envoyer les notes « ASAP »."
     }
@@ -34936,7 +34936,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "cool; sympa; génial",
+     "m": "cool",
      "hook": "Film ce soir à six heures, « cool » ?",
      "ex": "« Cool », à six heures !"
     }
@@ -34988,7 +34988,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "radin; avare; bon marché",
+     "m": "radin",
      "hook": "Il ne paie jamais le déjeuner, il est « cheap ».",
      "ex": "Il est trop « cheap » pour acheter le déjeuner."
     }
@@ -35041,7 +35041,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "habillé pour impressionner; habillé pour faire bonne impression",
+     "m": "habillé pour impressionner",
      "hook": "Jour d'entretien. Costume et cravate ! \"dressed to impress\"",
      "ex": "Il est \"dressed to impress\" pour l'entretien."
     }
@@ -35093,7 +35093,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "mort d'ennui; ennuyé à mort",
+     "m": "mort d'ennui",
      "hook": "Deux heures des mêmes diapositives ! \"bored stiff\"",
      "ex": "J'étais \"bored stiff\" dans ce cours."
     }
@@ -35198,7 +35198,7 @@
     "reg": "very-casual",
     "region": "global",
     "l1": {
-     "m": "meilleure amie; meilleure pote; bestie",
+     "m": "meilleure amie",
      "hook": "Qui connaît tous tes secrets ? \"bestie\"",
      "ex": "Mon \"bestie\" et moi aimons les tacos."
     }
@@ -35251,7 +35251,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "grosse victoire; super succès; gros gain",
+     "m": "grosse victoire",
      "hook": "Tu as réussi le test ? Wow ! « big W ».",
      "ex": "Tu as réussi le test ? \"Big W\" !"
     }
@@ -35304,7 +35304,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "opinion controversée; prise de position choc",
+     "m": "opinion controversée",
      "hook": "La pizza à l'ananas est la meilleure ! « hot take ».",
      "ex": "Voici mon « hot take » : l'ananas appartient à la pizza."
     }
@@ -35357,7 +35357,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "gag; bouffonnerie; gaffe",
+     "m": "gag",
      "hook": "Il a trébuché dans la pièce de théâtre scolaire ! « blooper ».",
      "ex": "Ce \"blooper\" a fait rire toute la classe."
     }
@@ -35410,7 +35410,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "estimation approximative; chiffre approximatif",
+     "m": "estimation approximative",
      "hook": "Combien cela coûtera-t-il ? \"ballpark figure\"",
      "ex": "Donne-moi une \"ballpark figure\"."
     }
@@ -35462,7 +35462,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "compte sur moi; je suis partant(e)",
+     "m": "compte sur moi",
      "hook": "Soirée jeux chez moi ! \"count me in\"",
      "ex": "Soirée jeux ? \"Count me in\" !"
     }
@@ -35515,7 +35515,7 @@
     "reg": "very-casual",
     "region": "global",
     "l1": {
-     "m": "tube; gros son",
+     "m": "tube",
      "hook": "Fais monter le son de cette chanson ! \"banger\"",
      "ex": "Cette nouvelle chanson est un \"banger\" !"
     }
@@ -35567,7 +35567,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "सच में; बिना किसी झूठ के",
+     "m": "सच में",
      "hook": "शहर की सबसे बेहतरीन पिज़्ज़ा है, \"no cap\"। विश्वास करो?",
      "ex": "यह पिज़्ज़ा शहर की सबसे बेहतरीन है, \"no cap\"।"
     }
@@ -35619,7 +35619,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "चिड़चिड़ा; ख़फ़ा",
+     "m": "चिड़चिड़ा",
      "hook": "वह हार गया, फिर \"salty\" हो गया!",
      "ex": "मैंने कार्ड गेम जीता, इसलिए वह \"salty\" है।"
     }
@@ -35672,7 +35672,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "हँस-हँस कर लोटपोट; हँसी के मारे बुरा हाल",
+     "m": "हँस-हँस कर लोटपोट",
      "hook": "\"I'm dead\"—बिल्ली बॉक्स में कूद गई!",
      "ex": "बिल्ली बॉक्स में कूद गई। \"I'm dead\"।"
     }
@@ -35725,7 +35725,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "ठूँस-ठूँसकर खाना; बहुत ज़्यादा खाना",
+     "m": "ठूँस-ठूँसकर खाना",
      "hook": "\"pig out\"—पूरी पिज़्ज़ा खत्म हो गई!",
      "ex": "हमने कल रात पिज़्ज़ा पर \"pig out\" किया।"
     }
@@ -35777,7 +35777,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "पक्का; मंजूर है; ठीक है",
+     "m": "पक्का",
      "hook": "छह बजे पिज़्ज़ा, bet?",
      "ex": "छह बजे पिज़्ज़ा? \"bet\"।"
     }
@@ -35829,7 +35829,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "मामूली; साधारण; आम",
+     "m": "मामूली",
      "hook": "फिर पिज़्ज़ा और फिल्म, basic?",
      "ex": "मेरी वीकेंड योजना basic है: पिज़्ज़ा और फ़िल्म।"
     }
@@ -35882,7 +35882,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "अनबन; दुश्मनी; झगड़ा",
+     "m": "अनबन",
      "hook": "वो दोनों बात करना बंद कर गए। क्यों? beef?",
      "ex": "उनके बीच खेल को लेकर beef है।"
     }
@@ -35934,7 +35934,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "सौंदर्यपूर्ण; आकर्षक; शैलीदार",
+     "m": "सौंदर्यपूर्ण",
      "hook": "तुम्हारा कमरा Pinterest जैसा दिख रहा है! aesthetic",
      "ex": "तुम्हारी डेस्क बहुत aesthetic लग रही है।"
     }
@@ -35987,7 +35987,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "आपा खोना; अचानक आगबबूला होना; बुरी तरह भड़कना",
+     "m": "आपा खोना",
      "hook": "पिता ने गंदा कमरा देखा! blow a fuse",
      "ex": "उसने गंदे कमरे को देखकर blow a fuse कर दिया।"
     }
@@ -36039,7 +36039,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "बेहद स्वादिष्ट; अत्यंत जायकेदार",
+     "m": "बेहद स्वादिष्ट",
      "hook": "माँ की पास्ता आज रात \"bussin\" है!",
      "ex": "माँ की पास्ता आज रात bussin है।"
     }
@@ -36091,7 +36091,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "कोई बात नहीं; कभी भी; आपका स्वागत है",
+     "m": "कोई बात नहीं",
      "hook": "सवारी के लिए बहुत धन्यवाद! \"anytime\"",
      "ex": "सवारी के लिए धन्यवाद! \"anytime\""
     }
@@ -36144,7 +36144,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "कीबोर्ड से दूर; अनुपस्थित",
+     "m": "कीबोर्ड से दूर",
      "hook": "पाँच मिनट, फिर मैं वापस आऊँगा! \"AFK\"",
      "ex": "ब्रेक ले रहा हूँ, मैं पाँच मिनट के लिए AFK रहूँगा।"
     }
@@ -36196,7 +36196,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "मुझे नहीं पता; मुझे क्या पता",
+     "m": "मुझे नहीं पता",
      "hook": "चाबी कहाँ गई? \"beats me\"",
      "ex": "चाबी कहाँ है? \"beats me\""
     }
@@ -36249,7 +36249,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "शुरुआती बिंदु पर लौटना; शून्य पर लौटना",
+     "m": "शुरुआती बिंदु पर लौटना",
      "hook": "योजना विफल हो गई। अब क्या? \"back to square one\"",
      "ex": "योजना विफल हो गई। \"back to square one\""
     }
@@ -36302,7 +36302,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "बेहद महंगा; बहुत कीमती",
+     "m": "बेहद महंगा",
      "hook": "इस कोट की कीमत देखो! \"arm and a leg\"",
      "ex": "इस कोट की कीमत \"arm and a leg\" है।"
     }
@@ -36355,7 +36355,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "वैसे; वैसे एक और बात",
+     "m": "वैसे",
      "hook": "by the way, एक बात और!",
      "ex": "by the way, पार्टी सात बजे शुरू होती है।"
     }
@@ -36407,7 +36407,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "शानदार; बेहतरीन; बहुत बढ़िया",
+     "m": "शानदार",
      "hook": "क्या तुम्हें हमारे लिए मुफ्त टिकट मिल गए? awesome",
      "ex": "तुम्हारे पास हमारे लिए मुफ्त टिकट हैं? That's awesome!"
     }
@@ -36459,7 +36459,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "बिल्कुल दिल की बात; पूरी तरह सहमत",
+     "m": "बिल्कुल दिल की बात",
      "hook": "नींद वाली बिल्ली—बिल्कुल मेरा \"big mood\"!",
      "ex": "वह नींद वाली बिल्ली एक big mood है।"
     }
@@ -36511,7 +36511,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "बहुत बढ़िया प्रदर्शन करना; पूरे अंक पाना",
+     "m": "बहुत बढ़िया प्रदर्शन करना",
      "hook": "परीक्षा का दिन। तुमने कैसे 'ace' किया?",
      "ex": "मैंने आज अपना इतिहास टेस्ट ace किया!"
     }
@@ -36566,7 +36566,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "लगातार देखना; एक ही बार में कई एपिसोड देखना",
+     "m": "लगातार देखना",
      "hook": "बारिश वाला सप्ताहांत। पूरी सीज़न 'binge-watch' करो! चलो!",
      "ex": "मैं इस शो को पूरे वीकेंड binge-watch करूँगा।"
     }
@@ -36619,7 +36619,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "अत्यधिक थका हुआ; काम से थका-मांदा; क्लान्त",
+     "m": "अत्यधिक थका हुआ",
      "hook": "बहुत काम, मैं 'burned out' हूँ!",
      "ex": "परीक्षाओं के बाद, मैं पूरी तरह 'burned out' महसूस किया।"
     }
@@ -36671,7 +36671,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "फिर से स्वस्थ; चंगा; रोगमुक्त",
+     "m": "फिर से स्वस्थ",
      "hook": "पिछले हफ्ते बीमार था, आज मैं 'back on my feet' हूँ!",
      "ex": "मैं अंततः 'back on my feet' हूँ।"
     }
@@ -36723,7 +36723,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "जितनी जल्दी हो सके; यथाशीघ्र",
+     "m": "जितनी जल्दी हो सके",
      "hook": "मुझे यह अभी चाहिए, 'ASAP'!",
      "ex": "कृपया नोट्स मुझे 'ASAP' भेजें।"
     }
@@ -36775,7 +36775,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "बढ़िया; ठीक है; बहुत अच्छा",
+     "m": "बढ़िया",
      "hook": "आज रात छह बजे फिल्म, ठीक है? 'cool'।",
      "ex": "'cool', छह बजे मिलते हैं!"
     }
@@ -36827,7 +36827,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "कंजूस; मक्खीचूस",
+     "m": "कंजूस",
      "hook": "वह कभी लंच का भुगतान नहीं करता, वह 'cheap' है!",
      "ex": "वह लंच खरीदने के लिए बहुत 'cheap' है।"
     }
@@ -36881,7 +36881,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "गलती उजागर करना; टोकना",
+     "m": "गलती उजागर करना",
      "hook": "उसने सबको मेरी गलती 'call out' कर दी!",
      "ex": "उसने मुझे देर से आने के लिए \"call out\" किया।"
     }
@@ -36934,7 +36934,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "प्रभावशाली पोशाक पहने; सजे-धजे; बेहतरीन कपड़ों में",
+     "m": "प्रभावशाली पोशाक पहने",
      "hook": "इंटरव्यू का दिन। सूट और टाई, 'dressed to impress'!",
      "ex": "वह इंटरव्यू के लिए \"dressed to impress\" कपड़े पहने है।"
     }
@@ -36986,7 +36986,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "अत्यधिक ऊबा हुआ; बेहद उकताया हुआ",
+     "m": "अत्यधिक ऊबा हुआ",
      "hook": "दो घंटे एक ही स्लाइड्स, मैं \"bored stiff\" हूँ!",
      "ex": "मैं उस क्लास में \"bored stiff\" था।"
     }
@@ -37038,7 +37038,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "चीट डे; नियम-मुक्ति का दिन",
+     "m": "चीट डे",
      "hook": "शनिवार। डाइट? कौन सी डाइट? बिल्कुल 'cheat day'!",
      "ex": "शनिवार मेरा \"cheat day\" है।"
     }
@@ -37091,7 +37091,7 @@
     "reg": "very-casual",
     "region": "global",
     "l1": {
-     "m": "पक्का दोस्त; ख़ास दोस्त; जिगरी यार",
+     "m": "पक्का दोस्त",
      "hook": "कौन तुम्हारे सभी राज़ जानता है? बिल्कुल 'bestie'!",
      "ex": "मेरी \"bestie\" और मैं टैकोस पसंद करते हैं।"
     }
@@ -37143,7 +37143,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "gak bohong; serius deh; tanpa bohong",
+     "m": "gak bohong",
      "hook": "Pizza terbaik di kota. Percaya deh, \"no cap\".",
      "ex": "Pizza ini yang terbaik di kota, no cap."
     }
@@ -37195,7 +37195,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "kesal; marah; jengkel",
+     "m": "kesal",
      "hook": "Dia kalah, lalu mengomel, \"salty\".",
      "ex": "Dia \"salty\" karena aku menang dalam permainan kartu."
     }
@@ -37248,7 +37248,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "aku mati; aku ketawa mati; aku terbahak",
+     "m": "aku mati",
      "hook": "Kucing melompat ke dalam kotak! \"I'm dead\".",
      "ex": "Kucing melompat ke dalam kotak. \"I'm dead\"!"
     }
@@ -37301,7 +37301,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "makannya berlebihan; makan berlebihan; melahap",
+     "m": "makannya berlebihan",
      "hook": "Seluruh pizza sudah habis! \"pig out\".",
      "ex": "Kami \"pig out\" makan piza tadi malam."
     }
@@ -37353,7 +37353,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "setuju; deal; siap",
+     "m": "setuju",
      "hook": "Pizza jam enam, setuju? \"bet\".",
      "ex": "Pizza jam enam? \"bet\"."
     }
@@ -37405,7 +37405,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "pasaran; biasa saja",
+     "m": "pasaran",
      "hook": "Pizza dan film lagi? \"basic\".",
      "ex": "Rencana akhir pekan saya \"basic\": pizza dan film."
     }
@@ -37458,7 +37458,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "perseteruan; percekcokan",
+     "m": "perseteruan",
      "hook": "Kedua orang itu berhenti berbicara. Kenapa? \"beef\".",
      "ex": "Mereka punya \"beef\" karena sebuah permainan."
     }
@@ -37510,7 +37510,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "estetis; estetik",
+     "m": "estetis",
      "hook": "Kamarmu terlihat seperti Pinterest! \"aesthetic\".",
      "ex": "Meja kamu terlihat sangat \"aesthetic\"."
     }
@@ -37563,7 +37563,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "meledak marah; sangat murka",
+     "m": "meledak marah",
      "hook": "Ayah melihat kamar berantakan! \"blow a fuse\".",
      "ex": "Dia \"blow a fuse\" karena kamar yang berantakan."
     }
@@ -37615,7 +37615,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "enak banget; mantap; lezat",
+     "m": "enak banget",
      "hook": "Pasta buatan ibu terasa luar biasa malam ini! \"bussin\".",
      "ex": "Pasta buatan ibu \"bussin\" malam ini."
     }
@@ -37667,7 +37667,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "sama-sama; kapan saja; tidak masalah",
+     "m": "sama-sama",
      "hook": "Terima kasih banyak atas tumpangannya! \"anytime\".",
      "ex": "Terima kasih atas tumpangannya! \"anytime\"."
     }
@@ -37720,7 +37720,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "afk; tidak di depan komputer; offline",
+     "m": "afk",
      "hook": "Lima menit, lalu aku kembali! \"AFK\".",
      "ex": "Brb, saya akan \"AFK\" selama lima menit."
     }
@@ -37772,7 +37772,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "saya tidak tahu; gak tahu",
+     "m": "saya tidak tahu",
      "hook": "Di mana kunci itu pergi? \"beats me\".",
      "ex": "Di mana kuncinya? \"beats me\"."
     }
@@ -37825,7 +37825,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "kembali ke titik awal; mulai lagi dari nol; kembali ke awal",
+     "m": "kembali ke titik awal",
      "hook": "Rencana gagal. Sekarang bagaimana? \"back to square one\".",
      "ex": "Rencana gagal. \"back to square one\"."
     }
@@ -37878,7 +37878,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "mahal sekali; harganya selangit",
+     "m": "mahal sekali",
      "hook": "Lihat harga mantel ini! Itu 'arm and a leg'.",
      "ex": "Mantel ini harganya \"arm and a leg\"."
     }
@@ -37931,7 +37931,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "ngomong-ngomong; omong-omong",
+     "m": "ngomong-ngomong",
      "hook": "Oh, by the way!",
      "ex": "By the way, pesta dimulai jam tujuh."
     }
@@ -37983,7 +37983,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "keren; mantap; hebat",
+     "m": "keren",
      "hook": "Kamu dapat tiket gratis untuk kami? Itu 'awesome'.",
      "ex": "Kamu dapat tiket gratis untuk kami? Itu \\\"awesome\\\"!"
     }
@@ -38035,7 +38035,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "bener banget; relate banget",
+     "m": "bener banget",
      "hook": "Kucing mengantuk. Itu 'big mood'.",
      "ex": "Kucing mengantuk itu \\\"big mood\\\"."
     }
@@ -38090,7 +38090,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "maraton menonton; menonton tanpa henti",
+     "m": "maraton menonton",
      "hook": "Akhir pekan hujan. Seluruh musim. Ayo 'binge-watch'!",
      "ex": "Aku akan \\\"binge-watch\\\" acara ini sepanjang akhir pekan."
     }
@@ -38143,7 +38143,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "kelelahan; kelelahan total; burnout",
+     "m": "kelelahan",
      "hook": "Terlalu banyak kerja. Aku sudah 'burned out'!",
      "ex": "Setelah ujian, aku merasa benar-benar 'burned out'."
     }
@@ -38195,7 +38195,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "sembuh kembali; kembali pulih",
+     "m": "sembuh kembali",
      "hook": "Minggu lalu sakit, hari ini sudah 'back on my feet'!",
      "ex": "Akhirnya aku sudah 'back on my feet'."
     }
@@ -38247,7 +38247,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "segera; sesegera mungkin",
+     "m": "segera",
      "hook": "Aku butuh itu 'ASAP'!",
      "ex": "Tolong kirim catatannya 'ASAP'."
     }
@@ -38299,7 +38299,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "oke; mantap; sip",
+     "m": "oke",
      "hook": "Film malam ini jam enam, 'cool'?",
      "ex": "'Cool', sampai jumpa jam enam!"
     }
@@ -38351,7 +38351,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "pelit; kikir",
+     "m": "pelit",
      "hook": "Dia tidak pernah bayar makan siang, 'cheap'!",
      "ex": "Dia terlalu 'cheap' untuk membeli makan siang."
     }
@@ -38405,7 +38405,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "menegur; membongkar kesalahan",
+     "m": "menegur",
      "hook": "Dia 'call out' kesalahanku ke semua orang!",
      "ex": "Dia \"call out\" aku karena terlambat."
     }
@@ -38458,7 +38458,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "berpakaian sangat rapi; berdandan memukau",
+     "m": "berpakaian sangat rapi",
      "hook": "Hari wawancara. Aku 'dressed to impress' dengan setelan jas dan dasi!",
      "ex": "Dia \"dressed to impress\" untuk wawancara."
     }
@@ -38510,7 +38510,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "bosan setengah mati; sangat bosan",
+     "m": "bosan setengah mati",
      "hook": "Dua jam slide yang sama! Aku 'bored stiff'.",
      "ex": "Saya \"bored stiff\" di kelas itu."
     }
@@ -38562,7 +38562,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "hari bebas diet; hari makan sepuasnya; hari ngemil",
+     "m": "hari bebas diet",
      "hook": "Sabtu. Diet? Diet apa? \"cheat day\"",
      "ex": "Sabtu adalah \"cheat day\" saya."
     }
@@ -38615,7 +38615,7 @@
     "reg": "very-casual",
     "region": "global",
     "l1": {
-     "m": "sahabat karib; bestie; teman dekat",
+     "m": "sahabat karib",
      "hook": "Siapa yang tahu semua rahasiamu, bestie?",
      "ex": "\"bestie\" saya dan saya suka taco."
     }
@@ -38668,7 +38668,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "kemenangan besar; kemenangan luar biasa; big w",
+     "m": "kemenangan besar",
      "hook": "Kamu lulus tes? Wow! \"big W\"",
      "ex": "Kamu lulus tes? \"big W\"!"
     }
@@ -38720,7 +38720,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "嘘じゃない; 本気で言う",
+     "m": "嘘じゃない",
      "hook": "この街で一番のピザだよ。信じてね、\"no cap\"",
      "ex": "このピザはこの街で一番だ、\"no cap\"。"
     }
@@ -38772,7 +38772,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "イライラした; 悔しがっている; ひがんでいる",
+     "m": "イライラした",
      "hook": "彼は負けてからすねた、\"salty\"。",
      "ex": "カードゲームで勝ったから、彼は\"salty\"だ。"
     }
@@ -38825,7 +38825,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "笑い死んだ; 死んだ",
+     "m": "笑い死んだ",
      "hook": "猫が箱に飛び込んだ！\"I'm dead\"",
      "ex": "猫が箱に飛び込んだ。\"I'm dead!\""
     }
@@ -38878,7 +38878,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "ドカ食いする; 食べ過ぎる",
+     "m": "ドカ食いする",
      "hook": "ピザが全部なくなった！\"pig out\"",
      "ex": "昨晩、ピザで\"pig out\"した。"
     }
@@ -38930,7 +38930,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "了解; いいね; わかった",
+     "m": "了解",
      "hook": "6時にピザ、どう？\"bet\"",
      "ex": "6時にピザ？\"Bet\"。"
     }
@@ -38982,7 +38982,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "ありきたりな; 凡庸な",
+     "m": "ありきたりな",
      "hook": "またピザと映画か？",
      "ex": "私の週末の予定は「basic」だ：ピザと映画。"
     }
@@ -39035,7 +39035,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "確執; もめ事; 争い",
+     "m": "確執",
      "hook": "あの二人は話さなくなった。どうして？",
      "ex": "彼らはゲームのことで「beef」している。"
     }
@@ -39087,7 +39087,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "美的な; おしゃれな; センスがいい",
+     "m": "美的な",
      "hook": "君の部屋、Pinterestみたいだね！",
      "ex": "君のデスクはとても「aesthetic」だね。"
     }
@@ -39140,7 +39140,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "かんしゃくを起こす; 激怒する; 頭に来る",
+     "m": "かんしゃくを起こす",
      "hook": "パパが散らかった部屋を見たんだ！",
      "ex": "彼は散らかった部屋のことで「blow a fuse」した。"
     }
@@ -39192,7 +39192,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "超うまい; 最高においしい",
+     "m": "超うまい",
      "hook": "ママのパスタ、今夜はとても美味しいね！",
      "ex": "ママのパスタは今夜「bussin」だね。"
     }
@@ -39244,7 +39244,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "どういたしまして; いつでもどうぞ",
+     "m": "どういたしまして",
      "hook": "乗せてくれて本当にありがとう！「anytime」",
      "ex": "乗せてくれてありがとう！anytime"
     }
@@ -39297,7 +39297,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "離席中の; 席を外している",
+     "m": "離席中の",
      "hook": "5分だけ離れるね、すぐに戻るよ。「AFK」",
      "ex": "すぐ戻るね、5分間AFKになるよ。"
     }
@@ -39349,7 +39349,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "わからない; 見当がつかない",
+     "m": "わからない",
      "hook": "鍵がどこに行ったのか分からない。「beats me」",
      "ex": "鍵はどこ？Beats me。"
     }
@@ -39402,7 +39402,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "最初に戻る; やり直し",
+     "m": "最初に戻る",
      "hook": "計画が失敗した。次はどうしよう？「back to square one」",
      "ex": "計画が失敗した。Back to square one。"
     }
@@ -39455,7 +39455,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "とんでもなく高い; 高すぎる; 金がかかりすぎる",
+     "m": "とんでもなく高い",
      "hook": "このコートの値段を見て！「arm and a leg」",
      "ex": "このコートは arm and a leg だ。"
     }
@@ -39508,7 +39508,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "ところで; ちなみに",
+     "m": "ところで",
      "hook": "あ、もうひとつだけ、by the way。",
      "ex": "by the way、パーティーは7時に始まるよ。"
     }
@@ -39560,7 +39560,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "すごい; 最高; 素晴らしい",
+     "m": "すごい",
      "hook": "無料チケットを手に入れたんだね？「awesome」",
      "ex": "無料チケットを手に入れたんだ？それはawesome！"
     }
@@ -39612,7 +39612,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "あるある; 共感",
+     "m": "あるある",
      "hook": "眠そうな猫。big moodだね。",
      "ex": "あの眠そうな猫はbig moodだ。"
     }
@@ -39664,7 +39664,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "満点を取る; 最高点を取る",
+     "m": "満点を取る",
      "hook": "テストの日だね。結果はどうだった？「ace」",
      "ex": "今日、歴史のテストをaceしたよ！"
     }
@@ -39719,7 +39719,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "一気見する; 連続視聴する",
+     "m": "一気見する",
      "hook": "雨の週末。シーズン全体をbinge-watchしよう！",
      "ex": "週末ずっとこの番組をbinge-watchするよ。"
     }
@@ -39772,7 +39772,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "燃え尽きた; 疲れ果てた; 燃え尽き症候群の",
+     "m": "燃え尽きた",
      "hook": "仕事が多すぎて、もう\"burned out\"だ！",
      "ex": "試験が終わって、完全に\"burned out\"だった。"
     }
@@ -39824,7 +39824,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "元気を取り戻した; 回復した",
+     "m": "元気を取り戻した",
      "hook": "先週は病気だったけど、今日は\"back on my feet\"だ！",
      "ex": "やっと\"back on my feet\"になった。"
     }
@@ -39876,7 +39876,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "できるだけ早く; なるべく早く",
+     "m": "できるだけ早く",
      "hook": "今すぐ欲しい、つまり\"ASAP\"だ！",
      "ex": "ノートを\"ASAP\"で送ってください。"
     }
@@ -39928,7 +39928,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "いい; イケてる",
+     "m": "いい",
      "hook": "今夜6時に映画、いい？\"cool\"",
      "ex": "\"cool\"、6時に会いましょう！"
     }
@@ -39980,7 +39980,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "ケチな; 安っぽい",
+     "m": "ケチな",
      "hook": "彼は昼食代を絶対に払わない。\"cheap\"",
      "ex": "彼は昼食を買うほど「cheap」だ。"
     }
@@ -40034,7 +40034,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "指摘する; 公に非難する",
+     "m": "指摘する",
      "hook": "彼女はみんなに僕のミスを指摘した。「call out」",
      "ex": "彼女は私が遅れたことを「call out」した。"
     }
@@ -40087,7 +40087,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "目立つように着飾る; 印象的に装う; かっこよく着る",
+     "m": "目立つように着飾る",
      "hook": "面接の日。スーツにネクタイ！『dressed to impress』",
      "ex": "彼は面接のために「dressed to impress」な服装だ。"
     }
@@ -40139,7 +40139,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "退屈で死にそう; 退屈でたまらない",
+     "m": "退屈で死にそう",
      "hook": "同じスライドが2時間！『bored stiff』",
      "ex": "あの授業で私は「bored stiff」だった。"
     }
@@ -40191,7 +40191,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "チートデイ; 好きなものを食べていい日",
+     "m": "チートデイ",
      "hook": "土曜日。ダイエット？どんなダイエット？『cheat day』",
      "ex": "土曜日は私の「cheat day」だ。"
     }
@@ -40244,7 +40244,7 @@
     "reg": "very-casual",
     "region": "global",
     "l1": {
-     "m": "親友; ベストフレンド",
+     "m": "親友",
      "hook": "誰があなたのすべての秘密を知っているの？『bestie』",
      "ex": "私の「bestie」と私はタコスが大好きだ。"
     }
@@ -40296,7 +40296,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "진심이야; 거짓말 아니고",
+     "m": "진심이야",
      "hook": "이 동네 최고의 피자야. 믿어, no cap",
      "ex": "이 피자는 이 동네에서 최고야, no cap"
     }
@@ -40348,7 +40348,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "짜증난; 얄미운; 화가 난",
+     "m": "짜증난",
      "hook": "그는 졌고, 화가 났다! \"salty\"",
      "ex": "그는 내가 카드 게임에서 이겨서 'salty'했어."
     }
@@ -40401,7 +40401,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "웃겨 죽겠네; 빵 터짐",
+     "m": "웃겨 죽겠네",
      "hook": "고양이가 상자 안으로 뛰어들었어! I'm dead",
      "ex": "고양이가 상자 안으로 뛰어들었어. I'm dead!"
     }
@@ -40454,7 +40454,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "폭식하다; 대식하다; 잔치처럼 먹다",
+     "m": "폭식하다",
      "hook": "피자 전체가 다 사라졌어! pig out",
      "ex": "우리는 어젯밤 피자를 많이 먹었어. \"pig out\""
     }
@@ -40506,7 +40506,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "알겠어; 좋아; 그래",
+     "m": "알겠어",
      "hook": "6시에 피자 어때, bet?",
      "ex": "6시에 피자? Bet"
     }
@@ -40558,7 +40558,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "기본; 뻔한; 평범한",
+     "m": "기본",
      "hook": "피자와 영화를 또? 'basic'이야.",
      "ex": "내 주말 계획은 basic: 피자와 영화야."
     }
@@ -40611,7 +40611,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "불화; 다툼; 갈등",
+     "m": "불화",
      "hook": "그 두 사람은 말을 끊었어. 왜? 'beef'?",
      "ex": "그들은 게임 때문에 beef가 있어."
     }
@@ -40663,7 +40663,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "감각적인; 미적인",
+     "m": "감각적인",
      "hook": "네 방이 Pinterest처럼 보여! 'aesthetic'!",
      "ex": "네 책상이 정말 aesthetic해."
     }
@@ -40716,7 +40716,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "폭발하다; 화가 나다",
+     "m": "폭발하다",
      "hook": "아빠가 지저분한 방을 보시고 'blow a fuse'했어.",
      "ex": "그는 어질러진 방 때문에 blow a fuse했어."
     }
@@ -40768,7 +40768,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "존맛인; 기가 막히게 맛있는",
+     "m": "존맛인",
      "hook": "엄마의 파스타가 오늘 밤에 정말 'bussin'해!",
      "ex": "엄마 파스타가 오늘 밤에 bussin이야."
     }
@@ -40820,7 +40820,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "언제든지; 언제든 물어봐; 언제든지요",
+     "m": "언제든지",
      "hook": "태워줘서 정말 고마워! \"anytime\".",
      "ex": "태워줘서 고마워! \"anytime\"."
     }
@@ -40873,7 +40873,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "자리 비움; 키보드 떠남",
+     "m": "자리 비움",
      "hook": "5분 뒤에 돌아올게! 'AFK'",
      "ex": "잠깐 나갔다 올게, 5분 동안 \"AFK\" 할게."
     }
@@ -40925,7 +40925,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "전혀 모르겠어; 나도 몰라",
+     "m": "전혀 모르겠어",
      "hook": "열쇠가 어디로 갔지? 'beats me'",
      "ex": "열쇠가 어디 있지? \"beats me\"."
     }
@@ -40978,7 +40978,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "원점으로 돌아가; 출발점으로 돌아가",
+     "m": "원점으로 돌아가",
      "hook": "계획이 실패했어. 이제 \"back to square one\"이야.",
      "ex": "계획이 실패했어. \"back to square one\"."
     }
@@ -41031,7 +41031,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "엄청 비싸다; 천문학적인 가격",
+     "m": "엄청 비싸다",
      "hook": "이 코트 가격을 봐! \"arm and a leg\"이야.",
      "ex": "이 코트는 \"arm and a leg\" 정도야."
     }
@@ -41084,7 +41084,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "그런데; 그나저나",
+     "m": "그런데",
      "hook": "by the way, 아, 한 가지 더!",
      "ex": "by the way, 파티는 7시에 시작해."
     }
@@ -41136,7 +41136,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "최고의; 대단한; 멋진",
+     "m": "최고의",
      "hook": "우리에게 무료 티켓을 구했어? \"awesome\"!",
      "ex": "우리에게 무료 티켓을 구했어? \"awesome\"!"
     }
@@ -41188,7 +41188,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "격하게 공감함; 완전 내 심정",
+     "m": "격하게 공감함",
      "hook": "잠자는 고양이. 바로 내 기분! \"big mood\"",
      "ex": "그 잠자는 고양이는 \"big mood\"."
     }
@@ -41240,7 +41240,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "만점 맞다; 대성공하다; 완벽하게 해내다",
+     "m": "만점 맞다",
      "hook": "시험 날이야. 어떻게 했어? \"ace\"!",
      "ex": "오늘 역사 시험을 \"ace\"했어!"
     }
@@ -41295,7 +41295,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "정주행하다; 몰아서 보다",
+     "m": "정주행하다",
      "hook": "비 오는 주말이야. 시즌 전체를 \"binge-watch\"하자!",
      "ex": "주말 내내 이 쇼를 \"binge-watch\" 할 거야."
     }
@@ -41348,7 +41348,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "번아웃된; 에너지가 고갈된; 완전히 지친",
+     "m": "번아웃된",
      "hook": "일이 너무 많아. 나 이제 'burned out'이야.",
      "ex": "시험이 끝난 뒤, 나는 완전히 'burned out'했어."
     }
@@ -41400,7 +41400,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "회복한; 다시 일어선",
+     "m": "회복한",
      "hook": "지난주에 아팠지만, 오늘은 괜찮아. 이제 'back on my feet'야.",
      "ex": "드디어 'back on my feet'야."
     }
@@ -41452,7 +41452,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "가급적 빨리; 가능한 한 빨리",
+     "m": "가급적 빨리",
      "hook": "지금 바로 필요해! 'ASAP'.",
      "ex": "노트를 'ASAP'로 보내 주세요."
     }
@@ -41504,7 +41504,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "좋아; 괜찮아; 멋져",
+     "m": "좋아",
      "hook": "오늘 밤 6시에 영화 보자, 괜찮아? 'cool'.",
      "ex": "'Cool', 6시에 보자!"
     }
@@ -41556,7 +41556,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "인색한; 싸구려; 값싼",
+     "m": "인색한",
      "hook": "그는 점심값을 절대 안 내, 'cheap'.",
      "ex": "그는 점심을 사기엔 너무 'cheap'해."
     }
@@ -41610,7 +41610,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "지적하다; 비판하다",
+     "m": "지적하다",
      "hook": "그녀는 모두에게 내 실수를 'call out'했어.",
      "ex": "그녀는 내가 늦은 것을 'call out'했어."
     }
@@ -41663,7 +41663,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "멋내게 차려입다; 인상 깊게 입다",
+     "m": "멋내게 차려입다",
      "hook": "면접 날. 정장과 넥타이, 'dressed to impress'!",
      "ex": "그는 면접을 위해 'dressed to impress'하게 옷을 입었어."
     }
@@ -41715,7 +41715,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "죽을 정도로 지루한; 심하게 지루한; 완전 지루한",
+     "m": "죽을 정도로 지루한",
      "hook": "같은 슬라이드 두 시간! 'bored stiff'!",
      "ex": "그 수업에서 나는 'bored stiff'했어."
     }
@@ -41820,7 +41820,7 @@
     "reg": "very-casual",
     "region": "global",
     "l1": {
-     "m": "절친; 베스트프렌드; 친한 친구",
+     "m": "절친",
      "hook": "누가 네 모든 비밀을 알까? 'bestie'!",
      "ex": "내 'bestie'와 나는 타코를 좋아해."
     }
@@ -41872,7 +41872,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "sem caô; sem mentira; papo reto",
+     "m": "sem caô",
      "hook": "A melhor pizza da cidade. Acredite, \"no cap\".",
      "ex": "Esta pizza é a melhor da cidade, \"no cap\"."
     }
@@ -41924,7 +41924,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "azedo; irritado; amargurado",
+     "m": "azedo",
      "hook": "Ele perdeu e ficou \"salty\".",
      "ex": "Ele está \"salty\" porque eu ganhei o jogo de cartas."
     }
@@ -41977,7 +41977,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "tô morrendo; to morrendo de rir",
+     "m": "tô morrendo",
      "hook": "O gato pulou na caixa! \"I'm dead\".",
      "ex": "O gato pulou na caixa. \"I'm dead\"!"
     }
@@ -42030,7 +42030,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "comer demais; se empanturrar; encher o prato",
+     "m": "comer demais",
      "hook": "A pizza inteira acabou! \"pig out\".",
      "ex": "Nós nos empanturramos de pizza ontem à noite (fizemos um \"pig out\")."
     }
@@ -42082,7 +42082,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "tá; fechado; combinado",
+     "m": "tá",
      "hook": "Pizza às seis, \"bet\"?",
      "ex": "Pizza às seis? \"Bet\"."
     }
@@ -42134,7 +42134,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "básico; sem graça",
+     "m": "básico",
      "hook": "Pizza e filme de novo? \"basic\"",
      "ex": "Meu plano de fim de semana é \"basic\": pizza e filme."
     }
@@ -42187,7 +42187,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "briga; desavença; rixa",
+     "m": "briga",
      "hook": "Aqueles dois pararam de conversar. Por quê? \"beef\"",
      "ex": "Eles têm \"beef\" por causa de um jogo."
     }
@@ -42239,7 +42239,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "estético; estiloso",
+     "m": "estético",
      "hook": "Seu quarto parece do Pinterest! \"aesthetic\"",
      "ex": "Sua escrivaninha está tão \"aesthetic\"."
     }
@@ -42291,7 +42291,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "delícia; muito bom; top",
+     "m": "delícia",
      "hook": "A massa da mãe está incrível esta noite! \"bussin\"",
      "ex": "A massa da mãe está \"bussin\" hoje à noite."
     }
@@ -42343,7 +42343,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "de nada; não tem de quê; à vontade",
+     "m": "de nada",
      "hook": "Obrigado(a) pela carona! (\"anytime\")",
      "ex": "Obrigado pela carona! \"anytime\"."
     }
@@ -42396,7 +42396,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "AFK; fora do teclado; ausente",
+     "m": "AFK",
      "hook": "Cinco minutos, depois eu volto! \"AFK\"",
      "ex": "Volto já, vou ficar \"AFK\" por cinco minutos."
     }
@@ -42448,7 +42448,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "sei lá; não faço ideia; sei não",
+     "m": "sei lá",
      "hook": "Onde a chave foi? (\"beats me\")",
      "ex": "Onde está a chave? \"beats me\"."
     }
@@ -42501,7 +42501,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "voltar à estaca zero; recomeçar do zero; voltar ao início",
+     "m": "voltar à estaca zero",
      "hook": "O plano falhou. E agora, \"back to square one\"?",
      "ex": "Plano falhou. \"back to square one\"."
     }
@@ -42554,7 +42554,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "custa os olhos da cara; custa um rim",
+     "m": "custa os olhos da cara",
      "hook": "Olha o preço deste casaco! É \"arm and a leg\".",
      "ex": "Este casaco custa \"arm and a leg\"."
     }
@@ -42607,7 +42607,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "a propósito; aliás",
+     "m": "a propósito",
      "hook": "Ah, \"by the way\", tem mais uma coisa!",
      "ex": "\"By the way\", a festa começa às sete."
     }
@@ -42659,7 +42659,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "incrível; sensacional; demais",
+     "m": "incrível",
      "hook": "Você conseguiu ingressos grátis para a gente?",
      "ex": "Você conseguiu ingressos grátis para a gente? Isso é \"awesome\"!"
     }
@@ -42711,7 +42711,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "vibe total; é muito a minha cara; tô nessa",
+     "m": "vibe total",
      "hook": "Gato sonolento. Exatamente como me sinto!",
      "ex": "Aquele gato sonolento é um \"big mood\"."
     }
@@ -42763,7 +42763,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "arrasar; mandar bem; tirar 10",
+     "m": "arrasar",
      "hook": "Dia de prova. Como foi?",
      "ex": "Eu \"ace\"i meu teste de história hoje!"
     }
@@ -42818,7 +42818,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "maratonar; assistir em maratona",
+     "m": "maratonar",
      "hook": "Fim de semana chuvoso. Toda a temporada. Vamos!",
      "ex": "Eu vou \"binge-watch\" esta série o fim de semana inteiro."
     }
@@ -42871,7 +42871,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "esgotado; exausto; cansado",
+     "m": "esgotado",
      "hook": "Muito trabalho. Estou \"burned out\"!",
      "ex": "Depois das provas, eu me senti totalmente \"burned out\"."
     }
@@ -42923,7 +42923,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "de volta à ativa; recuperado; de pé novamente",
+     "m": "de volta à ativa",
      "hook": "Na semana passada estava doente, hoje estou \"back on my feet\"!",
      "ex": "Finalmente estou \"back on my feet\"."
     }
@@ -42975,7 +42975,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "o mais rápido possível; o quanto antes; assim que possível",
+     "m": "o mais rápido possível",
      "hook": "Preciso disso agora, \"ASAP\"!",
      "ex": "Por favor, envie-me as notas \"ASAP\"."
     }
@@ -43027,7 +43027,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "legal; bacana; da hora",
+     "m": "legal",
      "hook": "Filme hoje à noite às seis, \"cool\"?",
      "ex": "\"Cool\", nos vemos às seis!"
     }
@@ -43079,7 +43079,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "pão-duro; barato",
+     "m": "pão-duro",
      "hook": "Ele nunca paga o almoço, é \"cheap\"!",
      "ex": "Ele é \"cheap\" demais para comprar o almoço."
     }
@@ -43133,7 +43133,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "expor; chamar a atenção; apontar",
+     "m": "expor",
      "hook": "Ela contou a todos o meu erro! (\"call out\")",
      "ex": "Ela me chamou a atenção (\"called me out\") por estar atrasado."
     }
@@ -43186,7 +43186,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "arrasando no visual; vestido pra causar",
+     "m": "arrasando no visual",
      "hook": "Dia de entrevista. Terno e gravata! \"dressed to impress\"",
      "ex": "Ele está \"dressed to impress\" para a entrevista."
     }
@@ -43238,7 +43238,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "entediado pra caramba; entediado até a morte",
+     "m": "entediado pra caramba",
      "hook": "Duas horas dos mesmos slides! \"bored stiff\"",
      "ex": "Eu estava \"bored stiff\" naquela aula."
     }
@@ -43290,7 +43290,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "dia de trapaça; dia de folga; dia de quebra de dieta",
+     "m": "dia de trapaça",
      "hook": "Sábado. Dieta? Que dieta? \"cheat day\"",
      "ex": "Sábado é o meu \"cheat day\""
     }
@@ -43343,7 +43343,7 @@
     "reg": "very-casual",
     "region": "global",
     "l1": {
-     "m": "melhor amiga; amiga íntima; parceira",
+     "m": "melhor amiga",
      "hook": "Quem conhece todos os seus segredos? \"bestie\"",
      "ex": "Minha \"bestie\" e eu adoramos tacos."
     }
@@ -43396,7 +43396,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "grande vitória; vitória incrível; sucesso",
+     "m": "grande vitória",
      "hook": "Você passou no teste? \"big W\"!",
      "ex": "Você passou no teste? \"big W\"!"
     }
@@ -43448,7 +43448,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "честно; без шуток; без вранья",
+     "m": "честно",
      "hook": "Лучшая пицца в городе. Поверьте, no cap.",
      "ex": "Эта пицца — лучшая в городе, no cap."
     }
@@ -43500,7 +43500,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "раздражённый; обиженный; злой",
+     "m": "раздражённый",
      "hook": "Он проиграл, а потом стал salty.",
      "ex": "Он salty, потому что я выиграл в карточную игру."
     }
@@ -43605,7 +43605,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "окей; договорились; ладно",
+     "m": "окей",
      "hook": "Пицца в шесть, bet?",
      "ex": "Пицца в шесть? Bet."
     }
@@ -43657,7 +43657,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "обычный; банальный; заурядный",
+     "m": "обычный",
      "hook": "Опять пицца и фильм?",
      "ex": "Мой план на выходные \"basic\": пицца и фильм."
     }
@@ -43710,7 +43710,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "конфликт; ссора; разборка",
+     "m": "конфликт",
      "hook": "Эти двое перестали разговаривать. Почему?",
      "ex": "У них \"beef\" из‑за игры."
     }
@@ -43762,7 +43762,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "эстетичный; стильный",
+     "m": "эстетичный",
      "hook": "Твоя комната выглядит как в Pinterest!",
      "ex": "Твой стол выглядит так \"aesthetic\"."
     }
@@ -43815,7 +43815,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "взбеситься; выйти из себя",
+     "m": "взбеситься",
      "hook": "Папа увидел беспорядок в комнате!",
      "ex": "Он «blow a fuse» из‑за беспорядка в комнате."
     }
@@ -43867,7 +43867,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "вкусный; отпадный; бомба",
+     "m": "вкусный",
      "hook": "Паста мамы сегодня просто нереальная!",
      "ex": "Паста мамы \"bussin\" сегодня."
     }
@@ -43919,7 +43919,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "не за что; пожалуйста; в любое время",
+     "m": "не за что",
      "hook": "Спасибо большое за поездку! «anytime».",
      "ex": "Спасибо за поездку! Anytime."
     }
@@ -43972,7 +43972,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "вне клавиатуры; не у компьютера",
+     "m": "вне клавиатуры",
      "hook": "Пять минут, потом я вернусь! «AFK».",
      "ex": "Brb, я буду AFK пять минут."
     }
@@ -44024,7 +44024,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "не знаю; понятия не имею",
+     "m": "не знаю",
      "hook": "Куда делся ключ? «beats me».",
      "ex": "Где ключ? Beats me."
     }
@@ -44077,7 +44077,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "снова с нуля; начать с начала",
+     "m": "снова с нуля",
      "hook": "План провалился. Что дальше? «back to square one».",
      "ex": "План провалился. Back to square one."
     }
@@ -44130,7 +44130,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "стоить целое состояние; стоить кучу денег",
+     "m": "стоить целое состояние",
      "hook": "Посмотри на цену этого пальто! «arm and a leg».",
      "ex": "Это пальто стоит an arm and a leg."
     }
@@ -44183,7 +44183,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "кстати; между прочим",
+     "m": "кстати",
      "hook": "О, ещё одна вещь! «by the way».",
      "ex": "«By the way», вечеринка начинается в семь."
     }
@@ -44235,7 +44235,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "классный; потрясающий; замечательный",
+     "m": "классный",
      "hook": "Ты достал нам бесплатные билеты?",
      "ex": "Ты достал нам бесплатные билеты? Это «awesome»!"
     }
@@ -44287,7 +44287,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "полностью в тему; как раз",
+     "m": "полностью в тему",
      "hook": "Сонный кот. Точно мои чувства!",
      "ex": "Тот сонный кот — это «big mood»."
     }
@@ -44339,7 +44339,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "получить пятёрку; отлично сдать",
+     "m": "получить пятёрку",
      "hook": "День теста. Как у тебя получилось?",
      "ex": "Я сегодня «aced» тест по истории!"
     }
@@ -44394,7 +44394,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "запойно смотреть; марафонить",
+     "m": "запойно смотреть",
      "hook": "Дождливые выходные. Весь сезон. Поехали!",
      "ex": "Я буду «binge-watch» этот сериал весь уикенд."
     }
@@ -44447,7 +44447,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "выгоревший; измотанный",
+     "m": "выгоревший",
      "hook": "Слишком много работы. Я «burned out»!",
      "ex": "После экзаменов я почувствовал себя полностью «burned out»."
     }
@@ -44499,7 +44499,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "вновь на ногах; восстановился",
+     "m": "вновь на ногах",
      "hook": "На прошлой неделе болел, сегодня уже «back on my feet»!",
      "ex": "Я наконец‑то «back on my feet»."
     }
@@ -44551,7 +44551,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "как можно скорее; в срочном порядке",
+     "m": "как можно скорее",
      "hook": "Мне это нужно прямо сейчас, «ASAP»!",
      "ex": "Пожалуйста, пришлите мне заметки ASAP."
     }
@@ -44603,7 +44603,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "круто; классно; отлично",
+     "m": "круто",
      "hook": "Фильм сегодня в шесть, «cool»?",
      "ex": "«Cool», увидимся в шесть!"
     }
@@ -44655,7 +44655,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "жадный; скупой; дешёвый",
+     "m": "жадный",
      "hook": "Он никогда не платит за обед, «cheap»!",
      "ex": "Он слишком «cheap», чтобы купить обед."
     }
@@ -44709,7 +44709,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "выставить на свет; уличить",
+     "m": "выставить на свет",
      "hook": "Она всем рассказала о моей ошибке! «call out».",
      "ex": "Она сделала мне замечание («called me out») за то, что я опоздал."
     }
@@ -44762,7 +44762,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "одетый, чтобы впечатлить; нарядился, чтобы произвести впечатление",
+     "m": "одетый, чтобы впечатлить",
      "hook": "День интервью. Костюм и галстук — «dressed to impress».",
      "ex": "Он \"dressed to impress\" для интервью."
     }
@@ -44814,7 +44814,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "заскучал до смерти; умер от скуки",
+     "m": "заскучал до смерти",
      "hook": "Два часа одних и тех же слайдов — «bored stiff».",
      "ex": "Я был \"bored stiff\" на том уроке."
     }
@@ -44866,7 +44866,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "чит‑день; день отрыва; день свободного питания",
+     "m": "чит‑день",
      "hook": "Суббота. Диета? Какая диета? — «cheat day».",
      "ex": "Суббота — мой «cheat day»."
     }
@@ -44919,7 +44919,7 @@
     "reg": "very-casual",
     "region": "global",
     "l1": {
-     "m": "близкий друг; лучшая подруга; подруга",
+     "m": "близкий друг",
      "hook": "Кто знает все твои секреты? — «bestie».",
      "ex": "Моя «bestie» и я любим тако."
     }
@@ -44972,7 +44972,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "крутая победа; большая победа",
+     "m": "крутая победа",
      "hook": "Ты сдал тест? «big W»!",
      "ex": "Ты сдал тест? «Big W»!"
     }
@@ -45024,7 +45024,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "ไม่ได้โกหกนะ; พูดจริงนะ",
+     "m": "ไม่ได้โกหกนะ",
      "hook": "พิซซ่าอร่อยที่สุดในเมืองเลย เชื่อฉันนะ no cap",
      "ex": "พิซซ่านี้อร่อยที่สุดในเมือง, no cap"
     }
@@ -45076,7 +45076,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "เคือง; ขม",
+     "m": "เคือง",
      "hook": "เขาแพ้แล้วก็ \"salty\"!",
      "ex": "เขา salty เพราะฉันชนะเกมไพ่"
     }
@@ -45129,7 +45129,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "ฮากระจาย; ขำจนขิต; ขำตายเลย",
+     "m": "ฮากระจาย",
      "hook": "แมวกระโดดเข้าไปในกล่องเลย \"I'm dead\"",
      "ex": "แมวกระโดดเข้าไปในกล่อง ฉันหัวเราะจน 'I'm dead'!"
     }
@@ -45182,7 +45182,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "กินเยอะเกินไป; กินจนเต็มท้อง",
+     "m": "กินเยอะเกินไป",
      "hook": "พิซซ่าทั้งหมดหายไปแล้ว \"pig out\"",
      "ex": "เรากินพิซซ่าอย่าง \"pig out\" เมื่อคืน"
     }
@@ -45234,7 +45234,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "ได้เลย; ตกลง; โอเค",
+     "m": "ได้เลย",
      "hook": "พิซซ่าเวลา 6 โมง ดีไหม? \"bet\"",
      "ex": "พิซซ่าเวลา 6 โมง? Bet"
     }
@@ -45286,7 +45286,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "ธรรมดา; ธรรมดาเกินไป",
+     "m": "ธรรมดา",
      "hook": "พิซซ่าและหนังอีกแล้ว?",
      "ex": "แผนวันหยุดของฉัน \"basic\": พิซซ่าและหนัง"
     }
@@ -45339,7 +45339,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "ความขัดแย้ง; เรื่องทะเลาะ",
+     "m": "ความขัดแย้ง",
      "hook": "คนสองคนนั้นหยุดคุยกันแล้ว ทำไม?",
      "ex": "พวกเขามี \"beef\" เกี่ยวกับเกม"
     }
@@ -45391,7 +45391,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "สวยสไตล์; มีสไตล์",
+     "m": "สวยสไตล์",
      "hook": "ห้องของคุณดูเหมือน Pinterest!",
      "ex": "โต๊ะทำงานของคุณดู \"aesthetic\" มาก"
     }
@@ -45444,7 +45444,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "ระเบิดอารมณ์; อารมณ์เสีย",
+     "m": "ระเบิดอารมณ์",
      "hook": "พ่อเห็นห้องรก!",
      "ex": "เขา \"blow a fuse\" เมื่อเห็นห้องรก"
     }
@@ -45496,7 +45496,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "อร่อยจัด; แซ่บ; อร่อยมาก",
+     "m": "อร่อยจัด",
      "hook": "พาสต้าแม่อร่อยเกินจริงคืนนี้!",
      "ex": "พาสต้าแม่ \"bussin\" คืนนี้"
     }
@@ -45548,7 +45548,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "ยินดีเสมอ; ได้เลย",
+     "m": "ยินดีเสมอ",
      "hook": "ขอบคุณมากสำหรับการพาไป! \"anytime\"",
      "ex": "ขอบคุณที่ให้ขับรถ! \"anytime\"."
     }
@@ -45601,7 +45601,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "ไม่ได้อยู่หน้าจอ; ไม่อยู่",
+     "m": "ไม่ได้อยู่หน้าจอ",
      "hook": "ห้านาทีแล้วฉันจะกลับมา! \"AFK\"",
      "ex": "เดี๋ยวกลับนะ ฉันจะ \"AFK\" ห้านาที."
     }
@@ -45653,7 +45653,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "ฉันก็ไม่รู้เหมือนกัน; ยอมแพ้ (ไม่รู้คำตอบ)",
+     "m": "ฉันก็ไม่รู้เหมือนกัน",
      "hook": "กุญแจหายไปไหน? 'beats me'!",
      "ex": "กุญแจหายไปไหน? \"beats me\"."
     }
@@ -45706,7 +45706,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "กลับไปนับหนึ่งใหม่; เริ่มต้นใหม่ทั้งหมด",
+     "m": "กลับไปนับหนึ่งใหม่",
      "hook": "แผนล้มเหลว แล้วตอนนี้ทำอย่างไร 'back to square one'!",
      "ex": "แผนล้มเหลว \"back to square one\"."
     }
@@ -45759,7 +45759,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "แพงหูฉี่; แพงมาก",
+     "m": "แพงหูฉี่",
      "hook": "ดูราคาของเสื้อโค้ทนี้สิ 'arm and a leg'!",
      "ex": "เสื้อโค้ทนี้ราคา \"arm and a leg\"."
     }
@@ -45812,7 +45812,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "อ้อ; พูดถึง",
+     "m": "อ้อ",
      "hook": "โอ้ \"by the way\" อีกเรื่องหนึ่ง!",
      "ex": "\"by the way\" ปาร์ตี้เริ่มตอนเจ็ดโมง."
     }
@@ -45864,7 +45864,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "เจ๋งมาก; ยอดเยี่ยมมาก; สุดยอด",
+     "m": "เจ๋งมาก",
      "hook": "คุณได้ตั๋วฟรีให้เราหรือ?",
      "ex": "คุณได้ตั๋วฟรีให้เราหรือ? นั่น \"awesome\"!"
     }
@@ -45916,7 +45916,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "เข้าใจเลย; ตรงกับความรู้สึกเลย",
+     "m": "เข้าใจเลย",
      "hook": "แมวนอนหลับ เหมือนความรู้สึกของฉันเลย!",
      "ex": "แมวนอนหลับนั้นเป็น \"big mood\"."
     }
@@ -45968,7 +45968,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "ทำได้ดีเยี่ยม; ทำคะแนนได้เต็ม; ผ่านฉลุย",
+     "m": "ทำได้ดีเยี่ยม",
      "hook": "วันสอบ คุณทำอย่างไรบ้าง?",
      "ex": "ฉัน \"ace\" การสอบประวัติศาสตร์วันนี้!"
     }
@@ -46023,7 +46023,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "ดูรวดเดียวจบ; ดูซีรีส์ต่อเนื่อง",
+     "m": "ดูรวดเดียวจบ",
      "hook": "วันหยุดฝนตก ทั้งซีซั่น ไปเลย!",
      "ex": "ฉันจะ \"binge-watch\" รายการนี้ตลอดสุดสัปดาห์."
     }
@@ -46076,7 +46076,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "หมดไฟ; อ่อนล้าจากการทำงานหนัก",
+     "m": "หมดไฟ",
      "hook": "งานเยอะเกินไป ฉันรู้สึก “burned out” แล้ว!",
      "ex": "หลังสอบ ฉันรู้สึก “burned out” อย่างเต็มที่."
     }
@@ -46128,7 +46128,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "หายดีแล้ว; กลับมาแข็งแรงอีกครั้ง; ฟื้นตัวแล้ว",
+     "m": "หายดีแล้ว",
      "hook": "อาทิตย์ที่แล้วป่วย วันนี้ฉัน “back on my feet” แล้ว!",
      "ex": "ฉัน “back on my feet” แล้ว."
     }
@@ -46232,7 +46232,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "เจ๋ง; ดี; เยี่ยม",
+     "m": "เจ๋ง",
      "hook": "หนังคืนนี้หกโมง ตกลงไหม? “cool”",
      "ex": "“cool”, แล้วเจอกันตอนหกโมง!"
     }
@@ -46284,7 +46284,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "ขี้ประหยัด; ราคาถูก",
+     "m": "ขี้ประหยัด",
      "hook": "เขาไม่เคยจ่ายค่าอาหารกลางวันเลย! เขา “cheap”",
      "ex": "เขา “cheap” จนไม่ซื้ออาหารกลางวัน"
     }
@@ -46338,7 +46338,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "ชี้ข้อผิดพลาด; เปิดเผยความผิด",
+     "m": "ชี้ข้อผิดพลาด",
      "hook": "เธอ 'call out' ความผิดของฉันต่อทุกคน!",
      "ex": "เธอ 'call out' ฉันเพราะมาสาย"
     }
@@ -46391,7 +46391,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "แต่งตัวให้ดูดี; แต่งตัวเพื่อสร้างความประทับใจ",
+     "m": "แต่งตัวให้ดูดี",
      "hook": "วันสัมภาษณ์ 'dressed to impress' ใส่สูทและเนคไท!",
      "ex": "เขา 'dressed to impress' สำหรับการสัมภาษณ์"
     }
@@ -46443,7 +46443,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "เบื่อจนตาย; เบื่อสุดๆ",
+     "m": "เบื่อจนตาย",
      "hook": "สองชั่วโมงของสไลด์เดียวกัน 'bored stiff'!",
      "ex": "ฉัน 'bored stiff' ในชั้นเรียนนั้น"
     }
@@ -46495,7 +46495,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "วันละเมิดไดเอท; วันกินอิสระ; วันพักอาหาร",
+     "m": "วันละเมิดไดเอท",
      "hook": "วันเสาร์ 'cheat day' ไดเอท? ไดเอทอะไร?",
      "ex": "วันเสาร์เป็น 'cheat day' ของฉัน"
     }
@@ -46548,7 +46548,7 @@
     "reg": "very-casual",
     "region": "global",
     "l1": {
-     "m": "เพื่อนสนิท; เพื่อนซี้",
+     "m": "เพื่อนสนิท",
      "hook": "ใครคือ 'bestie' ที่รู้ทุกความลับของคุณ?",
      "ex": "ฉันและ 'bestie' ของฉันชอบทาโก้"
     }
@@ -46600,7 +46600,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "valla; yalanım yok; harbiden",
+     "m": "valla",
      "hook": "Şehrin en iyi pizzası. İnan bana, \"no cap\".",
      "ex": "Bu pizza şehirdeki en iyisi, \"no cap\"."
     }
@@ -46652,7 +46652,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "kızgın; sinirli; hırçın",
+     "m": "kızgın",
      "hook": "Kaybetti, sonra somurtmaya başladı, \"salty\".",
      "ex": "O, kart oyununu kazandığım için \"salty\"."
     }
@@ -46705,7 +46705,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "Öldüm; Çok güldüm",
+     "m": "Öldüm",
      "hook": "Kedi kutuya atladı! \"I'm dead\".",
      "ex": "Kedi kutuya atladı. \"I'm dead\"!"
     }
@@ -46758,7 +46758,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "aşırı yemek yemek; doyumsuz yemek",
+     "m": "aşırı yemek yemek",
      "hook": "Bütün pizza bitti! \"pig out\".",
      "ex": "Geçen gece pizza yedik, \"pig out\"."
     }
@@ -46810,7 +46810,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "tamam; olur",
+     "m": "tamam",
      "hook": "Saat altıda pizza, anlaşma? \"bet\".",
      "ex": "Saat altıda pizza? \"Bet\"."
     }
@@ -46862,7 +46862,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "sıradan; klişe; basit",
+     "m": "sıradan",
      "hook": "Yine pizza ve film mi?",
      "ex": "Hafta sonu planım \"basic\": pizza ve film."
     }
@@ -46915,7 +46915,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "kavga; anlaşmazlık; sorun",
+     "m": "kavga",
      "hook": "İkisi konuşmayı bıraktı. Neden?",
      "ex": "Onların bir oyun yüzünden \"beef\"i var."
     }
@@ -46967,7 +46967,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "estetik; şık; göz alıcı",
+     "m": "estetik",
      "hook": "Odan Pinterest gibi görünüyor!",
      "ex": "Masan çok \"aesthetic\" görünüyor."
     }
@@ -47020,7 +47020,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "sinirlenmek; patlamak",
+     "m": "sinirlenmek",
      "hook": "Baba dağınık odayı gördü!",
      "ex": "O, dağınık oda yüzünden \"blow a fuse\" yaptı."
     }
@@ -47072,7 +47072,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "nefis; çok lezzetli; harika",
+     "m": "nefis",
      "hook": "Annemin makarnası bu gece inanılmaz lezzetli!",
      "ex": "Annemin makarnası bu gece \"bussin\"."
     }
@@ -47124,7 +47124,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "her zaman; ne zaman istersen",
+     "m": "her zaman",
      "hook": "Yolculuk için çok teşekkür ederim!",
      "ex": "Yolculuk için teşekkürler! Anytime."
     }
@@ -47177,7 +47177,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "bilgisayar başında değil; klavye başında değil; AFK",
+     "m": "bilgisayar başında değil",
      "hook": "Beş dakika, sonra geri döneceğim!",
      "ex": "Beş dakika AFK olacağım, brb."
     }
@@ -47229,7 +47229,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "hiçbir fikrim yok; ne bileyim",
+     "m": "hiçbir fikrim yok",
      "hook": "Anahtar nereye gitti?",
      "ex": "Anahtar nerede? Beats me."
     }
@@ -47282,7 +47282,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "en başa dönmüş; sil baştan",
+     "m": "en başa dönmüş",
      "hook": "Plan başarısız oldu. Şimdi ne yapacağız?",
      "ex": "Plan başarısız oldu. Back to square one."
     }
@@ -47335,7 +47335,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "bir servet; dünyanın parası",
+     "m": "bir servet",
      "hook": "Bu kabanın fiyatına bak!",
      "ex": "Bu palto 'arm and a leg' kadar pahalı."
     }
@@ -47388,7 +47388,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "bu arada; aklıma gelmişken",
+     "m": "bu arada",
      "hook": "by the way, oh bir şey daha!",
      "ex": "by the way, parti saat yedide başlıyor."
     }
@@ -47440,7 +47440,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "harika; mükemmel; süper",
+     "m": "harika",
      "hook": "Ücretsiz biletler aldın? \"awesome\"",
      "ex": "Ücretsiz biletler aldın? Bu \"awesome\"!"
     }
@@ -47492,7 +47492,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "tam his; tam ruh hali",
+     "m": "tam his",
      "hook": "Uykulu kedi. Tam da hislerim. \"big mood\"",
      "ex": "O uykulu kedi tam bir \"big mood\"."
     }
@@ -47544,7 +47544,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "başarıyla geçmek; tam puan almak; yüksek not almak",
+     "m": "başarıyla geçmek",
      "hook": "Sınav günü. Nasıl geçti? \"ace\"",
      "ex": "Bugün tarih sınavımı 'ace' ettim!"
     }
@@ -47599,7 +47599,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "dizi maratonu yapmak; bir kerede dizi izlemek",
+     "m": "dizi maratonu yapmak",
      "hook": "Yağmurlu hafta sonu. Tüm sezon. Hadi \"binge-watch\"!",
      "ex": "Bu diziyi hafta sonu boyunca \"binge-watch\" edeceğim."
     }
@@ -47652,7 +47652,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "tükenmiş; yanmış",
+     "m": "tükenmiş",
      "hook": "Çok fazla iş var. Ben 'burned out' oldum!",
      "ex": "Sınavlardan sonra tamamen 'burned out' oldum."
     }
@@ -47704,7 +47704,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "tekrar ayaktayım; iyileştim",
+     "m": "tekrar ayaktayım",
      "hook": "Geçen hafta hastaydım, bugün 'back on my feet' oldum!",
      "ex": "Nihayet 'back on my feet' oldum."
     }
@@ -47756,7 +47756,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "en kısa sürede; mümkün olan en çabuk",
+     "m": "en kısa sürede",
      "hook": "Buna hemen ihtiyacım var, 'ASAP'!",
      "ex": "Lütfen notları 'ASAP' gönder."
     }
@@ -47808,7 +47808,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "tamam; güzel; süper",
+     "m": "tamam",
      "hook": "Bu akşam saat altıda film, 'cool' mu?",
      "ex": "'cool', saat altıda görüşürüz!"
     }
@@ -47860,7 +47860,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "cimri; ucuz; kalitesiz",
+     "m": "cimri",
      "hook": "O, hiç öğle yemeği için ödeme yapmaz, 'cheap'!",
      "ex": "O, öğle yemeği almak için çok 'cheap'."
     }
@@ -47914,7 +47914,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "suçlamak; kınamak; hatasını göstermek",
+     "m": "suçlamak",
      "hook": "O, hatamı herkese 'call out' etti!",
      "ex": "Geç kaldığım için beni \"call out\" etti."
     }
@@ -47967,7 +47967,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "gösterişli giyinmek; etkileyici giyinmek",
+     "m": "gösterişli giyinmek",
      "hook": "Mülakat günü. Takım elbise ve kravat! \"dressed to impress\".",
      "ex": "Mülakat için \"dressed to impress\" giyinmiş."
     }
@@ -48019,7 +48019,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "tamamen sıkılmış; çok sıkılmış",
+     "m": "tamamen sıkılmış",
      "hook": "Aynı slaytlarla iki saat! \"bored stiff\".",
      "ex": "O sınıfta \"bored stiff\" oldum."
     }
@@ -48071,7 +48071,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "serbest gün; kaçamak günü; izinli gün",
+     "m": "serbest gün",
      "hook": "Cumartesi. Diyet mi? Hangi diyet? \"cheat day\".",
      "ex": "Cumartesi benim \"cheat day\" günüm."
     }
@@ -48124,7 +48124,7 @@
     "reg": "very-casual",
     "region": "global",
     "l1": {
-     "m": "en yakın arkadaş; en iyi arkadaş",
+     "m": "en yakın arkadaş",
      "hook": "Tüm sırlarını bilen kim? \"bestie\".",
      "ex": "\"bestie\" ve ben taco'ları çok seviyoruz."
     }
@@ -48176,7 +48176,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "不骗你; 真的; 没有夸张",
+     "m": "不骗你",
      "hook": "全城最好的披萨，真的，\\\"no cap\\\"。",
      "ex": "这家披萨是全城最好的，\\\"no cap\\\"。"
     }
@@ -48228,7 +48228,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "恼火的; 酸溜溜的; 气恼的",
+     "m": "恼火的",
      "hook": "他输了，然后闹别扭，\\\"salty\\\"。",
      "ex": "他因为我赢了纸牌游戏而很\\\"salty\\\"。"
     }
@@ -48281,7 +48281,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "笑死了; 笑翻了",
+     "m": "笑死了",
      "hook": "猫跳进盒子里！\\\"I'm dead\\\"。",
      "ex": "猫跳进盒子里，\\\"I'm dead\\\"！"
     }
@@ -48334,7 +48334,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "大吃特吃; 暴饮暴食",
+     "m": "大吃特吃",
      "hook": "整张披萨都没了！\\\"pig out\\\"。",
      "ex": "我们昨晚大吃披萨，\\\"pig out\\\"。"
     }
@@ -48386,7 +48386,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "没问题; 好极了; 一言为定",
+     "m": "没问题",
      "hook": "六点吃披萨，行吗？\\\"bet\\\"。",
      "ex": "六点吃披萨？\\\"Bet\\\"。"
     }
@@ -48438,7 +48438,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "俗气的; 烂大街的",
+     "m": "俗气的",
      "hook": "又是 pizza 和电影？太 basic 了。",
      "ex": "我的周末计划很 basic：pizza 和电影。"
     }
@@ -48491,7 +48491,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "恩怨; 积怨; 争端",
+     "m": "恩怨",
      "hook": "那两个人不再说话了，为什么？因为有 beef。",
      "ex": "他们因为游戏而有 beef。"
     }
@@ -48543,7 +48543,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "有美感的; 极具唯美风格的",
+     "m": "有美感的",
      "hook": "你的房间看起来像 Pinterest，真是 aesthetic。",
      "ex": "你的书桌看起来非常 aesthetic。"
     }
@@ -48596,7 +48596,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "大发雷霆; 暴跳如雷",
+     "m": "大发雷霆",
      "hook": "爸爸看到那乱糟糟的房间！要 blow a fuse 了。",
      "ex": "他因为那乱糟糟的房间而 blow a fuse 了。"
     }
@@ -48648,7 +48648,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "绝味的; 超级美味的",
+     "m": "绝味的",
      "hook": "妈妈今晚的意面味道简直 unreal，太 bussin 了。",
      "ex": "妈妈今晚的意面太 bussin 了。"
     }
@@ -48701,7 +48701,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "重新开始; 从头开始; 回到原点",
+     "m": "重新开始",
      "hook": "计划失败了。现在怎么办？看来要“back to square one”（回到起点/重新开始）了。",
      "ex": "计划失败了。Back to square one。"
     }
@@ -48807,7 +48807,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "顺便说; 顺便提一下",
+     "m": "顺便说",
      "hook": "哦，\"by the way\"，还有件事！",
      "ex": "\"by the way\"，派对七点开始。"
     }
@@ -48859,7 +48859,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "棒极了; 太棒了",
+     "m": "棒极了",
      "hook": "你给我们弄到免费票了？\"awesome\"",
      "ex": "你给我们弄到免费票了？那真是\"awesome\"！"
     }
@@ -48911,7 +48911,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "太有感觉了; 超有共鸣; 正在这种状态",
+     "m": "太有感觉了",
      "hook": "困倦的猫。完全是我的感受！\"big mood\"",
      "ex": "那只困倦的猫简直是\"big mood\"。"
     }
@@ -48963,7 +48963,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "考满分; 拿高分",
+     "m": "考满分",
      "hook": "考试日。你考得怎么样？\"ace\"",
      "ex": "我今天历史考试 'aced' 了！"
     }
@@ -49018,7 +49018,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "狂看; 刷剧",
+     "m": "狂看",
      "hook": "雨天的周末。整季都要看。走起！\"binge-watch\"",
      "ex": "我整个周末都会\"binge-watch\"这部剧。"
     }
@@ -49071,7 +49071,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "精疲力竭的; 筋疲力尽的",
+     "m": "精疲力竭的",
      "hook": "工作太多，我已经 \"burned out\" 了！",
      "ex": "考试结束后，我感到完全 \"burned out\"。"
     }
@@ -49123,7 +49123,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "恢复健康; 重新站起来",
+     "m": "恢复健康",
      "hook": "上周生病，今天已经 \"back on my feet\" 了！",
      "ex": "我终于 \"back on my feet\" 了。"
     }
@@ -49227,7 +49227,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "好的; 挺好",
+     "m": "好的",
      "hook": "今晚六点看电影，\"cool\"？",
      "ex": "\"cool\"，六点见！"
     }
@@ -49279,7 +49279,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "小气的; 抠门的",
+     "m": "小气的",
      "hook": "他从不付午饭钱，真 \"cheap\"！",
      "ex": "他太 \"cheap\" 了，连午饭都不买。"
     }
@@ -49331,7 +49331,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "无聊透顶的; 厌烦至极的",
+     "m": "无聊透顶的",
      "hook": "整整两小时都是同样的幻灯片！真是让人“bored stiff”（极度无聊/无聊透顶）。",
      "ex": "我在那堂课上 \"bored stiff\"。"
     }
@@ -49383,7 +49383,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "放纵日; 解禁日",
+     "m": "放纵日",
      "hook": "周六了。节食？什么节食？今天是“cheat day”（放纵日/放纵饮食日）。",
      "ex": "星期六是我的 \"cheat day\"。"
     }
@@ -49436,7 +49436,7 @@
     "reg": "very-casual",
     "region": "global",
     "l1": {
-     "m": "闺蜜; 挚友; 最好的朋友",
+     "m": "闺蜜",
      "hook": "谁知道你所有的秘密，bestie？",
      "ex": "我和我的 \"bestie\" 都爱吃塔可。"
     }
@@ -49489,7 +49489,7 @@
     "reg": "very-casual",
     "region": "US",
     "l1": {
-     "m": "大胜; 大赢",
+     "m": "大胜",
      "hook": "你通过了考试？big W！",
      "ex": "你通过了测试？Big W！"
     }
@@ -49542,7 +49542,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "热议观点; 激进观点",
+     "m": "热议观点",
      "hook": "菠萝披萨是最棒的！hot take",
      "ex": "这是我的hot take：菠萝应该放在披萨上。"
     }
@@ -49595,7 +49595,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "乌龙; 搞笑失误; 失误",
+     "m": "乌龙",
      "hook": "他在学校的戏剧里绊倒了！blooper",
      "ex": "那个blooper让全班都笑了。"
     }
@@ -49648,7 +49648,7 @@
     "reg": "casual",
     "region": "US",
     "l1": {
-     "m": "大概数字; 估计数",
+     "m": "大概数字",
      "hook": "这大概要多少钱？ballpark figure",
      "ex": "给我一个ballpark figure。"
     }
@@ -49700,7 +49700,7 @@
     "reg": "casual",
     "region": "global",
     "l1": {
-     "m": "算我一个; 我也参加",
+     "m": "算我一个",
      "hook": "今晚在我家举行游戏之夜！算我一个，即“count me in”。",
      "ex": "游戏之夜？Count me in！"
     }

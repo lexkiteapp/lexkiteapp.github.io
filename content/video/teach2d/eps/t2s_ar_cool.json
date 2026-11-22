@@ -66,15 +66,15 @@
    "text": "Don't say 'cool' when someone shares sad news.",
    "why": "It sounds like you don't care."
   },
-  "l1": "رائع; ممتاز; ماشي",
+  "l1": "رائع",
   "l1_hook": "فيلم الليلة في السادسة، \"cool\"؟",
   "l1_ex": "\"Cool\"، أراك في السادسة!",
   "right": "cool",
   "native": {
    "hook": "ما معنى “cool”؟",
-   "tip": "“cool” = رائع; ممتاز; ماشي. مثال: “Cool, see you at six!”",
-   "caption": "ما معنى “cool”؟\n“cool” = رائع; ممتاز; ماشي.\nمثال: “Cool, see you at six!” (\"Cool\"، أراك في السادسة!)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.",
-   "comment": "الإجابة: “cool” = رائع; ممتاز; ماشي. “Cool, see you at six!” تدرّب أكثر مجانًا: {link}",
+   "tip": "“cool” = رائع. مثال: “Cool, see you at six!”",
+   "caption": "ما معنى “cool”؟\n“cool” = رائع.\nمثال: “Cool, see you at six!” (\"Cool\"، أراك في السادسة!)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.",
+   "comment": "الإجابة: “cool” = رائع. “Cool, see you at six!” تدرّب أكثر مجانًا: {link}",
    "hashtags": [
     "#تعلم_الانجليزية",
     "#اللغة_الانجليزية",
@@ -105,7 +105,7 @@
  "publish": {
   "title": "ما معنى “cool”؟",
   "keyword": "cool",
-  "value": "“cool” = رائع; ممتاز; ماشي. مثال: “Cool, see you at six!”",
+  "value": "“cool” = رائع. مثال: “Cool, see you at six!”",
   "hashtags": [
    "#تعلم_الانجليزية",
    "#اللغة_الانجليزية",
@@ -117,7 +117,7 @@
   "platforms": {
    "youtube": {
     "title": "ما معنى “cool”؟",
-    "description": "“cool” = رائع; ممتاز; ماشي. مثال: “Cool, see you at six!”\n\nما معنى “cool”؟\n“cool” = رائع; ممتاز; ماشي.\nمثال: “Cool, see you at six!” (\"Cool\"، أراك في السادسة!)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "description": "“cool” = رائع. مثال: “Cool, see you at six!”\n\nما معنى “cool”؟\n“cool” = رائع.\nمثال: “Cool, see you at six!” (\"Cool\"، أراك في السادسة!)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
     "tags": [
      "cool",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "ما معنى “cool”؟\n“cool” = رائع; ممتاز; ماشي.\nمثال: “Cool, see you at six!” (\"Cool\"، أراك في السادسة!)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+    "text": "ما معنى “cool”؟\n“cool” = رائع.\nمثال: “Cool, see you at six!” (\"Cool\"، أراك في السادسة!)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
    },
    "instagram": {
-    "caption": "ما معنى “cool”؟\n\n“cool” = رائع; ممتاز; ماشي. مثال: “Cool, see you at six!”\n\nlexkite.com",
+    "caption": "ما معنى “cool”؟\n\n“cool” = رائع. مثال: “Cool, see you at six!”\n\nlexkite.com",
     "hashtags": [
      "#تعلم_الانجليزية",
      "#اللغة_الانجليزية",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "ما معنى “cool”؟ “cool” = رائع; ممتاز; ماشي. مثال: “Cool, see you at six!” #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+    "caption": "ما معنى “cool”؟ “cool” = رائع. مثال: “Cool, see you at six!” #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
    }
   },
-  "first_comment": "الإجابة: “cool” = رائع; ممتاز; ماشي. “Cool, see you at six!” تدرّب أكثر مجانًا: {link}",
+  "first_comment": "الإجابة: “cool” = رائع. “Cool, see you at six!” تدرّب أكثر مجانًا: {link}",
   "lang": "ar"
  }
 }

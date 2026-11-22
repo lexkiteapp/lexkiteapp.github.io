@@ -70,15 +70,15 @@
    "text": "Don't say 'awesome' about sad news.",
    "why": "It sounds sarcastic or cruel."
   },
-  "l1": "классный; потрясающий; замечательный",
+  "l1": "классный",
   "l1_hook": "Ты достал нам бесплатные билеты?",
   "l1_ex": "Ты достал нам бесплатные билеты? Это «awesome»!",
   "right": "awesome",
   "native": {
    "hook": "Что значит «awesome»?",
-   "tip": "“awesome” = классный; потрясающий; замечательный. Пример: “You got us free tickets? That's awesome!”",
-   "caption": "Что значит «awesome»?\n“awesome” = классный; потрясающий; замечательный.\nПример: “You got us free tickets? That's awesome!” (Ты достал нам бесплатные билеты? Это «awesome»!)\nУчи английский сленг бесплатно в Lexkite.",
-   "comment": "Ответ: “awesome” = классный; потрясающий; замечательный. “You got us free tickets? That's awesome!” Больше практики бесплатно: {link}",
+   "tip": "“awesome” = классный. Пример: “You got us free tickets? That's awesome!”",
+   "caption": "Что значит «awesome»?\n“awesome” = классный.\nПример: “You got us free tickets? That's awesome!” (Ты достал нам бесплатные билеты? Это «awesome»!)\nУчи английский сленг бесплатно в Lexkite.",
+   "comment": "Ответ: “awesome” = классный. “You got us free tickets? That's awesome!” Больше практики бесплатно: {link}",
    "hashtags": [
     "#английскийязык",
     "#английский",
@@ -109,7 +109,7 @@
  "publish": {
   "title": "Что значит «awesome»?",
   "keyword": "awesome",
-  "value": "“awesome” = классный; потрясающий; замечательный. Пример: “You got us free tickets? That's awesome!”",
+  "value": "“awesome” = классный. Пример: “You got us free tickets? That's awesome!”",
   "hashtags": [
    "#английскийязык",
    "#английский",
@@ -121,7 +121,7 @@
   "platforms": {
    "youtube": {
     "title": "Что значит «awesome»?",
-    "description": "“awesome” = классный; потрясающий; замечательный. Пример: “You got us free tickets? That's awesome!”\n\nЧто значит «awesome»?\n“awesome” = классный; потрясающий; замечательный.\nПример: “You got us free tickets? That's awesome!” (Ты достал нам бесплатные билеты? Это «awesome»!)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#английскийязык #английский #учуанглийский #lexkite",
+    "description": "“awesome” = классный. Пример: “You got us free tickets? That's awesome!”\n\nЧто значит «awesome»?\n“awesome” = классный.\nПример: “You got us free tickets? That's awesome!” (Ты достал нам бесплатные билеты? Это «awesome»!)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#английскийязык #английский #учуанглийский #lexkite",
     "tags": [
      "awesome",
      "learn english",
@@ -129,10 +129,10 @@
     ]
    },
    "facebook": {
-    "text": "Что значит «awesome»?\n“awesome” = классный; потрясающий; замечательный.\nПример: “You got us free tickets? That's awesome!” (Ты достал нам бесплатные билеты? Это «awesome»!)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+    "text": "Что значит «awesome»?\n“awesome” = классный.\nПример: “You got us free tickets? That's awesome!” (Ты достал нам бесплатные билеты? Это «awesome»!)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
    },
    "instagram": {
-    "caption": "Что значит «awesome»?\n\n“awesome” = классный; потрясающий; замечательный. Пример: “You got us free tickets? That's awesome!”\n\nlexkite.com",
+    "caption": "Что значит «awesome»?\n\n“awesome” = классный. Пример: “You got us free tickets? That's awesome!”\n\nlexkite.com",
     "hashtags": [
      "#английскийязык",
      "#английский",
@@ -141,10 +141,10 @@
     ]
    },
    "tiktok": {
-    "caption": "Что значит «awesome»? “awesome” = классный; потрясающий; замечательный. Пример: “You got us free tickets?… #английскийязык #английский #учуанглийский"
+    "caption": "Что значит «awesome»? “awesome” = классный. Пример: “You got us free tickets? That's awesome!” #английскийязык #английский #учуанглийский"
    }
   },
-  "first_comment": "Ответ: “awesome” = классный; потрясающий; замечательный. “You got us free tickets? That's awesome!” Больше практики бесплатно: {link}",
+  "first_comment": "Ответ: “awesome” = классный. “You got us free tickets? That's awesome!” Больше практики бесплатно: {link}",
   "lang": "ru"
  }
 }

@@ -68,15 +68,15 @@
    "text": "Don't say 'I'm dead' about a sad story.",
    "why": "It means laughing hard."
   },
-  "l1": "Öldüm; Çok güldüm",
+  "l1": "Öldüm",
   "l1_hook": "Kedi kutuya atladı! \"I'm dead\".",
   "l1_ex": "Kedi kutuya atladı. \"I'm dead\"!",
   "right": "I'm dead",
   "native": {
    "hook": "“I'm dead” ne demek?",
-   "tip": "“I'm dead” = Öldüm; Çok güldüm. Örnek: “The cat jumped in the box. I'm dead!”",
-   "caption": "“I'm dead” ne demek?\n“I'm dead” = Öldüm; Çok güldüm.\nÖrnek: “The cat jumped in the box. I'm dead!” (Kedi kutuya atladı. \"I'm dead\"!)\nLexkite ile İngilizce argoyu ücretsiz öğren.",
-   "comment": "Cevap: “I'm dead” = Öldüm; Çok güldüm. “The cat jumped in the box. I'm dead!” Ücretsiz daha fazla pratik: {link}",
+   "tip": "“I'm dead” = Öldüm. Örnek: “The cat jumped in the box. I'm dead!”",
+   "caption": "“I'm dead” ne demek?\n“I'm dead” = Öldüm.\nÖrnek: “The cat jumped in the box. I'm dead!” (Kedi kutuya atladı. \"I'm dead\"!)\nLexkite ile İngilizce argoyu ücretsiz öğren.",
+   "comment": "Cevap: “I'm dead” = Öldüm. “The cat jumped in the box. I'm dead!” Ücretsiz daha fazla pratik: {link}",
    "hashtags": [
     "#ingilizceöğren",
     "#ingilizcekonuşma",
@@ -107,7 +107,7 @@
  "publish": {
   "title": "“I'm dead” ne demek?",
   "keyword": "I'm dead",
-  "value": "“I'm dead” = Öldüm; Çok güldüm. Örnek: “The cat jumped in the box. I'm dead!”",
+  "value": "“I'm dead” = Öldüm. Örnek: “The cat jumped in the box. I'm dead!”",
   "hashtags": [
    "#ingilizceöğren",
    "#ingilizcekonuşma",
@@ -119,7 +119,7 @@
   "platforms": {
    "youtube": {
     "title": "“I'm dead” ne demek?",
-    "description": "“I'm dead” = Öldüm; Çok güldüm. Örnek: “The cat jumped in the box. I'm dead!”\n\n“I'm dead” ne demek?\n“I'm dead” = Öldüm; Çok güldüm.\nÖrnek: “The cat jumped in the box. I'm dead!” (Kedi kutuya atladı. \"I'm dead\"!)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "description": "“I'm dead” = Öldüm. Örnek: “The cat jumped in the box. I'm dead!”\n\n“I'm dead” ne demek?\n“I'm dead” = Öldüm.\nÖrnek: “The cat jumped in the box. I'm dead!” (Kedi kutuya atladı. \"I'm dead\"!)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
     "tags": [
      "I'm dead",
      "learn english",
@@ -127,10 +127,10 @@
     ]
    },
    "facebook": {
-    "text": "“I'm dead” ne demek?\n“I'm dead” = Öldüm; Çok güldüm.\nÖrnek: “The cat jumped in the box. I'm dead!” (Kedi kutuya atladı. \"I'm dead\"!)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases"
+    "text": "“I'm dead” ne demek?\n“I'm dead” = Öldüm.\nÖrnek: “The cat jumped in the box. I'm dead!” (Kedi kutuya atladı. \"I'm dead\"!)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases"
    },
    "instagram": {
-    "caption": "“I'm dead” ne demek?\n\n“I'm dead” = Öldüm; Çok güldüm. Örnek: “The cat jumped in the box. I'm dead!”\n\nlexkite.com",
+    "caption": "“I'm dead” ne demek?\n\n“I'm dead” = Öldüm. Örnek: “The cat jumped in the box. I'm dead!”\n\nlexkite.com",
     "hashtags": [
      "#ingilizceöğren",
      "#ingilizcekonuşma",
@@ -139,10 +139,10 @@
     ]
    },
    "tiktok": {
-    "caption": "“I'm dead” ne demek? “I'm dead” = Öldüm; Çok güldüm. Örnek: “The cat jumped in the box. I'm dead!” #ingilizceöğren #ingilizcekonuşma #ingilizce"
+    "caption": "“I'm dead” ne demek? “I'm dead” = Öldüm. Örnek: “The cat jumped in the box. I'm dead!” #ingilizceöğren #ingilizcekonuşma #ingilizce"
    }
   },
-  "first_comment": "Cevap: “I'm dead” = Öldüm; Çok güldüm. “The cat jumped in the box. I'm dead!” Ücretsiz daha fazla pratik: {link}",
+  "first_comment": "Cevap: “I'm dead” = Öldüm. “The cat jumped in the box. I'm dead!” Ücretsiz daha fazla pratik: {link}",
   "lang": "tr"
  }
 }

@@ -70,15 +70,15 @@
    "text": "Don't say 'awesome' about sad news.",
    "why": "It sounds sarcastic or cruel."
   },
-  "l1": "harika; mükemmel; süper",
+  "l1": "harika",
   "l1_hook": "Ücretsiz biletler aldın? \"awesome\"",
   "l1_ex": "Ücretsiz biletler aldın? Bu \"awesome\"!",
   "right": "awesome",
   "native": {
    "hook": "“awesome” ne demek?",
-   "tip": "“awesome” = harika; mükemmel; süper. Örnek: “You got us free tickets? That's awesome!”",
-   "caption": "“awesome” ne demek?\n“awesome” = harika; mükemmel; süper.\nÖrnek: “You got us free tickets? That's awesome!” (Ücretsiz biletler aldın? Bu \"awesome\"!)\nLexkite ile İngilizce argoyu ücretsiz öğren.",
-   "comment": "Cevap: “awesome” = harika; mükemmel; süper. “You got us free tickets? That's awesome!” Ücretsiz daha fazla pratik: {link}",
+   "tip": "“awesome” = harika. Örnek: “You got us free tickets? That's awesome!”",
+   "caption": "“awesome” ne demek?\n“awesome” = harika.\nÖrnek: “You got us free tickets? That's awesome!” (Ücretsiz biletler aldın? Bu \"awesome\"!)\nLexkite ile İngilizce argoyu ücretsiz öğren.",
+   "comment": "Cevap: “awesome” = harika. “You got us free tickets? That's awesome!” Ücretsiz daha fazla pratik: {link}",
    "hashtags": [
     "#ingilizceöğren",
     "#ingilizcekonuşma",
@@ -109,7 +109,7 @@
  "publish": {
   "title": "“awesome” ne demek?",
   "keyword": "awesome",
-  "value": "“awesome” = harika; mükemmel; süper. Örnek: “You got us free tickets? That's awesome!”",
+  "value": "“awesome” = harika. Örnek: “You got us free tickets? That's awesome!”",
   "hashtags": [
    "#ingilizceöğren",
    "#ingilizcekonuşma",
@@ -121,7 +121,7 @@
   "platforms": {
    "youtube": {
     "title": "“awesome” ne demek?",
-    "description": "“awesome” = harika; mükemmel; süper. Örnek: “You got us free tickets? That's awesome!”\n\n“awesome” ne demek?\n“awesome” = harika; mükemmel; süper.\nÖrnek: “You got us free tickets? That's awesome!” (Ücretsiz biletler aldın? Bu \"awesome\"!)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "description": "“awesome” = harika. Örnek: “You got us free tickets? That's awesome!”\n\n“awesome” ne demek?\n“awesome” = harika.\nÖrnek: “You got us free tickets? That's awesome!” (Ücretsiz biletler aldın? Bu \"awesome\"!)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
     "tags": [
      "awesome",
      "learn english",
@@ -129,10 +129,10 @@
     ]
    },
    "facebook": {
-    "text": "“awesome” ne demek?\n“awesome” = harika; mükemmel; süper.\nÖrnek: “You got us free tickets? That's awesome!” (Ücretsiz biletler aldın? Bu \"awesome\"!)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases"
+    "text": "“awesome” ne demek?\n“awesome” = harika.\nÖrnek: “You got us free tickets? That's awesome!” (Ücretsiz biletler aldın? Bu \"awesome\"!)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases"
    },
    "instagram": {
-    "caption": "“awesome” ne demek?\n\n“awesome” = harika; mükemmel; süper. Örnek: “You got us free tickets? That's awesome!”\n\nlexkite.com",
+    "caption": "“awesome” ne demek?\n\n“awesome” = harika. Örnek: “You got us free tickets? That's awesome!”\n\nlexkite.com",
     "hashtags": [
      "#ingilizceöğren",
      "#ingilizcekonuşma",
@@ -141,10 +141,10 @@
     ]
    },
    "tiktok": {
-    "caption": "“awesome” ne demek? “awesome” = harika; mükemmel; süper. Örnek: “You got us free tickets? That's awesome… #ingilizceöğren #ingilizcekonuşma #ingilizce"
+    "caption": "“awesome” ne demek? “awesome” = harika. Örnek: “You got us free tickets? That's awesome!” #ingilizceöğren #ingilizcekonuşma #ingilizce"
    }
   },
-  "first_comment": "Cevap: “awesome” = harika; mükemmel; süper. “You got us free tickets? That's awesome!” Ücretsiz daha fazla pratik: {link}",
+  "first_comment": "Cevap: “awesome” = harika. “You got us free tickets? That's awesome!” Ücretsiz daha fazla pratik: {link}",
   "lang": "tr"
  }
 }

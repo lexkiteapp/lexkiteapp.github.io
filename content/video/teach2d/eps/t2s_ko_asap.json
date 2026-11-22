@@ -70,15 +70,15 @@
    "text": "Don't write 'ASAP' to your boss rudely.",
    "why": "It sounds demanding and bossy."
   },
-  "l1": "가급적 빨리; 가능한 한 빨리",
+  "l1": "가급적 빨리",
   "l1_hook": "지금 바로 필요해! 'ASAP'.",
   "l1_ex": "노트를 'ASAP'로 보내 주세요.",
   "right": "ASAP",
   "native": {
    "hook": "“ASAP” 무슨 뜻일까요?",
-   "tip": "“ASAP” = 가급적 빨리; 가능한 한 빨리. 예문: “Please send me the notes ASAP.”",
-   "caption": "“ASAP” 무슨 뜻일까요?\n“ASAP” = 가급적 빨리; 가능한 한 빨리.\n예문: “Please send me the notes ASAP.” (노트를 'ASAP'로 보내 주세요.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.",
-   "comment": "정답: “ASAP” = 가급적 빨리; 가능한 한 빨리. “Please send me the notes ASAP.” 무료로 더 연습하기: {link}",
+   "tip": "“ASAP” = 가급적 빨리. 예문: “Please send me the notes ASAP.”",
+   "caption": "“ASAP” 무슨 뜻일까요?\n“ASAP” = 가급적 빨리.\n예문: “Please send me the notes ASAP.” (노트를 'ASAP'로 보내 주세요.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.",
+   "comment": "정답: “ASAP” = 가급적 빨리. “Please send me the notes ASAP.” 무료로 더 연습하기: {link}",
    "hashtags": [
     "#영어공부",
     "#영어회화",
@@ -109,7 +109,7 @@
  "publish": {
   "title": "“ASAP” 무슨 뜻일까요?",
   "keyword": "ASAP",
-  "value": "“ASAP” = 가급적 빨리; 가능한 한 빨리. 예문: “Please send me the notes ASAP.”",
+  "value": "“ASAP” = 가급적 빨리. 예문: “Please send me the notes ASAP.”",
   "hashtags": [
    "#영어공부",
    "#영어회화",
@@ -121,7 +121,7 @@
   "platforms": {
    "youtube": {
     "title": "“ASAP” 무슨 뜻일까요?",
-    "description": "“ASAP” = 가급적 빨리; 가능한 한 빨리. 예문: “Please send me the notes ASAP.”\n\n“ASAP” 무슨 뜻일까요?\n“ASAP” = 가급적 빨리; 가능한 한 빨리.\n예문: “Please send me the notes ASAP.” (노트를 'ASAP'로 보내 주세요.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "description": "“ASAP” = 가급적 빨리. 예문: “Please send me the notes ASAP.”\n\n“ASAP” 무슨 뜻일까요?\n“ASAP” = 가급적 빨리.\n예문: “Please send me the notes ASAP.” (노트를 'ASAP'로 보내 주세요.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases\n\n#영어공부 #영어회화 #영어독학 #lexkite",
     "tags": [
      "ASAP",
      "learn english",
@@ -129,10 +129,10 @@
     ]
    },
    "facebook": {
-    "text": "“ASAP” 무슨 뜻일까요?\n“ASAP” = 가급적 빨리; 가능한 한 빨리.\n예문: “Please send me the notes ASAP.” (노트를 'ASAP'로 보내 주세요.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases"
+    "text": "“ASAP” 무슨 뜻일까요?\n“ASAP” = 가급적 빨리.\n예문: “Please send me the notes ASAP.” (노트를 'ASAP'로 보내 주세요.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases"
    },
    "instagram": {
-    "caption": "“ASAP” 무슨 뜻일까요?\n\n“ASAP” = 가급적 빨리; 가능한 한 빨리. 예문: “Please send me the notes ASAP.”\n\nlexkite.com",
+    "caption": "“ASAP” 무슨 뜻일까요?\n\n“ASAP” = 가급적 빨리. 예문: “Please send me the notes ASAP.”\n\nlexkite.com",
     "hashtags": [
      "#영어공부",
      "#영어회화",
@@ -141,10 +141,10 @@
     ]
    },
    "tiktok": {
-    "caption": "“ASAP” 무슨 뜻일까요? “ASAP” = 가급적 빨리; 가능한 한 빨리. 예문: “Please send me the notes ASAP.” #영어공부 #영어회화 #영어독학"
+    "caption": "“ASAP” 무슨 뜻일까요? “ASAP” = 가급적 빨리. 예문: “Please send me the notes ASAP.” #영어공부 #영어회화 #영어독학"
    }
   },
-  "first_comment": "정답: “ASAP” = 가급적 빨리; 가능한 한 빨리. “Please send me the notes ASAP.” 무료로 더 연습하기: {link}",
+  "first_comment": "정답: “ASAP” = 가급적 빨리. “Please send me the notes ASAP.” 무료로 더 연습하기: {link}",
   "lang": "ko"
  }
 }

@@ -66,15 +66,15 @@
    "text": "Don't say 'beats me' to a client's question.",
    "why": "It sounds careless and unprofessional."
   },
-  "l1": "sei lá; não faço ideia; sei não",
+  "l1": "sei lá",
   "l1_hook": "Onde a chave foi? (\"beats me\")",
   "l1_ex": "Onde está a chave? \"beats me\".",
   "right": "beats me",
   "native": {
    "hook": "O que significa “beats me”?",
-   "tip": "“beats me” = sei lá; não faço ideia; sei não. Exemplo: “Where's the key? Beats me.”",
-   "caption": "O que significa “beats me”?\n“beats me” = sei lá; não faço ideia; sei não.\nExemplo: “Where's the key? Beats me.” (Onde está a chave? \"beats me\".)\nAprenda gírias em inglês de graça no Lexkite.",
-   "comment": "Resposta: “beats me” = sei lá; não faço ideia; sei não. “Where's the key? Beats me.” Pratique mais de graça: {link}",
+   "tip": "“beats me” = sei lá. Exemplo: “Where's the key? Beats me.”",
+   "caption": "O que significa “beats me”?\n“beats me” = sei lá.\nExemplo: “Where's the key? Beats me.” (Onde está a chave? \"beats me\".)\nAprenda gírias em inglês de graça no Lexkite.",
+   "comment": "Resposta: “beats me” = sei lá. “Where's the key? Beats me.” Pratique mais de graça: {link}",
    "hashtags": [
     "#aprenderingles",
     "#inglesfacil",
@@ -105,7 +105,7 @@
  "publish": {
   "title": "O que significa “beats me”?",
   "keyword": "beats me",
-  "value": "“beats me” = sei lá; não faço ideia; sei não. Exemplo: “Where's the key? Beats me.”",
+  "value": "“beats me” = sei lá. Exemplo: “Where's the key? Beats me.”",
   "hashtags": [
    "#aprenderingles",
    "#inglesfacil",
@@ -117,7 +117,7 @@
   "platforms": {
    "youtube": {
     "title": "O que significa “beats me”?",
-    "description": "“beats me” = sei lá; não faço ideia; sei não. Exemplo: “Where's the key? Beats me.”\n\nO que significa “beats me”?\n“beats me” = sei lá; não faço ideia; sei não.\nExemplo: “Where's the key? Beats me.” (Onde está a chave? \"beats me\".)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "description": "“beats me” = sei lá. Exemplo: “Where's the key? Beats me.”\n\nO que significa “beats me”?\n“beats me” = sei lá.\nExemplo: “Where's the key? Beats me.” (Onde está a chave? \"beats me\".)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
     "tags": [
      "beats me",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "O que significa “beats me”?\n“beats me” = sei lá; não faço ideia; sei não.\nExemplo: “Where's the key? Beats me.” (Onde está a chave? \"beats me\".)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+    "text": "O que significa “beats me”?\n“beats me” = sei lá.\nExemplo: “Where's the key? Beats me.” (Onde está a chave? \"beats me\".)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
    },
    "instagram": {
-    "caption": "O que significa “beats me”?\n\n“beats me” = sei lá; não faço ideia; sei não. Exemplo: “Where's the key? Beats me.”\n\nlexkite.com",
+    "caption": "O que significa “beats me”?\n\n“beats me” = sei lá. Exemplo: “Where's the key? Beats me.”\n\nlexkite.com",
     "hashtags": [
      "#aprenderingles",
      "#inglesfacil",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "O que significa “beats me”? “beats me” = sei lá; não faço ideia; sei não. Exemplo: “Where's the key? Beats… #aprenderingles #inglesfacil #inglesonline"
+    "caption": "O que significa “beats me”? “beats me” = sei lá. Exemplo: “Where's the key? Beats me.” #aprenderingles #inglesfacil #inglesonline"
    }
   },
-  "first_comment": "Resposta: “beats me” = sei lá; não faço ideia; sei não. “Where's the key? Beats me.” Pratique mais de graça: {link}",
+  "first_comment": "Resposta: “beats me” = sei lá. “Where's the key? Beats me.” Pratique mais de graça: {link}",
   "lang": "pt"
  }
 }

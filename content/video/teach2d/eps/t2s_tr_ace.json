@@ -70,15 +70,15 @@
    "text": "Don't say you 'aced' a test you failed.",
    "why": "It means doing very well."
   },
-  "l1": "başarıyla geçmek; tam puan almak; yüksek not almak",
+  "l1": "başarıyla geçmek",
   "l1_hook": "Sınav günü. Nasıl geçti? \"ace\"",
   "l1_ex": "Bugün tarih sınavımı 'ace' ettim!",
   "right": "ace",
   "native": {
    "hook": "“ace” ne demek?",
-   "tip": "“ace” = başarıyla geçmek; tam puan almak; yüksek not almak. Örnek: “I aced my history test today!”",
-   "caption": "“ace” ne demek?\n“ace” = başarıyla geçmek; tam puan almak; yüksek not almak.\nÖrnek: “I aced my history test today!” (Bugün tarih sınavımı 'ace' ettim!)\nLexkite ile İngilizce argoyu ücretsiz öğren.",
-   "comment": "Cevap: “ace” = başarıyla geçmek; tam puan almak; yüksek not almak. “I aced my history test today!” Ücretsiz daha fazla pratik: {link}",
+   "tip": "“ace” = başarıyla geçmek. Örnek: “I aced my history test today!”",
+   "caption": "“ace” ne demek?\n“ace” = başarıyla geçmek.\nÖrnek: “I aced my history test today!” (Bugün tarih sınavımı 'ace' ettim!)\nLexkite ile İngilizce argoyu ücretsiz öğren.",
+   "comment": "Cevap: “ace” = başarıyla geçmek. “I aced my history test today!” Ücretsiz daha fazla pratik: {link}",
    "hashtags": [
     "#ingilizceöğren",
     "#ingilizcekonuşma",
@@ -109,7 +109,7 @@
  "publish": {
   "title": "“ace” ne demek?",
   "keyword": "ace",
-  "value": "“ace” = başarıyla geçmek; tam puan almak; yüksek not almak. Örnek: “I aced my history test today!”",
+  "value": "“ace” = başarıyla geçmek. Örnek: “I aced my history test today!”",
   "hashtags": [
    "#ingilizceöğren",
    "#ingilizcekonuşma",
@@ -121,7 +121,7 @@
   "platforms": {
    "youtube": {
     "title": "“ace” ne demek?",
-    "description": "“ace” = başarıyla geçmek; tam puan almak; yüksek not almak. Örnek: “I aced my history test today!”\n\n“ace” ne demek?\n“ace” = başarıyla geçmek; tam puan almak; yüksek not almak.\nÖrnek: “I aced my history test today!” (Bugün tarih sınavımı 'ace' ettim!)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "description": "“ace” = başarıyla geçmek. Örnek: “I aced my history test today!”\n\n“ace” ne demek?\n“ace” = başarıyla geçmek.\nÖrnek: “I aced my history test today!” (Bugün tarih sınavımı 'ace' ettim!)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
     "tags": [
      "ace",
      "learn english",
@@ -129,10 +129,10 @@
     ]
    },
    "facebook": {
-    "text": "“ace” ne demek?\n“ace” = başarıyla geçmek; tam puan almak; yüksek not almak.\nÖrnek: “I aced my history test today!” (Bugün tarih sınavımı 'ace' ettim!)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases"
+    "text": "“ace” ne demek?\n“ace” = başarıyla geçmek.\nÖrnek: “I aced my history test today!” (Bugün tarih sınavımı 'ace' ettim!)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases"
    },
    "instagram": {
-    "caption": "“ace” ne demek?\n\n“ace” = başarıyla geçmek; tam puan almak; yüksek not almak. Örnek: “I aced my history test today!”\n\nlexkite.com",
+    "caption": "“ace” ne demek?\n\n“ace” = başarıyla geçmek. Örnek: “I aced my history test today!”\n\nlexkite.com",
     "hashtags": [
      "#ingilizceöğren",
      "#ingilizcekonuşma",
@@ -141,10 +141,10 @@
     ]
    },
    "tiktok": {
-    "caption": "“ace” ne demek? “ace” = başarıyla geçmek; tam puan almak; yüksek not almak. Örnek: “I aced my history te… #ingilizceöğren #ingilizcekonuşma #ingilizce"
+    "caption": "“ace” ne demek? “ace” = başarıyla geçmek. Örnek: “I aced my history test today!” #ingilizceöğren #ingilizcekonuşma #ingilizce"
    }
   },
-  "first_comment": "Cevap: “ace” = başarıyla geçmek; tam puan almak; yüksek not almak. “I aced my history test today!” Ücretsiz daha fazla pratik: {link}",
+  "first_comment": "Cevap: “ace” = başarıyla geçmek. “I aced my history test today!” Ücretsiz daha fazla pratik: {link}",
   "lang": "tr"
  }
 }

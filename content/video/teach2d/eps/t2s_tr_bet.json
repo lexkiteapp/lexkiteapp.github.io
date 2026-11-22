@@ -66,15 +66,15 @@
    "text": "Don't reply 'bet' to your principal's email.",
    "why": "It sounds too casual for formal messages."
   },
-  "l1": "tamam; olur",
+  "l1": "tamam",
   "l1_hook": "Saat altıda pizza, anlaşma? \"bet\".",
   "l1_ex": "Saat altıda pizza? \"Bet\".",
   "right": "bet",
   "native": {
    "hook": "“bet” ne demek?",
-   "tip": "“bet” = tamam; olur. Örnek: “Pizza at six? Bet.”",
-   "caption": "“bet” ne demek?\n“bet” = tamam; olur.\nÖrnek: “Pizza at six? Bet.” (Saat altıda pizza? \"Bet\".)\nLexkite ile İngilizce argoyu ücretsiz öğren.",
-   "comment": "Cevap: “bet” = tamam; olur. “Pizza at six? Bet.” Ücretsiz daha fazla pratik: {link}",
+   "tip": "“bet” = tamam. Örnek: “Pizza at six? Bet.”",
+   "caption": "“bet” ne demek?\n“bet” = tamam.\nÖrnek: “Pizza at six? Bet.” (Saat altıda pizza? \"Bet\".)\nLexkite ile İngilizce argoyu ücretsiz öğren.",
+   "comment": "Cevap: “bet” = tamam. “Pizza at six? Bet.” Ücretsiz daha fazla pratik: {link}",
    "hashtags": [
     "#ingilizceöğren",
     "#ingilizcekonuşma",
@@ -105,7 +105,7 @@
  "publish": {
   "title": "“bet” ne demek?",
   "keyword": "bet",
-  "value": "“bet” = tamam; olur. Örnek: “Pizza at six? Bet.”",
+  "value": "“bet” = tamam. Örnek: “Pizza at six? Bet.”",
   "hashtags": [
    "#ingilizceöğren",
    "#ingilizcekonuşma",
@@ -117,7 +117,7 @@
   "platforms": {
    "youtube": {
     "title": "“bet” ne demek?",
-    "description": "“bet” = tamam; olur. Örnek: “Pizza at six? Bet.”\n\n“bet” ne demek?\n“bet” = tamam; olur.\nÖrnek: “Pizza at six? Bet.” (Saat altıda pizza? \"Bet\".)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "description": "“bet” = tamam. Örnek: “Pizza at six? Bet.”\n\n“bet” ne demek?\n“bet” = tamam.\nÖrnek: “Pizza at six? Bet.” (Saat altıda pizza? \"Bet\".)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
     "tags": [
      "bet",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "“bet” ne demek?\n“bet” = tamam; olur.\nÖrnek: “Pizza at six? Bet.” (Saat altıda pizza? \"Bet\".)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases"
+    "text": "“bet” ne demek?\n“bet” = tamam.\nÖrnek: “Pizza at six? Bet.” (Saat altıda pizza? \"Bet\".)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases"
    },
    "instagram": {
-    "caption": "“bet” ne demek?\n\n“bet” = tamam; olur. Örnek: “Pizza at six? Bet.”\n\nlexkite.com",
+    "caption": "“bet” ne demek?\n\n“bet” = tamam. Örnek: “Pizza at six? Bet.”\n\nlexkite.com",
     "hashtags": [
      "#ingilizceöğren",
      "#ingilizcekonuşma",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "“bet” ne demek? “bet” = tamam; olur. Örnek: “Pizza at six? Bet.” #ingilizceöğren #ingilizcekonuşma #ingilizce"
+    "caption": "“bet” ne demek? “bet” = tamam. Örnek: “Pizza at six? Bet.” #ingilizceöğren #ingilizcekonuşma #ingilizce"
    }
   },
-  "first_comment": "Cevap: “bet” = tamam; olur. “Pizza at six? Bet.” Ücretsiz daha fazla pratik: {link}",
+  "first_comment": "Cevap: “bet” = tamam. “Pizza at six? Bet.” Ücretsiz daha fazla pratik: {link}",
   "lang": "tr"
  }
 }

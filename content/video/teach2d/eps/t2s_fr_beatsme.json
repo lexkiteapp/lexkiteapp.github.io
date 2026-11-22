@@ -66,15 +66,15 @@
    "text": "Don't say 'beats me' to a client's question.",
    "why": "It sounds careless and unprofessional."
   },
-  "l1": "je ne sais pas; je n'en sais rien",
+  "l1": "je ne sais pas",
   "l1_hook": "Où est passée la clé ? « beats me ».",
   "l1_ex": "Où est la clé ? \"Beats me\".",
   "right": "beats me",
   "native": {
    "hook": "Que veut dire « beats me » ?",
-   "tip": "“beats me” = je ne sais pas; je n'en sais rien. Exemple: “Where's the key? Beats me.”",
-   "caption": "Que veut dire « beats me » ?\n“beats me” = je ne sais pas; je n'en sais rien.\nExemple: “Where's the key? Beats me.” (Où est la clé ? \"Beats me\".)\nApprends l'argot anglais gratuitement avec Lexkite.",
-   "comment": "Réponse: “beats me” = je ne sais pas; je n'en sais rien. “Where's the key? Beats me.” Entraîne-toi gratuitement: {link}",
+   "tip": "“beats me” = je ne sais pas. Exemple: “Where's the key? Beats me.”",
+   "caption": "Que veut dire « beats me » ?\n“beats me” = je ne sais pas.\nExemple: “Where's the key? Beats me.” (Où est la clé ? \"Beats me\".)\nApprends l'argot anglais gratuitement avec Lexkite.",
+   "comment": "Réponse: “beats me” = je ne sais pas. “Where's the key? Beats me.” Entraîne-toi gratuitement: {link}",
    "hashtags": [
     "#apprendrelanglais",
     "#anglaisfacile",
@@ -105,7 +105,7 @@
  "publish": {
   "title": "Que veut dire « beats me » ?",
   "keyword": "beats me",
-  "value": "“beats me” = je ne sais pas; je n'en sais rien. Exemple: “Where's the key? Beats me.”",
+  "value": "“beats me” = je ne sais pas. Exemple: “Where's the key? Beats me.”",
   "hashtags": [
    "#apprendrelanglais",
    "#anglaisfacile",
@@ -117,7 +117,7 @@
   "platforms": {
    "youtube": {
     "title": "Que veut dire « beats me » ?",
-    "description": "“beats me” = je ne sais pas; je n'en sais rien. Exemple: “Where's the key? Beats me.”\n\nQue veut dire « beats me » ?\n“beats me” = je ne sais pas; je n'en sais rien.\nExemple: “Where's the key? Beats me.” (Où est la clé ? \"Beats me\".)\nApprends l'argot anglais gratuitement avec Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "description": "“beats me” = je ne sais pas. Exemple: “Where's the key? Beats me.”\n\nQue veut dire « beats me » ?\n“beats me” = je ne sais pas.\nExemple: “Where's the key? Beats me.” (Où est la clé ? \"Beats me\".)\nApprends l'argot anglais gratuitement avec Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
     "tags": [
      "beats me",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "Que veut dire « beats me » ?\n“beats me” = je ne sais pas; je n'en sais rien.\nExemple: “Where's the key? Beats me.” (Où est la clé ? \"Beats me\".)\nApprends l'argot anglais gratuitement avec Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+    "text": "Que veut dire « beats me » ?\n“beats me” = je ne sais pas.\nExemple: “Where's the key? Beats me.” (Où est la clé ? \"Beats me\".)\nApprends l'argot anglais gratuitement avec Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
    },
    "instagram": {
-    "caption": "Que veut dire « beats me » ?\n\n“beats me” = je ne sais pas; je n'en sais rien. Exemple: “Where's the key? Beats me.”\n\nlexkite.com",
+    "caption": "Que veut dire « beats me » ?\n\n“beats me” = je ne sais pas. Exemple: “Where's the key? Beats me.”\n\nlexkite.com",
     "hashtags": [
      "#apprendrelanglais",
      "#anglaisfacile",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "Que veut dire « beats me » ? “beats me” = je ne sais pas; je n'en sais rien. Exemple: “Where's the k… #apprendrelanglais #anglaisfacile #coursdanglais"
+    "caption": "Que veut dire « beats me » ? “beats me” = je ne sais pas. Exemple: “Where's the key? Beats me.” #apprendrelanglais #anglaisfacile #coursdanglais"
    }
   },
-  "first_comment": "Réponse: “beats me” = je ne sais pas; je n'en sais rien. “Where's the key? Beats me.” Entraîne-toi gratuitement: {link}",
+  "first_comment": "Réponse: “beats me” = je ne sais pas. “Where's the key? Beats me.” Entraîne-toi gratuitement: {link}",
   "lang": "fr"
  }
 }

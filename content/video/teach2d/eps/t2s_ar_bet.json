@@ -66,15 +66,15 @@
    "text": "Don't reply 'bet' to your principal's email.",
    "why": "It sounds too casual for formal messages."
   },
-  "l1": "تم; اتفقنا; ماشي",
+  "l1": "تم",
   "l1_hook": "بيتزا في السادسة، اتفقنا؟ \"bet\"",
   "l1_ex": "بيتزا في السادسة؟ 'bet'.",
   "right": "bet",
   "native": {
    "hook": "ما معنى “bet”؟",
-   "tip": "“bet” = تم; اتفقنا; ماشي. مثال: “Pizza at six? Bet.”",
-   "caption": "ما معنى “bet”؟\n“bet” = تم; اتفقنا; ماشي.\nمثال: “Pizza at six? Bet.” (بيتزا في السادسة؟ 'bet'.)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.",
-   "comment": "الإجابة: “bet” = تم; اتفقنا; ماشي. “Pizza at six? Bet.” تدرّب أكثر مجانًا: {link}",
+   "tip": "“bet” = تم. مثال: “Pizza at six? Bet.”",
+   "caption": "ما معنى “bet”؟\n“bet” = تم.\nمثال: “Pizza at six? Bet.” (بيتزا في السادسة؟ 'bet'.)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.",
+   "comment": "الإجابة: “bet” = تم. “Pizza at six? Bet.” تدرّب أكثر مجانًا: {link}",
    "hashtags": [
     "#تعلم_الانجليزية",
     "#اللغة_الانجليزية",
@@ -105,7 +105,7 @@
  "publish": {
   "title": "ما معنى “bet”؟",
   "keyword": "bet",
-  "value": "“bet” = تم; اتفقنا; ماشي. مثال: “Pizza at six? Bet.”",
+  "value": "“bet” = تم. مثال: “Pizza at six? Bet.”",
   "hashtags": [
    "#تعلم_الانجليزية",
    "#اللغة_الانجليزية",
@@ -117,7 +117,7 @@
   "platforms": {
    "youtube": {
     "title": "ما معنى “bet”؟",
-    "description": "“bet” = تم; اتفقنا; ماشي. مثال: “Pizza at six? Bet.”\n\nما معنى “bet”؟\n“bet” = تم; اتفقنا; ماشي.\nمثال: “Pizza at six? Bet.” (بيتزا في السادسة؟ 'bet'.)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "description": "“bet” = تم. مثال: “Pizza at six? Bet.”\n\nما معنى “bet”؟\n“bet” = تم.\nمثال: “Pizza at six? Bet.” (بيتزا في السادسة؟ 'bet'.)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
     "tags": [
      "bet",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "ما معنى “bet”؟\n“bet” = تم; اتفقنا; ماشي.\nمثال: “Pizza at six? Bet.” (بيتزا في السادسة؟ 'bet'.)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+    "text": "ما معنى “bet”؟\n“bet” = تم.\nمثال: “Pizza at six? Bet.” (بيتزا في السادسة؟ 'bet'.)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
    },
    "instagram": {
-    "caption": "ما معنى “bet”؟\n\n“bet” = تم; اتفقنا; ماشي. مثال: “Pizza at six? Bet.”\n\nlexkite.com",
+    "caption": "ما معنى “bet”؟\n\n“bet” = تم. مثال: “Pizza at six? Bet.”\n\nlexkite.com",
     "hashtags": [
      "#تعلم_الانجليزية",
      "#اللغة_الانجليزية",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "ما معنى “bet”؟ “bet” = تم; اتفقنا; ماشي. مثال: “Pizza at six? Bet.” #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+    "caption": "ما معنى “bet”؟ “bet” = تم. مثال: “Pizza at six? Bet.” #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
    }
   },
-  "first_comment": "الإجابة: “bet” = تم; اتفقنا; ماشي. “Pizza at six? Bet.” تدرّب أكثر مجانًا: {link}",
+  "first_comment": "الإجابة: “bet” = تم. “Pizza at six? Bet.” تدرّب أكثر مجانًا: {link}",
   "lang": "ar"
  }
 }

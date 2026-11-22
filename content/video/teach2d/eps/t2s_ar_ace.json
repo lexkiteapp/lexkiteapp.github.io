@@ -70,15 +70,15 @@
    "text": "Don't say you 'aced' a test you failed.",
    "why": "It means doing very well."
   },
-  "l1": "يتفوق في; يحرز درجة كاملة",
+  "l1": "يتفوق في",
   "l1_hook": "يوم الاختبار. كيف كان أداؤك؟",
   "l1_ex": "لقد \"aced\" اختبار التاريخ اليوم!",
   "right": "ace",
   "native": {
    "hook": "ما معنى “ace”؟",
-   "tip": "“ace” = يتفوق في; يحرز درجة كاملة. مثال: “I aced my history test today!”",
-   "caption": "ما معنى “ace”؟\n“ace” = يتفوق في; يحرز درجة كاملة.\nمثال: “I aced my history test today!” (لقد \"aced\" اختبار التاريخ اليوم!)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.",
-   "comment": "الإجابة: “ace” = يتفوق في; يحرز درجة كاملة. “I aced my history test today!” تدرّب أكثر مجانًا: {link}",
+   "tip": "“ace” = يتفوق في. مثال: “I aced my history test today!”",
+   "caption": "ما معنى “ace”؟\n“ace” = يتفوق في.\nمثال: “I aced my history test today!” (لقد \"aced\" اختبار التاريخ اليوم!)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.",
+   "comment": "الإجابة: “ace” = يتفوق في. “I aced my history test today!” تدرّب أكثر مجانًا: {link}",
    "hashtags": [
     "#تعلم_الانجليزية",
     "#اللغة_الانجليزية",
@@ -109,7 +109,7 @@
  "publish": {
   "title": "ما معنى “ace”؟",
   "keyword": "ace",
-  "value": "“ace” = يتفوق في; يحرز درجة كاملة. مثال: “I aced my history test today!”",
+  "value": "“ace” = يتفوق في. مثال: “I aced my history test today!”",
   "hashtags": [
    "#تعلم_الانجليزية",
    "#اللغة_الانجليزية",
@@ -121,7 +121,7 @@
   "platforms": {
    "youtube": {
     "title": "ما معنى “ace”؟",
-    "description": "“ace” = يتفوق في; يحرز درجة كاملة. مثال: “I aced my history test today!”\n\nما معنى “ace”؟\n“ace” = يتفوق في; يحرز درجة كاملة.\nمثال: “I aced my history test today!” (لقد \"aced\" اختبار التاريخ اليوم!)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "description": "“ace” = يتفوق في. مثال: “I aced my history test today!”\n\nما معنى “ace”؟\n“ace” = يتفوق في.\nمثال: “I aced my history test today!” (لقد \"aced\" اختبار التاريخ اليوم!)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
     "tags": [
      "ace",
      "learn english",
@@ -129,10 +129,10 @@
     ]
    },
    "facebook": {
-    "text": "ما معنى “ace”؟\n“ace” = يتفوق في; يحرز درجة كاملة.\nمثال: “I aced my history test today!” (لقد \"aced\" اختبار التاريخ اليوم!)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+    "text": "ما معنى “ace”؟\n“ace” = يتفوق في.\nمثال: “I aced my history test today!” (لقد \"aced\" اختبار التاريخ اليوم!)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
    },
    "instagram": {
-    "caption": "ما معنى “ace”؟\n\n“ace” = يتفوق في; يحرز درجة كاملة. مثال: “I aced my history test today!”\n\nlexkite.com",
+    "caption": "ما معنى “ace”؟\n\n“ace” = يتفوق في. مثال: “I aced my history test today!”\n\nlexkite.com",
     "hashtags": [
      "#تعلم_الانجليزية",
      "#اللغة_الانجليزية",
@@ -141,10 +141,10 @@
     ]
    },
    "tiktok": {
-    "caption": "ما معنى “ace”؟ “ace” = يتفوق في; يحرز درجة كاملة. مثال: “I aced my history test today!” #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+    "caption": "ما معنى “ace”؟ “ace” = يتفوق في. مثال: “I aced my history test today!” #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
    }
   },
-  "first_comment": "الإجابة: “ace” = يتفوق في; يحرز درجة كاملة. “I aced my history test today!” تدرّب أكثر مجانًا: {link}",
+  "first_comment": "الإجابة: “ace” = يتفوق في. “I aced my history test today!” تدرّب أكثر مجانًا: {link}",
   "lang": "ar"
  }
 }

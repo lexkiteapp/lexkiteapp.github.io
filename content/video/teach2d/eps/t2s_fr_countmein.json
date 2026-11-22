@@ -70,15 +70,15 @@
    "text": "Don't say 'count me in' before checking the date.",
    "why": "People will count on you."
   },
-  "l1": "compte sur moi; je suis partant(e)",
+  "l1": "compte sur moi",
   "l1_hook": "Soirée jeux chez moi ! \"count me in\"",
   "l1_ex": "Soirée jeux ? \"Count me in\" !",
   "right": "count me in",
   "native": {
    "hook": "Que veut dire « count me in » ?",
-   "tip": "“count me in” = compte sur moi; je suis partant(e). Exemple: “Game night? Count me in!”",
-   "caption": "Que veut dire « count me in » ?\n“count me in” = compte sur moi; je suis partant(e).\nExemple: “Game night? Count me in!” (Soirée jeux ? \"Count me in\" !)\nApprends l'argot anglais gratuitement avec Lexkite.",
-   "comment": "Réponse: “count me in” = compte sur moi; je suis partant(e). “Game night? Count me in!” Entraîne-toi gratuitement: {link}",
+   "tip": "“count me in” = compte sur moi. Exemple: “Game night? Count me in!”",
+   "caption": "Que veut dire « count me in » ?\n“count me in” = compte sur moi.\nExemple: “Game night? Count me in!” (Soirée jeux ? \"Count me in\" !)\nApprends l'argot anglais gratuitement avec Lexkite.",
+   "comment": "Réponse: “count me in” = compte sur moi. “Game night? Count me in!” Entraîne-toi gratuitement: {link}",
    "hashtags": [
     "#apprendrelanglais",
     "#anglaisfacile",
@@ -109,7 +109,7 @@
  "publish": {
   "title": "Que veut dire « count me in » ?",
   "keyword": "count me in",
-  "value": "“count me in” = compte sur moi; je suis partant(e). Exemple: “Game night? Count me in!”",
+  "value": "“count me in” = compte sur moi. Exemple: “Game night? Count me in!”",
   "hashtags": [
    "#apprendrelanglais",
    "#anglaisfacile",
@@ -121,7 +121,7 @@
   "platforms": {
    "youtube": {
     "title": "Que veut dire « count me in » ?",
-    "description": "“count me in” = compte sur moi; je suis partant(e). Exemple: “Game night? Count me in!”\n\nQue veut dire « count me in » ?\n“count me in” = compte sur moi; je suis partant(e).\nExemple: “Game night? Count me in!” (Soirée jeux ? \"Count me in\" !)\nApprends l'argot anglais gratuitement avec Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "description": "“count me in” = compte sur moi. Exemple: “Game night? Count me in!”\n\nQue veut dire « count me in » ?\n“count me in” = compte sur moi.\nExemple: “Game night? Count me in!” (Soirée jeux ? \"Count me in\" !)\nApprends l'argot anglais gratuitement avec Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
     "tags": [
      "count me in",
      "learn english",
@@ -129,10 +129,10 @@
     ]
    },
    "facebook": {
-    "text": "Que veut dire « count me in » ?\n“count me in” = compte sur moi; je suis partant(e).\nExemple: “Game night? Count me in!” (Soirée jeux ? \"Count me in\" !)\nApprends l'argot anglais gratuitement avec Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+    "text": "Que veut dire « count me in » ?\n“count me in” = compte sur moi.\nExemple: “Game night? Count me in!” (Soirée jeux ? \"Count me in\" !)\nApprends l'argot anglais gratuitement avec Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
    },
    "instagram": {
-    "caption": "Que veut dire « count me in » ?\n\n“count me in” = compte sur moi; je suis partant(e). Exemple: “Game night? Count me in!”\n\nlexkite.com",
+    "caption": "Que veut dire « count me in » ?\n\n“count me in” = compte sur moi. Exemple: “Game night? Count me in!”\n\nlexkite.com",
     "hashtags": [
      "#apprendrelanglais",
      "#anglaisfacile",
@@ -141,10 +141,10 @@
     ]
    },
    "tiktok": {
-    "caption": "Que veut dire « count me in » ? “count me in” = compte sur moi; je suis partant(e). Exemple: “Game n… #apprendrelanglais #anglaisfacile #coursdanglais"
+    "caption": "Que veut dire « count me in » ? “count me in” = compte sur moi. Exemple: “Game night? Count me in!” #apprendrelanglais #anglaisfacile #coursdanglais"
    }
   },
-  "first_comment": "Réponse: “count me in” = compte sur moi; je suis partant(e). “Game night? Count me in!” Entraîne-toi gratuitement: {link}",
+  "first_comment": "Réponse: “count me in” = compte sur moi. “Game night? Count me in!” Entraîne-toi gratuitement: {link}",
   "lang": "fr"
  }
 }

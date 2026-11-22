@@ -70,15 +70,15 @@
    "text": "Don't say you 'aced' a test you failed.",
    "why": "It means doing very well."
   },
-  "l1": "получить пятёрку; отлично сдать",
+  "l1": "получить пятёрку",
   "l1_hook": "День теста. Как у тебя получилось?",
   "l1_ex": "Я сегодня «aced» тест по истории!",
   "right": "ace",
   "native": {
    "hook": "Что значит «ace»?",
-   "tip": "“ace” = получить пятёрку; отлично сдать. Пример: “I aced my history test today!”",
-   "caption": "Что значит «ace»?\n“ace” = получить пятёрку; отлично сдать.\nПример: “I aced my history test today!” (Я сегодня «aced» тест по истории!)\nУчи английский сленг бесплатно в Lexkite.",
-   "comment": "Ответ: “ace” = получить пятёрку; отлично сдать. “I aced my history test today!” Больше практики бесплатно: {link}",
+   "tip": "“ace” = получить пятёрку. Пример: “I aced my history test today!”",
+   "caption": "Что значит «ace»?\n“ace” = получить пятёрку.\nПример: “I aced my history test today!” (Я сегодня «aced» тест по истории!)\nУчи английский сленг бесплатно в Lexkite.",
+   "comment": "Ответ: “ace” = получить пятёрку. “I aced my history test today!” Больше практики бесплатно: {link}",
    "hashtags": [
     "#английскийязык",
     "#английский",
@@ -109,7 +109,7 @@
  "publish": {
   "title": "Что значит «ace»?",
   "keyword": "ace",
-  "value": "“ace” = получить пятёрку; отлично сдать. Пример: “I aced my history test today!”",
+  "value": "“ace” = получить пятёрку. Пример: “I aced my history test today!”",
   "hashtags": [
    "#английскийязык",
    "#английский",
@@ -121,7 +121,7 @@
   "platforms": {
    "youtube": {
     "title": "Что значит «ace»?",
-    "description": "“ace” = получить пятёрку; отлично сдать. Пример: “I aced my history test today!”\n\nЧто значит «ace»?\n“ace” = получить пятёрку; отлично сдать.\nПример: “I aced my history test today!” (Я сегодня «aced» тест по истории!)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#английскийязык #английский #учуанглийский #lexkite",
+    "description": "“ace” = получить пятёрку. Пример: “I aced my history test today!”\n\nЧто значит «ace»?\n“ace” = получить пятёрку.\nПример: “I aced my history test today!” (Я сегодня «aced» тест по истории!)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#английскийязык #английский #учуанглийский #lexkite",
     "tags": [
      "ace",
      "learn english",
@@ -129,10 +129,10 @@
     ]
    },
    "facebook": {
-    "text": "Что значит «ace»?\n“ace” = получить пятёрку; отлично сдать.\nПример: “I aced my history test today!” (Я сегодня «aced» тест по истории!)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+    "text": "Что значит «ace»?\n“ace” = получить пятёрку.\nПример: “I aced my history test today!” (Я сегодня «aced» тест по истории!)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
    },
    "instagram": {
-    "caption": "Что значит «ace»?\n\n“ace” = получить пятёрку; отлично сдать. Пример: “I aced my history test today!”\n\nlexkite.com",
+    "caption": "Что значит «ace»?\n\n“ace” = получить пятёрку. Пример: “I aced my history test today!”\n\nlexkite.com",
     "hashtags": [
      "#английскийязык",
      "#английский",
@@ -141,10 +141,10 @@
     ]
    },
    "tiktok": {
-    "caption": "Что значит «ace»? “ace” = получить пятёрку; отлично сдать. Пример: “I aced my history test today!” #английскийязык #английский #учуанглийский"
+    "caption": "Что значит «ace»? “ace” = получить пятёрку. Пример: “I aced my history test today!” #английскийязык #английский #учуанглийский"
    }
   },
-  "first_comment": "Ответ: “ace” = получить пятёрку; отлично сдать. “I aced my history test today!” Больше практики бесплатно: {link}",
+  "first_comment": "Ответ: “ace” = получить пятёрку. “I aced my history test today!” Больше практики бесплатно: {link}",
   "lang": "ru"
  }
 }

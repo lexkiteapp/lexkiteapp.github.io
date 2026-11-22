@@ -66,15 +66,15 @@
    "text": "Don't reply 'bet' to your principal's email.",
    "why": "It sounds too casual for formal messages."
   },
-  "l1": "окей; договорились; ладно",
+  "l1": "окей",
   "l1_hook": "Пицца в шесть, bet?",
   "l1_ex": "Пицца в шесть? Bet.",
   "right": "bet",
   "native": {
    "hook": "Что значит «bet»?",
-   "tip": "“bet” = окей; договорились; ладно. Пример: “Pizza at six? Bet.”",
-   "caption": "Что значит «bet»?\n“bet” = окей; договорились; ладно.\nПример: “Pizza at six? Bet.” (Пицца в шесть? Bet.)\nУчи английский сленг бесплатно в Lexkite.",
-   "comment": "Ответ: “bet” = окей; договорились; ладно. “Pizza at six? Bet.” Больше практики бесплатно: {link}",
+   "tip": "“bet” = окей. Пример: “Pizza at six? Bet.”",
+   "caption": "Что значит «bet»?\n“bet” = окей.\nПример: “Pizza at six? Bet.” (Пицца в шесть? Bet.)\nУчи английский сленг бесплатно в Lexkite.",
+   "comment": "Ответ: “bet” = окей. “Pizza at six? Bet.” Больше практики бесплатно: {link}",
    "hashtags": [
     "#английскийязык",
     "#английский",
@@ -105,7 +105,7 @@
  "publish": {
   "title": "Что значит «bet»?",
   "keyword": "bet",
-  "value": "“bet” = окей; договорились; ладно. Пример: “Pizza at six? Bet.”",
+  "value": "“bet” = окей. Пример: “Pizza at six? Bet.”",
   "hashtags": [
    "#английскийязык",
    "#английский",
@@ -117,7 +117,7 @@
   "platforms": {
    "youtube": {
     "title": "Что значит «bet»?",
-    "description": "“bet” = окей; договорились; ладно. Пример: “Pizza at six? Bet.”\n\nЧто значит «bet»?\n“bet” = окей; договорились; ладно.\nПример: “Pizza at six? Bet.” (Пицца в шесть? Bet.)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#английскийязык #английский #учуанглийский #lexkite",
+    "description": "“bet” = окей. Пример: “Pizza at six? Bet.”\n\nЧто значит «bet»?\n“bet” = окей.\nПример: “Pizza at six? Bet.” (Пицца в шесть? Bet.)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#английскийязык #английский #учуанглийский #lexkite",
     "tags": [
      "bet",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "Что значит «bet»?\n“bet” = окей; договорились; ладно.\nПример: “Pizza at six? Bet.” (Пицца в шесть? Bet.)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+    "text": "Что значит «bet»?\n“bet” = окей.\nПример: “Pizza at six? Bet.” (Пицца в шесть? Bet.)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
    },
    "instagram": {
-    "caption": "Что значит «bet»?\n\n“bet” = окей; договорились; ладно. Пример: “Pizza at six? Bet.”\n\nlexkite.com",
+    "caption": "Что значит «bet»?\n\n“bet” = окей. Пример: “Pizza at six? Bet.”\n\nlexkite.com",
     "hashtags": [
      "#английскийязык",
      "#английский",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "Что значит «bet»? “bet” = окей; договорились; ладно. Пример: “Pizza at six? Bet.” #английскийязык #английский #учуанглийский"
+    "caption": "Что значит «bet»? “bet” = окей. Пример: “Pizza at six? Bet.” #английскийязык #английский #учуанглийский"
    }
   },
-  "first_comment": "Ответ: “bet” = окей; договорились; ладно. “Pizza at six? Bet.” Больше практики бесплатно: {link}",
+  "first_comment": "Ответ: “bet” = окей. “Pizza at six? Bet.” Больше практики бесплатно: {link}",
   "lang": "ru"
  }
 }

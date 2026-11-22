@@ -70,15 +70,15 @@
    "text": "Don't say you 'aced' a test you failed.",
    "why": "It means doing very well."
   },
-  "l1": "만점 맞다; 대성공하다; 완벽하게 해내다",
+  "l1": "만점 맞다",
   "l1_hook": "시험 날이야. 어떻게 했어? \"ace\"!",
   "l1_ex": "오늘 역사 시험을 \"ace\"했어!",
   "right": "ace",
   "native": {
    "hook": "“ace” 무슨 뜻일까요?",
-   "tip": "“ace” = 만점 맞다; 대성공하다; 완벽하게 해내다. 예문: “I aced my history test today!”",
-   "caption": "“ace” 무슨 뜻일까요?\n“ace” = 만점 맞다; 대성공하다; 완벽하게 해내다.\n예문: “I aced my history test today!” (오늘 역사 시험을 \"ace\"했어!)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.",
-   "comment": "정답: “ace” = 만점 맞다; 대성공하다; 완벽하게 해내다. “I aced my history test today!” 무료로 더 연습하기: {link}",
+   "tip": "“ace” = 만점 맞다. 예문: “I aced my history test today!”",
+   "caption": "“ace” 무슨 뜻일까요?\n“ace” = 만점 맞다.\n예문: “I aced my history test today!” (오늘 역사 시험을 \"ace\"했어!)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.",
+   "comment": "정답: “ace” = 만점 맞다. “I aced my history test today!” 무료로 더 연습하기: {link}",
    "hashtags": [
     "#영어공부",
     "#영어회화",
@@ -109,7 +109,7 @@
  "publish": {
   "title": "“ace” 무슨 뜻일까요?",
   "keyword": "ace",
-  "value": "“ace” = 만점 맞다; 대성공하다; 완벽하게 해내다. 예문: “I aced my history test today!”",
+  "value": "“ace” = 만점 맞다. 예문: “I aced my history test today!”",
   "hashtags": [
    "#영어공부",
    "#영어회화",
@@ -121,7 +121,7 @@
   "platforms": {
    "youtube": {
     "title": "“ace” 무슨 뜻일까요?",
-    "description": "“ace” = 만점 맞다; 대성공하다; 완벽하게 해내다. 예문: “I aced my history test today!”\n\n“ace” 무슨 뜻일까요?\n“ace” = 만점 맞다; 대성공하다; 완벽하게 해내다.\n예문: “I aced my history test today!” (오늘 역사 시험을 \"ace\"했어!)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "description": "“ace” = 만점 맞다. 예문: “I aced my history test today!”\n\n“ace” 무슨 뜻일까요?\n“ace” = 만점 맞다.\n예문: “I aced my history test today!” (오늘 역사 시험을 \"ace\"했어!)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases\n\n#영어공부 #영어회화 #영어독학 #lexkite",
     "tags": [
      "ace",
      "learn english",
@@ -129,10 +129,10 @@
     ]
    },
    "facebook": {
-    "text": "“ace” 무슨 뜻일까요?\n“ace” = 만점 맞다; 대성공하다; 완벽하게 해내다.\n예문: “I aced my history test today!” (오늘 역사 시험을 \"ace\"했어!)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases"
+    "text": "“ace” 무슨 뜻일까요?\n“ace” = 만점 맞다.\n예문: “I aced my history test today!” (오늘 역사 시험을 \"ace\"했어!)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases"
    },
    "instagram": {
-    "caption": "“ace” 무슨 뜻일까요?\n\n“ace” = 만점 맞다; 대성공하다; 완벽하게 해내다. 예문: “I aced my history test today!”\n\nlexkite.com",
+    "caption": "“ace” 무슨 뜻일까요?\n\n“ace” = 만점 맞다. 예문: “I aced my history test today!”\n\nlexkite.com",
     "hashtags": [
      "#영어공부",
      "#영어회화",
@@ -141,10 +141,10 @@
     ]
    },
    "tiktok": {
-    "caption": "“ace” 무슨 뜻일까요? “ace” = 만점 맞다; 대성공하다; 완벽하게 해내다. 예문: “I aced my history test today!” #영어공부 #영어회화 #영어독학"
+    "caption": "“ace” 무슨 뜻일까요? “ace” = 만점 맞다. 예문: “I aced my history test today!” #영어공부 #영어회화 #영어독학"
    }
   },
-  "first_comment": "정답: “ace” = 만점 맞다; 대성공하다; 완벽하게 해내다. “I aced my history test today!” 무료로 더 연습하기: {link}",
+  "first_comment": "정답: “ace” = 만점 맞다. “I aced my history test today!” 무료로 더 연습하기: {link}",
   "lang": "ko"
  }
 }

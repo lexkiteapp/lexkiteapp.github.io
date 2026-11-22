@@ -66,15 +66,15 @@
    "text": "Don't call your friend's gift 'basic' to her.",
    "why": "It sounds like an insult."
   },
-  "l1": "기본; 뻔한; 평범한",
+  "l1": "기본",
   "l1_hook": "피자와 영화를 또? 'basic'이야.",
   "l1_ex": "내 주말 계획은 basic: 피자와 영화야.",
   "right": "basic",
   "native": {
    "hook": "“basic” 무슨 뜻일까요?",
-   "tip": "“basic” = 기본; 뻔한; 평범한. 예문: “My weekend plan is basic: pizza and a movie.”",
-   "caption": "“basic” 무슨 뜻일까요?\n“basic” = 기본; 뻔한; 평범한.\n예문: “My weekend plan is basic: pizza and a movie.” (내 주말 계획은 basic: 피자와 영화야.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.",
-   "comment": "정답: “basic” = 기본; 뻔한; 평범한. “My weekend plan is basic: pizza and a movie.” 무료로 더 연습하기: {link}",
+   "tip": "“basic” = 기본. 예문: “My weekend plan is basic: pizza and a movie.”",
+   "caption": "“basic” 무슨 뜻일까요?\n“basic” = 기본.\n예문: “My weekend plan is basic: pizza and a movie.” (내 주말 계획은 basic: 피자와 영화야.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.",
+   "comment": "정답: “basic” = 기본. “My weekend plan is basic: pizza and a movie.” 무료로 더 연습하기: {link}",
    "hashtags": [
     "#영어공부",
     "#영어회화",
@@ -105,7 +105,7 @@
  "publish": {
   "title": "“basic” 무슨 뜻일까요?",
   "keyword": "basic",
-  "value": "“basic” = 기본; 뻔한; 평범한. 예문: “My weekend plan is basic: pizza and a movie.”",
+  "value": "“basic” = 기본. 예문: “My weekend plan is basic: pizza and a movie.”",
   "hashtags": [
    "#영어공부",
    "#영어회화",
@@ -117,7 +117,7 @@
   "platforms": {
    "youtube": {
     "title": "“basic” 무슨 뜻일까요?",
-    "description": "“basic” = 기본; 뻔한; 평범한. 예문: “My weekend plan is basic: pizza and a movie.”\n\n“basic” 무슨 뜻일까요?\n“basic” = 기본; 뻔한; 평범한.\n예문: “My weekend plan is basic: pizza and a movie.” (내 주말 계획은 basic: 피자와 영화야.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "description": "“basic” = 기본. 예문: “My weekend plan is basic: pizza and a movie.”\n\n“basic” 무슨 뜻일까요?\n“basic” = 기본.\n예문: “My weekend plan is basic: pizza and a movie.” (내 주말 계획은 basic: 피자와 영화야.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases\n\n#영어공부 #영어회화 #영어독학 #lexkite",
     "tags": [
      "basic",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "“basic” 무슨 뜻일까요?\n“basic” = 기본; 뻔한; 평범한.\n예문: “My weekend plan is basic: pizza and a movie.” (내 주말 계획은 basic: 피자와 영화야.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases"
+    "text": "“basic” 무슨 뜻일까요?\n“basic” = 기본.\n예문: “My weekend plan is basic: pizza and a movie.” (내 주말 계획은 basic: 피자와 영화야.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases"
    },
    "instagram": {
-    "caption": "“basic” 무슨 뜻일까요?\n\n“basic” = 기본; 뻔한; 평범한. 예문: “My weekend plan is basic: pizza and a movie.”\n\nlexkite.com",
+    "caption": "“basic” 무슨 뜻일까요?\n\n“basic” = 기본. 예문: “My weekend plan is basic: pizza and a movie.”\n\nlexkite.com",
     "hashtags": [
      "#영어공부",
      "#영어회화",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "“basic” 무슨 뜻일까요? “basic” = 기본; 뻔한; 평범한. 예문: “My weekend plan is basic: pizza and a movie.” #영어공부 #영어회화 #영어독학"
+    "caption": "“basic” 무슨 뜻일까요? “basic” = 기본. 예문: “My weekend plan is basic: pizza and a movie.” #영어공부 #영어회화 #영어독학"
    }
   },
-  "first_comment": "정답: “basic” = 기본; 뻔한; 평범한. “My weekend plan is basic: pizza and a movie.” 무료로 더 연습하기: {link}",
+  "first_comment": "정답: “basic” = 기본. “My weekend plan is basic: pizza and a movie.” 무료로 더 연습하기: {link}",
   "lang": "ko"
  }
 }

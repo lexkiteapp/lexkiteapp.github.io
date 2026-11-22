@@ -70,15 +70,15 @@
    "text": "Don't write 'ASAP' to your boss rudely.",
    "why": "It sounds demanding and bossy."
   },
-  "l1": "как можно скорее; в срочном порядке",
+  "l1": "как можно скорее",
   "l1_hook": "Мне это нужно прямо сейчас, «ASAP»!",
   "l1_ex": "Пожалуйста, пришлите мне заметки ASAP.",
   "right": "ASAP",
   "native": {
    "hook": "Что значит «ASAP»?",
-   "tip": "“ASAP” = как можно скорее; в срочном порядке. Пример: “Please send me the notes ASAP.”",
-   "caption": "Что значит «ASAP»?\n“ASAP” = как можно скорее; в срочном порядке.\nПример: “Please send me the notes ASAP.” (Пожалуйста, пришлите мне заметки ASAP.)\nУчи английский сленг бесплатно в Lexkite.",
-   "comment": "Ответ: “ASAP” = как можно скорее; в срочном порядке. “Please send me the notes ASAP.” Больше практики бесплатно: {link}",
+   "tip": "“ASAP” = как можно скорее. Пример: “Please send me the notes ASAP.”",
+   "caption": "Что значит «ASAP»?\n“ASAP” = как можно скорее.\nПример: “Please send me the notes ASAP.” (Пожалуйста, пришлите мне заметки ASAP.)\nУчи английский сленг бесплатно в Lexkite.",
+   "comment": "Ответ: “ASAP” = как можно скорее. “Please send me the notes ASAP.” Больше практики бесплатно: {link}",
    "hashtags": [
     "#английскийязык",
     "#английский",
@@ -109,7 +109,7 @@
  "publish": {
   "title": "Что значит «ASAP»?",
   "keyword": "ASAP",
-  "value": "“ASAP” = как можно скорее; в срочном порядке. Пример: “Please send me the notes ASAP.”",
+  "value": "“ASAP” = как можно скорее. Пример: “Please send me the notes ASAP.”",
   "hashtags": [
    "#английскийязык",
    "#английский",
@@ -121,7 +121,7 @@
   "platforms": {
    "youtube": {
     "title": "Что значит «ASAP»?",
-    "description": "“ASAP” = как можно скорее; в срочном порядке. Пример: “Please send me the notes ASAP.”\n\nЧто значит «ASAP»?\n“ASAP” = как можно скорее; в срочном порядке.\nПример: “Please send me the notes ASAP.” (Пожалуйста, пришлите мне заметки ASAP.)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#английскийязык #английский #учуанглийский #lexkite",
+    "description": "“ASAP” = как можно скорее. Пример: “Please send me the notes ASAP.”\n\nЧто значит «ASAP»?\n“ASAP” = как можно скорее.\nПример: “Please send me the notes ASAP.” (Пожалуйста, пришлите мне заметки ASAP.)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#английскийязык #английский #учуанглийский #lexkite",
     "tags": [
      "ASAP",
      "learn english",
@@ -129,10 +129,10 @@
     ]
    },
    "facebook": {
-    "text": "Что значит «ASAP»?\n“ASAP” = как можно скорее; в срочном порядке.\nПример: “Please send me the notes ASAP.” (Пожалуйста, пришлите мне заметки ASAP.)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+    "text": "Что значит «ASAP»?\n“ASAP” = как можно скорее.\nПример: “Please send me the notes ASAP.” (Пожалуйста, пришлите мне заметки ASAP.)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
    },
    "instagram": {
-    "caption": "Что значит «ASAP»?\n\n“ASAP” = как можно скорее; в срочном порядке. Пример: “Please send me the notes ASAP.”\n\nlexkite.com",
+    "caption": "Что значит «ASAP»?\n\n“ASAP” = как можно скорее. Пример: “Please send me the notes ASAP.”\n\nlexkite.com",
     "hashtags": [
      "#английскийязык",
      "#английский",
@@ -141,10 +141,10 @@
     ]
    },
    "tiktok": {
-    "caption": "Что значит «ASAP»? “ASAP” = как можно скорее; в срочном порядке. Пример: “Please send me the notes ASAP.” #английскийязык #английский #учуанглийский"
+    "caption": "Что значит «ASAP»? “ASAP” = как можно скорее. Пример: “Please send me the notes ASAP.” #английскийязык #английский #учуанглийский"
    }
   },
-  "first_comment": "Ответ: “ASAP” = как можно скорее; в срочном порядке. “Please send me the notes ASAP.” Больше практики бесплатно: {link}",
+  "first_comment": "Ответ: “ASAP” = как можно скорее. “Please send me the notes ASAP.” Больше практики бесплатно: {link}",
   "lang": "ru"
  }
 }

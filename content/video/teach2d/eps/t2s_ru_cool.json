@@ -66,15 +66,15 @@
    "text": "Don't say 'cool' when someone shares sad news.",
    "why": "It sounds like you don't care."
   },
-  "l1": "круто; классно; отлично",
+  "l1": "круто",
   "l1_hook": "Фильм сегодня в шесть, «cool»?",
   "l1_ex": "«Cool», увидимся в шесть!",
   "right": "cool",
   "native": {
    "hook": "Что значит «cool»?",
-   "tip": "“cool” = круто; классно; отлично. Пример: “Cool, see you at six!”",
-   "caption": "Что значит «cool»?\n“cool” = круто; классно; отлично.\nПример: “Cool, see you at six!” («Cool», увидимся в шесть!)\nУчи английский сленг бесплатно в Lexkite.",
-   "comment": "Ответ: “cool” = круто; классно; отлично. “Cool, see you at six!” Больше практики бесплатно: {link}",
+   "tip": "“cool” = круто. Пример: “Cool, see you at six!”",
+   "caption": "Что значит «cool»?\n“cool” = круто.\nПример: “Cool, see you at six!” («Cool», увидимся в шесть!)\nУчи английский сленг бесплатно в Lexkite.",
+   "comment": "Ответ: “cool” = круто. “Cool, see you at six!” Больше практики бесплатно: {link}",
    "hashtags": [
     "#английскийязык",
     "#английский",
@@ -105,7 +105,7 @@
  "publish": {
   "title": "Что значит «cool»?",
   "keyword": "cool",
-  "value": "“cool” = круто; классно; отлично. Пример: “Cool, see you at six!”",
+  "value": "“cool” = круто. Пример: “Cool, see you at six!”",
   "hashtags": [
    "#английскийязык",
    "#английский",
@@ -117,7 +117,7 @@
   "platforms": {
    "youtube": {
     "title": "Что значит «cool»?",
-    "description": "“cool” = круто; классно; отлично. Пример: “Cool, see you at six!”\n\nЧто значит «cool»?\n“cool” = круто; классно; отлично.\nПример: “Cool, see you at six!” («Cool», увидимся в шесть!)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#английскийязык #английский #учуанглийский #lexkite",
+    "description": "“cool” = круто. Пример: “Cool, see you at six!”\n\nЧто значит «cool»?\n“cool” = круто.\nПример: “Cool, see you at six!” («Cool», увидимся в шесть!)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#английскийязык #английский #учуанглийский #lexkite",
     "tags": [
      "cool",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "Что значит «cool»?\n“cool” = круто; классно; отлично.\nПример: “Cool, see you at six!” («Cool», увидимся в шесть!)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+    "text": "Что значит «cool»?\n“cool” = круто.\nПример: “Cool, see you at six!” («Cool», увидимся в шесть!)\nУчи английский сленг бесплатно в Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
    },
    "instagram": {
-    "caption": "Что значит «cool»?\n\n“cool” = круто; классно; отлично. Пример: “Cool, see you at six!”\n\nlexkite.com",
+    "caption": "Что значит «cool»?\n\n“cool” = круто. Пример: “Cool, see you at six!”\n\nlexkite.com",
     "hashtags": [
      "#английскийязык",
      "#английский",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "Что значит «cool»? “cool” = круто; классно; отлично. Пример: “Cool, see you at six!” #английскийязык #английский #учуанглийский"
+    "caption": "Что значит «cool»? “cool” = круто. Пример: “Cool, see you at six!” #английскийязык #английский #учуанглийский"
    }
   },
-  "first_comment": "Ответ: “cool” = круто; классно; отлично. “Cool, see you at six!” Больше практики бесплатно: {link}",
+  "first_comment": "Ответ: “cool” = круто. “Cool, see you at six!” Больше практики бесплатно: {link}",
   "lang": "ru"
  }
 }

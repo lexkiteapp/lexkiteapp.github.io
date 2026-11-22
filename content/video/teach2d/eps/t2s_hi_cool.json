@@ -66,15 +66,15 @@
    "text": "Don't say 'cool' when someone shares sad news.",
    "why": "It sounds like you don't care."
   },
-  "l1": "बढ़िया; ठीक है; बहुत अच्छा",
+  "l1": "बढ़िया",
   "l1_hook": "आज रात छह बजे फिल्म, ठीक है? 'cool'।",
   "l1_ex": "'cool', छह बजे मिलते हैं!",
   "right": "cool",
   "native": {
    "hook": "“cool” का मतलब क्या है?",
-   "tip": "“cool” = बढ़िया; ठीक है; बहुत अच्छा. उदाहरण: “Cool, see you at six!”",
-   "caption": "“cool” का मतलब क्या है?\n“cool” = बढ़िया; ठीक है; बहुत अच्छा.\nउदाहरण: “Cool, see you at six!” ('cool', छह बजे मिलते हैं!)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।",
-   "comment": "उत्तर: “cool” = बढ़िया; ठीक है; बहुत अच्छा. “Cool, see you at six!” मुफ़्त में और अभ्यास करें: {link}",
+   "tip": "“cool” = बढ़िया. उदाहरण: “Cool, see you at six!”",
+   "caption": "“cool” का मतलब क्या है?\n“cool” = बढ़िया.\nउदाहरण: “Cool, see you at six!” ('cool', छह बजे मिलते हैं!)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।",
+   "comment": "उत्तर: “cool” = बढ़िया. “Cool, see you at six!” मुफ़्त में और अभ्यास करें: {link}",
    "hashtags": [
     "#अंग्रेजीसीखें",
     "#englishspeaking",
@@ -105,7 +105,7 @@
  "publish": {
   "title": "“cool” का मतलब क्या है?",
   "keyword": "cool",
-  "value": "“cool” = बढ़िया; ठीक है; बहुत अच्छा. उदाहरण: “Cool, see you at six!”",
+  "value": "“cool” = बढ़िया. उदाहरण: “Cool, see you at six!”",
   "hashtags": [
    "#अंग्रेजीसीखें",
    "#englishspeaking",
@@ -117,7 +117,7 @@
   "platforms": {
    "youtube": {
     "title": "“cool” का मतलब क्या है?",
-    "description": "“cool” = बढ़िया; ठीक है; बहुत अच्छा. उदाहरण: “Cool, see you at six!”\n\n“cool” का मतलब क्या है?\n“cool” = बढ़िया; ठीक है; बहुत अच्छा.\nउदाहरण: “Cool, see you at six!” ('cool', छह बजे मिलते हैं!)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।\n\nhttps://lexkite.com/app/#/phrases\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "description": "“cool” = बढ़िया. उदाहरण: “Cool, see you at six!”\n\n“cool” का मतलब क्या है?\n“cool” = बढ़िया.\nउदाहरण: “Cool, see you at six!” ('cool', छह बजे मिलते हैं!)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।\n\nhttps://lexkite.com/app/#/phrases\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
     "tags": [
      "cool",
      "learn english",
@@ -125,10 +125,10 @@
     ]
    },
    "facebook": {
-    "text": "“cool” का मतलब क्या है?\n“cool” = बढ़िया; ठीक है; बहुत अच्छा.\nउदाहरण: “Cool, see you at six!” ('cool', छह बजे मिलते हैं!)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।\n\nhttps://lexkite.com/app/#/phrases"
+    "text": "“cool” का मतलब क्या है?\n“cool” = बढ़िया.\nउदाहरण: “Cool, see you at six!” ('cool', छह बजे मिलते हैं!)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।\n\nhttps://lexkite.com/app/#/phrases"
    },
    "instagram": {
-    "caption": "“cool” का मतलब क्या है?\n\n“cool” = बढ़िया; ठीक है; बहुत अच्छा. उदाहरण: “Cool, see you at six!”\n\nlexkite.com",
+    "caption": "“cool” का मतलब क्या है?\n\n“cool” = बढ़िया. उदाहरण: “Cool, see you at six!”\n\nlexkite.com",
     "hashtags": [
      "#अंग्रेजीसीखें",
      "#englishspeaking",
@@ -137,10 +137,10 @@
     ]
    },
    "tiktok": {
-    "caption": "“cool” का मतलब क्या है? “cool” = बढ़िया; ठीक है; बहुत अच्छा. उदाहरण: “Cool, see you at six!” #अंग्रेजीसीखें #englishspeaking #learnenglish"
+    "caption": "“cool” का मतलब क्या है? “cool” = बढ़िया. उदाहरण: “Cool, see you at six!” #अंग्रेजीसीखें #englishspeaking #learnenglish"
    }
   },
-  "first_comment": "उत्तर: “cool” = बढ़िया; ठीक है; बहुत अच्छा. “Cool, see you at six!” मुफ़्त में और अभ्यास करें: {link}",
+  "first_comment": "उत्तर: “cool” = बढ़िया. “Cool, see you at six!” मुफ़्त में और अभ्यास करें: {link}",
   "lang": "hi"
  }
 }
