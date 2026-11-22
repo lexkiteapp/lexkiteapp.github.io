@@ -50,6 +50,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
@@ -105,9 +106,10 @@ class LessonSlots(
 internal fun titleKey(it: LItem): L10nKey? = when (it.type) {
     "gap" -> L10nKey.lessonQGap; "build" -> if (!it.prompt.isNullOrEmpty()) L10nKey.lessonQBuild else L10nKey.lessonQBuildHeard; "say" -> L10nKey.lessonQSay
     "pic" -> if (it.choice == true) L10nKey.lessonQPicChoice else L10nKey.lessonQPicSay; "tr" -> L10nKey.lessonQTr; "mean" -> L10nKey.lessonQMean
-    "type" -> L10nKey.lessonQType; "match" -> L10nKey.lessonQMatch; "q" -> L10nKey.lessonQQ; else -> null
+    "lpic" -> L10nKey.lessonQLpic
+    "type" -> L10nKey.lessonQType; "match" -> if (it.pics == true) L10nKey.lessonQMpic else L10nKey.lessonQMatch; "q" -> L10nKey.lessonQQ; else -> null
 }
-internal fun listens(it: LItem) = it.noAudio != true && (it.type == "gap" || it.type == "build" || it.type == "say" || it.type == "type")
+internal fun listens(it: LItem) = it.noAudio != true && (it.type == "gap" || it.type == "build" || it.type == "say" || it.type == "type" || it.type == "lpic")
 internal fun speaks(it: LItem) = it.type == "say" || (it.type == "pic" && it.choice != true)
 private val LETTERS = "ABCDEFGH"
 
@@ -133,7 +135,7 @@ fun LessonScreen(ui: LessonUi, who: String, kindLabel: String, a: LessonActions,
                 Stage(cur, who, slots, signal)
                 QuestionCard(ui, cur, a, slots, mic, imageUrl, fb != null)
                 if (cur.type != "line" && cur.type != "match") Spacer(Modifier.height(LKSpacing.spaceSm))
-                Body(ui, cur, a, mic, fb != null)
+                Body(ui, cur, a, mic, fb != null, slots, imageUrl)
                 Spacer(Modifier.height(LKSpacing.spaceMd))
             }
             if (fb != null) FeedbackSheet(fb, ui, who, pose, a, slots, gold)
@@ -277,10 +279,10 @@ private fun Gap(cur: LItem, pick: String?, fb: Feedback?) {
 /** The answer area under the question card. */
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
-private fun Body(ui: LessonUi, cur: LItem, a: LessonActions, mic: MicUi, checked: Boolean) {
+private fun Body(ui: LessonUi, cur: LItem, a: LessonActions, mic: MicUi, checked: Boolean, slots: LessonSlots, imageUrl: (String, String) -> String?) {
     val c = LocalLKColors.current; val t = LocalL10n.current; val st = ui.st
     when (cur.type) {
-        "gap", "mean", "q", "pic" -> if (cur.type != "pic" || cur.choice == true) {
+        "gap", "mean", "q", "pic", "lpic" -> if (cur.type != "pic" || cur.choice == true) {
             val opts = (cur.options ?: emptyList()).filter { it !in st.removed || checked }
             val ans = ui.feedback
             val oneCol = cur.type == "q"
@@ -291,7 +293,9 @@ private fun Body(ui: LessonUi, cur: LItem, a: LessonActions, mic: MicUi, checked
                         rowOpts.forEach { o ->
                             val i = (cur.options ?: emptyList()).indexOf(o).coerceAtLeast(0); val m = mark(o)
                             val tag = if (ans != null && !ans.ok) (if (m == Mark.RIGHT) t(L10nKey.lessonCorrectChoice) else if (m == Mark.WRONG) t(L10nKey.lessonYourChoice) else null) else null
-                            OptionCard(LETTERS[i % LETTERS.length].toString(), o, m, if (ans == null) ({ a.pick(o) }) else null, Modifier.weight(1f), tag = tag)
+                            val pic = if (cur.type == "lpic") imageUrl(o, cur.ipos?.get(o).orEmpty()) else null   // lpic: 2×2 picture tiles
+                            OptionCard(LETTERS[i % LETTERS.length].toString(), o, m, if (ans == null) ({ a.pick(o) }) else null, Modifier.weight(1f), tag = tag,
+                                picture = if (pic != null) ({ slots.image(pic, o, Modifier.size(112.dp).clip(RoundedCornerShape(12.dp))) }) else null, hideText = cur.type == "lpic" && ans == null)
                         }
                         if (!oneCol && rowOpts.size == 1) Spacer(Modifier.weight(1f))
                     }
@@ -301,7 +305,7 @@ private fun Body(ui: LessonUi, cur: LItem, a: LessonActions, mic: MicUi, checked
         } else SayArea(cur, st, a, mic, t)
         "build", "tr" -> BuildArea(cur, st, a, checked)
         "type" -> TypeArea(cur, st, a, checked)
-        "match" -> MatchArea(cur, st, a, checked)
+        "match" -> MatchArea(cur, st, a, checked, slots, imageUrl)
         "say" -> SayArea(cur, st, a, mic, t)
         "line" -> LineArea(ui, a)
     }
@@ -349,7 +353,7 @@ private fun TypeArea(cur: LItem, st: ItemState, a: LessonActions, checked: Boole
 }
 
 @Composable
-private fun MatchArea(cur: LItem, st: ItemState, a: LessonActions, checked: Boolean) {
+private fun MatchArea(cur: LItem, st: ItemState, a: LessonActions, checked: Boolean, slots: LessonSlots, imageUrl: (String, String) -> String?) {
     val c = LocalLKColors.current; val tk = tokens
     val pairs = cur.pairs ?: return
     LaunchedEffect(st.flash) { if (st.flash) { delay(400); a.clearFlash() } }
@@ -364,7 +368,10 @@ private fun MatchArea(cur: LItem, st: ItemState, a: LessonActions, checked: Bool
                     Box(Modifier.fillMaxWidth().heightIn(min = 56.dp).let { m -> if (done || checked) m else m.tactile({ a.matchTap(left, i) }) }.then(if (done) Modifier.semantics { stateDescription = "✓" } else Modifier)) {
                         Box(Modifier.matchParentSize().padding(top = 3.dp).background(if (done) c.cardLow else tk.lipOpt, shape))
                         Box(Modifier.fillMaxWidth().heightIn(min = 56.dp).clip(shape).background(if (sel) c.secondaryContainer.copy(alpha = 0.16f) else if (done) c.cardLow else c.card).border(2.dp, if (done) c.cardLow else line, shape).padding(LKSpacing.spaceXs), contentAlignment = Alignment.Center) {
-                            Text(text, style = LKType.bodyLg.toCompose(), color = if (done) c.onSurfaceVariant.copy(alpha = 0.5f) else c.onSurface, textAlign = TextAlign.Center)
+                            // mpic: right column = the word's picture (falls back to its meaning when the picture is gone)
+                            val pic = if (!left && cur.pics == true) pairs[i].card?.let { k -> imageUrl(pairs[i].word, (k["pos"] as? JsonPrimitive)?.content.orEmpty()) } else null
+                            if (pic != null) slots.image(pic, pairs[i].word, Modifier.size(72.dp).clip(RoundedCornerShape(12.dp)).then(if (done) Modifier.alpha(0.3f) else Modifier))
+                            else Text(text, style = LKType.bodyLg.toCompose(), color = if (done) c.onSurfaceVariant.copy(alpha = 0.5f) else c.onSurface, textAlign = TextAlign.Center)
                         }
                     }
                 }

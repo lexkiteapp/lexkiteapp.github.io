@@ -91,6 +91,8 @@ public final class LessonModel {
 
     /// Picture of a `pic` exercise (exact word#pos; never a scene picture).
     public func pictureURL(_ it: LessonItem) -> URL? { pictures.usable(it.word, it.card?.pos, dark: dark)?.url }
+    /// Picture of any word (lpic option: pos from `ipos`; mpic pair: the card's pos).
+    public func pictureURL(word: String, pos: String?) -> URL? { pictures.usable(word, pos, dark: dark)?.url }
 
     // MARK: setup
     /// Start with explicit data (tests, previews, the app after it has read the store).
@@ -102,11 +104,13 @@ public final class LessonModel {
         } else {
             let picks = LessonEngine.pickWords(src.cards, .init(n: 4, now: now, mode: kind, starter: src.starter), calendar: calendar)
             if let index {
-                let snap = await index.snapshot(words: picks.map(\.card.word))
+                let snap = await index.snapshot(words: picks.map(\.card.word), extra: (src.cards + src.starter).map(\.word))
                 pictures = snap
                 self.dark = dark
             }
-            var o = LessonEngine.BuildOptions(seed: seed ?? now, pool: src.cards + src.starter, off: off(), only: LessonEngine.kind[kind] ?? nil, calm: true)
+            let only = (LessonEngine.kind[kind] ?? nil).map { kind == "listen" ? $0 + ["lpic"] : $0 }   // web: KIND.listen + lpic
+            var o = LessonEngine.BuildOptions(seed: seed ?? now, pool: src.cards + src.starter, off: off(), only: only, calm: true)
+            o.lpic = true; o.mpic = true   // same as the web lesson (lesson/ui.js); both need pictures, so they appear only when hasImg finds them
             if pictures.enabled { let snap = pictures; o.hasImg = { w, p in snap.usable(w, p, dark: dark) != nil } }
             o.mean = { [uiLang] c in uiLang == "vi" ? c.vi : "" }   // learner-language meaning: only Vietnamese cards carry one (web nativeMean)
             items = LessonEngine.build(picks, o)
@@ -150,7 +154,7 @@ public final class LessonModel {
     public var questionNumber: Int { min(session.solved + 1, max(1, session.total)) }
     public var needsConfirmToExit: Bool { phase != .done && phase != .empty && session.solved > 0 }
 
-    public func listens(_ it: LessonItem) -> Bool { it.noAudio != true && ["gap", "build", "say", "type"].contains(it.type) }
+    public func listens(_ it: LessonItem) -> Bool { it.noAudio != true && ["gap", "build", "say", "type", "lpic"].contains(it.type) }
     public func speaks(_ it: LessonItem) -> Bool { it.type == "say" || (it.type == "pic" && it.choice != true) }
     /// The text read aloud for an item (web `audioText`).
     public func audioText(_ it: LessonItem) -> String { (it.type == "gap" || it.type == "build" ? it.sent : it.answer) ?? "" }

@@ -117,7 +117,9 @@ struct LessonOption: View {
         .accessibilityLabel(text)
         .accessibilityAddTraits(state == .selected || state == .correct ? [.isButton, .isSelected] : .isButton)
     }
-    private var colors: (fill: LKDynamicColor, line: LKDynamicColor, ledge: LKDynamicColor, text: LKDynamicColor, badge: LKDynamicColor, badgeText: LKDynamicColor) {
+    typealias Colors = (fill: LKDynamicColor, line: LKDynamicColor, ledge: LKDynamicColor, text: LKDynamicColor, badge: LKDynamicColor, badgeText: LKDynamicColor)
+    private var colors: Colors { Self.colors(state) }
+    static func colors(_ state: State) -> Colors {
         switch state {
         case .selected: return (LKColor.surfaceContainerHigh, LKColor.secondary, LKColor.secondary, LKColor.onSurface, LKColor.secondary, LKColor.onSecondary)
         case .correct: return (LKColor.surfaceContainerHigh, LKColor.success, LKColor.success, LKColor.onSurface, LKColor.success, LKColor.onSecondary)
@@ -125,6 +127,38 @@ struct LessonOption: View {
         default: return (LKColor.surfaceContainer, LKColor.outlineVariant, LKColor.outlineVariant, LKColor.onSurface, LKColor.surfaceContainerHighest, LKColor.onSurface)
         }
     }
+}
+
+/// Picture answer tile of "listen → pick the picture" (lpic): letter badge + square picture; the word appears under it after checking.
+struct LessonPictureOption: View {
+    let letter: String, word: String, url: URL?, showWord: Bool, state: LessonOption.State, action: () -> Void
+    @Environment(\.colorScheme) private var scheme
+    var body: some View {
+        let c = colors
+        Button(action: action) {
+            VStack(spacing: LKSpacing.spaceXs) {
+                HStack {
+                    Text(letter).lkText(LKType.labelMetric).foregroundStyle(c.badgeText.resolve(scheme))
+                        .frame(width: 28, height: 28).background(Circle().fill(c.badge.resolve(scheme)))
+                    Spacer(minLength: 0)
+                    if state == .correct { Image(systemName: "checkmark.circle.fill").foregroundStyle(LKColor.success.resolve(scheme)) }
+                    if state == .wrong { Image(systemName: "xmark.circle.fill").foregroundStyle(LKColor.error.resolve(scheme)) }
+                }
+                if let url { LessonPicture(url: url, label: word, side: 112) } else { Color.clear.frame(width: 112, height: 112) }
+                Text(word).lkText(LKType.bodyLg).foregroundStyle(c.text.resolve(scheme)).lineLimit(1).minimumScaleFactor(0.7).englishText()
+                    .opacity(showWord ? 1 : 0).accessibilityHidden(true)   // keeps the height fixed: no jump when the word appears
+            }
+            .padding(LKSpacing.spaceSm)
+            .frame(maxWidth: .infinity)
+            .tactile(fill: c.fill, line: c.line, ledge: c.ledge, radius: 16)
+            .opacity(state == .dim ? 0.55 : 1)
+        }
+        .buttonStyle(LKPressStyle())
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel(word)   // same as the web <img alt>: VoiceOver users hear the option word
+        .accessibilityAddTraits(state == .selected || state == .correct ? [.isButton, .isSelected] : .isButton)
+    }
+    private var colors: LessonOption.Colors { LessonOption.colors(state) }
 }
 
 /// Word tile of "build the sentence".

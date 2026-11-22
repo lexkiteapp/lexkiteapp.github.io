@@ -53,7 +53,8 @@ private val OptShape = RoundedCornerShape(20.dp)
 
 /** Tactile answer card (Stitch lesson-question): letter badge · word · optional sub label; 2 px border, 4 dp lip; a radio for TalkBack. */
 @Composable
-internal fun OptionCard(letter: String, text: String, mark: Mark, onClick: (() -> Unit)?, modifier: Modifier = Modifier, sub: String? = null, tag: String? = null, state: String? = null) {
+internal fun OptionCard(letter: String, text: String, mark: Mark, onClick: (() -> Unit)?, modifier: Modifier = Modifier, sub: String? = null, tag: String? = null, state: String? = null,
+                        picture: (@Composable () -> Unit)? = null, hideText: Boolean = false) {
     val c = LocalLKColors.current; val tk = tokens
     val (bg, line, lip) = when (mark) {
         Mark.SELECTED -> Triple(c.cardHigh, c.secondary, tk.lipOptSel)
@@ -73,7 +74,9 @@ internal fun OptionCard(letter: String, text: String, mark: Mark, onClick: (() -
                 if (mark == Mark.RIGHT) Icon(Icons.Filled.Check, null, tint = c.success, modifier = Modifier.size(20.dp))
                 else if (mark == Mark.SELECTED) Box(Modifier.size(24.dp).clip(CircleShape).background(c.secondary), contentAlignment = Alignment.Center) { Icon(Icons.Filled.Check, null, tint = c.onSecondary, modifier = Modifier.size(16.dp)) }
             }
-            Text(text, style = LKType.headlineSm.toCompose(), color = ink)
+            if (picture != null) Box(Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) { picture() }
+            // lpic: the word stays hidden (transparent, height kept → no jump) until checked, so the learner listens instead of reading; TalkBack still reads it (web <img alt>)
+            Text(text, style = LKType.headlineSm.toCompose(), color = if (hideText) Color.Transparent else ink)
             if (sub != null) Text(sub, style = LKType.bodySm.toCompose(), color = if (mark == Mark.WRONG) tk.onErrorContainer else c.onSurfaceVariant)
             if (tag != null) Text(tag, style = LKType.labelBadge.toCompose(), color = if (mark == Mark.WRONG) c.error else c.success)
         }

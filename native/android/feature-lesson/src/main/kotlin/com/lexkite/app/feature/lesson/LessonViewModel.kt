@@ -38,7 +38,8 @@ class LessonEnv(
     /** Illustration for word#pos (web VImg, behind a flag that is off at launch) → null = no picture exercises. */
     val imageUrl: (String, String) -> String? = { _, _ -> null },
     /** Loads the picture index/shards for the picked words before the lesson is built (VImgStore.prepare). */
-    val prepareImages: suspend (List<String>) -> Unit = {},
+    /** (lesson words, pool words that may be picture distractors) → load the picture index shards they need */
+    val prepareImages: suspend (List<String>, List<String>) -> Unit = { _, _ -> },
 )
 
 /** Which kind of lesson: null = the adaptive path node ("lesson"), "review"/"listen"/"speak", or a story/radio id. */
@@ -80,9 +81,11 @@ class LessonViewModel(private val env: LessonEnv, private val req: LessonRequest
             val starter = env.starterPack?.let { StarterDeck.cards(exam(doc), it, now).map { p -> p.second }.take(12) }.orEmpty()
             picks = LessonEngine.pickWords(cards, 4, now, req.kind, starter)
             val gloss = glossFn(picks)
-            runCatching { env.prepareImages(picks.map { (it.card["word"] as? JsonPrimitive)?.content.orEmpty() }) }
+            runCatching { env.prepareImages(picks.map { (it.card["word"] as? JsonPrimitive)?.content.orEmpty() }, (cards + starter).map { (it["word"] as? JsonPrimitive)?.content.orEmpty() }) }
             val seedN = now
-            items = LessonEngine.build(picks, LessonEngine.BuildOpts(seedN, cards + starter, off, LessonEngine.KIND[req.kind], calm = true,
+            val only = LessonEngine.KIND[req.kind]?.let { if (req.kind == "listen") it + "lpic" else it }   // web: KIND.listen + lpic
+            // lpic/mpic on like the web lesson (lesson/ui.js); both need pictures, so they appear only when hasImg finds them
+            items = LessonEngine.build(picks, LessonEngine.BuildOpts(seedN, cards + starter, off, only, calm = true, lpic = true, mpic = true,
                 hasImg = { w, p -> env.imageUrl(w, p) != null }, gloss = gloss, mean = { c -> if (env.uiLang == "vi") (c["vi"] as? JsonPrimitive)?.content.orEmpty() else "" }), now)
         }
         ctrlWho = if (req.story != null || req.kind == "story" || req.kind == "radio") "ama" else if ((now / 1000) % 2 == 0L) "ama" else "carlos"
