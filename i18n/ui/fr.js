@@ -792,6 +792,7 @@
 "Nhập từ Anki":"Importer depuis Anki",
 "Nhập từ bộ thẻ Anki":"Importés de vos paquets Anki",
 "Nhập từ văn bản, PDF, ePub, phụ đề":"Importé depuis du texte, PDF, ePub et sous-titres",
+"Nhật ký giọng nói":"Journal vocal",
 "Nhắc học":"Rappels",
 "Nhắc học hằng ngày":"Rappel quotidien",
 "Nhịp điệu":"Rythme",

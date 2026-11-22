@@ -298,6 +298,7 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
     criteria: 'criteria',
     day: ['words', 'pathx', 'dayv2'],
     deck: 'words',
+    diary: 'diary', // 🎙️ Nhật ký giọng nói ngày 1 vs ngày 30 (docs/specs/voice-diary.md)
     dict: ['vcore', 'uidx', 'dictp'],
     dictation: ['listening', 'toeic'],
     fix: ['fixer', 'uidx'],
@@ -688,6 +689,7 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
   // Bật dần (như ret, docs/LEARNING-PATH.md §Phát hành): ux1 "0" tắt / "1" bật hết / nhóm lk.ub < ux1_pct; chốt 1 lần/lượt tải
   // Đo D1/D7: App.ux1Arm() 'on' | 'off' (đối chứng cùng cỡ: lk.ub ∈ [50, 50+pct)) | '' → ux1Track gửi 1 lần/máy seen, d1 (chuỗi ≥ 2), d7 (chuỗi ≥ 7) → ext_events 'ux1:ux1_<arm>_<ev>' (functions/api/hit.js UX1_EV)
   const ux1Cfg = () => { try { return JSON.parse(localStorage.getItem('lk.cfg') || '{}').v || {}; } catch (e) { return {}; } };
+  App.vdOn = () => String(ux1Cfg().vd_kill) !== '1'; // 🎙️ Nhật ký giọng nói: công tắc khẩn /api/config vd_kill='1' ẩn mọi lối vào (docs/specs/voice-diary.md)
   const ux1B = () => { try { let b = localStorage.getItem('lk.ub'); if (b == null || isNaN(+b) || +b < 0 || +b > 99) { b = String(Math.floor(Math.random() * 100)); localStorage.setItem('lk.ub', b); } return +b; } catch (e) { return 99; } };
   const ux1All = v => v === true || v === '1' || v === 'true', ux1Off = v => v === false || v === '0' || v === 'false';
   App.ux1Arm = () => { const c = ux1Cfg(), p = +c.ux1_pct; if (ux1All(c.ux1) || ux1Off(c.ux1) || !(p > 0 && p <= 50)) return ''; const b = ux1B(); return b < p ? 'on' : b >= 50 && b < 50 + p ? 'off' : ''; };

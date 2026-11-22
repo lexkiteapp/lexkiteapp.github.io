@@ -792,6 +792,7 @@
 "Nhập từ Anki":"Anki から読み込む",
 "Nhập từ bộ thẻ Anki":"Anki のデッキから読み込んだ単語",
 "Nhập từ văn bản, PDF, ePub, phụ đề":"テキスト・PDF・ePub・字幕から取り込み",
+"Nhật ký giọng nói":"ボイス日記",
 "Nhắc học":"リマインダー",
 "Nhắc học hằng ngày":"毎日のリマインダー",
 "Nhịp điệu":"リズム",

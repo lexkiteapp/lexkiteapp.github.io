@@ -38,13 +38,14 @@ const CTA_EV = ['ext_land', 'ext_feat', 'ext_blog', 'ext_app', 'ext_set', 'ext_n
   ...['head', 'foot', 'menu', 'me', 'top', 'rail', 'inst', 'get'].flatMap(p => ['cws', 'play', 'ios', 'edge', 'firefox', 'a2hs', 'dock', 'web'].map(k => `app_${p}_${k}`))]; // bấm "Thêm vào Chrome" (web/js/ext-cta.js) → kind 'cta:<ev>'
 const INST_EV = ['first', 'streak', 'words'].flatMap(m => ['v', 'c', 'x'].flatMap(a => ['play', 'ios', 'desk'].map(k => `inst_${m}_${a}_${k}`))); // mời cài app ở khoảnh khắc giá trị (web/js/install-sheet.js): xem · bấm · để sau → kind 'cta:<ev>'
 const SHARE_EV = ['open', 'send', 'dl', 'inv'].flatMap(a => ['streak', 'result', 'goal', 'day'].map(k => `share_${a}_${k}`)); // thẻ chia sẻ (web/js/share-card.js): mở · gửi · tải ảnh · mời, theo loại thẻ → kind 'cta:<ev>' (chỉ đếm; tỷ lệ chia sẻ → lượt về: utm_source share|qr|ref ở bảng kênh)
-const SC_EV = ['view', 'start', 'done', 'share', 'dl', 'cview', 'cstart', 'cdone', 'cta'].map(a => `sc_${a}`); // 🎤 thẻ điểm nói 30 giây + link thử thách (web/js/score30.js, functions/c/[[path]].js): chỉ đếm → kind 'cta:<ev>'
+export const VD_EV = ['view', 'start', 'rec', 'ms', 'share', 'shared', 'dl', 'del', 'cview', 'cta', 'cstart', 'cdone', 'join'].map(a => `vd_${a}`); // 🎙️ Nhật ký giọng nói (web/cpack/diary-app/diary.js, functions/c/[[path]].js – docs/specs/voice-diary.md): chỉ đếm → kind 'cta:<ev>'
+const SC_EV = ['view', 'start', 'done', 'share', 'dl', 'cview', 'cstart', 'cdone', 'cta'].map(a => `sc_${a}`).concat(VD_EV); // 🎤 thẻ điểm nói 30 giây + link thử thách (web/js/score30.js, functions/c/[[path]].js): chỉ đếm → kind 'cta:<ev>'
 const CTA_LANGS = ['vi', 'en', 'es', 'pt', 'fr', 'de', 'id', 'th', 'zh', 'ja', 'ko', 'hi', 'ar', 'ru', 'tr']; // 15 ngôn ngữ – chặn giá trị lạ làm phình bảng ext_events
 const CTA_PAGES = ['vocab', 'samples', 'speaking', 'grammar', 'letters', 'blog', 'go'];
 const SMART_CTA_EV = ['cta_addon_view', 'cta_addon_click', 'cta_pwa_view', 'cta_pwa_click', 'cta_topic_click', 'go_view', 'go_start', 'go_done', 'go_cta']; // CTA trang tĩnh/từ vựng (scripts/lib/site-layout.mjs)
 
 // Nguồn giọng (t:'vo'): khóa cố định, số đếm chặn trần → ≤ 12 dòng ext_events/beacon, không phình bảng
-export const VO_KEYS = ['f', 'k', 's', 's_off', 's_wait', 's_load', 's_fail', 's_lang', 's_pref', 's_part', 's_off_user', 's_off_probe', 's_off_ios', 's_off_mem', 's_off_cores', 's_off_remote', 's_off_state', 'kp_r06', 'kp_r10', 'kp_r15', 'kp_r25', 'kp_rhi', 'kp_to'], VO_PLAT = ['web', 'app', 'ext'];
+export const VO_KEYS = ['f', 'k', 's', 's_off', 's_wait', 's_load', 's_fail', 's_lang', 's_pref', 's_part', 's_off_user', 's_off_probe', 's_off_ios', 's_off_mem', 's_off_cores', 's_off_remote', 's_off_state'], VO_PLAT = ['web', 'app', 'ext'];
 export function voRows(b) {
   const c = b && b.c && typeof b.c === 'object' ? b.c : null; if (!c) return [];
   const n = k => Math.min(Math.max(Math.floor(+c[k] || 0), 0), 500), p = VO_PLAT.includes(b.p) ? b.p : 'web', rows = [];
