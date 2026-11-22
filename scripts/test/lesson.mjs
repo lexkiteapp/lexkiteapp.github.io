@@ -39,6 +39,45 @@ const C = {
   ok(st.length === 2 && st.every(x => x.why === 'start'), 'pickWords: người mới 0 thẻ → bộ khởi đầu');
 }
 {
+  // lpic: nghe → chọn 1/4 ảnh (bật bằng opts.lpic; mặc định không sinh → vectors native không đổi)
+  const P = E.pickWords(C, { now: NOW, n: 6 }), all = () => true, ids = it => it.options.map(E.norm);
+  const A = E.build(P, { seed: 3, hasImg: all, lpic: true, perWord: 3 }), lp = A.filter(i => i.type === 'lpic');
+  ok(lp.length >= 1, `lpic: có ≥ 1 bài khi đủ ảnh + nghe được (${lp.length})`);
+  ok(lp.every(i => i.options.length === 4 && i.options.includes(i.answer) && i.answer === i.word && new Set(ids(i)).size === 4 && i.hints.join() === 'fifty'), 'lpic: 4 ô khác nhau, có đáp án = từ, gợi ý fifty');
+  ok(lp.every(i => i.options.every(o => i.ipos && o in i.ipos)), 'lpic: mỗi ô có loại từ để tra đúng ảnh');
+  ok(!E.build(P, { seed: 3, hasImg: all, perWord: 3 }).some(i => i.type === 'lpic'), 'lpic: không bật opts.lpic → không sinh');
+  ok(!E.build(P, { seed: 3, hasImg: all, lpic: true, perWord: 3, off: { listen: true } }).some(i => i.type === 'lpic'), 'lpic: tắt nghe → không sinh (như type)');
+  const few = w => ['salary', 'consider', 'afraid'].includes(w);
+  ok(!E.build(P, { seed: 3, hasImg: few, lpic: true, perWord: 3 }).some(i => i.type === 'lpic'), 'lpic: chỉ 3 từ có ảnh (thiếu nhiễu) → không sinh');
+  ok(!E.build(P, { seed: 3, hasImg: all, lpic: true, perWord: 3 }).filter(i => i.type === 'lpic').some(i => !all(i.word)), 'lpic: chỉ sinh khi từ đáp án có ảnh');
+  const noKey = A.filter(i => i.type === 'lpic').every(i => !i.options.some(o => !all(o)));
+  ok(noKey, 'lpic: mọi ô đều có ảnh');
+  const only = E.build(P, { seed: 5, hasImg: all, lpic: true, only: E.KIND.listen.concat('lpic') });
+  ok(only.every(i => E.KIND.listen.concat('lpic').includes(i.type)) && only.some(i => i.type === 'lpic'), 'nút Nghe + lpic: chỉ dạng nghe, có lpic');
+  const it = lp[0];
+  ok(E.check(it, it.answer) && !E.check(it, it.options.find(o => o !== it.answer)), 'lpic: chấm đúng ô là từ, sai ô khác');
+  const ad = E.adapt(it, { listen: true });
+  ok(ad.type === 'pic' && ad.choice && ad.options.join() === it.options.join() && ad.answer === it.answer, 'lpic: giữa bài tắt nghe → ảnh + chọn từ (cùng đáp án)');
+  ok(!E.HARD(it) && E.HINTS.lpic === undefined && E.KIND.listen.join() === 'gap,build,type,match', 'lpic: không phải dạng khó; HINTS/KIND xuất ra (đối chiếu native) không đổi');
+}
+{
+  // mpic: ghép từ ↔ ảnh (bật bằng opts.mpic; mặc định không sinh → vectors native không đổi)
+  const P = E.pickWords(C, { now: NOW, n: 6 }), all = () => true, seeds = Array.from({ length: 40 }, (_, k) => k + 1);
+  const mk = (seed, o) => E.build(P, Object.assign({ seed, hasImg: all, perWord: 2 }, o)), isM = i => i.type === 'match' && i.pics;
+  const hit = seeds.filter(sd => mk(sd, { mpic: true }).some(isM));
+  ok(hit.length >= 5 && hit.length < seeds.length, `mpic: hiếm nhưng có (${hit.length}/${seeds.length} bài)`);
+  const A = mk(hit[0], { mpic: true }), it = A.find(isM);
+  ok(A.filter(isM).length === 1 && it.word === '#mpic' && it.card === null && it.pairs.length === 4 && new Set(it.pairs.map(c => E.norm(c.word))).size === 4 && it.hints.join() === E.HINTS.match.join(), 'mpic: 1 bài/bài, 4 cặp khác nhau, không gắn từ riêng');
+  ok(E.check(it, true) && !E.check(it, false), 'mpic: chấm như ghép cặp (0 lỗi = đúng)');
+  ok(!seeds.some(sd => mk(sd, {}).some(isM)), 'mpic: không bật opts.mpic → không sinh');
+  ok(!seeds.some(sd => mk(sd, { mpic: true, hasImg: () => false }).some(isM)), 'mpic: không từ nào có ảnh → không sinh (rơi về match chữ)');
+  const few = w => ['salary', 'consider', 'afraid'].includes(w);
+  ok(!seeds.some(sd => mk(sd, { mpic: true, hasImg: few }).some(isM)), 'mpic: chỉ 3 từ có ảnh → không sinh');
+  ok(!seeds.some(sd => mk(sd, { mpic: true, only: E.KIND.speak }).some(isM)), 'mpic: nút/làn có only[] không chứa → không sinh');
+  const keys = mk(hit[0], { mpic: true }).filter(i => i.type !== 'match').map(i => i.type + i.word).join(), base = mk(hit[0], {}).filter(i => i.type !== 'match').map(i => i.type + i.word).join();
+  ok(keys === base, 'mpic: không làm lệch thứ tự/loại của các dạng khác');
+}
+{
   const has = w => w === 'key card';
   const items = E.build(E.pickWords(C, { now: NOW, n: 6 }), { seed: 3, hasImg: has, perWord: 2 });
   const of = w => items.filter(i => i.word === w).map(i => i.type);
@@ -146,7 +185,7 @@ vc.on('jsdomError', e => { if (!/Not implemented|Could not parse CSS/.test(e.mes
 vc.on('error', e => consoleErr.push(String(e)));
 const dom = new jsdom.JSDOM(html.replace(/<!--hero-->[\s\S]*?<!--\/hero-->/, '').replace(/<script(?: defer)? src="[^"]+"><\/script>/g, '').replace(/<link[^>]+>/g, ''),
   { url: 'http://localhost/app/#/home', runScripts: 'outside-only', pretendToBeVisual: true, virtualConsole: vc });
-const w = dom.window;
+const w = dom.window; w.localStorage.setItem('lk.ux1', '0'); // luồng v1: đặt cờ TẮT tường minh (máy mới chưa có config giờ = BẬT v2, #1789)
 w.scrollTo = () => {}; w.HTMLElement.prototype.scrollIntoView = () => {};
 w.matchMedia = () => ({ matches: false, addEventListener() {}, addListener() {} }); w.CSS = { escape: s => s };
 const IMG = JSON.parse(fs.readFileSync(path.join(WEB, 'js/lexicon-img.json'), 'utf8'));
@@ -491,6 +530,67 @@ ok(micFailDone, 'đã chạy kịch bản micro hỏng ở bước nói');
   host.remove();
   // tự lưu mẫu vào ôn tập: có trần
   ok(C.saveAllowed({ day: 'd', n: 4 }, 0, 'd') && !C.saveAllowed({ day: 'd', n: 5 }, 0, 'd') && C.saveAllowed({ day: 'x', n: 99 }, 1, 'd') && !C.saveAllowed(null, 2, 'd'), 'thẻ: trần lưu 2 mẫu/bài, 5 mẫu/ngày');
+}
+for (const v2 of [true, false]) {
+  // lpic trên giao diện v2 (+ v1 cũ: hàng có ảnh nhỏ, không có nút Gợi ý): 4 thẻ ảnh (alt = từ), chọn → Kiểm tra, gợi ý fifty bỏ 1 ô sai, đúng/sai hiện tấm phản hồi
+  App.ux1On = () => v2; // v2 (Stitch) – nút Gợi ý chỉ có ở khung này
+  w.VImg = { quizUrl: wd => `/vimg/${encodeURIComponent(wd)}.webp` }; // giả lập: mọi từ đều có ảnh
+  let L1 = null;
+  for (let pos = 0; pos < 6 && !L1; pos++) {
+    w.localStorage.setItem('lk.lsn.path.demo', String(pos)); w.location.hash = '#/lesson/go?demo=1'; await App.routes.lesson('go'); await tick(120);
+    if (st() && st().items.some(i => i.type === 'lpic')) L1 = st();
+  }
+  ok(L1, 'lpic UI: bài demo có dạng nghe-chọn-ảnh khi mọi từ có ảnh');
+  if (L1) {
+    let g = 0, seen = 0;
+    while (st() && st().sess && !st().sess.done && st().sess.cur.type !== 'lpic' && g++ < 40) { const c0 = st().sess.cur; await solve(true); if (c0.type !== 'line') { $('#lsnNext').click(); await tick(); } }
+    const it = st().sess.cur, D = w.document;
+    if (it.type === 'lpic') {
+      seen++;
+      const tiles = () => [...D.querySelectorAll('#lsnBody .lsn-opt')];
+      ok(tiles().length === 4 && tiles().every(b => b.querySelector('img') && b.querySelector('img').alt === b.dataset.o && /vimg/.test(b.querySelector('img').src)), 'lpic UI: 4 thẻ ảnh, alt = từ');
+      ok(st().v2 === v2 && !D.querySelector('#lsnBub img') && $('#lsnPlay') && !$('#lsnPlay').hidden && $('#lsnSlow') && !$('#lsnSlow').hidden, 'lpic UI: có nút nghe + nghe chậm 🐢, không lộ ảnh trong đề');
+      if (v2) {
+        ok($('#lsnHint') && !$('#lsnHint').disabled, 'lpic UI: có nút Gợi ý');
+        $('#lsnHint').click(); await tick(20);
+        ok(tiles().length === 3 && tiles().some(b => b.dataset.o === it.answer) && tiles().every(b => b.querySelector('img')), 'lpic UI: gợi ý fifty bỏ đúng 1 ô sai, còn đáp án, thẻ còn ảnh');
+      }
+      const bad = tiles().find(b => b.dataset.o !== it.answer); bad.click(); $('#lsnCheck').click(); await tick();
+      ok($('#lsnFoot.bad') && D.querySelector('#lsnBody .lsn-opt img') && !errors.length, 'lpic UI: chọn sai → tấm phản hồi đỏ, ảnh còn nguyên');
+      $('#lsnNext').click(); await tick();
+    }
+    ok(seen === 1, 'lpic UI: gặp được bài lpic để kiểm');
+    let g3 = 0; while (st() && st().sess && !st().sess.done && g3++ < 40) { const c = st().sess.cur; await solve(true); if (c.type === 'lpic') ok(!!$('#lsnFoot.ok'), 'lpic UI: chọn đúng ô ảnh → đúng'); if (c.type !== 'line') { $('#lsnNext').click(); await tick(); } }
+  }
+  delete w.VImg; w.localStorage.removeItem('lk.lsn.path.demo');
+}
+for (const v2 of [true, false]) {
+  // mpic trên giao diện v2 + v1: cột phải = ảnh (alt = từ), ghép đủ 4 cặp → đúng; ghép nhầm → "có cặp ghép nhầm"
+  App.ux1On = () => v2;
+  w.VImg = { quizUrl: wd => `/vimg/${encodeURIComponent(wd)}.webp` }; // giả lập: mọi từ đều có ảnh
+  let M1 = null;
+  for (let pos = 0; pos < 8 && !M1; pos++) {
+    w.localStorage.setItem('lk.lsn.path.demo', String(pos)); w.location.hash = '#/lesson/go?demo=1'; await App.routes.lesson('go'); await tick(120);
+    if (st() && st().items.some(i => i.type === 'match' && i.pics)) M1 = st();
+  }
+  ok(M1, 'mpic UI: bài demo có dạng ghép từ–ảnh khi mọi từ có ảnh');
+  if (M1) {
+    let g = 0;
+    while (st() && st().sess && !st().sess.done && !(st().sess.cur.type === 'match' && st().sess.cur.pics) && g++ < 40) { const c0 = st().sess.cur; await solve(true); if (c0.type !== 'line') { $('#lsnNext').click(); await tick(); } }
+    const D = w.document, B = s2 => [...D.querySelectorAll(`.lsn-match .lsn-opt[data-s="${s2}"]`)];
+    if (st().sess.cur.pics) {
+      ok(B('w').length === 4 && B('m').length === 4 && B('m').every(b => b.querySelector('img') && b.querySelector('img').alt && /vimg/.test(b.querySelector('img').src) && !b.textContent.trim()) && B('w').every(b => b.textContent.trim() && !b.querySelector('img')), 'mpic UI: cột trái = từ, cột phải = 4 ảnh (alt = từ)');
+      ok(B('m').every(b => b.querySelector('img').alt === B('w').find(x => x.dataset.m === b.dataset.m).textContent), 'mpic UI: ảnh khớp đúng từ của cặp');
+      const a = B('w')[0], bad = B('m').find(x => x.dataset.m !== a.dataset.m); a.click(); bad.click(); await tick(30);
+      ok(!a.disabled && !bad.disabled, 'mpic UI: ghép nhầm → không khóa ô');
+      for (const x of B('w')) { x.click(); B('m').find(y => y.dataset.m === x.dataset.m).click(); }
+      await tick(400);
+      ok($('#lsnFoot.bad') && !errors.length, 'mpic UI: có ghép nhầm → tấm phản hồi sai');
+      $('#lsnNext').click(); await tick();
+    }
+    let g3 = 0; while (st() && st().sess && !st().sess.done && g3++ < 40) { const c = st().sess.cur; await solve(true); if (c.type !== 'line') { $('#lsnNext').click(); await tick(); } }
+  }
+  delete w.VImg; w.localStorage.removeItem('lk.lsn.path.demo');
 }
 console.log(`\n${total - fails}/${total} lesson`);
 // Nội dung mọi từ × dạng × ngôn ngữ (docs/LESSON-UX-V2.md §4) – chạy kèm tại đây để package.json không đổi

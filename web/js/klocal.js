@@ -72,6 +72,24 @@
   const sessions = () => { let s = +ls.get('lk.kl.s') || 0; if (!g.__klS) { g.__klS = 1; s++; ls.set('lk.kl.s', String(s)); } return s; };
   sessions();
 
+  // Add-on: CWS cấm mã tải từ xa trong gói → chạy klocal-worker.js trong khung ẩn lexkite.com/kl.html, CÙNG giao thức worker
+  // (postMessage chỉ giữa trang add-on và https://lexkite.com; khung kiểm origin mẹ theo danh sách cho phép). Mọi chính sách/probe/cache âm giữ nguyên ở đây.
+  const EXT = /^(chrome|moz)-extension:$/.test(location.protocol), SITE = 'https://lexkite.com', FRAME_MS = 20000;
+  function frameWorker() {
+    const f = document.createElement('iframe'), q = [], w = { onmessage: null, onerror: null };
+    let up = false;
+    const on = e => { const d = e.data; if (e.source !== f.contentWindow || e.origin !== SITE || !d || !d.lkk) return;
+      if (d.type === 'frame') { up = true; for (const m of q.splice(0)) f.contentWindow.postMessage(m, SITE); return; }
+      if (w.onmessage) w.onmessage({ data: d }); };
+    const t = setTimeout(() => { if (!up && w.onerror) w.onerror({ message: 'frame' }); }, FRAME_MS);
+    w.postMessage = m => { m = { ...m, lkk: 1 }; if (up) f.contentWindow.postMessage(m, SITE); else q.push(m); };
+    w.terminate = () => { clearTimeout(t); removeEventListener('message', on); f.remove(); };
+    addEventListener('message', on);
+    f.hidden = true; f.tabIndex = -1; f.setAttribute('aria-hidden', 'true'); f.title = 'kl';
+    f.src = SITE + '/kl.html?o=' + encodeURIComponent(location.origin);
+    document.body.appendChild(f);
+    return w;
+  }
   let worker = null, state = 'idle', idleT = 0, seq = 0, cached = ls.get('lk.kl.ok') === VER;
   const waits = new Map();
   const allowed = () => P.remote(cfg(), bucket()) && P.tier(env()) !== 'off';
@@ -96,7 +114,7 @@
     why = P.netWhy({ saveData: c.saveData, eff: c.effectiveType, type: c.type, metered: c.metered, mobile: isMobile(), cell: ls.get('lk.kl.cell') === '1', free, hidden: document.hidden, cached });
     if (why) { emit(); return; }
     state = 'loading'; pct = 0; emit(); const t0 = Date.now();
-    try { worker = new Worker('js/klocal-worker.js', { type: 'module' }); } catch (e) { state = 'off'; note('kl', 'worker ' + e.message); return; }
+    try { worker = EXT ? frameWorker() : new Worker('js/klocal-worker.js', { type: 'module' }); } catch (e) { state = 'off'; note('kl', 'worker ' + e.message); return; }
     worker.onerror = e => { note('kl', 'crash ' + (e && e.message)); stat('kl_fail'); kill('crash'); };
     worker.onmessage = ({ data: d }) => {
       if (d.type === 'audio' || d.type === 'err') { const w = waits.get(d.id); if (!w) return; waits.delete(d.id); if (d.type === 'audio') w.res(d); else w.rej(new Error(d.error)); return; }

@@ -163,8 +163,8 @@ items: [
 { type: 'mcq', instr: g.RTI[3],
 items: [
 { n: 39, q: 'What effect did the new stamps have on the post, according to paragraph D?',
-options: ['Use of the postal service declined at first.', 'Demand for the postal service grew quickly.', 'Public complaints forced the stamps to be withdrawn.', 'Deliveries became noticeably faster.'],
-a: 1, cue: 'the number of letters posted had more than doubled' },
+options: ['Use of the postal service declined at first.', 'Deliveries became noticeably faster.', 'Public complaints forced the stamps to be withdrawn.', 'Demand for the postal service grew quickly.'],
+a: 3, cue: 'the number of letters posted had more than doubled' },
 { n: 40, q: 'What point does the writer make about some small countries in paragraph F?',
 options: ['They discouraged people from collecting stamps.', 'They earned money from stamps that were never used for posting.', 'They deliberately copied the mistakes of larger countries.', 'They gave up carrying letters in order to print more stamps.'],
 a: 1, cue: 'earning a useful income without having to carry a single letter' },
@@ -342,8 +342,8 @@ items: [
 { type: 'mcq', instr: g.RTI[3],
 items: [
 { n: 39, q: 'According to paragraph C, why did bedtimes move later?',
-options: ['Candles became much cheaper to buy.', 'Artificial light made the evenings longer and more productive.', 'Doctors began to recommend longer sleep.', 'Winter nights became shorter than before.'],
-a: 1, cue: 'evenings became longer and more productive' },
+options: ['Artificial light made the evenings longer and more productive.', 'Candles became much cheaper to buy.', 'Doctors began to recommend longer sleep.', 'Winter nights became shorter than before.'],
+a: 0, cue: 'evenings became longer and more productive' },
 { n: 40, q: 'What is the writer\'s main purpose in paragraph G?',
 options: ['to criticise the work of sleep therapists', 'to prove that the historical theory is correct', 'to recommend a balanced and more relaxed attitude to sleep', 'to argue that nobody needs eight hours of rest'],
 a: 2, cue: 'people would benefit from a more relaxed attitude towards sleep' },
@@ -411,7 +411,7 @@ E.gt6 = {
 36: { why: "Đoạn A: giá tùy vào quãng đường và “the number of sheets it contained” → sheets.", para: "A", keys: [["how many", "the number of"]] },
 37: { why: "Đoạn B: “Recipients who could not afford the charge simply refused to accept their mail” → recipients.", para: "B", keys: [["refused to accept their mail", "simply refused to accept their mail"]] },
 38: { why: "Đoạn B: “they wrote tiny symbols on the outside of an envelope” để báo tin mà không phải trả tiền → symbols.", para: "B", keys: [["secret", "agreed beforehand"], ["on envelopes", "on the outside of an envelope"]] },
-39: { why: "Đoạn D: trong vòng một năm “the number of letters posted had more than doubled” – lượng thư tăng vọt tức nhu cầu dùng dịch vụ bưu chính tăng nhanh → B.", para: "D", keys: [["Demand for the postal service grew quickly", "the number of letters posted had more than doubled"]] },
+39: { why: "Đoạn D: trong vòng một năm “the number of letters posted had more than doubled” – lượng thư tăng vọt tức nhu cầu dùng dịch vụ bưu chính tăng nhanh → D.", para: "D", keys: [["Demand for the postal service grew quickly", "the number of letters posted had more than doubled"]] },
 40: { why: "Đoạn F: một số nước nhỏ in nhiều tem đẹp để bán cho người sưu tầm, “earning a useful income without having to carry a single letter” – kiếm tiền từ tem không dùng để gửi thư → B.", para: "F", keys: [["earned money from stamps that were never used for posting", "earning a useful income without having to carry a single letter"]] },
 };
 
@@ -460,7 +460,7 @@ E.gt7 = {
 36: { why: "Đoạn D: “artificial light was limited to ten hours a day” → light.", para: "D", keys: [["daily supply of", "limited to ten hours a day"]] },
 37: { why: "Đoạn D: trong các quãng yên tĩnh cơ thể sinh ra “a hormone associated with relaxation” → relaxation.", para: "D", keys: [["connected with", "associated with"], ["chemical", "hormone"]] },
 38: { why: "Đoạn E: ở làng không có điện, người dân ngủ một giấc nhưng “also nap during the day” → nap.", para: "E", keys: [["supplemented by", "also nap"], ["in the daytime", "during the day"]] },
-39: { why: "Đoạn C: khi đèn gas và đèn điện lan rộng, “evenings became longer and more productive” nên giờ đi ngủ lùi muộn → B.", para: "C", keys: [["longer and more productive", "longer and more productive"]] },
+39: { why: "Đoạn C: khi đèn gas và đèn điện lan rộng, “evenings became longer and more productive” nên giờ đi ngủ lùi muộn → A.", para: "C", keys: [["longer and more productive", "longer and more productive"]] },
 40: { why: "Đoạn G: tác giả cảnh giác với cả hai thái cực và cho rằng “people would benefit from a more relaxed attitude towards sleep” – khuyên một thái độ cân bằng, thoải mái hơn → C.", para: "G", keys: [["a balanced and more relaxed attitude", "a more relaxed attitude towards sleep"]] },
 };
 })(typeof self !== 'undefined' ? self : this);

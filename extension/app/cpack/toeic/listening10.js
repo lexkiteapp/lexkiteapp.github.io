@@ -342,7 +342,7 @@ explain: 'Cô nhân viên yêu cầu giấy khai sinh; anh trả lời giấy đ
 ] },
 { type: 'mcq', instr: 'Questions 38–40. Choose the best answer (A, B, C or D).',
 items: [
-{ n: 38, q: 'What does the woman tell the man about his flight?', options: ['It will leave later than scheduled.', 'It has been canceled.', 'It is fully booked.', 'It will land at a different airport.'], a: 0, cue: 'it now departs at four forty instead of four fifteen', lv: 'B2',
+{ n: 38, q: 'What does the woman tell the man about his flight?', options: ['It has been canceled.', 'It will leave later than scheduled.', 'It is fully booked.', 'It will land at a different airport.'], a: 1, cue: 'it now departs at four forty instead of four fifteen', lv: 'B2',
 explain: 'Cô báo chuyến bay "now departs at four forty instead of four fifteen" (giờ khởi hành mới là 4:40 thay vì 4:15) → khởi hành muộn hơn dự kiến. Chuyến bay không bị hủy hay hết chỗ.' },
 { n: 39, q: 'What does the man ask for?', options: ['A window seat', 'A later flight', 'An aisle seat', 'A business class upgrade'], a: 2, cue: "I'd like an aisle seat", lv: 'C1',
 explain: 'Anh nói "I\'d like an aisle seat" (muốn ghế cạnh lối đi). Ghế cạnh cửa sổ, chuyến muộn hơn hay nâng hạng đều không được nhắc đến.' },
@@ -353,7 +353,7 @@ explain: 'Cô nói "if you move a few items into your carry-on bag, you can avoi
 items: [
 { n: 41, q: 'What are the speakers discussing?', options: ['A new printing machine', 'An author contract', 'A bookstore opening', "A cookbook's sales"], a: 3, cue: 'the final sales numbers for the cookbook we released in March', lv: 'B1',
 explain: 'Người nói mở đầu bằng "the final sales numbers for the cookbook we released in March" (số liệu bán cuốn sách nấu ăn phát hành tháng Ba) → họ bàn về doanh số cuốn sách nấu ăn. Máy in, hợp đồng tác giả hay cửa hàng sách không phải chủ đề.' },
-{ n: 42, q: 'Why does Joan suggest ordering now?', options: ['To get a lower price', 'To receive books before a busy season', "To meet an author's request", 'To avoid a printer shutdown'], a: 1, cue: 'if we order now, the books will arrive before the holiday rush', lv: 'B2',
+{ n: 42, q: 'Why does Joan suggest ordering now?', options: ['To receive books before a busy season', 'To get a lower price', "To meet an author's request", 'To avoid a printer shutdown'], a: 0, cue: 'if we order now, the books will arrive before the holiday rush', lv: 'B2',
 explain: 'Joan nói "if we order now, the books will arrive before the holiday rush" (đặt ngay thì sách về trước đợt mua sắm dịp lễ) → để có sách trước mùa cao điểm. Cô không nhắc đến giá rẻ hơn hay máy in ngừng hoạt động.' },
 { n: 43, q: 'What will Rafael do?', options: ['Update a calendar', 'Request a price quote', 'Contact an author about events', 'Write a press release'], a: 2, cue: 'Rafael, could you ask the author about doing a few bookstore events?', lv: 'B1',
 explain: 'Odette nhờ "Rafael, could you ask the author about doing a few bookstore events?" và Rafael nhận lời → anh sẽ liên hệ tác giả về các buổi sự kiện. Cập nhật lịch tiếp thị là việc của Joan.' },
@@ -369,7 +369,7 @@ explain: 'Anh dặn "make sure you complete the quiz afterward" (nhớ làm bài
 ] },
 { type: 'mcq', instr: 'Questions 47–49. Choose the best answer (A, B, C or D).',
 items: [
-{ n: 47, q: 'What does the woman ask about?', options: ['Where some fruit comes from', 'How much juice costs', 'Whether a deadline will be met', 'Who cleaned a machine'], a: 2, cue: 'Are we going to meet the Thursday deadline for the supermarket order?', lv: 'B1',
+{ n: 47, q: 'What does the woman ask about?', options: ['Where some fruit comes from', 'How much juice costs', 'Who cleaned a machine', 'Whether a deadline will be met'], a: 3, cue: 'Are we going to meet the Thursday deadline for the supermarket order?', lv: 'B1',
 explain: 'Cô hỏi "Are we going to meet the Thursday deadline for the supermarket order?" (liệu có kịp hạn thứ Năm cho đơn hàng siêu thị không) → hỏi về việc có kịp hạn không. Người dọn cảm biến là đội bảo trì và không được hỏi tới.' },
 { n: 48, q: 'What does the man mean when he says, "it\'s not exactly new"?', options: ['The machine may have problems.', 'The machine was just replaced.', 'He wants to buy a newer model today.', 'He is proud of the equipment.'], a: 0, cue: "Well, it's not exactly new.", lv: 'B2',
 explain: 'Cô lo về máy chiết rót; anh đáp "it\'s not exactly new" (nó chẳng còn mới) → ngầm đồng tình rằng máy cũ nên có thể hỏng hóc. Anh không nói máy vừa thay hay muốn mua máy mới ngay hôm nay.' },
@@ -557,7 +557,7 @@ script: [
 groups: [
 { type: 'mcq', instr: 'Questions 71–73. Choose the best answer (A, B, C or D).',
 items: [
-{ n: 71, q: 'What is causing a delay?', options: ['A staff shortage', 'Bad weather', 'A late aircraft', 'A security check'], a: 2, cue: 'Due to a delay in the arrival of our aircraft', lv: 'B1',
+{ n: 71, q: 'What is causing a delay?', options: ['A staff shortage', 'Bad weather', 'A security check', 'A late aircraft'], a: 3, cue: 'Due to a delay in the arrival of our aircraft', lv: 'B1',
 explain: 'Người nói cho biết "Due to a delay in the arrival of our aircraft" (do máy bay đến muộn) → nguyên nhân là máy bay đến trễ. Không đề cập đến thiếu nhân viên, thời tiết hay kiểm tra an ninh.' },
 { n: 72, q: 'What has changed about the flight?', options: ['The boarding gate', 'The destination', 'The airline', 'The ticket price'], a: 0, cue: 'the flight will now board at Gate nineteen instead of Gate eleven', lv: 'B2',
 explain: 'Chuyến bay "will now board at Gate nineteen instead of Gate eleven" (nay lên máy bay ở cổng 19 thay vì cổng 11) → cổng lên máy bay thay đổi. Điểm đến và hãng bay vẫn như cũ.' },
@@ -568,7 +568,7 @@ explain: 'Người nói cho biết "we are offering every passenger a snack vouc
 items: [
 { n: 74, q: 'Why is the speaker calling?', options: ['To schedule a restaurant inspection', 'To announce a new fee', 'To request a payment', 'To discuss a lease review'], a: 3, cue: "I'm calling about the lease agreement for your new restaurant. Our review is almost complete", lv: 'B2',
 explain: 'Người nói gọi về "the lease agreement for your new restaurant" và việc rà soát gần xong → để trao đổi về việc xem xét hợp đồng thuê. Không có kiểm tra nhà hàng hay yêu cầu thanh toán.' },
-{ n: 75, q: 'What problem does the speaker mention?', options: ['A document is missing.', 'A charge is unusually high.', 'A signature is incorrect.', 'A deadline has passed.'], a: 1, cue: 'we found a cleaning fee that is unusually high', lv: 'C1',
+{ n: 75, q: 'What problem does the speaker mention?', options: ['A document is missing.', 'A signature is incorrect.', 'A charge is unusually high.', 'A deadline has passed.'], a: 2, cue: 'we found a cleaning fee that is unusually high', lv: 'C1',
 explain: 'Người nói phát hiện "a cleaning fee that is unusually high" (phí vệ sinh cao bất thường) → một khoản phí quá cao. Chưa có tài liệu thiếu và hạn chót là thứ Sáu, chưa qua.' },
 { n: 76, q: 'What does the speaker ask the listener to do?', options: ['Sign a document tonight', 'E-mail a landlord', 'Return a call by midday Wednesday', 'Visit a law office'], a: 2, cue: 'could you call me back by Wednesday noon', lv: 'B2',
 explain: 'Bà nhờ "could you call me back by Wednesday noon" (gọi lại trước trưa thứ Tư) → gọi lại trước trưa thứ Tư. Việc ký là hạn thứ Sáu, và bà đã gửi e-mail cho khách chứ không phải chủ nhà.' },
@@ -613,7 +613,7 @@ explain: 'Bản tin cho biết "the county has opened a job center in the town h
 items: [
 { n: 89, q: 'What is the occasion?', options: ['An awards ceremony', 'A product launch', 'A staff retirement', 'A graduation'], a: 0, cue: 'welcome to the Westmoor Media Awards', lv: 'C1',
 explain: 'Người nói mở đầu "welcome to the Westmoor Media Awards" và trao giải thưởng → đây là lễ trao giải. Không phải ra mắt sản phẩm, nghỉ hưu hay lễ tốt nghiệp.' },
-{ n: 90, q: "What did the winner's articles lead to?", options: ['A new city law', 'A school program', 'The replacement of old pipes', 'The opening of a newspaper'], a: 2, cue: 'Her articles led the city to replace old pipes ahead of schedule', lv: 'B2',
+{ n: 90, q: "What did the winner's articles lead to?", options: ['A new city law', 'The replacement of old pipes', 'A school program', 'The opening of a newspaper'], a: 1, cue: 'Her articles led the city to replace old pipes ahead of schedule', lv: 'B2',
 explain: 'Các bài báo "led the city to replace old pipes ahead of schedule" (khiến thành phố thay đường ống cũ sớm hơn kế hoạch). Việc đào tạo sinh viên tình nguyện là việc khác, không phải kết quả của các bài báo.' },
 { n: 91, q: 'What will happen after the ceremony?', options: ['A film will be shown', 'Some interviews will be held', 'A tour will begin', 'A meal will be served.'], a: 3, cue: 'After the ceremony, dinner will be served in the garden room', lv: 'B1',
 explain: 'Người nói thông báo "After the ceremony, dinner will be served in the garden room" (sau buổi lễ sẽ phục vụ bữa tối ở phòng vườn) → có bữa ăn. Không có chiếu phim, phỏng vấn hay tham quan.' },

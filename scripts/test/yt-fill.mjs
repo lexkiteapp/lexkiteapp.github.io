@@ -13,6 +13,7 @@ ok(fillPick(items, 'vi', taken, held, 30).length === 1 && fillPick(items, 'en', 
 ok(fillPick(items, 'de', taken, held, 1).length === 1 && fillPick(items, 'de', taken, held, 0).length === 0 && fillPick(items, 'ja', taken, held, 30).length === 0, 'cắt theo số còn thiếu; không có clip bản ngữ → rỗng (không mượn ngôn ngữ khác)');
 const yt = fs.readFileSync('functions/api/youtube.js', 'utf8'), wf = fs.readFileSync('.github/workflows/social-coverage.yml', 'utf8'), sc = fs.readFileSync('scripts/social/yt-fill.mjs', 'utf8');
 ok(/await db\.batch\(ins\)/.test(yt) && !/CLI_OPS\.autoq\(db, \{ items: pick/.test(yt), 'fill ghi cả kênh bằng 1 lượt db.batch (không gọi autoq từng clip – quá 120 s)');
+ok(/covered = new Set\(\)/.test(yt) && /movable\.push\(r\.clip\)/.test(yt) && /open\[k\]\.pa/.test(yt) && !/slotAt\(\(have/.test(yt), 'fill xếp theo NGÀY trống thật trong cửa sổ + dời hàng queued ngoài cửa sổ/trùng ngày vào ngày trống (không đếm hàng)');
 ok(/async fill\(db, b, who, env\)/.test(yt.slice(yt.indexOf('const CLI_OPS'))), 'op fill nằm trong CLI_OPS (chỉ CI có chữ ký HMAC)');
 ok(/yt-fill\.mjs/.test(wf) && wf.indexOf('yt-fill.mjs') < wf.indexOf('coverage.mjs'), 'workflow lấp lịch trước khi máy gác đo');
 ok(/driveSign/.test(sc) && /op: 'fill'/.test(sc), 'yt-fill ký HMAC và gọi op fill');

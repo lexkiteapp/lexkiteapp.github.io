@@ -50,9 +50,11 @@ D.en = Object.assign(D.en || {}, {
 'Kiểm tra đáp án': "Check answer",
 'Từ bạn đã tra': "Your lookup",
 'Ghép cặp': "Match the pairs",
+'Ghép từ, ảnh': "Match words to pictures",
 'Chọn từ đúng': "Pick the right word",
 'Nói tên hình': "Say what you see",
 'Đây là gì?': "What is this?",
+'Nghe, chọn ảnh': "Listen, pick the picture",
 'Nói câu này': "Say this",
 'Xếp thành câu': "Build the sentence",
 'Chọn từ còn thiếu': "Pick the missing word",
@@ -73,5 +75,8 @@ D.en = Object.assign(D.en || {}, {
 "Tăng điểm": "Score booster",
 "Nói hay hơn": "Better phrase",
 "Đối thoại": "Dialogue",
+"{a}/{b} cặp": "{a}/{b} pairs",
+"Đã ghép": "Matched",
+"Chưa phải": "Not this one",
 });
 })(typeof self !== 'undefined' ? self : this);

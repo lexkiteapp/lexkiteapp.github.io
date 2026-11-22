@@ -67,7 +67,7 @@
 .lsn-fx #lsnCheck:disabled{background-image:none!important;opacity:1!important;background-color:var(--ex-dis-bg)!important;color:var(--ex-dis-fg)!important;box-shadow:none!important;cursor:not-allowed}
 .lsn-fx .lsn-qfoot{--ss-fs-ic:16px}
 /* Bỏ qua / Báo lỗi: liên kết chữ nhỏ, lặng, dưới nút chính (không nền, không viền, không bóng) */
-.lsn-fx .lsn-qfoot .lsn-skipb,.lsn-fx .lsn-qfoot #lsnRep{background:transparent!important;border:0!important;box-shadow:none!important;color:var(--ex-mut)!important;flex:0 0 auto!important;padding:var(--sp-1) var(--sp-2)!important;min-height:44px}
+.lsn-fx .lsn-qfoot .lsn-skipb,.lsn-fx .lsn-qfoot #lsnRep{background:transparent!important;border:0!important;box-shadow:none!important;color:var(--ex-mut)!important;flex:0 0 auto!important;padding:var(--sp-1) var(--sp-2)!important;min-height:44px;min-width:44px}
 .lsn-fx .lsn-qfoot .lsn-skipb *,.lsn-fx .lsn-qfoot #lsnRep *{font-size:var(--fs-xs)!important;font-weight:600!important;letter-spacing:0!important;text-transform:none!important}
 .lsn-fx .lsn-qfoot .lsn-skipb .material-symbols-outlined,.lsn-fx .lsn-qfoot #lsnRep .material-symbols-outlined{font-size:var(--ss-fs-ic)!important}
 .lsn-fx .lsn-qfoot>div:first-child{justify-content:center!important;gap:var(--sp-4)}

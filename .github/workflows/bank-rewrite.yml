@@ -1,0 +1,40 @@
+# E1b: viết lại phương án nhiễu (đáp án dài nhất) + lời giải rập khuôn bằng AI MIỄN PHÍ, giám khảo kép (scripts/content-qa/bank-rewrite.mjs, CONTENT-WORLD-PLAN §7.3).
+# Chạy tay; chỉ ra artifact bank-patches (không đẩy vào repo) → phiên nội dung tải về, `bank-rewrite.mjs apply`, chạy bank-audit/judge, mở PR. $0: không neuron CF.
+name: Viết lại đề trắc nghiệm (E1b)
+on:
+  workflow_dispatch:
+    inputs:
+      shards: { description: 'số shard (≤ 4)', default: '4' }
+      max: { description: 'tối đa câu mỗi shard (thử nhỏ trước)', default: '400' }
+permissions:
+  contents: read
+  id-token: write   # OIDC cho ai-pool
+concurrency:
+  group: bank-rewrite-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  rewrite:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix: { shard: [0, 1, 2, 3] }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Soạn lại + chấm kép
+        env:
+          GEMINI_POOL: ${{ secrets.GEMINI_POOL }}
+          GROQ_POOL: ${{ secrets.GROQ_POOL }}
+          GRABCAST_AI_KEY: ${{ secrets.GRABCAST_AI_KEY }}
+          AI_POOL_GC_MAX: '1500'
+          MAX: ${{ inputs.max }}
+        run: node scripts/content-qa/bank-rewrite.mjs gen --shard ${{ matrix.shard }} --of 4 --max "$MAX" --budget-min 45
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: bank-patches-${{ matrix.shard }}
+          path: reports/bank-patches-*.json
+          retention-days: 30
+          if-no-files-found: ignore
