@@ -2,6 +2,7 @@
  "ace|ex": {
   "ar": "لقد \"aced\" اختبار التاريخ اليوم!",
   "de": "Ich habe heute meinen Geschichtstest 'aced'!",
+  "fr": "J'ai « aced » mon contrôle d'histoire aujourd'hui !",
   "hi": "मैंने आज अपना इतिहास टेस्ट ace किया!",
   "id": "Aku 'ace' tes sejarahku hari ini!",
   "ja": "今日、歴史のテストをaceしたよ！",
@@ -139,7 +140,8 @@
   "pt": "Olha o preço deste casaco! É \"arm and a leg\".",
   "ru": "Посмотри на цену этого пальто! «arm and a leg».",
   "th": "ดูราคาของเสื้อโค้ทนี้สิ 'arm and a leg'!",
-  "tr": "Bu kabanın fiyatına bak!"
+  "tr": "Bu kabanın fiyatına bak!",
+  "zh": "看看这件大衣的价格！真是要花上“an arm and a leg”（一笔巨款/非常昂贵）。"
  },
  "asap|ex": {
   "ar": "من فضلك أرسل لي الملاحظات \"ASAP\".",
@@ -258,7 +260,8 @@
   "pt": "O plano falhou. E agora, \"back to square one\"?",
   "ru": "План провалился. Что дальше? «back to square one».",
   "th": "แผนล้มเหลว แล้วตอนนี้ทำอย่างไร 'back to square one'!",
-  "tr": "Plan başarısız oldu. Şimdi ne yapacağız?"
+  "tr": "Plan başarısız oldu. Şimdi ne yapacağız?",
+  "zh": "计划失败了。现在怎么办？看来要“back to square one”（回到起点/重新开始）了。"
  },
  "ballpark figure|ex": {
   "ar": "أعطني \"ballpark figure\".",
@@ -276,6 +279,7 @@
   "zh": "给我一个ballpark figure。"
  },
  "ballpark figure|hook": {
+  "ar": "كم سيكلف ذلك؟ اعطني \"ballpark figure\".",
   "de": "Wie viel wird es kosten? \"ballpark figure\"",
   "es": "¿Cuánto costará? Dame una \"ballpark figure\".",
   "fr": "Combien cela coûtera-t-il ? \"ballpark figure\"",
@@ -315,7 +319,8 @@
   "pt": "Toque essa música mais alto!",
   "ru": "Включи эту песню погромче! «banger»",
   "th": "เปิดเพลงนี้ให้ดังขึ้น! \"banger\"",
-  "tr": "Bu şarkıyı daha yüksek sesle çal, 'banger'!"
+  "tr": "Bu şarkıyı daha yüksek sesle çal, 'banger'!",
+  "zh": "把这首歌放响一点！这是一首 banger！"
  },
  "basic|ex": {
   "ar": "خطتي لنهاية الأسبوع \"basic\": بيتزا وفيلم.",
@@ -592,11 +597,13 @@
   "ja": "スピーチの途中で \"blank out\" した。",
   "ko": "연설 중에 나는 \"blank out\" 했어.",
   "pt": "Eu tive um \"blank out\" no meio do meu discurso.",
+  "ru": "Я получил «blank out» прямо в середине своей речи.",
   "th": "ฉัน \"blank out\" ตอนกลางสุนทรพจน์ของฉัน.",
   "tr": "Konuşmamın ortasında 'blank out' oldum.",
   "zh": "我在演讲中途脑子空白了。blank out"
  },
  "blank out|hook": {
+  "ar": "أضواء المسرح مضاءة. قد حدث لي \"blank out\" وعقلي فارغ!",
   "de": "Bühnenlichter an. Mein Kopf ist leer!",
   "es": "Luces del escenario encendidas. ¡Mi mente está en blanco!",
   "fr": "Les lumières de la scène sont allumées. Mon esprit est vide ! \"blank out\"",
@@ -640,7 +647,9 @@
   "zh": "他在学校的戏剧里绊倒了！blooper"
  },
  "blow a fuse|ex": {
+  "ar": "انفجر (blow a fuse) بسبب الغرفة الفوضوية.",
   "es": "Él hizo \"blow a fuse\" por la habitación desordenada.",
+  "fr": "Il a « blown a fuse » à cause de la chambre en désordre.",
   "hi": "उसने गंदे कमरे को देखकर blow a fuse कर दिया।",
   "id": "Dia \"blow a fuse\" karena kamar yang berantakan.",
   "ja": "彼は散らかった部屋のことで「blow a fuse」した。",
@@ -690,7 +699,8 @@
   "pt": "Duas horas dos mesmos slides! \"bored stiff\"",
   "ru": "Два часа одних и тех же слайдов — «bored stiff».",
   "th": "สองชั่วโมงของสไลด์เดียวกัน 'bored stiff'!",
-  "tr": "Aynı slaytlarla iki saat! \"bored stiff\"."
+  "tr": "Aynı slaytlarla iki saat! \"bored stiff\".",
+  "zh": "整整两小时都是同样的幻灯片！真是让人“bored stiff”（极度无聊/无聊透顶）。"
  },
  "brain rot|ex": {
   "ar": "كثرة الفيديوهات تسبب لي \"brain rot\".",
@@ -844,10 +854,13 @@
   "ar": "لقد \"called me out\" بسبب تأخري.",
   "de": "Sie hat mich dafür kritisiert („called me out“), dass ich zu spät war.",
   "es": "Ella me \"call out\" por llegar tarde.",
+  "fr": "Elle m'a « called out » parce que j'étais en retard.",
   "hi": "उसने मुझे देर से आने के लिए \"call out\" किया।",
   "id": "Dia \"call out\" aku karena terlambat.",
   "ja": "彼女は私が遅れたことを「call out」した。",
   "ko": "그녀는 내가 늦은 것을 'call out'했어.",
+  "pt": "Ela me chamou a atenção (\"called me out\") por estar atrasado.",
+  "ru": "Она сделала мне замечание («called me out») за то, что я опоздал.",
   "th": "เธอ 'call out' ฉันเพราะมาสาย",
   "tr": "Geç kaldığım için beni \"call out\" etti.",
   "zh": "她 \"call out\" 我，因为我迟到。"
@@ -920,7 +933,8 @@
   "pt": "Sábado. Dieta? Que dieta? \"cheat day\"",
   "ru": "Суббота. Диета? Какая диета? — «cheat day».",
   "th": "วันเสาร์ 'cheat day' ไดเอท? ไดเอทอะไร?",
-  "tr": "Cumartesi. Diyet mi? Hangi diyet? \"cheat day\"."
+  "tr": "Cumartesi. Diyet mi? Hangi diyet? \"cheat day\".",
+  "zh": "周六了。节食？什么节食？今天是“cheat day”（放纵日/放纵饮食日）。"
  },
  "cool|ex": {
   "ar": "\"Cool\"، أراك في السادسة!",
@@ -979,7 +993,8 @@
   "pt": "Noite de jogos aqui em casa! \"count me in\"",
   "ru": "Вечер игр у меня дома! «count me in»",
   "th": "คืนเกมที่บ้านฉัน! \"count me in\"",
-  "tr": "Benim evimde oyun gecesi! \"count me in\""
+  "tr": "Benim evimde oyun gecesi! \"count me in\"",
+  "zh": "今晚在我家举行游戏之夜！算我一个，即“count me in”。"
  },
  "dressed to impress|ex": {
   "ar": "إنه \"dressed to impress\" من أجل المقابلة.",
@@ -1104,9 +1119,13 @@
   "ar": "لقد قمنا بـ 'pig out' على البيتزا ليلة أمس.",
   "de": "Wir haben gestern Abend bei Pizza „pigged out“.",
   "es": "Anoche hicimos \"pig out\" comiendo pizza.",
+  "fr": "On a « pigged out » sur de la pizza hier soir.",
   "hi": "हमने कल रात पिज़्ज़ा पर \"pig out\" किया।",
+  "id": "Kami \"pig out\" makan piza tadi malam.",
   "ja": "昨晩、ピザで\"pig out\"した。",
   "ko": "우리는 어젯밤 피자를 많이 먹었어. \"pig out\"",
+  "pt": "Nós nos empanturramos de pizza ontem à noite (fizemos um \"pig out\").",
+  "ru": "Вчера вечером мы устроили себе «pig out» и наелись пиццы.",
   "th": "เรากินพิซซ่าอย่าง \"pig out\" เมื่อคืน",
   "tr": "Geçen gece pizza yedik, \"pig out\".",
   "zh": "我们昨晚大吃披萨，\\\"pig out\\\"。"

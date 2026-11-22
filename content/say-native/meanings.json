@@ -291,6 +291,7 @@
   "hi": "बहुत शर्मनाक; बेहद अजीब",
   "id": "memalukan banget; wah, yikes",
   "ja": "やばいね; 恥ずかしいね; ひどいね",
+  "ko": "와, 어색해; 어이없다; 큰 실수",
   "pt": "que mico; que vergonha",
   "ru": "ой-ой; ужас",
   "th": "แย่มาก; น่าอายมาก",
@@ -645,6 +646,7 @@
   "es": "liderar; llevar; salvar",
   "fr": "porter; assurer",
   "hi": "अकेले दम पर जिताना; टीम को जीत दिलाना",
+  "id": "menyelamatkan tim; menjadi pemain utama",
   "ja": "キャリーする; チームを勝たせる; 引っ張る",
   "ko": "캐리하다; 팀을 이끌다",
   "pt": "carregar; liderar; salvar",
@@ -707,7 +709,9 @@
   "id": "hari bebas diet; hari makan sepuasnya; hari ngemil",
   "ja": "チートデイ; 好きなものを食べていい日",
   "ko": "치팅 데이",
+  "pt": "dia de trapaça; dia de folga; dia de quebra de dieta",
   "ru": "чит‑день; день отрыва; день свободного питания",
+  "th": "วันละเมิดไดเอท; วันกินอิสระ; วันพักอาหาร",
   "tr": "serbest gün; kaçamak günü; izinli gün",
   "zh": "放纵日; 解禁日"
  },
@@ -813,6 +817,7 @@
   "pt": "colaborar; dar uma contribuição",
   "ru": "подкинуть; внести; положить",
   "th": "ช่วยกันจ่าย; ลงขัน",
+  "tr": "katkı sağlamak; para koymak; ortak ödemek",
   "zh": "凑钱; 出钱"
  },
  "circle back": {
@@ -961,6 +966,7 @@
   "pt": "frito; ferrado; perdido",
   "ru": "в пролёте; в беде",
   "th": "ซวยแล้ว; ไม่รอดแน่",
+  "tr": "mahvolmuş; iş işten geçmiş",
   "zh": "完蛋了; 险境; 倒霉"
  },
  "cool": {
@@ -1379,6 +1385,7 @@
   "pt": "gesto de descrença; cara de frustração; facepalm",
   "ru": "фейспалм; покрыть лицо рукой",
   "th": "การเอามือทบหน้าผาก (ด้วยความเอือมระอาหรือกุมขมับ)",
+  "tr": "yüzüne el koyma; elini yüze vurma",
   "zh": "捂脸; 扶额; 无语"
  },
  "fair enough": {
@@ -1813,7 +1820,8 @@
   "pt": "curtir; ficar junto; dar um rolê",
   "ru": "тусоваться; проводить время",
   "th": "ไปเที่ยว; นั่งเล่น; สังสรรค์",
-  "tr": "takılmak; vakit geçirmek; dolaşmak"
+  "tr": "takılmak; vakit geçirmek; dolaşmak",
+  "zh": "闲逛; 聚在一起"
  },
  "hangry": {
   "ar": "غاضب من الجوع; متقلب المزاج من الجوع",
@@ -2425,6 +2433,7 @@
   "pt": "é um roubo; é uma pechincha",
   "ru": "выгодно; просто находка",
   "th": "ถูกเหมือนได้เปล่า; ถูกมากๆ",
+  "tr": "cazip; fiyata göre harika",
   "zh": "超值; 便宜得离谱"
  },
  "it's all greek to me": {
@@ -2693,7 +2702,8 @@
   "pt": "golpe baixo; comentário de mau gosto; ofensa",
   "ru": "низкий удар; подлая реплика",
   "th": "คำพูดที่เจ็บแสบ; การโจมตีที่ไม่ยุติธรรม",
-  "tr": "aşağılayıcı söz; haksız atış; kötü niyetli söz"
+  "tr": "aşağılayıcı söz; haksız atış; kötü niyetli söz",
+  "zh": "伤人话; 刻薄话"
  },
  "lowkey": {
   "ar": "قليلًا; بهدوء; سراً",
@@ -2842,6 +2852,7 @@
   "pt": "vibe; clima",
   "ru": "настроение; муд",
   "th": "ฟีลนี้เลย; อารมณ์เดียวกัน; ใช่เลย",
+  "tr": "tam benlik; ruh hali; vibe",
   "zh": "同感; 心情"
  },
  "move on": {
@@ -3827,6 +3838,7 @@
   "ko": "통쾌한; 거침없는; 팩폭의",
   "pt": "brutal; sinistro",
   "ru": "жёсткий; крутой",
+  "tr": "sert; acımasız; çılgınca dürüst",
   "zh": "犀利; 狠; 毒舌"
  },
  "say less": {
@@ -4110,6 +4122,7 @@
   "pt": "galera; turma; equipe",
   "ru": "команда; банда",
   "th": "แก๊ง; ก๊วน; กลุ่มเพื่อน",
+  "tr": "ekip; dost grubu; arkadaş çetesi",
   "zh": "小伙伴; 死党"
  },
  "stan": {
@@ -4379,6 +4392,7 @@
   "pt": "o verdadeiro; o autêntico; o real",
   "ru": "настоящий; по-настоящему хороший; самый настоящий",
   "th": "ของจริง; ของแท้แม่นมั่น",
+  "tr": "gerçek şey; tam anlamıyla gerçek; sahiden iyi",
   "zh": "真正的; 正宗的; 货真价实的"
  },
  "third wheel": {
@@ -4583,8 +4597,10 @@
   "id": "orang yang terlalu berupaya; pemaksa diri",
   "ja": "やりすぎる奴; 頑張りすぎるやつ",
   "ko": "노력쟁이; 과도하게 애쓰는 사람",
+  "ru": "трайхард; переборщик",
   "th": "คนพยายามเกินไป; คนทำตัวเก่งเกินไป",
-  "tr": "çaba delisi; aşırı çaba gösteren"
+  "tr": "çaba delisi; aşırı çaba gösteren",
+  "zh": "拼命玩家; 硬核玩家"
  },
  "under the weather": {
   "ar": "متوعك قليلاً; ليس على ما يرام",
