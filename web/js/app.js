@@ -444,6 +444,8 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
   document.addEventListener('click', e => { const b = e.target.closest && e.target.closest('[data-share]'); if (b) { e.preventDefault(); lazyUI(['share'], () => ShareCard.open(b.dataset.share)); } });
   // Rảnh thì tải trước các module còn lại → chuyển trang tức thì, dùng offline được
   const idle = cb => ('requestIdleCallback' in window ? requestIdleCallback(cb, { timeout: 4000 }) : setTimeout(cb, 2500));
+  // Việc phụ tải mạng (nhắc học, mời cài, chọn khóa, kho từ của phiên ôn): chờ lần vẽ đầu + 2,5 s rồi mới rảnh-chạy → không giành băng thông với nội dung trang sâu (mobile-qa LCP #/review 6,8 → 4,9 s, 21/11)
+  const later = cb => App.painted.then(() => setTimeout(() => idle(cb), 2500));
   // Tải sẵn lúc rảnh – bỏ qua khi tiết kiệm dữ liệu, mạng chậm, máy yếu
   const lean = () => { const c = navigator.connection || {}; return !!c.saveData || /(^|-)2g|3g/.test(c.effectiveType || '') || (navigator.deviceMemory && navigator.deviceMemory <= 2); };
   // Lần vẽ đầu: việc phụ chờ mốc này (docs/UX-PUBLIC.md §LCP)
@@ -597,7 +599,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
       if (backY && my === routeSeq) Scroll.restore(backY, () => my === routeSeq);
       if (late.length) App.calm(() => App.need(...late).catch(() => {}), 2500); // sau lần vẽ đầu (kể cả khi đã sang trang khác: gói dùng chung)
       if (my === routeSeq) { drawn = { tok: my, hash: location.hash }; markActivity(name, arg); a11yRoute(name, preTitle); if (App.afterRoute) App.afterRoute(name); if (drawnRes) { const r = drawnRes; drawnRes = null; afterPaint(() => { r(); dispatchEvent(new Event('lk:drawn')); }); } }
-      if (sf.length) afterPaint(() => idle(() => App.need(...sf).then(() => dispatchEvent(new Event('lk:soft'))).catch(() => {})));
+      if (sf.length) afterPaint(() => (name === 'review' ? later : idle)(() => App.need(...sf).then(() => dispatchEvent(new Event('lk:soft'))).catch(() => {})));
     };
     // Không dùng View Transitions (Chrome vẽ lệch ảnh trang cũ khi Quay lại).
     // Chỉ hiệu ứng mờ-trồi nhẹ bằng CSS trên #view – mượt, không bao giờ vẽ sai.
@@ -694,7 +696,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
   App.vimg = (word, pos, gloss, w, ex) => (window.VImg ? VImg.slot(word, pos, gloss, w, ex) : ''); // w = vai (card|back|quiz|dict|words) hoặc px; ex = câu ví dụ (ảnh cảnh)
   // Màn đầu (chào/trang chủ, lần tải lạnh): hoãn nạp module+chỉ mục ảnh tới lúc rảnh – chạy lúc khởi động nó chặn luồng chính ~100 ms (TBT mobile). Màn khác (học/ôn/tra từ): nạp ngay như cũ để thẻ đầu đã có ảnh.
   /^#?\/?(welcome|home)?\/?(\?|$)/.test(location.hash) ? idle(() => App.vimgReady()) : App.vimgReady();
-  if (window.Target && Target.LANGS.length > 1) idle(() => App.need('tlpick').then(() => window.TLPick && TLPick.boot()).catch(() => {}));
+  if (window.Target && Target.LANGS.length > 1) later(() => App.need('tlpick').then(() => window.TLPick && TLPick.boot()).catch(() => {}));
   // thẻ ngôn ngữ đích khác: chỉ ảnh có khóa tiếng Anh từ#loại khớp ĐÚNG nghĩa (trường img, content/target/<tl>/) – không có → không ảnh
   App.imgKey = c => (c.tl ? String(c.img || '').split('#') : [c.word, c.pos]); // [từ, loại] để gọi App.vimg; thẻ tl không có img → người gọi bỏ ảnh
   // Khối "Hiểu sâu": HTML đã dựng nhớ theo từ → lần vẽ lại (từ điển: bản nhanh → bản đủ) vẽ luôn trong cùng lần, không chèn muộn đẩy nội dung bên dưới (CLS 0,66 #/dict @360)
@@ -1482,8 +1484,8 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
     if (!Store.isExtension && !(window.VBNative && VBNative.is) && 'serviceWorker' in navigator && location.protocol.startsWith('http')) navigator.serviceWorker.register('/sw.js', { scope: '/app/' }).catch(() => {}); // app ở /app/ (trang / là trang giới thiệu tĩnh) – sw.js gốc tự chuyển bản cài cũ (phạm vi /) sang chế độ chuyển tiếp, xem web/sw.js. Đăng ký lúc này = sau lần vẽ đầu (JS khung nạp sau khung hình đầu – scripts/app-loader.mjs) nên không làm chậm màn đầu
     setTimeout(() => manifest().then(() => Promise.all(BUNDLES.voice.map(f => fetch(f).catch(() => {})))).then(() => App.calm(() => { App.need('voice').catch(() => {}); App.need('klocal').catch(() => {}); })).catch(() => {}), 4000); /* giọng Kokoro cho phát âm từ ở mọi trang */
     App.offerRescue = offerRescue; applyFreeze().then(() => setTimeout(() => offerRescue().catch(() => {}), 1500)).catch(() => {});
-    App.painted.then(() => idle(() => App.need('install').catch(() => {}))); // 📲 mời cài app (chỉ sau khi đã học, js/install-sheet.js)
-    App.painted.then(() => idle(() => App.need('remind').then(() => Remind.start()).catch(() => {}))); // ⏰ nhắc học (js/remind.js, docs/REMINDERS.md)
+    later(() => App.need('install').catch(() => {})); // 📲 mời cài app (chỉ sau khi đã học, js/install-sheet.js)
+    later(() => App.need('remind').then(() => Remind.start()).catch(() => {})); // ⏰ nhắc học (js/remind.js, docs/REMINDERS.md)
     // Add-on: lấy sẵn vé người thật cho service worker (khách; docs/HUMAN.md)
     if (Store.isExtension) setTimeout(() => idle(() => { if (!(window.Sync && Sync.user)) UI.human().then(H => H && H.ticket()).catch(() => {}); }), 8000);
     // Bàn phím ảo "resizes-visual" (iOS WKWebView, Chrome Android): --kb = cao bàn phím → html thêm đệm đáy (style.css), ô #ans không bị che
