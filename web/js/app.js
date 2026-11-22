@@ -601,8 +601,10 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
     };
     // Không dùng View Transitions (Chrome vẽ lệch ảnh trang cũ khi Quay lại).
     // Chỉ hiệu ứng mờ-trồi nhẹ bằng CSS trên #view – mượt, không bao giờ vẽ sai.
-    view.style.animation = 'none'; void view.offsetWidth; view.style.animation = '';
+    // khởi động lại hiệu ứng mờ-trồi KHÔNG ép layout đồng bộ (void offsetWidth = tính lại bố cục cả trang cũ ở mỗi lần đổi route): bỏ animation, vẽ, trả animation ở khung kế
+    view.style.animation = 'none';
     render();
+    requestAnimationFrame(() => { view.style.animation = ''; });
   }
   App.route = route;
   // Đổi trang (SPA) cho trình đọc màn hình: tiêu đề tab theo h1 của trang + đưa focus về vùng nội dung khi bấm từ thanh điều hướng
@@ -677,7 +679,10 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
   const ux1All = v => v === true || v === '1' || v === 'true', ux1Off = v => v === false || v === '0' || v === 'false';
   App.ux1Arm = () => { const c = ux1Cfg(), p = +c.ux1_pct; if (ux1All(c.ux1) || ux1Off(c.ux1) || !(p > 0 && p <= 50)) return ''; const b = ux1B(); return b < p ? 'on' : b >= 50 && b < 50 + p ? 'off' : ''; };
   let ux1R = null; // kết quả cờ từ config, chốt theo lượt tải trang
-  const ux1Remote = () => { if (ux1R == null) { const c = ux1Cfg(), p = +c.ux1_pct; ux1R = ux1Off(c.ux1) ? false : ux1All(c.ux1) ? true : p > 0 && ux1B() < p; } return ux1R; };
+  // Máy CHƯA từng tải config (lần mở đầu, lk.cfg trống) → theo trạng thái phát hành UX1_SHIPPED (ux1 đang bật 100 %): trước đây = tắt → phiên đầu của mọi máy mới (và mọi E2E/Simulator) là v1 + thanh trên cũ, lần sau mới v2 (chủ 21/11 "mỗi màn một kiểu").
+  // Config đã về: ux1 '0' tắt khẩn / không đặt = tắt như cũ.
+  const UX1_SHIPPED = true, ux1Never = () => { try { return localStorage.getItem('lk.cfg') == null; } catch (e) { return false; } };
+  const ux1Remote = () => { if (ux1R == null) { const c = ux1Cfg(), p = +c.ux1_pct; ux1R = ux1Never() ? UX1_SHIPPED : ux1Off(c.ux1) ? false : ux1All(c.ux1) ? true : p > 0 && ux1B() < p; } return ux1R; };
   App.ux1On = () => { try { if (/[?&]ux1=1\b/.test(location.search + location.hash)) sessionStorage.setItem('lk.ux1.pv', '1'); if (sessionStorage.getItem('lk.ux1.pv') === '1') return true; const f = localStorage.getItem('lk.ux1'); if (f === '1' || f === '0') return f === '1'; return ux1Remote(); } catch (e) { return false; } };
   App.ux1Track = st => { try { if (/[?&](sandbox|demo)=/.test(location.search) || navigator.webdriver) return; /* demo/sandbox/trình duyệt tự động không đo (tránh beacon 503 trong ext-e2e) */ const a = App.ux1Arm(); if (!a || localStorage.getItem('lk.noTrack') === '1') return; const go = (k, ev) => { if (localStorage.getItem(k)) return; localStorage.setItem(k, '1'); const u = (/(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname) ? '' : 'https://lexkite.com') + '/api/hit', d = JSON.stringify({ t: 'q', ev }); navigator.sendBeacon ? navigator.sendBeacon(u, d) : fetch(u, { method: 'POST', body: d, keepalive: true, mode: 'no-cors' }).catch(() => {}); }; go('lk.ux', 'ux1_' + a + '_seen'); if (st >= 2) go('lk.ud1', 'ux1_' + a + '_d1'); if (st >= 7) go('lk.ud7', 'ux1_' + a + '_d7'); } catch (e) { /* bỏ qua */ } };
   App.updateChrome = () => updateChrome();

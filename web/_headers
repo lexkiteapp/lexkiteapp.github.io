@@ -58,6 +58,8 @@
   Cache-Control: public, max-age=86400
 /og-default.png
   Cache-Control: public, max-age=604800
+/og/*
+  Cache-Control: public, max-age=604800
 # Blog & trang SEO tĩnh: HTML luôn kiểm tra bản mới (bài đăng theo lịch); RSS/sitemap cũng vậy
 /blog/*
   Cache-Control: no-cache

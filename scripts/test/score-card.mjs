@@ -68,7 +68,8 @@ ok((await CH.onRequestPost({ request: req('POST', { op: 'create', fl: 1, pr: 1, 
 const pg = async (path, hdr = {}, id = c1.j.id) => PG.onRequestGet({ request: new Request('https://lexkite.com/c/' + path, { headers: hdr }), env, params: { path: [id] } });
 const h = await pg(c1.j.id + '?l=vi&utm_source=share&utm_medium=zalo&utm_campaign=score30'), html = await h.text();
 ok(h.status === 200 && /text\/html/.test(h.headers.get('Content-Type')), 'trang 200 HTML');
-ok(/<meta property="og:title" content="Mình nói tiếng Anh được 76\/100 \(C1\)/.test(html) && /twitter:card" content="summary_large_image"/.test(html) && /og:image" content="https:\/\/lexkite.com\/og-default.png"/.test(html) && /og:url" content="https:\/\/lexkite.com\/c\//.test(html), 'og:/twitter: meta có điểm + ảnh');
+ok(/<meta property="og:title" content="Mình nói tiếng Anh được 76\/100 \(C1\)/.test(html) && /twitter:card" content="summary_large_image"/.test(html) && /og:image" content="https:\/\/lexkite.com\/og\/score-C1.png"/.test(html) && /og:url" content="https:\/\/lexkite.com\/c\//.test(html), 'og:/twitter: meta có điểm + ảnh theo bậc CEFR');
+for (const k of ['A1', 'A2', 'B1', 'B2', 'C1', 'C2']) ok(fs.existsSync(`web/og/score-${k}.png`) && fs.statSync(`web/og/score-${k}.png`).size < 150000, `ảnh OG web/og/score-${k}.png có và < 150 KB`);
 ok(html.includes('href="/app/?utm_source=share&amp;utm_medium=zalo&amp;utm_campaign=score30#/score/' + c1.j.id + '"'), 'nút → app giữ UTM');
 ok(/noindex/.test(html) && h.headers.get('X-Robots-Tag') === 'noindex', 'noindex');
 const noUtm = await (await pg(c1.j.id, { 'Accept-Language': 'es-MX,es;q=0.9' })).text();
@@ -92,7 +93,6 @@ async function flow({ chalId, canned, dead }) {
   w.I18N = { lang: () => 'vi' };
   const routes = {}; w.App = { routes, guard: f => f, W: p => p };
   w.UI = { $: (q, r) => (r || w.document).querySelector(q), esc: x => String(x).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c])), toast: m => calls.toast.push(m), dev: () => 'devdevdevdevdevdev', humanHdr: async () => {} };
-  w.ST2 = { tabs: () => '', hdr: () => '', mount: (view) => { view.innerHTML = '<div class="v2"><header><button data-href="#/x"></button><h1>Nói như người bản xứ</h1><button id="sFlag"></button></header><main></main></div>'; } };
   w.Speak = { score: async o => { calls.speak.push(o); return canned; }, stop() {} };
   w.LKFile = { save: async (b, name, o) => { calls.save.push({ name, o }); return 'shared'; } };
   w.fetch = async (u, init = {}) => {
@@ -109,7 +109,7 @@ async function flow({ chalId, canned, dead }) {
 }
 { // A) bài mới
   const F = await flow({ canned: sp(0.9, 0.9, 130) });
-  ok(/Thử thách nói 30 giây/.test(F.$('header h1').textContent) && !/bản xứ/.test(F.$('header h1').textContent), 'tiêu đề khung đổi đúng');
+  ok(/Thử thách nói 30 giây/.test(F.$('h1').textContent) && !/bản xứ/.test(F.$('h1').textContent), 'tiêu đề khung đổi đúng');
   const txt = F.$('.txt').textContent; ok(S.PROMPTS.includes(txt), 'hiện một đoạn đọc có thật');
   ok(F.calls.beacon.join() === 'sc_view' && !F.$('.banner'), 'mở: chỉ sc_view, không banner thử thách');
   F.$('#s30go').click(); await F.tick(); await F.tick();
