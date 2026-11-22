@@ -43,7 +43,7 @@
       clearInterval(timer);
       const time = +((performance.now() - t0) / 1000 + misses).toFixed(1);
       const best = state.game.best.match;
-      const xp = 10 + (time < 25 ? 10 : time < 40 ? 5 : 0);
+      const xp = Game.xpFor('game', { right: items.length - Math.min(misses, items.length), total: items.length }); // không thưởng tốc độ – kỷ lục giờ vẫn có huy hiệu Tia chớp
       await App.reward({ matches: 1, quizzes: 1, perfect: misses === 0 ? 1 : 0, matchTime: time, xp });
       view.innerHTML = `<div class="study-wrap"><div class="card empty celebrate">
         <div class="em">⚡</div><h2>${time}s</h2>
@@ -119,7 +119,7 @@
               <p class="muted small">${t('Máy nghe được: “{heard}”', { heard: esc(heard || '…') })}</p>
               ${audio ? `<div class="row center" style="margin-top:.4rem"><button class="btn sm" id="playMine">▶️ ${t('Giọng của bạn')}</button><button class="btn sm" id="playModel">🔊 ${t('Giọng mẫu')}</button></div>` : ''}`;
             if (audio) { const a = new Audio(audio); $('#playMine').onclick = () => { UI.stopSpeak(); a.currentTime = 0; a.play(); }; $('#playModel').onclick = () => speak(w.word, accent(), w.audio); }
-            if (score >= 65 && !scored) { scored = true; good++; App.reward({ spoken: 1, xp: score >= 85 ? 5 : 3 }, $('#mic')); score >= 85 ? Sfx.win() : Sfx.correct(); }
+            if (score >= 65 && !scored) { scored = true; good++; App.reward({ spoken: 1, xp: Game.xpFor('say', { score }) }, $('#mic')); score >= 85 ? Sfx.win() : Sfx.correct(); }
             else if (score < 65) Sfx.wrong();
             const nb = $('#nextW'); if (nb) nb.hidden = false;
           },
@@ -129,12 +129,12 @@
       };
     };
     const finish = () => {
-      App.reward({ quizzes: 1, xp: 5 });
+      App.reward({ quizzes: 1, xp: Game.xpFor('set', { right: good, total: items.length, mode: 'say', paid: 1 }) });
       view.innerHTML = `<div class="study-wrap"><div class="card empty celebrate"><div class="em">🎙️</div>
         <h2>${t('Phát âm tốt {good}/{total} từ', { good, total: items.length })}</h2><p class="muted">${t('Luyện đều mỗi ngày để Speaking tự nhiên hơn.')}</p>
         <div class="row center"><button class="btn primary" id="again">${t('Luyện tiếp')}</button><a class="btn" href="#/practice">${t('Chế độ khác')}</a></div></div></div>`;
       $('#again').onclick = () => runSpeak(src);
-      Sfx.finish({ pct: Math.round(good / Math.max(1, items.length) * 100), xp: 5, good: 70, el: $('.celebrate', view) });
+      Sfx.finish({ pct: Math.round(good / Math.max(1, items.length) * 100), xp: Game.xpFor('set', { right: good, total: items.length, mode: 'say', paid: 1 }), good: 70, el: $('.celebrate', view) });
       practiceDone({ mode: 'speak', src, pct: Math.round(good / Math.max(1, items.length) * 100) }); // buổi học theo Ngày (path-day.js)
     };
     show();

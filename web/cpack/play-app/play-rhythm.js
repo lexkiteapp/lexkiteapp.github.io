@@ -38,7 +38,7 @@
     const acc = stressed ? Math.round((hits / (stressed + extra + wrong)) * 100) : 0;
     return { words, extra: extra + wrong, hits, stressed, acc, score, best, combo }; // combo = chuỗi còn lại cuối câu (mang sang câu sau) · extra = mọi lần chạm thừa (ngoài nhịp + chạm vào từ yếu)
   }
-  const xpOf = (hits, acc) => Math.min(40, 5 + hits * 2 + (acc >= 90 ? 5 : 0));
+  const xpOf = (hits, total) => g.Game.xpFor('game', { right: hits, total }); // luật chung game.js
   const srsGrade = (res, k) => (k >= 0 && (res.words[k] === 'perfect' || res.words[k] === 'good') && res.acc >= 90 && !res.extra ? 2 : null); // null = không chấm · phải im ở từ yếu (không "chạm mọi nhịp" để ăn gian)
   // Câu hợp lệ: toàn chữ Latinh, 4–10 từ, có ≥ 2 từ nhấn và ≥ 1 từ yếu (có gì để im), chứa từ đích.
   function usable(s, plan, word) {
@@ -161,7 +161,7 @@
     }
     async function end() {
       S.over = true; App.cleanup();
-      const acc = S.stressed ? Math.max(0, Math.round((S.hits / (S.stressed + S.extra)) * 100)) : 0, xp = xpOf(S.hits, acc), isBest = S.score > best;
+      const acc = S.stressed ? Math.max(0, Math.round((S.hits / (S.stressed + S.extra)) * 100)) : 0, xp = xpOf(S.hits, S.stressed), isBest = S.score > best;
       await App.reward({ quizzes: 1, xp });
       if (location.hash !== hash0) return; // đã rời màn trong lúc chờ thưởng: không ghi đè trang mới
       if (isBest) try { localStorage.setItem(BKEY, String(S.score)); } catch (e) { /* bỏ qua */ }

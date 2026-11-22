@@ -74,7 +74,7 @@
     function summary() {
       const c = results.filter(Boolean).length, n = results.length;
       if (g.ExitGuard && ExitGuard.done) ExitGuard.done();
-      App.reward && App.reward({ quizzes: 1, xp: 10 + c * 2 });
+      App.reward && App.reward({ quizzes: 1, xp: Game.xpFor('set', { right: c, total: n, mode: 'type' }) });
       const retryQ = wrong.map(x => x.b + ':' + x.kind).join(',');
       view.innerHTML = frame(`<main class="flex-1 px-4 py-6 flex flex-col justify-between"><div class="flex flex-col items-center gap-5 text-center"><div class="w-24 h-24 rounded-2xl overflow-hidden flex items-end justify-center lt:bg-[#fff1e8] dk:bg-[#121d20]">${Chars.slot('ama', { pose: wrong.length ? 'encourage' : 'cheer', size: 's', hip: true, lazy: false })}</div>
         <h1 class="text-2xl font-extrabold break-words lt:text-[#132226] dk:text-[#ffffff]" role="status">${esc(t('{c} trên {n} câu đúng', { c, n }))}</h1>

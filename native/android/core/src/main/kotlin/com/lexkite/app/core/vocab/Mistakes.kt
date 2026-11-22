@@ -1,5 +1,6 @@
 package com.lexkite.app.core.vocab
 
+import com.lexkite.app.core.RewardRules
 import com.lexkite.app.core.sync.Js
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.JsonPrimitive
@@ -94,10 +95,10 @@ object Mistakes {
     /** Typed retry check: QE.norm when the exam engine is loaded (native always). */
     fun typedOk(typed: String, answer: String) = Qe.norm(typed) == Qe.norm(answer)
 
-    /** settle(card, key, ok): ok -> fixed (+3 XP) else n+1. Returns the new list and the XP to reward. */
+    /** settle(card, key, ok): ok -> fixed (+answer(type) XP = 3) else n+1. Returns the new list and the XP to reward. */
     fun settle(list: List<JsonObject>, key: String, ok: Boolean): Pair<List<JsonObject>, Int> =
-        list.map { x -> if (x.gs("key") != key) x else if (ok) x.cp("fixed" to true) else x.cp("n" to (if (x.gt("n")) x.gn("n") else 1.0) + 1) }.let { it to (if (ok && list.any { x -> x.gs("key") == key }) 3 else 0) }
-    /** "Đã hiểu": fixed (+2 XP). */
-    fun fix(list: List<JsonObject>, key: String): Pair<List<JsonObject>, Int> = list.map { x -> if (x.gs("key") == key) x.cp("fixed" to true) else x } to 2
+        list.map { x -> if (x.gs("key") != key) x else if (ok) x.cp("fixed" to true) else x.cp("n" to (if (x.gt("n")) x.gn("n") else 1.0) + 1) }.let { it to (if (ok && list.any { x -> x.gs("key") == key }) RewardRules.xp("answer", mode = "type") else 0) }
+    /** "Đã hiểu": fixed (+step XP = 2). */
+    fun fix(list: List<JsonObject>, key: String): Pair<List<JsonObject>, Int> = list.map { x -> if (x.gs("key") == key) x.cp("fixed" to true) else x } to RewardRules.xp("step")
     fun clearFixed(list: List<JsonObject>) = list.filter { !it.gt("fixed") }
 }

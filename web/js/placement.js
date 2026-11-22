@@ -145,7 +145,7 @@
       const added = inv ? await addLv(E.vocab.cefr) : 0; endInv();
       await App.saveSettings();
       if (g.Sync && Sync.schedule) Sync.schedule();
-      if (!isNew) App.reward({ quizzes: 1, xp: 20 });
+      if (!isNew) App.reward({ quizzes: 1, xp: Game.xpFor('set') });
       Sfx.win(); confetti();
       const weak = E.weak === 'vocab' ? t('từ vựng') : t('ngữ pháp');
       const STG = { s0: t('Chặng 0 · Từ cốt lõi'), s1: t('Chặng 1 · Nền tảng'), s2: t('Chặng 2 · Mở rộng chủ đề'), s3: t('Chặng 3 · Học thuật') };

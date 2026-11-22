@@ -55,7 +55,7 @@ final class SpeakSpeakingModelTests: XCTestCase {
         XCTAssertTrue(none.unclear); XCTAssertEqual(none.error, "no-speech")
         XCTAssertEqual(rec.calls, ["en-US", "en-US"])
 
-        // a drill with a mic: the pass is recorded in lk.spk and rewarded spoken 1 · xp 2·stars
+        // a drill with a mic: the pass is recorded in lk.spk and rewarded spoken 1 · xp say(score)
         let (c1, data1) = ctx("mic")
         let m1 = SpeakDrillModel(ctx: c1, io: .scripted([.heard("Hello there friend")]), situation: Self.situation, stage: nil)
         XCTAssertEqual(m1.drill.target, "Hello there friend")
@@ -65,8 +65,8 @@ final class SpeakSpeakingModelTests: XCTestCase {
         XCTAssertEqual(stored["zz"]?["lines"]?["l1"]?.i("stars"), 1)
         XCTAssertEqual(stored["zz"]?["tasks"]?["t1"], .bool(true), "the mission task that names the line is done")
         XCTAssertEqual(Int(JSON.orZero(stored["week"]?[SpeakSit.weekKey(Self.now, calendar: Self.cal)])), 1)
-        let got = await eventually { await self.xp(data1) == 2 }
-        XCTAssertTrue(got, "reward xp 2·1 star")
+        let got = await eventually { await self.xp(data1) == 5 }
+        XCTAssertTrue(got, "reward xp say(100) = 5")
 
         // no mic: the words are tapped in order, at most 1 star, the line is recorded but nothing is rewarded
         let (c2, data2) = ctx("nomic")
@@ -115,15 +115,15 @@ final class SpeakSpeakingModelTests: XCTestCase {
         m.select(topic: 0); m.select(part: "p3"); m.nextQuestion()
         XCTAssertEqual(m.qi, 1); XCTAssertEqual(m.stage, .ready)
 
-        // an answer: the analysis, the reward spoken min(10, round(words/10)) · quizzes 1 · xp 15, only from 10 words on
+        // an answer: the analysis, the reward spoken min(10, round(words/10)) · quizzes 1 · xp talk(right) = 10 + 3·2, only from 10 words on
         m.analyse(text: "I think it is a good idea because there are many reasons for it today", seconds: 30)
         XCTAssertEqual(m.stage, .result); XCTAssertEqual(m.analysis?.words, 15)
-        let got = await eventually { await self.xp(data) == 15 }
+        let got = await eventually { await self.xp(data) == 16 }
         XCTAssertTrue(got)
         m.analyse(text: "I like it", seconds: 5)
         try? await Task.sleep(nanoseconds: 200_000_000)
         let still = await xp(data)
-        XCTAssertEqual(still, 15, "under 10 words earns nothing")
+        XCTAssertEqual(still, 16, "under 10 words earns nothing")
 
         // Part 2 asks for a minute of preparation first; the second tap records at once
         m.select(part: "p2")
@@ -145,8 +145,8 @@ final class SpeakSpeakingModelTests: XCTestCase {
         await m.shadowSkip()
         await m.shadowSpeak(); await m.shadowNext()
         XCTAssertEqual(m.shadowDone, 67, "(100 + 0 + 100) / 3 sentences")
-        let more = await eventually { await self.xp(data) == 25 }
-        XCTAssertTrue(more, "shadowing reward xp 10")
+        let more = await eventually { await self.xp(data) == 22 }
+        XCTAssertTrue(more, "shadowing reward xp say(67) × 2 = 6")
     }
     final class SayLog: @unchecked Sendable { var lines: [(String, String, Bool)] = [] }
 }

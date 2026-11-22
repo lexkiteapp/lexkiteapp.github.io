@@ -124,7 +124,7 @@
   // Màn kết Stitch (lesson-complete) dùng chung với cpack/es-app/pron-ui.js qua App.esEnd: o = { n, ok, first, best, chip, title, rev, revHref, again }
   async function end(o) {
     try { if (sessionStorage.getItem('lk.es.dayctx')) App.need('esday').then(() => App.esDayMark('gp')); } catch (e) { /* bỏ qua */ } // lộ trình ngày TBN: bài ngữ pháp/phát âm xong → đánh dấu bước (cpack/es-app/day-ui.js)
-    const n = o.n, acc = Math.round(o.ok / n * 100), xp = 10 + o.ok * 2 + (o.ok === n ? 5 : 0);
+    const n = o.n, acc = Math.round(o.ok / n * 100), xp = Game.xpFor('set', { right: o.ok, total: n });
     try { await App.reward({ quizzes: 1, perfect: o.ok === n ? 1 : 0, xp }); } catch (e) { /* bỏ qua */ }
     const run = App.streak ? App.streak() : 0;
     const d = { close: '#/practice', mapL: t('Làm lại'), title: o.title || t('Luyện tiếng Tây Ban Nha'), chip: o.chip, acc: acc + '%', xpL: '+' + xp + ' XP', combo: String(o.best), first: o.first + '/' + n, mins: '', nwords: '', streakT: t('Chuỗi hiện tại') + ': ' + run, weekN: '', streak: String(run),

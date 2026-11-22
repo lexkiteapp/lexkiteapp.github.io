@@ -109,7 +109,7 @@
   function result(X, text) {
     const R = MC.check(X, text), got = R.points.filter(p => p.ok).length, of = R.points.length, T = X.task;
     const b = best(), prev = b[X.id]; if (!prev || got > prev.ok) b[X.id] = { ok: got, of };
-    App.reward({ quizzes: 1, xp: 5 + got * 2 });
+    App.reward({ quizzes: 1, xp: Game.xpFor('set', { right: got, total: of }) });
     if (window.ExitGuard) ExitGuard.done();
     const li = (ic, col, s, sr) => `<li style="display:flex;gap:.5rem;align-items:flex-start;margin:.35rem 0"><span style="color:${col};flex:0 0 auto" aria-hidden="true">${UI.icon(ic)}</span><span><span class="sr-only">${sr} </span><span lang="en">${esc(s)}</span></span></li>`;
     const L = list(), next = L[(L.findIndex(x => x.id === X.id) + 1) % L.length];
