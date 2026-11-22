@@ -56,6 +56,7 @@
 "Trả lời câu hỏi":"Jawab pertanyaannya",
 "Trọng âm rơi vào âm tiết {n}/{m}":"Tekanan jatuh pada suku kata {n} dari {m}",
 "Tuyệt!":"Hebat!",
+"Tìm từ sai":"Temukan kata yang salah",
 "Tăng điểm":"Pendongkrak skor",
 "Tỉ lệ trả lời đúng":"Jawaban benar",
 "Từ bạn đã tra":"Kata yang kamu cari",

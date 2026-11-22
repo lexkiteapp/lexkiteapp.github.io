@@ -56,6 +56,7 @@
 "Trả lời câu hỏi":"Soruyu cevapla",
 "Trọng âm rơi vào âm tiết {n}/{m}":"Vurgu {m} heceden {n}. hecede",
 "Tuyệt!":"Harika!",
+"Tìm từ sai":"Yanlış kelimeyi bul",
 "Tăng điểm":"Puan artırıcı",
 "Tỉ lệ trả lời đúng":"Doğru cevaplar",
 "Từ bạn đã tra":"Aradığın kelime",
