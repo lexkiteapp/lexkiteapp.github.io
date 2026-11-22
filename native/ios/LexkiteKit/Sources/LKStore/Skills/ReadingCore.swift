@@ -183,7 +183,10 @@ public struct ReadingGrade: Sendable {
     public var score: Int, n: Int, pct: Int, xp: Int
     public var ok: Bool { pct >= 60 }
     public var items: [Item]
-    public var reward: [String: Int], game: JSON, mistakes: [JSON]
+    public var reward: [String: Int]
+    /// anti-repeat key of `App.reward` (`rd:<reading id>`)
+    public var src: String? = nil
+    public var game: JSON, mistakes: [JSON]
     public var links: [String] { ["#/reading", "#/practice/learn?src=deck"] }
 
     /// blank answers → the learner is asked first ("Bạn chưa trả lời hết. Vẫn chấm điểm?"); declining writes nothing
@@ -193,7 +196,7 @@ public struct ReadingGrade: Sendable {
         q.s("type") == "tfng" ? QE.tf["tfng"]!.map { ($0, $0) } : q.strs("options").enumerated().map { (String($0.offset), $0.element) }
     }
 
-    /// `picks[i]` = the chosen value of question i (nil = blank). Writes `readDone`, XP 10 + 4·score, a mistake per wrong answer.
+    /// `picks[i]` = the chosen value of question i (nil = blank). Writes `readDone`, XP = set(score, n), src rd:<id>, a mistake per wrong answer.
     public static func grade(_ r: JSON, picks: [String?], game: JSON, mistakes: [JSON], now: Int64) -> ReadingGrade {
         let qs = r.list("questions"), id = r.s("id")
         var score = 0, log = mistakes, items: [Item] = []
@@ -211,7 +214,7 @@ public struct ReadingGrade: Sendable {
         let pct = Vocab.round(Double(score) / Double(max(1, qs.count)) * 100), first = !JSON.truthy(game["readDone"]?[id])
         var g = game, done = g["readDone"]?.object ?? [:]
         done[id] = .string("\(score)/\(qs.count)"); g["readDone"] = .object(done)
-        let xp = 10 + score * 4
-        return ReadingGrade(score: score, n: qs.count, pct: pct, xp: xp, items: items, reward: ["readings": first ? 1 : 0, "quizzes": 1, "perfect": pct == 100 ? 1 : 0, "xp": xp], game: g, mistakes: log)
+        let xp = RewardRules.xp("set", right: score, total: qs.count)
+        return ReadingGrade(score: score, n: qs.count, pct: pct, xp: xp, items: items, reward: ["readings": first ? 1 : 0, "quizzes": 1, "perfect": pct == 100 ? 1 : 0, "xp": xp], src: "rd:" + id, game: g, mistakes: log)
     }
 }

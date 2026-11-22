@@ -2,9 +2,10 @@
 import fs from 'node:fs';
 import vm from 'node:vm';
 import assert from 'node:assert/strict';
+import { gameRules } from '../lib/game-rules.mjs';
 
 const R = p => fs.readFileSync(new URL('../../' + p, import.meta.url), 'utf8');
-const ctx = { console }; ctx.self = ctx; vm.createContext(ctx);
+const ctx = { console, Game: gameRules() }; ctx.self = ctx; vm.createContext(ctx);
 for (const f of ['web/js/writecheck-rules.js', 'web/cpack/outcomes/forms.js', 'web/cpack/outcomes-app/outcomes-core.js']) vm.runInContext(R(f), ctx, { filename: f });
 const O = ctx.Outcomes, F = ctx.OUTCOME_FORMS;
 let n = 0; const ok = (c, m) => { assert.ok(c, m); n++; };

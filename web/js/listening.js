@@ -256,12 +256,12 @@
       p.groups.forEach(g2 => (g2.items || []).forEach(it => { const el = $(`[data-item="${it.n}"] .lq-fb`, $('#lQs')); if (el && it.explain) el.insertAdjacentHTML('beforeend', `<div class="tiny muted" style="margin-top:.2rem">${UI.icon('lightbulb')} ${esc(QE.exT(it.explain))}</div>`); }));
       nums.filter(n => !res[n].ok).forEach(n => App.logMistake && App.logMistake({ kind: 'listening', q: I18N.tk('{title} – Câu {n}: {q}', { title: p.title, n, q: res[n].q }), answer: res[n].answer, given: res[n].given || I18N.tk('(bỏ trống)'), explain: res[n].cue ? I18N.tk('Nghe: “…{cue}…”', { cue: res[n].cue }) : '', ref: p.id }));
       state.game = await Game.mutate(gs => { gs.listenDone = { ...(gs.listenDone || {}), [p.id]: Math.max(right, (gs.listenDone || {})[p.id] || 0) }; });
-      await App.reward({ quizzes: 1, listens: 1, perfect: right === nums.length ? 1 : 0, xp: 15 + right * 3 }, $('#lRes'));
-      $('#lRes').innerHTML = `<div class="feedback ${right >= 7 ? 'ok' : 'no'}" style="position:static"><b>${t('{a}/{b} câu đúng', { a: right, b: nums.length })}</b> · +${15 + right * 3} XP
+      await App.reward({ quizzes: 1, listens: 1, perfect: right === nums.length ? 1 : 0, xp: Game.xpFor('set', { right, total: nums.length, mode: 'type' }), src: 'ls:' + p.id }, $('#lRes'));
+      $('#lRes').innerHTML = `<div class="feedback ${right >= 7 ? 'ok' : 'no'}" style="position:static"><b>${t('{a}/{b} câu đúng', { a: right, b: nums.length })}</b> · +${Game.xpFor('set', { right, total: nums.length, mode: 'type' })} XP
         <div class="small">${right >= 9 ? t('Xuất sắc – mức band 8+ cho phần này.') : right >= 7 ? t('Tốt! Xem lại các câu sai trong lời thoại.') : t('Mở lời thoại bên cạnh, bấm “Nghe đoạn có đáp án” để nghe lại chỗ sai. Câu sai đã vào Sổ lỗi sai.')}</div>
         <div class="row" style="margin-top:.6rem"><a class="btn sm" href="#/dictation/${p.id}">${UI.icon('keyboard')} ${t('Chép chính tả phần này')}</a><button class="btn sm" id="lAgain">↺ ${t('Làm lại')}</button></div></div>
         ${p.vocab && p.vocab.length ? `<div class="card" style="box-shadow:none;border:1px solid var(--line);margin-top:.8rem"><h3 style="margin-top:0">${UI.icon('library')} ${t('Từ vựng đáng học trong bài')}</h3><div class="lvocab">${p.vocab.map((v, k) => `<div class="row between nowrap"><span><b>${esc(v.w)}</b> <span class="muted small">${App.viHtml(v.vi)}</span></span><button class="btn sm ghost" data-v="${k}">${App.inDeck(v.w) ? '✓' : '+ ' + t('Lưu')}</button></div>`).join('')}</div></div>` : ''}`;
-      Sfx.finish({ pct: Math.round(right / nums.length * 100), xp: 15 + right * 3, el: $('#lRes') }); // âm thắng + pháo giấy ≥ 8/10 + thẻ số liệu
+      Sfx.finish({ pct: Math.round(right / nums.length * 100), xp: Game.xpFor('set', { right, total: nums.length, mode: 'type' }), el: $('#lRes') }); // âm thắng + pháo giấy ≥ 8/10 + thẻ số liệu
       $('#lAgain').onclick = () => routes.listen(id, query);
       App.lazy('nxs').then(() => NextStep.render($('#lRes .feedback'), 'listen', p.id)).catch(() => {});
       $$('[data-v]', $('#lRes')).forEach(b => b.onclick = async () => {
@@ -332,7 +332,7 @@
       const raw = nums.filter(q => results[q].ok).length, band = bandOf(raw);
       nums.filter(q => !results[q].ok).forEach(q => App.logMistake && App.logMistake({ kind: 'listening', q: I18N.tk('Test {t} – Câu {n}: {q}', { t: n, n: q, q: results[q].q }), answer: results[q].answer, given: results[q].given || I18N.tk('(bỏ trống)'), explain: results[q].cue ? I18N.tk('Nghe: “…{cue}…”', { cue: results[q].cue }) : '', ref: results[q].pid }));
       state.game = await Game.mutate(gs => { gs.listenBest = { ...(gs.listenBest || {}), [n]: Math.max(band, (gs.listenBest || {})[n] || 0) }; gs.listenTests = [...(gs.listenTests || []), { n, raw, band, at: Date.now() }].slice(-30); });
-      await App.reward({ quizzes: 1, listens: 4, perfect: raw === 40 ? 1 : 0, xp: 40 + raw * 2 });
+      await App.reward({ quizzes: 1, listens: 4, perfect: raw === 40 ? 1 : 0, xp: Game.xpFor('exam', { right: raw, total: 40 }) });
       if (band >= 7) { Sfx.win(); confetti(160); }
       const byPart = parts.map(p => ({ p, r: qNums(p).filter(q => results[q] && results[q].ok).length }));
       if (window.QT) QT.record('il', results);
@@ -378,7 +378,7 @@
       clearTimeout(autoT); checked = false;
       if (k >= lines.length) {
         const pct = done ? Math.round(score / done * 100) : 0;
-        App.reward({ quizzes: 1, dictations: 1, xp: 10 + Math.round(pct / 5) });
+        App.reward({ quizzes: 1, dictations: 1, xp: Game.xpFor('set', { right: Math.round(score), total: done, mode: 'type' }) });
         Game.mutate(gs => { gs.dictDone = { ...(gs.dictDone || {}), [p.id]: Math.max(pct, (gs.dictDone || {})[p.id] || 0) }; }).then(g2 => { state.game = g2; }); /* tiến độ Khóa học */
         view.innerHTML = `<div class="study-wrap"><div class="card celebrate empty"><div class="em">${UI.icon('keyboard')}</div><h2>${t('Chính xác {p}%', { p: pct })}</h2><p class="muted">${t('{n} câu đã chép. Chép chính tả đều đặn giúp tai nhận ra nối âm, nuốt âm và trọng âm câu.', { n: done })}</p><div class="row center"><a class="btn primary" href="#/listen/${p.id}">${UI.icon('target')} ${t('Làm câu hỏi phần này')}</a><a class="btn" href="#/dictation/${p.id}?m=${mode === 'mid' ? 'hard' : 'full'}">${t('Thử mức khó hơn')}</a><a class="btn" href="#/listening">${t('Về Luyện nghe')}</a></div></div></div>`;
         return;

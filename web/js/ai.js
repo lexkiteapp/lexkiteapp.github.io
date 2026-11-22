@@ -190,7 +190,7 @@ Criteria to use: ${kind === 'task1' ? 'Task Achievement, Coherence and Cohesion,
     const keys = Object.keys(cache); if (keys.length >= 20) delete cache[keys[0]];
     cache[id] = { ...res, at: Date.now() };
     await Store.set('aiCache', cache);
-    App.reward && App.reward({ aiGraded: 1, xp: 5 });
+    App.reward && App.reward({ aiGraded: 1, xp: Game.xpFor('step') });
     return cache[id];
   }
 
