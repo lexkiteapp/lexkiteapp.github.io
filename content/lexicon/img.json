@@ -41223,6 +41223,32 @@
    "b": "41615420488",
    "repo": "m4"
   },
+  "contract of employment#n": {
+   "h": "0bdf14575d0b3ce4",
+   "url": "https://media.lexkite.com/vimg/0bdf14575d0b3ce4.webp",
+   "alt": "contract of employment",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.401,
+    "vision": "@cf/meta/llama-4-scout-17b-16e-instruct",
+    "conf": 100,
+    "tries": 1
+   },
+   "ph": "9ffea8a0c174c8ca",
+   "at": "2026-11-22",
+   "b": "44985550983",
+   "repo": "m4"
+  },
   "contract#n": {
    "h": "9c69ceec0e76fc9b",
    "url": "https://media.lexkite.com/vimg/9c69ceec0e76fc9b.webp",

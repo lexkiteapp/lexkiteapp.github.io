@@ -11,7 +11,9 @@
 "respectively": "respectivamente",
 "diet": "dieta",
 "deterrent": "elemento disuasorio",
-"well-being": "bienestar"
+"well-being": "bienestar",
+"bond over": "conectar por algo en común",
+"bulk": "la mayor parte"
 },
 "pt": {
 "pregnant": "grávida",
@@ -26,7 +28,9 @@
 "diet": "dieta",
 "deterrent": "dissuasor",
 "well-being": "bem-estar",
-"consequent": "consequente, lógico"
+"consequent": "consequente, lógico",
+"bond over": "criar laços por algo em comum",
+"restrict": "restringir, limitar"
 },
 "fr": {
 "pregnant": "enceinte",
@@ -42,7 +46,9 @@
 "deterrent": "moyen de dissuasion",
 "well-being": "bien-être",
 "coherent": "cohérent, logique",
-"eventual": "final, qui survient à terme"
+"eventual": "final, qui survient à terme",
+"bond over": "se rapprocher grâce à",
+"scheme": "plan, dispositif"
 },
 "de": {
 "pregnant": "schwanger",
@@ -56,7 +62,10 @@
 "respectively": "jeweils, beziehungsweise",
 "diet": "Ernährung",
 "deterrent": "Abschreckung",
-"well-being": "Wohlbefinden"
+"well-being": "Wohlbefinden",
+"bond over": "sich über etwas näherkommen",
+"scheme": "Programm, Plan",
+"trace": "zurückverfolgen"
 },
 "id": {
 "pregnant": "hamil",
@@ -70,7 +79,9 @@
 "respectively": "berturut-turut",
 "diet": "pola makan, diet",
 "deterrent": "penangkal, efek jera",
-"well-being": "kesejahteraan"
+"well-being": "kesejahteraan",
+"bond over": "menjadi akrab karena minat yang sama",
+"estate": "properti, harta warisan"
 },
 "th": {
 "pregnant": "ตั้งครรภ์",
@@ -85,7 +96,15 @@
 "diet": "อาหารที่กิน, การควบคุมอาหาร",
 "deterrent": "สิ่งยับยั้ง",
 "well-being": "ความเป็นอยู่ที่ดี",
-"simulate": "จำลอง, เลียนแบบ"
+"simulate": "จำลอง, เลียนแบบ",
+"found": "ก่อตั้ง",
+"outcome": "ผลลัพธ์",
+"construct": "ก่อสร้าง",
+"bulk": "ส่วนใหญ่",
+"levy": "ภาษี, ค่าธรรมเนียมพิเศษ",
+"entity": "หน่วยงาน, นิติบุคคล",
+"reside": "พำนัก",
+"dynamic": "คึกคัก, มีพลัง"
 },
 "zh": {
 "pregnant": "怀孕的",
@@ -100,7 +119,8 @@
 "diet": "饮食",
 "deterrent": "威慑因素",
 "well-being": "幸福、健康",
-"want": "想要"
+"want": "想要",
+"sector": "部门、领域"
 },
 "ja": {
 "pregnant": "妊娠している",
@@ -233,7 +253,12 @@
 "substantial": "相当な",
 "implement": "実施する",
 "discriminate": "区別する, 差別する",
-"enhance": "高める, 強化する"
+"enhance": "高める, 強化する",
+"found": "設立する",
+"extract": "取り出す、抽出する",
+"sum": "金額、合計",
+"effective immediately": "ただちに有効",
+"visible": "目に見える"
 },
 "ko": {
 "pregnant": "임신한",
@@ -247,7 +272,10 @@
 "respectively": "각각, 순서대로",
 "diet": "식단, 식습관",
 "deterrent": "억제 요인",
-"well-being": "웰빙, 행복"
+"well-being": "웰빙, 행복",
+"sum": "금액, 합계",
+"restrict": "제한하다",
+"inevitable": "불가피한, 피할 수 없는"
 },
 "hi": {
 "pregnant": "गर्भवती",
@@ -261,7 +289,10 @@
 "respectively": "क्रमशः",
 "diet": "आहार",
 "deterrent": "निवारक",
-"well-being": "कल्याण, सुख-स्वास्थ्य"
+"well-being": "कल्याण, सुख-स्वास्थ्य",
+"found": "स्थापना करना",
+"visible": "दिखाई देने वाला",
+"bulk": "अधिकांश हिस्सा"
 },
 "ar": {
 "pregnant": "حامل",
@@ -275,7 +306,9 @@
 "respectively": "على التوالي",
 "diet": "نظام غذائي",
 "deterrent": "رادع",
-"well-being": "الرفاهية"
+"well-being": "الرفاهية",
+"bond over": "تقوية العلاقة بفضل اهتمام مشترك",
+"incline": "يميل إلى"
 },
 "ru": {
 "pregnant": "беременная",
