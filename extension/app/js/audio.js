@@ -44,9 +44,14 @@
   const VO_SUB = ['user', 'probe', 'ios', 'mem', 'cores', 'remote', 'state'], VO_WHY = ['off', 'wait', 'load', 'fail', 'lang', 'pref', 'part', ...VO_SUB.map(x => 'off_' + x)], vo = {}, inc = k => { vo[k] = (vo[k] || 0) + 1; };
   // w = lý do; sub = nhãn con của 'off' (máy/cờ nào); part = true khi một PHẦN câu đã có file Kokoro nhưng cả đoạn vẫn rơi về giọng máy
   const src = (k, w, sub, part) => { if (!/^[fks]$/.test(k)) return; inc(k); stats['src_' + k] = vo[k]; if (k !== 's') return; if (VO_WHY.includes(w)) inc('s_' + w); if (w === 'off' && VO_SUB.includes(sub)) inc('s_off_' + sub); if (part) inc('s_part'); };
+  // Câu rơi về giọng máy: chỉ KHÓA băm KVoice.lineKey (giọng|câu → FNV 32-bit base36, không văn bản) + trang (#/route) → CI ghép khóa với
+  // nội dung tĩnh trong repo và dựng sẵn file Kokoro cho câu hay rơi nhất (scripts/sentence-audio/misses.mjs). Trần 300 khóa/phiên.
+  const vm = {}, vr = {}, KEY_RE = /^[0-9a-z]{1,8}$/, RT_RE = /^[a-z][a-z0-9-]{0,23}$/;
+  const miss = (key, route) => { if (!KEY_RE.test(key || '')) return; if (vm[key] || Object.keys(vm).length < 300) vm[key] = (vm[key] || 0) + 1; const r = RT_RE.test(route || '') ? route : 'other'; vr[r] = (vr[r] || 0) + 1; };
+  const top = (o, n) => Object.fromEntries(Object.entries(o).sort((a, b) => b[1] - a[1]).slice(0, n));
   const sysRate = c => (c.s || 0) / Math.max(1, (c.f || 0) + (c.k || 0) + (c.s || 0));
   const fnv36 = s => { let h = 0x811c9dc5; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; } return h.toString(36); }; // = khóa audio/w (ui.js, sw.js)
-  const api = { fnv36, genderOf, kokoro, genderFor, voiceScore, rank, pickVoice, stats, note, src, vo, sysRate, VO_WHY };
+  const api = { fnv36, genderOf, kokoro, genderFor, voiceScore, rank, pickVoice, stats, note, src, vo, vm, vr, miss, top, sysRate, VO_WHY };
   if (typeof module !== 'undefined' && module.exports && !g.document) { module.exports = api; return; }
 
   // Mở khóa (iOS Safari/WebKit): AudioContext + WAV im lặng 1 mẫu (data: có trong CSP media-src)
@@ -137,7 +142,7 @@
     try { skip = skip || localStorage.getItem('lk.noTrack') === '1'; } catch (e) { /* bỏ qua */ }
     if (!Object.keys(vo).length) return;
     const p = (g.Store && g.Store.isExtension) || /-extension:$/.test(location.protocol) ? 'ext' : g.Capacitor && g.Capacitor.isNativePlatform && g.Capacitor.isNativePlatform() ? 'app' : 'web';
-    try { if (skip || navigator.sendBeacon((/(^|\.)lexkite\.(com|pages\.dev)$/.test(h) ? '' : 'https://lexkite.com') + '/api/hit', JSON.stringify({ t: 'vo', c: vo, p }))) Object.keys(vo).forEach(k => delete vo[k]); } catch (e) { /* bỏ qua */ }
+    try { if (skip || navigator.sendBeacon((/(^|\.)lexkite\.(com|pages\.dev)$/.test(h) ? '' : 'https://lexkite.com') + '/api/hit', JSON.stringify({ t: 'vo', c: vo, p, m: top(vm, 20), r: top(vr, 8) }))) [vo, vm, vr].forEach(o => Object.keys(o).forEach(k => delete o[k])); } catch (e) { /* bỏ qua */ }
   }
   g.addEventListener('visibilitychange', () => document.visibilityState === 'hidden' && flushVo());
   g.addEventListener('pagehide', flushVo);

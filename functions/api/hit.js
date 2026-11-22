@@ -52,6 +52,14 @@ export function voRows(b) {
   for (const k of ['f', 'k', 's']) if (n(k) > 0) rows.push([`vo:${k}:${p}`, n(k)]);
   return rows;
 }
+// Câu rơi giọng máy (beacon t:'vo' kèm m = { khóa băm: số lần } ≤ 20, r = { trang: số lần } ≤ 8): 'vm:<khóa>' / 'vr:<trang>' – chỉ khóa băm, không văn bản.
+// Đọc: /api/vmiss (CI ký HMAC) → scripts/sentence-audio/misses.mjs dựng sẵn file Kokoro cho câu hay rơi nhất.
+export function vmRows(b) {
+  const rows = [], take = (o, re, pre, cap) => { if (!o || typeof o !== 'object' || Array.isArray(o)) return; let i = 0;
+    for (const [k, v] of Object.entries(o)) { if (i >= cap) break; const n = Math.min(Math.max(Math.floor(+v || 0), 0), 50); if (re.test(k) && n > 0) { rows.push([pre + k, n]); i++; } } };
+  take(b && b.m, /^[0-9a-z]{1,8}$/, 'vm:', 20); take(b && b.r, /^[a-z][a-z0-9-]{0,23}$/, 'vr:', 8);
+  return rows;
+}
 let ready = false;
 const ok = () => new Response(null, { status: 204, headers: { 'Cache-Control': 'no-store' } });
 const cut = (v, n) => String(v == null ? '' : v).slice(0, n);
@@ -279,7 +287,7 @@ export async function onRequestPost({ request, env }) {
     } else if (b.t === 'vo' && !automation(request) && !devOrigin(request)) {
       // 🔊 Nguồn giọng (web/js/audio.js flushVo): 1 beacon/lần ẩn tab – giám sát tỷ lệ rơi về giọng máy (Quản trị + health)
       if (await limit('hvo:' + await sha('ip|' + (request.headers.get('CF-Connecting-IP') || '?')), 30, 3600)) return ok();
-      const rows = voRows(b);
+      const rows = [...voRows(b), ...vmRows(b)];
       if (rows.length) await env.DB.batch(rows.map(([kind, n]) => env.DB.prepare('INSERT INTO ext_events (day, kind, n) VALUES (?1, ?2, ?3) ON CONFLICT (day, kind) DO UPDATE SET n = n + ?3').bind(dayOf(now), kind, n)));
     } else if (b.t === 'e' && b.msg && !devOrigin(request)) {
       const msg = cut(b.msg, 300), src = cut(b.src, 200) + (b.line ? ':' + (+b.line || 0) : '');
