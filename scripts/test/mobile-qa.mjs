@@ -240,16 +240,16 @@ for (const vp of VPS) {
 // byte đã tải trước LCP – dưới mạng 4G chậm + CPU 4× thật (CDP). In cả lần nhanh lẫn lần chậm để so (thủ phạm lộ ở lần chậm). Không đổi ngưỡng/đỏ-xanh.
 const probe = [];
 if (LH) { const prate = (await rateFor(browser, 4)).rate;
-  for (const route of ['path', 'review', 'dict/hello']) for (let i = 0; i < 3; i++) {
+  for (const [route, i, fast] of [['path', 0, 0], ['path', 1, 1], ['path', 2, 0], ['review', 0, 0], ['review', 1, 1], ['dict/hello', 0, 0]]) {
     const c = await browser.newContext({ bypassCSP: true, viewport: { width: 412, height: 915 }, deviceScaleFactor: 2.625, isMobile: true, hasTouch: true, userAgent: UA, locale: 'en' });
     try {
       const pg = await c.newPage(), cdp = await c.newCDPSession(pg);
-      await cdp.send('Network.enable'); await cdp.send('Network.emulateNetworkConditions', { offline: false, latency: 150, downloadThroughput: 1.6e6 / 8, uploadThroughput: 0.75e6 / 8 }); await cdp.send('Emulation.setCPUThrottlingRate', { rate: prate });
+      await cdp.send('Network.enable'); if (!fast) await cdp.send('Network.emulateNetworkConditions', { offline: false, latency: 150, downloadThroughput: 1.6e6 / 8, uploadThroughput: 0.75e6 / 8 }); if (!fast) await cdp.send('Emulation.setCPUThrottlingRate', { rate: prate });
       await pg.addInitScript(() => { window.__lcp = []; try { new PerformanceObserver(l => { for (const e of l.getEntries()) { const el = e.element, cn = el && typeof el.className === 'string' ? el.className.trim().split(/\s+/).slice(0, 2).join('.') : ''; window.__lcp.push({ t: Math.round(e.startTime), render: Math.round(e.renderTime), load: Math.round(e.loadTime), size: e.size, url: e.url ? e.url.replace(/^.*\//, '') : '', el: el ? el.tagName.toLowerCase() + (el.id ? '#' + el.id : '') + (cn ? '.' + cn : '') : '' }); } }).observe({ type: 'largest-contentful-paint', buffered: true }); } catch (e) { /* bỏ qua */ } });
-      await pg.goto(`${BASE}/app/?sandbox=1&hl=en#/${route}`, { waitUntil: 'load', timeout: 90e3 }); await pg.waitForTimeout(6000);
+      await pg.goto(`${BASE}/app/?sandbox=1&hl=en#/${route}`, { waitUntil: 'load', timeout: 90e3 }); await pg.waitForTimeout(fast ? 4000 : 14000);
       const r = await pg.evaluate(() => { const nav = performance.getEntriesByType('navigation')[0], fcp = (performance.getEntriesByName('first-contentful-paint')[0] || {}).startTime || 0, L = window.__lcp || [], last = L.length ? L[L.length - 1].t : 0;
         const res = performance.getEntriesByType('resource').filter(x => x.responseEnd <= last); return { ttfb: Math.round(nav.responseStart), fcp: Math.round(fcp), lcp: L, bytesBeforeLcp: Math.round(res.reduce((a, x) => a + (x.transferSize || 0), 0) / 1024), reqBeforeLcp: res.length, lastBefore: res.sort((x, y) => y.responseEnd - x.responseEnd).slice(0, 4).map(x => Math.round(x.responseEnd) + ' ' + x.name.replace(/^.*\//, '')) }; });
-      probe.push({ route, run: i + 1, ...r });
+      probe.push({ route, run: i + 1, fast, ...r });
     } catch (e) { probe.push({ route, run: i + 1, error: String(e.message || e).slice(0, 120) }); }
     await c.close();
   } }
