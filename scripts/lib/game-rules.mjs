@@ -11,6 +11,6 @@ export function loadGame(store = new Map()) {
   return { Game: sb.Game, store };
 }
 export function gameRules() {
-  if (!cached) { const { Game } = loadGame(); cached = { xpFor: Game.xpFor, XPR: Game.XPR, repCut: Game.repCut }; }
+  if (!cached) { const { Game } = loadGame(); cached = { xpFor: Game.xpFor, XPR: Game.XPR, repCut: Game.repCut, weekDots: Game.weekDots, runOf: Game.runOf }; }
   return cached;
 }

@@ -45,14 +45,12 @@
       const best = state.game.best.match;
       const xp = Game.xpFor('game', { right: items.length - Math.min(misses, items.length), total: items.length }); // không thưởng tốc độ – kỷ lục giờ vẫn có huy hiệu Tia chớp
       await App.reward({ matches: 1, quizzes: 1, perfect: misses === 0 ? 1 : 0, matchTime: time, xp });
-      view.innerHTML = `<div class="study-wrap"><div class="card empty celebrate">
-        <div class="em">⚡</div><h2>${time}s</h2>
-        <p>${!best || time < best ? '🏅 ' + t('Kỷ lục mới!') : t('Kỷ lục của bạn: {best}s', { best })} · ${t('{n} lần sai', { n: misses })} · +${xp} XP</p>
-        <div class="row center">${items.map(w => `<span class="chip">${esc(w.word)} = ${esc(mean(w))}</span>`).join('')}</div>
-        <div class="row center" style="margin-top:1.2rem"><button class="btn primary" id="again">${t('Chơi lại')}</button><a class="btn" href="#/practice?src=${encodeURIComponent(src)}">${t('Chế độ khác')}</a></div>
-      </div></div>`;
-      $('#again').onclick = () => runMatch(src);
-      Sfx.finish({ pct: Math.round(items.length / (items.length + misses) * 100), xp, ms: time * 1000, good: 0, el: $('.celebrate', view) }); // âm thắng + pháo giấy + 4 thẻ số liệu (đúng ngay lần đầu)
+      const h0 = location.hash, rec = !best || time < best, pct = Math.round(items.length / (items.length + misses) * 100);
+      await App.need('gend').catch(() => {});
+      if (location.hash === h0 && window.GameEnd) GameEnd.show(view, { icon: '⚡', chip: t('Ghép thẻ'), head: rec ? '🏅 ' + t('Kỷ lục mới!') : t('Kỷ lục của bạn: {best}s', { best }), acc: pct, xp, good: 0,
+        tiles: [[time + 's', t('Thời gian')], [misses, t('Lần sai')], [(rec ? time : best) + 's', t('Kỷ lục')]],
+        words: items.map(w => w.word), more: GameEnd.row('style', '', items.map(w => `<span lang="en">${esc(w.word)}</span> = ${esc(mean(w))}`).join(' · ')),
+        again: { label: t('Chơi lại'), fn: () => runMatch(src) }, rev: { label: t('Chế độ khác'), href: '#/practice?src=' + encodeURIComponent(src) } });
       practiceDone({ mode: 'match', src, pct: 100 });
     }
   }
@@ -129,13 +127,15 @@
       };
     };
     const finish = () => {
-      App.reward({ quizzes: 1, xp: Game.xpFor('set', { right: good, total: items.length, mode: 'say', paid: 1 }) });
-      view.innerHTML = `<div class="study-wrap"><div class="card empty celebrate"><div class="em">🎙️</div>
-        <h2>${t('Phát âm tốt {good}/{total} từ', { good, total: items.length })}</h2><p class="muted">${t('Luyện đều mỗi ngày để Speaking tự nhiên hơn.')}</p>
-        <div class="row center"><button class="btn primary" id="again">${t('Luyện tiếp')}</button><a class="btn" href="#/practice">${t('Chế độ khác')}</a></div></div></div>`;
-      $('#again').onclick = () => runSpeak(src);
-      Sfx.finish({ pct: Math.round(good / Math.max(1, items.length) * 100), xp: Game.xpFor('set', { right: good, total: items.length, mode: 'say', paid: 1 }), good: 70, el: $('.celebrate', view) });
-      practiceDone({ mode: 'speak', src, pct: Math.round(good / Math.max(1, items.length) * 100) }); // buổi học theo Ngày (path-day.js)
+      const xp = Game.xpFor('set', { right: good, total: items.length, mode: 'say', paid: 1 });
+      App.reward({ quizzes: 1, xp });
+      const pct = Math.round(good / Math.max(1, items.length) * 100), h0 = location.hash;
+      App.need('gend').catch(() => {}).then(() => {
+        if (location.hash === h0 && window.GameEnd) GameEnd.show(view, { icon: '🎙️', chip: t('Luyện phát âm'), head: t('Phát âm tốt {good}/{total} từ', { good, total: items.length }), acc: pct, xp, good: 70,
+          tiles: [[good + '/' + items.length, t('Đúng')]], sub: t('Luyện đều mỗi ngày để Speaking tự nhiên hơn.'), words: items.map(w => w.word),
+          again: { label: t('Luyện tiếp'), fn: () => runSpeak(src) }, rev: { label: t('Chế độ khác'), href: '#/practice' } });
+        practiceDone({ mode: 'speak', src, pct }); // sau màn kết: path-reward gắn vào khe .celebrate
+      }); // buổi học theo Ngày (path-day.js)
     };
     show();
   }

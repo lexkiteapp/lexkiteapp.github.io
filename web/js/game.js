@@ -75,13 +75,23 @@
       : XPR.step;
     return Math.min(kind === 'game' ? XPR.game : XPR.cap, Math.max(0, Math.round(x))); // game: trần 40
   }
+  /** Tuần này (thứ 2 → CN) cho thẻ chuỗi ngày: `on[i]` = đã học ngày i (hôm nay tính luôn vì bài vừa xong), `today` = chỉ số hôm nay, `n` = số ngày học trong tuần,
+   *  `days` = Date từng ngày (màn kết gắn nhãn thứ; dùng chung bài học + game-end.js). Khác `streak` (chuỗi LIỀN tới hôm nay): 2/7 ngày học trong tuần có thể là chuỗi 1 – hai số tách nhãn, không mâu thuẫn. */
+  function weekDots(act, now, keyOf) {
+    const d0 = new Date(now), mon = new Date(d0); mon.setDate(d0.getDate() - ((d0.getDay() + 6) % 7));
+    const days = [], on = [];
+    for (let i = 0; i < 7; i++) { const x = new Date(mon); x.setDate(mon.getDate() + i); days.push(x); on.push(keyOf(x) === keyOf(d0) || !!(act && act.has(keyOf(x)))); }
+    return { on, days, today: (d0.getDay() + 6) % 7, n: on.filter(Boolean).length };
+  }
+  /** Chuỗi liền kết thúc hôm nay (hôm nay tính nếu vừa học) trong tập ngày học – dùng khi App.streak() chưa cập nhật */
+  const runOf = (act, now, keyOf) => { let n = 0; const d = new Date(now); while (n < 4000 && (n === 0 || (act && act.has(keyOf(d))))) { n++; d.setDate(d.getDate() - 1); if (!(act && act.has(keyOf(d)))) break; } return n; };
   const repCut = (x, c) => (c >= 5 ? Math.min(x, XPR.step) : c >= 3 ? Math.round(x / 2) : x);
 
   const EMPTY = () => ({ xp: 0, days: {}, total: { reviews: 0, newWords: 0, quizzes: 0, perfect: 0, matches: 0, spoken: 0, readings: 0, lookups: 0 }, best: {}, badges: {}, questsDone: {} });
 
   let gameLock = Promise.resolve();
   const Game = {
-    LEVEL_TITLES, BADGES, levelOf, questsFor, XPR, xpFor, repCut,
+    LEVEL_TITLES, BADGES, levelOf, questsFor, XPR, xpFor, repCut, weekDots, runOf,
     async get() { const s = await Store.get('game', null); return s ? { ...EMPTY(), ...s, total: { ...EMPTY().total, ...s.total } } : EMPTY(); },
 
     // Ghi nhận hoạt động: Game.track({ reviews: 1, xp: 10 })

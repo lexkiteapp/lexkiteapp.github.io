@@ -166,12 +166,11 @@
       if (location.hash !== hash0) return; // đã rời màn trong lúc chờ thưởng: không ghi đè trang mới
       if (isBest) try { localStorage.setItem(BKEY, String(S.score)); } catch (e) { /* bỏ qua */ }
       const missed = [...new Set(S.missed.map(key))].slice(0, 8);
-      view.innerHTML = `<div class="study-wrap"><div class="card empty celebrate"><div class="em">🥁</div><h2 dir="ltr">${S.score}</h2>
-        <p>${isBest ? '🏅 ' + t('Kỷ lục mới!') : t('Kỷ lục của bạn: {best}', { best })} · ${t('Độ chính xác {n}%', { n: acc })} · ${t('Combo cao nhất {n}', { n: S.bestCombo })} · +${xp} XP</p>
-        ${missed.length ? `<p class="small muted">${t('Từ nhấn bị lỡ')}</p><div class="row center">${missed.map(w => `<span class="chip" lang="en">${esc(w)}</span>`).join('')}</div>` : ''}
-        <div class="row center" style="margin-top:1.2rem"><button class="btn primary" id="rhAgain">${t('Chơi lại')}</button><a class="btn" href="#/practice?src=${encodeURIComponent(src || 'deck')}">${t('Chế độ khác')}</a></div></div></div>`;
-      $('#rhAgain').onclick = () => run(H, src);
-      g.Sfx.finish({ pct: acc, xp, good: 80, el: $('.celebrate', view) });
+      await App.need('gend').catch(() => {});
+      if (location.hash === hash0 && g.GameEnd) g.GameEnd.show(view, { icon: '🥁', chip: t('Nhịp điệu'), head: isBest ? '🏅 ' + t('Kỷ lục mới!') : t('Kỷ lục của bạn: {best}', { best }), acc, xp,
+        tiles: [[S.score, t('Điểm')], [S.hits + '/' + S.stressed, t('Đúng')], [S.bestCombo, t('Combo tốt nhất')], [Math.max(best, S.score), t('Kỷ lục')]],
+        words: missed, more: missed.length ? g.GameEnd.row('graphic_eq', t('Từ nhấn bị lỡ') + ':', missed.map(w => `<span lang="en">${esc(w)}</span>`).join(', ')) : '',
+        again: { label: t('Chơi lại'), fn: () => run(H, src) }, rev: { label: t('Chế độ khác'), href: '#/practice?src=' + encodeURIComponent(src || 'deck') } });
       practiceDone({ mode: 'rhythm', src, pct: acc });
     }
     intro();

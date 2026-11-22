@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import assert from 'node:assert/strict';
 import jsdom from 'jsdom';
 import { gameRules } from '../lib/game-rules.mjs';
+import { withGameEnd } from '../lib/game-end-env.mjs';
 
 const read = f => fs.readFileSync(new URL('../../' + f, import.meta.url), 'utf8');
 const dom = new jsdom.JSDOM('<!doctype html><body><main id="view"></main></body>', { url: 'https://lexkite.com/app/#/practice/rhythm', runScripts: 'outside-only', pretendToBeVisual: true });
@@ -26,6 +27,7 @@ w.Core = { Cards: { update: async () => {} }, SRS: { review: (s, g) => (reviews.
 const view = w.document.getElementById('view');
 w.App = { view, state: { cards: deck, settings: {}, game: { best: {} } }, reward: async d => { rewards.push(d); }, cleanup: null };
 w.UI = { $: (s, r) => (r || w.document).querySelector(s), esc: s => String(s).replace(/[<>&"]/g, ''), speak: x => said.push(x), WEAK: { to: ['tə', 'tə', ''], the: ['ðə', 'ðə', ''], a: ['ə', 'ə', ''], for: ['fə', 'fər', ''], was: ['wəz', 'wəz', ''], at: ['ət', 'ət', ''], in: ['ɪn', 'ɪn', ''], after: ['ɑːftə', 'æftər', ''] } };
+withGameEnd(w); // màn kết = GameEnd thật (khung Stitch lesson-complete)
 w.Sfx = { correct: () => answers.push(true), wrong: () => answers.push(false), answer: () => { throw new Error('không được gọi Sfx.answer (aria-live từng chạm + tải gói lười giữa vòng)'); }, finish() {}, haptic: e => haptics.push(e) };
 const H = {
   accent: () => 'en-GB', emptySource: () => { view.innerHTML = 'EMPTY'; }, norm: x => ({ word: x.word, ex: x.ex, vi: x.vi, pos: '', ipa: '' }), practiceDone: d => done.push(d),
@@ -77,19 +79,21 @@ assert.ok(chips().some(c => c.classList.contains('wrong')) && chips().some(c => 
 assert.equal(reviews.length, r1, 'sai/lỡ không bị phạt SRS (bài nhịp, không phải nhớ nghĩa)'); flush();
 // --- câu 3: tab ẩn giữa chừng → dừng; quay lại → làm lại câu (không mất lượt) ---
 Object.defineProperty(w.document, 'hidden', { configurable: true, get: () => true }); w.document.dispatchEvent(new w.Event('visibilitychange'));
-now += 60000; frame(); assert.ok(!view.querySelector('.celebrate'), 'tab ẩn không được chạy tiếp');
+now += 60000; frame(); assert.ok(!view.querySelector('#lsn'), 'tab ẩn không được chạy tiếp');
 Object.defineProperty(w.document, 'hidden', { configurable: true, get: () => false }); w.document.dispatchEvent(new w.Event('visibilitychange'));
 assert.ok(view.querySelector('#rhT'), 'quay lại phải hiện lại câu'); assert.ok(/3\/5/.test(view.textContent), 'vẫn là câu 3');
 // phím Space trên nút ✕ (thoát) không được bị tính là chạm
 now += 4 * 700 + 100; const nA = answers.length; view.querySelector('.study-top a.icon-btn').dispatchEvent(new w.KeyboardEvent('keydown', { key: ' ', bubbles: true })); assert.equal(answers.length, nA, 'Space trên ✕ không phải chạm');
 // --- câu 3, 4, 5: bỏ qua không chạm → 0 điểm, vẫn kết thúc bình thường ---
 play('none'); flush(); play('none'); flush(); play('none'); await new Promise(r => setImmediate(r)); flush(); await new Promise(r => setImmediate(r));
-assert.ok(view.querySelector('.celebrate'), 'sau 5 câu phải ra màn kết thúc');
+for (let k = 0; k < 5 && !view.querySelector('#lsn'); k++) await new Promise(r => setImmediate(r)); // App.need('gend')
+assert.ok(view.querySelector('#lsn.gend'), 'sau 5 câu phải ra màn kết thúc (GameEnd)');
 assert.equal(rewards.length, 1); assert.equal(rewards[0].quizzes, 1); assert.ok(rewards[0].xp >= 5 && rewards[0].xp <= 40);
 assert.equal(done.length, 1); assert.equal(done[0].mode, 'rhythm'); assert.ok(done[0].pct >= 0 && done[0].pct <= 100);
-assert.ok(view.querySelector('#rhAgain') && view.querySelector('a.btn[href^="#/practice"]'), 'có Chơi lại và Chế độ khác');
+assert.ok(/Chơi lại/.test(view.querySelector('#lsnAgain').textContent) && /^#\/practice/.test(view.querySelector('#lsnRev').getAttribute('href')), 'có Chơi lại và Chế độ khác');
+assert.ok(!view.querySelector('#lsnShare'), 'không có nút chia sẻ giả (chỉ blitz có thách đấu)');
 assert.ok(/Từ nhấn bị lỡ/.test(view.textContent), 'liệt kê từ nhấn bị lỡ');
 assert.equal(w.App.cleanup && (w.App.cleanup(), 'ok'), 'ok', 'cleanup gọi được nhiều lần');
 // --- chơi lại ---
-view.querySelector('#rhAgain').click(); assert.ok(view.querySelector('#rhGo'), 'chơi lại → màn mở đầu');
+view.querySelector('#lsnAgain').click(); assert.ok(view.querySelector('#rhGo'), 'chơi lại → màn mở đầu');
 console.log('play-rhythm-run OK');

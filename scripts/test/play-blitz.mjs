@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import assert from 'node:assert/strict';
 import jsdom from 'jsdom';
 import { gameRules } from '../lib/game-rules.mjs';
+import { withGameEnd } from '../lib/game-end-env.mjs';
 
 const src = fs.readFileSync(new URL('../../web/cpack/play-app/play-blitz.js', import.meta.url), 'utf8');
 const dom = new jsdom.JSDOM('<!doctype html><body><main id="view"></main></body>', { url: 'https://lexkite.com/app/#/practice/blitz', runScripts: 'outside-only', pretendToBeVisual: true });
@@ -48,6 +49,7 @@ const view = w.document.getElementById('view');
 w.App = { view, state: { cards: deck, game: { best: { blitz: 50 } } }, reward: async d => { rewards.push(d); }, logMistake: m => mistakes.push(m), cleanup: null };
 w.UI = { $: (s, r) => (r || w.document).querySelector(s), esc: s => String(s).replace(/[<>&"]/g, ''), toast() {}, speak: x => said.push(x), pic: () => '<img class="pic">' };
 w.Sfx = { answer: ok => answers.push(ok), finish() {} };
+withGameEnd(w); // màn kết = GameEnd thật (khung Stitch lesson-complete)
 w.speechSynthesis = {};
 const H = {
   accent: () => 'us', emptySource: () => { view.innerHTML = 'EMPTY'; }, mean: x => x.vi, norm, picOk: () => false, practiceDone() {},
@@ -71,15 +73,17 @@ w.document.dispatchEvent(new w.KeyboardEvent('keydown', { key: '1' })); flush();
 assert.equal(reviews.length, 2, 'thẻ chưa đến hạn không được chấm SRS'); assert.equal(answers.length, 3, 'phím 1 phải trả lời');
 // tab ẩn → dừng giờ
 Object.defineProperty(w.document, 'hidden', { configurable: true, get: () => true }); w.document.dispatchEvent(new w.Event('visibilitychange'));
-now += 120000; timers.forEach(f => f()); assert.ok(!view.querySelector('.celebrate'), 'tab ẩn mà giờ vẫn chạy');
+now += 120000; timers.forEach(f => f()); assert.ok(!view.querySelector('#lsn'), 'tab ẩn mà giờ vẫn chạy');
 Object.defineProperty(w.document, 'hidden', { configurable: true, get: () => false }); w.document.dispatchEvent(new w.Event('visibilitychange'));
 assert.ok(/^\d+s$/.test(view.querySelector('#bzT').textContent));
 // hết giờ → màn kết thúc, thưởng 1 lần, kỷ lục cũ 50 hiện đúng, từ sai liệt kê
 now += 61000; timers.forEach(f => f()); await new Promise(r => setImmediate(r));
-assert.ok(view.querySelector('.celebrate'), 'hết giờ phải ra màn kết thúc');
+assert.ok(view.querySelector('#lsn.gend #lsnAgain'), 'hết giờ phải ra màn kết thúc (GameEnd)');
+assert.ok(/Play again|Chơi lại/.test(view.querySelector('#lsnAgain').textContent) && view.querySelector('#lsnRev').getAttribute('href') === '#/practice?src=deck', 'màn kết: Chơi lại + Chế độ khác');
+assert.ok(view.querySelector('.lsn-tiles').textContent.includes('Combo tốt nhất') && /50/.test(view.querySelector('.lsn-tiles').textContent), 'ô số: điểm, đúng, combo, kỷ lục cũ 50');
 assert.equal(rewards.length, 1); assert.equal(rewards[0].blitz, 1); assert.ok(rewards[0].xp >= 5);
 assert.ok(view.textContent.includes('happy'), 'từ sai phải được liệt kê để ôn');
-assert.ok(view.querySelector('#bzCh'), 'phải có nút Thách đấu bạn bè');
+assert.equal(view.querySelector('#lsnShare').getAttribute('aria-label'), 'Thách đấu bạn bè', 'phải có nút Thách đấu bạn bè');
 assert.equal(timers.length, 0, 'phải dọn bộ đếm giờ');
 // 👻 bóng ma (docs/specs/play-community-1211.md #1): bóng ma lần trước hiện chip, hết giờ thua → báo thiếu điểm, điểm 0 không ghi đè bóng ma
 w.localStorage.setItem('lk.blitz.ghost', JSON.stringify({ score: 60, trace: [[300, 1], [1300, 1], [2300, 1], [3300, 1]] }));
