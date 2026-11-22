@@ -519,6 +519,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
     return (m ? tp && tp.words && tp.words.length : /^(deck|due|weak|forgetting|phrases)$/.test(src)) ? ['words', 'tsl'] : [];
   };
   const V2_ROUTES = new Set(['train', 'skills', 'me', 'say', 'goal']);
+  const HB_ROUTES = new Set(['vocab', 'library', 'tests']); // trang gắn thanh hub Stitch (ST2.hubbar/hubPage) lúc dựng xong: thanh trên cũ phải ẩn NGAY lúc chạm (class hbpre), không thì #view nhảy lên 56 px khi trang dựng (CLS 0,066 #/vocab #/tests #/library)
   // 🧈 Cuộn: docs/PERF-SCROLL.md
   const Scroll = (() => {
     const de = document.documentElement, pos = new Map(); let off = 0, seq = 0, cur = '', inputAt = 0, movedAt = 0;
@@ -561,6 +562,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
     // v2pre = #view không đệm (màn Stitch tràn khung). Đang hiện màn v2 mà đi sang trang thường: GIỮ v2pre tới khi nội dung mới thay vào, không thì màn cũ dịch ~26 px lúc đệm quay lại (CLS sweep #/speak)
     const preNow = ux1 && (reviewHub || V2_ROUTES.has(name) || (name === 'lesson' && !!arg) || (name === 'league' && !!state.user)), holdPre = !preNow && document.body.classList.contains('v2pre'), first0 = view.firstElementChild;
     if (!holdPre) document.body.classList.toggle('v2pre', preNow);
+    document.body.classList.toggle('hbpre', ux1 && HB_ROUTES.has(name));
     try { localStorage.setItem('lk.ux1c', ux1 ? '1' : '0'); } catch (e) { /* bỏ qua */ }
     if (!ux1) document.body.classList.remove('ux1');
     if (name !== 'welcome') document.body.classList.remove('bare'); // thanh trên hiện ngay lúc chạm (CLS #/home)
@@ -1482,7 +1484,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
       chrome.storage.onChanged.addListener(ch => { if (ch.cards) { state.cards = Cards.view(Object.assign(Object.create(null), ch.cards.newValue || {})); updateChrome(); } });
     }
     if (!Store.isExtension && !(window.VBNative && VBNative.is) && 'serviceWorker' in navigator && location.protocol.startsWith('http')) navigator.serviceWorker.register('/sw.js', { scope: '/app/' }).catch(() => {}); // app ở /app/ (trang / là trang giới thiệu tĩnh) – sw.js gốc tự chuyển bản cài cũ (phạm vi /) sang chế độ chuyển tiếp, xem web/sw.js. Đăng ký lúc này = sau lần vẽ đầu (JS khung nạp sau khung hình đầu – scripts/app-loader.mjs) nên không làm chậm màn đầu
-    setTimeout(() => manifest().then(() => Promise.all(BUNDLES.voice.map(f => fetch(f).catch(() => {})))).then(() => App.calm(() => { App.need('voice').catch(() => {}); App.need('klocal').catch(() => {}); })).catch(() => {}), 4000); /* giọng Kokoro cho phát âm từ ở mọi trang */
+    later(() => manifest().then(() => Promise.all(BUNDLES.voice.map(f => fetch(f).catch(() => {})))).then(() => App.calm(() => { App.need('voice').catch(() => {}); App.need('klocal').catch(() => {}); })).catch(() => {})); /* giọng Kokoro cho phát âm từ ở mọi trang: SAU lần vẽ đầu (+2,5 s, rảnh) – trước đây hẹn 4 s từ lúc mở app nên trang sâu (#/path, #/dict) còn đang vẽ thì tải + chạy audio-index (~100 ms chặn luồng, LCP 8,3 s > 7,5 s, 22/11) */
     App.offerRescue = offerRescue; applyFreeze().then(() => setTimeout(() => offerRescue().catch(() => {}), 1500)).catch(() => {});
     later(() => App.need('install').catch(() => {})); // 📲 mời cài app (chỉ sau khi đã học, js/install-sheet.js)
     later(() => App.need('remind').then(() => Remind.start()).catch(() => {})); // ⏰ nhắc học (js/remind.js, docs/REMINDERS.md)
