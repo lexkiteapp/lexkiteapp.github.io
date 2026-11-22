@@ -75,5 +75,7 @@
 "Định nghĩa:":"परिभाषा:",
 "Đối thoại":"संवाद",
 "Ảnh minh họa":"चित्र",
+"Ngày mai ôn {n} từ để nhớ lâu":"कल दोहराने के लिए शब्द: {n}",
+"Ngày mai: bài tiếp theo đã sẵn sàng":"कल: आपका अगला पाठ तैयार है",
 });
 })(typeof self !== 'undefined' ? self : this);

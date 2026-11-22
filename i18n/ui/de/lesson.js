@@ -75,5 +75,7 @@
 "Định nghĩa:":"Definition:",
 "Đối thoại":"Dialog",
 "Ảnh minh họa":"Bild",
+"Ngày mai ôn {n} từ để nhớ lâu":"Morgen zu wiederholen: {n} Wörter",
+"Ngày mai: bài tiếp theo đã sẵn sàng":"Morgen: Deine nächste Lektion ist bereit",
 });
 })(typeof self !== 'undefined' ? self : this);

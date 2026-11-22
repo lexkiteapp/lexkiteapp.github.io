@@ -356,9 +356,8 @@
     const mo = new MutationObserver(() => { if (document.getElementById('modal').hidden) { mo.disconnect(); if (!ans) ev('ask_no', tag); } });
     mo.observe(document.getElementById('modal'), { attributes: true, attributeFilter: ['hidden'] });
   }
-  // Phễu lần đầu (hit.js ONB_EV, docs/specs/retention-1211.md §22/11): lk.fw = ngày xong bài ĐẦU TIÊN (chỉ trên máy); máy đã học từ trước bản này → 'old', không tính.
-  // Mở lại đúng ngày +1 / +7 sau bài đầu → fw_d1 / fw_d7 (mỗi mốc 1 lần) – D1 của người ĐÃ có khoảnh khắc thành công, so trước/sau theo ngày phát hành.
-  const hab = e => { if (!OFF && App.habTrack) App.habTrack(e); };
+  // Phễu (hit.js ONB_EV): lk.fw = ngày xong bài đầu ('old' = máy cũ); mở lại +1/+7 → fw_d1/fw_d7
+  const hab = e => App.habTrack && App.habTrack(e);
   const dayN = k => midnight(new Date(k + 'T12:00:00').getTime());
   const firstWin = () => {
     if (OFF || ls.get('lk.fw', '')) return;
@@ -369,9 +368,8 @@
   let doneOnce = false, mo = null;
   const lessonDone = () => { if (doneOnce) return; doneOnce = true; if (mo) mo.disconnect(); firstWin(); setTimeout(() => softAsk().catch(() => {}), 1800); };
   addEventListener('lexkite:practice-done', lessonDone); addEventListener('lexkite:test-done', lessonDone);
-  // Màn kết bài: ôn thẻ (.rev-done) và BÀI HỌC lesson engine (.lsn-end – đường chính khi cờ ux1 bật, không phát practice-done) → hỏi nhắc mềm sau bài đầu.
-  // subtree: màn kết bài cũ chèn vào #lsnBody bên trong #lsn; bài thử (?demo=) không tính.
-  const lsnOff = () => { try { const c = JSON.parse(localStorage.getItem('lk.cfg') || '{}').v || {}; return String(c.rem_lsn) === '0'; } catch (e) { return false; } }; // công tắc khẩn /api/config rem_lsn = '0'
+  // Màn kết: ôn thẻ .rev-done + bài học .lsn-end (ux1 không phát practice-done); bài thử ?demo= không tính
+  const lsnOff = () => /"rem_lsn":"0"/.test(raw('lk.cfg') || '');
   const ended = () => (document.querySelector('.lsn-end') && !/[?&]demo=/.test(location.hash) && !lsnOff()) || (document.querySelector('.rev-done') && ((state.stats.days || {})[todayKey()] || 0) > 0);
   mo = new MutationObserver(() => { if (!doneOnce && ended()) lessonDone(); }); mo.observe(App.view || document.body, { childList: true, subtree: true });
 

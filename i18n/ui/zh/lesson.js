@@ -75,5 +75,7 @@
 "Định nghĩa:":"释义：",
 "Đối thoại":"对话",
 "Ảnh minh họa":"配图",
+"Ngày mai ôn {n} từ để nhớ lâu":"明天要复习的单词：{n} 个",
+"Ngày mai: bài tiếp theo đã sẵn sàng":"明天：下一课已准备好",
 });
 })(typeof self !== 'undefined' ? self : this);

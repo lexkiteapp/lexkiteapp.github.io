@@ -75,5 +75,7 @@
 "Định nghĩa:":"정의:",
 "Đối thoại":"대화",
 "Ảnh minh họa":"그림",
+"Ngày mai ôn {n} từ để nhớ lâu":"내일 복습할 단어: {n}개",
+"Ngày mai: bài tiếp theo đã sẵn sàng":"내일: 다음 레슨이 준비되어 있어요",
 });
 })(typeof self !== 'undefined' ? self : this);

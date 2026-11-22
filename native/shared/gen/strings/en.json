@@ -212,6 +212,8 @@
   "lesson.tapToListen": "Tap to listen",
   "lesson.streakNow": "Current streak",
   "lesson.thisWeek": "This week",
+  "lesson.tomorrowDue": "Words to review tomorrow: {n}",
+  "lesson.tomorrowNext": "Tomorrow: your next lesson is ready",
   "lesson.bestCombo": "Best combo",
   "lesson.reviewAgain": "Practise again",
   "lesson.idk": "I don’t know",

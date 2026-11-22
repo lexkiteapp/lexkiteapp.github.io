@@ -75,5 +75,7 @@
 "Định nghĩa:":"Definisi:",
 "Đối thoại":"Dialog",
 "Ảnh minh họa":"Gambar",
+"Ngày mai ôn {n} từ để nhớ lâu":"Kata untuk diulas besok: {n}",
+"Ngày mai: bài tiếp theo đã sẵn sàng":"Besok: pelajaran berikutnya sudah siap",
 });
 })(typeof self !== 'undefined' ? self : this);

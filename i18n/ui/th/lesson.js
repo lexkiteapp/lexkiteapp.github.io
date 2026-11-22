@@ -75,5 +75,7 @@
 "Định nghĩa:":"คำนิยาม:",
 "Đối thoại":"บทสนทนา",
 "Ảnh minh họa":"ภาพประกอบ",
+"Ngày mai ôn {n} từ để nhớ lâu":"คำที่ต้องทบทวนพรุ่งนี้: {n}",
+"Ngày mai: bài tiếp theo đã sẵn sàng":"พรุ่งนี้: บทเรียนถัดไปพร้อมแล้ว",
 });
 })(typeof self !== 'undefined' ? self : this);

@@ -75,5 +75,7 @@
 "Định nghĩa:":"Определение:",
 "Đối thoại":"Диалог",
 "Ảnh minh họa":"Картинка",
+"Ngày mai ôn {n} từ để nhớ lâu":"Слов на повторение завтра: {n}",
+"Ngày mai: bài tiếp theo đã sẵn sàng":"Завтра: следующий урок уже готов",
 });
 })(typeof self !== 'undefined' ? self : this);

@@ -75,5 +75,7 @@
 "Định nghĩa:":"Tanım:",
 "Đối thoại":"Diyalog",
 "Ảnh minh họa":"Görsel",
+"Ngày mai ôn {n} từ để nhớ lâu":"Yarın tekrar edilecek kelimeler: {n}",
+"Ngày mai: bài tiếp theo đã sẵn sàng":"Yarın: sıradaki dersin hazır",
 });
 })(typeof self !== 'undefined' ? self : this);

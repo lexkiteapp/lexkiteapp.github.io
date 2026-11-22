@@ -75,5 +75,7 @@
 "Định nghĩa:":"التعريف:",
 "Đối thoại":"حوار",
 "Ảnh minh họa":"صورة",
+"Ngày mai ôn {n} từ để nhớ lâu":"كلمات للمراجعة غدًا: {n}",
+"Ngày mai: bài tiếp theo đã sẵn sàng":"غدًا: درسك التالي جاهز",
 });
 })(typeof self !== 'undefined' ? self : this);

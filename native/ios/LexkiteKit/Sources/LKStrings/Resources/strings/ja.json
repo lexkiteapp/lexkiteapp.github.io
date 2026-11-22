@@ -212,6 +212,8 @@
   "lesson.tapToListen": "タップして聞く",
   "lesson.streakNow": "現在の連続日数",
   "lesson.thisWeek": "今週",
+  "lesson.tomorrowDue": "明日復習する単語：{n}語",
+  "lesson.tomorrowNext": "明日：次のレッスンの準備ができています",
   "lesson.bestCombo": "最高コンボ",
   "lesson.reviewAgain": "復習",
   "lesson.idk": "わかりません",

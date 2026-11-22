@@ -75,5 +75,7 @@
 "Định nghĩa:":"定義：",
 "Đối thoại":"会話",
 "Ảnh minh họa":"イラスト",
+"Ngày mai ôn {n} từ để nhớ lâu":"明日復習する単語：{n}語",
+"Ngày mai: bài tiếp theo đã sẵn sàng":"明日：次のレッスンの準備ができています",
 });
 })(typeof self !== 'undefined' ? self : this);

@@ -75,5 +75,7 @@
 "Định nghĩa:":"Definición:",
 "Đối thoại":"Diálogo",
 "Ảnh minh họa":"Imagen",
+"Ngày mai ôn {n} từ để nhớ lâu":"Para repasar mañana: {n} palabras",
+"Ngày mai: bài tiếp theo đã sẵn sàng":"Mañana: tu próxima lección estará lista",
 });
 })(typeof self !== 'undefined' ? self : this);
