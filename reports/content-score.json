@@ -1,58 +1,58 @@
 {
- "total": 77.5,
+ "total": 78.1,
  "areas": {
   "vocab": {
    "name": "Kho từ",
-   "score": 59.3,
-   "coverage": 59.3,
+   "score": 59.7,
+   "coverage": 59.7,
    "pass": 100,
    "errors": 0,
    "parts": [
     {
      "k": "từ#loại duy nhất",
-     "have": 10318,
+     "have": 10482,
      "std": 20000,
      "w": 25,
      "future": false
     },
     {
      "k": "IPA·nghĩa·định nghĩa·ví dụ·CEFR",
-     "have": 10318,
-     "std": 10318,
+     "have": 10482,
+     "std": 10482,
      "w": 20,
      "future": false
     },
     {
      "k": "collocation",
-     "have": 5029,
+     "have": 5058,
      "std": 20000,
      "w": 12,
      "future": false
     },
     {
      "k": "đồng nghĩa",
-     "have": 3123,
+     "have": 3165,
      "std": 20000,
      "w": 8,
      "future": false
     },
     {
      "k": "IPA Mỹ",
-     "have": 6898,
+     "have": 6987,
      "std": 20000,
      "w": 5,
      "future": false
     },
     {
      "k": "ảnh theo nghĩa",
-     "have": 8044,
+     "have": 8212,
      "std": 20000,
      "w": 15,
      "future": false
     },
     {
      "k": "C2",
-     "have": 1027,
+     "have": 1191,
      "std": 1000,
      "w": 10,
      "future": false
@@ -412,8 +412,8 @@
   },
   "quality": {
    "name": "Chất lượng đề",
-   "score": 54.2,
-   "coverage": 54.2,
+   "score": 59,
+   "coverage": 59,
    "pass": 100,
    "errors": 0,
    "parts": [
@@ -426,14 +426,14 @@
     },
     {
      "k": "đáp án đúng không lộ qua độ dài (≤ 10 %)",
-     "have": 61.3,
+     "have": 82.8,
      "std": 100,
      "w": 20,
      "future": false
     },
     {
      "k": "lời giải riêng từng câu (rập khuôn ≤ 2 %)",
-     "have": 85,
+     "have": 87.9,
      "std": 100,
      "w": 15,
      "future": false
@@ -477,8 +477,8 @@
     },
     {
      "k": "nội dung có lo hợp lệ",
-     "have": 11698,
-     "std": 11698,
+     "have": 11862,
+     "std": 11862,
      "w": 35,
      "future": false
     },
@@ -514,7 +514,7 @@
     },
     {
      "k": "Bộ từ",
-     "have": 74.2,
+     "have": 74.1,
      "std": 100,
      "w": 25,
      "future": false
@@ -530,8 +530,8 @@
   },
   "i18n": {
    "name": "i18n",
-   "score": 82.8,
-   "coverage": 82.8,
+   "score": 83,
+   "coverage": 83,
    "pass": 100,
    "errors": 0,
    "parts": [
@@ -544,14 +544,14 @@
     },
     {
      "k": "nhãn ngắn dịch tay",
-     "have": 12.3,
+     "have": 12.4,
      "std": 13,
      "w": 10,
      "future": false
     },
     {
      "k": "gói nghĩa từ theo ngôn ngữ",
-     "have": 6.5,
+     "have": 6.6,
      "std": 13,
      "w": 20,
      "future": false

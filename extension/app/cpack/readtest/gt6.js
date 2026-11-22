@@ -342,7 +342,7 @@ items: [
 { type: 'mcq', instr: g.RTI[3],
 items: [
 { n: 39, q: 'According to paragraph C, why did bedtimes move later?',
-options: ['Artificial light made the evenings longer and more productive.', 'Candles became much cheaper to buy.', 'Doctors began to recommend longer sleep.', 'Winter nights became shorter than before.'],
+options: ['Artificial light made the evenings longer and more productive.', 'Electric lamps were introduced, but they were more expensive.', 'Physicians started advising people to nap during the day.', 'Seasonal daylight increased, making evenings brighter earlier.'],
 a: 0, cue: 'evenings became longer and more productive' },
 { n: 40, q: 'What is the writer\'s main purpose in paragraph G?',
 options: ['to criticise the work of sleep therapists', 'to prove that the historical theory is correct', 'to recommend a balanced and more relaxed attitude to sleep', 'to argue that nobody needs eight hours of rest'],
