@@ -28,6 +28,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.semantics.selected
 import androidx.compose.ui.semantics.stateDescription
@@ -69,14 +70,18 @@ internal fun OptionCard(letter: String, text: String, mark: Mark, onClick: (() -
         .semantics { selected = mark == Mark.SELECTED || mark == Mark.RIGHT; if (state != null) stateDescription = state }) {
         Box(Modifier.matchParentSize().offset(y = 4.dp).background(lip, OptShape))
         Column(Modifier.fillMaxWidth().clip(OptShape).background(bg).border(2.dp, line, OptShape).padding(LKSpacing.spaceSm), verticalArrangement = Arrangement.spacedBy(LKSpacing.space2xs)) {
-            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
-                Box(Modifier.size(24.dp).clip(RoundedCornerShape(8.dp)).background(badge), contentAlignment = Alignment.Center) { Text(letter, style = LKType.labelBadge.toCompose(), color = onBadge) }
-                if (mark == Mark.RIGHT) Icon(Icons.Filled.Check, null, tint = c.success, modifier = Modifier.size(20.dp))
-                else if (mark == Mark.SELECTED) Box(Modifier.size(24.dp).clip(CircleShape).background(c.secondary), contentAlignment = Alignment.Center) { Icon(Icons.Filled.Check, null, tint = c.onSecondary, modifier = Modifier.size(16.dp)) }
+            val head = @Composable { mod: Modifier ->
+                Row(mod.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
+                    Box(Modifier.size(24.dp).clip(RoundedCornerShape(8.dp)).background(badge), contentAlignment = Alignment.Center) { Text(letter, style = LKType.labelBadge.toCompose(), color = onBadge) }
+                    if (mark == Mark.RIGHT) Icon(Icons.Filled.Check, null, tint = c.success, modifier = Modifier.size(20.dp))
+                    else if (mark == Mark.SELECTED) Box(Modifier.size(24.dp).clip(CircleShape).background(c.secondary), contentAlignment = Alignment.Center) { Icon(Icons.Filled.Check, null, tint = c.onSecondary, modifier = Modifier.size(16.dp)) }
+                }
             }
-            if (picture != null) Box(Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) { picture() }
-            // lpic: the word stays hidden (transparent, height kept → no jump) until checked, so the learner listens instead of reading; TalkBack still reads it (web <img alt>)
-            Text(text, style = LKType.headlineSm.toCompose(), color = if (hideText) Color.Transparent else ink)
+            // lpic: letter badge sits on the picture's corner (compact 2×2 grid, both rows visible above Check); the word shows only after checking,
+            // so the learner listens instead of reading – TalkBack reads it from the card's description (web <img alt>)
+            if (picture != null) Box(Modifier.fillMaxWidth().semantics { contentDescription = text }, contentAlignment = Alignment.Center) { picture(); head(Modifier.align(Alignment.TopStart)) }
+            else head(Modifier)
+            if (picture == null || !hideText) Text(text, style = LKType.headlineSm.toCompose(), color = ink)
             if (sub != null) Text(sub, style = LKType.bodySm.toCompose(), color = if (mark == Mark.WRONG) tk.onErrorContainer else c.onSurfaceVariant)
             if (tag != null) Text(tag, style = LKType.labelBadge.toCompose(), color = if (mark == Mark.WRONG) c.error else c.success)
         }

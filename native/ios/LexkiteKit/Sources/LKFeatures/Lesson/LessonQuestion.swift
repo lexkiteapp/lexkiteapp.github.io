@@ -279,7 +279,7 @@ struct LessonMatchBoard: View {
                 let done = matched.contains(i), sel = (side == 0 ? left : right) == i, bad = wrong.contains(i * 2 + side)
                 Button { tap(i, side: side) } label: {
                     cell(i, side: side)
-                        .frame(maxWidth: .infinity, minHeight: 56).padding(.horizontal, 6)
+                        .frame(maxWidth: .infinity, minHeight: item.pics == true ? 88 : 56).padding(.horizontal, 6)   // mpic: one height for word + picture cells
                         .tactile(fill: bad ? LKColor.errorContainer : LKColor.surfaceContainer, line: bad ? LKColor.error : sel ? LKColor.secondary : LKColor.outlineVariant,
                                  ledge: sel ? LKColor.secondary : LKColor.outlineVariant, radius: 16)
                         .opacity(done ? 0.3 : 1)

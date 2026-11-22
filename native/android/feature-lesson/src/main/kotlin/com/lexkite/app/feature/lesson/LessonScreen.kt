@@ -295,7 +295,7 @@ private fun Body(ui: LessonUi, cur: LItem, a: LessonActions, mic: MicUi, checked
                             val tag = if (ans != null && !ans.ok) (if (m == Mark.RIGHT) t(L10nKey.lessonCorrectChoice) else if (m == Mark.WRONG) t(L10nKey.lessonYourChoice) else null) else null
                             val pic = if (cur.type == "lpic") imageUrl(o, cur.ipos?.get(o).orEmpty()) else null   // lpic: 2×2 picture tiles
                             OptionCard(LETTERS[i % LETTERS.length].toString(), o, m, if (ans == null) ({ a.pick(o) }) else null, Modifier.weight(1f), tag = tag,
-                                picture = if (pic != null) ({ slots.image(pic, o, Modifier.size(112.dp).clip(RoundedCornerShape(12.dp))) }) else null, hideText = cur.type == "lpic" && ans == null)
+                                picture = if (pic != null) ({ slots.image(pic, o, Modifier.size(96.dp).clip(RoundedCornerShape(12.dp))) }) else null, hideText = cur.type == "lpic" && ans == null)
                         }
                         if (!oneCol && rowOpts.size == 1) Spacer(Modifier.weight(1f))
                     }
@@ -356,6 +356,7 @@ private fun TypeArea(cur: LItem, st: ItemState, a: LessonActions, checked: Boole
 private fun MatchArea(cur: LItem, st: ItemState, a: LessonActions, checked: Boolean, slots: LessonSlots, imageUrl: (String, String) -> String?) {
     val c = LocalLKColors.current; val tk = tokens
     val pairs = cur.pairs ?: return
+    val rowH = if (cur.pics == true) 88.dp else 56.dp   // mpic: word and picture cells share one height → rows stay aligned
     LaunchedEffect(st.flash) { if (st.flash) { delay(400); a.clearFlash() } }
     Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(LKSpacing.spaceSm)) {
         listOf(true to st.matchL, false to st.matchR).forEach { (left, order) ->
@@ -365,9 +366,9 @@ private fun MatchArea(cur: LItem, st: ItemState, a: LessonActions, checked: Bool
                     val text = if (left) pairs[i].word else matchMean(pairs[i])
                     val shape = RoundedCornerShape(16.dp)
                     val line = if (sel && st.flash) c.error else if (sel) c.secondary else c.outlineVariant
-                    Box(Modifier.fillMaxWidth().heightIn(min = 56.dp).let { m -> if (done || checked) m else m.tactile({ a.matchTap(left, i) }) }.then(if (done) Modifier.semantics { stateDescription = "✓" } else Modifier)) {
+                    Box(Modifier.fillMaxWidth().heightIn(min = rowH).let { m -> if (done || checked) m else m.tactile({ a.matchTap(left, i) }) }.then(if (done) Modifier.semantics { stateDescription = "✓" } else Modifier)) {
                         Box(Modifier.matchParentSize().padding(top = 3.dp).background(if (done) c.cardLow else tk.lipOpt, shape))
-                        Box(Modifier.fillMaxWidth().heightIn(min = 56.dp).clip(shape).background(if (sel) c.secondaryContainer.copy(alpha = 0.16f) else if (done) c.cardLow else c.card).border(2.dp, if (done) c.cardLow else line, shape).padding(LKSpacing.spaceXs), contentAlignment = Alignment.Center) {
+                        Box(Modifier.fillMaxWidth().heightIn(min = rowH).clip(shape).background(if (sel) c.secondaryContainer.copy(alpha = 0.16f) else if (done) c.cardLow else c.card).border(2.dp, if (done) c.cardLow else line, shape).padding(LKSpacing.spaceXs), contentAlignment = Alignment.Center) {
                             // mpic: right column = the word's picture (falls back to its meaning when the picture is gone)
                             val pic = if (!left && cur.pics == true) pairs[i].card?.let { k -> imageUrl(pairs[i].word, (k["pos"] as? JsonPrimitive)?.content.orEmpty()) } else null
                             if (pic != null) slots.image(pic, pairs[i].word, Modifier.size(72.dp).clip(RoundedCornerShape(12.dp)).then(if (done) Modifier.alpha(0.3f) else Modifier))

@@ -129,24 +129,26 @@ struct LessonOption: View {
     }
 }
 
-/// Picture answer tile of "listen → pick the picture" (lpic): letter badge + square picture; the word appears under it after checking.
+/// Picture answer tile of "listen → pick the picture" (lpic): square picture with the letter badge on its corner; the word appears under it after checking.
 struct LessonPictureOption: View {
     let letter: String, word: String, url: URL?, showWord: Bool, state: LessonOption.State, action: () -> Void
     @Environment(\.colorScheme) private var scheme
     var body: some View {
         let c = colors
         Button(action: action) {
+            // letter badge on the picture's corner: compact 2×2 grid, both rows visible above Check; the word appears only after checking
             VStack(spacing: LKSpacing.spaceXs) {
-                HStack {
-                    Text(letter).lkText(LKType.labelMetric).foregroundStyle(c.badgeText.resolve(scheme))
-                        .frame(width: 28, height: 28).background(Circle().fill(c.badge.resolve(scheme)))
-                    Spacer(minLength: 0)
-                    if state == .correct { Image(systemName: "checkmark.circle.fill").foregroundStyle(LKColor.success.resolve(scheme)) }
-                    if state == .wrong { Image(systemName: "xmark.circle.fill").foregroundStyle(LKColor.error.resolve(scheme)) }
+                ZStack(alignment: .topLeading) {
+                    if let url { LessonPicture(url: url, label: word, side: 96) } else { Color.clear.frame(width: 96, height: 96).frame(maxWidth: .infinity) }
+                    HStack {
+                        Text(letter).lkText(LKType.labelMetric).foregroundStyle(c.badgeText.resolve(scheme))
+                            .frame(width: 28, height: 28).background(Circle().fill(c.badge.resolve(scheme)))
+                        Spacer(minLength: 0)
+                        if state == .correct { Image(systemName: "checkmark.circle.fill").foregroundStyle(LKColor.success.resolve(scheme)) }
+                        if state == .wrong { Image(systemName: "xmark.circle.fill").foregroundStyle(LKColor.error.resolve(scheme)) }
+                    }
                 }
-                if let url { LessonPicture(url: url, label: word, side: 112) } else { Color.clear.frame(width: 112, height: 112) }
-                Text(word).lkText(LKType.bodyLg).foregroundStyle(c.text.resolve(scheme)).lineLimit(1).minimumScaleFactor(0.7).englishText()
-                    .opacity(showWord ? 1 : 0).accessibilityHidden(true)   // keeps the height fixed: no jump when the word appears
+                if showWord { Text(word).lkText(LKType.bodyLg).foregroundStyle(c.text.resolve(scheme)).lineLimit(1).minimumScaleFactor(0.7).englishText() }
             }
             .padding(LKSpacing.spaceSm)
             .frame(maxWidth: .infinity)
