@@ -242,8 +242,8 @@ async function solve(right) {
   if (it.type === 'q') { const opts = [...w.document.querySelectorAll('.lsn-opts .lsn-opt')]; (right ? opts.find(o => o.dataset.o === it.answer) : opts.find(o => o.dataset.o !== it.answer)).click(); $('#lsnCheck').click(); await tick(); return; }
   if (it.type === 'match') {
     const B = s2 => [...w.document.querySelectorAll(`.lsn-match .lsn-opt[data-s="${s2}"]`)];
-    if (!right) { const a = B('w')[0], b = B('m').find(x => x.dataset.m !== a.dataset.m); a.click(); b.click(); if (w.document.querySelector('.lsn-xframe .lsn-match')) ok(b.textContent.length > 3 && !b.disabled && !a.disabled && a.getAttribute('aria-pressed') === 'false', 'ghép cặp: sai có phản hồi trên ô, ô vẫn bấm lại được'); }
-    const X = w.document.querySelector('.lsn-xframe .lsn-match');
+    if (!right) { const a = B('w')[0], b = B('m').find(x => x.dataset.m !== a.dataset.m); a.click(); b.click(); if (w.document.querySelector('.lsn-xframe .lsn-match.v2s-ex-match')) ok(b.textContent.length > 3 && !b.disabled && !a.disabled && a.getAttribute('aria-pressed') === 'false', 'ghép cặp: sai có phản hồi trên ô, ô vẫn bấm lại được'); }
+    const X = w.document.querySelector('.lsn-xframe .lsn-match.v2s-ex-match');
     if (X) { // Ghép cặp có hình: ô hình + loa riêng (không lồng nút) trên MỌI ô tiếng Anh, đếm cặp; mỗi cặp đúng 1 màu + 1 dây; sai có trạng thái thấy được rồi tự trả về
       ok(B('w').every(b => b.querySelector('.lsn-xpic') && (b.querySelector('.lsn-xpic img') || b.querySelector('.lsn-xpic .material-symbols-outlined'))), 'ghép cặp: mọi ô tiếng Anh có ảnh hoặc icon');
       ok(X.querySelectorAll('.lsn-msay').length === B('w').length && !X.querySelector('button button'), 'ghép cặp: loa trên mọi ô tiếng Anh, không lồng button');

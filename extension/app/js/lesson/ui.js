@@ -440,7 +440,7 @@
     if (chk) chk.onclick = () => submit(it.type === 'build' || it.type === 'tr' ? L.tiles.map(i => it.tiles[i]) : it.type === 'type' ? ($('#lsnIn') || {}).value : L.pick);
     const inp = $('#lsnIn');
     if (inp) { inp.oninput = () => { chk.disabled = !inp.value.trim(); }; inp.onkeydown = e => { if (e.key === 'Enter' && inp.value.trim()) chk.click(); }; setTimeout(() => inp.focus(), 50); }
-    if (it.type === 'match' && !it.pics && document.querySelector('.lsn-xframe .lsn-match')) { if (chk) chk.hidden = true; LessonEx.matchBind(it, { say: w => say(w), submit, checked: () => L.checked }, L.mx.W1, L.mx.M1); }
+    if (it.type === 'match' && !it.pics && document.querySelector('.lsn-xframe .lsn-match.v2s-ex-match')) { if (chk) chk.hidden = true; LessonEx.matchBind(it, { say: w => say(w), submit, checked: () => L.checked }, L.mx.W1, L.mx.M1); }
     else if (it.type === 'match') {
       // chạm 1 ô trái + 1 ô phải; đúng → cả 2 mờ đi, sai → rung và tính 1 lỗi; ghép xong cả 4 → chấm (0 lỗi = đúng)
       let sel = null, miss = 0, done = 0;
