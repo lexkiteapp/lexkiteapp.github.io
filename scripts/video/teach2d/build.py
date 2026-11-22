@@ -818,8 +818,43 @@ def T_react():
     end_card()
 
 
+def T_slang():
+    """Slang Card (owner 22/11, docs/SAY-NATIVE.md): hook headline from frame 0 while the teacher pulls a STRONG expression (TeacherRig EXPR: drawn face or
+    approved pose image in the silence), then ONE Kit card = register + region chips, the slang in big coral, IPA pill, plain meaning (+ the page's own
+    language gloss on L1 channels), then the example bubble (slang highlighted) + a silent 2-option quiz (answer lights on the CTA) or a ✗ misuse bubble, CTA."""
+    D = EP['data']; series_chip(); RG = {'very-casual': 'VERY CASUAL', 'casual': 'CASUAL', 'neutral': 'EVERYDAY'}
+    hw = EP['hook']['text'].split(); n2 = min(2, len(hw) - 1)
+    title([[' '.join(hw[:-n2]) + ' ', 'ink'], [' '.join(hw[-n2:]), 'primary']], 96, RY0 + 120, None, start('k') - 0.2, hook=True)
+    t_k, t_m, t_e, t_c = start('k'), start('m'), start('e'), start('c')
+    c = Card(RY0); b = chip(c, RG[D['reg']], t_k, tone='chip')
+    if D['region'] != 'global':   # US / UK flag chip right of the register chip
+        rw = chip_w(D['region'], tw, S['chip']); c.rows.append(dict(id=nid('c'), type='chip', text=D['region'], tone='chip', size=S['chip'], box=[PAD + c.inner - rw, b['box'][1], PAD + c.inner, b['box'][3]], **{'in': cue(t_k)}))
+    c.y += 10; c.text([[D['key'], 'coral']], S['big'], t_k, align='c', gap=GAP + 12)
+    iw = min(c.inner, tw(D['ipa'], S['ipa'], True) + 80)
+    n = c.add(dict(type='ipapill', text=D['ipa'], size=S['ipa'], box=[PAD + (c.inner - iw) / 2, 0, PAD + (c.inner + iw) / 2, 0], pairs=[[TH['ink'], TH['card'], S['ipa']]], **{'in': cue(t_k)}), 88)
+    IPA.append(dict(token=D['key'].lower(), ipa=D['ipa'], node=n['id']))
+    c.text([['= ', 'muted'], [D['mean'], 'ink']], S['body'], t_m, align='c')
+    if D.get('l1'): c.text([[D['l1'], 'accent']], S['body'], t_m, align='c', extra={'rtl': True} if EP.get('lang') == 'ar' else None)   # the page's language (L1 channels only; EN = English only)
+    c.place(t_k, t_e - 0.2, 'a')
+    ex = D['example']; c = Card(RY0, tone='bubble_good', badge='check', t_badge=t_e); c.tail = 'l'
+    badge_chip(c, ex['ctx'].upper() if len(ex['ctx']) <= 30 else 'EXAMPLE', t_e, 'chip')
+    forms = sorted([D['key']] + [f for f in (D.get('forms') or [])], key=len, reverse=True)
+    hl = next((f for f in forms if f.lower() in ex['text'].lower()), D['key'])
+    c.text(runs_hl(ex['text'], hl, col='onhl', base='ongood'), S['body'], t_e); y = c.place(t_e, t_c - 0.2, 'a')[3] + 26
+    if D['variant'] == 'quiz':
+        q = D['quiz']; c = Card(y); chip(c, 'QUICK QUIZ', end('e'))
+        t_r1 = end('e') + LINES['e']['pause'] - 0.75   # 3-2-1 ring, then the answer lights (ding) and stays ~0.55 s before the CTA card takes the region
+        c.text([[q['ask'], 'ink']], S['sub'], end('e')); pills(c, q['options'], end('e'), t_r1 + 0.05, q['answer'])
+        b = c.place(end('e'), t_c - 0.2, 'b'); ring(b, end('e') + 0.05, t_r1)
+    else:
+        m = D['misuse']; c = Card(y, tone='bubble_bad', badge='cross', t_badge=end('e')); c.tail = 'r'
+        badge_chip(c, "DON'T USE IT HERE", end('e'), 'bad'); c.text([[m['text'], 'onbad']], S['sub'], end('e')); c.text([[m['why'], 'muted']], S['sub'], end('e'))
+        c.place(end('e'), t_c - 0.2, 'b')
+    end_card()
+
+
 dict(usuk=T_usuk, verbs=T_verbs, stress=T_stress, mistake=T_mistake, phrasal=T_phrasal, pair=T_pair, prep=T_prep, pattern=T_pattern, native=T_native, l1=T_l1, guess=T_guess, level=T_level,
-     grammar=T_grammar, dictation=T_dictation, toeic=T_toeic, review=T_review, call=T_call, react=T_react, roots=T_roots, rule=T_rule, band=T_band)[EP['template']]()
+     grammar=T_grammar, dictation=T_dictation, toeic=T_toeic, review=T_review, call=T_call, react=T_react, slang=T_slang, roots=T_roots, rule=T_rule, band=T_band)[EP['template']]()
 
 # ---------------- region offset: card-local -> canvas; satellites (check, confetti, strike, badges) resolve their boxes ----------------
 BY = {n['id']: n for n in NODES}
@@ -972,7 +1007,7 @@ if SOCIAL:   # owner 29/10: whoosh + light music for social shorts (CC0 Lexkite 
     # music bed: preset by series, ~ -30 dBFS RMS, ducked 12 dB under the voice (smooth 0.25 s), fades in/out
     PRE = dict(l1='quiz-pulse', usuk='pop-bright', verbs='upbeat-claps', stress='chill-keys', mistake='quiz-pulse', phrasal='lofi-warm', pair='chill-keys', prep='pop-bright',
                pattern='upbeat-claps', native='lofi-warm', guess='quiz-pulse', level='quiz-pulse',
-               grammar='upbeat-claps', dictation='chill-keys', toeic='quiz-pulse', review='lofi-warm', call='pop-bright', roots='chill-keys', band='chill-keys')
+               grammar='upbeat-claps', dictation='chill-keys', toeic='quiz-pulse', review='lofi-warm', call='pop-bright', roots='chill-keys', band='chill-keys', slang='pop-bright')
     MUS = MIX.get('music') or PRE.get(EP['template'], 'lofi-warm')   # mix.py 'music' (series preset without a mix)
     mf = f'{o.public}/_music.wav'; subprocess.run(['node', f'{ROOT}/scripts/video/synth.mjs', '--music', MUS, str(TOTAL + 0.5), mf], check=True, capture_output=True)
     with wave.open(mf) as w: sr_ = w.getframerate(); ch_ = w.getnchannels(); mu = np.frombuffer(w.readframes(w.getnframes()), np.int16).astype(np.float32) / 32768
@@ -1021,7 +1056,7 @@ json.dump(props, open(o.out, 'w'))
 json.dump(dict(ep=EP['id'], template=EP['template'], theme=THEME, layout=LAYOUT, format=o.format, fps=FPS, total=TOTAL, nf=NF, safe=FMT['safe'], region=FMT['region'], cap_box=FMT['cap'],
                lines={k: dict(t0=v['t0'], t1=v['t1'], text=v['text'], words=v['words'], interp=v['interp'], whisper=v['whisper'], pause=v['pause'],
                               quiz=bool(v.get('quiz')), repeat=bool(v.get('repeat'))) for k, v in LINES.items()},
-               host='rig' if RIG else 'registry', rig=dict(frames=f'{o.host}/rig.frames.json', vo=o.vo) if RIG else None, pose=EP.get('pose'), mix=MIX or None,
+               host='rig' if RIG else 'registry', rig=dict(frames=f'{o.host}/rig.frames.json', vo=o.vo) if RIG else None, pose=EP.get('pose'), expr=EP.get('expr'), mix=MIX or None,
                speech=SPEECH, segs=SEG, host_xfade=HOST['xfade'], host_len=LEN, head=[round(v, 1) for v in HEAD], body=[round(v, 1) for v in BODY], cues=CUES, ipa=IPA, slots=SLOTS, sfx=SFX, vtt=VTT,
                voice=EP['voice'], teacher=EP['teacher'], hook=EP['hook'], cta=EP['cta'], nodes=NODES, caps=CAPS),
           open(o.out + '.timeline.json', 'w'), indent=0)

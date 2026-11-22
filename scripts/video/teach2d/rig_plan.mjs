@@ -70,11 +70,14 @@ export function schedule(T, lines, B) {
   const wEnd = l => (l.words && l.words.length ? l.words[l.words.length - 1].e : l.t1), wStart = l => (l.words && l.words.length ? l.words[0].s : l.t0);
   const isQuiz = l => !!l.quiz || rings.some(r => r.t0 >= wEnd(l) - 0.2 && r.t0 <= l.t1 + (l.pause || 0));
   const MX = mixGestures(T.mix);
+  const XP = T.expr ? CORE.EXPR[T.expr] : null;
+  if (T.expr && !XP) ev.push({ t: 0, kind: 'error', why: `unknown expression ${T.expr} (TeacherRig EXPR)` });
   const react = T.pose && T.pose.clip ? { after: T.pose.after, g: GEST_FOR_POSE(T.pose.clip) } : null;
   const at = (t, kind, name, why) => ev.push({ t: r3(Math.max(0, t)), kind, name, why });
   lines.forEach((l, i) => {
     const prev = lines[i - 1], s = wStart(l);
-    if (l.id === hook) { at(s - 0.1, 'emo', 'surprise', 'hook'); at((s + wEnd(l)) / 2, 'emo', 'happy', 'hook'); }
+    if (l.id === hook && XP) at(s - 0.1, 'emo', XP.emo, `hook expr ${T.expr}`);   // strong expression (slang cards): held through the hook + its reaction silence
+    else if (l.id === hook) { at(s - 0.1, 'emo', 'surprise', 'hook'); at((s + wEnd(l)) / 2, 'emo', 'happy', 'hook'); }
     else if (isQuiz(l)) { at(s - 0.1, 'emo', 'explain', 'quiz'); at(wEnd(l) + 0.05, 'emo', 'thinking', 'quiz pause'); }
     else if (prev && isQuiz(prev)) { at(s - 0.1, 'emo', 'praise', 'answer'); at(s + 0.05, 'gesture', 'nod', 'answer'); }
     else if (l.id === 'c') at(s - 0.1, 'emo', 'encourage', 'cta');
@@ -85,6 +88,7 @@ export function schedule(T, lines, B) {
     const g0 = B[i].end + FIN + 0.02, room = B[i + 1].start - g0, F = CORE.FADE;
     const l = [...lines].reverse().find(x => wStart(x) <= B[i].v1) || lines[0];
     if (isQuiz(l)) continue;   // quiz countdown: thinking face only (the ring is the focus)
+    if (XP && !XP.gesture && l.id === hook) continue;   // drawn-face expression (smug, smirk, shrug…): the face IS the reaction – no pose image over it
     let name = null, need = 2 * F + 0.5;
     if (react && react.after === l.id && react.g) { name = react.g; need = 2 * F + 0.3; }
     else if (l.repeat) name = 'point';           // "say it with me" -> your turn
