@@ -835,8 +835,8 @@
    "area": "clause",
    "name": "Relative pronoun où",
    "can_do_en": "Can say where or when with où.",
-   "example": "La ville où j'habite est petite.",
-   "example_en": "The town where I live is small.",
+   "example": "Le jour où je suis arrivé, il pleuvait.",
+   "example_en": "The day I arrived, it was raining.",
    "tenses": [],
    "lessons": []
   },
@@ -1407,8 +1407,8 @@
    "area": "clause",
    "name": "quand, dès que + futur",
    "can_do_en": "Can use the future after quand, dès que and lorsque for future events.",
-   "example": "Quand je serai grand, je serai pilote.",
-   "example_en": "When I grow up, I'll be a pilot.",
+   "example": "Quand je serai grand, je deviendrai pilote.",
+   "example_en": "When I grow up, I'll become a pilot.",
    "tenses": [
     "fut"
    ],
@@ -1899,8 +1899,8 @@
    "area": "verb",
    "name": "agreement of the past participle in pronominal verbs",
    "can_do_en": "Can agree the participle of pronominal verbs and spot cases with no agreement.",
-   "example": "Elles se sont téléphoné hier, puis elles se sont retrouvées.",
-   "example_en": "They phoned each other yesterday, then met up.",
+   "example": "Elle s'est lavé les mains, puis elle s'est maquillée.",
+   "example_en": "She washed her hands, then put on her make-up.",
    "tenses": [
     "pc"
    ],
@@ -2011,7 +2011,7 @@
    "area": "sentence",
    "name": "emphasis with c'est ... qui/que",
    "can_do_en": "Can stress an element with c'est ... qui or c'est ... que.",
-   "example": "C'est la direction qui décidera, pas nous.",
+   "example": "C'est la direction qui décidera, et non pas nous.",
    "example_en": "It is the management that will decide, not us.",
    "tenses": [],
    "lessons": []
@@ -2199,8 +2199,8 @@
    "area": "mood",
    "name": "subjunctive in independent clauses",
    "can_do_en": "Can use a stand-alone subjunctive for wishes, orders and concessions.",
-   "example": "Que chacun fasse son possible, et vive la liberté !",
-   "example_en": "May everyone do their best, and long live freedom!",
+   "example": "Que chacun fasse de son mieux ! Vive la liberté !",
+   "example_en": "May everyone do their best! Long live freedom!",
    "tenses": [
     "subj"
    ],
@@ -2667,8 +2667,8 @@
    "area": "sentence",
    "name": "apposition and detached adjectives",
    "can_do_en": "Can use detached adjectives and appositions to compress information.",
-   "example": "Fatiguée mais rayonnante, la lauréate a salué la salle.",
-   "example_en": "Tired but radiant, the winner greeted the room.",
+   "example": "Épuisée, la lauréate a pourtant remercié le public avec un grand sourire.",
+   "example_en": "Exhausted, the winner nevertheless thanked the audience with a big smile.",
    "tenses": [
     "pc"
    ],
@@ -2765,8 +2765,8 @@
    "area": "verb",
    "name": "participle agreement with faire, laisser and impersonal verbs",
    "can_do_en": "Can handle invariable fait, laissé and impersonal participles.",
-   "example": "Les pluies qu'il a fait tomber l'ont surpris ; les efforts qu'il a fallu étaient grands.",
-   "example_en": "The rains he caused surprised him; the effort needed was great.",
+   "example": "Les fortes pluies qu'il a fait tomber ont inondé la vallée. Les efforts qu'il a fallu ont été considérables.",
+   "example_en": "The heavy rain it brought flooded the valley. The effort that was needed was considerable.",
    "tenses": [
     "pc"
    ],
@@ -2778,8 +2778,8 @@
    "area": "verb",
    "name": "participle with coûter, valoir, courir",
    "can_do_en": "Can decide on agreement with coûté, vécu, pesé, couru.",
-   "example": "Les vingt euros que ce livre a coûté me semblent justifiés.",
-   "example_en": "The twenty euros this book cost seem justified to me.",
+   "example": "Je n'oublierai jamais les efforts que ce projet m'a coûtés.",
+   "example_en": "I will never forget the effort this project cost me.",
    "tenses": [
     "pc"
    ],
@@ -2791,8 +2791,8 @@
    "area": "adj",
    "name": "agreement of colour and compound adjectives",
    "can_do_en": "Can agree compound and colour adjectives and demi, nu, feu.",
-   "example": "Elle a des yeux bleu clair et des cheveux châtain foncé.",
-   "example_en": "She has light blue eyes and dark chestnut hair.",
+   "example": "Elle porte des chaussures bleu marine et une robe vert pomme.",
+   "example_en": "She is wearing navy blue shoes and an apple-green dress.",
    "tenses": [],
    "lessons": []
   },
@@ -2802,8 +2802,8 @@
    "area": "verb",
    "name": "agreement with collective subjects",
    "can_do_en": "Can agree the verb after une foule de, la plupart, plus d'un.",
-   "example": "La plupart des invités sont partis et une foule de gens attendait.",
-   "example_en": "Most guests had left and a crowd was waiting.",
+   "example": "La plupart des invités sont partis tôt, mais une foule de curieux attendait encore.",
+   "example_en": "Most guests left early, but a crowd of onlookers was still waiting.",
    "tenses": [
     "plup"
    ],

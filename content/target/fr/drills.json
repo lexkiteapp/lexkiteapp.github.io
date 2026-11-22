@@ -277,7 +277,7 @@
   ],
   "elision-basic": [
    {
-    "s": "___ école est grande.",
+    "s": "___école est grande.",
     "a": "L'",
     "o": [
      "L'",
@@ -288,7 +288,7 @@
     "en": "The school is big."
    },
    {
-    "s": "Elle dit ___ elle est fatiguée.",
+    "s": "Elle dit ___elle est fatiguée.",
     "a": "qu'",
     "o": [
      "que",
@@ -299,7 +299,7 @@
     "en": "She says she is tired."
    },
    {
-    "s": "Je ___ aime pas le poisson.",
+    "s": "Je ___aime pas le poisson.",
     "a": "n'",
     "o": [
      "ne",
@@ -743,7 +743,7 @@
     "en": "I don't speak English."
    },
    {
-    "s": "Elle ___ aime pas le lait.",
+    "s": "Elle ___aime pas le lait.",
     "a": "n'",
     "o": [
      "ne",
@@ -1292,7 +1292,7 @@
   ],
   "clause-et-mais-parce-que": [
    {
-    "s": "Elle est contente ___ elle a gagné.",
+    "s": "Elle est ravie ___elle a gagné.",
     "a": "parce qu'",
     "o": [
      "parce que",
@@ -1300,7 +1300,7 @@
      "puisque",
      "pour que"
     ],
-    "en": "She is happy because she won."
+    "en": "She is delighted because she won."
    },
    {
     "s": "Tu préfères le thé ___ le café ?",
@@ -1478,7 +1478,7 @@
     "en": "We haven't finished."
    },
    {
-    "s": "Il ___ est pas venu.",
+    "s": "Il ___est pas venu.",
     "a": "n'",
     "o": [
      "ne",
@@ -1629,7 +1629,7 @@
     "en": "When I arrived, he was already sleeping."
    },
    {
-    "s": "Pendant que je cuisinais, mes enfants ___ dans le jardin.",
+    "s": "Tandis que je cuisinais, mes enfants ___ dans le jardin.",
     "a": "jouaient",
     "o": [
      "jouent",
@@ -2307,7 +2307,7 @@
   ],
   "rel-ou": [
    {
-    "s": "La maison ___ elle habite est petite.",
+    "s": "Je me souviens du jour ___ nous nous sommes rencontrés.",
     "a": "où",
     "o": [
      "où",
@@ -2315,7 +2315,7 @@
      "que",
      "dont"
     ],
-    "en": "The house where she lives is small."
+    "en": "I remember the day we met."
    },
    {
     "s": "Le jour ___ nous sommes partis, il neigeait.",
@@ -2329,7 +2329,7 @@
     "en": "The day we left, it was snowing."
    },
    {
-    "s": "Voici le café ___ nous nous retrouvons.",
+    "s": "Au moment ___ il est sorti, il a commencé à pleuvoir.",
     "a": "où",
     "o": [
      "qui",
@@ -2337,7 +2337,7 @@
      "où",
      "dont"
     ],
-    "en": "Here is the café where we meet."
+    "en": "The moment he went out, it started to rain."
    }
   ],
   "il-faut": [
@@ -3554,7 +3554,7 @@
     "en": "Here is my car; where is yours?"
    },
    {
-    "s": "Nos enfants sont petits ; ___ sont grands.",
+    "s": "Nos enfants sont petits ; tu connais aussi ___ ?",
     "a": "les leurs",
     "o": [
      "leurs",
@@ -3562,7 +3562,7 @@
      "la leur",
      "les leurs"
     ],
-    "en": "Our children are small; theirs are big."
+    "en": "Our children are small; do you know theirs too?"
    }
   ],
   "pronoms-demonstratifs": [
@@ -4243,7 +4243,7 @@
     "en": "I'm thinking about my holidays."
    },
    {
-    "s": "Nous avons besoin ___ aide.",
+    "s": "Nous avons besoin ___aide.",
     "a": "d'",
     "o": [
      "de",
