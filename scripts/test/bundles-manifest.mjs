@@ -11,7 +11,7 @@ import { firstLoadFiles, gzSize } from '../lib/gz-canon.mjs';
 const app = fs.readFileSync('web/js/app.js', 'utf8'), src = bundlesSrc();
 assert.ok(!/BUNDLES = \{\n/.test(app) && !/const G = 'js\/grammar\/'/.test(app), 'app.js còn khối BUNDLES – đăng ký gói thuộc web/js/bundles.js');
 assert.equal((app.match(/loadScript\('js\/bundles\.js'\)/g) || []).length, 1, 'app.js nạp js/bundles.js đúng 1 chỗ (manifest())');
-assert.ok(/const need1 = n => bundleP\[n\] \|\| \(inflight\+\+, bundleP\[n\] = manifest\(\)\.then\(/.test(app), 'need1 phải đợi manifest()');
+assert.ok(/const need0 = n => bundleP\[n\] \|\| \(inflight\+\+, bundleP\[n\] = manifest\(\)\.then\(/.test(app) && /const need1 = n => [^\n]*need0\(n\)/.test(app), 'need1 (qua need0) phải đợi manifest()');
 assert.ok(/\.catch\(e => \{ delete bundleP\[n\]; throw e; \}\)/.test(app), 'need1: lỗi nạp manifest không được cache (xoá bundleP → thử lại được)');
 assert.ok(/idle\(\(\) => manifest\(\)\.then\(/.test(app) && /manifest\(\)\.then\(\(\) => Promise\.all\(BUNDLES\.voice/.test(app), 'prefetchAll + prefetch giọng đợi manifest');
 assert.ok(/EXT_NO\.forEach\(n => \{ BUNDLES\[n\] = \[\]; \}\)/.test(app) && /if \(Store\.isExtension\) EXT_NO/.test(app), 'add-on vẫn bỏ gói EXT_NO sau khi nạp manifest');

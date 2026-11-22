@@ -16,7 +16,9 @@
   "_allowBigNote": "20/10: Đã tách các nhóm tải lười (LAZY) ra web/js/i18n/<lang>/<nhóm>.js – ru.js giảm từ 160 KB xuống ~116 KB gz, gỡ khỏi allowBig.",
   "routeGz": {
     "_note": "Tải lần đầu theo gói (JS BUNDLES + CSS BCSS, gzip chuẩn) – chỉ được giảm. 3/11 ux1 (Home/Hôm nay): mốc main 32c7194bd = 122044 B (JS 56295 + CSS 65749).",
-    "ux1": 122044
+    "_ux1Split": "22/11 (LCP trang sâu, mobile-qa lcp_deep_ms): tách mẫu màn Stitch sang gói ux1t (nạp sau lần vẽ đầu ở Lộ trình/Ngày/Tra từ, trước trang dùng mẫu) – chia đúng trần cũ 122044 B: ux1 72550 + ux1t 49494, tổng KHÔNG tăng.",
+    "ux1": 72550,
+    "ux1t": 49494
   },
   "cpackTotal": 12870000,
   "_cpackNote13": "22/11 (es W1 kho từ, lazy – budget-self-decide): +43 000 B đúng phần đo (12 845 050 B) cho lô core-24 (175 từ es duyệt) + giống/số nhiều bất quy tắc trong wd.js; chỉ tải lười ở #/practice/esd (wd.js + 1 wd-<ngôn ngữ>), byte người học/khung không đổi. Lô es kế tiếp tăng ~+40 KB/175 từ.",

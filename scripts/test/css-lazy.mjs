@@ -18,8 +18,8 @@ const walk = (d, o = []) => { for (const e of fs.readdirSync(d, { withFileTypes:
 
 export function lazyModel() {
   const BUNDLES = readBundles();
-  const ux1 = new Set(BUNDLES.ux1 || []);
-  const lazy = new Set(Object.entries(BUNDLES).flatMap(([k, v]) => /^(ux1|i18nx|i18nl)$/.test(k) ? [] : v).filter(f => !ux1.has(f) && !f.startsWith('js/i18n/')).map(f => 'web/' + f));
+  const ux1 = new Set([...(BUNDLES.ux1 || []), ...(BUNDLES.ux1t || [])]);
+  const lazy = new Set(Object.entries(BUNDLES).flatMap(([k, v]) => /^(ux1t?|i18nx|i18nl)$/.test(k) ? [] : v).filter(f => !ux1.has(f) && !f.startsWith('js/i18n/')).map(f => 'web/' + f));
   for (const u of firstLoadFiles()) lazy.delete('web' + u);
   const all = walk('web');
   for (const h of all.filter(f => f.endsWith('.html'))) for (const m of rd(h).matchAll(/<script\b[^>]*\bsrc="([^"]+)"/g)) lazy.delete('web/' + m[1].replace(/^(\.\.\/)+|^\//, '').replace(/\?.*/, ''));
@@ -92,7 +92,7 @@ if (isMain(import.meta.url)) {
   // 3) cách nạp
   const first = firstLoadFiles(), app = rd('web/js/app.js');
   ok(!first.includes('/css/lazy-ui.css'), 'lazy-ui.css KHÔNG nằm trong file nạp ngay (SHELL ∪ web/app/index.html)');
-  ok(/const LZCSS = n => \/\^\(ux1\|i18nx\|i18nl\)\$\/\.test\(n\) \? \[\] : \['css\/lazy-ui\.css'\]/.test(app) && /need1 = [^\n]*LZCSS\(n\)[^\n]*map\(loadCss\)/.test(app), 'need1 nạp + chờ lazy-ui.css cho mọi gói lười (trừ ux1/i18n)');
+  ok(/const LZCSS = n => \/\^\(ux1t\?\|i18nx\|i18nl\)\$\/\.test\(n\) \? \[\] : \['css\/lazy-ui\.css'\]/.test(app) && /need0 = [^\n]*LZCSS\(n\)[^\n]*map\(loadCss\)/.test(app) && /const need1 = n => [^\n]*need0\(n\)/.test(app), 'need1 nạp + chờ lazy-ui.css cho mọi gói lười (trừ ux1/ux1t/i18n)');
   ok(/App\.loadScript = src => Promise\.all\(\[loadScript\(src\), loadCss\('css\/lazy-ui\.css'\)\]\)/.test(app), 'App.loadScript (file lười lẻ) cũng chờ lazy-ui.css');
   // thêm: App.loadScript (speak/app.js: cpack/speak/s/<id>.js qua SPK_P) chỉ nạp tệp NGOÀI gói lười
   const lzFiles = [...lazyModel().lazy].map(f => f.slice(4)), lsPre = [];

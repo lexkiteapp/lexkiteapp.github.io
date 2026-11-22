@@ -346,7 +346,7 @@ body[data-ret-frame] .avatar{padding:2px;background:var(--ret-frame)}
   // ---------- Trang #/streak ----------
   function page() {
     css(); applyFrame();
-    if (App.ux1On && App.ux1On() && !v2On() && !page.tried && App.lazy) { page.tried = 1; App.lazy('ux1').then(page, page); return; } // khung Stitch nằm ở gói ux1
+    if (App.ux1On && App.ux1On() && !v2On() && !page.tried && App.lazy) { page.tried = 1; App.lazy('ux1t').then(page, page); return; } // khung Stitch nằm ở gói ux1t (tự kéo ux1)
     if (v2On()) { mOff = 0; v2Page(); return; }
     const n = streakN(), nx = Core.next(n), r = ret(), fi = g.Core && g.Core.Stats ? g.Core.Stats.freezeInfo(state.game) : { left: +state.game.freezes || 0, max: 2 };
     const ev = Core.event(today()), got = ev ? ((r.ev || {})[ev.id] || []).length : 0, ch = Core.chests(r), own = r.own || {};
