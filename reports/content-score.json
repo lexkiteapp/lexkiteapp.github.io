@@ -1,5 +1,5 @@
 {
- "total": 78.3,
+ "total": 78.2,
  "areas": {
   "vocab": {
    "name": "Kho từ",
@@ -412,8 +412,8 @@
   },
   "quality": {
    "name": "Chất lượng đề",
-   "score": 60.5,
-   "coverage": 60.5,
+   "score": 60.4,
+   "coverage": 60.4,
    "pass": 100,
    "errors": 0,
    "parts": [
@@ -426,7 +426,7 @@
     },
     {
      "k": "đáp án đúng không lộ qua độ dài (≤ 10 %)",
-     "have": 89.4,
+     "have": 88.8,
      "std": 100,
      "w": 20,
      "future": false
