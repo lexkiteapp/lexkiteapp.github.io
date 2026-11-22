@@ -108,7 +108,7 @@
       $('#exRes').innerHTML = `<h3>${esc(u('sc', { n: r.pct }))}</h3><p class="small muted">${esc(u('est'))}</p><div class="small"><b>${esc(u('crit'))}</b><ul>
         <li>${ic(r.a >= 1)} ${esc(u('c1'))}: ${r.words}/${task.min}</li><li>${ic(r.b >= 1)} ${esc(u('c2', { n: r.cn }))}</li><li>${ic(r.c >= 1)} ${esc(u('c3', { n: r.hit, m: task.g.length }))}</li></ul></div>
         <p class="small">${esc(sielePart(d, S.p, r.pct))}</p><a class="btn primary" href="#/practice/esx">${esc(u('ti'))}</a>`;
-      try { App.reward({ quizzes: 1, xp: 10 + Math.round(r.pct / 10) }); } catch (e) { /* bỏ qua */ }
+      try { App.reward({ quizzes: 1, xp: Game.xpFor('essay') }); } catch (e) { /* bỏ qua */ }
     };
   }
 

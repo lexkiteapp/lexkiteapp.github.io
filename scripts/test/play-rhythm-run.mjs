@@ -3,6 +3,7 @@
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
 import jsdom from 'jsdom';
+import { gameRules } from '../lib/game-rules.mjs';
 
 const read = f => fs.readFileSync(new URL('../../' + f, import.meta.url), 'utf8');
 const dom = new jsdom.JSDOM('<!doctype html><body><main id="view"></main></body>', { url: 'https://lexkite.com/app/#/practice/rhythm', runScripts: 'outside-only', pretendToBeVisual: true });
@@ -13,6 +14,7 @@ const later = []; w.setTimeout = (f, ms) => (later.push(f), later.length); w.cle
 const flush = () => { while (later.length) later.shift()(); };
 const frame = () => { const f = raf; raf = null; if (f) f(); };
 const reviews = [], rewards = [], answers = [], said = [], done = [], haptics = [];
+w.Game = gameRules(); // XP theo luật chung game.js
 w.eval(read('web/js/pron/coach.js')); w.eval(read('web/cpack/play-app/play-blitz.js')); w.eval(read('web/cpack/play-app/play-rhythm.js'));
 w.t = (s, v) => (v ? s.replace(/\{(\w+)\}/g, (m, k) => v[k]) : s);
 const END = 5000, card = (word, ex, due) => ({ word, ex, vi: 'nghĩa ' + word, srs: { reps: 1, last: 1, due, lapses: 0 } });

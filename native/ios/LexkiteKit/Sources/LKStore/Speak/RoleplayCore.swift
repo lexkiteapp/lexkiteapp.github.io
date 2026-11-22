@@ -225,7 +225,7 @@ public enum Roleplay {
         let ok = validAI(ai)
         func value(_ c: Criterion) -> Double { ok ? JSON.orZero(ai![c.rawValue]) : Double(loc.scores[c] ?? 0) }
         let avg = Vocab.round(Criterion.allCases.reduce(0.0) { $0 + max(0, min(100, value($1))) } / 4)
-        var r = Report(spoken: spoken, ring: avg, aiScored: ok, xp: 10 + spoken * 3 - min(hintsUsed, spoken))
+        var r = Report(spoken: spoken, ring: avg, aiScored: ok, xp: RewardRules.xp("talk", right: spoken, hints: hintsUsed))
         r.meters = Criterion.allCases.map { ($0, max(0, min(100, Vocab.round(value($0))))) }
         if ok {
             r.summary = ai!.s("summary")

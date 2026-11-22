@@ -3,6 +3,7 @@
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
 import jsdom from 'jsdom';
+import { gameRules } from '../lib/game-rules.mjs';
 
 const src = fs.readFileSync(new URL('../../web/cpack/play-app/play-blitz.js', import.meta.url), 'utf8');
 const dom = new jsdom.JSDOM('<!doctype html><body><main id="view"></main></body>', { url: 'https://lexkite.com/app/#/practice/blitz', runScripts: 'outside-only', pretendToBeVisual: true });
@@ -11,6 +12,7 @@ let now = 1000; w.performance.now = () => now;
 const timers = []; w.setInterval = f => (timers.push(f), timers.length); w.clearInterval = () => { timers.length = 0; };
 const later = []; w.setTimeout = f => (later.push(f), later.length);
 const flush = () => { while (later.length) later.shift()(); };
+w.Game = gameRules(); // XP theo luật chung game.js
 w.eval(src);
 const { core } = w.PlayBlitz;
 
@@ -22,7 +24,7 @@ const ord = Array.from(core.order(['e', 'd', 'c', 'b', 'a', 'a'].map(word => ({ 
 assert.deepEqual(ord, ['b', 'a', 'c', 'd', 'e'], 'thứ tự: đến hạn (quá hạn lâu trước) → yếu (quên nhiều trước) → còn lại, bỏ trùng');
 assert.equal(core.gradeOf(true, 2000), 2); assert.equal(core.gradeOf(true, 9000), 1); assert.equal(core.gradeOf(false, 100), 0);
 assert.deepEqual([0, 2, 3, 5, 6, 12].map(n => core.mult(n)), [1, 1, 2, 2, 3, 3]);
-assert.equal(core.xpOf(30, 30), 40, 'XP có trần 40'); assert.equal(core.xpOf(0, 3), 5);
+assert.equal(core.xpOf(30, 30), 40, 'XP có trần 40'); assert.equal(core.xpOf(0, 3), 10);
 const words = ['apple', 'run', 'happy', 'river', 'eat', 'blue'].map((word, i) => ({ word, pos: i % 2 ? 'v' : 'n', vi: 'm-' + word }));
 for (let k = 0; k < 20; k++) {
   const op = core.options(words[0], 'mean', words, x => x.vi, Math.random);

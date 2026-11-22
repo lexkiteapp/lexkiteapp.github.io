@@ -90,7 +90,7 @@
     el.setAttribute('role', 'status');
     if (on) el.innerHTML = `<span>${perfect ? '✨ ' + esc(T('Hoàn hảo')) + ' · ' : '🔥 '}${esc(T('{n} đúng liền', { n: c.cur }))}</span>`;
     top.before(el);
-    if (q && q.hard) { const qc = d.querySelector('#qbox .q-card'); if (qc) qc.insertAdjacentHTML('afterbegin', `<div class="lfx-hard">💪 ${esc(T('Câu khó · +{n} XP', { n: 6 }))}</div>`); }
+    if (q && q.hard) { const qc = d.querySelector('#qbox .q-card'); if (qc) qc.insertAdjacentHTML('afterbegin', `<div class="lfx-hard">💪 ${esc(T('Câu khó · +{n} XP', { n: Game.xpFor('answer', { mode: 'type', hard: 1 }) }))}</div>`); }
   }
 
   // ---------- (f) Mời chế độ khó ----------

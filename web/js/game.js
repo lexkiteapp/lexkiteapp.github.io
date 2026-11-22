@@ -28,7 +28,7 @@
     { id: 'xp100', icon: '⭐', get text() { return t('Kiếm 100 XP trong ngày'); }, metric: 'xp', goal: 100, xp: 30 },
   ];
   function questsFor(day) {
-    // Chọn 3 nhiệm vụ cố định theo ngày (luôn có 1 nhiệm vụ ôn tập)
+    // 3 nhiệm vụ theo ngày (luôn có 1 ôn tập)
     let h = 0; for (const c of day) h = (h * 31 + c.charCodeAt(0)) >>> 0;
     const pick = [QUEST_POOL[h % 2]];
     const rest = QUEST_POOL.slice(2);
@@ -59,15 +59,33 @@
     { id: 'level10', icon: '👑', get name() { return t('Cấp 10'); }, get desc() { return t('Đạt cấp độ 10'); }, test: s => levelOf(s.xp).level >= 10 },
   ];
 
+  // 🎯 Luật thưởng MỘT nguồn (docs/GAME-FEEL.md §6; native: vectors/rewards.json)
+  const XPR = { pick: 2, type: 3, write: 4, say: 3, hard: 3, set: 10, exam: 40, sec: 30, perfect: 5, min: 5, talk: 10, essay: 20, learn: 20, step: 2, card: [2, 5, 8], great: 85, pass: 65, cap: 150, game: 40 };
+  function xpFor(kind, r = {}) {
+    const n = Math.max(0, r.right | 0), tot = r.total | 0, per = XPR[r.mode] || XPR.pick, h = Math.min(r.hints | 0, n), sc = r.score;
+    const full = tot >= 3 && n >= tot ? XPR.perfect : 0;
+    const x = kind === 'answer' ? per + (r.hard ? XPR.hard : 0)
+      : kind === 'say' ? (sc == null ? XPR.say : sc >= XPR.great ? 5 : sc >= XPR.pass ? 3 : 0)
+      : kind === 'card' ? XPR.card[r.again ? 0 : r.isNew ? 2 : 1]
+      : kind === 'talk' ? Math.max(XPR.min, XPR.talk + XPR.say * n - h)
+      : kind === 'essay' || kind === 'learn' ? XPR[kind]
+      : kind === 'output' ? Math.min(60, Math.round((+r.words || 0) / 5))
+      : kind === 'exam' ? XPR.exam + per * n + XPR.sec * (r.sections | 0) + full
+      : kind === 'set' || kind === 'game' ? Math.max(XPR.min, XPR.set + (r.paid ? 0 : per * n) + full - h)
+      : XPR.step;
+    return Math.min(kind === 'game' ? XPR.game : XPR.cap, Math.max(0, Math.round(x))); // game: trần 40
+  }
+  const repCut = (x, c) => (c >= 5 ? Math.min(x, XPR.step) : c >= 3 ? Math.round(x / 2) : x);
+
   const EMPTY = () => ({ xp: 0, days: {}, total: { reviews: 0, newWords: 0, quizzes: 0, perfect: 0, matches: 0, spoken: 0, readings: 0, lookups: 0 }, best: {}, badges: {}, questsDone: {} });
 
   let gameLock = Promise.resolve();
   const Game = {
-    LEVEL_TITLES, BADGES, levelOf, questsFor,
+    LEVEL_TITLES, BADGES, levelOf, questsFor, XPR, xpFor, repCut,
     async get() { const s = await Store.get('game', null); return s ? { ...EMPTY(), ...s, total: { ...EMPTY().total, ...s.total } } : EMPTY(); },
 
     // Ghi nhận hoạt động: Game.track({ reviews: 1, xp: 10 })
-    // Mọi thay đổi trạng thái game đi qua một hàng đợi → không mất XP khi gọi đồng thời
+    // một hàng đợi → không mất XP khi gọi đồng thời
     track(delta, ctx) { return (gameLock = gameLock.then(() => Game._track(delta, ctx), () => Game._track(delta, ctx))); },
     mutate(fn) { return (gameLock = gameLock.then(async () => { const s = await Game.get(); await fn(s); await Store.set('game', s); return s; })); },
     async _track(delta, ctx) {
@@ -75,11 +93,15 @@
       const k = todayKey();
       const d = s.days[k] = s.days[k] || {};
       for (const [m, v] of Object.entries(delta)) {
-        if (m === 'xp') continue;
+        if (m === 'xp' || m === 'src') continue;
         d[m] = (d[m] || 0) + v;
         if (m in s.total) s.total[m] += v;
       }
       let gained = delta.xp || 0;
+      if (delta.src && gained) { // chống cày: lần 3–4 nửa, ≥5 tối đa 2; khóa xprep không đồng bộ
+        const rp = await Store.get('xprep', null), q = rp && rp.k === k ? rp : { k, m: {} }, c = q.m[delta.src] = (q.m[delta.src] || 0) + 1;
+        gained = delta.xp = repCut(gained, c); await Store.set('xprep', q); // sửa delta.xp → App.reward hiện số đã cắt
+      }
       const events = [];
       // Nhiệm vụ
       const done = s.questsDone[k] = s.questsDone[k] || [];
@@ -95,8 +117,8 @@
       const after = levelOf(s.xp).level;
       if (after > before) events.push({ type: 'level', level: after, title: levelOf(s.xp).title });
       if (delta.matchTime && (!s.best.match || delta.matchTime < s.best.match)) s.best.match = delta.matchTime;
-      if (delta.blitzScore && delta.blitzScore > (s.best.blitz || 0)) s.best.blitz = delta.blitzScore; // ⏱️ kỷ lục Thử thách 60 giây
-      // Thói quen theo giờ học (đếm tối đa 1 lần/ngày): cú đêm 22h–4h, chim sớm 4h–7h
+      if (delta.blitzScore && delta.blitzScore > (s.best.blitz || 0)) s.best.blitz = delta.blitzScore;
+      // cú đêm 22–4h, chim sớm 4–7h (1 lần/ngày)
       if (gained > 0) { const h = new Date().getHours(); if ((h >= 22 || h < 4) && !d.night) { d.night = 1; s.total.night = (s.total.night || 0) + 1; } if (h >= 4 && h < 7 && !d.early) { d.early = 1; s.total.early = (s.total.early || 0) + 1; } }
       // Huy hiệu
       if (ctx) for (const b of BADGES) if (!s.badges[b.id] && b.test(s, ctx)) { s.badges[b.id] = Date.now(); events.push({ type: 'badge', badge: b }); }
@@ -126,31 +148,30 @@
       }
     } catch (e) { /* trình duyệt chặn âm thanh */ }
   }
-  // Rung nhẹ khi trả lời (điện thoại Android) – phản hồi xúc giác như app gốc; tắt cùng hiệu ứng âm thanh
   const rm = () => { try { return matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) { return false; } };
-  // Công tắc riêng "Rung" (Cài đặt): vb.haptics = '0' → tắt; mặc định bật. Cổng chung: tắt âm, giảm chuyển động, màn không cảm ứng.
+  // vb.haptics='0' tắt rung
   const hapOn = () => { try { return g.localStorage.getItem('vb.haptics') !== '0'; } catch (e) { return true; } };
   const buzz = p => { try { if (navigator.vibrate && hapOn() && matchMedia('(pointer: coarse)').matches && !isMuted() && !rm()) navigator.vibrate(p); } catch (e) { /* bỏ qua */ } };
-  // Bảng rung theo sự kiện (ms; số lẻ = rung, số chẵn = nghỉ): MỌI chỗ rung đi qua Sfx.haptic(sự kiện) để dùng chung một cổng + một công tắc
+  // rung theo sự kiện (ms): mọi chỗ qua Sfx.haptic
   const HAPTIC = { tap: 8, soft: 12, swipe: 15, correct: 35, wrong: [50, 40, 50], streak: [30, 40, 70], done: [30, 40, 70, 60, 110], badge: [20, 30, 50] };
-  // 🌤️ Sắc thái theo giờ (sáng <11 · trưa 11–17 · tối ≥18): CHỈ đặt html[data-daypart] → màu nhấn lời chào (style.css .kit-say). Nền tối #10191B giữ nguyên.
+  // html[data-daypart] sáng/trưa/tối → màu lời chào
   const daypart = () => { try { const h = new Date().getHours(), d = h < 11 ? 'morning' : h < 18 ? 'noon' : 'evening'; if (g.document.documentElement.dataset.daypart !== d) g.document.documentElement.dataset.daypart = d; return d; } catch (e) { return 'noon'; } };
   daypart(); try { g.document.addEventListener('visibilitychange', () => { if (!g.document.hidden) daypart(); }); } catch (e) { /* bỏ qua */ }
   const Sfx = {
     correct: () => { tone([660, 880], 0.1, 'triangle'); buzz(35); },
-    wrong: () => { tone([294, 247], 0.12, 'sine', 0.05); buzz([50, 40, 50]); }, // sai: âm trầm mềm (sine), không gắt
+    wrong: () => { tone([294, 247], 0.12, 'sine', 0.05); buzz([50, 40, 50]); },
     flip: () => tone([520], 0.05, 'sine', 0.04),
-    win: () => { tone([523, 659, 784, 1047], 0.12, 'triangle'); buzz(HAPTIC.done); }, // xong bài: rung dài hơn đúng/sai
+    win: () => { tone([523, 659, 784, 1047], 0.12, 'triangle'); buzz(HAPTIC.done); },
     pop: () => tone([900], 0.04, 'square', 0.03),
   };
-  // Hiệu ứng thêm (tap/streak/shimmer/combo) nạp lười trong streak-ui.js qua Sfx.extend; trước khi nạp xong gọi là không làm gì
+  // tap/streak/shimmer/combo: nạp lười (streak-ui.js, Sfx.extend)
   for (const k of ['tap', 'streak', 'shimmer', 'combo']) Sfx[k] = () => {};
   Sfx.haptic = ev => buzz(HAPTIC[ev] || HAPTIC.soft);
   Sfx.haptics = on => { if (on === undefined) return hapOn(); try { g.localStorage.setItem('vb.haptics', on ? '1' : '0'); } catch (e) { /* bỏ qua */ } if (on) buzz(HAPTIC.correct); return !!on; };
   Sfx.HAPTIC = HAPTIC; Sfx.daypart = daypart;
-  Sfx.extend = f => { const o = f(tone, buzz); for (const k of Sfx.locked || []) delete o[k]; Object.assign(Sfx, o); }; // khóa: lớp game feel đã giữ âm này
-  // 🎮 Lớp "game feel" (docs/GAME-FEEL.md, docs/specs/play-learn.md): BẬT mặc định từ 3/11; tắt bằng công tắc Cài đặt hoặc ?feel=0, nhớ trong vb.feel.
-  // Sfx.feel() → đang bật? · Sfx.feel(true|false) → lưu + bật/tắt ngay (không cần tải lại). Không có localStorage → vẫn bật (âm vẫn theo settings.sfx).
+  Sfx.extend = f => { const o = f(tone, buzz); for (const k of Sfx.locked || []) delete o[k]; Object.assign(Sfx, o); };
+  // 🎮 game feel (docs/GAME-FEEL.md): bật mặc định; tắt ở Cài đặt / ?feel=0 (vb.feel)
+  // Sfx.feel() đọc · Sfx.feel(bool) lưu + bật/tắt ngay
   const feelGet = () => { try { return g.localStorage.getItem('vb.feel') !== '0'; } catch (e) { return true; } };
   const feelLoad = () => { if (g.Feel || !g.document || !g.document.createElement || !g.document.head || !g.document.getElementById || g.document.getElementById('feelJs')) return; const s = g.document.createElement('script'), me = g.document.querySelector('script[src*="js/game.js"]'); s.id = 'feelJs'; s.src = (me ? me.getAttribute('src').replace(/game\.js.*$/, '') : 'js/') + 'feel.js'; s.defer = true; g.document.head.appendChild(s); };
   Sfx.feel = on => {
@@ -162,10 +183,10 @@
   try { const m = g.location && /[?&#]feel=([01])/.exec(g.location.search + g.location.hash); if (m) g.localStorage.setItem('vb.feel', m[1]); } catch (e) { /* bỏ qua */ }
   if (feelGet()) feelLoad();
 
-  // ---------- Phản hồi trả lời dùng chung cho MỌI bề mặt luyện tập (một chỗ duy nhất, không chép lại) ----------
-  // Sfx.answer(ok, { el, answer, badge, exam }) → âm + rung (tắt cùng cài đặt âm thanh) + nảy/rung nhẹ el (tắt khi giảm chuyển động)
-  //   + đọc cho trình đọc màn hình (aria-live) + chuỗi đúng liền 3/5/10/15… (Sfx.combo + huy hiệu nhỏ, gói lười streak+lfx). exam: im lặng.
-  // Sfx.finish({ pct, xp, el, ms, good, exam }) → âm thắng + pháo giấy (≥ good, mặc định 80%) + 4 thẻ số liệu (độ chính xác, XP, thời gian, chuỗi ngày) vào el.
+  // ---------- Phản hồi trả lời chung mọi bề mặt ----------
+  // Sfx.answer(ok, { el, answer, badge, exam }) → âm + rung + nảy/lắc el
+  //   + aria-live + combo 3/5/10/15… (lười streak+lfx); exam: im lặng
+  // Sfx.finish({ pct, xp, el, ms, good, exam }) → âm thắng + pháo giấy + thẻ số liệu
   let run = 0, t0 = Date.now(), at = '';
   const tt = (k, v) => (g.t ? g.t(k, v) : k);
   const route = () => { const h = g.location ? String(g.location.hash).split('?')[0] : ''; if (h !== at) { at = h; run = 0; t0 = Date.now(); } };
@@ -197,7 +218,7 @@
   // ---------- Pháo giấy ----------
   function confetti(n = 120) {
     if (typeof document === 'undefined') return;
-    if (matchMedia('(prefers-reduced-motion: reduce)').matches) { // giảm chuyển động: KHÔNG pháo giấy bay – chỉ Kit "win" đứng yên hiện/mờ (đổi độ mờ, không dịch chuyển) cho mốc lớn
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) { // giảm chuyển động: chỉ Kit win mờ hiện, mốc lớn
       if (n < 80 || !g.Kit) return;
       const k = document.createElement('div'); k.className = 'cele-still'; k.setAttribute('aria-hidden', 'true'); k.innerHTML = g.Kit.svg('win', 88, false);
       document.body.appendChild(k); requestAnimationFrame(() => k.classList.add('on')); setTimeout(() => k.classList.remove('on'), 1100); setTimeout(() => k.remove(), 1500);
@@ -209,7 +230,7 @@
     let ctx = null; try { ctx = c.getContext('2d'); } catch (e) { /* không có canvas */ }
     if (!ctx) { c.remove(); return; }
     const W = c.width = innerWidth * devicePixelRatio, H = c.height = innerHeight * devicePixelRatio;
-    const colors = (g.Kit && g.Kit.palette) || ['#E5502F', '#FFB054', '#FFC94A', '#2FBF71', '#FF8FA3', '#17595A']; // màu thương hiệu từ kit.js (không còn tím/xanh dương lạ)
+    const colors = (g.Kit && g.Kit.palette) || ['#E5502F', '#FFB054', '#FFC94A', '#2FBF71', '#FF8FA3', '#17595A'];
     const ps = Array.from({ length: n }, () => ({ x: W / 2 + (Math.random() - .5) * W * .3, y: H * .35, vx: (Math.random() - .5) * 26, vy: -Math.random() * 30 - 8, s: (Math.random() * 6 + 5) * devicePixelRatio, r: Math.random() * 6, vr: (Math.random() - .5) * .3, c: colors[Math.floor(Math.random() * colors.length)] }));
     let f = 0;
     (function step() {

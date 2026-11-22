@@ -256,7 +256,7 @@ internal class PracticeVm(private val env: VocabEnv, private val mode: String, p
         val q = curQ ?: return
         val (heard, sim) = Speaking.best(q.answer, alts)
         val ok = sim >= 0.8
-        if (ok) { score++; xp += 3; spoken++ } else wrongWords.add(q.w)
+        if (ok) { score++; xp += Practice.speakXp(Speaking.percent(sim)); spoken++ } else wrongWords.add(q.w)
         speakSt = SpeakState(heard = heard, pct = Speaking.percent(sim), ok = ok); publishRun(q)
     }
     fun speechError(code: String) {
@@ -288,7 +288,7 @@ internal class PracticeVm(private val env: VocabEnv, private val mode: String, p
     private fun finishMatch() {
         val m = match ?: return; val now = env.now()
         val seconds = (now - m.startedAt) / 1000.0 + m.misses
-        val x = Practice.matchXp(seconds); val perfect = m.misses == 0
+        val x = Practice.matchXp(m.tiles.size / 2, m.misses); val perfect = m.misses == 0
         var g = StudyReward.track(game, mapOf("matches" to 1, "quizzes" to 1, "perfect" to (if (perfect) 1 else 0)), x, now)
         val prev = (g as? JsonObject).go("best").gn("match", 0.0)
         val record = prev <= 0.0 || seconds < prev
@@ -313,7 +313,7 @@ internal class PracticeVm(private val env: VocabEnv, private val mode: String, p
         }
         val total = queue.size; val perfect = score == total
         val pct = Practice.percent(score, total)
-        val x = xp + (if (mode == "speak") 0 else Practice.quizBaseXp(pct))
+        val x = xp + (if (mode == "speak") Practice.speakDoneXp(score, total) else Practice.quizBaseXp(score, total))
         val g = StudyReward.track(game, mapOf("quizzes" to 1, "perfect" to (if (perfect) 1 else 0), "spoken" to spoken), x, now); game = g
         viewModelScope.launch { env.write(game = g) }
         val missing = wrongWords.distinctBy { it.word }.count { missingWord(it.word) }

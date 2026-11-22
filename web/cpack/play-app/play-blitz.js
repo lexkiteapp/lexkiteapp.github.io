@@ -23,7 +23,7 @@
   }
   const gradeOf = (ok, ms) => (!ok ? 0 : ms <= FAST ? 2 : 1);
   const mult = combo => (combo >= 6 ? 3 : combo >= 3 ? 2 : 1);
-  const xpOf = (right, n) => Math.min(40, 5 + right * 2 + (n >= 10 && right === n ? 5 : 0));
+  const xpOf = (right, n) => g.Game.xpFor('game', { right, total: n }); // luật chung game.js
   // Dạng câu: ảnh nếu từ có ảnh đúng nghĩa (xen kẽ), nghe nếu được phát âm, còn lại từ → nghĩa
   function kindOf(w, i, o) { if (o.pic && o.pic(w) && i % 3 === 2) return 'pic'; if (o.audio && i % 3 === 1) return 'listen'; return 'mean'; }
   // 4 lựa chọn: đáp án + 3 nhiễu khác nhãn (ưu tiên cùng từ loại), nhãn không trùng nhau

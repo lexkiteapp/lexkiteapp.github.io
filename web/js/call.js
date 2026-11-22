@@ -412,7 +412,7 @@ body.call-on{overflow:hidden}
   function summary(c, log, secs, avgLat) {
     const r = E.recap(c, log), nm = Chars.name(c.who);
     try { if (c.tl === 'es' && sessionStorage.getItem('lk.es.dayctx')) App.need('esday').then(() => App.esDayMark('c')); } catch (e) { /* bỏ qua */ } // lộ trình ngày TBN: cuộc gọi xong → đánh dấu bước (cpack/es-app/day-ui.js)
-    const voiced = log.filter(x => !x.picked && !x.typed).length, xp = 5 + r.turns.length * 2 + voiced * 2 + (r.used.length ? 3 : 0);
+    const voiced = log.filter(x => !x.picked && !x.typed).length, xp = Game.xpFor('talk', { right: voiced });
     App.reward({ spoken: voiced, xp });
     const tx = r.turns.map(x => `<div class="call-tx ${x.weak ? 'weak' : ''}"><div class="small q" lang="${TLG}"><b>${nm}:</b> ${esc(x.m || '')}</div>
         <div class="a" lang="${TLG}"><b>${t('Bạn')}:</b> ${esc(x.text)}${x.picked ? ` <span class="chip">${t('gợi ý')}</span>` : ''}</div>

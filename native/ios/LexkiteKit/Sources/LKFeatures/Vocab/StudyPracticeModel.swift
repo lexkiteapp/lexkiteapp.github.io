@@ -52,7 +52,7 @@ final class StudyPracticeModel {
     private(set) var misses = 0
     private(set) var matchStart: Int64 = 0
     private(set) var matchTime = 0.0
-    private(set) var matchXP = 0
+    private(set) var matchXP = 0, speakDoneXP = 0
     private(set) var matchBest: Double?
     private(set) var newRecord = false
 
@@ -193,7 +193,7 @@ final class StudyPracticeModel {
     private func finishQuiz() {
         let r = PracticeRun.quizResult(mode: mode ?? "mcq", score: score, total: quiz.count, answerXP: runXP)
         result = r
-        reward(StudyDelta(xp: r.perfect ? PracticeRun.xpQuizPerfect : PracticeRun.xpQuizDone, counters: ["quizzes": 1, "perfect": r.perfect ? 1 : 0]))
+        reward(StudyDelta(xp: PracticeRun.quizBaseXP(score: score, total: quiz.count), counters: ["quizzes": 1, "perfect": r.perfect ? 1 : 0]))
         phase = .quizDone; doneTick += 1
     }
 
@@ -277,7 +277,7 @@ final class StudyPracticeModel {
     func elapsed() -> Double { Double(core.now() - matchStart) / 1000 }
     private func finishMatch() {
         matchTime = PracticeRun.matchTime(elapsed: elapsed(), misses: misses)
-        matchXP = PracticeRun.matchXP(time: matchTime)
+        matchXP = PracticeRun.matchXP(pairs: matchItems.count, misses: misses)
         newRecord = matchBest == nil || matchTime < (matchBest ?? .infinity)
         reward(StudyDelta(xp: matchXP, counters: ["matches": 1, "quizzes": 1, "perfect": misses == 0 ? 1 : 0], matchTime: matchTime))
         phase = .matchDone; doneTick += 1
@@ -322,7 +322,8 @@ final class StudyPracticeModel {
     func nextSpeak() {
         si += 1
         if si >= speakItems.count {
-            reward(StudyDelta(xp: PracticeRun.xpSpeakDone, counters: ["quizzes": 1]))
+            speakDoneXP = PracticeRun.speakDoneXP(good: good, total: total)
+            reward(StudyDelta(xp: speakDoneXP, counters: ["quizzes": 1]))
             phase = .speakDone; doneTick += 1
         } else { showSpeak() }
     }
