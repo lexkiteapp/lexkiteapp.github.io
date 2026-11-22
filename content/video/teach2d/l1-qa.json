@@ -23962,7 +23962,7 @@
   "glosses": []
  },
  "t2s_fr_bet": {
-  "ok": false,
+  "ok": true,
   "lang": "fr",
   "online": false,
   "gates": {
@@ -23972,7 +23972,7 @@
    "hashtags": true,
    "lengths": true,
    "comment": true,
-   "not_english": false
+   "not_english": true
   },
   "glosses": []
  },
