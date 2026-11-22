@@ -1,0 +1,3759 @@
+{
+ "v": 1,
+ "tl": "es",
+ "variant": "es-419",
+ "status": "pending-review",
+ "source": {
+  "name": "FrequencyWords (hermitdave) – OpenSubtitles 2018 es_50k",
+  "url": "https://raw.githubusercontent.com/hermitdave/FrequencyWords/master/content/2018/es/es_50k.txt",
+  "license": "CC BY-SA 4.0 (dữ liệu) – chỉ dùng thứ hạng để chọn từ; ghi công trong spec"
+ },
+ "words": [
+  {
+   "word": "herido",
+   "pos": "adj",
+   "ipa": "eˈɾiðo",
+   "gl": {
+    "vi": "bị thương",
+    "en": "injured, wounded",
+    "es": "herido",
+    "pt": "ferido",
+    "fr": "blessé",
+    "de": "verletzt",
+    "id": "terluka",
+    "th": "ได้รับบาดเจ็บ",
+    "zh": "受伤的",
+    "ja": "負傷した",
+    "ko": "부상당한",
+    "hi": "घायल",
+    "ar": "مصاب",
+    "ru": "раненый",
+    "tr": "yaralı"
+   },
+   "ex": {
+    "es": "El conductor no está herido después del accidente.",
+    "en": "The driver is not injured after the accident."
+   },
+   "rank": 1570,
+   "qa": {
+    "gen": "gemini-3.8-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ],
+    "spot": true
+   }
+  },
+  {
+   "word": "privado",
+   "pos": "adj",
+   "ipa": "pɾiˈβaðo",
+   "gl": {
+    "vi": "riêng tư, tư nhân",
+    "en": "private",
+    "es": "privado",
+    "pt": "privado",
+    "fr": "privé",
+    "de": "privat",
+    "id": "pribadi, swasta",
+    "th": "ส่วนตัว",
+    "zh": "私人的",
+    "ja": "私立の、プライベートな",
+    "ko": "개인의, 사립의",
+    "hi": "निजी",
+    "ar": "خاص",
+    "ru": "частный",
+    "tr": "özel"
+   },
+   "ex": {
+    "es": "Esta es una conversación en un lugar privado.",
+    "en": "This is a conversation in a private place."
+   },
+   "rank": 1818,
+   "qa": {
+    "gen": "gemini-3.8-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "medicina",
+   "pos": "n",
+   "gender": "f",
+   "plural": "medicinas",
+   "ipa": "meðiˈsina",
+   "gl": {
+    "vi": "thuốc, y học",
+    "en": "medicine",
+    "es": "medicina",
+    "pt": "medicina, remédio",
+    "fr": "médecine, médicament",
+    "de": "Medizin, Medikament",
+    "id": "obat, kedokteran",
+    "th": "ยา, การแพทย์",
+    "zh": "药，医学",
+    "ja": "薬、医学",
+    "ko": "약, 의학",
+    "hi": "दवा, चिकित्सा",
+    "ar": "دواء, طب",
+    "ru": "медицина, лекарство",
+    "tr": "ilaç, tıp"
+   },
+   "ex": {
+    "es": "Debes tomar la medicina después de comer.",
+    "en": "You must take the medicine after eating."
+   },
+   "rank": 1838,
+   "qa": {
+    "gen": "gemini-3.8-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "premio",
+   "pos": "n",
+   "gender": "m",
+   "plural": "premios",
+   "ipa": "ˈpɾemjo",
+   "gl": {
+    "vi": "giải thưởng",
+    "en": "prize, award",
+    "es": "premio",
+    "pt": "prêmio",
+    "fr": "prix, récompense",
+    "de": "Preis, Gewinn",
+    "id": "hadiah, penghargaan",
+    "th": "รางวัล",
+    "zh": "奖，奖品",
+    "ja": "賞、賞品",
+    "ko": "상, 상품",
+    "hi": "इनाम, पुरस्कार",
+    "ar": "جائزة",
+    "ru": "приз, награда",
+    "tr": "ödül"
+   },
+   "ex": {
+    "es": "Ella ganó un premio por su excelente trabajo.",
+    "en": "She won a prize for her excellent work."
+   },
+   "rank": 2002,
+   "qa": {
+    "gen": "gemini-3.8-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "ladrón",
+   "pos": "n",
+   "gender": "m",
+   "plural": "ladrones",
+   "ipa": "laˈðɾon",
+   "gl": {
+    "vi": "tên trộm",
+    "en": "thief",
+    "es": "ladrón",
+    "pt": "ladrão",
+    "fr": "voleur",
+    "de": "Dieb",
+    "id": "pencuri",
+    "th": "ขโมย",
+    "zh": "小偷",
+    "ja": "泥棒",
+    "ko": "도둑",
+    "hi": "चोर",
+    "ar": "لص",
+    "ru": "вор",
+    "tr": "hırsız"
+   },
+   "ex": {
+    "es": "El ladrón se llevó el dinero de la tienda.",
+    "en": "The thief took the money from the store."
+   },
+   "rank": 2022,
+   "qa": {
+    "gen": "gemini-3.8-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "fantasma",
+   "pos": "n",
+   "gender": "m",
+   "plural": "fantasmas",
+   "ipa": "fanˈtasma",
+   "gl": {
+    "vi": "con ma",
+    "en": "ghost",
+    "es": "fantasma",
+    "pt": "fantasma",
+    "fr": "fantôme",
+    "de": "Geist, Gespenst",
+    "id": "hantu",
+    "th": "ผี",
+    "zh": "鬼",
+    "ja": "幽霊",
+    "ko": "유령",
+    "hi": "भूत",
+    "ar": "شبح",
+    "ru": "призрак",
+    "tr": "hayalet"
+   },
+   "ex": {
+    "es": "El niño pensó que vio un fantasma en su cuarto.",
+    "en": "The boy thought he saw a ghost in his room."
+   },
+   "rank": 1852,
+   "qa": {
+    "gen": "gemini-3.8-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ],
+    "fixed": "gemini-3.8-flash"
+   }
+  },
+  {
+   "word": "tercera",
+   "pos": "adj",
+   "ipa": "teɾˈseɾa",
+   "gl": {
+    "vi": "thứ ba",
+    "en": "third",
+    "es": "tercera",
+    "pt": "terceira",
+    "fr": "troisième",
+    "de": "dritte",
+    "id": "ketiga",
+    "th": "ที่สาม",
+    "zh": "第三",
+    "ja": "3番目の",
+    "ko": "세 번째의",
+    "hi": "तीसरा",
+    "ar": "ثالثة",
+    "ru": "третья",
+    "tr": "üçüncü"
+   },
+   "ex": {
+    "es": "Ella vive en la tercera casa de la calle.",
+    "en": "She lives in the third house on the street."
+   },
+   "rank": 2010,
+   "qa": {
+    "gen": "gemini-3.8-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ],
+    "fixed": "gemini-3.8-flash"
+   }
+  },
+  {
+   "word": "modelo",
+   "pos": "n",
+   "gender": "m",
+   "plural": "modelos",
+   "ipa": "moˈðelo",
+   "gl": {
+    "es": "modelo",
+    "en": "model",
+    "pt": "modelo",
+    "fr": "modèle",
+    "de": "Modell",
+    "vi": "mô hình",
+    "id": "model",
+    "th": "โมเดล",
+    "zh": "模型",
+    "ja": "モデル",
+    "ko": "모델",
+    "hi": "मॉडल",
+    "ar": "نموذج",
+    "ru": "модель",
+    "tr": "model"
+   },
+   "ex": {
+    "es": "Este modelo es muy popular.",
+    "en": "This model is very popular."
+   },
+   "rank": 2034,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.6-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ],
+    "ipaAi": "moˈde.lo"
+   }
+  },
+  {
+   "word": "lisa",
+   "pos": "adj",
+   "ipa": "ˈlisa",
+   "gl": {
+    "es": "lisa",
+    "en": "smooth",
+    "pt": "lisa",
+    "fr": "lisse",
+    "de": "glatt",
+    "vi": "trơn",
+    "id": "halus",
+    "th": "เรียบ",
+    "zh": "光滑的",
+    "ja": "滑らか",
+    "ko": "매끄러운",
+    "hi": "स्मूथ",
+    "ar": "ناعم",
+    "ru": "гладкая",
+    "tr": "pürüzsüz"
+   },
+   "ex": {
+    "es": "La superficie es lisa.",
+    "en": "The surface is smooth."
+   },
+   "rank": 2107,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.6-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "criminal",
+   "pos": "n",
+   "gender": "m",
+   "plural": "criminales",
+   "ipa": "kɾimiˈnal",
+   "gl": {
+    "es": "criminal",
+    "en": "criminal",
+    "pt": "criminoso",
+    "fr": "criminel",
+    "de": "Verbrecher",
+    "vi": "tội phạm",
+    "id": "penjahat",
+    "th": "อาชญากร",
+    "zh": "罪犯",
+    "ja": "犯罪者",
+    "ko": "범죄자",
+    "hi": "अपराधी",
+    "ar": "مجرم",
+    "ru": "преступник",
+    "tr": "suçlu"
+   },
+   "ex": {
+    "es": "El criminal fue arrestado.",
+    "en": "The criminal was arrested."
+   },
+   "rank": 2118,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.6-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "sobrevivir",
+   "pos": "v",
+   "ipa": "soβɾeβiˈβiɾ",
+   "gl": {
+    "es": "sobrevivir",
+    "en": "to survive",
+    "pt": "sobreviver",
+    "fr": "survivre",
+    "de": "überleben",
+    "vi": "sống sót",
+    "id": "bertahan hidup",
+    "th": "รอดชีวิต",
+    "zh": "生存",
+    "ja": "生き残る",
+    "ko": "생존하다",
+    "hi": "बचना",
+    "ar": "ينجو",
+    "ru": "выжить",
+    "tr": "hayatta kalmak"
+   },
+   "ex": {
+    "es": "Ellos lograron sobrevivir al accidente.",
+    "en": "They managed to survive the accident."
+   },
+   "rank": 2134,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.6-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ],
+    "ipaAi": "soβɾeβiˈɾ"
+   }
+  },
+  {
+   "word": "curso",
+   "pos": "n",
+   "gender": "m",
+   "plural": "cursos",
+   "ipa": "ˈkuɾso",
+   "gl": {
+    "vi": "khóa học",
+    "en": "course",
+    "es": "curso",
+    "pt": "curso",
+    "fr": "cours",
+    "de": "Kurs",
+    "id": "kursus",
+    "th": "หลักสูตร",
+    "zh": "课程",
+    "ja": "コース",
+    "ko": "강좌",
+    "hi": "पाठ्यक्रम",
+    "ar": "دورة",
+    "ru": "курс",
+    "tr": "kurs"
+   },
+   "ex": {
+    "es": "Estoy tomando un curso de español.",
+    "en": "I am taking a Spanish course."
+   },
+   "rank": 2186,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "lago",
+   "pos": "n",
+   "gender": "m",
+   "plural": "lagos",
+   "ipa": "ˈlaɣo",
+   "gl": {
+    "vi": "hồ",
+    "en": "lake",
+    "es": "lago",
+    "pt": "lago",
+    "fr": "lac",
+    "de": "See",
+    "id": "danau",
+    "th": "ทะเลสาบ",
+    "zh": "湖泊",
+    "ja": "湖",
+    "ko": "호수",
+    "hi": "झील",
+    "ar": "بحيرة",
+    "ru": "озеро",
+    "tr": "göl"
+   },
+   "ex": {
+    "es": "El agua del lago está muy fría.",
+    "en": "The water in the lake is very cold."
+   },
+   "rank": 2191,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "efectivo",
+   "pos": "n",
+   "gender": "m",
+   "plural": "efectivos",
+   "ipa": "efekˈtiβo",
+   "gl": {
+    "vi": "tiền mặt",
+    "en": "cash",
+    "es": "efectivo",
+    "pt": "dinheiro em espécie",
+    "fr": "argent liquide",
+    "de": "Bargeld",
+    "id": "uang tunai",
+    "th": "เงินสด",
+    "zh": "现金",
+    "ja": "現金",
+    "ko": "현금",
+    "hi": "नकद",
+    "ar": "نقد",
+    "ru": "наличные",
+    "tr": "nakit"
+   },
+   "ex": {
+    "es": "Voy a pagar con efectivo.",
+    "en": "I am going to pay with cash."
+   },
+   "rank": 2203,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "funeral",
+   "pos": "n",
+   "gender": "m",
+   "plural": "funerales",
+   "ipa": "funeˈɾal",
+   "gl": {
+    "vi": "tang lễ",
+    "en": "funeral",
+    "es": "funeral",
+    "pt": "funeral",
+    "fr": "funérailles",
+    "de": "Beerdigung",
+    "id": "pemakaman",
+    "th": "งานศพ",
+    "zh": "葬礼",
+    "ja": "葬式",
+    "ko": "장례식",
+    "hi": "अंतिम संस्कार",
+    "ar": "جنازة",
+    "ru": "похороны",
+    "tr": "cenaze"
+   },
+   "ex": {
+    "es": "Mucha gente fue al funeral.",
+    "en": "Many people went to the funeral."
+   },
+   "rank": 2210,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "aparte",
+   "pos": "adv",
+   "ipa": "aˈpaɾte",
+   "gl": {
+    "vi": "riêng",
+    "en": "aside",
+    "es": "aparte",
+    "pt": "à parte",
+    "fr": "à part",
+    "de": "abseits",
+    "id": "terpisah",
+    "th": "ต่างหาก",
+    "zh": "另外",
+    "ja": "別々に",
+    "ko": "따로",
+    "hi": "अलग",
+    "ar": "جانبًا",
+    "ru": "отдельно",
+    "tr": "ayrı"
+   },
+   "ex": {
+    "es": "Pon esa caja aparte, por favor.",
+    "en": "Put that box aside, please."
+   },
+   "rank": 2235,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "tarea",
+   "pos": "n",
+   "gender": "f",
+   "plural": "tareas",
+   "ipa": "taˈɾea",
+   "gl": {
+    "vi": "bài tập",
+    "en": "homework",
+    "es": "tarea",
+    "pt": "tarefa",
+    "fr": "devoir",
+    "de": "Hausaufgabe",
+    "id": "tugas",
+    "th": "การบ้าน",
+    "zh": "作业",
+    "ja": "宿題",
+    "ko": "숙제",
+    "hi": "गृहकार्य",
+    "ar": "واجب",
+    "ru": "домашнее задание",
+    "tr": "ödev"
+   },
+   "ex": {
+    "es": "Tengo mucha tarea para mañana.",
+    "en": "I have a lot of homework for tomorrow."
+   },
+   "rank": 2242,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "vacío",
+   "pos": "adj",
+   "ipa": "baˈsio",
+   "gl": {
+    "vi": "trống rỗng",
+    "en": "empty",
+    "es": "vacío",
+    "pt": "vazio",
+    "fr": "vide",
+    "de": "leer",
+    "id": "kosong",
+    "th": "ว่างเปล่า",
+    "zh": "空的",
+    "ja": "空の",
+    "ko": "비어 있는",
+    "hi": "खाली",
+    "ar": "فارغ",
+    "ru": "пустой",
+    "tr": "boş"
+   },
+   "ex": {
+    "es": "El vaso está vacío.",
+    "en": "The glass is empty."
+   },
+   "rank": 2247,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "solución",
+   "pos": "n",
+   "gender": "f",
+   "plural": "soluciones",
+   "ipa": "soluˈsjon",
+   "gl": {
+    "vi": "giải pháp",
+    "en": "solution",
+    "es": "solución",
+    "pt": "solução",
+    "fr": "solution",
+    "de": "Lösung",
+    "id": "solusi",
+    "th": "ทางแก้",
+    "zh": "解决方案",
+    "ja": "解決策",
+    "ko": "해결책",
+    "hi": "समाधान",
+    "ar": "حل",
+    "ru": "решение",
+    "tr": "çözüm"
+   },
+   "ex": {
+    "es": "Encontramos una buena solución al problema.",
+    "en": "We found a good solution to the problem."
+   },
+   "rank": 2255,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "empleo",
+   "pos": "n",
+   "gender": "m",
+   "plural": "empleos",
+   "ipa": "emˈpleo",
+   "gl": {
+    "vi": "việc làm",
+    "en": "job",
+    "es": "empleo",
+    "pt": "emprego",
+    "fr": "emploi",
+    "de": "Arbeit",
+    "id": "pekerjaan",
+    "th": "งาน",
+    "zh": "工作",
+    "ja": "職",
+    "ko": "직업",
+    "hi": "रोजगार",
+    "ar": "وظيفة",
+    "ru": "работа",
+    "tr": "iş"
+   },
+   "ex": {
+    "es": "Juan busca un nuevo empleo.",
+    "en": "Juan is looking for a new job."
+   },
+   "rank": 2337,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ],
+    "spot": true
+   }
+  },
+  {
+   "word": "bravo",
+   "pos": "adj",
+   "ipa": "ˈbɾaβo",
+   "gl": {
+    "vi": "tức giận",
+    "en": "angry",
+    "es": "bravo",
+    "pt": "bravo",
+    "fr": "fâché",
+    "de": "wütend",
+    "id": "marah",
+    "th": "โกรธ",
+    "zh": "生气的",
+    "ja": "怒った",
+    "ko": "화난",
+    "hi": "गुस्सैल",
+    "ar": "غاضب",
+    "ru": "сердитый",
+    "tr": "kızgın"
+   },
+   "ex": {
+    "es": "El perro está bravo hoy.",
+    "en": "The dog is angry today."
+   },
+   "rank": 2345,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "ritmo",
+   "pos": "n",
+   "gender": "m",
+   "plural": "ritmos",
+   "ipa": "ˈritmo",
+   "gl": {
+    "vi": "nhịp điệu",
+    "en": "rhythm",
+    "es": "ritmo",
+    "pt": "ritmo",
+    "fr": "rythme",
+    "de": "Rhythmus",
+    "id": "irama",
+    "th": "จังหวะ",
+    "zh": "节奏",
+    "ja": "リズム",
+    "ko": "리듬",
+    "hi": "ताल",
+    "ar": "إيقاع",
+    "ru": "ритм",
+    "tr": "ritim"
+   },
+   "ex": {
+    "es": "Me gusta el ritmo de esta canción.",
+    "en": "I like the rhythm of this song."
+   },
+   "rank": 2373,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "página",
+   "pos": "n",
+   "gender": "f",
+   "plural": "páginas",
+   "ipa": "ˈpaxina",
+   "gl": {
+    "vi": "trang",
+    "en": "page",
+    "es": "página",
+    "pt": "página",
+    "fr": "page",
+    "de": "Seite",
+    "id": "halaman",
+    "th": "หน้า",
+    "zh": "页",
+    "ja": "ページ",
+    "ko": "페이지",
+    "hi": "पृष्ठ",
+    "ar": "صفحة",
+    "ru": "страница",
+    "tr": "sayfa"
+   },
+   "ex": {
+    "es": "Abre el libro en la página diez.",
+    "en": "Open the book to page ten."
+   },
+   "rank": 2381,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "paquete",
+   "pos": "n",
+   "gender": "m",
+   "plural": "paquetes",
+   "ipa": "paˈkete",
+   "gl": {
+    "vi": "bưu kiện",
+    "en": "package",
+    "es": "paquete",
+    "pt": "pacote",
+    "fr": "paquet",
+    "de": "Paket",
+    "id": "paket",
+    "th": "พัสดุ",
+    "zh": "包裹",
+    "ja": "小包",
+    "ko": "소포",
+    "hi": "पार्सल",
+    "ar": "طرد",
+    "ru": "посылка",
+    "tr": "paket"
+   },
+   "ex": {
+    "es": "Llegó un paquete para ti hoy.",
+    "en": "A package arrived for you today."
+   },
+   "rank": 2389,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "raro",
+   "pos": "adj",
+   "ipa": "ˈraɾo",
+   "gl": {
+    "vi": "kỳ lạ",
+    "en": "strange",
+    "es": "raro",
+    "pt": "estranho",
+    "fr": "étrange",
+    "de": "seltsam",
+    "id": "aneh",
+    "th": "แปลก",
+    "zh": "奇怪的",
+    "ja": "奇妙な",
+    "ko": "이상한",
+    "hi": "अजीब",
+    "ar": "غريب",
+    "ru": "странный",
+    "tr": "tuhaf"
+   },
+   "ex": {
+    "es": "Esa película es muy rara.",
+    "en": "That movie is very strange."
+   },
+   "exForm": "rara",
+   "rank": 2325,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ],
+    "fixed": "gemini-3.6-flash"
+   }
+  },
+  {
+   "word": "barrio",
+   "pos": "n",
+   "gender": "m",
+   "plural": "barrios",
+   "ipa": "ˈbarjo",
+   "gl": {
+    "vi": "khu phố",
+    "en": "neighborhood",
+    "es": "barrio",
+    "pt": "bairro",
+    "fr": "quartier",
+    "de": "Viertel",
+    "id": "lingkungan",
+    "th": "ย่าน",
+    "zh": "街区",
+    "ja": "近所",
+    "ko": "동네",
+    "hi": "मोहल्ला",
+    "ar": "حي",
+    "ru": "район",
+    "tr": "mahalle"
+   },
+   "ex": {
+    "es": "Vivo en un barrio muy tranquilo.",
+    "en": "I live in a very quiet neighborhood."
+   },
+   "rank": 2329,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ],
+    "fixed": "gemini-3.6-flash",
+    "ipaEs": "ˈbario"
+   }
+  },
+  {
+   "word": "combate",
+   "pos": "n",
+   "gender": "m",
+   "plural": "combates",
+   "ipa": "komˈbate",
+   "gl": {
+    "vi": "trận đấu",
+    "en": "combat, fight",
+    "es": "combate",
+    "pt": "combate",
+    "fr": "combat",
+    "de": "Kampf",
+    "id": "pertempuran",
+    "th": "การต่อสู้",
+    "zh": "战斗",
+    "ja": "戦闘",
+    "ko": "전투",
+    "hi": "लड़ाई",
+    "ar": "قتال",
+    "ru": "бой",
+    "tr": "dövüş"
+   },
+   "ex": {
+    "es": "El soldado sobrevivió al combate.",
+    "en": "The soldier survived the combat."
+   },
+   "rank": 2393,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "sonrisa",
+   "pos": "n",
+   "gender": "f",
+   "plural": "sonrisas",
+   "ipa": "sonˈrisa",
+   "gl": {
+    "vi": "nụ cười",
+    "en": "smile",
+    "es": "sonrisa",
+    "pt": "sorriso",
+    "fr": "sourire",
+    "de": "Lächeln",
+    "id": "senyum",
+    "th": "รอยยิ้ม",
+    "zh": "微笑",
+    "ja": "微笑み",
+    "ko": "미소",
+    "hi": " मुस्कान",
+    "ar": "ابتسامة",
+    "ru": "улыбка",
+    "tr": "gülümseme"
+   },
+   "ex": {
+    "es": "Ella tiene una sonrisa muy bonita.",
+    "en": "She has a very pretty smile."
+   },
+   "rank": 2479,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ],
+    "ipaAi": "somˈrisa"
+   }
+  },
+  {
+   "word": "sorprender",
+   "pos": "v",
+   "ipa": "soɾpɾenˈdeɾ",
+   "gl": {
+    "vi": "làm ngạc nhiên",
+    "en": "to surprise",
+    "es": "sorprender",
+    "pt": "surpreender",
+    "fr": "surprendre",
+    "de": "überraschen",
+    "id": "mengejutkan",
+    "th": "ทำให้ประหลาดใจ",
+    "zh": "使惊讶",
+    "ja": "驚かせる",
+    "ko": "놀라게 하다",
+    "hi": "हैरान करना",
+    "ar": "يفاجئ",
+    "ru": "удивлять",
+    "tr": "şaşırtmak"
+   },
+   "ex": {
+    "es": "La noticia me sorprende mucho.",
+    "en": "The news surprises me a lot."
+   },
+   "exForm": "sorprende",
+   "rank": 2512,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "milagro",
+   "pos": "n",
+   "gender": "m",
+   "plural": "milagros",
+   "ipa": "miˈlaɣɾo",
+   "gl": {
+    "vi": "phep màu",
+    "en": "miracle",
+    "es": "milagro",
+    "pt": "milagre",
+    "fr": "miracle",
+    "de": "Wunder",
+    "id": "keajaiban",
+    "th": "ปาฏิหาริย์",
+    "zh": "奇迹",
+    "ja": "奇跡",
+    "ko": "기적",
+    "hi": "चमत्कार",
+    "ar": "معجزة",
+    "ru": "чудо",
+    "tr": "mucize"
+   },
+   "ex": {
+    "es": "Es un milagro que estés bien.",
+    "en": "It is a miracle that you are okay."
+   },
+   "rank": 2514,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ],
+    "spot": true
+   }
+  },
+  {
+   "word": "despacho",
+   "pos": "n",
+   "gender": "m",
+   "plural": "despachos",
+   "ipa": "desˈpatʃo",
+   "gl": {
+    "vi": "văn phòng",
+    "en": "office / study",
+    "es": "despacho",
+    "pt": "escritório",
+    "fr": "bureau",
+    "de": "Büro",
+    "id": "kantor",
+    "th": "ห้องทำงาน",
+    "zh": "办公室",
+    "ja": "書斎",
+    "ko": "집무실",
+    "hi": "कार्यालय",
+    "ar": "مكتب",
+    "ru": "кабинет",
+    "tr": "ofis"
+   },
+   "ex": {
+    "es": "El jefe está en su despacho.",
+    "en": "The boss is in his office."
+   },
+   "rank": 2520,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ],
+    "spot": true
+   }
+  },
+  {
+   "word": "vaso",
+   "pos": "n",
+   "gender": "m",
+   "plural": "vasos",
+   "ipa": "ˈbaso",
+   "gl": {
+    "vi": "cốc",
+    "en": "glass / drinking glass",
+    "es": "vaso",
+    "pt": "copo",
+    "fr": "verre",
+    "de": "Glas",
+    "id": "gelas",
+    "th": "แก้วน้ำ",
+    "zh": "玻璃杯",
+    "ja": "コップ",
+    "ko": "컵",
+    "hi": "ग्लास",
+    "ar": "كوب",
+    "ru": "стакан",
+    "tr": "bardak"
+   },
+   "ex": {
+    "es": "Quiero un vaso de agua, por favor.",
+    "en": "I want a glass of water, please."
+   },
+   "rank": 2522,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "cadena",
+   "pos": "n",
+   "gender": "f",
+   "plural": "cadenas",
+   "ipa": "kaˈðena",
+   "gl": {
+    "vi": "chuỗi / dây xích",
+    "en": "chain",
+    "es": "cadena",
+    "pt": "corrente",
+    "fr": "chaîne",
+    "de": "Kette",
+    "id": "rantai",
+    "th": "โซ่",
+    "zh": "链条",
+    "ja": "チェーン",
+    "ko": "사슬",
+    "hi": "श्रृंखला",
+    "ar": "سلسلة",
+    "ru": "цепь",
+    "tr": "zincir"
+   },
+   "ex": {
+    "es": "El perro tiene una cadena de metal.",
+    "en": "The dog has a metal chain."
+   },
+   "rank": 2531,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ],
+    "ipaAi": "kaˈdena"
+   }
+  },
+  {
+   "word": "meter",
+   "pos": "v",
+   "ipa": "meˈteɾ",
+   "gl": {
+    "vi": "put in",
+    "en": "to put in",
+    "es": "meter",
+    "pt": "colocar",
+    "fr": "mettre",
+    "de": "stecken",
+    "id": "memasukkan",
+    "th": "ใส่",
+    "zh": "放进",
+    "ja": "入れる",
+    "ko": "넣다",
+    "hi": "डालना",
+    "ar": "أدخل",
+    "ru": "класть",
+    "tr": "sokmak"
+   },
+   "ex": {
+    "es": "Voy a meter la ropa en la maleta.",
+    "en": "I am going to put the clothes in the suitcase."
+   },
+   "rank": 2534,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "openai/gpt-oss-120b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "fumar",
+   "pos": "v",
+   "ipa": "fuˈmaɾ",
+   "gl": {
+    "vi": "hút thuốc",
+    "en": "to smoke",
+    "es": "fumar",
+    "pt": "fumar",
+    "fr": "fumer",
+    "de": "rauchen",
+    "id": "merokok",
+    "th": "สูบบุหรี่",
+    "zh": "抽烟",
+    "ja": "タバコを吸う",
+    "ko": "담배를 피우다",
+    "hi": "धूम्रपान करना",
+    "ar": "دخن",
+    "ru": "курить",
+    "tr": "sigara içmek"
+   },
+   "ex": {
+    "es": "No se permite fumar aquí.",
+    "en": "Smoking is not allowed here."
+   },
+   "rank": 2539,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "openai/gpt-oss-120b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "tratamiento",
+   "pos": "n",
+   "gender": "m",
+   "plural": "tratamientos",
+   "ipa": "tɾataˈmjento",
+   "gl": {
+    "vi": "điều trị",
+    "en": "treatment",
+    "es": "tratamiento",
+    "pt": "tratamento",
+    "fr": "traitement",
+    "de": "Behandlung",
+    "id": "pengobatan",
+    "th": "การรักษา",
+    "zh": "治疗",
+    "ja": "治療",
+    "ko": "치료",
+    "hi": "इलाज",
+    "ar": "علاج",
+    "ru": "лечение",
+    "tr": "tedavi"
+   },
+   "ex": {
+    "es": "El médico me dio un tratamiento para la tos.",
+    "en": "The doctor gave me a treatment for the cough."
+   },
+   "rank": 2546,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "openai/gpt-oss-120b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ],
+    "ipaAi": "tɾataˈmjento"
+   }
+  },
+  {
+   "word": "anterior",
+   "pos": "adj",
+   "ipa": "anteˈɾjoɾ",
+   "gl": {
+    "vi": "trước",
+    "en": "previous",
+    "es": "anterior",
+    "pt": "anterior",
+    "fr": "antérieur",
+    "de": "vorherig",
+    "id": "sebelumnya",
+    "th": "ก่อนหน้า",
+    "zh": "以前的",
+    "ja": "前の",
+    "ko": "이전의",
+    "hi": "पिछला",
+    "ar": "سابق",
+    "ru": "предыдущий",
+    "tr": "önceki"
+   },
+   "ex": {
+    "es": "Vivía en otra ciudad el año anterior.",
+    "en": "I lived in another city the previous year."
+   },
+   "rank": 2549,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "openai/gpt-oss-120b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "pizza",
+   "pos": "n",
+   "gender": "f",
+   "plural": "pizzas",
+   "ipa": "ˈpissa",
+   "gl": {
+    "vi": "bánh pizza",
+    "en": "pizza",
+    "es": "pizza",
+    "pt": "pizza",
+    "fr": "pizza",
+    "de": "Pizza",
+    "id": "pisa",
+    "th": "พิซซ่า",
+    "zh": "披萨",
+    "ja": "ピザ",
+    "ko": "피자",
+    "hi": "पिज़ा",
+    "ar": "بيتزا",
+    "ru": "пицца",
+    "tr": "pizza"
+   },
+   "ex": {
+    "es": "Comimos una pizza de queso anoche.",
+    "en": "We ate a cheese pizza last night."
+   },
+   "rank": 2551,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "openai/gpt-oss-120b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ],
+    "ipaEs": "ˈpitsa"
+   }
+  },
+  {
+   "word": "alejar",
+   "pos": "v",
+   "ipa": "aleˈxaɾ",
+   "gl": {
+    "vi": "di chuyển ra xa",
+    "en": "to move away",
+    "es": "alejar",
+    "pt": "afastar",
+    "fr": "éloigner",
+    "de": "entfernen",
+    "id": "menjauhkan",
+    "th": "ย้ายออกไป",
+    "zh": "远离",
+    "ja": "遠ざける",
+    "ko": "멀리하다",
+    "hi": "दूर करना",
+    "ar": "أبعد",
+    "ru": "отдалять",
+    "tr": "uzaklaştırmak"
+   },
+   "ex": {
+    "es": "Aléjate del fuego porque está muy caliente.",
+    "en": "Move away from the fire because it is very hot."
+   },
+   "exForm": "aléjate",
+   "rank": 2559,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "openai/gpt-oss-120b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "usado",
+   "pos": "adj",
+   "ipa": "uˈsaðo",
+   "gl": {
+    "vi": "đã qua sử dụng",
+    "en": "used",
+    "es": "usado",
+    "pt": "usado",
+    "fr": "utilisé",
+    "de": "gebraucht",
+    "id": "bekas",
+    "th": "มือสอง",
+    "zh": "用过的",
+    "ja": "中古の",
+    "ko": "중고의",
+    "hi": "इस्तेमाल किया हुआ",
+    "ar": "مستعمل",
+    "ru": "подержанный",
+    "tr": "kullanılmış"
+   },
+   "ex": {
+    "es": "Compré un carro usado en buen estado.",
+    "en": "I bought a used car in good condition."
+   },
+   "rank": 2565,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "openai/gpt-oss-120b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "educación",
+   "pos": "n",
+   "gender": "f",
+   "plural": "educaciones",
+   "ipa": "eðukaˈsjon",
+   "gl": {
+    "vi": "giáo dục",
+    "en": "education",
+    "es": "educación",
+    "pt": "educação",
+    "fr": "éducation",
+    "de": "Bildung",
+    "id": "pendidikan",
+    "th": "การศึกษา",
+    "zh": "教育",
+    "ja": "教育",
+    "ko": "교육",
+    "hi": "शिक्षा",
+    "ar": "تعليم",
+    "ru": "образование",
+    "tr": "eğitim"
+   },
+   "ex": {
+    "es": "La educación es importante para todos.",
+    "en": "Education is important for everyone."
+   },
+   "rank": 2537,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ],
+    "fixed": "gemini-3.6-flash"
+   }
+  },
+  {
+   "word": "respirar",
+   "pos": "v",
+   "ipa": "respiˈɾaɾ",
+   "gl": {
+    "vi": "thở",
+    "en": "to breathe",
+    "es": "respirar",
+    "pt": "respirar",
+    "fr": "respirer",
+    "de": "atmen",
+    "id": "bernapas",
+    "th": "หายใจ",
+    "zh": "呼吸",
+    "ja": "息をする",
+    "ko": "숨쉬다",
+    "hi": "सांस लेना",
+    "ar": "تنفس",
+    "ru": "дышать",
+    "tr": "nefes almak"
+   },
+   "ex": {
+    "es": "Es importante respirar aire fresco.",
+    "en": "It is important to breathe fresh air."
+   },
+   "rank": 2573,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "armario",
+   "pos": "n",
+   "gender": "m",
+   "plural": "armarios",
+   "ipa": "aɾˈmaɾjo",
+   "gl": {
+    "vi": "tủ quần áo",
+    "en": "closet",
+    "es": "armario",
+    "pt": "armário",
+    "fr": "armoire",
+    "de": "Schrank",
+    "id": "lemari",
+    "th": "ตู้เสื้อผ้า",
+    "zh": "衣柜",
+    "ja": "クローゼット",
+    "ko": "옷장",
+    "hi": "अलमारी",
+    "ar": "خزانة",
+    "ru": "шкаф",
+    "tr": "dolap"
+   },
+   "ex": {
+    "es": "La ropa está dentro del armario.",
+    "en": "The clothes are inside the closet."
+   },
+   "rank": 2595,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "ciertamente",
+   "pos": "adv",
+   "ipa": "sjeɾtaˈmente",
+   "gl": {
+    "vi": "chắc chắn",
+    "en": "certainly",
+    "es": "ciertamente",
+    "pt": "certamente",
+    "fr": "certainement",
+    "de": "gewiss",
+    "id": "tentu saja",
+    "th": "อย่างแน่นอน",
+    "zh": "确实",
+    "ja": "確かに",
+    "ko": "분명히",
+    "hi": "निश्चित रूप से",
+    "ar": "بالتأكيد",
+    "ru": "конечно",
+    "tr": "kesinlikle"
+   },
+   "ex": {
+    "es": "Ciertamente, tienes razón.",
+    "en": "Certainly, you are right."
+   },
+   "rank": 2598,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "asqueroso",
+   "pos": "adj",
+   "ipa": "askeˈɾoso",
+   "gl": {
+    "vi": "gớm tiếc",
+    "en": "disgusting",
+    "es": "asqueroso",
+    "pt": "nojento",
+    "fr": "dégoûtant",
+    "de": "ekelhaft",
+    "id": "jijik",
+    "th": "น่าขยะแขยง",
+    "zh": "令人恶心的",
+    "ja": "気持ち悪い",
+    "ko": "역겨운",
+    "hi": "घिनौना",
+    "ar": "مقزز",
+    "ru": "отвратительный",
+    "tr": "iğrenç"
+   },
+   "ex": {
+    "es": "Ese olor es asqueroso.",
+    "en": "That smell is disgusting."
+   },
+   "rank": 2607,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "consigo",
+   "pos": "pron",
+   "ipa": "konˈsiɣo",
+   "gl": {
+    "vi": "với chính mình",
+    "en": "with oneself",
+    "es": "consigo",
+    "pt": "consigo",
+    "fr": "avec soi",
+    "de": "mit sich",
+    "id": "dengan dirinya",
+    "th": "กับตัวเอง",
+    "zh": "与自己",
+    "ja": "自分自身と",
+    "ko": "자신과 함께",
+    "hi": "अपने साथ",
+    "ar": "مع نفسه",
+    "ru": "с собой",
+    "tr": "kendisiyle"
+   },
+   "ex": {
+    "es": "Él lleva las llaves consigo.",
+    "en": "He carries the keys with him."
+   },
+   "rank": 2610,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ],
+    "wikt": "từ loại pron ↔ adv/verb"
+   }
+  },
+  {
+   "word": "conductor",
+   "pos": "n",
+   "gender": "m",
+   "plural": "conductores",
+   "ipa": "kondukˈtoɾ",
+   "gl": {
+    "vi": "tài xế",
+    "en": "driver",
+    "es": "conductor",
+    "pt": "motorista",
+    "fr": "conducteur",
+    "de": "Fahrer",
+    "id": "pengemudi",
+    "th": "คนขับรถ",
+    "zh": "司机",
+    "ja": "運転手",
+    "ko": "운전자",
+    "hi": "चालक",
+    "ar": "سائق",
+    "ru": "водитель",
+    "tr": "sürücü"
+   },
+   "ex": {
+    "es": "El conductor del autobús es amigable.",
+    "en": "The bus driver is friendly."
+   },
+   "rank": 2613,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "básicamente",
+   "pos": "adv",
+   "ipa": "ˈbasikamente",
+   "gl": {
+    "vi": "về cơ bản",
+    "en": "basically",
+    "es": "básicamente",
+    "pt": "basicamente",
+    "fr": "fondamentalement",
+    "de": "im Grunde",
+    "id": "pada dasarnya",
+    "th": "โดยพื้นฐาน",
+    "zh": "基本上",
+    "ja": "基本的に",
+    "ko": "기본적으로",
+    "hi": "मूल रूप से",
+    "ar": "أساساً",
+    "ru": "в основном",
+    "tr": "temelde"
+   },
+   "ex": {
+    "es": "Básicamente, esa es la idea principal.",
+    "en": "Basically, that is the main idea."
+   },
+   "rank": 2583,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "openai/gpt-oss-120b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ],
+    "fixed": "gemini-3.6-flash"
+   }
+  },
+  {
+   "word": "arena",
+   "pos": "n",
+   "gender": "f",
+   "plural": "arenas",
+   "ipa": "aˈɾena",
+   "gl": {
+    "vi": "cát",
+    "en": "sand",
+    "es": "arena",
+    "pt": "areia",
+    "fr": "sable",
+    "de": "Sand",
+    "id": "pasir",
+    "th": "ทราย",
+    "zh": "沙",
+    "ja": "砂",
+    "ko": "모래",
+    "hi": "रेत",
+    "ar": "رمل",
+    "ru": "песок",
+    "tr": "kum"
+   },
+   "ex": {
+    "es": "Los niños juegan en la arena de la playa.",
+    "en": "The children play in the beach sand."
+   },
+   "rank": 2615,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "espejo",
+   "pos": "n",
+   "gender": "m",
+   "plural": "espejos",
+   "ipa": "esˈpexo",
+   "gl": {
+    "vi": "gương",
+    "en": "mirror",
+    "es": "espejo",
+    "pt": "espelho",
+    "fr": "miroir",
+    "de": "Spiegel",
+    "id": "cermin",
+    "th": "กระจกเงา",
+    "zh": "镜子",
+    "ja": "镜",
+    "ko": "거울",
+    "hi": "शीशा",
+    "ar": "مرآة",
+    "ru": "зеркало",
+    "tr": "ayna"
+   },
+   "ex": {
+    "es": "Me miro en el espejo antes de salir.",
+    "en": "I look at myself in the mirror before leaving."
+   },
+   "rank": 2621,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "coincidencia",
+   "pos": "n",
+   "gender": "f",
+   "plural": "coincidencias",
+   "ipa": "kojnsiˈðensja",
+   "gl": {
+    "vi": "sự trùng hợp",
+    "en": "coincidence",
+    "es": "coincidencia",
+    "pt": "coincidência",
+    "fr": "coïncidence",
+    "de": "Zufall",
+    "id": "kebetulan",
+    "th": "ความบังเอิญ",
+    "zh": "巧合",
+    "ja": "偶然の一致",
+    "ko": "우연의 일치",
+    "hi": "संयोग",
+    "ar": "صدفة",
+    "ru": "совпадение",
+    "tr": "tesadüf"
+   },
+   "ex": {
+    "es": "Es una gran coincidencia encontrarte aquí.",
+    "en": "It is a big coincidence meeting you here."
+   },
+   "rank": 2627,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ],
+    "ipaAi": "koinsiˈdensja"
+   }
+  },
+  {
+   "word": "ocasión",
+   "pos": "n",
+   "gender": "f",
+   "plural": "ocasiones",
+   "ipa": "okaˈsjon",
+   "gl": {
+    "vi": "dịp",
+    "en": "occasion",
+    "es": "ocasión",
+    "pt": "ocasião",
+    "fr": "occasion",
+    "de": "Gelegenheit",
+    "id": "kesempatan",
+    "th": "โอกาส",
+    "zh": "场合",
+    "ja": "機会",
+    "ko": "기회",
+    "hi": "अवसर",
+    "ar": "مناسبة",
+    "ru": "случай",
+    "tr": "fırsat"
+   },
+   "ex": {
+    "es": "Esta es una ocasión especial para celebrar.",
+    "en": "This is a special occasion to celebrate."
+   },
+   "rank": 2637,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "revisar",
+   "pos": "v",
+   "ipa": "reβiˈsaɾ",
+   "gl": {
+    "vi": "kiểm tra",
+    "en": "to check",
+    "es": "revisar",
+    "pt": "verificar",
+    "fr": "vérifier",
+    "de": "überprüfen",
+    "id": "memeriksa",
+    "th": "ตรวจ",
+    "zh": "检查",
+    "ja": "確認する",
+    "ko": "확인하다",
+    "hi": "जांचना",
+    "ar": "فحص",
+    "ru": "проверять",
+    "tr": "kontrol etmek"
+   },
+   "ex": {
+    "es": "Voy a revisar mi correo electrónico.",
+    "en": "I am going to check my email."
+   },
+   "rank": 2639,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "pesadilla",
+   "pos": "n",
+   "gender": "f",
+   "plural": "pesadillas",
+   "ipa": "pesaˈðiʝa",
+   "gl": {
+    "vi": "ác mộng",
+    "en": "nightmare",
+    "es": "pesadilla",
+    "pt": "pesadelo",
+    "fr": "cauchemar",
+    "de": "Albtraum",
+    "id": "mimpi buruk",
+    "th": "ฝันร้าย",
+    "zh": "噩梦",
+    "ja": "悪夢",
+    "ko": "악몽",
+    "hi": "दुःस्वप्न",
+    "ar": "كابوس",
+    "ru": "кошмар",
+    "tr": "kabus"
+   },
+   "ex": {
+    "es": "Anoche tuve una pesadilla fea.",
+    "en": "Last night I had a bad nightmare."
+   },
+   "rank": 2647,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ],
+    "ipaAi": "pesaˈðiʝa"
+   }
+  },
+  {
+   "word": "saltar",
+   "pos": "v",
+   "ipa": "salˈtaɾ",
+   "gl": {
+    "vi": "nhảy",
+    "en": "to jump",
+    "es": "saltar",
+    "pt": "pular",
+    "fr": "sauter",
+    "de": "springen",
+    "id": "melompat",
+    "th": "กระโดด",
+    "zh": "跳",
+    "ja": "跳ぶ",
+    "ko": "뛰다",
+    "hi": "कूदना",
+    "ar": "قفز",
+    "ru": "прыгать",
+    "tr": "atlamak"
+   },
+   "ex": {
+    "es": "El perro puede saltar muy alto.",
+    "en": "The dog can jump very high."
+   },
+   "rank": 2649,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "conciencia",
+   "pos": "n",
+   "gender": "f",
+   "plural": "conciencias",
+   "ipa": "konˈsjensja",
+   "gl": {
+    "vi": "lương tâm",
+    "en": "conscience",
+    "es": "conciencia",
+    "pt": "consciência",
+    "fr": "conscience",
+    "de": "Gewissen",
+    "id": "hati nurani",
+    "th": "มโนธรรม",
+    "zh": "良心",
+    "ja": "良心",
+    "ko": "양심",
+    "hi": "विवेक",
+    "ar": "ضمير",
+    "ru": "совесть",
+    "tr": "vicdan"
+   },
+   "ex": {
+    "es": "Tengo la conciencia tranquila.",
+    "en": "I have a clear conscience."
+   },
+   "rank": 2645,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ],
+    "fixed": "gemini-3.6-flash",
+    "ipaAi": "konˈsjensja"
+   }
+  },
+  {
+   "word": "divorcio",
+   "pos": "n",
+   "gender": "m",
+   "plural": "divorcios",
+   "ipa": "diˈβoɾsjo",
+   "gl": {
+    "vi": "sự ly hôn",
+    "en": "divorce",
+    "es": "divorcio",
+    "pt": "divórcio",
+    "fr": "divorce",
+    "de": "Scheidung",
+    "id": "perceraian",
+    "th": "การหย่าร้าง",
+    "zh": "离婚",
+    "ja": "離婚",
+    "ko": "이혼",
+    "hi": "तलाक",
+    "ar": "طلاق",
+    "ru": "развод",
+    "tr": "boşanma"
+   },
+   "ex": {
+    "es": "El divorcio fue un proceso largo para la familia.",
+    "en": "The divorce was a long process for the family."
+   },
+   "rank": 2656,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "miel",
+   "pos": "n",
+   "gender": "f",
+   "plural": "mieles",
+   "ipa": "ˈmjel",
+   "gl": {
+    "vi": "mật ong",
+    "en": "honey",
+    "es": "miel",
+    "pt": "mel",
+    "fr": "miel",
+    "de": "Honig",
+    "id": "madu",
+    "th": "น้ำผึ้ง",
+    "zh": "蜂蜜",
+    "ja": "蜂蜜",
+    "ko": "꿀",
+    "hi": "शहद",
+    "ar": "عسل",
+    "ru": "мёд",
+    "tr": "bal"
+   },
+   "ex": {
+    "es": "Me gusta poner miel en mi té caliente.",
+    "en": "I like to put honey in my hot tea."
+   },
+   "rank": 2667,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "particular",
+   "pos": "adj",
+   "ipa": "paɾtikuˈlaɾ",
+   "gl": {
+    "vi": "cụ thể, riêng biệt",
+    "en": "particular, specific",
+    "es": "particular",
+    "pt": "particular",
+    "fr": "particulier",
+    "de": "besonders, bestimmt",
+    "id": "khusus",
+    "th": "โดยเฉพาะ",
+    "zh": "特别的",
+    "ja": "特定の",
+    "ko": "특정한",
+    "hi": "विशेष",
+    "ar": "خاص",
+    "ru": "особенный",
+    "tr": "özel"
+   },
+   "ex": {
+    "es": "Ese libro tiene un estilo muy particular.",
+    "en": "That book has a very unique style."
+   },
+   "rank": 2675,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "ventaja",
+   "pos": "n",
+   "gender": "f",
+   "plural": "ventajas",
+   "ipa": "benˈtaxa",
+   "gl": {
+    "vi": "lợi thế",
+    "en": "advantage",
+    "es": "ventaja",
+    "pt": "vantagem",
+    "fr": "avantage",
+    "de": "Vorteil",
+    "id": "keuntungan",
+    "th": "ข้อดี",
+    "zh": "优势",
+    "ja": "利点",
+    "ko": "장점",
+    "hi": "फायदा",
+    "ar": "ميزة",
+    "ru": "преимущество",
+    "tr": "avantaj"
+   },
+   "ex": {
+    "es": "Saber inglés es una gran ventaja en el trabajo.",
+    "en": "Knowing English is a big advantage at work."
+   },
+   "rank": 2678,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ],
+    "spot": true
+   }
+  },
+  {
+   "word": "piscina",
+   "pos": "n",
+   "gender": "f",
+   "plural": "piscinas",
+   "ipa": "pisˈsina",
+   "gl": {
+    "vi": "hồ bơi",
+    "en": "swimming pool",
+    "es": "piscina",
+    "pt": "piscina",
+    "fr": "piscine",
+    "de": "Schwimmbad",
+    "id": "kolam renang",
+    "th": "สระว่ายน้ำ",
+    "zh": "游泳池",
+    "ja": "プール",
+    "ko": "수영장",
+    "hi": "स्वीमिंग पूल",
+    "ar": "بركة سباحة",
+    "ru": "бассейн",
+    "tr": "havuz"
+   },
+   "ex": {
+    "es": "Los niños nadan en la piscina todos los días.",
+    "en": "The children swim in the pool every day."
+   },
+   "rank": 2680,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ],
+    "ipaEs": "piˈsina"
+   }
+  },
+  {
+   "word": "revista",
+   "pos": "n",
+   "gender": "f",
+   "plural": "revistas",
+   "ipa": "reˈβista",
+   "gl": {
+    "vi": "tạp chí",
+    "en": "magazine",
+    "es": "revista",
+    "pt": "revista",
+    "fr": "magazine",
+    "de": "Zeitschrift",
+    "id": "majalah",
+    "th": "นิตยสาร",
+    "zh": "杂志",
+    "ja": "雑誌",
+    "ko": "잡지",
+    "hi": "पत्रिका",
+    "ar": "مجلة",
+    "ru": "журнал",
+    "tr": "dergi"
+   },
+   "ex": {
+    "es": "Compré una revista de moda en la tienda.",
+    "en": "I bought a fashion magazine at the store."
+   },
+   "rank": 2686,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "canal",
+   "pos": "n",
+   "gender": "m",
+   "plural": "canales",
+   "ipa": "kaˈnal",
+   "gl": {
+    "vi": "kênh",
+    "en": "channel",
+    "es": "canal",
+    "pt": "canal",
+    "fr": "chaîne",
+    "de": "Kanal",
+    "id": "saluran",
+    "th": "ช่อง",
+    "zh": "频道",
+    "ja": "チャンネル",
+    "ko": "채널",
+    "hi": "चैनल",
+    "ar": "قناة",
+    "ru": "канал",
+    "tr": "kanal"
+   },
+   "ex": {
+    "es": "¿En qué canal van a pasar el partido de fútbol?",
+    "en": "Which channel is going to show the soccer game?"
+   },
+   "rank": 2691,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "desierto",
+   "pos": "n",
+   "gender": "m",
+   "plural": "desiertos",
+   "ipa": "deˈsjeɾto",
+   "gl": {
+    "vi": "sa mạc",
+    "en": "desert",
+    "es": "desierto",
+    "pt": "deserto",
+    "fr": "désert",
+    "de": "Wüste",
+    "id": "gurun",
+    "th": "ทะเลทราย",
+    "zh": "沙漠",
+    "ja": "砂漠",
+    "ko": "사막",
+    "hi": "रेगिस्तान",
+    "ar": "صحراء",
+    "ru": "пустыня",
+    "tr": "çöl"
+   },
+   "ex": {
+    "es": "Hace mucho calor en el desierto durante el día.",
+    "en": "It is very hot in the desert during the day."
+   },
+   "rank": 2702,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "cuerda",
+   "pos": "n",
+   "gender": "f",
+   "plural": "cuerdas",
+   "ipa": "ˈkweɾða",
+   "gl": {
+    "vi": "dây thừng",
+    "en": "rope",
+    "es": "cuerda",
+    "pt": "corda",
+    "fr": "corde",
+    "de": "Seil",
+    "id": "tali",
+    "th": "เชือก",
+    "zh": "绳子",
+    "ja": "ロープ",
+    "ko": "밧줄",
+    "hi": "रस्सी",
+    "ar": "حبل",
+    "ru": "верёвка",
+    "tr": "ip"
+   },
+   "ex": {
+    "es": "Necesitamos una cuerda fuerte para atar las cajas.",
+    "en": "We need a strong rope to tie the boxes."
+   },
+   "rank": 2704,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ],
+    "ipaAi": "ˈkweɾda"
+   }
+  },
+  {
+   "word": "seguido",
+   "pos": "adv",
+   "ipa": "seˈɣiðo",
+   "gl": {
+    "vi": "thường xuyên",
+    "en": "often",
+    "es": "seguido",
+    "pt": "frequentemente",
+    "fr": "souvent",
+    "de": "oft",
+    "id": "sering",
+    "th": "บ่อยๆ",
+    "zh": "经常",
+    "ja": "よく",
+    "ko": "자주",
+    "hi": "अक्सर",
+    "ar": "غالباً",
+    "ru": "часто",
+    "tr": "sık sık"
+   },
+   "ex": {
+    "es": "Ellos vienen muy seguido a comer a este restaurante.",
+    "en": "They come to eat at this restaurant very often."
+   },
+   "rank": 2707,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     4,
+     5
+    ]
+   }
+  },
+  {
+   "word": "gobernador",
+   "pos": "n",
+   "gender": "m",
+   "plural": "gobernadores",
+   "ipa": "ɡoβeɾnaˈðoɾ",
+   "gl": {
+    "vi": "thống đốc",
+    "en": "governor",
+    "es": "gobernador",
+    "pt": "governador",
+    "fr": "gouverneur",
+    "de": "Gouverneur",
+    "id": "gubernur",
+    "th": "ผู้ว่าราชการ",
+    "zh": "州长",
+    "ja": "知事",
+    "ko": "주지사",
+    "hi": "राज्यपाल",
+    "ar": "حاكم",
+    "ru": "губернатор",
+    "tr": "vali"
+   },
+   "ex": {
+    "es": "El gobernador dio un discurso importante hoy.",
+    "en": "The governor gave an important speech today."
+   },
+   "rank": 2712,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "curiosidad",
+   "pos": "n",
+   "gender": "f",
+   "plural": "curiosidades",
+   "ipa": "kuɾjosiˈðad",
+   "gl": {
+    "vi": "sự tò mò",
+    "en": "curiosity",
+    "es": "curiosidad",
+    "pt": "curiosidade",
+    "fr": "curiosité",
+    "de": "Neugier",
+    "id": "rasa ingin tahu",
+    "th": "ความอยากรู้อยากเห็น",
+    "zh": "好奇心",
+    "ja": "好奇心",
+    "ko": "호기심",
+    "hi": "जिज्ञासा",
+    "ar": "فضول",
+    "ru": "любопытство",
+    "tr": "merak"
+   },
+   "ex": {
+    "es": "Tengo mucha curiosidad por saber qué hay en la caja.",
+    "en": "I am very curious to know what is in the box."
+   },
+   "rank": 2720,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ],
+    "ipaAi": "kuɾjosiˈðað"
+   }
+  },
+  {
+   "word": "pez",
+   "pos": "n",
+   "gender": "m",
+   "plural": "peces",
+   "ipa": "ˈpes",
+   "gl": {
+    "vi": "con cá",
+    "en": "fish",
+    "es": "pez",
+    "pt": "peixe",
+    "fr": "poisson",
+    "de": "Fisch",
+    "id": "ikan",
+    "th": "ปลา",
+    "zh": "鱼",
+    "ja": "水中の魚",
+    "ko": "물고기",
+    "hi": "मछली",
+    "ar": "سمكة",
+    "ru": "рыба",
+    "tr": "balık"
+   },
+   "ex": {
+    "es": "El pez rojo nada en la pecera.",
+    "en": "The goldfish is swimming in the fishbowl."
+   },
+   "rank": 2724,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "torre",
+   "pos": "n",
+   "gender": "f",
+   "plural": "torres",
+   "ipa": "ˈtore",
+   "gl": {
+    "vi": "tháp",
+    "en": "tower",
+    "es": "torre",
+    "pt": "torre",
+    "fr": "tour",
+    "de": "Turm",
+    "id": "menara",
+    "th": "หอคอย",
+    "zh": "塔",
+    "ja": "塔",
+    "ko": "탑",
+    "hi": "मीनार",
+    "ar": "برج",
+    "ru": "башня",
+    "tr": "kule"
+   },
+   "ex": {
+    "es": "Esa torre es el edificio más alto de la ciudad.",
+    "en": "That tower is the tallest building in the city."
+   },
+   "rank": 2727,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "pene",
+   "pos": "n",
+   "gender": "m",
+   "plural": "penes",
+   "ipa": "ˈpene",
+   "gl": {
+    "vi": "dương vật",
+    "en": "penis",
+    "es": "pene",
+    "pt": "pênis",
+    "fr": "pénis",
+    "de": "Penis",
+    "id": "penis",
+    "th": "อวัยวะเพศชาย",
+    "zh": "阴茎",
+    "ja": "陰茎",
+    "ko": "음경",
+    "hi": "लिंग",
+    "ar": "قضيب",
+    "ru": "пенис",
+    "tr": "penis"
+   },
+   "ex": {
+    "es": "El médico le explicó la anatomía del pene al paciente.",
+    "en": "The doctor explained the anatomy of the penis to the patient."
+   },
+   "rank": 2710,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ],
+    "fixed": "gemini-3.6-flash"
+   }
+  },
+  {
+   "word": "ruta",
+   "pos": "n",
+   "gender": "f",
+   "plural": "rutas",
+   "ipa": "ˈruta",
+   "gl": {
+    "vi": "tuyến đường",
+    "en": "route",
+    "es": "ruta",
+    "pt": "rota",
+    "fr": "route",
+    "de": "Route",
+    "id": "rute",
+    "th": "เส้นทาง",
+    "zh": "路线",
+    "ja": "ルート",
+    "ko": "경로",
+    "hi": "मार्ग",
+    "ar": "مسار",
+    "ru": "маршрут",
+    "tr": "rota"
+   },
+   "ex": {
+    "es": "Esta ruta es muy rápida para llegar al centro.",
+    "en": "This route is very fast to get to downtown."
+   },
+   "rank": 2736,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "servir",
+   "pos": "v",
+   "ipa": "seɾˈβiɾ",
+   "gl": {
+    "vi": "phục vụ",
+    "en": "to serve",
+    "es": "servir",
+    "pt": "servir",
+    "fr": "servir",
+    "de": "dienen",
+    "id": "melayani",
+    "th": "เสิร์ฟ",
+    "zh": "服务",
+    "ja": "仕える",
+    "ko": "섬기다",
+    "hi": "सेवा करना",
+    "ar": "خدم",
+    "ru": "служить",
+    "tr": "hizmet etmek"
+   },
+   "ex": {
+    "es": "¿Me puedes servir un poco de agua?",
+    "en": "Can you serve me some water?"
+   },
+   "rank": 2751,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "alarma",
+   "pos": "n",
+   "gender": "f",
+   "plural": "alarmas",
+   "ipa": "aˈlaɾma",
+   "gl": {
+    "vi": "báo thức",
+    "en": "alarm",
+    "es": "alarma",
+    "pt": "alarme",
+    "fr": "alarme",
+    "de": "Alarm",
+    "id": "alarm",
+    "th": "นาฬิกาปลุก",
+    "zh": "警报",
+    "ja": "アラーム",
+    "ko": "알람",
+    "hi": "अलार्म",
+    "ar": "إنذار",
+    "ru": "будильник",
+    "tr": "alarm"
+   },
+   "ex": {
+    "es": "La alarma suena a las seis de la mañana.",
+    "en": "The alarm rings at six in the morning."
+   },
+   "rank": 2753,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "aviso",
+   "pos": "n",
+   "gender": "m",
+   "plural": "avisos",
+   "ipa": "aˈβiso",
+   "gl": {
+    "vi": "thông báo",
+    "en": "notice",
+    "es": "aviso",
+    "pt": "aviso",
+    "fr": "avis",
+    "de": "Hinweis",
+    "id": "pemberitahuan",
+    "th": "ประกาศ",
+    "zh": "通知",
+    "ja": "通知",
+    "ko": "통지",
+    "hi": "सूचना",
+    "ar": "إشعار",
+    "ru": "извещение",
+    "tr": "duyuru"
+   },
+   "ex": {
+    "es": "Pusieron un aviso en la puerta de la oficina.",
+    "en": "They put a notice on the office door."
+   },
+   "rank": 2756,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "enfadado",
+   "pos": "adj",
+   "ipa": "enfaˈðaðo",
+   "gl": {
+    "vi": "tức giận",
+    "en": "angry",
+    "es": "enfadado",
+    "pt": "zangado",
+    "fr": "fâché",
+    "de": "wütend",
+    "id": "marah",
+    "th": "โกรธ",
+    "zh": "生气的",
+    "ja": "怒った",
+    "ko": "화난",
+    "hi": "नाराज़",
+    "ar": "غاضب",
+    "ru": "сердитый",
+    "tr": "kızgın"
+   },
+   "ex": {
+    "es": "Mi hermano está enfadado conmigo.",
+    "en": "My brother is angry with me."
+   },
+   "rank": 2777,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ],
+    "ipaAi": "em.faˈða.ðo"
+   }
+  },
+  {
+   "word": "máximo",
+   "pos": "adj",
+   "ipa": "ˈmaksimo",
+   "gl": {
+    "vi": "tối đa",
+    "en": "maximum",
+    "es": "máximo",
+    "pt": "máximo",
+    "fr": "maximum",
+    "de": "maximal",
+    "id": "maksimum",
+    "th": "สูงสุด",
+    "zh": "最大",
+    "ja": "最大の",
+    "ko": "최대",
+    "hi": "अधिकतम",
+    "ar": "أقصى",
+    "ru": "максимальный",
+    "tr": "maksimum"
+   },
+   "ex": {
+    "es": "El peso máximo permitido es de veinte kilos.",
+    "en": "The maximum allowed weight is twenty kilos."
+   },
+   "rank": 2788,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "referir",
+   "pos": "v",
+   "ipa": "refeˈɾiɾ",
+   "gl": {
+    "vi": "đề cập",
+    "en": "to refer",
+    "es": "referir",
+    "pt": "referir",
+    "fr": "référer",
+    "de": "beziehen",
+    "id": "merujuk",
+    "th": "อ้างถึง",
+    "zh": "提及",
+    "ja": "言及する",
+    "ko": "언급하다",
+    "hi": "संदर्भ देना",
+    "ar": "يشير",
+    "ru": "ссылаться",
+    "tr": "değinmek"
+   },
+   "ex": {
+    "es": "El texto se refiere a un problema antiguo.",
+    "en": "The text refers to an old problem."
+   },
+   "exForm": "refiere",
+   "rank": 2793,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "incendio",
+   "pos": "n",
+   "gender": "m",
+   "plural": "incendios",
+   "ipa": "inˈsendjo",
+   "gl": {
+    "vi": "vụ hỏa hoạn",
+    "en": "fire",
+    "es": "incendio",
+    "pt": "incêndio",
+    "fr": "incendie",
+    "de": "Brand",
+    "id": "kebakaran",
+    "th": "ไฟไหม้",
+    "zh": "火灾",
+    "ja": "火事",
+    "ko": "화재",
+    "hi": "आग",
+    "ar": "حريق",
+    "ru": "пожар",
+    "tr": "yangın"
+   },
+   "ex": {
+    "es": "Los bomberos apagaron el incendio rápidamente.",
+    "en": "The firefighters put out the fire quickly."
+   },
+   "rank": 2796,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ],
+    "ipaAi": "inˈsendjo"
+   }
+  },
+  {
+   "word": "casualidad",
+   "pos": "n",
+   "gender": "f",
+   "plural": "casualidades",
+   "ipa": "kaswaliˈðad",
+   "gl": {
+    "vi": "sự tình cờ",
+    "en": "coincidence",
+    "es": "casualidad",
+    "pt": "coincidência",
+    "fr": "coïncidence",
+    "de": "Zufall",
+    "id": "kebetulan",
+    "th": "ความบังเอิญ",
+    "zh": "巧合",
+    "ja": "偶然",
+    "ko": "우연",
+    "hi": "संयोग",
+    "ar": "صدفة",
+    "ru": "совпадение",
+    "tr": "tesadüf"
+   },
+   "ex": {
+    "es": "Encontrarlo en la calle fue una gran casualidad.",
+    "en": "Meeting him on the street was a big coincidence."
+   },
+   "rank": 2801,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ],
+    "ipaAi": "kaswaliˈðað"
+   }
+  },
+  {
+   "word": "cruz",
+   "pos": "n",
+   "gender": "f",
+   "plural": "cruces",
+   "ipa": "ˈkɾus",
+   "gl": {
+    "vi": "thánh giá",
+    "en": "cross",
+    "es": "cruz",
+    "pt": "cruz",
+    "fr": "croix",
+    "de": "Kreuz",
+    "id": "salib",
+    "th": "กางเขน",
+    "zh": "十字架",
+    "ja": "十字架",
+    "ko": "십자가",
+    "hi": "क्रॉस",
+    "ar": "صليب",
+    "ru": "крест",
+    "tr": "haç"
+   },
+   "ex": {
+    "es": "Hay una cruz en la cima de la montaña.",
+    "en": "There is a cross on the top of the mountain."
+   },
+   "rank": 2804,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "cómodo",
+   "pos": "adj",
+   "ipa": "ˈkomoðo",
+   "gl": {
+    "vi": "thoải mái",
+    "en": "comfortable",
+    "es": "cómodo",
+    "pt": "confortável",
+    "fr": "confortable",
+    "de": "bequem",
+    "id": "nyaman",
+    "th": "สบาย",
+    "zh": "舒适的",
+    "ja": "快適な",
+    "ko": "편안한",
+    "hi": "आरामदायक",
+    "ar": "مريح",
+    "ru": "удобный",
+    "tr": "rahat"
+   },
+   "ex": {
+    "es": "Este sillón es muy cómodo para leer.",
+    "en": "This armchair is very comfortable for reading."
+   },
+   "rank": 2807,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "sofá",
+   "pos": "n",
+   "gender": "m",
+   "plural": "sofás",
+   "ipa": "soˈfa",
+   "gl": {
+    "vi": "ghế sofa",
+    "en": "sofa",
+    "es": "sofá",
+    "pt": "sofá",
+    "fr": "canapé",
+    "de": "Sofa",
+    "id": "sofa",
+    "th": "โซฟา",
+    "zh": "沙发",
+    "ja": "ソファ",
+    "ko": "소파",
+    "hi": "सोफा",
+    "ar": "أريكة",
+    "ru": "диван",
+    "tr": "koltuk"
+   },
+   "ex": {
+    "es": "Nos sentamos en el sofá a ver una película.",
+    "en": "We sat on the sofa to watch a movie."
+   },
+   "rank": 2809,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "escritorio",
+   "pos": "n",
+   "gender": "m",
+   "plural": "escritorios",
+   "ipa": "eskɾiˈtoɾjo",
+   "gl": {
+    "vi": "bàn làm việc",
+    "en": "desk",
+    "es": "escritorio",
+    "pt": "escrivaninha",
+    "fr": "bureau",
+    "de": "Schreibtisch",
+    "id": "meja tulis",
+    "th": "โต๊ะทำงาน",
+    "zh": "书桌",
+    "ja": "机",
+    "ko": "책상",
+    "hi": "डेस्क",
+    "ar": "مكتب",
+    "ru": "письменный стол",
+    "tr": "yazı masası"
+   },
+   "ex": {
+    "es": "Puse la computadora sobre el escritorio.",
+    "en": "I put the computer on the desk."
+   },
+   "rank": 2817,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "gigante",
+   "pos": "adj",
+   "ipa": "xiˈɣante",
+   "gl": {
+    "vi": "khổng lồ",
+    "en": "giant",
+    "es": "gigante",
+    "pt": "gigante",
+    "fr": "géant",
+    "de": "riesig",
+    "id": "raksasa",
+    "th": "มหึมา",
+    "zh": "巨大的",
+    "ja": "巨大な",
+    "ko": "거대한",
+    "hi": "विशाल",
+    "ar": "عملاق",
+    "ru": "гигантский",
+    "tr": "devasa"
+   },
+   "ex": {
+    "es": "Vimos un árbol gigante en el parque.",
+    "en": "We saw a giant tree in the park."
+   },
+   "rank": 2820,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "actitud",
+   "pos": "n",
+   "gender": "f",
+   "plural": "actitudes",
+   "ipa": "aktiˈtud",
+   "gl": {
+    "vi": "thái độ",
+    "en": "attitude",
+    "es": "actitud",
+    "pt": "atitude",
+    "fr": "attitude",
+    "de": "Einstellung",
+    "id": "sikap",
+    "th": "ทัศนคติ",
+    "zh": "态度",
+    "ja": "態度",
+    "ko": "태도",
+    "hi": "रवैया",
+    "ar": "موقف",
+    "ru": "отношение",
+    "tr": "tavır"
+   },
+   "ex": {
+    "es": "Ella tiene una actitud muy positiva.",
+    "en": "She has a very positive attitude."
+   },
+   "rank": 2829,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "comercial",
+   "pos": "adj",
+   "ipa": "komeɾˈsjal",
+   "gl": {
+    "vi": "thương mại",
+    "en": "commercial",
+    "es": "comercial",
+    "pt": "comercial",
+    "fr": "commercial",
+    "de": "kommerziell",
+    "id": "komersial",
+    "th": "เชิงพาณิชย์",
+    "zh": "商业的",
+    "ja": "商业的",
+    "ko": "상업의",
+    "hi": "व्यावसायिक",
+    "ar": "تجاري",
+    "ru": "коммерческий",
+    "tr": "ticari"
+   },
+   "ex": {
+    "es": "Este es un centro comercial muy grande.",
+    "en": "This is a very large shopping center."
+   },
+   "rank": 2843,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "tribu",
+   "pos": "n",
+   "gender": "f",
+   "plural": "tribus",
+   "ipa": "ˈtɾiβu",
+   "gl": {
+    "vi": "bộ tộc",
+    "en": "tribe",
+    "es": "tribu",
+    "pt": "tribo",
+    "fr": "tribu",
+    "de": "Stamm",
+    "id": "suku",
+    "th": "ชนเผ่า",
+    "zh": "部落",
+    "ja": "部族",
+    "ko": "부족",
+    "hi": "जनजाति",
+    "ar": "قبيلة",
+    "ru": "племя",
+    "tr": "kabile"
+   },
+   "ex": {
+    "es": "La tribu vive cerca del río.",
+    "en": "The tribe lives near the river."
+   },
+   "rank": 2845,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "senador",
+   "pos": "n",
+   "gender": "m",
+   "plural": "senadores",
+   "ipa": "senaˈðoɾ",
+   "gl": {
+    "vi": "thượng nghị sĩ",
+    "en": "senator",
+    "es": "senador",
+    "pt": "senador",
+    "fr": "sénateur",
+    "de": "Senator",
+    "id": "senator",
+    "th": "วุฒิสมาชิก",
+    "zh": "参议员",
+    "ja": "上院議員",
+    "ko": "상원의원",
+    "hi": "सीनेटर",
+    "ar": "عضو مجلس الشيوخ",
+    "ru": "сенатор",
+    "tr": "senatör"
+   },
+   "ex": {
+    "es": "El senador habló en la reunión.",
+    "en": "The senator spoke at the meeting."
+   },
+   "rank": 2864,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ],
+    "ipaAi": "senaˈdoɾ"
+   }
+  },
+  {
+   "word": "campeón",
+   "pos": "n",
+   "gender": "m",
+   "plural": "campeones",
+   "ipa": "kampeˈon",
+   "gl": {
+    "vi": "nhà vô địch",
+    "en": "champion",
+    "es": "campeón",
+    "pt": "campeão",
+    "fr": "champion",
+    "de": "Meister",
+    "id": "juara",
+    "th": "แชมเปี้ยน",
+    "zh": "冠军",
+    "ja": "チャンピオン",
+    "ko": "챔피언",
+    "hi": "चैंपियन",
+    "ar": "بطل",
+    "ru": "чемпион",
+    "tr": "şampiyon"
+   },
+   "ex": {
+    "es": "Mi hermano es el campeón de tenis.",
+    "en": "My brother is the tennis champion."
+   },
+   "rank": 2866,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "bestia",
+   "pos": "n",
+   "gender": "f",
+   "plural": "bestias",
+   "ipa": "ˈbestja",
+   "gl": {
+    "vi": "quái vật",
+    "en": "beast",
+    "es": "bestia",
+    "pt": "besta",
+    "fr": "bête",
+    "de": "Bestie",
+    "id": "binatang buas",
+    "th": "สัตว์ร้าย",
+    "zh": "野兽",
+    "ja": "野獣",
+    "ko": "야수",
+    "hi": "पशु",
+    "ar": "وحش",
+    "ru": "зверь",
+    "tr": "canavar"
+   },
+   "ex": {
+    "es": "En la historia aparece una bestia enorme.",
+    "en": "A huge beast appears in the story."
+   },
+   "rank": 2874,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "episodio",
+   "pos": "n",
+   "gender": "m",
+   "plural": "episodios",
+   "ipa": "epiˈsoðjo",
+   "gl": {
+    "vi": "tập",
+    "en": "episode",
+    "es": "episodio",
+    "pt": "episódio",
+    "fr": "épisode",
+    "de": "Episode",
+    "id": "episod",
+    "th": "ตอน",
+    "zh": "集",
+    "ja": "エピソード",
+    "ko": "에피소드",
+    "hi": "एपिसोड",
+    "ar": "حلقة",
+    "ru": "эпизод",
+    "tr": "bölüm"
+   },
+   "ex": {
+    "es": "Ayer vi el primer episodio de la serie.",
+    "en": "Yesterday I watched the first episode of the series."
+   },
+   "rank": 2877,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ],
+    "ipaAi": "epiˈsodjo"
+   }
+  }
+ ]
+}

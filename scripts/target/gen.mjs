@@ -19,6 +19,7 @@ const G = TL_GEN[TL]; if (!G) { console.error(`✗ tl "${TL}" chưa có dòng tr
 export const SOURCE = G.source;
 // --shard k/K: nhiều job CI song song chia ứng viên theo thứ hạng (i % K = k), mỗi shard 1 tệp core-NN (NN = số lô kế + k); trùng lemma giữa shard → scripts/target/dedupe.mjs
 const [SK, SN] = (arg('shard', '0/1')).split('/').map(Number);
+const T0 = Date.now(), MAX_MS = (+process.env.GEN_MAX_MIN || 100) * 60e3; // job 150 phút (cả kaikki + IPA + Wiktionary sau bước này): ghi lô trước khi hết giờ – hết giờ giữa chừng = mất cả lô
 const OUT = path.join(ROOT, 'content/target', TL), outFile = nextCoreFile(TL, SK), repFile = outFile.replace(/\.json$/, '.report.json');
 const LT = G.lt && process.env.LT_URL; if (G.lt && !DRY && !LT) { console.error('✗ thiếu LT_URL – cổng LanguageTool bắt buộc cho ' + TL); process.exit(2); }
 const ltErrors = text => ltErr(LT, G.lt, text); // LanguageTool: mọi lỗi = loại (lib.mjs)
@@ -74,9 +75,10 @@ const WAITS = (process.env.GEN_WAITS || '60,120,240,480').split(',').map(Number)
 // Gemini (chia đều theo shard; mặc định 150 ≈ ½ phần còn lại sau mốc đặt lại 08:00 UTC) – hết phần → ghi lô đã nhận, lượt sau nối tiếp.
 const GEN_CHAIN = ['groq', 'gc-groq'], GEM_MAX = Math.floor((+process.env.AI_GEM_MAX || 150) / SN);
 const gemUsed = () => { const by = (AI.stats ? AI.stats().by : {}) || {}; return Object.entries(by).filter(([k]) => k.startsWith('gem|')).reduce((n, [, v]) => n + v.ok + v.fail + v.bad, 0); };
-async function patient(fn, what) { for (let t = 0; ; t++) { const r = await fn(); if (r || t >= WAITS.length) return r; console.log(`ai-pool: thiếu tuyến ${what} → chờ ${WAITS[t]} s rồi thử lại (${t + 1}/${WAITS.length})`); await new Promise(z => setTimeout(z, WAITS[t] * 1000)); } }
+// chờ không vượt hạn giờ lượt (run 45004140024: shard bị huỷ ở 150 phút vì chờ)
+async function patient(fn, what) { for (let t = 0; ; t++) { const r = await fn(); if (r || t >= WAITS.length || Date.now() - T0 + WAITS[t] * 1000 > MAX_MS) return r; console.log(`ai-pool: thiếu tuyến ${what} → chờ ${WAITS[t]} s rồi thử lại (${t + 1}/${WAITS.length})`); await new Promise(z => setTimeout(z, WAITS[t] * 1000)); } }
 const pick = e => ({ word: e.word, pos: e.pos, ...(e.pos === 'n' ? { gender: e.gender, ...(e.plural ? { plural: e.plural } : {}) } : {}), ...(e.h ? { h: e.h } : {}), ipa: e.ipa, gl: e.gl, ex: e.ex, ...(e.exForm ? { exForm: e.exForm } : {}) });
-const T0 = Date.now(), MAX_MS = (+process.env.GEN_MAX_MIN || 110) * 60e3; // job 150 phút: ghi lô trước khi hết giờ (hết giờ giữa chừng = mất cả lô)
+ // job 150 phút: ghi lô trước khi hết giờ (hết giờ giữa chừng = mất cả lô)
 for (let i = 0; accepted.length - prev.length < N; i += BATCH) {
   if (Date.now() - T0 > MAX_MS) { console.log('hết giờ lượt → ghi lô đã nhận (lượt sau nối tiếp)'); break; }
   const items = await fillQ(BATCH); if (!items.length) { console.log('hết ứng viên'); break; }
