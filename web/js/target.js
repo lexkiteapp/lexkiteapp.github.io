@@ -11,6 +11,9 @@
       ready: false, home: '#/tlprep/fr', flag: 'fr_course', pct: 'fr_course_pct', kill: 'fr_kill', ls: 'lk.fr', label: 'Français (bêta)' },
     ja: { em: '🇯🇵', name: '日本語', speech: 'ja-JP', rec: 'ja-JP', fallback: [], prefix: 'ja', kokoro: { 'ja-JP': 'jf_alpha' }, voices: { ama: 'jf_alpha', carlos: 'jm_kumo' }, wordFiles: false,
       ready: false, home: '#/tlprep/ja', flag: 'ja_course', pct: 'ja_course_pct', kill: 'ja_kill', ls: 'lk.ja', label: '日本語 (ベータ)' },
+    // ko (korean-course.md §3/§7): Kokoro-82M không có giọng Hàn → kokoro rỗng (giọng file/giọng máy ko-KR); giọng giáo viên chốt sau lượt mẫu word-audio-ko
+    ko: { em: '🇰🇷', name: '한국어', speech: 'ko-KR', rec: 'ko-KR', fallback: [], prefix: 'ko', kokoro: {}, voices: {}, wordFiles: false,
+      ready: false, home: '#/tlprep/ko', flag: 'ko_course', pct: 'ko_course_pct', kill: 'ko_kill', ls: 'lk.ko', label: '한국어 (베타)' },
   };
   const LANGS = Object.keys(TABLE), KEY = 'lk.tl';
   const ls = (k, v) => { try { if (v === undefined) return g.localStorage ? g.localStorage.getItem(k) : null; if (v === null) g.localStorage.removeItem(k); else g.localStorage.setItem(k, v); } catch (e) { /* chế độ riêng tư */ } return null; };
@@ -52,7 +55,7 @@
   // tiền tố lọc giọng máy (LKAudio.voiceScore): accent lạ → 'en' như trước
   const prefixFor = a => table(tlOfAccent(a)).prefix;
   // giọng Kokoro mặc định theo accent (en-US → af_heart, còn lại tiếng Anh → bf_emma – y hệt ui.js cũ)
-  const kokoroVoice = a => { const t = table(tlOfAccent(a)); return t.kokoro[a] || (t === TABLE.en ? 'bf_emma' : Object.values(t.kokoro)[0]); };
+  const kokoroVoice = a => { const t = table(tlOfAccent(a)); return t.kokoro[a] || (t === TABLE.en ? 'bf_emma' : Object.values(t.kokoro)[0] || ''); }; // '' = ngôn ngữ không có giọng Kokoro (ko) → giọng máy
   // giọng file từ đơn audio/w: '' = chưa có file dựng sẵn cho ngôn ngữ này → giọng máy
   const wordVoice = a => table(tlOfAccent(a)).wordFiles ? kokoroVoice(a) : '';
   const teacherVoice = (who, tl) => table(tl || cur()).voices[who] || '';

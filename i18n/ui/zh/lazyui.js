@@ -819,6 +819,7 @@
 "Đã thêm {n} cụm vào sổ":"已将 {n} 短语添加到您的书中",
 "Đã thêm {n} từ hợp trình độ {cefr} vào bộ thẻ.":"已将 {n} 个符合你 {cefr} 水平的单词加入卡组。",
 "Đã thêm {n} từ tiếng Bồ Đào Nha vào Sổ từ":"已将 {n} 个葡萄牙语单词加入你的单词本",
+"Đã thêm {n} từ tiếng Hàn vào Sổ từ":"已将 {n} 个韩语单词加入你的单词本",
 "Đã thêm {n} từ tiếng Nhật vào Sổ từ":"已将 {n} 个日语单词加入你的单词本",
 "Đã thêm {n} từ tiếng Pháp vào Sổ từ":"已将 {n} 个法语单词加入你的单词本",
 "Đã thêm {n} từ tiếng Tây Ban Nha vào Sổ từ":"已将 {n} 个西班牙语单词加入你的单词本",

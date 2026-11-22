@@ -25,6 +25,17 @@ if C.get('ipaCheck') == 'reading':
     bad = report('Cách đọc seed ↔ OpenJTalk', rows, ['w', 'seed', 'ojt'])
     report('Cao độ seed ↔ OpenJTalk (chỉ báo)', acc, ['w', 'seed', 'ojt'])
     sys.exit(1 if bad or not rows else 0)
+# ipaCheck = "pron" (ko, korean-course.md §5): pron/romaja/IPA seed do ko-hangul.mjs sinh từ chữ (cổng node) → ở đây đối chiếu pron với g2pk2 (Apache-2.0, cài đặt ĐỘC LẬP
+# của 표준 발음법): lệch mà seed KHÔNG khai ngoại lệ theo từ (pronX) = ĐỎ; có pronX (사이시옷/Hán-Hàn căng hoá… mà g2pk2 không biết) = chỉ báo
+if C.get('ipaCheck') == 'pron':
+    from g2pk2 import G2p
+    g = G2p()
+    rows = [{'w': w['word'], 'seed': w['pron'], 'g2pk2': g(w['word']), 'x': 'pronX' if w.get('pronX') else ''} for w in seed]
+    for r in rows: r['ok'] = r['seed'] == r['g2pk2'] or bool(r['x'])
+    json.dump(rows, open(os.path.join(out, 'ipa.json'), 'w'), ensure_ascii=False, indent=1)
+    bad = report('Phát âm chuẩn seed ↔ g2pk2', rows, ['w', 'seed', 'g2pk2'])
+    report('Ngoại lệ theo từ (pronX) – chỉ báo', [{**r, 'ok': r['seed'] == r['g2pk2']} for r in rows if r['x']], ['w', 'seed', 'g2pk2'])
+    sys.exit(1 if bad or not rows else 0)
 try:
     import espeakng_loader
     from phonemizer.backend.espeak.wrapper import EspeakWrapper

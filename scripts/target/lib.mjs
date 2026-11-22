@@ -5,6 +5,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { INFORMAL } from '../lib/i18n-rules.mjs'; // máy gác xưng hô dùng chung với #1324 (fr: tu/toi/ton… = thân mật)
 import * as JA from './ja-kana.mjs'; // chữ viết tiếng Nhật (kana → romaji/IPA, mora, furigana) – chỉ dùng khi bảng có kana: true
+import * as KO from './ko-hangul.mjs'; // chữ viết + ngữ pháp nền tiếng Hàn (biến âm chuẩn, RR, IPA, lớp chia) – chỉ dùng khi bảng có hangul: true
 
 export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 // 15 ngôn ngữ NGHĨA (vi + en + scripts/i18n-langs.txt) – thứ tự cố định
@@ -12,7 +13,7 @@ export const MEAN_LANGS = ['vi', 'en', ...fs.readFileSync(path.join(ROOT, 'scrip
 const SCRIPT = { th: /\p{Script=Thai}/u, zh: /\p{Script=Han}/u, ja: /[\p{Script=Hiragana}\p{Script=Katakana}\p{Script=Han}]/u, ko: /\p{Script=Hangul}/u, hi: /\p{Script=Devanagari}/u, ar: /\p{Script=Arabic}/u, ru: /\p{Script=Cyrillic}/u };
 export const POS = ['n', 'v', 'adj', 'adv', 'pron', 'prep', 'conj', 'num', 'interj', 'det'];
 const VI_ONLY = /[ăơưđạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i; // chữ chỉ tiếng Việt có (â/ê/ô có trong pt/fr → không tính)
-const IPA_OK = /^[a-zɐɑɒæɓʙβɔɕçɗɖðʤəɘɚɛɜɝɞɟʄɡɠɢʛɦɧħɥʜɨɪʝɭɬɫɮʟɱɯɰŋɳɲɴøɵɸθœɶʘɹɺɾɻʀʁɽʂʃʈʧʉʊʋⱱʌɣɤʍχʎʏʑʐʒʔʡʕʢǀǁǂǃˈˌːˑ̃̊̍̚ʰʲʷ̥̩̯͡.\- ]+$/u;
+const IPA_OK = /^[a-zɐɑɒæɓʙβɔɕçɗɖðʤəɘɚɛɜɝɞɟʄɡɠɢʛɦɧħɥʜɨɪʝɭɬɫɮʟɱɯɰŋɳɲɴøɵɸθœɶʘɹɺɾɻʀʁɽʂʃʈʧʉʊʋⱱʌɣɤʍχʎʏʑʐʒʔʡʕʢǀǁǂǃˈˌːˑ̃̊̍̚ʰʲʷ̥̩̯͈͡.\- ]+$/u;
 export const seedPath = tl => path.join(ROOT, 'content/target', tl, 'seed.json');
 // Lô lõi do gen.mjs sinh: content/target/<tl>/core-NN.json (mỗi lượt CI 1 tệp, ≤ 300 mục) – tệp .report.json đi kèm KHÔNG phải bộ từ
 export const coreFiles = tl => { const d = path.join(ROOT, 'content/target', tl); return fs.existsSync(d) ? fs.readdirSync(d).filter(f => /^core(-\d{2,})?\.json$/.test(f)).sort().map(f => path.join(d, f)) : []; };
@@ -22,7 +23,7 @@ export const readJSON = f => JSON.parse(fs.readFileSync(f, 'utf8'));
 export const imgKeys = () => new Set(Object.keys(readJSON(path.join(ROOT, 'content/lexicon/img.json')).items || {}));
 const esc = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 // từ (hoặc dạng chia exForm) xuất hiện nguyên vẹn trong câu ví dụ – ranh giới chữ Unicode
-export const inSentence = (form, sent, sub) => (sub ? String(sent).includes(form) : new RegExp(`(^|[^\\p{L}])${esc(form)}($|[^\\p{L}])`, 'iu').test(sent)); // sub: chữ viết không cách từ (ja) → chứa chuỗi
+export const inSentence = (form, sent, sub) => (sub === true ? String(sent).includes(form) : new RegExp(`(^|[^\\p{L}])${esc(form)}${sub === 'lead' ? '' : '($|[^\\p{L}])'}`, 'iu').test(sent)); // sub: chữ viết không cách từ (ja) → chứa chuỗi; 'lead' (ko): từ đứng đầu một 어절, tiểu từ/đuôi dính sau (책을, 학교에서)
 
 // Luật riêng theo ngôn ngữ đích (bảng, không nhánh code): es = danh từ bắt buộc số nhiều + IPA seseo (spanish-course.md §2, §8)
 // lint = câu ví dụ chính không có vosotros (đại từ, sở hữu, clitic os, đuôi -áis/-éis), từ chỉ Tây Ban Nha hay từ tục ở Mỹ Latinh (coger) – §8 (ghi chú "Ở Tây Ban Nha" không nằm trong ex)
@@ -39,6 +40,10 @@ fr: { plural: true, hFlag: true, mix: { informal: INFORMAL.fr, formal: /(?<!\p{L
 // cao độ pitch = vị trí hạ 0…số mora; jlpt 5…1; động từ có vclass (ichidan|godan|irregular), tính từ có aclass (i|na) và khớp đuôi; câu ví dụ chính = thể lịch sự です/ます (end),
 // chữ Nhật thuần (lint: không chữ Latin/số Ả Rập/khoảng trắng/katakana bán độ rộng), kết thúc 。 hoặc ？
 ja: { noGender: true, sub: true, kana: true, end: /(です|ます|ました|ません|でした|ましょう|ませんか|ください|でしょう)か?[。？]$/u, lint: [/[A-Za-z0-9\s]/u, /[\uff61-\uff9f]/u] } };
+// ko (korean-course.md §2, §5, §8): không giống/số nhiều; từ đứng đầu 어절 (sub 'lead'); hangul: pron (표준 발음) + romaja (RR 2000) + IPA phải đúng bằng ko-hangul.mjs sinh từ chữ
+// (ngoại lệ theo từ khai ở pronX, không gõ tay lệch); topik 1…6; vị từ (v/adj) dạng từ điển …다 + lớp chia conj khớp hình thức gốc; hanja (tuỳ chọn) đủ số âm tiết;
+// câu ví dụ chính = 해요체 lịch sự (end …요. / …요?), chữ Hàn thuần (lint: không Latin, không Hán tự trong câu, không jamo rời/NFD)
+TL_RULES.ko = { noGender: true, sub: 'lead', hangul: true, end: /요[.?]$/u, lint: [/[A-Za-z]/u, /\p{Script=Han}/u, /[\u1100-\u11ff\u3131-\u318e]/u] };
 const VCLASS = { ichidan: /[いきしちにひみりぎじびぴえけせてねへめれげぜべぺ]る$/u, godan: /[うくぐすつぬぶむる]$/u, irregular: /^(する|くる)$|する$/u };
 
 /** Kiểm một bộ từ → mảng lỗi (rỗng = đạt). o.img = Set khóa ảnh tiếng Anh hợp lệ (content/lexicon/img.json). */
@@ -48,7 +53,7 @@ export function validate(deck, o = {}) {
   if (!deck || !/^[a-z]{2}$/.test(deck.tl || '')) err.push('tl sai');
   const words = (deck && deck.words) || [];
   if (!Array.isArray(words) || !words.length) err.push('words rỗng');
-  const ALLOWED = new Set(['word', 'pos', 'gender', 'plural', 'h', 'kana', 'romaji', 'pitch', 'jlpt', 'vclass', 'aclass', 'ipa', 'emoji', 'img', 'gl', 'ex', 'exForm', 'rank', 'qa']);
+  const ALLOWED = new Set(['word', 'pos', 'gender', 'plural', 'h', 'kana', 'romaji', 'pitch', 'jlpt', 'vclass', 'aclass', 'pron', 'romaja', 'topik', 'conj', 'hanja', 'pronX', 'ipa', 'emoji', 'img', 'gl', 'ex', 'exForm', 'rank', 'qa']);
   for (const w of words) {
     const id = (w && w.word) || '?', bad = m => err.push(`${id}: ${m}`);
     for (const k of Object.keys(w || {})) if (!ALLOWED.has(k)) bad('trường lạ ' + k);
@@ -81,6 +86,21 @@ export function validate(deck, o = {}) {
       if (w.pos === 'v' ? !VCLASS[w.vclass] || !VCLASS[w.vclass].test(JA.hira(w.kana)) : w.vclass !== undefined) bad('vclass (ichidan|godan|irregular) sai/thiếu: ' + w.vclass);
       if (w.pos === 'adj' ? !(w.aclass === 'na' || (w.aclass === 'i' && /い$/.test(w.kana))) : w.aclass !== undefined) bad('aclass (i|na) sai/thiếu: ' + w.aclass);
     }
+    // hangul (ko): phát âm chuẩn + RR + IPA SINH từ chữ (ko-hangul.mjs), ngoại lệ theo từ ở pronX; TOPIK 1…6; vị từ có lớp chia; hanja đủ âm tiết
+    const KF = ['pron', 'romaja', 'topik', 'conj', 'hanja', 'pronX'];
+    if (!R.hangul) { for (const k of KF) if (w[k] !== undefined) bad(k + ' chỉ cho ngôn ngữ có hangul'); }
+    else if (!KO.isHangul(w.word)) bad('từ phải là chữ Hangul trọn âm tiết (NFC, không jamo rời/khoảng trắng): ' + w.word);
+    else {
+      const vb = w.pos === 'v' || w.pos === 'adj', X = w.pronX, n = [...w.word].length;
+      if (X !== undefined && (typeof X !== 'object' || !Object.keys(X).length || Object.entries(X).some(([k, a]) => !['tense', 'nIns', 'nn', 'noLiaison', 'lbP'].includes(k) || !Array.isArray(a) || !a.length || a.some(i => !Number.isInteger(i) || i < 0 || i >= n)))) bad('pronX sai (tense|nIns|nn|noLiaison|lbP: mảng vị trí âm tiết)');
+      let p = '', r = '', q = ''; try { p = KO.pron(w.word, { verb: vb, x: X }); r = KO.romaja(w.word, { verb: vb, x: X }); q = KO.ipa(w.word, { verb: vb, x: X }); } catch (e) { bad(e.message); }
+      if (w.pron !== p) bad(`pron ${w.pron} ≠ quy tắc [${p}] (ko-hangul.mjs; ngoại lệ theo từ → pronX)`);
+      if (w.romaja !== r) bad(`romaja ${w.romaja} ≠ RR ${r}`);
+      if (w.ipa !== q) bad(`IPA ${w.ipa} ≠ quy ước /${q}/ (ko-hangul.mjs)`);
+      if (![1, 2, 3, 4, 5, 6].includes(w.topik)) bad('topik phải là 1…6');
+      if (vb ? !KO.CONJ.includes(w.conj) || !KO.conjShape(w.word, w.conj) : w.conj !== undefined) bad('conj (lớp chia vị từ …다) sai/thiếu: ' + w.conj);
+      if (w.hanja !== undefined && !(/^\p{Script=Han}+$/u.test(w.hanja) && [...w.hanja].length === n)) bad('hanja phải là Hán tự, đủ số âm tiết: ' + w.hanja);
+    }
     if (!IPA_OK.test(String(w.ipa || '').normalize('NFD')) || /[/[\]]/.test(w.ipa || '')) bad('IPA sai ký tự: ' + w.ipa);
     const gl = w.gl || {};
     for (const L of MEAN_LANGS) if (typeof gl[L] !== 'string' || !gl[L].trim()) bad('thiếu nghĩa ' + L);
@@ -95,7 +115,7 @@ export function validate(deck, o = {}) {
     else if (Object.keys(ex).some(k => k !== tl && k !== 'en')) bad('câu ví dụ có ngôn ngữ lạ');
     else if (!inSentence(w.exForm || w.word, ex[tl], R.sub)) bad(`câu ví dụ không chứa "${w.exForm || w.word}"`);
     else if ((R.lint || []).some(re => re.test(ex[tl]))) bad('câu ví dụ lệch chuẩn ' + (deck.variant || tl) + ' (vosotros/leísmo/từ vùng): ' + ex[tl]);
-    if (R.end && ex[tl] && !R.end.test(ex[tl])) bad('câu ví dụ chính phải ở thể lịch sự です/ます và kết thúc 。/？: ' + ex[tl]);
+    if (R.end && ex[tl] && !R.end.test(ex[tl])) bad('câu ví dụ chính phải ở thể lịch sự (ja です/ます + 。/？ · ko 해요체 …요./…요?): ' + ex[tl]);
     if (R.mix && ex[tl] && R.mix.informal.test(ex[tl]) && R.mix.formal.test(ex[tl])) bad('trộn thân mật/trang trọng (tu + vous) trong một câu: ' + ex[tl]);
     if (w.exForm !== undefined && (!w.exForm || w.exForm.toLowerCase() === String(w.word).toLowerCase())) bad('exForm thừa');
     if (w.img !== undefined) { if (!/^[a-z][a-z' -]*#[a-z]+$/.test(w.img)) bad('img sai dạng'); else if (o.img && !o.img.has(w.img)) bad('img không có trong content/lexicon/img.json: ' + w.img); }
@@ -104,7 +124,7 @@ export function validate(deck, o = {}) {
 }
 
 /** Bản sao cho app: chỉ trường app dùng (settings.js addTlSeed) – dựng bởi scripts/target/build.mjs, test so khớp. */
-export const webSeed = deck => ({ v: 1, tl: deck.tl, words: deck.words.map(w => ({ word: w.word, pos: w.pos, ...(w.gender ? { gender: w.gender } : {}), ...(w.plural ? { plural: w.plural } : {}), ...(w.h ? { h: w.h } : {}), ...(w.kana ? { kana: w.kana, romaji: w.romaji, pitch: w.pitch, jlpt: w.jlpt, ...(w.vclass ? { vclass: w.vclass } : {}), ...(w.aclass ? { aclass: w.aclass } : {}) } : {}), ipa: w.ipa, emoji: w.emoji, ...(w.img ? { img: w.img } : {}), gl: w.gl, ex: w.ex })) });
+export const webSeed = deck => ({ v: 1, tl: deck.tl, words: deck.words.map(w => ({ word: w.word, pos: w.pos, ...(w.gender ? { gender: w.gender } : {}), ...(w.plural ? { plural: w.plural } : {}), ...(w.h ? { h: w.h } : {}), ...(w.kana ? { kana: w.kana, romaji: w.romaji, pitch: w.pitch, jlpt: w.jlpt, ...(w.vclass ? { vclass: w.vclass } : {}), ...(w.aclass ? { aclass: w.aclass } : {}) } : {}), ...(w.pron ? { pron: w.pron, romaja: w.romaja, topik: w.topik, ...(w.conj ? { conj: w.conj } : {}), ...(w.hanja ? { hanja: w.hanja } : {}) } : {}), ipa: w.ipa, emoji: w.emoji, ...(w.img ? { img: w.img } : {}), gl: w.gl, ex: w.ex })) });
 export const webSeedText = deck => JSON.stringify(webSeed(deck)) + '\n';
 
 // Mục Wiktionary (kaikki.org, CC BY-SA) của 1 từ – tệp nhỏ /meaning/… (không tải bản 1,1 GB). CHỈ dùng để kiểm chéo trên CI (wikt-check, conj-check),

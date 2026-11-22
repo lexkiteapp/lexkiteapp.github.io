@@ -22,6 +22,8 @@ const seedW = readJSON(seedPath(TL)).words.slice(0, N), words = seedW.map(w => w
 fs.mkdirSync(OUT, { recursive: true });
 const probe = { tl: TL, words: words.length, at: new Date().toISOString() };
 
+// bảng không có giọng Kokoro (ko: voices rỗng – Kokoro-82M không có giọng Hàn) → không dựng Kokoro; tl_piper.py lấy từ seed cho các nguồn alts
+if (!VOICES.length) { probe.kokoro = 'none: bảng không có giọng Kokoro cho ' + TL; probe.rows = []; fs.writeFileSync(path.join(OUT, 'probe.json'), JSON.stringify(probe, null, 1)); console.log('· ' + probe.kokoro + ' → chỉ nguồn alts (tl_piper.py)'); process.exit(0); }
 const k = await loadKokoro(require);
 const vdir = require.resolve('kokoro-js').replace(/dist\/.*$/, 'voices/');
 probe.kokoroJsVoices = fs.readdirSync(vdir).filter(f => f.endsWith('.bin')).map(f => f.slice(0, -4));
