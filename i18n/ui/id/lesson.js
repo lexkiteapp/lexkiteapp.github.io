@@ -25,6 +25,7 @@
 "Có cặp ghép nhầm":"Ada pasangan yang salah",
 "Dịch câu này":"Terjemahkan kalimat ini",
 "Ghép cặp":"Pasangkan",
+"Ghép từ, ảnh":"Cocokkan kata dan gambar",
 "Giáo viên của bạn":"Gurumu",
 "Hoàn thành bài học!":"Pelajaran selesai!",
 "Hoặc chọn “Không nói được lúc này” để học tiếp.":"Atau pilih “Tidak bisa bicara sekarang” untuk lanjut belajar.",

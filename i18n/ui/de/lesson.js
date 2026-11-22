@@ -25,6 +25,7 @@
 "Có cặp ghép nhầm":"Einige Paare waren falsch",
 "Dịch câu này":"Übersetze diesen Satz",
 "Ghép cặp":"Paare finden",
+"Ghép từ, ảnh":"Wörter und Bilder zuordnen",
 "Giáo viên của bạn":"Deine Lehrkraft",
 "Hoàn thành bài học!":"Lektion geschafft!",
 "Hoặc chọn “Không nói được lúc này” để học tiếp.":"Oder wähle „Kann gerade nicht sprechen“, um weiterzulernen.",
