@@ -608,6 +608,7 @@
 "Luyện từng kỹ năng theo đúng dạng bài của kỳ thi bạn chọn.":"試験の実際のタスクの種類を使用して各スキルを練習します。",
 "Luyện viết":"ライティング練習",
 "Luyện định dạng DELE/SIELE":"DELE/SIELE 形式練習",
+"Luyện định dạng DELF/DALF":"DELF/DALF 形式練習",
 "Luôn có":"常に利用可",
 "Luật & Hành chính":"法律と行政",
 "Làm bài":"解答する",

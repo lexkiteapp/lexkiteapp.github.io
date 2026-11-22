@@ -608,6 +608,7 @@
 "Luyện từng kỹ năng theo đúng dạng bài của kỳ thi bạn chọn.":"تدرب على كل مهارة باستخدام أنواع المهام الحقيقية في امتحانك.",
 "Luyện viết":"تدرّب على الكتابة",
 "Luyện định dạng DELE/SIELE":"تدريب بصيغة DELE/SIELE",
+"Luyện định dạng DELF/DALF":"تدريب بصيغة DELF/DALF",
 "Luôn có":"متاح دائمًا",
 "Luật & Hành chính":"القانون والإدارة العامة",
 "Làm bài":"ابدأ",

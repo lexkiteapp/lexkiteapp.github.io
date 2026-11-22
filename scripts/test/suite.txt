@@ -316,7 +316,9 @@ node scripts/target/drill-pack.mjs --check
 node scripts/target/drill-pack.mjs --tl fr --check
 node scripts/test/fr-practice.mjs
 node scripts/target/exam-es-check.mjs
+node scripts/target/exam-es-check.mjs --tl fr
 node scripts/test/es-exam.mjs
+node scripts/test/fr-exam.mjs
 node scripts/test/grammar-inventory.mjs
 node scripts/grammar/build-lazy-idx.mjs
 node scripts/test/grammar-lazy.mjs

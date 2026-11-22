@@ -249,7 +249,10 @@
     "format"
    ],
    "delegate": [
-    "content-qa/exam-format-check.mjs"
+    "content-qa/exam-format-check.mjs",
+    "target/exam-es-check.mjs",
+    "target/exam-es-check.mjs --tl fr",
+    "test/fr-exam.mjs"
    ]
   },
   {

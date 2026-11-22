@@ -31,7 +31,7 @@ export const TLP = {
     VERBS: { A1: 'être avoir aller faire parler aimer habiter manger finir prendre venir vouloir pouvoir voir'.split(' '),
       A2: 'partir sortir dormir savoir mettre dire lire écrire boire choisir attendre appeler acheter commencer'.split(' '),
       B1: 'connaître recevoir devoir croire vivre suivre ouvrir conduire peindre envoyer préférer réussir'.split(' ') },
-    TN: FR_TN, PRON: frPron, IMPP: [['tu', 'tu'], ['nous', 'nous'], ['vous', 'vous']], imp: true },
+    TN: FR_TN, PRON: frPron, IMPP: [['tu', 'tu'], ['nous', 'nous'], ['vous', 'vous']], imp: true, exam: true },
 };
 
 function conjItems(pts, T = TLP.es) {
@@ -64,7 +64,7 @@ export function build(tl = 'es') {
     for (const p of pts) if (src[p.id]) o[p.id] = [src[p.id].t, src[p.id].x];
     files[`gx-${l}.js`] = `self.${X}=self.${X}||{};(${X}.gx=${X}.gx||{})[${JSON.stringify(l)}]=${JSON.stringify(o)};\n`;
   }
-  if (!T.extra) return { files, dr, pts, cloze }; // fr: phát âm / thi / lộ trình thêm ở W3–W5 (cùng engine)
+  if (!T.extra) { if (T.exam) Object.assign(files, buildExam(tl).files); return { files, dr, pts, cloze }; } // fr: thi W5 (cùng engine; chỉ có gói khi nguồn Tatoeba đã dựng); phát âm / lộ trình thêm ở W3–W4
   Object.assign(files, buildPx().files); // gói phát âm W3 (px.js + px-<ngôn ngữ>.js) cùng thư mục, cùng kiểm 'cũ so với nguồn' / mồ côi
   Object.assign(files, buildExam().files); // gói luyện định dạng DELE/SIELE W5 (x-<cấp>.js + x-ui-<ngôn ngữ>.js)
   Object.assign(files, buildPath(pts, buildPx().topics).files); // gói lộ trình ngày W4 (wd/dy/cl + bản dịch 15 ngôn ngữ)

@@ -608,6 +608,7 @@
 "Luyện từng kỹ năng theo đúng dạng bài của kỳ thi bạn chọn.":"시험의 실제 작업 유형을 통해 각 기술을 연습해 보세요.",
 "Luyện viết":"쓰기 연습",
 "Luyện định dạng DELE/SIELE":"DELE/SIELE 형식 연습",
+"Luyện định dạng DELF/DALF":"DELF/DALF 형식 연습",
 "Luôn có":"항상 사용 가능",
 "Luật & Hành chính":"법률 및 행정",
 "Làm bài":"풀기",

@@ -608,6 +608,7 @@
 "Luyện từng kỹ năng theo đúng dạng bài của kỳ thi bạn chọn.":"ฝึกฝนแต่ละทักษะกับประเภทงานจริงของการสอบของคุณ",
 "Luyện viết":"ฝึกเขียน",
 "Luyện định dạng DELE/SIELE":"ฝึกรูปแบบ DELE/SIELE",
+"Luyện định dạng DELF/DALF":"ฝึกรูปแบบ DELF/DALF",
 "Luôn có":"ใช้ได้เสมอ",
 "Luật & Hành chính":"กฎหมายและการบริหารรัฐกิจ",
 "Làm bài":"เริ่มทำ",

@@ -608,6 +608,7 @@
 "Luyện từng kỹ năng theo đúng dạng bài của kỳ thi bạn chọn.":"अपनी परीक्षा के वास्तविक कार्य प्रकारों के साथ प्रत्येक कौशल का अभ्यास करें।",
 "Luyện viết":"लेखन अभ्यास",
 "Luyện định dạng DELE/SIELE":"DELE/SIELE प्रारूप अभ्यास",
+"Luyện định dạng DELF/DALF":"DELF/DALF प्रारूप अभ्यास",
 "Luôn có":"हमेशा उपलब्ध",
 "Luật & Hành chính":"कानून एवं लोक प्रशासन",
 "Làm bài":"शुरू करें",

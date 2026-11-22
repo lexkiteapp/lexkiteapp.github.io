@@ -69,6 +69,9 @@ jobs:
       - name: Gói luyện tập fr (W2) – khớp nguồn, giải thích đủ 15 ngôn ngữ, LanguageTool 0 lỗi trên câu điền từ
         if: ${{ matrix.tl == 'fr' }}
         run: node scripts/target/drill-pack.mjs --tl fr --check --lt
+      - name: Đề luyện định dạng DELF/DALF (W5) – nguồn Tatoeba fr bắt buộc có (dựng bởi exam-es-build tl=fr), spec không đoán số, LanguageTool fr 0 lỗi trên consigne
+        if: ${{ matrix.tl == 'fr' }}
+        run: node scripts/target/exam-es-check.mjs --tl fr --lt --require-src
   plan:
     if: ${{ github.event_name == 'workflow_dispatch' }}
     runs-on: ubuntu-latest

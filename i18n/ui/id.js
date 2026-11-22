@@ -608,6 +608,7 @@
 "Luyện từng kỹ năng theo đúng dạng bài của kỳ thi bạn chọn.":"Latih setiap keterampilan dengan jenis tugas ujian Anda yang sebenarnya.",
 "Luyện viết":"Latihan menulis",
 "Luyện định dạng DELE/SIELE":"Format DELE/SIELE",
+"Luyện định dạng DELF/DALF":"Format DELF/DALF",
 "Luôn có":"Selalu tersedia",
 "Luật & Hành chính":"Hukum & Administrasi Publik",
 "Làm bài":"Mulai",

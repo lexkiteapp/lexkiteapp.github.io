@@ -608,6 +608,7 @@
 "Luyện từng kỹ năng theo đúng dạng bài của kỳ thi bạn chọn.":"Entraînez-vous à chaque compétence avec les vrais types d'exercices de votre examen.",
 "Luyện viết":"S'entraîner à écrire",
 "Luyện định dạng DELE/SIELE":"Format DELE/SIELE",
+"Luyện định dạng DELF/DALF":"Format DELF/DALF",
 "Luôn có":"Toujours disponible",
 "Luật & Hành chính":"Droit et administration publique",
 "Làm bài":"Commencer",

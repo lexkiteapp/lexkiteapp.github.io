@@ -608,6 +608,7 @@
 "Luyện từng kỹ năng theo đúng dạng bài của kỳ thi bạn chọn.":"Sınavınızın gerçek görev türleriyle her beceriyi uygulayın.",
 "Luyện viết":"Yazma pratiği",
 "Luyện định dạng DELE/SIELE":"DELE/SIELE biçimi",
+"Luyện định dạng DELF/DALF":"DELF/DALF biçimi",
 "Luôn có":"Her zaman açık",
 "Luật & Hành chính":"Hukuk ve Kamu Yönetimi",
 "Làm bài":"Başla",

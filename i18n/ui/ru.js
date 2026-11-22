@@ -608,6 +608,7 @@
 "Luyện từng kỹ năng theo đúng dạng bài của kỳ thi bạn chọn.":"Практикуйте каждый навык на реальных типах заданий экзамена.",
 "Luyện viết":"Письменная практика",
 "Luyện định dạng DELE/SIELE":"Формат DELE/SIELE",
+"Luyện định dạng DELF/DALF":"Формат DELF/DALF",
 "Luôn có":"Всегда доступно",
 "Luật & Hành chính":"Право и государственное управление",
 "Làm bài":"Начать",

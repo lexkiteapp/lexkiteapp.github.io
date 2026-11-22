@@ -124,6 +124,6 @@
 // 🥁 Nhịp điệu – ô chế độ (app.js modeTiles + study.js MODES, khung app)
 "Nhịp điệu": "Rhythm",
 "Chạm đúng nhịp nhấn của câu tiếng Anh": "Tap to the stress beat of English sentences",
-'Luyện tiếng Tây Ban Nha': 'Spanish practice', 'Luyện tiếng Pháp': 'French practice', 'Luyện định dạng DELE/SIELE': 'DELE/SIELE format practice', 'Đọc, nghe, viết, nói theo cấu trúc đề thi': 'Reading, listening, writing and speaking in the exam format', 'Chia động từ và ngữ pháp, giải thích bằng ngôn ngữ của bạn': 'Verb conjugation and grammar, explained in your language',
+'Luyện tiếng Tây Ban Nha': 'Spanish practice', 'Luyện tiếng Pháp': 'French practice', 'Luyện định dạng DELE/SIELE': 'DELE/SIELE format practice', 'Luyện định dạng DELF/DALF': 'DELF/DALF format practice', 'Đọc, nghe, viết, nói theo cấu trúc đề thi': 'Reading, listening, writing and speaking in the exam format', 'Chia động từ và ngữ pháp, giải thích bằng ngôn ngữ của bạn': 'Verb conjugation and grammar, explained in your language',
 'Mini-test biến thể': 'Variant mini-test',
 }); })(typeof self !== 'undefined' ? self : this);

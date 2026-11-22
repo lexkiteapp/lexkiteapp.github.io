@@ -608,6 +608,7 @@
 "Luyện từng kỹ năng theo đúng dạng bài của kỳ thi bạn chọn.":"Pratique cada habilidade com os tipos de tarefas reais do seu exame.",
 "Luyện viết":"Praticar escrita",
 "Luyện định dạng DELE/SIELE":"Prática no formato DELE/SIELE",
+"Luyện định dạng DELF/DALF":"Prática no formato DELF/DALF",
 "Luôn có":"Sempre disponível",
 "Luật & Hành chính":"Direito e Administração Pública",
 "Làm bài":"Começar",
