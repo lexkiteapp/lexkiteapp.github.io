@@ -75,6 +75,9 @@ def at(a):
     if a[0] == 'end': return TOTAL + float(a[1])
     if a[0] == 'beat': b = T['beats'][a[1]]; return b['s' if a[2] == 's' else 'e'] + (a[3] if len(a) > 3 else 0)
     w = word(a[0], a[1]); return w[a[2] if len(a) > 2 else 's'] + (a[3] if len(a) > 3 else 0)
+def _cw(node, cw):   # word-anchored cues are timing-checked; a time anchor ('t'/'end'/'beat') has no word to check
+    if cw: CUES.append(dict(node=node, **cw))
+
 def cue(a, k):   # entrance keyed to a spoken word: appears (HALF) exactly at the word start
     if EMBED and k == 'pop': k = 'fade'   # embed: calmer motion (no bounce)
     if a[0] in ('t', 'end', 'beat'): return dict(t=round(at(a), 4), k=k), None
@@ -122,16 +125,22 @@ class Card:
         if extra: it += extra(h)
         s.add(h, it); s.text.append(text.upper()); s.m.append(['card', S_CHIP * CAP_J]); s.px.append(S_CHIP)
     def line(s, runs, size, mtype='body', ipa=False, slot=None, align='l'):
-        txt = ''.join(r[0] for r in runs); w = tw(txt, size, ipa); lh = round(size * 1.18)
-        if w > s.inner() + 1 and mtype == 'card' and not slot:   # small lines wrap word by word (colour runs kept); body lines are laid out by the spec
+        txt = ''.join(r[0] for r in runs)
+        if mtype in ('card', 'body') and not slot and not ipa:   # a single word wider than the card (narrow rules column) steps the size down instead of wrapping forever; never below 38 px (qc min_text_px)
+            while size > 38 and max((tw(x, size) for x in txt.split()), default=0) > s.inner(): size -= 2
+        w = tw(txt, size, ipa); lh = round(size * 1.18)
+        if w > s.inner() + 1 and mtype in ('card', 'body'):   # lines that overflow wrap word by word (colour runs kept); a line that fits is left exactly as the spec laid it out (hook lines are always laid out by the spec)
             out = []; cur = []
-            for a_, c_ in runs:
+            for ri_, (a_, c_) in enumerate(runs):
                 for k_, wd in enumerate(a_.split(' ')):
                     tok = (' ' if k_ else '') + wd
-                    if cur and tw(''.join(x[0] for x in cur) + tok, size, ipa) > s.inner(): out.append(cur); cur = [[tok.lstrip(), c_]]
-                    else: cur.append([tok, c_])
+                    if cur and tw(''.join(x[0] for x in cur) + tok, size, ipa) > s.inner(): out.append(cur); cur = [[tok.lstrip(), c_, ri_]]
+                    else: cur.append([tok, c_, ri_])
             out.append(cur); allit = []
-            for ln in out: allit += [x for x in s.line([[a_, c_] for a_, c_ in ln if a_], size, mtype, ipa, None, align) if x['type'] == 'text']
+            assert len(out) > 1, (s.id, 'word wider than the card', txt, round(w), round(s.inner()))
+            for ln in out:
+                pcs = [x for x in ln if x[0]]; sl_ = {**slot, 'run': next(i_ for i_, x in enumerate(pcs) if x[2] == slot['run'])} if slot and any(x[2] == slot['run'] for x in pcs) else None   # the blank "___" stays on its own wrapped line
+                allit += [x for x in s.line([[a_, c_] for a_, c_, _ in pcs], size, mtype, ipa, sl_, align) if x['type'] in ('text', 'slot')]
             return allit   # every wrapped line (a cue set by the caller applies to all of them)
         assert w <= s.inner() + 1, (s.id, 'line too wide', txt, round(w), round(s.inner()))
         x = s.pad if align == 'l' else s.pad + (s.inner() - w) / 2
@@ -171,29 +180,31 @@ def chip_ring(cid, beat):   # countdown ring at the right end of a chip row (3-2
     return f
 
 def top_card(cid, kind='lesson', group='pop', tone=None): return Card(cid, X0, Y0, X1 - X0, kind, group, tone)
-def col_card(cid, y0, kind='lesson', group='pop', tone=None):
-    x1 = col_x1(y0, min(cap_top, y0 + 640)); return Card(cid, X0, y0, x1 - X0, kind, group, tone, pad=30)
+COLPAD = [30]   # rules-column card padding; a single word wider than the card (procrastinate) rebuilds the column at 22
+def col_card(cid, y0, kind='lesson', group='pop', tone=None, hh=640):   # hh: the card height the column width was measured for (a taller card is rebuilt narrower, so it never touches the teacher's body)
+    x1 = col_x1(y0, min(cap_top, y0 + hh)); return Card(cid, X0, y0, x1 - X0, kind, group, tone, pad=COLPAD[0])
 
 def fix_ring(card, h_chip=60):   # move the ring item to the card's top-right corner
     for it in card.rows:
         if it.get('type') == 'ring':
             d = it['box'][2] - it['box'][0]; it['box'] = [card.w - PAD - d, PAD - 18, card.w - PAD, PAD - 18 + d]
 
-def pills(y0, opts, cues, reveal, right, cid='opts'):
+def pills(y0, opts, cues, reveal, right, cid='opts', optsmin=None):
     """Stacked A-D option pills in the left column; each appears on its spoken word, the index ring turns into a check on the reveal word."""
     x1 = col_x1(y0, y0 + len(opts) * 140); x1 = min(x1, X0 + 640); w = x1 - X0; out = []
     g = 24; h = min(118, (SAFE['y1'] - C.RISE_DY - y0 + g) // len(opts) - g)   # 16:9 embed: the pills shrink so even the 'rise' entrance (36 px below) stays inside SAFE
     if h < round(S_BODY * 1.18) + 12: g = 16; h = min(118, (SAFE['y1'] - C.RISE_DY - y0 + g) // len(opts) - g)
     assert h >= round(S_BODY * 1.18) + 12, ('option pills do not fit inside SAFE', h)   # never below the text line + 12 px   # embed (wide): pills keep a pill shape, not the full panel
     need = max(tw(t, S_BODY) for t in opts) + 60 + 18 + 2 * 20
-    assert need <= w, ('option column too narrow', round(need), w)
+    if need > w and optsmin: opts = optsmin; need = max(tw(t, S_BODY) for t in opts) + 60 + 18 + 2 * 20   # embed column is narrow: pills show only the differing words (the spoken line keeps the context)
+    assert need <= w + 3, ('option column too narrow', round(need), w)
     rin, rcue = cue(reveal, 'pop')
     for i, (txt, c) in enumerate(zip(opts, cues)):
-        y = y0 + i * (h + g); ins, cw = cue(c, 'rise'); CUES.append(dict(node=f'{cid}.{i}', **cw))
+        y = y0 + i * (h + g); ins, cw = cue(c, 'rise'); _cw(f'{cid}.{i}', cw)
         st = [dict(t=round(rcue['at'] - 0.02, 4), s='right' if i == right else 'dim')]
         out.append(node(id=f'{cid}.{i}', type='pill', box=[X0, y, x1, y + h], idx='ABCD'[i], label=txt, size=S_BODY, **{'in': ins}, st=st, pal=PILL, card=cid))
     out.append(node(id=f'{cid}.chk', type='check', parent=f'{cid}.{right}', box=[X0 + 20, y0 + right * (h + g) + (h - 60) // 2, X0 + 20 + 60, y0 + right * (h + g) + (h - 60) // 2 + 60], **{'in': rin}))
-    CUES.append(dict(node=f'{cid}.chk', **rcue))
+    _cw(f'{cid}.chk', rcue)
     CARDS[cid] = dict(card=None, nodes=[n['id'] for n in out[:-1]], kind='lesson', group='pop', text=' / '.join(f'{"ABCD"[i]} {t}' for i, t in enumerate(opts)),
                       m=[['body', S_BODY * CAP_J]], px=S_BODY, extra={})
     return out, y0 + len(opts) * (h + g) - g
@@ -201,14 +212,14 @@ def pills(y0, opts, cues, reveal, right, cid='opts'):
 END_TOP_H = PAD + 132 + GAP + round(S_BODY * 1.18) + PAD + LEDGE_H
 def end_card_embed(c_line, top_h):
     """Embed end card: no QR, no follow CTA – it hands over to the next lesson step (the lesson UI owns the real button)."""
-    ins, cw = cue([c_line, 0], 'rise'); CUES.append(dict(node='endtop', **cw)); out = dict(t=round(TOTAL - 0.40 - C.OUT, 4))
+    ins, cw = cue([c_line, 0], 'rise'); _cw('endtop', cw); out = dict(t=round(TOTAL - 0.40 - C.OUT, 4))
     A = top_card('endtop', kind='lesson', group='pop'); A.chip('Up next', 'teal'); A.line([[SP['cta']['say'], INK]], S_BODY, 'body')
     ch = round(S_SUB * 1.2) + 44; A.custom(ch, [dict(type='cta', box=[A.pad, 0, A.pad + tw('Next step →', S_SUB) + 120, ch], lines=['Next step →'], size=S_SUB, lh=round(S_SUB * 1.2))], text='Next step →', m=['card', S_SUB * CAP_J], px=S_SUB)
     A.place(h=max(top_h, A.height()), ins=ins, out=out); CARDS['endtop']['px'] = S_BODY
 
 def end_card(c_line, top_h, col_y0):
     """End card (Stitch end frame): app icon + Lexkite + 100% FREE on top; QR + gradient CTA + lexkite.com in the column."""
-    cta = SP['cta']; ins, cw = cue([c_line, 0], 'rise'); CUES.append(dict(node='endtop', **cw)); out = dict(t=round(TOTAL - 0.40 - C.OUT, 4))
+    cta = SP['cta']; ins, cw = cue([c_line, 0], 'rise'); _cw('endtop', cw); out = dict(t=round(TOTAL - 0.40 - C.OUT, 4))
     A = top_card('endtop', kind='lesson', group='cta')
     A.custom(132, [dict(type='img', box=[PAD, 0, PAD + 132, 132], src='icon.png', radius=32),
                    dict(type='text', box=[PAD + 160, 4, PAD + 160 + tw('Lexkite', S_BODY), 84], runs=[['Lexkite', INK]], size=S_BODY),
@@ -236,7 +247,7 @@ def build():
     tops, cols = [], []
     top_h = max([_measure_top(c) for c in M['top']] + [END_TOP_H]); col_y0 = Y0 + top_h + 32
     assert Y0 + top_h <= TOP_Y1, ('top card does not fit above the head', top_h, TOP_Y1 - Y0)
-    for c in M['top']: tops.append(_top(c, top_h))
+    for c in M['top']: tops.append(_top(c))
     for c in M.get('col', []): cols.append(_col(c, col_y0))
     if M.get('bar'):   # under the option stack; wide: beside the (640 px) pills
         if o.format == 'wide': _bar(M['bar'], col_y0, X0 + 640 + 28)
@@ -273,24 +284,24 @@ def _fill_top(cd, c, measure=False):
 
 def _measure_top(c): return _fill_top(Card('_m', X0, Y0, X1 - X0), c, True).height()
 
-def _top(c, top_h):
+def _top(c):
     cd = _fill_top(top_card(c['id'], c.get('kind', 'lesson'), 'hook' if c.get('hook') else 'pop', c.get('tone')), c)
     if c.get('hook'): ins = dict(t=0.0, k='rise'); cw = None   # hook: on screen from the first frame (fully visible <= 0.40 s)
-    else: ins, cw = cue(c['at'], 'rise'); CUES.append(dict(node=c['id'], **cw))
+    else: ins, cw = cue(c['at'], 'rise'); _cw(c['id'], cw)
     st = [dict(t=round(at(x['at']) - (0.0 if x['at'][0] in ('t', 'beat') else 0.02), 4), s=x['s']) for x in c.get('st', [])]
     extra = {}
     if c.get('ipa'): IPA.append(dict(pop=c['id'], **c['ipa']))
-    cn = cd.place(h=top_h, ins=ins, st=st or None, extra=extra)
+    cn = cd.place(ins=ins, st=st or None, extra=extra)   # the card's OWN height (owner 19/11: a card stretched to the tallest one shows a flat empty panel); the plate shows through below it
     for it in NODES:
         if it.get('parent') == c['id'] and it['type'] == 'slot' and c.get('reveal'):
-            rin, rcw = cue(c['reveal'], 'pop'); it['st'] = [dict(t=round(rcw['at'] - 0.02, 4), s='filled')]; CUES.append(dict(node=it['id'], **rcw))
+            rin, rcw = cue(c['reveal'], 'pop'); it['st'] = [dict(t=round(rcw['at'] - 0.02, 4), s='filled')]; _cw(it['id'], rcw)
     for x in c.get('strike', []):   # strike-through drawn over one run of a line, on the spoken word
         ln = [n for n in NODES if n.get('parent') == c['id'] and n['type'] == 'text'][x['line']]
         pre = ''.join(r[0] for r in ln['runs'][:x['run']]); sx = ln['box'][0] + tw(pre, ln['size']); sw = tw(ln['runs'][x['run']][0].rstrip(), ln['size'])
-        cy = (ln['box'][1] + ln['box'][3]) / 2 + 4; ins_, cw_ = cue(x['at'], 'draw'); CUES.append(dict(node=f"{c['id']}.strike", **cw_))
+        cy = (ln['box'][1] + ln['box'][3]) / 2 + 4; ins_, cw_ = cue(x['at'], 'draw'); _cw(f"{c['id']}.strike", cw_)
         node(id=f"{c['id']}.strike", type='strike', parent=c['id'], box=[sx - 8, cy - 9, sx + sw + 8, cy + 9], color=CORAL, **{'in': ins_})
     for x in ([] if EMBED else c.get('xp', [])):   # +XP is a social-short reward; the embedded lesson stays calm
-        ins_, cw_ = cue(x['at'], 'pop'); CUES.append(dict(node=f"{c['id']}.xp", **cw_)); wx = tw('+10 XP', S_CHIP) + 60
+        ins_, cw_ = cue(x['at'], 'pop'); _cw(f"{c['id']}.xp", cw_); wx = tw('+10 XP', S_CHIP) + 60
         node(id=f"{c['id']}.xp", type='xp', parent=c['id'], box=[cn['box'][2] - PAD - wx, cn['box'][1] + PAD - 4, cn['box'][2] - PAD, cn['box'][1] + PAD + 60], size=S_CHIP,
              val=dict(t=ins_['t'] + 0.05, d=0.45, a=0, b=x['n']), **{'in': ins_})
     return cn
@@ -308,14 +319,41 @@ def _bar(b, y0, x0=None):
     th = 30; lab = 50; iw = cd.inner()
     cd.custom(th + 18 + lab, [dict(id=f"{b['id']}.bar", type='bar', box=[cd.pad, 0, cd.pad + iw, th + 18 + lab], lo=lo, hi=hi, target=b['target'], track=th, size=S_CHIP, val=segs)],
               text=' '.join(str(x) for x in range(int(lo), int(hi) + 1)), m=['card', S_CHIP * CAP_J], px=S_CHIP)
-    ins, cw = cue(b['at'], 'rise'); CUES.append(dict(node=b['id'], **cw))
+    ins, cw = cue(b['at'], 'rise'); _cw(b['id'], cw)
     cn = cd.place(ins=ins); CARDS[b['id']]['text'] += ' / band ' + str(b['target'])
     return cn
 
-def _col(c, y0):
+class Tall(Exception): pass
+class Wide(Exception):   # the card came out taller than the height its column width was measured for
+    def __init__(s, h): super().__init__(h); s.h = h
+def _cut1(runs, size, w):   # one line of the runs: whole words that fit the width (colour runs kept)
+    out = []; cur = ''
+    for a_, c_ in runs:
+        keep = ''
+        for k_, wd in enumerate(a_.split(' ')):
+            tok = (' ' if (k_ or keep) else '') + wd
+            if tw(cur + keep + tok, size) > w: return out + ([[keep, c_]] if keep else [])
+            keep += tok
+        out.append([keep, c_]); cur += keep
+    return out
+def _col(c, y0):   # a rules column that is too tall for the room above the captions drops detail step by step (full -> one line per tile -> tag + example -> tag + one-line example), never overflows
+    for lvl in (0, 1, 2, 3):
+        hh = 640
+        for _ in range(3):
+            n0, c0, i0 = len(NODES), len(CUES), len(IPA)
+            try: return _col1(c, y0, lvl, hh)
+            except Wide as w_:
+                del NODES[n0:], CUES[c0:], IPA[i0:]; hh = int(w_.h) + 1
+            except Tall:
+                del NODES[n0:], CUES[c0:], IPA[i0:]; break
+            except AssertionError as e:
+                if COLPAD[0] > 14 and 'word wider than the card' in str(e.args): del NODES[n0:], CUES[c0:], IPA[i0:]; COLPAD[0] = 22 if COLPAD[0] > 22 else 14; continue
+                raise
+    raise AssertionError((c['id'], 'rules column does not fit even without detail'))
+def _col1(c, y0, lvl=0, hh=640):
     if c['t'] == 'opts':
-        ps, _ = pills(y0, c['opts'], c['cues'], c['reveal'], c['right'], c['id']); return ps[0]
-    cd = col_card(c['id'], y0, 'lesson', 'pop', c.get('tone'))
+        ps, _ = pills(y0, c['opts'], c['cues'], c['reveal'], c['right'], c['id'], c.get('optsmin')); return ps[0]
+    cd = col_card(c['id'], y0, 'lesson', 'pop', c.get('tone'), hh)
     for r in c['rows']:
         if r['t'] == 'chip': cd.chip(r['text'], r.get('tone', 'gold'))
         elif r['t'] == 'line': cd.line(runs_of(r['runs']), S_BODY, 'body')
@@ -329,18 +367,23 @@ def _col(c, y0):
                 it.append(dict(type='text', box=[x, d1 + 10, x + lw, d1 + 10 + 56], runs=[[sy.upper() if big else sy, GOLD if big else MUTED]], size=S_SUB)); x += lw + 18
             cd.custom(d1 + 66, it, text='·'.join(sy.upper() if i == r['stress'] else sy for i, sy in enumerate(r['syl'])), m=['card', S_SUB * CAP_J], px=S_SUB)
         elif r['t'] == 'tile':   # rule tile: tone pill + meaning (+ example appearing on its own word)
-            hp = 58; n0 = len(cd.rows); it = [dict(type='chip', box=[cd.pad, 0, cd.pad + tw(r['tag'], S_SUB, ls=0.04) + 44, hp], text=r['tag'], tone=r['tone'], size=S_SUB)]
-            cd.custom(hp, it, text=r['tag'], m=['card', S_SUB * CAP_J], px=S_SUB, gap=GAP if not n0 else 34)
-            for ln in r['lines']: cd.line(runs_of(ln), S_SUB, 'card')
+            hp = 58; n0 = len(cd.rows); tag, tsz, tpad = r['tag'], S_SUB, 44   # a tag wider than the card (EXAMPLE 1, DOWNPOUR in the ~290 px column) steps down to the chip size, then to title case with tighter padding
+            while tsz > S_CHIP and cd.pad + tw(tag, tsz, ls=0.04) + tpad > cd.w - cd.pad: tsz -= 2
+            if cd.pad + tw(tag, tsz, ls=0.04) + tpad > cd.w - cd.pad: tag, tpad = tag.title(), 30
+            it = [dict(type='chip', box=[cd.pad, 0, cd.pad + tw(tag, tsz, ls=0.04) + tpad, hp], text=tag, tone=r['tone'], size=tsz)]
+            cd.custom(hp, it, text=tag, m=['card', tsz * CAP_J], px=tsz, gap=GAP if not n0 else 34)
+            for ln in ([] if lvl >= 2 else r['lines']): cd.line(_cut1(runs_of(ln), S_SUB, cd.inner()) if lvl else runs_of(ln), S_SUB, 'card')
             if r.get('at') and r['at'] != c['at']:   # a later tile appears on its own spoken word
-                ins_, cw_ = cue(r['at'], 'rise'); CUES.append(dict(node=f"{c['id']}.tile{n0}", **cw_))
+                ins_, cw_ = cue(r['at'], 'rise'); _cw(f"{c['id']}.tile{n0}", cw_)
                 for k_, x in enumerate(cd.rows[n0:]): x['in'] = ins_; x['id'] = x.get('id') or f"{c['id']}.tile{n0}" + ('' if not k_ else f'.{k_}')
             if r.get('ex'):
-                items = [x for x in cd.line(runs_of(r['ex']), S_SUB, 'card') if x['type'] == 'text']; ins_, cw_ = cue(r['ex_at'], 'rise')
+                items = [x for x in cd.line(_cut1(runs_of(r['ex']), S_SUB, cd.inner()) if lvl >= 3 else runs_of(r['ex']), S_SUB, 'card') if x['type'] == 'text']; ins_, cw_ = cue(r['ex_at'], 'rise')
                 for j_, x in enumerate(items): x['in'] = ins_; x['id'] = f"{c['id']}.ex{len(cd.rows)}" + (f'.{j_}' if j_ else '')
-                CUES.append(dict(node=items[0]['id'], **cw_))
-    ins, cw = cue(c['at'], 'rise'); CUES.append(dict(node=c['id'], **cw))
+                _cw(items[0]['id'], cw_)
+    ins, cw = cue(c['at'], 'rise'); _cw(c['id'], cw)
     if c.get('ipa'): IPA.append(dict(pop=c['id'], **c['ipa']))
+    if lvl < 3 and y0 + cd.height() > cap_top - (C.RISE_DY if EMBED else 0) and c['t'] == 'card' and any(r['t'] == 'tile' for r in c['rows']): raise Tall()   # embed: the 'rise' entrance starts 36 px lower and must stay inside SAFE
+    if c['t'] == 'card' and cd.height() > hh: raise Wide(cd.height())
     cn = cd.place(ins=ins)
     for n in NODES:
         if n.get('parent') == c['id'] and n['type'] == 'dot' and n.get('hit'):
@@ -432,8 +475,9 @@ if EMBED:   # captions + chapters as WebVTT tracks (translatable, never burned i
         cap += [f"{vt(ws[0]['s'])} --> {vt(ws[-1]['e'] + 0.25)}", txt, '']
     open(o.out[:-5] + '.en.vtt', 'w').write('\n'.join(cap))
     ch = ['WEBVTT', '']; tops = sorted((n for n in NODES if n['type'] == 'card' and not n.get('parent') and n['box'][1] <= Y0 + 1), key=lambda n: n['in']['t'])
-    for i, n in enumerate(tops):
-        t1 = tops[i + 1]['in']['t'] if i + 1 < len(tops) else TOTAL; title = next((x.get('label') or x['text'] for x in NODES if x.get('parent') == n['id'] and x['type'] == 'chip'), n['id'])
+    chs = tops if len(tops) >= 3 else sorted((n for n in NODES if n['type'] == 'card' and not n.get('parent') and any(x.get('parent') == n['id'] and x['type'] == 'chip' for x in NODES)), key=lambda n: n['in']['t'])   # a lesson with one top card (spot the mistake) lists its column card too (>= 3 chapters)
+    for i, n in enumerate(chs):
+        t1 = chs[i + 1]['in']['t'] if i + 1 < len(chs) else TOTAL; title = next((x.get('label') or x['text'] for x in NODES if x.get('parent') == n['id'] and x['type'] == 'chip'), n['id'])
         ch += [f"{vt(max(0, n['in']['t']))} --> {vt(t1)}", title, '']
     open(o.out[:-5] + '.chapters.vtt', 'w').write('\n'.join(ch))
     props['poster_t'] = round(next((n['in']['t'] + 0.8 for n in tops if n['id'] != 'hook'), 1.0), 3)

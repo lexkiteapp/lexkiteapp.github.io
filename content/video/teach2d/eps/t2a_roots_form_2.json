@@ -1,0 +1,173 @@
+{
+ "id": "t2a_roots_form_2",
+ "template": "roots",
+ "series": "Word Roots",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "One root, two words!",
+   "pause": 0.3
+  },
+  {
+   "id": "r",
+   "text": "The root is Form! Transform, uniform.",
+   "pause": 0.3
+  },
+  {
+   "id": "k",
+   "text": "Did you know? Form is Latin for shape.",
+   "pause": 0.3
+  },
+  {
+   "id": "w0",
+   "text": "Transform: across plus shape.",
+   "pause": 0.3
+  },
+  {
+   "id": "w1",
+   "text": "Uniform: one plus shape.",
+   "pause": 0.3
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which means one plus shape?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Uniform! One plus shape.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "root": "FORM",
+  "rid": "form",
+  "say": "shape",
+  "src": "forma",
+  "src_lang": "Latin",
+  "src_mean": "shape, form",
+  "words": [
+   {
+    "w": "transform",
+    "ipa": "/trænsˈfɔːrm/",
+    "mean": "change the shape across",
+    "seg": "trans-|form",
+    "parts": [
+     [
+      "trans",
+      "pre"
+     ],
+     [
+      "form",
+      "root"
+     ]
+    ],
+    "pre": "trans",
+    "pm": "across",
+    "pms": "across",
+    "ex": "The old factory was transformed into an art centre.",
+    "em": "🦋"
+   },
+   {
+    "w": "uniform",
+    "ipa": "/ˈjuːnəfɔːrm/",
+    "mean": "one shape",
+    "seg": "uni-|form",
+    "parts": [
+     [
+      "uni",
+      "pre"
+     ],
+     [
+      "form",
+      "root"
+     ]
+    ],
+    "pre": "uni",
+    "pm": "one",
+    "pms": "one",
+    "ex": "Students must wear a uniform at this school.",
+    "em": "👔"
+   }
+  ],
+  "quiz": {
+   "stem": "one plus shape",
+   "options": [
+    "transform",
+    "uniform"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/transform",
+  "link": "https://lexkite.com/app/#/dict/transform",
+  "say": "See the whole word family"
+ },
+ "hook": {
+  "line": "h",
+  "text": "One root, two words"
+ },
+ "src": {
+  "root": "form"
+ },
+ "est": {
+  "words": 43,
+  "seconds": 26.0,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Form root: transform and uniform",
+  "keyword": "form root",
+  "value": "Form comes from Latin \"forma\" (shape, form). Words: transform and uniform. transform = trans + form; uniform = uni + form.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/transform",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "Form root: transform and uniform",
+    "description": "Form comes from Latin \"forma\" (shape, form). Words: transform and uniform. transform = trans + form; uniform = uni + form.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/transform\n\nSeries: Word Roots · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "form root",
+     "Word Roots",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Form root: transform and uniform\n\nForm comes from Latin \"forma\" (shape, form). Words: transform and uniform. transform = trans + form; uniform = uni + form.\n\nSee the whole word family, free: https://lexkite.com/app/#/dict/transform"
+   },
+   "instagram": {
+    "caption": "Form root: transform and uniform\n\nForm comes from Latin \"forma\" (shape, form). Words: transform and uniform. transform = trans + form; uniform = uni + form.\n\nSee the whole word family: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Form root: transform and uniform #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: Uniform! One plus shape. Form comes from Latin \"forma\" (shape, form). Words: transform and uniform. transform = trans + form; uniform = uni + form. Try the full lesson and quiz here: {link}"
+ }
+}

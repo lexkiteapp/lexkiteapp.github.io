@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 import { JSDOM } from 'jsdom';
 const R = fileURLToPath(new URL('../../', import.meta.url)), rd = f => fs.readFileSync(R + f, 'utf8');
 let fail = 0; const ok = (c, m) => { console.log(`${c ? '✓' : '✗'} late-insert: ${m}`); if (!c) fail++; };
-const app = rd('web/js/app.js'), loader = rd('scripts/app-loader.mjs');
+const app = rd('web/js/app.js') + rd('web/js/bundles.js'), loader = rd('scripts/app-loader.mjs');
 
 // ---- 1) Thanh thoát phải gắn TRƯỚC lần vẽ của màn mới (vi tác vụ), không đợi khung hình sau
 {
@@ -46,12 +46,12 @@ ok(/card\.appendChild\(sec\)/.test(rd('web/js/path-reward.js')), '.path-reward n
 // ---- 5) Việc phụ chờ lần vẽ đầu
 const pf = (app.match(/App\.prefetchAll = [^\n]+/) || [''])[0];
 ok(/App\.painted\.then\(\(\) => setTimeout\(go, \d+\)\)/.test(pf), 'tải sẵn mọi gói chờ lần vẽ đầu');
-ok(/App\.painted\.then\(\(\) => idle\(\(\) => App\.need\('remind'\)/.test(app), "gói nhắc học (kéo theo ~70 KB i18nx/i18nl) chờ lần vẽ đầu");
+ok(/later\(\(\) => App\.need\('remind'\)/.test(app) && /const later = cb => App\.painted\.then\(\(\) => setTimeout\(\(\) => idle\(cb\), \d+\)\)/.test(app), "gói nhắc học (kéo theo ~70 KB i18nx/i18nl) chờ lần vẽ đầu");
 // ---- LCP home dao động 14/11: JS khung chỉ nạp sau khi FCP ĐÃ HIỆN (Paint Timing), không theo rAF (khung chưa chắc đã hiện)
 {
   const boot = (/const boot = `<script id="lk-boot">([\s\S]*?)<\/script>/.exec(loader.replace(/\$\{JSON\.stringify\(order\)\}/, '["a.js"]').replace(/\$\{JSON\.stringify\(font\)\}/, '[]')) || [])[1] || '';
-  const run = async paint => {
-    const dom = new JSDOM('<!doctype html><head></head><body></body>', { url: 'http://localhost/app/', runScripts: 'outside-only' }), w = dom.window; let cb = null;
+  const run = async (paint, hash = '') => {
+    const dom = new JSDOM('<!doctype html><head></head><body></body>', { url: 'http://localhost/app/' + hash, runScripts: 'outside-only' }), w = dom.window; let cb = null;
     w.requestAnimationFrame = f => { f(); return 1; };
     w.PerformanceObserver = paint ? Object.assign(function (f) { cb = f; this.observe = () => {}; this.disconnect = () => {}; }, { supportedEntryTypes: ['paint', 'largest-contentful-paint'] }) : undefined;
     w.eval(boot); await new Promise(r => setTimeout(r, 20));
@@ -61,6 +61,8 @@ ok(/App\.painted\.then\(\(\) => idle\(\(\) => App\.need\('remind'\)/.test(app), 
   };
   const [b1, a1] = await run(true), [b0] = await run(false);
   ok(boot && b1 === 0 && a1 === 1, `có Paint Timing: JS chưa nạp trước FCP (${b1}), nạp ngay sau FCP (${a1})`);
+  const hs = await Promise.all(['#/review', '#/dict/hello', '#/me', '#/path', '#/practice/mcq', '#/home', '#/welcome'].map(h => run(true, h).then(r => r[0])));
+  ok(hs.join() === '1,1,1,0,0,0,0', `nạp JS ngay (không chờ FCP) chỉ cho review/dict/me; path/practice/home/welcome vẫn chờ FCP (${hs})`);
   ok(b0 === 1, 'không có Paint Timing: giữ đường cũ rAF → setTimeout (nạp ngay)');
   ok(/setTimeout\(go,fcp\?3000:300\)/.test(loader), 'dự phòng: 3 s khi chờ FCP (tab nền), 300 ms đường cũ');
 }
@@ -74,7 +76,7 @@ ok(/--font: "Be Vietnam Pro", "Be Vietnam Pro Fallback"/.test(rd('web/css/style.
   ok(softOf('review', '', q('')).join() === 'words' && !softOf('review', '', q('hub=1')).length && !softOf('review', '', q('src=forgetting')).length, 'phiên ôn vẽ trước kho từ; hub/nguồn riêng vẫn đợi kho');
   ok(softOf('practice', 'mcq', q('src=topic:education')).join() === 'words,tsl' && softOf('practice', 'mcq', q('')).join() === 'words,tsl', 'luyện chủ đề lõi / sổ từ vẽ trước kho từ');
   ok(!softOf('practice', 'mcq', q('src=topic:ngsl1.3')).length && !softOf('practice', 'mcq', q('src=origin:x')).length && !softOf('practice', '', q('')).length && !softOf('home', '', q('')).length, 'nguồn cần kho (bài con lộ trình, origin) và màn khác vẫn đợi kho như cũ');
-  ok(/if \(sf\.length\) afterPaint\(\(\) => idle\(\(\) => App\.need\(\.\.\.sf\)/.test(app), 'kho từ vẫn được nạp ngay sau lần vẽ (không mất dữ liệu)');
+  ok(/if \(sf\.length\) afterPaint\(\(\) => \(name === 'review' \? later : idle\)\(\(\) => App\.need\(\.\.\.sf\)/.test(app), 'kho từ vẫn được nạp ngay sau lần vẽ (không mất dữ liệu)');
   ok(/b\.push\('dist'\)/.test(app) && /dist: \['js\/distract\.js'\]/.test(app), 'câu đầu vẫn có bộ chọn phương án nhiễu (distract.js nạp cứng)');
   ok(/addEventListener\('lk:soft'[^\n]*warmLib\(\)/.test(rd('web/js/study.js')), 'kho về sau: chuẩn hóa theo lát, không có tác vụ dài lúc đang làm bài'); }
 

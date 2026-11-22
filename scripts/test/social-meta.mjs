@@ -79,7 +79,7 @@ globalThis.fetch = async (url, init = {}) => {
   return J({});
 };
 const ENCK = Buffer.alloc(32, 5).toString('base64');
-const ENV = { DB, GRABCAST_API_KEY: KEY, SHORTS_READ_TOKEN: 'ro', KEYS_ENC_KEY: ENCK, META_PAGE_TOKEN: TOK, META_PAGE_ID: '123456789' }; // FB qua secret khởi tạo, IG qua Quản trị (token kênh)
+const ENV = { DB, SOCIAL_DAY_CAP: '9', GRABCAST_API_KEY: KEY, SHORTS_READ_TOKEN: 'ro', KEYS_ENC_KEY: ENCK, META_PAGE_TOKEN: TOK, META_PAGE_ID: '123456789' }; // FB qua secret khởi tạo, IG qua Quản trị (token kênh)
 await MGR.setupMgr(DB);
 sql.exec('CREATE TABLE yt_queue (clip TEXT PRIMARY KEY, status TEXT, title TEXT, approved_at INTEGER); CREATE TABLE clip_review (clip TEXT PRIMARY KEY, state TEXT, deleted INTEGER, web INTEGER)');
 for (const c of [CA, CB, CC, CD, CE]) sql.prepare("INSERT INTO yt_queue (clip, status) VALUES (?, 'manual')").run(c);
@@ -97,6 +97,8 @@ ext.run('gc-facebook_page-2', 'facebook_page', '2', 'Lexkite', 'ok', now); ext.r
   const row = sql.prepare('SELECT * FROM soc_tokens WHERE channel_id = ?').get('gc-instagram-3');
   ok(o.target_id === '178000000001' && o.last4 === TOKI.slice(-4) && !JSON.stringify(o).includes(TOKI) && row && row.kind === 'ig' && !row.enc.includes(TOKI) && /^v1\./.test(row.enc) && row.expires_at > now, 'token IG lưu mã hóa (AES-GCM), trả về chỉ last4 + IG user id');
 }
+// Sổ cái 1 bài/kênh/ngày (scripts/test/social-ledger.mjs) không phải đối tượng ở đây: mỗi lượt tự dựng nhiều clip cùng kênh trong vài giờ → xóa sổ trước mỗi lượt để từng kịch bản Meta đứng riêng.
+const RUN = (env, o) => { try { sql.exec('DELETE FROM soc_ledger'); } catch (e) {} return A.runAuto(env, o); };
 const due = (clip, ch, t, state = 'planned', pid = null) => sql.prepare("INSERT INTO dist_social (clip, channel_id, platform, slot_ms, source, rule, state, post_id, updated) VALUES (?, ?, ?, ?, 'auto', 0, ?, ?, ?) ON CONFLICT(clip, channel_id) DO UPDATE SET slot_ms = excluded.slot_ms, state = excluded.state, post_id = excluded.post_id").run(clip, ch, ch.split('-')[1], Math.round(t), state, pid, now);
 const board = async (clip, ch, st, pid, by = 'boss@lexkite.com') => { const id = await A.boardId(clip, ch); sql.prepare("INSERT INTO soc_board (id, post_id, clip, title, caption, accounts, plats, state, mode, want_at, hash, approved_by, approved_at, note, created, updated, by_who) VALUES (?, ?, ?, 'T ' || ?, 'Cap ' || ?, ?, ?, ?, 'sched', 0, ?, ?, ?, 'autopilot', ?, ?, 'autopilot')")
   .run(id, pid, clip, clip, clip, JSON.stringify([ch.split('-').pop()]), JSON.stringify([ch.split('-')[1]]), st, st === 'review' ? null : 'h', st === 'review' ? null : by, st === 'review' ? null : now, now, now); return id; };
@@ -114,10 +116,10 @@ due(CA, 'gc-instagram-3', now + 2.5 * H); const bAi = await board(CA, 'gc-instag
 due(CB, 'gc-facebook_page-2', now + 2 * H); const bB = await board(CB, 'gc-facebook_page-2', 'review', null);
 sql.prepare("INSERT INTO soc_meta (k, v, at) VALUES ('auto', ?, ?) ON CONFLICT(k) DO UPDATE SET v = excluded.v").run(JSON.stringify({ policy: A.POLICY, auto_approve: true, auto_queue: true, manual_first: 0, autopub: { youtube: true } }), now); // kịch bản gốc: FB/IG chờ duyệt (từ 16/11 ownerPolicy bật autopub cả FB/IG/TikTok, phải lưu rõ cấu hình cũ)
 GC.down = true; gcCalls = []; MG.calls = [];
-let r = await A.runAuto(ENV, { now, sleep });
+let r = await RUN(ENV, { now, sleep });
 ok(/db_budget/.test(String(r.stop)) && r.provider.cur === 'meta' && r.provider.why === 'db_budget_guard', `lượt 1: GrabCast 503 db_budget_guard → cầu dao + chuyển Meta NGAY trong lượt (${r.stop} ${JSON.stringify(r.provider)})`);
 { const fo = r.alerts.filter(a => !/^(no-new-clips|manifest-stale|no-channels|no-approved|nothing-planned)$/.test(a.k)); /* cảnh báo sức khỏe chuỗi có test riêng ở social-auto */ ok(fo.length === 1 && fo[0].k === 'failover' && /Meta/.test(fo[0].text), 'cảnh báo failover (1 issue/email) giao cho CI'); }
-gcCalls = []; r = await A.runAuto(ENV, { now: now + M60, sleep });
+gcCalls = []; r = await RUN(ENV, { now: now + M60, sleep });
 
 ok(r.provider.cur === 'meta' && !r.alerts.length && !gcCalls.length, 'lượt 2: cầu dao còn mở → Meta, 0 lượt GrabCast, không báo lại');
 ok(!reels(CA).length && lk(CA, 'gc-facebook_page-2').gc_cancel === 'pending' && r.skipped.some(s => s.clip === CA && s.why === 'meta-wait'), 'FB đã lên lịch trên GrabCast, không hủy được → CHƯA đăng Meta (chờ slot + 30 phút), ghi hủy treo');
@@ -129,41 +131,41 @@ ok(MG.calls.some(c => c.host === 'graph.instagram.com' && c.p === '178000000001/
 ok(MG.calls.some(c => c.p === 'debug_token') && stt().meta.th['gc-facebook_page-2'].ok && stt().meta.th['gc-facebook_page-2'].expires_at === 0, 'kiểm sức khỏe Page token (debug_token) – không hết hạn');
 
 // tới giờ IG + quá slot FB + 30 phút: FB đăng ngay, IG media_publish
-MG.calls = []; r = await A.runAuto(ENV, { now: now + 1.6 * H, sleep });
+MG.calls = []; r = await RUN(ENV, { now: now + 1.6 * H, sleep });
 const fbRe = reels(CA);
 ok(fbRe.length === 1 && fbRe[0].f.video_state === 'PUBLISHED' && MG.calls.some(c => c.host === 'rupload.facebook.com' && c.h.file_url && /admin-shorts/.test(c.h.file_url)), 'FB: quá slot + 30 phút → Reel PUBLISHED qua Reels API (start → rupload file_url → finish)');
 ok(lk(CA, 'gc-facebook_page-2').state === 'posted' && lk(CA, 'gc-facebook_page-2').provider === 'meta' && /^https:\/\/www\.facebook\.com\/reel\/9\d+$/.test(lk(CA, 'gc-facebook_page-2').permalink), 'khóa: provider meta, posted, permalink');
 ok(/^meta_fb_9\d+$/.test(ds(CA, 'gc-facebook_page-2').post_id) && ds(CA, 'gc-facebook_page-2').state === 'published' && bd(bA).state === 'published' && !bd(bA).post_id && JSON.parse(bd(bA).links)[0].v === 'meta' && /facebook\.com\/reel/.test(JSON.parse(bd(bA).links)[0].u), 'dist_social + soc_board: published, provider meta, permalink (bỏ post_id GrabCast)');
 ok(MG.calls.some(c => c.p === '178000000001/content_publishing_limit') && MG.calls.some(c => c.p === '178000000001/media_publish') && lk(CA, 'gc-instagram-3').state === 'posted' && /instagram\.com\/reel/.test(lk(CA, 'gc-instagram-3').permalink), 'IG: FINISHED → kiểm giới hạn 24 giờ → media_publish → permalink');
-MG.calls = []; r = await A.runAuto(ENV, { now: now + 1.7 * H, sleep });
+MG.calls = []; r = await RUN(ENV, { now: now + 1.7 * H, sleep });
 ok(!MG.calls.some(c => /video_reels|media_publish|\/media$/.test(c.p)), 'lượt sau: không đăng lại (khóa clip + kênh)');
 
 // duyệt tay khi đang đi Meta → lượt sau đăng (FB lên lịch native vì slot còn ≥ 15 phút)
 const ap = await A.autoOpFor('POST', 'lk/auto/approve')({ db: DB, b: { id: bB }, who: 'boss@lexkite.com' });
 ok(ap.state === 'approved' && bd(bB).approved_by === 'boss@lexkite.com', 'Quản trị "Duyệt (Meta)" → approved');
 let bad = 0; try { await A.autoOpFor('POST', 'lk/auto/approve')({ db: DB, b: { id: bB }, who: 'x' }); } catch (e) { bad = e.status; } ok(bad === 409, 'duyệt lại bài không còn ở Chờ duyệt → 409');
-MG.calls = []; r = await A.runAuto(ENV, { now: now + 1.75 * H, sleep });
+MG.calls = []; r = await RUN(ENV, { now: now + 1.75 * H, sleep });
 const fbB = reels(CB);
 ok(fbB.length === 1 && fbB[0].f.video_state === 'SCHEDULED' && +fbB[0].f.scheduled_publish_time === Math.floor(Math.round(now + 2 * H) / 1000) && lk(CB, 'gc-facebook_page-2').state === 'scheduled' && ds(CB, 'gc-facebook_page-2').state === 'pushed', 'FB còn ≥ 15 phút tới slot → Reel SCHEDULED đúng slot qua Meta');
-MG.calls = []; r = await A.runAuto(ENV, { now: now + 2.7 * H, sleep });ok(!reels(CB).length && lk(CB, 'gc-facebook_page-2').state === 'posted' && ds(CB, 'gc-facebook_page-2').state === 'published', 'sau slot: kiểm video đã lên (GET) → published, không đăng lại');
+MG.calls = []; r = await RUN(ENV, { now: now + 2.7 * H, sleep });ok(!reels(CB).length && lk(CB, 'gc-facebook_page-2').state === 'posted' && ds(CB, 'gc-facebook_page-2').state === 'published', 'sau slot: kiểm video đã lên (GET) → published, không đăng lại');
 
 // IG container ERROR + giới hạn 24 giờ
 due(CC, 'gc-instagram-3', now + 3 * H); const bC = await board(CC, 'gc-instagram-3', 'approved', null);
-MG.nextErr = true; MG.calls = []; r = await A.runAuto(ENV, { now: now + 2.75 * H, sleep });
+MG.nextErr = true; MG.calls = []; r = await RUN(ENV, { now: now + 2.75 * H, sleep });
 ok(!lk(CC, 'gc-instagram-3').container && /ig-container/.test(lk(CC, 'gc-instagram-3').err) && ds(CC, 'gc-instagram-3').state === 'failed' && /^meta-ig-container/.test(ds(CC, 'gc-instagram-3').err) && !MG.calls.some(c => c.p === '178000000001/media_publish'), 'IG container ERROR → không publish, ghi lỗi (dist_social failed), xóa container để thử lại');
 MG.nextErr = false; MG.quota = 25;
-MG.calls = []; r = await A.runAuto(ENV, { now: now + 2.8 * H, sleep });
+MG.calls = []; r = await RUN(ENV, { now: now + 2.8 * H, sleep });
 ok(r.skipped.some(s => s.clip === CC && s.why === 'ig-limit') && lk(CC, 'gc-instagram-3').container && !MG.calls.some(c => c.p === '178000000001/media_publish'), 'IG đã 25 bài/24 giờ → không publish (giới hạn của Lexkite ≤ 100 của Meta), giữ container');
 MG.quota = 0; MG.igStatus[lk(CC, 'gc-instagram-3').container] = 'ERROR';
-MG.calls = []; r = await A.runAuto(ENV, { now: now + 2.85 * H, sleep });
-MG.calls = []; r = await A.runAuto(ENV, { now: now + 2.9 * H, sleep });
+MG.calls = []; r = await RUN(ENV, { now: now + 2.85 * H, sleep });
+MG.calls = []; r = await RUN(ENV, { now: now + 2.9 * H, sleep });
 ok(r.skipped.some(s => s.clip === CC && s.why === 'meta-gave-up') && !MG.calls.some(c => c.p === '178000000001/media'), 'lỗi lặp 2 lần → bỏ qua tới khi owner xem (không đốt lượt Graph)');
 MG.quota = 0;
 
 // Page token bị thu hồi → CHỈ kênh FB dừng 12 giờ + cảnh báo; kênh IG vẫn đăng
 { const s = stt(); delete s.meta.th['gc-facebook_page-2']; sql.prepare("UPDATE soc_meta SET v = ? WHERE k = 'auto_state'").run(JSON.stringify(s)); }
 due(CE, 'gc-instagram-3', now + 3.2 * H); await board(CE, 'gc-instagram-3', 'approved', null);
-MG.revoked = true; MG.calls = []; r = await A.runAuto(ENV, { now: now + 3 * H, sleep });
+MG.revoked = true; MG.calls = []; r = await RUN(ENV, { now: now + 3 * H, sleep });
 ok(/gc-facebook_page-2 token:/.test(r.meta.stop) && stt().meta.br['gc-facebook_page-2'].until === now + 15 * H && r.alerts.some(a => a.k === 'meta-token:gc-facebook_page-2'), `Page token bị thu hồi (190) → kênh FB dừng 12 giờ + cảnh báo (${r.meta.stop})`);
 ok(lk(CE, 'gc-instagram-3') && lk(CE, 'gc-instagram-3').state === 'posted' && !stt().meta.br['gc-instagram-3'], 'kênh IG không bị ảnh hưởng: vẫn đăng trong cùng lượt');
 ok(sql.prepare('SELECT status FROM soc_tokens WHERE channel_id = ?').get('gc-instagram-3').status === 'ok', 'trạng thái token IG giữ ok');
@@ -172,10 +174,10 @@ MG.revoked = false;
 await A.autoOpFor('POST', 'lk/auto/reset')({ db: DB });
 // IG token còn ≤ 10 ngày → refresh (graph.instagram.com/refresh_access_token) → token mới mã hóa vào D1; lỗi refresh → cảnh báo
 sql.prepare('UPDATE soc_tokens SET expires_at = ?, refreshed_at = ? WHERE channel_id = ?').run(now + 5 * 864e5, now - 2 * 864e5, 'gc-instagram-3');
-MG.refreshFail = true; MG.calls = []; r = await A.runAuto(ENV, { now: now + 3.3 * H, sleep });
+MG.refreshFail = true; MG.calls = []; r = await RUN(ENV, { now: now + 3.3 * H, sleep });
 ok(MG.calls.some(c => c.p === '/refresh_access_token') && r.alerts.some(a => a.k === 'meta-token:gc-instagram-3:refresh') && sql.prepare('SELECT status FROM soc_tokens WHERE channel_id = ?').get('gc-instagram-3').status === 'refresh-failed', 'refresh IG lỗi → cảnh báo + đánh dấu token, kênh bị dừng');
 await A.autoOpFor('POST', 'lk/auto/reset')({ db: DB }); MG.refreshFail = false; sql.prepare("UPDATE soc_tokens SET status = 'ok' WHERE channel_id = ?").run('gc-instagram-3');
-MG.calls = []; r = await A.runAuto(ENV, { now: now + 3.4 * H, sleep });
+MG.calls = []; r = await RUN(ENV, { now: now + 3.4 * H, sleep });
 const tr = sql.prepare('SELECT * FROM soc_tokens WHERE channel_id = ?').get('gc-instagram-3');
 ok(MG.calls.some(c => c.p === '/refresh_access_token') && tr.last4 === TOKI2.slice(-4) && tr.refreshed_at === now + 3.4 * H && Math.abs(tr.expires_at - (now + 3.4 * H + 60 * 864e5)) < 1000 && !tr.enc.includes(TOKI2), 'refresh IG (~ngày 50) → token mới (60 ngày) lưu mã hóa');
 { const M2 = await import(new URL('../../functions/api/_meta_tokens.js', import.meta.url)); ok(await M2.tokenOf(ENV, DB, { channel_id: 'gc-instagram-3', src: 'd1' }) === TOKI2, 'giải mã đúng token mới'); }
@@ -184,7 +186,7 @@ ok(MG.calls.some(c => c.p === '/refresh_access_token') && tr.last4 === TOKI2.sli
 // GrabCast hồi phục → lượt GrabCast hủy bài treo p_1 (unschedule + cancel), quay về grabcast + báo hồi phục
 { const s = stt(); delete s.breaker; sql.prepare("UPDATE soc_meta SET v = ? WHERE k = 'auto_state'").run(JSON.stringify(s)); } // cầu dao GrabCast hết hạn
 GC.down = false; gcCalls = []; MG.calls = [];
-r = await A.runAuto(ENV, { now: now + 4 * H, sleep });
+r = await RUN(ENV, { now: now + 4 * H, sleep });
 ok(r.provider.cur === 'grabcast' && stt().provider.prev === 'meta' && r.alerts.some(a => /^recovered/.test(a.k)), 'GrabCast hồi phục → provider grabcast + báo hồi phục');
 ok(gcCalls.some(c => c.p === 'posts/p_1/unschedule') && gcCalls.some(c => c.p === 'posts/p_1/cancel') && GC.posts.p_1.status === 'cancelled' && lk(CA, 'gc-facebook_page-2').gc_cancel === 'done', 'bài GrabCast treo của bài Meta đã đăng → unschedule + cancel (không đăng trùng)');
 ok(!MG.calls.length, 'provider grabcast → 0 lượt Graph');
@@ -193,17 +195,17 @@ ok(!MG.calls.length, 'provider grabcast → 0 lượt Graph');
 GC.posts.p_9 = { id: 'p_9', status: 'scheduled', caption: 'Cap ' + CD, targets: [{ account_id: 2, platform: 'facebook_page' }] };
 due(CD, 'gc-facebook_page-2', now + 4 * H, 'pushed', 'p_9'); const bD = await board(CD, 'gc-facebook_page-2', 'scheduled', 'p_9');
 gcCalls = []; MG.calls = [];
-r = await A.runAuto(ENV, { now: now + 4.6 * H, sleep });ok(r.provider.cur === 'meta' && r.provider.why === 'late', `GrabCast trễ (slot + 36 phút, GET posts/{id} vẫn scheduled) → provider meta, lý do late (${JSON.stringify(r.provider)})`);
+r = await RUN(ENV, { now: now + 4.6 * H, sleep });ok(r.provider.cur === 'meta' && r.provider.why === 'late', `GrabCast trễ (slot + 36 phút, GET posts/{id} vẫn scheduled) → provider meta, lý do late (${JSON.stringify(r.provider)})`);
 ok(gcCalls.filter(c => c.p === 'posts/p_9').length >= 1 && gcCalls.some(c => c.p === 'posts/p_9/unschedule') && GC.posts.p_9.status === 'cancelled', 'trước khi đăng Meta: kiểm GET posts/{id} chưa published + unschedule/cancel trên GrabCast');
 ok(reels(CD).length === 1 && lk(CD, 'gc-facebook_page-2').gc_cancel === 'done' && bd(bD).state === 'published', 'đăng Meta 1 lần, khóa ghi hủy GrabCast xong');
 // GrabCast đã đăng rồi (không trễ thật) → không đăng Meta
 GC.posts.p_10 = { id: 'p_10', status: 'published', caption: 'Cap ' + CB, targets: [{ account_id: 3, platform: 'instagram', state: 'published' }] };
 due(CB, 'gc-instagram-3', now + 4 * H, 'pushed', 'p_10'); await board(CB, 'gc-instagram-3', 'scheduled', 'p_10');
-MG.calls = []; r = await A.runAuto(ENV, { now: now + 4.7 * H, sleep });
+MG.calls = []; r = await RUN(ENV, { now: now + 4.7 * H, sleep });
 ok(!MG.calls.some(c => /media/.test(c.p)) && ds(CB, 'gc-instagram-3').state === 'published', 'GET cho thấy GrabCast đã đăng → không đăng Meta, đánh dấu published');
 // chế độ tay: luôn GrabCast → không failover dù GrabCast sập
 await A.autoOpFor('POST', 'lk/auto/provider')({ db: DB, b: { mode: 'grabcast' } }); GC.down = true; await A.autoOpFor('POST', 'lk/auto/reset')({ db: DB });
-MG.calls = []; await A.runAuto(ENV, { now: now + 5 * H, sleep }); r = await A.runAuto(ENV, { now: now + 5.1 * H, sleep });
+MG.calls = []; await RUN(ENV, { now: now + 5 * H, sleep }); r = await RUN(ENV, { now: now + 5.1 * H, sleep });
 ok(r.provider.cur === 'grabcast' && !MG.calls.length, 'chế độ "Luôn GrabCast" → không bao giờ gọi Meta');
 bad = 0; try { await A.autoOpFor('POST', 'lk/auto/provider')({ db: DB, b: { mode: 'x' } }); } catch (e) { bad = e.status; } ok(bad === 400, 'provider lạ → 400');
 const S = await A.autoStatus(ENV, now + 5.1 * H);
@@ -230,7 +232,7 @@ ok(S.provider.mode === 'grabcast' && S.meta.configured && S.meta.tokens.some(t =
   const card = code.slice(code.indexOf('async function autoCard'), code.indexOf('async function queue('));
   const maps = [...card.matchAll(/(?:PW|MODES|TW) = \{([^}]+)\}/g)].flatMap(m => [...m[1].matchAll(/: '([^']+)'/g)].map(x => x[1]));
   ok(maps.length >= 10 && maps.every(k => k in EN), 'lý do failover + chế độ: đủ tiếng Anh – thiếu: ' + maps.filter(k => !(k in EN)).join(' | '));
-  let confAns = () => true, calls = []; w.confirm = m => confAns(m);
+  let confAns = () => true, calls = []; w.confirm = m => confAns(m);;Object.defineProperty(w,'LXDialog',{configurable:true,get:()=>({confirm:async m=>w.confirm(m),prompt:async(m,d)=>w.prompt(m,d),alert:async m=>w.alert(m)})}); // cầu nối: test vẫn giả hộp thoại bằng w.confirm/prompt/alert
   const AS = JSON.parse(JSON.stringify(S)); AS.provider = { cur: 'meta', why: 'db_budget_guard', since: now, mode: 'auto' }; AS.cfg.provider = 'auto';
   AS.upcoming = [{ clip: CB, channel_id: 'gc-facebook_page-2', platform: 'facebook_page', slot_ms: now + H, state: 'planned', board: 'review', board_id: 'b_apX1', provider: null }, { clip: CA, channel_id: 'gc-facebook_page-2', platform: 'facebook_page', slot_ms: now, state: 'published', board: 'published', board_id: 'b_apX2', provider: 'meta', permalink: 'https://www.facebook.com/reel/900001' }];
   const sapi = async (m, p, b) => { calls.push([p, b]); if (p === 'lk/auto') return JSON.parse(JSON.stringify(AS)); if (p === 'lk/auto/provider') return { cfg: A.cleanAuto({ ...AS.cfg, provider: b.mode }) }; if (p === 'lk/auto/save') return { cfg: A.cleanAuto(b.cfg) }; if (p === 'lk/rules') return { rules: MGR.cleanRules({}) }; return { ok: true, state: 'approved' }; };

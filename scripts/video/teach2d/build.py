@@ -29,7 +29,8 @@ ap.add_argument('--layout', default='', help='short layout: corner (teacher bott
 o = ap.parse_args()
 EP = json.load(open(o.ep)); THEME = o.theme or EP['theme']; _TJ = json.load(open(f'{ROOT}/scripts/video/remotion/src/teach/theme.json')); TH = _TJ[THEME]
 MIX = (json.load(open(o.mix))['mix'].get(EP['id']) if o.mix and os.path.exists(o.mix) else None) or {}   # mix.py combination (never changes a word of the script)
-if o.format == 'short' and not o.layout and MIX.get('layout'): o.layout = MIX['layout']
+if EP['template'] in ('rule', 'band'): o.layout = 'corner'   # rule: always the corner layout (no teacher bubble in the platform right rail), whatever mix.json or --layout say
+elif o.format == 'short' and not o.layout and MIX.get('layout'): o.layout = MIX['layout']
 TINT = _TJ['tints'][EP['template']]   # series colour: the big canvas blob carries it, so each series is recognisable from frame 0
 HG = json.load(open(f'{o.host}/geom.json')); EMBED = o.format == 'wide'
 LAYOUTS = dict(   # same cards / timing; only where the card region, captions and teacher sit (owner 29/10: varied layouts)
@@ -40,6 +41,9 @@ FMT = dict(short=dict(W=1080, H=1920, chip=[60, 236], safe=[48, 232, 960, 1497],
            wide=dict(W=1920, H=1080, region=[96, 150, 1056, 990], chip=[96, 70], safe=[60, 48, 1860, 1032], cap=None, host_h=960, host_cx=1460))[o.format]
 LAYOUT = (o.layout or 'corner') if o.format == 'short' else 'wide'
 SOCIAL = o.format == 'short'   # owner 29/10: social shorts get the cinematic layer (hook punch, camera push / cuts, whoosh + music); lesson embeds stay calm
+PZ = dict(top=0.12, bottom=0.22, right=0.14)   # platform UI zones of a 9:16 short (back / search icons, caption + sound row, like / comment rail): qc.py platform_zones gate
+if EP['template'] in ('rule', 'band') and o.format == 'short':   # Spell->Sound / Band 5-9: nothing in the right rail (docs/specs/spell-sound.md): region + caption plate stop at 86 % of the width
+    _x = int(FMT['W'] * (1 - PZ['right'])); FMT = dict(FMT, region=[FMT['region'][0], FMT['region'][1], min(FMT['region'][2], _x), FMT['region'][3]], cap=[FMT['cap'][0], FMT['cap'][1], min(FMT['cap'][2], _x), FMT['cap'][3]], safe=[FMT['safe'][0], FMT['safe'][1], min(FMT['safe'][2], _x), FMT['safe'][3]])
 W, H = FMT['W'], FMT['H']; RX0, RY0, RX1, RY1 = FMT['region']; RW = RX1 - RX0
 S = dict(hook=96, big=104, body=60, sub=48, chip=40, ipa=48, cap=58, pill=56)
 PAD, GAP, LEDGE, RADIUS = 40, 24, 10, 44
@@ -580,7 +584,7 @@ def T_level():
                 st=[dict(t=round(ans_t[i - 1] - C.MIX / 2, 4), s='right' if j == r else 'dim')], pairs=[[TH['ink'], TH['pill'], 72], [TH['ink'], TH['good_bg'], 72]])
         NODES.append(dict(id=nid('r'), type='ring', ring=dict(t0=round(end(f'q{i}') + 0.05, 3), t1=round(end(f'q{i}') + LINES[f'q{i}']['pause'] - 0.1, 3)), size=54,
                           box=[b[2] - 124, b[1] + 22, b[2] - 28, b[1] + 118], **{'in': cue(end(f'q{i}') + 0.05)}, out=dict(t=round(ans_t[i - 1] + 0.3, 3))))
-    c = Card(ys + 100, tone='good'); chip(c, '🏆 3 / 3', start('s'), tone='good'); c.text([['Well done!', 'ink']], S['hook'], at('s', 'comment'), align='c'); c.place(start('s'), start('c') - 0.2, 'a')   # same slot as the question cards (clear of their rings)
+    c = Card(ys + 100, tone='good'); chip(c, '🏆 3 / 3', start('s'), tone='good'); c.text([['Well done!', 'ink']], S['hook'], at('s', 'Well'), align='c'); c.place(start('s'), start('c') - 0.2, 'a')   # same slot as the question cards (clear of their rings)
     end_card()
 
 
@@ -682,6 +686,91 @@ def T_review():
     end_card()
 
 
+def T_roots():
+    """Word Roots (Gốc từ): hook title + ring (the root in the middle of a circle, the lesson's words on it, each on its spoken name) -> 'Did you know?' (Latin / Greek source) ->
+    one Kit card per word (word big with the PREFIX in ink and the ROOT in gold, IPA pill, formula prefix- + root = meaning, short gloss + the bank example, emoji) -> quiz -> CTA."""
+    D = EP['data']; ws = D['words']; n = len(ws); series_chip(); t_ring_out = start('k') - 0.2
+    hk = EP['hook']['text']; i = hk.find('root'); title([[hk[:i], 'ink'], ['root', 'accent'], [hk[i + 4:], 'ink']], 96, RY0, None, t_ring_out, hook=True)
+    cx, cy, R = (RX0 + RX1) / 2, RY0 + 504, 225
+    top('backdrop', [cx - R, cy - R, cx + R, cy + R], None, out=t_ring_out, src='ring.png', radius=0)   # decoration under the root + chips: not a leaf, so the layout gate does not read it as an overlap
+    rs = 120; rw = tw(D['root'].upper(), rs); top('text', [cx - rw / 2, cy - rs * 0.6, cx + rw / 2, cy + rs * 0.6], at('r', D['root']), out=t_ring_out, runs=[[D['root'].upper(), 'accent']], size=rs, ipa=False)
+    CUES.append(dict(node=NODES[-1]['id'], t=at('r', D['root']), tag=D['root'].upper()))
+    ang = {2: [-90, 90], 3: [-90, 30, 150], 4: [-135, -45, 45, 135]}[n]; ch = S['chip'] + 28
+    for w, a in zip(ws, ang):
+        txt = w['w'].upper(); cw = chip_w(txt, tw, S['chip']); px, py = cx + R * math.cos(math.radians(a)), cy + R * math.sin(math.radians(a))
+        nn = top('chip', [px - cw / 2, py - ch / 2, px + cw / 2, py + ch / 2], at('r', w['w']), out=t_ring_out, text=txt, tone='chip', size=S['chip'])
+        CUES.append(dict(node=nn['id'], t=at('r', w['w']), tag=txt))
+    c = Card(RY0, tone='card'); chip(c, 'DID YOU KNOW?', start('k')); t_l = at('k', D['src_lang'])   # the source of the root, on its spoken words
+    c.text([[D['root'].upper(), 'accent'], [' ← ', 'muted'], [D['src_lang'], 'ink']], S['big'], t_l, align='c'); c.text([[D['src'], 'accent']], S['big'], t_l, align='c')
+    c.text([[D['src_mean'], 'muted']], S['body'], at('k', D['say'].split()[0])); c.place(start('k'), start('w0') - 0.2, 'a')
+    for k, w in enumerate(ws):
+        lid = f'w{k}'; t_out = start(f'w{k + 1}' if k + 1 < n else 'q') - 0.2; t0 = start(lid); c = Card(RY0, tone='card')
+        b = chip(c, f'WORD {k + 1} OF {n}', t0); em = w.get('em')
+        if em: c.rows.append(dict(id=nid('t'), type='text', runs=[[em, 'ink']], size=64, ipa=False, box=[b['box'][2] + 16, b['box'][1] - 8, b['box'][2] + 100, b['box'][1] + 70], **{'in': cue(t0)}))
+        sz = 104
+        while tw(w['w'], sz) > c.inner and sz > 64: sz -= 4
+        c.text([[txt, 'accent' if kd == 'root' else 'ink'] for txt, kd in w['parts']], sz, at(lid, 0), align='c', tag=w['w'])
+        iw = min(c.inner, tw(w['ipa'], S['ipa'], True) + 80)
+        pn = c.add(dict(type='ipapill', text=w['ipa'], size=S['ipa'], box=[PAD + (c.inner - iw) / 2, 0, PAD + (c.inner + iw) / 2, 0], pairs=[[TH['ink'], TH['card'], S['ipa']]], **{'in': cue(at(lid, 0))}), 88)
+        IPA.append(dict(token=w['w'], ipa=w['ipa'], node=pn['id'])); tf = at(lid, 1)
+        rt = [(txt, 'accent') for txt, kd in w['parts'] if kd == 'root'][0][0]
+        if w['pre']: fr = [[w['pre'] + '-', 'ink'], [' + ', 'muted'], [rt, 'accent'], [' = ', 'muted'], [w['pm'], 'ink'], [' + ', 'muted'], [D['say'], 'accent']]
+        else: fr = [[rt, 'accent'], [' = ', 'muted'], [D['say'], 'accent']]
+        c.text(fr, S['sub'], tf, align='c'); c.text([[w['mean'][0].upper() + w['mean'][1:] + '.', 'muted']], S['sub'], tf, align='c')
+        c.text(runs_hl(w['ex'], w['w'], 'accent', 'ink'), 44, at(lid, -1)); c.place(t0, t_out, 'a')
+    q = D['quiz']; quiz_card([[q['stem'], 'ink']], q['options'], q['answer'], start('q'), at('a', 0), start('c') - 0.2)
+    end_card()
+
+
+def T_rule():
+    """Spell->Sound (docs/specs/spell-sound.md): hook (the silent letter) -> rule card (pattern, silent letter, the sound to say) -> one Kit card per word (spelling, the silent letter struck on the
+    NORMAL read, IPA pill, meaning; the slow read comes first) -> "Repeat after me" list -> which letter is silent? -> CTA. <= 6 rows per screen, nothing in the platform UI zones."""
+    D = EP['data']; ws = D['words']; n = len(ws); series_chip(); LT = D['letter'].upper()
+    title([['The ', 'ink'], [' '.join(LT), 'accent'], [' is silent', 'ink']], 96, RY0 + 120, None, start('r') - 0.2, hook=True)   # = EP hook text (hook_gate)
+    c = Card(RY0, tone='card'); chip(c, 'SPELLING RULE', start('r')); sz = 112; t_r = at('r', 0)
+    while tw(D['title'].upper(), sz) > c.inner and sz > 64: sz -= 4
+    c.text([[D['title'].upper(), 'accent']], sz, t_r, align='c', tag=D['title'])
+    c.text([[LT, 'accent'], [' is silent', 'ink']], S['body'], t_r, align='c'); c.text([[D['target'], 'muted']], S['sub'], t_r, align='c')
+    c.place(start('r'), start('w0') - 0.2, 'a')
+    for k, w in enumerate(ws):
+        t0 = start(f'w{k}'); t_out = start(f'w{k + 1}' if k + 1 < n else 'p') - 0.2; c = Card(RY0, tone='card'); chip(c, f'WORD {k + 1} OF {n}', t0)
+        a_, b_ = w['silent']; sz = 120
+        while tw(w['w'], sz) > c.inner and sz > 64: sz -= 4
+        tn = c.text([[w['w'][:a_], 'ink'], [w['w'][a_:b_], 'accent'], [w['w'][b_:], 'ink']], sz, t0, align='c', tag=w['w'])[0]
+        iw = min(c.inner, tw(w['ipa'], S['ipa'], True) + 80)
+        pn = c.add(dict(type='ipapill', text=w['ipa'], size=S['ipa'], box=[PAD + (c.inner - iw) / 2, 0, PAD + (c.inner + iw) / 2, 0], pairs=[[TH['ink'], TH['card'], S['ipa']]], **{'in': cue(at(f'v{k}', 0))}), 88)
+        IPA.append(dict(token=w['w'], ipa=w['ipa'], node=pn['id']))
+        c.text([[w['mean'][0].upper() + w['mean'][1:] + '.', 'muted']], S['sub'], at(f'v{k}', 0)); c.place(t0, t_out, 'a')
+        x0 = tn['box'][0] + tw(w['w'][:a_], sz); x1 = x0 + tw(w['w'][a_:b_], sz); ym = (tn['box'][1] + tn['box'][3]) / 2 + 4   # the silent letters get the red strike on the normal read
+        NODES.append(dict(id=nid('s'), type='strike', parent=tn['parent'], _rel=tn['id'], box=[x0 - 6, ym - 5, x1 + 6, ym + 5], **{'in': cue(at(f'v{k}', 0), 'draw')}))
+    c = Card(RY0, tone='card'); chip(c, 'REPEAT AFTER ME', start('p'))
+    rg = max(GAP - 8, min(110, int((0.58 * (RY1 - RY0) - c.y - 2 * PAD) / max(1, n))))   # few words (2) -> roomier rows, so the card fills the region instead of leaving a flat empty band under it (dead_band gate)
+    for k, w in enumerate(ws): c.text([[w['w'][:w['silent'][0]], 'ink'], [w['w'][w['silent'][0]:w['silent'][1]], 'accent'], [w['w'][w['silent'][1]:], 'ink'], ['  ' + w['ipa'], 'muted']], S['body'], start('p'), align='c', gap=rg)
+    c.place(start('p'), start('q') - 0.2, 'a')
+    q = D['quiz']; quiz_card([[q['stem'], 'ink']], q['options'], q['answer'], start('q'), at('a', 0), start('c') - 0.2)
+    end_card()
+
+
+def T_band():
+    """Band 5 -> 7 -> 9 (docs/specs/band-upgrade.md, variant of T_level's 3-step track): hook -> one Kit card per band (band chip, the sentence with the upgraded phrase coloured, the reason line + IELTS criterion) -> CTA.
+    One card on screen at a time, <= 6 rows, nothing in the platform UI zones."""
+    D = EP['data']; st = D['steps']; series_chip(); t_end = start('c') - 0.2
+    y = title([['Band five', 'ink']], 96, RY0 + 120, None, start('s5') - 0.2, hook=True)   # = EP hook text (hook_gate)
+    title([['to nine!', 'accent']], 96, y, None, start('s5') - 0.2, hook=True)
+    ys = RY0; ts = [start(f"s{x['band']}") for x in st]
+    top('track', [RX0 + 20, ys, RX1 - 20, ys + 70], ts[0], out=t_end, steps=3, st=[dict(t=round(t_, 4), s=f'cur{i}') for i, t_ in enumerate(ts, 1)] + [dict(t=round(at('w9', 0) + 0.4, 4), s='done')])
+    for i, x in enumerate(st):
+        b = x['band']; t0 = ts[i]; t_o = (ts[i + 1] if i + 1 < len(st) else start('c')) - 0.2
+        c = Card(ys + 100, tone='card' if b < 9 else 'bubble_good'); chip(c, f'BAND {b}' + (f" \u00b7 {x['crit'].upper()}" if b > 5 else ''), t0, **({'tone': 'good'} if b == 9 else {}))
+        c.text(runs_hl(x['text'], x.get('mark'), 'onhl' if b == 9 else 'accent', 'ongood' if b == 9 else 'ink'), S['body'], t0)
+        if b > 5: c.text([['\u2b06 ', 'ongood' if b == 9 else 'accent'], [bands_why(x['why']), 'ongood' if b == 9 else 'ink']], S['sub'], at(f'w{b}', 0))
+        c.place(t0, t_o, 'a')
+    end_card()
+
+
+def bands_why(k): return json.load(open(f'{ROOT}/content/video/teach2d/bands.json'))['reasons'][k]['en']
+
+
 def T_call():
     """Ask Ama → Call (the app's speaking call): call header (phone + call title + live dot), the caller's bubble with the phrase in gold,
     meaning card, the reply chip the app offers, then the quiz."""
@@ -730,7 +819,7 @@ def T_react():
 
 
 dict(usuk=T_usuk, verbs=T_verbs, stress=T_stress, mistake=T_mistake, phrasal=T_phrasal, pair=T_pair, prep=T_prep, pattern=T_pattern, native=T_native, l1=T_l1, guess=T_guess, level=T_level,
-     grammar=T_grammar, dictation=T_dictation, toeic=T_toeic, review=T_review, call=T_call, react=T_react)[EP['template']]()
+     grammar=T_grammar, dictation=T_dictation, toeic=T_toeic, review=T_review, call=T_call, react=T_react, roots=T_roots, rule=T_rule, band=T_band)[EP['template']]()
 
 # ---------------- region offset: card-local -> canvas; satellites (check, confetti, strike, badges) resolve their boxes ----------------
 BY = {n['id']: n for n in NODES}
@@ -883,7 +972,7 @@ if SOCIAL:   # owner 29/10: whoosh + light music for social shorts (CC0 Lexkite 
     # music bed: preset by series, ~ -30 dBFS RMS, ducked 12 dB under the voice (smooth 0.25 s), fades in/out
     PRE = dict(l1='quiz-pulse', usuk='pop-bright', verbs='upbeat-claps', stress='chill-keys', mistake='quiz-pulse', phrasal='lofi-warm', pair='chill-keys', prep='pop-bright',
                pattern='upbeat-claps', native='lofi-warm', guess='quiz-pulse', level='quiz-pulse',
-               grammar='upbeat-claps', dictation='chill-keys', toeic='quiz-pulse', review='lofi-warm', call='pop-bright')
+               grammar='upbeat-claps', dictation='chill-keys', toeic='quiz-pulse', review='lofi-warm', call='pop-bright', roots='chill-keys', band='chill-keys')
     MUS = MIX.get('music') or PRE.get(EP['template'], 'lofi-warm')   # mix.py 'music' (series preset without a mix)
     mf = f'{o.public}/_music.wav'; subprocess.run(['node', f'{ROOT}/scripts/video/synth.mjs', '--music', MUS, str(TOTAL + 0.5), mf], check=True, capture_output=True)
     with wave.open(mf) as w: sr_ = w.getframerate(); ch_ = w.getnchannels(); mu = np.frombuffer(w.readframes(w.getnframes()), np.int16).astype(np.float32) / 32768
@@ -918,6 +1007,9 @@ if RIG:   # two-pass: build.py runs on the static geom (rig_host.mjs --geom-only
 else:
     for k_ in ('talk', 'listen'): shutil.copy(f'{o.host}/{k_}.webm', f'{o.public}/host_{k_}.webm')
 if 'pose' in LEN: shutil.copy(f'{o.host}/pose.webm', f'{o.public}/host_pose.webm')
+if EP['template'] == 'roots':   # the ring the lesson's words sit on (transparent PNG, Kit edge colour)
+    from PIL import Image as _I, ImageDraw as _D
+    _n = 520; _im = _I.new('RGBA', (_n * 2, _n * 2), (0, 0, 0, 0)); _D.Draw(_im).ellipse([6, 6, _n * 2 - 6, _n * 2 - 6], outline=TH['edge'], width=12); _im.resize((_n, _n), _I.LANCZOS).save(f'{o.public}/ring.png')
 if EP['template'] == 'guess':   # picture from content/lexicon/img.json (licensed bank image, the same one the app shows) -> pic.png
     it = json.load(open(f'{ROOT}/content/lexicon/img.json'))['items'][EP['data']['img']]; raw_ = f'{o.public}/_pic.webp'
     fetch_media(it['url'], raw_)

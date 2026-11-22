@@ -9,13 +9,13 @@ import { isMain } from './lib/is-main.mjs';
 import { R2_LANGS } from '../functions/[lang]/words/[[path]].js';
 import { ZONE } from './cdn/hosts.mjs';
 
-export const REF = 'lexkite_words_', PHASE = 'http_request_cache_settings', TTL = 86400;
+export const REF = 'lexkite_words_', PHASE = 'http_request_cache_settings', TTL = 86400, TTL_404 = 300; // 404 chỉ giữ 5' (20/11: override_origin ghi đè cả no-store → từ mới thêm bị kẹt 404 tới 1 ngày)
 const hostOk = '(http.host eq "lexkite.com")';
 export const expression = (langs = R2_LANGS) => `${hostOk} and (${langs.map(l => `starts_with(http.request.uri.path, "/${l}/words/")`).join(' or ')})`;
 export const rule = ({ keyed = true } = {}) => ({
   ref: REF + 'cache', description: 'Lexkite: cache biên trang từ 13 ngôn ngữ (R2 Function) – trúng cache = 0 lượt Workers',
   expression: expression(), action: 'set_cache_settings',
-  action_parameters: { cache: true, edge_ttl: { mode: 'override_origin', default: TTL }, browser_ttl: { mode: 'respect_origin' }, serve_stale: { disable_stale_while_updating: false },
+  action_parameters: { cache: true, edge_ttl: { mode: 'override_origin', default: TTL, status_code_ttl: [{ status_code: 404, value: TTL_404 }] }, browser_ttl: { mode: 'respect_origin' }, serve_stale: { disable_stale_while_updating: false },
     ...(keyed ? { cache_key: { custom_key: { query_string: { exclude: { all: true } } } } } : {}) },
 });
 export const mergeRules = (existing = [], mine) => [...existing.filter(r => !String(r.ref || '').startsWith(REF)).map(({ id, version, last_updated, ...r }) => r), ...mine];

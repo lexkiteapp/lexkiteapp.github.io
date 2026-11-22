@@ -7,19 +7,19 @@ Luật giữ nguyên: chất lượng chỉ tăng, không bỏ tính năng/nội
 
 ## Top 10 khoảng cách theo tác động ÷ chi phí (tự sinh, đừng sửa tay)
 <!-- auto:world-gaps:start -->
-_Tự sinh từ `content/pipeline/WORLD.md` (2026-11-18)._
+_Tự sinh từ `content/pipeline/WORLD.md` (2026-11-21)._
 
 | # | Trục | Lexkite → mục tiêu | Tác động | Chi phí | Ưu tiên | Hiện trạng |
 |---|---|---|---|---|---|---|
-| 1 | Số chạm từ /app/ tới bài hôm nay (người quay lại) | 0 → 100 | 4 | 2 | 200 | probe trượt: không tới bài hôm nay từ /app/?sandbox=1&hl=en#/day/1 |
-| 2 | Giải thích "vì sao" + lỗi theo tiếng mẹ đẻ (15 ngôn ngữ) | 25.2 → 100 | 5 | 3 | 124.7 | 1/15 ngôn ngữ đạt đích; có "vì sao" (en 521, ar 7, de 11, es 12, fr 11, hi 193, id 85, ja 8, ko 7, pt 10, ru 8, th 9, tr 7, vi 179, zh 9; đích 200/ngôn ngữ) |
-| 3 | Cỡ tải khung app (KB gz; 100 khi ≤ 300, 0 ở trần 374) | 3.9 → 100 | 3 | 3 | 96.1 | 371.1 / 374.0 KB gz (đích 300) |
-| 4 | Cá nhân hoá: SRS theo người (FSRS) + lỗi theo tiếng mẹ đẻ | 60 → 100 | 5 | 3 | 66.7 | ✓ FSRS theo người · lỗi L1 3/15 ngôn ngữ (≥100 mục) |
-| 5 | Tới câu đúng đầu tiên từ màn đầu (giây máy, số chạm) | 77.8 → 100 | 5 | 2 | 55.5 | 5.8 s · 9 chạm (probe 2026-11-18) |
-| 6 | Màn theo Lexkite Kit/Stitch (stitch-coverage) | 30 → 100 | 3 | 4 | 52.5 | 21 Stitch / 70 màn (ref 46, tay 0) |
-| 7 | Cổng QA máy xanh trên main (visual-qa, new-ui-qa, mobile-qa, journey-e2e, npm test) | 77.8 → 100 | 4 | 2 | 44.4 | ✓npm-test ✓visual-qa ∅new-ui-qa ✓mobile-qa ✓journey-e2e ✓stitch-quality-qc ✗ext-e2e ✓native-auth-e2e ✓qa-bot · mobile-qa LCP 6693 ms, CLS 0.0112, INP 112 ms |
-| 8 | Luyện thi thật IELTS · TOEIC · TOEFL · Cambridge (đề chạy được, mục tiêu 10/kỳ) | 70 → 100 | 5 | 4 | 37.5 | IELTS 10 · TOEIC 7 · TOEFL 11 · Cambridge 1 đề (đích 10/kỳ) |
-| 9 | Độ phủ nội dung (content:score) | 80.1 → 90 | 5 | 4 | 12.4 | content/pipeline/SCORE.md |
+| 1 | Giải thích "vì sao" + lỗi theo tiếng mẹ đẻ (15 ngôn ngữ) | 25.2 → 100 | 5 | 3 | 124.7 | 1/15 ngôn ngữ đạt đích; có "vì sao" (en 521, ar 7, de 11, es 12, fr 11, hi 193, id 85, ja 8, ko 7, pt 10, ru 8, th 9, tr 7, vi 179, zh 9; đích 200/ngôn ngữ) |
+| 2 | Cổng QA máy xanh trên main (visual-qa, new-ui-qa, mobile-qa, journey-e2e, npm test) | 44.4 → 100 | 4 | 2 | 111.2 | ✗npm-test ✗visual-qa ∅new-ui-qa ✓mobile-qa ✓journey-e2e ✓stitch-quality-qc ✗ext-e2e ✓native-auth-e2e ✗qa-bot · mobile-qa LCP 6822 ms, CLS 0.0112, INP 88 ms |
+| 3 | Số chạm từ /app/ tới bài hôm nay (người quay lại) | 50 → 100 | 4 | 2 | 100 | 2 chạm |
+| 4 | Cỡ tải khung app (KB gz; 100 khi ≤ 300, 0 ở trần 374) | 22.3 → 100 | 3 | 3 | 77.7 | 357.5 / 374.0 KB gz (đích 300) |
+| 5 | Cá nhân hoá: SRS theo người (FSRS) + lỗi theo tiếng mẹ đẻ | 60 → 100 | 5 | 3 | 66.7 | ✓ FSRS theo người · lỗi L1 3/15 ngôn ngữ (≥100 mục) |
+| 6 | Tới câu đúng đầu tiên từ màn đầu (giây máy, số chạm) | 77.8 → 100 | 5 | 2 | 55.5 | 5.9 s · 9 chạm (probe 2026-11-21) |
+| 7 | Màn theo Lexkite Kit/Stitch (stitch-coverage) | 31.4 → 100 | 3 | 4 | 51.5 | 22 Stitch / 70 màn (ref 45, tay 0) |
+| 8 | Luyện thi thật IELTS · TOEIC · TOEFL · Cambridge (đề chạy được, mục tiêu 10/kỳ) | 77.5 → 100 | 5 | 4 | 28.1 | IELTS 10 · TOEIC 10 · TOEFL 11 · Cambridge 1 đề (đích 10/kỳ) |
+| 9 | Độ phủ nội dung (content:score) | 76.7 → 90 | 5 | 4 | 16.6 | content/pipeline/SCORE.md |
 | 10 | Truy cập (Lighthouse accessibility trang chủ + app) | 99 → 100 | 3 | 1 | 3 | Lighthouse trang chủ + /app/ (axe/a11y tĩnh chạy trong npm test) |
 <!-- auto:world-gaps:end -->
 

@@ -233,3 +233,43 @@ module docstring (per-state text/fill pairs + glyph boxes, card fill measured on
 `overlay_contrast` (≥ 3:1 every state + on the frame), `overlay_layout` (no overlap / outside the card; on screen inside SAFE, never on a caption
 or pop), `overlay_ipa` (IPA == audited bank US cell for the exact token shown, stress dot == IPA mark). Unit test `scripts/test/overlay-gates.mjs`.
 Measured v14 board zones: Carlos 751×506, Ama 750×391 (region [86,266,836|837,657|772]).
+
+## 17. Kiểm kê MỌI họ template + bộ xoay vòng (19/11/2026)
+> Nguồn duy nhất vẫn là `content/video/cine/news/approved.json` (sổ duyệt). Mẫu đạt QC ≥ 90 trên CI = tự duyệt (`approved_templates.py sync-bank` cho Teach2D; `approve` cho Motion sau lượt `video-motion`). Số liệu lấy từ CI thật 19/11, không từ trí nhớ.
+
+| họ | dạng nội dung hợp | engine / workflow | lần render gần nhất | QC | trạng thái | trong lịch hằng ngày? |
+|---|---|---|---|---|---|---|
+| **Teach2D** `l1` (lỗi theo tiếng mẹ đẻ, 14 ngôn ngữ) | sửa lỗi + mẹo bản địa | Remotion + TeacherRig 2D · `teach-video` | 13/11–18/11 | 100 (216 tập banked) | đang dùng, **chiếm 88 % kho** | có |
+| Teach2D `review` · `stress` · `usuk` · `verbs` | từ vựng · trọng âm · Mỹ/Anh · động từ BQT | như trên | 08/11–18/11 | 100 (9 · 8 · 7 · 2 banked) | đang dùng | có |
+| Teach2D `mistake` · `native` · `react` | sửa lỗi · cách nói bản xứ · phản xạ | như trên | 18/11 | 100 | **tự duyệt 19/11** (bank đạt từ 18/11 nhưng sổ vẫn `draft` → bị chặn `template:draft`) | có, từ nay |
+| Teach2D `call` `dictation` `grammar` `guess` `level` `pair` `pattern` `phrasal` `prep` `toeic` | gọi điện · chính tả · ngữ pháp · đoán từ · xếp trình độ · cặp từ · mẫu câu · cụm động từ · giới từ · TOEIC | như trên | pilot 19/11 (run tpl-audit-1) | xem bảng sau | xem bảng sau | chỉ khi đạt |
+| Teach2D `rule` (Spell→Sound), `roots` (Gốc từ) | luật chữ câm · gốc từ | như trên | nhánh PR 1617 / 1524 | 100 (6 clip `rule`) / chưa render | nhánh đang mở | sau merge |
+| Motion tay (`templates-motion/` 4) | quiz · sửa lỗi · mẹo · thử trình độ | Stitch Tactile Night + Remotion 60 fps · `video-motion` | 19/11 | `drill` 100 / 42 cổng; 3 mẫu còn lại: xem bảng sau | `drill` đã duyệt | chưa (chưa có bộ sinh hàng loạt) |
+| Motion sinh từ 15 template nội dung (`tp_*`, 26 spec / 15 loại) | collocation · cặp dễ nhầm · idiom · IELTS · động từ BQT · phrasal · lịch sự · phát âm · quiz · roleplay · soi lỗi · 3 từ · nâng cấp · từ trong ngày | `tpl2motion.py` → `video-motion` | 15/11 lỗi cả lượt; 19/11 chạy lại | xem bảng sau | `draft` | chưa |
+| Motion sinh từ ngân hàng (`bm_*`, 8 loại) và tin (`news_*`, 34) | gap · native · pair · pattern · phrasal · recall · spot · tf; tình huống news | `bank2motion.py` / `news2motion.py` | 19/11 (1 mẫu/loại) | xem bảng sau | `draft` | chưa |
+| `content/video/templates/` 15 (renderer `template.mjs`, `auto.mjs`, `video-auto` hằng ngày) | cùng 15 loại | Studio/GrabCast · `video.yml` | 18/10 (3 lượt, 1 xanh) | – | **đã bỏ** (render_v5 retired) – nội dung đã chuyển sang Motion `tp_*` | không (video-auto chỉ bỏ qua khi `video.yml` tắt) |
+| `templates-v1` (9) · `templates-v2` (10) · `cine/news` PIL · `tpl1b` · pilot v5–v9 · `video-series` | pilot Studio/3D/bảng trắng | PIL, render_v9 plate 3D | 24–28/10 | – | **retired** (sổ ghi lý do, không xoá) | không |
+
+**Vì sao đơn điệu (số đo):** kho đã banked 245 tập, 216 (88 %) là `l1`; trước hôm nay chỉ 5/16 mẫu Teach2D được duyệt trong sổ dù 3 mẫu khác (`mistake`, `native`, `react`) đã đạt QC 100 → bị chặn `template:draft`; 26 mẫu Motion chưa từng được duyệt. Bộ lịch cũ chỉ cấm "cùng mẫu liền kề" nên `l1` vẫn chiếm ~90 % lượt.
+
+### Bộ xoay vòng (`functions/api/_distribution.js` · `pickTemplate`, test `scripts/test/distribution.mjs`)
+- Cửa sổ `TPL_WINDOW = 4`: một mẫu không được xuất hiện lại trong 4 bài gần nhất của kênh khi còn mẫu khác đang chờ; hết mẫu mới thì lấy mẫu dùng lâu nhất; bằng nhau thì mẫu ít dùng nhất; còn bằng thì theo thứ tự hàng đợi.
+- Hệ quả: một mẫu tràn kho (216 `l1`) chỉ chiếm tối đa 1/5 lượt khi các mẫu khác còn; mọi mẫu `approved` (Teach2D + Motion) cùng vào một hàng, không phân biệt engine. Test: 20 `l1` + 5 mẫu khác → 6 bài đầu là 6 mẫu khác nhau.
+- Chỉ mẫu `approved` vào hàng (`autopub_gate` lý do `template:<status>`); mẫu mới đạt ≥ 90 tự vào xoay vòng khi sổ cập nhật.
+
+### Trước/sau lượt sửa gốc Motion `tp_*`/`bm_*` (20/11/2026, run `video-motion` 44740167556, 23 mẫu × short+embed)
+Trước (15/11–19/11): 64 render `tp_` đỏ cả lượt (mốc thời gian làm sập ghi cue). Sau #1642/#1692: 20/46 job render xanh; 2 họ đạt đủ short 43/43 + embed 14/14 cổng → tự duyệt (`ielts-writing-phrase`, `phrasal-verb`; sổ: 22 approved / 26 draft / 4 retired).
+
+| nhóm lỗi còn lại (nguồn CI) | mẫu | hướng sửa |
+|---|---|---|
+| ASR/phát âm ("At class", "a hour", "bandwidth", "cafe", "they're", "latin", "charity", "ama") | roleplay ×4, quiz an-hour, word-of-the-day ×2, bm_phrasal | `kokoro-lexicon.json` + viết lại câu nói |
+| nhịp (pace/no_pad > 1 s) | roleplay interview/supermarket/clinic, phrasal push-back, upgrade exhausted | rút câu, bỏ khoảng lặng s0 |
+| thẻ `rules` tràn/ra ngoài (tile6/7, `off_screen`, `overlay_host`) | three-words rain, ielts your-city, bm_phrasal, bm_pattern, procrastinate | `_col` bậc 3 chưa đủ: hạ cỡ ô |
+| embed: cột tuỳ chọn hẹp (391/441 > 362), dòng gap/recall quá rộng (1418/1234 > 872), `chapters` rỗng | quiz ×2, bm_gap, bm_recall, spot how-much-cost | sửa layout embed |
+| chưa rõ (log trống) | spot she-doesnt | điều tra |
+
+Bản này chỉ duyệt mẫu đã xanh thật; các nhóm trên là việc tiếp theo của họ Motion, không hạ ngưỡng.
+
+### Lượt sửa gốc 21/11 – kết quả
+
+19 họ Motion đã duyệt (short + embed đủ cổng, 43/43): thêm collocation, confusing-pair, gap, idiom-vs-textbook, ielts-speaking, irregular-verb, pattern, phrasal, polite-request, pronunciation-pair, quiz-ab, recall, roleplay, spot-the-mistake, three-words, upgrade-your-english, word-of-the-day (cộng ielts-writing-phrase, phrasal-verb đã duyệt trước). Còn nháp: tf, pair, native, spot, tip, mistake, drill-bank (chưa render). Gốc đã sửa: chip tag co vừa cột luật, cột luật đo lại theo chiều cao thật + lề 14–22 px khi từ quá dài, pill chỉ hiện từ khác nhau, dòng slot tự xuống dòng, kết thúc câu cho trang caption một từ, lexicon (ama, cafe, latin, charity, bandwidth, increasing), lời dẫn/thời gian nghỉ cho roleplay/gap/pattern.

@@ -3,7 +3,13 @@
  * ±20 min jitter, no repeated title / cover, no same template back-to-back · zoned time helpers (DST-safe). */
 const MIN = 60e3, DAY = 864e5;
 /** Chủ 10/11/2026 "đăng dần hiệu quả": kênh social tối đa 2 bài/ngày (embed = kho bài học, không đăng công khai → giữ trần 50). */
-export const SOCIAL_DAY_MAX = 2;
+export const SOCIAL_DAY_MAX = 3; // trần tuyệt đối (kênh CHÍNH); kênh bản ngữ luôn 1 – xem dayCapOf
+/** Chủ 18/11: kênh CHÍNH (tiếng Anh: Lexkite English FB/IG/TikTok/YouTube) 2–3 bài/ngày, giãn ≥ 4 giờ; kênh bản ngữ 1 bài/ngày. MỘT nguồn cho planner, bước gửi và dời bài. */
+export const MAIN_DAY = { min: 2, max: 3, gap_min: 240 }, NATIVE_DAY = 1;
+export const isMainLang = lang => !lang || lang === 'en';
+export const dayCapOf = (lang, cap) => isMainLang(lang) ? Math.min(MAIN_DAY.max, Math.max(MAIN_DAY.min, Math.floor(+cap) || 0)) : NATIVE_DAY;
+export const capCfg = c => c.role === 'embed' ? c : { ...c, daily_cap: dayCapOf(c.lang, c.daily_cap), min_gap_min: gapOf(c.lang, c.min_gap_min) };
+export const gapOf = (lang, gap) => isMainLang(lang) ? Math.max(MAIN_DAY.gap_min, Math.floor(+gap) || 0) : Math.max(0, Math.floor(+gap) || 0);
 export const DEFAULT_CFG = { role: 'social', types: [], topics: [], skills: [], cefr: [], regions: [], lang: '', daily_cap: 2, min_gap_min: 240, windows: [{ from: '09:00', to: '21:00' }], tz: 'America/New_York', active: 1 };
 const list = v => (Array.isArray(v) ? v : typeof v === 'string' ? v.split(/[,\s]+/) : []).map(x => String(x).trim()).filter(Boolean);
 const hm = t => { const m = /^(\d{2}):(\d{2})$/.exec(String(t)); return m && +m[1] < 24 && +m[2] < 60 ? +m[1] * 60 + +m[2] : null; };
@@ -80,16 +86,17 @@ export function langOfChannel(title) {
  *  và clip EN không bao giờ rơi vào page tiếng Tây Ban Nha chỉ vì id đứng đầu bảng chữ cái (lỗi cũ: 1 kênh/nền tảng, bất kể ngôn ngữ). */
 export function implicitSocialRules(allRules, cfgs) {
   // chỉ luật cho kênh GrabCast (gc-*) mới chặn luật ngầm: luật YouTube trực tiếp (UC…) không được làm câm kênh YouTube GrabCast (lỗi cũ: platformOf(UC…) = 'youtube')
-  const have = new Set((allRules || []).filter(r => /^gc-/.test(String(r.channel_id || ''))).map(r => platformOf(r.channel_id))), seen = new Set(), own = [], general = [], en = {};
+  const have = new Set((allRules || []).filter(r => /^gc-/.test(String(r.channel_id || ''))).map(r => platformOf(r.channel_id))), own = {}, general = [], en = {};
   for (const id of Object.keys(cfgs || {}).filter(x => /^gc-/.test(x)).sort()) {
     const p = platformOf(id), lang = String((cfgs[id] && cfgs[id].lang) || 'en').toLowerCase(), k = p + '|' + lang;
     if (have.has(p)) continue;
     // page EN chung = mọi ngôn ngữ chưa có page riêng; NHIỀU page EN cùng nền tảng (Lexkite.com + Learn English, 11/11) chia nhau clip theo băm id thay vì chỉ page đứng đầu bảng chữ cái
     if (lang === 'en') { (en[p] = en[p] || []).push(id); continue; }
-    if (seen.has(k)) continue; seen.add(k); own.push({ cond: { lang }, channel_id: id, active: 1 });
+    (own[k] = own[k] || []).push(id);   // 22/11: nhiều page cùng ngôn ngữ (vd 2 page Facebook tiếng Việt) chia nhau clip theo băm id thay vì chỉ page đầu (page thứ hai 0/30 ngày)
   }
+  const ownRules = Object.entries(own).flatMap(([k, ids]) => ids.map((id, i) => ({ cond: ids.length > 1 ? { lang: k.split('|')[1], shard: `${i}/${ids.length}` } : { lang: k.split('|')[1] }, channel_id: id, active: 1 })));
   for (const ids of Object.values(en)) ids.forEach((id, i) => general.push({ cond: ids.length > 1 ? { shard: `${i}/${ids.length}` } : {}, channel_id: id, active: 1 }));
-  return [...own, ...general];
+  return [...ownRules, ...general];
 }
 /** Tài khoản không phải của Lexkite trong workspace GrabCast (OAuth Meta kéo kèm Page/IG "Grabcast.click" vào ws4, 05/11) hoặc bị tạm dừng đăng → không bao giờ là đích autopilot. */
 export const foreignAccount = a => /grab\s*cast/i.test([a && a.name, a && a.title, a && a.username, a && a.handle].filter(Boolean).join(' '));
@@ -141,15 +148,28 @@ const norm = t => String(t || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim
  * skips a clip whose title/cover already exists on the channel, avoids the same template back-to-back (reorders when possible).
  * → { slots: [{id, ms}], skipped: [{id, why}] }
  */
+/** Template rotation (owner 19/11: every channel must see many video kinds, not one flood). A template may not reappear within the last TPL_WINDOW posts of the channel while another
+ *  template is waiting; when every waiting template is "recent", take the one used longest ago; among equally old ones the least used overall wins. Ties → queue order. One template
+ *  flooding the pool (e.g. 216 `l1` vs 30 others) can then take at most 1 of every TPL_WINDOW + 1 slots while the others last. Returns the queue index to place next. */
+export const TPL_WINDOW = 4;
+export function pickTemplate(queue, recent, used = {}) {
+  let best = 0, key = null;   // key = [age (older = better, capped at the window), -times used (fewer = better)]; ties keep queue order
+  for (let i = 0; i < queue.length; i++) {
+    const t = queue[i].template || '', at = recent.lastIndexOf(t), age = at < 0 ? Infinity : recent.length - 1 - at, k = [Math.min(age, TPL_WINDOW), -(used[t] || 0)];
+    if (!key || k[0] > key[0] || (k[0] === key[0] && k[1] > key[1])) { best = i; key = k; }
+  }
+  return best;
+}
 /** Chủ 10/11/2026: lên lịch sẵn vài tháng khi có nhiều clip – vẫn giữ daily_cap + min_gap từng kênh nên không dồn bài vào một ngày. */
 export const PLAN_DAYS = 120;
 export function schedule({ clips, cfg, existing = [], now = Date.now(), horizonDays = PLAN_DAYS, jitterMin = 20, rand = hash }) {
   const gap = cfg.min_gap_min * MIN, taken = existing.map(e => e.ms).sort((a, b) => a - b), perDay = {}, titles = new Set(existing.map(e => norm(e.title)).filter(Boolean)), covers = new Set(existing.map(e => e.cover).filter(Boolean));
   for (const ms of taken) { const d = localDate(ms, cfg.tz); perDay[d] = (perDay[d] || 0) + 1; }
-  let lastTpl = (existing.slice().sort((a, b) => a.ms - b.ms).pop() || {}).template || '';
+  const used = {}; for (const e of existing) used[e.template || ''] = (used[e.template || ''] || 0) + 1;
+  const recent = existing.slice().sort((a, b) => a.ms - b.ms).slice(-TPL_WINDOW).map(e => e.template || '');   // last templates on this channel, oldest first
   const out = { slots: [], skipped: [] }, queue = clips.slice(), start = localDate(now + 15 * MIN, cfg.tz);
   while (queue.length) {
-    let i = queue.findIndex(c => c.template !== lastTpl); if (i < 0) i = 0; const c = queue.splice(i, 1)[0];
+    const c = queue.splice(pickTemplate(queue, recent, used), 1)[0];
     if ((norm(c.title) && titles.has(norm(c.title))) || (c.cover && covers.has(c.cover))) { out.skipped.push({ id: c.id, why: 'duplicate' }); continue; }
     let placed = null; const earliest = Math.max(now + 15 * MIN, out.slots.length ? out.slots[out.slots.length - 1].ms + gap : 0); // monotone inside one batch → template order = time order
     for (let dd = 0; dd <= horizonDays && placed == null; dd++) {
@@ -164,7 +184,7 @@ export function schedule({ clips, cfg, existing = [], now = Date.now(), horizonD
     }
     if (placed == null) { out.skipped.push({ id: c.id, why: 'no-slot' }); continue; }
     taken.push(placed); taken.sort((a, b) => a - b); const d = localDate(placed, cfg.tz); perDay[d] = (perDay[d] || 0) + 1;
-    if (norm(c.title)) titles.add(norm(c.title)); if (c.cover) covers.add(c.cover); lastTpl = c.template;
+    if (norm(c.title)) titles.add(norm(c.title)); if (c.cover) covers.add(c.cover); used[c.template || ''] = (used[c.template || ''] || 0) + 1; recent.push(c.template || ''); if (recent.length > TPL_WINDOW) recent.shift();
     out.slots.push({ id: c.id, ms: placed });
   }
   return out;

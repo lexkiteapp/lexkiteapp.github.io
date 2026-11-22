@@ -7,7 +7,7 @@
   Permissions-Policy: camera=(), microphone=(self), geolocation=(), payment=(), usb=(), browsing-topics=()
   Strict-Transport-Security: max-age=31536000; includeSubDomains
   Cross-Origin-Opener-Policy: same-origin-allow-popups
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' https://www.youtube.com https://www.gstatic.com https://apis.google.com https://challenges.cloudflare.com https://cdn.jsdelivr.net https://pagead2.googlesyndication.com https://*.googlesyndication.com https://googleads.g.doubleclick.net https://partner.googleadservices.com https://www.googletagservices.com https://adservice.google.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob: https:; media-src 'self' data: blob: https://audio.lexkite.com https://media.lexkite.com https://lexkiteapp.github.io; connect-src 'self' https://lexkite.com https://cloudflareinsights.com https://*.googleapis.com https://www.gstatic.com https://audio.lexkite.com https://media.lexkite.com https://lexkiteapp.github.io https://api.datamuse.com https://api.mymemory.translated.net https://api.languagetool.org https://api.dictionaryapi.dev https://api.tatoeba.org https://en.wiktionary.org https://cdn.jsdelivr.net https://huggingface.co https://*.huggingface.co https://*.hf.co https://challenges.cloudflare.com https://pagead2.googlesyndication.com https://*.googlesyndication.com https://googleads.g.doubleclick.net https://ep1.adtrafficquality.google https://*.adtrafficquality.google; frame-src 'self' https://lexkite-app.firebaseapp.com https://accounts.google.com https://www.youtube-nocookie.com https://challenges.cloudflare.com https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://*.googlesyndication.com; worker-src 'self' blob:; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' https://www.youtube.com https://www.gstatic.com https://apis.google.com https://challenges.cloudflare.com https://cdn.jsdelivr.net https://pagead2.googlesyndication.com https://*.googlesyndication.com https://googleads.g.doubleclick.net https://partner.googleadservices.com https://www.googletagservices.com https://adservice.google.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob: https:; media-src 'self' data: blob: https://audio.lexkite.com https://media.lexkite.com https://lexkiteapp.github.io https://upload.wikimedia.org; connect-src 'self' https://lexkite.com https://cloudflareinsights.com https://*.googleapis.com https://www.gstatic.com https://audio.lexkite.com https://media.lexkite.com https://lexkiteapp.github.io https://api.datamuse.com https://api.mymemory.translated.net https://api.languagetool.org https://api.dictionaryapi.dev https://api.tatoeba.org https://en.wiktionary.org https://cdn.jsdelivr.net https://huggingface.co https://*.huggingface.co https://*.hf.co https://challenges.cloudflare.com https://pagead2.googlesyndication.com https://*.googlesyndication.com https://googleads.g.doubleclick.net https://ep1.adtrafficquality.google https://*.adtrafficquality.google; frame-src 'self' https://lexkite-app.firebaseapp.com https://accounts.google.com https://www.youtube-nocookie.com https://challenges.cloudflare.com https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://*.googlesyndication.com; worker-src 'self' blob:; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'
 
 # Cloudflare Pages: mã nguồn luôn kiểm tra bản mới (ETag → 304 nếu không đổi, rất nhẹ); âm thanh/ảnh đặt tên theo nội dung → lưu lâu
 /
@@ -58,6 +58,8 @@
   Cache-Control: public, max-age=86400
 /og-default.png
   Cache-Control: public, max-age=604800
+/og/*
+  Cache-Control: public, max-age=604800
 # Blog & trang SEO tĩnh: HTML luôn kiểm tra bản mới (bài đăng theo lịch); RSS/sitemap cũng vậy
 /blog/*
   Cache-Control: no-cache
@@ -95,6 +97,14 @@
   Content-Security-Policy: default-src 'none'; script-src 'unsafe-inline' https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; connect-src https://challenges.cloudflare.com; style-src 'unsafe-inline'; img-src data: https://challenges.cloudflare.com; base-uri 'none'; form-action 'none'; frame-ancestors 'self' https://lexkite.com https://www.lexkite.com https://*.lexkite.pages.dev capacitor://localhost http://localhost:* https://localhost:* http://localhost https://localhost chrome-extension: moz-extension:
   X-Robots-Tag: noindex, nofollow
   Cache-Control: no-cache, no-transform
+# Kokoro cho add-on (web/kl.html, docs/specs/kokoro-on-device.md): trang add-on (chrome-extension:/moz-extension:) nhúng khung ẩn chạy klocal-worker.js
+# vì CWS cấm mã tải từ xa trong gói. Gỡ X-Frame-Options chung, CSP chặt (chỉ script nội tuyến + worker cùng gốc), no-transform để Cloudflare không chèn beacon.
+/kl*
+  ! X-Frame-Options
+  ! Content-Security-Policy
+  Content-Security-Policy: default-src 'none'; script-src 'unsafe-inline'; worker-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'self' https://lexkite.com https://www.lexkite.com https://*.lexkite.pages.dev http://localhost:* chrome-extension: moz-extension:
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: no-cache, no-transform
 # Gói nội dung tải lười (web/cpack → dist/cpack/<tên>.<mã băm>.js, scripts/build-cpack.mjs): đổi nội dung = đổi tên → immutable 1 năm trên Cloudflare (miễn phí)
 /cpack/*
   Cache-Control: public, max-age=31536000, immutable
@@ -117,6 +127,11 @@
 
 # Gói nội dung P06 cho app native (scripts/native/gen-skills.mjs): luôn hỏi lại bản mới (ETag/304), khóa v trong JSON
 /data/skills-pack.json
+  Cache-Control: no-cache
+  Access-Control-Allow-Origin: *
+
+# Gói đọc nâng cao C1–C2 (tách khỏi skills-pack.json để lõi giữ trần 700 KB): như skills-pack
+/data/skills-pack-adv.json
   Cache-Control: no-cache
   Access-Control-Allow-Origin: *
 

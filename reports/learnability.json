@@ -60,19 +60,19 @@
   },
   "skills": {
    "name": "Kỹ năng",
-   "units": 441,
-   "score": 96.2,
+   "units": 451,
+   "score": 96.1,
    "crit": {
-    "a": 86.3,
+    "a": 86.8,
     "b": null,
     "c": 98.8,
     "d": 99.6,
     "e": 99.4,
-    "f": 95.9,
+    "f": 96,
     "g": 99.4,
     "h": null,
     "i": 100,
-    "j": 86.8,
+    "j": 85.8,
     "k": null,
     "l": 100
    }
@@ -2741,7 +2741,7 @@
    "id": "ngsl3",
    "title": "ngsl3",
    "level": "A2",
-   "score": 60.7,
+   "score": 60.8,
    "crit": {
     "a": null,
     "b": null,
@@ -2948,7 +2948,7 @@
     "c": null,
     "d": 0.99,
     "e": 0.45,
-    "f": 0.67,
+    "f": 0.68,
     "g": null,
     "h": null,
     "i": 0.97,
@@ -2957,7 +2957,7 @@
     "l": null
    },
    "fix": [
-    "mã hoá kép 67% (ảnh/audio từ/audio câu)",
+    "mã hoá kép 68% (ảnh/audio từ/audio câu)",
     "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 0%",
     "ví dụ: thiếu collocation/đồng nghĩa"
    ]
@@ -2967,7 +2967,7 @@
    "id": "environment",
    "title": "environment",
    "level": "B2",
-   "score": 72.3,
+   "score": 72.1,
    "crit": {
     "a": null,
     "b": null,
@@ -2992,14 +2992,14 @@
    "id": "technology",
    "title": "technology",
    "level": "C1",
-   "score": 68.3,
+   "score": 68,
    "crit": {
     "a": null,
     "b": null,
     "c": null,
     "d": 0.99,
-    "e": 0.48,
-    "f": 0.68,
+    "e": 0.47,
+    "f": 0.67,
     "g": null,
     "h": null,
     "i": 0.98,
@@ -3008,7 +3008,7 @@
     "l": null
    },
    "fix": [
-    "mã hoá kép 68% (ảnh/audio từ/audio câu)",
+    "mã hoá kép 67% (ảnh/audio từ/audio câu)",
     "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 0%",
     "ví dụ: thiếu collocation/đồng nghĩa"
    ]
@@ -3043,25 +3043,25 @@
    "area": "vocab",
    "id": "work",
    "title": "work",
-   "level": "B2",
-   "score": 68.9,
+   "level": "C1",
+   "score": 68.7,
    "crit": {
     "a": null,
     "b": null,
     "c": null,
-    "d": 0.96,
-    "e": 0.46,
-    "f": 0.68,
+    "d": 0.97,
+    "e": 0.47,
+    "f": 0.67,
     "g": null,
     "h": null,
     "i": 1,
     "j": null,
-    "k": 0.11,
+    "k": 0.1,
     "l": null
    },
    "fix": [
-    "mã hoá kép 68% (ảnh/audio từ/audio câu)",
-    "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 11%",
+    "mã hoá kép 67% (ảnh/audio từ/audio câu)",
+    "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 10%",
     "ví dụ: thiếu collocation/đồng nghĩa"
    ]
   },
@@ -3177,8 +3177,8 @@
     "b": null,
     "c": null,
     "d": 1,
-    "e": 0.65,
-    "f": 0.71,
+    "e": 0.66,
+    "f": 0.7,
     "g": null,
     "h": null,
     "i": 0.97,
@@ -3187,6 +3187,7 @@
     "l": null
    },
    "fix": [
+    "mã hoá kép 70% (ảnh/audio từ/audio câu)",
     "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 0%",
     "ví dụ: thiếu collocation/đồng nghĩa"
    ]
@@ -3244,14 +3245,14 @@
    "id": "culture",
    "title": "culture",
    "level": "C1",
-   "score": 69.8,
+   "score": 69.7,
    "crit": {
     "a": null,
     "b": null,
     "c": null,
     "d": 0.99,
     "e": 0.5,
-    "f": 0.7,
+    "f": 0.69,
     "g": null,
     "h": null,
     "i": 1,
@@ -3260,7 +3261,7 @@
     "l": null
    },
    "fix": [
-    "mã hoá kép 70% (ảnh/audio từ/audio câu)",
+    "mã hoá kép 69% (ảnh/audio từ/audio câu)",
     "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 0%",
     "ví dụ: thiếu collocation/đồng nghĩa"
    ]
@@ -3270,13 +3271,13 @@
    "id": "sport",
    "title": "sport",
    "level": "B2",
-   "score": 75.5,
+   "score": 75,
    "crit": {
     "a": null,
     "b": null,
     "c": null,
     "d": 0.98,
-    "e": 0.68,
+    "e": 0.66,
     "f": 0.77,
     "g": null,
     "h": null,
@@ -3295,14 +3296,14 @@
    "id": "science",
    "title": "science",
    "level": "C1",
-   "score": 65.9,
+   "score": 65.8,
    "crit": {
     "a": null,
     "b": null,
     "c": null,
     "d": 1,
     "e": 0.36,
-    "f": 0.68,
+    "f": 0.67,
     "g": null,
     "h": null,
     "i": 1,
@@ -3311,7 +3312,7 @@
     "l": null
    },
    "fix": [
-    "mã hoá kép 68% (ảnh/audio từ/audio câu)",
+    "mã hoá kép 67% (ảnh/audio từ/audio câu)",
     "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 0%",
     "ví dụ: thiếu collocation/đồng nghĩa"
    ]
@@ -3321,14 +3322,14 @@
    "id": "government",
    "title": "government",
    "level": "C1",
-   "score": 69.9,
+   "score": 69.4,
    "crit": {
     "a": null,
     "b": null,
     "c": null,
     "d": 1,
-    "e": 0.49,
-    "f": 0.71,
+    "e": 0.48,
+    "f": 0.69,
     "g": null,
     "h": null,
     "i": 1,
@@ -3337,6 +3338,7 @@
     "l": null
    },
    "fix": [
+    "mã hoá kép 69% (ảnh/audio từ/audio câu)",
     "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 0%",
     "ví dụ: thiếu collocation/đồng nghĩa"
    ]
@@ -3420,14 +3422,14 @@
    "id": "architecture",
    "title": "architecture",
    "level": "C1",
-   "score": 78.1,
+   "score": 78.3,
    "crit": {
     "a": null,
     "b": null,
     "c": null,
     "d": 1,
     "e": 0.71,
-    "f": 0.77,
+    "f": 0.78,
     "g": null,
     "h": null,
     "i": 1,
@@ -3490,24 +3492,24 @@
    "id": "language",
    "title": "language",
    "level": "B2",
-   "score": 73,
+   "score": 72,
    "crit": {
     "a": null,
     "b": null,
     "c": null,
     "d": 0.98,
-    "e": 0.6,
-    "f": 0.66,
+    "e": 0.58,
+    "f": 0.64,
     "g": null,
     "h": null,
     "i": 1,
     "j": null,
-    "k": 0.17,
+    "k": 0.15,
     "l": null
    },
    "fix": [
-    "mã hoá kép 66% (ảnh/audio từ/audio câu)",
-    "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 17%",
+    "mã hoá kép 64% (ảnh/audio từ/audio câu)",
+    "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 15%",
     "ví dụ: thiếu collocation/đồng nghĩa"
    ]
   },
@@ -3516,7 +3518,7 @@
    "id": "food",
    "title": "food",
    "level": "B2",
-   "score": 74.8,
+   "score": 74.5,
    "crit": {
     "a": null,
     "b": null,
@@ -3528,11 +3530,11 @@
     "h": null,
     "i": 0.99,
     "j": null,
-    "k": 0.1,
+    "k": 0.08,
     "l": null
    },
    "fix": [
-    "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 10%",
+    "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 8%",
     "ví dụ: thiếu collocation/đồng nghĩa"
    ]
   },
@@ -3842,7 +3844,7 @@
     "c": null,
     "d": 0.99,
     "e": 1,
-    "f": 0.68,
+    "f": 0.69,
     "g": null,
     "h": null,
     "i": 0.87,
@@ -3852,7 +3854,7 @@
    },
    "fix": [
     "ngữ cảnh: 14/107 từ chưa có câu gốc ≥ 5 từ chứa từ",
-    "mã hoá kép 68% (ảnh/audio từ/audio câu)"
+    "mã hoá kép 69% (ảnh/audio từ/audio câu)"
    ]
   },
   {
@@ -3932,14 +3934,14 @@
    "id": "ex-toeic-travel",
    "title": "ex-toeic-travel",
    "level": "B2",
-   "score": 87.3,
+   "score": 87.4,
    "crit": {
     "a": null,
     "b": null,
     "c": null,
     "d": 0.94,
     "e": 1,
-    "f": 0.92,
+    "f": 0.93,
     "g": null,
     "h": null,
     "i": 1,
@@ -3956,7 +3958,7 @@
    "id": "ex-ielts-gt-life",
    "title": "ex-ielts-gt-life",
    "level": "B2",
-   "score": 85.4,
+   "score": 85.5,
    "crit": {
     "a": null,
     "b": null,
@@ -4477,7 +4479,7 @@
     "c": null,
     "d": 0.98,
     "e": 0.5,
-    "f": 0.94,
+    "f": 0.95,
     "g": null,
     "h": null,
     "i": 1,
@@ -4520,14 +4522,14 @@
    "id": "toeic6",
    "title": "toeic6",
    "level": "B1",
-   "score": 72.7,
+   "score": 72.8,
    "crit": {
     "a": null,
     "b": null,
     "c": null,
     "d": 0.92,
     "e": 0.5,
-    "f": 0.91,
+    "f": 0.92,
     "g": null,
     "h": null,
     "i": 1,
@@ -4595,7 +4597,7 @@
    "id": "toeic9",
    "title": "toeic9",
    "level": "B2",
-   "score": 74,
+   "score": 74.1,
    "crit": {
     "a": null,
     "b": null,
@@ -4697,14 +4699,14 @@
    "id": "office-interview",
    "title": "office-interview",
    "level": "B1",
-   "score": 66,
+   "score": 66.3,
    "crit": {
     "a": null,
     "b": null,
     "c": null,
     "d": 0.96,
     "e": 0.26,
-    "f": 0.53,
+    "f": 0.54,
     "g": null,
     "h": null,
     "i": 1,
@@ -4713,7 +4715,7 @@
     "l": null
    },
    "fix": [
-    "mã hoá kép 53% (ảnh/audio từ/audio câu)",
+    "mã hoá kép 54% (ảnh/audio từ/audio câu)",
     "ví dụ: thiếu collocation/đồng nghĩa"
    ]
   },
@@ -4889,14 +4891,14 @@
    "id": "bsl2",
    "title": "bsl2",
    "level": "B2",
-   "score": 60.5,
+   "score": 60.6,
    "crit": {
     "a": null,
     "b": null,
     "c": null,
     "d": 0.98,
     "e": 0,
-    "f": 0.9,
+    "f": 0.91,
     "g": null,
     "h": null,
     "i": 0.99,
@@ -5114,7 +5116,7 @@
    "id": "dom-law",
    "title": "dom-law",
    "level": "B2",
-   "score": 72.5,
+   "score": 72.6,
    "crit": {
     "a": null,
     "b": null,
@@ -5139,7 +5141,7 @@
    "id": "dom-mkt",
    "title": "dom-mkt",
    "level": "B2",
-   "score": 73.5,
+   "score": 73.6,
    "crit": {
     "a": null,
     "b": null,
@@ -5189,7 +5191,7 @@
    "id": "dom-hosp",
    "title": "dom-hosp",
    "level": "B1",
-   "score": 72.3,
+   "score": 72.4,
    "crit": {
     "a": null,
     "b": null,
@@ -5290,24 +5292,24 @@
    "id": "xw-feelings",
    "title": "xw-feelings",
    "level": "B2",
-   "score": 67.7,
+   "score": 67.5,
    "crit": {
     "a": null,
     "b": null,
     "c": null,
     "d": 1,
-    "e": 0.41,
-    "f": 0.69,
+    "e": 0.4,
+    "f": 0.68,
     "g": null,
     "h": null,
     "i": 1,
     "j": null,
-    "k": 0.04,
+    "k": 0.03,
     "l": null
    },
    "fix": [
-    "mã hoá kép 69% (ảnh/audio từ/audio câu)",
-    "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 4%",
+    "mã hoá kép 68% (ảnh/audio từ/audio câu)",
+    "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 3%",
     "ví dụ: thiếu collocation/đồng nghĩa"
    ]
   },
@@ -5342,14 +5344,14 @@
    "id": "xw-everyday",
    "title": "xw-everyday",
    "level": "B2",
-   "score": 64.8,
+   "score": 64.6,
    "crit": {
     "a": null,
     "b": null,
     "c": null,
     "d": 0.99,
-    "e": 0.37,
-    "f": 0.63,
+    "e": 0.38,
+    "f": 0.62,
     "g": null,
     "h": null,
     "i": 1,
@@ -5358,7 +5360,7 @@
     "l": null
    },
    "fix": [
-    "mã hoá kép 63% (ảnh/audio từ/audio câu)",
+    "mã hoá kép 62% (ảnh/audio từ/audio câu)",
     "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 0%",
     "ví dụ: thiếu collocation/đồng nghĩa"
    ]
@@ -5368,7 +5370,7 @@
    "id": "xw-qualities",
    "title": "xw-qualities",
    "level": "B2",
-   "score": 66.4,
+   "score": 66.3,
    "crit": {
     "a": null,
     "b": null,
@@ -5420,7 +5422,7 @@
    "id": "xw-body",
    "title": "xw-body",
    "level": "B2",
-   "score": 67.6,
+   "score": 67.7,
    "crit": {
     "a": null,
     "b": null,
@@ -5524,14 +5526,14 @@
    "id": "xw-military",
    "title": "xw-military",
    "level": "C1",
-   "score": 63,
+   "score": 63.5,
    "crit": {
     "a": null,
     "b": null,
     "c": null,
     "d": 1,
-    "e": 0.35,
-    "f": 0.55,
+    "e": 0.37,
+    "f": 0.56,
     "g": null,
     "h": null,
     "i": 1,
@@ -5540,7 +5542,7 @@
     "l": null
    },
    "fix": [
-    "mã hoá kép 55% (ảnh/audio từ/audio câu)",
+    "mã hoá kép 56% (ảnh/audio từ/audio câu)",
     "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 0%",
     "ví dụ: thiếu collocation/đồng nghĩa"
    ]
@@ -9165,6 +9167,246 @@
    "id": "read:my-weekend",
    "title": "My Weekend",
    "level": "A1",
+   "score": 93.5,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": null,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": 0.5,
+    "k": null,
+    "l": 1
+   },
+   "fix": [
+    "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
+   ]
+  },
+  {
+   "area": "skills",
+   "id": "read:falsification-limits",
+   "title": "The Limits of Falsification",
+   "level": "C2",
+   "score": 93.5,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": null,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": 0.5,
+    "k": null,
+    "l": 1
+   },
+   "fix": [
+    "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
+   ]
+  },
+  {
+   "area": "skills",
+   "id": "read:language-and-thought",
+   "title": "Does Language Shape Thought?",
+   "level": "C2",
+   "score": 93.5,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": null,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": 0.5,
+    "k": null,
+    "l": 1
+   },
+   "fix": [
+    "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
+   ]
+  },
+  {
+   "area": "skills",
+   "id": "read:goodhart-metrics",
+   "title": "When a Measure Becomes a Target",
+   "level": "C2",
+   "score": 93.5,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": null,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": 0.5,
+    "k": null,
+    "l": 1
+   },
+   "fix": [
+    "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
+   ]
+  },
+  {
+   "area": "skills",
+   "id": "read:aura-of-original",
+   "title": "The Aura of the Original",
+   "level": "C2",
+   "score": 93.5,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": null,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": 0.5,
+    "k": null,
+    "l": 1
+   },
+   "fix": [
+    "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
+   ]
+  },
+  {
+   "area": "skills",
+   "id": "read:precedent-dead-hand",
+   "title": "The Dead Hand and the Living Law",
+   "level": "C2",
+   "score": 93.5,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": null,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": 0.5,
+    "k": null,
+    "l": 1
+   },
+   "fix": [
+    "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
+   ]
+  },
+  {
+   "area": "skills",
+   "id": "read:invention-of-progress",
+   "title": "The Invention of Progress",
+   "level": "C2",
+   "score": 93.5,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": null,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": 0.5,
+    "k": null,
+    "l": 1
+   },
+   "fix": [
+    "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
+   ]
+  },
+  {
+   "area": "skills",
+   "id": "read:shifting-baselines",
+   "title": "Shifting Baselines",
+   "level": "C2",
+   "score": 93.5,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": null,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": 0.5,
+    "k": null,
+    "l": 1
+   },
+   "fix": [
+    "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
+   ]
+  },
+  {
+   "area": "skills",
+   "id": "read:predictive-brain",
+   "title": "The Brain as Prediction Machine",
+   "level": "C2",
+   "score": 93.5,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": null,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": 0.5,
+    "k": null,
+    "l": 1
+   },
+   "fix": [
+    "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
+   ]
+  },
+  {
+   "area": "skills",
+   "id": "read:algorithmic-responsibility",
+   "title": "Who Answers for the Algorithm?",
+   "level": "C2",
+   "score": 93.5,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": null,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": 0.5,
+    "k": null,
+    "l": 1
+   },
+   "fix": [
+    "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
+   ]
+  },
+  {
+   "area": "skills",
+   "id": "read:eyes-on-the-street",
+   "title": "Eyes on the Street",
+   "level": "C2",
    "score": 93.5,
    "crit": {
     "a": 1,

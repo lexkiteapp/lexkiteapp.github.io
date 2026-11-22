@@ -1,0 +1,28 @@
+/* UI id – score30 (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["id"] = Object.assign(D["id"] || {}, {
+"Bạn của bạn hơn {n} điểm – thử lại nhé!":"Temanmu unggul {n} poin – coba lagi!",
+"Bạn của bạn đạt {s} ({c}). Vượt qua nhé!":"Temanmu mendapat {s} ({c}). Kalahkan!",
+"Bạn thắng! {me} so với {fr}":"Kamu menang! {me} vs {fr}",
+"Bắt đầu":"Mulai",
+"Cần micro. Âm thanh không rời khỏi máy bạn.":"Perlu mikrofon. Audio tidak keluar dari perangkatmu.",
+"Hòa nhau! {me} so với {fr}":"Seri! {me} vs {fr}",
+"Không nghe rõ – thử lại ở nơi yên tĩnh hơn nhé.":"Suaramu kurang jelas – coba lagi di tempat yang lebih tenang.",
+"Link thử thách không dùng được lúc này – thử lại sau.":"Tautan tantangan belum bisa dipakai – coba lagi nanti.",
+"Làm lại":"Coba lagi",
+"Lưu loát":"Kelancaran",
+"Mình nói tiếng Anh được {s}/100 ({c}) trên Lexkite. Bạn hơn được không? {url}":"Skor bicara bahasa Inggrisku di Lexkite {s}/100 ({c}). Bisa mengalahkanku? {url}",
+"Nhận điểm nói, thách bạn bè":"Dapatkan skor, tantang teman",
+"Phát âm":"Lafalkan",
+"Thách bạn bè":"Tantang teman",
+"Thẻ điểm nói tiếng Anh":"Kartu skor bicara bahasa Inggris",
+"Trình duyệt này chưa hỗ trợ nhận giọng nói. Hãy thử Chrome hoặc app Lexkite.":"Peramban ini belum mendukung pengenalan suara. Coba Chrome atau aplikasi Lexkite.",
+"Tải ảnh":"Simpan gambar",
+"Xong":"Selesai",
+"Đang nghe… còn {n} giây":"Mendengarkan… sisa {n} dtk",
+"Điểm tổng":"Skor total",
+"Điểm {s}/100, trình độ {c}":"Skor {s}/100, level {c}",
+"Đã chép link thử thách – dán gửi bạn nhé":"Tautan tantangan disalin – tempel dan kirim ke temanmu",
+"Đọc to đoạn văn này trong 30 giây":"Bacakan teks ini dengan lantang dalam 30 detik",
+"Ước lượng CEFR – chỉ mang tính tham khảo":"Perkiraan CEFR – hanya sebagai acuan",
+});
+})(typeof self !== 'undefined' ? self : this);

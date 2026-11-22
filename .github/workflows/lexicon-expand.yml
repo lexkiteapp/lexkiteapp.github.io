@@ -50,11 +50,15 @@ jobs:
         run: if node scripts/lexicon/expand/left.mjs --idle; then echo "idle=1" >> $GITHUB_OUTPUT; echo '⏹ lượt gần nhất gần rỗng (< EMPTY_RUN mục, retry chưa tăng, < 24 h) – bỏ lượt (force=1 để chạy)'; fi
       - id: p
         run: |
-          n="${{ github.event.inputs.shards }}"; case "$n" in ''|*[!0-9]*) n=1;; esac; [ "$n" -gt 6 ] && n=6; [ "$n" -lt 1 ] && n=1
-          [ -n "${{ github.event.inputs.words }}${{ github.event.inputs.audit }}" ] && n=1   # mẫu cố định / soát thử: 1 shard
+          n="$LX_IN1"; case "$n" in ''|*[!0-9]*) n=1;; esac; [ "$n" -gt 6 ] && n=6; [ "$n" -lt 1 ] && n=1
+          [ -n "$LX_IN2$LX_IN3" ] && n=1   # mẫu cố định / soát thử: 1 shard
           # 08/11 lô RIÊNG mỗi lượt (ngày-r<số lượt>, chung mọi shard): lượt xong = lô khép → lượt kế (cron/ci-filler, cùng ngày) soát mẫu + xuất, không chờ qua ngày
           echo "batch=$(date -u +%Y%m%d)-r${{ github.run_number }}" >> $GITHUB_OUTPUT
           echo "n=$n" >> $GITHUB_OUTPUT; echo "shards=$(seq -s, 0 $((n-1)) | sed 's/^/[/;s/$/]/')" >> $GITHUB_OUTPUT
+        env:
+          LX_IN1: ${{ github.event.inputs.shards }}
+          LX_IN2: ${{ github.event.inputs.words }}
+          LX_IN3: ${{ github.event.inputs.audit }}
   expand:
     needs: plan
     if: ${{ needs.plan.outputs.idle != '1' }}
@@ -77,7 +81,9 @@ jobs:
       - uses: ./.github/actions/no-prod
       - name: Nguồn miễn phí (wordfreq CC BY-SA 4.0 · WordNet · CMUdict BSD-2 · LDNOOBW CC BY 4.0)
         if: ${{ steps.lease.outputs.skip != '1' }}
-        env: { RESCUE: '${{ github.event.inputs.rescue }}' }
+        env:
+          RESCUE: '${{ github.event.inputs.rescue }}'
+          LX_IN1: ${{ github.event.inputs.words }}
         run: |
           pip install -q 'wordfreq[cjk]==3.1.1' nltk==3.9.1 espeakng-loader==0.2.4   # cjk: trcheck --exist cho zh/ja/ko (lớp D2)   # espeak-ng en-gb: IPA Anh khi Wiktionary thiếu (hiệu chuẩn espeak-calib.mjs)
           python -c "import nltk; nltk.download('wordnet', quiet=True); nltk.download('averaged_perceptron_tagger_eng', quiet=True); nltk.download('omw-1.4', quiet=True)"   # OMW 1.4: lemma theo synset 8 ngôn ngữ (synset.py, lớp D1)
@@ -91,6 +97,8 @@ jobs:
           for d in enwikivoyage:wv enwikinews:wnw enwikibooks:wb enwikiversity:wvs; do { curl -sfL --retry 2 -o "$RUNNER_TEMP/d.xml.bz2" "https://dumps.wikimedia.org/${d%%:*}/latest/${d%%:*}-latest-pages-articles.xml.bz2" && python3 scripts/lexicon/expand/simplewiki.py --dump "$RUNNER_TEMP/d.xml.bz2" --out "$RUNNER_TEMP/d.tsv" --prefix "${d##*:}" && cat "$RUNNER_TEMP/d.tsv" >> "$RUNNER_TEMP/tatoeba.tsv"; } || echo "::warning::${d%%:*} không dùng được lượt này"; rm -f "$RUNNER_TEMP/d.xml.bz2" "$RUNNER_TEMP/d.tsv"; done
           # 09/11 (lọc trước AI: 315/897 mục thiếu 2 câu người viết sau 7 nguồn): nguồn 8 = 3 phần đầu English Wikipedia (CC BY-SA 4.0, ~0,8 GB, dump toàn bộ ~22 GB quá nặng cho mỗi shard) – cùng bộ lọc hình thức, nghĩa vẫn do lxsrc + lxwsd. Tải/đọc lỗi = như cũ.
           for p in 1.xml-p1p41242 2.xml-p41243p151573 3.xml-p151574p311329; do { curl -sfL --retry 2 -o "$RUNNER_TEMP/d.xml.bz2" "https://dumps.wikimedia.org/enwiki/latest/enwiki-latest-pages-articles$p.bz2" && python3 scripts/lexicon/expand/simplewiki.py --dump "$RUNNER_TEMP/d.xml.bz2" --out "$RUNNER_TEMP/d.tsv" --prefix ew --max 500000 && cat "$RUNNER_TEMP/d.tsv" >> "$RUNNER_TEMP/tatoeba.tsv"; } || echo "::warning::enwiki phần $p không dùng được lượt này"; rm -f "$RUNNER_TEMP/d.xml.bz2" "$RUNNER_TEMP/d.tsv"; done
+          # 17/11 NGUỒN CÂU xoay theo ngày (30 % ứng viên có vi nhưng thiếu 2 câu người viết; mới dùng 3/~60 phần dump): thêm LX_ENWIKI_EXTRA (mặc định 1) phần enwiki NGOÀI 3 phần đầu, chọn theo ngày trong năm → mỗi ngày một vùng văn bản khác (cùng bộ lọc simplewiki.py, nghĩa vẫn do lxsrc + lxwsd). Lỗi = như cũ.
+          X="${{ vars.LX_ENWIKI_EXTRA }}"; X="${X:-1}"; PARTS=$(curl -sfL --retry 2 https://dumps.wikimedia.org/enwiki/latest/ | grep -o 'pages-articles[0-9]*\.xml-p[0-9]*p[0-9]*\.bz2' | sort -uV | sed -n '4,$p'); NP=$(printf '%s\n' "$PARTS" | grep -c .); if [ "$X" -gt 0 ] && [ "$NP" -gt 0 ]; then for k in $(seq 0 $((X-1))); do q=$(printf '%s\n' "$PARTS" | sed -n "$(( ($(date -u +%-j) * X + k) % NP + 1 ))p"); { curl -sfL --retry 2 -o "$RUNNER_TEMP/d.xml.bz2" "https://dumps.wikimedia.org/enwiki/latest/enwiki-latest-$q" && python3 scripts/lexicon/expand/simplewiki.py --dump "$RUNNER_TEMP/d.xml.bz2" --out "$RUNNER_TEMP/d.tsv" --prefix ew --max 500000 && cat "$RUNNER_TEMP/d.tsv" >> "$RUNNER_TEMP/tatoeba.tsv"; } || echo "::warning::enwiki phần xoay $q không dùng được lượt này"; rm -f "$RUNNER_TEMP/d.xml.bz2" "$RUNNER_TEMP/d.tsv"; done; fi
           # 05/11 (pilot Simple Wiki: exShort 389→329/600, yield 0,022→0,037, vẫn thiếu câu): nguồn thứ 4 = kho câu Common Voice en (CC0, ~100 MB câu Wikipedia + người dùng), commonvoice.py lọc hình thức + dễ → ghép vào cùng TSV. Tải/đọc lỗi = như cũ.
           { mkdir -p "$RUNNER_TEMP/cv" && for f in wiki.en.txt wiki.en.rerun-2021-11.txt sentence-collector.txt; do curl -sfL --retry 2 -o "$RUNNER_TEMP/cv/$f" "https://raw.githubusercontent.com/common-voice/common-voice/main/server/data/en/$f" || exit 1; done && python3 scripts/lexicon/expand/commonvoice.py --out "$RUNNER_TEMP/cv.tsv" "$RUNNER_TEMP"/cv/*.txt && cat "$RUNNER_TEMP/cv.tsv" >> "$RUNNER_TEMP/tatoeba.tsv"; } || echo '::warning::Common Voice không dùng được lượt này'; rm -rf "$RUNNER_TEMP/cv" "$RUNNER_TEMP/cv.tsv"
           # vi do AI lấp chỉ nhận phương án có trong Viet74K (duyet/vietnamese-wordlist, GPL-2.0 – CHỈ để kiểm trong CI, không phân phối)
@@ -103,18 +111,29 @@ jobs:
           curl -sfL -o "$RUNNER_TEMP/cefrj.csv" https://raw.githubusercontent.com/openlanguageprofiles/olp-en-cefrj/master/cefrj-vocabulary-profile-1.5.csv || true
           curl -sfL -o "$RUNNER_TEMP/octanove.csv" https://raw.githubusercontent.com/openlanguageprofiles/olp-en-cefrj/master/octanove-vocabulary-profile-c1c2-1.0.csv || true
           # 31/10 đa từ loại: mục hàng duyệt "keep: … từ loại khác" (chờ khoá từ#loại) → retry; lũy đẳng; mẫu cố định (words) không ghi repo
-          if [ -z "${{ github.event.inputs.words }}" ]; then node scripts/lexicon/expand/requeue.mjs --pos; fi
+          if [ -z "$LX_IN1" ]; then node scripts/lexicon/expand/requeue.mjs --pos; fi
           # 13/11 rescue hàng duyệt (input rescue = <lớp>:<số mục>; cổng giữ nguyên, mỗi mục tối đa 1 lần/lớp – retry/rescued.json); tất định → mọi shard chọn cùng tập, save-merge gộp trùng; pilot chạy 1 shard
           if [ -n "$RESCUE" ]; then node scripts/lexicon/expand/requeue.mjs --rescue "${RESCUE%%:*}" --limit "${RESCUE##*:}"; fi
           node scripts/lexicon/expand/existing.mjs "$RUNNER_TEMP/existing.json"
-          python scripts/lexicon/expand/pick_words.py --existing "$RUNNER_TEMP/existing.json" --want content/lexicon/expand/retry/words.json ${{ github.event.inputs.words }} --cmu "$RUNNER_TEMP/cmu.dict" --bad "$RUNNER_TEMP/bad.txt" $(test -s "$RUNNER_TEMP/cefrj.csv" && echo --cefrj "$RUNNER_TEMP/cefrj.csv") $(test -s "$RUNNER_TEMP/octanove.csv" && echo --octanove "$RUNNER_TEMP/octanove.csv") --out "$RUNNER_TEMP/candidates.json"
+          python scripts/lexicon/expand/pick_words.py --existing "$RUNNER_TEMP/existing.json" --want content/lexicon/expand/retry/words.json $LX_IN1 --demand $(ls -t reports/seo/gsc-2*.json 2>/dev/null | head -2) --cmu "$RUNNER_TEMP/cmu.dict" --bad "$RUNNER_TEMP/bad.txt" $(test -s "$RUNNER_TEMP/cefrj.csv" && echo --cefrj "$RUNNER_TEMP/cefrj.csv") $(test -s "$RUNNER_TEMP/octanove.csv" && echo --octanove "$RUNNER_TEMP/octanove.csv") --out "$RUNNER_TEMP/candidates.json"
           # nghĩa vi NGƯỜI VIẾT thứ hai (31/10, lớp L1 – rớt vi 178/600): Wiktionary tiếng Việt qua kaikki.org/viwiktionary (CC BY-SA 4.0, ~33 MB gz); tải lỗi = như cũ (chỉ Wiktionary tiếng Anh)
           curl -sfL --retry 2 -o "$RUNNER_TEMP/viwk.jsonl.gz" https://kaikki.org/viwiktionary/raw-wiktextract-data.jsonl.gz && python scripts/lexicon/expand/viwikt.py --raw "$RUNNER_TEMP/viwk.jsonl.gz" --candidates "$RUNNER_TEMP/candidates.json" --out "$RUNNER_TEMP/viwk.json" || echo "::warning::viwikt: không tải được Wiktionary tiếng Việt"
           # 13/11 nguồn vi NGƯỜI VIẾT thứ ba (docs/LEXICON.md): nhãn vi Wikidata (CC0) của khoản mục có bài Wikipedia en trùng nhãn en = từ (danh từ; 69 % mục quét không có vi người viết). Gộp vào viwk.json (WV); cổng giữ nguyên (≥ 2 nguồn trùng + giám khảo); lỗi/không tới WDQS = như cũ
           python scripts/lexicon/expand/wikidata_vi_labels.py --cands "$RUNNER_TEMP/candidates.json" --first content/lexicon/expand/retry/words.json --limit 2400 --merge "$RUNNER_TEMP/viwk.json" --out "$RUNNER_TEMP/viwk.json" || echo "::warning::wikidata_vi_labels: bỏ qua"
+          # 17/11 PHIẾU ĐỐI CHIẾU GPL (chủ duyệt 17/11: từ điển Anh–Việt Hồ Ngọc Đức, GPL – CHỈ làm phiếu trong CI, KHÔNG lưu chữ nào vào repo/kho/app/artifact): tải vào $RUNNER_TEMP, tách nghĩa cho ứng viên → gpl.json (tạm),
+          # job.mjs chỉ thêm nhãn 'gpl' vào phương án ĐÃ có từ nguồn khác (lib.mjs viAgreeSources) – đo 17/11: q2 1.006 mục → 892 đủ ≥ 2 nguồn. Tắt: biến repo LX_GPL=0. docs/LEXICON.md §Phiếu GPL
+          if [ "${{ vars.LX_GPL }}" != 0 ]; then { mkdir -p "$RUNNER_TEMP/gpl" && curl -sfL --retry 3 -o "$RUNNER_TEMP/gpl/AnhViet.zip" https://downloads.sourceforge.net/project/ovdp/Stardict/English/AnhViet.zip && python3 -I scripts/lexicon/expand/gpl_probe.py --zip "$RUNNER_TEMP/gpl/AnhViet.zip" --sample "$RUNNER_TEMP/candidates.json" --out "$RUNNER_TEMP/gpl.json"; rm -rf "$RUNNER_TEMP/gpl"; } || echo "::warning::phiếu GPL: bỏ qua (không tải/tách được)"; fi
       - name: Sinh + 2 giám khảo + cổng
         if: ${{ steps.lease.outputs.skip != '1' && github.event.inputs.audit == '' }}
         env:  # ai-pool (scripts/lib/ai-pool.mjs): Gemini kho Lexkite (nếu còn khóa) → cf2 = kho CF_POOL xoay vòng (gpt-oss-120b soạn/giám khảo A, llama-3.3-70b giám khảo B) 
+          LX_IN1: ${{ github.event.inputs.n }}
+          LX_IN2: ${{ github.event.inputs.pilot }}
+          LX_IN3: ${{ github.event.inputs.retry }}
+          LX_IN4: ${{ github.event.inputs.retry_share }}
+          LX_IN5: ${{ github.event.inputs.batch }}
+          LX_IN6: ${{ github.event.inputs.words }}
+          LX_IN7: ${{ github.event.inputs.neurons || '600000' }}
+          LX_IN8: ${{ github.event.inputs.calls || '0' }}
           # 26/10: GrabCast hỏng (500) → bỏ GRABCAST_AI_KEY. Chủ cho dùng MỌI tài khoản kho (VIMG_POOL_SKIP 0); không bao giờ tài khoản chính (CF_ACCOUNT_1 để loại).
           CF_POOL: ${{ secrets.CF_POOL }}
           # 30/10: kho khoá miễn phí (chủ nạp) – ai-pool tuyến 'gem' (Gemini 2.5 Flash: soạn + dịch vi + giám khảo B) và 'groq' (gpt-oss-120b giám khảo A, llama-3.3-70b giám khảo C) đứng trước cf2
@@ -126,24 +145,26 @@ jobs:
         # LEASE_AI_B_NEURONS đặt NGAY trong lệnh: bước thuê ghi LEASE_AI_B_NEURONS=0 vào GITHUB_ENV (đè env của bước)
         # biến repo so TRONG bash: biểu thức GitHub coi '' == '0' (26/10) – dispatch thắng biến repo
         run: |
-          N="${{ github.event.inputs.n }}"; N="${N:-${{ vars.LX_N }}}"; N="${N:-600}"
-          P="${{ github.event.inputs.pilot }}"; P="${P:-${{ vars.LX_PILOT }}}"
-          RT="${{ github.event.inputs.retry }}"; RT="${RT:-${{ vars.LX_RETRY }}}"
+          N="$LX_IN1"; N="${N:-${{ vars.LX_N }}}"; N="${N:-600}"
+          P="$LX_IN2"; P="${P:-${{ vars.LX_PILOT }}}"
+          RT="$LX_IN3"; RT="${RT:-${{ vars.LX_RETRY }}}"
           EXTRA=(); [ "$P" = 1 ] && EXTRA+=(--pilot); [ "$RT" = 0 ] && EXTRA+=(--no-retry)
-          RS="${{ github.event.inputs.retry_share }}"; [ -n "$RS" ] && EXTRA+=(--retry-share "$RS")
-          B="${{ github.event.inputs.batch }}"; [ -n "$B" ] && EXTRA+=(--batch "$B")
-          WD="${{ github.event.inputs.words }}"; [ -n "$WD" ] && { EXTRA+=(--words "$WD"); P=0; echo "LX_RUN_WORDS=$WD" >> "$GITHUB_ENV"; }
+          RS="$LX_IN4"; [ -n "$RS" ] && EXTRA+=(--retry-share "$RS")
+          B="$LX_IN5"; [ -n "$B" ] && EXTRA+=(--batch "$B")
+          WD="$LX_IN6"; [ -n "$WD" ] && { EXTRA+=(--words "$WD"); P=0; echo "LX_RUN_WORDS=$WD" >> "$GITHUB_ENV"; }
           [ -z "$B$WD" ] && [ "$P" != 1 ] && EXTRA+=(--batch "${{ needs.plan.outputs.batch }}")   # lô riêng của lượt (pilot giữ <ngày>-pilot)
           echo "LX_RUN_N=$N" >> "$GITHUB_ENV"; echo "LX_RUN_PILOT=$P" >> "$GITHUB_ENV"
           # pilot theo lịch: lô pilot hôm nay đã có mục → không chạy thêm (chờ soát 50 mẫu, không phí neuron)
-          if [ -z "$WD" ] && [ "$P" = 1 ] && [ -z "${{ github.event.inputs.pilot }}" ] && [ -s "content/lexicon/expand/pending/$(date -u +%Y%m%d)-pilot.json" ]; then echo "⏭ lô pilot hôm nay đã có – chờ soát"; echo "LX_RUN_PILOT=1" >> "$GITHUB_ENV"; exit 0; fi
-          LEASE_AI_B_NEURONS="$(( ${{ github.event.inputs.neurons || '600000' }} / ${{ needs.plan.outputs.n }} ))" node scripts/lexicon/expand/job.mjs --shard "${{ matrix.shard }}/${{ needs.plan.outputs.n }}" --candidates "$RUNNER_TEMP/candidates.json" --viwk "$RUNNER_TEMP/viwk.json" --cmu "$RUNNER_TEMP/cmu.dict" --britfone "$RUNNER_TEMP/britfone.csv" --tatoeba "$RUNNER_TEMP/tatoeba.tsv" --bad "$RUNNER_TEMP/bad.txt" --viwords "$RUNNER_TEMP/viet74k.txt" --n "$N" --calls "${{ github.event.inputs.calls || '0' }}" "${EXTRA[@]}"
+          if [ -z "$WD" ] && [ "$P" = 1 ] && [ -z "$LX_IN2" ] && [ -s "content/lexicon/expand/pending/$(date -u +%Y%m%d)-pilot.json" ]; then echo "⏭ lô pilot hôm nay đã có – chờ soát"; echo "LX_RUN_PILOT=1" >> "$GITHUB_ENV"; exit 0; fi
+          LEASE_AI_B_NEURONS="$(( $LX_IN7 / ${{ needs.plan.outputs.n }} ))" node scripts/lexicon/expand/job.mjs --shard "${{ matrix.shard }}/${{ needs.plan.outputs.n }}" --candidates "$RUNNER_TEMP/candidates.json" --gpl "$RUNNER_TEMP/gpl.json" --viwk "$RUNNER_TEMP/viwk.json" --cmu "$RUNNER_TEMP/cmu.dict" --britfone "$RUNNER_TEMP/britfone.csv" --tatoeba "$RUNNER_TEMP/tatoeba.tsv" --bad "$RUNNER_TEMP/bad.txt" --viwords "$RUNNER_TEMP/viet74k.txt" --n "$N" --calls "$LX_IN8" "${EXTRA[@]}"
       - name: Chấm tự động mẫu cố định (nhãn xấu không được lọt · LÕI / DỊCH / IPA – docs/QUALITY-PIPELINE.md bước 3)
         if: ${{ always() && steps.lease.outputs.skip != '1' && github.event.inputs.words != '' }}
         run: node scripts/lexicon/expand/grade.mjs --labels content/lexicon/expand/pilot/labels.json --sheet 50
       - name: Soát mẫu + xuất lô chờ đã KHÉP – mọi lượt trước, kể cả cùng ngày (tự động 31/10 – audit.mjs 3 giám khảo khác họ, sai ≥ 2/3; promote.mjs cổng IPA + spot ≤ 2 %)
         if: ${{ always() && steps.lease.outputs.skip != '1' && github.event.inputs.words == '' && matrix.shard == 0 }}
         env:
+          LX_IN1: ${{ github.event.inputs.audit }}
+          LX_IN2: ${{ github.event.inputs.batch }}
           CF_POOL: ${{ secrets.CF_POOL }}
           GEMINI_POOL: ${{ secrets.GEMINI_POOL }}
           GROQ_POOL: ${{ secrets.GROQ_POOL }}
@@ -151,8 +172,8 @@ jobs:
           VIMG_POOL_SKIP: '0'
           VIMG_CF_USE_CF2: '0'
         run: |
-          AU="${{ github.event.inputs.audit }}"; [ -n "$AU" ] && { LEASE_AI_B_NEURONS=60000 node scripts/lexicon/expand/audit.mjs "$AU" --dry --out "$RUNNER_TEMP/checked.json"; cat "$RUNNER_TEMP/checked.json" | head -c 20000; exit 0; }
-          CUR="${{ github.event.inputs.batch }}"; CUR="${CUR:-${{ needs.plan.outputs.batch }}}"
+          AU="$LX_IN1"; [ -n "$AU" ] && { LEASE_AI_B_NEURONS=60000 node scripts/lexicon/expand/audit.mjs "$AU" --dry --out "$RUNNER_TEMP/checked.json"; cat "$RUNNER_TEMP/checked.json" | head -c 20000; exit 0; }
+          CUR="$LX_IN2"; CUR="${CUR:-${{ needs.plan.outputs.batch }}}"
           for f in content/lexicon/expand/pending/*.json; do
             [ -f "$f" ] || continue; B=$(basename "$f" .json); case "$B" in *pilot*) continue;; esac
             [ "$B" = "$CUR" ] && continue   # lô của CHÍNH lượt này còn nhận mục từ shard khác – lượt kế soát (concurrency không huỷ → lượt trước đã khép)

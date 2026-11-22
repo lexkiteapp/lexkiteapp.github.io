@@ -1,0 +1,33 @@
+# Giám khảo LLM cho kho trắc nghiệm (scripts/content-qa/judge-bank.mjs, CONTENT-WORLD-PLAN §7 sóng E0). Chạy tay; chỉ ra artifact, không đẩy vào repo. $0: không neuron CF.
+name: Chấm kho trắc nghiệm (E0)
+on:
+  workflow_dispatch:
+    inputs:
+      n: { description: 'cỡ mẫu', default: '1500' }
+permissions:
+  contents: read
+  id-token: write   # OIDC cho ai-pool
+concurrency:
+  group: bank-judge-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  judge:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Chấm mẫu
+        env:
+          GEMINI_POOL: ${{ secrets.GEMINI_POOL }}
+          GROQ_POOL: ${{ secrets.GROQ_POOL }}
+          GRABCAST_AI_KEY: ${{ secrets.GRABCAST_AI_KEY }}
+          AI_POOL_GC_MAX: '2500'
+          LX_IN1: ${{ inputs.n }}
+        run: node scripts/content-qa/judge-bank.mjs --n "$LX_IN1"
+      - run: node scripts/content-qa/bank-audit.mjs
+        if: always()
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: bank-judge, path: reports/bank-*.json, retention-days: 30, if-no-files-found: ignore }

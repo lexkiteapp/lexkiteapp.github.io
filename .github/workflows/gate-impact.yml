@@ -32,8 +32,8 @@ jobs:
       - uses: actions/checkout@v4
         with: { fetch-depth: 0, persist-credentials: false }
       - id: s
-        env: { GH_TOKEN: '${{ github.token }}' }
-        run: node scripts/ci/gate-impact.mjs select --self ${{ github.event.pull_request.number }} --base ${{ github.event.pull_request.base.sha }} --head ${{ github.event.pull_request.head.sha }}
+        env: { GH_TOKEN: '${{ github.token }}', LX_PR: '${{ github.event.pull_request.number }}', LX_BASE_SHA: '${{ github.event.pull_request.base.sha }}', LX_HEAD_SHA: '${{ github.event.pull_request.head.sha }}' }
+        run: node scripts/ci/gate-impact.mjs select --self $LX_PR --base $LX_BASE_SHA --head $LX_HEAD_SHA
       - uses: actions/upload-artifact@v4
         with: { name: gate-impact-plan, path: 'gate-impact-*.txt', retention-days: 3 }
   check:
@@ -56,11 +56,11 @@ jobs:
         with: { name: gate-impact-plan }
       - name: Chạy cổng mới trên head PR #${{ matrix.pr }} (không token; mã chạy lấy từ PR cổng vì head PR này có thể chưa có tệp)
         continue-on-error: true   # lỗi hạ tầng → thiếu kết quả của PR này (báo 'không đo được'), không làm đỏ PR cổng
-        env: { GATE_SHA: '${{ github.event.pull_request.head.sha }}' }
+        env: { GATE_SHA: '${{ github.event.pull_request.head.sha }}', LX_HEAD_SHA: '${{ github.event.pull_request.head.sha }}' }
         run: |
           git fetch --no-tags origin "$GATE_SHA"
           git show FETCH_HEAD:scripts/ci/gate-impact.mjs > "$RUNNER_TEMP/gate-impact.mjs"
-          node "$RUNNER_TEMP/gate-impact.mjs" run --pr ${{ matrix.pr }} --sha ${{ matrix.sha }} --gate ${{ github.event.pull_request.head.sha }} --files-file gate-impact-files.txt --cmds-file gate-impact-cmds.txt --out result-${{ matrix.pr }}.json
+          node "$RUNNER_TEMP/gate-impact.mjs" run --pr ${{ matrix.pr }} --sha ${{ matrix.sha }} --gate $LX_HEAD_SHA --files-file gate-impact-files.txt --cmds-file gate-impact-cmds.txt --out result-${{ matrix.pr }}.json
       - if: always()
         uses: actions/upload-artifact@v4
         with: { name: 'gate-impact-result-${{ matrix.pr }}', path: 'result-${{ matrix.pr }}.json', retention-days: 3, if-no-files-found: ignore }
@@ -77,7 +77,7 @@ jobs:
       - uses: actions/download-artifact@v4
         with: { path: artifacts }
       - run: cp artifacts/gate-impact-plan/gate-impact-cmds.txt . || true
-      - env: { GH_TOKEN: '${{ github.token }}', GITHUB_REPOSITORY: '${{ github.repository }}' }
+      - env: { GH_TOKEN: '${{ github.token }}', GITHUB_REPOSITORY: '${{ github.repository }}', LX_PR: '${{ github.event.pull_request.number }}' }
         run: |
           [ -f scripts/ci/gate-impact.mjs ] || { echo "gate-impact.mjs chưa có trên main (PR đang thêm nó) – bỏ qua comment"; exit 0; }
-          node scripts/ci/gate-impact.mjs report --self ${{ github.event.pull_request.number }} --dir artifacts --skipped '${{ needs.select.outputs.skipped }}'
+          node scripts/ci/gate-impact.mjs report --self $LX_PR --dir artifacts --skipped '${{ needs.select.outputs.skipped }}'

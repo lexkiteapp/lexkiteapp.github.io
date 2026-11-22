@@ -24,6 +24,7 @@
 - [study4-courses.md](research/study4-courses.md) — Ghi chú nghiên cứu cấu trúc khóa học & bài tập của Study4 (15/10/2026, duyệt chỉ đọc); đọc khi: thiết kế khóa học/bài tập
 - [study4-syllabi.md](research/study4-syllabi.md) — Ghi chú nghiên cứu giáo trình Study4; đọc khi: thiết kế giáo trình
 - [pron-phoneme-plan.md](research/pron-phoneme-plan.md) — Kế hoạch R&D chấm phát âm từng âm vị kiểu ELSA, 100% miễn phí (wav2vec2 ONNX trên máy, GOP, P0–P3 + ước lượng token); đọc khi: làm chấm phát âm
+- [lesson-qa-1511.md](research/lesson-qa-1511.md) — Soát lỗi nội dung người học 15/11: chấm mù 574 mục, tỉ lệ lỗi theo loại/nguồn/ngôn ngữ, gốc lỗi (dịch máy dịch luôn ví dụ Anh, gói nghĩa cờ 0/1) và cổng chặn; đọc khi: sửa generator dịch, thêm nội dung đa ngôn ngữ
 - [beat-top-ux.md](research/beat-top-ux.md) — Đo bản live + bảng khoảng cách trải nghiệm vs Duolingo/Babbel/ELSA/Cake/Memrise, 5 P0; đọc khi: chọn việc nâng trải nghiệm (onboarding, Hôm nay→bài, CLS/LCP)
 - [ai-speaking-first.md](specs/ai-speaking-first.md) — Spec-lite 05/11: đưa Nói với AI (Call/Roleplay) lên 1 chạm, phản hồi mỗi lượt (sửa câu · vì sao · câu tự nhiên · phát âm), cổng độ trễ/độ đúng, 9 việc PR; đọc khi sửa lối vào hoặc chấm nói
 - [play-and-speak.md](specs/play-and-speak.md) — Spec-lite (chờ chủ duyệt) vừa học vừa chơi + luyện nói theo tình huống: kiểm kê, so app top, 9 tính năng, P0–P2, kế hoạch 40 tình huống × 12 mẫu câu, $0; đọc khi: làm luyện nói/mini-game nói/nhập vai
@@ -51,6 +52,7 @@
 - [archive/PLAN-2026-10.md](archive/PLAN-2026-10.md) — Kế hoạch nâng cấp tổng 15/10, còn 42 mục chưa đánh dấu nhưng không ai cập nhật từ 15/10; hướng hiện hành xem BACKLOG.md và CONTENT-WORLD-PLAN.md. Đọc khi: tra lịch sử.
 - [archive/ROADMAP-2026-10.md](archive/ROADMAP-2026-10.md) — Lộ trình thương mại hóa 14/10, hiện trạng đã cũ; trạng thái store xem STORE-READINESS.md. Đọc khi: tra lịch sử.
 - [archive/AI-PLAN-2026-10.md](archive/AI-PLAN-2026-10.md) — Kế hoạch AI miễn phí nhiều tầng 15/10; hiện hành xem AI-LOCAL.md và EXPLAIN.md. Đọc khi: tra lịch sử.
+- [archive/CI-RUNNERS-QUEUE-1611.md](archive/CI-RUNNERS-QUEUE-1611.md) — Đo hàng chờ 16/11 (tách nguyên văn từ CI-RUNNERS.md). Đọc khi: tra số đo hàng chờ cũ.
 - [specs/teacher-rive-rig.md](specs/teacher-rive-rig.md) — Rig 2D Ama/Carlos kiểu Rive (TeacherRig: speak/setEmotion/gesture), vì sao không .riv, cổng khớp môi ±33 ms/khớp xương/fps/alpha, kế hoạch gesture bank chờ duyệt credit; đọc khi: thêm cử chỉ/biểu cảm hoặc gắn giáo viên vào màn mới
 - [specs/video-production-v2.md](specs/video-production-v2.md) — Video v2: giáo viên Teach2D vẽ bằng TeacherRig (viseme của voice.wav, cổng lipsync_rig ±33 ms), khối publish 4 nền tảng từ kịch bản, dọn video rác có cách ly; đọc khi: sửa lớp giáo viên video, metadata đăng bài, dọn video
 - [specs/me-settings-ux.md](specs/me-settings-ux.md) — Tôi + Cài đặt gọn: mục lục nhóm có giá trị hiện tại, trang con #/settings/<mục>, gom liên kết đọc thêm; đọc khi sửa settings.js/ux1-me.js

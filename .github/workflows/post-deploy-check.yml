@@ -42,6 +42,14 @@ jobs:
         timeout-minutes: 8
         env: { WAIT_SW: "${{ github.event_name == 'workflow_run' && '1' || '0' }}" }
         run: node scripts/test/post-deploy-check.mjs "$BASE" out/post-deploy
+      - name: Icon rỗng (WebKit iPhone + Chromium, scripts/test/icon-blank.mjs)
+        id: iconblank
+        if: ${{ !cancelled() }}
+        timeout-minutes: 8
+        run: |  # v1 + v2 (ux1 bật 100 % – giao diện người dùng thật thấy) song song: giữ khung 8 phút
+          node scripts/test/icon-blank.mjs "$BASE" --strict --max=25 --ui=v1 --shots=out/post-deploy/icons & p1=$!
+          node scripts/test/icon-blank.mjs "$BASE" --strict --max=25 --ui=v2 --shots=out/post-deploy/icons & p2=$!
+          r=0; wait $p1 || r=1; wait $p2 || r=1; exit $r
       - name: Rig giáo viên trên bản live (rig-live.mjs, Call + câu hỏi bài học, Chromium + WebKit, 390/1280, sáng/tối, fps, khớp miệng, giảm chuyển động)
         id: rig
         if: ${{ !cancelled() }}

@@ -86,11 +86,15 @@ async function open(o = {}) {
   await ctx.route('https://lexkite.com/blog-langs.json', r => r.fulfill({ status: 200, contentType: 'application/json', headers: { 'Access-Control-Allow-Origin': '*' }, body: '["en","vi"]' }));
   await ctx.route('https://lexkite.com/api/**', r => r.request().method() === 'OPTIONS' ? r.fulfill({ status: 204, headers: { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': '*' } })
     : r.fulfill({ status: 200, contentType: 'application/json', headers: { 'Access-Control-Allow-Origin': '*' }, body: JSON.stringify({ ok: true, notices: [], unread_count: 0 }) }));
+  // dịch thử của từ điển (dictionary.js) gọi mymemory thật: bị giới hạn tốc độ → trả không có CORS → console đỏ giả. Chặn bằng đáp án giả, CI không chạm dịch vụ ngoài.
+  await ctx.route('https://api.mymemory.translated.net/**', r => r.fulfill({ status: 200, contentType: 'application/json', headers: { 'Access-Control-Allow-Origin': '*' }, body: JSON.stringify({ responseData: { translatedText: '' }, responseStatus: 200 }) }));
   const page = await ctx.newPage(), errs = [];
   page.on('pageerror', e => errs.push('pageerror: ' + e.message));
   page.on('console', m => { if (m.type() === 'error' && !/Failed to load resource|favicon|googletagmanager|speechSynthesis|net::ERR/i.test(m.text())) errs.push('console: ' + m.text()); });
   if (!o.realSR) await page.addInitScript(MOCK, { local: o.local !== false });
   else await page.addInitScript(() => { try { delete window.SpeechRecognition; delete window.webkitSpeechRecognition; } catch (e) { /* */ } window.SpeechRecognition = window.webkitSpeechRecognition = undefined; localStorage.setItem('vb.whisper', '1'); localStorage.setItem('vb.call.asr', 'device'); });
+  // Từ #1789 máy mới mặc định giao diện v2 (App.ux1On) → màn gọi dựng khung Stitch, không có .call-ov. Kịch bản này kiểm trang gọi CŨ (.call-ov, nhánh dự phòng) → ghim lk.ux1=0; nhánh v2 có kiểm riêng ở dưới (lk.ux1=1).
+  await page.addInitScript(() => { try { if (localStorage.getItem('lk.ux1') == null) localStorage.setItem('lk.ux1', '0'); } catch (e) { /* bỏ qua */ } });
   await page.goto(`${BASE}app/?sandbox=1&hl=vi#/welcome/setup`, { waitUntil: 'load' });
   await page.waitForTimeout(1500); await page.waitForSelector('#obNext, #go', { timeout: 8000 }).catch(() => {}); for (let i = 0; i < 8 && !(await page.$('#go')) && (await page.$('#obNext')); i++) { await page.click('#obNext').catch(() => {}); await page.waitForTimeout(150); } const go0 = await page.$('#go'); if (go0) { await go0.click().catch(() => {}); await page.waitForTimeout(1000); }
   return { ctx, page, errs };

@@ -106,6 +106,19 @@ for n in T['nodes']:   # nothing may stay on screen after the card it belongs to
         if ends and (not n.get('out') or n['out']['t'] > max(ends) + 0.05): prob.append(dict(id=n['id'], why='outlives its card', type=n['type']))
 seen = set(); prob = [p for p in prob if not (json.dumps({k: v for k, v in p.items() if k != 't'}, sort_keys=True) in seen or seen.add(json.dumps({k: v for k, v in p.items() if k != 't'}, sort_keys=True)))]
 gate('layout', not prob, 3, problems=prob[:8])
+# platform UI zones (Spell->Sound, docs/specs/spell-sound.md): the 9:16 short keeps every element out of the top 12 % (back / search icons), the bottom 22 % (caption + sound row) and the right 14 % (like / comment rail),
+# and shows at most 6 text rows at once. Defects seen in the reference reel (title under the icons, meaning chips under the rail, last row over the caption) must never ship.
+if T['template'] in ('rule', 'band') and T['format'] == 'short':
+    ZW, ZH = 1080, 1920; zx, zy0, zy1 = ZW * 0.86, ZH * 0.12, ZH * 0.78; zp = []; ROWS = ('text', 'chip', 'ipapill', 'pill', 'cta')
+    for n in T['nodes']:
+        if n['type'] in ('confetti', 'backdrop') or n.get('hidden'): continue
+        b = n['box']
+        if b[2] > zx + 1 or b[1] < zy0 - 1 or b[3] > zy1 + 1: zp.append(dict(id=n['id'], type=n['type'], box=b))
+    if T['cap_box'] and T['cap_box'][2] > zx + 1: zp.append(dict(id='caption', box=T['cap_box']))
+    mx = 0
+    for i in range(int(T['total'] * 10)):
+        k = len([n for n in T['nodes'] if n['type'] in ROWS and n['id'] != 'series' and alpha(n, i / 10) > 0.3]); mx = max(mx, k)
+    gate('platform_zones', not zp and mx <= 6, 3, outside=zp[:6], max_rows=mx, zones=dict(top=0.12, bottom=0.22, right=0.14, max_rows=6))
 # contrast on the real fill (card tone / chip / pill / caption plate), both themes are separate renders
 def rgb(c, over=None):
     if c.startswith('#'): return c
@@ -141,7 +154,7 @@ for x in T['ipa']:
     if 'stress' in x and stress_index(x['ipa']) != x['stress']: ib.append(dict(token=x['token'], why='stress dot != IPA stress mark', ipa=x['ipa'], dot=x['stress']))
 gate('ipa', not ib, 3, checked=len(T['ipa']), bad=ib)
 # CTA deep link into the matching app feature
-cta = T['cta']; ROUTES = ('#/dict/', '#/verb/', '#/pron/', '#/fix', '#/phrases', '#/usage', '#/grammar', '#/lesson', '#/call', '#/confidence', '#/placement', '#/toeic', '#/reading', '#/review', '#/dictation')
+cta = T['cta']; ROUTES = ('#/dict/', '#/verb/', '#/pron/', '#/fix', '#/phrases', '#/usage', '#/grammar', '#/lesson', '#/call', '#/confidence', '#/placement', '#/toeic', '#/reading', '#/review', '#/dictation', '#/write', '#/speaking')
 gate('cta', cta['link'].startswith('https://lexkite.com/app/') and cta['route'].startswith(ROUTES) and cta['link'].endswith(cta['route']), 2, **cta)
 gate('duration', (18 <= T['total'] <= 28) if T['format'] == 'short' else (15 <= T['total'] <= 42), 2, seconds=T['total'], want='18-28 s social short (owner 29/10)' if T['format'] == 'short' else '15-42 s lesson embed')
 # rendered file
@@ -160,6 +173,8 @@ if o.video:
         crop = im[hx[1]:hx[3], hx[0]:hx[2]].astype(int); diff = (np.abs(crop - bgc).sum(2) > 60).mean(); hostvis.append(round(float(diff), 3))
         if im.std() < 4: blank.append(i)
     gate('frames', min(hostvis) > 0.12 and not blank, 3, host_cover_min=min(hostvis), host_missing_s=[i / 4 for i, x in enumerate(hostvis) if x <= 0.12][:6], blank=blank)   # 4 samples / s
+    from dead_band import check as _dead_band   # owner 19/11: no flat empty band >= 8 % of the frame height (scripts/video/tpl/dead_band.py), short + wide
+    _db = _dead_band(im.astype(np.float32).mean(2) for im in fr); gate('dead_band', _db['ok'], 3, **{k: v for k, v in _db.items() if k != 'ok'})
     if o.sheet:   # contact sheet: one frame per line (middle), for the review sheet
         ts = [round((x['t0'] + x['t1']) / 2, 2) for x in L.values()]
         sel = '+'.join(f'between(t\\,{t - 0.02}\\,{t + 0.02})' for t in ts)

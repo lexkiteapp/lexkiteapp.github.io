@@ -5,15 +5,20 @@ name: call-qa
 on:
   pull_request:
     paths: ['web/js/call.js', 'web/js/call/**', 'web/js/lesson/teacher.js', 'web/js/teacher-rig.js', 'web/js/audio.js', 'scripts/lipsync/**', 'scripts/cine/lipsync.py', 'scripts/test/lipsync.mjs', 'scripts/test/lipsync-cross.mjs', 'scripts/test/lipsync-lesson.mjs', 'web/js/pron.js', 'web/js/pron/**', 'web/js/ui.js', 'scripts/test/call-e2e.mjs', 'scripts/test/call-sheet.py', 'scripts/test/lip-shots.mjs', 'scripts/test/lip-sheet.py', '.github/workflows/call-qa.yml']
+  push:
+    branches: [main]
+    paths: ['web/js/call.js', 'web/js/call/**', 'web/js/lesson/teacher.js', 'web/js/teacher-rig.js', 'web/js/audio.js', 'scripts/lipsync/**', 'scripts/cine/lipsync.py', 'scripts/test/lipsync.mjs', 'scripts/test/lipsync-cross.mjs', 'scripts/test/lipsync-lesson.mjs', 'web/js/pron.js', 'web/js/pron/**', 'web/js/ui.js', 'scripts/test/call-e2e.mjs', 'scripts/test/call-sheet.py', 'scripts/test/lip-shots.mjs', 'scripts/test/lip-sheet.py', '.github/workflows/call-qa.yml']
   workflow_dispatch:
 permissions: { contents: read }
 concurrency:
   group: call-qa-${{ github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: ${{ github.event_name != 'push' }}
 jobs:
   # luật 11 (làn nhanh trước làn nặng, scripts/test/ci-policy.mjs): trên PR việc nặng chỉ chạy khi `npm test` đã XANH cùng sha (hoặc PR có nhãn `ready`) – đỏ/chưa xong thì mọi job dưới là skipped
   # (không chiếm runner); npm-test.yml job `heavy` chạy lại lượt này ngay khi npm test xanh (scripts/ci/heavy-rerun.mjs). Lỗi API → mở cổng (không mất kiểm).
   gate:
+    # luật 18 (CI làn nhanh, 16/11): PR chỉ chờ làn nhanh – việc nặng bỏ qua trên PR (skipped, không tốn máy), chạy SAU gộp trên push main; nhãn ready-heavy/ready = chạy nặng ngay trên PR
+    if: ${{ github.event_name != 'pull_request' || contains(github.event.pull_request.labels.*.name, 'ready-heavy') || contains(github.event.pull_request.labels.*.name, 'ready') }}
     runs-on: ubuntu-latest
     timeout-minutes: 3
     permissions: { contents: read, checks: read }

@@ -24,9 +24,9 @@
  },
  "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
  "cta": {
-  "area": "stop-saying",
-  "link": "https://lexkite.com/app/",
-  "say": "Practice free on lexkite.com"
+  "area": "vocab-review",
+  "link": "https://lexkite.com/app/#/review",
+  "say": "Practice it free"
  },
  "series": {
   "name": "Work",
@@ -92,12 +92,6 @@
       "Say it",
       "white"
      ]
-    ],
-    [
-     [
-      "before I do.",
-      "yellow"
-     ]
     ]
    ],
    "align": "l"
@@ -135,15 +129,6 @@
         "Say it"
        ]
       ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "before I do."
-       ]
-      ]
      }
     ]
    },
@@ -159,14 +144,6 @@
       "text": "Say it right",
       "tone": "teal",
       "ring": "_count"
-     },
-     {
-      "t": "line",
-      "runs": [
-       [
-        "Fix: I am interesting in this job."
-       ]
-      ]
      },
      {
       "t": "line",
@@ -219,7 +196,7 @@
       "tone": "green"
      },
      {
-      "t": "line",
+      "t": "sub",
       "runs": [
        [
         "I'm interested in this job.",
@@ -238,7 +215,7 @@
     ]
    }
   ],
-  "hook_text": "Say it before I do.",
+  "hook_text": "Say it",
   "end_line": "c"
  },
  "embed": {

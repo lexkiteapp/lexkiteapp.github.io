@@ -24,9 +24,9 @@
  },
  "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
  "cta": {
-  "area": "irregular-verb",
-  "link": "https://lexkite.com/app/",
-  "say": "Practice free on lexkite.com"
+  "area": "verbs",
+  "link": "https://lexkite.com/app/#/verb",
+  "say": "Practice it free"
  },
  "series": {
   "name": "Irregular Verb",
@@ -35,7 +35,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "goed?",
+   "text": "What is the past of go?",
    "gap": 0.7
   },
   {
@@ -54,7 +54,7 @@
    "gap": 0.7
   },
   {
-   "id": "t",
+   "id": "tip",
    "text": "Tip: say them like a song: go, went, gone. Do, did, done.",
    "gap": 0.7
   },
@@ -135,7 +135,7 @@
    {
     "id": "sum",
     "at": [
-     "t",
+     "tip",
      0
     ],
     "rows": [
@@ -148,7 +148,7 @@
       "t": "line",
       "runs": [
        [
-        "say them like a song: go, went, gone. Do, did, done."
+        "say them like a song: go, went, gone."
        ]
       ]
      }

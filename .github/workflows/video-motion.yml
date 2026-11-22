@@ -12,6 +12,9 @@ on:
       templates: { description: 'comma list', default: 'drill,mistake,tip,ready' }
   pull_request:
     paths: ['scripts/video/motion/**', 'scripts/teach/**', 'web/teach/characters.json', '.github/actions/video9-setup/**', 'scripts/video/remotion/src/stitch/**', 'content/video/cine/news/templates-motion/**', 'scripts/video/tpl/pilot5_voice.py', 'scripts/video/tpl/render_v9.py', 'scripts/video/tpl/qc_v9.py', 'scripts/video/tpl/pron.mjs', 'scripts/cine/news_voice.py', 'scripts/cine/whisper_det.py', 'scripts/cine/test_whisper_det.py', '.github/workflows/video-motion.yml']   # + the voice/render/QC scripts this workflow runs (02/11: a news_voice fix did not trigger it)
+  push:
+    branches: [main]
+    paths: ['scripts/video/motion/**', 'scripts/teach/**', 'web/teach/characters.json', '.github/actions/video9-setup/**', 'scripts/video/remotion/src/stitch/**', 'content/video/cine/news/templates-motion/**', 'scripts/video/tpl/pilot5_voice.py', 'scripts/video/tpl/render_v9.py', 'scripts/video/tpl/qc_v9.py', 'scripts/video/tpl/pron.mjs', 'scripts/cine/news_voice.py', 'scripts/cine/whisper_det.py', 'scripts/cine/test_whisper_det.py', '.github/workflows/video-motion.yml']   # + the voice/render/QC scripts this workflow runs (02/11: a news_voice fix did not trigger it)
 permissions: { contents: read }
 # bounded group (15/11): the old group embedded the whole `templates` list - a 15-template dispatch ended as a failed run with 0 jobs. Dispatch = own group per run (never cancelled by another list), PR = per ref.
 concurrency: { group: 'video-motion-${{ github.event_name == ''workflow_dispatch'' && github.run_id || github.ref }}', cancel-in-progress: true }
@@ -22,6 +25,8 @@ jobs:
   # luật 11 (làn nhanh trước làn nặng, scripts/test/ci-policy.mjs): trên PR việc nặng chỉ chạy khi `npm test` đã XANH cùng sha – đỏ/chưa xong thì mọi job dưới là skipped
   # (không chiếm runner); npm-test.yml job `heavy` chạy lại lượt này ngay khi npm test xanh (scripts/ci/heavy-rerun.mjs). Lỗi API → mở cổng (không mất kiểm).
   gate:
+    # luật 18 (CI làn nhanh, 16/11): PR chỉ chờ làn nhanh – việc nặng bỏ qua trên PR (skipped, không tốn máy), chạy SAU gộp trên push main; nhãn ready-heavy/ready = chạy nặng ngay trên PR
+    if: ${{ github.event_name != 'pull_request' || contains(github.event.pull_request.labels.*.name, 'ready-heavy') || contains(github.event.pull_request.labels.*.name, 'ready') }}
     runs-on: ubuntu-latest
     timeout-minutes: 3
     permissions: { contents: read, checks: read }
@@ -44,7 +49,9 @@ jobs:
     outputs: { list: '${{ steps.m.outputs.list }}' }
     steps:
       - id: m
-        run: echo "list=$(python3 -c "import json;print(json.dumps([x.strip() for x in '${{ github.event.inputs.templates || (github.event_name == 'pull_request' && 'drill' || 'drill,mistake,tip,ready') }}'.split(',') if x.strip()]))")" >> "$GITHUB_OUTPUT"
+        env:
+          LX_TPLS: ${{ github.event.inputs.templates || (github.event_name == 'pull_request' && 'drill' || 'drill,mistake,tip,ready') }}
+        run: echo "list=$(python3 -c "import json,os;print(json.dumps([x.strip() for x in os.environ['LX_TPLS'].split(',') if x.strip()]))")" >> "$GITHUB_OUTPUT"
   voice:
     needs: [setup, gate]
     if: needs.gate.outputs.go == 'true'

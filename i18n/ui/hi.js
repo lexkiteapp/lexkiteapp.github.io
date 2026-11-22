@@ -984,6 +984,7 @@
 "Thử Phòng viết lần đầu":"लेखन कक्ष को पहली बार आज़माएँ",
 "Thử lại":"फिर कोशिश करें",
 "Thử thách 60 giây":"60 सेकंड की चुनौती",
+"Thử thách nói 30 giây":"30-second speaking challenge",
 "Thử thách tự đặt câu":"अपना वाक्य स्वयं लिखें चुनौती",
 "Thực phẩm & Nông nghiệp":"भोजन और कृषि",
 "Tia chớp":"बिजली",

@@ -18,12 +18,12 @@ for (const f of files) {
 }
 for (const [k, v] of seen) ok(v.length < 2, `chuỗi dài lặp ${v.length} lần (${[...new Set(v)].join(', ')}): "${k.slice(0, 50)}…" → thêm vào _i.js, dùng g.RTI[n]`);
 rti.forEach((s, i) => ok(used.has(i), `RTI[${i}] không đề nào dùng (thừa)`));
-const app = fs.readFileSync('web/js/app.js', 'utf8');
-ok(app.indexOf("'js/readtest/_i.js'") > 0 && app.indexOf("'js/readtest/_i.js'") < app.indexOf("'js/readtest/test1.js'"), 'app.js nạp _i.js trước test1.js');
+const app = fs.readFileSync('web/js/bundles.js', 'utf8');
+ok(app.indexOf("'js/readtest/_i.js'") > 0 && app.indexOf("'js/readtest/_i.js'") < app.indexOf("'js/readtest/test1.js'"), 'bundles.js nạp _i.js trước test1.js');
 for (const f of ['scripts/test/explain-check.mjs', 'scripts/gen-explain.mjs', 'scripts/gen-paraphrase.mjs']) ok(/readdirSync\([^;]*\)\.sort\(\)/.test(fs.readFileSync(f, 'utf8')), `${f}: đọc readtest theo thứ tự sort`);
-// gt3.js (GT3–GT5) đã dời sang web/cpack: phải còn trong gói 'mock' của app.js (tải lười thật) và vẫn định nghĩa đủ 3 đề GT
+// gt3.js (GT3–GT5) đã dời sang web/cpack: phải còn trong gói 'mock' của bundles.js (tải lười thật) và vẫn định nghĩa đủ 3 đề GT
 ok(fs.existsSync(D2 + '/gt3.js') && !fs.existsSync(D + '/gt3.js'), 'gt3.js nằm ở web/cpack/readtest, không còn ở web/js');
-ok(app.includes("'cpack/readtest/gt3.js'") && !app.includes("'js/readtest/gt3.js'"), "gói mock của app.js nạp 'cpack/readtest/gt3.js'");
+ok(app.includes("'cpack/readtest/gt3.js'") && !app.includes("'js/readtest/gt3.js'"), "gói mock của bundles.js nạp 'cpack/readtest/gt3.js'");
 { const cg = { self: null }; cg.self = cg; vm.createContext(cg); vm.runInContext(fs.readFileSync(path.join(D, '_i.js'), 'utf8'), cg); vm.runInContext(fs.readFileSync(D2 + '/gt3.js', 'utf8'), cg); const ids = (cg.READTESTS || []).map(t => t.id); ok(['gt3', 'gt4', 'gt5'].every(i => ids.includes(i)), `gt3.js định nghĩa đề gt3/gt4/gt5 (có: ${ids.join(',')})`); }
 // Họ đề khác (chỉ gom chuỗi mà gom thật sự tiết kiệm byte, tức đủ lặp để bù mục trong bảng): bảng chuỗi dài dùng chung g.<tên> định nghĩa ở đầu tệp đầu tiên (đã sort), các tệp sau tham chiếu – cùng luật chống trùng.
 for (const { sub, re, name, first } of [{ sub: 'toeic', re: /^listening\d+\.js$/, name: 'TQL', first: 'listening1.js' }, { sub: 'toeic', re: /^reading\d+\.js$/, name: 'TQR', first: 'reading1.js' }, { sub: 'listen', re: /^test\d+\.js$/, name: 'LTI', first: 'test1.js' }]) {
@@ -44,6 +44,6 @@ for (const { sub, re, name, first } of [{ sub: 'toeic', re: /^listening\d+\.js$/
 }
 for (const f of ['scripts/sentence-audio/corpus.mjs', 'scripts/test/next-step.mjs']) ok(/\.test\(f\)\)\.sort\(\)|dataFiles\('listen'/.test(fs.readFileSync(f, 'utf8')), `${f}: đọc listening/listen theo sort (hoặc dataFiles – đã sort theo số)`);
 // Hai đoạn lặp của đề Listening TOEIC (Part 1 đọc số + 4 phương án; Part 2 → MCQ A–C) chỉ ở g.TQH (listening1.js); listening2–7 gọi.
-for (const f of fs.readdirSync('web/js/toeic').filter(x => /^listening\d+\.js$/.test(x))) { const s = fs.readFileSync(path.join('web/js/toeic', f), 'utf8'); if (f !== 'listening1.js') { ok(!/P1\.forEach|Mark your answer\.|p2script\.push\(\{ s: it\.rs|speakers: \{ N:/.test(s), `${f}: chép lại helper Part 1/2 → dùng g.TQH.p1/p2`); ok(/g\.TQH\.p1\(/.test(s) && (f === "listening6.js" || /g\.TQH\.p1i\(/.test(s)) && /g\.TQH\.p2s\(/.test(s) && /g\.TQH\.sp\b/.test(s) && /g\.TQH\.p2\(/.test(s), `${f}: gọi g.TQH.p1/p2`); } }
+for (const pth of dataFiles('toeic', /^listening\d+\.js$/)) { const f = path.basename(pth), s = fs.readFileSync(pth, 'utf8'); if (f !== 'listening1.js') { ok(!/P1\.forEach|Mark your answer\.|p2script\.push\(\{ s: it\.rs|speakers: \{ N:/.test(s), `${f}: chép lại helper Part 1/2 → dùng g.TQH.p1/p2`); ok(/g\.TQH\.p1\(/.test(s) && (f === "listening6.js" || /g\.TQH\.p1i\(/.test(s)) && /g\.TQH\.p2s\(/.test(s) && /g\.TQH\.sp\b/.test(s) && /g\.TQH\.p2\(/.test(s), `${f}: gọi g.TQH.p1/p2`); } }
 console.log(fails ? `✗ readtest-dedupe: ${fails} lỗi` : `✓ readtest-dedupe: ${rti.length} chuỗi dùng chung, ${files.length} đề không lặp chuỗi dài`);
 process.exit(fails ? 1 : 0);

@@ -43,8 +43,13 @@ jobs:
         if: ${{ steps.lease.outputs.skip != '1' }}
         id: up
         timeout-minutes: 52
-        env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }
-        run: node scripts/footage/archive.mjs --root /tmp/footage --manifest "$GITHUB_WORKSPACE/brand/library/cine/archive-manifest.json" --deadline-epoch "$((T0 + ${{ github.event.inputs.budget_min || '40' }} * 60))" --limit "${{ github.event.inputs.limit || '100000' }}" ${{ github.event.inputs.dry_run == 'true' && '--dry-run' || '' }} ${{ github.event.inputs.rehash == 'true' && '--rehash' || '' }}
+        env:
+          LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}'
+          LX_IN1: ${{ github.event.inputs.budget_min || '40' }}
+          LX_IN2: ${{ github.event.inputs.limit || '100000' }}
+          LX_IN3: ${{ github.event.inputs.dry_run == 'true' && '--dry-run' || '' }}
+          LX_IN4: ${{ github.event.inputs.rehash == 'true' && '--rehash' || '' }}
+        run: node scripts/footage/archive.mjs --root /tmp/footage --manifest "$GITHUB_WORKSPACE/brand/library/cine/archive-manifest.json" --deadline-epoch "$((T0 + $LX_IN1 * 60))" --limit "$LX_IN2" $LX_IN3 $LX_IN4
       - name: Ghi manifest vào main
         if: ${{ steps.lease.outputs.skip != '1' && (always() && github.event.inputs.dry_run != 'true') }}
         run: |

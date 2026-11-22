@@ -31,6 +31,8 @@
 | `toeic` | TOEIC Word | app TOEIC Part 5 item (`web/js/toeic/reading*`: answer key + cue) | `#/toeic` |
 | `review` | Remember This? | audited word bank card + the app's 4 grade buttons (en i18n) | `#/review?w=<word>` |
 | `call` | Ask Ama | app call script (`web/js/call/calls.js`: phrase, meaning, reply) – in-app caller is Mia, so the CTA says "Practice a real call" | `#/call/<id>` |
+| `roots` | Word Roots (Gốc từ, 17/11) | `content/video/teach2d/roots.json`: 40 Latin / Greek roots × 6–10 real words; IPA / definition / example from the audited bank | `#/dict/<first word>` |
+| `band` | Band 5 to 9 (20/11, [spec](specs/band-upgrade.md)) | `content/video/teach2d/bands.json`: 14 topics × 3 hand-written model sentences (IELTS band 5 / 7 / 9) + one reason and criterion per upgrade | `#/write` · `#/speaking` |
 
 ## Variety (owner 29/10: "đa dạng, đỡ nhàm chán")
 - Fixed per series (recognition): series chip + series tint on the canvas (`theme.json` tints: US/UK teal, Verbs gold, Stress coral, Stop Saying red-coral, Phrasal mint) + one teacher per series.
@@ -92,6 +94,13 @@ Chữ không-Latin (ru/hi/ar/ja/ko/zh): Chromium tự lùi phông theo glyph (jo
 
 ### Tự duyệt (chủ cho tự đăng 11/11)
 `autopub_gate.py`: QC ≥ 90 cả short + wide, mọi cổng xanh (phụ đề khớp, vùng an toàn, chính tả/IPA, wpm), `native-qa` xanh (`l1-qa.json`), publish hợp lệ → tự duyệt, tự đăng, lên lịch sẵn. Bài đầu tiên mỗi page được báo điều phối để chủ xem sau.
+
+## Word Roots – "Gốc từ" (17/11, template `roots`)
+> Chuỗi "một gốc – ba từ": mở bằng vòng tròn (gốc ở giữa, các từ của bài nằm trên vòng, mỗi từ hiện đúng lúc giáo viên đọc tên), rồi "Did you know?" (từ gốc Latin/Hy Lạp), mỗi từ một thẻ Kit (tiền tố mực + GỐC vàng, IPA, công thức `de- + pos = down + put`, nghĩa ngắn, câu ví dụ của kho), quiz 3 giây, CTA `#/dict/<từ>`. Ý tưởng định dạng tham khảo kênh khác; hình, câu chữ, nhân vật là của Lexkite (giáo viên 2D Ama/Carlos, thẻ Kit, emoji của kho từ).
+- **Kho**: `roots.json` (≥ 30 gốc; hiện 40 / ~290 từ). Mỗi từ: `seg` = `tiền-|gốc|-hậu` (nối lại == chính tả, phần gốc ∈ `variants`), `mean` = nghĩa ngắn nói thành lời, `pm` = nghĩa tiền tố riêng (tuỳ chọn). Nguồn từ nguyên (`lang` + `src` + `src_mean`) đã đối chiếu Etymonline / Wiktionary; `scripts/test/teach2d-roots.py` khoá nguồn từng gốc, từ phải có trong từ điển app (IPA + nghĩa + ví dụ), `vi` giữ cho clip L1 tiếng Việt.
+- **Sinh tập**: `gen.py --roots` chia mỗi gốc thành bài 3 từ (2 khi dư 1 hoặc quá 28 s), 4 cổng máy như `--plan` (data == kho · level ≤ B1 trừ từ dạy · hook · dup) → `auto.json` + `reviewed.json`. Giáo viên xen kẽ Ama/Carlos. Bài đầu mỗi gốc lên trước (đa dạng), bài sau theo sau.
+- **Dựng**: `build.py` `T_roots`; vòng tròn `ring.png` sinh lúc dựng; tint `roots` trong `theme.json`; nhạc `chill-keys`. Metadata `publish.py` (tiêu đề `Pos root: position, deposit and opposite`, mô tả có từ nguyên + công thức).
+- **Duyệt/đăng**: mẫu `roots` nằm ở sổ duyệt (`approved.json`) trạng thái `draft` tới khi tập đầu có short + wide QC ≥ 90 (bank.py) → điều phối chuyển `approved` → autopub_gate → store → lịch như mọi tập Teach2D (1 video/kênh/ngày).
 
 ## Not done yet (needs the owner)
 - Owner OK 30/10 on the 5 new templates (grammar, dictation, toeic, review, call – CI f5c3fe8, all 32 renders QC 100). Batch / cron / publish still need their own OK.

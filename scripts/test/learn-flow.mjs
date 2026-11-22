@@ -17,7 +17,7 @@ const scripts = [...html.matchAll(/<script(?: defer)? src="([^"]+)"><\/script>/g
 const css = (fs.readFileSync(path.join(WEB, 'css/style.css'), 'utf8') + fs.readFileSync(path.join(WEB, 'css/lazy-ui.css'), 'utf8'));
 const vc = new jsdom.VirtualConsole(); vc.on('jsdomError', e => { if (!/Not implemented|Could not parse CSS/.test(e.message)) console.error(e.message); });
 const dom = new JSDOM(html.replace(/<!--hero-->[\s\S]*?<!--\/hero-->/, '').replace(/<script(?: defer)? src="[^"]+"><\/script>/g, '').replace(/<link[^>]+>/g, '').replace('</head>', `<style>${css}</style></head>`), { url: 'http://localhost/app/#/home', runScripts: 'outside-only', pretendToBeVisual: true, virtualConsole: vc });
-const w = dom.window, errors = [];
+const w = dom.window, errors = []; w.localStorage.setItem('lk.ux1', '0'); // luồng v1: đặt cờ TẮT tường minh (máy mới chưa có config giờ = BẬT v2, #1789)
 w.addEventListener('error', e => errors.push(e.message));
 w.console.error = (...a) => errors.push(a.join(' '));
 w.scrollTo = () => {}; w.HTMLElement.prototype.scrollIntoView = () => {}; w.matchMedia = () => ({ matches: false, addEventListener() {}, addListener() {} });
@@ -227,8 +227,8 @@ ok((await w.App.todayPlan()).some(x => x.href === '#/placement') && w.App.pathCu
   // Nội dung đích của mọi bước (đọc thẳng file dữ liệu – không cần nạp từng gói)
   const src = (...fs) => fs.map(f => fs0(f)).join('\n'), fs0 = f => { try { return fs.readFileSync(path.join(WEB, 'js', f), 'utf8'); } catch (e) { return ''; } };
   const dir = d => fs.readdirSync(path.join(WEB, 'js', d)).map(f => d + '/' + f);
-  const C = { roleplay: src(...dir('roleplay'), ...dir('../cpack/roleplay')), call: src('call/calls.js', 'call/calls-exam.js'), listen: src(...dir('listen'), ...dir('../cpack/listen'), ...dir('toeic')), task1: src('task1.js'), write: src('write.js'), letters: src('write/gt-letters.js'),
-    rtype: src('rtype.js'), toefl: src('toefl.js'), toeic: src('toeic.js'), treading: src(...dir('toeic')), grammar: src(...dir('grammar'), ...dir('../cpack/grammar')) };
+  const C = { roleplay: src(...dir('roleplay'), ...dir('../cpack/roleplay')), call: src('call/calls.js', 'call/calls-exam.js'), listen: src(...dir('listen'), ...dir('../cpack/listen'), ...dir('toeic'), ...dir('../cpack/toeic')), task1: src('task1.js'), write: src('write.js'), letters: src('write/gt-letters.js'),
+    rtype: src('rtype.js'), toefl: src('toefl.js'), toeic: src('toeic.js'), treading: src(...dir('toeic'), ...dir('../cpack/toeic')), grammar: src(...dir('grammar'), ...dir('../cpack/grammar')) };
   const has = (txt, id) => new RegExp(`id: '${id}'|T\\('${id}'`).test(txt);
   const exists = h => { const [, r, a = '', q = ''] = /^#\/([a-z0-9-]+)\/?([^?]*)\??(.*)$/.exec(h) || [];
     if (r === 'practice') { const id = decodeURIComponent(new URLSearchParams(q).get('src') || '').replace(/^topic:/, ''); return id === 'due' || (w.App.topicOf(id) || { words: [] }).words.length >= 3; }

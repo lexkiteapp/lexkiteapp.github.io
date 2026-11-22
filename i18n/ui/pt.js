@@ -984,6 +984,7 @@
 "Thử Phòng viết lần đầu":"Experimente a sala de redação pela primeira vez",
 "Thử lại":"Tentar de novo",
 "Thử thách 60 giây":"Desafio de 60 segundos",
+"Thử thách nói 30 giây":"30-second speaking challenge",
 "Thử thách tự đặt câu":"Desafio de escrever sua própria frase",
 "Thực phẩm & Nông nghiệp":"Alimentação e agricultura",
 "Tia chớp":"Relâmpago",

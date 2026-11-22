@@ -5,7 +5,7 @@ export const MIME = { '.html': 'text/html', '.js': 'text/javascript', '.css': 't
 // Phục vụ thẳng web/ trên https://lk.test (hermetic: chặn mọi host khác, /api/* = {})
 export const serve = (ctx, ROOT) => ctx.route('**/*', r => { const u = new URL(r.request().url()); const prod = /^(www\.)?lexkite\.com$/.test(u.hostname); if (u.hostname !== 'lk.test' && !prod) return r.abort(); let p = decodeURIComponent(u.pathname); if (p.startsWith('/api/')) return r.fulfill({ status: 200, headers: { 'access-control-allow-origin': '*' }, body: '{}', contentType: 'application/json' }); if (p.endsWith('/')) p += 'index.html'; const f = path.join(ROOT, p); if (!fs.existsSync(f) || fs.statSync(f).isDirectory()) return r.fulfill({ status: 404, headers: { 'access-control-allow-origin': '*' }, body: '' }); r.fulfill({ status: 200, headers: { 'access-control-allow-origin': '*' }, body: fs.readFileSync(f), contentType: MIME[path.extname(f)] || 'application/octet-stream' }); });
 // Dữ liệu mẫu chung (bối cảnh Stitch): IELTS mục tiêu 7.5, 1 lần thi thử có điểm 4 kỹ năng, chặng 3
-export const SEED = async () => { localStorage.setItem('lk.ux1', '1'); localStorage.setItem('lk.onb', '1'); App.state.settings.onboarded = true; App.state.settings.exam = 'ielts'; App.state.settings.examTarget = '7.5'; await App.saveSettings();
+export const SEED = async () => { localStorage.setItem('lk.lcard', '0'); /* đo độ bám khuôn Stitch của tấm phản hồi; thẻ kết quả (slot extra) có cổng riêng: contrast, ux1-guard, lcard-shots */ localStorage.setItem('lk.ux1', '1'); localStorage.setItem('lk.onb', '1'); App.state.settings.onboarded = true; App.state.settings.exam = 'ielts'; App.state.settings.examTarget = '7.5'; await App.saveSettings();
   await Core.Store.set('mocks', [{ at: Date.now() - 3 * 864e5, bands: { listening: 7.5, reading: 7.5, writing: 6.5, speaking: 6.5 }, overall: 7 }]); localStorage.setItem('lk.lsn.path', '3'); localStorage.setItem('lk.ux1.st', JSON.stringify({ 0: 3, 1: 3, 2: 2 })); };
 // Bảng giải đấu mẫu giống Stitch (hạng 5 = mình): đặt lại sau mỗi lần tải lại trang (Sync.league là hàm thật cần đăng nhập → thay bằng dữ liệu mẫu)
 // MỌI màn (đầu trang Stitch: lửa 14 · 820 XP · 14/20; Chuỗi; Hoàn thành bài ô Streak 14): chuỗi 14 ngày liên tiếp, hôm nay 14/20 (như mẫu "14 day streak!") – chỉ nạp khi vào màn này (không đổi dữ liệu các màn khác)
@@ -23,10 +23,11 @@ export const SEED_STREAK_V5 = async () => { const k = d => { const x = new Date(
 // Thư viện phát âm: đã học vài âm như mẫu (tick ở /iː/ /ɪ/ /e/ /ɑː/ /p/ /b/); âm kế tiếp chưa học = ô hổ phách
 export const SEED_PRON = () => { App.state.game = App.state.game || {}; App.state.game.pronDone = { 'iː': 100, 'ɪ': 92, e: 88, 'ɑː': 100, p: 95, b: 90, 'final-consonants': 80 }; };
 export const SEED_GRAMMAR = () => { App.state.game = App.state.game || {}; App.state.game.grammarDone = { 'be-am-is-are': 95, 'present-simple': 90, 'present-continuous': 60, 'past-simple': 85, 'articles': 88, 'passive-voice': 82, 'conditionals-0-1': 70 }; }; // hub Ngữ pháp có tiến độ như mẫu (xanh ≥ 80, đỏ < 80, bài kế dở)
+export const SEED_SETTINGS = () => { const S = App.state.settings; S.theme = 'auto'; S.dailyNew = 20; S.accent = 'en-GB'; S.ttsRate = 0.92; S.reminderOn = true; S.reminderAuto = false; S.reminderTime = '20:00'; }; // Cài đặt: giá trị hàng mục lục cố định (mẫu: Tự động · 20 từ/ngày · UK 0.92× · nhắc 20:00)
 // Từ điển: lịch sử tra như mẫu (8 từ ở "Recent searches")
 export const SEED_DICT = async () => { await Core.Store.set('recent', ['ambiguous', 'feasible', 'mitigate', 'diligent', 'concur', 'went', 'coherent', 'pinnacle']); };
 export const SEED_DAY = async () => { await App.need('pathx'); const d = (await DayPath.days())[0]; if (d) await Core.Store.set('pathDays', { [d.key]: { s: ['learn', 'match'] } }); }; // Ngày 1: đã xong 2 bước (xong / tiếp theo / chưa làm cùng lúc)
-export const SEED_SCREEN = async (page, k) => { if (k === 'day') { await page.evaluate(SEED_DAY); await page.reload({ waitUntil: 'load' }); await page.waitForTimeout(1500); return; } if (k === 'dict') { await page.evaluate(SEED_DICT); await page.evaluate(() => App.route()); await page.waitForTimeout(600); return; } if (k === 'grammar') { await page.evaluate(SEED_GRAMMAR); await page.evaluate(() => App.route()); await page.waitForTimeout(600); return; } if (k === 'pron-hub') { await page.evaluate(SEED_PRON); await page.evaluate(() => App.route()); await page.waitForTimeout(600); return; } if (k !== 'streak') return; await page.clock.setFixedTime(new Date(STREAK_V5_NOW)); await page.evaluate(SEED_STREAK_V5); await page.evaluate(() => App.route()); await page.waitForTimeout(600); };
+export const SEED_SCREEN = async (page, k) => { if (k === 'settings') { await page.evaluate(SEED_SETTINGS); await page.evaluate(() => App.route()); await page.waitForTimeout(600); return; } if (k === 'day') { await page.evaluate(SEED_DAY); await page.reload({ waitUntil: 'load' }); await page.waitForTimeout(1500); return; } if (k === 'dict') { await page.evaluate(SEED_DICT); await page.evaluate(() => App.route()); await page.waitForTimeout(600); return; } if (k === 'grammar') { await page.evaluate(SEED_GRAMMAR); await page.evaluate(() => App.route()); await page.waitForTimeout(600); return; } if (k === 'pron-hub') { await page.evaluate(SEED_PRON); await page.evaluate(() => App.route()); await page.waitForTimeout(600); return; } if (k !== 'streak') return; await page.clock.setFixedTime(new Date(STREAK_V5_NOW)); await page.evaluate(SEED_STREAK_V5); await page.evaluate(() => App.route()); await page.waitForTimeout(600); };
 export const SEED_LEAGUE = () => {
   const names = ['An Nguyen', 'Linh Khanh', 'Marcus Roy', 'Tariq Chen', 'You Lexkite', 'Sara Hansen', 'Daiki Kato'], xps = [1420, 1280, 1150, 980, 820, 760, 690]; // bảng giải đấu mẫu giống Stitch (hạng 5 = mình)
   window.Sync = window.Sync || {}; Sync.user = { uid: 'u1', displayName: 'You Lexkite' }; Sync.authed = async () => Sync.user;
@@ -43,6 +44,7 @@ export const SCREENS = {
   home: 'home',
   leagues: 'league',
   lesson: 'lesson/go?demo=1',
+  library: 'library?g=all',
   me: 'me',
   'onb-goal': 'welcome/setup',
   'onb-level': 'welcome/setup?s=level',
@@ -53,6 +55,8 @@ export const SCREENS = {
   'pron-hub': 'pron',
   readiness: 'goal',
   review: 'review?hub=1',
+  score: 'score',
+  settings: 'settings',
   skills: 'skills',
   'speak-drill': 'speak/cafe/drill',
   'speak-sit': 'speak/cafe',
@@ -85,6 +89,8 @@ export const V2REF = {
   'pron-hub': 'pron-hub',
   readiness: 'exam-readiness',
   review: 'review',
+  score: 'say-front', // Thử thách nói 30 giây (web/cpack/score-app/score30.js): cùng khung Stitch say-front (thanh trên + tab), thân riêng
+  settings: 'settings',
   skills: 'skills',
   'speak-drill': 'pas-drill',
   'speak-sit': 'pas-sit',
@@ -141,6 +147,13 @@ export const DRIVE = async k => { const nz = v => String(v).trim().replace(/[.,!
 
 // 13 màn chủ duyệt (v2.1) → khóa trong SCREENS (null = chưa port/chưa chụp → QC cuối ĐỎ). teacher: tư thế mong đợi theo trạng thái (teacher-pose-map), null = màn không có giáo viên;
 // ready: bộ chọn chứng tỏ đã lái TỚI đúng trạng thái (chụp khi chưa tới = ĐỎ ở stitch-diff + final-qc); speaks: giáo viên phải nói (kiểm giọng == giáo viên + khớp miệng); sfx: âm hiệu ứng phải phát; duo: 2 giáo viên cùng màn. Màn port xong: điền k + SCREENS/V2REF/DRIVE.
+// Chia việc theo màn cho CI (stitch-diff.yml matrix, 19/11: một job 30 phút bị huỷ – "So với mẫu Stitch" 1136 s + "QC cuối" 507 s): SHARD="i/n" (i từ 0) → mỗi shard chỉ xử lý
+// các màn có chỉ số (theo thứ tự khai báo trong SCREENS) ≡ i (mod n); bỏ SHARD = chạy đủ (như cũ). Mục không gắn màn (k=null) và gallery chỉ shard 0. stitch-diff.mjs và final-qc.mjs
+// dùng CHUNG phép chia này nên final-qc của shard i luôn thấy scores.json của chính shard i.
+const [SH_I, SH_N] = (process.env.SHARD || '0/1').split('/').map(Number);
+export const SHARD = { i: SH_I, n: SH_N };
+export const inShard = k => (k == null ? SH_I === 0 : Object.keys(SCREENS).indexOf(k) % SH_N === SH_I);
+export const shardScreens = () => Object.entries(SCREENS).filter(([k]) => inShard(k));
 export const FINAL = [
   { stitch: 'today', k: 'home', ready: ':is(.v2-today, .v2-today-desk) [data-blk="path"] :is([data-cur], [data-pv])' /* một component PathTrail [data-pv] ở cả today (điện thoại) và today-desk (≥ 1024): thu gọn = chặng hiện tại, mở rộng chỉ thêm hàng */, teacher: ['happy', 'talk', 'point'] /* happy = vòng nghỉ Chars.idle (chủ 3/11: cô sống ở Hôm nay) */ }, { stitch: 'today-new', k: 'today-new', ready: '.v2-today-new [data-step]', teacher: ['wave'] }, { stitch: 'review', k: 'review', teacher: null }, { stitch: 'practice', k: 'practice', teacher: null },
   { stitch: 'leagues', k: 'leagues', teacher: null }, { stitch: 'me', k: 'me', teacher: null }, { stitch: 'streak', k: 'streak', teacher: ['encourage'] },
@@ -150,5 +163,5 @@ export const FINAL = [
   { stitch: 'story-duo', k: 'story', ready: '.lsn-qblk ~ #lsnBody .lsn-opt, .lsn-qblk + #lsnBody .lsn-opt', teacher: ['talk', 'listen'], duo: true, speaks: true },
 ];
 export const READY = Object.fromEntries(FINAL.filter(f => f.k && f.ready).map(f => [f.k, f.ready]));
-Object.assign(READY, { 'speak-sit': '.v2s-pas-sit', 'speak-drill': '.v2s-pas-drill', 'onb-goal': '.v2s-onb-goal', 'onb-level': '.v2s-onb-level', 'onb-target': '.v2s-onb-target', 'onb-pace': '.v2s-onb-pace', 'onb-ready': '.v2s-onb-ready', welcome: ':is(.v2s-welcome, .v2s-welcome-desk)', 'welcome-desk': ':is(.v2s-welcome, .v2s-welcome-desk)' }); // welcome: điện thoại/máy tính cùng route, chọn khung theo độ rộng // 2 màn Nói (cờ lk.speak=1): trang lỗi/không tải gói = ĐỎ, không xanh giả
+Object.assign(READY, { score: '.s30 .txt', 'speak-sit': '.v2s-pas-sit', 'speak-drill': '.v2s-pas-drill', 'onb-goal': '.v2s-onb-goal', 'onb-level': '.v2s-onb-level', 'onb-target': '.v2s-onb-target', 'onb-pace': '.v2s-onb-pace', 'onb-ready': '.v2s-onb-ready', welcome: ':is(.v2s-welcome, .v2s-welcome-desk)', 'welcome-desk': ':is(.v2s-welcome, .v2s-welcome-desk)' }); // welcome: điện thoại/máy tính cùng route, chọn khung theo độ rộng // 2 màn Nói (cờ lk.speak=1): trang lỗi/không tải gói = ĐỎ, không xanh giả
 

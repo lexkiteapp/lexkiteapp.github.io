@@ -1,0 +1,28 @@
+/* UI th – score30 (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["th"] = Object.assign(D["th"] || {}, {
+"Bạn của bạn hơn {n} điểm – thử lại nhé!":"เพื่อนของคุณนำอยู่ {n} คะแนน ลองอีกครั้ง!",
+"Bạn của bạn đạt {s} ({c}). Vượt qua nhé!":"เพื่อนของคุณได้ {s} ({c}) ลองเอาชนะดู!",
+"Bạn thắng! {me} so với {fr}":"คุณชนะ! {me} ต่อ {fr}",
+"Bắt đầu":"เริ่ม",
+"Cần micro. Âm thanh không rời khỏi máy bạn.":"ต้องใช้ไมโครโฟน เสียงจะไม่ออกจากอุปกรณ์ของคุณ",
+"Hòa nhau! {me} so với {fr}":"เสมอกัน! {me} ต่อ {fr}",
+"Không nghe rõ – thử lại ở nơi yên tĩnh hơn nhé.":"ฟังไม่ชัด ลองอีกครั้งในที่เงียบกว่านี้",
+"Link thử thách không dùng được lúc này – thử lại sau.":"ลิงก์ท้าพูดใช้ไม่ได้ในตอนนี้ ลองใหม่ภายหลัง",
+"Làm lại":"ลองอีกครั้ง",
+"Lưu loát":"ความคล่อง",
+"Mình nói tiếng Anh được {s}/100 ({c}) trên Lexkite. Bạn hơn được không? {url}":"ฉันพูดภาษาอังกฤษบน Lexkite ได้ {s}/100 ({c}) คุณเอาชนะได้ไหม? {url}",
+"Nhận điểm nói, thách bạn bè":"รับคะแนน แล้วท้าเพื่อน",
+"Phát âm":"ออกเสียง",
+"Thách bạn bè":"ท้าเพื่อน",
+"Thẻ điểm nói tiếng Anh":"การ์ดคะแนนการพูดภาษาอังกฤษ",
+"Trình duyệt này chưa hỗ trợ nhận giọng nói. Hãy thử Chrome hoặc app Lexkite.":"เบราว์เซอร์นี้ยังไม่รองรับการรู้จำเสียง ลองใช้ Chrome หรือแอป Lexkite",
+"Tải ảnh":"บันทึกรูปภาพ",
+"Xong":"เสร็จแล้ว",
+"Đang nghe… còn {n} giây":"กำลังฟัง… เหลือ {n} วินาที",
+"Điểm tổng":"คะแนนรวม",
+"Điểm {s}/100, trình độ {c}":"คะแนน {s}/100 ระดับ {c}",
+"Đã chép link thử thách – dán gửi bạn nhé":"คัดลอกลิงก์ท้าพูดแล้ว วางส่งให้เพื่อนได้เลย",
+"Đọc to đoạn văn này trong 30 giây":"อ่านข้อความนี้ออกเสียงให้จบใน 30 วินาที",
+"Ước lượng CEFR – chỉ mang tính tham khảo":"ระดับ CEFR โดยประมาณ ใช้อ้างอิงเท่านั้น",
+});
+})(typeof self !== 'undefined' ? self : this);

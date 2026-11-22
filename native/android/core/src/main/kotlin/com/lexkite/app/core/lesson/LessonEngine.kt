@@ -108,6 +108,9 @@ object LessonEngine {
         return null
     }
 
+    /** Sentence-pattern card (result card saved by the learner, docs/specs/learn-card.md): word = "Can I have …, please?", practice sentence = ex. */
+    fun isPat(c: JsonObject) = c.s("word").contains("…")
+
     fun fromExt(c: JsonObject) = c.truthy("src") || c.arr("contexts").any { x -> val o = x.obj(); o != null && o.truthy("source") && Regex("^https?:").containsMatchIn(o.s("source")) }
     fun endOfDay(now: Long): Long = Calendar.getInstance().apply { timeInMillis = now; set(Calendar.HOUR_OF_DAY, 23); set(Calendar.MINUTE, 59); set(Calendar.SECOND, 59); set(Calendar.MILLISECOND, 999) }.timeInMillis
     fun isDue(c: JsonObject, now: Long): Boolean { val s = srs(c) ?: return false; return (num(s["reps"]) > 0 || Js.truthy(s["last"])) && num(s["due"]) <= endOfDay(now) }
@@ -157,14 +160,15 @@ object LessonEngine {
         val r = rng(o.seed?.takeIf { it != 0L } ?: nowMs)
         val pool = o.pool + picks.map { it.card }; val off = o.off; val per = if (o.perWord == 0) 2 else o.perWord
         val byWord = picks.map { p ->
-            val c = p.card; val s = sentenceOf(c); val types = ArrayList<String>()
+            val c = p.card; val pat = isPat(c) && c.truthy("ex"); val types = ArrayList<String>()
+            val s = if (pat) Sent(c.s("ex"), false, null, Found(0, 0, toks(c.s("ex")), "")) else sentenceOf(c)
             val pair = c.arr("sentences").mapNotNull { x ->
                 val e = x.obj(); val en = e?.s("en").orEmpty(); val n = toks(en).size
                 if (e != null && e.truthy("en") && e.truthy("vi") && findWord(en, c.s("word")) != null && n in 3..10) Sent(en, false, e.s("vi"), findWord(en, c.s("word"))!!) else null
             }.firstOrNull()
             var st = s
             if (st != null && st.tr.isNullOrEmpty() && o.gloss != null) st = st.copy(tr = o.gloss.invoke(c, st.text))
-            if (st != null) types.add("gap")
+            if (st != null && !pat) types.add("gap")
             if (st != null && st.at.toks.size <= 10 && (!st.tr.isNullOrEmpty() || !off.listen)) types.add("build")
             if (o.hasImg != null && o.hasImg.invoke(c.s("word"), c.s("pos"))) types.add("pic")
             if (pair != null) types.add("tr")
@@ -188,7 +192,7 @@ object LessonEngine {
                 "gap" -> { val opt = shuffle(listOf(s!!.at.form) + distract(c.s("word"), c.s("pos"), pool, 3, r), r); return base.copy(sent = s.text, own = s.own, blank = s.at, answer = s.at.form, options = opt, tr = s.tr.orEmpty()) }
                 "build", "tr" -> {
                     val x = (if (type == "tr") w.pair else w.s)!!; val words = toks(x.text)
-                    val extra = distract(c.s("word"), c.s("pos"), pool, 2, r).filter { e -> words.none { same(it, e) } }
+                    val extra = distract(c.s("word"), c.s("pos"), pool.filter { !Regex("\\s").containsMatchIn(it.s("word").trim()) }, 4, r).filter { e -> words.none { same(it, e) } }.take(2)   // noise tiles = single words, not in the sentence
                     return base.copy(sent = x.text, own = x.own, prompt = x.tr.orEmpty(), answer = words.joinToString(" "), tiles = shuffle(words + extra, r))
                 }
                 "type" -> {
@@ -198,8 +202,8 @@ object LessonEngine {
                 }
                 "pic" -> return base.copy(answer = c.s("word"), options = shuffle(listOf(c.s("word")) + distract(c.s("word"), c.s("pos"), pool, 3, r), r))
             }
-            val short = s != null && toks(s.text).size <= 8
-            val alt = if (s != null) LItem(0, "gap", "", null, sent = s.text, own = s.own, blank = s.at, answer = s.at.form, options = shuffle(listOf(s.at.form) + distract(c.s("word"), c.s("pos"), pool, 3, r), r), hints = HINTS["gap"]!!, tr = s.tr.orEmpty())
+            val short = s != null && (toks(s.text).size <= 8 || isPat(c))
+            val alt = if (s != null && s.at.form.isNotEmpty()) LItem(0, "gap", "", null, sent = s.text, own = s.own, blank = s.at, answer = s.at.form, options = shuffle(listOf(s.at.form) + distract(c.s("word"), c.s("pos"), pool, 3, r), r), hints = HINTS["gap"]!!, tr = s.tr.orEmpty())
             else LItem(0, "mean", "", null, answer = c.s("word"), options = shuffle(listOf(c.s("word")) + distract(c.s("word"), c.s("pos"), pool, 3, r), r), hints = HINTS["mean"]!!)
             val t = if (short) s!!.text else c.s("word")
             return base.copy(sent = t, answer = t, alt = alt)
@@ -209,7 +213,7 @@ object LessonEngine {
             val j = items.withIndex().indexOfFirst { (k, x) -> k > i && !same(x.word, items[i - 1].word) }
             if (j > 0) { val t = items[i]; items[i] = items[j]; items[j] = t }
         }
-        val mp = picks.filter { it.card.truthy("vi") || it.card.truthy("def") }.take(5)
+        val mp = picks.filter { (it.card.truthy("vi") || it.card.truthy("def")) && !isPat(it.card) }.take(5)
         if (o.match && (o.only == null || "match" in o.only) && mp.size >= 4)
             items.add(ceil(items.size / 2.0).toInt(), LItem(++id, "match", "#match", null, answer = "", hints = HINTS["match"]!!, pairs = shuffle(mp, r).take(4).map { MatchPair(it.card.s("word"), null, it.card) }))
         val out = items.map { adapt(it, off) }
@@ -350,7 +354,7 @@ object LessonEngine {
                 when (c.s("type")) {
                     "tap" -> {
                         val ln = lines[num(c["line"]).toInt()]; val t = toks(ln.s("en"))
-                        val extra = shuffle(words.filter { w -> t.none { it.lowercase() == w } }, r).take(2)
+                        val extra = (c["extra"] as? JsonArray)?.map { (it as JsonPrimitive).content } ?: shuffle(words.filter { w -> t.none { it.lowercase() == w } }, r).take(2)
                         out.add(base.copy(type = "build", sent = ln.s("en"), who = ln.s("who"), answer = t.joinToString(" "), tiles = shuffle(t + extra, r)))
                     }
                     "q" -> { val opts = c.arr("options").map { (it as JsonPrimitive).content }; out.add(base.copy(type = "q", prompt = c.s("q"), answer = opts[num(c["answer"]).toInt()], why = c.s("why"), options = if (c.truthy("keep")) opts else shuffle(opts, r))) }

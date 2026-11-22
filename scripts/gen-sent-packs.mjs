@@ -5,6 +5,7 @@
 //   node scripts/gen-sent-packs.mjs <lang|all> [--max N]   (all = vi + scripts/i18n-langs.txt)
 import fs from 'fs';
 import { fileURLToPath } from 'url';
+import { lexFiles } from './lib/lex-files.mjs';
 const R = new URL('../', import.meta.url);
 const LANGS = ['vi'].concat(fs.readFileSync(new URL('scripts/i18n-langs.txt', R), 'utf8').split('\n').map(s => s.trim()).filter(s => s && !s.startsWith('#')));
 const arg = process.argv[2] || 'all', mi = process.argv.indexOf('--max'), MAX = mi > 0 ? +process.argv[mi + 1] || 1e9 : 1e9;
@@ -15,7 +16,7 @@ export function sentences() {
   globalThis.t = globalThis.t || (s => s);
   const g = {};
   new Function('self', fs.readFileSync(new URL('web/js/data.js', R), 'utf8'))(g);
-  for (const f of fs.readdirSync(new URL('web/js/lib/', R)).sort()) if (/\.js$/.test(f) && !/^notes/.test(f)) { try { new Function('self', fs.readFileSync(new URL('web/js/lib/' + f, R), 'utf8'))(g); } catch (e) { /* tệp không phải kho từ */ } }
+  for (const p of lexFiles(f => !/^notes/.test(f))) { try { new Function('self', fs.readFileSync(new URL(p, R), 'utf8'))(g); } catch (e) { /* tệp không phải kho từ */ } }
   const out = new Map();
   for (const tp of g.IELTS_DATA.TOPICS) for (const w of tp.words || []) {
     const k = String(w.word || '').toLowerCase().trim();

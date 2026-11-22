@@ -1,0 +1,28 @@
+/* UI fr – score30 (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["fr"] = Object.assign(D["fr"] || {}, {
+"Bạn của bạn hơn {n} điểm – thử lại nhé!":"Votre ami a {n} points d'avance – réessayez !",
+"Bạn của bạn đạt {s} ({c}). Vượt qua nhé!":"Votre ami a obtenu {s} ({c}). Faites mieux !",
+"Bạn thắng! {me} so với {fr}":"Vous gagnez ! {me} contre {fr}",
+"Bắt đầu":"Commencer",
+"Cần micro. Âm thanh không rời khỏi máy bạn.":"Micro requis. L'audio ne quitte pas votre appareil.",
+"Hòa nhau! {me} so với {fr}":"Égalité ! {me} contre {fr}",
+"Không nghe rõ – thử lại ở nơi yên tĩnh hơn nhé.":"Je ne vous ai pas bien entendu – réessayez dans un endroit plus calme.",
+"Link thử thách không dùng được lúc này – thử lại sau.":"Le lien du défi est indisponible – réessayez plus tard.",
+"Làm lại":"Réessayer",
+"Lưu loát":"Fluidité",
+"Mình nói tiếng Anh được {s}/100 ({c}) trên Lexkite. Bạn hơn được không? {url}":"J'ai obtenu {s}/100 ({c}) en anglais oral sur Lexkite. Pouvez-vous faire mieux ? {url}",
+"Nhận điểm nói, thách bạn bè":"Obtenez votre score, défiez un ami",
+"Phát âm":"Prononcer",
+"Thách bạn bè":"Défier un ami",
+"Thẻ điểm nói tiếng Anh":"Carte de score d'anglais oral",
+"Trình duyệt này chưa hỗ trợ nhận giọng nói. Hãy thử Chrome hoặc app Lexkite.":"Ce navigateur ne reconnaît pas la voix. Essayez Chrome ou l'app Lexkite.",
+"Tải ảnh":"Enregistrer l'image",
+"Xong":"Terminé",
+"Đang nghe… còn {n} giây":"J'écoute… encore {n} s",
+"Điểm tổng":"Score global",
+"Điểm {s}/100, trình độ {c}":"Score {s}/100, niveau {c}",
+"Đã chép link thử thách – dán gửi bạn nhé":"Lien du défi copié – collez-le pour l'envoyer à un ami",
+"Đọc to đoạn văn này trong 30 giây":"Lisez ce texte à voix haute en 30 secondes",
+"Ước lượng CEFR – chỉ mang tính tham khảo":"Estimation CECRL – à titre indicatif",
+});
+})(typeof self !== 'undefined' ? self : this);

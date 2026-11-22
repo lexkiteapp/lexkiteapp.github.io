@@ -14,6 +14,7 @@ node scripts/grammar/build-lazy-idx.mjs --write >/dev/null   # sửa starter2.js
 node scripts/confidence/build.mjs        # sửa content/confidence → web/cpack/confidence/data.js
 node scripts/speak/build.mjs --write    # sửa content/situations → web/js/speak/data.js + s/ (Play & Speak, tải lười theo tình huống × ngôn ngữ)
 node scripts/lesson/build-gold.mjs       # sửa gold bank → web/cpack/lesson/gold.js (Giải thích của #/lesson)
+node scripts/lesson/build-card.mjs       # sửa content/lesson/card → web/packs/lcard (thẻ kết quả theo câu)
 node scripts/lesson/build-stories.mjs    # sửa content/lesson/stories.json → web/cpack/lesson/stories.js (Truyện + Radio)
 node scripts/framework/build-functions.mjs --write   # sửa content/framework/functions.json → web/cpack/framework/functions.js + en-src (Sổ mẫu câu theo chức năng, #/phrases)
 node scripts/fmt-stable.mjs | tail -1   # nguồn dịch i18n/ui + registry dài: mỗi mục một dòng, sắp xếp (chống xung đột PR – scripts/test/fmt-stable.mjs)
@@ -29,4 +30,7 @@ node scripts/test/ci-triage.mjs
 node scripts/test/ci-policy.mjs          # mọi workflow: timeout + concurrency + phạm vi (2/11)
 node scripts/content-qa/gate.mjs     # thư mục content/ mới → content/qa/sources.json
 node scripts/jobs/gen.mjs --write >/dev/null && node scripts/jobs/gen.mjs && node scripts/test/jobs-check.mjs   # workflow có lịch → infra/jobs.json
+# Test liên quan file đã đổi (vài giây – bắt lỗi trước push thay vì chờ CI 30–40 phút). Worktree thiếu node_modules → mượn của checkout chính.
+[[ -d node_modules ]] || { M="$(git worktree list --porcelain | sed -n 's/^worktree //p' | head -1)"; [[ -d "$M/node_modules" ]] && ln -s "$M/node_modules" node_modules; }
+node scripts/test/run-suite.mjs --affected
 git status --short

@@ -1,3 +1,4 @@
+# ci-policy: queue – push main chạy tới cùng (luật 18: không huỷ lượt nặng trên main; PR/workflow_run vẫn huỷ lượt cũ nhờ biểu thức)
 # ci-policy: heavy-gate – việc nặng trên PR chờ npm test xanh (job `gate`, luật 11)
 # 🤖 QA bot (scripts/test/qa-bot.mjs · docs/QA-BOT.md): hành trình học thật (sandbox) + đầu dò lỗi giao diện ẩn 390/768/1440 × sáng/tối
 # + hiệu năng (FPS/INP/long task/CLS) + dung lượng sau N bài. Chỉ chạy trên CI (không bao giờ trên máy anh chủ).
@@ -7,6 +8,9 @@
 name: QA bot
 on:
   pull_request:
+    paths: ['web/**', '!web/**/*.md', '!web/**/*.txt', 'extension/app/**', 'scripts/build-web.sh', 'scripts/test/qa-bot.mjs', 'scripts/test/exit-sweep.mjs', 'scripts/test/nav-sweep.mjs', 'scripts/test/nav-sweep.known.json', 'scripts/test/lib/learn-samples.mjs', 'scripts/test/qa-bot/**', 'scripts/test/qa-bot-diff.mjs', 'scripts/test/qa-bot-baseline.json', '.github/workflows/qa-bot.yml']
+  push:
+    branches: [main]
     paths: ['web/**', '!web/**/*.md', '!web/**/*.txt', 'extension/app/**', 'scripts/build-web.sh', 'scripts/test/qa-bot.mjs', 'scripts/test/exit-sweep.mjs', 'scripts/test/nav-sweep.mjs', 'scripts/test/nav-sweep.known.json', 'scripts/test/lib/learn-samples.mjs', 'scripts/test/qa-bot/**', 'scripts/test/qa-bot-diff.mjs', 'scripts/test/qa-bot-baseline.json', '.github/workflows/qa-bot.yml']
   workflow_run:
     workflows: ['Pages deploy', 'Preview site']
@@ -22,12 +26,13 @@ permissions:
   contents: read
 concurrency:
   group: qa-bot-${{ github.event_name }}-${{ github.event.workflow_run.name || '' }}-${{ github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: ${{ github.event_name != 'push' }}
 jobs:
   # luật 11 (làn nhanh trước làn nặng, scripts/test/ci-policy.mjs): trên PR việc nặng chỉ chạy khi `npm test` đã XANH cùng sha – đỏ/chưa xong thì mọi job dưới là skipped
   # (không chiếm runner); npm-test.yml job `heavy` chạy lại lượt này ngay khi npm test xanh (scripts/ci/heavy-rerun.mjs). Lỗi API → mở cổng (không mất kiểm).
   gate:
-    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'   # như job bot: workflow_run không thành công → skipped lan xuống
+    # luật 18 (CI làn nhanh, 16/11): PR chỉ chờ làn nhanh – việc nặng bỏ qua trên PR (skipped, không tốn máy), chạy SAU gộp trên push main; nhãn ready-heavy/ready = chạy nặng ngay trên PR
+    if: ${{ (github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success') && (github.event_name != 'pull_request' || contains(github.event.pull_request.labels.*.name, 'ready-heavy') || contains(github.event.pull_request.labels.*.name, 'ready')) }}   # như job bot: workflow_run không thành công → skipped lan xuống
     runs-on: ubuntu-latest
     timeout-minutes: 3
     permissions: { contents: read, checks: read, pull-requests: read }
@@ -37,12 +42,12 @@ jobs:
       - id: s
         if: github.event_name == 'pull_request'
         continue-on-error: true
-        env: { GH_TOKEN: '${{ github.token }}', REPO: '${{ github.repository }}', PR: '${{ github.event.pull_request.number }}' }
+        env: { GH_TOKEN: '${{ github.token }}', REPO: '${{ github.repository }}', PR: '${{ github.event.pull_request.number }}', LX_ACT: '${{ github.event.action }}', LX_BEF: '${{ github.event.before }}', LX_HEAD: '${{ github.event.pull_request.head.sha }}', LX_READY: '${{ contains(github.event.pull_request.labels.*.name, ''ready'') }}' }
         run: |
           # không checkout (job gate không chạy trình duyệt/mã PR): chỉ lấy 2 file qua API tại merge sha
           mkdir -p scripts/ci .github/workflows
           for f in scripts/ci/pr-scope.mjs .github/workflows/qa-bot.yml; do gh api -H 'Accept: application/vnd.github.raw' "repos/$REPO/contents/$f?ref=$GITHUB_SHA" > "$f"; done
-          node scripts/ci/pr-scope.mjs --repo "$REPO" --pr "$PR" --workflow .github/workflows/qa-bot.yml --need ui
+          node scripts/ci/pr-scope.mjs --repo "$REPO" --pr "$PR" --workflow .github/workflows/qa-bot.yml --need ui --carry "$LX_ACT|$LX_BEF|$LX_HEAD|$LX_READY"
       - id: g
         env: { GH_TOKEN: '${{ github.token }}', EV: '${{ github.event_name }}', SHA: '${{ github.event.pull_request.head.sha }}', REPO: '${{ github.repository }}', READY: '${{ contains(github.event.pull_request.labels.*.name, ''ready'') }}' }
         run: |

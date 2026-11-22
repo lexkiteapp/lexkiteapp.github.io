@@ -10,7 +10,7 @@ let n = 0, fails = 0; const ok = (c, m) => { n++; if (!c) { fails++; console.log
 const g = { UI: { icon: (n, cls) => `<svg class="i${cls ? ' ' + cls : ''}" aria-hidden="true"><use href="#i-${n}"/></svg>`, addIcons: () => {}, glyph: e => e, esc: s => String(s).replace(/[&<>"]/g, c => '&#' + c.charCodeAt(0) + ';') }, t: (k, v = {}) => k.replace(/\{(\w+)\}/g, (_, x) => v[x]) };
 g.self = g; g.window = g; vm.createContext(g);
 for (const f of ['web/js/readings.js', 'web/cpack/readings/more.js', ...dataFiles('listen', /^test\d+\.js$/), 'web/js/next-step.js']) vm.runInContext(fs.readFileSync(f, 'utf8'), g, { filename: f });
-for (const f of fs.readdirSync('web/js/toeic').filter(f => /^listening\d+\.js$/.test(f)).sort()) vm.runInContext(J('toeic/' + f), g, { filename: f });
+for (const f of [...fs.readdirSync('web/js/toeic'), ...fs.readdirSync('web/cpack/toeic')].filter(f => /^listening\d+\.js$/.test(f)).sort((a, b) => parseInt(a.slice(9)) - parseInt(b.slice(9)))) vm.runInContext(fs.readFileSync(fs.existsSync('web/js/toeic/' + f) ? 'web/js/toeic/' + f : 'web/cpack/toeic/' + f, 'utf8'), g, { filename: f });
 const NS = g.NextStep, R = g.READINGS, L = g.LISTENING, T = (g.TOEIC || {}).listening || [];
 ok(NS && R.length >= 30 && L.length >= 40, `nạp next-step.js + dữ liệu (${R.length} bài đọc, ${L.length} phần nghe IELTS, ${T.length} TOEIC)`);
 const rid = new Set(R.map(x => x.id)), lid = new Set([...L, ...T].map(x => x.id));
@@ -24,7 +24,7 @@ ok(NS.links('read', R[R.length - 1].id).find(x => x.pri).h === '#/read/' + encod
 const el = { html: '', querySelector: () => (el.html ? {} : null), insertAdjacentHTML(_, h) { el.html += h; } };
 NS.render(el, 'read', R[0].id); NS.render(el, 'read', R[0].id);
 ok((el.html.match(/class="nx-step"/g) || []).length === 1 && /aria-label=/.test(el.html) && !/<script/i.test(el.html), 'render: 1 khối, có aria-label, không chèn HTML thô');
-const rd = J('reading.js'), li = J('listening.js'), app = J('app.js');
+const rd = J('reading.js'), li = J('listening.js'), app = J('app.js') + J('bundles.js');
 ok(/App\.lazy\('nxs'\)\.then\(\(\) => NextStep\.render\(\$\('#qResult \.feedback'\), 'read'/.test(rd), 'reading.js gọi NextStep sau khi chấm');
 ok(/App\.lazy\('nxs'\)\.then\(\(\) => NextStep\.render\(\$\('#lRes \.feedback'\), 'listen'/.test(li), 'listening.js gọi NextStep sau khi chấm');
 ok(/nxs: \['js\/i18n\/en\/nextstep\.js', 'js\/next-step\.js'\]/.test(app) && !/next-step\.js/.test(fs.readFileSync('web/sw.js', 'utf8').match(/const SHELL = \[([\s\S]*?)\];/)[1]), "gói lười 'nxs' (không nằm trong khung app)");

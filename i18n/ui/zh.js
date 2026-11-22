@@ -984,6 +984,7 @@
 "Thử Phòng viết lần đầu":"第一次尝试写作室",
 "Thử lại":"重试",
 "Thử thách 60 giây":"60 秒挑战",
+"Thử thách nói 30 giây":"30-second speaking challenge",
 "Thử thách tự đặt câu":"写你自己的句子挑战",
 "Thực phẩm & Nông nghiệp":"食品与农业",
 "Tia chớp":"闪电",

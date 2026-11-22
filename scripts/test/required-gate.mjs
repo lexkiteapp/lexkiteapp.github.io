@@ -4,7 +4,7 @@
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { api, evaluate, gateDrift, applyDrift, rerunCancelled, MAX_AUTO_RERUN, prCapable, checkWorkflow, dirtyShas, run, paceDue, PACED, chainAlive, CHAIN_CHECK_MS, CHAIN_RETRIES, CONTEXT, SELF_JOB, SELF_PATH } from '../ci/required-gate.mjs';
+import { api, evaluate, gateDrift, applyDrift, applyWindow, gateFilesOf, inMergeWindow, rerunCancelled, MAX_AUTO_RERUN, prCapable, checkWorkflow, dirtyShas, probeOf, run, paceDue, PACED, chainAlive, CHAIN_CHECK_MS, CHAIN_RETRIES, CONTEXT, SELF_JOB, SELF_PATH } from '../ci/required-gate.mjs';
 let fails = 0, n = 0; const ok = (c, m) => { n++; if (!c) { fails++; console.log('✗', m); } };
 
 const cr = (name, status, conclusion, id = 1) => ({ name, status, conclusion, id });
@@ -98,6 +98,10 @@ ok(!prCapable('name: a\non:\n  workflow_run:\n    workflows: [b]\njobs: {}\n'), 
   ok(evaluate({ checkRuns: base, workflowRuns: [wr2('wip-guard', 'failure', 7)] }).state === 'failure', 'wip-guard FAILURE thật vẫn đỏ');
   ok(evaluate({ checkRuns: base, workflowRuns: [wr2('npm test', 'startup_failure', 8)] }).state === 'failure', 'workflow KHÁC startup_failure vẫn đỏ (không bỏ qua bừa)');
   ok(evaluate({ workflowRuns: [wr2('wip-guard', 'startup_failure', 7)] }).state === 'pending', 'chỉ có wip-guard hỏng, chưa có check thật nào → vẫn CHỜ, không xanh');
+  ok(evaluate({ checkRuns: base, workflowRuns: [wr2('gate-impact', 'cancelled', 7), wr2('npm test', 'success', 8)] }).state === 'success', 'gate-impact cancelled (concurrency) = tư vấn → không đỏ');
+  ok(evaluate({ checkRuns: base, workflowRuns: [wr2('gate-impact', 'failure', 7), wr2('npm test', 'success', 8)] }).state === 'failure', 'gate-impact failure thật vẫn đỏ');
+  ok(evaluate({ checkRuns: base, workflowRuns: [wr2('stitch-diff', 'success', 7), { ...wr2('stitch-diff', 'cancelled', 7), id: 9, run_number: 2 }, wr2('npm test', 'success', 8)] }).state === 'success', 'lượt huỷ mới hơn không che lượt xanh cùng head (20/11)');
+  ok(evaluate({ checkRuns: base, workflowRuns: [wr2('stitch-diff', 'failure', 7), { ...wr2('stitch-diff', 'cancelled', 7), id: 9, run_number: 2 }, wr2('npm test', 'success', 8)] }).state === 'failure', 'lượt huỷ mới hơn không che lượt ĐỎ thật cùng head');
 }
 
 // ---------- 3) workflow: bộ canh lịch, không quay lại ~20 runner/commit (3/11) ----------
@@ -157,6 +161,20 @@ ok(!prCapable('name: a\non:\n  workflow_run:\n    workflows: [b]\njobs: {}\n'), 
   ok(JSON.stringify(posted) === '[["s1","success"]]', '--sweep: chỉ PR gate pending/thiếu và cập nhật ≤ 14 ngày ' + JSON.stringify(posted));
 }
 
+// 20/11 (#1664): check xong NGAY SAU khi gather đọc (chen giữa đọc và thăm dò) → gate không được kẹt pending tới lưới 'stale' 5 phút – phải đánh giá lại ở vòng kế (chữ ký thăm dò lấy TRƯỚC gather)
+{
+  let t = 0, done = false, doneAt = 0; const clock = { now: () => t, sleep: async ms => { t += ms; } }, posted = [];
+  const checks = () => [{ id: 1, name: 'npm test', status: done ? 'completed' : 'in_progress', conclusion: done ? 'success' : null, completed_at: done ? new Date(doneAt).toISOString() : null }];
+  const A = {
+    openPrs: async () => [{ number: 7, head: { sha: 'h9' }, updated_at: new Date(Date.now()).toISOString() }], gateState: async () => undefined,
+    recentRuns: async () => [],   // lượt chạy đã trượt khỏi trang 100 của /actions/runs
+    probe: async () => probeOf(checks()),
+    gather: async () => { const snap = checks(); done = true; doneAt = t; return { checkRuns: snap }; },   // npm test xong ngay sau khi đọc
+    post: async (sha, r) => posted.push(r.state + ':' + Math.round(t / 1e3)),
+  };
+  await run(['--watch', '4'], {}, A, () => {}, clock);   // 4 phút < staleMs 5 phút: chỉ đường 'sig' mới cứu được
+  ok(posted[0] === 'pending:0' && posted.some(x => x.startsWith('success:')), 'check xong sát sau lần đọc đầu → xanh trong 4 phút (không chờ lưới stale 5 phút): ' + posted.join());
+}
 // bộ canh --watch: mô phỏng 1 PR qua nhiều vòng – số lần đánh giá ít, đỏ ngay, xanh khi lượt cuối xong, không đăng lặp
 {
   let t = 0; const clock = { now: () => t, sleep: async ms => { t += ms; } };
@@ -250,6 +268,18 @@ ok(!prCapable('name: a\non:\n  workflow_run:\n    workflows: [b]\njobs: {}\n'), 
   ok(gateDrift([F('scripts/i18n-qa.mjs')]).length === 1 && gateDrift([F('scripts/lib/i18n-rules.mjs')]).length === 1 && gateDrift([F('.github/workflows/npm-test.yml', 'added')]).length === 1, 'i18n-qa / bộ luật / workflow đổi → cổng đổi (mọi trạng thái)');
   ok(gateDrift([F('scripts/test/ci-policy.mjs')]).length === 1 && gateDrift([F('scripts/test/x.mjs', 'renamed')]).length === 1, 'test SỬA/ĐỔI TÊN (chưa biết nguồn/PR) → cổng đổi');
   ok(gateDrift([F('scripts/test/old.mjs', 'removed')]).length === 0, 'test bị XOÁ không làm PR đỏ → không bắt gộp lại');
+  { const suite = { 'scripts/test/suite.txt': 'node scripts/test/lex.mjs\nnode scripts/test/ads-demo.mjs\n' };
+    ok(gateDrift([F('scripts/test/ads-demo-android.mjs')], ['web/js/app.js'], suite).length === 0, 'test cấp trên cùng KHÔNG trong suite (chỉ workflow riêng chạy) → không bắt PR khác gộp lại (#1587)');
+    ok(gateDrift([F('scripts/test/ads-demo-android.mjs')], ['scripts/test/ads-demo-android.mjs'], suite).length === 1, '…nhưng PR sửa chính nó vẫn tính');
+    ok(gateDrift([F('scripts/test/lex.mjs')], ['web/js/app.js'], { ...suite, 'scripts/test/lex.mjs': "x('web/js/app.js')" }).length === 1, 'test CÓ trong suite và nhắc tệp PR → vẫn tính');
+    ok(gateDrift([F('scripts/test/lib/helper.mjs')], ['web/js/app.js'], suite).length === 1, 'tệp trong scripts/test/lib (được test khác nhập) → vẫn tính'); }
+  // 20/11: workflow nặng (luật 18: job gate bỏ qua trên PR trừ nhãn ready-heavy/ready) đổi trên main KHÔNG làm đổi kết quả PR không nhãn → không bắt gộp lại; PR có nhãn / PR tự sửa nó / nguồn nhẹ (chạy trên PR) vẫn bắt
+  { const heavy = "on:\n  pull_request:\n    paths: ['web/**']\n  push:\n    branches: [main]\njobs:\n  gate:\n    if: ${{ github.event_name != 'pull_request' || contains(github.event.pull_request.labels.*.name, 'ready-heavy') || contains(github.event.pull_request.labels.*.name, 'ready') }}\n    runs-on: ubuntu-latest\n";
+    const light = "on:\n  pull_request:\n    paths: ['web/**']\njobs:\n  fast:\n    runs-on: ubuntu-latest\n";
+    const fl = [F('.github/workflows/frame.yml'), F('.github/workflows/fast.yml')], src = { '.github/workflows/frame.yml': heavy, '.github/workflows/fast.yml': light };
+    ok(gateDrift(fl, ['web/js/app.js'], src).join() === '.github/workflows/fast.yml', 'workflow nặng bỏ qua trên PR → không bắt; workflow nhẹ chạy trên PR vẫn bắt: ' + gateDrift(fl, ['web/js/app.js'], src).join());
+    ok(gateDrift(fl, ['web/js/app.js'], src, true).length === 2, 'PR có nhãn ready/ready-heavy → workflow nặng sẽ chạy → vẫn bắt');
+    ok(gateDrift(fl, ['.github/workflows/frame.yml'], src).includes('.github/workflows/frame.yml'), 'PR tự sửa chính workflow nặng → vẫn bắt'); }
   ok(gateDrift([F('scripts/test/brand-new.mjs', 'added'), F('web/js/app.js'), F('docs/CODEMAP.md')]).length === 0, 'test MỚI thêm + mã/tài liệu thường → không đổi cổng');
   // 16/11: workflow main đổi chỉ tính khi PR cũng sửa đúng file đó; luật/policy vẫn mọi PR
   { const wf = [F('.github/workflows/audio.yml'), F('.github/workflows/call-rt.yml', 'added'), F('.github/workflows/x.yml')];
@@ -297,6 +327,15 @@ ok(!prCapable('name: a\non:\n  workflow_run:\n    workflows: [b]\njobs: {}\n'), 
   const green = { state: 'success', description: 'Xanh: 5 check đều đạt', failed: [], pending: [], total: 5, cancelled: [] };
   const w = applyDrift(green, ['scripts/i18n-qa.mjs', 'scripts/lib/i18n-rules.mjs', '.github/workflows/a.yml']);
   ok(w.state === 'pending' && /gộp lại main/.test(w.description) && w.description.length <= 140 && /\+1/.test(w.description), 'xanh + cổng đổi → CHỜ, mô tả ≤140 ký tự: ' + w.description);
+  { const at = h => Date.UTC(2026, 10, 17, h, 30), gf = gateFilesOf([F('.github/workflows/x.yml', 'added'), F('scripts/test/old.mjs', 'removed'), F('scripts/test/brand-new.mjs', 'added'), F('scripts/test/ci.mjs'), F('web/js/app.js')]);
+    ok(gf.length === 2 && gf.includes('.github/workflows/x.yml') && gf.includes('scripts/test/ci.mjs'), 'khung merge: tệp cổng của PR = workflow + test sửa; bỏ xoá/test mới/mã thường');
+    ok(inMergeWindow(at(2)) && !inMergeWindow(at(1)) && !inMergeWindow(at(3)) && !inMergeWindow(at(14)), 'khung merge = 02:00–03:00Z (09–10 VN)');
+    const w = applyWindow(green, gf, at(14));
+    ok(w.state === 'pending' && /khung merge cổng 09–10 VN/.test(w.description), 'PR đổi tệp cổng, gate xanh, ngoài khung → pending "chờ khung merge cổng 09–10 VN"');
+    ok(applyWindow(green, gf, at(2)).state === 'success', 'trong khung → vẫn xanh');
+    ok(applyWindow(green, gf, at(14), ['main-red-fix']).state === 'success' && applyWindow(green, gf, at(14), ['ui']).state === 'pending' && applyWindow({ ...green, state: 'failure' }, gf, at(14), ['main-red-fix']).state === 'failure', 'nhãn main-red-fix (sửa main đỏ) → không bị khung giữ; nhãn khác vẫn chờ; gate đỏ vẫn đỏ');
+    ok(applyWindow(green, [], at(14)).state === 'success' && applyWindow({ ...green, state: 'failure' }, gf, at(14)).state === 'failure', 'PR thường / gate đỏ → không đụng');
+  }
   ok(applyDrift(green, []).state === 'success' && applyDrift({ ...green, state: 'failure' }, ['scripts/i18n-qa.mjs']).state === 'failure' && applyDrift({ ...green, state: 'pending' }, ['x']).state === 'pending', 'không đổi cổng → vẫn xanh; đỏ/chờ không bị đụng');
   // --sha: đăng pending khi cổng đổi; lỗi đo → mở cổng (xanh)
   const posted = [], base = { gather: async () => ({ workflowRuns: [wr('npm-test', 'completed', 'success', 3)] }), post: async (sha, r) => posted.push(r.state) };

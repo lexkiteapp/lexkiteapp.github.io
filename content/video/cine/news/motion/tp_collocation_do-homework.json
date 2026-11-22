@@ -24,9 +24,9 @@
  },
  "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
  "cta": {
-  "area": "collocation",
-  "link": "https://lexkite.com/app/",
-  "say": "Practice free on lexkite.com"
+  "area": "phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Practice it free"
  },
  "series": {
   "name": "Collocation",
@@ -54,7 +54,7 @@
    "gap": 0.7
   },
   {
-   "id": "t",
+   "id": "tip",
    "text": "Tip: do is for tasks, make is for creating: do the laundry, make a cake.",
    "gap": 0.7
   },
@@ -89,20 +89,8 @@
    "rows": [
     [
      [
-      "Don't say",
+      "Do homework!",
       "white"
-     ]
-    ],
-    [
-     [
-      "\"make",
-      "yellow"
-     ]
-    ],
-    [
-     [
-      "homework.\"",
-      "yellow"
      ]
     ]
    ],
@@ -138,25 +126,7 @@
       "hook": true,
       "runs": [
        [
-        "Don't say"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "\"make"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "homework.\""
+        "Do homework!"
        ]
       ]
      }
@@ -165,7 +135,7 @@
    {
     "id": "sum",
     "at": [
-     "t",
+     "tip",
      0
     ],
     "rows": [
@@ -178,7 +148,7 @@
       "t": "line",
       "runs": [
        [
-        "do is for tasks, make is for creating: do the"
+        "do is for tasks, make is for creating"
        ]
       ]
      }
@@ -251,7 +221,7 @@
     ]
    }
   ],
-  "hook_text": "Don't say \"make homework.\"",
+  "hook_text": "Do homework!",
   "end_line": "c"
  },
  "embed": {

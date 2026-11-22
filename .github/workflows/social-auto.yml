@@ -9,7 +9,7 @@ on:
       clip: { description: 'preview/dryrun: id clip (trống = clip đạt QC mới nhất)', default: '' }
       lang: { description: 'dryrun: thử ngôn ngữ clip (vd vi) – định tuyến page theo ngôn ngữ', default: '' }
   schedule:
-    - cron: '52 */2 * * *'
+    - cron: '52 */2 * * *' # mỗi giờ (20/11): mỗi lượt chỉ tạo ~2–3 bài trong ngân sách 60 s → 12 lượt/ngày không đủ cho 34 kênh
 concurrency: { group: social-auto, cancel-in-progress: false }
 permissions: { contents: read, issues: write } # issues: cảnh báo failover/token Meta (1 issue nhãn social-alert → email)
 jobs:
@@ -24,7 +24,9 @@ jobs:
         with: { node-version: 22 }
       - name: Một lượt autopilot
         if: ${{ github.event_name != 'workflow_dispatch' || inputs.mode == 'run' || inputs.mode == 'status' }}
-        run: node scripts/social/auto.mjs "${{ inputs.mode || 'run' }}"
+        run: node scripts/social/auto.mjs "$LX_IN1"
+        env:
+          LX_IN1: ${{ inputs.mode || 'run' }}
       - name: Dry-run qua máy chủ (payload từng nền tảng, kênh thật, không đăng)
         if: ${{ inputs.mode == 'preview' }}
         env: { CLIP: '${{ inputs.clip }}' }

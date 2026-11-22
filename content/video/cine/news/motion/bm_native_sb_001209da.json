@@ -24,9 +24,9 @@
  },
  "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
  "cta": {
-  "area": "situational",
-  "link": "https://lexkite.com/app/",
-  "say": "Practice free on lexkite.com"
+  "area": "phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Practice it free"
  },
  "series": {
   "name": "Shopping",
@@ -92,24 +92,6 @@
       "Natives",
       "white"
      ]
-    ],
-    [
-     [
-      "never say",
-      "yellow"
-     ]
-    ],
-    [
-     [
-      "'finished",
-      "yellow"
-     ]
-    ],
-    [
-     [
-      "tickets",
-      "yellow"
-     ]
     ]
    ],
    "align": "l"
@@ -145,33 +127,6 @@
       "runs": [
        [
         "Natives"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "never say"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "'finished"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "tickets"
        ]
       ]
      }
@@ -266,7 +221,7 @@
     ]
    }
   ],
-  "hook_text": "Natives never say 'finished tickets",
+  "hook_text": "Natives",
   "end_line": "c"
  },
  "embed": {

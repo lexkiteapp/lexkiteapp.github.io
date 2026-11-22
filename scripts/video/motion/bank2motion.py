@@ -17,14 +17,44 @@ def h(s, m): return int(hashlib.sha256(s.encode()).hexdigest(), 16) % m
 def sent(t): return t.strip()
 def line(i, t, gap=0.7): return dict(id=i, text=t, gap=gap)
 def hook_of(r): return re.sub(r'\s+', ' ', r['hook']).strip(" '\"")
+# the CTA must name a real ecosystem area with its exact link (qc_v9 'cta' gate); the old r.get('cat') was a content tag, not an area
+CTA_AREA = {'collocation': 'phrases', 'confusing-pair': 'word-usage', 'idiom-vs-textbook': 'phrases', 'ielts-speaking': 'ielts', 'ielts-writing-phrase': 'writing-ielts', 'irregular-verb': 'verbs',
+            'phrasal-verb': 'phrases', 'polite-request': 'speaking', 'pronunciation-pair': 'pronunciation', 'quiz-ab': 'grammar', 'roleplay': 'roleplay', 'spot-the-mistake': 'grammar-check',
+            'three-words': 'dictionary', 'upgrade-your-english': 'paraphrase', 'word-of-the-day': 'dictionary',
+            'tf': 'grammar', 'gap': 'grammar', 'pair': 'word-usage', 'phrasal': 'phrases', 'pattern': 'grammar', 'native': 'phrases', 'recall': 'vocab-review', 'spot': 'grammar-check'}
+ECO_LINK = {a['id']: a['link'] for a in json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), '../../../content/video/ecosystem.json')))['areas']}
 def short(t, n=44): return t if len(t) <= n else t[:n].rsplit(' ', 1)[0]
+DANGLE = {'a', 'an', 'the', 'to', 'of', 'in', 'at', 'on', 'for', 'with', 'under', 'by', 'and', 'or', 'but', 'i', "i'm", "i'd", 'is', 'are', 'it', 'that', 'your', 'my', 'before', 'from', 'as', 'so', 'if'}
+def fit(t, n=40):   # a summary card is 2 wrapped lines (~22 chars each at the body size): keep whole sentences (else whole clauses) that fit, never a cut-off one
+    t = t.strip()
+    if len(t) <= n: return t
+    for sep in (r'(?<=[.!?]) ', r'(?<=[.!?,;:]) '):
+        out = ''
+        for c in re.split(sep, t):
+            if len((out + ' ' + c).strip()) > n: break
+            out = (out + ' ' + c).strip()
+        if len(out) >= 10: return out.rstrip(',;:')
+    w = short(t, n).split(); 
+    while len(w) > 3 and w[-1].lower().strip(",.") in DANGLE: w.pop()   # no sentence ending on a function word
+    return ' '.join(w)
+def hook2(t, rows=2, n=12):   # the hook card is chip + at most 2 hook lines (a 3rd line is 536 px > the 401 px free above the head): whole words that fit, no dangling function word
+    w = t.split(); out = []
+    while w:
+        out.append(w.pop(0))
+        if len(NM.split_hook(' '.join(out), n)) > rows: out.pop(); break
+    while len(out) > 2 and out[-1].lower().strip('",.?!') in DANGLE | {'every', 'just', 'only', 'so', 'told'}: out.pop()
+    return ' '.join(out) if out else t
 def base(kind, r, tpl, lines, motion, hook_text, base_kind):
     k = NM.BASE[base_kind]; v = h(r['id'] + tpl, 12); teacher = ('ama', 'carlos')[v % 2]; src = NM.BASE['mistake' if teacher == 'ama' else 'drill']
-    hl, pr = NM.hook_parts(hook_text)
+    if isinstance(hook_text, tuple): hook_text = hook_text[0 if teacher == 'ama' else 1]   # (ama one-liner, carlos text)
+    keep = isinstance(hook_text, dict)   # spot-the-mistake: the hook rows are already laid out (struck run), keep them
+    if keep: hl, pr = motion['top'][0]['rows'][1:], [[[hook_text['text'], 'white']]]; hook_text = hook_text['text']
+    else: hook_text = hook2(hook_text, 1)   # the free band above the head is 401-430 px depending on the clip: chip + 1 hook line always fits (2 lines = 414 px did not on every Carlos clip)
+    if not keep: hl, pr = NM.hook_parts(hook_text)
     motion['top'][0]['rows'] = [motion['top'][0]['rows'][0]] + hl
     ac, act = [('navy2', 'mint'), ('navy2', 'yellow'), ('navy', 'mint'), ('navy', 'yellow')][v // 3 % 4], None
     return dict(id=f"mo_bm_{tpl}_{r['id']}", template=tpl, title=f"Motion {tpl} – {r['point'][:70]} ({r['id']})", teacher=teacher, clips=src['clips'], listen=src['listen'], set=src['set'], layout=src['layout'], host_fx=src['host_fx'], speed=src['speed'], accent=ac[0], active=ac[1], display=src['display'], motif=src['motif'],
-                cta=dict(area=r.get('cat', 'grammar'), link='https://lexkite.com/app/', say='Practice free on lexkite.com'), series=dict(name=r['topic'].title(), ep=1), lines=lines + [line('sh', NM.SHARE), line('c', NM.CTA, 0.6)],
+                cta=dict(area=CTA_AREA.get(tpl, 'grammar'), link=ECO_LINK[CTA_AREA.get(tpl, 'grammar')], say='Practice it free'), series=dict(name=r['topic'].title(), ep=1), lines=lines + [line('sh', NM.SHARE), line('c', NM.CTA, 0.6)],
                 pops=[dict(k['pops'][0], rows=pr, to=['h', -1, 'e', 0.25]), dict(k['pops'][1], **{'from': ['c', 0, 's', -0.05]})], motion=dict(motion, hook_text=hook_text, end_line='c'), embed=dict(drop=['sh', 'c'], end=dict(id='n', text="Next, let's practice more together.")),
                 uses=dict(template=tpl, row=r['id'], teacher=teacher, accent=ac[0], active=ac[1], tones=v % 3))
 def chip(t, tone='gold', **k): return dict(t='chip', text=t, tone=tone, **k)
@@ -39,7 +69,9 @@ def tf(r):
 def gap(r):
     qz = r['quiz']; opts = qz['options'][:3]; ans = qz['answer']; q = qz['q']; parts = q.split('___')
     if len(parts) != 2: return None
-    o = ', or '.join(opts) + '?'; ot = o.split(); idx = [0]; j = 0
+    o = ', or '.join(opts) + '?'; pre = 0
+    if any(len(x.strip()) <= 3 for x in opts): o = 'Which is right: ' + o; pre = 3   # a one-word option like "on" is misheard as "son" with no lead-in
+    ot = o.split(); idx = [pre]; j = pre
     for x in opts[:-1]: j += len(x.split()); idx.append(j + 1)   # word after each ", or"
     idx = [min(i, len(ot) - 1) for i in idx[:len(opts)]]
     lines = [line('h', 'Fill the blank.'), line('q', q.replace('___', 'blank')), line('o', o), dict(id='_count', beat='count', dur=3.0), line('a', f"{opts[ans]}! {qz.get('explain') or r['why']}"), line('w', r['aha'])]
@@ -65,7 +97,7 @@ def phrasal(r):
     tiles = [dict(t='tile', tag=f'EXAMPLE {k + 1}', tone=tn[k], lines=[[[' ', 'muted']]], ex=[[r['ex'][k], tn[k]]], ex_at=[f'e{k}', 0], at=[f'e{k}', 0]) for k in range(2)]
     return base('phrasal', r, 'phrasal', lines, dict(top=top, col=[dict(t='card', id='rules', at=['e0', 0], rows=tiles)]), hook_of(r), 'tip')
 def pattern(r):
-    lines = [line('h', hook_of(r)), line('x', f"Not: {r['wrong']}"), line('b', f"Say: {r['right']}"), line('w', r['why']), line('m', f"Remember: {r['memory']}."), line('a', r['aha'])]
+    lines = [line('h', hook_of(r)), line('x', f"Not: {r['wrong']}"), line('b', f"Say: {r['right']}"), line('w', r['why']), line('m', "Remember: " + r['memory'].replace(' / ', ', or ') + '.'), line('a', r['aha'])]
     tiles = [dict(t='tile', tag='NOT', tone='coral', lines=[[[' ', 'muted']]], ex=[[r['wrong'], 'coral']], ex_at=['x', 1], at=['x', 0]), dict(t='tile', tag='SAY', tone='teal', lines=[[[' ', 'muted']]], ex=[[r['right'], 'teal']], ex_at=['b', 1], at=['b', 0])]
     top = [hookcard('Pattern'), dict(id='mem', at=['m', 0], rows=[chip('Remember', 'gold'), ln(short(r['memory'], 38))])]
     return base('pattern', r, 'pattern', lines, dict(top=top, col=[dict(t='card', id='rules', at=['x', 0], rows=tiles)]), hook_of(r), 'tip')
@@ -82,9 +114,11 @@ def recall(r):
     if not ops: return None
     i1, i2 = ops[0][1], max(ops[0][2], ops[0][1] + 1); i2 = min(i2, len(ra)); key = ' '.join(ra[i1:i2]); pre, post = ' '.join(ra[:i1]), ' '.join(ra[i2:])
     lines = [line('h', 'Say it before I do.'), line('q', f"How do you say this correctly? Many learners say: {wrong}"), dict(id='_count', beat='count', dur=3.0), line('a', f"{right} {r['why']}"), line('w', r['aha'])]
+    if len(right) > 28:   # a long sentence wraps to 5+ lines at the body size: the slot line shows only the words around the blank
+        pw, qw = pre.split(), post.split(); pre = ('… ' if len(pw) > 2 else '') + ' '.join(pw[-2:]); post = ' '.join(qw[:2]) + (' …' if len(qw) > 2 else '')
     runs = [[pre + ' ' if pre else ' '], ['_____', 'muted'], [' ' + post if post else ' ']]
-    top = [hookcard('Your turn'), dict(id='q', at=['q', 0], rows=[chip('Say it right', 'teal', ring='_count'), ln('Fix: ' + short(wrong, 40)), dict(t='line', runs=runs, slot=dict(run=1, word=key))], reveal=['a', 0], xp=[dict(at=['a', 0], n=10)])]
-    return base('recall', r, 'recall', lines, dict(top=top, col=[dict(t='card', id='better', at=['a', 0], tone='green', rows=[chip('Better', 'green'), ln([[right, 'green']]), dict(t='sub', runs=[[short(r['why'], 60)]])])]), 'Say it before I do.', 'mistake')
+    top = [hookcard('Your turn'), dict(id='q', at=['q', 0], rows=[chip('Say it right', 'teal', ring='_count'), *([ln('Fix: ' + short(wrong, 40))] if len(wrong) <= 26 else []), dict(t='line', runs=runs, slot=dict(run=1, word=key))], reveal=['a', 0], xp=[dict(at=['a', 0], n=10)])]
+    return base('recall', r, 'recall', lines, dict(top=top, col=[dict(t='card', id='better', at=['a', 0], tone='green', rows=[chip('Better', 'green'), (dict(t='sub', runs=[[right, 'green']]) if len(right) > 28 or max(len(w) for w in right.split()) > 8 else ln([[right, 'green']])), *([dict(t='sub', runs=[[short(r['why'], 60)]])] if len(right) <= 34 else [])])]), 'Say it before I do.', 'mistake')
 def spot(r):
     runs, si = NM.wrong_runs(r['wrong'], r['right']); lines = [line('h', hook_of(r)), line('q', f"Spot the mistake. {r['wrong']}"), dict(id='_count', beat='count', dur=3.0), line('a', f"The mistake! {r['why']}"), line('b', f"Say: {r['right']}"), line('w', r['aha'])]
     top = [dict(id='hook', hook=True, rows=[chip('Spot the mistake', 'coral', ring='_count'), dict(t='line', hook=True, runs=runs)], strike=[dict(line=0, run=si, at=['a', 0])])]

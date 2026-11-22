@@ -133,6 +133,7 @@ win.App.routes.streak(); await tick(10);
 const v = $('#view').innerHTML;
 ok(/🔥 7/.test(v) && /Mốc tiếp theo: 14 ngày/.test(v), 'trang chuỗi: số ngày + mốc tiếp');
 ok(/miễn phí/.test(v), 'trang chuỗi: nói rõ miễn phí');
+ok((v.match(/>Mốc tiếp theo: 14 ngày</g) || []).length === 1, 'trang chuỗi: mốc tiếp chỉ hiện 1 lần (không lặp ở thẻ rương rỗng)');
 ok(win.document.querySelectorAll('[data-ret-item]').length >= 15, 'bộ sưu tập');
 ok(win.document.querySelector('[data-ret-item="s:star"]').disabled, 'món chưa có bị khóa');
 
@@ -218,7 +219,7 @@ ok(['ama', 'carlos'].includes(wd.who) && wd.sd === today && wd.ok && wd.risk, 's
 ok(/cosmetic: 1/.test(fs.readFileSync('web/js/ads/policy.js', 'utf8')), 'policy có lý do cosmetic (1/ngày)');
 
 // Gắn đúng: gói lười + cờ, không vào khung app
-const app = fs.readFileSync('web/js/app.js', 'utf8');
+const app = fs.readFileSync('web/js/app.js', 'utf8') + fs.readFileSync('web/js/bundles.js', 'utf8');
 ok(/ret: \['js\/i18n\/en\/ret\.js', 'js\/retention\.js'\]/.test(app) && /streak: \['streak', 'ret'\]/.test(app), 'gói lười ret + route (streak-ui chỉ ở gói streak)');
 ok(/App\.retOn\(\)\) App\.lazy\('streak', 'ret'\)/.test(app), 'trang chủ chỉ tải khi cờ bật');
 ok(!/retention\.js/.test(fs.readFileSync('web/app/index.html', 'utf8')), 'không nằm trong khung app');

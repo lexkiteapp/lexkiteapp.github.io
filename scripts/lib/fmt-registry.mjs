@@ -6,13 +6,15 @@
 
 /** Danh sách registry được giữ định dạng. mark = đoạn mã đứng ngay trước dấu "{" mở registry (duy nhất trong tệp). */
 export const REGISTRIES = [
-  { file: 'web/js/app.js', mark: "const G = 'js/grammar/', BUNDLES = ", sort: false }, // thứ tự = thứ tự tải sẵn (App.prefetchAll) → không sắp
+  { file: 'web/js/bundles.js', mark: 'g.LK_BUNDLES = ', sort: false }, // đăng ký gói tải lười; thứ tự = thứ tự tải sẵn (App.prefetchAll) → không sắp
   { file: 'web/js/app.js', mark: 'const ROUTE_BUNDLE = ' },
   { file: 'web/js/app.js', mark: 'const BCSS = ' },
   { file: 'scripts/build-stitch-css.mjs', mark: 'const V2DATA = ' },
   { file: 'scripts/build-stitch-css.mjs', mark: 'const WEBDATA = ' },
   { file: 'scripts/test/stitch-screens.mjs', mark: 'export const SCREENS = ' },
   { file: 'scripts/test/stitch-screens.mjs', mark: 'export const V2REF = ' },
+  { file: 'web/js/lesson/engine.js', mark: 'const cnt = ' }, // đếm dạng bài trong bài trộn: mỗi dạng mới thêm một mục
+  { file: 'web/js/lesson/engine.js', mark: ', RARE = ' }, // độ hiếm dạng bài
   { file: 'web/js/cambridge.js', mark: 'const QTYPE = ' }, // dạng câu Cambridge → dạng QE: mỗi bài thi mới thêm một dạng
 ];
 

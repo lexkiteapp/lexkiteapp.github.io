@@ -4,6 +4,7 @@
 > Test `scripts/test/docs-budget.mjs` (chạy trong `npm test`) FAIL nếu tài liệu thiếu ở đây hoặc vượt ngân sách dung lượng. Thêm doc mới = thêm 1 dòng vào đây.
 
 ## Tài liệu hiện hành (docs/)
+- [audit/ui-audit-1911.md](audit/ui-audit-1911.md) — Kết quả rà giao diện app 19/11 (bảng màn–lỗi–mức); đọc khi: sửa UI hoặc cần biết lỗi đã biết
 - [CSS-NOTES.md](CSS-NOTES.md) — Chú thích dài của web/css/style.css (neo theo selector, §n) chuyển ra khỏi khung app; đọc khi sửa khối CSS có dấu `CSS-NOTES §n`
 - [ADMIN-SECURITY.md](ADMIN-SECURITY.md) — Các lớp bảo vệ trang /admin: adminGate ở API (Origin, rate-limit, Firebase token + email_verified + ADMIN_EMAILS), cổng whoami ở trình duyệt; đọc khi: sửa trang/API quản trị hoặc bật Cloudflare Access
 - [HUMAN.md](HUMAN.md) — Người thật (Turnstile, vé 12 h /api/human), prompt cố định /api/ai theo task, giới hạn body, ghim OIDC, cờ AI_HUMAN_ENFORCE; đọc khi sửa /api/ai, contact, report, lexai
@@ -23,8 +24,13 @@
 - [specs/retention-1211.md](specs/retention-1211.md) — baseline giữ chân 12/11 (D1/D7, 5 điểm rơi) + cách đo ở Quản trị; đọc khi: làm vòng thói quen/nhắc/quay lại
 - [specs/backlog-1211.md](specs/backlog-1211.md) — đối chiếu spec ↔ main 12/11: hạng mục #1–#12 xong/dở/chưa; đọc khi: chọn việc tiếp theo trong backlog nâng cấp
 - [SYNC-NOTES.md](SYNC-NOTES.md) — ghi chú giải thích web/js/sync.js; đọc khi: sửa đồng bộ tài khoản
+- [specs/learn-card.md](specs/learn-card.md) — Thẻ kết quả theo câu sau mỗi bài: câu đủ dấu, nghĩa, mẫu câu, thử nói, Vì sao, thử đổi từ, tự lưu mẫu; kho mẫu + cổng dấu câu
+- [specs/sentence-builder.md](specs/sentence-builder.md) — Xếp câu + Vì sao? theo câu (why.js, #336)
 - [specs/exam-mini-test-srs.md](specs/exam-mini-test-srs.md) — mini-test 10 phút + dải tuần + thẻ dạng yếu của #/qstats (đã duyệt 14/11); đọc khi: làm qstats/ôn dạng yếu/mini-test
+- [specs/lesson-types-more.md](specs/lesson-types-more.md) — thêm dạng bài (nghe→chọn tranh, ghép cặp ảnh, sửa lỗi câu, chính tả câu) vào khung lesson + bật speak_pack (đề xuất 21/11); đọc khi: làm dạng bài mới trong #/lesson
 - [specs/learnability.md](specs/learnability.md) — Spec P0-H Dễ học – dễ nhớ: 12 tiêu chí sư phạm → luật máy đo tầng 0, trọng số, điểm sàn; đọc khi: sửa bộ chấm learnability.mjs hoặc nội dung bài để tăng điểm
+- [specs/spell-sound.md](specs/spell-sound.md) — series "Spell→Sound": template rule (chữ câm → âm), ngân hàng luật JSON, hook L1, cổng vùng nền tảng; đọc khi: thêm luật phát âm / sửa mẫu rule
+- [specs/band-upgrade.md](specs/band-upgrade.md) — series "Band 5→7→9": template band (một ý nâng 3 bậc IELTS, lý do + tiêu chí mỗi bậc), bands.json, hook L1 14 ngôn ngữ; đọc khi: thêm chủ đề band / sửa mẫu band
 - [specs/home-upgrade.md](specs/home-upgrade.md) — Spec nâng cấp Home 3/11: so 5 app lớn, lát L1–L5 (cô giáo vòng nghỉ mắt mở, Home v2, lưới màn học, thử thách, lộ trình nhiều chặng), cổng CI; đọc khi: sửa Home/#/home hoặc giáo viên trên Home
 - [specs/daily-reels.md](specs/daily-reels.md) — Spec reels hằng ngày tự động 12/11: 6 định dạng, chọn chủ đề → dựng → QC → lịch → số liệu; đọc khi: thêm template reels, đổi lịch đăng hằng ngày
 - [specs/upgrade-2026-11.md](specs/upgrade-2026-11.md) — Spec nâng cấp toàn diện 11/2026: 12 hạng mục chủ gửi 04/11 (top bar, linh vật, nhập tài liệu, Tab mới, đầu vào, shadowing, sổ lỗi, lượt AI, 1v1, kho cộng đồng) so main, 3 đợt; đọc khi: làm bất kỳ hạng mục nào trong đó
@@ -117,8 +123,9 @@
 - [specs/go-landing.md](specs/go-landing.md) — Trang đích /go/<lang>/ học thử không đăng ký, UTM sạch, đếm go_*; đọc khi: sửa build-go.mjs, content/go, phễu kênh.
 - [specs/funnel.md](specs/funnel.md) — Phễu kênh UTM → /go → app → bài đầu → D1/D7+, bảng Quản trị Kênh & mã bài; đọc khi: sửa _funnel.js, beacon at/fl, admin-channels.js.
 - [specs/referral.md](specs/referral.md) — Vòng giới thiệu: link mời, thưởng XP + đóng băng chuỗi hai phía, trần chống lạm dụng; đọc khi: sửa nút mời, api/ref.js.
-- [SEO-AUDIT-1211.md](SEO-AUDIT-1211.md) — Audit trang từ × 15 ngôn ngữ: quy mô index, lastmod, liên kết /go; đọc khi: chọn việc SEO cho thị trường CPM cao.
-- [SEO-AUDIT-1511.md](SEO-AUDIT-1511.md) — Soát live blog/từ R2/đề thi: lỗi + mức ưu tiên, đã sửa gì; đọc khi: làm SEO, sitemap, lastmod hoặc trang từ R2.
+- [specs/score-card.md](specs/score-card.md) — Thử thách nói 30 giây: thẻ điểm Canvas + link /c/<id> so điểm với bạn, chấm bằng Speak.score; đọc khi: sửa score30, api/challenge.js, functions/c, sự kiện sc_*.
+- [SEO-AUDIT-1211.md](archive/SEO-AUDIT-1211.md) — Audit trang từ × 15 ngôn ngữ: quy mô index, lastmod, liên kết /go; đọc khi: chọn việc SEO cho thị trường CPM cao.
+- [SEO-AUDIT-1511.md](archive/SEO-AUDIT-1511.md) — Soát live blog/từ R2/đề thi: lỗi + mức ưu tiên, đã sửa gì; đọc khi: làm SEO, sitemap, lastmod hoặc trang từ R2.
 - [specs/seo-words-depth.md](specs/seo-words-depth.md) — Spec độ dày trang từ /<lang>/words/: khối nội dung từ dữ liệu thật 15 ngôn ngữ, cổng DEPTH_MIN (noindex dưới ngưỡng), ảnh trước/sau, hộp blog → /words/ 13 ngôn ngữ (lib seo-words/blog-words); đọc khi: sửa build-seo-pages.mjs, seo-words.mjs, word-depth.mjs, blog-words.mjs
 - [specs/words-off-pages.md](specs/words-off-pages.md) — Spec chuyển trang từ 13 ngôn ngữ sang R2 + Pages Function (giữ URL) để nâng 650 → 1.000 trong ngân sách file; đọc khi: làm SEO-ARCH § Ngân sách file
 - [specs/notifications.md](specs/notifications.md) — Chuẩn mọi thông báo (push, nhắc học, toast, banner, báo lỗi): hỏi quyền sau giá trị, tắt dễ, ≤1/ngày, giọng không dọa, toast một-cái có nút sửa, 15 ngôn ngữ; bảng chỗ lệch; đọc khi: thêm/sửa thông báo/toast
@@ -140,7 +147,8 @@
 - [SEO-DICT-PAGES.md](SEO-DICT-PAGES.md) — Trang từ điển tự sinh /vi/tu-dien/, /en/dictionary/: URL bản địa, nội dung độc nhất, schema/hreflang/sitemap shard, ngưỡng index + mở dần; đọc khi: sửa trang từ điển, mở index, làm script GSC
 - [SEO-AUTHORITY.md](SEO-AUTHORITY.md) — Uy tín/E-E-A-T: trang Giới thiệu, đội biên tập, quy trình kiểm chứng, sửa lỗi; đọc khi: sửa các trang này hoặc tác giả blog/sameAs
 - [SEO-TOOLS.md](SEO-TOOLS.md) — Công cụ miễn phí 15 ngôn ngữ: bài kiểm tra trình độ CEFR thích ứng, trang cấp độ A1–C2, quiz TOEIC Part 5; URL, ngân hàng câu, engine, SEO; đọc khi: sửa công cụ/chuỗi/câu hỏi
-- [SEO-GROWTH-PLAN.md](SEO-GROWTH-PLAN.md) — Kế hoạch tăng trưởng SEO 15 quốc gia 6 tháng (17/10/2026→04/2027): mục tiêu, nhịp đăng, nội dung theo nước, trang công cụ, đo lường; đọc khi: lên kế hoạch nội dung SEO
+- [SEO-GROWTH-PLAN.md](SEO-GROWTH-PLAN.md) — MỘT kế hoạch SEO hiện hành (22/11): chẩn đoán số thật GSC/index, mục tiêu theo tuần, đòn bẩy xếp theo tác động/công sức, nguồn đo, chủ việc, máy gác; đọc khi: chọn/làm bất kỳ việc SEO nào
+- [SEO-GROWTH-PLAN-1710.md](archive/SEO-GROWTH-PLAN-1710.md) — Lưu trữ: kế hoạch SEO 17/10 (nhịp đăng, nội dung theo nước) + kế hoạch lên top 14/11; đọc khi: tra lại kế hoạch cũ
 - [SEO-PLAN.md](SEO-PLAN.md) — SEO kỹ thuật và blog tự đăng: kiến trúc, rà soát & sửa, blog engine, lịch đăng, quy trình viết 7 bước, đặc tả định dạng bài; đọc khi: sửa SEO kỹ thuật/blog engine
 - [SHORTS-ACCESS.md](SHORTS-ACCESS.md) — Thư viện video quản trị phát từ Kho Drive riêng (repo riêng tư lexkite-shorts), không cần token GitHub; luồng và dữ liệu; đọc khi: sửa thư viện video
 - [STORAGE.md](STORAGE.md) — Dung lượng repo chính và kho media (24/10): số đo trước→sau, âm thanh ở kho media, không viết lại lịch sử git, cổng size-guard; đọc khi: thêm file lớn/media
@@ -168,6 +176,7 @@
 - [TTS-AB.md](TTS-AB.md) — Phép thử A/B giọng Kokoro ↔ ElevenLabs: bộ câu, chấm CI, nghe mù, trần credit, giấy phép; đọc khi: chọn engine giọng đọc, xem sổ chi ElevenLabs
 - [specs/audio-quality.md](specs/audio-quality.md) — Chất lượng giọng đọc/phát âm/nghe: điểm hiện tại theo mảng (~64/100), 5 nâng cấp $0 lên 100, có nên dùng ElevenLabs (giá, điều khoản); đọc khi: sửa giọng đọc, chấm phát âm, nghe hoặc cân nhắc TTS trả phí
 - [specs/ci-fast-lane.md](specs/ci-fast-lane.md) — CI làn nhanh + nặng một lần: PR chỉ chạy làn nhanh (≤10 phút), việc nặng chạy một lần trong merge queue, không bỏ check nào; đọc khi: sửa merge-queue.yml, required-gate, heavy-gate, thêm workflow nặng
+- [specs/media-one-source.md](specs/media-one-source.md) — Một kịch bản → 4 đầu ra (video nhúng, dọc, podcast MP3+RSS, truyện đọc): ánh xạ, QC, chỗ đặt trong app, thước đo; đọc khi thêm đầu ra media từ kịch bản
 - [WORD-AUDIO.md](WORD-AUDIO.md) — Giọng đọc từ đơn (audio/w) bản s3: vấn đề, thí nghiệm word-audio-lab, cách làm hiện tại, giấy phép, kết quả; đọc khi: sửa âm thanh từ
 - [YOUTUBE-SETUP.md](YOUTUBE-SETUP.md) — Tải short đã duyệt lên YouTube ($0): hiện đăng tay qua Studio, thiết lập một lần, dùng hằng ngày, kiểm định API compliance, bảo mật, nhiều kênh; đọc khi: đăng video lên YouTube
 - [YOUTUBE-AUDIT.md](YOUTUBE-AUDIT.md) — Hồ sơ soạn sẵn xin YouTube API audit + quota (câu trả lời form, phạm vi, lưu lượng, kịch bản video demo, việc sau khi duyệt); đọc khi: nộp form audit YouTube
@@ -177,3 +186,7 @@
 - [INDEX-ARCHIVE.md](INDEX-ARCHIVE.md) — Con trỏ tài liệu đã chuyển, thư mục con (agents/audits/legal/research/specs…), kho docs/archive/ (tách nguyên văn từ INDEX.md khi INDEX chạm 45 KB); đọc khi: tìm dòng mục lục của doc trong thư mục con hoặc archive, hoặc thêm doc mới ở đó
 - [NEW-UI-QA.md](NEW-UI-QA.md) — Soát hình các màn mới trên CI (15 ngôn ngữ × 4 khung × sáng/tối, đầu dò tràn/che/44 px/tương phản/nhân vật, contact sheet); đọc khi: sửa màn bài học, chuỗi, giáo viên, video
 - [research/latent-bugs-1611.md](research/latent-bugs-1611.md) — Soát lỗi tiềm ẩn trên main 16/11 (6 vùng, kiểm lại độc lập, nhóm theo chủ vùng, 2 P0 + 6 P1); đọc khi: nhận việc sửa lỗi trong vùng của mình
+
+- [specs/top1-upgrade-plan.md](specs/top1-upgrade-plan.md) — Kế hoạch lên top 1 từ kiểm toán CI 18/11 (so Duolingo/Speak/ELSA/Cake theo hành trình; UI/UX, nội dung, tính năng; thước đo, thứ tự); đọc khi: chọn việc nâng chất lượng, vẽ màn Stitch mới
+- [specs/stitch-v2-group-b.md](specs/stitch-v2-group-b.md) — Port 5 màn Stitch v2 nhóm B (Thư viện, Bộ từ, Chủ đề, Sổ lỗi sai, Tiến độ) từ #247, mỗi màn một PR; đọc khi làm màn nhóm B
+

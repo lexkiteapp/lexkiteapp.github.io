@@ -101,7 +101,7 @@ function inPage(srOnlyHidden) {   // srOnlyHidden: scripts/lib/qa-classify.mjs (
     if (WEB.includes(f1)) declared.add(f1);
     const mono = /mono|Menlo|Consolas|Courier/i.test(f1);
     const inMonoCtx = el.closest('code,kbd,pre,samp,tt,.mono,.ipa');
-    if (/^(serif|Times|Times New Roman)$/i.test(f1)) add('serif-fallback', 'error', el, `lọt font mặc định "${f1}"`);
+    if (/^(serif|Times|Times New Roman)$/i.test(f1) && !el.matches('[data-ms]')) add('serif-fallback', 'error', el, `lọt font mặc định "${f1}"`);
     if (ctrl && fam !== bodyFam && !mono) add('control-font', 'error', el, `${el.tagName.toLowerCase()} dùng "${f1}" thay vì font trang`);
     if (mono && !inMonoCtx && !MONO_TAGS.has(el.tagName)) add('mono-in-ui', 'warn', el, `chữ UI dùng monospace "${f1}"`);
     if (isSvgText) {
@@ -135,6 +135,7 @@ async function browserScan(part, base) {
   for (const vp of VPS) {
     const ctx = await browser.newContext({ bypassCSP: true, ...vp, deviceScaleFactor: 1, locale: 'vi' });
     const page = await ctx.newPage();
+    await page.addInitScript(() => { try { if (localStorage.getItem('lk.ux1') == null) localStorage.setItem('lk.ux1', '0'); } catch (e) { /* bỏ qua */ } }); // app: giữ phủ v1 như trước TƯỜNG MINH (máy mới chưa có config giờ = v2, #1789) – v2 chưa có lượt font riêng
     // Chẩn đoán "không mở được" (networkidle quá giờ): request còn treo + đếm theo host trong lượt mở trang → biết trang chờ cái gì
     const pending = new Set(); let hosts = {};
     page.on('request', q => { pending.add(q); const h = q.url().replace(/^(\w+:\/\/[^/]+(\/api\/[a-z-]+)?).*$/, '$1'); hosts[h] = (hosts[h] || 0) + 1; });

@@ -195,7 +195,7 @@ function renderFull(lang) {
   const c = copyOf(lang), rtl = lang === 'ar', url = pageUrl(lang), app = appHref(lang);
   const appQ = `/app/?hl=${lang}`, start = `${appQ}#/welcome/setup`, login = `${appQ}#/welcome/login`;
   const vi = lang === 'vi', vocab = vi ? '/tu-vung/' : '/en/vocabulary/', samples = vi ? '/samples/' : '/en/samples/', blog = `/${lang}/blog/`;
-  const alt = LANGS.map(l => `<link rel="alternate" hreflang="${l}" href="${pageUrl(l)}">`).join('\n') + `\n<link rel="alternate" hreflang="x-default" href="${SITE}/">`;
+  const alt = LANGS.map(l => `<link rel="alternate" hreflang="${l}" href="${pageUrl(l)}">`).join('\n') + `\n<link rel="alternate" hreflang="x-default" href="${pageUrl('en')}">`;
   // ---- dữ liệu THẬT cho khung Stitch (biểu thức trong brand/stitch/web/bind/home.json; chữ thô – khung tự escape) ----
   const hlEn = vi ? 'vi' : 'en'; // trang Từ vựng/Bài mẫu chỉ có bản vi + en → hreflang đúng ngôn ngữ đích
   const chrome0 = siteChrome({ lang, nav: [[app, c.nav.app, lang], [blog, c.nav.blog, lang], [vocab, c.nav.vocab, hlEn], [samples, c.nav.samples, hlEn]],
@@ -275,8 +275,7 @@ export const fileOf = l => `web/${l}/index.html`;
 export const geoGen = () => { const m = /const GEO = (\{[^}]+\});/.exec(rd('web/js/i18n.js')); if (!m) throw new Error('build-landing: không thấy GEO trong web/js/i18n.js'); return `/* SINH TỰ ĐỘNG từ GEO trong web/js/i18n.js – sửa ở đó rồi chạy node scripts/build-landing.mjs */\nexport const GEO = ${m[1]};\n`; };
 export const renderRoot = () => themePage(`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Lexkite – choose your language</title><meta name="description" content="Lexkite is a free English learning app: vocabulary, grammar, IELTS and TOEIC practice. Choose your language to start.">
 <meta name="google-adsense-account" content="ca-pub-2290668854727752"><link rel="canonical" href="${SITE}/"><meta property="og:type" content="website"><meta property="og:site_name" content="Lexkite"><meta property="og:url" content="${SITE}/"><meta property="og:title" content="Lexkite – choose your language"><meta property="og:description" content="Lexkite is a free English learning app: vocabulary, grammar, IELTS and TOEIC practice. Choose your language to start."><meta property="og:image" content="${SITE}/og-default.png">
-${LANGS.map(l => `<link rel="alternate" hreflang="${l}" href="${pageUrl(l)}">`).join('\n')}
-<link rel="alternate" hreflang="x-default" href="${SITE}/">
+<!-- trang chọn ngôn ngữ: không thuộc cụm hreflang (cụm = /<lang>/, x-default → /en/) -->
 <link rel="icon" href="/icons/icon.svg?v=2" type="image/svg+xml"><script id="lk-route">${ROUTE_JS}</script>
 <style>${CSS}
 body{margin:0}main{max-width:40rem;margin:0 auto;padding:2.5rem 1rem}h1{font-size:1.6rem;margin:0 0 1rem}ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(10rem,1fr));gap:.5rem}a{display:flex;align-items:center;min-height:44px;padding:0 .8rem;border:1px solid var(--line);border-radius:10px;color:inherit;text-decoration:none}.tsw{font:inherit}</style></head>

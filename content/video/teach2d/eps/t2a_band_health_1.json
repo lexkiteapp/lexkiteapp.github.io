@@ -1,0 +1,131 @@
+{
+ "id": "t2a_band_health_1",
+ "template": "band",
+ "series": "Band 5 to 9",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "writing-ielts",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Band five to nine!",
+   "pause": 0.3
+  },
+  {
+   "id": "s5",
+   "text": "Exercise is good for your health.",
+   "pause": 0.3
+  },
+  {
+   "id": "s7",
+   "text": "Regular exercise improves physical and mental health.",
+   "pause": 0.3
+  },
+  {
+   "id": "w7",
+   "text": "Words that go together naturally.",
+   "pause": 0.3
+  },
+  {
+   "id": "s9",
+   "text": "Exercise strengthens the body and, equally, steadies the mind.",
+   "pause": 0.3
+  },
+  {
+   "id": "w9",
+   "text": "A longer, richer structure.",
+   "pause": 0.3
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "topic": "health",
+  "skill": "writing",
+  "steps": [
+   {
+    "band": 5,
+    "text": "Exercise is good for your health."
+   },
+   {
+    "band": 7,
+    "text": "Regular exercise improves physical and mental health.",
+    "mark": "Regular exercise",
+    "why": "collocation",
+    "crit": "Lexical Resource"
+   },
+   {
+    "band": 9,
+    "text": "Exercise strengthens the body and, equally, steadies the mind.",
+    "mark": "and, equally, steadies the mind",
+    "why": "complex",
+    "crit": "Grammatical Range"
+   }
+  ]
+ },
+ "cta": {
+  "area": "writing-ielts",
+  "route": "#/write",
+  "link": "https://lexkite.com/app/#/write",
+  "say": "Try an IELTS model answer"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Band five to nine"
+ },
+ "src": {
+  "band": "health"
+ },
+ "est": {
+  "words": 41,
+  "seconds": 22.3,
+  "wpm": 110
+ },
+ "publish": {
+  "title": "IELTS band 5 to 9: Health",
+  "keyword": "ielts band 9",
+  "value": "Health, three ways. Band 5: Exercise is good for your health. Band 7: Regular exercise improves physical and mental health. Band 9: Exercise strengthens the body and, equally, steadies the mind.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#ielts",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/write",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "IELTS band 5 to 9: Health",
+    "description": "Health, three ways. Band 5: Exercise is good for your health. Band 7: Regular exercise improves physical and mental health. Band 9: Exercise strengthens the body and, equally, steadies the mind.\n\nTry an IELTS model answer, free: https://lexkite.com/app/#/write\n\nSeries: Band 5 to 9 · Teacher: Carlos\n\n#learnenglish #englishtips #ielts #englishteacher",
+    "tags": [
+     "ielts band 9",
+     "Band 5 to 9",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "IELTS band 5 to 9: Health\n\nHealth, three ways. Band 5: Exercise is good for your health. Band 7: Regular exercise improves physical and mental health. Band 9: Exercise strengthens the body and, equally, steadies the mind.\n\nTry an IELTS model answer, free: https://lexkite.com/app/#/write"
+   },
+   "instagram": {
+    "caption": "IELTS band 5 to 9: Health\n\nHealth, three ways. Band 5: Exercise is good for your health. Band 7: Regular exercise improves physical and mental health. Band 9: Exercise strengthens the body and, equally, steadies the mind.\n\nTry an IELTS model answer: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#ielts",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "IELTS band 5 to 9: Health #learnenglish #englishtips #ielts"
+   }
+  },
+  "first_comment": "Quiz answer: Health, three ways. Band 5: Exercise is good for your health. Band 7: Regular exercise improves physical and mental health. Band 9: Exercise strengthens the body and, equally, steadies the mind. Practice it with a free quiz: {link}"
+ }
+}

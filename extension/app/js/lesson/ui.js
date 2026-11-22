@@ -11,7 +11,7 @@
   const learnVi = () => (typeof nativeLang === 'function' ? nativeLang() === 'vi' : true); // ngôn ngữ nghĩa của người học (meanLang/giao diện), KHÔNG phải Target.cur()
   const meanOf = c => (c ? (App.meanOf ? App.meanOf(c) : '') || (typeof I18N !== 'undefined' && I18N.meanLang && I18N.meanLang() !== 'vi' ? '' : c.vi) || c.def || '' : ''); // thẻ null (bài ghép cặp, card: null) → '' như App.meanOf
 
-  // Bộ khởi đầu (người mới, chưa có thẻ) và bộ demo cho anh duyệt: từ có ảnh đúng từ#loại + gold bank. Nghĩa vi; ngôn ngữ khác → App.meanOf / gói nghĩa.
+  // Bộ khởi đầu (người mới, chưa có thẻ) và bộ demo cho anh duyệt
   const now0 = Date.now();
   const SRS = (due, reps) => ({ ef: 2.5, interval: reps ? 3 : 0, reps: reps || 0, lapses: 0, due, last: reps ? due - 3 * 864e5 : null, step: 0, S: reps ? 3 : null, D: reps ? 5 : null });
   const DEMO = () => [
@@ -24,7 +24,7 @@
   ].map(c => (learnVi() ? c : Object.assign({}, c, { sentences: [] }))); // câu song ngữ mẫu chỉ có tiếng Việt → ngôn ngữ khác bỏ dạng dịch
   const STARTER = () => DEMO().map(c => Object.assign({}, c, { ctx: '', src: '', srs: SRS(now0, 0) }));
 
-  // Ảnh đúng từ#loại qua VImg (chỉ mục v3 theo mảnh, cùng cờ bật dần); chưa bật/chưa có ảnh → '' (bài không sinh dạng pic)
+  // Ảnh đúng từ#loại qua VImg (chỉ mục v3 theo mảnh, cùng cờ bật dần)
   const imgUrl = (w, p) => (window.VImg ? VImg.quizUrl(w, p) : '');
 
   function css() {
@@ -34,7 +34,7 @@
 /* 🎨 Giao diện câu hỏi/tấm phản hồi = class Tailwind của mẫu Stitch (web/js/st/lesson.js · css/st-lesson.css); dưới đây chỉ bố cục + trạng thái */
 .lsn-combo{visibility:hidden}.lsn-combo.on{visibility:visible}
 /* 🧩 Stitch v2.1 lesson-question (khung tự sinh: brand/stitch/v2/bind/lesson-question.json) – Ama đứng SAU thẻ đề bài đục; không vòng/hào quang/khung/mặt nạ */
-.lsn-v2 [hidden]{display:none}.lsn-v2 .lsn-fv2{margin:0 0 1rem}.lsn-v2 .tch-rig.posed img.tch-still{visibility:visible}.lsn-v2 .tch-rig.posed canvas,.lsn-v2 .tch-rig.posed img.tch-poster{visibility:hidden}.lsn-v2 .tch,.lsn-v2 .tch-rig{position:absolute;inset:0}.lsn-v2 .tch-rig img,.lsn-v2 .tch-rig canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:50% 100%}.lsn-v2 .tch-rig.live img{visibility:hidden}
+.lsn-v2 [hidden]{display:none}.lsn-v2 .lsn-qcard #lsnSlow{right:auto;inset-inline-end:1.25rem}.lsn-v2 .lsn-qcard #lsnPlay{width:calc(100% - 4.75rem)}.lsn-v2 .lsn-fv2{margin:0 0 1rem}.lsn-v2 .tch-rig.posed img.tch-still{visibility:visible}.lsn-v2 .tch-rig.posed canvas,.lsn-v2 .tch-rig.posed img.tch-poster{visibility:hidden}.lsn-v2 .tch,.lsn-v2 .tch-rig{position:absolute;inset:0}.lsn-v2 .tch-rig img,.lsn-v2 .tch-rig canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:50% 100%}.lsn-v2 .tch-rig.live img{visibility:hidden}
 .lsn-v2.st-dim::after{content:"";position:fixed;inset:0;z-index:25;background:rgb(var(--st-surface)/.6);pointer-events:none}.lsn-v2.st-end .lsn-tchw,.lsn-v2.st-end .lsn-qcard,.lsn-v2.st-end .lsn-qfoot,.lsn-v2.st-end .lsn-qchips{display:none}.lsn-v2.lsn-end .lsn-tchw.lsn-endt{display:flex}.lsn-v2 .lsn-endt #lsnTch{position:relative;inset:auto;margin-inline:auto}.lsn-end.lsn-ptr :focus{outline:none}[dir=rtl] .lsn-end #lsnAgain>.material-symbols-outlined:last-child{scale:-1 1}
 .lsn-ask{display:flex;align-items:flex-end;gap:.7rem}.lsn-ask .tch{flex:none;width:112px;height:138px;position:relative;margin-bottom:-6px;z-index:1}
 .tch-rig{position:absolute;inset:0;filter:drop-shadow(0 4px 5px rgb(0 0 0 / .22))}.tch::after{content:"";position:absolute;left:18%;right:18%;bottom:-3px;height:8px;border-radius:50%;background:radial-gradient(rgb(0 0 0 / .18),transparent 70%);z-index:-1}.tch-rig img,.tch-rig canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:50% 100%}.tch-rig.live img{visibility:hidden}
@@ -63,13 +63,25 @@
 .lsn-combo.on,.lsn-tile.pop,.tch.nod,.tch.shake,.lsn-bar.glow i,.lsn-node.next .lsn-dot,.lsn-start{animation:none} /* nút nhún khi bấm do lớp active: (Stitch) – chủ mở luật 28/10 */
 .lsn-emo{display:none}.lsn-bar i{transition:width .18s ease}
 .lsn-foot.ok,.lsn-foot.bad{animation:lsnFade .18s ease-out}@keyframes lsnFade{from{opacity:0}to{opacity:1}}
+/* 🧱 Khung bài tập chung (mọi dạng): cột 640 px · thanh kết quả CỐ ĐỊNH đáy cao ≤ 35 % màn (Tiếp tục không phải cuộn) · thẻ từ gọn, Vì sao? chạm mới mở · ô chờ xếp câu */
+.lsn-v2 main>div{max-width:640px;margin-inline:auto;padding-bottom:1.5rem}
+.lsn-fv2{margin:0 0 1rem!important}
+.lsn-fv2>div{max-width:608px;margin-inline:auto}.lsn-fv2 .lsn-dict>div:first-child{display:none}.lsn-aux{flex-wrap:wrap;justify-content:center}
+.lsn-slot{flex:none;min-width:44px;min-height:44px;border:2px dashed currentColor;border-radius:.75rem;opacity:.25;pointer-events:none}
+/* 🏁 Màn Hoàn thành gọn: vòng nhỏ lại, 4 ô chỉ số một hàng (nhãn HOA, không xuống dòng), nút chính cố định đáy */
+.lsn-end main>div>div:nth-child(1){padding-bottom:.75rem}.lsn-end main>div>div:nth-child(1)>h1{margin-bottom:.25rem}
+.lsn-end .lsn-tiles.grid.grid-cols-3{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:.4rem}.lsn-end .lsn-tiles>div{padding:.375rem .125rem;gap:0}.lsn-end .lsn-sub :is(h1,h2,h3,p,div,span):not(.lsn-learned,.lsn-learned *,.material-symbols-outlined){font-size:.875rem!important;line-height:1.25rem!important}.lsn-end .lsn-week{padding-block:.5rem!important;row-gap:.5rem!important}.lsn-end .lsn-tiles>div>div:first-child{display:none}.lsn-end .lsn-tiles>div>span:nth-child(2){font-size:1.25rem;line-height:1.5rem}.lsn-end .lsn-tiles>div>span:last-child{text-transform:uppercase;font-size:10px;line-height:12px;letter-spacing:0;text-wrap:balance;overflow-wrap:anywhere;margin:0}.lsn-v2.lsn-end main>div{padding-bottom:.5rem}
+.lsn-end .lsn-cta{position:sticky;bottom:0;z-index:30;background:linear-gradient(transparent,rgb(var(--st-surface)/.96) .75rem);padding-bottom:calc(.5rem + env(safe-area-inset-bottom));margin-inline:-1rem;padding-inline:1rem}
+.lsn-end .lsn-ama{display:flex;align-items:flex-end;gap:.5rem;margin-bottom:.5rem}.lsn-end .lsn-ama>.lsn-endt{flex:none;width:76px;height:92px;margin:0}.lsn-end .lsn-ama>.lsn-endt>div{width:76px;height:92px}.lsn-end .lsn-ama>.lsn-sub{flex:1;min-width:0;margin:0}
+.lsn-learned{display:flex;flex-wrap:wrap;gap:.25rem;margin-top:.25rem;font-size:.875rem}.lsn-learned button,.lsn-learned a{display:inline-flex;align-items:center;min-height:44px;padding:.25rem .5rem;border-radius:9999px;border:1px solid currentColor;background:transparent;color:inherit;font:inherit;font-weight:700;cursor:pointer}.lsn-learned a{border-style:dashed}
+.lsn-end .lsn-week .lsn-wk-h{display:flex;justify-content:space-between;align-items:center;gap:.5rem;font-weight:700}.lsn-end .lsn-wk-h :not(.material-symbols-outlined){font-size:.8125rem!important;line-height:1.25rem!important;white-space:nowrap;margin:0}
 @media (prefers-reduced-motion:reduce){.lsn-bar i,.lsn-combo.on,.lsn-node.next .lsn-dot,.lsn-start,.lsn-tile.pop,.lsn-emo.on,.tch.nod,.tch.shake,.lsn-bar.glow i,.lsn-foot.ok,.lsn-foot.bad{transition:none;animation:none}.lsn-emo.on{opacity:1;transform:none}}`;
     document.head.appendChild(st);
   }
 
   let L = null; // bài đang chạy
   App.lessonState = () => L; // cho test CI (scripts/test/lesson.mjs) – chỉ đọc
-  const cleanup = () => { if (L) { if (L.teacher) L.teacher.destroy(); if (L.teachers && L.teachers.carlos) L.teachers.carlos.destroy(); if (L.rec && L.rec.stop) try { L.rec.stop(); } catch (e) { /* đã dừng */ } L.dead = true; } L = null; if (footRO) { footRO.disconnect(); footRO = null; } const f = $('#lsnFoot'); if (f) f.remove(); };
+  const cleanup = () => { if (L) { if (L.teacher) L.teacher.destroy(); if (L.teachers && L.teachers.carlos) L.teachers.carlos.destroy(); if (L.rec && L.rec.stop) try { L.rec.stop(); } catch (e) { /* đã dừng */ } L.dead = true; if (L.enterH) document.removeEventListener('keydown', L.enterH); if (L.keyH) document.removeEventListener('keydown', L.keyH); } L = null; if (footRO) { footRO.disconnect(); footRO = null; } const f = $('#lsnFoot'); if (f) f.remove(); };
   let footRO = null; // chân bài học cố định: đo chiều cao thật (phiếu đúng/sai + "Vì sao?") → chừa đủ chỗ cuối trang, không che nội dung
 
   // Tiến độ bản đồ: số nút đã xong (bền, không theo ngày – như lộ trình). Demo dùng khóa riêng.
@@ -84,16 +96,18 @@
   const KNAME = k => ({ lesson: t('Bài học'), listen: t('Nghe'), speak: t('Nói'), review: t('Ôn lỗi'), story: t('Truyện'), radio: 'Radio' }[k]);
   const STORIES = kind => (window.LESSON_STORIES || []).filter(s => s.kind === kind);
   const meanLang = () => { try { return (I18N.meanLang && I18N.meanLang()) || I18N.lang() || 'en'; } catch (e) { return 'en'; } };
-  // 🌐 Ngôn ngữ mẹ đẻ của người học cho đề bài ('' = tiếng Anh → không có nghĩa tiếng mẹ đẻ, đề dựa vào âm thanh/định nghĩa)
+  // 🌐 Ngôn ngữ mẹ đẻ của người học cho đề bài
   const nativeLang = () => { try { return I18N.meanLang && I18N.meanLang() === 'vi' ? 'vi' : (I18N.lang() === 'en' ? '' : I18N.lang()); } catch (e) { return ''; } };
   const nativeMean = c => { const L = nativeLang(); if (!c || !L) return ''; if (L === 'vi') return c.vi || ''; return (App.nativeGloss && App.nativeGloss(c.word, c.pos)) || ''; };
   // Bản dịch câu ví dụ (web/packs/sent/<lang>/<mảnh>.json – scripts/gen-sent-packs.mjs), chỉ nạp mảnh của các từ trong bài; khớp đúng câu EN mới dùng
   const SENTP = {}, SENT = {}, shardOf = w => { const c = String(w || '').trim().toLowerCase()[0] || '_'; return c >= 'a' && c <= 'z' ? c : '_'; };
   const sentLoad = words => { const L = nativeLang(); if (!L) return Promise.resolve(); const base = /(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname) ? '' : 'https://lexkite.com';
     return Promise.all([...new Set(words.map(shardOf))].map(k => SENTP[L + k] || (SENTP[L + k] = fetch(`${base}/packs/sent/${L}/${k}.json`).then(r => (r.ok ? r.json() : {})).then(j => { SENT[L + k] = j; }).catch(() => { delete SENTP[L + k]; })))).then(() => {}); };
+  const PBASE = () => (/(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname) || (/^(localhost|127\.)/.test(location.hostname) && location.port) ? '' : 'https://lexkite.com');
+  const goldLoad = () => App.need('lgold').catch(() => {});
   const sentGloss = (c, en) => { const L = nativeLang(), w = c && String(c.word || '').toLowerCase().trim(), v = w && (SENT[L + shardOf(w)] || {})[w]; return v && E.norm(v[0]) === E.norm(en) ? v[1] : ''; };
 
-  // 🎞️ Cờ lv_embed: bước đầu của bài từ vựng (học/nghe/nói/ôn, không truyện/radio) = video nhúng (4:5 / 16:9, docs/VIDEO-MOTION.md §Embedded). Thử: ?lvembed=1 (nhớ trên máy), ?lvembed=0 tắt; hoặc cấu hình xa lk.cfg.v.lv_embed.
+  // 🎞️ Cờ lv_embed: bước đầu của bài từ vựng (học/nghe/nói/ôn, không truyện/radio) = video nhúng (4:5 / 16:9, docs/VIDEO-MOTION.md §Embedded)
   const lvOn = () => {
     try { const m = /[?&]lvembed=([01])\b/.exec(location.href); if (m) ls.set('lk.lv_embed', m[1]); const f = ls.get('lk.lv_embed'); if (f === '1' || f === '0') return f === '1'; const c = JSON.parse(ls.get('lk.cfg') || 'null'), v = c && c.v && c.v.lv_embed; return v === true || v === '1' || v === 'true'; } catch (e) { return false; }
   };
@@ -116,11 +130,17 @@
     // Truyện / Radio: bài tiếp theo chưa nghe (xoay vòng), Ama ↔ Carlos đọc bằng giọng Kokoro sinh sẵn
     const SK = 'lk.lsn.s.' + node.kind + (demo ? '.demo' : ''), sl = STORIES(node.kind), nsId = node.kind === 'story' && redo < 0 && ux && window.PathTrail ? PathTrail.storyOf(n, Ux1.unitAt) : '', sAt = parseInt(ls.get(SK) || '0', 10) || 0, sOrd = sl.map((_, i) => sl[(sAt + i) % sl.length]), sSeen = sDone(demo), story = XS || (nsId && sl.find(x => x.id === nsId)) || sOrd.find(x => !sSeen.includes(x.id)) || sOrd[0] || null;
     const picks = story ? [] : E.pickWords(cards, { n: 4, starter: ux ? Ux1.words(wn, plan.length, node.kind).map(w => Object.assign({}, w, { ctx: '', src: '', srs: SRS(now0, 0) })).concat(STARTER()) : STARTER(), fixed: !!(ux && window.PathTrail && PathTrail.wordsOf(wn, Ux1.unitAt, node.kind)), mode: node.kind }); // ux1: từ chủ đề vừa sức (i+1) // 4 từ ≈ 9 bài ≈ 2–3 phút
-    let pool0 = [];
+    let pool0 = [], nearW = [], lvlS = 0;
     if (!story) { const pk = App.loadPack ? App.loadPack().catch(() => {}) : null; await Promise.all([pk, sentLoad(picks.map(p => p.card.word)), App.vimgReady && App.vimgReady(picks.map(p => p.card.word))]); } // nghĩa từ + bản dịch câu tiếng mẹ đẻ trước khi dựng đề
-    const items = story ? E.storyItems(story, meanLang(), n + 1) : E.build(picks, { seed: demo ? 7 + n : Date.now(), pool: (pool0 = cards.concat(STARTER())), hasImg: (w, p) => !!imgUrl(w, p), off: offNow(), only: E.KIND[node.kind], calm: ux, gloss: sentGloss, mean: nativeMean, vi: nativeLang() === 'vi' });
+    if (!story) { // nhiễu cùng chủ đề + câu đúng trình độ mục tiêu: từ cùng chặng (nearW) + thẻ của người học; STARTER (từ lạc chủ đề) chỉ là dự phòng khi kho quá ít
+      nearW = ux && window.Ux1 && Ux1.unitAt ? (Ux1.unitAt(wn, plan.length).words || []).filter(w => w && w.word) : [];
+      pool0 = cards.concat(nearW); if (new Set(pool0.map(c => c.word)).size < 10) pool0 = pool0.concat(STARTER());
+      const stg = state.settings || {}; lvlS = E.sentLevel(window.Ux1 && Ux1.level ? Ux1.level() : 2, App.exam ? App.exam() : '', (stg.goalPick || {}).target || stg.examTarget);
+    }
+    const items = story ? E.storyItems(story, meanLang(), n + 1) : E.build(picks, { seed: demo ? 7 + n : Date.now(), pool: pool0, near: nearW, level: lvlS, hasImg: (w, p) => !!imgUrl(w, p), off: offNow(), lpic: true, mpic: true, only: node.kind === 'listen' ? E.KIND.listen.concat('lpic') : E.KIND[node.kind], calm: ux, gloss: sentGloss, mean: nativeMean, vi: nativeLang() === 'vi' });
     if (!story && lvOn()) items.unshift({ id: 0, type: 'video', free: true, word: '#video', card: null, retry: 0, words: picks.map(p => p.word) }); // 🎞️ demo video nhúng (cờ lv_embed)
     const prev = ls.get('lk.lsn.who'), V2 = !story && v2On(), DUO = !!story && duoOn(), who = V2 ? 'ama' : prev === 'ama' ? 'carlos' : 'ama'; if (!V2) ls.set('lk.lsn.who', who); // xen kẽ Ama / Carlos mỗi bài
+    if (cardOn()) setTimeout(cardReady, 800);
     L = { v2: V2, duo: DUO, demo, items, sess: new E.Session(items, { ease: ux }), picks, pool: pool0, who: story ? 'ama' : who, t0: Date.now(), spoken: 0, kind: node.kind, story, SK, xs: !!XS || redo >= 0, s0: App.streak ? App.streak() : 0 };
     if (window.TeacherMood) moodSub(); else if (App.loadScript) App.loadScript('js/teacher-mood.js').then(moodSub).catch(() => {});
     if (window.LKAudio && LKAudio.offline.on()) LKAudio.offline.lesson(story || items, (state.settings || {}).accent); // 📥 gói offline đang bật → cất audio bài đang học
@@ -141,7 +161,7 @@
     next();
   };
 
-  // 🗺️ Bản đồ chặng: MỘT nút "tiếp theo" phát sáng + nút BẮT ĐẦU to; nút đã xong ✓, nút sau mờ. Không menu, không phải chọn.
+  // 🗺️ Bản đồ chặng: MỘT nút "tiếp theo" phát sáng + nút BẮT ĐẦU to
   function map(demo, plan, n) {
     const unit = Math.floor(n / plan.length) + 1, at = n % plan.length;
     const nodes = plan.map((p, i) => {
@@ -154,14 +174,14 @@
       <ol class="lsn-path">${nodes}</ol><p class="tiny muted center">${t('Miễn phí, không giới hạn')}</p></div>`;
   }
 
-  // 🧩 Stitch v2.1 lesson-question (cờ ux1): khung tự sinh, Ama (Chars+LessonTeacher, 2D) đứng sau thẻ đề bài đục; trang cũ (ST.lsnShell) giữ làm dự phòng + cho Truyện/Radio (2 giáo viên)
+  // 🧩 Stitch v2.1 lesson-question (cờ ux1): khung tự sinh, Ama (Chars+LessonTeacher, 2D) đứng sau thẻ đề bài đục
   const v2On = () => !!(window.ST2 && window.ST2['lesson-question'] && window.Chars && window.LessonTeacher && App.ux1On && App.ux1On());
   const GRID = 'grid grid-cols-2 gap-[1rem] mb-[1rem] lsn-opts', FLOW = 'flex flex-col gap-3 mb-[1rem]', LET = 'ABCDEFGH';
-  const SLOW = 'absolute top-[1.2rem] right-[1.5rem] z-20 w-7 h-7 flex items-center justify-center rounded-[9999px] active:scale-95 transition-transform lt:bg-[#FFFFFF] lt:text-[#0D6964] dk:bg-[#142328] dk:text-[#2BA39A] motion-reduce:transition-none after:absolute after:-inset-2 after:content-[\'\']';
+  const SLOW = 'absolute top-[1rem] right-[1.25rem] z-20 h-8 min-w-[44px] px-2 gap-1 flex items-center justify-center rounded-[9999px] active:scale-95 transition-transform lt:bg-[#FFFFFF] lt:text-[#0D6964] dk:bg-[#142328] dk:text-[#2BA39A] motion-reduce:transition-none after:absolute after:-inset-2 after:content-[\'\']';
   function v2shell(sh) {
     const d = { close: sh.close, title: sh.title, pct: 0, combo: '', chip: sh.chip, play: t('Nghe lại'), who: sh.who,
       teacher: LessonTeacher.stage('lsnTch'), // sân khấu chuẩn: người to đứng sau thẻ đề bài (thẻ che hông) + bong bóng lời – lesson/teacher.js stage()
-      slow: `<button id="lsnSlow" type="button" class="${SLOW}" hidden aria-label="${esc(t('Nghe chậm hơn'))}"><span class="material-symbols-outlined text-[18px]" aria-hidden="true">slow_motion_video</span></button>`,
+      slow: `<button id="lsnSlow" type="button" class="${SLOW}" hidden aria-label="${esc(t('Nghe chậm hơn'))}"><span class="material-symbols-outlined text-[18px]" aria-hidden="true">slow_motion_video</span><span class="text-[12px] font-bold" dir="ltr">0.75×</span></button>`,
       opts: ['off', 'on', 'off', 'off'].map((v, i) => ({ v, o: '', k: LET[i], t: '' })) };
     const root = ST2.mount(view, 'lesson-question', d, null); root.id = 'lsn'; root.classList.add('lsn-v2');
     const g = root.querySelector('#lsnBody'); L.tpl = { off: g.children[0], on: g.children[1] }; g.textContent = ''; // khuôn thẻ đáp án (chưa chọn / đã chọn) lấy từ khung Stitch
@@ -169,18 +189,35 @@
     root.classList.add('lsn-fx'); root.style.opacity = '0'; const shown = () => { root.style.opacity = ''; }; /* opacity, không visibility: ExitGuard chèn thêm .lk-exitbar */ setTimeout(shown, 1600);
     L.cssP = (App.loadCss ? App.loadCss('css/story-stage.css') : Promise.resolve()).catch(() => 0).then(() => { shown(); let n = root.querySelector('#lsnBub'), c = ''; while (n && n !== root) { c = getComputedStyle(n).backgroundColor; if (c && !/rgba?\(.*(, ?0\)| 0\))$/.test(c) && c !== 'transparent') break; n = n.parentElement; } if (c) root.style.setProperty('--ss-floor', c); }); // bệ = đúng màu thẻ đề bài
   }
-  const v2opt = (state, i, o) => { const n = L.tpl[state].cloneNode(true); n.removeAttribute('id'); n.dataset.o = o; n.lang = 'en'; n.querySelector(':scope > div > span').textContent = LET[i]; n.querySelector(':scope > span').textContent = o; return n; };
+  // lpic (nghe → chọn 1/4 ảnh): thẻ đáp án đổi nhãn chữ thành ảnh vuông (alt = từ; ảnh hỏng → hiện từ); v2 xếp 2×2, chữ cái + dấu ✓ ở hàng trên – chỉ style nội tuyến, dùng lại khuôn/màu Stitch
+  const lpTile = (b, o, it) => {
+    const ss = [...b.querySelectorAll('span')].filter(x => x.textContent === o), im = document.createElement('img'), v = !!L.v2;
+    im.src = imgUrl(o, (it.ipos || {})[o]); im.alt = o; im.width = im.height = 144; im.decoding = 'async'; im.draggable = false;
+    im.style.cssText = (v ? 'flex:0 0 100%;order:3;width:100%;' : 'width:5.5rem;') + 'aspect-ratio:1;object-fit:cover;border-radius:.75rem;background:rgb(var(--st-surface-container-highest,236 228 215))';
+    if (ss.length) ss[ss.length - 1].replaceWith(im); b.classList.remove('h-24'); b.dataset.o = o;
+    if (v) b.style.cssText = 'flex-wrap:wrap;height:auto;min-height:0;gap:.5rem;width:100%;max-width:11rem;justify-self:center';
+    return b;
+  };
+  // mpic (ghép từ ↔ ảnh): ô cột phải của khuôn ghép cặp đổi chữ thành ảnh vuông (alt = từ; ảnh hỏng → hiện từ) – dùng lại khuôn/màu Stitch
+  const mpTile = (b, c) => {
+    const im = document.createElement('img'); im.src = imgUrl(c.word, c.pos); im.alt = c.word; im.lang = 'en'; im.width = im.height = 120; im.decoding = 'async'; im.draggable = false;
+    im.style.cssText = 'width:100%;max-width:7.5rem;aspect-ratio:1;object-fit:cover;border-radius:.75rem;background:rgb(var(--st-surface-container-highest,236 228 215))';
+    im.onerror = () => { im.replaceWith(document.createTextNode(c.word)); };
+    b.textContent = ''; b.appendChild(im); b.style.padding = '.375rem';
+  };
+  const v2opt = (state, i, o) => { const n = L.tpl[state].cloneNode(true); n.removeAttribute('id'); n.dataset.o = o; n.lang = 'en'; n.querySelector(':scope > div > span').textContent = LET[i]; n.querySelector(':scope > span').textContent = o; const c = L.sess.cur; return c && c.type === 'lpic' ? lpTile(n, o, c) : n; };
   function v2foot(it, foot) {
     foot.className = ST.FOOT; foot.innerHTML = ''; foot.hidden = true; // chân cố định chỉ dành cho tấm phản hồi
     const q = view.querySelector('.lsn-qfoot'); q.hidden = false;
     $('#lsnPlay').hidden = $('#lsnSlow').hidden = !LISTENS(it);
     view.querySelectorAll('.lsn-skip2').forEach(x => x.remove());
-    const sk = q.querySelector('.lsn-skipb'), list = [LISTENS(it) && ['lsnNoL', t('Không nghe được lúc này'), 'hearing_disabled'], SPEAKS(it) && ['lsnNoS', t('Không nói được lúc này'), 'mic_off']].filter(Boolean);
-    const set = (b, [id, lb, ic]) => { b.id = id; b.setAttribute('aria-label', lb); b.title = lb; b.querySelector('.material-symbols-outlined').textContent = ic; };
-    // "Tôi không biết" có ở MỌI dạng bài (không bao giờ nhốt người học): tính là sai + hiện đáp án + gặp lại (báo lỗi #13)
-    list.push(['lsnIdk', t('Tôi không biết'), 'help']);
+    const sk = q.querySelector('.lsn-skipb'),  list = [LISTENS(it) && ['lsnNoL', t('Không nghe được'), 'hearing_disabled'], SPEAKS(it) && ['lsnNoS', t('Không nói được'), 'mic_off'], HINTABLE(it) && ['lsnHint', t('Gợi ý'), 'lightbulb']].filter(Boolean);
+    const set = (b, [id, lb, ic]) => { b.id = id; b.setAttribute('aria-label', lb); b.title = lb; b.querySelector('.material-symbols-outlined').textContent = ic; const tx = b.querySelector('span:not(.material-symbols-outlined)'); if (tx) tx.textContent = lb; }; // nhãn nhìn thấy = đúng tên nút (trước: 3 nút cùng chữ "Bỏ qua")
+    // "Bỏ qua" có ở MỌI dạng bài (không bao giờ nhốt người học): tính là sai + hiện đáp án + gặp lại (báo lỗi #13)
+    list.push(['lsnIdk', t('Bỏ qua'), 'fast_forward']);
     sk.hidden = false; set(sk, list[0]);
-    list.slice(1).reverse().forEach(x => { const c = sk.cloneNode(true); c.classList.add('lsn-skip2'); set(c, x); sk.after(c); });
+    if (sk.parentElement) sk.parentElement.classList.add('lsn-aux'); list.slice(1).reverse().forEach(x => { const c = sk.cloneNode(true); c.classList.add('lsn-skip2'); set(c, x); sk.after(c); });
+    const rt = $('#lsnRep > span:last-child'); if (rt) { $('#lsnRep').setAttribute('aria-label', rt.textContent.trim()); rt.hidden = true; } // Báo lỗi: chỉ biểu tượng (nhãn cho trình đọc màn hình) → đủ chỗ cho 3 nút trên một hàng
     const chk = $('#lsnCheck'); chk.hidden = SPEAKS(it); chk.disabled = true;
     $('#lsnRep').onclick = () => { const cid = 'lesson:' + it.type + ':' + String(it.word || (it.card && it.card.word) || '').slice(0, 40); if (window.LexReportLoad) LexReportLoad().then(R => R.open({ cat: 'content', cid })).catch(() => {}); else window.open('#/report/new', '_blank'); };
   }
@@ -188,38 +225,40 @@
 
   const say = (text, slow, who, onEnd, cap) => {
     if (!L) { if (cap) cap.all(); return; }
-    const T = (L.teachers && who && L.teachers[who]) || L.teacher, rate = slow ? 0.7 : 0.95;
+    const T = (L.teachers && who && L.teachers[who]) || L.teacher, rate = slow ? 0.75 : 0.95;
     if (L.teachers) { ['ama', 'carlos'].forEach(k => { const el = $(k === 'ama' ? '#lsnTch' : '#lsnTch2'); if (el) el.classList.toggle('talk', k === who); }); }
     const done = onEnd; if (L.ss) { L.ss.speaker(who); onEnd = () => { if (L && L.ss) L.ss.speaker(''); if (done) done(); }; }
-    // show: câu đọc = đáp án → bong bóng chỉ hiện 🔊 · · · (không lộ chữ)
-    if (T) T.say(text, { rate, voice: VOICE(who), onEnd, caption: cap, show: cap ? false : RADIO }); else { if (cap) cap.clock(cap.est * 70); UI.tts(text, 'en-US', rate, { voice: VOICE(who), onEnd }); }
+    // show:false → bong bóng giữ nguyên lời hiện có (đề bài), KHÔNG lộ đáp án và không bao giờ để '🔊 · · ·' trống
+    if (T) T.say(text, { rate, voice: VOICE(who), onEnd, caption: cap, show: false }); else { if (cap) cap.clock(cap.est * 70); UI.tts(text, 'en-US', rate, { voice: VOICE(who), onEnd }); }
   };
   // Chip kỳ thi trên thẻ câu hỏi (Tactile): "IELTS · Mục tiêu 7.5" – lấy từ mục tiêu đã chọn, không có thì ẩn
   const examChip = () => { const s = state.settings || {}, X = (App.EXAMS || {})[App.exam ? App.exam() : ''], tg = s.examTarget; return X ? `<div class="lsn-ex"><span class="tk-chip gold">${esc(X.short)}${tg ? ' · ' + esc(t('Mục tiêu {s}', { s: tg })) : ''}</span></div>` : ''; };
   const TNAME = w => (w === 'carlos' ? 'Carlos' : 'Ama');
   const TITLE = it => ({
     gap: t('Chọn từ còn thiếu'),
-    build: it.prompt ? t('Xếp câu tiếng Anh') : t('Xếp thành câu'), // có bản dịch → xếp câu tiếng Anh theo nghĩa; không có → xếp câu vừa nghe
+    build: it.prompt ? t('Xếp câu tiếng Anh') : t('Nghe rồi xếp thành câu'),
     say: t('Nói câu này'),
     pic: it.choice ? t('Đây là gì?') : t('Nói tên hình'),
+    lpic: t('Nghe, chọn ảnh'),
     tr: t('Dịch câu này'),
     mean: t('Chọn từ đúng'),
     type: t('Gõ từ tiếng Anh'), // luôn có nghĩa/định nghĩa + độ dài + chữ đầu (không chỉ nghe)
-    match: t('Ghép cặp'),
+    match: it.pics ? t('Ghép từ, ảnh') : t('Ghép cặp'),
     q: t('Trả lời câu hỏi'),
     line: '',
   }[it.type]);
-  const LISTENS = it => !it.noAudio && (it.type === 'gap' || it.type === 'build' || it.type === 'say' || it.type === 'type');
+  const HINTABLE = it => it.type === 'gap' || it.type === 'mean' || it.type === 'q' || it.type === 'build' || it.type === 'tr' || it.type === 'type' || it.type === 'lpic' || (it.type === 'pic' && !!it.choice);
+  const LISTENS = it => !it.noAudio && (it.type === 'gap' || it.type === 'build' || it.type === 'say' || it.type === 'type' || it.type === 'lpic');
   const SPEAKS = it => it.type === 'say' || (it.type === 'pic' && !it.choice);
 
-  function bar() {
+  function bar(cur) { // cur = câu đang hiện trên màn (sau khi chấm vẫn là câu VỪA làm, không nhảy sang nhãn câu kế)
     const s = L.sess, b = $('.lsn-bar'); if (!b) return;
     if (L.duo && L.frame === 'duo') { const pc = Math.round(s.progress * 100), fl = $('#lsnFill'), pe = $('#lsnPct'); if (fl) fl.style.width = pc + '%'; b.setAttribute('aria-valuenow', pc); if (pe) pe.textContent = pc + '%'; if (window.Feel && Feel.on && Feel.fill) Feel.fill(b, pc); return; } // khung story-duo: 1 dải liền + %
     if (L.v2) { // khung Stitch: 1 thanh đầy dần + % + chip COMBO
       const pc = Math.round(s.progress * 100), fl = $('#lsnFill'), pe = $('#lsnPct'), qn2 = $('#lsnQn'), cb = $('#lsnCombo'), ct = $('#lsnComboT');
       if (fl) fl.style.width = pc + '%'; b.setAttribute('aria-valuenow', pc); if (pe) pe.textContent = pc + '%';
       if (qn2) qn2.textContent = t('Câu {a}/{b}', { a: Math.min(s.solved + 1, s.total), b: s.total });
-      const kind = s.combo >= 3 ? '' : (s.cur && TITLE(s.cur)) || '';
+      const kind = s.combo >= 3 ? '' : (cur && TITLE(cur)) || '';
       if (ct) ct.textContent = s.combo >= 3 ? t('COMBO ×{n}', { n: s.combo }) : kind; if (cb) { cb.classList.toggle('on', s.combo >= 3); cb.style.visibility = ct && ct.textContent ? 'visible' : ''; const ic = cb.querySelector('.material-symbols-outlined'); if (ic) ic.textContent = s.combo >= 3 ? 'local_fire_department' : 'edit_note'; }
       if (window.Feel && Feel.on) { if (Feel.fill) Feel.fill(b, pc); if (Feel.combo && s.combo >= 3 && cb) Feel.combo(cb, s.combo); }
       return;
@@ -233,11 +272,13 @@
     if (!L || L.dead) return;
     if (L.duo && L.sess.cur) frame(L.sess.cur);
     view.querySelectorAll('.lsn-fq').forEach(x => x.remove()); // thẻ câu của tấm phản hồi chỉ sống tới câu kế
-    bar();
+    if (L.rec && L.rec.stop) { try { L.rec.stop(); } catch (e) { /* bỏ qua */ } } L.rec = null;
+    L.cardIt = null;
+    bar(L.sess.cur);
     if (L.teacher && L.teacher.pose) L.teacher.pose(null); // ra khỏi tư thế phản hồi (cheer/concern) → lại nghe/nói sống
     const it = L.sess.cur;
     if (!it) return finish();
-    L.pick = null; L.tiles = []; L.checked = false;
+    L.pick = null; L.tiles = []; L.checked = false; L.gone = []; L.hinted = false;
     if (it.type === 'line' && L.frame === 'duo') return lineDuo(it);
     if (it.type === 'q' && L.frame === 'duo') return qDuo(it);
     const bub = $('#lsnBub'), body = $('#lsnBody');
@@ -246,7 +287,7 @@
     let sub = '';
     if (it.type === 'tr') sub = it.prompt;
     else if (it.type === 'mean') sub = meanOf(it.card);
-    else if (it.type === 'type') sub = [it.mean, it.noAudio || !it.mean ? it.def : '', t('bắt đầu bằng “{letter}”, {n} ký tự', { letter: it.first, n: it.len })].filter(Boolean).join(' · '); // nghĩa tiếng mẹ đẻ + định nghĩa EN + độ dài/chữ đầu (gợi ý mở sẵn)
+    else if (it.type === 'type') sub = [it.mean, it.noAudio || !it.mean ? it.def : ''].filter(Boolean).join(' · '); // chỉ cho nghĩa; chữ đầu + số ký tự chỉ hiện khi bấm Gợi ý (trừ XP)
     else if (it.type === 'build') sub = it.prompt; // bản dịch CÂU (không bao giờ là định nghĩa của từ)
     bub.innerHTML = tag + (L.v2 ? `<span class="sr-only">${esc(TITLE(it))}</span>` : esc(TITLE(it))) + (sub ? ST.lsnSub(sub, '') : ''); // v2: đề bài = lời giáo viên trong bong bóng (trình đọc màn hình đọc bản sr-only)
     if (L.v2 && L.teacher && L.teacher.line) L.teacher.line(TITLE(it));
@@ -268,6 +309,10 @@
     } else if (it.type === 'match') {
       const L1 = E.shuffle(it.pairs.map((c, i) => i), Math.random), L2 = E.shuffle(it.pairs.map((c, i) => i), Math.random);
       fill(ST.lsnMatch(L1.map(i => ({ i, t: it.pairs[i].word })), L2.map(i => ({ i, t: it.pairs[i].mean || meanOf(it.pairs[i]) }))), false);
+      if (it.pics) body.querySelectorAll('.lsn-match [data-s=m]').forEach(b => mpTile(b, it.pairs[+b.dataset.m])); // mpic: cột phải = ảnh
+    } else if (it.type === 'lpic') {
+      fill(V ? '' : snd + ST.lsnOpts(it.options), true); // v2: bindItem vẽ 4 thẻ ảnh; v1: 4 hàng có ảnh thu nhỏ
+      if (!V) body.querySelectorAll('.lsn-opt').forEach(b => lpTile(b, b.dataset.o, it));
     } else if (it.type === 'mean' || (it.type === 'pic' && it.choice)) {
       const pic = it.type === 'pic' ? ST.lsnPic(imgUrl(it.word, it.card.pos), t('Ảnh minh họa')) : '';
       if (V) bub.insertAdjacentHTML('beforeend', pic); // ảnh nằm trong thẻ đề bài
@@ -285,7 +330,7 @@
     if (LISTENS(it)) setTimeout(() => say(audioText, false, it.who), 250);
   }
 
-  // 🧩 Stitch v2.1 story-duo (cờ ux1): câu thoại = khung 'story-duo' (Ama trái + Carlos phải, cả hai Chars/LessonTeacher đứng SAU khung chat đục); bài kiểm giữa truyện = khung lesson-question (người nói của câu đó + thẻ đáp án + tấm phản hồi).
+  // 🧩 Stitch v2.1 story-duo (cờ ux1): câu thoại = khung 'story-duo' (Ama trái + Carlos phải, cả hai Chars/LessonTeacher đứng SAU khung chat đục)
   const duoOn = () => v2On() && !!ST2['story-duo'], RADIO = '🔊 · · ·';
   function frame(it) {
     const want = it.type === 'line' || (it.type === 'q' && L.duo) ? 'duo' : 'q-' + (it.who || 'ama'); if (L.frame === want) return;
@@ -357,7 +402,7 @@
     setTimeout(() => say(it.sent, false, it.who, undefined, cap), 200);
   }
 
-  // 🎞️ Bước xem video: gói lvideo + manifest chỉ tải khi bước này mở; video hết (end card "Next step →") → bấm chính nút Tiếp tục của bài
+  // 🎞️ Bước xem video: gói lvideo + manifest chỉ tải khi bước này mở
   function video(it) {
     $('#lsnBub').textContent = t('Xem video bài học');
     $('#lsnBody').innerHTML = '<div class="lsn-vid" id="lsnVid"></div>';
@@ -375,8 +420,17 @@
     on('lsnPlay', () => say(audioText, false, it.who)); on('lsnSlow', () => say(audioText, true, it.who));
     on('lsnNoL', () => { setOff('listen'); L.sess.replace(x => E.adapt(x, offNow())); next(); });
     on('lsnIdk', () => submit(null, undefined, true));
+    on('lsnHint', () => hint(it)); // 💡 Gợi ý (−1 XP mỗi lần): bỏ 1 đáp án sai · hiện từ kế tiếp · chữ đầu + số ký tự
     on('lsnNoS', () => { setOff('speak'); L.sess.replace(x => E.adapt(x, offNow())); next(); });
     if (L.enterH) { document.removeEventListener('keydown', L.enterH); L.enterH = null; }
+    if (L.keyH) document.removeEventListener('keydown', L.keyH);
+    // ⌨️ Desktop: 1–4 chọn đáp án (thẻ A–D) · Enter = Tiếp tục khi đã chấm (Enter = Kiểm tra do enterH bên dưới)
+    L.keyH = e => {
+      if (!L || e.defaultPrevented || e.isComposing || e.ctrlKey || e.metaKey || e.altKey || (e.target.closest && e.target.closest('input,textarea,select'))) return;
+      if (/^[1-4]$/.test(e.key) && !L.checked) { const o = document.querySelectorAll('#lsnBody.lsn-opts .lsn-opt')[+e.key - 1]; if (o && !o.disabled) { e.preventDefault(); o.click(); } }
+      else if (e.key === 'Enter' && L.checked && Date.now() - (L.fbAt || 0) > 500 && !(e.target.closest && e.target.closest('button,a'))) { const n = $('#lsnNext'); if (n && n.isConnected) { e.preventDefault(); n.click(); } }
+    };
+    document.addEventListener('keydown', L.keyH);
     if (chk) { L.enterH = e => { if (e.key === 'Enter' && !e.isComposing && !(e.target.closest && e.target.closest('button,a,input,textarea,select,[role="button"]')) && chk.isConnected && !chk.disabled && !L.checked) { e.preventDefault(); chk.click(); } }; document.addEventListener('keydown', L.enterH); }
     if (chk) chk.onclick = () => submit(it.type === 'build' || it.type === 'tr' ? L.tiles.map(i => it.tiles[i]) : it.type === 'type' ? ($('#lsnIn') || {}).value : L.pick);
     const inp = $('#lsnIn');
@@ -396,13 +450,14 @@
     }
     const og = $('#lsnBody.lsn-opts');
     if (L.v2 && og) { // khung Stitch: vẽ lại 4 thẻ A–D mỗi lần chọn (khuôn chưa chọn / đã chọn)
-      const paint = focus => { og.textContent = ''; it.options.forEach((o, i) => { const b = v2opt(L.pick === o ? 'on' : 'off', i, o); b.onclick = () => { if (L.checked) return; L.pick = o; const g = $('#lsnGap'); if (g) g.textContent = o; if (chk) chk.disabled = false; paint(true); }; og.appendChild(b); if (focus && L.pick === o) setTimeout(() => b.focus(), 0); }); };
+      const paint = focus => { og.textContent = ''; it.options.filter(o => !L.gone.includes(o)).forEach((o, i) => { const b = v2opt(L.pick === o ? 'on' : 'off', i, o); b.onclick = () => { if (L.checked) return; L.pick = o; const g = $('#lsnGap'); if (g) g.textContent = o; if (chk) chk.disabled = false; paint(true); }; og.appendChild(b); if (focus && L.pick === o) setTimeout(() => b.focus(), 0); }); };
       paint(false);
     } else if (!L.v2) document.querySelectorAll('.lsn-opts .lsn-opt').forEach(b => { b.onclick = () => { if (L.checked) return; document.querySelectorAll('.lsn-opts .lsn-opt').forEach(x => x.setAttribute('aria-pressed', String(x === b))); L.pick = b.dataset.o; const g = $('#lsnGap'); if (g) g.textContent = L.pick; if (chk) chk.disabled = false; }; });
     const ans = $('#lsnAns'), bank = $('#lsnBank');
     if (bank) {
       // Xếp câu: component chung (word-arrange.js) – chạm thêm nhanh, kéo chèn vào giữa / đổi chỗ / kéo ra để gỡ, bàn phím, aria-live
-      const draw = () => { ans.innerHTML = L.tiles.map(i => ST.lsnTile(it.tiles[i], `data-a="${i}"`)).join(''); if (chk) chk.disabled = !L.tiles.length; };
+      const need = String(it.answer).split(/\s+/).length; // ô chờ đúng số từ cần xếp; nút Kiểm tra mờ → "Còn N từ"
+      const draw = () => { ans.innerHTML = L.tiles.map(i => ST.lsnTile(it.tiles[i], `data-a="${i}"`)).join('') + '<span class="lsn-slot" aria-hidden="true"></span>'.repeat(Math.max(0, need - L.tiles.length)); if (chk) { chk.disabled = !L.tiles.length; const lb = chk.querySelector('span:last-child'); if (lb) lb.textContent = chk.disabled ? t('Còn {n} từ', { n: need }) : t('Kiểm tra đáp án'); } };
       if (L.arrange) L.arrange.destroy();
       L.arrange = WordArrange.bind({ ans, bank, get: () => L.tiles, set: o => { L.tiles = o; }, draw, locked: () => L.checked, word: i => it.tiles[i], t, onPlace: () => { if (window.Sfx) Sfx.pop(); } });
       if (L.cssP) { const ar = L.arrange; L.cssP.then(() => { if (L && L.arrange === ar && ar.reserve) ar.reserve(); }); } // đo lại chỗ dành sẵn khi CSS về
@@ -426,11 +481,30 @@
     });
   }
 
+  // 💡 Gợi ý: trừ 1 XP mỗi lần (L.hints → finish). fifty = bỏ 1 phương án sai · first = đặt từ đúng kế tiếp · letter = chữ đầu + số ký tự (dạng gõ từ)
+  function hint(it) {
+    if (!L || L.checked || L.dead) return; const b = $('#lsnHint');
+    if (it.options) {
+      const bad = it.options.filter(o => o !== it.answer && !L.gone.includes(o)); if (bad.length < 2) { if (b) b.disabled = true; return; } // luôn còn ≥ 2 phương án
+      L.gone.push(bad[0]); L.hints = (L.hints || 0) + 1; if (L.pick === bad[0]) { L.pick = null; const c = $('#lsnCheck'); if (c) c.disabled = true; }
+      const og = $('#lsnBody.lsn-opts'); if (og) { const keep = L.pick; og.textContent = ''; it.options.filter(o => !L.gone.includes(o)).forEach((o, i) => { const n = v2opt(keep === o ? 'on' : 'off', i, o); n.onclick = () => { if (L.checked) return; L.pick = o; const g = $('#lsnGap'); if (g) g.textContent = o; const c = $('#lsnCheck'); if (c) c.disabled = false; og.querySelectorAll('.lsn-opt').forEach(x => x.setAttribute('aria-pressed', String(x === n))); }; og.appendChild(n); }); }
+      if (it.options.length - L.gone.length <= 2 && b) b.disabled = true;
+    } else if (it.type === 'build' || it.type === 'tr') {
+      const W = it.answer.split(/\s+/), okPre = () => L.tiles.every((ti, k) => E.norm(it.tiles[ti]) === E.norm(W[k]));
+      while (L.tiles.length && !okPre() && L.arrange && L.arrange.undo) L.arrange.undo();
+      const k = L.tiles.length, ix = it.tiles.findIndex((x, i) => !L.tiles.includes(i) && E.norm(x) === E.norm(W[k])); if (ix < 0 || !L.arrange) return;
+      L.arrange.place(ix); L.hints = (L.hints || 0) + 1;
+    } else if (it.type === 'type' && !L.hinted) {
+      L.hinted = true; L.hints = (L.hints || 0) + 1; if (b) b.disabled = true;
+      $('#lsnBub').insertAdjacentHTML('beforeend', ST.lsnSub(t('bắt đầu bằng “{letter}”, {n} ký tự', { letter: it.first, n: it.len }), ''));
+    }
+  }
+
   function submit(ans, heard, idk) {
-    if (!L || L.checked) return; L.checked = true;
+    if (!L || L.checked) return; L.checked = true; L.fbAt = Date.now(); L.ans = ans;
     const it = L.sess.cur, ok = idk ? false : E.check(it, ans), r = L.sess.answer(ok);
     document.querySelectorAll('#lsnBody button, #lsnIn').forEach(x => { x.disabled = true; }); // đã chấm: khóa đáp án (luật QA)
-    bar();
+    bar(it);
     react(ok, r.combo);
     feedback(it, ok, heard);
   }
@@ -446,18 +520,18 @@
     try { if (navigator.vibrate && (state.settings || {}).sfx !== false && !matchMedia('(prefers-reduced-motion: reduce)').matches) navigator.vibrate(ok ? 12 : [18, 40, 18]); } catch (e) { /* bỏ qua */ }
     try { if (window.Sfx) { if (ok && combo >= 3 && combo % 3 === 0 && Sfx.combo) Sfx.combo(combo); else (ok ? Sfx.correct : Sfx.wrong)(); } } catch (e) { /* bỏ qua */ }
     const el = $('#lsnTch'), pop = $('#lsnEmo');
-    if (el) { el.classList.remove('nod', 'shake'); void el.offsetWidth; el.classList.add(ok ? 'nod' : 'shake'); }
-    if (pop) { pop.textContent = ok ? (combo >= 3 ? '🔥' : '✓') : '↺'; pop.classList.remove('on'); void pop.offsetWidth; pop.classList.add('on'); } // ký hiệu, KHÔNG emoji nhân vật (luật: chỉ Ama/Carlos bank v2)
+    if (el) { el.classList.remove('nod', 'shake'); requestAnimationFrame(() => el.classList.add(ok ? 'nod' : 'shake')); } // khởi động lại animation ở khung kế, không ép layout ngay trong lượt chạm
+    if (pop) { pop.textContent = ok ? (combo >= 3 ? '🔥' : '✓') : '↺'; pop.classList.remove('on'); requestAnimationFrame(() => pop.classList.add('on')); } // ký hiệu, KHÔNG emoji nhân vật (luật: chỉ Ama/Carlos bank v2)
     const lines = ok ? OK_LINES : NO_LINES;
     if (L.teacher) L.teacher.say(lines[(L.sess.n + (combo || 0)) % lines.length], { rate: 1, voice: VOICE(L.who) });
-    const b = $('.lsn-bar'); if (b && ok) { b.classList.remove('glow'); void b.offsetWidth; b.classList.add('glow'); }
+    const b = $('.lsn-bar'); if (b && ok) { b.classList.remove('glow'); requestAnimationFrame(() => b.classList.add('glow')); }
   }
 
   // Dải chip đầu tấm phản hồi (Tactile): đúng/sai + XP câu này + chuỗi ngày (không có "tim/mạng" – luật chủ app)
   const chips = ok => ST.lsnChips({ ok, face: ST.tStill(L.who === 'carlos' ? 'carlos' : 'ama', L.pose || (ok ? 'cheer' : 'concern')), okText: t('Đúng rồi!') + (L.sess.log.slice(-1)[0] && L.sess.log.slice(-1)[0].retry ? '' : ' +2 XP'), badText: t('Chưa đúng'), streak: App.streak && App.streak() ? t('{n} ngày liên tiếp', { n: App.streak() }) : '' });
-  // 💬 Câu hỏi hiểu của truyện/radio (không có thẻ từ): "Vì sao?" = câu thoại làm bằng chứng (stories.json q.why) – phản hồi cụ thể, Hattie & Timperley 2007
+  // 💬 Câu hỏi hiểu của truyện/radio (không có thẻ từ)
   const storyWhy = it => (!it.card && it.why ? `<div class="${ST.XP} lsn-swhy"><p class="m-0 font-bold">${UI.icon('lightbulb')} ${esc(t('Vì sao?'))}</p><p class="m-0" lang="en">${esc(it.why)}</p></div>` : '');
-  // 🎨 Tấm phản hồi = mẫu Stitch "Instant Feedback & Band Booster": chip đúng/sai + chuỗi · thẻ giáo viên 2D · Tăng điểm · Vì sao? + Tiếp tục
+  // 🎨 Tấm phản hồi = mẫu Stitch "Instant Feedback & Band Booster"
   function feedback(it, ok, heard) {
     if (L.v2 && window.ST2 && ST2['feedback-correct'] && ST2['feedback-wrong']) return feedbackV2(it, ok);
     const foot = $('#lsnFoot'), lv = view.querySelector('#lsn');
@@ -472,11 +546,13 @@
     const sw = storyWhy(it), fb0 = foot.querySelector('.lsn-fb'); if (sw && fb0) fb0.insertAdjacentHTML('beforeend', sw);
     $('#lsnNext').onclick = () => next();
     $('#lsnNext').focus();
+    L.cardIt = it;
+    const nx = $('#lsnNext'); nx.insertAdjacentHTML('beforebegin', '<div id="lsnCard" class="lsn-fb"></div>'); mountCard(it, ok);
     if (c) booster(it);
   }
 
-  // 🧩 Stitch v2.1 feedback-correct / feedback-wrong (khung tự sinh: brand/stitch/v2/bind/feedback-*.json): CHỈ tấm phản hồi, đặt TRONG luồng ngay chỗ chân Kiểm tra (không cố định → không che đáp án/ô nào).
-  // Giáo viên (Ama/Carlos) đổi sang ảnh tĩnh cheer (đúng) / concern (sai) NGAY chỗ cũ – vẫn đứng sau thẻ đề bài đục. Mục mẫu không vẽ (từ · phát âm · nghĩa · Vì sao? · Tăng điểm · Giải thích · chuỗi · combo) nằm trong `extra`.
+  // 🧩 Stitch v2.1 feedback-correct / feedback-wrong
+  // Giáo viên (Ama/Carlos) đổi sang ảnh tĩnh cheer (đúng) / concern (sai) NGAY chỗ cũ
   // Stitch feedback-correct/wrong: sau Kiểm tra, thẻ đáp án đúng = thẻ teal "đúng" (✓), đáp án người học chọn sai = thẻ đỏ (✕), còn lại mờ nhẹ (opacity 90 %)
   const OPT_OK = 'lt:!bg-[#E8F5F3] lt:!border-[#0D6964] lt:![box-shadow:0_4px_0_0_#0D6964] dk:!bg-[#163632] dk:!border-[#2BA39A] dk:![box-shadow:0_4px_0_0_#0f4f49]';
   const OPT_BAD = 'lt:!bg-[#FFEEE4] lt:!border-[#ba1a1a] lt:![box-shadow:0_4px_0_0_#ba1a1a] dk:!border-[#F2553B] dk:![box-shadow:0_4px_0_0_#9B1E0A]';
@@ -491,7 +567,7 @@
     });
     const gap = $('#lsnGap'); if (gap) gap.className = 'lsn-gap inline-block px-2.5 py-0.5 rounded-lg font-bold ' + (ok ? GAP_OK : GAP_BAD); // Stitch: từ điền vào câu = viên teal (đúng) / viên đỏ "lỗi" (sai)
   }
-  // Stitch feedback-wrong: thẻ đáp án chữ to + nhãn phụ (nghĩa của từ, ngôn ngữ người học) + tag "Đáp án của bạn" (✕) / "Lựa chọn đúng" (✓); thẻ khác giữ chỗ tag (h-4) cho lưới đều
+  // Stitch feedback-wrong: thẻ đáp án chữ to + nhãn phụ (nghĩa của từ, ngôn ngữ người học) + tag "Đáp án của bạn" (✕) / "Lựa chọn đúng" (✓)
   const GAP_OK = 'lt:bg-[#0D6964]/15 lt:text-[#0D6964] border lt:border-[#0D6964]/30 dk:bg-[#2BA39A]/20 dk:text-[#4FD1C5] dk:border-[#2BA39A]/40';
   const GAP_BAD = 'lt:bg-[#ffdad6] lt:text-[#ba1a1a] lt:shadow-[0_2px_0_0_#ba1a1a] dk:bg-[#3B1510] dk:text-[#F2553B] border border-transparent dk:border-[#F2553B]/50 dk:shadow-[0_2px_0_0_#9B1E0A]';
   const same = (a, b) => String(a || '').trim().toLowerCase() === String(b || '').trim().toLowerCase();
@@ -515,100 +591,106 @@
     foot.hidden = false; foot.className = 'lsn-fv2 ' + (ok ? 'ok' : 'bad');
     if (L.teacher && L.teacher.pose) L.teacher.pose(L.pose || (ok ? 'cheer' : 'concern'));
     const PILL = 'inline-flex items-center gap-1 min-h-[28px] px-3 rounded-[9999px] border border-white/60 text-white text-[11px] leading-[14px] tracking-[0.04em] font-bold';
-    const pills = (streak ? `<span class="${PILL}"><span class="material-symbols-outlined text-[14px]" aria-hidden="true">local_fire_department</span>${esc(t('{n} ngày liên tiếp', { n: streak }))}</span>` : '') + (combo >= 3 ? `<span class="${PILL}"><span class="material-symbols-outlined text-[14px]" aria-hidden="true">bolt</span>${esc(t('COMBO ×{n}', { n: combo }))}</span>` : '');
+    const pills = (combo >= 3 ? `<span class="${PILL}"><span class="material-symbols-outlined text-[14px]" aria-hidden="true">bolt</span>${esc(t('COMBO ×{n}', { n: combo }))}</span>` : '');
     // Thẻ từ điển + nút Vì sao? = khuôn Stitch v2.1 "dict" (brand/stitch/v2/feedback-*-light.html); chỉ gắn dữ liệu thật: giáo viên · từ · IPA (2 giọng khác nhau → cả 2) · 2 loa đúng giọng · nghĩa
     const ord = UI.accOrder ? UI.accOrder() : ['en-GB', 'en-US'], LB = { 'en-GB': 'UK', 'en-US': 'US' }, AR = { 'en-GB': 'Nghe giọng Anh–Anh', 'en-US': 'Nghe giọng Anh–Mỹ' };
-    const ip = a => (c ? UI.ipaHtml(c, a, { noEx: true }) : ''), i1 = ip(ord[0]), i2 = ip(ord[1]);
-    const dict = c ? { tlabel: esc(TNAME(L.who)) + ' · ' + esc(t('Giáo viên của bạn')), word: `<span lang="en">${esc(c.word)}</span>`, ipa: i1 && i2 && i1 !== i2 ? `${LB[ord[0]]} ${i1} · ${LB[ord[1]]} ${i2}` : i1 || i2, mean: esc(meanOf(c)),
-      a1: LB[ord[0]], a2: LB[ord[1]], acc1: ord[0], acc2: ord[1], url1: UI.audioFor(c, ord[0]), url2: UI.audioFor(c, ord[1]), ar1: t(AR[ord[0]]), ar2: t(AR[ord[1]]), say: c.word } : { tlabel: '', word: '', ipa: '', mean: '', a1: '', a2: '', acc1: '', acc2: '', url1: '', url2: '', ar1: '', ar2: '', say: '' };
-    const box = c ? `<div class="${ST.BOOST}" id="lsnBoost" hidden></div><div class="${ST.XP}" id="lsnXp" hidden></div>` : '';
-    const extra = pills + storyWhy(it);
-    // Thẻ câu của mẫu (Fill in the blank / Spot the error & fix, parts.qcard): câu có chỗ trống điền từ đã chọn (đúng = viên teal, sai = viên đỏ); dạng không có câu → chỉ viên từ
-    const pick = ok ? String(it.answer) : String(L.pick == null ? '' : L.pick), B = it.type === 'gap' && it.blank, T = B ? it.blank.toks : [];
-    const q = { qkind: TITLE(it), qpre: B ? T.slice(0, B.i).join(' ') : '', qpick: pick, qpost: B ? T.slice(B.i + B.n).join(' ') : '' };
-    const d = Object.assign(ok ? { head: t('Tuyệt!'), xp: last.retry ? '' : '+2 XP' } : { head: it.type === 'match' ? t('Có cặp ghép nhầm') : t('Chưa đúng'), answer: it.type === 'match' ? '' : it.answer }, dict, q, { extra, boxes: box ? `<div class="lsn-fb flex flex-col gap-[0.5rem]">${box}</div>` : '' });
+    const ip = a => (c ? UI.ipaHtml(c, a, { noEx: true }) : ''), i1 = ip(ord[0]), i2 = ip(ord[1]), one = !i2 || E.sameVoice(i1, i2); // UK = US → MỘT loa + MỘT IPA, không nhãn UK/US
+    const dict = c ? { tlabel: esc(TNAME(L.who)) + ' · ' + esc(t('Giáo viên của bạn')), word: `<span lang="en">${esc(c.word)}</span>`, ipa: !one ? `${LB[ord[0]]} ${i1} · ${LB[ord[1]]} ${i2}` : i1 || i2, mean: esc(meanOf(c)),
+      a1: one ? '' : LB[ord[0]], a2: LB[ord[1]], acc1: ord[0], acc2: ord[1], url1: UI.audioFor(c, ord[0]), url2: UI.audioFor(c, ord[1]), ar1: one ? t('Chạm để nghe') : t(AR[ord[0]]), ar2: t(AR[ord[1]]), say: c.word } : { tlabel: '', word: '', ipa: '', mean: '', a1: '', a2: '', acc1: '', acc2: '', url1: '', url2: '', ar1: '', ar2: '', say: '' };
+    boostOpen = false;
+    const en = sentOf(it), box = c ? `<div class="${ST.BOOST}" id="lsnBoost" hidden></div><div class="${ST.XP}" id="lsnXp" hidden></div>` : en ? `<div class="${ST.XP}" id="lsnXp" hidden></div>` : '';
+    const extra = pills + (en ? '<div id="lsnCard" class="lsn-fb"></div>' : '') + storyWhy(it);
+    const q = { qkind: '', qpre: '', qpick: '', qpost: '' }; // đáp án chỉ hiện MỘT lần, ngay tại chỗ (viên tô màu trong câu / thẻ đáp án / ô nhập): không còn thẻ lặp câu trên cùng
+    const d = Object.assign(ok ? { head: t('Đúng rồi!'), xp: last.retry ? '' : '+2 XP' } : { head: it.type === 'match' ? t('Có cặp ghép nhầm') : t('Chưa đúng'), answer: it.type === 'match' ? '' : it.answer }, dict, q, { extra, boxes: box ? `<div class="lsn-fb flex flex-col gap-[0.5rem]">${box}</div>` : '' });
     const K = ok ? 'feedback-correct' : 'feedback-wrong', o2 = ST2[K](d);
     foot.innerHTML = `<div class="v2s-${K}">${o2.main}</div>`;
-    view.querySelectorAll('.lsn-fq').forEach(x => x.remove()); const og0 = $('#lsnBody');
-    if (o2.qcard && og0 && pick) { og0.insertAdjacentHTML('beforebegin', `<div class="lsn-fq v2s-${K} mb-[1rem]">${o2.qcard}</div>`); const fp = $('#lsnFqPlay'); if (fp) fp.onclick = () => say(B ? it.sent : pick, false, it.who); }
+    view.querySelectorAll('.lsn-fq').forEach(x => x.remove());
     const xp = foot.querySelector('.lsn-xpp'); if (xp && !d.xp) xp.hidden = true; const an = foot.querySelector('.lsn-ans'); if (an && !d.answer) an.hidden = true;
-    if (!c) foot.querySelectorAll('.lsn-dict,.lsn-whyrow').forEach(x => x.remove()); // ghép cặp (không có 1 từ) → không thẻ từ / Vì sao?
+    if (!c) foot.querySelectorAll(en ? '.lsn-dict' : '.lsn-dict,.lsn-whyrow').forEach(x => x.remove());
     v2optMark(it, ok);
-    if (c) $('#lsnWhy').onclick = () => explain(it);
+    if (an && ($('#lsnBody.lsn-opts') || (c && same(it.answer, c.word)))) an.hidden = true; // đáp án đã hiện ở thẻ đáp án / dòng từ → không nhắc lần hai
+    const nx = $('#lsnNext'); if (nx && nx.parentElement) nx.parentElement.classList.add('lsn-nextrow');
+    if (one && c) { const b2 = foot.querySelector('.lsn-dict button:nth-child(2)'); if (b2) b2.remove(); } // chỉ một nút loa khi UK = US
+    const inp = $('#lsnIn'); if (inp) { inp.readOnly = true; inp.classList.add(...(ok ? GAP_OK : GAP_BAD).split(' ')); } // gõ từ: khóa ô nhập + tô màu ngay tại đó
+    const aa = $('#lsnAns'); if (aa && $('#lsnBank')) aa.classList.add(...(ok ? GAP_OK : GAP_BAD).split(' '));
+    if (c || en) $('#lsnWhy').onclick = () => explain(it);
+    if (it.type === 'build' || it.type === 'tr') { const bk = $('#lsnBank'), an2 = $('#lsnAns'); if (bk) bk.style.display = 'none'; if (an2 && ok) an2.style.display = 'none'; } // đã chấm: thẻ kết quả thay hàng ô chữ (sai → giữ câu người học xếp để so)
+    L.cardIt = it;
     $('#lsnNext').onclick = () => next();
     $('#lsnNext').focus({ preventScroll: true });
-    foot.scrollIntoView({ block: 'end', behavior: 'auto' }); // tấm phản hồi + Tiếp tục luôn trong tầm nhìn
+    if (en) mountCard(it, ok);
     if (c) booster(it);
   }
 
-  // ⚡ "Tăng điểm": lỗi hay gặp → cách nói tốt hơn (gold bank, 0 AI), chạm cụm để nghe. Từ chưa có cặp sai/đúng → ẩn
-  async function booster(it) {
-    try { await App.need('lgold'); } catch (e) { return; }
-    const box = $('#lsnBoost'); if (!box || !L || L.sess.cur !== it) return;
-    const x = ((window.LESSON_GOLD || {})[E.norm(it.card.word)] || []).find(g => g.w && g.r); if (!x) return;
-    box.innerHTML = ST.lsnBoost({ title: t('Tăng điểm'), bad: t('Hay sai'), good: t('Nói hay hơn'), w: x.w, r: x.r });
-    box.hidden = false; box.querySelector('.lsn-say').onclick = e => say(e.currentTarget.dataset.say, false, L.who);
+  // Thẻ kết quả (cpack/lesson/card.js, docs/specs/learn-card.md)
+  const sentOf = it => (it.type === 'gap' || it.type === 'build' || it.type === 'tr' ? it.sent || '' : it.type === 'q' ? it.prompt || '' : it.type === 'say' && /\s/.test(it.answer || '') ? it.answer : '');
+  const cardOn = () => { try { return ls.get('lk.lcard') !== '0'; } catch (e) { return true; } };
+  let CARDP = null;
+  const cardReady = () => CARDP || (CARDP = App.need('lcard').then(() => (window.LearnCard ? LearnCard.load(nativeLang()) : null)).catch(() => { CARDP = null; }));
+  async function mountCard(it, ok) {
+    if (!cardOn()) return;
+    await cardReady();
+    const C = window.LearnCard, host = $('#lsnCard'); if (!C || !host || !L || L.cardIt !== it) return;
+    if (L.lcS !== L) { L.lcS = L; C.newLesson(); }
+    const en = sentOf(it);
+    await C.mount(host, { en, ok, demo: L.demo, ...C.ctx(it, en, L, E, state, meanLang(), meanOf, sentGloss), speak: x => say(x, false, L.who), hold: r => { if (L) L.rec = r; } });
+    if (!L || L.cardIt !== it) return;
+    C.adopt(view, host, ok, () => explain(it));
+    const nx = $('#lsnNext'); if (nx && document.activeElement === document.body) nx.focus({ preventScroll: true });
   }
 
-  // "Giải thích" từ dữ liệu sẵn có, 0 lượt AI: gold bank (vì sao + sai → đúng + mẹo) → định nghĩa + ví dụ + câu của chính người học
+  let boostOpen = false;
+  async function booster(it) {
+    await goldLoad(); await cardReady();
+    if (window.LessonWhy) LessonWhy.boost(it, { L, E, t, ST, say: x => say(x, false, L.who) });
+    const bx = $('#lsnBoost'); if (bx && !boostOpen) bx.hidden = true; // "Tăng điểm" thu gọn: chạm "Vì sao?" mới mở
+  }
+
+  // "Giải thích" từ dữ liệu sẵn có, 0 lượt AI: gold bank
   async function explain(it) {
     const box = $('#lsnXp'); if (!box) return;
-    if (!box.hidden) { box.hidden = true; return; }
+    const bst = $('#lsnBoost');
+    if (!box.hidden) { box.hidden = true; boostOpen = false; if (bst) bst.hidden = true; return; }
+    boostOpen = true; if (bst && bst.innerHTML) bst.hidden = false;
     box.hidden = false; box.textContent = '…';
-    try { await App.need('lgold'); } catch (e) { /* ngoại tuyến → phần từ điển bên dưới */ }
-    const c = it.card, G = (window.LESSON_GOLD || {})[E.norm(c.word)] || [];
-    const own = c.ctx ? c.ctx : ((c.contexts || [])[0] || {}).text;
-    let h = '';
-    const st = E.stress(c.ipaUS || c.ipa), uu = E.usuk(c);
-    if (st) h += `<p class="small">${t('Trọng âm rơi vào âm tiết {n}/{m}', { n: st.syl, m: st.of })}</p>`;
-    if (uu) h += `<p class="small">${t('Anh – Mỹ đọc khác:')} UK <span class="ipa">${esc(uu.uk)}</span> · US <span class="ipa">${esc(uu.us)}</span></p>`;
-    G.forEach(x => {
-      h += `<p lang="en"><b>${esc(x.why)}</b></p>`;
-      if (x.w) h += `<p class="small">✗ <s lang="en">${esc(x.w)}</s><br>✓ <span lang="en">${esc(x.r)}</span></p>`;
-      if (x.mem) h += `<p class="small">🧠 ${t('Mẹo nhớ:')} <span lang="en">${esc(x.mem)}</span></p>`;
-    });
-    if (!G.length && c.def) h += `<p><span class="tiny muted">${t('Định nghĩa:')}</span> <span lang="en">${esc(c.def)}</span></p>`;
-    const ex = (G[0] && G[0].ex || []).concat(c.ex ? [c.ex] : []).filter((x, i, a) => x && a.indexOf(x) === i).slice(0, 2);
-    if (ex.length) h += `<p class="small"><span class="tiny muted">${t('Ví dụ:')}</span> ${ex.map(x => `<span lang="en">${esc(x)}</span>`).join(' · ')}</p>`;
-    if (own) h += `<p class="small"><span class="tiny muted">🔎 ${t('Từ bạn đã tra')}:</span> <span lang="en">${esc(own)}</span></p>`;
-    box.innerHTML = h || `<p class="small">${t('Chưa có giải thích riêng cho từ này.')}</p>`;
+    await goldLoad();
+    await Promise.race([cardReady(), new Promise(r => setTimeout(r, 1200))]);
+    if (window.LessonWhy && LessonWhy.show) LessonWhy.show(box, it, { L, E, t, esc, meanOf }); else box.innerHTML = `<p class="small">${t('Chưa có giải thích riêng cho từ này.')}</p>`;
   }
 
   const weak0 = s => [...s.wrong.keys()].filter(k => k[0] !== '#');
-  // 🧩 Stitch v2.1 lesson-complete (brand/stitch/v2/bind/lesson-complete.json): Ama (cheer, ảnh tĩnh) đứng SAU thẻ đục "sub" (thẻ kéo lên chồng đáy hình, che đường hông + vùng mờ)
-  // Số + đơn vị theo ngôn ngữ giao diện (Intl: "3 phút" · "3 minutes" · "3 минуты"; số nhiều đúng từng ngôn ngữ, không cần khóa dịch)
-  const unitFmt = (n, unit) => { try { return new Intl.NumberFormat((window.I18N && I18N.lang && I18N.lang()) || undefined, { style: 'unit', unit, unitDisplay: 'long' }).format(n); } catch (e) { return n + ' ' + unit; } };
+  // 🧩 Stitch v2.1 lesson-complete (brand/stitch/v2/bind/lesson-complete.json)
+  // Số + đơn vị theo ngôn ngữ giao diện
+  const unitFmt = (n, unit) => { try { return new Intl.NumberFormat((window.I18N && I18N.lang && I18N.lang()) || undefined, { style: 'unit', unit, unitDisplay: 'long' }).format(n).replace(/^(?!.*\p{Nd})(.*)$/u, m => n + ' ' + m); } catch (e) { return n + ' ' + unit; } };
   let kbd = false; addEventListener('keydown', () => { kbd = true; }, true); addEventListener('pointerdown', () => { kbd = false; }, true); // thiết bị nhập gần nhất: bàn phím mới hiện vòng focus
   function finishV2(s, xp, weak, cheer) {
     const mins = Math.max(1, Math.round((Date.now() - L.t0) / 60000)), streak = App.streak ? App.streak() : 0, w = L.picks || [], q = Q(L.demo);
     const ic = n => `<span class="material-symbols-outlined text-[16px]" aria-hidden="true">${n}</span>`, ROW = 'flex flex-wrap items-center gap-x-3 gap-y-0.5 mt-1 text-[15px] leading-5 font-bold lt:text-[#0F3D3E] dk:text-[#EEF6F7]';
     const bad = new Set(weak.map(x => E.norm(x))), got = w.filter(p => !bad.has(E.norm(p.card.word))).length; // từ nhớ ngay: không sai lần nào trong cả bài
     const more = (weak.length ? `<span class="${ROW} font-medium"><span class="inline-flex items-start gap-1">${ic('edit_note')}<span>${esc(t('Cần ôn lại:'))} <span lang="en">${esc(weak.join(', '))}</span></span></span></span>` : '');
-    const lang = document.documentElement.lang || 'en', wk = (() => { // 7 chấm tuần này (thứ 2 → CN): sáng = ngày đã học (hôm nay tính luôn)
-      const act = App.activeDays ? App.activeDays() : new Set(), now = new Date(), mon = new Date(now); mon.setDate(now.getDate() - ((now.getDay() + 6) % 7)); const on = [], lt = [];
-      for (let i = 0; i < 7; i++) { const x = new Date(mon); x.setDate(mon.getDate() + i); on.push(Core.todayKey(x) === Core.todayKey(now) || act.has(Core.todayKey(x)));
-        try { lt.push(new Intl.DateTimeFormat(lang, { weekday: 'narrow' }).format(x)); } catch (e) { lt.push(''); } }
-      return { on, lt, n: on.filter(Boolean).length }; })();
+    const lang = document.documentElement.lang || 'en', W = E.weekDots(App.activeDays ? App.activeDays() : new Set(), new Date(), Core.todayKey), wk = { on: W.on, n: W.n, lt: W.days.map(x => { try { return new Intl.DateTimeFormat(lang, { weekday: 'narrow' }).format(x); } catch (e) { return ''; } }) }; // 7 chấm tuần này (thứ 2 → CN): sáng = ngày đã học (hôm nay tính luôn)
+    const run = Math.max(streak, E.runOf(App.activeDays ? App.activeDays() : new Set(), new Date(), Core.todayKey)); // chuỗi LIỀN tới hôm nay – KHÁC số ngày học trong tuần (hai nhãn riêng, không mâu thuẫn)
     let minsS = String(mins); try { minsS = new Intl.NumberFormat(lang, { style: 'unit', unit: 'minute', unitDisplay: 'narrow' }).format(mins); } catch (e) { /* bỏ qua */ }
     const d = {
       close: `#/lesson${q}`,
       mapL: t('Bản đồ bài học'),
       title: L.title,
-      pct: '100%',
       chip: L.endChip || L.title,
-      xp: '+' + xp,
       acc: s.accuracy + '%',
-      first: got + '/' + w.length,
+      xpL: '+' + xp + ' XP',
       combo: String(s.best),
+      first: got + '/' + w.length,
       mins: minsS,
-      streakT: t('Chuỗi {n} ngày', { n: streak }),
-      weekN: wk.n + '/7',
-      streak: String(streak),
-      off1: Math.round(490 * (1 - Math.min(100, s.accuracy) / 100)),
-      off2: Math.round(414 * (1 - (w.length ? got / w.length : 1))),
+      nwords: String(w.length),
+      streakT: t('Chuỗi hiện tại') + ': ' + unitFmt(run, 'day'),
+      weekN: t('Tuần này') + ': ' + unitFmt(wk.n, 'day'),
+      streak: String(run),
+      off1: Math.round(201.06 * (1 - Math.min(100, s.accuracy) / 100) * 100) / 100,
+      off2: Math.round(144.51 * (1 - (w.length ? got / w.length : 1)) * 100) / 100,
       sub: s.accuracy >= 80 ? t('Tuyệt vời!') : t('Làm tốt lắm, cứ tiếp tục nhé!'),
-      learned: w.length ? t('Bạn đã học:') + ' ' + w.map(p => p.card.word).join(' · ') : ' ',
+      learned: ' ',
       more,
+      wl: w,
       rev: weak.length ? t('Sổ lỗi sai') : t('Bản đồ bài học'),
       revIcon: weak.length ? 'edit_note' : 'map',
       revHref: weak.length ? '#/mistakes' : `#/lesson${q}`,
@@ -617,10 +699,13 @@
     if (L.teacher) { try { L.teacher.destroy(); } catch (e) { /* bỏ qua */ } L.teacher = null; }
     const root = ST2.mount(view, 'lesson-complete', d, null); root.id = 'lsn'; root.classList.add('lsn-v2', 'lsn-end', 'st-end'); root.classList.toggle('lsn-ptr', !kbd);
     try { window.scrollTo(0, 0); } catch (e) { /* bỏ qua */ } // câu cuối kéo trang xuống (tấm phản hồi): màn kết luôn bắt đầu ở đỉnh, nút ✕ không bị thanh trên che
-    { const wd = root.querySelectorAll('.lsn-week > div:nth-child(2) > div'); if (wd.length === 7) { const onC = wd[0].firstElementChild.className, onH = wd[0].firstElementChild.innerHTML, offC = wd[5].firstElementChild.className; wd.forEach((el, i) => { const dot = el.firstElementChild; dot.className = wk.on[i] ? onC : offC; dot.innerHTML = wk.on[i] ? onH : ''; el.lastElementChild.textContent = wk.lt[i]; }); } } // chấm tuần: lấy lớp "sáng/tắt" có sẵn từ khung Stitch (không thêm CSS)
-    if (!w.length) { const lg = root.querySelector('.lsn-tiles > div:nth-child(2)'); if (lg) lg.hidden = true; const r2 = root.querySelector(':scope > main > div > div:nth-child(1) > div:nth-child(3) > svg:nth-child(3)'); if (r2) r2.hidden = true; const ln = root.querySelector('.lsn-sub > div > span:nth-child(2)'); if (ln) ln.hidden = true; } // truyện/radio không có từ học: bỏ vòng + chú giải "từ nhớ ngay" + dòng "Bạn đã học"
+    { const wd = root.querySelectorAll('.lsn-week > div:nth-child(2) > div'); if (wd.length === 7) { const onD = wd[0].firstElementChild, offD = wd[6].firstElementChild, onC = onD.className, onH = onD.innerHTML, offC = offD.className, offH = offD.innerHTML, onL = wd[0].lastElementChild.className, offL = wd[6].lastElementChild.className, todL = wd[5].lastElementChild.className, tod = (new Date().getDay() + 6) % 7;
+      wd.forEach((el, i) => { const dot = el.firstElementChild, lab = el.lastElementChild; dot.className = wk.on[i] ? onC : offC; dot.innerHTML = wk.on[i] ? onH : offH; lab.className = i === tod ? todL : wk.on[i] ? onL : offL; lab.textContent = wk.lt[i]; if (i === tod && wk.on[i]) dot.classList.add('ring-2', 'ring-offset-1', 'ring-[#F2553B]'); }); } } // chấm tuần: lấy lớp "sáng/tắt" có sẵn từ khung Stitch (không thêm CSS)
+    if (!w.length) { const t4 = root.querySelector('.lsn-tiles > div:nth-child(2)'); if (t4) t4.hidden = true; const t5 = root.querySelector('.lsn-tiles > div:nth-child(4)'); if (t5) t5.hidden = true; const r2 = root.querySelector('.lsn-ring svg > circle:nth-child(3), .lsn-ring svg > circle:nth-child(4)'); if (r2) r2.parentNode.querySelectorAll('circle:nth-child(n+3)').forEach(c => { c.style.display = 'none'; }); const lb = root.querySelector('.lsn-sub > div:nth-child(2) > div:first-child > span:nth-child(2)'); if (lb) lb.hidden = true; } // truyện/radio không có từ học: bỏ ô "nhớ ngay" + "từ mới" + vòng trong + dòng "đã học"
+    root.querySelectorAll('.lsn-sub [data-say]').forEach(b => { b.onclick = () => say(b.dataset.say, false, 'ama'); });
+    { const ag = $('#lsnAgain'); if (ag && ag.parentElement) { ag.parentElement.classList.add('lsn-cta'); } }
     try { L.teacher = window.LessonTeacher ? LessonTeacher.mount($('#lsnTch'), 'ama') : null; if (L.teacher) { if (L.teacher.pose) L.teacher.pose(App.streak && App.streak() > L.s0 ? MOOD('streak', {}, 'cheer') : 'cheer'); L.teacher.say(cheer, { rate: 1, voice: VOICE('ama') }); } } catch (e) { L.teacher = null; }
-    if (window.Feel && Feel.on) { const x = root.querySelector(':scope > main > div > div:nth-child(2) > div:nth-child(2) > span:nth-child(1)'); if (x && Feel.count) Feel.count(x, xp, { prefix: '+', from: 0 }); const b = root.querySelector('[role=progressbar]'); if (b && Feel.fill) Feel.fill(b, 100); }
+    if (window.Feel && Feel.on) { const x = root.querySelector('.lsn-xp > span'); if (x && Feel.count) Feel.count(x, xp, { prefix: '+', suffix: ' XP', from: 0 }); const b = root.querySelector('[role=progressbar]'); if (b && Feel.fill) Feel.fill(b, 100); }
     if (s.accuracy >= 80 && !navigator.webdriver && typeof window.confetti === 'function') try { window.confetti(90); } catch (e) { /* bỏ qua */ } // ăn mừng 1 lần khi vào màn: pháo giấy dùng chung (game.js; reduced-motion → Kit đứng yên, không chặn chạm)
     const sh = $('#lsnShare'); if (sh) sh.onclick = async () => { const text = t('Mình vừa hoàn thành một bài học Lexkite: {a}% đúng, +{x} XP', { a: s.accuracy, x: xp }); try { if (navigator.share) await navigator.share({ title: 'Lexkite', text, url: location.origin + '/' }); else if (navigator.clipboard) { await navigator.clipboard.writeText(text); UI.toast(t('Đã sao chép')); } } catch (e) { /* người dùng hủy */ } };
     $('#lsnAgain').onclick = againGo(L.xs, L.demo);
@@ -639,7 +724,7 @@
     if (L.story && L.story.id) { const a = sDone(L.demo); if (!a.includes(L.story.id)) ls.set(SDKEY(L.demo), JSON.stringify(a.concat(L.story.id))); }
     if (L.story && !L.xs) ls.set(L.SK, String((parseInt(ls.get(L.SK) || '0', 10) || 0) + 1)); // truyện/radio kế tiếp lần sau // nút bản đồ xong (demo: khóa riêng)
     try { if (window.Sfx) Sfx.win(); /* không pháo giấy: chuyển động tiết chế (chủ 28/10) */ } catch (e) { /* bỏ qua */ }
-    let added = 0; const xp = 10 + s.ok1 * 2 + (s.wrong.size ? 0 : 5); // XP hiện cả ở bài thử (không ghi)
+    let added = 0; const xp = Math.max(5, 10 + s.ok1 * 2 + (s.wrong.size ? 0 : 5) - (L.hints || 0)); // XP hiện cả ở bài thử (không ghi)
     if (!L.demo) {
       for (const r of res) {
         try {

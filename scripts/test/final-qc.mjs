@@ -7,7 +7,8 @@
 // Dùng: node scripts/test/final-qc.mjs [web] [out/stitch-diff] [out/final-qc]   (ảnh mẫu: STITCH_V2_PNG=out/stitch-v2/png)
 import fs from 'node:fs'; import path from 'node:path'; import { execFileSync } from 'node:child_process';
 import { chromium } from 'playwright';
-import { SCREENS, DRIVE, DRIVEN, SEED, SEED_STREAK, FIX_CLOCK, SEED_LEAGUE, SEED_SCREEN, FINAL, serve } from './stitch-screens.mjs';
+import { SCREENS, DRIVE, DRIVEN, SEED, SEED_STREAK, FIX_CLOCK, SEED_LEAGUE, SEED_SCREEN, FINAL as FINAL_ALL, serve, inShard } from './stitch-screens.mjs';
+const FINAL = FINAL_ALL.filter(f => inShard(f.k));   // CI chia shard theo màn (SHARD=i/n, stitch-screens.mjs); không đặt SHARD = đủ 13 màn
 const [ROOT = 'web', SD = 'out/stitch-diff', OUT = 'out/final-qc'] = process.argv.slice(2); fs.mkdirSync(OUT, { recursive: true });
 const REF = process.env.STITCH_V2_PNG || 'out/stitch-v2/png', LIM = JSON.parse(fs.readFileSync('scripts/test/stitch-diff.json', 'utf8'));
 const S = fs.existsSync(path.join(SD, 'scores.json')) ? JSON.parse(fs.readFileSync(path.join(SD, 'scores.json'), 'utf8')) : null;
@@ -65,7 +66,8 @@ const TEACH = async () => {
     // vòng tròn / hào quang / khung: chính nó hoặc 3 tổ tiên gần bo tròn ≥ 40 % cạnh ngắn có nền/viền/bóng, hoặc cắt tràn
     for (let q = e, i = 0; q && i < 4 && q.id !== 'view'; q = q.parentElement, i++) { const cs = getComputedStyle(q), qr = q.getBoundingClientRect(), br = parseFloat(cs.borderTopLeftRadius) || 0;
       if (br >= 0.4 * Math.min(qr.width, qr.height) && (cs.overflow !== 'visible' || cs.backgroundColor !== 'rgba(0, 0, 0, 0)' || cs.backgroundImage !== 'none' || cs.borderTopWidth !== '0px' || cs.boxShadow !== 'none')) bad.push('vòng tròn/hào quang');
-      if (cs.maskImage && cs.maskImage !== 'none' || cs.webkitMaskImage && cs.webkitMaskImage !== 'none' || cs.clipPath && cs.clipPath !== 'none') bad.push('mặt nạ/clip-path');
+      const fadeFig = slot && slot.dataset.ground === 'fade' && q.classList.contains('tslot-fig') && q.parentElement === slot; // mặt nạ mờ của Chars.slot ground:'fade' (tuỳ chọn, teacher-slot.js) = tiếp đất có chủ đích
+      if (!fadeFig && (cs.maskImage && cs.maskImage !== 'none' || cs.webkitMaskImage && cs.webkitMaskImage !== 'none') || cs.clipPath && cs.clipPath !== 'none') bad.push('mặt nạ/clip-path');
       if (i && cs.overflow !== 'visible') { if (r.top < qr.top - 1 || r.left < qr.left - 1 || r.right > qr.right + 1) bad.push(`đường cắt (khung cắt đầu/tay: ${String(q.className).split(' ')[0] || q.tagName} lố trên ${Math.round(qr.top - r.top)} trái ${Math.round(qr.left - r.left)} phải ${Math.round(r.right - qr.right)} px, ảnh ${Math.round(r.width)}×${Math.round(r.height)}, khung ${Math.round(qr.width)}×${Math.round(qr.height)})`); if (r.bottom > qr.bottom + 1) { cut.push('đường cắt ngang thân'); visBottom = Math.min(visBottom, qr.bottom); } } }
     if (kind === 'avatar') bad.push('ảnh avatar (chỉ đầu – không phải người đứng)'); if (kind === 'poster') cut.push('ảnh nửa người');
     // toàn thân: ảnh gốc không chạm mép dưới & không mờ dần ở đáy (đo kênh alpha)
@@ -105,7 +107,8 @@ const LAYOUT = () => { const W = innerWidth, over = [], clip = [];
   for (const e of document.querySelectorAll('#view *')) { const r = e.getBoundingClientRect(), cs = getComputedStyle(e); if (!r.width || cs.visibility === 'hidden' || e.closest('.sr-only')) continue;
     if ((r.right > W + 1 || r.left < -1) && !e.closest('[class*="overflow-hidden"],[class*="overflow-x"]')) over.push(String(e.className).slice(0, 30));
     if (!e.children.length && e.textContent.trim() && cs.textOverflow !== 'ellipsis' && e.scrollWidth > e.clientWidth + 2 && cs.overflow !== 'visible') clip.push(e.textContent.trim().slice(0, 20)); }
-  const vi = (document.getElementById('view').innerText.match(/[^\s]*[ăâđêôơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ][^\s]*/gi) || []);
+  const own = [...document.querySelectorAll('#view [lang]')].filter(x => x.lang !== document.documentElement.lang).reduce((a, x) => a.split(x.textContent.trim()).join(' '), document.getElementById('view').innerText), // tên ngôn ngữ tự xưng (lang="pt" Português) không phải chuỗi lọt – cùng luật PHSCAN ở stitch-diff
+    vi = (own.match(/[^\s]*[ăâđêôơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ][^\s]*/gi) || []);
   // bidi: chuỗi tiếng Anh (Latin, kết thúc ? . ! …) nằm trong khối hướng RTL mà không tự xác định hướng (dir=auto/ltr/bdi/isolate) → dấu câu nhảy sang đầu dòng ('?want')
   const bidi = [...document.querySelectorAll('#view *')].filter(el => { if (el.children.length > 2) return false; const tx = [...el.childNodes].filter(n => n.nodeType === 3).map(n => n.textContent).join('').trim(); if (!/^[A-Za-z][^\u0600-\u06FF]*[?.!…]$/.test(tx) || tx.length < 8) return false; const cs = getComputedStyle(el); return cs.direction === 'rtl' && !/isolate|plaintext/.test(cs.unicodeBidi) && el.closest('[dir="auto"],[dir="ltr"],bdi') == null; }).map(el => (el.textContent || '').trim().slice(0, 30)).slice(0, 4);
   return { bidi, dir: document.documentElement.dir, hscroll: document.documentElement.scrollWidth > W + 1, over: over.slice(0, 4), clip: clip.slice(0, 4), vi: [...new Set(vi)].slice(0, 5) }; };
@@ -188,4 +191,4 @@ fs.writeFileSync(path.join(OUT, 'SUMMARY.md'), md + '\n'); fs.writeFileSync(path
 if (process.env.GITHUB_STEP_SUMMARY) fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, md + '\n');
 console.log(md.split('\n').slice(0, FINAL.length + 4).join('\n'));
 if (pass.length < FINAL.length) { console.error(`✗ final-qc: ${FINAL.length - pass.length} màn chưa đạt (xem SUMMARY.md)`); process.exit(1); }
-console.log('✓ final-qc: 13/13 màn đạt QC cuối 1-1');
+console.log(`✓ final-qc: ${FINAL.length}/${FINAL.length} màn đạt QC cuối 1-1 (tổng ${FINAL_ALL.length})`);

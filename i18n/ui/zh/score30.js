@@ -1,0 +1,28 @@
+/* UI zh – score30 (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["zh"] = Object.assign(D["zh"] || {}, {
+"Bạn của bạn hơn {n} điểm – thử lại nhé!":"你的朋友领先 {n} 分，再试一次吧！",
+"Bạn của bạn đạt {s} ({c}). Vượt qua nhé!":"你的朋友得了 {s}（{c}）。来超过 TA 吧！",
+"Bạn thắng! {me} so với {fr}":"你赢了！{me} 对 {fr}",
+"Bắt đầu":"开始",
+"Cần micro. Âm thanh không rời khỏi máy bạn.":"需要使用麦克风。音频不会离开你的设备。",
+"Hòa nhau! {me} so với {fr}":"平局！{me} 对 {fr}",
+"Không nghe rõ – thử lại ở nơi yên tĩnh hơn nhé.":"没听清楚，请换个安静的地方再试一次。",
+"Link thử thách không dùng được lúc này – thử lại sau.":"挑战链接暂时无法使用，请稍后再试。",
+"Làm lại":"再试一次",
+"Lưu loát":"流利度",
+"Mình nói tiếng Anh được {s}/100 ({c}) trên Lexkite. Bạn hơn được không? {url}":"我在 Lexkite 的英语口语得了 {s}/100（{c}）。你能超过我吗？{url}",
+"Nhận điểm nói, thách bạn bè":"拿到分数，挑战好友",
+"Phát âm":"发音",
+"Thách bạn bè":"挑战好友",
+"Thẻ điểm nói tiếng Anh":"英语口语成绩卡",
+"Trình duyệt này chưa hỗ trợ nhận giọng nói. Hãy thử Chrome hoặc app Lexkite.":"此浏览器暂不支持语音识别。请试试 Chrome 或 Lexkite 应用。",
+"Tải ảnh":"保存图片",
+"Xong":"完成",
+"Đang nghe… còn {n} giây":"正在聆听…还剩 {n} 秒",
+"Điểm tổng":"总分",
+"Điểm {s}/100, trình độ {c}":"得分 {s}/100，等级 {c}",
+"Đã chép link thử thách – dán gửi bạn nhé":"挑战链接已复制，粘贴发给好友吧",
+"Đọc to đoạn văn này trong 30 giây":"在 30 秒内朗读这段文字",
+"Ước lượng CEFR – chỉ mang tính tham khảo":"CEFR 估计，仅供参考",
+});
+})(typeof self !== 'undefined' ? self : this);

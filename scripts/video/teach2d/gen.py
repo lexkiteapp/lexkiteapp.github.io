@@ -233,7 +233,7 @@ def appdata(files, expr):   # the app's own content files (web/js/...), evaluate
     js = ("const vm=require('vm'),fs=require('fs');const c={};c.window=c;c.self=c;c.g=c;vm.createContext(c);"
           "for(const f of JSON.parse(process.argv[1]))vm.runInContext(fs.readFileSync(f,'utf8'),c);"
           "console.log(JSON.stringify(vm.runInContext(process.argv[2],c)))")
-    return json.loads(subprocess.run(['node', '-e', js, json.dumps([f'{ROOT}/web/js/{f}' for f in files]), expr], capture_output=True, text=True, check=True).stdout)
+    return json.loads(subprocess.run(['node', '-e', js, json.dumps([next((q for q in (f'{ROOT}/web/js/{f}', f'{ROOT}/web/cpack/{f}') if os.path.exists(q)), f'{ROOT}/web/js/{f}') for f in files]), expr], capture_output=True, text=True, check=True).stdout)
 
 
 def two(opts, ans, pick):   # 4-option bank item -> [right, chosen distractor] in the data's order
@@ -359,6 +359,125 @@ def react(p):   # Say it like a native (content/say-native/series.json, docs/SAY
                           dont=dn and dict(text=shown, reg=dn['reg'], masked=rude), quiz=dict(stem=q['ask'], options=q['options'], answer=q['answer'])),
                 cta=cta('phrases', '#/phrases', 'Learn real phrases'), hook=dict(line='h', text=hook), src=dict(say=S_['id'], key=it['key'], item=k_.index(p['key'])))
 
+
+# ---------------- roots: "Gốc từ" word-root family (content/video/teach2d/roots.json; IPA / definition / example from the audited bank) ----------------
+ROOTS_F = f'{ROOT}/content/video/teach2d/roots.json'
+ROOTS_BIAS, ROOTS_MAX = 0.9, 27.0   # real CI shorts run ~0.9 s over short_secs (rule clips 25.7-25.9 vs 24.9 predicted); QC ceiling is 28 s, so plan against 27 with the bias
+_RB = None
+
+
+def roots_bank():
+    global _RB
+    if _RB is None:
+        j = json.load(open(ROOTS_F)); _RB = dict(pfx=j['prefixes'], roots={r['id']: r for r in j['roots']})
+    return _RB
+
+
+def seg_parts(seg, R):   # "de-|pos|-it" -> dict(pre, root, suf, parts=[(text, kind)]) ; the root part must be one of the root's variants
+    parts = []
+    for x in seg.split('|'):
+        kind = 'pre' if x.endswith('-') else 'suf' if x.startswith('-') else 'root'; parts.append((x.strip('-'), kind))
+    rp = [t for t, k in parts if k == 'root']; assert len(rp) == 1 and rp[0] in R['variants'], ('root part not a variant', seg, R['variants'])
+    return dict(parts=parts, root=rp[0], pre=next((t for t, k in parts if k == 'pre'), None))
+
+
+def roots(p):   # Gốc từ: one root, N real words. ring preview -> "did you know" (Latin/Greek source) -> each word: prefix + root = meaning, IPA -> 2-option quiz -> CTA
+    B = roots_bank(); R = B['roots'][p['root']]; W = {x['w']: x for x in R['words']}; ws = []
+    tight = bool(p.get('tight')); sy = R['say'].split(' or ')[0] if tight else R['say']   # tight (calibrated ceiling, like rule): the spoken gloss is its first sense only, the quiz pause is shorter; the card still shows the full gloss
+    assert 2 <= len(p['words']) <= 4 and all(w in W for w in p['words']), ('roots: words must be in the root bank', p['words'])
+    for w in p['words']:
+        ipa, dfn, ex = bank(w); assert ipa and dfn and ex, ('word not in the audited bank', w)
+        x = W[w]; sp = seg_parts(x['seg'], R); pm = x.get('pm') or (B['pfx'][sp['pre']] if sp['pre'] else None); assert not sp['pre'] or pm, ('prefix without meaning', x['seg'])
+        ws.append(dict(w=w, ipa=ipa, mean=x['mean'], seg=x['seg'], parts=sp['parts'], pre=sp['pre'], pm=pm, pms=pm.split(' or ')[0] if pm else None, ex=ex, em=(facts()['words'].get(w) or {}).get('em', '')))
+    cap, rt = (lambda t: t[0].upper() + t[1:]), R['root'].capitalize(); lines = [
+        L('h', f'One root, {["zero", "one", "two", "three", "four"][len(ws)]} words!', 0.3),
+        L('r', f"The root is {rt}! " + ', '.join(w['w'].capitalize() if i == 0 else w['w'] for i, w in enumerate(ws)) + '.', 0.3),
+        L('k', f"{'' if tight else 'Did you know? '}{rt} is {R['lang']} for {R['say']}.", 0.3)]
+    for i, w in enumerate(ws):
+        lines.append(L(f'w{i}', f"{cap(w['w'])}: {w['pms']} plus {sy}." if w['pre'] else f"{cap(w['w'])}: {w['mean']}.", 0.3))
+    qw = next((w for w in reversed(ws) if w['pre']), ws[-1]); other = next(w for w in ws if w is not qw)   # asked word = the last prefixed one taught; the distractor = another word of the lesson
+    opts = [other['w'], qw['w']]; ans = 1; ask = f"{qw['pms']} plus {sy}" if qw['pre'] else qw['mean']
+    lines += [L('q', f"Quick quiz! Which means {ask}?", 2.4 if tight else 3.0, quiz=True),
+              L('a', f"{cap(qw['w'])}! {cap(qw['pms'])} plus {sy}." if qw['pre'] else f"{cap(qw['w'])}! It means {qw['mean']}."),
+              L('c', 'Save this. Free on lexkite.com.')]
+    return dict(lines=lines, data=dict(root=R['root'], rid=R['id'], say=R['say'], src=R['src'], src_lang=R['lang'], src_mean=R['src_mean'], words=ws,
+                                       quiz=dict(stem=ask, options=opts, answer=ans)),
+                cta=cta('dictionary', f"#/dict/{ws[0]['w']}", 'See the whole word family'), hook=dict(line='h', text=lines[0]['text'].rstrip('!')), src=dict(root=R['id']))
+
+
+T['roots'] = roots; SERIES['roots'] = 'Word Roots'
+
+
+# ---------------- rule: Spell->Sound (docs/specs/spell-sound.md; content/video/teach2d/rules.json mined into rules-words.json by rules.py) ----------------
+_RJ = None
+
+
+def rules_bank():
+    global _RJ
+    if _RJ is None:
+        import rules as RU; _RJ = {r['id']: r for r in json.load(open(RU.RULES_F))['rules']}
+    return _RJ
+
+
+_HOMO = None
+def homophone_words():   # bank words whose US IPA another bank word shares (know/no, write/right, knight/night)
+    global _HOMO
+    if _HOMO is None:
+        by = {}
+        for w, A in facts()['words'].items():
+            if A.get('ipa'): by.setdefault(A['ipa'], set()).add(w)
+        _HOMO = {w for g in by.values() if len(g) > 1 for w in g}
+    return _HOMO
+
+
+def rule(p):   # Spell->Sound: ONE rule, 2-3 real words. Hook -> the rule -> each word slow then normal (silent letter struck on its spoken word) -> repeat -> which letter is silent? -> CTA
+    import rules as RU
+    R = rules_bank()[p['rule']]; ws = []
+    assert 1 <= len(p['words']) <= 3, ('rule: 1-3 words per lesson', p['words'])
+    tight = bool(p.get('tight'))   # long words (-ally, -ement): shorter think/repeat pauses so the short still fits 28 s
+    for w in p['words']:
+        ipa, dfn, ex = bank(w); assert ipa and dfn, ('word not in the audited bank', w)
+        sp = RU.check(R, w, ipa); assert sp, ('the IPA does not show the rule', w, ipa)   # never override an IPA: the row is dropped
+        ws.append(dict(w=w, ipa=ipa, silent=sp, letter=w[sp[0]:sp[1]], mean=gloss(dfn) or clue_of(dfn), em=(facts()['words'].get(w) or {}).get('em', '')))
+    assert len({x['letter'] for x in ws}) == 1, ('one silent letter per lesson', [x['letter'] for x in ws])
+    cap = lambda t: t[0].upper() + t[1:]; LT = ' '.join(ws[0]['letter'].upper()); qw = ws[-1]; lines = [L('h', f'The {LT} is silent!', 0.3), L('r', R['say'], 0.3)]
+    homo = homophone_words()
+    for i, x in enumerate(ws): lines += [L(f'w{i}', cap(x['w']) + '.', 0.25, speed=0.6), L(f'v{i}', f"{cap(x['w'])}. Say: {x['w']}." if x['w'] in homo else cap(x['w']) + '.', 0.3)]   # slow, then normal; a word with a commoner homophone (know/no, write/right) gets a carrier phrase: whisper writes the commoner spelling of a lone 0.6 s word (caption_sync)
+    other = next(c for c in qw['w'] if c not in qw['letter'])   # a different letter of the asked word: the first one that is not the silent one
+    opts = [qw['letter'].upper(), other.upper()]; ans = 0
+    if int(hashlib.sha1(qw['w'].encode()).hexdigest(), 16) % 2: opts.reverse(); ans = 1
+    lines += [L('p', 'Repeat after me!', 1.6 if tight else 2.4), L('q', f"Quick quiz! Which letter is silent in {qw['w']}?", 2.4 if tight else 3.0, quiz=True),
+              L('a', f'{LT}! The {LT} is silent.'), L('c', 'Save this. Free on lexkite.com.')]
+    return dict(lines=lines, data=dict(rule=R['id'], title=R['title'], target=R['target'], letter=ws[0]['letter'], say=R['say'], words=ws,
+                                       quiz=dict(stem=f"Which letter is silent in {qw['w']}?", options=opts, answer=ans)),
+                cta=cta('pronunciation', f"#/pron/{ws[0]['w']}", 'Practise this sound'), hook=dict(line='h', text=lines[0]['text'].rstrip('!')), src=dict(rule=R['id']))
+
+
+T['rule'] = rule; SERIES['rule'] = 'Spell to Sound'
+
+BANDS_F = f'{ROOT}/content/video/teach2d/bands.json'
+_BJ = None
+def bands_bank():
+    global _BJ
+    if _BJ is None: _BJ = json.load(open(BANDS_F))
+    return _BJ
+
+
+def band(p):   # Band 5 -> 7 -> 9: ONE idea said three ways (bands.json). Hook -> the band-5 sentence -> band 7 + why -> band 9 + why -> CTA. The reason lines name the IELTS criterion the upgrade earns.
+    B = bands_bank(); T_ = next((t for t in B['topics'] if t['id'] == p['topic']), None); assert T_, ('topic not in bands.json', p['topic'])
+    st = T_['steps']; assert [x['band'] for x in st] == [5, 7, 9], ('three bands 5 / 7 / 9', p['topic'])
+    lines = [L('h', 'Band five to nine!', 0.3)]
+    for x in st:
+        lines.append(L(f"s{x['band']}", x['text'], 0.3))
+        if x['band'] > 5: lines.append(L(f"w{x['band']}", B['reasons'][x['why']]['en'], 0.3))
+    lines.append(L('c', 'Save this. Free on lexkite.com.'))
+    area = 'writing-ielts' if T_['skill'] == 'writing' else 'speaking'
+    return dict(lines=lines, data=dict(topic=T_['id'], skill=T_['skill'], steps=[dict(x, **({'crit': B['reasons'][x['why']]['criterion']} if x['band'] > 5 else {})) for x in st]),
+                cta=cta(area, '#/write' if area == 'writing-ielts' else '#/speaking', 'Try an IELTS model answer' if area == 'writing-ielts' else 'Practise IELTS speaking'),
+                hook=dict(line='h', text='Band five to nine'), src=dict(band=T_['id']))
+
+
+T['band'] = band; SERIES['band'] = 'Band 5 to 9'
 
 T['l1'] = l1; SERIES['l1'] = 'Stop Saying This'
 T['react'] = react; SERIES['react'] = 'Say it like a native'   # 9:16 reaction-card short (owner OK Stitch brand/stitch/say/video-frame 31/10)
@@ -619,6 +738,34 @@ def data_gate(row, F=None):   # facts in the row == live sources; returns the li
             x = p[k]; eq(x['word'], 'ipa', x['ipa'])
             if stress_ix(x['ipa']) != x['stress'] or ''.join(x['syl']) != x['word'] or len(x['syl']) != nuclei(x['ipa']): bad.append(f"{x['word']} stress / syllables")
         if p['a']['stress'] == p['b']['stress']: bad.append('stress does not move')
+    elif t == 'roots':   # Word Roots: root + words in the root bank, every word a real row of the audited bank (IPA + definition + example), segmentation consistent
+        R = roots_bank()['roots'].get(p['root']); ok = {x['w']: x for x in (R or {}).get('words', [])}
+        if not R: bad.append('root not in roots.json')
+        for w in p['words']:
+            if w not in ok: bad.append(f'{w} not a word of the root'); continue
+            b = W.get(w) or {}
+            if not (b.get('ipa') and b.get('def') and b.get('ex')): bad.append(f'{w} not in the audited bank')
+            try: seg_parts(ok[w]['seg'], R)
+            except AssertionError: bad.append(f'{w} segmentation')
+    elif t == 'rule':   # Spell->Sound: every lesson word is a live bank word whose US IPA proves the rule (rules.py), one silent letter per lesson, nothing family-unsafe
+        import rules as RU
+        R = rules_bank().get(p['rule'])
+        if not R: bad.append('rule not in rules.json')
+        for w in p['words']:
+            b = W.get(w) or {}
+            if not (b.get('ipa') and b.get('def')): bad.append(f'{w} not in the audited bank')
+            elif R and RU.check(R, w, b['ipa']) is None: bad.append(f"{w}: the IPA {b['ipa']} does not show the rule")
+            if w in TOPIC_SKIP: bad.append(f'{w} not family-safe')
+    elif t == 'band':   # Band 5->7->9: the topic is in bands.json, bands 5 / 7 / 9 in order, every upgrade mark inside its sentence, every reason known, three different sentences
+        B = bands_bank(); T_ = next((x for x in B['topics'] if x['id'] == p['topic']), None)
+        if not T_: bad.append('topic not in bands.json')
+        else:
+            st = T_['steps']
+            if [x['band'] for x in st] != [5, 7, 9] or len({x['text'] for x in st}) != 3: bad.append('bands 5 / 7 / 9 must be three different sentences')
+            for x in st[1:]:
+                if x.get('mark', '\0') not in x['text']: bad.append(f"band {x['band']}: the mark is not in the sentence")
+                if x.get('why') not in B['reasons']: bad.append(f"band {x['band']}: unknown reason")
+            if not all(len(x['text'].split()) <= 14 for x in st): bad.append('a sentence is longer than 14 words')
     elif t in ('mistake', 'phrasal'):   # hand-written rows (hand.json): the gold-bank row is the audited fact
         g = GOLD.get(p['gold']) or {}
         if not g: bad.append('gold row gone')
@@ -637,11 +784,18 @@ def data_gate(row, F=None):   # facts in the row == live sources; returns the li
     return bad
 
 
+def p_letter(row):   # the silent letter(s) the hook names, from the lesson's first word (the data gate has proven it against the IPA)
+    import rules as RU
+    w = row['in']['words'][0]; sp = RU.check(rules_bank()[row['in']['rule']], w, bank(w)[0]); return w[sp[0]:sp[1]].upper()
+
+
 def hook_gate(row, ep):   # the on-screen hook is a true claim about these facts (and short)
     t, p = row['template'], row['in']; hk = ep['hook']['text']
     ok = len(words(hk)) <= 6 and len(words(ep['lines'][0]['text'])) <= 7
     if t == 'verbs': ok = ok and hk == f"{p['base']} · {p['P']} · {p['PP']}"
     if t == 'stress': ok = ok and p['a']['stress'] != p['b']['stress']
+    if t == 'band': ok = ok and hk == 'Band five to nine'
+    if t == 'rule': ok = ok and hk == f"The {' '.join(p_letter(row))} is silent"
     if t == 'usuk': ok = ok and p['us'] != p['uk'] and p['ipa_us'] != p['ipa_uk']
     return ok
 
@@ -783,6 +937,163 @@ def plan_hand():
     for k, v in why.items(): print(f'  skipped {k}: {v}')
 
 
+def roots_groups(R):   # a root's words -> lessons of 3 (2 when 1 is left over); the order of the bank is kept (best-known first)
+    ws = [x['w'] for x in R['words']]; n = len(ws); sizes = [3] * (n // 3) + ([n % 3] if n % 3 else [])
+    if sizes and sizes[-1] == 1: sizes = sizes[:-2] + [2, 2] if len(sizes) > 1 else [1]
+    out, i = [], 0
+    for z in sizes: out.append(ws[i:i + z]); i += z
+    return [g for g in out if len(g) >= 2]
+
+
+
+
+RULE_REVIEWER = 'gen.py --rule-eps gates v1 (words in rules-words.json · every word live in the audited bank with a US IPA that PROVES the rule (rules.py) · family-safe · level <= B1 NGSL except the taught words · hook true · no duplicate lesson)'
+
+
+def rule_lessons(R, words):   # a rule's mined words (best first, family-unsafe dropped) -> lessons of 3 (2 when 1 is left over)
+    ws = [w for w in words if w not in TOPIC_SKIP]; n = len(ws); sizes = [3] * (n // 3) + ([n % 3] if n % 3 else [])
+    if sizes and sizes[-1] == 1: sizes = sizes[:-2] + [2, 2] if len(sizes) > 1 else [1]
+    out, i = [], 0
+    for z in sizes: out.append(ws[i:i + z]); i += z
+    return [g for g in out if len(g) >= 2]
+
+
+ROOTS_REVIEWER = 'gen.py --roots gates v1 (roots.json words == audited word bank (IPA / definition / example) · root part == a variant of the root · level <= B1 NGSL except the taught words · hook true · no duplicate lesson) + etymology checked against Etymonline / Wiktionary when the bank was written'
+
+
+def plan_roots():
+    F = facts(); A = load_auto(); R_ = json.load(open(REV_F)); rows = A['rows']; why = {}; B = roots_bank(); have = {r['id'] for r in rows}; used_h = {r['hash'] for r in rows}
+    def skip(k, r): why.setdefault(k, []).append(r)
+    cand = []
+    for ri, R in enumerate(B['roots'].values()):
+        for gi, ws in enumerate(roots_groups(R)): cand.append((gi, ri, R, ws))
+    cand.sort(key=lambda x: (x[0], x[1]))   # first lessons of every root first (variety), then the second lessons ...
+    ok = []
+    for k, (gi, ri, R, ws) in enumerate(cand):
+        rid = f"t2a_roots_{R['id']}_{gi + 1}"
+        if rid in have: continue
+        row = dict(id=rid, template='roots', teacher='ama' if len(ok) % 2 == 0 else 'carlos', theme='dusk', area='dictionary', point=f"{R['id']}:{'/'.join(ws)}",
+                   hash=chash('roots', f"{R['id']}:{'/'.join(ws)}"), heads=[f"root:{R['id']}:{w}" for w in ws], taught=ws + [R['root'].lower(), R['lang'].lower()], **{'in': dict(root=R['id'], words=ws)})
+        if row['hash'] in used_h: skip('dup', rid); continue
+        if data_gate(row, F): skip('data:' + ','.join(data_gate(row, F)), rid); continue
+        ep = None
+        opts = [(ws, 0), (ws[:2], 0), (ws, 1), (ws[:2], 1)] + ([(ws[1:], 1), (ws[::2], 1)] if len(ws) == 3 else [])   # all words, else 2, else the tight read (first sense spoken, no 'Did you know?', shorter quiz pause), else another pair - a lesson is never dropped
+        for wz, tg in opts:
+            row['in'] = dict(root=R['id'], words=wz, **({'tight': 1} if tg else {}))
+            try: ep = make(row)
+            except AssertionError as e: skip('shape:' + str(e.args[0][0]), rid); ep = None; break
+            if 18 <= short_secs(ep) + ROOTS_BIAS <= ROOTS_MAX: break
+            ep = None
+        if not ep: skip('duration', rid); continue
+        row['heads'] = [f"root:{R['id']}:{w}" for w in row['in']['words']]; row['taught'] = row['in']['words'] + [R['root'].lower(), R['lang'].lower()]
+        row['point'] = f"{R['id']}:{'/'.join(row['in']['words'])}"; row['hash'] = chash('roots', row['point'])
+        if not hook_gate(row, ep): skip('hook', rid); continue
+        ok.append([row, ep, taught_re(row['taught']).sub(' ', ' '.join(l['text'] for l in ep['lines']))])
+    for x, un in zip(ok, unknown([x[2] for x in ok])): x[2] = [u for u in un if u.lower() not in FRAME | {'plus', 'latin', 'greek'} and not lvl_ok(u, F)]
+    new = []
+    for row, ep, un in ok:
+        if un: skip('level:' + ','.join(un), row['id']); continue
+        rows.append(row); new.append(row)
+        R_['verdicts'][row['id']] = dict(template='roots', hook=ep['hook']['text'], hook_true=True, script_reviewed=True, reviewer=ROOTS_REVIEWER, machine=True,
+                                         gates=dict(data=True, level=True, hook=True, dup=True), hash=row['hash'], script={l['id']: l['text'] for l in ep['lines']})
+    json.dump(A, open(AUTO_F, 'w'), indent=1, ensure_ascii=False); open(AUTO_F, 'a').write('\n')
+    json.dump(R_, open(REV_F, 'w'), indent=1, ensure_ascii=False); open(REV_F, 'a').write('\n')
+    print(f"roots: +{len(new)} rows, total {len(rows)}")
+    for k, v in why.items(): print(f'  skipped {k}: {len(v)} {v[:4]}')
+
+
+RULE_BIAS, RULE_MAX = 0.9, 27.0
+STOCK_MIN = 7 * 15   # kho tối thiểu = 7 ngày x 15 kênh x 1 video/ngày (owner 16/11); gen.py --todo --count cảnh báo khi thấp hơn   # real short length = short_secs + ~0.9 s (kn 25.81 / mb 25.92 / wr 25.66 s vs 24.9 predicted); QC ceiling 28 s keeps 1 s of room
+
+
+def rule_secs(ep): return short_secs(ep) + RULE_BIAS
+
+
+def plan_rules(n):   # first lessons of every rule first (variety), then the second lessons ... ; n = how many new rows
+    import rules as RU
+    F = facts(); A = load_auto(); R_ = json.load(open(REV_F)); rows = A['rows']; why = {}; have = {r['id'] for r in rows}; used_h = {r['hash'] for r in rows}
+    mined = json.load(open(RU.OUT_F))['rules']; cand = []
+    for ri, m in enumerate(mined):
+        for gi, ws in enumerate(rule_lessons(rules_bank()[m['id']], [x['word'] for x in m['words']])): cand.append((gi, ri, m['id'], ws))
+    cand.sort(key=lambda x: (x[0], x[1])); ok = []
+    def skip(k, r): why.setdefault(k, []).append(r)
+    q = 0
+    while q < len(cand):
+        gi, ri, rid_, ws = cand[q]; q += 1
+        if len(ok) >= n: break
+        rid = f"t2a_rule_{re.sub('[^a-z0-9]', '', rid_)}_{gi + 1}"
+        if rid in have: continue
+        row = dict(id=rid, template='rule', teacher='ama' if (len(rows) + len(ok)) % 2 == 0 else 'carlos', theme='dusk', area='pronunciation', point=f"{rid_}:{'/'.join(ws)}",
+                   hash=chash('rule', f"{rid_}:{'/'.join(ws)}"), heads=[f'rule:{rid_}:{w}' for w in ws], taught=ws + [rid_.split('-')[-1], 'gh'], **{'in': dict(rule=rid_, words=ws)})
+        if row['hash'] in used_h: skip('dup', rid); continue
+        if data_gate(row, F): skip('data:' + ','.join(data_gate(row, F)), rid); continue
+        ep = None
+        for z, tg in dict.fromkeys([(len(ws), 0), (2, 0), (len(ws), 1), (2, 1), (1, 1)]):   # 3 words, else 2, else tighter pauses, else a single word; fit = CALIBRATED length <= RULE_MAX (real renders ran +0.9 s over short_secs, bank 19/11)
+            if z > len(ws): continue
+            row['in'] = dict(rule=rid_, words=ws[:z], **({'tight': 1} if tg else {}))
+            try: ep = make(row)
+            except AssertionError as e: skip('shape:' + str(e.args[0]), rid); ep = None; break
+            if 18 <= rule_secs(ep) <= RULE_MAX: break
+            ep = None
+        if not ep:
+            skip('duration', rid)
+            nxt = next((j for j in range(q, len(cand)) if cand[j][2] == rid_ and cand[j][0] == gi + 1), None)   # a rule whose first lesson is too long (long words) tries its next lesson right away
+            if nxt is not None and gi == 0: cand.insert(q, cand.pop(nxt))
+            continue
+        row['heads'] = [f'rule:{rid_}:{w}' for w in row['in']['words']]; row['taught'] = row['in']['words'] + [rid_.split('-')[-1], 'gh']
+        row['point'] = f"{rid_}:{'/'.join(row['in']['words'])}"; row['hash'] = chash('rule', row['point'])
+        if not hook_gate(row, ep): skip('hook', rid); continue
+        ok.append([row, ep, taught_re(row['taught']).sub(' ', ' '.join(l['text'] for l in ep['lines']))])
+    for x, un in zip(ok, unknown([x[2] for x in ok])): x[2] = [u for u in un if u.lower() not in FRAME | {'silent', 'sound'} and not lvl_ok(u, F)]
+    new = []
+    for row, ep, un in ok:
+        if un: skip('level:' + ','.join(un), row['id']); continue
+        rows.append(row); new.append(row)
+        R_['verdicts'][row['id']] = dict(template='rule', hook=ep['hook']['text'], hook_true=True, script_reviewed=True, reviewer=RULE_REVIEWER, machine=True,
+                                         gates=dict(data=True, level=True, hook=True, dup=True), hash=row['hash'], script={l['id']: l['text'] for l in ep['lines']})
+    json.dump(A, open(AUTO_F, 'w'), indent=1, ensure_ascii=False); open(AUTO_F, 'a').write('\n')
+    json.dump(R_, open(REV_F, 'w'), indent=1, ensure_ascii=False); open(REV_F, 'a').write('\n')
+    print(f"rule: +{len(new)} rows, total {len(rows)}")
+    for k, v in why.items(): print(f'  skipped {k}: {len(v)} {v[:4]}')
+
+
+BAND_BIAS, BAND_MAX = 0.9, 27.0   # same calibration as rule / roots (real shorts ~0.9 s over short_secs; QC ceiling 28 s)
+BAND_REVIEWER = 'gen.py --band-eps gates v1 (bands.json sentences == the row · mark inside its sentence · known reason · <= 14 words a sentence · spoken frame level <= B1 NGSL except the taught upgrade words · hook true · no duplicate topic)'
+def band_secs(ep): return short_secs(ep) + BAND_BIAS
+
+
+def band_taught(T_): return [w for x in T_['steps'][1:] for w in re.findall(r"[A-Za-z']+", x['text'])]   # the upgraded sentences are the lesson: their words are exempt from the level gate
+
+
+def plan_bands(n):   # one episode per bands.json topic, writing and speaking alternating; n = how many new rows
+    F = facts(); A = load_auto(); R_ = json.load(open(REV_F)); rows = A['rows']; why = {}; have = {r['id'] for r in rows}; used_h = {r['hash'] for r in rows}; ok = []
+    def skip(k, r): why.setdefault(k, []).append(r)
+    for T_ in bands_bank()['topics']:
+        if len(ok) >= n: break
+        rid = f"t2a_band_{re.sub('[^a-z0-9]', '', T_['id'])}_1"
+        if rid in have: continue
+        row = dict(id=rid, template='band', teacher='ama' if (len(rows) + len(ok)) % 2 == 0 else 'carlos', theme='dusk', area='writing-ielts' if T_['skill'] == 'writing' else 'speaking', point=f"band:{T_['id']}",
+                   hash=chash('band', T_['id']), heads=[f"band:{T_['id']}"], taught=band_taught(T_), **{'in': dict(topic=T_['id'])})
+        if row['hash'] in used_h: skip('dup', rid); continue
+        if data_gate(row, F): skip('data:' + ','.join(data_gate(row, F)), rid); continue
+        try: ep = make(row)
+        except AssertionError as e: skip('shape:' + str(e.args[0]), rid); continue
+        if not 18 <= band_secs(ep) <= BAND_MAX: skip(f'duration {band_secs(ep):.1f}', rid); continue
+        if not hook_gate(row, ep): skip('hook', rid); continue
+        ok.append([row, ep, taught_re(row['taught']).sub(' ', ' '.join(l['text'] for l in ep['lines']))])
+    for x, un in zip(ok, unknown([x[2] for x in ok])): x[2] = [u for u in un if u.lower() not in FRAME | {'band', 'five', 'nine', 'idea'} and not lvl_ok(u, F)]
+    new = []
+    for row, ep, un in ok:
+        if un: skip('level:' + ','.join(un), row['id']); continue
+        rows.append(row); new.append(row)
+        R_['verdicts'][row['id']] = dict(template='band', hook=ep['hook']['text'], hook_true=True, script_reviewed=True, reviewer=BAND_REVIEWER, machine=True,
+                                         gates=dict(data=True, level=True, hook=True, dup=True), hash=row['hash'], script={l['id']: l['text'] for l in ep['lines']})
+    json.dump(A, open(AUTO_F, 'w'), indent=1, ensure_ascii=False); open(AUTO_F, 'a').write('\n')
+    json.dump(R_, open(REV_F, 'w'), indent=1, ensure_ascii=False); open(REV_F, 'a').write('\n')
+    print(f"band: +{len(new)} rows, total {len(rows)}")
+    for k, v in why.items(): print(f'  skipped {k}: {len(v)} {v[:6]}')
+
+
 def pilot_point(r):
     p = r['in']; return dict(usuk=lambda: f"{p.get('us')}/{p.get('uk')}", verbs=lambda: p.get('base'), stress=lambda: f"{p['a']['word']}/{p['b']['word']}" if 'a' in p else '',
                              guess=lambda: p.get('word'), review=lambda: p.get('word')).get(r['template'], lambda: r['id'])()
@@ -818,9 +1129,20 @@ if __name__ == '__main__':
     A_ = sys.argv
     if '--plan' in A_: plan(int(A_[A_.index('--plan') + 1])); sys.exit(0)
     if '--hand' in A_: plan_hand(); sys.exit(0)
+    if '--roots' in A_: plan_roots(); sys.exit(0)
+    if '--band-eps' in A_: plan_bands(int(A_[A_.index('--band-eps') + 1])); sys.exit(0)
+    if '--rule-eps' in A_: plan_rules(int(A_[A_.index('--rule-eps') + 1])); sys.exit(0)
+    if '--rules' in A_:   # Spell->Sound word mining (rules.py): rules-words.json regenerates identically (--check) or is rewritten
+        import rules as RU; F_ = facts(); W_ = sorted(F_['words']); U_ = set(W_) - {w for w, u in zip(W_, unknown(W_)) if u}
+        txt = RU.dump(RU.build(F_['words'], U_))
+        if '--check' in A_: sys.exit(0 if open(RU.OUT_F).read() == txt else 'rules-words.json differs from gen.py --rules - regenerate and review')
+        open(RU.OUT_F, 'w').write(txt); print('rules-words', sum(len(r['words']) for r in json.loads(txt)['rules']), 'words'); sys.exit(0)
     if '--todo' in A_:
         T_ = todo()
-        if '--count' in A_: print(f'cần render {len(T_)}'); sys.exit(0)
+        if '--count' in A_:
+            print(f'cần render {len(T_)}')
+            if len(T_) < STOCK_MIN: print(f'::warning::Teach2D còn {len(T_)} tập chưa render < {STOCK_MIN} (7 ngày x 15 kênh x 1 video/ngày): thêm hàng (gen.py --plan / --rule-eps / --band-eps / --hand) trước khi hết kho', file=sys.stderr)
+            sys.exit(0)
         print(json.dumps(T_[:int(A_[A_.index('--take') + 1])] if '--take' in A_ else T_)); sys.exit(0)
     if '--pick' in A_:   # teach-video preqc: explicit ids > next N todo (ci-filler 'shards') > PR smoke (pilots + first auto ep of each template) > pilots
         i = A_.index('--pick'); ids, n, ev = [x.strip() for x in A_[i + 1].split(',') if x.strip()], int(A_[i + 2] or 0), A_[i + 3]

@@ -35,19 +35,37 @@ export const split = (cmds, n, weights = {}) => {   // LPT: lệnh nặng trư�
   return bins.map(b => ({ t: b.t, cmds: b.idx.sort((x, y) => x - y).map(i => cmds[i]) }));
 };
 export const readWeights = () => { try { return JSON.parse(fs.readFileSync(path.join(ROOT, 'scripts/test/suite-weights.json'), 'utf8')); } catch { return {}; } };
+// --affected (trước push, vài giây): chỉ test liên quan file đã đổi so với main – test đọc đường dẫn/tên file đó, test tự đổi, hoặc test đi cả thư mục
+// chứa file MỚI cùng đuôi (vd theme-switch quét web/*.html). 22/11: #1813 (kl.html mới) và #1814 (đổi LZCSS) đỏ CI 30–40 phút vì test kiểu này không được chạy trước push.
+export const affected = (cmds, changed, added = [], read = f => fs.readFileSync(path.join(ROOT, f), 'utf8')) => cmds.filter(c => {
+  const f = scriptOf(c); if (changed.includes(f)) return true;
+  let src; try { src = c.replace(f, '') + '\n' + read(f); } catch { return false; } // tham số lệnh (vd 'web') + mã test, bỏ chính đường dẫn test
+  const has = s => s.length > 3 && src.includes(s);
+  return changed.some(p => has(p) || has(path.basename(p))) || added.some(p => !p.startsWith('scripts/') && (() => { const top = p.split('/')[0], ext = path.extname(p); return !!ext && src.includes(ext) && new RegExp(`(^|[\\s'"\`(])${top}([\\s'"\`/)]|$)`, 'm').test(src); })());
+});
+export const changedFiles = (run = a => spawnSync('git', a, { cwd: ROOT, encoding: 'utf8' })) => {
+  const base = ['real/main', 'upstream/main', 'origin/main'].map(b => (run(['merge-base', 'HEAD', b]).stdout || '').trim()).find(Boolean) || 'HEAD';
+  const rows = (run(['diff', '--name-status', base]).stdout || '') + (run(['ls-files', '--others', '--exclude-standard']).stdout || '').split('\n').filter(Boolean).map(x => 'A\t' + x).join('\n');
+  const ls = rows.split('\n').filter(Boolean).map(l => l.split('\t'));
+  return { base, changed: ls.map(x => x[x.length - 1]), added: ls.filter(x => x[0] === 'A').map(x => x[1]) };
+};
 export const lanes = (all, n, weights = {}) => ({ fast: all.filter(c => FAST_RE.test(c)), shards: split(all.filter(c => !FAST_RE.test(c)), n, weights) });
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   let cmds = readSuite(); const arg = k => (process.argv.find(a => a.startsWith(`--${k}=`)) || '').split('=')[1];
   if (process.argv.includes('--fast')) cmds = cmds.filter(c => FAST_RE.test(c));
   else if (arg('shard')) { const [i, n] = arg('shard').split('/').map(Number); cmds = lanes(cmds, n, readWeights()).shards[i - 1].cmds; console.log(`shard ${i}/${n}: ${cmds.length} lệnh`); }
+  if (process.argv.includes('--affected')) { const d = changedFiles(); process.env.GEN_GUARD_BASE ||= d.base; /* máy dev: origin có thể là kho cũ → so đúng mốc main thật */ cmds = affected(cmds, d.changed, d.added); console.log(`--affected: ${d.changed.length} file đổi → ${cmds.length} test liên quan`); }
   if (process.argv.includes('--list')) { cmds.forEach((c, i) => console.log(`${i + 1}\t${c}`)); process.exit(0); }
+  if (process.argv.includes('--affected') && needsJsdom(cmds)) { const je = await jsdomError(); if (je) { const skip = cmds.filter(c => needsJsdom([c])); cmds = cmds.filter(c => !needsJsdom([c])); console.warn(`⚠ máy này không nạp được jsdom (${je}) → bỏ ${skip.length} test jsdom, CI vẫn chạy:\n  ${skip.join('\n  ')}`); } }
   if (needsJsdom(cmds)) { const je = await jsdomError(); if (je) { console.error(`::error file=package.json,title=${esc('jsdom không nạp được')}::npm ci chưa đủ hoặc Node không khớp (CI dùng Node 22): ${esc(je)}`); process.exit(1); } }
+  // Đầu ra test có thể hàng MB (jsdom "Not implemented"…): process.stdout.write đồng bộ vào pipe không chặn của runner CI có thể ném EAGAIN → run-suite chết (exit 1) mà mất cả dòng "✗ [n/N]" (content-factory/collect 15–18/11). Ghi bằng fs.writeSync, EAGAIN thì thử lại.
+  const put = (fd, text) => { const b = Buffer.from(text); let o = 0; while (o < b.length) { try { o += fs.writeSync(fd, b, o); } catch (e) { if (e.code !== 'EAGAIN') throw e; Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, 5); } } };
   const from = Math.max(1, Number(arg('from')) || 1), t0 = Date.now(), times = [];
   for (let i = from - 1; i < cmds.length; i++) {
     const c = cmds[i], t = Date.now();
     console.log(`\n▶ [${i + 1}/${cmds.length}] ${c}`);
     const r = spawnSync(c, { cwd: ROOT, shell: '/bin/sh', stdio: ['inherit', 'pipe', 'pipe'], env: process.env, encoding: 'utf8', maxBuffer: 1 << 28 });
-    process.stdout.write(r.stdout || ''); process.stderr.write(r.stderr || '');
+    put(1, r.stdout || ''); put(2, r.stderr || '');
     const s = (Date.now() - t) / 1000; times.push([s, c]);
     if (r.status !== 0) {
       annotate(c, ((r.stderr || '') + '\n' + (r.stdout || '')).slice(-TAIL_MAX), r.status ?? r.signal);

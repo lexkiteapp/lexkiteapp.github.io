@@ -1,0 +1,38 @@
+# 🎞️ Video nhúng bài học từ kho Teach2D (docs/specs/media-one-source.md §2a): tập đã bank (QC ≥ 90) → Release wv-<id> → verify CDN → videos.json embeds[] + coverage.json.
+# $0: không Kling, không render (chỉ lấy bản wide đã render ở teach-video.yml, artifact còn hạn), ffprobe + upload. Chỉ chạy tay (và ci-filler/cron sau này).
+name: embed-publish
+on:
+  workflow_dispatch:
+    inputs:
+      run_ids: { description: 'Các lượt teach-video (cách nhau dấu phẩy) có artifact tv-<tập>-wide-<run>', required: true }
+      max: { description: 'Số tập tối đa mỗi lượt', default: '60' }
+permissions: { contents: read, actions: read }
+concurrency: { group: embed-publish, cancel-in-progress: false }   # ci-policy: queue – ghi main + Release tuần tự, không được huỷ giữa chừng
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    permissions: { contents: write, actions: read }
+    steps:
+      - uses: actions/checkout@v4
+        with: { ssh-key: '${{ secrets.BOT_DEPLOY_KEY }}' }
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - name: Lấy artifact wide của các lượt
+        env: { GH_TOKEN: '${{ github.token }}', RUNS: '${{ inputs.run_ids }}' }
+        run: |
+          mkdir -p art
+          for r in ${RUNS//,/ }; do gh run download "$r" -R "$GITHUB_REPOSITORY" -p 'tv-*-wide-*' -D art || echo "::warning::lượt $r không còn artifact"; done
+          ls art | wc -l
+      - run: node scripts/video/embed-publish.mjs plan art $LX_MAX
+        env: { LX_MAX: '${{ inputs.max }}' }
+      - run: node scripts/video/embed-publish.mjs publish
+        env: { GITHUB_TOKEN: '${{ github.token }}' }
+      - run: node scripts/video/embed-publish.mjs verify
+      - name: Ghi videos.json và coverage.json vào main
+        if: github.ref == 'refs/heads/main'
+        run: |
+          bash scripts/ci/commit-regen.sh "embed-publish - video nhúng bài học ${{ github.run_id }} [CF-Pages-Skip]" "node scripts/video/embed-publish.mjs manifest" web/data/videos.json content/video/web/coverage.json
+      - name: Xem trước (nhánh khác main, không ghi main)
+        if: github.ref != 'refs/heads/main'
+        run: node scripts/video/embed-publish.mjs manifest && git diff --stat

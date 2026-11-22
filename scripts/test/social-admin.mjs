@@ -77,7 +77,7 @@ const PV = { clip: CLIP, lang: 'en', posts: ['facebook_page', 'instagram', 'tikt
 async function mk({ lang = 'vi', st = AS(), open = 'win', D = { accounts: [{ id: 99, platform: 'tiktok', display_name: 'Lexkite TT new' }] } } = {}) {
   const dom = new jsdom.JSDOM('<!doctype html><html><head></head><body><main id="m"></main></body></html>', { url: 'https://lexkite.com/admin.html#social/queue', runScripts: 'outside-only', pretendToBeVisual: true });
   const w = dom.window, calls = [], T = { st, conf: () => true, opened: [], popup: { closed: false, close() { this.closed = true; } }, board: [], yapi: [], reloadAcc: 0 };
-  w.eval(code); w.HTMLElement.prototype.scrollIntoView = () => {}; w.confirm = m => { T.lastConfirm = m; return T.conf(m); };
+  w.eval(code); w.HTMLElement.prototype.scrollIntoView = () => {}; w.confirm = m => { T.lastConfirm = m; return T.conf(m); };;Object.defineProperty(w,'LXDialog',{configurable:true,get:()=>({confirm:async m=>w.confirm(m),prompt:async(m,d)=>w.prompt(m,d),alert:async m=>w.alert(m)})}); // cầu nối: test vẫn giả hộp thoại bằng w.confirm/prompt/alert
   w.open = (...a) => { T.opened.push(a); return open === 'blocked' ? null : T.popup; };
   const sapi = async (m, p, b) => {
     calls.push([p, b]);

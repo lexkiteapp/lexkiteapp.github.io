@@ -11,8 +11,8 @@ import { THEME_HEAD, THEME_META, THEME_COLOR, LKT_JS, TSW_JS, LANG_JS, FOOT_JS, 
 
 const bad = []; let pages = 0;
 const ok = (c, m) => { if (!c) bad.push(m); };
-// Ngoài phạm vi: app (theme riêng web/js/app.js), quản trị (lk.admTheme), mẫu email, thư viện thiết kế, iframe nhúng (theo trang chủ nhà, 0 storage), bản app gốc
-const SKIP = /(^|\/)(app|admin|templates|design|embed|teach|tests?|vendor|js|css|img|icons|data|audio|ext)(\/|$)|admin[\w-]*\.html$|\/\.well-known\//;
+// Ngoài phạm vi: app (theme riêng web/js/app.js), quản trị (lk.admTheme), mẫu email, thư viện thiết kế, iframe nhúng (theo trang chủ nhà, 0 storage), khung ẩn kl.html (Kokoro cho add-on, không có giao diện), bản app gốc
+const SKIP = /(^|\/)(app|admin|templates|design|embed|teach|tests?|vendor|js|css|img|icons|data|audio|ext)(\/|$)|admin[\w-]*\.html$|(^|\/)kl\.html$|\/\.well-known\//;
 const walk = (d, base = d) => fs.readdirSync(d, { withFileTypes: true }).flatMap(e => {
   const p = path.join(d, e.name), r = path.relative(base, p);
   if (e.isDirectory()) return SKIP.test(r + '/') ? [] : walk(p, base);

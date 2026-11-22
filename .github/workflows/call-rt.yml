@@ -6,6 +6,9 @@ name: call-rt
 on:
   pull_request:
     paths: ['web/js/call.js', 'web/js/call/**', 'web/js/lesson/teacher.js', 'scripts/test/call-rt*.mjs', '.github/workflows/call-rt.yml']
+  push:
+    branches: [main]
+    paths: ['web/js/call.js', 'web/js/call/**', 'web/js/lesson/teacher.js', 'scripts/test/call-rt*.mjs', '.github/workflows/call-rt.yml']
   workflow_dispatch:
 permissions:
   contents: read
@@ -13,9 +16,11 @@ permissions:
   checks: read
 concurrency:
   group: call-rt-${{ github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: ${{ github.event_name != 'push' }}
 jobs:
   gate:
+    # luật 18 (CI làn nhanh, 16/11): PR chỉ chờ làn nhanh – việc nặng bỏ qua trên PR (skipped, không tốn máy), chạy SAU gộp trên push main; nhãn ready-heavy/ready = chạy nặng ngay trên PR
+    if: ${{ github.event_name != 'pull_request' || contains(github.event.pull_request.labels.*.name, 'ready-heavy') || contains(github.event.pull_request.labels.*.name, 'ready') }}
     runs-on: ubuntu-latest
     timeout-minutes: 3
     permissions: { contents: read, checks: read }

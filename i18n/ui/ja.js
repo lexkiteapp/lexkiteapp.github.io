@@ -984,6 +984,7 @@
 "Thử Phòng viết lần đầu":"ライティングルームを初めて試してみる",
 "Thử lại":"再試行",
 "Thử thách 60 giây":"60秒チャレンジ",
+"Thử thách nói 30 giây":"30-second speaking challenge",
 "Thử thách tự đặt câu":"自分の文章を書くチャレンジ",
 "Thực phẩm & Nông nghiệp":"食品と農業",
 "Tia chớp":"稲妻",

@@ -24,9 +24,9 @@
  },
  "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
  "cta": {
-  "area": "idiom-vs-textbook",
-  "link": "https://lexkite.com/app/",
-  "say": "Practice free on lexkite.com"
+  "area": "phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Practice it free"
  },
  "series": {
   "name": "Idiom Vs Textbook",
@@ -54,7 +54,7 @@
    "gap": 0.7
   },
   {
-   "id": "t",
+   "id": "tip",
    "text": "Tip: circle back is for work. With friends, just say let's talk later.",
    "gap": 0.7
   },
@@ -89,20 +89,8 @@
    "rows": [
     [
      [
-      "Let's circle",
+      "Circle back?",
       "white"
-     ]
-    ],
-    [
-     [
-      "back on",
-      "yellow"
-     ]
-    ],
-    [
-     [
-      "this.",
-      "yellow"
      ]
     ]
    ],
@@ -138,25 +126,7 @@
       "hook": true,
       "runs": [
        [
-        "Let's circle"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "back on"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "this."
+        "Circle back?"
        ]
       ]
      }
@@ -165,7 +135,7 @@
    {
     "id": "sum",
     "at": [
-     "t",
+     "tip",
      0
     ],
     "rows": [
@@ -178,7 +148,7 @@
       "t": "line",
       "runs": [
        [
-        "circle back is for work. With friends, just say"
+        "circle back is for work."
        ]
       ]
      }
@@ -251,7 +221,7 @@
     ]
    }
   ],
-  "hook_text": "Let's circle back on this.",
+  "hook_text": "Circle back?",
   "end_line": "c"
  },
  "embed": {

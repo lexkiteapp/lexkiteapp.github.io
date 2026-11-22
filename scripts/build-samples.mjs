@@ -154,7 +154,7 @@ ${sectionNav('vi', '/tu-vung/')}
 ${filterBox('vi')}
 ${catNav(Object.entries(byG).map(([k, xs]) => [k, GROUP[k] || k, xs.length, '', vocabArt('', k)]), TP.length, 'vi', F[1], esc)}
 ${Object.entries(byG).map(([k, xs]) => group2(k, GROUP[k] || k, `${xs.length} ${L.sets}`, xs.map(vCard), '', vocabArt('', k))).join('\n')}</div>`));
-  addSm([`${SITE}tu-vung/`, ...TP.map(x => `${SITE}tu-vung/${x.id}`)], 'web/js/data.js', 'web/js/lib');
+  addSm([`${SITE}tu-vung/`, ...TP.map(x => `${SITE}tu-vung/${x.id}`)], 'web/js/data.js', 'web/js/lib', 'web/cpack/lib');
   console.log(`✓ SEO: ${TP.length} trang bộ từ vựng + mục lục`);
 }
 
@@ -196,7 +196,7 @@ ${sectionNav('vi', '/ngu-phap/')}
 ${filterBox('vi')}
 ${catNav(order.map(k => [k, unitOf(k).name, units[k].length, '', unitArt(k)]), G.length, 'vi', L.sectionsL, esc)}
 ${order.map(k => { const u = unitOf(k); return group2(k, u.name, `${units[k].length} ${L.lessons}`, units[k].map(gCard), '', unitArt(k)).replace('</h2>', `</h2>${u.desc ? `<p>${esc(u.desc)}</p>` : ''}`); }).join('\n')}</div>`));
-  addSm([`${SITE}ngu-phap/`, ...G.map(l => `${SITE}ngu-phap/${l.id}`)], 'web/js/grammar');
+  addSm([`${SITE}ngu-phap/`, ...G.map(l => `${SITE}ngu-phap/${l.id}`)], 'web/js/grammar', 'web/cpack/grammar');
   console.log(`✓ SEO: ${G.length} trang ngữ pháp + mục lục`);
 }
 

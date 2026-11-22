@@ -29,21 +29,25 @@ jobs:
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2 axe-core@4.10.2
           bash scripts/ci/pw-install.sh --with-deps chromium
-          B="${{ github.event.inputs.base }}"; [ "$B" = dist ] && B=http://localhost:8080
+          B="$LX_IN1"; [ "$B" = dist ] && B=http://localhost:8080
           node scripts/test/ux-public.mjs "$B" ux-out
+        env:
+          LX_IN1: ${{ github.event.inputs.base }}
       - name: App pattern sweep (every route, 1280/375, light/dark)
         if: ${{ !cancelled() }}
         run: |
-          B="${{ github.event.inputs.base }}"; [ "$B" = dist ] && B=http://localhost:8080
+          B="$LX_IN1"; [ "$B" = dist ] && B=http://localhost:8080
           node scripts/test/ux-sweep.mjs "$B" ux-out/sweep --check || echo "::warning::ux-sweep over budget"
+        env:
+          LX_IN1: ${{ github.event.inputs.base }}
       - name: Lighthouse
         if: ${{ !cancelled() && github.event.inputs.lh != '0' }}
         run: |
-          B="${{ github.event.inputs.base }}"; [ "$B" = dist ] && B=http://localhost:8080; mkdir -p ux-out/lh
+          B="$LX_IN1"; [ "$B" = dist ] && B=http://localhost:8080; mkdir -p ux-out/lh
           for p in "en/vocabulary/" "en/samples/" "en/speaking/" "app/?hl=en"; do
             k=$(echo "$p" | tr -c 'a-z0-9' '_')
-            for i in 1 2 3; do npx -y lighthouse@12.2.1 "$B/$p" --form-factor=mobile --only-categories=performance,accessibility,best-practices,seo --chrome-flags="--headless=new --no-sandbox" --output=json --output-path=/tmp/m$i.json --quiet || true; done
-            npx -y lighthouse@12.2.1 "$B/$p" --preset=desktop --only-categories=performance,accessibility,best-practices,seo --chrome-flags="--headless=new --no-sandbox" --output=json --output-path=/tmp/d.json --quiet || true
+            for i in 1 2 3; do npx -y lighthouse@12.2.1 "$B/$p" --form-factor=mobile --only-categories=performance,accessibility,best-practices,seo --chrome-flags="--headless=new --no-sandbox --disable-dev-shm-usage --disable-gpu" --output=json --output-path=/tmp/m$i.json --quiet || true; done
+            npx -y lighthouse@12.2.1 "$B/$p" --preset=desktop --only-categories=performance,accessibility,best-practices,seo --chrome-flags="--headless=new --no-sandbox --disable-dev-shm-usage --disable-gpu" --output=json --output-path=/tmp/d.json --quiet || true
             node -e "
               const fs=require('fs');const sum=f=>{const d=JSON.parse(fs.readFileSync(f)),a=d.audits;return{scores:Object.fromEntries(Object.entries(d.categories).map(([k,v])=>[k,Math.round(v.score*100)])),lcp:a['largest-contentful-paint'].displayValue,cls:a['cumulative-layout-shift'].displayValue,tbt:a['total-blocking-time'].displayValue,kb:Math.round(a['total-byte-weight'].numericValue/1024),fails:Object.values(a).filter(x=>x.score!==null&&x.score<0.9&&['binary','numeric','metricSavings'].includes(x.scoreDisplayMode)).map(x=>x.id).slice(0,20)}};
               const m=[1,2,3].map(i=>'/tmp/m'+i+'.json').filter(f=>fs.existsSync(f)).map(sum).sort((a,b)=>a.scores.performance-b.scores.performance);
@@ -51,6 +55,8 @@ jobs:
               fs.writeFileSync('ux-out/lh/$k.json',JSON.stringify(o,null,1));console.log(JSON.stringify(o));"
             rm -f /tmp/m?.json /tmp/d.json
           done
+        env:
+          LX_IN1: ${{ github.event.inputs.base }}
       - if: always()
         uses: actions/upload-artifact@v4
         with: { name: 'ux-public-${{ github.event.inputs.label }}', path: ux-out, retention-days: 7 }

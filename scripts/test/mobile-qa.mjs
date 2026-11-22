@@ -113,6 +113,7 @@ async function open(browser, vp) {
   await noProd(ctx); // CI: media/audio → GitHub, /api → offline (0 lượt prod)
   const page = await ctx.newPage();
   page.on('pageerror', e => errs.push(`${vp.w} pageerror: ${String(e.message).slice(0, 120)}`));
+  await page.addInitScript(() => { try { if (localStorage.getItem('lk.ux1') == null) localStorage.setItem('lk.ux1', '0'); } catch (e) { /* bỏ qua */ } }); // lượt chính = v1 TƯỜNG MINH (máy mới chưa có config giờ = v2, #1789); lượt ux1 bên dưới bật '1'
   await page.addInitScript(() => {
     window.__cls = 0; window.__ev = []; window.__sh = [];
     const sel = n => n && n.tagName ? n.tagName.toLowerCase() + [...n.classList].slice(0, 2).map(c => '.' + c).join('') + (n.id ? '#' + n.id : '') : '?';
@@ -231,7 +232,7 @@ for (const vp of VPS) {
     await page.evaluate(() => { try { localStorage.setItem('lk.ux1', '1'); } catch (e) { /* bỏ qua */ } });
     await page.reload({ waitUntil: 'networkidle' }).catch(() => {});
     for (const route of UX1_ROUTES) { try { await visit(page, route); pages++; add(vp.w, 'ux1 ' + route, await page.evaluate(detect)); } catch (e) { errs.push(`${vp.w} ux1 ${route}: ${String(e.message).slice(0, 120)}`); } }
-    await page.evaluate(() => { try { localStorage.removeItem('lk.ux1'); } catch (e) { /* bỏ qua */ } });
+    await page.evaluate(() => { try { localStorage.setItem('lk.ux1', '0'); } catch (e) { /* bỏ qua */ } }); // về lượt v1 tường minh
   }
   await ctx.close();
 }

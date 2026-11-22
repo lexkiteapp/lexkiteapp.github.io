@@ -24,7 +24,7 @@
 2. **Dựng 10–14 bài** (`build`): mỗi từ 2 dạng khác nhau theo dữ liệu có thật (không có câu → không có dạng câu; không có ảnh đúng `từ#loại` → không có dạng ảnh); xen kẽ, không 2 bài liền cùng từ.
 3. **Hàng đợi**: sai → bản sao vào cuối hàng, gắn nhãn **"Lỗi cũ"** (tối đa 2 lần/bài); thanh tiến độ chỉ tăng khi đúng.
 4. **COMBO**: đúng liên tiếp ≥ 3 → hiện "🔥 COMBO ×n", sai → về 0. **Màn kết**: +XP · tỉ lệ đúng · COMBO cao nhất · thời gian · từ cần ôn.
-5. **Phản hồi tức thì** (sheet dưới): đúng/sai, đáp án, nghĩa, IPA + trọng âm, ghi chú US/UK (khi `ipa ≠ ipaUS`), nút **Giải thích** (gold `why` + sai→đúng, hoặc định nghĩa + ví dụ) – 0 AI.
+5. **Thẻ kết quả theo câu** (`docs/specs/learn-card.md`, `cpack/lesson/card.js`): câu đủ dấu · nghĩa · mẫu câu · thử nói · Vì sao · thử đổi từ, mẫu tự vào ôn tập. **Phản hồi tức thì** (sheet dưới): đúng/sai, đáp án, nghĩa, IPA + trọng âm, ghi chú US/UK (khi `ipa ≠ ipaUS`), nút **Giải thích**: phần CÂU trước – `lesson/why.js` (lỗi vừa mắc so với đáp án, trật tự từ, từ nhiễu, ví dụ MỚI không lặp câu bài; docs/specs/sentence-builder.md), rồi phần TỪ (gold `why` + sai→đúng, hoặc định nghĩa + ví dụ) – 0 AI.
 6. **"Không nghe được lúc này" / "Không nói được lúc này"**: tắt dạng đó 60 phút (`lk.lsn.off`), các bài còn lại tự đổi sang bản đọc/bản chọn; không trừ điểm.
    Micro không bao giờ "chết" im lặng (LX-1002): mỗi lần chạm kết thúc bằng câu nghe được hoặc lời nhắn theo mã lỗi (`UI.recErrorText`) + nhãn **Thử lại**; hỏng micro/quyền/mạng 2 lần → chỉ lối "Không nói được lúc này". `UI.recognize` luôn phát đúng 1 result/error trước end (phiên kết thúc im lặng/treo → `no-speech`); dịch vụ của trình duyệt hỏng (`network`/`service-not-allowed`/`language-not-supported`) → cả phiên chuyển sang ghi âm + Whisper trên máy. Test: `scripts/test/lesson.mjs` phần F.
 7. **Cuối bài → FSRS**: từ sai ≥ 1 lần → `grade 0` (Quên) – chưa có thẻ thì `App.addWord` để vào hàng ôn; từ đến hạn đúng ngay lần đầu → `grade 2`; từ chưa đến hạn đúng → không đổi lịch. XP qua `App.reward`. Demo (`?demo=1`) không ghi gì.
@@ -65,7 +65,8 @@
 |---|---:|---|
 | Khung app | +~0,4 KB (2 dòng BUNDLES/ROUTE_BUNDLE + thẻ trang chủ khi cờ bật) | luôn |
 | `lesson` (engine + ui + en strings) | ~9 KB gz | mở `#/lesson` |
-| `lgold` gold bank theo từ | ~12 KB gz | lần đầu bấm Giải thích |
+| gold bank theo từ (`web/cpack/lesson/gold.js`) | ~12 KB gz | lần đầu bấm Giải thích |
+| `lcard` thẻ kết quả + Vì sao? (`docs/specs/learn-card.md`) | ~7 KB gz + `web/packs/lcard` | lúc rảnh sau khi vào bài |
 | Giáo viên | ≤ 180 KB | mở bài, `!saveData`; lần sau 0 |
 | Ảnh | ≤ 6 KB/ảnh (`VImg`) | chỉ bài `pic` |
 
@@ -161,3 +162,9 @@ Xem artifact `lipsync-lab` của run CI mới nhất (report.md, metrics.json, v
 - Hạ cấp: saveData / giảm chuyển động / không WebGL / thiếu tài sản → poster.webp (alpha) tĩnh. Tài sản: chỉ qua Chars (poster, clip talk/listen, đầu trơn).
 - 🙂 Mặt VẼ khớp miệng (cờ lk.lipsync, chỉ Call: mount(el, who, { lip: true }), docs/LESSON-ENGINE.md §Khớp miệng): đầu trơn + mắt/mi/mày/ria/miệng vector (LipFace) vẽ lại mỗi khung theo
 - audio.currentTime. Có mốc CI (web/js/call/cues.js + <khóa>-ls.mp3) → "pre"; không có → LipSync.live() theo năng lượng tiếng. Thiếu gì → vòng clip như cũ → poster.
+
+## Khung bài tập "top-1" (19/11, test `scripts/test/lesson-top1.mjs`)
+- Kết quả đúng/sai = thanh cố định đáy (≤ 35 % màn, Tiếp tục dính đáy); đáp án hiện MỘT lần tại chỗ (viên trong câu / thẻ đáp án / ô nhập khóa + tô màu); Ama khen trong bong bóng (`teacher.line` ẩn bong bóng khi không có chữ, `say()` không đặt "🔊 · · ·"), bảng chỉ trạng thái + XP + combo; UK = US → 1 loa 1 IPA; "Vì sao?" mở thẻ Giải thích + Tăng điểm.
+- Nút chân: Không nghe/nói được · Gợi ý (−1 XP: bỏ 1 đáp án / đặt từ kế / chữ đầu) · Bỏ qua; nhãn dạng bài = câu đang hiện (`bar(cur)`); phím 1–4 chọn, Enter kiểm tra/tiếp tục; xếp câu có ô chờ đủ số từ, "Còn N từ".
+- Đề: `E.build({ near, level })` (đường mới; thiếu cả hai = đường cũ, native vectors giữ nguyên) – nhiễu cùng loại từ + cùng dạng -ing/-ed/-s + cùng chặng (`near`), pool KHÔNG lẫn STARTER khi kho đủ; `sentenceOf(level)` chọn câu theo trình độ = min(mục tiêu, trình độ + 1) (`E.sentLevel`).
+- Màn kết: 4 ô XP · COMBO · Nhớ ngay · Thời gian một hàng; Ama cạnh lời khen; từ đã học = chip chạm nghe + Ôn lại; nút chính dính đáy; thẻ chuỗi tách "Chuỗi hiện tại" (liền) khỏi "Tuần này" (`E.weekDots`/`E.runOf`).

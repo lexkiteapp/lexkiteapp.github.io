@@ -2,31 +2,32 @@
 
 Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipeline/score.budget.json` · kế hoạch `docs/CONTENT-WORLD-PLAN.md` §3.5. Điểm = độ phủ so với chuẩn × tỉ lệ qua cổng.
 
-**Tổng: 80.1 / 100**
+**Tổng: 77.6 / 100**
 
 | Mảng | Điểm | Sàn | Độ phủ | Qua cổng | Lỗi |
 |---|---|---|---|---|---|
-| Kho từ | **59.2** | 58.5 | 59.2% | 100% | 0 |
+| Kho từ | **59.7** | 59.3 | 59.7% | 100% | 0 |
 | Ngữ pháp | **72.8** | 72.8 | 72.8% | 100% | 0 |
-| Giao tiếp | **89.7** | 68.3 | 89.7% | 100% | 0 |
-| 4 kỹ năng | **97.6** | 62.9 | 97.6% | 100% | 0 |
-| Đề thi | **66.6** | 31.7 | 66.6% | 100% | 0 |
-| Khung Can-do | **82.5** | 81.3 | 82.5% | 100% | 0 |
-| Dễ học – dễ nhớ | **91.8** | 91.7 | 91.8% | 100% | 0 |
-| i18n | **81** | 62.7 | 81% | 100% | 0 |
+| Giao tiếp | **89.7** | 89.7 | 89.7% | 100% | 0 |
+| 4 kỹ năng | **97.6** | 97.6 | 97.6% | 100% | 0 |
+| Đề thi | **66.6** | 66.6 | 66.6% | 100% | 0 |
+| Chất lượng đề | **54.2** | 54.2 | 54.2% | 100% | 0 |
+| Khung Can-do | **82.6** | 82.6 | 82.6% | 100% | 0 |
+| Dễ học – dễ nhớ | **91.8** | 91.8 | 91.8% | 100% | 0 |
+| i18n | **83** | 82.8 | 83% | 100% | 0 |
 
 ## Kho từ
 
 | Thành phần | Có / chuẩn | % | Trọng số |
 |---|---|---|---|
-| từ#loại duy nhất | 10287 / 20000 | 51% | 25 |
-| IPA·nghĩa·định nghĩa·ví dụ·CEFR | 10287 / 10287 | 100% | 20 |
-| collocation | 5019 / 20000 | 25% | 12 |
-| đồng nghĩa | 3106 / 20000 | 16% | 8 |
-| IPA Mỹ | 6884 / 20000 | 34% | 5 |
-| ảnh theo nghĩa | 8026 / 20000 | 40% | 15 |
-| C2 | 1022 / 1000 | 100% | 10 |
-| A1 | 869 / 1000 | 87% | 5 |
+| từ#loại duy nhất | 10482 / 20000 | 52% | 25 |
+| IPA·nghĩa·định nghĩa·ví dụ·CEFR | 10482 / 10482 | 100% | 20 |
+| collocation | 5058 / 20000 | 25% | 12 |
+| đồng nghĩa | 3165 / 20000 | 16% | 8 |
+| IPA Mỹ | 6987 / 20000 | 35% | 5 |
+| ảnh theo nghĩa | 8212 / 20000 | 41% | 15 |
+| C2 | 1191 / 1000 | 100% | 10 |
+| A1 | 871 / 1000 | 87% | 5 |
 
 ## Ngữ pháp
 
@@ -58,13 +59,13 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | Thành phần | Có / chuẩn | % | Trọng số |
 |---|---|---|---|
 | Nghe: bộ bài | 80 / 80 | 100% | 15 |
-| Đọc: bài | 618 / 600 | 100% | 15 |
+| Đọc: bài | 708 / 600 | 100% | 15 |
 | Đọc ngắn A1 (chưa làm) | 128 / 80 | 100% | 3 |
 | Đọc ngắn A2 | 80 / 80 | 100% | 3 |
 | Đọc ngắn B1 | 75 / 80 | 94% | 3 |
 | Đọc ngắn B2 | 75 / 80 | 94% | 3 |
 | Đọc ngắn C1 | 80 / 80 | 100% | 3 |
-| Đọc ngắn C2 (chưa làm) | 85 / 80 | 100% | 3 |
+| Đọc ngắn C2 (chưa làm) | 165 / 80 | 100% | 3 |
 | Nói: chủ đề | 70 / 60 | 100% | 10 |
 | Nói: câu trả lời mẫu | 680 / 600 | 100% | 10 |
 | Viết: bài mẫu | 354 / 400 | 89% | 18 |
@@ -92,14 +93,24 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | Cambridge C1 (chưa làm) | 2 / 6 | 33% | 8 |
 | Cambridge C2 (chưa làm) | 2 / 6 | 33% | 8 |
 
+## Chất lượng đề
+
+| Thành phần | Có / chuẩn | % | Trọng số |
+|---|---|---|---|
+| đáp án cân bằng vị trí (lệch ≤ 3 %) | 100 / 100 | 100% | 15 |
+| đáp án đúng không lộ qua độ dài (≤ 10 %) | 61.3 / 100 | 61% | 20 |
+| lời giải riêng từng câu (rập khuôn ≤ 2 %) | 85 / 100 | 85% | 15 |
+| không trùng câu / đáp án nhiễu trùng | 94.7 / 100 | 95% | 15 |
+| qua giám khảo LLM (mẫu ≥ 1.500) (chưa làm) | 0 / 100 | 0% | 35 |
+
 ## Khung Can-do
 
 | Thành phần | Có / chuẩn | % | Trọng số |
 |---|---|---|---|
 | mục tiêu LKF tự soạn | 585 / 600 | 98% | 25 |
 | ô kỹ năng × cấp đủ ≥ 15 | 36 / 36 | 100% | 15 |
-| nội dung có lo hợp lệ | 11657 / 11657 | 100% | 35 |
-| mục tiêu đã có nội dung luyện | 194 / 600 | 32% | 25 |
+| nội dung có lo hợp lệ | 11862 / 11862 | 100% | 35 |
+| mục tiêu đã có nội dung luyện | 197 / 600 | 33% | 25 |
 
 ## Dễ học – dễ nhớ
 
@@ -107,14 +118,14 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 |---|---|---|---|
 | Ngữ pháp | 96.9 / 100 | 97% | 25 |
 | Bài lộ trình | 100 / 100 | 100% | 25 |
-| Bộ từ | 74.2 / 100 | 74% | 25 |
-| Kỹ năng | 96.2 / 100 | 96% | 25 |
+| Bộ từ | 74.1 / 100 | 74% | 25 |
+| Kỹ năng | 96.1 / 100 | 96% | 25 |
 
 ## i18n
 
 | Thành phần | Có / chuẩn | % | Trọng số |
 |---|---|---|---|
 | ngôn ngữ đạt i18n-qa | 13 / 13 | 100% | 45 |
-| nhãn ngắn dịch tay | 12.3 / 13 | 95% | 10 |
-| gói nghĩa từ theo ngôn ngữ | 5.3 / 13 | 41% | 20 |
+| nhãn ngắn dịch tay | 12.4 / 13 | 95% | 10 |
+| gói nghĩa từ theo ngôn ngữ | 6.6 / 13 | 51% | 20 |
 | điểm bản xứ (native-score/5) (chưa làm) | 3.7 / 5 | 74% | 25 |

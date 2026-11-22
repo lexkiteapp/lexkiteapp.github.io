@@ -38,6 +38,7 @@ Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --
 | 00:04 | `ci-filler` | `4-59/10 * * * *` | reports | gh_minutes | 3 | — | — |
 | 00:07 | `blog-publish` | `7 */3 * * *` | publishing | gh_minutes | 10 | — | — |
 | 00:07 | `d1-usage-watch` | `7,27,47 * * * *` | reports | d1_main, gh_minutes | 1 | d1_main_reads≈10, d1_main_writes≈2 | — |
+| 00:07 | `zombie-sweep` | `7,22,37,52 * * * *` | reports | gh_minutes | 1 | — | — |
 | 00:07 | `ci-autopilot` | `7-57/10 * * * *` | reports | gh_minutes | 3 | — | — |
 | 00:07 | `youtube-manual` | `7,37 * * * *` | publishing | youtube_api, d1_main_read | 5 | d1_main_reads≈300 | — |
 | 00:15 | `d1-backup` | `15 0 * * 1,2` | archive | d1_main_read, drive_pool, gh_minutes | 30 | d1_main_reads≈60000, drive_calls≈80 | ✓ |
@@ -51,6 +52,7 @@ Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --
 | 00:41 | `ads-revenue-hourly` | `41 * * * *` | reports | gh_minutes, d1_main | 1 | d1_main_reads≈1100, d1_main_writes≈500 | — |
 | 00:47 | `cdn-mirror` | `47 * * * *` | reports | gh_minutes | 3 | — | — |
 | 00:50 | `script-bank` | `50 0 * * *` | render | workers_ai_b, grabcast_ai, gh_minutes | 60 | workers_ai_b_neurons≈2000, grabcast_text≈60 | ✓ |
+| 00:50 | `seo-indexnow` | `50 */3 * * *` | publishing | gh_minutes | 4 | — | — |
 | 00:52 | `social-auto` | `52 */2 * * *` | publishing | grabcast_social, d1_main | 3 | grabcast_social_calls≈60, d1_main_reads≈600, d1_main_writes≈120 | — |
 | 00:53 | `preview-site` | `53 */3 * * *` | publishing | gh_minutes | 8 | — | — |
 | 00:53 | `report-autofix` | `53 */3 * * *` | reports | gh_minutes | 1 | d1_main_reads≈200 | — |
@@ -77,6 +79,7 @@ Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --
 | 02:40 | `vocab-img-scene` | `40 2,4,7,10,13,16,19,22 * * *` | bulk | grabcast_ai, gh_minutes | 120 | grabcast_images≈6000, grabcast_text≈300, shards_max≈10, per_shard_images≈max_gc / shards, judge≈local CPU (0 token), grabcast_vision≈6000 | ✓ |
 | 02:50 | `social-metrics` | `50 2 * * *` | reports | youtube_api, d1_main | 2 | d1_main_reads≈200, d1_main_writes≈150 | — |
 | 03:17 | `ai-keys-sync` | `17 3 * * 1` | reports | gh_minutes | 1 | — | — |
+| 03:17 | `ota-ios-e2e` | `17 3 * * *` | reports | gh_minutes | 45 | — | — |
 | 03:20 | `visual-qa` | `20 3 * * 1` | reports | gh_minutes | 30 | — | — |
 | 03:23 | `store-rollout` | `23 3 * * *` | publishing | gh_minutes | 2 | — | — |
 | 03:40 | `mobile-qa` | `40 3 * * 1` | reports | gh_minutes | 30 | — | — |
@@ -181,4 +184,5 @@ Sau mốc reset 00:00 UTC (hạn mức D1 miễn phí làm mới), thứ tự: v
 | `scripts/lexicon/expand/left.mjs` – số việc còn cho ci-filler (20k − mục sống + retry), không ghi gì | `doneWords` | ci-filler.yml (probe infra/ci-backlog.json) |
 | `scripts/lexicon/expand/pace.mjs` –  | bỏ qua: chỉ ĐẾM từ#loại (dist/lexicon.json + lô đã xuất) để tính tốc độ/ETA tới 20k cho health-board; không ghi/xuất kho | — |
 | `scripts/video/teach2d/native-qa.mjs` –  | bỏ qua: đọc nghĩa/ví dụ từ web/packs để dịch ngược kiểm clip L1; không ghi kho, không cần mục mở rộng | — |
+| `scripts/content-qa/lesson-sample.mjs` – lấy mẫu phân tầng nội dung người học để chấm mù (docs/research/lesson-qa-1511.md); chỉ đọc, không ghi kho | bỏ qua: chỉ lấy mẫu từ kho viết tay để đo lỗi; mục mở rộng 20k có cổng QA riêng khi nhập | — |
 | **CÒN THIẾU** srs-topics | bộ chủ đề SRS/Từ vựng trong app (IELTS_DATA.TOPICS) chưa có bộ xw-*: từ mở rộng tra được (mảnh) nhưng chưa vào danh sách bộ học – cần bộ tải lười JSON từ mảnh (không thêm vào web/js, ngân sách 19 MB) | — |

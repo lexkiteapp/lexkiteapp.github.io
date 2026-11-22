@@ -9748,6 +9748,189 @@ tetra	ok	ok
 immunodeficiency	ok	ok
 solvency	ok	ok
 monetarism	ok	ok
+aeroplane	ok	ok
+yoghurt	cut_wordis:"Yogurt." 0.87s · cut_wordis:"Yogurt." 0.78s · dot100:"Yogurt" 0.64s · cut_wordis100:"Yogurt" 0.82s · cut_wordis100:"Yogurt" 0.74s · cut_next:"Yogurti" 0.81s · cut_next:"Go to..." 0.57s · plain095:"Yogurt" 0.60s · dot090:"Yogurt" 0.74s	cut_wordis: câu mang: "The word is yogurt." · dot100:"yogurt" 0.67s · cut_wordis100: câu mang: "The word is yogurt." · cut_next: câu mang: "Next word, yogurt." · plain095:"yogurt" 0.68s · dot090:"yogurt" 0.76s
+motorway	ok	ok
+toothache	ok	ok
+preposition	ok	cut_wordis:"Proposition" 1.04s · cut_wordis:"Proposition." 0.87s · dot100:"Proposition" 0.82s · cut_wordis100:"Proposition." 0.96s · cut_wordis100:"Proposition" 0.78s · cut_next: câu mang: "Next word, Proposition." · plain095:"Proposition" 0.82s · dot090:"Proposition" 0.92s
+antonym	ok	ok
+semicolon	ok	ok
+archeologist	cut_wordis: câu mang: "The word is archaeologist." · dot100:"Archaeologist" 1.12s · cut_wordis100: câu mang: "The word is archaeologist." · cut_next: câu mang: "Next word, archaeologist" · plain095:"Archaeologist" 1.07s · dot090:"archaeologist" 1.28s	cut_wordis: câu mang: "The word is archaeologist." · dot100:"Archaeologist" 1.03s · cut_wordis100: câu mang: "The word is archaeologist." · cut_next: câu mang: "Next word, archaeologist." · plain095:"Archaeologist" 1.04s · dot090:"Archaeologist" 1.08s
+mutability	ok	ok
+sentient	ok	ok
+verandah	cut_wordis:"It's veranda." 0.86s · cut_wordis:"Veranda" 0.80s · dot100:"Veranda" 0.81s · cut_wordis100: câu mang: "The word is veranda." · cut_next: câu mang: "Next word Veranda" · plain095:"Veranda" 0.78s · dot090:"Veranda" 0.93s	cut_wordis: câu mang: "The word is veranda." · dot100:"Veranda" 0.70s · cut_wordis100: câu mang: "The word is veranda." · cut_next: câu mang: "Next word, veranda." · plain095:"Veranda" 0.75s · dot090:"Veranda" 0.81s
+naivety	ok	cut_wordis:"Naivere." 0.95s · cut_wordis:"Naivere" 0.75s · dot100:"Naivere" 0.75s · cut_wordis100:"Naivere." 0.86s · cut_wordis100:"Naivere" 0.73s · cut_next:"Naivere" 0.77s · cut_next:"Avery." 0.61s · plain095:"Naivere." 0.77s · dot090:"Naivere" 0.84s
+geologically	ok	ok
+tautly	ok	ok
+crystallization	ok	ok
+indolence	ok	ok
+lassitude	ok	ok
+col	ok	cut_wordis: câu mang: "The word is call." · dot100:"Kyle" 0.58s · cut_wordis100: câu mang: "The word is Kyle." · cut_next: câu mang: "Next word, call." · plain095:"Carl" 0.57s · dot090:"Kyle" 0.65s
+metadata	ok	ok
+rhyme	ok	ok
+anarchism	ok	ok
+colliery	ok	ok
+luminosity	ok	ok
+colitis	ok	ok
+hydrology	ok	ok
+multidimensional	ok	ok
+bodywork	ok	ok
+cocoon	ok	ok
+urinal	ok	ok
+chalkboard	ok	ok
+lioness	ok	ok
+shrew	ok	ok
+pancreatitis	ok	ok
+existentialism	ok	ok
+decryption	ok	ok
+firmament	ok	ok
+periodicity	ok	ok
+progressivism	ok	ok
+quantization	ok	ok
+isotropic	ok	ok
+redshift	ok	ok
+cyanobacteria	ok	ok
+ginkgo	cut_wordis: câu mang: "The word is jinko." · dot100:"Jinko" 0.75s · cut_wordis100: câu mang: "The word is jinko." · cut_next: câu mang: "Next word, jinkgo" · plain095:"Ajinko" 0.70s · dot090:"The Jinkgo." 0.85s	cut_wordis: câu mang: "The word is jinko." · dot100:"Ajinko" 0.73s · cut_wordis100: câu mang: "The word is jinko." · cut_next: câu mang: "Next word, jinko." · plain095:"Ajinko" 0.73s · dot090:"Ajinko" 0.79s
+troposphere	ok	ok
+sulcus	cut_wordis: câu mang: "The word is sulcusy." · dot100:"That's all, Casey." 0.75s · cut_wordis100: câu mang: "The word is sulcusy." · cut_next: câu mang: "Next word, sulcusy." · plain095:"A sulcus." 0.69s · dot090:"It's all kiss" 0.81s	cut_wordis:"Salkis" 0.93s · cut_wordis:"Salkes" 0.76s · dot100:"It's all guess" 0.74s · cut_wordis100:"Salkis" 0.91s · cut_wordis100:"Salkes" 0.76s · cut_next:"Salkis" 0.78s · plain095:"Salkis." 0.75s · dot090:"It's all guess." 0.79s
+endocarditis	ok	ok
+parasitism	ok	ok
+modifiable	ok	ok
+disbandment	ok	ok
+onomatopoeia	ok	ok
+unipolar	ok	ok
+inhomogeneous	ok	ok
+palanquin	ok	cut_wordis: câu mang: "The word is palinquen." · dot100:"Palling Quinn" 0.74s · cut_wordis100: câu mang: "The word is palinquen." · cut_next:"Palling Quinn" 0.79s · cut_next:"Link win." 0.61s · plain095:"Palling Quinn" 0.77s · dot090:"Palling Quinn." 0.85s
+polyhedral	ok	ok
+anticonvulsant	ok	ok
+fulfilment	cut_wordis: câu mang: "The word is fulfillment." · dot100:"Fulfillmenter" 1.02s · cut_wordis100: câu mang: "The word is Fulfillment." · cut_next: câu mang: "Next word, fulfillment." · plain095:"Fulfillment" 0.97s · dot090:"A fulfillmente." 1.13s	cut_wordis: câu mang: "The word is fulfillment." · dot100:"Fulfillment" 0.84s · cut_wordis100: câu mang: "The word is fulfillment." · cut_next: câu mang: "Next word, fulfillment." · plain095:"Fulfillment" 0.82s · dot090:"Fulfillment" 0.88s
+utmost	ok	cut_wordis:"At most." 0.92s · cut_wordis:"At most." 0.74s · dot100:"At most." 0.67s · cut_wordis100:"At most." 0.81s · cut_wordis100:"At most." 0.65s · cut_next:"At most." 0.73s · cut_next:"Most." 0.59s · plain095:"At most." 0.71s · dot090:"At most." 0.79s
+sandalwood	ok	ok
+cartography	ok	ok
+cerebellum	ok	ok
+nape	ok	ok
+capacitive	ok	ok
+mitosis	ok	ok
+hematoma	ok	ok
+viewable	ok	ok
+theoretic	ok	ok
+unplayable	ok	ok
+stealthily	ok	ok
+smithy	ok	ok
+unbelief	ok	ok
+metrology	ok	ok
+manse	cut_wordis: câu mang: "The word is mancy." · dot100:"AMANDS" 0.96s · cut_wordis100: câu mang: "The word is Mansi." · cut_next: câu mang: "Next word, mancy." · plain095:"Immense" 0.61s · dot090:"Immense" 0.73s	cut_wordis: câu mang: "The word is, mance." · dot100:"Mance" 0.63s · cut_wordis100: câu mang: "The word is, mance." · cut_next: câu mang: "Next word, mance." · plain095:"Mance" 0.64s · dot090:"mance" 0.68s
+weft	ok	ok
+decolonization	ok	ok
+anticoagulant	ok	ok
+climatology	ok	ok
+abolishment	ok	ok
+ambiguously	ok	ok
+neutrophil	ok	ok
+humanitarianism	ok	ok
+outbuilding	ok	ok
+silversmith	ok	ok
+ultrasonography	ok	ok
+circumflex	cut_wordis: câu mang: "The word is circumflexi." · dot100:"Circumflexi" 1.04s · cut_wordis100:"to circumflex." 0.80s · cut_wordis100:"to circumflex." 0.78s · cut_next: câu mang: "Next word, circumflexi." · plain095:"A circumflex." 0.97s · dot090:"Circumflexi" 1.15s	ok
+colostrum	ok	ok
+electrochemistry	ok	ok
+centrifuge	ok	ok
+radioisotope	ok	ok
+cadastral	ok	cut_wordis: câu mang: "The word is catastral." · dot100:"Catastral" 0.78s · cut_wordis100: câu mang: "The word is catastral." · cut_next: câu mang: "Next word, catastral." · plain095:"Catastral" 0.79s · dot090:"Catastral" 0.84s
+rhythmical	ok	ok
+republish	ok	ok
+rhombus	ok	ok
+vasoconstriction	cut_wordis:"This is Vassa constriction." 1.31s · cut_wordis:"Vassar constriction" 1.17s · dot100:"Vassa constriction" 1.23s · cut_wordis100:"Nevada constriction." 1.12s · cut_wordis100:"Vassar constriction" 1.07s · cut_next:"Vassar constriction" 1.18s · cut_next:"That's a constriction." 1.06s · plai	ok
+pedagogic	ok	ok
+diatom	ok	cut_wordis: câu mang: "The word is diorum." · dot100:"Diarum" 0.62s · cut_wordis100: câu mang: "The word is diarum." · cut_next: câu mang: "Next word, diatum." · plain095:"Diadem." 0.64s · dot090:"Diarum" 0.70s
+reactance	ok	ok
+chromatin	ok	ok
+prehistory	ok	ok
+promontory	ok	ok
+catalysis	ok	ok
+headland	ok	ok
+decrypt	ok	ok
+rationalism	ok	ok
+workpiece	ok	ok
+cybernetics	ok	ok
+bishopric	ok	ok
+seaplane	cut_wordis: câu mang: "The word is seat plane." · dot100:"Seat plane." 0.87s · cut_wordis100: câu mang: "The word is seat plane." · cut_next:"Seat plane." 0.86s · cut_next:"plane." 0.60s · plain095:"Seat plane" 0.78s · dot090:"The seat plane." 0.94s	ok
+digitization	ok	ok
+tapeworm	ok	ok
+deceiver	ok	ok
+debugger	ok	ok
+pharmacokinetics	ok	ok
+retinopathy	ok	ok
+verbose	ok	ok
+transliteration	ok	ok
+inconsistently	ok	ok
+omniscience	ok	ok
+hysteresis	ok	ok
+differentiable	ok	ok
+bioterrorism	ok	ok
+umbilicus	ok	ok
+penitence	ok	ok
+comradeship	ok	ok
+depolarization	ok	ok
+perihelion	ok	ok
+supersymmetry	ok	ok
+herniation	ok	ok
+diluent	ok	ok
+technocracy	ok	ok
+hygroscopic	ok	ok
+ultraviolet	ok	ok
+subspecies	ok	ok
+catchphrase	ok	ok
+quarterfinal	ok	ok
+neoliberalism	ok	ok
+wilful	ok	cut_wordis: câu mang: "The word is willful." · dot100:"Willfall." 0.68s · cut_wordis100: câu mang: "The word is willful." · cut_next: câu mang: "Next word, willful." · plain095:"Willfall" 0.68s · dot090:"It will fall." 0.72s
+holotype	ok	ok
+morphologically	ok	ok
+juridical	ok	ok
+petiole	ok	ok
+reflectance	ok	ok
+actualization	ok	ok
+glasshouse	ok	ok
+soundproof	ok	ok
+testis	ok	cut_wordis: câu mang: "The word is testes." · dot100:"Testes" 0.70s · cut_wordis100: câu mang: "The word is testes." · cut_next: câu mang: "Next word, testes." · plain095:"Testes" 0.72s · dot090:"Testes" 0.75s
+nanotube	ok	ok
+pneumothorax	ok	ok
+neuropsychology	ok	ok
+genealogist	ok	ok
+hyperthyroidism	cut_wordis: câu mang: "The word is hypothyroidism." · dot100:"Phytopothyroidism" 1.31s · cut_wordis100: câu mang: "The word is hypothyroidism." · cut_next: câu mang: "next word, hypothyroidism" · plain095:"Epiphyroidism" 1.41s · dot090:"A typothyroidism." 1.53s	ok
+peritonitis	ok	ok
+sinew	cut_wordis:"to sin you." 0.76s · cut_wordis:"Decine you." 0.75s · dot100:"Sinyu" 0.66s · cut_wordis100:"Sinyu" 0.77s · cut_next:"I'll just sin you" 0.84s · plain095:"Asinu" 0.60s · dot090:"A sinew." 0.68s	ok
+impermanence	ok	ok
+traditionalism	ok	ok
+anther	cut_wordis:"to answer." 0.84s · cut_wordis:"Answer." 0.78s · dot100:"answer" 0.65s · cut_wordis100:"It's anther." 0.73s · cut_wordis100:"Answer." 0.67s · cut_next: câu mang: "Next word, answer." · plain095:"Lancer" 0.64s · dot090:"At answer." 0.72s	ok
+hearken	cut_wordis: câu mang: "The word is harken." · dot100:"Harkens" 0.75s · cut_wordis100: câu mang: "The word is Harkon." · cut_next: câu mang: "Next word Harkon" · plain095:"Harken" 0.70s · dot090:"Harkins" 0.83s	cut_wordis: câu mang: "The word is harken." · dot100:"Harken." 0.64s · cut_wordis100: câu mang: "The word is harken." · cut_next: câu mang: "Next word, harken." · plain095:"Harken." 0.66s · dot090:"Harken" 0.72s
+echocardiography	ok	ok
+mastitis	ok	ok
+reactant	ok	ok
+syndicalism	ok	ok
+knowable	ok	ok
+centrifugation	ok	ok
+centripetal	cut_wordis:"SendTripetal" 1.08s · cut_wordis:"SendTripetal" 1.05s · dot100:"Sentripe tool" 1.04s · cut_wordis100:"SendTripetal" 0.93s · cut_wordis100:"SendTripetal" 0.91s · cut_next: câu mang: "Next word SendTripetal" · plain095:"Ascentripetal" 0.97s · dot090:"The Sentripe Tooler" 1.15s	ok
+egoistic	ok	ok
+centroid	ok	ok
+thrombus	ok	ok
+erythrocyte	ok	cut_wordis:"Arithrocyte" 1.13s · cut_wordis:"Arithrocyte" 0.95s · dot100:"Arithrocyte" 0.90s · cut_wordis100:"Arithrocyte" 1.03s · cut_wordis100:"Arithrocyte" 0.89s · cut_next:"Arithrocyte" 0.95s · cut_next:"Hrythrocyte" 0.83s · plain095:"Arithrocyte" 0.95s · dot090:"Arithrocyte" 1.05s
+symbiotically	ok	ok
+pronounceable	ok	ok
+transliterate	ok	ok
+semipermeable	ok	ok
+closedown	ok	ok
+urinalysis	ok	cut_wordis: câu mang: "The word is, your analysis." · dot100:"Your analysis" 0.99s · cut_wordis100: câu mang: "The word is, your analysis." · cut_next: câu mang: "Next word, your analysis." · plain095:"Your analysis." 0.99s · dot090:"Your analysis." 1.05s
+depolarize	ok	ok
+mucilaginous	ok	ok
+collectivize	ok	ok
+misapply	ok	ok
+precast	ok	ok
+sailplane	ok	ok
+clast	cut_wordis: câu mang: "The word is clasty." · dot100:"Classed." 0.67s · cut_wordis100: câu mang: "The word is classed." · cut_next: câu mang: "Next word, Eclasti." · plain095:"Clursed." 0.64s · dot090:"Eglast." 0.74s	cut_wordis: câu mang: "The word is classed." · dot100:"Glassed." 0.66s · cut_wordis100: câu mang: "The word is classed." · cut_next: câu mang: "Next word, classed." · plain095:"At last." 0.66s · dot090:"Classed" 0.74s
+erythropoiesis	ok	ok
+axil	cut_wordis: câu mang: "The word is axel." · dot100:"Axle" 0.69s · cut_wordis100: câu mang: "The word is axial." · cut_next: câu mang: "Next word, axel." · plain095:"Axle" 0.65s · dot090:"Axle" 0.80s	cut_wordis: câu mang: "The word is axel." · dot100:"Axle" 0.62s · cut_wordis100: câu mang: "The word is axel." · cut_next: câu mang: "Next word, axel." · plain095:"Axle" 0.63s · dot090:"Axle" 0.74s
+taxonomist	ok	ok
 retaliate	ok	ok
 alimony	ok	ok
 incoherent	ok	ok
@@ -9770,3 +9953,106 @@ gasification	ok	ok
 anoint	ok	cut_wordis: câu mang: "The word is a night." · dot100:"At night." 0.66s · cut_wordis100: câu mang: "The word is a night." · cut_next: câu mang: "Next word, a night." · plain095:"A night." 0.65s · dot090:"At night." 0.74s
 porpoise	ok	ok
 systematics	ok	ok
+subclavian	ok	ok
+incorporeal	ok	ok
+spermatogenesis	ok	ok
+subcutaneously	ok	ok
+summarization	ok	ok
+neologism	ok	ok
+ureter	cut_wordis: câu mang: "The word is ureta." · dot100:"Ureta" 0.83s · cut_wordis100: câu mang: "The word is ureta." · cut_next: câu mang: "Next word, ureta." · plain095:"Ureta" 0.77s · dot090:"Ureta" 0.90s	cut_wordis: câu mang: "The word is your letter." · dot100:"You're better." 0.67s · cut_wordis100: câu mang: "The word is your letter." · cut_next: câu mang: "Next word, your letter." · plain095:"You're better." 0.70s · dot090:"You're better." 0.74s
+wretchedness	ok	ok
+repast	cut_wordis: câu mang: "The word is repasti." · dot100:"Repursed" 0.78s · cut_wordis100: câu mang: "The word is repressed." · cut_next:"pasty" 0.75s · plain095:"Repersed." 0.74s · dot090:"Repursed." 0.90s	ok
+consanguinity	ok	ok
+maceration	ok	ok
+eucalypt	ok	ok
+pterosaur	ok	ok
+dishwater	ok	ok
+amphoteric	ok	ok
+interdependency	ok	ok
+conciseness	ok	ok
+spermicide	ok	ok
+contiguity	ok	ok
+dysmenorrhea	cut_wordis: câu mang: "The word is dysmenoria." · dot100:"Dismenoria" 1.00s · cut_wordis100: câu mang: "The word is dysmenoria." · cut_next: câu mang: "Next word, dysmenoria." · plain095:"Dismenoria" 0.98s · dot090:"Dismenoria" 1.08s	cut_wordis: câu mang: "The word is dysmenoria." · dot100:"Dysmenoria" 0.85s · cut_wordis100: câu mang: "The word is dysmenoria." · cut_next: câu mang: "Next word, dysmenoria." · plain095:"Dysmenoria" 0.88s · dot090:"Dysmenoria" 0.93s
+centrosome	ok	ok
+intercalary	ok	ok
+monocyte	ok	ok
+trebuchet	ok	ok
+apposite	cut_wordis:"Opposite" 0.71s · cut_wordis:"Opposite" 0.67s · dot100:"Opposite" 0.77s · cut_wordis100: câu mang: "The word is opposite." · cut_next: câu mang: "Next word, opposite." · plain095:"The Posit" 0.76s · dot090:"and opposite." 0.88s	cut_wordis: câu mang: "The word is apposit." · dot100:"Opposite" 0.75s · cut_wordis100: câu mang: "The word is apposit." · cut_next: câu mang: "Next word, apposit." · plain095:"Opposite" 0.76s · dot090:"Oposit" 0.85s
+meninges	cut_wordis:"Managers" 1.00s · cut_wordis:"Managers" 0.97s · dot100:"Managers" 0.96s · cut_wordis100:"Managers" 0.87s · cut_next:"It manages." 1.08s · plain095:"Managers" 0.90s · dot090:"Managers" 1.06s	cut_wordis:"Managers" 1.04s · cut_wordis:"Managers" 0.86s · dot100:"Managers" 0.83s · cut_wordis100:"Managers" 0.80s · cut_wordis100:"and inches." 0.61s · cut_next:"Manages" 0.86s · cut_next:"Manages" 0.83s · plain095:"Managers" 0.84s · dot090:"Managers" 0.91s
+simultaneity	ok	ok
+quicklime	cut_wordis:"Quick climb." 0.83s · cut_wordis:"Quick climb." 0.79s · dot100:"quick limer" 0.81s · cut_wordis100:"Quick climb." 0.78s · cut_wordis100:"Quick climb." 0.73s · cut_next: câu mang: "Next word, quick climb." · plain095:"quick climb" 0.75s · dot090:"It's quick climbing." 0.92s	ok
+foreleg	ok	ok
+imprecision	ok	ok
+repetitiveness	ok	ok
+systematize	ok	ok
+forebear	cut_wordis:"To forebear." 0.79s · cut_wordis:"4-Bear" 0.71s · dot100:"Foolbear" 0.68s · cut_wordis100: câu mang: "The word is forbear." · cut_next: câu mang: "Next word for bear" · plain095:"Thorbeir" 0.65s · dot090:"Full bear." 0.75s	ok
+amenorrhea	ok	cut_wordis: câu mang: "The word is a menoria." · dot100:"Amenoria." 0.79s · cut_wordis100: câu mang: "The word is a menoria." · cut_next: câu mang: "Next word, a menoria." · plain095:"A menoria." 0.77s · dot090:"A menoria." 0.82s
+fascicle	ok	ok
+autodidact	ok	ok
+juristic	ok	ok
+nucleolus	ok	ok
+floriculture	ok	ok
+phonation	ok	cut_wordis: câu mang: "The word is fination." · dot100:"Fination" 0.76s · cut_wordis100: câu mang: "The word is fination." · cut_next:"Fination" 0.83s · cut_next:"Fination" 0.82s · plain095:"Fination" 0.78s · dot090:"Fination." 0.84s
+antiproton	ok	ok
+eavesdropper	ok	ok
+godparent	ok	ok
+hypokalemia	ok	ok
+monopsony	ok	ok
+vaginismus	ok	ok
+neocolonialism	ok	ok
+polychaete	ok	ok
+anosmia	ok	ok
+osteoblast	ok	ok
+surmountable	ok	ok
+synovitis	ok	ok
+paleobiology	ok	ok
+toxicant	ok	ok
+sociality	ok	ok
+pleura	cut_wordis: câu mang: "The word is plereth." · dot100:"The Playwrith" 0.70s · cut_wordis100: câu mang: "The word is plereth." · cut_next: câu mang: "Next word, playera" · plain095:"Flaira" 0.61s · dot090:"To Polaris." 0.77s	ok
+unprovable	ok	ok
+satrap	cut_wordis: câu mang: "The word is satrapi." · dot100:"Zatrep" 0.75s · cut_wordis100: câu mang: "The word is satrapi." · cut_next: câu mang: "Next word is satrapi." · plain095:"Is that trap?" 0.72s · dot090:"Is that Drep?" 0.79s	ok
+embalmer	ok	ok
+untranslatable	ok	ok
+adsorb	ok	ok
+slaveholder	ok	ok
+inquisitiveness	ok	ok
+thylacine	ok	ok
+exponentiation	ok	ok
+cholecystitis	ok	ok
+motorization	ok	ok
+trematode	ok	ok
+protractor	ok	ok
+recommence	ok	ok
+mistranslation	ok	ok
+extraversion	ok	ok
+myocarditis	ok	ok
+acupressure	ok	ok
+friable	cut_wordis: câu mang: "The word is free of play." · dot100:"Free of Blair" 0.77s · cut_wordis100: câu mang: "The word is free of play." · cut_next: câu mang: "Next word for your blair" · plain095:"free of blare" 0.77s · dot090:"Be free of Blair." 0.83s	cut_wordis: câu mang: "The word is, free of bleh." · dot100:"Free a Blah!" 0.70s · cut_wordis100: câu mang: "The word is, free of bleh." · cut_next: câu mang: "Next word for your bleh." · plain095:"Free of black." 0.71s · dot090:"Free of black." 0.77s
+sonography	cut_wordis:"Synography." 1.04s · cut_wordis:"The Synography" 1.00s · dot100:"The Synography" 0.93s · cut_wordis100:"This is Synography." 0.98s · cut_next:"Synography" 1.00s · cut_next:"Denography" 0.88s · plain095:"A Synography" 0.89s · dot090:"A sonography." 0.99s	ok
+hypercholesterolemia	ok	ok
+angioedema	ok	ok
+photochemistry	ok	ok
+subsume	ok	ok
+pointlessness	ok	ok
+prostatitis	ok	ok
+sociobiology	ok	ok
+meristem	ok	cut_wordis:"Maristem" 0.98s · cut_wordis:"Maristem" 0.78s · dot100:"Maristem" 0.77s · cut_wordis100:"Maristem." 0.95s · cut_wordis100:"Maristem" 0.77s · cut_next:"Maristem" 0.80s · cut_next:"Maristem" 0.61s · plain095:"Maristem" 0.80s · dot090:"Maristem" 0.83s
+systematization	ok	ok
+esophagitis	ok	ok
+musicological	ok	ok
+nucleosynthesis	ok	ok
+thermosphere	ok	ok
+chrism	ok	ok
+fossilization	ok	ok
+subjectivism	ok	ok
+unclassifiable	ok	ok
+bronchus	ok	ok
+macromolecule	ok	ok
+undependable	ok	ok
+variate	cut_wordis:"to variate." 0.91s · cut_wordis:"Vary 8" 0.85s · dot100:"Vary 8" 0.85s · cut_wordis100:"It's variate" 0.87s · cut_wordis100:"Vary 8" 0.78s · cut_next:"and variate." 1.01s · cut_next:"Vary 8" 0.85s · plain095:"Vary 8" 0.75s · dot090:"Vary 8" 0.94s	ok
+lacquerware	ok	ok
+apiculture	ok	ok
+mycologist	ok	ok
+artilleryman	cut_wordis:"It's artillerymen." 1.01s · cut_wordis:"Artillerimmon" 0.94s · dot100:"artilleryman's" 1.04s · cut_wordis100:"It's artillerymen." 0.92s · cut_wordis100:"Artillerimmon" 0.88s · cut_next:"Artillerimmon" 0.94s · cut_next:"Tillerimmon" 0.78s · plain095:"Artillerymans" 1.04s · dot090:"Artille	cut_wordis: câu mang: "The word is artilleramen." · dot100:"Artilleramen" 0.85s · cut_wordis100: câu mang: "The word is artilleramen." · cut_next:"Artilleramen" 0.85s · cut_next:"Tillerimmon" 0.72s · plain095:"Artilleramen" 0.88s · dot090:"Artilleriman" 0.93s
+geometer	ok	ok
+antiparticle	ok	ok

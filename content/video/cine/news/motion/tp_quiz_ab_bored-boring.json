@@ -24,9 +24,9 @@
  },
  "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
  "cta": {
-  "area": "quiz-ab",
-  "link": "https://lexkite.com/app/",
-  "say": "Practice free on lexkite.com"
+  "area": "grammar",
+  "link": "https://lexkite.com/app/#/grammar",
+  "say": "Practice it free"
  },
  "series": {
   "name": "Quiz Ab",
@@ -45,7 +45,7 @@
   },
   {
    "id": "o",
-   "text": "A: I'm boring in class? Or B: I'm bored in class?",
+   "text": "A: boring in? Or B: bored in?",
    "gap": 0.7
   },
   {
@@ -186,7 +186,7 @@
       "t": "line",
       "runs": [
        [
-        "bored is how you feel. Boring is what makes you"
+        "bored is how you feel."
        ]
       ]
      }
@@ -198,8 +198,12 @@
     "t": "opts",
     "id": "opts",
     "opts": [
-     "I'm boring in class.",
-     "I'm bored in class."
+     "boring in",
+     "bored in"
+    ],
+    "optsmin": [
+     "boring",
+     "bored"
     ],
     "cues": [
      [
@@ -208,7 +212,7 @@
      ],
      [
       "o",
-      7
+      5
      ]
     ],
     "reveal": [

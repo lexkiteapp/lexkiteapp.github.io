@@ -3,6 +3,7 @@
   "include": [
     "/api/*",
     "/",
+    "/c/*",
     "/ar/words/*",
     "/de/words/*",
     "/es/words/*",

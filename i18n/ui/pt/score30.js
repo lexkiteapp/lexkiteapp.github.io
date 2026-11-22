@@ -1,0 +1,28 @@
+/* UI pt – score30 (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["pt"] = Object.assign(D["pt"] || {}, {
+"Bạn của bạn hơn {n} điểm – thử lại nhé!":"Seu amigo está {n} pontos à frente – tente de novo!",
+"Bạn của bạn đạt {s} ({c}). Vượt qua nhé!":"Seu amigo tirou {s} ({c}). Supere!",
+"Bạn thắng! {me} so với {fr}":"Você venceu! {me} contra {fr}",
+"Bắt đầu":"Começar",
+"Cần micro. Âm thanh không rời khỏi máy bạn.":"Precisa do microfone. O áudio não sai do seu dispositivo.",
+"Hòa nhau! {me} so với {fr}":"Empate! {me} contra {fr}",
+"Không nghe rõ – thử lại ở nơi yên tĩnh hơn nhé.":"Não consegui ouvir bem – tente de novo num lugar mais silencioso.",
+"Link thử thách không dùng được lúc này – thử lại sau.":"O link do desafio não está disponível agora – tente mais tarde.",
+"Làm lại":"Tentar de novo",
+"Lưu loát":"Fluência",
+"Mình nói tiếng Anh được {s}/100 ({c}) trên Lexkite. Bạn hơn được không? {url}":"Tirei {s}/100 ({c}) falando inglês no Lexkite. Consegue me superar? {url}",
+"Nhận điểm nói, thách bạn bè":"Veja sua pontuação e desafie um amigo",
+"Phát âm":"Pronunciar",
+"Thách bạn bè":"Desafiar um amigo",
+"Thẻ điểm nói tiếng Anh":"Cartão de pontuação de fala em inglês",
+"Trình duyệt này chưa hỗ trợ nhận giọng nói. Hãy thử Chrome hoặc app Lexkite.":"Este navegador não reconhece fala. Tente o Chrome ou o app Lexkite.",
+"Tải ảnh":"Salvar imagem",
+"Xong":"Concluído",
+"Đang nghe… còn {n} giây":"Ouvindo… faltam {n} s",
+"Điểm tổng":"Pontuação total",
+"Điểm {s}/100, trình độ {c}":"Pontuação {s}/100, nível {c}",
+"Đã chép link thử thách – dán gửi bạn nhé":"Link do desafio copiado – cole e envie a um amigo",
+"Đọc to đoạn văn này trong 30 giây":"Leia este texto em voz alta em 30 segundos",
+"Ước lượng CEFR – chỉ mang tính tham khảo":"Estimativa CEFR – apenas referência",
+});
+})(typeof self !== 'undefined' ? self : this);

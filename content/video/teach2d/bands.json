@@ -1,0 +1,506 @@
+{
+ "_note": "Band 5 → 7 → 9 (docs/specs/band-upgrade.md): MỘT ý nâng 3 bậc. Câu mẫu tự viết theo mô tả band IELTS công khai (Lexical Resource / Grammatical Range / Coherence & Cohesion / Task Response); mỗi bậc nêu 1 lý do (reasons) ≤ 6 từ. `mark` = cụm được nâng, phải nằm trong câu. langs = hook + mẹo bản địa 14 ngôn ngữ (tầng i18n-fixed, en = gốc; xưng hô de = Sie, fr = vous, es = tú), kiểm bằng band-l1-qa.mjs.",
+ "reasons": {
+  "precise": {
+   "criterion": "Lexical Resource",
+   "en": "A more exact word."
+  },
+  "collocation": {
+   "criterion": "Lexical Resource",
+   "en": "Words that go together naturally."
+  },
+  "nuance": {
+   "criterion": "Lexical Resource",
+   "en": "Exact meaning, natural flow."
+  },
+  "link": {
+   "criterion": "Coherence & Cohesion",
+   "en": "A linking word adds logic."
+  },
+  "complex": {
+   "criterion": "Grammatical Range",
+   "en": "A longer, richer structure."
+  },
+  "balance": {
+   "criterion": "Task Response",
+   "en": "It weighs both sides."
+  }
+ },
+ "langs": {
+  "en": {
+   "hook": "One idea: Band 5 → 7 → 9",
+   "tips": {
+    "precise": "A more exact word.",
+    "collocation": "Words that go together naturally.",
+    "nuance": "Exact meaning, natural flow.",
+    "link": "A linking word adds logic.",
+    "complex": "A longer, richer structure.",
+    "balance": "It weighs both sides."
+   }
+  },
+  "vi": {
+   "hook": "Một ý: Band 5 → 7 → 9",
+   "tips": {
+    "precise": "Từ chính xác hơn.",
+    "collocation": "Cụm từ đi với nhau tự nhiên.",
+    "nuance": "Nghĩa chính xác, đọc tự nhiên.",
+    "link": "Từ nối giúp ý mạch lạc.",
+    "complex": "Cấu trúc câu phức hơn.",
+    "balance": "Cân nhắc cả hai mặt."
+   }
+  },
+  "es": {
+   "hook": "Una idea: Band 5 → 7 → 9",
+   "tips": {
+    "precise": "Una palabra más exacta.",
+    "collocation": "Palabras que van juntas de forma natural.",
+    "nuance": "Significado exacto, fluidez natural.",
+    "link": "Un conector da lógica.",
+    "complex": "Una estructura más compleja.",
+    "balance": "Considera ambos lados."
+   }
+  },
+  "pt": {
+   "hook": "Uma ideia: Band 5 → 7 → 9",
+   "tips": {
+    "precise": "Uma palavra mais exata.",
+    "collocation": "Palavras que combinam naturalmente.",
+    "nuance": "Sentido exato, fluência natural.",
+    "link": "Um conector dá lógica.",
+    "complex": "Uma estrutura mais complexa.",
+    "balance": "Considere os dois lados."
+   }
+  },
+  "fr": {
+   "hook": "Une idée : Band 5 → 7 → 9",
+   "tips": {
+    "precise": "Un mot plus précis.",
+    "collocation": "Des mots qui vont naturellement ensemble.",
+    "nuance": "Sens précis, fluidité naturelle.",
+    "link": "Un connecteur apporte de la logique.",
+    "complex": "Une structure plus complexe.",
+    "balance": "Pesez les deux côtés."
+   }
+  },
+  "de": {
+   "hook": "Eine Idee: Band 5 → 7 → 9",
+   "tips": {
+    "precise": "Ein genaueres Wort.",
+    "collocation": "Wörter, die natürlich zusammenpassen.",
+    "nuance": "Genaue Bedeutung, natürlicher Fluss.",
+    "link": "Ein Bindewort schafft Logik.",
+    "complex": "Eine komplexere Satzstruktur.",
+    "balance": "Beide Seiten abwägen."
+   }
+  },
+  "ru": {
+   "hook": "Одна идея: Band 5 → 7 → 9",
+   "tips": {
+    "precise": "Более точное слово.",
+    "collocation": "Слова, которые естественно сочетаются.",
+    "nuance": "Точный смысл, естественная речь.",
+    "link": "Союз добавляет логику.",
+    "complex": "Более сложная структура.",
+    "balance": "Учитывает обе стороны."
+   }
+  },
+  "tr": {
+   "hook": "Tek fikir: Band 5 → 7 → 9",
+   "tips": {
+    "precise": "Daha kesin bir sözcük.",
+    "collocation": "Doğal biçimde birlikte kullanılan sözcükler.",
+    "nuance": "Kesin anlam, doğal akış.",
+    "link": "Bağlaç mantık katar.",
+    "complex": "Daha karmaşık bir yapı.",
+    "balance": "İki tarafı da tartar."
+   }
+  },
+  "ar": {
+   "hook": "فكرة واحدة: Band 5 → 7 → 9",
+   "tips": {
+    "precise": "كلمة أدق.",
+    "collocation": "كلمات تتجاور بشكل طبيعي.",
+    "nuance": "معنى دقيق وانسياب طبيعي.",
+    "link": "أداة ربط تضيف منطقًا.",
+    "complex": "تركيب أكثر تعقيدًا.",
+    "balance": "يوازن بين الجانبين."
+   }
+  },
+  "hi": {
+   "hook": "एक विचार: Band 5 → 7 → 9",
+   "tips": {
+    "precise": "ज़्यादा सटीक शब्द।",
+    "collocation": "स्वाभाविक रूप से साथ आने वाले शब्द।",
+    "nuance": "सटीक अर्थ, स्वाभाविक प्रवाह।",
+    "link": "जोड़ने वाला शब्द तर्क जोड़ता है।",
+    "complex": "ज़्यादा जटिल वाक्य-रचना।",
+    "balance": "दोनों पक्षों को तौलता है।"
+   }
+  },
+  "th": {
+   "hook": "หนึ่งไอเดีย: Band 5 → 7 → 9",
+   "tips": {
+    "precise": "คำที่แม่นยำกว่า",
+    "collocation": "คำที่ใช้คู่กันตามธรรมชาติ",
+    "nuance": "ความหมายแม่นยำ สำนวนเป็นธรรมชาติ",
+    "link": "คำเชื่อมช่วยให้ตรรกะชัด",
+    "complex": "โครงสร้างประโยคที่ซับซ้อนขึ้น",
+    "balance": "พิจารณาทั้งสองด้าน"
+   }
+  },
+  "zh": {
+   "hook": "一个想法： Band 5 → 7 → 9",
+   "tips": {
+    "precise": "更精确的词。",
+    "collocation": "自然搭配的词语。",
+    "nuance": "含义精确，表达自然。",
+    "link": "连接词让逻辑更清晰。",
+    "complex": "更复杂的句式结构。",
+    "balance": "兼顾两方面。"
+   }
+  },
+  "ja": {
+   "hook": "ひとつの考え： Band 5 → 7 → 9",
+   "tips": {
+    "precise": "より正確な単語。",
+    "collocation": "自然に組み合わさる語句。",
+    "nuance": "正確な意味と自然な流れ。",
+    "link": "接続表現で論理が通る。",
+    "complex": "より複雑な文構造。",
+    "balance": "両面を比べて述べる。"
+   }
+  },
+  "ko": {
+   "hook": "하나의 생각: Band 5 → 7 → 9",
+   "tips": {
+    "precise": "더 정확한 단어.",
+    "collocation": "자연스럽게 어울리는 표현.",
+    "nuance": "정확한 의미, 자연스러운 흐름.",
+    "link": "연결어가 논리를 더한다.",
+    "complex": "더 복잡한 문장 구조.",
+    "balance": "양쪽을 함께 따져 본다."
+   }
+  },
+  "id": {
+   "hook": "Satu ide: Band 5 → 7 → 9",
+   "tips": {
+    "precise": "Kata yang lebih tepat.",
+    "collocation": "Kata yang lazim berpasangan.",
+    "nuance": "Makna tepat, alur alami.",
+    "link": "Kata penghubung menambah logika.",
+    "complex": "Struktur kalimat lebih kompleks.",
+    "balance": "Menimbang kedua sisi."
+   }
+  }
+ },
+ "topics": [
+  {
+   "id": "technology",
+   "skill": "writing",
+   "steps": [
+    {
+     "band": 5,
+     "text": "Technology is good for people."
+    },
+    {
+     "band": 7,
+     "text": "Technology is beneficial because it eases communication.",
+     "mark": "beneficial",
+     "why": "precise"
+    },
+    {
+     "band": 9,
+     "text": "Technology transforms communication, though it can weaken personal ties.",
+     "mark": "though it can weaken personal ties",
+     "why": "balance"
+    }
+   ]
+  },
+  {
+   "id": "health",
+   "skill": "writing",
+   "steps": [
+    {
+     "band": 5,
+     "text": "Exercise is good for your health."
+    },
+    {
+     "band": 7,
+     "text": "Regular exercise improves physical and mental health.",
+     "mark": "Regular exercise",
+     "why": "collocation"
+    },
+    {
+     "band": 9,
+     "text": "Exercise strengthens the body and, equally, steadies the mind.",
+     "mark": "and, equally, steadies the mind",
+     "why": "complex"
+    }
+   ]
+  },
+  {
+   "id": "cities",
+   "skill": "writing",
+   "steps": [
+    {
+     "band": 5,
+     "text": "Big cities have many problems."
+    },
+    {
+     "band": 7,
+     "text": "Large cities face serious problems such as pollution.",
+     "mark": "face serious problems",
+     "why": "collocation"
+    },
+    {
+     "band": 9,
+     "text": "Large cities face serious problems, yet they remain hubs of opportunity.",
+     "mark": "yet they remain hubs of opportunity",
+     "why": "balance"
+    }
+   ]
+  },
+  {
+   "id": "money",
+   "skill": "speaking",
+   "steps": [
+    {
+     "band": 5,
+     "text": "I think money is very important."
+    },
+    {
+     "band": 7,
+     "text": "I believe money matters because it gives people security.",
+     "mark": "gives people security",
+     "why": "precise"
+    },
+    {
+     "band": 9,
+     "text": "Money matters, though it rarely buys lasting satisfaction.",
+     "mark": "though it rarely buys lasting satisfaction",
+     "why": "nuance"
+    }
+   ]
+  },
+  {
+   "id": "travel",
+   "skill": "speaking",
+   "steps": [
+    {
+     "band": 5,
+     "text": "Travel is fun and you learn things."
+    },
+    {
+     "band": 7,
+     "text": "Travelling is enjoyable and broadens your horizons.",
+     "mark": "broadens your horizons",
+     "why": "collocation"
+    },
+    {
+     "band": 9,
+     "text": "Travel broadens the mind precisely because it unsettles assumptions.",
+     "mark": "precisely because it unsettles assumptions",
+     "why": "nuance"
+    }
+   ]
+  },
+  {
+   "id": "environment",
+   "skill": "writing",
+   "steps": [
+    {
+     "band": 5,
+     "text": "We must protect the environment."
+    },
+    {
+     "band": 7,
+     "text": "Governments should take action to protect the planet.",
+     "mark": "take action",
+     "why": "collocation"
+    },
+    {
+     "band": 9,
+     "text": "Governments must act now, otherwise future generations will pay.",
+     "mark": "otherwise future generations will pay",
+     "why": "link"
+    }
+   ]
+  },
+  {
+   "id": "jobs",
+   "skill": "speaking",
+   "steps": [
+    {
+     "band": 5,
+     "text": "A good job is important."
+    },
+    {
+     "band": 7,
+     "text": "A rewarding job gives people a sense of purpose.",
+     "mark": "A rewarding job",
+     "why": "precise"
+    },
+    {
+     "band": 9,
+     "text": "A rewarding job matters less for its salary than for the purpose it provides.",
+     "mark": "less for its salary than for the purpose it provides",
+     "why": "complex"
+    }
+   ]
+  },
+  {
+   "id": "food",
+   "skill": "writing",
+   "steps": [
+    {
+     "band": 5,
+     "text": "Fast food is bad for health."
+    },
+    {
+     "band": 7,
+     "text": "Fast food is harmful because it contains too much sugar.",
+     "mark": "harmful",
+     "why": "precise"
+    },
+    {
+     "band": 9,
+     "text": "Fast food is harmful, but banning it would be an overreaction.",
+     "mark": "but banning it would be an overreaction",
+     "why": "balance"
+    }
+   ]
+  },
+  {
+   "id": "social-media",
+   "skill": "writing",
+   "steps": [
+    {
+     "band": 5,
+     "text": "Many people use social media."
+    },
+    {
+     "band": 7,
+     "text": "Social media is an essential part of daily life.",
+     "mark": "an essential part of daily life",
+     "why": "collocation"
+    },
+    {
+     "band": 9,
+     "text": "Social media is so essential that few imagine life without it.",
+     "mark": "so essential that few imagine life without it",
+     "why": "complex"
+    }
+   ]
+  },
+  {
+   "id": "climate",
+   "skill": "writing",
+   "steps": [
+    {
+     "band": 5,
+     "text": "Climate change is a big problem."
+    },
+    {
+     "band": 7,
+     "text": "Climate change is a pressing issue that affects everyone.",
+     "mark": "a pressing issue",
+     "why": "collocation"
+    },
+    {
+     "band": 9,
+     "text": "Climate change is a pressing issue whose consequences no country can escape.",
+     "mark": "whose consequences no country can escape",
+     "why": "complex"
+    }
+   ]
+  },
+  {
+   "id": "teamwork",
+   "skill": "speaking",
+   "steps": [
+    {
+     "band": 5,
+     "text": "Working in a team is good."
+    },
+    {
+     "band": 7,
+     "text": "Working in a team is advantageous because ideas are shared.",
+     "mark": "advantageous",
+     "why": "precise"
+    },
+    {
+     "band": 9,
+     "text": "Teamwork pays off when people combine their strengths rather than compete.",
+     "mark": "pays off when people combine their strengths rather than compete",
+     "why": "nuance"
+    }
+   ]
+  },
+  {
+   "id": "sleep",
+   "skill": "speaking",
+   "steps": [
+    {
+     "band": 5,
+     "text": "Sleep is very important for students."
+    },
+    {
+     "band": 7,
+     "text": "Adequate sleep is vital for students’ concentration.",
+     "mark": "Adequate sleep is vital",
+     "why": "precise"
+    },
+    {
+     "band": 9,
+     "text": "Adequate sleep is vital, since tired students rarely concentrate or remember much.",
+     "mark": "since tired students rarely concentrate or remember much",
+     "why": "link"
+    }
+   ]
+  },
+  {
+   "id": "reading",
+   "skill": "speaking",
+   "steps": [
+    {
+     "band": 5,
+     "text": "Reading books is useful."
+    },
+    {
+     "band": 7,
+     "text": "Reading is rewarding because it expands your vocabulary.",
+     "mark": "rewarding",
+     "why": "precise"
+    },
+    {
+     "band": 9,
+     "text": "Reading widely expands vocabulary and sharpens thinking.",
+     "mark": "Reading widely",
+     "why": "collocation"
+    }
+   ]
+  },
+  {
+   "id": "traffic",
+   "skill": "writing",
+   "steps": [
+    {
+     "band": 5,
+     "text": "Cities have too many cars."
+    },
+    {
+     "band": 7,
+     "text": "Heavy traffic is a major cause of pollution.",
+     "mark": "a major cause of",
+     "why": "collocation"
+    },
+    {
+     "band": 9,
+     "text": "Heavy traffic causes pollution, so public transport deserves investment.",
+     "mark": "so public transport deserves investment",
+     "why": "link"
+    }
+   ]
+  }
+ ]
+}

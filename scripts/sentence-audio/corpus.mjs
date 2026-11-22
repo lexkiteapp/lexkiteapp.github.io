@@ -3,6 +3,7 @@
 // scripts/audio/coverage.mjs (độ phủ theo nhóm: groups = tên nhóm → khóa). Nhóm theo giọng đọc chung (GEN) có cả Anh lẫn Mỹ: UI.tts tra khóa theo accent người học.
 import fs from 'node:fs'; import vm from 'node:vm';
 import { dataFiles } from '../lib/scan-roots.mjs';
+import { lexFiles } from '../lib/lex-files.mjs';
 export function collect() {
   const groups = new Map(), tag = (g, key) => { if (!groups.has(g)) groups.set(g, new Set()); groups.get(g).add(key); };
   const c = { self: {} }; c.self = c; vm.createContext(c);
@@ -95,7 +96,7 @@ export function collect() {
       for (const sc of x.ROLEPLAY || []) { for (const tr of sc.turns || []) { for (const v of [...strs(tr.a), ...strs(tr.h), ...(tr.br || []).flatMap(b => strs(b[1]))]) bothSplit(v, 'roleplay'); } for (const v of strs(sc.end)) bothSplit(v, 'roleplay'); }
       for (const v of ['Okay.', 'I see.', 'Right.', 'Okay, I see.', 'Got it.', 'Right, thanks.', 'Understood.', 'That makes sense.', 'Fair enough.', 'Sorry, can you say a little more?', 'Sorry, could you tell me a bit more?', 'Could you expand on that a little?']) both(v, 'roleplay'); }
     // TOEIC Speaking & Writing (toeic.js): đề đọc theo u.accent; câu mẫu theo accent người học
-    { const x = ctx(); L(x, 'web/js/toeic/sw1.js');
+    { const x = ctx(); L(x, 'web/cpack/toeic/sw1.js');
       for (const u of ((x.TOEIC_SW || {}).speaking) || []) { const v = GEN[u.accent] || GEN['en-US'], pr = u.task === 'read' ? [u.text] : u.task === 'opinion' ? [u.q] : (u.questions || []).map(q => q.q);
         for (const t of strs(pr)) oneSplit(v, t, 'toeic-speaking');
         for (const t of strs(u.task === 'opinion' ? [u.model] : (u.questions || []).map(q => q.model))) bothSplit(t, 'toeic-speaking'); }
@@ -145,7 +146,7 @@ export function collect() {
   // Thứ tự: từ cốt lõi NGSL → công sở → học thuật → còn lại. Câu ví dụ dùng chung đường đọc câu (UI.tts).
   {
     const d = { t: x => x }; vm.createContext(d); vm.runInContext(fs.readFileSync('web/js/data.js', 'utf8').replace(/typeof self !== 'undefined' \? self : this/, 'globalThis'), d);
-    for (const f of fs.readdirSync('web/js/lib').filter(f => /\.js$/.test(f) && !/^notes/.test(f))) { try { vm.runInContext(fs.readFileSync('web/js/lib/' + f, 'utf8').replace(/typeof self !== 'undefined' \? self : this/, 'globalThis'), d); } catch (e) { /* bỏ qua */ } }
+    for (const p of lexFiles(f => !/^notes/.test(f))) { try { vm.runInContext(fs.readFileSync(p, 'utf8').replace(/typeof self !== 'undefined' \? self : this/, 'globalThis'), d); } catch (e) { /* bỏ qua */ } }
     const ord = id => (/^ngsl/.test(id) ? 0 : /^office/.test(id) ? 1 : /^(awl|nawl)/.test(id) ? 2 : 3);
     const tops = [...((d.IELTS_DATA || {}).TOPICS || [])].sort((a, b) => ord(a.id) - ord(b.id));
     const seen = new Set();

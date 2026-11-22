@@ -25,8 +25,8 @@
  "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
  "cta": {
   "area": "roleplay",
-  "link": "https://lexkite.com/app/",
-  "say": "Practice free on lexkite.com"
+  "link": "https://lexkite.com/app/#/roleplay",
+  "say": "Practice it free"
  },
  "series": {
   "name": "Roleplay",
@@ -40,12 +40,12 @@
   },
   {
    "id": "s0",
-   "text": "At class.",
+   "text": "In class.",
    "gap": 0.7
   },
   {
    "id": "s1",
-   "text": "For homework, read pages forty to fifty-two.",
+   "text": "For homework, read the next chapter.",
    "gap": 0.7
   },
   {
@@ -55,11 +55,11 @@
   },
   {
    "id": "s3",
-   "text": "Of course! Pages forty to fifty-two.",
+   "text": "Of course! The next chapter.",
    "gap": 0.7
   },
   {
-   "id": "t",
+   "id": "tip",
    "text": "Tip: add please. Teachers are happy to repeat.",
    "gap": 0.7
   },
@@ -96,12 +96,6 @@
      [
       "Wait… what",
       "white"
-     ]
-    ],
-    [
-     [
-      "did she say?",
-      "yellow"
      ]
     ]
    ],
@@ -140,22 +134,13 @@
         "Wait… what"
        ]
       ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "did she say?"
-       ]
-      ]
      }
     ]
    },
    {
     "id": "sum",
     "at": [
-     "t",
+     "tip",
      0
     ],
     "rows": [
@@ -168,7 +153,7 @@
       "t": "line",
       "runs": [
        [
-        "add please. Teachers are happy to repeat."
+        "add please."
        ]
       ]
      }
@@ -268,7 +253,7 @@
     ]
    }
   ],
-  "hook_text": "Wait… what did she say?",
+  "hook_text": "Wait… what",
   "end_line": "c"
  },
  "embed": {

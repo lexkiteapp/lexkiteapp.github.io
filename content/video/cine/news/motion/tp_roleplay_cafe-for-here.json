@@ -25,8 +25,8 @@
  "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
  "cta": {
   "area": "roleplay",
-  "link": "https://lexkite.com/app/",
-  "say": "Practice free on lexkite.com"
+  "link": "https://lexkite.com/app/#/roleplay",
+  "say": "Practice it free"
  },
  "series": {
   "name": "Roleplay",
@@ -40,7 +40,7 @@
   },
   {
    "id": "s0",
-   "text": "At the cafe.",
+   "text": "In the cafe.",
    "gap": 0.7
   },
   {
@@ -59,7 +59,7 @@
    "gap": 0.7
   },
   {
-   "id": "t",
+   "id": "tip",
    "text": "Tip: in the UK, you'll also hear eat in or take away.",
    "gap": 0.7
   },
@@ -94,14 +94,8 @@
    "rows": [
     [
      [
-      "For here or…",
+      "For here?",
       "white"
-     ]
-    ],
-    [
-     [
-      "to go?",
-      "yellow"
      ]
     ]
    ],
@@ -137,16 +131,7 @@
       "hook": true,
       "runs": [
        [
-        "For here or…"
-       ]
-      ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "to go?"
+        "For here?"
        ]
       ]
      }
@@ -155,7 +140,7 @@
    {
     "id": "sum",
     "at": [
-     "t",
+     "tip",
      0
     ],
     "rows": [
@@ -168,7 +153,7 @@
       "t": "line",
       "runs": [
        [
-        "in the UK, you'll also hear eat in or take away."
+        "in the UK"
        ]
       ]
      }
@@ -268,7 +253,7 @@
     ]
    }
   ],
-  "hook_text": "For here or… to go?",
+  "hook_text": "For here?",
   "end_line": "c"
  },
  "embed": {

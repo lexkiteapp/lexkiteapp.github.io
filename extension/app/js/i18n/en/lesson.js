@@ -2,6 +2,12 @@
 (function (g) {
 const D = g.I18N_DICT = g.I18N_DICT || {};
 D.en = Object.assign(D.en || {}, {
+'Không nghe được': "Can't listen",
+'Không nói được': "Can't speak",
+'Còn {n} từ': '{n} words left',
+'Combo tốt nhất': 'Best combo',
+'Chuỗi hiện tại': 'Current streak',
+'Chạm để nghe': 'Tap to listen',
 'Bài học trộn đang thử nghiệm, sắp ra mắt.': 'Mixed lessons are in testing and coming soon.',
 'Quay về trang chủ': 'Back to home',
 'Tiến độ bài học': 'Lesson progress',
@@ -44,9 +50,11 @@ D.en = Object.assign(D.en || {}, {
 'Kiểm tra đáp án': "Check answer",
 'Từ bạn đã tra': "Your lookup",
 'Ghép cặp': "Match the pairs",
+'Ghép từ, ảnh': "Match words to pictures",
 'Chọn từ đúng': "Pick the right word",
 'Nói tên hình': "Say what you see",
 'Đây là gì?': "What is this?",
+'Nghe, chọn ảnh': "Listen, pick the picture",
 'Nói câu này': "Say this",
 'Xếp thành câu': "Build the sentence",
 'Chọn từ còn thiếu': "Pick the missing word",

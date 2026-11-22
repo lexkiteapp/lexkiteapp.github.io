@@ -20,6 +20,8 @@ jobs:
   # luật 11 (làn nhanh trước làn nặng, scripts/test/ci-policy.mjs): trên PR việc nặng chỉ chạy khi `npm test` đã XANH cùng sha (hoặc PR có nhãn `ready`) – đỏ/chưa xong thì mọi job dưới là skipped
   # (không chiếm runner); npm-test.yml job `heavy` chạy lại lượt này ngay khi npm test xanh (scripts/ci/heavy-rerun.mjs). Lỗi API → mở cổng (không mất kiểm).
   gate:
+    # luật 18 (CI làn nhanh, 16/11): PR chỉ chờ làn nhanh – việc nặng bỏ qua trên PR (skipped, không tốn máy), chạy SAU gộp trên push main; nhãn ready-heavy/ready = chạy nặng ngay trên PR
+    if: ${{ github.event_name != 'pull_request' || contains(github.event.pull_request.labels.*.name, 'ready-heavy') || contains(github.event.pull_request.labels.*.name, 'ready') }}
     runs-on: ubuntu-latest
     timeout-minutes: 3
     permissions: { contents: read, checks: read }
@@ -59,7 +61,7 @@ jobs:
           fail=0
           for p in en/about/ vi/about/editorial-policy/ en/about/editorial-team/ en/research/confused-words/ ja/research/confused-words/ ar/research/confused-words/ en/embed/; do
             id=$(echo "$p" | tr '/' '_')
-            for i in 1 2 3; do npx -y lighthouse@12.2.1 "http://localhost:8080/$p" --form-factor=mobile --only-categories=performance,accessibility,best-practices,seo --chrome-flags="--headless=new --no-sandbox" --output=json --output-path="reports/authority/$id-$i.json" --quiet || true; done
+            for i in 1 2 3; do npx -y lighthouse@12.2.1 "http://localhost:8080/$p" --form-factor=mobile --only-categories=performance,accessibility,best-practices,seo --chrome-flags="--headless=new --no-sandbox --disable-dev-shm-usage --disable-gpu" --output=json --output-path="reports/authority/$id-$i.json" --quiet || true; done
             node -e "
               const fs=require('fs');const runs=[1,2,3].map(i=>'reports/authority/$id-'+i+'.json').filter(f=>fs.existsSync(f)).map(f=>require('./'+f));
               if(!runs.length){console.log('✗ lighthouse lỗi $p');process.exit(1)}

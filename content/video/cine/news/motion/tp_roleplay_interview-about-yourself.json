@@ -25,8 +25,8 @@
  "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
  "cta": {
   "area": "roleplay",
-  "link": "https://lexkite.com/app/",
-  "say": "Practice free on lexkite.com"
+  "link": "https://lexkite.com/app/#/roleplay",
+  "say": "Practice it free"
  },
  "series": {
   "name": "Roleplay",
@@ -40,8 +40,8 @@
   },
   {
    "id": "s0",
-   "text": "At a job interview.",
-   "gap": 0.7
+   "text": "In a job interview.",
+   "gap": 0.55
   },
   {
    "id": "s1",
@@ -50,7 +50,7 @@
   },
   {
    "id": "s2",
-   "text": "I'm a designer. I've worked on shopping apps for three years, and now I'd love to grow here.",
+   "text": "I'm a designer. I've built shopping apps for three years, and I'd love to grow here.",
    "gap": 0.7
   },
   {
@@ -59,8 +59,8 @@
    "gap": 0.7
   },
   {
-   "id": "t",
-   "text": "Tip: present, past, future. Who you are, what you've done, and what you want next.",
+   "id": "tip",
+   "text": "Tip: present, past, future. Who you are, what you've done, what's next.",
    "gap": 0.7
   },
   {
@@ -96,12 +96,6 @@
      [
       "Talk about…",
       "white"
-     ]
-    ],
-    [
-     [
-      "myself?",
-      "yellow"
      ]
     ]
    ],
@@ -140,22 +134,13 @@
         "Talk about…"
        ]
       ]
-     },
-     {
-      "t": "line",
-      "hook": true,
-      "runs": [
-       [
-        "myself?"
-       ]
-      ]
      }
     ]
    },
    {
     "id": "sum",
     "at": [
-     "t",
+     "tip",
      0
     ],
     "rows": [
@@ -168,7 +153,7 @@
       "t": "line",
       "runs": [
        [
-        "present, past, future. Who you are, what you've"
+        "present, past, future."
        ]
       ]
      }
@@ -268,7 +253,7 @@
     ]
    }
   ],
-  "hook_text": "Talk about… myself?",
+  "hook_text": "Talk about…",
   "end_line": "c"
  },
  "embed": {

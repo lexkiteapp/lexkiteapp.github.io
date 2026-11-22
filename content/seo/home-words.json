@@ -1,678 +1,678 @@
 {
  "es": [
   [
-   "abandon",
-   "abandon",
-   "abandonar"
+   "volume",
+   "volume",
+   "volumen"
   ],
   [
-   "accommodate",
-   "accommodate",
-   "acomodar"
+   "secure",
+   "secure",
+   "seguro"
   ],
   [
-   "acknowledge",
-   "acknowledge",
-   "reconocer"
+   "outcome",
+   "outcome",
+   "resultado"
   ],
   [
-   "acquire",
-   "acquire",
-   "adquirir"
+   "status",
+   "status",
+   "estado"
   ],
   [
-   "adequate",
-   "adequate",
-   "adecuado"
+   "criteria",
+   "criteria",
+   "criterios"
   ],
   [
-   "adjacent",
-   "adjacent",
-   "adyacente"
+   "mode",
+   "mode",
+   "modo"
   ],
   [
-   "albeit",
-   "albeit",
-   "aunque"
+   "scope",
+   "scope",
+   "alcance"
   ],
   [
-   "alter",
-   "alter",
-   "alterar"
+   "regime",
+   "regime",
+   "régimen"
   ],
   [
-   "anticipate",
-   "anticipate",
-   "prever"
+   "voluntary",
+   "voluntary",
+   "voluntario"
   ],
   [
-   "apparent",
-   "apparent",
-   "aparente"
+   "resolve",
+   "resolve",
+   "resolver"
   ]
  ],
  "pt": [
   [
-   "abandon",
-   "abandon",
-   "abandonar"
+   "mode",
+   "mode",
+   "modo"
   ],
   [
-   "accommodate",
-   "accommodate",
-   "acomodar"
+   "criteria",
+   "criteria",
+   "critérios"
   ],
   [
-   "acknowledge",
-   "acknowledge",
-   "reconhecer"
+   "scope",
+   "scope",
+   "escopo"
   ],
   [
-   "acquire",
-   "acquire",
-   "adquirir"
+   "regime",
+   "regime",
+   "regime"
   ],
   [
-   "adequate",
-   "adequate",
-   "adequado"
+   "resolve",
+   "resolve",
+   "resolver"
   ],
   [
-   "adjacent",
-   "adjacent",
-   "adjacente"
+   "fee",
+   "fee",
+   "taxa"
   ],
   [
-   "albeit",
-   "albeit",
-   "embora"
+   "convert",
+   "convert",
+   "converter"
   ],
   [
-   "alter",
-   "alter",
-   "alterar"
+   "reverse",
+   "reverse",
+   "reverter"
   ],
   [
-   "anticipate",
-   "anticipate",
-   "antecipar"
+   "differentiate",
+   "differentiate",
+   "diferenciar"
   ],
   [
-   "apparent",
-   "apparent",
-   "aparente"
+   "ensure",
+   "ensure",
+   "garantir"
   ]
  ],
  "fr": [
   [
-   "abandon",
-   "abandon",
-   "abandonner"
+   "detect",
+   "detect",
+   "détecter"
   ],
   [
-   "accommodate",
-   "accommodate",
-   "accommoder"
+   "secure",
+   "secure",
+   "sûr"
   ],
   [
-   "acknowledge",
-   "acknowledge",
-   "reconnaître"
+   "found",
+   "found",
+   "fonder"
   ],
   [
-   "acquire",
-   "acquire",
-   "acquérir"
+   "status",
+   "status",
+   "statut"
   ],
   [
-   "adequate",
-   "adequate",
-   "adéquat"
+   "criteria",
+   "criteria",
+   "critères"
   ],
   [
-   "albeit",
-   "albeit",
-   "quoique"
+   "scope",
+   "scope",
+   "portée"
   ],
   [
-   "alter",
-   "alter",
-   "modifier"
+   "regime",
+   "regime",
+   "régime"
   ],
   [
-   "anticipate",
-   "anticipate",
-   "anticiper"
+   "voluntary",
+   "voluntary",
+   "volontaire"
   ],
   [
-   "appropriate",
-   "appropriate",
-   "approprié"
+   "resolve",
+   "resolve",
+   "résoudre"
   ],
   [
-   "approximate",
-   "approximate",
-   "approximatif"
+   "academy",
+   "academy",
+   "académie"
   ]
  ],
  "de": [
   [
-   "abandon",
-   "abandon",
-   "aufgeben"
+   "detect",
+   "detect",
+   "ermitteln"
   ],
   [
-   "accommodate",
-   "accommodate",
-   "unterbringen"
+   "outcome",
+   "outcome",
+   "Ergebnis"
   ],
   [
-   "acknowledge",
-   "acknowledge",
-   "anerkennen"
+   "volume",
+   "volume",
+   "Volumen"
   ],
   [
-   "acquire",
-   "acquire",
-   "erwerben"
+   "secure",
+   "secure",
+   "sicher"
   ],
   [
-   "adequate",
-   "adequate",
-   "angemessen"
+   "criteria",
+   "criteria",
+   "Kriterien"
   ],
   [
-   "adjacent",
-   "adjacent",
-   "benachbart"
+   "mode",
+   "mode",
+   "Modus"
   ],
   [
-   "albeit",
-   "albeit",
-   "wenngleich"
+   "scope",
+   "scope",
+   "Umfang"
   ],
   [
-   "alter",
-   "alter",
-   "ändern"
+   "regime",
+   "regime",
+   "Regime"
   ],
   [
-   "anticipate",
-   "anticipate",
-   "erwarten"
+   "voluntary",
+   "voluntary",
+   "freiwillig"
   ],
   [
-   "apparent",
-   "apparent",
-   "ersichtlich"
+   "resolve",
+   "resolve",
+   "lösen"
   ]
  ],
  "id": [
   [
-   "abandon",
-   "abandon",
-   "meninggalkan"
+   "found",
+   "found",
+   "mendirikan"
   ],
   [
-   "accommodate",
-   "accommodate",
-   "menampung"
+   "criteria",
+   "criteria",
+   "kriteria"
   ],
   [
-   "acknowledge",
-   "acknowledge",
-   "mengakui"
+   "conceive",
+   "conceive",
+   "memahami"
   ],
   [
-   "acquire",
-   "acquire",
-   "mendapatkan"
+   "incline",
+   "incline",
+   "condong"
   ],
   [
-   "adequate",
-   "adequate",
-   "cukup"
+   "regime",
+   "regime",
+   "rezim"
   ],
   [
-   "adjacent",
-   "adjacent",
-   "berdekatan"
+   "resolve",
+   "resolve",
+   "menyelesaikan"
   ],
   [
-   "albeit",
-   "albeit",
-   "walaupun"
+   "fee",
+   "fee",
+   "biaya"
   ],
   [
-   "alter",
-   "alter",
+   "convert",
+   "convert",
    "mengubah"
   ],
   [
-   "anticipate",
-   "anticipate",
-   "mengharapkan"
+   "cease",
+   "cease",
+   "berhenti"
   ],
   [
-   "apparent",
-   "apparent",
-   "semu"
+   "contrary",
+   "contrary",
+   "yg bertentangan"
   ]
  ],
  "th": [
   [
-   "abandon",
-   "abandon",
-   "ละทิ้ง"
+   "detect",
+   "detect",
+   "ตรวจจับ"
   ],
   [
-   "accommodate",
-   "accommodate",
-   "เอื้อ"
+   "criteria",
+   "criteria",
+   "เกณฑ์"
   ],
   [
-   "acknowledge",
-   "acknowledge",
-   "รับทราบ"
+   "mode",
+   "mode",
+   "โหมด"
   ],
   [
-   "acquire",
-   "acquire",
-   "ได้รับ"
+   "secure",
+   "secure",
+   "ปลอดภัย"
   ],
   [
-   "adequate",
-   "adequate",
-   "เพียงพอ"
+   "volume",
+   "volume",
+   "ปริมาณ"
   ],
   [
-   "adjacent",
-   "adjacent",
-   "ชิด"
+   "vision",
+   "vision",
+   "วิสัยทัศน์"
   ],
   [
-   "albeit",
-   "albeit",
-   "แม้ว่า"
+   "status",
+   "status",
+   "สถานะ"
   ],
   [
-   "alter",
-   "alter",
-   "เปลี่ยนแปลง"
+   "visual",
+   "visual",
+   "เกี่ยวกับสายตา"
   ],
   [
-   "anticipate",
-   "anticipate",
-   "คาดหวัง"
+   "regime",
+   "regime",
+   "ระบบการปกครอง"
   ],
   [
-   "apparent",
-   "apparent",
-   "ชัดเจน"
+   "voluntary",
+   "voluntary",
+   "จงใจ"
   ]
  ],
  "zh": [
   [
-   "abandon",
-   "abandon",
-   "放弃"
+   "criteria",
+   "criteria",
+   "标准"
   ],
   [
-   "accommodate",
-   "accommodate",
-   "容纳"
+   "fee",
+   "fee",
+   "费用"
   ],
   [
-   "acknowledge",
-   "acknowledge",
-   "承认"
+   "convert",
+   "convert",
+   "变换"
   ],
   [
-   "acquire",
-   "acquire",
-   "获得"
+   "federal",
+   "federal",
+   "联邦"
   ],
   [
-   "adequate",
-   "adequate",
-   "充足"
+   "differentiate",
+   "differentiate",
+   "区分"
   ],
   [
-   "adjacent",
-   "adjacent",
-   "邻近的"
+   "debate",
+   "debate",
+   "争论"
   ],
   [
-   "albeit",
-   "albeit",
-   "尽管"
+   "ensure",
+   "ensure",
+   "确保"
   ],
   [
-   "alter",
-   "alter",
-   "改变"
+   "capable",
+   "capable",
+   "能"
   ],
   [
-   "anticipate",
-   "anticipate",
-   "预料"
+   "coherent",
+   "coherent",
+   "相干"
   ],
   [
-   "apparent",
-   "apparent",
-   "明显的"
+   "coincide",
+   "coincide",
+   "重合"
   ]
  ],
  "ja": [
   [
-   "abandon",
-   "abandon",
-   "放棄する"
+   "detect",
+   "detect",
+   "見付ける"
   ],
   [
-   "accommodate",
-   "accommodate",
-   "収容する"
+   "volume",
+   "volume",
+   "音量"
   ],
   [
-   "acknowledge",
-   "acknowledge",
-   "認める"
+   "secure",
+   "secure",
+   "安全な"
   ],
   [
-   "acquire",
-   "acquire",
-   "得る"
+   "status",
+   "status",
+   "地位"
   ],
   [
-   "adequate",
-   "adequate",
-   "十分な"
+   "criteria",
+   "criteria",
+   "基準"
   ],
   [
-   "adjacent",
-   "adjacent",
-   "隣接"
+   "mode",
+   "mode",
+   "モード"
   ],
   [
-   "albeit",
-   "albeit",
-   "とはいえ"
+   "scope",
+   "scope",
+   "範囲"
   ],
   [
-   "alter",
-   "alter",
-   "変える"
+   "regime",
+   "regime",
+   "領域"
   ],
   [
-   "anticipate",
-   "anticipate",
-   "予想する"
+   "voluntary",
+   "voluntary",
+   "随意"
   ],
   [
-   "apparent",
-   "apparent",
-   "自明"
+   "resolve",
+   "resolve",
+   "思い立つ"
   ]
  ],
  "ko": [
   [
-   "abandon",
-   "abandon",
-   "버리다"
+   "detect",
+   "detect",
+   "탐지하다"
   ],
   [
-   "accommodate",
-   "accommodate",
-   "편의를 도모하다"
+   "volume",
+   "volume",
+   "음량"
   ],
   [
-   "acknowledge",
-   "acknowledge",
-   "인정"
+   "secure",
+   "secure",
+   "안전"
   ],
   [
-   "acquire",
-   "acquire",
-   "얻다"
+   "status",
+   "status",
+   "지위"
   ],
   [
-   "adequate",
-   "adequate",
-   "적절"
+   "widespread",
+   "widespread",
+   "광범위한"
   ],
   [
-   "adjacent",
-   "adjacent",
-   "이웃의"
+   "criteria",
+   "criteria",
+   "기준"
   ],
   [
-   "albeit",
-   "albeit",
-   "비록 ...이기는 하나"
+   "mode",
+   "mode",
+   "모드"
   ],
   [
-   "alter",
-   "alter",
-   "변경하다"
+   "scope",
+   "scope",
+   "범위"
   ],
   [
-   "anticipate",
-   "anticipate",
-   "예상하다"
+   "regime",
+   "regime",
+   "정권"
   ],
   [
-   "apparent",
-   "apparent",
-   "분명한"
+   "voluntary",
+   "voluntary",
+   "자발적인"
   ]
  ],
  "hi": [
   [
-   "abandon",
-   "abandon",
-   "त्याग देना"
+   "detect",
+   "detect",
+   "पता लगाना"
   ],
   [
-   "accommodate",
-   "accommodate",
-   "झगड़ा तय करना"
+   "secure",
+   "secure",
+   "सुरक्षित"
   ],
   [
-   "acknowledge",
-   "acknowledge",
-   "मान लेना"
+   "vision",
+   "vision",
+   "नज़र"
   ],
   [
-   "acquire",
-   "acquire",
-   "प्राप्त करना"
+   "criteria",
+   "criteria",
+   "मानदंड"
   ],
   [
-   "adequate",
-   "adequate",
-   "सक्षम"
+   "valid",
+   "valid",
+   "जायज़"
   ],
   [
-   "adjacent",
-   "adjacent",
-   "आसन्न"
+   "resolve",
+   "resolve",
+   "समाधान करना"
   ],
   [
-   "albeit",
-   "albeit",
-   "यद्यपि"
+   "levy",
+   "levy",
+   "उगाही"
   ],
   [
-   "alter",
-   "alter",
-   "बदलना"
+   "capacity",
+   "capacity",
+   "क्षमता"
   ],
   [
-   "anticipate",
-   "anticipate",
-   "पहले से सोच रखना"
+   "fee",
+   "fee",
+   "शुल्क"
   ],
   [
-   "apparent",
-   "apparent",
-   "प्रकट"
+   "convert",
+   "convert",
+   "रूपांतरित करना"
   ]
  ],
  "ar": [
   [
-   "abandon",
-   "abandon",
-   "تخلى"
+   "found",
+   "found",
+   "أسس"
   ],
   [
-   "accommodate",
-   "accommodate",
-   "كيف"
+   "detect",
+   "detect",
+   "كشف"
   ],
   [
-   "acknowledge",
-   "acknowledge",
-   "اعترف"
+   "status",
+   "status",
+   "حالة"
   ],
   [
-   "acquire",
-   "acquire",
-   "كسب"
+   "infer",
+   "infer",
+   "استنتج"
   ],
   [
-   "adequate",
-   "adequate",
-   "مناسب"
+   "fee",
+   "fee",
+   "رسوم التسجيل"
   ],
   [
-   "adjacent",
-   "adjacent",
-   "متاخم"
+   "relevant",
+   "relevant",
+   "ذو صلة"
   ],
   [
-   "albeit",
-   "albeit",
-   "ولو"
+   "integrity",
+   "integrity",
+   "نزاهة"
   ],
   [
-   "alter",
-   "alter",
-   "تغير"
+   "convert",
+   "convert",
+   "تحول"
   ],
   [
-   "anticipate",
-   "anticipate",
-   "توقع"
+   "circumstance",
+   "circumstance",
+   "ظرف"
   ],
   [
-   "apparent",
-   "apparent",
-   "واضح"
+   "reverse",
+   "reverse",
+   "عكس"
   ]
  ],
  "ru": [
   [
-   "abandon",
-   "abandon",
-   "покидать"
+   "criteria",
+   "criteria",
+   "критерии"
   ],
   [
-   "accommodate",
-   "accommodate",
-   "вмещать"
+   "mode",
+   "mode",
+   "режим"
   ],
   [
-   "acknowledge",
-   "acknowledge",
-   "сознавать"
+   "regime",
+   "regime",
+   "режим"
   ],
   [
-   "acquire",
-   "acquire",
-   "приобретать"
+   "evolve",
+   "evolve",
+   "эволюционировать"
   ],
   [
-   "adequate",
-   "adequate",
-   "адекватный"
+   "fee",
+   "fee",
+   "вознаграждение"
   ],
   [
-   "adjacent",
-   "adjacent",
-   "соседний"
+   "convert",
+   "convert",
+   "конвертировать"
   ],
   [
-   "albeit",
-   "albeit",
-   "хотя"
+   "federal",
+   "federal",
+   "федеральный"
   ],
   [
-   "alter",
-   "alter",
-   "изменять"
+   "reverse",
+   "reverse",
+   "реверсировать"
   ],
   [
-   "anticipate",
-   "anticipate",
-   "предвидеть"
+   "differentiate",
+   "differentiate",
+   "дифференцировать"
   ],
   [
-   "apparent",
-   "apparent",
-   "очевидный"
+   "debate",
+   "debate",
+   "дебаты"
   ]
  ],
  "tr": [
   [
-   "abandon",
-   "abandon",
-   "vazgeçmek"
+   "criteria",
+   "criteria",
+   "kriterler"
   ],
   [
-   "accommodate",
-   "accommodate",
-   "yerleştirmek"
+   "mode",
+   "mode",
+   "moda"
   ],
   [
-   "acknowledge",
-   "acknowledge",
-   "onaylamak"
+   "regime",
+   "regime",
+   "rejim"
   ],
   [
-   "acquire",
-   "acquire",
-   "elde etmek"
+   "prime",
+   "prime",
+   "asal"
   ],
   [
-   "adequate",
-   "adequate",
-   "yeterli"
+   "fee",
+   "fee",
+   "ücret"
   ],
   [
-   "adjacent",
-   "adjacent",
-   "bitişik"
+   "convert",
+   "convert",
+   "dönüştürmek"
   ],
   [
-   "albeit",
-   "albeit",
-   "gerçi"
+   "reverse",
+   "reverse",
+   "tersine çevirmek"
   ],
   [
-   "alter",
-   "alter",
-   "değiştirmek"
+   "differentiate",
+   "differentiate",
+   "farklılaştırmak"
   ],
   [
-   "anticipate",
-   "anticipate",
-   "beklemek"
+   "debate",
+   "debate",
+   "çekişme"
   ],
   [
-   "apparent",
-   "apparent",
-   "açık"
+   "ensure",
+   "ensure",
+   "sağlamak"
   ]
  ]
 }

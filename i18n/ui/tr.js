@@ -984,6 +984,7 @@
 "Thử Phòng viết lần đầu":"Yazma odasını ilk kez deneyin",
 "Thử lại":"Tekrar dene",
 "Thử thách 60 giây":"60 saniyelik meydan okuma",
+"Thử thách nói 30 giây":"30-second speaking challenge",
 "Thử thách tự đặt câu":"Kendi cümleni yaz meydan okuması",
 "Thực phẩm & Nông nghiệp":"Gıda ve tarım",
 "Tia chớp":"Şimşek",

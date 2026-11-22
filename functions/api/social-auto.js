@@ -1,6 +1,7 @@
 /* POST /api/social-auto – autopilot social chạy nền (docs/DISTRIBUTION.md §6). Chỉ CI: HMAC X-Drive-Ts/X-Drive-Sig = LEXKITE_DRIVE_CLI_KEY (cùng cách ký /api/drive, /api/jobs).
  *   { op: 'run' }    → 1 lượt (.github/workflows/social-auto.yml, mỗi 2 giờ) – logic + ngân sách GrabCast + cầu dao: functions/api/_social_auto.js
  *   { op: 'status' } → trạng thái (không gọi GrabCast)
+ *   { op: 'autofill' } → duyệt thêm clip QC-pass (≤ 150) + xếp lịch + dồn ngày (chỉ D1; social-coverage.yml gọi khi có kênh-ngày trống)
  *   { op: 'coverage' } → kênh-ngày trống trong 30 ngày tới (_social_cover.js, chỉ đọc; CI social-coverage.yml mỗi ngày)
  *   { op: 'preview', clip? } → DRY-RUN: payload từng nền tảng cho 1 clip thật (mặc định clip QC-pass mới nhất) + kênh định tuyến theo ngôn ngữ.
  *     0 lượt GrabCast/Meta, 0 ghi, không tải file (_social_preview.js). Dùng: social-auto.yml input preview / node scripts/social/auto.mjs preview [clip].
@@ -8,7 +9,7 @@
 import { cliVerify } from './drive.js';
 import { limit } from './sync.js';
 import { guardBackground } from './_d1guard.js';
-import { runAuto, autoStatus } from './_social_auto.js';
+import { runAuto, autoStatus, autoFill } from './_social_auto.js';
 import { coverage } from './_social_cover.js';
 import { manifest } from './admin-shorts.js';
 import { clipOf, socialSetup, setupDist } from './distribution.js';
@@ -25,6 +26,7 @@ export async function onRequestPost({ request, env }) {
   if (await limit('socauto:' + (request.headers.get('CF-Connecting-IP') || '?'), 6, 600)) return json(429, { error: 'too-fast' }); // CI 1 lượt/2 giờ; chặn vòng lặp lỗi
   if (!env.DB) return json(412, { error: 'not-configured' });
   if (b.op === 'status') return json(200, await autoStatus(env));
+  if (b.op === 'autofill') { try { return json(200, await autoFill(env)); } catch (e) { return json(500, { error: 'autofill-error', cause: String((e && e.message) || e).slice(0, 80) }); } } // máy gác tự lấp (social-coverage): duyệt thêm + xếp lịch, 0 lượt GrabCast
   if (b.op === 'coverage') { await setupDist(env.DB).catch(() => {}); try { return json(200, await coverage(env.DB)); } catch (e) { return json(500, { error: 'coverage-error' }); } } // chỉ đọc D1, 0 lượt GrabCast
   if (b.op === 'preview') {
     if (b.clip != null && !CLIP_RE.test(String(b.clip))) return json(400, { error: 'bad-clip' });

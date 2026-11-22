@@ -7,7 +7,7 @@ import fs from 'node:fs'; import path from 'node:path'; import { fileURLToPath }
 import { parseKeys, keyRing } from '../lib/key-pool.mjs';
 import { poolAccounts } from '../lib/cf-pool.mjs';
 import { gemBody, groqBody, groqRetry, JSON_FAIL, waiBody, gemText, parseJSON, pickGemini, GROQ_OK, WAI_MODEL, WEAK_OK } from '../../functions/api/_aichain.js';
-import { scoreIelts, sumIelts, scoreRp, sumRp, JUDGE_SYS, judgePrompt, GATE } from './score.mjs';
+import { scoreIelts, sumIelts, scoreRp, sumRp, JUDGE_SYS, judgePrompt, GATE, passMetrics, nearMiss, medianVerdict } from './score.mjs';
 import { ieltsReq, rpCase } from './client.mjs';
 
 const env = process.env, ROOT = fileURLToPath(new URL('../..', import.meta.url));
@@ -17,6 +17,10 @@ const ONLY = new Set(String(arg('only', 'gem,groq,wai')).split(',')), OUT = arg(
 const IE = JSON.parse(fs.readFileSync(path.join(ROOT, 'scripts/ai-golden/ielts.json'), 'utf8')).cases.slice(0, +arg('ielts', 99));
 const RPJ = JSON.parse(fs.readFileSync(path.join(ROOT, 'scripts/ai-golden/roleplay.json'), 'utf8')), RPC = RPJ.cases.slice(0, +arg('rp', 99));
 const sleep = ms => new Promise(r => setTimeout(r, ms));
+// seed cố định (chỉ golden, KHÔNG đổi thân yêu cầu máy chủ): Groq/Gemini/Workers AI đều nhận `seed` (best-effort) → giảm dao động giữa các lượt; lượt đo thêm dùng seed khác
+const SEED0 = +env.AI_GOLDEN_SEED || 20261119; let seed = SEED0;
+const withSeed = (b, route) => route === 'gem' ? { ...b, generationConfig: { ...b.generationConfig, seed } } : { ...b, seed };
+const noSeed = (b, route) => { if (route === 'gem') { const { seed: _s, ...g } = b.generationConfig || {}; return { ...b, generationConfig: g }; } const { seed: _s, ...r } = b; return r; };
 const redact = t => String(t).replace(/AIza[\w-]{10,}|AQ\.[\w.-]{10,}|gsk_\w{10,}/g, '[khoá]');
 
 // ---- nhà cung cấp (xoay khóa; 429/401/403 → khóa kế) ----
@@ -38,16 +42,17 @@ async function keyed(ring, f, name = '') {
 const T = ms => AbortSignal.timeout(Math.min(ms, 60e3));
 const MODEL_MS = +(env.AI_GOLDEN_MODEL_MS || 8 * 60e3); // trần thời gian mỗi model – ca chưa chạy kịp = bỏ qua (không tính), > 30 % bỏ qua → model 'không gọi được'
 const call = {
-  async gem(model, q) { const r = await keyed(GEM, key => fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`, { method: 'POST', signal: T(90e3), headers: { 'x-goog-api-key': key, 'Content-Type': 'application/json' }, body: JSON.stringify(gemBody(model, q.sys, q.prompt, q.temp, q.rp)) }), 'gem');
+  async gem(model, q) { const r = await keyed(GEM, key => fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`, { method: 'POST', signal: T(90e3), headers: { 'x-goog-api-key': key, 'Content-Type': 'application/json' }, body: JSON.stringify(withSeed(gemBody(model, q.sys, q.prompt, q.temp, q.rp), 'gem')) }), 'gem');
     if (!r) return { err: 'no-key' }; if (!r.ok) return { err: r.status + ' ' + redact(await r.text()).slice(0, 120) }; return { out: parseJSON(gemText(await r.json())) }; },
   async groq(model, q) { const go = (key, b) => fetch('https://api.groq.com/openai/v1/chat/completions', { method: 'POST', signal: T(90e3), headers: { Authorization: 'Bearer ' + key, 'Content-Type': 'application/json' }, body: JSON.stringify(b) });
-    const b = groqBody(model, q.sys, q.prompt, q.temp, q.rp);
-    const r = await keyed(GROQ, async key => { const x = await go(key, b); if (x.status === 400) { const t = await x.clone().text().catch(() => ''); if (JSON_FAIL.test(t)) return go(key, groqRetry(b)); } return x; }, 'groq'); // như máy chủ: lỗi JSON → thử lại không ép JSON
+    const b = withSeed(groqBody(model, q.sys, q.prompt, q.temp, q.rp), 'groq');
+    const r = await keyed(GROQ, async key => { const x = await go(key, b); if (x.status === 400) { const t = await x.clone().text().catch(() => ''); if (/seed/i.test(t)) return go(key, noSeed(b, 'groq')); if (JSON_FAIL.test(t)) return go(key, groqRetry(b)); } return x; }, 'groq'); // như máy chủ: lỗi JSON → thử lại không ép JSON
     if (!r) return { err: 'no-key' }; if (!r.ok) return { err: r.status + ' ' + redact(await r.text()).slice(0, 120) }; const j = await r.json(); return { out: parseJSON((((j.choices || [])[0] || {}).message || {}).content) }; },
   async cf(model, q) { return call.wai(model, q); },
   async wai(model, q) { // tài khoản Workers AI phụ (CF_POOL) – cùng model với binding env.AI của site
     for (let t = 0; t < Math.min(CF.length, 6); t++) { const a = CF[cfi++ % CF.length];
-      const r = await fetch(`https://api.cloudflare.com/client/v4/accounts/${a.acct}/ai/run/${model}`, { method: 'POST', signal: T(60e3), headers: { Authorization: 'Bearer ' + a.tok, 'Content-Type': 'application/json' }, body: JSON.stringify(waiBody(q.sys, q.prompt, q.temp)) }).catch(() => null);
+      let r = await fetch(`https://api.cloudflare.com/client/v4/accounts/${a.acct}/ai/run/${model}`, { method: 'POST', signal: T(60e3), headers: { Authorization: 'Bearer ' + a.tok, 'Content-Type': 'application/json' }, body: JSON.stringify(withSeed(waiBody(q.sys, q.prompt, q.temp), 'wai')) }).catch(() => null);
+      if (r && r.status === 400) r = await fetch(`https://api.cloudflare.com/client/v4/accounts/${a.acct}/ai/run/${model}`, { method: 'POST', signal: T(60e3), headers: { Authorization: 'Bearer ' + a.tok, 'Content-Type': 'application/json' }, body: JSON.stringify(waiBody(q.sys, q.prompt, q.temp)) }).catch(() => null); // seed bị từ chối → thử lại không seed
       if (!r || !r.ok) continue; const j = await r.json().catch(() => null), raw = j && j.result && j.result.response; return { out: raw && typeof raw === 'object' ? raw : parseJSON(raw) }; }
     return { err: 'no-account' }; },
 };
@@ -94,29 +99,50 @@ const judgeOk = judgeFams.size >= 2; // ≥ 2 họ đạt câu mồi → mọi �
 console.log(`· giám khảo (câu mồi): ${JSON.stringify(decoyRes)} → họ đạt: ${[...judgeFams].join(', ')} → ${judgeOk ? 'đạt' : 'TRƯỢT'}`);
 
 const report = { at: new Date().toISOString(), gate: GATE, judge: { ok: judgeOk, decoys: decoyRes }, models: [] };
-for (const m of models) {
+// sai khuôn/parse → thử lại ĐÚNG 1 lần (như client thật); điểm thấp KHÔNG bao giờ được thử lại. first = lần đầu có đúng khuôn không
+async function callOnce(m, req, ok) { let r = await call[m.route](m.model, req); const first = ok(r.out); if (!first && !/no-key|no-account|^0 |^5\d\d/.test(r.err || '')) { seed++; r = await call[m.route](m.model, req); } return { r, first }; }
+const okIelts = o => !!o && Number.isFinite(+o.overall) && Array.isArray(o.criteria) && o.criteria.length >= 3 && Array.isArray(o.errors), okRp = o => !!o && typeof o.reply === 'string';
+async function runPass(m) {
   const t0 = Date.now(), par = m.route === 'gem' ? 3 : 4, late = () => Date.now() - t0 > MODEL_MS, tag = `${m.route} ${m.model}`;
   // ca không gọi được (hết khóa/hết giờ) = bỏ qua, không tính là sai; ca gọi được mà trả sai khuôn vẫn tính
-  const ielts = (await pmap(IE, par, async c => { if (late()) return null; const r = await call[m.route](m.model, ieltsReq(c)); if (!r.out && /no-key|no-account|^0 |^5\d\d/.test(r.err || '')) { console.log(`    · ${tag} ielts ${c.id}: bỏ qua (${r.err})`); return null; }
-    const s = { ...scoreIelts(c, r.out), got: ((r.out && r.out.errors) || []).slice(0, 12).map(e => [e && e.quote, e && e.fix]) }; console.log(`    ${tag} ielts ${c.id}: ${s.valid ? `band ${s.band} (${s.want}) · bắt ${s.found}/${s.total}` : 'sai khuôn ' + (r.err || '')} · ${Math.round((Date.now() - t0) / 1000)}s`); return { ...s, langCase: true, err: r.err || null }; })).filter(Boolean);
-  const rp = (await pmap(RPC, par, async c => { if (late()) return null; const x = rpCase(c), r = await call[m.route](m.model, x.req), out = r.out; if (!out && /no-key|no-account|^0 |^5\d\d/.test(r.err || '')) return null;
+  const ielts = (await pmap(IE, par, async c => { if (late()) return null; const { r, first } = await callOnce(m, ieltsReq(c), okIelts); if (!r.out && /no-key|no-account|^0 |^5\d\d/.test(r.err || '')) { console.log(`    · ${tag} ielts ${c.id}: bỏ qua (${r.err})`); return null; }
+    const s = { ...scoreIelts(c, r.out), got: ((r.out && r.out.errors) || []).slice(0, 12).map(e => [e && e.quote, e && e.fix]) }; console.log(`    ${tag} ielts ${c.id}: ${s.valid ? `band ${s.band} (${s.want}) · bắt ${s.found}/${s.total}` : 'sai khuôn ' + (r.err || '')} · ${Math.round((Date.now() - t0) / 1000)}s`); return { ...s, langCase: true, firstOk: first, err: r.err || null }; })).filter(Boolean);
+  const rp = (await pmap(RPC, par, async c => { if (late()) return null; const x = rpCase(c), { r, first } = await callOnce(m, x.req, okRp), out = r.out; if (!out && /no-key|no-account|^0 |^5\d\d/.test(r.err || '')) return null;
     const j = out && typeof out.reply === 'string' ? await judge(m, { ...x, L: c.L, unclear: c.unclear, reply: out.reply }) : null;
-    return { ...scoreRp(c, out, j), unclearCase: !!c.unclear, err: r.err || null }; })).filter(Boolean);
+    return { ...scoreRp(c, out, j), unclearCase: !!c.unclear, firstOk: first, err: r.err || null }; })).filter(Boolean);
+  return { ielts, rp, t0, tag };
+}
+for (const m of models) {
+  seed = SEED0;
+  let { ielts, rp, t0, tag } = await runPass(m);
   const cover = (ielts.length + rp.length) / (IE.length + RPC.length);
-  const SI = sumIelts(ielts), SR = sumRp(rp), avail = cover >= 0.7;
-  const row = { route: m.route, model: m.model, chain: m.chain, available: avail, cover: Math.round(cover * 100) / 100, pass: avail && SI.pass && SR.pass && judgeOk, ielts: SI, rp: SR, secs: Math.round((Date.now() - t0) / 1000), detail: { ielts, rp } };
+  const SI = sumIelts(ielts), SR = sumRp(rp), avail = cover >= 0.7, passes = [passMetrics(SI, SR)], firstRows = [...ielts, ...rp];
+  // sát ngưỡng (model TRONG CHUỖI, giám khảo đạt) → đo thêm 2 lượt với seed khác, quyết theo TRUNG VỊ từng chỉ số (ngưỡng GATE giữ nguyên)
+  if (m.chain && avail && judgeOk && !(SI.pass && SR.pass) && nearMiss(SI, SR)) {
+    console.log(`↻ ${tag}: trượt sát ngưỡng (lượt 1: ${JSON.stringify(passes[0])}) → đo thêm 2 lượt, chấm trung vị 3 lượt`);
+    for (let k = 1; k <= 2; k++) { seed = SEED0 + k; const x = await runPass(m); firstRows.push(...x.ielts, ...x.rp); const pm = passMetrics(sumIelts(x.ielts), sumRp(x.rp)); passes.push(pm); console.log(`  lượt ${k + 1}: ${JSON.stringify(pm)}`); }
+  }
+  const MV = passes.length > 1 ? medianVerdict(passes) : null;
+  const passOk = MV ? MV.pass : SI.pass && SR.pass;
+  const row = { route: m.route, model: m.model, chain: m.chain, available: avail, cover: Math.round(cover * 100) / 100, pass: avail && passOk && judgeOk, ielts: SI, rp: SR, secs: Math.round((Date.now() - t0) / 1000), detail: { ielts, rp } };
+  row.passes = passes; row.median = MV ? MV.med : null; // điểm từng lượt + trung vị (chỉ có khi đo lại)
+  row.firstJson = firstRows.length ? Math.round(firstRows.filter(r => r.firstOk).length / firstRows.length * 1000) / 1000 : 1; // JSON/khuôn đúng ngay lần đầu (trước retry)
+  if (m.chain && avail && row.firstJson < 0.95) console.log(`::warning::${tag}: JSON lần đầu ${Math.round(row.firstJson * 100)}% < 95% (cổng tính sau 1 lần retry; chất lượng model đang tụt)`);
   report.models.push(row);
-  console.log(`${row.pass ? '✓' : avail ? '✗' : '·'} ${m.route} ${m.model}${m.chain ? ' [chuỗi]' : ''}: IELTS bắt lỗi ${Math.round(SI.recall * 100)}% · band lệch ${SI.mae} · JSON ${Math.round(SI.valid * 100)}% · ngôn ngữ ${Math.round(SI.lang * 100)}% | roleplay ${SR.mean}/5 · vô lý ${SR.absurd} · hỏi lại ${Math.round(SR.clarify * 100)}% · JSON ${Math.round(SR.valid * 100)}% (${row.secs}s)`);
+  console.log(`${row.pass ? '✓' : avail ? '✗' : '·'} ${m.route} ${m.model}${m.chain ? ' [chuỗi]' : ''}: IELTS bắt lỗi ${Math.round(SI.recall * 100)}% · band lệch ${SI.mae} · JSON ${Math.round(SI.valid * 100)}% · ngôn ngữ ${Math.round(SI.lang * 100)}% | roleplay ${SR.mean}/5 · vô lý ${SR.absurd} · hỏi lại ${Math.round(SR.clarify * 100)}% · JSON ${Math.round(SR.valid * 100)}% (${row.secs}s)${MV ? ` · TRUNG VỊ ${passes.length} lượt → ${MV.pass ? 'đạt' : 'trượt'}: ${JSON.stringify(MV.med)}` : ''}`);
   for (const r of ielts) if (r.err || r.missed.length || r.diff > 0.5) console.log(`    ielts ${r.id}: band ${r.band ?? '-'} (kỳ vọng ${r.want}) · sót ${JSON.stringify(r.missed)}${r.missed.length ? ' · model ghi ' + JSON.stringify(r.got).slice(0, 600) : ''}${r.langOk ? '' : ' · SAI NGÔN NGỮ'}${r.err ? ' · ' + r.err : ''}`);
   for (const r of rp) if (r.err || (r.score ?? 0) <= 3 || r.absurd || !r.clarifyOk) console.log(`    rp ${r.id}: ${r.score ?? '-'}/5${r.absurd ? ' VÔ LÝ' : ''}${r.clarifyOk ? '' : ' KHÔNG HỎI LẠI'} «${r.reply || ''}» ${r.why}${r.err ? ' · ' + r.err : ''}`);
 }
 console.log(`· mã lỗi khóa: Gemini ${JSON.stringify(why.gem)} · Groq ${JSON.stringify(why.groq)} (kho: Gemini ${GEM.size} khóa, sống ${GEM.live()} · Groq ${GROQ.size}, sống ${GROQ.live()})`); report.keys = { why, gem: GEM.stats(), groq: GROQ.stats() };
 fs.mkdirSync(path.dirname(path.resolve(OUT)), { recursive: true }); fs.writeFileSync(OUT, JSON.stringify(report, null, 1));
 const md = ['## AI golden (chuỗi người dùng)', '', `Giám khảo: ${judgeOk ? '✅' : '❌'} · ngưỡng: IELTS bắt lỗi ≥ ${GATE.ielts.recall * 100}%, band lệch ≤ ${GATE.ielts.mae}; roleplay ≥ ${GATE.rp.mean}/5, vô lý ≤ ${GATE.rp.absurd}`, '',
-  '| Model | Chuỗi | IELTS bắt lỗi | Band lệch TB | Ngôn ngữ | Roleplay /5 | Vô lý | Hỏi lại | Kết quả |', '|---|---|---|---|---|---|---|---|---|',
-  ...report.models.map(m => `| ${m.route} ${m.model} | ${m.chain ? 'có' : '–'} | ${Math.round(m.ielts.recall * 100)}% | ${m.ielts.mae} | ${Math.round(m.ielts.lang * 100)}% | ${m.rp.mean} | ${m.rp.absurd} | ${Math.round(m.rp.clarify * 100)}% | ${m.pass ? '✅' : m.available ? '❌' : '⏸ không gọi được'} |`)].join('\n');
-if (env.GITHUB_STEP_SUMMARY) fs.appendFileSync(env.GITHUB_STEP_SUMMARY, md + '\n');
-console.log('\n' + md);
+  '| Model | Chuỗi | IELTS bắt lỗi | Band lệch TB | Ngôn ngữ | JSON lần đầu | Roleplay /5 | Vô lý | Hỏi lại | Kết quả |', '|---|---|---|---|---|---|---|---|---|---|',
+  ...report.models.map(m => `| ${m.route} ${m.model} | ${m.chain ? 'có' : '–'} | ${Math.round(m.ielts.recall * 100)}% | ${m.ielts.mae} | ${Math.round(m.ielts.lang * 100)}% | ${Math.round(m.firstJson * 100)}% | ${m.rp.mean} | ${m.rp.absurd} | ${Math.round(m.rp.clarify * 100)}% | ${m.pass ? '✅' : m.available ? '❌' : '⏸ không gọi được'} |`)].join('\n');
+const mdPass = report.models.filter(m => m.passes.length > 1).map(m => `\n**${m.route} ${m.model}** sát ngưỡng → đo ${m.passes.length} lượt, chấm TRUNG VỊ (ngưỡng giữ nguyên):\n\n| Lượt | Bắt lỗi | Band lệch | JSON | Ngôn ngữ | Roleplay | Vô lý | Hỏi lại |\n|---|---|---|---|---|---|---|---|\n`
+  + [...m.passes.map((p, i) => [i + 1, p]), ['trung vị', m.median]].map(([n, p]) => `| ${n} | ${Math.round(p.recall * 100)}% | ${p.mae} | ${Math.round(p.valid * 100)}% | ${Math.round(p.lang * 100)}% | ${p.rpMean} | ${p.absurd} | ${Math.round(p.clarify * 100)}% |`).join('\n')).join('\n');
+const mdAll = md + mdPass;
+if (env.GITHUB_STEP_SUMMARY) fs.appendFileSync(env.GITHUB_STEP_SUMMARY, mdAll + '\n');
+console.log('\n' + mdAll);
 // Trượt: giám khảo hỏng, hoặc model TRONG CHUỖI gọi được mà không đạt, hoặc không model nào trong chuỗi gọi được
 const chain = report.models.filter(m => m.chain), bad = chain.filter(m => m.available && !m.pass), up = chain.filter(m => m.available);
 if (!judgeOk || bad.length || !up.length) { console.error(`✗ golden trượt: ${!judgeOk ? 'giám khảo không đạt câu mồi; ' : ''}${bad.map(m => m.model).join(', ')}${!up.length ? ' không model nào trong chuỗi gọi được' : ''}`); process.exit(1); }

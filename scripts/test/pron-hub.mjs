@@ -2,7 +2,7 @@
 //   5 nhóm đúng thứ tự (lưới 4 cột nguyên âm đơn/đôi · lưới 5 cột phụ âm + ghi chú vô thanh · hàng Sửa lỗi người Việt/Trọng âm), mọi bài đúng 1 lần với href mã hoá,
 //   tick đã xong + % ở hàng, viền nét đứt cho phụ âm vô thanh, âm kế tiếp (ô hổ phách + nút Học tiếp), hết bài thì ẩn nút, Quay lại → #/skills, gói + CSS nạp đúng.
 import fs from 'node:fs'; import vm from 'node:vm'; import assert from 'node:assert/strict';
-const rd = f => fs.readFileSync(f, 'utf8'), app = rd('web/js/app.js');
+const rd = f => fs.readFileSync(f, 'utf8'), app = rd('web/js/app.js') + rd('web/js/bundles.js');
 assert.match(app, /pron: \['js\/i18n\/en\/pron\.js', [^\]]*'js\/st\/v2\/runtime\.js', 'js\/st\/v2\/pron-hub\.js', 'js\/pron\.js'\]/, 'gói pron nạp runtime + khung pron-hub trước pron.js');
 assert.match(app, /pron: 'css\/st-v2-pron-hub\.css'/, 'CSS màn nạp cùng gói');
 assert.match(rd('scripts/build-stitch-css.mjs'), /'pron-hub': \['web\/js\/pron\.js'\]/, 'class viết tay trong pron.js được biên dịch');
