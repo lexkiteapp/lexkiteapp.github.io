@@ -2,7 +2,7 @@
  "v": 1,
  "tl": "es",
  "variant": "es-419",
- "status": "pending-review",
+ "status": "reviewed",
  "source": {
   "name": "FrequencyWords (hermitdave) – OpenSubtitles 2018 es_50k",
   "url": "https://raw.githubusercontent.com/hermitdave/FrequencyWords/master/content/2018/es/es_50k.txt",
@@ -254,14 +254,14 @@
    }
   },
   {
-   "word": "tercera",
+   "word": "tercero",
    "pos": "adj",
-   "ipa": "teɾˈseɾa",
+   "ipa": "teɾˈseɾo",
    "gl": {
     "vi": "thứ ba",
     "en": "third",
     "es": "tercera",
-    "pt": "terceira",
+    "pt": "terceiro",
     "fr": "troisième",
     "de": "dritte",
     "id": "ketiga",
@@ -270,8 +270,8 @@
     "ja": "3番目の",
     "ko": "세 번째의",
     "hi": "तीसरा",
-    "ar": "ثالثة",
-    "ru": "третья",
+    "ar": "ثالث",
+    "ru": "третий",
     "tr": "üçüncü"
    },
    "ex": {
@@ -290,8 +290,10 @@
      5,
      5
     ],
-    "fixed": "gemini-3.8-flash"
-   }
+    "fixed": "gemini-3.8-flash",
+    "ipaEs": "teɾˈseɾa"
+   },
+   "exForm": "tercera"
   },
   {
    "word": "modelo",
@@ -336,24 +338,24 @@
    }
   },
   {
-   "word": "lisa",
+   "word": "liso",
    "pos": "adj",
-   "ipa": "ˈlisa",
+   "ipa": "ˈliso",
    "gl": {
     "es": "lisa",
     "en": "smooth",
-    "pt": "lisa",
+    "pt": "liso",
     "fr": "lisse",
     "de": "glatt",
-    "vi": "trơn",
+    "vi": "nhẵn",
     "id": "halus",
     "th": "เรียบ",
     "zh": "光滑的",
     "ja": "滑らか",
     "ko": "매끄러운",
-    "hi": "स्मूथ",
-    "ar": "ناعم",
-    "ru": "гладкая",
+    "hi": "चिकना",
+    "ar": "أملس",
+    "ru": "гладкий",
     "tr": "pürüzsüz"
    },
    "ex": {
@@ -371,8 +373,10 @@
     "scores": [
      5,
      5
-    ]
-   }
+    ],
+    "ipaEs": "ˈlisa"
+   },
+   "exForm": "lisa"
   },
   {
    "word": "criminal",
@@ -471,7 +475,7 @@
     "id": "kursus",
     "th": "หลักสูตร",
     "zh": "课程",
-    "ja": "コース",
+    "ja": "講座",
     "ko": "강좌",
     "hi": "पाठ्यक्रम",
     "ar": "دورة",
@@ -561,8 +565,8 @@
     "tr": "nakit"
    },
    "ex": {
-    "es": "Voy a pagar con efectivo.",
-    "en": "I am going to pay with cash."
+    "es": "Voy a pagar en efectivo.",
+    "en": "I am going to pay in cash."
    },
    "rank": 2203,
    "qa": {
@@ -624,12 +628,12 @@
    "pos": "adv",
    "ipa": "aˈpaɾte",
    "gl": {
-    "vi": "riêng",
+    "vi": "sang một bên, riêng ra",
     "en": "aside",
     "es": "aparte",
     "pt": "à parte",
     "fr": "à part",
-    "de": "abseits",
+    "de": "beiseite",
     "id": "terpisah",
     "th": "ต่างหาก",
     "zh": "另外",
@@ -791,12 +795,12 @@
     "es": "empleo",
     "pt": "emprego",
     "fr": "emploi",
-    "de": "Arbeit",
+    "de": "Arbeitsstelle",
     "id": "pekerjaan",
     "th": "งาน",
     "zh": "工作",
-    "ja": "職",
-    "ko": "직업",
+    "ja": "仕事",
+    "ko": "일자리",
     "hi": "रोजगार",
     "ar": "وظيفة",
     "ru": "работа",
@@ -1074,7 +1078,7 @@
    "plural": "combates",
    "ipa": "komˈbate",
    "gl": {
-    "vi": "trận đấu",
+    "vi": "cuộc chiến đấu, trận chiến",
     "en": "combat, fight",
     "es": "combate",
     "pt": "combate",
@@ -1092,7 +1096,7 @@
    },
    "ex": {
     "es": "El soldado sobrevivió al combate.",
-    "en": "The soldier survived the combat."
+    "en": "The soldier survived the battle."
    },
    "rank": 2393,
    "qa": {
@@ -1197,7 +1201,7 @@
    "plural": "milagros",
    "ipa": "miˈlaɣɾo",
    "gl": {
-    "vi": "phep màu",
+    "vi": "phép màu",
     "en": "miracle",
     "es": "milagro",
     "pt": "milagre",
@@ -1239,7 +1243,7 @@
    "plural": "despachos",
    "ipa": "desˈpatʃo",
    "gl": {
-    "vi": "văn phòng",
+    "vi": "văn phòng, phòng làm việc",
     "en": "office / study",
     "es": "despacho",
     "pt": "escritório",
@@ -1248,7 +1252,7 @@
     "id": "kantor",
     "th": "ห้องทำงาน",
     "zh": "办公室",
-    "ja": "書斎",
+    "ja": "事務室",
     "ko": "집무실",
     "hi": "कार्यालय",
     "ar": "مكتب",
@@ -1322,7 +1326,7 @@
    "plural": "cadenas",
    "ipa": "kaˈðena",
    "gl": {
-    "vi": "chuỗi / dây xích",
+    "vi": "dây xích, chuỗi",
     "en": "chain",
     "es": "cadena",
     "pt": "corrente",
@@ -1333,7 +1337,7 @@
     "zh": "链条",
     "ja": "チェーン",
     "ko": "사슬",
-    "hi": "श्रृंखला",
+    "hi": "जंजीर",
     "ar": "سلسلة",
     "ru": "цепь",
     "tr": "zincir"
@@ -1362,7 +1366,7 @@
    "pos": "v",
    "ipa": "meˈteɾ",
    "gl": {
-    "vi": "put in",
+    "vi": "cho vào, đặt vào",
     "en": "to put in",
     "es": "meter",
     "pt": "colocar",
@@ -1529,7 +1533,7 @@
     "pt": "pizza",
     "fr": "pizza",
     "de": "Pizza",
-    "id": "pisa",
+    "id": "pizza",
     "th": "พิซซ่า",
     "zh": "披萨",
     "ja": "ピザ",
@@ -1563,15 +1567,15 @@
    "pos": "v",
    "ipa": "aleˈxaɾ",
    "gl": {
-    "vi": "di chuyển ra xa",
-    "en": "to move away",
+    "vi": "đưa ra xa, làm cho xa",
+    "en": "to move (something) away",
     "es": "alejar",
     "pt": "afastar",
     "fr": "éloigner",
     "de": "entfernen",
     "id": "menjauhkan",
-    "th": "ย้ายออกไป",
-    "zh": "远离",
+    "th": "ทำให้ห่างออกไป",
+    "zh": "使远离",
     "ja": "遠ざける",
     "ko": "멀리하다",
     "hi": "दूर करना",
@@ -1580,10 +1584,10 @@
     "tr": "uzaklaştırmak"
    },
    "ex": {
-    "es": "Aléjate del fuego porque está muy caliente.",
-    "en": "Move away from the fire because it is very hot."
+    "es": "Aleja a los niños del fuego porque está muy caliente.",
+    "en": "Keep the children away from the fire because it is very hot."
    },
-   "exForm": "aléjate",
+   "exForm": "aleja",
    "rank": 2559,
    "qa": {
     "gen": "gemini-3.6-flash",
@@ -1803,7 +1807,7 @@
    "pos": "adj",
    "ipa": "askeˈɾoso",
    "gl": {
-    "vi": "gớm tiếc",
+    "vi": "kinh tởm",
     "en": "disgusting",
     "es": "asqueroso",
     "pt": "nojento",
@@ -1842,7 +1846,7 @@
    "pos": "pron",
    "ipa": "konˈsiɣo",
    "gl": {
-    "vi": "với chính mình",
+    "vi": "bên mình, với bản thân",
     "en": "with oneself",
     "es": "consigo",
     "pt": "consigo",
@@ -2391,7 +2395,7 @@
    },
    "ex": {
     "es": "Ese libro tiene un estilo muy particular.",
-    "en": "That book has a very unique style."
+    "en": "That book has a very distinctive style."
    },
    "rank": 2675,
    "qa": {
@@ -2421,10 +2425,10 @@
     "fr": "avantage",
     "de": "Vorteil",
     "id": "keuntungan",
-    "th": "ข้อดี",
+    "th": "ข้อได้เปรียบ",
     "zh": "优势",
     "ja": "利点",
-    "ko": "장점",
+    "ko": "이점",
     "hi": "फायदा",
     "ar": "ميزة",
     "ru": "преимущество",
@@ -2468,7 +2472,7 @@
     "ja": "プール",
     "ko": "수영장",
     "hi": "स्वीमिंग पूल",
-    "ar": "بركة سباحة",
+    "ar": "مسبح",
     "ru": "бассейн",
     "tr": "havuz"
    },
@@ -2861,48 +2865,6 @@
    }
   },
   {
-   "word": "pene",
-   "pos": "n",
-   "gender": "m",
-   "plural": "penes",
-   "ipa": "ˈpene",
-   "gl": {
-    "vi": "dương vật",
-    "en": "penis",
-    "es": "pene",
-    "pt": "pênis",
-    "fr": "pénis",
-    "de": "Penis",
-    "id": "penis",
-    "th": "อวัยวะเพศชาย",
-    "zh": "阴茎",
-    "ja": "陰茎",
-    "ko": "음경",
-    "hi": "लिंग",
-    "ar": "قضيب",
-    "ru": "пенис",
-    "tr": "penis"
-   },
-   "ex": {
-    "es": "El médico le explicó la anatomía del pene al paciente.",
-    "en": "The doctor explained the anatomy of the penis to the patient."
-   },
-   "rank": 2710,
-   "qa": {
-    "gen": "gemini-3.6-flash",
-    "judges": [
-     "openai/gpt-oss-120b",
-     "qwen/qwen3.8-27b"
-    ],
-    "bt": "openai/gpt-oss-120b",
-    "scores": [
-     5,
-     5
-    ],
-    "fixed": "gemini-3.6-flash"
-   }
-  },
-  {
    "word": "ruta",
    "pos": "n",
    "gender": "f",
@@ -2948,25 +2910,25 @@
    "pos": "v",
    "ipa": "seɾˈβiɾ",
    "gl": {
-    "vi": "phục vụ",
-    "en": "to serve",
+    "vi": "phục vụ, rót (đồ ăn, thức uống)",
+    "en": "to serve (food, drink)",
     "es": "servir",
     "pt": "servir",
     "fr": "servir",
-    "de": "dienen",
-    "id": "melayani",
+    "de": "servieren",
+    "id": "menyajikan",
     "th": "เสิร์ฟ",
-    "zh": "服务",
-    "ja": "仕える",
-    "ko": "섬기다",
-    "hi": "सेवा करना",
-    "ar": "خدم",
-    "ru": "служить",
-    "tr": "hizmet etmek"
+    "zh": "端上,盛",
+    "ja": "(料理を)出す",
+    "ko": "(음식을) 내다",
+    "hi": "परोसना",
+    "ar": "يقدّم",
+    "ru": "подавать",
+    "tr": "servis yapmak"
    },
    "ex": {
-    "es": "¿Me puedes servir un poco de agua?",
-    "en": "Can you serve me some water?"
+    "es": "¿Me sirves un poco de agua?",
+    "en": "Can you pour me some water?"
    },
    "rank": 2751,
    "qa": {
@@ -2980,7 +2942,8 @@
      5,
      5
     ]
-   }
+   },
+   "exForm": "sirves"
   },
   {
    "word": "alarma",
@@ -2989,25 +2952,25 @@
    "plural": "alarmas",
    "ipa": "aˈlaɾma",
    "gl": {
-    "vi": "báo thức",
+    "vi": "báo động",
     "en": "alarm",
     "es": "alarma",
     "pt": "alarme",
     "fr": "alarme",
     "de": "Alarm",
     "id": "alarm",
-    "th": "นาฬิกาปลุก",
+    "th": "สัญญาณเตือนภัย",
     "zh": "警报",
     "ja": "アラーム",
-    "ko": "알람",
+    "ko": "경보",
     "hi": "अलार्म",
     "ar": "إنذار",
-    "ru": "будильник",
+    "ru": "сигнализация",
     "tr": "alarm"
    },
    "ex": {
-    "es": "La alarma suena a las seis de la mañana.",
-    "en": "The alarm rings at six in the morning."
+    "es": "La alarma de la casa suena cuando alguien entra.",
+    "en": "The house alarm goes off when someone comes in."
    },
    "rank": 2753,
    "qa": {
@@ -3065,9 +3028,9 @@
    }
   },
   {
-   "word": "enfadado",
+   "word": "enojado",
    "pos": "adj",
-   "ipa": "enfaˈðaðo",
+   "ipa": "enoˈxaðo",
    "gl": {
     "vi": "tức giận",
     "en": "angry",
@@ -3086,7 +3049,7 @@
     "tr": "kızgın"
    },
    "ex": {
-    "es": "Mi hermano está enfadado conmigo.",
+    "es": "Mi hermano está enojado conmigo.",
     "en": "My brother is angry with me."
    },
    "rank": 2777,
@@ -3101,7 +3064,8 @@
      5,
      5
     ],
-    "ipaAi": "em.faˈða.ðo"
+    "ipaAi": "em.faˈða.ðo",
+    "ipaEs": "enfaˈðaðo"
    }
   },
   {
@@ -3130,46 +3094,6 @@
     "en": "The maximum allowed weight is twenty kilos."
    },
    "rank": 2788,
-   "qa": {
-    "gen": "gemini-3.6-flash",
-    "judges": [
-     "openai/gpt-oss-120b",
-     "qwen/qwen3.8-27b"
-    ],
-    "bt": "openai/gpt-oss-120b",
-    "scores": [
-     5,
-     5
-    ]
-   }
-  },
-  {
-   "word": "referir",
-   "pos": "v",
-   "ipa": "refeˈɾiɾ",
-   "gl": {
-    "vi": "đề cập",
-    "en": "to refer",
-    "es": "referir",
-    "pt": "referir",
-    "fr": "référer",
-    "de": "beziehen",
-    "id": "merujuk",
-    "th": "อ้างถึง",
-    "zh": "提及",
-    "ja": "言及する",
-    "ko": "언급하다",
-    "hi": "संदर्भ देना",
-    "ar": "يشير",
-    "ru": "ссылаться",
-    "tr": "değinmek"
-   },
-   "ex": {
-    "es": "El texto se refiere a un problema antiguo.",
-    "en": "The text refers to an old problem."
-   },
-   "exForm": "refiere",
-   "rank": 2793,
    "qa": {
     "gen": "gemini-3.6-flash",
     "judges": [

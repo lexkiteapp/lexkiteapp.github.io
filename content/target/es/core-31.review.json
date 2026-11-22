@@ -1,0 +1,94 @@
+{
+ "fixed": [
+  {
+   "word": "cadáver",
+   "field": "gl.vi",
+   "from": "xác",
+   "to": "xác chết",
+   "why": "vi \"xác\" thiếu nghĩa, dễ nhầm với \"thân xác\""
+  },
+  {
+   "word": "registro",
+   "field": "gl.en",
+   "from": "record",
+   "to": "register, record",
+   "why": "Nghĩa trong ví dụ là sổ đăng ký (register), không phải \"record/ghi âm\""
+  },
+  {
+   "word": "registro",
+   "field": "gl.vi",
+   "from": "hồ sơ",
+   "to": "sổ đăng ký, hồ sơ",
+   "why": "Nghĩa trong ví dụ là sổ đăng ký (register), không phải \"record/ghi âm\""
+  },
+  {
+   "word": "registro",
+   "field": "gl.fr",
+   "from": "enregistrement",
+   "to": "registre",
+   "why": "Nghĩa trong ví dụ là sổ đăng ký (register), không phải \"record/ghi âm\""
+  },
+  {
+   "word": "registro",
+   "field": "gl.ru",
+   "from": "запись",
+   "to": "реестр",
+   "why": "Nghĩa trong ví dụ là sổ đăng ký (register), không phải \"record/ghi âm\""
+  },
+  {
+   "word": "registro",
+   "field": "gl.id",
+   "from": "catatan",
+   "to": "daftar",
+   "why": "Nghĩa trong ví dụ là sổ đăng ký (register), không phải \"record/ghi âm\""
+  },
+  {
+   "word": "registro",
+   "field": "gl.th",
+   "from": "บันทึก",
+   "to": "ทะเบียน",
+   "why": "Nghĩa trong ví dụ là sổ đăng ký (register), không phải \"record/ghi âm\""
+  },
+  {
+   "word": "registro",
+   "field": "gl.zh",
+   "from": "记录",
+   "to": "登记簿",
+   "why": "Nghĩa trong ví dụ là sổ đăng ký (register), không phải \"record/ghi âm\""
+  },
+  {
+   "word": "registro",
+   "field": "gl.ja",
+   "from": "記録",
+   "to": "登録簿",
+   "why": "Nghĩa trong ví dụ là sổ đăng ký (register), không phải \"record/ghi âm\""
+  },
+  {
+   "word": "registro",
+   "field": "gl.ko",
+   "from": "기록",
+   "to": "등록부",
+   "why": "Nghĩa trong ví dụ là sổ đăng ký (register), không phải \"record/ghi âm\""
+  },
+  {
+   "word": "sacar",
+   "field": "gl.ar",
+   "from": "يأخذ",
+   "to": "يُخرج",
+   "why": "ar \"يأخذ\"=lấy, id \"mengambil\"=lấy: sai nghĩa \"take out\""
+  },
+  {
+   "word": "sacar",
+   "field": "gl.id",
+   "from": "mengambil",
+   "to": "mengeluarkan",
+   "why": "ar \"يأخذ\"=lấy, id \"mengambil\"=lấy: sai nghĩa \"take out\""
+  }
+ ],
+ "dropped": [
+  {
+   "word": "contado",
+   "why": "Không phải từ gốc: chỉ dùng trong cụm \"al contado\", dạng phân từ của contar"
+  }
+ ]
+}

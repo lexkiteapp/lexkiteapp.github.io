@@ -2,7 +2,7 @@
  "v": 1,
  "tl": "es",
  "variant": "es-419",
- "status": "pending-review",
+ "status": "reviewed",
  "source": {
   "name": "FrequencyWords (hermitdave) – OpenSubtitles 2018 es_50k",
   "url": "https://raw.githubusercontent.com/hermitdave/FrequencyWords/master/content/2018/es/es_50k.txt",
@@ -62,7 +62,7 @@
     "pt": "cadáver",
     "fr": "cadavre",
     "de": "Leiche",
-    "vi": "xác",
+    "vi": "xác chết",
     "id": "mayat",
     "th": "ศพ",
     "zh": "尸体",
@@ -184,13 +184,13 @@
     "fr": "sortir",
     "de": "herausnehmen",
     "vi": "lấy ra",
-    "id": "mengambil",
+    "id": "mengeluarkan",
     "th": "เอาออก",
     "zh": "取出",
     "ja": "取り出す",
     "ko": "꺼내다",
     "hi": "निकालना",
-    "ar": "يأخذ",
+    "ar": "يُخرج",
     "ru": "вынимать",
     "tr": "çıkarmak"
    },
@@ -222,19 +222,19 @@
    "ipa": "reˈxistɾo",
    "gl": {
     "es": "registro",
-    "en": "record",
+    "en": "register, record",
     "pt": "registro",
-    "fr": "enregistrement",
+    "fr": "registre",
     "de": "Register",
-    "vi": "hồ sơ",
-    "id": "catatan",
-    "th": "บันทึก",
-    "zh": "记录",
-    "ja": "記録",
-    "ko": "기록",
+    "vi": "sổ đăng ký, hồ sơ",
+    "id": "daftar",
+    "th": "ทะเบียน",
+    "zh": "登记簿",
+    "ja": "登録簿",
+    "ko": "등록부",
     "hi": "रिकॉर्ड",
     "ar": "سجل",
-    "ru": "запись",
+    "ru": "реестр",
     "tr": "kayıt"
    },
    "ex": {
@@ -253,46 +253,6 @@
      5,
      5
     ]
-   }
-  },
-  {
-   "word": "contado",
-   "pos": "adj",
-   "ipa": "konˈtaðo",
-   "gl": {
-    "es": "contado",
-    "en": "cash (payment)",
-    "pt": "à vista",
-    "fr": "au comptant",
-    "de": "Barzahlung",
-    "vi": "tiền mặt",
-    "id": "tunai",
-    "th": "เงินสด",
-    "zh": "现金",
-    "ja": "現金払い",
-    "ko": "현금",
-    "hi": "नकद",
-    "ar": "نقداً",
-    "ru": "наличные",
-    "tr": "nakit"
-   },
-   "ex": {
-    "es": "Prefiero pagar al contado.",
-    "en": "I prefer to pay in cash."
-   },
-   "rank": 2148,
-   "qa": {
-    "gen": "openai/gpt-oss-120b",
-    "judges": [
-     "qwen/qwen3.8-27b",
-     "gemini-3.8-flash"
-    ],
-    "bt": "qwen/qwen3.8-27b",
-    "scores": [
-     5,
-     4
-    ],
-    "ipaAi": "konˈtado"
    }
   }
  ]
