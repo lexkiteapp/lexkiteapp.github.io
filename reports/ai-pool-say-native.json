@@ -1,14 +1,14 @@
 {
  "job": "say-native",
- "at": "2026-11-22T16:24:03.842Z",
+ "at": "2026-11-22T18:13:08.027Z",
  "used": {
-  "lexai": 76,
-  "gc": 9,
-  "cf2": 0,
+  "lexai": 45,
+  "gc": 76,
+  "cf2": 266,
   "cfLeak": 0,
   "cf2Dead": [],
-  "gem": 5,
-  "groq": 96
+  "gem": 19,
+  "groq": 305
  },
  "budget": {
   "lexai": 400,
@@ -17,72 +17,52 @@
  },
  "by": {
   "gem|gemini-3.8-flash": {
-   "ok": 4,
-   "fail": 6,
+   "ok": 0,
+   "fail": 14,
    "bad": 0
   },
   "gem|gemini-3.6-flash": {
-   "ok": 1,
-   "fail": 3,
+   "ok": 19,
+   "fail": 11,
    "bad": 0
   },
   "groq|openai/gpt-oss-120b": {
-   "ok": 59,
-   "fail": 3,
+   "ok": 209,
+   "fail": 1,
    "bad": 0
   },
-  "lexai|gemini-3.6-flash": {
-   "ok": 3,
-   "fail": 18,
-   "bad": 0
-  },
-  "lexai|gemini-3.5-flash": {
-   "ok": 7,
-   "fail": 16,
-   "bad": 0
-  },
-  "lexai|gemini-3-flash-preview": {
-   "ok": 0,
-   "fail": 16,
-   "bad": 0
-  },
-  "lexai|gemini-3.8-flash": {
-   "ok": 0,
-   "fail": 16,
-   "bad": 0
-  },
-  "gc-groq|openai/gpt-oss-120b": {
-   "ok": 0,
-   "fail": 3,
-   "bad": 0
-  },
-  "cf2|@cf/openai/gpt-oss-120b": {
-   "ok": 0,
-   "fail": 3,
-   "bad": 0
-  },
-  "gc-gemini|gemini-2.5-flash": {
-   "ok": 0,
-   "fail": 3,
-   "bad": 0
-  },
-  "gc-gemini|gemini-2.5-pro": {
-   "ok": 0,
-   "fail": 3,
+  "groq|qwen/qwen3.8-27b": {
+   "ok": 96,
+   "fail": 0,
    "bad": 0
   },
   "gem|gemini-3.7-flash": {
    "ok": 0,
-   "fail": 5,
+   "fail": 3,
    "bad": 0
   },
-  "groq|qwen/qwen3.8-27b": {
-   "ok": 37,
+  "lexai|gemini-3.6-flash": {
+   "ok": 39,
    "fail": 0,
+   "bad": 3
+  },
+  "gc-groq|openai/gpt-oss-120b": {
+   "ok": 36,
+   "fail": 2,
    "bad": 0
   },
   "gc-groq|openai/gpt-oss-20b": {
-   "ok": 9,
+   "ok": 38,
+   "fail": 0,
+   "bad": 0
+  },
+  "lexai|gemini-3.5-flash": {
+   "ok": 3,
+   "fail": 0,
+   "bad": 0
+  },
+  "cf2|@cf/openai/gpt-oss-120b": {
+   "ok": 3,
    "fail": 0,
    "bad": 0
   }
@@ -90,17 +70,18 @@
  "keys": {
   "gem": {
    "size": 85,
-   "live": 58,
+   "live": 40,
    "parked": {
-    "day": 14,
+    "day": 27,
     "auth": 2,
-    "minute": 11
+    "minute": 16
    }
   },
   "groq": {
    "size": 109,
-   "live": 108,
+   "live": 0,
    "parked": {
+    "day": 108,
     "auth": 1
    }
   }
