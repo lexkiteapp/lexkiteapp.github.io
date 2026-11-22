@@ -65,7 +65,7 @@
         const right = Object.values(res).filter(r => r.ok).length, tot = Object.keys(res).length;
         state.game = await Game.mutate(gs => { gs.rtype = gs.rtype || {}; const s = gs.rtype[kind] || { r: 0, t: 0 }; gs.rtype[kind] = { r: s.r + right, t: s.t + tot }; });
         Object.entries(res).filter(([, r]) => !r.ok).forEach(([n, r]) => App.logMistake && App.logMistake({ kind: 'reading', q: I18N.tk('{title} – câu {n}: {q}', { title: u.p.title, n, q: r.q || '' }), answer: r.answer, given: r.given || I18N.tk('(bỏ trống)'), explain: (ex[n] || {}).why || '', ref: '' }));
-        App.reward({ quizzes: 1, readings: 1, xp: 5 + right * 2 });
+        App.reward({ quizzes: 1, readings: 1, xp: Game.xpFor('set', { right, total: tot }) });
         right === tot ? Sfx.win() : Sfx.correct();
         $('#rRes').innerHTML = `<div class="feedback ${right / tot >= 0.75 ? 'ok' : 'no'}" style="position:static">${t('<b>{r}/{n} câu đúng</b> · tỉ lệ tích lũy dạng này: {p}%', { r: right, n: tot, p: Math.round(state.game.rtype[kind].r / state.game.rtype[kind].t * 100) })}</div>`;
         $('#rSub').hidden = true; $('#rNext').hidden = false;

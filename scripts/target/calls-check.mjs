@@ -1,16 +1,22 @@
 #!/usr/bin/env node
-// Cổng máy cho cuộc gọi es (W4): chuẩn es-419 (spec §8) + cấu trúc nút. 0 mạng. Dùng: node scripts/target/calls-check.mjs
-import fs from 'node:fs'; import path from 'node:path'; import { fileURLToPath } from 'node:url'; import { TL_RULES } from './lib.mjs';
-const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..'), DIR = path.join(ROOT, 'content/target/es/calls');
+// Cổng máy cho cuộc gọi ngôn ngữ đích (W4; MỘT máy gác, bảng CK theo tl): chuẩn tl (es-419 spec §8 · fr: từ vùng/thông tục + MỘT xưng hô tu|vous mỗi cuộc) + cấu trúc nút. 0 mạng.
+// Dùng: node scripts/target/calls-check.mjs [--tl fr] [--lt]  (--lt = bắt buộc có LT_URL: LanguageTool 0 lỗi trên từng câu nói/mẫu/phản hồi, bỏ cụm ngắn; CI target-content)
+import fs from 'node:fs'; import path from 'node:path'; import { fileURLToPath } from 'node:url'; import { TL_RULES, ltErrors } from './lib.mjs'; import { TL_GEN } from './tl-gen.mjs';
+const ti = process.argv.indexOf('--tl'), TL = ti > 0 ? process.argv[ti + 1] : 'es', CK = {
+  es: { name: 'es-419', extra: [/(^|[^\p{L}])(tío|tía|molar|guay|chaval|móvil|coche|patata|gilipollas)(?=$|[^\p{L}])/iu] },
+  fr: { name: 'fr', extra: [] },
+}[TL];
+if (!CK) { console.error(`✗ tl "${TL}" chưa có dòng CK (calls-check.mjs)`); process.exit(2); }
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..'), DIR = path.join(ROOT, `content/target/${TL}/calls`);
 const fold = s => s.normalize('NFD').replace(/\p{M}/gu, '').toLowerCase();
 const LV = ['A1', 'A2', 'B1', 'B2', 'C1'], bad = [];
-const lint = TL_RULES.es.lint, extra = [/(^|[^\p{L}])(tío|tía|molar|guay|chaval|móvil|coche|patata|gilipollas)(?=$|[^\p{L}])/iu];
+const lint = TL_RULES[TL].lint || [], extra = CK.extra, mix = TL_RULES[TL].mix;
 const fs_ = fs.readdirSync(DIR).filter(f => /^calls-\d+\.json$/.test(f)).sort(), all = [];
 for (const f of fs_) for (const c of JSON.parse(fs.readFileSync(path.join(DIR, f), 'utf8'))) all.push(c);
 const ids = new Set();
 for (const c of all) {
   const e = m => bad.push(c.id + ': ' + m);
-  if (!/^es-[a-z0-9-]+$/.test(c.id)) e('id'); if (ids.has(c.id)) e('id trùng'); ids.add(c.id);
+  if (!new RegExp(`^${TL}-[a-z0-9-]+$`).test(c.id)) e('id'); if (ids.has(c.id)) e('id trùng'); ids.add(c.id);
   if (!LV.includes(c.lv)) e('lv ' + c.lv); if (!['chat', 'role'].includes(c.kind)) e('kind'); if (!['ama', 'carlos'].includes(c.who)) e('who');
   for (const k of ['em', 'title', 'tr', 'role']) if (!c[k]) e('thiếu ' + k);
   if (!(c.words || []).length || !(c.phrases || []).length) e('thiếu words/phrases');
@@ -26,9 +32,21 @@ for (const c of all) {
     const W = t => (fold(t).match(/[a-z]+/g) || []).length; for (const o of n.o || []) if (n.min && W(o) < n.min) e(k + ': câu mẫu ngắn hơn min ' + n.min + ': ' + o);
     texts.push(n.m, n.re, ...(n.o || []));
   }
-  for (const t of texts) { if (typeof t !== 'string') continue; if (lint.some(r => r.test(t)) || extra.some(r => r.test(t))) e('lệch es-419: ' + t); if (/\p{Script=Latin}/u.test(t) && /\b(the|and|you|is)\b/i.test(t)) e('lẫn tiếng Anh: ' + t); }
+  for (const t of texts) { if (typeof t !== 'string') continue; if (lint.some(r => r.test(t)) || extra.some(r => r.test(t))) e(`lệch ${CK.name}: ` + t); if (/\p{Script=Latin}/u.test(t) && /\b(the|and|you|is)\b/i.test(t)) e('lẫn tiếng Anh: ' + t); }
+  if (mix) { const ss = texts.filter(x => typeof x === 'string'), inf = ss.find(x => mix.informal.test(x)), fo = ss.find(x => mix.formal.test(x)); if (inf && fo) e(`trộn tu + vous trong một cuộc gọi: «${inf}» / «${fo}»`); } // một cuộc = MỘT xưng hô (người học nghe/nói một giọng điệu nhất quán)
 }
+// LanguageTool (CI: LT_URL từ scripts/ci/lt-up.sh): mọi câu nói của giáo viên + câu mẫu + phản hồi nhánh phải 0 lỗi; cụm ngắn (c.phrases) và regex không kiểm
+if (process.env.LT_URL || process.argv.includes('--lt')) {
+  if (!process.env.LT_URL) bad.push('thiếu LT_URL – cổng LanguageTool bắt buộc cho cuộc gọi ' + TL);
+  else { let n = 0; const seen = new Set();
+    for (const c of all) for (const nd of Object.values(c.nodes)) for (const x of [nd.m, nd.re, ...(nd.o || []), ...(nd.br || []).map(b => b[1])].concat(c.end || [])) {
+      if (!x || seen.has(x)) continue; seen.add(x); n++;
+      for (const m of await ltErrors(process.env.LT_URL, TL_GEN[TL].lt, x)) bad.push(`${c.id}: LanguageTool – ${m}: ${x}`);
+    }
+    console.log(`LanguageTool: ${n} câu của cuộc gọi ${TL}`); }
+} else console.log('(bỏ qua LanguageTool – chưa có LT_URL; CI chạy đủ)');
+
 const byLv = {}; for (const c of all) byLv[c.lv] = (byLv[c.lv] || 0) + 1;
 if (all.length < 24) bad.push('cần ≥ 24 cuộc, có ' + all.length); for (const l of LV) if (!byLv[l]) bad.push('thiếu cấp ' + l);
 if (bad.length) { console.error(bad.join('\n')); console.error(`✗ ${bad.length} lỗi`); process.exit(1); }
-console.log(`✓ ${all.length} cuộc gọi es OK`, JSON.stringify(byLv));
+console.log(`✓ ${all.length} cuộc gọi ${TL} OK`, JSON.stringify(byLv));

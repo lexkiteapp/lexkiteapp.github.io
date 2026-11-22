@@ -1140,6 +1140,7 @@
 "Từ mô tả biểu đồ: tăng, giảm, dao động, tỉ lệ":"차트를 설명하는 단어: 상승, 하락, 변동, 비율",
 "Từ mới":"새 단어",
 "Từ mới lưu":"최근에 저장됨",
+"Từ mới, ngữ pháp và cuộc gọi AI mỗi ngày":"매일 새 단어, 문법, AI 통화",
 "Từ này bị gõ lặp hai lần liên tiếp. Xóa bớt một từ.":"이 단어는 연속으로 두 번 입력되었습니다. 그 중 하나를 삭제하세요.",
 "Từ này có vẻ viết sai chính tả hoặc không có trong từ điển. Kiểm tra lại cách viết – nếu là tên riêng, bấm “Bỏ qua lỗi”.":"이 단어는 철자가 틀린 것 같거나 사전에 없습니다. 철자를 확인하세요. 이름인 경우 '무시'를 탭하세요.",
 "Từ này viết sai chính tả. Hãy học cách viết đúng – từ hay sai sẽ được đưa vào thẻ ôn tập.":"이 단어는 철자가 틀렸습니다. 올바른 철자를 배우세요. 철자가 자주 틀리는 단어가 리뷰 카드에 추가됩니다.",

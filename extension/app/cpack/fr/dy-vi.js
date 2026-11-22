@@ -1,0 +1,1 @@
+self.FRX=self.FRX||{};(FRX.dyl=FRX.dyl||{})["vi"]=["Lộ trình ngày: tiếng Pháp","Mỗi ngày một bài ngắn: từ mới, một điểm ngữ pháp, một âm và vài ngày một cuộc gọi.","Ngày {n}","Từ mới","Ngữ pháp","Phát âm","Cuộc gọi AI","Bắt đầu","Ngày {d}/{t} · hôm nay xong {p} bước","Đánh dấu xong","Xong ngày học! 🎉","Hôm nay","Đã thêm {n} từ vào Ôn tập"];

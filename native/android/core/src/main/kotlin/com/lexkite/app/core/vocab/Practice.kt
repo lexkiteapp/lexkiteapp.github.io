@@ -1,5 +1,6 @@
 package com.lexkite.app.core.vocab
 
+import com.lexkite.app.core.RewardRules
 import com.lexkite.app.core.lesson.Speaking
 import kotlinx.serialization.json.JsonObject
 import java.text.Normalizer
@@ -127,19 +128,23 @@ object Practice {
     /** runQuiz: 10 questions (20 in the test), question types per mode. */
     fun quizSize(mode: String) = if (mode == "test") 20 else 10
     fun quizTypes(mode: String): List<String> = when (mode) { "mcq" -> listOf("mcq-vi"); "cloze" -> listOf("type-cloze"); "listen" -> listOf("type-listen"); else -> listOf("mcq-vi", "mcq-en", "type-cloze", "type-listen", "type-vi") }
-    fun quizXpPerAnswer(hard: Boolean) = if (hard) 6 else 3
+    /** typed answer 3 (hard 6) = the one reward rule. */
+    fun quizXpPerAnswer(hard: Boolean) = RewardRules.xp("answer", mode = "type", hard = hard)
     /** lesson-fx HARD_AT: right answers in a row before the hard mode is offered; modes that offer it (not the test). */
     const val HARD_AT = 8
     val HARD_MODES = setOf("mcq", "cloze", "listen")
     fun percent(score: Int, total: Int) = floor(score.toDouble() / total * 100 + 0.5).toInt()
-    /** `reward({quizzes:1, perfect, xp})` base XP of a finished quiz. */
-    fun quizBaseXp(pct: Int) = if (pct == 100) 15 else 5
+    /** `reward({quizzes:1, perfect, xp})` base XP of a finished quiz = set(right, total, paid). */
+    fun quizBaseXp(score: Int, total: Int) = RewardRules.xp("set", right = score, total = total, paid = true)
+    /** End of the speak practice = set(good, total, say, paid); one spoken word = say(score). */
+    fun speakDoneXp(good: Int, total: Int) = RewardRules.xp("set", right = good, total = total, mode = "say", paid = true)
+    fun speakXp(score: Int) = RewardRules.xp("say", score = score.toDouble())
     /** Estimated vocabulary band shown after the test. */
     fun band(pct: Int) = if (pct >= 95) "8.5+" else if (pct >= 85) "7.5–8.0" else if (pct >= 70) "6.5–7.0" else if (pct >= 50) "5.5–6.0" else "< 5.5"
-    /** match: seconds + 1 s penalty per miss; XP by speed. */
-    fun matchXp(seconds: Double) = 10 + (if (seconds < 25) 10 else if (seconds < 40) 5 else 0)
-    const val LEARN_BONUS_XP = 20
-    const val LEARN_STEP_XP = 2
+    /** match = game(pairs - min(misses, pairs), pairs): no speed bonus (the time record still earns the badge). */
+    fun matchXp(pairs: Int, misses: Int) = RewardRules.xp("game", right = pairs - minOf(misses, pairs), total = pairs)
+    const val LEARN_BONUS_XP = RewardRules.LEARN
+    const val LEARN_STEP_XP = RewardRules.STEP
 
     /** "I already know this word" in Learn: the schedule written on the card (about a month out). Merge over `card.srs`. */
     fun knownSrs(now: Long): JsonObject = jo("ef" to 2.5, "interval" to 30, "reps" to 2, "lapses" to 0, "due" to now + 30 * CardMath.DAY, "last" to now, "step" to 0, "S" to 30, "D" to 3)

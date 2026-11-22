@@ -395,6 +395,7 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
     dayv2: 'css/st-v2-day.css',
     dictp: 'css/st-v2-dict.css',
     espr: ['css/tactile-x.css', 'css/st-lesson.css', 'css/st-v2-lesson-question.css', 'css/st-v2-feedback-correct.css', 'css/st-v2-feedback-wrong.css', 'css/st-v2-lesson-complete.css'],
+    gend: ['css/tactile-x.css', 'css/st-lesson.css', 'css/st-v2-lesson-complete.css'],
     ghub: 'css/st-v2-grammar.css',
     goal: ['css/tactile-x.css', 'css/st-goal.css'],
     irregular: 'css/st-v2-irregular.css',
@@ -986,7 +987,7 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
       ['write', '✍️', t('Phòng viết'), t('Viết Task 2, phân tích từ vựng'), 'var(--gold-soft)'],
       ['speaking', '🗣️', t('Phòng Speaking'), t('Part 1–3, ghi âm, chấm từ vựng'), 'var(--good-soft)'],
       ...(window.Target && Target.enabled('es') ? [['es', '🇪🇸', t('Luyện tiếng Tây Ban Nha'), t('Chia động từ và ngữ pháp, giải thích bằng ngôn ngữ của bạn'), 'var(--gold-soft)'], ['esp', '🇪🇸', t('Luyện phát âm'), t('Nói vào micro, chấm điểm ngay'), 'var(--primary-soft)'], ['esx', '🇪🇸', t('Luyện định dạng DELE/SIELE'), t('Đọc, nghe, viết, nói theo cấu trúc đề thi'), 'var(--gold-soft)']] : []),
-      ...(window.Target && Target.enabled('fr') ? [['fr', '🇫🇷', t('Luyện tiếng Pháp'), t('Chia động từ và ngữ pháp, giải thích bằng ngôn ngữ của bạn'), 'var(--gold-soft)'], ['frp', '🇫🇷', t('Luyện phát âm'), t('Nói vào micro, chấm điểm ngay'), 'var(--primary-soft)'], ...(Object.keys(App.frX.lv).length ? [['frx', '🇫🇷', t('Luyện định dạng DELF/DALF'), t('Đọc, nghe, viết, nói theo cấu trúc đề thi'), 'var(--gold-soft)']] : [])] : []),
+      ...(window.Target && Target.enabled('fr') ? [['frd', '📅', t('Lộ trình'), t('Từ mới, ngữ pháp và cuộc gọi AI mỗi ngày'), 'var(--primary-soft)'], ['fr', '🇫🇷', t('Luyện tiếng Pháp'), t('Chia động từ và ngữ pháp, giải thích bằng ngôn ngữ của bạn'), 'var(--gold-soft)'], ['frp', '🇫🇷', t('Luyện phát âm'), t('Nói vào micro, chấm điểm ngay'), 'var(--primary-soft)'], ...(Object.keys(App.frX.lv).length ? [['frx', '🇫🇷', t('Luyện định dạng DELF/DALF'), t('Đọc, nghe, viết, nói theo cấu trúc đề thi'), 'var(--gold-soft)']] : [])] : []),
     ].map(([id, em, name, desc, bg]) => `<a class="mode" href="${id === 'write' || id === 'speaking' || id === 'handsfree' || id === 'reflex' ? '#/' + id : '#/practice/' + id}"><span class="em" style="background:${bg}">${UI.glyph(em)}</span><b>${name}</b><span class="muted small">${desc}</span></a>`);
   }
   App.modeTiles = modeTiles;

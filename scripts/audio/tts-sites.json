@@ -17,6 +17,7 @@
   "web/js/criteria.js": { "groups": ["speaking-samples"], "dynamic": "đọc đoạn người học đang xem trong bộ chấm tiêu chí" },
   "web/js/call.js": { "groups": ["calls"], "dynamic": "nút đọc lại câu người học vừa nói (cSpk)" },
   "web/js/lesson/story-stage.js": { "groups": ["lesson-stories"], "dynamic": "dòng truyện từ dữ liệu bài học, chỉ đọc khi chạm 🔊/🐢 (qua say của ui.js)" },
+  "web/js/game-end.js": { "groups": ["words-us"] },
   "web/js/lesson/ui.js": { "groups": ["lesson-stories", "lesson-teacher", "examples-us", "words-us"], "dynamic": "thẻ từ vựng giọng Carlos (am_michael) khi tắt ux1 – chưa có nhóm" },
   "web/cpack/lesson/card.js": {
     "groups": [],

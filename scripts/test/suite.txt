@@ -318,6 +318,7 @@ node scripts/content-qa/grammar-map-check.mjs
 node scripts/target/drill-pack.mjs --check
 node scripts/target/drill-pack.mjs --tl fr --check
 node scripts/test/fr-practice.mjs
+node scripts/test/fr-path.mjs
 node scripts/target/exam-es-check.mjs
 node scripts/target/exam-es-check.mjs --tl fr
 node scripts/test/es-exam.mjs
@@ -514,4 +515,6 @@ node scripts/test/main-no-cancel.mjs
 node scripts/test/workflow-startup.mjs
 node scripts/test/score-card.mjs
 node scripts/stitch-v2-convert.mjs --check
+node scripts/test/reward-rules.mjs
+node scripts/test/game-end.mjs
 node scripts/say-native/slang.mjs --check

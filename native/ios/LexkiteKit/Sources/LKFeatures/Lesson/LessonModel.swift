@@ -1,6 +1,7 @@
 import SwiftUI
 import Observation
 import LKCore
+import LKStore
 
 
 
@@ -295,7 +296,7 @@ public final class LessonModel {
         phase = .done
         let s = session
         let now = clock()
-        let xp = 10 + s.ok1 * 2 + (s.wrong.isEmpty ? 5 : 0)
+        let xp = RewardRules.xp("set", right: s.ok1, total: s.total) // luật chung (Game.xpFor)
         let weak = s.wrong.keys.filter { !$0.hasPrefix("#") }.sorted()
         let learned = isStory ? [] : items.compactMap { $0.card?.word }.reduce(into: [String]()) { if !$0.contains($1) { $0.append($1) } }
         summary = Summary(xp: xp, accuracy: s.accuracy, best: s.best, minutes: max(1, Int((now.timeIntervalSince(started) / 60).rounded())),

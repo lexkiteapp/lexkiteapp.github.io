@@ -142,7 +142,7 @@ class LearnVectorsTest {
         assertEquals(14, pack.l1.size); assertEquals(V.lObj("counts").lInt("check"), pack.check.size)
         val starter = GrammarPack.parse(res("grammar-starter.json")); assertNotNull("grammar-starter.json is bundled", starter)
         assertEquals(pack.index.size, starter!!.index.size); assertEquals(3, starter.lessons.size)
-        assertEquals(22, GrammarCore.quizXp(4)); assertEquals(26, GrammarCore.drillXp(4)); assertEquals(18, GrammarCore.mixXp(4))
+        assertEquals(22, GrammarCore.quizXp(4, 5)); assertEquals(26, GrammarCore.drillXp(4, 5)); assertEquals(18, GrammarCore.mixXp(4, 5))
     }
 
     /** P09 end to end: the ten routes are wired, the rule engine fixes a draft, a grammar lesson of the offline starter is graded the way the web grades it, the style quiz and the confidence score follow the web rules. */
@@ -164,7 +164,7 @@ class LearnVectorsTest {
         assertTrue(right.ok); assertEquals(d.lStrs("a").first(), right.answer)
         val wrong = GrammarCore.grade(d, "zzz qqq", null, null) as com.lexkite.app.core.write.DrillOutcome.Graded
         assertTrue(!wrong.ok)
-        assertEquals(GrammarCore.quizXp(11), 43); assertEquals(GrammarCore.pct(11, 12), 92)
+        assertEquals(GrammarCore.quizXp(11, 12), 43); assertEquals(GrammarCore.pct(11, 12), 92)
         // #/style and #/confidence
         assertEquals("precision", StyleQuiz.winner(List(6) { "precision" }))
         assertEquals(68, Confidence.score(120.0, 120.0, 1.0, 2, null))

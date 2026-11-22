@@ -1140,6 +1140,7 @@
 "Từ mô tả biểu đồ: tăng, giảm, dao động, tỉ lệ":"Palavras para descrever gráficos: subidas, quedas, flutuações, proporções",
 "Từ mới":"Palavra nova",
 "Từ mới lưu":"Salvo recentemente",
+"Từ mới, ngữ pháp và cuộc gọi AI mỗi ngày":"Palavras novas, gramática e uma chamada com IA todos os dias",
 "Từ này bị gõ lặp hai lần liên tiếp. Xóa bớt một từ.":"Esta palavra é digitada duas vezes seguidas. Exclua um deles.",
 "Từ này có vẻ viết sai chính tả hoặc không có trong từ điển. Kiểm tra lại cách viết – nếu là tên riêng, bấm “Bỏ qua lỗi”.":"Esta palavra parece escrita incorretamente ou não está no dicionário. Verifique a ortografia – se for um nome, toque em “Ignorar”.",
 "Từ này viết sai chính tả. Hãy học cách viết đúng – từ hay sai sẽ được đưa vào thẻ ôn tập.":"Esta palavra está escrita incorretamente. Aprenda a ortografia correta – palavras que você digita incorretamente com frequência são adicionadas aos seus cartões de revisão.",

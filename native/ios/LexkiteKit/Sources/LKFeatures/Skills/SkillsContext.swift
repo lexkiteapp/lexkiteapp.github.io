@@ -30,15 +30,23 @@ final class SkillsContext {
     func inDeck(_ w: String) -> Bool { let k = Vocab.keyOf(w); return bundle.cards.contains { Vocab.cardKey($0) == k } }
 
     /// One write of what a screen changed. `reward` is the `App.reward` argument: its XP and day counters go into the game on top of the screen's own change.
-    func commit(game: JSON? = nil, mistakes: [JSON]? = nil, settings: JSON? = nil, reward: [String: Int]? = nil) async {
+    func commit(game: JSON? = nil, mistakes: [JSON]? = nil, settings: JSON? = nil, reward: [String: Int]? = nil, src: String? = nil) async {
         var g = game ?? bundle.game
         if let r = reward {
-            g = StudyGame.apply(g, StudyDelta(xp: r["xp"] ?? 0, counters: r.filter { $0.key != "xp" && $0.value > 0 }), now: now, clock: core.clock)
+            g = StudyGame.apply(g, StudyDelta(xp: repeatCut(r["xp"] ?? 0, src: src), counters: r.filter { $0.key != "xp" && $0.value > 0 }), now: now, clock: core.clock)
         }
         bundle.game = g
         if let mistakes { bundle.mistakes = mistakes }
         if let settings { bundle.settings = settings }
         await core.commit(VocabEdit(game: g, mistakes: mistakes, settings: settings))
+    }
+    /// web `Game._track` anti-repeat: the same `src` again on one local day → 3rd–4th completion half XP, 5th+ at most 2 (per-device key "xprep", not synced)
+    private func repeatCut(_ xp: Int, src: String?) -> Int {
+        guard let src, xp > 0 else { return xp }
+        var ledger = defaults.data(forKey: "xprep").flatMap { try? JSONDecoder().decode(RewardRules.RepeatLedger.self, from: $0) } ?? RewardRules.RepeatLedger()
+        let out = ledger.cut(xp: xp, src: src, day: core.clock.todayKey(now))
+        if let d = try? JSONEncoder().encode(ledger) { defaults.set(d, forKey: "xprep") }
+        return out
     }
     /// settings.<key> = value, written at once
     func setSetting(_ key: String, _ value: JSON) async {

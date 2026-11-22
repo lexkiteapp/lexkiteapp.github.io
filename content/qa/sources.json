@@ -323,9 +323,10 @@
    "delegate": [
     "target/drill-pack.mjs --tl fr --check",
     "test/fr-practice.mjs",
-    "test/fr-pron.mjs"
+    "test/fr-pron.mjs",
+    "test/fr-path.mjs"
    ],
-   "_note": "Gói luyện tập tiếng Pháp W2 (french-course.md §10): CÙNG engine es (drill-lib TLP), dựng từ content/target/fr/{drills,gx}; drill-pack --tl fr --check = khớp nguồn + đủ 15 ngôn ngữ + ví dụ Pháp nguyên văn, CI thêm LanguageTool fr 0 lỗi (--lt) + tu ⟂ vous"
+   "_note": "Gói luyện tập + lộ trình ngày tiếng Pháp W2/W4 (french-course.md §10): CÙNG engine es (drill-lib TLP, path-lib buildPath(T)), dựng từ content/target/fr/{drills,gx,seed,core-*,calls,path-ui}; drill-pack --tl fr --check = khớp nguồn (gồm dy/wd/cl) + đủ 15 ngôn ngữ + ví dụ Pháp nguyên văn, CI thêm LanguageTool fr 0 lỗi (--lt) + tu ⟂ vous; calls-check --tl fr = 24 cuộc gọi A1–C1, một xưng hô mỗi cuộc, CI thêm LanguageTool 0 lỗi"
   },
   {
    "id": "writing",
