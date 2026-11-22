@@ -41,7 +41,7 @@ jobs:
     needs: gate
     if: needs.gate.outputs.go == 'true' && (github.event_name == 'workflow_dispatch' || github.event.label.name == 'word-audio-pt' || github.event.label.name == 'word-audio-es' || github.event.label.name == 'word-audio-fr')
     runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
-    timeout-minutes: 60
+    timeout-minutes: 120 # fr nghe lại bằng Whisper large-v3-turbo trên CPU (4 giọng × 20 từ ≈ 60–80 phút; 60 phút bị huỷ lượt 44990986585)
     env:
       TL: "${{ github.event.inputs.tl || (github.event.label.name == 'word-audio-es' && 'es') || (github.event.label.name == 'word-audio-fr' && 'fr') || 'pt' }}"
       TL_N: '${{ github.event.inputs.n || 20 }}'
