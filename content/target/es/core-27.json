@@ -2,7 +2,7 @@
  "v": 1,
  "tl": "es",
  "variant": "es-419",
- "status": "pending-review",
+ "status": "reviewed",
  "source": {
   "name": "FrequencyWords (hermitdave) – OpenSubtitles 2018 es_50k",
   "url": "https://raw.githubusercontent.com/hermitdave/FrequencyWords/master/content/2018/es/es_50k.txt",
@@ -319,8 +319,8 @@
     "tr": "zorlamak"
    },
    "ex": {
-    "es": "No puedes forzar la puerta.",
-    "en": "You can't force the door."
+    "es": "No puedes forzar a nadie a hacerlo.",
+    "en": "You can't force anyone to do it."
    },
    "rank": 1618,
    "qa": {
@@ -383,7 +383,7 @@
    "plural": "robos",
    "ipa": "ˈroβo",
    "gl": {
-    "vi": "trộm cắp",
+    "vi": "vụ trộm",
     "en": "theft",
     "es": "robo",
     "pt": "roubo",
@@ -750,21 +750,21 @@
    "plural": "ofertas",
    "ipa": "oˈfeɾta",
    "gl": {
-    "vi": "ưu đãi",
-    "en": "offer",
+    "vi": "khuyến mãi",
+    "en": "sale, special offer",
     "es": "oferta",
-    "pt": "oferta",
-    "fr": "offre",
-    "de": "Angebot",
-    "id": "penawaran",
-    "th": "ข้อเสนอ",
+    "pt": "promoção",
+    "fr": "promotion",
+    "de": "Sonderangebot",
+    "id": "promo",
+    "th": "โปรโมชัน",
     "zh": "优惠",
     "ja": "セール",
-    "ko": "제안",
-    "hi": "प्रस्ताव",
+    "ko": "할인",
+    "hi": "छूट",
     "ar": "عرض",
-    "ru": "предложение",
-    "tr": "teklif"
+    "ru": "акция",
+    "tr": "indirim"
    },
    "ex": {
     "es": "Compré este libro porque estaba en oferta.",
@@ -1156,7 +1156,7 @@
    "plural": "locales",
    "ipa": "loˈkal",
    "gl": {
-    "vi": "tienda",
+    "vi": "cửa hàng",
     "en": "shop",
     "es": "local",
     "pt": "loja",
@@ -1236,7 +1236,7 @@
    "pos": "v",
    "ipa": "meɾeˈseɾ",
    "gl": {
-    "vi": "đáng",
+    "vi": "xứng đáng",
     "en": "to deserve",
     "es": "merecer",
     "pt": "merecer",
@@ -1456,7 +1456,7 @@
     "ar": "بداية",
     "ru": "начало",
     "tr": "başlangıç",
-    "vi": "bắt đầu"
+    "vi": "sự bắt đầu"
    },
    "ex": {
     "es": "El comienzo de la película es muy emocionante.",
@@ -1579,7 +1579,7 @@
     "ar": "يستريح",
     "ru": "отдыхать",
     "tr": "dinlenmek",
-    "vi": "nghỉ"
+    "vi": "nghỉ ngơi"
    },
    "ex": {
     "es": "Necesito descansar después del trabajo.",

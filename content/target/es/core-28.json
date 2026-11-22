@@ -2,7 +2,7 @@
  "v": 1,
  "tl": "es",
  "variant": "es-419",
- "status": "pending-review",
+ "status": "reviewed",
  "source": {
   "name": "FrequencyWords (hermitdave) – OpenSubtitles 2018 es_50k",
   "url": "https://raw.githubusercontent.com/hermitdave/FrequencyWords/master/content/2018/es/es_50k.txt",
@@ -549,7 +549,7 @@
    "pos": "v",
    "ipa": "eˈtʃaɾ",
    "gl": {
-    "vi": "ném",
+    "vi": "ném; bỏ vào",
     "en": "to throw",
     "es": "echar",
     "pt": "lançar",
@@ -590,7 +590,7 @@
    "plural": "paseos",
    "ipa": "paˈseo",
    "gl": {
-    "vi": "đi dạo",
+    "vi": "chuyến đi dạo",
     "en": "walk",
     "es": "paseo",
     "pt": "passeio",
@@ -607,8 +607,8 @@
     "tr": "gezi"
    },
    "ex": {
-    "es": "Vamos al paseo del parque.",
-    "en": "Let's go to the park's walk."
+    "es": "Después de comer, dimos un paseo por el parque.",
+    "en": "After eating, we took a walk through the park."
    },
    "rank": 1709,
    "qa": {
@@ -711,14 +711,14 @@
    "plural": "cargas",
    "ipa": "ˈkaɾɣa",
    "gl": {
-    "vi": "hàng",
+    "vi": "hàng hóa, tải trọng",
     "en": "load",
     "es": "carga",
     "pt": "carga",
     "fr": "charge",
     "de": "Ladung",
     "id": "muatan",
-    "th": "โหลด",
+    "th": "สิ่งของที่บรรทุก",
     "zh": "负载",
     "ja": "荷物",
     "ko": "화물",
@@ -750,7 +750,7 @@
    "pos": "adj",
    "ipa": "pɾeˈsente",
    "gl": {
-    "vi": "hiện tại",
+    "vi": "có mặt",
     "en": "present",
     "es": "presente",
     "pt": "presente",
@@ -912,7 +912,7 @@
    "plural": "pesos",
    "ipa": "ˈpeso",
    "gl": {
-    "vi": "trọng lượng",
+    "vi": "cân nặng",
     "en": "weight",
     "es": "peso",
     "pt": "peso",
@@ -990,7 +990,7 @@
    "pos": "adj",
    "ipa": "konˈtento",
    "gl": {
-    "vi": "vui vẻ",
+    "vi": "hài lòng, vui",
     "en": "happy",
     "es": "contento",
     "pt": "contente",
@@ -1111,7 +1111,7 @@
    "pos": "adj",
    "ipa": "seˈraðo",
    "gl": {
-    "vi": "đóng",
+    "vi": "đóng cửa",
     "en": "closed",
     "es": "cerrado",
     "pt": "fechado",
@@ -1401,7 +1401,7 @@
     "pt": "roubado",
     "fr": "volé",
     "de": "gestohlen",
-    "vi": "đánh cắp",
+    "vi": "bị đánh cắp",
     "id": "dicuri",
     "th": "ของที่ขโมย",
     "zh": "被偷的",

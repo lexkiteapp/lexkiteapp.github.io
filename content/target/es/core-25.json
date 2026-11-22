@@ -2,7 +2,7 @@
  "v": 1,
  "tl": "es",
  "variant": "es-419",
- "status": "pending-review",
+ "status": "reviewed",
  "source": {
   "name": "FrequencyWords (hermitdave) – OpenSubtitles 2018 es_50k",
   "url": "https://raw.githubusercontent.com/hermitdave/FrequencyWords/master/content/2018/es/es_50k.txt",
@@ -149,7 +149,7 @@
     "zh": "风险",
     "ja": "リスク",
     "ko": "위험",
-    "hi": "जॉखिम",
+    "hi": "जोखिम",
     "ar": "خطر",
     "ru": "риск",
     "tr": "risk"
@@ -1168,7 +1168,7 @@
    "plural": "accesos",
    "ipa": "akˈseso",
    "gl": {
-    "vi": "lối vào",
+    "vi": "quyền truy cập",
     "en": "access",
     "es": "acceso",
     "pt": "acesso",
@@ -1984,7 +1984,7 @@
    "plural": "gases",
    "ipa": "ˈɡas",
    "gl": {
-    "vi": "khí",
+    "vi": "khí đốt",
     "en": "gas",
     "es": "gas",
     "pt": "gás",
@@ -2231,7 +2231,7 @@
    "pos": "v",
    "ipa": "diskuˈtiɾ",
    "gl": {
-    "vi": "tranh luận",
+    "vi": "cãi nhau",
     "en": "to argue",
     "es": "discutir",
     "pt": "discutir",
@@ -2352,7 +2352,7 @@
    "pos": "v",
    "ipa": "rekoˈxeɾ",
    "gl": {
-    "vi": "nhặt lên",
+    "vi": "nhặt; đón",
     "en": "to pick up",
     "es": "recoger",
     "pt": "recolher",
@@ -2632,45 +2632,6 @@
    }
   },
   {
-   "word": "casar",
-   "pos": "v",
-   "ipa": "kaˈsaɾ",
-   "gl": {
-    "es": "casar",
-    "en": "to marry",
-    "pt": "casar",
-    "fr": "marier",
-    "de": "heiraten",
-    "vi": "kết hôn",
-    "id": "menikahkan",
-    "th": "แต่งงาน",
-    "zh": "结婚",
-    "ja": "結婚させる",
-    "ko": "결혼시키다",
-    "hi": "शादी करना",
-    "ar": "يتزوج",
-    "ru": "женить",
-    "tr": "evlenmek"
-   },
-   "ex": {
-    "es": "Van a casar a sus hijos el próximo mes.",
-    "en": "They are going to marry their children next month."
-   },
-   "rank": 2168,
-   "qa": {
-    "gen": "openai/gpt-oss-120b",
-    "judges": [
-     "qwen/qwen3.8-27b",
-     "gemini-3.6-flash"
-    ],
-    "bt": "qwen/qwen3.8-27b",
-    "scores": [
-     5,
-     5
-    ]
-   }
-  },
-  {
    "word": "complicado",
    "pos": "adj",
    "ipa": "kompliˈkaðo",
@@ -2788,46 +2749,6 @@
      5,
      5
     ]
-   }
-  },
-  {
-   "word": "leído",
-   "pos": "adj",
-   "ipa": "leˈiðo",
-   "gl": {
-    "es": "leído",
-    "en": "read",
-    "pt": "lido",
-    "fr": "lu",
-    "de": "gelesen",
-    "vi": "đọc",
-    "id": "dibaca",
-    "th": "อ่านแล้ว",
-    "zh": "已读的",
-    "ja": "読まれた",
-    "ko": "읽힌",
-    "hi": "पढ़ा हुआ",
-    "ar": "مقروء",
-    "ru": "прочитанный",
-    "tr": "okunmuş"
-   },
-   "ex": {
-    "es": "El libro está leído.",
-    "en": "The book is read."
-   },
-   "rank": 2192,
-   "qa": {
-    "gen": "openai/gpt-oss-120b",
-    "judges": [
-     "qwen/qwen3.8-27b",
-     "gemini-3.6-flash"
-    ],
-    "bt": "qwen/qwen3.8-27b",
-    "scores": [
-     5,
-     5
-    ],
-    "ipaAi": "leˈiɣo"
    }
   },
   {
@@ -3241,7 +3162,7 @@
    "gl": {
     "es": "estudiante",
     "en": "student",
-    "vi": "sinh viên",
+    "vi": "học sinh / sinh viên",
     "pt": "estudante",
     "fr": "étudiant",
     "de": "Student",
@@ -3283,7 +3204,7 @@
    "gl": {
     "es": "granja",
     "en": "farm",
-    "vi": "trại",
+    "vi": "trang trại",
     "pt": "fazenda",
     "fr": "ferme",
     "de": "Bauernhof",
@@ -3381,8 +3302,8 @@
     "tr": "kemik"
    },
    "ex": {
-    "es": "El perro rompió un hueso.",
-    "en": "The dog broke a bone."
+    "es": "El perro mastica un hueso grande.",
+    "en": "The dog is chewing on a big bone."
    },
    "rank": 2370,
    "qa": {
@@ -3396,49 +3317,6 @@
      5,
      5
     ]
-   }
-  },
-  {
-   "word": "ruego",
-   "pos": "n",
-   "gender": "m",
-   "plural": "ruegos",
-   "ipa": "ˈrweɣo",
-   "gl": {
-    "vi": "yêu cầu",
-    "en": "request",
-    "es": "ruego",
-    "fr": "demande",
-    "de": "Bitte",
-    "pt": "pedido",
-    "id": "permintaan",
-    "th": "คำร้อง",
-    "zh": "请求",
-    "ja": "お願い",
-    "ko": "요청",
-    "hi": "अनुरोध",
-    "ar": "طلب",
-    "ru": "просьба",
-    "tr": "istek"
-   },
-   "ex": {
-    "es": "Te hago un ruego: no llegues tarde.",
-    "en": "I make a request: don't be late."
-   },
-   "rank": 2386,
-   "qa": {
-    "gen": "openai/gpt-oss-120b",
-    "judges": [
-     "qwen/qwen3.8-27b",
-     "gemini-3.6-flash"
-    ],
-    "bt": "qwen/qwen3.8-27b",
-    "scores": [
-     5,
-     5
-    ],
-    "ipaAi": "ˈrwe.ɣo",
-    "ipaEs": "ruˈeɣo"
    }
   },
   {

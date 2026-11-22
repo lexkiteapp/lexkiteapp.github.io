@@ -2,7 +2,7 @@
  "v": 1,
  "tl": "es",
  "variant": "es-419",
- "status": "pending-review",
+ "status": "reviewed",
  "source": {
   "name": "FrequencyWords (hermitdave) – OpenSubtitles 2018 es_50k",
   "url": "https://raw.githubusercontent.com/hermitdave/FrequencyWords/master/content/2018/es/es_50k.txt",
@@ -135,7 +135,7 @@
    "pos": "adj",
    "ipa": "paˈsaðo",
    "gl": {
-    "vi": "trước",
+    "vi": "vừa qua, đã qua",
     "en": "last",
     "es": "pasada",
     "pt": "passada",
@@ -509,21 +509,21 @@
    "plural": "mandos",
    "ipa": "ˈmando",
    "gl": {
-    "vi": "sự chỉ huy, điều khiển",
-    "en": "command, control (remote)",
+    "vi": "quyền chỉ huy, sự điều khiển",
+    "en": "command, control",
     "es": "mando",
     "pt": "comando",
     "fr": "commande, contrôle",
-    "de": "Kommando, Fernbedienung",
+    "de": "Kommando, Führung",
     "id": "perintah, kendali",
     "th": "การบังคับบัญชา, การควบคุม",
     "zh": "指挥，控制",
-    "ja": "指揮、リモコン",
+    "ja": "指揮、制御",
     "ko": "지휘, 제어",
     "hi": "आदेश, नियंत्रण",
     "ar": "قيادة، تحكم",
-    "ru": "командование, пульт",
-    "tr": "komuta, kumanda"
+    "ru": "командование, управление",
+    "tr": "komuta, kontrol"
    },
    "ex": {
     "es": "El oficial tiene el mando del grupo.",
@@ -1035,7 +1035,7 @@
    "pos": "v",
    "ipa": "asesiˈnaɾ",
    "gl": {
-    "vi": "ám sát",
+    "vi": "giết người, sát hại",
     "en": "to murder",
     "es": "asesinar",
     "pt": "assassinar",
@@ -1236,7 +1236,7 @@
    "pos": "adj",
    "ipa": "ˈlimpjo",
    "gl": {
-    "vi": "sạch sẻ",
+    "vi": "sạch sẽ",
     "en": "clean",
     "es": "limpio",
     "pt": "limpo",
@@ -1494,10 +1494,9 @@
     "tr": "kaldırmak"
    },
    "ex": {
-    "es": "Levántate, ya es muy tarde.",
-    "en": "Get up, it's already very late."
+    "es": "Voy a levantar la caja con cuidado.",
+    "en": "I am going to lift the box carefully."
    },
-   "exForm": "levántate",
    "rank": 1912,
    "qa": {
     "gen": "gemini-3.6-flash",
@@ -1694,7 +1693,7 @@
     "id": "wali kota",
     "th": "นายกเทศมนตรี",
     "zh": "市长",
-    "ja": "町長",
+    "ja": "市長",
     "ko": "시장",
     "hi": "महापौर",
     "ar": "عمدة",
@@ -2052,7 +2051,7 @@
    "plural": "alcoholes",
    "ipa": "alkoˈol",
    "gl": {
-    "vi": "rượu cồn",
+    "vi": "rượu, cồn",
     "en": "alcohol",
     "es": "alcohol",
     "pt": "álcool",
@@ -2063,7 +2062,7 @@
     "zh": "酒精",
     "ja": "アルコール",
     "ko": "알코올",
-    "hi": "शराब",
+    "hi": "अल्कोहल",
     "ar": "كحول",
     "ru": "алкоголь",
     "tr": "alkol"
@@ -2092,7 +2091,7 @@
    "pos": "adj",
    "ipa": "anˈtiɣwo",
    "gl": {
-    "vi": "cổ kính",
+    "vi": "cổ, xưa",
     "en": "old / ancient",
     "es": "antiguo",
     "pt": "antigo",
@@ -2172,8 +2171,8 @@
    "plural": "lenguas",
    "ipa": "ˈlenɡwa",
    "gl": {
-    "vi": "lưỡi",
-    "en": "tongue / language",
+    "vi": "lưỡi, ngôn ngữ",
+    "en": "tongue, language",
     "es": "lengua",
     "pt": "língua",
     "fr": "langue",
@@ -2335,7 +2334,7 @@
    "plural": "libras",
    "ipa": "ˈliβɾa",
    "gl": {
-    "vi": "pound",
+    "vi": "pao",
     "en": "pound",
     "es": "libra",
     "pt": "libra",
@@ -2417,7 +2416,7 @@
    "plural": "artistas",
    "ipa": "aɾˈtista",
    "gl": {
-    "vi": "nGHệ sĩ",
+    "vi": "nghệ sĩ",
     "en": "artist",
     "es": "artista",
     "pt": "artista",
@@ -2501,7 +2500,7 @@
    "ipa": "kamjoˈneta",
    "gl": {
     "vi": "xe bán tải",
-    "en": "truck",
+    "en": "pickup truck, van",
     "es": "camioneta",
     "pt": "caminhonete",
     "fr": "camionnette",
@@ -2510,7 +2509,7 @@
     "th": "รถกระบะ",
     "zh": "皮卡",
     "ja": "小型トラック",
-    "ko": "트럭",
+    "ko": "픽업트럭",
     "hi": "पिकअप ट्रक",
     "ar": "شاحنة صغيرة",
     "ru": "пикап",
@@ -2518,7 +2517,7 @@
    },
    "ex": {
     "es": "Mi papá compró una camioneta roja.",
-    "en": "My dad bought a red truck."
+    "en": "My dad bought a red pickup truck."
    },
    "rank": 2233,
    "qa": {
@@ -2542,7 +2541,7 @@
    "ipa": "ˈtumba",
    "gl": {
     "vi": "mộ",
-    "en": "tomb",
+    "en": "grave, tomb",
     "es": "tumba",
     "pt": "túmulo",
     "fr": "tombe",
@@ -2581,7 +2580,7 @@
    "pos": "adj",
    "ipa": "pɾeˈsjoso",
    "gl": {
-    "vi": "đẹp đẽ",
+    "vi": "tuyệt đẹp",
     "en": "gorgeous",
     "es": "precioso",
     "pt": "lindo",
@@ -2662,7 +2661,7 @@
    "pos": "adj",
    "ipa": "ˈkjeto",
    "gl": {
-    "vi": "im lìm",
+    "vi": "yên, đứng yên",
     "en": "still",
     "es": "quieto",
     "pt": "quieto",
@@ -2679,8 +2678,8 @@
     "tr": "hareketsiz"
    },
    "ex": {
-    "es": "El perro se quedó quieto durante el examen.",
-    "en": "The dog stayed still during the exam."
+    "es": "El perro se quedó quieto cuando oyó el ruido.",
+    "en": "The dog stayed still when it heard the noise."
    },
    "rank": 2221,
    "qa": {
@@ -3235,24 +3234,24 @@
    "ipa": "ˈklaβe",
    "gl": {
     "es": "clave",
-    "en": "key",
-    "pt": "chave",
-    "fr": "clé",
-    "de": "Schlüssel",
-    "vi": "khóa",
-    "id": "kunci",
-    "th": "กุญแจ",
-    "zh": "钥匙",
-    "ja": "鍵",
-    "ko": "열쇠",
-    "hi": "कुंजी",
-    "ar": "مفتاح",
-    "ru": "ключ",
-    "tr": "anahtar"
+    "en": "key, code, password",
+    "pt": "senha, código",
+    "fr": "code, mot de passe",
+    "de": "Passwort, Code",
+    "vi": "mật khẩu, mật mã",
+    "id": "kata sandi, kode",
+    "th": "รหัส, รหัสผ่าน",
+    "zh": "密码，代码",
+    "ja": "暗証番号、パスワード",
+    "ko": "비밀번호, 암호",
+    "hi": "पासवर्ड, कोड",
+    "ar": "رمز، كلمة مرور",
+    "ru": "пароль, код",
+    "tr": "şifre, kod"
    },
    "ex": {
-    "es": "La clave del examen es fácil.",
-    "en": "The exam key is easy."
+    "es": "Olvidé la clave de mi correo.",
+    "en": "I forgot the password for my email."
    },
    "rank": 2343,
    "qa": {
@@ -3357,20 +3356,20 @@
    "ipa": "ˈsosjo",
    "gl": {
     "es": "socio",
-    "en": "member",
+    "en": "member, partner",
     "pt": "sócio",
-    "fr": "membre",
-    "de": "Mitglied",
-    "vi": "thành viên",
-    "id": "anggota",
-    "th": "สมาชิก",
-    "zh": "会员",
-    "ja": "会員",
-    "ko": "회원",
-    "hi": "सदस्य",
-    "ar": "عضو",
-    "ru": "член",
-    "tr": "üye"
+    "fr": "associé, membre",
+    "de": "Mitglied, Partner",
+    "vi": "hội viên, đối tác",
+    "id": "anggota, mitra",
+    "th": "สมาชิก, หุ้นส่วน",
+    "zh": "会员，合伙人",
+    "ja": "会員、パートナー",
+    "ko": "회원, 파트너",
+    "hi": "सदस्य, साझेदार",
+    "ar": "عضو، شريك",
+    "ru": "член, партнёр",
+    "tr": "üye, ortak"
    },
    "ex": {
     "es": "Soy socio del gimnasio.",
@@ -3755,47 +3754,6 @@
      5,
      5
     ]
-   }
-  },
-  {
-   "word": "okay",
-   "pos": "interj",
-   "ipa": "ˈokaj",
-   "gl": {
-    "vi": "được",
-    "en": "okay",
-    "es": "okay",
-    "pt": "ok",
-    "fr": "d'accord",
-    "de": "okay",
-    "id": "oke",
-    "th": "โอเค",
-    "zh": "好的",
-    "ja": "オーケー",
-    "ko": "오케이",
-    "hi": "ठीक है",
-    "ar": "حسنا",
-    "ru": "окей",
-    "tr": "tamam"
-   },
-   "ex": {
-    "es": "Okay, nos vemos mañana.",
-    "en": "Okay, see you tomorrow."
-   },
-   "rank": 2476,
-   "qa": {
-    "gen": "gemini-3.6-flash",
-    "judges": [
-     "openai/gpt-oss-120b",
-     "qwen/qwen3.8-27b"
-    ],
-    "bt": "openai/gpt-oss-120b",
-    "scores": [
-     5,
-     5
-    ],
-    "ipaAi": "oˈkei",
-    "ipaEs": "oˈkaɪ"
    }
   },
   {
@@ -4459,7 +4417,7 @@
    "plural": "lobos",
    "ipa": "ˈloβo",
    "gl": {
-    "vi": "con sói",
+    "vi": "sói",
     "en": "wolf",
     "es": "lobo",
     "pt": "lobo",
@@ -4824,7 +4782,7 @@
    "pos": "adj",
    "ipa": "enamoˈɾaðo",
    "gl": {
-    "vi": "si tình",
+    "vi": "đang yêu",
     "en": "in love",
     "es": "enamorado",
     "pt": "apaixonado",
@@ -4842,7 +4800,7 @@
    },
    "ex": {
     "es": "Ella está muy enamorada de su novio.",
-    "en": "She is very in love with her boyfriend."
+    "en": "She is very much in love with her boyfriend."
    },
    "exForm": "enamorada",
    "rank": 2738,
@@ -5478,47 +5436,6 @@
    }
   },
   {
-   "word": "cristo",
-   "pos": "n",
-   "gender": "m",
-   "plural": "cristos",
-   "ipa": "ˈkɾisto",
-   "gl": {
-    "vi": "Đấng Christ",
-    "en": "Christ",
-    "es": "cristo",
-    "pt": "Cristo",
-    "fr": "Christ",
-    "de": "Christus",
-    "id": "Kristus",
-    "th": "พระคริสต์",
-    "zh": "基督",
-    "ja": "キリスト",
-    "ko": "그리스도",
-    "hi": "मसीह",
-    "ar": "المسيح",
-    "ru": "Христос",
-    "tr": "Mesih"
-   },
-   "ex": {
-    "es": "Hay una estatua de Cristo en la iglesia.",
-    "en": "There is a statue of Christ in the church."
-   },
-   "rank": 2908,
-   "qa": {
-    "gen": "gemini-3.6-flash",
-    "judges": [
-     "openai/gpt-oss-120b",
-     "qwen/qwen3.8-27b"
-    ],
-    "bt": "openai/gpt-oss-120b",
-    "scores": [
-     5,
-     5
-    ]
-   }
-  },
-  {
    "word": "garganta",
    "pos": "n",
    "gender": "f",
@@ -5610,7 +5527,7 @@
    "ipa": "ˈxunta",
    "gl": {
     "vi": "hội đồng",
-    "en": "board",
+    "en": "board, council",
     "es": "junta",
     "pt": "junta",
     "fr": "comité",
@@ -5626,8 +5543,8 @@
     "tr": "kurul"
    },
    "ex": {
-    "es": "Tengo una junta importante a las tres de la tarde.",
-    "en": "I have an important board meeting at three in the afternoon."
+    "es": "La junta de vecinos se reúne el lunes.",
+    "en": "The neighborhood council meets on Monday."
    },
    "rank": 2920,
    "qa": {
@@ -6343,7 +6260,7 @@
    "pos": "adv",
    "ipa": "ˈkwan",
    "gl": {
-    "vi": "bao nhiêu",
+    "vi": "biết bao, đến mức nào",
     "en": "how",
     "es": "cuán",
     "pt": "quão",
@@ -6585,8 +6502,8 @@
    "pos": "v",
    "ipa": "ɡwaɾˈðaɾ",
    "gl": {
-    "vi": "cất",
-    "en": "to save",
+    "vi": "cất giữ, lưu",
+    "en": "to keep, to save",
     "es": "guardar",
     "pt": "guardar",
     "fr": "garder",
@@ -6702,7 +6619,6 @@
    "word": "física",
    "pos": "n",
    "gender": "f",
-   "plural": "físicas",
    "ipa": "ˈfisika",
    "gl": {
     "vi": "vật lý",
@@ -6737,7 +6653,8 @@
      5,
      5
     ]
-   }
+   },
+   "plural": "físicas"
   },
   {
    "word": "cocinar",
@@ -6941,47 +6858,6 @@
    }
   },
   {
-   "word": "desgraciado",
-   "pos": "adj",
-   "ipa": "desɣɾaˈsjaðo",
-   "gl": {
-    "vi": "bất hạnh",
-    "en": "unfortunate",
-    "es": "desgraciado",
-    "pt": "desgraçado",
-    "fr": "malheureux",
-    "de": "unglücklich",
-    "id": "malang",
-    "th": "โชคร้าย",
-    "zh": "不幸的",
-    "ja": "不幸な",
-    "ko": "불행한",
-    "hi": "अभाग",
-    "ar": "تعيس",
-    "ru": "несчастный",
-    "tr": "talihsiz"
-   },
-   "ex": {
-    "es": "Es un suceso desgraciado para todos.",
-    "en": "It is an unfortunate event for everyone."
-   },
-   "rank": 3124,
-   "qa": {
-    "gen": "gemini-3.6-flash",
-    "judges": [
-     "qwen/qwen3.8-27b",
-     "openai/gpt-oss-120b"
-    ],
-    "bt": "openai/gpt-oss-120b",
-    "scores": [
-     5,
-     5
-    ],
-    "fixed": "gemini-3.6-flash",
-    "ipaAi": "desɡɾaˈsjaðo"
-   }
-  },
-  {
    "word": "explicar",
    "pos": "v",
    "ipa": "ekspliˈkaɾ",
@@ -7151,7 +7027,7 @@
    "plural": "kilos",
    "ipa": "ˈkilo",
    "gl": {
-    "vi": "ki-lô",
+    "vi": "ki-lô-gam",
     "en": "kilo",
     "es": "kilo",
     "pt": "quilo",
@@ -7563,7 +7439,7 @@
    "plural": "ratas",
    "ipa": "ˈrata",
    "gl": {
-    "vi": "con chuột lớn",
+    "vi": "chuột cống",
     "en": "rat",
     "es": "rata",
     "pt": "ratazana",
@@ -7927,7 +7803,7 @@
    "plural": "discusiones",
    "ipa": "diskuˈsjon",
    "gl": {
-    "vi": "cuộc tranh luận",
+    "vi": "cuộc tranh cãi",
     "en": "argument",
     "es": "discusión",
     "pt": "discussão",
@@ -8256,7 +8132,7 @@
    "ipa": "tenˈsjon",
    "gl": {
     "vi": "căng thẳng",
-    "en": "tension",
+    "en": "tension, voltage",
     "es": "tensión",
     "pt": "tensão",
     "fr": "tension",
@@ -8272,8 +8148,8 @@
     "tr": "gerilim"
    },
    "ex": {
-    "es": "La tensión eléctrica está alta.",
-    "en": "The electric tension is high."
+    "es": "Hay mucha tensión entre los dos equipos.",
+    "en": "There is a lot of tension between the two teams."
    },
    "rank": 3528,
    "qa": {
