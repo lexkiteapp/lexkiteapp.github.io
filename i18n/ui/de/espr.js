@@ -3,6 +3,7 @@
 "Chưa có bài cho mục này.":"Zu diesem Thema gibt es noch keine Übungen.",
 "Cấp {l}":"Stufe {l}",
 "Cẩn thận dấu (tilde): {a}":"Achte auf den Akzent: {a}",
+"Cẩn thận dấu (é, è, ç…): {a}":"Achte auf die Akzente (é, è, ç …): {a}",
 "Không tải được bài. Kiểm tra mạng rồi thử lại.":"Lektion konnte nicht geladen werden. Prüfen Sie Ihre Verbindung und versuchen Sie es erneut.",
 "Điền từ còn thiếu":"Fehlendes Wort ergänzen",
 });

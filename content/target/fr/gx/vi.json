@@ -1,0 +1,514 @@
+{
+ "etre-present": {
+  "t": "Être: thì, là, ở",
+  "x": "\"être\" nghĩa là 'thì, là': \"je suis\", \"tu es\", \"il est\", \"nous sommes\", \"vous êtes\", \"ils sont\". Dùng để nói danh tính, quê quán, nghề nghiệp và miêu tả. Em hãy học thuộc, đây là động từ thường gặp nhất trong tiếng Pháp. Ví dụ: \"je suis\", \"nous sommes\", \"ils sont\"."
+ },
+ "avoir-present": {
+  "t": "Avoir: có",
+  "x": "\"avoir\" nghĩa là 'có': \"j'ai\", \"tu as\", \"il a\", \"nous avons\", \"vous avez\", \"ils ont\". Sau này nó còn dùng để tạo passé composé. Chú ý \"j'ai\" được rút gọn trước nguyên âm. Ví dụ: \"j'ai\", \"elle a\", \"nous avons\"."
+ },
+ "il-y-a": {
+  "t": "Il y a: có (cái gì đó)",
+  "x": "\"il y a\" dùng để nói có một thứ gì đó tồn tại, số ít hay số nhiều đều không đổi: \"il y a un livre\", \"il y a des livres\". Phủ định: \"il n'y a pas de livre\". Câu hỏi: \"y a-t-il\" hoặc \"est-ce qu'il y a\". Ví dụ: \"il y a un café\", \"il n'y a pas de lait\"."
+ },
+ "art-defini": {
+  "t": "Mạo từ xác định",
+  "x": "\"le\" (giống đực), \"la\" (giống cái), \"l'\" (trước nguyên âm) và \"les\" (số nhiều) nghĩa là 'the'. Tiếng Pháp còn dùng chúng cho nghĩa chung: \"j'aime la musique\" là 'tôi thích âm nhạc'. Ví dụ: \"le café\", \"la pomme\", \"les enfants\"."
+ },
+ "art-indefini": {
+  "t": "Mạo từ không xác định",
+  "x": "\"un\" (đực), \"une\" (cái) và \"des\" (số nhiều) nghĩa là 'một' hoặc 'vài'. Chúng giới thiệu một thứ mới: \"j'ai un frère et des cousins\". \"des\" thường không dịch sang tiếng Việt. Ví dụ: \"un frère\", \"une sœur\", \"des amis\"."
+ },
+ "gender-nouns": {
+  "t": "Giống đực hay cái?",
+  "x": "Mỗi danh từ là giống đực hoặc giống cái. Đuôi giúp đoán: \"-tion\", \"-té\", \"-ette\" thường là giống cái; \"-ment\", \"-age\", \"-eau\" thường là giống đực. Hãy luôn học danh từ kèm mạo từ: \"la ville\", \"le village\". Ví dụ: \"le village\", \"la ville\", \"la question\"."
+ },
+ "plural-regular": {
+  "t": "Số nhiều: thêm -s",
+  "x": "Phần lớn danh từ số nhiều thêm \"-s\" (không đọc): \"un ami\", \"des amis\". Danh từ đã có đuôi \"-s\", \"-x\", \"-z\" thì giữ nguyên: \"un pays\", \"des pays\". Chỉ mạo từ và nối âm cho biết đó là số nhiều. Ví dụ: \"deux sœurs\", \"trois amis\"."
+ },
+ "plural-irregular": {
+  "t": "Số nhiều bất quy tắc",
+  "x": "Danh từ đuôi \"-al\" đổi thành \"-aux\": \"un journal\", \"des journaux\". Đuôi \"-eau\" và \"-eu\" thêm \"-x\": \"un bateau\", \"des bateaux\", \"un jeu\", \"des jeux\". Có vài ngoại lệ như \"un festival, des festivals\". Ví dụ: \"des journaux\", \"des bateaux\", \"des cheveux\"."
+ },
+ "elision-basic": {
+  "t": "Rút gọn trước nguyên âm",
+  "x": "Các từ ngắn \"le\", \"la\", \"je\", \"ne\", \"de\", \"que\", \"se\" bỏ nguyên âm và thêm dấu nháy khi đứng trước nguyên âm hoặc h câm: \"l'école\", \"j'aime\", \"n'aime pas\", \"qu'elle\". \"les\" và \"un\" không rút gọn. Ví dụ: \"l'école\", \"j'aime\", \"qu'elle\"."
+ },
+ "contractions-au-du": {
+  "t": "Rút gọn au, aux, du, des",
+  "x": "\"à + le\" thành \"au\", \"à + les\" thành \"aux\", \"de + le\" thành \"du\", \"de + les\" thành \"des\". Với \"la\" và \"l'\" thì giữ nguyên: \"à la gare\", \"de la gare\". Không bao giờ viết \"à le\" hay \"de le\". Ví dụ: \"au marché\", \"aux voisins\", \"du professeur\"."
+ },
+ "partitif": {
+  "t": "Mạo từ bộ phận",
+  "x": "Để nói một lượng không đếm được, dùng \"du\" (đực), \"de la\" (cái), \"de l'\" (nguyên âm) hoặc \"des\" (số nhiều): \"je prends du café\". Tiếng Việt thường không cần từ này, nhưng tiếng Pháp luôn cần. Ví dụ: \"du pain\", \"de la salade\", \"des légumes\"."
+ },
+ "de-negation": {
+  "t": "Phủ định + de",
+  "x": "Sau \"ne… pas\", \"jamais\", \"plus\", mạo từ không xác định hoặc bộ phận đổi thành \"de\": \"j'ai un chat\" thành \"je n'ai pas de chat\". Ngoại lệ: sau \"être\" giữ nguyên mạo từ: \"ce n'est pas un chat\". Ví dụ: \"pas de voiture\", \"jamais de viande\"."
+ },
+ "adj-agreement": {
+  "t": "Hòa hợp tính từ",
+  "x": "Tính từ hòa hợp với danh từ: thêm \"-e\" cho giống cái và \"-s\" cho số nhiều. \"grand\", \"grande\", \"grands\", \"grandes\". Tính từ đã có đuôi -e thì không đổi ở giống cái: \"un garçon sympa\", \"une fille sympa\". Ví dụ: \"elle est grande\", \"ils sont petits\"."
+ },
+ "adj-position": {
+  "t": "Vị trí tính từ",
+  "x": "Phần lớn tính từ đứng sau danh từ: \"une robe bleue\". Một số tính từ ngắn, thông dụng đứng trước (đẹp, tuổi, tốt, kích cỡ: \"beau, jeune, bon, grand, petit\"): \"un petit chien\". \"beau\" có dạng \"bel\" và \"belle\". Ví dụ: \"une belle maison\", \"une maison blanche\"."
+ },
+ "possessifs": {
+  "t": "Tính từ sở hữu",
+  "x": "Tính từ sở hữu hòa hợp với vật được sở hữu, không phải người sở hữu: \"mon père\", \"ma mère\", \"mes parents\". Trước nguyên âm, danh từ giống cái dùng \"mon\": \"mon amie\". Còn có \"notre/nos\", \"votre/vos\", \"leur/leurs\". Ví dụ: \"mon père\", \"ma mère\", \"leurs chats\"."
+ },
+ "demonstratifs": {
+  "t": "Chỉ định: ce, cette, ces",
+  "x": "\"ce\" (đực), \"cet\" (đực trước nguyên âm), \"cette\" (cái) và \"ces\" (số nhiều) nghĩa là 'này, đó'. Thêm \"-ci\" hoặc \"-là\" để đối chiếu: \"ce livre-ci\", \"ce livre-là\". Ví dụ: \"ce livre\", \"cette veste\", \"ces enfants\"."
+ },
+ "pres-er": {
+  "t": "Hiện tại: động từ -er",
+  "x": "Bỏ \"-er\" rồi thêm \"-e, -es, -e, -ons, -ez, -ent\": \"parler\" thành \"je parle\", \"tu parles\", \"il parle\", \"nous parlons\", \"vous parlez\", \"ils parlent\". Khoảng 90% động từ tiếng Pháp theo mẫu này. Ví dụ: \"je parle\", \"nous parlons\", \"ils parlent\"."
+ },
+ "pres-ir-re": {
+  "t": "Hiện tại: động từ -ir, -re",
+  "x": "Động từ \"-ir\" có quy tắc thêm \"-is, -is, -it, -issons, -issez, -issent\": \"finir\", \"je finis\", \"nous finissons\". Động từ \"-re\" thêm \"-s, -s, -, -ons, -ez, -ent\": \"vendre\", \"je vends\", \"il vend\". Ví dụ: \"je finis\", \"nous finissons\", \"je vends\"."
+ },
+ "pres-irreguliers": {
+  "t": "Động từ bất quy tắc thường gặp",
+  "x": "Hãy học \"aller\" (\"je vais, nous allons\"), \"faire\" (\"je fais, vous faites\"), \"prendre\" (\"je prends, ils prennent\") và \"venir\" (\"je viens, ils viennent\"). Chú ý \"vous faites\" và \"ils font\" phá vỡ quy tắc. Ví dụ: \"je vais\", \"nous faisons\", \"ils prennent\", \"vous venez\"."
+ },
+ "tu-vous": {
+  "t": "Tu hay vous?",
+  "x": "Dùng \"tu\" với bạn bè, gia đình, trẻ em và người ngang hàng. Dùng \"vous\" với người lạ, người lớn tuổi, ở cửa hàng, nơi làm việc, và luôn dùng khi nói với nhiều người. Khi chưa chắc, hãy bắt đầu bằng \"vous\". Ví dụ: \"tu viens\", \"vous venez\"."
+ },
+ "on-nous": {
+  "t": "On = chúng ta",
+  "x": "Trong giao tiếp hằng ngày \"on\" thay cho \"nous\", nhưng động từ vẫn chia ngôi thứ ba số ít: \"on va au cinéma\". \"On\" còn nghĩa là 'người ta': \"en France, on mange du pain\". Ví dụ: \"on va\", \"on mange\"."
+ },
+ "neg-ne-pas": {
+  "t": "Phủ định: ne … pas",
+  "x": "Đặt \"ne\" trước động từ và \"pas\" sau nó: \"je ne parle pas\". Trước nguyên âm \"ne\" thành \"n'\": \"il n'aime pas\". Khi nói, \"ne\" hay bị bỏ, nhưng khi viết hãy giữ cho đúng. Ví dụ: \"je ne parle pas\", \"il n'aime pas\"."
+ },
+ "q-est-ce-que": {
+  "t": "Câu hỏi có/không",
+  "x": "Dễ nhất: giữ nguyên trật tự từ và lên giọng, hoặc viết dấu hỏi: \"tu viens ?\". Trang trọng hơn: thêm \"est-ce que\" ở đầu: \"est-ce que tu viens ?\". Trước nguyên âm thành \"est-ce qu'\": \"est-ce qu'elle vient ?\". Ví dụ: \"tu aimes le thé ?\", \"est-ce que vous avez\"."
+ },
+ "q-mots-interrogatifs": {
+  "t": "Từ để hỏi",
+  "x": "\"où\" (ở đâu), \"quand\" (khi nào), \"comment\" (thế nào), \"combien\" (bao nhiêu), \"pourquoi\" (tại sao), \"qui\" (ai). Chúng đứng đầu câu: \"où est la gare ?\". Trả lời \"pourquoi\" bằng \"parce que\". Ví dụ: \"où\", \"quand\", \"combien\", \"pourquoi\"."
+ },
+ "q-quel": {
+  "t": "Quel: nào, gì",
+  "x": "\"quel\" hòa hợp với danh từ: \"quel\" (đực, số ít), \"quelle\" (cái, số ít), \"quels\" (đực, nhiều), \"quelles\" (cái, nhiều). Nó có thể đi với \"être\": \"quel est ton nom ?\" Ví dụ: \"quelle heure\", \"quels films\"."
+ },
+ "futur-proche": {
+  "t": "Tương lai gần: aller + động từ",
+  "x": "Chia \"aller\" ở hiện tại rồi thêm động từ nguyên mẫu: \"je vais travailler\", \"nous allons manger\". Phủ định: \"je ne vais pas partir\". Đây là cách thường dùng để nói về kế hoạch khi nói chuyện. Ví dụ: \"je vais manger\", \"elle va partir\"."
+ },
+ "pres-pronominaux": {
+  "t": "Động từ phản thân",
+  "x": "Các động từ này có đại từ khớp với chủ ngữ: \"je me\", \"tu te\", \"il se\", \"nous nous\", \"vous vous\", \"ils se\". Ví dụ: \"se lever\", \"se coucher\", \"s'habiller\". Phủ định: \"je ne me lève pas\". Ví dụ: \"je me lève\", \"elle se couche\"."
+ },
+ "imperatif-present": {
+  "t": "Mệnh lệnh",
+  "x": "Dùng dạng hiện tại của \"tu\", \"nous\", \"vous\" và bỏ đại từ: \"tu parles\" thành \"parle !\", \"nous parlons\" thành \"parlons !\", \"vous parlez\" thành \"parlez !\". Động từ \"-er\" bỏ -s ở dạng \"tu\". Bất quy tắc: \"sois, soyons, soyez\", \"aie, ayons, ayez\". Ví dụ: \"parle !\", \"parlons !\", \"parlez !\"."
+ },
+ "modaux-pouvoir-vouloir": {
+  "t": "vouloir, pouvoir, devoir",
+  "x": "Ba động từ này đi với động từ nguyên mẫu: \"je veux manger\", \"tu peux venir\", \"nous devons partir\". Chúng bất quy tắc: \"je veux, nous voulons\", \"je peux, nous pouvons\", \"je dois, nous devons\". Ví dụ: \"je veux partir\", \"tu peux\", \"nous devons\"."
+ },
+ "prep-lieu": {
+  "t": "Giới từ chỉ vị trí",
+  "x": "Từ chỉ vị trí thường gặp: \"dans\" (trong), \"sur\" (trên), \"sous\" (dưới), \"devant\" (trước), \"derrière\" (sau), \"entre\" (giữa), \"à côté de\" (bên cạnh), \"près de\" (gần). Sau \"de\" nhớ rút gọn: \"à côté du parc\". Ví dụ: \"sur la table\", \"sous la table\", \"entre la poste et la banque\"."
+ },
+ "prep-a-chez-de": {
+  "t": "à, chez, de",
+  "x": "\"à\" dùng với thành phố và địa điểm: \"je vais à Lyon\". \"chez\" dùng với người hoặc nhà, cửa hàng của họ: \"chez le dentiste\", \"chez moi\". \"de\" chỉ nơi xuất phát: \"je viens de Lyon\". Ví dụ: \"chez Marie\", \"à Lyon\", \"de la gare\"."
+ },
+ "nombres": {
+  "t": "Số đếm",
+  "x": "Dạng đặc biệt: \"soixante-dix\" (70), \"quatre-vingts\" (80, có -s), \"quatre-vingt-dix\" (90). \"et\" xuất hiện ở 21, 31, 41, 51, 61, 71 nhưng không có ở 81 và 91. Dấu gạch nối nối hàng chục và hàng đơn vị. Ví dụ: \"vingt et un\", \"soixante-dix\", \"quatre-vingts\"."
+ },
+ "heure-date": {
+  "t": "Giờ và ngày",
+  "x": "Dùng \"il est\" + giờ: \"il est trois heures et quart\". \"midi\" và \"minuit\" đi với \"et demi\", các giờ khác dùng \"et demie\". Ngày: \"le 5 mai\", chỉ ngày 1 dùng số thứ tự: \"le premier mai\". Giờ đi với \"à\": \"à neuf heures\". Ví dụ: \"huit heures et demie\", \"le cinq mai\"."
+ },
+ "c-est-ce-sont": {
+  "t": "C'est, ce sont",
+  "x": "Dùng \"c'est\" + danh từ số ít và \"ce sont\" + danh từ số nhiều để giới thiệu, xác định: \"c'est un livre\", \"ce sont des livres\". Khi nói, \"c'est\" cũng hay dùng với số nhiều. Câu hỏi: \"qu'est-ce que c'est ?\" Ví dụ: \"c'est mon frère\", \"ce sont mes amis\"."
+ },
+ "gouts-aimer": {
+  "t": "Nói về sở thích",
+  "x": "Sau \"aimer\", \"adorer\", \"détester\" và \"préférer\" dùng mạo từ xác định, không dùng bộ phận: \"j'aime le café\", \"elle adore les chats\". Có thể thêm \"beaucoup\": \"j'aime beaucoup la musique\". Ví dụ: \"j'aime le chocolat\", \"je déteste les épinards\"."
+ },
+ "adv-intensite": {
+  "t": "Mức độ",
+  "x": "\"très\" đứng trước tính từ và trạng từ: \"très bien\". \"beaucoup\" đứng sau động từ: \"il travaille beaucoup\". Trước danh từ dùng \"beaucoup de\": \"beaucoup de fruits\". \"un peu\" và \"trop\" dùng giống \"beaucoup\". Ví dụ: \"très grand\", \"il mange beaucoup\", \"un peu\"."
+ },
+ "avoir-expressions": {
+  "t": "Cách nói với avoir",
+  "x": "Tiếng Pháp dùng \"avoir\", không dùng \"être\", để nói tuổi và nhiều cảm giác cơ thể: \"j'ai vingt ans\", \"j'ai faim\", \"j'ai soif\", \"j'ai chaud\", \"j'ai froid\", \"j'ai peur\", \"j'ai sommeil\". Thêm \"très\": \"j'ai très faim\". Ví dụ: \"j'ai faim\", \"elle a vingt ans\", \"il a froid\"."
+ },
+ "clause-et-mais-parce-que": {
+  "t": "Từ nối",
+  "x": "\"et\" thêm ý, \"ou\" đưa lựa chọn, \"mais\" đối lập, \"parce que\" nêu lý do. Trước nguyên âm \"parce que\" thành \"parce qu'\": \"parce qu'il pleut\". \"donc\" nêu kết quả. Ví dụ: \"et\", \"mais\", \"parce que\"."
+ },
+ "pc-avoir": {
+  "t": "Passé composé với avoir",
+  "x": "Đa số động từ tạo quá khứ bằng \"avoir\" ở hiện tại + quá khứ phân từ: \"j'ai mangé\", \"tu as fini\", \"il a vendu\". Phân từ: \"-er\" thành \"-é\", \"-ir\" thành \"-i\", \"-re\" thành \"-u\". Ví dụ: \"j'ai mangé\", \"nous avons fini\"."
+ },
+ "pc-etre": {
+  "t": "Passé composé với être",
+  "x": "Khoảng mười lăm động từ dùng \"être\": \"aller, venir, arriver, partir, entrer, sortir, monter, descendre, rester, tomber, naître, mourir, retourner, passer\" và mọi động từ phản thân. Có câu thần chú \"DR MRS VANDERTRAMP\" để nhớ. Ví dụ: \"je suis allé\", \"elle est partie\"."
+ },
+ "pc-accord-etre": {
+  "t": "Hòa hợp phân từ với être",
+  "x": "Với \"être\", phân từ hòa hợp với chủ ngữ: thêm \"-e\" cho giống cái, \"-s\" cho số nhiều. \"il est parti\", \"elle est partie\", \"ils sont partis\", \"elles sont parties\". Ví dụ: \"elle est partie\", \"ils sont venus\", \"elles sont allées\"."
+ },
+ "pc-pronominaux": {
+  "t": "Động từ phản thân ở quá khứ",
+  "x": "Động từ phản thân dùng \"être\", đại từ đứng trước: \"je me suis levé\", \"elle s'est couchée\", \"ils se sont promenés\". Phân từ thường hòa hợp với chủ ngữ. Ví dụ: \"je me suis levé\", \"elle s'est couchée\"."
+ },
+ "pc-negation": {
+  "t": "Phủ định ở quá khứ",
+  "x": "Đặt \"ne … pas\" quanh trợ động từ, không phải quanh phân từ: \"je n'ai pas mangé\", \"elle n'est pas venue\". Tương tự với \"jamais\", \"plus\", \"rien\": \"il n'a rien dit\". Ví dụ: \"je n'ai pas mangé\", \"il n'est jamais venu\"."
+ },
+ "pc-participes-irreguliers": {
+  "t": "Phân từ bất quy tắc",
+  "x": "Cần nhớ: \"avoir\" thành \"eu\", \"être\" thành \"été\", \"faire\" thành \"fait\", \"prendre\" thành \"pris\", \"voir\" thành \"vu\", \"dire\" thành \"dit\", \"écrire\" thành \"écrit\", \"mettre\" thành \"mis\", \"pouvoir\" thành \"pu\", \"vouloir\" thành \"voulu\". Ví dụ: \"j'ai eu\", \"j'ai été\", \"il a fait\", \"elle a pris\"."
+ },
+ "imparfait-formation": {
+  "t": "Imparfait: cách chia",
+  "x": "Lấy dạng \"nous\" ở hiện tại, bỏ \"-ons\", thêm \"-ais, -ais, -ait, -ions, -iez, -aient\": \"nous parlons\" thành \"je parlais\". Chỉ \"être\" bất quy tắc: \"j'étais, nous étions\". Ví dụ: \"je jouais\", \"nous allions\", \"il était\"."
+ },
+ "imparfait-usage": {
+  "t": "Imparfait: khi nào dùng",
+  "x": "Dùng \"imparfait\" cho bối cảnh của câu chuyện: thời tiết, cảm xúc, miêu tả và thói quen lặp lại. \"Il faisait beau\", \"j'étais fatigué\", \"chaque été, nous allions à la mer\". Ví dụ: \"il faisait beau\", \"je jouais\", \"nous habitions\"."
+ },
+ "impf-vs-pc": {
+  "t": "Imparfait hay passé composé?",
+  "x": "\"Imparfait\": điều đang diễn ra, bối cảnh. \"Passé composé\": điều xảy ra, một sự kiện đẩy câu chuyện tiến lên. \"Je lisais quand le téléphone a sonné\": việc đọc đang diễn ra, tiếng chuông cắt ngang. Ví dụ: \"je dormais\", \"le téléphone a sonné\"."
+ },
+ "futur-simple": {
+  "t": "Futur simple",
+  "x": "Lấy động từ nguyên mẫu (bỏ -e cuối của động từ \"-re\") rồi thêm \"-ai, -as, -a, -ons, -ez, -ont\": \"parler\" thành \"je parlerai\", \"prendre\" thành \"je prendrai\". Ví dụ: \"je parlerai\", \"nous prendrons\", \"ils finiront\"."
+ },
+ "futur-irreguliers": {
+  "t": "Gốc tương lai bất quy tắc",
+  "x": "Đuôi giữ nguyên nhưng gốc từ đổi: \"aller\" thành \"ir-\", \"être\" thành \"ser-\", \"avoir\" thành \"aur-\", \"faire\" thành \"fer-\", \"venir\" thành \"viendr-\", \"pouvoir\" thành \"pourr-\", \"voir\" thành \"verr-\", \"vouloir\" thành \"voudr-\". Ví dụ: \"j'irai\", \"il fera\", \"ils viendront\"."
+ },
+ "conditionnel-politesse": {
+  "t": "Điều kiện lịch sự",
+  "x": "Thức \"conditionnel\" làm lời yêu cầu nhẹ nhàng hơn: \"je voudrais\" (tôi muốn), \"pourriez-vous\" (anh/chị có thể), \"j'aimerais\" (tôi rất muốn). Cách tạo: gốc tương lai + đuôi imparfait \"-ais, -ais, -ait, -ions, -iez, -aient\". Ví dụ: \"je voudrais\", \"pourriez-vous\", \"nous aimerions\"."
+ },
+ "cod-pronoms": {
+  "t": "Đại từ bổ ngữ trực tiếp",
+  "x": "\"le\", \"la\", \"l'\" và \"les\" thay cho danh từ không có giới từ và đứng trước động từ: \"je vois Paul\" thành \"je le vois\". Phủ định: \"je ne le vois pas\". Ví dụ: \"je le vois\", \"elle la prend\", \"tu les aimes\"."
+ },
+ "coi-pronoms": {
+  "t": "Đại từ bổ ngữ gián tiếp",
+  "x": "Với người đứng sau \"à\", dùng \"lui\" (anh ấy, cô ấy) và \"leur\" (họ): \"je parle à Marie\" thành \"je lui parle\", \"je téléphone à mes parents\" thành \"je leur téléphone\". \"leur\" ở đây không bao giờ có -s. Ví dụ: \"je lui parle\", \"elle leur écrit\"."
+ },
+ "pronoms-me-te-nous-vous": {
+  "t": "me, te, nous, vous",
+  "x": "Bốn đại từ này dùng cho cả bổ ngữ trực tiếp và gián tiếp: \"il me voit\", \"il me parle\". Trước nguyên âm \"me\" và \"te\" thành \"m'\" và \"t'\": \"je t'aime\", \"il m'écoute\". Ví dụ: \"il me voit\", \"elle nous parle\"."
+ },
+ "y-pronom": {
+  "t": "Đại từ y",
+  "x": "\"y\" thay cho \"à\" + vật hoặc một nơi chốn: \"je vais à Rome\" thành \"j'y vais\". Nó đứng trước động từ: \"nous y allons\", \"je n'y vais pas\". Cũng có \"j'y pense\". Ví dụ: \"j'y vais\", \"nous y allons\"."
+ },
+ "en-pronom": {
+  "t": "Đại từ en",
+  "x": "\"en\" thay cho \"du, de la, des\" + danh từ hoặc \"de\" + danh từ. Giữ lại số lượng: \"j'ai deux frères\" thành \"j'en ai deux\". Phủ định: \"je n'en veux pas\". Ví dụ: \"j'en veux\", \"nous en avons deux\"."
+ },
+ "pronoms-toniques": {
+  "t": "Đại từ nhấn mạnh",
+  "x": "Dùng \"moi, toi, lui, elle, nous, vous, eux, elles\" sau giới từ (\"avec moi\", \"chez eux\"), để nhấn mạnh (\"moi, je\") và khi đứng một mình (\"Qui est là ? Moi !\"). Cũng dùng sau \"c'est\": \"c'est lui\". Ví dụ: \"avec moi\", \"chez lui\", \"eux\"."
+ },
+ "comparatifs": {
+  "t": "So sánh hơn kém",
+  "x": "Dùng \"plus … que\" (hơn), \"moins … que\" (kém) và \"aussi … que\" (bằng) quanh tính từ hoặc trạng từ: \"elle est plus rapide que lui\". Với danh từ dùng \"plus de … que\". Ví dụ: \"plus grand que\", \"moins cher que\", \"aussi rapide que\"."
+ },
+ "superlatifs": {
+  "t": "So sánh nhất",
+  "x": "Đặt mạo từ xác định trước \"plus\" hoặc \"moins\": \"le plus grand\", \"la plus belle\", \"les moins chers\". Chữ 'trong' dịch là \"de\": \"le plus grand de la classe\". Ví dụ: \"le plus grand\", \"la plus belle\", \"les moins chers\"."
+ },
+ "meilleur-mieux": {
+  "t": "meilleur hay mieux?",
+  "x": "\"bon\" thành \"meilleur\" (tính từ, có hòa hợp): \"une meilleure idée\". \"bien\" thành \"mieux\" (trạng từ, không đổi): \"elle chante mieux\". Không bao giờ nói \"plus bon\" hay \"plus bien\". Ví dụ: \"meilleur\", \"mieux\", \"la meilleure idée\"."
+ },
+ "adverbes-ment": {
+  "t": "Trạng từ đuôi -ment",
+  "x": "Thêm \"-ment\" vào tính từ giống cái: \"lent\" thành \"lentement\", \"heureux\" thành \"heureusement\". Sau nguyên âm, thêm vào dạng giống đực: \"vrai\" thành \"vraiment\". \"-ent\" thành \"-emment\": \"prudent\" thành \"prudemment\". Ví dụ: \"lentement\", \"vraiment\", \"prudemment\"."
+ },
+ "prep-pays-villes": {
+  "t": "Quốc gia và thành phố",
+  "x": "Thành phố: \"à Paris\", \"de Paris\". Nước giống cái: \"en France\", \"de France\". Nước giống đực: \"au Japon\", \"du Japon\". Nước số nhiều: \"aux États-Unis\", \"des États-Unis\". Ví dụ: \"en France\", \"au Japon\", \"aux États-Unis\", \"à Paris\"."
+ },
+ "depuis-pendant-il-y-a": {
+  "t": "depuis, pendant, il y a",
+  "x": "\"depuis\" + hiện tại: việc còn tiếp diễn (\"j'habite ici depuis deux ans\"). \"pendant\" + khoảng thời gian: kéo dài bao lâu (\"j'ai dormi pendant huit heures\"). \"il y a\" + khoảng thời gian: cách đây bao lâu (\"il est parti il y a une heure\"). Ví dụ: \"depuis deux ans\", \"pendant trois heures\", \"il y a une heure\"."
+ },
+ "passe-recent": {
+  "t": "Quá khứ gần: venir de",
+  "x": "Chia \"venir\" ở hiện tại rồi thêm \"de\" + động từ nguyên mẫu: \"je viens de finir\", \"nous venons de partir\". Trước nguyên âm \"de\" thành \"d'\": \"il vient d'arriver\". Ví dụ: \"je viens de manger\", \"ils viennent de partir\"."
+ },
+ "imperatif-negatif": {
+  "t": "Mệnh lệnh phủ định",
+  "x": "Đặt \"ne … pas\" quanh động từ mệnh lệnh: \"ne pars pas !\", \"ne partons pas !\", \"ne partez pas !\". Đại từ vẫn đứng trước động từ: \"ne le fais pas !\". Ví dụ: \"ne parle pas\", \"ne partez pas\"."
+ },
+ "imperatif-pronoms": {
+  "t": "Mệnh lệnh với đại từ",
+  "x": "Ở mệnh lệnh khẳng định, đại từ đứng sau động từ và nối bằng gạch nối: \"regarde-moi\", \"parlez-nous\", \"dis-lui\". \"me\" thành \"moi\". Phủ định giữ trật tự thường: \"ne me regarde pas\". Ví dụ: \"regarde-moi\", \"dis-lui\", \"donne-le-moi\"."
+ },
+ "rel-qui-que": {
+  "t": "qui và que",
+  "x": "\"qui\" thay cho chủ ngữ: \"la femme qui habite ici\". \"que\" thay cho tân ngữ trực tiếp: \"le film que nous regardons\". \"que\" thành \"qu'\" trước nguyên âm: \"le livre qu'il lit\". Ví dụ: \"l'homme qui parle\", \"le livre que je lis\"."
+ },
+ "rel-ou": {
+  "t": "où: nơi, lúc",
+  "x": "\"où\" nối một nơi chốn hoặc thời điểm với mệnh đề: \"la maison où elle habite\", \"le jour où nous sommes partis\". Dùng được cho cả nơi chốn lẫn thời gian. Ví dụ: \"la ville où j'habite\", \"le jour où\"."
+ },
+ "il-faut": {
+  "t": "il faut",
+  "x": "\"il faut\" + động từ nguyên mẫu nghĩa là 'phải': \"il faut partir\". \"il faut\" + danh từ nghĩa là 'cần': \"il faut du temps\". Phủ định \"il ne faut pas\" nghĩa là 'không được'. Đây là động từ vô nhân xưng, chỉ có \"il\". Ví dụ: \"il faut travailler\", \"il faut du temps\"."
+ },
+ "neg-jamais-plus-rien": {
+  "t": "jamais, plus, rien, personne",
+  "x": "Chúng thay cho \"pas\": \"ne … jamais\" (không bao giờ), \"ne … plus\" (không còn), \"ne … rien\" (không gì), \"ne … personne\" (không ai). \"rien\" và \"personne\" cũng có thể là chủ ngữ: \"personne ne vient\". Ví dụ: \"je ne mange jamais\", \"il ne travaille plus\", \"nous ne voyons personne\"."
+ },
+ "quantite-de": {
+  "t": "Từ chỉ số lượng + de",
+  "x": "Sau từ chỉ số lượng dùng \"de\", không có mạo từ: \"beaucoup de travail\", \"un peu de sucre\", \"assez de temps\", \"trop de monde\", \"peu de gens\", \"une bouteille d'eau\". Ví dụ: \"beaucoup de travail\", \"un peu de sucre\", \"trop de monde\"."
+ },
+ "c-est-il-est": {
+  "t": "c'est hay il est?",
+  "x": "Dùng \"il est\" / \"elle est\" + tính từ hoặc nghề nghiệp đứng một mình: \"il est médecin\", \"elle est gentille\". Dùng \"c'est\" khi có mạo từ hoặc từ sở hữu: \"c'est un médecin\", \"c'est mon frère\". Ví dụ: \"c'est un médecin\", \"il est médecin\", \"elle est gentille\"."
+ },
+ "q-inversion": {
+  "t": "Đảo ngữ",
+  "x": "Trong văn phong chuẩn, động từ đứng trước đại từ chủ ngữ và nối bằng gạch nối: \"parlez-vous ?\", \"où vas-tu ?\", \"que font-ils ?\". Nếu động từ kết thúc bằng nguyên âm, thêm \"-t-\": \"aime-t-il ?\". Ví dụ: \"parlez-vous\", \"où vas-tu\", \"que font-ils\"."
+ },
+ "q-qui-que-quoi": {
+  "t": "Hỏi ai, hỏi cái gì",
+  "x": "\"qui\" hỏi về người, \"que\" và \"qu'est-ce que\" hỏi về vật: \"qu'est-ce que tu fais ?\". Sau giới từ dùng \"qui\" (người) hoặc \"quoi\" (vật): \"avec qui ?\", \"de quoi parles-tu ?\". Ví dụ: \"qui est-ce ?\", \"qu'est-ce que tu fais ?\", \"de quoi parles-tu ?\"."
+ },
+ "adj-irreguliers": {
+  "t": "beau, nouveau, vieux",
+  "x": "Ba tính từ này có dạng riêng trước danh từ giống đực bắt đầu bằng nguyên âm: \"beau\" thành \"bel\", \"nouveau\" thành \"nouvel\", \"vieux\" thành \"vieil\". Giống cái: \"belle\", \"nouvelle\", \"vieille\". Số nhiều: \"beaux\", \"nouveaux\", \"vieux\". Ví dụ: \"un bel homme\", \"une nouvelle voiture\", \"un vieil ami\"."
+ },
+ "connecteurs-temps": {
+  "t": "Trước, sau, cuối cùng",
+  "x": "\"d'abord\" (trước tiên), \"ensuite\" hoặc \"puis\" (sau đó), \"après\" (rồi), \"enfin\" (cuối cùng) sắp xếp các hành động theo thứ tự: \"d'abord je mange, puis je pars, enfin j'arrive\". Ví dụ: \"d'abord\", \"ensuite\", \"puis\", \"enfin\"."
+ },
+ "si-present-futur": {
+  "t": "si + hiện tại, tương lai",
+  "x": "Với khả năng có thật: \"si\" + hiện tại ở vế điều kiện, tương lai (hoặc mệnh lệnh) ở vế kết quả. \"si tu viens, je serai content\", \"si vous avez le temps, appelez-moi\". Không dùng tương lai sau \"si\". Trước \"il\" là \"s'il\". Ví dụ: \"si tu viens, nous mangerons\", \"s'il pleut, je resterai\"."
+ },
+ "savoir-connaitre": {
+  "t": "savoir hay connaître?",
+  "x": "\"savoir\" dùng cho sự việc và kỹ năng: \"je sais nager\", \"je sais où il habite\". \"connaître\" dùng cho việc quen biết người, nơi chốn, sự vật: \"je connais Marie\", \"je connais cette ville\". Ví dụ: \"je sais nager\", \"je connais Paris\"."
+ },
+ "pres-irreguliers-2": {
+  "t": "Thêm động từ bất quy tắc",
+  "x": "Học theo nhóm: \"lire\" (\"nous lisons\"), \"dire\" (\"vous dites\"), \"écrire\" (\"ils écrivent\"), \"voir\" (\"nous voyons\"), \"boire\" (\"ils boivent\"). Dạng \"nous\" giúp tạo imparfait. Ví dụ: \"nous lisons\", \"vous dites\", \"ils écrivent\"."
+ },
+ "meteo-il": {
+  "t": "Thời tiết",
+  "x": "Dùng \"il fait\" + tính từ (\"il fait beau, froid, chaud\") và động từ cho mưa, tuyết (\"il pleut\", \"il neige\"). Chủ ngữ \"il\" chỉ là hình thức và không đổi. Câu hỏi: \"quel temps fait-il ?\" Ví dụ: \"il fait beau\", \"il pleut\", \"il neige\"."
+ },
+ "profession-sans-article": {
+  "t": "Nghề nghiệp không mạo từ",
+  "x": "Sau \"être\", nghề nghiệp, quốc tịch, tôn giáo không có mạo từ: \"il est médecin\", \"elle est française\". Khi có tính từ, dùng \"c'est un\": \"c'est un bon médecin\". Ví dụ: \"elle est infirmière\", \"il est professeur\"."
+ },
+ "subj-il-faut-que": {
+  "t": "Subjonctif sau il faut que",
+  "x": "Sau \"il faut que\" dùng subjonctif. Động từ thường: lấy gốc \"ils\" ở hiện tại rồi thêm \"-e, -es, -e, -ions, -iez, -ent\": \"ils partent\" thành \"que je parte\". Dạng \"nous\" và \"vous\" giống imparfait. Ví dụ: \"il faut que tu viennes\", \"il faut que je parte\"."
+ },
+ "subj-vouloir-que": {
+  "t": "vouloir que + subjonctif",
+  "x": "Khi chủ ngữ đổi, \"vouloir que\", \"préférer que\", \"aimer mieux que\", \"demander que\" đi với subjonctif: \"je veux que tu viennes\". Nếu chủ ngữ giống nhau, dùng nguyên mẫu: \"je veux venir\". Ví dụ: \"je veux que tu viennes\", \"elle veut que nous partions\"."
+ },
+ "subj-irreguliers": {
+  "t": "Subjonctif bất quy tắc",
+  "x": "Cần học thuộc: \"être\" (\"que je sois\"), \"avoir\" (\"que j'aie, qu'il ait\"), \"aller\" (\"que j'aille\"), \"faire\" (\"que je fasse\"), \"pouvoir\" (\"que je puisse\"), \"savoir\" (\"que je sache\"), \"vouloir\" (\"que je veuille\"). Ví dụ: \"que je sois\", \"qu'il ait\", \"que nous allions\", \"qu'ils fassent\"."
+ },
+ "subj-emotions": {
+  "t": "Cảm xúc + subjonctif",
+  "x": "Sau các cách diễn đạt cảm xúc (\"être content que\", \"être triste que\", \"regretter que\", \"avoir peur que\", \"être surpris que\") dùng subjonctif khi chủ ngữ đổi. Ví dụ: \"je suis content que tu sois là\", \"elle regrette que nous partions\"."
+ },
+ "subj-vs-indic": {
+  "t": "Chỉ định hay subjonctif?",
+  "x": "Điều chắc chắn dùng indicatif: \"je pense que\", \"je sais que\", \"il est sûr que\". Nghi ngờ, phủ nhận và ý muốn dùng subjonctif: \"je ne pense pas que\", \"je doute que\", \"il faut que\". \"Penser que\" trong câu hỏi dùng được cả hai. Ví dụ: \"je pense qu'il a raison\", \"je ne pense pas qu'il ait raison\"."
+ },
+ "subj-conjonctions": {
+  "t": "Liên từ + subjonctif",
+  "x": "Một số liên từ luôn đi với subjonctif: \"pour que\" (để), \"avant que\" (trước khi), \"bien que\" (mặc dù), \"à condition que\" (với điều kiện), \"jusqu'à ce que\" (cho đến khi). \"après que\" dùng indicatif. Ví dụ: \"pour que tu comprennes\", \"avant que tu partes\", \"bien qu'il soit fatigué\"."
+ },
+ "si-imparfait-cond": {
+  "t": "si + imparfait, conditionnel",
+  "x": "Cho tình huống tưởng tượng hoặc ít khả năng: \"si\" + imparfait, vế kết quả dùng conditionnel. \"si j'étais riche, je voyagerais\". Không dùng conditionnel sau \"si\". Ví dụ: \"si j'avais de l'argent\", \"j'achèterais une maison\"."
+ },
+ "cond-usage": {
+  "t": "Conditionnel: lời khuyên, mong muốn",
+  "x": "Thức \"conditionnel\" dùng để khuyên (\"tu devrais\"), nói mong muốn (\"j'aimerais\") và đề nghị lịch sự (\"on pourrait\"). Rất thường gặp với \"devoir\", \"pouvoir\" và \"vouloir\". Ví dụ: \"tu devrais dormir\", \"nous aimerions voyager\"."
+ },
+ "cond-passe-regret": {
+  "t": "Hối tiếc về quá khứ",
+  "x": "Cho điều đã không xảy ra: \"si\" + plus-que-parfait, conditionnel passé. \"si tu avais étudié, tu aurais réussi\". Conditionnel passé là \"avoir\" hoặc \"être\" ở conditionnel + quá khứ phân từ. Ví dụ: \"si j'avais su\", \"je serais venu\"."
+ },
+ "plus-que-parfait-forme": {
+  "t": "Plus-que-parfait: cách chia",
+  "x": "Trợ động từ ở \"imparfait\" + quá khứ phân từ: \"j'avais mangé\", \"elle était partie\", \"nous nous étions levés\". Quy tắc chọn \"avoir\" hay \"être\" và hòa hợp giống như passé composé. Ví dụ: \"j'avais fini\", \"nous étions partis\", \"elle avait mangé\"."
+ },
+ "plus-que-parfait-usage": {
+  "t": "Plus-que-parfait: cách dùng",
+  "x": "Dùng \"plus-que-parfait\" cho hành động xảy ra trước một hành động hoặc mốc quá khứ khác: \"quand je suis arrivé, il était déjà parti\". Thường dùng để giải thích nguyên nhân: \"il était fatigué, il n'avait pas dormi\". Ví dụ: \"le film avait déjà commencé\", \"il n'avait pas dormi\"."
+ },
+ "di-present": {
+  "t": "Lời nói gián tiếp (hiện tại)",
+  "x": "Với \"dire que\", \"répondre que\", \"expliquer que\" ở hiện tại, thì của mệnh đề phụ không đổi, chỉ đổi đại từ và từ như \"mon\": \"« j'ai faim »\" thành \"il dit qu'il a faim\". Ví dụ: \"il dit qu'il est fatigué\", \"elle répond qu'elle ne sait pas\"."
+ },
+ "di-questions": {
+  "t": "Câu hỏi gián tiếp",
+  "x": "Câu hỏi có/không dùng \"si\": \"il demande si tu viens\". Từ để hỏi giữ nguyên: \"où, quand, comment, pourquoi\". \"Qu'est-ce que\" thành \"ce que\", \"qu'est-ce qui\" thành \"ce qui\". Trật tự từ như câu khẳng định. Ví dụ: \"il demande si je viens\", \"elle demande où j'habite\"."
+ },
+ "di-passe": {
+  "t": "Lời nói gián tiếp (quá khứ)",
+  "x": "Sau \"a dit que\" các thì lùi về: présent thành \"imparfait\", futur thành \"conditionnel\", passé composé thành \"plus-que-parfait\". Từ chỉ thời gian cũng đổi: \"demain\" thành \"le lendemain\". Ví dụ: \"il a dit qu'il était fatigué\", \"elle a répondu qu'elle viendrait\"."
+ },
+ "gerondif-formation": {
+  "t": "Gérondif: cách tạo",
+  "x": "Lấy dạng \"nous\" ở hiện tại, bỏ \"-ons\", thêm \"-ant\" và đặt \"en\" phía trước: \"nous travaillons\" thành \"en travaillant\". Ngoại lệ: \"être\" thành \"en étant\", \"avoir\" thành \"en ayant\", \"savoir\" thành \"en sachant\". Ví dụ: \"en travaillant\", \"en lisant\", \"en finissant\"."
+ },
+ "gerondif-usage": {
+  "t": "Gérondif: cách dùng",
+  "x": "Thể \"gérondif\" cho biết hai hành động xảy ra cùng lúc (\"il chante en travaillant\"), cách thức (\"on apprend en lisant\") hoặc điều kiện (\"en tournant à gauche, vous verrez la poste\"). Hai động từ có cùng chủ ngữ. Ví dụ: \"on apprend en lisant\", \"il s'est blessé en jouant\"."
+ },
+ "rel-dont": {
+  "t": "dont: mà, của người mà",
+  "x": "\"dont\" thay cho \"de\" + danh từ: \"je parle de ce livre\" thành \"le livre dont je parle\". Còn nghĩa 'mà … của': \"la fille dont le père est médecin\". Cũng dùng với \"avoir besoin de\": \"ce dont j'ai besoin\". Ví dụ: \"le livre dont je parle\", \"la fille dont le père est médecin\"."
+ },
+ "rel-ce-qui-ce-que": {
+  "t": "ce qui, ce que, ce dont",
+  "x": "Khi không có danh từ đứng trước, dùng \"ce qui\" (chủ ngữ), \"ce que\" (tân ngữ) và \"ce dont\" (với \"de\"): \"ce qui se passe\", \"ce que tu veux\", \"ce dont j'ai besoin\". Ví dụ: \"ce que tu veux\", \"ce qui se passe\", \"ce dont j'ai besoin\"."
+ },
+ "pronoms-ordre": {
+  "t": "Hai đại từ cùng lúc",
+  "x": "Trật tự trước động từ: \"me, te, nous, vous\" + \"le, la, les\" + \"lui, leur\" + \"y\" + \"en\". \"me le\", \"te la\", \"nous les\", nhưng \"le lui\", \"les leur\": \"je le lui donne\". Ví dụ: \"je le lui donne\", \"elle me les envoie\"."
+ },
+ "y-en-ensemble": {
+  "t": "il y en a",
+  "x": "Khi có cả \"y\" và \"en\", \"y\" đứng trước: \"il y en a\", \"il n'y en a plus\". \"en\" giữ lại số lượng: \"il y en a trois\". Ví dụ: \"il y en a\", \"nous y en avons\"."
+ },
+ "imperatif-ordre-pronoms": {
+  "t": "Mệnh lệnh: trật tự đại từ",
+  "x": "Khẳng định: động từ + bổ ngữ trực tiếp (\"le, la, les\") + gián tiếp (\"moi, lui, nous, leur\") + \"y\" / \"en\": \"donne-le-moi\", \"dis-le-lui\". \"moi\" thành \"m'\" trước \"en\": \"donne-m'en\". Phủ định: trật tự thường, \"ne me le donne pas\". Ví dụ: \"donne-le-moi\", \"dis-le-lui\", \"donne-m'en\"."
+ },
+ "pronoms-possessifs": {
+  "t": "Đại từ sở hữu",
+  "x": "Chúng thay cho từ sở hữu + danh từ và hòa hợp với danh từ: \"le mien, la mienne, les miens, les miennes\", \"le tien\", \"le sien\", \"le nôtre\", \"le vôtre\", \"le leur\". \"Où est ma clé ? — Voici la mienne.\" Ví dụ: \"le mien\", \"la tienne\", \"les nôtres\"."
+ },
+ "pronoms-demonstratifs": {
+  "t": "celui, celle, ceux, celles",
+  "x": "Chúng thay cho 'cái đó' và theo sau là \"de\", \"qui\", \"que\" hoặc \"-ci / -là\": \"celui de gauche\", \"celle qui est ici\", \"ceux de Marc\", \"celles-là\". Ví dụ: \"celui de gauche\", \"celle qui est ici\", \"ceux de Marc\"."
+ },
+ "pronoms-indefinis": {
+  "t": "Đại từ bất định",
+  "x": "\"quelqu'un\" (ai đó), \"quelque chose\" (cái gì đó), \"personne\" (không ai), \"rien\" (không gì), \"chacun\" (mỗi người), \"plusieurs\" (nhiều). Trước tính từ dùng \"de\": \"quelque chose de bon\". Ví dụ: \"quelqu'un\", \"quelque chose de sucré\", \"chacun\"."
+ },
+ "adj-indefinis": {
+  "t": "chaque, plusieurs, quelques",
+  "x": "\"chaque\" + danh từ số ít (mỗi), \"plusieurs\" và \"quelques\" + danh từ số nhiều (vài, một ít). \"tout\" hòa hợp: \"tout le monde\", \"toute la journée\", \"tous les jours\", \"toutes les semaines\". Ví dụ: \"chaque élève\", \"plusieurs voitures\", \"toute la journée\"."
+ },
+ "pc-accord-cod": {
+  "t": "Hòa hợp phân từ với avoir",
+  "x": "Với \"avoir\", phân từ chỉ hòa hợp với tân ngữ trực tiếp khi nó đứng trước động từ: \"j'ai acheté des fleurs\" nhưng \"les fleurs que j'ai achetées\", \"je les ai vues\". Ví dụ: \"les fleurs que j'ai achetées\", \"je les ai vues\"."
+ },
+ "passif-forme": {
+  "t": "Câu bị động",
+  "x": "\"être\" (ở thì cần dùng) + quá khứ phân từ hòa hợp với chủ ngữ + \"par\": \"la lettre est écrite par Paul\", \"les maisons ont été détruites par le feu\". Tân ngữ của câu chủ động thành chủ ngữ. Ví dụ: \"le roman est écrit par\", \"la porte est ouverte par\"."
+ },
+ "se-passif": {
+  "t": "Bị động với se",
+  "x": "Động từ ngôi thứ ba kèm \"se\" mang nghĩa bị động, không nêu chủ thể: \"le vin se vend ici\", \"ça ne se dit pas\", \"cela se voit\". Rất thường gặp khi nói và trong quy tắc. Ví dụ: \"ça se dit\", \"ce produit se vend partout\"."
+ },
+ "etre-en-train-de": {
+  "t": "être en train de",
+  "x": "\"être en train de\" + động từ nguyên mẫu nhấn mạnh hành động đang diễn ra ngay lúc này: \"je suis en train de lire\". Tương đương '-ing' của tiếng Anh khi muốn nhấn mạnh: \"ne l'appelle pas, il est en train de dormir\". Ví dụ: \"je suis en train de manger\", \"ils sont en train de partir\"."
+ },
+ "pc-avoir-transitif": {
+  "t": "Một động từ, hai trợ động từ",
+  "x": "Khi \"sortir, monter, descendre, passer, rentrer, retourner\" có tân ngữ trực tiếp, trợ động từ là \"avoir\": \"j'ai sorti la voiture\", \"elle a monté les escaliers\". Không có tân ngữ thì dùng \"être\": \"elle est sortie\". Ví dụ: \"il a sorti la valise\", \"elle a monté les escaliers\"."
+ },
+ "futur-anterieur": {
+  "t": "Futur antérieur",
+  "x": "\"avoir\" hoặc \"être\" ở futur simple + quá khứ phân từ: \"j'aurai fini\", \"elle sera partie\". Diễn tả hành động đã hoàn tất trước một hành động tương lai khác: \"quand j'aurai fini, je t'appellerai\". Ví dụ: \"quand j'aurai fini\", \"dès qu'elle sera arrivée\"."
+ },
+ "quand-futur": {
+  "t": "quand + tương lai",
+  "x": "Khác với tiếng Anh, tiếng Pháp dùng tương lai sau \"quand\", \"dès que\", \"lorsque\", \"aussitôt que\" khi hành động ở tương lai: \"dès qu'il arrivera, nous partirons\". \"Si\" là ngoại lệ: không bao giờ đi với tương lai. Ví dụ: \"quand je serai grand\", \"dès qu'il arrivera\"."
+ },
+ "connecteurs-cause-consequence": {
+  "t": "Nguyên nhân và kết quả",
+  "x": "\"car\" và \"parce que\" nêu lý do; \"comme\" và \"puisque\" đứng đầu câu với lý do đã biết: \"comme il pleut, je reste\". \"donc\" và \"alors\" nêu kết quả: \"il pleut, donc je reste\". Ví dụ: \"donc\", \"car\", \"comme\", \"puisque\"."
+ },
+ "connecteurs-opposition": {
+  "t": "Đối lập",
+  "x": "\"mais\", \"pourtant\" và \"cependant\" đối lập hai ý. \"alors que\" so sánh hai sự việc: \"elle aime le thé, alors que son mari préfère le café\". \"malgré\" + danh từ nghĩa là 'mặc dù': \"malgré la pluie\". Ví dụ: \"pourtant\", \"alors que\", \"malgré la pluie\"."
+ },
+ "but-pour-afin-de": {
+  "t": "Mục đích",
+  "x": "Cùng chủ ngữ: \"pour\" hoặc \"afin de\" + động từ nguyên mẫu: \"je travaille pour gagner de l'argent\". Khác chủ ngữ: \"pour que\" hoặc \"afin que\" + subjonctif: \"il parle lentement pour que nous comprenions\". Ví dụ: \"pour gagner de l'argent\", \"afin de rentrer\", \"pour que nous comprenions\"."
+ },
+ "neg-ne-que-ni": {
+  "t": "ne … que, ni … ni, aucun",
+  "x": "\"ne … que\" nghĩa là 'chỉ': \"je n'ai que dix euros\". \"ne … ni … ni\" nghĩa là 'không … cũng không': \"elle ne mange ni viande ni poisson\". \"ne … aucun\" nghĩa là 'không … nào': \"il n'a aucun ami\". Ví dụ: \"je n'ai que dix euros\", \"ni viande ni poisson\", \"aucun ami\"."
+ },
+ "neg-infinitif": {
+  "t": "Phủ định với nguyên mẫu",
+  "x": "Cả hai phần của phủ định đứng cùng nhau trước động từ nguyên mẫu: \"ne pas partir\", \"ne plus fumer\", \"ne jamais mentir\". \"Il m'a demandé de ne pas fumer\". Ví dụ: \"ne pas fumer\", \"ne plus travailler\", \"ne jamais mentir\"."
+ },
+ "q-lequel": {
+  "t": "Lequel: cái nào",
+  "x": "\"lequel\" thay cho \"quel\" + danh từ và hòa hợp: \"lequel\" (đực, số ít), \"laquelle\" (cái, số ít), \"lesquels\" (đực, nhiều), \"lesquelles\" (cái, nhiều). \"Quel sac ? Lequel ?\" Sau \"à\" và \"de\": \"auquel\", \"duquel\". Ví dụ: \"lequel\", \"laquelle\", \"lesquels\"."
+ },
+ "exclamations": {
+  "t": "Câu cảm thán",
+  "x": "\"quel\" + danh từ: \"quelle belle journée !\". \"comme\" hoặc \"que\" + mệnh đề: \"comme il fait chaud !\", \"que c'est joli !\". Chú ý có khoảng trắng trước \"!\" trong tiếng Pháp. Ví dụ: \"quelle belle journée !\", \"comme il fait chaud !\", \"que c'est joli !\"."
+ },
+ "adv-place-pc": {
+  "t": "Vị trí trạng từ trong passé composé",
+  "x": "Trạng từ ngắn thông dụng (\"déjà, bien, mal, souvent, toujours, encore, trop, beaucoup\") đứng giữa trợ động từ và phân từ: \"j'ai déjà mangé\", \"il a bien compris\". Trạng từ chỉ nơi chốn và trạng từ dài đứng sau. Ví dụ: \"elle a déjà fini\", \"il a bien compris\"."
+ },
+ "comparatifs-avances": {
+  "t": "Càng ngày càng, càng … càng",
+  "x": "\"de plus en plus\" (càng ngày càng), \"de moins en moins\" (ngày càng ít), \"plus … plus\" (càng … càng), \"autant de … que\" (nhiều bằng): \"elle a autant de livres que moi\". Ví dụ: \"de plus en plus froid\", \"plus on travaille, plus on apprend\", \"autant de livres\"."
+ },
+ "prep-verbes": {
+  "t": "Động từ đi với giới từ",
+  "x": "Nhiều động từ cần giới từ cố định: \"penser à\", \"s'intéresser à\", \"répondre à\", \"parler de\", \"avoir besoin de\", \"avoir envie de\", \"rêver de\". Hãy học kèm theo động từ. Ví dụ: \"penser à\", \"parler de\", \"avoir besoin de\", \"s'intéresser à\"."
+ },
+ "prep-temps-en-dans": {
+  "t": "en hay dans?",
+  "x": "\"dans\" + khoảng thời gian: bao lâu nữa thì xảy ra, tính từ bây giờ (\"le film commence dans une heure\"). \"en\" + khoảng thời gian: mất bao lâu (\"il a lu ce livre en deux jours\"). \"en\" còn đi với tháng, năm: \"en mai\", \"en 1998\". Ví dụ: \"dans une heure\", \"en deux jours\"."
+ },
+ "inf-apres-prepositions": {
+  "t": "Giới từ + động từ nguyên mẫu",
+  "x": "\"avant de\" + nguyên mẫu, \"après\" + nguyên mẫu quá khứ (\"avoir\" hoặc \"être\" + phân từ), \"sans\" + nguyên mẫu: \"avant de partir\", \"après avoir mangé\", \"sans dire au revoir\". Chủ ngữ phải giống nhau. Ví dụ: \"avant de manger\", \"après avoir mangé\", \"sans dire\"."
+ },
+ "faire-causatif": {
+  "t": "faire + nguyên mẫu",
+  "x": "\"faire\" + nguyên mẫu nghĩa là nhờ người làm việc gì (\"je fais réparer ma voiture\") hoặc khiến ai làm gì (\"il fait rire les enfants\"). Động từ nguyên mẫu đi ngay sau \"faire\". Ví dụ: \"je fais réparer ma voiture\", \"il fait rire les enfants\"."
+ },
+ "verbes-perception": {
+  "t": "Nhìn và nghe + nguyên mẫu",
+  "x": "Sau \"voir\", \"entendre\", \"regarder\", \"écouter\", \"sentir\" đặt động từ nguyên mẫu: \"je les entends jouer\", \"nous voyons passer le train\". Đại từ là tân ngữ của động từ chỉ giác quan. Ví dụ: \"je les entends chanter\", \"nous voyons passer le train\"."
+ },
+ "voyelle-liaison-ecrite": {
+  "t": "Dạng đặc biệt trước nguyên âm",
+  "x": "Trước nguyên âm hoặc h câm, một số từ đổi dạng cho dễ đọc: \"ma\" thành \"mon\" (\"mon amie\"), \"ce\" thành \"cet\" (\"cet homme\"), \"beau\" thành \"bel\" (\"un bel arbre\"), \"nouveau\" thành \"nouvel\", \"vieux\" thành \"vieil\". Ví dụ: \"mon amie\", \"cet homme\", \"un bel arbre\"."
+ },
+ "tout-tous-toutes": {
+  "t": "tout, tous, toute, toutes",
+  "x": "Là tính từ, \"tout\" hòa hợp: \"tout le monde\", \"toute la journée\", \"tous les jours\", \"toutes les semaines\". Là đại từ, nghĩa là 'mọi thứ' (\"j'ai tout compris\") hoặc 'tất cả' (\"ils sont tous là\", đọc cả -s cuối). Ví dụ: \"tous les jours\", \"toute la journée\", \"ils sont tous là\"."
+ }
+}
