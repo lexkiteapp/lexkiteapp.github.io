@@ -264,9 +264,14 @@ if (LH) for (const route of ['home', 'path', 'review', 'dict/hello', 'me', 'prac
   const f = `${OUT}/lh-${route.replace(/[^a-z]+/g, '_')}.json`;
   const runs = [];
   for (let i = 0; i < 3; i++) {
-    try { execFileSync('npx', ['-y', 'lighthouse@12.2.1', `${BASE}/app/?sandbox=1&hl=en#/${route}`, '--form-factor=mobile', '--only-categories=performance,accessibility', '--chrome-flags=--headless=new --no-sandbox', '--output=json', `--output-path=${f}`, `--throttling.cpuSlowdownMultiplier=${cpuLh}`, '--quiet'], { stdio: 'ignore', timeout: 180e3 }); } catch (e) { continue; }
+    try { execFileSync('npx', ['-y', 'lighthouse@12.2.1', `${BASE}/app/?sandbox=1&hl=en#/${route}`, '--form-factor=mobile', '--only-categories=performance,accessibility', '--chrome-flags=--headless=new --no-sandbox', '--output=json', `--output-path=${f}`, '--save-assets', `--throttling.cpuSlowdownMultiplier=${cpuLh}`, '--quiet'], { stdio: 'ignore', timeout: 180e3 }); } catch (e) { continue; }
     const d = JSON.parse(fs.readFileSync(f, 'utf8')), a = d.audits;
-    fs.copyFileSync(f, f.replace(/\.json$/, `-run${i + 1}.json`)); const mt = (a.metrics && a.metrics.details && a.metrics.details.items[0]) || {}; lhRuns.push({ route, run: i + 1, lcp: Math.round(a['largest-contentful-paint'].numericValue), obsLcp: Math.round(mt.observedLargestContentfulPaint || 0), obsFcp: Math.round(mt.observedFirstContentfulPaint || 0) });
+    fs.copyFileSync(f, f.replace(/\.json$/, `-run${i + 1}.json`));
+    let cands = []; try { // ứng viên LCP trong trace Lighthouse (phần tử audit của LH 12.2 lỗi RootCauses): [ms từ navigationStart, cỡ, loại]
+      const tf = fs.readdirSync(OUT).filter(x => /\.trace\.json$/.test(x)).map(x => `${OUT}/${x}`).sort((x, y) => fs.statSync(y).mtimeMs - fs.statSync(x).mtimeMs)[0];
+      if (tf) { const ev = JSON.parse(fs.readFileSync(tf, 'utf8')).traceEvents || [], ns = ev.find(e => e.name === 'navigationStart' && e.args && e.args.data && e.args.data.isOutermostMainFrame !== false), t0 = ns ? ns.ts : 0;
+        cands = ev.filter(e => e.name === 'largestContentfulPaint::Candidate' && e.args && e.args.data).map(e => [Math.round((e.ts - t0) / 1000), e.args.data.size, e.args.data.type, e.args.data.nodeName || '']); fs.rmSync(tf, { force: true }); }
+    } catch (e) { cands = [String(e.message).slice(0, 80)]; } const mt = (a.metrics && a.metrics.details && a.metrics.details.items[0]) || {}; lhRuns.push({ route, run: i + 1, lcp: Math.round(a['largest-contentful-paint'].numericValue), obsLcp: Math.round(mt.observedLargestContentfulPaint || 0), obsFcp: Math.round(mt.observedFirstContentfulPaint || 0), cands });
     runs.push({ route, perf: Math.round(d.categories.performance.score * 100), a11y: Math.round(d.categories.accessibility.score * 100), lcp: Math.round(a['largest-contentful-paint'].numericValue), cls: +a['cumulative-layout-shift'].numericValue.toFixed(4), tbt: Math.round(a['total-blocking-time'].numericValue), fcp: Math.round(a['first-contentful-paint'].numericValue), tap: a['target-size'] ? a['target-size'].score : null });
   }
   if (!runs.length) { errs.push('lighthouse lỗi: ' + route); continue; }
