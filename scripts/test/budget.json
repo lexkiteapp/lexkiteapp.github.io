@@ -18,8 +18,8 @@
     "_note": "Tải lần đầu theo gói (JS BUNDLES + CSS BCSS, gzip chuẩn) – chỉ được giảm. 3/11 ux1 (Home/Hôm nay): mốc main 32c7194bd = 122044 B (JS 56295 + CSS 65749).",
     "ux1": 122044
   },
-  "_cpackNoteStories": "21/11 (Truyện & podcast, lazy-pack): cpackTotal 13734270 → 13814270 = + 80 000 B cho web/cpack/stories/lib.js (78 KB, 25 truyện/podcast A1–C1, chỉ trường app dùng; tải lười theo #/stories, không precache); khung app, web/js, LCP không đổi.",
-  "cpackTotal": 13814270,
+  "_cpackNoteStories": "21/11 (Truyện & podcast, lazy-pack): cpackTotal 13734270 → 13845270 = + 111 000 B (lib.js 80 KB + core.js/ui.js 31 KB dời từ web/js sang cpack để KHÔNG tăng byte người học totalJs) cho web/cpack/stories/lib.js (78 KB, 25 truyện/podcast A1–C1, chỉ trường app dùng; tải lười theo #/stories, không precache); khung app, web/js, LCP không đổi.",
+  "cpackTotal": 13845270,
   "_cpackNoteFrW2": "22/11 (khóa tiếng Pháp W2, french-course.md – dữ liệu tải lười, KHÔNG vào khung/byte người học): +741 054 B đúng bằng web/cpack/fr (dr.js câu luyện 62 KB + 15 gói giải thích gx-<ngôn ngữ>.js, mỗi người học chỉ tải 1–2 gói ≈ 50 KB); đo 13 586 104 B + 9 KB.",
   "_cpackNoteFrW5": "22/11 (khóa tiếng Pháp W5 – luyện định dạng DELF/DALF, tải lười theo cấp): +56 KB đúng bằng web/cpack/fr/x-<cấp>.js (6 cấp × 2 đề, câu Tatoeba CC BY) + x-ui-<ngôn ngữ>.js; đo 13 642 080 B + 9 KB.",
   "_cpackNoteFrW3": "22/11 (khóa tiếng Pháp W3 phát âm, french-course.md – dữ liệu tải lười, KHÔNG vào khung/byte người học): +64 163 B đúng bằng web/cpack/fr/px*.js mới (px.js chủ đề/cặp/IPA 4,4 KB + 15 gói px-<ngôn ngữ>.js nhãn + giải thích, mỗi người học chỉ tải 1–2 gói ≈ 4 KB); đo 13 650 410 B tổng; mã pron-ui.js chung engine es, không thêm tệp mã.",

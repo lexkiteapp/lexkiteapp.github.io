@@ -1,7 +1,7 @@
-// Test lõi Truyện & podcast (web/js/stories/core.js) + nội dung mẫu content/stories/*.json. Spec: docs/STORIES.md.
+// Test lõi Truyện & podcast (web/cpack/stories/core.js) + nội dung mẫu content/stories/*.json. Spec: docs/STORIES.md.
 // Chạy: node scripts/test/stories.mjs  (không cần thư viện ngoài; nằm trong npm test + CI)
 import fs from 'node:fs'; import vm from 'node:vm'; import { createRequire } from 'node:module';
-const S = createRequire(import.meta.url)('../../web/js/stories/core.js');
+const S = createRequire(import.meta.url)('../../web/cpack/stories/core.js');
 let fails = 0, n = 0; const ok = (c, m) => { n++; if (!c) { fails++; console.log('✗', m); } };
 const DIR = new URL('../../content/stories/', import.meta.url);
 const ALL = fs.readdirSync(DIR).filter(f => f.endsWith('.json')).map(f => JSON.parse(fs.readFileSync(new URL(f, DIR), 'utf8')));

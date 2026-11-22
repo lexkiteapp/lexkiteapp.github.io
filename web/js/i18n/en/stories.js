@@ -1,4 +1,4 @@
-/* English UI strings – web/js/stories/ui.js (📚 #/stories, docs/STORIES.md). Lazy group (LAZY in scripts/build-i18n.sh). */
+/* English UI strings – web/cpack/stories/ui.js (📚 #/stories, docs/STORIES.md). Lazy group (LAZY in scripts/build-i18n.sh). */
 (function (g) {
 const D = g.I18N_DICT = g.I18N_DICT || {};
 D.en = Object.assign(D.en || {}, {
