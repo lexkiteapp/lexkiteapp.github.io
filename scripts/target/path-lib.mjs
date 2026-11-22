@@ -6,7 +6,7 @@ import fs from 'node:fs';
 import { readJSON, coreFiles } from './lib.mjs';
 
 const D = 'content/target/es/', LANGS = ['en', 'vi', 'es', 'pt', 'fr', 'de', 'id', 'th', 'zh', 'ja', 'ko', 'hi', 'ar', 'ru', 'tr'];
-export const DAY_UI = 'ti sub dy w g p c go pr mk fin td'.split(' '), CALL_EVERY = 5;
+export const DAY_UI = 'ti sub dy w g p c go pr mk fin td sv'.split(' '), CALL_EVERY = 5, WORDS_MAX = 8; // ≤ 8 từ mới/ngày (kho 3.000 không dồn 24 từ/ngày); phần còn lại học qua Ôn tập
 
 /** Từ học theo thứ tự: seed (A1 nền) trước, rồi lô lõi đã duyệt theo rank. Lô chưa duyệt không vào lộ trình. */
 export function pathWords() {
@@ -20,18 +20,22 @@ export function pathWords() {
 export function planDay(i, D) {
   const G = D.g.length, tp = D.t[i % D.t.length], ci = Math.floor(i / 5); let k = i, lv = '';
   for (const [l, c] of D.l) if (!lv) { if (k < c) lv = l; else k -= c; }
-  const r = [Math.round(i * D.n / G), Math.round((i + 1) * D.n / G), D.g[i], lv, tp[0], i % 3 === 0 && tp[1] ? 'pp' : i % 2 ? 'sy' : 'dc'];
+  const per = Math.min(D.k || 1e9, D.n / G); // D.k = trần từ mới/ngày (WORDS_MAX)
+  const r = [Math.round(i * per), Math.round((i + 1) * per), D.g[i], lv, tp[0], i % 3 === 0 && tp[1] ? 'pp' : i % 2 ? 'sy' : 'dc'];
   if (i % 5 === 4 && ci < D.c.length) r.push(D.c[ci]);
   return r;
 }
 
+/** Hàng từ trong wd.js: [từ, loại, IPA, ví dụ, giống?, số nhiều bất quy tắc?] – giống để hiện mạo từ el/la (danh từ học kèm mạo từ), số nhiều chỉ khi ≠ từ+s. */
+export const wdRow = w => { const r = [w.word, w.pos, w.ipa, w.ex.es]; if (w.pos === 'n' && w.gender) { r.push(w.gender); if (w.plural && w.plural !== w.word + 's') r.push(w.plural); } return r; };
+
 export function buildPath(pts, px) {
   const words = pathWords(), calls = fs.readdirSync(D + 'calls').filter(f => /^calls-\d+\.json$/.test(f)).sort().flatMap(f => readJSON(D + 'calls/' + f)), files = {}, ui = readJSON(D + 'path-ui.json');
   const lvRank = { A1: 0, A2: 1, B1: 2, B2: 3, C1: 4 }, order = [...calls].sort((a, b) => lvRank[a.lv] - lvRank[b.lv]); // cuộc gọi dễ → khó theo ngày
-  const lvs = [...new Set(pts.map(p => p.level))], plan = { g: pts.map(p => p.id), l: lvs.map(l => [l, pts.filter(p => p.level === l).length]), t: px.map(t => [t.i, t.p.length ? 1 : 0]), n: words.length, c: order.map(c => c.id) };
+  const lvs = [...new Set(pts.map(p => p.level))], plan = { g: pts.map(p => p.id), l: lvs.map(l => [l, pts.filter(p => p.level === l).length]), t: px.map(t => [t.i, t.p.length ? 1 : 0]), n: words.length, k: WORDS_MAX, c: order.map(c => c.id) };
   const days = pts.map((p, i) => planDay(i, plan));
   files['dy.js'] = `self.ESX=self.ESX||{};ESX.dy=${JSON.stringify(plan)};ESX.dyp=${planDay.toString()};\n`;
-  files['wd.js'] = `self.ESX=self.ESX||{};ESX.wd=${JSON.stringify(words.map(w => [w.word, w.pos, w.ipa, w.ex.es]))};\n`;
+  files['wd.js'] = `self.ESX=self.ESX||{};ESX.wd=${JSON.stringify(words.map(wdRow))};\n`;
   for (const l of LANGS) {
     files[`wd-${l}.js`] = `self.ESX=self.ESX||{};(ESX.wdl=ESX.wdl||{})[${JSON.stringify(l)}]=${JSON.stringify(words.map(w => w.gl[l] || w.gl.en))};\n`;
     files[`dy-${l}.js`] = `self.ESX=self.ESX||{};(ESX.dyl=ESX.dyl||{})[${JSON.stringify(l)}]=${JSON.stringify(DAY_UI.map(k => ui[l][k]))};\n`;

@@ -288,7 +288,7 @@ async function perf(w) {
   try {
     await boot(page, '/home'); await sleep(1500);
     await page.evaluate(() => QAB.reset());
-    const tabs = w >= 901 ? '.sidebar #nav a[href^="#/"]:visible, .sidebar #nav summary:visible' : '#bnav a[href^="#/"]:visible';
+    const tabs = w >= 901 ? '.sidebar #nav a[href^="#/"]:visible, .sidebar #nav summary:visible' : '#bnav a[href^="#/"]:visible, nav.fixed.bottom-0 a[href^="#/"]:visible'; // điện thoại: #bnav (giao diện cũ) hoặc thanh tab Stitch v2 nằm trong trang (st/v2/shell.js; v2 thay #bnav từ khi máy mới mở thẳng v2, #1789) – 22/11 perf@390 đo 0 vì chỉ tìm #bnav
     const n = Math.min(await page.locator(tabs).count(), 6);
     for (let k = 0; k < 2; k++) for (let i = 0; i < n; i++) {
       const el = page.locator(tabs).nth(i); if (!(await el.isVisible().catch(() => false))) continue;

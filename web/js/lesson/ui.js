@@ -137,7 +137,7 @@
       pool0 = cards.concat(nearW); if (new Set(pool0.map(c => c.word)).size < 10) pool0 = pool0.concat(STARTER());
       const stg = state.settings || {}; lvlS = E.sentLevel(window.Ux1 && Ux1.level ? Ux1.level() : 2, App.exam ? App.exam() : '', (stg.goalPick || {}).target || stg.examTarget);
     }
-    const items = story ? E.storyItems(story, meanLang(), n + 1) : E.build(picks, { seed: demo ? 7 + n : Date.now(), pool: pool0, near: nearW, level: lvlS, hasImg: (w, p) => !!imgUrl(w, p), off: offNow(), only: E.KIND[node.kind], calm: ux, gloss: sentGloss, mean: nativeMean, vi: nativeLang() === 'vi' });
+    const items = story ? E.storyItems(story, meanLang(), n + 1) : E.build(picks, { seed: demo ? 7 + n : Date.now(), pool: pool0, near: nearW, level: lvlS, hasImg: (w, p) => !!imgUrl(w, p), off: offNow(), lpic: true, mpic: true, only: node.kind === 'listen' ? E.KIND.listen.concat('lpic') : E.KIND[node.kind], calm: ux, gloss: sentGloss, mean: nativeMean, vi: nativeLang() === 'vi' });
     if (!story && lvOn()) items.unshift({ id: 0, type: 'video', free: true, word: '#video', card: null, retry: 0, words: picks.map(p => p.word) }); // 🎞️ demo video nhúng (cờ lv_embed)
     const prev = ls.get('lk.lsn.who'), V2 = !story && v2On(), DUO = !!story && duoOn(), who = V2 ? 'ama' : prev === 'ama' ? 'carlos' : 'ama'; if (!V2) ls.set('lk.lsn.who', who); // xen kẽ Ama / Carlos mỗi bài
     if (cardOn()) setTimeout(cardReady, 800);
@@ -189,7 +189,23 @@
     root.classList.add('lsn-fx'); root.style.opacity = '0'; const shown = () => { root.style.opacity = ''; }; /* opacity, không visibility: ExitGuard chèn thêm .lk-exitbar */ setTimeout(shown, 1600);
     L.cssP = (App.loadCss ? App.loadCss('css/story-stage.css') : Promise.resolve()).catch(() => 0).then(() => { shown(); let n = root.querySelector('#lsnBub'), c = ''; while (n && n !== root) { c = getComputedStyle(n).backgroundColor; if (c && !/rgba?\(.*(, ?0\)| 0\))$/.test(c) && c !== 'transparent') break; n = n.parentElement; } if (c) root.style.setProperty('--ss-floor', c); }); // bệ = đúng màu thẻ đề bài
   }
-  const v2opt = (state, i, o) => { const n = L.tpl[state].cloneNode(true); n.removeAttribute('id'); n.dataset.o = o; n.lang = 'en'; n.querySelector(':scope > div > span').textContent = LET[i]; n.querySelector(':scope > span').textContent = o; return n; };
+  // lpic (nghe → chọn 1/4 ảnh): thẻ đáp án đổi nhãn chữ thành ảnh vuông (alt = từ; ảnh hỏng → hiện từ); v2 xếp 2×2, chữ cái + dấu ✓ ở hàng trên – chỉ style nội tuyến, dùng lại khuôn/màu Stitch
+  const lpTile = (b, o, it) => {
+    const ss = [...b.querySelectorAll('span')].filter(x => x.textContent === o), im = document.createElement('img'), v = !!L.v2;
+    im.src = imgUrl(o, (it.ipos || {})[o]); im.alt = o; im.width = im.height = 144; im.decoding = 'async'; im.draggable = false;
+    im.style.cssText = (v ? 'flex:0 0 100%;order:3;width:100%;' : 'width:5.5rem;') + 'aspect-ratio:1;object-fit:cover;border-radius:.75rem;background:rgb(var(--st-surface-container-highest,236 228 215))';
+    if (ss.length) ss[ss.length - 1].replaceWith(im); b.classList.remove('h-24'); b.dataset.o = o;
+    if (v) b.style.cssText = 'flex-wrap:wrap;height:auto;min-height:0;gap:.5rem;width:100%;max-width:11rem;justify-self:center';
+    return b;
+  };
+  // mpic (ghép từ ↔ ảnh): ô cột phải của khuôn ghép cặp đổi chữ thành ảnh vuông (alt = từ; ảnh hỏng → hiện từ) – dùng lại khuôn/màu Stitch
+  const mpTile = (b, c) => {
+    const im = document.createElement('img'); im.src = imgUrl(c.word, c.pos); im.alt = c.word; im.lang = 'en'; im.width = im.height = 120; im.decoding = 'async'; im.draggable = false;
+    im.style.cssText = 'width:100%;max-width:7.5rem;aspect-ratio:1;object-fit:cover;border-radius:.75rem;background:rgb(var(--st-surface-container-highest,236 228 215))';
+    im.onerror = () => { im.replaceWith(document.createTextNode(c.word)); };
+    b.textContent = ''; b.appendChild(im); b.style.padding = '.375rem';
+  };
+  const v2opt = (state, i, o) => { const n = L.tpl[state].cloneNode(true); n.removeAttribute('id'); n.dataset.o = o; n.lang = 'en'; n.querySelector(':scope > div > span').textContent = LET[i]; n.querySelector(':scope > span').textContent = o; const c = L.sess.cur; return c && c.type === 'lpic' ? lpTile(n, o, c) : n; };
   function v2foot(it, foot) {
     foot.className = ST.FOOT; foot.innerHTML = ''; foot.hidden = true; // chân cố định chỉ dành cho tấm phản hồi
     const q = view.querySelector('.lsn-qfoot'); q.hidden = false;
@@ -223,15 +239,16 @@
     build: it.prompt ? t('Xếp câu tiếng Anh') : t('Nghe rồi xếp thành câu'),
     say: t('Nói câu này'),
     pic: it.choice ? t('Đây là gì?') : t('Nói tên hình'),
+    lpic: t('Nghe, chọn ảnh'),
     tr: t('Dịch câu này'),
     mean: t('Chọn từ đúng'),
     type: t('Gõ từ tiếng Anh'), // luôn có nghĩa/định nghĩa + độ dài + chữ đầu (không chỉ nghe)
-    match: t('Ghép cặp'),
+    match: it.pics ? t('Ghép từ, ảnh') : t('Ghép cặp'),
     q: t('Trả lời câu hỏi'),
     line: '',
   }[it.type]);
-  const HINTABLE = it => it.type === 'gap' || it.type === 'mean' || it.type === 'q' || it.type === 'build' || it.type === 'tr' || it.type === 'type' || (it.type === 'pic' && !!it.choice);
-  const LISTENS = it => !it.noAudio && (it.type === 'gap' || it.type === 'build' || it.type === 'say' || it.type === 'type');
+  const HINTABLE = it => it.type === 'gap' || it.type === 'mean' || it.type === 'q' || it.type === 'build' || it.type === 'tr' || it.type === 'type' || it.type === 'lpic' || (it.type === 'pic' && !!it.choice);
+  const LISTENS = it => !it.noAudio && (it.type === 'gap' || it.type === 'build' || it.type === 'say' || it.type === 'type' || it.type === 'lpic');
   const SPEAKS = it => it.type === 'say' || (it.type === 'pic' && !it.choice);
 
   function bar(cur) { // cur = câu đang hiện trên màn (sau khi chấm vẫn là câu VỪA làm, không nhảy sang nhãn câu kế)
@@ -292,6 +309,10 @@
     } else if (it.type === 'match') {
       const L1 = E.shuffle(it.pairs.map((c, i) => i), Math.random), L2 = E.shuffle(it.pairs.map((c, i) => i), Math.random);
       fill(ST.lsnMatch(L1.map(i => ({ i, t: it.pairs[i].word })), L2.map(i => ({ i, t: it.pairs[i].mean || meanOf(it.pairs[i]) }))), false);
+      if (it.pics) body.querySelectorAll('.lsn-match [data-s=m]').forEach(b => mpTile(b, it.pairs[+b.dataset.m])); // mpic: cột phải = ảnh
+    } else if (it.type === 'lpic') {
+      fill(V ? '' : snd + ST.lsnOpts(it.options), true); // v2: bindItem vẽ 4 thẻ ảnh; v1: 4 hàng có ảnh thu nhỏ
+      if (!V) body.querySelectorAll('.lsn-opt').forEach(b => lpTile(b, b.dataset.o, it));
     } else if (it.type === 'mean' || (it.type === 'pic' && it.choice)) {
       const pic = it.type === 'pic' ? ST.lsnPic(imgUrl(it.word, it.card.pos), t('Ảnh minh họa')) : '';
       if (V) bub.insertAdjacentHTML('beforeend', pic); // ảnh nằm trong thẻ đề bài

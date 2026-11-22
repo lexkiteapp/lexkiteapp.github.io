@@ -1,0 +1,269 @@
+{
+ "fixed": [
+  {
+   "word": "odio",
+   "field": "gl.vi",
+   "from": "ghét",
+   "to": "sự căm ghét",
+   "why": "\"ghét\" là động từ; từ là danh từ"
+  },
+  {
+   "word": "caballo",
+   "field": "gl.vi",
+   "from": "con ngựa",
+   "to": "ngựa",
+   "why": "bỏ \"con\" cho dạng từ điển"
+  },
+  {
+   "word": "baile",
+   "field": "ex.en",
+   "from": "The dance music was very fun.",
+   "to": "The music at the dance was a lot of fun.",
+   "why": "ex.en mơ hồ \"dance music\""
+  },
+  {
+   "word": "traer",
+   "field": "gl.vi",
+   "from": "mang lại",
+   "to": "mang đến",
+   "why": "\"mang lại\" lệch nghĩa (đem đến cho ai)"
+  },
+  {
+   "word": "base",
+   "field": "ex.en",
+   "from": "Respect is the basis of a good friendship.",
+   "to": "Respect is the foundation of a good friendship.",
+   "why": "khớp nghĩa \"nền tảng\""
+  },
+  {
+   "word": "escuchar",
+   "field": "gl.vi",
+   "from": "nghe",
+   "to": "lắng nghe",
+   "why": "phân biệt với oír = nghe"
+  },
+  {
+   "word": "vistazo",
+   "field": "ex.es",
+   "from": "Voy a dar un vistazo a ese libro.",
+   "to": "Voy a echar un vistazo a ese libro.",
+   "why": "collocation tự nhiên: echar un vistazo"
+  },
+  {
+   "word": "majestad",
+   "field": "ex.es",
+   "from": "El rey habló con mucha majestad.",
+   "to": "Su Majestad, el rey, llegó al palacio.",
+   "why": "ví dụ cũ gượng; vi \"bệ hạ\" là danh xưng"
+  },
+  {
+   "word": "majestad",
+   "field": "ex.en",
+   "from": "The king spoke with great majesty.",
+   "to": "His Majesty the king arrived at the palace.",
+   "why": "khớp ex.es"
+  },
+  {
+   "word": "marcha",
+   "field": "gl.vi",
+   "from": "cuộc diễu hành",
+   "to": "cuộc tuần hành",
+   "why": "khớp ví dụ (marcha por la paz)"
+  },
+  {
+   "word": "máquina",
+   "field": "gl.vi",
+   "from": "máy móc",
+   "to": "máy",
+   "why": "\"máy móc\" là số nhiều/tập hợp"
+  },
+  {
+   "word": "pareja",
+   "field": "gl.en",
+   "from": "partner",
+   "to": "partner, couple",
+   "why": "nghĩa \"couple\" thiếu"
+  },
+  {
+   "word": "pareja",
+   "field": "gl.vi",
+   "from": "đối tác",
+   "to": "bạn đời, cặp đôi",
+   "why": "\"đối tác\" sai nghĩa (business partner)"
+  },
+  {
+   "word": "isla",
+   "field": "gl.vi",
+   "from": "hòn đảo",
+   "to": "đảo",
+   "why": "tự nhiên hơn \"hòn đảo\""
+  },
+  {
+   "word": "despertar",
+   "field": "gl.vi",
+   "from": "đánh thức",
+   "to": "thức dậy, đánh thức",
+   "why": "ví dụ phản thân = thức dậy"
+  },
+  {
+   "word": "calor",
+   "field": "gl.vi",
+   "from": "sự nóng",
+   "to": "cái nóng",
+   "why": "\"sự nóng\" không tự nhiên"
+  },
+  {
+   "word": "salir",
+   "field": "gl.en",
+   "from": "to leave",
+   "to": "to leave, to go out",
+   "why": "ví dụ dùng nghĩa \"ra/mọc\""
+  },
+  {
+   "word": "salir",
+   "field": "gl.vi",
+   "from": "đi ra",
+   "to": "đi ra, rời đi",
+   "why": ""
+  },
+  {
+   "word": "ganar",
+   "field": "ex.es",
+   "from": "Hemos ganado el partido de fútbol hoy.",
+   "to": "Ayer ganamos el partido de fútbol.",
+   "why": "es-419 tự nhiên dùng pretérito, không dùng pretérito perfecto"
+  },
+  {
+   "word": "ganar",
+   "field": "ex.en",
+   "from": "We have won the soccer match today.",
+   "to": "We won the soccer match yesterday.",
+   "why": "khớp ex.es"
+  },
+  {
+   "word": "movimiento",
+   "field": "ex.es",
+   "from": "El baile tiene un movimiento muy rápido.",
+   "to": "Este baile tiene movimientos muy rápidos.",
+   "why": "ví dụ cũ không tự nhiên"
+  },
+  {
+   "word": "movimiento",
+   "field": "ex.en",
+   "from": "The dance has a very fast movement.",
+   "to": "This dance has very fast movements.",
+   "why": "khớp ex.es"
+  },
+  {
+   "word": "brillante",
+   "field": "ex.es",
+   "from": "El sol está muy brillante hoy.",
+   "to": "La luz de la lámpara es muy brillante.",
+   "why": "\"el sol está brillante\" không tự nhiên"
+  },
+  {
+   "word": "brillante",
+   "field": "ex.en",
+   "from": "The sun is very bright today.",
+   "to": "The lamp light is very bright.",
+   "why": "khớp ex.es"
+  },
+  {
+   "word": "noticia",
+   "field": "gl.en",
+   "from": "news item",
+   "to": "piece of news",
+   "why": "\"news item\" gượng"
+  },
+  {
+   "word": "ridículo",
+   "field": "gl.vi",
+   "from": "buồn cười, lố bịch",
+   "to": "lố bịch, nực cười",
+   "why": "\"buồn cười\" = funny, sai sắc thái"
+  },
+  {
+   "word": "asunto",
+   "field": "gl.vi",
+   "from": "vấn đề",
+   "to": "việc, vấn đề",
+   "why": "trùng hẳn với cuestión"
+  },
+  {
+   "word": "contrario",
+   "field": "ex.es",
+   "from": "Este libro es el contrario del otro.",
+   "to": "Voy en la dirección contraria.",
+   "why": "ví dụ cũ gượng; thêm exForm contraria"
+  },
+  {
+   "word": "contrario",
+   "field": "ex.en",
+   "from": "This book is the opposite of the other.",
+   "to": "I'm going in the opposite direction.",
+   "why": "khớp ex.es"
+  },
+  {
+   "word": "caer",
+   "field": "ex.es",
+   "from": "No quiero caer.",
+   "to": "Ten cuidado, no te vayas a caer.",
+   "why": "\"No quiero caer\" không tự nhiên"
+  },
+  {
+   "word": "caer",
+   "field": "ex.en",
+   "from": "I don't want to fall.",
+   "to": "Be careful, you might fall.",
+   "why": "khớp ex.es"
+  },
+  {
+   "word": "red",
+   "field": "gl.en",
+   "from": "net / network",
+   "to": "network, net",
+   "why": "gộp \"net / network\" gọn"
+  },
+  {
+   "word": "red",
+   "field": "gl.vi",
+   "from": "mạng lưới / lưới",
+   "to": "mạng, lưới",
+   "why": ""
+  },
+  {
+   "word": "evitar",
+   "field": "ex.es",
+   "from": "Debes evitar comer tanta azúcar.",
+   "to": "Debes evitar comer tanto azúcar.",
+   "why": "\"tanto azúcar\" là dạng thông dụng"
+  },
+  {
+   "word": "interesar",
+   "field": "gl.vi",
+   "from": "quan tâm",
+   "to": "làm hứng thú, khiến quan tâm",
+   "why": "\"quan tâm\" là nghĩa bị động; gl.en \"to interest\""
+  },
+  {
+   "word": "interesar",
+   "field": "gl.th",
+   "from": "สนใจ",
+   "to": "ทำให้สนใจ",
+   "why": "สนใจ = be interested"
+  },
+  {
+   "word": "interesar",
+   "field": "gl.zh",
+   "from": "感兴趣",
+   "to": "使感兴趣",
+   "why": "感兴趣 = be interested"
+  }
+ ],
+ "dropped": [
+  {
+   "word": "perra",
+   "why": "nghĩa thường gặp là lời chửi; \"chó cái\" tiếng Việt cũng xúc phạm; không phù hợp từ vựng học viên"
+  }
+ ]
+}
