@@ -5,7 +5,7 @@
 //      robots/fetch lỗi → ước tính số trang index mỗi nhóm (words-th, blog-en, pages…) = tỉ lệ index mẫu × số URL trong sitemap.
 //   3. Máy gác: so với lần đo trước (reports/seo/index-*.json) và 2 báo cáo GSC gần nhất → tụt ≥ DROP (số trang index ước tính,
 //      lượt bấm 28 ngày, số trang có hiển thị) hoặc báo cáo GSC cũ > STALE_DAYS → ::error + exit 1 (ci-triage mở issue).
-// Hạn mức URL Inspection: 2.000 lượt/ngày, 600/phút mỗi site → BUDGET 600/tuần, 4 luồng song song. Test: scripts/test/index-coverage.mjs.
+// Hạn mức URL Inspection: 2.000 lượt/ngày, 600/phút mỗi site → BUDGET 400/tuần, 4 luồng, dừng sau DEADLINE_MIN phút (ước tính trên phần đã kiểm). Test: scripts/test/index-coverage.mjs.
 //   node scripts/seo/index-coverage.mjs [--date YYYY-MM-DD] [--root .] [--fixture f.json]   (thiếu secret → bỏ qua, xanh)
 import fs from 'fs';
 import path from 'path';
@@ -13,7 +13,7 @@ import crypto from 'crypto';
 import { fileURLToPath } from 'url';
 import { SITE, ORIGIN, getToken, call } from './gsc.mjs';
 
-export const BUDGET = 600, MIN_PER = 6, DROP = 0.25, STALE_DAYS = 9, KEEP = 26;
+export const BUDGET = 400, MIN_PER = 4, DEADLINE_MIN = Number(process.env.INDEX_DEADLINE_MIN || 9), DROP = 0.25, STALE_DAYS = 9, KEEP = 26;
 const API = 'https://searchconsole.googleapis.com/';
 const locs = x => [...String(x).matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1].trim());
 export const group = sm => (/sitemap-([a-z-]+?)(?:-\d+)?\.xml$/.exec(sm) || [, 'root'])[1];
@@ -103,14 +103,18 @@ export async function pull(sa, date, fetchImpl = fetch) {
   const maps = await pool(children, 4, async sm => ({ sitemap: sm, urls: locs(await (await fetchImpl(sm, { headers: { 'user-agent': 'lexkite-index-coverage' } })).text()) }));
   let sitemaps = [];
   try { sitemaps = (await call(fetchImpl, `${API}webmasters/v3/sites/${encodeURIComponent(SITE)}/sitemaps`, { headers: H }, 'sitemaps')).sitemap || []; } catch (e) { console.warn(`⚠ ${e.message}`); }
-  const picks = sample(maps, BUDGET, date);
-  const checked = await pool(picks, 3, async p => {
+  // xen kẽ các nhóm (thứ tự băm) → hết giờ giữa chừng vẫn có mẫu ở mọi nhóm, không lệch về sitemap đầu danh sách
+  const picks = sample(maps, BUDGET, date).map(p => [crypto.createHash('sha1').update(date + '|' + p.url).digest('hex'), p]).sort((a, b) => a[0] < b[0] ? -1 : 1).map(([, p]) => p);
+  const stop = Date.now() + DEADLINE_MIN * 60e3; // 22/11: URL Inspection ~3–5 s/lượt → 600 lượt vượt timeout job; hết giờ → báo phần đã kiểm
+  const checked = (await pool(picks, 4, async p => {
+    if (Date.now() > stop) return null;
     try {
       const j = await call(fetchImpl, `${API}v1/urlInspection/index:inspect`, { method: 'POST', headers: H, body: JSON.stringify({ inspectionUrl: p.url, siteUrl: SITE, languageCode: 'en' }) }, 'urlInspection');
       const r = j.inspectionResult?.indexStatusResult || {};
       return { ...p, result: { verdict: r.verdict, coverageState: r.coverageState, robotsTxtState: r.robotsTxtState, indexingState: r.indexingState, pageFetchState: r.pageFetchState, googleCanonical: r.googleCanonical, userCanonical: r.userCanonical, lastCrawlTime: r.lastCrawlTime } };
     } catch (e) { return { ...p, error: e.message.slice(0, 160) }; }
-  });
+  })).filter(Boolean);
+  if (checked.length < picks.length) console.warn(`⚠ index-coverage: hết ${DEADLINE_MIN} phút – kiểm ${checked.length}/${picks.length} URL`);
   return { maps, sitemaps, checked };
 }
 

@@ -3,8 +3,8 @@
 # + content/blog/plan/gsc-priority.json → commit [CF-Pages-Skip] (Cloudflare không build lại) → mở/cập nhật issue nhãn seo-weekly.
 # Secret: GSC_SA_JSON (khoá JSON service account, quyền Restricted trong GSC) – chỉ truyền qua env, không ghi ra đĩa.
 # Thiếu secret → cảnh báo + hướng dẫn, xanh, không commit. Token lỗi / 0 dòng → đỏ. Hướng dẫn 1 lần: docs/BLOG-RUNBOOK.md.
-# + scripts/seo/index-coverage.mjs: độ phủ index thật (URL Inspection 600 URL/tuần) + máy gác tụt (index/click/trang có hiển thị ≥ 25 %, báo cáo > 9 ngày) → đỏ.
-# Hạn mức: < 10 lượt API/tuần searchAnalytics + 600 URL Inspection (trần 2.000/ngày) (trần 1.200/phút/site, 30 triệu/ngày/dự án) · ~1 phút GitHub.
+# + scripts/seo/index-coverage.mjs: độ phủ index thật (URL Inspection ≤ 400 URL/tuần, ≤ 9 phút) + máy gác tụt (index/click/trang có hiển thị ≥ 25 %, báo cáo > 9 ngày) → đỏ.
+# Hạn mức: < 10 lượt API/tuần searchAnalytics + ≤ 400 URL Inspection (trần 2.000/ngày) (trần 1.200/phút/site, 30 triệu/ngày/dự án) · ~1 phút GitHub.
 name: SEO GSC weekly
 on:
   schedule:
@@ -19,7 +19,7 @@ concurrency:
 jobs:
   gsc:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
         with: { ssh-key: '${{ secrets.BOT_DEPLOY_KEY }}' }   # đẩy main qua SSH khoá deploy (ruleset) – docs/CI-RUNNERS.md › required-gate
@@ -31,7 +31,7 @@ jobs:
         id: gsc
         env: { GSC_SA_JSON: '${{ secrets.GSC_SA_JSON }}', STUDIO_CALLBACK_SECRET: '${{ secrets.STUDIO_CALLBACK_SECRET }}', LEXKITE_CI_HEADER: '${{ secrets.LEXKITE_CI_HEADER }}' }   # 2 khoá sau: số khách từ tìm kiếm (/api/seo-visits); thiếu → bỏ phần đó
         run: node scripts/seo/gsc.mjs
-      - name: Độ phủ chỉ mục (URL Inspection, mẫu 600 URL) + máy gác tụt index/click/báo cáo cũ
+      - name: Độ phủ chỉ mục (URL Inspection, mẫu 400 URL, ≤ 9 phút) + máy gác tụt index/click/báo cáo cũ
         id: idx
         if: always()
         env: { GSC_SA_JSON: '${{ secrets.GSC_SA_JSON }}' }
