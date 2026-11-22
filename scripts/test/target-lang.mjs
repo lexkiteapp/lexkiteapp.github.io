@@ -254,5 +254,13 @@ const load = (sb, f) => vm.runInContext(rd(f), sb, { filename: f });
   ls.set('lk.adm', '1'); T.set('fr'); ok(T.cur() === 'fr' && T.avail().includes('fr') && T.homeOf('fr') === '#/tlprep/fr', 'quản trị chọn được fr → màn chuẩn bị');
   ls.set('lk.es', '1'); T.set('es'); ok(T.cur() === 'es', 'es ready → vẫn chọn được'); }
 
+// gen.mjs quy dạng → lemma trước ai-pool (lô 11–24 mất 40–90 % lượt vì dạng chia trùng lemma): hàm thuần lemmaFromEntries
+{ const { lemmaFromEntries: L } = await import('../target/lib.mjs');
+  const fo = w => ({ form_of: [{ word: w }], tags: ['form-of'] });
+  ok(JSON.stringify(L('hacemos', [{ pos: 'verb', senses: [fo('hacer')] }]).lemmas) === '["hacer"]', 'dạng chia → lemma (hacemos → hacer)');
+  ok(JSON.stringify(L('traje', [{ pos: 'noun', senses: [{ glosses: ['suit'] }] }, { pos: 'verb', senses: [fo('traer')] }]).lemmas) === '["traje"]', 'dạng vừa là mục từ thật vừa là dạng chia → chỉ chính nó (traje; traer đến từ dạng của nó, đúng thứ hạng)');
+  ok(L('york', [{ pos: 'name', senses: [{ glosses: ['York'] }] }]).name === true, 'trang chỉ tên riêng → bỏ trước AI');
+  ok(JSON.stringify(L('xyz', []).lemmas) === '["xyz"]', 'không có trang → vẫn gửi AI (cổng phía sau giữ nguyên)'); }
+
 console.log(fails ? `✗ target-lang: ${fails}/${n} lỗi` : `✓ target-lang: ${n}/${n} đạt`);
 process.exit(fails ? 1 : 0);

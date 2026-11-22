@@ -22,17 +22,17 @@ Nguồn: `reports/seo/gsc-2026-11-17.{md,json}` (sc-domain:lexkite.com, 18/10→
 5. **Lỗi kỹ thuật làm Google mất tin lastmod.** 1.146 URL ở 6 sitemap tĩnh luôn ghi `lastmod = ngày build` (đo live 22/11; lỗi đã nêu từ audit 12/11 và 15/11 nhưng chưa sửa). Google vì thế có thể bỏ qua lastmod của cả site, kể cả 16k trang words đang có ngày đúng. **Đã sửa ở PR #1806.**
 
 **Đã đúng, không cần sửa (đo live 22/11):** robots.txt cho Googlebot vào cả site; canonical tuyệt đối trỏ về chính trang; hreflang hai chiều + x-default; `<html lang>`/`dir="rtl"` đúng; 404 thật; http/www 301 về https gốc; IndexNow chạy theo push (Bing/Yandex/Naver). Google không dùng IndexNow, Google đọc sitemap. `live-audit.mjs` kiểm những mục này mỗi tuần.
-**Chưa đo được trong lượt này:** số trang Google *thực sự* index và lý do không index (Discovered/Crawled – not indexed). PR #1805 thêm URL Inspection API (mẫu 600 URL/tuần) để có số này. Bảng §2 điền cột "trang index" từ `reports/seo/index-*.md`. Còn CWV: site nhỏ chưa có dữ liệu trường CrUX, nên chỉ có Lighthouse trong CI (lcp-mobile #1770).
+**Số index thật (URL Inspection, `reports/seo/index-2026-11-22.md`, mẫu 343/19.979 URL):** đã index **4 (1,2 %)** · *URL is unknown to Google* **238 (69 %)** · *Crawled – currently not indexed* 66 (19 %) · *Discovered – currently not indexed* 35 (10 %). Không trang nào có canonical Google chọn khác canonical của mình. GSC ghi sitemap được đọc lần cuối 21/11, đã gửi 13.239 URL. Khớp với GSC: riêng `/words/` chỉ 449 / 16.800 URL (≈ 2,7 %) từng có hiển thị → **nút thắt là Google chưa thu thập (crawl).** Google mới phát hiện tới ~1/3 kho, và ~2/3 số trang đã thu thập thì Google chọn chưa index. Nguyên nhân là site mới, uy tín thấp (nguyên nhân 1): Google đặt hạn mức crawl thấp. Vì vậy L6 (uy tín/backlink) và L7 (liên kết nội bộ từ trang đã index tới trang mới) đứng ngay sau L3. CWV: site nhỏ chưa có dữ liệu trường CrUX, chỉ có Lighthouse trong CI (lcp-mobile #1770).
 
 ## 2. Mục tiêu theo tuần (đo mỗi thứ Hai, 28 ngày trượt, `reports/seo/`)
 | Tuần (thứ Hai) | Bấm/ngày | Trang có hiển thị | Trang index (URL Inspection, ước tính) | Hạng TB | Mốc việc |
 |---|---|---|---|---|---|
-| 16/11 (gốc) | 2,5 | 2.881 | chưa đo | 33,8 | – |
-| 23/11 | 3 | 3.200 | đo lần đầu = gốc | 33 | #1805, #1806 live |
-| 30/11 | 4 | 3.600 | gốc + 10 % | 31 | lô làm giàu theo dictQueue |
-| 07/12 | 6 | 4.000 | + 20 % | 29 | th/ar hạng 8–12 → ≤ 7 (20 trang) |
-| 21/12 | 10 | 5.000 | + 35 % | 26 | 2 cụm bài GSC (a) mỗi ngôn ngữ th/ar/vi |
-| 18/01 | 25 | 7.000 | + 60 % | 22 | backlink edu/cộng đồng ≥ 15 nơi live |
+| 16/11 (gốc) | 2,5 | 2.881 | – | 33,8 | – |
+| 22/11 (đo) | 3,2 (89/28 ngày) | – | 1,2 % mẫu (≈ 156 ước tính; 69 % Google chưa biết) | 33,7 | #1805, #1806, #1815 live |
+| 30/11 | 4 | 3.600 | ≥ 3 % mẫu, "unknown" ≤ 60 % | 31 | lô làm giàu theo dictQueue |
+| 07/12 | 6 | 4.000 | ≥ 5 %, "unknown" ≤ 50 % | 29 | th/ar hạng 8–12 → ≤ 7 (20 trang) |
+| 21/12 | 10 | 5.000 | ≥ 10 % | 26 | 2 cụm bài GSC (a) mỗi ngôn ngữ th/ar/vi |
+| 18/01 | 25 | 7.000 | ≥ 20 % | 22 | backlink edu/cộng đồng ≥ 15 nơi live |
 | 15/03 | 100 | 10.000 | ≥ 50 % URL sitemap | 18 | – |
 Lệch ≥ 25 % so với mục tiêu 2 tuần liền thì xem lại đòn bẩy ở §3, không hạ mục tiêu. Máy gác (§4) đỏ khi số **tụt**, không phải khi chậm.
 
