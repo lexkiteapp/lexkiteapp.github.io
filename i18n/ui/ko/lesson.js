@@ -25,6 +25,7 @@
 "Có cặp ghép nhầm":"잘못 짝지은 쌍이 있어요",
 "Dịch câu này":"이 문장을 번역하세요",
 "Ghép cặp":"짝 맞추기",
+"Ghép từ, ảnh":"단어와 그림 짝짓기",
 "Giáo viên của bạn":"내 선생님",
 "Hoàn thành bài học!":"레슨 완료!",
 "Hoặc chọn “Không nói được lúc này” để học tiếp.":"또는 “지금은 말할 수 없어요”를 눌러 계속 학습하세요.",

@@ -93,6 +93,8 @@ async function open(o = {}) {
   page.on('console', m => { if (m.type() === 'error' && !/Failed to load resource|favicon|googletagmanager|speechSynthesis|net::ERR/i.test(m.text())) errs.push('console: ' + m.text()); });
   if (!o.realSR) await page.addInitScript(MOCK, { local: o.local !== false });
   else await page.addInitScript(() => { try { delete window.SpeechRecognition; delete window.webkitSpeechRecognition; } catch (e) { /* */ } window.SpeechRecognition = window.webkitSpeechRecognition = undefined; localStorage.setItem('vb.whisper', '1'); localStorage.setItem('vb.call.asr', 'device'); });
+  // Từ #1789 máy mới mặc định giao diện v2 (App.ux1On) → màn gọi dựng khung Stitch, không có .call-ov. Kịch bản này kiểm trang gọi CŨ (.call-ov, nhánh dự phòng) → ghim lk.ux1=0; nhánh v2 có kiểm riêng ở dưới (lk.ux1=1).
+  await page.addInitScript(() => { try { if (localStorage.getItem('lk.ux1') == null) localStorage.setItem('lk.ux1', '0'); } catch (e) { /* bỏ qua */ } });
   await page.goto(`${BASE}app/?sandbox=1&hl=vi#/welcome/setup`, { waitUntil: 'load' });
   await page.waitForTimeout(1500); await page.waitForSelector('#obNext, #go', { timeout: 8000 }).catch(() => {}); for (let i = 0; i < 8 && !(await page.$('#go')) && (await page.$('#obNext')); i++) { await page.click('#obNext').catch(() => {}); await page.waitForTimeout(150); } const go0 = await page.$('#go'); if (go0) { await go0.click().catch(() => {}); await page.waitForTimeout(1000); }
   return { ctx, page, errs };

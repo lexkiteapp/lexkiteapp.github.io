@@ -137,7 +137,7 @@
       pool0 = cards.concat(nearW); if (new Set(pool0.map(c => c.word)).size < 10) pool0 = pool0.concat(STARTER());
       const stg = state.settings || {}; lvlS = E.sentLevel(window.Ux1 && Ux1.level ? Ux1.level() : 2, App.exam ? App.exam() : '', (stg.goalPick || {}).target || stg.examTarget);
     }
-    const items = story ? E.storyItems(story, meanLang(), n + 1) : E.build(picks, { seed: demo ? 7 + n : Date.now(), pool: pool0, near: nearW, level: lvlS, hasImg: (w, p) => !!imgUrl(w, p), off: offNow(), lpic: true, only: node.kind === 'listen' ? E.KIND.listen.concat('lpic') : E.KIND[node.kind], calm: ux, gloss: sentGloss, mean: nativeMean, vi: nativeLang() === 'vi' });
+    const items = story ? E.storyItems(story, meanLang(), n + 1) : E.build(picks, { seed: demo ? 7 + n : Date.now(), pool: pool0, near: nearW, level: lvlS, hasImg: (w, p) => !!imgUrl(w, p), off: offNow(), lpic: true, mpic: true, only: node.kind === 'listen' ? E.KIND.listen.concat('lpic') : E.KIND[node.kind], calm: ux, gloss: sentGloss, mean: nativeMean, vi: nativeLang() === 'vi' });
     if (!story && lvOn()) items.unshift({ id: 0, type: 'video', free: true, word: '#video', card: null, retry: 0, words: picks.map(p => p.word) }); // 🎞️ demo video nhúng (cờ lv_embed)
     const prev = ls.get('lk.lsn.who'), V2 = !story && v2On(), DUO = !!story && duoOn(), who = V2 ? 'ama' : prev === 'ama' ? 'carlos' : 'ama'; if (!V2) ls.set('lk.lsn.who', who); // xen kẽ Ama / Carlos mỗi bài
     if (cardOn()) setTimeout(cardReady, 800);
@@ -198,6 +198,13 @@
     if (v) b.style.cssText = 'flex-wrap:wrap;height:auto;min-height:0;gap:.5rem;width:100%;max-width:11rem;justify-self:center';
     return b;
   };
+  // mpic (ghép từ ↔ ảnh): ô cột phải của khuôn ghép cặp đổi chữ thành ảnh vuông (alt = từ; ảnh hỏng → hiện từ) – dùng lại khuôn/màu Stitch
+  const mpTile = (b, c) => {
+    const im = document.createElement('img'); im.src = imgUrl(c.word, c.pos); im.alt = c.word; im.lang = 'en'; im.width = im.height = 120; im.decoding = 'async'; im.draggable = false;
+    im.style.cssText = 'width:100%;max-width:7.5rem;aspect-ratio:1;object-fit:cover;border-radius:.75rem;background:rgb(var(--st-surface-container-highest,236 228 215))';
+    im.onerror = () => { im.replaceWith(document.createTextNode(c.word)); };
+    b.textContent = ''; b.appendChild(im); b.style.padding = '.375rem';
+  };
   const v2opt = (state, i, o) => { const n = L.tpl[state].cloneNode(true); n.removeAttribute('id'); n.dataset.o = o; n.lang = 'en'; n.querySelector(':scope > div > span').textContent = LET[i]; n.querySelector(':scope > span').textContent = o; const c = L.sess.cur; return c && c.type === 'lpic' ? lpTile(n, o, c) : n; };
   function v2foot(it, foot) {
     foot.className = ST.FOOT; foot.innerHTML = ''; foot.hidden = true; // chân cố định chỉ dành cho tấm phản hồi
@@ -236,7 +243,7 @@
     tr: t('Dịch câu này'),
     mean: t('Chọn từ đúng'),
     type: t('Gõ từ tiếng Anh'), // luôn có nghĩa/định nghĩa + độ dài + chữ đầu (không chỉ nghe)
-    match: t('Ghép cặp'),
+    match: it.pics ? t('Ghép từ, ảnh') : t('Ghép cặp'),
     q: t('Trả lời câu hỏi'),
     line: '',
   }[it.type]);
@@ -302,6 +309,7 @@
     } else if (it.type === 'match') {
       const L1 = E.shuffle(it.pairs.map((c, i) => i), Math.random), L2 = E.shuffle(it.pairs.map((c, i) => i), Math.random);
       fill(ST.lsnMatch(L1.map(i => ({ i, t: it.pairs[i].word })), L2.map(i => ({ i, t: it.pairs[i].mean || meanOf(it.pairs[i]) }))), false);
+      if (it.pics) body.querySelectorAll('.lsn-match [data-s=m]').forEach(b => mpTile(b, it.pairs[+b.dataset.m])); // mpic: cột phải = ảnh
     } else if (it.type === 'lpic') {
       fill(V ? '' : snd + ST.lsnOpts(it.options), true); // v2: bindItem vẽ 4 thẻ ảnh; v1: 4 hàng có ảnh thu nhỏ
       if (!V) body.querySelectorAll('.lsn-opt').forEach(b => lpTile(b, b.dataset.o, it));

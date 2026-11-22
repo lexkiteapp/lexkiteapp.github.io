@@ -25,6 +25,7 @@
 "Có cặp ghép nhầm":"Algunos pares eran incorrectos",
 "Dịch câu này":"Traduce esta frase",
 "Ghép cặp":"Une las parejas",
+"Ghép từ, ảnh":"Une palabras e imágenes",
 "Giáo viên của bạn":"Tu profesora",
 "Hoàn thành bài học!":"¡Lección completada!",
 "Hoặc chọn “Không nói được lúc này” để học tiếp.":"O elige «No puedo hablar ahora» para seguir aprendiendo.",

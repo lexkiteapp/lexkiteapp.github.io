@@ -25,6 +25,7 @@
 "Có cặp ghép nhầm":"Bazı eşleşmeler yanlıştı",
 "Dịch câu này":"Bu cümleyi çevir",
 "Ghép cặp":"Eşleştir",
+"Ghép từ, ảnh":"Kelimeleri resimlerle eşleştir",
 "Giáo viên của bạn":"Öğretmenin",
 "Hoàn thành bài học!":"Ders tamamlandı!",
 "Hoặc chọn “Không nói được lúc này” để học tiếp.":"Ya da öğrenmeye devam etmek için “Şu an konuşamıyorum”u seçin.",

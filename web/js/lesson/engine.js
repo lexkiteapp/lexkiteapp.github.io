@@ -177,6 +177,9 @@
     // Ghép cặp (từ ↔ nghĩa) giữa bài khi có ≥ 4 từ: 1 bài, không gắn từ riêng (card null → không ghi FSRS theo từ)
     const mp = picks.filter(p => (p.card.vi || p.card.def) && !isPat(p.card)).slice(0, 5);
     if (opts.match !== false && (!opts.only || opts.only.includes('match')) && mp.length >= 4) items.splice(Math.ceil(items.length / 2), 0, { id: ++id, type: 'match', word: '#match', card: null, retry: 0, answer: '', hints: HINTS.match, pairs: shuffle(mp, r).slice(0, 4).map(p => p.card) });
+    // Ghép từ ↔ ảnh (opts.mpic – web bật; native/vectors không đổi): cùng khuôn + cách chấm với match, cột phải là ảnh; cần ≥ 4 từ đều có ảnh; hiếm (~40 % bài, RNG riêng → không lệch dãy xáo của dạng khác)
+    const mi = opts.mpic && !opts.only && opts.hasImg ? picks.filter(p => !isPat(p.card) && opts.hasImg(p.card.word, p.card.pos)) : [];
+    if (mi.length >= 4 && rng((opts.seed || 1) + 97)() < 0.4) items.splice(Math.ceil(items.length * 0.75), 0, { id: ++id, type: 'match', pics: true, word: '#mpic', card: null, retry: 0, answer: '', hints: HINTS.match, pairs: shuffle(mi, rng((opts.seed || 1) + 98)).slice(0, 4).map(p => p.card) });
     const out = items.map(it => adapt(it, off));
     return opts.calm ? calm(out) : out;
   }

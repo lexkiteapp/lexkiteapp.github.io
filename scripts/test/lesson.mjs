@@ -61,6 +61,23 @@ const C = {
   ok(!E.HARD(it) && E.HINTS.lpic === undefined && E.KIND.listen.join() === 'gap,build,type,match', 'lpic: không phải dạng khó; HINTS/KIND xuất ra (đối chiếu native) không đổi');
 }
 {
+  // mpic: ghép từ ↔ ảnh (bật bằng opts.mpic; mặc định không sinh → vectors native không đổi)
+  const P = E.pickWords(C, { now: NOW, n: 6 }), all = () => true, seeds = Array.from({ length: 40 }, (_, k) => k + 1);
+  const mk = (seed, o) => E.build(P, Object.assign({ seed, hasImg: all, perWord: 2 }, o)), isM = i => i.type === 'match' && i.pics;
+  const hit = seeds.filter(sd => mk(sd, { mpic: true }).some(isM));
+  ok(hit.length >= 5 && hit.length < seeds.length, `mpic: hiếm nhưng có (${hit.length}/${seeds.length} bài)`);
+  const A = mk(hit[0], { mpic: true }), it = A.find(isM);
+  ok(A.filter(isM).length === 1 && it.word === '#mpic' && it.card === null && it.pairs.length === 4 && new Set(it.pairs.map(c => E.norm(c.word))).size === 4 && it.hints.join() === E.HINTS.match.join(), 'mpic: 1 bài/bài, 4 cặp khác nhau, không gắn từ riêng');
+  ok(E.check(it, true) && !E.check(it, false), 'mpic: chấm như ghép cặp (0 lỗi = đúng)');
+  ok(!seeds.some(sd => mk(sd, {}).some(isM)), 'mpic: không bật opts.mpic → không sinh');
+  ok(!seeds.some(sd => mk(sd, { mpic: true, hasImg: () => false }).some(isM)), 'mpic: không từ nào có ảnh → không sinh (rơi về match chữ)');
+  const few = w => ['salary', 'consider', 'afraid'].includes(w);
+  ok(!seeds.some(sd => mk(sd, { mpic: true, hasImg: few }).some(isM)), 'mpic: chỉ 3 từ có ảnh → không sinh');
+  ok(!seeds.some(sd => mk(sd, { mpic: true, only: E.KIND.speak }).some(isM)), 'mpic: nút/làn có only[] không chứa → không sinh');
+  const keys = mk(hit[0], { mpic: true }).filter(i => i.type !== 'match').map(i => i.type + i.word).join(), base = mk(hit[0], {}).filter(i => i.type !== 'match').map(i => i.type + i.word).join();
+  ok(keys === base, 'mpic: không làm lệch thứ tự/loại của các dạng khác');
+}
+{
   const has = w => w === 'key card';
   const items = E.build(E.pickWords(C, { now: NOW, n: 6 }), { seed: 3, hasImg: has, perWord: 2 });
   const of = w => items.filter(i => i.word === w).map(i => i.type);
@@ -536,6 +553,34 @@ for (const v2 of [true, false]) {
     }
     ok(seen === 1, 'lpic UI: gặp được bài lpic để kiểm');
     let g3 = 0; while (st() && st().sess && !st().sess.done && g3++ < 40) { const c = st().sess.cur; await solve(true); if (c.type === 'lpic') ok(!!$('#lsnFoot.ok'), 'lpic UI: chọn đúng ô ảnh → đúng'); if (c.type !== 'line') { $('#lsnNext').click(); await tick(); } }
+  }
+  delete w.VImg; w.localStorage.removeItem('lk.lsn.path.demo');
+}
+for (const v2 of [true, false]) {
+  // mpic trên giao diện v2 + v1: cột phải = ảnh (alt = từ), ghép đủ 4 cặp → đúng; ghép nhầm → "có cặp ghép nhầm"
+  App.ux1On = () => v2;
+  w.VImg = { quizUrl: wd => `/vimg/${encodeURIComponent(wd)}.webp` }; // giả lập: mọi từ đều có ảnh
+  let M1 = null;
+  for (let pos = 0; pos < 8 && !M1; pos++) {
+    w.localStorage.setItem('lk.lsn.path.demo', String(pos)); w.location.hash = '#/lesson/go?demo=1'; await App.routes.lesson('go'); await tick(120);
+    if (st() && st().items.some(i => i.type === 'match' && i.pics)) M1 = st();
+  }
+  ok(M1, 'mpic UI: bài demo có dạng ghép từ–ảnh khi mọi từ có ảnh');
+  if (M1) {
+    let g = 0;
+    while (st() && st().sess && !st().sess.done && !(st().sess.cur.type === 'match' && st().sess.cur.pics) && g++ < 40) { const c0 = st().sess.cur; await solve(true); if (c0.type !== 'line') { $('#lsnNext').click(); await tick(); } }
+    const D = w.document, B = s2 => [...D.querySelectorAll(`.lsn-match .lsn-opt[data-s="${s2}"]`)];
+    if (st().sess.cur.pics) {
+      ok(B('w').length === 4 && B('m').length === 4 && B('m').every(b => b.querySelector('img') && b.querySelector('img').alt && /vimg/.test(b.querySelector('img').src) && !b.textContent.trim()) && B('w').every(b => b.textContent.trim() && !b.querySelector('img')), 'mpic UI: cột trái = từ, cột phải = 4 ảnh (alt = từ)');
+      ok(B('m').every(b => b.querySelector('img').alt === B('w').find(x => x.dataset.m === b.dataset.m).textContent), 'mpic UI: ảnh khớp đúng từ của cặp');
+      const a = B('w')[0], bad = B('m').find(x => x.dataset.m !== a.dataset.m); a.click(); bad.click(); await tick(30);
+      ok(!a.disabled && !bad.disabled, 'mpic UI: ghép nhầm → không khóa ô');
+      for (const x of B('w')) { x.click(); B('m').find(y => y.dataset.m === x.dataset.m).click(); }
+      await tick(400);
+      ok($('#lsnFoot.bad') && !errors.length, 'mpic UI: có ghép nhầm → tấm phản hồi sai');
+      $('#lsnNext').click(); await tick();
+    }
+    let g3 = 0; while (st() && st().sess && !st().sess.done && g3++ < 40) { const c = st().sess.cur; await solve(true); if (c.type !== 'line') { $('#lsnNext').click(); await tick(); } }
   }
   delete w.VImg; w.localStorage.removeItem('lk.lsn.path.demo');
 }
