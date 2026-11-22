@@ -819,6 +819,7 @@
 "Đã thêm {n} cụm vào sổ":"Menambahkan frasa {n} ke buku Anda",
 "Đã thêm {n} từ hợp trình độ {cefr} vào bộ thẻ.":"{n} kata sesuai level {cefr}-mu ditambahkan ke dek.",
 "Đã thêm {n} từ tiếng Bồ Đào Nha vào Sổ từ":"{n} kata bahasa Portugis ditambahkan ke daftar katamu",
+"Đã thêm {n} từ tiếng Nhật vào Sổ từ":"{n} kata bahasa Jepang ditambahkan ke daftar katamu",
 "Đã thêm {n} từ tiếng Pháp vào Sổ từ":"{n} kata bahasa Prancis ditambahkan ke daftar katamu",
 "Đã thêm {n} từ tiếng Tây Ban Nha vào Sổ từ":"{n} kata bahasa Spanyol ditambahkan ke daftar katamu",
 "Đã tạo bộ “{d}” với {n} thẻ":"Membuat dek “{d}” dengan kartu {n}.",

@@ -22,7 +22,7 @@ function env() {
   sb.self = sb; sb.globalThis = sb; vm.createContext(sb);
   return { sb, ls, mem };
 }
-const ready = T => { T.TABLE.pt.ready = T.TABLE.fr.ready = true; return T; }; // các ca logic cờ/thẻ giả định khóa đã sẵn sàng; luật ready:false có khối riêng ở cuối tệp
+const ready = T => { T.TABLE.pt.ready = T.TABLE.fr.ready = T.TABLE.ja.ready = true; return T; }; // các ca logic cờ/thẻ giả định khóa đã sẵn sàng; luật ready:false có khối riêng ở cuối tệp
 const load = (sb, f) => vm.runInContext(rd(f), sb, { filename: f });
 
 // ---------- 1) cờ + ngôn ngữ hiện tại ----------
@@ -40,7 +40,7 @@ const load = (sb, f) => vm.runInContext(rd(f), sb, { filename: f });
 // ---------- 1b) es: cờ es_course RIÊNG, mặc định tắt (docs/specs/spanish-course.md W0) ----------
 {
   const { sb, ls } = env(); load(sb, 'web/js/target.js'); const T = ready(sb.Target);
-  ok(T.LANGS.join() === 'en,pt,es,fr' && !T.enabled('es') && T.avail().join() === 'en', 'es: mặc định tắt, chỉ chọn được en');
+  ok(T.LANGS.join() === 'en,pt,es,fr,ja' && !T.enabled('es') && T.avail().join() === 'en', 'es: mặc định tắt, chỉ chọn được en');
   T.set('es'); ok(T.cur() === 'en', 'cờ es tắt: chọn es vẫn ra en');
   ls.set('lk.pt', '1'); ok(T.cur() === 'en' && !T.enabled('es') && T.avail().join() === 'en,pt', 'bật pt KHÔNG bật es');
   ls.set('lk.es', '1'); ok(T.cur() === 'es' && T.avail().join() === 'en,pt,es', 'lk.es=1 → es');
@@ -61,7 +61,7 @@ const load = (sb, f) => vm.runInContext(rd(f), sb, { filename: f });
   cfg({ es_course: '0', es_course_pct: '100' }); ok(!T.enabled('es'), 'es_course=0 rõ ràng thắng pct');
   // quản trị (App.isAdmin ghi lk.adm=1): mọi ngôn ngữ beta bật như lk.<tl>=1 dù ngoài nhóm %/cờ 0; kill vẫn thắng; người thường không có lk.adm → không đổi
   cfg({ es_course_pct: '10' }); ls.set('lk.esb', '50'); ok(!T.enabled('es') && !T.enabled('fr') && !T.enabled('pt'), 'ngoài nhóm 10 %, không phải quản trị → tắt');
-  ls.set('lk.adm', '1'); ok(T.enabled('es') && T.enabled('fr') && T.enabled('pt') && T.avail().join() === 'en,pt,es,fr', 'lk.adm=1 → es, fr, pt đều bật');
+  ls.set('lk.adm', '1'); ok(T.enabled('es') && T.enabled('fr') && T.enabled('pt') && T.enabled('ja') && T.avail().join() === 'en,pt,es,fr,ja', 'lk.adm=1 → es, fr, pt, ja đều bật');
   cfg({ es_course: '0' }); ok(T.enabled('es'), 'quản trị thấy es kể cả cờ es_course=0');
   cfg({ es_kill: '1' }); ok(!T.enabled('es') && T.enabled('fr'), 'es_kill=1 vẫn tắt es cho quản trị (công tắc khẩn)');
   ls.delete('lk.adm'); ok(!T.enabled('fr'), 'bỏ lk.adm → fr tắt lại');
@@ -85,7 +85,7 @@ const load = (sb, f) => vm.runInContext(rd(f), sb, { filename: f });
 {
   const ux = rd('web/js/ux1.js'), { sb } = env(); load(sb, 'web/js/target.js'); const T = ready(sb.Target);
   ok(/Target\.cur\(\) !== 'en'[^;]*Target\.homeOf\(Target\.cur\(\)\)/.test(ux) && /location\.replace\(tlHome\)/.test(ux), 'ux1.map: tl≠en → vào lộ trình của ngôn ngữ đích, không vẽ lộ trình IELTS');
-  ok(T.LANGS.filter(k => k !== 'en').every(k => k === 'pt' || k === 'fr' /* fr: trang chủ = lộ trình ngày W4 */ || /^#\/practice\//.test(T.table(k).home || '')), 'mọi ngôn ngữ đích có trang chủ riêng (trừ pt thử nghiệm)');
+  ok(T.LANGS.filter(k => k !== 'en').every(k => k === 'pt' || k === 'fr' || k === 'ja' /* fr, ja: trang chủ = lộ trình ngày W4 */ || /^#\/practice\//.test(T.table(k).home || '')), 'mọi ngôn ngữ đích có trang chủ riêng (trừ pt thử nghiệm)');
 }
 
 // ---------- 1c) nhãn ngôn ngữ đích (W7a): en = rỗng; es = huy hiệu cờ+tên → Cài đặt; mark chèn đúng 1 lần ----------
@@ -240,6 +240,53 @@ const load = (sb, f) => vm.runInContext(rd(f), sb, { filename: f });
   ok(/word-audio-fr/.test(rd('.github/workflows/word-audio-tl.yml')), 'word-audio-tl.yml: nhãn word-audio-fr');
 }
 
+// ---------- 4d) ja (W0): cờ RIÊNG ja_course/ja_course_pct/ja_kill (mặc định tắt) + bộ từ mẫu ja (kana, romaji/IPA sinh từ kana, cao độ, JLPT, nhóm từ, thể lịch sự) ----------
+{
+  const { sb, ls } = env(); load(sb, 'web/js/target.js'); const T = ready(sb.Target), cfg = v => ls.set('lk.cfg', JSON.stringify({ v }));
+  ok(!T.enabled('ja') && T.avail().join() === 'en', 'ja: mặc định tắt'); T.set('ja'); ok(T.cur() === 'en', 'cờ ja tắt: chọn ja vẫn ra en');
+  ls.set('lk.fr', '1'); ok(!T.enabled('ja') && T.avail().join() === 'en,fr', 'bật fr KHÔNG bật ja'); ls.delete('lk.fr');
+  ls.set('lk.ja', '1'); ok(T.cur() === 'ja' && T.avail().join() === 'en,ja', 'lk.ja=1 → ja'); ls.delete('lk.ja');
+  cfg({ ja_course: true }); ok(T.enabled('ja') && T.cur() === 'ja', 'cờ máy chủ ja_course → ja');
+  cfg({ ja_course: true, ja_kill: '1' }); ok(!T.enabled('ja') && T.cur() === 'en', 'ja_kill=1 thắng cờ');
+  ls.set('lk.esb', '9'); cfg({ ja_course_pct: '10' }); ok(T.enabled('ja') && !T.enabled('fr') && !T.enabled('es'), 'ja_course_pct=10, nhóm 9 → chỉ ja bật'); ls.set('lk.esb', '10'); ok(!T.enabled('ja'), 'nhóm 10 → tắt'); cfg({ ja_course: '0', ja_course_pct: '100' }); ok(!T.enabled('ja'), 'ja_course=0 thắng pct');
+  for (const k of ['ja_course', 'ja_course_pct', 'ja_kill']) ok(rd('functions/api/config.js').includes(`'${k}'`) && rd('functions/api/admin.js').includes(`'${k}'`), k + ' có trong PUBLIC_KEYS + CONFIG_KEYS');
+  ok(T.speechLang('ja') === 'ja-JP' && T.speechLangs('ja').join() === 'ja-JP' && T.recLang('ja', 'en-GB') === 'ja-JP' && T.kokoroVoice('ja-JP') === 'jf_alpha' && T.teacherVoice('ama', 'ja') === 'jf_alpha' && T.teacherVoice('carlos', 'ja') === 'jm_kumo' && T.prefixFor('ja-JP') === 'ja' && T.wordVoice('ja-JP') === '', 'ja: ja-JP, Kokoro jf_alpha (Ama) / jm_kumo (Carlos), chưa có file từ');
+  const deck = readJSON(seedPath('ja')), err = validate(deck, { img: imgKeys() });
+  ok(!err.length, 'seed ja đúng schema + cổng: ' + err.slice(0, 5).join(' | '));
+  ok(deck.words.length === 30 && deck.tl === 'ja' && deck.variant === 'ja-JP', 'seed ja = 30 từ, ja-JP');
+  ok(deck.words.every(w => MEAN_LANGS.every(L => w.gl[L]) && w.gl.ja === w.word && w.ex.ja && w.ex.en && !w.gender && !w.plural), 'ja: đủ nghĩa 15 ngôn ngữ, gl.ja = từ, ví dụ ja+en, không giống/số nhiều');
+  const by = x => deck.words.find(w => w.word === x);
+  ok(by('食べる').vclass === 'ichidan' && by('飲む').vclass === 'godan' && by('来る').vclass === 'irregular' && by('大きい').aclass === 'i' && by('好き').aclass === 'na', 'ja: đủ 3 nhóm động từ + tính từ i/na');
+  ok(['テーブル', 'パン', 'ジュース'].every(by) && by('学校').kana === 'がっこう' && by('牛乳').romaji === 'gyuunyuu' && by('電車').ipa === 'deɴɕa', 'ja: phủ katakana, っ, ゃゅょ, ー, ん');
+  ok(by('水').pitch === 0 && by('猫').pitch === 1 && by('家').pitch === 2 && by('大きい').pitch === 3, 'ja: cao độ NHK (水 0 heiban, 猫 1, 家 2, 大きい 3)');
+  ok(TL_RULES.ja.noGender && TL_RULES.ja.kana && TL_RULES.ja.sub && !TL_RULES.fr.kana && !TL_RULES.es.noGender, 'luật riêng ja theo bảng TL_RULES');
+  // cổng phải BẮT lỗi cài sẵn
+  const bad = structuredClone(deck), B = i => bad.words[i];
+  B(0).romaji = 'iye'; B(1).ipa = 'mizu'; B(3).pitch = 9; B(4).jlpt = 6; // 空 から: một chữ kanji nhận mọi cách đọc ở cổng này → bắt bằng OpenJTalk (tl_ipa.py) + Wiktionary W1
+  const W = x => bad.words.find(w => w.word === x); W('大きい').kana = 'おおきな'; W('話す').vclass = 'ichidan'; W('好き').aclass = 'i';
+  B(5).ex.ja = '私の猫はよく寝る。'; B(6).ex.ja = 'この本はAです。'; B(7).gender = 'f'; delete W('食べる').kana; B(9).ex.ja = '公園に行きます。';
+  const e2 = validate(bad, { img: imgKeys() }), has = re => e2.some(e => re.test(e));
+  ok([/romaji iye/, /IPA mizu/, /không khớp chữ 大きい/, /pitch 9/, /jlpt/, /vclass/, /aclass/, /lịch sự/, /lệch chuẩn/, /không có giống/, /thiếu\/sai kana/, /không chứa/].every(has), 'cổng ja bắt đủ 12 lỗi cài sẵn (romaji, IPA, kana, pitch, jlpt, vclass, aclass, thể thường, romaji trong câu, gender, thiếu kana, câu thiếu từ): ' + e2.length);
+  const es0 = structuredClone(readJSON(seedPath('es'))); es0.words[0].kana = 'かさ'; ok(validate(es0).some(e => /kana chỉ cho/.test(e)), 'trường ja (kana…) bị chặn ở ngôn ngữ khác');
+  const sch = readJSON('content/target/ja/schema.json'); ok(sch.properties.variant.const === 'ja-JP' && sch.properties.words.items.required.includes('kana') && !sch.properties.words.items.properties.gender && sch.properties.words.items.properties.ex.required.join() === 'ja,en', 'schema ja: variant, kana bắt buộc, không gender, ex.ja');
+  try { execFileSync(process.execPath, ['scripts/target/build.mjs', 'ja', '--check'], { stdio: 'pipe' }); ok(true); } catch (e) { ok(false, 'web/js/target-ja-seed.json lệch seed.json: ' + String(e.stdout || e.stderr)); }
+  const web = readJSON('web/js/target-ja-seed.json'); ok(web.words.every(w => w.kana && w.romaji && Number.isInteger(w.pitch) && w.jlpt), 'bản sao app mang kana/romaji/pitch/jlpt');
+  ok(/w\.kana \? \{ kana: w\.kana, romaji: w\.romaji, pitch: w\.pitch \}/.test(rd('web/js/settings.js')) && /tiếng Nhật vào Sổ từ/.test(rd('web/js/settings.js')), 'settings.js: thẻ ja giữ kana/romaji/pitch + thông báo tiếng Nhật');
+  const V = readJSON('scripts/word-audio/tl-voices.json'); ok(V.ja.voices.join() === 'jf_alpha,jm_kumo' && V.ja.g2p === 'misaki-ja' && V.ja.say === 'kana' && V.ja.asrMatch === 'reading' && V.ja.cut === false && V.ja.piper.engine === 'openjtalk' && V.fr.espeak === 'fr-fr', 'tl-voices.json: ja (Kokoro jf_alpha/jm_kumo, misaki-ja, đọc kana, chấm cách đọc, đối chứng Open JTalk)');
+  ok(/word-audio-ja/.test(rd('.github/workflows/word-audio-tl.yml')) && /tl: \[pt, es, fr, ja\]/.test(rd('.github/workflows/target-content.yml')), 'workflow: nhãn word-audio-ja + ma trận target-content có ja');
+  const { TL_GEN } = await import('../target/tl-gen.mjs'); ok(TL_GEN.ja.variant === 'ja-JP' && TL_GEN.ja.kaikki === 'Japanese' && /ja_full/.test(TL_GEN.ja.source.url) && TL_GEN.ja.one.test('本'), 'tl-gen.mjs: dòng ja');
+}
+// ja-kana.mjs: kana → romaji (gõ IME) / IPA, mora, cao độ, furigana, chuẩn hoá chấm IME
+{ const J = await import('../target/ja-kana.mjs');
+  const R = [['がっこう', 'gakkou', 'gakkoː'], ['ぎゅうにゅう', 'gyuunyuu', 'gʲɯːɲɯː'], ['しんぶん', 'shinbun', 'ɕimbɯɴ'], ['きんようび', "kin'youbi", 'kʲiɴjoːbʲi'], ['まっちゃ', 'matcha', 'mattɕa'], ['コーヒー', 'koohii', 'koːçiː'], ['ティーシャツ', 'tiishatsu', 'tiːɕatsɯ'], ['ファイル', 'fairu', 'ɸaiɾɯ'], ['にほんご', 'nihongo', 'ɲihoŋgo'], ['せんせい', 'sensei', 'seɴseː'], ['あんない', 'annai', 'annai']];
+  for (const [k, r, i] of R) ok(J.romaji(k) === r && J.ipa(k) === i, `ja-kana ${k}: ${J.romaji(k)} /${J.ipa(k)}/`);
+  ok(J.ipa('おもう', { verb: true }) === 'omoɯ' && J.ipa('おもう') === 'omoː', 'う cuối động từ không thành trường âm (思う omoɯ)');
+  ok(J.morae('きょう') === 2 && J.morae('がっこう') === 4 && J.morae('テーブル') === 4 && J.morae('ほん') === 2, 'đếm mora (ゃ nhập, っ/ー/ん = 1)');
+  ok(J.pitchPattern('みず', 0).join('') === 'LHH' && J.pitchPattern('ねこ', 1).join('') === 'HLL' && J.pitchPattern('いえ', 2).join('') === 'LHL' && J.pitchPattern('たべる', 2).join('') === 'LHLL' && J.pitchPattern('ねこ', 3) === null, 'mẫu cao độ Tokyo (heiban/atamadaka/odaka/nakadaka)');
+  ok(JSON.stringify(J.ruby('食べる', 'たべる')) === '[["食","た"],["べる",null]]' && JSON.stringify(J.ruby('今日', 'きょう')) === '[["今日","きょう"]]' && J.ruby('食べる', 'のむ') === null, 'furigana theo khối, okurigana tách đúng; sai cách đọc → null');
+  ok(J.fold('ﾈｺ。') === 'ねこ' && J.fold('ネコ ') === 'ねこ' && J.fold('ねこ') === J.fold('ネコ'), 'chấm IME: bán độ rộng/katakana/dấu câu đều quy về hiragana');
+  let thr = false; try { J.romaji('ねこa'); } catch { thr = true; } ok(thr, 'ký tự ngoài kana → lỗi (không đoán)'); }
+
 // ---------- 5) nối dây: shell nạp target.js trước core.js; package test ----------
 {
   const html = rd('web/app/index.html'), a = html.indexOf('js/target.js'), b = html.indexOf('js/core.js');
@@ -251,6 +298,7 @@ const load = (sb, f) => vm.runInContext(rd(f), sb, { filename: f });
 { const { sb, ls } = env(); load(sb, 'web/js/target.js'); const T = sb.Target;
   ls.set('lk.pt', '1'); T.set('pt'); ok(T.enabled('pt') && T.cur() === 'en' && T.avail().join() === 'en', 'pt ready:false: cờ bật nhưng người thường không chọn được (cur = en)');
   ls.set('lk.fr', '1'); T.set('fr'); ok(T.enabled('fr') && T.cur() === 'en', 'fr ready:false: như pt');
+  ls.set('lk.ja', '1'); T.set('ja'); ok(T.enabled('ja') && T.cur() === 'en' && T.table('ja').ready === false, 'ja ready:false: như fr');
   ls.set('lk.adm', '1'); T.set('fr'); ok(T.cur() === 'fr' && T.avail().includes('fr') && T.homeOf('fr') === '#/tlprep/fr', 'quản trị chọn được fr → màn chuẩn bị');
   ls.set('lk.es', '1'); T.set('es'); ok(T.cur() === 'es', 'es ready → vẫn chọn được'); }
 

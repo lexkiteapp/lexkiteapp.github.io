@@ -9,6 +9,8 @@
       flag: 'es_course', pct: 'es_course_pct', kill: 'es_kill', ls: 'lk.es', label: 'Español (beta)' },
     fr: { em: '🇫🇷', name: 'Français', speech: 'fr-FR', rec: 'fr-FR', fallback: ['fr-CA', 'fr-BE'], prefix: 'fr', kokoro: { 'fr-FR': 'ff_siwis', 'fr-CA': 'ff_siwis', 'fr-BE': 'ff_siwis' }, voices: { ama: 'ff_siwis', carlos: 'ff_siwis' }, wordFiles: false,
       ready: false, home: '#/tlprep/fr', flag: 'fr_course', pct: 'fr_course_pct', kill: 'fr_kill', ls: 'lk.fr', label: 'Français (bêta)' },
+    ja: { em: '🇯🇵', name: '日本語', speech: 'ja-JP', rec: 'ja-JP', fallback: [], prefix: 'ja', kokoro: { 'ja-JP': 'jf_alpha' }, voices: { ama: 'jf_alpha', carlos: 'jm_kumo' }, wordFiles: false,
+      ready: false, home: '#/tlprep/ja', flag: 'ja_course', pct: 'ja_course_pct', kill: 'ja_kill', ls: 'lk.ja', label: '日本語 (ベータ)' },
   };
   const LANGS = Object.keys(TABLE), KEY = 'lk.tl';
   const ls = (k, v) => { try { if (v === undefined) return g.localStorage ? g.localStorage.getItem(k) : null; if (v === null) g.localStorage.removeItem(k); else g.localStorage.setItem(k, v); } catch (e) { /* chế độ riêng tư */ } return null; };

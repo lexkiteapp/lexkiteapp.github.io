@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { INFORMAL } from '../lib/i18n-rules.mjs'; // máy gác xưng hô dùng chung với #1324 (fr: tu/toi/ton… = thân mật)
+import * as JA from './ja-kana.mjs'; // chữ viết tiếng Nhật (kana → romaji/IPA, mora, furigana) – chỉ dùng khi bảng có kana: true
 
 export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 // 15 ngôn ngữ NGHĨA (vi + en + scripts/i18n-langs.txt) – thứ tự cố định
@@ -21,7 +22,7 @@ export const readJSON = f => JSON.parse(fs.readFileSync(f, 'utf8'));
 export const imgKeys = () => new Set(Object.keys(readJSON(path.join(ROOT, 'content/lexicon/img.json')).items || {}));
 const esc = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 // từ (hoặc dạng chia exForm) xuất hiện nguyên vẹn trong câu ví dụ – ranh giới chữ Unicode
-export const inSentence = (form, sent) => new RegExp(`(^|[^\\p{L}])${esc(form)}($|[^\\p{L}])`, 'iu').test(sent);
+export const inSentence = (form, sent, sub) => (sub ? String(sent).includes(form) : new RegExp(`(^|[^\\p{L}])${esc(form)}($|[^\\p{L}])`, 'iu').test(sent)); // sub: chữ viết không cách từ (ja) → chứa chuỗi
 
 // Luật riêng theo ngôn ngữ đích (bảng, không nhánh code): es = danh từ bắt buộc số nhiều + IPA seseo (spanish-course.md §2, §8)
 // lint = câu ví dụ chính không có vosotros (đại từ, sở hữu, clitic os, đuôi -áis/-éis), từ chỉ Tây Ban Nha hay từ tục ở Mỹ Latinh (coger) – §8 (ghi chú "Ở Tây Ban Nha" không nằm trong ex)
@@ -33,7 +34,12 @@ export const TL_RULES = { es: { plural: true, seseo: true, lint: [
 // lint = không dạng Québec/Bỉ/Thụy Sĩ hay thông tục nặng trong câu chính; mix = một câu một xưng (tu ⟂ vous) – cùng INFORMAL.fr với máy gác UI #1324
 fr: { plural: true, hFlag: true, mix: { informal: INFORMAL.fr, formal: /(?<!\p{L})(vous|votre|vos)(?!\p{L})/iu }, lint: [
   /(?<!\p{L})(bagnole|boulot|fric|bouffer?|bouffe|gamin|flic|mec|nana|pote|taf|truc|machin|ouais|char|dépanneur|magasiner|chum|septante|huitante|nonante)(?!\p{L})/iu,
-] } };
+] },
+// ja (japanese-course.md §2, §5, §8): không giống/số nhiều (noGender); câu không cách từ (sub); kana bắt buộc + romaji/IPA phải đúng bằng ja-kana.mjs sinh từ kana (một quy ước, không gõ tay lệch);
+// cao độ pitch = vị trí hạ 0…số mora; jlpt 5…1; động từ có vclass (ichidan|godan|irregular), tính từ có aclass (i|na) và khớp đuôi; câu ví dụ chính = thể lịch sự です/ます (end),
+// chữ Nhật thuần (lint: không chữ Latin/số Ả Rập/khoảng trắng/katakana bán độ rộng), kết thúc 。 hoặc ？
+ja: { noGender: true, sub: true, kana: true, end: /(です|ます|ました|ません|でした|ましょう|ませんか|ください|でしょう)か?[。？]$/u, lint: [/[A-Za-z0-9\s]/u, /[\uff61-\uff9f]/u] } };
+const VCLASS = { ichidan: /[いきしちにひみりぎじびぴえけせてねへめれげぜべぺ]る$/u, godan: /[うくぐすつぬぶむる]$/u, irregular: /^(する|くる)$|する$/u };
 
 /** Kiểm một bộ từ → mảng lỗi (rỗng = đạt). o.img = Set khóa ảnh tiếng Anh hợp lệ (content/lexicon/img.json). */
 export function validate(deck, o = {}) {
@@ -42,7 +48,7 @@ export function validate(deck, o = {}) {
   if (!deck || !/^[a-z]{2}$/.test(deck.tl || '')) err.push('tl sai');
   const words = (deck && deck.words) || [];
   if (!Array.isArray(words) || !words.length) err.push('words rỗng');
-  const ALLOWED = new Set(['word', 'pos', 'gender', 'plural', 'h', 'ipa', 'emoji', 'img', 'gl', 'ex', 'exForm', 'rank', 'qa']);
+  const ALLOWED = new Set(['word', 'pos', 'gender', 'plural', 'h', 'kana', 'romaji', 'pitch', 'jlpt', 'vclass', 'aclass', 'ipa', 'emoji', 'img', 'gl', 'ex', 'exForm', 'rank', 'qa']);
   for (const w of words) {
     const id = (w && w.word) || '?', bad = m => err.push(`${id}: ${m}`);
     for (const k of Object.keys(w || {})) if (!ALLOWED.has(k)) bad('trường lạ ' + k);
@@ -50,7 +56,8 @@ export function validate(deck, o = {}) {
     const key = String(w.word || '').toLowerCase() + '#' + w.pos;
     if (seen.has(key)) bad('trùng'); seen.add(key);
     if (!POS.includes(w.pos)) bad('pos sai');
-    if (w.pos === 'n' && !['m', 'f', 'mf'].includes(w.gender)) bad('danh từ thiếu giống (gender m/f/mf)');
+    if (R.noGender) { if (w.gender !== undefined) bad('ngôn ngữ không có giống – bỏ gender'); }
+    else if (w.pos === 'n' && !['m', 'f', 'mf'].includes(w.gender)) bad('danh từ thiếu giống (gender m/f/mf)');
     if (w.pos !== 'n' && w.gender !== undefined) bad('gender chỉ cho danh từ');
     // số nhiều (bảng TL_RULES): bắt buộc cho danh từ, chỉ cho danh từ
     if (R.plural && w.pos === 'n' && !/^\p{L}[\p{L}' -]*$/u.test(w.plural || '')) bad('danh từ es thiếu số nhiều (plural)');
@@ -60,6 +67,20 @@ export function validate(deck, o = {}) {
     if (R.hFlag) { const h = /^h/i.test(w.word || ''); if (h && w.h === undefined) bad('từ mở đầu bằng h thiếu cờ h (muet|aspire)'); if (!h && w.h !== undefined) bad('cờ h chỉ cho từ mở đầu bằng h'); } else if (w.h !== undefined) bad('cờ h chỉ cho ngôn ngữ có hFlag');
     // seseo (es-419, spanish-course.md §8): IPA không có /θ/
     if (R.seseo && /θ/.test(w.ipa || '')) bad('IPA có θ (ceceo) – chuẩn es-419 dùng seseo /s/');
+    // kana (ja): cách đọc bắt buộc, furigana khớp chữ, romaji + IPA đúng bằng bản sinh từ kana, cao độ trong 0…mora, cấp JLPT, nhóm động/tính từ khớp đuôi
+    const JF = ['kana', 'romaji', 'pitch', 'jlpt', 'vclass', 'aclass'];
+    if (!R.kana) { for (const k of JF) if (w[k] !== undefined) bad(k + ' chỉ cho ngôn ngữ có kana'); }
+    else if (!JA.isKana(w.kana)) bad('thiếu/sai kana (cách đọc hiragana/katakana): ' + w.kana);
+    else {
+      if (JA.hasKanji(w.word) ? !JA.ruby(w.word, w.kana) : JA.hira(w.word) !== JA.hira(w.kana)) bad(`kana ${w.kana} không khớp chữ ${w.word} (furigana)`);
+      let r = '', p = ''; try { r = JA.romaji(w.kana); p = JA.ipa(w.kana, { verb: w.pos === 'v' }); } catch (e) { bad(e.message); }
+      if (w.romaji !== r) bad(`romaji ${w.romaji} ≠ quy ước ${r}`);
+      if (w.ipa !== p) bad(`IPA ${w.ipa} ≠ quy ước /${p}/ (ja-kana.mjs)`);
+      if (!Number.isInteger(w.pitch) || w.pitch < 0 || w.pitch > JA.morae(w.kana)) bad(`pitch ${w.pitch} ngoài 0…${JA.morae(w.kana)} mora`);
+      if (![1, 2, 3, 4, 5].includes(w.jlpt)) bad('jlpt phải là 5…1 (N5…N1)');
+      if (w.pos === 'v' ? !VCLASS[w.vclass] || !VCLASS[w.vclass].test(JA.hira(w.kana)) : w.vclass !== undefined) bad('vclass (ichidan|godan|irregular) sai/thiếu: ' + w.vclass);
+      if (w.pos === 'adj' ? !(w.aclass === 'na' || (w.aclass === 'i' && /い$/.test(w.kana))) : w.aclass !== undefined) bad('aclass (i|na) sai/thiếu: ' + w.aclass);
+    }
     if (!IPA_OK.test(String(w.ipa || '').normalize('NFD')) || /[/[\]]/.test(w.ipa || '')) bad('IPA sai ký tự: ' + w.ipa);
     const gl = w.gl || {};
     for (const L of MEAN_LANGS) if (typeof gl[L] !== 'string' || !gl[L].trim()) bad('thiếu nghĩa ' + L);
@@ -72,8 +93,9 @@ export function validate(deck, o = {}) {
     const tl = (deck && deck.tl) || 'pt';
     if (!ex[tl] || !ex.en) bad(`thiếu câu ví dụ ${tl}/en`);
     else if (Object.keys(ex).some(k => k !== tl && k !== 'en')) bad('câu ví dụ có ngôn ngữ lạ');
-    else if (!inSentence(w.exForm || w.word, ex[tl])) bad(`câu ví dụ không chứa "${w.exForm || w.word}"`);
+    else if (!inSentence(w.exForm || w.word, ex[tl], R.sub)) bad(`câu ví dụ không chứa "${w.exForm || w.word}"`);
     else if ((R.lint || []).some(re => re.test(ex[tl]))) bad('câu ví dụ lệch chuẩn ' + (deck.variant || tl) + ' (vosotros/leísmo/từ vùng): ' + ex[tl]);
+    if (R.end && ex[tl] && !R.end.test(ex[tl])) bad('câu ví dụ chính phải ở thể lịch sự です/ます và kết thúc 。/？: ' + ex[tl]);
     if (R.mix && ex[tl] && R.mix.informal.test(ex[tl]) && R.mix.formal.test(ex[tl])) bad('trộn thân mật/trang trọng (tu + vous) trong một câu: ' + ex[tl]);
     if (w.exForm !== undefined && (!w.exForm || w.exForm.toLowerCase() === String(w.word).toLowerCase())) bad('exForm thừa');
     if (w.img !== undefined) { if (!/^[a-z][a-z' -]*#[a-z]+$/.test(w.img)) bad('img sai dạng'); else if (o.img && !o.img.has(w.img)) bad('img không có trong content/lexicon/img.json: ' + w.img); }
@@ -82,7 +104,7 @@ export function validate(deck, o = {}) {
 }
 
 /** Bản sao cho app: chỉ trường app dùng (settings.js addTlSeed) – dựng bởi scripts/target/build.mjs, test so khớp. */
-export const webSeed = deck => ({ v: 1, tl: deck.tl, words: deck.words.map(w => ({ word: w.word, pos: w.pos, ...(w.gender ? { gender: w.gender } : {}), ...(w.plural ? { plural: w.plural } : {}), ...(w.h ? { h: w.h } : {}), ipa: w.ipa, emoji: w.emoji, ...(w.img ? { img: w.img } : {}), gl: w.gl, ex: w.ex })) });
+export const webSeed = deck => ({ v: 1, tl: deck.tl, words: deck.words.map(w => ({ word: w.word, pos: w.pos, ...(w.gender ? { gender: w.gender } : {}), ...(w.plural ? { plural: w.plural } : {}), ...(w.h ? { h: w.h } : {}), ...(w.kana ? { kana: w.kana, romaji: w.romaji, pitch: w.pitch, jlpt: w.jlpt, ...(w.vclass ? { vclass: w.vclass } : {}), ...(w.aclass ? { aclass: w.aclass } : {}) } : {}), ipa: w.ipa, emoji: w.emoji, ...(w.img ? { img: w.img } : {}), gl: w.gl, ex: w.ex })) });
 export const webSeedText = deck => JSON.stringify(webSeed(deck)) + '\n';
 
 // Mục Wiktionary (kaikki.org, CC BY-SA) của 1 từ – tệp nhỏ /meaning/… (không tải bản 1,1 GB). CHỈ dùng để kiểm chéo trên CI (wikt-check, conj-check),

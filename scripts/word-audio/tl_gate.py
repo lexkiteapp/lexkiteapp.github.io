@@ -32,6 +32,12 @@ sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'
 # Bộ nghe: large-v3-turbo đa ngôn ngữ. Lượt 41433773084 chứng minh "small" không nghe nổi từ đơn tiếng Bồ: giọng ĐỐI CHỨNG Piper pt_BR (rõ, dữ liệu CC0)
 # cũng chỉ 7/20, nghe "homem" → "O que é isso?", "gato" → "Pronto." – bộ nghe yếu chứ không phải giọng. Nghe tốt hơn = cổng chặt hơn (vẫn khớp đúng chữ).
 model = load(os.environ.get('TL_ASR', C['asrModel']))
+# bảng asrMatch = "reading" (ja): Whisper viết kanji/kana tuỳ ý → so CÁCH ĐỌC (OpenJTalk, tl_kana.py) với kana của seed, trường âm chuẩn hoá; vẫn phải khớp trọn (WER mục từ = 0)
+if C.get('asrMatch') == 'reading':
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); import tl_kana
+    def same(heard, r): return bool(r.get('kana')) and bool(heard) and tl_kana.fold(tl_kana.yomi(heard)) == tl_kana.fold(r['kana'])
+else:
+    def same(heard, r): return nrm(heard) == nrm(r['w'])
 def hear(f, carrier=None):
     """Chữ nghe được. Từ đơn: ghép SAU câu mang của chính giọng đó (câu mang của bảng + 0,25 s lặng + clip) rồi lấy phần sau câu mang –
     Whisper (cả large-v3-turbo) bịa chữ khi nghe từ tiếng Bồ trơ trọi: lượt 41439608580 giọng đối chứng Piper "casa" → "Realmente.", "dia" → "Tchau.".
@@ -98,7 +104,7 @@ def gate(r):
             if not src: tried.append({'m': 'cut', 'heard': why}); continue
         src = detail(src, r['w'])
         mp3 = src[:-4] + '.mp3'; li = norm16(src, mp3); heard = hear(mp3, CARRIER.get(r['v']) if ' ' not in r['w'].strip() else None)
-        last = {'v': r['v'], 'w': r['w'], 'key': r.get('key'), 'm': c['m'], 'mp3': mp3, 'heard': heard, 'lufs': li, 'asr': nrm(heard) == nrm(r['w']), 'loud': li is not None and abs(li + 16) <= 1.0}
+        last = {'v': r['v'], 'w': r['w'], 'key': r.get('key'), 'm': c['m'], 'mp3': mp3, 'heard': heard, 'lufs': li, 'asr': same(heard, r), 'loud': li is not None and abs(li + 16) <= 1.0}
         last['ok'] = last['asr'] and last['loud']; tried.append({'m': c['m'], 'heard': heard})
         if last['ok']: break
     if last is None: last = {'v': r['v'], 'w': r['w'], 'ok': False, 'asr': False, 'loud': False, 'heard': '; '.join(t['heard'] for t in tried)}

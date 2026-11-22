@@ -819,6 +819,7 @@
 "Đã thêm {n} cụm vào sổ":"책에 {n}개의 문구를 추가했습니다.",
 "Đã thêm {n} từ hợp trình độ {cefr} vào bộ thẻ.":"내 수준 {cefr}에 맞는 단어 {n}개를 카드 묶음에 추가했어요.",
 "Đã thêm {n} từ tiếng Bồ Đào Nha vào Sổ từ":"포르투갈어 단어 {n}개를 단어장에 추가했습니다",
+"Đã thêm {n} từ tiếng Nhật vào Sổ từ":"일본어 단어 {n}개를 단어장에 추가했어요",
 "Đã thêm {n} từ tiếng Pháp vào Sổ từ":"프랑스어 단어 {n}개를 단어장에 추가했어요",
 "Đã thêm {n} từ tiếng Tây Ban Nha vào Sổ từ":"스페인어 단어 {n}개를 단어장에 추가했어요",
 "Đã tạo bộ “{d}” với {n} thẻ":"{n}개의 카드로 “{d}” 덱을 만들었습니다.",

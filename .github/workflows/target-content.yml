@@ -27,7 +27,7 @@ jobs:
     if: ${{ github.event_name == 'pull_request' }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
-    strategy: { fail-fast: false, matrix: { tl: [pt, es, fr] } }
+    strategy: { fail-fast: false, matrix: { tl: [pt, es, fr, ja] } }
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
