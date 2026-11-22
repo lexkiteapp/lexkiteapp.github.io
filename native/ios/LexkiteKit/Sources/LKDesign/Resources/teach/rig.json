@@ -81,6 +81,87 @@
   "explain": {
    "brow": 0.12,
    "tilt": -1
+  },
+  "shock": {
+   "brow": 1,
+   "o": 0.6
+  },
+  "panic": {
+   "brow": 0.9,
+   "knit": 0.5,
+   "smile": -0.15,
+   "o": 0.3,
+   "look": [
+    0.2,
+    -0.1
+   ]
+  },
+  "smug": {
+   "brow": 0.35,
+   "smile": 0.3,
+   "tilt": -3.5,
+   "look": [
+    0.6,
+    0
+   ]
+  },
+  "smirk": {
+   "brow": 0.2,
+   "smile": 0.45,
+   "tilt": 3,
+   "look": [
+    -0.5,
+    0.1
+   ]
+  },
+  "shrug": {
+   "brow": 0.75,
+   "smile": -0.12,
+   "tilt": 4.5
+  },
+  "furious": {
+   "brow": -0.3,
+   "knit": 1,
+   "smile": -0.35,
+   "tilt": -2
+  },
+  "cringe": {
+   "brow": 0.1,
+   "knit": 0.7,
+   "smile": -0.3,
+   "tilt": -4,
+   "look": [
+    0.6,
+    0.3
+   ]
+  },
+  "deadpan": {
+   "knit": 0.12,
+   "smile": -0.06,
+   "look": [
+    0,
+    0
+   ]
+  },
+  "love": {
+   "brow": 0.5,
+   "smile": 0.5,
+   "tilt": 3
+  },
+  "confused": {
+   "brow": 0.5,
+   "knit": 0.45,
+   "tilt": -4,
+   "look": [
+    0.3,
+    -0.3
+   ]
+  },
+  "hype": {
+   "brow": 0.7,
+   "smile": 0.55,
+   "tilt": 2.5,
+   "o": 0.2
   }
  },
  "poseEmo": {
@@ -241,6 +322,17 @@
      "file": "teach/ama/still-empathy.webp",
      "hold": 1.4,
      "emo": "sad",
+     "pending": false,
+     "alt": null,
+     "bundled": true
+    },
+    "worry": {
+     "kind": "pose",
+     "wanted": "concern",
+     "pose": "concern",
+     "file": "teach/ama/still-concern.webp",
+     "hold": 1.2,
+     "emo": "panic",
      "pending": false,
      "alt": null,
      "bundled": true
@@ -435,6 +527,17 @@
      "file": "teach/carlos/still-empathy.webp",
      "hold": 1.4,
      "emo": "sad",
+     "pending": false,
+     "alt": null,
+     "bundled": true
+    },
+    "worry": {
+     "kind": "pose",
+     "wanted": "concern",
+     "pose": "concern",
+     "file": "teach/carlos/still-concern.webp",
+     "hold": 1.2,
+     "emo": "panic",
      "pending": false,
      "alt": null,
      "bundled": true

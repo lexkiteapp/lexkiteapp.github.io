@@ -65,7 +65,8 @@ class RigVectorsTest {
     // ---------- tests ----------
     @Test fun rigDefParses() {
         assertEquals(setOf("ama", "carlos"), def.people.keys)
-        assertEquals(9, def.mouthShapes.size); assertEquals(9, def.emotions.size)
+        assertEquals(9, def.mouthShapes.size); assertEquals(20, def.emotions.size) // 9 base + 11 strong expressions (TeacherRig EXPR, 22/11)
+        assertTrue(listOf("neutral", "happy", "surprise", "sad", "shock", "smug", "furious", "hype").all { it in def.emotions.keys })
         assertTrue(def.face("carlos").stache != null && def.face("ama").stache == null)
         assertEquals(def.people.getValue("ama").seed, "ama".fold(7L) { a, c -> a * 31 + c.code }) // = TeacherRig.mount seed
     }
