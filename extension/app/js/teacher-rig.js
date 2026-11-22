@@ -21,7 +21,7 @@
     cringe: { brow: .1, knit: .7, smile: -.3, tilt: -4, look: [.6, .3] }, deadpan: { knit: .12, smile: -.06, look: [0, 0] }, love: { brow: .5, smile: .5, tilt: 3 },
     confused: { brow: .5, knit: .45, tilt: -4, look: [.3, -.3] }, hype: { brow: .7, smile: .55, tilt: 2.5, o: .2 },
   };
-  // Bộ biểu cảm mạnh dùng lại cho mọi clip (thẻ lóng, docs/CHARACTERS.md): tên → mặt vẽ (emo) + cử chỉ ảnh tư thế đã duyệt (gesture, tuỳ chọn) chiếu trong khoảng lặng sau hook
+  // Bộ biểu cảm mạnh dùng lại cho mọi clip (thẻ lóng, docs/CHARACTERS.md): tên → mặt vẽ (emo) + cử chỉ ảnh tư thế đã duyệt (gesture, tùy chọn) chiếu trong khoảng lặng sau hook
   const EXPR = {
     shock: { emo: 'shock', gesture: 'surprised' }, panic: { emo: 'panic', gesture: 'worry' }, smug: { emo: 'smug' }, smirk: { emo: 'smirk' },
     shrug: { emo: 'shrug' }, furious: { emo: 'furious' }, cringe: { emo: 'cringe' }, laugh: { emo: 'praise', gesture: 'laugh' }, deadpan: { emo: 'deadpan' },
