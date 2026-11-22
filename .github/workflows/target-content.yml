@@ -75,6 +75,9 @@ jobs:
       - name: IPA bài phát âm fr (W3) – bảng 'ipa' của pron.json khớp espeak-ng fr-fr (lệch = đỏ, in từng mục)
         if: ${{ matrix.tl == 'fr' }}
         run: TL=fr python3 scripts/target/tl_ipa_fill.py --pron
+      - name: Cuộc gọi AI fr (W4) – 24 cuộc A1–C1, một xưng hô tu|vous mỗi cuộc, LanguageTool 0 lỗi trên lời nói/câu mẫu/phản hồi
+        if: ${{ matrix.tl == 'fr' }}
+        run: node scripts/target/calls-check.mjs --tl fr --lt
   plan:
     if: ${{ github.event_name == 'workflow_dispatch' }}
     runs-on: ubuntu-latest
