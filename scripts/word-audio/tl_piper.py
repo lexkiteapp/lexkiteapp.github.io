@@ -42,8 +42,16 @@ def speaker(a):
         if not os.path.exists(os.path.join(M, f)): subprocess.run(['curl', '-sfL', '--retry', '5', '--retry-all-errors', '-o', os.path.join(M, f), base + f], check=True)
     def say(text, f): subprocess.run([sys.executable, '-m', 'piper', '-m', os.path.join(M, name + '.onnx'), '-f', f, '--', text], check=True, capture_output=True)
     return say
+def mastered(a, say):
+    """af (bảng, tuỳ nguồn) = chuỗi lọc ffmpeg áp lên clip ngay khi sinh – khâu SẢN XUẤT giọng (vd. nén nhẹ đỉnh nhọn của Supertonic để chuẩn hoá −16 LUFS
+    không bị bộ giới hạn −1 dBTP kìm ở −17…−18: lượt 45016117728, ASR M1 20/20 nhưng 4 từ trượt độ to). Cổng tl_gate.py không đổi (±1 LU, nghe lại)."""
+    if not a.get('af'): return say
+    def s2(text, f):
+        raw = f[:-4] + '.raw.wav'; say(text, raw)
+        subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', raw, '-af', a['af'], f], check=True); os.remove(raw)
+    return s2
 def run(a, probe):
-    say, v, jp = speaker(a), a['label'], a.get('engine') == 'openjtalk'
+    say, v, jp = mastered(a, speaker(a)), a['label'], a.get('engine') == 'openjtalk'
     meta = {}
     for r in probe.get('rows', []): meta.setdefault(r['w'], r)
     if not meta:   # bảng không có giọng Kokoro (ko: voices rỗng) → lấy thẳng N từ đầu seed, cùng thứ tự với tl-sample.mjs
