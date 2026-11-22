@@ -19,7 +19,7 @@
     "ux1": 122044
   },
   "cpackTotal": 13613176,
-  "_cpackNote14": "22/11 (khóa tiếng Pháp W2, french-course.md – dữ liệu tải lười, KHÔNG vào khung/byte người học): +741 054 B đúng bằng web/cpack/fr (dr.js câu luyện 62 KB + 15 gói giải thích gx-<ngôn ngữ>.js, mỗi người học chỉ tải 1–2 gói ≈ 50 KB); đo 13 586 104 B + 9 KB.",
+  "_cpackNoteFrW2": "22/11 (khóa tiếng Pháp W2, french-course.md – dữ liệu tải lười, KHÔNG vào khung/byte người học): +741 054 B đúng bằng web/cpack/fr (dr.js câu luyện 62 KB + 15 gói giải thích gx-<ngôn ngữ>.js, mỗi người học chỉ tải 1–2 gói ≈ 50 KB); đo 13 586 104 B + 9 KB.",
   "_cpackNote13": "22/11 (es W1 kho từ, lazy – budget-self-decide): +43 000 B đúng phần đo (12 845 050 B) cho lô core-24 (175 từ es duyệt) + giống/số nhiều bất quy tắc trong wd.js; chỉ tải lười ở #/practice/esd (wd.js + 1 wd-<ngôn ngữ>), byte người học/khung không đổi. Lô es kế tiếp tăng ~+40 KB/175 từ.",
   "_cpackNote14": "22/11 E1c (content-95, chờ điều phối xác nhận): cpackTotal +24 000 B (trên mốc es W1 12 846 000; đo 12 862 909) – phương án nhiễu viết lại dài đều bằng đáp án (đo thực tế +9.6 KB: 498 câu); chỉ trần lazy-pack nội dung, không đổi byte tải lần đầu.",
   "_cpackNote12": "21/11 (điều phối giao, giảm byte người học thật): dời 4 đề TOEIC lười (reading4, listening3/4/7 = 299 KB) web/js/toeic → web/cpack/toeic; totalJs 9 200 000 → 8 897 000 (thực tế + ~200 KB, KHÔNG nâng), cpackTotal 12 608 500 → 12 803 000 (đo 12 795 384 + 8 KB).",
