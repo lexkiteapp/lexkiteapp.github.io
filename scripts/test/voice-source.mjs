@@ -9,7 +9,10 @@ assert.deepEqual({ ...A.vo }, { f: 3, k: 1, s: 4, s_wait: 1, s_off: 2, s_off_ios
 A.vo.f = 2; A.vo.s = 2; delete A.vo.s_off; delete A.vo.s_off_ios; delete A.vo.s_part;
 assert.equal(A.sysRate(A.vo), 0.4, 'tỷ lệ giọng máy = s/(f+k+s)');
 assert.equal(A.sysRate({}), 0, 'chưa phát gì → 0');
+A.src('p', 'r15'); A.src('p', 'bogus');
+assert.deepEqual([A.vo.kp_r15, A.vo.kp_bogus, A.vo.f, A.vo.s], [1, undefined, 2, 2], "đo thử Kokoro ('p'): chỉ đếm nhóm RTF hợp lệ, không vào f/k/s"); delete A.vo.kp_r15;
 const { voRows, VO_KEYS } = await import('../../functions/api/hit.js');
+assert.ok(A.KP.every(b => VO_KEYS.includes('kp_' + b)), 'mọi nhóm RTF client gửi đều được máy chủ nhận');
 assert.deepEqual(voRows({ c: { f: 3, s: 1, s_off: 1, junk: 9 }, p: 'app' }), [['vo:f', 3], ['vo:s', 1], ['vo:s_off', 1], ['vo:f:app', 3], ['vo:s:app', 1]], 'khóa cố định theo nền tảng');
 assert.deepEqual(voRows({ c: { f: 1e9 }, p: 'evil' }), [['vo:f', 500], ['vo:f:web', 500]], 'trần 500/beacon, nền tảng lạ → web');
 assert.deepEqual([voRows({}), voRows({ c: 'x' })], [[], []], 'beacon hỏng → không ghi');

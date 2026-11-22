@@ -297,8 +297,8 @@ const load = (sb, f) => vm.runInContext(rd(f), sb, { filename: f });
 // 19/11: ready:false (fr/pt chưa có khóa thật) – cờ vẫn quyết enabled(), nhưng chỉ quản trị chọn được; người thường cur() = en, avail() không có
 { const { sb, ls } = env(); load(sb, 'web/js/target.js'); const T = sb.Target;
   ls.set('lk.pt', '1'); T.set('pt'); ok(T.enabled('pt') && T.cur() === 'en' && T.avail().join() === 'en', 'pt ready:false: cờ bật nhưng người thường không chọn được (cur = en)');
-  ls.set('lk.fr', '1'); T.set('fr'); ok(T.enabled('fr') && T.cur() === 'en', 'fr ready:false: như pt');
-  ls.set('lk.ja', '1'); T.set('ja'); ok(T.enabled('ja') && T.cur() === 'en' && T.table('ja').ready === false, 'ja ready:false: như fr');
+  ls.set('lk.fr', '1'); T.set('fr'); ok(T.enabled('fr') && T.cur() === 'fr' && T.avail().includes('fr'), 'fr sẵn sàng (W7, french-course.md): cờ bật → người thường chọn được fr');
+  ls.set('lk.ja', '1'); T.set('ja'); ok(T.enabled('ja') && T.cur() === 'en' && T.table('ja').ready === false, 'ja ready:false: như pt');
   ls.set('lk.adm', '1'); T.set('fr'); ok(T.cur() === 'fr' && T.avail().includes('fr') && T.homeOf('fr') === '#/practice/frd', 'quản trị chọn được fr → lộ trình ngày fr (W4, cùng engine es)');
   ls.set('lk.es', '1'); T.set('es'); ok(T.cur() === 'es', 'es ready → vẫn chọn được'); }
 
