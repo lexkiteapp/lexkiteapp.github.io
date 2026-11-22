@@ -74,6 +74,7 @@ def ipa(words):
     for w, g in zip(words, be.phonemize(words, strip=True)):
         e = onset_stress(g.replace('ˌ', ''))
         if C.get('stress') == 'es': r = stress_rule(w, e); e = r if r else e
+        elif C.get('stress') == 'none': e = e.replace('ˈ', '')  # fr: không có trọng âm từ vựng (nhấn cuối nhóm) → IPA ship không dấu nhấn, như seed
         out.append(e)
     return out
 
