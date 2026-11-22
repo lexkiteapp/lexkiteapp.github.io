@@ -1,10 +1,10 @@
 {
  "_note": "Tự sinh mỗi thứ Hai bởi scripts/seo/gsc.mjs (workflow seo-gsc.yml) từ Google Search Console 28 ngày. Lượt viết hằng tuần đọc file này TRƯỚC 2027-01-cpm-clusters.json, 2026-11-seo-program.json, briefs.json. type: write-brief = brief có sẵn chưa viết · new-brief = soạn brief mới (1 từ khoá chính/bài) · enrich = làm giàu bài đã có (không viết bài thứ 2) · refresh-title = sửa title/description theo truy vấn (không đổi slug) · cannibal = gộp/phân vai 2 URL · decline = điều tra trang tụt. gain = ước tính thêm lượt bấm/28 ngày · cpmShare = tỉ lệ hiển thị từ nhóm CPM cao (functions/api/_cpm.js) · score = gain × (1 + CPM_W × cpmShare), là khoá xếp hạng. Không tự sửa lịch đăng.",
- "generated": "2026-11-17",
- "source": "reports/seo/gsc-2026-11-17.json",
+ "generated": "2026-11-22",
+ "source": "reports/seo/gsc-2026-11-22.json",
  "range": {
-  "startDate": "2026-10-18",
-  "endDate": "2026-11-14"
+  "startDate": "2026-10-23",
+  "endDate": "2026-11-19"
  },
  "items": [
   {
@@ -23,20 +23,6 @@
   },
   {
    "rank": 2,
-   "type": "new-brief",
-   "lang": "en",
-   "query": "ielts speaking topics",
-   "slug": null,
-   "cluster": null,
-   "gain": 1.3,
-   "impressions": 22,
-   "position": 76.1,
-   "reason": "Chưa có bài/brief en cho cụm này – đề xuất brief mới",
-   "cpmShare": 0.5116,
-   "score": 2
-  },
-  {
-   "rank": 3,
    "type": "refresh-title",
    "lang": "th",
    "query": "criteria แปล",
@@ -50,7 +36,7 @@
    "score": 1.6
   },
   {
-   "rank": 4,
+   "rank": 3,
    "type": "refresh-title",
    "lang": "th",
    "query": "detect แปลว่า",
@@ -64,7 +50,7 @@
    "score": 1.6
   },
   {
-   "rank": 5,
+   "rank": 4,
    "type": "new-brief",
    "lang": "en",
    "query": "artificial",
@@ -78,7 +64,7 @@
    "score": 1.6
   },
   {
-   "rank": 6,
+   "rank": 5,
    "type": "new-brief",
    "lang": "ar",
    "query": "relevant معنى",
@@ -92,7 +78,7 @@
    "score": 1.5
   },
   {
-   "rank": 7,
+   "rank": 6,
    "type": "new-brief",
    "lang": "ar",
    "query": "integrity معنى",
@@ -106,7 +92,7 @@
    "score": 1.5
   },
   {
-   "rank": 8,
+   "rank": 7,
    "type": "new-brief",
    "lang": "vi",
    "query": "this is because,",
@@ -120,7 +106,7 @@
    "score": 1.4
   },
   {
-   "rank": 9,
+   "rank": 8,
    "type": "new-brief",
    "lang": "th",
    "query": "criteria แปล",
@@ -134,7 +120,7 @@
    "score": 1.2
   },
   {
-   "rank": 10,
+   "rank": 9,
    "type": "new-brief",
    "lang": "th",
    "query": "mode แปล-ว่า",
@@ -148,7 +134,7 @@
    "score": 1.1
   },
   {
-   "rank": 11,
+   "rank": 10,
    "type": "new-brief",
    "lang": "th",
    "query": "stable แปล",
@@ -162,7 +148,7 @@
    "score": 1.1
   },
   {
-   "rank": 12,
+   "rank": 11,
    "type": "refresh-title",
    "lang": "th",
    "query": "mode แปลว่า",
@@ -176,7 +162,7 @@
    "score": 1.1
   },
   {
-   "rank": 13,
+   "rank": 12,
    "type": "new-brief",
    "lang": "vi",
    "query": "translate",
@@ -190,7 +176,7 @@
    "score": 1
   },
   {
-   "rank": 14,
+   "rank": 13,
    "type": "new-brief",
    "lang": "th",
    "query": "visual แปล",
@@ -204,7 +190,7 @@
    "score": 1
   },
   {
-   "rank": 15,
+   "rank": 14,
    "type": "refresh-title",
    "lang": "th",
    "query": "secure แปลว่า",
@@ -218,7 +204,7 @@
    "score": 1
   },
   {
-   "rank": 16,
+   "rank": 15,
    "type": "new-brief",
    "lang": "ar",
    "query": "status معنى",
@@ -232,7 +218,7 @@
    "score": 1
   },
   {
-   "rank": 17,
+   "rank": 16,
    "type": "new-brief",
    "lang": "ar",
    "query": "consent معنى",
@@ -246,7 +232,7 @@
    "score": 1
   },
   {
-   "rank": 18,
+   "rank": 17,
    "type": "refresh-title",
    "lang": "ar",
    "query": "integrity معنى",
@@ -260,7 +246,7 @@
    "score": 1
   },
   {
-   "rank": 19,
+   "rank": 18,
    "type": "new-brief",
    "lang": "ar",
    "query": "circumstances معنى",
@@ -274,7 +260,7 @@
    "score": 0.9
   },
   {
-   "rank": 20,
+   "rank": 19,
    "type": "new-brief",
    "lang": "ar",
    "query": "infer معنى",
@@ -288,7 +274,7 @@
    "score": 0.9
   },
   {
-   "rank": 21,
+   "rank": 20,
    "type": "refresh-title",
    "lang": "th",
    "query": "status แปลว่า",
@@ -302,7 +288,7 @@
    "score": 0.9
   },
   {
-   "rank": 22,
+   "rank": 21,
    "type": "refresh-title",
    "lang": "ar",
    "query": "infer معنى",
@@ -316,7 +302,7 @@
    "score": 0.9
   },
   {
-   "rank": 23,
+   "rank": 22,
    "type": "refresh-title",
    "lang": "th",
    "query": "volume แปลว่า",
@@ -330,7 +316,7 @@
    "score": 0.9
   },
   {
-   "rank": 24,
+   "rank": 23,
    "type": "refresh-title",
    "lang": "ar",
    "query": "معنى found",
@@ -344,7 +330,7 @@
    "score": 0.9
   },
   {
-   "rank": 25,
+   "rank": 24,
    "type": "new-brief",
    "lang": "ar",
    "query": "guarantee معنى",
@@ -358,7 +344,7 @@
    "score": 0.8
   },
   {
-   "rank": 26,
+   "rank": 25,
    "type": "refresh-title",
    "lang": "ar",
    "query": "relevant معنى",
@@ -372,7 +358,7 @@
    "score": 0.8
   },
   {
-   "rank": 27,
+   "rank": 26,
    "type": "refresh-title",
    "lang": "th",
    "query": "visual แปล",
@@ -386,7 +372,7 @@
    "score": 0.7
   },
   {
-   "rank": 28,
+   "rank": 27,
    "type": "refresh-title",
    "lang": "th",
    "query": "stable แปล",
@@ -400,7 +386,7 @@
    "score": 0.6
   },
   {
-   "rank": 29,
+   "rank": 28,
    "type": "refresh-title",
    "lang": "ar",
    "query": "status معنى",
@@ -414,7 +400,7 @@
    "score": 0.6
   },
   {
-   "rank": 30,
+   "rank": 29,
    "type": "refresh-title",
    "lang": "vi",
    "query": "this is because,",
@@ -428,7 +414,7 @@
    "score": 0.6
   },
   {
-   "rank": 31,
+   "rank": 30,
    "type": "refresh-title",
    "lang": "th",
    "query": "vision แปลว่า",
@@ -442,7 +428,7 @@
    "score": 0.6
   },
   {
-   "rank": 32,
+   "rank": 31,
    "type": "refresh-title",
    "lang": "th",
    "query": "regime แปลว่า",
@@ -456,7 +442,7 @@
    "score": 0.6
   },
   {
-   "rank": 33,
+   "rank": 32,
    "type": "refresh-title",
    "lang": "de",
    "query": "outcome deutsch",
@@ -470,7 +456,7 @@
    "score": 0.6
   },
   {
-   "rank": 34,
+   "rank": 33,
    "type": "refresh-title",
    "lang": "ar",
    "query": "circumstances معنى",
@@ -484,7 +470,7 @@
    "score": 0.5
   },
   {
-   "rank": 35,
+   "rank": 34,
    "type": "refresh-title",
    "lang": "ar",
    "query": "guarantee معنى",
@@ -498,7 +484,7 @@
    "score": 0.5
   },
   {
-   "rank": 36,
+   "rank": 35,
    "type": "refresh-title",
    "lang": "th",
    "query": "relevant",
@@ -512,7 +498,7 @@
    "score": 0.5
   },
   {
-   "rank": 37,
+   "rank": 36,
    "type": "refresh-title",
    "lang": "ar",
    "query": "seek معنى",
@@ -526,7 +512,7 @@
    "score": 0.5
   },
   {
-   "rank": 38,
+   "rank": 37,
    "type": "refresh-title",
    "lang": "th",
    "query": "academy แปลว่า",
@@ -540,7 +526,7 @@
    "score": 0.4
   },
   {
-   "rank": 39,
+   "rank": 38,
    "type": "refresh-title",
    "lang": "ar",
    "query": "accurate معنى",
@@ -549,6 +535,20 @@
    "gain": 0.4,
    "impressions": 23,
    "position": 9.8,
+   "reason": "Trang không phải bài blog: sửa <title>/meta description ở nguồn dựng trang",
+   "cpmShare": 0,
+   "score": 0.4
+  },
+  {
+   "rank": 39,
+   "type": "refresh-title",
+   "lang": "ar",
+   "query": "fees معنى",
+   "slug": null,
+   "page": "https://lexkite.com/ar/words/fee",
+   "gain": 0.4,
+   "impressions": 21,
+   "position": 8.8,
    "reason": "Trang không phải bài blog: sửa <title>/meta description ở nguồn dựng trang",
    "cpmShare": 0,
    "score": 0.4
