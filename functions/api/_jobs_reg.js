@@ -363,6 +363,20 @@ export const REG = {
    "lease": false
   },
   {
+   "id": "zombie-sweep",
+   "workflow": "zombie-sweep.yml",
+   "cron": [
+    "7,22,37,52 * * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 1,
+   "est": {},
+   "lease": false
+  },
+  {
    "id": "ci-filler",
    "workflow": "ci-filler.yml",
    "cron": [
@@ -1515,6 +1529,20 @@ export const REG = {
    "est": {},
    "lease": false,
    "_note": "OTA iOS đầu-cuối trên Simulator (macOS): gói OTA đang phát phải tải + áp + giữ trong app gốc"
+  },
+  {
+   "id": "seo-indexnow",
+   "workflow": "seo-indexnow.yml",
+   "cron": [
+    "50 */3 * * *"
+   ],
+   "priority": "publishing",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 4,
+   "est": {},
+   "lease": false
   }
  ]
 };

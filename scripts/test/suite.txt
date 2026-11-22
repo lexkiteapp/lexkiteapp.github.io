@@ -350,6 +350,8 @@ node scripts/test/exam-clock.mjs
 node scripts/test/vocab-img-judge-budget.mjs
 node scripts/test/vocab-img-worth.mjs
 node scripts/test/lastmod.mjs
+node scripts/test/sitemap-lastmod.mjs
+node scripts/test/indexnow-wait.mjs
 node scripts/test/outcomes.mjs
 node scripts/test/today-debt.mjs
 node scripts/test/ci-shards-busy.mjs
@@ -486,6 +488,7 @@ node scripts/test/live-csp-safe.mjs
 node scripts/test/home-words.mjs
 node scripts/test/red-report.mjs
 node scripts/test/run-suite-annotate.mjs
+node scripts/test/run-suite-affected.mjs
 node scripts/test/ai-shim.mjs
 node scripts/test/prwatch.mjs
 node scripts/test/flake-tracker.mjs

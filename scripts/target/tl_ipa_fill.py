@@ -74,6 +74,8 @@ def ipa(words):
     for w, g in zip(words, be.phonemize(words, strip=True)):
         e = onset_stress(g.replace('ˌ', ''))
         if C.get('stress') == 'es': r = stress_rule(w, e); e = r if r else e
+        elif C.get('stress') == 'none': e = e.replace('ˈ', '')
+        if C.get('semi') == 'fr': e = re.sub(r'y(?=[aeiouɛɔœøɑə]|ɛ̃|ɑ̃|ɔ̃)', 'ɥ', e)  # espeak fr-fr đọc ɥ thành y trước nguyên âm (cuisine kyizin) → ɥ (nuit nɥi, huit ɥit)  # fr: không có trọng âm từ vựng (nhấn cuối nhóm) → IPA ship không dấu nhấn, như seed
         out.append(e)
     return out
 

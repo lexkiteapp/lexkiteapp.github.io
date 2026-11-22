@@ -1,0 +1,242 @@
+{
+ "depress": {
+  "n": "Depress est un verbe plutôt formel qui signifie faire baisser quelque chose (les prix, la demande, l'activité) ou rendre quelqu'un triste. En économie, on le rencontre dans depress prices ou depress growth. Pour une personne, l'anglais courant préfère l'adjectif depressed (déprimé) ou depressing (déprimant). Attention : depression désigne aussi bien la dépression nerveuse que la crise économique ou une zone de basse pression. Le sens physique « appuyer sur » existe, mais il est rare et un peu technique ; on dit plutôt press.",
+  "x": [
+   ["A sudden rise in taxes could depress demand for new cars.", "Une hausse soudaine des impôts pourrait faire baisser la demande de voitures neuves."],
+   ["Grey, rainy weeks always depress me a little.", "Les semaines grises et pluvieuses me démoralisent toujours un peu."],
+   ["Doctors warned that the drug could depress breathing in older patients.", "Les médecins ont averti que ce médicament pouvait ralentir la respiration chez les patients âgés."]
+  ]
+ },
+ "detect": {
+  "n": "Detect se traduit souvent par détecter, et la parenté est directe : on repère quelque chose de peu visible, par un appareil ou par les sens. Il s'emploie pour une odeur, un défaut, un changement de ton ou une maladie : detect a smell, detect an error. Le verbe est plus soutenu que notice, qui exprime simplement le fait de remarquer. Le nom detective ne signifie pas « détecteur » : c'est un enquêteur de police ou un détective privé, alors que l'appareil se dit detector (a smoke detector).",
+  "x": [
+   ["The airport scanner detected a small metal object in her bag.", "Le scanner de l'aéroport a détecté un petit objet métallique dans son sac."],
+   ["I could detect a note of irritation in his voice.", "J'ai perçu une pointe d'agacement dans sa voix."],
+   ["The new test can detect the disease before any symptoms appear.", "Ce nouveau test permet de détecter la maladie avant l'apparition de tout symptôme."]
+  ]
+ },
+ "diminish": {
+  "n": "Diminish est un verbe soutenu qui s'utilise aussi bien sans complément (the pain diminished) qu'avec un complément (diminish his authority). Il ressemble à diminuer, mais l'anglais courant dit plutôt decrease, go down ou reduce ; diminish insiste sur la perte de valeur, d'importance ou de force. On le trouve dans diminishing returns (rendements décroissants) et dans l'expression diminish someone's achievements, qui veut dire rabaisser les réussites de quelqu'un. L'adjectif diminished peut aussi décrire une capacité réduite.",
+  "x": [
+   ["Her enthusiasm began to diminish after the third month of training.", "Son enthousiasme a commencé à faiblir après le troisième mois d'entraînement."],
+   ["Criticism should never diminish what a child has accomplished.", "La critique ne devrait jamais rabaisser ce qu'un enfant a accompli."],
+   ["The sound of the engine diminished as the car disappeared.", "Le bruit du moteur s'est atténué à mesure que la voiture disparaissait."]
+  ]
+ },
+ "display": {
+  "n": "Display correspond à afficher ou exposer : on met quelque chose bien en vue. Au sens de montrer une qualité, il se rapproche de faire preuve de : display courage. Le nom a display est un étalage, un écran ou une présentation, et on dit on display pour « exposé ». Ne le confondez pas avec dispense (distribuer, délivrer). Pour un message à l'écran, display fonctionne bien (the screen displays the time), mais show reste plus courant à l'oral.",
+  "x": [
+   ["The bakery displays its fresh bread in the front window.", "La boulangerie expose son pain frais en vitrine."],
+   ["The app displays your balance as soon as you log in.", "L'application affiche votre solde dès que vous vous connectez."],
+   ["She never displayed any sign of nervousness during the interview.", "Elle n'a montré aucun signe de nervosité pendant tout l'entretien."]
+  ]
+ },
+ "distribute": {
+  "n": "Distribute se rapproche de distribuer, avec le même sens de répartir entre plusieurs personnes ou lieux : distribute leaflets, distribute food. Il s'emploie aussi pour la vente de produits par un réseau, d'où distributor (distributeur, grossiste) ; attention, un distributeur automatique de billets se dit cash machine ou ATM. Au passif, evenly distributed signifie « réparti de façon égale ». Pour la distribution de documents en classe, hand out est plus naturel dans la conversation courante.",
+  "x": [
+   ["Volunteers distributed warm clothes to people sleeping outside.", "Des bénévoles ont distribué des vêtements chauds aux personnes qui dormaient dehors."],
+   ["The film will be distributed in more than fifty countries.", "Le film sera distribué dans plus de cinquante pays."],
+   ["The teacher distributed the worksheets before the lesson started.", "Le professeur a distribué les fiches d'exercices avant le début du cours."]
+  ]
+ },
+ "domestic": {
+  "n": "Domestic couvre deux sens : « national » (domestic flights, the domestic market) et « du foyer » (domestic chores, domestic violence). Le nom français domestique désigne un employé de maison, mais l'anglais domestic comme nom est rare et vieilli ; ne l'utilisez pas pour parler d'un serviteur. Pour les animaux, a domestic animal est un animal domestiqué, ce qui est différent de a pet (animal de compagnie). Son contraire est foreign ou international pour les pays, et wild pour les animaux.",
+  "x": [
+   ["Most domestic flights in the country are cheaper by train.", "La plupart des vols intérieurs du pays sont moins chers en train."],
+   ["Domestic sales rose slightly while exports fell.", "Les ventes sur le marché intérieur ont légèrement augmenté alors que les exportations ont baissé."],
+   ["He shares the domestic chores equally with his partner.", "Il partage équitablement les tâches ménagères avec sa compagne."]
+  ]
+ },
+ "dynamic": {
+  "n": "Dynamic ressemble à dynamique et se traduit souvent ainsi, mais l'anglais en fait un vrai compliment : a dynamic leader est quelqu'un d'énergique et plein d'idées, pas seulement mobile. Au sens neutre, il s'oppose à static (a dynamic website change selon l'utilisateur). Le nom dynamics, le plus souvent au pluriel, évoque les rapports de force : group dynamics. Au singulier, a dynamic désigne un mécanisme ou une tendance qui évolue. L'accent tonique tombe sur la deuxième syllabe : /daɪˈnæmɪk/.",
+  "x": [
+   ["The city is known for its dynamic arts scene.", "La ville est connue pour sa scène artistique dynamique."],
+   ["She is a dynamic speaker who keeps the whole room awake.", "C'est une oratrice dynamique qui tient toute la salle en éveil."],
+   ["The team dynamic improved after the new manager arrived.", "L'ambiance au sein de l'équipe s'est améliorée avec l'arrivée du nouveau responsable."]
+  ]
+ },
+ "entity": {
+  "n": "Entity désigne une chose qui existe en elle-même, de façon distincte : en droit, une personne morale se dit legal entity, et en affaires on parle de a business entity. Il ressemble à entité, mais en anglais courant il est assez abstrait ; dans la conversation, on dira plutôt company, organisation ou thing. Dans les textes de science-fiction ou de religion, entity peut désigner un être mystérieux ou une présence. Le pluriel est entities, avec un changement de y en ies.",
+  "x": [
+   ["The two firms merged into a single legal entity last year.", "Les deux entreprises ont fusionné l'an dernier en une seule personne morale."],
+   ["The museum is an independent entity with its own board.", "Le musée est une entité indépendante dotée de son propre conseil d'administration."],
+   ["Some writers describe the sea as a living entity.", "Certains écrivains décrivent la mer comme une entité vivante."]
+  ]
+ },
+ "equip": {
+  "n": "Equip, comme équiper, signifie fournir le matériel ou les compétences nécessaires. La structure habituelle est equip somebody with something, ou au passif be equipped with : a kitchen equipped with modern appliances. Au sens figuré, equip someone to do something veut dire donner à quelqu'un les moyens de faire quelque chose. Le nom equipment est indénombrable : on ne dit jamais an equipment ni equipments, mais a piece of equipment. Pour des vêtements de sport ou un matériel personnel, on emploie kit en anglais britannique.",
+  "x": [
+   ["The new ambulances are equipped with the latest medical devices.", "Les nouvelles ambulances sont équipées des tout derniers appareils médicaux."],
+   ["Our training aims to equip managers with practical tools.", "Notre formation vise à doter les responsables d'outils pratiques."],
+   ["Nothing could have equipped him for such a long winter.", "Rien n'aurait pu le préparer à un hiver aussi long."]
+  ]
+ },
+ "equivalent": {
+  "n": "Equivalent est proche d'équivalent et s'emploie avec la préposition to : A is equivalent to B signifie que A vaut B. Comme nom, the equivalent of décrit l'élément correspondant dans une autre langue, un autre système ou une autre culture : the French equivalent of « bank holiday ». Il ne dit pas que les deux choses sont strictement identiques, contrairement à identical. Pour des quantités, on dit aussi the equivalent of three weeks' pay, c'est-à-dire l'équivalent de trois semaines de salaire.",
+  "x": [
+   ["One cup of this flour is equivalent to about 120 grams.", "Une tasse de cette farine équivaut à environ 120 grammes."],
+   ["What is the French equivalent of this English phrase?", "Quel est l'équivalent français de cette expression anglaise ?"],
+   ["He received the equivalent of two months' salary as a bonus.", "Il a reçu l'équivalent de deux mois de salaire en prime."]
+  ]
+ },
+ "estate": {
+  "n": "Estate est un faux ami de état : il ne désigne pas un État, mais un grand domaine, une propriété foncière ou l'ensemble des biens laissés par un défunt. Dans real estate, il signifie « immobilier », et un real estate agent est un agent immobilier. Au Royaume-Uni, a housing estate est un lotissement ou une cité résidentielle. Une estate car est un break en anglais britannique. Pour parler de l'État au sens politique, on utilise state ; the Estates General (les États généraux) est une exception historique.",
+  "x": [
+   ["They inherited a large wine estate in the south of the country.", "Ils ont hérité d'un grand domaine viticole dans le sud du pays."],
+   ["The lawyer is still sorting out the estate of the late Mr Jones.", "L'avocat règle encore la succession de feu M. Jones."],
+   ["We live on a quiet housing estate on the edge of town.", "Nous vivons dans un lotissement tranquille en périphérie de la ville."]
+  ]
+ },
+ "ethic": {
+  "n": "Ethic en tant que nom au singulier désigne un système de valeurs ou un principe moral : a strong work ethic, c'est une grande conscience professionnelle. Le pluriel ethics se traduit par éthique ou déontologie et s'emploie plus souvent : medical ethics, business ethics. Il peut se construire avec un verbe au singulier ou au pluriel selon le sens. L'adjectif ethical (éthique) et son contraire unethical sont très courants. Ne confondez pas avec ethnic : ethic concerne la morale, ethnic concerne l'appartenance à un peuple ou une culture.",
+  "x": [
+   ["Her parents taught her a strong work ethic from an early age.", "Ses parents lui ont inculqué très tôt un solide sens du travail."],
+   ["The company has a clear ethic of putting customers first.", "L'entreprise a pour principe clair de placer le client en priorité."],
+   ["Journalists are expected to follow a strict professional ethic.", "On attend des journalistes qu'ils respectent une déontologie stricte."]
+  ]
+ },
+ "ethnic": {
+  "n": "Ethnic correspond à ethnique, mais il s'emploie davantage dans les contextes sociaux et administratifs : ethnic group, ethnic minority, ethnic background. En anglais, ce n'est pas un terme péjoratif en soi, alors qu'ethnique en français peut parfois paraître technique ou connoté. Ethnic food ou ethnic restaurant désignent la cuisine d'un pays étranger, mais cette expression peut sembler réductrice ; on préfère nommer la cuisine concernée (Thai, Lebanese). Le nom correspondant est ethnicity, et ne se confond pas avec race.",
+  "x": [
+   ["The school welcomes students from many different ethnic backgrounds.", "L'école accueille des élèves issus de nombreuses origines ethniques différentes."],
+   ["Ethnic tensions in the region have increased in recent years.", "Les tensions ethniques dans la région se sont accrues ces dernières années."],
+   ["She runs a small shop selling ethnic jewellery from Morocco.", "Elle tient une petite boutique qui vend des bijoux ethniques du Maroc."]
+  ]
+ },
+ "evaluate": {
+  "n": "Evaluate ressemble à évaluer, mais l'emploi est un peu plus large et plus formel : on juge la qualité, la valeur ou l'efficacité de quelque chose en s'appuyant sur des critères. On dit evaluate a project, evaluate risks, evaluate students. Pour estimer un prix ou un chiffre approximatif, l'anglais préfère estimate ou value : value a house, estimate the cost. Le nom evaluation s'emploie pour une évaluation scolaire ou professionnelle, mais assessment est très proche et souvent interchangeable en contexte scolaire.",
+  "x": [
+   ["Managers must evaluate each candidate fairly and in detail.", "Les responsables doivent évaluer chaque candidat de façon juste et détaillée."],
+   ["We will evaluate the results of the pilot scheme in June.", "Nous évaluerons les résultats du projet pilote en juin."],
+   ["It is hard to evaluate the damage until the water goes down.", "Il est difficile d'évaluer les dégâts tant que l'eau n'a pas baissé."]
+  ]
+ },
+ "exceed": {
+  "n": "Exceed s'utilise directement avec son complément, sans préposition : exceed the limit, exceed expectations, exceed the budget. Il correspond à excéder ou dépasser, mais il est plus formel que go over ou be more than, qu'on entend davantage à l'oral. Le verbe français « excéder » signifie aussi exaspérer, ce que l'anglais exceed ne fait pas. Les dérivés fréquents sont excess (excès), excessive (excessif) et exceedingly (extrêmement). On le trouve surtout dans les règlements, les contrats et les rapports.",
+  "x": [
+   ["Drivers who exceed the speed limit risk a heavy fine.", "Les conducteurs qui dépassent la limitation de vitesse risquent une lourde amende."],
+   ["The concert exceeded everything we had hoped for.", "Le concert a dépassé tout ce que nous avions espéré."],
+   ["Costs must not exceed the amount set out in the contract.", "Les coûts ne doivent pas dépasser le montant fixé dans le contrat."]
+  ]
+ },
+ "exhibit": {
+  "n": "Comme verbe, exhibit signifie exposer des œuvres au public ou manifester une qualité ou un comportement : exhibit paintings, exhibit symptoms. Il est plus soutenu que show. Le nom an exhibit est un objet exposé dans un musée, ou une pièce à conviction au tribunal, tandis que exhibition désigne l'exposition entière. Comme exhiber en français, exhibit oneself peut avoir une connotation péjorative de se donner en spectacle. L'accent tombe sur la deuxième syllabe pour le verbe : /ɪɡˈzɪbɪt/.",
+  "x": [
+   ["The museum will exhibit rare Roman coins this summer.", "Le musée exposera des pièces romaines rares cet été."],
+   ["Several patients exhibited mild side effects after the injection.", "Plusieurs patients ont présenté de légers effets secondaires après l'injection."],
+   ["Young animals often exhibit curious behaviour around strangers.", "Les jeunes animaux manifestent souvent un comportement curieux devant les inconnus."]
+  ]
+ },
+ "exploit": {
+  "n": "Exploit est un faux ami piégeux : le verbe exploiter se traduit bien par exploit au sens d'utiliser une ressource (exploit natural resources) ou d'abuser de quelqu'un (exploit workers, qui est péjoratif). En revanche, le nom français un exploit, c'est-à-dire une prouesse, se dit feat ou achievement. En anglais, le nom an exploit existe, mais il est littéraire et désigne une aventure audacieuse. L'accent change : le verbe se prononce avec l'accent sur la deuxième syllabe, le nom sur la première.",
+  "x": [
+   ["The company wants to exploit the growing demand for electric bikes.", "L'entreprise veut tirer parti de la demande croissante de vélos électriques."],
+   ["Some employers exploit young workers by paying them too little.", "Certains employeurs exploitent les jeunes travailleurs en les payant trop peu."],
+   ["Countries rich in minerals often struggle to exploit them fairly.", "Les pays riches en minerais peinent souvent à les exploiter de façon équitable."]
+  ]
+ },
+ "extract": {
+  "n": "Extract signifie extraire : sortir quelque chose d'un ensemble, par effort ou avec un outil. Il se dit pour du pétrole, une dent, de l'information ou un passage de texte : extract a tooth, extract data. Il peut aussi vouloir dire obtenir quelque chose de force ou de difficilement : extract a confession. Le nom an extract (accent sur la première syllabe) désigne un extrait de livre ou un concentré, comme vanilla extract (extrait de vanille). Le verbe, lui, se prononce avec l'accent sur la deuxième syllabe.",
+  "x": [
+   ["The dentist had to extract two of her back teeth.", "Le dentiste a dû lui extraire deux dents du fond."],
+   ["The software can extract text from scanned documents.", "Le logiciel peut extraire le texte de documents numérisés."],
+   ["Police failed to extract any useful information from the suspect.", "La police n'a réussi à tirer aucune information utile du suspect."]
+  ]
+ },
+ "finance": {
+  "n": "Finance en français est surtout un pluriel (les finances d'une entreprise) ou un secteur. En anglais, le nom finance est indénombrable et désigne soit la gestion de l'argent (a career in finance), soit les fonds nécessaires à un projet : raise finance. Le pluriel finances apparaît pour la situation d'argent d'un ménage ou d'un pays : personal finances. Comme verbe, finance veut dire financer : finance a project. Pour le financement, funding est plus courant dans la vie de tous les jours.",
+  "x": [
+   ["After university she began a career in finance.", "Après l'université, elle a commencé une carrière dans la finance."],
+   ["The start-up struggled to raise finance for its second factory.", "La start-up a eu du mal à trouver des fonds pour sa deuxième usine."],
+   ["Many students finance their studies with part-time jobs.", "De nombreux étudiants financent leurs études grâce à des emplois à temps partiel."]
+  ]
+ },
+ "found": {
+  "n": "Ici found est le verbe qui signifie fonder : found a company, found a school. Le passé est founded, et le nom founder désigne le fondateur. Attention à l'homographe : found est aussi le passé et le participe passé de find (trouver), et le contexte lève l'ambiguïté. Le passif the school was founded in 1900 est très courant pour donner une date de création. Le verbe a un sens figuré, be founded on, pour dire reposer sur : an argument founded on facts. Il est plus soutenu que set up ou start.",
+  "x": [
+   ["Two brothers founded the bakery in a small village in 1952.", "Deux frères ont fondé la boulangerie dans un petit village en 1952."],
+   ["She wants to found a charity that helps young readers.", "Elle veut fonder une association qui aide les jeunes lecteurs."],
+   ["The university was founded by a group of local merchants.", "L'université a été fondée par un groupe de marchands locaux."]
+  ]
+ },
+ "foundation": {
+  "n": "Foundation a plusieurs sens proches de fondation : la base d'un bâtiment, qu'on trouve souvent au pluriel (the foundations of a house), la base d'une idée (the foundation of the theory), ou un organisme qui finance des projets (a charitable foundation). Un faux ami existe pour le maquillage : foundation est aussi le fond de teint. Avec lay the foundation for, on parle de préparer le terrain. L'expression without foundation veut dire sans fondement, par exemple pour une rumeur.",
+  "x": [
+   ["Workers poured the concrete foundation of the new library last week.", "Les ouvriers ont coulé les fondations en béton de la nouvelle bibliothèque la semaine dernière."],
+   ["Good reading skills are the foundation of all later learning.", "De bonnes compétences en lecture sont la base de tous les apprentissages ultérieurs."],
+   ["The foundation gives grants to young artists every year.", "La fondation accorde chaque année des bourses à de jeunes artistes."]
+  ]
+ },
+ "guideline": {
+  "n": "Guideline est un nom dénombrable : an official guideline, a set of guidelines. Il se traduit par ligne directrice, recommandation ou consigne, mais il n'a pas la valeur d'une règle impérative, contrairement à rule ou regulation. Les guidelines orientent sans toujours contraindre, par exemple celles d'un ministère de la santé. En contexte professionnel, follow the guidelines signifie suivre les consignes. Il s'écrit en un seul mot et le pluriel est très fréquent. Ne le confondez pas avec guide, qui est la personne ou le livre.",
+  "x": [
+   ["The agency has published new guidelines on healthy sleep for teenagers.", "L'agence a publié de nouvelles recommandations sur le sommeil sain des adolescents."],
+   ["Please read the safety guidelines before using the machine.", "Veuillez lire les consignes de sécurité avant d'utiliser la machine."],
+   ["These guidelines are not laws, but most schools follow them.", "Ces lignes directrices ne sont pas des lois, mais la plupart des écoles les suivent."]
+  ]
+ },
+ "identical": {
+  "n": "Identical signifie identique et s'emploie souvent avec to ou with : identical to the original. Il décrit des choses totalement semblables, au point qu'on ne les distingue pas. Pour des jumeaux, identical twins correspond aux vrais jumeaux, ceux qui se ressemblent comme deux gouttes d'eau. Il est plus fort que similar (semblable). Attention à the same, qui peut désigner une seule et même chose (we have the same car), alors qu'identical suppose deux choses semblables : we have identical cars.",
+  "x": [
+   ["The two houses look identical from the street.", "Les deux maisons paraissent identiques vues de la rue."],
+   ["Her answer was identical to mine, word for word.", "Sa réponse était identique à la mienne, mot pour mot."],
+   ["They are identical twins, but their personalities are very different.", "Ce sont de vrais jumeaux, mais leurs personnalités sont très différentes."]
+  ]
+ },
+ "incline": {
+  "n": "Incline, le verbe, a deux usages. Au sens physique, il signifie pencher ou être en pente : the road inclines towards the sea. Au sens figuré, il s'emploie surtout au passif avec to : be inclined to do something, qui veut dire avoir tendance à ou être plutôt disposé à. I'm inclined to agree équivaut à « j'aurais plutôt tendance à être d'accord ». Le nom an incline (accent sur la première syllabe) désigne une pente. Pour s'incliner devant quelqu'un, on dit bow ; le faux ami s'incliner (céder) se rend par give in.",
+  "x": [
+   ["I am inclined to believe her story, even though it sounds strange.", "J'ai plutôt tendance à croire son histoire, même si elle semble étrange."],
+   ["The path inclines gently towards the river.", "Le sentier descend en pente douce vers la rivière."],
+   ["Teenagers are often inclined to ignore advice from their parents.", "Les adolescents ont souvent tendance à ignorer les conseils de leurs parents."]
+  ]
+ },
+ "index": {
+  "n": "Index désigne soit une liste alphabétique à la fin d'un livre (look it up in the index), soit un indicateur chiffré comme the consumer price index, soit un classement de fiches. Le pluriel est indexes ou indices ; indices s'emploie surtout en mathématiques et en économie. Pour le doigt, l'anglais dit index finger ou forefinger, et non index tout seul. Attention : indice au sens de preuve ou de taux se dit clue, sign ou rate, pas index. Le verbe index signifie classer ou indexer des données.",
+  "x": [
+   ["You can find the term in the index at the back of the book.", "Vous trouverez ce terme dans l'index à la fin du livre."],
+   ["The stock index fell sharply after the announcement.", "L'indice boursier a fortement chuté après l'annonce."],
+   ["The library staff index every new book by subject and author.", "Le personnel de la bibliothèque classe chaque nouveau livre par sujet et par auteur."]
+  ]
+ },
+ "initiate": {
+  "n": "Initiate, comme initier, s'utilise pour lancer officiellement quelque chose : initiate a project, initiate talks, initiate legal action. Il est plus soutenu que start ou begin et s'emploie surtout en contexte administratif, politique ou juridique. Au sens d'initier quelqu'un à un domaine, l'anglais préfère introduce someone to : introduce him to chess. Initiate someone existe, mais il évoque des rites d'entrée dans un groupe. Le nom initiative a un autre emploi : take the initiative, c'est prendre les devants. L'initiateur se dit initiator.",
+  "x": [
+   ["The council plans to initiate a recycling scheme next spring.", "Le conseil municipal prévoit de lancer un programme de recyclage au printemps prochain."],
+   ["Either party can initiate the legal process.", "L'une ou l'autre des parties peut engager la procédure judiciaire."],
+   ["The two leaders agreed to initiate talks on trade as soon as possible.", "Les deux dirigeants ont convenu d'engager au plus vite des discussions sur le commerce."]
+  ]
+ },
+ "innovate": {
+  "n": "Innovate se traduit par innover : introduire de nouvelles méthodes, de nouvelles idées ou de nouveaux produits. Il s'emploie le plus souvent sans complément d'objet : companies must innovate to survive. Le nom innovation est très courant en économie et dans la communication d'entreprise, tout comme innovative (innovant) et innovator (innovateur). Le verbe se prononce avec trois syllabes, l'accent sur la première : /ˈɪnəveɪt/. Il est plus abstrait que invent, qui désigne la création d'un objet précis, comme une machine, qui n'existait pas auparavant.",
+  "x": [
+   ["Small firms can innovate faster than large corporations.", "Les petites entreprises peuvent innover plus vite que les grandes sociétés."],
+   ["To stay ahead, the restaurant has to innovate every season.", "Pour garder une longueur d'avance, le restaurant doit innover à chaque saison."],
+   ["Schools are encouraged to innovate in the way they teach science.", "Les écoles sont encouragées à innover dans leur façon d'enseigner les sciences."]
+  ]
+ },
+ "input": {
+  "n": "Input désigne ce qu'on apporte à un projet : des idées, des avis, un travail, des données. C'est un nom indénombrable : we need your input, avec un sens proche de contribution ou apport. Il ne se traduit pas par « entrée » au sens d'une porte, qui se dit entrance. En informatique, input s'oppose à output : l'entrée de données et la sortie. On l'emploie aussi comme verbe (input data, au passé input ou inputted). Dans un contexte d'entreprise, ask for input revient à demander l'avis de quelqu'un.",
+  "x": [
+   ["We would welcome input from parents before making a final decision.", "Nous serions heureux de recueillir l'avis des parents avant de prendre une décision finale."],
+   ["The design improved a lot thanks to input from users.", "La conception s'est beaucoup améliorée grâce aux retours des utilisateurs."],
+   ["Please input your password and press the enter key.", "Veuillez saisir votre mot de passe et appuyer sur la touche entrée."]
+  ]
+ },
+ "inspect": {
+  "n": "Inspect signifie examiner de près pour vérifier l'état ou la conformité : inspect a building, inspect a passport. Il est proche d'inspecter, avec la même idée de contrôle officiel, et se construit comme son équivalent français, sans préposition. Un inspector est un contrôleur (a health inspector) ou, au Royaume-Uni, un inspecteur de police ; le nom inspection s'emploie pour un contrôle. À distinguer de check, plus léger et plus courant, et de examine, qui insiste davantage sur l'analyse détaillée que sur la conformité.",
+  "x": [
+   ["Officials inspect the kitchens of every restaurant once a year.", "Les agents inspectent les cuisines de chaque restaurant une fois par an."],
+   ["The mechanic inspected the brakes and found a small leak.", "Le mécanicien a inspecté les freins et a trouvé une petite fuite."],
+   ["Customs officers asked to inspect the contents of the suitcase.", "Les douaniers ont demandé à inspecter le contenu de la valise."]
+  ]
+ },
+ "instance": {
+  "n": "Instance est un faux ami : en français, une instance est un organe de décision ou une procédure judiciaire, alors qu'en anglais instance signifie cas ou exemple. Dans la langue courante, on l'emploie presque toujours dans for instance (par exemple) et in this instance (dans ce cas précis). Il est un peu plus formel que example et se range dans des expressions comme in many instances. Le sens juridique de « tribunal » se dit court ou authority ; en informatique, an instance désigne une occurrence ou une copie d'un programme en cours d'exécution.",
+  "x": [
+   ["There were several instances of cheating during the exam.", "Il y a eu plusieurs cas de triche pendant l'examen."],
+   ["In this instance, the manager decided to make an exception.", "Dans ce cas précis, le directeur a décidé de faire une exception."],
+   ["Some fruits, for instance mangoes, ripen faster in warm weather.", "Certains fruits, par exemple les mangues, mûrissent plus vite par temps chaud."]
+  ]
+ }
+}
