@@ -1,5 +1,6 @@
 package com.lexkite.app.core.write
 
+import com.lexkite.app.core.RewardRules
 import com.lexkite.app.core.vocab.ga
 import com.lexkite.app.core.vocab.go
 import com.lexkite.app.core.vocab.jsTrim
@@ -15,8 +16,8 @@ import kotlinx.serialization.json.JsonPrimitive
  */
 object Essay {
     const val MIN_WORDS = 250; const val MIN_TO_ANALYSE = 40; const val KEEP_SAVED = 20; const val SHOW_SAVED = 6; const val CLOCK_MINUTES = 40; const val WARN_SECONDS = 300
-    /** `App.reward({ quizzes: 1, writes: 1, xp: 25 })` */
-    val REWARD: Map<String, Int> = mapOf("quizzes" to 1, "writes" to 1); const val REWARD_XP = 25
+    /** `App.reward({ quizzes: 1, writes: 1, xp: Game.xpFor('essay') })` */
+    val REWARD: Map<String, Int> = mapOf("quizzes" to 1, "writes" to 1); const val REWARD_XP = RewardRules.ESSAY
     private val WORD = Regex("[A-Za-z][A-Za-z'\u2019-]*")
     // web: (text.match(/[A-Za-z][A-Za-z'’-]*/g) || []).length
     fun words(s: String): Int = WORD.findAll(s).count()
@@ -98,7 +99,7 @@ object Essay {
 
     // ---------------------------------------------------------------- Task 1 (task1.js `score`)
     const val T1_MIN_WORDS = 150; const val T1_MIN_TO_ANALYSE = 30; const val T1_CLOCK = 20; const val T1_WARN = 180
-    val T1_REWARD: Map<String, Int> = mapOf("quizzes" to 1, "writes" to 1); const val T1_REWARD_XP = 20
+    val T1_REWARD: Map<String, Int> = mapOf("quizzes" to 1, "writes" to 1); const val T1_REWARD_XP = RewardRules.ESSAY
     class Task1Score(val band: Double, val words: Int, val overview: Int, val numbers: Int, val trend: Int, val compare: Int, val notes: List<Line>)
     private fun rx(p: String) = Regex(p, RegexOption.IGNORE_CASE)
     private val OVERVIEW = rx("\\b(overall|in general|generally|it is clear that|it is evident that|as can be seen|in summary)\\b")

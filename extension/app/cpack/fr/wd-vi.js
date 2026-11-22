@@ -1,0 +1,1 @@
+self.FRX=self.FRX||{};(FRX.wdl=FRX.wdl||{})["vi"]=["nhà","nước","bầu trời","giày","con chó","con mèo","quyển sách","cái bàn","ăn","uống","to, lớn","nhỏ","thành phố","quả táo","đứa trẻ","mặt trời","nói","vui, hạnh phúc","tàu hỏa","nhà bếp","sữa","bánh mì","trường học","bạn","đỏ","đi bộ","hôm nay","nước ép","đàn ông","đậu"];

@@ -94,7 +94,7 @@
       });
       $('#tSub').disabled = true;
       if (window.QT) await QT.recordRaw('tr', 'p' + part, right, total, QT.secsOf($('#tq')));
-      await App.reward({ quizzes: 1, readings: 1, xp: 10 + right * 2 });
+      await App.reward({ quizzes: 1, readings: 1, xp: Game.xpFor('set', { right, total }) });
       $('#tRes').innerHTML = `<div class="feedback ${right / total >= 0.7 ? 'ok' : 'no'}" style="position:static"><b>${t('{a}/{b} câu đúng', { a: right, b: total })} (${Math.round(right / total * 100)}%)</b> · ${t('câu sai đã vào Sổ lỗi sai')}</div>`;
       $('#tRes').scrollIntoView({ behavior: 'smooth', block: 'center' });
     };
@@ -175,7 +175,7 @@
       const ls = scaled(lr / Math.max(1, lt)), rs = scaled(rr / Math.max(1, rt)), total = ls + rs;
       state.game = await Game.mutate(gs => { gs.toeicBest = { total: Math.max(total, (gs.toeicBest || {}).total || 0), at: Date.now() }; gs.toeicTests = [...(gs.toeicTests || []), { n, ls, rs, total, at: Date.now() }].slice(-20); });
       if (window.QT) { await QT.record('tl', res.L, null, r => 'p' + r.part); await QT.record('tr', res.R, null, r => 'p' + r.part); }
-      await App.reward({ quizzes: 2, listens: LP.length, readings: 1, xp: 40 + lr + rr });
+      await App.reward({ quizzes: 2, listens: LP.length, readings: 1, xp: Game.xpFor('exam', { right: lr + rr, total: LP.length }) });
       if (App.logMistake) [...Object.entries(res.L).map(x => ['listening', ...x]), ...Object.entries(res.R).map(x => ['reading', ...x])].filter(([, , r]) => !r.ok).forEach(([kind, q, r]) => App.logMistake({ kind, q: `TOEIC Test ${n} · ${q}: ${r.q || ''}`, answer: r.answer, given: r.given || I18N.tk('(bỏ trống)'), explain: r.explain || '', ref: '' }));
       if (total >= 700) { Sfx.win(); confetti(140); }
       const sheet = o => `<div class="lsheet">${Object.keys(o).map(Number).sort((a, b) => a - b).map(q => `<div class="${o[q].ok ? 'ok' : 'no'}"><b>${q}</b> ${o[q].ok ? '✓' : '✗'} <span>${esc(o[q].answer)}</span></div>`).join('')}</div>`;
@@ -325,7 +325,7 @@
             ${s.missed.length ? `<div class="small" style="margin-top:.3rem">${t('Từ bị bỏ sót hoặc đọc chưa rõ:')} ${s.missed.map(w => `<span class="chip">${esc(w)}</span>`).join(' ')}</div>` : ''}
             <div style="margin-top:.4rem"><b>${t('Ước tính: {s}/{m} theo thang ETS', { s: s.est, m: T1.max })}</b></div>${audio}
             <div class="tiny muted" style="margin-top:.3rem">${t('Độ giống do máy nhận dạng giọng nói ước tính – chỉ để tham khảo.')}</div></div>`;
-          App.reward({ spoken: 1, xp: 5 });
+          App.reward({ spoken: 1, xp: Game.xpFor('say', { score: s.pct }) });
         }, 700);
       });
       if (!ok) { go.textContent = '🎙️ ' + t('Nói ngay'); $('#swPrepB').disabled = false; phase.textContent = t('Chuẩn bị'); try { if (sw.sr) sw.sr.stop(); } catch (e) { /* đã dừng */ } }
@@ -359,7 +359,7 @@
         const ok = await swRecord(q.secs, left => { const c = $('#ivClock'); if (c) { c.textContent = mmss(left); c.classList.toggle('warn', left <= 5); } }, url => {
           btn.classList.remove('rec'); const h = $('#ivHint'); if (h) h.textContent = t('Đã ghi âm – nghe lại và so với câu trả lời mẫu.');
           const a = $('#ivAudio'); if (a && url) a.innerHTML = `<audio controls src="${url}"></audio>`;
-          App.reward({ spoken: 1, xp: 3 });
+          App.reward({ spoken: 1, xp: Game.xpFor('say') });
         });
         if (ok) { btn.classList.add('rec'); $('#ivHint').textContent = '🔴 ' + t('Đang ghi âm – bấm lần nữa để dừng'); }
       };
@@ -396,7 +396,7 @@
       const ok = await swRecord(u.secs, left => { clock.textContent = mmss(left); clock.classList.toggle('warn', left <= 10); }, url => {
         $('#swPrepB').disabled = false; go.textContent = '🎙️ ' + t('Nói ngay'); phase.textContent = t('Đã ghi âm – nghe lại và so với câu trả lời mẫu.');
         const a = $('#ivAudio'); if (a && url) a.innerHTML = `<audio controls src="${url}"></audio>`;
-        App.reward({ spoken: 1, xp: 5 });
+        App.reward({ spoken: 1, xp: Game.xpFor('say') });
       });
       if (ok) { phase.textContent = '🔴 ' + t('Đang ghi âm – bấm lần nữa để dừng'); go.textContent = '⏹'; } else $('#swPrepB').disabled = false;
     };
@@ -429,7 +429,7 @@
       $('#wOut').innerHTML = `<div class="card" style="margin:0"><b>${t('{a}/{n} câu đạt cả hai kiểm tra tự động', { a: ok, n: u.items.length })}</b> · ${t('Ước tính: {s}/{m} theo thang ETS', { s: Math.round(ok / u.items.length * T1.max), m: T1.max })}
         <div class="tiny muted" style="margin-top:.3rem">${t('Chỉ là ước tính để tự luyện, không phải điểm chính thức của ETS. Máy không chấm được ngữ pháp và độ khớp với ảnh – hãy so với bài mẫu.')}</div></div>${ckHtml(u, T1.max)}`;
       ckBind(u, T1.max);
-      if (!rewarded && ok) { rewarded = true; App.reward({ xp: 10 }); }
+      if (!rewarded && ok) { rewarded = true; App.reward({ xp: Game.xpFor('essay') }); }
     };
   }
 
@@ -457,7 +457,7 @@
     $('#wModel').onclick = () => {
       $('#wOut').innerHTML = `<div class="card" style="margin:0"><h3 style="margin-top:0">📝 ${t('Bài mẫu')}</h3><div style="white-space:pre-wrap;line-height:1.7">${esc(u.model)}</div><div class="tiny muted" style="margin-top:.4rem">${t('{n} từ', { n: wc(u.model) })}</div></div>${extraHtml(u)}${ckHtml(u, T1.max)}`;
       ckBind(u, T1.max);
-      if (!rewarded && wc(ta.value) >= (minW || 60)) { rewarded = true; App.reward({ xp: 10 }); }
+      if (!rewarded && wc(ta.value) >= (minW || 60)) { rewarded = true; App.reward({ xp: Game.xpFor('essay') }); }
       $('#wOut').scrollIntoView({ behavior: 'smooth', block: 'start' });
     };
     const ai = $('#wAI');
@@ -478,7 +478,7 @@ Return ONLY JSON: {"score": number (0-${T1.max}), "summary": string (Vietnamese,
           ${(r.improvements || []).length ? `<div class="small"><b>🎯 ${t('Cần cải thiện')}</b><ul>${r.improvements.map(x => `<li>${esc(x)}</li>`).join('')}</ul></div>` : ''}
           ${(r.errors || []).length ? `<div class="small"><b>✏️ ${t('Lỗi cần sửa')}</b>${r.errors.map(x => `<div style="margin:.3rem 0">❌ <s>${esc(x.quote)}</s> → ✅ <b>${esc(x.fix)}</b><div class="tiny muted">${esc(x.why || '')}</div></div>`).join('')}</div>` : ''}
           <div class="tiny muted" style="margin-top:.4rem">${t('Nhận xét do AI tạo, chỉ để tham khảo – không phải điểm chính thức của ETS.')}</div></div>`;
-        App.reward({ xp: 5 });
+        App.reward({ xp: Game.xpFor('step') });
       } catch (e) {
         out.innerHTML = `<div class="card small">❌ ${esc(AI.errText ? AI.errText(e) : e.message)}</div>`;
       }

@@ -86,7 +86,7 @@ public enum Speaking {
         var chips = topicWords.map { Chip(kind: "ok", text: $0) }
         if let a { chips += a.awl.map { Chip(kind: "lv", text: $0) } + a.link.map { Chip(kind: "link", text: $0) } }
         return Analysis(seconds: Vocab.round(seconds), wpm: wpm, words: words, fillers: fill, notes: notes, chips: chips, transcript: text,
-                        reward: words >= minRewardWords ? ["spoken": min(10, Vocab.round(Double(words) / 10)), "quizzes": 1, "xp": 15] : nil)
+                        reward: words >= minRewardWords ? ["spoken": min(10, Vocab.round(Double(words) / 10)), "quizzes": 1, "xp": RewardRules.xp("talk", right: Swift.min(10, Vocab.round(Double(words) / 10)))] : nil)
     }
     /// "Từ/phút" shown as "—" when there was nothing to measure
     public static func wpmShown(_ a: Analysis) -> String { a.wpm > 0 ? String(a.wpm) : "—" }
@@ -115,8 +115,9 @@ public enum Speaking {
         public mutating func scored(_ score: Int) { total += score; k += 1 }
         public mutating func skip() { k += 1 }
         public var average: Int { sentences.isEmpty ? 0 : Vocab.round(Double(total) / Double(sentences.count)) }
-        /// `reward({spoken:3, xp:10})` once the last sentence is done
-        public static let reward: [String: Int] = ["spoken": 3, "xp": 10]
+        /// `reward({spoken:3, xp: say(average) × 2})` once the last sentence is done (speaking.js)
+        public static func reward(average: Int) -> [String: Int] { ["spoken": 3, "xp": RewardRules.xp("say", score: Double(average)) * 2] }
+        public var reward: [String: Int] { Self.reward(average: average) }
     }
 }
 

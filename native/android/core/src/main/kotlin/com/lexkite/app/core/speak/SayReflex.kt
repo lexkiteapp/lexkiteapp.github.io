@@ -1,5 +1,6 @@
 package com.lexkite.app.core.speak
 
+import com.lexkite.app.core.RewardRules
 import com.lexkite.app.core.audio.AudioLogic
 import com.lexkite.app.core.skills.Reward
 import com.lexkite.app.core.vocab.ga
@@ -110,5 +111,5 @@ object Reflex {
     }
     fun good(pct: Int) = pct >= 80
     class End(val n: Int, val avg: Int, val reward: Reward?) { val final = listOf(Tr("🏁"), Tr("Hết giờ!"), Tr("{n} câu · trung bình {p}%", mapOf("n" to n, "p" to avg))) }
-    fun end(score: Int, done: Int): End = End(done, if (done != 0) jsRound(score.toDouble() / done) else 0, if (done != 0) Reward(mapOf("spoken" to done), 5 + done * 2) else null)
+    fun end(score: Int, done: Int): End = End(done, if (done != 0) jsRound(score.toDouble() / done) else 0, if (done != 0) Reward(mapOf("spoken" to done), RewardRules.xp("talk", right = done)) else null)
 }

@@ -1,0 +1,1 @@
+self.FRX=self.FRX||{};(FRX.wdl=FRX.wdl||{})["es"]=["casa","agua","cielo","zapato","perro","gato","libro","mesa","comer","beber","grande","pequeño","ciudad","manzana","niño","sol","hablar","feliz","tren","cocina","leche","pan","escuela","amigo","rojo","caminar","hoy","jugo","hombre","frijol"];
