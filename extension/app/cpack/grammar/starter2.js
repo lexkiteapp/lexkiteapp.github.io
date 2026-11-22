@@ -748,7 +748,7 @@ quiz: [
 { q: '"Would you like some water?" "___"', options: ['Yes, please.', 'Yes, I like.', 'Yes, I would like.', 'I do.'], answer: 0, explain: 'Chấp nhận lịch sự: Yes, please. Các câu còn lại không tự nhiên.' },
 { q: 'Câu nào đúng?', options: ['I would like going home.', 'I would like to go home.', 'I like to going home.', 'I would like go home.'], answer: 1, explain: 'Would like to + nguyên mẫu. Các câu khác sai. → câu đúng: I would like to go home.' },
 { q: 'Câu nào đúng?', options: ['She like swimming.', 'She likes to swimming.', 'She likes swimming.', 'She is like swimming.'], answer: 2, explain: 'She likes + V-ing. Câu 1 thiếu -s, câu 2 sai to + V-ing, câu 4 sai be. → câu đúng: She likes swimming.' },
-{ q: 'Câu nào là lời mời?', options: ['Do you like pizza?', 'I like pizza.', 'You like pizza.', 'Would you like some pizza?'], answer: 3, explain: 'Would you like…? là lời mời; Do you like…? hỏi sở thích chung.' },
+{ q: 'Câu nào là lời mời?', options: ['Did you order pizza today?', 'Will you buy pizza now?', 'Can you pass the pizza?', 'Would you like some pizza?'], answer: 3, explain: 'Would you like…? là lời mời; Do you like…? hỏi sở thích chung.' },
 { q: 'Phần nào sai? "I (A) would like (B) swimming (C) now (D)."', options: ['I', 'would like', 'swimming', 'now'], answer: 2, explain: 'Would like + to + nguyên mẫu: to swim. Phần sai là (C).' },
 { q: 'Phần nào sai? "He (A) likes (B) to swimming (C) in the sea (D)."', options: ['He', 'likes', 'to swimming', 'in the sea'], answer: 2, explain: 'Like + V-ing: swimming, không có to. Phần sai là (C).' }
 ],

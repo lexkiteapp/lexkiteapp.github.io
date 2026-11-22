@@ -104,7 +104,7 @@ items: [
 { type: 'mcq', instr: g.RTI[3],
 items: [
 { n: 24, q: 'What should new employees do on their first day?',
-options: ['Collect their name badge from the staff shop.', 'Arrive early and go to the customer service desk.', 'Bring two uniform shirts from home.', 'Meet their buddy at the staff entrance.'],
+options: ['Pick up the employee handbook from the reception area.', 'Arrive early and go to the customer service desk.', 'Wear a formal suit provided by the company.', 'Check in with the security guard at the main gate.'],
 a: 1, cue: 'arrive fifteen minutes before your shift and report to the customer service desk' },
 { n: 25, q: 'The online courses on food hygiene and fire safety must be completed',
 options: ['before the first day of work.', 'during the first week only.', 'by the end of the second week.', 'in weeks three and four.'],
