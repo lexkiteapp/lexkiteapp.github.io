@@ -38,10 +38,10 @@ jobs:
       - run: node scripts/target/gen.mjs --tl ${{ matrix.tl }} --n 300 --dry
       - name: IPA espeak-ng tự kiểm trên seed (es, fr)
         if: ${{ matrix.tl == 'es' || matrix.tl == 'fr' }}
-        run: pip install -q "phonemizer-fork==3.3.2" "espeakng-loader==0.2.4" && TL=es python3 scripts/target/tl_ipa_fill.py --self
+        run: pip install -q "phonemizer-fork==3.3.2" "espeakng-loader==0.2.4" && TL=${{ matrix.tl }} python3 scripts/target/tl_ipa_fill.py --self
       - name: Wiktionary trên seed (es, fr)
         if: ${{ matrix.tl == 'es' || matrix.tl == 'fr' }}
-        run: node scripts/target/wikt-check.mjs --tl es --self
+        run: node scripts/target/wikt-check.mjs --tl ${{ matrix.tl }} --self
       - name: Chia động từ ↔ Wiktionary (es, khớp 100 %)
         if: ${{ matrix.tl == 'es' }}
         run: node scripts/target/conj-check.mjs
