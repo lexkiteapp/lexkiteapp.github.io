@@ -331,7 +331,7 @@
       if (!UI.wordRegex(c.word).test(text)) return toast(t('Câu cần có từ “{word}” nhé', { word: c.word }));
       c.contexts = [{ text, title: 'Câu của tôi', at: Date.now() }, ...c.contexts].slice(0, 5);
       await Cards.update(c); state.cards[key] = c;
-      App.reward({ xp: 5 }, ev.currentTarget); Sfx.correct();
+      App.reward({ xp: Game.xpFor('answer', { mode: 'write' }) }, ev.currentTarget); Sfx.correct();
       ev.currentTarget.textContent = '✓ ' + t('Đã lưu'); ev.currentTarget.disabled = true;
     };
     $('#flipBtn').onclick = flip;
@@ -361,7 +361,7 @@
       state.cards[key] = c;
       await Cards.update(c);
       state.stats = await Stats.logReview(wasNew);
-      const xp = g === 0 ? 2 : wasNew ? 8 : 5;
+      const xp = Game.xpFor('card', { again: g === 0, isNew: wasNew });
       session.xp += xp; snap.xp = xp; session.last = snap;
       if (session.g) session.g[g]++;
       if (g === 0) updateKit('think');
@@ -610,7 +610,7 @@
       if (notice && run.i === 0) $('.study-top').before(FX.note(notice, again));
       { const nq = seq[run.i + 1]; if (nq) setTimeout(() => preDis(nq), 0); }
       renderQuestion($('#qbox'), q, (ok, el) => {
-        const xp = q.hard ? 6 : 3;
+        const xp = Game.xpFor('answer', { mode: 'type', hard: q.hard });
         if (ok) { run.score++; run.xp += xp; App.reward({ xp }, el); } else { run.wrong.push(q.w); run.wq.push(q); }
         if (FX) FX.hit(run.c, ok);
         run.i++; next();
@@ -621,7 +621,7 @@
       document.onkeydown = null;
       const pct = Math.round(run.score / qs.length * 100);
       const perfect = pct === 100;
-      if (!run.second) { run.base = perfect ? 15 : 5; App.reward({ quizzes: 1, perfect: perfect ? 1 : 0, xp: run.base }); } // cơ hội 2: không tính thêm lượt quiz/thưởng gốc
+      if (!run.second) { run.base = Game.xpFor('set', { right: run.score, total: qs.length, paid: 1 }); App.reward({ quizzes: 1, perfect: perfect ? 1 : 0, xp: run.base }); } // cơ hội 2: không tính thêm lượt quiz/thưởng gốc
       const unit = new URLSearchParams(location.hash.split('?')[1] || '').get('unit');
       const unitPassed = unit && App.completeUnit ? App.completeUnit(unit, pct) : null;
       const band = mode === 'test' ? (pct >= 95 ? '8.5+' : pct >= 85 ? '7.5–8.0' : pct >= 70 ? '6.5–7.0' : pct >= 50 ? '5.5–6.0' : '< 5.5') : '';
@@ -729,7 +729,7 @@
       }
       renderQuestion($('#qbox'), { type: STAGES[st], w, list }, (ok, el) => {
         answered++;
-        if (ok) { stage.set(w.word, st + 1); App.reward({ xp: 2 }, el); }
+        if (ok) { stage.set(w.word, st + 1); App.reward({ xp: Game.xpFor('step') }, el); }
         else { mistakes++; stage.set(w.word, Math.max(0, st - 1)); }
         if (stage.get(w.word) < 3) queue.splice(Math.min(queue.length, 2 + Math.floor(Math.random() * 2)), 0, w);
         next();
@@ -738,11 +738,11 @@
     const finish = async () => {
       document.onkeydown = null;
       const notIn = items.filter(w => !App.inDeck(w.word));
-      App.reward({ quizzes: 1, perfect: mistakes === 0 ? 1 : 0, newWords: notIn.length, xp: 20 });
+      App.reward({ quizzes: 1, perfect: mistakes === 0 ? 1 : 0, newWords: notIn.length, xp: Game.xpFor('learn') });
       Sfx.win(); confetti();
       view.innerHTML = `<div class="study-wrap"><div class="card empty celebrate">
         <div class="em">🧠</div><h2>${t('Bạn đã học xong {n} từ!', { n: items.length })}</h2>
-        <p class="muted" id="learnStats">${answered ? t('{answered} câu trả lời · {mistakes} lần sai · +20 XP thưởng', { answered, mistakes }) : t('+{xp} XP thưởng', { xp: 20 })}</p>
+        <p class="muted" id="learnStats">${answered ? t('{answered} câu trả lời · {mistakes} lần sai · +20 XP thưởng', { answered, mistakes }) : t('+{xp} XP thưởng', { xp: Game.xpFor('learn') })}</p>
         <div class="row center" style="margin:1rem 0">${items.map(w => `<a class="chip" href="#/dict/${encodeURIComponent(w.word)}">${esc(w.emoji)} ${esc(w.word)}</a>`).join('')}</div>
         ${notIn.length ? `<p><button class="btn primary" id="addLearned">+ ${t('Đưa {n} từ vào flashcard để ôn định kỳ', { n: notIn.length })}</button></p>` : `<p class="small muted">${t('Các từ này đã có trong flashcard – hệ thống sẽ nhắc bạn ôn đúng lúc.')}</p>`}
         <div class="row center" style="margin-top:.6rem"><button class="btn" id="again">${t('Học 8 từ tiếp theo')}</button><a class="btn" href="#/practice/match?src=${encodeURIComponent(src)}">⚡ ${t('Ghép thẻ')}</a></div>
