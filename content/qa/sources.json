@@ -322,9 +322,10 @@
    "delegate": [
     "target/drill-pack.mjs --tl fr --check",
     "test/fr-practice.mjs",
-    "test/fr-pron.mjs"
+    "test/fr-pron.mjs",
+    "test/fr-path.mjs"
    ],
-   "_note": "Gói luyện tập tiếng Pháp W2 (french-course.md §10): CÙNG engine es (drill-lib TLP), dựng từ content/target/fr/{drills,gx}; drill-pack --tl fr --check = khớp nguồn + đủ 15 ngôn ngữ + ví dụ Pháp nguyên văn, CI thêm LanguageTool fr 0 lỗi (--lt) + tu ⟂ vous"
+   "_note": "Gói luyện tập + lộ trình ngày tiếng Pháp W2/W4 (french-course.md §10): CÙNG engine es (drill-lib TLP, path-lib buildPath(T)), dựng từ content/target/fr/{drills,gx,seed,core-*,calls,path-ui}; drill-pack --tl fr --check = khớp nguồn (gồm dy/wd/cl) + đủ 15 ngôn ngữ + ví dụ Pháp nguyên văn, CI thêm LanguageTool fr 0 lỗi (--lt) + tu ⟂ vous; calls-check --tl fr = 24 cuộc gọi A1–C1, một xưng hô mỗi cuộc, CI thêm LanguageTool 0 lỗi"
   },
   {
    "id": "writing",
@@ -609,6 +610,7 @@
   "content/qa": "chính cổng QA (sổ đăng ký, baseline, hàng duyệt, lô)",
   "web/js/ads": "mã quảng cáo (docs/ADS.md), không phải nội dung học – test scripts/test/ads.mjs",
   "content/visual": "prompt vẽ ảnh cảnh/bìa bài học – ảnh ra qua giám khảo riêng của vocab-img-scene (CLIP + chú thích + thị giác GrabCast), không phải văn bản học",
-  "web/js/tools": "mã giao diện công cụ miễn phí (không phải nội dung) – dữ liệu ở content/tools, kiểm bởi test/tools-pages.mjs"
+  "web/js/tools": "mã giao diện công cụ miễn phí (không phải nội dung) – dữ liệu ở content/tools, kiểm bởi test/tools-pages.mjs",
+  "web/js/path-skel": "khung #/path tĩnh theo ngôn ngữ SINH bởi scripts/build-path-skel.mjs từ chuỗi giao diện sẵn có (path.js STAGES × i18n/ui) – không phải nội dung học; kiểm bởi scripts/test/path-skel.mjs"
  }
 }

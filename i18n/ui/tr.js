@@ -1139,6 +1139,7 @@
 "Từ mô tả biểu đồ: tăng, giảm, dao động, tỉ lệ":"Grafikleri tanımlamak için kullanılan kelimeler: yükselişler, düşüşler, dalgalanmalar, oranlar",
 "Từ mới":"Yeni kelime",
 "Từ mới lưu":"Son kaydedilenler",
+"Từ mới, ngữ pháp và cuộc gọi AI mỗi ngày":"Her gün yeni kelimeler, dilbilgisi ve yapay zekâ görüşmesi",
 "Từ này bị gõ lặp hai lần liên tiếp. Xóa bớt một từ.":"Bu kelime art arda iki kez yazılır. Bunlardan birini silin.",
 "Từ này có vẻ viết sai chính tả hoặc không có trong từ điển. Kiểm tra lại cách viết – nếu là tên riêng, bấm “Bỏ qua lỗi”.":"Bu kelime yanlış yazılmış gibi görünüyor veya sözlükte yok. Yazımı kontrol edin; eğer bir adsa “Yoksay”a dokunun.",
 "Từ này viết sai chính tả. Hãy học cách viết đúng – từ hay sai sẽ được đưa vào thẻ ôn tập.":"Bu kelime yanlış yazılmıştır. Doğru yazımı öğrenin; sıklıkla yanlış yazdığınız kelimeler inceleme kartlarınıza eklenir.",
