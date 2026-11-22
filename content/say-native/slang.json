@@ -4540,10 +4540,10 @@
    "mean": "I'm not lying.",
    "def": "Used to say that you are being completely honest.",
    "vi": "Nói thật, không xạo",
-   "hook": "Best burger in town. Believe me?",
+   "hook": "Best pizza in town. Believe me?",
    "example": {
     "ctx": "Texting a friend about lunch",
-    "text": "This burger is the best in town, no cap."
+    "text": "This pizza is the best in town, no cap."
    },
    "quiz": {
     "ask": "\"No cap\" means…",
@@ -8460,41 +8460,6 @@
    "region": "US",
    "era": "modern",
    "expr": "smug",
-   "theme": "social-media"
-  },
-  {
-   "key": "go viral",
-   "forms": [
-    "went viral",
-    "going viral"
-   ],
-   "pos": "phrase",
-   "ipa": "/ɡoʊ ˈvaɪrl/",
-   "mean": "Spread fast online.",
-   "def": "When a video or post is shared by millions.",
-   "vi": "Nổi như cồn",
-   "hook": "A million people saw my video!",
-   "example": {
-    "ctx": "Talking about a video",
-    "text": "My cat video went viral."
-   },
-   "quiz": {
-    "ask": "To \"go viral\" is to…",
-    "options": [
-     "spread fast online",
-     "catch a cold"
-    ],
-    "answer": 0
-   },
-   "misuse": {
-    "text": "Don't say 'go viral' about a flu.",
-    "why": "It means spreading fast online."
-   },
-   "level": "B1",
-   "reg": "casual",
-   "region": "global",
-   "era": "modern",
-   "expr": "shock",
    "theme": "social-media"
   },
   {
