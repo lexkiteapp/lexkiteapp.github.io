@@ -11,7 +11,7 @@
 import { setupMgr, boardSync, contentHash, pushClip, bodyFor, PLAT, platOf, healthOf, validateCompose, boardStateOf } from './_social_mgr.js';
 import { setupDist, DIST, clipOf, socialSetup, socialChannels } from './distribution.js';
 import { previewClip, pickPreviewClip, PREVIEW_CLIP_RE } from './_social_preview.js';
-import { foreignAccount, pausedAccount, extAccount, localDate, LANG_TZ, langOfChannel, dayCapOf, gapOf } from './_distribution.js';
+import { isCardClip, foreignAccount, pausedAccount, extAccount, localDate, LANG_TZ, langOfChannel, dayCapOf, gapOf } from './_distribution.js';
 import { setup as ytSetup, chanCfg } from './youtube.js';
 import { field } from './_clip_logic.js';
 import { gcClient, gcConfigured } from './_grabcast.js';
@@ -19,7 +19,7 @@ import { manifest, signed } from './admin-shorts.js';
 import { once } from './_schema.js';
 import { clipHeld } from './_drive_state.js';
 import { encReady } from './_keys.js';
-import { metaClient, tokenHealth, fbReel, fbStatus, igContainer, igStatus, igQuota, igPublish, fbComment, fbFindComment } from './_meta.js';
+import { metaClient, tokenHealth, fbReel, fbCarousel, igCarouselContainer, fbStatus, igContainer, igStatus, igQuota, igPublish, fbComment, fbFindComment } from './_meta.js';
 import { firstComment, fcCaption, fcLeft, fcCount, cleanFc, clickStats, FC_DEFAULT } from './_first_comment.js';
 import { setupOAuth, appStatus, setAppSecret, startOAuth, pendingPages, pickPage, reconnectUrl } from './_meta_oauth.js';
 import { metaChannels, tokenOf, refreshIg, igNeedsRefresh, markToken, setToken, delToken, KIND } from './_meta_tokens.js';
@@ -27,7 +27,7 @@ import { metaChannels, tokenOf, refreshIg, igNeedsRefresh, markToken, setToken, 
 // ---------------- Hàm thuần (test: scripts/test/social-auto.mjs) ----------------
 export const AUTO_PLATS = ['facebook_page', 'instagram', 'tiktok', 'youtube', 'threads'];
 /** on = kill switch (TẮT → không gọi GrabCast gì cả) · auto_approve mặc định TẮT · TikTok BẬT (Direct Post duyệt 03/11/2026) · YouTube qua GrabCast tự bật khi workspace có kênh YouTube ok (yt_gc_auto; GrabCast qua audit YouTube 10/11/2026), plats.youtube = đường API trực tiếp. plan_daily BẬT: lịch tự xếp mỗi ngày (chỉ D1, không đăng gì khi chưa duyệt). */
-export const AUTO_DEFAULT = { on: true, auto_approve: false, auto_queue: false, manual_first: 1, plats: { facebook_page: true, instagram: true, tiktok: true, youtube: false, threads: false }, max_per_run: 8, lookahead_h: 30, lead_min: 20, sync_h: 3, daily_calls: 480, plan_daily: true, provider: 'auto', meta_daily: 80, meta_map: {}, yt_gc_auto: true, fc: FC_DEFAULT };
+export const AUTO_DEFAULT = { on: true, auto_approve: false, auto_queue: false, manual_first: 1, plats: { facebook_page: true, instagram: true, tiktok: true, youtube: false, threads: false }, max_per_run: 8, lookahead_h: 30, lead_min: 20, sync_h: 3, daily_calls: 480, plan_daily: true, provider: 'auto', meta_daily: 80, meta_map: {}, carousel: true, yt_gc_auto: true, fc: FC_DEFAULT };
 export const PROVIDERS = ['auto', 'grabcast', 'meta'];
 /** Chủ 10/11 + 16/11/2026: "tự duyệt tự đăng luôn … lên lịch sẵn" – fanpage 4–5 ngày không có video vì autopub chỉ bật YouTube: FB/IG/TikTok tạo bài nháp ở GrabCast rồi chờ duyệt mãi (log 16/11: tạo 3 · lên lịch 0 · chờ duyệt 3).
  *  Áp MỘT lần lên cấu hình đang lưu (policy khác POLICY): bỏ duyệt tay bài đầu, tự vào hàng, tự duyệt, autopub BẬT cho FB + IG + TikTok + YouTube (cổng QC/policy ở autoQueue/approve giữ nguyên). Sau đó cấu hình mang policy → anh đổi gì ở Quản trị thì giữ nguyên. Công tắc khẩn `on` không đụng. */
@@ -42,6 +42,7 @@ export function cleanAuto(a) {
     max_per_run: clamp(a.max_per_run, 1, 8, d.max_per_run), lookahead_h: clamp(a.lookahead_h, 2, 72, d.lookahead_h), lead_min: clamp(a.lead_min, 10, 180, d.lead_min),
     sync_h: clamp(a.sync_h, 3, 24, d.sync_h), daily_calls: clamp(a.daily_calls, 10, 600, d.daily_calls), plan_daily: a.plan_daily == null ? d.plan_daily : !!a.plan_daily,
     yt_gc_auto: a.yt_gc_auto == null ? d.yt_gc_auto : !!a.yt_gc_auto, fc: cleanFc(a.fc), // bình luận đầu mang link (§6c): bật, ≤ per_ch_day/kênh/ngày, ≤ max_tries lần thử
+    carousel: a.carousel == null ? d.carousel : !!a.carousel, // Carousel ảnh Slang Card (FB + IG, đường Meta): TẮT = không nhận/đăng carousel, Reel không đổi
     provider: PROVIDERS.includes(a.provider) ? a.provider : d.provider, meta_daily: clamp(a.meta_daily, 20, 200, d.meta_daily),
     meta_map: Object.fromEntries(['facebook_page', 'instagram'].filter(p => a.meta_map && /^gc-[a-z_]+-[A-Za-z0-9_-]{1,40}$/.test(String(a.meta_map[p] || ''))).map(p => [p, String(a.meta_map[p])])) };
 }
@@ -133,7 +134,7 @@ async function clipsFor(env, ids) {
   const out = new Map();
   for (const [id, it] of by) {
     if (!q.has(id) || clipHeld({ ...it, paused: false }, rv.get(id))) continue; // đã nằm trong hàng đợi/bảng: clip bị owner 'paused' ở manifest (chỉ chặn nhận MỚI ở autoQueue) vẫn được đăng; chặn xoá/loại/master đã rời kho
-    out.set(id, { id, title: it.title || it.lesson || id, description: it.description || '', hashtags: [], template: it.template || '', hook: field(it, 'hook'), cefr: field(it, 'diff') || it.cefr || '', duration: +it.duration || 0, video: it.video, cover: it.cover, _it: it });
+    out.set(id, { id, title: it.title || it.lesson || id, description: it.description || '', hashtags: [], template: it.template || '', hook: field(it, 'hook'), cefr: field(it, 'diff') || it.cefr || '', duration: +it.duration || 0, video: it.video, cover: it.cover, cards: Array.isArray(it.cards) ? it.cards : [], _it: it });
   }
   return out;
 }
@@ -297,7 +298,7 @@ export async function autoQueue(env, db, cfg, now, max = 30) {
   if (!cfg.auto_queue || !cfg.auto_approve) return 0;
   const plats = AUTO_PLATS.filter(p => cfg.plats[p]); if (!plats.length) return 0;
   if (!await one(db, `SELECT 1 AS x FROM dist_ext WHERE platform IN (${plats.map(() => '?').join(',')}) AND status = 'ok' LIMIT 1`, ...plats)) return 0;
-  const cand = (await manifest(env)).items.filter(it => it && it.qa && it.qa.status === 'pass' && !it.rejected && !it.paused && it.drive && it.drive.video && !it.drive.video.retired && CLIP.test(String(it.id)) && (it.title || it.point));
+  const cand = (await manifest(env)).items.filter(it => it && it.qa && it.qa.status === 'pass' && !it.rejected && !it.paused && (isCardClip(it.id) ? cfg.carousel && it.format === 'carousel' && it.cards_ok === true && Array.isArray(it.cards) && it.cards.length >= 2 && it.drive && it.cards.every((_, i) => it.drive['card' + (i + 1)]) : it.drive && it.drive.video && !it.drive.video.retired) && CLIP.test(String(it.id)) && (it.title || it.point));
   if (!cand.length) return 0;
   const seen = new Set((await all(db, 'SELECT clip FROM yt_queue LIMIT 5000')).map(r => r.clip)), review = new Map((await all(db, 'SELECT clip, state, deleted FROM clip_review LIMIT 5000')).map(r => [r.clip, r]));
   let n = 0;
@@ -448,6 +449,9 @@ export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = f
   if (prov.cur === 'meta') {
     if (rec.stop === 'no-key' || rec.stop === 'breaker' || rec.stop === 'budget') rec.stop = null;
     try { await metaPass(); } catch (e) { if (!e.metaStop) throw e; }
+  } else if (cfg.carousel && metaUp && await one(db, "SELECT 1 AS x FROM dist_social WHERE slot_ms BETWEEN ? AND ? AND clip LIKE '%-cards' AND state IN ('planned', 'failed', 'pushed') LIMIT 1", now - MAX_LATE_MS, now + Math.min(cfg.lookahead_h, META_AHEAD_H) * 36e5)) {
+    // Carousel ảnh (Slang Card) chỉ đi đường Meta kể cả khi GrabCast khỏe: Reel vẫn do GrabCast, lượt này chỉ đụng mục "-cards" (không có thì không gọi Meta gì cả)
+    try { await metaPass(true); } catch (e) { if (!e.metaStop) throw e; }
   }
   // ---- 2b) Bình luận đầu của các Reel FB đã lên qua Meta (chạy cả khi đã quay về GrabCast: bài Meta cũ vẫn cần bình luận) ----
   try { await metaFcPass(); } catch (e) { rec.fc.skipped.push({ why: 'fc-pass:' + String((e && e.code) || (e && e.message) || 'error').slice(0, 60) }); }
@@ -491,7 +495,7 @@ export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = f
     }
     // 2) Bài đến hạn (trước đó: trần cứng 1 bài/kênh/ngày – dời bài dư sang ngày trống của kênh)
     try { rec.rebalanced = (rec.rebalanced || 0) + await rebalanceDays(db, now, dayCap, 120, outOfTime); } catch (e) { rec.skipped.push({ why: 'rebalance-error', err: String(e && e.message).slice(0, 120) }); }
-    const due = pickDue((await DIST.social_due(db, { from: now + cfg.lead_min * 60e3, to: now + cfg.lookahead_h * 36e5 }, env)).rows, cfg, now).filter(r => !skipPlats.includes(r.platform));
+    const due = pickDue((await DIST.social_due(db, { from: now + cfg.lead_min * 60e3, to: now + cfg.lookahead_h * 36e5 }, env)).rows, cfg, now).filter(r => !skipPlats.includes(r.platform) && !isCardClip(r.clip)); // carousel ảnh: chỉ đường Meta (GrabCast không có bài nhiều ảnh)
     rec.due = due.length;
     const manual = cfg.auto_approve ? await manualCounts(db) : {}, manualFc = cfg.auto_approve ? await manualCounts(db, { fc: true }) : {};
     let done = 0;
@@ -564,7 +568,7 @@ export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = f
   }
 
   // ================= Lượt Meta (dự phòng FB/IG) =================
-  async function metaPass() {
+  async function metaPass(cardsOnly = false) {
     const M = rec.meta, ms = st.meta = st.meta || {}, br = ms.br = ms.br || {}, th = ms.th = ms.th || {};
     let mleft = metaLeft(st, cfg, now);
     const onCall = () => { M.calls++; mleft--; };
@@ -616,7 +620,7 @@ export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = f
     for (const m of mlist) await chan(m.channel_id).catch(e => { if (e.metaStop && e.ch) dead.add(e.ch); else throw e; }); // sức khỏe/refresh token mỗi kênh (≤ 1 lần/ngày) – kể cả khi chưa có bài
     const served = new Set(mlist.map(m => m.channel_id));
     const rows = (await all(db, 'SELECT clip, channel_id, platform, slot_ms, state, post_id FROM dist_social WHERE slot_ms BETWEEN ? AND ? ORDER BY slot_ms LIMIT 60', now - MAX_LATE_MS, now + Math.min(cfg.lookahead_h, META_AHEAD_H) * 36e5))
-      .filter(r => META_PLATS.includes(r.platform) && cfg.plats[r.platform] && ['planned', 'failed', 'pushed'].includes(r.state));
+      .filter(r => META_PLATS.includes(r.platform) && cfg.plats[r.platform] && ['planned', 'failed', 'pushed'].includes(r.state) && (cardsOnly ? isCardClip(r.clip) : !isCardClip(r.clip) || cfg.carousel));
     for (const r of rows) if (!served.has(r.channel_id)) rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'meta-no-token' });
     const mine = rows.filter(r => served.has(r.channel_id));
     const manual = cfg.auto_approve ? await manualCounts(db) : {}, manualFc = cfg.auto_approve ? await manualCounts(db, { fc: true }) : {};
@@ -652,6 +656,7 @@ export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = f
         else { rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'waiting-approval' }); continue; }
       }
       if (!c) { rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'clip-not-approved' }); continue; }
+      if (isCardClip(r.clip) && (c._it.cards_ok !== true || !c._it.qa || c._it.qa.status !== 'pass' || c.cards.length < 2)) { await mfail('cards', 'gate'); continue; } // cổng QC carousel: cards.json ok + QA đạt (metadata đã qua no_keyword) – trước khóa/sổ cái, không tốn lượt
       // --- khóa chống trùng (PK clip + kênh): chỉ 1 lượt/1 provider nhận bài ---
       const gcPid = (b.post_id && !/^meta_/.test(b.post_id)) ? b.post_id : (r.post_id && !/^meta_/.test(r.post_id) ? r.post_id : null);
       if (!lock) {
@@ -685,12 +690,18 @@ export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = f
       if (!C) { rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'meta-channel-paused' }); continue; }
       const mc = C.mc, mErr = C.err, tgt = C.m.target_id;
       acts++;
-      const url = await signed(env, c._it, 'video', 6 * 3600); if (!url) { await mfail('clip', 'not-on-drive'); continue; }
-      const file_url = new URL(url, 'https://lexkite.com').toString();
-      const cu = c.cover && r.platform === 'instagram' ? await signed(env, c._it, 'cover', 6 * 3600).catch(() => '') : '', cover_url = cu ? new URL(cu, 'https://lexkite.com').toString() : ''; // bìa Reels = ảnh bìa của clip (không có → Meta lấy khung đầu)
+      const card = isCardClip(r.clip), abs = u => new URL(u, 'https://lexkite.com').toString();
+      let card_urls = [];
+      if (card) { // URL ký từng ảnh JPEG (cổng QC cards_ok/QA đã kiểm trước sổ cái)
+        for (let i = 0; i < c.cards.length; i++) { const u = await signed(env, c._it, 'card' + (i + 1), 6 * 3600); if (u) card_urls.push(abs(u)); }
+        if (card_urls.length !== c.cards.length) { await mfail('clip', 'not-on-drive'); continue; }
+      }
+      let file_url = '';
+      if (!card) { const url = await signed(env, c._it, 'video', 6 * 3600); if (!url) { await mfail('clip', 'not-on-drive'); continue; } file_url = abs(url); }
+      const cu = !card && c.cover && r.platform === 'instagram' ? await signed(env, c._it, 'cover', 6 * 3600).catch(() => '') : '', cover_url = cu ? new URL(cu, 'https://lexkite.com').toString() : ''; // bìa Reels = ảnh bìa của clip (không có → Meta lấy khung đầu)
       try {
         if (step === 'fb-check') {
-          const s = await fbStatus(mc, lock.meta_id);
+          const s = await fbStatus(mc, lock.meta_id, card);
           if (s.ok && s.published) { await setLock(db, r.clip, r.channel_id, { state: 'posted', permalink: s.permalink || lock.permalink }); await done(r, bid, lock.meta_id, 'fb', s.permalink || lock.permalink, true); }
           continue;
         }
@@ -699,6 +710,14 @@ export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = f
             const s = await fbStatus(mc, lock.meta_id);
             if (s.ok && s.published) { await setLock(db, r.clip, r.channel_id, { state: 'posted', permalink: s.permalink }); await done(r, bid, lock.meta_id, 'fb', s.permalink, true); continue; }
           }
+          if (card) { // bài nhiều ảnh: 1 lệnh feed sau khi tải ảnh lên (khóa 'claimed' trước để lượt chết giữa chừng không im lặng đăng lại)
+            await setLock(db, r.clip, r.channel_id, { state: 'claimed' });
+            const out = await fbCarousel(mc, tgt, { image_urls: card_urls, message: b.caption, at: r.slot_ms, now }).catch(async e => { throw await mErr(e); });
+            await setLock(db, r.clip, r.channel_id, { state: out.scheduled ? 'scheduled' : 'posted', meta_id: out.post_id, permalink: out.permalink, err: null });
+            await done(r, bid, out.post_id, 'fb', out.permalink, !out.scheduled);
+            if (out.scheduled) M.scheduled++; else M.posted++;
+            continue;
+          }
           const out = await fbReel(mc, tgt, { file_url, description: b.caption, title: b.title, at: r.slot_ms, now, video_id: lock.meta_id && lock.state === 'claimed' ? lock.meta_id : '', onStart: vid => setLock(db, r.clip, r.channel_id, { meta_id: vid }) }).catch(async e => { throw await mErr(e); });
           await setLock(db, r.clip, r.channel_id, { state: out.scheduled ? 'scheduled' : 'posted', meta_id: out.video_id, permalink: out.permalink, err: null });
           await done(r, bid, out.video_id, 'fb', out.permalink, !out.scheduled);
@@ -706,7 +725,7 @@ export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = f
           continue;
         }
         if (step === 'ig-container') {
-          const cid = await igContainer(mc, tgt, { video_url: file_url, caption: b.caption, cover_url }).catch(async e => { throw await mErr(e); });
+          const cid = await (card ? igCarouselContainer(mc, tgt, { image_urls: card_urls, caption: b.caption }) : igContainer(mc, tgt, { video_url: file_url, caption: b.caption, cover_url })).catch(async e => { throw await mErr(e); });
           await setLock(db, r.clip, r.channel_id, { container: cid, err: null }); M.containers++;
           if (now < r.slot_ms - IG_EARLY_MS) continue;
           lock = await lockOf(db, r.clip, r.channel_id);
@@ -743,7 +762,7 @@ export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = f
     for (const l of pend) {
       if (n >= 3 || mleft <= 2) break;
       const m = list.find(x => x.channel_id === l.channel_id && x.platform === 'facebook_page');
-      if (!m || (br[l.channel_id] && br[l.channel_id].until > now) || !/^\d{5,30}$/.test(String(l.meta_id || ''))) continue;
+      if (!m || (br[l.channel_id] && br[l.channel_id].until > now) || !/^[\d_]{5,60}$/.test(String(l.meta_id || ''))) continue; // Reel: id số · bài carousel: <page>_<post>
       if (now - (+l.updated || 0) > 48 * 36e5 && l.fc_state !== 'due') { await setLock(db, l.clip, l.channel_id, { fc_state: 'gave-up' }); continue; }
       const b = await one(db, 'SELECT fc FROM soc_board WHERE id = ?', await boardId(l.clip, l.channel_id)), text = String((b && b.fc) || '');
       if (!text) { await setLock(db, l.clip, l.channel_id, { fc_state: 'none' }); continue; }

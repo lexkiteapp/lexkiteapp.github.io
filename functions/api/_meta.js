@@ -78,10 +78,39 @@ export async function fbReel(mc, pageId, { file_url, description, title, at = 0,
   if (f.status >= 400 || (f.data && f.data.success === false)) throw err(f, 'finish');
   return { video_id, scheduled: sched, permalink: `https://www.facebook.com/reel/${video_id}` };
 }
+/** Carousel ảnh (Slang Card, docs/DISTRIBUTION.md "Carousel ảnh"). Kiểm tài liệu 22/11/2026 (Graph v26.0): IG child `is_carousel_item=true` + `image_url` (CHỈ JPEG), parent `media_type=CAROUSEL` + `children` (id cách nhau dấu phẩy) + `caption`;
+ *  FB: mỗi ảnh POST /{page}/photos {url, published=false} → POST /{page}/feed {message, attached_media[i]={"media_fbid":id}} (+ published=false & scheduled_publish_time: 10 phút–75 ngày). 2–10 ảnh, URL https. */
+const imgUrls = (xs, max = 10) => { xs = Array.isArray(xs) ? xs : []; if (xs.length < 2 || xs.length > max || !xs.every(u => /^https:\/\//.test(String(u || '')))) throw Object.assign(new Error('meta'), { meta: true, kind: '', code: 'bad-images', step: 'images' }); return xs.map(String); };
+/** Bài nhiều ảnh trên Page → { post_id, scheduled, permalink } hoặc ném { meta, kind, code, step } như fbReel. Ảnh đã tải lên (chưa công khai) mà bước feed lỗi chỉ là ảnh mồ côi vô hình, không đăng gì. */
+export async function fbCarousel(mc, pageId, { image_urls, message, at = 0, now = Date.now() }) {
+  const page = String(pageId), urls = imgUrls(image_urls), err = (r, step) => Object.assign(new Error('meta'), { meta: true, kind: r.kind, code: r.code || String(r.status), step });
+  const ids = [];
+  for (const url of urls) {
+    const r = await mc('POST', `${page}/photos`, { url, published: 'false' }); const id = String((r.data && r.data.id) || '');
+    if (r.status >= 400 || !ID.test(id)) throw err(r, 'photo'); ids.push(id);
+  }
+  const sched = at >= now + 15 * 60e3;
+  const f = await mc('POST', `${page}/feed`, { message: String(message || '').slice(0, 2200), ...Object.fromEntries(ids.map((id, i) => [`attached_media[${i}]`, JSON.stringify({ media_fbid: id })])), ...(sched ? { published: 'false', scheduled_publish_time: Math.floor(at / 1000) } : {}) });
+  const post_id = String((f.data && f.data.id) || '');
+  if (f.status >= 400 || !/^[\d_]{5,60}$/.test(post_id)) throw err(f, 'feed');
+  return { post_id, scheduled: sched, permalink: `https://www.facebook.com/${post_id}` };
+}
+/** IG carousel: container con cho từng ảnh → container cha. Trả id cha (rồi dùng igStatus → igQuota → igPublish như Reel). */
+export async function igCarouselContainer(mc, igId, { image_urls, caption }) {
+  const urls = imgUrls(image_urls), kids = [], err = (r, step) => Object.assign(new Error('meta'), { meta: true, kind: r.kind, code: r.code || String(r.status), step });
+  for (const image_url of urls) {
+    const r = await mc('POST', `${igId}/media`, { image_url, is_carousel_item: 'true' }); const id = String((r.data && r.data.id) || '');
+    if (r.status >= 400 || !ID.test(id)) throw err(r, 'child'); kids.push(id);
+  }
+  const r = await mc('POST', `${igId}/media`, { media_type: 'CAROUSEL', children: kids.join(','), caption: String(caption || '').slice(0, 2200) }); const id = String((r.data && r.data.id) || '');
+  if (r.status >= 400 || !ID.test(id)) throw err(r, 'container');
+  return id;
+}
 /** Trạng thái 1 video FB (kiểm chống trùng khi lượt trước chết sau bước start). */
-export async function fbStatus(mc, video_id) {
-  const r = await mc('GET', video_id, { fields: 'status,permalink_url,published' });
+export async function fbStatus(mc, video_id, post = false) {
+  const r = await mc('GET', video_id, { fields: post ? 'is_published,permalink_url' : 'status,permalink_url,published' });
   if (r.status >= 400) return { ok: false, code: r.code, kind: r.kind };
+  if (post) return { ok: true, published: r.data.is_published === true, uploaded: true, permalink: r.data.permalink_url ? 'https://www.facebook.com' + String(r.data.permalink_url).replace(/^https:\/\/www\.facebook\.com/, '') : '' }; // bài feed (carousel): is_published
   const s = (r.data && r.data.status) || {};
   return { ok: true, published: !!r.data.published, uploaded: (s.uploading_phase || {}).status === 'complete' || s.video_status === 'ready' || s.video_status === 'processing', permalink: r.data.permalink_url ? 'https://www.facebook.com' + String(r.data.permalink_url).replace(/^https:\/\/www\.facebook\.com/, '') : '' };
 }

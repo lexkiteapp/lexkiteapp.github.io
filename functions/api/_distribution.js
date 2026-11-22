@@ -200,3 +200,6 @@ export function healthVerdict({ error, failed = 0, limitFailed = 5 }) {
   if (failed >= limitFailed) return `${failed} failed uploads – paused`;
   return '';
 }
+
+/** Carousel ảnh (Slang Card): mục riêng id "<reel>-cards" – chỉ Facebook Page + Instagram, đăng thẳng qua Meta (GrabCast không có bài ảnh nhiều tấm, xem docs/DISTRIBUTION.md "Carousel ảnh"). */
+export const isCardClip = id => /^[a-z0-9-]{3,114}-cards$/.test(String(id || ''));
