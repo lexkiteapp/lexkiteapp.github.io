@@ -1,0 +1,146 @@
+{
+ "id": "t2s_de_nocap",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Best pizza in town. Believe me?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "No cap!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "I'm not lying.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "This pizza is the best in town, no cap.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smug",
+ "data": {
+  "key": "no cap",
+  "forms": [],
+  "ipa": "/ˌnoʊ ˈkæp/",
+  "mean": "I'm not lying.",
+  "define": "Used to say that you are being completely honest.",
+  "vi": "Nói thật, không xạo",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B1",
+  "era": "gen-z",
+  "theme": "honesty",
+  "example": {
+   "ctx": "Texting a friend about lunch",
+   "text": "This pizza is the best in town, no cap."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"No cap\" means…",
+   "options": [
+    "I lost my hat",
+    "I'm telling the truth"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'no cap' about a baseball hat.",
+   "why": "It means 'no lie' in slang."
+  },
+  "l1": "kein Scherz; ehrlich; ohne zu übertreiben",
+  "l1_hook": "Beste Pizza in der Stadt. Glaub mir, no cap.",
+  "l1_ex": "Diese Pizza ist die beste der Stadt, „no cap“.",
+  "right": "no cap",
+  "native": {
+   "hook": "Was heißt “no cap”?",
+   "tip": "“no cap” = kein Scherz; ehrlich; ohne zu übertreiben. Beispiel: “This pizza is the best in town, no cap.”",
+   "caption": "Was heißt “no cap”?\n“no cap” = kein Scherz; ehrlich; ohne zu übertreiben.\nBeispiel: “This pizza is the best in town, no cap.” (Diese Pizza ist die beste der Stadt, „no cap“.)\nLerne englischen Slang kostenlos mit Lexkite.",
+   "comment": "Antwort: “no cap” = kein Scherz; ehrlich; ohne zu übertreiben. “This pizza is the best in town, no cap.” Kostenlos weiterüben: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Best pizza in town. Believe me?"
+ },
+ "src": {
+  "slang": "no cap"
+ },
+ "lang": "de",
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "Was heißt “no cap”?",
+  "keyword": "no cap",
+  "value": "“no cap” = kein Scherz; ehrlich; ohne zu übertreiben. Beispiel: “This pizza is the best in town, no cap.”",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "Was heißt “no cap”?",
+    "description": "“no cap” = kein Scherz; ehrlich; ohne zu übertreiben. Beispiel: “This pizza is the best in town, no cap.”\n\nWas heißt “no cap”?\n“no cap” = kein Scherz; ehrlich; ohne zu übertreiben.\nBeispiel: “This pizza is the best in town, no cap.” (Diese Pizza ist die beste der Stadt, „no cap“.)\nLerne englischen Slang kostenlos mit Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "no cap",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Was heißt “no cap”?\n“no cap” = kein Scherz; ehrlich; ohne zu übertreiben.\nBeispiel: “This pizza is the best in town, no cap.” (Diese Pizza ist die beste der Stadt, „no cap“.)\nLerne englischen Slang kostenlos mit Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Was heißt “no cap”?\n\n“no cap” = kein Scherz; ehrlich; ohne zu übertreiben. Beispiel: “This pizza is the best in town, no cap.”\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Was heißt “no cap”? “no cap” = kein Scherz; ehrlich; ohne zu übertreiben. Beispiel: “This pizza is the… #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Antwort: “no cap” = kein Scherz; ehrlich; ohne zu übertreiben. “This pizza is the best in town, no cap.” Kostenlos weiterüben: {link}",
+  "lang": "de"
+ }
+}

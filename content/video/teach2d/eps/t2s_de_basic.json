@@ -1,0 +1,146 @@
+{
+ "id": "t2s_de_basic",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 6,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Pizza and a movie again?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Basic!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Too ordinary, like everyone else.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "My weekend plan is basic: pizza and a movie.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "deadpan",
+ "data": {
+  "key": "basic",
+  "forms": [],
+  "ipa": "/ˈbeɪsɪk/",
+  "mean": "Too ordinary, like everyone else.",
+  "define": "Describes things that are very ordinary and popular. It can sound a bit mean.",
+  "vi": "Quá bình thường, đại trà",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B1",
+  "era": "modern",
+  "theme": "criticism",
+  "example": {
+   "ctx": "Planning a weekend with friends",
+   "text": "My weekend plan is basic: pizza and a movie."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Basic\" in slang means…",
+   "options": [
+    "easy to learn",
+    "too ordinary"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call your friend's gift 'basic' to her.",
+   "why": "It sounds like an insult."
+  },
+  "l1": "basic; gewöhnlich; alltäglich",
+  "l1_hook": "Schon wieder Pizza und ein Film?",
+  "l1_ex": "Mein Wochenendplan ist „basic“: Pizza und ein Film.",
+  "right": "basic",
+  "native": {
+   "hook": "Was heißt “basic”?",
+   "tip": "“basic” = basic; gewöhnlich; alltäglich. Beispiel: “My weekend plan is basic: pizza and a movie.”",
+   "caption": "Was heißt “basic”?\n“basic” = basic; gewöhnlich; alltäglich.\nBeispiel: “My weekend plan is basic: pizza and a movie.” (Mein Wochenendplan ist „basic“: Pizza und ein Film.)\nLerne englischen Slang kostenlos mit Lexkite.",
+   "comment": "Antwort: “basic” = basic; gewöhnlich; alltäglich. “My weekend plan is basic: pizza and a movie.” Kostenlos weiterüben: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Pizza and a movie again?"
+ },
+ "src": {
+  "slang": "basic"
+ },
+ "lang": "de",
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "Was heißt “basic”?",
+  "keyword": "basic",
+  "value": "“basic” = basic; gewöhnlich; alltäglich. Beispiel: “My weekend plan is basic: pizza and a movie.”",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "Was heißt “basic”?",
+    "description": "“basic” = basic; gewöhnlich; alltäglich. Beispiel: “My weekend plan is basic: pizza and a movie.”\n\nWas heißt “basic”?\n“basic” = basic; gewöhnlich; alltäglich.\nBeispiel: “My weekend plan is basic: pizza and a movie.” (Mein Wochenendplan ist „basic“: Pizza und ein Film.)\nLerne englischen Slang kostenlos mit Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "basic",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Was heißt “basic”?\n“basic” = basic; gewöhnlich; alltäglich.\nBeispiel: “My weekend plan is basic: pizza and a movie.” (Mein Wochenendplan ist „basic“: Pizza und ein Film.)\nLerne englischen Slang kostenlos mit Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Was heißt “basic”?\n\n“basic” = basic; gewöhnlich; alltäglich. Beispiel: “My weekend plan is basic: pizza and a movie.”\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Was heißt “basic”? “basic” = basic; gewöhnlich; alltäglich. Beispiel: “My weekend plan is basic: pizza… #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Antwort: “basic” = basic; gewöhnlich; alltäglich. “My weekend plan is basic: pizza and a movie.” Kostenlos weiterüben: {link}",
+  "lang": "de"
+ }
+}

@@ -1,0 +1,152 @@
+{
+ "id": "t2s_es_backtosquareone",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 14,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Plan failed. Now what?",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Back to square one!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Start over.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Plan failed. Back to square one.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "sad",
+ "pose": {
+  "clip": "empathy",
+  "after": "h"
+ },
+ "data": {
+  "key": "back to square one",
+  "forms": [
+   "square one"
+  ],
+  "ipa": "/ˈbæk tə ˈskwer ˈwʌn/",
+  "mean": "Start over.",
+  "define": "Used when your progress is lost and you must restart.",
+  "vi": "Về vạch xuất phát",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "mistakes",
+  "example": {
+   "ctx": "Fixing a school project",
+   "text": "Plan failed. Back to square one."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "It means to…",
+   "options": [
+    "start over",
+    "go forward"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't say 'back to square one' after small progress.",
+   "why": "It means you lost all progress."
+  },
+  "l1": "volver al punto de partida; empezar de cero",
+  "l1_hook": "El plan falló. ¿Y ahora qué?",
+  "l1_ex": "El plan falló. \"back to square one\".",
+  "right": "back to square one",
+  "native": {
+   "hook": "¿Qué significa “back…”?",
+   "tip": "“back to square one” = volver al punto de partida; empezar de cero. Ejemplo: “Plan failed. Back to square one.”",
+   "caption": "¿Qué significa “back…”?\n“back to square one” = volver al punto de partida; empezar de cero.\nEjemplo: “Plan failed. Back to square one.” (El plan falló. \"back to square one\".)\nAprende slang en inglés gratis con Lexkite.",
+   "comment": "Respuesta: “back to square one” = volver al punto de partida; empezar de cero. “Plan failed. Back to square one.” Practica más gratis: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#vocabulario",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Plan failed. Now what?"
+ },
+ "src": {
+  "slang": "back to square one"
+ },
+ "lang": "es",
+ "est": {
+  "words": 18,
+  "seconds": 10.8,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "¿Qué significa “back…”?",
+  "keyword": "back to square one",
+  "value": "“back to square one” = volver al punto de partida; empezar de cero. Ejemplo: “Plan failed. Back to square one.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#vocabulario",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "¿Qué significa “back…”?",
+    "description": "“back to square one” = volver al punto de partida; empezar de cero. Ejemplo: “Plan failed. Back to square one.”\n\n¿Qué significa “back…”?\n“back to square one” = volver al punto de partida; empezar de cero.\nEjemplo: “Plan failed. Back to square one.” (El plan falló. \"back to square one\".)\nAprende slang en inglés gratis con Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#aprenderingles #inglesfacil #vocabulario #lexkite",
+    "tags": [
+     "back to square one",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "¿Qué significa “back…”?\n“back to square one” = volver al punto de partida; empezar de cero.\nEjemplo: “Plan failed. Back to square one.” (El plan falló. \"back to square one\".)\nAprende slang en inglés gratis con Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "¿Qué significa “back…”?\n\n“back to square one” = volver al punto de partida; empezar de cero. Ejemplo: “Plan failed. Back to square one.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#vocabulario",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "¿Qué significa “back…”? “back to square one” = volver al punto de partida; empezar de cero. Ejemplo: “Plan… #aprenderingles #inglesfacil #vocabulario"
+   }
+  },
+  "first_comment": "Respuesta: “back to square one” = volver al punto de partida; empezar de cero. “Plan failed. Back to square one.” Practica más gratis: {link}",
+  "lang": "es"
+ }
+}

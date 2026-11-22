@@ -1,0 +1,146 @@
+{
+ "id": "t2s_th_basic",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 6,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Pizza and a movie again?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Basic!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Too ordinary, like everyone else.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "My weekend plan is basic: pizza and a movie.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "deadpan",
+ "data": {
+  "key": "basic",
+  "forms": [],
+  "ipa": "/ˈbeɪsɪk/",
+  "mean": "Too ordinary, like everyone else.",
+  "define": "Describes things that are very ordinary and popular. It can sound a bit mean.",
+  "vi": "Quá bình thường, đại trà",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B1",
+  "era": "modern",
+  "theme": "criticism",
+  "example": {
+   "ctx": "Planning a weekend with friends",
+   "text": "My weekend plan is basic: pizza and a movie."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Basic\" in slang means…",
+   "options": [
+    "easy to learn",
+    "too ordinary"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call your friend's gift 'basic' to her.",
+   "why": "It sounds like an insult."
+  },
+  "l1": "ธรรมดา; ธรรมดาเกินไป",
+  "l1_hook": "พิซซ่าและหนังอีกแล้ว?",
+  "l1_ex": "แผนวันหยุดของฉัน \"basic\": พิซซ่าและหนัง",
+  "right": "basic",
+  "native": {
+   "hook": "“basic” แปลว่าอะไร?",
+   "tip": "“basic” = ธรรมดา; ธรรมดาเกินไป. ตัวอย่าง: “My weekend plan is basic: pizza and a movie.”",
+   "caption": "“basic” แปลว่าอะไร?\n“basic” = ธรรมดา; ธรรมดาเกินไป.\nตัวอย่าง: “My weekend plan is basic: pizza and a movie.” (แผนวันหยุดของฉัน \"basic\": พิซซ่าและหนัง)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite",
+   "comment": "คำตอบ: “basic” = ธรรมดา; ธรรมดาเกินไป. “My weekend plan is basic: pizza and a movie.” ฝึกเพิ่มฟรี: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Pizza and a movie again?"
+ },
+ "src": {
+  "slang": "basic"
+ },
+ "lang": "th",
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "“basic” แปลว่าอะไร?",
+  "keyword": "basic",
+  "value": "“basic” = ธรรมดา; ธรรมดาเกินไป. ตัวอย่าง: “My weekend plan is basic: pizza and a movie.”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "“basic” แปลว่าอะไร?",
+    "description": "“basic” = ธรรมดา; ธรรมดาเกินไป. ตัวอย่าง: “My weekend plan is basic: pizza and a movie.”\n\n“basic” แปลว่าอะไร?\n“basic” = ธรรมดา; ธรรมดาเกินไป.\nตัวอย่าง: “My weekend plan is basic: pizza and a movie.” (แผนวันหยุดของฉัน \"basic\": พิซซ่าและหนัง)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "basic",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "“basic” แปลว่าอะไร?\n“basic” = ธรรมดา; ธรรมดาเกินไป.\nตัวอย่าง: “My weekend plan is basic: pizza and a movie.” (แผนวันหยุดของฉัน \"basic\": พิซซ่าและหนัง)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“basic” แปลว่าอะไร?\n\n“basic” = ธรรมดา; ธรรมดาเกินไป. ตัวอย่าง: “My weekend plan is basic: pizza and a movie.”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“basic” แปลว่าอะไร? “basic” = ธรรมดา; ธรรมดาเกินไป. ตัวอย่าง: “My weekend plan is basic: pizza and a movie.” #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "คำตอบ: “basic” = ธรรมดา; ธรรมดาเกินไป. “My weekend plan is basic: pizza and a movie.” ฝึกเพิ่มฟรี: {link}",
+  "lang": "th"
+ }
+}

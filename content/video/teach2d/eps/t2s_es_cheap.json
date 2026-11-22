@@ -1,0 +1,146 @@
+{
+ "id": "t2s_es_cheap",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 25,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "He never pays for lunch!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Cheap!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Unwilling to spend money.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "He's too cheap to buy lunch.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smirk",
+ "data": {
+  "key": "cheap",
+  "forms": [],
+  "ipa": "/ˈtʃiːp/",
+  "mean": "Unwilling to spend money.",
+  "define": "Describes a stingy person; it can also mean low quality.",
+  "vi": "Keo kiệt",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "criticism",
+  "example": {
+   "ctx": "Talking about a friend",
+   "text": "He's too cheap to buy lunch."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"Cheap\" here means…",
+   "options": [
+    "stingy",
+    "fancy"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't call grandma 'cheap' for using coupons.",
+   "why": "It insults her careful habits."
+  },
+  "l1": "tacaño; barato; de mala calidad",
+  "l1_hook": "¡Él nunca paga la comida! Es muy 'cheap'.",
+  "l1_ex": "Él es demasiado 'cheap' para comprar la comida.",
+  "right": "cheap",
+  "native": {
+   "hook": "¿Qué significa “cheap”?",
+   "tip": "“cheap” = tacaño; barato; de mala calidad. Ejemplo: “He's too cheap to buy lunch.”",
+   "caption": "¿Qué significa “cheap”?\n“cheap” = tacaño; barato; de mala calidad.\nEjemplo: “He's too cheap to buy lunch.” (Él es demasiado 'cheap' para comprar la comida.)\nAprende slang en inglés gratis con Lexkite.",
+   "comment": "Respuesta: “cheap” = tacaño; barato; de mala calidad. “He's too cheap to buy lunch.” Practica más gratis: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#vocabulario",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "He never pays for lunch!"
+ },
+ "src": {
+  "slang": "cheap"
+ },
+ "lang": "es",
+ "est": {
+  "words": 18,
+  "seconds": 10.1,
+  "wpm": 107
+ },
+ "publish": {
+  "title": "¿Qué significa “cheap”?",
+  "keyword": "cheap",
+  "value": "“cheap” = tacaño; barato; de mala calidad. Ejemplo: “He's too cheap to buy lunch.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#vocabulario",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "¿Qué significa “cheap”?",
+    "description": "“cheap” = tacaño; barato; de mala calidad. Ejemplo: “He's too cheap to buy lunch.”\n\n¿Qué significa “cheap”?\n“cheap” = tacaño; barato; de mala calidad.\nEjemplo: “He's too cheap to buy lunch.” (Él es demasiado 'cheap' para comprar la comida.)\nAprende slang en inglés gratis con Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#aprenderingles #inglesfacil #vocabulario #lexkite",
+    "tags": [
+     "cheap",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "¿Qué significa “cheap”?\n“cheap” = tacaño; barato; de mala calidad.\nEjemplo: “He's too cheap to buy lunch.” (Él es demasiado 'cheap' para comprar la comida.)\nAprende slang en inglés gratis con Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "¿Qué significa “cheap”?\n\n“cheap” = tacaño; barato; de mala calidad. Ejemplo: “He's too cheap to buy lunch.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#vocabulario",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "¿Qué significa “cheap”? “cheap” = tacaño; barato; de mala calidad. Ejemplo: “He's too cheap to buy lunch.” #aprenderingles #inglesfacil #vocabulario"
+   }
+  },
+  "first_comment": "Respuesta: “cheap” = tacaño; barato; de mala calidad. “He's too cheap to buy lunch.” Practica más gratis: {link}",
+  "lang": "es"
+ }
+}

@@ -1,0 +1,146 @@
+{
+ "id": "t2s_pt_basic",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 6,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Pizza and a movie again?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Basic!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Too ordinary, like everyone else.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "My weekend plan is basic: pizza and a movie.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "deadpan",
+ "data": {
+  "key": "basic",
+  "forms": [],
+  "ipa": "/ˈbeɪsɪk/",
+  "mean": "Too ordinary, like everyone else.",
+  "define": "Describes things that are very ordinary and popular. It can sound a bit mean.",
+  "vi": "Quá bình thường, đại trà",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B1",
+  "era": "modern",
+  "theme": "criticism",
+  "example": {
+   "ctx": "Planning a weekend with friends",
+   "text": "My weekend plan is basic: pizza and a movie."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Basic\" in slang means…",
+   "options": [
+    "easy to learn",
+    "too ordinary"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call your friend's gift 'basic' to her.",
+   "why": "It sounds like an insult."
+  },
+  "l1": "básico; sem graça",
+  "l1_hook": "Pizza e filme de novo? \"basic\"",
+  "l1_ex": "Meu plano de fim de semana é \"basic\": pizza e filme.",
+  "right": "basic",
+  "native": {
+   "hook": "O que significa “basic”?",
+   "tip": "“basic” = básico; sem graça. Exemplo: “My weekend plan is basic: pizza and a movie.”",
+   "caption": "O que significa “basic”?\n“basic” = básico; sem graça.\nExemplo: “My weekend plan is basic: pizza and a movie.” (Meu plano de fim de semana é \"basic\": pizza e filme.)\nAprenda gírias em inglês de graça no Lexkite.",
+   "comment": "Resposta: “basic” = básico; sem graça. “My weekend plan is basic: pizza and a movie.” Pratique mais de graça: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#inglesonline",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Pizza and a movie again?"
+ },
+ "src": {
+  "slang": "basic"
+ },
+ "lang": "pt",
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "O que significa “basic”?",
+  "keyword": "basic",
+  "value": "“basic” = básico; sem graça. Exemplo: “My weekend plan is basic: pizza and a movie.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "O que significa “basic”?",
+    "description": "“basic” = básico; sem graça. Exemplo: “My weekend plan is basic: pizza and a movie.”\n\nO que significa “basic”?\n“basic” = básico; sem graça.\nExemplo: “My weekend plan is basic: pizza and a movie.” (Meu plano de fim de semana é \"basic\": pizza e filme.)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "tags": [
+     "basic",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "O que significa “basic”?\n“basic” = básico; sem graça.\nExemplo: “My weekend plan is basic: pizza and a movie.” (Meu plano de fim de semana é \"basic\": pizza e filme.)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "O que significa “basic”?\n\n“basic” = básico; sem graça. Exemplo: “My weekend plan is basic: pizza and a movie.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#inglesonline",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "O que significa “basic”? “basic” = básico; sem graça. Exemplo: “My weekend plan is basic: pizza and a movi… #aprenderingles #inglesfacil #inglesonline"
+   }
+  },
+  "first_comment": "Resposta: “basic” = básico; sem graça. “My weekend plan is basic: pizza and a movie.” Pratique mais de graça: {link}",
+  "lang": "pt"
+ }
+}

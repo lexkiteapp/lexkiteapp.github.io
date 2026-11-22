@@ -1,0 +1,153 @@
+{
+ "id": "t2s_id_callout",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 26,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "She told everyone my mistake!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Call out!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Point out someone's mistake.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "She called me out for being late.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shock",
+ "pose": {
+  "clip": "surprise",
+  "after": "h"
+ },
+ "data": {
+  "key": "call out",
+  "forms": [
+   "called me out",
+   "called out"
+  ],
+  "ipa": "/ˈkɔːl ˈaʊt/",
+  "mean": "Point out someone's mistake.",
+  "define": "To say publicly that someone did something wrong.",
+  "vi": "Chỉ ra lỗi công khai",
+  "reg": "casual",
+  "region": "US",
+  "level": "B2",
+  "era": "modern",
+  "theme": "drama",
+  "example": {
+   "ctx": "Talking about a mistake",
+   "text": "She called me out for being late."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "To \"call out\" is to…",
+   "options": [
+    "shout out",
+    "point out a mistake"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't 'call out' a coworker in front of the boss.",
+   "why": "Public correction embarrasses people."
+  },
+  "l1": "menegur; membongkar kesalahan",
+  "l1_hook": "Dia 'call out' kesalahanku ke semua orang!",
+  "l1_ex": "Dia \"call out\" aku karena terlambat.",
+  "right": "call out",
+  "native": {
+   "hook": "Apa arti “call out”?",
+   "tip": "“call out” = menegur; membongkar kesalahan. Contoh: “She called me out for being late.”",
+   "caption": "Apa arti “call out”?\n“call out” = menegur; membongkar kesalahan.\nContoh: “She called me out for being late.” (Dia \"call out\" aku karena terlambat.)\nBelajar slang bahasa Inggris gratis di Lexkite.",
+   "comment": "Jawaban: “call out” = menegur; membongkar kesalahan. “She called me out for being late.” Latihan lagi gratis: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#bahasainggris",
+    "#kosakata",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "She told everyone my mistake!"
+ },
+ "src": {
+  "slang": "call out"
+ },
+ "lang": "id",
+ "est": {
+  "words": 20,
+  "seconds": 11.7,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "Apa arti “call out”?",
+  "keyword": "call out",
+  "value": "“call out” = menegur; membongkar kesalahan. Contoh: “She called me out for being late.”",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#bahasainggris",
+   "#kosakata",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "Apa arti “call out”?",
+    "description": "“call out” = menegur; membongkar kesalahan. Contoh: “She called me out for being late.”\n\nApa arti “call out”?\n“call out” = menegur; membongkar kesalahan.\nContoh: “She called me out for being late.” (Dia \"call out\" aku karena terlambat.)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#belajarbahasainggris #bahasainggris #kosakata #lexkite",
+    "tags": [
+     "call out",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Apa arti “call out”?\n“call out” = menegur; membongkar kesalahan.\nContoh: “She called me out for being late.” (Dia \"call out\" aku karena terlambat.)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Apa arti “call out”?\n\n“call out” = menegur; membongkar kesalahan. Contoh: “She called me out for being late.”\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#bahasainggris",
+     "#kosakata",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Apa arti “call out”? “call out” = menegur; membongkar kesalahan. Contoh: “She called me out for being… #belajarbahasainggris #bahasainggris #kosakata"
+   }
+  },
+  "first_comment": "Jawaban: “call out” = menegur; membongkar kesalahan. “She called me out for being late.” Latihan lagi gratis: {link}",
+  "lang": "id"
+ }
+}

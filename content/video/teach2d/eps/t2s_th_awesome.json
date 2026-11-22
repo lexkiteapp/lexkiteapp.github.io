@@ -1,0 +1,150 @@
+{
+ "id": "t2s_th_awesome",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 17,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "You got us free tickets?",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Awesome!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Really great.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "You got us free tickets? That's awesome!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "hype",
+ "pose": {
+  "clip": "cheer",
+  "after": "h"
+ },
+ "data": {
+  "key": "awesome",
+  "forms": [],
+  "ipa": "/ˈɔːsəm/",
+  "mean": "Really great.",
+  "define": "Used to say that something is excellent or very enjoyable.",
+  "vi": "Tuyệt vời, đỉnh",
+  "reg": "casual",
+  "region": "US",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "praise",
+  "example": {
+   "ctx": "Hearing good news",
+   "text": "You got us free tickets? That's awesome!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Awesome\" means…",
+   "options": [
+    "a little boring",
+    "really great"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'awesome' about sad news.",
+   "why": "It sounds sarcastic or cruel."
+  },
+  "l1": "เจ๋งมาก; ยอดเยี่ยมมาก; สุดยอด",
+  "l1_hook": "คุณได้ตั๋วฟรีให้เราหรือ?",
+  "l1_ex": "คุณได้ตั๋วฟรีให้เราหรือ? นั่น \"awesome\"!",
+  "right": "awesome",
+  "native": {
+   "hook": "“awesome” แปลว่าอะไร?",
+   "tip": "“awesome” = เจ๋งมาก; ยอดเยี่ยมมาก; สุดยอด. ตัวอย่าง: “You got us free tickets? That's awesome!”",
+   "caption": "“awesome” แปลว่าอะไร?\n“awesome” = เจ๋งมาก; ยอดเยี่ยมมาก; สุดยอด.\nตัวอย่าง: “You got us free tickets? That's awesome!” (คุณได้ตั๋วฟรีให้เราหรือ? นั่น \"awesome\"!)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite",
+   "comment": "คำตอบ: “awesome” = เจ๋งมาก; ยอดเยี่ยมมาก; สุดยอด. “You got us free tickets? That's awesome!” ฝึกเพิ่มฟรี: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "You got us free tickets?"
+ },
+ "src": {
+  "slang": "awesome"
+ },
+ "lang": "th",
+ "est": {
+  "words": 17,
+  "seconds": 10.7,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "“awesome” แปลว่าอะไร?",
+  "keyword": "awesome",
+  "value": "“awesome” = เจ๋งมาก; ยอดเยี่ยมมาก; สุดยอด. ตัวอย่าง: “You got us free tickets? That's awesome!”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 9,
+  "platforms": {
+   "youtube": {
+    "title": "“awesome” แปลว่าอะไร?",
+    "description": "“awesome” = เจ๋งมาก; ยอดเยี่ยมมาก; สุดยอด. ตัวอย่าง: “You got us free tickets? That's awesome!”\n\n“awesome” แปลว่าอะไร?\n“awesome” = เจ๋งมาก; ยอดเยี่ยมมาก; สุดยอด.\nตัวอย่าง: “You got us free tickets? That's awesome!” (คุณได้ตั๋วฟรีให้เราหรือ? นั่น \"awesome\"!)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "awesome",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "“awesome” แปลว่าอะไร?\n“awesome” = เจ๋งมาก; ยอดเยี่ยมมาก; สุดยอด.\nตัวอย่าง: “You got us free tickets? That's awesome!” (คุณได้ตั๋วฟรีให้เราหรือ? นั่น \"awesome\"!)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“awesome” แปลว่าอะไร?\n\n“awesome” = เจ๋งมาก; ยอดเยี่ยมมาก; สุดยอด. ตัวอย่าง: “You got us free tickets? That's awesome!”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“awesome” แปลว่าอะไร? “awesome” = เจ๋งมาก; ยอดเยี่ยมมาก; สุดยอด. ตัวอย่าง: “You got us free tickets? That's a… #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "คำตอบ: “awesome” = เจ๋งมาก; ยอดเยี่ยมมาก; สุดยอด. “You got us free tickets? That's awesome!” ฝึกเพิ่มฟรี: {link}",
+  "lang": "th"
+ }
+}

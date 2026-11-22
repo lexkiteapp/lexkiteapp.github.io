@@ -1,0 +1,152 @@
+{
+ "id": "t2s_id_bigw",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 31,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "You passed the test? Wow!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Big W!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "A great win.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "You passed the test? Big W!",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "hype",
+ "pose": {
+  "clip": "cheer",
+  "after": "h"
+ },
+ "data": {
+  "key": "big W",
+  "forms": [
+   "W"
+  ],
+  "ipa": "/ˈbɪɡ ˈdʌbəlju/",
+  "mean": "A great win.",
+  "define": "Used to celebrate a success or good result.",
+  "vi": "Chiến thắng lớn",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B2",
+  "era": "gen-z",
+  "theme": "gaming",
+  "example": {
+   "ctx": "Celebrating a win",
+   "text": "You passed the test? Big W!"
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"W\" stands for…",
+   "options": [
+    "win",
+    "week"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't say 'big W' to someone who lost.",
+   "why": "It celebrates wins, not losses."
+  },
+  "l1": "kemenangan besar; kemenangan luar biasa; big w",
+  "l1_hook": "Kamu lulus tes? Wow! \"big W\"",
+  "l1_ex": "Kamu lulus tes? \"big W\"!",
+  "right": "big W",
+  "native": {
+   "hook": "Apa arti “big W”?",
+   "tip": "“big W” = kemenangan besar; kemenangan luar biasa; big w. Contoh: “You passed the test? Big W!”",
+   "caption": "Apa arti “big W”?\n“big W” = kemenangan besar; kemenangan luar biasa; big w.\nContoh: “You passed the test? Big W!” (Kamu lulus tes? \"big W\"!)\nBelajar slang bahasa Inggris gratis di Lexkite.",
+   "comment": "Jawaban: “big W” = kemenangan besar; kemenangan luar biasa; big w. “You passed the test? Big W!” Latihan lagi gratis: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#bahasainggris",
+    "#kosakata",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "You passed the test? Wow!"
+ },
+ "src": {
+  "slang": "big W"
+ },
+ "lang": "id",
+ "est": {
+  "words": 18,
+  "seconds": 10.8,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "Apa arti “big W”?",
+  "keyword": "big W",
+  "value": "“big W” = kemenangan besar; kemenangan luar biasa; big w. Contoh: “You passed the test? Big W!”",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#bahasainggris",
+   "#kosakata",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "Apa arti “big W”?",
+    "description": "“big W” = kemenangan besar; kemenangan luar biasa; big w. Contoh: “You passed the test? Big W!”\n\nApa arti “big W”?\n“big W” = kemenangan besar; kemenangan luar biasa; big w.\nContoh: “You passed the test? Big W!” (Kamu lulus tes? \"big W\"!)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#belajarbahasainggris #bahasainggris #kosakata #lexkite",
+    "tags": [
+     "big W",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Apa arti “big W”?\n“big W” = kemenangan besar; kemenangan luar biasa; big w.\nContoh: “You passed the test? Big W!” (Kamu lulus tes? \"big W\"!)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Apa arti “big W”?\n\n“big W” = kemenangan besar; kemenangan luar biasa; big w. Contoh: “You passed the test? Big W!”\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#bahasainggris",
+     "#kosakata",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Apa arti “big W”? “big W” = kemenangan besar; kemenangan luar biasa; big w. Contoh: “You passed the te… #belajarbahasainggris #bahasainggris #kosakata"
+   }
+  },
+  "first_comment": "Jawaban: “big W” = kemenangan besar; kemenangan luar biasa; big w. “You passed the test? Big W!” Latihan lagi gratis: {link}",
+  "lang": "id"
+ }
+}

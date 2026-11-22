@@ -1,0 +1,146 @@
+{
+ "id": "t2s_ja_cheap",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 25,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "He never pays for lunch!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Cheap!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Unwilling to spend money.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "He's too cheap to buy lunch.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smirk",
+ "data": {
+  "key": "cheap",
+  "forms": [],
+  "ipa": "/ˈtʃiːp/",
+  "mean": "Unwilling to spend money.",
+  "define": "Describes a stingy person; it can also mean low quality.",
+  "vi": "Keo kiệt",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "criticism",
+  "example": {
+   "ctx": "Talking about a friend",
+   "text": "He's too cheap to buy lunch."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"Cheap\" here means…",
+   "options": [
+    "stingy",
+    "fancy"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't call grandma 'cheap' for using coupons.",
+   "why": "It insults her careful habits."
+  },
+  "l1": "ケチな; 安っぽい",
+  "l1_hook": "彼は昼食代を絶対に払わない。\"cheap\"",
+  "l1_ex": "彼は昼食を買うほど「cheap」だ。",
+  "right": "cheap",
+  "native": {
+   "hook": "「cheap」ってどういう意味？",
+   "tip": "“cheap” = ケチな; 安っぽい. 例文: “He's too cheap to buy lunch.”",
+   "caption": "「cheap」ってどういう意味？\n“cheap” = ケチな; 安っぽい.\n例文: “He's too cheap to buy lunch.” (彼は昼食を買うほど「cheap」だ。)\nLexkiteで英語のスラングを無料で学ぼう。",
+   "comment": "答え: “cheap” = ケチな; 安っぽい. “He's too cheap to buy lunch.” 無料でもっと練習: {link}",
+   "hashtags": [
+    "#英語学習",
+    "#英会話",
+    "#英語勉強",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "He never pays for lunch!"
+ },
+ "src": {
+  "slang": "cheap"
+ },
+ "lang": "ja",
+ "est": {
+  "words": 18,
+  "seconds": 10.1,
+  "wpm": 107
+ },
+ "publish": {
+  "title": "「cheap」ってどういう意味？",
+  "keyword": "cheap",
+  "value": "“cheap” = ケチな; 安っぽい. 例文: “He's too cheap to buy lunch.”",
+  "hashtags": [
+   "#英語学習",
+   "#英会話",
+   "#英語勉強",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "「cheap」ってどういう意味？",
+    "description": "“cheap” = ケチな; 安っぽい. 例文: “He's too cheap to buy lunch.”\n\n「cheap」ってどういう意味？\n“cheap” = ケチな; 安っぽい.\n例文: “He's too cheap to buy lunch.” (彼は昼食を買うほど「cheap」だ。)\nLexkiteで英語のスラングを無料で学ぼう。\n\nhttps://lexkite.com/app/#/phrases\n\n#英語学習 #英会話 #英語勉強 #lexkite",
+    "tags": [
+     "cheap",
+     "learn english",
+     "ja"
+    ]
+   },
+   "facebook": {
+    "text": "「cheap」ってどういう意味？\n“cheap” = ケチな; 安っぽい.\n例文: “He's too cheap to buy lunch.” (彼は昼食を買うほど「cheap」だ。)\nLexkiteで英語のスラングを無料で学ぼう。\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "「cheap」ってどういう意味？\n\n“cheap” = ケチな; 安っぽい. 例文: “He's too cheap to buy lunch.”\n\nlexkite.com",
+    "hashtags": [
+     "#英語学習",
+     "#英会話",
+     "#英語勉強",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "「cheap」ってどういう意味？ “cheap” = ケチな; 安っぽい. 例文: “He's too cheap to buy lunch.” #英語学習 #英会話 #英語勉強"
+   }
+  },
+  "first_comment": "答え: “cheap” = ケチな; 安っぽい. “He's too cheap to buy lunch.” 無料でもっと練習: {link}",
+  "lang": "ja"
+ }
+}

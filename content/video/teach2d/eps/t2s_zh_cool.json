@@ -1,0 +1,146 @@
+{
+ "id": "t2s_zh_cool",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 24,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Movie tonight at six, okay?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Cool!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Great, or fine with me.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Cool, see you at six!",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smug",
+ "data": {
+  "key": "cool",
+  "forms": [],
+  "ipa": "/ˈkuːl/",
+  "mean": "Great, or fine with me.",
+  "define": "A casual word for good, or for agreeing.",
+  "vi": "Ổn áp, đỉnh luôn",
+  "reg": "casual",
+  "region": "global",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "agreement",
+  "example": {
+   "ctx": "Answering a plan",
+   "text": "Cool, see you at six!"
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"Cool\" can mean…",
+   "options": [
+    "okay or great",
+    "cold"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't say 'cool' when someone shares sad news.",
+   "why": "It sounds like you don't care."
+  },
+  "l1": "好的; 挺好",
+  "l1_hook": "今晚六点看电影，\"cool\"？",
+  "l1_ex": "\"cool\"，六点见！",
+  "right": "cool",
+  "native": {
+   "hook": "“cool”是什么意思？",
+   "tip": "“cool” = 好的; 挺好. 例句: “Cool, see you at six!”",
+   "caption": "“cool”是什么意思？\n“cool” = 好的; 挺好.\n例句: “Cool, see you at six!” (\"cool\"，六点见！)\n在 Lexkite 免费学英语俚语。",
+   "comment": "答案: “cool” = 好的; 挺好. “Cool, see you at six!” 免费多练习: {link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Movie tonight at six, okay?"
+ },
+ "src": {
+  "slang": "cool"
+ },
+ "lang": "zh",
+ "est": {
+  "words": 18,
+  "seconds": 10.1,
+  "wpm": 107
+ },
+ "publish": {
+  "title": "“cool”是什么意思？",
+  "keyword": "cool",
+  "value": "“cool” = 好的; 挺好. 例句: “Cool, see you at six!”",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "“cool”是什么意思？",
+    "description": "“cool” = 好的; 挺好. 例句: “Cool, see you at six!”\n\n“cool”是什么意思？\n“cool” = 好的; 挺好.\n例句: “Cool, see you at six!” (\"cool\"，六点见！)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "cool",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "“cool”是什么意思？\n“cool” = 好的; 挺好.\n例句: “Cool, see you at six!” (\"cool\"，六点见！)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“cool”是什么意思？\n\n“cool” = 好的; 挺好. 例句: “Cool, see you at six!”\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“cool”是什么意思？ “cool” = 好的; 挺好. 例句: “Cool, see you at six!” #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案: “cool” = 好的; 挺好. “Cool, see you at six!” 免费多练习: {link}",
+  "lang": "zh"
+ }
+}

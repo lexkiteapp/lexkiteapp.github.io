@@ -1,0 +1,146 @@
+{
+ "id": "t2s_de_cheatday",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 29,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Saturday. Diet? What diet?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Cheat day!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "A day to eat anything you want.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Saturday is my cheat day.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smug",
+ "data": {
+  "key": "cheat day",
+  "forms": [],
+  "ipa": "/ˈtʃiːt ˈdeɪ/",
+  "mean": "A day to eat anything you want.",
+  "define": "A day when you stop a strict diet and enjoy treats.",
+  "vi": "Ngày xả cơm",
+  "reg": "casual",
+  "region": "US",
+  "level": "B2",
+  "era": "modern",
+  "theme": "food",
+  "example": {
+   "ctx": "Talking about a diet",
+   "text": "Saturday is my cheat day."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "A \"cheat day\" is…",
+   "options": [
+    "a game day",
+    "a free eating day"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'cheat day' about exam day.",
+   "why": "Cheating on exams breaks the rules."
+  },
+  "l1": "Schummeltag; Cheat‑Day",
+  "l1_hook": "Samstag. Diät? Welche Diät? – „cheat day“.",
+  "l1_ex": "Samstag ist mein „cheat day“.",
+  "right": "cheat day",
+  "native": {
+   "hook": "Was heißt “cheat day”?",
+   "tip": "“cheat day” = Schummeltag; Cheat‑Day. Beispiel: “Saturday is my cheat day.”",
+   "caption": "Was heißt “cheat day”?\n“cheat day” = Schummeltag; Cheat‑Day.\nBeispiel: “Saturday is my cheat day.” (Samstag ist mein „cheat day“.)\nLerne englischen Slang kostenlos mit Lexkite.",
+   "comment": "Antwort: “cheat day” = Schummeltag; Cheat‑Day. “Saturday is my cheat day.” Kostenlos weiterüben: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Saturday. Diet? What diet?"
+ },
+ "src": {
+  "slang": "cheat day"
+ },
+ "lang": "de",
+ "est": {
+  "words": 20,
+  "seconds": 11.0,
+  "wpm": 109
+ },
+ "publish": {
+  "title": "Was heißt “cheat day”?",
+  "keyword": "cheat day",
+  "value": "“cheat day” = Schummeltag; Cheat‑Day. Beispiel: “Saturday is my cheat day.”",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "Was heißt “cheat day”?",
+    "description": "“cheat day” = Schummeltag; Cheat‑Day. Beispiel: “Saturday is my cheat day.”\n\nWas heißt “cheat day”?\n“cheat day” = Schummeltag; Cheat‑Day.\nBeispiel: “Saturday is my cheat day.” (Samstag ist mein „cheat day“.)\nLerne englischen Slang kostenlos mit Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "cheat day",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Was heißt “cheat day”?\n“cheat day” = Schummeltag; Cheat‑Day.\nBeispiel: “Saturday is my cheat day.” (Samstag ist mein „cheat day“.)\nLerne englischen Slang kostenlos mit Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Was heißt “cheat day”?\n\n“cheat day” = Schummeltag; Cheat‑Day. Beispiel: “Saturday is my cheat day.”\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Was heißt “cheat day”? “cheat day” = Schummeltag; Cheat‑Day. Beispiel: “Saturday is my cheat day.” #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Antwort: “cheat day” = Schummeltag; Cheat‑Day. “Saturday is my cheat day.” Kostenlos weiterüben: {link}",
+  "lang": "de"
+ }
+}

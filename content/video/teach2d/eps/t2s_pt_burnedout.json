@@ -1,0 +1,148 @@
+{
+ "id": "t2s_pt_burnedout",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 21,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Too much work. I'm done!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Burned out!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Too tired from too much work.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "After exams, I felt totally burned out.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "sad",
+ "data": {
+  "key": "burned out",
+  "forms": [
+   "burnout"
+  ],
+  "ipa": "/ˈbɝːnd ˈaʊt/",
+  "mean": "Too tired from too much work.",
+  "define": "Used when you are worn out after working or studying too long.",
+  "vi": "Cháy sạch năng lượng",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "tired-busy",
+  "example": {
+   "ctx": "Talking about work stress",
+   "text": "After exams, I felt totally burned out."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"Burned out\" means…",
+   "options": [
+    "worn out by work",
+    "burned by fire"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't say 'burned out' after one busy day.",
+   "why": "It means long-term exhaustion."
+  },
+  "l1": "esgotado; exausto; cansado",
+  "l1_hook": "Muito trabalho. Estou \"burned out\"!",
+  "l1_ex": "Depois das provas, eu me senti totalmente \"burned out\".",
+  "right": "burned out",
+  "native": {
+   "hook": "O que significa “burned out”?",
+   "tip": "“burned out” = esgotado; exausto; cansado. Exemplo: “After exams, I felt totally burned out.”",
+   "caption": "O que significa “burned out”?\n“burned out” = esgotado; exausto; cansado.\nExemplo: “After exams, I felt totally burned out.” (Depois das provas, eu me senti totalmente \"burned out\".)\nAprenda gírias em inglês de graça no Lexkite.",
+   "comment": "Resposta: “burned out” = esgotado; exausto; cansado. “After exams, I felt totally burned out.” Pratique mais de graça: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#inglesonline",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Too much work. I'm done!"
+ },
+ "src": {
+  "slang": "burned out"
+ },
+ "lang": "pt",
+ "est": {
+  "words": 22,
+  "seconds": 11.5,
+  "wpm": 114
+ },
+ "publish": {
+  "title": "O que significa “burned out”?",
+  "keyword": "burned out",
+  "value": "“burned out” = esgotado; exausto; cansado. Exemplo: “After exams, I felt totally burned out.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "O que significa “burned out”?",
+    "description": "“burned out” = esgotado; exausto; cansado. Exemplo: “After exams, I felt totally burned out.”\n\nO que significa “burned out”?\n“burned out” = esgotado; exausto; cansado.\nExemplo: “After exams, I felt totally burned out.” (Depois das provas, eu me senti totalmente \"burned out\".)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "tags": [
+     "burned out",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "O que significa “burned out”?\n“burned out” = esgotado; exausto; cansado.\nExemplo: “After exams, I felt totally burned out.” (Depois das provas, eu me senti totalmente \"burned out\".)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "O que significa “burned out”?\n\n“burned out” = esgotado; exausto; cansado. Exemplo: “After exams, I felt totally burned out.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#inglesonline",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "O que significa “burned out”? “burned out” = esgotado; exausto; cansado. Exemplo: “After exams, I felt tot… #aprenderingles #inglesfacil #inglesonline"
+   }
+  },
+  "first_comment": "Resposta: “burned out” = esgotado; exausto; cansado. “After exams, I felt totally burned out.” Pratique mais de graça: {link}",
+  "lang": "pt"
+ }
+}

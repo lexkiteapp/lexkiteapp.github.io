@@ -1,0 +1,148 @@
+{
+ "id": "t2s_th_blowafuse",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 9,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Dad saw the messy room!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Blow a fuse!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Suddenly become very angry.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "He blew a fuse over the messy room.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "furious",
+ "data": {
+  "key": "blow a fuse",
+  "forms": [
+   "blew a fuse"
+  ],
+  "ipa": "/ˈbloʊ ə ˈfjuːz/",
+  "mean": "Suddenly become very angry.",
+  "define": "To lose your temper quickly.",
+  "vi": "Nổi nóng bất chợt",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "feelings",
+  "example": {
+   "ctx": "Telling a story",
+   "text": "He blew a fuse over the messy room."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "It means to…",
+   "options": [
+    "get angry",
+    "fix electricity"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't say 'blow a fuse' about mild annoyance.",
+   "why": "It means sudden, big anger."
+  },
+  "l1": "ระเบิดอารมณ์; อารมณ์เสีย",
+  "l1_hook": "พ่อเห็นห้องรก!",
+  "l1_ex": "เขา \"blow a fuse\" เมื่อเห็นห้องรก",
+  "right": "blow a fuse",
+  "native": {
+   "hook": "“blow a fuse” แปลว่าอะไร?",
+   "tip": "“blow a fuse” = ระเบิดอารมณ์; อารมณ์เสีย. ตัวอย่าง: “He blew a fuse over the messy room.”",
+   "caption": "“blow a fuse” แปลว่าอะไร?\n“blow a fuse” = ระเบิดอารมณ์; อารมณ์เสีย.\nตัวอย่าง: “He blew a fuse over the messy room.” (เขา \"blow a fuse\" เมื่อเห็นห้องรก)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite",
+   "comment": "คำตอบ: “blow a fuse” = ระเบิดอารมณ์; อารมณ์เสีย. “He blew a fuse over the messy room.” ฝึกเพิ่มฟรี: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Dad saw the messy room!"
+ },
+ "src": {
+  "slang": "blow a fuse"
+ },
+ "lang": "th",
+ "est": {
+  "words": 22,
+  "seconds": 11.5,
+  "wpm": 114
+ },
+ "publish": {
+  "title": "“blow a fuse” แปลว่าอะไร?",
+  "keyword": "blow a fuse",
+  "value": "“blow a fuse” = ระเบิดอารมณ์; อารมณ์เสีย. ตัวอย่าง: “He blew a fuse over the messy room.”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "“blow a fuse” แปลว่าอะไร?",
+    "description": "“blow a fuse” = ระเบิดอารมณ์; อารมณ์เสีย. ตัวอย่าง: “He blew a fuse over the messy room.”\n\n“blow a fuse” แปลว่าอะไร?\n“blow a fuse” = ระเบิดอารมณ์; อารมณ์เสีย.\nตัวอย่าง: “He blew a fuse over the messy room.” (เขา \"blow a fuse\" เมื่อเห็นห้องรก)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "blow a fuse",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "“blow a fuse” แปลว่าอะไร?\n“blow a fuse” = ระเบิดอารมณ์; อารมณ์เสีย.\nตัวอย่าง: “He blew a fuse over the messy room.” (เขา \"blow a fuse\" เมื่อเห็นห้องรก)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“blow a fuse” แปลว่าอะไร?\n\n“blow a fuse” = ระเบิดอารมณ์; อารมณ์เสีย. ตัวอย่าง: “He blew a fuse over the messy room.”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“blow a fuse” แปลว่าอะไร? “blow a fuse” = ระเบิดอารมณ์; อารมณ์เสีย. ตัวอย่าง: “He blew a fuse over the messy… #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "คำตอบ: “blow a fuse” = ระเบิดอารมณ์; อารมณ์เสีย. “He blew a fuse over the messy room.” ฝึกเพิ่มฟรี: {link}",
+  "lang": "th"
+ }
+}

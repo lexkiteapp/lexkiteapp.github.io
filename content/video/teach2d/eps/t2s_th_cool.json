@@ -1,0 +1,146 @@
+{
+ "id": "t2s_th_cool",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 24,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Movie tonight at six, okay?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Cool!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Great, or fine with me.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Cool, see you at six!",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smug",
+ "data": {
+  "key": "cool",
+  "forms": [],
+  "ipa": "/ˈkuːl/",
+  "mean": "Great, or fine with me.",
+  "define": "A casual word for good, or for agreeing.",
+  "vi": "Ổn áp, đỉnh luôn",
+  "reg": "casual",
+  "region": "global",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "agreement",
+  "example": {
+   "ctx": "Answering a plan",
+   "text": "Cool, see you at six!"
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"Cool\" can mean…",
+   "options": [
+    "okay or great",
+    "cold"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't say 'cool' when someone shares sad news.",
+   "why": "It sounds like you don't care."
+  },
+  "l1": "เจ๋ง; ดี; เยี่ยม",
+  "l1_hook": "หนังคืนนี้หกโมง ตกลงไหม? “cool”",
+  "l1_ex": "“cool”, แล้วเจอกันตอนหกโมง!",
+  "right": "cool",
+  "native": {
+   "hook": "“cool” แปลว่าอะไร?",
+   "tip": "“cool” = เจ๋ง; ดี; เยี่ยม. ตัวอย่าง: “Cool, see you at six!”",
+   "caption": "“cool” แปลว่าอะไร?\n“cool” = เจ๋ง; ดี; เยี่ยม.\nตัวอย่าง: “Cool, see you at six!” (“cool”, แล้วเจอกันตอนหกโมง!)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite",
+   "comment": "คำตอบ: “cool” = เจ๋ง; ดี; เยี่ยม. “Cool, see you at six!” ฝึกเพิ่มฟรี: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Movie tonight at six, okay?"
+ },
+ "src": {
+  "slang": "cool"
+ },
+ "lang": "th",
+ "est": {
+  "words": 18,
+  "seconds": 10.1,
+  "wpm": 107
+ },
+ "publish": {
+  "title": "“cool” แปลว่าอะไร?",
+  "keyword": "cool",
+  "value": "“cool” = เจ๋ง; ดี; เยี่ยม. ตัวอย่าง: “Cool, see you at six!”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "“cool” แปลว่าอะไร?",
+    "description": "“cool” = เจ๋ง; ดี; เยี่ยม. ตัวอย่าง: “Cool, see you at six!”\n\n“cool” แปลว่าอะไร?\n“cool” = เจ๋ง; ดี; เยี่ยม.\nตัวอย่าง: “Cool, see you at six!” (“cool”, แล้วเจอกันตอนหกโมง!)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "cool",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "“cool” แปลว่าอะไร?\n“cool” = เจ๋ง; ดี; เยี่ยม.\nตัวอย่าง: “Cool, see you at six!” (“cool”, แล้วเจอกันตอนหกโมง!)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“cool” แปลว่าอะไร?\n\n“cool” = เจ๋ง; ดี; เยี่ยม. ตัวอย่าง: “Cool, see you at six!”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“cool” แปลว่าอะไร? “cool” = เจ๋ง; ดี; เยี่ยม. ตัวอย่าง: “Cool, see you at six!” #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "คำตอบ: “cool” = เจ๋ง; ดี; เยี่ยม. “Cool, see you at six!” ฝึกเพิ่มฟรี: {link}",
+  "lang": "th"
+ }
+}

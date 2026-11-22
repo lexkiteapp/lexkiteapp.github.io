@@ -1,0 +1,150 @@
+{
+ "id": "t2s_ar_ace",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 19,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Test day. How did you do?",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Ace!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Do really well on a test.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I aced my history test today!",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "proud",
+ "pose": {
+  "clip": "thumbs_up",
+  "after": "h"
+ },
+ "data": {
+  "key": "ace",
+  "forms": [],
+  "ipa": "/ˈeɪs/",
+  "mean": "Do really well on a test.",
+  "define": "To get a top result on a test or task.",
+  "vi": "Đạt điểm tuyệt đối",
+  "reg": "casual",
+  "region": "US",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "school",
+  "example": {
+   "ctx": "Getting a test back",
+   "text": "I aced my history test today!"
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "To \"ace\" a test is to…",
+   "options": [
+    "do great",
+    "miss it"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't say you 'aced' a test you failed.",
+   "why": "It means doing very well."
+  },
+  "l1": "يتفوق في; يحرز درجة كاملة",
+  "l1_hook": "يوم الاختبار. كيف كان أداؤك؟",
+  "l1_ex": "لقد \"aced\" اختبار التاريخ اليوم!",
+  "right": "ace",
+  "native": {
+   "hook": "ما معنى “ace”؟",
+   "tip": "“ace” = يتفوق في; يحرز درجة كاملة. مثال: “I aced my history test today!”",
+   "caption": "ما معنى “ace”؟\n“ace” = يتفوق في; يحرز درجة كاملة.\nمثال: “I aced my history test today!” (لقد \"aced\" اختبار التاريخ اليوم!)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.",
+   "comment": "الإجابة: “ace” = يتفوق في; يحرز درجة كاملة. “I aced my history test today!” تدرّب أكثر مجانًا: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Test day. How did you do?"
+ },
+ "src": {
+  "slang": "ace"
+ },
+ "lang": "ar",
+ "est": {
+  "words": 21,
+  "seconds": 11.9,
+  "wpm": 106
+ },
+ "publish": {
+  "title": "ما معنى “ace”؟",
+  "keyword": "ace",
+  "value": "“ace” = يتفوق في; يحرز درجة كاملة. مثال: “I aced my history test today!”",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "ما معنى “ace”؟",
+    "description": "“ace” = يتفوق في; يحرز درجة كاملة. مثال: “I aced my history test today!”\n\nما معنى “ace”؟\n“ace” = يتفوق في; يحرز درجة كاملة.\nمثال: “I aced my history test today!” (لقد \"aced\" اختبار التاريخ اليوم!)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "ace",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "ما معنى “ace”؟\n“ace” = يتفوق في; يحرز درجة كاملة.\nمثال: “I aced my history test today!” (لقد \"aced\" اختبار التاريخ اليوم!)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "ما معنى “ace”؟\n\n“ace” = يتفوق في; يحرز درجة كاملة. مثال: “I aced my history test today!”\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "ما معنى “ace”؟ “ace” = يتفوق في; يحرز درجة كاملة. مثال: “I aced my history test today!” #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “ace” = يتفوق في; يحرز درجة كاملة. “I aced my history test today!” تدرّب أكثر مجانًا: {link}",
+  "lang": "ar"
+ }
+}

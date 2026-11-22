@@ -1,0 +1,154 @@
+{
+ "id": "t2s_pt_bingewatch",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 20,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Rainy weekend. Whole season. Go!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Binge-watch!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Watch many episodes.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I'll binge-watch this show all weekend.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "pose": {
+  "clip": "clap",
+  "after": "h"
+ },
+ "data": {
+  "key": "binge-watch",
+  "forms": [
+   "binge watch",
+   "binge-watching",
+   "binge-watched"
+  ],
+  "ipa": "/ˈbɪndʒ ˌwɑːtʃ/",
+  "mean": "Watch many episodes.",
+  "define": "To watch several episodes of a show one after another.",
+  "vi": "Cày phim liền tù tì",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "modern",
+  "theme": "social-media",
+  "example": {
+   "ctx": "Planning a rainy weekend",
+   "text": "I'll binge-watch this show all weekend."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "To \"binge-watch\" is to…",
+   "options": [
+    "watch many episodes",
+    "watch in the rain"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't 'binge-watch' the night before exams.",
+   "why": "It steals study time."
+  },
+  "l1": "maratonar; assistir em maratona",
+  "l1_hook": "Fim de semana chuvoso. Toda a temporada. Vamos!",
+  "l1_ex": "Eu vou \"binge-watch\" esta série o fim de semana inteiro.",
+  "right": "binge-watch",
+  "native": {
+   "hook": "O que significa “binge-watch”?",
+   "tip": "“binge-watch” = maratonar; assistir em maratona. Exemplo: “I'll binge-watch this show all weekend.”",
+   "caption": "O que significa “binge-watch”?\n“binge-watch” = maratonar; assistir em maratona.\nExemplo: “I'll binge-watch this show all weekend.” (Eu vou \"binge-watch\" esta série o fim de semana inteiro.)\nAprenda gírias em inglês de graça no Lexkite.",
+   "comment": "Resposta: “binge-watch” = maratonar; assistir em maratona. “I'll binge-watch this show all weekend.” Pratique mais de graça: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#inglesonline",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Rainy weekend. Whole season. Go!"
+ },
+ "src": {
+  "slang": "binge-watch"
+ },
+ "lang": "pt",
+ "est": {
+  "words": 17,
+  "seconds": 10.5,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "O que significa “binge-watch”?",
+  "keyword": "binge-watch",
+  "value": "“binge-watch” = maratonar; assistir em maratona. Exemplo: “I'll binge-watch this show all weekend.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 10,
+  "platforms": {
+   "youtube": {
+    "title": "O que significa “binge-watch”?",
+    "description": "“binge-watch” = maratonar; assistir em maratona. Exemplo: “I'll binge-watch this show all weekend.”\n\nO que significa “binge-watch”?\n“binge-watch” = maratonar; assistir em maratona.\nExemplo: “I'll binge-watch this show all weekend.” (Eu vou \"binge-watch\" esta série o fim de semana inteiro.)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "tags": [
+     "binge-watch",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "O que significa “binge-watch”?\n“binge-watch” = maratonar; assistir em maratona.\nExemplo: “I'll binge-watch this show all weekend.” (Eu vou \"binge-watch\" esta série o fim de semana inteiro.)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "O que significa “binge-watch”?\n\n“binge-watch” = maratonar; assistir em maratona. Exemplo: “I'll binge-watch this show all weekend.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#inglesonline",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "O que significa “binge-watch”? “binge-watch” = maratonar; assistir em maratona. Exemplo: “I'll binge-watch… #aprenderingles #inglesfacil #inglesonline"
+   }
+  },
+  "first_comment": "Resposta: “binge-watch” = maratonar; assistir em maratona. “I'll binge-watch this show all weekend.” Pratique mais de graça: {link}",
+  "lang": "pt"
+ }
+}

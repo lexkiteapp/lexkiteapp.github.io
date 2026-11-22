@@ -1,0 +1,150 @@
+{
+ "id": "t2s_de_awesome",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 17,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "You got us free tickets?",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Awesome!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Really great.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "You got us free tickets? That's awesome!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "hype",
+ "pose": {
+  "clip": "cheer",
+  "after": "h"
+ },
+ "data": {
+  "key": "awesome",
+  "forms": [],
+  "ipa": "/ˈɔːsəm/",
+  "mean": "Really great.",
+  "define": "Used to say that something is excellent or very enjoyable.",
+  "vi": "Tuyệt vời, đỉnh",
+  "reg": "casual",
+  "region": "US",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "praise",
+  "example": {
+   "ctx": "Hearing good news",
+   "text": "You got us free tickets? That's awesome!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Awesome\" means…",
+   "options": [
+    "a little boring",
+    "really great"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'awesome' about sad news.",
+   "why": "It sounds sarcastic or cruel."
+  },
+  "l1": "großartig; super; klasse",
+  "l1_hook": "Du hast uns kostenlose Tickets? Das ist „awesome“.",
+  "l1_ex": "Du hast uns Freikarten besorgt? Das ist 'awesome'!",
+  "right": "awesome",
+  "native": {
+   "hook": "Was heißt “awesome”?",
+   "tip": "“awesome” = großartig; super; klasse. Beispiel: “You got us free tickets? That's awesome!”",
+   "caption": "Was heißt “awesome”?\n“awesome” = großartig; super; klasse.\nBeispiel: “You got us free tickets? That's awesome!” (Du hast uns Freikarten besorgt? Das ist 'awesome'!)\nLerne englischen Slang kostenlos mit Lexkite.",
+   "comment": "Antwort: “awesome” = großartig; super; klasse. “You got us free tickets? That's awesome!” Kostenlos weiterüben: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "You got us free tickets?"
+ },
+ "src": {
+  "slang": "awesome"
+ },
+ "lang": "de",
+ "est": {
+  "words": 17,
+  "seconds": 10.7,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "Was heißt “awesome”?",
+  "keyword": "awesome",
+  "value": "“awesome” = großartig; super; klasse. Beispiel: “You got us free tickets? That's awesome!”",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 9,
+  "platforms": {
+   "youtube": {
+    "title": "Was heißt “awesome”?",
+    "description": "“awesome” = großartig; super; klasse. Beispiel: “You got us free tickets? That's awesome!”\n\nWas heißt “awesome”?\n“awesome” = großartig; super; klasse.\nBeispiel: “You got us free tickets? That's awesome!” (Du hast uns Freikarten besorgt? Das ist 'awesome'!)\nLerne englischen Slang kostenlos mit Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "awesome",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Was heißt “awesome”?\n“awesome” = großartig; super; klasse.\nBeispiel: “You got us free tickets? That's awesome!” (Du hast uns Freikarten besorgt? Das ist 'awesome'!)\nLerne englischen Slang kostenlos mit Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Was heißt “awesome”?\n\n“awesome” = großartig; super; klasse. Beispiel: “You got us free tickets? That's awesome!”\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Was heißt “awesome”? “awesome” = großartig; super; klasse. Beispiel: “You got us free tickets? That's… #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Antwort: “awesome” = großartig; super; klasse. “You got us free tickets? That's awesome!” Kostenlos weiterüben: {link}",
+  "lang": "de"
+ }
+}

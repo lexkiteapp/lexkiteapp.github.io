@@ -1,0 +1,150 @@
+{
+ "id": "t2s_zh_countmein",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 35,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Game night at my place!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Count me in!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "I want to join.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Game night? Count me in!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "hype",
+ "pose": {
+  "clip": "cheer",
+  "after": "h"
+ },
+ "data": {
+  "key": "count me in",
+  "forms": [],
+  "ipa": "/ˈkaʊnt mi ˈɪn/",
+  "mean": "I want to join.",
+  "define": "Used to say you will take part in a plan.",
+  "vi": "Tính tui vào nhé",
+  "reg": "casual",
+  "region": "global",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "plans",
+  "example": {
+   "ctx": "Replying to an invite",
+   "text": "Game night? Count me in!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "I'll count",
+    "I'll join"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'count me in' before checking the date.",
+   "why": "People will count on you."
+  },
+  "l1": "算我一个; 我也参加",
+  "l1_hook": "今晚在我家举行游戏之夜！算我一个，即“count me in”。",
+  "l1_ex": "游戏之夜？Count me in！",
+  "right": "count me in",
+  "native": {
+   "hook": "“count me in”是什么意思？",
+   "tip": "“count me in” = 算我一个; 我也参加. 例句: “Game night? Count me in!”",
+   "caption": "“count me in”是什么意思？\n“count me in” = 算我一个; 我也参加.\n例句: “Game night? Count me in!” (游戏之夜？Count me in！)\n在 Lexkite 免费学英语俚语。",
+   "comment": "答案: “count me in” = 算我一个; 我也参加. “Game night? Count me in!” 免费多练习: {link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Game night at my place!"
+ },
+ "src": {
+  "slang": "count me in"
+ },
+ "lang": "zh",
+ "est": {
+  "words": 19,
+  "seconds": 11.4,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "“count me in”是什么意思？",
+  "keyword": "count me in",
+  "value": "“count me in” = 算我一个; 我也参加. 例句: “Game night? Count me in!”",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "“count me in”是什么意思？",
+    "description": "“count me in” = 算我一个; 我也参加. 例句: “Game night? Count me in!”\n\n“count me in”是什么意思？\n“count me in” = 算我一个; 我也参加.\n例句: “Game night? Count me in!” (游戏之夜？Count me in！)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "count me in",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "“count me in”是什么意思？\n“count me in” = 算我一个; 我也参加.\n例句: “Game night? Count me in!” (游戏之夜？Count me in！)\n在 Lexkite 免费学英语俚语。\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“count me in”是什么意思？\n\n“count me in” = 算我一个; 我也参加. 例句: “Game night? Count me in!”\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“count me in”是什么意思？ “count me in” = 算我一个; 我也参加. 例句: “Game night? Count me in!” #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案: “count me in” = 算我一个; 我也参加. “Game night? Count me in!” 免费多练习: {link}",
+  "lang": "zh"
+ }
+}

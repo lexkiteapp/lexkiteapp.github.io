@@ -1,0 +1,153 @@
+{
+ "id": "t2s_tr_callout",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 26,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "She told everyone my mistake!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Call out!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Point out someone's mistake.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "She called me out for being late.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shock",
+ "pose": {
+  "clip": "surprise",
+  "after": "h"
+ },
+ "data": {
+  "key": "call out",
+  "forms": [
+   "called me out",
+   "called out"
+  ],
+  "ipa": "/ˈkɔːl ˈaʊt/",
+  "mean": "Point out someone's mistake.",
+  "define": "To say publicly that someone did something wrong.",
+  "vi": "Chỉ ra lỗi công khai",
+  "reg": "casual",
+  "region": "US",
+  "level": "B2",
+  "era": "modern",
+  "theme": "drama",
+  "example": {
+   "ctx": "Talking about a mistake",
+   "text": "She called me out for being late."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "To \"call out\" is to…",
+   "options": [
+    "shout out",
+    "point out a mistake"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't 'call out' a coworker in front of the boss.",
+   "why": "Public correction embarrasses people."
+  },
+  "l1": "suçlamak; kınamak; hatasını göstermek",
+  "l1_hook": "O, hatamı herkese 'call out' etti!",
+  "l1_ex": "Geç kaldığım için beni \"call out\" etti.",
+  "right": "call out",
+  "native": {
+   "hook": "“call out” ne demek?",
+   "tip": "“call out” = suçlamak; kınamak; hatasını göstermek. Örnek: “She called me out for being late.”",
+   "caption": "“call out” ne demek?\n“call out” = suçlamak; kınamak; hatasını göstermek.\nÖrnek: “She called me out for being late.” (Geç kaldığım için beni \"call out\" etti.)\nLexkite ile İngilizce argoyu ücretsiz öğren.",
+   "comment": "Cevap: “call out” = suçlamak; kınamak; hatasını göstermek. “She called me out for being late.” Ücretsiz daha fazla pratik: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "She told everyone my mistake!"
+ },
+ "src": {
+  "slang": "call out"
+ },
+ "lang": "tr",
+ "est": {
+  "words": 20,
+  "seconds": 11.7,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "“call out” ne demek?",
+  "keyword": "call out",
+  "value": "“call out” = suçlamak; kınamak; hatasını göstermek. Örnek: “She called me out for being late.”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "“call out” ne demek?",
+    "description": "“call out” = suçlamak; kınamak; hatasını göstermek. Örnek: “She called me out for being late.”\n\n“call out” ne demek?\n“call out” = suçlamak; kınamak; hatasını göstermek.\nÖrnek: “She called me out for being late.” (Geç kaldığım için beni \"call out\" etti.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "call out",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“call out” ne demek?\n“call out” = suçlamak; kınamak; hatasını göstermek.\nÖrnek: “She called me out for being late.” (Geç kaldığım için beni \"call out\" etti.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“call out” ne demek?\n\n“call out” = suçlamak; kınamak; hatasını göstermek. Örnek: “She called me out for being late.”\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“call out” ne demek? “call out” = suçlamak; kınamak; hatasını göstermek. Örnek: “She called me out for b… #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “call out” = suçlamak; kınamak; hatasını göstermek. “She called me out for being late.” Ücretsiz daha fazla pratik: {link}",
+  "lang": "tr"
+ }
+}

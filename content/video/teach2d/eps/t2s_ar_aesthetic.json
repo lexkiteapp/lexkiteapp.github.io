@@ -1,0 +1,150 @@
+{
+ "id": "t2s_ar_aesthetic",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 8,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Your room looks like Pinterest!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Aesthetic!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Beautiful in a stylish way.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Your desk looks so aesthetic.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "pose": {
+  "clip": "clap",
+  "after": "h"
+ },
+ "data": {
+  "key": "aesthetic",
+  "forms": [],
+  "ipa": "/ɪsˈθetɪk/",
+  "mean": "Beautiful in a stylish way.",
+  "define": "Used for things with a beautiful, matching look.",
+  "vi": "Đẹp có gu",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "modern",
+  "theme": "fashion",
+  "example": {
+   "ctx": "Looking at a room",
+   "text": "Your desk looks so aesthetic."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Aesthetic\" here means…",
+   "options": [
+    "noisy",
+    "stylish and pretty"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call your messy room 'aesthetic' to Mom.",
+   "why": "It only fits stylish, pretty things."
+  },
+  "l1": "جمالي; أنيق",
+  "l1_hook": "غرفتك تبدو مثل بينتريست! \"aesthetic\"",
+  "l1_ex": "مكتبك يبدو \"aesthetic\" جدًا.",
+  "right": "aesthetic",
+  "native": {
+   "hook": "ما معنى “aesthetic”؟",
+   "tip": "“aesthetic” = جمالي; أنيق. مثال: “Your desk looks so aesthetic.”",
+   "caption": "ما معنى “aesthetic”؟\n“aesthetic” = جمالي; أنيق.\nمثال: “Your desk looks so aesthetic.” (مكتبك يبدو \"aesthetic\" جدًا.)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.",
+   "comment": "الإجابة: “aesthetic” = جمالي; أنيق. “Your desk looks so aesthetic.” تدرّب أكثر مجانًا: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Your room looks like Pinterest!"
+ },
+ "src": {
+  "slang": "aesthetic"
+ },
+ "lang": "ar",
+ "est": {
+  "words": 18,
+  "seconds": 11.0,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "ما معنى “aesthetic”؟",
+  "keyword": "aesthetic",
+  "value": "“aesthetic” = جمالي; أنيق. مثال: “Your desk looks so aesthetic.”",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "ما معنى “aesthetic”؟",
+    "description": "“aesthetic” = جمالي; أنيق. مثال: “Your desk looks so aesthetic.”\n\nما معنى “aesthetic”؟\n“aesthetic” = جمالي; أنيق.\nمثال: “Your desk looks so aesthetic.” (مكتبك يبدو \"aesthetic\" جدًا.)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "aesthetic",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "ما معنى “aesthetic”؟\n“aesthetic” = جمالي; أنيق.\nمثال: “Your desk looks so aesthetic.” (مكتبك يبدو \"aesthetic\" جدًا.)\nتعلّم العامية الإنجليزية مجانًا مع Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "ما معنى “aesthetic”؟\n\n“aesthetic” = جمالي; أنيق. مثال: “Your desk looks so aesthetic.”\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "ما معنى “aesthetic”؟ “aesthetic” = جمالي; أنيق. مثال: “Your desk looks so aesthetic.” #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “aesthetic” = جمالي; أنيق. “Your desk looks so aesthetic.” تدرّب أكثر مجانًا: {link}",
+  "lang": "ar"
+ }
+}

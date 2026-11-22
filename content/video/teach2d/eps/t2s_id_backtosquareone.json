@@ -1,0 +1,152 @@
+{
+ "id": "t2s_id_backtosquareone",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 14,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Plan failed. Now what?",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Back to square one!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Start over.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Plan failed. Back to square one.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "sad",
+ "pose": {
+  "clip": "empathy",
+  "after": "h"
+ },
+ "data": {
+  "key": "back to square one",
+  "forms": [
+   "square one"
+  ],
+  "ipa": "/ˈbæk tə ˈskwer ˈwʌn/",
+  "mean": "Start over.",
+  "define": "Used when your progress is lost and you must restart.",
+  "vi": "Về vạch xuất phát",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "mistakes",
+  "example": {
+   "ctx": "Fixing a school project",
+   "text": "Plan failed. Back to square one."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "It means to…",
+   "options": [
+    "start over",
+    "go forward"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't say 'back to square one' after small progress.",
+   "why": "It means you lost all progress."
+  },
+  "l1": "kembali ke titik awal; mulai lagi dari nol; kembali ke awal",
+  "l1_hook": "Rencana gagal. Sekarang bagaimana? \"back to square one\".",
+  "l1_ex": "Rencana gagal. \"back to square one\".",
+  "right": "back to square one",
+  "native": {
+   "hook": "Apa arti “back to square one”?",
+   "tip": "“back to square one” = kembali ke titik awal; mulai lagi dari nol; kembali ke awal. Contoh: “Plan failed. Back to square one.”",
+   "caption": "Apa arti “back to square one”?\n“back to square one” = kembali ke titik awal; mulai lagi dari nol; kembali ke awal.\nContoh: “Plan failed. Back to square one.” (Rencana gagal. \"back to square one\".)\nBelajar slang bahasa Inggris gratis di Lexkite.",
+   "comment": "Jawaban: “back to square one” = kembali ke titik awal; mulai lagi dari nol; kembali ke awal. “Plan failed. Back to square one.” Latihan lagi gratis: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#bahasainggris",
+    "#kosakata",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Plan failed. Now what?"
+ },
+ "src": {
+  "slang": "back to square one"
+ },
+ "lang": "id",
+ "est": {
+  "words": 18,
+  "seconds": 10.8,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "Apa arti “back to square one”?",
+  "keyword": "back to square one",
+  "value": "“back to square one” = kembali ke titik awal; mulai lagi dari nol; kembali ke awal. Contoh: “Plan failed. Back to square one.”",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#bahasainggris",
+   "#kosakata",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "Apa arti “back to square one”?",
+    "description": "“back to square one” = kembali ke titik awal; mulai lagi dari nol; kembali ke awal. Contoh: “Plan failed. Back to square one.”\n\nApa arti “back to square one”?\n“back to square one” = kembali ke titik awal; mulai lagi dari nol; kembali ke awal.\nContoh: “Plan failed. Back to square one.” (Rencana gagal. \"back to square one\".)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#belajarbahasainggris #bahasainggris #kosakata #lexkite",
+    "tags": [
+     "back to square one",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Apa arti “back to square one”?\n“back to square one” = kembali ke titik awal; mulai lagi dari nol; kembali ke awal.\nContoh: “Plan failed. Back to square one.” (Rencana gagal. \"back to square one\".)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Apa arti “back to square one”?\n\n“back to square one” = kembali ke titik awal; mulai lagi dari nol; kembali ke awal. Contoh: “Plan failed. Back to square one.”\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#bahasainggris",
+     "#kosakata",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Apa arti “back to square one”? “back to square one” = kembali ke titik awal; mulai lagi dari nol; kemb… #belajarbahasainggris #bahasainggris #kosakata"
+   }
+  },
+  "first_comment": "Jawaban: “back to square one” = kembali ke titik awal; mulai lagi dari nol; kembali ke awal. “Plan failed. Back to square one.” Latihan lagi gratis: {link}",
+  "lang": "id"
+ }
+}

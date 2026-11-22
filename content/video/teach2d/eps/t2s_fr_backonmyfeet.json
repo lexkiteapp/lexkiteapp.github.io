@@ -1,0 +1,146 @@
+{
+ "id": "t2s_fr_backonmyfeet",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 22,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Last week sick, today fine!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Back on my feet!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Healthy and active again.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "I'm finally back on my feet.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "proud",
+ "data": {
+  "key": "back on my feet",
+  "forms": [],
+  "ipa": "/bæk ɑːn maɪ ˈfiːt/",
+  "mean": "Healthy and active again.",
+  "define": "Recovered and able to do normal things again.",
+  "vi": "Hồi phục rồi",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "weather-health",
+  "example": {
+   "ctx": "After a cold",
+   "text": "I'm finally back on my feet."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means you've…",
+   "options": [
+    "lost your shoes",
+    "recovered"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'back on my feet' about standing up.",
+   "why": "It means healthy and active again."
+  },
+  "l1": "remis sur pied; rétabli",
+  "l1_hook": "La semaine dernière j'étais malade, aujourd'hui je suis « back on my feet ».",
+  "l1_ex": "Je suis enfin « back on my feet ».",
+  "right": "back on my feet",
+  "native": {
+   "hook": "Que veut dire « back… » ?",
+   "tip": "“back on my feet” = remis sur pied; rétabli. Exemple: “I'm finally back on my feet.”",
+   "caption": "Que veut dire « back… » ?\n“back on my feet” = remis sur pied; rétabli.\nExemple: “I'm finally back on my feet.” (Je suis enfin « back on my feet ».)\nApprends l'argot anglais gratuitement avec Lexkite.",
+   "comment": "Réponse: “back on my feet” = remis sur pied; rétabli. “I'm finally back on my feet.” Entraîne-toi gratuitement: {link}",
+   "hashtags": [
+    "#apprendrelanglais",
+    "#anglaisfacile",
+    "#coursdanglais",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Last week sick, today fine!"
+ },
+ "src": {
+  "slang": "back on my feet"
+ },
+ "lang": "fr",
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "Que veut dire « back… » ?",
+  "keyword": "back on my feet",
+  "value": "“back on my feet” = remis sur pied; rétabli. Exemple: “I'm finally back on my feet.”",
+  "hashtags": [
+   "#apprendrelanglais",
+   "#anglaisfacile",
+   "#coursdanglais",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "Que veut dire « back… » ?",
+    "description": "“back on my feet” = remis sur pied; rétabli. Exemple: “I'm finally back on my feet.”\n\nQue veut dire « back… » ?\n“back on my feet” = remis sur pied; rétabli.\nExemple: “I'm finally back on my feet.” (Je suis enfin « back on my feet ».)\nApprends l'argot anglais gratuitement avec Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "tags": [
+     "back on my feet",
+     "learn english",
+     "fr"
+    ]
+   },
+   "facebook": {
+    "text": "Que veut dire « back… » ?\n“back on my feet” = remis sur pied; rétabli.\nExemple: “I'm finally back on my feet.” (Je suis enfin « back on my feet ».)\nApprends l'argot anglais gratuitement avec Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Que veut dire « back… » ?\n\n“back on my feet” = remis sur pied; rétabli. Exemple: “I'm finally back on my feet.”\n\nlexkite.com",
+    "hashtags": [
+     "#apprendrelanglais",
+     "#anglaisfacile",
+     "#coursdanglais",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Que veut dire « back… » ? “back on my feet” = remis sur pied; rétabli. Exemple: “I'm finally back on… #apprendrelanglais #anglaisfacile #coursdanglais"
+   }
+  },
+  "first_comment": "Réponse: “back on my feet” = remis sur pied; rétabli. “I'm finally back on my feet.” Entraîne-toi gratuitement: {link}",
+  "lang": "fr"
+ }
+}

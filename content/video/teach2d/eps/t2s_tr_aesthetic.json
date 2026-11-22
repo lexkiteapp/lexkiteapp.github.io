@@ -1,0 +1,150 @@
+{
+ "id": "t2s_tr_aesthetic",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 8,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Your room looks like Pinterest!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Aesthetic!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Beautiful in a stylish way.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Your desk looks so aesthetic.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "pose": {
+  "clip": "clap",
+  "after": "h"
+ },
+ "data": {
+  "key": "aesthetic",
+  "forms": [],
+  "ipa": "/ɪsˈθetɪk/",
+  "mean": "Beautiful in a stylish way.",
+  "define": "Used for things with a beautiful, matching look.",
+  "vi": "Đẹp có gu",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "modern",
+  "theme": "fashion",
+  "example": {
+   "ctx": "Looking at a room",
+   "text": "Your desk looks so aesthetic."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Aesthetic\" here means…",
+   "options": [
+    "noisy",
+    "stylish and pretty"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call your messy room 'aesthetic' to Mom.",
+   "why": "It only fits stylish, pretty things."
+  },
+  "l1": "estetik; şık; göz alıcı",
+  "l1_hook": "Odan Pinterest gibi görünüyor!",
+  "l1_ex": "Masan çok \"aesthetic\" görünüyor.",
+  "right": "aesthetic",
+  "native": {
+   "hook": "“aesthetic” ne demek?",
+   "tip": "“aesthetic” = estetik; şık; göz alıcı. Örnek: “Your desk looks so aesthetic.”",
+   "caption": "“aesthetic” ne demek?\n“aesthetic” = estetik; şık; göz alıcı.\nÖrnek: “Your desk looks so aesthetic.” (Masan çok \"aesthetic\" görünüyor.)\nLexkite ile İngilizce argoyu ücretsiz öğren.",
+   "comment": "Cevap: “aesthetic” = estetik; şık; göz alıcı. “Your desk looks so aesthetic.” Ücretsiz daha fazla pratik: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Your room looks like Pinterest!"
+ },
+ "src": {
+  "slang": "aesthetic"
+ },
+ "lang": "tr",
+ "est": {
+  "words": 18,
+  "seconds": 11.0,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "“aesthetic” ne demek?",
+  "keyword": "aesthetic",
+  "value": "“aesthetic” = estetik; şık; göz alıcı. Örnek: “Your desk looks so aesthetic.”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "“aesthetic” ne demek?",
+    "description": "“aesthetic” = estetik; şık; göz alıcı. Örnek: “Your desk looks so aesthetic.”\n\n“aesthetic” ne demek?\n“aesthetic” = estetik; şık; göz alıcı.\nÖrnek: “Your desk looks so aesthetic.” (Masan çok \"aesthetic\" görünüyor.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "aesthetic",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“aesthetic” ne demek?\n“aesthetic” = estetik; şık; göz alıcı.\nÖrnek: “Your desk looks so aesthetic.” (Masan çok \"aesthetic\" görünüyor.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“aesthetic” ne demek?\n\n“aesthetic” = estetik; şık; göz alıcı. Örnek: “Your desk looks so aesthetic.”\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“aesthetic” ne demek? “aesthetic” = estetik; şık; göz alıcı. Örnek: “Your desk looks so aesthetic.” #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “aesthetic” = estetik; şık; göz alıcı. “Your desk looks so aesthetic.” Ücretsiz daha fazla pratik: {link}",
+  "lang": "tr"
+ }
+}

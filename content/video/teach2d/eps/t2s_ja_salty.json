@@ -1,0 +1,146 @@
+{
+ "id": "t2s_ja_salty",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 2,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "He lost, then sulked!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Salty!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Annoyed and a bit bitter.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "He's salty because I won the card game.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "furious",
+ "data": {
+  "key": "salty",
+  "forms": [],
+  "ipa": "/ˈsɔːlti/",
+  "mean": "Annoyed and a bit bitter.",
+  "define": "Used when someone is upset or bitter, often after losing.",
+  "vi": "Cay cú, dỗi",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B1",
+  "era": "modern",
+  "theme": "feelings",
+  "example": {
+   "ctx": "After a game with friends",
+   "text": "He's salty because I won the card game."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "If you're \"salty\", you feel…",
+   "options": [
+    "annoyed",
+    "very hungry"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't call your teacher 'salty' for giving homework.",
+   "why": "It sounds disrespectful."
+  },
+  "l1": "イライラした; 悔しがっている; ひがんでいる",
+  "l1_hook": "彼は負けてからすねた、\"salty\"。",
+  "l1_ex": "カードゲームで勝ったから、彼は\"salty\"だ。",
+  "right": "salty",
+  "native": {
+   "hook": "「salty」ってどういう意味？",
+   "tip": "“salty” = イライラした; 悔しがっている; ひがんでいる. 例文: “He's salty because I won the card game.”",
+   "caption": "「salty」ってどういう意味？\n“salty” = イライラした; 悔しがっている; ひがんでいる.\n例文: “He's salty because I won the card game.” (カードゲームで勝ったから、彼は\"salty\"だ。)\nLexkiteで英語のスラングを無料で学ぼう。",
+   "comment": "答え: “salty” = イライラした; 悔しがっている; ひがんでいる. “He's salty because I won the card game.” 無料でもっと練習: {link}",
+   "hashtags": [
+    "#英語学習",
+    "#英会話",
+    "#英語勉強",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "He lost, then sulked!"
+ },
+ "src": {
+  "slang": "salty"
+ },
+ "lang": "ja",
+ "est": {
+  "words": 20,
+  "seconds": 10.8,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "「salty」ってどういう意味？",
+  "keyword": "salty",
+  "value": "“salty” = イライラした; 悔しがっている; ひがんでいる. 例文: “He's salty because I won the card game.”",
+  "hashtags": [
+   "#英語学習",
+   "#英会話",
+   "#英語勉強",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "「salty」ってどういう意味？",
+    "description": "“salty” = イライラした; 悔しがっている; ひがんでいる. 例文: “He's salty because I won the card game.”\n\n「salty」ってどういう意味？\n“salty” = イライラした; 悔しがっている; ひがんでいる.\n例文: “He's salty because I won the card game.” (カードゲームで勝ったから、彼は\"salty\"だ。)\nLexkiteで英語のスラングを無料で学ぼう。\n\nhttps://lexkite.com/app/#/phrases\n\n#英語学習 #英会話 #英語勉強 #lexkite",
+    "tags": [
+     "salty",
+     "learn english",
+     "ja"
+    ]
+   },
+   "facebook": {
+    "text": "「salty」ってどういう意味？\n“salty” = イライラした; 悔しがっている; ひがんでいる.\n例文: “He's salty because I won the card game.” (カードゲームで勝ったから、彼は\"salty\"だ。)\nLexkiteで英語のスラングを無料で学ぼう。\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "「salty」ってどういう意味？\n\n“salty” = イライラした; 悔しがっている; ひがんでいる. 例文: “He's salty because I won the card game.”\n\nlexkite.com",
+    "hashtags": [
+     "#英語学習",
+     "#英会話",
+     "#英語勉強",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "「salty」ってどういう意味？ “salty” = イライラした; 悔しがっている; ひがんでいる. 例文: “He's salty because I won the card game.” #英語学習 #英会話 #英語勉強"
+   }
+  },
+  "first_comment": "答え: “salty” = イライラした; 悔しがっている; ひがんでいる. “He's salty because I won the card game.” 無料でもっと練習: {link}",
+  "lang": "ja"
+ }
+}

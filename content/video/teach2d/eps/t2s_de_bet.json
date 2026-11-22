@@ -1,0 +1,146 @@
+{
+ "id": "t2s_de_bet",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 5,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Pizza at six, deal?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Bet!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Okay, sounds good.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Pizza at six? Bet.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smug",
+ "data": {
+  "key": "bet",
+  "forms": [],
+  "ipa": "/ˈbet/",
+  "mean": "Okay, sounds good.",
+  "define": "Used to agree to a plan or to say okay.",
+  "vi": "Chốt luôn, ok nha",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B1",
+  "era": "gen-z",
+  "theme": "agreement",
+  "example": {
+   "ctx": "Texting about weekend plans",
+   "text": "Pizza at six? Bet."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"Bet\" in a text means…",
+   "options": [
+    "okay, deal",
+    "I don't believe you"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't reply 'bet' to your principal's email.",
+   "why": "It sounds too casual for formal messages."
+  },
+  "l1": "Klar; Alles klar; Geht klar",
+  "l1_hook": "Pizza um sechs, bet?",
+  "l1_ex": "Pizza um sechs? „Bet“.",
+  "right": "bet",
+  "native": {
+   "hook": "Was heißt “bet”?",
+   "tip": "“bet” = Klar; Alles klar; Geht klar. Beispiel: “Pizza at six? Bet.”",
+   "caption": "Was heißt “bet”?\n“bet” = Klar; Alles klar; Geht klar.\nBeispiel: “Pizza at six? Bet.” (Pizza um sechs? „Bet“.)\nLerne englischen Slang kostenlos mit Lexkite.",
+   "comment": "Antwort: “bet” = Klar; Alles klar; Geht klar. “Pizza at six? Bet.” Kostenlos weiterüben: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Pizza at six, deal?"
+ },
+ "src": {
+  "slang": "bet"
+ },
+ "lang": "de",
+ "est": {
+  "words": 14,
+  "seconds": 8.7,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "Was heißt “bet”?",
+  "keyword": "bet",
+  "value": "“bet” = Klar; Alles klar; Geht klar. Beispiel: “Pizza at six? Bet.”",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 9,
+  "platforms": {
+   "youtube": {
+    "title": "Was heißt “bet”?",
+    "description": "“bet” = Klar; Alles klar; Geht klar. Beispiel: “Pizza at six? Bet.”\n\nWas heißt “bet”?\n“bet” = Klar; Alles klar; Geht klar.\nBeispiel: “Pizza at six? Bet.” (Pizza um sechs? „Bet“.)\nLerne englischen Slang kostenlos mit Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "bet",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Was heißt “bet”?\n“bet” = Klar; Alles klar; Geht klar.\nBeispiel: “Pizza at six? Bet.” (Pizza um sechs? „Bet“.)\nLerne englischen Slang kostenlos mit Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Was heißt “bet”?\n\n“bet” = Klar; Alles klar; Geht klar. Beispiel: “Pizza at six? Bet.”\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Was heißt “bet”? “bet” = Klar; Alles klar; Geht klar. Beispiel: “Pizza at six? Bet.” #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Antwort: “bet” = Klar; Alles klar; Geht klar. “Pizza at six? Bet.” Kostenlos weiterüben: {link}",
+  "lang": "de"
+ }
+}

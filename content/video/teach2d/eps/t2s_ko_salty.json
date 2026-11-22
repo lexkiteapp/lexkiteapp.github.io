@@ -1,0 +1,146 @@
+{
+ "id": "t2s_ko_salty",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 2,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "He lost, then sulked!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Salty!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Annoyed and a bit bitter.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "He's salty because I won the card game.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "furious",
+ "data": {
+  "key": "salty",
+  "forms": [],
+  "ipa": "/ˈsɔːlti/",
+  "mean": "Annoyed and a bit bitter.",
+  "define": "Used when someone is upset or bitter, often after losing.",
+  "vi": "Cay cú, dỗi",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B1",
+  "era": "modern",
+  "theme": "feelings",
+  "example": {
+   "ctx": "After a game with friends",
+   "text": "He's salty because I won the card game."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "If you're \"salty\", you feel…",
+   "options": [
+    "annoyed",
+    "very hungry"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't call your teacher 'salty' for giving homework.",
+   "why": "It sounds disrespectful."
+  },
+  "l1": "짜증난; 얄미운; 화가 난",
+  "l1_hook": "그는 졌고, 화가 났다! \"salty\"",
+  "l1_ex": "그는 내가 카드 게임에서 이겨서 'salty'했어.",
+  "right": "salty",
+  "native": {
+   "hook": "“salty” 무슨 뜻일까요?",
+   "tip": "“salty” = 짜증난; 얄미운; 화가 난. 예문: “He's salty because I won the card game.”",
+   "caption": "“salty” 무슨 뜻일까요?\n“salty” = 짜증난; 얄미운; 화가 난.\n예문: “He's salty because I won the card game.” (그는 내가 카드 게임에서 이겨서 'salty'했어.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.",
+   "comment": "정답: “salty” = 짜증난; 얄미운; 화가 난. “He's salty because I won the card game.” 무료로 더 연습하기: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "He lost, then sulked!"
+ },
+ "src": {
+  "slang": "salty"
+ },
+ "lang": "ko",
+ "est": {
+  "words": 20,
+  "seconds": 10.8,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "“salty” 무슨 뜻일까요?",
+  "keyword": "salty",
+  "value": "“salty” = 짜증난; 얄미운; 화가 난. 예문: “He's salty because I won the card game.”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "“salty” 무슨 뜻일까요?",
+    "description": "“salty” = 짜증난; 얄미운; 화가 난. 예문: “He's salty because I won the card game.”\n\n“salty” 무슨 뜻일까요?\n“salty” = 짜증난; 얄미운; 화가 난.\n예문: “He's salty because I won the card game.” (그는 내가 카드 게임에서 이겨서 'salty'했어.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "salty",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“salty” 무슨 뜻일까요?\n“salty” = 짜증난; 얄미운; 화가 난.\n예문: “He's salty because I won the card game.” (그는 내가 카드 게임에서 이겨서 'salty'했어.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“salty” 무슨 뜻일까요?\n\n“salty” = 짜증난; 얄미운; 화가 난. 예문: “He's salty because I won the card game.”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“salty” 무슨 뜻일까요? “salty” = 짜증난; 얄미운; 화가 난. 예문: “He's salty because I won the card game.” #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답: “salty” = 짜증난; 얄미운; 화가 난. “He's salty because I won the card game.” 무료로 더 연습하기: {link}",
+  "lang": "ko"
+ }
+}

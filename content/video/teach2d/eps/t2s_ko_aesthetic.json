@@ -1,0 +1,150 @@
+{
+ "id": "t2s_ko_aesthetic",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 8,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Your room looks like Pinterest!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Aesthetic!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Beautiful in a stylish way.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Your desk looks so aesthetic.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "pose": {
+  "clip": "clap",
+  "after": "h"
+ },
+ "data": {
+  "key": "aesthetic",
+  "forms": [],
+  "ipa": "/ɪsˈθetɪk/",
+  "mean": "Beautiful in a stylish way.",
+  "define": "Used for things with a beautiful, matching look.",
+  "vi": "Đẹp có gu",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "modern",
+  "theme": "fashion",
+  "example": {
+   "ctx": "Looking at a room",
+   "text": "Your desk looks so aesthetic."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Aesthetic\" here means…",
+   "options": [
+    "noisy",
+    "stylish and pretty"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call your messy room 'aesthetic' to Mom.",
+   "why": "It only fits stylish, pretty things."
+  },
+  "l1": "감각적인; 미적인",
+  "l1_hook": "네 방이 Pinterest처럼 보여! 'aesthetic'!",
+  "l1_ex": "네 책상이 정말 aesthetic해.",
+  "right": "aesthetic",
+  "native": {
+   "hook": "“aesthetic” 무슨 뜻일까요?",
+   "tip": "“aesthetic” = 감각적인; 미적인. 예문: “Your desk looks so aesthetic.”",
+   "caption": "“aesthetic” 무슨 뜻일까요?\n“aesthetic” = 감각적인; 미적인.\n예문: “Your desk looks so aesthetic.” (네 책상이 정말 aesthetic해.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.",
+   "comment": "정답: “aesthetic” = 감각적인; 미적인. “Your desk looks so aesthetic.” 무료로 더 연습하기: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Your room looks like Pinterest!"
+ },
+ "src": {
+  "slang": "aesthetic"
+ },
+ "lang": "ko",
+ "est": {
+  "words": 18,
+  "seconds": 11.0,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "“aesthetic” 무슨 뜻일까요?",
+  "keyword": "aesthetic",
+  "value": "“aesthetic” = 감각적인; 미적인. 예문: “Your desk looks so aesthetic.”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "“aesthetic” 무슨 뜻일까요?",
+    "description": "“aesthetic” = 감각적인; 미적인. 예문: “Your desk looks so aesthetic.”\n\n“aesthetic” 무슨 뜻일까요?\n“aesthetic” = 감각적인; 미적인.\n예문: “Your desk looks so aesthetic.” (네 책상이 정말 aesthetic해.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "aesthetic",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“aesthetic” 무슨 뜻일까요?\n“aesthetic” = 감각적인; 미적인.\n예문: “Your desk looks so aesthetic.” (네 책상이 정말 aesthetic해.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“aesthetic” 무슨 뜻일까요?\n\n“aesthetic” = 감각적인; 미적인. 예문: “Your desk looks so aesthetic.”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“aesthetic” 무슨 뜻일까요? “aesthetic” = 감각적인; 미적인. 예문: “Your desk looks so aesthetic.” #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답: “aesthetic” = 감각적인; 미적인. “Your desk looks so aesthetic.” 무료로 더 연습하기: {link}",
+  "lang": "ko"
+ }
+}

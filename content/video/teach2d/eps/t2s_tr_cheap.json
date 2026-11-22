@@ -1,0 +1,146 @@
+{
+ "id": "t2s_tr_cheap",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 25,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "He never pays for lunch!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Cheap!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Unwilling to spend money.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "He's too cheap to buy lunch.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smirk",
+ "data": {
+  "key": "cheap",
+  "forms": [],
+  "ipa": "/ˈtʃiːp/",
+  "mean": "Unwilling to spend money.",
+  "define": "Describes a stingy person; it can also mean low quality.",
+  "vi": "Keo kiệt",
+  "reg": "casual",
+  "region": "global",
+  "level": "B1",
+  "era": "evergreen",
+  "theme": "criticism",
+  "example": {
+   "ctx": "Talking about a friend",
+   "text": "He's too cheap to buy lunch."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"Cheap\" here means…",
+   "options": [
+    "stingy",
+    "fancy"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't call grandma 'cheap' for using coupons.",
+   "why": "It insults her careful habits."
+  },
+  "l1": "cimri; ucuz; kalitesiz",
+  "l1_hook": "O, hiç öğle yemeği için ödeme yapmaz, 'cheap'!",
+  "l1_ex": "O, öğle yemeği almak için çok 'cheap'.",
+  "right": "cheap",
+  "native": {
+   "hook": "“cheap” ne demek?",
+   "tip": "“cheap” = cimri; ucuz; kalitesiz. Örnek: “He's too cheap to buy lunch.”",
+   "caption": "“cheap” ne demek?\n“cheap” = cimri; ucuz; kalitesiz.\nÖrnek: “He's too cheap to buy lunch.” (O, öğle yemeği almak için çok 'cheap'.)\nLexkite ile İngilizce argoyu ücretsiz öğren.",
+   "comment": "Cevap: “cheap” = cimri; ucuz; kalitesiz. “He's too cheap to buy lunch.” Ücretsiz daha fazla pratik: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "He never pays for lunch!"
+ },
+ "src": {
+  "slang": "cheap"
+ },
+ "lang": "tr",
+ "est": {
+  "words": 18,
+  "seconds": 10.1,
+  "wpm": 107
+ },
+ "publish": {
+  "title": "“cheap” ne demek?",
+  "keyword": "cheap",
+  "value": "“cheap” = cimri; ucuz; kalitesiz. Örnek: “He's too cheap to buy lunch.”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 11,
+  "platforms": {
+   "youtube": {
+    "title": "“cheap” ne demek?",
+    "description": "“cheap” = cimri; ucuz; kalitesiz. Örnek: “He's too cheap to buy lunch.”\n\n“cheap” ne demek?\n“cheap” = cimri; ucuz; kalitesiz.\nÖrnek: “He's too cheap to buy lunch.” (O, öğle yemeği almak için çok 'cheap'.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "cheap",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“cheap” ne demek?\n“cheap” = cimri; ucuz; kalitesiz.\nÖrnek: “He's too cheap to buy lunch.” (O, öğle yemeği almak için çok 'cheap'.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“cheap” ne demek?\n\n“cheap” = cimri; ucuz; kalitesiz. Örnek: “He's too cheap to buy lunch.”\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“cheap” ne demek? “cheap” = cimri; ucuz; kalitesiz. Örnek: “He's too cheap to buy lunch.” #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “cheap” = cimri; ucuz; kalitesiz. “He's too cheap to buy lunch.” Ücretsiz daha fazla pratik: {link}",
+  "lang": "tr"
+ }
+}

@@ -1,0 +1,146 @@
+{
+ "id": "t2s_pt_bigmood",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 18,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Sleepy cat. Exactly my feelings!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Big mood!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "That's exactly how I feel.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "That sleepy cat is a big mood.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "laugh",
+ "data": {
+  "key": "big mood",
+  "forms": [],
+  "ipa": "/ˈbɪɡ ˈmuːd/",
+  "mean": "That's exactly how I feel.",
+  "define": "Used when something matches your feeling perfectly.",
+  "vi": "Đúng tâm trạng luôn",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B2",
+  "era": "gen-z",
+  "theme": "reactions",
+  "example": {
+   "ctx": "Seeing a funny meme",
+   "text": "That sleepy cat is a big mood."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Big mood\" means…",
+   "options": [
+    "a large room",
+    "I relate"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'big mood' about someone's real tragedy.",
+   "why": "It sounds careless and dismissive."
+  },
+  "l1": "vibe total; é muito a minha cara; tô nessa",
+  "l1_hook": "Gato sonolento. Exatamente como me sinto!",
+  "l1_ex": "Aquele gato sonolento é um \"big mood\".",
+  "right": "big mood",
+  "native": {
+   "hook": "O que significa “big mood”?",
+   "tip": "“big mood” = vibe total; é muito a minha cara; tô nessa. Exemplo: “That sleepy cat is a big mood.”",
+   "caption": "O que significa “big mood”?\n“big mood” = vibe total; é muito a minha cara; tô nessa.\nExemplo: “That sleepy cat is a big mood.” (Aquele gato sonolento é um \"big mood\".)\nAprenda gírias em inglês de graça no Lexkite.",
+   "comment": "Resposta: “big mood” = vibe total; é muito a minha cara; tô nessa. “That sleepy cat is a big mood.” Pratique mais de graça: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#inglesonline",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Sleepy cat. Exactly my feelings!"
+ },
+ "src": {
+  "slang": "big mood"
+ },
+ "lang": "pt",
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "O que significa “big mood”?",
+  "keyword": "big mood",
+  "value": "“big mood” = vibe total; é muito a minha cara; tô nessa. Exemplo: “That sleepy cat is a big mood.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "O que significa “big mood”?",
+    "description": "“big mood” = vibe total; é muito a minha cara; tô nessa. Exemplo: “That sleepy cat is a big mood.”\n\nO que significa “big mood”?\n“big mood” = vibe total; é muito a minha cara; tô nessa.\nExemplo: “That sleepy cat is a big mood.” (Aquele gato sonolento é um \"big mood\".)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "tags": [
+     "big mood",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "O que significa “big mood”?\n“big mood” = vibe total; é muito a minha cara; tô nessa.\nExemplo: “That sleepy cat is a big mood.” (Aquele gato sonolento é um \"big mood\".)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "O que significa “big mood”?\n\n“big mood” = vibe total; é muito a minha cara; tô nessa. Exemplo: “That sleepy cat is a big mood.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#inglesonline",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "O que significa “big mood”? “big mood” = vibe total; é muito a minha cara; tô nessa. Exemplo: “That sleepy… #aprenderingles #inglesfacil #inglesonline"
+   }
+  },
+  "first_comment": "Resposta: “big mood” = vibe total; é muito a minha cara; tô nessa. “That sleepy cat is a big mood.” Pratique mais de graça: {link}",
+  "lang": "pt"
+ }
+}

@@ -1,0 +1,148 @@
+{
+ "id": "t2s_hi_armandaleg",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 15,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Look at this coat's price!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Arm and a leg!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Extremely expensive.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "This coat costs an arm and a leg.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shock",
+ "data": {
+  "key": "arm and a leg",
+  "forms": [
+   "an arm and a leg"
+  ],
+  "ipa": "/ən ˈɑːrm ən ə ˈleɡ/",
+  "mean": "Extremely expensive.",
+  "define": "Used when something costs a huge amount of money.",
+  "vi": "Đắt cắt cổ",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "money",
+  "example": {
+   "ctx": "Looking at store prices",
+   "text": "This coat costs an arm and a leg."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means something is…",
+   "options": [
+    "very cheap",
+    "very expensive"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't take 'an arm and a leg' literally at the store.",
+   "why": "It just means very expensive."
+  },
+  "l1": "बेहद महंगा; बहुत कीमती",
+  "l1_hook": "इस कोट की कीमत देखो! \"arm and a leg\"",
+  "l1_ex": "इस कोट की कीमत \"arm and a leg\" है।",
+  "right": "arm and a leg",
+  "native": {
+   "hook": "“arm and a leg” का मतलब क्या है?",
+   "tip": "“arm and a leg” = बेहद महंगा; बहुत कीमती. उदाहरण: “This coat costs an arm and a leg.”",
+   "caption": "“arm and a leg” का मतलब क्या है?\n“arm and a leg” = बेहद महंगा; बहुत कीमती.\nउदाहरण: “This coat costs an arm and a leg.” (इस कोट की कीमत \"arm and a leg\" है।)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।",
+   "comment": "उत्तर: “arm and a leg” = बेहद महंगा; बहुत कीमती. “This coat costs an arm and a leg.” मुफ़्त में और अभ्यास करें: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Look at this coat's price!"
+ },
+ "src": {
+  "slang": "arm and a leg"
+ },
+ "lang": "hi",
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "“arm and a leg” का मतलब क्या है?",
+  "keyword": "arm and a leg",
+  "value": "“arm and a leg” = बेहद महंगा; बहुत कीमती. उदाहरण: “This coat costs an arm and a leg.”",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "“arm and a leg” का मतलब क्या है?",
+    "description": "“arm and a leg” = बेहद महंगा; बहुत कीमती. उदाहरण: “This coat costs an arm and a leg.”\n\n“arm and a leg” का मतलब क्या है?\n“arm and a leg” = बेहद महंगा; बहुत कीमती.\nउदाहरण: “This coat costs an arm and a leg.” (इस कोट की कीमत \"arm and a leg\" है।)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।\n\nhttps://lexkite.com/app/#/phrases\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "arm and a leg",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "“arm and a leg” का मतलब क्या है?\n“arm and a leg” = बेहद महंगा; बहुत कीमती.\nउदाहरण: “This coat costs an arm and a leg.” (इस कोट की कीमत \"arm and a leg\" है।)\nLexkite पर अंग्रेज़ी स्लैंग मुफ़्त सीखें।\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“arm and a leg” का मतलब क्या है?\n\n“arm and a leg” = बेहद महंगा; बहुत कीमती. उदाहरण: “This coat costs an arm and a leg.”\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“arm and a leg” का मतलब क्या है? “arm and a leg” = बेहद महंगा; बहुत कीमती. उदाहरण: “This coat costs an… #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “arm and a leg” = बेहद महंगा; बहुत कीमती. “This coat costs an arm and a leg.” मुफ़्त में और अभ्यास करें: {link}",
+  "lang": "hi"
+ }
+}

@@ -22430,5 +22430,5855 @@
    "not_english": true
   },
   "glosses": []
+ },
+ "t2s_ar_ace": {
+  "ok": true,
+  "lang": "ar",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ar_aesthetic": {
+  "ok": true,
+  "lang": "ar",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ar_afk": {
+  "ok": true,
+  "lang": "ar",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ar_anytime": {
+  "ok": true,
+  "lang": "ar",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ar_armandaleg": {
+  "ok": true,
+  "lang": "ar",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ar_asap": {
+  "ok": true,
+  "lang": "ar",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ar_awesome": {
+  "ok": true,
+  "lang": "ar",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ar_backonmyfeet": {
+  "ok": true,
+  "lang": "ar",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ar_backtosquareone": {
+  "ok": true,
+  "lang": "ar",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ar_basic": {
+  "ok": true,
+  "lang": "ar",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ar_beatsme": {
+  "ok": true,
+  "lang": "ar",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ar_beef": {
+  "ok": true,
+  "lang": "ar",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ar_bestie": {
+  "ok": true,
+  "lang": "ar",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ar_bet": {
+  "ok": true,
+  "lang": "ar",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ar_bigmood": {
+  "ok": true,
+  "lang": "ar",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ar_bingewatch": {
+  "ok": true,
+  "lang": "ar",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ar_blowafuse": {
+  "ok": true,
+  "lang": "ar",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ar_boredstiff": {
+  "ok": true,
+  "lang": "ar",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ar_burnedout": {
+  "ok": true,
+  "lang": "ar",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ar_bussin": {
+  "ok": true,
+  "lang": "ar",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ar_bytheway": {
+  "ok": true,
+  "lang": "ar",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ar_callout": {
+  "ok": true,
+  "lang": "ar",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ar_cheap": {
+  "ok": true,
+  "lang": "ar",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ar_cheatday": {
+  "ok": true,
+  "lang": "ar",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ar_cool": {
+  "ok": true,
+  "lang": "ar",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ar_dressedtoimpress": {
+  "ok": true,
+  "lang": "ar",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ar_imdead": {
+  "ok": true,
+  "lang": "ar",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ar_nocap": {
+  "ok": true,
+  "lang": "ar",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ar_pigout": {
+  "ok": true,
+  "lang": "ar",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ar_salty": {
+  "ok": true,
+  "lang": "ar",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_de_ace": {
+  "ok": true,
+  "lang": "de",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_de_aesthetic": {
+  "ok": true,
+  "lang": "de",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_de_afk": {
+  "ok": true,
+  "lang": "de",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_de_anytime": {
+  "ok": true,
+  "lang": "de",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_de_asap": {
+  "ok": true,
+  "lang": "de",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_de_awesome": {
+  "ok": true,
+  "lang": "de",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_de_backonmyfeet": {
+  "ok": true,
+  "lang": "de",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_de_backtosquareone": {
+  "ok": true,
+  "lang": "de",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_de_ballparkfigure": {
+  "ok": true,
+  "lang": "de",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_de_banger": {
+  "ok": true,
+  "lang": "de",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_de_basic": {
+  "ok": true,
+  "lang": "de",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_de_beatsme": {
+  "ok": true,
+  "lang": "de",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_de_beef": {
+  "ok": true,
+  "lang": "de",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_de_bestie": {
+  "ok": true,
+  "lang": "de",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_de_bet": {
+  "ok": true,
+  "lang": "de",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_de_bigmood": {
+  "ok": true,
+  "lang": "de",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_de_bigw": {
+  "ok": true,
+  "lang": "de",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_de_blooper": {
+  "ok": true,
+  "lang": "de",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_de_burnedout": {
+  "ok": true,
+  "lang": "de",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_de_bussin": {
+  "ok": true,
+  "lang": "de",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_de_bytheway": {
+  "ok": true,
+  "lang": "de",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_de_cheap": {
+  "ok": true,
+  "lang": "de",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_de_cheatday": {
+  "ok": true,
+  "lang": "de",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_de_cool": {
+  "ok": true,
+  "lang": "de",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_de_countmein": {
+  "ok": true,
+  "lang": "de",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_de_dressedtoimpress": {
+  "ok": true,
+  "lang": "de",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_de_hottake": {
+  "ok": true,
+  "lang": "de",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_de_imdead": {
+  "ok": true,
+  "lang": "de",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_de_nocap": {
+  "ok": true,
+  "lang": "de",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_de_salty": {
+  "ok": true,
+  "lang": "de",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_es_aesthetic": {
+  "ok": true,
+  "lang": "es",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_es_afk": {
+  "ok": true,
+  "lang": "es",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_es_anytime": {
+  "ok": true,
+  "lang": "es",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_es_armandaleg": {
+  "ok": true,
+  "lang": "es",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_es_asap": {
+  "ok": true,
+  "lang": "es",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_es_awesome": {
+  "ok": true,
+  "lang": "es",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_es_backonmyfeet": {
+  "ok": true,
+  "lang": "es",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_es_backtosquareone": {
+  "ok": true,
+  "lang": "es",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_es_basic": {
+  "ok": true,
+  "lang": "es",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_es_beatsme": {
+  "ok": true,
+  "lang": "es",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_es_beef": {
+  "ok": true,
+  "lang": "es",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_es_bestie": {
+  "ok": true,
+  "lang": "es",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_es_bet": {
+  "ok": true,
+  "lang": "es",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_es_bigw": {
+  "ok": true,
+  "lang": "es",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_es_bingewatch": {
+  "ok": true,
+  "lang": "es",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_es_blooper": {
+  "ok": true,
+  "lang": "es",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_es_blowafuse": {
+  "ok": true,
+  "lang": "es",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_es_boredstiff": {
+  "ok": true,
+  "lang": "es",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_es_burnedout": {
+  "ok": true,
+  "lang": "es",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_es_bussin": {
+  "ok": true,
+  "lang": "es",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_es_bytheway": {
+  "ok": true,
+  "lang": "es",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_es_cheap": {
+  "ok": true,
+  "lang": "es",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_es_cheatday": {
+  "ok": true,
+  "lang": "es",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_es_cool": {
+  "ok": true,
+  "lang": "es",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_es_dressedtoimpress": {
+  "ok": true,
+  "lang": "es",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_es_hottake": {
+  "ok": true,
+  "lang": "es",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_es_imdead": {
+  "ok": true,
+  "lang": "es",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_es_nocap": {
+  "ok": true,
+  "lang": "es",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_es_pigout": {
+  "ok": true,
+  "lang": "es",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_es_salty": {
+  "ok": true,
+  "lang": "es",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_fr_ace": {
+  "ok": true,
+  "lang": "fr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_fr_afk": {
+  "ok": true,
+  "lang": "fr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_fr_anytime": {
+  "ok": true,
+  "lang": "fr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_fr_armandaleg": {
+  "ok": true,
+  "lang": "fr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_fr_asap": {
+  "ok": true,
+  "lang": "fr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_fr_awesome": {
+  "ok": true,
+  "lang": "fr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_fr_backonmyfeet": {
+  "ok": true,
+  "lang": "fr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_fr_backtosquareone": {
+  "ok": true,
+  "lang": "fr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_fr_ballparkfigure": {
+  "ok": true,
+  "lang": "fr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_fr_banger": {
+  "ok": true,
+  "lang": "fr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_fr_beatsme": {
+  "ok": true,
+  "lang": "fr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_fr_bestie": {
+  "ok": true,
+  "lang": "fr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_fr_bet": {
+  "ok": true,
+  "lang": "fr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_fr_bigmood": {
+  "ok": true,
+  "lang": "fr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_fr_bigw": {
+  "ok": true,
+  "lang": "fr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_fr_bingewatch": {
+  "ok": true,
+  "lang": "fr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_fr_blooper": {
+  "ok": true,
+  "lang": "fr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_fr_boredstiff": {
+  "ok": true,
+  "lang": "fr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_fr_burnedout": {
+  "ok": true,
+  "lang": "fr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_fr_bussin": {
+  "ok": true,
+  "lang": "fr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_fr_bytheway": {
+  "ok": true,
+  "lang": "fr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_fr_cheap": {
+  "ok": true,
+  "lang": "fr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_fr_cheatday": {
+  "ok": true,
+  "lang": "fr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_fr_cool": {
+  "ok": true,
+  "lang": "fr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_fr_countmein": {
+  "ok": true,
+  "lang": "fr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_fr_dressedtoimpress": {
+  "ok": true,
+  "lang": "fr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_fr_hottake": {
+  "ok": true,
+  "lang": "fr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_fr_imdead": {
+  "ok": true,
+  "lang": "fr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_fr_nocap": {
+  "ok": true,
+  "lang": "fr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_fr_salty": {
+  "ok": true,
+  "lang": "fr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_hi_ace": {
+  "ok": true,
+  "lang": "hi",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_hi_aesthetic": {
+  "ok": true,
+  "lang": "hi",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_hi_afk": {
+  "ok": true,
+  "lang": "hi",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_hi_anytime": {
+  "ok": true,
+  "lang": "hi",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_hi_armandaleg": {
+  "ok": true,
+  "lang": "hi",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_hi_asap": {
+  "ok": true,
+  "lang": "hi",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_hi_awesome": {
+  "ok": true,
+  "lang": "hi",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_hi_backonmyfeet": {
+  "ok": true,
+  "lang": "hi",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_hi_backtosquareone": {
+  "ok": true,
+  "lang": "hi",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_hi_basic": {
+  "ok": true,
+  "lang": "hi",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_hi_beatsme": {
+  "ok": true,
+  "lang": "hi",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_hi_beef": {
+  "ok": true,
+  "lang": "hi",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_hi_bestie": {
+  "ok": true,
+  "lang": "hi",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_hi_bet": {
+  "ok": true,
+  "lang": "hi",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_hi_bigmood": {
+  "ok": true,
+  "lang": "hi",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_hi_bingewatch": {
+  "ok": true,
+  "lang": "hi",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_hi_blowafuse": {
+  "ok": true,
+  "lang": "hi",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_hi_boredstiff": {
+  "ok": true,
+  "lang": "hi",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_hi_burnedout": {
+  "ok": true,
+  "lang": "hi",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_hi_bussin": {
+  "ok": true,
+  "lang": "hi",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_hi_bytheway": {
+  "ok": true,
+  "lang": "hi",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_hi_callout": {
+  "ok": true,
+  "lang": "hi",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_hi_cheap": {
+  "ok": true,
+  "lang": "hi",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_hi_cheatday": {
+  "ok": true,
+  "lang": "hi",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_hi_cool": {
+  "ok": true,
+  "lang": "hi",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_hi_dressedtoimpress": {
+  "ok": true,
+  "lang": "hi",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_hi_imdead": {
+  "ok": true,
+  "lang": "hi",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_hi_nocap": {
+  "ok": true,
+  "lang": "hi",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_hi_pigout": {
+  "ok": true,
+  "lang": "hi",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_hi_salty": {
+  "ok": true,
+  "lang": "hi",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_id_aesthetic": {
+  "ok": true,
+  "lang": "id",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_id_afk": {
+  "ok": true,
+  "lang": "id",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_id_anytime": {
+  "ok": true,
+  "lang": "id",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_id_armandaleg": {
+  "ok": true,
+  "lang": "id",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_id_asap": {
+  "ok": true,
+  "lang": "id",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_id_awesome": {
+  "ok": true,
+  "lang": "id",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_id_backonmyfeet": {
+  "ok": true,
+  "lang": "id",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_id_backtosquareone": {
+  "ok": true,
+  "lang": "id",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_id_basic": {
+  "ok": true,
+  "lang": "id",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_id_beatsme": {
+  "ok": true,
+  "lang": "id",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_id_beef": {
+  "ok": true,
+  "lang": "id",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_id_bestie": {
+  "ok": true,
+  "lang": "id",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_id_bet": {
+  "ok": true,
+  "lang": "id",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_id_bigmood": {
+  "ok": true,
+  "lang": "id",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_id_bigw": {
+  "ok": true,
+  "lang": "id",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_id_bingewatch": {
+  "ok": true,
+  "lang": "id",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_id_blowafuse": {
+  "ok": true,
+  "lang": "id",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_id_boredstiff": {
+  "ok": true,
+  "lang": "id",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_id_burnedout": {
+  "ok": true,
+  "lang": "id",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_id_bussin": {
+  "ok": true,
+  "lang": "id",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_id_bytheway": {
+  "ok": true,
+  "lang": "id",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_id_callout": {
+  "ok": true,
+  "lang": "id",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_id_cheap": {
+  "ok": true,
+  "lang": "id",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_id_cheatday": {
+  "ok": true,
+  "lang": "id",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_id_cool": {
+  "ok": true,
+  "lang": "id",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_id_dressedtoimpress": {
+  "ok": true,
+  "lang": "id",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_id_imdead": {
+  "ok": true,
+  "lang": "id",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_id_nocap": {
+  "ok": true,
+  "lang": "id",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_id_pigout": {
+  "ok": true,
+  "lang": "id",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_id_salty": {
+  "ok": true,
+  "lang": "id",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ja_ace": {
+  "ok": true,
+  "lang": "ja",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ja_aesthetic": {
+  "ok": true,
+  "lang": "ja",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ja_afk": {
+  "ok": true,
+  "lang": "ja",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ja_anytime": {
+  "ok": true,
+  "lang": "ja",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ja_armandaleg": {
+  "ok": true,
+  "lang": "ja",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ja_asap": {
+  "ok": true,
+  "lang": "ja",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ja_awesome": {
+  "ok": true,
+  "lang": "ja",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ja_backonmyfeet": {
+  "ok": true,
+  "lang": "ja",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ja_backtosquareone": {
+  "ok": true,
+  "lang": "ja",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ja_basic": {
+  "ok": true,
+  "lang": "ja",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ja_beatsme": {
+  "ok": true,
+  "lang": "ja",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ja_beef": {
+  "ok": true,
+  "lang": "ja",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ja_bestie": {
+  "ok": true,
+  "lang": "ja",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ja_bet": {
+  "ok": true,
+  "lang": "ja",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ja_bigmood": {
+  "ok": true,
+  "lang": "ja",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ja_bingewatch": {
+  "ok": true,
+  "lang": "ja",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ja_blowafuse": {
+  "ok": true,
+  "lang": "ja",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ja_boredstiff": {
+  "ok": true,
+  "lang": "ja",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ja_burnedout": {
+  "ok": true,
+  "lang": "ja",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ja_bussin": {
+  "ok": true,
+  "lang": "ja",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ja_bytheway": {
+  "ok": true,
+  "lang": "ja",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ja_callout": {
+  "ok": true,
+  "lang": "ja",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ja_cheap": {
+  "ok": true,
+  "lang": "ja",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ja_cheatday": {
+  "ok": true,
+  "lang": "ja",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ja_cool": {
+  "ok": true,
+  "lang": "ja",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ja_dressedtoimpress": {
+  "ok": true,
+  "lang": "ja",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ja_imdead": {
+  "ok": true,
+  "lang": "ja",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ja_nocap": {
+  "ok": true,
+  "lang": "ja",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ja_pigout": {
+  "ok": true,
+  "lang": "ja",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ja_salty": {
+  "ok": true,
+  "lang": "ja",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ko_ace": {
+  "ok": true,
+  "lang": "ko",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ko_aesthetic": {
+  "ok": true,
+  "lang": "ko",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ko_afk": {
+  "ok": true,
+  "lang": "ko",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ko_anytime": {
+  "ok": true,
+  "lang": "ko",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ko_armandaleg": {
+  "ok": true,
+  "lang": "ko",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ko_asap": {
+  "ok": true,
+  "lang": "ko",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ko_awesome": {
+  "ok": true,
+  "lang": "ko",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ko_backonmyfeet": {
+  "ok": true,
+  "lang": "ko",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ko_backtosquareone": {
+  "ok": true,
+  "lang": "ko",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ko_basic": {
+  "ok": true,
+  "lang": "ko",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ko_beatsme": {
+  "ok": true,
+  "lang": "ko",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ko_beef": {
+  "ok": true,
+  "lang": "ko",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ko_bestie": {
+  "ok": true,
+  "lang": "ko",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ko_bet": {
+  "ok": true,
+  "lang": "ko",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ko_bigmood": {
+  "ok": true,
+  "lang": "ko",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ko_bingewatch": {
+  "ok": true,
+  "lang": "ko",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ko_blowafuse": {
+  "ok": true,
+  "lang": "ko",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ko_boredstiff": {
+  "ok": true,
+  "lang": "ko",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ko_burnedout": {
+  "ok": true,
+  "lang": "ko",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ko_bussin": {
+  "ok": true,
+  "lang": "ko",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ko_bytheway": {
+  "ok": true,
+  "lang": "ko",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ko_callout": {
+  "ok": true,
+  "lang": "ko",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ko_cheap": {
+  "ok": true,
+  "lang": "ko",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ko_cheatday": {
+  "ok": true,
+  "lang": "ko",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ko_cool": {
+  "ok": true,
+  "lang": "ko",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ko_dressedtoimpress": {
+  "ok": true,
+  "lang": "ko",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ko_imdead": {
+  "ok": true,
+  "lang": "ko",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ko_nocap": {
+  "ok": true,
+  "lang": "ko",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ko_pigout": {
+  "ok": true,
+  "lang": "ko",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ko_salty": {
+  "ok": true,
+  "lang": "ko",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_pt_ace": {
+  "ok": true,
+  "lang": "pt",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_pt_aesthetic": {
+  "ok": true,
+  "lang": "pt",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_pt_afk": {
+  "ok": true,
+  "lang": "pt",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_pt_anytime": {
+  "ok": true,
+  "lang": "pt",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_pt_armandaleg": {
+  "ok": true,
+  "lang": "pt",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_pt_asap": {
+  "ok": true,
+  "lang": "pt",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_pt_awesome": {
+  "ok": true,
+  "lang": "pt",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_pt_backonmyfeet": {
+  "ok": true,
+  "lang": "pt",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_pt_backtosquareone": {
+  "ok": true,
+  "lang": "pt",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_pt_basic": {
+  "ok": true,
+  "lang": "pt",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_pt_beatsme": {
+  "ok": true,
+  "lang": "pt",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_pt_beef": {
+  "ok": true,
+  "lang": "pt",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_pt_bestie": {
+  "ok": true,
+  "lang": "pt",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_pt_bet": {
+  "ok": true,
+  "lang": "pt",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_pt_bigmood": {
+  "ok": true,
+  "lang": "pt",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_pt_bigw": {
+  "ok": true,
+  "lang": "pt",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_pt_bingewatch": {
+  "ok": true,
+  "lang": "pt",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_pt_boredstiff": {
+  "ok": true,
+  "lang": "pt",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_pt_burnedout": {
+  "ok": true,
+  "lang": "pt",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_pt_bussin": {
+  "ok": true,
+  "lang": "pt",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_pt_bytheway": {
+  "ok": true,
+  "lang": "pt",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_pt_callout": {
+  "ok": true,
+  "lang": "pt",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_pt_cheap": {
+  "ok": true,
+  "lang": "pt",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_pt_cheatday": {
+  "ok": true,
+  "lang": "pt",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_pt_cool": {
+  "ok": true,
+  "lang": "pt",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_pt_dressedtoimpress": {
+  "ok": true,
+  "lang": "pt",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_pt_imdead": {
+  "ok": true,
+  "lang": "pt",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_pt_nocap": {
+  "ok": true,
+  "lang": "pt",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_pt_pigout": {
+  "ok": true,
+  "lang": "pt",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_pt_salty": {
+  "ok": true,
+  "lang": "pt",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ru_ace": {
+  "ok": true,
+  "lang": "ru",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ru_aesthetic": {
+  "ok": true,
+  "lang": "ru",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ru_afk": {
+  "ok": true,
+  "lang": "ru",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ru_anytime": {
+  "ok": true,
+  "lang": "ru",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ru_armandaleg": {
+  "ok": true,
+  "lang": "ru",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ru_asap": {
+  "ok": true,
+  "lang": "ru",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ru_awesome": {
+  "ok": true,
+  "lang": "ru",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ru_backonmyfeet": {
+  "ok": true,
+  "lang": "ru",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ru_backtosquareone": {
+  "ok": true,
+  "lang": "ru",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ru_basic": {
+  "ok": true,
+  "lang": "ru",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ru_beatsme": {
+  "ok": true,
+  "lang": "ru",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ru_beef": {
+  "ok": true,
+  "lang": "ru",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ru_bestie": {
+  "ok": true,
+  "lang": "ru",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ru_bet": {
+  "ok": true,
+  "lang": "ru",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ru_bigmood": {
+  "ok": true,
+  "lang": "ru",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ru_bigw": {
+  "ok": true,
+  "lang": "ru",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ru_bingewatch": {
+  "ok": true,
+  "lang": "ru",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ru_blowafuse": {
+  "ok": true,
+  "lang": "ru",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ru_boredstiff": {
+  "ok": true,
+  "lang": "ru",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ru_burnedout": {
+  "ok": true,
+  "lang": "ru",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ru_bussin": {
+  "ok": true,
+  "lang": "ru",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ru_bytheway": {
+  "ok": true,
+  "lang": "ru",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ru_callout": {
+  "ok": true,
+  "lang": "ru",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ru_cheap": {
+  "ok": true,
+  "lang": "ru",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ru_cheatday": {
+  "ok": true,
+  "lang": "ru",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ru_cool": {
+  "ok": true,
+  "lang": "ru",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ru_dressedtoimpress": {
+  "ok": true,
+  "lang": "ru",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ru_imdead": {
+  "ok": true,
+  "lang": "ru",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ru_nocap": {
+  "ok": true,
+  "lang": "ru",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_ru_salty": {
+  "ok": true,
+  "lang": "ru",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_th_ace": {
+  "ok": true,
+  "lang": "th",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_th_aesthetic": {
+  "ok": true,
+  "lang": "th",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_th_afk": {
+  "ok": true,
+  "lang": "th",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_th_anytime": {
+  "ok": true,
+  "lang": "th",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_th_armandaleg": {
+  "ok": true,
+  "lang": "th",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_th_asap": {
+  "ok": true,
+  "lang": "th",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_th_awesome": {
+  "ok": true,
+  "lang": "th",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_th_backonmyfeet": {
+  "ok": true,
+  "lang": "th",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_th_backtosquareone": {
+  "ok": true,
+  "lang": "th",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_th_basic": {
+  "ok": true,
+  "lang": "th",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_th_beatsme": {
+  "ok": true,
+  "lang": "th",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_th_beef": {
+  "ok": true,
+  "lang": "th",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_th_bestie": {
+  "ok": true,
+  "lang": "th",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_th_bet": {
+  "ok": true,
+  "lang": "th",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_th_bigmood": {
+  "ok": true,
+  "lang": "th",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_th_bingewatch": {
+  "ok": true,
+  "lang": "th",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_th_blowafuse": {
+  "ok": true,
+  "lang": "th",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_th_boredstiff": {
+  "ok": true,
+  "lang": "th",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_th_burnedout": {
+  "ok": true,
+  "lang": "th",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_th_bussin": {
+  "ok": true,
+  "lang": "th",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_th_bytheway": {
+  "ok": true,
+  "lang": "th",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_th_callout": {
+  "ok": true,
+  "lang": "th",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_th_cheap": {
+  "ok": true,
+  "lang": "th",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_th_cheatday": {
+  "ok": true,
+  "lang": "th",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_th_cool": {
+  "ok": true,
+  "lang": "th",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_th_dressedtoimpress": {
+  "ok": true,
+  "lang": "th",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_th_imdead": {
+  "ok": true,
+  "lang": "th",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_th_nocap": {
+  "ok": true,
+  "lang": "th",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_th_pigout": {
+  "ok": true,
+  "lang": "th",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_th_salty": {
+  "ok": true,
+  "lang": "th",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_tr_ace": {
+  "ok": true,
+  "lang": "tr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_tr_aesthetic": {
+  "ok": true,
+  "lang": "tr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_tr_afk": {
+  "ok": true,
+  "lang": "tr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_tr_anytime": {
+  "ok": true,
+  "lang": "tr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_tr_armandaleg": {
+  "ok": true,
+  "lang": "tr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_tr_asap": {
+  "ok": true,
+  "lang": "tr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_tr_awesome": {
+  "ok": true,
+  "lang": "tr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_tr_backonmyfeet": {
+  "ok": true,
+  "lang": "tr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_tr_backtosquareone": {
+  "ok": true,
+  "lang": "tr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_tr_basic": {
+  "ok": true,
+  "lang": "tr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_tr_beatsme": {
+  "ok": true,
+  "lang": "tr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_tr_beef": {
+  "ok": true,
+  "lang": "tr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_tr_bestie": {
+  "ok": true,
+  "lang": "tr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_tr_bet": {
+  "ok": true,
+  "lang": "tr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_tr_bigmood": {
+  "ok": true,
+  "lang": "tr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_tr_bingewatch": {
+  "ok": true,
+  "lang": "tr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_tr_blowafuse": {
+  "ok": true,
+  "lang": "tr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_tr_boredstiff": {
+  "ok": true,
+  "lang": "tr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_tr_burnedout": {
+  "ok": true,
+  "lang": "tr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_tr_bussin": {
+  "ok": true,
+  "lang": "tr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_tr_bytheway": {
+  "ok": true,
+  "lang": "tr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_tr_callout": {
+  "ok": true,
+  "lang": "tr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_tr_cheap": {
+  "ok": true,
+  "lang": "tr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_tr_cheatday": {
+  "ok": true,
+  "lang": "tr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_tr_cool": {
+  "ok": true,
+  "lang": "tr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_tr_dressedtoimpress": {
+  "ok": true,
+  "lang": "tr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_tr_imdead": {
+  "ok": true,
+  "lang": "tr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_tr_nocap": {
+  "ok": true,
+  "lang": "tr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_tr_pigout": {
+  "ok": true,
+  "lang": "tr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_tr_salty": {
+  "ok": true,
+  "lang": "tr",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_zh_ace": {
+  "ok": true,
+  "lang": "zh",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_zh_aesthetic": {
+  "ok": true,
+  "lang": "zh",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_zh_armandaleg": {
+  "ok": true,
+  "lang": "zh",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_zh_asap": {
+  "ok": true,
+  "lang": "zh",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_zh_awesome": {
+  "ok": true,
+  "lang": "zh",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_zh_backonmyfeet": {
+  "ok": true,
+  "lang": "zh",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_zh_backtosquareone": {
+  "ok": true,
+  "lang": "zh",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_zh_ballparkfigure": {
+  "ok": true,
+  "lang": "zh",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_zh_basic": {
+  "ok": true,
+  "lang": "zh",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_zh_beef": {
+  "ok": true,
+  "lang": "zh",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_zh_bestie": {
+  "ok": true,
+  "lang": "zh",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_zh_bet": {
+  "ok": true,
+  "lang": "zh",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_zh_bigmood": {
+  "ok": true,
+  "lang": "zh",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_zh_bigw": {
+  "ok": true,
+  "lang": "zh",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_zh_bingewatch": {
+  "ok": true,
+  "lang": "zh",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_zh_blooper": {
+  "ok": true,
+  "lang": "zh",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_zh_blowafuse": {
+  "ok": true,
+  "lang": "zh",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_zh_boredstiff": {
+  "ok": true,
+  "lang": "zh",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_zh_burnedout": {
+  "ok": true,
+  "lang": "zh",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_zh_bussin": {
+  "ok": true,
+  "lang": "zh",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_zh_bytheway": {
+  "ok": true,
+  "lang": "zh",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_zh_cheap": {
+  "ok": true,
+  "lang": "zh",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_zh_cheatday": {
+  "ok": true,
+  "lang": "zh",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_zh_cool": {
+  "ok": true,
+  "lang": "zh",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_zh_countmein": {
+  "ok": true,
+  "lang": "zh",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_zh_hottake": {
+  "ok": true,
+  "lang": "zh",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_zh_imdead": {
+  "ok": true,
+  "lang": "zh",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_zh_nocap": {
+  "ok": true,
+  "lang": "zh",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_zh_pigout": {
+  "ok": true,
+  "lang": "zh",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
+ },
+ "t2s_zh_salty": {
+  "ok": true,
+  "lang": "zh",
+  "online": false,
+  "gates": {
+   "i18n_no_vi_leak": true,
+   "i18n_no_known_bad": true,
+   "i18n_english_kept": true,
+   "hashtags": true,
+   "lengths": true,
+   "comment": true,
+   "not_english": true
+  },
+  "glosses": []
  }
 }

@@ -1,0 +1,148 @@
+{
+ "id": "t2s_ko_beef",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 7,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Those two stopped talking. Why?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Beef!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "An ongoing argument with someone.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "They have beef over a game.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "furious",
+ "data": {
+  "key": "beef",
+  "forms": [
+   "beef with"
+  ],
+  "ipa": "/ˈbiːf/",
+  "mean": "An ongoing argument with someone.",
+  "define": "A long-lasting disagreement between people.",
+  "vi": "Mâu thuẫn, bất hòa",
+  "reg": "casual",
+  "region": "US",
+  "level": "B2",
+  "era": "modern",
+  "theme": "drama",
+  "example": {
+   "ctx": "Talking about friends",
+   "text": "They have beef over a game."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"Beef\" here means…",
+   "options": [
+    "an argument",
+    "dinner"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't say 'we have beef' about a small mix-up.",
+   "why": "It sounds like a serious feud."
+  },
+  "l1": "불화; 다툼; 갈등",
+  "l1_hook": "그 두 사람은 말을 끊었어. 왜? 'beef'?",
+  "l1_ex": "그들은 게임 때문에 beef가 있어.",
+  "right": "beef",
+  "native": {
+   "hook": "“beef” 무슨 뜻일까요?",
+   "tip": "“beef” = 불화; 다툼; 갈등. 예문: “They have beef over a game.”",
+   "caption": "“beef” 무슨 뜻일까요?\n“beef” = 불화; 다툼; 갈등.\n예문: “They have beef over a game.” (그들은 게임 때문에 beef가 있어.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.",
+   "comment": "정답: “beef” = 불화; 다툼; 갈등. “They have beef over a game.” 무료로 더 연습하기: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Those two stopped talking. Why?"
+ },
+ "src": {
+  "slang": "beef"
+ },
+ "lang": "ko",
+ "est": {
+  "words": 19,
+  "seconds": 10.5,
+  "wpm": 109
+ },
+ "publish": {
+  "title": "“beef” 무슨 뜻일까요?",
+  "keyword": "beef",
+  "value": "“beef” = 불화; 다툼; 갈등. 예문: “They have beef over a game.”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "“beef” 무슨 뜻일까요?",
+    "description": "“beef” = 불화; 다툼; 갈등. 예문: “They have beef over a game.”\n\n“beef” 무슨 뜻일까요?\n“beef” = 불화; 다툼; 갈등.\n예문: “They have beef over a game.” (그들은 게임 때문에 beef가 있어.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "beef",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“beef” 무슨 뜻일까요?\n“beef” = 불화; 다툼; 갈등.\n예문: “They have beef over a game.” (그들은 게임 때문에 beef가 있어.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“beef” 무슨 뜻일까요?\n\n“beef” = 불화; 다툼; 갈등. 예문: “They have beef over a game.”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“beef” 무슨 뜻일까요? “beef” = 불화; 다툼; 갈등. 예문: “They have beef over a game.” #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답: “beef” = 불화; 다툼; 갈등. “They have beef over a game.” 무료로 더 연습하기: {link}",
+  "lang": "ko"
+ }
+}

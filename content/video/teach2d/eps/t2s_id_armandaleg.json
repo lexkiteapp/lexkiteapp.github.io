@@ -1,0 +1,148 @@
+{
+ "id": "t2s_id_armandaleg",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 15,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Look at this coat's price!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Arm and a leg!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Extremely expensive.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "This coat costs an arm and a leg.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shock",
+ "data": {
+  "key": "arm and a leg",
+  "forms": [
+   "an arm and a leg"
+  ],
+  "ipa": "/ən ˈɑːrm ən ə ˈleɡ/",
+  "mean": "Extremely expensive.",
+  "define": "Used when something costs a huge amount of money.",
+  "vi": "Đắt cắt cổ",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "money",
+  "example": {
+   "ctx": "Looking at store prices",
+   "text": "This coat costs an arm and a leg."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means something is…",
+   "options": [
+    "very cheap",
+    "very expensive"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't take 'an arm and a leg' literally at the store.",
+   "why": "It just means very expensive."
+  },
+  "l1": "mahal sekali; harganya selangit",
+  "l1_hook": "Lihat harga mantel ini! Itu 'arm and a leg'.",
+  "l1_ex": "Mantel ini harganya \"arm and a leg\".",
+  "right": "arm and a leg",
+  "native": {
+   "hook": "Apa arti “arm and a leg”?",
+   "tip": "“arm and a leg” = mahal sekali; harganya selangit. Contoh: “This coat costs an arm and a leg.”",
+   "caption": "Apa arti “arm and a leg”?\n“arm and a leg” = mahal sekali; harganya selangit.\nContoh: “This coat costs an arm and a leg.” (Mantel ini harganya \"arm and a leg\".)\nBelajar slang bahasa Inggris gratis di Lexkite.",
+   "comment": "Jawaban: “arm and a leg” = mahal sekali; harganya selangit. “This coat costs an arm and a leg.” Latihan lagi gratis: {link}",
+   "hashtags": [
+    "#belajarbahasainggris",
+    "#bahasainggris",
+    "#kosakata",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Look at this coat's price!"
+ },
+ "src": {
+  "slang": "arm and a leg"
+ },
+ "lang": "id",
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "Apa arti “arm and a leg”?",
+  "keyword": "arm and a leg",
+  "value": "“arm and a leg” = mahal sekali; harganya selangit. Contoh: “This coat costs an arm and a leg.”",
+  "hashtags": [
+   "#belajarbahasainggris",
+   "#bahasainggris",
+   "#kosakata",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "Apa arti “arm and a leg”?",
+    "description": "“arm and a leg” = mahal sekali; harganya selangit. Contoh: “This coat costs an arm and a leg.”\n\nApa arti “arm and a leg”?\n“arm and a leg” = mahal sekali; harganya selangit.\nContoh: “This coat costs an arm and a leg.” (Mantel ini harganya \"arm and a leg\".)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#belajarbahasainggris #bahasainggris #kosakata #lexkite",
+    "tags": [
+     "arm and a leg",
+     "learn english",
+     "id"
+    ]
+   },
+   "facebook": {
+    "text": "Apa arti “arm and a leg”?\n“arm and a leg” = mahal sekali; harganya selangit.\nContoh: “This coat costs an arm and a leg.” (Mantel ini harganya \"arm and a leg\".)\nBelajar slang bahasa Inggris gratis di Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Apa arti “arm and a leg”?\n\n“arm and a leg” = mahal sekali; harganya selangit. Contoh: “This coat costs an arm and a leg.”\n\nlexkite.com",
+    "hashtags": [
+     "#belajarbahasainggris",
+     "#bahasainggris",
+     "#kosakata",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Apa arti “arm and a leg”? “arm and a leg” = mahal sekali; harganya selangit. Contoh: “This coat costs… #belajarbahasainggris #bahasainggris #kosakata"
+   }
+  },
+  "first_comment": "Jawaban: “arm and a leg” = mahal sekali; harganya selangit. “This coat costs an arm and a leg.” Latihan lagi gratis: {link}",
+  "lang": "id"
+ }
+}

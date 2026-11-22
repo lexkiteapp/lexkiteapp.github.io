@@ -1,0 +1,150 @@
+{
+ "id": "t2s_pt_bussin",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 10,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Mom's pasta tastes unreal tonight!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Bussin!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "That food is really delicious.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Mom's pasta is bussin tonight.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "pose": {
+  "clip": "clap",
+  "after": "h"
+ },
+ "data": {
+  "key": "bussin",
+  "forms": [],
+  "ipa": "/ˈbʌsɪn/",
+  "mean": "That food is really delicious.",
+  "define": "Slang for food that tastes amazing.",
+  "vi": "Ngon đỉnh",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B2",
+  "era": "gen-z",
+  "theme": "food",
+  "example": {
+   "ctx": "At a family dinner",
+   "text": "Mom's pasta is bussin tonight."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"Bussin\" describes…",
+   "options": [
+    "delicious food",
+    "a bus stop"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't say 'bussin' about a cold, bland sandwich.",
+   "why": "It means really delicious food."
+  },
+  "l1": "delícia; muito bom; top",
+  "l1_hook": "A massa da mãe está incrível esta noite! \"bussin\"",
+  "l1_ex": "A massa da mãe está \"bussin\" hoje à noite.",
+  "right": "bussin",
+  "native": {
+   "hook": "O que significa “bussin”?",
+   "tip": "“bussin” = delícia; muito bom; top. Exemplo: “Mom's pasta is bussin tonight.”",
+   "caption": "O que significa “bussin”?\n“bussin” = delícia; muito bom; top.\nExemplo: “Mom's pasta is bussin tonight.” (A massa da mãe está \"bussin\" hoje à noite.)\nAprenda gírias em inglês de graça no Lexkite.",
+   "comment": "Resposta: “bussin” = delícia; muito bom; top. “Mom's pasta is bussin tonight.” Pratique mais de graça: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#inglesonline",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Mom's pasta tastes unreal tonight!"
+ },
+ "src": {
+  "slang": "bussin"
+ },
+ "lang": "pt",
+ "est": {
+  "words": 18,
+  "seconds": 10.8,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "O que significa “bussin”?",
+  "keyword": "bussin",
+  "value": "“bussin” = delícia; muito bom; top. Exemplo: “Mom's pasta is bussin tonight.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "O que significa “bussin”?",
+    "description": "“bussin” = delícia; muito bom; top. Exemplo: “Mom's pasta is bussin tonight.”\n\nO que significa “bussin”?\n“bussin” = delícia; muito bom; top.\nExemplo: “Mom's pasta is bussin tonight.” (A massa da mãe está \"bussin\" hoje à noite.)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "tags": [
+     "bussin",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "O que significa “bussin”?\n“bussin” = delícia; muito bom; top.\nExemplo: “Mom's pasta is bussin tonight.” (A massa da mãe está \"bussin\" hoje à noite.)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "O que significa “bussin”?\n\n“bussin” = delícia; muito bom; top. Exemplo: “Mom's pasta is bussin tonight.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#inglesonline",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "O que significa “bussin”? “bussin” = delícia; muito bom; top. Exemplo: “Mom's pasta is bussin tonight.” #aprenderingles #inglesfacil #inglesonline"
+   }
+  },
+  "first_comment": "Resposta: “bussin” = delícia; muito bom; top. “Mom's pasta is bussin tonight.” Pratique mais de graça: {link}",
+  "lang": "pt"
+ }
+}

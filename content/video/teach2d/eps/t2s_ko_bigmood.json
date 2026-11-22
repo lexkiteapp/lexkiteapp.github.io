@@ -1,0 +1,146 @@
+{
+ "id": "t2s_ko_bigmood",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 18,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Sleepy cat. Exactly my feelings!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Big mood!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "That's exactly how I feel.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "That sleepy cat is a big mood.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "laugh",
+ "data": {
+  "key": "big mood",
+  "forms": [],
+  "ipa": "/ˈbɪɡ ˈmuːd/",
+  "mean": "That's exactly how I feel.",
+  "define": "Used when something matches your feeling perfectly.",
+  "vi": "Đúng tâm trạng luôn",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B2",
+  "era": "gen-z",
+  "theme": "reactions",
+  "example": {
+   "ctx": "Seeing a funny meme",
+   "text": "That sleepy cat is a big mood."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Big mood\" means…",
+   "options": [
+    "a large room",
+    "I relate"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'big mood' about someone's real tragedy.",
+   "why": "It sounds careless and dismissive."
+  },
+  "l1": "격하게 공감함; 완전 내 심정",
+  "l1_hook": "잠자는 고양이. 바로 내 기분! \"big mood\"",
+  "l1_ex": "그 잠자는 고양이는 \"big mood\".",
+  "right": "big mood",
+  "native": {
+   "hook": "“big mood” 무슨 뜻일까요?",
+   "tip": "“big mood” = 격하게 공감함; 완전 내 심정. 예문: “That sleepy cat is a big mood.”",
+   "caption": "“big mood” 무슨 뜻일까요?\n“big mood” = 격하게 공감함; 완전 내 심정.\n예문: “That sleepy cat is a big mood.” (그 잠자는 고양이는 \"big mood\".)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.",
+   "comment": "정답: “big mood” = 격하게 공감함; 완전 내 심정. “That sleepy cat is a big mood.” 무료로 더 연습하기: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Sleepy cat. Exactly my feelings!"
+ },
+ "src": {
+  "slang": "big mood"
+ },
+ "lang": "ko",
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "“big mood” 무슨 뜻일까요?",
+  "keyword": "big mood",
+  "value": "“big mood” = 격하게 공감함; 완전 내 심정. 예문: “That sleepy cat is a big mood.”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "“big mood” 무슨 뜻일까요?",
+    "description": "“big mood” = 격하게 공감함; 완전 내 심정. 예문: “That sleepy cat is a big mood.”\n\n“big mood” 무슨 뜻일까요?\n“big mood” = 격하게 공감함; 완전 내 심정.\n예문: “That sleepy cat is a big mood.” (그 잠자는 고양이는 \"big mood\".)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "big mood",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“big mood” 무슨 뜻일까요?\n“big mood” = 격하게 공감함; 완전 내 심정.\n예문: “That sleepy cat is a big mood.” (그 잠자는 고양이는 \"big mood\".)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“big mood” 무슨 뜻일까요?\n\n“big mood” = 격하게 공감함; 완전 내 심정. 예문: “That sleepy cat is a big mood.”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“big mood” 무슨 뜻일까요? “big mood” = 격하게 공감함; 완전 내 심정. 예문: “That sleepy cat is a big mood.” #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답: “big mood” = 격하게 공감함; 완전 내 심정. “That sleepy cat is a big mood.” 무료로 더 연습하기: {link}",
+  "lang": "ko"
+ }
+}

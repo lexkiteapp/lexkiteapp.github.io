@@ -1,0 +1,150 @@
+{
+ "id": "t2s_de_countmein",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 35,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Game night at my place!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Count me in!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "I want to join.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Game night? Count me in!",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "hype",
+ "pose": {
+  "clip": "cheer",
+  "after": "h"
+ },
+ "data": {
+  "key": "count me in",
+  "forms": [],
+  "ipa": "/ˈkaʊnt mi ˈɪn/",
+  "mean": "I want to join.",
+  "define": "Used to say you will take part in a plan.",
+  "vi": "Tính tui vào nhé",
+  "reg": "casual",
+  "region": "global",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "plans",
+  "example": {
+   "ctx": "Replying to an invite",
+   "text": "Game night? Count me in!"
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means…",
+   "options": [
+    "I'll count",
+    "I'll join"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'count me in' before checking the date.",
+   "why": "People will count on you."
+  },
+  "l1": "ich bin dabei; ich mach mit; zähle mich ein",
+  "l1_hook": "Spieleabend bei mir! \"count me in\"",
+  "l1_ex": "Spieleabend? \"count me in\"!",
+  "right": "count me in",
+  "native": {
+   "hook": "Was heißt “count me in”?",
+   "tip": "“count me in” = ich bin dabei; ich mach mit; zähle mich ein. Beispiel: “Game night? Count me in!”",
+   "caption": "Was heißt “count me in”?\n“count me in” = ich bin dabei; ich mach mit; zähle mich ein.\nBeispiel: “Game night? Count me in!” (Spieleabend? \"count me in\"!)\nLerne englischen Slang kostenlos mit Lexkite.",
+   "comment": "Antwort: “count me in” = ich bin dabei; ich mach mit; zähle mich ein. “Game night? Count me in!” Kostenlos weiterüben: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Game night at my place!"
+ },
+ "src": {
+  "slang": "count me in"
+ },
+ "lang": "de",
+ "est": {
+  "words": 19,
+  "seconds": 11.4,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "Was heißt “count me in”?",
+  "keyword": "count me in",
+  "value": "“count me in” = ich bin dabei; ich mach mit; zähle mich ein. Beispiel: “Game night? Count me in!”",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "Was heißt “count me in”?",
+    "description": "“count me in” = ich bin dabei; ich mach mit; zähle mich ein. Beispiel: “Game night? Count me in!”\n\nWas heißt “count me in”?\n“count me in” = ich bin dabei; ich mach mit; zähle mich ein.\nBeispiel: “Game night? Count me in!” (Spieleabend? \"count me in\"!)\nLerne englischen Slang kostenlos mit Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "count me in",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Was heißt “count me in”?\n“count me in” = ich bin dabei; ich mach mit; zähle mich ein.\nBeispiel: “Game night? Count me in!” (Spieleabend? \"count me in\"!)\nLerne englischen Slang kostenlos mit Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Was heißt “count me in”?\n\n“count me in” = ich bin dabei; ich mach mit; zähle mich ein. Beispiel: “Game night? Count me in!”\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Was heißt “count me in”? “count me in” = ich bin dabei; ich mach mit; zähle mich ein. Beispiel: “Game… #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Antwort: “count me in” = ich bin dabei; ich mach mit; zähle mich ein. “Game night? Count me in!” Kostenlos weiterüben: {link}",
+  "lang": "de"
+ }
+}

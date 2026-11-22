@@ -1,0 +1,150 @@
+{
+ "id": "t2s_ko_anytime",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 11,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Thanks so much for the ride!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Anytime!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "You're welcome, ask again.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Thanks for the ride! Anytime.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "pose": {
+  "clip": "clap",
+  "after": "h"
+ },
+ "data": {
+  "key": "anytime",
+  "forms": [],
+  "ipa": "/ˈeniˌtaɪm/",
+  "mean": "You're welcome, ask again.",
+  "define": "A friendly reply to thanks.",
+  "vi": "Cứ tự nhiên",
+  "reg": "casual",
+  "region": "US",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "friends",
+  "example": {
+   "ctx": "After helping",
+   "text": "Thanks for the ride! Anytime."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"Anytime\" means…",
+   "options": [
+    "you're welcome",
+    "never"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't say 'anytime' if you hate helping.",
+   "why": "People will ask you again."
+  },
+  "l1": "언제든지; 언제든 물어봐; 언제든지요",
+  "l1_hook": "태워줘서 정말 고마워! \"anytime\".",
+  "l1_ex": "태워줘서 고마워! \"anytime\".",
+  "right": "anytime",
+  "native": {
+   "hook": "“anytime” 무슨 뜻일까요?",
+   "tip": "“anytime” = 언제든지; 언제든 물어봐; 언제든지요. 예문: “Thanks for the ride! Anytime.”",
+   "caption": "“anytime” 무슨 뜻일까요?\n“anytime” = 언제든지; 언제든 물어봐; 언제든지요.\n예문: “Thanks for the ride! Anytime.” (태워줘서 고마워! \"anytime\".)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.",
+   "comment": "정답: “anytime” = 언제든지; 언제든 물어봐; 언제든지요. “Thanks for the ride! Anytime.” 무료로 더 연습하기: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Thanks so much for the ride!"
+ },
+ "src": {
+  "slang": "anytime"
+ },
+ "lang": "ko",
+ "est": {
+  "words": 18,
+  "seconds": 10.8,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "“anytime” 무슨 뜻일까요?",
+  "keyword": "anytime",
+  "value": "“anytime” = 언제든지; 언제든 물어봐; 언제든지요. 예문: “Thanks for the ride! Anytime.”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "“anytime” 무슨 뜻일까요?",
+    "description": "“anytime” = 언제든지; 언제든 물어봐; 언제든지요. 예문: “Thanks for the ride! Anytime.”\n\n“anytime” 무슨 뜻일까요?\n“anytime” = 언제든지; 언제든 물어봐; 언제든지요.\n예문: “Thanks for the ride! Anytime.” (태워줘서 고마워! \"anytime\".)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "anytime",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“anytime” 무슨 뜻일까요?\n“anytime” = 언제든지; 언제든 물어봐; 언제든지요.\n예문: “Thanks for the ride! Anytime.” (태워줘서 고마워! \"anytime\".)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“anytime” 무슨 뜻일까요?\n\n“anytime” = 언제든지; 언제든 물어봐; 언제든지요. 예문: “Thanks for the ride! Anytime.”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“anytime” 무슨 뜻일까요? “anytime” = 언제든지; 언제든 물어봐; 언제든지요. 예문: “Thanks for the ride! Anytime.” #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답: “anytime” = 언제든지; 언제든 물어봐; 언제든지요. “Thanks for the ride! Anytime.” 무료로 더 연습하기: {link}",
+  "lang": "ko"
+ }
+}

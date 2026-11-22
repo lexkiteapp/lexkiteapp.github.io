@@ -1,0 +1,148 @@
+{
+ "id": "t2s_tr_armandaleg",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 15,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Look at this coat's price!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Arm and a leg!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Extremely expensive.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "This coat costs an arm and a leg.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shock",
+ "data": {
+  "key": "arm and a leg",
+  "forms": [
+   "an arm and a leg"
+  ],
+  "ipa": "/ən ˈɑːrm ən ə ˈleɡ/",
+  "mean": "Extremely expensive.",
+  "define": "Used when something costs a huge amount of money.",
+  "vi": "Đắt cắt cổ",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "evergreen",
+  "theme": "money",
+  "example": {
+   "ctx": "Looking at store prices",
+   "text": "This coat costs an arm and a leg."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "It means something is…",
+   "options": [
+    "very cheap",
+    "very expensive"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't take 'an arm and a leg' literally at the store.",
+   "why": "It just means very expensive."
+  },
+  "l1": "bir servet; dünyanın parası",
+  "l1_hook": "Bu kabanın fiyatına bak!",
+  "l1_ex": "Bu palto 'arm and a leg' kadar pahalı.",
+  "right": "arm and a leg",
+  "native": {
+   "hook": "“arm and a leg” ne demek?",
+   "tip": "“arm and a leg” = bir servet; dünyanın parası. Örnek: “This coat costs an arm and a leg.”",
+   "caption": "“arm and a leg” ne demek?\n“arm and a leg” = bir servet; dünyanın parası.\nÖrnek: “This coat costs an arm and a leg.” (Bu palto 'arm and a leg' kadar pahalı.)\nLexkite ile İngilizce argoyu ücretsiz öğren.",
+   "comment": "Cevap: “arm and a leg” = bir servet; dünyanın parası. “This coat costs an arm and a leg.” Ücretsiz daha fazla pratik: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Look at this coat's price!"
+ },
+ "src": {
+  "slang": "arm and a leg"
+ },
+ "lang": "tr",
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "“arm and a leg” ne demek?",
+  "keyword": "arm and a leg",
+  "value": "“arm and a leg” = bir servet; dünyanın parası. Örnek: “This coat costs an arm and a leg.”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "“arm and a leg” ne demek?",
+    "description": "“arm and a leg” = bir servet; dünyanın parası. Örnek: “This coat costs an arm and a leg.”\n\n“arm and a leg” ne demek?\n“arm and a leg” = bir servet; dünyanın parası.\nÖrnek: “This coat costs an arm and a leg.” (Bu palto 'arm and a leg' kadar pahalı.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "arm and a leg",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“arm and a leg” ne demek?\n“arm and a leg” = bir servet; dünyanın parası.\nÖrnek: “This coat costs an arm and a leg.” (Bu palto 'arm and a leg' kadar pahalı.)\nLexkite ile İngilizce argoyu ücretsiz öğren.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“arm and a leg” ne demek?\n\n“arm and a leg” = bir servet; dünyanın parası. Örnek: “This coat costs an arm and a leg.”\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“arm and a leg” ne demek? “arm and a leg” = bir servet; dünyanın parası. Örnek: “This coat costs an arm… #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “arm and a leg” = bir servet; dünyanın parası. “This coat costs an arm and a leg.” Ücretsiz daha fazla pratik: {link}",
+  "lang": "tr"
+ }
+}

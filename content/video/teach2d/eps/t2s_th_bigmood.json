@@ -1,0 +1,146 @@
+{
+ "id": "t2s_th_bigmood",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 18,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Sleepy cat. Exactly my feelings!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Big mood!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "That's exactly how I feel.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "That sleepy cat is a big mood.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "laugh",
+ "data": {
+  "key": "big mood",
+  "forms": [],
+  "ipa": "/ˈbɪɡ ˈmuːd/",
+  "mean": "That's exactly how I feel.",
+  "define": "Used when something matches your feeling perfectly.",
+  "vi": "Đúng tâm trạng luôn",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B2",
+  "era": "gen-z",
+  "theme": "reactions",
+  "example": {
+   "ctx": "Seeing a funny meme",
+   "text": "That sleepy cat is a big mood."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Big mood\" means…",
+   "options": [
+    "a large room",
+    "I relate"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'big mood' about someone's real tragedy.",
+   "why": "It sounds careless and dismissive."
+  },
+  "l1": "เข้าใจเลย; ตรงกับความรู้สึกเลย",
+  "l1_hook": "แมวนอนหลับ เหมือนความรู้สึกของฉันเลย!",
+  "l1_ex": "แมวนอนหลับนั้นเป็น \"big mood\".",
+  "right": "big mood",
+  "native": {
+   "hook": "“big mood” แปลว่าอะไร?",
+   "tip": "“big mood” = เข้าใจเลย; ตรงกับความรู้สึกเลย. ตัวอย่าง: “That sleepy cat is a big mood.”",
+   "caption": "“big mood” แปลว่าอะไร?\n“big mood” = เข้าใจเลย; ตรงกับความรู้สึกเลย.\nตัวอย่าง: “That sleepy cat is a big mood.” (แมวนอนหลับนั้นเป็น \"big mood\".)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite",
+   "comment": "คำตอบ: “big mood” = เข้าใจเลย; ตรงกับความรู้สึกเลย. “That sleepy cat is a big mood.” ฝึกเพิ่มฟรี: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Sleepy cat. Exactly my feelings!"
+ },
+ "src": {
+  "slang": "big mood"
+ },
+ "lang": "th",
+ "est": {
+  "words": 21,
+  "seconds": 11.4,
+  "wpm": 111
+ },
+ "publish": {
+  "title": "“big mood” แปลว่าอะไร?",
+  "keyword": "big mood",
+  "value": "“big mood” = เข้าใจเลย; ตรงกับความรู้สึกเลย. ตัวอย่าง: “That sleepy cat is a big mood.”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 13,
+  "platforms": {
+   "youtube": {
+    "title": "“big mood” แปลว่าอะไร?",
+    "description": "“big mood” = เข้าใจเลย; ตรงกับความรู้สึกเลย. ตัวอย่าง: “That sleepy cat is a big mood.”\n\n“big mood” แปลว่าอะไร?\n“big mood” = เข้าใจเลย; ตรงกับความรู้สึกเลย.\nตัวอย่าง: “That sleepy cat is a big mood.” (แมวนอนหลับนั้นเป็น \"big mood\".)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "big mood",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "“big mood” แปลว่าอะไร?\n“big mood” = เข้าใจเลย; ตรงกับความรู้สึกเลย.\nตัวอย่าง: “That sleepy cat is a big mood.” (แมวนอนหลับนั้นเป็น \"big mood\".)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“big mood” แปลว่าอะไร?\n\n“big mood” = เข้าใจเลย; ตรงกับความรู้สึกเลย. ตัวอย่าง: “That sleepy cat is a big mood.”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“big mood” แปลว่าอะไร? “big mood” = เข้าใจเลย; ตรงกับความรู้สึกเลย. ตัวอย่าง: “That sleepy cat is a big mood.” #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "คำตอบ: “big mood” = เข้าใจเลย; ตรงกับความรู้สึกเลย. “That sleepy cat is a big mood.” ฝึกเพิ่มฟรี: {link}",
+  "lang": "th"
+ }
+}

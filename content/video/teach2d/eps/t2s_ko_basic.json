@@ -1,0 +1,146 @@
+{
+ "id": "t2s_ko_basic",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 6,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Pizza and a movie again?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Basic!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Too ordinary, like everyone else.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "My weekend plan is basic: pizza and a movie.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "deadpan",
+ "data": {
+  "key": "basic",
+  "forms": [],
+  "ipa": "/ˈbeɪsɪk/",
+  "mean": "Too ordinary, like everyone else.",
+  "define": "Describes things that are very ordinary and popular. It can sound a bit mean.",
+  "vi": "Quá bình thường, đại trà",
+  "reg": "very-casual",
+  "region": "US",
+  "level": "B1",
+  "era": "modern",
+  "theme": "criticism",
+  "example": {
+   "ctx": "Planning a weekend with friends",
+   "text": "My weekend plan is basic: pizza and a movie."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Basic\" in slang means…",
+   "options": [
+    "easy to learn",
+    "too ordinary"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call your friend's gift 'basic' to her.",
+   "why": "It sounds like an insult."
+  },
+  "l1": "기본; 뻔한; 평범한",
+  "l1_hook": "피자와 영화를 또? 'basic'이야.",
+  "l1_ex": "내 주말 계획은 basic: 피자와 영화야.",
+  "right": "basic",
+  "native": {
+   "hook": "“basic” 무슨 뜻일까요?",
+   "tip": "“basic” = 기본; 뻔한; 평범한. 예문: “My weekend plan is basic: pizza and a movie.”",
+   "caption": "“basic” 무슨 뜻일까요?\n“basic” = 기본; 뻔한; 평범한.\n예문: “My weekend plan is basic: pizza and a movie.” (내 주말 계획은 basic: 피자와 영화야.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.",
+   "comment": "정답: “basic” = 기본; 뻔한; 평범한. “My weekend plan is basic: pizza and a movie.” 무료로 더 연습하기: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Pizza and a movie again?"
+ },
+ "src": {
+  "slang": "basic"
+ },
+ "lang": "ko",
+ "est": {
+  "words": 22,
+  "seconds": 11.7,
+  "wpm": 112
+ },
+ "publish": {
+  "title": "“basic” 무슨 뜻일까요?",
+  "keyword": "basic",
+  "value": "“basic” = 기본; 뻔한; 평범한. 예문: “My weekend plan is basic: pizza and a movie.”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "“basic” 무슨 뜻일까요?",
+    "description": "“basic” = 기본; 뻔한; 평범한. 예문: “My weekend plan is basic: pizza and a movie.”\n\n“basic” 무슨 뜻일까요?\n“basic” = 기본; 뻔한; 평범한.\n예문: “My weekend plan is basic: pizza and a movie.” (내 주말 계획은 basic: 피자와 영화야.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "basic",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“basic” 무슨 뜻일까요?\n“basic” = 기본; 뻔한; 평범한.\n예문: “My weekend plan is basic: pizza and a movie.” (내 주말 계획은 basic: 피자와 영화야.)\nLexkite에서 영어 슬랭을 무료로 배워 보세요.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“basic” 무슨 뜻일까요?\n\n“basic” = 기본; 뻔한; 평범한. 예문: “My weekend plan is basic: pizza and a movie.”\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“basic” 무슨 뜻일까요? “basic” = 기본; 뻔한; 평범한. 예문: “My weekend plan is basic: pizza and a movie.” #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답: “basic” = 기본; 뻔한; 평범한. “My weekend plan is basic: pizza and a movie.” 무료로 더 연습하기: {link}",
+  "lang": "ko"
+ }
+}

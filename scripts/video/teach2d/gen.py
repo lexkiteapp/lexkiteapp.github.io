@@ -513,8 +513,11 @@ def slang_l1_src(it, lang):   # the card's page-language texts (None when one is
 def slang_native(it, lang, T):   # post copy in the page language from the hand-written frames (slang-l1-frames.json) + the judged translations
     F = json.load(open(SL_FR_F))['langs'][lang]; k = it['key']; hook = F['hook'].replace('{k}', k)
     if len(hook) > 34: hook = F['hook'].replace('{k}', k.split()[0] + '…')   # the frame-0 hook stays <= 34 characters (native-qa lengths)
-    return dict(hook=hook, tip=f'“{k}” = {T["m"]}', caption=f'{hook}\n“{k}” = {T["m"]}.\n{F["eg"]}: “{it["example"]["text"]}” ({T["ex"]})\n{F["cta"]}',
-                comment=f'{F["ans"]}: “{k}” = {T["m"]}. {F["more"]}: {{link}}', hashtags=F['hashtags'])
+    ex = it['example']['text']   # the English example rides along in the tip + first comment: useful for the learner, and an acronym slang (ASAP, AFK) never makes the post 'all caps'
+    tip = f'“{k}” = {T["m"]}. {F["eg"]}: “{ex}”'
+    if len(tip) > 140: tip = f'“{k}” = {T["m"]}'   # native-qa: the tip stays <= 140 characters (the example is still in the caption + first comment)
+    return dict(hook=hook, tip=tip, caption=f'{hook}\n“{k}” = {T["m"]}.\n{F["eg"]}: “{it["example"]["text"]}” ({T["ex"]})\n{F["cta"]}',
+                comment=f'{F["ans"]}: “{k}” = {T["m"]}. “{ex}” {F["more"]}: {{link}}', hashtags=F['hashtags'])
 
 
 def slang_variant(key): return 'quiz' if int(hashlib.sha1(key.lower().encode()).hexdigest(), 16) % 2 == 0 else 'misuse'

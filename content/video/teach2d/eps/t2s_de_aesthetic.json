@@ -1,0 +1,150 @@
+{
+ "id": "t2s_de_aesthetic",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 8,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Your room looks like Pinterest!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Aesthetic!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Beautiful in a stylish way.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Your desk looks so aesthetic.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "pose": {
+  "clip": "clap",
+  "after": "h"
+ },
+ "data": {
+  "key": "aesthetic",
+  "forms": [],
+  "ipa": "/ɪsˈθetɪk/",
+  "mean": "Beautiful in a stylish way.",
+  "define": "Used for things with a beautiful, matching look.",
+  "vi": "Đẹp có gu",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "modern",
+  "theme": "fashion",
+  "example": {
+   "ctx": "Looking at a room",
+   "text": "Your desk looks so aesthetic."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Aesthetic\" here means…",
+   "options": [
+    "noisy",
+    "stylish and pretty"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call your messy room 'aesthetic' to Mom.",
+   "why": "It only fits stylish, pretty things."
+  },
+  "l1": "ästhetisch; stylisch; schick",
+  "l1_hook": "Dein Zimmer sieht aus wie auf Pinterest!",
+  "l1_ex": "Dein Schreibtisch sieht so „aesthetic“ aus.",
+  "right": "aesthetic",
+  "native": {
+   "hook": "Was heißt “aesthetic”?",
+   "tip": "“aesthetic” = ästhetisch; stylisch; schick. Beispiel: “Your desk looks so aesthetic.”",
+   "caption": "Was heißt “aesthetic”?\n“aesthetic” = ästhetisch; stylisch; schick.\nBeispiel: “Your desk looks so aesthetic.” (Dein Schreibtisch sieht so „aesthetic“ aus.)\nLerne englischen Slang kostenlos mit Lexkite.",
+   "comment": "Antwort: “aesthetic” = ästhetisch; stylisch; schick. “Your desk looks so aesthetic.” Kostenlos weiterüben: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Your room looks like Pinterest!"
+ },
+ "src": {
+  "slang": "aesthetic"
+ },
+ "lang": "de",
+ "est": {
+  "words": 18,
+  "seconds": 11.0,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Was heißt “aesthetic”?",
+  "keyword": "aesthetic",
+  "value": "“aesthetic” = ästhetisch; stylisch; schick. Beispiel: “Your desk looks so aesthetic.”",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "Was heißt “aesthetic”?",
+    "description": "“aesthetic” = ästhetisch; stylisch; schick. Beispiel: “Your desk looks so aesthetic.”\n\nWas heißt “aesthetic”?\n“aesthetic” = ästhetisch; stylisch; schick.\nBeispiel: “Your desk looks so aesthetic.” (Dein Schreibtisch sieht so „aesthetic“ aus.)\nLerne englischen Slang kostenlos mit Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "aesthetic",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Was heißt “aesthetic”?\n“aesthetic” = ästhetisch; stylisch; schick.\nBeispiel: “Your desk looks so aesthetic.” (Dein Schreibtisch sieht so „aesthetic“ aus.)\nLerne englischen Slang kostenlos mit Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "Was heißt “aesthetic”?\n\n“aesthetic” = ästhetisch; stylisch; schick. Beispiel: “Your desk looks so aesthetic.”\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Was heißt “aesthetic”? “aesthetic” = ästhetisch; stylisch; schick. Beispiel: “Your desk looks so aesth… #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Antwort: “aesthetic” = ästhetisch; stylisch; schick. “Your desk looks so aesthetic.” Kostenlos weiterüben: {link}",
+  "lang": "de"
+ }
+}

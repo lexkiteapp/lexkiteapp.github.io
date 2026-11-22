@@ -1,0 +1,148 @@
+{
+ "id": "t2s_th_afk",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 12,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Five minutes, then I'm back!",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "AFK!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Away from keyboard.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Brb, I'll be AFK for five minutes.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shrug",
+ "data": {
+  "key": "AFK",
+  "forms": [
+   "afk"
+  ],
+  "ipa": "/ˌeɪ ef ˈkeɪ/",
+  "mean": "Away from keyboard.",
+  "define": "Used when you leave your game or chat for a short while.",
+  "vi": "Đi chút quay lại ngay",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "modern",
+  "theme": "gaming",
+  "example": {
+   "ctx": "Playing online",
+   "text": "Brb, I'll be AFK for five minutes."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "AFK means…",
+   "options": [
+    "always fun king",
+    "away from keyboard"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'AFK' in a formal email.",
+   "why": "It's gamer shorthand."
+  },
+  "l1": "ไม่ได้อยู่หน้าจอ; ไม่อยู่",
+  "l1_hook": "ห้านาทีแล้วฉันจะกลับมา! \"AFK\"",
+  "l1_ex": "เดี๋ยวกลับนะ ฉันจะ \"AFK\" ห้านาที.",
+  "right": "AFK",
+  "native": {
+   "hook": "“AFK” แปลว่าอะไร?",
+   "tip": "“AFK” = ไม่ได้อยู่หน้าจอ; ไม่อยู่. ตัวอย่าง: “Brb, I'll be AFK for five minutes.”",
+   "caption": "“AFK” แปลว่าอะไร?\n“AFK” = ไม่ได้อยู่หน้าจอ; ไม่อยู่.\nตัวอย่าง: “Brb, I'll be AFK for five minutes.” (เดี๋ยวกลับนะ ฉันจะ \"AFK\" ห้านาที.)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite",
+   "comment": "คำตอบ: “AFK” = ไม่ได้อยู่หน้าจอ; ไม่อยู่. “Brb, I'll be AFK for five minutes.” ฝึกเพิ่มฟรี: {link}",
+   "hashtags": [
+    "#เรียนภาษาอังกฤษ",
+    "#ภาษาอังกฤษ",
+    "#พูดอังกฤษ",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Five minutes, then I'm back!"
+ },
+ "src": {
+  "slang": "AFK"
+ },
+ "lang": "th",
+ "est": {
+  "words": 18,
+  "seconds": 10.3,
+  "wpm": 105
+ },
+ "publish": {
+  "title": "“AFK” แปลว่าอะไร?",
+  "keyword": "AFK",
+  "value": "“AFK” = ไม่ได้อยู่หน้าจอ; ไม่อยู่. ตัวอย่าง: “Brb, I'll be AFK for five minutes.”",
+  "hashtags": [
+   "#เรียนภาษาอังกฤษ",
+   "#ภาษาอังกฤษ",
+   "#พูดอังกฤษ",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 10,
+  "platforms": {
+   "youtube": {
+    "title": "“AFK” แปลว่าอะไร?",
+    "description": "“AFK” = ไม่ได้อยู่หน้าจอ; ไม่อยู่. ตัวอย่าง: “Brb, I'll be AFK for five minutes.”\n\n“AFK” แปลว่าอะไร?\n“AFK” = ไม่ได้อยู่หน้าจอ; ไม่อยู่.\nตัวอย่าง: “Brb, I'll be AFK for five minutes.” (เดี๋ยวกลับนะ ฉันจะ \"AFK\" ห้านาที.)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases\n\n#เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ #lexkite",
+    "tags": [
+     "AFK",
+     "learn english",
+     "th"
+    ]
+   },
+   "facebook": {
+    "text": "“AFK” แปลว่าอะไร?\n“AFK” = ไม่ได้อยู่หน้าจอ; ไม่อยู่.\nตัวอย่าง: “Brb, I'll be AFK for five minutes.” (เดี๋ยวกลับนะ ฉันจะ \"AFK\" ห้านาที.)\nเรียนสแลงภาษาอังกฤษฟรีกับ Lexkite\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“AFK” แปลว่าอะไร?\n\n“AFK” = ไม่ได้อยู่หน้าจอ; ไม่อยู่. ตัวอย่าง: “Brb, I'll be AFK for five minutes.”\n\nlexkite.com",
+    "hashtags": [
+     "#เรียนภาษาอังกฤษ",
+     "#ภาษาอังกฤษ",
+     "#พูดอังกฤษ",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“AFK” แปลว่าอะไร? “AFK” = ไม่ได้อยู่หน้าจอ; ไม่อยู่. ตัวอย่าง: “Brb, I'll be AFK for five minutes.” #เรียนภาษาอังกฤษ #ภาษาอังกฤษ #พูดอังกฤษ"
+   }
+  },
+  "first_comment": "คำตอบ: “AFK” = ไม่ได้อยู่หน้าจอ; ไม่อยู่. “Brb, I'll be AFK for five minutes.” ฝึกเพิ่มฟรี: {link}",
+  "lang": "th"
+ }
+}

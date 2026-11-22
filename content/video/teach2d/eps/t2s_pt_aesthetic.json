@@ -1,0 +1,150 @@
+{
+ "id": "t2s_pt_aesthetic",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 8,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Your room looks like Pinterest!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Aesthetic!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Beautiful in a stylish way.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Your desk looks so aesthetic.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "pose": {
+  "clip": "clap",
+  "after": "h"
+ },
+ "data": {
+  "key": "aesthetic",
+  "forms": [],
+  "ipa": "/ɪsˈθetɪk/",
+  "mean": "Beautiful in a stylish way.",
+  "define": "Used for things with a beautiful, matching look.",
+  "vi": "Đẹp có gu",
+  "reg": "casual",
+  "region": "global",
+  "level": "B2",
+  "era": "modern",
+  "theme": "fashion",
+  "example": {
+   "ctx": "Looking at a room",
+   "text": "Your desk looks so aesthetic."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "\"Aesthetic\" here means…",
+   "options": [
+    "noisy",
+    "stylish and pretty"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't call your messy room 'aesthetic' to Mom.",
+   "why": "It only fits stylish, pretty things."
+  },
+  "l1": "estético; estiloso",
+  "l1_hook": "Seu quarto parece do Pinterest! \"aesthetic\"",
+  "l1_ex": "Sua escrivaninha está tão \"aesthetic\".",
+  "right": "aesthetic",
+  "native": {
+   "hook": "O que significa “aesthetic”?",
+   "tip": "“aesthetic” = estético; estiloso. Exemplo: “Your desk looks so aesthetic.”",
+   "caption": "O que significa “aesthetic”?\n“aesthetic” = estético; estiloso.\nExemplo: “Your desk looks so aesthetic.” (Sua escrivaninha está tão \"aesthetic\".)\nAprenda gírias em inglês de graça no Lexkite.",
+   "comment": "Resposta: “aesthetic” = estético; estiloso. “Your desk looks so aesthetic.” Pratique mais de graça: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#inglesonline",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Your room looks like Pinterest!"
+ },
+ "src": {
+  "slang": "aesthetic"
+ },
+ "lang": "pt",
+ "est": {
+  "words": 18,
+  "seconds": 11.0,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "O que significa “aesthetic”?",
+  "keyword": "aesthetic",
+  "value": "“aesthetic” = estético; estiloso. Exemplo: “Your desk looks so aesthetic.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "O que significa “aesthetic”?",
+    "description": "“aesthetic” = estético; estiloso. Exemplo: “Your desk looks so aesthetic.”\n\nO que significa “aesthetic”?\n“aesthetic” = estético; estiloso.\nExemplo: “Your desk looks so aesthetic.” (Sua escrivaninha está tão \"aesthetic\".)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "tags": [
+     "aesthetic",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "O que significa “aesthetic”?\n“aesthetic” = estético; estiloso.\nExemplo: “Your desk looks so aesthetic.” (Sua escrivaninha está tão \"aesthetic\".)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "O que significa “aesthetic”?\n\n“aesthetic” = estético; estiloso. Exemplo: “Your desk looks so aesthetic.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#inglesonline",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "O que significa “aesthetic”? “aesthetic” = estético; estiloso. Exemplo: “Your desk looks so aesthetic.” #aprenderingles #inglesfacil #inglesonline"
+   }
+  },
+  "first_comment": "Resposta: “aesthetic” = estético; estiloso. “Your desk looks so aesthetic.” Pratique mais de graça: {link}",
+  "lang": "pt"
+ }
+}

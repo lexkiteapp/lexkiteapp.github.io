@@ -1,0 +1,150 @@
+{
+ "id": "t2s_pt_anytime",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 11,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Thanks so much for the ride!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Anytime!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "You're welcome, ask again.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Thanks for the ride! Anytime.",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "love",
+ "pose": {
+  "clip": "clap",
+  "after": "h"
+ },
+ "data": {
+  "key": "anytime",
+  "forms": [],
+  "ipa": "/ˈeniˌtaɪm/",
+  "mean": "You're welcome, ask again.",
+  "define": "A friendly reply to thanks.",
+  "vi": "Cứ tự nhiên",
+  "reg": "casual",
+  "region": "US",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "friends",
+  "example": {
+   "ctx": "After helping",
+   "text": "Thanks for the ride! Anytime."
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"Anytime\" means…",
+   "options": [
+    "you're welcome",
+    "never"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't say 'anytime' if you hate helping.",
+   "why": "People will ask you again."
+  },
+  "l1": "de nada; não tem de quê; à vontade",
+  "l1_hook": "Obrigado(a) pela carona! (\"anytime\")",
+  "l1_ex": "Obrigado pela carona! \"anytime\".",
+  "right": "anytime",
+  "native": {
+   "hook": "O que significa “anytime”?",
+   "tip": "“anytime” = de nada; não tem de quê; à vontade. Exemplo: “Thanks for the ride! Anytime.”",
+   "caption": "O que significa “anytime”?\n“anytime” = de nada; não tem de quê; à vontade.\nExemplo: “Thanks for the ride! Anytime.” (Obrigado pela carona! \"anytime\".)\nAprenda gírias em inglês de graça no Lexkite.",
+   "comment": "Resposta: “anytime” = de nada; não tem de quê; à vontade. “Thanks for the ride! Anytime.” Pratique mais de graça: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#inglesonline",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Thanks so much for the ride!"
+ },
+ "src": {
+  "slang": "anytime"
+ },
+ "lang": "pt",
+ "est": {
+  "words": 18,
+  "seconds": 10.8,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "O que significa “anytime”?",
+  "keyword": "anytime",
+  "value": "“anytime” = de nada; não tem de quê; à vontade. Exemplo: “Thanks for the ride! Anytime.”",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "O que significa “anytime”?",
+    "description": "“anytime” = de nada; não tem de quê; à vontade. Exemplo: “Thanks for the ride! Anytime.”\n\nO que significa “anytime”?\n“anytime” = de nada; não tem de quê; à vontade.\nExemplo: “Thanks for the ride! Anytime.” (Obrigado pela carona! \"anytime\".)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "tags": [
+     "anytime",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "O que significa “anytime”?\n“anytime” = de nada; não tem de quê; à vontade.\nExemplo: “Thanks for the ride! Anytime.” (Obrigado pela carona! \"anytime\".)\nAprenda gírias em inglês de graça no Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "O que significa “anytime”?\n\n“anytime” = de nada; não tem de quê; à vontade. Exemplo: “Thanks for the ride! Anytime.”\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#inglesonline",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "O que significa “anytime”? “anytime” = de nada; não tem de quê; à vontade. Exemplo: “Thanks for the ride!… #aprenderingles #inglesfacil #inglesonline"
+   }
+  },
+  "first_comment": "Resposta: “anytime” = de nada; não tem de quê; à vontade. “Thanks for the ride! Anytime.” Pratique mais de graça: {link}",
+  "lang": "pt"
+ }
+}
