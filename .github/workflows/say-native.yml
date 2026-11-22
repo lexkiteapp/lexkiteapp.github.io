@@ -14,6 +14,7 @@ on:
     inputs:
       langs: { description: 'comma list (empty = all 14)', default: '' }
       redo: { description: 'redo existing meanings (true/false)', default: 'false' }
+      lines: { description: 'Slang Card L1: translate hook + example of the first N slang episodes (0 = off)', default: '40' }
 permissions:
   contents: read
   id-token: write        # OIDC for /api/lexai
@@ -37,6 +38,7 @@ jobs:
         env:
           LX_IN1: ${{ inputs.langs && format('--langs {0}', inputs.langs) || '' }}
           LX_IN2: ${{ inputs.redo == 'true' && '--redo' || '' }}
+          LX_LINES: ${{ inputs.lines || '40' }}
           # 01/11: same pool order as lexicon-expand (run 41214894745 failed with only GrabCast + CF account 2): Gemini/Groq free-key pools → cf2 = CF_POOL rotation
           GEMINI_POOL: ${{ secrets.GEMINI_POOL }}
           GROQ_POOL: ${{ secrets.GROQ_POOL }}
@@ -50,7 +52,7 @@ jobs:
           AI_POOL_GC_MAX: '2000'
         run: |
           mkdir -p out/say-native
-          node scripts/say-native/translate.mjs $LX_IN1 $LX_IN2 2>&1 | tee out/say-native/translate.log
+          node scripts/say-native/translate.mjs $LX_IN1 $LX_IN2 --lines "${LX_LINES:-40}" 2>&1 | tee out/say-native/translate.log
       - name: Build say.json
         if: always()
         shell: bash
@@ -77,13 +79,13 @@ jobs:
         shell: bash
         run: |
           cat out/say-native/report.md >> "$GITHUB_STEP_SUMMARY"
-          bash scripts/ci/push-main.sh "say-native: nghĩa 14 ngôn ngữ (ai-pool, 2 giám khảo)" content/say-native/meanings.json web/data/say.json reports/ai-pool-say-native.json
+          bash scripts/ci/push-main.sh "say-native: nghĩa 14 ngôn ngữ (ai-pool, 2 giám khảo)" content/say-native/meanings.json content/say-native/slang-lines.json web/data/say.json reports/ai-pool-say-native.json
       - name: Branch – artifact + summary + PR comment (no push)
         if: always() && github.ref != 'refs/heads/main'
         uses: ./.github/actions/bot-output
         with:
           name: say-native
-          paths: content/say-native/meanings.json web/data/say.json reports/ai-pool-say-native.json
+          paths: content/say-native/meanings.json content/say-native/slang-lines.json web/data/say.json reports/ai-pool-say-native.json
           report: out/say-native/report.md
           comment: 'true'
       - uses: actions/upload-artifact@v4
