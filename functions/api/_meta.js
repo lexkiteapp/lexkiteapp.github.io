@@ -81,26 +81,50 @@ export async function fbReel(mc, pageId, { file_url, description, title, at = 0,
 /** Carousel ảnh (Slang Card, docs/DISTRIBUTION.md "Carousel ảnh"). Kiểm tài liệu 22/11/2026 (Graph v26.0): IG child `is_carousel_item=true` + `image_url` (CHỈ JPEG), parent `media_type=CAROUSEL` + `children` (id cách nhau dấu phẩy) + `caption`;
  *  FB: mỗi ảnh POST /{page}/photos {url, published=false} → POST /{page}/feed {message, attached_media[i]={"media_fbid":id}} (+ published=false & scheduled_publish_time: 10 phút–75 ngày). 2–10 ảnh, URL https. */
 const imgUrls = (xs, max = 10) => { xs = Array.isArray(xs) ? xs : []; if (xs.length < 2 || xs.length > max || !xs.every(u => /^https:\/\//.test(String(u || '')))) throw Object.assign(new Error('meta'), { meta: true, kind: '', code: 'bad-images', step: 'images' }); return xs.map(String); };
-/** Bài nhiều ảnh trên Page → { post_id, scheduled, permalink } hoặc ném { meta, kind, code, step } như fbReel. Ảnh đã tải lên (chưa công khai) mà bước feed lỗi chỉ là ảnh mồ côi vô hình, không đăng gì. */
-export async function fbCarousel(mc, pageId, { image_urls, message, at = 0, now = Date.now() }) {
+/** Tìm bài feed (đã đăng hoặc đang hẹn giờ) của Page chứa ĐỦ các ảnh này – chống đăng trùng khi lượt trước chết sau lệnh feed (không biết đã tạo bài chưa).
+ *  → { ok, post_id|'', scheduled } | { ok: false, code, kind } (không tra được thì KHÔNG đăng mù). */
+export async function fbFindCarousel(mc, pageId, photoIds) {
+  for (const [edge, scheduled] of [['feed', false], ['scheduled_posts', true]]) {
+    const r = await mc('GET', `${pageId}/${edge}`, { fields: 'id,attachments{subattachments{target{id}}}', limit: 25 });
+    if (r.status >= 400) return { ok: false, code: r.code || String(r.status), kind: r.kind };
+    for (const p of (r.data && r.data.data) || []) {
+      const sub = ((((p.attachments || {}).data || [])[0] || {}).subattachments || {}).data || [], got = new Set(sub.map(x => String((x.target || {}).id || '')));
+      if (photoIds.length && photoIds.every(id => got.has(id)) && /^[\d_]{5,60}$/.test(String(p.id))) return { ok: true, post_id: String(p.id), scheduled };
+    }
+  }
+  return { ok: true, post_id: '', scheduled: false };
+}
+/** Bài nhiều ảnh trên Page → { post_id, scheduled, permalink, found? } hoặc ném { meta, kind, code, step } như fbReel.
+ *  Chống trùng (như onStart của fbReel): onPhoto(ids) lưu id ảnh NGAY sau mỗi lần tải; photo_ids = ảnh đã tải ở lượt trước (dùng lại, không tải lại);
+ *  onFeed() lưu dấu "sắp gọi feed" TRƯỚC lệnh feed; recheck = lượt trước đã đặt dấu đó → tra bài có sẵn (fbFindCarousel) trước khi gọi feed (có rồi → found, không đăng lần 2). */
+export async function fbCarousel(mc, pageId, { image_urls, message, at = 0, now = Date.now(), photo_ids = [], onPhoto = null, onFeed = null, recheck = false }) {
   const page = String(pageId), urls = imgUrls(image_urls), err = (r, step) => Object.assign(new Error('meta'), { meta: true, kind: r.kind, code: r.code || String(r.status), step });
-  const ids = [];
-  for (const url of urls) {
+  const ids = photo_ids.filter(id => ID.test(String(id))).slice(0, urls.length).map(String);
+  for (const url of urls.slice(ids.length)) {
     const r = await mc('POST', `${page}/photos`, { url, published: 'false' }); const id = String((r.data && r.data.id) || '');
-    if (r.status >= 400 || !ID.test(id)) throw err(r, 'photo'); ids.push(id);
+    if (r.status >= 400 || !ID.test(id)) throw err(r, 'photo'); ids.push(id); if (onPhoto) await onPhoto(ids.slice());
+  }
+  if (recheck) {
+    const f = await fbFindCarousel(mc, page, ids);
+    if (!f.ok) throw err(f, 'recheck');
+    if (f.post_id) return { post_id: f.post_id, scheduled: f.scheduled, permalink: `https://www.facebook.com/${f.post_id}`, found: true };
   }
   const sched = at >= now + 15 * 60e3;
+  if (onFeed) await onFeed();
   const f = await mc('POST', `${page}/feed`, { message: String(message || '').slice(0, 2200), ...Object.fromEntries(ids.map((id, i) => [`attached_media[${i}]`, JSON.stringify({ media_fbid: id })])), ...(sched ? { published: 'false', scheduled_publish_time: Math.floor(at / 1000) } : {}) });
   const post_id = String((f.data && f.data.id) || '');
   if (f.status >= 400 || !/^[\d_]{5,60}$/.test(post_id)) throw err(f, 'feed');
   return { post_id, scheduled: sched, permalink: `https://www.facebook.com/${post_id}` };
 }
-/** IG carousel: container con cho từng ảnh → container cha. Trả id cha (rồi dùng igStatus → igQuota → igPublish như Reel). */
-export async function igCarouselContainer(mc, igId, { image_urls, caption }) {
-  const urls = imgUrls(image_urls), kids = [], err = (r, step) => Object.assign(new Error('meta'), { meta: true, kind: r.kind, code: r.code || String(r.status), step });
-  for (const image_url of urls) {
+/** IG carousel: container con cho từng ảnh → container cha. Trả id cha (rồi dùng igStatus → igQuota → igPublish như Reel).
+ *  kids = container con đã tạo ở lượt trước (dùng lại); onChild(kids) lưu NGAY sau mỗi container con. Container cha chưa công khai nên lượt chết trước khi lưu chỉ để lại container mồ côi vô hại;
+ *  đăng trùng không thể xảy ra vì media_publish chỉ chạy trên container cha đã lưu (igStatus PUBLISHED → coi như đã đăng). */
+export async function igCarouselContainer(mc, igId, { image_urls, caption, kids = [], onChild = null }) {
+  const urls = imgUrls(image_urls), err = (r, step) => Object.assign(new Error('meta'), { meta: true, kind: r.kind, code: r.code || String(r.status), step });
+  kids = kids.filter(id => ID.test(String(id))).slice(0, urls.length).map(String);
+  for (const image_url of urls.slice(kids.length)) {
     const r = await mc('POST', `${igId}/media`, { image_url, is_carousel_item: 'true' }); const id = String((r.data && r.data.id) || '');
-    if (r.status >= 400 || !ID.test(id)) throw err(r, 'child'); kids.push(id);
+    if (r.status >= 400 || !ID.test(id)) throw err(r, 'child'); kids.push(id); if (onChild) await onChild(kids.slice());
   }
   const r = await mc('POST', `${igId}/media`, { media_type: 'CAROUSEL', children: kids.join(','), caption: String(caption || '').slice(0, 2200) }); const id = String((r.data && r.data.id) || '');
   if (r.status >= 400 || !ID.test(id)) throw err(r, 'container');

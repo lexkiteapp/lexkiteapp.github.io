@@ -27,7 +27,7 @@ import { metaChannels, tokenOf, refreshIg, igNeedsRefresh, markToken, setToken, 
 // ---------------- Hàm thuần (test: scripts/test/social-auto.mjs) ----------------
 export const AUTO_PLATS = ['facebook_page', 'instagram', 'tiktok', 'youtube', 'threads'];
 /** on = kill switch (TẮT → không gọi GrabCast gì cả) · auto_approve mặc định TẮT · TikTok BẬT (Direct Post duyệt 03/11/2026) · YouTube qua GrabCast tự bật khi workspace có kênh YouTube ok (yt_gc_auto; GrabCast qua audit YouTube 10/11/2026), plats.youtube = đường API trực tiếp. plan_daily BẬT: lịch tự xếp mỗi ngày (chỉ D1, không đăng gì khi chưa duyệt). */
-export const AUTO_DEFAULT = { on: true, auto_approve: false, auto_queue: false, manual_first: 1, plats: { facebook_page: true, instagram: true, tiktok: true, youtube: false, threads: false }, max_per_run: 8, lookahead_h: 30, lead_min: 20, sync_h: 3, daily_calls: 480, plan_daily: true, provider: 'auto', meta_daily: 80, meta_map: {}, carousel: true, yt_gc_auto: true, fc: FC_DEFAULT };
+export const AUTO_DEFAULT = { on: true, auto_approve: false, auto_queue: false, manual_first: 1, plats: { facebook_page: true, instagram: true, tiktok: true, youtube: false, threads: false }, max_per_run: 8, lookahead_h: 30, lead_min: 20, sync_h: 3, daily_calls: 480, plan_daily: true, provider: 'auto', meta_daily: 80, meta_map: {}, yt_gc_auto: true, fc: FC_DEFAULT };
 export const PROVIDERS = ['auto', 'grabcast', 'meta'];
 /** Chủ 10/11 + 16/11/2026: "tự duyệt tự đăng luôn … lên lịch sẵn" – fanpage 4–5 ngày không có video vì autopub chỉ bật YouTube: FB/IG/TikTok tạo bài nháp ở GrabCast rồi chờ duyệt mãi (log 16/11: tạo 3 · lên lịch 0 · chờ duyệt 3).
  *  Áp MỘT lần lên cấu hình đang lưu (policy khác POLICY): bỏ duyệt tay bài đầu, tự vào hàng, tự duyệt, autopub BẬT cho FB + IG + TikTok + YouTube (cổng QC/policy ở autoQueue/approve giữ nguyên). Sau đó cấu hình mang policy → anh đổi gì ở Quản trị thì giữ nguyên. Công tắc khẩn `on` không đụng. */
@@ -42,7 +42,7 @@ export function cleanAuto(a) {
     max_per_run: clamp(a.max_per_run, 1, 8, d.max_per_run), lookahead_h: clamp(a.lookahead_h, 2, 72, d.lookahead_h), lead_min: clamp(a.lead_min, 10, 180, d.lead_min),
     sync_h: clamp(a.sync_h, 3, 24, d.sync_h), daily_calls: clamp(a.daily_calls, 10, 600, d.daily_calls), plan_daily: a.plan_daily == null ? d.plan_daily : !!a.plan_daily,
     yt_gc_auto: a.yt_gc_auto == null ? d.yt_gc_auto : !!a.yt_gc_auto, fc: cleanFc(a.fc), // bình luận đầu mang link (§6c): bật, ≤ per_ch_day/kênh/ngày, ≤ max_tries lần thử
-    carousel: a.carousel == null ? d.carousel : !!a.carousel, // Carousel ảnh Slang Card (FB + IG, đường Meta): TẮT = không nhận/đăng carousel, Reel không đổi
+    carousel: a.carousel == null ? true : !!a.carousel, // Carousel ảnh Slang Card (FB + IG, đường Meta): TẮT = không nhận/đăng carousel, Reel không đổi
     provider: PROVIDERS.includes(a.provider) ? a.provider : d.provider, meta_daily: clamp(a.meta_daily, 20, 200, d.meta_daily),
     meta_map: Object.fromEntries(['facebook_page', 'instagram'].filter(p => a.meta_map && /^gc-[a-z_]+-[A-Za-z0-9_-]{1,40}$/.test(String(a.meta_map[p] || ''))).map(p => [p, String(a.meta_map[p])])) };
 }
@@ -233,8 +233,8 @@ export async function setupLock(db, env) {
  *  ALTER từng cột riêng, bỏ qua "duplicate column" (lần chạy dở trước) – không bao giờ chặn lượt đăng. */
 export async function setupFc(db, env) {
   await setupMgr(db);
-  await once(db, 'soc-fc', 1, async () => {
-    for (const q of ['ALTER TABLE soc_board ADD COLUMN fc TEXT', 'ALTER TABLE soc_lock ADD COLUMN fc_state TEXT', 'ALTER TABLE soc_lock ADD COLUMN fc_id TEXT', 'ALTER TABLE soc_lock ADD COLUMN fc_tries INTEGER', 'ALTER TABLE soc_lock ADD COLUMN fc_at INTEGER'])
+  await once(db, 'soc-fc', 2, async () => {
+    for (const q of ['ALTER TABLE soc_lock ADD COLUMN parts TEXT', 'ALTER TABLE soc_board ADD COLUMN fc TEXT', 'ALTER TABLE soc_lock ADD COLUMN fc_state TEXT', 'ALTER TABLE soc_lock ADD COLUMN fc_id TEXT', 'ALTER TABLE soc_lock ADD COLUMN fc_tries INTEGER', 'ALTER TABLE soc_lock ADD COLUMN fc_at INTEGER'])
       await db.prepare(q).run().catch(e => { if (!/duplicate column/i.test(String(e && e.message))) throw e; });
     await db.prepare('CREATE INDEX IF NOT EXISTS soc_lock_fc ON soc_lock (fc_state)').run(); // lượt bình luận Meta chỉ đọc hàng đang chờ (không quét bảng)
   }, { env });
@@ -710,9 +710,9 @@ export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = f
             const s = await fbStatus(mc, lock.meta_id);
             if (s.ok && s.published) { await setLock(db, r.clip, r.channel_id, { state: 'posted', permalink: s.permalink }); await done(r, bid, lock.meta_id, 'fb', s.permalink, true); continue; }
           }
-          if (card) { // bài nhiều ảnh: 1 lệnh feed sau khi tải ảnh lên (khóa 'claimed' trước để lượt chết giữa chừng không im lặng đăng lại)
-            await setLock(db, r.clip, r.channel_id, { state: 'claimed' });
-            const out = await fbCarousel(mc, tgt, { image_urls: card_urls, message: b.caption, at: r.slot_ms, now }).catch(async e => { throw await mErr(e); });
+          if (card) { // bài nhiều ảnh – chống trùng như Reel: id ảnh lưu ngay (soc_lock.parts), dấu "đang gọi feed" lưu TRƯỚC lệnh feed; lượt sau dùng lại ảnh + tra bài có sẵn trước khi gọi feed
+            let pr = (() => { try { return JSON.parse(lock.parts || '{}'); } catch (e) { return {}; } })(); const was = pr, put = o => { pr = { ...pr, ...o }; return setLock(db, r.clip, r.channel_id, { state: 'claimed', parts: JSON.stringify(pr) }); };
+            const out = await fbCarousel(mc, tgt, { image_urls: card_urls, message: b.caption, at: r.slot_ms, now, photo_ids: was.photos || [], recheck: !!was.feeding, onPhoto: ids => put({ photos: ids }), onFeed: () => put({ feeding: true }) }).catch(async e => { throw await mErr(e); });
             await setLock(db, r.clip, r.channel_id, { state: out.scheduled ? 'scheduled' : 'posted', meta_id: out.post_id, permalink: out.permalink, err: null });
             await done(r, bid, out.post_id, 'fb', out.permalink, !out.scheduled);
             if (out.scheduled) M.scheduled++; else M.posted++;
@@ -725,7 +725,7 @@ export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = f
           continue;
         }
         if (step === 'ig-container') {
-          const cid = await (card ? igCarouselContainer(mc, tgt, { image_urls: card_urls, caption: b.caption }) : igContainer(mc, tgt, { video_url: file_url, caption: b.caption, cover_url })).catch(async e => { throw await mErr(e); });
+          const cid = await (card ? igCarouselContainer(mc, tgt, { image_urls: card_urls, caption: b.caption, kids: (() => { try { return JSON.parse(lock.parts || '{}').kids || []; } catch (e) { return []; } })(), onChild: kids => setLock(db, r.clip, r.channel_id, { parts: JSON.stringify({ kids }) }) }) : igContainer(mc, tgt, { video_url: file_url, caption: b.caption, cover_url })).catch(async e => { throw await mErr(e); });
           await setLock(db, r.clip, r.channel_id, { container: cid, err: null }); M.containers++;
           if (now < r.slot_ms - IG_EARLY_MS) continue;
           lock = await lockOf(db, r.clip, r.channel_id);

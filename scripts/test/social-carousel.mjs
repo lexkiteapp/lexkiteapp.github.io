@@ -79,15 +79,18 @@ const BAD = mk('teach2d-t2s-pigout-cards', { format: 'carousel', point: 'pig out
 const PLAIN = mk('teach2d-call-mytreat', { template: 'call', video: 'shorts/teach2d/call/teach2d-call-mytreat.mp4', cover: 'shorts/teach2d/call/teach2d-call-mytreat.jpg', point: 'my treat', title: 'What does "my treat" mean?' });
 let ITEMS = [REEL, CARD, BAD, PLAIN];
 
-const MG = { calls: [], n: 0 }; let gcCalls = [];
+const MG = { calls: [], n: 0, posts: [], hook: null }; // posts = bài feed/hẹn giờ có thật bên Meta (để tra chống trùng) · hook(p, f) → 'throw' (mạng chết, kết quả không rõ) | 'throw-after' (bài ĐÃ tạo rồi mới chết)
+let gcCalls = [];
 globalThis.fetch = async (url, init = {}) => {
   const u = new URL(url), body = init.body;
   if (u.hostname === 'graph.facebook.com' || u.hostname === 'graph.instagram.com') {
     const p = u.pathname.replace(/^\/v\d+\.\d\/?/, ''), f = init.method === 'GET' ? Object.fromEntries(u.searchParams) : Object.fromEntries(new URLSearchParams(body || ''));
     MG.calls.push({ host: u.hostname, m: init.method, p, f });
+    const hk = MG.hook && MG.hook(p, f, init.method); if (hk === 'throw') throw new Error('network');
     if (p === 'debug_token') return J({ data: { is_valid: true, expires_at: 0, data_access_expires_at: Math.floor((now + 80 * 864e5) / 1000), scopes: ['pages_manage_posts', 'pages_read_engagement'] } });
     if (p === '123456789/photos') return J({ id: String(500000 + (++MG.n)) });
-    if (p === '123456789/feed') return J({ id: '123456789_' + (700000 + (++MG.n)) });
+    if (p === '123456789/feed' && init.method === 'POST') { const id = '123456789_' + (700000 + (++MG.n)); MG.posts.push({ id, scheduled: f.published === 'false', attachments: { data: [{ subattachments: { data: Object.keys(f).filter(k => /^attached_media/.test(k)).map(k => ({ target: { id: JSON.parse(f[k]).media_fbid } })) } }] } }); if (hk === 'throw-after') throw new Error('network'); return J({ id }); }
+    if (/^123456789\/(feed|scheduled_posts)$/.test(p) && init.method === 'GET') return J({ data: MG.posts.filter(x => x.scheduled === (p.endsWith('scheduled_posts'))).map(x => ({ id: x.id, attachments: x.attachments })) });
     if (p === '123456789/video_reels' && f.upload_phase === 'start') return J({ video_id: String(900000 + (++MG.n)) });
     if (p === '123456789/video_reels') return J({ success: true });
     if (p === '178000000001/media') return J({ id: String(1790000 + (++MG.n)) });
@@ -189,6 +192,39 @@ ok(reels().length === 1 && !feeds().length && !MG.calls.some(c => c.p === '12345
   const chs = sql.prepare('SELECT DISTINCT channel_id AS c FROM dist_social WHERE clip = ?').all(CID).map(x => x.c), rch = sql.prepare('SELECT DISTINCT channel_id AS c FROM dist_social WHERE clip = ?').all(PLAIN.id).map(x => x.c);
   ok(chs.length > 0 && chs.every(c => /^gc-(facebook_page|instagram)-/.test(c)), `plan_run: carousel chỉ FB/IG (${chs})`);
   ok(rch.includes('gc-tiktok-9'), `tập thường vẫn được xếp TikTok như cũ (${rch})`);
+}
+
+// 2i) CHỐNG TRÙNG khi lượt chết giữa chừng (như onStart của fbReel): id ảnh/container lưu ngay vào soc_lock.parts; lượt sau dùng lại và tra bài có sẵn trước khi gọi feed
+{
+  const reset = async () => { sql.exec('DELETE FROM soc_lock; DELETE FROM soc_ledger; DELETE FROM soc_board; DELETE FROM dist_social'); MG.posts = []; MG.hook = null; await A.autoOpFor('POST', 'lk/auto/reset')({ db: DB }); const row = sql.prepare("SELECT v FROM soc_meta WHERE k = 'auto_state'").get(); if (row) { const st = JSON.parse(row.v); if (st.meta) { delete st.meta.calls; delete st.meta.br; } sql.prepare("UPDATE soc_meta SET v = ? WHERE k = 'auto_state'").run(JSON.stringify(st)); } setAuto({}); }; // ngân sách Meta/ngày + cầu dao kênh về 0 cho từng kịch bản
+  const photos = () => MG.calls.filter(c => c.p === '123456789/photos'), feedPosts = () => MG.calls.filter(c => c.p === '123456789/feed' && c.m === 'POST');
+  // (a) chết GIỮA các lần tải ảnh (ảnh 2 mất mạng): ảnh 1 đã lưu → lượt sau chỉ tải 2 ảnh còn lại, feed đúng 1 lần
+  await reset(); due(CID, FB, now + 5 * H); let k = 0; MG.hook = p => (p === '123456789/photos' && ++k === 2 ? 'throw' : null); MG.calls = [];
+  await RUN({ now }); ok(photos().length === 2 && !feedPosts().length && JSON.parse(lk(CID, FB).parts).photos.length === 1, 'chết giữa lần tải ảnh: ảnh 1 đã lưu vào khóa, chưa feed');
+  MG.hook = null; MG.calls = []; await RUN({ now: now + 1.2 * H });
+  ok(photos().length === 2 && feedPosts().length === 1 && MG.posts.length === 1 && JSON.parse(feedPosts()[0].f['attached_media[0]']).media_fbid === JSON.parse(lk(CID, FB).parts).photos[0] && lk(CID, FB).state === 'scheduled', 'lượt sau: dùng lại ảnh 1, chỉ tải 2 ảnh còn lại, đúng 1 bài feed');
+  // (b) chết SAU khi tải đủ ảnh, TRƯỚC lệnh feed (feed không tới Meta): lượt sau dùng lại 3 ảnh, tra không thấy bài → đăng 1 lần
+  await reset(); due(CID, FB, now + 5 * H); MG.hook = p => (p === '123456789/feed' ? 'throw' : null); MG.calls = [];
+  await RUN({ now }); ok(photos().length === 3 && MG.posts.length === 0 && JSON.parse(lk(CID, FB).parts).feeding === true, 'chết sau khi tải đủ ảnh: 3 ảnh + dấu feeding đã lưu, 0 bài');
+  MG.hook = null; MG.calls = []; await RUN({ now: now + 1.2 * H });
+  ok(photos().length === 0 && MG.calls.some(c => c.m === 'GET' && /scheduled_posts$/.test(c.p)) && feedPosts().length === 1 && MG.posts.length === 1 && lk(CID, FB).state === 'scheduled', 'lượt sau: 0 ảnh tải lại, tra bài có sẵn (không thấy) → feed đúng 1 lần');
+  // (c) chết SAU lệnh feed (bài ĐÃ tạo, trả lời mất): lượt sau tìm thấy bài → ghi đã đăng, KHÔNG feed lần 2
+  await reset(); due(CID, FB, now + 5 * H); MG.hook = p => (p === '123456789/feed' ? 'throw-after' : null); MG.calls = [];
+  await RUN({ now }); ok(MG.posts.length === 1 && !lk(CID, FB).meta_id, 'bài đã lên Meta nhưng lượt chết trước khi ghi id');
+  const real = MG.posts[0].id; MG.hook = null; MG.calls = []; await RUN({ now: now + 1.2 * H });
+  ok(feedPosts().length === 0 && photos().length === 0 && MG.posts.length === 1 && lk(CID, FB).meta_id === real && lk(CID, FB).state === 'scheduled' && ds(CID, FB).post_id === 'meta_fb_' + real, 'lượt sau: tìm thấy bài có sẵn → ghi nhận, 0 bài thứ 2');
+  MG.calls = []; await RUN({ now: now + 1.4 * H }); ok(!feedPosts().length && MG.posts.length === 1, 'lượt kế: vẫn không đăng lại');
+  // (d) không tra được (GET lỗi) → KHÔNG đăng mù
+  await reset(); due(CID, FB, now + 5 * H); MG.hook = p => (p === '123456789/feed' ? 'throw-after' : null); await RUN({ now });
+  MG.hook = (p, f, m) => (m === 'GET' && /^123456789\/(feed|scheduled_posts)$/.test(p) ? 'throw' : null); MG.calls = []; await RUN({ now: now + 1.2 * H });
+  ok(!feedPosts().length && MG.posts.length === 1, 'tra bài có sẵn lỗi → không đăng thêm bài');
+  // (e) IG: chết giữa các container con → lượt sau dùng lại con đã tạo, tạo phần còn lại + 1 container cha
+  await reset(); due(CID, IG, now + 1 * H); k = 0; MG.hook = (p, f) => (p === '178000000001/media' && f.is_carousel_item && ++k === 2 ? 'throw' : null); MG.calls = [];
+  await RUN({ now }); ok(igMedia().length === 2 && JSON.parse(lk(CID, IG).parts).kids.length === 1 && !lk(CID, IG).container, 'IG chết giữa container con: con 1 đã lưu, chưa có container cha');
+  const kid1 = JSON.parse(lk(CID, IG).parts).kids[0]; MG.hook = null; MG.calls = []; await RUN({ now: now + 1.2 * H });
+  ok(igMedia().filter(c => c.f.is_carousel_item).length === 2 && igMedia().filter(c => c.f.media_type === 'CAROUSEL').length === 1 && igMedia().find(c => c.f.media_type === 'CAROUSEL').f.children.split(',')[0] === kid1 && MG.calls.filter(c => c.p === '178000000001/media_publish').length <= 1, 'IG lượt sau: dùng lại con 1, tạo 2 con còn lại + 1 cha');
+  await RUN({ now: now + 1.5 * H }); ok(MG.calls.filter(c => c.p === '178000000001/media_publish').length === 1, 'IG: đúng 1 media_publish');
+  await reset();
 }
 
 // 2h) autoQueue: chỉ nhận carousel đạt cổng (cards_ok, đủ ảnh trên kho) và khi công tắc bật
