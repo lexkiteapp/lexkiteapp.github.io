@@ -18,8 +18,8 @@ const walk = (d, o = []) => { for (const e of fs.readdirSync(d, { withFileTypes:
 
 export function lazyModel() {
   const BUNDLES = readBundles();
-  const ux1 = new Set(BUNDLES.ux1 || []);
-  const lazy = new Set(Object.entries(BUNDLES).flatMap(([k, v]) => /^(ux1|i18nx|i18nl)$/.test(k) ? [] : v).filter(f => !ux1.has(f) && !f.startsWith('js/i18n/')).map(f => 'web/' + f));
+  const ux1 = new Set(Object.entries(BUNDLES).filter(([k]) => /^(ux1|u1\w+)$/.test(k)).flatMap(([, v]) => v));
+  const lazy = new Set(Object.entries(BUNDLES).flatMap(([k, v]) => /^(ux1|u1\w+|i18nx|i18nl)$/.test(k) ? [] : v).filter(f => !ux1.has(f) && !f.startsWith('js/i18n/')).map(f => 'web/' + f));
   for (const u of firstLoadFiles()) lazy.delete('web' + u);
   const all = walk('web');
   for (const h of all.filter(f => f.endsWith('.html'))) for (const m of rd(h).matchAll(/<script\b[^>]*\bsrc="([^"]+)"/g)) lazy.delete('web/' + m[1].replace(/^(\.\.\/)+|^\//, '').replace(/\?.*/, ''));
