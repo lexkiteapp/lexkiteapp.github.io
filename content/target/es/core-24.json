@@ -2,7 +2,7 @@
  "v": 1,
  "tl": "es",
  "variant": "es-419",
- "status": "pending-review",
+ "status": "reviewed",
  "source": {
   "name": "FrequencyWords (hermitdave) – OpenSubtitles 2018 es_50k",
   "url": "https://raw.githubusercontent.com/hermitdave/FrequencyWords/master/content/2018/es/es_50k.txt",
@@ -140,7 +140,7 @@
     "pt": "ódio",
     "fr": "haine",
     "de": "Hass",
-    "vi": "ghét",
+    "vi": "sự căm ghét",
     "id": "kebencian",
     "th": "ความเกลียดชัง",
     "zh": "仇恨",
@@ -421,7 +421,7 @@
    "plural": "caballos",
    "ipa": "kaˈβaʝo",
    "gl": {
-    "vi": "con ngựa",
+    "vi": "ngựa",
     "en": "horse",
     "es": "caballo",
     "pt": "cavalo",
@@ -847,7 +847,7 @@
    },
    "ex": {
     "es": "La música del baile estuvo muy divertida.",
-    "en": "The dance music was very fun."
+    "en": "The music at the dance was a lot of fun."
    },
    "rank": 1046,
    "qa": {
@@ -1028,7 +1028,7 @@
    "pos": "v",
    "ipa": "tɾaˈeɾ",
    "gl": {
-    "vi": "mang lại",
+    "vi": "mang đến",
     "en": "to bring",
     "es": "traer",
     "pt": "trazer",
@@ -1540,7 +1540,7 @@
    },
    "ex": {
     "es": "El respeto es la base de una buena amistad.",
-    "en": "Respect is the basis of a good friendship."
+    "en": "Respect is the foundation of a good friendship."
    },
    "rank": 1108,
    "qa": {
@@ -1548,47 +1548,6 @@
     "judges": [
      "openai/gpt-oss-120b",
      "qwen/qwen3.8-27b"
-    ],
-    "bt": "openai/gpt-oss-120b",
-    "scores": [
-     5,
-     5
-    ]
-   }
-  },
-  {
-   "word": "perra",
-   "pos": "n",
-   "gender": "f",
-   "plural": "perras",
-   "ipa": "ˈpera",
-   "gl": {
-    "vi": "chó cái",
-    "en": "female dog",
-    "es": "perra",
-    "pt": "cadela",
-    "fr": "chienne",
-    "de": "Hündin",
-    "id": "anjing betina",
-    "th": "สุนัขตัวเมีย",
-    "zh": "母狗",
-    "ja": "雌犬",
-    "ko": "암캐",
-    "hi": "कुतिया",
-    "ar": "كلبة",
-    "ru": "сука",
-    "tr": "dişi köpek"
-   },
-   "ex": {
-    "es": "Mi perra duerme en el jardín.",
-    "en": "My female dog sleeps in the garden."
-   },
-   "rank": 1112,
-   "qa": {
-    "gen": "gemini-3.8-flash",
-    "judges": [
-     "qwen/qwen3.8-27b",
-     "openai/gpt-oss-120b"
     ],
     "bt": "openai/gpt-oss-120b",
     "scores": [
@@ -2130,7 +2089,7 @@
    "pos": "v",
    "ipa": "eskuˈtʃaɾ",
    "gl": {
-    "vi": "nghe",
+    "vi": "lắng nghe",
     "en": "to listen to",
     "es": "escuchar",
     "pt": "escutar",
@@ -3161,7 +3120,7 @@
     "tr": "göz atma"
    },
    "ex": {
-    "es": "Voy a dar un vistazo a ese libro.",
+    "es": "Voy a echar un vistazo a ese libro.",
     "en": "I am going to take a look at that book."
    },
    "rank": 1208,
@@ -4332,8 +4291,8 @@
     "tr": "haşmet"
    },
    "ex": {
-    "es": "El rey habló con mucha majestad.",
-    "en": "The king spoke with great majesty."
+    "es": "Su Majestad, el rey, llegó al palacio.",
+    "en": "His Majesty the king arrived at the palace."
    },
    "rank": 1296,
    "qa": {
@@ -4357,7 +4316,7 @@
    "plural": "marchas",
    "ipa": "ˈmaɾtʃa",
    "gl": {
-    "vi": "cuộc diễu hành",
+    "vi": "cuộc tuần hành",
     "en": "march",
     "es": "marcha",
     "pt": "marcha",
@@ -4614,7 +4573,7 @@
     "tr": "kaçınmak"
    },
    "ex": {
-    "es": "Debes evitar comer tanta azúcar.",
+    "es": "Debes evitar comer tanto azúcar.",
     "en": "You should avoid eating so much sugar."
    },
    "rank": 1319,
@@ -4638,7 +4597,7 @@
    "plural": "máquinas",
    "ipa": "ˈmakina",
    "gl": {
-    "vi": "máy móc",
+    "vi": "máy",
     "en": "machine",
     "es": "máquina",
     "pt": "máquina",
@@ -4680,11 +4639,11 @@
    "ipa": "paˈɾexa",
    "gl": {
     "es": "pareja",
-    "en": "partner",
+    "en": "partner, couple",
     "pt": "parceiro/a",
     "fr": "partenaire",
     "de": "Partner/in",
-    "vi": "đối tác",
+    "vi": "bạn đời, cặp đôi",
     "id": "pasangan",
     "th": "คู่",
     "zh": "伴侣",
@@ -4923,7 +4882,7 @@
    "plural": "islas",
    "ipa": "ˈisla",
    "gl": {
-    "vi": "hòn đảo",
+    "vi": "đảo",
     "en": "island",
     "es": "isla",
     "pt": "ilha",
@@ -5044,7 +5003,7 @@
    "pos": "v",
    "ipa": "despeɾˈtaɾ",
    "gl": {
-    "vi": "đánh thức",
+    "vi": "thức dậy, đánh thức",
     "en": "to wake up",
     "es": "despertar",
     "pt": "acordar",
@@ -5086,7 +5045,7 @@
    "plural": "calores",
    "ipa": "kaˈloɾ",
    "gl": {
-    "vi": "sự nóng",
+    "vi": "cái nóng",
     "en": "heat",
     "es": "calor",
     "pt": "calor",
@@ -5286,8 +5245,8 @@
    "pos": "v",
    "ipa": "saˈliɾ",
    "gl": {
-    "vi": "đi ra",
-    "en": "to leave",
+    "vi": "đi ra, rời đi",
+    "en": "to leave, to go out",
     "es": "salir",
     "pt": "sair",
     "fr": "sortir",
@@ -5507,10 +5466,10 @@
     "tr": "kazanmak"
    },
    "ex": {
-    "es": "Hemos ganado el partido de fútbol hoy.",
-    "en": "We have won the soccer match today."
+    "es": "Ayer ganamos el partido de fútbol.",
+    "en": "We won the soccer match yesterday."
    },
-   "exForm": "ganado",
+   "exForm": "ganamos",
    "rank": 1393,
    "qa": {
     "gen": "gemini-3.8-flash",
@@ -5549,8 +5508,8 @@
     "tr": "hareket"
    },
    "ex": {
-    "es": "El baile tiene un movimiento muy rápido.",
-    "en": "The dance has a very fast movement."
+    "es": "Este baile tiene movimientos muy rápidos.",
+    "en": "This dance has very fast movements."
    },
    "rank": 1394,
    "qa": {
@@ -5565,7 +5524,8 @@
      5
     ],
     "ipaAi": "moβiˈmjento"
-   }
+   },
+   "exForm": "movimientos"
   },
   {
    "word": "inocente",
@@ -5712,8 +5672,8 @@
     "tr": "parlak, zeki"
    },
    "ex": {
-    "es": "El sol está muy brillante hoy.",
-    "en": "The sun is very bright today."
+    "es": "La luz de la lámpara es muy brillante.",
+    "en": "The lamp light is very bright."
    },
    "rank": 1408,
    "qa": {
@@ -6102,7 +6062,7 @@
    "ipa": "noˈtisja",
    "gl": {
     "vi": "tin tức",
-    "en": "news item",
+    "en": "piece of news",
     "es": "noticia",
     "pt": "notícia",
     "fr": "nouvelle",
@@ -6180,7 +6140,7 @@
    "pos": "adj",
    "ipa": "riˈðikulo",
    "gl": {
-    "vi": "buồn cười, lố bịch",
+    "vi": "lố bịch, nực cười",
     "en": "ridiculous",
     "es": "ridículo",
     "pt": "ridículo",
@@ -6507,15 +6467,15 @@
    "pos": "v",
    "ipa": "inteɾeˈsaɾ",
    "gl": {
-    "vi": "quan tâm",
+    "vi": "làm hứng thú, khiến quan tâm",
     "en": "to interest",
     "es": "interesar",
     "pt": "interessar",
     "fr": "intéresser",
     "de": "interessieren",
     "id": "menarik minat",
-    "th": "สนใจ",
-    "zh": "感兴趣",
+    "th": "ทำให้สนใจ",
+    "zh": "使感兴趣",
     "ja": "興味を持たせる",
     "ko": "흥미를 끌다",
     "hi": "रुचि होना",
@@ -6628,7 +6588,7 @@
    "plural": "asuntos",
    "ipa": "aˈsunto",
    "gl": {
-    "vi": "vấn đề",
+    "vi": "việc, vấn đề",
     "en": "matter",
     "es": "asunto",
     "pt": "assunto",
@@ -6767,8 +6727,8 @@
     "tr": "zıt"
    },
    "ex": {
-    "es": "Este libro es el contrario del otro.",
-    "en": "This book is the opposite of the other."
+    "es": "Voy en la dirección contraria.",
+    "en": "I'm going in the opposite direction."
    },
    "rank": 1482,
    "qa": {
@@ -6782,7 +6742,8 @@
      5,
      4
     ]
-   }
+   },
+   "exForm": "contraria"
   },
   {
    "word": "subir",
@@ -6926,8 +6887,8 @@
     "tr": "düşmek"
    },
    "ex": {
-    "es": "No quiero caer.",
-    "en": "I don't want to fall."
+    "es": "Ten cuidado, no te vayas a caer.",
+    "en": "Be careful, you might fall."
    },
    "rank": 1493,
    "qa": {
@@ -6950,8 +6911,8 @@
    "plural": "redes",
    "ipa": "ˈred",
    "gl": {
-    "vi": "mạng lưới / lưới",
-    "en": "net / network",
+    "vi": "mạng, lưới",
+    "en": "network, net",
     "es": "red",
     "pt": "rede",
     "fr": "réseau / filet",

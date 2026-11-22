@@ -18,7 +18,8 @@
     "_note": "Tải lần đầu theo gói (JS BUNDLES + CSS BCSS, gzip chuẩn) – chỉ được giảm. 3/11 ux1 (Home/Hôm nay): mốc main 32c7194bd = 122044 B (JS 56295 + CSS 65749).",
     "ux1": 122044
   },
-  "cpackTotal": 12803000,
+  "cpackTotal": 12846000,
+  "_cpackNote13": "22/11 (es W1 kho từ, lazy – budget-self-decide): +43 000 B đúng phần đo (12 845 050 B) cho lô core-24 (175 từ es duyệt) + giống/số nhiều bất quy tắc trong wd.js; chỉ tải lười ở #/practice/esd (wd.js + 1 wd-<ngôn ngữ>), byte người học/khung không đổi. Lô es kế tiếp tăng ~+40 KB/175 từ.",
   "_cpackNote12": "21/11 (điều phối giao, giảm byte người học thật): dời 4 đề TOEIC lười (reading4, listening3/4/7 = 299 KB) web/js/toeic → web/cpack/toeic; totalJs 9 200 000 → 8 897 000 (thực tế + ~200 KB, KHÔNG nâng), cpackTotal 12 608 500 → 12 803 000 (đo 12 795 384 + 8 KB).",
   "_cpackNote11": "19/11 điều phối duyệt: cpackTotal +24 500 B (đúng số byte dời grammar/check.js sang cpack ở PR #1627, cộng trên mốc 12 470 000 của ci-byte-headroom (#1543)).",
   "_cpackNote7": "19/11 (điều phối giao, giảm byte người học thật, budget-self-decide): cpackTotal 10 500 000 → 11 600 000 B (đo + ~275 KB cho PR nội dung lazy kế tiếp) – chỉ trần lazy-pack nội dung; dời 5 kho từ tải lười theo gói tsl (domain-a, domain-b, exam-vocab, exam-vocab2, exam-vocab3: 888 KB chữ thuần) từ web/js/lib sang web/cpack/lib (cache runtime, băm tên, không precache); đo 11 325 042 B. totalJs 10 975 000 → 10 275 000 (web/js thực 10 083 745 + 191 KB; trần chỉ đi xuống, KHÔNG nâng): chỗ trống byte người học 4 KB → 191 KB.",
