@@ -519,6 +519,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
     return (m ? tp && tp.words && tp.words.length : /^(deck|due|weak|forgetting|phrases)$/.test(src)) ? ['words', 'tsl'] : [];
   };
   const V2_ROUTES = new Set(['train', 'skills', 'me', 'say', 'goal']);
+  const HB_ROUTES = new Set(['vocab', 'library', 'tests']); // trang gắn thanh hub Stitch (ST2.hubbar/hubPage) lúc dựng xong: thanh trên cũ phải ẩn NGAY lúc chạm (class hbpre), không thì #view nhảy lên 56 px khi trang dựng (CLS 0,066 #/vocab #/tests #/library)
   // 🧈 Cuộn: docs/PERF-SCROLL.md
   const Scroll = (() => {
     const de = document.documentElement, pos = new Map(); let off = 0, seq = 0, cur = '', inputAt = 0, movedAt = 0;
@@ -561,6 +562,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
     // v2pre = #view không đệm (màn Stitch tràn khung). Đang hiện màn v2 mà đi sang trang thường: GIỮ v2pre tới khi nội dung mới thay vào, không thì màn cũ dịch ~26 px lúc đệm quay lại (CLS sweep #/speak)
     const preNow = ux1 && (reviewHub || V2_ROUTES.has(name) || (name === 'lesson' && !!arg) || (name === 'league' && !!state.user)), holdPre = !preNow && document.body.classList.contains('v2pre'), first0 = view.firstElementChild;
     if (!holdPre) document.body.classList.toggle('v2pre', preNow);
+    document.body.classList.toggle('hbpre', ux1 && HB_ROUTES.has(name));
     try { localStorage.setItem('lk.ux1c', ux1 ? '1' : '0'); } catch (e) { /* bỏ qua */ }
     if (!ux1) document.body.classList.remove('ux1');
     if (name !== 'welcome') document.body.classList.remove('bare'); // thanh trên hiện ngay lúc chạm (CLS #/home)
