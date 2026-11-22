@@ -1189,6 +1189,8 @@
   "rev.rhythm": "节奏",
   "rev.practiseSpanish": "西班牙语练习",
   "rev.practiseFrench": "法语练习",
+  "rev.dailyPath": "学习路径",
+  "rev.dailyPathHint": "每天学新词、语法，还有 AI 通话",
   "rev.testHint": "20 道混合题，已评分",
   "rev.writingRoom": "写作室",
   "rev.writingRoomHint": "编写任务2，进行词汇分析",

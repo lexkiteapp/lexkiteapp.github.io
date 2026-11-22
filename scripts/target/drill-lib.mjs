@@ -26,8 +26,8 @@ const FR_TN = { pres: 'présent', impf: 'imparfait', ps: 'passé simple', fut: '
   pc: 'passé composé', plup: 'plus-que-parfait', pa: 'passé antérieur', futAnt: 'futur antérieur', condPasse: 'conditionnel passé', subjPasse: 'subjonctif passé', futProche: 'futur proche', passeRecent: 'passé récent' };
 const frPron = (i, ans) => (i === 0 && /^[aeiouyéèêâîôœh]/i.test(ans) && !/^ha[ïrs]/i.test(ans) ? "j'" : ['je ', 'tu ', 'il ', 'nous ', 'vous ', 'ils '][i]);
 export const TLP = {
-  es: { D: 'content/target/es/', OUT: 'web/cpack/es/', G: 'ESX', C: ES, n: 5, px: true, VERBAL: new Set(['verb', 'mood', 'sereestar', 'modal', 'cond']), VERBS, TN, PRON: i => PRON[i] + ' ', IMPP, extra: true },
-  fr: { D: 'content/target/fr/', OUT: 'web/cpack/fr/', G: 'FRX', C: FR, n: 6, px: true, VERBAL: new Set(['verb', 'mood', 'etreavoir', 'modal', 'cond', 'passive']),
+  es: { tl: 'es', path: true, D: 'content/target/es/', OUT: 'web/cpack/es/', G: 'ESX', C: ES, n: 5, px: true, VERBAL: new Set(['verb', 'mood', 'sereestar', 'modal', 'cond']), VERBS, TN, PRON: i => PRON[i] + ' ', IMPP, extra: true },
+  fr: { tl: 'fr', path: true, D: 'content/target/fr/', OUT: 'web/cpack/fr/', G: 'FRX', C: FR, n: 6, px: true, VERBAL: new Set(['verb', 'mood', 'etreavoir', 'modal', 'cond', 'passive']),
     VERBS: { A1: 'être avoir aller faire parler aimer habiter manger finir prendre venir vouloir pouvoir voir'.split(' '),
       A2: 'partir sortir dormir savoir mettre dire lire écrire boire choisir attendre appeler acheter commencer'.split(' '),
       B1: 'connaître recevoir devoir croire vivre suivre ouvrir conduire peindre envoyer préférer réussir'.split(' ') },
@@ -64,10 +64,10 @@ export function build(tl = 'es') {
     for (const p of pts) if (src[p.id]) o[p.id] = [src[p.id].t, src[p.id].x];
     files[`gx-${l}.js`] = `self.${X}=self.${X}||{};(${X}.gx=${X}.gx||{})[${JSON.stringify(l)}]=${JSON.stringify(o)};\n`;
   }
-  if (T.px) Object.assign(files, buildPx(tl).files); // W3 (es · fr): gói phát âm (px.js + px-<ngôn ngữ>.js) cùng thư mục
-  if (!T.extra) { if (T.exam) Object.assign(files, buildExam(tl).files); return { files, dr, pts, cloze }; } // fr: thi W5 (chỉ có gói khi nguồn Tatoeba đã dựng); lộ trình thêm ở W4
-  Object.assign(files, buildExam().files); // gói luyện định dạng DELE/SIELE W5 (x-<cấp>.js + x-ui-<ngôn ngữ>.js)
-  Object.assign(files, buildPath(pts, buildPx().topics).files); // gói lộ trình ngày W4 (wd/dy/cl + bản dịch 15 ngôn ngữ)
+  const px = T.px ? buildPx(tl) : null; // W3: gói phát âm của tl (px.js + px-<ngôn ngữ>.js), chủ đề dùng cho bước phát âm của lộ trình
+  if (px) Object.assign(files, px.files);
+  if (T.extra || T.exam) Object.assign(files, buildExam(tl).files); // W5: es DELE/SIELE · fr DELF/DALF (fr chỉ có gói khi nguồn Tatoeba đã dựng)
+  if (T.path) Object.assign(files, buildPath(pts, px ? px.topics : [], T).files); // W4: lộ trình ngày (wd/dy/cl + bản dịch 15 ngôn ngữ) – cùng buildPath cho mọi tl
   return { files, dr, pts, cloze };
 }
 
