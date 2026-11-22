@@ -43,10 +43,12 @@
   // Nguồn giọng thực phát f/k/s + lý do (docs/specs/kokoro-on-device.md §Số đo)
   const VO_SUB = ['user', 'probe', 'ios', 'mem', 'cores', 'remote', 'state'], VO_WHY = ['off', 'wait', 'load', 'fail', 'lang', 'pref', 'part', ...VO_SUB.map(x => 'off_' + x)], vo = {}, inc = k => { vo[k] = (vo[k] || 0) + 1; };
   // w = lý do; sub = nhãn con của 'off' (máy/cờ nào); part = true khi một PHẦN câu đã có file Kokoro nhưng cả đoạn vẫn rơi về giọng máy
-  const src = (k, w, sub, part) => { if (!/^[fks]$/.test(k)) return; inc(k); stats['src_' + k] = vo[k]; if (k !== 's') return; if (VO_WHY.includes(w)) inc('s_' + w); if (w === 'off' && VO_SUB.includes(sub)) inc('s_off_' + sub); if (part) inc('s_part'); };
+  // 'p' = một lượt đo thử Kokoro trên máy, w = nhóm RTF (klocal.js P.rtfBucket) – chỉ đếm phân bố, không vào f/k/s
+  const KP = ['r06', 'r10', 'r15', 'r25', 'rhi', 'to'];
+  const src = (k, w, sub, part) => { if (k === 'p') { if (KP.includes(w)) inc('kp_' + w); return; } if (!/^[fks]$/.test(k)) return; inc(k); stats['src_' + k] = vo[k]; if (k !== 's') return; if (VO_WHY.includes(w)) inc('s_' + w); if (w === 'off' && VO_SUB.includes(sub)) inc('s_off_' + sub); if (part) inc('s_part'); };
   const sysRate = c => (c.s || 0) / Math.max(1, (c.f || 0) + (c.k || 0) + (c.s || 0));
   const fnv36 = s => { let h = 0x811c9dc5; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; } return h.toString(36); }; // = khóa audio/w (ui.js, sw.js)
-  const api = { fnv36, genderOf, kokoro, genderFor, voiceScore, rank, pickVoice, stats, note, src, vo, sysRate, VO_WHY };
+  const api = { fnv36, genderOf, kokoro, genderFor, voiceScore, rank, pickVoice, stats, note, src, vo, sysRate, VO_WHY, KP };
   if (typeof module !== 'undefined' && module.exports && !g.document) { module.exports = api; return; }
 
   // Mở khóa (iOS Safari/WebKit): AudioContext + WAV im lặng 1 mẫu (data: có trong CSP media-src)

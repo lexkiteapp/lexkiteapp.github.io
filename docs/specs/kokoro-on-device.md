@@ -28,7 +28,7 @@ Lý do:
 - **wasm-q8** (`onnx/model_quantized.onnx`, 92 MB, bản nhẹ nhất): cần RAM ≥ 4 GB (`deviceMemory`; không đo được thì tính là đủ trên máy tính) và ≥ 4 nhân.
 - **off**: iOS/iPadOS (WebKit giới hạn bộ nhớ tab; bật riêng bằng cờ `kl_ios`), RAM < 4 GB, < 4 nhân, đã đo chậm, hoặc người dùng tắt.
 - WebGPU chưa dùng ở v1: q8 trên WebGPU lỗi tiếng, còn fp32 tải nặng 3,5 lần (326 MB). Xem lại khi có số đo `tts-ab.yml phase=free`.
-- **Đo thử** ngay sau lần nạp đầu: sinh 1 câu 8 từ, RTF = thời gian sinh / thời lượng âm. RTF > 0,6 thì tắt và nhớ kết quả `lk.kl.probe` theo máy + phiên bản. Chạy lại sau 30 ngày.
+- **Đo thử** ngay sau lần nạp đầu: làm nóng "Hi." rồi sinh 3 câu (`P.PROBE_TEXTS`), RTF = **trung vị** thời gian sinh / thời lượng âm (22/11: một câu máy bận không quyết cả máy). Tab ẩn trong lúc đo → bỏ kết quả, đo lại lần sau. RTF > 0,6 (ngưỡng không đổi) thì tắt và nhớ `lk.kl.probe` theo máy + phiên bản; đo lại sau 3 ngày nếu sát ngưỡng (≤ 0,9), 7 ngày nếu timeout, 14 ngày nếu chậm rõ (`P.probeDays`). Phân bố RTF máy thật: beacon `vo` `kp_r06|r10|r15|r25|rhi|to`.
 
 ## Khi nào tải (`KLocalPolicy.mayLoad`)
 - Không có trong gói app (shell không đổi). `js/klocal.js` (~6 KB) nạp lười qua `App.need('klocal')`, Worker và mô hình nạp riêng.
