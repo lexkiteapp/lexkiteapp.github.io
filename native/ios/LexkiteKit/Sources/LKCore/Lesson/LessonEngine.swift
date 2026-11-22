@@ -287,6 +287,9 @@ public enum LessonEngine {
         return o.calm ? calm(out) : out
     }
 
+    /// Lesson XP (web lesson/ui.js finish): 10 + 2 per first-try right + 5 for a clean lesson − 1 per hint (fifty · first · first letter), never below 5.
+    public static func xp(ok1: Int, clean: Bool, hints: Int) -> Int { max(5, 10 + ok1 * 2 + (clean ? 5 : 0) - hints) }
+
     /// Switch kind when the learner turns listening / speaking off.
     public static func adapt(_ it: LessonItem, _ off: LessonOff) -> LessonItem {
         var o = it

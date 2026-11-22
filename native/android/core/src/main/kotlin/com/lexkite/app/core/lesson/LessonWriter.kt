@@ -19,7 +19,9 @@ import java.util.TimeZone
  */
 object LessonWriter {
     /** XP of a finished lesson (web: 10 + 2 per first-time right + 5 when nothing was wrong). */
-    fun xpOf(s: LessonEngine.Session): Int = 10 + s.ok1 * 2 + (if (s.wrong.isEmpty()) 5 else 0)
+    /** Lesson XP (web lesson/ui.js finish): 10 + 2 per first-try right + 5 for a clean lesson − 1 per hint (fifty · first · first letter), never below 5. */
+    fun xp(ok1: Int, clean: Boolean, hints: Int): Int = maxOf(5, 10 + ok1 * 2 + (if (clean) 5 else 0) - hints)
+    fun xpOf(s: LessonEngine.Session, hints: Int = 0): Int = xp(s.ok1, s.wrong.isEmpty(), hints)
 
     private fun toSrs(o: JsonObject?): SRSCard {
         fun n(k: String) = Js.num(o?.get(k))

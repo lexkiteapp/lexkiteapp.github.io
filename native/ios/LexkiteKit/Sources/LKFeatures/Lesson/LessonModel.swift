@@ -44,6 +44,8 @@ public final class LessonModel {
     public private(set) var hidden: Set<String> = []
     public private(set) var letters = 0
     public private(set) var pairHints = 0
+    /// Hints that cost 1 XP each, like the web lesson (fifty · first · the first letter hint of an attempt); bank / pair / slow are free.
+    public private(set) var xpHints = 0
     public private(set) var heard = ""
     public private(set) var listening = false
     public private(set) var speechError = false
@@ -120,6 +122,7 @@ public final class LessonModel {
         isStory = items.contains { $0.type == "line" }
         if isStory && teacher2 == nil { teacher2 = TeacherController(who: "carlos", reduceMotion: teacher.reduceMotion) }
         session = LessonSession(items, ease: true)
+        xpHints = 0
         if items.isEmpty { phase = .empty; return }
         started = clock()
         mood = TeacherMood(rig: TeacherRigStore.shared)
@@ -213,12 +216,12 @@ public final class LessonModel {
         guard let it = cur else { return }
         switch h {
         case "fifty":
-            if let o = it.options?.first(where: { $0 != it.answer && !hidden.contains($0) && $0 != pick }) { hidden.insert(o) }
+            if let o = it.options?.first(where: { $0 != it.answer && !hidden.contains($0) && $0 != pick }) { hidden.insert(o); xpHints += 1 }
         case "first":
             let words = LessonEngine.toks(it.answer ?? "")
             if (tiles.count > words.count) || zip(tiles, words).contains(where: { !LessonEngine.same(it.tiles?[$0.0] ?? "", $0.1) }) { tiles = [] }
-            if tiles.count < words.count, let i = it.tiles?.indices.first(where: { !tiles.contains($0) && LessonEngine.same(it.tiles?[$0] ?? "", words[tiles.count]) }) { tiles.append(i) }
-        case "letter": letters += 1
+            if tiles.count < words.count, let i = it.tiles?.indices.first(where: { !tiles.contains($0) && LessonEngine.same(it.tiles?[$0] ?? "", words[tiles.count]) }) { tiles.append(i); xpHints += 1 }
+        case "letter": if letters == 0 { xpHints += 1 }; letters += 1
         case "bank": useBank = true; typed = ""; bankPicks = []
         case "pair": pairHints += 1
         default: break
@@ -295,7 +298,7 @@ public final class LessonModel {
         phase = .done
         let s = session
         let now = clock()
-        let xp = 10 + s.ok1 * 2 + (s.wrong.isEmpty ? 5 : 0)
+        let xp = LessonEngine.xp(ok1: s.ok1, clean: s.wrong.isEmpty, hints: xpHints)
         let weak = s.wrong.keys.filter { !$0.hasPrefix("#") }.sorted()
         let learned = isStory ? [] : items.compactMap { $0.card?.word }.reduce(into: [String]()) { if !$0.contains($1) { $0.append($1) } }
         summary = Summary(xp: xp, accuracy: s.accuracy, best: s.best, minutes: max(1, Int((now.timeIntervalSince(started) / 60).rounded())),

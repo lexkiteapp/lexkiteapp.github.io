@@ -325,6 +325,14 @@ final class LessonVectorTests: XCTestCase {
     func testCheck() { assertReport(LessonVectorCheck.check(cx), min: 30) }
     func testSession() { assertReport(LessonVectorCheck.session(cx), min: 100) }
     func testPureFunctions() { assertReport(LessonVectorCheck.pure(cx), min: 100) }
+    func testXp() {   // lesson XP = web lesson/ui.js finish() (sliced expression)
+        let cases = cx.V["xp"]?.array ?? []
+        XCTAssertGreaterThanOrEqual(cases.count, 10)
+        for c in cases {
+            let ok1 = Int(c["ok1"]?.double ?? -1), wrong = Int(c["wrong"]?.double ?? -1), hints = Int(c["hints"]?.double ?? -1)
+            XCTAssertEqual(LessonEngine.xp(ok1: ok1, clean: wrong == 0, hints: hints), Int(c["out"]?.double ?? -1), "xp ok1=\(ok1) wrong=\(wrong) hints=\(hints)")
+        }
+    }
     func testStories() { assertReport(LessonVectorCheck.stories(cx, scriptPath: LessonVectorCheck.storiesPath()), min: 20) }
 }
 #endif

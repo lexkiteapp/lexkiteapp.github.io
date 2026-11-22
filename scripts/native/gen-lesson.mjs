@@ -196,6 +196,11 @@ export function lessonVectors() {
   const similarity = vm.runInNewContext('(' + simM[0] + ')');
   const simOut = [['hello', 'hello'], ['Hello!', 'hello'], ['helo', 'hello'], ['I like green tea', 'i like green tea'], ['I like tea', 'I like green tea'], ['', ''], ['', 'cat'], ['cat', 'dog'],
     ["don't worry", 'dont worry'], ['Café au lait', 'cafe au lait'], ['look after', 'look out for'], ['THE', 'the'], ['think', 'sink']].map(([heard, target]) => { const v = similarity(heard, target); return { heard, target, sim: v, score: Math.round(v * 100) }; });
+  // lesson XP: the exact expression of web/js/lesson/ui.js finish() (const xp = Math.max(…)) sliced from source → ok1 · wrong count · hints (fifty / first / first letter hint, 1 XP each)
+  const xpM = /const xp = (Math\.max\(5, 10 \+ s\.ok1 \* 2 \+ \(s\.wrong\.size \? 0 : 5\) - \(L\.hints \|\| 0\)\));/.exec(fs.readFileSync(R('web/js/lesson/ui.js'), 'utf8'));
+  if (!xpM) throw new Error('gen-lesson: lesson XP expression not found in web/js/lesson/ui.js');
+  const xpFn = vm.runInNewContext('(s, L) => ' + xpM[1]);
+  const xpOut = [[0, 0, 0], [4, 0, 0], [4, 1, 0], [6, 0, 3], [8, 2, 1], [0, 3, 0], [1, 2, 9], [0, 0, 40], [12, 0, 0], [3, 0, 2]].map(([ok1, wrong, hints]) => ({ ok1, wrong, hints, out: xpFn({ ok1, wrong: { size: wrong } }, { hints }) }));
   const vec = {
     _doc: 'Reference outputs of web/js/lesson/engine.js (REAL code in node:vm; clock = now, TZ=UTC; cards = web/js/core.js Cards.make + web/js/lesson/ui.js DEMO/STARTER fixtures; stories = web/cpack/lesson/stories.js). Items keep every field; `card` is replaced by a reference "c:<i>" (inputs.cards[i]) | "s:<i>" (inputs.starter[i]). See docs/specs/native-m2-vectors.md. Swift + Kotlin ports must match exactly (floats from rng are exact 6-decimal values).',
     now: NOW,
@@ -203,7 +208,7 @@ export function lessonVectors() {
     consts: { HINTS: E.HINTS, KIND: E.KIND, DAY: E.DAY },
     pickWords: pickOut, build: buildOut, adapt: { offs: OFFS, cases: adaptOut }, check: checkCases, session: sessOut,
     rng: rngOut, shuffle: shuffleOut, letterBank: bankOut, toks: toksOut, norm: normOut, findWord: findOut, sentenceOf: sentOut, stress: stressOut, usuk: usukOut, visemes: visemeOut,
-    plans: planOut, nextKind: nextOut, isDue: dueOut, calm: calmOut, hard: hardCases, storyItems: storyOut, storySession: stSession, similarity: { pass: 70, retriesBeforeSubmit: 2, cases: simOut },
+    xp: xpOut, plans: planOut, nextKind: nextOut, isDue: dueOut, calm: calmOut, hard: hardCases, storyItems: storyOut, storySession: stSession, similarity: { pass: 70, retriesBeforeSubmit: 2, cases: simOut },
   };
   return JSON.stringify(vec) + '\n';
 }

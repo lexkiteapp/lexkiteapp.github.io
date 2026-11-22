@@ -118,6 +118,12 @@ class LessonVectorsTest {
     @Test fun buildMatchesWeb() = check(v.a("build").map { b -> val o = b.jsonObject
         diff(o.s("id"), o.getValue("out"), buildJsonArray { builds.getValue(o.s("id")).forEach { add(it.json()) } }) })
 
+    @Test fun xpMatchesWeb() {   // lesson XP = web lesson/ui.js finish() (sliced expression)
+        val cs = v.a("xp"); assertTrue(cs.size >= 10)
+        cs.forEach { e -> val c = e.jsonObject; val n = { k: String -> c.getValue(k).jsonPrimitive.long.toInt() }
+            assertEquals("xp $c", n("out"), com.lexkite.app.core.lesson.LessonWriter.xp(n("ok1"), n("wrong") == 0, n("hints"))) }
+    }
+
     @Test fun adaptMatchesWeb() {
         val a = v.o("adapt"); val offs = a.a("offs").map { it.jsonObject }
         check(a.a("cases").flatMap { c -> c.jsonObject.a("outs").map { x ->
