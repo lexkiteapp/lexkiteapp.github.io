@@ -43,6 +43,7 @@
 "Mẹo nhớ:":"Astuce mémo :",
 "Mục tiêu {s}":"Objectif {s}",
 "Nghe chậm hơn":"Plus lentement",
+"Nghe, chọn ảnh":"Écoutez, choisissez l'image",
 "Những từ bạn hay quên":"Les mots que vous oubliez souvent",
 "Nói câu này":"Dites ceci",
 "Nói hay hơn":"Mieux dit",

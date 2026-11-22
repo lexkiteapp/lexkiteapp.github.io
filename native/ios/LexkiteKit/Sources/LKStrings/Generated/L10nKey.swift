@@ -186,6 +186,7 @@ public enum L10nKey: String, CaseIterable, Sendable {
     case lessonQSay = "lesson.q.say"
     case lessonQPicChoice = "lesson.q.picChoice"
     case lessonQPicSay = "lesson.q.picSay"
+    case lessonQLpic = "lesson.q.lpic"
     case lessonQTr = "lesson.q.tr"
     case lessonQMean = "lesson.q.mean"
     case lessonQType = "lesson.q.type"
