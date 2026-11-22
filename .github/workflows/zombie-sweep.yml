@@ -1,0 +1,24 @@
+# Dọn lượt "queued" 0 job > 30 phút (GitHub mất lượt khởi tạo; giữ chỗ nhóm concurrency làm lượt mới cùng nhóm kẹt). 4 lượt/giờ ~20 s, token-free.
+# scripts/ci/zombie-sweep.mjs · test scripts/test/zombie-sweep.mjs · không workflow_run (ci-fanout-rule).
+name: zombie-sweep
+on:
+  schedule:
+    - cron: '7,22,37,52 * * * *'
+  workflow_dispatch:
+  pull_request:
+    paths: ['scripts/ci/zombie-sweep.mjs', '.github/workflows/zombie-sweep.yml']
+permissions: { contents: read, actions: write }
+concurrency:
+  group: zombie-sweep-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  sweep:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with: { sparse-checkout: scripts/ci }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: node scripts/ci/zombie-sweep.mjs ${{ github.event_name == 'pull_request' && '--dry' || '' }}
+        env: { GITHUB_TOKEN: '${{ github.token }}' }
