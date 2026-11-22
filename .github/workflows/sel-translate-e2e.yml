@@ -3,6 +3,9 @@
 # bảng không che định nghĩa, 390/1280 × sáng/tối, đóng bằng Esc/bấm ngoài. Kèm ảnh TRƯỚC (nhánh gốc) / SAU để chủ duyệt – scripts/test/sel-translate-e2e.mjs.
 name: E2E dịch vùng chọn
 on:
+  push:
+    branches: [main]
+    paths: [web/js/phrases.js, web/cpack/tr-fast.js, web/js/dictionary.js, web/packs/tr/**, scripts/test/sel-translate-e2e.mjs, .github/workflows/sel-translate-e2e.yml]
   pull_request:
     paths: [web/js/phrases.js, web/cpack/tr-fast.js, web/js/dictionary.js, web/packs/tr/**, scripts/test/sel-translate-e2e.mjs, .github/workflows/sel-translate-e2e.yml]
   workflow_dispatch:
@@ -15,6 +18,7 @@ permissions:
 concurrency: { group: 'sel-translate-e2e-${{ github.ref }}', cancel-in-progress: true }
 jobs:
   gate:
+    if: ${{ github.event_name != 'pull_request' || contains(github.event.pull_request.labels.*.name, 'ready-heavy') || contains(github.event.pull_request.labels.*.name, 'ready') }}
     runs-on: ubuntu-latest
     timeout-minutes: 3
     permissions: { contents: read, checks: read }
@@ -37,6 +41,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with: { fetch-depth: 0 }
+      - uses: ./.github/actions/gen-if-needed   # luật 18
       - if: github.event_name == 'pull_request'
         uses: ./.github/actions/fast-lane   # làn nhanh: npm test đỏ → huỷ lượt nặng
       - uses: actions/setup-node@v4
