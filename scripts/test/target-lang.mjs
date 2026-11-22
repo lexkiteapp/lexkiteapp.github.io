@@ -96,7 +96,7 @@ const load = (sb, f) => vm.runInContext(rd(f), sb, { filename: f });
   const st = T.chip('es', true); ok(/^<span class="chip tl-chip"/.test(st) && !/href=/.test(st), 'chip tĩnh (trong phiên học) không là liên kết');
   sb.t = x => '<' + x; ok(/aria-label="&lt;Ngôn ngữ đang học: Español"/.test(T.chip('es')), 'chip dùng g.t và escape nhãn');
   ok(T.chip('<img onerror=1>') === '' && !/<img/.test(T.chip('es')), 'chip: tl lạ → rỗng, không chèn HTML thô');
-  ok(/window\.Target \? Target\.chip\('es'\)/.test(rd('web/cpack/es-app/day-ui.js')), 'day-ui: Target chưa nạp không làm vỡ trang');
+  ok(/window\.Target \? Target\.chip\(TL\)/.test(rd('web/cpack/es-app/day-ui.js')), 'day-ui: Target chưa nạp không làm vỡ trang');
   for (const f of ['web/js/study.js', 'web/cpack/es-app/day-ui.js']) ok(/Target\.chip\(/.test(rd(f)), `${f}: gắn nhãn ngôn ngữ đích`);
 }
 
@@ -251,7 +251,7 @@ const load = (sb, f) => vm.runInContext(rd(f), sb, { filename: f });
 { const { sb, ls } = env(); load(sb, 'web/js/target.js'); const T = sb.Target;
   ls.set('lk.pt', '1'); T.set('pt'); ok(T.enabled('pt') && T.cur() === 'en' && T.avail().join() === 'en', 'pt ready:false: cờ bật nhưng người thường không chọn được (cur = en)');
   ls.set('lk.fr', '1'); T.set('fr'); ok(T.enabled('fr') && T.cur() === 'en', 'fr ready:false: như pt');
-  ls.set('lk.adm', '1'); T.set('fr'); ok(T.cur() === 'fr' && T.avail().includes('fr') && T.homeOf('fr') === '#/tlprep/fr', 'quản trị chọn được fr → màn chuẩn bị');
+  ls.set('lk.adm', '1'); T.set('fr'); ok(T.cur() === 'fr' && T.avail().includes('fr') && T.homeOf('fr') === '#/practice/frd', 'quản trị chọn được fr → lộ trình ngày fr (W4, cùng engine es)');
   ls.set('lk.es', '1'); T.set('es'); ok(T.cur() === 'es', 'es ready → vẫn chọn được'); }
 
 // gen.mjs quy dạng → lemma trước ai-pool (lô 11–24 mất 40–90 % lượt vì dạng chia trùng lemma): hàm thuần lemmaFromEntries

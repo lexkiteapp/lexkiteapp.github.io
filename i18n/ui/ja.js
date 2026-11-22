@@ -1139,6 +1139,7 @@
 "Từ mô tả biểu đồ: tăng, giảm, dao động, tỉ lệ":"チャートを説明するための言葉: 上昇、下降、変動、比率",
 "Từ mới":"新しい単語",
 "Từ mới lưu":"最近保存した",
+"Từ mới, ngữ pháp và cuộc gọi AI mỗi ngày":"毎日、新しい単語・文法・AI通話",
 "Từ này bị gõ lặp hai lần liên tiếp. Xóa bớt một từ.":"この単語は 2 回続けて入力されています。そのうちの 1 つを削除します。",
 "Từ này có vẻ viết sai chính tả hoặc không có trong từ điển. Kiểm tra lại cách viết – nếu là tên riêng, bấm “Bỏ qua lỗi”.":"この単語はスペルが間違っているか、辞書に載っていないようです。スペルを確認してください。名前の場合は、「無視」をタップします。",
 "Từ này viết sai chính tả. Hãy học cách viết đúng – từ hay sai sẽ được đưa vào thẻ ôn tập.":"この単語のスペルは間違っています。正しいスペルを学びましょう – よくスペルを間違える単語がレビュー カードに追加されます。",

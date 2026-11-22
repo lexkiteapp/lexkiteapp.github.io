@@ -7,7 +7,7 @@
   // Bảng theo ngôn ngữ đích: gx = gói giải thích theo ngôn ngữ người học (khai ở app.js – đường dẫn nguyên văn để build-cpack đặt tên băm), G = biến toàn cục gói, data = gói câu hỏi (bundle), acc = nhắc thiếu dấu
   const TLC = {
     es: { gx: App.esGx, G: 'ESX', data: 'espr', day: 'esday', get title() { return t('Luyện tiếng Tây Ban Nha'); }, acc: a => t('Cẩn thận dấu (tilde): {a}', { a }) },
-    fr: { G: 'FRX', data: 'frpr', get title() { return t('Luyện tiếng Pháp'); }, acc: a => t('Cẩn thận dấu (é, è, ç…): {a}', { a }), gx: App.frGx },
+    fr: { G: 'FRX', data: 'frpr', day: 'frday', get title() { return t('Luyện tiếng Pháp'); }, acc: a => t('Cẩn thận dấu (é, è, ç…): {a}', { a }), gx: App.frGx },
   };
   let TL = 'es'; const C = () => TLC[TL], GX = () => C().gx, KEY = () => 'lk.' + TL + '.lv';
   const ls = (k, v) => { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { /* riêng tư */ } return null; };
@@ -130,7 +130,7 @@
   // Màn kết Stitch (lesson-complete) dùng chung với cpack/es-app/pron-ui.js qua App.esEnd: o = { n, ok, first, best, chip, title, rev, revHref, again }
   async function end(o) {
     const ot = TLC[o.tl] ? o.tl : 'es', oc = TLC[ot]; // o.tl: phiên espr truyền; pron-ui/exam-ui es không truyền → es
-    try { if (oc.day && sessionStorage.getItem('lk.' + ot + '.dayctx')) App.need(oc.day).then(() => App.esDayMark('gp')); } catch (e) { /* bỏ qua */ } // lộ trình ngày TBN: bài ngữ pháp/phát âm xong → đánh dấu bước (cpack/es-app/day-ui.js)
+    try { if (oc.day && sessionStorage.getItem('lk.' + ot + '.dayctx')) App.need(oc.day).then(() => App.esDayMark('gp', ot)); } catch (e) { /* bỏ qua */ } // lộ trình ngày TBN: bài ngữ pháp/phát âm xong → đánh dấu bước (cpack/es-app/day-ui.js)
     const n = o.n, acc = Math.round(o.ok / n * 100), xp = Game.xpFor('set', { right: o.ok, total: n });
     try { await App.reward({ quizzes: 1, perfect: o.ok === n ? 1 : 0, xp }); } catch (e) { /* bỏ qua */ }
     const run = App.streak ? App.streak() : 0;
