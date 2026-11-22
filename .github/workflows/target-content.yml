@@ -102,6 +102,9 @@ jobs:
         run: |
           [ "$(jq -r --arg t "$TL" '.[$t].espeak // ""' scripts/word-audio/tl-voices.json)" = "" ] && exit 0
           pip install -q "phonemizer-fork==3.3.2" "espeakng-loader==0.2.4" && python3 scripts/target/tl_ipa_fill.py "$(ls content/target/$TL/core-[0-9]*.json | grep -v report | tail -1)"
+      - name: IPA es theo quy ước g2p (espeak còn là kiểm chéo, lệch → qa.ipaEs)
+        if: ${{ github.event.inputs.dry != '1' && github.event.inputs.tl == 'es' }}
+        run: node scripts/target/es-g2p.mjs --apply "$(ls content/target/es/core-[0-9]*.json | grep -v -e report -e review | tail -1)"
       - name: Wiktionary lemma / giống / số nhiều
         if: ${{ github.event.inputs.dry != '1' }}
         run: node scripts/target/wikt-check.mjs --tl "$TL"
