@@ -8,7 +8,8 @@
   "ko": "오늘 역사 시험을 \"ace\"했어!",
   "pt": "Eu \"ace\"i meu teste de história hoje!",
   "ru": "Я сегодня «aced» тест по истории!",
-  "th": "ฉัน \"ace\" การสอบประวัติศาสตร์วันนี้!"
+  "th": "ฉัน \"ace\" การสอบประวัติศาสตร์วันนี้!",
+  "tr": "Bugün tarih sınavımı 'ace' ettim!"
  },
  "ace|hook": {
   "ar": "يوم الاختبار. كيف كان أداؤك؟",
@@ -21,7 +22,8 @@
   "pt": "Dia de prova. Como foi?",
   "ru": "День теста. Как у тебя получилось?",
   "th": "วันสอบ คุณทำอย่างไรบ้าง?",
-  "tr": "Sınav günü. Nasıl geçti? \"ace\""
+  "tr": "Sınav günü. Nasıl geçti? \"ace\"",
+  "zh": "考试日。你考得怎么样？\"ace\""
  },
  "aesthetic|ex": {
   "ar": "مكتبك يبدو \"aesthetic\" جدًا.",
@@ -35,16 +37,21 @@
   "pt": "Sua escrivaninha está tão \"aesthetic\".",
   "ru": "Твой стол выглядит так \"aesthetic\".",
   "th": "โต๊ะทำงานของคุณดู \"aesthetic\" มาก",
-  "tr": "Masan çok \"aesthetic\" görünüyor."
+  "tr": "Masan çok \"aesthetic\" görünüyor.",
+  "zh": "你的书桌看起来非常 aesthetic。"
  },
  "aesthetic|hook": {
   "de": "Dein Zimmer sieht aus wie auf Pinterest!",
+  "es": "¡Tu habitación parece de Pinterest! Muy \"aesthetic\".",
   "hi": "तुम्हारा कमरा Pinterest जैसा दिख रहा है! aesthetic",
+  "id": "Kamarmu terlihat seperti Pinterest! \"aesthetic\".",
   "ja": "君の部屋、Pinterestみたいだね！",
   "ko": "네 방이 Pinterest처럼 보여! 'aesthetic'!",
+  "pt": "Seu quarto parece do Pinterest! \"aesthetic\"",
   "ru": "Твоя комната выглядит как в Pinterest!",
   "th": "ห้องของคุณดูเหมือน Pinterest!",
-  "tr": "Odan Pinterest gibi görünüyor!"
+  "tr": "Odan Pinterest gibi görünüyor!",
+  "zh": "你的房间看起来像 Pinterest，真是 aesthetic。"
  },
  "afk|ex": {
   "ar": "سأعود قريباً، سأكون \"AFK\" لمدة خمس دقائق.",
@@ -58,16 +65,21 @@
   "pt": "Volto já, vou ficar \"AFK\" por cinco minutos.",
   "ru": "Brb, я буду AFK пять минут.",
   "th": "เดี๋ยวกลับนะ ฉันจะ \"AFK\" ห้านาที.",
-  "tr": "Beş dakika AFK olacağım, brb."
+  "tr": "Beş dakika AFK olacağım, brb.",
+  "zh": "我马上回来，我会AFK五分钟。"
  },
  "afk|hook": {
   "ar": "خمس دقائق، ثم أعود!",
   "de": "Fünf Minuten, dann bin ich zurück! afk.",
   "es": "¡Cinco minutos y vuelvo!",
+  "fr": "Cinq minutes, puis je reviens ! « AFK »",
   "hi": "पाँच मिनट, फिर मैं वापस आऊँगा! \"AFK\"",
+  "id": "Lima menit, lalu aku kembali! \"AFK\".",
   "ja": "5分だけ離れるね、すぐに戻るよ。「AFK」",
   "ko": "5분 뒤에 돌아올게! 'AFK'",
+  "pt": "Cinco minutos, depois eu volto! \"AFK\"",
   "ru": "Пять минут, потом я вернусь! «AFK».",
+  "th": "ห้านาทีแล้วฉันจะกลับมา! \"AFK\"",
   "tr": "Beş dakika, sonra geri döneceğim!"
  },
  "anytime|ex": {
@@ -82,16 +94,21 @@
   "pt": "Obrigado pela carona! \"anytime\".",
   "ru": "Спасибо за поездку! Anytime.",
   "th": "ขอบคุณที่ให้ขับรถ! \"anytime\".",
-  "tr": "Yolculuk için teşekkürler! Anytime."
+  "tr": "Yolculuk için teşekkürler! Anytime.",
+  "zh": "谢谢你搭车！Anytime。"
  },
  "anytime|hook": {
   "ar": "شكراً جزيلاً على التوصيلة!",
   "de": "Danke für die Mitfahrgelegenheit! anytime.",
   "es": "¡Muchas gracias por el viaje!",
+  "fr": "Merci beaucoup pour le trajet ! « anytime »",
   "hi": "सवारी के लिए बहुत धन्यवाद! \"anytime\"",
+  "id": "Terima kasih banyak atas tumpangannya! \"anytime\".",
   "ja": "乗せてくれて本当にありがとう！「anytime」",
   "ko": "태워줘서 정말 고마워! \"anytime\".",
+  "pt": "Obrigado(a) pela carona! (\"anytime\")",
   "ru": "Спасибо большое за поездку! «anytime».",
+  "th": "ขอบคุณมากสำหรับการพาไป! \"anytime\"",
   "tr": "Yolculuk için çok teşekkür ederim!"
  },
  "arm and a leg|ex": {
@@ -105,7 +122,9 @@
   "ko": "이 코트는 \"arm and a leg\" 정도야.",
   "pt": "Este casaco custa \"arm and a leg\".",
   "ru": "Это пальто стоит an arm and a leg.",
-  "th": "เสื้อโค้ทนี้ราคา \"arm and a leg\"."
+  "th": "เสื้อโค้ทนี้ราคา \"arm and a leg\".",
+  "tr": "Bu palto 'arm and a leg' kadar pahalı.",
+  "zh": "这件外套花了arm and a leg。"
  },
  "arm and a leg|hook": {
   "ar": "انظر إلى سعر هذا المعطف!",
@@ -132,7 +151,8 @@
   "pt": "Por favor, envie-me as notas \"ASAP\".",
   "ru": "Пожалуйста, пришлите мне заметки ASAP.",
   "th": "กรุณาส่งโน้ตให้ฉัน “ASAP” นะ",
-  "tr": "Lütfen notları 'ASAP' gönder."
+  "tr": "Lütfen notları 'ASAP' gönder.",
+  "zh": "请尽快把笔记发给我，\"ASAP\"。"
  },
  "asap|hook": {
   "ar": "أحتاجه \"ASAP\"!",
@@ -146,7 +166,8 @@
   "pt": "Preciso disso agora, \"ASAP\"!",
   "ru": "Мне это нужно прямо сейчас, «ASAP»!",
   "th": "ฉันต้องการมันเดี๋ยวนี้! ส่งให้ “ASAP” นะ",
-  "tr": "Buna hemen ihtiyacım var, 'ASAP'!"
+  "tr": "Buna hemen ihtiyacım var, 'ASAP'!",
+  "zh": "我现在就需要，\"ASAP\"。"
  },
  "awesome|ex": {
   "ar": "هل حصلت لنا على تذاكر مجانية؟ هذا \"awesome\"!",
@@ -160,7 +181,8 @@
   "pt": "Você conseguiu ingressos grátis para a gente? Isso é \"awesome\"!",
   "ru": "Ты достал нам бесплатные билеты? Это «awesome»!",
   "th": "คุณได้ตั๋วฟรีให้เราหรือ? นั่น \"awesome\"!",
-  "tr": "Ücretsiz biletler aldın? Bu \"awesome\"!"
+  "tr": "Ücretsiz biletler aldın? Bu \"awesome\"!",
+  "zh": "你给我们弄到免费票了？那真是\"awesome\"！"
  },
  "awesome|hook": {
   "ar": "هل حصلت لنا على تذاكر مجانية؟",
@@ -174,7 +196,8 @@
   "pt": "Você conseguiu ingressos grátis para a gente?",
   "ru": "Ты достал нам бесплатные билеты?",
   "th": "คุณได้ตั๋วฟรีให้เราหรือ?",
-  "tr": "Ücretsiz biletler aldın? \"awesome\""
+  "tr": "Ücretsiz biletler aldın? \"awesome\"",
+  "zh": "你给我们弄到免费票了？\"awesome\""
  },
  "back on my feet|ex": {
   "ar": "أنا أخيراً \"back on my feet\".",
@@ -188,7 +211,8 @@
   "pt": "Finalmente estou \"back on my feet\".",
   "ru": "Я наконец‑то «back on my feet».",
   "th": "ฉัน “back on my feet” แล้ว.",
-  "tr": "Nihayet 'back on my feet' oldum."
+  "tr": "Nihayet 'back on my feet' oldum.",
+  "zh": "我终于 \"back on my feet\" 了。"
  },
  "back on my feet|hook": {
   "ar": "الأسبوع الماضي كنت مريضاً، واليوم أنا \"back on my feet\"!",
@@ -202,7 +226,8 @@
   "pt": "Na semana passada estava doente, hoje estou \"back on my feet\"!",
   "ru": "На прошлой неделе болел, сегодня уже «back on my feet»!",
   "th": "อาทิตย์ที่แล้วป่วย วันนี้ฉัน “back on my feet” แล้ว!",
-  "tr": "Geçen hafta hastaydım, bugün 'back on my feet' oldum!"
+  "tr": "Geçen hafta hastaydım, bugün 'back on my feet' oldum!",
+  "zh": "上周生病，今天已经 \"back on my feet\" 了！"
  },
  "back to square one|ex": {
   "ar": "فشلت الخطة. \"Back to square one\".",
@@ -216,7 +241,8 @@
   "pt": "Plano falhou. \"back to square one\".",
   "ru": "План провалился. Back to square one.",
   "th": "แผนล้มเหลว \"back to square one\".",
-  "tr": "Plan başarısız oldu. Back to square one."
+  "tr": "Plan başarısız oldu. Back to square one.",
+  "zh": "计划失败了。Back to square one。"
  },
  "back to square one|hook": {
   "ar": "فشلت الخطة. ماذا الآن؟",
@@ -224,6 +250,7 @@
   "es": "El plan falló. ¿Y ahora qué?",
   "fr": "Le plan a échoué. Et maintenant ? « back to square one ».",
   "hi": "योजना विफल हो गई। अब क्या? \"back to square one\"",
+  "id": "Rencana gagal. Sekarang bagaimana? \"back to square one\".",
   "ja": "計画が失敗した。次はどうしよう？「back to square one」",
   "ko": "계획이 실패했어. 이제 \"back to square one\"이야.",
   "pt": "O plano falhou. E agora, \"back to square one\"?",
@@ -243,12 +270,14 @@
   "pt": "Me dê um \"ballpark figure\".",
   "ru": "Дай мне «ballpark figure».",
   "th": "บอก \"ballpark figure\" ให้หน่อย.",
-  "tr": "Bana bir \"ballpark figure\" ver."
+  "tr": "Bana bir \"ballpark figure\" ver.",
+  "zh": "给我一个ballpark figure。"
  },
  "ballpark figure|hook": {
   "de": "Wie viel wird es kosten? \"ballpark figure\"",
   "es": "¿Cuánto costará? Dame una \"ballpark figure\".",
   "fr": "Combien cela coûtera-t-il ? \"ballpark figure\"",
+  "hi": "यह कितना खर्च होगा? एक \"ballpark figure\" बताइए।",
   "id": "Berapa kira-kiranya biayanya? \"ballpark figure\"",
   "ja": "いくらかかりますか？『ballpark figure』",
   "ko": "얼마 정도 들까? \"ballpark figure\"",
@@ -268,7 +297,9 @@
   "ko": "이 새 노래는 \"banger\"야!",
   "pt": "Essa nova música é um \"banger\"!",
   "ru": "Эта новая песня — \"banger\"!",
-  "th": "เพลงใหม่เพลงนี้เป็น \"banger\"!"
+  "th": "เพลงใหม่เพลงนี้เป็น \"banger\"!",
+  "tr": "Bu yeni şarkı bir 'banger'!",
+  "zh": "这首新歌真的是一首“banger”！"
  },
  "banger|hook": {
   "de": "Spiel das Lied lauter!",
@@ -278,7 +309,9 @@
   "ja": "この曲をもっと大音量で流して！『banger』",
   "ko": "이 노래를 더 크게 틀어! \"banger\"!",
   "pt": "Toque essa música mais alto!",
-  "ru": "Включи эту песню погромче! «banger»"
+  "ru": "Включи эту песню погромче! «banger»",
+  "th": "เปิดเพลงนี้ให้ดังขึ้น! \"banger\"",
+  "tr": "Bu şarkıyı daha yüksek sesle çal, 'banger'!"
  },
  "basic|ex": {
   "ar": "خطتي لنهاية الأسبوع \"basic\": بيتزا وفيلم.",
@@ -292,16 +325,21 @@
   "pt": "Meu plano de fim de semana é \"basic\": pizza e filme.",
   "ru": "Мой план на выходные \"basic\": пицца и фильм.",
   "th": "แผนวันหยุดของฉัน \"basic\": พิซซ่าและหนัง",
-  "tr": "Hafta sonu planım \"basic\": pizza ve film."
+  "tr": "Hafta sonu planım \"basic\": pizza ve film.",
+  "zh": "我的周末计划很 basic：pizza 和电影。"
  },
  "basic|hook": {
   "de": "Schon wieder Pizza und ein Film?",
+  "es": "¿Otra vez pizza y película? Tan \"basic\".",
   "hi": "फिर पिज़्ज़ा और फिल्म, basic?",
+  "id": "Pizza dan film lagi? \"basic\".",
   "ja": "またピザと映画か？",
   "ko": "피자와 영화를 또? 'basic'이야.",
+  "pt": "Pizza e filme de novo? \"basic\"",
   "ru": "Опять пицца и фильм?",
   "th": "พิซซ่าและหนังอีกแล้ว?",
-  "tr": "Yine pizza ve film mi?"
+  "tr": "Yine pizza ve film mi?",
+  "zh": "又是 pizza 和电影？太 basic 了。"
  },
  "beats me|ex": {
   "ar": "أين المفتاح؟ \"Beats me\".",
@@ -315,7 +353,8 @@
   "pt": "Onde está a chave? \"beats me\".",
   "ru": "Где ключ? Beats me.",
   "th": "กุญแจหายไปไหน? \"beats me\".",
-  "tr": "Anahtar nerede? Beats me."
+  "tr": "Anahtar nerede? Beats me.",
+  "zh": "钥匙在哪儿？Beats me。"
  },
  "beats me|hook": {
   "ar": "أين ذهب المفتاح؟",
@@ -323,8 +362,10 @@
   "es": "¿Dónde se fue la llave?",
   "fr": "Où est passée la clé ? « beats me ».",
   "hi": "चाबी कहाँ गई? \"beats me\"",
+  "id": "Di mana kunci itu pergi? \"beats me\".",
   "ja": "鍵がどこに行ったのか分からない。「beats me」",
   "ko": "열쇠가 어디로 갔지? 'beats me'",
+  "pt": "Onde a chave foi? (\"beats me\")",
   "ru": "Куда делся ключ? «beats me».",
   "th": "กุญแจหายไปไหน? 'beats me'!",
   "tr": "Anahtar nereye gitti?"
@@ -336,20 +377,26 @@
   "fr": "Ils ont du \"beef\" à propos d'un jeu.",
   "hi": "उनके बीच खेल को लेकर beef है।",
   "id": "Mereka punya \"beef\" karena sebuah permainan.",
+  "ja": "彼らはゲームのことで「beef」している。",
   "ko": "그들은 게임 때문에 beef가 있어.",
   "pt": "Eles têm \"beef\" por causa de um jogo.",
   "ru": "У них \"beef\" из‑за игры.",
   "th": "พวกเขามี \"beef\" เกี่ยวกับเกม",
-  "tr": "Onların bir oyun yüzünden \"beef\"i var."
+  "tr": "Onların bir oyun yüzünden \"beef\"i var.",
+  "zh": "他们因为游戏而有 beef。"
  },
  "beef|hook": {
   "de": "Die zwei reden nicht mehr miteinander. Warum?",
+  "es": "Esos dos dejaron de hablarse. ¿Tienen algún \"beef\"?",
   "hi": "वो दोनों बात करना बंद कर गए। क्यों? beef?",
+  "id": "Kedua orang itu berhenti berbicara. Kenapa? \"beef\".",
   "ja": "あの二人は話さなくなった。どうして？",
   "ko": "그 두 사람은 말을 끊었어. 왜? 'beef'?",
+  "pt": "Aqueles dois pararam de conversar. Por quê? \"beef\"",
   "ru": "Эти двое перестали разговаривать. Почему?",
   "th": "คนสองคนนั้นหยุดคุยกันแล้ว ทำไม?",
-  "tr": "İkisi konuşmayı bıraktı. Neden?"
+  "tr": "İkisi konuşmayı bıraktı. Neden?",
+  "zh": "那两个人不再说话了，为什么？因为有 beef。"
  },
  "bestie|ex": {
   "ar": "أنا والـ \"bestie\" نحب التاكو.",
@@ -363,7 +410,8 @@
   "pt": "Minha \"bestie\" e eu adoramos tacos.",
   "ru": "Моя «bestie» и я любим тако.",
   "th": "ฉันและ 'bestie' ของฉันชอบทาโก้",
-  "tr": "\"bestie\" ve ben taco'ları çok seviyoruz."
+  "tr": "\"bestie\" ve ben taco'ları çok seviyoruz.",
+  "zh": "我和我的 \"bestie\" 都爱吃塔可。"
  },
  "bestie|hook": {
   "de": "Wer kennt all deine Geheimnisse? Das ist deine „bestie“.",
@@ -390,7 +438,8 @@
   "pt": "Pizza às seis? \"Bet\".",
   "ru": "Пицца в шесть? Bet.",
   "th": "พิซซ่าเวลา 6 โมง? Bet",
-  "tr": "Saat altıda pizza? \"Bet\"."
+  "tr": "Saat altıda pizza? \"Bet\".",
+  "zh": "六点吃披萨？\\\"Bet\\\"。"
  },
  "bet|hook": {
   "de": "Pizza um sechs, bet?",
@@ -403,7 +452,8 @@
   "pt": "Pizza às seis, \"bet\"?",
   "ru": "Пицца в шесть, bet?",
   "th": "พิซซ่าเวลา 6 โมง ดีไหม? \"bet\"",
-  "tr": "Saat altıda pizza, anlaşma? \"bet\"."
+  "tr": "Saat altıda pizza, anlaşma? \"bet\".",
+  "zh": "六点吃披萨，行吗？\\\"bet\\\"。"
  },
  "big mood|ex": {
   "ar": "تلك القطة النعسانة تمثل \"big mood\".",
@@ -417,20 +467,23 @@
   "pt": "Aquele gato sonolento é um \"big mood\".",
   "ru": "Тот сонный кот — это «big mood».",
   "th": "แมวนอนหลับนั้นเป็น \"big mood\".",
-  "tr": "O uykulu kedi tam bir \"big mood\"."
+  "tr": "O uykulu kedi tam bir \"big mood\".",
+  "zh": "那只困倦的猫简直是\"big mood\"。"
  },
  "big mood|hook": {
   "ar": "قطة نعسانة. شعوري بالضبط!",
   "de": "Schläfriger Kater. Genau mein „big mood“.",
   "es": "Gato soñoliento. ¡big mood!",
   "fr": "Chat endormi. Exactement mon « big mood » !",
+  "hi": "नींद वाली बिल्ली—बिल्कुल मेरा \"big mood\"!",
   "id": "Kucing mengantuk. Itu 'big mood'.",
   "ja": "眠そうな猫。big moodだね。",
   "ko": "잠자는 고양이. 바로 내 기분! \"big mood\"",
   "pt": "Gato sonolento. Exatamente como me sinto!",
   "ru": "Сонный кот. Точно мои чувства!",
   "th": "แมวนอนหลับ เหมือนความรู้สึกของฉันเลย!",
-  "tr": "Uykulu kedi. Tam da hislerim. \"big mood\""
+  "tr": "Uykulu kedi. Tam da hislerim. \"big mood\"",
+  "zh": "困倦的猫。完全是我的感受！\"big mood\""
  },
  "big w|ex": {
   "ar": "هل اجتزت الاختبار؟ هذا \"big W\"!",
@@ -444,7 +497,8 @@
   "pt": "Você passou no teste? \"big W\"!",
   "ru": "Ты сдал тест? «Big W»!",
   "th": "คุณสอบผ่านแล้วหรือ? Big W!",
-  "tr": "Testten geçtin mi? \"big W\"!"
+  "tr": "Testten geçtin mi? \"big W\"!",
+  "zh": "你通过了测试？Big W！"
  },
  "big w|hook": {
   "de": "Du hast den Test bestanden? \"big W\"!",
@@ -470,7 +524,9 @@
   "ko": "샌들에 양말? \"big yikes\".",
   "pt": "Meias com sandálias? \"Big yikes\".",
   "ru": "Носки с сандалиями? \"big yikes\".",
-  "th": "ใส่ถุงเท้ากับรองเท้าแตะ? \"big yikes\"."
+  "th": "ใส่ถุงเท้ากับรองเท้าแตะ? \"big yikes\".",
+  "tr": "Sandal içinde çorap? 'big yikes'.",
+  "zh": "袜子配凉鞋？简直是“big yikes”。"
  },
  "big yikes|hook": {
   "de": "Socken mit Sandalen? Wirklich?",
@@ -481,7 +537,8 @@
   "ja": "サンダルに靴下？本当に？『big yikes』",
   "ko": "샌들에 양말? 정말? \"big yikes\"!",
   "pt": "Meias com sandálias? Sério?",
-  "th": "ถุงเท้ากับรองเท้าแตะ? จริงเหรอ? big yikes"
+  "th": "ถุงเท้ากับรองเท้าแตะ? จริงเหรอ? big yikes",
+  "tr": "Sandaletle çorap mı? Gerçekten? 'big yikes'!"
  },
  "binge-watch|ex": {
   "ar": "سأقوم بـ \"binge-watch\" لهذا المسلسل طوال عطلة نهاية الأسبوع.",
@@ -495,7 +552,8 @@
   "pt": "Eu vou \"binge-watch\" esta série o fim de semana inteiro.",
   "ru": "Я буду «binge-watch» этот сериал весь уикенд.",
   "th": "ฉันจะ \"binge-watch\" รายการนี้ตลอดสุดสัปดาห์.",
-  "tr": "Bu diziyi hafta sonu boyunca \"binge-watch\" edeceğim."
+  "tr": "Bu diziyi hafta sonu boyunca \"binge-watch\" edeceğim.",
+  "zh": "我整个周末都会\"binge-watch\"这部剧。"
  },
  "binge-watch|hook": {
   "ar": "عطلة نهاية أسبوع ممطرة. موسم كامل. هيا!",
@@ -508,17 +566,21 @@
   "pt": "Fim de semana chuvoso. Toda a temporada. Vamos!",
   "ru": "Дождливые выходные. Весь сезон. Поехали!",
   "th": "วันหยุดฝนตก ทั้งซีซั่น ไปเลย!",
-  "tr": "Yağmurlu hafta sonu. Tüm sezon. Hadi \"binge-watch\"!"
+  "tr": "Yağmurlu hafta sonu. Tüm sezon. Hadi \"binge-watch\"!",
+  "zh": "雨天的周末。整季都要看。走起！\"binge-watch\""
  },
  "blank out|ex": {
   "ar": "لقد \"blanked out\" في منتصف خطابي.",
+  "de": "Ich habe mitten in meiner Rede „blanked out“.",
+  "es": "Me quedé \"blank out\" en medio de mi discurso.",
   "fr": "J'ai eu un \"blank out\" au milieu de mon discours.",
   "hi": "मैं अपने भाषण के बीच में \"blank out\" हो गया।",
   "id": "Saya \"blank out\" di tengah pidato saya.",
   "ja": "スピーチの途中で \"blank out\" した。",
   "ko": "연설 중에 나는 \"blank out\" 했어.",
   "pt": "Eu tive um \"blank out\" no meio do meu discurso.",
-  "th": "ฉัน \"blank out\" ตอนกลางสุนทรพจน์ของฉัน."
+  "th": "ฉัน \"blank out\" ตอนกลางสุนทรพจน์ของฉัน.",
+  "tr": "Konuşmamın ortasında 'blank out' oldum."
  },
  "blank out|hook": {
   "de": "Bühnenlichter an. Mein Kopf ist leer!",
@@ -526,8 +588,11 @@
   "fr": "Les lumières de la scène sont allumées. Mon esprit est vide ! \"blank out\"",
   "hi": "स्टेज़ की लाइटें ऑन हैं। मेरा दिमाग खाली है!",
   "id": "Lampu panggung menyala. Otakku kosong! blank out",
+  "ja": "ステージのライトがついた。頭が「blank out」した。",
+  "ko": "무대 조명이 켜졌다. 내 머릿속이 텅 비었다! \"blank out\"",
   "pt": "Luzes do palco acesas. Minha mente está vazia!",
-  "th": "ไฟบนเวทีเปิดแล้ว. ใจฉันว่างเปล่า! blank out"
+  "th": "ไฟบนเวทีเปิดแล้ว. ใจฉันว่างเปล่า! blank out",
+  "tr": "Sahne ışıkları açık. Aklım 'blank out' oldu!"
  },
  "blooper|ex": {
   "ar": "هذا الـ \"blooper\" جعل الصف بأكمله يضحك.",
@@ -541,7 +606,8 @@
   "pt": "Esse \"blooper\" fez toda a classe rir.",
   "ru": "Этот «blooper» заставил весь класс смеяться.",
   "th": "\"blooper\" นั้นทำให้ทั้งชั้นหัวเราะ.",
-  "tr": "O \"blooper\" bütün sınıfı güldürdü."
+  "tr": "O \"blooper\" bütün sınıfı güldürdü.",
+  "zh": "那个blooper让全班都笑了。"
  },
  "blooper|hook": {
   "de": "Er ist in der Schulaufführung gestolpert! \"blooper\"",
@@ -557,22 +623,28 @@
   "tr": "Okul oyununda tökezledi! \"blooper\""
  },
  "blow a fuse|ex": {
+  "es": "Él hizo \"blow a fuse\" por la habitación desordenada.",
   "hi": "उसने गंदे कमरे को देखकर blow a fuse कर दिया।",
   "id": "Dia \"blow a fuse\" karena kamar yang berantakan.",
   "ja": "彼は散らかった部屋のことで「blow a fuse」した。",
   "ko": "그는 어질러진 방 때문에 blow a fuse했어.",
   "ru": "Он «blow a fuse» из‑за беспорядка в комнате.",
   "th": "เขา \"blow a fuse\" เมื่อเห็นห้องรก",
-  "tr": "O, dağınık oda yüzünden \"blow a fuse\" yaptı."
+  "tr": "O, dağınık oda yüzünden \"blow a fuse\" yaptı.",
+  "zh": "他因为那乱糟糟的房间而 blow a fuse 了。"
  },
  "blow a fuse|hook": {
   "de": "Papa hat das unordentliche Zimmer gesehen!",
+  "es": "¡Papá vio la habitación desordenada! Va a hacer \"blow a fuse\".",
   "hi": "पिता ने गंदा कमरा देखा! blow a fuse",
+  "id": "Ayah melihat kamar berantakan! \"blow a fuse\".",
   "ja": "パパが散らかった部屋を見たんだ！",
   "ko": "아빠가 지저분한 방을 보시고 'blow a fuse'했어.",
+  "pt": "Pai viu o quarto bagunçado! (\"blow a fuse\")",
   "ru": "Папа увидел беспорядок в комнате!",
   "th": "พ่อเห็นห้องรก!",
-  "tr": "Baba dağınık odayı gördü!"
+  "tr": "Baba dağınık odayı gördü!",
+  "zh": "爸爸看到那乱糟糟的房间！要 blow a fuse 了。"
  },
  "bored stiff|ex": {
   "ar": "كنت \"bored stiff\" في تلك الحصة.",
@@ -584,12 +656,15 @@
   "ja": "あの授業で私は「bored stiff」だった。",
   "ko": "그 수업에서 나는 'bored stiff'했어.",
   "pt": "Eu estava \"bored stiff\" naquela aula.",
+  "ru": "Я был \"bored stiff\" на том уроке.",
   "th": "ฉัน 'bored stiff' ในชั้นเรียนนั้น",
-  "tr": "O sınıfta \"bored stiff\" oldum."
+  "tr": "O sınıfta \"bored stiff\" oldum.",
+  "zh": "我在那堂课上 \"bored stiff\"。"
  },
  "bored stiff|hook": {
   "es": "Dos horas de las mismas diapositivas, estoy \"bored stiff\".",
   "fr": "Deux heures des mêmes diapositives ! \"bored stiff\"",
+  "hi": "दो घंटे एक ही स्लाइड्स, मैं \"bored stiff\" हूँ!",
   "id": "Dua jam slide yang sama! Aku 'bored stiff'.",
   "ja": "同じスライドが2時間！『bored stiff』",
   "ko": "같은 슬라이드 두 시간! 'bored stiff'!",
@@ -609,7 +684,9 @@
   "ko": "영상이 너무 많으면 나는 \"brain rot\"이 돼.",
   "pt": "Muitos vídeos me dão \"brain rot\".",
   "ru": "Слишком много видео дают мне \"brain rot\".",
-  "th": "วิดีโอมากเกินไปทำให้ฉัน \"brain rot\"."
+  "th": "วิดีโอมากเกินไปทำให้ฉัน \"brain rot\".",
+  "tr": "Çok fazla video bana brain rot veriyor.",
+  "zh": "看太多此类视频会让我“brain rot”。"
  },
  "brain rot|hook": {
   "de": "Drei Stunden alberner Videos!",
@@ -618,8 +695,10 @@
   "hi": "तीन घंटे की बेतुकी वीडियो!",
   "id": "Tiga jam video konyol! brain rot",
   "ja": "３時間も \"brain rot\" な動画を見た！",
+  "ko": "'brain rot' 같은 어리석은 영상을 세 시간이나 봤어!",
   "pt": "Três horas de vídeos bobos!",
-  "th": "ดูวิดีโอตลกเป็นเวลาสามชั่วโมง! brain rot"
+  "th": "ดูวิดีโอตลกเป็นเวลาสามชั่วโมง! brain rot",
+  "tr": "Üç saat boyunca aptal videolar! 'brain rot'!"
  },
  "burned out|ex": {
   "ar": "بعد الامتحانات، شعرت بأني \"burned out\" تماماً.",
@@ -633,7 +712,8 @@
   "pt": "Depois das provas, eu me senti totalmente \"burned out\".",
   "ru": "После экзаменов я почувствовал себя полностью «burned out».",
   "th": "หลังสอบ ฉันรู้สึก “burned out” อย่างเต็มที่.",
-  "tr": "Sınavlardan sonra tamamen 'burned out' oldum."
+  "tr": "Sınavlardan sonra tamamen 'burned out' oldum.",
+  "zh": "考试结束后，我感到完全 \"burned out\"。"
  },
  "burned out|hook": {
   "ar": "عمل كثير جداً. أنا \"burned out\"!",
@@ -647,7 +727,8 @@
   "pt": "Muito trabalho. Estou \"burned out\"!",
   "ru": "Слишком много работы. Я «burned out»!",
   "th": "งานเยอะเกินไป ฉันรู้สึก “burned out” แล้ว!",
-  "tr": "Çok fazla iş var. Ben 'burned out' oldum!"
+  "tr": "Çok fazla iş var. Ben 'burned out' oldum!",
+  "zh": "工作太多，我已经 \"burned out\" 了！"
  },
  "bussin|ex": {
   "ar": "معكرونة أمي \"bussin\" الليلة.",
@@ -661,15 +742,22 @@
   "pt": "A massa da mãe está \"bussin\" hoje à noite.",
   "ru": "Паста мамы \"bussin\" сегодня.",
   "th": "พาสต้าแม่ \"bussin\" คืนนี้",
-  "tr": "Annemin makarnası bu gece \"bussin\"."
+  "tr": "Annemin makarnası bu gece \"bussin\".",
+  "zh": "妈妈今晚的意面太 bussin 了。"
  },
  "bussin|hook": {
   "de": "Mamas Pasta schmeckt heute Abend unglaublich!",
+  "es": "¡La pasta de mamá está increíble esta noche! Está \"bussin\".",
+  "fr": "Les pâtes de maman sont « bussin » ce soir !",
+  "hi": "माँ की पास्ता आज रात \"bussin\" है!",
+  "id": "Pasta buatan ibu terasa luar biasa malam ini! \"bussin\".",
   "ja": "ママのパスタ、今夜はとても美味しいね！",
   "ko": "엄마의 파스타가 오늘 밤에 정말 'bussin'해!",
+  "pt": "A massa da mãe está incrível esta noite! \"bussin\"",
   "ru": "Паста мамы сегодня просто нереальная!",
   "th": "พาสต้าแม่อร่อยเกินจริงคืนนี้!",
-  "tr": "Annemin makarnası bu gece inanılmaz lezzetli!"
+  "tr": "Annemin makarnası bu gece inanılmaz lezzetli!",
+  "zh": "妈妈今晚的意面味道简直 unreal，太 bussin 了。"
  },
  "busy as a bee|ex": {
   "ar": "أنا \"busy as a bee\" هذا الأسبوع.",
@@ -682,7 +770,9 @@
   "ko": "이번 주에 나는 \"busy as a bee\"야.",
   "pt": "Estou \"busy as a bee\" esta semana.",
   "ru": "Я \"busy as a bee\" на этой неделе.",
-  "th": "ฉัน \"busy as a bee\" สัปดาห์นี้."
+  "th": "ฉัน \"busy as a bee\" สัปดาห์นี้.",
+  "tr": "Bu hafta ben busy as a bee.",
+  "zh": "我这周真是“busy as a bee”。"
  },
  "busy as a bee|hook": {
   "de": "Keine Freizeit diese Woche!",
@@ -691,8 +781,10 @@
   "hi": "इस हफ़्ते कोई खाली समय नहीं है!",
   "id": "Tidak ada waktu luang minggu ini! busy as a bee",
   "ja": "今週は \"busy as a bee\" で、自由な時間がない！",
+  "ko": "이번 주는 자유 시간이 없어! \"busy as a bee\"",
   "pt": "Sem tempo livre esta semana!",
-  "th": "สัปดาห์นี้ไม่มีเวลาว่าง! busy as a bee"
+  "th": "สัปดาห์นี้ไม่มีเวลาว่าง! busy as a bee",
+  "tr": "Bu hafta hiç boş zamanım yok, 'busy as a bee'!"
  },
  "by the way|ex": {
   "ar": "\"by the way\"، تبدأ الحفلة في الساعة السابعة.",
@@ -706,7 +798,8 @@
   "pt": "\"By the way\", a festa começa às sete.",
   "ru": "«By the way», вечеринка начинается в семь.",
   "th": "\"by the way\" ปาร์ตี้เริ่มตอนเจ็ดโมง.",
-  "tr": "by the way, parti saat yedide başlıyor."
+  "tr": "by the way, parti saat yedide başlıyor.",
+  "zh": "\"by the way\"，派对七点开始。"
  },
  "by the way|hook": {
   "de": "Oh, „by the way“, noch etwas!",
@@ -719,24 +812,30 @@
   "pt": "Ah, \"by the way\", tem mais uma coisa!",
   "ru": "О, ещё одна вещь! «by the way».",
   "th": "โอ้ \"by the way\" อีกเรื่องหนึ่ง!",
-  "tr": "by the way, oh bir şey daha!"
+  "tr": "by the way, oh bir şey daha!",
+  "zh": "哦，\"by the way\"，还有件事！"
  },
  "call out|ex": {
+  "ar": "لقد \"called me out\" بسبب تأخري.",
+  "de": "Sie hat mich dafür kritisiert („called me out“), dass ich zu spät war.",
   "es": "Ella me \"call out\" por llegar tarde.",
   "hi": "उसने मुझे देर से आने के लिए \"call out\" किया।",
   "id": "Dia \"call out\" aku karena terlambat.",
   "ja": "彼女は私が遅れたことを「call out」した。",
   "ko": "그녀는 내가 늦은 것을 'call out'했어.",
   "th": "เธอ 'call out' ฉันเพราะมาสาย",
-  "tr": "Geç kaldığım için beni \"call out\" etti."
+  "tr": "Geç kaldığım için beni \"call out\" etti.",
+  "zh": "她 \"call out\" 我，因为我迟到。"
  },
  "call out|hook": {
   "hi": "उसने सबको मेरी गलती 'call out' कर दी!",
   "id": "Dia 'call out' kesalahanku ke semua orang!",
   "ja": "彼女はみんなに僕のミスを指摘した。「call out」",
   "ko": "그녀는 모두에게 내 실수를 'call out'했어.",
+  "pt": "Ela contou a todos o meu erro! (\"call out\")",
   "ru": "Она всем рассказала о моей ошибке! «call out».",
-  "th": "เธอ 'call out' ความผิดของฉันต่อทุกคน!"
+  "th": "เธอ 'call out' ความผิดของฉันต่อทุกคน!",
+  "tr": "O, hatamı herkese 'call out' etti!"
  },
  "cheap|ex": {
   "ar": "إنه \"cheap\" جداً لدرجة أنه لا يشتري الغداء.",
@@ -750,7 +849,8 @@
   "pt": "Ele é \"cheap\" demais para comprar o almoço.",
   "ru": "Он слишком «cheap», чтобы купить обед.",
   "th": "เขา “cheap” จนไม่ซื้ออาหารกลางวัน",
-  "tr": "O, öğle yemeği almak için çok 'cheap'."
+  "tr": "O, öğle yemeği almak için çok 'cheap'.",
+  "zh": "他太 \"cheap\" 了，连午饭都不买。"
  },
  "cheap|hook": {
   "ar": "هو لا يدفع ثمن الغداء أبداً، إنه \"cheap\"!",
@@ -764,7 +864,8 @@
   "pt": "Ele nunca paga o almoço, é \"cheap\"!",
   "ru": "Он никогда не платит за обед, «cheap»!",
   "th": "เขาไม่เคยจ่ายค่าอาหารกลางวันเลย! เขา “cheap”",
-  "tr": "O, hiç öğle yemeği için ödeme yapmaz, 'cheap'!"
+  "tr": "O, hiç öğle yemeği için ödeme yapmaz, 'cheap'!",
+  "zh": "他从不付午饭钱，真 \"cheap\"！"
  },
  "cheat day|ex": {
   "ar": "يوم السبت هو الـ \"cheat day\" الخاص بي.",
@@ -778,7 +879,8 @@
   "pt": "Sábado é o meu \"cheat day\"",
   "ru": "Суббота — мой «cheat day».",
   "th": "วันเสาร์เป็น 'cheat day' ของฉัน",
-  "tr": "Cumartesi benim \"cheat day\" günüm."
+  "tr": "Cumartesi benim \"cheat day\" günüm.",
+  "zh": "星期六是我的 \"cheat day\"。"
  },
  "cheat day|hook": {
   "de": "Samstag. Diät? Welche Diät? – „cheat day“.",
@@ -805,7 +907,8 @@
   "pt": "\"Cool\", nos vemos às seis!",
   "ru": "«Cool», увидимся в шесть!",
   "th": "“cool”, แล้วเจอกันตอนหกโมง!",
-  "tr": "'cool', saat altıda görüşürüz!"
+  "tr": "'cool', saat altıda görüşürüz!",
+  "zh": "\"cool\"，六点见！"
  },
  "cool|hook": {
   "ar": "فيلم الليلة في السادسة، \"cool\"؟",
@@ -818,7 +921,9 @@
   "ko": "오늘 밤 6시에 영화 보자, 괜찮아? 'cool'.",
   "pt": "Filme hoje à noite às seis, \"cool\"?",
   "ru": "Фильм сегодня в шесть, «cool»?",
-  "th": "หนังคืนนี้หกโมง ตกลงไหม? “cool”"
+  "th": "หนังคืนนี้หกโมง ตกลงไหม? “cool”",
+  "tr": "Bu akşam saat altıda film, 'cool' mu?",
+  "zh": "今晚六点看电影，\"cool\"？"
  },
  "count me in|ex": {
   "ar": "ليلة الألعاب؟ \"count me in\"!",
@@ -832,17 +937,20 @@
   "pt": "Noite de jogos? \"count me in\"!",
   "ru": "Вечер игр? «Count me in»!",
   "th": "คืนเกม? Count me in!",
-  "tr": "Oyun gecesi? \"count me in\"!"
+  "tr": "Oyun gecesi? \"count me in\"!",
+  "zh": "游戏之夜？Count me in！"
  },
  "count me in|hook": {
   "de": "Spieleabend bei mir! \"count me in\"",
   "es": "Noche de juegos en mi casa, \"count me in\".",
   "fr": "Soirée jeux chez moi ! \"count me in\"",
+  "hi": "मेरे घर पर गेम नाइट, \"count me in\"!",
   "id": "Malam permainan di rumahku! \"count me in\"",
   "ja": "私の家でゲームナイト！『count me in』",
   "ko": "우리 집에서 게임 나이트 할 거야! \"count me in\"",
   "pt": "Noite de jogos aqui em casa! \"count me in\"",
   "ru": "Вечер игр у меня дома! «count me in»",
+  "th": "คืนเกมที่บ้านฉัน! \"count me in\"",
   "tr": "Benim evimde oyun gecesi! \"count me in\""
  },
  "dressed to impress|ex": {
@@ -855,11 +963,14 @@
   "ja": "彼は面接のために「dressed to impress」な服装だ。",
   "ko": "그는 면접을 위해 'dressed to impress'하게 옷을 입었어.",
   "pt": "Ele está \"dressed to impress\" para a entrevista.",
+  "ru": "Он \"dressed to impress\" для интервью.",
   "th": "เขา 'dressed to impress' สำหรับการสัมภาษณ์",
-  "tr": "Mülakat için \"dressed to impress\" giyinmiş."
+  "tr": "Mülakat için \"dressed to impress\" giyinmiş.",
+  "zh": "他 \"dressed to impress\" 去参加面试。"
  },
  "dressed to impress|hook": {
   "de": "Interview‑Tag. Anzug und Krawatte – „dressed to impress“.",
+  "es": "Día de entrevista. ¡Traje y corbata para ir \"dressed to impress\"!",
   "fr": "Jour d'entretien. Costume et cravate ! \"dressed to impress\"",
   "hi": "इंटरव्यू का दिन। सूट और टाई, 'dressed to impress'!",
   "id": "Hari wawancara. Aku 'dressed to impress' dengan setelan jas dan dasi!",
@@ -882,7 +993,8 @@
   "pt": "Aqui vai meu \"hot take\": abacaxi combina com pizza.",
   "ru": "Вот мой «hot take»: ананас должен быть на пицце.",
   "th": "นี่คือ \"hot take\" ของฉัน: สับปะรดควรอยู่บนพิซซ่า.",
-  "tr": "İşte benim \"hot take\": ananas pizzada olmalı."
+  "tr": "İşte benim \"hot take\": ananas pizzada olmalı.",
+  "zh": "这是我的hot take：菠萝应该放在披萨上。"
  },
  "hot take|hook": {
   "de": "Ananaspizza ist das Beste! \"hot take\"",
@@ -909,19 +1021,22 @@
   "pt": "O gato pulou na caixa. \"I'm dead\"!",
   "ru": "Кот прыгнул в коробку. I'm dead!",
   "th": "แมวกระโดดเข้าไปในกล่อง ฉันหัวเราะจน 'I'm dead'!",
-  "tr": "Kedi kutuya atladı. \"I'm dead\"!"
+  "tr": "Kedi kutuya atladı. \"I'm dead\"!",
+  "zh": "猫跳进盒子里，\\\"I'm dead\\\"！"
  },
  "i'm dead|hook": {
   "de": "Die Katze sprang in die Kiste! I'm dead.",
   "es": "¡El gato se metió en la caja! \"I'm dead\".",
   "fr": "Le chat a sauté dans la boîte ! I'm dead.",
+  "hi": "\"I'm dead\"—बिल्ली बॉक्स में कूद गई!",
   "id": "Kucing melompat ke dalam kotak! \"I'm dead\".",
   "ja": "猫が箱に飛び込んだ！\"I'm dead\"",
   "ko": "고양이가 상자 안으로 뛰어들었어! I'm dead",
   "pt": "O gato pulou na caixa! \"I'm dead\".",
   "ru": "Кот прыгнул в коробку! I'm dead.",
   "th": "แมวกระโดดเข้าไปในกล่องเลย \"I'm dead\"",
-  "tr": "Kedi kutuya atladı! \"I'm dead\"."
+  "tr": "Kedi kutuya atladı! \"I'm dead\".",
+  "zh": "猫跳进盒子里！\\\"I'm dead\\\"。"
  },
  "no cap|ex": {
   "ar": "هذه البيتزا هي الأفضل في المدينة، 'no cap'.",
@@ -935,7 +1050,8 @@
   "pt": "Esta pizza é a melhor da cidade, \"no cap\".",
   "ru": "Эта пицца — лучшая в городе, no cap.",
   "th": "พิซซ่านี้อร่อยที่สุดในเมือง, no cap",
-  "tr": "Bu pizza şehirdeki en iyisi, \"no cap\"."
+  "tr": "Bu pizza şehirdeki en iyisi, \"no cap\".",
+  "zh": "这家披萨是全城最好的，\\\"no cap\\\"。"
  },
  "no cap|hook": {
   "de": "Beste Pizza in der Stadt. Glaub mir, no cap.",
@@ -948,24 +1064,30 @@
   "pt": "A melhor pizza da cidade. Acredite, \"no cap\".",
   "ru": "Лучшая пицца в городе. Поверьте, no cap.",
   "th": "พิซซ่าอร่อยที่สุดในเมืองเลย เชื่อฉันนะ no cap",
-  "tr": "Şehrin en iyi pizzası. İnan bana, \"no cap\"."
+  "tr": "Şehrin en iyi pizzası. İnan bana, \"no cap\".",
+  "zh": "全城最好的披萨，真的，\\\"no cap\\\"。"
  },
  "pig out|ex": {
   "ar": "لقد قمنا بـ 'pig out' على البيتزا ليلة أمس.",
   "de": "Wir haben gestern Abend bei Pizza „pigged out“.",
+  "es": "Anoche hicimos \"pig out\" comiendo pizza.",
   "hi": "हमने कल रात पिज़्ज़ा पर \"pig out\" किया।",
   "ja": "昨晩、ピザで\"pig out\"した。",
+  "ko": "우리는 어젯밤 피자를 많이 먹었어. \"pig out\"",
   "th": "เรากินพิซซ่าอย่าง \"pig out\" เมื่อคืน",
-  "tr": "Geçen gece pizza yedik, \"pig out\"."
+  "tr": "Geçen gece pizza yedik, \"pig out\".",
+  "zh": "我们昨晚大吃披萨，\\\"pig out\\\"。"
  },
  "pig out|hook": {
   "es": "¡Se ha comido toda la pizza! \"pig out\".",
+  "hi": "\"pig out\"—पूरी पिज़्ज़ा खत्म हो गई!",
   "id": "Seluruh pizza sudah habis! \"pig out\".",
   "ja": "ピザが全部なくなった！\"pig out\"",
   "ko": "피자 전체가 다 사라졌어! pig out",
   "pt": "A pizza inteira acabou! \"pig out\".",
   "th": "พิซซ่าทั้งหมดหายไปแล้ว \"pig out\"",
-  "tr": "Bütün pizza bitti! \"pig out\"."
+  "tr": "Bütün pizza bitti! \"pig out\".",
+  "zh": "整张披萨都没了！\\\"pig out\\\"。"
  },
  "salty|ex": {
   "ar": "إنه 'salty' لأنني فزت في لعبة الورق.",
@@ -979,7 +1101,8 @@
   "pt": "Ele está \"salty\" porque eu ganhei o jogo de cartas.",
   "ru": "Он salty, потому что я выиграл в карточную игру.",
   "th": "เขา salty เพราะฉันชนะเกมไพ่",
-  "tr": "O, kart oyununu kazandığım için \"salty\"."
+  "tr": "O, kart oyununu kazandığım için \"salty\".",
+  "zh": "他因为我赢了纸牌游戏而很\\\"salty\\\"。"
  },
  "salty|hook": {
   "de": "Er hat verloren, dann war er salty.",
@@ -988,8 +1111,11 @@
   "hi": "वह हार गया, फिर \"salty\" हो गया!",
   "id": "Dia kalah, lalu mengomel, \"salty\".",
   "ja": "彼は負けてからすねた、\"salty\"。",
+  "ko": "그는 졌고, 화가 났다! \"salty\"",
   "pt": "Ele perdeu e ficou \"salty\".",
   "ru": "Он проиграл, а потом стал salty.",
-  "tr": "Kaybetti, sonra somurtmaya başladı, \"salty\"."
+  "th": "เขาแพ้แล้วก็ \"salty\"!",
+  "tr": "Kaybetti, sonra somurtmaya başladı, \"salty\".",
+  "zh": "他输了，然后闹别扭，\\\"salty\\\"。"
  }
 }
