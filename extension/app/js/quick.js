@@ -122,7 +122,7 @@
       const elapsed = Math.min(LIMIT, Math.max(1, Math.round((Date.now() - startTime) / 1000)));
       const pct = Math.round((score / total) * 100);
       const isGood = pct >= 75;
-      const xp = score * 2;
+      const xp = Game.xpFor('answer') * score; // 15 giây: chỉ XP từng câu đúng (không thưởng hoàn thành)
       if (xp && App.reward) App.reward({ xp });
       const praise = pct === 100 ? t('Phản xạ thần tốc! Trí nhớ như máy quét ⚡')
         : isGood ? t('Rất xuất sắc! Não bộ vừa được khởi động cực mượt 🚀')
