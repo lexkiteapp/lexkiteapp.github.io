@@ -1,0 +1,157 @@
+{
+ "_note": "Cấu trúc DELF A1–B2 / DALF C1–C2 (4 phần: CO nghe, CE đọc, PE viết, PO nói). Chỉ ghi số công khai ĐÃ xác minh từ nguồn chính thức; null = CHƯA xác minh (trang france-education-international.fr chặn bot khi soạn 22/11/2026 nên thời lượng/số bài chưa đối chiếu được), cấm đoán số. Mô tả định dạng, không phải đề thật; không liên kết France Éducation international / CCI Paris Île-de-France. TEF/TCF chỉ là định dạng liên quan (ghi chú).",
+ "label": {
+  "vi": "Luyện theo định dạng",
+  "en": "Format practice"
+ },
+ "rule": {
+  "total": 100,
+  "partMax": 25,
+  "passTotal": 50,
+  "partMin": 5,
+  "parts": 4,
+  "note": "Quy tắc chung DELF/DALF mọi cấp: mỗi phần /25, tổng /100, đạt khi ≥ 50/100 và mỗi phần ≥ 5/25."
+ },
+ "delf": {
+  "A1": {
+   "src": "france-education-international.fr (DELF tout public)",
+   "listen": {
+    "min": null,
+    "tareas": null
+   },
+   "read": {
+    "min": null,
+    "tareas": null
+   },
+   "write": {
+    "min": null,
+    "tareas": null
+   },
+   "speak": {
+    "min": null,
+    "tareas": null
+   },
+   "items": null,
+   "note": "Thời lượng và số bài từng phần chưa xác minh = null; chỉ áp dụng quy tắc chung (mỗi phần /25, tổng /100, đạt khi ≥ 50 và mỗi phần ≥ 5/25)."
+  },
+  "A2": {
+   "src": "france-education-international.fr (DELF tout public)",
+   "listen": {
+    "min": null,
+    "tareas": null
+   },
+   "read": {
+    "min": null,
+    "tareas": null
+   },
+   "write": {
+    "min": null,
+    "tareas": null
+   },
+   "speak": {
+    "min": null,
+    "tareas": null
+   },
+   "items": null,
+   "note": "Thời lượng và số bài từng phần chưa xác minh = null; chỉ áp dụng quy tắc chung (mỗi phần /25, tổng /100, đạt khi ≥ 50 và mỗi phần ≥ 5/25)."
+  },
+  "B1": {
+   "src": "france-education-international.fr (DELF tout public)",
+   "listen": {
+    "min": null,
+    "tareas": null
+   },
+   "read": {
+    "min": null,
+    "tareas": null
+   },
+   "write": {
+    "min": null,
+    "tareas": null
+   },
+   "speak": {
+    "min": null,
+    "tareas": null
+   },
+   "items": null,
+   "note": "Thời lượng và số bài từng phần chưa xác minh = null; chỉ áp dụng quy tắc chung (mỗi phần /25, tổng /100, đạt khi ≥ 50 và mỗi phần ≥ 5/25)."
+  },
+  "B2": {
+   "src": "france-education-international.fr (DELF tout public)",
+   "listen": {
+    "min": null,
+    "tareas": null
+   },
+   "read": {
+    "min": null,
+    "tareas": null
+   },
+   "write": {
+    "min": null,
+    "tareas": null
+   },
+   "speak": {
+    "min": null,
+    "tareas": null
+   },
+   "items": null,
+   "note": "Thời lượng và số bài từng phần chưa xác minh = null; chỉ áp dụng quy tắc chung (mỗi phần /25, tổng /100, đạt khi ≥ 50 và mỗi phần ≥ 5/25)."
+  }
+ },
+ "dalf": {
+  "C1": {
+   "src": "france-education-international.fr (DALF)",
+   "listen": {
+    "min": null,
+    "tareas": null
+   },
+   "read": {
+    "min": null,
+    "tareas": null
+   },
+   "write": {
+    "min": null,
+    "tareas": null
+   },
+   "speak": {
+    "min": null,
+    "tareas": null
+   },
+   "items": null,
+   "note": "Thời lượng và số bài từng phần chưa xác minh = null; chỉ áp dụng quy tắc chung (mỗi phần /25, tổng /100, đạt khi ≥ 50 và mỗi phần ≥ 5/25)."
+  },
+  "C2": {
+   "src": "france-education-international.fr (DALF)",
+   "listen": {
+    "min": null,
+    "tareas": null
+   },
+   "read": {
+    "min": null,
+    "tareas": null
+   },
+   "write": {
+    "min": null,
+    "tareas": null
+   },
+   "speak": {
+    "min": null,
+    "tareas": null
+   },
+   "items": null,
+   "note": "Thời lượng và số bài từng phần chưa xác minh = null; chỉ áp dụng quy tắc chung (mỗi phần /25, tổng /100, đạt khi ≥ 50 và mỗi phần ≥ 5/25)."
+  }
+ },
+ "related": {
+  "tef": {
+   "note": "TEF (CCI Paris Île-de-France): định dạng liên quan, đo trình độ theo thang điểm riêng; chưa xác minh số liệu → không ghi.",
+   "scale": null,
+   "items": null
+  },
+  "tcf": {
+   "note": "TCF (France Éducation international): định dạng liên quan, đo trình độ theo thang điểm riêng; chưa xác minh số liệu → không ghi.",
+   "scale": null,
+   "items": null
+  }
+ }
+}

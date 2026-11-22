@@ -1,0 +1,514 @@
+{
+ "etre-present": {
+  "t": "être: يكون",
+  "x": "\"être\" تعني «يكون»: \"je suis\" و\"tu es\" و\"il est\" و\"nous sommes\" و\"vous êtes\" و\"ils sont\". نستخدمه للهوية والأصل والمهنة والوصف. احفظه عن ظهر قلب فهو أكثر أفعال الفرنسية استخدامًا. أمثلة: \"je suis\"، \"nous sommes\"، \"ils sont\"."
+ },
+ "avoir-present": {
+  "t": "avoir: يملك / عنده",
+  "x": "\"avoir\" تعني «يملك»: \"j'ai\" و\"tu as\" و\"il a\" و\"nous avons\" و\"vous avez\" و\"ils ont\". ويدخل لاحقًا في تكوين الماضي المركب \"passé composé\". لاحظ حذف حرف العلة في \"j'ai\" قبل الصوت المتحرك. أمثلة: \"j'ai\"، \"elle a\"، \"nous avons\"."
+ },
+ "il-y-a": {
+  "t": "il y a: يوجد",
+  "x": "\"il y a\" تعني «يوجد» لشيء موجود، مفردًا كان أو جمعًا، ولا تتغير أبدًا: \"il y a un livre\"، \"il y a des livres\". النفي: \"il n'y a pas de livre\". والسؤال: \"y a-t-il\" أو \"est-ce qu'il y a\". أمثلة: \"il y a un café\"، \"il n'y a pas de lait\"."
+ },
+ "art-defini": {
+  "t": "أداة التعريف",
+  "x": "\"le\" (مذكر) و\"la\" (مؤنث) و\"l'\" (قبل الصوت المتحرك) و\"les\" (جمع) تعني «ال». وتُستعمل أيضًا للأفكار العامة: \"j'aime la musique\" تعني «أحب الموسيقى». أمثلة: \"le café\"، \"la pomme\"، \"les enfants\"."
+ },
+ "art-indefini": {
+  "t": "أداة التنكير",
+  "x": "\"un\" (مذكر) و\"une\" (مؤنث) و\"des\" (جمع) تعني «واحد» أو «بعض». نقدّم بها شيئًا جديدًا: \"j'ai un frère et des cousins\". \"des\" كثيرًا ما لا تُترجم إلى العربية. أمثلة: \"un frère\"، \"une sœur\"، \"des amis\"."
+ },
+ "gender-nouns": {
+  "t": "مذكر أم مؤنث؟",
+  "x": "كل اسم في الفرنسية إما مذكر أو مؤنث. تساعدك النهايات: \"-tion\" و\"-té\" و\"-ette\" غالبًا مؤنثة، و\"-ment\" و\"-age\" و\"-eau\" غالبًا مذكرة. تعلّم الاسم دائمًا مع أداته: \"la ville\"، \"le village\". أمثلة: \"le village\"، \"la ville\"، \"la question\"."
+ },
+ "plural-regular": {
+  "t": "الجمع: أضف -s",
+  "x": "معظم الجموع تضيف \"-s\" وهي صامتة: \"un ami\"، \"des amis\". الأسماء المنتهية أصلًا بـ\"-s\" أو \"-x\" أو \"-z\" لا تتغير: \"un pays\"، \"des pays\". الذي يدل على الجمع هو الأداة والوصل الصوتي فقط. أمثلة: \"deux sœurs\"، \"trois amis\"."
+ },
+ "plural-irregular": {
+  "t": "الجموع الشاذة",
+  "x": "الأسماء المنتهية بـ\"-al\" تصير \"-aux\": \"un journal\"، \"des journaux\". والمنتهية بـ\"-eau\" و\"-eu\" تضيف \"-x\": \"un bateau\"، \"des bateaux\"، \"un jeu\"، \"des jeux\". وهناك استثناءات قليلة احفظها مثل \"un festival, des festivals\". أمثلة: \"des journaux\"، \"des bateaux\"، \"des cheveux\"."
+ },
+ "elision-basic": {
+  "t": "حذف الحرف قبل المتحرك",
+  "x": "الكلمات القصيرة \"le\" و\"la\" و\"je\" و\"ne\" و\"de\" و\"que\" و\"se\" تفقد حرفها الأخير قبل حرف متحرك أو h صامتة وتأخذ فاصلة عليا: \"l'école\"، \"j'aime\"، \"n'aime pas\"، \"qu'elle\". أما \"les\" و\"un\" فلا يحدث لهما ذلك أبدًا. أمثلة: \"l'école\"، \"j'aime\"، \"qu'elle\"."
+ },
+ "contractions-au-du": {
+  "t": "au وaux وdu وdes",
+  "x": "\"à + le\" تصير \"au\"، و\"à + les\" تصير \"aux\"، و\"de + le\" تصير \"du\"، و\"de + les\" تصير \"des\". ومع \"la\" و\"l'\" لا يتغير شيء: \"à la gare\"، \"de la gare\". لا تكتب أبدًا \"à le\" ولا \"de le\". أمثلة: \"au marché\"، \"aux voisins\"، \"du professeur\"."
+ },
+ "partitif": {
+  "t": "التبعيض: بعض",
+  "x": "للحديث عن كمية من شيء لا يُعدّ نستخدم \"du\" (مذكر) أو \"de la\" (مؤنث) أو \"de l'\" (قبل المتحرك) أو \"des\" (جمع): \"je prends du café\". العربية لا تحتاج كلمة هنا، أما الفرنسية فتحتاجها دائمًا. أمثلة: \"du pain\"، \"de la salade\"، \"des légumes\"."
+ },
+ "de-negation": {
+  "t": "النفي مع de",
+  "x": "بعد \"ne… pas\" و\"jamais\" و\"plus\" تتحول أداة التنكير أو التبعيض إلى \"de\": \"j'ai un chat\" تصير \"je n'ai pas de chat\". الاستثناء بعد \"être\": تبقى الأداة: \"ce n'est pas un chat\". أمثلة: \"pas de voiture\"، \"jamais de viande\"."
+ },
+ "adj-agreement": {
+  "t": "مطابقة الصفة",
+  "x": "تطابق الصفة الاسم: نضيف \"-e\" للمؤنث و\"-s\" للجمع. \"grand\" و\"grande\" و\"grands\" و\"grandes\". والصفات المنتهية بـ-e لا تتغير في المؤنث: \"un garçon sympa\"، \"une fille sympa\". أمثلة: \"elle est grande\"، \"ils sont petits\"."
+ },
+ "adj-position": {
+  "t": "أين تقع الصفة؟",
+  "x": "معظم الصفات تأتي بعد الاسم: \"une robe bleue\". وبعض الصفات القصيرة الشائعة تأتي قبله، وهي صفات الجمال والعمر والجودة والحجم (\"beau, jeune, bon, grand, petit\"): \"un petit chien\". لـ\"beau\" الشكلان \"bel\" و\"belle\". أمثلة: \"une belle maison\"، \"une maison blanche\"."
+ },
+ "possessifs": {
+  "t": "الملكية: mon وma وmes",
+  "x": "تطابق صفة الملكية الشيء المملوك لا المالك: \"mon père\"، \"ma mère\"، \"mes parents\". قبل المتحرك تأخذ الأسماء المؤنثة \"mon\": \"mon amie\". وغيرها: \"notre/nos\" و\"votre/vos\" و\"leur/leurs\". أمثلة: \"mon père\"، \"ma mère\"، \"leurs chats\"."
+ },
+ "demonstratifs": {
+  "t": "هذا وذاك: ce وcette وces",
+  "x": "\"ce\" (مذكر) و\"cet\" (مذكر قبل المتحرك) و\"cette\" (مؤنث) و\"ces\" (جمع) تعني «هذا» أو «ذاك». نضيف \"-ci\" أو \"-là\" للمقابلة: \"ce livre-ci\"، \"ce livre-là\". أمثلة: \"ce livre\"، \"cette veste\"، \"ces enfants\"."
+ },
+ "pres-er": {
+  "t": "المضارع: أفعال -er",
+  "x": "احذف \"-er\" وأضف \"-e, -es, -e, -ons, -ez, -ent\": من \"parler\" نحصل على \"je parle\" و\"tu parles\" و\"il parle\" و\"nous parlons\" و\"vous parlez\" و\"ils parlent\". نحو 90 بالمئة من الأفعال الفرنسية تسير على هذا النمط. أمثلة: \"je parle\"، \"nous parlons\"، \"ils parlent\"."
+ },
+ "pres-ir-re": {
+  "t": "المضارع: أفعال -ir و-re",
+  "x": "أفعال \"-ir\" المنتظمة تضيف \"-is, -is, -it, -issons, -issez, -issent\": \"finir\"، \"je finis\"، \"nous finissons\". وأفعال \"-re\" تضيف \"-s, -s, -, -ons, -ez, -ent\": \"vendre\"، \"je vends\"، \"il vend\". أمثلة: \"je finis\"، \"nous finissons\"، \"je vends\"."
+ },
+ "pres-irreguliers": {
+  "t": "أفعال شاذة شائعة",
+  "x": "احفظ \"aller\" (\"je vais, nous allons\") و\"faire\" (\"je fais, vous faites\") و\"prendre\" (\"je prends, ils prennent\") و\"venir\" (\"je viens, ils viennent\"). انتبه إلى \"vous faites\" و\"ils font\" فهما يخرجان عن القاعدة. أمثلة: \"je vais\"، \"nous faisons\"، \"ils prennent\"، \"vous venez\"."
+ },
+ "tu-vous": {
+  "t": "tu أم vous؟",
+  "x": "استخدم \"tu\" مع الأصدقاء والعائلة والأطفال والأقران. واستخدم \"vous\" مع الغرباء والكبار في السن وفي المتاجر وفي العمل، ودائمًا عند مخاطبة عدة أشخاص. وإذا ترددت فابدأ بـ\"vous\". أمثلة: \"tu viens\"، \"vous venez\"."
+ },
+ "on-nous": {
+  "t": "on = نحن",
+  "x": "في الفرنسية اليومية تحل \"on\" محل \"nous\"، لكن الفعل يبقى بصيغة الغائب المفرد: \"on va au cinéma\". وتعني \"On\" أيضًا «الناس عمومًا»: \"en France, on mange du pain\". أمثلة: \"on va\"، \"on mange\"."
+ },
+ "neg-ne-pas": {
+  "t": "النفي: ne … pas",
+  "x": "ضع \"ne\" قبل الفعل و\"pas\" بعده: \"je ne parle pas\". قبل المتحرك تصير \"ne\" إلى \"n'\": \"il n'aime pas\". في الكلام يُحذف \"ne\" كثيرًا، لكن اكتبه في الفرنسية الصحيحة. أمثلة: \"je ne parle pas\"، \"il n'aime pas\"."
+ },
+ "q-est-ce-que": {
+  "t": "أسئلة نعم/لا",
+  "x": "الأسهل: أبقِ ترتيب الكلمات وارفع صوتك، أو اكتب علامة استفهام: \"tu viens ?\". وأكثر رسمية: ضع \"est-ce que\" في البداية: \"est-ce que tu viens ?\". قبل المتحرك تصير \"est-ce qu'\": \"est-ce qu'elle vient ?\". أمثلة: \"tu aimes le thé ?\"، \"est-ce que vous avez\"."
+ },
+ "q-mots-interrogatifs": {
+  "t": "أدوات الاستفهام",
+  "x": "\"où\" (أين) و\"quand\" (متى) و\"comment\" (كيف) و\"combien\" (كم) و\"pourquoi\" (لماذا) و\"qui\" (من). تأتي في بداية الجملة: \"où est la gare ?\". وتجيب عن \"pourquoi\" بـ\"parce que\". أمثلة: \"où\"، \"quand\"، \"combien\"، \"pourquoi\"."
+ },
+ "q-quel": {
+  "t": "quel: أي، ما",
+  "x": "تطابق \"quel\" الاسم: \"quel\" (مذكر مفرد) و\"quelle\" (مؤنث مفرد) و\"quels\" (مذكر جمع) و\"quelles\" (مؤنث جمع). ويمكن أن تأتي بعد الاسم مع \"être\": \"quel est ton nom ?\" أمثلة: \"quelle heure\"، \"quels films\"."
+ },
+ "futur-proche": {
+  "t": "المستقبل القريب: aller + مصدر",
+  "x": "صرّف \"aller\" في المضارع وأضف مصدرًا: \"je vais travailler\"، \"nous allons manger\". النفي: \"je ne vais pas partir\". وهي الطريقة المعتادة للحديث عن الخطط في الكلام. أمثلة: \"je vais manger\"، \"elle va partir\"."
+ },
+ "pres-pronominaux": {
+  "t": "الأفعال الانعكاسية",
+  "x": "لهذه الأفعال ضمير يطابق الفاعل: \"je me\" و\"tu te\" و\"il se\" و\"nous nous\" و\"vous vous\" و\"ils se\". أمثلة: \"se lever\"، \"se coucher\"، \"s'habiller\". النفي: \"je ne me lève pas\". أمثلة: \"je me lève\"، \"elle se couche\"."
+ },
+ "imperatif-present": {
+  "t": "الأمر",
+  "x": "استخدم صيغ المضارع لـ\"tu\" و\"nous\" و\"vous\" دون الضمير: \"tu parles\" تصير \"parle !\"، و\"nous parlons\" تصير \"parlons !\"، و\"vous parlez\" تصير \"parlez !\". أفعال \"-er\" تحذف الـ-s الأخيرة في صيغة \"tu\". الشاذ: \"sois, soyons, soyez\" و\"aie, ayons, ayez\". أمثلة: \"parle !\"، \"parlons !\"، \"parlez !\"."
+ },
+ "modaux-pouvoir-vouloir": {
+  "t": "vouloir وpouvoir وdevoir",
+  "x": "يأتي بعد هذه الأفعال الثلاثة مصدر: \"je veux manger\"، \"tu peux venir\"، \"nous devons partir\". وهي شاذة: \"je veux, nous voulons\" و\"je peux, nous pouvons\" و\"je dois, nous devons\". أمثلة: \"je veux partir\"، \"tu peux\"، \"nous devons\"."
+ },
+ "prep-lieu": {
+  "t": "أين هو؟",
+  "x": "كلمات المكان الشائعة: \"dans\" (في) و\"sur\" (على) و\"sous\" (تحت) و\"devant\" (أمام) و\"derrière\" (خلف) و\"entre\" (بين) و\"à côté de\" (بجانب) و\"près de\" (قرب). وبعد \"de\" تذكّر الاختصارات: \"à côté du parc\". أمثلة: \"sur la table\"، \"sous la table\"، \"entre la poste et la banque\"."
+ },
+ "prep-a-chez-de": {
+  "t": "à وchez وde",
+  "x": "\"à\" تُستعمل مع المدن والأماكن: \"je vais à Lyon\". و\"chez\" مع الأشخاص أو متجرهم أو بيتهم: \"chez le dentiste\"، \"chez moi\". و\"de\" تدل على المكان الذي جئت منه: \"je viens de Lyon\". أمثلة: \"chez Marie\"، \"à Lyon\"، \"de la gare\"."
+ },
+ "nombres": {
+  "t": "الأعداد",
+  "x": "صيغ خاصة: \"soixante-dix\" (70) و\"quatre-vingts\" (80، مع s) و\"quatre-vingt-dix\" (90). تظهر \"et\" في 21 و31 و41 و51 و61 و71، لكن ليس في 81 و91. وتربط الشرطات العشرات بالآحاد. أمثلة: \"vingt et un\"، \"soixante-dix\"، \"quatre-vingts\"."
+ },
+ "heure-date": {
+  "t": "الوقت والتاريخ",
+  "x": "استخدم \"il est\" + الساعة: \"il est trois heures et quart\". \"midi\" و\"minuit\" تأخذان \"et demi\"، وبقية الساعات \"et demie\". التواريخ: \"le 5 mai\"، والأول فقط يكون ترتيبيًا: \"le premier mai\". والوقت مع \"à\": \"à neuf heures\". أمثلة: \"huit heures et demie\"، \"le cinq mai\"."
+ },
+ "c-est-ce-sont": {
+  "t": "c'est وce sont",
+  "x": "استخدم \"c'est\" + اسم مفرد و\"ce sont\" + اسم جمع للتقديم والتعريف: \"c'est un livre\"، \"ce sont des livres\". وفي الكلام تشيع \"c'est\" مع الجمع أيضًا. السؤال: \"qu'est-ce que c'est ?\" أمثلة: \"c'est mon frère\"، \"ce sont mes amis\"."
+ },
+ "gouts-aimer": {
+  "t": "الحب والكره",
+  "x": "بعد \"aimer\" و\"adorer\" و\"détester\" و\"préférer\" استخدم أداة التعريف لا التبعيض: \"j'aime le café\"، \"elle adore les chats\". ويمكنك إضافة \"beaucoup\": \"j'aime beaucoup la musique\". أمثلة: \"j'aime le chocolat\"، \"je déteste les épinards\"."
+ },
+ "adv-intensite": {
+  "t": "كم؟ بأي درجة؟",
+  "x": "\"très\" تأتي قبل الصفات والظروف: \"très bien\". و\"beaucoup\" تأتي بعد الأفعال: \"il travaille beaucoup\". وقبل الاسم نستخدم \"beaucoup de\": \"beaucoup de fruits\". و\"un peu\" و\"trop\" تعملان مثل \"beaucoup\". أمثلة: \"très grand\"، \"il mange beaucoup\"، \"un peu\"."
+ },
+ "avoir-expressions": {
+  "t": "تعابير avoir",
+  "x": "تستخدم الفرنسية \"avoir\" لا \"être\" للعمر ولكثير من أحاسيس الجسم: \"j'ai vingt ans\"، \"j'ai faim\"، \"j'ai soif\"، \"j'ai chaud\"، \"j'ai froid\"، \"j'ai peur\"، \"j'ai sommeil\". وأضف \"très\": \"j'ai très faim\". أمثلة: \"j'ai faim\"، \"elle a vingt ans\"، \"il a froid\"."
+ },
+ "clause-et-mais-parce-que": {
+  "t": "أدوات الربط",
+  "x": "\"et\" للإضافة و\"ou\" للاختيار و\"mais\" للتعارض و\"parce que\" لذكر السبب. قبل المتحرك تصير \"parce que\" إلى \"parce qu'\": \"parce qu'il pleut\". و\"donc\" تعطي النتيجة. أمثلة: \"et\"، \"mais\"، \"parce que\"."
+ },
+ "pc-avoir": {
+  "t": "الماضي المركب مع avoir",
+  "x": "معظم الأفعال تكوّن الماضي بـ\"avoir\" في المضارع + اسم المفعول: \"j'ai mangé\"، \"tu as fini\"، \"il a vendu\". اسم المفعول: \"-er\" يعطي \"-é\" و\"-ir\" يعطي \"-i\" و\"-re\" يعطي \"-u\". أمثلة: \"j'ai mangé\"، \"nous avons fini\"."
+ },
+ "pc-etre": {
+  "t": "الماضي المركب مع être",
+  "x": "نحو خمسة عشر فعلًا تستخدم \"être\": \"aller, venir, arriver, partir, entrer, sortir, monter, descendre, rester, tomber, naître, mourir, retourner, passer\" وكل الأفعال الانعكاسية. وسيلة للحفظ هي القائمة المسماة \"DR MRS VANDERTRAMP\". أمثلة: \"je suis allé\"، \"elle est partie\"."
+ },
+ "pc-accord-etre": {
+  "t": "مطابقة اسم المفعول مع être",
+  "x": "مع \"être\" يطابق اسم المفعول الفاعل: نضيف \"-e\" للمؤنث و\"-s\" للجمع. \"il est parti\" و\"elle est partie\" و\"ils sont partis\" و\"elles sont parties\". أمثلة: \"elle est partie\"، \"ils sont venus\"، \"elles sont allées\"."
+ },
+ "pc-pronominaux": {
+  "t": "الانعكاسية في الماضي",
+  "x": "تأخذ الأفعال الانعكاسية \"être\" مع الضمير قبله: \"je me suis levé\"، \"elle s'est couchée\"، \"ils se sont promenés\". ويطابق اسم المفعول الفاعل عادةً. أمثلة: \"je me suis levé\"، \"elle s'est couchée\"."
+ },
+ "pc-negation": {
+  "t": "النفي في الماضي",
+  "x": "ضع \"ne … pas\" حول الفعل المساعد لا حول اسم المفعول: \"je n'ai pas mangé\"، \"elle n'est pas venue\". وكذلك مع \"jamais\" و\"plus\" و\"rien\": \"il n'a rien dit\". أمثلة: \"je n'ai pas mangé\"، \"il n'est jamais venu\"."
+ },
+ "pc-participes-irreguliers": {
+  "t": "أسماء المفعول الشاذة",
+  "x": "صيغ يجب حفظها: \"avoir\" يعطي \"eu\" و\"être\" يعطي \"été\" و\"faire\" يعطي \"fait\" و\"prendre\" يعطي \"pris\" و\"voir\" يعطي \"vu\" و\"dire\" يعطي \"dit\" و\"écrire\" يعطي \"écrit\" و\"mettre\" يعطي \"mis\" و\"pouvoir\" يعطي \"pu\" و\"vouloir\" يعطي \"voulu\". أمثلة: \"j'ai eu\"، \"j'ai été\"، \"il a fait\"، \"elle a pris\"."
+ },
+ "imparfait-formation": {
+  "t": "الماضي الناقص: التصريف",
+  "x": "خذ صيغة \"nous\" من المضارع، واحذف \"-ons\"، وأضف \"-ais, -ais, -ait, -ions, -iez, -aient\": \"nous parlons\" تعطي \"je parlais\". \"être\" وحده شاذ: \"j'étais, nous étions\". أمثلة: \"je jouais\"، \"nous allions\"، \"il était\"."
+ },
+ "imparfait-usage": {
+  "t": "الماضي الناقص: متى نستعمله",
+  "x": "نستعمل \"imparfait\" لخلفية القصة: الطقس والمشاعر والأوصاف والعادات المتكررة. \"Il faisait beau\" و\"j'étais fatigué\" و\"chaque été, nous allions à la mer\". أمثلة: \"il faisait beau\"، \"je jouais\"، \"nous habitions\"."
+ },
+ "impf-vs-pc": {
+  "t": "imparfait أم passé composé؟",
+  "x": "\"Imparfait\": ما كان يجري، أي الخلفية. \"Passé composé\": ما حدث، أي حدث واحد يدفع القصة إلى الأمام. \"Je lisais quand le téléphone a sonné\": القراءة كانت مستمرة، والرنين قطعها. أمثلة: \"je dormais\"، \"le téléphone a sonné\"."
+ },
+ "futur-simple": {
+  "t": "المستقبل البسيط",
+  "x": "خذ المصدر (واحذف الـ-e الأخيرة من أفعال \"-re\") وأضف \"-ai, -as, -a, -ons, -ez, -ont\": \"parler\" تعطي \"je parlerai\" و\"prendre\" تعطي \"je prendrai\". أمثلة: \"je parlerai\"، \"nous prendrons\"، \"ils finiront\"."
+ },
+ "futur-irreguliers": {
+  "t": "جذوع المستقبل الشاذة",
+  "x": "تبقى النهايات نفسها لكن الجذع يتغير: \"aller\" يعطي \"ir-\" و\"être\" يعطي \"ser-\" و\"avoir\" يعطي \"aur-\" و\"faire\" يعطي \"fer-\" و\"venir\" يعطي \"viendr-\" و\"pouvoir\" يعطي \"pourr-\" و\"voir\" يعطي \"verr-\" و\"vouloir\" يعطي \"voudr-\". أمثلة: \"j'irai\"، \"il fera\"، \"ils viendront\"."
+ },
+ "conditionnel-politesse": {
+  "t": "الشرطي المهذب",
+  "x": "يخفف \"conditionnel\" حدة الطلبات: \"je voudrais\" (أودّ) و\"pourriez-vous\" (هل يمكنكم) و\"j'aimerais\" (أحبّ جدًا). التكوين: جذع المستقبل + نهايات الماضي الناقص \"-ais, -ais, -ait, -ions, -iez, -aient\". أمثلة: \"je voudrais\"، \"pourriez-vous\"، \"nous aimerions\"."
+ },
+ "cod-pronoms": {
+  "t": "ضمائر المفعول المباشر",
+  "x": "\"le\" و\"la\" و\"l'\" و\"les\" تحل محل اسم دون حرف جر وتقف قبل الفعل: \"je vois Paul\" تصير \"je le vois\". النفي: \"je ne le vois pas\". أمثلة: \"je le vois\"، \"elle la prend\"، \"tu les aimes\"."
+ },
+ "coi-pronoms": {
+  "t": "ضمائر المفعول غير المباشر",
+  "x": "للأشخاص بعد \"à\" نستخدم \"lui\" (له أو لها) و\"leur\" (لهم): \"je parle à Marie\" تصير \"je lui parle\"، و\"je téléphone à mes parents\" تصير \"je leur téléphone\". و\"leur\" لا تأخذ -s هنا أبدًا. أمثلة: \"je lui parle\"، \"elle leur écrit\"."
+ },
+ "pronoms-me-te-nous-vous": {
+  "t": "me وte وnous وvous",
+  "x": "تصلح هذه الضمائر الأربعة للمفعول المباشر وغير المباشر معًا: \"il me voit\"، \"il me parle\". قبل المتحرك تصير \"me\" و\"te\" إلى \"m'\" و\"t'\": \"je t'aime\"، \"il m'écoute\". أمثلة: \"il me voit\"، \"elle nous parle\"."
+ },
+ "y-pronom": {
+  "t": "الضمير y",
+  "x": "\"y\" يحل محل \"à\" + شيء أو مكان: \"je vais à Rome\" تصير \"j'y vais\". ويقف قبل الفعل: \"nous y allons\"، \"je n'y vais pas\". وكذلك \"j'y pense\". أمثلة: \"j'y vais\"، \"nous y allons\"."
+ },
+ "en-pronom": {
+  "t": "الضمير en",
+  "x": "\"en\" يحل محل \"du, de la, des\" + اسم أو \"de\" + اسم. ويبقى العدد: \"j'ai deux frères\" تصير \"j'en ai deux\". النفي: \"je n'en veux pas\". أمثلة: \"j'en veux\"، \"nous en avons deux\"."
+ },
+ "pronoms-toniques": {
+  "t": "الضمائر المنفصلة",
+  "x": "استخدم \"moi, toi, lui, elle, nous, vous, eux, elles\" بعد حروف الجر (\"avec moi\"، \"chez eux\")، وللتوكيد (\"moi, je\")، ومنفردة (\"Qui est là ? Moi !\"). وكذلك بعد \"c'est\": \"c'est lui\". أمثلة: \"avec moi\"، \"chez lui\"، \"eux\"."
+ },
+ "comparatifs": {
+  "t": "المقارنة: plus … que",
+  "x": "استخدم \"plus … que\" (أكثر) و\"moins … que\" (أقل) و\"aussi … que\" (بقدر) حول صفة أو ظرف: \"elle est plus rapide que lui\". ومع الأسماء نستخدم \"plus de … que\". أمثلة: \"plus grand que\"، \"moins cher que\"، \"aussi rapide que\"."
+ },
+ "superlatifs": {
+  "t": "صيغة التفضيل",
+  "x": "ضع أداة التعريف قبل \"plus\" أو \"moins\": \"le plus grand\"، \"la plus belle\"، \"les moins chers\". وللتعبير عن «في» نستخدم \"de\": \"le plus grand de la classe\". أمثلة: \"le plus grand\"، \"la plus belle\"، \"les moins chers\"."
+ },
+ "meilleur-mieux": {
+  "t": "meilleur أم mieux؟",
+  "x": "\"bon\" تصير \"meilleur\" (صفة، تطابق): \"une meilleure idée\". و\"bien\" تصير \"mieux\" (ظرف، لا تتغير): \"elle chante mieux\". لا تقل أبدًا \"plus bon\" ولا \"plus bien\". أمثلة: \"meilleur\"، \"mieux\"، \"la meilleure idée\"."
+ },
+ "adverbes-ment": {
+  "t": "الظروف المنتهية بـ-ment",
+  "x": "أضف \"-ment\" إلى الصفة المؤنثة: \"lent\" تعطي \"lentement\" و\"heureux\" تعطي \"heureusement\". وبعد حرف علة نضيفها إلى المذكر: \"vrai\" تعطي \"vraiment\". و\"-ent\" تصير \"-emment\": \"prudent\" تعطي \"prudemment\". أمثلة: \"lentement\"، \"vraiment\"، \"prudemment\"."
+ },
+ "prep-pays-villes": {
+  "t": "الدول والمدن",
+  "x": "المدن: \"à Paris\" و\"de Paris\". الدول المؤنثة: \"en France\" و\"de France\". الدول المذكرة: \"au Japon\" و\"du Japon\". الدول الجمع: \"aux États-Unis\" و\"des États-Unis\". أمثلة: \"en France\"، \"au Japon\"، \"aux États-Unis\"، \"à Paris\"."
+ },
+ "depuis-pendant-il-y-a": {
+  "t": "depuis وpendant وil y a",
+  "x": "\"depuis\" + المضارع: شيء لا يزال مستمرًا (\"j'habite ici depuis deux ans\"). \"pendant\" + مدة: كم استمر (\"j'ai dormi pendant huit heures\"). \"il y a\" + مدة: منذ متى (\"il est parti il y a une heure\"). أمثلة: \"depuis deux ans\"، \"pendant trois heures\"، \"il y a une heure\"."
+ },
+ "passe-recent": {
+  "t": "الماضي القريب: venir de",
+  "x": "صرّف \"venir\" في المضارع وأضف \"de\" + مصدر: \"je viens de finir\"، \"nous venons de partir\". قبل المتحرك تصير \"de\" إلى \"d'\": \"il vient d'arriver\". أمثلة: \"je viens de manger\"، \"ils viennent de partir\"."
+ },
+ "imperatif-negatif": {
+  "t": "النهي",
+  "x": "ضع \"ne … pas\" حول فعل الأمر: \"ne pars pas !\" و\"ne partons pas !\" و\"ne partez pas !\". وتبقى الضمائر قبل الفعل: \"ne le fais pas !\". أمثلة: \"ne parle pas\"، \"ne partez pas\"."
+ },
+ "imperatif-pronoms": {
+  "t": "الأمر مع الضمائر",
+  "x": "في الأمر المثبت يأتي الضمير بعد الفعل مع شرطة: \"regarde-moi\" و\"parlez-nous\" و\"dis-lui\". وتصير \"me\" إلى \"moi\". أما النهي فيحافظ على الترتيب العادي: \"ne me regarde pas\". أمثلة: \"regarde-moi\"، \"dis-lui\"، \"donne-le-moi\"."
+ },
+ "rel-qui-que": {
+  "t": "qui وque",
+  "x": "\"qui\" تحل محل الفاعل: \"la femme qui habite ici\". و\"que\" تحل محل المفعول المباشر: \"le film que nous regardons\". وتصير \"que\" إلى \"qu'\" قبل المتحرك: \"le livre qu'il lit\". أمثلة: \"l'homme qui parle\"، \"le livre que je lis\"."
+ },
+ "rel-ou": {
+  "t": "où: حيث، عندما",
+  "x": "\"où\" تربط مكانًا أو زمانًا بجملة: \"la maison où elle habite\"، \"le jour où nous sommes partis\". وتصلح للمكان وللزمان معًا. أمثلة: \"la ville où j'habite\"، \"le jour où\"."
+ },
+ "il-faut": {
+  "t": "il faut: يجب",
+  "x": "\"il faut\" + مصدر تعني «يجب»: \"il faut partir\". و\"il faut\" + اسم تعني «يلزم»: \"il faut du temps\". والنفي \"il ne faut pas\" تعني «يجب ألا». هو فعل غير شخصي: \"il\" فقط. أمثلة: \"il faut travailler\"، \"il faut du temps\"."
+ },
+ "neg-jamais-plus-rien": {
+  "t": "jamais وplus وrien وpersonne",
+  "x": "تحل محل \"pas\": \"ne … jamais\" (أبدًا) و\"ne … plus\" (لم يعد) و\"ne … rien\" (لا شيء) و\"ne … personne\" (لا أحد). ويمكن أن تكون \"rien\" و\"personne\" فاعلًا أيضًا: \"personne ne vient\". أمثلة: \"je ne mange jamais\"، \"il ne travaille plus\"، \"nous ne voyons personne\"."
+ },
+ "quantite-de": {
+  "t": "الكمية + de",
+  "x": "بعد كلمات الكمية نستخدم \"de\" دون أداة: \"beaucoup de travail\"، \"un peu de sucre\"، \"assez de temps\"، \"trop de monde\"، \"peu de gens\"، \"une bouteille d'eau\". أمثلة: \"beaucoup de travail\"، \"un peu de sucre\"، \"trop de monde\"."
+ },
+ "c-est-il-est": {
+  "t": "c'est أم il est؟",
+  "x": "استخدم \"il est\" / \"elle est\" + صفة أو مهنة وحدها: \"il est médecin\"، \"elle est gentille\". واستخدم \"c'est\" حين توجد أداة أو صفة ملكية: \"c'est un médecin\"، \"c'est mon frère\". أمثلة: \"c'est un médecin\"، \"il est médecin\"، \"elle est gentille\"."
+ },
+ "q-inversion": {
+  "t": "القلب",
+  "x": "في الفرنسية الراقية ينتقل الفعل قبل ضمير الفاعل ويرتبطان بشرطة: \"parlez-vous ?\" و\"où vas-tu ?\" و\"que font-ils ?\". وإذا انتهى الفعل بحرف علة نضيف \"-t-\": \"aime-t-il ?\". أمثلة: \"parlez-vous\"، \"où vas-tu\"، \"que font-ils\"."
+ },
+ "q-qui-que-quoi": {
+  "t": "من وماذا",
+  "x": "\"qui\" للسؤال عن الأشخاص، و\"que\" و\"qu'est-ce que\" للسؤال عن الأشياء: \"qu'est-ce que tu fais ?\". بعد حرف الجر نستخدم \"qui\" (للأشخاص) أو \"quoi\" (للأشياء): \"avec qui ?\"، \"de quoi parles-tu ?\". أمثلة: \"qui est-ce ?\"، \"qu'est-ce que tu fais ?\"، \"de quoi parles-tu ?\"."
+ },
+ "adj-irreguliers": {
+  "t": "beau وnouveau وvieux",
+  "x": "لهذه الصفات الثلاث شكل خاص قبل مذكر يبدأ بحرف متحرك: \"beau\" تعطي \"bel\" و\"nouveau\" تعطي \"nouvel\" و\"vieux\" تعطي \"vieil\". المؤنث: \"belle\" و\"nouvelle\" و\"vieille\". الجمع: \"beaux\" و\"nouveaux\" و\"vieux\". أمثلة: \"un bel homme\"، \"une nouvelle voiture\"، \"un vieil ami\"."
+ },
+ "connecteurs-temps": {
+  "t": "أولًا ثم أخيرًا",
+  "x": "\"d'abord\" (أولًا) و\"ensuite\" أو \"puis\" (ثم) و\"après\" (بعد) و\"enfin\" (أخيرًا) ترتّب الأحداث: \"d'abord je mange, puis je pars, enfin j'arrive\". أمثلة: \"d'abord\"، \"ensuite\"، \"puis\"، \"enfin\"."
+ },
+ "si-present-futur": {
+  "t": "si + مضارع، مستقبل",
+  "x": "للاحتمال الحقيقي: \"si\" + المضارع في الشرط، والمستقبل (أو الأمر) في الجواب. \"si tu viens, je serai content\" و\"si vous avez le temps, appelez-moi\". لا تضع المستقبل بعد \"si\" أبدًا. وقبل \"il\" تصير \"s'il\". أمثلة: \"si tu viens, nous mangerons\"، \"s'il pleut, je resterai\"."
+ },
+ "savoir-connaitre": {
+  "t": "savoir أم connaître؟",
+  "x": "\"savoir\" للحقائق والمهارات: \"je sais nager\"، \"je sais où il habite\". و\"connaître\" للتعرف على الأشخاص والأماكن والأشياء: \"je connais Marie\"، \"je connais cette ville\". أمثلة: \"je sais nager\"، \"je connais Paris\"."
+ },
+ "pres-irreguliers-2": {
+  "t": "أفعال شاذة أخرى",
+  "x": "تعلّمها في مجموعات: \"lire\" (\"nous lisons\") و\"dire\" (\"vous dites\") و\"écrire\" (\"ils écrivent\") و\"voir\" (\"nous voyons\") و\"boire\" (\"ils boivent\"). وتساعد صيغة \"nous\" في بناء الماضي الناقص \"imparfait\". أمثلة: \"nous lisons\"، \"vous dites\"، \"ils écrivent\"."
+ },
+ "meteo-il": {
+  "t": "الطقس",
+  "x": "استخدم \"il fait\" + صفة (\"il fait beau, froid, chaud\") وفعلًا للمطر والثلج (\"il pleut\"، \"il neige\"). الفاعل \"il\" فارغ ولا يتغير. السؤال: \"quel temps fait-il ?\" أمثلة: \"il fait beau\"، \"il pleut\"، \"il neige\"."
+ },
+ "profession-sans-article": {
+  "t": "بلا أداة مع المهن",
+  "x": "بعد \"être\" لا تأخذ المهنة أو الجنسية أو الدين أداة: \"il est médecin\"، \"elle est française\". ومع صفة نستخدم \"c'est un\" بدلًا من ذلك: \"c'est un bon médecin\". أمثلة: \"elle est infirmière\"، \"il est professeur\"."
+ },
+ "subj-il-faut-que": {
+  "t": "subjonctif: il faut que",
+  "x": "بعد \"il faut que\" نستخدم صيغة \"subjonctif\". في الأفعال المنتظمة خذ جذع \"ils\" من المضارع وأضف \"-e, -es, -e, -ions, -iez, -ent\": \"ils partent\" تعطي \"que je parte\". وصيغتا \"nous\" و\"vous\" تشبهان الماضي الناقص. أمثلة: \"il faut que tu viennes\"، \"il faut que je parte\"."
+ },
+ "subj-vouloir-que": {
+  "t": "vouloir que + subjonctif",
+  "x": "حين يتغير الفاعل تأخذ \"vouloir que\" و\"préférer que\" و\"aimer mieux que\" و\"demander que\" صيغة \"subjonctif\": \"je veux que tu viennes\". وإذا اتحد الفاعل نستخدم المصدر: \"je veux venir\". أمثلة: \"je veux que tu viennes\"، \"elle veut que nous partions\"."
+ },
+ "subj-irreguliers": {
+  "t": "subjonctif الشاذ",
+  "x": "احفظ: \"être\" (\"que je sois\") و\"avoir\" (\"que j'aie, qu'il ait\") و\"aller\" (\"que j'aille\") و\"faire\" (\"que je fasse\") و\"pouvoir\" (\"que je puisse\") و\"savoir\" (\"que je sache\") و\"vouloir\" (\"que je veuille\"). أمثلة: \"que je sois\"، \"qu'il ait\"، \"que nous allions\"، \"qu'ils fassent\"."
+ },
+ "subj-emotions": {
+  "t": "المشاعر + subjonctif",
+  "x": "بعد تعابير الشعور (\"être content que\" و\"être triste que\" و\"regretter que\" و\"avoir peur que\" و\"être surpris que\") نستخدم \"subjonctif\" حين يتغير الفاعل. أمثلة: \"je suis content que tu sois là\"، \"elle regrette que nous partions\"."
+ },
+ "subj-vs-indic": {
+  "t": "indicatif أم subjonctif؟",
+  "x": "اليقين يأخذ \"indicatif\": \"je pense que\" و\"je sais que\" و\"il est sûr que\". أما الشك والإنكار والإرادة فتأخذ \"subjonctif\": \"je ne pense pas que\" و\"je doute que\" و\"il faut que\". و\"Penser que\" في السؤال تقبل الاثنين. أمثلة: \"je pense qu'il a raison\"، \"je ne pense pas qu'il ait raison\"."
+ },
+ "subj-conjonctions": {
+  "t": "أدوات ربط + subjonctif",
+  "x": "بعض أدوات الربط تأخذ \"subjonctif\" دائمًا: \"pour que\" (كي) و\"avant que\" (قبل أن) و\"bien que\" (مع أن) و\"à condition que\" (بشرط أن) و\"jusqu'à ce que\" (حتى). أما \"après que\" فتأخذ \"indicatif\". أمثلة: \"pour que tu comprennes\"، \"avant que tu partes\"، \"bien qu'il soit fatigué\"."
+ },
+ "si-imparfait-cond": {
+  "t": "si + imparfait، conditionnel",
+  "x": "للمواقف الخيالية أو غير المرجحة: \"si\" + \"imparfait\"، ثم \"conditionnel\" في الجواب. \"si j'étais riche, je voyagerais\". لا تستخدم \"conditionnel\" بعد \"si\" أبدًا. أمثلة: \"si j'avais de l'argent\"، \"j'achèterais une maison\"."
+ },
+ "cond-usage": {
+  "t": "الشرطي: النصيحة والأمنيات",
+  "x": "يعطي \"conditionnel\" النصائح (\"tu devrais\") ويعبّر عن الأمنيات (\"j'aimerais\") ويقدّم اقتراحات مهذبة (\"on pourrait\"). ويشيع جدًا مع \"devoir\" و\"pouvoir\" و\"vouloir\". أمثلة: \"tu devrais dormir\"، \"nous aimerions voyager\"."
+ },
+ "cond-passe-regret": {
+  "t": "الندم على الماضي",
+  "x": "لما لم يحدث: \"si\" + \"plus-que-parfait\"، ثم \"conditionnel passé\". \"si tu avais étudié, tu aurais réussi\". يتكون \"conditionnel passé\" من \"avoir\" أو \"être\" في \"conditionnel\" + اسم المفعول. أمثلة: \"si j'avais su\"، \"je serais venu\"."
+ },
+ "plus-que-parfait-forme": {
+  "t": "plus-que-parfait: التكوين",
+  "x": "الفعل المساعد في \"imparfait\" + اسم المفعول: \"j'avais mangé\"، \"elle était partie\"، \"nous nous étions levés\". وتحكم القواعد نفسها المتبعة في \"passé composé\" الاختيار بين \"avoir\" و\"être\" والمطابقة. أمثلة: \"j'avais fini\"، \"nous étions partis\"، \"elle avait mangé\"."
+ },
+ "plus-que-parfait-usage": {
+  "t": "plus-que-parfait: الاستعمال",
+  "x": "نستعمل \"plus-que-parfait\" لفعل حدث قبل فعل ماضٍ آخر أو قبل لحظة ماضية: \"quand je suis arrivé, il était déjà parti\". وكثيرًا ما يفسّر سببًا: \"il était fatigué, il n'avait pas dormi\". أمثلة: \"le film avait déjà commencé\"، \"il n'avait pas dormi\"."
+ },
+ "di-present": {
+  "t": "الكلام المنقول (المضارع)",
+  "x": "مع \"dire que\" و\"répondre que\" و\"expliquer que\" في المضارع لا يتغير زمن الجملة المنقولة؛ تتغير فقط الضمائر وكلمات مثل \"mon\": \"« j'ai faim »\" تصير \"il dit qu'il a faim\". أمثلة: \"il dit qu'il est fatigué\"، \"elle répond qu'elle ne sait pas\"."
+ },
+ "di-questions": {
+  "t": "الأسئلة المنقولة",
+  "x": "أسئلة نعم/لا تستخدم \"si\": \"il demande si tu viens\". وتبقى أدوات الاستفهام: \"où, quand, comment, pourquoi\". و\"Qu'est-ce que\" تصير \"ce que\" و\"qu'est-ce qui\" تصير \"ce qui\". وترتيب الكلمات كترتيب الجملة الخبرية. أمثلة: \"il demande si je viens\"، \"elle demande où j'habite\"."
+ },
+ "di-passe": {
+  "t": "الكلام المنقول (الماضي)",
+  "x": "بعد \"a dit que\" تتراجع الأزمنة: المضارع يصير \"imparfait\" والمستقبل يصير \"conditionnel\" و\"passé composé\" يصير \"plus-que-parfait\". وتتغير كلمات الزمن أيضًا: \"demain\" تصير \"le lendemain\". أمثلة: \"il a dit qu'il était fatigué\"، \"elle a répondu qu'elle viendrait\"."
+ },
+ "gerondif-formation": {
+  "t": "gérondif: التكوين",
+  "x": "خذ صيغة \"nous\" من المضارع، واحذف \"-ons\"، وأضف \"-ant\"، وضع \"en\" قبلها: \"nous travaillons\" تعطي \"en travaillant\". الاستثناءات: \"être\" يعطي \"en étant\" و\"avoir\" يعطي \"en ayant\" و\"savoir\" يعطي \"en sachant\". أمثلة: \"en travaillant\"، \"en lisant\"، \"en finissant\"."
+ },
+ "gerondif-usage": {
+  "t": "gérondif: الاستعمال",
+  "x": "يدل \"gérondif\" على حدثين يقعان معًا (\"il chante en travaillant\") أو على كيفية الفعل (\"on apprend en lisant\") أو على شرط (\"en tournant à gauche, vous verrez la poste\"). ويكون للفعلين الفاعل نفسه. أمثلة: \"on apprend en lisant\"، \"il s'est blessé en jouant\"."
+ },
+ "rel-dont": {
+  "t": "dont: الذي ... عنه، الذي ...",
+  "x": "\"dont\" تحل محل \"de\" + اسم: \"je parle de ce livre\" تصير \"le livre dont je parle\". وتعني أيضًا «الذي» للملكية: \"la fille dont le père est médecin\". وكذلك بعد \"avoir besoin de\": \"ce dont j'ai besoin\". أمثلة: \"le livre dont je parle\"، \"la fille dont le père est médecin\"."
+ },
+ "rel-ce-qui-ce-que": {
+  "t": "ce qui وce que وce dont",
+  "x": "حين لا يوجد اسم قبلها نستخدم \"ce qui\" (فاعل) و\"ce que\" (مفعول) و\"ce dont\" (مع \"de\"): \"ce qui se passe\"، \"ce que tu veux\"، \"ce dont j'ai besoin\". أمثلة: \"ce que tu veux\"، \"ce qui se passe\"، \"ce dont j'ai besoin\"."
+ },
+ "pronoms-ordre": {
+  "t": "ضميران معًا",
+  "x": "الترتيب قبل الفعل: \"me, te, nous, vous\" + \"le, la, les\" + \"lui, leur\" + \"y\" + \"en\". \"me le\" و\"te la\" و\"nous les\"، لكن \"le lui\" و\"les leur\": \"je le lui donne\". أمثلة: \"je le lui donne\"، \"elle me les envoie\"."
+ },
+ "y-en-ensemble": {
+  "t": "il y en a",
+  "x": "حين يجتمع \"y\" و\"en\" يأتي \"y\" أولًا: \"il y en a\"، \"il n'y en a plus\". ويحتفظ \"en\" بالكمية: \"il y en a trois\". أمثلة: \"il y en a\"، \"nous y en avons\"."
+ },
+ "imperatif-ordre-pronoms": {
+  "t": "الأمر: ترتيب الضمائر",
+  "x": "في المثبت: الفعل + المفعول المباشر (\"le, la, les\") + غير المباشر (\"moi, lui, nous, leur\") + \"y\" / \"en\": \"donne-le-moi\" و\"dis-le-lui\". وتصير \"moi\" إلى \"m'\" قبل \"en\": \"donne-m'en\". وفي النفي الترتيب عادي: \"ne me le donne pas\". أمثلة: \"donne-le-moi\"، \"dis-le-lui\"، \"donne-m'en\"."
+ },
+ "pronoms-possessifs": {
+  "t": "ضمائر الملكية",
+  "x": "تحل محل صفة الملكية + الاسم وتطابق الاسم: \"le mien, la mienne, les miens, les miennes\" و\"le tien\" و\"le sien\" و\"le nôtre\" و\"le vôtre\" و\"le leur\". \"Où est ma clé ? — Voici la mienne.\" أمثلة: \"le mien\"، \"la tienne\"، \"les nôtres\"."
+ },
+ "pronoms-demonstratifs": {
+  "t": "celui وcelle وceux وcelles",
+  "x": "تحل محل «الذي/التي/الذين» وبعدها \"de\" أو \"qui\" أو \"que\" أو \"-ci / -là\": \"celui de gauche\" و\"celle qui est ici\" و\"ceux de Marc\" و\"celles-là\". أمثلة: \"celui de gauche\"، \"celle qui est ici\"، \"ceux de Marc\"."
+ },
+ "pronoms-indefinis": {
+  "t": "ضمائر غير محددة",
+  "x": "\"quelqu'un\" (شخص ما) و\"quelque chose\" (شيء ما) و\"personne\" (لا أحد) و\"rien\" (لا شيء) و\"chacun\" (كل واحد) و\"plusieurs\" (عدة). قبل الصفة نستخدم \"de\": \"quelque chose de bon\". أمثلة: \"quelqu'un\"، \"quelque chose de sucré\"، \"chacun\"."
+ },
+ "adj-indefinis": {
+  "t": "chaque وplusieurs وquelques",
+  "x": "\"chaque\" + اسم مفرد (كل)، و\"plusieurs\" و\"quelques\" + اسم جمع (عدة، بضعة). و\"tout\" يطابق: \"tout le monde\" و\"toute la journée\" و\"tous les jours\" و\"toutes les semaines\". أمثلة: \"chaque élève\"، \"plusieurs voitures\"، \"toute la journée\"."
+ },
+ "pc-accord-cod": {
+  "t": "مطابقة اسم المفعول مع avoir",
+  "x": "مع \"avoir\" يطابق اسم المفعول المفعولَ المباشر فقط حين يأتي قبل الفعل: \"j'ai acheté des fleurs\" لكن \"les fleurs que j'ai achetées\" و\"je les ai vues\". أمثلة: \"les fleurs que j'ai achetées\"، \"je les ai vues\"."
+ },
+ "passif-forme": {
+  "t": "المبني للمجهول",
+  "x": "\"être\" (بالزمن المطلوب) + اسم مفعول يطابق الفاعل + \"par\": \"la lettre est écrite par Paul\" و\"les maisons ont été détruites par le feu\". ويصير مفعول الجملة المعلومة فاعلًا. أمثلة: \"le roman est écrit par\"، \"la porte est ouverte par\"."
+ },
+ "se-passif": {
+  "t": "المبني للمجهول مع se",
+  "x": "فعل بصيغة الغائب مع \"se\" يعطي معنى المبني للمجهول دون ذكر الفاعل: \"le vin se vend ici\" و\"ça ne se dit pas\" و\"cela se voit\". شائع جدًا في الكلام وفي القواعد. أمثلة: \"ça se dit\"، \"ce produit se vend partout\"."
+ },
+ "etre-en-train-de": {
+  "t": "être en train de",
+  "x": "\"être en train de\" + مصدر تؤكد أن الفعل جارٍ الآن: \"je suis en train de lire\". وتقابل صيغة الاستمرار «-ing» الإنجليزية حين تريد التأكيد: \"ne l'appelle pas, il est en train de dormir\". أمثلة: \"je suis en train de manger\"، \"ils sont en train de partir\"."
+ },
+ "pc-avoir-transitif": {
+  "t": "فعل واحد، مساعدان",
+  "x": "حين يكون لـ\"sortir, monter, descendre, passer, rentrer, retourner\" مفعول مباشر يكون المساعد \"avoir\": \"j'ai sorti la voiture\"، \"elle a monté les escaliers\". وبدون مفعول نستخدم \"être\": \"elle est sortie\". أمثلة: \"il a sorti la valise\"، \"elle a monté les escaliers\"."
+ },
+ "futur-anterieur": {
+  "t": "المستقبل التام \"futur antérieur\"",
+  "x": "\"avoir\" أو \"être\" في \"futur simple\" + اسم المفعول: \"j'aurai fini\"، \"elle sera partie\". يصف فعلًا اكتمل قبل فعل مستقبلي آخر: \"quand j'aurai fini, je t'appellerai\". أمثلة: \"quand j'aurai fini\"، \"dès qu'elle sera arrivée\"."
+ },
+ "quand-futur": {
+  "t": "quand + المستقبل",
+  "x": "خلافًا للإنجليزية، تستخدم الفرنسية المستقبل بعد \"quand\" و\"dès que\" و\"lorsque\" و\"aussitôt que\" حين يكون الفعل في المستقبل: \"dès qu'il arrivera, nous partirons\". و\"Si\" هي الاستثناء: لا تأخذ المستقبل أبدًا. أمثلة: \"quand je serai grand\"، \"dès qu'il arrivera\"."
+ },
+ "connecteurs-cause-consequence": {
+  "t": "السبب والنتيجة",
+  "x": "\"car\" و\"parce que\" تعطيان سببًا؛ و\"comme\" و\"puisque\" تبدآن الجملة بسبب معروف: \"comme il pleut, je reste\". و\"donc\" و\"alors\" تعطيان النتيجة: \"il pleut, donc je reste\". أمثلة: \"donc\"، \"car\"، \"comme\"، \"puisque\"."
+ },
+ "connecteurs-opposition": {
+  "t": "التعارض",
+  "x": "\"mais\" و\"pourtant\" و\"cependant\" تعارض فكرتين. و\"alors que\" تقارن بين واقعتين: \"elle aime le thé, alors que son mari préfère le café\". و\"malgré\" + اسم تعني «رغم»: \"malgré la pluie\". أمثلة: \"pourtant\"، \"alors que\"، \"malgré la pluie\"."
+ },
+ "but-pour-afin-de": {
+  "t": "الغاية",
+  "x": "مع الفاعل نفسه: \"pour\" أو \"afin de\" + مصدر: \"je travaille pour gagner de l'argent\". ومع فاعل مختلف: \"pour que\" أو \"afin que\" + \"subjonctif\": \"il parle lentement pour que nous comprenions\". أمثلة: \"pour gagner de l'argent\"، \"afin de rentrer\"، \"pour que nous comprenions\"."
+ },
+ "neg-ne-que-ni": {
+  "t": "ne … que وni … ni وaucun",
+  "x": "\"ne … que\" تعني «فقط»: \"je n'ai que dix euros\". و\"ne … ni … ni\" تعني «لا ... ولا»: \"elle ne mange ni viande ni poisson\". و\"ne … aucun\" تعني «ولا أي»: \"il n'a aucun ami\". أمثلة: \"je n'ai que dix euros\"، \"ni viande ni poisson\"، \"aucun ami\"."
+ },
+ "neg-infinitif": {
+  "t": "النفي مع المصدر",
+  "x": "يأتي جزءا النفي معًا قبل المصدر: \"ne pas partir\" و\"ne plus fumer\" و\"ne jamais mentir\". \"Il m'a demandé de ne pas fumer\". أمثلة: \"ne pas fumer\"، \"ne plus travailler\"، \"ne jamais mentir\"."
+ },
+ "q-lequel": {
+  "t": "lequel: أيّ واحد",
+  "x": "\"lequel\" تحل محل \"quel\" + اسم وتطابقه: \"lequel\" (مذكر مفرد) و\"laquelle\" (مؤنث مفرد) و\"lesquels\" (مذكر جمع) و\"lesquelles\" (مؤنث جمع). \"Quel sac ? Lequel ?\" وبعد \"à\" و\"de\": \"auquel\" و\"duquel\". أمثلة: \"lequel\"، \"laquelle\"، \"lesquels\"."
+ },
+ "exclamations": {
+  "t": "التعجب",
+  "x": "\"quel\" + اسم: \"quelle belle journée !\". \"comme\" أو \"que\" + جملة: \"comme il fait chaud !\" و\"que c'est joli !\". لاحظ وجود فراغ قبل \"!\" في الفرنسية. أمثلة: \"quelle belle journée !\"، \"comme il fait chaud !\"، \"que c'est joli !\"."
+ },
+ "adv-place-pc": {
+  "t": "ظروف قصيرة في الماضي المركب",
+  "x": "الظروف القصيرة الشائعة (\"déjà, bien, mal, souvent, toujours, encore, trop, beaucoup\") تقع بين المساعد واسم المفعول: \"j'ai déjà mangé\"، \"il a bien compris\". أما ظروف المكان والظروف الطويلة فتأتي بعده. أمثلة: \"elle a déjà fini\"، \"il a bien compris\"."
+ },
+ "comparatifs-avances": {
+  "t": "أكثر فأكثر، كلما ... كلما",
+  "x": "\"de plus en plus\" (أكثر فأكثر) و\"de moins en moins\" (أقل فأقل) و\"plus … plus\" (كلما ... كلما) و\"autant de … que\" (بقدر ما): \"elle a autant de livres que moi\". أمثلة: \"de plus en plus froid\"، \"plus on travaille, plus on apprend\"، \"autant de livres\"."
+ },
+ "prep-verbes": {
+  "t": "أفعال مع حرف جر",
+  "x": "كثير من الأفعال تحتاج حرف جر ثابتًا: \"penser à\" و\"s'intéresser à\" و\"répondre à\" و\"parler de\" و\"avoir besoin de\" و\"avoir envie de\" و\"rêver de\". تعلّمها مع الفعل. أمثلة: \"penser à\"، \"parler de\"، \"avoir besoin de\"، \"s'intéresser à\"."
+ },
+ "prep-temps-en-dans": {
+  "t": "en أم dans؟",
+  "x": "\"dans\" + مدة: متى سيحدث الشيء محسوبًا من الآن (\"le film commence dans une heure\"). \"en\" + مدة: كم يستغرق الشيء (\"il a lu ce livre en deux jours\"). وتُستعمل \"en\" أيضًا مع الأشهر والسنوات: \"en mai\"، \"en 1998\". أمثلة: \"dans une heure\"، \"en deux jours\"."
+ },
+ "inf-apres-prepositions": {
+  "t": "حروف الجر + المصدر",
+  "x": "\"avant de\" + مصدر، و\"après\" + مصدر ماضٍ (\"avoir\" أو \"être\" + اسم المفعول)، و\"sans\" + مصدر: \"avant de partir\"، \"après avoir mangé\"، \"sans dire au revoir\". ويجب أن يكون الفاعل نفسه. أمثلة: \"avant de manger\"، \"après avoir mangé\"، \"sans dire\"."
+ },
+ "faire-causatif": {
+  "t": "faire + مصدر",
+  "x": "\"faire\" + مصدر تعني جعل شيء يُنجَز (\"je fais réparer ma voiture\") أو جعل شخص يفعل شيئًا (\"il fait rire les enfants\"). ويأتي المصدر مباشرة بعد \"faire\". أمثلة: \"je fais réparer ma voiture\"، \"il fait rire les enfants\"."
+ },
+ "verbes-perception": {
+  "t": "الرؤية والسمع + مصدر",
+  "x": "بعد \"voir\" و\"entendre\" و\"regarder\" و\"écouter\" و\"sentir\" نضع مصدرًا: \"je les entends jouer\"، \"nous voyons passer le train\". والضمير هو مفعول فعل الإدراك. أمثلة: \"je les entends chanter\"، \"nous voyons passer le train\"."
+ },
+ "voyelle-liaison-ecrite": {
+  "t": "أشكال خاصة قبل المتحرك",
+  "x": "قبل حرف متحرك أو h صامتة تتغير بعض الكلمات لتسهيل النطق: \"ma\" تصير \"mon\" (\"mon amie\") و\"ce\" تصير \"cet\" (\"cet homme\") و\"beau\" تصير \"bel\" (\"un bel arbre\") و\"nouveau\" تصير \"nouvel\" و\"vieux\" تصير \"vieil\". أمثلة: \"mon amie\"، \"cet homme\"، \"un bel arbre\"."
+ },
+ "tout-tous-toutes": {
+  "t": "tout وtous وtoute وtoutes",
+  "x": "كصفة يطابق \"tout\": \"tout le monde\" و\"toute la journée\" و\"tous les jours\" و\"toutes les semaines\". وكضمير يعني «كل شيء» (\"j'ai tout compris\") أو «الجميع» (\"ils sont tous là\"، مع نطق الـ-s الأخيرة). أمثلة: \"tous les jours\"، \"toute la journée\"، \"ils sont tous là\"."
+ }
+}

@@ -2,6 +2,7 @@
 # CHỈ CI (target-content.yml, sau gen.mjs). Ghi đè ipa của tệp lô mới nhất (core-NN.json) bằng espeak, dấu nhấn chuyển về ĐẦU âm tiết (quy ước seed: ˈsjelo,
 # espeak in sjˈelo); IPA của người soạn lệch espeak → giữ ở qa.ipaAi + đếm trong tóm tắt (gắn cờ, không bỏ từ). Tự kiểm: seed.json phải khớp 100 % → không khớp = ĐỎ.
 # Chạy: TL=es python3 scripts/target/tl_ipa_fill.py [tệp.json | --self (chỉ tự kiểm seed)]
+#       TL=fr python3 scripts/target/tl_ipa_fill.py --pron   (french-course.md W3: đối chiếu bảng 'ipa' soạn tay của content/target/<tl>/pron.json với espeak-ng; lệch → in rõ từng mục, thoát 1)
 import json, os, re, sys, glob, unicodedata
 TL = os.environ.get('TL', 'es'); HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.join(HERE, '..', '..')
 C = json.load(open(os.path.join(ROOT, 'scripts', 'word-audio', 'tl-voices.json')))[TL]
@@ -78,6 +79,24 @@ def ipa(words):
         if C.get('semi') == 'fr': e = re.sub(r'y(?=[aeiouɛɔœøɑə]|ɛ̃|ɑ̃|ɔ̃)', 'ɥ', e)  # espeak fr-fr đọc ɥ thành y trước nguyên âm (cuisine kyizin) → ɥ (nuit nɥi, huit ɥit)  # fr: không có trọng âm từ vựng (nhấn cuối nhóm) → IPA ship không dấu nhấn, như seed
         out.append(e)
     return out
+
+
+# --pron: bảng IPA bài phát âm W3 (content/target/<tl>/pron.json → "ipa", soạn tay) phải khớp espeak-ng. So theo phân đoạn đã chuẩn hoá: bỏ dấu nhấn/ngắt/khoảng trắng (cụm nhiều từ: espeak nối từ bằng khoảng trắng/‿),
+# g → ɡ (U+0261), y trước nguyên âm → ɥ (bán nguyên âm; espeak đôi khi in y). Lệch = ĐỎ: sửa bảng theo espeak khi espeak đúng.
+if '--pron' in sys.argv:
+    PV = 'aeiouɛɔəøœɑ'
+    def pn(s):
+        s = nrm(s).replace('g', 'ɡ'); return re.sub('y(?=[' + PV + '])', 'ɥ', s)
+    P = json.load(open(os.path.join(ROOT, 'content', 'target', TL, 'pron.json')))['ipa']; ws = list(P)
+    # Ngoại lệ ghi tay CÓ LÝ DO (như EXCEPT của conj-check): chỉ miễn khi espeak in ĐÚNG dạng sai đã ghi – espeak đổi thì lại đỏ để xem lại
+    EXCEPT = {'fr': {'jeune': ('ʒøn', 'espeak-ng fr-fr đọc /ø/; chuẩn Pháp /ʒœn/ (Wiktionary fr: ʒœn) – cặp jeu/jeune là đúng đối lập ø ⟂ œ của bài')}}.get(TL, {})
+    gs = be.phonemize(ws, strip=True); bad = [(w, P[w], g) for w, g in zip(ws, gs) if pn(P[w]) != pn(g) and not (w in EXCEPT and pn(g) == pn(EXCEPT[w][0]))]
+    for w in EXCEPT: print(f'⚑ ngoại lệ {w}: {EXCEPT[w][1]}')
+    out = f'## IPA bài phát âm {TL} ↔ espeak-ng {C["espeak"]}: {len(ws) - len(bad)}/{len(ws)} khớp'
+    out += ''.join(f'\n- {w}: pron.json /{a}/ ↔ espeak /{g}/  (chuẩn hoá: {"".join(segs(pn(a)))} ↔ {"".join(segs(pn(g)))})' for w, a, g in bad)
+    print(out)
+    if os.environ.get('GITHUB_STEP_SUMMARY'): open(os.environ['GITHUB_STEP_SUMMARY'], 'a').write(out + '\n')
+    sys.exit(1 if bad else 0)
 
 summary = []
 # 1) tự kiểm trên seed soát tay (W0 đã sửa theo espeak): phải khớp CẢ dấu nhấn, không chỉ phân đoạn

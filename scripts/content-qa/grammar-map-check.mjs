@@ -13,10 +13,11 @@ import { loadContent, ROOT } from '../lib/content-load.mjs';
 import { TL_RULES, ltErrors } from '../target/lib.mjs';
 import { TL_GEN } from '../target/tl-gen.mjs';
 import { TENSES as ES_TENSES } from '../target/conjugate.mjs';
+import { TENSES as FR_TENSES } from '../target/conj-fr.mjs';
 
 const arg = (k, d) => { const i = process.argv.indexOf(k); return i > 0 ? process.argv[i + 1] : d; };
 const P = f => path.resolve(ROOT, f), rd = f => fs.readFileSync(P(f), 'utf8');
-const TL = arg('--tl'), TL_TENSES = { es: ES_TENSES }, MIN_TL = 200;
+const TL = arg('--tl'), TL_TENSES = { es: ES_TENSES, fr: FR_TENSES }, MIN_TL = 200;
 const INV = arg('--inv', TL ? `content/target/${TL}/grammar-inventory.json` : 'content/framework/grammar-inventory.json'), TGT = arg('--targets', 'content/pipeline/targets.json'), REPORT = arg('--report', TL ? `reports/grammar-inventory-${TL}.json` : 'reports/grammar-inventory.json');
 if (TL && !TL_TENSES[TL]) { console.log(`✗ tl "${TL}" chưa có bộ chia động từ / luật`); process.exit(2); }
 const LV = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'], base = l => (String(l || '').match(/[ABC][12]/) || [])[0];
@@ -38,11 +39,12 @@ for (const p of J.points || []) {
   const t = String(p.can_do_en || '');
   if (!/^Can [a-z]/.test(t) || t.length < 25 || t.length > 200 || !/[.]$/.test(t)) E(`${w}: can_do_en phải là câu "Can …" 25–200 ký tự, kết thúc bằng dấu chấm`);
   const k = t.toLowerCase(); if (seenText.has(k)) E(`${w}: trùng can_do_en với ${seenText.get(k)}`); else seenText.set(k, p.id);
-  const VI = /[ăâđêôơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i;
+  const VI = /[ăâđêôơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i, VI_ONLY = /[ăđơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i;
   if (!TL && (!String(p.example || '').trim() || VI.test(p.example))) E(`${w}: ví dụ phải là tiếng Anh, không rỗng`);
   if (TL) {
-    if (!String(p.example || '').trim() || VI.test(p.example)) E(`${w}: ví dụ phải là câu ${TL}, không rỗng`);
+    if (!String(p.example || '').trim() || VI_ONLY.test(p.example)) E(`${w}: ví dụ phải là câu ${TL}, không rỗng`); // â ê ô có trong tiếng Pháp → chỉ chữ riêng tiếng Việt
     else if ((TL_RULES[TL]?.lint || []).some(re => re.test(p.example))) E(`${w}: ví dụ lệch chuẩn ${TL} (vosotros/từ vùng): ${p.example}`);
+    else if (TL_RULES[TL]?.mix && p.example.split(/(?<=[.!?…])\s+/).some(x => TL_RULES[TL].mix.informal.test(x) && TL_RULES[TL].mix.formal.test(x))) E(`${w}: trộn tu + vous trong một câu: ${p.example}`);
     const en = String(p.example_en || ''); if (en.trim().length < 3 || VI.test(en) || !/^[\p{Script=Latin}\p{N}\p{P}\p{S}\s]+$/u.test(en)) E(`${w}: thiếu example_en (bản dịch tiếng Anh của ví dụ)`);
     for (const t of p.tenses || []) if (!TL_TENSES[TL].includes(t)) E(`${w}: thì "${t}" không có trong bộ chia động từ`);
     if ((p.lessons || []).length) E(`${w}: lessons phải rỗng tới khi có bài ${TL}`);

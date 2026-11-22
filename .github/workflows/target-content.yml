@@ -57,6 +57,24 @@ jobs:
       - name: Đề luyện định dạng DELE/SIELE (W5) – nguồn Tatoeba có ghi công, spec không đoán số, LanguageTool 0 lỗi trên consigna
         if: ${{ matrix.tl == 'es' }}
         run: node scripts/target/exam-es-check.mjs --lt
+      - name: Chia động từ ↔ Wiktionary (fr, khớp 100 % + trợ avoir/être)
+        if: ${{ matrix.tl == 'fr' }}
+        run: node scripts/target/conj-check.mjs --tl fr
+      - name: LanguageTool tự chạy (fr) – câu ví dụ kho ngữ pháp + câu điền từ
+        if: ${{ matrix.tl == 'fr' }}
+        run: bash scripts/ci/lt-up.sh fr
+      - name: Kho điểm ngữ pháp (fr) + LanguageTool 0 lỗi + một câu một xưng (tu ⟂ vous)
+        if: ${{ matrix.tl == 'fr' }}
+        run: node scripts/content-qa/grammar-map-check.mjs --tl fr
+      - name: Gói luyện tập fr (W2) – khớp nguồn, giải thích đủ 15 ngôn ngữ, LanguageTool 0 lỗi trên câu điền từ
+        if: ${{ matrix.tl == 'fr' }}
+        run: node scripts/target/drill-pack.mjs --tl fr --check --lt
+      - name: Đề luyện định dạng DELF/DALF (W5) – nguồn Tatoeba fr bắt buộc có (dựng bởi exam-es-build tl=fr), spec không đoán số, LanguageTool fr 0 lỗi trên consigne
+        if: ${{ matrix.tl == 'fr' }}
+        run: node scripts/target/exam-es-check.mjs --tl fr --lt --require-src
+      - name: IPA bài phát âm fr (W3) – bảng 'ipa' của pron.json khớp espeak-ng fr-fr (lệch = đỏ, in từng mục)
+        if: ${{ matrix.tl == 'fr' }}
+        run: TL=fr python3 scripts/target/tl_ipa_fill.py --pron
   plan:
     if: ${{ github.event_name == 'workflow_dispatch' }}
     runs-on: ubuntu-latest

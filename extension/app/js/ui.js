@@ -409,7 +409,7 @@
   // ---------- Whisper trên máy (dự phòng khi trình duyệt không có nhận dạng giọng nói: Firefox, app Android…) ----------
   // Mô hình mã nguồn mở whisper-tiny.en (~40 MB, tải 1 lần khi người dùng đồng ý), chạy bằng WebAssembly – âm thanh không gửi đi đâu.
   // Tiếng Anh: whisper-tiny.en. Ngôn ngữ đích khác (es, pt…): Whisper ĐA NGÔN NGỮ chạy trên máy, tầng theo thiết bị (RAM ≥ 4 GB → base, còn lại tiny); model chỉ tải khi người dùng đồng ý, không nằm trong bundle.
-  const whisperP = {}, WLANG = { es: 'spanish', pt: 'portuguese' };
+  const whisperP = {}, WLANG = { es: 'spanish', pt: 'portuguese', fr: 'french' };
   const whisperTl = accent => (g.Target && !g.Target.isEn(accent) && g.Target.tlOfAccent(accent)) || 'en';
   const whisperModel = tl => tl === 'en' ? 'onnx-community/whisper-tiny.en' : (navigator.deviceMemory >= 4 ? 'onnx-community/whisper-base' : 'onnx-community/whisper-tiny');
   const whisperOK = () => { try { return localStorage.getItem('vb.whisper') === '1'; } catch (e) { return false; } };
