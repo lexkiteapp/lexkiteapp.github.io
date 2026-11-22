@@ -285,8 +285,6 @@ App.esX = { lv: { A1: 'cpack/es/x-A1.js', A2: 'cpack/es/x-A2.js', B1: 'cpack/es/
 App.frX = { lv: { A1: 'cpack/fr/x-A1.js', A2: 'cpack/fr/x-A2.js', B1: 'cpack/fr/x-B1.js', B2: 'cpack/fr/x-B2.js', C1: 'cpack/fr/x-C1.js', C2: 'cpack/fr/x-C2.js' }, ui: { en: 'cpack/fr/x-ui-en.js', vi: 'cpack/fr/x-ui-vi.js', es: 'cpack/fr/x-ui-es.js', pt: 'cpack/fr/x-ui-pt.js', fr: 'cpack/fr/x-ui-fr.js', de: 'cpack/fr/x-ui-de.js', id: 'cpack/fr/x-ui-id.js', th: 'cpack/fr/x-ui-th.js', zh: 'cpack/fr/x-ui-zh.js', ja: 'cpack/fr/x-ui-ja.js', ko: 'cpack/fr/x-ui-ko.js', hi: 'cpack/fr/x-ui-hi.js', ar: 'cpack/fr/x-ui-ar.js', ru: 'cpack/fr/x-ui-ru.js', tr: 'cpack/fr/x-ui-tr.js' } }; // luyện định dạng DELF/DALF W5 (cpack/es-app/exam-ui.js TX.fr): đề theo cấp (nguồn Tatoeba dựng trên CI, exam-es-build tl=fr) + nhãn theo ngôn ngữ người học, tải lười
 App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-es.js', pt: 'cpack/es/px-pt.js', fr: 'cpack/es/px-fr.js', de: 'cpack/es/px-de.js', id: 'cpack/es/px-id.js', th: 'cpack/es/px-th.js', zh: 'cpack/es/px-zh.js', ja: 'cpack/es/px-ja.js', ko: 'cpack/es/px-ko.js', hi: 'cpack/es/px-hi.js', ar: 'cpack/es/px-ar.js', ru: 'cpack/es/px-ru.js', tr: 'cpack/es/px-tr.js' }; // gói phát âm TBN W3 theo ngôn ngữ người học (js/espr-pron.js): nhãn giao diện + giải thích 8 chủ đề
 App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-es.js', pt: 'cpack/fr/px-pt.js', fr: 'cpack/fr/px-fr.js', de: 'cpack/fr/px-de.js', id: 'cpack/fr/px-id.js', th: 'cpack/fr/px-th.js', zh: 'cpack/fr/px-zh.js', ja: 'cpack/fr/px-ja.js', ko: 'cpack/fr/px-ko.js', hi: 'cpack/fr/px-hi.js', ar: 'cpack/fr/px-ar.js', ru: 'cpack/fr/px-ru.js', tr: 'cpack/fr/px-tr.js' }; // gói phát âm tiếng Pháp W3 theo ngôn ngữ người học (cpack/es-app/pron-ui.js, bảng TLX): nhãn giao diện + giải thích 8 chủ đề
-  // Màn Stitch (gói u1*) theo trang: ST2.<màn> được dò ở đúng trang đó; trang không có trong bảng (lesson, study, league, goal…) nạp đủ UX1_ALL như trước
-  const UX1_ALL = ['u1home', 'u1rev', 'u1prac', 'u1lg', 'u1ex', 'u1me'], UX1_SCR = { home: ['u1home'], path: [], review: ['u1rev'], practice: ['u1prac'], me: ['u1me'], dict: [] }; // path = bản đồ NGÀY (path-day.js, không dùng khung ST2.path của trang chủ)
   const ROUTE_BUNDLE = {
     call: 'call',
     cambridge: ['listening', 'cambridge'],
@@ -416,8 +414,7 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
     tlpick: ['css/tl-pick.css'],
     toefl: 'css/exam.css',
     toeic: 'css/exam.css',
-    u1home: ['css/st-v2-path.css', 'css/st-v2-today.css'] /* Home lần đầu chỉ Lộ trình + Hôm nay – chỉ nạp cùng gói u1home; màn khác tải theo màn (st/v2/runtime.js LZ) */,
-    ux1: ['css/st-home.css', 'css/st-v2-ux1-pre.css'] /* lõi: thanh tab/khung chung */,
+    ux1: ['css/st-home.css', 'css/st-v2-ux1-pre.css', 'css/st-v2-path.css', 'css/st-v2-today.css'] /* Home lần đầu chỉ Lộ trình + Hôm nay; màn khác tải theo màn (st/v2/runtime.js LZ) */,
     vhub: 'css/st-v2-vocab-hub.css',
     watch: 'css/watch.css',
     welcome: self.matchMedia && matchMedia('(min-width:1024px)').matches ? 'css/st-v2-welcome-desk.css' : 'css/st-v2-welcome.css',
@@ -430,7 +427,7 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
     if (!home) x.push('review', 'practice', 'leagues', 'me', 'streak', 'exam-readiness'); if (matchMedia('(min-width: 1024px)').matches) x.push('today-desk', 'today-rail');
     if (home && !((state.game || {}).xp > 0)) x.push('today-new'); return x.map(k => `css/st-v2-${k}.css`); };
   let n0x = 0;
-  const LZCSS = n => /^(ux1|u1\w+|i18nx|i18nl)$/.test(n) ? [] : ['css/lazy-ui.css']; // CSS trang lười tách khỏi style.css (scripts/test/css-lazy.mjs) – ux1 vẽ ngay nên không chờ
+  const LZCSS = n => /^(ux1|i18nx|i18nl)$/.test(n) ? [] : ['css/lazy-ui.css']; // CSS trang lười tách khỏi style.css (scripts/test/css-lazy.mjs) – ux1 vẽ ngay nên không chờ
   const need1 = n => bundleP[n] || (inflight++, bundleP[n] = manifest().then(() => Promise.all(BUNDLES[n].map(loadScript).concat([].concat(BCSS[n] || [], n === 'ux1' ? UX1X() : [], LZCSS(n)).map(loadCss)))).catch(e => { delete bundleP[n]; throw e; }).finally(() => { inflight--; }));
   App.need = (...names) => Promise.all([...(window.I18N && I18N.lang() !== 'vi' ? ['i18nx', 'i18nl'].map(need1) : []), ...names.map(need1)]);
   App.loaded = n => !!bundleP[n];
@@ -561,10 +558,7 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
     const late = PAINT_FIRST.has(name) ? b.filter(x => PAINT_LATE.has(x) && !App.loaded(x)) : [];
     if (late.length) b.splice(0, b.length, ...b.filter(x => !late.includes(x)));
     if (ux1 && name === 'library') b.push('libv2'); // Thư viện Stitch v2 (ux1-lib.js bọc routes.library, chỉ khi cờ ux1)
-    if (ux1) { // 🧭 cờ ux1: 5 tab + bản đồ – lõi nạp trước mọi trang (lần sau tức thì); màn Stitch chỉ nạp cùng trang cần nó, phần còn lại sau lần vẽ đầu
-      const scr = UX1_SCR[name] || UX1_ALL; b.unshift('ux1', ...scr);
-      if (scr !== UX1_ALL) App.calm(() => App.need(...UX1_ALL.filter(x => !App.loaded(x))).catch(() => {}), 2500);
-    }
+    if (ux1) b.unshift('ux1'); // 🧭 cờ ux1: 5 tab + bản đồ – gói nạp trước mọi trang (lần sau tức thì)
     // Khung màn đặt NGAY lúc chạm: docs/PERF-SCROLL.md
     const reviewHub = ux1 && name === 'review' && query.get('hub') === '1';
     document.body.classList.toggle('focus', !reviewHub && (name === 'review' || (name === 'lesson' && !(ux1 && arg !== 'go')) || (name === 'practice' && !!arg) || !!(window.ExitGuard && ExitGuard.focusFor(name, arg, query.toString())))); document.documentElement.classList.remove('lk-fo'); // màn học mở thẳng từ link: gỡ lớp ẩn khung của script đầu trang (data-lkf) khi route() đã đặt focus
@@ -577,7 +571,7 @@ App.frPx = { en: 'cpack/fr/px-en.js', vi: 'cpack/fr/px-vi.js', es: 'cpack/fr/px-
     if (name !== 'welcome') document.body.classList.remove('bare'); // thanh trên hiện ngay lúc chạm (CLS #/home)
     // Khung chờ (skeleton) chỉ hiện khi tải lâu hơn 150 ms → không nháy màn hình khi tải nhanh
     let skel = null;
-    if (b.some(x => !App.loaded(x)) && !document.getElementById('lkHero') && !document.getElementById('lkPath')) skel = setTimeout(() => { // khung chào #lkHero đang hiện (LCP): không thay bằng khung chờ
+    if (b.some(x => !App.loaded(x)) && !document.getElementById('lkHero')) skel = setTimeout(() => { // khung chào #lkHero đang hiện (LCP): không thay bằng khung chờ
       const skelReview = `<div class="study-wrap skel-study" aria-busy="true" aria-label="${t('Đang tải…')}"><div class="study-top"><div class="skel" style="width:32px;height:32px;border-radius:50%"></div><div class="skel" style="flex:1;height:12px;border-radius:6px"></div><div class="skel" style="width:70px;height:14px;border-radius:4px"></div></div><div class="skel-card-body"><div class="skel" style="width:45%;height:2.4rem;border-radius:10px"></div><div class="skel" style="width:30%;height:1.2rem;border-radius:6px"></div><div class="skel" style="width:75%;height:1.2rem;border-radius:6px;margin-top:.4rem"></div><div class="skel" style="width:85%;height:1rem;border-radius:6px"></div><div class="row center" style="gap:.8rem;width:100%;max-width:320px;margin-top:1.2rem"><div class="skel" style="height:44px;flex:1;border-radius:999px"></div><div class="skel" style="height:44px;flex:1;border-radius:999px"></div></div></div></div>`;
       const skelHome = `<div class="skel-page skel-home" aria-busy="true" aria-label="${t('Đang tải…')}"><div class="today-head"><div class="skel" style="width:52px;height:52px;border-radius:50%;flex:none"></div><div class="grow" style="display:grid;gap:.5rem"><div class="skel skel-h" style="width:40%;height:1rem"></div><div class="skel skel-l" style="width:75%;height:1.3rem"></div></div><div class="skel" style="width:88px;height:34px;border-radius:999px;flex:none"></div></div><div class="skel" style="height:110px;border-radius:18px"></div><div class="skel" style="height:150px;border-radius:18px"></div><div class="skel" style="height:130px;border-radius:18px"></div></div>`;
       const skelDefault = `<div class="skel-page" aria-busy="true" aria-label="${t('Đang tải…')}"><div class="skel skel-h"></div><div class="skel skel-l"></div><div class="skel-grid">${'<div class="skel skel-card"></div>'.repeat(4)}</div></div>`;

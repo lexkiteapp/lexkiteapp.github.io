@@ -95,8 +95,6 @@ Sửa: `App.painted` (lần vẽ đầu) → font (app-loader, `lk:drawn`), tả
 
 21/11 (mobile-qa, Lighthouse): LCP trang sâu = thời điểm nội dung thật hiện, Lantern tính mọi request bắt đầu trước đó. Sửa: `later()` (app.js) – nhắc học, mời cài, chọn khóa, kho từ của phiên ôn chờ lần vẽ đầu + 2,5 s. Nạp JS ngay (không chờ FCP) chỉ cho #/review #/dict #/me (app-loader). Mobile QA: #/review 6828 → 4900, #/dict 7103 → 6168, #/me 5145 → 4973 ms; home/path/practice không đổi. Ngưỡng `lcp_deep_ms` 10000 → 7500 (chỉ giảm). Còn lại: byte khung (~358 KB gz) trước lần vẽ đầu → tách khung theo route. Thử nạp JS sớm cho MỌI hash sâu làm path 1,7 → 2,7 s và practice 1,7 → 8,7 s (LCP của chúng là khung chào tĩnh) – đừng làm. Cũng đã thử: `App.need` chỉ chờ tệp chuỗi lười gói dùng – không giảm review/me, và path 1,7 → 6,9 s (chưa rõ nguyên nhân) → không đưa vào.
 
-> **22/11 – ux1 bật mặc định kéo cả 21 tệp ux1 vào MỌI trang** (mobile-qa path 1,65 → 8,1 s). Sửa: gói `ux1` = lõi; mỗi màn Stitch ở gói `u1*` (bundles.js) và chỉ nạp cùng trang cần nó (`UX1_SCR` trong app.js; trang ngoài bảng nạp đủ `UX1_ALL`); phần còn lại nạp sau lần vẽ đầu 2,5 s. `ms-paths.js` tách theo họ icon (Outlined trước LCP, Rounded `ms-paths-r.js` khi cần). Test: `scripts/test/ux1-route-bundles.mjs`. Thêm màn Stitch mới → gói u1* + UX1_ALL + (nếu trang riêng) UX1_SCR.
-
 ## Luật LCP (chuyển từ METHODS 27/10)
 - **LCP app (24/10):** màn đầu /app/ phải vẽ được chỉ bằng HTML + style.css; JS khung nạp sau khung hình đầu (dist, `scripts/app-loader.mjs`). Không thêm `<script>`/preload/hiệu ứng mờ dần cho màn đầu; đo bằng `app-lcp.yml` (đẩy nhánh `perf/app-lcp*`) trước/sau – docs/UX-PUBLIC.md §LCP.
 

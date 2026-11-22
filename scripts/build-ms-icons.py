@@ -40,9 +40,5 @@ for fam, fn in (('r', 'web/fonts/msymr.woff2'), ('o', 'web/fonts/msym.woff2')):
             pen = SVGPathPen(gs, ntos=lambda v: str(int(round(v)))); gs[lig[n]].draw(TransformPen(pen, (1, 0, 0, -1, 0, 0)))
             d[n] = re.sub(r'(?<=\d) (?=-)', '', pen.getCommands().replace(' ', ' '))
         print(fam, 'đặc' if fill else 'rỗng', len(d[n if want else ''] if False else d), 'icon')
-HEAD = '/* SINH TỰ ĐỘNG bởi scripts/build-ms-icons.py từ web/fonts/msym*.woff2 – KHÔNG sửa tay. viewBox 0 -960 960 960. Nạp lười bởi js/ms-icons.js */\n'
-dump = lambda d: json.dumps(d, separators=(',', ':'), sort_keys=True)
-# Tách theo họ: Outlined (o, of) = ms-paths.js nạp trước LCP; Rounded (r, rf) = ms-paths-r.js chỉ nạp khi có icon Rounded (lõi app hầu như không dùng → −60 % byte đường tới LCP)
-open('web/fonts/ms-paths.js', 'w').write(HEAD + 'window.MSP=Object.assign(window.MSP||{},' + dump({k: v for k, v in out.items() if k[0] == 'o'}) + ');\n')
-open('web/fonts/ms-paths-r.js', 'w').write(HEAD + 'window.MSP=Object.assign(window.MSP||{},' + dump({k: v for k, v in out.items() if k[0] == 'r'}) + ');\n')
-print('web/fonts/ms-paths.js + ms-paths-r.js')
+js = '/* SINH TỰ ĐỘNG bởi scripts/build-ms-icons.py từ web/fonts/msym*.woff2 – KHÔNG sửa tay. viewBox 0 -960 960 960. Nạp lười bởi js/ms-icons.js */\nwindow.MSP=' + json.dumps(out, separators=(',', ':'), sort_keys=True) + ';\n'
+open('web/fonts/ms-paths.js', 'w').write(js); print('web/fonts/ms-paths.js', len(js), 'byte')
