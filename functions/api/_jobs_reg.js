@@ -1529,6 +1529,20 @@ export const REG = {
    "est": {},
    "lease": false,
    "_note": "OTA iOS đầu-cuối trên Simulator (macOS): gói OTA đang phát phải tải + áp + giữ trong app gốc"
+  },
+  {
+   "id": "seo-indexnow",
+   "workflow": "seo-indexnow.yml",
+   "cron": [
+    "50 */3 * * *"
+   ],
+   "priority": "publishing",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 4,
+   "est": {},
+   "lease": false
   }
  ]
 };
