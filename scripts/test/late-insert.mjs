@@ -62,7 +62,7 @@ ok(/later\(\(\) => App\.need\('remind'\)/.test(app) && /const later = cb => App\
   const [b1, a1] = await run(true), [b0] = await run(false);
   ok(boot && b1 === 0 && a1 === 1, `có Paint Timing: JS chưa nạp trước FCP (${b1}), nạp ngay sau FCP (${a1})`);
   const hs = await Promise.all(['#/review', '#/dict/hello', '#/me', '#/path', '#/practice/mcq', '#/home', '#/welcome'].map(h => run(true, h).then(r => r[0])));
-  ok(hs.join() === '1,1,1,0,0,0,0', `nạp JS ngay (không chờ FCP) chỉ cho review/dict/me; path/practice/home/welcome vẫn chờ FCP (${hs})`);
+  ok(hs.join() === '1,1,1,1,0,0,0', `nạp JS ngay (không chờ FCP) chỉ cho review/dict/me/path; practice/home/welcome vẫn chờ FCP (${hs})`);
   ok(b0 === 1, 'không có Paint Timing: giữ đường cũ rAF → setTimeout (nạp ngay)');
   ok(/setTimeout\(go,fcp\?3000:300\)/.test(loader), 'dự phòng: 3 s khi chờ FCP (tab nền), 300 ms đường cũ');
 }
