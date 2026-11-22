@@ -13,6 +13,8 @@ export const REGISTRIES = [
   { file: 'scripts/build-stitch-css.mjs', mark: 'const WEBDATA = ' },
   { file: 'scripts/test/stitch-screens.mjs', mark: 'export const SCREENS = ' },
   { file: 'scripts/test/stitch-screens.mjs', mark: 'export const V2REF = ' },
+  { file: 'web/js/lesson/engine.js', mark: 'const cnt = ' }, // đếm dạng bài trong bài trộn: mỗi dạng mới thêm một mục
+  { file: 'web/js/lesson/engine.js', mark: ', RARE = ' }, // độ hiếm dạng bài
   { file: 'web/js/cambridge.js', mark: 'const QTYPE = ' }, // dạng câu Cambridge → dạng QE: mỗi bài thi mới thêm một dạng
 ];
 

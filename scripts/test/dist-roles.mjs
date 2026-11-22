@@ -149,6 +149,9 @@ ok(retired.length === 2 && reported.join() === 'gone-clip' && idx.items.map(x =>
   const both = { ...one, 'gc-facebook_page-333': n({ lang: 'vi' }) }, imp2 = D.implicitSocialRules([], both);
   ok(D.routeAll(imp2, both, { id: 'c', lang: 'vi' }, null).find(x => x.platform === 'facebook_page').channel_id === 'gc-facebook_page-333', 'có page tiếng Việt → clip vi vào page riêng (đứng trước page chung)');
   ok(D.routeAll(imp2, both, { id: 'c', lang: 'en' }, null).find(x => x.platform === 'facebook_page').channel_id === 'gc-facebook_page-111', 'clip en vẫn vào page chung');
+  const two = { ...both, 'gc-facebook_page-444': n({ lang: 'vi' }) }, imp3 = D.implicitSocialRules([], two), hit = new Set();
+  for (let i = 0; i < 40; i++) hit.add(D.routeAll(imp3, two, { id: 'clip' + i, lang: 'vi' }, null).find(x => x.platform === 'facebook_page').channel_id);
+  ok(hit.size === 2, '22/11: 2 page cùng ngôn ngữ (vi) chia nhau clip, page thứ hai không còn 0 clip');
   ok(D.foreignAccount({ name: 'Grabcast.click' }) && D.foreignAccount({ username: 'grabcast_click' }) && D.foreignAccount({ title: 'Grab Cast' }) && !D.foreignAccount({ name: 'Lexkite.com' }) && !D.foreignAccount({ username: 'lexkitecom' }), 'foreignAccount: chặn mọi biến thể tên GrabCast, giữ Lexkite');
   ok(D.pausedAccount({ status: 'paused' }) && D.pausedAccount({ publishing_paused: true }) && !D.pausedAccount({ status: 'active' }) && !D.pausedAccount({}), 'pausedAccount: kênh Pause publishing trên GrabCast');
 }

@@ -124,12 +124,31 @@
       if (pair) types.push('tr');
       const mn = (opts.mean && opts.mean(c)) || '';
       if (!/\s/.test(c.word.trim()) && c.word.length >= 3 && (!off.listen || mn || c.def)) types.push('type'); // gõ từ (từ đơn): cần âm thanh hoặc nghĩa
+      // nghe → chọn 1/4 ảnh (opts.lpic – web bật; native/vectors không đổi): cần âm thanh + ảnh của từ VÀ cả 3 nhiễu (RNG riêng → không đổi thứ tự bốc của các dạng khác)
+      const ims = opts.lpic && !off.listen && opts.hasImg && opts.hasImg(c.word, c.pos) ? distract(c.word, c.pos, pool.filter(x => x && x.word && opts.hasImg(x.word, x.pos)), 3, rng((opts.seed || 1) + c.word.length), { modern, near }) : [];
+      if (ims.length >= 3) types.push('lpic');
       types.push('say');
       const only = opts.only && types.filter(x => opts.only.includes(x));
-      return { p, c, s, pair, types: only && only.length ? only : types };
+      return { p, c, s, pair, ims, types: only && only.length ? only : types };
     });
     // cân bằng cả bài: mỗi vòng, mỗi từ lấy dạng còn ít nhất trong bài
-    const cnt = { gap: 0, build: 0, pic: 0, tr: 0, type: 0, say: 0 }, RARE = { pic: 0, tr: 0.1, build: 0.2, type: 0.25, gap: 0.3, say: 0.4 };
+    const cnt = {
+      build: 0,
+      gap: 0,
+      lpic: 0,
+      pic: 0,
+      say: 0,
+      tr: 0,
+      type: 0,
+    }, RARE = {
+      build: 0.2,
+      gap: 0.3,
+      lpic: 0.05,
+      pic: 0,
+      say: 0.4,
+      tr: 0.1,
+      type: 0.25,
+    };
     byWord.forEach(w => { w.order = []; });
     for (let round = 0; round < per; round++) byWord.forEach(w => {
       const left = w.types.filter(x => !w.order.includes(x)); if (!left.length) return;
@@ -145,6 +164,7 @@
         return Object.assign(base, { sent: s.text, own: s.own, prompt: s.tr || '', answer: words.join(' '), tiles: shuffle(words.concat(extra), r) }); // build: prompt = bản dịch câu (có thể '' khi chỉ nghe)
       }
       if (type === 'type') { const wd = c.word.trim(); return Object.assign(base, { answer: wd, def: c.def || '', len: wd.replace(/[\s'-]/g, '').length, first: wd[0], bank: letterBank(wd.toLowerCase(), rng([...wd].reduce((h, ch) => (h * 31 + ch.charCodeAt(0)) >>> 0, 7))) }); } // rng riêng theo từ: không làm lệch dãy xáo của cả bài (thứ tự đáp án/ô giữ ổn định)
+      if (type === 'lpic') { const o = shuffle([c.word].concat(w.ims), r); return Object.assign(base, { hints: ['fifty'], answer: c.word, options: o, ipos: Object.fromEntries(o.map(x => [x, (pool.find(y => y && same(y.word, x)) || {}).pos])) }); } // ipos: loại từ từng ô → UI tra đúng ảnh từ#loại
       if (type === 'pic') return Object.assign(base, { answer: c.word, options: shuffle([c.word].concat(distract(c.word, c.pos, pool, 3, r, { modern, near })), r) });
       const short = s && (toks(s.text).length <= 8 || isPat(c)), alt = s && s.at && s.at.form ? { type: 'gap', sent: s.text, own: s.own, blank: s.at, answer: s.at.form, options: shuffle([s.at.form].concat(distract(c.word, c.pos, pool, 3, r, { modern, form: s.at.form, near, avoid: s.at.toks })), r) }
         : { type: 'mean', answer: c.word, options: shuffle([c.word].concat(distract(c.word, c.pos, pool, 3, r, { modern, near })), r) }; // bản thay khi tắt nói
@@ -157,6 +177,9 @@
     // Ghép cặp (từ ↔ nghĩa) giữa bài khi có ≥ 4 từ: 1 bài, không gắn từ riêng (card null → không ghi FSRS theo từ)
     const mp = picks.filter(p => (p.card.vi || p.card.def) && !isPat(p.card)).slice(0, 5);
     if (opts.match !== false && (!opts.only || opts.only.includes('match')) && mp.length >= 4) items.splice(Math.ceil(items.length / 2), 0, { id: ++id, type: 'match', word: '#match', card: null, retry: 0, answer: '', hints: HINTS.match, pairs: shuffle(mp, r).slice(0, 4).map(p => p.card) });
+    // Ghép từ ↔ ảnh (opts.mpic – web bật; native/vectors không đổi): cùng khuôn + cách chấm với match, cột phải là ảnh; cần ≥ 4 từ đều có ảnh; hiếm (~40 % bài, RNG riêng → không lệch dãy xáo của dạng khác)
+    const mi = opts.mpic && !opts.only && opts.hasImg ? picks.filter(p => !isPat(p.card) && opts.hasImg(p.card.word, p.card.pos)) : [];
+    if (mi.length >= 4 && rng((opts.seed || 1) + 97)() < 0.4) items.splice(Math.ceil(items.length * 0.75), 0, { id: ++id, type: 'match', pics: true, word: '#mpic', card: null, retry: 0, answer: '', hints: HINTS.match, pairs: shuffle(mi, rng((opts.seed || 1) + 98)).slice(0, 4).map(p => p.card) });
     const out = items.map(it => adapt(it, off));
     return opts.calm ? calm(out) : out;
   }
@@ -165,6 +188,7 @@
   function adapt(it, off) {
     off = off || {};
     const o = Object.assign({}, it, { noAudio: !!off.listen });
+    if (off.listen && it.type === 'lpic') Object.assign(o, { type: 'pic', choice: true, hints: HINTS.pic }); // không nghe được → xem ảnh, chọn từ (cùng đáp án + 4 từ)
     if (off.speak && (it.type === 'say' || it.type === 'pic')) {
       if (it.type === 'pic') o.choice = true;               // ảnh → chọn 1/4 thay vì nói
       else Object.assign(o, it.alt, { spoke: true });        // nói theo → điền từ thiếu (có câu) / chọn từ theo nghĩa (chỉ có từ)

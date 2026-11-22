@@ -11,7 +11,8 @@
   "pr": "Day {d} of {t} · {p} steps done today",
   "mk": "Mark as done",
   "fin": "Day complete! 🎉",
-  "td": "Today"
+  "td": "Today",
+  "sv": "Added {n} words to Review"
  },
  "vi": {
   "ti": "Lộ trình ngày: tiếng Tây Ban Nha",
@@ -25,7 +26,8 @@
   "pr": "Ngày {d}/{t} · hôm nay xong {p} bước",
   "mk": "Đánh dấu xong",
   "fin": "Xong ngày học! 🎉",
-  "td": "Hôm nay"
+  "td": "Hôm nay",
+  "sv": "Đã thêm {n} từ vào Ôn tập"
  },
  "es": {
   "ti": "Ruta diaria: español",
@@ -39,7 +41,8 @@
   "pr": "Día {d} de {t} · {p} pasos hechos hoy",
   "mk": "Marcar como hecho",
   "fin": "¡Día completo! 🎉",
-  "td": "Hoy"
+  "td": "Hoy",
+  "sv": "Se agregaron {n} palabras a Repaso"
  },
  "pt": {
   "ti": "Trilha diária: espanhol",
@@ -53,7 +56,8 @@
   "pr": "Dia {d} de {t} · {p} etapas feitas hoje",
   "mk": "Marcar como feito",
   "fin": "Dia completo! 🎉",
-  "td": "Hoje"
+  "td": "Hoje",
+  "sv": "{n} palavras adicionadas à Revisão"
  },
  "fr": {
   "ti": "Parcours quotidien : espagnol",
@@ -67,7 +71,8 @@
   "pr": "Jour {d} sur {t} · {p} étapes faites aujourd’hui",
   "mk": "Marquer comme fait",
   "fin": "Journée terminée ! 🎉",
-  "td": "Aujourd’hui"
+  "td": "Aujourd’hui",
+  "sv": "{n} mots ajoutés aux Révisions"
  },
  "de": {
   "ti": "Tagespfad: Spanisch",
@@ -81,7 +86,8 @@
   "pr": "Tag {d} von {t} · heute {p} Schritte erledigt",
   "mk": "Als erledigt markieren",
   "fin": "Tag geschafft! 🎉",
-  "td": "Heute"
+  "td": "Heute",
+  "sv": "{n} Wörter zur Wiederholung hinzugefügt"
  },
  "id": {
   "ti": "Jalur harian: bahasa Spanyol",
@@ -95,7 +101,8 @@
   "pr": "Hari {d} dari {t} · {p} langkah selesai hari ini",
   "mk": "Tandai selesai",
   "fin": "Hari selesai! 🎉",
-  "td": "Hari ini"
+  "td": "Hari ini",
+  "sv": "{n} kata ditambahkan ke Ulasan"
  },
  "th": {
   "ti": "เส้นทางรายวัน: ภาษาสเปน",
@@ -109,7 +116,8 @@
   "pr": "วันที่ {d} จาก {t} · วันนี้ทำแล้ว {p} ขั้นตอน",
   "mk": "ทำเครื่องหมายว่าเสร็จ",
   "fin": "จบวันนี้แล้ว! 🎉",
-  "td": "วันนี้"
+  "td": "วันนี้",
+  "sv": "เพิ่ม {n} คำในการทบทวนแล้ว"
  },
  "zh": {
   "ti": "每日路径：西班牙语",
@@ -123,7 +131,8 @@
   "pr": "第 {d} / {t} 天 · 今天已完成 {p} 步",
   "mk": "标记为已完成",
   "fin": "今天完成了！🎉",
-  "td": "今天"
+  "td": "今天",
+  "sv": "已将 {n} 个单词加入复习"
  },
  "ja": {
   "ti": "毎日の学習パス：スペイン語",
@@ -137,7 +146,8 @@
   "pr": "{t}日中{d}日目 · 今日は{p}ステップ完了",
   "mk": "完了にする",
   "fin": "今日の学習完了！🎉",
-  "td": "今日"
+  "td": "今日",
+  "sv": "{n} 語を復習に追加しました"
  },
  "ko": {
   "ti": "일일 학습 경로: 스페인어",
@@ -151,7 +161,8 @@
   "pr": "{t}일 중 {d}일차 · 오늘 {p}단계 완료",
   "mk": "완료로 표시",
   "fin": "오늘 학습 완료! 🎉",
-  "td": "오늘"
+  "td": "오늘",
+  "sv": "복습에 단어 {n}개를 추가했어요"
  },
  "hi": {
   "ti": "दैनिक पथ: स्पेनिश",
@@ -165,7 +176,8 @@
   "pr": "{t} में से दिन {d} · आज {p} चरण पूरे",
   "mk": "पूरा हुआ चिह्नित करें",
   "fin": "दिन पूरा! 🎉",
-  "td": "आज"
+  "td": "आज",
+  "sv": "{n} शब्द दोहराव में जोड़े गए"
  },
  "ar": {
   "ti": "المسار اليومي: الإسبانية",
@@ -179,7 +191,8 @@
   "pr": "اليوم {d} من {t} · أُنجزت اليوم {p} خطوات",
   "mk": "تحديد كمنجز",
   "fin": "اكتمل اليوم! 🎉",
-  "td": "اليوم"
+  "td": "اليوم",
+  "sv": "تمت إضافة {n} كلمات إلى المراجعة"
  },
  "ru": {
   "ti": "Ежедневный путь: испанский",
@@ -193,7 +206,8 @@
   "pr": "День {d} из {t} · сегодня выполнено шагов: {p}",
   "mk": "Отметить как выполненное",
   "fin": "День завершён! 🎉",
-  "td": "Сегодня"
+  "td": "Сегодня",
+  "sv": "Добавлено слов в повторение: {n}"
  },
  "tr": {
   "ti": "Günlük yol: İspanyolca",
@@ -207,6 +221,7 @@
   "pr": "{t} günün {d}. günü · bugün {p} adım tamamlandı",
   "mk": "Tamamlandı olarak işaretle",
   "fin": "Gün tamamlandı! 🎉",
-  "td": "Bugün"
+  "td": "Bugün",
+  "sv": "{n} kelime Tekrar'a eklendi"
  }
 }

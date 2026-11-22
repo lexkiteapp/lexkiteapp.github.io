@@ -38,6 +38,7 @@ Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --
 | 00:04 | `ci-filler` | `4-59/10 * * * *` | reports | gh_minutes | 3 | — | — |
 | 00:07 | `blog-publish` | `7 */3 * * *` | publishing | gh_minutes | 10 | — | — |
 | 00:07 | `d1-usage-watch` | `7,27,47 * * * *` | reports | d1_main, gh_minutes | 1 | d1_main_reads≈10, d1_main_writes≈2 | — |
+| 00:07 | `zombie-sweep` | `7,22,37,52 * * * *` | reports | gh_minutes | 1 | — | — |
 | 00:07 | `ci-autopilot` | `7-57/10 * * * *` | reports | gh_minutes | 3 | — | — |
 | 00:07 | `youtube-manual` | `7,37 * * * *` | publishing | youtube_api, d1_main_read | 5 | d1_main_reads≈300 | — |
 | 00:15 | `d1-backup` | `15 0 * * 1,2` | archive | d1_main_read, drive_pool, gh_minutes | 30 | d1_main_reads≈60000, drive_calls≈80 | ✓ |
@@ -51,6 +52,7 @@ Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --
 | 00:41 | `ads-revenue-hourly` | `41 * * * *` | reports | gh_minutes, d1_main | 1 | d1_main_reads≈1100, d1_main_writes≈500 | — |
 | 00:47 | `cdn-mirror` | `47 * * * *` | reports | gh_minutes | 3 | — | — |
 | 00:50 | `script-bank` | `50 0 * * *` | render | workers_ai_b, grabcast_ai, gh_minutes | 60 | workers_ai_b_neurons≈2000, grabcast_text≈60 | ✓ |
+| 00:50 | `seo-indexnow` | `50 */3 * * *` | publishing | gh_minutes | 4 | — | — |
 | 00:52 | `social-auto` | `52 */2 * * *` | publishing | grabcast_social, d1_main | 3 | grabcast_social_calls≈60, d1_main_reads≈600, d1_main_writes≈120 | — |
 | 00:53 | `preview-site` | `53 */3 * * *` | publishing | gh_minutes | 8 | — | — |
 | 00:53 | `report-autofix` | `53 */3 * * *` | reports | gh_minutes | 1 | d1_main_reads≈200 | — |

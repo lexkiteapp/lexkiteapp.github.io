@@ -340,7 +340,7 @@ export function signJwt(sa, now = Math.floor(Date.now() / 1000)) {
   const sig = crypto.createSign('RSA-SHA256').update(`${head}.${body}`).sign(sa.private_key);
   return `${head}.${body}.${b64u(sig)}`;
 }
-async function call(fetchImpl, url, init, what) {
+export async function call(fetchImpl, url, init, what) {
   for (let i = 0; ; i++) {
     const res = await fetchImpl(url, init);
     if (res.ok) return res.json();

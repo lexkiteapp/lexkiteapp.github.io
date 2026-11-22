@@ -3,6 +3,7 @@
 .grid > .card:has(> :is(.row, .card-acts):last-child .btn, > .btn:last-child) { display: flex; flex-direction: column; }
 :is(.card-acts, .grid > .card > .row:last-child) > .btn { min-width: 0; }
 .entry-head { display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-rows: auto auto 1fr auto auto; grid-template-areas: "title media" "pron media" "mean media" "ex ex" "act act"; }
+.entry-head > .pron { min-width: 0; } .entry-head > .pron > span { flex-wrap: wrap; max-width: 100%; row-gap: var(--sp-1); } /* viên giọng dài (IPA + 2 loa) xuống dòng trong cột, không tràn .pron (dict-entry-layout 1024 vi) */
 .entry-title { grid-area: title; min-width: 0; } .entry-head > .pron { grid-area: pron; } .entry-mean { grid-area: mean; min-width: 0; }
 .entry-ex { grid-area: ex; margin-top: 1rem; min-width: 0; } .entry-ex-h { display: flex; align-items: center; justify-content: space-between; gap: .5rem; } .entry-ex .set-h { display: inline-flex; align-items: center; gap: .35rem; margin: 0; }
 .entry-actions { grid-area: act; display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1rem; } .entry-actions > .btn { min-height: 48px; white-space: normal; } .entry-ex .btn.ghost { padding-inline: 0; }

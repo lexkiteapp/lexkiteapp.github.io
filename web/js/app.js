@@ -271,7 +271,7 @@
   const manifest = () => manP || (manP = loadScript('js/bundles.js').then(() => {
     const B = window.LK_BUNDLES; if (!B) { manP = null; throw new Error('bundles'); }
     BUNDLES = B; if (Store.isExtension) EXT_NO.forEach(n => { BUNDLES[n] = []; }); return B; }));
-  const EXT_NO = ['klocal']; // (áp ở manifest() khi nạp js/bundles.js)  gói mà build-extension.sh loại khỏi add-on (CWS cấm mã tải từ xa) → không nạp, khỏi 404 + nạp lại. Test: ext-bundles
+  const EXT_NO = []; // (áp ở manifest() khi nạp js/bundles.js)  gói mà build-extension.sh loại khỏi add-on (CWS cấm mã tải từ xa; klocal đã chạy được qua khung lexkite.com/kl.html) → không nạp, khỏi 404 + nạp lại. Test: ext-bundles
   const PAINT_FIRST = new Set(['home', 'review']), PAINT_LATE = new Set(['words']); // route vẽ trước khi có kho từ (mọi chỗ dùng kho đều có dự phòng: study.js libNorm/distractors, ux1 units = data.js)
 App.pathnPack = { es: 'cpack/lesson/pn-es.js', pt: 'cpack/lesson/pn-pt.js', fr: 'cpack/lesson/pn-fr.js', de: 'cpack/lesson/pn-de.js', id: 'cpack/lesson/pn-id.js', th: 'cpack/lesson/pn-th.js', zh: 'cpack/lesson/pn-zh.js', ja: 'cpack/lesson/pn-ja.js', ko: 'cpack/lesson/pn-ko.js', hi: 'cpack/lesson/pn-hi.js', ar: 'cpack/lesson/pn-ar.js', ru: 'cpack/lesson/pn-ru.js', tr: 'cpack/lesson/pn-tr.js' }; // bản dịch nội dung nút Lộ trình (nhóm i18n pathn, scripts/lib/i18n-pack.mjs), nạp cùng dữ liệu nút
 App.cpackI18n = { criteria: { es: 'cpack/i18n/criteria-es.js', pt: 'cpack/i18n/criteria-pt.js', fr: 'cpack/i18n/criteria-fr.js', de: 'cpack/i18n/criteria-de.js', id: 'cpack/i18n/criteria-id.js', th: 'cpack/i18n/criteria-th.js', zh: 'cpack/i18n/criteria-zh.js', ja: 'cpack/i18n/criteria-ja.js', ko: 'cpack/i18n/criteria-ko.js', hi: 'cpack/i18n/criteria-hi.js', ar: 'cpack/i18n/criteria-ar.js', ru: 'cpack/i18n/criteria-ru.js', tr: 'cpack/i18n/criteria-tr.js' }, confidence: { es: 'cpack/i18n/confidence-es.js', pt: 'cpack/i18n/confidence-pt.js', fr: 'cpack/i18n/confidence-fr.js', de: 'cpack/i18n/confidence-de.js', id: 'cpack/i18n/confidence-id.js', th: 'cpack/i18n/confidence-th.js', zh: 'cpack/i18n/confidence-zh.js', ja: 'cpack/i18n/confidence-ja.js', ko: 'cpack/i18n/confidence-ko.js', hi: 'cpack/i18n/confidence-hi.js', ar: 'cpack/i18n/confidence-ar.js', ru: 'cpack/i18n/confidence-ru.js', tr: 'cpack/i18n/confidence-tr.js' } }; // bản dịch nhóm criteria/confidence nằm ở web/cpack (scripts/lib/i18n-pack.mjs CPACK_I18N); build-cpack chỉ băm đường dẫn viết đủ chữ
@@ -444,6 +444,8 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
   document.addEventListener('click', e => { const b = e.target.closest && e.target.closest('[data-share]'); if (b) { e.preventDefault(); lazyUI(['share'], () => ShareCard.open(b.dataset.share)); } });
   // Rảnh thì tải trước các module còn lại → chuyển trang tức thì, dùng offline được
   const idle = cb => ('requestIdleCallback' in window ? requestIdleCallback(cb, { timeout: 4000 }) : setTimeout(cb, 2500));
+  // Việc phụ tải mạng (nhắc học, mời cài, chọn khóa, kho từ của phiên ôn): chờ lần vẽ đầu + 2,5 s rồi mới rảnh-chạy → không giành băng thông với nội dung trang sâu (mobile-qa LCP #/review 6,8 → 4,9 s, 21/11)
+  const later = cb => App.painted.then(() => setTimeout(() => idle(cb), 2500));
   // Tải sẵn lúc rảnh – bỏ qua khi tiết kiệm dữ liệu, mạng chậm, máy yếu
   const lean = () => { const c = navigator.connection || {}; return !!c.saveData || /(^|-)2g|3g/.test(c.effectiveType || '') || (navigator.deviceMemory && navigator.deviceMemory <= 2); };
   // Lần vẽ đầu: việc phụ chờ mốc này (docs/UX-PUBLIC.md §LCP)
@@ -517,6 +519,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
     return (m ? tp && tp.words && tp.words.length : /^(deck|due|weak|forgetting|phrases)$/.test(src)) ? ['words', 'tsl'] : [];
   };
   const V2_ROUTES = new Set(['train', 'skills', 'me', 'say', 'goal']);
+  const HB_ROUTES = new Set(['vocab', 'library', 'tests']); // trang gắn thanh hub Stitch (ST2.hubbar/hubPage) lúc dựng xong: thanh trên cũ phải ẩn NGAY lúc chạm (class hbpre), không thì #view nhảy lên 56 px khi trang dựng (CLS 0,066 #/vocab #/tests #/library)
   // 🧈 Cuộn: docs/PERF-SCROLL.md
   const Scroll = (() => {
     const de = document.documentElement, pos = new Map(); let off = 0, seq = 0, cur = '', inputAt = 0, movedAt = 0;
@@ -559,6 +562,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
     // v2pre = #view không đệm (màn Stitch tràn khung). Đang hiện màn v2 mà đi sang trang thường: GIỮ v2pre tới khi nội dung mới thay vào, không thì màn cũ dịch ~26 px lúc đệm quay lại (CLS sweep #/speak)
     const preNow = ux1 && (reviewHub || V2_ROUTES.has(name) || (name === 'lesson' && !!arg) || (name === 'league' && !!state.user)), holdPre = !preNow && document.body.classList.contains('v2pre'), first0 = view.firstElementChild;
     if (!holdPre) document.body.classList.toggle('v2pre', preNow);
+    document.body.classList.toggle('hbpre', ux1 && HB_ROUTES.has(name));
     try { localStorage.setItem('lk.ux1c', ux1 ? '1' : '0'); } catch (e) { /* bỏ qua */ }
     if (!ux1) document.body.classList.remove('ux1');
     if (name !== 'welcome') document.body.classList.remove('bare'); // thanh trên hiện ngay lúc chạm (CLS #/home)
@@ -597,7 +601,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
       if (backY && my === routeSeq) Scroll.restore(backY, () => my === routeSeq);
       if (late.length) App.calm(() => App.need(...late).catch(() => {}), 2500); // sau lần vẽ đầu (kể cả khi đã sang trang khác: gói dùng chung)
       if (my === routeSeq) { drawn = { tok: my, hash: location.hash }; markActivity(name, arg); a11yRoute(name, preTitle); if (App.afterRoute) App.afterRoute(name); if (drawnRes) { const r = drawnRes; drawnRes = null; afterPaint(() => { r(); dispatchEvent(new Event('lk:drawn')); }); } }
-      if (sf.length) afterPaint(() => idle(() => App.need(...sf).then(() => dispatchEvent(new Event('lk:soft'))).catch(() => {})));
+      if (sf.length) afterPaint(() => (name === 'review' ? later : idle)(() => App.need(...sf).then(() => dispatchEvent(new Event('lk:soft'))).catch(() => {})));
     };
     // Không dùng View Transitions (Chrome vẽ lệch ảnh trang cũ khi Quay lại).
     // Chỉ hiệu ứng mờ-trồi nhẹ bằng CSS trên #view – mượt, không bao giờ vẽ sai.
@@ -694,7 +698,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
   App.vimg = (word, pos, gloss, w, ex) => (window.VImg ? VImg.slot(word, pos, gloss, w, ex) : ''); // w = vai (card|back|quiz|dict|words) hoặc px; ex = câu ví dụ (ảnh cảnh)
   // Màn đầu (chào/trang chủ, lần tải lạnh): hoãn nạp module+chỉ mục ảnh tới lúc rảnh – chạy lúc khởi động nó chặn luồng chính ~100 ms (TBT mobile). Màn khác (học/ôn/tra từ): nạp ngay như cũ để thẻ đầu đã có ảnh.
   /^#?\/?(welcome|home)?\/?(\?|$)/.test(location.hash) ? idle(() => App.vimgReady()) : App.vimgReady();
-  if (window.Target && Target.LANGS.length > 1) idle(() => App.need('tlpick').then(() => window.TLPick && TLPick.boot()).catch(() => {}));
+  if (window.Target && Target.LANGS.length > 1) later(() => App.need('tlpick').then(() => window.TLPick && TLPick.boot()).catch(() => {}));
   // thẻ ngôn ngữ đích khác: chỉ ảnh có khóa tiếng Anh từ#loại khớp ĐÚNG nghĩa (trường img, content/target/<tl>/) – không có → không ảnh
   App.imgKey = c => (c.tl ? String(c.img || '').split('#') : [c.word, c.pos]); // [từ, loại] để gọi App.vimg; thẻ tl không có img → người gọi bỏ ảnh
   // Khối "Hiểu sâu": HTML đã dựng nhớ theo từ → lần vẽ lại (từ điển: bản nhanh → bản đủ) vẽ luôn trong cùng lần, không chèn muộn đẩy nội dung bên dưới (CLS 0,66 #/dict @360)
@@ -1480,10 +1484,10 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
       chrome.storage.onChanged.addListener(ch => { if (ch.cards) { state.cards = Cards.view(Object.assign(Object.create(null), ch.cards.newValue || {})); updateChrome(); } });
     }
     if (!Store.isExtension && !(window.VBNative && VBNative.is) && 'serviceWorker' in navigator && location.protocol.startsWith('http')) navigator.serviceWorker.register('/sw.js', { scope: '/app/' }).catch(() => {}); // app ở /app/ (trang / là trang giới thiệu tĩnh) – sw.js gốc tự chuyển bản cài cũ (phạm vi /) sang chế độ chuyển tiếp, xem web/sw.js. Đăng ký lúc này = sau lần vẽ đầu (JS khung nạp sau khung hình đầu – scripts/app-loader.mjs) nên không làm chậm màn đầu
-    setTimeout(() => manifest().then(() => Promise.all(BUNDLES.voice.map(f => fetch(f).catch(() => {})))).then(() => App.calm(() => { App.need('voice').catch(() => {}); App.need('klocal').catch(() => {}); })).catch(() => {}), 4000); /* giọng Kokoro cho phát âm từ ở mọi trang */
+    later(() => manifest().then(() => Promise.all(BUNDLES.voice.map(f => fetch(f).catch(() => {})))).then(() => App.calm(() => { App.need('voice').catch(() => {}); App.need('klocal').catch(() => {}); })).catch(() => {})); /* giọng Kokoro cho phát âm từ ở mọi trang: SAU lần vẽ đầu (+2,5 s, rảnh) – trước đây hẹn 4 s từ lúc mở app nên trang sâu (#/path, #/dict) còn đang vẽ thì tải + chạy audio-index (~100 ms chặn luồng, LCP 8,3 s > 7,5 s, 22/11) */
     App.offerRescue = offerRescue; applyFreeze().then(() => setTimeout(() => offerRescue().catch(() => {}), 1500)).catch(() => {});
-    App.painted.then(() => idle(() => App.need('install').catch(() => {}))); // 📲 mời cài app (chỉ sau khi đã học, js/install-sheet.js)
-    App.painted.then(() => idle(() => App.need('remind').then(() => Remind.start()).catch(() => {}))); // ⏰ nhắc học (js/remind.js, docs/REMINDERS.md)
+    later(() => App.need('install').catch(() => {})); // 📲 mời cài app (chỉ sau khi đã học, js/install-sheet.js)
+    later(() => App.need('remind').then(() => Remind.start()).catch(() => {})); // ⏰ nhắc học (js/remind.js, docs/REMINDERS.md)
     // Add-on: lấy sẵn vé người thật cho service worker (khách; docs/HUMAN.md)
     if (Store.isExtension) setTimeout(() => idle(() => { if (!(window.Sync && Sync.user)) UI.human().then(H => H && H.ticket()).catch(() => {}); }), 8000);
     // Bàn phím ảo "resizes-visual" (iOS WKWebView, Chrome Android): --kb = cao bàn phím → html thêm đệm đáy (style.css), ô #ans không bị che
