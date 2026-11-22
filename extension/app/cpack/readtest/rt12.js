@@ -177,7 +177,7 @@ a: 2, cue: 'this division, though useful for textbooks, has often hidden more th
 options: ['It is inaccurate because toddlers generally pay little attention to adult speech patterns.', 'It applies solely to the naming of concrete objects such as toys and tools.', 'It has been challenged by Lindqvist\'s experiment, which produced results inconsistent with the theory.', 'It cannot account for words that refer to things that cannot be pointed out.'],
 a: 3, cue: 'it leaves unexplained how children learn words for things nobody can point at' },
 { n: 38, q: 'What did Dr Brandt\'s follow-up study find?',
-options: ['Back-and-forth exchanges explained more than the number of words spoken.', 'The number of words spoken at home had no effect on vocabulary.', 'Families who used word-counting devices talked less to their babies.', 'A child\'s vocabulary at two predicts the size of the family.'],
+options: ['Back-and-forth exchanges explained more than the number of words spoken.', 'The total duration of conversations predicted vocabulary growth better.', 'Parents who read aloud daily showed higher child vocabularies.', 'Children\'s early vocabulary was linked to their socioeconomic status.'],
 a: 0, cue: 'the number of words spoken explained less than the number of back-and-forth exchanges in which a child took a turn' },
 ] },
 { type: 'multi', instr: 'Choose TWO letters, A–E.',

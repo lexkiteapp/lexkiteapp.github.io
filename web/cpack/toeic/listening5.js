@@ -339,7 +339,7 @@ items: [
 explain: 'Từ khi phát hành bản cập nhật ứng dụng hôm thứ Hai, "the app freezes when they try to pay a bill" (ứng dụng bị đơ khi khách thanh toán hóa đơn) → bản cập nhật phần mềm gây lỗi. Đường dây hỗ trợ vẫn hoạt động (số cuộc gọi tăng gấp đôi); "pay a bill" là bẫy cho phương án "A bill was paid twice".' },
 { n: 36, q: 'What does Dmitri say about the problem?', options: ['A fix will be ready soon.', 'It affects only older phones.', 'It was reported by a competitor.', 'It cannot be solved this month.'], a: 0, cue: "We're testing a fix now, and it should be ready by tomorrow morning",
 explain: 'Dmitri cho biết nhóm đã tìm ra nguyên nhân và "We\'re testing a fix now, and it should be ready by tomorrow morning" (bản sửa lỗi sẽ sẵn sàng vào sáng mai) → sắp có bản sửa. Không có thông tin về điện thoại đời cũ hay đối thủ cạnh tranh.' },
-{ n: 37, q: 'What does the man suggest offering to affected customers?', options: ['A full refund', 'A gift card', 'A free month of a service', 'A training session'], a: 2, cue: "Let's give them one month of our premium service for free",
+{ n: 37, q: 'What does the man suggest offering to affected customers?', options: ['A partial reimbursement', 'A gift card', 'A free month of a service', 'A personalized tutorial'], a: 2, cue: "Let's give them one month of our premium service for free",
 explain: 'Joaquin nói "Let\'s give them one month of our premium service for free" → tặng một tháng dịch vụ cao cấp miễn phí. Hoàn tiền, thẻ quà tặng hay buổi đào tạo không được đề xuất.' },
 ] },
 { type: 'mcq', instr: g.TQL[18],

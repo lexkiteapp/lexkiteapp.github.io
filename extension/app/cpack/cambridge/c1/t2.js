@@ -118,7 +118,7 @@
           { s: "W", t: "True. I'd never go back to living alone, and I'm happy to put up with the pans for that." },
         ], items: [
           { n: 1, q: "What is the woman's main complaint about the flat?", options: ["The cleaning jobs are not shared fairly.", "People leave the kitchen in a mess.", "The rooms are too small for five people."], a: 1, cue: "someone always leaves a pan to soak for a week", explain: "She says the rota works well, and the real problem is the kitchen, where someone always leaves a pan to soak for a week." },
-          { n: 2, q: "What does the man say about living alone?", options: ["It had a bad effect on his spirits.", "It gave him time to study.", "It was cheaper than sharing."], a: 0, cue: "it did nothing for my mood", explain: "He says that coming home to an empty flat did nothing for his mood. Nothing is said about studying or money." },
+          { n: 2, q: "What does the man say about living alone?", options: ["It had a bad effect on his spirits.", "It gave him more freedom to travel.", "It saved him a lot on rent each month."], a: 0, cue: "it did nothing for my mood", explain: "Câu đúng nói việc sống một mình làm tinh thần anh ấy giảm sút; các đáp án khác nói về tự do đi lại hoặc tiết kiệm tiền, không liên quan tới cảm xúc được đề cập." },
         ] },
         { speakers: { W: { name: "Woman", accent: "en-GB", gender: "f" } }, script: [
           { say: "Extract two. You hear a woman talking about training for her first marathon." },

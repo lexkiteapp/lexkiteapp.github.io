@@ -2,19 +2,19 @@
 
 Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipeline/score.budget.json` · kế hoạch `docs/CONTENT-WORLD-PLAN.md` §3.5. Điểm = độ phủ so với chuẩn × tỉ lệ qua cổng.
 
-**Tổng: 78.1 / 100**
+**Tổng: 78.5 / 100**
 
 | Mảng | Điểm | Sàn | Độ phủ | Qua cổng | Lỗi |
 |---|---|---|---|---|---|
-| Kho từ | **59.7** | 59.3 | 59.7% | 100% | 0 |
+| Kho từ | **59.7** | 59.7 | 59.7% | 100% | 0 |
 | Ngữ pháp | **72.8** | 72.8 | 72.8% | 100% | 0 |
 | Giao tiếp | **89.7** | 89.7 | 89.7% | 100% | 0 |
 | 4 kỹ năng | **97.6** | 97.6 | 97.6% | 100% | 0 |
 | Đề thi | **66.6** | 66.6 | 66.6% | 100% | 0 |
-| Chất lượng đề | **59** | 54.2 | 59% | 100% | 0 |
+| Chất lượng đề | **62.7** | 59 | 62.7% | 100% | 0 |
 | Khung Can-do | **82.6** | 82.6 | 82.6% | 100% | 0 |
 | Dễ học – dễ nhớ | **91.8** | 91.8 | 91.8% | 100% | 0 |
-| i18n | **83** | 82.8 | 83% | 100% | 0 |
+| i18n | **83** | 83 | 83% | 100% | 0 |
 
 ## Kho từ
 
@@ -25,7 +25,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | collocation | 5058 / 20000 | 25% | 12 |
 | đồng nghĩa | 3165 / 20000 | 16% | 8 |
 | IPA Mỹ | 6987 / 20000 | 35% | 5 |
-| ảnh theo nghĩa | 8212 / 20000 | 41% | 15 |
+| ảnh theo nghĩa | 8234 / 20000 | 41% | 15 |
 | C2 | 1191 / 1000 | 100% | 10 |
 | A1 | 871 / 1000 | 87% | 5 |
 
@@ -98,8 +98,8 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | Thành phần | Có / chuẩn | % | Trọng số |
 |---|---|---|---|
 | đáp án cân bằng vị trí (lệch ≤ 3 %) | 100 / 100 | 100% | 15 |
-| đáp án đúng không lộ qua độ dài (≤ 10 %) | 82.8 / 100 | 83% | 20 |
-| lời giải riêng từng câu (rập khuôn ≤ 2 %) | 87.9 / 100 | 88% | 15 |
+| đáp án đúng không lộ qua độ dài (≤ 10 %) | 100 / 100 | 100% | 20 |
+| lời giải riêng từng câu (rập khuôn ≤ 2 %) | 89.9 / 100 | 90% | 15 |
 | không trùng câu / đáp án nhiễu trùng | 94.7 / 100 | 95% | 15 |
 | qua giám khảo LLM (mẫu ≥ 1.500) (chưa làm) | 0 / 100 | 0% | 35 |
 
@@ -126,6 +126,6 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | Thành phần | Có / chuẩn | % | Trọng số |
 |---|---|---|---|
 | ngôn ngữ đạt i18n-qa | 13 / 13 | 100% | 45 |
-| nhãn ngắn dịch tay | 12.4 / 13 | 95% | 10 |
+| nhãn ngắn dịch tay | 12.3 / 13 | 95% | 10 |
 | gói nghĩa từ theo ngôn ngữ | 6.6 / 13 | 51% | 20 |
 | điểm bản xứ (native-score/5) (chưa làm) | 3.7 / 5 | 74% | 25 |

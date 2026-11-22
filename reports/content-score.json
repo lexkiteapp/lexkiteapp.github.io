@@ -1,5 +1,5 @@
 {
- "total": 78.1,
+ "total": 78.5,
  "areas": {
   "vocab": {
    "name": "Kho từ",
@@ -45,7 +45,7 @@
     },
     {
      "k": "ảnh theo nghĩa",
-     "have": 8212,
+     "have": 8234,
      "std": 20000,
      "w": 15,
      "future": false
@@ -412,8 +412,8 @@
   },
   "quality": {
    "name": "Chất lượng đề",
-   "score": 59,
-   "coverage": 59,
+   "score": 62.7,
+   "coverage": 62.7,
    "pass": 100,
    "errors": 0,
    "parts": [
@@ -426,14 +426,14 @@
     },
     {
      "k": "đáp án đúng không lộ qua độ dài (≤ 10 %)",
-     "have": 82.8,
+     "have": 100,
      "std": 100,
      "w": 20,
      "future": false
     },
     {
      "k": "lời giải riêng từng câu (rập khuôn ≤ 2 %)",
-     "have": 87.9,
+     "have": 89.9,
      "std": 100,
      "w": 15,
      "future": false
@@ -544,7 +544,7 @@
     },
     {
      "k": "nhãn ngắn dịch tay",
-     "have": 12.4,
+     "have": 12.3,
      "std": 13,
      "w": 10,
      "future": false

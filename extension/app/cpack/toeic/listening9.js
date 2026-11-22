@@ -326,7 +326,7 @@ script: [
 groups: [
 { type: 'mcq', instr: g.TQL[16],
 items: [
-{ n: 32, lv: "B1", q: "Why is the woman calling?", options: ["To ask for a payment", "To cancel a registration", "To give some information about a workshop", "To introduce a new trainer"], a: 2, cue: "I'm calling about the leadership workshop you signed up for next Wednesday",
+{ n: 32, lv: "B1", q: "Why is the woman calling?", options: ["To request a refund for a purchase", "To withdraw from a scheduled appointment", "To give some information about a workshop", "To schedule a meeting with a client"], a: 2, cue: "I'm calling about the leadership workshop you signed up for next Wednesday",
 explain: "Daniela nói \"I'm calling about the leadership workshop you signed up for next Wednesday\" (gọi về buổi hội thảo lãnh đạo anh đã đăng ký) → cung cấp thông tin về hội thảo. Không có việc hủy đăng ký, đòi thanh toán hay giới thiệu giảng viên mới." },
 { n: 33, lv: "B1", q: "What does the woman ask the man to do before the session?", options: ["Bring a laptop", "Pay a registration fee", "Complete an online survey", "Reserve a parking space"], a: 2, cue: "complete an online survey about their current management challenges",
 explain: "Cô nói giảng viên muốn mọi người \"complete an online survey\" (hoàn thành khảo sát trực tuyến) trước buổi học; đường dẫn nằm trong e-mail xác nhận. Cô không nhắc đến phí, máy tính hay chỗ đậu xe." },
@@ -339,7 +339,7 @@ items: [
 explain: "Người đàn ông nói đơn hàng là cho \"our company's anniversary lunch\" (bữa trưa kỷ niệm thành lập công ty). Không có dịp nào khác như ra mắt sản phẩm, tiệc nghỉ hưu hay tiệc khách hàng được nhắc đến." },
 { n: 36, lv: "B1", q: "What does the man want to change about his order?", options: ["The number of meals", "The delivery date", "The menu items", "The payment method"], a: 0, cue: "we'll need a hundred meals",
 explain: "Vì có thêm 20 nhân viên từ chi nhánh Leeds, anh nói \"we'll need a hundred meals\" (cần 100 suất ăn thay vì 80) → thay đổi số lượng suất ăn. Ngày giao, món ăn và cách thanh toán không đổi." },
-{ n: 37, lv: "B2", q: "What will the woman do?", options: ["Offer a discount", "Visit the Leeds branch", "Add a note about the desserts", "Waive a delivery fee"], a: 2, cue: "I'll add a note to the order",
+{ n: 37, lv: "B2", q: "What will the woman do?", options: ["Provide a free sample", "Call the Leeds office", "Add a note about the desserts", "Cancel the delivery charge"], a: 2, cue: "I'll add a note to the order",
 explain: "Anh nhờ đóng món tráng miệng riêng trong thùng lạnh; cô đáp \"I'll add a note to the order\" (tôi sẽ ghi chú vào đơn hàng). Phí giao hàng còn tăng khoảng 15 đô la chứ không được miễn, và cô không giảm giá hay đến Leeds." },
 ] },
 { type: 'mcq', instr: g.TQL[18],
@@ -353,7 +353,7 @@ explain: "Cô nói \"I'll prepare a revised schedule this afternoon\" (chiều n
 ] },
 { type: 'mcq', instr: g.TQL[19],
 items: [
-{ n: 41, lv: "B2", q: "What are the speakers preparing for?", options: ["A client presentation", "A product launch", "A staff training", "A job interview"], a: 0, cue: "the pitch to Brightleaf Organics is tomorrow at ten",
+{ n: 41, lv: "B2", q: "What are the speakers preparing for?", options: ["A client presentation", "A product rollout", "A team workshop", "A hiring interview"], a: 0, cue: "the pitch to Brightleaf Organics is tomorrow at ten",
 explain: "Priya nói \"the pitch to Brightleaf Organics is tomorrow at ten\" (buổi thuyết trình chào hàng cho Brightleaf Organics vào 10 giờ sáng mai) → họ chuẩn bị một bài thuyết trình cho khách hàng." },
 { n: 42, lv: "B2", q: "What problem does Jerome mention?", options: ["A client canceled a meeting.", "A deadline has been moved.", "Some ads will cost more than expected.", "Some slides are missing."], a: 2, cue: "that costs more than we estimated",
 explain: "Jerome nói quảng cáo ba ngôn ngữ \"costs more than we estimated\" (tốn hơn dự tính), khoảng 8%. Slide chiến dịch đã xong; không có chuyện dời hạn hay hủy cuộc họp." },
@@ -391,7 +391,7 @@ explain: "Vì thứ Năm chị làm việc ở nhà, chị hỏi \"Could you do 
 items: [
 { n: 53, lv: "B1", q: "What problem does the man report?", options: ["A package was damaged during delivery.", "He received the wrong product.", "He was charged twice for a shipment.", "An order failed to arrive on schedule."], a: 1, cue: "I received a different model",
 explain: "Người đàn ông nói \"I received a different model\", nghĩa là nhận sai sản phẩm (B). Các phương án khác đưa ra sai sự cố được đề cập trong bài." },
-{ n: 54, lv: "B1", q: "What does the man decide to do?", options: ["Request a full refund", "Cancel his account", "Exchange the item for the correct one", "Buy a second desk"], a: 2, cue: "I'd rather have the correct one.",
+{ n: 54, lv: "B1", q: "What does the man decide to do?", options: ["Request a full monetary refund", "Cancel his existing subscription plan", "Exchange the item for the correct one", "Purchase an additional office desk"], a: 2, cue: "I'd rather have the correct one.",
 explain: "Cô đưa hai lựa chọn: gửi bàn đúng hoặc hoàn tiền đủ. Anh đáp \"I'd rather have the correct one\" (tôi muốn nhận bàn đúng hơn) → đổi hàng, không hoàn tiền." },
 { n: 55, lv: "C1", q: "What does the woman mean when she says, \"You won't have to\"?", options: ["The man will not have to return the item himself.", "The man does not have to give an order number.", "The man does not have to wait for a delivery.", "The man does not have to call again."], a: 0, cue: "You won't have to.",
 explain: "Anh nói không muốn tháo bàn cũ rồi mang đi đâu đó; cô đáp \"You won't have to\" rồi giải thích nhân viên giao hàng sẽ tới nhà lấy miễn phí → anh không phải tự mang trả hàng. Số đơn hàng anh đã đọc và bàn mới vẫn cần chờ giao." },
@@ -429,7 +429,7 @@ items: [
 explain: "Người đàn ông báo cáo rằng hệ thống sưởi không hoạt động bình thường (\"the heating ... hasn't worked properly\"), do đó (B) là đáp án đúng." },
 { n: 66, lv: "B2", q: "What does the woman say is the cause of the problem?", options: ["A faulty control panel", "A blocked vent", "A broken boiler", "A power failure"], a: 0, cue: "The problem is the thermostat control panel",
 explain: "Cô loại trừ nồi hơi (\"it's fine\") rồi nói \"The problem is the thermostat control panel\" (vấn đề là bảng điều khiển nhiệt) cần thay bo mạch → bảng điều khiển bị lỗi." },
-{ n: 67, lv: "B2", q: "What will the woman do tomorrow?", options: ["Install a circuit board", "Inspect the boiler", "Meet some visitors", "Bring some portable heaters"], a: 3, cue: "I'll bring a few portable heaters tomorrow",
+{ n: 67, lv: "B2", q: "What will the woman do tomorrow?", options: ["Replace a broken fuse", "Check the ventilation system", "Schedule a client call", "Bring some portable heaters"], a: 3, cue: "I'll bring a few portable heaters tomorrow",
 explain: "Cô nói \"I'll bring a few portable heaters tomorrow\" (ngày mai tôi sẽ mang vài chiếc lò sưởi di động). Lắp bo mạch dự kiến vào thứ Năm, còn nồi hơi cô đã kiểm tra rồi." },
 ] },
 { type: 'mcq', instr: g.TQL[28],
@@ -608,7 +608,7 @@ explain: "Bản ghi âm nói \"To check the status of an elevator at a station, 
 items: [
 { n: 92, lv: "B2", q: "What is the speaker doing?", options: ["Announcing a fundraiser", "Introducing a new director", "Honoring a volunteer", "Reporting financial results"], a: 2, cue: "I'd like to honor someone who has given more than a thousand hours",
 explain: "Ông nói \"I'd like to honor someone who has given more than a thousand hours to our food bank\" (muốn vinh danh một người đã dành hơn nghìn giờ cho ngân hàng thực phẩm) rồi mời bà Margaret nhận giải → vinh danh một tình nguyện viên." },
-{ n: 93, lv: "B2", q: "What has Margaret Ellison done?", options: ["Donated a large sum of money", "Increased the number of volunteers", "Opened a new food bank", "Hired additional staff"], a: 1, cue: "the number of volunteers has doubled",
+{ n: 93, lv: "B2", q: "What has Margaret Ellison done?", options: ["Provided a new community garden", "Increased the number of volunteers", "Started a new food pantry", "Launched a fundraising drive"], a: 1, cue: "the number of volunteers has doubled",
 explain: "Ông nói nhờ bà mà \"the number of volunteers has doubled\" (số tình nguyện viên đã tăng gấp đôi). Bà là người điều hành chương trình tình nguyện chứ không được nhắc là quyên góp tiền hay mở ngân hàng thực phẩm mới." },
 { n: 94, lv: "B2", q: "What will happen after the applause?", options: ["An auction will begin.", "A video will be shown.", "Guests will be invited to a dessert table.", "Dinner will be served."], a: 2, cue: "visit the dessert table",
 explain: "Ông nói sau tràng pháo tay, mọi người được mời \"visit the dessert table\" (đến bàn tráng miệng) nơi các nhà tài trợ chuẩn bị bất ngờ. Không có đấu giá hay chiếu video; bữa tối đã diễn ra." },

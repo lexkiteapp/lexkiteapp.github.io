@@ -347,7 +347,7 @@ explain: 'Dev nói "I\'ll call Fulton Rentals right after this meeting" → gọ
 ] },
 { type: 'mcq', instr: g.TQL[18],
 items: [
-{ n: 38, q: g.TQL[44], options: ["A client's complaint", 'A team-building event', 'Software for managing projects', 'Hiring a new manager'], a: 2, cue: 'Our subscription to their project management software expires',
+{ n: 38, q: g.TQL[44], options: ["A supplier's issue", 'A staff training session', 'Software for managing projects', 'Recruiting a new supervisor'], a: 2, cue: 'Our subscription to their project management software expires',
 explain: 'Cả cuộc hội thoại bàn về việc gia hạn hay đổi phần mềm quản lý dự án (Brightdesk → TaskHarbor) → C. "project management software" được diễn đạt lại thành "software for managing projects".' },
 { n: 39, q: 'What concern does the man express about changing programs?', options: ['The expense of equipment', 'A shortage of office space', 'The time needed to move files', 'A delayed project start'], a: 2, cue: 'moving all of our project files to a new system could take weeks',
 explain: 'Người đàn ông lo thời gian chuyển file; không phải chi phí đào tạo, không phải thiếu không gian lưu trữ, cũng không phải hạn chót bị bỏ lỡ.' },
@@ -575,8 +575,8 @@ items: [
 explain: '"Attention, shoppers. Greenway Supermarket…" → thông báo trong siêu thị (D). "bakery section" (quầy bánh mì) chỉ là một khu trong siêu thị – bẫy cho A.' },
 { n: 72, q: 'What does the speaker say about the self-checkout lanes?', options: ['They are new.', 'They are not available tonight.', 'They accept only cards.', 'They are located near the exit.'], a: 1, cue: 'our self-checkout lanes are closed tonight for maintenance',
 explain: '"closed tonight for maintenance" (đóng tối nay để bảo trì) → không sử dụng được tối nay (B). Không có thông tin về việc quầy mới, chỉ nhận thẻ hay vị trí của quầy.' },
-{ n: 73, q: 'According to the speaker, how can some listeners save money this week?', options: ['By being members of a rewards program', 'By shopping before 7 A.M.', 'By using a coupon', 'By paying in cash'], a: 0, cue: 'members of our rewards program will receive ten percent off all bakery items',
-explain: 'Thành viên chương trình khách hàng thân thiết được giảm 10% đồ bánh tuần này → A. "7 o\'clock" là giờ bắt đầu bán bánh mì mới ra lò, không phải điều kiện giảm giá – bẫy cho B.' },
+{ n: 73, q: 'According to the speaker, how can some listeners save money this week?', options: ['By being members of a rewards program', 'By arriving at the store before opening hours', 'By presenting a discount voucher at checkout', 'By settling the purchase with a credit card'], a: 0, cue: 'members of our rewards program will receive ten percent off all bakery items',
+explain: 'Khách hàng thành viên chương trình khách hàng thân thiết sẽ được giảm 10% đồ bánh tuần này, vì vậy cách tiết kiệm là "By being members of a rewards program". Các phương án còn lại không được đề cập trong đoạn quảng cáo.' },
 ] },
 { type: 'mcq', instr: g.TQL[30],
 items: [
@@ -620,8 +620,8 @@ items: [
 explain: 'Quảng cáo cho "Saffron Street Cooking School" – trường dạy nấu ăn với các khóa học buổi tối. Nhà hàng chỉ là nơi các đầu bếp giảng dạy đang làm việc.' },
 { n: 87, q: 'What does the speaker say about the classes?', options: ['They are small.', 'They take place on weekends.', 'They are taught online.', 'They last one day.'], a: 0, cue: 'each class has no more than ten students',
 explain: 'Mỗi lớp không quá 10 học viên → lớp nhỏ, được quan tâm cá nhân. Lớp học vào buổi tối ("evening classes"), kéo dài 6 tuần, không phải cuối tuần hay một ngày.' },
-{ n: 88, q: 'How can listeners receive a free gift?', options: ['By buying a gift certificate', 'By registering by a certain date', 'By bringing a friend', 'By visiting a website'], a: 1, cue: 'if you sign up before the end of March',
-explain: 'Đăng ký trước cuối tháng Ba sẽ được tặng dao đầu bếp trị giá 50 đô-la → đăng ký trước một thời hạn. Website chỉ để xem lịch học.' },
+{ n: 88, q: 'How can listeners receive a free gift?', options: ['By calling the hotline now', 'By registering by a certain date', 'By sending a text message', 'By completing an online survey'], a: 1, cue: 'if you sign up before the end of March',
+explain: 'Người nghe được thông báo sẽ nhận được dao đầu bếp trị giá 50 USD khi đăng ký trước cuối tháng Ba, vì vậy cách nhận quà là đăng ký trong thời hạn quy định. Các phương án khác như mua chứng chỉ quà tặng, mang bạn đi hoặc truy cập website không liên quan đến việc nhận quà.' },
 ] },
 { type: 'mcq', instr: g.TQL[35],
 items: [
@@ -656,8 +656,8 @@ items: [
 explain: 'Trong cuộc gọi, người nói nhắc rằng hộ chiếu của khách sẽ hết hạn vào tháng Bảy và cần được giải quyết, vì vậy mục A “To report a problem with a passport” là đáp án đúng. Các lựa chọn B, C, D đề cập đến việc nâng hạng ghế, phí hành lý hoặc bảo hiểm du lịch – những nội dung không được đề cập trong lời nói.' },
 { n: 99, q: 'What does the speaker recommend?', options: ['Booking a different route', 'Buying travel insurance', 'Renewing a document', 'Leaving earlier in May'], a: 2, cue: "I'd strongly recommend renewing it before you travel.",
 explain: 'Cô khuyên gia hạn (làm mới) hộ chiếu trước chuyến đi, có thể dùng dịch vụ làm nhanh khoảng hai tuần → gia hạn một giấy tờ.' },
-{ n: 100, q: 'What does the speaker say about the hotel in Porto?', options: ['It is fully booked.', 'It has given the listener a better room.', 'It requires a deposit.', 'It has changed its address.'], a: 1, cue: 'the hotel in Porto has upgraded you to a room with a river view, at no extra cost',
-explain: 'Khách sạn ở Porto nâng hạng miễn phí lên phòng nhìn ra sông → khách được phòng tốt hơn.' },
+{ n: 100, q: 'What does the speaker say about the hotel in Porto?', options: ['It is currently at full occupancy.', 'It has given the listener a better room.', 'It now requires a security deposit from guests.', 'It has relocated to a different downtown venue.'], a: 1, cue: 'the hotel in Porto has upgraded you to a room with a river view, at no extra cost',
+explain: 'Người nói nói rằng khách sạn đã nâng cấp phòng cho người nghe lên phòng có view sông, vì vậy đáp án đúng là "It has given the listener a better room". Các lựa chọn khác mô tả tình trạng đặt phòng, yêu cầu đặt cọc hoặc địa chỉ mới, không đúng với nội dung.' },
 ] },
 ],
 vocab: [

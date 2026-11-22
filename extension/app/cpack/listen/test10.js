@@ -167,7 +167,7 @@ groups: [
 { type: 'mcq', instr: g.LTI[0],
 items: [
 { n: 21, q: 'What was the most common reason first-year students gave for wanting a mentor?', options: ['to improve their academic writing', 'to have someone to talk to', 'to get help with accommodation'], a: 1, cue: 'they felt lonely and wanted someone to talk to', explain: 'Priya tưởng là kỹ năng viết học thuật, nhưng rất ít người nhắc đến; lý do chính là cô đơn.' },
-{ n: 22, q: 'How often did most pairs meet?', options: ['once a week', 'every two weeks', 'once a term'], a: 1, cue: 'Most met every two weeks', explain: 'Mỗi tuần một lần là khuyến nghị của trường; chỉ vài cặp gặp mỗi học kỳ một lần.' },
+{ n: 22, q: 'How often did most pairs meet?', options: ['twice a month', 'every two weeks', 'once a semester'], a: 1, cue: 'Most met every two weeks', explain: 'Trong đoạn, hầu hết các cặp sinh viên gặp nhau mỗi hai tuần, vì vậy đáp án B là đúng. Các lựa chọn A và C mô tả tần suất khác không được nhắc tới trong bài.' },
 { n: 23, q: 'What was the main problem reported by mentors?', options: ['finding a suitable time to meet', 'providing adequate training for mentors', 'students failing to attend meetings'], a: 0, cue: "they couldn't find a time that suited both people", explain: 'Đáp án A đúng vì các mentor phàn nàn không tìm được thời gian phù hợp để gặp nhau. Đáp án B sai vì không có đề cập đến việc thiếu đào tạo; vấn đề đào tạo chỉ là một ý phụ trong đoạn.' },
 { n: 24, q: 'How will the students present the satisfaction data?', options: ['in a pie chart', 'in a table', 'in a bar chart'], a: 2, cue: 'I think a bar chart would show the difference best', explain: 'Biểu đồ tròn khó so sánh; biểu đồ cột thể hiện rõ khác biệt đầu năm và cuối năm.' },
 ] },
