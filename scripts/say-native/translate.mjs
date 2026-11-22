@@ -62,7 +62,7 @@ if (!kept && empty) process.exit(1);   // a run that produced nothing is red (ME
 
 async function runLines() {   // after the meanings (every L1 row needs its meaning first; lines retry rejects each run)
   if (!(NL > 0)) return;
-  const AU = JSON.parse(fs.readFileSync(ROOT + 'content/video/teach2d/auto.json', 'utf8')).rows.filter(r => r.template === 'slang').map(r => r.in.key.toLowerCase());
+  const AU = JSON.parse(fs.readFileSync(ROOT + 'content/video/teach2d/auto.json', 'utf8')).rows.filter(r => r.template === 'slang' && !r.lang).map(r => r.in.key.toLowerCase());   // English batch order (L1 rows repeat the keys)
   const byK = Object.fromEntries(SL.map(it => [it.key.toLowerCase(), it])), keep = `Translate the whole line naturally for a learner; keep the English slang "%s" exactly as it is, in quotes if needed`;
   const lines = AU.slice(0, NL).filter(k => byK[k]).flatMap(k => { const it = byK[k], d = keep.replace('%s', it.key);
     return [{ k: `${k}|hook`, w: it.hook, pos: 'sentence', def: `${d}. It is a short situation line before learning "${it.key}" (${it.mean})`, ex: it.example.ctx },
