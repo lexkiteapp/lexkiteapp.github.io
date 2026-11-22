@@ -27646,6 +27646,1582 @@
    "in": {
     "key": "yeet"
    }
+  },
+  {
+   "id": "t2s_vi_nocap",
+   "template": "slang",
+   "lang": "vi",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 1,
+   "area": "phrases",
+   "point": "slang:vi:no cap",
+   "hash": "2b8b60ba1970",
+   "heads": [
+    "slang:vi:no cap"
+   ],
+   "taught": [
+    "no cap"
+   ],
+   "facts": {
+    "key": "no cap",
+    "ipa": "/ˌnoʊ ˈkæp/",
+    "mean": "I'm not lying.",
+    "def": "Used to say that you are being completely honest.",
+    "hook": "Best pizza in town. Believe me?",
+    "example": {
+     "ctx": "Texting a friend about lunch",
+     "text": "This pizza is the best in town, no cap."
+    },
+    "quiz": {
+     "ask": "\"No cap\" means…",
+     "options": [
+      "I lost my hat",
+      "I'm telling the truth"
+     ],
+     "answer": 1
+    },
+    "misuse": {
+     "text": "Don't say 'no cap' about a baseball hat.",
+     "why": "It means 'no lie' in slang."
+    },
+    "expr": "smug",
+    "reg": "very-casual",
+    "region": "US",
+    "l1": {
+     "m": "Nói thật, không xạo",
+     "hook": "Pizza ngon nhất phố. Tin tui không?",
+     "ex": "Pizza này ngon nhất phố luôn, no cap."
+    }
+   },
+   "in": {
+    "key": "no cap",
+    "lang": "vi"
+   }
+  },
+  {
+   "id": "t2s_vi_salty",
+   "template": "slang",
+   "lang": "vi",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 2,
+   "area": "phrases",
+   "point": "slang:vi:salty",
+   "hash": "71a168ec4278",
+   "heads": [
+    "slang:vi:salty"
+   ],
+   "taught": [
+    "salty"
+   ],
+   "facts": {
+    "key": "salty",
+    "ipa": "/ˈsɔːlti/",
+    "mean": "Annoyed and a bit bitter.",
+    "def": "Used when someone is upset or bitter, often after losing.",
+    "hook": "He lost, then sulked!",
+    "example": {
+     "ctx": "After a game with friends",
+     "text": "He's salty because I won the card game."
+    },
+    "quiz": {
+     "ask": "If you're \"salty\", you feel…",
+     "options": [
+      "annoyed",
+      "very hungry"
+     ],
+     "answer": 0
+    },
+    "misuse": {
+     "text": "Don't call your teacher 'salty' for giving homework.",
+     "why": "It sounds disrespectful."
+    },
+    "expr": "furious",
+    "reg": "very-casual",
+    "region": "US",
+    "l1": {
+     "m": "Cay cú, dỗi",
+     "hook": "Ổng thua rồi hờn dỗi!",
+     "ex": "Ổng salty vì tui thắng ván bài."
+    }
+   },
+   "in": {
+    "key": "salty",
+    "lang": "vi"
+   }
+  },
+  {
+   "id": "t2s_vi_imdead",
+   "template": "slang",
+   "lang": "vi",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 3,
+   "area": "phrases",
+   "point": "slang:vi:i'm dead",
+   "hash": "c999fe1a5096",
+   "heads": [
+    "slang:vi:i'm dead"
+   ],
+   "taught": [
+    "I'm dead",
+    "dead"
+   ],
+   "facts": {
+    "key": "I'm dead",
+    "ipa": "/aɪm ˈded/",
+    "mean": "That is so funny!",
+    "def": "Used when something is so funny that you can't stop laughing.",
+    "hook": "The cat jumped in the box!",
+    "example": {
+     "ctx": "Watching a funny video",
+     "text": "The cat jumped in the box. I'm dead!"
+    },
+    "quiz": {
+     "ask": "\"I'm dead\" here means…",
+     "options": [
+      "that's hilarious",
+      "I'm very hungry"
+     ],
+     "answer": 0
+    },
+    "misuse": {
+     "text": "Don't say 'I'm dead' about a sad story.",
+     "why": "It means laughing hard."
+    },
+    "expr": "laugh",
+    "reg": "very-casual",
+    "region": "US",
+    "l1": {
+     "m": "Cười chết mất",
+     "hook": "Con mèo nhảy vô cái hộp!",
+     "ex": "Con mèo nhảy vô cái hộp. I'm dead!"
+    }
+   },
+   "in": {
+    "key": "I'm dead",
+    "lang": "vi"
+   }
+  },
+  {
+   "id": "t2s_vi_pigout",
+   "template": "slang",
+   "lang": "vi",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 4,
+   "area": "phrases",
+   "point": "slang:vi:pig out",
+   "hash": "3c181547280a",
+   "heads": [
+    "slang:vi:pig out"
+   ],
+   "taught": [
+    "pig out",
+    "pigged out"
+   ],
+   "facts": {
+    "key": "pig out",
+    "ipa": "/ˈpɪɡ ˈaʊt/",
+    "mean": "Eat way too much.",
+    "def": "To eat a very large amount of food happily.",
+    "hook": "The whole pizza is gone!",
+    "example": {
+     "ctx": "After a party",
+     "text": "We pigged out on pizza last night."
+    },
+    "quiz": {
+     "ask": "To \"pig out\" is to…",
+     "options": [
+      "eat too much",
+      "go to a farm"
+     ],
+     "answer": 0
+    },
+    "misuse": {
+     "text": "Don't tell your host she made you 'pig out'.",
+     "why": "It sounds like an insult."
+    },
+    "expr": "laugh",
+    "reg": "casual",
+    "region": "US",
+    "l1": {
+     "m": "Ăn quên trời đất",
+     "hook": "Cả cái pizza biến mất rồi!",
+     "ex": "Tối qua tụi tui pigged out pizza luôn."
+    }
+   },
+   "in": {
+    "key": "pig out",
+    "lang": "vi"
+   }
+  },
+  {
+   "id": "t2s_vi_bet",
+   "template": "slang",
+   "lang": "vi",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 5,
+   "area": "phrases",
+   "point": "slang:vi:bet",
+   "hash": "0f74b3af398a",
+   "heads": [
+    "slang:vi:bet"
+   ],
+   "taught": [
+    "bet"
+   ],
+   "facts": {
+    "key": "bet",
+    "ipa": "/ˈbet/",
+    "mean": "Okay, sounds good.",
+    "def": "Used to agree to a plan or to say okay.",
+    "hook": "Pizza at six, deal?",
+    "example": {
+     "ctx": "Texting about weekend plans",
+     "text": "Pizza at six? Bet."
+    },
+    "quiz": {
+     "ask": "\"Bet\" in a text means…",
+     "options": [
+      "okay, deal",
+      "I don't believe you"
+     ],
+     "answer": 0
+    },
+    "misuse": {
+     "text": "Don't reply 'bet' to your principal's email.",
+     "why": "It sounds too casual for formal messages."
+    },
+    "expr": "smug",
+    "reg": "very-casual",
+    "region": "US",
+    "l1": {
+     "m": "Chốt luôn, ok nha",
+     "hook": "Pizza lúc sáu giờ, chốt không?",
+     "ex": "Pizza sáu giờ nha? Bet."
+    }
+   },
+   "in": {
+    "key": "bet",
+    "lang": "vi"
+   }
+  },
+  {
+   "id": "t2s_vi_basic",
+   "template": "slang",
+   "lang": "vi",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 6,
+   "area": "phrases",
+   "point": "slang:vi:basic",
+   "hash": "3be8a6e4fd55",
+   "heads": [
+    "slang:vi:basic"
+   ],
+   "taught": [
+    "basic"
+   ],
+   "facts": {
+    "key": "basic",
+    "ipa": "/ˈbeɪsɪk/",
+    "mean": "Too ordinary, like everyone else.",
+    "def": "Describes things that are very ordinary and popular. It can sound a bit mean.",
+    "hook": "Pizza and a movie again?",
+    "example": {
+     "ctx": "Planning a weekend with friends",
+     "text": "My weekend plan is basic: pizza and a movie."
+    },
+    "quiz": {
+     "ask": "\"Basic\" in slang means…",
+     "options": [
+      "easy to learn",
+      "too ordinary"
+     ],
+     "answer": 1
+    },
+    "misuse": {
+     "text": "Don't call your friend's gift 'basic' to her.",
+     "why": "It sounds like an insult."
+    },
+    "expr": "deadpan",
+    "reg": "very-casual",
+    "region": "US",
+    "l1": {
+     "m": "Quá bình thường, đại trà",
+     "hook": "Lại pizza với phim nữa hả?",
+     "ex": "Kế hoạch cuối tuần của tui basic lắm: pizza với phim."
+    }
+   },
+   "in": {
+    "key": "basic",
+    "lang": "vi"
+   }
+  },
+  {
+   "id": "t2s_vi_beef",
+   "template": "slang",
+   "lang": "vi",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 7,
+   "area": "phrases",
+   "point": "slang:vi:beef",
+   "hash": "3aebea7ca31d",
+   "heads": [
+    "slang:vi:beef"
+   ],
+   "taught": [
+    "beef",
+    "beef with"
+   ],
+   "facts": {
+    "key": "beef",
+    "ipa": "/ˈbiːf/",
+    "mean": "An ongoing argument with someone.",
+    "def": "A long-lasting disagreement between people.",
+    "hook": "Those two stopped talking. Why?",
+    "example": {
+     "ctx": "Talking about friends",
+     "text": "They have beef over a game."
+    },
+    "quiz": {
+     "ask": "\"Beef\" here means…",
+     "options": [
+      "an argument",
+      "dinner"
+     ],
+     "answer": 0
+    },
+    "misuse": {
+     "text": "Don't say 'we have beef' about a small mix-up.",
+     "why": "It sounds like a serious feud."
+    },
+    "expr": "furious",
+    "reg": "casual",
+    "region": "US",
+    "l1": {
+     "m": "Mâu thuẫn, bất hòa",
+     "hook": "Hai đứa đó hết nói chuyện. Sao vậy?",
+     "ex": "Hai đứa có beef vì một cái game."
+    }
+   },
+   "in": {
+    "key": "beef",
+    "lang": "vi"
+   }
+  },
+  {
+   "id": "t2s_vi_aesthetic",
+   "template": "slang",
+   "lang": "vi",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 8,
+   "area": "phrases",
+   "point": "slang:vi:aesthetic",
+   "hash": "d8be1ba0ae9e",
+   "heads": [
+    "slang:vi:aesthetic"
+   ],
+   "taught": [
+    "aesthetic"
+   ],
+   "facts": {
+    "key": "aesthetic",
+    "ipa": "/ɪsˈθetɪk/",
+    "mean": "Beautiful in a stylish way.",
+    "def": "Used for things with a beautiful, matching look.",
+    "hook": "Your room looks like Pinterest!",
+    "example": {
+     "ctx": "Looking at a room",
+     "text": "Your desk looks so aesthetic."
+    },
+    "quiz": {
+     "ask": "\"Aesthetic\" here means…",
+     "options": [
+      "noisy",
+      "stylish and pretty"
+     ],
+     "answer": 1
+    },
+    "misuse": {
+     "text": "Don't call your messy room 'aesthetic' to Mom.",
+     "why": "It only fits stylish, pretty things."
+    },
+    "expr": "love",
+    "reg": "casual",
+    "region": "global",
+    "l1": {
+     "m": "Đẹp có gu",
+     "hook": "Phòng bạn nhìn như Pinterest vậy!",
+     "ex": "Bàn làm việc của bạn aesthetic quá trời."
+    }
+   },
+   "in": {
+    "key": "aesthetic",
+    "lang": "vi"
+   }
+  },
+  {
+   "id": "t2s_vi_blowafuse",
+   "template": "slang",
+   "lang": "vi",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 9,
+   "area": "phrases",
+   "point": "slang:vi:blow a fuse",
+   "hash": "89803bb9a92f",
+   "heads": [
+    "slang:vi:blow a fuse"
+   ],
+   "taught": [
+    "blow a fuse",
+    "blew a fuse"
+   ],
+   "facts": {
+    "key": "blow a fuse",
+    "ipa": "/ˈbloʊ ə ˈfjuːz/",
+    "mean": "Suddenly become very angry.",
+    "def": "To lose your temper quickly.",
+    "hook": "Dad saw the messy room!",
+    "example": {
+     "ctx": "Telling a story",
+     "text": "He blew a fuse over the messy room."
+    },
+    "quiz": {
+     "ask": "It means to…",
+     "options": [
+      "get angry",
+      "fix electricity"
+     ],
+     "answer": 0
+    },
+    "misuse": {
+     "text": "Don't say 'blow a fuse' about mild annoyance.",
+     "why": "It means sudden, big anger."
+    },
+    "expr": "furious",
+    "reg": "casual",
+    "region": "global",
+    "l1": {
+     "m": "Nổi nóng bất chợt",
+     "hook": "Ba thấy phòng bừa bộn rồi!",
+     "ex": "Ổng blew a fuse vì phòng bừa bộn."
+    }
+   },
+   "in": {
+    "key": "blow a fuse",
+    "lang": "vi"
+   }
+  },
+  {
+   "id": "t2s_vi_bussin",
+   "template": "slang",
+   "lang": "vi",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 10,
+   "area": "phrases",
+   "point": "slang:vi:bussin",
+   "hash": "4fa6aa79e336",
+   "heads": [
+    "slang:vi:bussin"
+   ],
+   "taught": [
+    "bussin"
+   ],
+   "facts": {
+    "key": "bussin",
+    "ipa": "/ˈbʌsɪn/",
+    "mean": "That food is really delicious.",
+    "def": "Slang for food that tastes amazing.",
+    "hook": "Mom's pasta tastes unreal tonight!",
+    "example": {
+     "ctx": "At a family dinner",
+     "text": "Mom's pasta is bussin tonight."
+    },
+    "quiz": {
+     "ask": "\"Bussin\" describes…",
+     "options": [
+      "delicious food",
+      "a bus stop"
+     ],
+     "answer": 0
+    },
+    "misuse": {
+     "text": "Don't say 'bussin' about a cold, bland sandwich.",
+     "why": "It means really delicious food."
+    },
+    "expr": "love",
+    "reg": "very-casual",
+    "region": "US",
+    "l1": {
+     "m": "Ngon đỉnh",
+     "hook": "Mì Ý của mẹ tối nay ngon dữ!",
+     "ex": "Mì Ý của mẹ tối nay bussin luôn."
+    }
+   },
+   "in": {
+    "key": "bussin",
+    "lang": "vi"
+   }
+  },
+  {
+   "id": "t2s_vi_anytime",
+   "template": "slang",
+   "lang": "vi",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 11,
+   "area": "phrases",
+   "point": "slang:vi:anytime",
+   "hash": "12b69b59e8c4",
+   "heads": [
+    "slang:vi:anytime"
+   ],
+   "taught": [
+    "anytime"
+   ],
+   "facts": {
+    "key": "anytime",
+    "ipa": "/ˈeniˌtaɪm/",
+    "mean": "You're welcome, ask again.",
+    "def": "A friendly reply to thanks.",
+    "hook": "Thanks so much for the ride!",
+    "example": {
+     "ctx": "After helping",
+     "text": "Thanks for the ride! Anytime."
+    },
+    "quiz": {
+     "ask": "\"Anytime\" means…",
+     "options": [
+      "you're welcome",
+      "never"
+     ],
+     "answer": 0
+    },
+    "misuse": {
+     "text": "Don't say 'anytime' if you hate helping.",
+     "why": "People will ask you again."
+    },
+    "expr": "love",
+    "reg": "casual",
+    "region": "US",
+    "l1": {
+     "m": "Cứ tự nhiên",
+     "hook": "Cảm ơn đã chở tui nha!",
+     "ex": "Cảm ơn đã chở nha! Anytime."
+    }
+   },
+   "in": {
+    "key": "anytime",
+    "lang": "vi"
+   }
+  },
+  {
+   "id": "t2s_vi_afk",
+   "template": "slang",
+   "lang": "vi",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 12,
+   "area": "phrases",
+   "point": "slang:vi:afk",
+   "hash": "c7b95d9cbf3c",
+   "heads": [
+    "slang:vi:afk"
+   ],
+   "taught": [
+    "AFK",
+    "afk"
+   ],
+   "facts": {
+    "key": "AFK",
+    "ipa": "/ˌeɪ ef ˈkeɪ/",
+    "mean": "Away from keyboard.",
+    "def": "Used when you leave your game or chat for a short while.",
+    "hook": "Five minutes, then I'm back!",
+    "example": {
+     "ctx": "Playing online",
+     "text": "Brb, I'll be AFK for five minutes."
+    },
+    "quiz": {
+     "ask": "AFK means…",
+     "options": [
+      "always fun king",
+      "away from keyboard"
+     ],
+     "answer": 1
+    },
+    "misuse": {
+     "text": "Don't say 'AFK' in a formal email.",
+     "why": "It's gamer shorthand."
+    },
+    "expr": "shrug",
+    "reg": "casual",
+    "region": "global",
+    "l1": {
+     "m": "Đi chút quay lại ngay",
+     "hook": "Năm phút nữa tui quay lại!",
+     "ex": "Brb, tui sẽ AFK năm phút."
+    }
+   },
+   "in": {
+    "key": "AFK",
+    "lang": "vi"
+   }
+  },
+  {
+   "id": "t2s_vi_beatsme",
+   "template": "slang",
+   "lang": "vi",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 13,
+   "area": "phrases",
+   "point": "slang:vi:beats me",
+   "hash": "763c91ff454a",
+   "heads": [
+    "slang:vi:beats me"
+   ],
+   "taught": [
+    "beats me"
+   ],
+   "facts": {
+    "key": "beats me",
+    "ipa": "/ˈbiːts ˈmiː/",
+    "mean": "I have no idea.",
+    "def": "Used when you don't know the answer.",
+    "hook": "Where did the key go?",
+    "example": {
+     "ctx": "Looking for something",
+     "text": "Where's the key? Beats me."
+    },
+    "quiz": {
+     "ask": "It means…",
+     "options": [
+      "I hit it",
+      "I don't know"
+     ],
+     "answer": 1
+    },
+    "misuse": {
+     "text": "Don't say 'beats me' to a client's question.",
+     "why": "It sounds careless and unprofessional."
+    },
+    "expr": "shrug",
+    "reg": "casual",
+    "region": "US",
+    "l1": {
+     "m": "Chịu, không biết",
+     "hook": "Chìa khóa đâu rồi?",
+     "ex": "Chìa khóa đâu? Beats me."
+    }
+   },
+   "in": {
+    "key": "beats me",
+    "lang": "vi"
+   }
+  },
+  {
+   "id": "t2s_vi_backtosquareone",
+   "template": "slang",
+   "lang": "vi",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 14,
+   "area": "phrases",
+   "point": "slang:vi:back to square one",
+   "hash": "f4239acfb13d",
+   "heads": [
+    "slang:vi:back to square one"
+   ],
+   "taught": [
+    "back to square one",
+    "square one"
+   ],
+   "facts": {
+    "key": "back to square one",
+    "ipa": "/ˈbæk tə ˈskwer ˈwʌn/",
+    "mean": "Start over.",
+    "def": "Used when your progress is lost and you must restart.",
+    "hook": "Plan failed. Now what?",
+    "example": {
+     "ctx": "Fixing a school project",
+     "text": "Plan failed. Back to square one."
+    },
+    "quiz": {
+     "ask": "It means to…",
+     "options": [
+      "start over",
+      "go forward"
+     ],
+     "answer": 0
+    },
+    "misuse": {
+     "text": "Don't say 'back to square one' after small progress.",
+     "why": "It means you lost all progress."
+    },
+    "expr": "sad",
+    "reg": "casual",
+    "region": "global",
+    "l1": {
+     "m": "Về vạch xuất phát",
+     "hook": "Kế hoạch toang rồi. Giờ sao?",
+     "ex": "Kế hoạch toang rồi. Back to square one."
+    }
+   },
+   "in": {
+    "key": "back to square one",
+    "lang": "vi"
+   }
+  },
+  {
+   "id": "t2s_vi_armandaleg",
+   "template": "slang",
+   "lang": "vi",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 15,
+   "area": "phrases",
+   "point": "slang:vi:arm and a leg",
+   "hash": "7a2c3dc86da7",
+   "heads": [
+    "slang:vi:arm and a leg"
+   ],
+   "taught": [
+    "arm and a leg",
+    "an arm and a leg"
+   ],
+   "facts": {
+    "key": "arm and a leg",
+    "ipa": "/ən ˈɑːrm ən ə ˈleɡ/",
+    "mean": "Extremely expensive.",
+    "def": "Used when something costs a huge amount of money.",
+    "hook": "Look at this coat's price!",
+    "example": {
+     "ctx": "Looking at store prices",
+     "text": "This coat costs an arm and a leg."
+    },
+    "quiz": {
+     "ask": "It means something is…",
+     "options": [
+      "very cheap",
+      "very expensive"
+     ],
+     "answer": 1
+    },
+    "misuse": {
+     "text": "Don't take 'an arm and a leg' literally at the store.",
+     "why": "It just means very expensive."
+    },
+    "expr": "shock",
+    "reg": "casual",
+    "region": "global",
+    "l1": {
+     "m": "Đắt cắt cổ",
+     "hook": "Nhìn giá cái áo khoác này đi!",
+     "ex": "Cái áo khoác này giá an arm and a leg luôn."
+    }
+   },
+   "in": {
+    "key": "arm and a leg",
+    "lang": "vi"
+   }
+  },
+  {
+   "id": "t2s_vi_bytheway",
+   "template": "slang",
+   "lang": "vi",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 16,
+   "area": "phrases",
+   "point": "slang:vi:by the way",
+   "hash": "507fce9b38c2",
+   "heads": [
+    "slang:vi:by the way"
+   ],
+   "taught": [
+    "by the way",
+    "BTW"
+   ],
+   "facts": {
+    "key": "by the way",
+    "ipa": "/baɪ ðə ˈweɪ/",
+    "mean": "Also, one more thing.",
+    "def": "Used to add a new, related thought in a talk.",
+    "hook": "Oh, one more thing!",
+    "example": {
+     "ctx": "Texting a friend",
+     "text": "By the way, the party starts at seven."
+    },
+    "quiz": {
+     "ask": "\"By the way\" adds…",
+     "options": [
+      "another thought",
+      "a road name"
+     ],
+     "answer": 0
+    },
+    "misuse": {
+     "text": "Don't use 'by the way' for your main point.",
+     "why": "It signals a minor, extra comment."
+    },
+    "expr": "shrug",
+    "reg": "casual",
+    "region": "global",
+    "l1": {
+     "m": "Nhân tiện",
+     "hook": "À, còn một chuyện nữa!",
+     "ex": "By the way, tiệc bắt đầu lúc bảy giờ nha."
+    }
+   },
+   "in": {
+    "key": "by the way",
+    "lang": "vi"
+   }
+  },
+  {
+   "id": "t2s_vi_awesome",
+   "template": "slang",
+   "lang": "vi",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 17,
+   "area": "phrases",
+   "point": "slang:vi:awesome",
+   "hash": "634bd1595199",
+   "heads": [
+    "slang:vi:awesome"
+   ],
+   "taught": [
+    "awesome"
+   ],
+   "facts": {
+    "key": "awesome",
+    "ipa": "/ˈɔːsəm/",
+    "mean": "Really great.",
+    "def": "Used to say that something is excellent or very enjoyable.",
+    "hook": "You got us free tickets?",
+    "example": {
+     "ctx": "Hearing good news",
+     "text": "You got us free tickets? That's awesome!"
+    },
+    "quiz": {
+     "ask": "\"Awesome\" means…",
+     "options": [
+      "a little boring",
+      "really great"
+     ],
+     "answer": 1
+    },
+    "misuse": {
+     "text": "Don't say 'awesome' about sad news.",
+     "why": "It sounds sarcastic or cruel."
+    },
+    "expr": "hype",
+    "reg": "casual",
+    "region": "US",
+    "l1": {
+     "m": "Tuyệt vời, đỉnh",
+     "hook": "Bạn lấy được vé free cho tụi mình hả?",
+     "ex": "Bạn lấy vé free cho tụi mình hả? Awesome luôn!"
+    }
+   },
+   "in": {
+    "key": "awesome",
+    "lang": "vi"
+   }
+  },
+  {
+   "id": "t2s_vi_bigmood",
+   "template": "slang",
+   "lang": "vi",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 18,
+   "area": "phrases",
+   "point": "slang:vi:big mood",
+   "hash": "5b9fd26882ba",
+   "heads": [
+    "slang:vi:big mood"
+   ],
+   "taught": [
+    "big mood"
+   ],
+   "facts": {
+    "key": "big mood",
+    "ipa": "/ˈbɪɡ ˈmuːd/",
+    "mean": "That's exactly how I feel.",
+    "def": "Used when something matches your feeling perfectly.",
+    "hook": "Sleepy cat. Exactly my feelings!",
+    "example": {
+     "ctx": "Seeing a funny meme",
+     "text": "That sleepy cat is a big mood."
+    },
+    "quiz": {
+     "ask": "\"Big mood\" means…",
+     "options": [
+      "a large room",
+      "I relate"
+     ],
+     "answer": 1
+    },
+    "misuse": {
+     "text": "Don't say 'big mood' about someone's real tragedy.",
+     "why": "It sounds careless and dismissive."
+    },
+    "expr": "laugh",
+    "reg": "very-casual",
+    "region": "US",
+    "l1": {
+     "m": "Đúng tâm trạng luôn",
+     "hook": "Mèo ngủ gật. Y chang tâm trạng tui!",
+     "ex": "Con mèo buồn ngủ đó là big mood."
+    }
+   },
+   "in": {
+    "key": "big mood",
+    "lang": "vi"
+   }
+  },
+  {
+   "id": "t2s_vi_ace",
+   "template": "slang",
+   "lang": "vi",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 19,
+   "area": "phrases",
+   "point": "slang:vi:ace",
+   "hash": "46de91ca7825",
+   "heads": [
+    "slang:vi:ace"
+   ],
+   "taught": [
+    "ace"
+   ],
+   "facts": {
+    "key": "ace",
+    "ipa": "/ˈeɪs/",
+    "mean": "Do really well on a test.",
+    "def": "To get a top result on a test or task.",
+    "hook": "Test day. How did you do?",
+    "example": {
+     "ctx": "Getting a test back",
+     "text": "I aced my history test today!"
+    },
+    "quiz": {
+     "ask": "To \"ace\" a test is to…",
+     "options": [
+      "do great",
+      "miss it"
+     ],
+     "answer": 0
+    },
+    "misuse": {
+     "text": "Don't say you 'aced' a test you failed.",
+     "why": "It means doing very well."
+    },
+    "expr": "proud",
+    "reg": "casual",
+    "region": "US",
+    "l1": {
+     "m": "Đạt điểm tuyệt đối",
+     "hook": "Ngày thi. Bạn làm bài sao rồi?",
+     "ex": "Hôm nay tui ace bài thi lịch sử!"
+    }
+   },
+   "in": {
+    "key": "ace",
+    "lang": "vi"
+   }
+  },
+  {
+   "id": "t2s_vi_bingewatch",
+   "template": "slang",
+   "lang": "vi",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 20,
+   "area": "phrases",
+   "point": "slang:vi:binge-watch",
+   "hash": "379cf2f4f077",
+   "heads": [
+    "slang:vi:binge-watch"
+   ],
+   "taught": [
+    "binge-watch",
+    "binge watch",
+    "binge-watching",
+    "binge-watched"
+   ],
+   "facts": {
+    "key": "binge-watch",
+    "ipa": "/ˈbɪndʒ ˌwɑːtʃ/",
+    "mean": "Watch many episodes.",
+    "def": "To watch several episodes of a show one after another.",
+    "hook": "Rainy weekend. Whole season. Go!",
+    "example": {
+     "ctx": "Planning a rainy weekend",
+     "text": "I'll binge-watch this show all weekend."
+    },
+    "quiz": {
+     "ask": "To \"binge-watch\" is to…",
+     "options": [
+      "watch many episodes",
+      "watch in the rain"
+     ],
+     "answer": 0
+    },
+    "misuse": {
+     "text": "Don't 'binge-watch' the night before exams.",
+     "why": "It steals study time."
+    },
+    "expr": "love",
+    "reg": "casual",
+    "region": "global",
+    "l1": {
+     "m": "Cày phim liền tù tì",
+     "hook": "Cuối tuần mưa. Cày hết mùa phim. Đi!",
+     "ex": "Cuối tuần này tui sẽ binge-watch show này."
+    }
+   },
+   "in": {
+    "key": "binge-watch",
+    "lang": "vi"
+   }
+  },
+  {
+   "id": "t2s_vi_burnedout",
+   "template": "slang",
+   "lang": "vi",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 21,
+   "area": "phrases",
+   "point": "slang:vi:burned out",
+   "hash": "8fb61ee1d637",
+   "heads": [
+    "slang:vi:burned out"
+   ],
+   "taught": [
+    "burned out",
+    "burnout"
+   ],
+   "facts": {
+    "key": "burned out",
+    "ipa": "/ˈbɝːnd ˈaʊt/",
+    "mean": "Too tired from too much work.",
+    "def": "Used when you are worn out after working or studying too long.",
+    "hook": "Too much work. I'm done!",
+    "example": {
+     "ctx": "Talking about work stress",
+     "text": "After exams, I felt totally burned out."
+    },
+    "quiz": {
+     "ask": "\"Burned out\" means…",
+     "options": [
+      "worn out by work",
+      "burned by fire"
+     ],
+     "answer": 0
+    },
+    "misuse": {
+     "text": "Don't say 'burned out' after one busy day.",
+     "why": "It means long-term exhaustion."
+    },
+    "expr": "sad",
+    "reg": "casual",
+    "region": "global",
+    "l1": {
+     "m": "Cháy sạch năng lượng",
+     "hook": "Việc nhiều quá. Tui xong rồi!",
+     "ex": "Sau kỳ thi, tui thấy burned out hoàn toàn."
+    }
+   },
+   "in": {
+    "key": "burned out",
+    "lang": "vi"
+   }
+  },
+  {
+   "id": "t2s_vi_backonmyfeet",
+   "template": "slang",
+   "lang": "vi",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 22,
+   "area": "phrases",
+   "point": "slang:vi:back on my feet",
+   "hash": "94e033caa120",
+   "heads": [
+    "slang:vi:back on my feet"
+   ],
+   "taught": [
+    "back on my feet"
+   ],
+   "facts": {
+    "key": "back on my feet",
+    "ipa": "/bæk ɑːn maɪ ˈfiːt/",
+    "mean": "Healthy and active again.",
+    "def": "Recovered and able to do normal things again.",
+    "hook": "Last week sick, today fine!",
+    "example": {
+     "ctx": "After a cold",
+     "text": "I'm finally back on my feet."
+    },
+    "quiz": {
+     "ask": "It means you've…",
+     "options": [
+      "lost your shoes",
+      "recovered"
+     ],
+     "answer": 1
+    },
+    "misuse": {
+     "text": "Don't say 'back on my feet' about standing up.",
+     "why": "It means healthy and active again."
+    },
+    "expr": "proud",
+    "reg": "casual",
+    "region": "global",
+    "l1": {
+     "m": "Hồi phục rồi",
+     "hook": "Tuần trước bệnh, hôm nay khỏe!",
+     "ex": "Cuối cùng tui cũng back on my feet."
+    }
+   },
+   "in": {
+    "key": "back on my feet",
+    "lang": "vi"
+   }
+  },
+  {
+   "id": "t2s_vi_asap",
+   "template": "slang",
+   "lang": "vi",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 23,
+   "area": "phrases",
+   "point": "slang:vi:asap",
+   "hash": "f8015ec9fcb7",
+   "heads": [
+    "slang:vi:asap"
+   ],
+   "taught": [
+    "ASAP"
+   ],
+   "facts": {
+    "key": "ASAP",
+    "ipa": "/ˌeɪ es eɪ ˈpiː/",
+    "mean": "As soon as possible.",
+    "def": "Short for \"as soon as possible\"; used to ask for something quickly.",
+    "hook": "I need it right now!",
+    "example": {
+     "ctx": "Texting a classmate",
+     "text": "Please send me the notes ASAP."
+    },
+    "quiz": {
+     "ask": "ASAP means…",
+     "options": [
+      "as soon as possible",
+      "always say a prayer"
+     ],
+     "answer": 0
+    },
+    "misuse": {
+     "text": "Don't write 'ASAP' to your boss rudely.",
+     "why": "It sounds demanding and bossy."
+    },
+    "expr": "panic",
+    "reg": "casual",
+    "region": "global",
+    "l1": {
+     "m": "Càng sớm càng tốt",
+     "hook": "Tui cần nó ngay bây giờ!",
+     "ex": "Gửi tui ghi chú ASAP nha."
+    }
+   },
+   "in": {
+    "key": "ASAP",
+    "lang": "vi"
+   }
+  },
+  {
+   "id": "t2s_vi_cool",
+   "template": "slang",
+   "lang": "vi",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 24,
+   "area": "phrases",
+   "point": "slang:vi:cool",
+   "hash": "ace7b0fbf37e",
+   "heads": [
+    "slang:vi:cool"
+   ],
+   "taught": [
+    "cool"
+   ],
+   "facts": {
+    "key": "cool",
+    "ipa": "/ˈkuːl/",
+    "mean": "Great, or fine with me.",
+    "def": "A casual word for good, or for agreeing.",
+    "hook": "Movie tonight at six, okay?",
+    "example": {
+     "ctx": "Answering a plan",
+     "text": "Cool, see you at six!"
+    },
+    "quiz": {
+     "ask": "\"Cool\" can mean…",
+     "options": [
+      "okay or great",
+      "cold"
+     ],
+     "answer": 0
+    },
+    "misuse": {
+     "text": "Don't say 'cool' when someone shares sad news.",
+     "why": "It sounds like you don't care."
+    },
+    "expr": "smug",
+    "reg": "casual",
+    "region": "global",
+    "l1": {
+     "m": "Ổn áp, đỉnh luôn",
+     "hook": "Tối nay xem phim lúc sáu giờ, ok không?",
+     "ex": "Cool, sáu giờ gặp nha!"
+    }
+   },
+   "in": {
+    "key": "cool",
+    "lang": "vi"
+   }
+  },
+  {
+   "id": "t2s_vi_cheap",
+   "template": "slang",
+   "lang": "vi",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 25,
+   "area": "phrases",
+   "point": "slang:vi:cheap",
+   "hash": "888bc36647d3",
+   "heads": [
+    "slang:vi:cheap"
+   ],
+   "taught": [
+    "cheap"
+   ],
+   "facts": {
+    "key": "cheap",
+    "ipa": "/ˈtʃiːp/",
+    "mean": "Unwilling to spend money.",
+    "def": "Describes a stingy person; it can also mean low quality.",
+    "hook": "He never pays for lunch!",
+    "example": {
+     "ctx": "Talking about a friend",
+     "text": "He's too cheap to buy lunch."
+    },
+    "quiz": {
+     "ask": "\"Cheap\" here means…",
+     "options": [
+      "stingy",
+      "fancy"
+     ],
+     "answer": 0
+    },
+    "misuse": {
+     "text": "Don't call grandma 'cheap' for using coupons.",
+     "why": "It insults her careful habits."
+    },
+    "expr": "smirk",
+    "reg": "casual",
+    "region": "global",
+    "l1": {
+     "m": "Keo kiệt",
+     "hook": "Nó không bao giờ trả tiền ăn trưa!",
+     "ex": "Nó cheap quá, không chịu bao bữa trưa."
+    }
+   },
+   "in": {
+    "key": "cheap",
+    "lang": "vi"
+   }
+  },
+  {
+   "id": "t2s_vi_callout",
+   "template": "slang",
+   "lang": "vi",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 26,
+   "area": "phrases",
+   "point": "slang:vi:call out",
+   "hash": "b35bb7d5d1fe",
+   "heads": [
+    "slang:vi:call out"
+   ],
+   "taught": [
+    "call out",
+    "called me out",
+    "called out"
+   ],
+   "facts": {
+    "key": "call out",
+    "ipa": "/ˈkɔːl ˈaʊt/",
+    "mean": "Point out someone's mistake.",
+    "def": "To say publicly that someone did something wrong.",
+    "hook": "She told everyone my mistake!",
+    "example": {
+     "ctx": "Talking about a mistake",
+     "text": "She called me out for being late."
+    },
+    "quiz": {
+     "ask": "To \"call out\" is to…",
+     "options": [
+      "shout out",
+      "point out a mistake"
+     ],
+     "answer": 1
+    },
+    "misuse": {
+     "text": "Don't 'call out' a coworker in front of the boss.",
+     "why": "Public correction embarrasses people."
+    },
+    "expr": "shock",
+    "reg": "casual",
+    "region": "US",
+    "l1": {
+     "m": "Chỉ ra lỗi công khai",
+     "hook": "Cổ nói hết lỗi của tui cho cả bọn!",
+     "ex": "Cổ called me out vì tui đi trễ."
+    }
+   },
+   "in": {
+    "key": "call out",
+    "lang": "vi"
+   }
+  },
+  {
+   "id": "t2s_vi_dressedtoimpress",
+   "template": "slang",
+   "lang": "vi",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 27,
+   "area": "phrases",
+   "point": "slang:vi:dressed to impress",
+   "hash": "224aa78d8030",
+   "heads": [
+    "slang:vi:dressed to impress"
+   ],
+   "taught": [
+    "dressed to impress",
+    "dress to impress"
+   ],
+   "facts": {
+    "key": "dressed to impress",
+    "ipa": "/ˈdrest tə ɪmˈpres/",
+    "mean": "Wearing your best outfit.",
+    "def": "Wearing fancy clothes to make a good impression.",
+    "hook": "Interview day. Suit and tie!",
+    "example": {
+     "ctx": "Before a big event",
+     "text": "He's dressed to impress for the interview."
+    },
+    "quiz": {
+     "ask": "It means wearing…",
+     "options": [
+      "your best clothes",
+      "old clothes"
+     ],
+     "answer": 0
+    },
+    "misuse": {
+     "text": "Don't say 'dressed to impress' about pajamas.",
+     "why": "It means a smart, planned outfit."
+    },
+    "expr": "proud",
+    "reg": "casual",
+    "region": "global",
+    "l1": {
+     "m": "Ăn diện thật đẹp",
+     "hook": "Ngày phỏng vấn. Vest cà vạt đầy đủ!",
+     "ex": "Ổng dressed to impress cho buổi phỏng vấn."
+    }
+   },
+   "in": {
+    "key": "dressed to impress",
+    "lang": "vi"
+   }
+  },
+  {
+   "id": "t2s_vi_boredstiff",
+   "template": "slang",
+   "lang": "vi",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 28,
+   "area": "phrases",
+   "point": "slang:vi:bored stiff",
+   "hash": "f30ce97f3960",
+   "heads": [
+    "slang:vi:bored stiff"
+   ],
+   "taught": [
+    "bored stiff"
+   ],
+   "facts": {
+    "key": "bored stiff",
+    "ipa": "/ˈbɔːrd ˈstɪf/",
+    "mean": "Extremely bored.",
+    "def": "Used when something is very dull.",
+    "hook": "Two hours of the same slides!",
+    "example": {
+     "ctx": "Leaving a long class",
+     "text": "I was bored stiff in that class."
+    },
+    "quiz": {
+     "ask": "It means…",
+     "options": [
+      "very strong",
+      "very bored"
+     ],
+     "answer": 1
+    },
+    "misuse": {
+     "text": "Don't tell the speaker you're 'bored stiff'.",
+     "why": "It's rude to say directly."
+    },
+    "expr": "deadpan",
+    "reg": "casual",
+    "region": "global",
+    "l1": {
+     "m": "Chán muốn xỉu",
+     "hook": "Hai tiếng toàn một slide!",
+     "ex": "Tui bored stiff trong tiết đó luôn."
+    }
+   },
+   "in": {
+    "key": "bored stiff",
+    "lang": "vi"
+   }
+  },
+  {
+   "id": "t2s_vi_cheatday",
+   "template": "slang",
+   "lang": "vi",
+   "teacher": "ama",
+   "theme": "dusk",
+   "part": 29,
+   "area": "phrases",
+   "point": "slang:vi:cheat day",
+   "hash": "a545a463117a",
+   "heads": [
+    "slang:vi:cheat day"
+   ],
+   "taught": [
+    "cheat day"
+   ],
+   "facts": {
+    "key": "cheat day",
+    "ipa": "/ˈtʃiːt ˈdeɪ/",
+    "mean": "A day to eat anything you want.",
+    "def": "A day when you stop a strict diet and enjoy treats.",
+    "hook": "Saturday. Diet? What diet?",
+    "example": {
+     "ctx": "Talking about a diet",
+     "text": "Saturday is my cheat day."
+    },
+    "quiz": {
+     "ask": "A \"cheat day\" is…",
+     "options": [
+      "a game day",
+      "a free eating day"
+     ],
+     "answer": 1
+    },
+    "misuse": {
+     "text": "Don't say 'cheat day' about exam day.",
+     "why": "Cheating on exams breaks the rules."
+    },
+    "expr": "smug",
+    "reg": "casual",
+    "region": "US",
+    "l1": {
+     "m": "Ngày xả cơm",
+     "hook": "Thứ Bảy. Ăn kiêng gì cơ?",
+     "ex": "Thứ Bảy là cheat day của tui."
+    }
+   },
+   "in": {
+    "key": "cheat day",
+    "lang": "vi"
+   }
+  },
+  {
+   "id": "t2s_vi_bestie",
+   "template": "slang",
+   "lang": "vi",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "part": 30,
+   "area": "phrases",
+   "point": "slang:vi:bestie",
+   "hash": "3586ea6e69f9",
+   "heads": [
+    "slang:vi:bestie"
+   ],
+   "taught": [
+    "bestie",
+    "besties"
+   ],
+   "facts": {
+    "key": "bestie",
+    "ipa": "/ˈbesti/",
+    "mean": "A very close friend.",
+    "def": "A short, friendly word for a best friend.",
+    "hook": "Who knows all your secrets?",
+    "example": {
+     "ctx": "Talking about friends",
+     "text": "My bestie and I love tacos."
+    },
+    "quiz": {
+     "ask": "A \"bestie\" is…",
+     "options": [
+      "a best friend",
+      "a kind of pet"
+     ],
+     "answer": 0
+    },
+    "misuse": {
+     "text": "Don't call your new boss your 'bestie'.",
+     "why": "It's too close and casual."
+    },
+    "expr": "love",
+    "reg": "very-casual",
+    "region": "global",
+    "l1": {
+     "m": "Bạn thân",
+     "hook": "Ai biết hết bí mật của bạn?",
+     "ex": "Bestie với tui mê taco lắm."
+    }
+   },
+   "in": {
+    "key": "bestie",
+    "lang": "vi"
+   }
   }
  ]
 }

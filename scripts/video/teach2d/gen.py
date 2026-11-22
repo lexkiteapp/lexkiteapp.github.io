@@ -506,6 +506,7 @@ def slang_l1_src(it, lang):   # the card's page-language texts (None when one is
     J = lambda f: json.load(open(f)) if os.path.exists(f) else {}
     k = it['key'].lower(); m = it['vi'] if lang == 'vi' else (J(SL_M_F).get(k) or {}).get(lang); LN = J(SL_L_F)
     h, e = (LN.get(f'{k}|hook') or {}).get(lang), (LN.get(f'{k}|ex') or {}).get(lang)
+    if lang == 'vi': h, e = it.get('vi_hook'), it.get('vi_ex')   # vi = hand-written on the card (lexai 'translate' has no vi), like the vi gloss
     return dict(m=m, hook=h, ex=e) if m and h and e else None
 
 

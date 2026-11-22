@@ -31,7 +31,9 @@
    "region": "US",
    "era": "gen-z",
    "expr": "smug",
-   "theme": "agreement"
+   "theme": "agreement",
+   "vi_hook": "Pizza lúc sáu giờ, chốt không?",
+   "vi_ex": "Pizza sáu giờ nha? Bet."
   },
   {
    "key": "cool",
@@ -63,7 +65,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "smug",
-   "theme": "agreement"
+   "theme": "agreement",
+   "vi_hook": "Tối nay xem phim lúc sáu giờ, ok không?",
+   "vi_ex": "Cool, sáu giờ gặp nha!"
   },
   {
    "key": "fair enough",
@@ -95,7 +99,9 @@
    "region": "UK",
    "era": "evergreen",
    "expr": "shrug",
-   "theme": "agreement"
+   "theme": "agreement",
+   "vi_hook": "Khoan, nghe tui giải thích đã!",
+   "vi_ex": "Fair enough, thử ý của bạn xem sao."
   },
   {
    "key": "fine by me",
@@ -127,7 +133,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "shrug",
-   "theme": "agreement"
+   "theme": "agreement",
+   "vi_hook": "Pizza hay taco, bạn chọn đi?",
+   "vi_ex": "Pizza hay taco? Fine by me."
   },
   {
    "key": "for sure",
@@ -159,7 +167,9 @@
    "region": "US",
    "era": "evergreen",
    "expr": "smug",
-   "theme": "agreement"
+   "theme": "agreement",
+   "vi_hook": "Tui tin bạn được chứ?",
+   "vi_ex": "Tối nay ăn pizza hông? For sure!"
   },
   {
    "key": "I'm down",
@@ -193,7 +203,9 @@
    "region": "US",
    "era": "evergreen",
    "expr": "hype",
-   "theme": "agreement"
+   "theme": "agreement",
+   "vi_hook": "Tối nay đi bowling, ai đi nào?",
+   "vi_ex": "Tối nay đi bowling nè. Bạn có down không?"
   },
   {
    "key": "I'm good",
@@ -225,7 +237,9 @@
    "region": "US",
    "era": "evergreen",
    "expr": "deadpan",
-   "theme": "agreement"
+   "theme": "agreement",
+   "vi_hook": "Ăn thêm bánh không?",
+   "vi_ex": "Thôi cảm ơn, I'm good."
   },
   {
    "key": "I'm in",
@@ -259,7 +273,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "hype",
-   "theme": "agreement"
+   "theme": "agreement",
+   "vi_hook": "Cuối tuần đi chơi bất ngờ, hứng không?",
+   "vi_ex": "Tối pizza hả? I'm in!"
   },
   {
    "key": "it's a no-brainer",
@@ -293,7 +309,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "smug",
-   "theme": "agreement"
+   "theme": "agreement",
+   "vi_hook": "Vé miễn phí hay ở nhà?",
+   "vi_ex": "Vé miễn phí á? It's a no-brainer!"
   },
   {
    "key": "on the same page",
@@ -325,7 +343,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "smug",
-   "theme": "agreement"
+   "theme": "agreement",
+   "vi_hook": "Khoan, ai làm gì vậy trời?",
+   "vi_ex": "Mình phải on the same page đã nha."
   },
   {
    "key": "periodt",
@@ -359,7 +379,9 @@
    "region": "US",
    "era": "gen-z",
    "expr": "smug",
-   "theme": "agreement"
+   "theme": "agreement",
+   "vi_hook": "Pizza là nhất. Ai cãi không?",
+   "vi_ex": "Pizza là món ngon nhất, periodt."
   },
   {
    "key": "same",
@@ -391,7 +413,9 @@
    "region": "global",
    "era": "modern",
    "expr": "shrug",
-   "theme": "agreement"
+   "theme": "agreement",
+   "vi_hook": "Lại thứ Hai nữa. Mệt rồi hả?",
+   "vi_ex": "Mệt rồi hả? Same."
   },
   {
    "key": "say less",
@@ -423,7 +447,9 @@
    "region": "US",
    "era": "gen-z",
    "expr": "smug",
-   "theme": "agreement"
+   "theme": "agreement",
+   "vi_hook": "Nhà tui có đồ ăn vặt free nè!",
+   "vi_ex": "Đồ ăn vặt free hả? Say less!"
   },
   {
    "key": "totally",
@@ -455,7 +481,9 @@
    "region": "US",
    "era": "evergreen",
    "expr": "hype",
-   "theme": "agreement"
+   "theme": "agreement",
+   "vi_hook": "Pizza đó có đáng tiền không?",
+   "vi_ex": "Pizza đó totally đáng từng xu."
   },
   {
    "key": "win-win",
@@ -487,7 +515,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "smug",
-   "theme": "agreement"
+   "theme": "agreement",
+   "vi_hook": "Hai đứa mình đều có bánh!",
+   "vi_ex": "Kiểu này là win-win cho cả hai đứa."
   },
   {
    "key": "works for me",
@@ -519,7 +549,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "shrug",
-   "theme": "agreement"
+   "theme": "agreement",
+   "vi_hook": "Bảy giờ, được không?",
+   "vi_ex": "Bảy giờ works for me."
   },
   {
    "key": "you bet",
@@ -551,7 +583,9 @@
    "region": "US",
    "era": "evergreen",
    "expr": "smug",
-   "theme": "agreement"
+   "theme": "agreement",
+   "vi_hook": "Giúp tui dọn nhà được không?",
+   "vi_ex": "Giúp tui được không? You bet!"
   },
   {
    "key": "basic",
@@ -583,7 +617,9 @@
    "region": "US",
    "era": "modern",
    "expr": "deadpan",
-   "theme": "criticism"
+   "theme": "criticism",
+   "vi_hook": "Lại pizza với phim nữa hả?",
+   "vi_ex": "Kế hoạch cuối tuần của tui basic lắm: pizza với phim."
   },
   {
    "key": "cheap",
@@ -615,7 +651,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "smirk",
-   "theme": "criticism"
+   "theme": "criticism",
+   "vi_hook": "Nó không bao giờ trả tiền ăn trưa!",
+   "vi_ex": "Nó cheap quá, không chịu bao bữa trưa."
   },
   {
    "key": "cheesy",
@@ -647,7 +685,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "cringe",
-   "theme": "criticism"
+   "theme": "criticism",
+   "vi_hook": "Thư tình của ổng còn có vần nữa. Ghê!",
+   "vi_ex": "Phim đó cheesy kinh khủng."
   },
   {
    "key": "corny",
@@ -679,7 +719,9 @@
    "region": "US",
    "era": "evergreen",
    "expr": "cringe",
-   "theme": "criticism"
+   "theme": "criticism",
+   "vi_hook": "Lại pun của ba nữa. Thiệt luôn?",
+   "vi_ex": "Mấy câu đùa của ba corny hết sức."
   },
   {
    "key": "lame",
@@ -711,7 +753,9 @@
    "region": "US",
    "era": "evergreen",
    "expr": "deadpan",
-   "theme": "criticism"
+   "theme": "criticism",
+   "vi_hook": "Tiệc tan lúc tám giờ. Thiệt hả?",
+   "vi_ex": "Bữa tiệc đó hơi lame á."
   },
   {
    "key": "makes no sense",
@@ -743,7 +787,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "confused",
-   "theme": "criticism"
+   "theme": "criticism",
+   "vi_hook": "Luật đổi nữa rồi. Sao vậy?",
+   "vi_ex": "Luật game này makes no sense luôn."
   },
   {
    "key": "meh",
@@ -775,7 +821,9 @@
    "region": "US",
    "era": "modern",
    "expr": "shrug",
-   "theme": "criticism"
+   "theme": "criticism",
+   "vi_hook": "Phim sao rồi?",
+   "vi_ex": "Phim hả? Meh."
   },
   {
    "key": "mid",
@@ -807,7 +855,9 @@
    "region": "US",
    "era": "gen-z",
    "expr": "deadpan",
-   "theme": "criticism"
+   "theme": "criticism",
+   "vi_hook": "Ai cũng mê hết. Còn bạn?",
+   "vi_ex": "Nói thiệt, phim đó mid thôi."
   },
   {
    "key": "overrated",
@@ -839,7 +889,9 @@
    "region": "global",
    "era": "modern",
    "expr": "deadpan",
-   "theme": "criticism"
+   "theme": "criticism",
+   "vi_hook": "Ai cũng mê quán này. Sao vậy?",
+   "vi_ex": "Tui thấy quán đó overrated."
   },
   {
    "key": "tacky",
@@ -871,7 +923,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "cringe",
-   "theme": "criticism"
+   "theme": "criticism",
+   "vi_hook": "Cổ đeo bông tai nhấp nháy. Sao vậy?",
+   "vi_ex": "Cái bảng hiệu này nhìn hơi tacky."
   },
   {
    "key": "tryhard",
@@ -905,7 +959,9 @@
    "region": "US",
    "era": "modern",
    "expr": "smirk",
-   "theme": "criticism"
+   "theme": "criticism",
+   "vi_hook": "Ổng tập tạo dáng ngầu nữa kìa!",
+   "vi_ex": "Đừng có tryhard, thả lỏng đi."
   },
   {
    "key": "beef",
@@ -939,7 +995,9 @@
    "region": "US",
    "era": "modern",
    "expr": "furious",
-   "theme": "drama"
+   "theme": "drama",
+   "vi_hook": "Hai đứa đó hết nói chuyện. Sao vậy?",
+   "vi_ex": "Hai đứa có beef vì một cái game."
   },
   {
    "key": "call out",
@@ -974,7 +1032,9 @@
    "region": "US",
    "era": "modern",
    "expr": "shock",
-   "theme": "drama"
+   "theme": "drama",
+   "vi_hook": "Cổ nói hết lỗi của tui cho cả bọn!",
+   "vi_ex": "Cổ called me out vì tui đi trễ."
   },
   {
    "key": "clap back",
@@ -1009,7 +1069,9 @@
    "region": "US",
    "era": "modern",
    "expr": "smug",
-   "theme": "drama"
+   "theme": "drama",
+   "vi_hook": "Ổng chê cổ. Cổ đáp trả liền!",
+   "vi_ex": "Cổ clapped back bằng một câu đáp trả đỉnh."
   },
   {
    "key": "drama",
@@ -1043,7 +1105,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "furious",
-   "theme": "drama"
+   "theme": "drama",
+   "vi_hook": "Group chat nổ tung vì chuyện không đâu!",
+   "vi_ex": "Năm nay tui không muốn có drama nữa."
   },
   {
    "key": "frenemy",
@@ -1077,7 +1141,9 @@
    "region": "global",
    "era": "modern",
    "expr": "confused",
-   "theme": "drama"
+   "theme": "drama",
+   "vi_hook": "Cười với nhau mà ngầm đua nhau!",
+   "vi_ex": "Nó là frenemy của tui, lúc nào cũng đua với tui."
   },
   {
    "key": "low blow",
@@ -1109,7 +1175,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "shock",
-   "theme": "drama"
+   "theme": "drama",
+   "vi_hook": "Ổng lôi chuyện cũ của cổ ra nói!",
+   "vi_ex": "Câu đùa đó đúng là low blow."
   },
   {
    "key": "petty",
@@ -1141,7 +1209,9 @@
    "region": "global",
    "era": "modern",
    "expr": "deadpan",
-   "theme": "drama"
+   "theme": "drama",
+   "vi_hook": "Đòi lại cái bánh quy luôn hả?",
+   "vi_ex": "Đếm từng cái bánh quy là petty quá, bạn thấy không?"
   },
   {
    "key": "red flag",
@@ -1175,7 +1245,9 @@
    "region": "global",
    "era": "modern",
    "expr": "panic",
-   "theme": "drama"
+   "theme": "drama",
+   "vi_hook": "Mới hẹn hò lần đầu đã nói dối hai lần!",
+   "vi_ex": "Giá đổi đột ngột vậy là red flag rồi."
   },
   {
    "key": "spill the tea",
@@ -1210,7 +1282,9 @@
    "region": "US",
    "era": "gen-z",
    "expr": "hype",
-   "theme": "drama"
+   "theme": "drama",
+   "vi_hook": "Khoan, trưa nay có chuyện gì vậy?",
+   "vi_ex": "Spill the tea về chuyến đi của trường đi!"
   },
   {
    "key": "throw shade",
@@ -1245,7 +1319,9 @@
    "region": "US",
    "era": "modern",
    "expr": "smirk",
-   "theme": "drama"
+   "theme": "drama",
+   "vi_hook": "Cổ cười rồi khịa cái nón của tui!",
+   "vi_ex": "Cổ threw shade vào cái nón mới của tui."
   },
   {
    "key": "toxic",
@@ -1277,7 +1353,9 @@
    "region": "global",
    "era": "modern",
    "expr": "furious",
-   "theme": "drama"
+   "theme": "drama",
+   "vi_hook": "Sao cái nhóm chat đó khó chịu quá vậy?",
+   "vi_ex": "Group chat đó toxic quá."
   },
   {
    "key": "aesthetic",
@@ -1309,7 +1387,9 @@
    "region": "global",
    "era": "modern",
    "expr": "love",
-   "theme": "fashion"
+   "theme": "fashion",
+   "vi_hook": "Phòng bạn nhìn như Pinterest vậy!",
+   "vi_ex": "Bàn làm việc của bạn aesthetic quá trời."
   },
   {
    "key": "dressed to impress",
@@ -1343,7 +1423,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "proud",
-   "theme": "fashion"
+   "theme": "fashion",
+   "vi_hook": "Ngày phỏng vấn. Vest cà vạt đầy đủ!",
+   "vi_ex": "Ổng dressed to impress cho buổi phỏng vấn."
   },
   {
    "key": "drip",
@@ -1375,7 +1457,9 @@
    "region": "US",
    "era": "gen-z",
    "expr": "love",
-   "theme": "fashion"
+   "theme": "fashion",
+   "vi_hook": "Áo mới, giày mới, tự tin mới!",
+   "vi_ex": "Áo khoác xịn quá, hôm nay bạn có drip nha."
   },
   {
    "key": "fit check",
@@ -1407,7 +1491,9 @@
    "region": "US",
    "era": "gen-z",
    "expr": "smug",
-   "theme": "fashion"
+   "theme": "fashion",
+   "vi_hook": "Đồ xong rồi. Ý kiến trước khi đi học?",
+   "vi_ex": "Fit check nhanh trước khi đi học nè!"
   },
   {
    "key": "it's giving",
@@ -1441,7 +1527,9 @@
    "region": "US",
    "era": "gen-z",
    "expr": "smug",
-   "theme": "fashion"
+   "theme": "fashion",
+   "vi_hook": "Cái áo khoác nhìn như phim cổ điển!",
+   "vi_ex": "Cái áo khoác này it's giving ngôi sao phim xưa."
   },
   {
    "key": "pull off",
@@ -1473,7 +1561,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "smug",
-   "theme": "fashion"
+   "theme": "fashion",
+   "vi_hook": "Còn ai mặc nổi màu đó nữa?",
+   "vi_ex": "Không phải ai cũng pull off được màu đó đâu."
   },
   {
    "key": "rock it",
@@ -1507,7 +1597,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "proud",
-   "theme": "fashion"
+   "theme": "fashion",
+   "vi_hook": "Tui run quá, không dám đội nón!",
+   "vi_ex": "Bạn đội cái nón đó rock it luôn!"
   },
   {
    "key": "thrifting",
@@ -1542,7 +1634,9 @@
    "region": "US",
    "era": "modern",
    "expr": "hype",
-   "theme": "fashion"
+   "theme": "fashion",
+   "vi_hook": "Áo khoác chỉ năm đô một cái!",
+   "vi_ex": "Cuối tuần này tụi tui đi thrifting mua áo khoác."
   },
   {
    "key": "blow a fuse",
@@ -1576,7 +1670,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "furious",
-   "theme": "feelings"
+   "theme": "feelings",
+   "vi_hook": "Ba thấy phòng bừa bộn rồi!",
+   "vi_ex": "Ổng blew a fuse vì phòng bừa bộn."
   },
   {
    "key": "bored stiff",
@@ -1608,7 +1704,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "deadpan",
-   "theme": "feelings"
+   "theme": "feelings",
+   "vi_hook": "Hai tiếng toàn một slide!",
+   "vi_ex": "Tui bored stiff trong tiết đó luôn."
   },
   {
    "key": "bummed out",
@@ -1642,7 +1740,9 @@
    "region": "US",
    "era": "evergreen",
    "expr": "sad",
-   "theme": "feelings"
+   "theme": "feelings",
+   "vi_hook": "Chuyến đi bị hủy. Ai cũng buồn!",
+   "vi_ex": "Tui bummed out vì chuyến đi bị hủy."
   },
   {
    "key": "cheer up",
@@ -1676,7 +1776,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "love",
-   "theme": "feelings"
+   "theme": "feelings",
+   "vi_hook": "Cổ buồn quá. Giờ làm sao?",
+   "vi_ex": "Cheer up, tụi mình ăn pizza nè!"
   },
   {
    "key": "chin up",
@@ -1708,7 +1810,9 @@
    "region": "UK",
    "era": "evergreen",
    "expr": "love",
-   "theme": "feelings"
+   "theme": "feelings",
+   "vi_hook": "Hôm nay tệ, nhưng mai tới rồi!",
+   "vi_ex": "Chin up, mai sẽ tốt hơn thôi."
   },
   {
    "key": "cranky",
@@ -1740,7 +1844,9 @@
    "region": "US",
    "era": "evergreen",
    "expr": "furious",
-   "theme": "feelings"
+   "theme": "feelings",
+   "vi_hook": "Chưa nói chuyện với tui bây giờ nha!",
+   "vi_ex": "Sáng chưa ăn gì là tui cranky lắm."
   },
   {
    "key": "delulu",
@@ -1774,7 +1880,9 @@
    "region": "US",
    "era": "gen-z",
    "expr": "smirk",
-   "theme": "feelings"
+   "theme": "feelings",
+   "vi_hook": "Tui sẽ cưới ca sĩ nổi tiếng đó!",
+   "vi_ex": "Tui delulu thiệt, cứ nghĩ ảnh sẽ nhắn trước."
   },
   {
    "key": "drives me up the wall",
@@ -1808,7 +1916,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "furious",
-   "theme": "feelings"
+   "theme": "feelings",
+   "vi_hook": "Tiếng gõ đó hoài không dứt. Trời ơi!",
+   "vi_ex": "Tiếng ồn đó drives me up the wall."
   },
   {
    "key": "era",
@@ -1842,7 +1952,9 @@
    "region": "US",
    "era": "gen-z",
    "expr": "smug",
-   "theme": "feelings"
+   "theme": "feelings",
+   "vi_hook": "Sở thích mới, tui mới!",
+   "vi_ex": "Dạo này tui đang trong baking era nè."
   },
   {
    "key": "fed up",
@@ -1874,7 +1986,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "furious",
-   "theme": "feelings"
+   "theme": "feelings",
+   "vi_hook": "Lại mưa nữa hả? Thiệt luôn?",
+   "vi_ex": "Tui fed up với cơn mưa này rồi."
   },
   {
    "key": "FOMO",
@@ -1908,7 +2022,9 @@
    "region": "global",
    "era": "modern",
    "expr": "panic",
-   "theme": "feelings"
+   "theme": "feelings",
+   "vi_hook": "Ai cũng đi tiệc, trừ tui!",
+   "vi_ex": "Thấy hình đi tiệc là tui bị FOMO nặng."
   },
   {
    "key": "get on my nerves",
@@ -1942,7 +2058,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "furious",
-   "theme": "feelings"
+   "theme": "feelings",
+   "vi_hook": "Ổng nhai to quá. Thiệt luôn!",
+   "vi_ex": "Tiếng ổng ngân nga cứ gets on my nerves."
   },
   {
    "key": "get over it",
@@ -1974,7 +2092,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "deadpan",
-   "theme": "feelings"
+   "theme": "feelings",
+   "vi_hook": "Còn buồn chuyện tuần trước hả?",
+   "vi_ex": "Thôi nào, get over it đi!"
   },
   {
    "key": "good vibes only",
@@ -2006,7 +2126,9 @@
    "region": "global",
    "era": "modern",
    "expr": "love",
-   "theme": "feelings"
+   "theme": "feelings",
+   "vi_hook": "Ngày đi biển. Cấm tâm trạng xấu!",
+   "vi_ex": "Ngày đi biển, good vibes only!"
   },
   {
    "key": "hang in there",
@@ -2038,7 +2160,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "love",
-   "theme": "feelings"
+   "theme": "feelings",
+   "vi_hook": "Gần tới cuối tuần rồi. Mệt hả?",
+   "vi_ex": "Hang in there, sắp cuối tuần rồi!"
   },
   {
    "key": "highkey",
@@ -2072,7 +2196,9 @@
    "region": "US",
    "era": "gen-z",
    "expr": "hype",
-   "theme": "feelings"
+   "theme": "feelings",
+   "vi_hook": "Bí mật: tui mê album này lắm!",
+   "vi_ex": "Tui highkey mê cái album mới này luôn."
   },
   {
    "key": "hit the roof",
@@ -2106,7 +2232,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "furious",
-   "theme": "feelings"
+   "theme": "feelings",
+   "vi_hook": "Mẹ thấy cái bình bị vỡ rồi!",
+   "vi_ex": "Mẹ hit the roof khi thấy đống bừa bộn."
   },
   {
    "key": "hits different",
@@ -2140,7 +2268,9 @@
    "region": "US",
    "era": "gen-z",
    "expr": "love",
-   "theme": "feelings"
+   "theme": "feelings",
+   "vi_hook": "Sao pizza sau khi đá banh lại ngon hơn vậy?",
+   "vi_ex": "Pizza hits different sau trận bóng dài."
   },
   {
    "key": "I'm over it",
@@ -2174,7 +2304,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "deadpan",
-   "theme": "feelings"
+   "theme": "feelings",
+   "vi_hook": "Ai cũng còn nói về trend đó!",
+   "vi_ex": "Trend đó cũ rồi. I'm over it."
   },
   {
    "key": "living for it",
@@ -2208,7 +2340,9 @@
    "region": "US",
    "era": "gen-z",
    "expr": "hype",
-   "theme": "feelings"
+   "theme": "feelings",
+   "vi_hook": "Họ đang bật bài tui thích nhất!",
+   "vi_ex": "Họ hát bài của tui kìa. Living for it!"
   },
   {
    "key": "losing it",
@@ -2242,7 +2376,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "panic",
-   "theme": "feelings"
+   "theme": "feelings",
+   "vi_hook": "Bốn đứa nhóc, một cái điện thoại, hết yên tĩnh!",
+   "vi_ex": "Tui đang losing it vì tiếng ồn này."
   },
   {
    "key": "lowkey",
@@ -2276,7 +2412,9 @@
    "region": "US",
    "era": "gen-z",
    "expr": "smirk",
-   "theme": "feelings"
+   "theme": "feelings",
+   "vi_hook": "Nói thiệt: tui muốn ngủ trưa!",
+   "vi_ex": "Tui lowkey muốn ở nhà ngủ trưa."
   },
   {
    "key": "move on",
@@ -2310,7 +2448,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "proud",
-   "theme": "feelings"
+   "theme": "feelings",
+   "vi_hook": "Còn nghĩ về trận đó hoài hả?",
+   "vi_ex": "Mình move on qua trận tiếp theo đi."
   },
   {
    "key": "obsessed",
@@ -2342,7 +2482,9 @@
    "region": "global",
    "era": "modern",
    "expr": "love",
-   "theme": "feelings"
+   "theme": "feelings",
+   "vi_hook": "Tui nghe bài này lặp lại hai chục lần rồi!",
+   "vi_ex": "Tui obsessed với bài hát mới này luôn."
   },
   {
    "key": "on cloud nine",
@@ -2374,7 +2516,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "love",
-   "theme": "feelings"
+   "theme": "feelings",
+   "vi_hook": "Cổ vừa nhận được tin siêu vui!",
+   "vi_ex": "Nghe tin xong cổ on cloud nine luôn."
   },
   {
    "key": "over the moon",
@@ -2406,7 +2550,9 @@
    "region": "UK",
    "era": "evergreen",
    "expr": "love",
-   "theme": "feelings"
+   "theme": "feelings",
+   "vi_hook": "Ổng đậu bằng lái rồi!",
+   "vi_ex": "Nghe tin xong cổ over the moon luôn."
   },
   {
    "key": "pumped",
@@ -2438,7 +2584,9 @@
    "region": "US",
    "era": "evergreen",
    "expr": "hype",
-   "theme": "feelings"
+   "theme": "feelings",
+   "vi_hook": "Tối nay có concert! Tin nổi không?",
+   "vi_ex": "Tui pumped cho buổi concert lắm!"
   },
   {
    "key": "rent-free",
@@ -2472,7 +2620,9 @@
    "region": "US",
    "era": "gen-z",
    "expr": "panic",
-   "theme": "feelings"
+   "theme": "feelings",
+   "vi_hook": "Bài hát ngớ ngẩn đó không chịu biến mất!",
+   "vi_ex": "Bài hát ngớ ngẩn đó ở trong đầu tui rent-free."
   },
   {
    "key": "salty",
@@ -2504,7 +2654,9 @@
    "region": "US",
    "era": "modern",
    "expr": "furious",
-   "theme": "feelings"
+   "theme": "feelings",
+   "vi_hook": "Ổng thua rồi hờn dỗi!",
+   "vi_ex": "Ổng salty vì tui thắng ván bài."
   },
   {
    "key": "stoked",
@@ -2536,7 +2688,9 @@
    "region": "US",
    "era": "modern",
    "expr": "hype",
-   "theme": "feelings"
+   "theme": "feelings",
+   "vi_hook": "Mai đi phượt với tụi bạn!",
+   "vi_ex": "Tui stoked cho chuyến đi này lắm!"
   },
   {
    "key": "ticked off",
@@ -2570,7 +2724,9 @@
    "region": "US",
    "era": "evergreen",
    "expr": "furious",
-   "theme": "feelings"
+   "theme": "feelings",
+   "vi_hook": "Chuyến bay của tui lại bị hoãn. Trời ơi!",
+   "vi_ex": "Tui ticked off vì vụ hoãn chuyến bay."
   },
   {
    "key": "vibe",
@@ -2604,7 +2760,9 @@
    "region": "global",
    "era": "modern",
    "expr": "love",
-   "theme": "feelings"
+   "theme": "feelings",
+   "vi_hook": "Chỗ này ấm cúng ghê!",
+   "vi_ex": "Tui mê cái vibe của quán cà phê nhỏ này."
   },
   {
    "key": "bussin",
@@ -2636,7 +2794,9 @@
    "region": "US",
    "era": "gen-z",
    "expr": "love",
-   "theme": "food"
+   "theme": "food",
+   "vi_hook": "Mì Ý của mẹ tối nay ngon dữ!",
+   "vi_ex": "Mì Ý của mẹ tối nay bussin luôn."
   },
   {
    "key": "cheat day",
@@ -2668,7 +2828,9 @@
    "region": "US",
    "era": "modern",
    "expr": "smug",
-   "theme": "food"
+   "theme": "food",
+   "vi_hook": "Thứ Bảy. Ăn kiêng gì cơ?",
+   "vi_ex": "Thứ Bảy là cheat day của tui."
   },
   {
    "key": "chef's kiss",
@@ -2702,7 +2864,9 @@
    "region": "global",
    "era": "modern",
    "expr": "love",
-   "theme": "food"
+   "theme": "food",
+   "vi_hook": "Nếm thử đi rồi nói tui nghe!",
+   "vi_ex": "Món súp này chef's kiss luôn."
   },
   {
    "key": "comfort food",
@@ -2736,7 +2900,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "love",
-   "theme": "food"
+   "theme": "food",
+   "vi_hook": "Buồn hả? Có súp nóng nè!",
+   "vi_ex": "Súp nóng là comfort food của tui."
   },
   {
    "key": "dig in",
@@ -2768,7 +2934,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "hype",
-   "theme": "food"
+   "theme": "food",
+   "vi_hook": "Cơm xong rồi. Ai đói nào?",
+   "vi_ex": "Cơm xong rồi nè, dig in đi!"
   },
   {
    "key": "foodie",
@@ -2800,7 +2968,9 @@
    "region": "global",
    "era": "modern",
    "expr": "love",
-   "theme": "food"
+   "theme": "food",
+   "vi_hook": "Cổ review hết quán trong thành phố!",
+   "vi_ex": "Chị tui là foodie chính hiệu."
   },
   {
    "key": "grab a bite",
@@ -2834,7 +3004,9 @@
    "region": "US",
    "era": "evergreen",
    "expr": "hype",
-   "theme": "food"
+   "theme": "food",
+   "vi_hook": "Tan học rồi. Đói hông?",
+   "vi_ex": "Tan học đi grab a bite không?"
   },
   {
    "key": "hangry",
@@ -2866,7 +3038,9 @@
    "region": "global",
    "era": "modern",
    "expr": "furious",
-   "theme": "food"
+   "theme": "food",
+   "vi_hook": "Đói thì đừng nói chuyện với tui!",
+   "vi_ex": "Cho tui ăn đi, tui hangry rồi!"
   },
   {
    "key": "hit the spot",
@@ -2900,7 +3074,9 @@
    "region": "US",
    "era": "evergreen",
    "expr": "love",
-   "theme": "food"
+   "theme": "food",
+   "vi_hook": "Trời lạnh. Súp nóng. Đã ghê!",
+   "vi_ex": "Tô súp đó đúng là hit the spot."
   },
   {
    "key": "I'm starving",
@@ -2934,7 +3110,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "sad",
-   "theme": "food"
+   "theme": "food",
+   "vi_hook": "Bỏ bữa trưa rồi. Tối ăn gì?",
+   "vi_ex": "I'm starving! Tối ăn gì vậy?"
   },
   {
    "key": "pig out",
@@ -2968,7 +3146,9 @@
    "region": "US",
    "era": "evergreen",
    "expr": "laugh",
-   "theme": "food"
+   "theme": "food",
+   "vi_hook": "Cả cái pizza biến mất rồi!",
+   "vi_ex": "Tối qua tụi tui pigged out pizza luôn."
   },
   {
    "key": "anytime",
@@ -3000,7 +3180,9 @@
    "region": "US",
    "era": "evergreen",
    "expr": "love",
-   "theme": "friends"
+   "theme": "friends",
+   "vi_hook": "Cảm ơn đã chở tui nha!",
+   "vi_ex": "Cảm ơn đã chở nha! Anytime."
   },
   {
    "key": "bestie",
@@ -3034,7 +3216,9 @@
    "region": "global",
    "era": "modern",
    "expr": "love",
-   "theme": "friends"
+   "theme": "friends",
+   "vi_hook": "Ai biết hết bí mật của bạn?",
+   "vi_ex": "Bestie với tui mê taco lắm."
   },
   {
    "key": "bro",
@@ -3066,7 +3250,9 @@
    "region": "US",
    "era": "modern",
    "expr": "smug",
-   "theme": "friends"
+   "theme": "friends",
+   "vi_hook": "Cảm ơn đã cứu bài tập tui!",
+   "vi_ex": "Cảm ơn bro, bạn cứu tui rồi!"
   },
   {
    "key": "buddy",
@@ -3100,7 +3286,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "love",
-   "theme": "friends"
+   "theme": "friends",
+   "vi_hook": "Ai học chung với bạn mỗi tối?",
+   "vi_ex": "Ổng là study buddy của tui."
   },
   {
    "key": "catch you later",
@@ -3132,7 +3320,9 @@
    "region": "US",
    "era": "evergreen",
    "expr": "hype",
-   "theme": "friends"
+   "theme": "friends",
+   "vi_hook": "Phải đi rồi. Vô học rồi!",
+   "vi_ex": "Catch you later, tui phải đi rồi!"
   },
   {
    "key": "cheers",
@@ -3166,7 +3356,9 @@
    "region": "UK",
    "era": "evergreen",
    "expr": "love",
-   "theme": "friends"
+   "theme": "friends",
+   "vi_hook": "Ổng giữ cửa cho mình. Nói cảm ơn đi!",
+   "vi_ex": "Cheers vì đã cho đi nhờ nha!"
   },
   {
    "key": "chill",
@@ -3200,7 +3392,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "shrug",
-   "theme": "friends"
+   "theme": "friends",
+   "vi_hook": "Chủ nhật mưa. Không có kế hoạch. Quá đã!",
+   "vi_ex": "Hôm nay tui chỉ chill ở nhà thôi."
   },
   {
    "key": "clingy",
@@ -3232,7 +3426,9 @@
    "region": "global",
    "era": "modern",
    "expr": "smirk",
-   "theme": "friends"
+   "theme": "friends",
+   "vi_hook": "Cổ nhắn tui mỗi năm phút!",
+   "vi_ex": "Con cún của tui clingy ghê."
   },
   {
    "key": "dude",
@@ -3264,7 +3460,9 @@
    "region": "US",
    "era": "evergreen",
    "expr": "shock",
-   "theme": "friends"
+   "theme": "friends",
+   "vi_hook": "Bạn không tin nổi chuyện gì xảy ra đâu!",
+   "vi_ex": "Dude, bạn sẽ không tin nổi đâu!"
   },
   {
    "key": "fam",
@@ -3296,7 +3494,9 @@
    "region": "US",
    "era": "modern",
    "expr": "love",
-   "theme": "friends"
+   "theme": "friends",
+   "vi_hook": "Hội của bạn ở trường là ai?",
+   "vi_ex": "Sao rồi, fam?"
   },
   {
    "key": "ghost",
@@ -3331,7 +3531,9 @@
    "region": "US",
    "era": "modern",
    "expr": "sad",
-   "theme": "friends"
+   "theme": "friends",
+   "vi_hook": "Ba tin nhắn. Không ai trả lời. Sao vậy?",
+   "vi_ex": "Tuần trước ổng ghosted cái group chat của tụi mình."
   },
   {
    "key": "hang out",
@@ -3366,7 +3568,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "love",
-   "theme": "friends"
+   "theme": "friends",
+   "vi_hook": "Cuối tuần rảnh không? Đi chơi đi!",
+   "vi_ex": "Cuối tuần này bạn có muốn hang out không?"
   },
   {
    "key": "long story short",
@@ -3398,7 +3602,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "shrug",
-   "theme": "friends"
+   "theme": "friends",
+   "vi_hook": "Đừng hỏi sao xe đạp tui hư!",
+   "vi_ex": "Long story short, xe đạp tui hư rồi."
   },
   {
    "key": "mate",
@@ -3432,7 +3638,9 @@
    "region": "UK",
    "era": "evergreen",
    "expr": "love",
-   "theme": "friends"
+   "theme": "friends",
+   "vi_hook": "Bạn người London của bạn là ai?",
+   "vi_ex": "Cheers, mate, mai gặp nha!"
   },
   {
    "key": "mixed signals",
@@ -3464,7 +3672,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "confused",
-   "theme": "friends"
+   "theme": "friends",
+   "vi_hook": "Ổng thích tui? Ổng lơ tui?",
+   "vi_ex": "Ổng gửi mixed signals về chuyến đi."
   },
   {
    "key": "my pleasure",
@@ -3496,7 +3706,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "love",
-   "theme": "friends"
+   "theme": "friends",
+   "vi_hook": "Cảm ơn đã giúp xách đồ!",
+   "vi_ex": "Cảm ơn nha! My pleasure."
   },
   {
    "key": "no problem",
@@ -3528,7 +3740,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "smug",
-   "theme": "friends"
+   "theme": "friends",
+   "vi_hook": "Cảm ơn đã giữ cửa!",
+   "vi_ex": "No problem, vui lòng giúp mà."
   },
   {
    "key": "OG",
@@ -3562,7 +3776,9 @@
    "region": "US",
    "era": "modern",
    "expr": "proud",
-   "theme": "friends"
+   "theme": "friends",
+   "vi_hook": "Ai vô câu lạc bộ mình đầu tiên?",
+   "vi_ex": "Ổng là thành viên OG của câu lạc bộ tụi tui."
   },
   {
    "key": "read the room",
@@ -3594,7 +3810,9 @@
    "region": "US",
    "era": "modern",
    "expr": "deadpan",
-   "theme": "friends"
+   "theme": "friends",
+   "vi_hook": "Ai cũng buồn mà ổng cứ đùa!",
+   "vi_ex": "Read the room trước khi kể chuyện đó nha."
   },
   {
    "key": "roast",
@@ -3628,7 +3846,9 @@
    "region": "US",
    "era": "modern",
    "expr": "laugh",
-   "theme": "friends"
+   "theme": "friends",
+   "vi_hook": "Tụi bạn chọc cái nón tui. Thương thôi!",
+   "vi_ex": "Tụi bạn roasted cái nón của tui."
   },
   {
    "key": "see you around",
@@ -3660,7 +3880,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "love",
-   "theme": "friends"
+   "theme": "friends",
+   "vi_hook": "Nói chuyện vui ghê. Tạm biệt nha!",
+   "vi_ex": "Gặp bạn vui lắm, see you around!"
   },
   {
    "key": "squad",
@@ -3694,7 +3916,9 @@
    "region": "global",
    "era": "modern",
    "expr": "proud",
-   "theme": "friends"
+   "theme": "friends",
+   "vi_hook": "Ai đi chơi bowling với bạn?",
+   "vi_ex": "Squad của tui đi chơi bowling nè."
   },
   {
    "key": "take it easy",
@@ -3726,7 +3950,9 @@
    "region": "US",
    "era": "evergreen",
    "expr": "love",
-   "theme": "friends"
+   "theme": "friends",
+   "vi_hook": "Tuần dài quá. Cuối tuần có kế hoạch gì không?",
+   "vi_ex": "Cuối tuần này take it easy nha."
   },
   {
    "key": "third wheel",
@@ -3760,7 +3986,9 @@
    "region": "US",
    "era": "evergreen",
    "expr": "cringe",
-   "theme": "friends"
+   "theme": "friends",
+   "vi_hook": "Hai bạn hẹn hò. Tui cũng đi theo!",
+   "vi_ex": "Tui thấy mình như third wheel vậy."
   },
   {
    "key": "vibe check",
@@ -3792,7 +4020,9 @@
    "region": "US",
    "era": "gen-z",
    "expr": "smirk",
-   "theme": "friends"
+   "theme": "friends",
+   "vi_hook": "Nhạc này ổn không?",
+   "vi_ex": "Vibe check nhanh: nhạc này ổn không?"
   },
   {
    "key": "vibing",
@@ -3826,7 +4056,9 @@
    "region": "global",
    "era": "modern",
    "expr": "love",
-   "theme": "friends"
+   "theme": "friends",
+   "vi_hook": "Bật nhạc, không kế hoạch, vui ghê!",
+   "vi_ex": "Hôm nay tụi tui chỉ vibing với nhạc thôi."
   },
   {
    "key": "you've got this",
@@ -3858,7 +4090,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "proud",
-   "theme": "friends"
+   "theme": "friends",
+   "vi_hook": "Mai thi lớn. Tui sợ quá!",
+   "vi_ex": "Hít thở sâu, you've got this!"
   },
   {
    "key": "AFK",
@@ -3892,7 +4126,9 @@
    "region": "global",
    "era": "modern",
    "expr": "shrug",
-   "theme": "gaming"
+   "theme": "gaming",
+   "vi_hook": "Năm phút nữa tui quay lại!",
+   "vi_ex": "Brb, tui sẽ AFK năm phút."
   },
   {
    "key": "big W",
@@ -3926,7 +4162,9 @@
    "region": "US",
    "era": "gen-z",
    "expr": "hype",
-   "theme": "gaming"
+   "theme": "gaming",
+   "vi_hook": "Bạn đậu bài thi hả? Trời ơi!",
+   "vi_ex": "Bạn đậu bài thi hả? Big W!"
   },
   {
    "key": "carry",
@@ -3961,7 +4199,9 @@
    "region": "global",
    "era": "modern",
    "expr": "proud",
-   "theme": "gaming"
+   "theme": "gaming",
+   "vi_hook": "Cổ thắng trận một mình luôn!",
+   "vi_ex": "Mia carried tụi mình ở vòng chung kết."
   },
   {
    "key": "clutch",
@@ -3993,7 +4233,9 @@
    "region": "US",
    "era": "modern",
    "expr": "proud",
-   "theme": "gaming"
+   "theme": "gaming",
+   "vi_hook": "Bàn thắng phút chót quyết định luôn!",
+   "vi_ex": "Bàn thắng phút chót đó clutch quá."
   },
   {
    "key": "epic win",
@@ -4027,7 +4269,9 @@
    "region": "global",
    "era": "modern",
    "expr": "hype",
-   "theme": "gaming"
+   "theme": "gaming",
+   "vi_hook": "Bàn thắng giây chót. Tụi mình thắng!",
+   "vi_ex": "Tụi tui ghi bàn giây chót. Epic win!"
   },
   {
    "key": "GG",
@@ -4059,7 +4303,9 @@
    "region": "global",
    "era": "modern",
    "expr": "love",
-   "theme": "gaming"
+   "theme": "gaming",
+   "vi_hook": "Trận vừa kết thúc. Tôn trọng không?",
+   "vi_ex": "GG, trận đó vui ghê!"
   },
   {
    "key": "grind",
@@ -4093,7 +4339,9 @@
    "region": "global",
    "era": "modern",
    "expr": "deadpan",
-   "theme": "gaming"
+   "theme": "gaming",
+   "vi_hook": "Dậy lúc năm giờ. Lại nữa. Sao vậy?",
+   "vi_ex": "Tui đang grinding để lên cấp năm mươi."
   },
   {
    "key": "lag",
@@ -4127,7 +4375,9 @@
    "region": "global",
    "era": "modern",
    "expr": "furious",
-   "theme": "gaming"
+   "theme": "gaming",
+   "vi_hook": "Game của tui đơ mỗi giây!",
+   "vi_ex": "Lag quá trời, tui chơi không nổi."
   },
   {
    "key": "level up",
@@ -4161,7 +4411,9 @@
    "region": "global",
    "era": "modern",
    "expr": "proud",
-   "theme": "gaming"
+   "theme": "gaming",
+   "vi_hook": "Đến lúc nấu ăn giỏi hơn rồi!",
+   "vi_ex": "Tui muốn level up khả năng nấu ăn."
   },
   {
    "key": "noob",
@@ -4195,7 +4447,9 @@
    "region": "global",
    "era": "modern",
    "expr": "cringe",
-   "theme": "gaming"
+   "theme": "gaming",
+   "vi_hook": "Nó mới chơi, bấm lung tung!",
+   "vi_ex": "Tui là noob, nên làm ơn kiên nhẫn nha."
   },
   {
    "key": "NPC",
@@ -4229,7 +4483,9 @@
    "region": "US",
    "era": "gen-z",
    "expr": "deadpan",
-   "theme": "gaming"
+   "theme": "gaming",
+   "vi_hook": "Cổ lặp lại một câu mỗi ngày!",
+   "vi_ex": "Làm việc nhà tui thấy mình như NPC vậy."
   },
   {
    "key": "OP",
@@ -4263,7 +4519,9 @@
    "region": "global",
    "era": "modern",
    "expr": "shock",
-   "theme": "gaming"
+   "theme": "gaming",
+   "vi_hook": "Cây kiếm đó mạnh hơn mọi cây khác!",
+   "vi_ex": "Cây kiếm mới đó OP thật sự."
   },
   {
    "key": "rage quit",
@@ -4298,7 +4556,9 @@
    "region": "global",
    "era": "modern",
    "expr": "furious",
-   "theme": "gaming"
+   "theme": "gaming",
+   "vi_hook": "Ổng thua rồi tắt hết luôn!",
+   "vi_ex": "Ổng rage quit sau khi thua."
   },
   {
    "key": "sus",
@@ -4330,7 +4590,9 @@
    "region": "US",
    "era": "gen-z",
    "expr": "smirk",
-   "theme": "gaming"
+   "theme": "gaming",
+   "vi_hook": "Bạn đứng cạnh hũ bánh quy mà!",
+   "vi_ex": "Bạn đứng cạnh hũ bánh quy. Hơi sus nha."
   },
   {
    "key": "take the L",
@@ -4364,7 +4626,9 @@
    "region": "US",
    "era": "gen-z",
    "expr": "smirk",
-   "theme": "gaming"
+   "theme": "gaming",
+   "vi_hook": "Thua rồi. Chịu nhận chưa?",
+   "vi_ex": "Bạn thua rồi, nên cứ take the L đi."
   },
   {
    "key": "beats me",
@@ -4396,7 +4660,9 @@
    "region": "US",
    "era": "evergreen",
    "expr": "shrug",
-   "theme": "honesty"
+   "theme": "honesty",
+   "vi_hook": "Chìa khóa đâu rồi?",
+   "vi_ex": "Chìa khóa đâu? Beats me."
   },
   {
    "key": "hot take",
@@ -4430,7 +4696,9 @@
    "region": "US",
    "era": "modern",
    "expr": "smirk",
-   "theme": "honesty"
+   "theme": "honesty",
+   "vi_hook": "Pizza dứa là ngon nhất!",
+   "vi_ex": "Hot take nè: dứa hợp với pizza đó."
   },
   {
    "key": "just kidding",
@@ -4464,7 +4732,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "smirk",
-   "theme": "honesty"
+   "theme": "honesty",
+   "vi_hook": "Tui ăn bánh của bạn rồi!",
+   "vi_ex": "Tui ăn bánh của bạn rồi! Just kidding."
   },
   {
    "key": "legit",
@@ -4496,7 +4766,9 @@
    "region": "global",
    "era": "modern",
    "expr": "deadpan",
-   "theme": "honesty"
+   "theme": "honesty",
+   "vi_hook": "Shop này thiệt không?",
+   "vi_ex": "Shop này legit nha, chị tui mua giày ở đó."
   },
   {
    "key": "ngl",
@@ -4530,7 +4802,9 @@
    "region": "US",
    "era": "gen-z",
    "expr": "smirk",
-   "theme": "honesty"
+   "theme": "honesty",
+   "vi_hook": "Nói thiệt phim đó sao?",
+   "vi_ex": "Ngl, tui mê phim đó lắm."
   },
   {
    "key": "no cap",
@@ -4562,7 +4836,9 @@
    "region": "US",
    "era": "gen-z",
    "expr": "smug",
-   "theme": "honesty"
+   "theme": "honesty",
+   "vi_hook": "Pizza ngon nhất phố. Tin tui không?",
+   "vi_ex": "Pizza này ngon nhất phố luôn, no cap."
   },
   {
    "key": "no clue",
@@ -4594,7 +4870,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "confused",
-   "theme": "honesty"
+   "theme": "honesty",
+   "vi_hook": "Tối nay mình nấu gì đây?",
+   "vi_ex": "Tui no clue nấu gì luôn."
   },
   {
    "key": "no offense",
@@ -4626,7 +4904,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "cringe",
-   "theme": "honesty"
+   "theme": "honesty",
+   "vi_hook": "Tui nói thiệt được không?",
+   "vi_ex": "No offense, nhưng tui thích cái màu đỏ hơn."
   },
   {
    "key": "no strings attached",
@@ -4658,7 +4938,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "smug",
-   "theme": "honesty"
+   "theme": "honesty",
+   "vi_hook": "Quà free. Có bẫy gì không?",
+   "vi_ex": "Quà tặng free, no strings attached nha."
   },
   {
    "key": "off the record",
@@ -4690,7 +4972,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "smirk",
-   "theme": "honesty"
+   "theme": "honesty",
+   "vi_hook": "Hứa là đừng kể ai nha!",
+   "vi_ex": "Off the record nha, tui thích cái màu đỏ."
   },
   {
    "key": "sketchy",
@@ -4722,7 +5006,9 @@
    "region": "US",
    "era": "modern",
    "expr": "panic",
-   "theme": "honesty"
+   "theme": "honesty",
+   "vi_hook": "Link lạ, tặng điện thoại free, hmm?",
+   "vi_ex": "Trang web này nhìn sketchy quá, tui đóng luôn."
   },
   {
    "key": "that's cap",
@@ -4756,7 +5042,9 @@
    "region": "US",
    "era": "gen-z",
    "expr": "smirk",
-   "theme": "honesty"
+   "theme": "honesty",
+   "vi_hook": "Hôm qua tui chạy marathon đó!",
+   "vi_ex": "Hôm qua bạn chạy marathon á? That's cap."
   },
   {
    "key": "the real deal",
@@ -4788,7 +5076,9 @@
    "region": "US",
    "era": "evergreen",
    "expr": "proud",
-   "theme": "honesty"
+   "theme": "honesty",
+   "vi_hook": "Shop này có thật sự ngon không?",
+   "vi_ex": "Shop này là the real deal luôn."
   },
   {
    "key": "to be honest",
@@ -4822,7 +5112,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "smirk",
-   "theme": "honesty"
+   "theme": "honesty",
+   "vi_hook": "Bạn thích cái nào hơn?",
+   "vi_ex": "To be honest, tui thích cái đầu tiên hơn."
   },
   {
    "key": "unpopular opinion",
@@ -4856,7 +5148,9 @@
    "region": "global",
    "era": "modern",
    "expr": "smirk",
-   "theme": "honesty"
+   "theme": "honesty",
+   "vi_hook": "Ai cũng ghét thứ Hai. Bạn thì sao?",
+   "vi_ex": "Unpopular opinion: thứ Hai cũng ổn mà."
   },
   {
    "key": "back to square one",
@@ -4890,7 +5184,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "sad",
-   "theme": "mistakes"
+   "theme": "mistakes",
+   "vi_hook": "Kế hoạch toang rồi. Giờ sao?",
+   "vi_ex": "Kế hoạch toang rồi. Back to square one."
   },
   {
    "key": "blooper",
@@ -4924,7 +5220,9 @@
    "region": "US",
    "era": "evergreen",
    "expr": "laugh",
-   "theme": "mistakes"
+   "theme": "mistakes",
+   "vi_hook": "Ổng vấp té trong vở kịch trường!",
+   "vi_ex": "Cái blooper đó làm cả lớp cười ngặt nghẽo."
   },
   {
    "key": "cooked",
@@ -4956,7 +5254,9 @@
    "region": "US",
    "era": "gen-z",
    "expr": "panic",
-   "theme": "mistakes"
+   "theme": "mistakes",
+   "vi_hook": "Tui quên bài ghi chú rồi. Toang!",
+   "vi_ex": "Tui quên ghi chú rồi. I'm cooked."
   },
   {
    "key": "cut me some slack",
@@ -4991,7 +5291,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "cringe",
-   "theme": "mistakes"
+   "theme": "mistakes",
+   "vi_hook": "Tui mới vô. Nhẹ tay nha!",
+   "vi_ex": "Cut me some slack, tui mới vô mà."
   },
   {
    "key": "epic fail",
@@ -5023,7 +5325,9 @@
    "region": "global",
    "era": "modern",
    "expr": "laugh",
-   "theme": "mistakes"
+   "theme": "mistakes",
+   "vi_hook": "Bánh của tui xẹp. Ai cũng thấy!",
+   "vi_ex": "Bánh tui xẹp lép. Epic fail thiệt sự!"
   },
   {
    "key": "facepalm",
@@ -5057,7 +5361,9 @@
    "region": "global",
    "era": "modern",
    "expr": "cringe",
-   "theme": "mistakes"
+   "theme": "mistakes",
+   "vi_hook": "Ổng đi tìm điện thoại hoài!",
+   "vi_ex": "Điện thoại nằm ngay trong tay. Facepalm!"
   },
   {
    "key": "my bad",
@@ -5089,7 +5395,9 @@
    "region": "US",
    "era": "evergreen",
    "expr": "panic",
-   "theme": "mistakes"
+   "theme": "mistakes",
+   "vi_hook": "Tui quên sách của bạn. Xin lỗi nha?",
+   "vi_ex": "My bad, tui quên sách của bạn rồi."
   },
   {
    "key": "my fault",
@@ -5121,7 +5429,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "sad",
-   "theme": "mistakes"
+   "theme": "mistakes",
+   "vi_hook": "Ai làm đổ nước ép vậy?",
+   "vi_ex": "Đó là my fault, tui xin lỗi."
   },
   {
    "key": "no big deal",
@@ -5153,7 +5463,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "shrug",
-   "theme": "mistakes"
+   "theme": "mistakes",
+   "vi_hook": "Xin lỗi tui trễ!",
+   "vi_ex": "It's no big deal mà, thiệt đó."
   },
   {
    "key": "no worries",
@@ -5185,7 +5497,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "shrug",
-   "theme": "mistakes"
+   "theme": "mistakes",
+   "vi_hook": "Xin lỗi, tui làm đổ một giọt!",
+   "vi_ex": "No worries, chỉ là vết nhỏ thôi."
   },
   {
    "key": "slip up",
@@ -5219,7 +5533,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "panic",
-   "theme": "mistakes"
+   "theme": "mistakes",
+   "vi_hook": "Lại quên chìa khóa nữa!",
+   "vi_ex": "Tui slipped up nên quên chìa khóa."
   },
   {
    "key": "arm and a leg",
@@ -5253,7 +5569,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "shock",
-   "theme": "money"
+   "theme": "money",
+   "vi_hook": "Nhìn giá cái áo khoác này đi!",
+   "vi_ex": "Cái áo khoác này giá an arm and a leg luôn."
   },
   {
    "key": "ballpark figure",
@@ -5287,7 +5605,9 @@
    "region": "US",
    "era": "evergreen",
    "expr": "shrug",
-   "theme": "money"
+   "theme": "money",
+   "vi_hook": "Chắc tốn bao nhiêu vậy?",
+   "vi_ex": "Cho tui ballpark figure đi."
   },
   {
    "key": "bougie",
@@ -5319,7 +5639,9 @@
    "region": "US",
    "era": "modern",
    "expr": "smirk",
-   "theme": "money"
+   "theme": "money",
+   "vi_hook": "Cổ chỉ uống trà sang chảnh!",
+   "vi_ex": "Quán cà phê này bougie ghê."
   },
   {
    "key": "break the bank",
@@ -5353,7 +5675,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "shock",
-   "theme": "money"
+   "theme": "money",
+   "vi_hook": "Bữa trưa mắc quá hả?",
+   "vi_ex": "Đừng lo, bữa trưa này sẽ không break the bank đâu."
   },
   {
    "key": "chip in",
@@ -5387,7 +5711,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "love",
-   "theme": "money"
+   "theme": "money",
+   "vi_hook": "Mua quà cho cổ? Ai chung không?",
+   "vi_ex": "Mọi người chip in mua quà cho cổ nha."
   },
   {
    "key": "flat broke",
@@ -5421,7 +5747,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "sad",
-   "theme": "money"
+   "theme": "money",
+   "vi_hook": "Cho tui mượn mười đô được không?",
+   "vi_ex": "Tui flat broke tới thứ Sáu luôn."
   },
   {
    "key": "it's a steal",
@@ -5455,7 +5783,9 @@
    "region": "US",
    "era": "evergreen",
    "expr": "hype",
-   "theme": "money"
+   "theme": "money",
+   "vi_hook": "Mười đô cho cái áo này á?",
+   "vi_ex": "Mười đô á? It's a steal!"
   },
   {
    "key": "my treat",
@@ -5487,7 +5817,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "proud",
-   "theme": "money"
+   "theme": "money",
+   "vi_hook": "Đừng móc ví ra nha!",
+   "vi_ex": "Đừng lo, tối nay my treat."
   },
   {
    "key": "on the house",
@@ -5519,7 +5851,9 @@
    "region": "US",
    "era": "evergreen",
    "expr": "love",
-   "theme": "money"
+   "theme": "money",
+   "vi_hook": "Bất ngờ chưa! Hôm nay tráng miệng miễn phí!",
+   "vi_ex": "Hôm nay món tráng miệng on the house nha!"
   },
   {
    "key": "penny-pincher",
@@ -5553,7 +5887,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "smirk",
-   "theme": "money"
+   "theme": "money",
+   "vi_hook": "Ổng đếm từng đồng hai lần!",
+   "vi_ex": "Ba tui là penny-pincher chính hiệu."
   },
   {
    "key": "splurge",
@@ -5587,7 +5923,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "smug",
-   "theme": "money"
+   "theme": "money",
+   "vi_hook": "Bữa tối sang chảnh. Chỉ lần này thôi!",
+   "vi_ex": "Tui splurged một bữa tối thật ngon."
   },
   {
    "key": "tight on cash",
@@ -5621,7 +5959,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "shrug",
-   "theme": "money"
+   "theme": "money",
+   "vi_hook": "Mình bỏ qua đi nhà hàng được không?",
+   "vi_ex": "Tháng này tui tight on cash lắm."
   },
   {
    "key": "worth it",
@@ -5653,7 +5993,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "proud",
-   "theme": "money"
+   "theme": "money",
+   "vi_hook": "Xếp hàng hai tiếng. Vẫn ngon chứ?",
+   "vi_ex": "Xếp hàng lâu nhưng worth it."
   },
   {
    "key": "by the way",
@@ -5687,7 +6029,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "shrug",
-   "theme": "plans"
+   "theme": "plans",
+   "vi_hook": "À, còn một chuyện nữa!",
+   "vi_ex": "By the way, tiệc bắt đầu lúc bảy giờ nha."
   },
   {
    "key": "count me in",
@@ -5719,7 +6063,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "hype",
-   "theme": "plans"
+   "theme": "plans",
+   "vi_hook": "Tối chơi game ở nhà tui nè!",
+   "vi_ex": "Tối chơi game hả? Count me in!"
   },
   {
    "key": "count me out",
@@ -5751,7 +6097,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "shrug",
-   "theme": "plans"
+   "theme": "plans",
+   "vi_hook": "Đi xem suất chiếu khuya không?",
+   "vi_ex": "Tui mệt rồi, count me out nha."
   },
   {
    "key": "drop by",
@@ -5785,7 +6133,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "love",
-   "theme": "plans"
+   "theme": "plans",
+   "vi_hook": "Tuần này ghé nhà tui lúc nào cũng được!",
+   "vi_ex": "Cứ drop by lúc nào cũng được nha."
   },
   {
    "key": "game plan",
@@ -5817,7 +6167,9 @@
    "region": "US",
    "era": "evergreen",
    "expr": "smug",
-   "theme": "plans"
+   "theme": "plans",
+   "vi_hook": "Mai thi rồi. Bắt đầu từ đâu đây?",
+   "vi_ex": "Vậy game plan là gì đây?"
   },
   {
    "key": "hit me up",
@@ -5849,7 +6201,9 @@
    "region": "US",
    "era": "evergreen",
    "expr": "smirk",
-   "theme": "plans"
+   "theme": "plans",
+   "vi_hook": "Cần giúp không? Tui rảnh nè!",
+   "vi_ex": "Cần giúp thì hit me up nha."
   },
   {
    "key": "last minute",
@@ -5881,7 +6235,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "panic",
-   "theme": "plans"
+   "theme": "plans",
+   "vi_hook": "Tiệc bắt đầu sau mười phút nữa!",
+   "vi_ex": "Đó là quyết định last minute."
   },
   {
    "key": "let's roll",
@@ -5915,7 +6271,9 @@
    "region": "US",
    "era": "evergreen",
    "expr": "hype",
-   "theme": "plans"
+   "theme": "plans",
+   "vi_hook": "Balo đeo rồi. Ai sẵn sàng chưa?",
+   "vi_ex": "Balo lên vai, let's roll!"
   },
   {
    "key": "no rush",
@@ -5947,7 +6305,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "love",
-   "theme": "plans"
+   "theme": "plans",
+   "vi_hook": "Hôm nay gửi được không?",
+   "vi_ex": "No rush, mai gửi cũng được."
   },
   {
    "key": "on the fence",
@@ -5979,7 +6339,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "confused",
-   "theme": "plans"
+   "theme": "plans",
+   "vi_hook": "Đi hay không đi, hmm?",
+   "vi_ex": "Tui on the fence về chuyến đi này."
   },
   {
    "key": "play it by ear",
@@ -6011,7 +6373,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "shrug",
-   "theme": "plans"
+   "theme": "plans",
+   "vi_hook": "Chưa có kế hoạch gì. Ai có ý tưởng không?",
+   "vi_ex": "Cứ play it by ear đi."
   },
   {
    "key": "rain check",
@@ -6045,7 +6409,9 @@
    "region": "US",
    "era": "evergreen",
    "expr": "shrug",
-   "theme": "plans"
+   "theme": "plans",
+   "vi_hook": "Mai gặp thay được không?",
+   "vi_ex": "Cho tui rain check nha? Tui có bài tập."
   },
   {
    "key": "sounds like a plan",
@@ -6077,7 +6443,9 @@
    "region": "US",
    "era": "evergreen",
    "expr": "hype",
-   "theme": "plans"
+   "theme": "plans",
+   "vi_hook": "Pizza rồi xem phim hả?",
+   "vi_ex": "Pizza rồi xem phim hả? Sounds like a plan!"
   },
   {
    "key": "swing by",
@@ -6109,7 +6477,9 @@
    "region": "US",
    "era": "evergreen",
    "expr": "smirk",
-   "theme": "plans"
+   "theme": "plans",
+   "vi_hook": "Lát bạn ghé qua được không?",
+   "vi_ex": "Tan học tui swing by nha."
   },
   {
    "key": "tag along",
@@ -6143,7 +6513,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "hype",
-   "theme": "plans"
+   "theme": "plans",
+   "vi_hook": "Cho tui đi cùng với!",
+   "vi_ex": "Cho tui tag along đi xem phim được không?"
   },
   {
    "key": "up in the air",
@@ -6175,7 +6547,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "confused",
-   "theme": "plans"
+   "theme": "plans",
+   "vi_hook": "Chuyến đi của mình có đi không?",
+   "vi_ex": "Chuyến đi của tụi mình vẫn còn up in the air."
   },
   {
    "key": "awesome",
@@ -6207,7 +6581,9 @@
    "region": "US",
    "era": "evergreen",
    "expr": "hype",
-   "theme": "praise"
+   "theme": "praise",
+   "vi_hook": "Bạn lấy được vé free cho tụi mình hả?",
+   "vi_ex": "Bạn lấy vé free cho tụi mình hả? Awesome luôn!"
   },
   {
    "key": "banger",
@@ -6241,7 +6617,9 @@
    "region": "global",
    "era": "modern",
    "expr": "hype",
-   "theme": "praise"
+   "theme": "praise",
+   "vi_hook": "Mở bài này to lên đi!",
+   "vi_ex": "Bài mới này đúng là banger!"
   },
   {
    "key": "class act",
@@ -6273,7 +6651,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "proud",
-   "theme": "praise"
+   "theme": "praise",
+   "vi_hook": "Ổng cảm ơn mọi người, cả đối thủ!",
+   "vi_ex": "Huấn luyện viên của tụi tui đúng là class act."
   },
   {
    "key": "crushing it",
@@ -6307,7 +6687,9 @@
    "region": "US",
    "era": "modern",
    "expr": "proud",
-   "theme": "praise"
+   "theme": "praise",
+   "vi_hook": "Tuần đầu đã top doanh số rồi!",
+   "vi_ex": "Bạn đang crushing it ở công việc mới đó!"
   },
   {
    "key": "fire",
@@ -6339,7 +6721,9 @@
    "region": "US",
    "era": "gen-z",
    "expr": "hype",
-   "theme": "praise"
+   "theme": "praise",
+   "vi_hook": "Nhìn đôi giày mới của tui đi!",
+   "vi_ex": "Đôi giày đó fire thiệt!"
   },
   {
    "key": "glow-up",
@@ -6374,7 +6758,9 @@
    "region": "US",
    "era": "gen-z",
    "expr": "love",
-   "theme": "praise"
+   "theme": "praise",
+   "vi_hook": "Năm ngoái so với năm nay!",
+   "vi_ex": "Wow, glow-up của bạn năm nay đỉnh quá."
   },
   {
    "key": "GOAT",
@@ -6408,7 +6794,9 @@
    "region": "global",
    "era": "modern",
    "expr": "proud",
-   "theme": "praise"
+   "theme": "praise",
+   "vi_hook": "Ai là số một mọi thời đại?",
+   "vi_ex": "Bà tui là GOAT nấu súp luôn."
   },
   {
    "key": "iconic",
@@ -6440,7 +6828,9 @@
    "region": "global",
    "era": "modern",
    "expr": "love",
-   "theme": "praise"
+   "theme": "praise",
+   "vi_hook": "Ai cũng nhớ cái áo khoác đỏ đó!",
+   "vi_ex": "Cái áo khoác đỏ đó iconic thiệt sự."
   },
   {
    "key": "legend",
@@ -6474,7 +6864,9 @@
    "region": "UK",
    "era": "evergreen",
    "expr": "love",
-   "theme": "praise"
+   "theme": "praise",
+   "vi_hook": "Bạn mang đồ ăn vặt cho cả bọn!",
+   "vi_ex": "Cảm ơn vì đồ ăn vặt nha, you're a legend!"
   },
   {
    "key": "main character energy",
@@ -6506,7 +6898,9 @@
    "region": "US",
    "era": "gen-z",
    "expr": "proud",
-   "theme": "praise"
+   "theme": "praise",
+   "vi_hook": "Cổ bước vô như ngôi sao!",
+   "vi_ex": "Cổ bước vào với main character energy."
   },
   {
    "key": "nailed it",
@@ -6541,7 +6935,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "proud",
-   "theme": "praise"
+   "theme": "praise",
+   "vi_hook": "Bài phát biểu của tui được vỗ tay đứng!",
+   "vi_ex": "I nailed it! Cô giáo vỗ tay luôn."
   },
   {
    "key": "on point",
@@ -6573,7 +6969,9 @@
    "region": "US",
    "era": "modern",
    "expr": "proud",
-   "theme": "praise"
+   "theme": "praise",
+   "vi_hook": "Tui chọn đúng đồ chưa?",
+   "vi_ex": "Tóc bạn hôm nay on point luôn."
   },
   {
    "key": "slay",
@@ -6608,7 +7006,9 @@
    "region": "US",
    "era": "gen-z",
    "expr": "hype",
-   "theme": "praise"
+   "theme": "praise",
+   "vi_hook": "Cổ vừa có bài phát biểu hay nhất!",
+   "vi_ex": "Bạn slayed bài phát biểu đó luôn!"
   },
   {
    "key": "stellar",
@@ -6640,7 +7040,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "proud",
-   "theme": "praise"
+   "theme": "praise",
+   "vi_hook": "Báo cáo của bạn được điểm tuyệt đối!",
+   "vi_ex": "Hôm nay bạn làm stellar luôn."
   },
   {
    "key": "that slaps",
@@ -6674,7 +7076,9 @@
    "region": "US",
    "era": "gen-z",
    "expr": "hype",
-   "theme": "praise"
+   "theme": "praise",
+   "vi_hook": "Mở bài mới này to lên!",
+   "vi_ex": "Mở to lên! Bài mới này đúng là slaps."
   },
   {
    "key": "top-notch",
@@ -6706,7 +7110,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "proud",
-   "theme": "praise"
+   "theme": "praise",
+   "vi_hook": "Dịch vụ tốt nhất tui từng gặp!",
+   "vi_ex": "Dịch vụ ở đây top-notch thiệt."
   },
   {
    "key": "underrated",
@@ -6738,7 +7144,9 @@
    "region": "global",
    "era": "modern",
    "expr": "love",
-   "theme": "praise"
+   "theme": "praise",
+   "vi_hook": "Sao không ai xem show này vậy?",
+   "vi_ex": "Show đó underrated quá trời."
   },
   {
    "key": "understood the assignment",
@@ -6772,7 +7180,9 @@
    "region": "US",
    "era": "gen-z",
    "expr": "proud",
-   "theme": "praise"
+   "theme": "praise",
+   "vi_hook": "Tiệc phim. Hóa trang cướp biển full bộ!",
+   "vi_ex": "Hóa trang cướp biển hả? Cổ understood the assignment."
   },
   {
    "key": "big mood",
@@ -6804,7 +7214,9 @@
    "region": "US",
    "era": "gen-z",
    "expr": "laugh",
-   "theme": "reactions"
+   "theme": "reactions",
+   "vi_hook": "Mèo ngủ gật. Y chang tâm trạng tui!",
+   "vi_ex": "Con mèo buồn ngủ đó là big mood."
   },
   {
    "key": "big yikes",
@@ -6838,7 +7250,9 @@
    "region": "US",
    "era": "gen-z",
    "expr": "cringe",
-   "theme": "reactions"
+   "theme": "reactions",
+   "vi_hook": "Mang vớ với dép xỏ ngón? Thiệt hả?",
+   "vi_ex": "Vớ với dép xỏ ngón? Big yikes."
   },
   {
    "key": "bruh",
@@ -6872,7 +7286,9 @@
    "region": "US",
    "era": "gen-z",
    "expr": "deadpan",
-   "theme": "reactions"
+   "theme": "reactions",
+   "vi_hook": "Bạn lại quên bài tập nữa hả?",
+   "vi_ex": "Bruh, bạn lại quên bài tập nữa hả?"
   },
   {
    "key": "bummer",
@@ -6904,7 +7320,9 @@
    "region": "US",
    "era": "evergreen",
    "expr": "sad",
-   "theme": "reactions"
+   "theme": "reactions",
+   "vi_hook": "Chuyến đi bị hủy. Trời ơi!",
+   "vi_ex": "Chuyến đi bị hủy hả? Bummer ghê."
   },
   {
    "key": "come again",
@@ -6936,7 +7354,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "confused",
-   "theme": "reactions"
+   "theme": "reactions",
+   "vi_hook": "Xin lỗi, nhạc to quá!",
+   "vi_ex": "Come again? Ở đây ồn quá."
   },
   {
    "key": "cracking up",
@@ -6971,7 +7391,9 @@
    "region": "US",
    "era": "evergreen",
    "expr": "laugh",
-   "theme": "reactions"
+   "theme": "reactions",
+   "vi_hook": "Câu đùa của ổng nhảm hết sức!",
+   "vi_ex": "Tụi tui cracking up vì câu đùa của ổng."
   },
   {
    "key": "cringe",
@@ -7003,7 +7425,9 @@
    "region": "US",
    "era": "modern",
    "expr": "cringe",
-   "theme": "reactions"
+   "theme": "reactions",
+   "vi_hook": "Hình hồi nhỏ của tui. Cứu!",
+   "vi_ex": "Hình đi học hồi xưa của tui cringe quá trời."
   },
   {
    "key": "easy peasy",
@@ -7035,7 +7459,9 @@
    "region": "UK",
    "era": "evergreen",
    "expr": "smug",
-   "theme": "reactions"
+   "theme": "reactions",
+   "vi_hook": "Làm bánh mì nướng khó cỡ nào?",
+   "vi_ex": "Nướng bánh mì easy peasy."
   },
   {
    "key": "extra",
@@ -7067,7 +7493,9 @@
    "region": "US",
    "era": "gen-z",
    "expr": "shock",
-   "theme": "reactions"
+   "theme": "reactions",
+   "vi_hook": "Cổ mang bóng bay tới nhóm học!",
+   "vi_ex": "Cổ mang bóng bay tới nhóm học. Extra quá."
   },
   {
    "key": "for real",
@@ -7099,7 +7527,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "shock",
-   "theme": "reactions"
+   "theme": "reactions",
+   "vi_hook": "Tui trúng một cái vé!",
+   "vi_ex": "Bạn trúng vé hả? For real?"
   },
   {
    "key": "hilarious",
@@ -7131,7 +7561,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "laugh",
-   "theme": "reactions"
+   "theme": "reactions",
+   "vi_hook": "Video đó làm tui cười ra nước mắt!",
+   "vi_ex": "Câu đùa đó hilarious luôn!"
   },
   {
    "key": "hot mess",
@@ -7163,7 +7595,9 @@
    "region": "US",
    "era": "modern",
    "expr": "cringe",
-   "theme": "reactions"
+   "theme": "reactions",
+   "vi_hook": "Hôm nay trễ giờ, lạc đường, chưa chuẩn bị!",
+   "vi_ex": "Hôm nay tui đúng là hot mess."
   },
   {
    "key": "I can't even",
@@ -7195,7 +7629,9 @@
    "region": "US",
    "era": "gen-z",
    "expr": "laugh",
-   "theme": "reactions"
+   "theme": "reactions",
+   "vi_hook": "Video chú cún đó! Cứu!",
+   "vi_ex": "Video chú cún đó hả? I can't even!"
   },
   {
    "key": "I'm dead",
@@ -7229,7 +7665,9 @@
    "region": "US",
    "era": "gen-z",
    "expr": "laugh",
-   "theme": "reactions"
+   "theme": "reactions",
+   "vi_hook": "Con mèo nhảy vô cái hộp!",
+   "vi_ex": "Con mèo nhảy vô cái hộp. I'm dead!"
   },
   {
    "key": "I'm weak",
@@ -7263,7 +7701,9 @@
    "region": "US",
    "era": "gen-z",
    "expr": "laugh",
-   "theme": "reactions"
+   "theme": "reactions",
+   "vi_hook": "Nhìn cái meme hài này nè!",
+   "vi_ex": "Cái meme đó hả? I'm weak!"
   },
   {
    "key": "mood",
@@ -7295,7 +7735,9 @@
    "region": "US",
    "era": "gen-z",
    "expr": "laugh",
-   "theme": "reactions"
+   "theme": "reactions",
+   "vi_hook": "Mèo ngủ cả ngày. Đồng cảm không?",
+   "vi_ex": "Con mèo ngủ đó hả? Total mood."
   },
   {
    "key": "neat",
@@ -7327,7 +7769,9 @@
    "region": "US",
    "era": "evergreen",
    "expr": "love",
-   "theme": "reactions"
+   "theme": "reactions",
+   "vi_hook": "Nhìn trò ảo thuật bài này nè!",
+   "vi_ex": "Đó là một mẹo neat đó!"
   },
   {
    "key": "no kidding",
@@ -7359,7 +7803,9 @@
    "region": "US",
    "era": "evergreen",
    "expr": "deadpan",
-   "theme": "reactions"
+   "theme": "reactions",
+   "vi_hook": "Mưa cả tuần luôn!",
+   "vi_ex": "No kidding, mưa cả tuần luôn."
   },
   {
    "key": "no way",
@@ -7391,7 +7837,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "shock",
-   "theme": "reactions"
+   "theme": "reactions",
+   "vi_hook": "Đoán xem? Vé concert free!",
+   "vi_ex": "No way! Bạn có vé thiệt hả?"
   },
   {
    "key": "oof",
@@ -7423,7 +7871,9 @@
    "region": "US",
    "era": "modern",
    "expr": "cringe",
-   "theme": "reactions"
+   "theme": "reactions",
+   "vi_hook": "Điểm thi của tui tệ quá. Cứu!",
+   "vi_ex": "Oof, bài thi đó khó thiệt!"
   },
   {
    "key": "out of the blue",
@@ -7455,7 +7905,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "shock",
-   "theme": "reactions"
+   "theme": "reactions",
+   "vi_hook": "Cổ gọi sau năm năm!",
+   "vi_ex": "Cổ gọi tui out of the blue luôn."
   },
   {
    "key": "savage",
@@ -7487,7 +7939,9 @@
    "region": "US",
    "era": "modern",
    "expr": "smug",
-   "theme": "reactions"
+   "theme": "reactions",
+   "vi_hook": "Câu đáp đó gắt quá!",
+   "vi_ex": "Câu đáp đó savage, mà hài."
   },
   {
    "key": "scratching my head",
@@ -7521,7 +7975,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "confused",
-   "theme": "reactions"
+   "theme": "reactions",
+   "vi_hook": "Câu đố này vô lý quá!",
+   "vi_ex": "Tui đang scratching my head với câu đố này."
   },
   {
    "key": "sheesh",
@@ -7553,7 +8009,9 @@
    "region": "US",
    "era": "gen-z",
    "expr": "shock",
-   "theme": "reactions"
+   "theme": "reactions",
+   "vi_hook": "Ổng làm xong nhanh dữ!",
+   "vi_ex": "Sheesh, bạn làm xong nhanh dữ!"
   },
   {
    "key": "shook",
@@ -7585,7 +8043,9 @@
    "region": "US",
    "era": "gen-z",
    "expr": "shock",
-   "theme": "reactions"
+   "theme": "reactions",
+   "vi_hook": "Tui được điểm tuyệt đối!",
+   "vi_ex": "Tui shook luôn, được điểm tuyệt đối!"
   },
   {
    "key": "side-eye",
@@ -7619,7 +8079,9 @@
    "region": "global",
    "era": "modern",
    "expr": "smirk",
-   "theme": "reactions"
+   "theme": "reactions",
+   "vi_hook": "Cổ liếc xéo tui. Sao vậy?",
+   "vi_ex": "Cổ liếc tui một cái side-eye."
   },
   {
    "key": "sweet",
@@ -7651,7 +8113,9 @@
    "region": "US",
    "era": "evergreen",
    "expr": "hype",
-   "theme": "reactions"
+   "theme": "reactions",
+   "vi_hook": "Tụi mình có ghế hàng đầu!",
+   "vi_ex": "Sweet! Tụi mình có ghế hàng đầu!"
   },
   {
    "key": "that's a riot",
@@ -7685,7 +8149,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "laugh",
-   "theme": "reactions"
+   "theme": "reactions",
+   "vi_hook": "Xem clip hài này nè!",
+   "vi_ex": "Video đó a riot luôn!"
   },
   {
    "key": "too funny",
@@ -7717,7 +8183,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "laugh",
-   "theme": "reactions"
+   "theme": "reactions",
+   "vi_hook": "Xem video chú cún này nè!",
+   "vi_ex": "Video chú cún too funny luôn."
   },
   {
    "key": "unhinged",
@@ -7749,7 +8217,9 @@
    "region": "US",
    "era": "gen-z",
    "expr": "laugh",
-   "theme": "reactions"
+   "theme": "reactions",
+   "vi_hook": "Mèo tui chạy như điên lúc nửa đêm!",
+   "vi_ex": "Mèo tui unhinged lúc nửa đêm."
   },
   {
    "key": "wait, what",
@@ -7781,7 +8251,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "confused",
-   "theme": "reactions"
+   "theme": "reactions",
+   "vi_hook": "Mai mới tiệc? Không phải hôm nay hả?",
+   "vi_ex": "Wait, what? Tiệc là ngày mai hả?"
   },
   {
    "key": "yeet",
@@ -7815,7 +8287,9 @@
    "region": "US",
    "era": "gen-z",
    "expr": "hype",
-   "theme": "reactions"
+   "theme": "reactions",
+   "vi_hook": "Quăng nó vô thùng rác đi!",
+   "vi_ex": "Tui yeeted tờ giấy vô thùng rác."
   },
   {
    "key": "ace",
@@ -7847,7 +8321,9 @@
    "region": "US",
    "era": "evergreen",
    "expr": "proud",
-   "theme": "school"
+   "theme": "school",
+   "vi_hook": "Ngày thi. Bạn làm bài sao rồi?",
+   "vi_ex": "Hôm nay tui ace bài thi lịch sử!"
   },
   {
    "key": "blank out",
@@ -7881,7 +8357,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "panic",
-   "theme": "school"
+   "theme": "school",
+   "vi_hook": "Đèn sân khấu bật lên. Đầu óc trống rỗng!",
+   "vi_ex": "Tui blanked out giữa bài thuyết trình."
   },
   {
    "key": "burn the midnight oil",
@@ -7916,7 +8394,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "deadpan",
-   "theme": "school"
+   "theme": "school",
+   "vi_hook": "Hai giờ sáng mà còn làm việc hả?",
+   "vi_ex": "Đêm qua tụi tui burned the midnight oil luôn."
   },
   {
    "key": "cram",
@@ -7951,7 +8431,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "panic",
-   "theme": "school"
+   "theme": "school",
+   "vi_hook": "Mai thi rồi. Tui chưa học gì hết!",
+   "vi_ex": "Tui phải cram môn toán."
   },
   {
    "key": "hit the books",
@@ -7985,7 +8467,9 @@
    "region": "US",
    "era": "evergreen",
    "expr": "panic",
-   "theme": "school"
+   "theme": "school",
+   "vi_hook": "Tuần sau thi cuối kỳ. Hoảng rồi!",
+   "vi_ex": "Tối nay tui phải hit the books."
   },
   {
    "key": "it's all Greek to me",
@@ -8019,7 +8503,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "confused",
-   "theme": "school"
+   "theme": "school",
+   "vi_hook": "Bài tập toán? Tui bó tay!",
+   "vi_ex": "Bài tập này all Greek to me."
   },
   {
    "key": "locked in",
@@ -8053,7 +8539,9 @@
    "region": "US",
    "era": "gen-z",
    "expr": "proud",
-   "theme": "school"
+   "theme": "school",
+   "vi_hook": "Tắt điện thoại. Bật chế độ viết luận!",
+   "vi_ex": "Tui locked in tới khi xong bài luận."
   },
   {
    "key": "over my head",
@@ -8085,7 +8573,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "confused",
-   "theme": "school"
+   "theme": "school",
+   "vi_hook": "Bài giảng khó quá rồi!",
+   "vi_ex": "Bài đó over my head luôn."
   },
   {
    "key": "piece of cake",
@@ -8119,7 +8609,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "smug",
-   "theme": "school"
+   "theme": "school",
+   "vi_hook": "Bài kiểm tra sao rồi?",
+   "vi_ex": "Bài kiểm tra đó piece of cake."
   },
   {
    "key": "pop quiz",
@@ -8151,7 +8643,9 @@
    "region": "US",
    "era": "evergreen",
    "expr": "shock",
-   "theme": "school"
+   "theme": "school",
+   "vi_hook": "Bất ngờ chưa! Lấy giấy ra!",
+   "vi_ex": "Hôm nay lớp toán có pop quiz."
   },
   {
    "key": "pull an all-nighter",
@@ -8186,7 +8680,9 @@
    "region": "US",
    "era": "evergreen",
    "expr": "panic",
-   "theme": "school"
+   "theme": "school",
+   "vi_hook": "Lại sáng rồi hả? Tui chưa ngủ!",
+   "vi_ex": "Tui pulled an all-nighter học môn khoa học."
   },
   {
    "key": "skip class",
@@ -8220,7 +8716,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "smirk",
-   "theme": "school"
+   "theme": "school",
+   "vi_hook": "Trời nắng. Lớp chán quá!",
+   "vi_ex": "Đừng skip class, hôm nay có quiz đó."
   },
   {
    "key": "teacher's pet",
@@ -8252,7 +8750,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "smirk",
-   "theme": "school"
+   "theme": "school",
+   "vi_hook": "Cổ luôn ngồi bàn đầu, luôn cười!",
+   "vi_ex": "Sam là teacher's pet."
   },
   {
    "key": "binge-watch",
@@ -8288,7 +8788,9 @@
    "region": "global",
    "era": "modern",
    "expr": "love",
-   "theme": "social-media"
+   "theme": "social-media",
+   "vi_hook": "Cuối tuần mưa. Cày hết mùa phim. Đi!",
+   "vi_ex": "Cuối tuần này tui sẽ binge-watch show này."
   },
   {
    "key": "brain rot",
@@ -8322,7 +8824,9 @@
    "region": "global",
    "era": "gen-z",
    "expr": "cringe",
-   "theme": "social-media"
+   "theme": "social-media",
+   "vi_hook": "Ba tiếng xem video nhảm!",
+   "vi_ex": "Xem video nhiều quá làm tui bị brain rot."
   },
   {
    "key": "clickbait",
@@ -8356,7 +8860,9 @@
    "region": "global",
    "era": "modern",
    "expr": "deadpan",
-   "theme": "social-media"
+   "theme": "social-media",
+   "vi_hook": "'Bạn sẽ không tin nổi!' Thiệt hả?",
+   "vi_ex": "Tiêu đề đó đúng là clickbait."
   },
   {
    "key": "doomscroll",
@@ -8391,7 +8897,9 @@
    "region": "global",
    "era": "modern",
    "expr": "deadpan",
-   "theme": "social-media"
+   "theme": "social-media",
+   "vi_hook": "Nửa đêm. Vẫn lướt tin xấu!",
+   "vi_ex": "Đừng doomscrolling nữa, đi ngủ đi."
   },
   {
    "key": "fandom",
@@ -8425,7 +8933,9 @@
    "region": "global",
    "era": "modern",
    "expr": "love",
-   "theme": "social-media"
+   "theme": "social-media",
+   "vi_hook": "Ai mê ban nhạc này nhất?",
+   "vi_ex": "Fandom rất mê ban nhạc này."
   },
   {
    "key": "flex",
@@ -8460,7 +8970,9 @@
    "region": "US",
    "era": "modern",
    "expr": "smug",
-   "theme": "social-media"
+   "theme": "social-media",
+   "vi_hook": "Ổng cứ khoe đôi giày hoài!",
+   "vi_ex": "Ổng cứ flexing đôi giày mới trên mạng."
   },
   {
    "key": "hype",
@@ -8494,7 +9006,9 @@
    "region": "global",
    "era": "modern",
    "expr": "hype",
-   "theme": "social-media"
+   "theme": "social-media",
+   "vi_hook": "Ai cũng háo hức xem phim này!",
+   "vi_ex": "Phim này có xứng với hype không?"
   },
   {
    "key": "IDK",
@@ -8528,7 +9042,9 @@
    "region": "global",
    "era": "modern",
    "expr": "shrug",
-   "theme": "social-media"
+   "theme": "social-media",
+   "vi_hook": "Tối nay ăn ở đâu?",
+   "vi_ex": "IDK, hay mình ở nhà đi."
   },
   {
    "key": "influencer",
@@ -8562,7 +9078,9 @@
    "region": "global",
    "era": "modern",
    "expr": "smug",
-   "theme": "social-media"
+   "theme": "social-media",
+   "vi_hook": "Cổ có một triệu người theo dõi!",
+   "vi_ex": "Em họ tui muốn làm influencer."
   },
   {
    "key": "IRL",
@@ -8596,7 +9114,9 @@
    "region": "global",
    "era": "modern",
    "expr": "love",
-   "theme": "social-media"
+   "theme": "social-media",
+   "vi_hook": "Trước giờ tụi tui chỉ chat online!",
+   "vi_ex": "Tuần trước tui gặp cổ IRL."
   },
   {
    "key": "left on read",
@@ -8630,7 +9150,9 @@
    "region": "US",
    "era": "gen-z",
    "expr": "sad",
-   "theme": "social-media"
+   "theme": "social-media",
+   "vi_hook": "Seen mà không rep. Thiệt luôn?",
+   "vi_ex": "Tui lại bị left on read nữa rồi."
   },
   {
    "key": "lurk",
@@ -8665,7 +9187,9 @@
    "region": "global",
    "era": "modern",
    "expr": "smirk",
-   "theme": "social-media"
+   "theme": "social-media",
+   "vi_hook": "Tui đọc hết mà không bao giờ đăng!",
+   "vi_ex": "Tui chỉ lurk trong group chat đó thôi."
   },
   {
    "key": "meme",
@@ -8699,7 +9223,9 @@
    "region": "global",
    "era": "modern",
    "expr": "laugh",
-   "theme": "social-media"
+   "theme": "social-media",
+   "vi_hook": "Một tấm hình hài lan khắp nơi!",
+   "vi_ex": "Cổ gửi tui một cái meme hài."
   },
   {
    "key": "ratio'd",
@@ -8734,7 +9260,9 @@
    "region": "US",
    "era": "gen-z",
    "expr": "shock",
-   "theme": "social-media"
+   "theme": "social-media",
+   "vi_hook": "Nhiều bình luận giận hơn lượt thích!",
+   "vi_ex": "Bài của ổng bị ratioed bởi bình luận."
   },
   {
    "key": "SMH",
@@ -8768,7 +9296,9 @@
    "region": "global",
    "era": "modern",
    "expr": "deadpan",
-   "theme": "social-media"
+   "theme": "social-media",
+   "vi_hook": "Ổng lại quên nữa. Thiệt luôn?",
+   "vi_ex": "Ổng lại quên nữa, SMH."
   },
   {
    "key": "spoiler",
@@ -8802,7 +9332,9 @@
    "region": "global",
    "era": "modern",
    "expr": "furious",
-   "theme": "social-media"
+   "theme": "social-media",
+   "vi_hook": "Cổ kể tui kết phim rồi!",
+   "vi_ex": "Đừng spoilers nha! Tui chưa xem xong."
   },
   {
    "key": "stan",
@@ -8836,7 +9368,9 @@
    "region": "US",
    "era": "gen-z",
    "expr": "love",
-   "theme": "social-media"
+   "theme": "social-media",
+   "vi_hook": "Tui mê ban nhạc này quá trời!",
+   "vi_ex": "Tui stan ban nhạc này hết mình."
   },
   {
    "key": "subtweet",
@@ -8870,7 +9404,9 @@
    "region": "US",
    "era": "modern",
    "expr": "smirk",
-   "theme": "social-media"
+   "theme": "social-media",
+   "vi_hook": "Bài đăng rõ ràng là nói tui?",
+   "vi_ex": "Đó là subtweet về câu lạc bộ tụi mình."
   },
   {
    "key": "touch grass",
@@ -8904,7 +9440,9 @@
    "region": "US",
    "era": "gen-z",
    "expr": "deadpan",
-   "theme": "social-media"
+   "theme": "social-media",
+   "vi_hook": "Tám tiếng online. Nghỉ chút đi?",
+   "vi_ex": "Touch grass đi, ngoài trời nắng đẹp."
   },
   {
    "key": "troll",
@@ -8938,7 +9476,9 @@
    "region": "global",
    "era": "modern",
    "expr": "smirk",
-   "theme": "social-media"
+   "theme": "social-media",
+   "vi_hook": "Ổng đăng bình luận nhảm để chọc người ta!",
+   "vi_ex": "Kệ ổng đi, ổng chỉ đang trolling thôi."
   },
   {
    "key": "unfollow",
@@ -8972,7 +9512,9 @@
    "region": "global",
    "era": "modern",
    "expr": "deadpan",
-   "theme": "social-media"
+   "theme": "social-media",
+   "vi_hook": "Bài của ổng toàn than phiền!",
+   "vi_ex": "Tui unfollowed ổng sau khi thấy quá nhiều bài."
   },
   {
    "key": "burned out",
@@ -9006,7 +9548,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "sad",
-   "theme": "tired-busy"
+   "theme": "tired-busy",
+   "vi_hook": "Việc nhiều quá. Tui xong rồi!",
+   "vi_ex": "Sau kỳ thi, tui thấy burned out hoàn toàn."
   },
   {
    "key": "busy as a bee",
@@ -9038,7 +9582,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "panic",
-   "theme": "tired-busy"
+   "theme": "tired-busy",
+   "vi_hook": "Tuần này không có thời gian rảnh!",
+   "vi_ex": "Tuần này tui busy as a bee luôn."
   },
   {
    "key": "call it a day",
@@ -9072,7 +9618,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "shrug",
-   "theme": "tired-busy"
+   "theme": "tired-busy",
+   "vi_hook": "Tụi mình mệt rồi. Giờ sao?",
+   "vi_ex": "Tụi mình mệt rồi, call it a day đi."
   },
   {
    "key": "catch some Zs",
@@ -9106,7 +9654,9 @@
    "region": "US",
    "era": "evergreen",
    "expr": "shrug",
-   "theme": "tired-busy"
+   "theme": "tired-busy",
+   "vi_hook": "Khuya rồi, tui buồn ngủ!",
+   "vi_ex": "Tui đi catch some Zs đây."
   },
   {
    "key": "dog tired",
@@ -9140,7 +9690,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "sad",
-   "theme": "tired-busy"
+   "theme": "tired-busy",
+   "vi_hook": "Chuyến leo núi đó dài vô tận!",
+   "vi_ex": "Leo núi xong tui dog tired luôn."
   },
   {
    "key": "early bird",
@@ -9174,7 +9726,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "proud",
-   "theme": "tired-busy"
+   "theme": "tired-busy",
+   "vi_hook": "Ba tui dậy lúc năm giờ!",
+   "vi_ex": "Ba tui là early bird chính hiệu."
   },
   {
    "key": "hit the sack",
@@ -9208,7 +9762,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "deadpan",
-   "theme": "tired-busy"
+   "theme": "tired-busy",
+   "vi_hook": "Nửa đêm rồi. Đi ngủ thôi nhỉ?",
+   "vi_ex": "Tui mệt rồi, nên tui đi hit the sack đây."
   },
   {
    "key": "I'm beat",
@@ -9240,7 +9796,9 @@
    "region": "US",
    "era": "evergreen",
    "expr": "sad",
-   "theme": "tired-busy"
+   "theme": "tired-busy",
+   "vi_hook": "Một ngày dài. Hết sức rồi!",
+   "vi_ex": "I'm beat, nên tối nay tui bỏ bữa tối."
   },
   {
    "key": "I'm swamped",
@@ -9274,7 +9832,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "panic",
-   "theme": "tired-busy"
+   "theme": "tired-busy",
+   "vi_hook": "Mười bảy việc, một buổi chiều!",
+   "vi_ex": "Xin lỗi, I'm swamped vì bài tập."
   },
   {
    "key": "night owl",
@@ -9308,7 +9868,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "smug",
-   "theme": "tired-busy"
+   "theme": "tired-busy",
+   "vi_hook": "Nửa đêm mà còn thức hả?",
+   "vi_ex": "Tui là night owl nên hay học khuya."
   },
   {
    "key": "on my last legs",
@@ -9340,7 +9902,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "sad",
-   "theme": "tired-busy"
+   "theme": "tired-busy",
+   "vi_hook": "Sắp tới nhà rồi. Hết nhúc nhích nổi!",
+   "vi_ex": "Sau chuyến leo núi, I'm on my last legs."
   },
   {
    "key": "run out of steam",
@@ -9374,7 +9938,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "sad",
-   "theme": "tired-busy"
+   "theme": "tired-busy",
+   "vi_hook": "Mới trưa mà tui đuối rồi!",
+   "vi_ex": "Tui run out of steam hồi gần trưa."
   },
   {
    "key": "running on fumes",
@@ -9408,7 +9974,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "panic",
-   "theme": "tired-busy"
+   "theme": "tired-busy",
+   "vi_hook": "Tuần thi cuối kỳ. Gần như không ngủ!",
+   "vi_ex": "Sau tuần thi, tui đang running on fumes."
   },
   {
    "key": "wiped out",
@@ -9442,7 +10010,9 @@
    "region": "US",
    "era": "evergreen",
    "expr": "sad",
-   "theme": "tired-busy"
+   "theme": "tired-busy",
+   "vi_hook": "Tối nay xem phim hông? Tui đứng không nổi!",
+   "vi_ex": "Tui wiped out rồi, tối nay không xem phim đâu."
   },
   {
    "key": "zonked",
@@ -9474,7 +10044,9 @@
    "region": "US",
    "era": "evergreen",
    "expr": "sad",
-   "theme": "tired-busy"
+   "theme": "tired-busy",
+   "vi_hook": "Về nhà rồi. Lên giường ngay!",
+   "vi_ex": "Tui zonked rồi, đi ngủ đây."
   },
   {
    "key": "back on my feet",
@@ -9506,7 +10078,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "proud",
-   "theme": "weather-health"
+   "theme": "weather-health",
+   "vi_hook": "Tuần trước bệnh, hôm nay khỏe!",
+   "vi_ex": "Cuối cùng tui cũng back on my feet."
   },
   {
    "key": "bundle up",
@@ -9538,7 +10112,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "shock",
-   "theme": "weather-health"
+   "theme": "weather-health",
+   "vi_hook": "Ngoài trời lạnh cóng. Sẵn sàng chưa?",
+   "vi_ex": "Bundle up đi, ngoài trời lạnh cóng!"
   },
   {
    "key": "come down with",
@@ -9573,7 +10149,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "sad",
-   "theme": "weather-health"
+   "theme": "weather-health",
+   "vi_hook": "Họng tui đau. Chết rồi!",
+   "vi_ex": "Hình như tui đang coming down with cảm lạnh."
   },
   {
    "key": "good as new",
@@ -9605,7 +10183,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "proud",
-   "theme": "weather-health"
+   "theme": "weather-health",
+   "vi_hook": "Ngủ một giấc là khỏe liền!",
+   "vi_ex": "Ngủ một giấc xong, tui thấy good as new."
   },
   {
    "key": "raining cats and dogs",
@@ -9639,7 +10219,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "shock",
-   "theme": "weather-health"
+   "theme": "weather-health",
+   "vi_hook": "Nhìn ra ngoài đi! Lấy dù nhanh!",
+   "vi_ex": "Trời đang raining cats and dogs luôn!"
   },
   {
    "key": "scorcher",
@@ -9671,7 +10253,9 @@
    "region": "UK",
    "era": "evergreen",
    "expr": "shock",
-   "theme": "weather-health"
+   "theme": "weather-health",
+   "vi_hook": "Nắng gắt. Ngay cả bóng râm cũng nóng!",
+   "vi_ex": "Hôm nay đúng là scorcher!"
   },
   {
    "key": "sweating buckets",
@@ -9705,7 +10289,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "laugh",
-   "theme": "weather-health"
+   "theme": "weather-health",
+   "vi_hook": "Tui chạy xong, ướt sũng luôn!",
+   "vi_ex": "Chạy xong tui sweating buckets luôn."
   },
   {
    "key": "under the weather",
@@ -9737,7 +10323,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "sad",
-   "theme": "weather-health"
+   "theme": "weather-health",
+   "vi_hook": "Sao hôm nay tui thấy khó chịu vậy?",
+   "vi_ex": "Tui hơi under the weather."
   },
   {
    "key": "ASAP",
@@ -9769,7 +10357,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "panic",
-   "theme": "work-casual"
+   "theme": "work-casual",
+   "vi_hook": "Tui cần nó ngay bây giờ!",
+   "vi_ex": "Gửi tui ghi chú ASAP nha."
   },
   {
    "key": "circle back",
@@ -9801,7 +10391,9 @@
    "region": "US",
    "era": "evergreen",
    "expr": "shrug",
-   "theme": "work-casual"
+   "theme": "work-casual",
+   "vi_hook": "Giờ không có thời gian. Để sau nhé?",
+   "vi_ex": "Mình circle back vụ đó sau bữa trưa nha."
   },
   {
    "key": "FYI",
@@ -9833,7 +10425,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "deadpan",
-   "theme": "work-casual"
+   "theme": "work-casual",
+   "vi_hook": "Báo tin nhỏ thôi!",
+   "vi_ex": "FYI, tiệm đóng cửa lúc năm giờ."
   },
   {
    "key": "get the ball rolling",
@@ -9867,7 +10461,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "hype",
-   "theme": "work-casual"
+   "theme": "work-casual",
+   "vi_hook": "Họp bắt đầu. Ai nói trước?",
+   "vi_ex": "Mình get the ball rolling bằng vài ý tưởng nha."
   },
   {
    "key": "heads up",
@@ -9899,7 +10495,9 @@
    "region": "US",
    "era": "evergreen",
    "expr": "panic",
-   "theme": "work-casual"
+   "theme": "work-casual",
+   "vi_hook": "Báo nhanh: sếp tới kìa!",
+   "vi_ex": "Heads up nha, buổi họp bắt đầu sớm đó."
   },
   {
    "key": "in the loop",
@@ -9931,7 +10529,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "confused",
-   "theme": "work-casual"
+   "theme": "work-casual",
+   "vi_hook": "Không ai báo tui tin gì cả!",
+   "vi_ex": "Nhớ keep me in the loop về chuyến đi nha."
   },
   {
    "key": "keep me posted",
@@ -9963,7 +10563,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "love",
-   "theme": "work-casual"
+   "theme": "work-casual",
+   "vi_hook": "Mai có kết quả thi hả?",
+   "vi_ex": "Keep me posted về kết quả thi nha!"
   },
   {
    "key": "my plate is full",
@@ -9997,7 +10599,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "panic",
-   "theme": "work-casual"
+   "theme": "work-casual",
+   "vi_hook": "Nhận thêm một việc nữa được không?",
+   "vi_ex": "Xin lỗi, my plate is full rồi."
   },
   {
    "key": "touch base",
@@ -10031,7 +10635,9 @@
    "region": "US",
    "era": "evergreen",
    "expr": "smirk",
-   "theme": "work-casual"
+   "theme": "work-casual",
+   "vi_hook": "Mấy tuần rồi tụi mình chưa nói chuyện!",
+   "vi_ex": "Thứ Hai mình touch base về kế hoạch nha."
   },
   {
    "key": "wrap up",
@@ -10066,7 +10672,9 @@
    "region": "global",
    "era": "evergreen",
    "expr": "shrug",
-   "theme": "work-casual"
+   "theme": "work-casual",
+   "vi_hook": "Khuya rồi. Xong chưa?",
+   "vi_ex": "Mình wrap up rồi về nhà thôi."
   }
  ]
 }

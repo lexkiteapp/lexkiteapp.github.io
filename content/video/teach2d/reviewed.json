@@ -43340,6 +43340,666 @@
     "e": "I yeeted my paper into the bin.",
     "c": "lexkite.com"
    }
+  },
+  "t2s_vi_nocap": {
+   "template": "slang",
+   "hook": "Best pizza in town. Believe me?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py slang gates v1 (data == slang.json card · level <= B1 NGSL except the slang + its forms · hook = the card situation <= 6 words · one card = one episode per language · 7-12 s) + slang.mjs bank gates (ad-safety, IPA, lengths) · L1: page-language texts = 2-judge translations (say-native translate.mjs) + hand frames (slang-l1-frames.json), native-qa.mjs",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "2b8b60ba1970",
+   "script": {
+    "h": "Best pizza in town. Believe me?",
+    "k": "No cap!",
+    "m": "I'm not lying.",
+    "e": "This pizza is the best in town, no cap.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2s_vi_salty": {
+   "template": "slang",
+   "hook": "He lost, then sulked!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py slang gates v1 (data == slang.json card · level <= B1 NGSL except the slang + its forms · hook = the card situation <= 6 words · one card = one episode per language · 7-12 s) + slang.mjs bank gates (ad-safety, IPA, lengths) · L1: page-language texts = 2-judge translations (say-native translate.mjs) + hand frames (slang-l1-frames.json), native-qa.mjs",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "71a168ec4278",
+   "script": {
+    "h": "He lost, then sulked!",
+    "k": "Salty!",
+    "m": "Annoyed and a bit bitter.",
+    "e": "He's salty because I won the card game.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2s_vi_imdead": {
+   "template": "slang",
+   "hook": "The cat jumped in the box!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py slang gates v1 (data == slang.json card · level <= B1 NGSL except the slang + its forms · hook = the card situation <= 6 words · one card = one episode per language · 7-12 s) + slang.mjs bank gates (ad-safety, IPA, lengths) · L1: page-language texts = 2-judge translations (say-native translate.mjs) + hand frames (slang-l1-frames.json), native-qa.mjs",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "c999fe1a5096",
+   "script": {
+    "h": "The cat jumped in the box!",
+    "k": "I'm dead!",
+    "m": "That is so funny!",
+    "e": "The cat jumped in the box. I'm dead!",
+    "c": "lexkite.com"
+   }
+  },
+  "t2s_vi_pigout": {
+   "template": "slang",
+   "hook": "The whole pizza is gone!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py slang gates v1 (data == slang.json card · level <= B1 NGSL except the slang + its forms · hook = the card situation <= 6 words · one card = one episode per language · 7-12 s) + slang.mjs bank gates (ad-safety, IPA, lengths) · L1: page-language texts = 2-judge translations (say-native translate.mjs) + hand frames (slang-l1-frames.json), native-qa.mjs",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "3c181547280a",
+   "script": {
+    "h": "The whole pizza is gone!",
+    "k": "Pig out!",
+    "m": "Eat way too much.",
+    "e": "We pigged out on pizza last night.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2s_vi_bet": {
+   "template": "slang",
+   "hook": "Pizza at six, deal?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py slang gates v1 (data == slang.json card · level <= B1 NGSL except the slang + its forms · hook = the card situation <= 6 words · one card = one episode per language · 7-12 s) + slang.mjs bank gates (ad-safety, IPA, lengths) · L1: page-language texts = 2-judge translations (say-native translate.mjs) + hand frames (slang-l1-frames.json), native-qa.mjs",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "0f74b3af398a",
+   "script": {
+    "h": "Pizza at six, deal?",
+    "k": "Bet!",
+    "m": "Okay, sounds good.",
+    "e": "Pizza at six? Bet.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2s_vi_basic": {
+   "template": "slang",
+   "hook": "Pizza and a movie again?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py slang gates v1 (data == slang.json card · level <= B1 NGSL except the slang + its forms · hook = the card situation <= 6 words · one card = one episode per language · 7-12 s) + slang.mjs bank gates (ad-safety, IPA, lengths) · L1: page-language texts = 2-judge translations (say-native translate.mjs) + hand frames (slang-l1-frames.json), native-qa.mjs",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "3be8a6e4fd55",
+   "script": {
+    "h": "Pizza and a movie again?",
+    "k": "Basic!",
+    "m": "Too ordinary, like everyone else.",
+    "e": "My weekend plan is basic: pizza and a movie.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2s_vi_beef": {
+   "template": "slang",
+   "hook": "Those two stopped talking. Why?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py slang gates v1 (data == slang.json card · level <= B1 NGSL except the slang + its forms · hook = the card situation <= 6 words · one card = one episode per language · 7-12 s) + slang.mjs bank gates (ad-safety, IPA, lengths) · L1: page-language texts = 2-judge translations (say-native translate.mjs) + hand frames (slang-l1-frames.json), native-qa.mjs",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "3aebea7ca31d",
+   "script": {
+    "h": "Those two stopped talking. Why?",
+    "k": "Beef!",
+    "m": "An ongoing argument with someone.",
+    "e": "They have beef over a game.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2s_vi_aesthetic": {
+   "template": "slang",
+   "hook": "Your room looks like Pinterest!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py slang gates v1 (data == slang.json card · level <= B1 NGSL except the slang + its forms · hook = the card situation <= 6 words · one card = one episode per language · 7-12 s) + slang.mjs bank gates (ad-safety, IPA, lengths) · L1: page-language texts = 2-judge translations (say-native translate.mjs) + hand frames (slang-l1-frames.json), native-qa.mjs",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "d8be1ba0ae9e",
+   "script": {
+    "h": "Your room looks like Pinterest!",
+    "k": "Aesthetic!",
+    "m": "Beautiful in a stylish way.",
+    "e": "Your desk looks so aesthetic.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2s_vi_blowafuse": {
+   "template": "slang",
+   "hook": "Dad saw the messy room!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py slang gates v1 (data == slang.json card · level <= B1 NGSL except the slang + its forms · hook = the card situation <= 6 words · one card = one episode per language · 7-12 s) + slang.mjs bank gates (ad-safety, IPA, lengths) · L1: page-language texts = 2-judge translations (say-native translate.mjs) + hand frames (slang-l1-frames.json), native-qa.mjs",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "89803bb9a92f",
+   "script": {
+    "h": "Dad saw the messy room!",
+    "k": "Blow a fuse!",
+    "m": "Suddenly become very angry.",
+    "e": "He blew a fuse over the messy room.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2s_vi_bussin": {
+   "template": "slang",
+   "hook": "Mom's pasta tastes unreal tonight!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py slang gates v1 (data == slang.json card · level <= B1 NGSL except the slang + its forms · hook = the card situation <= 6 words · one card = one episode per language · 7-12 s) + slang.mjs bank gates (ad-safety, IPA, lengths) · L1: page-language texts = 2-judge translations (say-native translate.mjs) + hand frames (slang-l1-frames.json), native-qa.mjs",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "4fa6aa79e336",
+   "script": {
+    "h": "Mom's pasta tastes unreal tonight!",
+    "k": "Bussin!",
+    "m": "That food is really delicious.",
+    "e": "Mom's pasta is bussin tonight.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2s_vi_anytime": {
+   "template": "slang",
+   "hook": "Thanks so much for the ride!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py slang gates v1 (data == slang.json card · level <= B1 NGSL except the slang + its forms · hook = the card situation <= 6 words · one card = one episode per language · 7-12 s) + slang.mjs bank gates (ad-safety, IPA, lengths) · L1: page-language texts = 2-judge translations (say-native translate.mjs) + hand frames (slang-l1-frames.json), native-qa.mjs",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "12b69b59e8c4",
+   "script": {
+    "h": "Thanks so much for the ride!",
+    "k": "Anytime!",
+    "m": "You're welcome, ask again.",
+    "e": "Thanks for the ride! Anytime.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2s_vi_afk": {
+   "template": "slang",
+   "hook": "Five minutes, then I'm back!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py slang gates v1 (data == slang.json card · level <= B1 NGSL except the slang + its forms · hook = the card situation <= 6 words · one card = one episode per language · 7-12 s) + slang.mjs bank gates (ad-safety, IPA, lengths) · L1: page-language texts = 2-judge translations (say-native translate.mjs) + hand frames (slang-l1-frames.json), native-qa.mjs",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "c7b95d9cbf3c",
+   "script": {
+    "h": "Five minutes, then I'm back!",
+    "k": "AFK!",
+    "m": "Away from keyboard.",
+    "e": "Brb, I'll be AFK for five minutes.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2s_vi_beatsme": {
+   "template": "slang",
+   "hook": "Where did the key go?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py slang gates v1 (data == slang.json card · level <= B1 NGSL except the slang + its forms · hook = the card situation <= 6 words · one card = one episode per language · 7-12 s) + slang.mjs bank gates (ad-safety, IPA, lengths) · L1: page-language texts = 2-judge translations (say-native translate.mjs) + hand frames (slang-l1-frames.json), native-qa.mjs",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "763c91ff454a",
+   "script": {
+    "h": "Where did the key go?",
+    "k": "Beats me!",
+    "m": "I have no idea.",
+    "e": "Where's the key? Beats me.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2s_vi_backtosquareone": {
+   "template": "slang",
+   "hook": "Plan failed. Now what?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py slang gates v1 (data == slang.json card · level <= B1 NGSL except the slang + its forms · hook = the card situation <= 6 words · one card = one episode per language · 7-12 s) + slang.mjs bank gates (ad-safety, IPA, lengths) · L1: page-language texts = 2-judge translations (say-native translate.mjs) + hand frames (slang-l1-frames.json), native-qa.mjs",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "f4239acfb13d",
+   "script": {
+    "h": "Plan failed. Now what?",
+    "k": "Back to square one!",
+    "m": "Start over.",
+    "e": "Plan failed. Back to square one.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2s_vi_armandaleg": {
+   "template": "slang",
+   "hook": "Look at this coat's price!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py slang gates v1 (data == slang.json card · level <= B1 NGSL except the slang + its forms · hook = the card situation <= 6 words · one card = one episode per language · 7-12 s) + slang.mjs bank gates (ad-safety, IPA, lengths) · L1: page-language texts = 2-judge translations (say-native translate.mjs) + hand frames (slang-l1-frames.json), native-qa.mjs",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "7a2c3dc86da7",
+   "script": {
+    "h": "Look at this coat's price!",
+    "k": "Arm and a leg!",
+    "m": "Extremely expensive.",
+    "e": "This coat costs an arm and a leg.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2s_vi_bytheway": {
+   "template": "slang",
+   "hook": "Oh, one more thing!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py slang gates v1 (data == slang.json card · level <= B1 NGSL except the slang + its forms · hook = the card situation <= 6 words · one card = one episode per language · 7-12 s) + slang.mjs bank gates (ad-safety, IPA, lengths) · L1: page-language texts = 2-judge translations (say-native translate.mjs) + hand frames (slang-l1-frames.json), native-qa.mjs",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "507fce9b38c2",
+   "script": {
+    "h": "Oh, one more thing!",
+    "k": "By the way!",
+    "m": "Also, one more thing.",
+    "e": "By the way, the party starts at seven.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2s_vi_awesome": {
+   "template": "slang",
+   "hook": "You got us free tickets?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py slang gates v1 (data == slang.json card · level <= B1 NGSL except the slang + its forms · hook = the card situation <= 6 words · one card = one episode per language · 7-12 s) + slang.mjs bank gates (ad-safety, IPA, lengths) · L1: page-language texts = 2-judge translations (say-native translate.mjs) + hand frames (slang-l1-frames.json), native-qa.mjs",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "634bd1595199",
+   "script": {
+    "h": "You got us free tickets?",
+    "k": "Awesome!",
+    "m": "Really great.",
+    "e": "You got us free tickets? That's awesome!",
+    "c": "lexkite.com"
+   }
+  },
+  "t2s_vi_bigmood": {
+   "template": "slang",
+   "hook": "Sleepy cat. Exactly my feelings!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py slang gates v1 (data == slang.json card · level <= B1 NGSL except the slang + its forms · hook = the card situation <= 6 words · one card = one episode per language · 7-12 s) + slang.mjs bank gates (ad-safety, IPA, lengths) · L1: page-language texts = 2-judge translations (say-native translate.mjs) + hand frames (slang-l1-frames.json), native-qa.mjs",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "5b9fd26882ba",
+   "script": {
+    "h": "Sleepy cat. Exactly my feelings!",
+    "k": "Big mood!",
+    "m": "That's exactly how I feel.",
+    "e": "That sleepy cat is a big mood.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2s_vi_ace": {
+   "template": "slang",
+   "hook": "Test day. How did you do?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py slang gates v1 (data == slang.json card · level <= B1 NGSL except the slang + its forms · hook = the card situation <= 6 words · one card = one episode per language · 7-12 s) + slang.mjs bank gates (ad-safety, IPA, lengths) · L1: page-language texts = 2-judge translations (say-native translate.mjs) + hand frames (slang-l1-frames.json), native-qa.mjs",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "46de91ca7825",
+   "script": {
+    "h": "Test day. How did you do?",
+    "k": "Ace!",
+    "m": "Do really well on a test.",
+    "e": "I aced my history test today!",
+    "c": "lexkite.com"
+   }
+  },
+  "t2s_vi_bingewatch": {
+   "template": "slang",
+   "hook": "Rainy weekend. Whole season. Go!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py slang gates v1 (data == slang.json card · level <= B1 NGSL except the slang + its forms · hook = the card situation <= 6 words · one card = one episode per language · 7-12 s) + slang.mjs bank gates (ad-safety, IPA, lengths) · L1: page-language texts = 2-judge translations (say-native translate.mjs) + hand frames (slang-l1-frames.json), native-qa.mjs",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "379cf2f4f077",
+   "script": {
+    "h": "Rainy weekend. Whole season. Go!",
+    "k": "Binge-watch!",
+    "m": "Watch many episodes.",
+    "e": "I'll binge-watch this show all weekend.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2s_vi_burnedout": {
+   "template": "slang",
+   "hook": "Too much work. I'm done!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py slang gates v1 (data == slang.json card · level <= B1 NGSL except the slang + its forms · hook = the card situation <= 6 words · one card = one episode per language · 7-12 s) + slang.mjs bank gates (ad-safety, IPA, lengths) · L1: page-language texts = 2-judge translations (say-native translate.mjs) + hand frames (slang-l1-frames.json), native-qa.mjs",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "8fb61ee1d637",
+   "script": {
+    "h": "Too much work. I'm done!",
+    "k": "Burned out!",
+    "m": "Too tired from too much work.",
+    "e": "After exams, I felt totally burned out.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2s_vi_backonmyfeet": {
+   "template": "slang",
+   "hook": "Last week sick, today fine!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py slang gates v1 (data == slang.json card · level <= B1 NGSL except the slang + its forms · hook = the card situation <= 6 words · one card = one episode per language · 7-12 s) + slang.mjs bank gates (ad-safety, IPA, lengths) · L1: page-language texts = 2-judge translations (say-native translate.mjs) + hand frames (slang-l1-frames.json), native-qa.mjs",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "94e033caa120",
+   "script": {
+    "h": "Last week sick, today fine!",
+    "k": "Back on my feet!",
+    "m": "Healthy and active again.",
+    "e": "I'm finally back on my feet.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2s_vi_asap": {
+   "template": "slang",
+   "hook": "I need it right now!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py slang gates v1 (data == slang.json card · level <= B1 NGSL except the slang + its forms · hook = the card situation <= 6 words · one card = one episode per language · 7-12 s) + slang.mjs bank gates (ad-safety, IPA, lengths) · L1: page-language texts = 2-judge translations (say-native translate.mjs) + hand frames (slang-l1-frames.json), native-qa.mjs",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "f8015ec9fcb7",
+   "script": {
+    "h": "I need it right now!",
+    "k": "ASAP!",
+    "m": "As soon as possible.",
+    "e": "Please send me the notes ASAP.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2s_vi_cool": {
+   "template": "slang",
+   "hook": "Movie tonight at six, okay?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py slang gates v1 (data == slang.json card · level <= B1 NGSL except the slang + its forms · hook = the card situation <= 6 words · one card = one episode per language · 7-12 s) + slang.mjs bank gates (ad-safety, IPA, lengths) · L1: page-language texts = 2-judge translations (say-native translate.mjs) + hand frames (slang-l1-frames.json), native-qa.mjs",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "ace7b0fbf37e",
+   "script": {
+    "h": "Movie tonight at six, okay?",
+    "k": "Cool!",
+    "m": "Great, or fine with me.",
+    "e": "Cool, see you at six!",
+    "c": "lexkite.com"
+   }
+  },
+  "t2s_vi_cheap": {
+   "template": "slang",
+   "hook": "He never pays for lunch!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py slang gates v1 (data == slang.json card · level <= B1 NGSL except the slang + its forms · hook = the card situation <= 6 words · one card = one episode per language · 7-12 s) + slang.mjs bank gates (ad-safety, IPA, lengths) · L1: page-language texts = 2-judge translations (say-native translate.mjs) + hand frames (slang-l1-frames.json), native-qa.mjs",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "888bc36647d3",
+   "script": {
+    "h": "He never pays for lunch!",
+    "k": "Cheap!",
+    "m": "Unwilling to spend money.",
+    "e": "He's too cheap to buy lunch.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2s_vi_callout": {
+   "template": "slang",
+   "hook": "She told everyone my mistake!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py slang gates v1 (data == slang.json card · level <= B1 NGSL except the slang + its forms · hook = the card situation <= 6 words · one card = one episode per language · 7-12 s) + slang.mjs bank gates (ad-safety, IPA, lengths) · L1: page-language texts = 2-judge translations (say-native translate.mjs) + hand frames (slang-l1-frames.json), native-qa.mjs",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "b35bb7d5d1fe",
+   "script": {
+    "h": "She told everyone my mistake!",
+    "k": "Call out!",
+    "m": "Point out someone's mistake.",
+    "e": "She called me out for being late.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2s_vi_dressedtoimpress": {
+   "template": "slang",
+   "hook": "Interview day. Suit and tie!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py slang gates v1 (data == slang.json card · level <= B1 NGSL except the slang + its forms · hook = the card situation <= 6 words · one card = one episode per language · 7-12 s) + slang.mjs bank gates (ad-safety, IPA, lengths) · L1: page-language texts = 2-judge translations (say-native translate.mjs) + hand frames (slang-l1-frames.json), native-qa.mjs",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "224aa78d8030",
+   "script": {
+    "h": "Interview day. Suit and tie!",
+    "k": "Dressed to impress!",
+    "m": "Wearing your best outfit.",
+    "e": "He's dressed to impress for the interview.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2s_vi_boredstiff": {
+   "template": "slang",
+   "hook": "Two hours of the same slides!",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py slang gates v1 (data == slang.json card · level <= B1 NGSL except the slang + its forms · hook = the card situation <= 6 words · one card = one episode per language · 7-12 s) + slang.mjs bank gates (ad-safety, IPA, lengths) · L1: page-language texts = 2-judge translations (say-native translate.mjs) + hand frames (slang-l1-frames.json), native-qa.mjs",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "f30ce97f3960",
+   "script": {
+    "h": "Two hours of the same slides!",
+    "k": "Bored stiff!",
+    "m": "Extremely bored.",
+    "e": "I was bored stiff in that class.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2s_vi_cheatday": {
+   "template": "slang",
+   "hook": "Saturday. Diet? What diet?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py slang gates v1 (data == slang.json card · level <= B1 NGSL except the slang + its forms · hook = the card situation <= 6 words · one card = one episode per language · 7-12 s) + slang.mjs bank gates (ad-safety, IPA, lengths) · L1: page-language texts = 2-judge translations (say-native translate.mjs) + hand frames (slang-l1-frames.json), native-qa.mjs",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "a545a463117a",
+   "script": {
+    "h": "Saturday. Diet? What diet?",
+    "k": "Cheat day!",
+    "m": "A day to eat anything you want.",
+    "e": "Saturday is my cheat day.",
+    "c": "lexkite.com"
+   }
+  },
+  "t2s_vi_bestie": {
+   "template": "slang",
+   "hook": "Who knows all your secrets?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gen.py slang gates v1 (data == slang.json card · level <= B1 NGSL except the slang + its forms · hook = the card situation <= 6 words · one card = one episode per language · 7-12 s) + slang.mjs bank gates (ad-safety, IPA, lengths) · L1: page-language texts = 2-judge translations (say-native translate.mjs) + hand frames (slang-l1-frames.json), native-qa.mjs",
+   "machine": true,
+   "gates": {
+    "data": true,
+    "level": true,
+    "hook": true,
+    "dup": true
+   },
+   "hash": "3586ea6e69f9",
+   "script": {
+    "h": "Who knows all your secrets?",
+    "k": "Bestie!",
+    "m": "A very close friend.",
+    "e": "My bestie and I love tacos.",
+    "c": "lexkite.com"
+   }
   }
  }
 }

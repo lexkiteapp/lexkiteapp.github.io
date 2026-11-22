@@ -74,7 +74,7 @@ for (const f of (fs.existsSync(EPS) ? fs.readdirSync(EPS) : []).filter(f => /^t2
     hashtags: tags.length >= 3 && tags.length <= 5 && tags.every(t => /^#[\p{L}\p{N}\p{M}_]+$/u.test(t)) && tags.includes('#lexkite'),
     lengths: [...N.hook].length <= 34 && [...N.tip].length <= 140 && [...N.caption].length <= 400 && [...post].length <= 2200,
     comment: (N.comment.match(/\{link\}/g) || []).length === 1 && !/https?:\/\/|#\w/.test(N.comment),
-    not_english: sim(D.l1, D.mean) < 0.6 && sim(D.l1_hook, ep.hook.text) < 0.6,   // the page-language texts really are another language
+    not_english: [[D.l1, D.mean], [D.l1_hook, ep.hook.text]].every(([x, en]) => x !== en && (/[^\x00-\x7f]/.test(x) || sim(x, en) < 0.6)),   // really another language (sim() drops non-ASCII letters: a short accented line would look empty = 'same')
   };
   const ok = Object.values(g).every(Boolean); if (!ok) red++;
   out[ep.id] = { ok, lang: L, online: false, gates: g, glosses: [] };

@@ -1,0 +1,153 @@
+{
+ "id": "t2s_vi_callout",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 26,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "She told everyone my mistake!",
+   "pause": 1.25
+  },
+  {
+   "id": "k",
+   "text": "Call out!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Point out someone's mistake.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "She called me out for being late.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "shock",
+ "pose": {
+  "clip": "surprise",
+  "after": "h"
+ },
+ "data": {
+  "key": "call out",
+  "forms": [
+   "called me out",
+   "called out"
+  ],
+  "ipa": "/ˈkɔːl ˈaʊt/",
+  "mean": "Point out someone's mistake.",
+  "define": "To say publicly that someone did something wrong.",
+  "vi": "Chỉ ra lỗi công khai",
+  "reg": "casual",
+  "region": "US",
+  "level": "B2",
+  "era": "modern",
+  "theme": "drama",
+  "example": {
+   "ctx": "Talking about a mistake",
+   "text": "She called me out for being late."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "To \"call out\" is to…",
+   "options": [
+    "shout out",
+    "point out a mistake"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't 'call out' a coworker in front of the boss.",
+   "why": "Public correction embarrasses people."
+  },
+  "l1": "Chỉ ra lỗi công khai",
+  "l1_hook": "Cổ nói hết lỗi của tui cho cả bọn!",
+  "l1_ex": "Cổ called me out vì tui đi trễ.",
+  "right": "call out",
+  "native": {
+   "hook": "“call out” nghĩa là gì?",
+   "tip": "“call out” = Chỉ ra lỗi công khai",
+   "caption": "“call out” nghĩa là gì?\n“call out” = Chỉ ra lỗi công khai.\nVí dụ: “She called me out for being late.” (Cổ called me out vì tui đi trễ.)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.",
+   "comment": "Đáp án: “call out” = Chỉ ra lỗi công khai. Luyện thêm miễn phí: {link}",
+   "hashtags": [
+    "#hoctienganh",
+    "#tienganhgiaotiep",
+    "#tienglong",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "She told everyone my mistake!"
+ },
+ "src": {
+  "slang": "call out"
+ },
+ "lang": "vi",
+ "est": {
+  "words": 20,
+  "seconds": 11.7,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "“call out” nghĩa là gì?",
+  "keyword": "call out",
+  "value": "“call out” = Chỉ ra lỗi công khai",
+  "hashtags": [
+   "#hoctienganh",
+   "#tienganhgiaotiep",
+   "#tienglong",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "“call out” nghĩa là gì?",
+    "description": "“call out” = Chỉ ra lỗi công khai\n\n“call out” nghĩa là gì?\n“call out” = Chỉ ra lỗi công khai.\nVí dụ: “She called me out for being late.” (Cổ called me out vì tui đi trễ.)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#hoctienganh #tienganhgiaotiep #tienglong #lexkite",
+    "tags": [
+     "call out",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "“call out” nghĩa là gì?\n“call out” = Chỉ ra lỗi công khai.\nVí dụ: “She called me out for being late.” (Cổ called me out vì tui đi trễ.)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“call out” nghĩa là gì?\n\n“call out” = Chỉ ra lỗi công khai\n\nlexkite.com",
+    "hashtags": [
+     "#hoctienganh",
+     "#tienganhgiaotiep",
+     "#tienglong",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“call out” nghĩa là gì? “call out” = Chỉ ra lỗi công khai #hoctienganh #tienganhgiaotiep #tienglong"
+   }
+  },
+  "first_comment": "Đáp án: “call out” = Chỉ ra lỗi công khai. Luyện thêm miễn phí: {link}",
+  "lang": "vi"
+ }
+}

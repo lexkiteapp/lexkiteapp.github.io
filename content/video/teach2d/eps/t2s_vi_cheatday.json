@@ -1,0 +1,146 @@
+{
+ "id": "t2s_vi_cheatday",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 29,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Saturday. Diet? What diet?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Cheat day!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "A day to eat anything you want.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Saturday is my cheat day.",
+   "pause": 2.4,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smug",
+ "data": {
+  "key": "cheat day",
+  "forms": [],
+  "ipa": "/ˈtʃiːt ˈdeɪ/",
+  "mean": "A day to eat anything you want.",
+  "define": "A day when you stop a strict diet and enjoy treats.",
+  "vi": "Ngày xả cơm",
+  "reg": "casual",
+  "region": "US",
+  "level": "B2",
+  "era": "modern",
+  "theme": "food",
+  "example": {
+   "ctx": "Talking about a diet",
+   "text": "Saturday is my cheat day."
+  },
+  "variant": "misuse",
+  "quiz": {
+   "ask": "A \"cheat day\" is…",
+   "options": [
+    "a game day",
+    "a free eating day"
+   ],
+   "answer": 1
+  },
+  "misuse": {
+   "text": "Don't say 'cheat day' about exam day.",
+   "why": "Cheating on exams breaks the rules."
+  },
+  "l1": "Ngày xả cơm",
+  "l1_hook": "Thứ Bảy. Ăn kiêng gì cơ?",
+  "l1_ex": "Thứ Bảy là cheat day của tui.",
+  "right": "cheat day",
+  "native": {
+   "hook": "“cheat day” nghĩa là gì?",
+   "tip": "“cheat day” = Ngày xả cơm",
+   "caption": "“cheat day” nghĩa là gì?\n“cheat day” = Ngày xả cơm.\nVí dụ: “Saturday is my cheat day.” (Thứ Bảy là cheat day của tui.)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.",
+   "comment": "Đáp án: “cheat day” = Ngày xả cơm. Luyện thêm miễn phí: {link}",
+   "hashtags": [
+    "#hoctienganh",
+    "#tienganhgiaotiep",
+    "#tienglong",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Saturday. Diet? What diet?"
+ },
+ "src": {
+  "slang": "cheat day"
+ },
+ "lang": "vi",
+ "est": {
+  "words": 20,
+  "seconds": 11.0,
+  "wpm": 109
+ },
+ "publish": {
+  "title": "“cheat day” nghĩa là gì?",
+  "keyword": "cheat day",
+  "value": "“cheat day” = Ngày xả cơm",
+  "hashtags": [
+   "#hoctienganh",
+   "#tienganhgiaotiep",
+   "#tienglong",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 14,
+  "platforms": {
+   "youtube": {
+    "title": "“cheat day” nghĩa là gì?",
+    "description": "“cheat day” = Ngày xả cơm\n\n“cheat day” nghĩa là gì?\n“cheat day” = Ngày xả cơm.\nVí dụ: “Saturday is my cheat day.” (Thứ Bảy là cheat day của tui.)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#hoctienganh #tienganhgiaotiep #tienglong #lexkite",
+    "tags": [
+     "cheat day",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "“cheat day” nghĩa là gì?\n“cheat day” = Ngày xả cơm.\nVí dụ: “Saturday is my cheat day.” (Thứ Bảy là cheat day của tui.)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“cheat day” nghĩa là gì?\n\n“cheat day” = Ngày xả cơm\n\nlexkite.com",
+    "hashtags": [
+     "#hoctienganh",
+     "#tienganhgiaotiep",
+     "#tienglong",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“cheat day” nghĩa là gì? “cheat day” = Ngày xả cơm #hoctienganh #tienganhgiaotiep #tienglong"
+   }
+  },
+  "first_comment": "Đáp án: “cheat day” = Ngày xả cơm. Luyện thêm miễn phí: {link}",
+  "lang": "vi"
+ }
+}

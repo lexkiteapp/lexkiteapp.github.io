@@ -1,0 +1,146 @@
+{
+ "id": "t2s_vi_cool",
+ "template": "slang",
+ "series": "Slang Card",
+ "part": 24,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 1.1,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Movie tonight at six, okay?",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Cool!",
+   "pause": 0.25
+  },
+  {
+   "id": "m",
+   "text": "Great, or fine with me.",
+   "pause": 0.2
+  },
+  {
+   "id": "e",
+   "text": "Cool, see you at six!",
+   "pause": 2.2,
+   "quiz": true
+  },
+  {
+   "id": "c",
+   "text": "lexkite.com",
+   "pause": 0.5
+  }
+ ],
+ "expr": "smug",
+ "data": {
+  "key": "cool",
+  "forms": [],
+  "ipa": "/ˈkuːl/",
+  "mean": "Great, or fine with me.",
+  "define": "A casual word for good, or for agreeing.",
+  "vi": "Ổn áp, đỉnh luôn",
+  "reg": "casual",
+  "region": "global",
+  "level": "A2",
+  "era": "evergreen",
+  "theme": "agreement",
+  "example": {
+   "ctx": "Answering a plan",
+   "text": "Cool, see you at six!"
+  },
+  "variant": "quiz",
+  "quiz": {
+   "ask": "\"Cool\" can mean…",
+   "options": [
+    "okay or great",
+    "cold"
+   ],
+   "answer": 0
+  },
+  "misuse": {
+   "text": "Don't say 'cool' when someone shares sad news.",
+   "why": "It sounds like you don't care."
+  },
+  "l1": "Ổn áp, đỉnh luôn",
+  "l1_hook": "Tối nay xem phim lúc sáu giờ, ok không?",
+  "l1_ex": "Cool, sáu giờ gặp nha!",
+  "right": "cool",
+  "native": {
+   "hook": "“cool” nghĩa là gì?",
+   "tip": "“cool” = Ổn áp, đỉnh luôn",
+   "caption": "“cool” nghĩa là gì?\n“cool” = Ổn áp, đỉnh luôn.\nVí dụ: “Cool, see you at six!” (Cool, sáu giờ gặp nha!)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.",
+   "comment": "Đáp án: “cool” = Ổn áp, đỉnh luôn. Luyện thêm miễn phí: {link}",
+   "hashtags": [
+    "#hoctienganh",
+    "#tienganhgiaotiep",
+    "#tienglong",
+    "#lexkite"
+   ]
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn real slang free"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Movie tonight at six, okay?"
+ },
+ "src": {
+  "slang": "cool"
+ },
+ "lang": "vi",
+ "est": {
+  "words": 18,
+  "seconds": 10.1,
+  "wpm": 107
+ },
+ "publish": {
+  "title": "“cool” nghĩa là gì?",
+  "keyword": "cool",
+  "value": "“cool” = Ổn áp, đỉnh luôn",
+  "hashtags": [
+   "#hoctienganh",
+   "#tienganhgiaotiep",
+   "#tienglong",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/phrases",
+  "script_words": 12,
+  "platforms": {
+   "youtube": {
+    "title": "“cool” nghĩa là gì?",
+    "description": "“cool” = Ổn áp, đỉnh luôn\n\n“cool” nghĩa là gì?\n“cool” = Ổn áp, đỉnh luôn.\nVí dụ: “Cool, see you at six!” (Cool, sáu giờ gặp nha!)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.\n\nhttps://lexkite.com/app/#/phrases\n\n#hoctienganh #tienganhgiaotiep #tienglong #lexkite",
+    "tags": [
+     "cool",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "“cool” nghĩa là gì?\n“cool” = Ổn áp, đỉnh luôn.\nVí dụ: “Cool, see you at six!” (Cool, sáu giờ gặp nha!)\nHọc tiếng lóng tiếng Anh miễn phí trên Lexkite.\n\nhttps://lexkite.com/app/#/phrases"
+   },
+   "instagram": {
+    "caption": "“cool” nghĩa là gì?\n\n“cool” = Ổn áp, đỉnh luôn\n\nlexkite.com",
+    "hashtags": [
+     "#hoctienganh",
+     "#tienganhgiaotiep",
+     "#tienglong",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“cool” nghĩa là gì? “cool” = Ổn áp, đỉnh luôn #hoctienganh #tienganhgiaotiep #tienglong"
+   }
+  },
+  "first_comment": "Đáp án: “cool” = Ổn áp, đỉnh luôn. Luyện thêm miễn phí: {link}",
+  "lang": "vi"
+ }
+}

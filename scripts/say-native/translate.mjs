@@ -37,7 +37,7 @@ if (NL > 0) {
   const lines = AU.slice(0, NL).filter(k => byK[k]).flatMap(k => { const it = byK[k], d = keep.replace('%s', it.key);
     return [{ k: `${k}|hook`, w: it.hook, pos: 'sentence', def: `${d}. It is a short situation line before learning "${it.key}" (${it.mean})`, ex: it.example.ctx },
             { k: `${k}|ex`, w: it.example.text, pos: 'sentence', def: `${d}. "${it.key}" means: ${it.mean}`, ex: it.example.ctx }]; });
-  for (const lang of (arg('--langs', '') || LANGS.join(',')).split(',').filter(l => LANGS.includes(l))) {
+  for (const lang of (arg('--langs', '') || LANGS.join(',')).split(',').filter(l => LANGS.includes(l) && l !== 'vi')) {   // vi lines are hand-written on the card (vi_hook / vi_ex)
     if (late()) { console.log(`lines: time budget reached before ${lang} – the next run continues`); break; }
     for (let round = 0; round < 2 && !late(); round++) {
       const todo = lines.filter(x => !(LN[x.k] && LN[x.k][lang])); if (!todo.length) break;
