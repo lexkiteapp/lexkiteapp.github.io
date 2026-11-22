@@ -521,7 +521,7 @@
   const OK_LINES = ['Nice!', 'Great!', 'Yes!', 'Perfect!', 'Well done!'], NO_LINES = ['Almost!', 'Not quite.', "Let's try again."];
   function react(ok, combo) {
     L.pose = MOOD('answer', { ok }, ok ? 'cheer' : 'concern');
-    try { if (navigator.vibrate && (state.settings || {}).sfx !== false && !matchMedia('(prefers-reduced-motion: reduce)').matches) navigator.vibrate(ok ? 12 : [18, 40, 18]); } catch (e) { /* bỏ qua */ }
+    try { if (window.Sfx && Sfx.haptic) Sfx.haptic(ok ? 'soft' : 'wrong'); } catch (e) { /* bỏ qua */ } // một cổng rung (công tắc Rung, tắt âm, giảm chuyển động)
     try { if (window.Sfx) { if (ok && combo >= 3 && combo % 3 === 0 && Sfx.combo) Sfx.combo(combo); else (ok ? Sfx.correct : Sfx.wrong)(); } } catch (e) { /* bỏ qua */ }
     const el = $('#lsnTch'), pop = $('#lsnEmo');
     if (el) { el.classList.remove('nod', 'shake'); requestAnimationFrame(() => el.classList.add(ok ? 'nod' : 'shake')); } // khởi động lại animation ở khung kế, không ép layout ngay trong lượt chạm
@@ -673,8 +673,8 @@
     const ic = n => `<span class="material-symbols-outlined text-[16px]" aria-hidden="true">${n}</span>`, ROW = 'flex flex-wrap items-center gap-x-3 gap-y-0.5 mt-1 text-[15px] leading-5 font-bold lt:text-[#0F3D3E] dk:text-[#EEF6F7]';
     const bad = new Set(weak.map(x => E.norm(x))), got = w.filter(p => !bad.has(E.norm(p.card.word))).length; // từ nhớ ngay: không sai lần nào trong cả bài
     const more = (weak.length ? `<span class="${ROW} font-medium"><span class="inline-flex items-start gap-1">${ic('edit_note')}<span>${esc(t('Cần ôn lại:'))} <span lang="en">${esc(weak.join(', '))}</span></span></span></span>` : '');
-    const lang = document.documentElement.lang || 'en', W = E.weekDots(App.activeDays ? App.activeDays() : new Set(), new Date(), Core.todayKey), wk = { on: W.on, n: W.n, lt: W.days.map(x => { try { return new Intl.DateTimeFormat(lang, { weekday: 'narrow' }).format(x); } catch (e) { return ''; } }) }; // 7 chấm tuần này (thứ 2 → CN): sáng = ngày đã học (hôm nay tính luôn)
-    const run = Math.max(streak, E.runOf(App.activeDays ? App.activeDays() : new Set(), new Date(), Core.todayKey)); // chuỗi LIỀN tới hôm nay – KHÁC số ngày học trong tuần (hai nhãn riêng, không mâu thuẫn)
+    const lang = document.documentElement.lang || 'en', W = Game.weekDots(App.activeDays ? App.activeDays() : new Set(), new Date(), Core.todayKey), wk = { on: W.on, n: W.n, lt: W.days.map(x => { try { return new Intl.DateTimeFormat(lang, { weekday: 'narrow' }).format(x); } catch (e) { return ''; } }) }; // 7 chấm tuần này (thứ 2 → CN): sáng = ngày đã học (hôm nay tính luôn)
+    const run = Math.max(streak, Game.runOf(App.activeDays ? App.activeDays() : new Set(), new Date(), Core.todayKey)); // chuỗi LIỀN tới hôm nay – KHÁC số ngày học trong tuần (hai nhãn riêng, không mâu thuẫn)
     let minsS = String(mins); try { minsS = new Intl.NumberFormat(lang, { style: 'unit', unit: 'minute', unitDisplay: 'narrow' }).format(mins); } catch (e) { /* bỏ qua */ }
     const d = {
       close: `#/lesson${q}`,
@@ -729,7 +729,7 @@
     if (L.story && L.story.id) { const a = sDone(L.demo); if (!a.includes(L.story.id)) ls.set(SDKEY(L.demo), JSON.stringify(a.concat(L.story.id))); }
     if (L.story && !L.xs) ls.set(L.SK, String((parseInt(ls.get(L.SK) || '0', 10) || 0) + 1)); // truyện/radio kế tiếp lần sau // nút bản đồ xong (demo: khóa riêng)
     try { if (window.Sfx) Sfx.win(); /* không pháo giấy: chuyển động tiết chế (chủ 28/10) */ } catch (e) { /* bỏ qua */ }
-    let added = 0; const xp = Math.max(5, 10 + s.ok1 * 2 + (s.wrong.size ? 0 : 5) - (L.hints || 0)); // XP hiện cả ở bài thử (không ghi)
+    let added = 0; const xp = Game.xpFor('set', { right: s.ok1, total: s.total, hints: L.hints || 0 }); // XP hiện cả ở bài thử (không ghi)
     if (!L.demo) {
       for (const r of res) {
         try {

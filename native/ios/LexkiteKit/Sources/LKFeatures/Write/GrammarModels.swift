@@ -199,11 +199,11 @@ final class GrammarLessonModel {
         }
         if quizPicked.count == quiz.count {
             let right = quiz.indices.filter { quizPicked[$0] == quiz[$0].i("answer") }.count
-            let pct = GrammarCore.pct(right, quiz.count), xp = GrammarCore.quizXP(right)
+            let pct = GrammarCore.pct(right, quiz.count), xp = GrammarCore.quizXP(right, of: quiz.count)
             var g = ctx.game, gd = g["grammarDone"]?.object ?? [:]
             gd[id] = .number(Double(max(pct, Int(gd[id]?.double ?? 0))))
             g["grammarDone"] = .object(gd)
-            await ctx.commit(game: g, reward: ["quizzes": 1, "grammar": 1, "perfect": pct == 100 ? 1 : 0, "xp": xp])
+            await ctx.commit(game: g, reward: ["quizzes": 1, "grammar": 1, "perfect": pct == 100 ? 1 : 0, "xp": xp], src: "gg:" + id)
             quizSummary = (right, pct, xp)
         }
     }
@@ -223,8 +223,8 @@ final class GrammarLessonModel {
         }
         if drills.allSatisfy({ $0.outcome != nil }) {
             let right = drills.filter { if case .graded(true, _, _, _)? = $0.outcome { return true }; return false }.count
-            let pct = GrammarCore.pct(right, drills.count), xp = GrammarCore.drillXP(right)
-            await ctx.commit(reward: ["quizzes": 1, "grammar": 1, "writes": 1, "perfect": pct == 100 ? 1 : 0, "xp": xp])
+            let pct = GrammarCore.pct(right, drills.count), xp = GrammarCore.drillXP(right, of: drills.count)
+            await ctx.commit(reward: ["quizzes": 1, "grammar": 1, "writes": 1, "perfect": pct == 100 ? 1 : 0, "xp": xp], src: "gd:" + id)
             drillSummary = (right, pct, xp)
         }
     }
@@ -240,7 +240,7 @@ final class GrammarLessonModel {
         let key = id + "|" + s.lowercased()
         var g = ctx.game, gch = g["gch"]?.object ?? [:]
         let first = gch[key] == nil
-        if first { gch[key] = .number(1); g["gch"] = .object(gch); await ctx.commit(game: g, reward: ["xp": 15]) }
+        if first { gch[key] = .number(1); g["gch"] = .object(gch); await ctx.commit(game: g, reward: ["xp": RewardRules.xp("answer", mode: "write", hard: true)]) }
         ownResult = (true, hit, first)
     }
 }
@@ -316,7 +316,7 @@ final class GrammarMixModel {
     func advance() async {
         i += 1; picked = nil; drill = DrillState()
         if i >= items.count, summary == nil {
-            let pct = GrammarCore.pct(right, items.count), xp = GrammarCore.mixXP(right)
+            let pct = GrammarCore.pct(right, items.count), xp = GrammarCore.mixXP(right, of: items.count)
             await ctx.commit(reward: ["quizzes": 1, "grammar": 1, "perfect": pct == 100 ? 1 : 0, "xp": xp])
             summary = (right, pct, xp)
         }

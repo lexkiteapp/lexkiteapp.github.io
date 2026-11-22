@@ -6,6 +6,8 @@ D.en = Object.assign(D.en || {}, {
 'Không nói được': "Can't speak",
 'Còn {n} từ': '{n} words left',
 'Combo tốt nhất': 'Best combo',
+'Kỷ lục': 'Best score', // ô số màn kết mini-game (game-end.js)
+'Lần sai': 'Mistakes',
 'Chuỗi hiện tại': 'Current streak',
 'Chạm để nghe': 'Tap to listen',
 'Bài học trộn đang thử nghiệm, sắp ra mắt.': 'Mixed lessons are in testing and coming soon.',

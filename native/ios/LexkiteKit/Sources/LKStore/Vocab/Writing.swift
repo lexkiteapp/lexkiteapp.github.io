@@ -105,8 +105,8 @@ public enum WritingEngine {
         let others = all.filter { $0.p != it.p && $0.q != it.q && abs($0.p.utf16.count - it.p.utf16.count) < 40 }.map(\.p)
         return shuffle([it.p] + Array(shuffle(others).prefix(3)))
     }
-    /// end of round: percent and the reward (quizzes 1, xp 5 + 2·right)
-    public static func paraphraseFinish(right: Int, total: Int) -> (percent: Int, xp: Int) { (Vocab.round(Double(right) / Double(total) * 100), 5 + right * 2) }
+    /// end of round: percent and the reward (quizzes 1, xp = set(right, total))
+    public static func paraphraseFinish(right: Int, total: Int) -> (percent: Int, xp: Int) { (Vocab.round(Double(right) / Double(total) * 100), RewardRules.xp("set", right: right, total: total)) }
 
     // MARK: annotated model text
     public enum Segment: Equatable, Sendable {
@@ -191,10 +191,10 @@ public enum WritingEngine {
         }
     }
     public struct ModelResult: Equatable, Sendable { public var percent: Int, xp: Int, perfect: Bool, markDone: Bool }
-    /// finish(kind, right, total): reward {quizzes 1, perfect, xp 5 + 2·right}; ≥ 70 % marks the mode done (✓ on its tab)
+    /// finish(kind, right, total): reward {quizzes 1, perfect, xp = set(right, total)}; ≥ 70 % marks the mode done (✓ on its tab)
     public static func modelFinish(right: Int, total: Int) -> ModelResult {
         let pct = total > 0 ? Vocab.round(Double(right) / Double(total) * 100) : 0
-        return ModelResult(percent: pct, xp: 5 + right * 2, perfect: pct == 100, markDone: pct >= 70)
+        return ModelResult(percent: pct, xp: RewardRules.xp("set", right: right, total: total), perfect: pct == 100, markDone: pct >= 70)
     }
     public static let modelModes = ["read", "vocab", "gram", "link", "copy", "write"]
 

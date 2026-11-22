@@ -443,7 +443,7 @@
   "rev.importedFromYourAnkiDecks": "从你的 Anki 牌组导入",
   "rev.fromADocument": "来自文档",
   "rev.importedFromTextPdfEpubSubtitles": "从文本、PDF、ePub 和字幕导入",
-  "rev.thisLooksTooEasyFor": "这对你来说似乎太简单了。试试更难的题目（输入而不是选择），赢取额外 XP？",
+  "rev.thisLooksTooEasyFor": "这对您来说似乎太简单了。要不要试试更难的题（输入而不是选择），记得更久？",
   "rev.goHarder": "挑战更难",
   "rev.keepThisLevel": "保持难度",
   "rev.toughItemXp": "难题 · +{n} XP",

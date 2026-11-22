@@ -443,7 +443,7 @@
   "rev.importedFromYourAnkiDecks": "Importés de vos paquets Anki",
   "rev.fromADocument": "D'un document",
   "rev.importedFromTextPdfEpubSubtitles": "Importé depuis du texte, PDF, ePub et sous-titres",
-  "rev.thisLooksTooEasyFor": "Cela semble trop facile pour vous. Essayer des questions plus difficiles (taper au lieu de choisir) pour gagner des XP en plus ?",
+  "rev.thisLooksTooEasyFor": "Cela semble trop facile pour vous. Voulez-vous des questions plus difficiles (taper au lieu de choisir) pour retenir plus longtemps ?",
   "rev.goHarder": "Plus difficile",
   "rev.keepThisLevel": "Garder ce niveau",
   "rev.toughItemXp": "Question difficile · +{n} XP",

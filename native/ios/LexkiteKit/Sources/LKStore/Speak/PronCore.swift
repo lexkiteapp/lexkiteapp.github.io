@@ -215,7 +215,8 @@ public struct PronSaySession: Sendable {
     /// "Từ tiếp theo"
     public mutating func next() { i += 1; retry = 0 }
     public var pct: Int { scored > 0 ? Vocab.round(Double(ok) / Double(scored) * 100) : 0 }
-    public var xp: Int { 5 + ok * 2 }
+    /// pron/sayit.js: set(right: ok, total: scored, mode: say)
+    public var xp: Int { RewardRules.xp("set", right: ok, total: scored, mode: "say") }
     /// the learner's feedback tone: ≥ 80 % ok
     public var good: Bool { pct >= 80 }
     /// at the end: history appended, stats ready to save, the reward of `App.reward`
@@ -299,8 +300,8 @@ public struct PronCoach: Sendable {
     public static func saveRhythm(_ r: [Int: Int], _ d: UserDefaults) {
         d.set(JSON.object(Dictionary(uniqueKeysWithValues: r.map { (String($0.key), JSON.int($0.value)) })).stableString, forKey: rhythmKey)
     }
-    /// the saved best per sentence is max(old, new); a reward only from 65 up: {spoken:1, pron:1, xp: ≥85 ? 4 : 2}
-    public static func reward(score: Int) -> [String: Int]? { score >= 65 ? ["spoken": 1, "pron": 1, "xp": score >= 85 ? 4 : 2] : nil }
+    /// the saved best per sentence is max(old, new); a reward only from 65 up: {spoken:1, pron:1, xp: say(score)}
+    public static func reward(score: Int) -> [String: Int]? { score >= 65 ? ["spoken": 1, "pron": 1, "xp": RewardRules.xp("say", score: Double(score))] : nil }
     /// the sentence offered first: the first below 85
     public func first(_ rhythm: [Int: Int]) -> Int { max(0, sentences.indices.first(where: { !((rhythm[$0] ?? 0) >= 85) }) ?? 0) }
 }
@@ -357,8 +358,8 @@ public enum PronLessonRules {
     /// word / sentence microphone: the colour class, the reward, the best per word and the saved lesson best
     public enum Tone: String, Sendable { case good, hard, again }
     public static func tone(_ score: Int) -> Tone { score >= 85 ? .good : (score >= 65 ? .hard : .again) }
-    public static func wordReward(_ score: Int) -> [String: Int]? { score >= 65 ? ["spoken": 1, "xp": 2] : nil }
-    public static func sentenceReward(_ score: Int) -> [String: Int]? { score >= 70 ? ["spoken": 2, "xp": 4] : nil }
+    public static func wordReward(_ score: Int) -> [String: Int]? { score >= RewardRules.pass ? ["spoken": 1, "xp": RewardRules.xp("say", score: Double(score))] : nil }
+    public static func sentenceReward(_ score: Int) -> [String: Int]? { score >= 70 ? ["spoken": 2, "xp": RewardRules.xp("say", score: Double(score))] : nil }
     /// the web's `target.replace(/[↗↘‿]|\s\/\s/g, ' ')` before recognising
     public static func clean(_ s: String) -> String {
         s.replacingOccurrences(of: "[↗↘‿]| / ", with: " ", options: .regularExpression).split(whereSeparator: { $0.isWhitespace }).joined(separator: " ")
@@ -372,7 +373,7 @@ public enum PronLessonRules {
     /// quick quiz: after the LAST question pct = round(right/n·100), reward, best = max(pct, old)
     public static func quizFinish(right: Int, n: Int, old: Int) -> (reward: [String: Int], best: Int?) {
         let pct = Vocab.round(Double(right) / Double(n) * 100)
-        return (["quizzes": 1, "pron": 1, "perfect": pct == 100 ? 1 : 0, "xp": 8 + right * 3], max(pct, old) != old ? max(pct, old) : nil)
+        return (["quizzes": 1, "pron": 1, "perfect": pct == 100 ? 1 : 0, "xp": RewardRules.xp("set", right: right, total: n, mode: "type")], max(pct, old) != old ? max(pct, old) : nil)
     }
     /// quick quiz: one try per question; after the last the lesson is finished
     public struct Quiz: Equatable, Sendable {
@@ -400,7 +401,7 @@ public enum PronLessonRules {
     }
     public static func pairFinish(ok: Int, n: Int = rounds) -> (pct: Int, good: Bool, reward: [String: Int]) {
         let pct = Vocab.round(Double(ok) / Double(n) * 100)
-        return (pct, pct >= 75, ["quizzes": 1, "pron": 1, "xp": 5 + ok * 2])
+        return (pct, pct >= 75, ["quizzes": 1, "pron": 1, "xp": RewardRules.xp("set", right: ok, total: n)])
     }
 }
 

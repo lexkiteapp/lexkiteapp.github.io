@@ -443,7 +443,7 @@
   "rev.importedFromYourAnkiDecks": "Anki のデッキから読み込んだ単語",
   "rev.fromADocument": "ドキュメントから",
   "rev.importedFromTextPdfEpubSubtitles": "テキスト・PDF・ePub・字幕から取り込み",
-  "rev.thisLooksTooEasyFor": "簡単すぎるようですね。もっと難しい問題（選ぶ代わりに入力）でボーナスXPを狙いませんか？",
+  "rev.thisLooksTooEasyFor": "この問題は簡単すぎるようです。より長く覚えられるよう、難しめの問題（選ぶのではなく入力）に挑戦しますか？",
   "rev.goHarder": "難しくする",
   "rev.keepThisLevel": "このままで",
   "rev.toughItemXp": "難問 · +{n} XP",

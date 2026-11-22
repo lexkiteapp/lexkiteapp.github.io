@@ -94,11 +94,11 @@ public enum ReflexCore {
         /// a clip that did not load: skip it, up to 3 in a row; the 4th goes to the recogniser anyway. `true` = skip
         public mutating func clipFailed() -> Bool { misses += 1; if misses > ReflexCore.maxClipMisses { return false }; index += 1; return true }
         public mutating func clipEnded() { misses = 0 }
-        /// "{n} lines · average {p}%" and the reward `{spoken:n, xp:5+2n}` only when n > 0
+        /// "{n} lines · average {p}%" and the reward `{spoken:n, xp: talk(n)}` only when n > 0
         public mutating func finish() -> Summary {
             running = false; finished = true
             let p = done > 0 ? Vocab.round(Double(score) / Double(done)) : 0
-            return Summary(n: done, p: p, reward: done > 0 ? ["spoken": done, "xp": 5 + done * 2] : nil)
+            return Summary(n: done, p: p, reward: done > 0 ? ["spoken": done, "xp": RewardRules.xp("talk", right: done)] : nil)
         }
     }
 }

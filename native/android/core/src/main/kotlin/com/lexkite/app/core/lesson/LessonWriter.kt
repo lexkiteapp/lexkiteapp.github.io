@@ -19,7 +19,7 @@ import java.util.TimeZone
  */
 object LessonWriter {
     /** XP of a finished lesson (web: 10 + 2 per first-time right + 5 when nothing was wrong). */
-    fun xpOf(s: LessonEngine.Session): Int = 10 + s.ok1 * 2 + (if (s.wrong.isEmpty()) 5 else 0)
+    fun xpOf(s: LessonEngine.Session): Int = com.lexkite.app.core.RewardRules.xp("set", right = s.ok1, total = s.total) // luật chung (Game.xpFor)
 
     private fun toSrs(o: JsonObject?): SRSCard {
         fun n(k: String) = Js.num(o?.get(k))

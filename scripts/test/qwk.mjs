@@ -1,8 +1,9 @@
 // Lịch sử tuần qwk của #/qstats: save() cộng vào tuần hiện tại, giữ 8 tuần, dải tuần chỉ hiện khi có dữ liệu.
 import fs from 'node:fs'; import vm from 'node:vm';
+import { gameRules } from '../lib/game-rules.mjs';
 let fails = 0; const ok = (c, m) => { console.log((c ? '✓ ' : '✗ ') + m); if (!c) fails++; };
 const game = { qstat: {} };
-const g = { Game: { mutate: async fn => { fn(game); return game; } }, App: { state: { game }, routes: {}, view: {} }, QE: { bandOf: (raw) => raw >= 30 ? 7 : 5 }, t: (k, v) => k.replace(/\{(\w+)\}/g, (m, n) => v[n]), Date, Math, Object, Array, String, Number, CustomEvent: class {} };
+const g = { Game: { ...gameRules(), mutate: async fn => { fn(game); return game; } }, App: { state: { game }, routes: {}, view: {} }, QE: { bandOf: (raw) => raw >= 30 ? 7 : 5 }, t: (k, v) => k.replace(/\{(\w+)\}/g, (m, n) => v[n]), Date, Math, Object, Array, String, Number, CustomEvent: class {} };
 g.self = g; vm.createContext(g); g.window = g; g.globalThis = g;
 vm.runInContext(fs.readFileSync(new URL('../../web/js/qtips.js', import.meta.url), 'utf8').replace(/^\(function \(g\) \{/, '(function (g) { const t = g.t;').replace(/\}\)\(typeof self[^\n]*$/, '})(self);'), g);
 const day = 6048e5; const realNow = Date.now; let now = Math.floor(realNow() / day) * day + 1000;

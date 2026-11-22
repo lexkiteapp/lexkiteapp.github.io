@@ -1,6 +1,6 @@
 /* UI ar – lfx (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ar"] = Object.assign(D["ar"] || {}, {
-"Bài này có vẻ quá dễ với bạn. Thử câu khó hơn (gõ thay vì chọn) để nhận thêm XP nhé?":"يبدو هذا سهلًا جدًا عليك. هل تجرّب أسئلة أصعب (الكتابة بدل الاختيار) لتحصل على XP إضافية؟",
+"Bài này có vẻ quá dễ với bạn. Thử câu khó hơn (gõ thay vì chọn) để nhớ lâu hơn nhé?":"يبدو هذا سهلًا جدًا بالنسبة لك. هل تريد أسئلة أصعب (الكتابة بدلًا من الاختيار) لتتذكر لفترة أطول؟",
 "Bật lại":"إعادة التشغيل",
 "Chuỗi dài nhất":"أطول سلسلة",
 "Câu khó · +{n} XP":"سؤال صعب · +{n} XP",

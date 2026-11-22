@@ -201,9 +201,9 @@ fun GrammarLessonRoute(env: WordEnv, pack: GrammarPack, id: String, full: Boolea
                     if (v != ans) env.logMistake(GrammarCore.mistake(item.lStr("q"), opts.getOrElse(ans) { "" }, opts.getOrElse(v) { "" }, item.lStr("explain"), id))
                     if (st.quizPicked.size == st.quiz.size) {
                         val right = st.quiz.indices.count { st.quizPicked[it] == st.quiz[it].lInt("answer") }
-                        val pct = GrammarCore.pct(right, st.quiz.size); val xp = GrammarCore.quizXp(right)
+                        val pct = GrammarCore.pct(right, st.quiz.size); val xp = GrammarCore.quizXp(right, st.quiz.size)
                         saveDone(env, id, pct)
-                        env.reward(mapOf("quizzes" to 1, "grammar" to 1, "perfect" to (if (pct == 100) 1 else 0)), xp)
+                        env.reward(mapOf("quizzes" to 1, "grammar" to 1, "perfect" to (if (pct == 100) 1 else 0)), xp, "gg:$id")
                         st.quizSummary = Triple(right, pct, xp); changed()
                     }
                 }
@@ -221,8 +221,8 @@ fun GrammarLessonRoute(env: WordEnv, pack: GrammarPack, id: String, full: Boolea
                         if (!o.ok) env.logMistake(GrammarCore.mistake(if (d.lStr("t") == "error") d.lStrs("parts").joinToString(" ") else d.lStr("q"), o.answer, o.given, d.lStr("ex"), id))
                         if (st.drills.all { it.outcome != null }) {
                             val right = st.drills.count { (it.outcome as? DrillOutcome.Graded)?.ok == true }
-                            val pct = GrammarCore.pct(right, st.drills.size); val xp = GrammarCore.drillXp(right)
-                            env.reward(mapOf("quizzes" to 1, "grammar" to 1, "writes" to 1, "perfect" to (if (pct == 100) 1 else 0)), xp)
+                            val pct = GrammarCore.pct(right, st.drills.size); val xp = GrammarCore.drillXp(right, st.drills.size)
+                            env.reward(mapOf("quizzes" to 1, "grammar" to 1, "writes" to 1, "perfect" to (if (pct == 100) 1 else 0)), xp, "gd:$id")
                             st.drillSummary = Triple(right, pct, xp)
                         }
                     }
@@ -240,7 +240,7 @@ fun GrammarLessonRoute(env: WordEnv, pack: GrammarPack, id: String, full: Boolea
                     if (hit.isEmpty()) st.ownResult = Triple(false, "", false)
                     else scope.launch {
                         val key = "$id|" + s.lowercase(); val g = env.gameObj(); val gch = g.lObj("gch"); val first = !gch.containsKey(key)
-                        if (first) { env.putGame(JsonObject(LinkedHashMap(g).also { m -> m["gch"] = JsonObject(LinkedHashMap(gch).also { it[key] = JsonPrimitive(1) }) })); env.reward(emptyMap(), 15) }
+                        if (first) { env.putGame(JsonObject(LinkedHashMap(g).also { m -> m["gch"] = JsonObject(LinkedHashMap(gch).also { it[key] = JsonPrimitive(1) }) })); env.reward(emptyMap(), GrammarCore.OWN_XP) }
                         st.ownResult = Triple(true, hit, first)
                     }
                 }
@@ -430,7 +430,7 @@ private fun OwnCard(st: LessonState, io: GrammarIo) {
         LAction(t.lv("Kiểm tra câu"), io.own, primary = true)
         if (st.ownShort) LNote(t.lv("Hãy viết một câu hoàn chỉnh (ít nhất 4 từ)."))
         st.ownResult?.let { (ok, _, first) ->
-            if (ok) LNote("✓ " + t.lv("Tuyệt! Bạn đã dùng đúng cấu trúc của bài.") + (if (first) " +15 XP" else ""), c.success)
+            if (ok) LNote("✓ " + t.lv("Tuyệt! Bạn đã dùng đúng cấu trúc của bài.") + (if (first) " +${GrammarCore.OWN_XP} XP" else ""), c.success)
             else { LNote("✗ " + t.lv("Chưa thấy cấu trúc của bài trong câu.") + " " + t.lv("Công thức") + ": " + chk.getOrElse(1) { "" }, c.error); VMuted(t.lv("Gợi ý: xem lại ví dụ ở phần “Cách dùng”, rồi viết lại câu theo đúng công thức.")) }
         }
     }
@@ -478,7 +478,7 @@ private fun GrammarMixRoute(env: WordEnv, pack: GrammarPack, game: JsonObject, c
             }
         },
         next = { st.i++; st.picked = null; st.drill = DrillState()
-            if (st.i >= st.items.size && st.summary == null) scope.launch { val pct = GrammarCore.pct(st.right, st.items.size); val xp = GrammarCore.mixXp(st.right); env.reward(mapOf("quizzes" to 1, "grammar" to 1, "perfect" to (if (pct == 100) 1 else 0)), xp); st.summary = Triple(st.right, pct, xp) } },
+            if (st.i >= st.items.size && st.summary == null) scope.launch { val pct = GrammarCore.pct(st.right, st.items.size); val xp = GrammarCore.mixXp(st.right, st.items.size); env.reward(mapOf("quizzes" to 1, "grammar" to 1, "perfect" to (if (pct == 100) 1 else 0)), xp); st.summary = Triple(st.right, pct, xp) } },
         again = { round++ }, open = open,
     )
     GrammarMixLayout(st, a, onExit)

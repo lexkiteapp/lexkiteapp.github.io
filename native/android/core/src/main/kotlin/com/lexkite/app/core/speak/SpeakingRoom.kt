@@ -1,5 +1,6 @@
 package com.lexkite.app.core.speak
 
+import com.lexkite.app.core.RewardRules
 import com.lexkite.app.core.skills.Lexis
 import com.lexkite.app.core.skills.Reward
 
@@ -64,7 +65,7 @@ object SpeakingRoom {
         val chips = ArrayList<Chip>()
         for (w in topicWords) if (WordMatch.regex(w).containsMatchIn(text)) chips.add(Chip("ok", w))
         if (a != null) { for (w in a.awl.keys) chips.add(Chip("lv", w)); for (w in a.link.keys) chips.add(Chip("link", w)) }
-        val reward = if (words >= 10) Reward(mapOf("spoken" to minOf(10, jsRound(words / 10.0)), "quizzes" to 1), 15) else null
+        val reward = if (words >= 10) Reward(mapOf("spoken" to minOf(10, jsRound(words / 10.0)), "quizzes" to 1), RewardRules.xp("talk", right = minOf(10, jsRound(words / 10.0)))) else null
         return Analysis(jsRound(secs), wpm, words, fillers, notes, chips, reward, text.isNotEmpty())
     }
 
@@ -76,6 +77,6 @@ object SpeakingRoom {
     /** Shadowing score colour: ≥ 80 good, ≥ 60 medium, else again. */
     fun shadowColor(score: Int) = if (score >= 80) "good" else if (score >= 60) "medium" else "again"
     class ShadowDone(val pct: Int, val reward: Reward)
-    /** Finishing the sample: average = sum of scores / number of sentences (skipped ones add nothing); the reward is flat. */
-    fun shadowDone(scores: List<Int>, sentences: Int): ShadowDone = ShadowDone(jsRound(scores.sum().toDouble() / sentences), Reward(mapOf("spoken" to 3), 10))
+    /** Finishing the sample: average = sum of scores / number of sentences (skipped ones add nothing); the reward is say(average) x 2. */
+    fun shadowDone(scores: List<Int>, sentences: Int): ShadowDone { val avg = jsRound(scores.sum().toDouble() / sentences); return ShadowDone(avg, Reward(mapOf("spoken" to 3), RewardRules.xp("say", score = avg.toDouble()) * 2)) }
 }
