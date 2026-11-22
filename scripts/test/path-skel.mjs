@@ -13,7 +13,7 @@ for (const l of LANGS) { const d = run(l), ds = d.querySelectorAll('#lkPath deta
 const html = rd('web/app/index.html'), m = html.match(/<script>\/\* #\/path mở thẳng[\s\S]*?<\/script>/);
 if (!m) bad.push('index.html thiếu script nạp khung #/path'); else {
   const loads = (url, store, lang = 'en-US') => { const dom = new jsdom.JSDOM('<head></head><body><main id="view"></main></body>', { url, runScripts: 'outside-only' }), w = dom.window; Object.defineProperty(w.navigator, 'languages', { value: [lang] });
-    for (const [k, v] of Object.entries(store)) w.localStorage.setItem(k, v); w.eval(m[0].replace(/^<script>/, '').replace(/<\/script>$/, '')); return [...w.document.querySelectorAll('script')].map(s => s.getAttribute('src')).filter(Boolean); };
+    for (const [k, v] of Object.entries(store)) w.localStorage.setItem(k, v); const wr = []; w.document.write = x => wr.push(x); w.eval(m[0].replace(/^<script>/, '').replace(/<\/script>$/, '')); return wr.map(x => (x.match(/src="([^"]+)"/) || [])[1]).filter(Boolean); };
   const eq = (a, b, msg) => { if (JSON.stringify(a) !== JSON.stringify(b)) bad.push(`${msg}: ${JSON.stringify(a)} ≠ ${JSON.stringify(b)}`); };
   eq(loads('http://localhost/app/#/path', {}), ['js/path-skel/en.js'], 'người mới → en');
   eq(loads('http://localhost/app/#/path', {}, 'de-DE'), ['js/path-skel/de.js'], 'trình duyệt de');
