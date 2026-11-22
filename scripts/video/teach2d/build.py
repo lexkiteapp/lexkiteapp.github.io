@@ -837,19 +837,20 @@ def T_slang():
     if D.get('l1'): c.text([[D['l1'], 'accent']], S['body'], t_m, align='c', extra={'rtl': True} if EP.get('lang') == 'ar' else None)   # the page's language (L1 channels only; EN = English only)
     c.place(t_k, t_e - 0.2, 'a')
     ex = D['example']; c = Card(RY0, tone='bubble_good', badge='check', t_badge=t_e); c.tail = 'l'
-    badge_chip(c, ex['ctx'].upper() if len(ex['ctx']) <= 30 else 'EXAMPLE', t_e, 'chip')
+    ctx = ex['ctx'].upper(); ctx = ctx if chip_w(ctx, tw, S['chip']) <= c.inner - 8 else 'IN REAL LIFE'   # the context chip must fit the text column (SAFE)
+    badge_chip(c, ctx, t_e, 'chip')
     forms = sorted([D['key']] + [f for f in (D.get('forms') or [])], key=len, reverse=True)
     hl = next((f for f in forms if f.lower() in ex['text'].lower()), D['key'])
-    c.text(runs_hl(ex['text'], hl, col='onhl', base='ongood'), S['body'], t_e); y = c.place(t_e, t_c - 0.2, 'a')[3] + 26
+    t_q = end('e') + 0.12   # the silent card takes the region the moment the example is said (one card at a time – the region holds one)
+    c.text(runs_hl(ex['text'], hl, col='onhl', base='ongood'), S['body'], t_e); c.place(t_e, t_q - 0.1, 'a')
     if D['variant'] == 'quiz':
-        q = D['quiz']; c = Card(y); chip(c, 'QUICK QUIZ', end('e'))
-        t_r1 = end('e') + LINES['e']['pause'] - 0.75   # 3-2-1 ring, then the answer lights (ding) and stays ~0.55 s before the CTA card takes the region
-        c.text([[q['ask'], 'ink']], S['sub'], end('e')); pills(c, q['options'], end('e'), t_r1 + 0.05, q['answer'])
-        b = c.place(end('e'), t_c - 0.2, 'b'); ring(b, end('e') + 0.05, t_r1)
+        q = D['quiz']; t_r1 = end('e') + LINES['e']['pause'] - 0.75   # 3-2-1 ring, then the answer lights (ding) and stays ~0.55 s before the CTA card
+        c = Card(RY0); chip(c, 'QUICK QUIZ', t_q); c.text([[q['ask'], 'ink']], S['body'], t_q); pills(c, q['options'], t_q, t_r1 + 0.05, q['answer'])
+        b = c.place(t_q, t_c - 0.2, 'b'); ring(b, t_q + 0.05, t_r1)
     else:
-        m = D['misuse']; c = Card(y, tone='bubble_bad', badge='cross', t_badge=end('e')); c.tail = 'r'
-        badge_chip(c, "DON'T USE IT HERE", end('e'), 'bad'); c.text([[m['text'], 'onbad']], S['sub'], end('e')); c.text([[m['why'], 'muted']], S['sub'], end('e'))
-        c.place(end('e'), t_c - 0.2, 'b')
+        m = D['misuse']; c = Card(RY0, tone='bubble_bad', badge='cross', t_badge=t_q); c.tail = 'r'
+        badge_chip(c, "DON'T USE IT HERE", t_q, 'bad'); c.text([[m['text'], 'onbad']], S['body'], t_q); c.text([[m['why'], 'onbad']], S['sub'], t_q)
+        c.place(t_q, t_c - 0.2, 'b')
     end_card()
 
 
