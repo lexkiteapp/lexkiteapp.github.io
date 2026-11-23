@@ -88,6 +88,7 @@
   CONTENT.listening.ieltsgt = CONTENT.listening.ielts; CONTENT.reading.ieltsgt = CONTENT.reading.ielts; CONTENT.speaking.ieltsgt = CONTENT.speaking.ielts;
   const FIX = () => ['#/fix', UI.icon('pen-line'), t('Sửa ngữ pháp'), t('Dán đoạn văn – gạch chân lỗi, sửa 1 chạm')];
   const RP = () => ['#/roleplay', UI.icon('briefcase'), t('Roleplay công sở'), t('Đóng vai họp, phỏng vấn, đàm phán với AI')], CALL = () => ['#/call', UI.icon('phone'), t('Gọi Ama & Carlos'), t('Cuộc gọi video luyện nói, sửa lỗi nhẹ nhàng')];
+  const INTERP = () => ['#/interpret', UI.icon('globe'), t('Phiên dịch'), t('Hai người, hai ngôn ngữ: nói – dịch – học từ mới, miễn phí')];
   const CONF = () => ['#/confidence', UI.icon('message-circle'), t('Giao tiếp tự tin'), t('Nói tự tin trong tình huống thật · 5–8 phút/bài')];
   const itemsFor = (sk, ex) => (CONTENT[sk][ex] || (() => null))();
   const tiles = list => list.map(([h, ic, n, d]) => card(h, ic, esc(n), d)).join('');
@@ -103,6 +104,7 @@
       + `<div class="hub-grid">${Object.keys(SK).map(skillCard).join('')}
         ${card('#/grammar', UI.icon('ruler'), t('Ngữ pháp'), t('Bài học ngắn kèm bài tập'), done.grammar ? t('{n} bài đã làm', { n: done.grammar }) : '')}
         ${card('#/pron', UI.icon('a-large-small'), t('Phát âm'), t('Âm khó, trọng âm, chấm phát âm từ'), done.pron ? t('{n} bài đã làm', { n: done.pron }) : '')}
+        ${card('#/interpret', UI.icon('globe'), t('Phiên dịch'), t('Hai người, hai ngôn ngữ: nói – dịch – học từ mới, miễn phí'))}
         ${card('#/mediate', UI.icon('users'), t('Trung gian'), t('Chuyển ý từ nguồn tiếng Anh cho đúng người cần'), done.mediate ? t('{n} bài đã làm', { n: done.mediate }) : '')}</div>`
       + (off.length ? `<p class="small muted" style="margin-top:.8rem">${t('{exam} không thi {skills}.', { exam: EXAMS[ex].short, skills: off.map(k => SK[k].name()).join(', ') })} <a href="#/skill/${off[0]}">${t('Vẫn muốn luyện?')}</a></p>` : '')
       + (App.ux1On && App.ux1On() ? sect(t('Luyện'), card('#/train', UI.icon('zap'), t('Luyện'), t('Mọi bài luyện theo nhóm, luyện thi trước'))) : '')
@@ -112,7 +114,7 @@
 
   routes.skill = function (k) {
     if (!SK[k]) { location.replace(location.pathname + location.search + '#/skills'); return; }
-    const ex = App.exam(), mine = (x => k === 'speaking' ? [...(x || []), CONF(), RP(), CALL()] : k === 'writing' && x ? [...x, FIX()] : x)(itemsFor(k, ex));
+    const ex = App.exam(), mine = (x => k === 'speaking' ? [...(x || []), CONF(), RP(), CALL(), INTERP()] : k === 'writing' && x ? [...x, FIX()] : x)(itemsFor(k, ex));
     const others = Object.keys(EXAMS).filter(e => e !== ex && e !== 'general' && itemsFor(k, e) && !(e === 'ieltsgt' && ex === 'ielts' && k !== 'writing') && !(e === 'ielts' && ex === 'ieltsgt' && k !== 'writing'));
     view.innerHTML = head(UI.icon(SK[k].ic) + ' ' + SK[k].name(), mine ? t('Dạng bài {exam}', { exam: EXAMS[ex].name }) : t('{exam} không thi kỹ năng này – bạn vẫn có thể luyện theo kỳ thi khác bên dưới.', { exam: EXAMS[ex].short }), examBtn())
       + (mine ? `<div class="hub-grid">${tiles(mine)}</div>` : '')
