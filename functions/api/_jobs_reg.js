@@ -395,6 +395,24 @@ export const REG = {
    "lease": false
   },
   {
+   "id": "say-native",
+   "workflow": "say-native.yml",
+   "cron": [
+    "11 13 * * *"
+   ],
+   "priority": "render",
+   "resources": [
+    "gemini",
+    "gh_minutes"
+   ],
+   "minutes": 40,
+   "est": {
+    "gemini_calls": 0,
+    "groq_calls": 300
+   },
+   "lease": false
+  },
+  {
    "id": "zombie-sweep",
    "workflow": "zombie-sweep.yml",
    "cron": [
