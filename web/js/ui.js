@@ -275,7 +275,8 @@
     if (!opts.noKl && /^en-/.test(accent) && prefs().hqVoice !== false && LA()) {
       const K = g.KLocal;
       why = !K ? 'load' : K.allowed && !K.allowed() ? 'off' : 'wait';
-      if (K && K.ready()) {
+      // Kokoro trên máy: sinh trực tiếp (máy đủ nhanh) HOẶC mọi câu đã sinh sẵn trong cache (tầng sinh nền của máy chậm – klocal.js later)
+      if (K && (K.ready() || (K.hasAll && K.hasAll(splitSentences(text), kvoice)))) {
         const my = ++speakSeq, pr = Math.min(1.3, Math.max(0.55, (rate || prefs().ttsRate || 0.92) / 0.95));
         if ('speechSynthesis' in g) speechSynthesis.cancel();
         const ok = K.speak(splitSentences(text), { voice: kvoice, rate: pr, gap: Math.round(SENT_GAP / pr), onSentence: opts.onSentence,
@@ -291,6 +292,7 @@
     if (LA()) { // đếm lý do giọng máy; 'off' kèm nhãn con (máy/cờ nào) + 'part' = một phần câu ĐÃ có file Kokoro (LX-1004: đo trước khi dựng file/phát từng phần)
       const K = g.KLocal, part = !!(g.KVoice && g.LISTEN_AUDIO && /^en-/.test(accent) && splitSentences(text).some(p => g.LISTEN_AUDIO.has(g.KVoice.lineKey(kvoice, p))));
       LA().src('s', why, why === 'off' && K && K.offWhy ? K.offWhy() : '', part);
+      if (why === 'off' && K && K.later && /^en-/.test(accent)) K.later(splitSentences(text), kvoice); // máy chậm: sinh sẵn lúc rảnh → lần sau Kokoro
     }
     const NT = nativeTTS();
     if (NT) {

@@ -29,6 +29,7 @@ Lý do:
 - **off**: iOS/iPadOS (WebKit giới hạn bộ nhớ tab; bật riêng bằng cờ `kl_ios`), RAM < 4 GB, < 4 nhân, đã đo chậm, hoặc người dùng tắt.
 - WebGPU chưa dùng ở v1: q8 trên WebGPU lỗi tiếng, còn fp32 tải nặng 3,5 lần (326 MB). Xem lại khi có số đo `tts-ab.yml phase=free`.
 - **Đo thử** ngay sau lần nạp đầu: làm nóng "Hi." rồi sinh 3 câu (`P.PROBE_TEXTS`), RTF = **trung vị** thời gian sinh / thời lượng âm (22/11: một câu máy bận không quyết cả máy). Tab ẩn trong lúc đo → bỏ kết quả, đo lại lần sau. RTF > 0,6 (ngưỡng không đổi) thì tắt và nhớ `lk.kl.probe` theo máy + phiên bản; đo lại sau 3 ngày nếu sát ngưỡng (≤ 0,9), 7 ngày nếu timeout, 14 ngày nếu chậm rõ (`P.probeDays`). Phân bố RTF máy thật: beacon `vo` `kp_r06|r10|r15|r25|rhi|to`.
+- **Sinh nền** (23/11): máy đo chậm (RTF > 0,6) nhưng ≤ 2,5 (`P.bgOk`) – gần như mọi máy web vì wasm đơn luồng ≈ 1,45 – không sinh trực tiếp (giật), mà mỗi câu tiếng Anh vừa rơi giọng máy được `KLocal.later` xếp hàng (≤ 20 câu/phiên) và sinh lúc rảnh trong worker riêng (tab hiện, không tiết kiệm dữ liệu, pin sạc hoặc ≥ 50 %, `P.bgIdle`; timeout 25 s → thôi cả phiên) vào `lk-kl-audio`. `UI.tts` phát Kokoro từ cache khi MỌI câu đã có (`KLocal.hasAll`, đếm `k`). Xóa khỏi máy dừng cả sinh nền.
 
 ## Khi nào tải (`KLocalPolicy.mayLoad`)
 - Không có trong gói app (shell không đổi). `js/klocal.js` (~6 KB) nạp lười qua `App.need('klocal')`, Worker và mô hình nạp riêng.
