@@ -1495,3 +1495,4 @@ html.ic-wait-o .material-symbols-outlined:not([data-ms]),html.ic-wait-r .materia
 /* Luyện tập (Stitch v2): tên ô ~22/30 px màu chữ chính (liên kết bao thẻ không san hô) – đúng mẫu practice */
 .v2s-practice .skill-card h4 { font-size: var(--fs-lg); line-height: 1.43; color: var(--heading); }
 .v2s-practice .skill-card h4 > a { color: inherit; text-decoration: none; }
+.v2s-practice .skill-card h4, .v2s-practice .skill-card p { margin: 0; } /* Tailwind preflight của mẫu = lề 0; lề h4/p chung của app làm thẻ cao hơn mẫu ~14 px */
